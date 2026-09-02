@@ -349,14 +349,19 @@
 
   // one-time flavor beats sprinkled across a play session - each fires at
   // most once (tracked in state.storyFlagsSeen) so they read as a loose
-  // life story rather than a repeating status message
+  // life story rather than a repeating status message. `contexts` gates
+  // *when* the numeric condition is even allowed to be checked, so these
+  // read as a reaction to whatever just happened (a fresh evolution, a
+  // devolution, a 変身, a great minigame score, an illness beaten) rather
+  // than surfacing on some unrelated later action once a counter crosses
+  // its threshold
   const STORY_EVENTS = [
-    { id: 'presence', emoji: '👀', message: 'どこからか しせんを かんじる…', condition: (s) => s.growthEvents >= 3 },
-    { id: 'rival', emoji: '😤', message: 'ライバルが あらわれた!まけていられない!', condition: (s) => s.growthEvents >= 6 },
-    { id: 'old-dream', emoji: '💭', message: 'ふと、なつかしい ゆめを みた きがした…', condition: (s) => s.growthEvents >= 10 },
-    { id: 'sick-overcome', emoji: '💪', message: 'なんども びょうきを のりこえて、たくましく なった', condition: (s) => s.totalSicknessCount >= 5 },
-    { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', condition: (s) => s.minigameCount >= 20 },
-    { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', condition: (s) => s.growthEvents >= 15 },
+    { id: 'presence', emoji: '👀', message: 'どこからか しせんを かんじる…', contexts: ['evolve'], condition: (s) => s.growthEvents >= 3 },
+    { id: 'rival', emoji: '😤', message: 'ライバルが あらわれた!まけていられない!', contexts: ['evolve'], condition: (s) => s.growthEvents >= 6 },
+    { id: 'old-dream', emoji: '💭', message: 'ふと、なつかしい ゆめを みた きがした…', contexts: ['devolve'], condition: (s) => s.growthEvents >= 4 },
+    { id: 'sick-overcome', emoji: '💪', message: 'なんども びょうきを のりこえて、たくましく なった', contexts: ['medicine-cure'], condition: (s) => s.totalSicknessCount >= 5 },
+    { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', contexts: ['minigame-great'], condition: (s) => s.minigameCount >= 20 },
+    { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', contexts: ['transform'], condition: () => true },
   ];
 
   // rewards for a great minigame result: each heals the death meter by a
@@ -418,12 +423,14 @@
   // knocks it back a stage (snapping age down); repeated mistakes fill
   // deathMeter and end things outright. because these jumps move age
   // directly, they also move the pet toward or away from GOAL_DAYS
+  // both return whether they actually moved the pet a stage, so callers
+  // can gate story events on a real change rather than a no-op attempt
   function triggerEvolutionJump() {
-    if (state.stage !== STAGE.GROWING) return;
+    if (state.stage !== STAGE.GROWING) return false;
     const stages = SPECIES[state.speciesLine].stages;
-    if (state.stageIndex >= stages.length - 1) return;
+    if (state.stageIndex >= stages.length - 1) return false;
     state.age = Math.max(state.age, stages[state.stageIndex + 1].threshold);
-    advanceStage();
+    return advanceStage();
   }
 
   function triggerDevolutionJump() {
@@ -431,13 +438,14 @@
       // already the youngest growing stage (or still an egg) - nowhere
       // lower to fall back to visually
       setMessage('たいかメーターが MAXに…でも これ以上は もどれない…');
-      return;
+      return false;
     }
     const stages = SPECIES[state.speciesLine].stages;
     state.stageIndex -= 1;
     state.age = stages[state.stageIndex].threshold;
     setMessage(`${stages[state.stageIndex].label}に もどってしまった…`);
     bouncePet();
+    return true;
   }
 
   function triggerDeath() {
@@ -464,12 +472,12 @@
     let changedMessage = false;
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
-      triggerEvolutionJump();
+      if (triggerEvolutionJump()) checkStoryEvents('evolve');
       changedMessage = true;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
-      triggerDevolutionJump();
+      if (triggerDevolutionJump()) checkStoryEvents('devolve');
       changedMessage = true;
     }
     if (state.transformMeter >= 100 && !state.transformOptions && state.stage === STAGE.GROWING) {
@@ -482,16 +490,16 @@
       triggerGameClear();
       return true;
     }
-    checkStoryEvents();
     return changedMessage;
   }
 
   const STORY_FLASH_DURATION_MS = 3000;
 
-  function checkStoryEvents() {
+  function checkStoryEvents(context) {
     if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR || gameActive) return;
     for (const event of STORY_EVENTS) {
       if (state.storyFlagsSeen.includes(event.id)) continue;
+      if (!event.contexts.includes(context)) continue;
       if (event.condition(state)) {
         state.storyFlagsSeen.push(event.id);
         showStoryEvent(event);
@@ -747,6 +755,7 @@
     state.transformOptions = null;
     const stage = SPECIES[line].stages[state.stageIndex];
     setMessage(`${stage.label}に へんしんした!`);
+    checkStoryEvents('transform');
     bouncePet();
     saveState();
     render();
@@ -3178,6 +3187,10 @@
     el.minigameOverlay.innerHTML = '';
     el.screenNormal.classList.remove('hidden');
 
+    // checkStoryEvents() no-ops while gameActive, so this must run after
+    // gameActive flips back to false above
+    if (clampedScore >= 70) checkStoryEvents('minigame-great');
+
     bouncePet();
     checkMeters();
     saveState();
@@ -3299,6 +3312,7 @@
       state.energy = clamp(state.energy - 10, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 6, 0, 100);
+      checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
         setMessage('げんきに なった!');
       }
