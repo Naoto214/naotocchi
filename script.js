@@ -899,7 +899,7 @@
             b.disabled = true;
           });
           bubble.textContent = choice.response;
-          setTimeout(() => onComplete(choice.score), 1100);
+          setTimeout(() => onComplete(choice.score), 2200);
         });
         choicesEl.appendChild(btn);
       });
