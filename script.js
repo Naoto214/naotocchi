@@ -476,7 +476,7 @@
 
   const timingGame = {
     start(container, onComplete) {
-      const ROUNDS = 5;
+      const ROUNDS = 3;
       let round = 0;
       const scores = [];
       let running = true;
@@ -583,6 +583,7 @@
   };
 
   const QUIZ_QUESTIONS = [
+    // --- ふつう ---
     {
       text: 'きゅうに あめが ふってきたよ!どうする?',
       choices: [
@@ -631,11 +632,228 @@
         { label: 'がまんして がんばりつづける', response: 'むりは きんもつだよ…', score: 30 },
       ],
     },
+    // --- シリアス ---
+    {
+      text: 'ずっと がんばってきたことが、うまくいかなかった。',
+      choices: [
+        { label: 'なみだを ふいて、またはじめから やりなおす', response: 'その つよさが、きっと みらいを かえる', score: 95 },
+        { label: 'どうしてなのか、しずかに かんがえる', response: 'こたえは まだ みつからないけど…', score: 75 },
+        { label: 'もう なにも かんがえたくない', response: 'たまには やすんでも いいんだよ', score: 35 },
+      ],
+    },
+    {
+      text: 'たいせつな なにかを、うしなってしまった。',
+      choices: [
+        { label: 'かなしみを うけとめて、まえを むく', response: 'その きもち、わすれなくて いいんだよ', score: 90 },
+        { label: 'だれかに きもちを はなす', response: 'ひとりじゃ ないって おもえたね', score: 80 },
+        { label: 'なかったことに しようとする', response: 'むりに わすれなくても だいじょうぶ', score: 30 },
+      ],
+    },
+    {
+      text: 'じぶんの いきる いみって、なんだろう。ふと そんなことを かんがえた。',
+      choices: [
+        { label: 'こたえは ひとつじゃないと きづく', response: 'そのとおり。きみの ものがたりは、きみだけの もの', score: 90 },
+        { label: 'みらいの じぶんに きいてみる', response: 'いつか こたえが みえてくるかも', score: 75 },
+        { label: 'かんがえるのを やめる', response: 'たまには そういう ひも あるよね', score: 40 },
+      ],
+    },
+    {
+      text: 'みんなが すすむ みちと、じぶんの きもちが ちがう きがする。',
+      choices: [
+        { label: 'じぶんの こえを しんじて すすむ', response: 'その ゆうきが、みちを ひらくよ', score: 90 },
+        { label: 'もうすこし かんがえる じかんを もつ', response: 'あわてなくても だいじょうぶ', score: 75 },
+        { label: 'みんなに あわせておく', response: 'それも ひとつの えらびかた', score: 45 },
+      ],
+    },
+    {
+      text: 'もう にどと あえない ひとが いる。ふと おもいだす よるが ある。',
+      choices: [
+        { label: 'おもいでを たいせつに しまっておく', response: 'その おもいでは、きえたりしないよ', score: 90 },
+        { label: 'つたえられなかった かんしゃを くやむ', response: 'いまからでも、こころの なかで つたえられるよ', score: 65 },
+        { label: 'かんがえないように する', response: 'むりせず、じぶんの ペースで いいんだよ', score: 35 },
+      ],
+    },
+    {
+      text: 'あしたが こなければいいのに、と おもう よるが ある。',
+      choices: [
+        { label: 'その きもちを、だれかに はなしてみる', response: 'ひとりで かかえなくて いいんだよ', score: 90 },
+        { label: 'あさまで ただ じっと まつ', response: 'よるは、いつか あけるから', score: 60 },
+        { label: 'なにも かんがえずに ねむる', response: 'ゆっくり やすんでね', score: 55 },
+      ],
+    },
+    // --- 大人っぽい ---
+    {
+      text: 'あしたは だいじな しごとの ひ。きんちょうで ねむれない…',
+      choices: [
+        { label: 'じゅんびは できてる。じぶんを しんじる', response: 'その じしんが、きっと ちからに なる', score: 90 },
+        { label: 'なんども だんどりを かくにんしてしまう', response: 'まじめだね。でも たまには きゅうけいも', score: 70 },
+        { label: 'かんがえるのを やめて スマホを みる', response: 'げんじつ とうひも、たまには ひつよう', score: 45 },
+      ],
+    },
+    {
+      text: 'きゅうりょうびまえで、さいふの なかが さみしい。',
+      choices: [
+        { label: 'つぎの げつまつまで けいかくを たてる', response: 'その りせいてきさ、みならいたい', score: 85 },
+        { label: 'すこしだけ ぜいたくして じぶんに ごほうび', response: 'たまには いいよね', score: 65 },
+        { label: 'みなかったことに して つかっちゃう', response: 'あとで こうかいしても しらないよ…', score: 30 },
+      ],
+    },
+    {
+      text: 'かいぎで、じぶんの いけんと まわりの いけんが ぶつかった。',
+      choices: [
+        { label: 'れいせいに、じぶんの かんがえを つたえる', response: 'おとなの たいおう、かっこいいね', score: 90 },
+        { label: 'あいての いいぶんも きいてみる', response: 'そのバランスかんかく、だいじだね', score: 85 },
+        { label: 'めんどうだから だまっておく', response: 'それも ひとつの せんたく', score: 40 },
+      ],
+    },
+    {
+      text: 'ふと、じぶんの しょうらいの ことを かんがえてしまう よるが ある。',
+      choices: [
+        { label: 'すこしずつ ちょきんを はじめる', response: 'みらいの じぶんが よろこぶよ', score: 85 },
+        { label: 'かんがえても しかたないから いまを たのしむ', response: 'それも ひとつの いきかた', score: 65 },
+        { label: 'かんがえたくなくて めを そらす', response: 'いつか むきあう ひが くるかも', score: 35 },
+      ],
+    },
+    {
+      text: 'こうはいから、しんけんな そうだんを もちかけられた。',
+      choices: [
+        { label: 'じっくり はなしを きいて アドバイスする', response: 'たよりに されてるね', score: 90 },
+        { label: 'じぶんの けいけんを シェアする', response: 'それも りっぱな サポート', score: 75 },
+        { label: 'めんどうだと おもいつつ うなずいておく', response: 'せめて きくしせいは だいじだよ', score: 40 },
+      ],
+    },
+    {
+      text: 'ふと、じぶんの おやの としを かんがえてしまった。',
+      choices: [
+        { label: 'こんど れんらくしてみようと きめる', response: 'その きもち、つたわると いいね', score: 90 },
+        { label: 'かんしゃの きもちが わいてくる', response: 'そのきもち、たいせつに', score: 85 },
+        { label: 'いそがしくて わすれてしまう', response: 'ふと おもいだした いまが チャンスかも', score: 40 },
+      ],
+    },
+    // --- 馬鹿らしい ---
+    {
+      text: 'めのまえに、たいやきが あらわれた!なぜか しゃべる。',
+      choices: [
+        { label: 'たいやきと ともだちに なる', response: 'あんこの なかまが ふえたね', score: 80 },
+        { label: 'とりあえず たべる', response: 'ちょっと ざんこくだけど…おいしかった?', score: 60 },
+        { label: 'さけぶ', response: 'たいやきも びっくりしてる', score: 40 },
+      ],
+    },
+    {
+      text: 'そらから いきなり バナナが ふってきた。',
+      choices: [
+        { label: 'かさがわりに する', response: 'あたらしい はつめいかも しれない', score: 70 },
+        { label: 'みんなに くばる', response: 'バナナパーティーの はじまりだ', score: 85 },
+        { label: 'ふまないように そっと よける', response: 'けんめいな はんだん', score: 55 },
+      ],
+    },
+    {
+      text: 'あさおきたら、じぶんの あたまが キャベツに なっていた。',
+      choices: [
+        { label: 'きにせず いつもどおり すごす', response: 'その どきょう、すごい', score: 75 },
+        { label: 'ぼうしを かぶって かくす', response: 'さくせん せいこう?', score: 65 },
+        { label: 'サラダに されないか しんぱいする', response: 'きもちは わかる', score: 50 },
+      ],
+    },
+    {
+      text: 'ペットが きゅうに にんげんの ことばで はなしかけてきた。',
+      choices: [
+        { label: 'ふつうに かいわを たのしむ', response: 'あたらしい なかまとの かいわ、たのしそう', score: 85 },
+        { label: 'びっくりして こしを ぬかす', response: 'むりも ないね', score: 55 },
+        { label: 'ゆめだと おもって もういちど ねる', response: 'げんじつだったら どうしよう', score: 60 },
+      ],
+    },
+    {
+      text: 'せかいが きゅうに ぜんぶ プリンに なってしまった。',
+      choices: [
+        { label: 'よろこんで たべまくる', response: 'あまい せかい、さいこう', score: 80 },
+        { label: 'もったいなくて どうしようか なやむ', response: 'なやんでいるうちに とけちゃうかも', score: 60 },
+        { label: 'もとに もどす ほうほうを さがす', response: 'けんきゅうしゃの すじが あるかも', score: 65 },
+      ],
+    },
+    {
+      text: 'みぎあしと ひだりあしが、けんかを はじめてしまった。',
+      choices: [
+        { label: 'なかなおりさせる', response: 'へいわが もどったね', score: 75 },
+        { label: 'そのまま けんかを みまもる', response: 'あしあと、じぐざぐに なってるよ', score: 45 },
+        { label: 'みてみぬふりを する', response: 'あしあと そのまま すすもう', score: 55 },
+      ],
+    },
+    // --- ラブロマンス的 ---
+    {
+      text: 'きになる ひとと めが あった。しゅんかん、じかんが とまった きが した。',
+      choices: [
+        { label: 'おもいきって わらいかけてみる', response: 'せかいが きゅうに いろづいて みえたね', score: 90 },
+        { label: 'どきどきして めを そらしてしまう', response: 'その きもちも、りっぱな こいの はじまり', score: 70 },
+        { label: 'きのせいだと じぶんに いいきかせる', response: 'ほんとうに、そうかな?', score: 45 },
+      ],
+    },
+    {
+      text: 'たいせつな ひとに、きもちを つたえる ひが きた。',
+      choices: [
+        { label: 'まっすぐ きもちを ことばに する', response: 'その ゆうき、いつまでも おぼえておいて', score: 95 },
+        { label: 'てがみに かいて わたす', response: 'ことばには できない おもいも、とどくよ', score: 85 },
+        { label: 'けっきょく いえずに おわる', response: 'つぎの チャンスは、きっと くる', score: 40 },
+      ],
+    },
+    {
+      text: 'あめの ひ、かさを わすれた ひとに かさを さしだされた。',
+      choices: [
+        { label: 'どきどきしながら いっしょに あるく', response: 'あめさえも、うつくしく みえる しゅんかん', score: 90 },
+        { label: 'おれいを いって わかれる', response: 'その やさしさは、きっと わすれない', score: 65 },
+        { label: 'えんりょして ことわる', response: 'ちょっと もったいなかったかも?', score: 40 },
+      ],
+    },
+    {
+      text: 'むかしの こいびとから、ふいに れんらくが きた。',
+      choices: [
+        { label: 'なつかしさに ほほえんで へんじを する', response: 'おもいでは、やさしく こころに のこってる', score: 80 },
+        { label: 'すこし まよってから へんじする', response: 'そのまよいも、しぜんな きもち', score: 70 },
+        { label: 'みなかったことに する', response: 'いまの じぶんを だいじに するのも だいじ', score: 50 },
+      ],
+    },
+    {
+      text: 'ふたりで みた ゆうやけが、わすれられないほど きれいだった。',
+      choices: [
+        { label: 'この しゅんかんを、いつまでも おぼえておこうと おもう', response: 'その きもちが、いちばんの たからもの', score: 90 },
+        { label: 'しゃしんに とって のこす', response: 'きろくも、また すてきな しゅだん', score: 80 },
+        { label: 'とくに なにも かんじない', response: 'ひとそれぞれ、かんじかたは ちがうよね', score: 50 },
+      ],
+    },
+    {
+      text: 'ずっと そばに いてくれた ひとの ありがたみに、ふと きづいた。',
+      choices: [
+        { label: 'すなおに 「ありがとう」と つたえる', response: 'その ひとことが、なによりの プレゼント', score: 95 },
+        { label: 'こんど なにか おかえしを しようと きめる', response: 'きもちが かたちに なると うれしいね', score: 80 },
+        { label: 'きづいたけど、なんとなく いいそびれる', response: 'つたえるのに、おそすぎることは ないよ', score: 45 },
+      ],
+    },
   ];
+
+  let quizQueue = [];
+  let lastQuizIndex = -1;
+
+  function refillQuizQueue() {
+    quizQueue = QUIZ_QUESTIONS.map((_, i) => i);
+    for (let i = quizQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [quizQueue[i], quizQueue[j]] = [quizQueue[j], quizQueue[i]];
+    }
+    if (quizQueue.length > 1 && quizQueue[quizQueue.length - 1] === lastQuizIndex) {
+      [quizQueue[0], quizQueue[quizQueue.length - 1]] = [quizQueue[quizQueue.length - 1], quizQueue[0]];
+    }
+  }
+
+  function nextQuizQuestion() {
+    if (quizQueue.length === 0) refillQuizQueue();
+    const idx = quizQueue.pop();
+    lastQuizIndex = idx;
+    return QUIZ_QUESTIONS[idx];
+  }
 
   const quizGame = {
     start(container, onComplete) {
-      const q = QUIZ_QUESTIONS[Math.floor(Math.random() * QUIZ_QUESTIONS.length)];
+      const q = nextQuizQuestion();
 
       container.innerHTML = `
         <div class="mg-title">なおとっちが はなしかけてきた</div>
@@ -667,6 +885,16 @@
   };
 
   const MINIGAMES = [catchGame, whackGame, timingGame, quizGame];
+  let lastMinigameIndex = -1;
+
+  function pickRandomMinigame() {
+    let idx;
+    do {
+      idx = Math.floor(Math.random() * MINIGAMES.length);
+    } while (idx === lastMinigameIndex);
+    lastMinigameIndex = idx;
+    return MINIGAMES[idx];
+  }
 
   function resultMessageForScore(score) {
     if (score >= 80) return 'だいせいこう!たのしかった!';
@@ -736,7 +964,7 @@
       render();
       return;
     }
-    const game = MINIGAMES[Math.floor(Math.random() * MINIGAMES.length)];
+    const game = pickRandomMinigame();
     startMinigame(game);
   });
 
