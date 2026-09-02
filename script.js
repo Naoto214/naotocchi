@@ -6,7 +6,7 @@
   const MAX_POOP = 4;
 
   const SICKNESS_TYPES = [
-    { label: 'げんいんふめいの たかい ねつ', badge: '🥵' },
+    { label: 'げんいんふめいの こうねつ', badge: '🥵' },
     { label: 'とまらない はきけ', badge: '🤢' },
     { label: 'ぐるぐる する めまい', badge: '💫' },
     { label: 'われるような ずつう', badge: '🤕' },
