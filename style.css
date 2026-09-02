@@ -232,6 +232,11 @@ body {
   border-radius: 6px;
   overflow: hidden;
   touch-action: none;
+  transition: background 0.15s ease;
+}
+
+.mg-catch-field.hit {
+  background: #d9534f;
 }
 
 .mg-basket {

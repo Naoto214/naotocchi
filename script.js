@@ -2,8 +2,7 @@
   'use strict';
 
   const SAVE_KEY = 'tamagotchi-modoki-save-v1';
-  const TICK_MS = 3000; // 1 tick = 3 seconds of real time
-  const MAX_OFFLINE_TICKS = 2000; // cap catch-up so leaving it for days doesn't insta-kill it
+  const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
   const STAGE = {
@@ -70,7 +69,6 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
-      lastUpdate: Date.now(),
     };
   }
 
@@ -193,23 +191,6 @@
     }
   }
 
-  function runTicks(count) {
-    for (let i = 0; i < count && state.stage !== STAGE.DEAD; i++) {
-      tick();
-    }
-  }
-
-  function catchUpOffline() {
-    const now = Date.now();
-    const elapsed = now - (state.lastUpdate || now);
-    let ticks = Math.floor(elapsed / TICK_MS);
-    if (ticks > 0) {
-      ticks = Math.min(ticks, MAX_OFFLINE_TICKS);
-      runTicks(ticks);
-    }
-    state.lastUpdate = now;
-  }
-
   function bouncePet() {
     el.pet.classList.remove('bounce');
     // force reflow to restart animation
@@ -287,8 +268,10 @@
   const catchGame = {
     start(container, onComplete) {
       const DURATION_MS = 10000;
-      const ITEMS = ['🍙', '🍎', '🍬', '🍇'];
-      let catches = 0;
+      const GOOD_ITEMS = ['🍙', '🍎', '🍬', '🍇'];
+      const BAD_ITEMS = ['💩', '🪳', '🔪', '🔫'];
+      const BAD_ITEM_CHANCE = 0.3;
+      let points = 0;
       let running = true;
       let lastSpawn = 0;
       const spawnInterval = 850;
@@ -298,9 +281,9 @@
       container.innerHTML = `
         <div class="mg-header">
           <span id="mgTimer">残り: 10s</span>
-          <span id="mgScore">キャッチ: 0</span>
+          <span id="mgScore">とくてん: 0</span>
         </div>
-        <div class="mg-title">おやつキャッチ!ゆびで うごかそう</div>
+        <div class="mg-title">おやつキャッチ!わるい ものは よけよう</div>
         <div class="mg-catch-field" id="mgField">
           <div class="mg-basket" id="mgBasket" style="left:50%">🧺</div>
         </div>
@@ -331,14 +314,21 @@
       let rafId;
 
       function spawnItem() {
+        const isBad = Math.random() < BAD_ITEM_CHANCE;
+        const pool = isBad ? BAD_ITEMS : GOOD_ITEMS;
         const itemEl = document.createElement('div');
         itemEl.className = 'mg-falling-item';
-        itemEl.textContent = ITEMS[Math.floor(Math.random() * ITEMS.length)];
+        itemEl.textContent = pool[Math.floor(Math.random() * pool.length)];
         const xPct = 10 + Math.random() * 80;
         itemEl.style.left = xPct + '%';
         itemEl.style.top = '-20px';
         field.appendChild(itemEl);
-        items.push({ el: itemEl, x: xPct, y: -20, speed: 60 + Math.random() * 30 });
+        items.push({ el: itemEl, x: xPct, y: -20, speed: 60 + Math.random() * 30, bad: isBad });
+      }
+
+      function flashField() {
+        field.classList.add('hit');
+        setTimeout(() => field.classList.remove('hit'), 200);
       }
 
       function frame(now) {
@@ -357,8 +347,13 @@
           item.y += item.speed * (1 / 60);
           item.el.style.top = item.y + 'px';
           if (item.y > fieldHeight - 36 && Math.abs(item.x - basketX) < 12) {
-            catches += 1;
-            scoreEl.textContent = `キャッチ: ${catches}`;
+            if (item.bad) {
+              points = Math.max(0, points - 20);
+              flashField();
+            } else {
+              points = Math.min(100, points + 15);
+            }
+            scoreEl.textContent = `とくてん: ${points}`;
             item.el.remove();
             return false;
           }
@@ -383,8 +378,7 @@
         field.removeEventListener('pointerdown', onPointerMove);
         field.removeEventListener('pointermove', onPointerMove);
         items.forEach((item) => item.el.remove());
-        const score = Math.max(0, Math.min(100, catches * 15));
-        onComplete(score);
+        onComplete(points);
       }
 
       rafId = requestAnimationFrame(frame);
@@ -393,7 +387,7 @@
 
   const whackGame = {
     start(container, onComplete) {
-      const DURATION_MS = 8000;
+      const DURATION_MS = 5000;
       const HOLE_COUNT = 6;
       let hits = 0;
       let activeIndex = -1;
@@ -403,7 +397,7 @@
 
       container.innerHTML = `
         <div class="mg-header">
-          <span id="mgTimer">残り: 8s</span>
+          <span id="mgTimer">残り: 5s</span>
           <span id="mgScore">たいしょう: 0</span>
         </div>
         <div class="mg-title">とびだす ほしを タップ!</div>
@@ -466,7 +460,7 @@
         clearInterval(tickInterval);
         clearTimeout(hideTimeout);
         clearTimeout(spawnTimeout);
-        const score = Math.max(0, Math.min(100, hits * 16));
+        const score = Math.max(0, Math.min(100, hits * 20));
         onComplete(score);
       }
 
@@ -1006,32 +1000,28 @@
       // still age/decay stats in the background, but don't touch the DOM
       // while a minigame owns the screen
       tick();
-      state.lastUpdate = Date.now();
       saveState();
       return;
     }
     setMessage('');
     tick();
-    state.lastUpdate = Date.now();
     saveState();
     render();
   }
 
-  // initial boot: simulate elapsed time since last visit, then start the live loop
-  catchUpOffline();
+  // boot: resume exactly where the last save left off. Time never passes
+  // while the page is closed - only this interval, while open, advances it.
   saveState();
   render();
   setInterval(loop, TICK_MS);
 
-  // also save whenever the tab is hidden/closed so offline catch-up is accurate
+  // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
-      state.lastUpdate = Date.now();
       saveState();
     }
   });
   window.addEventListener('beforeunload', () => {
-    state.lastUpdate = Date.now();
     saveState();
   });
 })();
