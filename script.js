@@ -677,12 +677,15 @@
 
   // --- minigames (triggered by the play button) ---
 
-  const catchGame = {
+  // shared factory behind every catch-and-avoid themed minigame - only the
+  // title, basket emoji, and item pools change between variants
+  function makeCatchGame({ title, basketEmoji, goodItems, badItems }) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const DURATION_MS = 10000;
-      const GOOD_ITEMS = ['🍙', '🍎', '🍬', '🍇'];
-      const BAD_ITEMS = ['💩', '🪳', '🔪', '🔫'];
+      const GOOD_ITEMS = goodItems;
+      const BAD_ITEMS = badItems;
       const BAD_ITEM_CHANCE = lerp(0.3, 0.55, difficulty);
       const spawnInterval = lerp(850, 420, difficulty);
       const speedMin = lerp(60, 130, difficulty);
@@ -698,9 +701,9 @@
           <span id="mgTimer">残り: 10s</span>
           <span id="mgScore">とくてん: 0</span>
         </div>
-        <div class="mg-title">おやつキャッチ!わるい ものは よけよう</div>
+        <div class="mg-title">${title}</div>
         <div class="mg-catch-field" id="mgField">
-          <div class="mg-basket" id="mgBasket" style="left:50%">🧺</div>
+          <div class="mg-basket" id="mgBasket" style="left:50%">${basketEmoji}</div>
         </div>
       `;
 
@@ -798,9 +801,52 @@
 
       rafId = requestAnimationFrame(frame);
     },
-  };
+    };
+  }
 
-  const whackGame = {
+  const CATCH_GAME_VARIANTS = [
+    makeCatchGame({
+      title: 'おやつキャッチ!わるい ものは よけよう',
+      basketEmoji: '🧺',
+      goodItems: ['🍙', '🍎', '🍬', '🍇'],
+      badItems: ['💩', '🪳', '🔪', '🔫'],
+    }),
+    makeCatchGame({
+      title: 'くだものキャッチ!くさった のは いらない',
+      basketEmoji: '🧺',
+      goodItems: ['🍓', '🍊', '🍑', '🍌'],
+      badItems: ['🐛', '🦠', '🗑️', '☠️'],
+    }),
+    makeCatchGame({
+      title: 'おすしキャッチ!わさびは からいよ',
+      basketEmoji: '🍽️',
+      goodItems: ['🍣', '🍱', '🍤', '🥢'],
+      badItems: ['🟢', '🔥', '🧨', '🐡'],
+    }),
+    makeCatchGame({
+      title: 'ほしキャッチ!いんせきは あぶない',
+      basketEmoji: '🛸',
+      goodItems: ['⭐', '🌟', '✨', '🌠'],
+      badItems: ['☄️', '🪨', '⚡', '🛰️'],
+    }),
+    makeCatchGame({
+      title: 'やさいキャッチ!むしは いやだよね',
+      basketEmoji: '🧺',
+      goodItems: ['🥕', '🥦', '🌽', '🍅'],
+      badItems: ['🐛', '🐌', '🪱', '🕷️'],
+    }),
+    makeCatchGame({
+      title: 'おかしキャッチ!からい ものは にがて',
+      basketEmoji: '🎪',
+      goodItems: ['🍭', '🍩', '🧁', '🍫'],
+      badItems: ['🌶️', '🧂', '🥃', '🧊'],
+    }),
+  ];
+
+  // shared factory behind every whack-a-mole style minigame - only the
+  // title and target emoji change between variants
+  function makeWhackGame({ title, targetEmoji }) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const DURATION_MS = 5000;
@@ -817,7 +863,7 @@
           <span id="mgTimer">残り: 5s</span>
           <span id="mgScore">たいしょう: 0</span>
         </div>
-        <div class="mg-title">とびだす ほしを タップ!</div>
+        <div class="mg-title">${title}</div>
         <div class="mg-whack-grid" id="mgGrid"></div>
       `;
 
@@ -850,7 +896,7 @@
         const i = Math.floor(Math.random() * HOLE_COUNT);
         activeIndex = i;
         holes[i].classList.add('active');
-        holes[i].textContent = '⭐';
+        holes[i].textContent = targetEmoji;
         hideTimeout = setTimeout(() => {
           holes[i].classList.remove('active');
           holes[i].textContent = '';
@@ -883,9 +929,21 @@
 
       scheduleNext(300);
     },
-  };
+    };
+  }
 
-  const timingGame = {
+  const WHACK_GAME_VARIANTS = [
+    makeWhackGame({ title: 'とびだす ほしを タップ!', targetEmoji: '⭐' }),
+    makeWhackGame({ title: 'とびだす もぐらを タップ!', targetEmoji: '🐹' }),
+    makeWhackGame({ title: 'とびだす むしを タップ!', targetEmoji: '🐞' }),
+    makeWhackGame({ title: 'とびだす おばけを タップ!', targetEmoji: '👻' }),
+    makeWhackGame({ title: 'とびだす ひよこを タップ!', targetEmoji: '🐥' }),
+  ];
+
+  // shared factory behind every timing-bar minigame - only the title, tap
+  // button label, and gauge color theme change between variants
+  function makeTimingGame({ title, tapLabel, gaugeStyle }) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = 3;
@@ -910,12 +968,12 @@
           <span id="mgScore">とくてん: 0</span>
         </div>
         <div class="mg-timing-body">
-          <div class="mg-title">ちょうどいい タイミングで タップ!</div>
-          <div class="mg-gauge" id="mgGauge">
+          <div class="mg-title">${title}</div>
+          <div class="mg-gauge" id="mgGauge" style="background:${gaugeStyle}">
             <div class="mg-gauge-zone" id="mgZone"></div>
             <div class="mg-gauge-marker" id="mgMarker"></div>
           </div>
-          <button class="mg-tap-btn" id="mgTapBtn">タップ!</button>
+          <button class="mg-tap-btn" id="mgTapBtn">${tapLabel}</button>
         </div>
       `;
 
@@ -995,7 +1053,14 @@
       newRound();
       rafId = requestAnimationFrame(frame);
     },
-  };
+    };
+  }
+
+  const TIMING_GAME_VARIANTS = [
+    makeTimingGame({ title: 'ちょうどいい タイミングで タップ!', tapLabel: 'タップ!', gaugeStyle: '#6fae5f' }),
+    makeTimingGame({ title: 'ジャストタイミングを ねらえ!', tapLabel: 'ここだ!', gaugeStyle: '#4a90d9' }),
+    makeTimingGame({ title: 'リズムに あわせて タップ!', tapLabel: 'いくよ!', gaugeStyle: '#c76fc9' }),
+  ];
 
   const QUIZ_QUESTIONS = [
     // --- ふつう ---
@@ -1366,25 +1431,45 @@
     },
   ];
 
-  let quizQueue = [];
-  let lastQuizIndex = -1;
-
-  function refillQuizQueue() {
-    quizQueue = QUIZ_QUESTIONS.map((_, i) => i);
-    for (let i = quizQueue.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [quizQueue[i], quizQueue[j]] = [quizQueue[j], quizQueue[i]];
+  // a shuffled, no-immediate-repeat draw over an arbitrary index list - used
+  // both for the quiz question pools below and reused by other games that
+  // want fair "see everything before repeating" random picks
+  function makeShuffledDraw(indices) {
+    let queue = [];
+    let lastIndex = -1;
+    function refill() {
+      queue = indices.slice();
+      for (let i = queue.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [queue[i], queue[j]] = [queue[j], queue[i]];
+      }
+      if (queue.length > 1 && queue[queue.length - 1] === lastIndex) {
+        [queue[0], queue[queue.length - 1]] = [queue[queue.length - 1], queue[0]];
+      }
     }
-    if (quizQueue.length > 1 && quizQueue[quizQueue.length - 1] === lastQuizIndex) {
-      [quizQueue[0], quizQueue[quizQueue.length - 1]] = [quizQueue[quizQueue.length - 1], quizQueue[0]];
-    }
+    return function next() {
+      if (queue.length === 0) refill();
+      const idx = queue.pop();
+      lastIndex = idx;
+      return idx;
+    };
   }
 
-  function nextQuizQuestion() {
-    if (quizQueue.length === 0) refillQuizQueue();
-    const idx = quizQueue.pop();
-    lastQuizIndex = idx;
-    return QUIZ_QUESTIONS[idx];
+  // ふつう/シリアス/大人っぽい/馬鹿らしい/ラブロマンス的/感動, in the order
+  // they appear in QUIZ_QUESTIONS above (7,7,7,7,7,5 questions respectively)
+  const QUIZ_CATEGORY_RANGES = {
+    normal: [0, 7],
+    serious: [7, 14],
+    adult: [14, 21],
+    silly: [21, 28],
+    romance: [28, 35],
+    touching: [35, 40],
+  };
+
+  function categoryIndices(rangeKey) {
+    if (rangeKey === 'all') return QUIZ_QUESTIONS.map((_, i) => i);
+    const [start, end] = QUIZ_CATEGORY_RANGES[rangeKey];
+    return Array.from({ length: end - start }, (_, i) => start + i);
   }
 
   const TRAIT_IMPACT = {
@@ -1395,71 +1480,90 @@
     romantic: { emoji: '💖', color: '#ff8787' },
   };
 
-  const quizGame = {
-    start(container, onComplete) {
-      const q = nextQuizQuestion();
+  // shared factory behind every manga-quiz variant - only which slice of
+  // QUIZ_QUESTIONS it draws from (and its title) changes between variants
+  function makeQuizGame(rangeKey, title) {
+    const nextIndex = makeShuffledDraw(categoryIndices(rangeKey));
+    return {
+      start(container, onComplete) {
+        const q = QUIZ_QUESTIONS[nextIndex()];
 
-      container.innerHTML = `
-        <div class="mg-title">なおとっちが はなしかけてきた</div>
-        <div class="mg-comic-panel">
-          <div class="mg-comic-face">🐣</div>
-          <div class="mg-comic-bubble" id="mgBubble"></div>
-        </div>
-        <div class="mg-choices" id="mgChoices"></div>
-      `;
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-comic-panel">
+            <div class="mg-comic-face">🐣</div>
+            <div class="mg-comic-bubble" id="mgBubble"></div>
+          </div>
+          <div class="mg-choices" id="mgChoices"></div>
+        `;
 
-      const bubble = container.querySelector('#mgBubble');
-      const choicesEl = container.querySelector('#mgChoices');
-      bubble.textContent = q.text;
+        const bubble = container.querySelector('#mgBubble');
+        const choicesEl = container.querySelector('#mgChoices');
+        bubble.textContent = q.text;
 
-      let answered = false;
+        let answered = false;
 
-      q.choices.forEach((choice) => {
-        const btn = document.createElement('button');
-        btn.className = 'mg-choice-btn';
-        btn.textContent = choice.label;
-        btn.addEventListener('pointerdown', () => {
-          // a near-simultaneous second tap (e.g. a stray touch point hitting an
-          // adjacent choice) must not double-apply its reward, so this guard
-          // has to run before anything else - disabling the buttons alone
-          // doesn't stop an event that's already in flight when the tap lands.
-          if (answered) return;
-          answered = true;
-          state.traitCounts[choice.trait] = (state.traitCounts[choice.trait] || 0) + 1;
+        q.choices.forEach((choice) => {
+          const btn = document.createElement('button');
+          btn.className = 'mg-choice-btn';
+          btn.textContent = choice.label;
+          btn.addEventListener('pointerdown', () => {
+            // a near-simultaneous second tap (e.g. a stray touch point hitting an
+            // adjacent choice) must not double-apply its reward, so this guard
+            // has to run before anything else - disabling the buttons alone
+            // doesn't stop an event that's already in flight when the tap lands.
+            if (answered) return;
+            answered = true;
+            state.traitCounts[choice.trait] = (state.traitCounts[choice.trait] || 0) + 1;
 
-          // a short, punchy flash moment instead of a lingering second
-          // screen - the choice's response text becomes the normal status
-          // message once back on the main screen, where it gets its own
-          // guaranteed display time (see setMessage)
-          const impact = TRAIT_IMPACT[choice.trait] || TRAIT_IMPACT.calm;
-          container.innerHTML = `
-            <div class="mg-impact-flash" style="background: radial-gradient(circle, ${impact.color} 0%, transparent 72%)">
-              <div class="mg-impact-emoji">${impact.emoji}</div>
-            </div>
-          `;
-          setTimeout(() => onComplete(choice.score, choice.response), 420);
+            // a short, punchy flash moment instead of a lingering second
+            // screen - the choice's response text becomes the normal status
+            // message once back on the main screen, where it gets its own
+            // guaranteed display time (see setMessage)
+            const impact = TRAIT_IMPACT[choice.trait] || TRAIT_IMPACT.calm;
+            container.innerHTML = `
+              <div class="mg-impact-flash" style="background: radial-gradient(circle, ${impact.color} 0%, transparent 72%)">
+                <div class="mg-impact-emoji">${impact.emoji}</div>
+              </div>
+            `;
+            setTimeout(() => onComplete(choice.score, choice.response), 420);
+          });
+          choicesEl.appendChild(btn);
         });
-        choicesEl.appendChild(btn);
-      });
-    },
-  };
+      },
+    };
+  }
 
-  const memoryGame = {
+  const QUIZ_GAME_VARIANTS = [
+    makeQuizGame('all', 'なおとっちが はなしかけてきた'),
+    makeQuizGame('normal', 'なおとっちが ふつうの はなしを してきた'),
+    makeQuizGame('serious', 'なおとっちが しんけんな かおを している…'),
+    makeQuizGame('adult', 'なおとっちが おとなびた はなしを してきた'),
+    makeQuizGame('silly', 'なおとっちが へんなことを いいだした!'),
+    makeQuizGame('romance', 'なおとっちが きゅうに ロマンチックに なった'),
+    makeQuizGame('touching', 'なおとっちが しみじみと かたりはじめた…'),
+  ];
+
+  // shared factory behind every memory-sequence minigame - only the title
+  // and pad theme (colors, with an optional emoji shown on each pad) change
+  // between variants
+  function makeMemoryGame({ title, pads: padDefs }) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const sequenceLength = Math.round(lerp(3, 8, difficulty));
       const flashMs = lerp(600, 300, difficulty);
       const gapMs = lerp(250, 120, difficulty);
-      const PAD_COLORS = ['#ff6b6b', '#4dabf7', '#ffd43b', '#69db7c'];
+      const PAD_COLORS = padDefs.map((p) => p.bg);
 
       container.innerHTML = `
         <div class="mg-header">
           <span id="mgRound">おぼえて まねしよう</span>
           <span id="mgScore">${sequenceLength}こ の れつ</span>
         </div>
-        <div class="mg-title">じゅんばんを おぼえて タップ!</div>
+        <div class="mg-title">${title}</div>
         <div class="mg-memory-grid" id="mgGrid">
-          ${PAD_COLORS.map((c, i) => `<div class="mg-memory-pad" id="mgPad${i}" style="background:${c}"></div>`).join('')}
+          ${padDefs.map((p, i) => `<div class="mg-memory-pad" id="mgPad${i}" style="background:${p.bg}">${p.emoji || ''}</div>`).join('')}
         </div>
       `;
 
@@ -1510,9 +1614,112 @@
       pads.forEach((pad, i) => pad.addEventListener('pointerdown', () => onPadTap(i)));
       playSequence();
     },
-  };
+    };
+  }
 
-  const mathGame = {
+  const MEMORY_GAME_VARIANTS = [
+    makeMemoryGame({
+      title: 'じゅんばんを おぼえて タップ!',
+      pads: [{ bg: '#ff6b6b' }, { bg: '#4dabf7' }, { bg: '#ffd43b' }, { bg: '#69db7c' }],
+    }),
+    makeMemoryGame({
+      title: 'どうぶつの じゅんばんを おぼえよう!',
+      pads: [
+        { bg: '#ffd8a8', emoji: '🐶' },
+        { bg: '#d0ebff', emoji: '🐱' },
+        { bg: '#fff3bf', emoji: '🐥' },
+        { bg: '#d3f9d8', emoji: '🐸' },
+      ],
+    }),
+    makeMemoryGame({
+      title: 'たべものの じゅんばんを おぼえよう!',
+      pads: [
+        { bg: '#ffe3e3', emoji: '🍎' },
+        { bg: '#fff9db', emoji: '🍌' },
+        { bg: '#e7f5ff', emoji: '🍇' },
+        { bg: '#eaf7e6', emoji: '🍓' },
+      ],
+    }),
+    makeMemoryGame({
+      title: 'きせつの じゅんばんを おぼえよう!',
+      pads: [
+        { bg: '#ffe0ec', emoji: '🌸' },
+        { bg: '#e0fbff', emoji: '🌻' },
+        { bg: '#ffe8cc', emoji: '🍁' },
+        { bg: '#e7ecff', emoji: '⛄' },
+      ],
+    }),
+  ];
+
+  function mixedMathProblem(difficulty) {
+    if (difficulty < 0.34) {
+      let a = 1 + Math.floor(Math.random() * 9);
+      let b = 1 + Math.floor(Math.random() * 9);
+      const op = Math.random() < 0.5 ? '+' : '−';
+      if (op === '−' && a < b) [a, b] = [b, a];
+      return { text: `${a} ${op} ${b}`, answer: op === '+' ? a + b : a - b };
+    }
+    if (difficulty < 0.7) {
+      if (Math.random() < 0.5) {
+        const a = 5 + Math.floor(Math.random() * 25);
+        const b = 5 + Math.floor(Math.random() * 25);
+        return { text: `${a} + ${b}`, answer: a + b };
+      }
+      const a = 2 + Math.floor(Math.random() * 9);
+      const b = 2 + Math.floor(Math.random() * 9);
+      return { text: `${a} × ${b}`, answer: a * b };
+    }
+    const kind = Math.floor(Math.random() * 3);
+    if (kind === 0) {
+      const a = 10 + Math.floor(Math.random() * 40);
+      const b = 2 + Math.floor(Math.random() * 12);
+      const c = 1 + Math.floor(Math.random() * 9);
+      return { text: `${a} − ${b} + ${c}`, answer: a - b + c };
+    }
+    if (kind === 1) {
+      const a = 3 + Math.floor(Math.random() * 9);
+      const b = 3 + Math.floor(Math.random() * 9);
+      const c = 2 + Math.floor(Math.random() * 6);
+      return { text: `${a} × ${b} − ${c}`, answer: a * b - c };
+    }
+    const b = 2 + Math.floor(Math.random() * 9);
+    const q = 2 + Math.floor(Math.random() * 12);
+    return { text: `${b * q} ÷ ${b}`, answer: q };
+  }
+
+  function addMathProblem(difficulty) {
+    const max = Math.round(lerp(9, 60, difficulty));
+    const a = 1 + Math.floor(Math.random() * max);
+    const b = 1 + Math.floor(Math.random() * max);
+    return { text: `${a} + ${b}`, answer: a + b };
+  }
+
+  function subMathProblem(difficulty) {
+    const max = Math.round(lerp(9, 60, difficulty));
+    let a = 1 + Math.floor(Math.random() * max);
+    let b = 1 + Math.floor(Math.random() * max);
+    if (a < b) [a, b] = [b, a];
+    return { text: `${a} − ${b}`, answer: a - b };
+  }
+
+  function mulMathProblem(difficulty) {
+    const max = Math.round(lerp(4, 12, difficulty));
+    const a = 2 + Math.floor(Math.random() * max);
+    const b = 2 + Math.floor(Math.random() * max);
+    return { text: `${a} × ${b}`, answer: a * b };
+  }
+
+  function divMathProblem(difficulty) {
+    const max = Math.round(lerp(4, 12, difficulty));
+    const b = 2 + Math.floor(Math.random() * max);
+    const q = 2 + Math.floor(Math.random() * max);
+    return { text: `${b * q} ÷ ${b}`, answer: q };
+  }
+
+  // shared factory behind every arithmetic minigame - only the title and
+  // problem generator (which operation(s) it draws from) change
+  function makeMathGame(title, generateProblem) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = 3 + Math.round(difficulty * 2);
@@ -1521,44 +1728,8 @@
       let correctCount = 0;
       let timer;
 
-      function generateProblem() {
-        if (difficulty < 0.34) {
-          let a = 1 + Math.floor(Math.random() * 9);
-          let b = 1 + Math.floor(Math.random() * 9);
-          const op = Math.random() < 0.5 ? '+' : '−';
-          if (op === '−' && a < b) [a, b] = [b, a];
-          return { text: `${a} ${op} ${b}`, answer: op === '+' ? a + b : a - b };
-        }
-        if (difficulty < 0.7) {
-          if (Math.random() < 0.5) {
-            const a = 5 + Math.floor(Math.random() * 25);
-            const b = 5 + Math.floor(Math.random() * 25);
-            return { text: `${a} + ${b}`, answer: a + b };
-          }
-          const a = 2 + Math.floor(Math.random() * 9);
-          const b = 2 + Math.floor(Math.random() * 9);
-          return { text: `${a} × ${b}`, answer: a * b };
-        }
-        const kind = Math.floor(Math.random() * 3);
-        if (kind === 0) {
-          const a = 10 + Math.floor(Math.random() * 40);
-          const b = 2 + Math.floor(Math.random() * 12);
-          const c = 1 + Math.floor(Math.random() * 9);
-          return { text: `${a} − ${b} + ${c}`, answer: a - b + c };
-        }
-        if (kind === 1) {
-          const a = 3 + Math.floor(Math.random() * 9);
-          const b = 3 + Math.floor(Math.random() * 9);
-          const c = 2 + Math.floor(Math.random() * 6);
-          return { text: `${a} × ${b} − ${c}`, answer: a * b - c };
-        }
-        const b = 2 + Math.floor(Math.random() * 9);
-        const q = 2 + Math.floor(Math.random() * 12);
-        return { text: `${b * q} ÷ ${b}`, answer: q };
-      }
-
       function renderRound() {
-        const problem = generateProblem();
+        const problem = generateProblem(difficulty);
         const distractors = new Set();
         while (distractors.size < 3) {
           const delta = Math.floor(Math.random() * 9) - 4;
@@ -1576,7 +1747,7 @@
             <span id="mgRound">もんだい ${round + 1}/${ROUNDS}</span>
             <span id="mgScore">せいかい: ${correctCount}</span>
           </div>
-          <div class="mg-title">けいさんチャレンジ!</div>
+          <div class="mg-title">${title}</div>
           <div class="mg-math-problem">${problem.text} = ?</div>
           <div class="mg-math-choices">
             ${choices.map((c) => `<button class="mg-math-btn" data-val="${c}">${c}</button>`).join('')}
@@ -1609,9 +1780,21 @@
 
       renderRound();
     },
-  };
+    };
+  }
 
-  const reactionGame = {
+  const MATH_GAME_VARIANTS = [
+    makeMathGame('けいさんチャレンジ!', mixedMathProblem),
+    makeMathGame('たしざんチャレンジ!', addMathProblem),
+    makeMathGame('ひきざんチャレンジ!', subMathProblem),
+    makeMathGame('かけざんチャレンジ!', mulMathProblem),
+    makeMathGame('わりざんチャレンジ!', divMathProblem),
+  ];
+
+  // shared factory behind every reaction-time minigame - only the title and
+  // wait/go/fail wording change between variants
+  function makeReactionGame({ title, waitWord, goWord, tooSoonWord }) {
+    return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = 3;
@@ -1627,8 +1810,8 @@
             <span id="mgRound">ラウンド ${round + 1}/${ROUNDS}</span>
             <span id="mgScore">とくてん: ${avg}</span>
           </div>
-          <div class="mg-title">はんしゃしんけい チャレンジ!</div>
-          <div class="mg-reaction-field mg-reaction-wait" id="mgReactionField">まってね…</div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-reaction-field mg-reaction-wait" id="mgReactionField">${waitWord}</div>
         `;
         const field = container.querySelector('#mgReactionField');
         let goTime = null;
@@ -1643,7 +1826,7 @@
           field.removeEventListener('pointerdown', onEarlyTap);
           field.classList.remove('mg-reaction-wait');
           field.classList.add('mg-reaction-fail');
-          field.textContent = 'はやすぎ!';
+          field.textContent = tooSoonWord;
           setTimeout(() => nextRound(0), 700);
         }
         field.addEventListener('pointerdown', onEarlyTap);
@@ -1665,7 +1848,7 @@
           field.removeEventListener('pointerdown', onEarlyTap);
           field.classList.remove('mg-reaction-wait');
           field.classList.add('mg-reaction-go');
-          field.textContent = 'いま!';
+          field.textContent = goWord;
           goTime = performance.now();
           field.addEventListener('pointerdown', onGoTap);
         }, delay);
@@ -1683,7 +1866,13 @@
 
       renderWait();
     },
-  };
+    };
+  }
+
+  const REACTION_GAME_VARIANTS = [
+    makeReactionGame({ title: 'はんしゃしんけい チャレンジ!', waitWord: 'まってね…', goWord: 'いま!', tooSoonWord: 'はやすぎ!' }),
+    makeReactionGame({ title: 'しゅんぱつりょく チャレンジ!', waitWord: 'じゅんび…', goWord: 'ダッシュ!', tooSoonWord: 'フライング!' }),
+  ];
 
   const stroopGame = {
     start(container, onComplete) {
@@ -1750,7 +1939,680 @@
     },
   };
 
-  const MINIGAMES = [catchGame, whackGame, timingGame, quizGame, memoryGame, mathGame, reactionGame, stroopGame];
+  // numeric-magnitude Stroop: a digit's own value conflicts with how big it
+  // is drawn on screen half the time - tap whether it looks big or small,
+  // ignoring what the digit actually means
+  const numberSizeGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const ROUNDS = 4 + Math.round(difficulty * 2);
+      const timeLimitMs = lerp(4500, 2000, difficulty);
+      let round = 0;
+      let correctCount = 0;
+      let timer;
+
+      function renderRound() {
+        const digit = 1 + Math.floor(Math.random() * 9);
+        const isBig = Math.random() < 0.5;
+        const fontSize = isBig ? 64 : 22;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">もんだい ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">せいかい: ${correctCount}</span>
+          </div>
+          <div class="mg-title">すうじの おおきさは?(かずの おおきさじゃないよ)</div>
+          <div class="mg-stroop-word" style="font-size:${fontSize}px">${digit}</div>
+          <div class="mg-math-choices">
+            <button class="mg-math-btn" data-val="big">おおきい</button>
+            <button class="mg-math-btn" data-val="small">ちいさい</button>
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        let answered = false;
+
+        function finishRound(correct) {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          if (correct) correctCount += 1;
+          round += 1;
+          if (round >= ROUNDS) {
+            const score = Math.round((correctCount / ROUNDS) * 100);
+            setTimeout(() => onComplete(score), 200);
+          } else {
+            setTimeout(renderRound, 200);
+          }
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => finishRound((btn.dataset.val === 'big') === isBig));
+        });
+
+        timer = setTimeout(() => finishRound(false), timeLimitMs);
+      }
+
+      renderRound();
+    },
+  };
+
+  // directional Stroop: an arrow points one way while a word names a
+  // (possibly different) direction - tap where the arrow actually points
+  const arrowDirectionGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const DIRECTIONS = [
+        { key: 'up', label: 'うえ', arrow: '⬆️' },
+        { key: 'down', label: 'した', arrow: '⬇️' },
+        { key: 'left', label: 'ひだり', arrow: '⬅️' },
+        { key: 'right', label: 'みぎ', arrow: '➡️' },
+      ];
+      const ROUNDS = 4 + Math.round(difficulty * 2);
+      const timeLimitMs = lerp(4500, 2000, difficulty);
+      let round = 0;
+      let correctCount = 0;
+      let timer;
+
+      function renderRound() {
+        const arrowDir = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+        let wordDir;
+        do {
+          wordDir = DIRECTIONS[Math.floor(Math.random() * DIRECTIONS.length)];
+        } while (Math.random() < 0.5 && wordDir.key === arrowDir.key);
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">もんだい ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">せいかい: ${correctCount}</span>
+          </div>
+          <div class="mg-title">やじるしが むいている ほうこうは?(もじじゃないよ)</div>
+          <div class="mg-stroop-word">${arrowDir.arrow}<br><span style="font-size:16px">「${wordDir.label}」</span></div>
+          <div class="mg-math-choices">
+            ${DIRECTIONS.map((d) => `<button class="mg-math-btn" data-key="${d.key}">${d.label}</button>`).join('')}
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        let answered = false;
+
+        function finishRound(correct) {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          if (correct) correctCount += 1;
+          round += 1;
+          if (round >= ROUNDS) {
+            const score = Math.round((correctCount / ROUNDS) * 100);
+            setTimeout(() => onComplete(score), 200);
+          } else {
+            setTimeout(renderRound, 200);
+          }
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === arrowDir.key));
+        });
+
+        timer = setTimeout(() => finishRound(false), timeLimitMs);
+      }
+
+      renderRound();
+    },
+  };
+
+  const STROOP_GAME_VARIANTS = [stroopGame, numberSizeGame, arrowDirectionGame];
+
+  // --- じゃんけん ---
+
+  const jankenGame = {
+    start(container, onComplete) {
+      const CHOICES = [
+        { key: 'rock', emoji: '✊', label: 'グー' },
+        { key: 'scissors', emoji: '✌️', label: 'チョキ' },
+        { key: 'paper', emoji: '✋', label: 'パー' },
+      ];
+      const ROUNDS = 3;
+      let round = 0;
+      let wins = 0;
+
+      function beats(a, b) {
+        return (a === 'rock' && b === 'scissors') || (a === 'scissors' && b === 'paper') || (a === 'paper' && b === 'rock');
+      }
+
+      function renderRound() {
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">ラウンド ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">かち: ${wins}</span>
+          </div>
+          <div class="mg-title">じゃんけん ぽん!</div>
+          <div class="mg-math-choices">
+            ${CHOICES.map((c) => `<button class="mg-math-btn" data-key="${c.key}">${c.emoji} ${c.label}</button>`).join('')}
+          </div>
+        `;
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        let answered = false;
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            const playerKey = btn.dataset.key;
+            const cpu = CHOICES[Math.floor(Math.random() * CHOICES.length)];
+            let outcome;
+            if (playerKey === cpu.key) outcome = 'draw';
+            else if (beats(playerKey, cpu.key)) outcome = 'win';
+            else outcome = 'lose';
+            if (outcome === 'win') wins += 1;
+            const playerChoice = CHOICES.find((c) => c.key === playerKey);
+            container.innerHTML = `
+              <div class="mg-title">あなた: ${playerChoice.emoji}　あいて: ${cpu.emoji}</div>
+              <div class="mg-title">${outcome === 'win' ? 'かち!' : outcome === 'lose' ? 'まけ…' : 'あいこ'}</div>
+            `;
+            round += 1;
+            setTimeout(() => {
+              if (round >= ROUNDS) {
+                onComplete(Math.round((wins / ROUNDS) * 100));
+              } else {
+                renderRound();
+              }
+            }, 800);
+          });
+        });
+      }
+
+      renderRound();
+    },
+  };
+
+  const JANKEN_GAME_VARIANTS = [jankenGame];
+
+  // --- 神経衰弱(ペアさがし) ---
+
+  function makeConcentrationGame({ title, emojis }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const pairCount = Math.round(lerp(3, 6, difficulty));
+        const chosen = emojis.slice(0, pairCount);
+        const deck = [...chosen, ...chosen].map((emoji) => ({ emoji, matched: false }));
+        for (let i = deck.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        const cols = 4;
+        const rows = Math.ceil(deck.length / cols);
+        let firstIdx = null;
+        let lock = false;
+        let matches = 0;
+        let mistakes = 0;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">ペア: 0/${pairCount}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-concentration-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+            ${deck.map((_, i) => `<div class="mg-concentration-card" data-i="${i}">❓</div>`).join('')}
+          </div>
+        `;
+
+        const cards = Array.from(container.querySelectorAll('.mg-concentration-card'));
+        const scoreEl = container.querySelector('#mgScore');
+
+        cards.forEach((card, i) => {
+          card.addEventListener('pointerdown', () => {
+            if (lock || deck[i].matched || card.classList.contains('revealed')) return;
+            card.classList.add('revealed');
+            card.textContent = deck[i].emoji;
+
+            if (firstIdx === null) {
+              firstIdx = i;
+              return;
+            }
+            if (firstIdx === i) return;
+
+            lock = true;
+            const a = firstIdx;
+            const b = i;
+            firstIdx = null;
+
+            if (deck[a].emoji === deck[b].emoji) {
+              deck[a].matched = true;
+              deck[b].matched = true;
+              cards[a].classList.add('matched');
+              cards[b].classList.add('matched');
+              matches += 1;
+              scoreEl.textContent = `ペア: ${matches}/${pairCount}`;
+              lock = false;
+              if (matches >= pairCount) {
+                const score = Math.round(clamp(100 - mistakes * 12, 15, 100));
+                setTimeout(() => onComplete(score), 300);
+              }
+            } else {
+              mistakes += 1;
+              setTimeout(() => {
+                cards[a].classList.remove('revealed');
+                cards[a].textContent = '❓';
+                cards[b].classList.remove('revealed');
+                cards[b].textContent = '❓';
+                lock = false;
+              }, 600);
+            }
+          });
+        });
+      },
+    };
+  }
+
+  const CONCENTRATION_GAME_VARIANTS = [
+    makeConcentrationGame({ title: 'くだものの ペアを さがそう!', emojis: ['🍎', '🍌', '🍇', '🍓', '🍊', '🍑'] }),
+    makeConcentrationGame({ title: 'どうぶつの ペアを さがそう!', emojis: ['🐶', '🐱', '🐭', '🐸', '🐹', '🐰'] }),
+  ];
+
+  // --- 連打チャレンジ ---
+
+  function makeMashGame({ title, buttonEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 5000;
+        const tapsForFull = Math.round(lerp(20, 45, difficulty));
+        let taps = 0;
+        let running = true;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 5s</span>
+            <span id="mgScore">タップ: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <button class="mg-tap-btn" id="mgMashBtn" style="font-size:40px; padding:20px 40px;">${buttonEmoji}</button>
+        `;
+        const btn = container.querySelector('#mgMashBtn');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+        const startTime = performance.now();
+
+        btn.addEventListener('pointerdown', () => {
+          if (!running) return;
+          taps += 1;
+          scoreEl.textContent = `タップ: ${taps}`;
+        });
+
+        const interval = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) {
+            running = false;
+            clearInterval(interval);
+            const score = Math.round(clamp((taps / tapsForFull) * 100, 0, 100));
+            onComplete(score);
+          }
+        }, 100);
+      },
+    };
+  }
+
+  const MASH_GAME_VARIANTS = [
+    makeMashGame({ title: 'あわを あつめろ!れんだタップ!', buttonEmoji: '🫧' }),
+    makeMashGame({ title: 'ほしを あつめろ!れんだタップ!', buttonEmoji: '⭐' }),
+  ];
+
+  // --- バランスゲーム ---
+
+  const balanceGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const DURATION_MS = 8000;
+      const drift = lerp(8, 22, difficulty);
+      const nudgeAmount = 6;
+      let pos = 50;
+      let velocity = 0;
+      let running = true;
+      let lastTime = null;
+      let errorSum = 0;
+      let samples = 0;
+      let rafId;
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgTimer">残り: 8s</span>
+        </div>
+        <div class="mg-title">まんなかを キープしよう!</div>
+        <div class="mg-gauge" id="mgGauge">
+          <div class="mg-gauge-marker" id="mgMarker" style="left:50%; background:#333;"></div>
+        </div>
+        <div class="mg-math-choices">
+          <button class="mg-tap-btn" id="mgLeftBtn">◀️</button>
+          <button class="mg-tap-btn" id="mgRightBtn">▶️</button>
+        </div>
+      `;
+      const marker = container.querySelector('#mgMarker');
+      const timerEl = container.querySelector('#mgTimer');
+      const leftBtn = container.querySelector('#mgLeftBtn');
+      const rightBtn = container.querySelector('#mgRightBtn');
+
+      leftBtn.addEventListener('pointerdown', () => {
+        velocity -= nudgeAmount;
+      });
+      rightBtn.addEventListener('pointerdown', () => {
+        velocity += nudgeAmount;
+      });
+
+      const startTime = performance.now();
+
+      function frame(now) {
+        if (!running) return;
+        if (lastTime == null) lastTime = now;
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+
+        velocity += (Math.random() - 0.5) * drift * dt;
+        velocity *= 0.98;
+        pos += velocity * dt * 10;
+        pos = Math.max(0, Math.min(100, pos));
+        marker.style.left = pos + '%';
+        errorSum += Math.abs(pos - 50);
+        samples += 1;
+
+        const elapsed = now - startTime;
+        const remaining = Math.max(0, DURATION_MS - elapsed);
+        timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+        if (elapsed >= DURATION_MS) {
+          end();
+          return;
+        }
+        rafId = requestAnimationFrame(frame);
+      }
+
+      function end() {
+        if (!running) return;
+        running = false;
+        cancelAnimationFrame(rafId);
+        const avgError = samples ? errorSum / samples : 50;
+        const score = Math.round(clamp(100 - avgError * 2, 0, 100));
+        onComplete(score);
+      }
+
+      rafId = requestAnimationFrame(frame);
+    },
+  };
+
+  const BALANCE_GAME_VARIANTS = [balanceGame];
+
+  // --- まちがいさがし ---
+
+  function makeOddOneOutGame({ title, pairs }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const GRID_SIZE = Math.round(lerp(9, 20, difficulty));
+        const timeLimitMs = lerp(6000, 3200, difficulty);
+        const pair = pairs[Math.floor(Math.random() * pairs.length)];
+        const oddIndex = Math.floor(Math.random() * GRID_SIZE);
+        const cols = 5;
+        const rows = Math.ceil(GRID_SIZE / cols);
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+            ${Array.from({ length: GRID_SIZE }, (_, i) => `<div class="mg-hole" data-i="${i}" style="cursor:pointer;">${i === oddIndex ? pair.odd : pair.common}</div>`).join('')}
+          </div>
+        `;
+
+        const cells = Array.from(container.querySelectorAll('.mg-hole'));
+        cells.forEach((cell) => {
+          cell.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            const correct = Number(cell.dataset.i) === oddIndex;
+            onComplete(correct ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  const ODD_ONE_OUT_VARIANTS = [
+    makeOddOneOutGame({
+      title: 'いろが ちがう ものを さがそう!',
+      pairs: [
+        { common: '🔴', odd: '🟠' },
+        { common: '🟢', odd: '🔵' },
+        { common: '🟡', odd: '🟤' },
+        { common: '🟣', odd: '⚪' },
+      ],
+    }),
+    makeOddOneOutGame({
+      title: 'なかまはずれの どうぶつを さがそう!',
+      pairs: [
+        { common: '🐶', odd: '🐺' },
+        { common: '🐱', odd: '🐯' },
+        { common: '🐭', odd: '🐹' },
+        { common: '🐸', odd: '🐢' },
+      ],
+    }),
+  ];
+
+  // --- すうじならべ ---
+
+  const numberOrderGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const COUNT = Math.round(lerp(9, 16, difficulty));
+      const targetMs = lerp(9000, 5000, difficulty);
+      const numbers = Array.from({ length: COUNT }, (_, i) => i + 1);
+      for (let i = numbers.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+      }
+      const cols = 4;
+      const rows = Math.ceil(COUNT / cols);
+      let next = 1;
+      const startTime = performance.now();
+
+      container.innerHTML = `
+        <div class="mg-header"><span id="mgScore">つぎ: 1</span></div>
+        <div class="mg-title">1から じゅんばんに タップしよう!</div>
+        <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+          ${numbers.map((n) => `<div class="mg-hole" data-n="${n}" style="cursor:pointer; font-size:20px;">${n}</div>`).join('')}
+        </div>
+      `;
+
+      const scoreEl = container.querySelector('#mgScore');
+      const cells = Array.from(container.querySelectorAll('.mg-hole'));
+      cells.forEach((cell) => {
+        cell.addEventListener('pointerdown', () => {
+          const n = Number(cell.dataset.n);
+          if (n !== next) return;
+          cell.style.visibility = 'hidden';
+          next += 1;
+          if (next > COUNT) {
+            const elapsed = performance.now() - startTime;
+            const score = Math.round(clamp(100 - ((elapsed - targetMs) / targetMs) * 60, 10, 100));
+            onComplete(score);
+            return;
+          }
+          scoreEl.textContent = `つぎ: ${next}`;
+        });
+      });
+    },
+  };
+
+  const NUMBER_ORDER_VARIANTS = [numberOrderGame];
+
+  // --- シルエットあてクイズ ---
+
+  function makeSilhouetteGame({ title, pool }) {
+    return {
+      start(container, onComplete) {
+        const timeLimitMs = 5000;
+        const answer = pool[Math.floor(Math.random() * pool.length)];
+        const distractorPool = pool.filter((p) => p.key !== answer.key);
+        for (let i = distractorPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [distractorPool[i], distractorPool[j]] = [distractorPool[j], distractorPool[i]];
+        }
+        const choices = [answer, ...distractorPool.slice(0, 3)];
+        for (let i = choices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [choices[i], choices[j]] = [choices[j], choices[i]];
+        }
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-math-problem" style="filter: brightness(0); font-size:56px;">${answer.emoji}</div>
+          <div class="mg-math-choices">
+            ${choices.map((c) => `<button class="mg-math-btn" data-key="${c.key}">${c.label}</button>`).join('')}
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            onComplete(btn.dataset.key === answer.key ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  const SILHOUETTE_VARIANTS = [
+    makeSilhouetteGame({
+      title: 'シルエットの どうぶつは だれ?',
+      pool: [
+        { key: 'dog', emoji: '🐶', label: 'いぬ' },
+        { key: 'cat', emoji: '🐱', label: 'ねこ' },
+        { key: 'rabbit', emoji: '🐰', label: 'うさぎ' },
+        { key: 'bear', emoji: '🐻', label: 'くま' },
+        { key: 'panda', emoji: '🐼', label: 'パンダ' },
+        { key: 'lion', emoji: '🦁', label: 'ライオン' },
+      ],
+    }),
+    makeSilhouetteGame({
+      title: 'シルエットの たべものは なに?',
+      pool: [
+        { key: 'apple', emoji: '🍎', label: 'りんご' },
+        { key: 'banana', emoji: '🍌', label: 'バナナ' },
+        { key: 'onigiri', emoji: '🍙', label: 'おにぎり' },
+        { key: 'cake', emoji: '🍰', label: 'ケーキ' },
+        { key: 'pizza', emoji: '🍕', label: 'ピザ' },
+        { key: 'icecream', emoji: '🍦', label: 'アイス' },
+      ],
+    }),
+  ];
+
+  // --- パターンすいりクイズ ---
+
+  function makePatternGame({ title, kind }) {
+    return {
+      start(container, onComplete) {
+        const timeLimitMs = 6000;
+        let sequence;
+        let answer;
+        let distractors;
+
+        if (kind === 'number') {
+          const start = 1 + Math.floor(Math.random() * 5);
+          const step = 1 + Math.floor(Math.random() * 3);
+          sequence = [start, start + step, start + step * 2, start + step * 3];
+          answer = start + step * 4;
+          distractors = [answer + step, answer - 1, answer + 2].filter((d) => d !== answer);
+        } else {
+          const COLORS = ['🔴', '🔵', '🟡', '🟢'];
+          const patternLen = 2 + Math.floor(Math.random() * 2);
+          const cycle = [];
+          for (let i = 0; i < patternLen; i++) cycle.push(COLORS[Math.floor(Math.random() * COLORS.length)]);
+          sequence = [];
+          for (let i = 0; i < 5; i++) sequence.push(cycle[i % patternLen]);
+          answer = cycle[5 % patternLen];
+          distractors = COLORS.filter((c) => c !== answer);
+        }
+
+        const choices = Array.from(new Set([answer, ...distractors])).slice(0, 4);
+        for (let i = choices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [choices[i], choices[j]] = [choices[j], choices[i]];
+        }
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-math-problem" style="font-size:22px;">${sequence.join('　')}　→　?</div>
+          <div class="mg-math-choices">
+            ${choices.map((c) => `<button class="mg-math-btn" data-val="${c}">${c}</button>`).join('')}
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            onComplete(String(btn.dataset.val) === String(answer) ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  const PATTERN_GAME_VARIANTS = [
+    makePatternGame({ title: 'つぎに くる かずは?', kind: 'number' }),
+    makePatternGame({ title: 'つぎに くる いろは?', kind: 'color' }),
+  ];
+
+  const MINIGAMES = [
+    ...CATCH_GAME_VARIANTS,
+    ...WHACK_GAME_VARIANTS,
+    ...TIMING_GAME_VARIANTS,
+    ...QUIZ_GAME_VARIANTS,
+    ...MEMORY_GAME_VARIANTS,
+    ...MATH_GAME_VARIANTS,
+    ...REACTION_GAME_VARIANTS,
+    ...STROOP_GAME_VARIANTS,
+    ...JANKEN_GAME_VARIANTS,
+    ...CONCENTRATION_GAME_VARIANTS,
+    ...MASH_GAME_VARIANTS,
+    ...BALANCE_GAME_VARIANTS,
+    ...ODD_ONE_OUT_VARIANTS,
+    ...NUMBER_ORDER_VARIANTS,
+    ...SILHOUETTE_VARIANTS,
+    ...PATTERN_GAME_VARIANTS,
+  ];
+
   let minigameQueue = [];
   let lastMinigameIndex = -1;
 
