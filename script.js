@@ -518,7 +518,10 @@
         setMessage('てんごくへ いってしまった…');
       }
 
-      advanceStage();
+      // no natural age-based advancement past the egg here on purpose -
+      // growing up beyond hatching only happens through triggerEvolutionJump()
+      // (see checkMeters()), so a full evo meter is the only thing that
+      // actually transforms the pet
       checkMeters();
     }
   }
