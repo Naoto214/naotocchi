@@ -16,37 +16,41 @@
 
     <div class="screen-frame">
       <div class="screen" id="screen">
-        <div class="status-row">
-          <span id="ageLabel">日齢: 0</span>
-          <span id="stageLabel">たまご</span>
+        <div class="screen-normal" id="screenNormal">
+          <div class="status-row">
+            <span id="ageLabel">日齢: 0</span>
+            <span id="stageLabel">たまご</span>
+          </div>
+
+          <div class="pet-area">
+            <div class="badges" id="badges"></div>
+            <div class="pet" id="pet">🥚</div>
+            <div class="poop-row" id="poopRow"></div>
+          </div>
+
+          <div class="bars">
+            <div class="bar-line">
+              <span class="bar-label">満腹</span>
+              <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
+            </div>
+            <div class="bar-line">
+              <span class="bar-label">機嫌</span>
+              <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
+            </div>
+            <div class="bar-line">
+              <span class="bar-label">元気</span>
+              <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
+            </div>
+            <div class="bar-line">
+              <span class="bar-label">体力</span>
+              <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
+            </div>
+          </div>
+
+          <div class="message" id="message">卵がやってきた…</div>
         </div>
 
-        <div class="pet-area">
-          <div class="badges" id="badges"></div>
-          <div class="pet" id="pet">🥚</div>
-          <div class="poop-row" id="poopRow"></div>
-        </div>
-
-        <div class="bars">
-          <div class="bar-line">
-            <span class="bar-label">満腹</span>
-            <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
-          </div>
-          <div class="bar-line">
-            <span class="bar-label">機嫌</span>
-            <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
-          </div>
-          <div class="bar-line">
-            <span class="bar-label">元気</span>
-            <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
-          </div>
-          <div class="bar-line">
-            <span class="bar-label">体力</span>
-            <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
-          </div>
-        </div>
-
-        <div class="message" id="message">卵がやってきた…</div>
+        <div class="minigame-overlay hidden" id="minigameOverlay"></div>
       </div>
     </div>
 

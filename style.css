@@ -87,6 +87,18 @@ body {
   color: #333;
 }
 
+.screen-normal,
+.minigame-overlay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-normal.hidden,
+.minigame-overlay.hidden {
+  display: none;
+}
+
 .status-row {
   display: flex;
   justify-content: space-between;
@@ -184,6 +196,191 @@ body {
   min-height: 16px;
   text-align: center;
   font-weight: bold;
+}
+
+/* --- minigames --- */
+
+.mg-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.mg-title {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.mg-hint {
+  text-align: center;
+  font-size: 10px;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+/* catch */
+
+.mg-catch-field {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  background: #86c977;
+  border-radius: 6px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.mg-basket {
+  position: absolute;
+  bottom: 4px;
+  width: 44px;
+  height: 32px;
+  font-size: 28px;
+  line-height: 32px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.mg-falling-item {
+  position: absolute;
+  font-size: 22px;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+/* whack */
+
+.mg-whack-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+  min-height: 150px;
+}
+
+.mg-hole {
+  background: #7fbf6e;
+  border-radius: 50%;
+  border: 3px solid #5a9a4c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  user-select: none;
+}
+
+.mg-hole.active {
+  background: #a3d98f;
+}
+
+/* timing */
+
+.mg-timing-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.mg-gauge {
+  position: relative;
+  width: 100%;
+  height: 26px;
+  background: #6fae5f;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.mg-gauge-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: #ffe066;
+  opacity: 0.85;
+}
+
+.mg-gauge-marker {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 6px;
+  background: #16330f;
+  border-radius: 3px;
+}
+
+.mg-tap-btn {
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #6b3654;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mg-tap-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* comic quiz */
+
+.mg-comic-panel {
+  border: 3px solid #16330f;
+  border-radius: 6px;
+  background: #e9f6e3;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.mg-comic-face {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.mg-comic-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #16330f;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.mg-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mg-choice-btn {
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b3654;
+  text-align: left;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mg-choice-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .buttons {
