@@ -2730,6 +2730,7 @@
     }
     state.happiness = clamp(state.happiness + 3, 0, 100);
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+    state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
     checkMeters();
     setMessage('もぐもぐ おいしい!');
     bouncePet();
@@ -2763,6 +2764,7 @@
     state.happiness = clamp(state.happiness + 5, 0, 100);
     state.actionCounts.clean += 1;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+    state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
     checkMeters();
     setMessage('おそうじ できた!');
   }));
@@ -2773,6 +2775,7 @@
       state.actionCounts.sleep += 1;
     } else {
       state.evoMeter = clamp(state.evoMeter + 4, 0, 100);
+      state.devoMeter = clamp(state.devoMeter - 3, 0, 100);
       checkMeters();
     }
     setMessage(state.isSleeping ? 'おやすみなさい…' : 'おはよう!');
@@ -2786,6 +2789,7 @@
       state.health = clamp(state.health + 20, 0, 100);
       state.energy = clamp(state.energy - 10, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
+      state.devoMeter = clamp(state.devoMeter - 6, 0, 100);
       checkMeters();
       setMessage('げんきに なった!');
     } else {
