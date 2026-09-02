@@ -20,32 +20,14 @@
 
   const STAGE = {
     EGG: 'egg',
-    BABY: 'baby',
-    CHILD: 'child',
-    TEEN: 'teen',
-    ADULT: 'adult',
-    ELDER: 'elder',
+    GROWING: 'growing', // baby..elder - which one is tracked by state.stageIndex
     DEAD: 'dead',
     CLEAR: 'clear',
   };
 
-  const AGE_THRESHOLDS = {
-    hatch: 2,   // egg -> baby
-    child: 10,  // baby -> child
-    teen: 20,   // child -> teen
-    adult: 35,  // teen -> adult (species is decided here)
-    elder: 60,  // adult -> elder (same species, aged form)
-  };
-
-  const STAGE_ORDER = [STAGE.EGG, STAGE.BABY, STAGE.CHILD, STAGE.TEEN, STAGE.ADULT, STAGE.ELDER];
-  const STAGE_ENTRY_AGE = {
-    [STAGE.EGG]: 0,
-    [STAGE.BABY]: AGE_THRESHOLDS.hatch,
-    [STAGE.CHILD]: AGE_THRESHOLDS.child,
-    [STAGE.TEEN]: AGE_THRESHOLDS.teen,
-    [STAGE.ADULT]: AGE_THRESHOLDS.adult,
-    [STAGE.ELDER]: AGE_THRESHOLDS.elder,
-  };
+  // age at which an egg hatches - the same for every line, since which line
+  // it hatches into is picked randomly at that moment
+  const HATCH_AGE = 2;
 
   const AGE_MIN = 0;
   const AGE_MAX = 9999;
@@ -54,31 +36,95 @@
   // that age was reached - normal aging, evolution jumps, or a mix
   const GOAL_DAYS = 100;
 
-  const SPRITES = {
-    [STAGE.EGG]: '🥚',
-    [STAGE.BABY]: '🐣',
-    [STAGE.CHILD]: '🐥',
-    [STAGE.TEEN]: '🐤',
-    [STAGE.DEAD]: '👻',
-    [STAGE.CLEAR]: '🎉',
+  // used only to scale minigame difficulty continuously with age - not tied
+  // to any one line's actual stage thresholds
+  const MAX_DIFFICULTY_AGE = 60;
+
+  // each line is its own baby -> elder growth path (own emoji and label at
+  // every stage, not a generic bird sprite shared by everyone pre-adult).
+  // which line an egg hatches into is random (see pickRandomLine) - なる
+  // messages are deliberately distinct per line/stage rather than templated
+  const SPECIES = {
+    dog: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐶', label: 'あかちゃんいぬ' },
+        { threshold: 8, emoji: '🐶', label: 'こいぬ', message: 'こいぬに せいちょうした!' },
+        { threshold: 16, emoji: '🐕', label: 'わんぱくいぬ', message: 'わんぱくいぬに せいちょうした!' },
+        { threshold: 26, emoji: '🐕', label: 'わかいいぬ', message: 'わかいいぬに せいちょうした!' },
+        { threshold: 40, emoji: '🐕', label: 'いぬ', message: 'げんきいっぱいの いぬに へんしんした!' },
+        { threshold: 60, emoji: '🐕', label: 'としをとった いぬ', message: 'としをとった いぬに なった…' },
+      ],
+    },
+    cat: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐱', label: 'あかちゃんねこ' },
+        { threshold: 8, emoji: '🐱', label: 'こねこ', message: 'こねこに せいちょうした!' },
+        { threshold: 16, emoji: '🐈', label: 'おてんばねこ', message: 'おてんばねこに せいちょうした!' },
+        { threshold: 26, emoji: '🐈', label: 'わかいねこ', message: 'わかいねこに せいちょうした!' },
+        { threshold: 40, emoji: '🐈', label: 'ねこ', message: 'きままな ねこに へんしんした!' },
+        { threshold: 60, emoji: '🐈', label: 'としをとった ねこ', message: 'としをとった ねこに なった…' },
+      ],
+    },
+    bird: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐣', label: 'ひな' },
+        { threshold: 8, emoji: '🐥', label: 'こどり', message: 'こどりに せいちょうした!' },
+        { threshold: 16, emoji: '🐤', label: 'わかどり', message: 'わかどりに せいちょうした!' },
+        { threshold: 26, emoji: '🐤', label: 'はばたくとり', message: 'はばたくとりに せいちょうした!' },
+        { threshold: 40, emoji: '🐦', label: 'とり', message: 'じゆうな とりに へんしんした!' },
+        { threshold: 60, emoji: '🦜', label: 'としをとった とり', message: 'としをとった とりに なった…' },
+      ],
+    },
+    man: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃん' },
+        { threshold: 8, emoji: '🧒', label: 'おとこのこ', message: 'おとこのこに せいちょうした!' },
+        { threshold: 16, emoji: '👦', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
+        { threshold: 26, emoji: '🧑', label: 'せいねん', message: 'せいねんに せいちょうした!' },
+        { threshold: 40, emoji: '🧑', label: 'おとこのひと', message: 'たくましい おとこのひとに せいちょうした!' },
+        { threshold: 60, emoji: '👴', label: 'おじいさん', message: 'おじいさんに なった…' },
+      ],
+    },
+    woman: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃん' },
+        { threshold: 8, emoji: '🧒', label: 'おんなのこ', message: 'おんなのこに せいちょうした!' },
+        { threshold: 16, emoji: '👧', label: 'しょうじょ', message: 'しょうじょに せいちょうした!' },
+        { threshold: 26, emoji: '👧', label: 'わかいおんなのひと', message: 'わかいおんなのひとに せいちょうした!' },
+        { threshold: 40, emoji: '👩', label: 'おんなのひと', message: 'りりしい おんなのひとに せいちょうした!' },
+        { threshold: 60, emoji: '👵', label: 'おばあさん', message: 'おばあさんに なった…' },
+      ],
+    },
+    beetle: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐛', label: 'ようちゅう' },
+        { threshold: 8, emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
+        { threshold: 16, emoji: '🪲', label: 'さなぎあがりの こがぶとむし', message: 'さなぎから でてきた!' },
+        { threshold: 26, emoji: '🪲', label: 'わかいカブトムシ', message: 'わかいカブトムシに せいちょうした!' },
+        { threshold: 40, emoji: '🪲', label: 'カブトムシ', message: 'たくましい カブトムシに へんしんした!' },
+        { threshold: 60, emoji: '🪲', label: 'でんせつの カブトムシ', message: 'でんせつの カブトムシに なった…' },
+      ],
+    },
+    stagbeetle: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐛', label: 'ようちゅう' },
+        { threshold: 8, emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
+        { threshold: 16, emoji: '🪲', label: 'さなぎあがりの こくわがた', message: 'さなぎから でてきた!' },
+        { threshold: 26, emoji: '🪲', label: 'わかいクワガタムシ', message: 'わかいクワガタムシに せいちょうした!' },
+        { threshold: 40, emoji: '🪲', label: 'クワガタムシ', message: 'りっぱな クワガタムシに へんしんした!' },
+        { threshold: 60, emoji: '🪲', label: 'でんせつの クワガタムシ', message: 'でんせつの クワガタムシに なった…' },
+      ],
+    },
   };
 
-  // what a pet becomes as an adult depends on how it was raised, and it keeps
-  // that identity into old age rather than re-rolling
-  // every species ages into the same "としをとった <adultLabel>" phrasing,
-  // rather than a different word per species (おじいさん/でんせつの/etc.) -
-  // only the emoji is species-specific
-  const SPECIES = {
-    dog: { adultEmoji: '🐶', adultLabel: 'いぬ', elderEmoji: '🐕', elderLabel: 'としをとった いぬ' },
-    cat: { adultEmoji: '🐱', adultLabel: 'ねこ', elderEmoji: '🐈', elderLabel: 'としをとった ねこ' },
-    bird: { adultEmoji: '🐦', adultLabel: 'とり', elderEmoji: '🦜', elderLabel: 'としをとった とり' },
-    man: { adultEmoji: '🧑', adultLabel: 'おとこのひと', elderEmoji: '👴', elderLabel: 'としをとった おとこのひと' },
-    woman: { adultEmoji: '👩', adultLabel: 'おんなのひと', elderEmoji: '👵', elderLabel: 'としをとった おんなのひと' },
-    beetle: { adultEmoji: '🪲', adultLabel: 'カブトムシ', elderEmoji: '🪲', elderLabel: 'としをとった カブトムシ' },
-    stagbeetle: { adultEmoji: '🪲', adultLabel: 'クワガタムシ', elderEmoji: '🪲', elderLabel: 'としをとった クワガタムシ' },
-    god: { adultEmoji: '😇', adultLabel: 'かみさま', elderEmoji: '🌞', elderLabel: 'としをとった かみさま' },
-    ren: { adultEmoji: '🧒', adultLabel: 'れんくん', elderEmoji: '🧑', elderLabel: 'としをとった れんくん' },
-  };
+  // god/ren are intentionally left out of the random hatch pool - they stay
+  // rare, earned surprises (brought back via a future 変身 mechanic instead
+  // of ever being a starting line)
+  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle'];
+
+  function pickRandomLine() {
+    return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
+  }
 
   const el = {
     pet: document.getElementById('pet'),
@@ -116,7 +162,8 @@
   function freshState() {
     return {
       stage: STAGE.EGG,
-      species: null,
+      speciesLine: null,
+      stageIndex: 0,
       hunger: 90,
       happiness: 90,
       energy: 90,
@@ -150,10 +197,24 @@
       const parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== 'object') return freshState();
       const merged = { ...freshState(), ...parsed };
-      // migrate saves from before adults branched by species
-      if (parsed.stage === 'adult_good' || parsed.stage === 'adult_bad') {
-        merged.stage = STAGE.ADULT;
-        merged.species = parsed.stage === 'adult_good' ? 'dog' : 'stagbeetle';
+      // migrate saves from before growth lines existed - old stage values
+      // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
+      // adult_good/adult_bad from even earlier), with one shared species
+      // decided at teen->adult instead of a per-line stage list from hatch
+      const OLD_STAGE_MAP = {
+        adult_good: { stageIndex: 4, species: 'dog' },
+        adult_bad: { stageIndex: 4, species: 'stagbeetle' },
+        baby: { stageIndex: 0, species: null },
+        child: { stageIndex: 1, species: null },
+        teen: { stageIndex: 3, species: null },
+        adult: { stageIndex: 4, species: parsed.species || null },
+        elder: { stageIndex: 5, species: parsed.species || null },
+      };
+      if (Object.prototype.hasOwnProperty.call(OLD_STAGE_MAP, parsed.stage)) {
+        const mapped = OLD_STAGE_MAP[parsed.stage];
+        merged.stage = STAGE.GROWING;
+        merged.stageIndex = mapped.stageIndex;
+        merged.speciesLine = mapped.species || pickRandomLine();
       }
       return merged;
     } catch (e) {
@@ -177,7 +238,7 @@
   // difficulty knobs off of this so the whole game gets meaner as the pet
   // gets older, instead of staying at "baby" difficulty forever
   function ageDifficulty() {
-    return clamp(state.age / AGE_THRESHOLDS.elder, 0, 1);
+    return clamp(state.age / MAX_DIFFICULTY_AGE, 0, 1);
   }
 
   function lerp(min, max, t) {
@@ -211,18 +272,6 @@
       }, MESSAGE_DURATION_MS);
     }
   }
-
-  const EVOLUTION_MESSAGES = {
-    dog: 'げんきいっぱいの いぬに へんしんした!',
-    cat: 'きままな ねこに へんしんした!',
-    bird: 'じゆうな とりに へんしんした!',
-    man: 'たくましい おとこのひとに へんしんした!',
-    woman: 'りりしい おんなのひとに へんしんした!',
-    beetle: 'たくましい カブトムシに へんしんした!',
-    stagbeetle: 'りっぱな クワガタムシに へんしんした!',
-    god: 'まさかの…かみさまに しんかした!!',
-    ren: 'あれ!?れんくんが なかまに くわわった!',
-  };
 
   // one-time flavor beats sprinkled across a play session - each fires at
   // most once (tracked in state.storyFlagsSeen) so they read as a loose
@@ -262,93 +311,26 @@
     return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
   }
 
-  // how a pet is raised decides what it becomes: the action used most often
-  // picks a species, exceptional all-around care transcends that into a god,
-  // and being consistently great at minigames has a rare chance of a very
-  // different kind of surprise
-  function decideSpecies() {
-    const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 50;
-    const avgSkill = state.minigameCount > 0 ? state.minigameScoreSum / state.minigameCount : 0;
-    const traits = state.traitCounts;
-    const traitTotal = traits.gentle + traits.wild + traits.calm + traits.brave + traits.romantic;
-
-    if (state.minigameCount >= 5 && avgSkill >= 85 && Math.random() < 0.25) {
-      return 'ren';
-    }
-    // choosing romantic answers in the manga quiz over and over is a second,
-    // independent path to the same rare surprise
-    if (traitTotal >= 5 && traits.romantic === Math.max(traits.gentle, traits.wild, traits.calm, traits.brave, traits.romantic) && Math.random() < 0.2) {
-      return 'ren';
-    }
-    if (avgCare >= 90) {
-      return 'god';
-    }
-
-    const counts = state.actionCounts;
-    // which quiz answers were picked nudges the same species lines the care
-    // actions do, so a pet's personality (not just its daily routine) has a
-    // say in what it becomes
-    const ranked = [
-      ['play', counts.play + traits.wild],
-      ['sleep', counts.sleep + traits.calm],
-      ['feed', counts.feed + traits.gentle],
-      ['clean', counts.clean + traits.brave + traits.romantic],
-      ['medicine', counts.medicine],
-    ].sort((a, b) => b[1] - a[1]);
-    const dominant = ranked[0][1] > 0 ? ranked[0][0] : 'feed';
-
-    switch (dominant) {
-      case 'play':
-        return 'dog';
-      case 'sleep':
-        return 'cat';
-      case 'feed':
-        return 'bird';
-      case 'clean':
-        return counts.play + traits.romantic >= counts.sleep + traits.brave ? 'woman' : 'man';
-      case 'medicine':
-        return counts.feed + traits.wild >= counts.clean + traits.calm ? 'beetle' : 'stagbeetle';
-      default:
-        return 'bird';
-    }
-  }
-
   // returns true if a transition happened, so callers can loop it to catch
   // up multiple stages at once when age jumps by a lot in one go
   function advanceStage() {
-    if (state.stage === STAGE.EGG && state.age >= AGE_THRESHOLDS.hatch) {
-      state.stage = STAGE.BABY;
+    if (state.stage === STAGE.EGG) {
+      if (state.age < HATCH_AGE) return false;
+      state.speciesLine = pickRandomLine();
+      state.stage = STAGE.GROWING;
+      state.stageIndex = 0;
       state.growthEvents += 1;
       setMessage('たまごがかえった!');
       bouncePet();
       return true;
     }
-    if (state.stage === STAGE.BABY && state.age >= AGE_THRESHOLDS.child) {
-      state.stage = STAGE.CHILD;
+    if (state.stage === STAGE.GROWING) {
+      const stages = SPECIES[state.speciesLine].stages;
+      const next = stages[state.stageIndex + 1];
+      if (!next || state.age < next.threshold) return false;
+      state.stageIndex += 1;
       state.growthEvents += 1;
-      setMessage('こどもに せいちょうした!');
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.CHILD && state.age >= AGE_THRESHOLDS.teen) {
-      state.stage = STAGE.TEEN;
-      state.growthEvents += 1;
-      setMessage('はんせいじんに せいちょうした!');
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.TEEN && state.age >= AGE_THRESHOLDS.adult) {
-      state.species = decideSpecies();
-      state.stage = STAGE.ADULT;
-      state.growthEvents += 1;
-      setMessage(EVOLUTION_MESSAGES[state.species]);
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.ADULT && state.age >= AGE_THRESHOLDS.elder) {
-      state.stage = STAGE.ELDER;
-      state.growthEvents += 1;
-      setMessage(`${SPECIES[state.species].elderLabel} に なった…`);
+      setMessage(next.message || `${next.label}に なった!`);
       bouncePet();
       return true;
     }
@@ -363,28 +345,24 @@
   // deathMeter and end things outright. because these jumps move age
   // directly, they also move the pet toward or away from GOAL_DAYS
   function triggerEvolutionJump() {
-    const idx = STAGE_ORDER.indexOf(state.stage);
-    if (idx !== -1 && idx < STAGE_ORDER.length - 1) {
-      const nextStage = STAGE_ORDER[idx + 1];
-      state.age = Math.max(state.age, STAGE_ENTRY_AGE[nextStage]);
-      advanceStage();
-    }
+    if (state.stage !== STAGE.GROWING) return;
+    const stages = SPECIES[state.speciesLine].stages;
+    if (state.stageIndex >= stages.length - 1) return;
+    state.age = Math.max(state.age, stages[state.stageIndex + 1].threshold);
+    advanceStage();
   }
 
   function triggerDevolutionJump() {
-    const idx = STAGE_ORDER.indexOf(state.stage);
-    if (idx <= 1) {
-      // already baby (or egg) - nowhere lower to fall back to visually
+    if (state.stage !== STAGE.GROWING || state.stageIndex <= 0) {
+      // already the youngest growing stage (or still an egg) - nowhere
+      // lower to fall back to visually
       setMessage('たいかメーターが MAXに…でも これ以上は もどれない…');
       return;
     }
-    const prevStage = STAGE_ORDER[idx - 1];
-    state.stage = prevStage;
-    state.age = STAGE_ENTRY_AGE[prevStage];
-    if (prevStage !== STAGE.ADULT && prevStage !== STAGE.ELDER) {
-      state.species = null;
-    }
-    setMessage('たいかメーターが MAXに…すこし もどってしまった…');
+    const stages = SPECIES[state.speciesLine].stages;
+    state.stageIndex -= 1;
+    state.age = stages[state.stageIndex].threshold;
+    setMessage(`${stages[state.stageIndex].label}に もどってしまった…`);
     bouncePet();
   }
 
@@ -398,28 +376,34 @@
     setMessage('ゲームクリア!');
   }
 
+  // returns true if it set its own message (death/transform/clear) - callers
+  // must not overwrite that with their own generic action message afterward
   function checkMeters() {
-    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return false;
     if (state.deathMeter >= 100) {
       state.deathMeter = 0;
       state.evoMeter = 0;
       state.devoMeter = 0;
       triggerDeath();
-      return;
+      return true;
     }
+    let changedMessage = false;
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
       triggerEvolutionJump();
+      changedMessage = true;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
       triggerDevolutionJump();
+      changedMessage = true;
     }
     if (Math.floor(state.age / 20) >= GOAL_DAYS) {
       triggerGameClear();
-      return;
+      return true;
     }
     checkStoryEvents();
+    return changedMessage;
   }
 
   const STORY_FLASH_DURATION_MS = 3000;
@@ -552,27 +536,20 @@
     elBar.className = `bar-fill ${baseClass} ${value >= 70 ? 'high' : ''}`.trim();
   }
 
-  const STAGE_LABELS = {
-    [STAGE.EGG]: 'たまご',
-    [STAGE.BABY]: 'あかちゃん',
-    [STAGE.CHILD]: 'こども',
-    [STAGE.TEEN]: 'はんせいじん',
-    [STAGE.DEAD]: 'おわり',
-    [STAGE.CLEAR]: 'クリア!',
-  };
-
   function currentSprite() {
-    const species = state.species && SPECIES[state.species];
-    if (state.stage === STAGE.ADULT && species) return species.adultEmoji;
-    if (state.stage === STAGE.ELDER && species) return species.elderEmoji;
-    return SPRITES[state.stage] || '❓';
+    if (state.stage === STAGE.EGG) return '🥚';
+    if (state.stage === STAGE.DEAD) return '👻';
+    if (state.stage === STAGE.CLEAR) return '🎉';
+    const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
+    return stages?.[state.stageIndex]?.emoji || '❓';
   }
 
   function currentStageLabel() {
-    const species = state.species && SPECIES[state.species];
-    if (state.stage === STAGE.ADULT && species) return species.adultLabel;
-    if (state.stage === STAGE.ELDER && species) return species.elderLabel;
-    return STAGE_LABELS[state.stage] || '';
+    if (state.stage === STAGE.EGG) return 'たまご';
+    if (state.stage === STAGE.DEAD) return 'おわり';
+    if (state.stage === STAGE.CLEAR) return 'クリア!';
+    const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
+    return stages?.[state.stageIndex]?.label || '';
   }
 
   function render() {
@@ -2734,8 +2711,9 @@
     state.happiness = clamp(state.happiness + 3, 0, 100);
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
-    checkMeters();
-    setMessage('もぐもぐ おいしい!');
+    if (!checkMeters()) {
+      setMessage('もぐもぐ おいしい!');
+    }
     bouncePet();
   }));
 
@@ -2768,20 +2746,23 @@
     state.actionCounts.clean += 1;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
-    checkMeters();
-    setMessage('おそうじ できた!');
+    if (!checkMeters()) {
+      setMessage('おそうじ できた!');
+    }
   }));
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
-    } else {
-      state.evoMeter = clamp(state.evoMeter + 4, 0, 100);
-      state.devoMeter = clamp(state.devoMeter - 3, 0, 100);
-      checkMeters();
+      setMessage('おやすみなさい…');
+      return;
     }
-    setMessage(state.isSleeping ? 'おやすみなさい…' : 'おはよう!');
+    state.evoMeter = clamp(state.evoMeter + 4, 0, 100);
+    state.devoMeter = clamp(state.devoMeter - 3, 0, 100);
+    if (!checkMeters()) {
+      setMessage('おはよう!');
+    }
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
@@ -2793,14 +2774,16 @@
       state.energy = clamp(state.energy - 10, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 6, 0, 100);
-      checkMeters();
-      setMessage('げんきに なった!');
+      if (!checkMeters()) {
+        setMessage('げんきに なった!');
+      }
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
       state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
-      checkMeters();
-      setMessage('びょうきじゃないのに… いやがっている');
+      if (!checkMeters()) {
+        setMessage('びょうきじゃないのに… いやがっている');
+      }
     }
   }));
 
