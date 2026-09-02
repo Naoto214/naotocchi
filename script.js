@@ -36,15 +36,13 @@
     elder: 60,  // adult -> elder (same species, aged form)
   };
 
-  const STAGE_ORDER = [STAGE.EGG, STAGE.BABY, STAGE.CHILD, STAGE.TEEN, STAGE.ADULT, STAGE.ELDER];
-  const STAGE_ENTRY_AGE = {
-    [STAGE.EGG]: 0,
-    [STAGE.BABY]: AGE_THRESHOLDS.hatch,
-    [STAGE.CHILD]: AGE_THRESHOLDS.child,
-    [STAGE.TEEN]: AGE_THRESHOLDS.teen,
-    [STAGE.ADULT]: AGE_THRESHOLDS.adult,
-    [STAGE.ELDER]: AGE_THRESHOLDS.elder,
-  };
+  // a full evo/devo meter nudges age by this much (uncapped in both
+  // directions - age can climb past "elder" or drop below 0) rather than
+  // snapping straight to a stage, so a single meter fill doesn't guarantee
+  // an instant transformation; the pet only actually changes form once
+  // enough of these have accumulated to cross a stage's age threshold
+  const EVO_AGE_STEP = 8;
+  const DEVO_AGE_STEP = 8;
 
   const SPRITES = {
     [STAGE.EGG]: '🥚',
@@ -253,55 +251,101 @@
     }
   }
 
+  // returns true if a transition happened, so callers can loop it to catch
+  // up multiple stages at once when age jumps by a lot in one go
   function advanceStage() {
     if (state.stage === STAGE.EGG && state.age >= AGE_THRESHOLDS.hatch) {
       state.stage = STAGE.BABY;
       setMessage('たまごがかえった!');
       bouncePet();
-    } else if (state.stage === STAGE.BABY && state.age >= AGE_THRESHOLDS.child) {
+      return true;
+    }
+    if (state.stage === STAGE.BABY && state.age >= AGE_THRESHOLDS.child) {
       state.stage = STAGE.CHILD;
       setMessage('こどもに せいちょうした!');
       bouncePet();
-    } else if (state.stage === STAGE.CHILD && state.age >= AGE_THRESHOLDS.teen) {
+      return true;
+    }
+    if (state.stage === STAGE.CHILD && state.age >= AGE_THRESHOLDS.teen) {
       state.stage = STAGE.TEEN;
       setMessage('はんせいじんに せいちょうした!');
       bouncePet();
-    } else if (state.stage === STAGE.TEEN && state.age >= AGE_THRESHOLDS.adult) {
+      return true;
+    }
+    if (state.stage === STAGE.TEEN && state.age >= AGE_THRESHOLDS.adult) {
       state.species = decideSpecies();
       state.stage = STAGE.ADULT;
       setMessage(EVOLUTION_MESSAGES[state.species]);
       bouncePet();
-    } else if (state.stage === STAGE.ADULT && state.age >= AGE_THRESHOLDS.elder) {
+      return true;
+    }
+    if (state.stage === STAGE.ADULT && state.age >= AGE_THRESHOLDS.elder) {
       state.stage = STAGE.ELDER;
       setMessage(`${SPECIES[state.species].elderLabel} に なった…`);
       bouncePet();
+      return true;
     }
+    return false;
+  }
+
+  // the mirror image of advanceStage() - age dropping back below a stage's
+  // own entry threshold knocks the pet back down a stage; also true/false
+  // so it can be looped the same way
+  function regressStage() {
+    if (state.stage === STAGE.ELDER && state.age < AGE_THRESHOLDS.elder) {
+      state.stage = STAGE.ADULT;
+      setMessage(`わかがえって ${SPECIES[state.species].adultLabel} に もどった…`);
+      bouncePet();
+      return true;
+    }
+    if (state.stage === STAGE.ADULT && state.age < AGE_THRESHOLDS.adult) {
+      state.stage = STAGE.TEEN;
+      state.species = null;
+      setMessage('はんせいじんに もどってしまった…');
+      bouncePet();
+      return true;
+    }
+    if (state.stage === STAGE.TEEN && state.age < AGE_THRESHOLDS.teen) {
+      state.stage = STAGE.CHILD;
+      setMessage('こどもに もどってしまった…');
+      bouncePet();
+      return true;
+    }
+    if (state.stage === STAGE.CHILD && state.age < AGE_THRESHOLDS.child) {
+      state.stage = STAGE.BABY;
+      setMessage('あかちゃんに もどってしまった…');
+      bouncePet();
+      return true;
+    }
+    if (state.stage === STAGE.BABY && state.age < AGE_THRESHOLDS.hatch) {
+      state.stage = STAGE.EGG;
+      setMessage('たまごに もどってしまった…');
+      bouncePet();
+      return true;
+    }
+    return false;
   }
 
   // the evolution/devolution/death meters are the fast, performance-driven
-  // layer on top of plain aging: doing well fills evoMeter and jumps the
-  // pet forward a stage the instant it's full, doing poorly fills devoMeter
-  // and knocks it back a stage, and repeated mistakes fill deathMeter and
-  // end things outright - independent of how old the pet actually is
+  // layer on top of plain aging: doing well fills evoMeter and nudges age
+  // forward (uncapped - it can climb well past "elder"), doing poorly fills
+  // devoMeter and nudges age backward (also uncapped - it can go negative),
+  // and repeated mistakes fill deathMeter and end things outright. actually
+  // changing form still only happens once accumulated age crosses a stage's
+  // threshold, so a single meter fill doesn't guarantee an instant transformation
   function triggerEvolutionJump() {
-    const idx = STAGE_ORDER.indexOf(state.stage);
-    if (idx === -1 || idx >= STAGE_ORDER.length - 1) return;
-    const nextStage = STAGE_ORDER[idx + 1];
-    state.age = Math.max(state.age, STAGE_ENTRY_AGE[nextStage]);
-    advanceStage();
+    state.age += EVO_AGE_STEP;
+    while (advanceStage()) { /* catch up multiple stages if the jump was big enough */ }
   }
 
   function triggerDevolutionJump() {
-    const idx = STAGE_ORDER.indexOf(state.stage);
-    if (idx <= 1) return; // already baby (or egg) - nowhere lower to fall back to
-    const prevStage = STAGE_ORDER[idx - 1];
-    state.stage = prevStage;
-    state.age = STAGE_ENTRY_AGE[prevStage];
-    if (prevStage !== STAGE.ADULT && prevStage !== STAGE.ELDER) {
-      state.species = null;
+    state.age -= DEVO_AGE_STEP;
+    let changed = false;
+    while (regressStage()) { changed = true; }
+    if (!changed) {
+      setMessage('たいかメーターが MAXに…からだが おもい…');
+      bouncePet();
     }
-    setMessage('たいかメーターが MAXに…すこし もどってしまった…');
-    bouncePet();
   }
 
   function triggerDeath() {
@@ -1668,9 +1712,29 @@
       setMessage('ねている… おきてから あげよう');
       return;
     }
+    const overfed = state.hunger >= 80;
     state.hunger = clamp(state.hunger + 25, 0, 100);
-    state.happiness = clamp(state.happiness + 3, 0, 100);
     state.actionCounts.feed += 1;
+    if (overfed) {
+      // spamming ごはん when the pet is already full doesn't help evolution -
+      // it risks making it sick instead
+      state.happiness = clamp(state.happiness - 4, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 8, 0, 100);
+      if (!state.isSick && Math.random() < 0.3) {
+        const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
+        state.isSick = true;
+        state.sicknessType = sickness.label;
+        state.totalSicknessCount += 1;
+        state.deathMeter = clamp(state.deathMeter + 10, 0, 100);
+        setMessage(`たべすぎて ${sickness.label}に なってしまった…`);
+      } else {
+        setMessage('もう おなかいっぱい… たべすぎ!');
+      }
+      checkMeters();
+      bouncePet();
+      return;
+    }
+    state.happiness = clamp(state.happiness + 3, 0, 100);
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     checkMeters();
     setMessage('もぐもぐ おいしい!');
