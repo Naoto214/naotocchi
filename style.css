@@ -260,6 +260,15 @@ body {
   50% { box-shadow: 0 0 10px rgba(213, 0, 0, 1); }
 }
 
+.bar-fill.transform {
+  background: #00897b;
+}
+
+.bar-fill.transform.high {
+  background: #1de9b6;
+  box-shadow: 0 0 6px rgba(29, 233, 182, 0.8);
+}
+
 .bar-fill.goal {
   background: linear-gradient(90deg, #ffd23f, #ff5ea8, #4fc3f7);
 }
@@ -426,6 +435,77 @@ body {
 @keyframes game-clear-bounce {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-6px) scale(1.08); }
+}
+
+/* --- transformation choice --- */
+
+.transform-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(160deg, #26c6da, #00897b);
+}
+
+.transform-overlay.hidden {
+  display: none;
+}
+
+.transform-title {
+  font-size: 15px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 0 #00695c, 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+
+.transform-choices {
+  display: flex;
+  gap: 10px;
+}
+
+.transform-choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  font-weight: bold;
+  font-size: 11px;
+  color: #16330f;
+  cursor: pointer;
+}
+
+.transform-choice-btn:active {
+  transform: scale(0.95);
+}
+
+.transform-choice-emoji {
+  font-size: 30px;
+}
+
+.transform-skip-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  font-size: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.transform-skip-btn:active {
+  transform: scale(0.95);
 }
 
 /* --- minigames --- */
