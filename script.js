@@ -93,6 +93,7 @@
       poopCount: 0,
       isSick: false,
       sicknessType: null,
+      totalSicknessCount: 0,
       isSleeping: false,
       lowHealthStreak: 0,
       careSum: 0,
@@ -131,6 +132,17 @@
 
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
+  }
+
+  // 0 (freshly hatched) -> 1 (elder age) - every minigame scales its own
+  // difficulty knobs off of this so the whole game gets meaner as the pet
+  // gets older, instead of staying at "baby" difficulty forever
+  function ageDifficulty() {
+    return clamp(state.age / AGE_THRESHOLDS.elder, 0, 1);
+  }
+
+  function lerp(min, max, t) {
+    return min + (max - min) * t;
   }
 
   const MESSAGE_DURATION_MS = 2500;
@@ -276,16 +288,19 @@
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
           state.sicknessType = sickness.label;
+          state.totalSicknessCount += 1;
           setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
         }
       }
 
-      // health responds to neglect
+      // health responds to neglect - a pet with a long history of illness is
+      // frailer overall: sickness hits its health harder, and it doesn't take
+      // as long a losing streak to be fatal
       let healthDelta = 0;
       if (state.hunger <= 0) healthDelta -= 3;
       if (state.happiness <= 0) healthDelta -= 2;
       if (!state.isSleeping && state.energy <= 0) healthDelta -= 2;
-      if (state.isSick) healthDelta -= 2;
+      if (state.isSick) healthDelta -= 2 + Math.min(3, Math.floor(state.totalSicknessCount / 3));
       if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += 1;
       state.health = clamp(state.health + healthDelta, 0, 100);
 
@@ -299,7 +314,8 @@
       } else {
         state.lowHealthStreak = 0;
       }
-      if (state.lowHealthStreak >= 15) {
+      const deathThreshold = Math.max(6, 15 - state.totalSicknessCount);
+      if (state.lowHealthStreak >= deathThreshold) {
         state.stage = STAGE.DEAD;
         setMessage('てんごくへ いってしまった…');
       }
@@ -400,14 +416,17 @@
 
   const catchGame = {
     start(container, onComplete) {
+      const difficulty = ageDifficulty();
       const DURATION_MS = 10000;
       const GOOD_ITEMS = ['🍙', '🍎', '🍬', '🍇'];
       const BAD_ITEMS = ['💩', '🪳', '🔪', '🔫'];
-      const BAD_ITEM_CHANCE = 0.3;
+      const BAD_ITEM_CHANCE = lerp(0.3, 0.55, difficulty);
+      const spawnInterval = lerp(850, 420, difficulty);
+      const speedMin = lerp(60, 130, difficulty);
+      const speedRange = lerp(30, 70, difficulty);
       let points = 0;
       let running = true;
       let lastSpawn = 0;
-      const spawnInterval = 850;
       let items = [];
       let basketX = 50;
 
@@ -456,7 +475,7 @@
         itemEl.style.left = xPct + '%';
         itemEl.style.top = '-20px';
         field.appendChild(itemEl);
-        items.push({ el: itemEl, x: xPct, y: -20, speed: 60 + Math.random() * 30, bad: isBad });
+        items.push({ el: itemEl, x: xPct, y: -20, speed: speedMin + Math.random() * speedRange, bad: isBad });
       }
 
       function flashField() {
@@ -520,8 +539,10 @@
 
   const whackGame = {
     start(container, onComplete) {
+      const difficulty = ageDifficulty();
       const DURATION_MS = 5000;
       const HOLE_COUNT = 6;
+      const visibleMs = lerp(700, 320, difficulty);
       let hits = 0;
       let activeIndex = -1;
       let running = true;
@@ -572,7 +593,7 @@
           holes[i].textContent = '';
           activeIndex = -1;
           scheduleNext(200);
-        }, 700);
+        }, visibleMs);
       }
 
       function scheduleNext(delay) {
@@ -603,7 +624,11 @@
 
   const timingGame = {
     start(container, onComplete) {
+      const difficulty = ageDifficulty();
       const ROUNDS = 3;
+      const zoneWidthMin = lerp(16, 7, difficulty);
+      const zoneWidthRange = lerp(6, 3, difficulty);
+      const baseSpeed = lerp(50, 95, difficulty);
       let round = 0;
       const scores = [];
       let running = true;
@@ -638,13 +663,13 @@
       const scoreEl = container.querySelector('#mgScore');
 
       function newRound() {
-        zoneWidth = 16 + Math.random() * 6;
+        zoneWidth = zoneWidthMin + Math.random() * zoneWidthRange;
         zoneStart = Math.random() * (100 - zoneWidth);
         zoneEl.style.left = zoneStart + '%';
         zoneEl.style.width = zoneWidth + '%';
         markerPct = 0;
         direction = 1;
-        speed = 50 + round * 8;
+        speed = baseSpeed + round * 8;
         locked = false;
         tapBtn.disabled = false;
       }
@@ -1049,7 +1074,313 @@
     },
   };
 
-  const MINIGAMES = [catchGame, whackGame, timingGame, quizGame];
+  const memoryGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const sequenceLength = Math.round(lerp(3, 8, difficulty));
+      const flashMs = lerp(600, 300, difficulty);
+      const gapMs = lerp(250, 120, difficulty);
+      const PAD_COLORS = ['#ff6b6b', '#4dabf7', '#ffd43b', '#69db7c'];
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgRound">おぼえて まねしよう</span>
+          <span id="mgScore">${sequenceLength}こ の れつ</span>
+        </div>
+        <div class="mg-title">じゅんばんを おぼえて タップ!</div>
+        <div class="mg-memory-grid" id="mgGrid">
+          ${PAD_COLORS.map((c, i) => `<div class="mg-memory-pad" id="mgPad${i}" style="background:${c}"></div>`).join('')}
+        </div>
+      `;
+
+      const pads = PAD_COLORS.map((_, i) => container.querySelector(`#mgPad${i}`));
+      const roundEl = container.querySelector('#mgRound');
+      const sequence = Array.from({ length: sequenceLength }, () => Math.floor(Math.random() * PAD_COLORS.length));
+      let playerIndex = 0;
+      let accepting = false;
+
+      function flashPad(i) {
+        return new Promise((resolve) => {
+          pads[i].classList.add('lit');
+          setTimeout(() => {
+            pads[i].classList.remove('lit');
+            setTimeout(resolve, gapMs);
+          }, flashMs);
+        });
+      }
+
+      async function playSequence() {
+        accepting = false;
+        roundEl.textContent = 'よく みてね…';
+        for (const i of sequence) {
+          await flashPad(i);
+        }
+        roundEl.textContent = 'じゅんばんに タップ!';
+        accepting = true;
+      }
+
+      function onPadTap(i) {
+        if (!accepting) return;
+        if (i === sequence[playerIndex]) {
+          pads[i].classList.add('lit');
+          setTimeout(() => pads[i].classList.remove('lit'), 150);
+          playerIndex += 1;
+          if (playerIndex >= sequence.length) {
+            accepting = false;
+            onComplete(100);
+          }
+        } else {
+          accepting = false;
+          const score = Math.round((playerIndex / sequence.length) * 100);
+          pads.forEach((p) => p.classList.add('wrong'));
+          setTimeout(() => onComplete(score), 400);
+        }
+      }
+
+      pads.forEach((pad, i) => pad.addEventListener('pointerdown', () => onPadTap(i)));
+      playSequence();
+    },
+  };
+
+  const mathGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const ROUNDS = 3 + Math.round(difficulty * 2);
+      const timeLimitMs = lerp(6000, 2200, difficulty);
+      let round = 0;
+      let correctCount = 0;
+      let timer;
+
+      function generateProblem() {
+        if (difficulty < 0.34) {
+          let a = 1 + Math.floor(Math.random() * 9);
+          let b = 1 + Math.floor(Math.random() * 9);
+          const op = Math.random() < 0.5 ? '+' : '−';
+          if (op === '−' && a < b) [a, b] = [b, a];
+          return { text: `${a} ${op} ${b}`, answer: op === '+' ? a + b : a - b };
+        }
+        if (difficulty < 0.7) {
+          if (Math.random() < 0.5) {
+            const a = 5 + Math.floor(Math.random() * 25);
+            const b = 5 + Math.floor(Math.random() * 25);
+            return { text: `${a} + ${b}`, answer: a + b };
+          }
+          const a = 2 + Math.floor(Math.random() * 9);
+          const b = 2 + Math.floor(Math.random() * 9);
+          return { text: `${a} × ${b}`, answer: a * b };
+        }
+        const kind = Math.floor(Math.random() * 3);
+        if (kind === 0) {
+          const a = 10 + Math.floor(Math.random() * 40);
+          const b = 2 + Math.floor(Math.random() * 12);
+          const c = 1 + Math.floor(Math.random() * 9);
+          return { text: `${a} − ${b} + ${c}`, answer: a - b + c };
+        }
+        if (kind === 1) {
+          const a = 3 + Math.floor(Math.random() * 9);
+          const b = 3 + Math.floor(Math.random() * 9);
+          const c = 2 + Math.floor(Math.random() * 6);
+          return { text: `${a} × ${b} − ${c}`, answer: a * b - c };
+        }
+        const b = 2 + Math.floor(Math.random() * 9);
+        const q = 2 + Math.floor(Math.random() * 12);
+        return { text: `${b * q} ÷ ${b}`, answer: q };
+      }
+
+      function renderRound() {
+        const problem = generateProblem();
+        const distractors = new Set();
+        while (distractors.size < 3) {
+          const delta = Math.floor(Math.random() * 9) - 4;
+          const candidate = problem.answer + (delta === 0 ? 1 : delta);
+          if (candidate !== problem.answer) distractors.add(candidate);
+        }
+        const choices = [problem.answer, ...distractors];
+        for (let i = choices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [choices[i], choices[j]] = [choices[j], choices[i]];
+        }
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">もんだい ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">せいかい: ${correctCount}</span>
+          </div>
+          <div class="mg-title">けいさんチャレンジ!</div>
+          <div class="mg-math-problem">${problem.text} = ?</div>
+          <div class="mg-math-choices">
+            ${choices.map((c) => `<button class="mg-math-btn" data-val="${c}">${c}</button>`).join('')}
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+        let answered = false;
+
+        function finishRound(correct) {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          if (correct) correctCount += 1;
+          round += 1;
+          if (round >= ROUNDS) {
+            const score = Math.round((correctCount / ROUNDS) * 100);
+            setTimeout(() => onComplete(score), 250);
+          } else {
+            setTimeout(renderRound, 250);
+          }
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => finishRound(Number(btn.dataset.val) === problem.answer));
+        });
+
+        timer = setTimeout(() => finishRound(false), timeLimitMs);
+      }
+
+      renderRound();
+    },
+  };
+
+  const reactionGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const ROUNDS = 3;
+      const goodMs = lerp(550, 280, difficulty);
+      const okMs = lerp(900, 500, difficulty);
+      const results = [];
+      let round = 0;
+
+      function renderWait() {
+        const avg = results.length ? Math.round(results.reduce((a, b) => a + b, 0) / results.length) : 0;
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">ラウンド ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">とくてん: ${avg}</span>
+          </div>
+          <div class="mg-title">はんしゃしんけい チャレンジ!</div>
+          <div class="mg-reaction-field mg-reaction-wait" id="mgReactionField">まってね…</div>
+        `;
+        const field = container.querySelector('#mgReactionField');
+        let goTime = null;
+        let handled = false;
+        const delay = 1000 + Math.random() * 2500;
+        let goTimer;
+
+        function onEarlyTap() {
+          if (handled) return;
+          handled = true;
+          clearTimeout(goTimer);
+          field.removeEventListener('pointerdown', onEarlyTap);
+          field.classList.remove('mg-reaction-wait');
+          field.classList.add('mg-reaction-fail');
+          field.textContent = 'はやすぎ!';
+          setTimeout(() => nextRound(0), 700);
+        }
+        field.addEventListener('pointerdown', onEarlyTap);
+
+        function onGoTap() {
+          if (handled) return;
+          handled = true;
+          field.removeEventListener('pointerdown', onGoTap);
+          const reactionMs = performance.now() - goTime;
+          let roundScore;
+          if (reactionMs <= goodMs) roundScore = 100;
+          else if (reactionMs <= okMs) roundScore = Math.round(lerp(100, 40, (reactionMs - goodMs) / (okMs - goodMs)));
+          else roundScore = 15;
+          field.textContent = `${Math.round(reactionMs)}ms!`;
+          setTimeout(() => nextRound(roundScore), 700);
+        }
+
+        goTimer = setTimeout(() => {
+          field.removeEventListener('pointerdown', onEarlyTap);
+          field.classList.remove('mg-reaction-wait');
+          field.classList.add('mg-reaction-go');
+          field.textContent = 'いま!';
+          goTime = performance.now();
+          field.addEventListener('pointerdown', onGoTap);
+        }, delay);
+      }
+
+      function nextRound(score) {
+        results.push(score);
+        round += 1;
+        if (round >= ROUNDS) {
+          onComplete(Math.round(results.reduce((a, b) => a + b, 0) / results.length));
+        } else {
+          renderWait();
+        }
+      }
+
+      renderWait();
+    },
+  };
+
+  const stroopGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const COLOR_DEFS = [
+        { key: 'red', label: 'あか', hex: '#e03131' },
+        { key: 'blue', label: 'あお', hex: '#1971c2' },
+        { key: 'yellow', label: 'きいろ', hex: '#f2c811' },
+        { key: 'green', label: 'みどり', hex: '#2f9e44' },
+        { key: 'purple', label: 'むらさき', hex: '#9c36b5' },
+        { key: 'orange', label: 'オレンジ', hex: '#e8590c' },
+      ];
+      const activeColors = COLOR_DEFS.slice(0, Math.round(lerp(3, 6, difficulty)));
+      const ROUNDS = 4 + Math.round(difficulty * 2);
+      const timeLimitMs = lerp(4500, 2000, difficulty);
+      let round = 0;
+      let correctCount = 0;
+      let timer;
+
+      function renderRound() {
+        const wordColor = activeColors[Math.floor(Math.random() * activeColors.length)];
+        let inkColor;
+        do {
+          inkColor = activeColors[Math.floor(Math.random() * activeColors.length)];
+        } while (activeColors.length > 1 && inkColor.key === wordColor.key);
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">もんだい ${round + 1}/${ROUNDS}</span>
+            <span id="mgScore">せいかい: ${correctCount}</span>
+          </div>
+          <div class="mg-title">もじの「いろ」を えらんでね(いみじゃないよ)</div>
+          <div class="mg-stroop-word" style="color:${inkColor.hex}">${wordColor.label}</div>
+          <div class="mg-stroop-choices">
+            ${activeColors.map((c) => `<button class="mg-stroop-btn" style="background:${c.hex}" data-key="${c.key}" aria-label="${c.label}"></button>`).join('')}
+          </div>
+        `;
+
+        const buttons = Array.from(container.querySelectorAll('.mg-stroop-btn'));
+        let answered = false;
+
+        function finishRound(correct) {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          if (correct) correctCount += 1;
+          round += 1;
+          if (round >= ROUNDS) {
+            const score = Math.round((correctCount / ROUNDS) * 100);
+            setTimeout(() => onComplete(score), 200);
+          } else {
+            setTimeout(renderRound, 200);
+          }
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === inkColor.key));
+        });
+
+        timer = setTimeout(() => finishRound(false), timeLimitMs);
+      }
+
+      renderRound();
+    },
+  };
+
+  const MINIGAMES = [catchGame, whackGame, timingGame, quizGame, memoryGame, mathGame, reactionGame, stroopGame];
   let minigameQueue = [];
   let lastMinigameIndex = -1;
 

@@ -409,6 +409,122 @@ body {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
+/* memory sequence */
+
+.mg-memory-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  min-height: 160px;
+}
+
+.mg-memory-pad {
+  border-radius: 12px;
+  opacity: 0.55;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.mg-memory-pad.lit {
+  opacity: 1;
+  transform: scale(0.96);
+}
+
+.mg-memory-pad.wrong {
+  opacity: 1;
+  filter: grayscale(1);
+}
+
+/* math challenge */
+
+.mg-math-problem {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 14px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.mg-math-choices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.mg-math-btn {
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #6b3654;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  font-variant-numeric: tabular-nums;
+}
+
+.mg-math-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* reaction test */
+
+.mg-reaction-field {
+  flex: 1;
+  min-height: 160px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  user-select: none;
+}
+
+.mg-reaction-wait {
+  background: #b0463f;
+}
+
+.mg-reaction-go {
+  background: #2f9e44;
+}
+
+.mg-reaction-fail {
+  background: #495057;
+}
+
+/* stroop color/word */
+
+.mg-stroop-word {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 14px 0;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.mg-stroop-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.mg-stroop-btn {
+  border: none;
+  border-radius: 8px;
+  height: 44px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+.mg-stroop-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
 .buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
