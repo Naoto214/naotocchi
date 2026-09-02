@@ -245,8 +245,6 @@
       deathMeter: 0,
       transformMeter: 0,
       transformOptions: null,
-      growthEvents: 0,
-      storyFlagsSeen: [],
       items: {},
       discoveredStages: [],
     };
@@ -347,22 +345,74 @@
     }
   }
 
-  // one-time flavor beats sprinkled across a play session - each fires at
-  // most once (tracked in state.storyFlagsSeen) so they read as a loose
-  // life story rather than a repeating status message. `contexts` gates
-  // *when* the numeric condition is even allowed to be checked, so these
-  // read as a reaction to whatever just happened (a fresh evolution, a
-  // devolution, a 変身, a great minigame score, an illness beaten) rather
-  // than surfacing on some unrelated later action once a counter crosses
-  // its threshold
-  const STORY_EVENTS = [
-    { id: 'presence', emoji: '👀', message: 'どこからか しせんを かんじる…', contexts: ['evolve'], condition: (s) => s.growthEvents >= 3 },
-    { id: 'rival', emoji: '😤', message: 'ライバルが あらわれた!まけていられない!', contexts: ['evolve'], condition: (s) => s.growthEvents >= 6 },
-    { id: 'old-dream', emoji: '💭', message: 'ふと、なつかしい ゆめを みた きがした…', contexts: ['devolve'], condition: (s) => s.growthEvents >= 4 },
-    { id: 'sick-overcome', emoji: '💪', message: 'なんども びょうきを のりこえて、たくましく なった', contexts: ['medicine-cure'], condition: (s) => s.totalSicknessCount >= 5 },
-    { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', contexts: ['minigame-great'], condition: (s) => s.minigameCount >= 20 },
-    { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', contexts: ['transform'], condition: () => true },
-  ];
+  // flavor beats sprinkled across a play session, reacting to whatever
+  // just happened (a fresh evolution, a devolution, a 変身, a great or
+  // terrible minigame score, an illness beaten, overeating, cleanup) -
+  // see checkStoryEvents() for exactly when each pool is eligible
+  // chance that a qualifying moment (an evolution, a great minigame score,
+  // ...) actually pops a flash at all - keeps it feeling like a fun surprise
+  // rather than a guaranteed interruption on every single occurrence
+  const STORY_EVENT_CHANCE = 0.45;
+
+  // one flavor line is rolled from the matching pool each time its context
+  // happens, so unlike the old one-time-ever milestones these can repeat -
+  // with 4-6 humorous takes per pool that's still a lot of variety, and it
+  // means the game keeps reacting to what's actually going on instead of
+  // going quiet after every pool is used up once
+  const STORY_EVENT_POOLS = {
+    evolve: [
+      { emoji: '📈', message: 'からだが ムズムズする…これが せいちょうつうか!?' },
+      { emoji: '😲', message: 'きゅうに せが のびて じぶんでも ビックリした!' },
+      { emoji: '💫', message: 'きのうより ちょっと できる きが する!' },
+      { emoji: '🔔', message: 'レベルアップの おとが きこえた き が した(たぶん きのせい)' },
+      { emoji: '📏', message: 'サイズが かわって…ふくは もってないけど なんとなく きつい' },
+    ],
+    devolve: [
+      { emoji: '🤏', message: 'あれ?なんか ちいさく なってない…?' },
+      { emoji: '👶', message: 'こどもがえり ちゅう!ばぶばぶ!' },
+      { emoji: '😴', message: 'せいちょうを いったん おやすみする ことにした' },
+      { emoji: '📉', message: 'たいじゅうは かわってないのに みための ねんれいが わかがえった' },
+      { emoji: '🌀', message: 'じかんが ちょっと まきもどった ような かんかく' },
+    ],
+    transform: [
+      { emoji: '🌟', message: 'すがたが かわった!げんきに なった…かも!' },
+      { emoji: '🕺', message: 'へんしんポーズを キメて みた(だれも みてない)' },
+      { emoji: '👕', message: 'きがえた みたいな かんかく!なかみは おなじ' },
+      { emoji: '🪞', message: 'べつじんに なった き が するけど、なかみは いつもどおり' },
+      { emoji: '🎭', message: '「あたらしい じぶん」を いちど えんじて みたく なった' },
+    ],
+    'minigame-great': [
+      { emoji: '🏆', message: 'てんさいって よばれても おかしくない できばえ!' },
+      { emoji: '😎', message: 'ドヤがおが とまらない!' },
+      { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
+      { emoji: '🔥', message: 'きょうの ちょうしは いつもの100ばい あるかも!' },
+      { emoji: '🎉', message: 'しょうきんが でるなら もらいたい くらい じょうず' },
+    ],
+    'minigame-bad': [
+      { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
+      { emoji: '😵', message: 'うでが なまってた だけ!じつりょくじゃ ない!' },
+      { emoji: '🌀', message: 'ちょっと めが まわっただけ!ほんきだせば…' },
+      { emoji: '🫠', message: 'つぎは かならず リベンジする!(こんかいは しない)' },
+    ],
+    'medicine-cure': [
+      { emoji: '🕺', message: 'げんきに なって おどりだしそう!' },
+      { emoji: '😋', message: 'くすりの あじが まずすぎて めが さめた(べつの いみで げんき)' },
+      { emoji: '🎈', message: 'びょうきの ことは もう わすれた!(いたみは わすれてない)' },
+      { emoji: '💊', message: 'くすりを のんだ ごほうびに あとで なにか ねだりそう' },
+    ],
+    overfeed: [
+      { emoji: '🫃', message: 'おなかが パンパン…しばらく うごけない…' },
+      { emoji: '🍚', message: '「もう たべられない」と いいつつ もう いっこ いけそう' },
+      { emoji: '🚨', message: 'たべすぎ けいほう、はつれい!' },
+      { emoji: '😵‍💫', message: 'まんぷく すぎて まんぞくと こうかいが なかよく どうきょ ちゅう' },
+    ],
+    'poop-clean': [
+      { emoji: '✨', message: 'スッキリ!せかいが きゅうに きれいに みえる!' },
+      { emoji: '🧹', message: 'そうじの プロに なれる き が してきた' },
+      { emoji: '😌', message: 'うんちに なまえを つけそうに なった ところで やめた' },
+      { emoji: '🚿', message: 'きれいずき が いっかい あがった き が する' },
+    ],
+  };
 
   // rewards for a great minigame result: each heals the death meter by a
   // different amount. weight controls drop rarity - the strongest healers
@@ -398,7 +448,6 @@
       state.speciesLine = pickRandomLine();
       state.stage = STAGE.GROWING;
       state.stageIndex = 0;
-      state.growthEvents += 1;
       setMessage('たまごがかえった!');
       bouncePet();
       return true;
@@ -408,7 +457,6 @@
       const next = stages[state.stageIndex + 1];
       if (!next || state.age < next.threshold) return false;
       state.stageIndex += 1;
-      state.growthEvents += 1;
       setMessage(next.message || `${next.label}に なった!`);
       bouncePet();
       return true;
@@ -495,17 +543,19 @@
 
   const STORY_FLASH_DURATION_MS = 3000;
 
+  let lastStoryEventMessage = null;
+
   function checkStoryEvents(context) {
     if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR || gameActive) return;
-    for (const event of STORY_EVENTS) {
-      if (state.storyFlagsSeen.includes(event.id)) continue;
-      if (!event.contexts.includes(context)) continue;
-      if (event.condition(state)) {
-        state.storyFlagsSeen.push(event.id);
-        showStoryEvent(event);
-        break; // one at a time so they don't overlap
-      }
-    }
+    const pool = STORY_EVENT_POOLS[context];
+    if (!pool || pool.length === 0) return;
+    if (Math.random() >= STORY_EVENT_CHANCE) return;
+    // avoid showing the exact same line twice back to back when a pool
+    // has more than one entry to pick from
+    const choices = pool.length > 1 ? pool.filter((e) => e.message !== lastStoryEventMessage) : pool;
+    const event = choices[Math.floor(Math.random() * choices.length)];
+    lastStoryEventMessage = event.message;
+    showStoryEvent(event);
   }
 
   let storyFlashTimer = null;
@@ -3168,7 +3218,9 @@
     // devolution and death meters - this is the main engine behind the
     // fast-paced transform/regress/die loop, not just the passive clock
     let itemMessage = '';
-    if (clampedScore >= 70) {
+    const isGreat = clampedScore >= 70;
+    const isBad = clampedScore < 40;
+    if (isGreat) {
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
@@ -3189,7 +3241,8 @@
 
     // checkStoryEvents() no-ops while gameActive, so this must run after
     // gameActive flips back to false above
-    if (clampedScore >= 70) checkStoryEvents('minigame-great');
+    if (isGreat) checkStoryEvents('minigame-great');
+    else if (isBad) checkStoryEvents('minigame-bad');
 
     bouncePet();
     checkMeters();
@@ -3242,6 +3295,7 @@
       } else {
         setMessage('もう おなかいっぱい… たべすぎ!');
       }
+      checkStoryEvents('overfeed');
       checkMeters();
       bouncePet();
       return;
@@ -3284,6 +3338,7 @@
     state.actionCounts.clean += 1;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
+    checkStoryEvents('poop-clean');
     if (!checkMeters()) {
       setMessage('おそうじ できた!');
     }
