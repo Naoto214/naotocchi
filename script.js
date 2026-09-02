@@ -115,15 +115,64 @@
         { threshold: 60, emoji: '🪲', label: 'でんせつの クワガタムシ', message: 'でんせつの クワガタムシに なった…' },
       ],
     },
+    // rare lines - never a starting hatch, only reachable as a 変身 choice
+    // (see pickTransformCandidates) when care/skill has been exceptional
+    god: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '👼', label: 'あかちゃんてんし' },
+        { threshold: 8, emoji: '👼', label: 'こてんし', message: 'こてんしに せいちょうした!' },
+        { threshold: 16, emoji: '👼', label: 'みならいのてんし', message: 'みならいのてんしに せいちょうした!' },
+        { threshold: 26, emoji: '😇', label: 'わかきかみ', message: 'わかきかみに せいちょうした!' },
+        { threshold: 40, emoji: '😇', label: 'かみさま', message: 'まさかの…かみさまに しんかした!!' },
+        { threshold: 60, emoji: '🌞', label: 'だいじんの かみさま', message: 'だいじんの かみさまに なった…' },
+      ],
+    },
+    ren: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃんの れんくん' },
+        { threshold: 8, emoji: '🧒', label: 'れんくん', message: 'れんくんが おおきく なった!' },
+        { threshold: 16, emoji: '🧒', label: 'しょうねんの れんくん', message: 'しょうねんの れんくんに なった!' },
+        { threshold: 26, emoji: '👦', label: 'せいねんの れんくん', message: 'せいねんの れんくんに なった!' },
+        { threshold: 40, emoji: '🧑', label: 'れんくん', message: 'あれ!?れんくんが なかまに くわわった!' },
+        { threshold: 60, emoji: '🧑', label: 'れんさん', message: 'れんさんに なった…' },
+      ],
+    },
   };
 
   // god/ren are intentionally left out of the random hatch pool - they stay
-  // rare, earned surprises (brought back via a future 変身 mechanic instead
-  // of ever being a starting line)
+  // rare, earned surprises unlocked only through a 変身 choice
   const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle'];
+  const RARE_LINES = ['god', 'ren'];
 
   function pickRandomLine() {
     return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
+  }
+
+  // 変身メーターが満タンのときに提示する2つの候補ラインを選ぶ。ふだんは
+  // ノーマル種の中から現在と違う2つだが、これまでの育て方が良ければ
+  // (お世話の平均が高い/ミニゲームの腕が良い・ロマンチック傾向が強い)、
+  // レア枠(かみさま・れんくん)が候補の1つに混ざることがある
+  function pickTransformCandidates() {
+    const pool = NORMAL_LINES.filter((line) => line !== state.speciesLine);
+    const candidates = [];
+    while (candidates.length < 2 && pool.length > 0) {
+      const idx = Math.floor(Math.random() * pool.length);
+      candidates.push(pool.splice(idx, 1)[0]);
+    }
+
+    const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 0;
+    const avgSkill = state.minigameCount > 0 ? state.minigameScoreSum / state.minigameCount : 0;
+    const rarePool = RARE_LINES.filter((line) => {
+      if (line === state.speciesLine) return false;
+      if (line === 'god') return avgCare >= 90;
+      if (line === 'ren') return (state.minigameCount >= 5 && avgSkill >= 85) || state.traitCounts.romantic >= 5;
+      return false;
+    });
+    if (rarePool.length > 0 && Math.random() < 0.5) {
+      const rare = rarePool[Math.floor(Math.random() * rarePool.length)];
+      candidates[Math.floor(Math.random() * candidates.length)] = rare;
+    }
+    return candidates;
   }
 
   const el = {
@@ -137,8 +186,12 @@
     evoBar: document.getElementById('evoBar'),
     devoBar: document.getElementById('devoBar'),
     deathBar: document.getElementById('deathBar'),
+    transformBar: document.getElementById('transformBar'),
     goalBar: document.getElementById('goalBar'),
     goalValue: document.getElementById('goalValue'),
+    transformOverlay: document.getElementById('transformOverlay'),
+    transformChoices: document.getElementById('transformChoices'),
+    transformSkipBtn: document.getElementById('transformSkipBtn'),
     message: document.getElementById('message'),
     itemsRow: document.getElementById('itemsRow'),
     storyFlash: document.getElementById('storyFlash'),
@@ -184,6 +237,8 @@
       evoMeter: 0,
       devoMeter: 0,
       deathMeter: 0,
+      transformMeter: 0,
+      transformOptions: null,
       growthEvents: 0,
       storyFlagsSeen: [],
       items: {},
@@ -398,6 +453,12 @@
       triggerDevolutionJump();
       changedMessage = true;
     }
+    if (state.transformMeter >= 100 && !state.transformOptions && state.stage === STAGE.GROWING) {
+      state.transformMeter = 0;
+      state.transformOptions = pickTransformCandidates();
+      setMessage('へんしんの ちからが たまった!すがたを えらべるよ');
+      changedMessage = true;
+    }
     if (Math.floor(state.age / 20) >= GOAL_DAYS) {
       triggerGameClear();
       return true;
@@ -570,6 +631,7 @@
     updateMeter(el.evoBar, isOver ? 0 : state.evoMeter, 'evo');
     updateMeter(el.devoBar, isOver ? 0 : state.devoMeter, 'devo');
     updateMeter(el.deathBar, isOver ? 0 : state.deathMeter, 'death');
+    updateMeter(el.transformBar, isOver ? 0 : state.transformMeter, 'transform');
 
     const goalDays = Math.floor(state.age / 20);
     updateMeter(el.goalBar, isDead ? 0 : goalDays, 'goal');
@@ -590,6 +652,10 @@
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
 
+    const hasTransformChoice = !!state.transformOptions && !isOver;
+    el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
+    if (hasTransformChoice) renderTransformChoices();
+
     if (message) {
       el.message.textContent = message;
     } else if (isDead) {
@@ -602,7 +668,7 @@
       el.message.textContent = '';
     }
 
-    const disableCare = isOver || isEgg;
+    const disableCare = isOver || isEgg || hasTransformChoice;
     el.feedBtn.disabled = disableCare;
     el.playBtn.disabled = disableCare || state.isSleeping;
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
@@ -614,6 +680,48 @@
 
     renderItemsRow(disableCare);
   }
+
+  function renderTransformChoices() {
+    const options = state.transformOptions || [];
+    el.transformChoices.innerHTML = options
+      .map((line) => {
+        const stage = SPECIES[line].stages[state.stageIndex];
+        return `
+          <button class="transform-choice-btn" data-line="${line}">
+            <span class="transform-choice-emoji">${stage.emoji}</span>
+            <span>${stage.label}</span>
+          </button>
+        `;
+      })
+      .join('');
+  }
+
+  function chooseTransform(line) {
+    if (!state.transformOptions || !state.transformOptions.includes(line)) return;
+    state.speciesLine = line;
+    state.transformOptions = null;
+    const stage = SPECIES[line].stages[state.stageIndex];
+    setMessage(`${stage.label}に へんしんした!`);
+    bouncePet();
+    saveState();
+    render();
+  }
+
+  function skipTransform() {
+    if (!state.transformOptions) return;
+    state.transformOptions = null;
+    setMessage('いまの すがたのままで いくことにした');
+    saveState();
+    render();
+  }
+
+  el.transformChoices.addEventListener('click', (e) => {
+    const btn = e.target.closest('.transform-choice-btn');
+    if (!btn) return;
+    chooseTransform(btn.dataset.line);
+  });
+
+  el.transformSkipBtn.addEventListener('click', skipTransform);
 
   // recovery items are earned from great minigame results and heal the
   // death meter by an amount that depends on the item (see RECOVERY_ITEMS)
@@ -2630,6 +2738,9 @@
     state.energy = clamp(state.energy - 12, 0, 100);
     state.minigameScoreSum += clampedScore;
     state.minigameCount += 1;
+    // fills regardless of score - unlike evo/devo, playing itself (not
+    // skill) is what earns a shot at choosing a different growth line
+    state.transformMeter = clamp(state.transformMeter + 15, 0, 100);
 
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the

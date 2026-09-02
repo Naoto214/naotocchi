@@ -61,6 +61,10 @@
               <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
             </div>
             <div class="bar-line">
+              <span class="bar-label">変身</span>
+              <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
+            </div>
+            <div class="bar-line">
               <span class="bar-label">ゴール</span>
               <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
               <span class="bar-value" id="goalValue">0 / 100</span>
@@ -77,6 +81,12 @@
         <div class="story-flash hidden" id="storyFlash">
           <div class="story-flash-emoji" id="storyFlashEmoji"></div>
           <div class="story-flash-text" id="storyFlashText"></div>
+        </div>
+
+        <div class="transform-overlay hidden" id="transformOverlay">
+          <div class="transform-title">すがたを えらべるよ!</div>
+          <div class="transform-choices" id="transformChoices"></div>
+          <button class="transform-skip-btn" id="transformSkipBtn">このままでいい</button>
         </div>
 
         <div class="game-clear-overlay hidden" id="gameClearOverlay">
