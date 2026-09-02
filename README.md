@@ -1,0 +1,2 @@
+# tamagotchi-modoki
+ゲーム
