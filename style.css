@@ -87,6 +87,16 @@ body {
   color: #333;
 }
 
+.screen.sick {
+  background: #a9bd7a;
+  animation: sick-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes sick-pulse {
+  0%, 100% { background: #a9bd7a; }
+  50% { background: #8fae63; }
+}
+
 .screen-normal,
 .minigame-overlay {
   flex: 1;
@@ -135,6 +145,17 @@ body {
 
 .pet.bounce {
   animation: bounce 0.5s ease;
+}
+
+.screen.sick .pet {
+  filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.15)) grayscale(0.5) sepia(0.3) hue-rotate(60deg) saturate(1.6);
+  animation: sick-wobble 1.4s ease-in-out infinite;
+}
+
+@keyframes sick-wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
 }
 
 @keyframes bounce {

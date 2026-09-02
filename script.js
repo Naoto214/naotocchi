@@ -5,6 +5,19 @@
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
+  const SICKNESS_TYPES = [
+    { label: 'げんいんふめいの たかねつ', badge: '🥵' },
+    { label: 'とまらない はきけ', badge: '🤢' },
+    { label: 'ぐるぐる する めまい', badge: '💫' },
+    { label: 'われるような ずつう', badge: '🤕' },
+    { label: 'しんぞうが バクバクする びょうき', badge: '😰' },
+    { label: 'あたまが こんらんする びょうき', badge: '😵' },
+    { label: 'きぶんの アップダウンが はげしい びょうき', badge: '😵‍💫' },
+    { label: 'げんきが まったく でない びょうき', badge: '😞' },
+    { label: 'からだが おもくて うごけない びょうき', badge: '🥶' },
+    { label: 'あせが とまらない びょうき', badge: '😨' },
+  ];
+
   const STAGE = {
     EGG: 'egg',
     BABY: 'baby',
@@ -79,6 +92,7 @@
       age: 0,
       poopCount: 0,
       isSick: false,
+      sicknessType: null,
       isSleeping: false,
       lowHealthStreak: 0,
       careSum: 0,
@@ -254,11 +268,15 @@
         state.happiness = clamp(state.happiness - 2, 0, 100);
       }
 
-      // sickness risk
-      if (!state.isSick && (state.poopCount >= MAX_POOP || state.health < 30)) {
-        if (Math.random() < 0.08) {
+      // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
+      // the odds of falling ill; well cared-for pets almost never trigger this
+      const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
+      if (!state.isSick && neglected) {
+        if (Math.random() < 0.2) {
+          const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
-          setMessage('びょうきに なってしまった…くすりをあげよう');
+          state.sicknessType = sickness.label;
+          setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
         }
       }
 
@@ -346,11 +364,15 @@
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
 
     const badges = [];
-    if (state.isSick) badges.push('🤒');
+    if (state.isSick) {
+      const sickness = SICKNESS_TYPES.find((s) => s.label === state.sicknessType);
+      badges.push(sickness ? sickness.badge : '🤒');
+    }
     if (state.isSleeping && !isDead) badges.push('💤');
     el.badges.textContent = badges.join(' ');
 
     el.screen.classList.toggle('dead', isDead);
+    el.screen.classList.toggle('sick', state.isSick && !isDead);
     el.lamp.classList.toggle('sick', state.isSick && !isDead);
 
     if (message) {
@@ -1149,6 +1171,7 @@
     state.actionCounts.medicine += 1;
     if (state.isSick) {
       state.isSick = false;
+      state.sicknessType = null;
       state.health = clamp(state.health + 20, 0, 100);
       state.energy = clamp(state.energy - 10, 0, 100);
       setMessage('げんきに なった!');
