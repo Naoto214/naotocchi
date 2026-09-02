@@ -284,6 +284,50 @@ body {
   font-weight: bold;
 }
 
+.items-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.item-btn {
+  position: relative;
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+  border: none;
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.item-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.item-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.item-count {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #d6336c;
+  color: #fff;
+  font-size: 9px;
+  font-weight: bold;
+  border-radius: 8px;
+  min-width: 14px;
+  line-height: 14px;
+  text-align: center;
+  padding: 0 2px;
+}
+
 .story-flash {
   position: absolute;
   inset: 0;

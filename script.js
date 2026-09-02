@@ -91,6 +91,7 @@
     goalBar: document.getElementById('goalBar'),
     goalValue: document.getElementById('goalValue'),
     message: document.getElementById('message'),
+    itemsRow: document.getElementById('itemsRow'),
     storyFlash: document.getElementById('storyFlash'),
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
@@ -135,6 +136,7 @@
       deathMeter: 0,
       growthEvents: 0,
       storyFlagsSeen: [],
+      items: {},
     };
   }
 
@@ -230,6 +232,32 @@
     { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', condition: (s) => s.minigameCount >= 20 },
     { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', condition: (s) => s.growthEvents >= 15 },
   ];
+
+  // rewards for a great minigame result: each heals the death meter by a
+  // different amount. weight controls drop rarity - the strongest healers
+  // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
+  // items still tends to be mostly low-tier
+  const RECOVERY_ITEMS = [
+    { id: 'kiss', label: 'キス', emoji: '💋', heal: 40, weight: 1 },
+    { id: 'hug', label: 'ハグ', emoji: '🤗', heal: 32, weight: 2 },
+    { id: 'shoulder', label: 'かたたたき', emoji: '💆', heal: 26, weight: 3 },
+    { id: 'hotpot', label: 'なべ', emoji: '🍲', heal: 22, weight: 4 },
+    { id: 'curry', label: 'カレー', emoji: '🍛', heal: 20, weight: 5 },
+    { id: 'udon', label: 'うどん', emoji: '🍜', heal: 18, weight: 5 },
+    { id: 'dogfood', label: 'ドッグフード', emoji: '🦴', heal: 15, weight: 6 },
+    { id: 'catfood', label: 'キャットフード', emoji: '🐟', heal: 15, weight: 6 },
+    { id: 'candy', label: 'あめ', emoji: '🍬', heal: 8, weight: 8 },
+  ];
+
+  function pickWeightedItem() {
+    const totalWeight = RECOVERY_ITEMS.reduce((sum, it) => sum + it.weight, 0);
+    let roll = Math.random() * totalWeight;
+    for (const item of RECOVERY_ITEMS) {
+      roll -= item.weight;
+      if (roll <= 0) return item;
+    }
+    return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
+  }
 
   // how a pet is raised decides what it becomes: the action used most often
   // picks a species, exceptional all-around care transcends that into a god,
@@ -600,7 +628,49 @@
     el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+
+    renderItemsRow(disableCare);
   }
+
+  // recovery items are earned from great minigame results and heal the
+  // death meter by an amount that depends on the item (see RECOVERY_ITEMS)
+  function renderItemsRow(disableUse) {
+    const entries = RECOVERY_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
+    if (entries.length === 0) {
+      el.itemsRow.innerHTML = '';
+      return;
+    }
+    el.itemsRow.innerHTML = entries
+      .map(
+        (item) => `
+          <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse ? 'disabled' : ''}>
+            <span class="item-emoji">${item.emoji}</span>
+            <span class="item-count">${state.items[item.id]}</span>
+          </button>
+        `
+      )
+      .join('');
+  }
+
+  function useItem(itemId) {
+    const count = state.items[itemId] || 0;
+    if (count <= 0) return;
+    const item = RECOVERY_ITEMS.find((it) => it.id === itemId);
+    if (!item) return;
+    state.items[itemId] = count - 1;
+    if (state.items[itemId] <= 0) delete state.items[itemId];
+    state.deathMeter = clamp(state.deathMeter - item.heal, 0, 100);
+    setMessage(`${item.emoji}${item.label}で げんきに なった!`);
+    bouncePet();
+    saveState();
+    render();
+  }
+
+  el.itemsRow.addEventListener('click', (e) => {
+    const btn = e.target.closest('.item-btn');
+    if (!btn || btn.disabled) return;
+    useItem(btn.dataset.itemId);
+  });
 
   // --- minigames (triggered by the play button) ---
 
@@ -1719,8 +1789,12 @@
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the
     // fast-paced transform/regress/die loop, not just the passive clock
+    let itemMessage = '';
     if (clampedScore >= 70) {
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
+      const item = pickWeightedItem();
+      state.items[item.id] = (state.items[item.id] || 0) + 1;
+      itemMessage = ` ごほうびに ${item.label}${item.emoji} を もらった!`;
     } else if (clampedScore >= 40) {
       state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
     } else {
@@ -1728,7 +1802,7 @@
       state.deathMeter = clamp(state.deathMeter + 15, 0, 100);
     }
 
-    setMessage(customMessage || resultMessageForScore(score));
+    setMessage((customMessage || resultMessageForScore(score)) + itemMessage);
 
     gameActive = false;
     el.minigameOverlay.classList.add('hidden');
