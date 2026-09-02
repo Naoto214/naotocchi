@@ -10,8 +10,8 @@
     BABY: 'baby',
     CHILD: 'child',
     TEEN: 'teen',
-    ADULT_GOOD: 'adult_good',
-    ADULT_BAD: 'adult_bad',
+    ADULT: 'adult',
+    ELDER: 'elder',
     DEAD: 'dead',
   };
 
@@ -19,7 +19,8 @@
     hatch: 2,      // egg -> baby
     child: 40,     // baby -> child
     teen: 120,     // child -> teen
-    adult: 280,    // teen -> adult
+    adult: 280,    // teen -> adult (species is decided here)
+    elder: 600,    // adult -> elder (same species, aged form)
   };
 
   const SPRITES = {
@@ -27,9 +28,21 @@
     [STAGE.BABY]: '🐣',
     [STAGE.CHILD]: '🐥',
     [STAGE.TEEN]: '🐤',
-    [STAGE.ADULT_GOOD]: '😸',
-    [STAGE.ADULT_BAD]: '😈',
     [STAGE.DEAD]: '👻',
+  };
+
+  // what a pet becomes as an adult depends on how it was raised, and it keeps
+  // that identity into old age rather than re-rolling
+  const SPECIES = {
+    dog: { adultEmoji: '🐶', adultLabel: 'いぬ', elderEmoji: '🐕', elderLabel: 'としをとった いぬ' },
+    cat: { adultEmoji: '🐱', adultLabel: 'ねこ', elderEmoji: '🐈', elderLabel: 'としをとった ねこ' },
+    bird: { adultEmoji: '🐦', adultLabel: 'とり', elderEmoji: '🦜', elderLabel: 'としをとった とり' },
+    man: { adultEmoji: '🧑', adultLabel: 'おとこのひと', elderEmoji: '👴', elderLabel: 'おじいさん' },
+    woman: { adultEmoji: '👩', adultLabel: 'おんなのひと', elderEmoji: '👵', elderLabel: 'おばあさん' },
+    beetle: { adultEmoji: '🪲', adultLabel: 'カブトムシ', elderEmoji: '🪲', elderLabel: 'でんせつの カブトムシ' },
+    stagbeetle: { adultEmoji: '🪲', adultLabel: 'クワガタムシ', elderEmoji: '🪲', elderLabel: 'でんせつの クワガタムシ' },
+    god: { adultEmoji: '😇', adultLabel: 'かみさま', elderEmoji: '🌞', elderLabel: 'だいじんの かみさま' },
+    ren: { adultEmoji: '🧒', adultLabel: 'れんくん', elderEmoji: '🧑', elderLabel: 'れんさん' },
   };
 
   const el = {
@@ -58,6 +71,7 @@
   function freshState() {
     return {
       stage: STAGE.EGG,
+      species: null,
       hunger: 90,
       happiness: 90,
       energy: 90,
@@ -69,6 +83,9 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
+      actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0 },
+      minigameScoreSum: 0,
+      minigameCount: 0,
     };
   }
 
@@ -78,7 +95,13 @@
       if (!raw) return freshState();
       const parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== 'object') return freshState();
-      return { ...freshState(), ...parsed };
+      const merged = { ...freshState(), ...parsed };
+      // migrate saves from before adults branched by species
+      if (parsed.stage === 'adult_good' || parsed.stage === 'adult_bad') {
+        merged.stage = STAGE.ADULT;
+        merged.species = parsed.stage === 'adult_good' ? 'dog' : 'stagbeetle';
+      }
+      return merged;
     } catch (e) {
       return freshState();
     }
@@ -124,6 +147,59 @@
     }
   }
 
+  const EVOLUTION_MESSAGES = {
+    dog: 'げんきいっぱいの いぬに へんしんした!',
+    cat: 'きままな ねこに へんしんした!',
+    bird: 'じゆうな とりに へんしんした!',
+    man: 'たくましい おとこのひとに せいちょうした!',
+    woman: 'りりしい おんなのひとに せいちょうした!',
+    beetle: 'たくましい カブトムシに へんしんした!',
+    stagbeetle: 'りっぱな クワガタムシに へんしんした!',
+    god: 'まさかの…かみさまに しんかした!!',
+    ren: 'あれ!?れんくんが なかまに くわわった!',
+  };
+
+  // how a pet is raised decides what it becomes: the action used most often
+  // picks a species, exceptional all-around care transcends that into a god,
+  // and being consistently great at minigames has a rare chance of a very
+  // different kind of surprise
+  function decideSpecies() {
+    const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 50;
+    const avgSkill = state.minigameCount > 0 ? state.minigameScoreSum / state.minigameCount : 0;
+
+    if (state.minigameCount >= 5 && avgSkill >= 85 && Math.random() < 0.25) {
+      return 'ren';
+    }
+    if (avgCare >= 90) {
+      return 'god';
+    }
+
+    const counts = state.actionCounts;
+    const ranked = [
+      ['play', counts.play],
+      ['sleep', counts.sleep],
+      ['feed', counts.feed],
+      ['clean', counts.clean],
+      ['medicine', counts.medicine],
+    ].sort((a, b) => b[1] - a[1]);
+    const dominant = ranked[0][1] > 0 ? ranked[0][0] : 'feed';
+
+    switch (dominant) {
+      case 'play':
+        return 'dog';
+      case 'sleep':
+        return 'cat';
+      case 'feed':
+        return 'bird';
+      case 'clean':
+        return counts.play >= counts.sleep ? 'woman' : 'man';
+      case 'medicine':
+        return counts.feed >= counts.clean ? 'beetle' : 'stagbeetle';
+      default:
+        return 'bird';
+    }
+  }
+
   function advanceStage() {
     if (state.stage === STAGE.EGG && state.age >= AGE_THRESHOLDS.hatch) {
       state.stage = STAGE.BABY;
@@ -138,9 +214,13 @@
       setMessage('はんせいじんに せいちょうした!');
       bouncePet();
     } else if (state.stage === STAGE.TEEN && state.age >= AGE_THRESHOLDS.adult) {
-      const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 50;
-      state.stage = avgCare >= 65 ? STAGE.ADULT_GOOD : STAGE.ADULT_BAD;
-      setMessage(avgCare >= 65 ? 'りっぱな おとなに せいちょうした!' : 'ちょっと やんちゃな おとなに せいちょうした…');
+      state.species = decideSpecies();
+      state.stage = STAGE.ADULT;
+      setMessage(EVOLUTION_MESSAGES[state.species]);
+      bouncePet();
+    } else if (state.stage === STAGE.ADULT && state.age >= AGE_THRESHOLDS.elder) {
+      state.stage = STAGE.ELDER;
+      setMessage(`${SPECIES[state.species].elderLabel} に なった…`);
       bouncePet();
     }
   }
@@ -233,18 +313,30 @@
     [STAGE.BABY]: 'あかちゃん',
     [STAGE.CHILD]: 'こども',
     [STAGE.TEEN]: 'はんせいじん',
-    [STAGE.ADULT_GOOD]: 'おとな(なかよし)',
-    [STAGE.ADULT_BAD]: 'おとな(やんちゃ)',
     [STAGE.DEAD]: 'おわり',
   };
+
+  function currentSprite() {
+    const species = state.species && SPECIES[state.species];
+    if (state.stage === STAGE.ADULT && species) return species.adultEmoji;
+    if (state.stage === STAGE.ELDER && species) return species.elderEmoji;
+    return SPRITES[state.stage] || '❓';
+  }
+
+  function currentStageLabel() {
+    const species = state.species && SPECIES[state.species];
+    if (state.stage === STAGE.ADULT && species) return species.adultLabel;
+    if (state.stage === STAGE.ELDER && species) return species.elderLabel;
+    return STAGE_LABELS[state.stage] || '';
+  }
 
   function render() {
     const isDead = state.stage === STAGE.DEAD;
     const isEgg = state.stage === STAGE.EGG;
 
-    el.pet.textContent = SPRITES[state.stage] || '❓';
+    el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `日齢: ${Math.floor(state.age / 20)}`;
-    el.stageLabel.textContent = STAGE_LABELS[state.stage] || '';
+    el.stageLabel.textContent = currentStageLabel();
 
     updateBar(el.hungerBar, isEgg || isDead ? 0 : state.hunger, 'hunger');
     updateBar(el.happinessBar, isEgg || isDead ? 0 : state.happiness, 'happiness');
@@ -970,6 +1062,8 @@
     const happinessGain = Math.round(5 + (clamp(score, 0, 100) / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
+    state.minigameScoreSum += clamp(score, 0, 100);
+    state.minigameCount += 1;
     setMessage(customMessage || resultMessageForScore(score));
 
     gameActive = false;
@@ -1010,6 +1104,7 @@
     }
     state.hunger = clamp(state.hunger + 25, 0, 100);
     state.happiness = clamp(state.happiness + 3, 0, 100);
+    state.actionCounts.feed += 1;
     setMessage('もぐもぐ おいしい!');
     bouncePet();
   }));
@@ -1028,6 +1123,7 @@
       render();
       return;
     }
+    state.actionCounts.play += 1;
     const game = pickRandomMinigame();
     startMinigame(game);
   });
@@ -1039,15 +1135,18 @@
     }
     state.poopCount = 0;
     state.happiness = clamp(state.happiness + 5, 0, 100);
+    state.actionCounts.clean += 1;
     setMessage('おそうじ できた!');
   }));
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
+    if (state.isSleeping) state.actionCounts.sleep += 1;
     setMessage(state.isSleeping ? 'おやすみなさい…' : 'おはよう!');
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
+    state.actionCounts.medicine += 1;
     if (state.isSick) {
       state.isSick = false;
       state.health = clamp(state.health + 20, 0, 100);
