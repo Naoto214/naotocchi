@@ -2,8 +2,7 @@
   'use strict';
 
   const SAVE_KEY = 'tamagotchi-modoki-save-v1';
-  const TICK_MS = 3000; // 1 tick = 3 seconds of real time
-  const MAX_OFFLINE_TICKS = 2000; // cap catch-up so leaving it for days doesn't insta-kill it
+  const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
   const STAGE = {
@@ -52,6 +51,8 @@
     sleepBtn: document.getElementById('sleepBtn'),
     medicineBtn: document.getElementById('medicineBtn'),
     resetBtn: document.getElementById('resetBtn'),
+    screenNormal: document.getElementById('screenNormal'),
+    minigameOverlay: document.getElementById('minigameOverlay'),
   };
 
   function freshState() {
@@ -68,7 +69,6 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
-      lastUpdate: Date.now(),
     };
   }
 
@@ -98,6 +98,7 @@
 
   let state = loadState();
   let message = '';
+  let gameActive = false;
 
   function setMessage(msg) {
     message = msg;
@@ -190,23 +191,6 @@
     }
   }
 
-  function runTicks(count) {
-    for (let i = 0; i < count && state.stage !== STAGE.DEAD; i++) {
-      tick();
-    }
-  }
-
-  function catchUpOffline() {
-    const now = Date.now();
-    const elapsed = now - (state.lastUpdate || now);
-    let ticks = Math.floor(elapsed / TICK_MS);
-    if (ticks > 0) {
-      ticks = Math.min(ticks, MAX_OFFLINE_TICKS);
-      runTicks(ticks);
-    }
-    state.lastUpdate = now;
-  }
-
   function bouncePet() {
     el.pet.classList.remove('bounce');
     // force reflow to restart animation
@@ -279,6 +263,668 @@
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
   }
 
+  // --- minigames (triggered by the play button) ---
+
+  const catchGame = {
+    start(container, onComplete) {
+      const DURATION_MS = 10000;
+      const GOOD_ITEMS = ['🍙', '🍎', '🍬', '🍇'];
+      const BAD_ITEMS = ['💩', '🪳', '🔪', '🔫'];
+      const BAD_ITEM_CHANCE = 0.3;
+      let points = 0;
+      let running = true;
+      let lastSpawn = 0;
+      const spawnInterval = 850;
+      let items = [];
+      let basketX = 50;
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgTimer">残り: 10s</span>
+          <span id="mgScore">とくてん: 0</span>
+        </div>
+        <div class="mg-title">おやつキャッチ!わるい ものは よけよう</div>
+        <div class="mg-catch-field" id="mgField">
+          <div class="mg-basket" id="mgBasket" style="left:50%">🧺</div>
+        </div>
+      `;
+
+      const field = container.querySelector('#mgField');
+      const basket = container.querySelector('#mgBasket');
+      const timerEl = container.querySelector('#mgTimer');
+      const scoreEl = container.querySelector('#mgScore');
+
+      function setBasketFromClientX(clientX) {
+        const rect = field.getBoundingClientRect();
+        let pct = ((clientX - rect.left) / rect.width) * 100;
+        pct = Math.max(6, Math.min(94, pct));
+        basketX = pct;
+        basket.style.left = pct + '%';
+      }
+
+      function onPointerMove(e) {
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        setBasketFromClientX(clientX);
+      }
+
+      field.addEventListener('pointerdown', onPointerMove);
+      field.addEventListener('pointermove', onPointerMove);
+
+      const startTime = performance.now();
+      let rafId;
+
+      function spawnItem() {
+        const isBad = Math.random() < BAD_ITEM_CHANCE;
+        const pool = isBad ? BAD_ITEMS : GOOD_ITEMS;
+        const itemEl = document.createElement('div');
+        itemEl.className = 'mg-falling-item';
+        itemEl.textContent = pool[Math.floor(Math.random() * pool.length)];
+        const xPct = 10 + Math.random() * 80;
+        itemEl.style.left = xPct + '%';
+        itemEl.style.top = '-20px';
+        field.appendChild(itemEl);
+        items.push({ el: itemEl, x: xPct, y: -20, speed: 60 + Math.random() * 30, bad: isBad });
+      }
+
+      function flashField() {
+        field.classList.add('hit');
+        setTimeout(() => field.classList.remove('hit'), 200);
+      }
+
+      function frame(now) {
+        if (!running) return;
+        const elapsed = now - startTime;
+        const remaining = Math.max(0, DURATION_MS - elapsed);
+        timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+        if (now - lastSpawn > spawnInterval) {
+          spawnItem();
+          lastSpawn = now;
+        }
+
+        const fieldHeight = field.clientHeight;
+        items = items.filter((item) => {
+          item.y += item.speed * (1 / 60);
+          item.el.style.top = item.y + 'px';
+          if (item.y > fieldHeight - 36 && Math.abs(item.x - basketX) < 12) {
+            if (item.bad) {
+              points = Math.max(0, points - 20);
+              flashField();
+            } else {
+              points = Math.min(100, points + 15);
+            }
+            scoreEl.textContent = `とくてん: ${points}`;
+            item.el.remove();
+            return false;
+          }
+          if (item.y > fieldHeight) {
+            item.el.remove();
+            return false;
+          }
+          return true;
+        });
+
+        if (elapsed >= DURATION_MS) {
+          end();
+          return;
+        }
+        rafId = requestAnimationFrame(frame);
+      }
+
+      function end() {
+        if (!running) return;
+        running = false;
+        cancelAnimationFrame(rafId);
+        field.removeEventListener('pointerdown', onPointerMove);
+        field.removeEventListener('pointermove', onPointerMove);
+        items.forEach((item) => item.el.remove());
+        onComplete(points);
+      }
+
+      rafId = requestAnimationFrame(frame);
+    },
+  };
+
+  const whackGame = {
+    start(container, onComplete) {
+      const DURATION_MS = 5000;
+      const HOLE_COUNT = 6;
+      let hits = 0;
+      let activeIndex = -1;
+      let running = true;
+      let hideTimeout;
+      let spawnTimeout;
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgTimer">残り: 5s</span>
+          <span id="mgScore">たいしょう: 0</span>
+        </div>
+        <div class="mg-title">とびだす ほしを タップ!</div>
+        <div class="mg-whack-grid" id="mgGrid"></div>
+      `;
+
+      const grid = container.querySelector('#mgGrid');
+      const timerEl = container.querySelector('#mgTimer');
+      const scoreEl = container.querySelector('#mgScore');
+      const holes = [];
+
+      for (let i = 0; i < HOLE_COUNT; i++) {
+        const hole = document.createElement('div');
+        hole.className = 'mg-hole';
+        hole.addEventListener('pointerdown', () => onTap(i));
+        grid.appendChild(hole);
+        holes.push(hole);
+      }
+
+      function onTap(i) {
+        if (i !== activeIndex) return;
+        hits += 1;
+        scoreEl.textContent = `たいしょう: ${hits}`;
+        holes[i].classList.remove('active');
+        holes[i].textContent = '';
+        activeIndex = -1;
+        clearTimeout(hideTimeout);
+        scheduleNext(150);
+      }
+
+      function showTarget() {
+        if (!running) return;
+        const i = Math.floor(Math.random() * HOLE_COUNT);
+        activeIndex = i;
+        holes[i].classList.add('active');
+        holes[i].textContent = '⭐';
+        hideTimeout = setTimeout(() => {
+          holes[i].classList.remove('active');
+          holes[i].textContent = '';
+          activeIndex = -1;
+          scheduleNext(200);
+        }, 700);
+      }
+
+      function scheduleNext(delay) {
+        if (!running) return;
+        spawnTimeout = setTimeout(showTarget, delay);
+      }
+
+      const startTime = performance.now();
+      const tickInterval = setInterval(() => {
+        const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+        timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+        if (remaining <= 0) end();
+      }, 200);
+
+      function end() {
+        if (!running) return;
+        running = false;
+        clearInterval(tickInterval);
+        clearTimeout(hideTimeout);
+        clearTimeout(spawnTimeout);
+        const score = Math.max(0, Math.min(100, hits * 20));
+        onComplete(score);
+      }
+
+      scheduleNext(300);
+    },
+  };
+
+  const timingGame = {
+    start(container, onComplete) {
+      const ROUNDS = 3;
+      let round = 0;
+      const scores = [];
+      let running = true;
+      let rafId;
+      let direction = 1;
+      let markerPct = 0;
+      let speed = 50;
+      let zoneStart = 0;
+      let zoneWidth = 20;
+      let lastTime = null;
+      let locked = false;
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgRound">ラウンド 1/${ROUNDS}</span>
+          <span id="mgScore">とくてん: 0</span>
+        </div>
+        <div class="mg-timing-body">
+          <div class="mg-title">ちょうどいい タイミングで タップ!</div>
+          <div class="mg-gauge" id="mgGauge">
+            <div class="mg-gauge-zone" id="mgZone"></div>
+            <div class="mg-gauge-marker" id="mgMarker"></div>
+          </div>
+          <button class="mg-tap-btn" id="mgTapBtn">タップ!</button>
+        </div>
+      `;
+
+      const zoneEl = container.querySelector('#mgZone');
+      const markerEl = container.querySelector('#mgMarker');
+      const tapBtn = container.querySelector('#mgTapBtn');
+      const roundEl = container.querySelector('#mgRound');
+      const scoreEl = container.querySelector('#mgScore');
+
+      function newRound() {
+        zoneWidth = 16 + Math.random() * 6;
+        zoneStart = Math.random() * (100 - zoneWidth);
+        zoneEl.style.left = zoneStart + '%';
+        zoneEl.style.width = zoneWidth + '%';
+        markerPct = 0;
+        direction = 1;
+        speed = 50 + round * 8;
+        locked = false;
+        tapBtn.disabled = false;
+      }
+
+      function frame(now) {
+        if (!running) return;
+        if (lastTime == null) lastTime = now;
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+        if (!locked) {
+          markerPct += direction * speed * dt;
+          if (markerPct >= 100) {
+            markerPct = 100;
+            direction = -1;
+          }
+          if (markerPct <= 0) {
+            markerPct = 0;
+            direction = 1;
+          }
+          markerEl.style.left = markerPct + '%';
+        }
+        rafId = requestAnimationFrame(frame);
+      }
+
+      function handleTap() {
+        if (locked) return;
+        locked = true;
+        tapBtn.disabled = true;
+        const center = zoneStart + zoneWidth / 2;
+        const dist = Math.abs(markerPct - center);
+        let roundScore;
+        if (dist <= zoneWidth * 0.25) roundScore = 100;
+        else if (dist <= zoneWidth / 2) roundScore = 70;
+        else if (dist <= zoneWidth) roundScore = 40;
+        else roundScore = 10;
+        scores.push(roundScore);
+        round += 1;
+        scoreEl.textContent = `とくてん: ${Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)}`;
+        if (round >= ROUNDS) {
+          setTimeout(end, 500);
+        } else {
+          setTimeout(() => {
+            roundEl.textContent = `ラウンド ${round + 1}/${ROUNDS}`;
+            newRound();
+          }, 500);
+        }
+      }
+
+      tapBtn.addEventListener('pointerdown', handleTap);
+
+      function end() {
+        if (!running) return;
+        running = false;
+        cancelAnimationFrame(rafId);
+        tapBtn.removeEventListener('pointerdown', handleTap);
+        const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+        onComplete(Math.round(avg));
+      }
+
+      newRound();
+      rafId = requestAnimationFrame(frame);
+    },
+  };
+
+  const QUIZ_QUESTIONS = [
+    // --- ふつう ---
+    {
+      text: 'きゅうに あめが ふってきたよ!どうする?',
+      choices: [
+        { label: 'いそいで やねの したに はしる', response: 'セーフ!ぬれなかったね', score: 90 },
+        { label: 'あめの なかで おどっちゃう', response: 'たのしいけど ちょっと びしょぬれ…', score: 60 },
+        { label: 'きにせず そのまま すすむ', response: 'かぜ ひかないでね…', score: 40 },
+      ],
+    },
+    {
+      text: 'おなかが すいてきた…なにを たべたい?',
+      choices: [
+        { label: 'おにぎり', response: 'もぐもぐ!げんきが でるね', score: 80 },
+        { label: 'あまい おかし', response: 'にっこり!しあわせな あじ', score: 70 },
+        { label: 'なんでも いいや', response: 'じゃあ おまかせだね', score: 50 },
+      ],
+    },
+    {
+      text: 'ともだちが けんかを してるみたい。どうする?',
+      choices: [
+        { label: 'なかに はいって なかなおりさせる', response: 'ふたりとも わらってくれた!', score: 90 },
+        { label: 'そっと みまもる', response: 'しずかに おさまったみたい', score: 65 },
+        { label: 'みなかったことに する', response: 'ちょっと きになるけど…', score: 35 },
+      ],
+    },
+    {
+      text: 'よる ねむれないとき、なにを する?',
+      choices: [
+        { label: 'ひつじを かぞえる', response: '1ぴき、2ひき…すやすや', score: 70 },
+        { label: 'すきな おんがくを きく', response: 'こころが おちついたね', score: 85 },
+        { label: 'がんばって おきてる', response: 'あさに なって ねむそう…', score: 40 },
+      ],
+    },
+    {
+      text: 'あたらしい ぼうしを もらったよ!どうする?',
+      choices: [
+        { label: 'さっそく かぶってみる', response: 'よく にあってるよ!', score: 85 },
+        { label: 'だいじに しまっておく', response: 'たいせつに するんだね', score: 60 },
+        { label: 'かがみで にあうか かくにんする', response: 'ばっちり!じしんまんまん', score: 75 },
+      ],
+    },
+    {
+      text: 'きょう ちょっと つかれちゃった…',
+      choices: [
+        { label: 'はやめに ねる', response: 'ぐっすり やすめそう', score: 90 },
+        { label: 'すこし やすんでから がんばる', response: 'むりせず ちょうどいいね', score: 70 },
+        { label: 'がまんして がんばりつづける', response: 'むりは きんもつだよ…', score: 30 },
+      ],
+    },
+    // --- シリアス ---
+    {
+      text: 'ずっと がんばってきたことが、うまくいかなかった。',
+      choices: [
+        { label: 'なみだを ふいて、またはじめから やりなおす', response: 'その つよさが、きっと みらいを かえる', score: 95 },
+        { label: 'どうしてなのか、しずかに かんがえる', response: 'こたえは まだ みつからないけど…', score: 75 },
+        { label: 'もう なにも かんがえたくない', response: 'たまには やすんでも いいんだよ', score: 35 },
+      ],
+    },
+    {
+      text: 'たいせつな なにかを、うしなってしまった。',
+      choices: [
+        { label: 'かなしみを うけとめて、まえを むく', response: 'その きもち、わすれなくて いいんだよ', score: 90 },
+        { label: 'だれかに きもちを はなす', response: 'ひとりじゃ ないって おもえたね', score: 80 },
+        { label: 'なかったことに しようとする', response: 'むりに わすれなくても だいじょうぶ', score: 30 },
+      ],
+    },
+    {
+      text: 'じぶんの いきる いみって、なんだろう。ふと そんなことを かんがえた。',
+      choices: [
+        { label: 'こたえは ひとつじゃないと きづく', response: 'そのとおり。きみの ものがたりは、きみだけの もの', score: 90 },
+        { label: 'みらいの じぶんに きいてみる', response: 'いつか こたえが みえてくるかも', score: 75 },
+        { label: 'かんがえるのを やめる', response: 'たまには そういう ひも あるよね', score: 40 },
+      ],
+    },
+    {
+      text: 'みんなが すすむ みちと、じぶんの きもちが ちがう きがする。',
+      choices: [
+        { label: 'じぶんの こえを しんじて すすむ', response: 'その ゆうきが、みちを ひらくよ', score: 90 },
+        { label: 'もうすこし かんがえる じかんを もつ', response: 'あわてなくても だいじょうぶ', score: 75 },
+        { label: 'みんなに あわせておく', response: 'それも ひとつの えらびかた', score: 45 },
+      ],
+    },
+    {
+      text: 'もう にどと あえない ひとが いる。ふと おもいだす よるが ある。',
+      choices: [
+        { label: 'おもいでを たいせつに しまっておく', response: 'その おもいでは、きえたりしないよ', score: 90 },
+        { label: 'つたえられなかった かんしゃを くやむ', response: 'いまからでも、こころの なかで つたえられるよ', score: 65 },
+        { label: 'かんがえないように する', response: 'むりせず、じぶんの ペースで いいんだよ', score: 35 },
+      ],
+    },
+    {
+      text: 'あしたが こなければいいのに、と おもう よるが ある。',
+      choices: [
+        { label: 'その きもちを、だれかに はなしてみる', response: 'ひとりで かかえなくて いいんだよ', score: 90 },
+        { label: 'あさまで ただ じっと まつ', response: 'よるは、いつか あけるから', score: 60 },
+        { label: 'なにも かんがえずに ねむる', response: 'ゆっくり やすんでね', score: 55 },
+      ],
+    },
+    // --- 大人っぽい ---
+    {
+      text: 'あしたは だいじな しごとの ひ。きんちょうで ねむれない…',
+      choices: [
+        { label: 'じゅんびは できてる。じぶんを しんじる', response: 'その じしんが、きっと ちからに なる', score: 90 },
+        { label: 'なんども だんどりを かくにんしてしまう', response: 'まじめだね。でも たまには きゅうけいも', score: 70 },
+        { label: 'かんがえるのを やめて スマホを みる', response: 'げんじつ とうひも、たまには ひつよう', score: 45 },
+      ],
+    },
+    {
+      text: 'きゅうりょうびまえで、さいふの なかが さみしい。',
+      choices: [
+        { label: 'つぎの げつまつまで けいかくを たてる', response: 'その りせいてきさ、みならいたい', score: 85 },
+        { label: 'すこしだけ ぜいたくして じぶんに ごほうび', response: 'たまには いいよね', score: 65 },
+        { label: 'みなかったことに して つかっちゃう', response: 'あとで こうかいしても しらないよ…', score: 30 },
+      ],
+    },
+    {
+      text: 'かいぎで、じぶんの いけんと まわりの いけんが ぶつかった。',
+      choices: [
+        { label: 'れいせいに、じぶんの かんがえを つたえる', response: 'おとなの たいおう、かっこいいね', score: 90 },
+        { label: 'あいての いいぶんも きいてみる', response: 'そのバランスかんかく、だいじだね', score: 85 },
+        { label: 'めんどうだから だまっておく', response: 'それも ひとつの せんたく', score: 40 },
+      ],
+    },
+    {
+      text: 'ふと、じぶんの しょうらいの ことを かんがえてしまう よるが ある。',
+      choices: [
+        { label: 'すこしずつ ちょきんを はじめる', response: 'みらいの じぶんが よろこぶよ', score: 85 },
+        { label: 'かんがえても しかたないから いまを たのしむ', response: 'それも ひとつの いきかた', score: 65 },
+        { label: 'かんがえたくなくて めを そらす', response: 'いつか むきあう ひが くるかも', score: 35 },
+      ],
+    },
+    {
+      text: 'こうはいから、しんけんな そうだんを もちかけられた。',
+      choices: [
+        { label: 'じっくり はなしを きいて アドバイスする', response: 'たよりに されてるね', score: 90 },
+        { label: 'じぶんの けいけんを シェアする', response: 'それも りっぱな サポート', score: 75 },
+        { label: 'めんどうだと おもいつつ うなずいておく', response: 'せめて きくしせいは だいじだよ', score: 40 },
+      ],
+    },
+    {
+      text: 'ふと、じぶんの おやの としを かんがえてしまった。',
+      choices: [
+        { label: 'こんど れんらくしてみようと きめる', response: 'その きもち、つたわると いいね', score: 90 },
+        { label: 'かんしゃの きもちが わいてくる', response: 'そのきもち、たいせつに', score: 85 },
+        { label: 'いそがしくて わすれてしまう', response: 'ふと おもいだした いまが チャンスかも', score: 40 },
+      ],
+    },
+    // --- 馬鹿らしい ---
+    {
+      text: 'めのまえに、たいやきが あらわれた!なぜか しゃべる。',
+      choices: [
+        { label: 'たいやきと ともだちに なる', response: 'あんこの なかまが ふえたね', score: 80 },
+        { label: 'とりあえず たべる', response: 'ちょっと ざんこくだけど…おいしかった?', score: 60 },
+        { label: 'さけぶ', response: 'たいやきも びっくりしてる', score: 40 },
+      ],
+    },
+    {
+      text: 'そらから いきなり バナナが ふってきた。',
+      choices: [
+        { label: 'かさがわりに する', response: 'あたらしい はつめいかも しれない', score: 70 },
+        { label: 'みんなに くばる', response: 'バナナパーティーの はじまりだ', score: 85 },
+        { label: 'ふまないように そっと よける', response: 'けんめいな はんだん', score: 55 },
+      ],
+    },
+    {
+      text: 'あさおきたら、じぶんの あたまが キャベツに なっていた。',
+      choices: [
+        { label: 'きにせず いつもどおり すごす', response: 'その どきょう、すごい', score: 75 },
+        { label: 'ぼうしを かぶって かくす', response: 'さくせん せいこう?', score: 65 },
+        { label: 'サラダに されないか しんぱいする', response: 'きもちは わかる', score: 50 },
+      ],
+    },
+    {
+      text: 'ペットが きゅうに にんげんの ことばで はなしかけてきた。',
+      choices: [
+        { label: 'ふつうに かいわを たのしむ', response: 'あたらしい なかまとの かいわ、たのしそう', score: 85 },
+        { label: 'びっくりして こしを ぬかす', response: 'むりも ないね', score: 55 },
+        { label: 'ゆめだと おもって もういちど ねる', response: 'げんじつだったら どうしよう', score: 60 },
+      ],
+    },
+    {
+      text: 'せかいが きゅうに ぜんぶ プリンに なってしまった。',
+      choices: [
+        { label: 'よろこんで たべまくる', response: 'あまい せかい、さいこう', score: 80 },
+        { label: 'もったいなくて どうしようか なやむ', response: 'なやんでいるうちに とけちゃうかも', score: 60 },
+        { label: 'もとに もどす ほうほうを さがす', response: 'けんきゅうしゃの すじが あるかも', score: 65 },
+      ],
+    },
+    {
+      text: 'みぎあしと ひだりあしが、けんかを はじめてしまった。',
+      choices: [
+        { label: 'なかなおりさせる', response: 'へいわが もどったね', score: 75 },
+        { label: 'そのまま けんかを みまもる', response: 'あしあと、じぐざぐに なってるよ', score: 45 },
+        { label: 'みてみぬふりを する', response: 'あしあと そのまま すすもう', score: 55 },
+      ],
+    },
+    // --- ラブロマンス的 ---
+    {
+      text: 'きになる ひとと めが あった。しゅんかん、じかんが とまった きが した。',
+      choices: [
+        { label: 'おもいきって わらいかけてみる', response: 'せかいが きゅうに いろづいて みえたね', score: 90 },
+        { label: 'どきどきして めを そらしてしまう', response: 'その きもちも、りっぱな こいの はじまり', score: 70 },
+        { label: 'きのせいだと じぶんに いいきかせる', response: 'ほんとうに、そうかな?', score: 45 },
+      ],
+    },
+    {
+      text: 'たいせつな ひとに、きもちを つたえる ひが きた。',
+      choices: [
+        { label: 'まっすぐ きもちを ことばに する', response: 'その ゆうき、いつまでも おぼえておいて', score: 95 },
+        { label: 'てがみに かいて わたす', response: 'ことばには できない おもいも、とどくよ', score: 85 },
+        { label: 'けっきょく いえずに おわる', response: 'つぎの チャンスは、きっと くる', score: 40 },
+      ],
+    },
+    {
+      text: 'あめの ひ、かさを わすれた ひとに かさを さしだされた。',
+      choices: [
+        { label: 'どきどきしながら いっしょに あるく', response: 'あめさえも、うつくしく みえる しゅんかん', score: 90 },
+        { label: 'おれいを いって わかれる', response: 'その やさしさは、きっと わすれない', score: 65 },
+        { label: 'えんりょして ことわる', response: 'ちょっと もったいなかったかも?', score: 40 },
+      ],
+    },
+    {
+      text: 'むかしの こいびとから、ふいに れんらくが きた。',
+      choices: [
+        { label: 'なつかしさに ほほえんで へんじを する', response: 'おもいでは、やさしく こころに のこってる', score: 80 },
+        { label: 'すこし まよってから へんじする', response: 'そのまよいも、しぜんな きもち', score: 70 },
+        { label: 'みなかったことに する', response: 'いまの じぶんを だいじに するのも だいじ', score: 50 },
+      ],
+    },
+    {
+      text: 'ふたりで みた ゆうやけが、わすれられないほど きれいだった。',
+      choices: [
+        { label: 'この しゅんかんを、いつまでも おぼえておこうと おもう', response: 'その きもちが、いちばんの たからもの', score: 90 },
+        { label: 'しゃしんに とって のこす', response: 'きろくも、また すてきな しゅだん', score: 80 },
+        { label: 'とくに なにも かんじない', response: 'ひとそれぞれ、かんじかたは ちがうよね', score: 50 },
+      ],
+    },
+    {
+      text: 'ずっと そばに いてくれた ひとの ありがたみに、ふと きづいた。',
+      choices: [
+        { label: 'すなおに 「ありがとう」と つたえる', response: 'その ひとことが、なによりの プレゼント', score: 95 },
+        { label: 'こんど なにか おかえしを しようと きめる', response: 'きもちが かたちに なると うれしいね', score: 80 },
+        { label: 'きづいたけど、なんとなく いいそびれる', response: 'つたえるのに、おそすぎることは ないよ', score: 45 },
+      ],
+    },
+  ];
+
+  let quizQueue = [];
+  let lastQuizIndex = -1;
+
+  function refillQuizQueue() {
+    quizQueue = QUIZ_QUESTIONS.map((_, i) => i);
+    for (let i = quizQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [quizQueue[i], quizQueue[j]] = [quizQueue[j], quizQueue[i]];
+    }
+    if (quizQueue.length > 1 && quizQueue[quizQueue.length - 1] === lastQuizIndex) {
+      [quizQueue[0], quizQueue[quizQueue.length - 1]] = [quizQueue[quizQueue.length - 1], quizQueue[0]];
+    }
+  }
+
+  function nextQuizQuestion() {
+    if (quizQueue.length === 0) refillQuizQueue();
+    const idx = quizQueue.pop();
+    lastQuizIndex = idx;
+    return QUIZ_QUESTIONS[idx];
+  }
+
+  const quizGame = {
+    start(container, onComplete) {
+      const q = nextQuizQuestion();
+
+      container.innerHTML = `
+        <div class="mg-title">なおとっちが はなしかけてきた</div>
+        <div class="mg-comic-panel">
+          <div class="mg-comic-face">🐣</div>
+          <div class="mg-comic-bubble" id="mgBubble"></div>
+        </div>
+        <div class="mg-choices" id="mgChoices"></div>
+      `;
+
+      const bubble = container.querySelector('#mgBubble');
+      const choicesEl = container.querySelector('#mgChoices');
+      bubble.textContent = q.text;
+
+      q.choices.forEach((choice) => {
+        const btn = document.createElement('button');
+        btn.className = 'mg-choice-btn';
+        btn.textContent = choice.label;
+        btn.addEventListener('pointerdown', () => {
+          Array.from(choicesEl.children).forEach((b) => {
+            b.disabled = true;
+          });
+          bubble.textContent = choice.response;
+          setTimeout(() => onComplete(choice.score), 1100);
+        });
+        choicesEl.appendChild(btn);
+      });
+    },
+  };
+
+  const MINIGAMES = [catchGame, whackGame, timingGame, quizGame];
+  let lastMinigameIndex = -1;
+
+  function pickRandomMinigame() {
+    let idx;
+    do {
+      idx = Math.floor(Math.random() * MINIGAMES.length);
+    } while (idx === lastMinigameIndex);
+    lastMinigameIndex = idx;
+    return MINIGAMES[idx];
+  }
+
+  function resultMessageForScore(score) {
+    if (score >= 80) return 'だいせいこう!たのしかった!';
+    if (score >= 50) return 'たのしく あそんだ!';
+    return 'まあまあ あそべた!';
+  }
+
+  function finishMinigame(score) {
+    const happinessGain = Math.round(5 + (clamp(score, 0, 100) / 100) * 20);
+    state.happiness = clamp(state.happiness + happinessGain, 0, 100);
+    state.energy = clamp(state.energy - 12, 0, 100);
+    setMessage(resultMessageForScore(score));
+
+    gameActive = false;
+    el.minigameOverlay.classList.add('hidden');
+    el.minigameOverlay.innerHTML = '';
+    el.screenNormal.classList.remove('hidden');
+
+    bouncePet();
+    saveState();
+    render();
+  }
+
+  function startMinigame(game) {
+    gameActive = true;
+    el.screenNormal.classList.add('hidden');
+    el.minigameOverlay.classList.remove('hidden');
+    el.minigameOverlay.innerHTML = '';
+    el.feedBtn.disabled = true;
+    el.playBtn.disabled = true;
+    el.cleanBtn.disabled = true;
+    el.sleepBtn.disabled = true;
+    el.medicineBtn.disabled = true;
+    game.start(el.minigameOverlay, finishMinigame);
+  }
+
   function withFeedback(fn) {
     return () => {
       fn();
@@ -298,20 +944,23 @@
     bouncePet();
   }));
 
-  el.playBtn.addEventListener('click', withFeedback(() => {
+  el.playBtn.addEventListener('click', () => {
+    if (gameActive) return;
     if (state.isSleeping) {
       setMessage('ねている… おきてから あそぼう');
+      saveState();
+      render();
       return;
     }
     if (state.energy < 10) {
       setMessage('つかれていて あそべない…');
+      saveState();
+      render();
       return;
     }
-    state.happiness = clamp(state.happiness + 20, 0, 100);
-    state.energy = clamp(state.energy - 12, 0, 100);
-    setMessage('たのしく あそんだ!');
-    bouncePet();
-  }));
+    const game = pickRandomMinigame();
+    startMinigame(game);
+  });
 
   el.cleanBtn.addEventListener('click', withFeedback(() => {
     if (state.poopCount === 0) {
@@ -347,28 +996,32 @@
   }));
 
   function loop() {
+    if (gameActive) {
+      // still age/decay stats in the background, but don't touch the DOM
+      // while a minigame owns the screen
+      tick();
+      saveState();
+      return;
+    }
     setMessage('');
     tick();
-    state.lastUpdate = Date.now();
     saveState();
     render();
   }
 
-  // initial boot: simulate elapsed time since last visit, then start the live loop
-  catchUpOffline();
+  // boot: resume exactly where the last save left off. Time never passes
+  // while the page is closed - only this interval, while open, advances it.
   saveState();
   render();
   setInterval(loop, TICK_MS);
 
-  // also save whenever the tab is hidden/closed so offline catch-up is accurate
+  // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
-      state.lastUpdate = Date.now();
       saveState();
     }
   });
   window.addEventListener('beforeunload', () => {
-    state.lastUpdate = Date.now();
     saveState();
   });
 })();
