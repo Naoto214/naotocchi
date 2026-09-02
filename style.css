@@ -211,6 +211,44 @@ body {
   background: #c62828;
 }
 
+.bars.meters {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.bar-fill.evo {
+  background: #9e9d24;
+}
+
+.bar-fill.evo.high {
+  background: #ffd600;
+  box-shadow: 0 0 6px rgba(255, 214, 0, 0.8);
+}
+
+.bar-fill.devo {
+  background: #6a1b9a;
+}
+
+.bar-fill.devo.high {
+  background: #aa00ff;
+  box-shadow: 0 0 6px rgba(170, 0, 255, 0.8);
+}
+
+.bar-fill.death {
+  background: #8d1414;
+}
+
+.bar-fill.death.high {
+  background: #d50000;
+  animation: death-meter-pulse 0.8s ease-in-out infinite;
+}
+
+@keyframes death-meter-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(213, 0, 0, 0.6); }
+  50% { box-shadow: 0 0 10px rgba(213, 0, 0, 1); }
+}
+
 .message {
   margin-top: 8px;
   font-size: 12px;

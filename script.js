@@ -29,11 +29,21 @@
   };
 
   const AGE_THRESHOLDS = {
-    hatch: 2,      // egg -> baby
-    child: 40,     // baby -> child
-    teen: 120,     // child -> teen
-    adult: 280,    // teen -> adult (species is decided here)
-    elder: 600,    // adult -> elder (same species, aged form)
+    hatch: 2,   // egg -> baby
+    child: 10,  // baby -> child
+    teen: 20,   // child -> teen
+    adult: 35,  // teen -> adult (species is decided here)
+    elder: 60,  // adult -> elder (same species, aged form)
+  };
+
+  const STAGE_ORDER = [STAGE.EGG, STAGE.BABY, STAGE.CHILD, STAGE.TEEN, STAGE.ADULT, STAGE.ELDER];
+  const STAGE_ENTRY_AGE = {
+    [STAGE.EGG]: 0,
+    [STAGE.BABY]: AGE_THRESHOLDS.hatch,
+    [STAGE.CHILD]: AGE_THRESHOLDS.child,
+    [STAGE.TEEN]: AGE_THRESHOLDS.teen,
+    [STAGE.ADULT]: AGE_THRESHOLDS.adult,
+    [STAGE.ELDER]: AGE_THRESHOLDS.elder,
   };
 
   const SPRITES = {
@@ -66,6 +76,9 @@
     happinessBar: document.getElementById('happinessBar'),
     energyBar: document.getElementById('energyBar'),
     healthBar: document.getElementById('healthBar'),
+    evoBar: document.getElementById('evoBar'),
+    devoBar: document.getElementById('devoBar'),
+    deathBar: document.getElementById('deathBar'),
     message: document.getElementById('message'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
@@ -102,6 +115,9 @@
       traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
       minigameScoreSum: 0,
       minigameCount: 0,
+      evoMeter: 0,
+      devoMeter: 0,
+      deathMeter: 0,
     };
   }
 
@@ -262,6 +278,56 @@
     }
   }
 
+  // the evolution/devolution/death meters are the fast, performance-driven
+  // layer on top of plain aging: doing well fills evoMeter and jumps the
+  // pet forward a stage the instant it's full, doing poorly fills devoMeter
+  // and knocks it back a stage, and repeated mistakes fill deathMeter and
+  // end things outright - independent of how old the pet actually is
+  function triggerEvolutionJump() {
+    const idx = STAGE_ORDER.indexOf(state.stage);
+    if (idx === -1 || idx >= STAGE_ORDER.length - 1) return;
+    const nextStage = STAGE_ORDER[idx + 1];
+    state.age = Math.max(state.age, STAGE_ENTRY_AGE[nextStage]);
+    advanceStage();
+  }
+
+  function triggerDevolutionJump() {
+    const idx = STAGE_ORDER.indexOf(state.stage);
+    if (idx <= 1) return; // already baby (or egg) - nowhere lower to fall back to
+    const prevStage = STAGE_ORDER[idx - 1];
+    state.stage = prevStage;
+    state.age = STAGE_ENTRY_AGE[prevStage];
+    if (prevStage !== STAGE.ADULT && prevStage !== STAGE.ELDER) {
+      state.species = null;
+    }
+    setMessage('たいかメーターが MAXに…すこし もどってしまった…');
+    bouncePet();
+  }
+
+  function triggerDeath() {
+    state.stage = STAGE.DEAD;
+    setMessage('しぼうメーターが MAXに…てんごくへ いってしまった…');
+  }
+
+  function checkMeters() {
+    if (state.stage === STAGE.DEAD) return;
+    if (state.deathMeter >= 100) {
+      state.deathMeter = 0;
+      state.evoMeter = 0;
+      state.devoMeter = 0;
+      triggerDeath();
+      return;
+    }
+    if (state.evoMeter >= 100) {
+      state.evoMeter = 0;
+      triggerEvolutionJump();
+    }
+    if (state.devoMeter >= 100) {
+      state.devoMeter = 0;
+      triggerDevolutionJump();
+    }
+  }
+
   function tick() {
     if (state.stage === STAGE.DEAD) return;
 
@@ -289,6 +355,7 @@
       }
       if (state.poopCount >= MAX_POOP) {
         state.happiness = clamp(state.happiness - 2, 0, 100);
+        state.devoMeter = clamp(state.devoMeter + 3, 0, 100);
       }
 
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
@@ -300,6 +367,8 @@
           state.isSick = true;
           state.sicknessType = sickness.label;
           state.totalSicknessCount += 1;
+          state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
+          state.deathMeter = clamp(state.deathMeter + 18, 0, 100);
           setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
         }
       }
@@ -322,6 +391,7 @@
       // death condition: sustained critical health
       if (state.health <= 0) {
         state.lowHealthStreak += 1;
+        state.deathMeter = clamp(state.deathMeter + 12, 0, 100);
       } else {
         state.lowHealthStreak = 0;
       }
@@ -332,6 +402,7 @@
       }
 
       advanceStage();
+      checkMeters();
     }
   }
 
@@ -351,6 +422,11 @@
   function updateBar(elBar, value, baseClass) {
     elBar.style.width = `${clamp(value, 0, 100)}%`;
     elBar.className = `bar-fill ${baseClass} ${barClass(value)}`.trim();
+  }
+
+  function updateMeter(elBar, value, baseClass) {
+    elBar.style.width = `${clamp(value, 0, 100)}%`;
+    elBar.className = `bar-fill ${baseClass} ${value >= 70 ? 'high' : ''}`.trim();
   }
 
   const STAGE_LABELS = {
@@ -387,6 +463,10 @@
     updateBar(el.happinessBar, isEgg || isDead ? 0 : state.happiness, 'happiness');
     updateBar(el.energyBar, isEgg || isDead ? 0 : state.energy, 'energy');
     updateBar(el.healthBar, isEgg || isDead ? 0 : state.health, 'health');
+
+    updateMeter(el.evoBar, isDead ? 0 : state.evoMeter, 'evo');
+    updateMeter(el.devoBar, isDead ? 0 : state.devoMeter, 'devo');
+    updateMeter(el.deathBar, isDead ? 0 : state.deathMeter, 'death');
 
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
 
@@ -1530,11 +1610,25 @@
   }
 
   function finishMinigame(score, customMessage) {
-    const happinessGain = Math.round(5 + (clamp(score, 0, 100) / 100) * 20);
+    const clampedScore = clamp(score, 0, 100);
+    const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
-    state.minigameScoreSum += clamp(score, 0, 100);
+    state.minigameScoreSum += clampedScore;
     state.minigameCount += 1;
+
+    // good play pushes the evolution meter, a real miss pushes both the
+    // devolution and death meters - this is the main engine behind the
+    // fast-paced transform/regress/die loop, not just the passive clock
+    if (clampedScore >= 70) {
+      state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
+    } else if (clampedScore >= 40) {
+      state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
+    } else {
+      state.devoMeter = clamp(state.devoMeter + 18, 0, 100);
+      state.deathMeter = clamp(state.deathMeter + 15, 0, 100);
+    }
+
     setMessage(customMessage || resultMessageForScore(score));
 
     gameActive = false;
@@ -1543,6 +1637,7 @@
     el.screenNormal.classList.remove('hidden');
 
     bouncePet();
+    checkMeters();
     saveState();
     render();
   }
@@ -1576,6 +1671,8 @@
     state.hunger = clamp(state.hunger + 25, 0, 100);
     state.happiness = clamp(state.happiness + 3, 0, 100);
     state.actionCounts.feed += 1;
+    state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+    checkMeters();
     setMessage('もぐもぐ おいしい!');
     bouncePet();
   }));
@@ -1607,12 +1704,19 @@
     state.poopCount = 0;
     state.happiness = clamp(state.happiness + 5, 0, 100);
     state.actionCounts.clean += 1;
+    state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+    checkMeters();
     setMessage('おそうじ できた!');
   }));
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
-    if (state.isSleeping) state.actionCounts.sleep += 1;
+    if (state.isSleeping) {
+      state.actionCounts.sleep += 1;
+    } else {
+      state.evoMeter = clamp(state.evoMeter + 4, 0, 100);
+      checkMeters();
+    }
     setMessage(state.isSleeping ? 'おやすみなさい…' : 'おはよう!');
   }));
 
@@ -1623,10 +1727,14 @@
       state.sicknessType = null;
       state.health = clamp(state.health + 20, 0, 100);
       state.energy = clamp(state.energy - 10, 0, 100);
+      state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
+      checkMeters();
       setMessage('げんきに なった!');
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
+      checkMeters();
       setMessage('びょうきじゃないのに… いやがっている');
     }
   }));
