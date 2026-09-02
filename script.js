@@ -50,12 +50,9 @@
   const AGE_MIN = 0;
   const AGE_MAX = 9999;
 
-  // a full evo meter always transforms the pet forward a stage and nudges
-  // this lifetime counter up by 1; a full devo meter always knocks it back
-  // a stage and nudges the counter down by 1. reaching EVO_LEVEL_MAX ends
-  // the game with a win, independent of the visible growth stage (which
-  // caps out at elder)
-  const EVO_LEVEL_MAX = 100;
+  // reaching this displayed 日齢 (state.age / 20) wins the game, however
+  // that age was reached - normal aging, evolution jumps, or a mix
+  const GOAL_DAYS = 100;
 
   const SPRITES = {
     [STAGE.EGG]: '🥚',
@@ -136,7 +133,6 @@
       evoMeter: 0,
       devoMeter: 0,
       deathMeter: 0,
-      evoLevel: 0,
       growthEvents: 0,
       storyFlagsSeen: [],
     };
@@ -330,27 +326,21 @@
 
   // the evolution/devolution/death meters are the fast, performance-driven
   // layer on top of plain aging: doing well fills evoMeter and, once full,
-  // always transforms the pet forward a stage; doing poorly fills devoMeter
-  // and, once full, always knocks it back a stage; repeated mistakes fill
-  // deathMeter and end things outright. evoLevel is a separate lifetime
-  // counter (+1 per evolution, -1 per devolution) that isn't tied to the
-  // visible stage - it keeps climbing past "elder" and is what actually
-  // ends the game in a win at EVO_LEVEL_MAX
+  // always transforms the pet forward a stage (snapping age up to that
+  // stage's threshold); doing poorly fills devoMeter and, once full, always
+  // knocks it back a stage (snapping age down); repeated mistakes fill
+  // deathMeter and end things outright. because these jumps move age
+  // directly, they also move the pet toward or away from GOAL_DAYS
   function triggerEvolutionJump() {
-    state.evoLevel = Math.min(state.evoLevel + 1, EVO_LEVEL_MAX);
     const idx = STAGE_ORDER.indexOf(state.stage);
     if (idx !== -1 && idx < STAGE_ORDER.length - 1) {
       const nextStage = STAGE_ORDER[idx + 1];
       state.age = Math.max(state.age, STAGE_ENTRY_AGE[nextStage]);
       advanceStage();
     }
-    if (state.evoLevel >= EVO_LEVEL_MAX) {
-      triggerGameClear();
-    }
   }
 
   function triggerDevolutionJump() {
-    state.evoLevel -= 1;
     const idx = STAGE_ORDER.indexOf(state.stage);
     if (idx <= 1) {
       // already baby (or egg) - nowhere lower to fall back to visually
@@ -389,11 +379,14 @@
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
       triggerEvolutionJump();
-      if (state.stage === STAGE.CLEAR) return;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
       triggerDevolutionJump();
+    }
+    if (Math.floor(state.age / 20) >= GOAL_DAYS) {
+      triggerGameClear();
+      return;
     }
     checkStoryEvents();
   }
@@ -567,8 +560,9 @@
     updateMeter(el.devoBar, isOver ? 0 : state.devoMeter, 'devo');
     updateMeter(el.deathBar, isOver ? 0 : state.deathMeter, 'death');
 
-    updateMeter(el.goalBar, isDead ? 0 : state.evoLevel, 'goal');
-    el.goalValue.textContent = `${isDead ? 0 : state.evoLevel} / ${EVO_LEVEL_MAX}`;
+    const goalDays = Math.floor(state.age / 20);
+    updateMeter(el.goalBar, isDead ? 0 : goalDays, 'goal');
+    el.goalValue.textContent = `${isDead ? 0 : goalDays} / ${GOAL_DAYS}`;
 
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
 
