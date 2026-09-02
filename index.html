@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>たまごっちもどき</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="device">
+    <div class="device-top">
+      <div class="lamp" id="lamp"></div>
+    </div>
+
+    <div class="screen-frame">
+      <div class="screen" id="screen">
+        <div class="status-row">
+          <span id="ageLabel">日齢: 0</span>
+          <span id="stageLabel">たまご</span>
+        </div>
+
+        <div class="pet-area">
+          <div class="badges" id="badges"></div>
+          <div class="pet" id="pet">🥚</div>
+          <div class="poop-row" id="poopRow"></div>
+        </div>
+
+        <div class="bars">
+          <div class="bar-line">
+            <span class="bar-label">満腹</span>
+            <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
+          </div>
+          <div class="bar-line">
+            <span class="bar-label">機嫌</span>
+            <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
+          </div>
+          <div class="bar-line">
+            <span class="bar-label">元気</span>
+            <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
+          </div>
+          <div class="bar-line">
+            <span class="bar-label">体力</span>
+            <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
+          </div>
+        </div>
+
+        <div class="message" id="message">卵がやってきた…</div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="feedBtn" title="ごはん">🍚<br><span>ごはん</span></button>
+      <button id="playBtn" title="あそぶ">🎮<br><span>あそぶ</span></button>
+      <button id="cleanBtn" title="そうじ">🧹<br><span>そうじ</span></button>
+      <button id="sleepBtn" title="ねる">💤<br><span>ねる</span></button>
+      <button id="medicineBtn" title="くすり">💊<br><span>くすり</span></button>
+      <button id="resetBtn" title="リセット" class="hidden">🔄<br><span>はじめから</span></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
