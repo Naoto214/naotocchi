@@ -96,13 +96,32 @@
     return Math.max(min, Math.min(max, n));
   }
 
+  const MESSAGE_DURATION_MS = 2500;
+
   let state = loadState();
   let message = '';
   let gameActive = false;
+  let messageTimer = null;
 
   function setMessage(msg) {
     message = msg;
     el.message.textContent = msg;
+
+    // A message must stay on screen for a fixed, guaranteed stretch of time -
+    // it must NOT be at the mercy of the background tick's own independent
+    // 3-second phase, which could otherwise blank it out (or overwrite it)
+    // a fraction of a second after it appeared.
+    if (messageTimer) {
+      clearTimeout(messageTimer);
+      messageTimer = null;
+    }
+    if (msg) {
+      messageTimer = setTimeout(() => {
+        messageTimer = null;
+        message = '';
+        if (!gameActive) render();
+      }, MESSAGE_DURATION_MS);
+    }
   }
 
   function advanceStage() {
@@ -1012,7 +1031,9 @@
       saveState();
       return;
     }
-    setMessage('');
+    // messages clear themselves on their own timer (see setMessage) rather
+    // than being wiped here, so a message's visible duration never depends
+    // on how this tick's 3-second phase happens to line up with it
     tick();
     saveState();
     render();
