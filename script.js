@@ -143,6 +143,7 @@
   // rare, earned surprises unlocked only through a 変身 choice
   const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle'];
   const RARE_LINES = ['god', 'ren'];
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
 
   function pickRandomLine() {
     return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
@@ -208,8 +209,13 @@
     sleepBtn: document.getElementById('sleepBtn'),
     medicineBtn: document.getElementById('medicineBtn'),
     resetBtn: document.getElementById('resetBtn'),
+    dexBtn: document.getElementById('dexBtn'),
     screenNormal: document.getElementById('screenNormal'),
     minigameOverlay: document.getElementById('minigameOverlay'),
+    dexOverlay: document.getElementById('dexOverlay'),
+    dexGrid: document.getElementById('dexGrid'),
+    dexProgress: document.getElementById('dexProgress'),
+    dexCloseBtn: document.getElementById('dexCloseBtn'),
   };
 
   function freshState() {
@@ -242,6 +248,7 @@
       growthEvents: 0,
       storyFlagsSeen: [],
       items: {},
+      discoveredStages: [],
     };
   }
 
@@ -277,7 +284,19 @@
     }
   }
 
+  // marks the current line+stage as met, so the 図鑑 can show it instead of
+  // a ❓ placeholder - called from saveState() so every persisted change
+  // (not just growth events) keeps this in sync with what's on screen
+  function recordDiscovery() {
+    if (state.stage !== STAGE.GROWING || !state.speciesLine) return;
+    const key = `${state.speciesLine}:${state.stageIndex}`;
+    if (!state.discoveredStages.includes(key)) {
+      state.discoveredStages.push(key);
+    }
+  }
+
   function saveState() {
+    recordDiscovery();
     try {
       localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     } catch (e) {
@@ -677,8 +696,34 @@
     el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+    el.dexBtn.disabled = gameActive || hasTransformChoice;
+
+    el.dexOverlay.classList.toggle('hidden', !dexOpen);
+    if (dexOpen) renderDex();
 
     renderItemsRow(disableCare);
+  }
+
+  let dexOpen = false;
+
+  // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
+  // only for line/stage combos recorded in state.discoveredStages so far
+  function renderDex() {
+    const discoveredCount = state.discoveredStages.length;
+    const totalCount = ALL_LINES.length * 6;
+    el.dexProgress.textContent = `${discoveredCount} / ${totalCount}`;
+    el.dexGrid.innerHTML = ALL_LINES.map((line) => {
+      const stages = SPECIES[line].stages;
+      const cells = stages
+        .map((stage, i) => {
+          const known = state.discoveredStages.includes(`${line}:${i}`);
+          return known
+            ? `<div class="dex-cell known"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`
+            : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+        })
+        .join('');
+      return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
+    }).join('');
   }
 
   function renderTransformChoices() {
@@ -3149,6 +3194,7 @@
     el.cleanBtn.disabled = true;
     el.sleepBtn.disabled = true;
     el.medicineBtn.disabled = true;
+    el.dexBtn.disabled = true;
     game.start(el.minigameOverlay, finishMinigame);
   }
 
@@ -3267,11 +3313,25 @@
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
+    // 図鑑 is a cross-playthrough collection log, so it survives a reset
+    // even though every other stat starts over from scratch
+    const discoveredStages = state.discoveredStages;
     state = freshState();
+    state.discoveredStages = discoveredStages;
     clearTimeout(storyFlashTimer);
     el.storyFlash.classList.add('hidden');
     setMessage('あたらしい たまごが やってきた…');
   }));
+
+  el.dexBtn.addEventListener('click', () => {
+    dexOpen = true;
+    render();
+  });
+
+  el.dexCloseBtn.addEventListener('click', () => {
+    dexOpen = false;
+    render();
+  });
 
   function loop() {
     if (gameActive) {
