@@ -889,17 +889,16 @@
         btn.textContent = choice.label;
         btn.addEventListener('pointerdown', () => {
           // a near-simultaneous second tap (e.g. a stray touch point hitting an
-          // adjacent choice) must not overwrite the already-chosen response or
-          // double-apply its reward, so this guard has to run before anything
-          // else - disabling the buttons alone doesn't stop an event that's
-          // already in flight when the tap lands.
+          // adjacent choice) must not double-apply its reward, so this guard
+          // has to run before anything else - disabling the buttons alone
+          // doesn't stop an event that's already in flight when the tap lands.
           if (answered) return;
           answered = true;
-          Array.from(choicesEl.children).forEach((b) => {
-            b.disabled = true;
-          });
-          bubble.textContent = choice.response;
-          setTimeout(() => onComplete(choice.score), 2200);
+          // close right away instead of lingering on a second screen - the
+          // choice's response text becomes the normal status message once
+          // back on the main screen, where it gets its own guaranteed
+          // display time (see setMessage).
+          onComplete(choice.score, choice.response);
         });
         choicesEl.appendChild(btn);
       });
@@ -924,11 +923,11 @@
     return 'まあまあ あそべた!';
   }
 
-  function finishMinigame(score) {
+  function finishMinigame(score, customMessage) {
     const happinessGain = Math.round(5 + (clamp(score, 0, 100) / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
-    setMessage(resultMessageForScore(score));
+    setMessage(customMessage || resultMessageForScore(score));
 
     gameActive = false;
     el.minigameOverlay.classList.add('hidden');
