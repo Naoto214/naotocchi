@@ -593,6 +593,15 @@ body {
   background: #a3d98f;
 }
 
+.mg-hole.wrong {
+  background: #d9534f;
+}
+
+.mg-hole.selected {
+  background: #ffe066;
+  border-color: #d9a900;
+}
+
 /* timing */
 
 .mg-timing-body {
@@ -873,6 +882,35 @@ body {
 .mg-stroop-btn:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* beat tap */
+
+.mg-beat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.mg-beat-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffd3ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  animation: mg-beat-pulse linear infinite;
+}
+
+@keyframes mg-beat-pulse {
+  0% { transform: scale(0.7); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(0.7); }
 }
 
 .buttons {
