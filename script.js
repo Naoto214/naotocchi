@@ -50,7 +50,7 @@
   const AGE_MIN = 0;
   const AGE_MAX = 9999;
 
-  // reaching this displayed 日齢 (state.age / 20) wins the game, however
+  // reaching this displayed 年齢 (state.age / 20) wins the game, however
   // that age was reached - normal aging, evolution jumps, or a mix
   const GOAL_DAYS = 100;
 
@@ -65,16 +65,19 @@
 
   // what a pet becomes as an adult depends on how it was raised, and it keeps
   // that identity into old age rather than re-rolling
+  // every species ages into the same "としをとった <adultLabel>" phrasing,
+  // rather than a different word per species (おじいさん/でんせつの/etc.) -
+  // only the emoji is species-specific
   const SPECIES = {
     dog: { adultEmoji: '🐶', adultLabel: 'いぬ', elderEmoji: '🐕', elderLabel: 'としをとった いぬ' },
     cat: { adultEmoji: '🐱', adultLabel: 'ねこ', elderEmoji: '🐈', elderLabel: 'としをとった ねこ' },
     bird: { adultEmoji: '🐦', adultLabel: 'とり', elderEmoji: '🦜', elderLabel: 'としをとった とり' },
-    man: { adultEmoji: '🧑', adultLabel: 'おとこのひと', elderEmoji: '👴', elderLabel: 'おじいさん' },
-    woman: { adultEmoji: '👩', adultLabel: 'おんなのひと', elderEmoji: '👵', elderLabel: 'おばあさん' },
-    beetle: { adultEmoji: '🪲', adultLabel: 'カブトムシ', elderEmoji: '🪲', elderLabel: 'でんせつの カブトムシ' },
-    stagbeetle: { adultEmoji: '🪲', adultLabel: 'クワガタムシ', elderEmoji: '🪲', elderLabel: 'でんせつの クワガタムシ' },
-    god: { adultEmoji: '😇', adultLabel: 'かみさま', elderEmoji: '🌞', elderLabel: 'だいじんの かみさま' },
-    ren: { adultEmoji: '🧒', adultLabel: 'れんくん', elderEmoji: '🧑', elderLabel: 'れんさん' },
+    man: { adultEmoji: '🧑', adultLabel: 'おとこのひと', elderEmoji: '👴', elderLabel: 'としをとった おとこのひと' },
+    woman: { adultEmoji: '👩', adultLabel: 'おんなのひと', elderEmoji: '👵', elderLabel: 'としをとった おんなのひと' },
+    beetle: { adultEmoji: '🪲', adultLabel: 'カブトムシ', elderEmoji: '🪲', elderLabel: 'としをとった カブトムシ' },
+    stagbeetle: { adultEmoji: '🪲', adultLabel: 'クワガタムシ', elderEmoji: '🪲', elderLabel: 'としをとった クワガタムシ' },
+    god: { adultEmoji: '😇', adultLabel: 'かみさま', elderEmoji: '🌞', elderLabel: 'としをとった かみさま' },
+    ren: { adultEmoji: '🧒', adultLabel: 'れんくん', elderEmoji: '🧑', elderLabel: 'としをとった れんくん' },
   };
 
   const el = {
@@ -213,8 +216,8 @@
     dog: 'げんきいっぱいの いぬに へんしんした!',
     cat: 'きままな ねこに へんしんした!',
     bird: 'じゆうな とりに へんしんした!',
-    man: 'たくましい おとこのひとに せいちょうした!',
-    woman: 'りりしい おんなのひとに せいちょうした!',
+    man: 'たくましい おとこのひとに へんしんした!',
+    woman: 'りりしい おんなのひとに へんしんした!',
     beetle: 'たくましい カブトムシに へんしんした!',
     stagbeetle: 'りっぱな クワガタムシに へんしんした!',
     god: 'まさかの…かみさまに しんかした!!',
@@ -579,7 +582,7 @@
     const isOver = isDead || isClear;
 
     el.pet.textContent = currentSprite();
-    el.ageLabel.textContent = `日齢: ${Math.floor(state.age / 20)}`;
+    el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
 
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
