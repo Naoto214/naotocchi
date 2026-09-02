@@ -862,11 +862,20 @@
       const choicesEl = container.querySelector('#mgChoices');
       bubble.textContent = q.text;
 
+      let answered = false;
+
       q.choices.forEach((choice) => {
         const btn = document.createElement('button');
         btn.className = 'mg-choice-btn';
         btn.textContent = choice.label;
         btn.addEventListener('pointerdown', () => {
+          // a near-simultaneous second tap (e.g. a stray touch point hitting an
+          // adjacent choice) must not overwrite the already-chosen response or
+          // double-apply its reward, so this guard has to run before anything
+          // else - disabling the buttons alone doesn't stop an event that's
+          // already in flight when the tap lands.
+          if (answered) return;
+          answered = true;
           Array.from(choicesEl.children).forEach((b) => {
             b.disabled = true;
           });
