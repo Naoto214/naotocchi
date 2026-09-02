@@ -295,6 +295,69 @@ body {
   100% { opacity: 1; }
 }
 
+.game-clear-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  background: linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  background-size: 300% 300%;
+  animation: game-clear-bg 3s ease infinite;
+}
+
+.game-clear-overlay.hidden {
+  display: none;
+}
+
+.game-clear-confetti {
+  font-size: 20px;
+  animation: game-clear-bounce 0.9s ease-in-out infinite;
+}
+
+.game-clear-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 0 #d6336c, 0 4px 8px rgba(0, 0, 0, 0.35);
+  animation: game-clear-bounce 0.9s ease-in-out infinite;
+}
+
+.game-clear-subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fffbe6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.game-clear-desc {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.6;
+  color: #16330f;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+@keyframes game-clear-bg {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes game-clear-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.08); }
+}
+
 /* --- minigames --- */
 
 .mg-header {

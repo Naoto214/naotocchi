@@ -26,6 +26,7 @@
     ADULT: 'adult',
     ELDER: 'elder',
     DEAD: 'dead',
+    CLEAR: 'clear',
   };
 
   const AGE_THRESHOLDS = {
@@ -36,15 +37,25 @@
     elder: 60,  // adult -> elder (same species, aged form)
   };
 
-  // a full evo/devo meter nudges age by this much (uncapped in both
-  // directions - age can climb past "elder" or drop below 0) rather than
-  // snapping straight to a stage, so a single meter fill doesn't guarantee
-  // an instant transformation; the pet only actually changes form once
-  // enough of these have accumulated to cross a stage's age threshold
-  const EVO_AGE_STEP = 8;
-  const DEVO_AGE_STEP = 8;
-  const AGE_MIN = -9999;
+  const STAGE_ORDER = [STAGE.EGG, STAGE.BABY, STAGE.CHILD, STAGE.TEEN, STAGE.ADULT, STAGE.ELDER];
+  const STAGE_ENTRY_AGE = {
+    [STAGE.EGG]: 0,
+    [STAGE.BABY]: AGE_THRESHOLDS.hatch,
+    [STAGE.CHILD]: AGE_THRESHOLDS.child,
+    [STAGE.TEEN]: AGE_THRESHOLDS.teen,
+    [STAGE.ADULT]: AGE_THRESHOLDS.adult,
+    [STAGE.ELDER]: AGE_THRESHOLDS.elder,
+  };
+
+  const AGE_MIN = 0;
   const AGE_MAX = 9999;
+
+  // a full evo meter always transforms the pet forward a stage and nudges
+  // this lifetime counter up by 1; a full devo meter always knocks it back
+  // a stage and nudges the counter down by 1. reaching EVO_LEVEL_MAX ends
+  // the game with a win, independent of the visible growth stage (which
+  // caps out at elder)
+  const EVO_LEVEL_MAX = 100;
 
   const SPRITES = {
     [STAGE.EGG]: '🥚',
@@ -52,6 +63,7 @@
     [STAGE.CHILD]: '🐥',
     [STAGE.TEEN]: '🐤',
     [STAGE.DEAD]: '👻',
+    [STAGE.CLEAR]: '🎉',
   };
 
   // what a pet becomes as an adult depends on how it was raised, and it keeps
@@ -83,6 +95,7 @@
     storyFlash: document.getElementById('storyFlash'),
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
+    gameClearOverlay: document.getElementById('gameClearOverlay'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
@@ -121,6 +134,7 @@
       evoMeter: 0,
       devoMeter: 0,
       deathMeter: 0,
+      evoLevel: 0,
       growthEvents: 0,
       storyFlagsSeen: [],
     };
@@ -312,64 +326,43 @@
     return false;
   }
 
-  // the mirror image of advanceStage() - age dropping back below a stage's
-  // own entry threshold knocks the pet back down a stage; also true/false
-  // so it can be looped the same way
-  function regressStage() {
-    if (state.stage === STAGE.ELDER && state.age < AGE_THRESHOLDS.elder) {
-      state.stage = STAGE.ADULT;
-      setMessage(`わかがえって ${SPECIES[state.species].adultLabel} に もどった…`);
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.ADULT && state.age < AGE_THRESHOLDS.adult) {
-      state.stage = STAGE.TEEN;
-      state.species = null;
-      setMessage('はんせいじんに もどってしまった…');
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.TEEN && state.age < AGE_THRESHOLDS.teen) {
-      state.stage = STAGE.CHILD;
-      setMessage('こどもに もどってしまった…');
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.CHILD && state.age < AGE_THRESHOLDS.child) {
-      state.stage = STAGE.BABY;
-      setMessage('あかちゃんに もどってしまった…');
-      bouncePet();
-      return true;
-    }
-    if (state.stage === STAGE.BABY && state.age < AGE_THRESHOLDS.hatch) {
-      state.stage = STAGE.EGG;
-      setMessage('たまごに もどってしまった…');
-      bouncePet();
-      return true;
-    }
-    return false;
-  }
-
   // the evolution/devolution/death meters are the fast, performance-driven
-  // layer on top of plain aging: doing well fills evoMeter and nudges age
-  // forward (uncapped - it can climb well past "elder"), doing poorly fills
-  // devoMeter and nudges age backward (also uncapped - it can go negative),
-  // and repeated mistakes fill deathMeter and end things outright. actually
-  // changing form still only happens once accumulated age crosses a stage's
-  // threshold, so a single meter fill doesn't guarantee an instant transformation
+  // layer on top of plain aging: doing well fills evoMeter and, once full,
+  // always transforms the pet forward a stage; doing poorly fills devoMeter
+  // and, once full, always knocks it back a stage; repeated mistakes fill
+  // deathMeter and end things outright. evoLevel is a separate lifetime
+  // counter (+1 per evolution, -1 per devolution) that isn't tied to the
+  // visible stage - it keeps climbing past "elder" and is what actually
+  // ends the game in a win at EVO_LEVEL_MAX
   function triggerEvolutionJump() {
-    state.age = clamp(state.age + EVO_AGE_STEP, AGE_MIN, AGE_MAX);
-    while (advanceStage()) { /* catch up multiple stages if the jump was big enough */ }
+    state.evoLevel = Math.min(state.evoLevel + 1, EVO_LEVEL_MAX);
+    const idx = STAGE_ORDER.indexOf(state.stage);
+    if (idx !== -1 && idx < STAGE_ORDER.length - 1) {
+      const nextStage = STAGE_ORDER[idx + 1];
+      state.age = Math.max(state.age, STAGE_ENTRY_AGE[nextStage]);
+      advanceStage();
+    }
+    if (state.evoLevel >= EVO_LEVEL_MAX) {
+      triggerGameClear();
+    }
   }
 
   function triggerDevolutionJump() {
-    state.age = clamp(state.age - DEVO_AGE_STEP, AGE_MIN, AGE_MAX);
-    let changed = false;
-    while (regressStage()) { changed = true; }
-    if (!changed) {
-      setMessage('たいかメーターが MAXに…からだが おもい…');
-      bouncePet();
+    state.evoLevel -= 1;
+    const idx = STAGE_ORDER.indexOf(state.stage);
+    if (idx <= 1) {
+      // already baby (or egg) - nowhere lower to fall back to visually
+      setMessage('たいかメーターが MAXに…でも これ以上は もどれない…');
+      return;
     }
+    const prevStage = STAGE_ORDER[idx - 1];
+    state.stage = prevStage;
+    state.age = STAGE_ENTRY_AGE[prevStage];
+    if (prevStage !== STAGE.ADULT && prevStage !== STAGE.ELDER) {
+      state.species = null;
+    }
+    setMessage('たいかメーターが MAXに…すこし もどってしまった…');
+    bouncePet();
   }
 
   function triggerDeath() {
@@ -377,8 +370,13 @@
     setMessage('しぼうメーターが MAXに…てんごくへ いってしまった…');
   }
 
+  function triggerGameClear() {
+    state.stage = STAGE.CLEAR;
+    setMessage('ゲームクリア!');
+  }
+
   function checkMeters() {
-    if (state.stage === STAGE.DEAD) return;
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
     if (state.deathMeter >= 100) {
       state.deathMeter = 0;
       state.evoMeter = 0;
@@ -389,6 +387,7 @@
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
       triggerEvolutionJump();
+      if (state.stage === STAGE.CLEAR) return;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
@@ -400,7 +399,7 @@
   const STORY_FLASH_DURATION_MS = 3000;
 
   function checkStoryEvents() {
-    if (state.stage === STAGE.DEAD || gameActive) return;
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR || gameActive) return;
     for (const event of STORY_EVENTS) {
       if (state.storyFlagsSeen.includes(event.id)) continue;
       if (event.condition(state)) {
@@ -424,7 +423,7 @@
   }
 
   function tick() {
-    if (state.stage === STAGE.DEAD) return;
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
 
     state.age = clamp(state.age + 1, AGE_MIN, AGE_MAX);
 
@@ -530,6 +529,7 @@
     [STAGE.CHILD]: 'こども',
     [STAGE.TEEN]: 'はんせいじん',
     [STAGE.DEAD]: 'おわり',
+    [STAGE.CLEAR]: 'クリア!',
   };
 
   function currentSprite() {
@@ -548,20 +548,22 @@
 
   function render() {
     const isDead = state.stage === STAGE.DEAD;
+    const isClear = state.stage === STAGE.CLEAR;
     const isEgg = state.stage === STAGE.EGG;
+    const isOver = isDead || isClear;
 
     el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `日齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
 
-    updateBar(el.hungerBar, isEgg || isDead ? 0 : state.hunger, 'hunger');
-    updateBar(el.happinessBar, isEgg || isDead ? 0 : state.happiness, 'happiness');
-    updateBar(el.energyBar, isEgg || isDead ? 0 : state.energy, 'energy');
-    updateBar(el.healthBar, isEgg || isDead ? 0 : state.health, 'health');
+    updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
+    updateBar(el.happinessBar, isEgg || isOver ? 0 : state.happiness, 'happiness');
+    updateBar(el.energyBar, isEgg || isOver ? 0 : state.energy, 'energy');
+    updateBar(el.healthBar, isEgg || isOver ? 0 : state.health, 'health');
 
-    updateMeter(el.evoBar, isDead ? 0 : state.evoMeter, 'evo');
-    updateMeter(el.devoBar, isDead ? 0 : state.devoMeter, 'devo');
-    updateMeter(el.deathBar, isDead ? 0 : state.deathMeter, 'death');
+    updateMeter(el.evoBar, isOver ? 0 : state.evoMeter, 'evo');
+    updateMeter(el.devoBar, isOver ? 0 : state.devoMeter, 'devo');
+    updateMeter(el.deathBar, isOver ? 0 : state.deathMeter, 'death');
 
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
 
@@ -570,30 +572,33 @@
       const sickness = SICKNESS_TYPES.find((s) => s.label === state.sicknessType);
       badges.push(sickness ? sickness.badge : '🤒');
     }
-    if (state.isSleeping && !isDead) badges.push('💤');
+    if (state.isSleeping && !isOver) badges.push('💤');
     el.badges.textContent = badges.join(' ');
 
     el.screen.classList.toggle('dead', isDead);
-    el.screen.classList.toggle('sick', state.isSick && !isDead);
-    el.lamp.classList.toggle('sick', state.isSick && !isDead);
+    el.screen.classList.toggle('sick', state.isSick && !isOver);
+    el.lamp.classList.toggle('sick', state.isSick && !isOver);
+    el.gameClearOverlay.classList.toggle('hidden', !isClear);
 
     if (message) {
       el.message.textContent = message;
     } else if (isDead) {
       el.message.textContent = '「はじめから」で あたらしい たまごを そだてよう';
+    } else if (isClear) {
+      el.message.textContent = '';
     } else if (isEgg) {
       el.message.textContent = 'もうすぐ かえりそう…';
     } else {
       el.message.textContent = '';
     }
 
-    const disableCare = isDead || isEgg;
+    const disableCare = isOver || isEgg;
     el.feedBtn.disabled = disableCare;
     el.playBtn.disabled = disableCare || state.isSleeping;
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
-    el.resetBtn.classList.toggle('hidden', !isDead);
+    el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
   }
