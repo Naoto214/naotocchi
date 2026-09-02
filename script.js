@@ -936,13 +936,26 @@
   };
 
   const MINIGAMES = [catchGame, whackGame, timingGame, quizGame];
+  let minigameQueue = [];
   let lastMinigameIndex = -1;
 
+  function refillMinigameQueue() {
+    minigameQueue = MINIGAMES.map((_, i) => i);
+    for (let i = minigameQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [minigameQueue[i], minigameQueue[j]] = [minigameQueue[j], minigameQueue[i]];
+    }
+    if (minigameQueue.length > 1 && minigameQueue[minigameQueue.length - 1] === lastMinigameIndex) {
+      [minigameQueue[0], minigameQueue[minigameQueue.length - 1]] = [minigameQueue[minigameQueue.length - 1], minigameQueue[0]];
+    }
+  }
+
+  // every one of the 4 minigames plays exactly once per shuffled cycle,
+  // instead of plain random picks that can (fairly) still streak one
+  // minigame over another in any short run of plays
   function pickRandomMinigame() {
-    let idx;
-    do {
-      idx = Math.floor(Math.random() * MINIGAMES.length);
-    } while (idx === lastMinigameIndex);
+    if (minigameQueue.length === 0) refillMinigameQueue();
+    const idx = minigameQueue.pop();
     lastMinigameIndex = idx;
     return MINIGAMES[idx];
   }
