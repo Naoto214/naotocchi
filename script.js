@@ -91,6 +91,8 @@
     evoBar: document.getElementById('evoBar'),
     devoBar: document.getElementById('devoBar'),
     deathBar: document.getElementById('deathBar'),
+    goalBar: document.getElementById('goalBar'),
+    goalValue: document.getElementById('goalValue'),
     message: document.getElementById('message'),
     storyFlash: document.getElementById('storyFlash'),
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
@@ -564,6 +566,9 @@
     updateMeter(el.evoBar, isOver ? 0 : state.evoMeter, 'evo');
     updateMeter(el.devoBar, isOver ? 0 : state.devoMeter, 'devo');
     updateMeter(el.deathBar, isOver ? 0 : state.deathMeter, 'death');
+
+    updateMeter(el.goalBar, isDead ? 0 : state.evoLevel, 'goal');
+    el.goalValue.textContent = `${isDead ? 0 : state.evoLevel} / ${EVO_LEVEL_MAX}`;
 
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
 
