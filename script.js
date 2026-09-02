@@ -80,6 +80,9 @@
     devoBar: document.getElementById('devoBar'),
     deathBar: document.getElementById('deathBar'),
     message: document.getElementById('message'),
+    storyFlash: document.getElementById('storyFlash'),
+    storyFlashEmoji: document.getElementById('storyFlashEmoji'),
+    storyFlashText: document.getElementById('storyFlashText'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
@@ -118,6 +121,8 @@
       evoMeter: 0,
       devoMeter: 0,
       deathMeter: 0,
+      growthEvents: 0,
+      storyFlagsSeen: [],
     };
   }
 
@@ -202,6 +207,18 @@
     ren: 'あれ!?れんくんが なかまに くわわった!',
   };
 
+  // one-time flavor beats sprinkled across a play session - each fires at
+  // most once (tracked in state.storyFlagsSeen) so they read as a loose
+  // life story rather than a repeating status message
+  const STORY_EVENTS = [
+    { id: 'presence', emoji: '👀', message: 'どこからか しせんを かんじる…', condition: (s) => s.growthEvents >= 3 },
+    { id: 'rival', emoji: '😤', message: 'ライバルが あらわれた!まけていられない!', condition: (s) => s.growthEvents >= 6 },
+    { id: 'old-dream', emoji: '💭', message: 'ふと、なつかしい ゆめを みた きがした…', condition: (s) => s.growthEvents >= 10 },
+    { id: 'sick-overcome', emoji: '💪', message: 'なんども びょうきを のりこえて、たくましく なった', condition: (s) => s.totalSicknessCount >= 5 },
+    { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', condition: (s) => s.minigameCount >= 20 },
+    { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', condition: (s) => s.growthEvents >= 15 },
+  ];
+
   // how a pet is raised decides what it becomes: the action used most often
   // picks a species, exceptional all-around care transcends that into a god,
   // and being consistently great at minigames has a rare chance of a very
@@ -258,18 +275,21 @@
   function advanceStage() {
     if (state.stage === STAGE.EGG && state.age >= AGE_THRESHOLDS.hatch) {
       state.stage = STAGE.BABY;
+      state.growthEvents += 1;
       setMessage('たまごがかえった!');
       bouncePet();
       return true;
     }
     if (state.stage === STAGE.BABY && state.age >= AGE_THRESHOLDS.child) {
       state.stage = STAGE.CHILD;
+      state.growthEvents += 1;
       setMessage('こどもに せいちょうした!');
       bouncePet();
       return true;
     }
     if (state.stage === STAGE.CHILD && state.age >= AGE_THRESHOLDS.teen) {
       state.stage = STAGE.TEEN;
+      state.growthEvents += 1;
       setMessage('はんせいじんに せいちょうした!');
       bouncePet();
       return true;
@@ -277,12 +297,14 @@
     if (state.stage === STAGE.TEEN && state.age >= AGE_THRESHOLDS.adult) {
       state.species = decideSpecies();
       state.stage = STAGE.ADULT;
+      state.growthEvents += 1;
       setMessage(EVOLUTION_MESSAGES[state.species]);
       bouncePet();
       return true;
     }
     if (state.stage === STAGE.ADULT && state.age >= AGE_THRESHOLDS.elder) {
       state.stage = STAGE.ELDER;
+      state.growthEvents += 1;
       setMessage(`${SPECIES[state.species].elderLabel} に なった…`);
       bouncePet();
       return true;
@@ -372,6 +394,33 @@
       state.devoMeter = 0;
       triggerDevolutionJump();
     }
+    checkStoryEvents();
+  }
+
+  const STORY_FLASH_DURATION_MS = 3000;
+
+  function checkStoryEvents() {
+    if (state.stage === STAGE.DEAD || gameActive) return;
+    for (const event of STORY_EVENTS) {
+      if (state.storyFlagsSeen.includes(event.id)) continue;
+      if (event.condition(state)) {
+        state.storyFlagsSeen.push(event.id);
+        showStoryEvent(event);
+        break; // one at a time so they don't overlap
+      }
+    }
+  }
+
+  let storyFlashTimer = null;
+
+  function showStoryEvent(event) {
+    el.storyFlashEmoji.textContent = event.emoji;
+    el.storyFlashText.textContent = event.message;
+    el.storyFlash.classList.remove('hidden');
+    clearTimeout(storyFlashTimer);
+    storyFlashTimer = setTimeout(() => {
+      el.storyFlash.classList.add('hidden');
+    }, STORY_FLASH_DURATION_MS);
   }
 
   function tick() {
@@ -1807,6 +1856,8 @@
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
     state = freshState();
+    clearTimeout(storyFlashTimer);
+    el.storyFlash.classList.add('hidden');
     setMessage('あたらしい たまごが やってきた…');
   }));
 
