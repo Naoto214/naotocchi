@@ -596,6 +596,51 @@ body {
   line-height: 1.1;
 }
 
+/* --- じっせき --- */
+
+.ach-grid {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ach-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ach-cell.locked {
+  opacity: 0.5;
+}
+
+.ach-cell-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.ach-cell-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ach-cell-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.ach-cell-desc {
+  font-size: 8px;
+  opacity: 0.8;
+}
+
 /* --- minigames --- */
 
 .mg-header {
@@ -999,6 +1044,88 @@ body {
   0% { transform: scale(0.7); }
   50% { transform: scale(1.15); }
   100% { transform: scale(0.7); }
+}
+
+/* bubble pop */
+
+.mg-bubble-field {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  background: linear-gradient(180deg, #cdeaff, #9fd6f7);
+  border-radius: 6px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.mg-bubble {
+  position: absolute;
+  bottom: -10%;
+  font-size: 26px;
+  line-height: 1;
+  animation-name: mg-bubble-rise;
+  animation-timing-function: linear;
+}
+
+@keyframes mg-bubble-rise {
+  0% { bottom: -10%; opacity: 1; }
+  90% { opacity: 1; }
+  100% { bottom: 105%; opacity: 0.6; }
+}
+
+/* spell */
+
+.mg-spell-target {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 12px 0;
+  letter-spacing: 2px;
+}
+
+.mg-math-btn.wrong {
+  background: #d9534f;
+}
+
+/* obstacle jump */
+
+.mg-jump-lane {
+  position: relative;
+  flex: 1;
+  min-height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  background: #ede3c8;
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.mg-jump-player {
+  font-size: 30px;
+  margin-left: 10px;
+  transition: transform 0.15s ease;
+}
+
+.mg-jump-player.jumping {
+  transform: translateY(-16px);
+}
+
+.mg-jump-obstacle {
+  position: absolute;
+  left: calc(100% - 36px);
+  bottom: 10px;
+  font-size: 26px;
+}
+
+.mg-jump-obstacle.hidden {
+  display: none;
+}
+
+@keyframes mg-jump-approach {
+  0% { left: calc(100% - 36px); }
+  100% { left: 46px; }
 }
 
 .buttons {

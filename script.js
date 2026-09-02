@@ -115,6 +115,36 @@
         { threshold: 60, emoji: '🪲', label: 'でんせつの クワガタムシ', message: 'でんせつの クワガタムシに なった…' },
       ],
     },
+    rabbit: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐰', label: 'あかちゃんうさぎ' },
+        { threshold: 8, emoji: '🐰', label: 'こうさぎ', message: 'こうさぎに せいちょうした!' },
+        { threshold: 16, emoji: '🐇', label: 'わんぱくうさぎ', message: 'わんぱくうさぎに せいちょうした!' },
+        { threshold: 26, emoji: '🐇', label: 'わかいうさぎ', message: 'わかいうさぎに せいちょうした!' },
+        { threshold: 40, emoji: '🐇', label: 'うさぎ', message: 'すばしっこい うさぎに へんしんした!' },
+        { threshold: 60, emoji: '🐇', label: 'としをとった うさぎ', message: 'としをとった うさぎに なった…' },
+      ],
+    },
+    fish: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐟', label: 'あかちゃんざかな' },
+        { threshold: 8, emoji: '🐟', label: 'こざかな', message: 'こざかなに せいちょうした!' },
+        { threshold: 16, emoji: '🐠', label: 'わんぱくざかな', message: 'わんぱくざかなに せいちょうした!' },
+        { threshold: 26, emoji: '🐠', label: 'わかいさかな', message: 'わかいさかなに せいちょうした!' },
+        { threshold: 40, emoji: '🐡', label: 'さかな', message: 'カラフルな さかなに へんしんした!' },
+        { threshold: 60, emoji: '🐡', label: 'としをとった さかな', message: 'としをとった さかなに なった…' },
+      ],
+    },
+    dragon: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🦎', label: 'あかちゃんりゅう' },
+        { threshold: 8, emoji: '🦎', label: 'こりゅう', message: 'こりゅうに せいちょうした!' },
+        { threshold: 16, emoji: '🐉', label: 'わんぱくりゅう', message: 'わんぱくりゅうに せいちょうした!' },
+        { threshold: 26, emoji: '🐉', label: 'わかいりゅう', message: 'わかいりゅうに せいちょうした!' },
+        { threshold: 40, emoji: '🐉', label: 'りゅう', message: 'ほのおを ふく りゅうに へんしんした!' },
+        { threshold: 60, emoji: '🐉', label: 'でんせつの りゅう', message: 'でんせつの りゅうに なった…' },
+      ],
+    },
     // rare lines - never a starting hatch, only reachable as a 変身 choice
     // (see pickTransformCandidates) when care/skill has been exceptional
     god: {
@@ -137,12 +167,22 @@
         { threshold: 60, emoji: '🧑', label: 'れんさん', message: 'れんさんに なった…' },
       ],
     },
+    mermaid: {
+      stages: [
+        { threshold: HATCH_AGE, emoji: '🐚', label: 'あかちゃんの かいがら' },
+        { threshold: 8, emoji: '🐚', label: 'こにんぎょ', message: 'こにんぎょに せいちょうした!' },
+        { threshold: 16, emoji: '🧜', label: 'わんぱくにんぎょ', message: 'わんぱくにんぎょに せいちょうした!' },
+        { threshold: 26, emoji: '🧜', label: 'わかいにんぎょ', message: 'わかいにんぎょに せいちょうした!' },
+        { threshold: 40, emoji: '🧜‍♀️', label: 'にんぎょ', message: 'うみの プリンセス にんぎょに へんしんした!' },
+        { threshold: 60, emoji: '🧜‍♀️', label: 'でんせつの にんぎょ', message: 'でんせつの にんぎょに なった…' },
+      ],
+    },
   };
 
-  // god/ren are intentionally left out of the random hatch pool - they stay
-  // rare, earned surprises unlocked only through a 変身 choice
-  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle'];
-  const RARE_LINES = ['god', 'ren'];
+  // god/ren/mermaid are intentionally left out of the random hatch pool -
+  // they stay rare, earned surprises unlocked only through a 変身 choice
+  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle', 'rabbit', 'fish', 'dragon'];
+  const RARE_LINES = ['god', 'ren', 'mermaid'];
   const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
 
   function pickRandomLine() {
@@ -167,6 +207,7 @@
       if (line === state.speciesLine) return false;
       if (line === 'god') return avgCare >= 90;
       if (line === 'ren') return (state.minigameCount >= 5 && avgSkill >= 85) || state.traitCounts.romantic >= 5;
+      if (line === 'mermaid') return state.traitCounts.gentle >= 5;
       return false;
     });
     if (rarePool.length > 0 && Math.random() < 0.5) {
@@ -208,14 +249,21 @@
     cleanBtn: document.getElementById('cleanBtn'),
     sleepBtn: document.getElementById('sleepBtn'),
     medicineBtn: document.getElementById('medicineBtn'),
+    petBtn: document.getElementById('petBtn'),
+    talkBtn: document.getElementById('talkBtn'),
     resetBtn: document.getElementById('resetBtn'),
     dexBtn: document.getElementById('dexBtn'),
+    achBtn: document.getElementById('achBtn'),
     screenNormal: document.getElementById('screenNormal'),
     minigameOverlay: document.getElementById('minigameOverlay'),
     dexOverlay: document.getElementById('dexOverlay'),
     dexGrid: document.getElementById('dexGrid'),
     dexProgress: document.getElementById('dexProgress'),
     dexCloseBtn: document.getElementById('dexCloseBtn'),
+    achOverlay: document.getElementById('achOverlay'),
+    achGrid: document.getElementById('achGrid'),
+    achProgress: document.getElementById('achProgress'),
+    achCloseBtn: document.getElementById('achCloseBtn'),
   };
 
   function freshState() {
@@ -236,7 +284,7 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
-      actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0 },
+      actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0, pet: 0, talk: 0 },
       traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
       minigameScoreSum: 0,
       minigameCount: 0,
@@ -247,6 +295,20 @@
       transformOptions: null,
       items: {},
       discoveredStages: [],
+      // cross-playthrough counters for じっせき (achievements) - unlike
+      // most of this object these are never reset by "はじめから" (see the
+      // resetBtn handler)
+      lifetime: {
+        evolutions: 0,
+        devolutions: 0,
+        transforms: 0,
+        clears: 0,
+        deaths: 0,
+        minigamesPlayed: 0,
+        sicknessCured: 0,
+        maxAgeReached: 0,
+      },
+      achievementsUnlocked: [],
     };
   }
 
@@ -293,8 +355,43 @@
     }
   }
 
+  // じっせき (achievements) - permanent badges based on lifetime totals
+  // (state.lifetime), separate from the current pet's per-playthrough
+  // stats which reset with "はじめから". checkAchievements() runs from
+  // saveState() so no individual call site needs to remember to check it
+  const ACHIEVEMENTS = [
+    { id: 'evolve-1', emoji: '🌱', label: 'はじめの いっぽ', desc: 'はじめて しんかした', condition: (l) => l.evolutions >= 1 },
+    { id: 'evolve-10', emoji: '🌿', label: 'せいちょう じょうずさん', desc: '10かい しんかした', condition: (l) => l.evolutions >= 10 },
+    { id: 'evolve-50', emoji: '🌳', label: 'しんかの たつじん', desc: '50かい しんかした', condition: (l) => l.evolutions >= 50 },
+    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: '5かい たいかした', condition: (l) => l.devolutions >= 5 },
+    { id: 'transform-1', emoji: '✨', label: 'はじめての へんしん', desc: 'はじめて へんしんした', condition: (l) => l.transforms >= 1 },
+    { id: 'transform-10', emoji: '🌟', label: 'へんしん たつじん', desc: '10かい へんしんした', condition: (l) => l.transforms >= 10 },
+    { id: 'clear-1', emoji: '🏅', label: 'てんごくへの きっぷ', desc: 'はじめて ゲームクリアした', condition: (l) => l.clears >= 1 },
+    { id: 'clear-5', emoji: '🏆', label: 'なんども てんごくへ', desc: '5かい ゲームクリアした', condition: (l) => l.clears >= 5 },
+    { id: 'death-1', emoji: '👻', label: 'はじめての おわかれ', desc: 'はじめて てんごくに いった', condition: (l) => l.deaths >= 1 },
+    { id: 'minigame-50', emoji: '🎮', label: 'あそびの みならい', desc: 'ミニゲームを 50かい あそんだ', condition: (l) => l.minigamesPlayed >= 50 },
+    { id: 'minigame-300', emoji: '🕹️', label: 'あそびの たつじん', desc: 'ミニゲームを 300かい あそんだ', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'sick-cured-10', emoji: '💊', label: 'めいいの たまご', desc: 'びょうきを 10かい なおした', condition: (l) => l.sicknessCured >= 10 },
+    { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: 'ねんれい50に とうたつした', condition: (l) => l.maxAgeReached >= 50 },
+    { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
+    { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * 6 },
+  ];
+
+  function checkAchievements() {
+    state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, Math.floor(state.age / 20));
+    for (const ach of ACHIEVEMENTS) {
+      if (state.achievementsUnlocked.includes(ach.id)) continue;
+      if (!ach.condition(state.lifetime, state)) continue;
+      state.achievementsUnlocked.push(ach.id);
+      // a minigame overlay owns the screen while gameActive - the unlock
+      // is still recorded, just shown silently until it's safe to flash
+      if (!gameActive) showStoryEvent({ emoji: ach.emoji, message: `じっせき かいほう!「${ach.label}」` });
+    }
+  }
+
   function saveState() {
     recordDiscovery();
+    checkAchievements();
     try {
       localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     } catch (e) {
@@ -414,6 +511,47 @@
     ],
   };
 
+  // なでる/はなしかける は毎回かならず1つ表示される軽いリアクション文 -
+  // 通常のメッセージ欄に出すだけなので、STORY_EVENT_POOLSのような大きな
+  // 演出やSTORY_EVENT_CHANCEの抽選は使わない
+  const PET_REACTIONS = [
+    'うれしそうに すりよってきた!',
+    'ゴロゴロ… きもちよさそう',
+    'くすぐったいのか、ぴくっと うごいた',
+    'なでられて めを ほそめた',
+    'もっと なでて!って かおを してる',
+    'あったかい てが きもちいいみたい',
+    'うっとりした ひょうじょうに なった',
+    '「もう1かい!」と せがまれた き が した',
+    'そっと めを とじて リラックスしてる',
+    'しあわせそうな こえを だした',
+    'ふわふわの てざわりに ほっこりする',
+    'なでる てに あわせて からだを よせてきた',
+  ];
+
+  const TALK_REACTIONS = [
+    '「きょうも げんきだよ!」と いってる き が する',
+    'なにか はなしかけてきたけど、わからなかった',
+    'うれしそうに なにか さけんでる!',
+    'じっと めを みて なにか つたえようと してる',
+    'ひとりごとを つぶやいてる みたい',
+    '「あそぼう!」って いってる ような き が する',
+    'なぞの げんごで はなしかけてきた',
+    'こたえの かわりに ぴょんと はねた',
+    'うんうんと うなずいて くれた(たぶん)',
+    'ないしょばなしを してくれた(ひみつ)',
+    '「だいすき」って いった…かも',
+    'くびを かしげて こっちを みてる',
+  ];
+
+  let lastPetReaction = null;
+  let lastTalkReaction = null;
+
+  function pickReaction(pool, lastPicked) {
+    const choices = pool.length > 1 ? pool.filter((m) => m !== lastPicked) : pool;
+    return choices[Math.floor(Math.random() * choices.length)];
+  }
+
   // rewards for a great minigame result: each heals the death meter by a
   // different amount. weight controls drop rarity - the strongest healers
   // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
@@ -498,11 +636,13 @@
 
   function triggerDeath() {
     state.stage = STAGE.DEAD;
+    state.lifetime.deaths += 1;
     setMessage('しぼうメーターが MAXに…てんごくへ いってしまった…');
   }
 
   function triggerGameClear() {
     state.stage = STAGE.CLEAR;
+    state.lifetime.clears += 1;
     setMessage('ゲームクリア!');
   }
 
@@ -520,12 +660,18 @@
     let changedMessage = false;
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
-      if (triggerEvolutionJump()) checkStoryEvents('evolve');
+      if (triggerEvolutionJump()) {
+        state.lifetime.evolutions += 1;
+        checkStoryEvents('evolve');
+      }
       changedMessage = true;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
-      if (triggerDevolutionJump()) checkStoryEvents('devolve');
+      if (triggerDevolutionJump()) {
+        state.lifetime.devolutions += 1;
+        checkStoryEvents('devolve');
+      }
       changedMessage = true;
     }
     if (state.transformMeter >= 100 && !state.transformOptions && state.stage === STAGE.GROWING) {
@@ -751,18 +897,38 @@
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
+    el.petBtn.disabled = disableCare;
+    el.talkBtn.disabled = disableCare;
     el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
+    el.achBtn.disabled = gameActive || hasTransformChoice;
 
     el.dexOverlay.classList.toggle('hidden', !dexOpen);
     if (dexOpen) renderDex();
+
+    el.achOverlay.classList.toggle('hidden', !achOpen);
+    if (achOpen) renderAchievements();
 
     renderItemsRow(disableCare);
   }
 
   let dexOpen = false;
+  let achOpen = false;
+
+  // じっせき: shows every achievement with its unlock condition, revealing
+  // the description only once state.achievementsUnlocked contains its id
+  function renderAchievements() {
+    const unlockedCount = state.achievementsUnlocked.length;
+    el.achProgress.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
+    el.achGrid.innerHTML = ACHIEVEMENTS.map((ach) => {
+      const known = state.achievementsUnlocked.includes(ach.id);
+      return known
+        ? `<div class="ach-cell known"><span class="ach-cell-emoji">${ach.emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`
+        : `<div class="ach-cell locked"><span class="ach-cell-emoji">❓</span><div class="ach-cell-text"><span class="ach-cell-label">？？？</span></div></div>`;
+    }).join('');
+  }
 
   // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
   // only for line/stage combos recorded in state.discoveredStages so far
@@ -803,6 +969,7 @@
     if (!state.transformOptions || !state.transformOptions.includes(line)) return;
     state.speciesLine = line;
     state.transformOptions = null;
+    state.lifetime.transforms += 1;
     const stage = SPECIES[line].stages[state.stageIndex];
     setMessage(`${stage.label}に へんしんした!`);
     checkStoryEvents('transform');
@@ -3149,6 +3316,415 @@
     makeTileSwapGame({ title: 'おおきさじゅんに ならべよう!', emojiSet: ['🐭', '🐹', '🐰', '🐱', '🐶', '🐴'] }),
   ];
 
+  // --- バブルポップ ---
+
+  // bubbles rise via a CSS animation and must be tapped before they reach
+  // the top - unlike whack-a-mole's fixed holes, targets actually move
+  function makeBubblePopGame({ title, bubbleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 6000;
+        const riseMs = lerp(2400, 1300, difficulty);
+        const spawnIntervalMs = lerp(650, 380, difficulty);
+        let hits = 0;
+        let spawned = 0;
+        let running = true;
+        let spawnInterval, tickInterval;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 6s</span>
+            <span id="mgScore">ポップ: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-bubble-field" id="mgBubbleField"></div>
+        `;
+        const field = container.querySelector('#mgBubbleField');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function spawnBubble() {
+          if (!running) return;
+          spawned += 1;
+          const bubble = document.createElement('div');
+          bubble.className = 'mg-bubble';
+          bubble.textContent = bubbleEmoji;
+          bubble.style.left = `${5 + Math.random() * 85}%`;
+          bubble.style.animationDuration = `${riseMs}ms`;
+          let popped = false;
+          bubble.addEventListener('pointerdown', () => {
+            if (popped) return;
+            popped = true;
+            hits += 1;
+            scoreEl.textContent = `ポップ: ${hits}`;
+            bubble.remove();
+          });
+          bubble.addEventListener('animationend', () => {
+            if (!popped) bubble.remove();
+          });
+          field.appendChild(bubble);
+        }
+
+        spawnInterval = setInterval(spawnBubble, spawnIntervalMs);
+        const startTime = performance.now();
+        tickInterval = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) end();
+        }, 200);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          clearInterval(spawnInterval);
+          clearInterval(tickInterval);
+          const score = spawned > 0 ? Math.round(clamp((hits / spawned) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        spawnBubble();
+      },
+    };
+  }
+
+  const BUBBLE_POP_VARIANTS = [
+    makeBubblePopGame({ title: 'あわを ぜんぶ ポップしよう!', bubbleEmoji: '🫧' }),
+    makeBubblePopGame({ title: 'とびだす シャボンだまを キャッチ!', bubbleEmoji: '⭐' }),
+  ];
+
+  // --- もじつなぎ ---
+
+  // spell the shown word by tapping its hiragana in order out of a mixed
+  // set of tiles - a sequence-input puzzle, distinct from the other
+  // multiple-choice or grid-tap games
+  function makeSpellGame({ title, words }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const timeLimitMs = lerp(10000, 6000, difficulty);
+        const word = words[Math.floor(Math.random() * words.length)];
+        const letters = word.split('');
+        const DISTRACTOR_POOL = 'あかさたなはまやらわいきしちにひみりうくすつぬふむゆるえけせてねへめれおこそとのほもよろ'.split('');
+        const extraCount = Math.max(2, letters.length);
+        const distractors = [];
+        while (distractors.length < extraCount) {
+          const c = DISTRACTOR_POOL[Math.floor(Math.random() * DISTRACTOR_POOL.length)];
+          if (!letters.includes(c) && !distractors.includes(c)) distractors.push(c);
+        }
+        const tiles = [...letters, ...distractors];
+        for (let i = tiles.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
+        }
+
+        let nextIndex = 0;
+        let mistakes = 0;
+        let finished = false;
+        let timer;
+        const filled = [];
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-spell-target" id="mgSpellTarget">${'　'.repeat(letters.length)}</div>
+          <div class="mg-math-choices" id="mgSpellTiles" style="grid-template-columns: repeat(4, 1fr);">
+            ${tiles.map((c, i) => `<button class="mg-math-btn" data-i="${i}">${c}</button>`).join('')}
+          </div>
+        `;
+        const targetEl = container.querySelector('#mgSpellTarget');
+        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('pointerdown', () => {
+            if (finished || btn.disabled) return;
+            const c = btn.textContent;
+            if (c === letters[nextIndex]) {
+              filled.push(c);
+              nextIndex += 1;
+              btn.disabled = true;
+              btn.style.visibility = 'hidden';
+              targetEl.textContent = filled.join('') + '　'.repeat(letters.length - filled.length);
+              if (nextIndex >= letters.length) end(true);
+            } else {
+              mistakes += 1;
+              btn.classList.add('wrong');
+              setTimeout(() => btn.classList.remove('wrong'), 200);
+            }
+          });
+        });
+
+        function end(solved) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          if (solved) {
+            onComplete(clamp(Math.round(100 - mistakes * 15), 30, 100));
+          } else {
+            onComplete(clamp(Math.round((nextIndex / letters.length) * 50), 5, 50));
+          }
+        }
+
+        timer = setTimeout(() => end(false), timeLimitMs);
+      },
+    };
+  }
+
+  const SPELL_GAME_VARIANTS = [
+    makeSpellGame({ title: 'どうぶつの なまえを つづろう!', words: ['いぬ', 'ねこ', 'とり', 'うさぎ', 'ぞう', 'くま', 'さる', 'ぱんだ'] }),
+    makeSpellGame({ title: 'たべものの なまえを つづろう!', words: ['いちご', 'りんご', 'ばなな', 'たまご', 'すいか', 'ぶどう', 'めろん'] }),
+  ];
+
+  // --- さんすうペア ---
+
+  // tap two number cards that sum to the shown target - a pair-selection
+  // puzzle rather than a straight multiple-choice calculation
+  function makeSumPairGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const target = 8 + Math.floor(Math.random() * 8);
+        const pairCount = Math.round(lerp(3, 5, difficulty));
+        const distractorCount = Math.round(lerp(2, 4, difficulty));
+        const timeLimitMs = lerp(15000, 9000, difficulty);
+
+        const numbers = [];
+        for (let i = 0; i < pairCount; i++) {
+          const a = 1 + Math.floor(Math.random() * (target - 1));
+          numbers.push(a, target - a);
+        }
+        for (let i = 0; i < distractorCount; i++) {
+          numbers.push(1 + Math.floor(Math.random() * (target * 2)));
+        }
+        for (let i = numbers.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+        }
+        const cols = 4;
+        const rows = Math.ceil(numbers.length / cols);
+
+        let selected = -1;
+        let matchedCount = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTarget">あわせて ${target} に なる ペアを さがそう</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);"></div>
+        `;
+        const grid = container.querySelector('#mgGrid');
+
+        function render() {
+          grid.innerHTML = numbers
+            .map((n, i) => (n === null
+              ? '<div class="mg-hole" style="visibility:hidden;"></div>'
+              : `<div class="mg-hole${i === selected ? ' selected' : ''}" data-i="${i}" style="cursor:pointer; font-size:18px;">${n}</div>`))
+            .join('');
+          Array.from(grid.querySelectorAll('.mg-hole[data-i]')).forEach((cell) => {
+            cell.addEventListener('pointerdown', () => onTap(Number(cell.dataset.i)));
+          });
+        }
+
+        function onTap(i) {
+          if (finished || numbers[i] === null) return;
+          if (selected === -1) {
+            selected = i;
+            render();
+            return;
+          }
+          if (selected === i) {
+            selected = -1;
+            render();
+            return;
+          }
+          if (numbers[selected] + numbers[i] === target) {
+            numbers[selected] = null;
+            numbers[i] = null;
+            matchedCount += 1;
+            selected = -1;
+            render();
+            if (matchedCount >= pairCount) end(true);
+          } else {
+            selected = -1;
+            render();
+          }
+        }
+
+        function end(solved) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          const score = solved ? 100 : clamp(Math.round((matchedCount / pairCount) * 90), 10, 90);
+          onComplete(score);
+        }
+
+        render();
+        timer = setTimeout(() => end(false), timeLimitMs);
+      },
+    };
+  }
+
+  const SUM_PAIR_VARIANTS = [
+    makeSumPairGame({ title: 'たしざんペア さがし!' }),
+    makeSumPairGame({ title: 'かずの カップリング!' }),
+  ];
+
+  // --- しょうがいぶつジャンプ ---
+
+  // an obstacle repeatedly approaches along a lane; tap ジャンプ while it's
+  // in the danger zone to clear it - a real-time avoid/react loop rather
+  // than a fixed-duration round
+  function makeJumpGame({ title, obstacleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 7000;
+        const cycleMs = lerp(1600, 950, difficulty);
+        const jumpWindowMs = lerp(550, 300, difficulty);
+        let avoided = 0;
+        let total = 0;
+        let inWindow = false;
+        let running = true;
+        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 7s</span>
+            <span id="mgScore">かいひ: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-jump-lane" id="mgJumpLane">
+            <span class="mg-jump-obstacle hidden" id="mgJumpObstacle">${obstacleEmoji}</span>
+            <span class="mg-jump-player" id="mgJumpPlayer">🐾</span>
+          </div>
+          <button class="mg-tap-btn" id="mgJumpBtn">ジャンプ!</button>
+        `;
+
+        const obstacleEl = container.querySelector('#mgJumpObstacle');
+        const playerEl = container.querySelector('#mgJumpPlayer');
+        const jumpBtn = container.querySelector('#mgJumpBtn');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function spawnObstacle() {
+          if (!running) return;
+          total += 1;
+          inWindow = false;
+          obstacleEl.classList.remove('hidden');
+          // restart the CSS animation from scratch each spawn
+          obstacleEl.style.animation = 'none';
+          void obstacleEl.offsetWidth;
+          obstacleEl.style.animation = `mg-jump-approach ${cycleMs}ms linear`;
+          const windowStart = Math.max(0, cycleMs - jumpWindowMs);
+          windowOpenTimeout = setTimeout(() => {
+            inWindow = true;
+          }, windowStart);
+          windowCloseTimeout = setTimeout(() => {
+            inWindow = false;
+            obstacleEl.classList.add('hidden');
+            scheduleNext();
+          }, cycleMs);
+        }
+
+        function scheduleNext() {
+          if (!running) return;
+          nextTimeout = setTimeout(spawnObstacle, 250);
+        }
+
+        function onJump() {
+          if (!running || !inWindow) return;
+          avoided += 1;
+          inWindow = false;
+          scoreEl.textContent = `かいひ: ${avoided}`;
+          playerEl.classList.add('jumping');
+          setTimeout(() => playerEl.classList.remove('jumping'), 250);
+          clearTimeout(windowCloseTimeout);
+          obstacleEl.classList.add('hidden');
+          scheduleNext();
+        }
+        jumpBtn.addEventListener('pointerdown', onJump);
+
+        const startTime = performance.now();
+        tickInterval = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) end();
+        }, 200);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          clearInterval(tickInterval);
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          clearTimeout(nextTimeout);
+          jumpBtn.removeEventListener('pointerdown', onJump);
+          const score = total > 0 ? Math.round(clamp((avoided / total) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        spawnObstacle();
+      },
+    };
+  }
+
+  const JUMP_GAME_VARIANTS = [
+    makeJumpGame({ title: 'タイミングよく ジャンプしよう!', obstacleEmoji: '🪨' }),
+    makeJumpGame({ title: 'とんでくる ものを よけよう!', obstacleEmoji: '🌵' }),
+  ];
+
+  // --- いろのぐみあわせ ---
+
+  const COLOR_MIX_PAIRS = [
+    { a: '🔴', b: '🔵', answer: '🟣', label: 'むらさき' },
+    { a: '🔴', b: '🟡', answer: '🟠', label: 'オレンジ' },
+    { a: '🔵', b: '🟡', answer: '🟢', label: 'みどり' },
+  ];
+
+  const colorMixGame = {
+    start(container, onComplete) {
+      const timeLimitMs = 6000;
+      const pair = COLOR_MIX_PAIRS[Math.floor(Math.random() * COLOR_MIX_PAIRS.length)];
+      const distractors = COLOR_MIX_PAIRS.map((p) => p.answer).filter((a) => a !== pair.answer);
+      const choices = [pair.answer, ...distractors];
+      for (let i = choices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [choices[i], choices[j]] = [choices[j], choices[i]];
+      }
+      let answered = false;
+      let timer;
+
+      container.innerHTML = `
+        <div class="mg-title">いろを まぜると なにいろに なる?</div>
+        <div class="mg-math-problem" style="font-size:30px;">${pair.a} + ${pair.b} = ?</div>
+        <div class="mg-math-choices">
+          ${choices.map((c) => `<button class="mg-math-btn" data-val="${c}" style="font-size:22px;">${c}</button>`).join('')}
+        </div>
+      `;
+
+      const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+      buttons.forEach((btn) => {
+        btn.addEventListener('pointerdown', () => {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          onComplete(btn.dataset.val === pair.answer ? 100 : 20);
+        });
+      });
+
+      timer = setTimeout(() => {
+        if (!answered) {
+          answered = true;
+          onComplete(10);
+        }
+      }, timeLimitMs);
+    },
+  };
+
+  const COLOR_MIX_VARIANTS = [colorMixGame];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -3171,6 +3747,11 @@
     ...SORT_GAME_VARIANTS,
     ...HIGH_LOW_VARIANTS,
     ...TILE_SWAP_VARIANTS,
+    ...BUBBLE_POP_VARIANTS,
+    ...SPELL_GAME_VARIANTS,
+    ...SUM_PAIR_VARIANTS,
+    ...JUMP_GAME_VARIANTS,
+    ...COLOR_MIX_VARIANTS,
   ];
 
   let minigameQueue = [];
@@ -3210,6 +3791,7 @@
     state.energy = clamp(state.energy - 12, 0, 100);
     state.minigameScoreSum += clampedScore;
     state.minigameCount += 1;
+    state.lifetime.minigamesPlayed += 1;
     // fills regardless of score - unlike evo/devo, playing itself (not
     // skill) is what earns a shot at choosing a different growth line
     state.transformMeter = clamp(state.transformMeter + 15, 0, 100);
@@ -3260,7 +3842,10 @@
     el.cleanBtn.disabled = true;
     el.sleepBtn.disabled = true;
     el.medicineBtn.disabled = true;
+    el.petBtn.disabled = true;
+    el.talkBtn.disabled = true;
     el.dexBtn.disabled = true;
+    el.achBtn.disabled = true;
     game.start(el.minigameOverlay, finishMinigame);
   }
 
@@ -3367,6 +3952,7 @@
       state.energy = clamp(state.energy - 10, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 6, 0, 100);
+      state.lifetime.sicknessCured += 1;
       checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
         setMessage('げんきに なった!');
@@ -3381,12 +3967,46 @@
     }
   }));
 
+  // なでる/はなしかける are deliberately low-stakes: a tiny boost (or none
+  // at all) so they can't replace ごはん/あそぶ as an evolution grind, just
+  // a way to check in on the pet between the "real" actions
+  el.petBtn.addEventListener('click', withFeedback(() => {
+    if (state.isSleeping) {
+      setMessage('ねている… おきてから なでよう');
+      return;
+    }
+    state.happiness = clamp(state.happiness + 3, 0, 100);
+    state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
+    state.actionCounts.pet += 1;
+    const reaction = pickReaction(PET_REACTIONS, lastPetReaction);
+    lastPetReaction = reaction;
+    if (!checkMeters()) {
+      setMessage(reaction);
+    }
+  }));
+
+  el.talkBtn.addEventListener('click', withFeedback(() => {
+    if (state.isSleeping) {
+      setMessage('ねている… おきてから はなしかけよう');
+      return;
+    }
+    state.happiness = clamp(state.happiness + 2, 0, 100);
+    state.actionCounts.talk += 1;
+    const reaction = pickReaction(TALK_REACTIONS, lastTalkReaction);
+    lastTalkReaction = reaction;
+    setMessage(reaction);
+  }));
+
   el.resetBtn.addEventListener('click', withFeedback(() => {
-    // 図鑑 is a cross-playthrough collection log, so it survives a reset
-    // even though every other stat starts over from scratch
+    // 図鑑 and じっせき are cross-playthrough records, so they survive a
+    // reset even though every other stat starts over from scratch
     const discoveredStages = state.discoveredStages;
+    const lifetime = state.lifetime;
+    const achievementsUnlocked = state.achievementsUnlocked;
     state = freshState();
     state.discoveredStages = discoveredStages;
+    state.lifetime = lifetime;
+    state.achievementsUnlocked = achievementsUnlocked;
     clearTimeout(storyFlashTimer);
     el.storyFlash.classList.add('hidden');
     setMessage('あたらしい たまごが やってきた…');
@@ -3399,6 +4019,16 @@
 
   el.dexCloseBtn.addEventListener('click', () => {
     dexOpen = false;
+    render();
+  });
+
+  el.achBtn.addEventListener('click', () => {
+    achOpen = true;
+    render();
+  });
+
+  el.achCloseBtn.addEventListener('click', () => {
+    achOpen = false;
     render();
   });
 
