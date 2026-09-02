@@ -43,6 +43,8 @@
   // enough of these have accumulated to cross a stage's age threshold
   const EVO_AGE_STEP = 8;
   const DEVO_AGE_STEP = 8;
+  const AGE_MIN = -9999;
+  const AGE_MAX = 9999;
 
   const SPRITES = {
     [STAGE.EGG]: '🥚',
@@ -334,12 +336,12 @@
   // changing form still only happens once accumulated age crosses a stage's
   // threshold, so a single meter fill doesn't guarantee an instant transformation
   function triggerEvolutionJump() {
-    state.age += EVO_AGE_STEP;
+    state.age = clamp(state.age + EVO_AGE_STEP, AGE_MIN, AGE_MAX);
     while (advanceStage()) { /* catch up multiple stages if the jump was big enough */ }
   }
 
   function triggerDevolutionJump() {
-    state.age -= DEVO_AGE_STEP;
+    state.age = clamp(state.age - DEVO_AGE_STEP, AGE_MIN, AGE_MAX);
     let changed = false;
     while (regressStage()) { changed = true; }
     if (!changed) {
@@ -375,7 +377,7 @@
   function tick() {
     if (state.stage === STAGE.DEAD) return;
 
-    state.age += 1;
+    state.age = clamp(state.age + 1, AGE_MIN, AGE_MAX);
 
     if (state.stage === STAGE.EGG) {
       advanceStage();
