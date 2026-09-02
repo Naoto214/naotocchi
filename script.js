@@ -143,6 +143,7 @@
   // rare, earned surprises unlocked only through a 変身 choice
   const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle'];
   const RARE_LINES = ['god', 'ren'];
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
 
   function pickRandomLine() {
     return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
@@ -208,8 +209,13 @@
     sleepBtn: document.getElementById('sleepBtn'),
     medicineBtn: document.getElementById('medicineBtn'),
     resetBtn: document.getElementById('resetBtn'),
+    dexBtn: document.getElementById('dexBtn'),
     screenNormal: document.getElementById('screenNormal'),
     minigameOverlay: document.getElementById('minigameOverlay'),
+    dexOverlay: document.getElementById('dexOverlay'),
+    dexGrid: document.getElementById('dexGrid'),
+    dexProgress: document.getElementById('dexProgress'),
+    dexCloseBtn: document.getElementById('dexCloseBtn'),
   };
 
   function freshState() {
@@ -239,9 +245,8 @@
       deathMeter: 0,
       transformMeter: 0,
       transformOptions: null,
-      growthEvents: 0,
-      storyFlagsSeen: [],
       items: {},
+      discoveredStages: [],
     };
   }
 
@@ -277,7 +282,19 @@
     }
   }
 
+  // marks the current line+stage as met, so the 図鑑 can show it instead of
+  // a ❓ placeholder - called from saveState() so every persisted change
+  // (not just growth events) keeps this in sync with what's on screen
+  function recordDiscovery() {
+    if (state.stage !== STAGE.GROWING || !state.speciesLine) return;
+    const key = `${state.speciesLine}:${state.stageIndex}`;
+    if (!state.discoveredStages.includes(key)) {
+      state.discoveredStages.push(key);
+    }
+  }
+
   function saveState() {
+    recordDiscovery();
     try {
       localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     } catch (e) {
@@ -328,17 +345,74 @@
     }
   }
 
-  // one-time flavor beats sprinkled across a play session - each fires at
-  // most once (tracked in state.storyFlagsSeen) so they read as a loose
-  // life story rather than a repeating status message
-  const STORY_EVENTS = [
-    { id: 'presence', emoji: '👀', message: 'どこからか しせんを かんじる…', condition: (s) => s.growthEvents >= 3 },
-    { id: 'rival', emoji: '😤', message: 'ライバルが あらわれた!まけていられない!', condition: (s) => s.growthEvents >= 6 },
-    { id: 'old-dream', emoji: '💭', message: 'ふと、なつかしい ゆめを みた きがした…', condition: (s) => s.growthEvents >= 10 },
-    { id: 'sick-overcome', emoji: '💪', message: 'なんども びょうきを のりこえて、たくましく なった', condition: (s) => s.totalSicknessCount >= 5 },
-    { id: 'minigame-master', emoji: '🏆', message: 'いつのまにか、あそびの たつじんに なっていた', condition: (s) => s.minigameCount >= 20 },
-    { id: 'awakening', emoji: '✨', message: 'なにか とくべつな ちからが めざめていく きがする…', condition: (s) => s.growthEvents >= 15 },
-  ];
+  // flavor beats sprinkled across a play session, reacting to whatever
+  // just happened (a fresh evolution, a devolution, a 変身, a great or
+  // terrible minigame score, an illness beaten, overeating, cleanup) -
+  // see checkStoryEvents() for exactly when each pool is eligible
+  // chance that a qualifying moment (an evolution, a great minigame score,
+  // ...) actually pops a flash at all - keeps it feeling like a fun surprise
+  // rather than a guaranteed interruption on every single occurrence
+  const STORY_EVENT_CHANCE = 0.45;
+
+  // one flavor line is rolled from the matching pool each time its context
+  // happens, so unlike the old one-time-ever milestones these can repeat -
+  // with 4-6 humorous takes per pool that's still a lot of variety, and it
+  // means the game keeps reacting to what's actually going on instead of
+  // going quiet after every pool is used up once
+  const STORY_EVENT_POOLS = {
+    evolve: [
+      { emoji: '📈', message: 'からだが ムズムズする…これが せいちょうつうか!?' },
+      { emoji: '😲', message: 'きゅうに せが のびて じぶんでも ビックリした!' },
+      { emoji: '💫', message: 'きのうより ちょっと できる きが する!' },
+      { emoji: '🔔', message: 'レベルアップの おとが きこえた き が した(たぶん きのせい)' },
+      { emoji: '📏', message: 'サイズが かわって…ふくは もってないけど なんとなく きつい' },
+    ],
+    devolve: [
+      { emoji: '🤏', message: 'あれ?なんか ちいさく なってない…?' },
+      { emoji: '👶', message: 'こどもがえり ちゅう!ばぶばぶ!' },
+      { emoji: '😴', message: 'せいちょうを いったん おやすみする ことにした' },
+      { emoji: '📉', message: 'たいじゅうは かわってないのに みための ねんれいが わかがえった' },
+      { emoji: '🌀', message: 'じかんが ちょっと まきもどった ような かんかく' },
+    ],
+    transform: [
+      { emoji: '🌟', message: 'すがたが かわった!げんきに なった…かも!' },
+      { emoji: '🕺', message: 'へんしんポーズを キメて みた(だれも みてない)' },
+      { emoji: '👕', message: 'きがえた みたいな かんかく!なかみは おなじ' },
+      { emoji: '🪞', message: 'べつじんに なった き が するけど、なかみは いつもどおり' },
+      { emoji: '🎭', message: '「あたらしい じぶん」を いちど えんじて みたく なった' },
+    ],
+    'minigame-great': [
+      { emoji: '🏆', message: 'てんさいって よばれても おかしくない できばえ!' },
+      { emoji: '😎', message: 'ドヤがおが とまらない!' },
+      { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
+      { emoji: '🔥', message: 'きょうの ちょうしは いつもの100ばい あるかも!' },
+      { emoji: '🎉', message: 'しょうきんが でるなら もらいたい くらい じょうず' },
+    ],
+    'minigame-bad': [
+      { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
+      { emoji: '😵', message: 'うでが なまってた だけ!じつりょくじゃ ない!' },
+      { emoji: '🌀', message: 'ちょっと めが まわっただけ!ほんきだせば…' },
+      { emoji: '🫠', message: 'つぎは かならず リベンジする!(こんかいは しない)' },
+    ],
+    'medicine-cure': [
+      { emoji: '🕺', message: 'げんきに なって おどりだしそう!' },
+      { emoji: '😋', message: 'くすりの あじが まずすぎて めが さめた(べつの いみで げんき)' },
+      { emoji: '🎈', message: 'びょうきの ことは もう わすれた!(いたみは わすれてない)' },
+      { emoji: '💊', message: 'くすりを のんだ ごほうびに あとで なにか ねだりそう' },
+    ],
+    overfeed: [
+      { emoji: '🫃', message: 'おなかが パンパン…しばらく うごけない…' },
+      { emoji: '🍚', message: '「もう たべられない」と いいつつ もう いっこ いけそう' },
+      { emoji: '🚨', message: 'たべすぎ けいほう、はつれい!' },
+      { emoji: '😵‍💫', message: 'まんぷく すぎて まんぞくと こうかいが なかよく どうきょ ちゅう' },
+    ],
+    'poop-clean': [
+      { emoji: '✨', message: 'スッキリ!せかいが きゅうに きれいに みえる!' },
+      { emoji: '🧹', message: 'そうじの プロに なれる き が してきた' },
+      { emoji: '😌', message: 'うんちに なまえを つけそうに なった ところで やめた' },
+      { emoji: '🚿', message: 'きれいずき が いっかい あがった き が する' },
+    ],
+  };
 
   // rewards for a great minigame result: each heals the death meter by a
   // different amount. weight controls drop rarity - the strongest healers
@@ -374,7 +448,6 @@
       state.speciesLine = pickRandomLine();
       state.stage = STAGE.GROWING;
       state.stageIndex = 0;
-      state.growthEvents += 1;
       setMessage('たまごがかえった!');
       bouncePet();
       return true;
@@ -384,7 +457,6 @@
       const next = stages[state.stageIndex + 1];
       if (!next || state.age < next.threshold) return false;
       state.stageIndex += 1;
-      state.growthEvents += 1;
       setMessage(next.message || `${next.label}に なった!`);
       bouncePet();
       return true;
@@ -399,12 +471,14 @@
   // knocks it back a stage (snapping age down); repeated mistakes fill
   // deathMeter and end things outright. because these jumps move age
   // directly, they also move the pet toward or away from GOAL_DAYS
+  // both return whether they actually moved the pet a stage, so callers
+  // can gate story events on a real change rather than a no-op attempt
   function triggerEvolutionJump() {
-    if (state.stage !== STAGE.GROWING) return;
+    if (state.stage !== STAGE.GROWING) return false;
     const stages = SPECIES[state.speciesLine].stages;
-    if (state.stageIndex >= stages.length - 1) return;
+    if (state.stageIndex >= stages.length - 1) return false;
     state.age = Math.max(state.age, stages[state.stageIndex + 1].threshold);
-    advanceStage();
+    return advanceStage();
   }
 
   function triggerDevolutionJump() {
@@ -412,13 +486,14 @@
       // already the youngest growing stage (or still an egg) - nowhere
       // lower to fall back to visually
       setMessage('たいかメーターが MAXに…でも これ以上は もどれない…');
-      return;
+      return false;
     }
     const stages = SPECIES[state.speciesLine].stages;
     state.stageIndex -= 1;
     state.age = stages[state.stageIndex].threshold;
     setMessage(`${stages[state.stageIndex].label}に もどってしまった…`);
     bouncePet();
+    return true;
   }
 
   function triggerDeath() {
@@ -445,12 +520,12 @@
     let changedMessage = false;
     if (state.evoMeter >= 100) {
       state.evoMeter = 0;
-      triggerEvolutionJump();
+      if (triggerEvolutionJump()) checkStoryEvents('evolve');
       changedMessage = true;
     }
     if (state.devoMeter >= 100) {
       state.devoMeter = 0;
-      triggerDevolutionJump();
+      if (triggerDevolutionJump()) checkStoryEvents('devolve');
       changedMessage = true;
     }
     if (state.transformMeter >= 100 && !state.transformOptions && state.stage === STAGE.GROWING) {
@@ -463,22 +538,24 @@
       triggerGameClear();
       return true;
     }
-    checkStoryEvents();
     return changedMessage;
   }
 
   const STORY_FLASH_DURATION_MS = 3000;
 
-  function checkStoryEvents() {
+  let lastStoryEventMessage = null;
+
+  function checkStoryEvents(context) {
     if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR || gameActive) return;
-    for (const event of STORY_EVENTS) {
-      if (state.storyFlagsSeen.includes(event.id)) continue;
-      if (event.condition(state)) {
-        state.storyFlagsSeen.push(event.id);
-        showStoryEvent(event);
-        break; // one at a time so they don't overlap
-      }
-    }
+    const pool = STORY_EVENT_POOLS[context];
+    if (!pool || pool.length === 0) return;
+    if (Math.random() >= STORY_EVENT_CHANCE) return;
+    // avoid showing the exact same line twice back to back when a pool
+    // has more than one entry to pick from
+    const choices = pool.length > 1 ? pool.filter((e) => e.message !== lastStoryEventMessage) : pool;
+    const event = choices[Math.floor(Math.random() * choices.length)];
+    lastStoryEventMessage = event.message;
+    showStoryEvent(event);
   }
 
   let storyFlashTimer = null;
@@ -677,8 +754,34 @@
     el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+    el.dexBtn.disabled = gameActive || hasTransformChoice;
+
+    el.dexOverlay.classList.toggle('hidden', !dexOpen);
+    if (dexOpen) renderDex();
 
     renderItemsRow(disableCare);
+  }
+
+  let dexOpen = false;
+
+  // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
+  // only for line/stage combos recorded in state.discoveredStages so far
+  function renderDex() {
+    const discoveredCount = state.discoveredStages.length;
+    const totalCount = ALL_LINES.length * 6;
+    el.dexProgress.textContent = `${discoveredCount} / ${totalCount}`;
+    el.dexGrid.innerHTML = ALL_LINES.map((line) => {
+      const stages = SPECIES[line].stages;
+      const cells = stages
+        .map((stage, i) => {
+          const known = state.discoveredStages.includes(`${line}:${i}`);
+          return known
+            ? `<div class="dex-cell known"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`
+            : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+        })
+        .join('');
+      return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
+    }).join('');
   }
 
   function renderTransformChoices() {
@@ -702,6 +805,7 @@
     state.transformOptions = null;
     const stage = SPECIES[line].stages[state.stageIndex];
     setMessage(`${stage.label}に へんしんした!`);
+    checkStoryEvents('transform');
     bouncePet();
     saveState();
     render();
@@ -2682,6 +2786,369 @@
     makePatternGame({ title: 'つぎに くる いろは?', kind: 'color' }),
   ];
 
+  // --- リズムタップ ---
+
+  // a beat pulses at a steady tempo (visualized by a pulsing circle); tap
+  // as close to each pulse's peak as possible, repeated for a few rounds
+  function makeBeatGame({ title, beatEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 5;
+        const beatMs = lerp(900, 550, difficulty);
+        const scores = [];
+        let running = true;
+        const startTime = performance.now();
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">ビート 1/${ROUNDS}</span>
+            <span id="mgScore">とくてん: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-beat-body">
+            <div class="mg-beat-circle" id="mgBeatCircle" style="animation-duration:${beatMs}ms;">${beatEmoji}</div>
+            <button class="mg-tap-btn" id="mgBeatBtn">タップ!</button>
+          </div>
+        `;
+
+        const btn = container.querySelector('#mgBeatBtn');
+        const roundEl = container.querySelector('#mgRound');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function phaseError(now) {
+          const t = (now - startTime) % beatMs;
+          return Math.min(t, beatMs - t);
+        }
+
+        function onTap() {
+          if (!running) return;
+          const error = phaseError(performance.now());
+          const ratio = error / (beatMs / 2);
+          let roundScore;
+          if (ratio <= 0.15) roundScore = 100;
+          else if (ratio <= 0.35) roundScore = 70;
+          else if (ratio <= 0.6) roundScore = 40;
+          else roundScore = 10;
+          scores.push(roundScore);
+          scoreEl.textContent = `とくてん: ${Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)}`;
+          if (scores.length >= ROUNDS) {
+            end();
+          } else {
+            roundEl.textContent = `ビート ${scores.length + 1}/${ROUNDS}`;
+          }
+        }
+
+        btn.addEventListener('pointerdown', onTap);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          btn.removeEventListener('pointerdown', onTap);
+          const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+          onComplete(Math.round(avg));
+        }
+      },
+    };
+  }
+
+  const BEAT_GAME_VARIANTS = [
+    makeBeatGame({ title: 'ビートに あわせて タップ!', beatEmoji: '⭐' }),
+    makeBeatGame({ title: 'ハートの リズムタップ!', beatEmoji: '💗' }),
+  ];
+
+  // --- けつだんめいろ ---
+
+  // a linear branching maze - at each junction tap the branch that leads
+  // toward the goal; no dragging, just a series of timed either/or picks
+  function makeMazeGame({ title, pathEmojiPair }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const STEPS = Math.round(lerp(3, 6, difficulty));
+        const timeLimitMs = lerp(3200, 1900, difficulty);
+        let step = 0;
+        let correctCount = 0;
+        let stepTimer;
+        let awaitingTap = false;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgStep">わかれみち 1/${STEPS}</span>
+            <span id="mgScore">せいかい: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-choices" id="mgChoices"></div>
+        `;
+
+        const stepEl = container.querySelector('#mgStep');
+        const scoreEl = container.querySelector('#mgScore');
+        const choicesEl = container.querySelector('#mgChoices');
+
+        function renderStep() {
+          const correctIndex = Math.random() < 0.5 ? 0 : 1;
+          const labels = [`${pathEmojiPair[0]} こっち`, `${pathEmojiPair[1]} こっち`];
+          choicesEl.innerHTML = labels
+            .map((label, i) => `<button class="mg-choice-btn" data-i="${i}">${label}</button>`)
+            .join('');
+          awaitingTap = true;
+          Array.from(choicesEl.querySelectorAll('.mg-choice-btn')).forEach((btn) => {
+            btn.addEventListener('pointerdown', () => onPick(Number(btn.dataset.i) === correctIndex));
+          });
+          clearTimeout(stepTimer);
+          stepTimer = setTimeout(() => onPick(false), timeLimitMs);
+        }
+
+        function onPick(correct) {
+          if (!awaitingTap) return;
+          awaitingTap = false;
+          clearTimeout(stepTimer);
+          if (correct) correctCount += 1;
+          scoreEl.textContent = `せいかい: ${correctCount}`;
+          step += 1;
+          if (step >= STEPS) {
+            onComplete(Math.round((correctCount / STEPS) * 100));
+            return;
+          }
+          stepEl.textContent = `わかれみち ${step + 1}/${STEPS}`;
+          renderStep();
+        }
+
+        renderStep();
+      },
+    };
+  }
+
+  const MAZE_GAME_VARIANTS = [
+    makeMazeGame({ title: 'もりの めいろを ぬけよう!', pathEmojiPair: ['🌲', '🍄'] }),
+    makeMazeGame({ title: 'ほらあなの めいろを すすもう!', pathEmojiPair: ['🪨', '💧'] }),
+  ];
+
+  // --- いろわけ・しわけ ---
+
+  // a static grid of mixed items - tap only the ones matching the target,
+  // wrong taps cost points, unlike whack-a-mole nothing moves or hides
+  function makeSortGame({ title, targetEmoji, otherEmojis }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const GRID_SIZE = Math.round(lerp(9, 16, difficulty));
+        const targetCount = Math.max(3, Math.round(GRID_SIZE * 0.4));
+        const timeLimitMs = lerp(6500, 3800, difficulty);
+        const cells = Array.from({ length: GRID_SIZE }, (_, i) => (i < targetCount ? targetEmoji : otherEmojis[Math.floor(Math.random() * otherEmojis.length)]));
+        for (let i = cells.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [cells[i], cells[j]] = [cells[j], cells[i]];
+        }
+        const cols = 4;
+        const rows = Math.ceil(GRID_SIZE / cols);
+        let correctTaps = 0;
+        let mistakes = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">みつけた: 0/${targetCount}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+            ${cells.map((emoji, i) => `<div class="mg-hole" data-i="${i}" data-target="${emoji === targetEmoji}" style="cursor:pointer;">${emoji}</div>`).join('')}
+          </div>
+        `;
+
+        const scoreEl = container.querySelector('#mgScore');
+        const cellEls = Array.from(container.querySelectorAll('.mg-hole'));
+
+        cellEls.forEach((cell) => {
+          cell.addEventListener('pointerdown', () => {
+            if (finished || cell.classList.contains('done')) return;
+            if (cell.dataset.target === 'true') {
+              cell.classList.add('done');
+              cell.style.visibility = 'hidden';
+              correctTaps += 1;
+              scoreEl.textContent = `みつけた: ${correctTaps}/${targetCount}`;
+              if (correctTaps >= targetCount) end();
+            } else {
+              mistakes += 1;
+              cell.classList.add('wrong');
+              setTimeout(() => cell.classList.remove('wrong'), 200);
+            }
+          });
+        });
+
+        function end() {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          const score = clamp(Math.round((correctTaps / targetCount) * 100 - mistakes * 15), 10, 100);
+          onComplete(score);
+        }
+
+        timer = setTimeout(end, timeLimitMs);
+      },
+    };
+  }
+
+  const SORT_GAME_VARIANTS = [
+    makeSortGame({ title: 'くだものだけ タップしよう!', targetEmoji: '🍎', otherEmojis: ['🐛', '🪲', '🐌', '🕷️'] }),
+    makeSortGame({ title: 'あおい ものだけ タップしよう!', targetEmoji: '🔵', otherEmojis: ['🔴', '🟡', '🟢', '🟣'] }),
+  ];
+
+  // --- ハイ&ロー ---
+
+  const highLowGame = {
+    start(container, onComplete) {
+      const difficulty = ageDifficulty();
+      const ROUNDS = Math.round(lerp(4, 7, difficulty));
+      const timeLimitMs = lerp(4000, 2500, difficulty);
+      let round = 0;
+      let correctCount = 0;
+      let current = 1 + Math.floor(Math.random() * 100);
+      let timer;
+      let awaitingTap = false;
+
+      container.innerHTML = `
+        <div class="mg-header">
+          <span id="mgRound">ラウンド 1/${ROUNDS}</span>
+          <span id="mgScore">せいかい: 0</span>
+        </div>
+        <div class="mg-title">つぎの かずは たかい?ひくい?</div>
+        <div class="mg-math-problem" id="mgNumber">${current}</div>
+        <div class="mg-choices" id="mgChoices">
+          <button class="mg-choice-btn" data-dir="up">⬆️ たかい</button>
+          <button class="mg-choice-btn" data-dir="down">⬇️ ひくい</button>
+        </div>
+      `;
+
+      const numberEl = container.querySelector('#mgNumber');
+      const roundEl = container.querySelector('#mgRound');
+      const scoreEl = container.querySelector('#mgScore');
+      const buttons = Array.from(container.querySelectorAll('.mg-choice-btn'));
+
+      function nextNumber() {
+        let n;
+        do {
+          n = 1 + Math.floor(Math.random() * 100);
+        } while (n === current);
+        return n;
+      }
+
+      function onPick(dir) {
+        if (!awaitingTap) return;
+        awaitingTap = false;
+        clearTimeout(timer);
+        const next = nextNumber();
+        const correct = (dir === 'up' && next > current) || (dir === 'down' && next < current);
+        if (correct) correctCount += 1;
+        scoreEl.textContent = `せいかい: ${correctCount}`;
+        current = next;
+        round += 1;
+        if (round >= ROUNDS) {
+          onComplete(Math.round((correctCount / ROUNDS) * 100));
+          return;
+        }
+        numberEl.textContent = current;
+        roundEl.textContent = `ラウンド ${round + 1}/${ROUNDS}`;
+        awaitingTap = true;
+        timer = setTimeout(() => onPick('up'), timeLimitMs);
+      }
+
+      buttons.forEach((btn) => btn.addEventListener('pointerdown', () => onPick(btn.dataset.dir)));
+      awaitingTap = true;
+      timer = setTimeout(() => onPick('up'), timeLimitMs);
+    },
+  };
+
+  const HIGH_LOW_VARIANTS = [highLowGame];
+
+  // --- タイルならべかえ ---
+
+  // tap two tiles to swap them, sorting the shuffled row back into the
+  // fixed target order - a slide-puzzle feel without needing drag input
+  function makeTileSwapGame({ title, emojiSet }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const timeLimitMs = lerp(13000, 8000, difficulty);
+        const target = emojiSet;
+        const tiles = [...emojiSet];
+        do {
+          for (let i = tiles.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
+          }
+        } while (tiles.every((t, i) => t === target[i]));
+
+        let selected = -1;
+        let swaps = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgSwaps">いれかえ: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);"></div>
+          <div class="mg-hint">2つ タップして いれかえよう</div>
+        `;
+
+        const grid = container.querySelector('#mgGrid');
+        const swapsEl = container.querySelector('#mgSwaps');
+
+        function render() {
+          grid.innerHTML = tiles
+            .map((emoji, i) => `<div class="mg-hole${i === selected ? ' selected' : ''}" data-i="${i}" style="cursor:pointer;">${emoji}</div>`)
+            .join('');
+          Array.from(grid.querySelectorAll('.mg-hole')).forEach((cell) => {
+            cell.addEventListener('pointerdown', () => onTapTile(Number(cell.dataset.i)));
+          });
+        }
+
+        function onTapTile(i) {
+          if (finished) return;
+          if (selected === -1) {
+            selected = i;
+            render();
+            return;
+          }
+          if (selected === i) {
+            selected = -1;
+            render();
+            return;
+          }
+          [tiles[selected], tiles[i]] = [tiles[i], tiles[selected]];
+          swaps += 1;
+          swapsEl.textContent = `いれかえ: ${swaps}`;
+          selected = -1;
+          render();
+          if (tiles.every((t, idx) => t === target[idx])) end(true);
+        }
+
+        function end(solved) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          if (solved) {
+            onComplete(clamp(Math.round(100 - swaps * 6), 40, 100));
+          } else {
+            const correctPositions = tiles.filter((t, idx) => t === target[idx]).length;
+            onComplete(clamp(Math.round((correctPositions / tiles.length) * 60), 10, 60));
+          }
+        }
+
+        render();
+        timer = setTimeout(() => end(false), timeLimitMs);
+      },
+    };
+  }
+
+  const TILE_SWAP_VARIANTS = [
+    makeTileSwapGame({ title: 'いろを じゅんばんに ならべよう!', emojiSet: ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'] }),
+    makeTileSwapGame({ title: 'おおきさじゅんに ならべよう!', emojiSet: ['🐭', '🐹', '🐰', '🐱', '🐶', '🐴'] }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -2699,6 +3166,11 @@
     ...NUMBER_ORDER_VARIANTS,
     ...SILHOUETTE_VARIANTS,
     ...PATTERN_GAME_VARIANTS,
+    ...BEAT_GAME_VARIANTS,
+    ...MAZE_GAME_VARIANTS,
+    ...SORT_GAME_VARIANTS,
+    ...HIGH_LOW_VARIANTS,
+    ...TILE_SWAP_VARIANTS,
   ];
 
   let minigameQueue = [];
@@ -2746,7 +3218,9 @@
     // devolution and death meters - this is the main engine behind the
     // fast-paced transform/regress/die loop, not just the passive clock
     let itemMessage = '';
-    if (clampedScore >= 70) {
+    const isGreat = clampedScore >= 70;
+    const isBad = clampedScore < 40;
+    if (isGreat) {
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
@@ -2765,6 +3239,11 @@
     el.minigameOverlay.innerHTML = '';
     el.screenNormal.classList.remove('hidden');
 
+    // checkStoryEvents() no-ops while gameActive, so this must run after
+    // gameActive flips back to false above
+    if (isGreat) checkStoryEvents('minigame-great');
+    else if (isBad) checkStoryEvents('minigame-bad');
+
     bouncePet();
     checkMeters();
     saveState();
@@ -2781,6 +3260,7 @@
     el.cleanBtn.disabled = true;
     el.sleepBtn.disabled = true;
     el.medicineBtn.disabled = true;
+    el.dexBtn.disabled = true;
     game.start(el.minigameOverlay, finishMinigame);
   }
 
@@ -2815,6 +3295,7 @@
       } else {
         setMessage('もう おなかいっぱい… たべすぎ!');
       }
+      checkStoryEvents('overfeed');
       checkMeters();
       bouncePet();
       return;
@@ -2857,6 +3338,7 @@
     state.actionCounts.clean += 1;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
+    checkStoryEvents('poop-clean');
     if (!checkMeters()) {
       setMessage('おそうじ できた!');
     }
@@ -2885,6 +3367,7 @@
       state.energy = clamp(state.energy - 10, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 6, 0, 100);
+      checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
         setMessage('げんきに なった!');
       }
@@ -2899,11 +3382,25 @@
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
+    // 図鑑 is a cross-playthrough collection log, so it survives a reset
+    // even though every other stat starts over from scratch
+    const discoveredStages = state.discoveredStages;
     state = freshState();
+    state.discoveredStages = discoveredStages;
     clearTimeout(storyFlashTimer);
     el.storyFlash.classList.add('hidden');
     setMessage('あたらしい たまごが やってきた…');
   }));
+
+  el.dexBtn.addEventListener('click', () => {
+    dexOpen = true;
+    render();
+  });
+
+  el.dexCloseBtn.addEventListener('click', () => {
+    dexOpen = false;
+    render();
+  });
 
   function loop() {
     if (gameActive) {

@@ -508,6 +508,94 @@ body {
   transform: scale(0.95);
 }
 
+/* --- ずかん --- */
+
+.dex-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f4ead2;
+  color: #16330f;
+}
+
+.dex-overlay.hidden {
+  display: none;
+}
+
+.dex-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.dex-title {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.dex-progress {
+  font-size: 11px;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+}
+
+.dex-close-btn {
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.12);
+  color: #16330f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dex-grid {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dex-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3px;
+}
+
+.dex-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  border-radius: 6px;
+  padding: 3px 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.dex-cell.locked {
+  opacity: 0.5;
+}
+
+.dex-cell-emoji {
+  font-size: 16px;
+}
+
+.dex-cell-label {
+  font-size: 7px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1;
+}
+
 /* --- minigames --- */
 
 .mg-header {
@@ -591,6 +679,15 @@ body {
 
 .mg-hole.active {
   background: #a3d98f;
+}
+
+.mg-hole.wrong {
+  background: #d9534f;
+}
+
+.mg-hole.selected {
+  background: #ffe066;
+  border-color: #d9a900;
 }
 
 /* timing */
@@ -873,6 +970,35 @@ body {
 .mg-stroop-btn:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25), inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+/* beat tap */
+
+.mg-beat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.mg-beat-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffd3ea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  animation: mg-beat-pulse linear infinite;
+}
+
+@keyframes mg-beat-pulse {
+  0% { transform: scale(0.7); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(0.7); }
 }
 
 .buttons {

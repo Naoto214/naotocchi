@@ -89,6 +89,15 @@
           <button class="transform-skip-btn" id="transformSkipBtn">このままでいい</button>
         </div>
 
+        <div class="dex-overlay hidden" id="dexOverlay">
+          <div class="dex-header">
+            <span class="dex-title">ずかん</span>
+            <span class="dex-progress" id="dexProgress">0 / 54</span>
+            <button class="dex-close-btn" id="dexCloseBtn">✕</button>
+          </div>
+          <div class="dex-grid" id="dexGrid"></div>
+        </div>
+
         <div class="game-clear-overlay hidden" id="gameClearOverlay">
           <div class="game-clear-confetti">🎉🎊✨🎉🎊✨</div>
           <div class="game-clear-title">GAME CLEAR</div>
@@ -105,6 +114,7 @@
       <button id="cleanBtn" title="そうじ">🧹<br><span>そうじ</span></button>
       <button id="sleepBtn" title="ねる">💤<br><span>ねる</span></button>
       <button id="medicineBtn" title="くすり">💊<br><span>くすり</span></button>
+      <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="resetBtn" title="リセット" class="hidden">🔄<br><span>はじめから</span></button>
     </div>
   </div>
