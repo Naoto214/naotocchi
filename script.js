@@ -352,6 +352,7 @@
   const el = {
     pet: document.getElementById('pet'),
     petArea: document.getElementById('petArea'),
+    endingBadges: document.getElementById('endingBadges'),
     ageLabel: document.getElementById('ageLabel'),
     stageLabel: document.getElementById('stageLabel'),
     hungerBar: document.getElementById('hungerBar'),
@@ -450,6 +451,10 @@
         sicknessCured: 0,
         maxAgeReached: 0,
         resets: 0,
+        // which of the 4 getEndingTier() endings have ever been reached
+        // (across any playthrough) - drives the permanent badge row on the
+        // normal screen and the rainbow screen once all 4 are collected
+        endingTiersReached: [],
       },
       achievementsUnlocked: [],
     };
@@ -462,6 +467,11 @@
       const parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== 'object') return freshState();
       const merged = { ...freshState(), ...parsed };
+      // lifetime is a nested object, so the shallow merge above replaces it
+      // wholesale with the save's own (possibly older, field-missing)
+      // lifetime rather than filling gaps - patch those gaps in explicitly
+      // so a field added in a later version doesn't come back undefined
+      merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -575,6 +585,10 @@
   // 15個中15個なので、それ単体では「ずかんは まだ」を表せない -
   // エンディングの段階わけとしては dex-complete を除いた14個で判定し、
   // ずかん達成/じっせき(dex以外)達成を独立した2軸として扱う
+  // 一生のあいだに たどりついた クリアパターンの あかしとして、ふだんの
+  // 画面に ずっと 残る バッジ(state.lifetime.endingTiersReached に記録)
+  const ENDING_TIER_ICONS = ['🎉', '📖', '🏅', '👑'];
+
   const ENDING_TIERS = [
     {
       title: 'GAME CLEAR',
@@ -1261,7 +1275,17 @@
     el.screen.classList.toggle('sleeping', state.isSleeping && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
+    // renderEnding() (when isClear) records this playthrough's tier into
+    // state.lifetime.endingTiersReached, so the badge row/rainbow-mode
+    // below must be computed after it, not before
     if (isClear) renderEnding();
+
+    const endingTiersReached = state.lifetime.endingTiersReached;
+    el.endingBadges.innerHTML = [...endingTiersReached]
+      .sort((a, b) => a - b)
+      .map((tierIndex) => `<span class="ending-badge" title="${ENDING_TIERS[tierIndex].title}">${ENDING_TIER_ICONS[tierIndex]}</span>`)
+      .join('');
+    el.screen.classList.toggle('rainbow-mode', endingTiersReached.length >= ENDING_TIERS.length);
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -1370,6 +1394,9 @@
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
+    if (!state.lifetime.endingTiersReached.includes(tierIndex)) {
+      state.lifetime.endingTiersReached.push(tierIndex);
+    }
     if (!endingCelebrationShown) {
       endingCelebrationShown = true;
       spawnEndingCelebration(tierIndex);
