@@ -424,6 +424,7 @@
     themeCloseBtn: document.getElementById('themeCloseBtn'),
     deviceThemeGrid: document.getElementById('deviceThemeGrid'),
     screenThemeGrid: document.getElementById('screenThemeGrid'),
+    devicePatternGrid: document.getElementById('devicePatternGrid'),
     screenPatternGrid: document.getElementById('screenPatternGrid'),
     courtBtn: document.getElementById('courtBtn'),
     travelBtn: document.getElementById('travelBtn'),
@@ -522,8 +523,9 @@
         // ずかんと おなじく「はじめから」しても消えない、永続の せってい
         deviceThemeId: 'default',
         screenThemeId: 'default',
-        // えらんだ がめんの がら(SCREEN_PATTERNS の id) - いろとは
-        // どくりつに えらべる、もうひとつの がめんの おしゃれ せってい
+        // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
+        // どくりつに えらべる、もうひとつの おしゃれ せってい
+        devicePatternId: 'none',
         screenPatternId: 'none',
         // なかまイベントに クリアして なかまに なった COMPANIONS の id 一覧。
         // ずかん・じっせきと おなじく「はじめから」しても消えず、画面の
@@ -740,7 +742,7 @@
   // がめんの がら(色とは べつの もうひとつの おしゃれ軸)。emoji は
   // 「いろ」がめんの スウォッチ プレビューに つかい、じっさいの タイル
   // もようは style.css の .screen.pattern-<id> が うけもつ
-  const SCREEN_PATTERNS = [
+  const PATTERNS = [
     { id: 'none', label: 'なし', emoji: '⬜' },
     { id: 'dots', label: 'みずたま', emoji: '🔵' },
     { id: 'stripes', label: 'ストライプ', emoji: '〰️' },
@@ -753,7 +755,7 @@
     { id: 'rainbow', label: 'レインボー', emoji: '🌈', unlockAll: true },
   ];
 
-  // COLOR_THEMES/SCREEN_PATTERNS 共通の解放判定(どちらも unlockTier/
+  // COLOR_THEMES/PATTERNS 共通の解放判定(どちらも unlockTier/
   // unlockAll という おなじ フィールドしか みないので、そのまま りようできる)
   function isThemeUnlocked(theme) {
     if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
@@ -1855,8 +1857,10 @@
       el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
       el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
     });
-    const screenPattern = SCREEN_PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p));
-    SCREEN_PATTERNS.forEach((p) => {
+    const devicePattern = PATTERNS.find((p) => p.id === state.lifetime.devicePatternId && isThemeUnlocked(p));
+    const screenPattern = PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p));
+    PATTERNS.forEach((p) => {
+      el.device.classList.toggle(`pattern-${p.id}`, p === devicePattern);
       el.screen.classList.toggle(`pattern-${p.id}`, p === screenPattern);
     });
   }
@@ -2084,12 +2088,12 @@
     }).join('');
   }
 
-  // COLOR_THEMES の いろスウォッチと ちがい、SCREEN_PATTERNS は 単色を
+  // COLOR_THEMES の いろスウォッチと ちがい、PATTERNS は 単色を
   // もたないので、まる の なかみに その がらの めじるしの emoji を
   // そのまま おく(じっさいの タイル もようは 選んで がめんに 反映した
   // ときに style.css の .screen.pattern-<id> で 見える)
   function renderPatternSwatchGrid(gridEl, selectedId) {
-    gridEl.innerHTML = SCREEN_PATTERNS.map((p) => {
+    gridEl.innerHTML = PATTERNS.map((p) => {
       const unlocked = isThemeUnlocked(p);
       const selected = unlocked && p.id === selectedId;
       const label = unlocked ? p.label : '？？？';
@@ -2099,13 +2103,14 @@
   }
 
   function renderThemeOverlay() {
-    // ヘッダーの ぜんたい数は、いろ(COLOR_THEMES)と がら(SCREEN_PATTERNS)
+    // ヘッダーの ぜんたい数は、いろ(COLOR_THEMES)と がら(PATTERNS)
     // を あわせた かずで あらわす
     const unlockedColors = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
-    const unlockedPatterns = SCREEN_PATTERNS.filter((p) => isThemeUnlocked(p)).length;
-    el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + SCREEN_PATTERNS.length}`;
+    const unlockedPatterns = PATTERNS.filter((p) => isThemeUnlocked(p)).length;
+    el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + PATTERNS.length}`;
     renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
     renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
+    renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId);
     renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId);
   }
 
@@ -2178,10 +2183,11 @@
   }
 
   function selectTheme(target, id) {
-    if (target === 'pattern') {
-      const pattern = SCREEN_PATTERNS.find((p) => p.id === id);
+    if (target === 'devicePattern' || target === 'screenPattern') {
+      const pattern = PATTERNS.find((p) => p.id === id);
       if (!pattern || !isThemeUnlocked(pattern)) return;
-      state.lifetime.screenPatternId = id;
+      if (target === 'devicePattern') state.lifetime.devicePatternId = id;
+      else state.lifetime.screenPatternId = id;
       saveState();
       render();
       return;
@@ -6617,10 +6623,16 @@
     selectTheme('screen', btn.dataset.id);
   });
 
+  el.devicePatternGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectTheme('devicePattern', btn.dataset.id);
+  });
+
   el.screenPatternGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
     if (!btn) return;
-    selectTheme('pattern', btn.dataset.id);
+    selectTheme('screenPattern', btn.dataset.id);
   });
 
   el.profileBtn.addEventListener('click', () => {
