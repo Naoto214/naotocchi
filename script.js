@@ -6252,14 +6252,29 @@
         badItems: ['🥫', '🛍️', '🪤', '⚓'],
       }),
       makeWhackGame({ title: 'とびだす カニを タップ!', targetEmoji: '🦀' }),
+      makeMazeGame({ title: 'さんごしょうの めいろを およごう!', pathEmojiPair: ['🐠', '🪸'] }),
+      makeConcentrationGame({ title: 'うみの いきものペアを さがそう!', emojis: ['🐠', '🐙', '🦑', '🦀', '🐬', '🐢'] }),
     ],
     snow: [
       makeJumpGame({ title: 'ゆきだるまを よけて すべろう!', obstacleEmoji: '⛄' }),
       makeMashGame({ title: 'ゆきだるまづくり!れんだタップ!', buttonEmoji: '⛄' }),
+      makeWhackGame({ title: 'とびだす ペンギンを タップ!', targetEmoji: '🐧' }),
+      makeCatchGame({
+        title: 'ゆきの けっしょうキャッチ!こおりは あぶない',
+        basketEmoji: '🧤',
+        goodItems: ['❄️', '⛷️', '🧣', '☃️'],
+        badItems: ['🧊', '⚡', '🥶', '🌨️'],
+      }),
     ],
     city: [
       makeWhackGame({ title: 'とびだす タクシーを タップ!', targetEmoji: '🚕' }),
       makeTimingGame({ title: 'しんごうが かわる しゅんかんで タップ!', tapLabel: 'GO!', gaugeStyle: '#4a90d9' }),
+      makeRoadGame({
+        title: 'とかいを はしろう!ラッキーアイテムは キャッチ、はとの ふんは よけて',
+        goodItems: ['🍩', '☕', '🎫', '💰'],
+        badItems: ['🐦', '🚧', '🗑️', '⚠️'],
+      }),
+      makeMashGame({ title: 'エレベーターの ボタンれんだ!', buttonEmoji: '🛗' }),
     ],
     countryside: [
       makeCatchGame({
@@ -6269,10 +6284,18 @@
         badItems: ['🐀', '🦗', '🐜', '🦠'],
       }),
       makeMashGame({ title: 'にゅうしぼり!れんだタップ!', buttonEmoji: '🥛' }),
+      makeWhackGame({ title: 'とびだす ニワトリを タップ!', targetEmoji: '🐔' }),
+      makeConcentrationGame({ title: 'のうさぎょうの どうぐペアを さがそう!', emojis: ['🌾', '🚜', '🧺', '🐓', '🐄', '🌻'] }),
     ],
     forest: [
       makeWhackGame({ title: 'とびだす リスを タップ!', targetEmoji: '🐿️' }),
       makeBubblePopGame({ title: 'きのこの ほうしを ポップしよう!', bubbleEmoji: '🍄' }),
+      makeMazeGame({ title: 'ふかい もりの けものみちを すすもう!', pathEmojiPair: ['🍂', '🐿️'] }),
+      makeStackGame({
+        title: 'きのみタワー!たかく つみあげよう',
+        blockEmoji: '🌰',
+        palette: ['#8a9a5b', '#a3b18a', '#dad7cd', '#588157', '#3a5a40', '#344e41', '#bc6c25'],
+      }),
     ],
     desert: [
       makeCatchGame({
@@ -6282,6 +6305,12 @@
         badItems: ['🦂', '🐍', '☠️', '🔥'],
       }),
       makeJumpGame({ title: 'サボテンを ジャンプで よけよう!', obstacleEmoji: '🌵' }),
+      makeWhackGame({ title: 'とびだす サソリを タップ!', targetEmoji: '🦂' }),
+      makeRoadGame({
+        title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
+        goodItems: ['💧', '🍈', '⭐', '🧢'],
+        badItems: ['🦂', '🐍', '☠️', '🔥'],
+      }),
     ],
     tropical: [
       makeCatchGame({
@@ -6291,6 +6320,8 @@
         badItems: ['🐝', '🕷️', '🦂', '🌶️'],
       }),
       makeMashGame({ title: 'ココナッツわり!れんだタップ!', buttonEmoji: '🥥' }),
+      makeWhackGame({ title: 'とびだす オウムを タップ!', targetEmoji: '🦜' }),
+      makeBubblePopGame({ title: 'トロピカルジュースの あわを ポップしよう!', bubbleEmoji: '🫧' }),
     ],
   };
 
