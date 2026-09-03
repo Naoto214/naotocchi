@@ -1717,6 +1717,20 @@
         setMessage('てんごくへ いってしまった…');
       }
 
+      // お世話が じゅうぶん いきとどいている あいだ(びょうきでなく、
+      // 満腹・機嫌・元気・体力が すべて 60いじょう)は、死亡メーターが
+      // すこしずつ ひとりでに かいふくする - 回復アイテムの うんに
+      // たよらず、ちゃんと お世話を つづければ じぶんの ちからで
+      // さげられる。ひとつでも 60を きると その tick は かいふくしない
+      const wellCared = !state.isSick
+        && state.hunger >= 60
+        && state.happiness >= 60
+        && state.energy >= 60
+        && state.health >= 60;
+      if (wellCared && state.deathMeter > 0) {
+        state.deathMeter = clamp(state.deathMeter - 2, 0, 100);
+      }
+
       // こいびと/夫婦は ほうっておくと なかよし度が へっていき、0で
       // わかれてしまう - きゅうあいで ちゃんと いちゃつきつづける ひつようが ある
       decayRelationship();
