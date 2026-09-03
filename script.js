@@ -457,6 +457,7 @@
     guestStatus: document.getElementById('guestStatus'),
     companionLeft: document.getElementById('companionLeft'),
     companionRight: document.getElementById('companionRight'),
+    partnerCompanion: document.getElementById('partnerCompanion'),
     companionDexGrid: document.getElementById('companionDexGrid'),
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
@@ -2036,6 +2037,7 @@
       .join('');
 
     renderCompanionRow();
+    renderPartnerCompanion(isEgg || isOver);
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -2430,6 +2432,22 @@
     const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${c.emoji}</span>`;
     el.companionLeft.innerHTML = left.map(chip).join('');
     el.companionRight.innerHTML = right.map(chip).join('');
+  }
+
+  // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
+  // ハートで かこんで 表示する。#pet の こどもなので、idle-float の ゆれにも
+  // 本体キャラと まったく おなじように ついてくる。けっこんずみの ときは
+  // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
+  function renderPartnerCompanion(hide) {
+    const p = !hide && state.partner;
+    el.partnerCompanion.classList.toggle('hidden', !p);
+    if (!p) {
+      el.partnerCompanion.innerHTML = '';
+      return;
+    }
+    const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
+    el.partnerCompanion.innerHTML =
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${p.label}">${p.emoji}${ring}</span><span class="partner-heart">💕</span>`;
   }
 
   function renderTransformChoices() {

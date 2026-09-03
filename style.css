@@ -100,6 +100,44 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
 }
 
+/* こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
+   くっつけて 表示する。ハートで かこんで なかまの丸チップとは ちがう みための
+   モチーフにし、けっこんずみなら ゆびわを そえる。#pet の こどもなので、
+   idle-float の ゆれにも 本体キャラと まったく おなじように ついてくる */
+.partner-companion {
+  position: absolute;
+  top: -8px;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  pointer-events: none;
+}
+
+.partner-companion.hidden {
+  display: none;
+}
+
+.partner-companion .partner-heart {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.partner-companion .partner-emoji {
+  position: relative;
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.partner-companion .partner-ring {
+  position: absolute;
+  bottom: -3px;
+  right: -6px;
+  font-size: 12px;
+  line-height: 1;
+}
+
 .device-top {
   display: flex;
   justify-content: center;
