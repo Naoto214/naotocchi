@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260903-7">
+<link rel="stylesheet" href="style.css?v=20260903-8">
 </head>
 <body>
   <div class="device" id="device">
@@ -32,6 +32,7 @@
             <div class="ending-badges" id="endingBadges"></div>
             <div class="pet" id="pet">🥚</div>
             <div class="poop-row" id="poopRow"></div>
+            <button class="profile-icon-btn hidden" id="profileBtn" title="プロフィール">👤</button>
           </div>
 
           <div class="bars">
@@ -129,6 +130,27 @@
           </div>
         </div>
 
+        <div class="dex-overlay hidden" id="profileOverlay">
+          <div class="dex-header">
+            <span class="dex-title">プロフィール</span>
+            <button class="dex-close-btn" id="profileCloseBtn">✕</button>
+          </div>
+          <div class="profile-section">
+            <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
+            <div class="profile-row"><span class="profile-label">せいちょう</span><span id="profileStage"></span></div>
+            <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
+            <div class="profile-row"><span class="profile-label">れんあいタイプ</span><span id="profileOrientation"></span></div>
+          </div>
+          <div class="profile-section">
+            <div class="profile-section-title">せいかく傾向</div>
+            <div class="profile-traits" id="profileTraits"></div>
+          </div>
+          <div class="profile-section" id="profilePartnerSection">
+            <div class="profile-section-title">こいびと</div>
+            <div id="profilePartnerCard"></div>
+          </div>
+        </div>
+
         <div class="game-clear-overlay hidden" id="gameClearOverlay">
           <div class="game-clear-confetti" id="gameClearConfettiTop">🎉🎊✨🎉🎊✨</div>
           <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
@@ -157,6 +179,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260903-7"></script>
+  <script src="script.js?v=20260903-8"></script>
 </body>
 </html>

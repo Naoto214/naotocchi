@@ -315,6 +315,20 @@
   const RARE_LINES = ['god', 'ren', 'mermaid', 'unicorn', 'phoenix'];
   const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
 
+  // プロフィール表示用の しゅぞく名(README の ずかん一覧と おなじ表記)
+  const SPECIES_DISPLAY_NAMES = {
+    dog: 'いぬ', cat: 'ねこ', bird: 'とり', man: 'おとこのひと', woman: 'おんなのひと',
+    beetle: 'カブトムシ', stagbeetle: 'クワガタムシ', rabbit: 'うさぎ', fish: 'さかな',
+    dragon: 'りゅう', panda: 'パンダ', fox: 'きつね', owl: 'ふくろう', plant: 'はな',
+    robot: 'ロボット', dinosaur: 'きょうりゅう',
+    god: 'かみさま', ren: 'れんくん', mermaid: 'にんぎょ', unicorn: 'ユニコーン', phoenix: 'フェニックス',
+  };
+
+  // プロフィールの「せいかく傾向」に つかう traitCounts のラベル
+  const TRAIT_LABELS = {
+    gentle: 'やさしい', wild: 'やんちゃ', calm: 'おだやか', brave: 'ゆうかん', romantic: 'ロマンチック',
+  };
+
   function pickRandomLine() {
     return NORMAL_LINES[Math.floor(Math.random() * NORMAL_LINES.length)];
   }
@@ -415,6 +429,16 @@
     subStatusRow: document.getElementById('subStatusRow'),
     regionLabel: document.getElementById('regionLabel'),
     partnerLabel: document.getElementById('partnerLabel'),
+    profileBtn: document.getElementById('profileBtn'),
+    profileOverlay: document.getElementById('profileOverlay'),
+    profileCloseBtn: document.getElementById('profileCloseBtn'),
+    profileSpecies: document.getElementById('profileSpecies'),
+    profileStage: document.getElementById('profileStage'),
+    profileGender: document.getElementById('profileGender'),
+    profileOrientation: document.getElementById('profileOrientation'),
+    profileTraits: document.getElementById('profileTraits'),
+    profilePartnerSection: document.getElementById('profilePartnerSection'),
+    profilePartnerCard: document.getElementById('profilePartnerCard'),
   };
 
   function freshState() {
@@ -1639,6 +1663,7 @@
       ? `${GENDER_LABELS[state.partner.gender]}・${ORIENTATION_LABELS[state.partner.orientationId]}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
+    el.profileBtn.classList.toggle('hidden', isEgg || isOver);
 
     const endingTiersReached = state.lifetime.endingTiersReached;
     el.endingBadges.innerHTML = [...endingTiersReached]
@@ -1688,12 +1713,16 @@
     el.themeOverlay.classList.toggle('hidden', !themeOpen);
     if (themeOpen) renderThemeOverlay();
 
+    el.profileOverlay.classList.toggle('hidden', !profileOpen);
+    if (profileOpen) renderProfile();
+
     renderItemsRow(disableCare);
   }
 
   let dexOpen = false;
   let achOpen = false;
   let themeOpen = false;
+  let profileOpen = false;
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
   // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
@@ -1760,6 +1789,49 @@
     el.themeProgress.textContent = `${unlockedCount} / ${COLOR_THEMES.length}`;
     renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
     renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
+  }
+
+  // なおとっち本体の しゅぞく・せいちょう段階・せいべつ・れんあいタイプ・
+  // せいかく傾向(traitCounts)と、こいびとが いれば その せいべつ・
+  // れんあいタイプ・affinityTrait を まとめて 見せる
+  function renderProfile() {
+    el.profileSpecies.textContent = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
+    el.profileStage.textContent = currentStageLabel();
+    el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
+
+    let orientationText = state.orientationId ? ORIENTATION_LABELS[state.orientationId] : '???';
+    if (state.orientationId === 'questioning') {
+      orientationText += `(けいけん ${state.questioningEncounters || 0}/${QUESTIONING_RESOLVE_THRESHOLD})`;
+    }
+    el.profileOrientation.textContent = orientationText;
+
+    const maxTrait = Math.max(1, ...Object.values(state.traitCounts));
+    el.profileTraits.innerHTML = Object.keys(TRAIT_LABELS).map((key) => {
+      const value = state.traitCounts[key] || 0;
+      const pct = Math.round((value / maxTrait) * 100);
+      return `
+        <div class="profile-trait-row">
+          <span class="profile-trait-label">${TRAIT_LABELS[key]}</span>
+          <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${pct}%"></div></div>
+        </div>
+      `;
+    }).join('');
+
+    if (state.partner) {
+      const p = state.partner;
+      el.profilePartnerCard.innerHTML = `
+        <div class="profile-partner-card">
+          <span class="profile-partner-emoji">${p.emoji}</span>
+          <div class="profile-partner-text">
+            <span class="profile-partner-name">${p.label}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${ORIENTATION_LABELS[p.orientationId]}</span>
+            <span class="profile-partner-detail">すきな ところ: ${TRAIT_LABELS[p.affinityTrait] || 'とくに なし'}</span>
+          </div>
+        </div>
+      `;
+    } else {
+      el.profilePartnerCard.innerHTML = '<div class="profile-empty">まだ こいびとは いません</div>';
+    }
   }
 
   function selectTheme(target, id) {
@@ -5243,6 +5315,16 @@
     const btn = e.target.closest('.theme-swatch');
     if (!btn) return;
     selectTheme('screen', btn.dataset.id);
+  });
+
+  el.profileBtn.addEventListener('click', () => {
+    profileOpen = true;
+    render();
+  });
+
+  el.profileCloseBtn.addEventListener('click', () => {
+    profileOpen = false;
+    render();
   });
 
   function loop() {
