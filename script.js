@@ -5224,6 +5224,64 @@
     ...POSE_GAME_VARIANTS,
   ];
 
+  // 地域ごとの あそび。「たび」で いま いる地域に あわせて、あそぶ たびに
+  // いくらかの確率で こちらを 優先して えらぶことで、地域によって あそびの
+  // ふんいきが かわって かんじられるようにする(おうちは 通常の プールの
+  // ままで、これが「いつもの あそび」の 基準になる)
+  const REGION_MINIGAMES = {
+    sea: [
+      makeCatchGame({
+        title: 'さかなつり!ゴミは いらないよ',
+        basketEmoji: '🎣',
+        goodItems: ['🐟', '🦐', '🐙', '🦑'],
+        badItems: ['🥫', '🛍️', '🪤', '⚓'],
+      }),
+      makeWhackGame({ title: 'とびだす カニを タップ!', targetEmoji: '🦀' }),
+    ],
+    snow: [
+      makeJumpGame({ title: 'ゆきだるまを よけて すべろう!', obstacleEmoji: '⛄' }),
+      makeMashGame({ title: 'ゆきだるまづくり!れんだタップ!', buttonEmoji: '⛄' }),
+    ],
+    city: [
+      makeWhackGame({ title: 'とびだす タクシーを タップ!', targetEmoji: '🚕' }),
+      makeTimingGame({ title: 'しんごうが かわる しゅんかんで タップ!', tapLabel: 'GO!', gaugeStyle: '#4a90d9' }),
+    ],
+    countryside: [
+      makeCatchGame({
+        title: 'はたけの しゅうかく!がいちゅうは よけて',
+        basketEmoji: '🧺',
+        goodItems: ['🌾', '🍆', '🎃', '🧅'],
+        badItems: ['🐀', '🦗', '🐜', '🦠'],
+      }),
+      makeMashGame({ title: 'にゅうしぼり!れんだタップ!', buttonEmoji: '🥛' }),
+    ],
+    forest: [
+      makeWhackGame({ title: 'とびだす リスを タップ!', targetEmoji: '🐿️' }),
+      makeBubblePopGame({ title: 'きのこの ほうしを ポップしよう!', bubbleEmoji: '🍄' }),
+    ],
+    desert: [
+      makeCatchGame({
+        title: 'オアシスの みずを キャッチ!さそりは あぶない',
+        basketEmoji: '🏺',
+        goodItems: ['💧', '🍈', '🌴', '⭐'],
+        badItems: ['🦂', '🐍', '☠️', '🔥'],
+      }),
+      makeJumpGame({ title: 'サボテンを ジャンプで よけよう!', obstacleEmoji: '🌵' }),
+    ],
+    tropical: [
+      makeCatchGame({
+        title: 'フルーツキャッチ!とげとげは いらない',
+        basketEmoji: '🧺',
+        goodItems: ['🍍', '🥥', '🍌', '🥭'],
+        badItems: ['🐝', '🕷️', '🦂', '🌶️'],
+      }),
+      makeMashGame({ title: 'ココナッツわり!れんだタップ!', buttonEmoji: '🥥' }),
+    ],
+  };
+
+  const REGION_MINIGAME_CHANCE = 0.45;
+  let lastRegionMinigame = null;
+
   let minigameQueue = [];
   let lastMinigameIndex = -1;
 
@@ -5238,14 +5296,27 @@
     }
   }
 
-  // every one of the 4 minigames plays exactly once per shuffled cycle,
-  // instead of plain random picks that can (fairly) still streak one
-  // minigame over another in any short run of plays
-  function pickRandomMinigame() {
+  // every one of the general minigames plays exactly once per shuffled
+  // cycle, instead of plain random picks that can (fairly) still streak
+  // one minigame over another in any short run of plays
+  function pickGeneralMinigame() {
     if (minigameQueue.length === 0) refillMinigameQueue();
     const idx = minigameQueue.pop();
     lastMinigameIndex = idx;
     return MINIGAMES[idx];
+  }
+
+  function pickRandomMinigame() {
+    const regionGames = REGION_MINIGAMES[state.regionId];
+    if (regionGames && regionGames.length && Math.random() < REGION_MINIGAME_CHANCE) {
+      let pick = regionGames[Math.floor(Math.random() * regionGames.length)];
+      if (regionGames.length > 1 && pick === lastRegionMinigame) {
+        pick = regionGames[(regionGames.indexOf(pick) + 1) % regionGames.length];
+      }
+      lastRegionMinigame = pick;
+      return pick;
+    }
+    return pickGeneralMinigame();
   }
 
   function resultMessageForScore(score) {
