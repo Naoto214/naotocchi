@@ -40,6 +40,13 @@
   // to any one line's actual stage thresholds
   const MAX_DIFFICULTY_AGE = 60;
 
+  // every line shares this 8-value threshold curve, so a line's own 6
+  // original stages (at indices 0,2,3,5,6,7) keep their exact original ages
+  // (2/8/16/26/40/60) - the two new indices (1 and 4) just insert an extra
+  // growth beat without touching any of that existing pacing
+  const STAGES_PER_LINE = 8;
+  const STAGE_THRESHOLDS = [HATCH_AGE, 5, 8, 16, 20, 26, 40, 60];
+
   // each line is its own baby -> elder growth path (own emoji and label at
   // every stage, not a generic bird sprite shared by everyone pre-adult).
   // which line an egg hatches into is random (see pickRandomLine) - なる
@@ -47,142 +54,265 @@
   const SPECIES = {
     dog: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐶', label: 'あかちゃんいぬ' },
-        { threshold: 8, emoji: '🐶', label: 'こいぬ', message: 'こいぬに せいちょうした!' },
-        { threshold: 16, emoji: '🐕', label: 'わんぱくいぬ', message: 'わんぱくいぬに せいちょうした!' },
-        { threshold: 26, emoji: '🐕', label: 'わかいいぬ', message: 'わかいいぬに せいちょうした!' },
-        { threshold: 40, emoji: '🐕', label: 'いぬ', message: 'げんきいっぱいの いぬに へんしんした!' },
-        { threshold: 60, emoji: '🐕', label: 'としをとった いぬ', message: 'としをとった いぬに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐶', label: 'あかちゃんいぬ' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐶', label: 'よちよちあるく こいぬ', message: 'よちよちあるく こいぬに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐶', label: 'こいぬ', message: 'こいぬに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐕', label: 'わんぱくいぬ', message: 'わんぱくいぬに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐕', label: 'そとあそび だいすきな いぬ', message: 'そとあそび だいすきな いぬに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐕', label: 'わかいいぬ', message: 'わかいいぬに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐕', label: 'いぬ', message: 'げんきいっぱいの いぬに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐕', label: 'としをとった いぬ', message: 'としをとった いぬに なった…' },
       ],
     },
     cat: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐱', label: 'あかちゃんねこ' },
-        { threshold: 8, emoji: '🐱', label: 'こねこ', message: 'こねこに せいちょうした!' },
-        { threshold: 16, emoji: '🐈', label: 'おてんばねこ', message: 'おてんばねこに せいちょうした!' },
-        { threshold: 26, emoji: '🐈', label: 'わかいねこ', message: 'わかいねこに せいちょうした!' },
-        { threshold: 40, emoji: '🐈', label: 'ねこ', message: 'きままな ねこに へんしんした!' },
-        { threshold: 60, emoji: '🐈', label: 'としをとった ねこ', message: 'としをとった ねこに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐱', label: 'あかちゃんねこ' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐱', label: 'よちよちあるく こねこ', message: 'よちよちあるく こねこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐱', label: 'こねこ', message: 'こねこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐈', label: 'おてんばねこ', message: 'おてんばねこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐈', label: 'きままに あるきまわる ねこ', message: 'きままに あるきまわる ねこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐈', label: 'わかいねこ', message: 'わかいねこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐈', label: 'ねこ', message: 'きままな ねこに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐈', label: 'としをとった ねこ', message: 'としをとった ねこに なった…' },
       ],
     },
     bird: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐣', label: 'ひな' },
-        { threshold: 8, emoji: '🐥', label: 'こどり', message: 'こどりに せいちょうした!' },
-        { threshold: 16, emoji: '🐤', label: 'わかどり', message: 'わかどりに せいちょうした!' },
-        { threshold: 26, emoji: '🐤', label: 'はばたくとり', message: 'はばたくとりに せいちょうした!' },
-        { threshold: 40, emoji: '🐦', label: 'とり', message: 'じゆうな とりに へんしんした!' },
-        { threshold: 60, emoji: '🦜', label: 'としをとった とり', message: 'としをとった とりに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐣', label: 'ひな' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐣', label: 'はねが はえてきた ひな', message: 'はねが はえてきた!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐥', label: 'こどり', message: 'こどりに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐤', label: 'わかどり', message: 'わかどりに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐤', label: 'とびかたを れんしゅうする とり', message: 'とびかたの れんしゅうを はじめた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐤', label: 'はばたくとり', message: 'はばたくとりに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐦', label: 'とり', message: 'じゆうな とりに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🦜', label: 'としをとった とり', message: 'としをとった とりに なった…' },
       ],
     },
     man: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃん' },
-        { threshold: 8, emoji: '🧒', label: 'おとこのこ', message: 'おとこのこに せいちょうした!' },
-        { threshold: 16, emoji: '👦', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
-        { threshold: 26, emoji: '🧑', label: 'せいねん', message: 'せいねんに せいちょうした!' },
-        { threshold: 40, emoji: '🧑', label: 'おとこのひと', message: 'たくましい おとこのひとに せいちょうした!' },
-        { threshold: 60, emoji: '👴', label: 'おじいさん', message: 'おじいさんに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '👶', label: 'あかちゃん' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '👶', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🧒', label: 'おとこのこ', message: 'おとこのこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '👦', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '👦', label: 'はんぱんきの しょうねん', message: 'はんぱんきの しょうねんに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🧑', label: 'せいねん', message: 'せいねんに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🧑', label: 'おとこのひと', message: 'たくましい おとこのひとに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '👴', label: 'おじいさん', message: 'おじいさんに なった…' },
       ],
     },
     woman: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃん' },
-        { threshold: 8, emoji: '🧒', label: 'おんなのこ', message: 'おんなのこに せいちょうした!' },
-        { threshold: 16, emoji: '👧', label: 'しょうじょ', message: 'しょうじょに せいちょうした!' },
-        { threshold: 26, emoji: '👧', label: 'わかいおんなのひと', message: 'わかいおんなのひとに せいちょうした!' },
-        { threshold: 40, emoji: '👩', label: 'おんなのひと', message: 'りりしい おんなのひとに せいちょうした!' },
-        { threshold: 60, emoji: '👵', label: 'おばあさん', message: 'おばあさんに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '👶', label: 'あかちゃん' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '👶', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🧒', label: 'おんなのこ', message: 'おんなのこに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '👧', label: 'しょうじょ', message: 'しょうじょに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '👧', label: 'おしゃれに めざめた しょうじょ', message: 'おしゃれに めざめた しょうじょに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '👧', label: 'わかいおんなのひと', message: 'わかいおんなのひとに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '👩', label: 'おんなのひと', message: 'りりしい おんなのひとに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '👵', label: 'おばあさん', message: 'おばあさんに なった…' },
       ],
     },
     beetle: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐛', label: 'ようちゅう' },
-        { threshold: 8, emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
-        { threshold: 16, emoji: '🪲', label: 'さなぎあがりの こがぶとむし', message: 'さなぎから でてきた!' },
-        { threshold: 26, emoji: '🪲', label: 'わかいカブトムシ', message: 'わかいカブトムシに せいちょうした!' },
-        { threshold: 40, emoji: '🪲', label: 'カブトムシ', message: 'たくましい カブトムシに へんしんした!' },
-        { threshold: 60, emoji: '🪲', label: 'でんせつの カブトムシ', message: 'でんせつの カブトムシに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐛', label: 'ようちゅう' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐛', label: 'すこし おおきくなった ようちゅう', message: 'すこし おおきく なった!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🪲', label: 'さなぎあがりの こがぶとむし', message: 'さなぎから でてきた!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🪲', label: 'つのが のびてきた こがぶとむし', message: 'つのが ぐんぐん のびてきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🪲', label: 'わかいカブトムシ', message: 'わかいカブトムシに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🪲', label: 'カブトムシ', message: 'たくましい カブトムシに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🪲', label: 'でんせつの カブトムシ', message: 'でんせつの カブトムシに なった…' },
       ],
     },
     stagbeetle: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐛', label: 'ようちゅう' },
-        { threshold: 8, emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
-        { threshold: 16, emoji: '🪲', label: 'さなぎあがりの こくわがた', message: 'さなぎから でてきた!' },
-        { threshold: 26, emoji: '🪲', label: 'わかいクワガタムシ', message: 'わかいクワガタムシに せいちょうした!' },
-        { threshold: 40, emoji: '🪲', label: 'クワガタムシ', message: 'りっぱな クワガタムシに へんしんした!' },
-        { threshold: 60, emoji: '🪲', label: 'でんせつの クワガタムシ', message: 'でんせつの クワガタムシに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐛', label: 'ようちゅう' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐛', label: 'すこし おおきくなった ようちゅう', message: 'すこし おおきく なった!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐛', label: 'おおきくなった ようちゅう', message: 'ようちゅうが おおきく せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🪲', label: 'さなぎあがりの こくわがた', message: 'さなぎから でてきた!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🪲', label: 'あごが りっぱに なってきた こくわがた', message: 'あごが りっぱに なってきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🪲', label: 'わかいクワガタムシ', message: 'わかいクワガタムシに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🪲', label: 'クワガタムシ', message: 'りっぱな クワガタムシに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🪲', label: 'でんせつの クワガタムシ', message: 'でんせつの クワガタムシに なった…' },
       ],
     },
     rabbit: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐰', label: 'あかちゃんうさぎ' },
-        { threshold: 8, emoji: '🐰', label: 'こうさぎ', message: 'こうさぎに せいちょうした!' },
-        { threshold: 16, emoji: '🐇', label: 'わんぱくうさぎ', message: 'わんぱくうさぎに せいちょうした!' },
-        { threshold: 26, emoji: '🐇', label: 'わかいうさぎ', message: 'わかいうさぎに せいちょうした!' },
-        { threshold: 40, emoji: '🐇', label: 'うさぎ', message: 'すばしっこい うさぎに へんしんした!' },
-        { threshold: 60, emoji: '🐇', label: 'としをとった うさぎ', message: 'としをとった うさぎに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐰', label: 'あかちゃんうさぎ' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐰', label: 'よちよちはねる こうさぎ', message: 'よちよちはねる こうさぎに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐰', label: 'こうさぎ', message: 'こうさぎに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐇', label: 'わんぱくうさぎ', message: 'わんぱくうさぎに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐇', label: 'ジャンプりょくが ついた うさぎ', message: 'ジャンプりょくが ついてきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐇', label: 'わかいうさぎ', message: 'わかいうさぎに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐇', label: 'うさぎ', message: 'すばしっこい うさぎに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐇', label: 'としをとった うさぎ', message: 'としをとった うさぎに なった…' },
       ],
     },
     fish: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐟', label: 'あかちゃんざかな' },
-        { threshold: 8, emoji: '🐟', label: 'こざかな', message: 'こざかなに せいちょうした!' },
-        { threshold: 16, emoji: '🐠', label: 'わんぱくざかな', message: 'わんぱくざかなに せいちょうした!' },
-        { threshold: 26, emoji: '🐠', label: 'わかいさかな', message: 'わかいさかなに せいちょうした!' },
-        { threshold: 40, emoji: '🐡', label: 'さかな', message: 'カラフルな さかなに へんしんした!' },
-        { threshold: 60, emoji: '🐡', label: 'としをとった さかな', message: 'としをとった さかなに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐟', label: 'あかちゃんざかな' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐟', label: 'ひれが うごきだした こざかな', message: 'ひれが うごきだした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐟', label: 'こざかな', message: 'こざかなに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐠', label: 'わんぱくざかな', message: 'わんぱくざかなに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐠', label: 'むれで およぐ さかな', message: 'むれで およぐように なった!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐠', label: 'わかいさかな', message: 'わかいさかなに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐡', label: 'さかな', message: 'カラフルな さかなに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐡', label: 'としをとった さかな', message: 'としをとった さかなに なった…' },
       ],
     },
     dragon: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🦎', label: 'あかちゃんりゅう' },
-        { threshold: 8, emoji: '🦎', label: 'こりゅう', message: 'こりゅうに せいちょうした!' },
-        { threshold: 16, emoji: '🐉', label: 'わんぱくりゅう', message: 'わんぱくりゅうに せいちょうした!' },
-        { threshold: 26, emoji: '🐉', label: 'わかいりゅう', message: 'わかいりゅうに せいちょうした!' },
-        { threshold: 40, emoji: '🐉', label: 'りゅう', message: 'ほのおを ふく りゅうに へんしんした!' },
-        { threshold: 60, emoji: '🐉', label: 'でんせつの りゅう', message: 'でんせつの りゅうに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🦎', label: 'あかちゃんりゅう' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🦎', label: 'うろこが かたくなってきた こりゅう', message: 'うろこが かたくなってきた!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🦎', label: 'こりゅう', message: 'こりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐉', label: 'わんぱくりゅう', message: 'わんぱくりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐉', label: 'つばさが はえてきた りゅう', message: 'つばさが はえてきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐉', label: 'わかいりゅう', message: 'わかいりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐉', label: 'りゅう', message: 'ほのおを ふく りゅうに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐉', label: 'でんせつの りゅう', message: 'でんせつの りゅうに なった…' },
+      ],
+    },
+    panda: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐼', label: 'あかちゃんパンダ' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐼', label: 'よちよちあるく こパンダ', message: 'よちよちあるく こパンダに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐼', label: 'やんちゃな パンダ', message: 'やんちゃな パンダに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐼', label: 'ささを たべはじめた パンダ', message: 'ささを たべはじめた!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐼', label: 'ごろごろ ころがる パンダ', message: 'ごろごろ ころがるように なった!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐼', label: 'わかいパンダ', message: 'わかいパンダに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐼', label: 'どっしりした パンダ', message: 'どっしりした パンダに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐼', label: 'としをとった パンダ', message: 'としをとった パンダに なった…' },
+      ],
+    },
+    fox: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🦊', label: 'あかちゃんきつね' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🦊', label: 'よちよちあるく こぎつね', message: 'よちよちあるく こぎつねに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🦊', label: 'しっぽが ふさふさな こぎつね', message: 'しっぽが ふさふさに なってきた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🦊', label: 'わんぱくな きつね', message: 'わんぱくな きつねに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🦊', label: 'すばしっこい わかぎつね', message: 'すばしっこく なってきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🦊', label: 'わかいきつね', message: 'わかいきつねに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🦊', label: 'ずるがしこい きつね', message: 'ずるがしこい きつねに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🦊', label: 'せんれんされた きつね', message: 'せんれんされた きつねに なった…' },
+      ],
+    },
+    owl: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🦉', label: 'あかちゃんふくろう' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🦉', label: 'めを あけたばかりの ひなふくろう', message: 'めを あけたばかりの ひなふくろうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🦉', label: 'こふくろう', message: 'こふくろうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🦉', label: 'よるに めざめる わんぱくふくろう', message: 'よるに めざめるように なった!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🦉', label: 'とぶれんしゅうを する ふくろう', message: 'とぶれんしゅうを はじめた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🦉', label: 'わかいふくろう', message: 'わかいふくろうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🦉', label: 'ちえのある ふくろう', message: 'ちえのある ふくろうに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🦉', label: 'としをとった ふくろう', message: 'としをとった ふくろうに なった…' },
+      ],
+    },
+    plant: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🌱', label: 'めが でたばかりの たね' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🌱', label: 'ふたばの め', message: 'ふたばが ひらいた!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🌿', label: 'くきが のびた なえ', message: 'くきが ぐんぐん のびてきた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🌾', label: 'つぼみが ふくらんだ め', message: 'つぼみが ふくらんできた!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🌷', label: 'はなびらが のぞく つぼみ', message: 'はなびらが のぞきはじめた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🌻', label: 'さきほこる はな', message: 'はなが さきほこった!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🌼', label: 'みごとな はな', message: 'みごとな はなに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🥀', label: 'かれはじめた はな', message: 'すこしずつ かれはじめた…' },
+      ],
+    },
+    robot: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🤖', label: 'くみたてちゅうの ミニロボット' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🤖', label: 'でんげんが はいった ロボット', message: 'でんげんが はいった!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🤖', label: 'あるきかたを おぼえた ロボット', message: 'あるきかたを おぼえた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🤖', label: 'がくしゅうちゅうの ロボット', message: 'がくしゅうを はじめた!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🦾', label: 'パワーアップした ロボット', message: 'パワーアップした!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🦾', label: 'せんとうようの ロボット', message: 'せんとうようの ロボットに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🦾', label: 'さいしんがた ロボット', message: 'さいしんがたに アップグレードした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🤖', label: 'きゅうしきの ロボット', message: 'きゅうしきロボットに なった…' },
+      ],
+    },
+    dinosaur: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🦕', label: 'たまごから でたばかりの きょうりゅう' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🦕', label: 'よちよちあるく こきょうりゅう', message: 'よちよちあるく こきょうりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🦕', label: 'とげが はえてきた きょうりゅう', message: 'とげが はえてきた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🦖', label: 'わんぱくな きょうりゅう', message: 'わんぱくな きょうりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🦖', label: 'するどい はが はえた きょうりゅう', message: 'するどい はが はえてきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🦖', label: 'わかいきょうりゅう', message: 'わかいきょうりゅうに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🦖', label: 'きょだいな きょうりゅう', message: 'きょだいな きょうりゅうに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🦴', label: 'かせきに なった きょうりゅう', message: 'ながい ときを へて かせきに なった…' },
       ],
     },
     // rare lines - never a starting hatch, only reachable as a 変身 choice
     // (see pickTransformCandidates) when care/skill has been exceptional
     god: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '👼', label: 'あかちゃんてんし' },
-        { threshold: 8, emoji: '👼', label: 'こてんし', message: 'こてんしに せいちょうした!' },
-        { threshold: 16, emoji: '👼', label: 'みならいのてんし', message: 'みならいのてんしに せいちょうした!' },
-        { threshold: 26, emoji: '😇', label: 'わかきかみ', message: 'わかきかみに せいちょうした!' },
-        { threshold: 40, emoji: '😇', label: 'かみさま', message: 'まさかの…かみさまに しんかした!!' },
-        { threshold: 60, emoji: '🌞', label: 'だいじんの かみさま', message: 'だいじんの かみさまに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '👼', label: 'あかちゃんてんし' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '👼', label: 'はねが ちいさく はえてきた てんし', message: 'はねが ちいさく はえてきた!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '👼', label: 'こてんし', message: 'こてんしに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '👼', label: 'みならいのてんし', message: 'みならいのてんしに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '😇', label: 'ひかりを まといはじめた かみのこ', message: 'ひかりを まといはじめた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '😇', label: 'わかきかみ', message: 'わかきかみに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '😇', label: 'かみさま', message: 'まさかの…かみさまに しんかした!!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🌞', label: 'だいじんの かみさま', message: 'だいじんの かみさまに なった…' },
       ],
     },
     ren: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '👶', label: 'あかちゃんの れんくん' },
-        { threshold: 8, emoji: '🧒', label: 'れんくん', message: 'れんくんが おおきく なった!' },
-        { threshold: 16, emoji: '🧒', label: 'しょうねんの れんくん', message: 'しょうねんの れんくんに なった!' },
-        { threshold: 26, emoji: '👦', label: 'せいねんの れんくん', message: 'せいねんの れんくんに なった!' },
-        { threshold: 40, emoji: '🧑', label: 'れんくん', message: 'あれ!?れんくんが なかまに くわわった!' },
-        { threshold: 60, emoji: '🧑', label: 'れんさん', message: 'れんさんに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '👶', label: 'あかちゃんの れんくん' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '👶', label: 'よちよちあるきの れんくん', message: 'よちよちあるきの れんくんに なった!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🧒', label: 'れんくん', message: 'れんくんが おおきく なった!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🧒', label: 'しょうねんの れんくん', message: 'しょうねんの れんくんに なった!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🧒', label: 'いたずらざかりの れんくん', message: 'いたずらざかりの れんくんに なった!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '👦', label: 'せいねんの れんくん', message: 'せいねんの れんくんに なった!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🧑', label: 'れんくん', message: 'あれ!?れんくんが なかまに くわわった!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🧑', label: 'れんさん', message: 'れんさんに なった…' },
       ],
     },
     mermaid: {
       stages: [
-        { threshold: HATCH_AGE, emoji: '🐚', label: 'あかちゃんの かいがら' },
-        { threshold: 8, emoji: '🐚', label: 'こにんぎょ', message: 'こにんぎょに せいちょうした!' },
-        { threshold: 16, emoji: '🧜', label: 'わんぱくにんぎょ', message: 'わんぱくにんぎょに せいちょうした!' },
-        { threshold: 26, emoji: '🧜', label: 'わかいにんぎょ', message: 'わかいにんぎょに せいちょうした!' },
-        { threshold: 40, emoji: '🧜‍♀️', label: 'にんぎょ', message: 'うみの プリンセス にんぎょに へんしんした!' },
-        { threshold: 60, emoji: '🧜‍♀️', label: 'でんせつの にんぎょ', message: 'でんせつの にんぎょに なった…' },
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐚', label: 'あかちゃんの かいがら' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐚', label: 'うろこが きらめきだした こにんぎょ', message: 'うろこが きらめきだした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐚', label: 'こにんぎょ', message: 'こにんぎょに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🧜', label: 'わんぱくにんぎょ', message: 'わんぱくにんぎょに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🧜', label: 'およぎが じょうずに なった にんぎょ', message: 'およぎが じょうずに なった!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🧜', label: 'わかいにんぎょ', message: 'わかいにんぎょに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🧜‍♀️', label: 'にんぎょ', message: 'うみの プリンセス にんぎょに へんしんした!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🧜‍♀️', label: 'でんせつの にんぎょ', message: 'でんせつの にんぎょに なった…' },
+      ],
+    },
+    unicorn: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐴', label: 'つのが みえはじめた あかちゃんうま' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐴', label: 'よちよちあるく こうま', message: 'よちよちあるく こうまに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🦄', label: 'つのが のびてきた こうま', message: 'つのが のびてきた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🦄', label: 'わんぱくな ユニコーン', message: 'わんぱくな ユニコーンに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🦄', label: 'ひかりを はなちはじめた ユニコーン', message: 'ひかりを はなちはじめた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🦄', label: 'わかいユニコーン', message: 'わかいユニコーンに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🦄', label: 'でんせつの ユニコーン', message: 'まさかの…ユニコーンに しんかした!!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🦄', label: 'おおいなる ユニコーン', message: 'おおいなる ユニコーンに なった…' },
+      ],
+    },
+    phoenix: {
+      stages: [
+        { threshold: STAGE_THRESHOLDS[0], emoji: '🐣', label: 'ひのとりの ひな' },
+        { threshold: STAGE_THRESHOLDS[1], emoji: '🐣', label: 'よちよちあるく ひな', message: 'よちよちあるく ひなに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[2], emoji: '🐥', label: 'ほのおを まといはじめた こどり', message: 'ほのおを まといはじめた!' },
+        { threshold: STAGE_THRESHOLDS[3], emoji: '🐦‍🔥', label: 'わんぱくな ひのとり', message: 'わんぱくな ひのとりに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[4], emoji: '🐦‍🔥', label: 'つばさが もえあがる ひのとり', message: 'つばさが もえあがってきた!' },
+        { threshold: STAGE_THRESHOLDS[5], emoji: '🐦‍🔥', label: 'わかいフェニックス', message: 'わかいフェニックスに せいちょうした!' },
+        { threshold: STAGE_THRESHOLDS[6], emoji: '🐦‍🔥', label: 'でんせつの フェニックス', message: 'まさかの…フェニックスに しんかした!!' },
+        { threshold: STAGE_THRESHOLDS[7], emoji: '🐦‍🔥', label: 'ふしちょうの フェニックス', message: 'ふしちょうの フェニックスに なった…' },
       ],
     },
   };
 
-  // god/ren/mermaid are intentionally left out of the random hatch pool -
-  // they stay rare, earned surprises unlocked only through a 変身 choice
-  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle', 'rabbit', 'fish', 'dragon'];
-  const RARE_LINES = ['god', 'ren', 'mermaid'];
+  // god/ren/mermaid/unicorn/phoenix are intentionally left out of the
+  // random hatch pool - they stay rare, earned surprises unlocked only
+  // through a 変身 choice
+  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle', 'rabbit', 'fish', 'dragon', 'panda', 'fox', 'owl', 'plant', 'robot', 'dinosaur'];
+  const RARE_LINES = ['god', 'ren', 'mermaid', 'unicorn', 'phoenix'];
   const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
 
   function pickRandomLine() {
@@ -208,6 +338,8 @@
       if (line === 'god') return avgCare >= 90;
       if (line === 'ren') return (state.minigameCount >= 5 && avgSkill >= 85) || state.traitCounts.romantic >= 5;
       if (line === 'mermaid') return state.traitCounts.gentle >= 5;
+      if (line === 'unicorn') return state.traitCounts.brave >= 5;
+      if (line === 'phoenix') return state.totalSicknessCount >= 8;
       return false;
     });
     if (rarePool.length > 0 && Math.random() < 0.5) {
@@ -289,6 +421,10 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
+      // consecutive なでる/はなしかける taps with no "real" care action in
+      // between - past a threshold, these flip from a nice reaction to an
+      // annoyed one instead of just always being free positive stats
+      affectionStreak: 0,
       actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0, pet: 0, talk: 0 },
       traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
       minigameScoreSum: 0,
@@ -329,13 +465,13 @@
       // adult_good/adult_bad from even earlier), with one shared species
       // decided at teen->adult instead of a per-line stage list from hatch
       const OLD_STAGE_MAP = {
-        adult_good: { stageIndex: 4, species: 'dog' },
-        adult_bad: { stageIndex: 4, species: 'stagbeetle' },
+        adult_good: { stageIndex: 6, species: 'dog' },
+        adult_bad: { stageIndex: 6, species: 'stagbeetle' },
         baby: { stageIndex: 0, species: null },
-        child: { stageIndex: 1, species: null },
-        teen: { stageIndex: 3, species: null },
-        adult: { stageIndex: 4, species: parsed.species || null },
-        elder: { stageIndex: 5, species: parsed.species || null },
+        child: { stageIndex: 2, species: null },
+        teen: { stageIndex: 4, species: null },
+        adult: { stageIndex: 6, species: parsed.species || null },
+        elder: { stageIndex: 7, species: parsed.species || null },
       };
       if (Object.prototype.hasOwnProperty.call(OLD_STAGE_MAP, parsed.stage)) {
         const mapped = OLD_STAGE_MAP[parsed.stage];
@@ -379,7 +515,7 @@
     { id: 'sick-cured-10', emoji: '💊', label: 'めいいの たまご', desc: 'びょうきを 10かい なおした', condition: (l) => l.sicknessCured >= 10 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: 'ねんれい50に とうたつした', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
-    { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * 6 },
+    { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
   ];
 
   function checkAchievements() {
@@ -427,7 +563,7 @@
   ];
 
   function getEndingTier() {
-    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * 6;
+    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
     const otherAchievementsComplete = ACHIEVEMENTS
       .filter((ach) => ach.id !== 'dex-complete')
       .every((ach) => state.achievementsUnlocked.includes(ach.id));
@@ -590,6 +726,29 @@
     'ないしょばなしを してくれた(ひみつ)',
     '「だいすき」って いった…かも',
     'くびを かしげて こっちを みてる',
+  ];
+
+  // beyond this many なでる/はなしかける in a row (with no real care action
+  // in between), the action flips from its normal small positive into an
+  // annoyed negative instead - spamming either stops being free stats
+  const AFFECTION_SPAM_THRESHOLD = 3;
+
+  const PET_ANNOYED_REACTIONS = [
+    'もう なでなでは じゅうぶん!と いう かおを してる',
+    'しつこいと ちょっと おこられた…',
+    'てを やんわり ふりはらわれた!',
+    'つかれた ような かおを してる',
+    'そろそろ ひとりに して ほしいみたい',
+    'なですぎ けいほう、はつれい!',
+  ];
+
+  const TALK_ANNOYED_REACTIONS = [
+    'もう はなしかけないで!と いう かおを してる',
+    'すっかり むしされてしまった…',
+    'ふーっと ためいきを つかれた',
+    'みみを ふさぐ しぐさを された(みみ、ないけど)',
+    'そろそろ しずかに して ほしいみたい',
+    'おしゃべりが すぎたと おもわれたかも…',
   ];
 
   let lastPetReaction = null;
@@ -999,7 +1158,7 @@
   // only for line/stage combos recorded in state.discoveredStages so far
   function renderDex() {
     const discoveredCount = state.discoveredStages.length;
-    const totalCount = ALL_LINES.length * 6;
+    const totalCount = ALL_LINES.length * STAGES_PER_LINE;
     el.dexProgress.textContent = `${discoveredCount} / ${totalCount}`;
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
@@ -3930,6 +4089,7 @@
     const overfed = state.hunger >= 80;
     state.hunger = clamp(state.hunger + 25, 0, 100);
     state.actionCounts.feed += 1;
+    state.affectionStreak = 0;
     if (overfed) {
       // spamming ごはん when the pet is already full doesn't help evolution -
       // it risks making it sick instead
@@ -3974,6 +4134,7 @@
       return;
     }
     state.actionCounts.play += 1;
+    state.affectionStreak = 0;
     const game = pickRandomMinigame();
     startMinigame(game);
   });
@@ -3986,6 +4147,7 @@
     state.poopCount = 0;
     state.happiness = clamp(state.happiness + 5, 0, 100);
     state.actionCounts.clean += 1;
+    state.affectionStreak = 0;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
     checkStoryEvents('poop-clean');
@@ -3996,6 +4158,7 @@
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
+    state.affectionStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       setMessage('おやすみなさい…');
@@ -4010,6 +4173,7 @@
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
     state.actionCounts.medicine += 1;
+    state.affectionStreak = 0;
     if (state.isSick) {
       state.isSick = false;
       state.sicknessType = null;
@@ -4040,10 +4204,19 @@
       setMessage('ねている… おきてから なでよう');
       return;
     }
-    state.happiness = clamp(state.happiness + 3, 0, 100);
-    state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
+    state.affectionStreak += 1;
     state.actionCounts.pet += 1;
-    const reaction = pickReaction(PET_REACTIONS, lastPetReaction);
+    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
+    if (spammed) {
+      state.happiness = clamp(state.happiness - 3, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
+    } else {
+      state.happiness = clamp(state.happiness + 3, 0, 100);
+      state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
+    }
+    const reaction = spammed
+      ? pickReaction(PET_ANNOYED_REACTIONS, lastPetReaction)
+      : pickReaction(PET_REACTIONS, lastPetReaction);
     lastPetReaction = reaction;
     if (!checkMeters()) {
       setMessage(reaction);
@@ -4055,11 +4228,23 @@
       setMessage('ねている… おきてから はなしかけよう');
       return;
     }
-    state.happiness = clamp(state.happiness + 2, 0, 100);
+    state.affectionStreak += 1;
     state.actionCounts.talk += 1;
-    const reaction = pickReaction(TALK_REACTIONS, lastTalkReaction);
+    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
+    if (spammed) {
+      state.happiness = clamp(state.happiness - 2, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
+    } else {
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+      state.devoMeter = clamp(state.devoMeter - 2, 0, 100);
+    }
+    const reaction = spammed
+      ? pickReaction(TALK_ANNOYED_REACTIONS, lastTalkReaction)
+      : pickReaction(TALK_REACTIONS, lastTalkReaction);
     lastTalkReaction = reaction;
-    setMessage(reaction);
+    if (!checkMeters()) {
+      setMessage(reaction);
+    }
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
