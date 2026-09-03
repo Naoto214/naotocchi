@@ -858,7 +858,7 @@
     return min + (max - min) * t;
   }
 
-  const MESSAGE_DURATION_MS = 2500;
+  const MESSAGE_DURATION_MS = 4200;
 
   let state = loadState();
   let message = '';
@@ -1609,7 +1609,7 @@
     return changedMessage;
   }
 
-  const STORY_FLASH_DURATION_MS = 3000;
+  const STORY_FLASH_DURATION_MS = 4200;
 
   let lastStoryEventMessage = null;
 
@@ -1852,7 +1852,7 @@
             return;
           }
           startMinigame(pickRandomMinigame());
-        }, 1900);
+        }, 2800);
       }
       scheduleCompanionEncounter();
     }, delay);
