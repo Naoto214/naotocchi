@@ -439,6 +439,12 @@
     profileTraits: document.getElementById('profileTraits'),
     profilePartnerSection: document.getElementById('profilePartnerSection'),
     profilePartnerCard: document.getElementById('profilePartnerCard'),
+    makeCodeBtn: document.getElementById('makeCodeBtn'),
+    myCodeBox: document.getElementById('myCodeBox'),
+    guestCodeInput: document.getElementById('guestCodeInput'),
+    loadCodeBtn: document.getElementById('loadCodeBtn'),
+    codeError: document.getElementById('codeError'),
+    guestStatus: document.getElementById('guestStatus'),
   };
 
   function freshState() {
@@ -483,6 +489,9 @@
       attractedTo: [],
       // クエスチョニングの あいだだけ つかう、けいけんの カウンター
       questioningEncounters: 0,
+      // ともだちの「あいてコード」を よみこんで あらわれる おきゃくさん。
+      // その プレイ中は ずっと のこり、「はじめから」で きえる
+      guest: null,
       regionId: 'home',
       discoveredStages: [],
       // cross-playthrough counters for じっせき (achievements) - unlike
@@ -560,12 +569,15 @@
   // marks the current line+stage as met, so the 図鑑 can show it instead of
   // a ❓ placeholder - called from saveState() so every persisted change
   // (not just growth events) keeps this in sync with what's on screen
-  function recordDiscovery() {
-    if (state.stage !== STAGE.GROWING || !state.speciesLine) return;
-    const key = `${state.speciesLine}:${state.stageIndex}`;
+  function recordDiscoveryKey(key) {
     if (!state.discoveredStages.includes(key)) {
       state.discoveredStages.push(key);
     }
+  }
+
+  function recordDiscovery() {
+    if (state.stage !== STAGE.GROWING || !state.speciesLine) return;
+    recordDiscoveryKey(`${state.speciesLine}:${state.stageIndex}`);
   }
 
   // じっせき (achievements) - permanent badges based on lifetime totals
@@ -1007,6 +1019,77 @@
   // 左右されない ニュートラルな あいて
   function courtCandidate({ id, label, emoji, gender, orientationId, affinityTrait = null }) {
     return { id, label, emoji, gender, orientationId, attractedTo: attractedToFor(gender, orientationId), affinityTrait };
+  }
+
+  // 「あいてコード」: サーバーも つうしんも つかわず、じぶんの なおとっちの
+  // すがたを みじかい 文字れつに して ともだちに わたし、うけとった
+  // がわが よみこむと「たびさきの おきゃくさん」として あらわれる。
+  // GITHUB_PAGES の ような 静的サイトの ままでも できる、いちばん かるい
+  // 「つうしん」の しくみ
+  const GUEST_CODE_PREFIX = 'NAOTOCCHI1:';
+
+  function encodeGuestCode() {
+    const payload = {
+      s: state.speciesLine,
+      i: state.stageIndex,
+      g: state.gender,
+      o: state.orientationId,
+      t: state.traitCounts,
+    };
+    return GUEST_CODE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  // よみこんだ コードが こわれていたり、いたずらで へんな 値に
+  // かきかえられていても、ゲームが こわれない よう ぜんぶ けんしょうする
+  function decodeGuestCode(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHI1:/, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!ALL_LINES.includes(payload.s)) return null;
+      if (!Number.isInteger(payload.i) || payload.i < 0 || payload.i >= STAGES_PER_LINE) return null;
+      if (!GENDERS.includes(payload.g)) return null;
+      if (!ORIENTATION_LABELS[payload.o]) return null;
+      const traitCounts = {};
+      Object.keys(TRAIT_LABELS).forEach((key) => {
+        const v = payload.t && payload.t[key];
+        traitCounts[key] = Number.isFinite(v) ? v : 0;
+      });
+      return {
+        speciesLine: payload.s,
+        stageIndex: payload.i,
+        gender: payload.g,
+        orientationId: payload.o,
+        attractedTo: attractedToFor(payload.g, payload.o),
+        traitCounts,
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // ゲストの traitCounts から いちばん たかい せいかくを 1つ えらび、
+  // その ひとの affinityTrait(すきな ところ)として あつかう。すべて 0
+  // (よみこんだ ばかりで まだ なにも 選んでいない)なら ニュートラル
+  function dominantTrait(traitCounts) {
+    const entries = Object.entries(traitCounts);
+    const max = Math.max(...entries.map(([, v]) => v));
+    if (max <= 0) return null;
+    const top = entries.filter(([, v]) => v === max);
+    return top[Math.floor(Math.random() * top.length)][0];
+  }
+
+  function guestCandidate(guest) {
+    const stage = SPECIES[guest.speciesLine].stages[guest.stageIndex];
+    return {
+      id: 'guest',
+      label: `ともだちの ${stage.label}`,
+      emoji: stage.emoji,
+      gender: guest.gender,
+      orientationId: guest.orientationId,
+      attractedTo: guest.attractedTo,
+      affinityTrait: dominantTrait(guest.traitCounts),
+    };
   }
 
   const COURT_SUCCESS_REACTIONS = [
@@ -1831,6 +1914,23 @@
       `;
     } else {
       el.profilePartnerCard.innerHTML = '<div class="profile-empty">まだ こいびとは いません</div>';
+    }
+
+    if (state.guest) {
+      const g = state.guest;
+      const stage = SPECIES[g.speciesLine].stages[g.stageIndex];
+      el.guestStatus.innerHTML = `
+        <div class="profile-partner-card">
+          <span class="profile-partner-emoji">${stage.emoji}</span>
+          <div class="profile-partner-text">
+            <span class="profile-partner-name">ともだちの ${stage.label}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${ORIENTATION_LABELS[g.orientationId]}</span>
+          </div>
+        </div>
+        <button class="profile-code-btn" id="clearGuestBtn">おきゃくを けす</button>
+      `;
+    } else {
+      el.guestStatus.innerHTML = '<div class="profile-empty">まだ おきゃくさんは いません</div>';
     }
   }
 
@@ -5331,9 +5431,13 @@
       return;
     }
 
-    // あいては いま いる地域(state.regionId)にいる キャラからだけ
-    // えらばれる - 旅先ごとに ちがう あいてと であえる
-    const candidates = findRegion(state.regionId).candidates;
+    // あいては いま いる地域(state.regionId)にいる キャラに くわえて、
+    // 「あいてコード」で よみこんだ おきゃくさんが いれば その人も
+    // こうほに はいる - 旅先ごとに ちがう あいてと であえるうえ、
+    // ともだちの なおとっちにも どこからでも きゅうあいを ためせる
+    const candidates = state.guest
+      ? [...findRegion(state.regionId).candidates, guestCandidate(state.guest)]
+      : findRegion(state.regionId).candidates;
     const candidate = candidates[Math.floor(Math.random() * candidates.length)];
 
     // まず おたがいの れんあい対象に あいてが ふくまれているか(双方向)を
@@ -5370,6 +5474,11 @@
       };
       state.happiness = clamp(state.happiness + 8, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+      // おきゃくさんと こいびとに なれたら、その しゅぞく・すがたを
+      // 「ずかん」にも きねんに 記録する(じぶんで そだてていなくても)
+      if (candidate.id === 'guest' && state.guest) {
+        recordDiscoveryKey(`${state.guest.speciesLine}:${state.guest.stageIndex}`);
+      }
       const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
@@ -5471,11 +5580,43 @@
 
   el.profileBtn.addEventListener('click', () => {
     profileOpen = true;
+    el.codeError.classList.add('hidden');
     render();
   });
 
   el.profileCloseBtn.addEventListener('click', () => {
     profileOpen = false;
+    render();
+  });
+
+  el.makeCodeBtn.addEventListener('click', () => {
+    if (!state.gender) return;
+    el.myCodeBox.value = encodeGuestCode();
+    el.myCodeBox.classList.remove('hidden');
+    el.myCodeBox.focus();
+    el.myCodeBox.select();
+  });
+
+  el.loadCodeBtn.addEventListener('click', () => {
+    const raw = el.guestCodeInput.value;
+    if (!raw.trim()) return;
+    const guest = decodeGuestCode(raw);
+    if (!guest) {
+      el.codeError.textContent = 'コードが よみとれませんでした…もういちど たしかめてね';
+      el.codeError.classList.remove('hidden');
+      return;
+    }
+    el.codeError.classList.add('hidden');
+    state.guest = guest;
+    el.guestCodeInput.value = '';
+    saveState();
+    render();
+  });
+
+  el.guestStatus.addEventListener('click', (e) => {
+    if (!e.target.closest('#clearGuestBtn')) return;
+    state.guest = null;
+    saveState();
     render();
   });
 
