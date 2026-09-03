@@ -494,6 +494,18 @@ body {
   display: none;
 }
 
+/* 中央から はじけとぶ おいわいパーティクル(.ending-particle)は
+   position:absoluteのため、指定しないと 文字より 上に かさなって
+   しまう。文字がわ を かならず 手前に 出して 読みやすくする */
+.game-clear-confetti,
+.game-clear-title,
+.game-clear-badges,
+.game-clear-subtitle,
+.game-clear-desc {
+  position: relative;
+  z-index: 1;
+}
+
 .game-clear-confetti {
   font-size: 22px;
   animation: game-clear-bounce 0.9s ease-in-out infinite;
