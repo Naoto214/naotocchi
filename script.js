@@ -6294,7 +6294,7 @@
     ],
   };
 
-  const REGION_MINIGAME_CHANCE = 0.58;
+  const REGION_MINIGAME_CHANCE = 0.25;
   let lastRegionMinigame = null;
 
   let minigameQueue = [];
