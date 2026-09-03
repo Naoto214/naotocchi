@@ -1786,6 +1786,210 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { left: 46px; }
 }
 
+/* ロード(3れーんを よけよう・キャッチしよう) */
+
+.mg-road {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #6b5b73;
+  transition: background 0.15s ease;
+}
+
+.mg-road.hit {
+  background: #d9534f;
+}
+
+.mg-road-surface {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #8a7a91 0px, #8a7a91 14px,
+    #6b5b73 14px, #6b5b73 34px
+  );
+  clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
+  animation: mg-road-scroll 0.6s linear infinite;
+}
+
+@keyframes mg-road-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 34px; }
+}
+
+.mg-road-player {
+  position: absolute;
+  bottom: 2px;
+  font-size: 30px;
+  line-height: 1;
+  transform: translateX(-50%);
+  transition: left 0.15s ease;
+  z-index: 2;
+}
+
+.mg-road-item {
+  position: absolute;
+  font-size: 24px;
+  line-height: 1;
+  z-index: 1;
+}
+
+.mg-road-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+/* スタックタワー(つみきを かさねよう) */
+
+.mg-stack-tower {
+  position: relative;
+  flex: 1;
+  min-height: 190px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #cfe8f7, #eaf6ff);
+}
+
+.mg-stack-block,
+.mg-stack-moving {
+  position: absolute;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), inset 0 2px 3px rgba(255, 255, 255, 0.4);
+  transform: perspective(200px) rotateX(8deg);
+}
+
+.mg-stack-moving {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(255, 255, 255, 0.5);
+}
+
+/* かくとう・RPGバトル けいの きょうつう パーツ(HPゲージ・たいこう画面) */
+
+.mg-fight-hp-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.mg-fight-hp {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mg-fight-hp-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.mg-hp-bar {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.mg-mp-bar {
+  height: 7px;
+}
+
+.mg-hp-fill {
+  height: 100%;
+  transition: width 0.25s ease;
+}
+
+.mg-hp-fill.player { background: #6fae5f; }
+.mg-hp-fill.enemy { background: #d9534f; }
+.mg-hp-fill.mp { background: #4a90d9; }
+
+.mg-fight-arena {
+  position: relative;
+  flex: 1;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.mg-fight-player,
+.mg-fight-opponent {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.mg-fight-player.hit,
+.mg-fight-opponent.hit {
+  animation: mg-fight-shake 0.2s ease;
+}
+
+@keyframes mg-fight-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.mg-fight-tell {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
+  font-size: 24px;
+}
+
+.mg-fight-tell.hidden {
+  display: none;
+}
+
+.mg-fight-msg {
+  text-align: center;
+  font-size: 11px;
+  min-height: 15px;
+  margin-bottom: 6px;
+}
+
+.mg-fight-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.mg-rpg-commands {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.mg-rpg-btn {
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b3654;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mg-rpg-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.mg-rpg-btn:disabled {
+  opacity: 0.45;
+}
+
 /* くらべっこ(かずくらべ・おおきさくらべ) */
 
 .mg-compare-row {

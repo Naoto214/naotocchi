@@ -5191,6 +5191,625 @@
 
   const POSE_GAME_VARIANTS = [makePoseGame()];
 
+  // --- ロードげーむ(3れーんを よけよう・キャッチしよう) ---
+
+  // レーンごとの ざひょうを「ちへいせんで せまく・てまえで ひろく」
+  // ほかんし、とどくまでの しんちょくに 2じょうの イージングを かけることで、
+  // せまい がめんの なかでも「おくから せまってくる」たちたいてきな
+  // おくゆき感を だす、みちを はしる/よける タイプの ミニゲーム
+  function makeRoadGame({ title, goodItems, badItems }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 11000;
+        const travelMs = lerp(2000, 1150, difficulty);
+        const spawnInterval = lerp(950, 520, difficulty);
+        const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
+        const LANE_HORIZON_X = [44, 50, 56];
+        const LANE_NEAR_X = [16, 50, 84];
+        let lane = 1;
+        let points = 0;
+        let running = true;
+        let lastSpawn = 0;
+        let items = [];
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 11s</span>
+            <span id="mgScore">とくてん: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-road" id="mgRoad">
+            <div class="mg-road-surface"></div>
+            <div class="mg-road-player" id="mgRoadPlayer" style="left:${LANE_NEAR_X[1]}%">${currentSprite()}</div>
+          </div>
+          <div class="mg-road-controls">
+            <button class="mg-tap-btn" id="mgRoadLeft">◀</button>
+            <button class="mg-tap-btn" id="mgRoadRight">▶</button>
+          </div>
+        `;
+
+        const road = container.querySelector('#mgRoad');
+        const playerEl = container.querySelector('#mgRoadPlayer');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+        const leftBtn = container.querySelector('#mgRoadLeft');
+        const rightBtn = container.querySelector('#mgRoadRight');
+
+        function setLane(next) {
+          lane = clamp(next, 0, 2);
+          playerEl.style.left = LANE_NEAR_X[lane] + '%';
+        }
+        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
+        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+
+        function flashRoad() {
+          road.classList.add('hit');
+          setTimeout(() => road.classList.remove('hit'), 200);
+        }
+
+        function spawnItem() {
+          const isBad = Math.random() < BAD_CHANCE;
+          const pool = isBad ? badItems : goodItems;
+          const itemLane = Math.floor(Math.random() * 3);
+          const itemEl = document.createElement('div');
+          itemEl.className = 'mg-road-item';
+          itemEl.textContent = pool[Math.floor(Math.random() * pool.length)];
+          road.appendChild(itemEl);
+          items.push({ el: itemEl, lane: itemLane, born: performance.now(), bad: isBad, resolved: false });
+        }
+
+        const startTime = performance.now();
+        let rafId;
+
+        function frame(now) {
+          if (!running) return;
+          const elapsed = now - startTime;
+          const remaining = Math.max(0, DURATION_MS - elapsed);
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+          if (now - lastSpawn > spawnInterval) {
+            spawnItem();
+            lastSpawn = now;
+          }
+
+          items = items.filter((item) => {
+            const t = clamp((now - item.born) / travelMs, 0, 1);
+            const eased = t * t;
+            const x = lerp(LANE_HORIZON_X[item.lane], LANE_NEAR_X[item.lane], eased);
+            const y = lerp(10, 84, eased);
+            const scale = lerp(0.3, 1.25, eased);
+            item.el.style.left = x + '%';
+            item.el.style.top = y + '%';
+            item.el.style.opacity = Math.min(1, eased * 2.4);
+            item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            if (t >= 1 && !item.resolved) {
+              item.resolved = true;
+              if (item.lane === lane) {
+                if (item.bad) {
+                  points = Math.max(0, points - 20);
+                  flashRoad();
+                } else {
+                  points = Math.min(100, points + 16);
+                }
+                scoreEl.textContent = `とくてん: ${points}`;
+              }
+              item.el.remove();
+              return false;
+            }
+            return true;
+          });
+
+          if (elapsed >= DURATION_MS) {
+            end();
+            return;
+          }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          items.forEach((item) => item.el.remove());
+          onComplete(points);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const ROAD_GAME_VARIANTS = [
+    makeRoadGame({
+      title: 'どうろを はしろう!たべものは キャッチ、ゴミは よけて',
+      goodItems: ['🍎', '🍙', '🍬', '🍇'],
+      badItems: ['🪨', '🚧', '🛢️', '⚠️'],
+    }),
+    makeRoadGame({
+      title: 'そらを とぼう!ほしは キャッチ、いんせきは よけて',
+      goodItems: ['⭐', '🌟', '✨', '🍀'],
+      badItems: ['☄️', '🪨', '⚡', '🛰️'],
+    }),
+    makeRoadGame({
+      title: 'うみを およごう!さかなは キャッチ、ゴミは よけて',
+      goodItems: ['🐟', '🐠', '🦐', '🐚'],
+      badItems: ['🥫', '🪤', '🕸️', '🦈'],
+    }),
+  ];
+
+  // --- スタックタワー(つみきを かさねよう) ---
+
+  // うごく ブロックを タップで おとし、ひとつ したの ブロックとの
+  // かさなり具合で 正確さが きまる クラシックな タワー積みゲーム。
+  // ブロックごとに いろを かえて 立体的な かげを つけることで、
+  // ひくい がめんの なかでも「どんどん たかく つみあがっていく」
+  // りったいかんを だす
+  function makeStackGame({ title, blockEmoji, palette }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 6;
+        const BLOCK_H = 26;
+        const baseWidthPct = 70;
+        const minWidthPct = 12;
+        const baseSpeed = lerp(55, 95, difficulty);
+        const colors = palette || ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'];
+
+        let round = 0;
+        let prevX = (100 - baseWidthPct) / 2;
+        let prevWidth = baseWidthPct;
+        let curWidth = baseWidthPct;
+        let curX = prevX;
+        let direction = 1;
+        let speed = baseSpeed;
+        let running = true;
+        let locked = false;
+        let lastTime = null;
+        let rafId;
+        let accuracySum = 0;
+
+        function paletteColor(i) {
+          return colors[i % colors.length];
+        }
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">だん: 0 / ${ROUNDS}</span>
+            <span id="mgScore">せいかくさ: -</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-stack-tower" id="mgTower"></div>
+          <button class="mg-tap-btn" id="mgDropBtn">おとす!</button>
+        `;
+
+        const towerEl = container.querySelector('#mgTower');
+        const dropBtn = container.querySelector('#mgDropBtn');
+        const roundEl = container.querySelector('#mgRound');
+        const scoreEl = container.querySelector('#mgScore');
+
+        const baseEl = document.createElement('div');
+        baseEl.className = 'mg-stack-block';
+        baseEl.style.left = prevX + '%';
+        baseEl.style.width = prevWidth + '%';
+        baseEl.style.bottom = '0px';
+        baseEl.style.background = paletteColor(0);
+        baseEl.textContent = blockEmoji;
+        towerEl.appendChild(baseEl);
+
+        let movingEl = document.createElement('div');
+        movingEl.className = 'mg-stack-moving';
+        movingEl.style.bottom = BLOCK_H + 'px';
+        movingEl.style.width = curWidth + '%';
+        movingEl.style.left = curX + '%';
+        movingEl.textContent = blockEmoji;
+        towerEl.appendChild(movingEl);
+
+        function frame(now) {
+          if (!running) return;
+          if (lastTime == null) lastTime = now;
+          const dt = (now - lastTime) / 1000;
+          lastTime = now;
+          if (!locked) {
+            curX += direction * speed * dt;
+            const maxX = 100 - curWidth;
+            if (curX >= maxX) { curX = maxX; direction = -1; }
+            if (curX <= 0) { curX = 0; direction = 1; }
+            movingEl.style.left = curX + '%';
+          }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function handleDrop() {
+          if (locked || !running) return;
+          locked = true;
+          dropBtn.disabled = true;
+
+          const curLeft = curX;
+          const curRight = curX + curWidth;
+          const prevLeft = prevX;
+          const prevRight = prevX + prevWidth;
+          const overlapLeft = Math.max(curLeft, prevLeft);
+          const overlapRight = Math.min(curRight, prevRight);
+          const overlapWidth = Math.max(0, overlapRight - overlapLeft);
+          const accuracy = prevWidth > 0 ? clamp(overlapWidth / prevWidth, 0, 1) : 0;
+          accuracySum += accuracy;
+
+          const placedWidth = Math.max(minWidthPct, overlapWidth);
+          const placedX = overlapWidth > 0 ? overlapLeft : curLeft;
+
+          movingEl.style.left = placedX + '%';
+          movingEl.style.width = placedWidth + '%';
+          movingEl.style.background = paletteColor(round);
+          movingEl.className = 'mg-stack-block';
+
+          prevX = placedX;
+          prevWidth = placedWidth;
+          curWidth = placedWidth;
+          scoreEl.textContent = `せいかくさ: ${Math.round(accuracy * 100)}%`;
+
+          round += 1;
+          roundEl.textContent = `だん: ${round} / ${ROUNDS}`;
+
+          setTimeout(() => {
+            if (!running) return;
+            if (round >= ROUNDS) {
+              end();
+              return;
+            }
+            movingEl = document.createElement('div');
+            movingEl.className = 'mg-stack-moving';
+            movingEl.style.bottom = ((round + 1) * BLOCK_H) + 'px';
+            movingEl.style.width = curWidth + '%';
+            curX = 0;
+            direction = 1;
+            movingEl.style.left = curX + '%';
+            movingEl.textContent = blockEmoji;
+            towerEl.appendChild(movingEl);
+            speed = baseSpeed + round * 6;
+            locked = false;
+            dropBtn.disabled = false;
+          }, 260);
+        }
+
+        dropBtn.addEventListener('pointerdown', handleDrop);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          const score = Math.round((accuracySum / ROUNDS) * 100);
+          onComplete(score);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const STACK_GAME_VARIANTS = [
+    makeStackGame({
+      title: 'つみきタワー!せいかくに かさねよう',
+      blockEmoji: '🟦',
+      palette: ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'],
+    }),
+    makeStackGame({
+      title: 'パンケーキタワー!たかく かさねよう',
+      blockEmoji: '🥞',
+      palette: ['#f6d9a5', '#f0c078', '#e8a95c', '#dba05a', '#c98a4a', '#b87a3f', '#a56a35'],
+    }),
+    makeStackGame({
+      title: 'ケーキタワー!おいわいの たかづみ',
+      blockEmoji: '🍰',
+      palette: ['#ffd1e8', '#ffe4b5', '#d1f0d8', '#d1e8ff', '#e8d1ff', '#fff5b8', '#ffcccb'],
+    }),
+  ];
+
+  // --- かくとうゲーム(タイミングよく こうげき/ガード) ---
+
+  // あいてが「こうげきの けはい」か「すき」かを ランダムに おりまぜて
+  // きて、その たびに みじかい はんのう時間の なかで「こうげき」か
+  // 「ガード」を えらぶ、HPゲージつきの リアルタイム対戦ゲーム
+  function makeFightGame({ title, opponentEmoji, opponentName }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 7;
+        const reactionMs = lerp(950, 500, difficulty);
+        const telegraphMs = lerp(550, 280, difficulty);
+        let round = 0;
+        let playerHP = 100;
+        let opponentHP = 100;
+        let resolved = false;
+        let running = true;
+        const timers = [];
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-fight-hp-row">
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">なおとっち</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill player" id="mgPlayerHP" style="width:100%"></div></div>
+            </div>
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">${opponentName}</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill enemy" id="mgEnemyHP" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="mg-fight-arena">
+            <span class="mg-fight-player" id="mgFightPlayer">${currentSprite()}</span>
+            <span class="mg-fight-tell hidden" id="mgFightTell">❗</span>
+            <span class="mg-fight-opponent" id="mgFightOpponent">${opponentEmoji}</span>
+          </div>
+          <div class="mg-fight-msg" id="mgFightMsg">サインを みて はんだんしよう!</div>
+          <div class="mg-fight-controls">
+            <button class="mg-tap-btn" id="mgAttackBtn" disabled>こうげき!</button>
+            <button class="mg-tap-btn" id="mgGuardBtn" disabled>ガード!</button>
+          </div>
+        `;
+
+        const playerHPEl = container.querySelector('#mgPlayerHP');
+        const enemyHPEl = container.querySelector('#mgEnemyHP');
+        const tellEl = container.querySelector('#mgFightTell');
+        const msgEl = container.querySelector('#mgFightMsg');
+        const attackBtn = container.querySelector('#mgAttackBtn');
+        const guardBtn = container.querySelector('#mgGuardBtn');
+        const playerEl = container.querySelector('#mgFightPlayer');
+        const opponentEl = container.querySelector('#mgFightOpponent');
+
+        function flashHit(el) {
+          el.classList.add('hit');
+          setTimeout(() => el.classList.remove('hit'), 200);
+        }
+
+        function endIfKO() {
+          if (opponentHP <= 0) { finish(true); return true; }
+          if (playerHP <= 0) { finish(false); return true; }
+          return false;
+        }
+
+        function finish(won) {
+          if (resolved) return;
+          resolved = true;
+          running = false;
+          timers.forEach(clearTimeout);
+          msgEl.textContent = won ? `${opponentName}に かった!` : `${opponentName}に まけて しまった…`;
+          attackBtn.disabled = true;
+          guardBtn.disabled = true;
+          const hpScore = clamp(playerHP - opponentHP, -100, 100);
+          const score = won ? clamp(70 + hpScore / 2, 70, 100) : clamp(30 + hpScore / 2, 0, 45);
+          timers.push(setTimeout(() => onComplete(Math.round(score)), 700));
+        }
+
+        function nextRound() {
+          if (!running || resolved) return;
+          round += 1;
+          if (round > ROUNDS) {
+            resolved = true;
+            const score = clamp(50 + (playerHP - opponentHP) / 2, 0, 100);
+            msgEl.textContent = playerHP >= opponentHP ? 'ここまで!ゆうせいで おわった' : 'ここまで!おされぎみで おわった';
+            attackBtn.disabled = true;
+            guardBtn.disabled = true;
+            timers.push(setTimeout(() => onComplete(Math.round(score)), 700));
+            return;
+          }
+          const opponentAttacking = Math.random() < 0.6;
+          tellEl.classList.remove('hidden');
+          tellEl.textContent = opponentAttacking ? '💥' : '✨';
+          msgEl.textContent = opponentAttacking ? 'あいてが こうげきの けはい!' : 'あいてに すきが できた!';
+          attackBtn.disabled = false;
+          guardBtn.disabled = false;
+
+          let acted = false;
+
+          function resolveRound(choice) {
+            if (acted || resolved) return;
+            acted = true;
+            attackBtn.disabled = true;
+            guardBtn.disabled = true;
+            tellEl.classList.add('hidden');
+            if (opponentAttacking) {
+              if (choice === 'guard') {
+                msgEl.textContent = 'ガード せいこう!';
+              } else {
+                playerHP = clamp(playerHP - 18, 0, 100);
+                playerHPEl.style.width = playerHP + '%';
+                flashHit(playerEl);
+                msgEl.textContent = choice ? 'こうげきを うけて しまった…' : 'はんのうが まにあわなかった…';
+              }
+            } else {
+              if (choice === 'attack') {
+                opponentHP = clamp(opponentHP - 20, 0, 100);
+                enemyHPEl.style.width = opponentHP + '%';
+                flashHit(opponentEl);
+                msgEl.textContent = 'こうげき めいちゅう!';
+              } else {
+                msgEl.textContent = choice ? 'ガードしたが なにも おきなかった' : 'チャンスを のがした…';
+              }
+            }
+            if (!endIfKO()) {
+              timers.push(setTimeout(nextRound, 550));
+            }
+          }
+
+          attackBtn.onpointerdown = () => resolveRound('attack');
+          guardBtn.onpointerdown = () => resolveRound('guard');
+
+          timers.push(setTimeout(() => resolveRound(null), telegraphMs + reactionMs));
+        }
+
+        timers.push(setTimeout(nextRound, 900));
+      },
+    };
+  }
+
+  const FIGHT_GAME_VARIANTS = [
+    makeFightGame({ title: 'ライバルの いぬと たいけつ!', opponentEmoji: '🐕‍🦺', opponentName: 'ライバルいぬ' }),
+    makeFightGame({ title: 'なぞの にんじゃと たいけつ!', opponentEmoji: '🥷', opponentName: 'なぞのにんじゃ' }),
+    makeFightGame({ title: 'きょうてきの とらと たいけつ!', opponentEmoji: '🐯', opponentName: 'きょうてきの とら' }),
+  ];
+
+  // --- RPGふうバトル(コマンドせんたくで たたかう) ---
+
+  // たたかう/まほう/ぼうぎょ/にげる の 4コマンドから じっくり えらぶ、
+  // ターン制の HP・MPを もった RPGふうの バトルミニゲーム。はんしゃ神経
+  // ではなく「せんりゃく」で たのしませる、かくとうゲームとは べつの
+  // あじわいを ねらっている
+  function makeRpgBattleGame({ title, monsterEmoji, monsterName }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const TURN_LIMIT = 8;
+        const playerMaxHP = 100;
+        const playerMaxMP = 30;
+        const monsterMaxHP = 100;
+        const monsterAtkMin = Math.round(lerp(10, 16, difficulty));
+        const monsterAtkMax = Math.round(lerp(18, 26, difficulty));
+
+        let turn = 0;
+        let playerHP = playerMaxHP;
+        let playerMP = playerMaxMP;
+        let monsterHP = monsterMaxHP;
+        let defending = false;
+        let resolved = false;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-fight-hp-row">
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">なおとっち HP</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill player" id="mgRpgPlayerHP" style="width:100%"></div></div>
+              <span class="mg-fight-hp-label" id="mgRpgMPLabel">MP: ${playerMP} / ${playerMaxMP}</span>
+              <div class="mg-hp-bar mg-mp-bar"><div class="mg-hp-fill mp" id="mgRpgPlayerMP" style="width:100%"></div></div>
+            </div>
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">${monsterName}</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill enemy" id="mgRpgMonsterHP" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="mg-fight-arena">
+            <span class="mg-fight-player" id="mgRpgPlayer">${currentSprite()}</span>
+            <span class="mg-fight-opponent" id="mgRpgMonster">${monsterEmoji}</span>
+          </div>
+          <div class="mg-fight-msg" id="mgRpgMsg">コマンドを えらぼう!</div>
+          <div class="mg-rpg-commands">
+            <button class="mg-rpg-btn" id="mgRpgAttack">⚔️ たたかう</button>
+            <button class="mg-rpg-btn" id="mgRpgMagic">✨ まほう(15MP)</button>
+            <button class="mg-rpg-btn" id="mgRpgGuard">🛡️ ぼうぎょ</button>
+            <button class="mg-rpg-btn" id="mgRpgFlee">💨 にげる</button>
+          </div>
+        `;
+
+        const playerHPEl = container.querySelector('#mgRpgPlayerHP');
+        const playerMPEl = container.querySelector('#mgRpgPlayerMP');
+        const mpLabelEl = container.querySelector('#mgRpgMPLabel');
+        const monsterHPEl = container.querySelector('#mgRpgMonsterHP');
+        const msgEl = container.querySelector('#mgRpgMsg');
+        const playerEl = container.querySelector('#mgRpgPlayer');
+        const monsterEl = container.querySelector('#mgRpgMonster');
+        const attackBtn = container.querySelector('#mgRpgAttack');
+        const magicBtn = container.querySelector('#mgRpgMagic');
+        const guardBtn = container.querySelector('#mgRpgGuard');
+        const fleeBtn = container.querySelector('#mgRpgFlee');
+
+        function flashHit(el) {
+          el.classList.add('hit');
+          setTimeout(() => el.classList.remove('hit'), 220);
+        }
+
+        function updateBars() {
+          playerHPEl.style.width = clamp(playerHP, 0, playerMaxHP) + '%';
+          playerMPEl.style.width = clamp((playerMP / playerMaxMP) * 100, 0, 100) + '%';
+          mpLabelEl.textContent = `MP: ${playerMP} / ${playerMaxMP}`;
+          monsterHPEl.style.width = clamp((monsterHP / monsterMaxHP) * 100, 0, 100) + '%';
+        }
+
+        function setButtonsEnabled(enabled) {
+          attackBtn.disabled = !enabled;
+          magicBtn.disabled = !enabled || playerMP < 15;
+          guardBtn.disabled = !enabled;
+          fleeBtn.disabled = !enabled;
+        }
+
+        function finish(score, message) {
+          if (resolved) return;
+          resolved = true;
+          msgEl.textContent = message;
+          setButtonsEnabled(false);
+          setTimeout(() => onComplete(Math.round(clamp(score, 0, 100))), 800);
+        }
+
+        function monsterTurn() {
+          if (resolved) return;
+          let dmg = Math.round(monsterAtkMin + Math.random() * (monsterAtkMax - monsterAtkMin));
+          if (defending) dmg = Math.round(dmg / 2);
+          playerHP = clamp(playerHP - dmg, 0, playerMaxHP);
+          flashHit(playerEl);
+          updateBars();
+          msgEl.textContent = `${monsterName}の こうげき!${dmg}の ダメージ!`;
+          defending = false;
+          if (playerHP <= 0) {
+            finish(clamp(10 + (playerHP - monsterHP) / 5, 0, 25), `${monsterName}に まけて しまった…`);
+            return;
+          }
+          turn += 1;
+          if (turn >= TURN_LIMIT) {
+            finish(clamp(50 + (playerHP - monsterHP) / 2, 0, 100), 'ここで たたかいは いったん おわり');
+            return;
+          }
+          setTimeout(() => {
+            msgEl.textContent = 'コマンドを えらぼう!';
+            setButtonsEnabled(true);
+          }, 500);
+        }
+
+        function playerAct(kind) {
+          if (resolved) return;
+          setButtonsEnabled(false);
+          if (kind === 'attack') {
+            const dmg = Math.round(15 + Math.random() * 10);
+            monsterHP = clamp(monsterHP - dmg, 0, monsterMaxHP);
+            flashHit(monsterEl);
+            msgEl.textContent = `たたかった!${dmg}の ダメージ!`;
+          } else if (kind === 'magic') {
+            if (playerMP < 15) { setButtonsEnabled(true); return; }
+            playerMP -= 15;
+            const dmg = Math.round(25 + Math.random() * 15);
+            monsterHP = clamp(monsterHP - dmg, 0, monsterMaxHP);
+            flashHit(monsterEl);
+            msgEl.textContent = `まほうを となえた!${dmg}の ダメージ!`;
+          } else if (kind === 'guard') {
+            defending = true;
+            playerMP = clamp(playerMP + 5, 0, playerMaxMP);
+            msgEl.textContent = 'ぼうぎょの かまえを とった';
+          } else if (kind === 'flee') {
+            finish(clamp(35 + (playerHP - monsterHP) / 4, 0, 55), 'にげだした…');
+            return;
+          }
+          updateBars();
+          if (monsterHP <= 0) {
+            finish(clamp(75 + (playerHP - monsterHP) / 2, 75, 100), `${monsterName}を たおした!`);
+            return;
+          }
+          setTimeout(monsterTurn, 600);
+        }
+
+        attackBtn.addEventListener('pointerdown', () => playerAct('attack'));
+        magicBtn.addEventListener('pointerdown', () => playerAct('magic'));
+        guardBtn.addEventListener('pointerdown', () => playerAct('guard'));
+        fleeBtn.addEventListener('pointerdown', () => playerAct('flee'));
+
+        updateBars();
+      },
+    };
+  }
+
+  const RPG_GAME_VARIANTS = [
+    makeRpgBattleGame({ title: 'RPGふう バトル!スライムが あらわれた', monsterEmoji: '🟢', monsterName: 'スライム' }),
+    makeRpgBattleGame({ title: 'RPGふう バトル!ドラゴンが あらわれた', monsterEmoji: '🐉', monsterName: 'ドラゴン' }),
+    makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -5222,6 +5841,10 @@
     ...COLOR_MIX_VARIANTS,
     ...FIND_SELF_VARIANTS,
     ...POSE_GAME_VARIANTS,
+    ...ROAD_GAME_VARIANTS,
+    ...STACK_GAME_VARIANTS,
+    ...FIGHT_GAME_VARIANTS,
+    ...RPG_GAME_VARIANTS,
   ];
 
   // 地域ごとの あそび。「たび」で いま いる地域に あわせて、あそぶ たびに
