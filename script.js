@@ -3887,7 +3887,7 @@
           <div class="mg-title">${title}</div>
           <div class="mg-jump-lane" id="mgJumpLane">
             <span class="mg-jump-obstacle hidden" id="mgJumpObstacle">${obstacleEmoji}</span>
-            <span class="mg-jump-player" id="mgJumpPlayer">🐾</span>
+            <span class="mg-jump-player" id="mgJumpPlayer">${currentSprite()}</span>
           </div>
           <button class="mg-tap-btn" id="mgJumpBtn">ジャンプ!</button>
         `;
@@ -4015,6 +4015,169 @@
 
   const COLOR_MIX_VARIANTS = [colorMixGame];
 
+  // --- じぶんさがし: 育てている今の姿を、似た他の種族ラインの同じ成長段階
+  // の中から見つけてタップする。emoji はプレイ開始時に currentSprite() /
+  // state.speciesLine / state.stageIndex から毎回組み立てるので、種族や
+  // 成長段階が変わっても常にそのときの本人が出題される
+  function makeFindSelfGame() {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const selfEmoji = currentSprite();
+        const stageIdx = state.stageIndex;
+        const decoyPool = [...new Set(
+          ALL_LINES
+            .filter((line) => line !== state.speciesLine)
+            .map((line) => SPECIES[line].stages[stageIdx]?.emoji)
+            .filter((emoji) => emoji && emoji !== selfEmoji)
+        )];
+        const GRID_SIZE = Math.round(lerp(9, 16, difficulty));
+        const targetCount = Math.max(2, Math.round(GRID_SIZE * 0.25));
+        const timeLimitMs = lerp(7000, 4200, difficulty);
+        const cells = Array.from({ length: GRID_SIZE }, (_, i) => (
+          i < targetCount ? selfEmoji : decoyPool[Math.floor(Math.random() * decoyPool.length)]
+        ));
+        for (let i = cells.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [cells[i], cells[j]] = [cells[j], cells[i]];
+        }
+        const cols = 4;
+        const rows = Math.ceil(GRID_SIZE / cols);
+        let correctTaps = 0;
+        let mistakes = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">みつけた: 0/${targetCount}</span>
+          </div>
+          <div class="mg-title">じぶんの すがたを ぜんぶ みつけよう!</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+            ${cells.map((emoji, i) => `<div class="mg-hole" data-i="${i}" data-target="${emoji === selfEmoji}" style="cursor:pointer;">${emoji}</div>`).join('')}
+          </div>
+        `;
+
+        const scoreEl = container.querySelector('#mgScore');
+        const cellEls = Array.from(container.querySelectorAll('.mg-hole'));
+
+        cellEls.forEach((cell) => {
+          cell.addEventListener('pointerdown', () => {
+            if (finished || cell.classList.contains('done')) return;
+            if (cell.dataset.target === 'true') {
+              cell.classList.add('done');
+              cell.style.visibility = 'hidden';
+              correctTaps += 1;
+              scoreEl.textContent = `みつけた: ${correctTaps}/${targetCount}`;
+              if (correctTaps >= targetCount) end();
+            } else {
+              mistakes += 1;
+              cell.classList.add('wrong');
+              setTimeout(() => cell.classList.remove('wrong'), 200);
+            }
+          });
+        });
+
+        function end() {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          const score = clamp(Math.round((correctTaps / targetCount) * 100 - mistakes * 15), 10, 100);
+          onComplete(score);
+        }
+
+        timer = setTimeout(end, timeLimitMs);
+      },
+    };
+  }
+
+  const FIND_SELF_VARIANTS = [makeFindSelfGame()];
+
+  // --- なりきりポーズ: おだいの きもち(うれしい/たのしい/かなしい/おこった)
+  // に合う反応を選ぶと、今の自分の姿がその場で emotePet() と同じモーション
+  // を実演してくれる。既存の .pet / .emote-* のCSSをそのまま使い回す
+  const POSE_MOODS = [
+    { mood: 'happy', label: 'うれしい' },
+    { mood: 'fun', label: 'たのしい' },
+    { mood: 'sad', label: 'かなしい' },
+    { mood: 'angry', label: 'おこった' },
+  ];
+
+  function makePoseGame() {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = Math.round(lerp(4, 6, difficulty));
+        const timeLimitMs = lerp(3400, 2000, difficulty);
+        const selfEmoji = currentSprite();
+        let round = 0;
+        let correctCount = 0;
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">1 / ${ROUNDS}</span>
+          </div>
+          <div class="mg-title">おなじ きもちの ボタンを タップ!</div>
+          <div class="pet-area" style="min-height:80px;">
+            <span class="pet" id="mgPoseChar">${selfEmoji}</span>
+          </div>
+          <div class="mg-mood-prompt" id="mgMoodPrompt" style="text-align:center; font-weight:bold; margin:6px 0;"></div>
+          <div class="mg-math-choices" id="mgMoodChoices"></div>
+        `;
+
+        const charEl = container.querySelector('#mgPoseChar');
+        const promptEl = container.querySelector('#mgMoodPrompt');
+        const choicesEl = container.querySelector('#mgMoodChoices');
+        const roundEl = container.querySelector('#mgRound');
+
+        function nextRound() {
+          if (round >= ROUNDS) {
+            end();
+            return;
+          }
+          round += 1;
+          answered = false;
+          roundEl.textContent = `${round} / ${ROUNDS}`;
+          const target = POSE_MOODS[Math.floor(Math.random() * POSE_MOODS.length)];
+          promptEl.textContent = `「${target.label}」な きもちは どれ?`;
+          const shuffled = [...POSE_MOODS].sort(() => Math.random() - 0.5);
+          choicesEl.innerHTML = shuffled
+            .map((m) => `<button class="mg-math-btn" data-mood="${m.mood}">${m.label}</button>`)
+            .join('');
+          Array.from(choicesEl.querySelectorAll('button')).forEach((btn) => {
+            btn.addEventListener('pointerdown', () => {
+              if (answered) return;
+              answered = true;
+              clearTimeout(timer);
+              if (btn.dataset.mood === target.mood) correctCount += 1;
+              charEl.className = `pet emote-${target.mood}`;
+              setTimeout(() => {
+                charEl.className = 'pet';
+                nextRound();
+              }, 650);
+            });
+          });
+          timer = setTimeout(() => {
+            if (answered) return;
+            answered = true;
+            nextRound();
+          }, timeLimitMs);
+        }
+
+        function end() {
+          const score = Math.round((correctCount / ROUNDS) * 100);
+          onComplete(score);
+        }
+
+        nextRound();
+      },
+    };
+  }
+
+  const POSE_GAME_VARIANTS = [makePoseGame()];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -4042,6 +4205,8 @@
     ...SUM_PAIR_VARIANTS,
     ...JUMP_GAME_VARIANTS,
     ...COLOR_MIX_VARIANTS,
+    ...FIND_SELF_VARIANTS,
+    ...POSE_GAME_VARIANTS,
   ];
 
   let minigameQueue = [];
