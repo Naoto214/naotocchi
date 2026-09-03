@@ -311,6 +311,19 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   flex-direction: column;
 }
 
+/* スマホの ブラウザは、すばやい れんだタップを ダブルタップズームの
+   ジェスチャーと かんちがいして、タップが とりこぼされたり がめんが
+   かってに 拡大されたり することが ある。ミニゲーム全体で その ジェス
+   チャー判定じたいを 無効にしておくことで、タップの はんのうを 安定させる
+   (基本の あんぜんに タップできる きょどう だけに しぼる manipulation。
+   ドラッグそうさが ひつような キャッチ/バブルポップの フィールドは、
+   より 詳細な セレクターの touch-action: none が 優先される) */
+.minigame-overlay {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .screen-normal.hidden,
 .minigame-overlay.hidden {
   display: none;
