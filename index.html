@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260903-9">
+<link rel="stylesheet" href="style.css?v=20260903-10">
 </head>
 <body>
   <div class="device" id="device">
@@ -135,19 +135,33 @@
             <span class="dex-title">プロフィール</span>
             <button class="dex-close-btn" id="profileCloseBtn">✕</button>
           </div>
-          <div class="profile-section">
-            <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
-            <div class="profile-row"><span class="profile-label">せいちょう</span><span id="profileStage"></span></div>
-            <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
-            <div class="profile-row"><span class="profile-label">れんあいタイプ</span><span id="profileOrientation"></span></div>
-          </div>
-          <div class="profile-section">
-            <div class="profile-section-title">せいかく傾向</div>
-            <div class="profile-traits" id="profileTraits"></div>
-          </div>
-          <div class="profile-section" id="profilePartnerSection">
-            <div class="profile-section-title">こいびと</div>
-            <div id="profilePartnerCard"></div>
+          <div class="profile-scroll">
+            <div class="profile-section">
+              <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
+              <div class="profile-row"><span class="profile-label">せいちょう</span><span id="profileStage"></span></div>
+              <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
+              <div class="profile-row"><span class="profile-label">れんあいタイプ</span><span id="profileOrientation"></span></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">せいかく傾向</div>
+              <div class="profile-traits" id="profileTraits"></div>
+            </div>
+            <div class="profile-section" id="profilePartnerSection">
+              <div class="profile-section-title">こいびと</div>
+              <div id="profilePartnerCard"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">あいてコード</div>
+              <div class="profile-hint">じぶんのコードを ともだちに おくって、ともだちの コードを よみこむと、その なおとっちに きゅうあいを ためせます</div>
+              <button class="profile-code-btn" id="makeCodeBtn">じぶんの コードを つくる</button>
+              <textarea class="profile-code-box hidden" id="myCodeBox" readonly rows="2"></textarea>
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="guestCodeInput" placeholder="ともだちの コードを ここに">
+                <button class="profile-code-btn" id="loadCodeBtn">よみこむ</button>
+              </div>
+              <div class="profile-code-error hidden" id="codeError"></div>
+              <div id="guestStatus"></div>
+            </div>
           </div>
         </div>
 
@@ -179,6 +193,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260903-9"></script>
+  <script src="script.js?v=20260903-10"></script>
 </body>
 </html>
