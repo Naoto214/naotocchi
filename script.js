@@ -566,6 +566,10 @@
         money: 0,
         ownedShopItems: [],
         equippedItemId: null,
+        // 「たび」で いちど でも おとずれた ことの ある地域(REGIONS の id)
+        // の いちらん。じっせきの「せかい いっしゅう」に つかう。「おうち」
+        // は さいしょから いる ので、あらかじめ ふくめておく
+        regionsVisited: ['home'],
       },
       achievementsUnlocked: [],
     };
@@ -696,6 +700,25 @@
     { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ロマンチックな せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.romantic >= 10 },
     { id: 'reset-5', emoji: '🔄', label: 'なんども ちょうせん', desc: '「はじめから」を 5かい した', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'reset-20', emoji: '♾️', label: 'むげんループの たび', desc: '「はじめから」を 20かい した', condition: (l) => (l.resets || 0) >= 20 },
+
+    // ここから さらに追加分 - なかまの きずな度きのう、けっこん、
+    // アイテムショップ、地域をめぐる たび など、あとから 加わった
+    // システムにも ちゃんと じっせきの もくひょうを 用意する
+    { id: 'companion-1', emoji: '🐾', label: 'はじめての なかま', desc: 'はじめて なかまが できた', condition: (l) => l.companionsRecruited.length >= 1 },
+    { id: 'companion-5', emoji: '🐕', label: 'にぎやかな なかよしグループ', desc: 'なかまが 5にん できた', condition: (l) => l.companionsRecruited.length >= 5 },
+    { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: 'なかまを ぜんいん(10にん)あつめた', condition: (l) => l.companionsRecruited.length >= COMPANIONS.length },
+    { id: 'companion-active-5', emoji: '💞', label: 'そばに いる しあわせ', desc: 'いま そばに いる なかまが 5にん いる', condition: (l, s) => s.companions.length >= 5 },
+    { id: 'partner-1', emoji: '💑', label: 'はじめての こいびと', desc: 'はじめて こいびとが できた', condition: (l) => l.partnersRecorded.length >= 1 },
+    { id: 'married-1', emoji: '💍', label: 'はじめての けっこん', desc: 'はじめて けっこんした', condition: (l) => l.partnersMarried.length >= 1 },
+    { id: 'married-3', emoji: '👰', label: 'なんども ウェディング', desc: '3にんと けっこんした(いろんな 人生で)', condition: (l) => l.partnersMarried.length >= 3 },
+    { id: 'partner-all', emoji: '🌏', label: 'れんあい たっせいしゃ', desc: '全8地域16人の こいびと候補 ぜんいんと であった', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
+    { id: 'shop-1', emoji: '🎁', label: 'はじめての おかいもの', desc: 'アイテムを はじめて こうにゅうした', condition: (l) => l.ownedShopItems.length >= 1 },
+    { id: 'shop-all', emoji: '🛍️', label: 'コレクション コンプリート', desc: 'アイテムを ぜんぶ(8しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'money-100', emoji: '💰', label: 'ちょきんか デビュー', desc: 'しょじきんが 100に とうたつした', condition: (l) => l.money >= 100 },
+    { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: 'しょじきんが 500に とうたつした', condition: (l) => l.money >= 500 },
+    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を おとずれた', condition: (l) => l.regionsVisited.length >= 3 },
+    { id: 'region-all', emoji: '🌍', label: 'せかい いっしゅう', desc: 'ぜんぶの地域(8つ)を おとずれた', condition: (l) => l.regionsVisited.length >= REGIONS.length },
+    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきな なおとっちライフ', desc: 'けっこんも なかま10にん あつめるのも りょうほう たっせいした', condition: (l) => l.partnersMarried.length >= 1 && l.companionsRecruited.length >= COMPANIONS.length },
   ];
 
   function checkAchievements() {
@@ -711,10 +734,10 @@
   }
 
   // ゲームクリア時の演出は「ずかん」「じっせき」がどれだけ揃っているかで
-  // 4段階に豪華になる。「じっせき コンプリート」は dex-complete も含む
-  // 15個中15個なので、それ単体では「ずかんは まだ」を表せない -
-  // エンディングの段階わけとしては dex-complete を除いた14個で判定し、
-  // ずかん達成/じっせき(dex以外)達成を独立した2軸として扱う
+  // 4段階に豪華になる。「じっせき コンプリート」は dex-complete も ふくむ
+  // ぜんぶで はんてい すると、それ単体では「ずかんは まだ」を表せない -
+  // エンディングの段階わけとしては dex-complete を除いた のこり ぜんぶで
+  // 判定し、ずかん達成/じっせき(dex以外)達成を独立した2軸として扱う
   // 一生のあいだに たどりついた クリアパターンの あかしとして、ふだんの
   // 画面に ずっと 残る バッジ(state.lifetime.endingTiersReached に記録)
   const ENDING_TIER_ICONS = ['🎉', '📖', '🏅', '👑'];
@@ -6961,6 +6984,11 @@
     const candidates = REGIONS.filter((r) => r.id !== state.regionId);
     const region = candidates[Math.floor(Math.random() * candidates.length)];
     state.regionId = region.id;
+    // じっせきの「せかい いっしゅう」用に、いちど でも おとずれた ことの
+    // ある地域を えいきゅうに きろくしておく(「はじめから」しても きえない)
+    if (!state.lifetime.regionsVisited.includes(region.id)) {
+      state.lifetime.regionsVisited.push(region.id);
+    }
     // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
     // ごはんの タイミングも のがす)
     state.energy = clamp(state.energy - 6, 0, 100);
