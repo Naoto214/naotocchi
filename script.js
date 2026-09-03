@@ -240,6 +240,11 @@
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
     gameClearOverlay: document.getElementById('gameClearOverlay'),
+    gameClearConfettiTop: document.getElementById('gameClearConfettiTop'),
+    gameClearConfettiBottom: document.getElementById('gameClearConfettiBottom'),
+    gameClearTitle: document.getElementById('gameClearTitle'),
+    gameClearBadges: document.getElementById('gameClearBadges'),
+    gameClearDesc: document.getElementById('gameClearDesc'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
@@ -387,6 +392,49 @@
       // is still recorded, just shown silently until it's safe to flash
       if (!gameActive) showStoryEvent({ emoji: ach.emoji, message: `じっせき かいほう!「${ach.label}」` });
     }
+  }
+
+  // ゲームクリア時の演出は「ずかん」「じっせき」がどれだけ揃っているかで
+  // 4段階に豪華になる。「じっせき コンプリート」は dex-complete も含む
+  // 15個中15個なので、それ単体では「ずかんは まだ」を表せない -
+  // エンディングの段階わけとしては dex-complete を除いた14個で判定し、
+  // ずかん達成/じっせき(dex以外)達成を独立した2軸として扱う
+  const ENDING_TIERS = [
+    {
+      title: 'GAME CLEAR',
+      confetti: '🎉🎊✨🎉🎊✨',
+      badges: [],
+      desc: 'さいごまで そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+    },
+    {
+      title: 'GAME CLEAR',
+      confetti: '🎉🎊✨📖✨🎊🎉',
+      badges: ['📖 ずかん コンプリート'],
+      desc: 'ぜんぶの すがたに であって そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+    },
+    {
+      title: 'GAME CLEAR',
+      confetti: '🎉🎊✨🏅✨🎊🎉',
+      badges: ['🏅 じっせき コンプリート'],
+      desc: 'あらゆる じっせきを たっせいして そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+    },
+    {
+      title: 'PERFECT CLEAR',
+      confetti: '👑✨🎉🎊✨🎉🎊✨👑',
+      badges: ['📖 ずかん コンプリート', '🏅 じっせき コンプリート'],
+      desc: 'ずかんも じっせきも すべて そろえて、かんぺきに そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+    },
+  ];
+
+  function getEndingTier() {
+    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * 6;
+    const otherAchievementsComplete = ACHIEVEMENTS
+      .filter((ach) => ach.id !== 'dex-complete')
+      .every((ach) => state.achievementsUnlocked.includes(ach.id));
+    if (dexComplete && otherAchievementsComplete) return 3;
+    if (otherAchievementsComplete) return 2;
+    if (dexComplete) return 1;
+    return 0;
   }
 
   function saveState() {
@@ -874,6 +922,7 @@
     el.screen.classList.toggle('sick', state.isSick && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
+    if (isClear) renderEnding();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -928,6 +977,22 @@
         ? `<div class="ach-cell known"><span class="ach-cell-emoji">${ach.emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`
         : `<div class="ach-cell locked"><span class="ach-cell-emoji">❓</span><div class="ach-cell-text"><span class="ach-cell-label">？？？</span></div></div>`;
     }).join('');
+  }
+
+  // the GAME CLEAR overlay's grandeur scales with getEndingTier() - re-runs
+  // every render() while isClear, but the tier can only ever go up (dex/ach
+  // records are permanent), and no further actions are possible once
+  // cleared, so in practice it settles the moment the overlay first shows
+  function renderEnding() {
+    const tier = ENDING_TIERS[getEndingTier()];
+    el.gameClearOverlay.classList.toggle('tier-1', tier === ENDING_TIERS[1]);
+    el.gameClearOverlay.classList.toggle('tier-2', tier === ENDING_TIERS[2]);
+    el.gameClearOverlay.classList.toggle('tier-3', tier === ENDING_TIERS[3]);
+    el.gameClearTitle.textContent = tier.title;
+    el.gameClearConfettiTop.textContent = tier.confetti;
+    el.gameClearConfettiBottom.textContent = tier.confetti;
+    el.gameClearDesc.innerHTML = tier.desc;
+    el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
   }
 
   // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
