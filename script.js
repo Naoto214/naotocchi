@@ -5191,6 +5191,320 @@
 
   const POSE_GAME_VARIANTS = [makePoseGame()];
 
+  // --- ロードげーむ(3れーんを よけよう・キャッチしよう) ---
+
+  // レーンごとの ざひょうを「ちへいせんで せまく・てまえで ひろく」
+  // ほかんし、とどくまでの しんちょくに 2じょうの イージングを かけることで、
+  // せまい がめんの なかでも「おくから せまってくる」たちたいてきな
+  // おくゆき感を だす、みちを はしる/よける タイプの ミニゲーム
+  function makeRoadGame({ title, goodItems, badItems }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 11000;
+        const travelMs = lerp(2000, 1150, difficulty);
+        const spawnInterval = lerp(950, 520, difficulty);
+        const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
+        const LANE_HORIZON_X = [44, 50, 56];
+        const LANE_NEAR_X = [16, 50, 84];
+        let lane = 1;
+        let points = 0;
+        let running = true;
+        let lastSpawn = 0;
+        let items = [];
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 11s</span>
+            <span id="mgScore">とくてん: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-road" id="mgRoad">
+            <div class="mg-road-surface"></div>
+            <div class="mg-road-player" id="mgRoadPlayer" style="left:${LANE_NEAR_X[1]}%">${currentSprite()}</div>
+          </div>
+          <div class="mg-road-controls">
+            <button class="mg-tap-btn" id="mgRoadLeft">◀</button>
+            <button class="mg-tap-btn" id="mgRoadRight">▶</button>
+          </div>
+        `;
+
+        const road = container.querySelector('#mgRoad');
+        const playerEl = container.querySelector('#mgRoadPlayer');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+        const leftBtn = container.querySelector('#mgRoadLeft');
+        const rightBtn = container.querySelector('#mgRoadRight');
+
+        function setLane(next) {
+          lane = clamp(next, 0, 2);
+          playerEl.style.left = LANE_NEAR_X[lane] + '%';
+        }
+        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
+        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+
+        function flashRoad() {
+          road.classList.add('hit');
+          setTimeout(() => road.classList.remove('hit'), 200);
+        }
+
+        function spawnItem() {
+          const isBad = Math.random() < BAD_CHANCE;
+          const pool = isBad ? badItems : goodItems;
+          const itemLane = Math.floor(Math.random() * 3);
+          const itemEl = document.createElement('div');
+          itemEl.className = 'mg-road-item';
+          itemEl.textContent = pool[Math.floor(Math.random() * pool.length)];
+          road.appendChild(itemEl);
+          items.push({ el: itemEl, lane: itemLane, born: performance.now(), bad: isBad, resolved: false });
+        }
+
+        const startTime = performance.now();
+        let rafId;
+
+        function frame(now) {
+          if (!running) return;
+          const elapsed = now - startTime;
+          const remaining = Math.max(0, DURATION_MS - elapsed);
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+          if (now - lastSpawn > spawnInterval) {
+            spawnItem();
+            lastSpawn = now;
+          }
+
+          items = items.filter((item) => {
+            const t = clamp((now - item.born) / travelMs, 0, 1);
+            const eased = t * t;
+            const x = lerp(LANE_HORIZON_X[item.lane], LANE_NEAR_X[item.lane], eased);
+            const y = lerp(10, 84, eased);
+            const scale = lerp(0.3, 1.25, eased);
+            item.el.style.left = x + '%';
+            item.el.style.top = y + '%';
+            item.el.style.opacity = Math.min(1, eased * 2.4);
+            item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            if (t >= 1 && !item.resolved) {
+              item.resolved = true;
+              if (item.lane === lane) {
+                if (item.bad) {
+                  points = Math.max(0, points - 20);
+                  flashRoad();
+                } else {
+                  points = Math.min(100, points + 16);
+                }
+                scoreEl.textContent = `とくてん: ${points}`;
+              }
+              item.el.remove();
+              return false;
+            }
+            return true;
+          });
+
+          if (elapsed >= DURATION_MS) {
+            end();
+            return;
+          }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          items.forEach((item) => item.el.remove());
+          onComplete(points);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const ROAD_GAME_VARIANTS = [
+    makeRoadGame({
+      title: 'どうろを はしろう!たべものは キャッチ、ゴミは よけて',
+      goodItems: ['🍎', '🍙', '🍬', '🍇'],
+      badItems: ['🪨', '🚧', '🛢️', '⚠️'],
+    }),
+    makeRoadGame({
+      title: 'そらを とぼう!ほしは キャッチ、いんせきは よけて',
+      goodItems: ['⭐', '🌟', '✨', '🍀'],
+      badItems: ['☄️', '🪨', '⚡', '🛰️'],
+    }),
+    makeRoadGame({
+      title: 'うみを およごう!さかなは キャッチ、ゴミは よけて',
+      goodItems: ['🐟', '🐠', '🦐', '🐚'],
+      badItems: ['🥫', '🪤', '🕸️', '🦈'],
+    }),
+  ];
+
+  // --- スタックタワー(つみきを かさねよう) ---
+
+  // うごく ブロックを タップで おとし、ひとつ したの ブロックとの
+  // かさなり具合で 正確さが きまる クラシックな タワー積みゲーム。
+  // ブロックごとに いろを かえて 立体的な かげを つけることで、
+  // ひくい がめんの なかでも「どんどん たかく つみあがっていく」
+  // りったいかんを だす
+  function makeStackGame({ title, blockEmoji, palette }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 6;
+        const BLOCK_H = 26;
+        const baseWidthPct = 70;
+        const minWidthPct = 12;
+        const baseSpeed = lerp(55, 95, difficulty);
+        const colors = palette || ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'];
+
+        let round = 0;
+        let prevX = (100 - baseWidthPct) / 2;
+        let prevWidth = baseWidthPct;
+        let curWidth = baseWidthPct;
+        let curX = prevX;
+        let direction = 1;
+        let speed = baseSpeed;
+        let running = true;
+        let locked = false;
+        let lastTime = null;
+        let rafId;
+        let accuracySum = 0;
+
+        function paletteColor(i) {
+          return colors[i % colors.length];
+        }
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">だん: 0 / ${ROUNDS}</span>
+            <span id="mgScore">せいかくさ: -</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-stack-tower" id="mgTower"></div>
+          <button class="mg-tap-btn" id="mgDropBtn">おとす!</button>
+        `;
+
+        const towerEl = container.querySelector('#mgTower');
+        const dropBtn = container.querySelector('#mgDropBtn');
+        const roundEl = container.querySelector('#mgRound');
+        const scoreEl = container.querySelector('#mgScore');
+
+        const baseEl = document.createElement('div');
+        baseEl.className = 'mg-stack-block';
+        baseEl.style.left = prevX + '%';
+        baseEl.style.width = prevWidth + '%';
+        baseEl.style.bottom = '0px';
+        baseEl.style.background = paletteColor(0);
+        baseEl.textContent = blockEmoji;
+        towerEl.appendChild(baseEl);
+
+        let movingEl = document.createElement('div');
+        movingEl.className = 'mg-stack-moving';
+        movingEl.style.bottom = BLOCK_H + 'px';
+        movingEl.style.width = curWidth + '%';
+        movingEl.style.left = curX + '%';
+        movingEl.textContent = blockEmoji;
+        towerEl.appendChild(movingEl);
+
+        function frame(now) {
+          if (!running) return;
+          if (lastTime == null) lastTime = now;
+          const dt = (now - lastTime) / 1000;
+          lastTime = now;
+          if (!locked) {
+            curX += direction * speed * dt;
+            const maxX = 100 - curWidth;
+            if (curX >= maxX) { curX = maxX; direction = -1; }
+            if (curX <= 0) { curX = 0; direction = 1; }
+            movingEl.style.left = curX + '%';
+          }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function handleDrop() {
+          if (locked || !running) return;
+          locked = true;
+          dropBtn.disabled = true;
+
+          const curLeft = curX;
+          const curRight = curX + curWidth;
+          const prevLeft = prevX;
+          const prevRight = prevX + prevWidth;
+          const overlapLeft = Math.max(curLeft, prevLeft);
+          const overlapRight = Math.min(curRight, prevRight);
+          const overlapWidth = Math.max(0, overlapRight - overlapLeft);
+          const accuracy = prevWidth > 0 ? clamp(overlapWidth / prevWidth, 0, 1) : 0;
+          accuracySum += accuracy;
+
+          const placedWidth = Math.max(minWidthPct, overlapWidth);
+          const placedX = overlapWidth > 0 ? overlapLeft : curLeft;
+
+          movingEl.style.left = placedX + '%';
+          movingEl.style.width = placedWidth + '%';
+          movingEl.style.background = paletteColor(round);
+          movingEl.className = 'mg-stack-block';
+
+          prevX = placedX;
+          prevWidth = placedWidth;
+          curWidth = placedWidth;
+          scoreEl.textContent = `せいかくさ: ${Math.round(accuracy * 100)}%`;
+
+          round += 1;
+          roundEl.textContent = `だん: ${round} / ${ROUNDS}`;
+
+          setTimeout(() => {
+            if (!running) return;
+            if (round >= ROUNDS) {
+              end();
+              return;
+            }
+            movingEl = document.createElement('div');
+            movingEl.className = 'mg-stack-moving';
+            movingEl.style.bottom = ((round + 1) * BLOCK_H) + 'px';
+            movingEl.style.width = curWidth + '%';
+            curX = 0;
+            direction = 1;
+            movingEl.style.left = curX + '%';
+            movingEl.textContent = blockEmoji;
+            towerEl.appendChild(movingEl);
+            speed = baseSpeed + round * 6;
+            locked = false;
+            dropBtn.disabled = false;
+          }, 260);
+        }
+
+        dropBtn.addEventListener('pointerdown', handleDrop);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          const score = Math.round((accuracySum / ROUNDS) * 100);
+          onComplete(score);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const STACK_GAME_VARIANTS = [
+    makeStackGame({
+      title: 'つみきタワー!せいかくに かさねよう',
+      blockEmoji: '🟦',
+      palette: ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'],
+    }),
+    makeStackGame({
+      title: 'パンケーキタワー!たかく かさねよう',
+      blockEmoji: '🥞',
+      palette: ['#f6d9a5', '#f0c078', '#e8a95c', '#dba05a', '#c98a4a', '#b87a3f', '#a56a35'],
+    }),
+    makeStackGame({
+      title: 'ケーキタワー!おいわいの たかづみ',
+      blockEmoji: '🍰',
+      palette: ['#ffd1e8', '#ffe4b5', '#d1f0d8', '#d1e8ff', '#e8d1ff', '#fff5b8', '#ffcccb'],
+    }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -5222,6 +5536,8 @@
     ...COLOR_MIX_VARIANTS,
     ...FIND_SELF_VARIANTS,
     ...POSE_GAME_VARIANTS,
+    ...ROAD_GAME_VARIANTS,
+    ...STACK_GAME_VARIANTS,
   ];
 
   // 地域ごとの あそび。「たび」で いま いる地域に あわせて、あそぶ たびに
