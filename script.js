@@ -1134,7 +1134,7 @@
   // 1つ抽選)。ほかのメッセージやミニゲーム・すいみん中などとかぶらないよう、
   // 何も表示されていない・普通に育っている最中のときだけ発火する
   function scheduleIdleGreeting() {
-    const delay = 20000 + Math.random() * 25000;
+    const delay = 3000 + Math.random() * 9000;
     setTimeout(() => {
       const canGreet = !gameActive
         && state.stage === STAGE.GROWING
