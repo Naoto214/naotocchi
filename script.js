@@ -752,6 +752,60 @@
     'おしゃべりが すぎたと おもわれたかも…',
   ];
 
+  // なにも しなくても、放っておくと たまに キャラのほうから 話しかけてくる
+  // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
+  // ネタを できるだけ たくさん 用意して、待っているだけでも 飽きにくくする
+  const IDLE_GREETINGS_STANDARD = [
+    'おい!', 'やあ!', 'こんにちは!', 'こんばんは!', 'こら!', 'ねえねえ!', 'もしもし!',
+    'ちょっと きいて!', 'こっち むいて!', 'ひま?', 'あそぼうよ!', 'かまって かまって!',
+    'げんき?', 'なにしてるの?', 'さみしいよ…', 'おーい!', 'もう!むし しないで!',
+    'ひとりごと きいてくれる?', 'ちょっと じかん ある?', 'なんか はなしてよ!',
+    'ボーっと してない?', 'サボってない?', 'たいくつだよ〜', 'こっちみて こっちみて!',
+    'わたしを わすれないでね', 'ねえ、ちゃんと みてる?', 'ひさしぶりな きが する!',
+  ];
+
+  const IDLE_GREETINGS_DIALECT = [
+    // 関西弁
+    'なにしてんねん!', 'げんきに しとる?', 'はなし きこか?', 'なんでやねん!',
+    'ほんまに?', 'せやせや!', 'まいど!', 'おおきに!', 'ようきたな!',
+    'かまへん かまへん', 'いくで〜!', 'ごっつ ひまやわ〜', 'ちゃうちゃう!', 'あかんて!',
+    // 博多弁(福岡)
+    'ちかっぱ げんき?', 'なんしよっと?', 'よかよか!', 'ばり ひまっちゃ〜', 'そうたい!',
+    // 広島弁
+    'ぶち げんき?', 'ほうじゃけん!', 'なんしょん?',
+    // 名古屋弁
+    'だがや!', 'ええでや!', 'きゃー いかんわ!',
+    // 東北弁
+    'げんき だっぺ?', 'おばんです!', 'なじょ してたん?', 'めんこいなぁ',
+    // 北海道弁
+    'なまら げんき?', 'したっけ〜!',
+    // 土佐弁(高知)
+    'げんきで やってるぜよ?', 'よう おいでたぜよ!',
+    // うちなーぐち(沖縄)
+    'はいさい!', 'めんそーれ!', 'なんくるないさ〜',
+  ];
+
+  const IDLE_GREETINGS_FOREIGN = [
+    'Hello!', 'Hi there!', 'Hey!', 'Bonjour!', 'Hola!', 'Ciao!', 'Guten Tag!',
+    '你好!', '안녕!', 'Aloha!', 'Namaste!', 'Привет!', "G'day mate!", 'Salut!',
+    'Hej!', 'Olá!', 'Merhaba!', 'Shalom!', 'Yo!', 'Howdy!',
+  ];
+
+  const IDLE_GREETINGS_SILLY = [
+    'ンモー!', 'なんちゃって!', 'ジャジャン!', 'びっくりした?', 'あなたの ばんです!',
+    'ぴぴぴっ!', 'ドキッと した?', 'あそびに きたよ!', 'ここに いるよー!',
+    'きゅうに はなしかけて ごめんね!',
+  ];
+
+  const IDLE_GREETINGS = [
+    ...IDLE_GREETINGS_STANDARD,
+    ...IDLE_GREETINGS_DIALECT,
+    ...IDLE_GREETINGS_FOREIGN,
+    ...IDLE_GREETINGS_SILLY,
+  ];
+
+  let lastIdleGreeting = null;
+
   let lastPetReaction = null;
   let lastTalkReaction = null;
 
@@ -1073,6 +1127,27 @@
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
       }
       scheduleIdlePerk();
+    }, delay);
+  }
+
+  // 放置していると、たまにキャラのほうから話しかけてくる(IDLE_GREETINGSから
+  // 1つ抽選)。ほかのメッセージやミニゲーム・すいみん中などとかぶらないよう、
+  // 何も表示されていない・普通に育っている最中のときだけ発火する
+  function scheduleIdleGreeting() {
+    const delay = 20000 + Math.random() * 25000;
+    setTimeout(() => {
+      const canGreet = !gameActive
+        && state.stage === STAGE.GROWING
+        && !state.isSleeping
+        && !state.transformOptions
+        && !message;
+      if (canGreet) {
+        const greeting = pickReaction(IDLE_GREETINGS, lastIdleGreeting);
+        lastIdleGreeting = greeting;
+        setMessage(greeting);
+        emotePet('happy');
+      }
+      scheduleIdleGreeting();
     }, delay);
   }
 
@@ -4541,6 +4616,7 @@
   render();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
+  scheduleIdleGreeting();
 
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
