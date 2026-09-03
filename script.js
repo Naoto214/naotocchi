@@ -486,6 +486,10 @@
       // between - past a threshold, these flip from a nice reaction to an
       // annoyed one instead of just always being free positive stats
       affectionStreak: 0,
+      // おなじく、たびを 連続で おしすぎた かいすう(ほかの おせわを
+      // すると 0に もどる) - TRAVEL_SPAM_THRESHOLD を こえると 機嫌の
+      // ボーナスが 逆転する
+      travelStreak: 0,
       actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0, pet: 0, talk: 0 },
       traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
       minigameScoreSum: 0,
@@ -1008,6 +1012,11 @@
   // in between), the action flips from its normal small positive into an
   // annoyed negative instead - spamming either stops being free stats
   const AFFECTION_SPAM_THRESHOLD = 3;
+
+  // おなじように、たびを 連続で おしすぎた ときも「たびづかれ」で 機嫌の
+  // ボーナスが きえて 逆に すこし へる - 元気/満腹の コストと あわせて、
+  // たびボタンを 連打するだけの ごうりつ機嫌かせぎに ならないようにする
+  const TRAVEL_SPAM_THRESHOLD = 3;
 
   const PET_ANNOYED_REACTIONS = [
     'もう なでなでは じゅうぶん!と いう かおを してる',
@@ -6557,6 +6566,7 @@
     state.hunger = clamp(state.hunger + 25, 0, 100);
     state.actionCounts.feed += 1;
     state.affectionStreak = 0;
+    state.travelStreak = 0;
     if (overfed) {
       // spamming ごはん when the pet is already full doesn't help evolution -
       // it risks making it sick instead
@@ -6602,6 +6612,7 @@
     }
     state.actionCounts.play += 1;
     state.affectionStreak = 0;
+    state.travelStreak = 0;
     const game = pickRandomMinigame();
     startMinigame(game);
   });
@@ -6615,6 +6626,7 @@
     state.happiness = clamp(state.happiness + 5, 0, 100);
     state.actionCounts.clean += 1;
     state.affectionStreak = 0;
+    state.travelStreak = 0;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
     checkStoryEvents('poop-clean');
@@ -6627,6 +6639,7 @@
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
     state.affectionStreak = 0;
+    state.travelStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       setMessage('おやすみなさい…');
@@ -6643,6 +6656,7 @@
   el.medicineBtn.addEventListener('click', withFeedback(() => {
     state.actionCounts.medicine += 1;
     state.affectionStreak = 0;
+    state.travelStreak = 0;
     if (state.isSick) {
       state.isSick = false;
       state.sicknessType = null;
@@ -6679,6 +6693,7 @@
       return;
     }
     state.affectionStreak += 1;
+    state.travelStreak = 0;
     state.actionCounts.pet += 1;
     state.actionCounts.talk += 1;
     const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
@@ -6709,6 +6724,10 @@
       return;
     }
     state.affectionStreak = 0;
+    state.travelStreak = 0;
+    // きゅうあい・いちゃつきは からだを つかう ので、けっかに かかわらず
+    // 元気を すこし けずる - 何度でも おせない ように するための コスト
+    state.energy = clamp(state.energy - 6, 0, 100);
 
     // クエスチョニングちゅうは、こいびとの ゆうむに かかわらず「きゅうあい」を
     // おすたびに けいけんが つみあがり、しきい値に とどくと その回だけは
@@ -6839,16 +6858,30 @@
       return;
     }
     state.affectionStreak = 0;
+    state.travelStreak += 1;
+    // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
+    // 機嫌の ボーナスが なくなり、逆に すこし へってしまう
+    const spammedTravel = state.travelStreak > TRAVEL_SPAM_THRESHOLD;
     const candidates = REGIONS.filter((r) => r.id !== state.regionId);
     const region = candidates[Math.floor(Math.random() * candidates.length)];
     state.regionId = region.id;
-    state.happiness = clamp(state.happiness + 5, 0, 100);
+    // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
+    // ごはんの タイミングも のがす)
+    state.energy = clamp(state.energy - 6, 0, 100);
+    state.hunger = clamp(state.hunger - 4, 0, 100);
+    if (spammedTravel) {
+      state.happiness = clamp(state.happiness - 3, 0, 100);
+    } else {
+      state.happiness = clamp(state.happiness + 5, 0, 100);
+    }
     const reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
     if (!checkMeters()) {
-      setMessage(`${region.emoji} ${region.label}に やってきた!${reaction}`);
+      setMessage(spammedTravel
+        ? `${region.emoji} ${region.label}に やってきた!でも たびづかれで ちょっと ぐったり…${reaction}`
+        : `${region.emoji} ${region.label}に やってきた!${reaction}`);
     }
-    emotePet('fun');
+    emotePet(spammedTravel ? 'sad' : 'fun');
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
