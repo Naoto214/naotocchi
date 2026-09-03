@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260903-20">
+<link rel="stylesheet" href="style.css?v=20260903-21">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -20,6 +20,7 @@
         <div class="screen-normal" id="screenNormal">
           <div class="status-row">
             <span id="ageLabel">年齢: 0</span>
+            <span id="moneyLabel">💰 0</span>
             <span id="stageLabel">たまご</span>
           </div>
 
@@ -31,7 +32,7 @@
           <div class="pet-area" id="petArea">
             <div class="badges" id="badges"></div>
             <div class="ending-badges" id="endingBadges"></div>
-            <div class="pet" id="pet">🥚</div>
+            <div class="pet" id="pet"><span id="petSprite">🥚</span><span class="pet-accessory hidden" id="petAccessory"></span></div>
             <div class="poop-row" id="poopRow"></div>
             <button class="profile-icon-btn hidden" id="profileBtn" title="プロフィール">👤</button>
           </div>
@@ -153,6 +154,21 @@
           </div>
         </div>
 
+        <div class="dex-overlay hidden" id="itemOverlay">
+          <div class="dex-header">
+            <span class="dex-title">アイテム</span>
+            <span class="dex-progress" id="itemMoneyLabel">💰 0</span>
+            <button class="dex-close-btn" id="itemCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="theme-section">
+              <div class="theme-section-title">みにつける もの</div>
+              <div class="profile-hint">おかねで こうにゅうして そうびできます。そうびすると、なおとっちに ずっと つけつづけます</div>
+              <div class="shop-item-grid" id="shopItemGrid"></div>
+            </div>
+          </div>
+        </div>
+
         <div class="dex-overlay hidden" id="profileOverlay">
           <div class="dex-header">
             <span class="dex-title">プロフィール</span>
@@ -205,19 +221,19 @@
       <button id="cleanBtn" title="そうじ">🧹<br><span>そうじ</span></button>
       <button id="sleepBtn" title="ねる">💤<br><span>ねる</span></button>
       <button id="medicineBtn" title="くすり">💊<br><span>くすり</span></button>
-      <button id="petBtn" title="なでる">🤲<br><span>なでる</span></button>
-      <button id="talkBtn" title="はなしかける">💬<br><span>はなす</span></button>
+      <button id="playWithBtn" title="じゃれる">🤗<br><span>じゃれる</span></button>
       <button id="courtBtn" title="きゅうあいする">💘<br><span>きゅうあい</span></button>
       <button id="travelBtn" title="たびにでる">🧳<br><span>たび</span></button>
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
       <button id="themeBtn" title="いろ">🎨<br><span>いろ</span></button>
+      <button id="itemBtn" title="アイテム">🎁<br><span>アイテム</span></button>
       <button id="resetBtn" title="リセット" class="hidden">🔄<br><span>はじめから</span></button>
     </div>
   </div>
 
   <div class="companion-row" id="companionRow"></div>
 
-  <script src="script.js?v=20260903-20"></script>
+  <script src="script.js?v=20260903-21"></script>
 </body>
 </html>

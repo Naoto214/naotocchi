@@ -339,12 +339,30 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 .pet {
+  position: relative;
+  display: inline-block;
   font-size: 64px;
   line-height: 1;
   filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.15));
   transition: transform 0.15s ease;
   animation: idle-float 3.2s ease-in-out infinite;
   transform-origin: 50% 85%;
+}
+
+/* SHOP_ITEMS で そうびちゅうの アイテムを、なおとっちの みぎうえに
+   ちいさく そえる。.pet の こどもなので、idle-float の ゆれにも
+   いっしょに ついてくる */
+.pet-accessory {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  font-size: 26px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.pet-accessory.hidden {
+  display: none;
 }
 
 @keyframes idle-float {
@@ -1418,6 +1436,55 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 
 .theme-swatch.locked .theme-swatch-label {
   color: #616161;
+}
+
+/* --- アイテム(ショップ) --- */
+
+.shop-item-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.shop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 8px 4px;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.shop-item-emoji {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.shop-item-label {
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.shop-item-status {
+  font-size: 9px;
+  color: #616161;
+}
+
+.shop-item.equipped {
+  border-color: #ffc400;
+  background: linear-gradient(135deg, #fff6d9, #ffe27a);
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
+}
+
+.shop-item.equipped .shop-item-status {
+  color: #8a6d00;
+  font-weight: bold;
 }
 
 /* --- ほんたい・がめんの いろテーマ --- */
