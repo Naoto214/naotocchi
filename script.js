@@ -1092,6 +1092,60 @@
     };
   }
 
+  // こいびと関係の いじ・けっこんへの しんてん・わかれ に かかわる
+  // すうち。あいてが 地域のNPCでも「あいてコード」の おきゃくさんでも、
+  // state.partner オブジェクトに おなじ フィールドを もたせるので、
+  // どちらも まったく おなじ ルールで あつかわれる
+  const PARTNER_AFFECTION_DECAY_PER_TICK = 1;
+  const PARTNER_FLIRT_AFFECTION_BOOST = 20;
+  const MARRIAGE_BOND_THRESHOLD = 8;
+  const BREAKUP_DEATH_PENALTY = { dating: 15, married: 30 };
+  const DEATH_METER_MULTIPLIER = { none: 1, dating: 0.75, married: 0.5 };
+
+  function relationshipStage() {
+    if (!state.partner) return 'none';
+    return state.partner.married ? 'married' : 'dating';
+  }
+
+  // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
+  // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
+  // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
+  // ミニゲーム大失敗・たべすぎ など)に 共通で かける
+  function raiseDeathMeter(amount) {
+    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()], 0, 100);
+  }
+
+  // 「きゅうあいする」で いちゃついた ぶんだけ なかよし度(affection)が
+  // かいふくし、bondCount が つみあがって しきい値に とどくと 夫婦に
+  // しんてんする。すでに 夫婦なら bondCount は もう つかわない
+  function reinforceRelationship() {
+    const p = state.partner;
+    p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+    if (p.married) return false;
+    p.bondCount = (p.bondCount || 0) + 1;
+    if (p.bondCount < MARRIAGE_BOND_THRESHOLD) return false;
+    p.married = true;
+    p.bondCount = 0;
+    return true;
+  }
+
+  // ほうっておくと(=きゅうあいで いちゃつかないと)なかよし度が すこしずつ
+  // へっていき、0に なると ふられる/りこんする。夫婦の ほうが わかれた
+  // ときの 死亡メーターへの ダメージが おおきい - 「そのぶん 別れたら より
+  // ダメージくる」という つよい きずなの うらがえし
+  function decayRelationship() {
+    if (!state.partner || state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
+    const p = state.partner;
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK, 0, 100);
+    if (p.affection > 0) return;
+    const wasMarried = !!p.married;
+    const label = p.label;
+    state.partner = null;
+    raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
+    setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
+    emotePet('sad');
+  }
+
   const COURT_SUCCESS_REACTIONS = [
     '「つきあってください!」…って いったら まさかの OK!',
     'めが あった しゅんかん、うんめいを かんじた(たぶん)',
@@ -1499,7 +1553,7 @@
           state.sicknessType = sickness.label;
           state.totalSicknessCount += 1;
           state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
-          state.deathMeter = clamp(state.deathMeter + 18, 0, 100);
+          raiseDeathMeter(18);
           setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
         }
       }
@@ -1522,7 +1576,7 @@
       // death condition: sustained critical health
       if (state.health <= 0) {
         state.lowHealthStreak += 1;
-        state.deathMeter = clamp(state.deathMeter + 12, 0, 100);
+        raiseDeathMeter(12);
       } else {
         state.lowHealthStreak = 0;
       }
@@ -1531,6 +1585,10 @@
         state.stage = STAGE.DEAD;
         setMessage('てんごくへ いってしまった…');
       }
+
+      // こいびと/夫婦は ほうっておくと なかよし度が へっていき、0で
+      // わかれてしまう - きゅうあいで ちゃんと いちゃつきつづける ひつようが ある
+      decayRelationship();
 
       // no natural age-based advancement past the egg here on purpose -
       // growing up beyond hatching only happens through triggerEvolutionJump()
@@ -1741,9 +1799,11 @@
 
     const region = applyRegion();
     el.regionLabel.textContent = `${region.emoji} ${region.label}`;
-    el.partnerLabel.textContent = state.partner ? `💑 ${state.partner.emoji} ${state.partner.label}` : '';
+    el.partnerLabel.textContent = state.partner
+      ? `${state.partner.married ? '💍' : '💑'} ${state.partner.emoji} ${state.partner.label}`
+      : '';
     el.partnerLabel.title = state.partner
-      ? `${GENDER_LABELS[state.partner.gender]}・${ORIENTATION_LABELS[state.partner.orientationId]}`
+      ? `${GENDER_LABELS[state.partner.gender]}・${ORIENTATION_LABELS[state.partner.orientationId]}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
@@ -1902,14 +1962,22 @@
 
     if (state.partner) {
       const p = state.partner;
+      const bondHint = p.married
+        ? ''
+        : `<span class="profile-partner-detail">つぎの ふしめまで あと ${MARRIAGE_BOND_THRESHOLD - (p.bondCount || 0)}かいの きゅうあい</span>`;
       el.profilePartnerCard.innerHTML = `
         <div class="profile-partner-card">
           <span class="profile-partner-emoji">${p.emoji}</span>
           <div class="profile-partner-text">
-            <span class="profile-partner-name">${p.label}</span>
+            <span class="profile-partner-name">${p.label}(${p.married ? '夫婦 💍' : 'こいびと 💑'})</span>
             <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${ORIENTATION_LABELS[p.orientationId]}</span>
             <span class="profile-partner-detail">すきな ところ: ${TRAIT_LABELS[p.affinityTrait] || 'とくに なし'}</span>
+            ${bondHint}
           </div>
+        </div>
+        <div class="profile-trait-row" style="margin-top:6px;">
+          <span class="profile-trait-label">なかよし度</span>
+          <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${p.affection ?? 100}%"></div></div>
         </div>
       `;
     } else {
@@ -5175,7 +5243,7 @@
       state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
     } else {
       state.devoMeter = clamp(state.devoMeter + 18, 0, 100);
-      state.deathMeter = clamp(state.deathMeter + 15, 0, 100);
+      raiseDeathMeter(15);
     }
 
     setMessage((customMessage || resultMessageForScore(score)) + itemMessage);
@@ -5243,7 +5311,7 @@
         state.isSick = true;
         state.sicknessType = sickness.label;
         state.totalSicknessCount += 1;
-        state.deathMeter = clamp(state.deathMeter + 10, 0, 100);
+        raiseDeathMeter(10);
         setMessage(`たべすぎて ${sickness.label}に なってしまった…`);
       } else {
         setMessage('もう おなかいっぱい… たべすぎ!');
@@ -5422,6 +5490,17 @@
 
     if (state.partner) {
       state.happiness = clamp(state.happiness + 3, 0, 100);
+      // いちゃつくたびに なかよし度が かいふくし、じゅうぶん つみかさなると
+      // こいびとから 夫婦に しんてんする(すでに 夫婦なら なにも おきない)
+      const justMarried = reinforceRelationship();
+      if (justMarried) {
+        state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
+        if (!checkMeters()) {
+          setMessage(`${state.partner.label}と けっこんした!💍 これからも ずっと いっしょ`);
+        }
+        emotePet('love');
+        return;
+      }
       const reaction = pickReaction(courtFlirtReactions(state.partner.label), lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
@@ -5471,6 +5550,9 @@
         emoji: candidate.emoji,
         gender: candidate.gender,
         orientationId: candidate.orientationId,
+        affection: 100,
+        married: false,
+        bondCount: 0,
       };
       state.happiness = clamp(state.happiness + 8, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
