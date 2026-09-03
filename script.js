@@ -3759,6 +3759,156 @@
 
   const NUMBER_ORDER_VARIANTS = [numberOrderGame];
 
+  // --- くらべっこ(かずくらべ・おおきさくらべ) ---
+  // かんがえずに ぱっと 見て こたえられる、いちばん 直感的な なかまの
+  // ミニゲーム。せいかい/はずれの 2択だけで、じかんぎれでも すこし
+  // てんが はいる(ほかの タイマー系ミニゲームと おなじ さじかげん)
+
+  function makeCountCompareGame({ title, emoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const maxCount = Math.round(lerp(6, 14, difficulty));
+        const left = 1 + Math.floor(Math.random() * maxCount);
+        let right = 1 + Math.floor(Math.random() * maxCount);
+        while (right === left) right = 1 + Math.floor(Math.random() * maxCount);
+        const timeLimitMs = lerp(5000, 2800, difficulty);
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-compare-row">
+            <div class="mg-compare-side" data-side="left">${emoji.repeat(left)}</div>
+            <div class="mg-compare-side" data-side="right">${emoji.repeat(right)}</div>
+          </div>
+        `;
+
+        const sides = Array.from(container.querySelectorAll('.mg-compare-side'));
+        sides.forEach((side) => {
+          side.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            const chosenCount = side.dataset.side === 'left' ? left : right;
+            onComplete(chosenCount === Math.max(left, right) ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  function makeSizeCompareGame({ title, emoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        // むずかしいほど 2つの おおきさの さが ちいさくなる
+        const sizeDiff = Math.round(lerp(26, 10, difficulty));
+        const smallSize = 24 + Math.floor(Math.random() * 10);
+        const bigSize = smallSize + sizeDiff;
+        const bigIsLeft = Math.random() < 0.5;
+        const leftSize = bigIsLeft ? bigSize : smallSize;
+        const rightSize = bigIsLeft ? smallSize : bigSize;
+        const timeLimitMs = lerp(5000, 2800, difficulty);
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-compare-row">
+            <div class="mg-compare-side" data-side="left" style="font-size:${leftSize}px;">${emoji}</div>
+            <div class="mg-compare-side" data-side="right" style="font-size:${rightSize}px;">${emoji}</div>
+          </div>
+        `;
+
+        const sides = Array.from(container.querySelectorAll('.mg-compare-side'));
+        sides.forEach((side) => {
+          side.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            const correctSide = bigIsLeft ? 'left' : 'right';
+            onComplete(side.dataset.side === correctSide ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  const COMPARE_VARIANTS = [
+    makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: '⭐' }),
+    makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: '🍬' }),
+    makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: '🍎' }),
+    makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: '🐸' }),
+  ];
+
+  // --- かたちあわせ ---
+  // うえに でた「おてほん」と おなじ かたちの ものを、したの ますめから
+  // 1つ さがして タップするだけの、シンプルな パターンマッチ
+
+  function makeShapeMatchGame({ title, shapes }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const GRID_SIZE = Math.round(lerp(6, 12, difficulty));
+        const timeLimitMs = lerp(5500, 3200, difficulty);
+        const target = shapes[Math.floor(Math.random() * shapes.length)];
+        const decoys = shapes.filter((s) => s !== target);
+        const correctIndex = Math.floor(Math.random() * GRID_SIZE);
+        const grid = Array.from({ length: GRID_SIZE }, (_, i) => (
+          i === correctIndex ? target : decoys[Math.floor(Math.random() * decoys.length)]
+        ));
+        const cols = 4;
+        const rows = Math.ceil(GRID_SIZE / cols);
+        let answered = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-shape-target">${target}</div>
+          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
+            ${grid.map((s, i) => `<div class="mg-hole" data-i="${i}" style="cursor:pointer;">${s}</div>`).join('')}
+          </div>
+        `;
+
+        const cells = Array.from(container.querySelectorAll('.mg-hole'));
+        cells.forEach((cell) => {
+          cell.addEventListener('pointerdown', () => {
+            if (answered) return;
+            answered = true;
+            clearTimeout(timer);
+            onComplete(Number(cell.dataset.i) === correctIndex ? 100 : 20);
+          });
+        });
+
+        timer = setTimeout(() => {
+          if (!answered) {
+            answered = true;
+            onComplete(10);
+          }
+        }, timeLimitMs);
+      },
+    };
+  }
+
+  const SHAPE_MATCH_VARIANTS = [
+    makeShapeMatchGame({ title: 'おてほんと おなじ かたちを タップ!', shapes: ['⚫', '⬛', '🔺', '⭐', '❤️', '🔷'] }),
+  ];
+
   // --- シルエットあてクイズ ---
 
   function makeSilhouetteGame({ title, pool }) {
@@ -4850,6 +5000,8 @@
     ...BALANCE_GAME_VARIANTS,
     ...ODD_ONE_OUT_VARIANTS,
     ...NUMBER_ORDER_VARIANTS,
+    ...COMPARE_VARIANTS,
+    ...SHAPE_MATCH_VARIANTS,
     ...SILHOUETTE_VARIANTS,
     ...PATTERN_GAME_VARIANTS,
     ...BEAT_GAME_VARIANTS,
