@@ -1664,7 +1664,7 @@
       }
 
       // poop accumulates over time
-      if (Math.random() < 0.18 && state.poopCount < MAX_POOP) {
+      if (Math.random() < 0.12 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -2232,6 +2232,13 @@
     if (state.guest) {
       const g = state.guest;
       const stage = SPECIES[g.speciesLine].stages[g.stageIndex];
+      // すでに べつの あいてと こいびと/夫婦の ときは、「きゅうあいする」が
+      // いまの あいてと いちゃつく だけに なってしまい、この おきゃくさんが
+      // ぜったいに こうほに あがらない - なぜ なにも おきないのか わからず
+      // こまらないよう、ここで はっきり りゆうを つたえる
+      const blockedHint = state.partner && state.partner.id !== 'guest'
+        ? '<div class="profile-hint">いま べつの あいてと こいびと/夫婦なので、この おきゃくさんに きゅうあいするには いまの あいてと わかれる ひつようが あります</div>'
+        : '';
       el.guestStatus.innerHTML = `
         <div class="profile-partner-card">
           <span class="profile-partner-emoji">${stage.emoji}</span>
@@ -2240,6 +2247,7 @@
             <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${ORIENTATION_LABELS[g.orientationId]}</span>
           </div>
         </div>
+        ${blockedHint}
         <button class="profile-code-btn" id="clearGuestBtn">おきゃくを けす</button>
       `;
     } else {
@@ -6571,11 +6579,17 @@
     // あいては いま いる地域(state.regionId)にいる キャラに くわえて、
     // 「あいてコード」で よみこんだ おきゃくさんが いれば その人も
     // こうほに はいる - 旅先ごとに ちがう あいてと であえるうえ、
-    // ともだちの なおとっちにも どこからでも きゅうあいを ためせる
-    const candidates = state.guest
-      ? [...findRegion(state.regionId).candidates, guestCandidate(state.guest)]
-      : findRegion(state.regionId).candidates;
-    const candidate = candidates[Math.floor(Math.random() * candidates.length)];
+    // ともだちの なおとっちにも どこからでも きゅうあいを ためせる。
+    // おきゃくさんは じっさいの ともだちの なおとっちなので、地域の
+    // きめうちキャラ2人と おなじ かくりつで うもれてしまわないよう、
+    // いる ときは 6わり多めの かくりつで 優先的に えらぶ
+    const regionCandidates = findRegion(state.regionId).candidates;
+    let candidate;
+    if (state.guest && Math.random() < 0.6) {
+      candidate = guestCandidate(state.guest);
+    } else {
+      candidate = regionCandidates[Math.floor(Math.random() * regionCandidates.length)];
+    }
 
     // まず おたがいの れんあい対象に あいてが ふくまれているか(双方向)を
     // たしかめる。せいべつ/しゅぞくを こえた 恋愛は なんでも ありだが、
