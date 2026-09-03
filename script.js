@@ -446,6 +446,9 @@
     loadCodeBtn: document.getElementById('loadCodeBtn'),
     codeError: document.getElementById('codeError'),
     guestStatus: document.getElementById('guestStatus'),
+    companionRow: document.getElementById('companionRow'),
+    companionDexGrid: document.getElementById('companionDexGrid'),
+    companionDexProgress: document.getElementById('companionDexProgress'),
   };
 
   function freshState() {
@@ -516,6 +519,10 @@
         // ずかんと おなじく「はじめから」しても消えない、永続の せってい
         deviceThemeId: 'default',
         screenThemeId: 'default',
+        // なかまイベントに クリアして なかまに なった COMPANIONS の id 一覧。
+        // ずかん・じっせきと おなじく「はじめから」しても消えず、画面の
+        // よこに ずっと 表示されつづける、プレイをまたいだ 永続コレクション
+        companionsRecruited: [],
       },
       achievementsUnlocked: [],
     };
@@ -787,6 +794,10 @@
   let message = '';
   let gameActive = false;
   let messageTimer = null;
+  // なかまイベントが とちゅうの あいだだけ セットされる、いま くどいて
+  // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
+  // リセットされる いちじてきな 状態なので state には いれない
+  let pendingCompanionId = null;
 
   function setMessage(msg) {
     message = msg;
@@ -1290,6 +1301,26 @@
     return REGIONS.find((r) => r.id === id) || REGIONS[0];
   }
 
+  // なかまイベントで であえる キャラたち。ランダムに 1たい えらばれて
+  // とうじょうし、そのあとに はじまる ミニゲームを クリアできれば なかまに
+  // なる。なかまに なった id は state.lifetime.companionsRecruited に
+  // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
+  // ずかんの 「なかま」セクションに ずっと 表示されつづける
+  const COMPANIONS = [
+    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
+    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
+    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
+    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
+    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
+    { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
+    { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', flavor: 'のんびりやの コアラが きから おりてきた' },
+    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
+    { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
+    { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
+  ];
+
+  const COMPANION_RECRUIT_THRESHOLD = 50;
+
   // なにも しなくても、放っておくと たまに キャラのほうから 話しかけてくる
   // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
   // ネタを できるだけ たくさん 用意して、待っているだけでも 飽きにくくする
@@ -1562,7 +1593,7 @@
           state.sicknessType = sickness.label;
           state.totalSicknessCount += 1;
           state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
-          raiseDeathMeter(18);
+          raiseDeathMeter(12);
           setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
         }
       }
@@ -1585,7 +1616,7 @@
       // death condition: sustained critical health
       if (state.health <= 0) {
         state.lowHealthStreak += 1;
-        raiseDeathMeter(12);
+        raiseDeathMeter(8);
       } else {
         state.lowHealthStreak = 0;
       }
@@ -1697,6 +1728,42 @@
         emotePet('happy');
       }
       scheduleIdleGreeting();
+    }, delay);
+  }
+
+  // IDLE_GREETINGSより ずっと まれにしか おきない、なかまとの であい
+  // イベント。まず であった あいてを ひとことで しょうかいし(showStoryEvent
+  // を りよう)、そのあと じどうで ミニゲームが はじまって、クリアできれば
+  // なかまに なる(なれなくても また こんど おなじ あいてに であえる)
+  function scheduleCompanionEncounter() {
+    const delay = 45000 + Math.random() * 75000;
+    setTimeout(() => {
+      const remaining = COMPANIONS.filter((c) => !state.lifetime.companionsRecruited.includes(c.id));
+      const canEncounter = !gameActive
+        && state.stage === STAGE.GROWING
+        && !state.isSleeping
+        && !state.transformOptions
+        && !message
+        && !pendingCompanionId
+        && !dexOpen && !achOpen && !themeOpen && !profileOpen
+        && remaining.length > 0;
+      if (canEncounter) {
+        const companion = remaining[Math.floor(Math.random() * remaining.length)];
+        pendingCompanionId = companion.id;
+        showStoryEvent({ emoji: companion.emoji, message: companion.flavor });
+        setTimeout(() => {
+          if (pendingCompanionId !== companion.id) return;
+          clearTimeout(storyFlashTimer);
+          el.storyFlash.classList.add('hidden');
+          const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
+          if (!stillOk) {
+            pendingCompanionId = null;
+            return;
+          }
+          startMinigame(pickRandomMinigame());
+        }, 1900);
+      }
+      scheduleCompanionEncounter();
     }, delay);
   }
 
@@ -1851,6 +1918,8 @@
       .sort((a, b) => a - b)
       .map((tierIndex) => `<span class="ending-badge" title="${ENDING_TIERS[tierIndex].title}">${ENDING_TIER_ICONS[tierIndex]}</span>`)
       .join('');
+
+    renderCompanionRow();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -2100,6 +2169,32 @@
         .join('');
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
     }).join('');
+    renderCompanionDex();
+  }
+
+  // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の
+  // いちらんを べつセクションとして あらわす。種族の ずかんと おなじ
+  // dex-cell の 見た目を つかいまわしている
+  function renderCompanionDex() {
+    const recruited = state.lifetime.companionsRecruited;
+    el.companionDexProgress.textContent = `${recruited.length} / ${COMPANIONS.length}`;
+    el.companionDexGrid.innerHTML = COMPANIONS.map((c) => {
+      const known = recruited.includes(c.id);
+      return known
+        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
+        : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+    }).join('');
+  }
+
+  // 画面の よこに、なかまに なった COMPANIONS を じゅんに ならべて
+  // ずっと 表示する(「はじめから」しても きえない永続コレクション)
+  function renderCompanionRow() {
+    const recruited = state.lifetime.companionsRecruited;
+    el.companionRow.innerHTML = recruited
+      .map((id) => COMPANIONS.find((c) => c.id === id))
+      .filter(Boolean)
+      .map((c) => `<span class="companion-chip" title="${c.name}">${c.emoji}</span>`)
+      .join('');
   }
 
   function renderTransformChoices() {
@@ -5975,10 +6070,32 @@
       state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
     } else {
       state.devoMeter = clamp(state.devoMeter + 18, 0, 100);
-      raiseDeathMeter(15);
+      raiseDeathMeter(10);
     }
 
-    setMessage((customMessage || resultMessageForScore(score)) + itemMessage);
+    let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
+    let recruitedNow = false;
+
+    // なかまイベントの さいちゅうだった プレイなら、つうじょうの けっか
+    // メッセージを なかまに なれたか どうかの けっかに おきかえる(ステータス
+    // への こうかは ふつうの ミニゲームと まったく おなじ)
+    if (pendingCompanionId) {
+      const companion = COMPANIONS.find((c) => c.id === pendingCompanionId);
+      pendingCompanionId = null;
+      if (companion) {
+        if (clampedScore >= COMPANION_RECRUIT_THRESHOLD) {
+          if (!state.lifetime.companionsRecruited.includes(companion.id)) {
+            state.lifetime.companionsRecruited.push(companion.id);
+          }
+          recruitedNow = true;
+          resultMessage = `${companion.name}が なかまに なった!${companion.emoji}`;
+        } else {
+          resultMessage = `${companion.name}とは まだ なかよく なれなかった…また こんど ためそう`;
+        }
+      }
+    }
+
+    setMessage(resultMessage);
 
     gameActive = false;
     el.minigameOverlay.classList.add('hidden');
@@ -5990,7 +6107,7 @@
     if (isGreat) checkStoryEvents('minigame-great');
     else if (isBad) checkStoryEvents('minigame-bad');
 
-    emotePet(isGreat ? 'fun' : isBad ? 'sad' : 'happy');
+    emotePet(recruitedNow ? 'fun' : isGreat ? 'fun' : isBad ? 'sad' : 'happy');
     checkMeters();
     saveState();
     render();
@@ -6043,7 +6160,7 @@
         state.isSick = true;
         state.sicknessType = sickness.label;
         state.totalSicknessCount += 1;
-        raiseDeathMeter(10);
+        raiseDeathMeter(7);
         setMessage(`たべすぎて ${sickness.label}に なってしまった…`);
       } else {
         setMessage('もう おなかいっぱい… たべすぎ!');
@@ -6457,6 +6574,7 @@
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
   scheduleIdleGreeting();
+  scheduleCompanionEncounter();
 
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
