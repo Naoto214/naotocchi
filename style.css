@@ -483,9 +483,11 @@ body {
   border-radius: 10px;
   padding: 16px;
   text-align: center;
-  background: linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  overflow: hidden;
+  /* tier 0 (ふつうクリア): あたたかい 夕焼けいろの グラデーション */
+  background: linear-gradient(120deg, #ff9a6c, #ffd23f, #ffb385, #ff9a6c);
   background-size: 300% 300%;
-  animation: game-clear-bg 3s ease infinite;
+  animation: game-clear-bg 4s ease infinite;
 }
 
 .game-clear-overlay.hidden {
@@ -493,7 +495,7 @@ body {
 }
 
 .game-clear-confetti {
-  font-size: 20px;
+  font-size: 22px;
   animation: game-clear-bounce 0.9s ease-in-out infinite;
 }
 
@@ -551,30 +553,133 @@ body {
   50% { transform: translateY(-6px) scale(1.08); }
 }
 
-/* higher ending tiers (see getEndingTier() in script.js) get a livelier
-   background cycle and a glowing title, capped off by tier-3's gold ring */
+/* 各エンディング段階(getEndingTier())ごとに、背景の配色・題名の動き・
+   演出の派手さを ぜんぶ 変えて、それぞれ ちがう キャラクターを もたせる。
+   tier-1 = ずかんコンプリート(しぜん・ずかんの みどり)
+   tier-2 = じっせきコンプリート(ひょうしょうしきの きんいろ)
+   tier-3 = PERFECT CLEAR(すべてが そろった ぎんがの ごうか演出) */
 
 .game-clear-overlay.tier-1 {
-  animation-duration: 2.2s;
+  background: linear-gradient(120deg, #1b5e20, #66bb6a, #26a69a, #a5d6a7, #1b5e20);
+  background-size: 300% 300%;
+  animation-duration: 3s;
+  box-shadow: inset 0 0 0 3px #a5d6a7, 0 0 14px 2px rgba(165, 214, 167, 0.6);
 }
 
 .game-clear-overlay.tier-2 {
+  background: linear-gradient(120deg, #b8860b, #ffd54f, #ff8f00, #ffe082, #b8860b);
+  background-size: 300% 300%;
   animation-duration: 1.6s;
+  box-shadow: inset 0 0 0 3px #ffe082, 0 0 16px 3px rgba(255, 193, 7, 0.6);
+}
+
+/* 表彰式のような ライトが すーっと横切る スポットライト演出 */
+.game-clear-overlay.tier-2::before {
+  content: '';
+  position: absolute;
+  inset: -20% -60%;
+  background: linear-gradient(75deg, transparent 42%, rgba(255, 255, 255, 0.45) 50%, transparent 58%);
+  animation: spotlight-sweep 1.6s linear infinite;
+  pointer-events: none;
 }
 
 .game-clear-overlay.tier-3 {
-  animation-duration: 1s;
-  box-shadow: inset 0 0 0 4px #ffd700, 0 0 20px 4px rgba(255, 215, 0, 0.7);
+  background: linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  background-size: 400% 400%;
+  animation-duration: 0.8s;
+  box-shadow: inset 0 0 0 4px #ffd700, 0 0 22px 5px rgba(255, 215, 0, 0.8);
 }
 
-.game-clear-overlay.tier-2 .game-clear-title,
-.game-clear-overlay.tier-3 .game-clear-title {
-  text-shadow: 0 2px 0 #d6336c, 0 0 14px #fff, 0 4px 8px rgba(0, 0, 0, 0.35);
+/* きんいろの わくの まわりを 虹色の リングが ぐるぐる まわる、
+   いちばん ごうかな tier のための かざりわく */
+.game-clear-overlay.tier-3::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 13px;
+  z-index: -1;
+  background: conic-gradient(from 0deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  animation: ending-ring-spin 2.2s linear infinite;
+}
+
+.game-clear-overlay.tier-1 .game-clear-title {
+  color: #f1fff2;
+  text-shadow: 0 2px 0 #1b5e20, 0 0 12px #c8e6c9, 0 4px 8px rgba(0, 0, 0, 0.35);
+  animation: game-clear-sway 1.8s ease-in-out infinite;
+}
+
+.game-clear-overlay.tier-2 .game-clear-title {
+  text-shadow: 0 2px 0 #e65100, 0 0 16px #fff8, 0 4px 8px rgba(0, 0, 0, 0.35);
+  animation: game-clear-bounce 0.7s ease-in-out infinite;
 }
 
 .game-clear-overlay.tier-3 .game-clear-title {
-  font-size: 30px;
+  font-size: 32px;
+  color: #fff;
+  /* 4方向の黒フチで、うしろの にぎやかな 背景に まぎれないよう くっきり
+     読めるように しつつ、金色の グロウで はなやかさを たす */
+  text-shadow:
+    -1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000,
+    -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000,
+    0 0 16px #ffd700, 0 4px 10px rgba(0, 0, 0, 0.5);
   animation: game-clear-bounce 0.6s ease-in-out infinite;
+}
+
+@keyframes game-clear-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes spotlight-sweep {
+  0% { transform: translateX(-45%) rotate(0deg); }
+  100% { transform: translateX(45%) rotate(0deg); }
+}
+
+@keyframes ending-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* エンディング画面いっぱいに飛びちる おいわいパーティクル
+   (spawnEndingCelebration()がtierごとに数・種類・うごきを変えて生成する) */
+.ending-particle {
+  position: absolute;
+  top: -8%;
+  left: 50%;
+  font-size: 22px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.ending-particle.fall {
+  animation: ending-fall linear forwards;
+}
+
+.ending-particle.sway {
+  animation: ending-sway linear forwards;
+}
+
+.ending-particle.burst {
+  top: 50%;
+  animation: ending-burst ease-out forwards;
+}
+
+@keyframes ending-fall {
+  0% { transform: translate(-50%, -10%) rotate(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--drift, 0px)), 340%) rotate(var(--spin, 180deg)); opacity: 0; }
+}
+
+@keyframes ending-sway {
+  0% { transform: translate(-50%, -10%) rotate(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  50% { transform: translate(calc(-50% + var(--drift, 30px)), 150%) rotate(var(--spin, 90deg)); }
+  100% { transform: translate(calc(-50% - var(--drift, 30px)), 340%) rotate(calc(var(--spin, 90deg) * -1)); opacity: 0; }
+}
+
+@keyframes ending-burst {
+  0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) scale(1.15); opacity: 0; }
 }
 
 /* --- transformation choice --- */

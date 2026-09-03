@@ -1266,6 +1266,40 @@
   let dexOpen = false;
   let achOpen = false;
 
+  // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
+  // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
+  // 受け持つ)。ふつうクリアは ふわっと おちる かるい かんじ、ずかんは
+  // はっぱが ゆれながら おちる しぜんな かんじ、じっせきは まわりに はじける
+  // ごうかな かんじ、PERFECTは その両方を いちばん たくさん・はやく
+  const ENDING_CELEBRATIONS = [
+    { kinds: ['fall'], pool: ['🎉', '🎊', '✨', '🎈'], count: 10 },
+    { kinds: ['sway'], pool: ['🍃', '🌿', '📖', '✨'], count: 12 },
+    { kinds: ['burst'], pool: ['🏅', '🎆', '✨', '⭐'], count: 18 },
+    { kinds: ['burst', 'fall'], pool: ['👑', '✨', '⭐', '🎉', '🎊'], count: 26 },
+  ];
+
+  let endingCelebrationShown = false;
+
+  function spawnEndingCelebration(tierIndex) {
+    const cfg = ENDING_CELEBRATIONS[tierIndex];
+    if (!cfg || !el.gameClearOverlay) return;
+    for (let i = 0; i < cfg.count; i++) {
+      const kind = cfg.kinds[i % cfg.kinds.length];
+      const span = document.createElement('span');
+      span.className = `ending-particle ${kind}`;
+      span.textContent = cfg.pool[Math.floor(Math.random() * cfg.pool.length)];
+      span.style.left = `${Math.random() * 100}%`;
+      span.style.setProperty('--drift', `${Math.round(Math.random() * 90 - 45)}px`);
+      span.style.setProperty('--spin', `${Math.round(Math.random() * 360)}deg`);
+      span.style.setProperty('--dx', `${Math.round(Math.random() * 180 - 90)}px`);
+      span.style.setProperty('--dy', `${Math.round(Math.random() * 180 - 90)}px`);
+      span.style.animationDuration = `${1100 + Math.random() * 1500}ms`;
+      span.style.animationDelay = `${Math.random() * 500}ms`;
+      span.addEventListener('animationend', () => span.remove());
+      el.gameClearOverlay.appendChild(span);
+    }
+  }
+
   // じっせき: shows every achievement with its unlock condition, revealing
   // the description only once state.achievementsUnlocked contains its id
   function renderAchievements() {
@@ -1284,7 +1318,8 @@
   // records are permanent), and no further actions are possible once
   // cleared, so in practice it settles the moment the overlay first shows
   function renderEnding() {
-    const tier = ENDING_TIERS[getEndingTier()];
+    const tierIndex = getEndingTier();
+    const tier = ENDING_TIERS[tierIndex];
     el.gameClearOverlay.classList.toggle('tier-1', tier === ENDING_TIERS[1]);
     el.gameClearOverlay.classList.toggle('tier-2', tier === ENDING_TIERS[2]);
     el.gameClearOverlay.classList.toggle('tier-3', tier === ENDING_TIERS[3]);
@@ -1293,6 +1328,10 @@
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
+    if (!endingCelebrationShown) {
+      endingCelebrationShown = true;
+      spawnEndingCelebration(tierIndex);
+    }
   }
 
   // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
@@ -4571,6 +4610,9 @@
     state.achievementsUnlocked = achievementsUnlocked;
     clearTimeout(storyFlashTimer);
     el.storyFlash.classList.add('hidden');
+    endingCelebrationShown = false;
+    el.gameClearOverlay.querySelectorAll('.ending-particle').forEach((p) => p.remove());
+    el.gameClearOverlay.classList.remove('tier-1', 'tier-2', 'tier-3');
     setMessage('あたらしい たまごが やってきた…');
   }));
 
