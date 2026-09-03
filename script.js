@@ -771,16 +771,25 @@
   // おかねで こうにゅうできる、みにつける アイテム。一度 こうにゅう
   // すれば ずっと もちものに のこり(state.lifetime.ownedShopItems)、
   // なんども そうび/かいじょ できる(いちどに そうびできるのは 1つだけ)
+  // それぞれの id は、したの EQUIPPED_ITEM_EFFECTS の りようポイントで
+  // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
+  // こうかを はっきする(いちどに そうびできるのは 1つだけ)
   const SHOP_ITEMS = [
-    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 20 },
-    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 20 },
-    { id: 'flower', label: 'おはな', emoji: '🌼', price: 15 },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 30 },
-    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 25 },
-    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 40 },
-    { id: 'crown', label: 'かんむり', emoji: '👑', price: 80 },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 50 },
+    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 20, desc: '機嫌の げんしょうが ゆるやかに' },
+    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 20, desc: '満腹の げんしょうが ゆるやかに' },
+    { id: 'flower', label: 'おはな', emoji: '🌼', price: 15, desc: 'きゅうあいの せいこうりつ アップ' },
+    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 30, desc: 'ミニゲームの とくてん ボーナス' },
+    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 25, desc: 'びょうきに なりにくい' },
+    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 40, desc: '変身メーターが たまりやすい' },
+    { id: 'crown', label: 'かんむり', emoji: '👑', price: 80, desc: '死亡メーターの じょうしょうを おさえる' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 50, desc: 'ミニゲームの おかねが ふえる' },
   ];
+
+  // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
+  // そうびできるのは 1つだけなので、こうかの はんてい先は ここ 1か所ずつ)
+  function isEquipped(id) {
+    return state.lifetime.equippedItemId === id;
+  }
 
   // COLOR_THEMES/PATTERNS 共通の解放判定(どちらも unlockTier/
   // unlockAll という おなじ フィールドしか みないので、そのまま りようできる)
@@ -1183,9 +1192,11 @@
   // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
   // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
   // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
-  // ミニゲーム大失敗・たべすぎ など)に 共通で かける
+  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
+  // そうびしていると、そこから さらに 2わり おさえられる
   function raiseDeathMeter(amount) {
-    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()], 0, 100);
+    const crownFactor = isEquipped('crown') ? 0.8 : 1;
+    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
   }
 
   // なかまが ふえるほど、時間経過による「元気」の げんしょうが おだやかに
@@ -1639,8 +1650,12 @@
 
     {
       const sleepFactor = state.isSleeping ? 0.4 : 1;
-      state.hunger = clamp(state.hunger - 1 * sleepFactor, 0, 100);
-      state.happiness = clamp(state.happiness - 1 * sleepFactor, 0, 100);
+      // ちょうネクタイ/リボンを そうびしていると、それぞれ 満腹/機嫌の
+      // 時間経過による げんしょうが ゆるやかに なる
+      const hungerFactor = isEquipped('bowtie') ? 0.6 : 1;
+      const happinessFactor = isEquipped('ribbon') ? 0.6 : 1;
+      state.hunger = clamp(state.hunger - 1 * sleepFactor * hungerFactor, 0, 100);
+      state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
         state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
@@ -1661,7 +1676,9 @@
       // the odds of falling ill; well cared-for pets almost never trigger this
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
-        if (Math.random() < 0.2) {
+        // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
+        const sicknessChance = isEquipped('scarf') ? 0.1 : 0.2;
+        if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
           state.sicknessType = sickness.label;
@@ -2248,6 +2265,7 @@
         <button type="button" class="shop-item ${equipped ? 'equipped' : ''}" data-id="${item.id}">
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
+          <span class="shop-item-desc">${item.desc}</span>
           <span class="shop-item-status">${statusText}</span>
         </button>
       `;
@@ -6233,7 +6251,8 @@
   }
 
   function finishMinigame(score, customMessage) {
-    const clampedScore = clamp(score, 0, 100);
+    // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく
+    const clampedScore = clamp(score + (isEquipped('glasses') ? 8 : 0), 0, 100);
     const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
@@ -6241,8 +6260,9 @@
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
     // fills regardless of score - unlike evo/devo, playing itself (not
-    // skill) is what earns a shot at choosing a different growth line
-    state.transformMeter = clamp(state.transformMeter + 15, 0, 100);
+    // skill) is what earns a shot at choosing a different growth line。
+    // シルクハットを そうびしていると たまりやすさに ボーナスが つく
+    state.transformMeter = clamp(state.transformMeter + 15 + (isEquipped('hat') ? 5 : 0), 0, 100);
 
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the
@@ -6254,7 +6274,8 @@
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
-      const coins = Math.floor(5 + Math.random() * 6);
+      // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる
+      const coins = Math.round((5 + Math.random() * 6) * (isEquipped('star') ? 1.4 : 1));
       state.lifetime.money += coins;
       itemMessage = ` ごほうびに ${item.label}${item.emoji} と 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
@@ -6564,7 +6585,9 @@
     // がんばっているほど とおりやすくは なる
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
-    const successChance = clamp(0.35 + traitBonus + happinessBonus, 0.15, 0.85);
+    // おはなを そうびしていると、きゅうあいの せいこうりつに ボーナスが つく
+    const flowerBonus = isEquipped('flower') ? 0.12 : 0;
+    const successChance = clamp(0.35 + traitBonus + happinessBonus + flowerBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
       state.partner = {
