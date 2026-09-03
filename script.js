@@ -6291,9 +6291,24 @@
   // (例:さばくに いるあいだは、もぐらたたき系は「サソリたたき」だけに
   // なり、ほし・もぐら・むし・おばけ・ひよこ・はてなブロック・
   // ライバルファイターは 出ない)。category の 地域限定版が ない しゅるいは、
-  // これまでどおり ふつうの プールから 出る(おうちは 専用あそびを
-  // もたないので、通常のプールの ままで これが「いつもの あそび」の 基準)
+  // これまでどおり ふつうの プールから 出る。「おうち」も れっきとした
+  // ひとつの地域なので、おなじ しくみで 専用の4種類を もつ(ただし
+  // もぐらたたき系は 他の7地域 ぜんぶが すでに 地域仕様を もっていて、
+  // ここで おうちまで もぐらたたき系を おきかえると 一般の7種類が
+  // どこでも 二度と 出せなくなってしまうため、おうちの category からは
+  // わざと はずしてある)
   const REGION_MINIGAMES = {
+    home: [
+      { category: 'mash', game: makeMashGame({ title: 'おそうじ れんだタップ!', buttonEmoji: '🧹' }) },
+      { category: 'catch', game: makeCatchGame({
+        title: 'せんたくもの キャッチ!どろは いやだ',
+        basketEmoji: '🧺',
+        goodItems: ['👕', '🧦', '🩳', '👖'],
+        badItems: ['💩', '🟤', '🐛', '🕸️'],
+      }) },
+      { category: 'concentration', game: makeConcentrationGame({ title: 'おもちゃばこの ペアを さがそう!', emojis: ['🧸', '🪁', '🎈', '🧩', '🚗', '⚽'] }) },
+      { category: 'maze', game: makeMazeGame({ title: 'おうちの なかを おかたづけめいろで すすもう!', pathEmojiPair: ['🛋️', '🛏️'] }) },
+    ],
     sea: [
       { category: 'catch', game: makeCatchGame({
         title: 'さかなつり!ゴミは いらないよ',
