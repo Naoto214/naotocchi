@@ -421,6 +421,10 @@
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
+      // consecutive なでる/はなしかける taps with no "real" care action in
+      // between - past a threshold, these flip from a nice reaction to an
+      // annoyed one instead of just always being free positive stats
+      affectionStreak: 0,
       actionCounts: { feed: 0, play: 0, clean: 0, sleep: 0, medicine: 0, pet: 0, talk: 0 },
       traitCounts: { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 },
       minigameScoreSum: 0,
@@ -722,6 +726,29 @@
     'ないしょばなしを してくれた(ひみつ)',
     '「だいすき」って いった…かも',
     'くびを かしげて こっちを みてる',
+  ];
+
+  // beyond this many なでる/はなしかける in a row (with no real care action
+  // in between), the action flips from its normal small positive into an
+  // annoyed negative instead - spamming either stops being free stats
+  const AFFECTION_SPAM_THRESHOLD = 3;
+
+  const PET_ANNOYED_REACTIONS = [
+    'もう なでなでは じゅうぶん!と いう かおを してる',
+    'しつこいと ちょっと おこられた…',
+    'てを やんわり ふりはらわれた!',
+    'つかれた ような かおを してる',
+    'そろそろ ひとりに して ほしいみたい',
+    'なですぎ けいほう、はつれい!',
+  ];
+
+  const TALK_ANNOYED_REACTIONS = [
+    'もう はなしかけないで!と いう かおを してる',
+    'すっかり むしされてしまった…',
+    'ふーっと ためいきを つかれた',
+    'みみを ふさぐ しぐさを された(みみ、ないけど)',
+    'そろそろ しずかに して ほしいみたい',
+    'おしゃべりが すぎたと おもわれたかも…',
   ];
 
   let lastPetReaction = null;
@@ -4062,6 +4089,7 @@
     const overfed = state.hunger >= 80;
     state.hunger = clamp(state.hunger + 25, 0, 100);
     state.actionCounts.feed += 1;
+    state.affectionStreak = 0;
     if (overfed) {
       // spamming ごはん when the pet is already full doesn't help evolution -
       // it risks making it sick instead
@@ -4106,6 +4134,7 @@
       return;
     }
     state.actionCounts.play += 1;
+    state.affectionStreak = 0;
     const game = pickRandomMinigame();
     startMinigame(game);
   });
@@ -4118,6 +4147,7 @@
     state.poopCount = 0;
     state.happiness = clamp(state.happiness + 5, 0, 100);
     state.actionCounts.clean += 1;
+    state.affectionStreak = 0;
     state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
     state.devoMeter = clamp(state.devoMeter - 4, 0, 100);
     checkStoryEvents('poop-clean');
@@ -4128,6 +4158,7 @@
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
     state.isSleeping = !state.isSleeping;
+    state.affectionStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       setMessage('おやすみなさい…');
@@ -4142,6 +4173,7 @@
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
     state.actionCounts.medicine += 1;
+    state.affectionStreak = 0;
     if (state.isSick) {
       state.isSick = false;
       state.sicknessType = null;
@@ -4172,10 +4204,19 @@
       setMessage('ねている… おきてから なでよう');
       return;
     }
-    state.happiness = clamp(state.happiness + 3, 0, 100);
-    state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
+    state.affectionStreak += 1;
     state.actionCounts.pet += 1;
-    const reaction = pickReaction(PET_REACTIONS, lastPetReaction);
+    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
+    if (spammed) {
+      state.happiness = clamp(state.happiness - 3, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
+    } else {
+      state.happiness = clamp(state.happiness + 3, 0, 100);
+      state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
+    }
+    const reaction = spammed
+      ? pickReaction(PET_ANNOYED_REACTIONS, lastPetReaction)
+      : pickReaction(PET_REACTIONS, lastPetReaction);
     lastPetReaction = reaction;
     if (!checkMeters()) {
       setMessage(reaction);
@@ -4187,11 +4228,23 @@
       setMessage('ねている… おきてから はなしかけよう');
       return;
     }
-    state.happiness = clamp(state.happiness + 2, 0, 100);
+    state.affectionStreak += 1;
     state.actionCounts.talk += 1;
-    const reaction = pickReaction(TALK_REACTIONS, lastTalkReaction);
+    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
+    if (spammed) {
+      state.happiness = clamp(state.happiness - 2, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
+    } else {
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+      state.devoMeter = clamp(state.devoMeter - 2, 0, 100);
+    }
+    const reaction = spammed
+      ? pickReaction(TALK_ANNOYED_REACTIONS, lastTalkReaction)
+      : pickReaction(TALK_REACTIONS, lastTalkReaction);
     lastTalkReaction = reaction;
-    setMessage(reaction);
+    if (!checkMeters()) {
+      setMessage(reaction);
+    }
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
