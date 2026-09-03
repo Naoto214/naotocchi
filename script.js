@@ -450,8 +450,13 @@
       transformOptions: null,
       items: {},
       // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
-      // いっしょに リセットされる、今の いっしょうぶんの じょうたい
+      // いっしょに リセットされる、今の いっしょうぶんの じょうたい。
+      // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
+      // rollIdentity() で きまる(advanceStage() 参照)
       partner: null,
+      gender: null,
+      orientationId: null,
+      attractedTo: [],
       regionId: 'home',
       discoveredStages: [],
       // cross-playthrough counters for じっせき (achievements) - unlike
@@ -510,6 +515,15 @@
         merged.stage = STAGE.GROWING;
         merged.stageIndex = mapped.stageIndex;
         merged.speciesLine = mapped.species || pickRandomLine();
+      }
+      // このセーブに まだ gender が ない(きゅうあい きのうより 前の
+      // セーブ、または 上の きゅう形式からの いこう)のに もう そだって
+      // いる ばあいは、いまここで さかのぼって ロールしておく
+      if (merged.stage === STAGE.GROWING && !merged.gender) {
+        const identity = rollIdentity(merged.speciesLine);
+        merged.gender = identity.gender;
+        merged.orientationId = identity.orientationId;
+        merged.attractedTo = identity.attractedTo;
       }
       return merged;
     } catch (e) {
@@ -881,20 +895,49 @@
     'おしゃべりが すぎたと おもわれたかも…',
   ];
 
-  // 「きゅうあいする」の おあいて候補。affinityTrait は traitCounts の
-  // どのせいかく(やさしい/やんちゃ/おだやか/ゆうかん/ロマンチック)を
-  // 積み重ねていると成功しやすいかで、null は せいかくに 左右されない
-  // ニュートラルな あいて
-  const COURT_CANDIDATES = [
-    { id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', affinityTrait: 'gentle' },
-    { id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', affinityTrait: 'wild' },
-    { id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', affinityTrait: 'romantic' },
-    { id: 'sky-angel', label: 'そらの てんし', emoji: '👼', affinityTrait: 'gentle' },
-    { id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', affinityTrait: 'calm' },
-    { id: 'mountain-dragon', label: 'やまの りゅう', emoji: '🐉', affinityTrait: 'brave' },
-    { id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', affinityTrait: 'romantic' },
-    { id: 'night-star', label: 'よぞらの せいれい', emoji: '⭐', affinityTrait: null },
-  ];
+  // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
+  // ぞくせい。ストレート・ゲイ／レズビアン・バイセクシャル・
+  // パンセクシャルは とくべつあつかいせず、おなじ ならびの こせいとして
+  // あつかう。ノンバイナリーの キャラには ストレート/ゲイという
+  // わく組み(おなじ/ちがう せいべつ)が うまく あてはまらないので、
+  // バイ/パンの どちらかだけを ロールする
+  const GENDERS = ['male', 'female', 'nonbinary'];
+  const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
+  const ORIENTATION_LABELS = {
+    straight: 'ストレート',
+    gay: 'ゲイ／レズビアン',
+    bi: 'バイセクシャル',
+    pan: 'パンセクシャル',
+  };
+
+  function attractedToFor(gender, orientationId) {
+    if (orientationId === 'straight') return gender === 'male' ? ['female'] : ['male'];
+    if (orientationId === 'gay') return gender === 'male' ? ['male'] : gender === 'female' ? ['female'] : ['nonbinary'];
+    if (orientationId === 'bi') return ['male', 'female'];
+    return ['male', 'female', 'nonbinary']; // pan
+  }
+
+  // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
+  // いっしょに きまる。man/woman ラインは 既存の せりふ(あかちゃんの
+  // おんなのこ、など)に あわせて せいべつを こていし、それ以外の
+  // ラインは 完全に ランダム
+  function rollIdentity(speciesLine) {
+    let gender;
+    if (speciesLine === 'man') gender = 'male';
+    else if (speciesLine === 'woman') gender = 'female';
+    else gender = GENDERS[Math.floor(Math.random() * GENDERS.length)];
+    const pool = gender === 'nonbinary' ? ['bi', 'pan'] : ['straight', 'gay', 'bi', 'pan'];
+    const orientationId = pool[Math.floor(Math.random() * pool.length)];
+    return { gender, orientationId, attractedTo: attractedToFor(gender, orientationId) };
+  }
+
+  // 「きゅうあいする」の おあいて候補を つくる ヘルパー。affinityTrait は
+  // traitCounts の どのせいかく(やさしい/やんちゃ/おだやか/ゆうかん/
+  // ロマンチック)を 積み重ねていると成功しやすいかで、null は せいかくに
+  // 左右されない ニュートラルな あいて
+  function courtCandidate({ id, label, emoji, gender, orientationId, affinityTrait = null }) {
+    return { id, label, emoji, gender, orientationId, attractedTo: attractedToFor(gender, orientationId), affinityTrait };
+  }
 
   const COURT_SUCCESS_REACTIONS = [
     '「つきあってください!」…って いったら まさかの OK!',
@@ -912,6 +955,18 @@
     'きんちょうしすぎて、なにを いったか おぼえてない',
   ];
 
+  // れんあい対象が あわなかった ときの リアクション。しっぱい あつかいの
+  // 「ふられた」トーンには せず、「友達なら いいよ」くらいの かるい
+  // しぜんな はんのうに とどめる - LGBTQを ふくむ どの タイプの あわなさも
+  // ネガティブに えがかない
+  const COURT_FRIEND_REACTIONS = [
+    '「ごめんね、恋愛のタイプが ちがうかも。でも 友達なら いいよ!」と わらわれた',
+    'きょうみの むきが ちがったみたい。「なかよくは しようね!」だって',
+    '「タイプじゃ ないけど、気は あうかも!」と あくしゅを かわした',
+    'れんあいの むきは あわなかったけど、なかよく なれそうな よかん',
+    '「そういう るいの すきじゃ ないんだ〜。でも また あそぼうね!」',
+  ];
+
   // すでに こいびとが いるときに もういちど「きゅうあいする」を おすと、
   // あたらしい あいてを さがしに いくのではなく、今の こいびとと いちゃつく
   // 軽い リアクションに なる(せいこう/しっぱいの 抽選は しない)
@@ -927,55 +982,91 @@
   // (「はじめから」した ときの デフォルト)で、それ以外は README の
   // れい(うみ・ゆきやま・とかい・いなか・もり・さばく・なんごく)に
   // ならった。cssClass は body に つける region-<id> の いろちがい
-  // (「いろ」きのうの ほんたい/がめんの いろとは べつレイヤー)
+  // (「いろ」きのうの ほんたい/がめんの いろとは べつレイヤー)。
+  // candidates は その地域でだけ 出会える「きゅうあいする」の おあいてで、
+  // せいべつ・れんあいタイプ・しゅぞく(動物/植物/ロボットなど)を
+  // ひろく ちらして あり、どの ラインの なおとっちでも 種族を こえた
+  // 恋愛が できる
   const REGIONS = [
     {
       id: 'home',
       label: 'おうち',
       emoji: '🏠',
       lines: ['やっぱり じぶんの おうちが いちばん おちつく', 'おなじみの けしきに ほっとした'],
+      candidates: [
+        courtCandidate({ id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' }),
+        courtCandidate({ id: 'park-dog', label: 'こうえんの わんこ', emoji: '🐶', gender: 'male', orientationId: 'straight', affinityTrait: 'wild' }),
+      ],
     },
     {
       id: 'sea',
       label: 'うみ',
       emoji: '🌊',
       lines: ['なみの おとが きもちいい!', 'すなはまを ぴょんぴょん はねまわった', 'かいがらを ひろって じまんげ'],
+      candidates: [
+        courtCandidate({ id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'surfer-turtle', label: 'なみのり カメくん', emoji: '🐢', gender: 'male', orientationId: 'gay', affinityTrait: 'calm' }),
+      ],
     },
     {
       id: 'snow',
       label: 'ゆきやま',
       emoji: '🏔️',
       lines: ['さむい!でも ゆきだるまを つくってみた', 'いきが しろく なるのが おもしろい', 'つるっと すべって しりもちを ついた'],
+      candidates: [
+        courtCandidate({ id: 'snow-spirit', label: 'ゆきの せいれい', emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' }),
+        courtCandidate({ id: 'cabin-bear', label: 'やまごやの クマさん', emoji: '🐻', gender: 'male', orientationId: 'bi', affinityTrait: 'brave' }),
+      ],
     },
     {
       id: 'city',
       label: 'とかい',
       emoji: '🏙️',
       lines: ['ビルの たかさに びっくり!', 'ネオンの ひかりに めが きらきら', 'ひとの おおさに ちょっと つかれた'],
+      candidates: [
+        courtCandidate({ id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' }),
+        courtCandidate({ id: 'ceo-cat', label: 'ビルの ねこ社長', emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' }),
+      ],
     },
     {
       id: 'countryside',
       label: 'いなか',
       emoji: '🌾',
       lines: ['たんぼの かぜが きもちいい', 'のはらを おもいっきり かけまわった', 'むぎわらぼうしが にあうと ほめられた(き が する)'],
+      candidates: [
+        courtCandidate({ id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'meadow-cow', label: 'のはらの うしさん', emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' }),
+      ],
     },
     {
       id: 'forest',
       label: 'もり',
       emoji: '🌲',
       lines: ['きの えだから とりの こえが きこえる', 'はっぱの におい に しんこきゅう', 'こだぬきと めが あった(かもしれない)'],
+      candidates: [
+        courtCandidate({ id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
+        courtCandidate({ id: 'tree-squirrel', label: 'こだちの リス', emoji: '🐿️', gender: 'female', orientationId: 'bi', affinityTrait: 'wild' }),
+      ],
     },
     {
       id: 'desert',
       label: 'さばく',
       emoji: '🏜️',
       lines: ['あつい!でも すなの うえを あるくのが たのしい', 'サボテンに ちかづきすぎて ちょっと いたい めに あった', 'ほしぞらが びっくりする くらい きれいだった'],
+      candidates: [
+        courtCandidate({ id: 'desert-scorpion', label: 'さばくの さそりさん', emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' }),
+        courtCandidate({ id: 'oasis-camel', label: 'オアシスの らくださん', emoji: '🐫', gender: 'male', orientationId: 'straight', affinityTrait: 'calm' }),
+      ],
     },
     {
       id: 'tropical',
       label: 'なんごく',
       emoji: '🌴',
       lines: ['やしの みを みつけて うれしそう', 'あたたかい かぜが きもちいい', 'カラフルな とりに てを ふってみた'],
+      candidates: [
+        courtCandidate({ id: 'tropical-parrot', label: 'なんごくの インコ', emoji: '🦜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'palm-lizard', label: 'やしの きの リザードさん', emoji: '🦎', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
+      ],
     },
   ];
 
@@ -1081,6 +1172,10 @@
       state.speciesLine = pickRandomLine();
       state.stage = STAGE.GROWING;
       state.stageIndex = 0;
+      const identity = rollIdentity(state.speciesLine);
+      state.gender = identity.gender;
+      state.orientationId = identity.orientationId;
+      state.attractedTo = identity.attractedTo;
       setMessage('たまごがかえった!');
       emotePet('happy');
       return true;
@@ -1449,6 +1544,11 @@
     el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
+    // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
+    // だけ(長押し/ホバーで わかる)
+    el.stageLabel.title = state.gender
+      ? `${GENDER_LABELS[state.gender]}・${ORIENTATION_LABELS[state.orientationId]}`
+      : '';
 
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
     updateBar(el.happinessBar, isEgg || isOver ? 0 : state.happiness, 'happiness');
@@ -1489,6 +1589,9 @@
     const region = applyRegion();
     el.regionLabel.textContent = `${region.emoji} ${region.label}`;
     el.partnerLabel.textContent = state.partner ? `💑 ${state.partner.emoji} ${state.partner.label}` : '';
+    el.partnerLabel.title = state.partner
+      ? `${GENDER_LABELS[state.partner.gender]}・${ORIENTATION_LABELS[state.partner.orientationId]}`
+      : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
 
     const endingTiersReached = state.lifetime.endingTiersReached;
@@ -4944,16 +5047,43 @@
       return;
     }
 
-    const candidate = COURT_CANDIDATES[Math.floor(Math.random() * COURT_CANDIDATES.length)];
-    // せいこう率は せいかく(traitCounts)の あいしょうと、いまの きげんで
-    // すこし かわる - まいかい かならず せいこうする ゲームバランス崩壊を
-    // さけつつ、お世話を がんばっているほど とおりやすくは なる
+    // あいては いま いる地域(state.regionId)にいる キャラからだけ
+    // えらばれる - 旅先ごとに ちがう あいてと であえる
+    const candidates = findRegion(state.regionId).candidates;
+    const candidate = candidates[Math.floor(Math.random() * candidates.length)];
+
+    // まず おたがいの れんあい対象に あいてが ふくまれているか(双方向)を
+    // たしかめる。せいべつ/しゅぞくを こえた 恋愛は なんでも ありだが、
+    // れんあいタイプが あわない ときだけは、しっぱい あつかいでは なく
+    // 「友達なら いいよ」くらいの かるい リアクションに とどめる
+    const mutualMatch = candidate.attractedTo.includes(state.gender) && state.attractedTo.includes(candidate.gender);
+    if (!mutualMatch) {
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+      const reaction = pickReaction(COURT_FRIEND_REACTIONS, lastCourtReaction);
+      lastCourtReaction = reaction;
+      if (!checkMeters()) {
+        setMessage(`${candidate.emoji} ${candidate.label}:${reaction}`);
+      }
+      emotePet('happy');
+      return;
+    }
+
+    // れんあいタイプが あってさえいれば、あとは せいかく(traitCounts)の
+    // あいしょうと、いまの きげんで せいこう率が すこし かわる - まいかい
+    // かならず せいこうする ゲームバランス崩壊を さけつつ、お世話を
+    // がんばっているほど とおりやすくは なる
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
     const successChance = clamp(0.35 + traitBonus + happinessBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
-      state.partner = { id: candidate.id, label: candidate.label, emoji: candidate.emoji };
+      state.partner = {
+        id: candidate.id,
+        label: candidate.label,
+        emoji: candidate.emoji,
+        gender: candidate.gender,
+        orientationId: candidate.orientationId,
+      };
       state.happiness = clamp(state.happiness + 8, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
       const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
