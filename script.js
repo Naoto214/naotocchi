@@ -455,7 +455,9 @@
     loadCodeBtn: document.getElementById('loadCodeBtn'),
     codeError: document.getElementById('codeError'),
     guestStatus: document.getElementById('guestStatus'),
-    companionRow: document.getElementById('companionRow'),
+    companionLeft: document.getElementById('companionLeft'),
+    companionRight: document.getElementById('companionRight'),
+    partnerCompanion: document.getElementById('partnerCompanion'),
     companionDexGrid: document.getElementById('companionDexGrid'),
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
@@ -860,6 +862,16 @@
 
   const MESSAGE_DURATION_MS = 4200;
 
+  // GENDERS/ORIENTATION_ROLL_POOL は 本来 もっと したの せいべつ関係の
+  // まとまりで 定義しているが、loadState() が(gender の ない ふるい
+  // セーブを いま ここで ロールしなおす ために)rollIdentity() 経由で
+  // すぐ したで つかうので、const の TDZ(まだ 初期化されていない
+  // じょうたいで 参照すると ReferenceError に なる せいしつ)に
+  // ひっかからないよう、この2つだけ ここで さきに 定義しておく
+  const GENDERS = ['male', 'female', 'nonbinary'];
+  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
+  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
+
   let state = loadState();
   let message = '';
   let gameActive = false;
@@ -1022,7 +1034,9 @@
   // 限らず どのせいべつにも どのれんあいタイプも 原則 わりあてられる
   // (下の attractedToFor が それぞれに ちゃんと いみのある あいて候補を
   // かえす)
-  const GENDERS = ['male', 'female', 'nonbinary'];
+  // GENDERS/RESOLVED_ORIENTATIONS/ORIENTATION_ROLL_POOL は、loadState()
+  // からも つかわれる ため、この ファイルの ずっと うえのほう(state を
+  // ロールする ちょくぜん)で すでに 定義ずみ
   const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
   const ORIENTATION_LABELS = {
     straight: 'ストレート',
@@ -1032,12 +1046,6 @@
     aro: 'アロマンティック',
     questioning: 'クエスチョニング',
   };
-  // rollIdentity() / checkQuestioningResolution() の ロールたいしょう。
-  // questioning は「まだ さがしている とちゅう」の じょうたいなので、
-  // ここから さらに べつの タイプへ おちつくことは あっても、
-  // questioning じたいへ もどることは ない
-  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
-  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
 
   // gender+orientationId から「だれに ひかれるか」を くみたてる。
   // ストレート/ゲイは 男の子・女の子には これまでどおり「ちがう/おなじ
@@ -1677,7 +1685,7 @@
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
         // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
-        const sicknessChance = isEquipped('scarf') ? 0.1 : 0.2;
+        const sicknessChance = isEquipped('scarf') ? 0.07 : 0.14;
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
@@ -2035,6 +2043,7 @@
       .join('');
 
     renderCompanionRow();
+    renderPartnerCompanion(isEgg || isOver);
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -2415,15 +2424,36 @@
     }).join('');
   }
 
-  // 画面の よこに、なかまに なった COMPANIONS を じゅんに ならべて
-  // ずっと 表示する(「はじめから」しても きえない永続コレクション)
+  // なかまに なった COMPANIONS を、#pet の こどもとして 本体キャラの
+  // りょうサイドに くっつけて 表示する(「はじめから」しても きえない
+  // 永続コレクション)。#pet の こどもなので、idle-float の ゆれにも
+  // 本体キャラと まったく おなじように ついてくる。ひだり/みぎに
+  // こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = state.lifetime.companionsRecruited;
-    el.companionRow.innerHTML = recruited
+    const recruited = state.lifetime.companionsRecruited
       .map((id) => COMPANIONS.find((c) => c.id === id))
-      .filter(Boolean)
-      .map((c) => `<span class="companion-chip" title="${c.name}">${c.emoji}</span>`)
-      .join('');
+      .filter(Boolean);
+    const left = recruited.filter((c, i) => i % 2 === 0);
+    const right = recruited.filter((c, i) => i % 2 === 1);
+    const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${c.emoji}</span>`;
+    el.companionLeft.innerHTML = left.map(chip).join('');
+    el.companionRight.innerHTML = right.map(chip).join('');
+  }
+
+  // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
+  // ハートで かこんで 表示する。#pet の こどもなので、idle-float の ゆれにも
+  // 本体キャラと まったく おなじように ついてくる。けっこんずみの ときは
+  // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
+  function renderPartnerCompanion(hide) {
+    const p = !hide && state.partner;
+    el.partnerCompanion.classList.toggle('hidden', !p);
+    if (!p) {
+      el.partnerCompanion.innerHTML = '';
+      return;
+    }
+    const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
+    el.partnerCompanion.innerHTML =
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${p.label}">${p.emoji}${ring}</span><span class="partner-heart">💕</span>`;
   }
 
   function renderTransformChoices() {

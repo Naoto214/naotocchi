@@ -67,34 +67,74 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { transform: translateY(-14px) rotate(6deg); }
 }
 
-/* なかまイベントで なかまに なった COMPANIONS を、がめんの みぎがわに
-   たてに ならべて ずっと 表示する。「はじめから」でも 消えない永続の
-   コレクションなので、region-decor とはちがい applyRegion() の
-   タイミングとは 関係なく render() の たびに つくりなおされる */
-.companion-row {
-  position: fixed;
-  right: 6px;
+/* なかまイベントで なかまに なった COMPANIONS を、#pet の こどもとして
+   本体キャラの りょうサイドに くっつけて 表示する。「はじめから」でも
+   消えない永続の コレクション。#pet の こどもなので、idle-float の
+   ゆれにも 本体キャラと まったく おなじように ついてくる(ひだり/みぎに
+   こうごに ふりわけて そだつ) */
+.companion-side {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-height: 80vh;
-  overflow-y: auto;
+  align-items: center;
+  gap: 3px;
   pointer-events: none;
 }
 
-.companion-chip {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.companion-side.left {
+  right: 100%;
+  margin-right: 4px;
+  flex-direction: row-reverse;
+}
+
+.companion-side.right {
+  left: 100%;
+  margin-left: 4px;
+  flex-direction: row;
+}
+
+.companion-chip-small {
+  font-size: 18px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+/* こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
+   くっつけて 表示する。ハートで かこんで なかまの丸チップとは ちがう みための
+   モチーフにし、けっこんずみなら ゆびわを そえる。#pet の こどもなので、
+   idle-float の ゆれにも 本体キャラと まったく おなじように ついてくる */
+.partner-companion {
+  position: absolute;
+  top: -8px;
+  left: -10px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 17px;
+  gap: 1px;
+  pointer-events: none;
+}
+
+.partner-companion.hidden {
+  display: none;
+}
+
+.partner-companion .partner-heart {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.partner-companion .partner-emoji {
+  position: relative;
+  font-size: 22px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.partner-companion .partner-ring {
+  position: absolute;
+  bottom: -3px;
+  right: -6px;
+  font-size: 12px;
   line-height: 1;
 }
 
