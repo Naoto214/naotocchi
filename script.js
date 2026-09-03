@@ -630,7 +630,9 @@
   // 本体・がめんの いろを えらべる きのう。さいしょの6しょくは いつでも
   // えらべ、のこり4しょくは 4段階の クリアパターン(ENDING_TIERS、上の
   // endingTiersReached)を それぞれ 一度でも たっせいすると てにはいる、
-  // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス)
+  // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス。
+  // レインボーだけは 4つ ぜんぶ そろって はじめて 解放される ので
+  // unlockAll を つかう)
   const COLOR_THEMES = [
     { id: 'default', label: 'もも', swatch: '#ff7ab8' },
     { id: 'sky', label: 'そら', swatch: '#6fa8ff' },
@@ -641,22 +643,47 @@
     { id: 'sunset', label: 'ゆうやけ', swatch: '#ff8965', unlockTier: 0 },
     { id: 'forest', label: 'しんりん', swatch: '#4caf6e', unlockTier: 1 },
     { id: 'gold', label: 'おうごん', swatch: '#ffd76a', unlockTier: 2 },
-    { id: 'aurora', label: 'オーロラ', swatch: '#a78bfa', unlockTier: 3 },
+    { id: 'rainbow', label: 'レインボー', swatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)', unlockAll: true },
   ];
 
   function isThemeUnlocked(theme) {
+    if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
     return theme.unlockTier === undefined || state.lifetime.endingTiersReached.includes(theme.unlockTier);
   }
 
-  function getEndingTier() {
+  function endingProgress() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
-    const otherAchievementsComplete = ACHIEVEMENTS
+    const achComplete = ACHIEVEMENTS
       .filter((ach) => ach.id !== 'dex-complete')
       .every((ach) => state.achievementsUnlocked.includes(ach.id));
-    if (dexComplete && otherAchievementsComplete) return 3;
-    if (otherAchievementsComplete) return 2;
+    return { dexComplete, achComplete };
+  }
+
+  // その回の クリアで いちばん はでな 1つの tier だけを えらぶ - クリア
+  // えんしゅつ(タイトル・バッジ・いろ)の 表示に つかう
+  function getEndingTier() {
+    const { dexComplete, achComplete } = endingProgress();
+    if (dexComplete && achComplete) return 3;
+    if (achComplete) return 2;
     if (dexComplete) return 1;
     return 0;
+  }
+
+  // その回の クリアで じっさいに みたした ぜんぶの tier(0はつねに、
+  // 1はずかんコンプリート、2はじっせきコンプリート、3はりょうほう)を
+  // 記録用に かえす。getEndingTier() は 表示用に いちばん はでな tierを
+  // 1つだけ えらぶが、えいぞくの バッジ記録(endingTiersReached)は
+  // みたした ぶんを ぜんぶ 記録しないと、ずかん/じっせきの どちらが
+  // 先に コンプリートしたかで もういっぽうの たんどくバッジが えいえいに
+  // とれなくなってしまう(あとから りょうほう そろうと つねに tier3だけに
+  // なる ため)
+  function qualifyingEndingTiers() {
+    const { dexComplete, achComplete } = endingProgress();
+    const tiers = [0];
+    if (dexComplete) tiers.push(1);
+    if (achComplete) tiers.push(2);
+    if (dexComplete && achComplete) tiers.push(3);
+    return tiers;
   }
 
   function saveState() {
@@ -1286,7 +1313,6 @@
     const isEgg = state.stage === STAGE.EGG;
     const isOver = isDead || isClear;
 
-    applyTheme();
     el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
@@ -1320,17 +1346,18 @@
     el.screen.classList.toggle('sleeping', state.isSleeping && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
-    // renderEnding() (when isClear) records this playthrough's tier into
-    // state.lifetime.endingTiersReached, so the badge row/rainbow-mode
-    // below must be computed after it, not before
+    // renderEnding() (when isClear) records this playthrough's qualifying
+    // tiers into state.lifetime.endingTiersReached, and may auto-select the
+    // 'rainbow' screen theme the first time all 4 are reached - so both the
+    // badge row and applyTheme() below must run after it, not before
     if (isClear) renderEnding();
+    applyTheme();
 
     const endingTiersReached = state.lifetime.endingTiersReached;
     el.endingBadges.innerHTML = [...endingTiersReached]
       .sort((a, b) => a - b)
       .map((tierIndex) => `<span class="ending-badge" title="${ENDING_TIERS[tierIndex].title}">${ENDING_TIER_ICONS[tierIndex]}</span>`)
       .join('');
-    el.screen.classList.toggle('rainbow-mode', endingTiersReached.length >= ENDING_TIERS.length);
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -1470,8 +1497,17 @@
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
-    if (!state.lifetime.endingTiersReached.includes(tierIndex)) {
-      state.lifetime.endingTiersReached.push(tierIndex);
+    const hadAllTiers = state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
+    qualifyingEndingTiers().forEach((t) => {
+      if (!state.lifetime.endingTiersReached.includes(t)) {
+        state.lifetime.endingTiersReached.push(t);
+      }
+    });
+    // はじめて 4つ ぜんぶ そろった しゅんかんに、がめんの いろを
+    // レインボーに 自動で きりかえる(その あとは「いろ」から いつでも
+    // えらびなおせる、強制ではない いち回だけの おいわい)
+    if (!hadAllTiers && state.lifetime.endingTiersReached.length >= ENDING_TIERS.length) {
+      state.lifetime.screenThemeId = 'rainbow';
     }
     if (!endingCelebrationShown) {
       endingCelebrationShown = true;

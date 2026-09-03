@@ -83,9 +83,9 @@ body {
   image-rendering: pixelated;
 }
 
-/* えらんだ がめんの いろ。びょうき/しぼう/レインボーモードの いろが
-   優先されるよう、この規則を それらより 先に 書いておく(すべて クラス
-   2つぶんの 詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
+/* えらんだ がめんの いろ。びょうき/しぼうの いろが 優先されるよう、
+   この規則を それらより 先に 書いておく(すべて クラス2つぶんの
+   詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
 .screen.theme-sky { background: #8ecbe8; }
 .screen.theme-mint { background: #8de8c0; }
 .screen.theme-lavender { background: #c9b3f0; }
@@ -94,12 +94,12 @@ body {
 .screen.theme-sunset { background: #f0b98d; }
 .screen.theme-forest { background: #6fae7a; }
 .screen.theme-gold { background: #e8cf7a; }
-.screen.theme-aurora { background: linear-gradient(120deg, #ffb3d9, #ffe29a, #b3ffcf, #b3e0ff); }
 
-/* 4つのクリアパターンを ぜんぶ 集めた ごほうび。 びょうき/しぼう の
+/* 4つのクリアパターンを ぜんぶ 集めた ごほうび。「いろ」で えらべる
+   がめんテーマの ひとつ(レインボー)として あつかう。びょうき/しぼう の
    いろが 優先されるよう、この規則を それらより 先に 書いておく
    (どちらも クラス2つぶんの 詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
-.screen.rainbow-mode {
+.screen.theme-rainbow {
   background: linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
   background-size: 400% 400%;
   animation: game-clear-bg 6s ease infinite;
@@ -1034,7 +1034,7 @@ body {
 .device.theme-sunset { background: linear-gradient(160deg, #ffb677 0%, #ff8965 45%, #ff5f7e 100%); }
 .device.theme-forest { background: linear-gradient(160deg, #7fd99a 0%, #4caf6e 45%, #2e7d4f 100%); }
 .device.theme-gold { background: linear-gradient(160deg, #fff2c2 0%, #ffd76a 45%, #e0a939 100%); }
-.device.theme-aurora { background: linear-gradient(160deg, #ff9ecb 0%, #a78bfa 30%, #60d0ff 60%, #6dffb0 100%); }
+.device.theme-rainbow { background: linear-gradient(160deg, #ff9ecb 0%, #a78bfa 30%, #60d0ff 60%, #6dffb0 100%); }
 
 /* --- minigames --- */
 
