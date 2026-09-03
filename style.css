@@ -83,6 +83,16 @@ body {
   image-rendering: pixelated;
 }
 
+/* 4つのクリアパターンを ぜんぶ 集めた ごほうび。 びょうき/しぼう の
+   いろが 優先されるよう、この規則を それらより 先に 書いておく
+   (どちらも クラス2つぶんの 詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
+.screen.rainbow-mode {
+  background: linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  background-size: 400% 400%;
+  animation: game-clear-bg 6s ease infinite;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.75);
+}
+
 .screen.dead {
   background: #b9b9b9;
   color: #333;
@@ -135,6 +145,21 @@ body {
   font-size: 16px;
   display: flex;
   gap: 2px;
+}
+
+/* いままでに たどりついた 4つの クリアパターンの あかし。
+   一生のあいだ 積みあがっていく きろくなので「はじめから」しても消えない */
+.ending-badges {
+  position: absolute;
+  top: -4px;
+  left: 6px;
+  font-size: 15px;
+  display: flex;
+  gap: 2px;
+}
+
+.ending-badge {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
 }
 
 .pet {
