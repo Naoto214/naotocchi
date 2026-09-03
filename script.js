@@ -632,18 +632,26 @@
   // endingTiersReached)を それぞれ 一度でも たっせいすると てにはいる、
   // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス。
   // レインボーだけは 4つ ぜんぶ そろって はじめて 解放される ので
-  // unlockAll を つかう)
+  // unlockAll を つかう)。deviceSwatch/screenSwatch は それぞれの グリッドの
+  // プレビュー丸に つかう いろ - "default"(はじめから の くみあわせ)だけ
+  // ほんたい(もも)と がめん(みどりの LCD)で いろが ちがうので わけてある
   const COLOR_THEMES = [
-    { id: 'default', label: 'もも', swatch: '#ff7ab8' },
-    { id: 'sky', label: 'そら', swatch: '#6fa8ff' },
-    { id: 'mint', label: 'ミント', swatch: '#5fe0a0' },
-    { id: 'lavender', label: 'ラベンダー', swatch: '#b98aff' },
-    { id: 'lemon', label: 'レモン', swatch: '#ffe066' },
-    { id: 'charcoal', label: 'すみいろ', swatch: '#444444' },
-    { id: 'sunset', label: 'ゆうやけ', swatch: '#ff8965', unlockTier: 0 },
-    { id: 'forest', label: 'しんりん', swatch: '#4caf6e', unlockTier: 1 },
-    { id: 'gold', label: 'おうごん', swatch: '#ffd76a', unlockTier: 2 },
-    { id: 'rainbow', label: 'レインボー', swatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)', unlockAll: true },
+    { id: 'default', label: 'クラシック', deviceSwatch: '#ff7ab8', screenSwatch: '#9bd68d' },
+    { id: 'sky', label: 'そら', deviceSwatch: '#6fa8ff', screenSwatch: '#8ecbe8' },
+    { id: 'mint', label: 'ミント', deviceSwatch: '#5fe0a0', screenSwatch: '#8de8c0' },
+    { id: 'lavender', label: 'ラベンダー', deviceSwatch: '#b98aff', screenSwatch: '#c9b3f0' },
+    { id: 'lemon', label: 'レモン', deviceSwatch: '#ffe066', screenSwatch: '#f0e28d' },
+    { id: 'charcoal', label: 'すみいろ', deviceSwatch: '#444444', screenSwatch: '#8a9a8a' },
+    { id: 'sunset', label: 'ゆうやけ', deviceSwatch: '#ff8965', screenSwatch: '#f0b98d', unlockTier: 0 },
+    { id: 'forest', label: 'しんりん', deviceSwatch: '#4caf6e', screenSwatch: '#6fae7a', unlockTier: 1 },
+    { id: 'gold', label: 'おうごん', deviceSwatch: '#ffd76a', screenSwatch: '#e8cf7a', unlockTier: 2 },
+    {
+      id: 'rainbow',
+      label: 'レインボー',
+      deviceSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
+      screenSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
+      unlockAll: true,
+    },
   ];
 
   function isThemeUnlocked(theme) {
@@ -1456,11 +1464,11 @@
     }).join('');
   }
 
-  function renderThemeSwatchGrid(gridEl, selectedId) {
+  function renderThemeSwatchGrid(gridEl, selectedId, swatchField) {
     gridEl.innerHTML = COLOR_THEMES.map((t) => {
       const unlocked = isThemeUnlocked(t);
       const selected = unlocked && t.id === selectedId;
-      const circleStyle = unlocked ? ` style="background:${t.swatch}"` : '';
+      const circleStyle = unlocked ? ` style="background:${t[swatchField]}"` : '';
       const label = unlocked ? t.label : '？？？';
       return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle"${circleStyle}>${unlocked ? '' : '🔒'}</span><span class="theme-swatch-label">${label}</span></button>`;
     }).join('');
@@ -1469,8 +1477,8 @@
   function renderThemeOverlay() {
     const unlockedCount = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
     el.themeProgress.textContent = `${unlockedCount} / ${COLOR_THEMES.length}`;
-    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId);
-    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId);
+    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
+    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
   }
 
   function selectTheme(target, id) {
