@@ -410,6 +410,11 @@
     themeCloseBtn: document.getElementById('themeCloseBtn'),
     deviceThemeGrid: document.getElementById('deviceThemeGrid'),
     screenThemeGrid: document.getElementById('screenThemeGrid'),
+    courtBtn: document.getElementById('courtBtn'),
+    travelBtn: document.getElementById('travelBtn'),
+    subStatusRow: document.getElementById('subStatusRow'),
+    regionLabel: document.getElementById('regionLabel'),
+    partnerLabel: document.getElementById('partnerLabel'),
   };
 
   function freshState() {
@@ -444,6 +449,10 @@
       transformMeter: 0,
       transformOptions: null,
       items: {},
+      // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
+      // いっしょに リセットされる、今の いっしょうぶんの じょうたい
+      partner: null,
+      regionId: 'home',
       discoveredStages: [],
       // cross-playthrough counters for じっせき (achievements) - unlike
       // most of this object these are never reset by "はじめから" (see the
@@ -630,33 +639,68 @@
   // 本体・がめんの いろを えらべる きのう。さいしょの6しょくは いつでも
   // えらべ、のこり4しょくは 4段階の クリアパターン(ENDING_TIERS、上の
   // endingTiersReached)を それぞれ 一度でも たっせいすると てにはいる、
-  // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス)
+  // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス。
+  // レインボーだけは 4つ ぜんぶ そろって はじめて 解放される ので
+  // unlockAll を つかう)。deviceSwatch/screenSwatch は それぞれの グリッドの
+  // プレビュー丸に つかう いろ - "default"(はじめから の くみあわせ)だけ
+  // ほんたい(もも)と がめん(みどりの LCD)で いろが ちがうので わけてある
   const COLOR_THEMES = [
-    { id: 'default', label: 'もも', swatch: '#ff7ab8' },
-    { id: 'sky', label: 'そら', swatch: '#6fa8ff' },
-    { id: 'mint', label: 'ミント', swatch: '#5fe0a0' },
-    { id: 'lavender', label: 'ラベンダー', swatch: '#b98aff' },
-    { id: 'lemon', label: 'レモン', swatch: '#ffe066' },
-    { id: 'charcoal', label: 'すみいろ', swatch: '#444444' },
-    { id: 'sunset', label: 'ゆうやけ', swatch: '#ff8965', unlockTier: 0 },
-    { id: 'forest', label: 'しんりん', swatch: '#4caf6e', unlockTier: 1 },
-    { id: 'gold', label: 'おうごん', swatch: '#ffd76a', unlockTier: 2 },
-    { id: 'aurora', label: 'オーロラ', swatch: '#a78bfa', unlockTier: 3 },
+    { id: 'default', label: 'クラシック', deviceSwatch: '#ff7ab8', screenSwatch: '#9bd68d' },
+    { id: 'sky', label: 'そら', deviceSwatch: '#6fa8ff', screenSwatch: '#8ecbe8' },
+    { id: 'mint', label: 'ミント', deviceSwatch: '#5fe0a0', screenSwatch: '#8de8c0' },
+    { id: 'lavender', label: 'ラベンダー', deviceSwatch: '#b98aff', screenSwatch: '#c9b3f0' },
+    { id: 'lemon', label: 'レモン', deviceSwatch: '#ffe066', screenSwatch: '#f0e28d' },
+    { id: 'charcoal', label: 'すみいろ', deviceSwatch: '#444444', screenSwatch: '#8a9a8a' },
+    { id: 'sunset', label: 'ゆうやけ', deviceSwatch: '#ff8965', screenSwatch: '#f0b98d', unlockTier: 0 },
+    { id: 'forest', label: 'しんりん', deviceSwatch: '#4caf6e', screenSwatch: '#6fae7a', unlockTier: 1 },
+    { id: 'gold', label: 'おうごん', deviceSwatch: '#ffd76a', screenSwatch: '#e8cf7a', unlockTier: 2 },
+    {
+      id: 'rainbow',
+      label: 'レインボー',
+      deviceSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
+      screenSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
+      unlockAll: true,
+    },
   ];
 
   function isThemeUnlocked(theme) {
+    if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
     return theme.unlockTier === undefined || state.lifetime.endingTiersReached.includes(theme.unlockTier);
   }
 
-  function getEndingTier() {
+  function endingProgress() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
-    const otherAchievementsComplete = ACHIEVEMENTS
+    const achComplete = ACHIEVEMENTS
       .filter((ach) => ach.id !== 'dex-complete')
       .every((ach) => state.achievementsUnlocked.includes(ach.id));
-    if (dexComplete && otherAchievementsComplete) return 3;
-    if (otherAchievementsComplete) return 2;
+    return { dexComplete, achComplete };
+  }
+
+  // その回の クリアで いちばん はでな 1つの tier だけを えらぶ - クリア
+  // えんしゅつ(タイトル・バッジ・いろ)の 表示に つかう
+  function getEndingTier() {
+    const { dexComplete, achComplete } = endingProgress();
+    if (dexComplete && achComplete) return 3;
+    if (achComplete) return 2;
     if (dexComplete) return 1;
     return 0;
+  }
+
+  // その回の クリアで じっさいに みたした ぜんぶの tier(0はつねに、
+  // 1はずかんコンプリート、2はじっせきコンプリート、3はりょうほう)を
+  // 記録用に かえす。getEndingTier() は 表示用に いちばん はでな tierを
+  // 1つだけ えらぶが、えいぞくの バッジ記録(endingTiersReached)は
+  // みたした ぶんを ぜんぶ 記録しないと、ずかん/じっせきの どちらが
+  // 先に コンプリートしたかで もういっぽうの たんどくバッジが えいえいに
+  // とれなくなってしまう(あとから りょうほう そろうと つねに tier3だけに
+  // なる ため)
+  function qualifyingEndingTiers() {
+    const { dexComplete, achComplete } = endingProgress();
+    const tiers = [0];
+    if (dexComplete) tiers.push(1);
+    if (achComplete) tiers.push(2);
+    if (dexComplete && achComplete) tiers.push(3);
+    return tiers;
   }
 
   function saveState() {
@@ -837,6 +881,108 @@
     'おしゃべりが すぎたと おもわれたかも…',
   ];
 
+  // 「きゅうあいする」の おあいて候補。affinityTrait は traitCounts の
+  // どのせいかく(やさしい/やんちゃ/おだやか/ゆうかん/ロマンチック)を
+  // 積み重ねていると成功しやすいかで、null は せいかくに 左右されない
+  // ニュートラルな あいて
+  const COURT_CANDIDATES = [
+    { id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', affinityTrait: 'gentle' },
+    { id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', affinityTrait: 'wild' },
+    { id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', affinityTrait: 'romantic' },
+    { id: 'sky-angel', label: 'そらの てんし', emoji: '👼', affinityTrait: 'gentle' },
+    { id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', affinityTrait: 'calm' },
+    { id: 'mountain-dragon', label: 'やまの りゅう', emoji: '🐉', affinityTrait: 'brave' },
+    { id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', affinityTrait: 'romantic' },
+    { id: 'night-star', label: 'よぞらの せいれい', emoji: '⭐', affinityTrait: null },
+  ];
+
+  const COURT_SUCCESS_REACTIONS = [
+    '「つきあってください!」…って いったら まさかの OK!',
+    'めが あった しゅんかん、うんめいを かんじた(たぶん)',
+    'テレながらも、おもいを つたえられた!',
+    'こくはく せいこう!はずかしくて めが まわりそう',
+    'まさかの てんかいに、じぶんが いちばん おどろいてる',
+  ];
+
+  const COURT_FAIL_REACTIONS = [
+    'ゆうきを だして こくはくしたけど…「ともだちでいよう」だって',
+    'テレすぎて、へんな ことばしか でてこなかった…',
+    'ふられた…でも つぎが ある!(たぶん)',
+    'アピールが からまわりしちゃった みたい',
+    'きんちょうしすぎて、なにを いったか おぼえてない',
+  ];
+
+  // すでに こいびとが いるときに もういちど「きゅうあいする」を おすと、
+  // あたらしい あいてを さがしに いくのではなく、今の こいびとと いちゃつく
+  // 軽い リアクションに なる(せいこう/しっぱいの 抽選は しない)
+  function courtFlirtReactions(partnerLabel) {
+    return [
+      `${partnerLabel}と いつもどおり ラブラブ!`,
+      `${partnerLabel}の ことを かんがえて、にやにや してしまった`,
+      `${partnerLabel}に ぞっこんなのは かわらない みたい`,
+    ];
+  }
+
+  // 「たびにでる」で うつる 地域。home は なおとっちの もとの すみか
+  // (「はじめから」した ときの デフォルト)で、それ以外は README の
+  // れい(うみ・ゆきやま・とかい・いなか・もり・さばく・なんごく)に
+  // ならった。cssClass は body に つける region-<id> の いろちがい
+  // (「いろ」きのうの ほんたい/がめんの いろとは べつレイヤー)
+  const REGIONS = [
+    {
+      id: 'home',
+      label: 'おうち',
+      emoji: '🏠',
+      lines: ['やっぱり じぶんの おうちが いちばん おちつく', 'おなじみの けしきに ほっとした'],
+    },
+    {
+      id: 'sea',
+      label: 'うみ',
+      emoji: '🌊',
+      lines: ['なみの おとが きもちいい!', 'すなはまを ぴょんぴょん はねまわった', 'かいがらを ひろって じまんげ'],
+    },
+    {
+      id: 'snow',
+      label: 'ゆきやま',
+      emoji: '🏔️',
+      lines: ['さむい!でも ゆきだるまを つくってみた', 'いきが しろく なるのが おもしろい', 'つるっと すべって しりもちを ついた'],
+    },
+    {
+      id: 'city',
+      label: 'とかい',
+      emoji: '🏙️',
+      lines: ['ビルの たかさに びっくり!', 'ネオンの ひかりに めが きらきら', 'ひとの おおさに ちょっと つかれた'],
+    },
+    {
+      id: 'countryside',
+      label: 'いなか',
+      emoji: '🌾',
+      lines: ['たんぼの かぜが きもちいい', 'のはらを おもいっきり かけまわった', 'むぎわらぼうしが にあうと ほめられた(き が する)'],
+    },
+    {
+      id: 'forest',
+      label: 'もり',
+      emoji: '🌲',
+      lines: ['きの えだから とりの こえが きこえる', 'はっぱの におい に しんこきゅう', 'こだぬきと めが あった(かもしれない)'],
+    },
+    {
+      id: 'desert',
+      label: 'さばく',
+      emoji: '🏜️',
+      lines: ['あつい!でも すなの うえを あるくのが たのしい', 'サボテンに ちかづきすぎて ちょっと いたい めに あった', 'ほしぞらが びっくりする くらい きれいだった'],
+    },
+    {
+      id: 'tropical',
+      label: 'なんごく',
+      emoji: '🌴',
+      lines: ['やしの みを みつけて うれしそう', 'あたたかい かぜが きもちいい', 'カラフルな とりに てを ふってみた'],
+    },
+  ];
+
+  function findRegion(id) {
+    return REGIONS.find((r) => r.id === id) || REGIONS[0];
+  }
+
   // なにも しなくても、放っておくと たまに キャラのほうから 話しかけてくる
   // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
   // ネタを できるだけ たくさん 用意して、待っているだけでも 飽きにくくする
@@ -893,6 +1039,8 @@
 
   let lastPetReaction = null;
   let lastTalkReaction = null;
+  let lastCourtReaction = null;
+  let lastTravelReaction = null;
 
   function pickReaction(pool, lastPicked) {
     const choices = pool.length > 1 ? pool.filter((m) => m !== lastPicked) : pool;
@@ -1152,6 +1300,7 @@
     fun: { animClass: 'emote-fun', particles: ['🎉', '✨'], duration: 720 },
     sad: { animClass: 'emote-sad', particles: ['😢', '💧'], duration: 720 },
     angry: { animClass: 'emote-angry', particles: ['💢'], duration: 520 },
+    love: { animClass: 'emote-love', particles: ['💕', '💘', '💖'], duration: 900 },
   };
   const EMOTE_CLASSES = Object.values(EMOTE_CONFIG).map((cfg) => cfg.animClass);
 
@@ -1280,13 +1429,23 @@
     });
   }
 
+  // 「たび」で えらんだ 地域を body の class に反映する。「いろ」の
+  // 本体/がめんテーマとは 別レイヤー(まわりの けしき)なので、どんな
+  // いろの くみあわせと あわせても 衝突しない
+  function applyRegion() {
+    const region = findRegion(state.regionId);
+    REGIONS.forEach((r) => {
+      document.body.classList.toggle(`region-${r.id}`, r === region);
+    });
+    return region;
+  }
+
   function render() {
     const isDead = state.stage === STAGE.DEAD;
     const isClear = state.stage === STAGE.CLEAR;
     const isEgg = state.stage === STAGE.EGG;
     const isOver = isDead || isClear;
 
-    applyTheme();
     el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
@@ -1320,17 +1479,23 @@
     el.screen.classList.toggle('sleeping', state.isSleeping && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
-    // renderEnding() (when isClear) records this playthrough's tier into
-    // state.lifetime.endingTiersReached, so the badge row/rainbow-mode
-    // below must be computed after it, not before
+    // renderEnding() (when isClear) records this playthrough's qualifying
+    // tiers into state.lifetime.endingTiersReached, and may auto-select the
+    // 'rainbow' screen theme the first time all 4 are reached - so both the
+    // badge row and applyTheme() below must run after it, not before
     if (isClear) renderEnding();
+    applyTheme();
+
+    const region = applyRegion();
+    el.regionLabel.textContent = `${region.emoji} ${region.label}`;
+    el.partnerLabel.textContent = state.partner ? `💑 ${state.partner.emoji} ${state.partner.label}` : '';
+    el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
 
     const endingTiersReached = state.lifetime.endingTiersReached;
     el.endingBadges.innerHTML = [...endingTiersReached]
       .sort((a, b) => a - b)
       .map((tierIndex) => `<span class="ending-badge" title="${ENDING_TIERS[tierIndex].title}">${ENDING_TIER_ICONS[tierIndex]}</span>`)
       .join('');
-    el.screen.classList.toggle('rainbow-mode', endingTiersReached.length >= ENDING_TIERS.length);
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -1356,6 +1521,8 @@
     el.medicineBtn.disabled = disableCare;
     el.petBtn.disabled = disableCare;
     el.talkBtn.disabled = disableCare;
+    el.courtBtn.disabled = disableCare;
+    el.travelBtn.disabled = disableCare;
     el.resetBtn.classList.toggle('hidden', !isOver);
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
@@ -1429,11 +1596,11 @@
     }).join('');
   }
 
-  function renderThemeSwatchGrid(gridEl, selectedId) {
+  function renderThemeSwatchGrid(gridEl, selectedId, swatchField) {
     gridEl.innerHTML = COLOR_THEMES.map((t) => {
       const unlocked = isThemeUnlocked(t);
       const selected = unlocked && t.id === selectedId;
-      const circleStyle = unlocked ? ` style="background:${t.swatch}"` : '';
+      const circleStyle = unlocked ? ` style="background:${t[swatchField]}"` : '';
       const label = unlocked ? t.label : '？？？';
       return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle"${circleStyle}>${unlocked ? '' : '🔒'}</span><span class="theme-swatch-label">${label}</span></button>`;
     }).join('');
@@ -1442,8 +1609,8 @@
   function renderThemeOverlay() {
     const unlockedCount = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
     el.themeProgress.textContent = `${unlockedCount} / ${COLOR_THEMES.length}`;
-    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId);
-    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId);
+    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
+    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
   }
 
   function selectTheme(target, id) {
@@ -1470,8 +1637,17 @@
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
-    if (!state.lifetime.endingTiersReached.includes(tierIndex)) {
-      state.lifetime.endingTiersReached.push(tierIndex);
+    const hadAllTiers = state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
+    qualifyingEndingTiers().forEach((t) => {
+      if (!state.lifetime.endingTiersReached.includes(t)) {
+        state.lifetime.endingTiersReached.push(t);
+      }
+    });
+    // はじめて 4つ ぜんぶ そろった しゅんかんに、がめんの いろを
+    // レインボーに 自動で きりかえる(その あとは「いろ」から いつでも
+    // えらびなおせる、強制ではない いち回だけの おいわい)
+    if (!hadAllTiers && state.lifetime.endingTiersReached.length >= ENDING_TIERS.length) {
+      state.lifetime.screenThemeId = 'rainbow';
     }
     if (!endingCelebrationShown) {
       endingCelebrationShown = true;
@@ -4559,6 +4735,8 @@
     el.medicineBtn.disabled = true;
     el.petBtn.disabled = true;
     el.talkBtn.disabled = true;
+    el.courtBtn.disabled = true;
+    el.travelBtn.disabled = true;
     el.dexBtn.disabled = true;
     el.achBtn.disabled = true;
     el.themeBtn.disabled = true;
@@ -4743,6 +4921,76 @@
       setMessage(reaction);
     }
     emotePet(spammed ? 'angry' : 'happy');
+  }));
+
+  // すでに こいびとが いる ときは あたらしい あいてを さがしにいかず、
+  // 今の こいびとと いちゃつく だけ(せいこう/しっぱいの 抽選なし) -
+  // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
+  el.courtBtn.addEventListener('click', withFeedback(() => {
+    if (state.isSleeping) {
+      setMessage('ねている… おきてから きゅうあいしよう');
+      return;
+    }
+    state.affectionStreak = 0;
+
+    if (state.partner) {
+      state.happiness = clamp(state.happiness + 3, 0, 100);
+      const reaction = pickReaction(courtFlirtReactions(state.partner.label), lastCourtReaction);
+      lastCourtReaction = reaction;
+      if (!checkMeters()) {
+        setMessage(reaction);
+      }
+      emotePet('love');
+      return;
+    }
+
+    const candidate = COURT_CANDIDATES[Math.floor(Math.random() * COURT_CANDIDATES.length)];
+    // せいこう率は せいかく(traitCounts)の あいしょうと、いまの きげんで
+    // すこし かわる - まいかい かならず せいこうする ゲームバランス崩壊を
+    // さけつつ、お世話を がんばっているほど とおりやすくは なる
+    const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
+    const happinessBonus = (state.happiness / 100) * 0.15;
+    const successChance = clamp(0.35 + traitBonus + happinessBonus, 0.15, 0.85);
+
+    if (Math.random() < successChance) {
+      state.partner = { id: candidate.id, label: candidate.label, emoji: candidate.emoji };
+      state.happiness = clamp(state.happiness + 8, 0, 100);
+      state.evoMeter = clamp(state.evoMeter + 6, 0, 100);
+      const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
+      lastCourtReaction = reaction;
+      if (!checkMeters()) {
+        setMessage(`${candidate.emoji} ${candidate.label}と こいびとに なった!${reaction}`);
+      }
+      emotePet('love');
+    } else {
+      state.happiness = clamp(state.happiness - 3, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 2, 0, 100);
+      const reaction = pickReaction(COURT_FAIL_REACTIONS, lastCourtReaction);
+      lastCourtReaction = reaction;
+      if (!checkMeters()) {
+        setMessage(reaction);
+      }
+      emotePet('sad');
+    }
+  }));
+
+  // まいかい ちがう 地域が でるよう、今の 地域を のぞいて 抽選する
+  el.travelBtn.addEventListener('click', withFeedback(() => {
+    if (state.isSleeping) {
+      setMessage('ねている… おきてから たびに でよう');
+      return;
+    }
+    state.affectionStreak = 0;
+    const candidates = REGIONS.filter((r) => r.id !== state.regionId);
+    const region = candidates[Math.floor(Math.random() * candidates.length)];
+    state.regionId = region.id;
+    state.happiness = clamp(state.happiness + 5, 0, 100);
+    const reaction = pickReaction(region.lines, lastTravelReaction);
+    lastTravelReaction = reaction;
+    if (!checkMeters()) {
+      setMessage(`${region.emoji} ${region.label}に やってきた!${reaction}`);
+    }
+    emotePet('fun');
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
