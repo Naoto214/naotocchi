@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const SAVE_KEY = 'tamagotchi-modoki-save-v1';
+  const SAVE_KEY = 'naotocchi-save-v1';
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
@@ -3041,6 +3041,7 @@
   const CONCENTRATION_GAME_VARIANTS = [
     makeConcentrationGame({ title: 'くだものの ペアを さがそう!', emojis: ['🍎', '🍌', '🍇', '🍓', '🍊', '🍑'] }),
     makeConcentrationGame({ title: 'どうぶつの ペアを さがそう!', emojis: ['🐶', '🐱', '🐭', '🐸', '🐹', '🐰'] }),
+    makeConcentrationGame({ title: 'たべもののペアを さがそう!', emojis: ['🍙', '🍣', '🍕', '🍔', '🍜', '🍰'] }),
   ];
 
   // --- 連打チャレンジ ---
