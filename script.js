@@ -939,7 +939,7 @@
       state.happiness = clamp(state.happiness - 1 * sleepFactor, 0, 100);
 
       if (state.isSleeping) {
-        state.energy = clamp(state.energy + (state.isSick ? 4 : 10), 0, 100);
+        state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
       } else {
         state.energy = clamp(state.energy - 1, 0, 100);
       }
