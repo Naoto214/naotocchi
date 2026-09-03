@@ -6294,44 +6294,47 @@
     ],
   };
 
-  const REGION_MINIGAME_CHANCE = 0.25;
-  let lastRegionMinigame = null;
-
+  // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
+  // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
+  // あつかう。だから 地域に いるあいだは その2種類も ほかと まったく
+  // おなじ かくりつで まざり、地域を はなれれば また ふつうの プールに
+  // もどる(おうちなど 専用あそびが ない地域では ふつうの プールのまま)
   let minigameQueue = [];
-  let lastMinigameIndex = -1;
+  let currentMinigamePool = MINIGAMES;
+  let minigameQueueRegionId = null;
+  let lastMinigame = null;
+
+  function buildMinigamePool() {
+    const regionGames = REGION_MINIGAMES[state.regionId];
+    return regionGames && regionGames.length ? [...MINIGAMES, ...regionGames] : MINIGAMES;
+  }
 
   function refillMinigameQueue() {
-    minigameQueue = MINIGAMES.map((_, i) => i);
+    currentMinigamePool = buildMinigamePool();
+    minigameQueueRegionId = state.regionId;
+    minigameQueue = currentMinigamePool.map((_, i) => i);
     for (let i = minigameQueue.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [minigameQueue[i], minigameQueue[j]] = [minigameQueue[j], minigameQueue[i]];
     }
-    if (minigameQueue.length > 1 && minigameQueue[minigameQueue.length - 1] === lastMinigameIndex) {
+    // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
+    // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
+    // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
+    if (minigameQueue.length > 1 && currentMinigamePool[minigameQueue[minigameQueue.length - 1]] === lastMinigame) {
       [minigameQueue[0], minigameQueue[minigameQueue.length - 1]] = [minigameQueue[minigameQueue.length - 1], minigameQueue[0]];
     }
   }
 
-  // every one of the general minigames plays exactly once per shuffled
-  // cycle, instead of plain random picks that can (fairly) still streak
-  // one minigame over another in any short run of plays
-  function pickGeneralMinigame() {
-    if (minigameQueue.length === 0) refillMinigameQueue();
-    const idx = minigameQueue.pop();
-    lastMinigameIndex = idx;
-    return MINIGAMES[idx];
-  }
-
+  // 「ぜんぶ 出きるまで おなじ ものを くりかえさない」しくみは そのまま、
+  // いま いる地域の あそびも まぜた プールぜんたいに たいして はたらく
   function pickRandomMinigame() {
-    const regionGames = REGION_MINIGAMES[state.regionId];
-    if (regionGames && regionGames.length && Math.random() < REGION_MINIGAME_CHANCE) {
-      let pick = regionGames[Math.floor(Math.random() * regionGames.length)];
-      if (regionGames.length > 1 && pick === lastRegionMinigame) {
-        pick = regionGames[(regionGames.indexOf(pick) + 1) % regionGames.length];
-      }
-      lastRegionMinigame = pick;
-      return pick;
+    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId) {
+      refillMinigameQueue();
     }
-    return pickGeneralMinigame();
+    const idx = minigameQueue.pop();
+    const game = currentMinigamePool[idx];
+    lastMinigame = game;
+    return game;
   }
 
   function resultMessageForScore(score) {
