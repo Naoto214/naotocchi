@@ -449,6 +449,7 @@
         minigamesPlayed: 0,
         sicknessCured: 0,
         maxAgeReached: 0,
+        resets: 0,
       },
       achievementsUnlocked: [],
     };
@@ -517,6 +518,44 @@
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: 'ねんれい50に とうたつした', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
+
+    // ここから追加分 - しんか/たいか/へんしん/クリア/しぼう/ミニゲーム/かんびょう/
+    // ねんれいの さらに上の きろく、ずかんの とちゅうけいか、レアしゅぞく・
+    // ぜんしゅぞくとの であい、1しょうがいの お世話がんばりカウント、
+    // せいかく(やさしい/ゆうかん/ロマンチック)のかたより、「はじめから」の
+    // かいすう、と ジャンルを ひろげて 目標を たくさん 用意する
+    { id: 'evolve-100', emoji: '🌲', label: 'しんかの きわみ', desc: '100かい しんかした', condition: (l) => l.evolutions >= 100 },
+    { id: 'devolve-1', emoji: '👶', label: 'はじめての たいか', desc: 'はじめて たいかした', condition: (l) => l.devolutions >= 1 },
+    { id: 'devolve-20', emoji: '😵‍💫', label: 'たいかの ぬし', desc: '20かい たいかした', condition: (l) => l.devolutions >= 20 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん マイスター', desc: '25かい へんしんした', condition: (l) => l.transforms >= 25 },
+    { id: 'clear-10', emoji: '👑', label: 'てんごくの じょうきゃく', desc: '10かい ゲームクリアした', condition: (l) => l.clears >= 10 },
+    { id: 'clear-25', emoji: '🎖️', label: 'クリアの でんせつ', desc: '25かい ゲームクリアした', condition: (l) => l.clears >= 25 },
+    { id: 'death-5', emoji: '💀', label: 'なんども おわかれ', desc: '5かい てんごくに いった', condition: (l) => l.deaths >= 5 },
+    { id: 'death-10', emoji: '⚰️', label: 'てんごくの じょうれんきゃく', desc: '10かい てんごくに いった', condition: (l) => l.deaths >= 10 },
+    { id: 'minigame-1000', emoji: '🎰', label: 'あそびの でんせつ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'sick-cured-1', emoji: '💉', label: 'はじめての かんびょう', desc: 'はじめて びょうきを なおした', condition: (l) => l.sicknessCured >= 1 },
+    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいの たまご(じょうきゅう)', desc: 'びょうきを 30かい なおした', condition: (l) => l.sicknessCured >= 30 },
+    { id: 'age-10', emoji: '🐣', label: 'ひよっこ そだち', desc: 'ねんれい10に とうたつした', condition: (l) => l.maxAgeReached >= 10 },
+    { id: 'age-25', emoji: '🌼', label: 'すくすく せいちょう', desc: 'ねんれい25に とうたつした', condition: (l) => l.maxAgeReached >= 25 },
+    { id: 'dex-25', emoji: '📗', label: 'ずかんの はじまり', desc: 'ずかんを 25しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 25 },
+    { id: 'dex-50', emoji: '📘', label: 'ずかん なかば', desc: 'ずかんを 50しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 50 },
+    { id: 'dex-100', emoji: '📙', label: 'ずかん たいはん', desc: 'ずかんを 100しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 100 },
+    { id: 'dex-150', emoji: '📕', label: 'ずかん もうすぐ', desc: 'ずかんを 150しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 150 },
+    { id: 'rare-line-1', emoji: '🌈', label: 'レアな であい', desc: 'レアな しゅぞく(かみさま/れんくん/にんぎょ/ユニコーン/フェニックス)に 1かい であった', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
+    { id: 'rare-line-all', emoji: '🎇', label: 'でんせつ コレクター', desc: 'レアな しゅぞく5しゅるい すべてに であった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
+    { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつ はかせ', desc: 'ふつうの16しゅぞく すべてに であった', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
+    { id: 'elder-collector', emoji: '👴', label: 'ちょうろう はかせ', desc: '10しゅるい いじょうの さいごの すがたに であった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
+    { id: 'feed-100', emoji: '🍚', label: 'ごはん だいすき', desc: '1しょうがいで ごはんを 100かい あげた', condition: (l, s) => s.actionCounts.feed >= 100 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびじょうず', desc: '1しょうがいで 100かい あそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
+    { id: 'clean-50', emoji: '🧹', label: 'そうじの プロ', desc: '1しょうがいで そうじを 50かい した', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'pet-100', emoji: '🤲', label: 'なでなで まめ', desc: '1しょうがいで なでるを 100かい した', condition: (l, s) => s.actionCounts.pet >= 100 },
+    { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: '1しょうがいで はなしかけるを 100かい した', condition: (l, s) => s.actionCounts.talk >= 100 },
+    { id: 'medicine-30', emoji: '🩹', label: 'かんごし はだし', desc: '1しょうがいで くすりを 30かい あげた', condition: (l, s) => s.actionCounts.medicine >= 30 },
+    { id: 'gentle-10', emoji: '💗', label: 'やさしい こころ', desc: 'やさしい せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.gentle >= 10 },
+    { id: 'brave-10', emoji: '🦁', label: 'ゆうかんな こころ', desc: 'ゆうかんな せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.brave >= 10 },
+    { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ロマンチックな せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.romantic >= 10 },
+    { id: 'reset-5', emoji: '🔄', label: 'なんども ちょうせん', desc: '「はじめから」を 5かい した', condition: (l) => (l.resets || 0) >= 5 },
+    { id: 'reset-20', emoji: '♾️', label: 'むげんループの たび', desc: '「はじめから」を 20かい した', condition: (l) => (l.resets || 0) >= 20 },
   ];
 
   function checkAchievements() {
@@ -1302,14 +1341,17 @@
 
   // じっせき: shows every achievement with its unlock condition, revealing
   // the description only once state.achievementsUnlocked contains its id
+  // ずかんとちがい、じっせきは「なにを たっせいすれば いいか」が わからな
+  // いと 目指しようが ないので、ラベル・せつめい文は 未達成でも つねに 見
+  // せる。達成ずみかどうかは ❓ に すりかえるのではなく、カードの いろ
+  // (ach-cell.locked のグレー ⇔ 達成いろ)だけで 判別する
   function renderAchievements() {
     const unlockedCount = state.achievementsUnlocked.length;
     el.achProgress.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
     el.achGrid.innerHTML = ACHIEVEMENTS.map((ach) => {
       const known = state.achievementsUnlocked.includes(ach.id);
-      return known
-        ? `<div class="ach-cell known"><span class="ach-cell-emoji">${ach.emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`
-        : `<div class="ach-cell locked"><span class="ach-cell-emoji">❓</span><div class="ach-cell-text"><span class="ach-cell-label">？？？</span></div></div>`;
+      const emoji = known ? ach.emoji : '🔒';
+      return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
     }).join('');
   }
 
@@ -4603,6 +4645,8 @@
     // reset even though every other stat starts over from scratch
     const discoveredStages = state.discoveredStages;
     const lifetime = state.lifetime;
+    // 古いセーブデータには resets フィールドが無いので || 0 で補う
+    lifetime.resets = (lifetime.resets || 0) + 1;
     const achievementsUnlocked = state.achievementsUnlocked;
     state = freshState();
     state.discoveredStages = discoveredStages;

@@ -863,22 +863,37 @@ body {
   gap: 6px;
 }
 
+/* 達成ずみ/未達成は、内容を隠す(❓)のではなく カードの いろで しめす。
+   達成ずみ = 金いろの トロフィーカード、未達成 = グレーの ロックカード */
 .ach-cell {
   display: flex;
   align-items: center;
   gap: 8px;
   border-radius: 8px;
   padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.ach-cell.known {
+  background: linear-gradient(135deg, #fff6d9, #ffe27a);
+  border-color: #ffc400;
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.4);
 }
 
 .ach-cell.locked {
-  opacity: 0.5;
+  background: rgba(120, 120, 120, 0.15);
+  border-color: rgba(120, 120, 120, 0.3);
 }
 
 .ach-cell-emoji {
   font-size: 22px;
   flex-shrink: 0;
+}
+
+.ach-cell.locked .ach-cell-emoji {
+  filter: grayscale(1);
+  opacity: 0.7;
 }
 
 .ach-cell-text {
@@ -891,6 +906,11 @@ body {
 .ach-cell-label {
   font-size: 10px;
   font-weight: bold;
+}
+
+.ach-cell.locked .ach-cell-label,
+.ach-cell.locked .ach-cell-desc {
+  color: #616161;
 }
 
 .ach-cell-desc {
