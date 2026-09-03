@@ -83,6 +83,19 @@ body {
   image-rendering: pixelated;
 }
 
+/* えらんだ がめんの いろ。びょうき/しぼう/レインボーモードの いろが
+   優先されるよう、この規則を それらより 先に 書いておく(すべて クラス
+   2つぶんの 詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
+.screen.theme-sky { background: #8ecbe8; }
+.screen.theme-mint { background: #8de8c0; }
+.screen.theme-lavender { background: #c9b3f0; }
+.screen.theme-lemon { background: #f0e28d; }
+.screen.theme-charcoal { background: #8a9a8a; }
+.screen.theme-sunset { background: #f0b98d; }
+.screen.theme-forest { background: #6fae7a; }
+.screen.theme-gold { background: #e8cf7a; }
+.screen.theme-aurora { background: linear-gradient(120deg, #ffb3d9, #ffe29a, #b3ffcf, #b3e0ff); }
+
 /* 4つのクリアパターンを ぜんぶ 集めた ごほうび。 びょうき/しぼう の
    いろが 優先されるよう、この規則を それらより 先に 書いておく
    (どちらも クラス2つぶんの 詳細度で 同じなので、あとに 書いた ほうが 勝つ) */
@@ -942,6 +955,86 @@ body {
   font-size: 8px;
   opacity: 0.8;
 }
+
+/* --- いろ選択 --- */
+
+.theme-section {
+  margin-bottom: 10px;
+}
+
+.theme-section-title {
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.theme-swatch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  border: none;
+  background: none;
+  padding: 2px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.theme-swatch-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.5), inset 0 -2px 3px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.theme-swatch.selected .theme-swatch-circle {
+  border-color: #ffc400;
+  box-shadow: 0 0 0 2px #ffc400, inset 0 2px 3px rgba(255, 255, 255, 0.5);
+}
+
+.theme-swatch-label {
+  font-size: 8px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.theme-swatch.locked {
+  cursor: default;
+}
+
+.theme-swatch.locked .theme-swatch-circle {
+  background: rgba(120, 120, 120, 0.25) !important;
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.theme-swatch.locked .theme-swatch-label {
+  color: #616161;
+}
+
+/* --- ほんたい・がめんの いろテーマ --- */
+
+.device.theme-sky { background: linear-gradient(160deg, #9ecbff 0%, #6fa8ff 45%, #4f7ff4 100%); }
+.device.theme-mint { background: linear-gradient(160deg, #9effc9 0%, #5fe0a0 45%, #34c37f 100%); }
+.device.theme-lavender { background: linear-gradient(160deg, #d8b8ff 0%, #b98aff 45%, #8f5ff0 100%); }
+.device.theme-lemon { background: linear-gradient(160deg, #fff3a0 0%, #ffe066 45%, #f7c948 100%); }
+.device.theme-charcoal { background: linear-gradient(160deg, #6b6b6b 0%, #444444 45%, #2a2a2a 100%); }
+.device.theme-sunset { background: linear-gradient(160deg, #ffb677 0%, #ff8965 45%, #ff5f7e 100%); }
+.device.theme-forest { background: linear-gradient(160deg, #7fd99a 0%, #4caf6e 45%, #2e7d4f 100%); }
+.device.theme-gold { background: linear-gradient(160deg, #fff2c2 0%, #ffd76a 45%, #e0a939 100%); }
+.device.theme-aurora { background: linear-gradient(160deg, #ff9ecb 0%, #a78bfa 30%, #60d0ff 60%, #6dffb0 100%); }
 
 /* --- minigames --- */
 
