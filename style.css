@@ -1471,6 +1471,13 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   text-align: center;
 }
 
+.shop-item-desc {
+  font-size: 8px;
+  color: #4a6b4f;
+  text-align: center;
+  line-height: 1.2;
+}
+
 .shop-item-status {
   font-size: 9px;
   color: #616161;
