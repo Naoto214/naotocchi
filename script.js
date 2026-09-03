@@ -403,6 +403,13 @@
     achGrid: document.getElementById('achGrid'),
     achProgress: document.getElementById('achProgress'),
     achCloseBtn: document.getElementById('achCloseBtn'),
+    device: document.getElementById('device'),
+    themeBtn: document.getElementById('themeBtn'),
+    themeOverlay: document.getElementById('themeOverlay'),
+    themeProgress: document.getElementById('themeProgress'),
+    themeCloseBtn: document.getElementById('themeCloseBtn'),
+    deviceThemeGrid: document.getElementById('deviceThemeGrid'),
+    screenThemeGrid: document.getElementById('screenThemeGrid'),
   };
 
   function freshState() {
@@ -455,6 +462,10 @@
         // (across any playthrough) - drives the permanent badge row on the
         // normal screen and the rainbow screen once all 4 are collected
         endingTiersReached: [],
+        // えらんだ ほんたい・がめんの いろ(COLOR_THEMES の id) - じっせき/
+        // ずかんと おなじく「はじめから」しても消えない、永続の せってい
+        deviceThemeId: 'default',
+        screenThemeId: 'default',
       },
       achievementsUnlocked: [],
     };
@@ -615,6 +626,27 @@
       desc: 'ずかんも じっせきも すべて そろえて、かんぺきに そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
     },
   ];
+
+  // 本体・がめんの いろを えらべる きのう。さいしょの6しょくは いつでも
+  // えらべ、のこり4しょくは 4段階の クリアパターン(ENDING_TIERS、上の
+  // endingTiersReached)を それぞれ 一度でも たっせいすると てにはいる、
+  // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス)
+  const COLOR_THEMES = [
+    { id: 'default', label: 'もも', swatch: '#ff7ab8' },
+    { id: 'sky', label: 'そら', swatch: '#6fa8ff' },
+    { id: 'mint', label: 'ミント', swatch: '#5fe0a0' },
+    { id: 'lavender', label: 'ラベンダー', swatch: '#b98aff' },
+    { id: 'lemon', label: 'レモン', swatch: '#ffe066' },
+    { id: 'charcoal', label: 'すみいろ', swatch: '#444444' },
+    { id: 'sunset', label: 'ゆうやけ', swatch: '#ff8965', unlockTier: 0 },
+    { id: 'forest', label: 'しんりん', swatch: '#4caf6e', unlockTier: 1 },
+    { id: 'gold', label: 'おうごん', swatch: '#ffd76a', unlockTier: 2 },
+    { id: 'aurora', label: 'オーロラ', swatch: '#a78bfa', unlockTier: 3 },
+  ];
+
+  function isThemeUnlocked(theme) {
+    return theme.unlockTier === undefined || state.lifetime.endingTiersReached.includes(theme.unlockTier);
+  }
 
   function getEndingTier() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
@@ -1236,12 +1268,25 @@
     return stages?.[state.stageIndex]?.label || '';
   }
 
+  // COLOR_THEMES の えらんだ id を .device / .screen の class に反映する。
+  // ロックされた/存在しない id が しれっと 残っていても(セーブデータ改変
+  // など)、その場合は もも(default)に フォールバックする
+  function applyTheme() {
+    const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t));
+    const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t));
+    COLOR_THEMES.forEach((t) => {
+      el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
+      el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
+    });
+  }
+
   function render() {
     const isDead = state.stage === STAGE.DEAD;
     const isClear = state.stage === STAGE.CLEAR;
     const isEgg = state.stage === STAGE.EGG;
     const isOver = isDead || isClear;
 
+    applyTheme();
     el.pet.textContent = currentSprite();
     el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
     el.stageLabel.textContent = currentStageLabel();
@@ -1316,6 +1361,7 @@
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
     el.achBtn.disabled = gameActive || hasTransformChoice;
+    el.themeBtn.disabled = gameActive || hasTransformChoice;
 
     el.dexOverlay.classList.toggle('hidden', !dexOpen);
     if (dexOpen) renderDex();
@@ -1323,11 +1369,15 @@
     el.achOverlay.classList.toggle('hidden', !achOpen);
     if (achOpen) renderAchievements();
 
+    el.themeOverlay.classList.toggle('hidden', !themeOpen);
+    if (themeOpen) renderThemeOverlay();
+
     renderItemsRow(disableCare);
   }
 
   let dexOpen = false;
   let achOpen = false;
+  let themeOpen = false;
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
   // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
@@ -1377,6 +1427,32 @@
       const emoji = known ? ach.emoji : '🔒';
       return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
     }).join('');
+  }
+
+  function renderThemeSwatchGrid(gridEl, selectedId) {
+    gridEl.innerHTML = COLOR_THEMES.map((t) => {
+      const unlocked = isThemeUnlocked(t);
+      const selected = unlocked && t.id === selectedId;
+      const circleStyle = unlocked ? ` style="background:${t.swatch}"` : '';
+      const label = unlocked ? t.label : '？？？';
+      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle"${circleStyle}>${unlocked ? '' : '🔒'}</span><span class="theme-swatch-label">${label}</span></button>`;
+    }).join('');
+  }
+
+  function renderThemeOverlay() {
+    const unlockedCount = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
+    el.themeProgress.textContent = `${unlockedCount} / ${COLOR_THEMES.length}`;
+    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId);
+    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId);
+  }
+
+  function selectTheme(target, id) {
+    const theme = COLOR_THEMES.find((t) => t.id === id);
+    if (!theme || !isThemeUnlocked(theme)) return;
+    if (target === 'device') state.lifetime.deviceThemeId = id;
+    else state.lifetime.screenThemeId = id;
+    saveState();
+    render();
   }
 
   // the GAME CLEAR overlay's grandeur scales with getEndingTier() - re-runs
@@ -4485,6 +4561,7 @@
     el.talkBtn.disabled = true;
     el.dexBtn.disabled = true;
     el.achBtn.disabled = true;
+    el.themeBtn.disabled = true;
     game.start(el.minigameOverlay, finishMinigame);
   }
 
@@ -4706,6 +4783,28 @@
   el.achCloseBtn.addEventListener('click', () => {
     achOpen = false;
     render();
+  });
+
+  el.themeBtn.addEventListener('click', () => {
+    themeOpen = true;
+    render();
+  });
+
+  el.themeCloseBtn.addEventListener('click', () => {
+    themeOpen = false;
+    render();
+  });
+
+  el.deviceThemeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectTheme('device', btn.dataset.id);
+  });
+
+  el.screenThemeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectTheme('screen', btn.dataset.id);
   });
 
   function loop() {

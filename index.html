@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260903">
+<link rel="stylesheet" href="style.css?v=20260903-2">
 </head>
 <body>
-  <div class="device">
+  <div class="device" id="device">
     <div class="device-top">
       <div class="lamp" id="lamp"></div>
     </div>
@@ -108,6 +108,22 @@
           <div class="ach-grid" id="achGrid"></div>
         </div>
 
+        <div class="dex-overlay hidden" id="themeOverlay">
+          <div class="dex-header">
+            <span class="dex-title">いろ</span>
+            <span class="dex-progress" id="themeProgress">0 / 10</span>
+            <button class="dex-close-btn" id="themeCloseBtn">✕</button>
+          </div>
+          <div class="theme-section">
+            <div class="theme-section-title">ほんたいの いろ</div>
+            <div class="theme-grid" id="deviceThemeGrid"></div>
+          </div>
+          <div class="theme-section">
+            <div class="theme-section-title">がめんの いろ</div>
+            <div class="theme-grid" id="screenThemeGrid"></div>
+          </div>
+        </div>
+
         <div class="game-clear-overlay hidden" id="gameClearOverlay">
           <div class="game-clear-confetti" id="gameClearConfettiTop">🎉🎊✨🎉🎊✨</div>
           <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
@@ -129,10 +145,11 @@
       <button id="talkBtn" title="はなしかける">💬<br><span>はなす</span></button>
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
+      <button id="themeBtn" title="いろ">🎨<br><span>いろ</span></button>
       <button id="resetBtn" title="リセット" class="hidden">🔄<br><span>はじめから</span></button>
     </div>
   </div>
 
-  <script src="script.js?v=20260903"></script>
+  <script src="script.js?v=20260903-2"></script>
 </body>
 </html>
