@@ -351,6 +351,7 @@
 
   const el = {
     pet: document.getElementById('pet'),
+    petArea: document.getElementById('petArea'),
     ageLabel: document.getElementById('ageLabel'),
     stageLabel: document.getElementById('stageLabel'),
     hungerBar: document.getElementById('hungerBar'),
@@ -794,7 +795,7 @@
       state.stage = STAGE.GROWING;
       state.stageIndex = 0;
       setMessage('たまごがかえった!');
-      bouncePet();
+      emotePet('happy');
       return true;
     }
     if (state.stage === STAGE.GROWING) {
@@ -803,7 +804,7 @@
       if (!next || state.age < next.threshold) return false;
       state.stageIndex += 1;
       setMessage(next.message || `${next.label}に なった!`);
-      bouncePet();
+      emotePet('fun');
       return true;
     }
     return false;
@@ -837,7 +838,7 @@
     state.stageIndex -= 1;
     state.age = stages[state.stageIndex].threshold;
     setMessage(`${stages[state.stageIndex].label}に もどってしまった…`);
-    bouncePet();
+    emotePet('sad');
     return true;
   }
 
@@ -1004,11 +1005,75 @@
     }
   }
 
+  // each mood gets its own hop/wobble plus a couple of floating emoji -
+  // a small, immediate (100% of the time) layer of feedback that sits
+  // alongside the bigger but rarer full-screen STORY_EVENT_POOLS flashes
+  const EMOTE_CONFIG = {
+    happy: { animClass: 'emote-happy', particles: ['💖', '✨'], duration: 620 },
+    fun: { animClass: 'emote-fun', particles: ['🎉', '✨'], duration: 720 },
+    sad: { animClass: 'emote-sad', particles: ['😢', '💧'], duration: 720 },
+    angry: { animClass: 'emote-angry', particles: ['💢'], duration: 520 },
+  };
+  const EMOTE_CLASSES = Object.values(EMOTE_CONFIG).map((cfg) => cfg.animClass);
+
+  // tracks when the pet's current animation finishes, so the idle-perk
+  // timer below knows not to interrupt a bounce/emote already in progress
+  let petBusyUntil = 0;
+
   function bouncePet() {
-    el.pet.classList.remove('bounce');
+    el.pet.classList.remove('bounce', ...EMOTE_CLASSES);
     // force reflow to restart animation
     void el.pet.offsetWidth;
     el.pet.classList.add('bounce');
+    petBusyUntil = Date.now() + 500;
+  }
+
+  function emotePet(kind) {
+    const cfg = EMOTE_CONFIG[kind];
+    if (!cfg) {
+      bouncePet();
+      return;
+    }
+    el.pet.classList.remove('bounce', ...EMOTE_CLASSES);
+    void el.pet.offsetWidth;
+    el.pet.classList.add(cfg.animClass);
+    petBusyUntil = Date.now() + cfg.duration;
+    setTimeout(() => el.pet.classList.remove(cfg.animClass), cfg.duration);
+    spawnEmoteParticles(cfg.particles);
+  }
+
+  function spawnEmoteParticles(pool) {
+    if (!el.petArea) return;
+    const count = 1 + Math.floor(Math.random() * 2);
+    for (let i = 0; i < count; i++) {
+      const span = document.createElement('span');
+      span.className = 'emote-particle';
+      span.textContent = pool[Math.floor(Math.random() * pool.length)];
+      span.style.left = `${45 + Math.random() * 10}%`;
+      span.style.setProperty('--drift', `${Math.round(Math.random() * 40 - 20)}px`);
+      span.style.animationDelay = `${i * 90}ms`;
+      span.addEventListener('animationend', () => span.remove());
+      el.petArea.appendChild(span);
+    }
+  }
+
+  // occasional idle動作(小さなジャンプ・首かしげ)を数秒おきにランダム発火し、
+  // 何もしていない通常画面でもキャラが生きて見えるようにする
+  function scheduleIdlePerk() {
+    const delay = 4000 + Math.random() * 5000;
+    setTimeout(() => {
+      const idleOk = !gameActive
+        && state.stage !== STAGE.DEAD
+        && state.stage !== STAGE.CLEAR
+        && state.stage !== STAGE.EGG
+        && Date.now() >= petBusyUntil;
+      if (idleOk) {
+        el.pet.classList.add('idle-perk');
+        petBusyUntil = Date.now() + 520;
+        setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
+      }
+      scheduleIdlePerk();
+    }, delay);
   }
 
   function barClass(value) {
@@ -1079,6 +1144,7 @@
 
     el.screen.classList.toggle('dead', isDead);
     el.screen.classList.toggle('sick', state.isSick && !isOver);
+    el.screen.classList.toggle('sleeping', state.isSleeping && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
     el.gameClearOverlay.classList.toggle('hidden', !isClear);
     if (isClear) renderEnding();
@@ -1197,7 +1263,7 @@
     const stage = SPECIES[line].stages[state.stageIndex];
     setMessage(`${stage.label}に へんしんした!`);
     checkStoryEvents('transform');
-    bouncePet();
+    emotePet('fun');
     saveState();
     render();
   }
@@ -1247,7 +1313,7 @@
     if (state.items[itemId] <= 0) delete state.items[itemId];
     state.deathMeter = clamp(state.deathMeter - item.heal, 0, 100);
     setMessage(`${item.emoji}${item.label}で げんきに なった!`);
-    bouncePet();
+    emotePet('happy');
     saveState();
     render();
   }
@@ -4050,7 +4116,7 @@
     if (isGreat) checkStoryEvents('minigame-great');
     else if (isBad) checkStoryEvents('minigame-bad');
 
-    bouncePet();
+    emotePet(isGreat ? 'fun' : isBad ? 'sad' : 'happy');
     checkMeters();
     saveState();
     render();
@@ -4107,7 +4173,7 @@
       }
       checkStoryEvents('overfeed');
       checkMeters();
-      bouncePet();
+      emotePet('angry');
       return;
     }
     state.happiness = clamp(state.happiness + 3, 0, 100);
@@ -4116,7 +4182,7 @@
     if (!checkMeters()) {
       setMessage('もぐもぐ おいしい!');
     }
-    bouncePet();
+    emotePet('happy');
   }));
 
   el.playBtn.addEventListener('click', () => {
@@ -4154,6 +4220,7 @@
     if (!checkMeters()) {
       setMessage('おそうじ できた!');
     }
+    emotePet('happy');
   }));
 
   el.sleepBtn.addEventListener('click', withFeedback(() => {
@@ -4169,6 +4236,7 @@
     if (!checkMeters()) {
       setMessage('おはよう!');
     }
+    emotePet('happy');
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
@@ -4186,6 +4254,7 @@
       if (!checkMeters()) {
         setMessage('げんきに なった!');
       }
+      emotePet('happy');
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
@@ -4193,6 +4262,7 @@
       if (!checkMeters()) {
         setMessage('びょうきじゃないのに… いやがっている');
       }
+      emotePet('angry');
     }
   }));
 
@@ -4221,6 +4291,7 @@
     if (!checkMeters()) {
       setMessage(reaction);
     }
+    emotePet(spammed ? 'angry' : 'happy');
   }));
 
   el.talkBtn.addEventListener('click', withFeedback(() => {
@@ -4245,6 +4316,7 @@
     if (!checkMeters()) {
       setMessage(reaction);
     }
+    emotePet(spammed ? 'angry' : 'happy');
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
@@ -4303,6 +4375,7 @@
   saveState();
   render();
   setInterval(loop, TICK_MS);
+  scheduleIdlePerk();
 
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
