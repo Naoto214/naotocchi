@@ -610,8 +610,8 @@ body {
 
 .dex-row {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 3px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
 }
 
 .dex-cell {
@@ -619,8 +619,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1px;
-  border-radius: 6px;
-  padding: 3px 1px;
+  border-radius: 5px;
+  padding: 2px 1px;
   background: rgba(255, 255, 255, 0.6);
 }
 
@@ -629,11 +629,11 @@ body {
 }
 
 .dex-cell-emoji {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .dex-cell-label {
-  font-size: 7px;
+  font-size: 6px;
   font-weight: bold;
   text-align: center;
   line-height: 1.1;
