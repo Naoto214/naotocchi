@@ -862,6 +862,16 @@
 
   const MESSAGE_DURATION_MS = 4200;
 
+  // GENDERS/ORIENTATION_ROLL_POOL は 本来 もっと したの せいべつ関係の
+  // まとまりで 定義しているが、loadState() が(gender の ない ふるい
+  // セーブを いま ここで ロールしなおす ために)rollIdentity() 経由で
+  // すぐ したで つかうので、const の TDZ(まだ 初期化されていない
+  // じょうたいで 参照すると ReferenceError に なる せいしつ)に
+  // ひっかからないよう、この2つだけ ここで さきに 定義しておく
+  const GENDERS = ['male', 'female', 'nonbinary'];
+  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
+  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
+
   let state = loadState();
   let message = '';
   let gameActive = false;
@@ -1024,7 +1034,9 @@
   // 限らず どのせいべつにも どのれんあいタイプも 原則 わりあてられる
   // (下の attractedToFor が それぞれに ちゃんと いみのある あいて候補を
   // かえす)
-  const GENDERS = ['male', 'female', 'nonbinary'];
+  // GENDERS/RESOLVED_ORIENTATIONS/ORIENTATION_ROLL_POOL は、loadState()
+  // からも つかわれる ため、この ファイルの ずっと うえのほう(state を
+  // ロールする ちょくぜん)で すでに 定義ずみ
   const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
   const ORIENTATION_LABELS = {
     straight: 'ストレート',
@@ -1034,12 +1046,6 @@
     aro: 'アロマンティック',
     questioning: 'クエスチョニング',
   };
-  // rollIdentity() / checkQuestioningResolution() の ロールたいしょう。
-  // questioning は「まだ さがしている とちゅう」の じょうたいなので、
-  // ここから さらに べつの タイプへ おちつくことは あっても、
-  // questioning じたいへ もどることは ない
-  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
-  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
 
   // gender+orientationId から「だれに ひかれるか」を くみたてる。
   // ストレート/ゲイは 男の子・女の子には これまでどおり「ちがう/おなじ
