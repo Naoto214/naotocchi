@@ -2706,6 +2706,22 @@
       goodItems: ['🍭', '🍩', '🧁', '🍫'],
       badItems: ['🌶️', '🔥', '🥵', '🍛'],
     }),
+    // なつかしい 配管工アクションの「キノコと コインを あつめて とげは
+    // よける」あそびごこちを モチーフにした オマージュ
+    makeCatchGame({
+      title: 'コイン&キノコだいぼうけん!とげは キケン',
+      basketEmoji: '🧢',
+      goodItems: ['🍄', '🪙', '⭐', '🌼'],
+      badItems: ['🐢', '💣', '🔥', '⚡'],
+    }),
+    // なつかしい 冒険アクションの「ダンジョンで おたからを あつめる」
+    // あそびごこちを モチーフにした オマージュ
+    makeCatchGame({
+      title: 'ダンジョンの たからさがし!トゲトゲは あぶない',
+      basketEmoji: '🛡️',
+      goodItems: ['💎', '💰', '🗝️', '🍯'],
+      badItems: ['💀', '🦂', '🕷️', '☠️'],
+    }),
   ];
 
   // shared factory behind every whack-a-mole style minigame - only the
@@ -2803,6 +2819,12 @@
     makeWhackGame({ title: 'とびだす むしを タップ!', targetEmoji: '🐞' }),
     makeWhackGame({ title: 'とびだす おばけを タップ!', targetEmoji: '👻' }),
     makeWhackGame({ title: 'とびだす ひよこを タップ!', targetEmoji: '🐥' }),
+    // なつかしい 配管工アクションの「?ブロックを たたく」を モチーフにした
+    // オマージュ。商標キャラの名まえは つかわず、モチーフだけ お借りする
+    makeWhackGame({ title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' }),
+    // かくとうアクションの「ライバルを ふっとばす」あそびごこちを タップの
+    // テンポで オマージュ
+    makeWhackGame({ title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' }),
   ];
 
   // shared factory behind every timing-bar minigame - only the title, tap
@@ -2925,6 +2947,9 @@
     makeTimingGame({ title: 'ちょうどいい タイミングで タップ!', tapLabel: 'タップ!', gaugeStyle: '#6fae5f' }),
     makeTimingGame({ title: 'ジャストタイミングを ねらえ!', tapLabel: 'ここだ!', gaugeStyle: '#4a90d9' }),
     makeTimingGame({ title: 'リズムに あわせて タップ!', tapLabel: 'いくよ!', gaugeStyle: '#c76fc9' }),
+    // かくとうアクションの「ジャストタイミングで ためて はなつ スマッシュ
+    // こうげき」あそびごこちを モチーフにした オマージュ
+    makeTimingGame({ title: 'スマッシュこうげき!タイミングよく ためて はなとう', tapLabel: 'スマッシュ!', gaugeStyle: '#ff6b3d' }),
   ];
 
   const QUIZ_QUESTIONS = [
@@ -4746,6 +4771,9 @@
   const MAZE_GAME_VARIANTS = [
     makeMazeGame({ title: 'もりの めいろを ぬけよう!', pathEmojiPair: ['🌲', '🍄'] }),
     makeMazeGame({ title: 'ほらあなの めいろを すすもう!', pathEmojiPair: ['🪨', '💧'] }),
+    // なつかしい 冒険アクションの「ダンジョンの わかれみちを すすんで
+    // たからばこを めざす」あそびごこちを モチーフにした オマージュ
+    makeMazeGame({ title: 'ダンジョンの わかれみちで たからばこを めざそう!', pathEmojiPair: ['🚪', '🗝️'] }),
   ];
 
   // --- いろわけ・しわけ ---
@@ -4817,6 +4845,9 @@
   const SORT_GAME_VARIANTS = [
     makeSortGame({ title: 'くだものだけ タップしよう!', targetEmoji: '🍎', otherEmojis: ['🐛', '🪲', '🐌', '🕷️'] }),
     makeSortGame({ title: 'あおい ものだけ タップしよう!', targetEmoji: '🔵', otherEmojis: ['🔴', '🟡', '🟢', '🟣'] }),
+    // なつかしい 冒険アクションの「ハートを あつめて たいりょくを
+    // かいふくする」あそびごこちを モチーフにした オマージュ
+    makeSortGame({ title: 'ハートだけ タップして たいりょくを かいふく!', targetEmoji: '❤️', otherEmojis: ['💀', '👹', '🦇', '🕸️'] }),
   ];
 
   // --- ハイ&ロー ---
@@ -5330,6 +5361,9 @@
   const JUMP_GAME_VARIANTS = [
     makeJumpGame({ title: 'タイミングよく ジャンプしよう!', obstacleEmoji: '🪨' }),
     makeJumpGame({ title: 'とんでくる ものを よけよう!', obstacleEmoji: '🌵' }),
+    // なつかしい 配管工アクションの「ころがってくる こうらを ジャンプで
+    // よける」あそびごこちを モチーフにした オマージュ
+    makeJumpGame({ title: 'ころがってくる こうらを ジャンプで よけよう!', obstacleEmoji: '🐢' }),
   ];
 
   // --- いろのぐみあわせ ---
@@ -6001,6 +6035,10 @@
     makeFightGame({ title: 'ライバルの いぬと たいけつ!', opponentEmoji: '🐕‍🦺', opponentName: 'ライバルいぬ' }),
     makeFightGame({ title: 'なぞの にんじゃと たいけつ!', opponentEmoji: '🥷', opponentName: 'なぞのにんじゃ' }),
     makeFightGame({ title: 'きょうてきの とらと たいけつ!', opponentEmoji: '🐯', opponentName: 'きょうてきの とら' }),
+    // にんきキャラが おおぜい あつまる かくとうアクションの「オールスター
+    // たいかいで ライバルを ふっとばす」あそびごこちを モチーフにした
+    // オマージュ。商標キャラの名まえは つかわず、モチーフだけ お借りする
+    makeFightGame({ title: 'オールスターたいかいで ライバルを ふっとばせ!', opponentEmoji: '🥊', opponentName: 'にんきキャラの ライバル' }),
   ];
 
   // --- RPGふうバトル(コマンドせんたくで たたかう) ---
@@ -6256,44 +6294,47 @@
     ],
   };
 
-  const REGION_MINIGAME_CHANCE = 0.45;
-  let lastRegionMinigame = null;
-
+  // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
+  // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
+  // あつかう。だから 地域に いるあいだは その2種類も ほかと まったく
+  // おなじ かくりつで まざり、地域を はなれれば また ふつうの プールに
+  // もどる(おうちなど 専用あそびが ない地域では ふつうの プールのまま)
   let minigameQueue = [];
-  let lastMinigameIndex = -1;
+  let currentMinigamePool = MINIGAMES;
+  let minigameQueueRegionId = null;
+  let lastMinigame = null;
+
+  function buildMinigamePool() {
+    const regionGames = REGION_MINIGAMES[state.regionId];
+    return regionGames && regionGames.length ? [...MINIGAMES, ...regionGames] : MINIGAMES;
+  }
 
   function refillMinigameQueue() {
-    minigameQueue = MINIGAMES.map((_, i) => i);
+    currentMinigamePool = buildMinigamePool();
+    minigameQueueRegionId = state.regionId;
+    minigameQueue = currentMinigamePool.map((_, i) => i);
     for (let i = minigameQueue.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [minigameQueue[i], minigameQueue[j]] = [minigameQueue[j], minigameQueue[i]];
     }
-    if (minigameQueue.length > 1 && minigameQueue[minigameQueue.length - 1] === lastMinigameIndex) {
+    // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
+    // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
+    // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
+    if (minigameQueue.length > 1 && currentMinigamePool[minigameQueue[minigameQueue.length - 1]] === lastMinigame) {
       [minigameQueue[0], minigameQueue[minigameQueue.length - 1]] = [minigameQueue[minigameQueue.length - 1], minigameQueue[0]];
     }
   }
 
-  // every one of the general minigames plays exactly once per shuffled
-  // cycle, instead of plain random picks that can (fairly) still streak
-  // one minigame over another in any short run of plays
-  function pickGeneralMinigame() {
-    if (minigameQueue.length === 0) refillMinigameQueue();
-    const idx = minigameQueue.pop();
-    lastMinigameIndex = idx;
-    return MINIGAMES[idx];
-  }
-
+  // 「ぜんぶ 出きるまで おなじ ものを くりかえさない」しくみは そのまま、
+  // いま いる地域の あそびも まぜた プールぜんたいに たいして はたらく
   function pickRandomMinigame() {
-    const regionGames = REGION_MINIGAMES[state.regionId];
-    if (regionGames && regionGames.length && Math.random() < REGION_MINIGAME_CHANCE) {
-      let pick = regionGames[Math.floor(Math.random() * regionGames.length)];
-      if (regionGames.length > 1 && pick === lastRegionMinigame) {
-        pick = regionGames[(regionGames.indexOf(pick) + 1) % regionGames.length];
-      }
-      lastRegionMinigame = pick;
-      return pick;
+    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId) {
+      refillMinigameQueue();
     }
-    return pickGeneralMinigame();
+    const idx = minigameQueue.pop();
+    const game = currentMinigamePool[idx];
+    lastMinigame = game;
+    return game;
   }
 
   function resultMessageForScore(score) {
