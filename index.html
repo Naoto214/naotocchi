@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260903-15">
+<link rel="stylesheet" href="style.css?v=20260903-16">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -103,7 +103,14 @@
             <span class="dex-progress" id="dexProgress">0 / 168</span>
             <button class="dex-close-btn" id="dexCloseBtn">✕</button>
           </div>
-          <div class="dex-grid" id="dexGrid"></div>
+          <div class="dex-scroll">
+            <div class="dex-grid" id="dexGrid"></div>
+            <div class="dex-section-divider">
+              <span class="dex-section-title">なかま</span>
+              <span class="dex-progress" id="companionDexProgress">0 / 10</span>
+            </div>
+            <div class="companion-dex-row" id="companionDexGrid"></div>
+          </div>
         </div>
 
         <div class="dex-overlay hidden" id="achOverlay">
@@ -194,6 +201,8 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260903-15"></script>
+  <div class="companion-row" id="companionRow"></div>
+
+  <script src="script.js?v=20260903-16"></script>
 </body>
 </html>
