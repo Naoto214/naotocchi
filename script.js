@@ -5505,6 +5505,311 @@
     }),
   ];
 
+  // --- かくとうゲーム(タイミングよく こうげき/ガード) ---
+
+  // あいてが「こうげきの けはい」か「すき」かを ランダムに おりまぜて
+  // きて、その たびに みじかい はんのう時間の なかで「こうげき」か
+  // 「ガード」を えらぶ、HPゲージつきの リアルタイム対戦ゲーム
+  function makeFightGame({ title, opponentEmoji, opponentName }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 7;
+        const reactionMs = lerp(950, 500, difficulty);
+        const telegraphMs = lerp(550, 280, difficulty);
+        let round = 0;
+        let playerHP = 100;
+        let opponentHP = 100;
+        let resolved = false;
+        let running = true;
+        const timers = [];
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-fight-hp-row">
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">なおとっち</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill player" id="mgPlayerHP" style="width:100%"></div></div>
+            </div>
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">${opponentName}</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill enemy" id="mgEnemyHP" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="mg-fight-arena">
+            <span class="mg-fight-player" id="mgFightPlayer">${currentSprite()}</span>
+            <span class="mg-fight-tell hidden" id="mgFightTell">❗</span>
+            <span class="mg-fight-opponent" id="mgFightOpponent">${opponentEmoji}</span>
+          </div>
+          <div class="mg-fight-msg" id="mgFightMsg">サインを みて はんだんしよう!</div>
+          <div class="mg-fight-controls">
+            <button class="mg-tap-btn" id="mgAttackBtn" disabled>こうげき!</button>
+            <button class="mg-tap-btn" id="mgGuardBtn" disabled>ガード!</button>
+          </div>
+        `;
+
+        const playerHPEl = container.querySelector('#mgPlayerHP');
+        const enemyHPEl = container.querySelector('#mgEnemyHP');
+        const tellEl = container.querySelector('#mgFightTell');
+        const msgEl = container.querySelector('#mgFightMsg');
+        const attackBtn = container.querySelector('#mgAttackBtn');
+        const guardBtn = container.querySelector('#mgGuardBtn');
+        const playerEl = container.querySelector('#mgFightPlayer');
+        const opponentEl = container.querySelector('#mgFightOpponent');
+
+        function flashHit(el) {
+          el.classList.add('hit');
+          setTimeout(() => el.classList.remove('hit'), 200);
+        }
+
+        function endIfKO() {
+          if (opponentHP <= 0) { finish(true); return true; }
+          if (playerHP <= 0) { finish(false); return true; }
+          return false;
+        }
+
+        function finish(won) {
+          if (resolved) return;
+          resolved = true;
+          running = false;
+          timers.forEach(clearTimeout);
+          msgEl.textContent = won ? `${opponentName}に かった!` : `${opponentName}に まけて しまった…`;
+          attackBtn.disabled = true;
+          guardBtn.disabled = true;
+          const hpScore = clamp(playerHP - opponentHP, -100, 100);
+          const score = won ? clamp(70 + hpScore / 2, 70, 100) : clamp(30 + hpScore / 2, 0, 45);
+          timers.push(setTimeout(() => onComplete(Math.round(score)), 700));
+        }
+
+        function nextRound() {
+          if (!running || resolved) return;
+          round += 1;
+          if (round > ROUNDS) {
+            resolved = true;
+            const score = clamp(50 + (playerHP - opponentHP) / 2, 0, 100);
+            msgEl.textContent = playerHP >= opponentHP ? 'ここまで!ゆうせいで おわった' : 'ここまで!おされぎみで おわった';
+            attackBtn.disabled = true;
+            guardBtn.disabled = true;
+            timers.push(setTimeout(() => onComplete(Math.round(score)), 700));
+            return;
+          }
+          const opponentAttacking = Math.random() < 0.6;
+          tellEl.classList.remove('hidden');
+          tellEl.textContent = opponentAttacking ? '💥' : '✨';
+          msgEl.textContent = opponentAttacking ? 'あいてが こうげきの けはい!' : 'あいてに すきが できた!';
+          attackBtn.disabled = false;
+          guardBtn.disabled = false;
+
+          let acted = false;
+
+          function resolveRound(choice) {
+            if (acted || resolved) return;
+            acted = true;
+            attackBtn.disabled = true;
+            guardBtn.disabled = true;
+            tellEl.classList.add('hidden');
+            if (opponentAttacking) {
+              if (choice === 'guard') {
+                msgEl.textContent = 'ガード せいこう!';
+              } else {
+                playerHP = clamp(playerHP - 18, 0, 100);
+                playerHPEl.style.width = playerHP + '%';
+                flashHit(playerEl);
+                msgEl.textContent = choice ? 'こうげきを うけて しまった…' : 'はんのうが まにあわなかった…';
+              }
+            } else {
+              if (choice === 'attack') {
+                opponentHP = clamp(opponentHP - 20, 0, 100);
+                enemyHPEl.style.width = opponentHP + '%';
+                flashHit(opponentEl);
+                msgEl.textContent = 'こうげき めいちゅう!';
+              } else {
+                msgEl.textContent = choice ? 'ガードしたが なにも おきなかった' : 'チャンスを のがした…';
+              }
+            }
+            if (!endIfKO()) {
+              timers.push(setTimeout(nextRound, 550));
+            }
+          }
+
+          attackBtn.onpointerdown = () => resolveRound('attack');
+          guardBtn.onpointerdown = () => resolveRound('guard');
+
+          timers.push(setTimeout(() => resolveRound(null), telegraphMs + reactionMs));
+        }
+
+        timers.push(setTimeout(nextRound, 900));
+      },
+    };
+  }
+
+  const FIGHT_GAME_VARIANTS = [
+    makeFightGame({ title: 'ライバルの いぬと たいけつ!', opponentEmoji: '🐕‍🦺', opponentName: 'ライバルいぬ' }),
+    makeFightGame({ title: 'なぞの にんじゃと たいけつ!', opponentEmoji: '🥷', opponentName: 'なぞのにんじゃ' }),
+    makeFightGame({ title: 'きょうてきの とらと たいけつ!', opponentEmoji: '🐯', opponentName: 'きょうてきの とら' }),
+  ];
+
+  // --- RPGふうバトル(コマンドせんたくで たたかう) ---
+
+  // たたかう/まほう/ぼうぎょ/にげる の 4コマンドから じっくり えらぶ、
+  // ターン制の HP・MPを もった RPGふうの バトルミニゲーム。はんしゃ神経
+  // ではなく「せんりゃく」で たのしませる、かくとうゲームとは べつの
+  // あじわいを ねらっている
+  function makeRpgBattleGame({ title, monsterEmoji, monsterName }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const TURN_LIMIT = 8;
+        const playerMaxHP = 100;
+        const playerMaxMP = 30;
+        const monsterMaxHP = 100;
+        const monsterAtkMin = Math.round(lerp(10, 16, difficulty));
+        const monsterAtkMax = Math.round(lerp(18, 26, difficulty));
+
+        let turn = 0;
+        let playerHP = playerMaxHP;
+        let playerMP = playerMaxMP;
+        let monsterHP = monsterMaxHP;
+        let defending = false;
+        let resolved = false;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-fight-hp-row">
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">なおとっち HP</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill player" id="mgRpgPlayerHP" style="width:100%"></div></div>
+              <span class="mg-fight-hp-label" id="mgRpgMPLabel">MP: ${playerMP} / ${playerMaxMP}</span>
+              <div class="mg-hp-bar mg-mp-bar"><div class="mg-hp-fill mp" id="mgRpgPlayerMP" style="width:100%"></div></div>
+            </div>
+            <div class="mg-fight-hp">
+              <span class="mg-fight-hp-label">${monsterName}</span>
+              <div class="mg-hp-bar"><div class="mg-hp-fill enemy" id="mgRpgMonsterHP" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="mg-fight-arena">
+            <span class="mg-fight-player" id="mgRpgPlayer">${currentSprite()}</span>
+            <span class="mg-fight-opponent" id="mgRpgMonster">${monsterEmoji}</span>
+          </div>
+          <div class="mg-fight-msg" id="mgRpgMsg">コマンドを えらぼう!</div>
+          <div class="mg-rpg-commands">
+            <button class="mg-rpg-btn" id="mgRpgAttack">⚔️ たたかう</button>
+            <button class="mg-rpg-btn" id="mgRpgMagic">✨ まほう(15MP)</button>
+            <button class="mg-rpg-btn" id="mgRpgGuard">🛡️ ぼうぎょ</button>
+            <button class="mg-rpg-btn" id="mgRpgFlee">💨 にげる</button>
+          </div>
+        `;
+
+        const playerHPEl = container.querySelector('#mgRpgPlayerHP');
+        const playerMPEl = container.querySelector('#mgRpgPlayerMP');
+        const mpLabelEl = container.querySelector('#mgRpgMPLabel');
+        const monsterHPEl = container.querySelector('#mgRpgMonsterHP');
+        const msgEl = container.querySelector('#mgRpgMsg');
+        const playerEl = container.querySelector('#mgRpgPlayer');
+        const monsterEl = container.querySelector('#mgRpgMonster');
+        const attackBtn = container.querySelector('#mgRpgAttack');
+        const magicBtn = container.querySelector('#mgRpgMagic');
+        const guardBtn = container.querySelector('#mgRpgGuard');
+        const fleeBtn = container.querySelector('#mgRpgFlee');
+
+        function flashHit(el) {
+          el.classList.add('hit');
+          setTimeout(() => el.classList.remove('hit'), 220);
+        }
+
+        function updateBars() {
+          playerHPEl.style.width = clamp(playerHP, 0, playerMaxHP) + '%';
+          playerMPEl.style.width = clamp((playerMP / playerMaxMP) * 100, 0, 100) + '%';
+          mpLabelEl.textContent = `MP: ${playerMP} / ${playerMaxMP}`;
+          monsterHPEl.style.width = clamp((monsterHP / monsterMaxHP) * 100, 0, 100) + '%';
+        }
+
+        function setButtonsEnabled(enabled) {
+          attackBtn.disabled = !enabled;
+          magicBtn.disabled = !enabled || playerMP < 15;
+          guardBtn.disabled = !enabled;
+          fleeBtn.disabled = !enabled;
+        }
+
+        function finish(score, message) {
+          if (resolved) return;
+          resolved = true;
+          msgEl.textContent = message;
+          setButtonsEnabled(false);
+          setTimeout(() => onComplete(Math.round(clamp(score, 0, 100))), 800);
+        }
+
+        function monsterTurn() {
+          if (resolved) return;
+          let dmg = Math.round(monsterAtkMin + Math.random() * (monsterAtkMax - monsterAtkMin));
+          if (defending) dmg = Math.round(dmg / 2);
+          playerHP = clamp(playerHP - dmg, 0, playerMaxHP);
+          flashHit(playerEl);
+          updateBars();
+          msgEl.textContent = `${monsterName}の こうげき!${dmg}の ダメージ!`;
+          defending = false;
+          if (playerHP <= 0) {
+            finish(clamp(10 + (playerHP - monsterHP) / 5, 0, 25), `${monsterName}に まけて しまった…`);
+            return;
+          }
+          turn += 1;
+          if (turn >= TURN_LIMIT) {
+            finish(clamp(50 + (playerHP - monsterHP) / 2, 0, 100), 'ここで たたかいは いったん おわり');
+            return;
+          }
+          setTimeout(() => {
+            msgEl.textContent = 'コマンドを えらぼう!';
+            setButtonsEnabled(true);
+          }, 500);
+        }
+
+        function playerAct(kind) {
+          if (resolved) return;
+          setButtonsEnabled(false);
+          if (kind === 'attack') {
+            const dmg = Math.round(15 + Math.random() * 10);
+            monsterHP = clamp(monsterHP - dmg, 0, monsterMaxHP);
+            flashHit(monsterEl);
+            msgEl.textContent = `たたかった!${dmg}の ダメージ!`;
+          } else if (kind === 'magic') {
+            if (playerMP < 15) { setButtonsEnabled(true); return; }
+            playerMP -= 15;
+            const dmg = Math.round(25 + Math.random() * 15);
+            monsterHP = clamp(monsterHP - dmg, 0, monsterMaxHP);
+            flashHit(monsterEl);
+            msgEl.textContent = `まほうを となえた!${dmg}の ダメージ!`;
+          } else if (kind === 'guard') {
+            defending = true;
+            playerMP = clamp(playerMP + 5, 0, playerMaxMP);
+            msgEl.textContent = 'ぼうぎょの かまえを とった';
+          } else if (kind === 'flee') {
+            finish(clamp(35 + (playerHP - monsterHP) / 4, 0, 55), 'にげだした…');
+            return;
+          }
+          updateBars();
+          if (monsterHP <= 0) {
+            finish(clamp(75 + (playerHP - monsterHP) / 2, 75, 100), `${monsterName}を たおした!`);
+            return;
+          }
+          setTimeout(monsterTurn, 600);
+        }
+
+        attackBtn.addEventListener('pointerdown', () => playerAct('attack'));
+        magicBtn.addEventListener('pointerdown', () => playerAct('magic'));
+        guardBtn.addEventListener('pointerdown', () => playerAct('guard'));
+        fleeBtn.addEventListener('pointerdown', () => playerAct('flee'));
+
+        updateBars();
+      },
+    };
+  }
+
+  const RPG_GAME_VARIANTS = [
+    makeRpgBattleGame({ title: 'RPGふう バトル!スライムが あらわれた', monsterEmoji: '🟢', monsterName: 'スライム' }),
+    makeRpgBattleGame({ title: 'RPGふう バトル!ドラゴンが あらわれた', monsterEmoji: '🐉', monsterName: 'ドラゴン' }),
+    makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -5538,6 +5843,8 @@
     ...POSE_GAME_VARIANTS,
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
+    ...FIGHT_GAME_VARIANTS,
+    ...RPG_GAME_VARIANTS,
   ];
 
   // 地域ごとの あそび。「たび」で いま いる地域に あわせて、あそぶ たびに
