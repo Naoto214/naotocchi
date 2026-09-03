@@ -365,9 +365,12 @@
 
   const el = {
     pet: document.getElementById('pet'),
+    petSprite: document.getElementById('petSprite'),
+    petAccessory: document.getElementById('petAccessory'),
     petArea: document.getElementById('petArea'),
     endingBadges: document.getElementById('endingBadges'),
     ageLabel: document.getElementById('ageLabel'),
+    moneyLabel: document.getElementById('moneyLabel'),
     stageLabel: document.getElementById('stageLabel'),
     hungerBar: document.getElementById('hungerBar'),
     happinessBar: document.getElementById('happinessBar'),
@@ -402,8 +405,7 @@
     cleanBtn: document.getElementById('cleanBtn'),
     sleepBtn: document.getElementById('sleepBtn'),
     medicineBtn: document.getElementById('medicineBtn'),
-    petBtn: document.getElementById('petBtn'),
-    talkBtn: document.getElementById('talkBtn'),
+    playWithBtn: document.getElementById('playWithBtn'),
     resetBtn: document.getElementById('resetBtn'),
     dexBtn: document.getElementById('dexBtn'),
     achBtn: document.getElementById('achBtn'),
@@ -426,6 +428,11 @@
     screenThemeGrid: document.getElementById('screenThemeGrid'),
     devicePatternGrid: document.getElementById('devicePatternGrid'),
     screenPatternGrid: document.getElementById('screenPatternGrid'),
+    itemBtn: document.getElementById('itemBtn'),
+    itemOverlay: document.getElementById('itemOverlay'),
+    itemMoneyLabel: document.getElementById('itemMoneyLabel'),
+    itemCloseBtn: document.getElementById('itemCloseBtn'),
+    shopItemGrid: document.getElementById('shopItemGrid'),
     courtBtn: document.getElementById('courtBtn'),
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
@@ -538,6 +545,12 @@
         // ずかんに 記録されるので、ここには ふくまれない)
         partnersRecorded: [],
         partnersMarried: [],
+        // おかね(ミニゲーム大成功などで もらえる)と、それで こうにゅう
+        // した SHOP_ITEMS の id 一覧、いま そうびちゅうの id。いろ・がら
+        // せっていと おなじく「はじめから」しても消えない永続の せってい
+        money: 0,
+        ownedShopItems: [],
+        equippedItemId: null,
       },
       achievementsUnlocked: [],
     };
@@ -753,6 +766,20 @@
     { id: 'confetti', label: 'かみふぶき', emoji: '🎊', unlockTier: 1 },
     { id: 'sparkle', label: 'きらきら', emoji: '✨', unlockTier: 2 },
     { id: 'rainbow', label: 'レインボー', emoji: '🌈', unlockAll: true },
+  ];
+
+  // おかねで こうにゅうできる、みにつける アイテム。一度 こうにゅう
+  // すれば ずっと もちものに のこり(state.lifetime.ownedShopItems)、
+  // なんども そうび/かいじょ できる(いちどに そうびできるのは 1つだけ)
+  const SHOP_ITEMS = [
+    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 20 },
+    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 20 },
+    { id: 'flower', label: 'おはな', emoji: '🌼', price: 15 },
+    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 30 },
+    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 25 },
+    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 40 },
+    { id: 'crown', label: 'かんむり', emoji: '👑', price: 80 },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 50 },
   ];
 
   // COLOR_THEMES/PATTERNS 共通の解放判定(どちらも unlockTier/
@@ -1423,8 +1450,7 @@
 
   let lastIdleGreeting = null;
 
-  let lastPetReaction = null;
-  let lastTalkReaction = null;
+  let lastPlayWithReaction = null;
   let lastCourtReaction = null;
   let lastTravelReaction = null;
 
@@ -1619,7 +1645,7 @@
       if (state.isSleeping) {
         state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
       } else {
-        state.energy = clamp(state.energy - 1 * energyDecayMultiplier(), 0, 100);
+        state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier(), 0, 100);
       }
 
       // poop accumulates over time
@@ -1911,8 +1937,12 @@
     const isEgg = state.stage === STAGE.EGG;
     const isOver = isDead || isClear;
 
-    el.pet.textContent = currentSprite();
+    el.petSprite.textContent = currentSprite();
+    const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
+    el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
+    el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
     el.ageLabel.textContent = `年齢: ${Math.floor(state.age / 20)}`;
+    el.moneyLabel.textContent = `💰 ${state.lifetime.money}`;
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -1997,8 +2027,7 @@
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
-    el.petBtn.disabled = disableCare;
-    el.talkBtn.disabled = disableCare;
+    el.playWithBtn.disabled = disableCare;
     el.courtBtn.disabled = disableCare;
     el.travelBtn.disabled = disableCare;
     el.resetBtn.classList.toggle('hidden', !isOver);
@@ -2007,6 +2036,7 @@
     el.dexBtn.disabled = gameActive || hasTransformChoice;
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
+    el.itemBtn.disabled = gameActive || hasTransformChoice;
 
     el.dexOverlay.classList.toggle('hidden', !dexOpen);
     if (dexOpen) renderDex();
@@ -2020,6 +2050,9 @@
     el.profileOverlay.classList.toggle('hidden', !profileOpen);
     if (profileOpen) renderProfile();
 
+    el.itemOverlay.classList.toggle('hidden', !itemOpen);
+    if (itemOpen) renderItemOverlay();
+
     renderItemsRow(disableCare);
   }
 
@@ -2027,6 +2060,7 @@
   let achOpen = false;
   let themeOpen = false;
   let profileOpen = false;
+  let itemOpen = false;
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
   // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
@@ -2196,6 +2230,56 @@
     if (!theme || !isThemeUnlocked(theme)) return;
     if (target === 'device') state.lifetime.deviceThemeId = id;
     else state.lifetime.screenThemeId = id;
+    saveState();
+    render();
+  }
+
+  // 「アイテム」がめん: SHOP_ITEMS を みにつける ものの いちらんとして
+  // あらわす。みぶんに おうじて みぶんの ひょうじが かわる: みこうにゅう
+  // なら ねだん、こうにゅうずみで そうびちゅうでなければ「タップで そうび」、
+  // そうびちゅうなら「そうびちゅう」
+  function renderItemOverlay() {
+    el.itemMoneyLabel.textContent = `💰 ${state.lifetime.money}`;
+    el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
+      const owned = state.lifetime.ownedShopItems.includes(item.id);
+      const equipped = state.lifetime.equippedItemId === item.id;
+      const statusText = !owned ? `💰${item.price}` : (equipped ? 'そうびちゅう' : 'タップで そうび');
+      return `
+        <button type="button" class="shop-item ${equipped ? 'equipped' : ''}" data-id="${item.id}">
+          <span class="shop-item-emoji">${item.emoji}</span>
+          <span class="shop-item-label">${item.label}</span>
+          <span class="shop-item-status">${statusText}</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  // みこうにゅうなら おかねが たりれば こうにゅうして そのまま そうび、
+  // こうにゅうずみなら タップの たびに そうび/かいじょを きりかえる
+  // (いちどに そうびできるのは 1つだけ)
+  function buyOrEquipShopItem(id) {
+    const item = SHOP_ITEMS.find((it) => it.id === id);
+    if (!item) return;
+    const owned = state.lifetime.ownedShopItems.includes(id);
+    if (!owned) {
+      if (state.lifetime.money < item.price) {
+        setMessage('おかねが たりない…');
+        render();
+        return;
+      }
+      state.lifetime.money -= item.price;
+      state.lifetime.ownedShopItems.push(id);
+      state.lifetime.equippedItemId = id;
+      setMessage(`${item.label}を こうにゅうして そうびした!${item.emoji}`);
+      emotePet('happy');
+    } else if (state.lifetime.equippedItemId === id) {
+      state.lifetime.equippedItemId = null;
+      setMessage(`${item.label}を はずした`);
+    } else {
+      state.lifetime.equippedItemId = id;
+      setMessage(`${item.label}を そうびした!${item.emoji}`);
+      emotePet('happy');
+    }
     saveState();
     render();
   }
@@ -6170,7 +6254,9 @@
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
-      itemMessage = ` ごほうびに ${item.label}${item.emoji} を もらった!`;
+      const coins = Math.floor(5 + Math.random() * 6);
+      state.lifetime.money += coins;
+      itemMessage = ` ごほうびに ${item.label}${item.emoji} と 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
       state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
     } else {
@@ -6228,13 +6314,13 @@
     el.cleanBtn.disabled = true;
     el.sleepBtn.disabled = true;
     el.medicineBtn.disabled = true;
-    el.petBtn.disabled = true;
-    el.talkBtn.disabled = true;
+    el.playWithBtn.disabled = true;
     el.courtBtn.disabled = true;
     el.travelBtn.disabled = true;
     el.dexBtn.disabled = true;
     el.achBtn.disabled = true;
     el.themeBtn.disabled = true;
+    el.itemBtn.disabled = true;
     game.start(el.minigameOverlay, finishMinigame);
   }
 
@@ -6365,53 +6451,33 @@
     }
   }));
 
-  // なでる/はなしかける are deliberately low-stakes: a tiny boost (or none
-  // at all) so they can't replace ごはん/あそぶ as an evolution grind, just
-  // a way to check in on the pet between the "real" actions
-  el.petBtn.addEventListener('click', withFeedback(() => {
+  // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
+  // deliberately low-stakes: a tiny boost (or none at all) so it can't
+  // replace ごはん/あそぶ as an evolution grind, just a way to check in on
+  // the pet between the "real" actions。なでる/はなしかけるの りょうほうの
+  // こうかを あわせて 1タップで うけられる ぶん、actionCounts は りょうほう
+  // 積みあげる(なでなで まめ/おしゃべりずき の じっせきは そのまま つかえる)
+  el.playWithBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage('ねている… おきてから なでよう');
+      setMessage('ねている… おきてから じゃれよう');
       return;
     }
     state.affectionStreak += 1;
     state.actionCounts.pet += 1;
-    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
-    if (spammed) {
-      state.happiness = clamp(state.happiness - 3, 0, 100);
-      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
-    } else {
-      state.happiness = clamp(state.happiness + 3, 0, 100);
-      state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
-    }
-    const reaction = spammed
-      ? pickReaction(PET_ANNOYED_REACTIONS, lastPetReaction)
-      : pickReaction(PET_REACTIONS, lastPetReaction);
-    lastPetReaction = reaction;
-    if (!checkMeters()) {
-      setMessage(reaction);
-    }
-    emotePet(spammed ? 'angry' : 'happy');
-  }));
-
-  el.talkBtn.addEventListener('click', withFeedback(() => {
-    if (state.isSleeping) {
-      setMessage('ねている… おきてから はなしかけよう');
-      return;
-    }
-    state.affectionStreak += 1;
     state.actionCounts.talk += 1;
     const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
     if (spammed) {
-      state.happiness = clamp(state.happiness - 2, 0, 100);
-      state.devoMeter = clamp(state.devoMeter + 4, 0, 100);
+      state.happiness = clamp(state.happiness - 5, 0, 100);
+      state.devoMeter = clamp(state.devoMeter + 8, 0, 100);
     } else {
-      state.happiness = clamp(state.happiness + 2, 0, 100);
+      state.happiness = clamp(state.happiness + 5, 0, 100);
+      state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 2, 0, 100);
     }
     const reaction = spammed
-      ? pickReaction(TALK_ANNOYED_REACTIONS, lastTalkReaction)
-      : pickReaction(TALK_REACTIONS, lastTalkReaction);
-    lastTalkReaction = reaction;
+      ? pickReaction([...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS], lastPlayWithReaction)
+      : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS], lastPlayWithReaction);
+    lastPlayWithReaction = reaction;
     if (!checkMeters()) {
       setMessage(reaction);
     }
@@ -6633,6 +6699,22 @@
     const btn = e.target.closest('.theme-swatch');
     if (!btn) return;
     selectTheme('screenPattern', btn.dataset.id);
+  });
+
+  el.itemBtn.addEventListener('click', () => {
+    itemOpen = true;
+    render();
+  });
+
+  el.itemCloseBtn.addEventListener('click', () => {
+    itemOpen = false;
+    render();
+  });
+
+  el.shopItemGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.shop-item');
+    if (!btn) return;
+    buyOrEquipShopItem(btn.dataset.id);
   });
 
   el.profileBtn.addEventListener('click', () => {
