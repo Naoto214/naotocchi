@@ -449,6 +449,8 @@
     companionRow: document.getElementById('companionRow'),
     companionDexGrid: document.getElementById('companionDexGrid'),
     companionDexProgress: document.getElementById('companionDexProgress'),
+    partnerDexGrid: document.getElementById('partnerDexGrid'),
+    partnerDexProgress: document.getElementById('partnerDexProgress'),
   };
 
   function freshState() {
@@ -523,6 +525,13 @@
         // ずかん・じっせきと おなじく「はじめから」しても消えず、画面の
         // よこに ずっと 表示されつづける、プレイをまたいだ 永続コレクション
         companionsRecruited: [],
+        // 地域ごとの きめうちキャラ(REGIONSの candidates)のうち、いままで
+        // こいびとに なった ことが ある id の一覧と、そのうち けっこんまで
+        // いたった id の一覧。どちらも「ずかん」の「こいびと」セクション
+        // として 永続に 記録される(あいてコードの おきゃくさんは 種族の
+        // ずかんに 記録されるので、ここには ふくまれない)
+        partnersRecorded: [],
+        partnersMarried: [],
       },
       achievementsUnlocked: [],
     };
@@ -1300,6 +1309,10 @@
   function findRegion(id) {
     return REGIONS.find((r) => r.id === id) || REGIONS[0];
   }
+
+  // 「ずかん」の「こいびと」セクションで つかう、地域ごとの きめうち
+  // キャラの ぜんいちらん(REGIONSの candidatesを ひとつに まとめたもの)
+  const ALL_PARTNER_CANDIDATES = REGIONS.flatMap((r) => r.candidates);
 
   // なかまイベントで であえる キャラたち。ランダムに 1たい えらばれて
   // とうじょうし、そのあとに はじまる ミニゲームを クリアできれば なかまに
@@ -2170,6 +2183,7 @@
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
     }).join('');
     renderCompanionDex();
+    renderPartnerDex();
   }
 
   // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の
@@ -2183,6 +2197,23 @@
       return known
         ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
         : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+    }).join('');
+  }
+
+  // ずかんの いちばん したに、こいびとに なった ことが ある 地域キャラの
+  // いちらんを あらわす。けっこんまで いたった あいては ラベルに 💍を
+  // そえて、いちど でも きずなを ふかめた しるしを のこす
+  function renderPartnerDex() {
+    const recorded = state.lifetime.partnersRecorded;
+    const married = state.lifetime.partnersMarried;
+    el.partnerDexProgress.textContent = `${recorded.length} / ${ALL_PARTNER_CANDIDATES.length}`;
+    el.partnerDexGrid.innerHTML = ALL_PARTNER_CANDIDATES.map((c) => {
+      const known = recorded.includes(c.id);
+      if (!known) {
+        return '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
+      }
+      const label = married.includes(c.id) ? `💍 ${c.label}` : c.label;
+      return `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${label}</span></div>`;
     }).join('');
   }
 
@@ -6344,6 +6375,9 @@
       const justMarried = reinforceRelationship();
       if (justMarried) {
         state.evoMeter = clamp(state.evoMeter + 10, 0, 100);
+        if (state.partner.id !== 'guest' && !state.lifetime.partnersMarried.includes(state.partner.id)) {
+          state.lifetime.partnersMarried.push(state.partner.id);
+        }
         if (!checkMeters()) {
           setMessage(`${state.partner.label}と けっこんした!💍 これからも ずっと いっしょ`);
         }
@@ -6399,6 +6433,7 @@
         emoji: candidate.emoji,
         gender: candidate.gender,
         orientationId: candidate.orientationId,
+        affinityTrait: candidate.affinityTrait,
         affection: 100,
         married: false,
         bondCount: 0,
@@ -6409,6 +6444,11 @@
       // 「ずかん」にも きねんに 記録する(じぶんで そだてていなくても)
       if (candidate.id === 'guest' && state.guest) {
         recordDiscoveryKey(`${state.guest.speciesLine}:${state.guest.stageIndex}`);
+      } else if (!state.lifetime.partnersRecorded.includes(candidate.id)) {
+        // あいてコード いがいの、地域ごとの きめうちキャラは しゅぞくの
+        // ずかんに のらない ぶん、こちらの「こいびと」せんよう ずかんに
+        // きねんに 記録する(「はじめから」しても きえない永続コレクション)
+        state.lifetime.partnersRecorded.push(candidate.id);
       }
       const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
