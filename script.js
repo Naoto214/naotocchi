@@ -1136,6 +1136,16 @@
     state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()], 0, 100);
   }
 
+  // なかまが ふえるほど、時間経過による「元気」の げんしょうが おだやかに
+  // なる - にぎやかな なかまとの くらしが、ひとりの ときより つかれを
+  // やわらげる、という かんがえかた。1たいごとに 5%ずつ おだやかになり、
+  // COMPANIONS ぜんいん(10たい)そろうと 半分の げんしょうスピードになる
+  // (それ いじょう ふえても これより ゆるくは ならない)
+  function energyDecayMultiplier() {
+    const count = state.lifetime.companionsRecruited.length;
+    return clamp(1 - count * 0.05, 0.5, 1);
+  }
+
   // 「きゅうあいする」で いちゃついた ぶんだけ なかよし度(affection)が
   // かいふくし、bondCount が つみあがって しきい値に とどくと 夫婦に
   // しんてんする。すでに 夫婦なら bondCount は もう つかわない
@@ -1584,7 +1594,7 @@
       if (state.isSleeping) {
         state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
       } else {
-        state.energy = clamp(state.energy - 1, 0, 100);
+        state.energy = clamp(state.energy - 1 * energyDecayMultiplier(), 0, 100);
       }
 
       // poop accumulates over time
