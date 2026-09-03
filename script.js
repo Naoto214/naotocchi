@@ -1403,7 +1403,7 @@
     makeCatchGame({
       title: 'おすしキャッチ!わさびは からいよ',
       basketEmoji: '🍽️',
-      goodItems: ['🍣', '🍱', '🍤', '🥢'],
+      goodItems: ['🍣', '🍱', '🍤', '🍥'],
       badItems: ['🟢', '🔥', '🧨', '🐡'],
     }),
     makeCatchGame({
@@ -1422,7 +1422,7 @@
       title: 'おかしキャッチ!からい ものは にがて',
       basketEmoji: '🎪',
       goodItems: ['🍭', '🍩', '🧁', '🍫'],
-      badItems: ['🌶️', '🧂', '🥃', '🧊'],
+      badItems: ['🌶️', '🔥', '🥵', '🍛'],
     }),
   ];
 
@@ -3614,7 +3614,7 @@
 
   const BUBBLE_POP_VARIANTS = [
     makeBubblePopGame({ title: 'あわを ぜんぶ ポップしよう!', bubbleEmoji: '🫧' }),
-    makeBubblePopGame({ title: 'とびだす シャボンだまを キャッチ!', bubbleEmoji: '⭐' }),
+    makeBubblePopGame({ title: 'うきあがる ほしの あわを ポップしよう!', bubbleEmoji: '⭐' }),
   ];
 
   // --- もじつなぎ ---
