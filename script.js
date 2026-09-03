@@ -457,6 +457,8 @@
       gender: null,
       orientationId: null,
       attractedTo: [],
+      // クエスチョニングの あいだだけ つかう、けいけんの カウンター
+      questioningEncounters: 0,
       regionId: 'home',
       discoveredStages: [],
       // cross-playthrough counters for じっせき (achievements) - unlike
@@ -897,10 +899,11 @@
 
   // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
   // ぞくせい。ストレート・ゲイ／レズビアン・バイセクシャル・
-  // パンセクシャルは とくべつあつかいせず、おなじ ならびの こせいとして
-  // あつかう。ノンバイナリーの キャラには ストレート/ゲイという
-  // わく組み(おなじ/ちがう せいべつ)が うまく あてはまらないので、
-  // バイ/パンの どちらかだけを ロールする
+  // パンセクシャル・アロマンティック・クエスチョニングは とくべつ
+  // あつかいせず、おなじ ならびの こせいとして あつかう。ノンバイナリーに
+  // 限らず どのせいべつにも どのれんあいタイプも 原則 わりあてられる
+  // (下の attractedToFor が それぞれに ちゃんと いみのある あいて候補を
+  // かえす)
   const GENDERS = ['male', 'female', 'nonbinary'];
   const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
   const ORIENTATION_LABELS = {
@@ -908,27 +911,70 @@
     gay: 'ゲイ／レズビアン',
     bi: 'バイセクシャル',
     pan: 'パンセクシャル',
+    aro: 'アロマンティック',
+    questioning: 'クエスチョニング',
   };
+  // rollIdentity() / checkQuestioningResolution() の ロールたいしょう。
+  // questioning は「まだ さがしている とちゅう」の じょうたいなので、
+  // ここから さらに べつの タイプへ おちつくことは あっても、
+  // questioning じたいへ もどることは ない
+  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
+  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
 
+  // gender+orientationId から「だれに ひかれるか」を くみたてる。
+  // ストレート/ゲイは 男の子・女の子には これまでどおり「ちがう/おなじ
+  // せいべつ」の わく組みを つかい、ノンバイナリーには それを
+  // (男の子・女の子)/(ノンバイナリー どうし)と おきかえて あてはめる。
+  // バイは「2つの せいべつに ひかれる」ことだけを きめて、どの2つかは
+  // 人それぞれ なので ランダムに えらぶ。アロマンティックは だれにも
+  // れんあい感情を もたない。クエスチョニングは まだ さがしている
+  // とちゅうなので、どんな であいにも ひらかれている あつかいにする
   function attractedToFor(gender, orientationId) {
+    if (orientationId === 'aro') return [];
+    if (orientationId === 'pan' || orientationId === 'questioning') return [...GENDERS];
+    if (orientationId === 'bi') {
+      const shuffled = [...GENDERS].sort(() => Math.random() - 0.5);
+      return shuffled.slice(0, 2).sort();
+    }
+    if (gender === 'nonbinary') {
+      // ノンバイナリーの ストレートは「じぶんと ちがう(男の子/女の子の)
+      // せいべつ」、ゲイは「じぶんと おなじ ノンバイナリー どうし」
+      return orientationId === 'straight' ? ['male', 'female'] : ['nonbinary'];
+    }
     if (orientationId === 'straight') return gender === 'male' ? ['female'] : ['male'];
-    if (orientationId === 'gay') return gender === 'male' ? ['male'] : gender === 'female' ? ['female'] : ['nonbinary'];
-    if (orientationId === 'bi') return ['male', 'female'];
-    return ['male', 'female', 'nonbinary']; // pan
+    return [gender]; // gay
   }
 
   // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
   // いっしょに きまる。man/woman ラインは 既存の せりふ(あかちゃんの
   // おんなのこ、など)に あわせて せいべつを こていし、それ以外の
-  // ラインは 完全に ランダム
+  // ラインは 完全に ランダム。れんあいタイプは せいべつに かんけいなく
+  // 6しゅるい すべてから ひとしく ロールする
   function rollIdentity(speciesLine) {
     let gender;
     if (speciesLine === 'man') gender = 'male';
     else if (speciesLine === 'woman') gender = 'female';
     else gender = GENDERS[Math.floor(Math.random() * GENDERS.length)];
-    const pool = gender === 'nonbinary' ? ['bi', 'pan'] : ['straight', 'gay', 'bi', 'pan'];
-    const orientationId = pool[Math.floor(Math.random() * pool.length)];
+    const orientationId = ORIENTATION_ROLL_POOL[Math.floor(Math.random() * ORIENTATION_ROLL_POOL.length)];
     return { gender, orientationId, attractedTo: attractedToFor(gender, orientationId) };
+  }
+
+  // クエスチョニングの あいだに「きゅうあいする」を おすたびに1つ
+  // けいけんを つみ、いきの しきい値に とどくと ランダムな べつの
+  // タイプに おちつく(questioning 自身には もどらない)。しっぱい/
+  // 友達あつかいの けっかでも、いろんな あいてと であうこと じたいが
+  // けいけんに なる、という かんがえかた
+  const QUESTIONING_RESOLVE_THRESHOLD = 4;
+
+  function checkQuestioningResolution() {
+    if (state.orientationId !== 'questioning') return null;
+    state.questioningEncounters = (state.questioningEncounters || 0) + 1;
+    if (state.questioningEncounters < QUESTIONING_RESOLVE_THRESHOLD) return null;
+    const resolved = RESOLVED_ORIENTATIONS[Math.floor(Math.random() * RESOLVED_ORIENTATIONS.length)];
+    state.orientationId = resolved;
+    state.attractedTo = attractedToFor(state.gender, resolved);
+    state.questioningEncounters = 0;
+    return resolved;
   }
 
   // 「きゅうあいする」の おあいて候補を つくる ヘルパー。affinityTrait は
@@ -5035,6 +5081,20 @@
       return;
     }
     state.affectionStreak = 0;
+
+    // クエスチョニングちゅうは、こいびとの ゆうむに かかわらず「きゅうあい」を
+    // おすたびに けいけんが つみあがり、しきい値に とどくと その回だけは
+    // つうじょうの きゅうあい/いちゃつきの けっかの かわりに、じぶんの
+    // れんあいタイプが おちついた ことを つたえる とくべつな メッセージに なる
+    const resolvedOrientation = checkQuestioningResolution();
+    if (resolvedOrientation) {
+      state.happiness = clamp(state.happiness + 5, 0, 100);
+      if (!checkMeters()) {
+        setMessage(`おおきな きもちの へんかを かんじた…じぶんは「${ORIENTATION_LABELS[resolvedOrientation]}」なんだと、はっきり わかった気が する!`);
+      }
+      emotePet('fun');
+      return;
+    }
 
     if (state.partner) {
       state.happiness = clamp(state.happiness + 3, 0, 100);
