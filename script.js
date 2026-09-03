@@ -4311,8 +4311,8 @@
   const numberOrderGame = {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const COUNT = Math.round(lerp(9, 16, difficulty));
-      const targetMs = lerp(9000, 5000, difficulty);
+      const COUNT = Math.round(lerp(6, 10, difficulty));
+      const targetMs = lerp(6000, 3200, difficulty);
       const numbers = Array.from({ length: COUNT }, (_, i) => i + 1);
       for (let i = numbers.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
