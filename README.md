@@ -72,6 +72,6 @@ python3 -m http.server 8000
 ## ファイル構成
 
 - `index.html` — 画面構成
-- `style.css` — たまごっち風デバイスの見た目
+- `style.css` — なおとっち風デバイスの見た目
 - `script.js` — ゲームロジック(状態管理・成長・保存)
 
