@@ -424,6 +424,7 @@
     themeCloseBtn: document.getElementById('themeCloseBtn'),
     deviceThemeGrid: document.getElementById('deviceThemeGrid'),
     screenThemeGrid: document.getElementById('screenThemeGrid'),
+    screenPatternGrid: document.getElementById('screenPatternGrid'),
     courtBtn: document.getElementById('courtBtn'),
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
@@ -521,6 +522,9 @@
         // ずかんと おなじく「はじめから」しても消えない、永続の せってい
         deviceThemeId: 'default',
         screenThemeId: 'default',
+        // えらんだ がめんの がら(SCREEN_PATTERNS の id) - いろとは
+        // どくりつに えらべる、もうひとつの がめんの おしゃれ せってい
+        screenPatternId: 'none',
         // なかまイベントに クリアして なかまに なった COMPANIONS の id 一覧。
         // ずかん・じっせきと おなじく「はじめから」しても消えず、画面の
         // よこに ずっと 表示されつづける、プレイをまたいだ 永続コレクション
@@ -732,6 +736,25 @@
     },
   ];
 
+  // COLOR_THEMES と おなじ unlockTier/unlockAll の しくみで えらべる、
+  // がめんの がら(色とは べつの もうひとつの おしゃれ軸)。emoji は
+  // 「いろ」がめんの スウォッチ プレビューに つかい、じっさいの タイル
+  // もようは style.css の .screen.pattern-<id> が うけもつ
+  const SCREEN_PATTERNS = [
+    { id: 'none', label: 'なし', emoji: '⬜' },
+    { id: 'dots', label: 'みずたま', emoji: '🔵' },
+    { id: 'stripes', label: 'ストライプ', emoji: '〰️' },
+    { id: 'checker', label: 'チェック', emoji: '🏁' },
+    { id: 'grid', label: 'こうし', emoji: '#️⃣' },
+    { id: 'flower', label: 'はな', emoji: '🌸' },
+    { id: 'wave', label: 'なみ', emoji: '🌊', unlockTier: 0 },
+    { id: 'confetti', label: 'かみふぶき', emoji: '🎊', unlockTier: 1 },
+    { id: 'sparkle', label: 'きらきら', emoji: '✨', unlockTier: 2 },
+    { id: 'rainbow', label: 'レインボー', emoji: '🌈', unlockAll: true },
+  ];
+
+  // COLOR_THEMES/SCREEN_PATTERNS 共通の解放判定(どちらも unlockTier/
+  // unlockAll という おなじ フィールドしか みないので、そのまま りようできる)
   function isThemeUnlocked(theme) {
     if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
     return theme.unlockTier === undefined || state.lifetime.endingTiersReached.includes(theme.unlockTier);
@@ -1832,6 +1855,10 @@
       el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
       el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
     });
+    const screenPattern = SCREEN_PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p));
+    SCREEN_PATTERNS.forEach((p) => {
+      el.screen.classList.toggle(`pattern-${p.id}`, p === screenPattern);
+    });
   }
 
   // ランダムな いち(はし に よせて、まんなかの デバイスと かさならない
@@ -2057,11 +2084,29 @@
     }).join('');
   }
 
+  // COLOR_THEMES の いろスウォッチと ちがい、SCREEN_PATTERNS は 単色を
+  // もたないので、まる の なかみに その がらの めじるしの emoji を
+  // そのまま おく(じっさいの タイル もようは 選んで がめんに 反映した
+  // ときに style.css の .screen.pattern-<id> で 見える)
+  function renderPatternSwatchGrid(gridEl, selectedId) {
+    gridEl.innerHTML = SCREEN_PATTERNS.map((p) => {
+      const unlocked = isThemeUnlocked(p);
+      const selected = unlocked && p.id === selectedId;
+      const label = unlocked ? p.label : '？？？';
+      const circleContent = unlocked ? p.emoji : '🔒';
+      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${p.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle">${circleContent}</span><span class="theme-swatch-label">${label}</span></button>`;
+    }).join('');
+  }
+
   function renderThemeOverlay() {
-    const unlockedCount = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
-    el.themeProgress.textContent = `${unlockedCount} / ${COLOR_THEMES.length}`;
+    // ヘッダーの ぜんたい数は、いろ(COLOR_THEMES)と がら(SCREEN_PATTERNS)
+    // を あわせた かずで あらわす
+    const unlockedColors = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
+    const unlockedPatterns = SCREEN_PATTERNS.filter((p) => isThemeUnlocked(p)).length;
+    el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + SCREEN_PATTERNS.length}`;
     renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
     renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
+    renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId);
   }
 
   // なおとっち本体の しゅぞく・せいちょう段階・せいべつ・れんあいタイプ・
@@ -2133,6 +2178,14 @@
   }
 
   function selectTheme(target, id) {
+    if (target === 'pattern') {
+      const pattern = SCREEN_PATTERNS.find((p) => p.id === id);
+      if (!pattern || !isThemeUnlocked(pattern)) return;
+      state.lifetime.screenPatternId = id;
+      saveState();
+      render();
+      return;
+    }
     const theme = COLOR_THEMES.find((t) => t.id === id);
     if (!theme || !isThemeUnlocked(theme)) return;
     if (target === 'device') state.lifetime.deviceThemeId = id;
@@ -2179,7 +2232,12 @@
   function renderDex() {
     const discoveredCount = state.discoveredStages.length;
     const totalCount = ALL_LINES.length * STAGES_PER_LINE;
-    el.dexProgress.textContent = `${discoveredCount} / ${totalCount}`;
+    // ヘッダーの ぜんたい数は、しゅぞく・なかま・こいびとの 3セクション
+    // ぶんを あわせた かずで あらわす(dex-complete じっせきの はんてい
+    // じたいは しゅぞくだけの totalCount の ままで、ここは 表示だけ)
+    const combinedDiscovered = discoveredCount + state.lifetime.companionsRecruited.length + state.lifetime.partnersRecorded.length;
+    const combinedTotal = totalCount + COMPANIONS.length + ALL_PARTNER_CANDIDATES.length;
+    el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
       const cells = stages
@@ -6557,6 +6615,12 @@
     const btn = e.target.closest('.theme-swatch');
     if (!btn) return;
     selectTheme('screen', btn.dataset.id);
+  });
+
+  el.screenPatternGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectTheme('pattern', btn.dataset.id);
   });
 
   el.profileBtn.addEventListener('click', () => {
