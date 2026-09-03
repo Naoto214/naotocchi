@@ -15,7 +15,19 @@ body {
   background: radial-gradient(circle at 50% 20%, #ffe1f0 0%, #d6c8ff 60%, #b3a4f7 100%);
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   padding: 20px;
+  transition: background 0.6s ease;
 }
+
+/* 「たび」で えらんだ 地域ごとの、デバイスの まわりの けしき。
+   本体・がめんの いろ(「いろ」きのう)とは べつの レイヤーなので
+   どのテーマと くみあわせても かならず 見わけが つく */
+body.region-sea { background: radial-gradient(circle at 50% 20%, #cdeaff 0%, #6ec6e8 60%, #2f8fc7 100%); }
+body.region-snow { background: radial-gradient(circle at 50% 20%, #ffffff 0%, #dbe9f5 55%, #9fb8d9 100%); }
+body.region-city { background: radial-gradient(circle at 50% 20%, #f5e6ff 0%, #b8a6d9 55%, #4a4066 100%); }
+body.region-countryside { background: radial-gradient(circle at 50% 20%, #fef6d0 0%, #cbe6a0 55%, #7fae5a 100%); }
+body.region-forest { background: radial-gradient(circle at 50% 20%, #e3f3d6 0%, #a3cf85 55%, #4f7a3d 100%); }
+body.region-desert { background: radial-gradient(circle at 50% 20%, #fff3d6 0%, #f0c877 55%, #d99a4e 100%); }
+body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%, #7fe0c9 55%, #1fa98a 100%); }
 
 .device {
   width: 340px;
@@ -141,6 +153,26 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* いまいる地域(たび)・こいびと(きゅうあい)が いるときだけ 出す、
+   ちいさな 補足の 行 */
+.sub-status-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: bold;
+  opacity: 0.8;
+  margin-top: 2px;
+  gap: 4px;
+}
+
+.sub-status-row.hidden {
+  display: none;
+}
+
+#partnerLabel:empty {
+  display: none;
+}
+
 .pet-area {
   flex: 1;
   display: flex;
@@ -248,6 +280,19 @@ body {
   40% { transform: translate(6px, 0) rotate(7deg); }
   60% { transform: translate(-5px, 0) rotate(-5deg); }
   80% { transform: translate(5px, 0) rotate(5deg); }
+}
+
+/* きゅうあい せいこう じの、うっとり ゆれる モーション */
+.pet.emote-love {
+  animation: emote-love 0.9s ease-in-out;
+}
+
+@keyframes emote-love {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  20% { transform: translateY(-10px) rotate(-8deg) scale(1.12); }
+  40% { transform: translateY(-4px) rotate(8deg) scale(1.18); }
+  60% { transform: translateY(-10px) rotate(-6deg) scale(1.12); }
+  80% { transform: translateY(-2px) rotate(4deg) scale(1.05); }
 }
 
 .emote-particle {
