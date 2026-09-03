@@ -455,7 +455,8 @@
     loadCodeBtn: document.getElementById('loadCodeBtn'),
     codeError: document.getElementById('codeError'),
     guestStatus: document.getElementById('guestStatus'),
-    companionRow: document.getElementById('companionRow'),
+    companionLeft: document.getElementById('companionLeft'),
+    companionRight: document.getElementById('companionRight'),
     companionDexGrid: document.getElementById('companionDexGrid'),
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
@@ -1677,7 +1678,7 @@
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
         // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
-        const sicknessChance = isEquipped('scarf') ? 0.1 : 0.2;
+        const sicknessChance = isEquipped('scarf') ? 0.07 : 0.14;
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
@@ -2415,15 +2416,20 @@
     }).join('');
   }
 
-  // 画面の よこに、なかまに なった COMPANIONS を じゅんに ならべて
-  // ずっと 表示する(「はじめから」しても きえない永続コレクション)
+  // なかまに なった COMPANIONS を、#pet の こどもとして 本体キャラの
+  // りょうサイドに くっつけて 表示する(「はじめから」しても きえない
+  // 永続コレクション)。#pet の こどもなので、idle-float の ゆれにも
+  // 本体キャラと まったく おなじように ついてくる。ひだり/みぎに
+  // こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = state.lifetime.companionsRecruited;
-    el.companionRow.innerHTML = recruited
+    const recruited = state.lifetime.companionsRecruited
       .map((id) => COMPANIONS.find((c) => c.id === id))
-      .filter(Boolean)
-      .map((c) => `<span class="companion-chip" title="${c.name}">${c.emoji}</span>`)
-      .join('');
+      .filter(Boolean);
+    const left = recruited.filter((c, i) => i % 2 === 0);
+    const right = recruited.filter((c, i) => i % 2 === 1);
+    const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${c.emoji}</span>`;
+    el.companionLeft.innerHTML = left.map(chip).join('');
+    el.companionRight.innerHTML = right.map(chip).join('');
   }
 
   function renderTransformChoices() {
