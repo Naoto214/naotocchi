@@ -3041,6 +3041,7 @@
   const CONCENTRATION_GAME_VARIANTS = [
     makeConcentrationGame({ title: 'くだものの ペアを さがそう!', emojis: ['🍎', '🍌', '🍇', '🍓', '🍊', '🍑'] }),
     makeConcentrationGame({ title: 'どうぶつの ペアを さがそう!', emojis: ['🐶', '🐱', '🐭', '🐸', '🐹', '🐰'] }),
+    makeConcentrationGame({ title: 'たべもののペアを さがそう!', emojis: ['🍙', '🍣', '🍕', '🍔', '🍜', '🍰'] }),
   ];
 
   // --- 連打チャレンジ ---
