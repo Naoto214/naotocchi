@@ -427,6 +427,7 @@
     courtBtn: document.getElementById('courtBtn'),
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
+    regionDecor: document.getElementById('regionDecor'),
     regionLabel: document.getElementById('regionLabel'),
     partnerLabel: document.getElementById('partnerLabel'),
     profileBtn: document.getElementById('profileBtn'),
@@ -1199,6 +1200,7 @@
       id: 'home',
       label: 'おうち',
       emoji: '🏠',
+      decor: ['🏠', '🌸', '☁️', '💕', '✨', '🎀', '🪴', '🕊️'],
       lines: ['やっぱり じぶんの おうちが いちばん おちつく', 'おなじみの けしきに ほっとした'],
       candidates: [
         courtCandidate({ id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' }),
@@ -1209,6 +1211,7 @@
       id: 'sea',
       label: 'うみ',
       emoji: '🌊',
+      decor: ['🌊', '🐚', '🐠', '⛵', '☀️', '🦀', '🐬', '🏖️'],
       lines: ['なみの おとが きもちいい!', 'すなはまを ぴょんぴょん はねまわった', 'かいがらを ひろって じまんげ'],
       candidates: [
         courtCandidate({ id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
@@ -1219,6 +1222,7 @@
       id: 'snow',
       label: 'ゆきやま',
       emoji: '🏔️',
+      decor: ['❄️', '⛄', '🏔️', '🌨️', '✨', '🦌', '🎿', '🧣'],
       lines: ['さむい!でも ゆきだるまを つくってみた', 'いきが しろく なるのが おもしろい', 'つるっと すべって しりもちを ついた'],
       candidates: [
         courtCandidate({ id: 'snow-spirit', label: 'ゆきの せいれい', emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' }),
@@ -1229,6 +1233,7 @@
       id: 'city',
       label: 'とかい',
       emoji: '🏙️',
+      decor: ['🏙️', '🌃', '✨', '🚕', '🌆', '💡', '🚦', '🎡'],
       lines: ['ビルの たかさに びっくり!', 'ネオンの ひかりに めが きらきら', 'ひとの おおさに ちょっと つかれた'],
       candidates: [
         courtCandidate({ id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' }),
@@ -1239,6 +1244,7 @@
       id: 'countryside',
       label: 'いなか',
       emoji: '🌾',
+      decor: ['🌾', '🌻', '🐄', '🚜', '☀️', '🦋', '🌈', '🐓'],
       lines: ['たんぼの かぜが きもちいい', 'のはらを おもいっきり かけまわった', 'むぎわらぼうしが にあうと ほめられた(き が する)'],
       candidates: [
         courtCandidate({ id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' }),
@@ -1249,6 +1255,7 @@
       id: 'forest',
       label: 'もり',
       emoji: '🌲',
+      decor: ['🌲', '🍄', '🦋', '🐿️', '🌿', '🍃', '🦉', '🌰'],
       lines: ['きの えだから とりの こえが きこえる', 'はっぱの におい に しんこきゅう', 'こだぬきと めが あった(かもしれない)'],
       candidates: [
         courtCandidate({ id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
@@ -1259,6 +1266,7 @@
       id: 'desert',
       label: 'さばく',
       emoji: '🏜️',
+      decor: ['🏜️', '🌵', '🐫', '☀️', '🦂', '🌅', '⛺', '🦎'],
       lines: ['あつい!でも すなの うえを あるくのが たのしい', 'サボテンに ちかづきすぎて ちょっと いたい めに あった', 'ほしぞらが びっくりする くらい きれいだった'],
       candidates: [
         courtCandidate({ id: 'desert-scorpion', label: 'さばくの さそりさん', emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' }),
@@ -1269,6 +1277,7 @@
       id: 'tropical',
       label: 'なんごく',
       emoji: '🌴',
+      decor: ['🌴', '🌺', '🦜', '🍍', '🐠', '☀️', '🥥', '🦩'],
       lines: ['やしの みを みつけて うれしそう', 'あたたかい かぜが きもちいい', 'カラフルな とりに てを ふってみた'],
       candidates: [
         courtCandidate({ id: 'tropical-parrot', label: 'なんごくの インコ', emoji: '🦜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
@@ -1735,14 +1744,43 @@
     });
   }
 
+  // ランダムな いち(はし に よせて、まんなかの デバイスと かさならない
+  // ように 上下左右の どこかの ふち を えらぶ)を きめる
+  function randomEdgePosition() {
+    const zone = Math.floor(Math.random() * 4);
+    if (zone === 0) return { left: Math.random() * 100, top: Math.random() * 12 };
+    if (zone === 1) return { left: Math.random() * 100, top: 88 + Math.random() * 12 };
+    if (zone === 2) return { left: Math.random() * 10, top: Math.random() * 100 };
+    return { left: 90 + Math.random() * 10, top: Math.random() * 100 };
+  }
+
+  // 地域の decor(絵柄)を、デバイスの まわりに ランダムに ちらす。
+  // 地域が かわった ときだけ よびだされるので、おなじ 地域に いるあいだは
+  // いちが ガタガタ かわったりしない
+  function renderRegionDecor(region) {
+    el.regionDecor.innerHTML = (region.decor || []).map((emoji) => {
+      const pos = randomEdgePosition();
+      const size = 22 + Math.random() * 20;
+      const duration = 7 + Math.random() * 6;
+      const delay = Math.random() * duration;
+      return `<span class="region-decor-item" style="left:${pos.left}%; top:${pos.top}%; font-size:${size}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${emoji}</span>`;
+    }).join('');
+  }
+
   // 「たび」で えらんだ 地域を body の class に反映する。「いろ」の
   // 本体/がめんテーマとは 別レイヤー(まわりの けしき)なので、どんな
   // いろの くみあわせと あわせても 衝突しない
+  let lastDecorRegionId = null;
+
   function applyRegion() {
     const region = findRegion(state.regionId);
     REGIONS.forEach((r) => {
       document.body.classList.toggle(`region-${r.id}`, r === region);
     });
+    if (region.id !== lastDecorRegionId) {
+      renderRegionDecor(region);
+      lastDecorRegionId = region.id;
+    }
     return region;
   }
 

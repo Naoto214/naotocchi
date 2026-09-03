@@ -39,6 +39,32 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
     inset 0 -8px 15px rgba(0, 0, 0, 0.1),
     inset 0 8px 15px rgba(255, 255, 255, 0.35);
   position: relative;
+  z-index: 1;
+}
+
+/* 「たび」で いまいる地域の まわりを かざる、絵柄の レイヤー。
+   デバイスの うしろがわ(z-index: 0)に ひろがり、地域ごとに ちがう
+   絵文字が やわらかく ただよう(applyRegion() が 地域が かわった ときだけ
+   つくりなおす) */
+.region-decor {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.region-decor-item {
+  position: absolute;
+  line-height: 1;
+  opacity: 0.5;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+  animation: region-decor-float ease-in-out infinite alternate;
+}
+
+@keyframes region-decor-float {
+  0% { transform: translateY(0) rotate(-6deg); }
+  100% { transform: translateY(-14px) rotate(6deg); }
 }
 
 .device-top {
