@@ -449,6 +449,7 @@
     profileTraits: document.getElementById('profileTraits'),
     profilePartnerSection: document.getElementById('profilePartnerSection'),
     profilePartnerCard: document.getElementById('profilePartnerCard'),
+    profileCompanionList: document.getElementById('profileCompanionList'),
     makeCodeBtn: document.getElementById('makeCodeBtn'),
     myCodeBox: document.getElementById('myCodeBox'),
     guestCodeInput: document.getElementById('guestCodeInput'),
@@ -513,6 +514,14 @@
       // ともだちの「あいてコード」を よみこんで あらわれる おきゃくさん。
       // その プレイ中は ずっと のこり、「はじめから」で きえる
       guest: null,
+      // いま そばに いる なかま({id, bond}の はいれつ)。state.lifetime.
+      // companionsRecruited(いちど でも であった ことの ある えいきゅうの
+      // きろく)とは べつに、こちらは「いま いっしょに いる かどうか」を
+      // あらわす いっしょうぶんの じょうたい。じゃれるを おさぼると bond が
+      // へっていき、0で はなれて いってしまう(ただし きろく じたいは
+      // きえない)。「はじめから」の たびに lifetime.companionsRecruited
+      // から bond100で つくりなおされる(resetBtn の ハンドラー さんしょう)
+      companions: [],
       regionId: 'home',
       discoveredStages: [],
       // cross-playthrough counters for じっせき (achievements) - unlike
@@ -601,6 +610,13 @@
         merged.gender = identity.gender;
         merged.orientationId = identity.orientationId;
         merged.attractedTo = identity.attractedTo;
+      }
+      // なかまの bond きのう(state.companions)より 前の セーブには この
+      // フィールドが まだ ないので、いままで どおり lifetime.
+      // companionsRecruited ぜんいんが bond100で そばに いる じょうたいから
+      // はじめる(とつぜん だれかが いなくなった ように 見えないように)
+      if (!Object.prototype.hasOwnProperty.call(parsed, 'companions')) {
+        merged.companions = merged.lifetime.companionsRecruited.map((id) => ({ id, bond: 100 }));
       }
       return merged;
     } catch (e) {
@@ -1008,6 +1024,28 @@
     'くびを かしげて こっちを みてる',
   ];
 
+  // なかまが そばに いる ときだけ、じゃれるの リアクションに まざる
+  // すこし ちがった 文言。なかまの bond かいふくは じゃれるの ハンドラー
+  // じたいで おこなう(ここは メッセージの バリエーションだけ)
+  const COMPANION_PET_REACTIONS = [
+    'なかまたちも まざって いっしょに あまえてきた!',
+    'そばに いる なかまも うれしそうに はねてる',
+    'なかまと じゃれあう すがたが ほほえましい',
+    'みんなで よりそって、なかよしの わの なかに いる きぶん',
+  ];
+
+  const COMPANION_TALK_REACTIONS = [
+    'なかまたちにも なにか はなしかけてる みたい',
+    'なかまと いっしょに こっちを みて くびを かしげた',
+    'なかまたちが まわりで にぎやかに さわいでる',
+    'なかまとの おしゃべりに まざれた き が した',
+  ];
+
+  const COMPANION_ANNOYED_REACTIONS = [
+    'なかまたちも すこし げんなり してる みたい',
+    'なかまも いっしょに そっぽを むいてしまった',
+  ];
+
   // beyond this many なでる/はなしかける in a row (with no real care action
   // in between), the action flips from its normal small positive into an
   // annoyed negative instead - spamming either stops being free stats
@@ -1216,13 +1254,15 @@
     state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
   }
 
-  // なかまが ふえるほど、時間経過による「元気」の げんしょうが おだやかに
-  // なる - にぎやかな なかまとの くらしが、ひとりの ときより つかれを
-  // やわらげる、という かんがえかた。1たいごとに 5%ずつ おだやかになり、
-  // COMPANIONS ぜんいん(10たい)そろうと 半分の げんしょうスピードになる
-  // (それ いじょう ふえても これより ゆるくは ならない)
+  // いま そばに いる なかま(state.companions - じゃれるを おさぼると
+  // はなれて いく ことが ある、いっしょうぶんの じょうたい)が ふえるほど、
+  // 時間経過による「元気」の げんしょうが おだやかに なる - にぎやかな
+  // なかまとの くらしが、ひとりの ときより つかれを やわらげる、という
+  // かんがえかた。1たいごとに 5%ずつ おだやかになり、10たい そろうと
+  // 半分の げんしょうスピードになる(それ いじょう ふえても これより
+  // ゆるくは ならない)
   function energyDecayMultiplier() {
-    const count = state.lifetime.companionsRecruited.length;
+    const count = state.companions.length;
     return clamp(1 - count * 0.05, 0.5, 1);
   }
 
@@ -1255,6 +1295,30 @@
     raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
     setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
     emotePet('sad');
+  }
+
+  // なかまとの きずな(bond)も、こいびとの なかよし度と おなじ しくみ。
+  // じゃれるで かいふくし、ほうっておくと じわじわ へっていって、0に
+  // なると その なかまだけ いっしょうぶんの あいだ はなれて いってしまう
+  // (state.lifetime.companionsRecruited の えいきゅうきろくは きえない -
+  // 「はじめから」すれば また bond100で もどってくる)
+  const COMPANION_BOND_DECAY_PER_TICK = 1;
+  const COMPANION_PLAYWITH_BOND_BOOST = 20;
+
+  function decayCompanionBonds() {
+    if (!state.companions.length || state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
+    const left = [];
+    state.companions = state.companions.filter((c) => {
+      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK, 0, 100);
+      if (c.bond > 0) return true;
+      left.push(c.id);
+      return false;
+    });
+    if (left.length) {
+      const names = left.map((id) => COMPANIONS.find((c) => c.id === id)?.name || id).join('・');
+      setMessage(`${names}が さびしがって、はなれて いってしまった…`);
+      emotePet('sad');
+    }
   }
 
   const COURT_SUCCESS_REACTIONS = [
@@ -1752,6 +1816,10 @@
       // わかれてしまう - きゅうあいで ちゃんと いちゃつきつづける ひつようが ある
       decayRelationship();
 
+      // なかまも おなじく、じゃれるを おさぼると bond が へっていき、0の
+      // なかまから じゅんに はなれて いってしまう
+      decayCompanionBonds();
+
       // no natural age-based advancement past the egg here on purpose -
       // growing up beyond hatching only happens through triggerEvolutionJump()
       // (see checkMeters()), so a full evo meter is the only thing that
@@ -1856,11 +1924,14 @@
   // IDLE_GREETINGSより ずっと まれにしか おきない、なかまとの であい
   // イベント。まず であった あいてを ひとことで しょうかいし(showStoryEvent
   // を りよう)、そのあと じどうで ミニゲームが はじまって、クリアできれば
-  // なかまに なる(なれなくても また こんど おなじ あいてに であえる)
+  // なかまに なる(なれなくても また こんど おなじ あいてに であえる)。
+  // いま いる なかま(state.companions)だけを のぞくので、じゃれるを
+  // おさぼって はなれて いった なかまとも、このイベントで また であって
+  // なかまに もどれる
   function scheduleCompanionEncounter() {
     const delay = 45000 + Math.random() * 75000;
     setTimeout(() => {
-      const remaining = COMPANIONS.filter((c) => !state.lifetime.companionsRecruited.includes(c.id));
+      const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
       const canEncounter = !gameActive
         && state.stage === STAGE.GROWING
         && !state.isSleeping
@@ -2247,6 +2318,22 @@
       el.profilePartnerCard.innerHTML = '<div class="profile-empty">まだ こいびとは いません</div>';
     }
 
+    if (state.companions.length) {
+      el.profileCompanionList.innerHTML = state.companions.map((sc) => {
+        const c = COMPANIONS.find((cc) => cc.id === sc.id);
+        if (!c) return '';
+        return `
+          <div class="profile-companion-row">
+            <span class="profile-companion-emoji">${c.emoji}</span>
+            <span class="profile-companion-name">${c.name}</span>
+            <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${sc.bond ?? 100}%"></div></div>
+          </div>
+        `;
+      }).join('');
+    } else {
+      el.profileCompanionList.innerHTML = '<div class="profile-empty">いま そばに いる なかまは いません</div>';
+    }
+
     if (state.guest) {
       const g = state.guest;
       const stage = SPECIES[g.speciesLine].stages[g.stageIndex];
@@ -2433,14 +2520,14 @@
     }).join('');
   }
 
-  // なかまに なった COMPANIONS を、#pet の こどもとして 本体キャラの
-  // りょうサイドに くっつけて 表示する(「はじめから」しても きえない
-  // 永続コレクション)。#pet の こどもなので、idle-float の ゆれにも
-  // 本体キャラと まったく おなじように ついてくる。ひだり/みぎに
-  // こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
+  // いま そばに いる なかま(state.companions - じゃれるを おさぼって
+  // はなれて いった なかまは ここに いない)を、#pet の こどもとして
+  // 本体キャラの りょうサイドに くっつけて 表示する。#pet の こどもなので、
+  // idle-float の ゆれにも 本体キャラと まったく おなじように ついてくる。
+  // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
-    const recruited = state.lifetime.companionsRecruited
-      .map((id) => COMPANIONS.find((c) => c.id === id))
+    const recruited = state.companions
+      .map((sc) => COMPANIONS.find((c) => c.id === sc.id))
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
@@ -6503,6 +6590,9 @@
           if (!state.lifetime.companionsRecruited.includes(companion.id)) {
             state.lifetime.companionsRecruited.push(companion.id);
           }
+          if (!state.companions.some((c) => c.id === companion.id)) {
+            state.companions.push({ id: companion.id, bond: 100 });
+          }
           recruitedNow = true;
           resultMessage = `${companion.name}が なかまに なった!${companion.emoji}`;
         } else {
@@ -6704,10 +6794,16 @@
       state.happiness = clamp(state.happiness + 5, 0, 100);
       state.evoMeter = clamp(state.evoMeter + 2, 0, 100);
       state.devoMeter = clamp(state.devoMeter - 2, 0, 100);
+      // じゃれるは、そばに いる なかま ぜんいんの bond も まとめて かいふく
+      // する(なかまが はなれて いかないよう、ここで つなぎとめる)
+      state.companions.forEach((c) => {
+        c.bond = clamp((c.bond ?? 100) + COMPANION_PLAYWITH_BOND_BOOST, 0, 100);
+      });
     }
+    const hasCompanions = state.companions.length > 0;
     const reaction = spammed
-      ? pickReaction([...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS], lastPlayWithReaction)
-      : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS], lastPlayWithReaction);
+      ? pickReaction([...PET_ANNOYED_REACTIONS, ...TALK_ANNOYED_REACTIONS, ...(hasCompanions ? COMPANION_ANNOYED_REACTIONS : [])], lastPlayWithReaction)
+      : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
       setMessage(reaction);
@@ -6896,6 +6992,10 @@
     state.discoveredStages = discoveredStages;
     state.lifetime = lifetime;
     state.achievementsUnlocked = achievementsUnlocked;
+    // あたらしい たまごも、いままで であった なかま ぜんいんと bond100で
+    // また いっしょに スタートする(まえの いっしょうで はなれて いった
+    // なかまも、ここで リセットされて もどってくる)
+    state.companions = lifetime.companionsRecruited.map((id) => ({ id, bond: 100 }));
     clearTimeout(storyFlashTimer);
     el.storyFlash.classList.add('hidden');
     endingCelebrationShown = false;
