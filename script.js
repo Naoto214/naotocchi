@@ -446,6 +446,8 @@
     profileStage: document.getElementById('profileStage'),
     profileGender: document.getElementById('profileGender'),
     profileOrientation: document.getElementById('profileOrientation'),
+    profileOrientationHelpBtn: document.getElementById('profileOrientationHelpBtn'),
+    profileOrientationHint: document.getElementById('profileOrientationHint'),
     profileTraits: document.getElementById('profileTraits'),
     profilePartnerSection: document.getElementById('profilePartnerSection'),
     profilePartnerCard: document.getElementById('profilePartnerCard'),
@@ -1120,9 +1122,11 @@
 
   // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
   // ぞくせい。ストレート・同性を対象とする タイプ・バイセクシャル・
-  // パンセクシャル・アロマンティック・クエスチョニングは とくべつ
-  // あつかいせず、おなじ ならびの こせいとして あつかう(どれも 優劣・
-  // レア度の ちがいは ない)。ノンバイナリーに 限らず どのせいべつにも
+  // パンセクシャル・アロマンティック・クエスチョニングは どれも 優劣の
+  // ない、とくしゅな 属性としては あつかわない こせいとして 実装する
+  // (ORIENTATION_WEIGHTS で 出現率には ゲームバランス上の ちがいを
+  // つけているが、それは あくまで 出現頻度の はなしで、タイプそのものに
+  // 優劣を つける ものでは ない)。ノンバイナリーに 限らず どのせいべつにも
   // どのれんあいタイプも 原則 わりあてられる(下の attractedToFor が
   // それぞれに ちゃんと いみのある あいて候補を かえす)
   // GENDERS/RESOLVED_ORIENTATIONS/ORIENTATION_ROLL_POOL は、loadState()
@@ -2276,6 +2280,11 @@
   let themeOpen = false;
   let profileOpen = false;
   let itemOpen = false;
+  // れんあいタイプの「？」ボタンで ひらいた せつめいが、profileOpen 中の
+  // ほかの 操作(たとえば きゅうあいの けっかで render() が よびなおされる
+  // など)で かってに とじてしまわないよう、ひらいている/いないを
+  // ここで おぼえておく
+  let orientationHintOpen = false;
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
   // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
@@ -2377,17 +2386,25 @@
     }
     el.profileOrientation.textContent = orientationText;
     // アロマンティック/クエスチョニングは ごかいされやすい ことばな ので、
-    // プロフィールに かんたんな 説明を そえる。アロマンティックは
-    // 「人を あいせない」わけでは なく、なかま/ともだちとの ふかい きずなは
-    // これまでどおり きずける。クエスチョニングは「まだ さがしている
-    // とちゅう」で あって しっぱいでは ない、という トーン
-    if (state.orientationId === 'aro') {
-      el.profileOrientation.title = 'れんあい感情を あまり かんじない/かんじにくい タイプ。なかまや ともだちとの ふかい きずなは ふつうに きずけます';
-    } else if (state.orientationId === 'questioning') {
-      el.profileOrientation.title = 'れんあいタイプが まだ きまっていない/さがしている とちゅう。いろんな あいてと であう ことで、いつか べつの タイプに おちつくかも';
-    } else {
-      el.profileOrientation.title = '';
-    }
+    // 「？」ボタンを タップ(ホバーできない タッチ端末でも つかえるように)
+    // すると せつめいが ひらく。アロマンティックは「人を あいせない」わけ
+    // では なく、なかま/ともだちとの ふかい きずなは これまでどおり
+    // きずける。クエスチョニングは「まだ さがしている とちゅう」で あって
+    // しっぱいでは ない、という トーン。プロフィールは キャラ情報を
+    // かんけつに 見せたいので、この せつめいは デフォルトでは たたんでおく
+    const ORIENTATION_HELP_TEXT = {
+      aro: 'れんあい感情を あまり かんじない/かんじにくい タイプ。なかまや ともだちとの ふかい きずなは ふつうに きずけます',
+      questioning: 'れんあいタイプが まだ きまっていない/さがしている とちゅう。いろんな あいてと であう ことで、いつか べつの タイプに おちつくかも',
+    };
+    const helpText = ORIENTATION_HELP_TEXT[state.orientationId];
+    el.profileOrientationHelpBtn.classList.toggle('hidden', !helpText);
+    if (!helpText) orientationHintOpen = false;
+    el.profileOrientationHint.textContent = helpText || '';
+    el.profileOrientationHint.classList.toggle('hidden', !helpText || !orientationHintOpen);
+    el.profileOrientationHelpBtn.onclick = () => {
+      orientationHintOpen = !orientationHintOpen;
+      renderProfile();
+    };
 
     const maxTrait = Math.max(1, ...Object.values(state.traitCounts));
     el.profileTraits.innerHTML = Object.keys(TRAIT_LABELS).map((key) => {

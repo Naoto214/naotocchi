@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-2">
+<link rel="stylesheet" href="style.css?v=20260904-4">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -179,8 +179,14 @@
               <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
               <div class="profile-row"><span class="profile-label">せいちょう</span><span id="profileStage"></span></div>
               <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
-              <div class="profile-row"><span class="profile-label">れんあいタイプ</span><span id="profileOrientation"></span></div>
-              <div class="profile-hint">このゲームの せいべつ/れんあいタイプは、わかりやすさの ための だいひょう的な くみあわせで、現実の すべての ジェンダー/れんあい指向を もうらしたものでは ありません。どのタイプも 優劣や めずらしさの ちがいの ない、ふつうの こせいの ひとつとして あつかっています</div>
+              <div class="profile-row">
+                <span class="profile-label">れんあいタイプ</span>
+                <span class="profile-value-with-help">
+                  <span id="profileOrientation"></span>
+                  <button class="profile-help-btn hidden" id="profileOrientationHelpBtn" type="button" title="せつめいを みる">？</button>
+                </span>
+              </div>
+              <div class="profile-hint hidden" id="profileOrientationHint"></div>
             </div>
             <div class="profile-section">
               <div class="profile-section-title">せいかく傾向</div>
@@ -238,6 +244,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-2"></script>
+  <script src="script.js?v=20260904-4"></script>
 </body>
 </html>

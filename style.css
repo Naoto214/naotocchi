@@ -586,6 +586,10 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   line-height: 1.4;
 }
 
+.profile-hint.hidden {
+  display: none;
+}
+
 .profile-code-btn {
   border: none;
   border-radius: 6px;
@@ -670,6 +674,30 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 
 .profile-row > span:last-child {
   text-align: right;
+}
+
+.profile-value-with-help {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-help-btn {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  color: inherit;
+  font-size: 9px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.profile-help-btn.hidden {
+  display: none;
 }
 
 .profile-traits {
