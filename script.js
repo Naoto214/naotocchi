@@ -3412,7 +3412,7 @@
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const DURATION_MS = 10000;
+      const DURATION_MS = 6000;
       const GOOD_ITEMS = goodItems;
       const BAD_ITEMS = badItems;
       const BAD_ITEM_CHANCE = lerp(0.3, 0.55, difficulty);
@@ -3427,7 +3427,7 @@
 
       container.innerHTML = `
         <div class="mg-header">
-          <span id="mgTimer">残り: 10s</span>
+          <span id="mgTimer">残り: 6s</span>
           <span id="mgScore">とくてん: 0</span>
         </div>
         <div class="mg-title">${title}</div>
@@ -3697,7 +3697,7 @@
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const ROUNDS = 3;
+      const ROUNDS = 2;
       const zoneWidthMin = lerp(16, 7, difficulty);
       const zoneWidthRange = lerp(6, 3, difficulty);
       const baseSpeed = lerp(50, 95, difficulty);
@@ -4305,7 +4305,7 @@
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const sequenceLength = Math.round(lerp(3, 8, difficulty));
+      const sequenceLength = Math.round(lerp(3, 6, difficulty));
       const flashMs = lerp(600, 300, difficulty);
       const gapMs = lerp(250, 120, difficulty);
       const PAD_COLORS = padDefs.map((p) => p.bg);
@@ -4476,8 +4476,8 @@
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const ROUNDS = 3 + Math.round(difficulty * 2);
-      const timeLimitMs = lerp(6000, 2200, difficulty);
+      const ROUNDS = 2 + Math.round(difficulty);
+      const timeLimitMs = lerp(4500, 2000, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -4551,7 +4551,7 @@
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const ROUNDS = 3;
+      const ROUNDS = 2;
       const goodMs = lerp(550, 280, difficulty);
       const okMs = lerp(900, 500, difficulty);
       const results = [];
@@ -4570,7 +4570,7 @@
         const field = container.querySelector('#mgReactionField');
         let goTime = null;
         let handled = false;
-        const delay = 1000 + Math.random() * 2500;
+        const delay = 700 + Math.random() * 1500;
         let goTimer;
 
         function onEarlyTap() {
@@ -4640,8 +4640,8 @@
         { key: 'orange', label: 'オレンジ', hex: '#e8590c' },
       ];
       const activeColors = COLOR_DEFS.slice(0, Math.round(lerp(3, 6, difficulty)));
-      const ROUNDS = 4 + Math.round(difficulty * 2);
-      const timeLimitMs = lerp(4500, 2000, difficulty);
+      const ROUNDS = 3 + Math.round(difficulty);
+      const timeLimitMs = lerp(3200, 1600, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -4699,8 +4699,8 @@
   const numberSizeGame = {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const ROUNDS = 4 + Math.round(difficulty * 2);
-      const timeLimitMs = lerp(4500, 2000, difficulty);
+      const ROUNDS = 3 + Math.round(difficulty);
+      const timeLimitMs = lerp(3200, 1600, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -4762,8 +4762,8 @@
         { key: 'left', label: 'ひだり', arrow: '⬅️' },
         { key: 'right', label: 'みぎ', arrow: '➡️' },
       ];
-      const ROUNDS = 4 + Math.round(difficulty * 2);
-      const timeLimitMs = lerp(4500, 2000, difficulty);
+      const ROUNDS = 3 + Math.round(difficulty);
+      const timeLimitMs = lerp(3200, 1600, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -4888,7 +4888,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const pairCount = Math.round(lerp(3, 6, difficulty));
+        const pairCount = Math.round(lerp(2, 3, difficulty));
         const chosen = emojis.slice(0, pairCount);
         const deck = [...chosen, ...chosen].map((emoji) => ({ emoji, matched: false }));
         for (let i = deck.length - 1; i > 0; i--) {
@@ -5020,7 +5020,7 @@
   const balanceGame = {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const DURATION_MS = 8000;
+      const DURATION_MS = 6000;
       const drift = lerp(8, 22, difficulty);
       const nudgeAmount = 6;
       let pos = 50;
@@ -5033,7 +5033,7 @@
 
       container.innerHTML = `
         <div class="mg-header">
-          <span id="mgTimer">残り: 8s</span>
+          <span id="mgTimer">残り: 6s</span>
         </div>
         <div class="mg-title">まんなかを キープしよう!</div>
         <div class="mg-gauge" id="mgGauge">
@@ -5103,8 +5103,8 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const GRID_SIZE = Math.round(lerp(9, 20, difficulty));
-        const timeLimitMs = lerp(6000, 3200, difficulty);
+        const GRID_SIZE = Math.round(lerp(8, 14, difficulty));
+        const timeLimitMs = lerp(4500, 2500, difficulty);
         const pair = pairs[Math.floor(Math.random() * pairs.length)];
         const oddIndex = Math.floor(Math.random() * GRID_SIZE);
         const cols = 5;
@@ -5166,8 +5166,8 @@
   const numberOrderGame = {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const COUNT = Math.round(lerp(6, 10, difficulty));
-      const targetMs = lerp(6000, 3200, difficulty);
+      const COUNT = Math.round(lerp(5, 7, difficulty));
+      const targetMs = lerp(4500, 2600, difficulty);
       const numbers = Array.from({ length: COUNT }, (_, i) => i + 1);
       for (let i = numbers.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -5578,7 +5578,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const STEPS = Math.round(lerp(3, 6, difficulty));
+        const STEPS = Math.round(lerp(3, 5, difficulty));
         const timeLimitMs = lerp(3200, 1900, difficulty);
         let step = 0;
         let correctCount = 0;
@@ -5648,9 +5648,9 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const GRID_SIZE = Math.round(lerp(9, 16, difficulty));
+        const GRID_SIZE = Math.round(lerp(8, 12, difficulty));
         const targetCount = Math.max(3, Math.round(GRID_SIZE * 0.4));
-        const timeLimitMs = lerp(6500, 3800, difficulty);
+        const timeLimitMs = lerp(4500, 2800, difficulty);
         const cells = Array.from({ length: GRID_SIZE }, (_, i) => (i < targetCount ? targetEmoji : otherEmojis[Math.floor(Math.random() * otherEmojis.length)]));
         for (let i = cells.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -5719,8 +5719,8 @@
   const highLowGame = {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
-      const ROUNDS = Math.round(lerp(4, 7, difficulty));
-      const timeLimitMs = lerp(4000, 2500, difficulty);
+      const ROUNDS = Math.round(lerp(3, 5, difficulty));
+      const timeLimitMs = lerp(2800, 1800, difficulty);
       let round = 0;
       let correctCount = 0;
       let current = 1 + Math.floor(Math.random() * 100);
@@ -5789,7 +5789,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const timeLimitMs = lerp(13000, 8000, difficulty);
+        const timeLimitMs = lerp(9000, 6000, difficulty);
         const target = emojiSet;
         const tiles = [...emojiSet];
         do {
@@ -5954,7 +5954,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const timeLimitMs = lerp(10000, 6000, difficulty);
+        const timeLimitMs = lerp(7000, 4500, difficulty);
         const word = words[Math.floor(Math.random() * words.length)];
         const letters = word.split('');
         const DISTRACTOR_POOL = 'あかさたなはまやらわいきしちにひみりうくすつぬふむゆるえけせてねへめれおこそとのほもよろ'.split('');
@@ -6035,9 +6035,9 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const target = 8 + Math.floor(Math.random() * 8);
-        const pairCount = Math.round(lerp(3, 5, difficulty));
-        const distractorCount = Math.round(lerp(2, 4, difficulty));
-        const timeLimitMs = lerp(15000, 9000, difficulty);
+        const pairCount = Math.round(lerp(2, 3, difficulty));
+        const distractorCount = Math.round(lerp(1, 2, difficulty));
+        const timeLimitMs = lerp(8000, 5000, difficulty);
 
         const numbers = [];
         for (let i = 0; i < pairCount; i++) {
@@ -6132,7 +6132,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 7000;
+        const DURATION_MS = 6000;
         const cycleMs = lerp(1600, 950, difficulty);
         const jumpWindowMs = lerp(550, 300, difficulty);
         let avoided = 0;
@@ -6143,7 +6143,7 @@
 
         container.innerHTML = `
           <div class="mg-header">
-            <span id="mgTimer">残り: 7s</span>
+            <span id="mgTimer">残り: 6s</span>
             <span id="mgScore">かいひ: 0</span>
           </div>
           <div class="mg-title">${title}</div>
@@ -6296,9 +6296,9 @@
             .map((line) => SPECIES[line].stages[stageIdx]?.emoji)
             .filter((emoji) => emoji && emoji !== selfEmoji)
         )];
-        const GRID_SIZE = Math.round(lerp(9, 16, difficulty));
+        const GRID_SIZE = Math.round(lerp(8, 12, difficulty));
         const targetCount = Math.max(2, Math.round(GRID_SIZE * 0.25));
-        const timeLimitMs = lerp(7000, 4200, difficulty);
+        const timeLimitMs = lerp(4500, 2800, difficulty);
         const cells = Array.from({ length: GRID_SIZE }, (_, i) => (
           i < targetCount ? selfEmoji : decoyPool[Math.floor(Math.random() * decoyPool.length)]
         ));
@@ -6372,7 +6372,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const ROUNDS = Math.round(lerp(4, 6, difficulty));
+        const ROUNDS = Math.round(lerp(3, 4, difficulty));
         const timeLimitMs = lerp(3400, 2000, difficulty);
         const selfEmoji = currentSprite();
         let round = 0;
@@ -6421,7 +6421,7 @@
               setTimeout(() => {
                 charEl.className = 'pet';
                 nextRound();
-              }, 650);
+              }, 500);
             });
           });
           timer = setTimeout(() => {
@@ -6453,7 +6453,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 11000;
+        const DURATION_MS = 6000;
         const travelMs = lerp(2000, 1150, difficulty);
         const spawnInterval = lerp(950, 520, difficulty);
         const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
@@ -6467,7 +6467,7 @@
 
         container.innerHTML = `
           <div class="mg-header">
-            <span id="mgTimer">残り: 11s</span>
+            <span id="mgTimer">残り: 6s</span>
             <span id="mgScore">とくてん: 0</span>
           </div>
           <div class="mg-title">${title}</div>
@@ -6601,7 +6601,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const ROUNDS = 6;
+        const ROUNDS = 4;
         const BLOCK_H = 26;
         const baseWidthPct = 70;
         const minWidthPct = 12;
@@ -6766,7 +6766,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const ROUNDS = 7;
+        const ROUNDS = 5;
         const reactionMs = lerp(950, 500, difficulty);
         const telegraphMs = lerp(550, 280, difficulty);
         let round = 0;
@@ -6880,7 +6880,7 @@
               }
             }
             if (!endIfKO()) {
-              timers.push(setTimeout(nextRound, 550));
+              timers.push(setTimeout(nextRound, 400));
             }
           }
 
@@ -6890,7 +6890,7 @@
           timers.push(setTimeout(() => resolveRound(null), telegraphMs + reactionMs));
         }
 
-        timers.push(setTimeout(nextRound, 900));
+        timers.push(setTimeout(nextRound, 600));
       },
     };
   }
@@ -6915,7 +6915,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const TURN_LIMIT = 8;
+        const TURN_LIMIT = 6;
         const playerMaxHP = 100;
         const playerMaxMP = 30;
         const monsterMaxHP = 100;
@@ -7016,7 +7016,7 @@
           setTimeout(() => {
             msgEl.textContent = 'コマンドを えらぼう!';
             setButtonsEnabled(true);
-          }, 500);
+          }, 400);
         }
 
         function playerAct(kind) {
@@ -7047,7 +7047,7 @@
             finish(clamp(75 + (playerHP - monsterHP) / 2, 75, 100), `${monsterName}を たおした!`);
             return;
           }
-          setTimeout(monsterTurn, 600);
+          setTimeout(monsterTurn, 450);
         }
 
         attackBtn.addEventListener('pointerdown', () => playerAct('attack'));
