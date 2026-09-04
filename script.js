@@ -1838,7 +1838,11 @@
       state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
-        state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
+        // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
+        // ひかえめ)。「ねる」を おした しゅんかんの キックスタート分
+        // (sleepBtn の クリックハンドラを さんしょう)と あわせて、
+        // すぐに かいふくが はじまり、はやく フルに もどるように している
+        state.energy = clamp(state.energy + (state.isSick ? 10 : 26), 0, 100);
       } else {
         state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier(), 0, 100);
       }
@@ -6874,6 +6878,11 @@
     state.travelStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
+      // つぎの tick(最大 TICK_MS ぶん さき)まで まったない よう、
+      // ねはじめた しゅんかんに その ばで すこし 元気を かいふくさせる
+      // (びょうき中は ひかえめに)。これで「ねても すぐには 元気が
+      // もどらない」体感の まちじかんを ほぼ なくしている
+      state.energy = clamp(state.energy + (state.isSick ? 4 : 10), 0, 100);
       setMessage('おやすみなさい…');
       return;
     }
