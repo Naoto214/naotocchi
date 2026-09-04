@@ -8861,9 +8861,11 @@
     // あいだに 死亡メーターが すすんで しんでしまう、といった ことが
     // おきてしまうため、これらの がめんが ひらいている あいだは tick()
     // じたいを まるごと スキップする(とじれば また ふつうに じかんが
-    // すすみだす)。基本がめん(なにも ひらいていない とき)は、ながめて
-    // いるだけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen) return;
+    // すすみだす)。プロフィールも、せいかく傾向や こいびと・なかまの
+    // ようすを じっくり 見返す がめんな ので おなじく とめる。基本がめん
+    // (なにも ひらいていない とき)は、ながめて いるだけでも 時間が
+    // すすみつづける、いつもどおりの プレイに もどる
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
