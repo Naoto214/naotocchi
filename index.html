@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-25">
+<link rel="stylesheet" href="style.css?v=20260904-26">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -298,6 +298,8 @@
                 <button class="mg-choice-btn" id="duelChoiceBBtn"></button>
               </div>
               <div class="duel-choice-row hidden" id="duelHonestyChoiceRow">
+                <div class="duel-testimony-hint">ひとこと証言(にんい)</div>
+                <div class="duel-testimony-row" id="duelTestimonyRow"></div>
                 <button class="mg-choice-btn duel-honest-btn" id="duelHonestBtn">😇 本音で いく</button>
                 <button class="mg-choice-btn duel-lie-btn" id="duelLieBtn">🃏 うそを つく</button>
               </div>
@@ -309,6 +311,12 @@
               <div id="duelGuessList"></div>
               <div class="profile-code-error hidden" id="duelGuessConfirmError"></div>
               <button class="profile-code-btn" id="duelGuessConfirmBtn">推理を 確定する</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelSuspicionSection">
+              <div class="profile-hint">さいごに、5問の なかから「いちばん あやしい」と おもう こたえを 1つ えらんでください。あたっていれば あなたに、はずれていれば あいてに ボーナス+1点が はいります</div>
+              <div id="duelSuspicionList"></div>
+              <div class="profile-code-error hidden" id="duelSuspicionError"></div>
             </div>
 
             <div class="profile-section hidden" id="duelCodeOutSection">
@@ -325,12 +333,31 @@
             </div>
 
             <div class="profile-section hidden" id="duelResultSection">
-              <div class="duel-result-title" id="duelResultTitle"></div>
-              <div class="duel-result-score" id="duelResultScore"></div>
-              <div class="duel-result-desc" id="duelResultDesc"></div>
-              <div class="profile-section-title">もんだいの ふりかえり</div>
-              <div id="duelResultBreakdown"></div>
-              <button class="profile-code-btn" id="duelResultCloseBtn">とじる</button>
+              <div id="duelRevealStage">
+                <div class="duel-progress" id="duelRevealProgress"></div>
+                <div class="duel-reveal-running" id="duelRevealRunning"></div>
+                <div class="duel-question-card" id="duelRevealCard">
+                  <div class="duel-question-emoji" id="duelRevealEmoji"></div>
+                  <div class="duel-question-text" id="duelRevealText"></div>
+                  <div class="duel-reveal-pub" id="duelRevealPub"></div>
+                  <div class="duel-reveal-testimony hidden" id="duelRevealTestimony"></div>
+                  <div class="duel-reveal-guess" id="duelRevealGuess"></div>
+                  <div class="duel-reveal-outcome hidden" id="duelRevealOutcome">
+                    <div class="duel-result-title" id="duelRevealOutcomeTitle"></div>
+                    <div class="duel-result-desc" id="duelRevealOutcomeDesc"></div>
+                    <div class="duel-reveal-points" id="duelRevealOutcomePoints"></div>
+                  </div>
+                </div>
+                <button class="profile-code-btn" id="duelRevealNextBtn">めくる 🎴</button>
+              </div>
+              <div id="duelFinalStage" class="hidden">
+                <div class="duel-result-title" id="duelResultTitle"></div>
+                <div class="duel-result-score" id="duelResultScore"></div>
+                <div class="duel-result-desc" id="duelResultDesc"></div>
+                <div class="profile-section-title">もんだいの ふりかえり</div>
+                <div id="duelResultBreakdown"></div>
+                <button class="profile-code-btn" id="duelResultCloseBtn">とじる</button>
+              </div>
             </div>
           </div>
         </div>
@@ -364,6 +391,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-25"></script>
+  <script src="script.js?v=20260904-26"></script>
 </body>
 </html>

@@ -505,6 +505,7 @@
     duelChoiceABtn: document.getElementById('duelChoiceABtn'),
     duelChoiceBBtn: document.getElementById('duelChoiceBBtn'),
     duelHonestyChoiceRow: document.getElementById('duelHonestyChoiceRow'),
+    duelTestimonyRow: document.getElementById('duelTestimonyRow'),
     duelHonestBtn: document.getElementById('duelHonestBtn'),
     duelLieBtn: document.getElementById('duelLieBtn'),
     duelLieFlash: document.getElementById('duelLieFlash'),
@@ -512,6 +513,9 @@
     duelGuessList: document.getElementById('duelGuessList'),
     duelGuessConfirmError: document.getElementById('duelGuessConfirmError'),
     duelGuessConfirmBtn: document.getElementById('duelGuessConfirmBtn'),
+    duelSuspicionSection: document.getElementById('duelSuspicionSection'),
+    duelSuspicionList: document.getElementById('duelSuspicionList'),
+    duelSuspicionError: document.getElementById('duelSuspicionError'),
     duelCodeOutSection: document.getElementById('duelCodeOutSection'),
     duelCodeOutHint: document.getElementById('duelCodeOutHint'),
     duelCodeOutBox: document.getElementById('duelCodeOutBox'),
@@ -522,6 +526,21 @@
     duelCodeInError: document.getElementById('duelCodeInError'),
     duelCodeInBtn: document.getElementById('duelCodeInBtn'),
     duelResultSection: document.getElementById('duelResultSection'),
+    duelRevealStage: document.getElementById('duelRevealStage'),
+    duelRevealProgress: document.getElementById('duelRevealProgress'),
+    duelRevealRunning: document.getElementById('duelRevealRunning'),
+    duelRevealCard: document.getElementById('duelRevealCard'),
+    duelRevealEmoji: document.getElementById('duelRevealEmoji'),
+    duelRevealText: document.getElementById('duelRevealText'),
+    duelRevealPub: document.getElementById('duelRevealPub'),
+    duelRevealTestimony: document.getElementById('duelRevealTestimony'),
+    duelRevealGuess: document.getElementById('duelRevealGuess'),
+    duelRevealOutcome: document.getElementById('duelRevealOutcome'),
+    duelRevealOutcomeTitle: document.getElementById('duelRevealOutcomeTitle'),
+    duelRevealOutcomeDesc: document.getElementById('duelRevealOutcomeDesc'),
+    duelRevealOutcomePoints: document.getElementById('duelRevealOutcomePoints'),
+    duelRevealNextBtn: document.getElementById('duelRevealNextBtn'),
+    duelFinalStage: document.getElementById('duelFinalStage'),
     duelResultTitle: document.getElementById('duelResultTitle'),
     duelResultScore: document.getElementById('duelResultScore'),
     duelResultDesc: document.getElementById('duelResultDesc'),
@@ -679,6 +698,15 @@
         duelWins: 0,
         duelLosses: 0,
         duelDraws: 0,
+        // せんぞくの せいせき(しょうらい じっせき/プロフィールにも つかえる
+        // ように、こまかく のこしておく)
+        duelLiesUsed: 0,
+        duelLiesSucceeded: 0,
+        duelLiesFacedAsGuesser: 0,
+        duelLiesDetected: 0,
+        duelHonestAnswersGiven: 0,
+        duelHonestMisread: 0,
+        duelLongestLieStreak: 0,
         // さいきん だした しつもんの id(あたらしい じゅん)。つぎの
         // しゅつだいで ここに ふくまれる ものは できるだけ さける
         duelRecentQuestionIds: [],
@@ -1758,6 +1786,19 @@
     realist: '現実派',
   };
 
+  // A(かいとうしゃ)が こうかいする こたえに そえられる、みじかい
+  // ひとこと証言。人狼の「弁明」に ちかい えんしゅつ要素で、本音でも
+  // ブラフでも 自由に つかってよい(せいかく分析には いっさい つかわない)。
+  // スマホでの テンポを たもつため 定型文の タップせんたくのみ
+  const DUEL_TESTIMONY_PRESETS = [
+    { id: 'gachi', label: 'これは ガチ' },
+    { id: 'nocomment', label: 'ノーコメント笑' },
+    { id: 'believe', label: '信じていいよ' },
+    { id: 'guess', label: 'たぶん 想像どおり' },
+    { id: 'secret', label: 'ひみつ' },
+    { id: 'dunno', label: 'さあ、どうかな〜?' },
+  ];
+
   // category: しつもんの ジャンル(1試合の なかで おなじ ジャンルが
   // かたよりすぎない ように つかう)。weight: 1=かるい/2=ふつう/3=おもい
   // (1試合の なかで かるい話題と おもい話題が まざるように つかう)
@@ -1995,9 +2036,11 @@
   // 挑戦コードに のるのは かけきんと「こうかいされる こたえ(pub)」だけ。
   // Aの ほんね(truth)や、どの もんで うそコインを つかったかは この
   // コードに いっさい ふくまれない ので、Bに もれる ことは ない
+  // ひとこと証言(testimony)も この コードだけで はこぶ(あんごうの
+  // かいすうは ふやさない)。空文字を「証言なし」の しるしとして つかう
   function encodeDuelChallenge() {
     const d = state.duel;
-    const payload = { bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub]) };
+    const payload = { bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub, e.testimony || '']) };
     return DUEL_CHALLENGE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
 
@@ -2010,11 +2053,12 @@
       if (!Array.isArray(payload.q) || payload.q.length !== DUEL_MATCH_QUESTION_COUNT) return null;
       const items = [];
       for (const entry of payload.q) {
-        if (!Array.isArray(entry) || entry.length !== 2) return null;
-        const [qId, pub] = entry;
+        if (!Array.isArray(entry) || entry.length !== 3) return null;
+        const [qId, pub, testimony] = entry;
         if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
         if (pub !== 'a' && pub !== 'b') return null;
-        items.push({ qId, pub });
+        if (testimony !== '' && !DUEL_TESTIMONY_PRESETS.some((t) => t.id === testimony)) return null;
+        items.push({ qId, pub, testimony: testimony || null });
       }
       return { bet: Math.round(payload.bet), items };
     } catch (e) {
@@ -2022,9 +2066,12 @@
     }
   }
 
+  // 自信度(confidence)と「いちばん あやしい」の 指名(sus)も この コードで
+  // はこぶ。sus は かならず どれか1問の qId に なる(Aが 1回も うそを
+  // つかっていない ばあいでも、Bは かならず 1問を えらぶ しくみのため)
   function encodeDuelGuess() {
     const d = state.duel;
-    const payload = { bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess]) };
+    const payload = { bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess, g.confidence]), sus: d.suspicionQId };
     return DUEL_GUESS_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
   }
 
@@ -2037,13 +2084,16 @@
       if (!Array.isArray(payload.g) || payload.g.length !== DUEL_MATCH_QUESTION_COUNT) return null;
       const guesses = [];
       for (const entry of payload.g) {
-        if (!Array.isArray(entry) || entry.length !== 2) return null;
-        const [qId, guess] = entry;
+        if (!Array.isArray(entry) || entry.length !== 3) return null;
+        const [qId, guess, confidence] = entry;
         if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
         if (guess !== 'honest' && guess !== 'lie') return null;
-        guesses.push({ qId, guess });
+        if (confidence !== 'maybe' && confidence !== 'certain') return null;
+        guesses.push({ qId, guess, confidence });
       }
-      return { bet: Math.round(payload.bet), guesses };
+      if (typeof payload.sus !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === payload.sus)) return null;
+      if (!guesses.some((g) => g.qId === payload.sus)) return null;
+      return { bet: Math.round(payload.bet), guesses, suspicionQId: payload.sus };
     } catch (e) {
       return null;
     }
@@ -2089,6 +2139,7 @@
       questions,
       entries: [],
       pendingTruth: null,
+      pendingTestimony: null,
       lieCoinsUsed: 0,
       lieCoinsMax: DUEL_LIE_BUDGET,
     };
@@ -2108,6 +2159,17 @@
     return d;
   }
 
+  // A: 本音/うそを えらぶ まえに、この こたえに そえる ひとこと証言を
+  // にんいで えらべる(えらばなくても いい)。せいかく分析には つかわない
+  function setDuelPendingTestimony(id) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    if (d.pendingTruth == null) return null;
+    if (id !== null && !DUEL_TESTIMONY_PRESETS.some((t) => t.id === id)) return null;
+    d.pendingTestimony = id;
+    return d;
+  }
+
   // A: 直前に えらんだ 本心を「本音で こうかいする」か「うそを つく(逆を
   // こうかいする)」かを きめる。うそは 1試合につき さいだい lieCoinsMax
   // かいまでで、のこりが 0の ときに うそを えらぼうとすると エラーを かえす
@@ -2123,8 +2185,9 @@
     const pub = isLie ? (truth === 'a' ? 'b' : 'a') : truth;
     if (isLie) d.lieCoinsUsed += 1;
     applyDuelTrait(q, truth);
-    d.entries.push({ qId: q.id, truth, pub, isLie: !!isLie });
+    d.entries.push({ qId: q.id, truth, pub, isLie: !!isLie, testimony: d.pendingTestimony || null });
     d.pendingTruth = null;
+    d.pendingTestimony = null;
     if (d.entries.length >= d.questions.length) {
       d.step = 'ready';
       rememberDuelQuestions(d.questions.map((qq) => qq.id));
@@ -2139,15 +2202,17 @@
     const decoded = decodeDuelChallenge(code);
     if (!decoded) return { error: 'invalid' };
     if (decoded.bet > state.lifetime.money) return { error: 'funds' };
-    const items = decoded.items.map((item) => ({ qId: item.qId, pub: item.pub, question: DUEL_QUESTIONS.find((q) => q.id === item.qId) }));
+    const items = decoded.items.map((item) => ({ qId: item.qId, pub: item.pub, testimony: item.testimony, question: DUEL_QUESTIONS.find((q) => q.id === item.qId) }));
     if (items.some((item) => !item.question)) return { error: 'invalid' };
-    state.duel = { role: 'guesser', step: 'guessing', bet: decoded.bet, items, guesses: [] };
+    state.duel = { role: 'guesser', step: 'guessing', bet: decoded.bet, items, guesses: [], suspicionQId: null };
     return state.duel;
   }
 
   // B: 5問ぶんを まとめて 見てから、それぞれの すいり(本音/うそ)を
   // すきな じゅんばんで セット・セットしなおしできる(1問ずつ かくてい
-  // していく かたちには しない)
+  // していく かたちには しない)。自信度は はじめて えらんだ ときは
+  // 「🤔たぶん」を デフォルトに しておき、「🔥ぜったい」に したい ときだけ
+  // setDuelConfidence() で あげる(タップ回数を へらす ための くふう)
   function setDuelGuess(qId, guess) {
     const d = state.duel;
     if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
@@ -2155,7 +2220,18 @@
     const value = guess === 'honest' ? 'honest' : 'lie';
     const existing = d.guesses.find((g) => g.qId === qId);
     if (existing) existing.guess = value;
-    else d.guesses.push({ qId, guess: value });
+    else d.guesses.push({ qId, guess: value, confidence: 'maybe' });
+    return d;
+  }
+
+  // B: すでに すいりずみの もんの 自信度を きりかえる(まず 本音/うそを
+  // えらんでいないと つかえない)
+  function setDuelConfidence(qId, level) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
+    const existing = d.guesses.find((g) => g.qId === qId);
+    if (!existing) return null;
+    existing.confidence = level === 'certain' ? 'certain' : 'maybe';
     return d;
   }
 
@@ -2165,12 +2241,25 @@
     return d.items.every((i) => d.guesses.some((g) => g.qId === i.qId));
   }
 
-  // B: 5問ぜんぶの すいりが そろったら、まとめて かくていする(ここまでは
-  // なんども えらびなおせる。かくてい後に すいりコードが つくれるように なる)
+  // B: 5問ぜんぶの すいりが そろったら かくていし、つぎの「いちばん
+  // あやしい」の せんたく段階へ すすむ(ここまでは なんども えらびなおせる)
   function confirmDuelGuesses() {
     const d = state.duel;
     if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
     if (!allDuelGuessesSet()) return null;
+    d.step = 'suspicion';
+    return d;
+  }
+
+  // B: 5問の なかから「いちばん あやしい」1問を さいごに 指名する。
+  // Aが 1回も うそを つかっていない かのうせいも あるが、それでも
+  // かならず 1問を えらぶ ひつよう が あるので、「ぜんぶ 本音」という
+  // Aの せんじゅつ じたいが ブラフとして きのうする
+  function chooseDuelSuspicion(qId) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'suspicion') return null;
+    if (!d.items.some((i) => i.qId === qId)) return null;
+    d.suspicionQId = qId;
     d.step = 'ready';
     rememberDuelQuestions(d.items.map((i) => i.qId));
     return d;
@@ -2199,13 +2288,17 @@
     else state.lifetime.duelDraws = (state.lifetime.duelDraws || 0) + 1;
   }
 
+  const DUEL_CONFIDENCE_LABELS = { maybe: '🤔たぶん', certain: '🔥ぜったい' };
+
   // 1問ぶんの とくてんと えんしゅつを けいさんする。本音を めぐる
   // こうぼうは 1点、うそを めぐる こうぼうは 2点(ハイリスク・ハイリターン)。
-  // A/Bの どちらの がわで けいさんしても おなじ しきな ので、りょうほうの
-  // たんまつで かならず おなじ けっかに なる
-  function computeDuelRow(question, pubLabel, wasHonest, guess) {
+  // 自信度(confidence)は とくてんには えいきょうせず、えんしゅつ文言
+  // だけに はんえいさせる。A/Bの どちらの がわで けいさんしても おなじ
+  // しきな ので、りょうほうの たんまつで かならず おなじ けっかに なる
+  function computeDuelRow(qId, question, pubLabel, wasHonest, guess, confidence, testimony) {
     const guessedHonest = guess === 'honest';
     const bCorrect = guessedHonest === wasHonest;
+    const confLabel = DUEL_CONFIDENCE_LABELS[confidence] || DUEL_CONFIDENCE_LABELS.maybe;
     let aPoints = 0;
     let bPoints = 0;
     let flourishTitle = '';
@@ -2214,30 +2307,33 @@
     if (wasHonest && bCorrect) {
       bPoints = 1;
       flourishTitle = '👀 本音だった!';
-      flourishDesc = 'Bが みぬいた';
+      flourishDesc = `${confLabel}本音だと 見ぬいた!`;
       pointsLabel = 'B +1';
     } else if (wasHonest && !bCorrect) {
       aPoints = 1;
       flourishTitle = '😳 まさかの本音でした';
-      flourishDesc = 'Bが うたがいすぎた…';
+      flourishDesc = `${confLabel}うそだと うたがっていたのに…`;
       pointsLabel = 'A +1';
     } else if (!wasHonest && bCorrect) {
       bPoints = 2;
       flourishTitle = '🃏 うそを見破った!';
-      flourishDesc = 'Bが みごとに よみきった';
+      flourishDesc = `${confLabel}うそだと 見やぶった!`;
       pointsLabel = 'B +2';
     } else {
       aPoints = 2;
       flourishTitle = '😈 完全にだまされた!';
-      flourishDesc = 'Aが うそで だましきった';
+      flourishDesc = `${confLabel}本音だと 信じていたのに…`;
       pointsLabel = 'A +2';
     }
     return {
+      qId,
       emoji: question.emoji,
       text: question.text,
       pubLabel,
+      testimony,
       wasHonest,
       guess,
+      confidence,
       correct: bCorrect,
       aPoints,
       bPoints,
@@ -2245,6 +2341,49 @@
       flourishDesc,
       pointsLabel,
     };
+  }
+
+  // 「いちばん あやしい」の ボーナスてんを けいさんする(breakdown・
+  // すでに もとまった aTotal/bTotal に くわえる)。うそだったら B+1、
+  // 本音だったら A+1
+  function applyDuelSuspicionBonus(breakdown, susQId, aTotal, bTotal) {
+    const row = breakdown.find((r) => r.qId === susQId);
+    if (!row) return { aTotal, bTotal, susBonus: null };
+    if (!row.wasHonest) return { aTotal, bTotal: bTotal + 1, susBonus: 'B' };
+    return { aTotal: aTotal + 1, bTotal, susBonus: 'A' };
+  }
+
+  // A じしんの せいせき(うその せいこう率・れんぞく記録 など)を、
+  // じぶんの entries と breakdown から しゅうけいする
+  function updateDuelChallengerStats(entries, breakdown) {
+    let streak = 0;
+    entries.forEach((e, idx) => {
+      const row = breakdown[idx];
+      if (e.isLie) {
+        state.lifetime.duelLiesUsed = (state.lifetime.duelLiesUsed || 0) + 1;
+        if (!row.correct) {
+          state.lifetime.duelLiesSucceeded = (state.lifetime.duelLiesSucceeded || 0) + 1;
+          streak += 1;
+          state.lifetime.duelLongestLieStreak = Math.max(state.lifetime.duelLongestLieStreak || 0, streak);
+        } else {
+          streak = 0;
+        }
+      } else {
+        state.lifetime.duelHonestAnswersGiven = (state.lifetime.duelHonestAnswersGiven || 0) + 1;
+        if (!row.correct) state.lifetime.duelHonestMisread = (state.lifetime.duelHonestMisread || 0) + 1;
+        streak = 0;
+      }
+    });
+  }
+
+  // B じしんの せいせき(うそを 見やぶった率)を breakdown から しゅうけいする
+  function updateDuelGuesserStats(breakdown) {
+    breakdown.forEach((row) => {
+      if (!row.wasHonest) {
+        state.lifetime.duelLiesFacedAsGuesser = (state.lifetime.duelLiesFacedAsGuesser || 0) + 1;
+        if (row.correct) state.lifetime.duelLiesDetected = (state.lifetime.duelLiesDetected || 0) + 1;
+      }
+    });
   }
 
   // A: B から うけとった 推理コードを よみこんで けっちゃくを つける。
@@ -2256,25 +2395,33 @@
     const decoded = decodeDuelGuess(code);
     if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
     const guessMap = {};
-    decoded.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
+    decoded.guesses.forEach((g) => { guessMap[g.qId] = g; });
     if (!d.entries.every((e) => guessMap[e.qId])) return { error: 'invalid' };
+    if (!d.entries.some((e) => e.qId === decoded.suspicionQId)) return { error: 'invalid' };
     const breakdown = d.entries.map((e) => {
       const q = DUEL_QUESTIONS.find((qq) => qq.id === e.qId);
       const wasHonest = e.truth === e.pub;
       const pubSide = e.pub === 'a' ? q.a : q.b;
-      return computeDuelRow(q, pubSide.label, wasHonest, guessMap[e.qId]);
+      const g = guessMap[e.qId];
+      return computeDuelRow(e.qId, q, pubSide.label, wasHonest, g.guess, g.confidence, e.testimony);
     });
-    const aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
-    const bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    let aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
+    let bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    const susResult = applyDuelSuspicionBonus(breakdown, decoded.suspicionQId, aTotal, bTotal);
+    aTotal = susResult.aTotal;
+    bTotal = susResult.bTotal;
     const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
     const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'A' ? 'win' : 'lose');
     settleDuelForSelf(selfOutcome);
     recordDuelOutcome(selfOutcome);
+    updateDuelChallengerStats(d.entries, breakdown);
     d.step = 'done';
     d.breakdown = breakdown;
     d.aTotal = aTotal;
     d.bTotal = bTotal;
     d.matchOutcome = matchOutcome;
+    d.suspicionQId = decoded.suspicionQId;
+    d.susBonus = susResult.susBonus;
     return d;
   }
 
@@ -2291,24 +2438,30 @@
     decoded.reveals.forEach((r) => { truthMap[r.qId] = r.truth; });
     if (!d.items.every((i) => truthMap[i.qId])) return { error: 'invalid' };
     const guessMap = {};
-    d.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
+    d.guesses.forEach((g) => { guessMap[g.qId] = g; });
     const breakdown = d.items.map((i) => {
       const truth = truthMap[i.qId];
       const wasHonest = truth === i.pub;
       const pubSide = i.pub === 'a' ? i.question.a : i.question.b;
-      return computeDuelRow(i.question, pubSide.label, wasHonest, guessMap[i.qId]);
+      const g = guessMap[i.qId];
+      return computeDuelRow(i.qId, i.question, pubSide.label, wasHonest, g.guess, g.confidence, i.testimony);
     });
-    const aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
-    const bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    let aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
+    let bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    const susResult = applyDuelSuspicionBonus(breakdown, d.suspicionQId, aTotal, bTotal);
+    aTotal = susResult.aTotal;
+    bTotal = susResult.bTotal;
     const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
     const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'B' ? 'win' : 'lose');
     settleDuelForSelf(selfOutcome);
     recordDuelOutcome(selfOutcome);
+    updateDuelGuesserStats(breakdown);
     d.step = 'done';
     d.breakdown = breakdown;
     d.aTotal = aTotal;
     d.bTotal = bTotal;
     d.matchOutcome = matchOutcome;
+    d.susBonus = susResult.susBonus;
     return d;
   }
 
@@ -3367,6 +3520,10 @@
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
   // 再開できるように している
   let duelUiStep = 'home';
+  // けっかがめんで「1問ずつ めくる」えんしゅつの すすみぐあい。result
+  // ステップに はいるたびに 0/'pending' から やりなおす
+  let duelRevealIndex = 0;
+  let duelRevealPhase = 'pending';
   // れんあいタイプの「？」ボタンで ひらいた せつめいが、profileOpen 中の
   // ほかの 操作(たとえば きゅうあいの けっかで render() が よびなおされる
   // など)で かってに とじてしまわないよう、ひらいている/いないを
@@ -3606,6 +3763,11 @@
     el.duelGuessCodeError.classList.add('hidden');
     el.duelCodeInError.classList.add('hidden');
     el.duelGuessConfirmError.classList.add('hidden');
+    el.duelSuspicionError.classList.add('hidden');
+    if (step === 'result') {
+      duelRevealIndex = 0;
+      duelRevealPhase = 'pending';
+    }
   }
 
   // 画面を とじて また ひらいたときに、state.duel の 進行じょうきょうから
@@ -3621,6 +3783,7 @@
       if (d.step === 'done') return d.revealSent ? 'result' : 'codeOut';
     } else if (d.role === 'guesser') {
       if (d.step === 'guessing') return 'guessList';
+      if (d.step === 'suspicion') return 'guessSuspicion';
       if (d.step === 'ready') return 'codeOut';
       if (d.step === 'done') return 'result';
     }
@@ -3634,6 +3797,7 @@
       duelGuessCodeInSection: duelUiStep === 'guessCodeIn',
       duelQuestionSection: duelUiStep === 'question',
       duelGuessListSection: duelUiStep === 'guessList',
+      duelSuspicionSection: duelUiStep === 'guessSuspicion',
       duelCodeOutSection: duelUiStep === 'codeOut',
       duelCodeInSection: duelUiStep === 'codeIn',
       duelResultSection: duelUiStep === 'result',
@@ -3676,6 +3840,10 @@
       renderDuelGuessListStep();
     }
 
+    if (duelUiStep === 'guessSuspicion' && state.duel) {
+      renderDuelSuspicionStep();
+    }
+
     if (duelUiStep === 'codeOut' && state.duel) {
       const d = state.duel;
       let code = '';
@@ -3706,9 +3874,9 @@
   }
 
   // A(かいとうしゃ)の しつもん画面。おなじ しつもんの なかで
-  // 1.本心を えらぶ → 2.本音/うそを えらぶ、の 2だんかいを つづけて
-  // おこなう(pendingTruth が null なら 1だんかいめ、はいっていれば
-  // 2だんかいめを 表示する)ことで、画面いどうを へらしている
+  // 1.本心を えらぶ → 2.本音/うそを えらぶ(+ひとこと証言)、の 2だんかいを
+  // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって
+  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている
   function renderDuelQuestionStep() {
     const d = state.duel;
     if (!d || d.role !== 'challenger') return;
@@ -3737,11 +3905,14 @@
       el.duelTruthChoiceRow.classList.add('hidden');
       el.duelHonestyChoiceRow.classList.remove('hidden');
       el.duelLieBtn.disabled = d.lieCoinsUsed >= d.lieCoinsMax;
+      el.duelTestimonyRow.innerHTML = DUEL_TESTIMONY_PRESETS.map((t) => `
+        <button type="button" class="duel-testimony-chip ${d.pendingTestimony === t.id ? 'selected' : ''}" data-testimony="${t.id}">${t.label}</button>
+      `).join('');
     }
   }
 
   // B(すいりしゃ)の すいり画面。5問ぶんの こうかいされた こたえを
-  // まとめて 見くらべながら、じゅんばん じゆうに 本音/うそを
+  // まとめて 見くらべながら、じゅんばん じゆうに 本音/うそ+自信度を
   // えらべる(1問ずつ かくてい していく かたちには しない)
   function renderDuelGuessListStep() {
     const d = state.duel;
@@ -3750,6 +3921,8 @@
       const q = item.question;
       const shownSide = item.pub === 'a' ? q.a : q.b;
       const current = d.guesses.find((g) => g.qId === item.qId);
+      const testimonyPreset = item.testimony ? DUEL_TESTIMONY_PRESETS.find((t) => t.id === item.testimony) : null;
+      const testimonyHtml = testimonyPreset ? `<div class="duel-guess-row-testimony">💬「${testimonyPreset.label}」</div>` : '';
       return `
         <div class="duel-guess-row" data-qid="${item.qId}">
           <div class="duel-guess-row-head">
@@ -3757,9 +3930,14 @@
             <span class="duel-guess-row-text">${q.text}</span>
           </div>
           <div class="duel-guess-row-pub">こうかいされた こたえ:「${shownSide.label}」</div>
+          ${testimonyHtml}
           <div class="duel-guess-row-buttons">
             <button type="button" class="duel-guess-btn ${current && current.guess === 'honest' ? 'selected' : ''}" data-guess="honest">😇 本音だと思う</button>
             <button type="button" class="duel-guess-btn ${current && current.guess === 'lie' ? 'selected' : ''}" data-guess="lie">🃏 うそだと思う</button>
+          </div>
+          <div class="duel-guess-row-confidence">
+            <button type="button" class="duel-confidence-btn ${current && current.confidence === 'maybe' ? 'selected' : ''}" data-confidence="maybe">🤔 たぶん</button>
+            <button type="button" class="duel-confidence-btn ${current && current.confidence === 'certain' ? 'selected' : ''}" data-confidence="certain">🔥 ぜったい</button>
           </div>
         </div>
       `;
@@ -3767,9 +3945,132 @@
     el.duelGuessConfirmBtn.disabled = !allDuelGuessesSet();
   }
 
+  // B: 5問すいりが かくていした あとの「いちばん あやしい」せんたく画面。
+  // タップした しゅんかんに かくてい する(かくにんボタンは おかない)
+  function renderDuelSuspicionStep() {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser') return;
+    el.duelSuspicionList.innerHTML = d.items.map((item) => {
+      const q = item.question;
+      const shownSide = item.pub === 'a' ? q.a : q.b;
+      const g = d.guesses.find((gg) => gg.qId === item.qId);
+      const guessLabel = g && g.guess === 'honest' ? '😇 本音だと 推理した' : '🃏 うそだと 推理した';
+      return `
+        <button type="button" class="duel-suspicion-row" data-qid="${item.qId}">
+          <span class="duel-suspicion-row-emoji">${q.emoji}</span>
+          <div class="duel-suspicion-row-text">
+            <span class="duel-suspicion-row-q">${q.text}</span>
+            <span class="duel-suspicion-row-pub">「${shownSide.label}」・${guessLabel}</span>
+          </div>
+          <span class="duel-suspicion-row-pick">👀</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  const DUEL_TOTAL_REVEAL_STEPS = DUEL_MATCH_QUESTION_COUNT + 1; // 5問 + いちばんあやしいボーナス
+
+  // すでに めくり終わった ぶんだけの るいけい とくてんを けいさんする
+  function duelRunningTotals(d) {
+    let a = 0;
+    let b = 0;
+    const completedRows = Math.min(duelRevealIndex, DUEL_MATCH_QUESTION_COUNT);
+    for (let i = 0; i < completedRows; i++) {
+      a += d.breakdown[i].aPoints;
+      b += d.breakdown[i].bPoints;
+    }
+    if (duelRevealIndex < DUEL_MATCH_QUESTION_COUNT && duelRevealPhase === 'revealed') {
+      a += d.breakdown[duelRevealIndex].aPoints;
+      b += d.breakdown[duelRevealIndex].bPoints;
+    }
+    if (duelRevealIndex === DUEL_MATCH_QUESTION_COUNT && duelRevealPhase === 'revealed' && d.susBonus) {
+      if (d.susBonus === 'A') a += 1; else b += 1;
+    }
+    return { a, b };
+  }
+
   function renderDuelResultStep() {
     const d = state.duel;
     if (!d) return;
+    if (duelRevealIndex >= DUEL_TOTAL_REVEAL_STEPS) {
+      el.duelRevealStage.classList.add('hidden');
+      el.duelFinalStage.classList.remove('hidden');
+      renderDuelFinalStage(d);
+      return;
+    }
+    el.duelRevealStage.classList.remove('hidden');
+    el.duelFinalStage.classList.add('hidden');
+    renderDuelRevealCard(d);
+  }
+
+  function renderDuelRevealCard(d) {
+    const isSuspicionStep = duelRevealIndex === DUEL_MATCH_QUESTION_COUNT;
+    const running = duelRunningTotals(d);
+    el.duelRevealRunning.textContent = `ここまで: A ${running.a}点 － B ${running.b}点`;
+
+    if (isSuspicionStep) {
+      const row = d.breakdown.find((r) => r.qId === d.suspicionQId);
+      el.duelRevealProgress.textContent = '👀 いちばん あやしい!';
+      el.duelRevealEmoji.textContent = row.emoji;
+      el.duelRevealText.textContent = row.text;
+      el.duelRevealPub.textContent = `こうかいされた こたえ:「${row.pubLabel}」`;
+      if (row.testimony) {
+        const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);
+        el.duelRevealTestimony.textContent = t ? `💬「${t.label}」` : '';
+        el.duelRevealTestimony.classList.toggle('hidden', !t);
+      } else {
+        el.duelRevealTestimony.classList.add('hidden');
+      }
+      el.duelRevealGuess.textContent = 'Bが「いちばん あやしい」と 指名した もんだいです';
+      if (duelRevealPhase === 'pending') {
+        el.duelRevealOutcome.classList.add('hidden');
+        el.duelRevealNextBtn.textContent = 'めくる 🎴';
+      } else {
+        el.duelRevealOutcome.classList.remove('hidden');
+        if (row.wasHonest) {
+          el.duelRevealOutcomeTitle.textContent = '😳 じつは 本音でした';
+          el.duelRevealOutcomeDesc.textContent = '「いちばん あやしい」は はずれ…Aに ボーナス';
+          el.duelRevealOutcomePoints.textContent = 'A +1(いちばん あやしい ボーナス)';
+        } else {
+          el.duelRevealOutcomeTitle.textContent = '👀 やっぱり うそでした!';
+          el.duelRevealOutcomeDesc.textContent = '「いちばん あやしい」が てきちゅう!Bに ボーナス';
+          el.duelRevealOutcomePoints.textContent = 'B +1(いちばん あやしい ボーナス)';
+        }
+        el.duelRevealNextBtn.textContent = 'けっかを 見る';
+      }
+      return;
+    }
+
+    const row = d.breakdown[duelRevealIndex];
+    const isLastQuestion = duelRevealIndex === DUEL_MATCH_QUESTION_COUNT - 1;
+    const closeMatch = isLastQuestion && duelRevealPhase === 'pending' && Math.abs(running.a - running.b) <= 2;
+    el.duelRevealProgress.textContent = `しつもん ${duelRevealIndex + 1} / ${DUEL_MATCH_QUESTION_COUNT}${closeMatch ? '(せっせん!ラストです…)' : ''}`;
+    el.duelRevealEmoji.textContent = row.emoji;
+    el.duelRevealText.textContent = row.text;
+    el.duelRevealPub.textContent = `こうかいされた こたえ:「${row.pubLabel}」`;
+    if (row.testimony) {
+      const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);
+      el.duelRevealTestimony.textContent = t ? `💬「${t.label}」` : '';
+      el.duelRevealTestimony.classList.toggle('hidden', !t);
+    } else {
+      el.duelRevealTestimony.classList.add('hidden');
+    }
+    const confLabel = DUEL_CONFIDENCE_LABELS[row.confidence] || DUEL_CONFIDENCE_LABELS.maybe;
+    el.duelRevealGuess.textContent = `Bの すいり: ${row.guess === 'honest' ? '😇 本音だと思う' : '🃏 うそだと思う'}(${confLabel})`;
+
+    if (duelRevealPhase === 'pending') {
+      el.duelRevealOutcome.classList.add('hidden');
+      el.duelRevealNextBtn.textContent = 'めくる 🎴';
+    } else {
+      el.duelRevealOutcome.classList.remove('hidden');
+      el.duelRevealOutcomeTitle.textContent = row.flourishTitle;
+      el.duelRevealOutcomeDesc.textContent = row.flourishDesc;
+      el.duelRevealOutcomePoints.textContent = row.pointsLabel;
+      el.duelRevealNextBtn.textContent = duelRevealIndex + 1 < DUEL_TOTAL_REVEAL_STEPS ? 'つぎへ' : 'けっかを 見る';
+    }
+  }
+
+  function renderDuelFinalStage(d) {
     const iAmGuesser = d.role === 'guesser';
     const myOutcome = d.matchOutcome === 'draw' ? 'draw' : (d.matchOutcome === (iAmGuesser ? 'B' : 'A') ? 'win' : 'lose');
     el.duelResultTitle.textContent = myOutcome === 'win' ? '🎉 しょうり!' : (myOutcome === 'lose' ? '😢 はいぼく…' : '🤝 ひきわけ');
@@ -3778,16 +4079,25 @@
     const moneyLine = delta > 0 ? `+💰${delta}` : (delta < 0 ? `-💰${Math.abs(delta)}` : 'かけきんの やりとりなし(ひきわけ)');
     el.duelResultDesc.textContent = `おかね: ${moneyLine}\nいまの おかね: 💰${state.lifetime.money}`;
 
-    el.duelResultBreakdown.innerHTML = (d.breakdown || []).map((b) => `
-      <div class="duel-result-row ${b.correct ? 'correct' : 'wrong'}">
-        <span class="duel-result-row-emoji">${b.emoji}</span>
-        <div class="duel-result-row-text">
-          <span class="duel-result-row-question">${b.flourishTitle} ${b.text}</span>
-          <span class="duel-result-row-detail">${b.flourishDesc}・こうかいされた こたえ:「${b.pubLabel}」(${b.wasHonest ? '✅ 本音' : '🎭 うそ'})・すいり:${b.guess === 'honest' ? 'ほんと' : 'うそ'}</span>
+    const susLine = d.susBonus
+      ? `<div class="duel-result-row ${d.susBonus === 'B' ? 'correct' : 'wrong'}"><span class="duel-result-row-emoji">👀</span><div class="duel-result-row-text"><span class="duel-result-row-question">いちばん あやしい ボーナス</span><span class="duel-result-row-detail">${d.susBonus === 'B' ? 'てきちゅう!' : 'はずれ…'}</span></div><span class="duel-result-row-mark">${d.susBonus} +1</span></div>`
+      : '';
+
+    el.duelResultBreakdown.innerHTML = (d.breakdown || []).map((b) => {
+      const t = b.testimony ? DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === b.testimony) : null;
+      const testimonyText = t ? `・証言:「${t.label}」` : '';
+      const confLabel = DUEL_CONFIDENCE_LABELS[b.confidence] || DUEL_CONFIDENCE_LABELS.maybe;
+      return `
+        <div class="duel-result-row ${b.correct ? 'correct' : 'wrong'}">
+          <span class="duel-result-row-emoji">${b.emoji}</span>
+          <div class="duel-result-row-text">
+            <span class="duel-result-row-question">${b.flourishTitle} ${b.text}</span>
+            <span class="duel-result-row-detail">${b.flourishDesc}・こうかいされた こたえ:「${b.pubLabel}」(${b.wasHonest ? '✅ 本音' : '🎭 うそ'})・すいり:${b.guess === 'honest' ? 'ほんと' : 'うそ'}(${confLabel})${testimonyText}</span>
+          </div>
+          <span class="duel-result-row-mark">${b.pointsLabel}</span>
         </div>
-        <span class="duel-result-row-mark">${b.pointsLabel}</span>
-      </div>
-    `).join('');
+      `;
+    }).join('') + susLine;
   }
 
   function renderItemOverlay() {
@@ -8990,12 +9300,28 @@
     }, 700);
   });
 
-  // B: 5問ぶんを 見くらべながら、すきな じゅんばんで すいりを えらぶ
+  // A: 2だんかいめの がめんで、こたえに そえる ひとこと証言を にんいで
+  // えらぶ(もう いちど おなじ ものを タップすると とりけせる)
+  el.duelTestimonyRow.addEventListener('click', (e) => {
+    const chip = e.target.closest('.duel-testimony-chip');
+    if (!chip) return;
+    const d = state.duel;
+    const id = chip.dataset.testimony;
+    const next = d && d.pendingTestimony === id ? null : id;
+    setDuelPendingTestimony(next);
+    saveState();
+    render();
+  });
+
+  // B: 5問ぶんを 見くらべながら、すきな じゅんばんで すいり+自信度を えらぶ
   el.duelGuessList.addEventListener('click', (e) => {
-    const btn = e.target.closest('.duel-guess-btn');
     const row = e.target.closest('.duel-guess-row');
-    if (!btn || !row) return;
-    setDuelGuess(row.dataset.qid, btn.dataset.guess);
+    if (!row) return;
+    const guessBtn = e.target.closest('.duel-guess-btn');
+    const confBtn = e.target.closest('.duel-confidence-btn');
+    if (guessBtn) setDuelGuess(row.dataset.qid, guessBtn.dataset.guess);
+    else if (confBtn) setDuelConfidence(row.dataset.qid, confBtn.dataset.confidence);
+    else return;
     saveState();
     render();
   });
@@ -9008,6 +9334,18 @@
       return;
     }
     el.duelGuessConfirmError.classList.add('hidden');
+    saveState();
+    goToDuelStep('guessSuspicion');
+    render();
+  });
+
+  // B: 5問の なかから「いちばん あやしい」1問を タップした しゅんかんに
+  // かくてい する(この あと すいりコードを つくれる ように なる)
+  el.duelSuspicionList.addEventListener('click', (e) => {
+    const row = e.target.closest('.duel-suspicion-row');
+    if (!row) return;
+    const d = chooseDuelSuspicion(row.dataset.qid);
+    if (!d) return;
     saveState();
     goToDuelStep('codeOut');
     render();
@@ -9049,6 +9387,18 @@
     el.duelCodeInInput.value = '';
     saveState();
     goToDuelStep(d.role === 'challenger' ? 'codeOut' : 'result');
+    render();
+  });
+
+  // けっかがめん: 1問(+いちばんあやしいボーナス)ずつ めくっていく。
+  // pending→revealed で いまの カードを あける、revealed→つぎへ すすむ
+  el.duelRevealNextBtn.addEventListener('click', () => {
+    if (duelRevealPhase === 'pending') {
+      duelRevealPhase = 'revealed';
+    } else {
+      duelRevealIndex += 1;
+      duelRevealPhase = 'pending';
+    }
     render();
   });
 
