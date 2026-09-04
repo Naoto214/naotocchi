@@ -3618,8 +3618,10 @@
       const owned = state.lifetime.ownedShopItems.includes(item.id);
       const equipped = state.lifetime.equippedItemId === item.id;
       const statusText = !owned ? `💰${item.price}` : (equipped ? 'そうびちゅう' : 'タップで そうび');
+      const badge = equipped ? '⭐' : (owned ? '✔️' : '');
       return `
-        <button type="button" class="shop-item ${equipped ? 'equipped' : ''}" data-id="${item.id}">
+        <button type="button" class="shop-item ${equipped ? 'equipped owned' : (owned ? 'owned' : '')}" data-id="${item.id}">
+          <span class="shop-item-badge">${badge}</span>
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
@@ -3650,7 +3652,8 @@
       }
       const statusText = owned ? 'こうにゅうずみ' : `💰${item.price}`;
       return `
-        <button type="button" class="shop-item ${owned ? 'equipped' : ''}" data-id="${item.id}">
+        <button type="button" class="shop-item ${owned ? 'equipped owned' : ''}" data-id="${item.id}">
+          <span class="shop-item-badge">${owned ? '✔️' : ''}</span>
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
@@ -8843,6 +8846,15 @@
       saveState();
       return;
     }
+    // うそつきしょうぶは しつもんを かんがえたり、あいてからの コードを
+    // まったりと、ほかの がめんより ずっと 長く 同じ がめんに とどまる
+    // ことが 想定される(あいては べつの端末で べつの タイミングに あそぶ
+    // 非同期な しくみなので、なおさら)。ここで じかんの すすみごと
+    // とめておかないと、しつもんに こたえている あいだに 死亡メーターが
+    // すすんで しんでしまう、といった ことが おきてしまうため、
+    // しょうぶ画面が ひらいている あいだは tick() じたいを まるごと
+    // スキップする(とじれば また ふつうに じかんが すすみだす)
+    if (duelOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it

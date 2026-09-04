@@ -1980,6 +1980,7 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 .shop-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1990,6 +1991,27 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   background: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   font-family: inherit;
+}
+
+/* こうにゅうずみかどうかが 文字を よまなくても ひとめで わかるよう、
+   バッジと カードぜんたいの いろあいの りょうほうで しめす。そうびちゅう
+   (.equipped)は さらに ゴールドで うわがきされる */
+.shop-item-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.shop-item.owned {
+  border-color: #4a9d4a;
+  background: linear-gradient(135deg, #edfbe9, #cdf0c4);
+}
+
+.shop-item.owned .shop-item-status {
+  color: #2f7a2f;
+  font-weight: bold;
 }
 
 .shop-item-emoji {
