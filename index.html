@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-17">
+<link rel="stylesheet" href="style.css?v=20260904-19">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -34,6 +34,7 @@
             <div class="ending-badges" id="endingBadges"></div>
             <div class="pet" id="pet"><span class="partner-companion hidden" id="partnerCompanion"></span><span class="companion-side left" id="companionLeft"></span><span id="petSprite">🥚</span><span class="pet-accessory hidden" id="petAccessory"></span><span class="companion-side right" id="companionRight"></span></div>
             <div class="poop-row" id="poopRow"></div>
+            <button class="profile-icon-btn comm-icon-btn hidden" id="commBtn" title="つうしん">✉️</button>
             <button class="profile-icon-btn hidden" id="profileBtn" title="プロフィール">👤</button>
           </div>
 
@@ -123,7 +124,7 @@
         <div class="dex-overlay hidden" id="achOverlay">
           <div class="dex-header">
             <span class="dex-title">じっせき</span>
-            <span class="dex-progress" id="achProgress">0 / 66</span>
+            <span class="dex-progress" id="achProgress">0 / 65</span>
             <button class="dex-close-btn" id="achCloseBtn">✕</button>
           </div>
           <div class="ach-grid" id="achGrid"></div>
@@ -223,6 +224,15 @@
               <div class="profile-hint">じゃれるで きずな度が かいふくします。ほうっておくと すこしずつ さがり、0に なると はなれて いってしまいます</div>
               <div id="profileCompanionList"></div>
             </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="commOverlay">
+          <div class="dex-header">
+            <span class="dex-title">つうしん</span>
+            <button class="dex-close-btn" id="commCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
             <div class="profile-section">
               <div class="profile-section-title">あいてコード</div>
               <div class="profile-hint">じぶんのコードを ともだちに おくって、ともだちの コードを よみこむと、その なおとっちに きゅうあいを ためせます</div>
@@ -234,6 +244,11 @@
               </div>
               <div class="profile-code-error hidden" id="codeError"></div>
               <div id="guestStatus"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">うそつきしょうぶ</div>
+              <div class="profile-hint">ともだちと2人だけで あそぶ 対戦ゲーム。二択しつもんに こたえて コードで やりとりし、うそを ついたか みぬけるか しょうぶ!おかねも かけられます</div>
+              <button class="profile-code-btn" id="openDuelBtn">しょうぶを はじめる</button>
             </div>
           </div>
         </div>
@@ -325,7 +340,6 @@
       <button id="playWithBtn" title="じゃれる">🤗<br><span>じゃれる</span></button>
       <button id="itemBtn" title="あいてむ">🎁<br><span>あいてむ</span></button>
       <button id="courtBtn" title="きゅうあいする">💘<br><span>きゅうあい</span></button>
-      <button id="duelBtn" title="うそつきしょうぶ">🃏<br><span>しょうぶ</span></button>
       <button id="travelBtn" title="たびにでる">🧳<br><span>たび</span></button>
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
@@ -334,6 +348,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-17"></script>
+  <script src="script.js?v=20260904-19"></script>
 </body>
 </html>
