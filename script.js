@@ -2720,8 +2720,12 @@
       // さらに ゆるやかに)
       const hungerFactor = isEquipped('bowtie3') ? 0.15 : isEquipped('bowtie2') ? 0.4 : isEquipped('bowtie') ? 0.6 : 1;
       const happinessFactor = isEquipped('ribbon3') ? 0.15 : isEquipped('ribbon2') ? 0.4 : isEquipped('ribbon') ? 0.6 : 1;
-      state.hunger = clamp(state.hunger - 1 * sleepFactor * hungerFactor, 0, 100);
-      state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
+      // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
+      // 基本がめんで しばらく ながめていても あわてなくて いい よう、
+      // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
+      // ほどで お世話ぎれの 状態に なってしまっていた)
+      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor, 0, 100);
+      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
         // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
@@ -2733,9 +2737,10 @@
         state.energy = clamp(state.energy + (state.isSick ? 10 : 26) + sleepBoost, 0, 100);
       } else {
         // 元気けいの アイテムを そうびしていると、おきている あいだの
-        // げんしょうも ゆるやかに なる
+        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.4/tick)
+        // も、満腹・機嫌と おなじ りゆうで 余裕を もたせてある
         const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
-        state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier() * energyFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.4 * energyDecayMultiplier() * energyFactor, 0, 100);
       }
 
       // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
@@ -8849,12 +8854,16 @@
     // うそつきしょうぶは しつもんを かんがえたり、あいてからの コードを
     // まったりと、ほかの がめんより ずっと 長く 同じ がめんに とどまる
     // ことが 想定される(あいては べつの端末で べつの タイミングに あそぶ
-    // 非同期な しくみなので、なおさら)。ここで じかんの すすみごと
-    // とめておかないと、しつもんに こたえている あいだに 死亡メーターが
-    // すすんで しんでしまう、といった ことが おきてしまうため、
-    // しょうぶ画面が ひらいている あいだは tick() じたいを まるごと
-    // スキップする(とじれば また ふつうに じかんが すすみだす)
-    if (duelOpen) return;
+    // 非同期な しくみなので、なおさら)。あいてむ・ずかん・じっせき・
+    // でざいんも、なにを こうにゅうするか/どの すがたか/どの いろ・がら
+    // にするか などを じっくり ながめて えらぶ がめんな ので、おなじく
+    // 時間の すすみを とめる。ここで とめておかないと、えらんでいる
+    // あいだに 死亡メーターが すすんで しんでしまう、といった ことが
+    // おきてしまうため、これらの がめんが ひらいている あいだは tick()
+    // じたいを まるごと スキップする(とじれば また ふつうに じかんが
+    // すすみだす)。基本がめん(なにも ひらいていない とき)は、ながめて
+    // いるだけでも 時間が すすみつづける、いつもどおりの プレイに もどる
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
