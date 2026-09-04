@@ -677,6 +677,11 @@
         // つかいきり アイテム(CONSUMABLE_ITEMS)を こうにゅう/しよう した
         // のべ かいすう。じっせきの「つかいきりの たつじん」などに つかう
         consumablesUsed: 0,
+        // つかいきり アイテム(CONSUMABLE_ITEMS)の うち、いままでに 1かい
+        // でも こうにゅう した ことの ある id 一覧(のべ かいすうとは べつに、
+        // しゅるいの じゅうふくを のぞいて かうんとする)。じっせきの
+        // 「つかいきるもの コンプリート」に つかう
+        ownedConsumableItems: [],
         // つかいきり アイテムの「すきな いろ/がらの チケット」で、tier
         // 条件を みたす前に とくべつに 解放した COLOR_THEMES/PATTERNS の
         // id。"color:<id>" / "pattern:<id>" の かたちで もつ(いろ・がらで
@@ -880,7 +885,9 @@
     // --- きわめて むずかしい ---
     { id: 'clear-25', emoji: '🎖️', label: 'クリアの でんせつ', desc: '25かい ゲームクリアした', condition: (l) => l.clears >= 25 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
-    { id: 'shop-all', emoji: '🛍️', label: 'コレクション コンプリート', desc: 'アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるもの コンプリート', desc: 'みにつける アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'consumable-all', emoji: '🧧', label: 'つかいきるもの コンプリート', desc: 'つかいきる アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => (l.ownedConsumableItems || []).length >= CONSUMABLE_ITEMS.length },
+    { id: 'item-all', emoji: '💯', label: 'アイテム パーフェクトコレクション', desc: 'みにつけるもの・つかいきるもの、アイテムを ぜんぶ(100しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && (l.ownedConsumableItems || []).length >= CONSUMABLE_ITEMS.length },
   ];
 
   function checkAchievements() {
@@ -4242,6 +4249,8 @@
     }
     state.lifetime.money -= item.price;
     state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
+    if (!state.lifetime.ownedConsumableItems) state.lifetime.ownedConsumableItems = [];
+    if (!state.lifetime.ownedConsumableItems.includes(item.id)) state.lifetime.ownedConsumableItems.push(item.id);
     const result = item.apply() || {};
     if (result.message) setMessage(result.message);
     emotePet(result.emote || 'happy');
@@ -4284,6 +4293,8 @@
     }
     state.lifetime.money -= item.price;
     state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
+    if (!state.lifetime.ownedConsumableItems) state.lifetime.ownedConsumableItems = [];
+    if (!state.lifetime.ownedConsumableItems.includes(item.id)) state.lifetime.ownedConsumableItems.push(item.id);
     const result = item.apply(value) || {};
     pickerOpen = false;
     pickerItem = null;
