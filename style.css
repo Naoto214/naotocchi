@@ -979,6 +979,63 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   white-space: pre-line;
 }
 
+.duel-result-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border-left: 4px solid transparent;
+}
+
+.duel-result-row.correct {
+  border-left-color: #4a9d4a;
+}
+
+.duel-result-row.wrong {
+  border-left-color: #c76f6f;
+}
+
+.duel-result-row-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.duel-result-row-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.duel-result-row-question {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.duel-result-row-detail {
+  font-size: 9px;
+  opacity: 0.75;
+  line-height: 1.4;
+}
+
+.duel-result-row-mark {
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.duel-result-row.correct .duel-result-row-mark {
+  color: #2f7a2f;
+}
+
+.duel-result-row.wrong .duel-result-row-mark {
+  color: #a83f3f;
+}
+
 #guestStatus .profile-code-btn {
   margin-top: 6px;
 }
