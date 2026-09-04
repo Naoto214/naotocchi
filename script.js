@@ -1838,7 +1838,11 @@
       state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
-        state.energy = clamp(state.energy + (state.isSick ? 6 : 16), 0, 100);
+        // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
+        // ひかえめ)。「ねる」を おした しゅんかんの キックスタート分
+        // (sleepBtn の クリックハンドラを さんしょう)と あわせて、
+        // すぐに かいふくが はじまり、はやく フルに もどるように している
+        state.energy = clamp(state.energy + (state.isSick ? 10 : 26), 0, 100);
       } else {
         state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier(), 0, 100);
       }
@@ -1896,6 +1900,24 @@
         state.stage = STAGE.DEAD;
         setMessage('てんごくへ いってしまった…');
       }
+
+      // 「死亡」メーターは これまで びょうき・ていけんこう・ミニゲーム
+      // 大失敗・たべすぎ など「なにか やらかした とき」だけ あがり、
+      // 放っておいても じたいは まったく うごかなかった - お世話さえ
+      // 欠かさなければ ずっと 安全、という ぬるさの げんいんだった。
+      // としを とるほど わずかに 自然にも あがるようにして、放置に
+      // たいする きんちょうかんを もたせる(raiseDeathMeter() を通すので、
+      // こいびと/夫婦や かんむりの けいげん効果は ここにも かかる)。
+      // すぐ したの wellCared による -2/tick の 自動かいふくより 小さいと、
+      // 4項目を つねに 60いじょう たもてる 熟練プレイヤーには この上昇が
+      // まいtick かんぜんに 打ち消されて けっきょく なにも かわらなく
+      // なってしまう ため、ageDifficulty が 上限に ちかい ときは -2を
+      // うわまわる 大きさまで あげ、じゅうぶん 年を とれば どんなに
+      // かんぺきに お世話しても すこしずつは あがっていく ようにしてある
+      // (それでも かいふくアイテムを ときどき つかえば じゅうぶん おさえられる
+      // 大きさで、ぜったいに 死んでしまう ほどの きゅうげきな 上昇では ない)
+      const naturalDeathRise = lerp(0.3, 2.5, ageDifficulty());
+      raiseDeathMeter(naturalDeathRise);
 
       // お世話が じゅうぶん いきとどいている あいだ(びょうきでなく、
       // 満腹・機嫌・元気・体力が すべて 60いじょう)は、死亡メーターが
@@ -6856,6 +6878,11 @@
     state.travelStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
+      // つぎの tick(最大 TICK_MS ぶん さき)まで まったない よう、
+      // ねはじめた しゅんかんに その ばで すこし 元気を かいふくさせる
+      // (びょうき中は ひかえめに)。これで「ねても すぐには 元気が
+      // もどらない」体感の まちじかんを ほぼ なくしている
+      state.energy = clamp(state.energy + (state.isSick ? 4 : 10), 0, 100);
       setMessage('おやすみなさい…');
       return;
     }
