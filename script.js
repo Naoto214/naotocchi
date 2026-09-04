@@ -6902,6 +6902,14 @@
 
   function startMinigame(game) {
     gameActive = true;
+    // 直前の「そうじ得意!」のような ストーリーいベント バナー(.story-flash)
+    // には じぶんの ひょうじ時間(STORY_FLASH_DURATION_MS)ぶんの タイマーが
+    // あり、ミニゲームが はじまっても かってには きえない - ミニゲームの
+    // タイトル/せつめい文(.mg-title など、がめん じょうぶ)と おなじ いちに
+    // 重なって かくれてしまう ことが あった ので、ミニゲームが はじまる
+    // しゅんかんに かならず とじる ようにする
+    clearTimeout(storyFlashTimer);
+    el.storyFlash.classList.add('hidden');
     el.screenNormal.classList.add('hidden');
     el.minigameOverlay.classList.remove('hidden');
     el.minigameOverlay.innerHTML = '';
