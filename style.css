@@ -215,6 +215,53 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.75);
 }
 
+/* --- でざいん拡張: いろ (色合計40いろの うち、あたらしく 増やした 30いろ) --- */
+.screen.theme-coral { background: #ffab9e; }
+.screen.theme-peach { background: #ffd4a8; }
+.screen.theme-turquoise { background: #7fe0e0; }
+.screen.theme-indigo { background: #93a9cc; }
+.screen.theme-olive { background: #c3d19c; }
+.screen.theme-mustard { background: #ecc98a; }
+.screen.theme-sakura { background: #ffd6df; }
+.screen.theme-crystal { background: #d3e6ef; }
+.screen.theme-wakakusa { background: #c9e692; }
+.screen.theme-grape { background: #b493d6; }
+.screen.theme-apricot { background: #f8c99a; }
+.screen.theme-navy { background: #6d8bb0; }
+.screen.theme-crimson { background: #e08a92; }
+.screen.theme-rosegold { background: #ecc9c4; }
+.screen.theme-dawn { background: #ffe0b8; }
+.screen.theme-twilight { background: #a3a8d1; }
+.screen.theme-flame { background: #ff9a72; }
+.screen.theme-amber { background: #f5c97a; }
+.screen.theme-stream { background: #8fd9d2; }
+.screen.theme-grove { background: #5a9268; }
+.screen.theme-moonlight { background: #e0e6f0; }
+.screen.theme-mist { background: #d3e6cd; }
+.screen.theme-galaxy { background: #8577b3; }
+.screen.theme-jade { background: #6fcaac; }
+.screen.theme-ruby { background: #d1637a; }
+.screen.theme-sapphire { background: #6a8fc9; }
+.screen.theme-starlight { background: linear-gradient(160deg, #4a3564 0%, #1b1035 100%); }
+
+.screen.theme-aurora {
+  background: linear-gradient(120deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d, #43e97b);
+  background-size: 400% 400%;
+  animation: game-clear-bg 6s ease infinite;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.75);
+}
+
+.screen.theme-radiance {
+  background: linear-gradient(120deg, #fff6d5, #ffe066, #ffd700, #f5b942, #fff6d5);
+  background-size: 400% 400%;
+  animation: game-clear-bg 6s ease infinite;
+}
+
+.screen.theme-prism {
+  background: radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.75);
+}
+
 /* がめんの がら。いろ(background-color)は うえの .screen.theme-* が
    きめて、ここは background-image/-size/-position だけを かさねて
    のせる(shorthandを つかわないので いろの ほうは じゃましない)。
@@ -287,6 +334,204 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
     rgba(79, 195, 247, 0.35) 18px 24px,
     rgba(199, 125, 255, 0.35) 24px 30px
   );
+}
+
+/* --- でざいん拡張: がら (がら合計40しゅるいの うち、あたらしく 増やした 30しゅるい)
+   screen/deviceで まったく おなじ グラデーションを つかうので、まとめて 1つの
+   ルールに している(既存の 10しゅるいは screen/device べつべつだが、ないようは
+   完全に 同じ) */
+.screen.pattern-diamond, .device.pattern-diamond {
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%);
+  background-size: 22px 22px;
+}
+
+.screen.pattern-crosshatch, .device.pattern-crosshatch {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px);
+}
+
+.screen.pattern-pinstripe, .device.pattern-pinstripe {
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+}
+
+.screen.pattern-brick, .device.pattern-brick {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+  background-size: 24px 12px;
+  background-position: 0 0, 12px 6px;
+}
+
+.screen.pattern-herringbone, .device.pattern-herringbone {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 0;
+}
+
+.screen.pattern-scallop, .device.pattern-scallop {
+  background-image: radial-gradient(circle at 50% 0%, transparent 60%, rgba(255, 255, 255, 0.4) 61%, rgba(255, 255, 255, 0.4) 65%, transparent 66%);
+  background-size: 16px 10px;
+}
+
+.screen.pattern-bubbles, .device.pattern-bubbles {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5) 10%, transparent 11%),
+    radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.4) 14%, transparent 15%),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.45) 8%, transparent 9%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.4) 11%, transparent 12%);
+  background-size: 30px 30px;
+}
+
+.screen.pattern-zigzag, .device.pattern-zigzag {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 0;
+}
+
+.screen.pattern-rings, .device.pattern-rings {
+  background-image: radial-gradient(circle, transparent 30%, rgba(255, 255, 255, 0.5) 31%, rgba(255, 255, 255, 0.5) 36%, transparent 37%);
+  background-size: 18px 18px;
+}
+
+.screen.pattern-tartan, .device.pattern-tartan {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px);
+}
+
+.screen.pattern-bigdots, .device.pattern-bigdots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 26%, transparent 27%);
+  background-size: 26px 26px;
+}
+
+.screen.pattern-starburst, .device.pattern-starburst {
+  background-image: repeating-conic-gradient(rgba(255, 255, 255, 0.4) 0deg 10deg, transparent 10deg 30deg);
+  background-size: 20px 20px;
+}
+
+.screen.pattern-pinwheel, .device.pattern-pinwheel {
+  background-image: conic-gradient(rgba(255, 255, 255, 0.45) 0deg 90deg, transparent 90deg 180deg, rgba(255, 255, 255, 0.45) 180deg 270deg, transparent 270deg 360deg);
+  background-size: 18px 18px;
+}
+
+.screen.pattern-basket, .device.pattern-basket {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px);
+}
+
+.screen.pattern-sunray, .device.pattern-sunray {
+  background-image:
+    repeating-conic-gradient(rgba(255, 255, 255, 0.3) 0deg 6deg, transparent 6deg 24deg),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25), transparent 60%);
+  background-size: 26px 26px, 100% 100%;
+}
+
+.screen.pattern-ripple, .device.pattern-ripple {
+  background-image: repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+  background-size: 26px 26px;
+}
+
+.screen.pattern-petal, .device.pattern-petal {
+  background-image:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%);
+  background-size: 22px 22px;
+}
+
+.screen.pattern-cloud, .device.pattern-cloud {
+  background-image:
+    radial-gradient(ellipse 60% 30% at 30% 40%, rgba(255, 255, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 50% 25% at 70% 60%, rgba(255, 255, 255, 0.3), transparent 70%);
+  background-size: 60px 40px;
+}
+
+.screen.pattern-leaf, .device.pattern-leaf {
+  background-image:
+    radial-gradient(ellipse 40% 70% at 30% 30%, rgba(255, 255, 255, 0.45), transparent 70%),
+    radial-gradient(ellipse 40% 70% at 70% 70%, rgba(255, 255, 255, 0.4), transparent 70%);
+  background-size: 24px 24px;
+}
+
+.screen.pattern-bamboo, .device.pattern-bamboo {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 4px, transparent 4px 16px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0 2px, transparent 2px 20px);
+  background-size: 16px 20px;
+}
+
+.screen.pattern-pebble, .device.pattern-pebble {
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.35) 9%, transparent 10%),
+    radial-gradient(circle at 65% 20%, rgba(255, 255, 255, 0.3) 7%, transparent 8%),
+    radial-gradient(circle at 45% 65%, rgba(255, 255, 255, 0.35) 10%, transparent 11%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.3) 6%, transparent 7%);
+  background-size: 22px 22px;
+}
+
+.screen.pattern-vine, .device.pattern-vine {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 6px);
+  background-size: 18px 18px;
+}
+
+.screen.pattern-facet, .device.pattern-facet {
+  background-image: conic-gradient(from 45deg, rgba(255, 255, 255, 0.4) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.4) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.4) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.4) 270deg 315deg, transparent 315deg 360deg);
+  background-size: 24px 24px;
+}
+
+.screen.pattern-glitter, .device.pattern-glitter {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 4%, transparent 8%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 3%, transparent 6%);
+  background-size: 14px 14px, 9px 9px;
+  background-position: 0 0, 5px 5px;
+}
+
+.screen.pattern-crownmotif, .device.pattern-crownmotif {
+  background-image:
+    linear-gradient(60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%),
+    linear-gradient(-60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%);
+  background-size: 20px 34px;
+}
+
+.screen.pattern-medallion, .device.pattern-medallion {
+  background-image:
+    radial-gradient(circle, transparent 35%, rgba(255, 255, 255, 0.45) 36%, rgba(255, 255, 255, 0.45) 40%, transparent 41%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 8%, transparent 9%);
+  background-size: 26px 26px;
+}
+
+.screen.pattern-nebula, .device.pattern-nebula {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 6%, transparent 10%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.4) 5%, transparent 9%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.45) 6%, transparent 10%),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.35) 4%, transparent 8%);
+  background-size: 34px 34px;
+}
+
+.screen.pattern-kaleidoscope, .device.pattern-kaleidoscope {
+  background-image: conic-gradient(rgba(255, 94, 168, 0.35) 0deg 60deg, rgba(255, 210, 63, 0.35) 60deg 120deg, rgba(85, 230, 165, 0.35) 120deg 180deg, rgba(79, 195, 247, 0.35) 180deg 240deg, rgba(199, 125, 255, 0.35) 240deg 300deg, rgba(255, 94, 168, 0.35) 300deg 360deg);
+  background-size: 30px 30px;
+}
+
+.screen.pattern-crownjewel, .device.pattern-crownjewel {
+  background-image:
+    conic-gradient(from 45deg, rgba(255, 255, 255, 0.35) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.35) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.35) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.35) 270deg 315deg, transparent 315deg 360deg),
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 5%, transparent 9%);
+  background-size: 24px 24px, 12px 12px;
+}
+
+.screen.pattern-prismshine, .device.pattern-prismshine {
+  background-image: repeating-linear-gradient(-60deg, rgba(255, 94, 168, 0.3) 0 4px, rgba(255, 210, 63, 0.3) 4px 8px, rgba(85, 230, 165, 0.3) 8px 12px, rgba(79, 195, 247, 0.3) 12px 16px, rgba(199, 125, 255, 0.3) 16px 20px);
 }
 
 .screen.dead {
@@ -1639,6 +1884,38 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .device.theme-forest { background: linear-gradient(160deg, #7fd99a 0%, #4caf6e 45%, #2e7d4f 100%); }
 .device.theme-gold { background: linear-gradient(160deg, #fff2c2 0%, #ffd76a 45%, #e0a939 100%); }
 .device.theme-rainbow { background: linear-gradient(160deg, #ff9ecb 0%, #a78bfa 30%, #60d0ff 60%, #6dffb0 100%); }
+
+/* --- でざいん拡張: ほんたいの いろ --- */
+.device.theme-coral { background: linear-gradient(160deg, #ffb69e 0%, #ff8a80 45%, #f2604f 100%); }
+.device.theme-peach { background: linear-gradient(160deg, #ffe0bd 0%, #ffb27a 45%, #f2924a 100%); }
+.device.theme-turquoise { background: linear-gradient(160deg, #a0f0f0 0%, #33c9c9 45%, #1f9e9e 100%); }
+.device.theme-indigo { background: linear-gradient(160deg, #8fa3c9 0%, #3f5f9e 45%, #2a4270 100%); }
+.device.theme-olive { background: linear-gradient(160deg, #c9d79f 0%, #8a9a5b 45%, #66743e 100%); }
+.device.theme-mustard { background: linear-gradient(160deg, #f0d49e 0%, #d9a441 45%, #b6842c 100%); }
+.device.theme-sakura { background: linear-gradient(160deg, #ffe3ea 0%, #ffb7c5 45%, #f591a3 100%); }
+.device.theme-crystal { background: linear-gradient(160deg, #e3f1f7 0%, #a9c6d8 45%, #83a9bd 100%); }
+.device.theme-wakakusa { background: linear-gradient(160deg, #d6ee9f 0%, #9fcf5a 45%, #7fb63f 100%); }
+.device.theme-grape { background: linear-gradient(160deg, #c3a6e0 0%, #7d4fae 45%, #5c3685 100%); }
+.device.theme-apricot { background: linear-gradient(160deg, #fbdcb4 0%, #f4a86a 45%, #e08a3f 100%); }
+.device.theme-navy { background: linear-gradient(160deg, #5f7fa6 0%, #2d4a73 45%, #1c3454 100%); }
+.device.theme-crimson { background: linear-gradient(160deg, #e6a2a9 0%, #c94f5c 45%, #a13540 100%); }
+.device.theme-rosegold { background: linear-gradient(160deg, #f2d8d4 0%, #d9a5a0 45%, #bf827c 100%); }
+.device.theme-dawn { background: linear-gradient(160deg, #ffedd0 0%, #ffcf8f 45%, #ff9e5e 100%); }
+.device.theme-twilight { background: linear-gradient(160deg, #b4b8dc 0%, #6b6ea8 45%, #4a4d80 100%); }
+.device.theme-flame { background: linear-gradient(160deg, #ffb18f 0%, #ff5e3a 45%, #d43d1f 100%); }
+.device.theme-amber { background: linear-gradient(160deg, #f9dca0 0%, #e8a33d 45%, #c47f22 100%); }
+.device.theme-stream { background: linear-gradient(160deg, #a8e6e0 0%, #4fb8b0 45%, #328f89 100%); }
+.device.theme-grove { background: linear-gradient(160deg, #6ba879 0%, #1f5c38 45%, #123d25 100%); }
+.device.theme-moonlight { background: linear-gradient(160deg, #eef1f7 0%, #b8c4d9 45%, #93a3bf 100%); }
+.device.theme-mist { background: linear-gradient(160deg, #e0eeda 0%, #a8c9a0 45%, #87ab7e 100%); }
+.device.theme-galaxy { background: linear-gradient(160deg, #9a8cc4 0%, #4a3f7a 45%, #302757 100%); }
+.device.theme-jade { background: linear-gradient(160deg, #8adcbf 0%, #2f9e7a 45%, #1f7a5c 100%); }
+.device.theme-ruby { background: linear-gradient(160deg, #dd7f92 0%, #a3243f 45%, #7a1a2e 100%); }
+.device.theme-sapphire { background: linear-gradient(160deg, #84a3d4 0%, #2a4d8f 45%, #1c3766 100%); }
+.device.theme-starlight { background: linear-gradient(160deg, #4a3564 0%, #2e1a47 45%, #0f0c29 100%); }
+.device.theme-aurora { background: linear-gradient(160deg, #43e97b 0%, #38f9d7 45%, #6a82fb 100%); }
+.device.theme-radiance { background: linear-gradient(160deg, #fff6d5 0%, #ffe066 45%, #ffd700 100%); }
+.device.theme-prism { background: radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8); }
 
 /* ほんたいの がら。うえの .device.theme-* が いろ(background)を きめた
    あとに、ここで background-image/-size/-position だけを かさねる(この
