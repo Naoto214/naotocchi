@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-28">
+<link rel="stylesheet" href="style.css?v=20260904-29">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -294,7 +294,10 @@
             </div>
 
             <div class="profile-section hidden" id="duelQuestionSection">
-              <div class="duel-progress" id="duelProgress"></div>
+              <div class="duel-question-nav-row">
+                <button type="button" class="duel-back-btn" id="duelBackBtn">← もどる</button>
+                <div class="duel-progress" id="duelProgress"></div>
+              </div>
               <div class="duel-lie-coin-row hidden" id="duelLieCoinRow">🃏 のこり うそコイン: <span id="duelLieCoinCount"></span></div>
               <div class="duel-question-card">
                 <div class="duel-question-emoji" id="duelQuestionEmoji"></div>
@@ -312,6 +315,25 @@
                 <button class="mg-choice-btn duel-lie-btn" id="duelLieBtn">🃏 うそを つく</button>
               </div>
               <div class="duel-lie-flash hidden" id="duelLieFlash">😈 うそを ついた!</div>
+            </div>
+
+            <div class="profile-section hidden" id="duelAnswerReviewSection">
+              <div class="profile-section-title">回答を 見直す</div>
+              <div class="profile-hint">5問ぜんぶに こたえました。それぞれを タップすると、その しつもんの こたえを 見なおせます。ここから 「挑戦コードを つくる」を おすまでは、なんども じゆうに 見なおし・変更できます</div>
+              <div class="duel-lie-coin-row" id="duelAnswerReviewLieRow">🃏 つかった うそコイン: <span id="duelAnswerReviewLieCount"></span></div>
+              <div id="duelAnswerReviewList"></div>
+              <div class="duel-review-actions">
+                <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRestartAnswersBtn">↻ さいしょから</button>
+                <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollQuestionsBtn">🎲 しつもんを かえる</button>
+              </div>
+              <div class="duel-confirm-row hidden" id="duelRerollConfirmRow">
+                <div class="duel-confirm-text">ほんとうに 5問とも かえますか?いままでの 回答は きえます</div>
+                <div class="duel-confirm-buttons">
+                  <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollCancelBtn">やめる</button>
+                  <button type="button" class="profile-code-btn duel-danger-btn" id="duelRerollYesBtn">かえる</button>
+                </div>
+              </div>
+              <button type="button" class="profile-code-btn" id="duelFinalizeChallengeBtn">挑戦コードを つくる</button>
             </div>
 
             <div class="profile-section hidden" id="duelGuessListSection">
@@ -335,6 +357,7 @@
                 <span class="profile-code-copy-msg hidden" id="duelCodeOutCopyMsg">コピーしました!</span>
               </div>
               <button class="profile-code-btn" id="duelCodeOutDoneBtn">とじる</button>
+              <button type="button" class="duel-abandon-btn hidden" id="duelAbandonBtn">このしょうぶを やめて 新しく作る</button>
             </div>
 
             <div class="profile-section hidden" id="duelCodeInSection">
@@ -345,6 +368,7 @@
               </div>
               <div class="profile-code-error hidden" id="duelCodeInError"></div>
               <button class="profile-code-btn" id="duelCodeInBtn">よみこむ</button>
+              <button type="button" class="duel-abandon-btn hidden" id="duelCodeInAbandonBtn">このしょうぶを やめて 新しく作る</button>
             </div>
 
             <div class="profile-section hidden" id="duelResultSection">
@@ -371,7 +395,8 @@
                 <div class="duel-result-desc" id="duelResultDesc"></div>
                 <div class="profile-section-title">もんだいの ふりかえり</div>
                 <div id="duelResultBreakdown"></div>
-                <button class="profile-code-btn" id="duelResultCloseBtn">とじる</button>
+                <button class="profile-code-btn" id="duelRematchBtn">もういちど しょうぶ!</button>
+                <button class="profile-code-btn duel-secondary-btn" id="duelResultCloseBtn">とじる</button>
               </div>
             </div>
           </div>
@@ -406,6 +431,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-28"></script>
+  <script src="script.js?v=20260904-29"></script>
 </body>
 </html>

@@ -500,6 +500,7 @@
     duelGuessCodeError: document.getElementById('duelGuessCodeError'),
     duelGuessCodeBtn: document.getElementById('duelGuessCodeBtn'),
     duelQuestionSection: document.getElementById('duelQuestionSection'),
+    duelBackBtn: document.getElementById('duelBackBtn'),
     duelProgress: document.getElementById('duelProgress'),
     duelLieCoinRow: document.getElementById('duelLieCoinRow'),
     duelLieCoinCount: document.getElementById('duelLieCoinCount'),
@@ -514,6 +515,15 @@
     duelHonestBtn: document.getElementById('duelHonestBtn'),
     duelLieBtn: document.getElementById('duelLieBtn'),
     duelLieFlash: document.getElementById('duelLieFlash'),
+    duelAnswerReviewSection: document.getElementById('duelAnswerReviewSection'),
+    duelAnswerReviewList: document.getElementById('duelAnswerReviewList'),
+    duelAnswerReviewLieCount: document.getElementById('duelAnswerReviewLieCount'),
+    duelRestartAnswersBtn: document.getElementById('duelRestartAnswersBtn'),
+    duelRerollQuestionsBtn: document.getElementById('duelRerollQuestionsBtn'),
+    duelRerollConfirmRow: document.getElementById('duelRerollConfirmRow'),
+    duelRerollCancelBtn: document.getElementById('duelRerollCancelBtn'),
+    duelRerollYesBtn: document.getElementById('duelRerollYesBtn'),
+    duelFinalizeChallengeBtn: document.getElementById('duelFinalizeChallengeBtn'),
     duelGuessListSection: document.getElementById('duelGuessListSection'),
     duelGuessList: document.getElementById('duelGuessList'),
     duelGuessConfirmError: document.getElementById('duelGuessConfirmError'),
@@ -527,12 +537,14 @@
     duelCodeOutCopyBtn: document.getElementById('duelCodeOutCopyBtn'),
     duelCodeOutCopyMsg: document.getElementById('duelCodeOutCopyMsg'),
     duelCodeOutDoneBtn: document.getElementById('duelCodeOutDoneBtn'),
+    duelAbandonBtn: document.getElementById('duelAbandonBtn'),
     duelCodeInSection: document.getElementById('duelCodeInSection'),
     duelCodeInHint: document.getElementById('duelCodeInHint'),
     duelCodeInInput: document.getElementById('duelCodeInInput'),
     duelCodeInClearBtn: document.getElementById('duelCodeInClearBtn'),
     duelCodeInError: document.getElementById('duelCodeInError'),
     duelCodeInBtn: document.getElementById('duelCodeInBtn'),
+    duelCodeInAbandonBtn: document.getElementById('duelCodeInAbandonBtn'),
     duelResultSection: document.getElementById('duelResultSection'),
     duelRevealStage: document.getElementById('duelRevealStage'),
     duelRevealProgress: document.getElementById('duelRevealProgress'),
@@ -553,6 +565,7 @@
     duelResultScore: document.getElementById('duelResultScore'),
     duelResultDesc: document.getElementById('duelResultDesc'),
     duelResultBreakdown: document.getElementById('duelResultBreakdown'),
+    duelRematchBtn: document.getElementById('duelRematchBtn'),
     duelResultCloseBtn: document.getElementById('duelResultCloseBtn'),
   };
 
@@ -2146,7 +2159,12 @@
     }
   }
 
-  // A(かいとうしゃ)やく: かけきんを きめて しんきの しょうぶを はじめる
+  // A(かいとうしゃ)やく: かけきんを きめて しんきの しょうぶを はじめる。
+  // entries は 5つぶんの こたえを かならず このながさで もつ かためられた
+  // はいれつ(未回答は null)で、d.currentIndex が いま 見ている しつもんの
+  // ばんごうを あらわす。これにより「もどる」「前の しつもんへ 編集しに
+  // もどる」といった 行き来を entries.push() に たよらずに あんぜんに
+  // あつかえる
   function startDuelChallenge(bet) {
     const roundedBet = Math.round(bet);
     if (!Number.isFinite(roundedBet) || roundedBet <= 0 || roundedBet > DUEL_MAX_BET) return null;
@@ -2157,13 +2175,21 @@
       step: 'answering',
       bet: roundedBet,
       questions,
-      entries: [],
+      entries: new Array(questions.length).fill(null),
+      currentIndex: 0,
       pendingTruth: null,
       pendingTestimony: null,
-      lieCoinsUsed: 0,
       lieCoinsMax: DUEL_LIE_BUDGET,
     };
     return state.duel;
+  }
+
+  // いま つかっている うそコインの まいすう。entries は かためられた
+  // はいれつな ので、たんに isLie の こたえを かぞえるだけで つねに 正しい
+  // かずが もとまる(前は フィールドに 手動で +1/-1 していたが、回答を
+  // あとから 変更できる ように した ため、かぞえなおす 方式に した)
+  function duelLieCoinsUsed(d, excludeIndex) {
+    return d.entries.reduce((n, e, idx) => (idx !== excludeIndex && e && e.isLie ? n + 1 : n), 0);
   }
 
   // A: いま でている しつもんに たいする 本心を えらぶ(この じてんでは
@@ -2173,7 +2199,7 @@
   function chooseDuelTruth(choice) {
     const d = state.duel;
     if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
-    const q = d.questions[d.entries.length];
+    const q = d.questions[d.currentIndex];
     if (!q) return null;
     d.pendingTruth = choice === 'a' ? 'a' : 'b';
     return d;
@@ -2193,26 +2219,131 @@
   // A: 直前に えらんだ 本心を「本音で こうかいする」か「うそを つく(逆を
   // こうかいする)」かを きめる。うそは 1試合につき さいだい lieCoinsMax
   // かいまでで、のこりが 0の ときに うそを えらぼうとすると エラーを かえす
+  // (いま 編集している この しつもん じしんが すでに うそだった ばあいは、
+  // その ぶんを のぞいて かぞえるので、うそ→うそへの ぬりなおしは コインを
+  // 消費しない)。せいかく傾向の しゅうけい(applyDuelTrait)と 直近しつもん
+  // りれきの きろく(rememberDuelQuestions)は、ここでは まだ おこなわず、
+  // finalizeDuelChallenge() で 5問ぶん まとめて 1かいだけ おこなう(なんども
+  // 見なおし・へんこうできる ように した ため、ここで つど かぞえると
+  // 二重に かぞえて しまう)
   function chooseDuelHonesty(isLie) {
     const d = state.duel;
     if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
     if (d.pendingTruth == null) return null;
-    if (isLie && d.lieCoinsUsed >= d.lieCoinsMax) return { error: 'noLieCoins' };
-    const idx = d.entries.length;
-    const q = d.questions[idx];
+    if (isLie && duelLieCoinsUsed(d, d.currentIndex) >= d.lieCoinsMax) return { error: 'noLieCoins' };
+    const q = d.questions[d.currentIndex];
     if (!q) return null;
     const truth = d.pendingTruth;
     const pub = isLie ? (truth === 'a' ? 'b' : 'a') : truth;
-    if (isLie) d.lieCoinsUsed += 1;
-    applyDuelTrait(q, truth);
-    d.entries.push({ qId: q.id, truth, pub, isLie: !!isLie, testimony: d.pendingTestimony || null });
+    d.entries[d.currentIndex] = { qId: q.id, truth, pub, isLie: !!isLie, testimony: d.pendingTestimony || null };
     d.pendingTruth = null;
     d.pendingTestimony = null;
-    if (d.entries.length >= d.questions.length) {
-      d.step = 'ready';
-      rememberDuelQuestions(d.questions.map((qq) => qq.id));
+    const nextEmpty = d.entries.findIndex((e) => e === null);
+    if (nextEmpty === -1) {
+      d.step = 'review';
+    } else {
+      d.currentIndex = nextEmpty;
     }
     return d;
+  }
+
+  // A: 「← もどる」。2だんかいめ(本音/うそ選択)なら 同じ しつもんの
+  // 1だんかいめに もどり(まだ かくてい していない pendingTruth/
+  // pendingTestimony だけを 消す。entries の 既存の こたえは そのまま)、
+  // 1だんかいめなら 1つ前の しつもんの 2だんかいめへ もどって、その
+  // しつもんの こたえ(本心/本音うそ/証言)を pending に つみなおして
+  // 見なおせる ようにする。いちばん さいしょの しつもんの 1だんかいめでは
+  // なにも しない(それより 前は ない)
+  function goBackDuelQuestion() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    if (d.pendingTruth != null) {
+      d.pendingTruth = null;
+      d.pendingTestimony = null;
+      return d;
+    }
+    if (d.currentIndex <= 0) return null;
+    d.currentIndex -= 1;
+    const prev = d.entries[d.currentIndex];
+    d.pendingTruth = prev ? prev.truth : null;
+    d.pendingTestimony = prev ? prev.testimony : null;
+    return d;
+  }
+
+  // A: 回答確認画面(review)から、5問の うち 1問を タップして その しつもんの
+  // 2だんかいめ(本音/うそ・証言)を もういちど 見なおす。entries[index] は
+  // すでに こたえずみの はずなので、その ないようを pending に つみなおして
+  // 「answering」ステップに もどる
+  function editDuelAnswer(index) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'review') return null;
+    const entry = d.entries[index];
+    if (!entry) return null;
+    d.currentIndex = index;
+    d.pendingTruth = entry.truth;
+    d.pendingTestimony = entry.testimony;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 「↻ さいしょから」。おなじ5問の まま、こたえ・証言・うそコイン
+  // 使用状況を すべて リセットして 1問目から こたえなおす
+  function restartDuelAnswers() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || (d.step !== 'answering' && d.step !== 'review')) return null;
+    d.entries = new Array(d.questions.length).fill(null);
+    d.currentIndex = 0;
+    d.pendingTruth = null;
+    d.pendingTestimony = null;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 「🎲 しつもんを かえる」。いまの5問を まるごと はいき して、150問の
+  // プールから 新しい5問を 引きなおす。直近の しあいの りれきに くわえて、
+  // いま はいき する 5問も さける ように わたす ことで、引きなおした
+  // 直後に おなじ5問に なる ことを ふせぐ。こたえ・証言・うそコインは
+  // すべて リセットされ、1問目から こたえなおす
+  function rerollDuelQuestions() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || (d.step !== 'answering' && d.step !== 'review')) return null;
+    const avoid = [...(state.lifetime.duelRecentQuestionIds || []), ...d.questions.map((q) => q.id)];
+    d.questions = pickDuelQuestions(avoid);
+    d.entries = new Array(d.questions.length).fill(null);
+    d.currentIndex = 0;
+    d.pendingTruth = null;
+    d.pendingTestimony = null;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 回答確認画面から、5問ぶんの ないようを さいしゅう かくてい する。
+  // ここで はじめて せいかく傾向(本心のみ)を しゅうけいし、直近しつもん
+  // りれきに この5問を きろくする(どちらも 1回だけ おこなう ひつようが
+  // あるので、entries を なんど 書きなおしても ここに たどりつくまでは
+  // 実行されない)。この あと d.step は 'ready' に なり、挑戦コードが
+  // つくれる ように なる - ここから さきは「このしょうぶを やめる」以外の
+  // 方法で ないようを 書きかえられない(3コード交換の こうへいせいを まもる ため)
+  function finalizeDuelChallenge() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'review') return null;
+    if (!d.entries.every((e) => e !== null)) return null;
+    d.entries.forEach((e, idx) => applyDuelTrait(d.questions[idx], e.truth));
+    rememberDuelQuestions(d.questions.map((q) => q.id));
+    d.step = 'ready';
+    return d;
+  }
+
+  // A: 挑戦コードを すでに 発行した あと(d.step === 'ready')に ないように
+  // 手を いれたい ばあいの ための「このしょうぶを やめる」。発行ずみの
+  // コードは 書きかえず、しあい じたいを はいきして あたらしい しょうぶを
+  // ゼロから つくりなおす あつかいに する(3コード交換の こうへいせいを
+  // まもる ため)
+  function abandonDuelChallenge() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'ready') return null;
+    state.duel = null;
+    return true;
   }
 
   // B(すいりしゃ)やく: A から うけとった 挑戦コードを よみこんで
@@ -3799,6 +3930,7 @@
     if (!d) return 'home';
     if (d.role === 'challenger') {
       if (d.step === 'answering') return 'question';
+      if (d.step === 'review') return 'answerReview';
       if (d.step === 'ready') return 'codeOut';
       if (d.step === 'done') return d.revealSent ? 'result' : 'codeOut';
     } else if (d.role === 'guesser') {
@@ -3816,6 +3948,7 @@
       duelBetSection: duelUiStep === 'bet',
       duelGuessCodeInSection: duelUiStep === 'guessCodeIn',
       duelQuestionSection: duelUiStep === 'question',
+      duelAnswerReviewSection: duelUiStep === 'answerReview',
       duelGuessListSection: duelUiStep === 'guessList',
       duelSuspicionSection: duelUiStep === 'guessSuspicion',
       duelCodeOutSection: duelUiStep === 'codeOut',
@@ -3856,6 +3989,10 @@
       renderDuelQuestionStep();
     }
 
+    if (duelUiStep === 'answerReview' && state.duel) {
+      renderDuelAnswerReviewStep();
+    }
+
     if (duelUiStep === 'guessList' && state.duel) {
       renderDuelGuessListStep();
     }
@@ -3881,12 +4018,20 @@
       el.duelCodeOutBox.value = code;
       el.duelCodeOutHint.textContent = hint;
       el.duelCodeOutCopyMsg.classList.add('hidden');
+      // 挑戦コードを 発行して あいての 返事まちの あいだ(d.step==='ready')
+      // だけ「やめる」を 出す。発行ずみの コードは 書きかえられない ため、
+      // ないようを 変えたい ときは まっさらな しょうぶを つくりなおす
+      // しかない。すでに 推理コードを よみこんで けっちゃくずみ
+      // (d.step==='done')の 決着コードがめんでは 出さない
+      el.duelAbandonBtn.classList.toggle('hidden', !(d.role === 'challenger' && d.step === 'ready'));
     }
 
     if (duelUiStep === 'codeIn' && state.duel) {
-      el.duelCodeInHint.textContent = state.duel.role === 'challenger'
+      const d = state.duel;
+      el.duelCodeInHint.textContent = d.role === 'challenger'
         ? 'あいてから とどいた「推理コード」を ここに 入れてください'
         : 'あいてから とどいた「決着コード」を ここに 入れてください';
+      el.duelCodeInAbandonBtn.classList.toggle('hidden', !(d.role === 'challenger' && d.step === 'ready'));
     }
 
     if (duelUiStep === 'result' && state.duel) {
@@ -3897,19 +4042,24 @@
   // A(かいとうしゃ)の しつもん画面。おなじ しつもんの なかで
   // 1.本心を えらぶ → 2.本音/うそを えらぶ(+ひとこと証言)、の 2だんかいを
   // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって
-  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている
+  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている。
+  // すでに こたえずみの しつもんを もどる/編集で 見なおしている ときも
+  // おなじ 画面を つかい、以前の 本心/証言が pending に つみなおされた
+  // じょうたいで 表示される
   function renderDuelQuestionStep() {
     const d = state.duel;
     if (!d || d.role !== 'challenger') return;
-    const idx = d.entries.length;
+    const idx = d.currentIndex;
     const q = d.questions[idx];
     if (!q) return;
-    el.duelProgress.textContent = `しつもん ${idx + 1} / ${d.questions.length}`;
+    const answeredCount = d.entries.filter((e) => e !== null).length;
+    el.duelProgress.textContent = `しつもん ${idx + 1} / ${d.questions.length}(かいとうずみ ${answeredCount} 問)`;
     el.duelLieCoinRow.classList.remove('hidden');
-    el.duelLieCoinCount.textContent = `${d.lieCoinsMax - d.lieCoinsUsed} / ${d.lieCoinsMax}`;
+    el.duelLieCoinCount.textContent = `${d.lieCoinsMax - duelLieCoinsUsed(d)} / ${d.lieCoinsMax}`;
     el.duelQuestionEmoji.textContent = q.emoji;
     el.duelQuestionText.textContent = q.text;
     el.duelLieFlash.classList.add('hidden');
+    el.duelBackBtn.disabled = idx <= 0 && d.pendingTruth == null;
 
     if (d.pendingTruth == null) {
       el.duelQuestionShown.classList.add('hidden');
@@ -3919,17 +4069,47 @@
       el.duelChoiceBBtn.textContent = q.b.label;
       el.duelChoiceABtn.dataset.choice = 'a';
       el.duelChoiceBBtn.dataset.choice = 'b';
+      const existing = d.entries[idx];
+      el.duelChoiceABtn.classList.toggle('duel-choice-current', !!existing && existing.truth === 'a');
+      el.duelChoiceBBtn.classList.toggle('duel-choice-current', !!existing && existing.truth === 'b');
     } else {
       const chosenSide = d.pendingTruth === 'a' ? q.a : q.b;
       el.duelQuestionShown.textContent = `あなたの 本心:「${chosenSide.label}」`;
       el.duelQuestionShown.classList.remove('hidden');
       el.duelTruthChoiceRow.classList.add('hidden');
       el.duelHonestyChoiceRow.classList.remove('hidden');
-      el.duelLieBtn.disabled = d.lieCoinsUsed >= d.lieCoinsMax;
+      el.duelLieBtn.disabled = duelLieCoinsUsed(d, idx) >= d.lieCoinsMax;
       el.duelTestimonyRow.innerHTML = DUEL_TESTIMONY_PRESETS.map((t) => `
         <button type="button" class="duel-testimony-chip ${d.pendingTestimony === t.id ? 'selected' : ''}" data-testimony="${t.id}">${t.label}</button>
       `).join('');
     }
+  }
+
+  // A: 回答確認画面(review)。5問ぶんの 質問・本心・本音/うそ・こうかいされる
+  // こたえ・証言を いちらん表示し、タップで その しつもんを 編集しなおせる
+  function renderDuelAnswerReviewStep() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'review') return;
+    el.duelAnswerReviewList.innerHTML = d.entries.map((e, idx) => {
+      const q = d.questions[idx];
+      const truthSide = e.truth === 'a' ? q.a : q.b;
+      const pubSide = e.pub === 'a' ? q.a : q.b;
+      const testimonyPreset = e.testimony ? DUEL_TESTIMONY_PRESETS.find((t) => t.id === e.testimony) : null;
+      const testimonyText = testimonyPreset ? `・💬「${testimonyPreset.label}」` : '';
+      return `
+        <button type="button" class="duel-review-row" data-index="${idx}">
+          <span class="duel-review-row-emoji">${q.emoji}</span>
+          <div class="duel-review-row-text">
+            <span class="duel-review-row-q">${q.text}</span>
+            <span class="duel-review-row-detail">本心:「${truthSide.label}」・${e.isLie ? '🃏 うそで こうかい' : '😇 本音で こうかい'}${testimonyText}</span>
+            <span class="duel-review-row-pub">あいてに 見える こたえ:「${pubSide.label}」</span>
+          </div>
+          <span class="duel-review-row-edit">✏️</span>
+        </button>
+      `;
+    }).join('');
+    el.duelAnswerReviewLieCount.textContent = `${duelLieCoinsUsed(d)} / ${d.lieCoinsMax}`;
+    el.duelRerollConfirmRow.classList.add('hidden');
   }
 
   // B(すいりしゃ)の すいり画面。5問ぶんの こうかいされた こたえを
@@ -9368,12 +9548,14 @@
 
   // A: 2だんかいめ、本音で いくか うそを つくかを えらぶ。うそを えらんだ
   // ときだけ、A本人にしか 見えない えんしゅつ(🃏😈)を 一瞬 見せてから
-  // つぎの しつもんへ すすむ(Bには この えんしゅつは いっさい つたわらない)
+  // つぎの しつもんへ すすむ(Bには この えんしゅつは いっさい つたわらない)。
+  // 5問ぜんぶ こたえおわると(すでに こたえずみの ものを 見なおしていた
+  // ばあいも ふくむ)、いきなり コードを つくらず 回答確認画面に すすむ
   el.duelHonestBtn.addEventListener('click', () => {
     const d = chooseDuelHonesty(false);
     if (!d) return;
     saveState();
-    if (d.step === 'ready') goToDuelStep('codeOut');
+    if (d.step === 'review') goToDuelStep('answerReview');
     render();
   });
 
@@ -9385,7 +9567,7 @@
     el.duelHonestyChoiceRow.classList.add('hidden');
     el.duelLieFlash.classList.remove('hidden');
     setTimeout(() => {
-      if (d.step === 'ready') goToDuelStep('codeOut');
+      if (d.step === 'review') goToDuelStep('answerReview');
       render();
     }, 700);
   });
@@ -9400,6 +9582,55 @@
     const next = d && d.pendingTestimony === id ? null : id;
     setDuelPendingTestimony(next);
     saveState();
+    render();
+  });
+
+  // A: 「← もどる」。2だんかいめなら 同じ しつもんの 1だんかいめへ、
+  // 1だんかいめなら 1つ前の しつもんの 2だんかいめ(以前の こたえを
+  // つみなおした じょうたい)へ もどる
+  el.duelBackBtn.addEventListener('click', () => {
+    if (!goBackDuelQuestion()) return;
+    saveState();
+    render();
+  });
+
+  // A: 回答確認画面から、いずれかの しつもんを タップして 編集しなおす
+  el.duelAnswerReviewList.addEventListener('click', (e) => {
+    const row = e.target.closest('.duel-review-row');
+    if (!row) return;
+    if (!editDuelAnswer(Number(row.dataset.index))) return;
+    saveState();
+    goToDuelStep('question');
+    render();
+  });
+
+  el.duelRestartAnswersBtn.addEventListener('click', () => {
+    if (!restartDuelAnswers()) return;
+    saveState();
+    goToDuelStep('question');
+    render();
+  });
+
+  el.duelRerollQuestionsBtn.addEventListener('click', () => {
+    el.duelRerollConfirmRow.classList.remove('hidden');
+  });
+
+  el.duelRerollCancelBtn.addEventListener('click', () => {
+    el.duelRerollConfirmRow.classList.add('hidden');
+  });
+
+  el.duelRerollYesBtn.addEventListener('click', () => {
+    if (!rerollDuelQuestions()) return;
+    saveState();
+    goToDuelStep('question');
+    render();
+  });
+
+  el.duelFinalizeChallengeBtn.addEventListener('click', () => {
+    const d = finalizeDuelChallenge();
+    if (!d) return;
+    saveState();
+    goToDuelStep('codeOut');
     render();
   });
 
@@ -9468,6 +9699,22 @@
     render();
   });
 
+  // A: 発行ずみの 挑戦コードは 書きかえられない ため、ないようを 変えたい
+  // ときは「このしょうぶを やめて 新しく作る」で しあい じたいを はいきし、
+  // かけきん入力からの あたらしい しょうぶへ すすむ
+  el.duelAbandonBtn.addEventListener('click', () => {
+    if (!abandonDuelChallenge()) return;
+    saveState();
+    goToDuelStep('bet');
+    render();
+  });
+  el.duelCodeInAbandonBtn.addEventListener('click', () => {
+    if (!abandonDuelChallenge()) return;
+    saveState();
+    goToDuelStep('bet');
+    render();
+  });
+
   el.duelCodeInBtn.addEventListener('click', () => {
     const raw = el.duelCodeInInput.value;
     if (!raw.trim()) return;
@@ -9505,6 +9752,23 @@
   el.duelResultCloseBtn.addEventListener('click', () => {
     state.duel = null;
     goToDuelStep('home');
+    saveState();
+    render();
+  });
+
+  // けっか画面が 行き止まりに ならないよう、その場から すぐ つぎの
+  // しょうぶへ すすめる ショートカット。ちょうせんしゃ(A)だった ばあいは
+  // かけきん入力へ 直行し(150問プールから あたらしい5問が 引きなおされる)、
+  // すいりしゃ(B)だった ばあいは じぶんから しょうぶを つくる ことは
+  // できない ため、しょうぶトップへ もどす(そこから「しょうぶを つくる」で
+  // Aに なるか、あたらしい あいてコードを まつ)。せんぞく・せいかく傾向・
+  // しょじきん・じっせきなど 永続データは state.lifetime に あり、
+  // state.duel = null は 今回の しあいの いちじてきな じょうたいだけを
+  // きえいる ため、まったく えいきょうしない
+  el.duelRematchBtn.addEventListener('click', () => {
+    const wasChallenger = state.duel && state.duel.role === 'challenger';
+    state.duel = null;
+    goToDuelStep(wasChallenger ? 'bet' : 'home');
     saveState();
     render();
   });
