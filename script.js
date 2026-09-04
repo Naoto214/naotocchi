@@ -2720,8 +2720,12 @@
       // さらに ゆるやかに)
       const hungerFactor = isEquipped('bowtie3') ? 0.15 : isEquipped('bowtie2') ? 0.4 : isEquipped('bowtie') ? 0.6 : 1;
       const happinessFactor = isEquipped('ribbon3') ? 0.15 : isEquipped('ribbon2') ? 0.4 : isEquipped('ribbon') ? 0.6 : 1;
-      state.hunger = clamp(state.hunger - 1 * sleepFactor * hungerFactor, 0, 100);
-      state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
+      // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
+      // 基本がめんで しばらく ながめていても あわてなくて いい よう、
+      // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
+      // ほどで お世話ぎれの 状態に なってしまっていた)
+      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor, 0, 100);
+      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
         // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
@@ -2733,9 +2737,10 @@
         state.energy = clamp(state.energy + (state.isSick ? 10 : 26) + sleepBoost, 0, 100);
       } else {
         // 元気けいの アイテムを そうびしていると、おきている あいだの
-        // げんしょうも ゆるやかに なる
+        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.4/tick)
+        // も、満腹・機嫌と おなじ りゆうで 余裕を もたせてある
         const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
-        state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier() * energyFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.4 * energyDecayMultiplier() * energyFactor, 0, 100);
       }
 
       // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
@@ -3618,8 +3623,10 @@
       const owned = state.lifetime.ownedShopItems.includes(item.id);
       const equipped = state.lifetime.equippedItemId === item.id;
       const statusText = !owned ? `💰${item.price}` : (equipped ? 'そうびちゅう' : 'タップで そうび');
+      const badge = equipped ? '⭐' : (owned ? '✔️' : '');
       return `
-        <button type="button" class="shop-item ${equipped ? 'equipped' : ''}" data-id="${item.id}">
+        <button type="button" class="shop-item ${equipped ? 'equipped owned' : (owned ? 'owned' : '')}" data-id="${item.id}">
+          <span class="shop-item-badge">${badge}</span>
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
@@ -3650,7 +3657,8 @@
       }
       const statusText = owned ? 'こうにゅうずみ' : `💰${item.price}`;
       return `
-        <button type="button" class="shop-item ${owned ? 'equipped' : ''}" data-id="${item.id}">
+        <button type="button" class="shop-item ${owned ? 'equipped owned' : ''}" data-id="${item.id}">
+          <span class="shop-item-badge">${owned ? '✔️' : ''}</span>
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
@@ -8843,6 +8851,23 @@
       saveState();
       return;
     }
+    // うそつきしょうぶは しつもんを かんがえたり、あいてからの コードを
+    // まったりと、ほかの がめんより ずっと 長く 同じ がめんに とどまる
+    // ことが 想定される(あいては べつの端末で べつの タイミングに あそぶ
+    // 非同期な しくみなので、なおさら)。あいてむ・ずかん・じっせき・
+    // でざいんも、なにを こうにゅうするか/どの すがたか/どの いろ・がら
+    // にするか などを じっくり ながめて えらぶ がめんな ので、おなじく
+    // 時間の すすみを とめる。ここで とめておかないと、えらんでいる
+    // あいだに 死亡メーターが すすんで しんでしまう、といった ことが
+    // おきてしまうため、これらの がめんが ひらいている あいだは tick()
+    // じたいを まるごと スキップする(とじれば また ふつうに じかんが
+    // すすみだす)。プロフィールも、せいかく傾向や こいびと・なかまの
+    // ようすを じっくり 見返す がめんな ので おなじく とめる。つうしん
+    // はぶ(あいてコード・しょうぶの いりぐち一覧)も、コードを つくったり
+    // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
+    // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
+    // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
