@@ -1768,7 +1768,7 @@
       }
 
       // poop accumulates over time
-      if (Math.random() < 0.12 && state.poopCount < MAX_POOP) {
+      if (Math.random() < 0.08 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -1781,7 +1781,7 @@
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
         // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
-        const sicknessChance = isEquipped('scarf') ? 0.07 : 0.14;
+        const sicknessChance = isEquipped('scarf') ? 0.045 : 0.09;
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
