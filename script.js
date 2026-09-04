@@ -474,7 +474,10 @@
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
     partnerDexProgress: document.getElementById('partnerDexProgress'),
-    duelBtn: document.getElementById('duelBtn'),
+    commBtn: document.getElementById('commBtn'),
+    commOverlay: document.getElementById('commOverlay'),
+    commCloseBtn: document.getElementById('commCloseBtn'),
+    openDuelBtn: document.getElementById('openDuelBtn'),
     duelOverlay: document.getElementById('duelOverlay'),
     duelCloseBtn: document.getElementById('duelCloseBtn'),
     duelHomeSection: document.getElementById('duelHomeSection'),
@@ -747,13 +750,14 @@
   // saveState() so no individual call site needs to remember to check it
   // むずかしさが 低いと おもわれる じゅんに ならべてある(はじめの ほうは
   // ふつうに あそんでいれば すぐ たっせいでき、うしろに いくほど 長時間の
-  // やりこみや 高額な おかねが 必要に なる)。dex-complete と naoto-all は
-  // どちらも「ある tier ぶんの クリアを むかえないと そもそも 挑戦すら
-  // できない」しゅるいの じっせきな ため、endingProgress() の achComplete
-  // 判定からは 除外している(ふくめると じゅんかん参照に なって しまう -
-  // dex-complete は dexComplete 判定そのものと 一対一な ため、naoto-all は
-  // なおとの リング/かんむりが tier2/tier3(=achComplete/dexComplete)を
-  // 前提に しているため)
+  // やりこみや 高額な おかねが 必要に なる)。dex-complete は「ずかんを
+  // ぜんぶ うめる」判定そのものと 一対一な ため、endingProgress() の
+  // achComplete 判定からは 除外している(ふくめると じゅんかん参照に
+  // なって しまう)。「なおとの〜」でんせつアイテムを ぜんぶ てにいれる
+  // じっせきは、あえて つくっていない - 最高位の アイテム(なおとの
+  // かんむり)が「じっせき コンプリート」の さらに さきに ある tier3
+  // クリアを 前提に しており、じっせきグリッドの 100%達成が 事実上
+  // とどかない ものに なって しまうため
   const ACHIEVEMENTS = [
     // --- かんたん(ふつうに あそんでいれば すぐ とどく) ---
     { id: 'evolve-1', emoji: '🌱', label: 'はじめの いっぽ', desc: 'はじめて しんかした', condition: (l) => l.evolutions >= 1 },
@@ -835,9 +839,6 @@
     { id: 'clear-25', emoji: '🎖️', label: 'クリアの でんせつ', desc: '25かい ゲームクリアした', condition: (l) => l.clears >= 25 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
     { id: 'shop-all', emoji: '🛍️', label: 'コレクション コンプリート', desc: 'アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-
-    // --- ほぼ 不可能(おかねを かせぎつづけないと とどかない) ---
-    { id: 'naoto-all', emoji: '👑', label: 'でんせつの しょゆうしゃ', desc: '「なおとの〜」でんせつアイテムを ぜんぶ(4しゅるい)てにいれた', condition: (l) => (l.ownedNaotoItems || []).length >= NAOTO_ITEMS.length },
   ];
 
   function checkAchievements() {
@@ -1219,7 +1220,7 @@
   function endingProgress() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
     const achComplete = ACHIEVEMENTS
-      .filter((ach) => ach.id !== 'dex-complete' && ach.id !== 'naoto-all')
+      .filter((ach) => ach.id !== 'dex-complete')
       .every((ach) => state.achievementsUnlocked.includes(ach.id));
     return { dexComplete, achComplete };
   }
@@ -3129,6 +3130,7 @@
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
+    el.commBtn.classList.toggle('hidden', isEgg || isOver);
 
     const endingTiersReached = state.lifetime.endingTiersReached;
     el.endingBadges.innerHTML = [...endingTiersReached]
@@ -3171,7 +3173,6 @@
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
     el.itemBtn.disabled = gameActive || hasTransformChoice;
-    el.duelBtn.disabled = gameActive || hasTransformChoice;
 
     el.dexOverlay.classList.toggle('hidden', !dexOpen);
     if (dexOpen) renderDex();
@@ -3184,6 +3185,9 @@
 
     el.profileOverlay.classList.toggle('hidden', !profileOpen);
     if (profileOpen) renderProfile();
+
+    el.commOverlay.classList.toggle('hidden', !commOpen);
+    if (commOpen) renderCommOverlay();
 
     el.itemOverlay.classList.toggle('hidden', !itemOpen);
     if (itemOpen) renderItemOverlay();
@@ -3201,6 +3205,7 @@
   let achOpen = false;
   let themeOpen = false;
   let profileOpen = false;
+  let commOpen = false;
   let itemOpen = false;
   let duelOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
@@ -3385,7 +3390,11 @@
     } else {
       el.profileCompanionList.innerHTML = '<div class="profile-empty">いま そばに いる なかまは いません</div>';
     }
+  }
 
+  // プロフィールと ついに なる「つうしん」画面: あいてコード(state.guest の
+  // ひょうじ)と、うそつきしょうぶへの いりぐちを まとめて もつ
+  function renderCommOverlay() {
     if (state.guest) {
       const g = state.guest;
       const stage = SPECIES[g.speciesLine].stages[g.stageIndex];
@@ -8622,12 +8631,31 @@
 
   el.profileBtn.addEventListener('click', () => {
     profileOpen = true;
-    el.codeError.classList.add('hidden');
     render();
   });
 
   el.profileCloseBtn.addEventListener('click', () => {
     profileOpen = false;
+    render();
+  });
+
+  el.commBtn.addEventListener('click', () => {
+    commOpen = true;
+    el.codeError.classList.add('hidden');
+    render();
+  });
+
+  el.commCloseBtn.addEventListener('click', () => {
+    commOpen = false;
+    render();
+  });
+
+  el.openDuelBtn.addEventListener('click', () => {
+    // commOverlay は とじずに したに のこしておく(itemOverlay/pickerOverlay
+    // の おやこ関係と おなじ パターン)。しょうぶを とじると、また
+    // つうしん画面に もどれる
+    duelOpen = true;
+    goToDuelStep(duelResumeStep());
     render();
   });
 
@@ -8659,12 +8687,6 @@
     if (!e.target.closest('#clearGuestBtn')) return;
     state.guest = null;
     saveState();
-    render();
-  });
-
-  el.duelBtn.addEventListener('click', () => {
-    duelOpen = true;
-    goToDuelStep(duelResumeStep());
     render();
   });
 
