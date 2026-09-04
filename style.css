@@ -1071,6 +1071,29 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   gap: 4px;
 }
 
+.game-clear-freeplay-btn {
+  position: relative;
+  z-index: 1;
+  margin-top: 6px;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 16px;
+  background: #fff;
+  color: #6b3654;
+  font-weight: bold;
+  font-size: 11px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.game-clear-freeplay-btn:active {
+  transform: scale(0.95);
+}
+
+.game-clear-freeplay-btn.hidden {
+  display: none;
+}
+
 .game-clear-badge {
   font-size: 10px;
   font-weight: bold;
@@ -1389,6 +1412,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 
 .dex-cell.locked {
   opacity: 0.5;
+}
+
+.dex-cell.tappable {
+  cursor: pointer;
+}
+
+.dex-cell.tappable:active {
+  transform: scale(0.94);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .dex-cell-emoji {
