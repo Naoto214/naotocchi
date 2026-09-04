@@ -893,6 +893,84 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   margin-top: 8px;
 }
 
+.duel-role-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.duel-role-row .profile-code-btn {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 11px;
+}
+
+.duel-progress {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.duel-question-card {
+  background: linear-gradient(160deg, #fff8fb, #ffe4f1);
+  border: 2px solid #6b3654;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.duel-question-emoji {
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.duel-question-text {
+  font-size: 13px;
+  font-weight: bold;
+  color: #6b3654;
+  margin-top: 6px;
+}
+
+.duel-question-shown {
+  font-size: 10px;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+.duel-question-shown.hidden {
+  display: none;
+}
+
+.duel-choice-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.duel-choice-row .mg-choice-btn {
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+}
+
+.duel-result-title {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.duel-result-desc {
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  white-space: pre-line;
+}
+
 #guestStatus .profile-code-btn {
   margin-top: 6px;
 }

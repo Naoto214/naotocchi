@@ -474,6 +474,43 @@
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
     partnerDexProgress: document.getElementById('partnerDexProgress'),
+    duelBtn: document.getElementById('duelBtn'),
+    duelOverlay: document.getElementById('duelOverlay'),
+    duelCloseBtn: document.getElementById('duelCloseBtn'),
+    duelHomeSection: document.getElementById('duelHomeSection'),
+    duelRecord: document.getElementById('duelRecord'),
+    duelTraitSummary: document.getElementById('duelTraitSummary'),
+    duelStartChallengeBtn: document.getElementById('duelStartChallengeBtn'),
+    duelStartGuessBtn: document.getElementById('duelStartGuessBtn'),
+    duelBetSection: document.getElementById('duelBetSection'),
+    duelOwnMoney: document.getElementById('duelOwnMoney'),
+    duelBetInput: document.getElementById('duelBetInput'),
+    duelBetError: document.getElementById('duelBetError'),
+    duelBetConfirmBtn: document.getElementById('duelBetConfirmBtn'),
+    duelGuessCodeInSection: document.getElementById('duelGuessCodeInSection'),
+    duelGuessCodeInput: document.getElementById('duelGuessCodeInput'),
+    duelGuessCodeError: document.getElementById('duelGuessCodeError'),
+    duelGuessCodeBtn: document.getElementById('duelGuessCodeBtn'),
+    duelQuestionSection: document.getElementById('duelQuestionSection'),
+    duelProgress: document.getElementById('duelProgress'),
+    duelQuestionEmoji: document.getElementById('duelQuestionEmoji'),
+    duelQuestionText: document.getElementById('duelQuestionText'),
+    duelQuestionShown: document.getElementById('duelQuestionShown'),
+    duelChoiceABtn: document.getElementById('duelChoiceABtn'),
+    duelChoiceBBtn: document.getElementById('duelChoiceBBtn'),
+    duelCodeOutSection: document.getElementById('duelCodeOutSection'),
+    duelCodeOutHint: document.getElementById('duelCodeOutHint'),
+    duelCodeOutBox: document.getElementById('duelCodeOutBox'),
+    duelCodeOutDoneBtn: document.getElementById('duelCodeOutDoneBtn'),
+    duelCodeInSection: document.getElementById('duelCodeInSection'),
+    duelCodeInHint: document.getElementById('duelCodeInHint'),
+    duelCodeInInput: document.getElementById('duelCodeInInput'),
+    duelCodeInError: document.getElementById('duelCodeInError'),
+    duelCodeInBtn: document.getElementById('duelCodeInBtn'),
+    duelResultSection: document.getElementById('duelResultSection'),
+    duelResultTitle: document.getElementById('duelResultTitle'),
+    duelResultDesc: document.getElementById('duelResultDesc'),
+    duelResultCloseBtn: document.getElementById('duelResultCloseBtn'),
   };
 
   function freshState() {
@@ -616,8 +653,24 @@
         // の いちらん。じっせきの「せかい いっしゅう」に つかう。「おうち」
         // は さいしょから いる ので、あらかじめ ふくめておく
         regionsVisited: ['home'],
+        // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
+        // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
+        // 人間の しこう傾向な ので「はじめから」しても きえない。
+        // duelTraits は しつもんに 正直に こたえた とき だけ すこしずつ
+        // たまる(うそを ついた ラウンドぶんは かうんとしない)
+        duelTraits: { cautious: 0, active: 0, jealous: 0, romantic: 0, secretive: 0, spoiled: 0, myPace: 0, realist: 0 },
+        duelMatchesPlayed: 0,
+        duelWins: 0,
+        duelLosses: 0,
+        // さいきん だした しつもんの id(あたらしい じゅん)。つぎの
+        // しゅつだいで ここに ふくまれる ものは できるだけ さける
+        duelRecentQuestionIds: [],
       },
       achievementsUnlocked: [],
+      // 「うそつきしょうぶ」の しんこうちゅうの たいせん。ゲスト(state.guest)
+      // と おなじく、いま そだてている 1たいぶんの いちじてきな じょうたい
+      // なので「はじめから」で リセットされる
+      duel: null,
     };
   }
 
@@ -1664,6 +1717,449 @@
     };
   }
 
+  // 「うそつきしょうぶ」: 2人だけの 対戦ミニゲーム。あいてコードと おなじく
+  // サーバーを つかわず、コードの やりとり(3回)だけで あそべる。
+  // A(ちょうせんしゃ)が 5つの 二択しつもんに こたえ、しつもんごとに
+  // ないしょで ほんね/うそ を えらぶ。B(すいりしゃ)は こうかいされた
+  // こたえだけを みて、それが ほんねか うそかを あてる。3問いじょう
+  // あてれば Bの かち、2問いかなら Aの かち。
+  // かけきんの けっさんは、Aと Bが それぞれ じぶんの たんまつで おなじ
+  // しきを つかって けいさんする(どちらかが 一方的に けっかを きめて
+  // つたえる かたちには しない)ので、コードを さきに つくった がわが
+  // ゆうりに ならない こうへいな しくみに なっている
+  const DUEL_TRAIT_LABELS = {
+    cautious: '慎重派',
+    active: '行動派',
+    jealous: '嫉妬深い',
+    romantic: 'ロマンチスト',
+    secretive: '秘密主義',
+    spoiled: '甘えん坊',
+    myPace: 'マイペース',
+    realist: '現実派',
+  };
+
+  const DUEL_QUESTIONS = [
+    // 【ライト・日常】(tier 1)
+    { id: 'dq1', tier: 1, emoji: '🏖️', text: '休日は?', a: { label: '外に出たい', traits: ['active'] }, b: { label: '家にいたい', traits: ['myPace'] } },
+    { id: 'dq2', tier: 1, emoji: '🗺️', text: '旅行は?', a: { label: '計画派', traits: ['cautious'] }, b: { label: 'ノープラン派', traits: ['active'] } },
+    { id: 'dq3', tier: 1, emoji: '🌗', text: '生活リズムは?', a: { label: '朝型', traits: [] }, b: { label: '夜型', traits: [] } },
+    { id: 'dq4', tier: 1, emoji: '🛍️', text: '買い物は?', a: { label: '即決', traits: ['active'] }, b: { label: '比較しまくる', traits: ['cautious'] } },
+    { id: 'dq5', tier: 1, emoji: '📱', text: 'LINEの返信は?', a: { label: '即レス', traits: ['active'] }, b: { label: 'あとで返す', traits: ['myPace'] } },
+    { id: 'dq6', tier: 1, emoji: '☎️', text: '電話は?', a: { label: '好き', traits: ['active'] }, b: { label: '苦手', traits: ['myPace'] } },
+    { id: 'dq7', tier: 1, emoji: '🎁', text: '誕生日は?', a: { label: 'サプライズされたい', traits: ['romantic'] }, b: { label: '事前に知りたい', traits: ['cautious'] } },
+    { id: 'dq8', tier: 1, emoji: '📷', text: '写真は?', a: { label: 'たくさん撮る', traits: ['romantic'] }, b: { label: 'あまり撮らない', traits: ['myPace'] } },
+    { id: 'dq9', tier: 1, emoji: '🧹', text: '部屋は?', a: { label: '常に片付けたい', traits: ['cautious'] }, b: { label: '散らかってても平気', traits: ['myPace'] } },
+    { id: 'dq10', tier: 1, emoji: '✈️', text: '旅行スタイルは?', a: { label: '一人旅できる', traits: ['myPace'] }, b: { label: '誰かと行きたい', traits: ['spoiled'] } },
+    { id: 'dq11', tier: 1, emoji: '🍻', text: '飲み会は?', a: { label: '最後までいる', traits: ['active'] }, b: { label: '早めに帰る', traits: ['cautious'] } },
+    { id: 'dq12', tier: 1, emoji: '🗣️', text: '初対面では?', a: { label: '話せる方', traits: ['active'] }, b: { label: '慣れるまで静か', traits: ['cautious'] } },
+    { id: 'dq13', tier: 1, emoji: '📦', text: '買った物は?', a: { label: 'すぐ使う', traits: ['active'] }, b: { label: 'しばらく取っておく', traits: ['cautious'] } },
+    { id: 'dq14', tier: 1, emoji: '🎀', text: 'プレゼントは?', a: { label: '実用品派', traits: ['realist'] }, b: { label: 'ロマンチックな物派', traits: ['romantic'] } },
+    { id: 'dq15', tier: 1, emoji: '🍽️', text: 'お店選びは?', a: { label: '高い店1回', traits: ['romantic'] }, b: { label: '安い店3回', traits: ['realist'] } },
+    // 【性格・癖】(tier 1)
+    { id: 'dq16', tier: 1, emoji: '😤', text: '怒ったら?', a: { label: 'すぐ言う', traits: ['active'] }, b: { label: '黙る', traits: ['secretive'] } },
+    { id: 'dq17', tier: 1, emoji: '😟', text: '嫌われるのは?', a: { label: '気になる', traits: ['cautious'] }, b: { label: 'あまり気にしない', traits: ['myPace'] } },
+    { id: 'dq18', tier: 1, emoji: '😔', text: '落ち込むと?', a: { label: '話したい', traits: ['spoiled'] }, b: { label: '一人になりたい', traits: ['myPace'] } },
+    { id: 'dq19', tier: 1, emoji: '🤐', text: '秘密は?', a: { label: '抱え込む', traits: ['secretive'] }, b: { label: '誰かに話す', traits: ['active'] } },
+    { id: 'dq20', tier: 1, emoji: '😳', text: '褒められると?', a: { label: '喜ぶ', traits: ['spoiled'] }, b: { label: '照れて否定する', traits: ['secretive'] } },
+    { id: 'dq21', tier: 1, emoji: '⏳', text: 'ケンカの後は?', a: { label: 'その日に解決したい', traits: ['active'] }, b: { label: '時間を置きたい', traits: ['cautious'] } },
+    { id: 'dq22', tier: 1, emoji: '💬', text: '普段は?', a: { label: '本音を言う', traits: ['active'] }, b: { label: '空気を読む', traits: ['cautious'] } },
+    { id: 'dq23', tier: 1, emoji: '🤝', text: '人をどう見る?', a: { label: 'すぐ信用する', traits: ['active'] }, b: { label: 'なかなか信用しない', traits: ['cautious'] } },
+    { id: 'dq24', tier: 1, emoji: '😒', text: '嫉妬したら?', a: { label: '表に出す', traits: ['jealous'] }, b: { label: '隠す', traits: ['secretive'] } },
+    { id: 'dq25', tier: 1, emoji: '😢', text: '泣くところは?', a: { label: '見られても平気', traits: ['spoiled'] }, b: { label: '絶対見られたくない', traits: ['secretive'] } },
+    { id: 'dq26', tier: 1, emoji: '🥺', text: '寂しい時は?', a: { label: '言える', traits: ['spoiled'] }, b: { label: '言えない', traits: ['secretive'] } },
+    { id: 'dq27', tier: 1, emoji: '🤗', text: '甘えるのは?', a: { label: '得意', traits: ['spoiled'] }, b: { label: '苦手', traits: ['myPace'] } },
+    { id: 'dq28', tier: 1, emoji: '🙋', text: '頼られると?', a: { label: '嬉しい', traits: ['romantic'] }, b: { label: '面倒に感じる', traits: ['myPace'] } },
+    { id: 'dq29', tier: 1, emoji: '😣', text: 'ミスした後は?', a: { label: '引きずる', traits: ['cautious'] }, b: { label: 'すぐ切り替える', traits: ['active'] } },
+    { id: 'dq30', tier: 1, emoji: '🕰️', text: '過去は?', a: { label: 'よく思い出す', traits: ['romantic'] }, b: { label: 'あまり振り返らない', traits: ['myPace'] } },
+    // 【恋愛】(tier 2)
+    { id: 'dq31', tier: 2, emoji: '💘', text: '好きになったら?', a: { label: '自分から行く', traits: ['active'] }, b: { label: '相手から来てほしい', traits: ['spoiled'] } },
+    { id: 'dq32', tier: 2, emoji: '🔍', text: '交際前は?', a: { label: '長く知りたい', traits: ['cautious'] }, b: { label: '直感で付き合える', traits: ['active'] } },
+    { id: 'dq33', tier: 2, emoji: '📩', text: '連絡頻度は?', a: { label: '毎日連絡したい', traits: ['spoiled'] }, b: { label: '用事がある時だけでいい', traits: ['myPace'] } },
+    { id: 'dq34', tier: 2, emoji: '📅', text: '会う頻度は?', a: { label: '毎週会いたい', traits: ['spoiled'] }, b: { label: '月数回でも平気', traits: ['myPace'] } },
+    { id: 'dq35', tier: 2, emoji: '💌', text: '「好き」の伝え方は?', a: { label: '頻繁に言ってほしい', traits: ['spoiled'] }, b: { label: '行動で分かればいい', traits: ['realist'] } },
+    { id: 'dq36', tier: 2, emoji: '🎉', text: '記念日は?', a: { label: '大事にしたい', traits: ['romantic'] }, b: { label: 'あまり気にしない', traits: ['myPace'] } },
+    { id: 'dq37', tier: 2, emoji: '🏠', text: '同棲と結婚は?', a: { label: '同棲してから結婚', traits: ['cautious'] }, b: { label: '結婚してから同居', traits: ['realist'] } },
+    { id: 'dq38', tier: 2, emoji: '🗨️', text: '恋人との会話は?', a: { label: '何でも話したい', traits: ['active'] }, b: { label: '多少秘密があっていい', traits: ['secretive'] } },
+    { id: 'dq39', tier: 2, emoji: '📖', text: '恋人の過去は?', a: { label: '知りたい', traits: ['jealous'] }, b: { label: '知らなくていい', traits: ['myPace'] } },
+    { id: 'dq40', tier: 2, emoji: '👂', text: '元恋人の話は?', a: { label: '聞ける', traits: ['myPace'] }, b: { label: '聞きたくない', traits: ['jealous'] } },
+    { id: 'dq41', tier: 2, emoji: '🚫', text: '恋人の異性の親友は?', a: { label: 'あり', traits: ['myPace'] }, b: { label: 'なし', traits: ['jealous'] } },
+    { id: 'dq42', tier: 2, emoji: '😰', text: '恋人がモテると?', a: { label: '嬉しい', traits: ['myPace'] }, b: { label: '不安になる', traits: ['jealous'] } },
+    { id: 'dq43', tier: 2, emoji: '⛓️', text: '束縛は?', a: { label: '少しくらい嬉しい', traits: ['spoiled'] }, b: { label: 'ない方がいい', traits: ['myPace'] } },
+    { id: 'dq44', tier: 2, emoji: '⚖️', text: '恋愛に求めるのは?', a: { label: '安心感', traits: ['realist'] }, b: { label: '刺激', traits: ['romantic'] } },
+    { id: 'dq45', tier: 2, emoji: '🧲', text: '付き合うなら?', a: { label: '似ている人', traits: ['cautious'] }, b: { label: '正反対の人', traits: ['active'] } },
+    { id: 'dq46', tier: 2, emoji: '🎮', text: '趣味は?', a: { label: '恋人と共有したい', traits: ['spoiled'] }, b: { label: '別々でもいい', traits: ['myPace'] } },
+    { id: 'dq47', tier: 2, emoji: '🛡️', text: '弱い部分は?', a: { label: '見せる', traits: ['active'] }, b: { label: 'できれば見せたくない', traits: ['secretive'] } },
+    { id: 'dq48', tier: 2, emoji: '🛏️', text: 'ケンカ中の就寝は?', a: { label: '一緒に寝る', traits: ['romantic'] }, b: { label: '別々に寝る', traits: ['myPace'] } },
+    { id: 'dq49', tier: 2, emoji: '👋', text: '別れた相手とは?', a: { label: '友達になれる', traits: ['myPace'] }, b: { label: '無理', traits: ['jealous'] } },
+    { id: 'dq50', tier: 2, emoji: '🔄', text: '復縁は?', a: { label: 'あり', traits: ['romantic'] }, b: { label: 'なし', traits: ['realist'] } },
+    // 【嫉妬・独占欲】(tier 3)
+    { id: 'dq51', tier: 3, emoji: '💔', text: '元恋人との連絡は?', a: { label: 'あり', traits: ['myPace'] }, b: { label: 'なし', traits: ['jealous'] } },
+    { id: 'dq52', tier: 3, emoji: '🍽️', text: '元恋人と二人で食事は?', a: { label: 'あり', traits: ['myPace'] }, b: { label: 'なし', traits: ['jealous'] } },
+    { id: 'dq53', tier: 3, emoji: '🍷', text: '異性と二人で飲むのは?', a: { label: 'あり', traits: ['myPace'] }, b: { label: 'なし', traits: ['jealous'] } },
+    { id: 'dq54', tier: 3, emoji: '📲', text: '恋人のSNSは?', a: { label: 'つい見る', traits: ['jealous'] }, b: { label: 'あまり見ない', traits: ['myPace'] } },
+    { id: 'dq55', tier: 3, emoji: '❤️', text: '恋人の「いいね」は?', a: { label: '気になる', traits: ['jealous'] }, b: { label: '気にならない', traits: ['myPace'] } },
+    { id: 'dq56', tier: 3, emoji: '🔓', text: '恋人のスマホは?', a: { label: '見たくなることがある', traits: ['jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq57', tier: 3, emoji: '🖼️', text: '恋人の過去の写真は?', a: { label: '見たい', traits: ['jealous'] }, b: { label: '見たくない', traits: ['myPace'] } },
+    { id: 'dq58', tier: 3, emoji: '😏', text: '嫉妬されると?', a: { label: '少し嬉しい', traits: ['romantic'] }, b: { label: '面倒', traits: ['myPace'] } },
+    { id: 'dq59', tier: 3, emoji: '👑', text: '優先してほしいのは?', a: { label: '自分だけ', traits: ['spoiled'] }, b: { label: '友達も大切に', traits: ['realist'] } },
+    { id: 'dq60', tier: 3, emoji: '🔑', text: '恋人の秘密は?', a: { label: '全部知りたい', traits: ['jealous'] }, b: { label: '知らなくてもいい', traits: ['myPace'] } },
+    // 【隠し事・本音】(tier 3)
+    { id: 'dq61', tier: 3, emoji: '🤫', text: '恋人に言ってない秘密は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq62', tier: 3, emoji: '🔒', text: '絶対知られたくないことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: '特にない', traits: ['active'] } },
+    { id: 'dq63', tier: 3, emoji: '🎭', text: '昔の恋愛を盛って話した?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq64', tier: 3, emoji: '🤥', text: '恋人に嘘をついた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq65', tier: 3, emoji: '😶', text: '本当は嫌なのに「いいよ」と言う?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq66', tier: 3, emoji: '🎨', text: '趣味を好きなふりした?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq67', tier: 3, emoji: '💭', text: '好きでもない人と付き合った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq68', tier: 3, emoji: '📞', text: '寂しさで誰かに連絡した?', a: { label: 'ある', traits: ['spoiled'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq69', tier: 3, emoji: '👀', text: '元恋人のSNSをこっそり見た?', a: { label: 'ある', traits: ['jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq70', tier: 3, emoji: '🗑️', text: '別れた後の写真は?', a: { label: '残す', traits: ['romantic'] }, b: { label: '消す', traits: ['realist'] } },
+    { id: 'dq71', tier: 3, emoji: '💭', text: '今でも思い出す元恋人は?', a: { label: 'いる', traits: ['romantic'] }, b: { label: 'いない', traits: ['realist'] } },
+    { id: 'dq72', tier: 3, emoji: '📓', text: '誰にも言ってない黒歴史は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'あまりない', traits: ['active'] } },
+    { id: 'dq73', tier: 3, emoji: '🎪', text: '見せていない自分は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq74', tier: 3, emoji: '🎭', text: '本音と建前は?', a: { label: 'かなり使い分ける', traits: ['secretive'] }, b: { label: 'あまりしない', traits: ['active'] } },
+    { id: 'dq75', tier: 3, emoji: '🌫️', text: '「好き」と言いながら迷った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['cautious'] } },
+    // 【大人っぽい・ちょいエロ】(tier 4)
+    { id: 'dq76', tier: 4, emoji: '💋', text: 'キスは?', a: { label: '自分からしたい', traits: ['active'] }, b: { label: 'されたい', traits: ['spoiled'] } },
+    { id: 'dq77', tier: 4, emoji: '🤝', text: 'スキンシップは?', a: { label: '多い方が好き', traits: ['spoiled'] }, b: { label: '少なめが好き', traits: ['myPace'] } },
+    { id: 'dq78', tier: 4, emoji: '🤲', text: '人前で手をつなぐのは?', a: { label: 'できる', traits: ['active'] }, b: { label: '少し恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq79', tier: 4, emoji: '😘', text: '人前でキスは?', a: { label: 'できる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq80', tier: 4, emoji: '🛌', text: '寝る時は?', a: { label: 'くっつきたい', traits: ['spoiled'] }, b: { label: '離れて寝たい', traits: ['myPace'] } },
+    { id: 'dq81', tier: 4, emoji: '🌙', text: '触れ合う頻度は?', a: { label: '毎日触れ合いたい', traits: ['spoiled'] }, b: { label: '気分次第でいい', traits: ['myPace'] } },
+    { id: 'dq82', tier: 4, emoji: '🕯️', text: '大事にするのは?', a: { label: '雰囲気', traits: ['romantic'] }, b: { label: '勢い', traits: ['active'] } },
+    { id: 'dq83', tier: 4, emoji: '💡', text: '落ち着くのは?', a: { label: '明るい場所', traits: ['active'] }, b: { label: '暗い場所', traits: ['romantic'] } },
+    { id: 'dq84', tier: 4, emoji: '😉', text: 'デートの誘いは?', a: { label: '自分から誘う方', traits: ['active'] }, b: { label: '誘われたい方', traits: ['spoiled'] } },
+    { id: 'dq85', tier: 4, emoji: '🔥', text: '恋人には?', a: { label: '大胆になれる', traits: ['active'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq86', tier: 4, emoji: '🎯', text: '恋愛では?', a: { label: 'リードしたい', traits: ['active'] }, b: { label: 'リードされたい', traits: ['spoiled'] } },
+    { id: 'dq87', tier: 4, emoji: '💏', text: 'キスの長さは?', a: { label: '長めが好き', traits: ['romantic'] }, b: { label: '軽めが好き', traits: ['active'] } },
+    { id: 'dq88', tier: 4, emoji: '✨', text: '好きになるきっかけは?', a: { label: 'スキンシップから', traits: ['active'] }, b: { label: '気持ちが先', traits: ['romantic'] } },
+    { id: 'dq89', tier: 4, emoji: '🌸', text: '恋人の香りは?', a: { label: 'かなり重要', traits: ['romantic'] }, b: { label: 'あまり気にしない', traits: ['realist'] } },
+    { id: 'dq90', tier: 4, emoji: '🎵', text: '惹かれるのは?', a: { label: '声', traits: ['romantic'] }, b: { label: '見た目', traits: ['realist'] } },
+    { id: 'dq91', tier: 4, emoji: '✋', text: 'フェチは?', a: { label: '手フェチ寄り', traits: ['romantic'] }, b: { label: '顔フェチ寄り', traits: ['realist'] } },
+    { id: 'dq92', tier: 4, emoji: '🥰', text: '好きなのは?', a: { label: '甘える方', traits: ['spoiled'] }, b: { label: '甘えられる方', traits: ['active'] } },
+    { id: 'dq93', tier: 4, emoji: '🛁', text: '恋人とお風呂は?', a: { label: 'あり', traits: ['active'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq94', tier: 4, emoji: '😴', text: '寝顔を見られるのは?', a: { label: '平気', traits: ['myPace'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq95', tier: 4, emoji: '👕', text: '服の貸し借りは?', a: { label: 'したい', traits: ['spoiled'] }, b: { label: '特に興味ない', traits: ['myPace'] } },
+    { id: 'dq96', tier: 4, emoji: '💞', text: '強めに好意を示されると?', a: { label: '嬉しい', traits: ['spoiled'] }, b: { label: '少し引く', traits: ['myPace'] } },
+    { id: 'dq97', tier: 4, emoji: '📏', text: '恋人との距離感は?', a: { label: 'かなり近い方が好き', traits: ['spoiled'] }, b: { label: '適度な距離がほしい', traits: ['myPace'] } },
+    { id: 'dq98', tier: 4, emoji: '⚡', text: '恋愛で惹かれるのは?', a: { label: '刺激的な人', traits: ['active'] }, b: { label: '安心できる人', traits: ['realist'] } },
+    { id: 'dq99', tier: 4, emoji: '🌹', text: '好みは?', a: { label: '色気のある人', traits: ['romantic'] }, b: { label: 'かわいい人', traits: ['active'] } },
+    { id: 'dq100', tier: 4, emoji: '📣', text: '「会いたい」は?', a: { label: '自分から言える', traits: ['active'] }, b: { label: '言われたい', traits: ['spoiled'] } },
+    // 【さらにプライベート】(tier 4)
+    { id: 'dq101', tier: 4, emoji: '🔢', text: 'スマホのパスコードは?', a: { label: '教えられる', traits: ['active'] }, b: { label: '教えたくない', traits: ['secretive'] } },
+    { id: 'dq102', tier: 4, emoji: '💰', text: '貯金額は?', a: { label: '言える', traits: ['realist'] }, b: { label: '言いたくない', traits: ['secretive'] } },
+    { id: 'dq103', tier: 4, emoji: '🔟', text: '過去の交際人数は?', a: { label: '正直に言える', traits: ['active'] }, b: { label: 'ぼかしたい', traits: ['secretive'] } },
+    { id: 'dq104', tier: 4, emoji: '💵', text: '給与額は?', a: { label: '言える', traits: ['realist'] }, b: { label: '言いたくない', traits: ['secretive'] } },
+    { id: 'dq105', tier: 4, emoji: '👨‍👩‍👧', text: '家族の悩みは?', a: { label: '話せる', traits: ['active'] }, b: { label: 'あまり話したくない', traits: ['secretive'] } },
+    { id: 'dq106', tier: 4, emoji: '🔍', text: '検索履歴は?', a: { label: '見られても平気', traits: ['myPace'] }, b: { label: '絶対嫌', traits: ['secretive'] } },
+    { id: 'dq107', tier: 4, emoji: '🖼️', text: '写真フォルダは?', a: { label: '全部見せられる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq108', tier: 4, emoji: '💬', text: '過去のDMは?', a: { label: '見られても平気', traits: ['myPace'] }, b: { label: '嫌', traits: ['secretive'] } },
+    { id: 'dq109', tier: 4, emoji: '📨', text: '元恋人から連絡が来たら?', a: { label: '言う', traits: ['active'] }, b: { label: '言わない', traits: ['secretive'] } },
+    { id: 'dq110', tier: 4, emoji: '🙊', text: '告白されたら?', a: { label: '報告する', traits: ['active'] }, b: { label: '黙っておく', traits: ['secretive'] } },
+    { id: 'dq111', tier: 4, emoji: '🗯️', text: '恋人の愚痴は?', a: { label: '友達に言う', traits: ['active'] }, b: { label: '言わない', traits: ['secretive'] } },
+    { id: 'dq112', tier: 4, emoji: '👥', text: 'ケンカの相談は?', a: { label: '友達にする', traits: ['active'] }, b: { label: '二人だけで解決する', traits: ['myPace'] } },
+    { id: 'dq113', tier: 4, emoji: '🎲', text: '恥ずかしい趣味は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq114', tier: 4, emoji: '🛒', text: '言えない買い物は?', a: { label: 'したことある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq115', tier: 4, emoji: '🚶', text: '言わずに異性と会うのは?', a: { label: 'あり', traits: ['myPace'] }, b: { label: 'なし', traits: ['jealous'] } },
+    // 【シリアス】(tier 5)
+    { id: 'dq116', tier: 5, emoji: '💞', text: '幸せに必要なのは?', a: { label: '愛情があればお金なくても幸せ', traits: ['romantic'] }, b: { label: 'お金もかなり重要', traits: ['realist'] } },
+    { id: 'dq117', tier: 5, emoji: '💍', text: '結婚に必要なのは?', a: { label: '恋愛感情', traits: ['romantic'] }, b: { label: '信頼があれば十分', traits: ['realist'] } },
+    { id: 'dq118', tier: 5, emoji: '👶', text: '子どもについては?', a: { label: '持つことが重要', traits: ['realist'] }, b: { label: '二人だけでも幸せ', traits: ['myPace'] } },
+    { id: 'dq119', tier: 5, emoji: '💼', text: '仕事と恋人は?', a: { label: '仕事を優先する時期があっていい', traits: ['realist'] }, b: { label: '恋人を最優先したい', traits: ['spoiled'] } },
+    { id: 'dq120', tier: 5, emoji: '🌏', text: '遠距離恋愛は?', a: { label: 'できる', traits: ['active'] }, b: { label: '難しい', traits: ['cautious'] } },
+    { id: 'dq121', tier: 5, emoji: '✈️', text: '相手の夢のためなら?', a: { label: '遠距離になる', traits: ['realist'] }, b: { label: '一緒にいてほしい', traits: ['spoiled'] } },
+    { id: 'dq122', tier: 5, emoji: '🏥', text: '恋人が重い病気になっても?', a: { label: '関係は変わらない', traits: ['romantic'] }, b: { label: '正直分からない', traits: ['realist'] } },
+    { id: 'dq123', tier: 5, emoji: '📈', text: '収入差は?', a: { label: '大幅に高くても平気', traits: ['myPace'] }, b: { label: '少し気になる', traits: ['realist'] } },
+    { id: 'dq124', tier: 5, emoji: '👪', text: '家族と合わなくても?', a: { label: '結婚できる', traits: ['active'] }, b: { label: '難しい', traits: ['cautious'] } },
+    { id: 'dq125', tier: 5, emoji: '🔄', text: '価値観が大きく変わっても?', a: { label: '付き合い続ける', traits: ['myPace'] }, b: { label: '別れる可能性が高い', traits: ['realist'] } },
+    { id: 'dq126', tier: 5, emoji: '💔', text: '一度の裏切りは?', a: { label: '許せる可能性がある', traits: ['romantic'] }, b: { label: '一度でも無理', traits: ['cautious'] } },
+    { id: 'dq127', tier: 5, emoji: '❄️', text: '気持ちが冷めたら?', a: { label: '別れる', traits: ['realist'] }, b: { label: '情で続ける', traits: ['romantic'] } },
+    { id: 'dq128', tier: 5, emoji: '📢', text: '恋人には?', a: { label: '全てを話すべき', traits: ['active'] }, b: { label: '話さなくていいこともある', traits: ['secretive'] } },
+    { id: 'dq129', tier: 5, emoji: '⏱️', text: '愛は?', a: { label: '時間とともに深くなる', traits: ['realist'] }, b: { label: '最初の熱量が重要', traits: ['romantic'] } },
+    { id: 'dq130', tier: 5, emoji: '💒', text: '結婚に求めるのは?', a: { label: '安心感', traits: ['realist'] }, b: { label: 'ときめき', traits: ['romantic'] } },
+    // 【バカ・コメディ】(tier 5)
+    { id: 'dq131', tier: 5, emoji: '💨', text: '恋人の前でおならは?', a: { label: 'できる', traits: ['active'] }, b: { label: '絶対無理', traits: ['secretive'] } },
+    { id: 'dq132', tier: 5, emoji: '👃', text: '鼻毛の指摘は?', a: { label: 'できる', traits: ['active'] }, b: { label: '言えない', traits: ['secretive'] } },
+    { id: 'dq133', tier: 5, emoji: '🟢', text: '青のりがついてたら?', a: { label: '即言う', traits: ['active'] }, b: { label: 'タイミングを見る', traits: ['cautious'] } },
+    { id: 'dq134', tier: 5, emoji: '🎙️', text: '寝言の録音は?', a: { label: '平気', traits: ['myPace'] }, b: { label: '絶対嫌', traits: ['secretive'] } },
+    { id: 'dq135', tier: 5, emoji: '📸', text: '変な寝顔の写真は?', a: { label: '撮る', traits: ['active'] }, b: { label: '撮らない', traits: ['myPace'] } },
+    { id: 'dq136', tier: 5, emoji: '💃', text: '二人で変なダンスは?', a: { label: 'できる', traits: ['active'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq137', tier: 5, emoji: '🤪', text: '変顔は?', a: { label: 'できる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq138', tier: 5, emoji: '🚽', text: 'トイレの話は?', a: { label: 'できる', traits: ['active'] }, b: { label: '秘密にしたい', traits: ['secretive'] } },
+    { id: 'dq139', tier: 5, emoji: '👗', text: '恋人が変な服で来たら?', a: { label: '言う', traits: ['active'] }, b: { label: '黙る', traits: ['cautious'] } },
+    { id: 'dq140', tier: 5, emoji: '👶', text: '二人だけの赤ちゃん言葉は?', a: { label: '使える', traits: ['spoiled'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq141', tier: 5, emoji: '🩳', text: '一日中パジャマは?', a: { label: 'いられる', traits: ['myPace'] }, b: { label: '少し整えたい', traits: ['cautious'] } },
+    { id: 'dq142', tier: 5, emoji: '😪', text: '寝起きの顔は?', a: { label: '見られても平気', traits: ['myPace'] }, b: { label: '隠したい', traits: ['secretive'] } },
+    { id: 'dq143', tier: 5, emoji: '👻', text: '一緒に見るなら?', a: { label: 'ホラー映画', traits: ['active'] }, b: { label: '恋愛映画', traits: ['romantic'] } },
+    { id: 'dq144', tier: 5, emoji: '♨️', text: '一緒に行くなら?', a: { label: '温泉旅行', traits: ['romantic'] }, b: { label: 'テーマパーク', traits: ['active'] } },
+    { id: 'dq145', tier: 5, emoji: '👚', text: '恋人とのペアルックは?', a: { label: 'できる', traits: ['romantic'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+  ];
+
+  const DUEL_MATCH_QUESTION_COUNT = 5;
+  const DUEL_WIN_THRESHOLD = 3;
+  const DUEL_RECENT_HISTORY_LIMIT = 20;
+
+  // ラウンド(0〜4)が すすむほど、深い tier(プライベート・シリアス)の
+  // しつもんが でやすくなる 重みひょう。序盤は ライトな しつもんが
+  // 中心で、終盤に プライベートな しつもんが まざりやすくなる
+  const DUEL_TIER_WEIGHTS_BY_ROUND = [
+    [50, 30, 15, 4, 1],
+    [35, 35, 20, 8, 2],
+    [20, 30, 30, 15, 5],
+    [10, 20, 30, 28, 12],
+    [5, 10, 25, 35, 25],
+  ];
+
+  function pickDuelQuestions(recentIds) {
+    const recent = Array.isArray(recentIds) ? recentIds : [];
+    const used = [];
+    const picked = [];
+    for (let round = 0; round < DUEL_MATCH_QUESTION_COUNT; round++) {
+      const tier = weightedPick([1, 2, 3, 4, 5], DUEL_TIER_WEIGHTS_BY_ROUND[round]);
+      const byTier = DUEL_QUESTIONS.filter((q) => q.tier === tier && !used.includes(q.id));
+      let pool = byTier.filter((q) => !recent.includes(q.id));
+      if (pool.length === 0) pool = byTier;
+      if (pool.length === 0) pool = DUEL_QUESTIONS.filter((q) => !used.includes(q.id) && !recent.includes(q.id));
+      if (pool.length === 0) pool = DUEL_QUESTIONS.filter((q) => !used.includes(q.id));
+      const chosen = pool[Math.floor(Math.random() * pool.length)];
+      picked.push(chosen);
+      used.push(chosen.id);
+    }
+    return picked;
+  }
+
+  function rememberDuelQuestions(ids) {
+    const list = state.lifetime.duelRecentQuestionIds || [];
+    state.lifetime.duelRecentQuestionIds = [...list, ...ids].slice(-DUEL_RECENT_HISTORY_LIMIT);
+  }
+
+  // せいかく・かちかんの すいてい: プレイヤーの ほんね(truth)だけを
+  // かさねて きろくする(うそを ついた こうかいこたえは かうんとしない)。
+  // 1問だけで はんだんせず、なんかいも あそぶうちに すこしずつ
+  // 傾向が みえてくる ように、ここでは たんに +1 するだけに とどめる
+  function applyDuelTrait(question, truth) {
+    const side = truth === 'a' ? question.a : question.b;
+    (side.traits || []).forEach((t) => {
+      state.lifetime.duelTraits[t] = (state.lifetime.duelTraits[t] || 0) + 1;
+    });
+  }
+
+  const DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC1:';
+  const DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG1:';
+  const DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR1:';
+  const DUEL_MAX_BET = 999999;
+
+  function encodeDuelChallenge() {
+    const d = state.duel;
+    const payload = { bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub]) };
+    return DUEL_CHALLENGE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelChallenge(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC1:/, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.q) || payload.q.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const items = [];
+      for (const entry of payload.q) {
+        if (!Array.isArray(entry) || entry.length !== 2) return null;
+        const [qId, pub] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (pub !== 'a' && pub !== 'b') return null;
+        items.push({ qId, pub });
+      }
+      return { bet: Math.round(payload.bet), items };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function encodeDuelGuess() {
+    const d = state.duel;
+    const payload = { bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess]) };
+    return DUEL_GUESS_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelGuess(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG1:/, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.g) || payload.g.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const guesses = [];
+      for (const entry of payload.g) {
+        if (!Array.isArray(entry) || entry.length !== 2) return null;
+        const [qId, guess] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (guess !== 'honest' && guess !== 'lie') return null;
+        guesses.push({ qId, guess });
+      }
+      return { bet: Math.round(payload.bet), guesses };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function encodeDuelReveal() {
+    const d = state.duel;
+    const payload = { bet: d.bet, r: d.entries.map((e) => [e.qId, e.truth]) };
+    return DUEL_REVEAL_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelReveal(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR1:/, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.r) || payload.r.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const reveals = [];
+      for (const entry of payload.r) {
+        if (!Array.isArray(entry) || entry.length !== 2) return null;
+        const [qId, truth] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (truth !== 'a' && truth !== 'b') return null;
+        reveals.push({ qId, truth });
+      }
+      return { bet: Math.round(payload.bet), reveals };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // A(ちょうせんしゃ)やく: かけきんを きめて しんきの しょうぶを はじめる
+  function startDuelChallenge(bet) {
+    const roundedBet = Math.round(bet);
+    if (!Number.isFinite(roundedBet) || roundedBet <= 0 || roundedBet > DUEL_MAX_BET) return null;
+    if (roundedBet > state.lifetime.money) return null;
+    const questions = pickDuelQuestions(state.lifetime.duelRecentQuestionIds);
+    state.duel = { role: 'challenger', step: 'answering', bet: roundedBet, questions, entries: [] };
+    return state.duel;
+  }
+
+  // A: いま でている しつもんに ほんねで こたえる。ないしょで
+  // コイントス(50%)して、こうかいする こたえ(pub)を ほんね/うそ
+  // どちらに するか きめる
+  function answerDuelChallengeQuestion(choice) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    const idx = d.entries.length;
+    const q = d.questions[idx];
+    if (!q) return null;
+    const truth = choice === 'a' ? 'a' : 'b';
+    const isHonest = Math.random() < 0.5;
+    const pub = isHonest ? truth : (truth === 'a' ? 'b' : 'a');
+    applyDuelTrait(q, truth);
+    d.entries.push({ qId: q.id, truth, pub });
+    if (d.entries.length >= d.questions.length) {
+      d.step = 'ready';
+      rememberDuelQuestions(d.questions.map((qq) => qq.id));
+    }
+    return d;
+  }
+
+  // B(すいりしゃ)やく: A から うけとった 挑戦コードを よみこんで
+  // しょうぶに さんかする。かけきん以上の おかねを もっていないと
+  // 参加できない
+  function startDuelGuess(code) {
+    const decoded = decodeDuelChallenge(code);
+    if (!decoded) return { error: 'invalid' };
+    if (decoded.bet > state.lifetime.money) return { error: 'funds' };
+    const items = decoded.items.map((item) => ({ qId: item.qId, pub: item.pub, question: DUEL_QUESTIONS.find((q) => q.id === item.qId) }));
+    if (items.some((item) => !item.question)) return { error: 'invalid' };
+    state.duel = { role: 'guesser', step: 'guessing', bet: decoded.bet, items, guesses: [] };
+    return state.duel;
+  }
+
+  function answerDuelGuess(guess) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
+    const idx = d.guesses.length;
+    const item = d.items[idx];
+    if (!item) return null;
+    d.guesses.push({ qId: item.qId, guess: guess === 'honest' ? 'honest' : 'lie' });
+    if (d.guesses.length >= d.items.length) {
+      d.step = 'ready';
+      rememberDuelQuestions(d.items.map((i) => i.qId));
+    }
+    return d;
+  }
+
+  // じぶんの たんまつで、けっさんを じぶんの おかねに はんえいさせる。
+  // won=true なら かけきんを うけとり、false なら かけきんを しはらう
+  // (しょじきん未満しか はらえない ばあいは もっている ぶんだけに とどめる)
+  function settleDuelForSelf(won) {
+    const d = state.duel;
+    if (won) {
+      d.moneyDelta = d.bet;
+    } else {
+      d.moneyDelta = -Math.min(d.bet, state.lifetime.money);
+    }
+    state.lifetime.money += d.moneyDelta;
+  }
+
+  function recordDuelOutcome(won) {
+    state.lifetime.duelMatchesPlayed = (state.lifetime.duelMatchesPlayed || 0) + 1;
+    if (won) state.lifetime.duelWins = (state.lifetime.duelWins || 0) + 1;
+    else state.lifetime.duelLosses = (state.lifetime.duelLosses || 0) + 1;
+  }
+
+  // A: B から うけとった 推理コードを よみこんで けっちゃくを つける。
+  // Aは この じてんで しんじつ(truth)と すいり(guess)の りょうほうを
+  // もっているので、じぶんの たんまつだけで けっかを かくてい できる
+  function resolveDuelWithGuessCode(code) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'ready') return { error: 'state' };
+    const decoded = decodeDuelGuess(code);
+    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    const guessMap = {};
+    decoded.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
+    if (!d.entries.every((e) => guessMap[e.qId])) return { error: 'invalid' };
+    let correct = 0;
+    d.entries.forEach((e) => {
+      const wasHonest = e.truth === e.pub;
+      if ((guessMap[e.qId] === 'honest') === wasHonest) correct++;
+    });
+    const guesserWon = correct >= DUEL_WIN_THRESHOLD;
+    settleDuelForSelf(!guesserWon);
+    recordDuelOutcome(!guesserWon);
+    d.step = 'done';
+    d.correct = correct;
+    d.guesserWon = guesserWon;
+    return d;
+  }
+
+  // B: A から うけとった 決着コードで しんじつを しり、じぶんが
+  // もっている すいり(guess)と つきあわせて、じぶんの たんまつだけで
+  // けっかを かくてい する(Aの ほうこくを そのまま しんじる のではなく、
+  // おなじ しきで けいさんしなおす ことで こうへいさを たもつ)
+  function resolveDuelWithRevealCode(code) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'ready') return { error: 'state' };
+    const decoded = decodeDuelReveal(code);
+    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    const truthMap = {};
+    decoded.reveals.forEach((r) => { truthMap[r.qId] = r.truth; });
+    if (!d.items.every((i) => truthMap[i.qId])) return { error: 'invalid' };
+    const guessMap = {};
+    d.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
+    let correct = 0;
+    d.items.forEach((i) => {
+      const wasHonest = truthMap[i.qId] === i.pub;
+      if ((guessMap[i.qId] === 'honest') === wasHonest) correct++;
+    });
+    const guesserWon = correct >= DUEL_WIN_THRESHOLD;
+    settleDuelForSelf(guesserWon);
+    recordDuelOutcome(guesserWon);
+    d.step = 'done';
+    d.correct = correct;
+    d.guesserWon = guesserWon;
+    return d;
+  }
+
   // こいびと関係の いじ・けっこんへの しんてん・わかれ に かかわる
   // すうち。あいてが 地域のNPCでも「あいてコード」の おきゃくさんでも、
   // state.partner オブジェクトに おなじ フィールドを もたせるので、
@@ -2673,6 +3169,7 @@
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
     el.itemBtn.disabled = gameActive || hasTransformChoice;
+    el.duelBtn.disabled = gameActive || hasTransformChoice;
 
     el.dexOverlay.classList.toggle('hidden', !dexOpen);
     if (dexOpen) renderDex();
@@ -2692,6 +3189,9 @@
     el.pickerOverlay.classList.toggle('hidden', !pickerOpen);
     if (pickerOpen) renderPicker();
 
+    el.duelOverlay.classList.toggle('hidden', !duelOpen);
+    if (duelOpen) renderDuelOverlay();
+
     renderItemsRow(disableCare);
   }
 
@@ -2700,6 +3200,12 @@
   let themeOpen = false;
   let profileOpen = false;
   let itemOpen = false;
+  let duelOpen = false;
+  // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
+  // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
+  // べつに もつ ことで、画面を とじて また ひらいても つづきから
+  // 再開できるように している
+  let duelUiStep = 'home';
   // れんあいタイプの「？」ボタンで ひらいた せつめいが、profileOpen 中の
   // ほかの 操作(たとえば きゅうあいの けっかで render() が よびなおされる
   // など)で かってに とじてしまわないよう、ひらいている/いないを
@@ -2926,6 +3432,151 @@
   // あらわす。みぶんに おうじて みぶんの ひょうじが かわる: みこうにゅう
   // なら ねだん、こうにゅうずみで そうびちゅうでなければ「タップで そうび」、
   // そうびちゅうなら「そうびちゅう」
+  // うそつきしょうぶの 画面ぶぶんを きりかえる ヘルパー。同時に
+  // エラーひょうじも クリアしておき、まえの がめんの エラーが
+  // のこったままに ならないようにする
+  function goToDuelStep(step) {
+    duelUiStep = step;
+    el.duelBetError.classList.add('hidden');
+    el.duelGuessCodeError.classList.add('hidden');
+    el.duelCodeInError.classList.add('hidden');
+  }
+
+  // 画面を とじて また ひらいたときに、state.duel の 進行じょうきょうから
+  // どの がめんに もどるべきかを きめる。あんごうを つくる encodeDuel*
+  // 系の 関数は state.duel から なんども つくりなおせるので、コードを
+  // 見せる がめんへは いつでも あんぜんに もどれる
+  function duelResumeStep() {
+    const d = state.duel;
+    if (!d) return 'home';
+    if (d.role === 'challenger') {
+      if (d.step === 'answering') return 'question';
+      if (d.step === 'ready') return 'codeOut';
+      if (d.step === 'done') return d.revealSent ? 'result' : 'codeOut';
+    } else if (d.role === 'guesser') {
+      if (d.step === 'guessing') return 'question';
+      if (d.step === 'ready') return 'codeOut';
+      if (d.step === 'done') return 'result';
+    }
+    return 'home';
+  }
+
+  function renderDuelOverlay() {
+    const sections = {
+      duelHomeSection: duelUiStep === 'home',
+      duelBetSection: duelUiStep === 'bet',
+      duelGuessCodeInSection: duelUiStep === 'guessCodeIn',
+      duelQuestionSection: duelUiStep === 'question',
+      duelCodeOutSection: duelUiStep === 'codeOut',
+      duelCodeInSection: duelUiStep === 'codeIn',
+      duelResultSection: duelUiStep === 'result',
+    };
+    Object.keys(sections).forEach((id) => el[id].classList.toggle('hidden', !sections[id]));
+
+    if (duelUiStep === 'home') {
+      const played = state.lifetime.duelMatchesPlayed || 0;
+      const wins = state.lifetime.duelWins || 0;
+      const losses = state.lifetime.duelLosses || 0;
+      el.duelRecord.textContent = played > 0 ? `${played}戦 ${wins}勝 ${losses}敗` : 'まだ たいせんして いません';
+      const traits = state.lifetime.duelTraits || {};
+      const totalTrait = Object.values(traits).reduce((a, b) => a + b, 0);
+      if (totalTrait === 0) {
+        el.duelTraitSummary.innerHTML = '<div class="profile-empty">まだ 傾向は わかりません。しょうぶで こたえて いくと 見えてきます</div>';
+      } else {
+        const maxTrait = Math.max(1, ...Object.values(traits));
+        el.duelTraitSummary.innerHTML = Object.keys(DUEL_TRAIT_LABELS).map((key) => {
+          const pct = Math.round(((traits[key] || 0) / maxTrait) * 100);
+          return `
+            <div class="profile-trait-row">
+              <span class="profile-trait-label">${DUEL_TRAIT_LABELS[key]}</span>
+              <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${pct}%"></div></div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    if (duelUiStep === 'bet') {
+      el.duelOwnMoney.textContent = `💰 ${state.lifetime.money}`;
+    }
+
+    if (duelUiStep === 'question' && state.duel) {
+      renderDuelQuestionStep();
+    }
+
+    if (duelUiStep === 'codeOut' && state.duel) {
+      const d = state.duel;
+      let code = '';
+      let hint = '';
+      if (d.role === 'challenger' && d.step === 'ready') {
+        code = encodeDuelChallenge();
+        hint = 'この「挑戦コード」を あいてに おくってください。あいてが よみこんで こたえたら、かえってくる「推理コード」を つぎに 入力します';
+      } else if (d.role === 'challenger' && d.step === 'done') {
+        code = encodeDuelReveal();
+        hint = 'しょうぶの けっかが でました!この「決着コード」を あいてに おくると、あいての がわでも けっかが わかります';
+      } else if (d.role === 'guesser') {
+        code = encodeDuelGuess();
+        hint = 'この「推理コード」を あいてに かえしてください。あいてから 「決着コード」が とどいたら、つぎに 入力します';
+      }
+      el.duelCodeOutBox.value = code;
+      el.duelCodeOutHint.textContent = hint;
+    }
+
+    if (duelUiStep === 'codeIn' && state.duel) {
+      el.duelCodeInHint.textContent = state.duel.role === 'challenger'
+        ? 'あいてから とどいた「推理コード」を ここに 入れてください'
+        : 'あいてから とどいた「決着コード」を ここに 入れてください';
+    }
+
+    if (duelUiStep === 'result' && state.duel) {
+      renderDuelResultStep();
+    }
+  }
+
+  function renderDuelQuestionStep() {
+    const d = state.duel;
+    if (!d) return;
+    if (d.role === 'challenger') {
+      const idx = d.entries.length;
+      const q = d.questions[idx];
+      if (!q) return;
+      el.duelProgress.textContent = `しつもん ${idx + 1} / ${d.questions.length}`;
+      el.duelQuestionEmoji.textContent = q.emoji;
+      el.duelQuestionText.textContent = q.text;
+      el.duelQuestionShown.classList.add('hidden');
+      el.duelChoiceABtn.textContent = q.a.label;
+      el.duelChoiceBBtn.textContent = q.b.label;
+      el.duelChoiceABtn.dataset.choice = 'a';
+      el.duelChoiceBBtn.dataset.choice = 'b';
+    } else if (d.role === 'guesser') {
+      const idx = d.guesses.length;
+      const item = d.items[idx];
+      if (!item) return;
+      const q = item.question;
+      el.duelProgress.textContent = `しつもん ${idx + 1} / ${d.items.length}`;
+      el.duelQuestionEmoji.textContent = q.emoji;
+      el.duelQuestionText.textContent = q.text;
+      const shownSide = item.pub === 'a' ? q.a : q.b;
+      el.duelQuestionShown.textContent = `あいての こたえ:「${shownSide.label}」`;
+      el.duelQuestionShown.classList.remove('hidden');
+      el.duelChoiceABtn.textContent = 'ほんとだと思う';
+      el.duelChoiceBBtn.textContent = 'うそだと思う';
+      el.duelChoiceABtn.dataset.choice = 'honest';
+      el.duelChoiceBBtn.dataset.choice = 'lie';
+    }
+  }
+
+  function renderDuelResultStep() {
+    const d = state.duel;
+    if (!d) return;
+    const iAmGuesser = d.role === 'guesser';
+    const iWon = iAmGuesser ? d.guesserWon : !d.guesserWon;
+    el.duelResultTitle.textContent = iWon ? '🎉 しょうり!' : '😢 はいぼく…';
+    const delta = d.moneyDelta || 0;
+    const moneyLine = delta >= 0 ? `+💰${delta}` : `-💰${Math.abs(delta)}`;
+    el.duelResultDesc.textContent = `${d.correct} / ${DUEL_MATCH_QUESTION_COUNT}問 見ぬけました\nおかね: ${moneyLine}\nいまの おかね: 💰${state.lifetime.money}`;
+  }
+
   function renderItemOverlay() {
     el.itemMoneyLabel.textContent = `💰 ${state.lifetime.money}`;
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
@@ -8005,6 +8656,133 @@
   el.guestStatus.addEventListener('click', (e) => {
     if (!e.target.closest('#clearGuestBtn')) return;
     state.guest = null;
+    saveState();
+    render();
+  });
+
+  el.duelBtn.addEventListener('click', () => {
+    duelOpen = true;
+    goToDuelStep(duelResumeStep());
+    render();
+  });
+
+  el.duelCloseBtn.addEventListener('click', () => {
+    duelOpen = false;
+    render();
+  });
+
+  el.duelStartChallengeBtn.addEventListener('click', () => {
+    goToDuelStep('bet');
+    render();
+  });
+
+  el.duelStartGuessBtn.addEventListener('click', () => {
+    goToDuelStep('guessCodeIn');
+    render();
+  });
+
+  el.duelBetConfirmBtn.addEventListener('click', () => {
+    const bet = Math.round(Number(el.duelBetInput.value));
+    if (!Number.isFinite(bet) || bet <= 0) {
+      el.duelBetError.textContent = 'かけきんを 1いじょうの すうじで 入力してください';
+      el.duelBetError.classList.remove('hidden');
+      return;
+    }
+    if (bet > state.lifetime.money) {
+      el.duelBetError.textContent = 'おかねが たりません';
+      el.duelBetError.classList.remove('hidden');
+      return;
+    }
+    const d = startDuelChallenge(bet);
+    if (!d) {
+      el.duelBetError.textContent = 'かけきんを かくにんしてください';
+      el.duelBetError.classList.remove('hidden');
+      return;
+    }
+    el.duelBetInput.value = '';
+    goToDuelStep('question');
+    saveState();
+    render();
+  });
+
+  el.duelGuessCodeBtn.addEventListener('click', () => {
+    const raw = el.duelGuessCodeInput.value;
+    if (!raw.trim()) return;
+    const result = startDuelGuess(raw);
+    if (result && result.error === 'funds') {
+      el.duelGuessCodeError.textContent = 'おかねが たりなくて さんかできません…';
+      el.duelGuessCodeError.classList.remove('hidden');
+      return;
+    }
+    if (!result || result.error) {
+      el.duelGuessCodeError.textContent = 'コードが よみとれませんでした…もういちど たしかめてね';
+      el.duelGuessCodeError.classList.remove('hidden');
+      return;
+    }
+    el.duelGuessCodeInput.value = '';
+    goToDuelStep('question');
+    saveState();
+    render();
+  });
+
+  function handleDuelChoice(choice) {
+    const d = state.duel;
+    if (!d || !choice) return;
+    if (d.role === 'challenger') {
+      answerDuelChallengeQuestion(choice);
+    } else if (d.role === 'guesser') {
+      answerDuelGuess(choice);
+    }
+    if (d.step === 'ready') goToDuelStep('codeOut');
+    saveState();
+    render();
+  }
+
+  el.duelChoiceABtn.addEventListener('click', () => handleDuelChoice(el.duelChoiceABtn.dataset.choice));
+  el.duelChoiceBBtn.addEventListener('click', () => handleDuelChoice(el.duelChoiceBBtn.dataset.choice));
+
+  el.duelCodeOutDoneBtn.addEventListener('click', () => {
+    const d = state.duel;
+    if (!d) {
+      goToDuelStep('home');
+      render();
+      return;
+    }
+    if (d.role === 'challenger' && d.step === 'done') {
+      d.revealSent = true;
+      goToDuelStep('result');
+    } else {
+      goToDuelStep('codeIn');
+    }
+    saveState();
+    render();
+  });
+
+  el.duelCodeInBtn.addEventListener('click', () => {
+    const raw = el.duelCodeInInput.value;
+    if (!raw.trim()) return;
+    const d = state.duel;
+    if (!d) {
+      goToDuelStep('home');
+      render();
+      return;
+    }
+    const result = d.role === 'challenger' ? resolveDuelWithGuessCode(raw) : resolveDuelWithRevealCode(raw);
+    if (!result || result.error) {
+      el.duelCodeInError.textContent = 'コードが よみとれませんでした…もういちど たしかめてね';
+      el.duelCodeInError.classList.remove('hidden');
+      return;
+    }
+    el.duelCodeInError.classList.add('hidden');
+    el.duelCodeInInput.value = '';
+    saveState();
+    goToDuelStep(d.role === 'challenger' ? 'codeOut' : 'result');
+    render();
+  });
+
+  el.duelResultCloseBtn.addEventListener('click', () => {
+    state.duel = null;
+    goToDuelStep('home');
     saveState();
     render();
   });

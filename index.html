@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-16">
+<link rel="stylesheet" href="style.css?v=20260904-17">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -238,6 +238,72 @@
           </div>
         </div>
 
+        <div class="dex-overlay hidden" id="duelOverlay">
+          <div class="dex-header">
+            <span class="dex-title">うそつきしょうぶ</span>
+            <button class="dex-close-btn" id="duelCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
+            <div class="profile-section" id="duelHomeSection">
+              <div class="profile-hint">ともだちと 2人で あそぶ 対戦ゲーム。二択しつもんに こたえて コードで やりとりし、うそを ついたか みぬけるか しょうぶ!おかねも かけられます</div>
+              <div class="profile-row"><span class="profile-label">せんせき</span><span id="duelRecord"></span></div>
+              <div class="profile-section-title">みえてきた 傾向</div>
+              <div class="profile-traits" id="duelTraitSummary"></div>
+              <div class="duel-role-row">
+                <button class="profile-code-btn" id="duelStartChallengeBtn">しょうぶを つくる</button>
+                <button class="profile-code-btn" id="duelStartGuessBtn">コードを よみこんで さんか</button>
+              </div>
+            </div>
+
+            <div class="profile-section hidden" id="duelBetSection">
+              <div class="profile-hint">かけきんを きめてください。しょうぶに まけると、この きんがくを うしないます</div>
+              <div class="profile-row"><span class="profile-label">いまの おかね</span><span id="duelOwnMoney"></span></div>
+              <input type="number" class="profile-code-input" id="duelBetInput" min="1" step="1" placeholder="かけきん(おかね)">
+              <div class="profile-code-error hidden" id="duelBetError"></div>
+              <button class="profile-code-btn" id="duelBetConfirmBtn">しつもんへ すすむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelGuessCodeInSection">
+              <div class="profile-hint">あいてから もらった「挑戦コード」を ここに いれてください</div>
+              <input type="text" class="profile-code-input" id="duelGuessCodeInput" placeholder="挑戦コードを ここに">
+              <div class="profile-code-error hidden" id="duelGuessCodeError"></div>
+              <button class="profile-code-btn" id="duelGuessCodeBtn">よみこむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelQuestionSection">
+              <div class="duel-progress" id="duelProgress"></div>
+              <div class="duel-question-card">
+                <div class="duel-question-emoji" id="duelQuestionEmoji"></div>
+                <div class="duel-question-text" id="duelQuestionText"></div>
+                <div class="duel-question-shown hidden" id="duelQuestionShown"></div>
+              </div>
+              <div class="duel-choice-row">
+                <button class="mg-choice-btn" id="duelChoiceABtn"></button>
+                <button class="mg-choice-btn" id="duelChoiceBBtn"></button>
+              </div>
+            </div>
+
+            <div class="profile-section hidden" id="duelCodeOutSection">
+              <div class="profile-hint" id="duelCodeOutHint"></div>
+              <textarea class="profile-code-box" id="duelCodeOutBox" readonly rows="3"></textarea>
+              <button class="profile-code-btn" id="duelCodeOutDoneBtn">とじる</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelCodeInSection">
+              <div class="profile-hint" id="duelCodeInHint"></div>
+              <input type="text" class="profile-code-input" id="duelCodeInInput" placeholder="あいての コードを ここに">
+              <div class="profile-code-error hidden" id="duelCodeInError"></div>
+              <button class="profile-code-btn" id="duelCodeInBtn">よみこむ</button>
+            </div>
+
+            <div class="profile-section hidden" id="duelResultSection">
+              <div class="duel-result-title" id="duelResultTitle"></div>
+              <div class="duel-result-desc" id="duelResultDesc"></div>
+              <button class="profile-code-btn" id="duelResultCloseBtn">とじる</button>
+            </div>
+          </div>
+        </div>
+
         <div class="game-clear-overlay hidden" id="gameClearOverlay">
           <div class="game-clear-confetti" id="gameClearConfettiTop">🎉🎊✨🎉🎊✨</div>
           <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
@@ -259,6 +325,7 @@
       <button id="playWithBtn" title="じゃれる">🤗<br><span>じゃれる</span></button>
       <button id="itemBtn" title="あいてむ">🎁<br><span>あいてむ</span></button>
       <button id="courtBtn" title="きゅうあいする">💘<br><span>きゅうあい</span></button>
+      <button id="duelBtn" title="うそつきしょうぶ">🃏<br><span>しょうぶ</span></button>
       <button id="travelBtn" title="たびにでる">🧳<br><span>たび</span></button>
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
@@ -267,6 +334,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-16"></script>
+  <script src="script.js?v=20260904-17"></script>
 </body>
 </html>
