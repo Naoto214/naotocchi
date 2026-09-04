@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-27">
+<link rel="stylesheet" href="style.css?v=20260904-28">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -238,8 +238,13 @@
               <div class="profile-hint">じぶんのコードを ともだちに おくって、ともだちの コードを よみこむと、その なおとっちに きゅうあいを ためせます</div>
               <button class="profile-code-btn" id="makeCodeBtn">じぶんの コードを つくる</button>
               <textarea class="profile-code-box hidden" id="myCodeBox" readonly rows="2"></textarea>
+              <div class="profile-code-actions hidden" id="myCodeActions">
+                <button class="profile-code-btn profile-code-copy-btn" id="myCodeCopyBtn">📋 コードを コピー</button>
+                <span class="profile-code-copy-msg hidden" id="myCodeCopyMsg">コピーしました!</span>
+              </div>
               <div class="profile-guest-row">
                 <input type="text" class="profile-code-input" id="guestCodeInput" placeholder="ともだちの コードを ここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="guestCodeClearBtn">けす</button>
                 <button class="profile-code-btn" id="loadCodeBtn">よみこむ</button>
               </div>
               <div class="profile-code-error hidden" id="codeError"></div>
@@ -280,7 +285,10 @@
 
             <div class="profile-section hidden" id="duelGuessCodeInSection">
               <div class="profile-hint">あいてから もらった「挑戦コード」を ここに いれてください</div>
-              <input type="text" class="profile-code-input" id="duelGuessCodeInput" placeholder="挑戦コードを ここに">
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="duelGuessCodeInput" placeholder="挑戦コードを ここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="duelGuessCodeClearBtn">けす</button>
+              </div>
               <div class="profile-code-error hidden" id="duelGuessCodeError"></div>
               <button class="profile-code-btn" id="duelGuessCodeBtn">よみこむ</button>
             </div>
@@ -322,12 +330,19 @@
             <div class="profile-section hidden" id="duelCodeOutSection">
               <div class="profile-hint" id="duelCodeOutHint"></div>
               <textarea class="profile-code-box" id="duelCodeOutBox" readonly rows="3"></textarea>
+              <div class="profile-code-actions">
+                <button class="profile-code-btn profile-code-copy-btn" id="duelCodeOutCopyBtn">📋 コードを コピー</button>
+                <span class="profile-code-copy-msg hidden" id="duelCodeOutCopyMsg">コピーしました!</span>
+              </div>
               <button class="profile-code-btn" id="duelCodeOutDoneBtn">とじる</button>
             </div>
 
             <div class="profile-section hidden" id="duelCodeInSection">
               <div class="profile-hint" id="duelCodeInHint"></div>
-              <input type="text" class="profile-code-input" id="duelCodeInInput" placeholder="あいての コードを ここに">
+              <div class="profile-guest-row">
+                <input type="text" class="profile-code-input" id="duelCodeInInput" placeholder="あいての コードを ここに">
+                <button class="profile-code-btn profile-code-clear-btn" id="duelCodeInClearBtn">けす</button>
+              </div>
               <div class="profile-code-error hidden" id="duelCodeInError"></div>
               <button class="profile-code-btn" id="duelCodeInBtn">よみこむ</button>
             </div>
@@ -391,6 +406,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-27"></script>
+  <script src="script.js?v=20260904-28"></script>
 </body>
 </html>

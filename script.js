@@ -463,7 +463,11 @@
     profileCompanionList: document.getElementById('profileCompanionList'),
     makeCodeBtn: document.getElementById('makeCodeBtn'),
     myCodeBox: document.getElementById('myCodeBox'),
+    myCodeActions: document.getElementById('myCodeActions'),
+    myCodeCopyBtn: document.getElementById('myCodeCopyBtn'),
+    myCodeCopyMsg: document.getElementById('myCodeCopyMsg'),
     guestCodeInput: document.getElementById('guestCodeInput'),
+    guestCodeClearBtn: document.getElementById('guestCodeClearBtn'),
     loadCodeBtn: document.getElementById('loadCodeBtn'),
     codeError: document.getElementById('codeError'),
     guestStatus: document.getElementById('guestStatus'),
@@ -492,6 +496,7 @@
     duelBetConfirmBtn: document.getElementById('duelBetConfirmBtn'),
     duelGuessCodeInSection: document.getElementById('duelGuessCodeInSection'),
     duelGuessCodeInput: document.getElementById('duelGuessCodeInput'),
+    duelGuessCodeClearBtn: document.getElementById('duelGuessCodeClearBtn'),
     duelGuessCodeError: document.getElementById('duelGuessCodeError'),
     duelGuessCodeBtn: document.getElementById('duelGuessCodeBtn'),
     duelQuestionSection: document.getElementById('duelQuestionSection'),
@@ -519,10 +524,13 @@
     duelCodeOutSection: document.getElementById('duelCodeOutSection'),
     duelCodeOutHint: document.getElementById('duelCodeOutHint'),
     duelCodeOutBox: document.getElementById('duelCodeOutBox'),
+    duelCodeOutCopyBtn: document.getElementById('duelCodeOutCopyBtn'),
+    duelCodeOutCopyMsg: document.getElementById('duelCodeOutCopyMsg'),
     duelCodeOutDoneBtn: document.getElementById('duelCodeOutDoneBtn'),
     duelCodeInSection: document.getElementById('duelCodeInSection'),
     duelCodeInHint: document.getElementById('duelCodeInHint'),
     duelCodeInInput: document.getElementById('duelCodeInInput'),
+    duelCodeInClearBtn: document.getElementById('duelCodeInClearBtn'),
     duelCodeInError: document.getElementById('duelCodeInError'),
     duelCodeInBtn: document.getElementById('duelCodeInBtn'),
     duelResultSection: document.getElementById('duelResultSection'),
@@ -1718,7 +1726,10 @@
   // かきかえられていても、ゲームが こわれない よう ぜんぶ けんしょうする
   function decodeGuestCode(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHI1:/, '');
+      // 一部の アプリ(メッセージの リンク自動検出 など)は URIスキームっぽい
+      // コードの プレフィックス部分だけを こぴー/ひょうじ 時に 小文字化する
+      // ことが あるため、プレフィックスの ひかくは 大文字小文字を くべつしない
+      const trimmed = raw.trim().replace(/^NAOTOCCHI1:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
       if (!ALL_LINES.includes(payload.s)) return null;
@@ -2053,7 +2064,9 @@
 
   function decodeDuelChallenge(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC1:/, '');
+      // GUEST_CODE_PREFIX と おなじ りゆうで、プレフィックスは 大文字小文字を
+      // くべつせず よみとる(こぴー元アプリの リンク自動検出による 小文字化 対策)
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC1:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
       if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
@@ -2084,7 +2097,7 @@
 
   function decodeDuelGuess(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG1:/, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG1:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
       if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
@@ -2114,7 +2127,7 @@
 
   function decodeDuelReveal(raw) {
     try {
-      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR1:/, '');
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR1:/i, '');
       const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
       if (!payload || typeof payload !== 'object') return null;
       if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
@@ -3867,6 +3880,7 @@
       }
       el.duelCodeOutBox.value = code;
       el.duelCodeOutHint.textContent = hint;
+      el.duelCodeOutCopyMsg.classList.add('hidden');
     }
 
     if (duelUiStep === 'codeIn' && state.duel) {
@@ -9155,6 +9169,54 @@
     closePicker();
   });
 
+  // コードボックスの ないようを クリップボードに こぴーする(あいてコード・
+  // うそつきしょうぶの どちらの コードにも つかう きょうつう ヘルパー)。
+  // navigator.clipboard は https/localhost の みで つかえるため、file://
+  // などの ひあんぜんな コンテキストでは textarea 選択+execCommand に
+  // フォールバックする。せいこうしたら msgEl を いっしゅん 表示する
+  function copyCodeToClipboard(text, sourceEl, msgEl) {
+    if (!text) return;
+    const showCopiedMsg = () => {
+      if (!msgEl) return;
+      msgEl.classList.remove('hidden');
+      clearTimeout(copyCodeToClipboard.hideTimer);
+      copyCodeToClipboard.hideTimer = setTimeout(() => msgEl.classList.add('hidden'), 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(showCopiedMsg).catch(() => {
+        fallbackCopy(text, sourceEl, showCopiedMsg);
+      });
+    } else {
+      fallbackCopy(text, sourceEl, showCopiedMsg);
+    }
+  }
+
+  function fallbackCopy(text, sourceEl, onDone) {
+    try {
+      if (sourceEl && typeof sourceEl.select === 'function') {
+        sourceEl.focus();
+        sourceEl.select();
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.focus();
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        onDone();
+        return;
+      }
+      document.execCommand('copy');
+      onDone();
+    } catch (e) {
+      // こぴーに しっぱいしても なにも おきない(手動で コードを えらんで
+      // こぴーしてもらう しかない)ので、ここでは とくに エラー表示は しない
+    }
+  }
+
   el.profileBtn.addEventListener('click', () => {
     profileOpen = true;
     render();
@@ -9189,8 +9251,19 @@
     if (!state.gender) return;
     el.myCodeBox.value = encodeGuestCode();
     el.myCodeBox.classList.remove('hidden');
+    el.myCodeActions.classList.remove('hidden');
     el.myCodeBox.focus();
     el.myCodeBox.select();
+  });
+
+  el.myCodeCopyBtn.addEventListener('click', () => {
+    copyCodeToClipboard(el.myCodeBox.value, el.myCodeBox, el.myCodeCopyMsg);
+  });
+
+  el.guestCodeClearBtn.addEventListener('click', () => {
+    el.guestCodeInput.value = '';
+    el.codeError.classList.add('hidden');
+    el.guestCodeInput.focus();
   });
 
   el.loadCodeBtn.addEventListener('click', () => {
@@ -9273,6 +9346,12 @@
     goToDuelStep('guessList');
     saveState();
     render();
+  });
+
+  el.duelGuessCodeClearBtn.addEventListener('click', () => {
+    el.duelGuessCodeInput.value = '';
+    el.duelGuessCodeError.classList.add('hidden');
+    el.duelGuessCodeInput.focus();
   });
 
   // A: 1だんかいめ、本心を えらぶ(まだ こうかいの けっては しない)
@@ -9360,6 +9439,16 @@
     saveState();
     goToDuelStep('codeOut');
     render();
+  });
+
+  el.duelCodeOutCopyBtn.addEventListener('click', () => {
+    copyCodeToClipboard(el.duelCodeOutBox.value, el.duelCodeOutBox, el.duelCodeOutCopyMsg);
+  });
+
+  el.duelCodeInClearBtn.addEventListener('click', () => {
+    el.duelCodeInInput.value = '';
+    el.duelCodeInError.classList.add('hidden');
+    el.duelCodeInInput.focus();
   });
 
   el.duelCodeOutDoneBtn.addEventListener('click', () => {
