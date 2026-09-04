@@ -810,6 +810,14 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   cursor: pointer;
 }
 
+/* プロフィールアイコンと 左右で ついに なる「つうしん」ボタン(あいて
+   コード・うそつきしょうぶの いりぐち)。位置いがいは まったく おなじ
+   見た目に する */
+.comm-icon-btn {
+  right: auto;
+  left: 4px;
+}
+
 .profile-icon-btn.hidden {
   display: none;
 }
