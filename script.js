@@ -910,10 +910,31 @@
   // セーブを いま ここで ロールしなおす ために)rollIdentity() 経由で
   // すぐ したで つかうので、const の TDZ(まだ 初期化されていない
   // じょうたいで 参照すると ReferenceError に なる せいしつ)に
-  // ひっかからないよう、この2つだけ ここで さきに 定義しておく
+  // ひっかからないよう、この関連の consts だけ ここで さきに 定義しておく
   const GENDERS = ['male', 'female', 'nonbinary'];
   const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
   const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
+
+  // せいべつ/れんあいタイプは どちらも「げんじつ社会を ざっくり
+  // さんこうにした 重みつき」ランダムで きまる(均等抽選だと 少数派の
+  // タイプが 不自然に 高頻度に なってしまう ため)。GENDERS/
+  // ORIENTATION_ROLL_POOL と おなじ ならびじゅんに 対応する 重みの はいれつ。
+  // 「同性を れんあい対象と する タイプ」は gay という 1つの id/8%の
+  // 抽選の まま(ゲイ/レズビアンで べつべつに 抽選しない)で、表示だけ
+  // gender に あわせて 分ける(下の orientationLabel を さんしょう)
+  const GENDER_WEIGHTS = [47.5, 47.5, 5]; // 男の子 / 女の子 / ノンバイナリー
+  const ORIENTATION_WEIGHTS = [68, 8, 12, 5, 2, 5]; // straight / gay / bi / pan / aro / questioning
+
+  // 重みつき抽選: items[i] が えらばれる かくりつは weights[i] / 合計
+  function weightedPick(items, weights) {
+    const total = weights.reduce((sum, w) => sum + w, 0);
+    let roll = Math.random() * total;
+    for (let i = 0; i < items.length; i += 1) {
+      roll -= weights[i];
+      if (roll < 0) return items[i];
+    }
+    return items[items.length - 1];
+  }
 
   let state = loadState();
   let message = '';
@@ -1098,33 +1119,60 @@
   ];
 
   // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
-  // ぞくせい。ストレート・ゲイ／レズビアン・バイセクシャル・
+  // ぞくせい。ストレート・同性を対象とする タイプ・バイセクシャル・
   // パンセクシャル・アロマンティック・クエスチョニングは とくべつ
-  // あつかいせず、おなじ ならびの こせいとして あつかう。ノンバイナリーに
-  // 限らず どのせいべつにも どのれんあいタイプも 原則 わりあてられる
-  // (下の attractedToFor が それぞれに ちゃんと いみのある あいて候補を
-  // かえす)
+  // あつかいせず、おなじ ならびの こせいとして あつかう(どれも 優劣・
+  // レア度の ちがいは ない)。ノンバイナリーに 限らず どのせいべつにも
+  // どのれんあいタイプも 原則 わりあてられる(下の attractedToFor が
+  // それぞれに ちゃんと いみのある あいて候補を かえす)
   // GENDERS/RESOLVED_ORIENTATIONS/ORIENTATION_ROLL_POOL は、loadState()
   // からも つかわれる ため、この ファイルの ずっと うえのほう(state を
   // ロールする ちょくぜん)で すでに 定義ずみ
   const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
+  // gay は「同性を れんあい対象と する タイプ」を あらわす 1つの id
+  // (抽選も 8%の 1本)で、この マップの 値は あくまで gender が
+  // わからない ときの ひかえめな フォールバック。じっさいの 表示は
+  // gender に あわせて 分ける orientationLabel() を つかう
   const ORIENTATION_LABELS = {
     straight: 'ストレート',
-    gay: 'ゲイ／レズビアン',
+    gay: '同性を対象とする タイプ',
     bi: 'バイセクシャル',
     pan: 'パンセクシャル',
     aro: 'アロマンティック',
     questioning: 'クエスチョニング',
   };
 
+  // gay id を もつ キャラの 表示ラベルは gender で わける:
+  // 男の子→「ゲイ」、女の子→「レズビアン」。ノンバイナリーは どちらの
+  // ことばも 二元的な せいべつを 前提と した ことばな ので、あてはめず
+  // 「同性愛」という 中立な ことばに する(ノンバイナリーの ばあいでも
+  // バイ/パンに 勝手に 書きかえたりは しない)。gay いがいは これまでどおり
+  // ORIENTATION_LABELS を そのまま つかう
+  function orientationLabel(orientationId, gender) {
+    if (orientationId === 'gay') {
+      if (gender === 'male') return 'ゲイ';
+      if (gender === 'female') return 'レズビアン';
+      return '同性愛';
+    }
+    return ORIENTATION_LABELS[orientationId] || '???';
+  }
+
   // gender+orientationId から「だれに ひかれるか」を くみたてる。
-  // ストレート/ゲイは 男の子・女の子には これまでどおり「ちがう/おなじ
-  // せいべつ」の わく組みを つかい、ノンバイナリーには それを
-  // (男の子・女の子)/(ノンバイナリー どうし)と おきかえて あてはめる。
-  // バイは「2つの せいべつに ひかれる」ことだけを きめて、どの2つかは
-  // 人それぞれ なので ランダムに えらぶ。アロマンティックは だれにも
-  // れんあい感情を もたない。クエスチョニングは まだ さがしている
-  // とちゅうなので、どんな であいにも ひらかれている あつかいにする
+  // ストレートだけ「じぶんと ちがう せいべつ」の いみが gender ごとに
+  // かわる(男の子↔女の子、ノンバイナリーは 男の子/女の子)ので gender で
+  // わける。バイは「2つの せいべつに ひかれる」ことだけを きめて、どの
+  // 2つかは 人それぞれ なので ランダムに えらぶ(ノンバイナリーも ふくむ
+  // 3つから 2つを えらぶので、ノンバイナリーが たいしょうに はいる ことも
+  // ある)。パン/クエスチョニングは gender に かんけいなく どの せいべつも
+  // たいしょうに なる(パンは せいべつによる せいげんが ない、
+  // クエスチョニングは まだ さがしている とちゅうで ひろく ひらかれている)。
+  // アロマンティックは だれにも れんあい感情を もたない。gay(同性を
+  // 対象と する タイプ)は gender に かんけいなく「じぶんと おなじ
+  // せいべつの 人」が たいしょう ― ノンバイナリーの ばあいも おなじ
+  // ロジックを つかう(むかしは ノンバイナリーだけ とくべつあつかいで
+  // bi/pan/aro/questioning まで ぜんぶ「ノンバイナリー どうしのみ」に
+  // まとめてしまう バグが あったので、gender による とくべつあつかいは
+  // straight だけに かぎっている)
   function attractedToFor(gender, orientationId) {
     if (orientationId === 'aro') return [];
     if (orientationId === 'pan' || orientationId === 'questioning') return [...GENDERS];
@@ -1132,41 +1180,46 @@
       const shuffled = [...GENDERS].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 2).sort();
     }
-    if (gender === 'nonbinary') {
-      // ノンバイナリーの ストレートは「じぶんと ちがう(男の子/女の子の)
-      // せいべつ」、ゲイは「じぶんと おなじ ノンバイナリー どうし」
-      return orientationId === 'straight' ? ['male', 'female'] : ['nonbinary'];
+    if (orientationId === 'straight') {
+      if (gender === 'nonbinary') return ['male', 'female'];
+      return gender === 'male' ? ['female'] : ['male'];
     }
-    if (orientationId === 'straight') return gender === 'male' ? ['female'] : ['male'];
-    return [gender]; // gay
+    return [gender]; // gay(同性を対象とする タイプ)
   }
 
   // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
   // いっしょに きまる。man/woman ラインは 既存の せりふ(あかちゃんの
   // おんなのこ、など)に あわせて せいべつを こていし、それ以外の
-  // ラインは 完全に ランダム。れんあいタイプは せいべつに かんけいなく
-  // 6しゅるい すべてから ひとしく ロールする
+  // ラインは GENDER_WEIGHTS に したがった 重みつき ランダム。れんあい
+  // タイプも おなじく せいべつに かんけいなく ORIENTATION_WEIGHTS で
+  // ロールする(げんじつ社会を ざっくり さんこうに した ひりつだが、
+  // 少数派の タイプが ゲームの なかで 不自然に 出にくく ならないよう
+  // ある程度 高めに たもってある)
   function rollIdentity(speciesLine) {
     let gender;
     if (speciesLine === 'man') gender = 'male';
     else if (speciesLine === 'woman') gender = 'female';
-    else gender = GENDERS[Math.floor(Math.random() * GENDERS.length)];
-    const orientationId = ORIENTATION_ROLL_POOL[Math.floor(Math.random() * ORIENTATION_ROLL_POOL.length)];
+    else gender = weightedPick(GENDERS, GENDER_WEIGHTS);
+    const orientationId = weightedPick(ORIENTATION_ROLL_POOL, ORIENTATION_WEIGHTS);
     return { gender, orientationId, attractedTo: attractedToFor(gender, orientationId) };
   }
 
   // クエスチョニングの あいだに「きゅうあいする」を おすたびに1つ
-  // けいけんを つみ、いきの しきい値に とどくと ランダムな べつの
-  // タイプに おちつく(questioning 自身には もどらない)。しっぱい/
-  // 友達あつかいの けっかでも、いろんな あいてと であうこと じたいが
-  // けいけんに なる、という かんがえかた
+  // けいけんを つみ、いきの しきい値に とどくと べつの タイプに おちつく
+  // (questioning 自身には もどらない)。しっぱい/友達あつかいの けっかでも、
+  // いろんな あいてと であうこと じたいが けいけんに なる、という
+  // かんがえかた。おちつく さきも ORIENTATION_WEIGHTS と おなじ ひりつの
+  // 重みつき ランダム(RESOLVED_ORIENTATIONS は ORIENTATION_ROLL_POOL から
+  // questioning を のぞいた ならびと おなじ じゅんばんな ので、対応する
+  // 重みも 先頭から おなじ かず ぶん きりだせる)
   const QUESTIONING_RESOLVE_THRESHOLD = 4;
+  const RESOLVED_ORIENTATION_WEIGHTS = ORIENTATION_WEIGHTS.slice(0, RESOLVED_ORIENTATIONS.length);
 
   function checkQuestioningResolution() {
     if (state.orientationId !== 'questioning') return null;
     state.questioningEncounters = (state.questioningEncounters || 0) + 1;
     if (state.questioningEncounters < QUESTIONING_RESOLVE_THRESHOLD) return null;
-    const resolved = RESOLVED_ORIENTATIONS[Math.floor(Math.random() * RESOLVED_ORIENTATIONS.length)];
+    const resolved = weightedPick(RESOLVED_ORIENTATIONS, RESOLVED_ORIENTATION_WEIGHTS);
     state.orientationId = resolved;
     state.attractedTo = attractedToFor(state.gender, resolved);
     state.questioningEncounters = 0;
@@ -1209,7 +1262,7 @@
       if (!ALL_LINES.includes(payload.s)) return null;
       if (!Number.isInteger(payload.i) || payload.i < 0 || payload.i >= STAGES_PER_LINE) return null;
       if (!GENDERS.includes(payload.g)) return null;
-      if (!ORIENTATION_LABELS[payload.o]) return null;
+      if (!ORIENTATION_ROLL_POOL.includes(payload.o)) return null;
       const traitCounts = {};
       Object.keys(TRAIT_LABELS).forEach((key) => {
         const v = payload.t && payload.t[key];
@@ -1768,7 +1821,7 @@
       }
 
       // poop accumulates over time
-      if (Math.random() < 0.12 && state.poopCount < MAX_POOP) {
+      if (Math.random() < 0.08 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -1781,7 +1834,7 @@
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
         // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
-        const sicknessChance = isEquipped('scarf') ? 0.07 : 0.14;
+        const sicknessChance = isEquipped('scarf') ? 0.045 : 0.09;
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
@@ -2089,7 +2142,7 @@
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
     el.stageLabel.title = state.gender
-      ? `${GENDER_LABELS[state.gender]}・${ORIENTATION_LABELS[state.orientationId]}`
+      ? `${GENDER_LABELS[state.gender]}・${orientationLabel(state.orientationId, state.gender)}`
       : '';
 
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
@@ -2134,7 +2187,7 @@
       ? `${state.partner.married ? '💍' : '💑'} ${state.partner.emoji} ${state.partner.label}`
       : '';
     el.partnerLabel.title = state.partner
-      ? `${GENDER_LABELS[state.partner.gender]}・${ORIENTATION_LABELS[state.partner.orientationId]}・${state.partner.married ? '夫婦' : 'こいびと'}`
+      ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
@@ -2299,11 +2352,23 @@
     el.profileStage.textContent = currentStageLabel();
     el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
 
-    let orientationText = state.orientationId ? ORIENTATION_LABELS[state.orientationId] : '???';
+    let orientationText = state.orientationId ? orientationLabel(state.orientationId, state.gender) : '???';
     if (state.orientationId === 'questioning') {
       orientationText += `(けいけん ${state.questioningEncounters || 0}/${QUESTIONING_RESOLVE_THRESHOLD})`;
     }
     el.profileOrientation.textContent = orientationText;
+    // アロマンティック/クエスチョニングは ごかいされやすい ことばな ので、
+    // プロフィールに かんたんな 説明を そえる。アロマンティックは
+    // 「人を あいせない」わけでは なく、なかま/ともだちとの ふかい きずなは
+    // これまでどおり きずける。クエスチョニングは「まだ さがしている
+    // とちゅう」で あって しっぱいでは ない、という トーン
+    if (state.orientationId === 'aro') {
+      el.profileOrientation.title = 'れんあい感情を あまり かんじない/かんじにくい タイプ。なかまや ともだちとの ふかい きずなは ふつうに きずけます';
+    } else if (state.orientationId === 'questioning') {
+      el.profileOrientation.title = 'れんあいタイプが まだ きまっていない/さがしている とちゅう。いろんな あいてと であう ことで、いつか べつの タイプに おちつくかも';
+    } else {
+      el.profileOrientation.title = '';
+    }
 
     const maxTrait = Math.max(1, ...Object.values(state.traitCounts));
     el.profileTraits.innerHTML = Object.keys(TRAIT_LABELS).map((key) => {
@@ -2327,7 +2392,7 @@
           <span class="profile-partner-emoji">${p.emoji}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">${p.label}(${p.married ? '夫婦 💍' : 'こいびと 💑'})</span>
-            <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${ORIENTATION_LABELS[p.orientationId]}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender)}</span>
             <span class="profile-partner-detail">すきな ところ: ${TRAIT_LABELS[p.affinityTrait] || 'とくに なし'}</span>
             ${bondHint}
           </div>
@@ -2372,7 +2437,7 @@
           <span class="profile-partner-emoji">${stage.emoji}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">ともだちの ${stage.label}</span>
-            <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${ORIENTATION_LABELS[g.orientationId]}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${orientationLabel(g.orientationId, g.gender)}</span>
           </div>
         </div>
         ${blockedHint}
@@ -6856,7 +6921,7 @@
     if (resolvedOrientation) {
       state.happiness = clamp(state.happiness + 5, 0, 100);
       if (!checkMeters()) {
-        setMessage(`おおきな きもちの へんかを かんじた…じぶんは「${ORIENTATION_LABELS[resolvedOrientation]}」なんだと、はっきり わかった気が する!`);
+        setMessage(`おおきな きもちの へんかを かんじた…じぶんは「${orientationLabel(resolvedOrientation, state.gender)}」なんだと、はっきり わかった気が する!`);
       }
       emotePet('fun');
       return;
