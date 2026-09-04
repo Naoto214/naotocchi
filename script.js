@@ -8862,10 +8862,12 @@
     // おきてしまうため、これらの がめんが ひらいている あいだは tick()
     // じたいを まるごと スキップする(とじれば また ふつうに じかんが
     // すすみだす)。プロフィールも、せいかく傾向や こいびと・なかまの
-    // ようすを じっくり 見返す がめんな ので おなじく とめる。基本がめん
-    // (なにも ひらいていない とき)は、ながめて いるだけでも 時間が
-    // すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen) return;
+    // ようすを じっくり 見返す がめんな ので おなじく とめる。つうしん
+    // はぶ(あいてコード・しょうぶの いりぐち一覧)も、コードを つくったり
+    // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
+    // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
+    // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
