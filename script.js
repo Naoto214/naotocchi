@@ -435,6 +435,13 @@
     itemMoneyLabel: document.getElementById('itemMoneyLabel'),
     itemCloseBtn: document.getElementById('itemCloseBtn'),
     shopItemGrid: document.getElementById('shopItemGrid'),
+    naotoItemGrid: document.getElementById('naotoItemGrid'),
+    onetimeItemGrid: document.getElementById('onetimeItemGrid'),
+    pickerOverlay: document.getElementById('pickerOverlay'),
+    pickerTitle: document.getElementById('pickerTitle'),
+    pickerHint: document.getElementById('pickerHint'),
+    pickerGrid: document.getElementById('pickerGrid'),
+    pickerCloseBtn: document.getElementById('pickerCloseBtn'),
     courtBtn: document.getElementById('courtBtn'),
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
@@ -512,6 +519,19 @@
       transformMeter: 0,
       transformOptions: null,
       items: {},
+      // つかいきり アイテム(CONSUMABLE_ITEMS)の うち、「つぎの 1かいだけ」
+      // こうかを はっきする タイプの ものが つかう、いちじてきな フラグ
+      // ちゅう(state ぜんたいと おなじく「はじめから」で リセットされる -
+      // いま そだてている 1たいぶんの ちからな ため)
+      oneTimeBoosts: {
+        sicknessShieldCount: 0,
+        breakupShield: null, // null | 'half' | 'full'
+        courtBoost: null, // null | 'small' | 'big'
+        minigameBoost: null, // null | 'small' | 'big'
+        doubleCoins: false,
+        safetyNet: false,
+        travelGuarantee: false,
+      },
       // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
       // いっしょに リセットされる、今の いっしょうぶんの じょうたい。
       // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
@@ -577,6 +597,18 @@
         money: 0,
         ownedShopItems: [],
         equippedItemId: null,
+        // 「なおとの〜」でんせつアイテム(NAOTO_ITEMS)の うち、こうにゅう
+        // ずみの id 一覧。そうび/かいじょの きがえは なく、こうにゅうすれば
+        // それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS とは
+        // ちがい、いちどに 1つまでの せいげんも ない)
+        ownedNaotoItems: [],
+        // つかいきり アイテムの「すきな いろ/がらの チケット」で、tier
+        // 条件を みたす前に とくべつに 解放した COLOR_THEMES/PATTERNS の
+        // id。"color:<id>" / "pattern:<id>" の かたちで もつ(いろ・がらで
+        // おなじ id が つかわれている ばあいの きりわけの ため)。
+        // unlockAll(レインボー)は ここでは あつかわない - こちらは
+        // かならず 4段階 ぜんぶの クリアで しか 解放できない
+        bonusUnlockedThemeIds: [],
         // 「たび」で いちど でも おとずれた ことの ある地域(REGIONS の id)
         // の いちらん。じっせきの「せかい いっしゅう」に つかう。「おうち」
         // は さいしょから いる ので、あらかじめ ふくめておく
@@ -989,12 +1021,122 @@
     return state.lifetime.equippedItemId === id;
   }
 
+  // 「なおとの〜」でんせつアイテム。ENDING_TIERS の 4だんかいクリアに
+  // それぞれ 1つずつ ひもづく、けたちがいの こうがくアイテム。SHOP_ITEMS
+  // と ちがって そうび/かいじょの きがえは なく、こうにゅうすれば
+  // それいこう ずっと こうかを はっきしつづける(なんこ もっていても いい)。
+  // unlockTier は isThemeUnlocked() と おなじ フィールド名を つかって
+  // COLOR_THEMES/PATTERNS と ロジックを 共有する
+  const NAOTO_ITEMS = [
+    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', price: 30000, unlockTier: 0, desc: 'びょうきに ぜったいに ならなくなる' },
+    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', price: 35000, unlockTier: 1, desc: 'うんちが 二度と たまらなくなる' },
+    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', price: 50000, unlockTier: 2, desc: 'しぼうメーターが 二度と 上がらなくなる(ぜったいに 死亡しない)' },
+    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', price: 80000, unlockTier: 3, desc: '満腹・機嫌・元気・体力が つねに まんたんに たもたれる' },
+  ];
+
+  function hasNaotoItem(id) {
+    return state.lifetime.ownedNaotoItems.includes(id);
+  }
+
+  // NAOTO_ITEMS の ロック画面(renderNaotoItemGrid)で つかう、tier ごとの
+  // みじかい 解放条件ラベル(ENDING_TIERS.title は tier0〜2 が ぜんぶ
+  // 「GAME CLEAR」に なっていて 区別が つかないので、ここで べつに もつ)
+  const ENDING_TIER_UNLOCK_LABELS = ['ふつうクリア', 'ずかんコンプリート', 'じっせきコンプリート', 'パーフェクトクリア'];
+
   // COLOR_THEMES/PATTERNS 共通の解放判定(どちらも unlockTier/
   // unlockAll という おなじ フィールドしか みないので、そのまま りようできる)
   function isThemeUnlocked(theme) {
     if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
-    return theme.unlockTier === undefined || state.lifetime.endingTiersReached.includes(theme.unlockTier);
+    if (theme.unlockTier === undefined) return true;
+    if (state.lifetime.endingTiersReached.includes(theme.unlockTier)) return true;
+    // つかいきり アイテムの「すきな いろ/がらの チケット」による、tier
+    // 条件を こえた とくべつな 解放(bonusUnlockedThemeIds さんしょう)
+    const kind = COLOR_THEMES.includes(theme) ? 'color' : 'pattern';
+    return state.lifetime.bonusUnlockedThemeIds.includes(`${kind}:${theme.id}`);
   }
+
+  // いちばん きずな度(bond)の ひくい、いま そばに いる なかまを かえす
+  // (companionfull1/companionpartial1 の こうか先を えらぶ ための ヘルパー)
+  function lowestBondCompanion() {
+    if (!state.companions.length) return null;
+    return state.companions.reduce((min, c) => ((c.bond ?? 100) < (min.bond ?? 100) ? c : min), state.companions[0]);
+  }
+
+  // つかいきり アイテム(CONSUMABLE_ITEMS)。SHOP_ITEMS/NAOTO_ITEMS の ように
+  // そうびして のこる ものでは なく、こうにゅうした しゅんかんに 1かいだけ
+  // こうかを はっきする。しぼうメーターの かいふくは べつの しくみ
+  // (RECOVERY_ITEMS/useItem())で すでに ようい されている ため、ここには
+  // 単純な しぼうメーター回復の アイテムは いれない。
+  //
+  // avaliable(state に依存する きょかはんてい)を みたさない あいだは
+  // ボタンを おしても なにも おきず、unavailableMessage が かわりに 出る。
+  // picker が セットされて いる アイテムは、こうにゅう ボタンを おした
+  // しゅんかんには まだ おかねを はらわず、pickerOverlay で なにを
+  // えらぶかを きめてから(resolvePickerSelection)はじめて はらう。
+  // apply()/apply(value) が {} を かえした ばあいは、なかで すでに
+  // setMessage() ずみ(advanceStage/checkMeters けいゆ)という あいずなので、
+  // よびだし側は じぶんの メッセージで 上書きしない
+  const CONSUMABLE_ITEMS = [
+    // --- プチ(30〜200) ---
+    { id: 'ot_hunger', label: 'まんぷくの おにぎり', emoji: '🍙', price: 40, desc: '満腹を いっきに 全回復する', apply: () => { state.hunger = 100; return { message: 'おなかが いっぱいに なった!', emote: 'happy' }; } },
+    { id: 'ot_happy', label: 'にこにこキャンディ', emoji: '🍬', price: 40, desc: '機嫌を いっきに 全回復する', apply: () => { state.happiness = 100; return { message: 'きげんが すっかり よくなった!', emote: 'happy' }; } },
+    { id: 'ot_energy', label: 'げんきの もと', emoji: '🧃', price: 40, desc: '元気を いっきに 全回復する', apply: () => { state.energy = 100; return { message: 'げんきが みなぎってきた!', emote: 'fun' }; } },
+    { id: 'ot_health', label: 'たいりょくゼリー', emoji: '🍮', price: 60, desc: '体力を いっきに 全回復する', apply: () => { state.health = 100; return { message: 'からだが じょうぶに なった!', emote: 'happy' }; } },
+    { id: 'ot_poop', label: 'おそうじスプレー', emoji: '🧴', price: 50, desc: 'たまった うんちを ぜんぶ そうじする', available: () => state.poopCount > 0, unavailableMessage: 'うんちは たまっていない', apply: () => { state.poopCount = 0; return { message: 'すっきり きれいに なった!', emote: 'fun' }; } },
+    { id: 'ot_hungerhappy', label: 'ごきげんグルメセット', emoji: '🍱', price: 90, desc: '満腹と 機嫌を まとめて 全回復する', apply: () => { state.hunger = 100; state.happiness = 100; return { message: 'まんぷくで ごきげんに なった!', emote: 'happy' }; } },
+    { id: 'ot_energyhealth', label: 'げんきモリモリセット', emoji: '🥗', price: 90, desc: '元気と 体力を まとめて 全回復する', apply: () => { state.energy = 100; state.health = 100; return { message: 'げんきも たいりょくも バッチリ!', emote: 'fun' }; } },
+    { id: 'ot_hungerhealth', label: 'げんきまんぷくセット', emoji: '🍜', price: 90, desc: '満腹と 体力を まとめて 全回復する', apply: () => { state.hunger = 100; state.health = 100; return { message: 'おなかも からだも げんきいっぱい!', emote: 'happy' }; } },
+    { id: 'ot_happyenergy', label: 'わくわくセット', emoji: '🎈', price: 90, desc: '機嫌と 元気を まとめて 全回復する', apply: () => { state.happiness = 100; state.energy = 100; return { message: 'わくわく げんきに なった!', emote: 'fun' }; } },
+    { id: 'ot_sickshield', label: 'びょうきよけの おふだ', emoji: '🧧', price: 90, desc: 'つぎに びょうきに なる はんていを 1かい だけ むこうにする', apply: () => { state.oneTimeBoosts.sicknessShieldCount += 1; return { message: 'びょうきよけの おふだを みにつけた!', emote: 'happy' }; } },
+    { id: 'ot_petstreakreset', label: 'なでなで リセットチケット', emoji: '🤲', price: 80, desc: 'なでる連打の カウントを 0に もどす', apply: () => { state.affectionStreak = 0; return { message: 'なでなでの カウントが リセットされた!', emote: 'happy' }; } },
+    { id: 'ot_travelstreakreset', label: 'たびづかれ リセットチケット', emoji: '🎫', price: 80, desc: 'たびの 連続カウントを 0に もどす', apply: () => { state.travelStreak = 0; return { message: 'たびづかれが きれいに とれた!', emote: 'fun' }; } },
+    { id: 'ot_companionpartial1', label: 'なかまへの おやつ', emoji: '🍪', price: 90, desc: 'いちばん きずな度の ひくい なかまを すこし回復する(+40)', available: () => state.companions.length > 0, unavailableMessage: 'いま そばに いる なかまが いない', apply: () => { const c = lowestBondCompanion(); c.bond = clamp((c.bond ?? 100) + 40, 0, 100); return { message: 'なかまに おやつを あげて よろこばれた!', emote: 'happy' }; } },
+    { id: 'ot_partnerhalf', label: 'ラブレター 2つう目', emoji: '💌', price: 120, desc: 'こいびとの なかよし度を すこし回復する(+50)', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.partner.affection = clamp((state.partner.affection ?? 100) + 50, 0, 100); return { message: 'こいびとが うれしそうに ほほえんだ!', emote: 'love' }; } },
+    { id: 'ot_cure', label: 'とっこうやく', emoji: '💊', price: 110, desc: '今の びょうきを その場で なおす', available: () => state.isSick, unavailableMessage: 'いま びょうきに なっていない', apply: () => { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; return { message: 'びょうきが すっかり なおった!', emote: 'happy' }; } },
+
+    // --- ミドル(150〜500) ---
+    { id: 'ot_allstat', label: 'よくばりセット', emoji: '🧺', price: 150, desc: '満腹・機嫌・元気・体力を まとめて 全回復する', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; return { message: 'ぜんぶの ちょうしが パーフェクトに なった!', emote: 'fun' }; } },
+    { id: 'ot_evochip', label: 'しんかの かけら', emoji: '✨', price: 150, desc: '進化メーターを すこし ためる(+50)', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { state.evoMeter = clamp(state.evoMeter + 50, 0, 100); return { message: 'しんかの ちからが すこし たまった!', emote: 'fun' }; } },
+    { id: 'ot_devoreset', label: 'たいか ふせぎの おまもり', emoji: '🌿', price: 200, desc: '退化メーターを 0に リセットする', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { state.devoMeter = 0; return { message: 'たいかの きけんが なくなった!', emote: 'happy' }; } },
+    { id: 'ot_transformchip', label: 'へんしんの かけら', emoji: '🔑', price: 180, desc: '変身メーターを すこし ためる(+50)', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = clamp(state.transformMeter + 50, 0, 100); return { message: 'へんしんの ちからが すこし たまった!', emote: 'fun' }; } },
+    { id: 'ot_companionfull1', label: 'なかまへの プレゼント', emoji: '🎀', price: 200, desc: 'いちばん きずな度の ひくい なかま 1人を 全回復する', available: () => state.companions.length > 0, unavailableMessage: 'いま そばに いる なかまが いない', apply: () => { const c = lowestBondCompanion(); c.bond = 100; return { message: 'なかまが とても よろこんでくれた!', emote: 'love' }; } },
+    { id: 'ot_partnerfull', label: 'あいの アクセサリー', emoji: '💝', price: 250, desc: 'こいびとの なかよし度を 全回復する', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.partner.affection = 100; return { message: 'こいびとが だいすき!と いってくれた!', emote: 'love' }; } },
+    { id: 'ot_courtboostsmall', label: 'こいの おまじない', emoji: '🎐', price: 250, desc: 'つぎの きゅうあいの すすみぐあいを すこし はやめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.oneTimeBoosts.courtBoost = 'small'; return { message: 'こいの おまじないを かけた!', emote: 'love' }; } },
+    { id: 'ot_minigamewinsmall', label: 'やる気の おまもり', emoji: '🔥', price: 300, desc: 'つぎの ミニゲームの けっかを すこし よくする', apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気が わいてきた!', emote: 'fun' }; } },
+    { id: 'ot_evoup', label: 'せいちょうのくすり', emoji: '🌱', price: 300, desc: 'せいちょう段階を 1つ すすめる(レベル+1)', available: () => state.stage === STAGE.GROWING && state.stageIndex < STAGES_PER_LINE - 1, unavailableMessage: 'いまは つかえない', apply: () => { state.evoMeter = 100; checkMeters(); return {}; } },
+    { id: 'ot_evodown', label: 'たいかのくすり', emoji: '🍼', price: 300, desc: 'せいちょう段階を 1つ もどす(レベル-1)', available: () => state.stage === STAGE.GROWING && state.stageIndex > 0, unavailableMessage: 'いまは つかえない', apply: () => { state.devoMeter = 100; checkMeters(); return {}; } },
+    { id: 'ot_sickcurebig', label: 'とっこう万能薬', emoji: '🍶', price: 300, desc: '今の びょうきを なおし、びょうきよけの はんていも 3かいぶん むこうにする', apply: () => { if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } state.oneTimeBoosts.sicknessShieldCount += 3; return { message: 'からだが すっかり じょうぶに なった!', emote: 'happy' }; } },
+    { id: 'ot_travelguarantee', label: 'たびの おまもり', emoji: '🧭', price: 400, desc: 'つぎの たびで かならず よい おもいでを もちかえる', apply: () => { state.oneTimeBoosts.travelGuarantee = true; return { message: 'たびの おまもりを みにつけた!', emote: 'fun' }; } },
+    { id: 'ot_breakupshieldhalf', label: 'わかれよけの おふだ', emoji: '🩹', price: 400, desc: 'つぎの わかれ/りこんの ダメージを 半分にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = state.oneTimeBoosts.breakupShield === 'full' ? 'full' : 'half'; return { message: 'わかれよけの おふだを みにつけた!', emote: 'happy' }; } },
+    { id: 'ot_transform', label: 'へんしんの カギ', emoji: '🗝️', price: 400, desc: '変身メーターを いっきに ためて、その場で すがた選びを はじめる', available: () => state.stage === STAGE.GROWING && !state.transformOptions, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = 100; checkMeters(); return {}; } },
+    { id: 'ot_safetynet', label: 'スコアほけん', emoji: '☂️', price: 450, desc: 'つぎの ミニゲームが しっぱいでも わるい えいきょうを うけない', apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに はいった!', emote: 'happy' }; } },
+    { id: 'ot_megapack', label: 'お世話 プレミアムパック', emoji: '🎁', price: 400, desc: '4つの ステータス全回復+うんちそうじ+びょうき治療を まとめて おこなう', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } return { message: 'すみずみまで きっちり お世話された!', emote: 'happy' }; } },
+
+    // --- アッパー(500〜2000) ---
+    { id: 'ot_coinboost', label: 'ラッキーコイン', emoji: '🪙', price: 500, desc: 'つぎの ミニゲームで もらえる おかねを 2ばいにする', apply: () => { state.oneTimeBoosts.doubleCoins = true; return { message: 'ラッキーな よかんが する!', emote: 'fun' }; } },
+    { id: 'ot_companionfullall', label: 'なかま だんらんパーティー', emoji: '🎊', price: 500, desc: 'そばに いる なかま 全員の きずな度を 全回復する', available: () => state.companions.length > 0, unavailableMessage: 'いま そばに いる なかまが いない', apply: () => { state.companions.forEach((c) => { c.bond = 100; }); return { message: 'みんなで にぎやかに もりあがった!', emote: 'love' }; } },
+    { id: 'ot_partnerbigcombo', label: 'ロマンチックディナー', emoji: '🍽️', price: 600, desc: 'こいびとの なかよし度を 全回復し、きゅうあいの すすみぐあいも すこし はやめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.affection = 100; state.partner.bondCount = (state.partner.bondCount || 0) + 2; return { message: 'すてきな ディナーで もりあがった!', emote: 'love' }; } },
+    { id: 'ot_courtboostbig', label: 'こいの キューピッド', emoji: '💘', price: 700, desc: 'つぎの きゅうあいの すすみぐあいを おおきく はやめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.oneTimeBoosts.courtBoost = 'big'; return { message: 'キューピッドが ほほえんだ!', emote: 'love' }; } },
+    { id: 'ot_minigamewinbig', label: '大成功の おまもり', emoji: '🌟', price: 800, desc: 'つぎの ミニゲームを かならず 大成功にする', apply: () => { state.oneTimeBoosts.minigameBoost = 'big'; return { message: '大成功が やくそくされた き が する!', emote: 'fun' }; } },
+    { id: 'ot_breakupshieldfull', label: 'わかれよけの けっかい', emoji: '🛡️', price: 900, desc: 'つぎの わかれ/りこんの ダメージを 無効にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = 'full'; return { message: 'つよい けっかいに つつまれた!', emote: 'happy' }; } },
+    { id: 'ot_bigevo', label: 'せいちょう だいジャンプ', emoji: '🚀', price: 900, desc: 'せいちょう段階を いっきに 2つ すすめる(レベル+2)', available: () => state.stage === STAGE.GROWING && state.stageIndex < STAGES_PER_LINE - 1, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 2; i += 1) { state.evoMeter = 100; checkMeters(); } return {}; } },
+    { id: 'ot_perfectcare', label: 'かんぺき お世話 デラックス', emoji: '💫', price: 1200, desc: 'ステータス全回復+うんちそうじ+びょうき治療+しんか/たいか/へんしんメーターを ちょっとずつ ためる', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } if (state.stage === STAGE.GROWING) { state.evoMeter = clamp(state.evoMeter + 30, 0, 100); state.devoMeter = clamp(state.devoMeter + 30, 0, 100); state.transformMeter = clamp(state.transformMeter + 30, 0, 100); } return { message: 'これいじょうない くらい かんぺきに お世話された!', emote: 'love' }; } },
+    { id: 'ot_agejump', label: 'ときの すな', emoji: '⏳', price: 1200, desc: '年齢を いっきに 5すすめる', available: () => state.stage === STAGE.GROWING || state.stage === STAGE.EGG, unavailableMessage: 'いまは つかえない', apply: () => { state.age = clamp(state.age + 100, AGE_MIN, AGE_MAX); while (advanceStage()) { /* 大きく すすんだ ぶん、まとめて おいこす */ } checkMeters(); return {}; } },
+    { id: 'ot_marriageprep', label: 'プロポーズの練習', emoji: '💐', price: 1800, desc: 'きゅうあいの すすみぐあいを けっこん一歩手前まで すすめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.bondCount = Math.max(state.partner.bondCount || 0, marriageBondThreshold() - 1); return { message: 'プロポーズの れんしゅうを した!', emote: 'love' }; } },
+
+    // --- プレミアム(2000〜8000) ---
+    { id: 'ot_devomega', label: 'たいかの けっしょう', emoji: '🌀', price: 2500, desc: 'せいちょう段階を いっきに 3つ もどす(レベル-3)', available: () => state.stage === STAGE.GROWING && state.stageIndex > 0, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 3; i += 1) { state.devoMeter = 100; checkMeters(); } return {}; } },
+    { id: 'ot_evomega', label: 'しんかの けっしょう', emoji: '💎', price: 2500, desc: 'せいちょう段階を いっきに 3つ すすめる(レベル+3)', available: () => state.stage === STAGE.GROWING && state.stageIndex < STAGES_PER_LINE - 1, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 3; i += 1) { state.evoMeter = 100; checkMeters(); } return {}; } },
+    { id: 'ot_marriage', label: 'えいえんの ちかいの ゆびわ', emoji: '💍', price: 3000, desc: 'いまの こいびとと その場で けっこんする', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.married = true; state.partner.bondCount = 0; if (state.partner.id !== 'guest' && !state.lifetime.partnersMarried.includes(state.partner.id)) state.lifetime.partnersMarried.push(state.partner.id); return { message: `${state.partner.label}と けっこんした!💍`, emote: 'love' }; } },
+    { id: 'ot_bigagejump', label: 'ときの おおすな', emoji: '⌛', price: 3000, desc: '年齢を いっきに 15すすめる', available: () => state.stage === STAGE.GROWING || state.stage === STAGE.EGG, unavailableMessage: 'いまは つかえない', apply: () => { state.age = clamp(state.age + 300, AGE_MIN, AGE_MAX); while (advanceStage()) { /* 大きく すすんだ ぶん、まとめて おいこす */ } checkMeters(); return {}; } },
+    { id: 'ot_regionvisit', label: 'せかい地図の カケラ', emoji: '🗺️', price: 5000, picker: 'region', desc: 'まだ おとずれていない 地域を 1つ 好きに えらんで、その場で おとずれた ことにする', available: () => REGIONS.some((r) => !state.lifetime.regionsVisited.includes(r.id)), unavailableMessage: 'もう ぜんぶの 地域を おとずれた', apply: (value) => { if (!state.lifetime.regionsVisited.includes(value)) state.lifetime.regionsVisited.push(value); const region = REGIONS.find((r) => r.id === value); return { message: `${region.emoji} ${region.label}を ちずに かきくわえた!`, emote: 'fun' }; } },
+    { id: 'ot_colorpick', label: 'すきな いろの チケット', emoji: '🎨', price: 8000, picker: 'color', desc: 'ロックされた 「いろ」を 1つ 好きに えらんで、その場で 解放する', available: () => COLOR_THEMES.some((t) => t.unlockTier !== undefined && !t.unlockAll && !isThemeUnlocked(t)), unavailableMessage: 'もう ぜんぶの いろが 解放ずみ', apply: (value) => { state.lifetime.bonusUnlockedThemeIds.push(`color:${value}`); const t = COLOR_THEMES.find((x) => x.id === value); return { message: `いろ「${t.label}」を 解放した!`, emote: 'happy' }; } },
+    { id: 'ot_patternpick', label: 'すきな がらの チケット', emoji: '🖌️', price: 8000, picker: 'pattern', desc: 'ロックされた 「がら」を 1つ 好きに えらんで、その場で 解放する', available: () => PATTERNS.some((p) => p.unlockTier !== undefined && !p.unlockAll && !isThemeUnlocked(p)), unavailableMessage: 'もう ぜんぶの がらが 解放ずみ', apply: (value) => { state.lifetime.bonusUnlockedThemeIds.push(`pattern:${value}`); const p = PATTERNS.find((x) => x.id === value); return { message: `がら「${p.label}」を 解放した!`, emote: 'happy' }; } },
+
+    // --- でんせつ(30000〜60000。ほぼ 不可能な くらい 高額) ---
+    { id: 'ot_dexpick', label: 'すきな すがたの ひみつ', emoji: '🔮', price: 30000, picker: 'dex', desc: 'ずかんの すがたを 1つ 好きに えらんで、その場で 発見+変身する', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: (value) => { const [line, idxStr] = value.split(':'); const stageIndex = Number(idxStr); const stage = SPECIES[line] && SPECIES[line].stages[stageIndex]; if (!stage) return { message: 'えらべなかった…' }; recordDiscoveryKey(`${line}:${stageIndex}`); state.speciesLine = line; state.stageIndex = stageIndex; state.age = stage.threshold; const breakupMessage = rerollIdentityAndBreakupIfNeeded(line); return { message: `${stage.emoji} ${stage.label}に すがたを かえた!${breakupMessage || ''}`, emote: breakupMessage ? 'sad' : 'love' }; } },
+    { id: 'ot_achpick', label: 'きせきの じっせき証明書', emoji: '📜', price: 60000, picker: 'achievement', desc: 'じっせきを 1つ 好きに えらんで、その場で 達成した ことにする', available: () => ACHIEVEMENTS.some((a) => !state.achievementsUnlocked.includes(a.id)), unavailableMessage: 'もう ぜんぶの じっせきを たっせいずみ', apply: (value) => { if (!state.achievementsUnlocked.includes(value)) state.achievementsUnlocked.push(value); const ach = ACHIEVEMENTS.find((a) => a.id === value); return { message: `じっせき「${ach.label}」を てにいれた!`, emote: 'love' }; } },
+  ];
 
   function endingProgress() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
@@ -1523,7 +1665,18 @@
   // けいの けいげんとは べつに、breakup 専用の けいげん)
   function breakupPenalty(wasMarried) {
     const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
-    return isEquipped('breakup_ease') ? base * 0.5 : base;
+    const eased = isEquipped('breakup_ease') ? base * 0.5 : base;
+    // つかいきりアイテムの「わかれよけの おふだ/けっかい」は、この わかれ
+    // 1かいぶんだけ こうかを はっきして きえる
+    if (state.oneTimeBoosts.breakupShield === 'full') {
+      state.oneTimeBoosts.breakupShield = null;
+      return 0;
+    }
+    if (state.oneTimeBoosts.breakupShield === 'half') {
+      state.oneTimeBoosts.breakupShield = null;
+      return eased * 0.5;
+    }
+    return eased;
   }
 
   // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
@@ -1532,6 +1685,10 @@
   // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
   // そうびしていると、そこから さらに 2わり おさえられる
   function raiseDeathMeter(amount) {
+    // なおとのリングを もっていると、しぼうメーターは 二度と 上がらない
+    // (=ぜったいに 死亡しない)。かんびょう などで もらえる かいふく分は
+    // ふつうに はたらくので、amount<0 の ばあいだけは そのまま とおす
+    if (amount > 0 && hasNaotoItem('naoto_ring')) return;
     const crownFactor = isEquipped('crown3') ? 0.35 : isEquipped('crown2') ? 0.6 : isEquipped('crown') ? 0.8 : 1;
     state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
   }
@@ -1555,7 +1712,11 @@
     const p = state.partner;
     p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
     if (p.married) return false;
-    p.bondCount = (p.bondCount || 0) + 1;
+    // つかいきりアイテムの「こいの おまじない/キューピッド」を つかった
+    // ちょくごの きゅうあい 1かいだけ、bondCount の のびが おおきくなる
+    const courtBoost = state.oneTimeBoosts.courtBoost === 'big' ? 4 : state.oneTimeBoosts.courtBoost === 'small' ? 2 : 0;
+    state.oneTimeBoosts.courtBoost = null;
+    p.bondCount = (p.bondCount || 0) + 1 + courtBoost;
     if (p.bondCount < marriageBondThreshold()) return false;
     p.married = true;
     p.bondCount = 0;
@@ -2040,9 +2201,19 @@
         state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier() * energyFactor, 0, 100);
       }
 
-      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい)
+      // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
+      // まんたんに たもたれる(体力は すこし したの healthDelta 計算の
+      // あとで おなじく まんたんに 上書きする)
+      if (hasNaotoItem('naoto_crown')) {
+        state.hunger = 100;
+        state.happiness = 100;
+        state.energy = 100;
+      }
+
+      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい。
+      // なおとの ランタンを もっていると そもそも 二度と たまらなくなる)
       const poopFactor = isEquipped('poop3') ? 0.12 : isEquipped('poop2') ? 0.35 : isEquipped('poop1') ? 0.6 : 1;
-      if (Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
+      if (!hasNaotoItem('naoto_lantern') && Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -2053,18 +2224,25 @@
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
       // the odds of falling ill; well cared-for pets almost never trigger this
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
-      if (!state.isSick && neglected) {
+      // なおとの おまもりを もっていると、びょうきに ぜったいに ならない
+      if (!state.isSick && neglected && !hasNaotoItem('naoto_charm')) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
         const sicknessChance = 0.09 * (isEquipped('scarf3') ? 0.12 : isEquipped('scarf2') ? 0.3 : isEquipped('scarf') ? 0.5 : 1);
         if (Math.random() < sicknessChance) {
-          const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
-          state.isSick = true;
-          state.sicknessType = sickness.label;
-          state.totalSicknessCount += 1;
-          state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
-          raiseDeathMeter(12);
-          setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
+          // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
+          // ここで 1かいぶん つかって びょうきを ふせぐ
+          if (state.oneTimeBoosts.sicknessShieldCount > 0) {
+            state.oneTimeBoosts.sicknessShieldCount -= 1;
+          } else {
+            const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
+            state.isSick = true;
+            state.sicknessType = sickness.label;
+            state.totalSicknessCount += 1;
+            state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
+            raiseDeathMeter(12);
+            setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
+          }
         }
       }
 
@@ -2078,6 +2256,7 @@
       if (state.isSick) healthDelta -= 2 + Math.min(3, Math.floor(state.totalSicknessCount / 3));
       if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += 1;
       state.health = clamp(state.health + healthDelta, 0, 100);
+      if (hasNaotoItem('naoto_crown')) state.health = 100;
 
       // track care quality for evolution
       state.careSum += (state.hunger + state.happiness + state.energy) / 3;
@@ -2091,7 +2270,8 @@
         state.lowHealthStreak = 0;
       }
       const deathThreshold = Math.max(6, 15 - state.totalSicknessCount);
-      if (state.lowHealthStreak >= deathThreshold) {
+      // なおとの リングを もっていると、この けいろでも ぜったいに 死亡しない
+      if (state.lowHealthStreak >= deathThreshold && !hasNaotoItem('naoto_ring')) {
         state.stage = STAGE.DEAD;
         setMessage('てんごくへ いってしまった…');
       }
@@ -2489,6 +2669,9 @@
     el.itemOverlay.classList.toggle('hidden', !itemOpen);
     if (itemOpen) renderItemOverlay();
 
+    el.pickerOverlay.classList.toggle('hidden', !pickerOpen);
+    if (pickerOpen) renderPicker();
+
     renderItemsRow(disableCare);
   }
 
@@ -2738,6 +2921,58 @@
         </button>
       `;
     }).join('');
+    renderNaotoItemGrid();
+    renderConsumableItemGrid();
+  }
+
+  // 「なおとの〜」でんせつアイテム: unlockTier に とどいていない あいだは
+  // ロック表示(？？？)、とどいていれば ねだん/こうにゅうずみ表示にする。
+  // SHOP_ITEMS と ちがい そうび/かいじょの きがえは なく、なんこ もっていても いい
+  function renderNaotoItemGrid() {
+    el.naotoItemGrid.innerHTML = NAOTO_ITEMS.map((item) => {
+      const unlocked = state.lifetime.endingTiersReached.includes(item.unlockTier);
+      const owned = hasNaotoItem(item.id);
+      if (!unlocked) {
+        return `
+          <button type="button" class="shop-item" disabled data-id="${item.id}">
+            <span class="shop-item-emoji">🔒</span>
+            <span class="shop-item-label">？？？</span>
+            <span class="shop-item-desc">${ENDING_TIER_ICONS[item.unlockTier]} ${ENDING_TIER_UNLOCK_LABELS[item.unlockTier]}を たっせいすると 解放</span>
+            <span class="shop-item-status"></span>
+          </button>
+        `;
+      }
+      const statusText = owned ? 'こうにゅうずみ' : `💰${item.price}`;
+      return `
+        <button type="button" class="shop-item ${owned ? 'equipped' : ''}" data-id="${item.id}">
+          <span class="shop-item-emoji">${item.emoji}</span>
+          <span class="shop-item-label">${item.label}</span>
+          <span class="shop-item-desc">${item.desc}</span>
+          <span class="shop-item-status">${statusText}</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  // こうにゅうすれば それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS
+  // の ように そうび/かいじょを きりかえる ものではないので、こうにゅう
+  // ずみなら それ以上 なにも おきない ボタンに なる)
+  function buyNaotoItem(id) {
+    const item = NAOTO_ITEMS.find((it) => it.id === id);
+    if (!item) return;
+    if (!state.lifetime.endingTiersReached.includes(item.unlockTier)) return;
+    if (hasNaotoItem(id)) return;
+    if (state.lifetime.money < item.price) {
+      setMessage('おかねが たりない…');
+      render();
+      return;
+    }
+    state.lifetime.money -= item.price;
+    state.lifetime.ownedNaotoItems.push(id);
+    setMessage(`${item.label}を てにいれた!${item.emoji} ${item.desc}`);
+    emotePet('love');
+    saveState();
+    render();
   }
 
   // みこうにゅうなら おかねが たりれば こうにゅうして そのまま そうび、
@@ -2768,6 +3003,152 @@
     }
     saveState();
     render();
+  }
+
+  // つかいきり アイテムの いちらん(みこうにゅう/こうにゅうずみ の きがえが
+  // ない ため、ねだんの みだけ つねに 出す。available()を みたさない ときは
+  // グレー表示にして、おした ときに unavailableMessage を 出す)
+  function renderConsumableItemGrid() {
+    el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map((item) => {
+      const usable = !item.available || item.available();
+      return `
+        <button type="button" class="shop-item ${usable ? '' : 'locked'}" data-id="${item.id}">
+          <span class="shop-item-emoji">${item.emoji}</span>
+          <span class="shop-item-label">${item.label}</span>
+          <span class="shop-item-desc">${item.desc}</span>
+          <span class="shop-item-status">💰${item.price}</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  // つかいきり アイテムを こうにゅうする。picker つきの アイテムは、この
+  // じてんでは まだ おかねを はらわず(pickerOverlay で なにを えらぶかを
+  // きめてから resolvePickerSelection() が はらう)、picker なしの アイテムは
+  // その場で はらって すぐに こうかを はっきする
+  function useConsumableItem(id) {
+    const item = CONSUMABLE_ITEMS.find((it) => it.id === id);
+    if (!item) return;
+    if (item.available && !item.available()) {
+      setMessage(item.unavailableMessage || 'いまは つかえない…');
+      render();
+      return;
+    }
+    if (state.lifetime.money < item.price) {
+      setMessage('おかねが たりない…');
+      render();
+      return;
+    }
+    if (item.picker) {
+      openPicker(item);
+      return;
+    }
+    state.lifetime.money -= item.price;
+    const result = item.apply() || {};
+    if (result.message) setMessage(result.message);
+    emotePet(result.emote || 'happy');
+    // ときの すな/せいちょうのくすり けいの アイテムは checkMeters() ごし
+    // に ねんれいや せいちょう段階を うごかせる ため、その 1かいで
+    // しぼう/ゲームクリアに とどく ことも ある。そのばあいは アイテム画面
+    // ごしに ならないよう、専用の えんしゅつ画面が 前に 出られる ように とじる
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) {
+      itemOpen = false;
+    }
+    saveState();
+    render();
+  }
+
+  let pickerOpen = false;
+  let pickerItem = null;
+
+  function openPicker(item) {
+    pickerItem = item;
+    pickerOpen = true;
+    render();
+  }
+
+  function closePicker() {
+    pickerOpen = false;
+    pickerItem = null;
+    render();
+  }
+
+  // picker(すきな 図鑑/じっせき/いろ/がら/地域)で 1つ えらんだ しゅんかんに
+  // よばれる。ここで はじめて おかねを はらい、item.apply(value) で こうかを
+  // はっきする
+  function resolvePickerSelection(value) {
+    const item = pickerItem;
+    if (!item) return;
+    if (state.lifetime.money < item.price) {
+      setMessage('おかねが たりない…');
+      closePicker();
+      return;
+    }
+    state.lifetime.money -= item.price;
+    const result = item.apply(value) || {};
+    pickerOpen = false;
+    pickerItem = null;
+    if (result.message) setMessage(result.message);
+    emotePet(result.emote || 'happy');
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) {
+      itemOpen = false;
+    }
+    saveState();
+    render();
+  }
+
+  // picker の なかみは モードごとに べつの みため(すでに ある dex-cell/
+  // ach-cell/theme-swatch を そのまま りようする)。えらべる ものが 1つも
+  // ない ときは、その むね だけ 出す(available() で ボタン じたいを
+  // 出さない ように している ので、じっさいには ほぼ おきない)
+  function renderPicker() {
+    const item = pickerItem;
+    if (!item) return;
+    el.pickerTitle.textContent = item.label;
+    el.pickerHint.textContent = `${item.desc}(💰${item.price})`;
+    let html = '';
+    if (item.picker === 'dex') {
+      el.pickerGrid.className = 'theme-grid';
+      html = ALL_LINES.map((line) => SPECIES[line].stages.map((stage, i) => `
+        <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
+          <span class="dex-cell-emoji">${stage.emoji}</span>
+          <span class="dex-cell-label">${stage.label}</span>
+        </div>
+      `).join('')).join('');
+    } else if (item.picker === 'achievement') {
+      el.pickerGrid.className = 'ach-grid';
+      html = ACHIEVEMENTS.filter((ach) => !state.achievementsUnlocked.includes(ach.id)).map((ach) => `
+        <div class="ach-cell locked pickable" data-picker-value="${ach.id}">
+          <span class="ach-cell-emoji">${ach.emoji}</span>
+          <div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div>
+        </div>
+      `).join('');
+    } else if (item.picker === 'color') {
+      el.pickerGrid.className = 'theme-grid';
+      html = COLOR_THEMES.filter((t) => t.unlockTier !== undefined && !t.unlockAll && !isThemeUnlocked(t)).map((t) => `
+        <button type="button" class="theme-swatch" data-picker-value="${t.id}">
+          <span class="theme-swatch-circle" style="background:${t.deviceSwatch}"></span>
+          <span class="theme-swatch-label">${t.label}</span>
+        </button>
+      `).join('');
+    } else if (item.picker === 'pattern') {
+      el.pickerGrid.className = 'theme-grid';
+      html = PATTERNS.filter((p) => p.unlockTier !== undefined && !p.unlockAll && !isThemeUnlocked(p)).map((p) => `
+        <button type="button" class="theme-swatch" data-picker-value="${p.id}">
+          <span class="theme-swatch-circle">${p.emoji}</span>
+          <span class="theme-swatch-label">${p.label}</span>
+        </button>
+      `).join('');
+    } else if (item.picker === 'region') {
+      el.pickerGrid.className = 'theme-grid';
+      html = REGIONS.filter((r) => !state.lifetime.regionsVisited.includes(r.id)).map((r) => `
+        <div class="dex-cell known tappable" data-picker-value="${r.id}">
+          <span class="dex-cell-emoji">${r.emoji}</span>
+          <span class="dex-cell-label">${r.label}</span>
+        </div>
+      `).join('');
+    }
+    el.pickerGrid.innerHTML = html || '<div class="profile-empty">えらべる ものが ありません</div>';
   }
 
   // the GAME CLEAR overlay's grandeur scales with getEndingTier() - re-runs
@@ -6929,9 +7310,14 @@
   }
 
   function finishMinigame(score, customMessage) {
-    // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく
+    // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく。
+    // つかいきりアイテムの「やる気の おまもり/大成功の おまもり」は、この
+    // ミニゲーム 1かいだけ とくてんを おおきく 底上げする(大成功の おまもりは
+    // +100で どんな スコアからでも かならず 大成功あつかいに なる)
     const glassesBonus = isEquipped('glasses3') ? 22 : isEquipped('glasses2') ? 14 : isEquipped('glasses') ? 8 : 0;
-    const clampedScore = clamp(score + glassesBonus, 0, 100);
+    const minigameBoostBonus = state.oneTimeBoosts.minigameBoost === 'big' ? 100 : state.oneTimeBoosts.minigameBoost === 'small' ? 25 : 0;
+    state.oneTimeBoosts.minigameBoost = null;
+    const clampedScore = clamp(score + glassesBonus + minigameBoostBonus, 0, 100);
     const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
@@ -6954,13 +7340,21 @@
       state.evoMeter = clamp(state.evoMeter + 22, 0, 100);
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
-      // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる
+      // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる。
+      // つかいきりアイテムの「ラッキーコイン」は、この ミニゲーム 1かいだけ
+      // もらえる おかねを 2ばいにする
       const starFactor = isEquipped('star3') ? 2.6 : isEquipped('star2') ? 1.8 : isEquipped('star') ? 1.4 : 1;
-      const coins = Math.round((5 + Math.random() * 6) * starFactor);
+      const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
+      state.oneTimeBoosts.doubleCoins = false;
+      const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost);
       state.lifetime.money += coins;
       itemMessage = ` ごほうびに ${item.label}${item.emoji} と 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
       state.evoMeter = clamp(state.evoMeter + 8, 0, 100);
+    } else if (state.oneTimeBoosts.safetyNet) {
+      // つかいきりアイテムの「スコアほけん」は、この ミニゲーム 1かいだけ
+      // しっぱい時の たいか/しぼうメーター上昇を まるごと なかった ことにする
+      state.oneTimeBoosts.safetyNet = false;
     } else {
       state.devoMeter = clamp(state.devoMeter + 18, 0, 100);
       raiseDeathMeter(10);
@@ -7359,8 +7753,12 @@
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
-    // 機嫌の ボーナスが なくなり、逆に すこし へってしまう
-    const spammedTravel = state.travelStreak > travelSpamThreshold();
+    // 機嫌の ボーナスが なくなり、逆に すこし へってしまう。つかいきり
+    // アイテムの「たびの おまもり」を もっていれば、この たび 1かいだけ
+    // かならず「たびづかれ」なしの よい けっかに なる
+    const travelGuaranteed = state.oneTimeBoosts.travelGuarantee;
+    state.oneTimeBoosts.travelGuarantee = false;
+    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
     const candidates = REGIONS.filter((r) => r.id !== state.regionId);
     const region = candidates[Math.floor(Math.random() * candidates.length)];
     state.regionId = region.id;
@@ -7512,6 +7910,8 @@
 
   el.itemCloseBtn.addEventListener('click', () => {
     itemOpen = false;
+    pickerOpen = false;
+    pickerItem = null;
     render();
   });
 
@@ -7519,6 +7919,28 @@
     const btn = e.target.closest('.shop-item');
     if (!btn) return;
     buyOrEquipShopItem(btn.dataset.id);
+  });
+
+  el.naotoItemGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.shop-item');
+    if (!btn || btn.disabled) return;
+    buyNaotoItem(btn.dataset.id);
+  });
+
+  el.onetimeItemGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.shop-item');
+    if (!btn) return;
+    useConsumableItem(btn.dataset.id);
+  });
+
+  el.pickerGrid.addEventListener('click', (e) => {
+    const cell = e.target.closest('[data-picker-value]');
+    if (!cell) return;
+    resolvePickerSelection(cell.dataset.pickerValue);
+  });
+
+  el.pickerCloseBtn.addEventListener('click', () => {
+    closePicker();
   });
 
   el.profileBtn.addEventListener('click', () => {
