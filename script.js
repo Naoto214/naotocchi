@@ -7210,7 +7210,9 @@
   // であった(known)すがたを タップすると すぐ その すがたに 変身できる。
   // triggerEvolutionJump()/triggerDevolutionJump() と おなじく、age も
   // その すがたの threshold に あわせて、進化バーなどの 表示が おかしく
-  // ならないようにする
+  // ならないようにする。しゅぞく・せいちょうだけでなく、せいべつ・
+  // れんあいタイプ・せいかく傾向も まるごと 新しい こせいとして
+  // ロールしなおす(まったく べつの キャラに なりきる、という えんしゅつ)
   el.dexGrid.addEventListener('click', (e) => {
     if (!state.freePlay) return;
     const cell = e.target.closest('.dex-cell.known');
@@ -7222,8 +7224,40 @@
     state.speciesLine = line;
     state.stageIndex = stageIndex;
     state.age = stage.threshold;
-    setMessage(`${stage.emoji} ${stage.label}に すがたを かえた!`);
-    emotePet('happy');
+
+    // rollIdentity() は man/womanラインなら せいべつを こていし、それ
+    // いがいは GENDER_WEIGHTS/ORIENTATION_WEIGHTS の 重みつきランダムで
+    // きめる(たまごが かえる ときと おなじ ロジック)。クエスチョニングの
+    // けいけんカウンターと せいかく傾向も あわせて まっさらに もどす
+    const identity = rollIdentity(line);
+    state.gender = identity.gender;
+    state.orientationId = identity.orientationId;
+    state.attractedTo = identity.attractedTo;
+    state.questioningEncounters = 0;
+    state.traitCounts = { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 };
+
+    // せいべつ・れんあいタイプが かわった けっか、いまの こいびと/夫婦と
+    // もう おたがいの れんあい対象で なくなる ことも ある - その ばあいは
+    // (表示文字列では なく attractedTo の 双方向いっちで はんてい して)
+    // 自然に わかれる。なかよし度0で ふられる ときと おなじ ペナルティ・
+    // えんしゅつを つかう
+    let breakupMessage = '';
+    if (state.partner) {
+      const partnerAttractedTo = attractedToFor(state.partner.gender, state.partner.orientationId);
+      const stillMatches = partnerAttractedTo.includes(state.gender) && state.attractedTo.includes(state.partner.gender);
+      if (!stillMatches) {
+        const wasMarried = !!state.partner.married;
+        const label = state.partner.label;
+        state.partner = null;
+        raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
+        breakupMessage = wasMarried
+          ? `れんあいタイプが かわって、${label}とは りこんする ことに なった…`
+          : `れんあいタイプが かわって、${label}とは わかれる ことに なった…`;
+      }
+    }
+
+    setMessage(`${stage.emoji} ${stage.label}に すがたを かえた!${breakupMessage}`);
+    emotePet(breakupMessage ? 'sad' : 'happy');
     saveState();
     render();
   });
