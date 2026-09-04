@@ -513,6 +513,7 @@
     duelResultSection: document.getElementById('duelResultSection'),
     duelResultTitle: document.getElementById('duelResultTitle'),
     duelResultDesc: document.getElementById('duelResultDesc'),
+    duelResultBreakdown: document.getElementById('duelResultBreakdown'),
     duelResultCloseBtn: document.getElementById('duelResultCloseBtn'),
   };
 
@@ -2122,9 +2123,14 @@
     decoded.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
     if (!d.entries.every((e) => guessMap[e.qId])) return { error: 'invalid' };
     let correct = 0;
-    d.entries.forEach((e) => {
+    const breakdown = d.entries.map((e) => {
+      const q = DUEL_QUESTIONS.find((qq) => qq.id === e.qId);
       const wasHonest = e.truth === e.pub;
-      if ((guessMap[e.qId] === 'honest') === wasHonest) correct++;
+      const guess = guessMap[e.qId];
+      const rowCorrect = (guess === 'honest') === wasHonest;
+      if (rowCorrect) correct++;
+      const pubSide = e.pub === 'a' ? q.a : q.b;
+      return { emoji: q.emoji, text: q.text, pubLabel: pubSide.label, wasHonest, guess, correct: rowCorrect };
     });
     const guesserWon = correct >= DUEL_WIN_THRESHOLD;
     settleDuelForSelf(!guesserWon);
@@ -2132,6 +2138,7 @@
     d.step = 'done';
     d.correct = correct;
     d.guesserWon = guesserWon;
+    d.breakdown = breakdown;
     return d;
   }
 
@@ -2150,9 +2157,14 @@
     const guessMap = {};
     d.guesses.forEach((g) => { guessMap[g.qId] = g.guess; });
     let correct = 0;
-    d.items.forEach((i) => {
-      const wasHonest = truthMap[i.qId] === i.pub;
-      if ((guessMap[i.qId] === 'honest') === wasHonest) correct++;
+    const breakdown = d.items.map((i) => {
+      const truth = truthMap[i.qId];
+      const wasHonest = truth === i.pub;
+      const guess = guessMap[i.qId];
+      const rowCorrect = (guess === 'honest') === wasHonest;
+      if (rowCorrect) correct++;
+      const pubSide = i.pub === 'a' ? i.question.a : i.question.b;
+      return { emoji: i.question.emoji, text: i.question.text, pubLabel: pubSide.label, wasHonest, guess, correct: rowCorrect };
     });
     const guesserWon = correct >= DUEL_WIN_THRESHOLD;
     settleDuelForSelf(guesserWon);
@@ -2160,6 +2172,7 @@
     d.step = 'done';
     d.correct = correct;
     d.guesserWon = guesserWon;
+    d.breakdown = breakdown;
     return d;
   }
 
@@ -3586,6 +3599,17 @@
     const delta = d.moneyDelta || 0;
     const moneyLine = delta >= 0 ? `+💰${delta}` : `-💰${Math.abs(delta)}`;
     el.duelResultDesc.textContent = `${d.correct} / ${DUEL_MATCH_QUESTION_COUNT}問 見ぬけました\nおかね: ${moneyLine}\nいまの おかね: 💰${state.lifetime.money}`;
+
+    el.duelResultBreakdown.innerHTML = (d.breakdown || []).map((b) => `
+      <div class="duel-result-row ${b.correct ? 'correct' : 'wrong'}">
+        <span class="duel-result-row-emoji">${b.emoji}</span>
+        <div class="duel-result-row-text">
+          <span class="duel-result-row-question">${b.text}</span>
+          <span class="duel-result-row-detail">こうかいされた こたえ:「${b.pubLabel}」(${b.wasHonest ? '✅ 本音' : '🎭 うそ'})・すいり:${b.guess === 'honest' ? 'ほんと' : 'うそ'}</span>
+        </div>
+        <span class="duel-result-row-mark">${b.correct ? '◯' : '✕'}</span>
+      </div>
+    `).join('');
   }
 
   function renderItemOverlay() {
