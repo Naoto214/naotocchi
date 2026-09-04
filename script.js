@@ -1671,7 +1671,7 @@
   const PARTNER_AFFECTION_DECAY_PER_TICK = 1;
   const PARTNER_FLIRT_AFFECTION_BOOST = 20;
   const MARRIAGE_BOND_THRESHOLD = 8;
-  const BREAKUP_DEATH_PENALTY = { dating: 15, married: 30 };
+  const BREAKUP_DEATH_PENALTY = { dating: 10, married: 20 };
   const DEATH_METER_MULTIPLIER = { none: 1, dating: 0.75, married: 0.5 };
 
   function relationshipStage() {
@@ -2265,7 +2265,7 @@
             state.sicknessType = sickness.label;
             state.totalSicknessCount += 1;
             state.devoMeter = clamp(state.devoMeter + 12, 0, 100);
-            raiseDeathMeter(12);
+            raiseDeathMeter(6);
             setMessage(`${sickness.label}に なってしまった…くすりをあげよう`);
           }
         }
@@ -2290,7 +2290,7 @@
       // death condition: sustained critical health
       if (state.health <= 0) {
         state.lowHealthStreak += 1;
-        raiseDeathMeter(8);
+        raiseDeathMeter(4);
       } else {
         state.lowHealthStreak = 0;
       }
@@ -2301,22 +2301,17 @@
         setMessage('てんごくへ いってしまった…');
       }
 
-      // 「死亡」メーターは これまで びょうき・ていけんこう・ミニゲーム
-      // 大失敗・たべすぎ など「なにか やらかした とき」だけ あがり、
-      // 放っておいても じたいは まったく うごかなかった - お世話さえ
-      // 欠かさなければ ずっと 安全、という ぬるさの げんいんだった。
-      // としを とるほど わずかに 自然にも あがるようにして、放置に
-      // たいする きんちょうかんを もたせる(raiseDeathMeter() を通すので、
-      // こいびと/夫婦や かんむりの けいげん効果は ここにも かかる)。
-      // すぐ したの wellCared による -2/tick の 自動かいふくより 小さいと、
-      // 4項目を つねに 60いじょう たもてる 熟練プレイヤーには この上昇が
-      // まいtick かんぜんに 打ち消されて けっきょく なにも かわらなく
-      // なってしまう ため、ageDifficulty が 上限に ちかい ときは -2を
-      // うわまわる 大きさまで あげ、じゅうぶん 年を とれば どんなに
-      // かんぺきに お世話しても すこしずつは あがっていく ようにしてある
-      // (それでも かいふくアイテムを ときどき つかえば じゅうぶん おさえられる
-      // 大きさで、ぜったいに 死んでしまう ほどの きゅうげきな 上昇では ない)
-      const naturalDeathRise = lerp(0.3, 2.5, ageDifficulty());
+      // 「死亡」メーターは びょうき・ていけんこう・ミニゲーム大失敗・
+      // たべすぎ など「なにか やらかした とき」に くわえて、としを とるほど
+      // わずかに 自然にも あがる(raiseDeathMeter() を通すので、こいびと/
+      // 夫婦や かんむりの けいげん効果は ここにも かかる)。
+      // 「死亡メーターの 上昇が はやすぎて むずかしい」という フィードバックを
+      // うけて、上限を すぐ したの wellCared による -2/tick の 自動かいふくより
+      // ひかえめな 大きさに おさえてある(以前は 上限が -2を うわまわり、
+      // どんなに かんぺきに お世話しても すこしずつ あがってしまっていたが、
+      // いまは 4項目を 60いじょう たもてる 熟練プレイヤーなら 自然じょうしょう分を
+      // 自動かいふくで うわまわり、しっかり さげられる)
+      const naturalDeathRise = lerp(0.15, 1.2, ageDifficulty());
       raiseDeathMeter(naturalDeathRise);
 
       // お世話が じゅうぶん いきとどいている あいだ(びょうきでなく、
@@ -7384,7 +7379,7 @@
       state.oneTimeBoosts.safetyNet = false;
     } else {
       state.devoMeter = clamp(state.devoMeter + 18, 0, 100);
-      raiseDeathMeter(10);
+      raiseDeathMeter(5);
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
@@ -7486,7 +7481,7 @@
         state.isSick = true;
         state.sicknessType = sickness.label;
         state.totalSicknessCount += 1;
-        raiseDeathMeter(7);
+        raiseDeathMeter(4);
         setMessage(`たべすぎて ${sickness.label}に なってしまった…`);
       } else {
         setMessage('もう おなかいっぱい… たべすぎ!');
