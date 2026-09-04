@@ -8470,6 +8470,464 @@
     makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' }),
   ];
 
+  // --- めいろチェイス: めいろを うごきまわって エサを ぜんぶ たべつつ、
+  // おいかけてくる てきを かわす。なつかしい ドットめいろアクションの
+  // あそびごこちを モチーフにした オマージュ・ミニゲーム。マップは
+  // どうろの中央にある2本のたてどおりを、上下2本のよこどおりで つなぐ
+  // 「ドーナツがた」の1しゅるいを きょうつうで つかう(D-パッドで
+  // 上下左右に1マスずつ すすみ、てきは まいかい プレイヤーとの きょり
+  // ちぢまる ほうこうへ すすむ、ただし ときどき ランダムに うごいて
+  // かんぜんに よみきれる うごきには ならない)
+  const CHASE_LAYOUT = [
+    '#######',
+    '#P....#',
+    '#.###.#',
+    '#.....#',
+    '#.###G#',
+    '#######',
+  ];
+  const CHASE_COLS = CHASE_LAYOUT[0].length;
+  const CHASE_ROWS = CHASE_LAYOUT.length;
+
+  function makeChaseGame({ title, dotEmoji, chaserEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = lerp(15000, 10500, difficulty);
+        const chaserStepMs = lerp(750, 420, difficulty);
+        let player = null;
+        let chaser = null;
+        const dots = new Set();
+        const dotEls = {};
+        let totalDots = 0;
+        let collected = 0;
+        let running = true;
+        let moving = false;
+        let chaserTimer;
+        let tickTimer;
+        let startTime;
+
+        CHASE_LAYOUT.forEach((rowStr, r) => {
+          [...rowStr].forEach((ch, c) => {
+            if (ch === 'P') player = { row: r, col: c };
+            if (ch === 'G') chaser = { row: r, col: c };
+            if (ch === '.') { dots.add(`${r},${c}`); totalDots += 1; }
+          });
+        });
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: ${Math.ceil(DURATION_MS / 1000)}s</span>
+            <span id="mgScore">あつめた: 0/${totalDots}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-chase-wrap" id="mgChaseWrap">
+            <div class="mg-chase-grid" id="mgChaseGrid" style="grid-template-columns: repeat(${CHASE_COLS}, 1fr); grid-template-rows: repeat(${CHASE_ROWS}, 1fr);"></div>
+            <span class="mg-chase-player" id="mgChasePlayer">${currentSprite()}</span>
+            <span class="mg-chase-chaser" id="mgChaseChaser">${chaserEmoji}</span>
+          </div>
+          <div class="mg-dpad">
+            <button class="mg-tap-btn" id="mgChaseUp">▲</button>
+            <div class="mg-dpad-mid">
+              <button class="mg-tap-btn" id="mgChaseLeft">◀</button>
+              <button class="mg-tap-btn" id="mgChaseRight">▶</button>
+            </div>
+            <button class="mg-tap-btn" id="mgChaseDown">▼</button>
+          </div>
+        `;
+
+        const gridEl = container.querySelector('#mgChaseGrid');
+        const playerEl = container.querySelector('#mgChasePlayer');
+        const chaserEl = container.querySelector('#mgChaseChaser');
+        const wrapEl = container.querySelector('#mgChaseWrap');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        CHASE_LAYOUT.forEach((rowStr, r) => {
+          [...rowStr].forEach((ch, c) => {
+            const cell = document.createElement('div');
+            cell.className = `mg-chase-cell ${ch === '#' ? 'wall' : 'floor'}`;
+            if (ch === '.') {
+              const dot = document.createElement('span');
+              dot.className = 'mg-chase-dot';
+              dot.textContent = dotEmoji;
+              cell.appendChild(dot);
+              dotEls[`${r},${c}`] = dot;
+            }
+            gridEl.appendChild(cell);
+          });
+        });
+
+        function placeEntity(el, pos) {
+          el.style.left = `${((pos.col + 0.5) / CHASE_COLS) * 100}%`;
+          el.style.top = `${((pos.row + 0.5) / CHASE_ROWS) * 100}%`;
+        }
+        placeEntity(playerEl, player);
+        placeEntity(chaserEl, chaser);
+
+        function isWalkable(r, c) {
+          return r >= 0 && r < CHASE_ROWS && c >= 0 && c < CHASE_COLS && CHASE_LAYOUT[r][c] !== '#';
+        }
+
+        function checkCatch() {
+          if (player.row === chaser.row && player.col === chaser.col) {
+            caughtEnd();
+            return true;
+          }
+          return false;
+        }
+
+        function caughtEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          clearInterval(tickTimer);
+          wrapEl.classList.add('hit');
+          const ratio = collected / totalDots;
+          onComplete(Math.round(clamp(ratio * 100 * 0.6, 10, 55)));
+        }
+
+        function winEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          clearInterval(tickTimer);
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const timeBonus = remaining / DURATION_MS;
+          onComplete(Math.round(clamp(85 + timeBonus * 15, 85, 100)));
+        }
+
+        function timeUpEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          const ratio = collected / totalDots;
+          onComplete(Math.round(clamp(ratio * 100, 5, 65)));
+        }
+
+        function tryMove(dr, dc) {
+          if (!running || moving) return;
+          const nr = player.row + dr;
+          const nc = player.col + dc;
+          if (!isWalkable(nr, nc)) return;
+          moving = true;
+          setTimeout(() => { moving = false; }, 130);
+          player = { row: nr, col: nc };
+          placeEntity(playerEl, player);
+          const key = `${nr},${nc}`;
+          if (dots.has(key)) {
+            dots.delete(key);
+            collected += 1;
+            dotEls[key].remove();
+            scoreEl.textContent = `あつめた: ${collected}/${totalDots}`;
+            if (collected >= totalDots) { winEnd(); return; }
+          }
+          checkCatch();
+        }
+
+        container.querySelector('#mgChaseUp').addEventListener('pointerdown', () => tryMove(-1, 0));
+        container.querySelector('#mgChaseDown').addEventListener('pointerdown', () => tryMove(1, 0));
+        container.querySelector('#mgChaseLeft').addEventListener('pointerdown', () => tryMove(0, -1));
+        container.querySelector('#mgChaseRight').addEventListener('pointerdown', () => tryMove(0, 1));
+
+        function stepChaser() {
+          if (!running) return;
+          const options = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+            .map(([dr, dc]) => ({ row: chaser.row + dr, col: chaser.col + dc }))
+            .filter((p) => isWalkable(p.row, p.col));
+          if (options.length) {
+            if (Math.random() < 0.15) {
+              chaser = options[Math.floor(Math.random() * options.length)];
+            } else {
+              let bestDist = Infinity;
+              options.forEach((p) => {
+                const dist = Math.abs(p.row - player.row) + Math.abs(p.col - player.col);
+                if (dist < bestDist) bestDist = dist;
+              });
+              const tied = options.filter((p) => Math.abs(p.row - player.row) + Math.abs(p.col - player.col) === bestDist);
+              chaser = tied[Math.floor(Math.random() * tied.length)];
+            }
+            placeEntity(chaserEl, chaser);
+          }
+          if (checkCatch()) return;
+          chaserTimer = setTimeout(stepChaser, chaserStepMs);
+        }
+
+        startTime = performance.now();
+        tickTimer = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) { clearInterval(tickTimer); timeUpEnd(); }
+        }, 200);
+
+        chaserTimer = setTimeout(stepChaser, chaserStepMs);
+      },
+    };
+  }
+
+  const CHASE_GAME_VARIANTS = [
+    makeChaseGame({ title: 'おばけやしきで キャンディを ぜんぶ あつめよう!', dotEmoji: '🍬', chaserEmoji: '👻' }),
+    makeChaseGame({ title: 'もりで どんぐりを ぜんぶ あつめよう!', dotEmoji: '🌰', chaserEmoji: '🦇' }),
+  ];
+
+  // --- ランナー: はしりながら ジャンプで てきを よけたり コインを
+  // とったり する。なつかしい 横スクロールアクションの あそびごこちを
+  // モチーフにした オマージュ・ミニゲーム。しくみは JUMP_GAME_VARIANTS と
+  // おなじ「せまってくる ものを タイミングよく ジャンプで さばく」だが、
+  // てきを よける だけでなく コインを ジャンプで とる という 2しゅるいの
+  // アイテムが まざる 点が ちがう(どちらも おなじ ジャンプの タイミング
+  // まどで さばく ため、しつもんは「よける/とる」の 演出だけが かわる)
+  function makeRunnerGame({ title, obstacleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 7000;
+        const cycleMs = lerp(1500, 900, difficulty);
+        const jumpWindowMs = lerp(550, 320, difficulty);
+        let success = 0;
+        let total = 0;
+        let coins = 0;
+        let inWindow = false;
+        let currentIsCoin = false;
+        let running = true;
+        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 7s</span>
+            <span id="mgScore">🪙 コイン: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-jump-lane mg-runner-lane" id="mgRunnerTrack">
+            <div class="mg-runner-ground"></div>
+            <span class="mg-jump-obstacle hidden" id="mgRunnerItem"></span>
+            <span class="mg-jump-player" id="mgRunnerPlayer">${currentSprite()}</span>
+          </div>
+          <button class="mg-tap-btn" id="mgRunnerJumpBtn">ジャンプ!</button>
+        `;
+
+        const itemEl = container.querySelector('#mgRunnerItem');
+        const playerEl = container.querySelector('#mgRunnerPlayer');
+        const jumpBtn = container.querySelector('#mgRunnerJumpBtn');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function spawnItem() {
+          if (!running) return;
+          total += 1;
+          inWindow = false;
+          currentIsCoin = Math.random() < 0.45;
+          itemEl.textContent = currentIsCoin ? '🪙' : obstacleEmoji;
+          itemEl.classList.toggle('mg-runner-coin', currentIsCoin);
+          itemEl.classList.remove('hidden');
+          itemEl.style.animation = 'none';
+          void itemEl.offsetWidth;
+          itemEl.style.animation = `mg-jump-approach ${cycleMs}ms linear`;
+          const windowStart = Math.max(0, cycleMs - jumpWindowMs);
+          windowOpenTimeout = setTimeout(() => { inWindow = true; }, windowStart);
+          windowCloseTimeout = setTimeout(() => {
+            inWindow = false;
+            itemEl.classList.add('hidden');
+            scheduleNext();
+          }, cycleMs);
+        }
+
+        function scheduleNext() {
+          if (!running) return;
+          nextTimeout = setTimeout(spawnItem, 200);
+        }
+
+        function onJump() {
+          if (!running) return;
+          playerEl.classList.add('jumping');
+          setTimeout(() => playerEl.classList.remove('jumping'), 250);
+          if (!inWindow) return;
+          success += 1;
+          if (currentIsCoin) {
+            coins += 1;
+            scoreEl.textContent = `🪙 コイン: ${coins}`;
+          }
+          inWindow = false;
+          clearTimeout(windowCloseTimeout);
+          itemEl.classList.add('hidden');
+          scheduleNext();
+        }
+        jumpBtn.addEventListener('pointerdown', onJump);
+
+        const startTime = performance.now();
+        tickInterval = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) end();
+        }, 200);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          clearInterval(tickInterval);
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          clearTimeout(nextTimeout);
+          jumpBtn.removeEventListener('pointerdown', onJump);
+          const score = total > 0 ? Math.round(clamp((success / total) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        spawnItem();
+      },
+    };
+  }
+
+  const RUNNER_GAME_VARIANTS = [
+    makeRunnerGame({ title: 'コインを あつめながら どくキノコを とびこえよう!', obstacleEmoji: '🍄' }),
+    makeRunnerGame({ title: 'コインを あつめながら とげとげを とびこえよう!', obstacleEmoji: '🦔' }),
+  ];
+
+  // --- シューティング: レーンを うごきながら、せまってくる てきを
+  // うちおとす。なつかしい シューティングアクションの あそびごこちを
+  // モチーフにした オマージュ・ミニゲーム。じぶんの いる れーんに
+  // いちばん ちかづいている てきが「うつ!」ボタンで いちげきで きえる
+  // (弾の とびじかんは 演出のみで、はんてい じたいは 即座に おこなう)。
+  // れーんを こえて きた てきは うてず、そのまま とおりすぎて しまう
+  function makeShooterGame({ title, enemyEmoji, bulletEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 7000;
+        const travelMs = lerp(2200, 1300, difficulty);
+        const spawnInterval = lerp(900, 480, difficulty);
+        const LANE_X = [20, 50, 80];
+        let lane = 1;
+        let hits = 0;
+        let escapes = 0;
+        let running = true;
+        let lastSpawn = 0;
+        let enemies = [];
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 7s</span>
+            <span id="mgScore">げきついすう: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-shooter-arena" id="mgShooterArena">
+            <div class="mg-shooter-player" id="mgShooterPlayer" style="left:${LANE_X[1]}%">${currentSprite()}</div>
+          </div>
+          <div class="mg-shooter-controls">
+            <button class="mg-tap-btn" id="mgShooterLeft">◀</button>
+            <button class="mg-tap-btn mg-shooter-fire" id="mgShooterFire">🔫 うつ!</button>
+            <button class="mg-tap-btn" id="mgShooterRight">▶</button>
+          </div>
+        `;
+
+        const arena = container.querySelector('#mgShooterArena');
+        const playerEl = container.querySelector('#mgShooterPlayer');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+        const leftBtn = container.querySelector('#mgShooterLeft');
+        const rightBtn = container.querySelector('#mgShooterRight');
+        const fireBtn = container.querySelector('#mgShooterFire');
+
+        function setLane(next) {
+          lane = clamp(next, 0, 2);
+          playerEl.style.left = LANE_X[lane] + '%';
+        }
+        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
+        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+
+        function flashArena() {
+          arena.classList.add('hit');
+          setTimeout(() => arena.classList.remove('hit'), 200);
+        }
+
+        function spawnEnemy() {
+          const enemyLane = Math.floor(Math.random() * 3);
+          const el = document.createElement('div');
+          el.className = 'mg-shooter-enemy';
+          el.textContent = enemyEmoji;
+          arena.appendChild(el);
+          enemies.push({ el, lane: enemyLane, born: performance.now(), resolved: false });
+        }
+
+        function fire() {
+          if (!running) return;
+          const bulletEl = document.createElement('div');
+          bulletEl.className = 'mg-shooter-bullet';
+          bulletEl.textContent = bulletEmoji;
+          bulletEl.style.left = LANE_X[lane] + '%';
+          arena.appendChild(bulletEl);
+          setTimeout(() => bulletEl.remove(), 220);
+
+          let target = null;
+          let bestProgress = -1;
+          enemies.forEach((enemy) => {
+            if (enemy.resolved || enemy.lane !== lane) return;
+            const progress = clamp((performance.now() - enemy.born) / travelMs, 0, 1);
+            if (progress > bestProgress) { bestProgress = progress; target = enemy; }
+          });
+          if (target) {
+            target.resolved = true;
+            target.el.classList.add('exploding');
+            hits += 1;
+            scoreEl.textContent = `げきついすう: ${hits}`;
+            setTimeout(() => target.el.remove(), 180);
+          }
+        }
+        fireBtn.addEventListener('pointerdown', fire);
+
+        const startTime = performance.now();
+        let rafId;
+
+        function frame(now) {
+          if (!running) return;
+          const elapsed = now - startTime;
+          const remaining = Math.max(0, DURATION_MS - elapsed);
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+          if (now - lastSpawn > spawnInterval) {
+            spawnEnemy();
+            lastSpawn = now;
+          }
+
+          enemies = enemies.filter((enemy) => {
+            if (enemy.resolved) return false;
+            const t = clamp((now - enemy.born) / travelMs, 0, 1);
+            enemy.el.style.left = LANE_X[enemy.lane] + '%';
+            enemy.el.style.top = `${lerp(6, 82, t)}%`;
+            if (t >= 1) {
+              enemy.resolved = true;
+              escapes += 1;
+              flashArena();
+              enemy.el.remove();
+              return false;
+            }
+            return true;
+          });
+
+          if (elapsed >= DURATION_MS) { end(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          enemies.forEach((enemy) => enemy.el.remove());
+          const total = hits + escapes;
+          const score = total > 0 ? Math.round(clamp((hits / total) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const SHOOTER_GAME_VARIANTS = [
+    makeShooterGame({ title: 'せまりくる てきを うちおとせ!', enemyEmoji: '👾', bulletEmoji: '⭐' }),
+    makeShooterGame({ title: 'いんせきの あらしを うちやぶれ!', enemyEmoji: '☄️', bulletEmoji: '✨' }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -8505,6 +8963,9 @@
     ...STACK_GAME_VARIANTS,
     ...FIGHT_GAME_VARIANTS,
     ...RPG_GAME_VARIANTS,
+    ...CHASE_GAME_VARIANTS,
+    ...RUNNER_GAME_VARIANTS,
+    ...SHOOTER_GAME_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -8546,6 +9007,9 @@
     ['stack', STACK_GAME_VARIANTS],
     ['fight', FIGHT_GAME_VARIANTS],
     ['rpg', RPG_GAME_VARIANTS],
+    ['chase', CHASE_GAME_VARIANTS],
+    ['runner', RUNNER_GAME_VARIANTS],
+    ['shooter', SHOOTER_GAME_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
