@@ -2738,15 +2738,47 @@
       .join('');
   }
 
+  // 種族ラインが かわる とき(通常の 変身メーターからの 変身・「ずかん」
+  // タップ変身の どちらも)は、せいべつ・れんあいタイプ・せいかく傾向も
+  // rollIdentity() で まるごと 新しく ロールしなおす(たまごが かえる
+  // ときと おなじ ロジック)。クエスチョニングの けいけんカウンターも
+  // まっさらに もどす。れんあいタイプが かわった けっか、いまの こいびと/
+  // 夫婦と もう おたがいの れんあい対象で なくなる ことも ある(表示文字列
+  // では なく attractedTo の 双方向いっちで はんてい する) - その ばあいは
+  // なかよし度0で ふられる ときと おなじ ペナルティ・えんしゅつで 自然に
+  // わかれさせ、その せつめいメッセージ(なければ 空文字)を かえす
+  function rerollIdentityAndBreakupIfNeeded(line) {
+    const identity = rollIdentity(line);
+    state.gender = identity.gender;
+    state.orientationId = identity.orientationId;
+    state.attractedTo = identity.attractedTo;
+    state.questioningEncounters = 0;
+    state.traitCounts = { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 };
+
+    if (!state.partner) return '';
+    const partnerAttractedTo = attractedToFor(state.partner.gender, state.partner.orientationId);
+    const stillMatches = partnerAttractedTo.includes(state.gender) && state.attractedTo.includes(state.partner.gender);
+    if (stillMatches) return '';
+
+    const wasMarried = !!state.partner.married;
+    const label = state.partner.label;
+    state.partner = null;
+    raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
+    return wasMarried
+      ? `れんあいタイプが かわって、${label}とは りこんする ことに なった…`
+      : `れんあいタイプが かわって、${label}とは わかれる ことに なった…`;
+  }
+
   function chooseTransform(line) {
     if (!state.transformOptions || !state.transformOptions.includes(line)) return;
     state.speciesLine = line;
     state.transformOptions = null;
     state.lifetime.transforms += 1;
     const stage = SPECIES[line].stages[state.stageIndex];
-    setMessage(`${stage.label}に へんしんした!`);
+    const breakupMessage = rerollIdentityAndBreakupIfNeeded(line);
+    setMessage(`${stage.label}に へんしんした!${breakupMessage}`);
     checkStoryEvents('transform');
-    emotePet('fun');
+    emotePet(breakupMessage ? 'sad' : 'fun');
     saveState();
     render();
   }
@@ -7224,38 +7256,7 @@
     state.speciesLine = line;
     state.stageIndex = stageIndex;
     state.age = stage.threshold;
-
-    // rollIdentity() は man/womanラインなら せいべつを こていし、それ
-    // いがいは GENDER_WEIGHTS/ORIENTATION_WEIGHTS の 重みつきランダムで
-    // きめる(たまごが かえる ときと おなじ ロジック)。クエスチョニングの
-    // けいけんカウンターと せいかく傾向も あわせて まっさらに もどす
-    const identity = rollIdentity(line);
-    state.gender = identity.gender;
-    state.orientationId = identity.orientationId;
-    state.attractedTo = identity.attractedTo;
-    state.questioningEncounters = 0;
-    state.traitCounts = { gentle: 0, wild: 0, calm: 0, brave: 0, romantic: 0 };
-
-    // せいべつ・れんあいタイプが かわった けっか、いまの こいびと/夫婦と
-    // もう おたがいの れんあい対象で なくなる ことも ある - その ばあいは
-    // (表示文字列では なく attractedTo の 双方向いっちで はんてい して)
-    // 自然に わかれる。なかよし度0で ふられる ときと おなじ ペナルティ・
-    // えんしゅつを つかう
-    let breakupMessage = '';
-    if (state.partner) {
-      const partnerAttractedTo = attractedToFor(state.partner.gender, state.partner.orientationId);
-      const stillMatches = partnerAttractedTo.includes(state.gender) && state.attractedTo.includes(state.partner.gender);
-      if (!stillMatches) {
-        const wasMarried = !!state.partner.married;
-        const label = state.partner.label;
-        state.partner = null;
-        raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
-        breakupMessage = wasMarried
-          ? `れんあいタイプが かわって、${label}とは りこんする ことに なった…`
-          : `れんあいタイプが かわって、${label}とは わかれる ことに なった…`;
-      }
-    }
-
+    const breakupMessage = rerollIdentityAndBreakupIfNeeded(line);
     setMessage(`${stage.emoji} ${stage.label}に すがたを かえた!${breakupMessage}`);
     emotePet(breakupMessage ? 'sad' : 'happy');
     saveState();
