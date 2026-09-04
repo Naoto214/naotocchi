@@ -396,6 +396,7 @@
     gameClearTitle: document.getElementById('gameClearTitle'),
     gameClearBadges: document.getElementById('gameClearBadges'),
     gameClearDesc: document.getElementById('gameClearDesc'),
+    gameClearFreePlayBtn: document.getElementById('gameClearFreePlayBtn'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
@@ -414,6 +415,7 @@
     dexOverlay: document.getElementById('dexOverlay'),
     dexGrid: document.getElementById('dexGrid'),
     dexProgress: document.getElementById('dexProgress'),
+    dexFreePlayHint: document.getElementById('dexFreePlayHint'),
     dexCloseBtn: document.getElementById('dexCloseBtn'),
     achOverlay: document.getElementById('achOverlay'),
     achGrid: document.getElementById('achGrid'),
@@ -482,6 +484,13 @@
       sicknessType: null,
       totalSicknessCount: 0,
       isSleeping: false,
+      // パーフェクトクリア(ずかん・じっせき りょうほう コンプリート)を
+      // 一度でも たっせいすると true になり、そのプレイぶんは GOAL_DAYS
+      // ゴール判定(checkMeters())を もう トリガーしない - 「じゆうに
+      // あそぶ」ボタン(gameClearFreePlayBtn の ハンドラー さんしょう)で
+      // ゲームオーバー状態を ぬけたあとも おなじ ゴール条件で むげんに
+      // クリア画面が 出つづけない ようにする ための フラグ
+      freePlay: false,
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
@@ -744,30 +753,35 @@
   // 画面に ずっと 残る バッジ(state.lifetime.endingTiersReached に記録)
   const ENDING_TIER_ICONS = ['🎉', '📖', '🏅', '👑'];
 
+  // desc の 2行目は、tier 0〜2 では「つぎに なにを コンプリートすれば
+  // もっと はでな ゴールに なるか」を つたえる ヒント文言(不足している
+  // 条件だけを ぐたいてきに 示す)。tier 3(パーフェクト)だけは めざす先が
+  // もう ない ので、かわりに「じゆうに あそぶ」ボタン(gameClearFreePlayBtn)
+  // へ さそう 文言に する
   const ENDING_TIERS = [
     {
       title: 'GAME CLEAR',
       confetti: '🎉🎊✨🎉🎊✨',
       badges: [],
-      desc: 'さいごまで そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+      desc: 'さいごまで そだてきった!<br>つぎは ずかん・じっせきを コンプリートして、もっと すごい ゴールを めざしてね!!',
     },
     {
       title: 'GAME CLEAR',
       confetti: '🎉🎊✨📖✨🎊🎉',
       badges: ['📖 ずかん コンプリート'],
-      desc: 'ぜんぶの すがたに であって そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+      desc: 'ぜんぶの すがたに であって そだてきった!<br>つぎは じっせきを コンプリートして、パーフェクトゴールを めざしてね!!',
     },
     {
       title: 'GAME CLEAR',
       confetti: '🎉🎊✨🏅✨🎊🎉',
       badges: ['🏅 じっせき コンプリート'],
-      desc: 'あらゆる じっせきを たっせいして そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+      desc: 'あらゆる じっせきを たっせいして そだてきった!<br>つぎは ずかんを コンプリートして、パーフェクトゴールを めざしてね!!',
     },
     {
       title: 'PERFECT CLEAR',
       confetti: '👑✨🎉🎊✨🎉🎊✨👑',
       badges: ['📖 ずかん コンプリート', '🏅 じっせき コンプリート'],
-      desc: 'ずかんも じっせきも すべて そろえて、かんぺきに そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう',
+      desc: 'ずかんも じっせきも すべて そろえて、かんぺきに そだてきった!<br>これからは じゆうに あそんでね',
     },
   ];
 
@@ -1782,7 +1796,7 @@
       setMessage('へんしんの ちからが たまった!すがたを えらべるよ');
       changedMessage = true;
     }
-    if (Math.floor(state.age / 20) >= GOAL_DAYS) {
+    if (!state.freePlay && Math.floor(state.age / 20) >= GOAL_DAYS) {
       triggerGameClear();
       return true;
     }
@@ -2577,14 +2591,20 @@
 
   // the GAME CLEAR overlay's grandeur scales with getEndingTier() - re-runs
   // every render() while isClear, but the tier can only ever go up (dex/ach
-  // records are permanent), and no further actions are possible once
-  // cleared, so in practice it settles the moment the overlay first shows
+  // records are permanent) and no care actions are possible once cleared,
+  // so in practice it settles the moment the overlay first shows (tier 3
+  // is the one exception: it offers a 「じゆうに あそぶ」ボタン that exits
+  // the CLEAR stage entirely, see the gameClearFreePlayBtn ハンドラー)
   function renderEnding() {
     const tierIndex = getEndingTier();
     const tier = ENDING_TIERS[tierIndex];
     el.gameClearOverlay.classList.toggle('tier-1', tier === ENDING_TIERS[1]);
     el.gameClearOverlay.classList.toggle('tier-2', tier === ENDING_TIERS[2]);
     el.gameClearOverlay.classList.toggle('tier-3', tier === ENDING_TIERS[3]);
+    // パーフェクト(tier 3)の ときだけ「じゆうに あそぶ」ボタンを 出す -
+    // それいがいの tier は めざす さきが まだ ある ので、「はじめから」で
+    // また ちょうせんしなおす ことを うながす
+    el.gameClearFreePlayBtn.classList.toggle('hidden', tierIndex !== 3);
     el.gameClearTitle.textContent = tier.title;
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
@@ -2609,7 +2629,11 @@
   }
 
   // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
-  // only for line/stage combos recorded in state.discoveredStages so far
+  // only for line/stage combos recorded in state.discoveredStages so far.
+  // パーフェクトクリアで freePlay に なったあとは、であった すがた(known)
+  // を タップすると すぐ その すがたに 変身できる(el.dexGrid の クリック
+  // ハンドラー さんしょう) - ロックされた すがたは タップしても なにも
+  // おきない
   function renderDex() {
     const discoveredCount = state.discoveredStages.length;
     const totalCount = ALL_LINES.length * STAGES_PER_LINE;
@@ -2619,14 +2643,15 @@
     const combinedDiscovered = discoveredCount + state.lifetime.companionsRecruited.length + state.lifetime.partnersRecorded.length;
     const combinedTotal = totalCount + COMPANIONS.length + ALL_PARTNER_CANDIDATES.length;
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
+    el.dexFreePlayHint.classList.toggle('hidden', !state.freePlay);
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
       const cells = stages
         .map((stage, i) => {
           const known = state.discoveredStages.includes(`${line}:${i}`);
-          return known
-            ? `<div class="dex-cell known"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`
-            : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+          if (!known) return `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+          const tappable = state.freePlay ? ' tappable' : '';
+          return `<div class="dex-cell known${tappable}" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`;
         })
         .join('');
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
@@ -7160,6 +7185,17 @@
     setMessage('あたらしい たまごが やってきた…');
   }));
 
+  el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
+    // パーフェクトクリアの ごほうび: ゲームオーバー(STAGE.CLEAR)状態を
+    // ぬけて 通常プレイに もどる。freePlay フラグを たてる ことで
+    // checkMeters() の GOAL_DAYS 判定を もう トリガーしない ようにし、
+    // おなじ 年齢の まま クリア画面が むげんループしないように している
+    state.stage = STAGE.GROWING;
+    state.freePlay = true;
+    setMessage('これからは じゆうに あそべるよ!すきな すがたに 変身も できるよ');
+    emotePet('happy');
+  }));
+
   el.dexBtn.addEventListener('click', () => {
     dexOpen = true;
     render();
@@ -7167,6 +7203,28 @@
 
   el.dexCloseBtn.addEventListener('click', () => {
     dexOpen = false;
+    render();
+  });
+
+  // パーフェクトクリアの ごほうび「じゆうに あそぶ」中だけ、ずかんで
+  // であった(known)すがたを タップすると すぐ その すがたに 変身できる。
+  // triggerEvolutionJump()/triggerDevolutionJump() と おなじく、age も
+  // その すがたの threshold に あわせて、進化バーなどの 表示が おかしく
+  // ならないようにする
+  el.dexGrid.addEventListener('click', (e) => {
+    if (!state.freePlay) return;
+    const cell = e.target.closest('.dex-cell.known');
+    if (!cell) return;
+    const line = cell.dataset.line;
+    const stageIndex = Number(cell.dataset.stage);
+    const stage = SPECIES[line] && SPECIES[line].stages[stageIndex];
+    if (!stage) return;
+    state.speciesLine = line;
+    state.stageIndex = stageIndex;
+    state.age = stage.threshold;
+    setMessage(`${stage.emoji} ${stage.label}に すがたを かえた!`);
+    emotePet('happy');
+    saveState();
     render();
   });
 
