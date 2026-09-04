@@ -1744,6 +1744,16 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   opacity: 0.8;
 }
 
+/* --- アイテム選択(つかいきりアイテムの えらぶ画面)で じっせき/図鑑/
+   地域カードを タップできるようにする ときだけ つく かかざり --- */
+.ach-cell.pickable {
+  cursor: pointer;
+}
+
+.ach-cell.pickable:active {
+  transform: scale(0.97);
+}
+
 /* --- いろ選択 --- */
 
 .theme-scroll {
@@ -1871,6 +1881,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .shop-item.equipped .shop-item-status {
   color: #8a6d00;
   font-weight: bold;
+}
+
+/* なおとの〜(NAOTO_ITEMS)の みかいほう表示、つかいきりアイテムの
+   いま つかえない(available()を みたさない)表示、どちらも おなじ
+   グレーアウトを つかう */
+.shop-item.locked,
+.shop-item:disabled {
+  opacity: 0.55;
+  cursor: default;
 }
 
 /* --- ほんたい・がめんの いろテーマ --- */

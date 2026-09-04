@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260904-12">
+<link rel="stylesheet" href="style.css?v=20260904-13">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -167,6 +167,27 @@
               <div class="profile-hint">おかねで こうにゅうして そうびできます。そうびすると、なおとっちに ずっと つけつづけます</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
             </div>
+            <div class="theme-section">
+              <div class="theme-section-title">なおとの ひみつ</div>
+              <div class="profile-hint">4だんかいの クリアで それぞれ 1つずつ 解放される、けたちがいに 高額な とくべつな ちから。こうにゅうすれば そうび操作なしで ずっと こうかを はっきする</div>
+              <div class="shop-item-grid" id="naotoItemGrid"></div>
+            </div>
+            <div class="theme-section">
+              <div class="theme-section-title">つかいきり アイテム</div>
+              <div class="profile-hint">こうにゅうすると その場で 1かいだけ こうかが はっせいします(しょゆうぶつには なりません)</div>
+              <div class="shop-item-grid" id="onetimeItemGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="pickerOverlay">
+          <div class="dex-header">
+            <span class="dex-title" id="pickerTitle">えらぶ</span>
+            <button class="dex-close-btn" id="pickerCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="profile-hint" id="pickerHint"></div>
+            <div id="pickerGrid"></div>
           </div>
         </div>
 
@@ -246,6 +267,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260904-12"></script>
+  <script src="script.js?v=20260904-13"></script>
 </body>
 </html>
