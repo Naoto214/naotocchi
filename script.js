@@ -724,7 +724,7 @@
     { id: 'married-3', emoji: '👰', label: 'なんども ウェディング', desc: '3にんと けっこんした(いろんな 人生で)', condition: (l) => l.partnersMarried.length >= 3 },
     { id: 'partner-all', emoji: '🌏', label: 'れんあい たっせいしゃ', desc: '全8地域16人の こいびと候補 ぜんいんと であった', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
     { id: 'shop-1', emoji: '🎁', label: 'はじめての おかいもの', desc: 'アイテムを はじめて こうにゅうした', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'shop-all', emoji: '🛍️', label: 'コレクション コンプリート', desc: 'アイテムを ぜんぶ(8しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'shop-all', emoji: '🛍️', label: 'コレクション コンプリート', desc: 'アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
     { id: 'money-100', emoji: '💰', label: 'ちょきんか デビュー', desc: 'しょじきんが 100に とうたつした', condition: (l) => l.money >= 100 },
     { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: 'しょじきんが 500に とうたつした', condition: (l) => l.money >= 500 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を おとずれた', condition: (l) => l.regionsVisited.length >= 3 },
@@ -910,10 +910,20 @@
   // おかねで こうにゅうできる、みにつける アイテム。一度 こうにゅう
   // すれば ずっと もちものに のこり(state.lifetime.ownedShopItems)、
   // なんども そうび/かいじょ できる(いちどに そうびできるのは 1つだけ)
-  // それぞれの id は、したの EQUIPPED_ITEM_EFFECTS の りようポイントで
+  // それぞれの id は、コード内の isEquipped('id') の りようポイントで
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
-  // こうかを はっきする(いちどに そうびできるのは 1つだけ)
+  // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
+  //
+  // ぜんぶで50しゅるい。多くは おなじ こうかの グレードアップ チェーン
+  // (むじるし → 2 → 3)に なっていて、ねだんが たかい ものほど こうかも
+  // 豪華に なる。だいたい 4つの ねだん帯に わかれる:
+  //   ・きほん(10〜90): さいしょから すこし ためれば かえる
+  //   ・じょうきゅう(150〜600): ある程度 ミニゲームを かさねないと とどかない
+  //   ・プレミアム(800〜2200): まとまった プレイが ひつよう
+  //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
+  //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
   const SHOP_ITEMS = [
+    // --- きほん(10〜90) ---
     { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 20, desc: '機嫌の げんしょうが ゆるやかに' },
     { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 20, desc: '満腹の げんしょうが ゆるやかに' },
     { id: 'flower', label: 'おはな', emoji: '🌼', price: 15, desc: 'きゅうあいの せいこうりつ アップ' },
@@ -922,6 +932,55 @@
     { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 40, desc: '変身メーターが たまりやすい' },
     { id: 'crown', label: 'かんむり', emoji: '👑', price: 80, desc: '死亡メーターの じょうしょうを おさえる' },
     { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 50, desc: 'ミニゲームの おかねが ふえる' },
+    { id: 'energy1', label: 'げんきドリンク', emoji: '🥤', price: 35, desc: '元気の げんしょうが ゆるやかに' },
+    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 45, desc: 'すいみん中の 元気回復 アップ' },
+    { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 20, desc: 'うんちが たまりにくい' },
+    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 60, desc: 'なかまの きずな度が へりにくい' },
+    { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 70, desc: 'こいびとの なかよし度が へりにくい' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 40, desc: 'たびの きげんボーナス アップ' },
+    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 90, desc: 'かいふくアイテムの こうかが アップ' },
+
+    // --- じょうきゅう(150〜600) ---
+    { id: 'ribbon2', label: 'きぬの ローブ', emoji: '🎽', price: 180, desc: '機嫌の げんしょうが さらに ゆるやかに(リボンの 上位)' },
+    { id: 'bowtie2', label: 'しょくよくの おふだ', emoji: '🍽️', price: 180, desc: '満腹の げんしょうが さらに ゆるやかに(ちょうネクタイの 上位)' },
+    { id: 'flower2', label: '花たば', emoji: '💐', price: 220, desc: 'きゅうあいの せいこうりつ さらに アップ(おはなの 上位)' },
+    { id: 'glasses2', label: 'プロようゴーグル', emoji: '🥽', price: 260, desc: 'ミニゲームの とくてん さらに ボーナス(サングラスの 上位)' },
+    { id: 'scarf2', label: 'あたたかい コート', emoji: '🧥', price: 240, desc: 'びょうきに さらに なりにくい(マフラーの 上位)' },
+    { id: 'hat2', label: 'まほうの ぼうし', emoji: '🎓', price: 320, desc: '変身メーターが さらに たまりやすい(シルクハットの 上位)' },
+    { id: 'crown2', label: 'ほうせきの かんむり', emoji: '💎', price: 450, desc: '死亡メーターの じょうしょうを さらに おさえる(かんむりの 上位)' },
+    { id: 'star2', label: 'きんかの ふくろ', emoji: '🪙', price: 380, desc: 'ミニゲームの おかねが さらに ふえる(スターバッジの 上位)' },
+    { id: 'energy2', label: 'げんきの けっしょう', emoji: '⚡', price: 300, desc: '元気の げんしょうが さらに ゆるやかに(げんきドリンクの 上位)' },
+    { id: 'sleepboost2', label: 'こうきゅうベッド', emoji: '🛋️', price: 340, desc: 'すいみん中の 元気回復 さらに アップ(まくらの 上位)' },
+    { id: 'poop2', label: 'おそうじロボ', emoji: '🤖', price: 260, desc: 'うんちが さらに たまりにくい(トイレットペーパーの 上位)' },
+    { id: 'bond2', label: 'なかよしの ゆびわ', emoji: '💍', price: 400, desc: 'なかまの きずな度が さらに へりにくい(バッジの 上位)' },
+    { id: 'partner2', label: 'ペアの おそろい', emoji: '💞', price: 420, desc: 'こいびとの なかよし度が さらに へりにくい(らぶれたーの 上位)' },
+    { id: 'travel2', label: 'こうきゅうトランク', emoji: '🧳', price: 300, desc: 'たびの きげんボーナス さらに アップ(リュックの 上位)' },
+    { id: 'itemluck2', label: 'まもりの お守り', emoji: '🧿', price: 380, desc: 'かいふくアイテムの こうかが さらに アップ(クローバーの 上位)' },
+
+    // --- プレミアム(800〜2200) ---
+    { id: 'pet_threshold', label: 'おもちゃ', emoji: '🎾', price: 850, desc: 'じゃれる連打で いやがられにくくなる' },
+    { id: 'travel_threshold', label: 'らしんばん', emoji: '🧭', price: 900, desc: 'たびづかれに なるまで もう少し 連続で たびできる' },
+    { id: 'breakup_ease', label: 'きずぐすり', emoji: '🩹', price: 1400, desc: 'わかれ/りこんの 死亡メーターダメージが 半分に' },
+    { id: 'questioning_fast', label: 'じぶんさがしの書', emoji: '🔍', price: 1600, desc: 'クエスチョニングが おちつくまでの けいけんが 半分に' },
+    { id: 'marriage_fast', label: 'えいえんの誓い', emoji: '💍', price: 2200, desc: 'けっこんまでに ひつような きゅうあい回数が 半分に' },
+
+    // --- でんせつ/むげん(5000〜20000。パーフェクトクリアの あとも
+    //     おかねを かせぎつづけないと とても とどかない、いちばん 豪華な こうか) ---
+    { id: 'ribbon3', label: 'でんせつの ドレス', emoji: '👗', price: 6000, desc: '機嫌が ほとんど げんしょうしなくなる' },
+    { id: 'bowtie3', label: 'むげんの べんとう', emoji: '🍱', price: 6000, desc: '満腹が ほとんど げんしょうしなくなる' },
+    { id: 'flower3', label: 'でんせつの バラ', emoji: '🌹', price: 5500, desc: 'きゅうあいの せいこうりつ 大はばアップ' },
+    { id: 'glasses3', label: 'かみの ゴーグル', emoji: '🔬', price: 7000, desc: 'ミニゲームの とくてん 大はばボーナス' },
+    { id: 'scarf3', label: 'でんせつの けがわ', emoji: '🦁', price: 6500, desc: 'びょうきに ほとんど ならなくなる' },
+    { id: 'hat3', label: 'へんしんの おうかん', emoji: '🌟', price: 8000, desc: '変身メーターが 大はばに たまりやすい' },
+    { id: 'crown3', label: 'ふめつの かんむり', emoji: '⚜️', price: 15000, desc: '死亡メーターの じょうしょうを 大はばに おさえる' },
+    { id: 'star3', label: 'おうごんの つぼ', emoji: '💰', price: 9000, desc: 'ミニゲームの おかねが 大はばに ふえる' },
+    { id: 'energy3', label: 'ふつめつの げんき', emoji: '💫', price: 10000, desc: '元気が ほとんど げんしょうしなくなる' },
+    { id: 'sleepboost3', label: 'くもの ベッド', emoji: '☁️', price: 12000, desc: 'すいみん中の 元気回復が 大はばアップ' },
+    { id: 'poop3', label: 'せいじょうかの ひかり', emoji: '✨', price: 8000, desc: 'うんちが ほとんど たまらなくなる' },
+    { id: 'bond3', label: 'えいえんの きずな', emoji: '🌈', price: 20000, desc: 'なかまの きずな度が ほとんど へらなくなる' },
+    { id: 'partner3', label: 'とわの あい', emoji: '💖', price: 20000, desc: 'こいびとの なかよし度が ほとんど へらなくなる' },
+    { id: 'travel3', label: 'じくうの とびら', emoji: '🚀', price: 15000, desc: 'たびの きげんボーナス 大はばアップ' },
+    { id: 'itemluck3', label: 'きせきの トロフィー', emoji: '🏆', price: 18000, desc: 'かいふくアイテムの こうかが 大はばアップ' },
   ];
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -1194,6 +1253,18 @@
   // たびボタンを 連打するだけの ごうりつ機嫌かせぎに ならないようにする
   const TRAVEL_SPAM_THRESHOLD = 3;
 
+  // おもちゃ を そうびしていると、じゃれる連打で いやがられるまでの
+  // かいすうが ふえる
+  function affectionSpamThreshold() {
+    return AFFECTION_SPAM_THRESHOLD + (isEquipped('pet_threshold') ? 2 : 0);
+  }
+
+  // らしんばん を そうびしていると、たびづかれに なるまで もう少し
+  // 連続で たびに でられる
+  function travelSpamThreshold() {
+    return TRAVEL_SPAM_THRESHOLD + (isEquipped('travel_threshold') ? 2 : 0);
+  }
+
   const PET_ANNOYED_REACTIONS = [
     'もう なでなでは じゅうぶん!と いう かおを してる',
     'しつこいと ちょっと おこられた…',
@@ -1330,10 +1401,16 @@
   const QUESTIONING_RESOLVE_THRESHOLD = 4;
   const RESOLVED_ORIENTATION_WEIGHTS = ORIENTATION_WEIGHTS.slice(0, RESOLVED_ORIENTATIONS.length);
 
+  // じぶんさがしの書 を そうびしていると、クエスチョニングが おちつくまでの
+  // けいけん回数が 半分に なる(きりあげ)
+  function questioningResolveThreshold() {
+    return isEquipped('questioning_fast') ? Math.ceil(QUESTIONING_RESOLVE_THRESHOLD / 2) : QUESTIONING_RESOLVE_THRESHOLD;
+  }
+
   function checkQuestioningResolution() {
     if (state.orientationId !== 'questioning') return null;
     state.questioningEncounters = (state.questioningEncounters || 0) + 1;
-    if (state.questioningEncounters < QUESTIONING_RESOLVE_THRESHOLD) return null;
+    if (state.questioningEncounters < questioningResolveThreshold()) return null;
     const resolved = weightedPick(RESOLVED_ORIENTATIONS, RESOLVED_ORIENTATION_WEIGHTS);
     state.orientationId = resolved;
     state.attractedTo = attractedToFor(state.gender, resolved);
@@ -1435,13 +1512,27 @@
     return state.partner.married ? 'married' : 'dating';
   }
 
+  // えいえんの誓い を そうびしていると、けっこんまでに ひつような
+  // きゅうあい回数が 半分に なる(きりあげ)
+  function marriageBondThreshold() {
+    return isEquipped('marriage_fast') ? Math.ceil(MARRIAGE_BOND_THRESHOLD / 2) : MARRIAGE_BOND_THRESHOLD;
+  }
+
+  // きずぐすり を そうびしていると、わかれ/りこんの 死亡メーターダメージが
+  // 半分に おさえられる(raiseDeathMeter() の こいびと/夫婦・かんむり
+  // けいの けいげんとは べつに、breakup 専用の けいげん)
+  function breakupPenalty(wasMarried) {
+    const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
+    return isEquipped('breakup_ease') ? base * 0.5 : base;
+  }
+
   // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
   // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
   // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
   // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
   // そうびしていると、そこから さらに 2わり おさえられる
   function raiseDeathMeter(amount) {
-    const crownFactor = isEquipped('crown') ? 0.8 : 1;
+    const crownFactor = isEquipped('crown3') ? 0.35 : isEquipped('crown2') ? 0.6 : isEquipped('crown') ? 0.8 : 1;
     state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
   }
 
@@ -1465,7 +1556,7 @@
     p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
     if (p.married) return false;
     p.bondCount = (p.bondCount || 0) + 1;
-    if (p.bondCount < MARRIAGE_BOND_THRESHOLD) return false;
+    if (p.bondCount < marriageBondThreshold()) return false;
     p.married = true;
     p.bondCount = 0;
     return true;
@@ -1478,12 +1569,14 @@
   function decayRelationship() {
     if (!state.partner || state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
     const p = state.partner;
-    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK, 0, 100);
+    // らぶれたーけいの アイテムを そうびしていると、なかよし度が へりにくい
+    const affectionDecayFactor = isEquipped('partner3') ? 0.1 : isEquipped('partner2') ? 0.35 : isEquipped('partner1') ? 0.6 : 1;
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * affectionDecayFactor, 0, 100);
     if (p.affection > 0) return;
     const wasMarried = !!p.married;
     const label = p.label;
     state.partner = null;
-    raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
+    raiseDeathMeter(breakupPenalty(wasMarried));
     setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
     emotePet('sad');
   }
@@ -1499,8 +1592,10 @@
   function decayCompanionBonds() {
     if (!state.companions.length || state.stage === STAGE.DEAD || state.stage === STAGE.CLEAR) return;
     const left = [];
+    // おともだちバッジけいの アイテムを そうびしていると、きずな度が へりにくい
+    const bondDecayFactor = isEquipped('bond3') ? 0.1 : isEquipped('bond2') ? 0.35 : isEquipped('bond1') ? 0.6 : 1;
     state.companions = state.companions.filter((c) => {
-      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK, 0, 100);
+      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
       if (c.bond > 0) return true;
       left.push(c.id);
       return false;
@@ -1922,10 +2017,11 @@
 
     {
       const sleepFactor = state.isSleeping ? 0.4 : 1;
-      // ちょうネクタイ/リボンを そうびしていると、それぞれ 満腹/機嫌の
-      // 時間経過による げんしょうが ゆるやかに なる
-      const hungerFactor = isEquipped('bowtie') ? 0.6 : 1;
-      const happinessFactor = isEquipped('ribbon') ? 0.6 : 1;
+      // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
+      // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
+      // さらに ゆるやかに)
+      const hungerFactor = isEquipped('bowtie3') ? 0.15 : isEquipped('bowtie2') ? 0.4 : isEquipped('bowtie') ? 0.6 : 1;
+      const happinessFactor = isEquipped('ribbon3') ? 0.15 : isEquipped('ribbon2') ? 0.4 : isEquipped('ribbon') ? 0.6 : 1;
       state.hunger = clamp(state.hunger - 1 * sleepFactor * hungerFactor, 0, 100);
       state.happiness = clamp(state.happiness - 1 * sleepFactor * happinessFactor, 0, 100);
 
@@ -1933,14 +2029,20 @@
         // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
         // ひかえめ)。「ねる」を おした しゅんかんの キックスタート分
         // (sleepBtn の クリックハンドラを さんしょう)と あわせて、
-        // すぐに かいふくが はじまり、はやく フルに もどるように している
-        state.energy = clamp(state.energy + (state.isSick ? 10 : 26), 0, 100);
+        // すぐに かいふくが はじまり、はやく フルに もどるように している。
+        // すいみんけいの アイテムを そうびしていると、さらに 回復量が 上乗せされる
+        const sleepBoost = isEquipped('sleepboost3') ? 20 : isEquipped('sleepboost2') ? 12 : isEquipped('sleepboost1') ? 6 : 0;
+        state.energy = clamp(state.energy + (state.isSick ? 10 : 26) + sleepBoost, 0, 100);
       } else {
-        state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier(), 0, 100);
+        // 元気けいの アイテムを そうびしていると、おきている あいだの
+        // げんしょうも ゆるやかに なる
+        const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
+        state.energy = clamp(state.energy - 0.65 * energyDecayMultiplier() * energyFactor, 0, 100);
       }
 
-      // poop accumulates over time
-      if (Math.random() < 0.08 && state.poopCount < MAX_POOP) {
+      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい)
+      const poopFactor = isEquipped('poop3') ? 0.12 : isEquipped('poop2') ? 0.35 : isEquipped('poop1') ? 0.6 : 1;
+      if (Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -1952,8 +2054,9 @@
       // the odds of falling ill; well cared-for pets almost never trigger this
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
       if (!state.isSick && neglected) {
-        // マフラーを そうびしていると、びょうきに なる かくりつが 半分に
-        const sicknessChance = isEquipped('scarf') ? 0.045 : 0.09;
+        // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
+        // (上位アイテムほど さらに)
+        const sicknessChance = 0.09 * (isEquipped('scarf3') ? 0.12 : isEquipped('scarf2') ? 0.3 : isEquipped('scarf') ? 0.5 : 1);
         if (Math.random() < sicknessChance) {
           const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
           state.isSick = true;
@@ -2496,7 +2599,7 @@
 
     let orientationText = state.orientationId ? orientationLabel(state.orientationId, state.gender) : '???';
     if (state.orientationId === 'questioning') {
-      orientationText += `(けいけん ${state.questioningEncounters || 0}/${QUESTIONING_RESOLVE_THRESHOLD})`;
+      orientationText += `(けいけん ${state.questioningEncounters || 0}/${questioningResolveThreshold()})`;
     }
     el.profileOrientation.textContent = orientationText;
     // アロマンティック/クエスチョニングは ごかいされやすい ことばな ので、
@@ -2536,7 +2639,7 @@
       const p = state.partner;
       const bondHint = p.married
         ? ''
-        : `<span class="profile-partner-detail">つぎの ふしめまで あと ${MARRIAGE_BOND_THRESHOLD - (p.bondCount || 0)}かいの きゅうあい</span>`;
+        : `<span class="profile-partner-detail">つぎの ふしめまで あと ${marriageBondThreshold() - (p.bondCount || 0)}かいの きゅうあい</span>`;
       el.profilePartnerCard.innerHTML = `
         <div class="profile-partner-card">
           <span class="profile-partner-emoji">${p.emoji}</span>
@@ -2841,7 +2944,7 @@
     const wasMarried = !!state.partner.married;
     const label = state.partner.label;
     state.partner = null;
-    raiseDeathMeter(BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating']);
+    raiseDeathMeter(breakupPenalty(wasMarried));
     return wasMarried
       ? `れんあいタイプが かわって、${label}とは りこんする ことに なった…`
       : `れんあいタイプが かわって、${label}とは わかれる ことに なった…`;
@@ -2904,7 +3007,10 @@
     if (!item) return;
     state.items[itemId] = count - 1;
     if (state.items[itemId] <= 0) delete state.items[itemId];
-    state.deathMeter = clamp(state.deathMeter - item.heal, 0, 100);
+    // よつばのクローバーけいの アイテムを そうびしていると、かいふくアイテム
+    // ぜんぱんの かいふく量に ボーナスが 上乗せされる
+    const itemLuckBonus = isEquipped('itemluck3') ? 15 : isEquipped('itemluck2') ? 8 : isEquipped('itemluck1') ? 3 : 0;
+    state.deathMeter = clamp(state.deathMeter - (item.heal + itemLuckBonus), 0, 100);
     setMessage(`${item.emoji}${item.label}で げんきに なった!`);
     emotePet('happy');
     saveState();
@@ -6824,7 +6930,8 @@
 
   function finishMinigame(score, customMessage) {
     // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく
-    const clampedScore = clamp(score + (isEquipped('glasses') ? 8 : 0), 0, 100);
+    const glassesBonus = isEquipped('glasses3') ? 22 : isEquipped('glasses2') ? 14 : isEquipped('glasses') ? 8 : 0;
+    const clampedScore = clamp(score + glassesBonus, 0, 100);
     const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
     state.energy = clamp(state.energy - 12, 0, 100);
@@ -6834,7 +6941,8 @@
     // fills regardless of score - unlike evo/devo, playing itself (not
     // skill) is what earns a shot at choosing a different growth line。
     // シルクハットを そうびしていると たまりやすさに ボーナスが つく
-    state.transformMeter = clamp(state.transformMeter + 15 + (isEquipped('hat') ? 5 : 0), 0, 100);
+    const hatBonus = isEquipped('hat3') ? 18 : isEquipped('hat2') ? 10 : isEquipped('hat') ? 5 : 0;
+    state.transformMeter = clamp(state.transformMeter + 15 + hatBonus, 0, 100);
 
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the
@@ -6847,7 +6955,8 @@
       const item = pickWeightedItem();
       state.items[item.id] = (state.items[item.id] || 0) + 1;
       // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる
-      const coins = Math.round((5 + Math.random() * 6) * (isEquipped('star') ? 1.4 : 1));
+      const starFactor = isEquipped('star3') ? 2.6 : isEquipped('star2') ? 1.8 : isEquipped('star') ? 1.4 : 1;
+      const coins = Math.round((5 + Math.random() * 6) * starFactor);
       state.lifetime.money += coins;
       itemMessage = ` ごほうびに ${item.label}${item.emoji} と 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
@@ -7080,7 +7189,7 @@
     state.travelStreak = 0;
     state.actionCounts.pet += 1;
     state.actionCounts.talk += 1;
-    const spammed = state.affectionStreak > AFFECTION_SPAM_THRESHOLD;
+    const spammed = state.affectionStreak > affectionSpamThreshold();
     if (spammed) {
       state.happiness = clamp(state.happiness - 5, 0, 100);
       state.devoMeter = clamp(state.devoMeter + 8, 0, 100);
@@ -7196,7 +7305,7 @@
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
     // おはなを そうびしていると、きゅうあいの せいこうりつに ボーナスが つく
-    const flowerBonus = isEquipped('flower') ? 0.12 : 0;
+    const flowerBonus = isEquipped('flower3') ? 0.32 : isEquipped('flower2') ? 0.2 : isEquipped('flower') ? 0.12 : 0;
     const successChance = clamp(0.35 + traitBonus + happinessBonus + flowerBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
@@ -7251,7 +7360,7 @@
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
     // 機嫌の ボーナスが なくなり、逆に すこし へってしまう
-    const spammedTravel = state.travelStreak > TRAVEL_SPAM_THRESHOLD;
+    const spammedTravel = state.travelStreak > travelSpamThreshold();
     const candidates = REGIONS.filter((r) => r.id !== state.regionId);
     const region = candidates[Math.floor(Math.random() * candidates.length)];
     state.regionId = region.id;
@@ -7267,7 +7376,10 @@
     if (spammedTravel) {
       state.happiness = clamp(state.happiness - 3, 0, 100);
     } else {
-      state.happiness = clamp(state.happiness + 5, 0, 100);
+      // リュックサックけいの アイテムを そうびしていると、たびの きげん
+      // ボーナスが 上乗せされる
+      const travelBonus = isEquipped('travel3') ? 7 : isEquipped('travel2') ? 4 : isEquipped('travel1') ? 2 : 0;
+      state.happiness = clamp(state.happiness + 5 + travelBonus, 0, 100);
     }
     const reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
