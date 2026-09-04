@@ -1011,6 +1011,159 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { opacity: 0; transform: scale(1); }
 }
 
+.duel-question-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.duel-question-nav-row .duel-progress {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.duel-back-btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 10px;
+  font-weight: bold;
+  background: linear-gradient(160deg, #f2f2f2, #dcdcdc);
+  color: #555;
+  cursor: pointer;
+}
+
+.duel-back-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.duel-choice-current {
+  box-shadow: 0 0 0 2px #6b3654 inset;
+}
+
+.duel-review-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.duel-review-row:active {
+  border-color: #6b3654;
+  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
+}
+
+.duel-review-row-emoji {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.duel-review-row-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.duel-review-row-q {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.duel-review-row-detail,
+.duel-review-row-pub {
+  font-size: 9px;
+  opacity: 0.75;
+}
+
+.duel-review-row-edit {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.duel-review-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.duel-review-actions .duel-secondary-btn {
+  flex: 1;
+}
+
+.duel-secondary-btn {
+  background: linear-gradient(160deg, #f2f2f2, #dcdcdc);
+  color: #555;
+}
+
+.duel-danger-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: bold;
+  background: linear-gradient(160deg, #ffdcdc, #ffb3b3);
+  color: #8a1f1f;
+  cursor: pointer;
+}
+
+.duel-confirm-row {
+  background: rgba(255, 220, 220, 0.5);
+  border: 2px solid rgba(138, 31, 31, 0.25);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 6px;
+}
+
+.duel-confirm-row.hidden {
+  display: none;
+}
+
+.duel-confirm-text {
+  font-size: 9px;
+  margin-bottom: 6px;
+}
+
+.duel-confirm-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.duel-confirm-buttons button {
+  flex: 1;
+}
+
+.duel-abandon-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  border: none;
+  background: none;
+  color: #8a1f1f;
+  font-size: 9px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.duel-abandon-btn.hidden {
+  display: none;
+}
+
 .duel-guess-row {
   background: rgba(255, 255, 255, 0.6);
   border: 2px solid rgba(0, 0, 0, 0.12);
