@@ -1807,6 +1807,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   background: #c62828;
 }
 
+/* 元気バーだけ、ほかのバー(0.4sのすばやい変化)より ずっと ゆっくりした
+   width遷移に する。tick()は3秒おきにしか 元気の 数値を 更新しないが、
+   このtransitionが ほぼ その間隔ぶん(2.6秒)かけて 滑らかに おいつくので、
+   「しばらく なにも おきない→急に ジャンプする」という 段階的な 見た目
+   ではなく、寝ている あいだ ずっと ぐんぐん 回復しつづけている ように 見える */
+.bar-fill.energy {
+  transition: width 2.6s linear, background 0.4s ease;
+}
+
 .bars.meters {
   margin-top: 4px;
   padding-top: 6px;

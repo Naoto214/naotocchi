@@ -3192,19 +3192,24 @@
       state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor, 0, 100);
 
       if (state.isSleeping) {
-        // 元気の かいふくスピードを 底上げ(びょうき中は それでも 少し
-        // ひかえめ)。「ねる」を おした しゅんかんの キックスタート分
-        // (sleepBtn の クリックハンドラを さんしょう)と あわせて、
-        // すぐに かいふくが はじまり、はやく フルに もどるように している。
-        // すいみんけいの アイテムを そうびしていると、さらに 回復量が 上乗せされる
+        // 元気の かいふくは、「ねる」を おした しゅんかんの ボーナスには
+        // たよらず、すいみん状態で すごした じかん(=tick かいすう)だけを
+        // 回復の もとに する(sleepBtn の クリックハンドラに あった
+        // その場かぎりの キックスタート分は、寝おき連打で かせげてしまう
+        // ぬけみちに なっていた ため はいししてある)。1tick=3びょう ごとに
+        // 40(びょうき中は 16)回復するので、なにもせず 寝かせつづけるだけで
+        // 0→100が 3tickほど(=約9びょう)で フルに もどる、はっきり はやい
+        // ペースに してある。すいみんけいの アイテムを そうびしていると、
+        // さらに 回復量が 上乗せされる
         const sleepBoost = isEquipped('sleepboost3') ? 20 : isEquipped('sleepboost2') ? 12 : isEquipped('sleepboost1') ? 6 : 0;
-        state.energy = clamp(state.energy + (state.isSick ? 10 : 26) + sleepBoost, 0, 100);
+        state.energy = clamp(state.energy + (state.isSick ? 16 : 40) + sleepBoost, 0, 100);
       } else {
         // 元気けいの アイテムを そうびしていると、おきている あいだの
-        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.4/tick)
-        // も、満腹・機嫌と おなじ りゆうで 余裕を もたせてある
+        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
+        // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
+        // よりも すこし ゆっくりめに おさえてある
         const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
-        state.energy = clamp(state.energy - 0.4 * energyDecayMultiplier() * energyFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor, 0, 100);
       }
 
       // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
@@ -11020,11 +11025,12 @@
     state.travelStreak = 0;
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
-      // つぎの tick(最大 TICK_MS ぶん さき)まで まったない よう、
-      // ねはじめた しゅんかんに その ばで すこし 元気を かいふくさせる
-      // (びょうき中は ひかえめに)。これで「ねても すぐには 元気が
-      // もどらない」体感の まちじかんを ほぼ なくしている
-      state.energy = clamp(state.energy + (state.isSick ? 4 : 10), 0, 100);
+      // ここでは じょうたいの きりかえ(state.isSleeping)だけを おこない、
+      // 元気を その場で 回復させたりは しない。回復は あくまで tick()の
+      // すいみん中ぶんの けいさんに まかせる - 「ねる」を おした しゅんかん
+      // だけ とくをする ボーナスが あると、ねる→おきる→ねる…と 連打する
+      // ほうが 寝つづけるより おトクに なってしまう(いわゆる 寝おき連打の
+      // ぬけみち)ため、あえて はいししてある
       setMessage('おやすみなさい…');
       return;
     }
