@@ -309,7 +309,7 @@
         { emoji: '👼', label: 'みならいのてんし', message: 'みならいのてんしに せいちょうした!' },
         { emoji: '😇', label: 'ひかりを まといはじめた かみのこ', message: 'ひかりを まといはじめた!' },
         { emoji: '😇', label: 'わかきかみ', message: 'わかきかみに せいちょうした!' },
-        { emoji: '😇', label: 'かみさま', message: 'まさかの…かみさまに しんかした!!' },
+        { emoji: '😇', label: 'かみさま', message: 'まさかの…かみさまに なった!!' },
         { emoji: '🌞', label: 'だいじんの かみさま', message: 'だいじんの かみさまに なった…' },
       ],
     },
@@ -345,7 +345,7 @@
         { emoji: '🦄', label: 'わんぱくな ユニコーン', message: 'わんぱくな ユニコーンに せいちょうした!' },
         { emoji: '🦄', label: 'ひかりを はなちはじめた ユニコーン', message: 'ひかりを はなちはじめた!' },
         { emoji: '🦄', label: 'わかいユニコーン', message: 'わかいユニコーンに せいちょうした!' },
-        { emoji: '🦄', label: 'でんせつの ユニコーン', message: 'まさかの…ユニコーンに しんかした!!' },
+        { emoji: '🦄', label: 'でんせつの ユニコーン', message: 'まさかの…ユニコーンに なった!!' },
         { emoji: '🦄', label: 'おおいなる ユニコーン', message: 'おおいなる ユニコーンに なった…' },
       ],
     },
@@ -357,7 +357,7 @@
         { emoji: '🐦‍🔥', label: 'わんぱくな ひのとり', message: 'わんぱくな ひのとりに せいちょうした!' },
         { emoji: '🐦‍🔥', label: 'つばさが もえあがる ひのとり', message: 'つばさが もえあがってきた!' },
         { emoji: '🐦‍🔥', label: 'わかいフェニックス', message: 'わかいフェニックスに せいちょうした!' },
-        { emoji: '🐦‍🔥', label: 'でんせつの フェニックス', message: 'まさかの…フェニックスに しんかした!!' },
+        { emoji: '🐦‍🔥', label: 'でんせつの フェニックス', message: 'まさかの…フェニックスに なった!!' },
         { emoji: '🐦‍🔥', label: 'ふしちょうの フェニックス', message: 'ふしちょうの フェニックスに なった…' },
       ],
     },
@@ -475,6 +475,7 @@
     gameClearBadges: document.getElementById('gameClearBadges'),
     gameClearDesc: document.getElementById('gameClearDesc'),
     gameClearFreePlayBtn: document.getElementById('gameClearFreePlayBtn'),
+    gameClearCloseBtn: document.getElementById('gameClearCloseBtn'),
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
@@ -787,6 +788,8 @@
         flawlessLives: 0,
         // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたか。
         // これが true の あいだ だけ ♾️ の せかいに はいれる
+        // ④ ずかんクリア(図鑑168形態)を 一度でも たっせいしたか
+        dexCleared: false,
         perfectCleared: false,
         // 歴代の なおとっちの ようやく(「はじめから」の たびに 1行 つみあがる)
         pastLives: [],
@@ -1448,19 +1451,19 @@
 
     // --- ミドル(150〜450。やすい じゅんに ならんでいる) ---
     { id: 'ot_allstat', label: 'よくばりセット', emoji: '🧺', price: 150, desc: 'おなか・ごきげん・げんき・けんこうを まとめて 全回復する', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; return { message: 'ぜんぶの ちょうしが パーフェクトに なった!', emote: 'fun' }; } },
-    { id: 'ot_evochip', label: 'そだちの かけら', emoji: '✨', price: 150, desc: 'せいちょうを はんぶんぶん ためる', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { applyGrowth(sodachiCost(state.sodachi) / 2); return { message: 'せいちょうが すすんだ!', emote: 'fun' }; } },
-    { id: 'ot_transformchip', label: 'へんしんの かけら', emoji: '🔑', price: 180, desc: 'へんしんの かくりつを あげる', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = clamp(state.transformMeter + 50, 0, 100); return { message: 'へんしんの ちからが すこし たまった!', emote: 'fun' }; } },
-    { id: 'ot_devoreset', label: 'おとろえ しずめの おまもり', emoji: '🌿', price: 200, desc: 'おとろえメーターを 0に もどす', available: () => state.stage === STAGE.GROWING, unavailableMessage: 'いまは つかえない', apply: () => { state.decline = 0; return { message: 'おとろえが しずまった!', emote: 'happy' }; } },
+    { id: 'ot_evochip', label: 'そだちの かけら', emoji: '✨', price: 150, desc: 'せいちょうを はんぶんぶん ためる', available: () => state.stage === STAGE.GROWING && !state.infinite, unavailableMessage: 'いまは つかえない', apply: () => { applyGrowth(sodachiCost(state.sodachi) / 2); return { message: 'せいちょうが すすんだ!', emote: 'fun' }; } },
+    { id: 'ot_transformchip', label: 'へんしんの かけら', emoji: '🔑', price: 180, desc: 'へんしんの かくりつを あげる', available: () => state.stage === STAGE.GROWING && !state.infinite, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = clamp(state.transformMeter + 50, 0, 100); return { message: 'へんしんの ちからが すこし たまった!', emote: 'fun' }; } },
+    { id: 'ot_devoreset', label: 'おとろえ しずめの おまもり', emoji: '🌿', price: 200, desc: 'おとろえメーターを 0に もどす', available: () => state.stage === STAGE.GROWING && !state.infinite, unavailableMessage: 'いまは つかえない', apply: () => { state.decline = 0; return { message: 'おとろえが しずまった!', emote: 'happy' }; } },
     { id: 'ot_companionfull1', label: 'なかまへの プレゼント', emoji: '🎀', price: 200, desc: 'いちばん きずな度の ひくい なかま 1人を 全回復する', available: () => state.companions.length > 0, unavailableMessage: 'いま そばに いる なかまが いない', apply: () => { const c = lowestBondCompanion(); c.bond = 100; return { message: 'なかまが とても よろこんでくれた!', emote: 'love' }; } },
     { id: 'ot_partnerfull', label: 'あいの アクセサリー', emoji: '💝', price: 250, desc: 'こいびとの なかよし度を 全回復する', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.partner.affection = 100; return { message: 'こいびとが だいすき!と いってくれた!', emote: 'love' }; } },
     { id: 'ot_courtboostsmall', label: 'こいの おまじない', emoji: '🎐', price: 250, desc: 'つぎの きゅうあいの すすみぐあいを すこし はやめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.oneTimeBoosts.courtBoost = 'small'; return { message: 'こいの おまじないを かけた!', emote: 'love' }; } },
     { id: 'ot_minigamewinsmall', label: 'やる気の おまもり', emoji: '🔥', price: 300, desc: 'つぎの ミニゲームの けっかを すこし よくする', apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気が わいてきた!', emote: 'fun' }; } },
-    { id: 'ot_evoup', label: 'そだちの くすり', emoji: '🌱', price: 300, desc: 'そだちを 1 あげる', available: () => state.stage === STAGE.GROWING && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
-    { id: 'ot_evodown', label: 'たてなおしの くすり', emoji: '🍼', price: 250, desc: 'おとろえで さがった そだちを 1つ とりもどす', available: () => state.stage === STAGE.GROWING && state.sodachi < state.maxSodachi, unavailableMessage: 'いまは とりもどす ぶんが ない', apply: () => { state.sodachi = Math.min(state.maxSodachi, state.sodachi + 1); state.decline = 0; return { message: `そだちが ${state.sodachi}に もどった!`, emote: 'happy' }; } },
+    { id: 'ot_evoup', label: 'そだちの くすり', emoji: '🌱', price: 300, desc: 'そだちを 1 あげる', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
+    { id: 'ot_evodown', label: 'たてなおしの くすり', emoji: '🍼', price: 250, desc: 'おとろえで さがった そだちを 1つ とりもどす', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < state.maxSodachi, unavailableMessage: 'いまは とりもどす ぶんが ない', apply: () => { state.sodachi = Math.min(state.maxSodachi, state.sodachi + 1); state.decline = 0; return { message: `そだちが ${state.sodachi}に もどった!`, emote: 'happy' }; } },
     { id: 'ot_sickcurebig', label: 'とっこう万能薬', emoji: '🍶', price: 300, desc: '今の びょうきを なおし、びょうきよけの はんていも 3かいぶん むこうにする', apply: () => { if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } state.oneTimeBoosts.sicknessShieldCount += 3; return { message: 'からだが すっかり じょうぶに なった!', emote: 'happy' }; } },
     { id: 'ot_travelguarantee', label: 'たびの おまもり', emoji: '🧭', price: 400, desc: 'つぎの たびで かならず よい おもいでを もちかえる', apply: () => { state.oneTimeBoosts.travelGuarantee = true; return { message: 'たびの おまもりを みにつけた!', emote: 'fun' }; } },
     { id: 'ot_breakupshieldhalf', label: 'わかれよけの おふだ', emoji: '🩹', price: 400, desc: 'つぎの わかれ/りこんの ダメージを 半分にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = state.oneTimeBoosts.breakupShield === 'full' ? 'full' : 'half'; return { message: 'わかれよけの おふだを みにつけた!', emote: 'happy' }; } },
-    { id: 'ot_transform', label: 'へんしんの カギ', emoji: '🗝️', price: 400, desc: 'その場で すがた選びを はじめる', available: () => state.stage === STAGE.GROWING && !state.transformOptions, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = 100; checkMeters(); return {}; } },
+    { id: 'ot_transform', label: 'へんしんの カギ', emoji: '🗝️', price: 400, desc: 'その場で すがた選びを はじめる', available: () => state.stage === STAGE.GROWING && !state.infinite && !state.transformOptions, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = 100; checkMeters(); return {}; } },
     { id: 'ot_megapack', label: 'お世話 プレミアムパック', emoji: '🎁', price: 400, desc: '4つの ステータス全回復+うんちそうじ+びょうき治療を まとめて おこなう', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } return { message: 'すみずみまで きっちり お世話された!', emote: 'happy' }; } },
     { id: 'ot_safetynet', label: 'スコアほけん', emoji: '☂️', price: 450, desc: 'つぎの ミニゲームが しっぱいでも わるい えいきょうを うけない', apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに はいった!', emote: 'happy' }; } },
 
@@ -1471,16 +1474,16 @@
     { id: 'ot_courtboostbig', label: 'こいの キューピッド', emoji: '💘', price: 700, desc: 'つぎの きゅうあいの すすみぐあいを おおきく はやめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.oneTimeBoosts.courtBoost = 'big'; return { message: 'キューピッドが ほほえんだ!', emote: 'love' }; } },
     { id: 'ot_minigamewinbig', label: '大成功の おまもり', emoji: '🌟', price: 800, desc: 'つぎの ミニゲームを かならず 大成功にする', apply: () => { state.oneTimeBoosts.minigameBoost = 'big'; return { message: '大成功が やくそくされた き が する!', emote: 'fun' }; } },
     { id: 'ot_breakupshieldfull', label: 'わかれよけの けっかい', emoji: '🛡️', price: 900, desc: 'つぎの わかれ/りこんの ダメージを 無効にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = 'full'; return { message: 'つよい けっかいに つつまれた!', emote: 'happy' }; } },
-    { id: 'ot_bigevo', label: 'そだちの だいジャンプ', emoji: '🚀', price: 900, desc: 'そだちを 3 あげる', available: () => state.stage === STAGE.GROWING && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 3; i += 1) applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
+    { id: 'ot_bigevo', label: 'そだちの だいジャンプ', emoji: '🚀', price: 900, desc: 'そだちを 3 あげる', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 3; i += 1) applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
     { id: 'ot_perfectcare', label: 'かんぺき お世話 デラックス', emoji: '💫', price: 1200, desc: 'ステータス全回復+うんちそうじ+びょうき治療+せいちょう/へんしんを ちょっとずつ すすめる', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; } if (state.stage === STAGE.GROWING) { applyGrowth(sodachiCost(state.sodachi) * 0.3); applyDecline(-30); state.transformMeter = clamp(state.transformMeter + 30, 0, 100); } return { message: 'これいじょうない くらい かんぺきに お世話された!', emote: 'love' }; } },
-    { id: 'ot_agejump', label: 'せいちょうの おいかぜ', emoji: '⏳', price: 1200, desc: 'しばらくの あいだ せいちょうが 2ばいに なる(1つの 人生で 3かいまで)', available: () => state.stage === STAGE.GROWING && state.sandUsed < 3, unavailableMessage: 'この 人生では もう つかえない', apply: () => { state.sandUsed += 1; state.boostTicks = Math.max(state.boostTicks, 0) + 400; return { message: 'せいちょうの おいかぜが ふいた! しばらく そだちやすく なる', emote: 'fun' }; } },
+    { id: 'ot_agejump', label: 'せいちょうの おいかぜ', emoji: '⏳', price: 1200, desc: 'しばらくの あいだ せいちょうが 2ばいに なる(1つの 人生で 3かいまで)', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sandUsed < 3, unavailableMessage: 'この 人生では もう つかえない', apply: () => { state.sandUsed += 1; state.boostTicks = Math.max(state.boostTicks, 0) + 400; return { message: 'せいちょうの おいかぜが ふいた! しばらく そだちやすく なる', emote: 'fun' }; } },
     { id: 'ot_marriageprep', label: 'プロポーズの練習', emoji: '💐', price: 1800, desc: 'きゅうあいの すすみぐあいを けっこん一歩手前まで すすめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.bondCount = Math.max(state.partner.bondCount || 0, marriageBondThreshold() - 1); return { message: 'プロポーズの れんしゅうを した!', emote: 'love' }; } },
 
     // --- プレミアム(2500〜8000。やすい じゅんに ならんでいる) ---
-    { id: 'ot_devomega', label: 'たてなおしの けっしょう', emoji: '🌀', price: 700, desc: 'おとろえで さがった そだちを 3つ とりもどす', available: () => state.stage === STAGE.GROWING && state.sodachi < state.maxSodachi, unavailableMessage: 'いまは とりもどす ぶんが ない', apply: () => { state.sodachi = Math.min(state.maxSodachi, state.sodachi + 3); state.decline = 0; return { message: `そだちが ${state.sodachi}に もどった!`, emote: 'happy' }; } },
-    { id: 'ot_evomega', label: 'そだちの けっしょう', emoji: '💎', price: 2500, desc: 'そだちを 8 あげる', available: () => state.stage === STAGE.GROWING && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 8; i += 1) applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
+    { id: 'ot_devomega', label: 'たてなおしの けっしょう', emoji: '🌀', price: 700, desc: 'おとろえで さがった そだちを 3つ とりもどす', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < state.maxSodachi, unavailableMessage: 'いまは とりもどす ぶんが ない', apply: () => { state.sodachi = Math.min(state.maxSodachi, state.sodachi + 3); state.decline = 0; return { message: `そだちが ${state.sodachi}に もどった!`, emote: 'happy' }; } },
+    { id: 'ot_evomega', label: 'そだちの けっしょう', emoji: '💎', price: 2500, desc: 'そだちを 8 あげる', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 8; i += 1) applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
     { id: 'ot_marriage', label: 'えいえんの ちかいの ゆびわ', emoji: '💍', price: 3000, desc: 'いまの こいびとと その場で けっこんする', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.married = true; state.partner.bondCount = 0; if (state.partner.id !== 'guest' && !state.lifetime.partnersMarried.includes(state.partner.id)) state.lifetime.partnersMarried.push(state.partner.id); return { message: `${state.partner.label}と けっこんした!💍`, emote: 'love' }; } },
-    { id: 'ot_bigagejump', label: 'せいちょうの おおいかぜ', emoji: '⌛', price: 3000, desc: 'ながい あいだ せいちょうが 2ばいに なる(1つの 人生で 1かいまで)', available: () => state.stage === STAGE.GROWING && state.bigSandUsed < 1, unavailableMessage: 'この 人生では もう つかえない', apply: () => { state.bigSandUsed = (state.bigSandUsed || 0) + 1; state.boostTicks = Math.max(state.boostTicks, 0) + 1200; return { message: 'せいちょうの おおいかぜが ふいた! ずっと そだちやすく なる', emote: 'love' }; } },
+    { id: 'ot_bigagejump', label: 'せいちょうの おおいかぜ', emoji: '⌛', price: 3000, desc: 'ながい あいだ せいちょうが 2ばいに なる(1つの 人生で 1かいまで)', available: () => state.stage === STAGE.GROWING && !state.infinite && state.bigSandUsed < 1, unavailableMessage: 'この 人生では もう つかえない', apply: () => { state.bigSandUsed = (state.bigSandUsed || 0) + 1; state.boostTicks = Math.max(state.boostTicks, 0) + 1200; return { message: 'せいちょうの おおいかぜが ふいた! ずっと そだちやすく なる', emote: 'love' }; } },
     { id: 'ot_regionvisit', label: 'せかい地図の カケラ', emoji: '🗺️', price: 5000, picker: 'region', desc: 'まだ おとずれていない 地域を 1つ 好きに えらんで、その場で おとずれた ことにする', available: () => REGIONS.some((r) => !state.lifetime.regionsVisited.includes(r.id)), unavailableMessage: 'もう ぜんぶの 地域を おとずれた', apply: (value) => { if (!state.lifetime.regionsVisited.includes(value)) state.lifetime.regionsVisited.push(value); const region = REGIONS.find((r) => r.id === value); return { message: `${region.emoji} ${region.label}を ちずに かきくわえた!`, emote: 'fun' }; } },
     { id: 'ot_colorpick', label: 'すきな いろの チケット', emoji: '🎨', price: 8000, picker: 'color', desc: 'ロックされた 「いろ」を 1つ 好きに えらんで、その場で 解放する', available: () => COLOR_THEMES.some((t) => t.unlockTier !== undefined && !t.unlockAll && !isThemeUnlocked(t)), unavailableMessage: 'もう ぜんぶの いろが 解放ずみ', apply: (value) => { state.lifetime.bonusUnlockedThemeIds.push(`color:${value}`); const t = COLOR_THEMES.find((x) => x.id === value); return { message: `いろ「${t.label}」を 解放した!`, emote: 'happy' }; } },
     { id: 'ot_patternpick', label: 'すきな がらの チケット', emoji: '🖌️', price: 8000, picker: 'pattern', desc: 'ロックされた 「がら」を 1つ 好きに えらんで、その場で 解放する', available: () => PATTERNS.some((p) => p.unlockTier !== undefined && !p.unlockAll && !isThemeUnlocked(p)), unavailableMessage: 'もう ぜんぶの がらが 解放ずみ', apply: (value) => { state.lifetime.bonusUnlockedThemeIds.push(`pattern:${value}`); const p = PATTERNS.find((x) => x.id === value); return { message: `がら「${p.label}」を 解放した!`, emote: 'happy' }; } },
@@ -1530,6 +1533,7 @@
   function saveState() {
     recordDiscovery();
     checkAchievements();
+    checkGrandGoals();
     try {
       localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     } catch (e) {
@@ -1545,7 +1549,11 @@
   // difficulty knobs off of this so the whole game gets meaner as the pet
   // gets older, instead of staying at "baby" difficulty forever
   function ageDifficulty() {
-    return clamp(currentAge() / MAX_DIFFICULTY_AGE, 0, 1);
+    const base = clamp(currentAge() / MAX_DIFFICULTY_AGE, 0, 1);
+    // そだち40(なかまの わ)に とうたつしていると、なかまイベントの
+    // ミニゲームだけ すこし やさしく なる
+    if (pendingCompanionId && hasPerk(40)) return base * 0.7;
+    return base;
   }
 
   function lerp(min, max, t) {
@@ -1727,7 +1735,7 @@
       { emoji: '📈', message: 'からだが ムズムズする…これが せいちょうつうか!?' },
       { emoji: '😲', message: 'きゅうに せが のびて じぶんでも ビックリした!' },
       { emoji: '💫', message: 'きのうより ちょっと できる きが する!' },
-      { emoji: '🔔', message: 'レベルアップの おとが きこえた き が した(たぶん きのせい)' },
+      { emoji: '🔔', message: 'そだちが のびる おとが きこえた き が した(たぶん きのせい)' },
       { emoji: '📏', message: 'サイズが かわって…ふくは もってないけど なんとなく きつい' },
     ],
     devolve: [
@@ -3014,7 +3022,8 @@
     const label = p.label;
     state.partner = null;
     raiseDeathMeter(breakupPenalty(wasMarried));
-    applyDecline(wasMarried ? 20 : 12);
+    // そだち50(こいの きざし)に とうたつしていると、わかれの ダメージが 半分に なる
+    applyDecline((wasMarried ? 20 : 12) * (hasPerk(50) ? 0.5 : 1));
     pushLifeLog('💔', wasMarried ? `${label}と りこんした` : `${label}に ふられた`);
     setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
     emotePet('sad');
@@ -3293,12 +3302,16 @@
     { id: 'candy', label: 'あめ', emoji: '🍬', heal: 8, weight: 8 },
   ];
 
+  // そだち30(はじめての ごほうび)で ドロップが 1だん 上位に よる。
+  // そだち80(レアの きざし)では さらに キス/ハグ などの 最上位が 出やすくなる
   function pickWeightedItem() {
-    const totalWeight = RECOVERY_ITEMS.reduce((sum, it) => sum + it.weight, 0);
+    const rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0;
+    const weights = RECOVERY_ITEMS.map((it) => it.weight * (1 + rankBonus * (it.heal / 40)));
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
     let roll = Math.random() * totalWeight;
-    for (const item of RECOVERY_ITEMS) {
-      roll -= item.weight;
-      if (roll <= 0) return item;
+    for (let i = 0; i < RECOVERY_ITEMS.length; i += 1) {
+      roll -= weights[i];
+      if (roll <= 0) return RECOVERY_ITEMS[i];
     }
     return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
   }
@@ -3389,7 +3402,10 @@
       setMessage(`🎁 ${age}さいの おいわい! ${item.label}${item.emoji} と 💰${gift} を もらった!`);
       emotePet('love');
     } else if (age % 5 === 0) {
-      setMessage(`🎂 ${age}さいに なった!`);
+      // 5さいごとは すこし にぎやかに + かいふくアイテムを 1つ
+      const item = pickWeightedItem();
+      state.items[item.id] = (state.items[item.id] || 0) + 1;
+      setMessage(`🎂 ${age}さいに なった! ${item.label}${item.emoji}を もらった!`);
       emotePet('happy');
     } else {
       setBirthdayToast(`🎂 ${age}さいに なった`);
@@ -3411,7 +3427,9 @@
   function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; }
 
   function applyGrowth(amount, opts) {
-    if (amount === 0 || !isLiveLife()) return;
+    // ♾️ の せかいでは そだちも とまる(アイテムで 節目報酬を 二重取り
+    // できて しまわない ように、ここで まとめて ふさぐ)
+    if (amount === 0 || !isLiveLife() || state.infinite) return;
     if (amount > 0 && (!opts || !opts.silent)) markCared();
     if (state.stage === STAGE.EGG) {
       state.growth += amount;
@@ -3428,7 +3446,7 @@
   }
 
   function applyDecline(amount) {
-    if (amount === 0 || !isLiveLife() || state.stage === STAGE.EGG) return;
+    if (amount === 0 || !isLiveLife() || state.stage === STAGE.EGG || state.infinite) return;
     state.decline = clamp(state.decline + amount, 0, DECLINE_MAX);
     while (state.decline >= DECLINE_MAX && state.sodachi > 0) {
       state.decline -= DECLINE_MAX;
@@ -3443,6 +3461,9 @@
       state.lifetime.evolutions += 1;
       if (state.sodachi > state.maxSodachi) {
         state.maxSodachi = state.sodachi;
+        // じっせき(sodachi-70/90/100)が 人生の おわりを またずに 出る ように、
+        // さいこう記録は とうたつした しゅんかんに こうしんする
+        state.lifetime.bestSodachi = Math.max(state.lifetime.bestSodachi || 0, state.maxSodachi);
         if (state.maxSodachi % 10 === 0) onSodachiMilestone(state.maxSodachi);
       }
     }
@@ -3482,6 +3503,32 @@
   }
 
   function hasPerk(level) { return state.maxSodachi >= level; }
+
+  // ================================================================
+  // ④ ずかんクリア / ⑤ パーフェクトクリア の はんてい
+  // ================================================================
+  // 100さいで STAGE.CLEAR に はいる しくみを やめた ので、この 2つは
+  // 人生の おわりでは なく「たっせいした しゅんかん」に はんていする。
+  // ここを とおさないと ⑤ が 一度も 成立せず、♾️ の せかいが えいえんに
+  // 解禁されない(endingTiersReached・レインボーの 解禁も とまる)
+  let grandGoalPending = null;
+
+  function checkGrandGoals() {
+    if (!state.lifetime) return;
+    const { dexComplete, achComplete } = endingProgress();
+    // 4つの tier バッジは たっせいした ぶんを その場で えいきゅうに きろくする
+    qualifyingEndingTiers().forEach((t) => {
+      if (!state.lifetime.endingTiersReached.includes(t)) state.lifetime.endingTiersReached.push(t);
+    });
+    if (dexComplete && !state.lifetime.dexCleared) {
+      state.lifetime.dexCleared = true;
+      grandGoalPending = 'dex';
+    }
+    if (dexComplete && achComplete && !state.lifetime.perfectCleared) {
+      state.lifetime.perfectCleared = true;
+      grandGoalPending = 'perfect';
+    }
+  }
 
   // そだち30で +25%、70で さらに +50%(累計 ×1.75)。そだち100の
   // その人生では さらに うわのせ しない(即時5000コインで かわりに わたす)
@@ -3740,6 +3787,8 @@
 
     {
       const sleepFactor = state.isSleeping ? 0.4 : 1;
+      // そだち90(でんせつ)に とうたつしていると、ステータスの 自然減が 15% ゆるやかに なる
+      const legendFactor = hasPerk(90) ? 0.85 : 1;
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
@@ -3749,8 +3798,8 @@
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
       // ほどで お世話ぎれの 状態に なってしまっていた)
-      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor, 0, 100);
-      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor, 0, 100);
+      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor * legendFactor, 0, 100);
+      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor * legendFactor, 0, 100);
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
@@ -3771,7 +3820,7 @@
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
         const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
-        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
       }
 
       // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
@@ -4397,12 +4446,12 @@
     el.screen.classList.toggle('sick', state.isSick && !isOver);
     el.screen.classList.toggle('sleeping', state.isSleeping && !isOver);
     el.lamp.classList.toggle('sick', state.isSick && !isOver);
-    el.gameClearOverlay.classList.toggle('hidden', !isClear);
     // renderEnding() (when isClear) records this playthrough's qualifying
     // tiers into state.lifetime.endingTiersReached, and may auto-select the
     // 'rainbow' screen theme the first time all 4 are reached - so both the
     // badge row and applyTheme() below must run after it, not before
-    if (isClear) renderEnding();
+    el.gameClearOverlay.classList.toggle('hidden', !grandGoalPending);
+    if (grandGoalPending) renderEnding();
     if (isDead && el.lifeCardOverlay.classList.contains('hidden') && !deathCardShown) {
       deathCardShown = true;
       showLifeCard();
@@ -5477,7 +5526,6 @@
     const tierIndex = getEndingTier();
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
-    if (tierIndex === 3) state.lifetime.perfectCleared = true;
     const tier = ENDING_TIERS[tierIndex];
     el.gameClearOverlay.classList.toggle('tier-1', tier === ENDING_TIERS[1]);
     el.gameClearOverlay.classList.toggle('tier-2', tier === ENDING_TIERS[2]);
@@ -5485,7 +5533,8 @@
     // パーフェクト(tier 3)の ときだけ「じゆうに あそぶ」ボタンを 出す -
     // それいがいの tier は めざす さきが まだ ある ので、「はじめから」で
     // また ちょうせんしなおす ことを うながす
-    el.gameClearFreePlayBtn.classList.toggle('hidden', tierIndex !== 3);
+    el.gameClearFreePlayBtn.classList.toggle('hidden', !state.lifetime.perfectCleared);
+    el.gameClearCloseBtn.classList.remove('hidden');
     el.gameClearTitle.textContent = tier.title;
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
@@ -5722,7 +5771,10 @@
     // よつばのクローバーけいの アイテムを そうびしていると、かいふくアイテム
     // ぜんぱんの かいふく量に ボーナスが 上乗せされる
     const itemLuckBonus = isEquipped('itemluck3') ? 15 : isEquipped('itemluck2') ? 8 : isEquipped('itemluck1') ? 3 : 0;
-    state.deathMeter = clamp(state.deathMeter - (item.heal + itemLuckBonus), 0, 100);
+    // そだち80(レアの きざし)に とうたつしていると、いまの そだちに おうじて
+    // かいふく量が うわのせされる(現在そだち連動の 特典)
+    const sodachiHealBonus = hasPerk(80) ? (item.heal + itemLuckBonus) * (state.sodachi / 400) : 0;
+    state.deathMeter = clamp(state.deathMeter - (item.heal + itemLuckBonus + sodachiHealBonus), 0, 100);
     setMessage(`${item.emoji}${item.label}で げんきに なった!`);
     emotePet('happy');
     saveState();
@@ -13181,7 +13233,8 @@
       // リュックサックけいの アイテムを そうびしていると、たびの きげん
       // ボーナスが 上乗せされる
       const travelBonus = isEquipped('travel3') ? 7 : isEquipped('travel2') ? 4 : isEquipped('travel1') ? 2 : 0;
-      state.happiness = clamp(state.happiness + 5 + travelBonus, 0, 100);
+      // そだち70(たびだち)に とうたつしていると、たびの きげんボーナスが 2ばいに なる
+      state.happiness = clamp(state.happiness + (5 + travelBonus) * (hasPerk(70) ? 2 : 1), 0, 100);
     }
     const reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
@@ -13321,7 +13374,12 @@
     setMessage('あたらしい たまごが やってきた…');
   }));
 
+  el.gameClearCloseBtn.addEventListener('click', withFeedback(() => {
+    grandGoalPending = null;
+  }));
+
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
+    grandGoalPending = null;
     // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
     // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();

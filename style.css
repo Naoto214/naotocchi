@@ -4719,3 +4719,18 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 #infiniteBtn.hidden {
   display: none !important;
 }
+
+/* ④ずかんクリア / ⑤パーフェクトクリア の おいわい画面を とじる ボタン */
+.game-clear-close-btn {
+  font: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 20px;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  cursor: pointer;
+}
+.game-clear-close-btn.hidden { display: none !important; }
