@@ -738,6 +738,13 @@
         // の いちらん。じっせきの「せかい いっしゅう」に つかう。「おうち」
         // は さいしょから いる ので、あらかじめ ふくめておく
         regionsVisited: ['home'],
+        // 「あそぶ」で えらばれた ミニゲームを、なんかい あそんだかの
+        // きろく(id→かいすう)。id は `${category}#${そのカテゴリの
+        // なんばんめか}` の かたち(pickRandomMinigame() ふきん さんしょう)。
+        // regionsVisited と おなじ かんがえかたで、「はじめから」しても
+        // きえない プレイヤーぜんたいの けいけんとして あつかう(未プレイ
+        // 優遇/アンチリピートの おもみづけに つかう)
+        minigamePlayCounts: {},
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -9411,9 +9418,14 @@
     };
   }
 
-  const BOX_PICK_VARIANTS = [
+  // RPG宝箱・脱出げーむ・くじびき・カードひき・ぶきえらびは、どれも
+  // 「複数のはこ/カードから 1つ タップして けっかを 見る」という
+  // 同一操作・同一こうぞうの テーマちがいと はんだんし、catch/whack と
+  // おなじ randomThemeGame パターンで 1つの ゲームに とうごうしてある
+  // (5テーマ じたいは のこし、あそぶたびに どれかが ランダムに えらばれる)
+  const BOX_PICK_THEMES = [
     // RPGふう(たからばこ)
-    makeBoxPickGame({
+    {
       title: 'たからばこを 1つ えらぼう!',
       boxEmoji: '🎁',
       boxCount: 3,
@@ -9422,9 +9434,9 @@
         { emoji: '🪙', label: 'ちいさな おたからを てにいれた', score: 60 },
         { emoji: '💣', label: 'あ、わなだった…', score: 15 },
       ],
-    }),
+    },
     // だっしゅつゲームふう(あやしい ばしょさがし)
-    makeBoxPickGame({
+    {
       title: 'あやしい ばしょを 1つ タップして しらべよう!',
       boxEmoji: '🔍',
       boxCount: 3,
@@ -9433,9 +9445,9 @@
         { emoji: '📜', label: 'ヒントを みつけた', score: 55 },
         { emoji: '🕸️', label: 'なにも なかった…', score: 20 },
       ],
-    }),
+    },
     // ぎゃんぶるふう(くじびき。げんじつの おかね・かきんとは むかんけい)
-    makeBoxPickGame({
+    {
       title: 'かんたん くじびき!1まい ひいてみよう',
       boxEmoji: '🎟️',
       boxCount: 4,
@@ -9445,9 +9457,9 @@
         { emoji: '🎈', label: 'ちいさな あたり', score: 45 },
         { emoji: '😅', label: 'はずれ…また ちょうせんしよう', score: 15 },
       ],
-    }),
+    },
     // ぎゃんぶるふう(カードを 1まい ひく)
-    makeBoxPickGame({
+    {
       title: 'カードを 1まい ひこう!',
       boxEmoji: '🂠',
       boxCount: 4,
@@ -9457,9 +9469,9 @@
         { emoji: '♥️', label: 'ふつうの カード', score: 40 },
         { emoji: '♣️', label: 'ざんねん カード', score: 20 },
       ],
-    }),
+    },
     // RPGふう(たたかいの まえに ぶきを 1つ えらぶ)
-    makeBoxPickGame({
+    {
       title: 'たたかいに もっていく ぶきを 1つ えらぼう!',
       boxEmoji: '⚔️',
       boxCount: 3,
@@ -9468,8 +9480,9 @@
         { emoji: '🏹', label: 'まあまあの ぶき', score: 55 },
         { emoji: '🪓', label: 'ふるい ぶきだった…', score: 25 },
       ],
-    }),
+    },
   ];
+  const BOX_PICK_VARIANTS = [randomThemeGame(makeBoxPickGame, BOX_PICK_THEMES)];
 
   // --- 属性そうせい(RPGの タイプあいしょうを あてる クイズ) ---
   const MATCHUP_PAIRS = [
@@ -10385,14 +10398,19 @@
     };
   }
 
-  const SPORTS_SWING_VARIANTS = [
-    makeSportsSwingGame({ title: 'サッカーPK!タイミングよく けろう', fieldEmoji: '🥅', ballEmoji: '⚽', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'はずれた…' }),
-    makeSportsSwingGame({ title: 'やきゅうバッティング!ジャストミートを ねらえ', fieldEmoji: '⚾', ballEmoji: '⚾', tapLabel: 'スイング!', successLabel: 'ヒット!', missLabel: 'くうぶり…' }),
-    makeSportsSwingGame({ title: 'バスケシュート!リングを ねらおう', fieldEmoji: '🏀', ballEmoji: '🏀', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'リングに あたった…' }),
-    makeSportsSwingGame({ title: 'テニスふう!ジャストヒットを ねらえ', fieldEmoji: '🎾', ballEmoji: '🎾', tapLabel: 'スイング!', successLabel: 'ナイスショット!', missLabel: 'アウト…' }),
-    makeSportsSwingGame({ title: 'たっきゅうふう!タイミングよく かえそう', fieldEmoji: '🏓', ballEmoji: '🏓', tapLabel: 'かえす!', successLabel: 'ナイスリターン!', missLabel: 'かえせなかった…' }),
-    makeSportsSwingGame({ title: 'バレーふう!スパイクを きめよう', fieldEmoji: '🏐', ballEmoji: '🏐', tapLabel: 'スパイク!', successLabel: 'きまった!', missLabel: 'ネットに かかった…' }),
+  // サッカー/やきゅう/バスケ/テニス/たっきゅう/バレーは、すべて おなじ
+  // 「タイミングよく ボタンを おす」判定ロジック(makeSportsSwingGame)を
+  // つかう テーマちがいと はんだんし、BOX_PICK と おなじ かんがえかたで
+  // randomThemeGame に とうごうしてある(6テーマ じたいは のこる)
+  const SPORTS_SWING_THEMES = [
+    { title: 'サッカーPK!タイミングよく けろう', fieldEmoji: '🥅', ballEmoji: '⚽', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'はずれた…' },
+    { title: 'やきゅうバッティング!ジャストミートを ねらえ', fieldEmoji: '⚾', ballEmoji: '⚾', tapLabel: 'スイング!', successLabel: 'ヒット!', missLabel: 'くうぶり…' },
+    { title: 'バスケシュート!リングを ねらおう', fieldEmoji: '🏀', ballEmoji: '🏀', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'リングに あたった…' },
+    { title: 'テニスふう!ジャストヒットを ねらえ', fieldEmoji: '🎾', ballEmoji: '🎾', tapLabel: 'スイング!', successLabel: 'ナイスショット!', missLabel: 'アウト…' },
+    { title: 'たっきゅうふう!タイミングよく かえそう', fieldEmoji: '🏓', ballEmoji: '🏓', tapLabel: 'かえす!', successLabel: 'ナイスリターン!', missLabel: 'かえせなかった…' },
+    { title: 'バレーふう!スパイクを きめよう', fieldEmoji: '🏐', ballEmoji: '🏐', tapLabel: 'スパイク!', successLabel: 'きまった!', missLabel: 'ネットに かかった…' },
   ];
+  const SPORTS_SWING_VARIANTS = [randomThemeGame(makeSportsSwingGame, SPORTS_SWING_THEMES)];
 
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
@@ -10721,10 +10739,30 @@
   // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
   // おなじ ジャンルが 3かい れんぞくしないように するための きろく
   const recentMinigameCategories = [];
-  // このセッション中に なんかい あそんだかを ゲームごとに きろくして、
-  // まだ あそんでいない・あまり あそんでいない ものを ちょっとだけ
-  // ひきやすくする(セーブデータには のこさない、そのばかぎりの ものでよい)
-  const minigamePlayCounts = new Map();
+
+  // ゲームオブジェクトは ページを ひらきなおす たびに つくりなおされる
+  // ため、そのまま Map の キーには できない(れいがい なく べつの
+  // オブジェクトに なってしまう)。かわりに MINIGAME_CATEGORY_GROUPS
+  // (category, そのカテゴリの なんばんめか)から つくった 文字列id を
+  // つかい、state.lifetime.minigamePlayCounts(id→かいすう)として
+  // えいきゅう保存する。これにより「あそんだ かいすう/みプレイ優遇」が
+  // ページを とじても きえず、なおとっちの いっしょうを こえて
+  // つみあがっていく(regionsVisited などと おなじ あつかい)
+  const minigameIdOf = new Map();
+  for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
+    variants.forEach((game, i) => minigameIdOf.set(game, `${category}#${i}`));
+  }
+
+  function minigamePlayCount(game) {
+    const id = minigameIdOf.get(game);
+    return id ? (state.lifetime.minigamePlayCounts[id] || 0) : 0;
+  }
+
+  function recordMinigamePlay(game) {
+    const id = minigameIdOf.get(game);
+    if (!id) return;
+    state.lifetime.minigamePlayCounts[id] = (state.lifetime.minigamePlayCounts[id] || 0) + 1;
+  }
 
   function buildMinigamePool() {
     const regionEntries = REGION_MINIGAMES[state.regionId];
@@ -10742,6 +10780,20 @@
     return [...basePool, ...seasonEntries.map((entry) => entry.game)];
   }
 
+  // いま の 地域/きせつに だけ 出る ゲームかどうかを、category名の 文字列
+  // ひかくではなく、REGION_MINIGAMES/SEASONAL_MINIGAMES の じっさいの
+  // ゲームオブジェクトとの いちぃ でなおに はんていする(データこうぞうを
+  // そのまま りようするので、タイトル文字列などに たよらない)
+  function isRegionExclusiveGame(game) {
+    const regionEntries = REGION_MINIGAMES[state.regionId];
+    return !!regionEntries && regionEntries.some((entry) => entry.game === game);
+  }
+
+  function isSeasonExclusiveGame(game) {
+    const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()];
+    return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
+  }
+
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
@@ -10751,7 +10803,7 @@
     // ものほど キューの うしろ(=つぎに 出てきやすい ところ)に よりやすい
     // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
     const weighted = currentMinigamePool.map((game, i) => {
-      const played = minigamePlayCounts.get(game) || 0;
+      const played = minigamePlayCount(game);
       const weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
@@ -10765,12 +10817,64 @@
     }
   }
 
+  // 「たびに でる」「きせつを かえる」で 地域/きせつが かわった 直後だけ、
+  // その場所/きせつ らしい ゲームに であいやすく する ための、のこり
+  // ブーストかいすう。かわった しゅんかんに セットされ、あそぶ たびに
+  // 1へって いく(0に なれば ふつうの かくりつに もどる)。地域の ほうが
+  // 優先・つよめ、きせつは よわめに してある
+  const REGION_ARRIVAL_BOOST_PLAYS = 5;
+  const REGION_ARRIVAL_BOOST_LOOKBACK = 24;
+  const SEASON_ARRIVAL_BOOST_PLAYS = 3;
+  const SEASON_ARRIVAL_BOOST_LOOKBACK = 16;
+  let regionArrivalBoostLeft = 0;
+  let seasonArrivalBoostLeft = 0;
+
+  // キューの うしろ(=つぎに 出る ところ)から さかのぼって lookback ぶんの
+  // はんいで、matches() に あう ゲームを さがし、見つかれば いちばん
+  // うしろ(=つぎに 出る いち)に いれかえる。見つからなければ なにも せず
+  // false を かえす(むりに 出そうとは しない)
+  function trySwapForwardMatching(matches, lookback) {
+    const topIdx = minigameQueue.length - 1;
+    if (topIdx < 0) return false;
+    const limit = Math.max(0, minigameQueue.length - lookback);
+    for (let i = topIdx; i >= limit; i--) {
+      if (matches(currentMinigamePool[minigameQueue[i]])) {
+        if (i !== topIdx) {
+          [minigameQueue[i], minigameQueue[topIdx]] = [minigameQueue[topIdx], minigameQueue[i]];
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+
   // 「ぜんぶ 出きるまで おなじ ものを くりかえさない」しくみは そのまま、
   // いま いる地域の あそびも まぜた プールぜんたいに たいして はたらく
   function pickRandomMinigame() {
-    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== getEffectiveSeason()) {
+    // refillMinigameQueue() で じょうほうが うわがきされる まえに、
+    // 地域/きせつが「いま かわった ところか」を さきに はんていしておく
+    const effectiveSeasonNow = getEffectiveSeason();
+    const regionJustChanged = minigameQueueRegionId !== null && minigameQueueRegionId !== state.regionId;
+    const seasonJustChanged = minigameQueueSeason !== null && minigameQueueSeason !== effectiveSeasonNow;
+
+    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== effectiveSeasonNow) {
       refillMinigameQueue();
     }
+    if (regionJustChanged) regionArrivalBoostLeft = REGION_ARRIVAL_BOOST_PLAYS;
+    if (seasonJustChanged) seasonArrivalBoostLeft = SEASON_ARRIVAL_BOOST_PLAYS;
+
+    // とうちゃく/きせつ切りかえ 直後の のこり かいすうぶんだけ、その
+    // 地域/きせつ げんてい ゲームを 見つけしだい つぎに 出るよう ひきよせる
+    // (見つからない ばあいは むりせず、ふつうの じゅんばんの まま)。
+    // 地域の ほうを 優先し、地域ブーストが きれている ときだけ きせつを ためす
+    if (regionArrivalBoostLeft > 0) {
+      trySwapForwardMatching(isRegionExclusiveGame, REGION_ARRIVAL_BOOST_LOOKBACK);
+      regionArrivalBoostLeft -= 1;
+    } else if (seasonArrivalBoostLeft > 0) {
+      trySwapForwardMatching(isSeasonExclusiveGame, SEASON_ARRIVAL_BOOST_LOOKBACK);
+      seasonArrivalBoostLeft -= 1;
+    }
+
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
     // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
     // あれば そちらを さきに 出す(なければ そのまま、むりには しない)
@@ -10794,7 +10898,7 @@
     const gameIdx = minigameQueue.pop();
     const game = currentMinigamePool[gameIdx];
     lastMinigame = game;
-    minigamePlayCounts.set(game, (minigamePlayCounts.get(game) || 0) + 1);
+    recordMinigamePlay(game);
     recentMinigameCategories.push(category);
     if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
     return game;
