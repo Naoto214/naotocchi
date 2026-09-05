@@ -2791,6 +2791,59 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   margin-top: 4px;
 }
 
+/* せんたく式ミニゲームきょうつうの せいかい/ふせいかい ひょうじ
+   (revealAndProceed() さんしょう)。いろだけに たよらず、⭕/❌/✓の
+   きごうでも つたわる ようにしてある */
+.mg-reveal-correct,
+.mg-reveal-incorrect {
+  position: relative;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.mg-reveal-correct {
+  background: #d9f2c4 !important;
+  border-color: #6fae5f !important;
+  box-shadow: 0 0 0 2px #6fae5f inset;
+}
+
+.mg-reveal-incorrect {
+  background: #ffd9d3 !important;
+  border-color: #d9534f !important;
+  box-shadow: 0 0 0 2px #d9534f inset;
+}
+
+.mg-reveal-mark {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* かるい 誤操作フィードバック(flashMistake() さんしょう)。ゲームは
+   とめず、まちがえた ことだけ 一しゅん つたえる */
+.mg-mistake-flash {
+  position: relative;
+  animation: mg-fight-shake 0.25s ease;
+  background: #ffd9d3 !important;
+}
+
+/* なりきりポーズ: ふせいかいの ときだけ つかう、せいかい時の
+   きもちリアクションとは あきらかに ちがう「くびを かしげて こまる」
+   反応(過度に ネガティブには しない) */
+.pet.pose-confused {
+  animation: mg-pose-confused 0.5s ease-in-out;
+}
+
+@keyframes mg-pose-confused {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-14deg); }
+  70% { transform: rotate(10deg); }
+}
+
 /* catch */
 
 .mg-catch-field {
@@ -2826,6 +2879,18 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   transform: translateX(-50%);
 }
 
+/* とった しゅんかんに そくじ 消えるのではなく、いちど ポップさせてから
+   消して 手ごたえを 見せる(catch系。B評価の 軽微な えんしゅつ) */
+.mg-falling-item.mg-catch-pop {
+  animation: mg-catch-pop 0.18s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes mg-catch-pop {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.7); opacity: 0; }
+}
+
 /* whack */
 
 .mg-whack-grid {
@@ -2850,6 +2915,19 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 
 .mg-hole.active {
   background: #a3d98f;
+}
+
+/* ヒットした しゅんかんに そくじ 消えるのではなく、一しゅん ポップさせて
+   手ごたえを 見せる(whack系。B評価の 軽微な えんしゅつ) */
+.mg-hole.hit-pop {
+  background: #ffe066;
+  animation: mg-hole-hit-pop 0.15s ease-out;
+}
+
+@keyframes mg-hole-hit-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
 }
 
 .mg-hole.wrong {
@@ -3199,6 +3277,18 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { bottom: 105%; opacity: 0.6; }
 }
 
+/* ポップした しゅんかんに そくじ 消えるのではなく、いま の いちで
+   はじける ようすを 一しゅん 見せる(B評価の 軽微な えんしゅつ) */
+.mg-bubble.mg-bubble-pop {
+  animation: mg-bubble-pop-anim 0.16s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes mg-bubble-pop-anim {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
 /* spell */
 
 .mg-spell-target {
@@ -3231,11 +3321,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .mg-jump-player {
   font-size: 30px;
   margin-left: 10px;
-  transition: transform 0.15s ease;
+  transition: transform 0.19s ease-out;
 }
 
 .mg-jump-player.jumping {
-  transform: translateY(-16px);
+  transform: translateY(-20px);
+}
+
+.mg-jump-player.hit {
+  animation: mg-fight-shake 0.3s ease;
 }
 
 .mg-jump-obstacle {
@@ -3252,6 +3346,13 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 @keyframes mg-jump-approach {
   0% { left: calc(100% - 36px); }
   100% { left: 46px; }
+}
+
+/* 判定後、しょうがいぶつが プレイヤーの したを とおりすぎて
+   画面外へ ぬける えんしゅつ(判定タイミングそのものは かえない) */
+@keyframes mg-jump-exit {
+  0% { left: 46px; }
+  100% { left: -40px; }
 }
 
 /* ロード(3れーんを よけよう・キャッチしよう) */
