@@ -446,8 +446,16 @@
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
     regionDecor: document.getElementById('regionDecor'),
+    seasonLabel: document.getElementById('seasonLabel'),
     regionLabel: document.getElementById('regionLabel'),
     partnerLabel: document.getElementById('partnerLabel'),
+    worldOverlay: document.getElementById('worldOverlay'),
+    worldCloseBtn: document.getElementById('worldCloseBtn'),
+    worldSeasonMenuBtn: document.getElementById('worldSeasonMenuBtn'),
+    worldTravelBtn: document.getElementById('worldTravelBtn'),
+    seasonOverlay: document.getElementById('seasonOverlay'),
+    seasonCloseBtn: document.getElementById('seasonCloseBtn'),
+    seasonModeGrid: document.getElementById('seasonModeGrid'),
     profileBtn: document.getElementById('profileBtn'),
     profileOverlay: document.getElementById('profileOverlay'),
     profileCloseBtn: document.getElementById('profileCloseBtn'),
@@ -669,6 +677,16 @@
         // ずかんと おなじく「はじめから」しても消えない、永続の せってい
         deviceThemeId: 'default',
         screenThemeId: 'default',
+        // 「せかい」→「きせつを かえる」で えらんだ きせつの せってい
+        // モード('auto'|'spring'|'summer'|'autumn'|'winter')。地域(regionId)
+        // とはちがい「なおとっちが くらす せかい」の じょうたいなので、
+        // でざいんの いろ・がらと おなじく「はじめから」しても きえない
+        // 永続せってい としてあつかう。きせつせってい を もたない ふるい
+        // セーブデータは loadState() の lifetime マージで じどうに 'auto'が
+        // 補われる(getEffectiveSeason() 参照)。SEASON_MODE_AUTO 定数は この
+        // freshState() より あとで 定義される ため、じゅんじょの もんだいを
+        // さける ために ここだけ リテラル文字列 'auto' を じかに つかう
+        seasonMode: 'auto',
         // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
         // どくりつに えらべる、もうひとつの おしゃれ せってい
         devicePatternId: 'none',
@@ -3411,7 +3429,7 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !dexOpen && !achOpen && !themeOpen && !profileOpen
+        && !dexOpen && !achOpen && !themeOpen && !profileOpen && !worldOpen && !seasonOpen
         && remaining.length > 0;
       if (canEncounter) {
         const companion = remaining[Math.floor(Math.random() * remaining.length)];
@@ -3580,6 +3598,9 @@
 
     const region = applyRegion();
     el.regionLabel.textContent = `${region.emoji} ${region.label}`;
+    const effectiveSeason = getEffectiveSeason();
+    const seasonInfo = SEASON_INFO[effectiveSeason];
+    el.seasonLabel.textContent = seasonInfo ? `${seasonInfo.emoji} ${seasonInfo.label}` : '';
     el.partnerLabel.textContent = state.partner
       ? `${state.partner.married ? '💍' : '💑'} ${state.partner.emoji} ${state.partner.label}`
       : '';
@@ -3656,6 +3677,11 @@
     el.duelOverlay.classList.toggle('hidden', !duelOpen);
     if (duelOpen) renderDuelOverlay();
 
+    el.worldOverlay.classList.toggle('hidden', !worldOpen);
+
+    el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
+    if (seasonOpen) renderSeasonModeGrid();
+
     renderItemsRow(disableCare);
   }
 
@@ -3666,6 +3692,11 @@
   let commOpen = false;
   let itemOpen = false;
   let duelOpen = false;
+  // 「🌍 せかい」がめん(きせつを かえる/たびに でる の いりぐち)と、
+  // その中の「きせつを かえる」サブがめん。dexOpen などと おなじ しくみで
+  // render() から ひょうじを きりかえる
+  let worldOpen = false;
+  let seasonOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
@@ -3897,6 +3928,26 @@
     if (!theme || !isThemeUnlocked(theme)) return;
     if (target === 'device') state.lifetime.deviceThemeId = id;
     else state.lifetime.screenThemeId = id;
+    saveState();
+    render();
+  }
+
+  // 「せかい」→「きせつを かえる」がめん。でざいんの いろ・がら スウォッチ
+  // (.theme-swatch)と おなじ 見た目を りようして、5つの せってい モード
+  // (げんじつに あわせる/はる/なつ/あき/ふゆ)を いちらん表示する。ロックは
+  // ないので、でざいんとちがい ぜんぶ つねに えらべる
+  function renderSeasonModeGrid() {
+    const currentMode = state.lifetime.seasonMode || SEASON_MODE_AUTO;
+    el.seasonModeGrid.innerHTML = SEASON_MODE_ORDER.map((mode) => {
+      const info = mode === SEASON_MODE_AUTO ? { emoji: '🕐', label: 'げんじつに あわせる' } : SEASON_INFO[mode];
+      const selected = mode === currentMode;
+      return `<button type="button" class="theme-swatch ${selected ? 'selected' : ''}" data-id="${mode}"><span class="theme-swatch-circle">${info.emoji}</span><span class="theme-swatch-label">${info.label}</span></button>`;
+    }).join('');
+  }
+
+  function selectSeasonMode(mode) {
+    if (!SEASON_MODE_ORDER.includes(mode)) return;
+    state.lifetime.seasonMode = mode;
     saveState();
     render();
   }
@@ -4810,6 +4861,23 @@
 
   // --- minigames (triggered by the play button) ---
 
+  // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
+  // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
+  // たくさん あった(例:キャッチゲームの「おやつ/くだもの/やさい/おかし」)。
+  // これらは べつべつの エントリとして 水増しする かわりに、この ヘルパーで
+  // 1つの ゲームに まとめ、あそぶ たびに テーマを ランダムに えらびなおす
+  // ことで、見た目の バリエーションは のこしつつ プールの けんすうを
+  // へらしている(「あそんだ かんじょく」が おなじ ゲームを 何度も べつの
+  // ゲームとして かぞえない ため)
+  function randomThemeGame(factory, themes) {
+    return {
+      start(container, onComplete) {
+        const theme = themes[Math.floor(Math.random() * themes.length)];
+        return factory(theme).start(container, onComplete);
+      },
+    };
+  }
+
   // shared factory behind every catch-and-avoid themed minigame - only the
   // title, basket emoji, and item pools change between variants
   function makeCatchGame({ title, basketEmoji, goodItems, badItems }) {
@@ -4937,19 +5005,20 @@
     };
   }
 
+  // おやつ/くだもの/やさい/おかしの4テーマは「良い食べ物を キャッチし、
+  // 悪い物を よける」という 操作・かちはい判定が 完全に おなじ 水増しだった
+  // ため、randomThemeGame で 1つの エントリに 統合した(あそぶ たびに
+  // テーマは ランダムで えらばれるので、見た目の バリエーションは のこる)。
+  // おすし(からさの ハザード)・ほし(宇宙テーマ)は バスケットの 見た目・
+  // ハザードの しゅるいが 他と はっきり ちがうので べつエントリの まま のこした
+  const CATCH_FOOD_THEMES = [
+    { title: 'おやつキャッチ!わるい ものは よけよう', basketEmoji: '🧺', goodItems: ['🍙', '🍎', '🍬', '🍇'], badItems: ['💩', '🪳', '🔪', '🔫'] },
+    { title: 'くだものキャッチ!くさった のは いらない', basketEmoji: '🧺', goodItems: ['🍓', '🍊', '🍑', '🍌'], badItems: ['🐛', '🦠', '🗑️', '☠️'] },
+    { title: 'やさいキャッチ!むしは いやだよね', basketEmoji: '🧺', goodItems: ['🥕', '🥦', '🌽', '🍅'], badItems: ['🐛', '🐌', '🪱', '🕷️'] },
+    { title: 'おかしキャッチ!からい ものは にがて', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
+  ];
   const CATCH_GAME_VARIANTS = [
-    makeCatchGame({
-      title: 'おやつキャッチ!わるい ものは よけよう',
-      basketEmoji: '🧺',
-      goodItems: ['🍙', '🍎', '🍬', '🍇'],
-      badItems: ['💩', '🪳', '🔪', '🔫'],
-    }),
-    makeCatchGame({
-      title: 'くだものキャッチ!くさった のは いらない',
-      basketEmoji: '🧺',
-      goodItems: ['🍓', '🍊', '🍑', '🍌'],
-      badItems: ['🐛', '🦠', '🗑️', '☠️'],
-    }),
+    randomThemeGame(makeCatchGame, CATCH_FOOD_THEMES),
     makeCatchGame({
       title: 'おすしキャッチ!わさびは からいよ',
       basketEmoji: '🍽️',
@@ -4961,18 +5030,6 @@
       basketEmoji: '🛸',
       goodItems: ['⭐', '🌟', '✨', '🌠'],
       badItems: ['☄️', '🪨', '⚡', '🛰️'],
-    }),
-    makeCatchGame({
-      title: 'やさいキャッチ!むしは いやだよね',
-      basketEmoji: '🧺',
-      goodItems: ['🥕', '🥦', '🌽', '🍅'],
-      badItems: ['🐛', '🐌', '🪱', '🕷️'],
-    }),
-    makeCatchGame({
-      title: 'おかしキャッチ!からい ものは にがて',
-      basketEmoji: '🎪',
-      goodItems: ['🍭', '🍩', '🧁', '🍫'],
-      badItems: ['🌶️', '🔥', '🥵', '🍛'],
     }),
     // なつかしい 配管工アクションの「キノコと コインを あつめて とげは
     // よける」あそびごこちを モチーフにした オマージュ
@@ -4989,6 +5046,13 @@
       basketEmoji: '🛡️',
       goodItems: ['💎', '💰', '🗝️', '🍯'],
       badItems: ['💀', '🦂', '🕷️', '☠️'],
+    }),
+    // らくば集めイベントの「おちば」テーマ(季節イベント用にも きょうつうで つかう)
+    makeCatchGame({
+      title: 'おちばキャッチ!ぬれはは よけよう',
+      basketEmoji: '🧺',
+      goodItems: ['🍁', '🍂', '🌰', '🍄'],
+      badItems: ['🐛', '💧', '🕷️', '🦔'],
     }),
   ];
 
@@ -5081,23 +5145,33 @@
     };
   }
 
+  // ほし/もぐら/むし/おばけ/ひよこは「とびだす まとを タップする」だけの
+  // 完全に おなじ 操作・かちはい判定の 水増しだった ため、randomThemeGame で
+  // 1つに 統合(あそぶ たびに まとの しゅるいは ランダム)。オマージュ2つは
+  // モチーフが はっきり ちがう ため べつエントリの まま のこした
+  const WHACK_TARGET_THEMES = [
+    { title: 'とびだす ほしを タップ!', targetEmoji: '⭐' },
+    { title: 'とびだす もぐらを タップ!', targetEmoji: '🐹' },
+    { title: 'とびだす むしを タップ!', targetEmoji: '🐞' },
+    { title: 'とびだす おばけを タップ!', targetEmoji: '👻' },
+    { title: 'とびだす ひよこを タップ!', targetEmoji: '🐥' },
+  ];
   const WHACK_GAME_VARIANTS = [
-    makeWhackGame({ title: 'とびだす ほしを タップ!', targetEmoji: '⭐' }),
-    makeWhackGame({ title: 'とびだす もぐらを タップ!', targetEmoji: '🐹' }),
-    makeWhackGame({ title: 'とびだす むしを タップ!', targetEmoji: '🐞' }),
-    makeWhackGame({ title: 'とびだす おばけを タップ!', targetEmoji: '👻' }),
-    makeWhackGame({ title: 'とびだす ひよこを タップ!', targetEmoji: '🐥' }),
+    randomThemeGame(makeWhackGame, WHACK_TARGET_THEMES),
     // なつかしい 配管工アクションの「?ブロックを たたく」を モチーフにした
     // オマージュ。商標キャラの名まえは つかわず、モチーフだけ お借りする
     makeWhackGame({ title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' }),
     // かくとうアクションの「ライバルを ふっとばす」あそびごこちを タップの
     // テンポで オマージュ
     makeWhackGame({ title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' }),
+    // むしとりイベントの テーマ(育成ゲームらしい あそび むけ)
+    makeWhackGame({ title: 'とびだす ほたるを つかまえよう!', targetEmoji: '🪰' }),
   ];
 
   // shared factory behind every timing-bar minigame - only the title, tap
-  // button label, and gauge color theme change between variants
-  function makeTimingGame({ title, tapLabel, gaugeStyle }) {
+  // button label、ゲージいろ、にんいの アイコン(icon、ジャンルを ひとめで
+  // 見せる ための かざり)が バリエーションごとに かわる
+  function makeTimingGame({ title, tapLabel, gaugeStyle, icon }) {
     return {
     start(container, onComplete) {
       const difficulty = ageDifficulty();
@@ -5123,6 +5197,7 @@
           <span id="mgScore">とくてん: 0</span>
         </div>
         <div class="mg-timing-body">
+          ${icon ? `<div class="mg-timing-icon">${icon}</div>` : ''}
           <div class="mg-title">${title}</div>
           <div class="mg-gauge" id="mgGauge" style="background:${gaugeStyle}">
             <div class="mg-gauge-zone" id="mgZone"></div>
@@ -5211,13 +5286,28 @@
     };
   }
 
+  // 「ちょうどいい/ジャスト/リズムに」の3つは ジャンルの いろどりが なく、
+  // ゲージの いろ・かけごえ だけが ちがう 水増しだった ため、randomThemeGame
+  // で 1つに 統合した。りょうり・シミュレーション・アーケードの テーマは
+  // ジャンルの みため(アイコン)を はっきり つける ため、べつエントリの まま のこす
+  const TIMING_GENERIC_THEMES = [
+    { title: 'ちょうどいい タイミングで タップ!', tapLabel: 'タップ!', gaugeStyle: '#6fae5f' },
+    { title: 'ジャストタイミングを ねらえ!', tapLabel: 'ここだ!', gaugeStyle: '#4a90d9' },
+    { title: 'リズムに あわせて タップ!', tapLabel: 'いくよ!', gaugeStyle: '#c76fc9' },
+  ];
   const TIMING_GAME_VARIANTS = [
-    makeTimingGame({ title: 'ちょうどいい タイミングで タップ!', tapLabel: 'タップ!', gaugeStyle: '#6fae5f' }),
-    makeTimingGame({ title: 'ジャストタイミングを ねらえ!', tapLabel: 'ここだ!', gaugeStyle: '#4a90d9' }),
-    makeTimingGame({ title: 'リズムに あわせて タップ!', tapLabel: 'いくよ!', gaugeStyle: '#c76fc9' }),
+    randomThemeGame(makeTimingGame, TIMING_GENERIC_THEMES),
     // かくとうアクションの「ジャストタイミングで ためて はなつ スマッシュ
     // こうげき」あそびごこちを モチーフにした オマージュ
     makeTimingGame({ title: 'スマッシュこうげき!タイミングよく ためて はなとう', tapLabel: 'スマッシュ!', gaugeStyle: '#ff6b3d' }),
+    // りょうり(キッチンで タイミングよく しあげる)
+    makeTimingGame({ title: 'おにくを ちょうどよく やこう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#d97a3d', icon: '🍖' }),
+    makeTimingGame({ title: 'たまごやきを ひっくりかえそう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#f5c542', icon: '🍳' }),
+    // シミュレーション(のりもの・こうつうを ちょうどいい いちで とめる)
+    makeTimingGame({ title: 'でんしゃを ぴったりの いちで とめよう!', tapLabel: 'ブレーキ!', gaugeStyle: '#4a90d9', icon: '🚃' }),
+    makeTimingGame({ title: 'ひこうきを ちょうどよく ちゃくりくさせよう!', tapLabel: 'ちゃくりく!', gaugeStyle: '#8fb8e8', icon: '✈️' }),
+    // ゲームセンター風(クレーンゲーム)
+    makeTimingGame({ title: 'クレーンゲーム!ぴったりで キャッチしよう!', tapLabel: 'キャッチ!', gaugeStyle: '#e879b0', icon: '🕹️' }),
   ];
 
   const QUIZ_QUESTIONS = [
@@ -5775,12 +5865,12 @@
     };
   }
 
-  const MEMORY_GAME_VARIANTS = [
-    makeMemoryGame({
-      title: 'じゅんばんを おぼえて タップ!',
-      pads: [{ bg: '#ff6b6b' }, { bg: '#4dabf7' }, { bg: '#ffd43b' }, { bg: '#69db7c' }],
-    }),
-    makeMemoryGame({
+  // どうぶつ/たべもの/きせつは パッドの えがらだけが ちがう、じゅんばんを
+  // おぼえて タップする 操作・かちはい判定が おなじ 水増しだった ため、
+  // randomThemeGame で 1つに 統合した。むじの いろパッド版は 見た目が
+  // はっきり ちがう(えもじが なく いろだけ)ので べつエントリの まま のこす
+  const MEMORY_EMOJI_THEMES = [
+    {
       title: 'どうぶつの じゅんばんを おぼえよう!',
       pads: [
         { bg: '#ffd8a8', emoji: '🐶' },
@@ -5788,8 +5878,8 @@
         { bg: '#fff3bf', emoji: '🐥' },
         { bg: '#d3f9d8', emoji: '🐸' },
       ],
-    }),
-    makeMemoryGame({
+    },
+    {
       title: 'たべものの じゅんばんを おぼえよう!',
       pads: [
         { bg: '#ffe3e3', emoji: '🍎' },
@@ -5797,8 +5887,8 @@
         { bg: '#e7f5ff', emoji: '🍇' },
         { bg: '#eaf7e6', emoji: '🍓' },
       ],
-    }),
-    makeMemoryGame({
+    },
+    {
       title: 'きせつの じゅんばんを おぼえよう!',
       pads: [
         { bg: '#ffe0ec', emoji: '🌸' },
@@ -5806,7 +5896,24 @@
         { bg: '#ffe8cc', emoji: '🍁' },
         { bg: '#e7ecff', emoji: '⛄' },
       ],
+    },
+    // しごと・せいかつ系(レジ打ち・ちゅうもんを おぼえる)
+    {
+      title: 'ちゅうもんの じゅんばんを おぼえて レジ打ちしよう!',
+      pads: [
+        { bg: '#fff3e0', emoji: '🍔' },
+        { bg: '#e3f2fd', emoji: '🍟' },
+        { bg: '#f3e5f5', emoji: '🥤' },
+        { bg: '#e8f5e9', emoji: '🍦' },
+      ],
+    },
+  ];
+  const MEMORY_GAME_VARIANTS = [
+    makeMemoryGame({
+      title: 'じゅんばんを おぼえて タップ!',
+      pads: [{ bg: '#ff6b6b' }, { bg: '#4dabf7' }, { bg: '#ffd43b' }, { bg: '#69db7c' }],
     }),
+    randomThemeGame(makeMemoryGame, MEMORY_EMOJI_THEMES),
   ];
 
   function mixedMathProblem(difficulty) {
@@ -6030,6 +6137,8 @@
   const REACTION_GAME_VARIANTS = [
     makeReactionGame({ title: 'はんしゃしんけい チャレンジ!', waitWord: 'まってね…', goWord: 'いま!', tooSoonWord: 'はやすぎ!' }),
     makeReactionGame({ title: 'しゅんぱつりょく チャレンジ!', waitWord: 'じゅんび…', goWord: 'ダッシュ!', tooSoonWord: 'フライング!' }),
+    // つり(あたりが きた しゅんかんに タップして あわせる)
+    makeReactionGame({ title: 'つりざお チャレンジ!あたりを のがすな!', waitWord: '🎣 まちうけちゅう…', goWord: '🐟 きた!', tooSoonWord: 'まだ あたって ないよ!' }),
   ];
 
   const stroopGame = {
@@ -6364,11 +6473,17 @@
     };
   }
 
-  const CONCENTRATION_GAME_VARIANTS = [
-    makeConcentrationGame({ title: 'くだものの ペアを さがそう!', emojis: ['🍎', '🍌', '🍇', '🍓', '🍊', '🍑'] }),
-    makeConcentrationGame({ title: 'どうぶつの ペアを さがそう!', emojis: ['🐶', '🐱', '🐭', '🐸', '🐹', '🐰'] }),
-    makeConcentrationGame({ title: 'たべもののペアを さがそう!', emojis: ['🍙', '🍣', '🍕', '🍔', '🍜', '🍰'] }),
+  // くだもの/どうぶつ/たべものは カードの えがら が ちがうだけで、めくって
+  // ペアを さがす 操作・かちはい判定は まったく おなじ 水増しだった ため、
+  // randomThemeGame で 1つに 統合した(えがらの プールも きせつテーマを
+  // くわえて ひろげた)
+  const CONCENTRATION_THEMES = [
+    { title: 'くだものの ペアを さがそう!', emojis: ['🍎', '🍌', '🍇', '🍓', '🍊', '🍑'] },
+    { title: 'どうぶつの ペアを さがそう!', emojis: ['🐶', '🐱', '🐭', '🐸', '🐹', '🐰'] },
+    { title: 'たべもののペアを さがそう!', emojis: ['🍙', '🍣', '🍕', '🍔', '🍜', '🍰'] },
+    { title: 'きせつの えがらの ペアを さがそう!', emojis: ['🌸', '🎋', '🎃', '⛄', '🍁', '🌻'] },
   ];
+  const CONCENTRATION_GAME_VARIANTS = [randomThemeGame(makeConcentrationGame, CONCENTRATION_THEMES)];
 
   // --- 連打チャレンジ ---
 
@@ -6417,6 +6532,8 @@
   const MASH_GAME_VARIANTS = [
     makeMashGame({ title: 'あわを あつめろ!れんだタップ!', buttonEmoji: '🫧' }),
     makeMashGame({ title: 'ほしを あつめろ!れんだタップ!', buttonEmoji: '⭐' }),
+    // ゲームセンター風(パンチりょく そくてい)
+    makeMashGame({ title: 'パンチりょく そくてい!れんだで きたえよう!', buttonEmoji: '👊' }),
   ];
 
   // --- バランスゲーム ---
@@ -6702,11 +6819,15 @@
     };
   }
 
+  // おなじ ゲーム(かずくらべ/おおきさくらべ)の なかで えもじだけ ちがう
+  // 2つずつの エントリは タイトルまで まったく おなじだった ため、それぞれ
+  // randomThemeGame で 1つに 統合した(かずくらべ・おおきさくらべ じたいは
+  // ちがう のうりょくを つかう ため、べつしゅるいの まま のこす)
+  const COUNT_COMPARE_THEMES = [{ emoji: '⭐' }, { emoji: '🍬' }, { emoji: '🐟' }];
+  const SIZE_COMPARE_THEMES = [{ emoji: '🍎' }, { emoji: '🐸' }, { emoji: '🎈' }];
   const COMPARE_VARIANTS = [
-    makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: '⭐' }),
-    makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: '🍬' }),
-    makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: '🍎' }),
-    makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: '🐸' }),
+    randomThemeGame((t) => makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: t.emoji }), COUNT_COMPARE_THEMES),
+    randomThemeGame((t) => makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: t.emoji }), SIZE_COMPARE_THEMES),
   ];
 
   // --- かたちあわせ ---
@@ -6831,6 +6952,20 @@
         { key: 'cake', emoji: '🍰', label: 'ケーキ' },
         { key: 'pizza', emoji: '🍕', label: 'ピザ' },
         { key: 'icecream', emoji: '🍦', label: 'アイス' },
+      ],
+    }),
+    // ホラーふう(こわすぎない、なおとっちらしい かわいい ホラー演出)。
+    // シルエットの したの すがたを あてる だけの おなじ しくみを つかい、
+    // くらやみに まぎれた ものを 見わける という テーマだけを かえている
+    makeSilhouetteGame({
+      title: 'くらやみの なかの シルエットは だれ?',
+      pool: [
+        { key: 'friendlyghost', emoji: '👻', label: 'フレンドリーおばけ' },
+        { key: 'blackcat', emoji: '🐈‍⬛', label: 'くろねこ' },
+        { key: 'bat', emoji: '🦇', label: 'こうもり' },
+        { key: 'pumpkin', emoji: '🎃', label: 'かぼちゃ' },
+        { key: 'skeleton', emoji: '💀', label: 'がいこつ' },
+        { key: 'spider', emoji: '🕷️', label: 'くも' },
       ],
     }),
   ];
@@ -6972,6 +7107,8 @@
   const BEAT_GAME_VARIANTS = [
     makeBeatGame({ title: 'ビートに あわせて タップ!', beatEmoji: '⭐' }),
     makeBeatGame({ title: 'ハートの リズムタップ!', beatEmoji: '💗' }),
+    // スポーツ(なわとび。ビートに あわせて とぶ タイミングを あわせる)
+    makeBeatGame({ title: 'なわとび!リズムよく ジャンプしよう!', beatEmoji: '🪢' }),
   ];
 
   // --- けつだんめいろ ---
@@ -7116,6 +7253,9 @@
     // なつかしい 冒険アクションの「ハートを あつめて たいりょくを
     // かいふくする」あそびごこちを モチーフにした オマージュ
     makeSortGame({ title: 'ハートだけ タップして たいりょくを かいふく!', targetEmoji: '❤️', otherEmojis: ['💀', '👹', '🦇', '🕸️'] }),
+    // しごと・せいかつ系(おかたづけ)
+    makeSortGame({ title: 'おもちゃだけ タップして おかたづけ!', targetEmoji: '🧸', otherEmojis: ['🗑️', '🍌', '🪨', '🦴'] }),
+    makeSortGame({ title: 'しろい せんたくものだけ タップしよう!', targetEmoji: '⚪', otherEmojis: ['🔴', '🟡', '🟢', '🔵'] }),
   ];
 
   // --- ハイ&ロー ---
@@ -7434,11 +7574,11 @@
 
   // tap two number cards that sum to the shown target - a pair-selection
   // puzzle rather than a straight multiple-choice calculation
-  function makeSumPairGame({ title }) {
+  function makeSumPairGame({ title, targetOverride }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const target = 8 + Math.floor(Math.random() * 8);
+        const target = targetOverride || (8 + Math.floor(Math.random() * 8));
         const pairCount = Math.round(lerp(2, 3, difficulty));
         const distractorCount = Math.round(lerp(1, 2, difficulty));
         const timeLimitMs = lerp(8000, 5000, difficulty);
@@ -7522,9 +7662,17 @@
     };
   }
 
+  // 「たしざんペア」「かずの カップリング」は タイトルいがい 完全に おなじ
+  // ゲームだった ため、randomThemeGame で 1つに 統合した。ブラックジャック風は
+  // 目標を 21に こていする ことで、カードゲームらしい べつの あじわいに した
+  const SUM_PAIR_THEMES = [
+    { title: 'たしざんペア さがし!' },
+    { title: 'かずの カップリング!' },
+  ];
   const SUM_PAIR_VARIANTS = [
-    makeSumPairGame({ title: 'たしざんペア さがし!' }),
-    makeSumPairGame({ title: 'かずの カップリング!' }),
+    randomThemeGame(makeSumPairGame, SUM_PAIR_THEMES),
+    // カードゲーム風(ブラックジャックの「21」を ねらう かずあわせ)
+    makeSumPairGame({ title: 'ブラックジャックふう!21に なる ペアを さがそう', targetOverride: 21 }),
   ];
 
   // --- しょうがいぶつジャンプ ---
@@ -8143,21 +8291,21 @@
     };
   }
 
+  // つみき/パンケーキ/ケーキは ブロックの 見た目だけが ちがう、うごく
+  // ブロックを タイミングよく タップで おとす 操作・かちはい判定が おなじ
+  // 水増しだった ため、randomThemeGame で 1つに 統合した
+  const STACK_THEMES = [
+    { title: 'つみきタワー!せいかくに かさねよう', blockEmoji: '🟦', palette: ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'] },
+    { title: 'パンケーキタワー!たかく かさねよう', blockEmoji: '🥞', palette: ['#f6d9a5', '#f0c078', '#e8a95c', '#dba05a', '#c98a4a', '#b87a3f', '#a56a35'] },
+    { title: 'ケーキタワー!おいわいの たかづみ', blockEmoji: '🍰', palette: ['#ffd1e8', '#ffe4b5', '#d1f0d8', '#d1e8ff', '#e8d1ff', '#fff5b8', '#ffcccb'] },
+  ];
   const STACK_GAME_VARIANTS = [
+    randomThemeGame(makeStackGame, STACK_THEMES),
+    // ふゆの ゆきだるまづくり テーマ(育成ゲームらしい あそび むけ)
     makeStackGame({
-      title: 'つみきタワー!せいかくに かさねよう',
-      blockEmoji: '🟦',
-      palette: ['#f6a5c0', '#a5d8f6', '#c8f6a5', '#f6e2a5', '#d3a5f6', '#a5f6d8', '#f6c8a5'],
-    }),
-    makeStackGame({
-      title: 'パンケーキタワー!たかく かさねよう',
-      blockEmoji: '🥞',
-      palette: ['#f6d9a5', '#f0c078', '#e8a95c', '#dba05a', '#c98a4a', '#b87a3f', '#a56a35'],
-    }),
-    makeStackGame({
-      title: 'ケーキタワー!おいわいの たかづみ',
-      blockEmoji: '🍰',
-      palette: ['#ffd1e8', '#ffe4b5', '#d1f0d8', '#d1e8ff', '#e8d1ff', '#fff5b8', '#ffcccb'],
+      title: 'ゆきだるまタワー!まるく かさねよう',
+      blockEmoji: '⚪',
+      palette: ['#ffffff', '#f0f8ff', '#e6f2ff', '#f5fbff', '#ffffff', '#eef7ff', '#f8fcff'],
     }),
   ];
 
@@ -8470,6 +8618,1561 @@
     makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' }),
   ];
 
+  // --- めいろチェイス: めいろを うごきまわって エサを ぜんぶ たべつつ、
+  // おいかけてくる てきを かわす。なつかしい ドットめいろアクションの
+  // あそびごこちを モチーフにした オマージュ・ミニゲーム。マップは
+  // どうろの中央にある2本のたてどおりを、上下2本のよこどおりで つなぐ
+  // 「ドーナツがた」の1しゅるいを きょうつうで つかう(D-パッドで
+  // 上下左右に1マスずつ すすみ、てきは まいかい プレイヤーとの きょり
+  // ちぢまる ほうこうへ すすむ、ただし ときどき ランダムに うごいて
+  // かんぜんに よみきれる うごきには ならない)
+  const CHASE_LAYOUT = [
+    '#######',
+    '#P....#',
+    '#.###.#',
+    '#.....#',
+    '#.###G#',
+    '#######',
+  ];
+  const CHASE_COLS = CHASE_LAYOUT[0].length;
+  const CHASE_ROWS = CHASE_LAYOUT.length;
+
+  function makeChaseGame({ title, dotEmoji, chaserEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = lerp(15000, 10500, difficulty);
+        const chaserStepMs = lerp(750, 420, difficulty);
+        let player = null;
+        let chaser = null;
+        const dots = new Set();
+        const dotEls = {};
+        let totalDots = 0;
+        let collected = 0;
+        let running = true;
+        let moving = false;
+        let chaserTimer;
+        let tickTimer;
+        let startTime;
+
+        CHASE_LAYOUT.forEach((rowStr, r) => {
+          [...rowStr].forEach((ch, c) => {
+            if (ch === 'P') player = { row: r, col: c };
+            if (ch === 'G') chaser = { row: r, col: c };
+            if (ch === '.') { dots.add(`${r},${c}`); totalDots += 1; }
+          });
+        });
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: ${Math.ceil(DURATION_MS / 1000)}s</span>
+            <span id="mgScore">あつめた: 0/${totalDots}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-chase-wrap" id="mgChaseWrap">
+            <div class="mg-chase-grid" id="mgChaseGrid" style="grid-template-columns: repeat(${CHASE_COLS}, 1fr); grid-template-rows: repeat(${CHASE_ROWS}, 1fr);"></div>
+            <span class="mg-chase-player" id="mgChasePlayer">${currentSprite()}</span>
+            <span class="mg-chase-chaser" id="mgChaseChaser">${chaserEmoji}</span>
+          </div>
+          <div class="mg-dpad">
+            <button class="mg-tap-btn" id="mgChaseUp">▲</button>
+            <div class="mg-dpad-mid">
+              <button class="mg-tap-btn" id="mgChaseLeft">◀</button>
+              <button class="mg-tap-btn" id="mgChaseRight">▶</button>
+            </div>
+            <button class="mg-tap-btn" id="mgChaseDown">▼</button>
+          </div>
+        `;
+
+        const gridEl = container.querySelector('#mgChaseGrid');
+        const playerEl = container.querySelector('#mgChasePlayer');
+        const chaserEl = container.querySelector('#mgChaseChaser');
+        const wrapEl = container.querySelector('#mgChaseWrap');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        CHASE_LAYOUT.forEach((rowStr, r) => {
+          [...rowStr].forEach((ch, c) => {
+            const cell = document.createElement('div');
+            cell.className = `mg-chase-cell ${ch === '#' ? 'wall' : 'floor'}`;
+            if (ch === '.') {
+              const dot = document.createElement('span');
+              dot.className = 'mg-chase-dot';
+              dot.textContent = dotEmoji;
+              cell.appendChild(dot);
+              dotEls[`${r},${c}`] = dot;
+            }
+            gridEl.appendChild(cell);
+          });
+        });
+
+        function placeEntity(el, pos) {
+          el.style.left = `${((pos.col + 0.5) / CHASE_COLS) * 100}%`;
+          el.style.top = `${((pos.row + 0.5) / CHASE_ROWS) * 100}%`;
+        }
+        placeEntity(playerEl, player);
+        placeEntity(chaserEl, chaser);
+
+        function isWalkable(r, c) {
+          return r >= 0 && r < CHASE_ROWS && c >= 0 && c < CHASE_COLS && CHASE_LAYOUT[r][c] !== '#';
+        }
+
+        function checkCatch() {
+          if (player.row === chaser.row && player.col === chaser.col) {
+            caughtEnd();
+            return true;
+          }
+          return false;
+        }
+
+        function caughtEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          clearInterval(tickTimer);
+          wrapEl.classList.add('hit');
+          const ratio = collected / totalDots;
+          onComplete(Math.round(clamp(ratio * 100 * 0.6, 10, 55)));
+        }
+
+        function winEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          clearInterval(tickTimer);
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const timeBonus = remaining / DURATION_MS;
+          onComplete(Math.round(clamp(85 + timeBonus * 15, 85, 100)));
+        }
+
+        function timeUpEnd() {
+          if (!running) return;
+          running = false;
+          clearTimeout(chaserTimer);
+          const ratio = collected / totalDots;
+          onComplete(Math.round(clamp(ratio * 100, 5, 65)));
+        }
+
+        function tryMove(dr, dc) {
+          if (!running || moving) return;
+          const nr = player.row + dr;
+          const nc = player.col + dc;
+          if (!isWalkable(nr, nc)) return;
+          moving = true;
+          setTimeout(() => { moving = false; }, 130);
+          player = { row: nr, col: nc };
+          placeEntity(playerEl, player);
+          const key = `${nr},${nc}`;
+          if (dots.has(key)) {
+            dots.delete(key);
+            collected += 1;
+            dotEls[key].remove();
+            scoreEl.textContent = `あつめた: ${collected}/${totalDots}`;
+            if (collected >= totalDots) { winEnd(); return; }
+          }
+          checkCatch();
+        }
+
+        container.querySelector('#mgChaseUp').addEventListener('pointerdown', () => tryMove(-1, 0));
+        container.querySelector('#mgChaseDown').addEventListener('pointerdown', () => tryMove(1, 0));
+        container.querySelector('#mgChaseLeft').addEventListener('pointerdown', () => tryMove(0, -1));
+        container.querySelector('#mgChaseRight').addEventListener('pointerdown', () => tryMove(0, 1));
+
+        function stepChaser() {
+          if (!running) return;
+          const options = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+            .map(([dr, dc]) => ({ row: chaser.row + dr, col: chaser.col + dc }))
+            .filter((p) => isWalkable(p.row, p.col));
+          if (options.length) {
+            if (Math.random() < 0.15) {
+              chaser = options[Math.floor(Math.random() * options.length)];
+            } else {
+              let bestDist = Infinity;
+              options.forEach((p) => {
+                const dist = Math.abs(p.row - player.row) + Math.abs(p.col - player.col);
+                if (dist < bestDist) bestDist = dist;
+              });
+              const tied = options.filter((p) => Math.abs(p.row - player.row) + Math.abs(p.col - player.col) === bestDist);
+              chaser = tied[Math.floor(Math.random() * tied.length)];
+            }
+            placeEntity(chaserEl, chaser);
+          }
+          if (checkCatch()) return;
+          chaserTimer = setTimeout(stepChaser, chaserStepMs);
+        }
+
+        startTime = performance.now();
+        tickTimer = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) { clearInterval(tickTimer); timeUpEnd(); }
+        }, 200);
+
+        chaserTimer = setTimeout(stepChaser, chaserStepMs);
+      },
+    };
+  }
+
+  const CHASE_GAME_VARIANTS = [
+    makeChaseGame({ title: 'おばけやしきで キャンディを ぜんぶ あつめよう!', dotEmoji: '🍬', chaserEmoji: '👻' }),
+    makeChaseGame({ title: 'もりで どんぐりを ぜんぶ あつめよう!', dotEmoji: '🌰', chaserEmoji: '🦇' }),
+  ];
+
+  // --- ランナー: はしりながら ジャンプで てきを よけたり コインを
+  // とったり する。なつかしい 横スクロールアクションの あそびごこちを
+  // モチーフにした オマージュ・ミニゲーム。しくみは JUMP_GAME_VARIANTS と
+  // おなじ「せまってくる ものを タイミングよく ジャンプで さばく」だが、
+  // てきを よける だけでなく コインを ジャンプで とる という 2しゅるいの
+  // アイテムが まざる 点が ちがう(どちらも おなじ ジャンプの タイミング
+  // まどで さばく ため、しつもんは「よける/とる」の 演出だけが かわる)
+  function makeRunnerGame({ title, obstacleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 7000;
+        const cycleMs = lerp(1500, 900, difficulty);
+        const jumpWindowMs = lerp(550, 320, difficulty);
+        let success = 0;
+        let total = 0;
+        let coins = 0;
+        let inWindow = false;
+        let currentIsCoin = false;
+        let running = true;
+        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 7s</span>
+            <span id="mgScore">🪙 コイン: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-jump-lane mg-runner-lane" id="mgRunnerTrack">
+            <div class="mg-runner-ground"></div>
+            <span class="mg-jump-obstacle hidden" id="mgRunnerItem"></span>
+            <span class="mg-jump-player" id="mgRunnerPlayer">${currentSprite()}</span>
+          </div>
+          <button class="mg-tap-btn" id="mgRunnerJumpBtn">ジャンプ!</button>
+        `;
+
+        const itemEl = container.querySelector('#mgRunnerItem');
+        const playerEl = container.querySelector('#mgRunnerPlayer');
+        const jumpBtn = container.querySelector('#mgRunnerJumpBtn');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function spawnItem() {
+          if (!running) return;
+          total += 1;
+          inWindow = false;
+          currentIsCoin = Math.random() < 0.45;
+          itemEl.textContent = currentIsCoin ? '🪙' : obstacleEmoji;
+          itemEl.classList.toggle('mg-runner-coin', currentIsCoin);
+          itemEl.classList.remove('hidden');
+          itemEl.style.animation = 'none';
+          void itemEl.offsetWidth;
+          itemEl.style.animation = `mg-jump-approach ${cycleMs}ms linear`;
+          const windowStart = Math.max(0, cycleMs - jumpWindowMs);
+          windowOpenTimeout = setTimeout(() => { inWindow = true; }, windowStart);
+          windowCloseTimeout = setTimeout(() => {
+            inWindow = false;
+            itemEl.classList.add('hidden');
+            scheduleNext();
+          }, cycleMs);
+        }
+
+        function scheduleNext() {
+          if (!running) return;
+          nextTimeout = setTimeout(spawnItem, 200);
+        }
+
+        function onJump() {
+          if (!running) return;
+          playerEl.classList.add('jumping');
+          setTimeout(() => playerEl.classList.remove('jumping'), 250);
+          if (!inWindow) return;
+          success += 1;
+          if (currentIsCoin) {
+            coins += 1;
+            scoreEl.textContent = `🪙 コイン: ${coins}`;
+          }
+          inWindow = false;
+          clearTimeout(windowCloseTimeout);
+          itemEl.classList.add('hidden');
+          scheduleNext();
+        }
+        jumpBtn.addEventListener('pointerdown', onJump);
+
+        const startTime = performance.now();
+        tickInterval = setInterval(() => {
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) end();
+        }, 200);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          clearInterval(tickInterval);
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          clearTimeout(nextTimeout);
+          jumpBtn.removeEventListener('pointerdown', onJump);
+          const score = total > 0 ? Math.round(clamp((success / total) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        spawnItem();
+      },
+    };
+  }
+
+  const RUNNER_GAME_VARIANTS = [
+    makeRunnerGame({ title: 'コインを あつめながら どくキノコを とびこえよう!', obstacleEmoji: '🍄' }),
+    makeRunnerGame({ title: 'コインを あつめながら とげとげを とびこえよう!', obstacleEmoji: '🦔' }),
+  ];
+
+  // --- シューティング: レーンを うごきながら、せまってくる てきを
+  // うちおとす。なつかしい シューティングアクションの あそびごこちを
+  // モチーフにした オマージュ・ミニゲーム。じぶんの いる れーんに
+  // いちばん ちかづいている てきが「うつ!」ボタンで いちげきで きえる
+  // (弾の とびじかんは 演出のみで、はんてい じたいは 即座に おこなう)。
+  // れーんを こえて きた てきは うてず、そのまま とおりすぎて しまう
+  function makeShooterGame({ title, enemyEmoji, bulletEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 7000;
+        const travelMs = lerp(2200, 1300, difficulty);
+        const spawnInterval = lerp(900, 480, difficulty);
+        const LANE_X = [20, 50, 80];
+        let lane = 1;
+        let hits = 0;
+        let escapes = 0;
+        let running = true;
+        let lastSpawn = 0;
+        let enemies = [];
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 7s</span>
+            <span id="mgScore">げきついすう: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-shooter-arena" id="mgShooterArena">
+            <div class="mg-shooter-player" id="mgShooterPlayer" style="left:${LANE_X[1]}%">${currentSprite()}</div>
+          </div>
+          <div class="mg-shooter-controls">
+            <button class="mg-tap-btn" id="mgShooterLeft">◀</button>
+            <button class="mg-tap-btn mg-shooter-fire" id="mgShooterFire">🔫 うつ!</button>
+            <button class="mg-tap-btn" id="mgShooterRight">▶</button>
+          </div>
+        `;
+
+        const arena = container.querySelector('#mgShooterArena');
+        const playerEl = container.querySelector('#mgShooterPlayer');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+        const leftBtn = container.querySelector('#mgShooterLeft');
+        const rightBtn = container.querySelector('#mgShooterRight');
+        const fireBtn = container.querySelector('#mgShooterFire');
+
+        function setLane(next) {
+          lane = clamp(next, 0, 2);
+          playerEl.style.left = LANE_X[lane] + '%';
+        }
+        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
+        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+
+        function flashArena() {
+          arena.classList.add('hit');
+          setTimeout(() => arena.classList.remove('hit'), 200);
+        }
+
+        function spawnEnemy() {
+          const enemyLane = Math.floor(Math.random() * 3);
+          const el = document.createElement('div');
+          el.className = 'mg-shooter-enemy';
+          el.textContent = enemyEmoji;
+          arena.appendChild(el);
+          enemies.push({ el, lane: enemyLane, born: performance.now(), resolved: false });
+        }
+
+        function fire() {
+          if (!running) return;
+          const bulletEl = document.createElement('div');
+          bulletEl.className = 'mg-shooter-bullet';
+          bulletEl.textContent = bulletEmoji;
+          bulletEl.style.left = LANE_X[lane] + '%';
+          arena.appendChild(bulletEl);
+          setTimeout(() => bulletEl.remove(), 220);
+
+          let target = null;
+          let bestProgress = -1;
+          enemies.forEach((enemy) => {
+            if (enemy.resolved || enemy.lane !== lane) return;
+            const progress = clamp((performance.now() - enemy.born) / travelMs, 0, 1);
+            if (progress > bestProgress) { bestProgress = progress; target = enemy; }
+          });
+          if (target) {
+            target.resolved = true;
+            target.el.classList.add('exploding');
+            hits += 1;
+            scoreEl.textContent = `げきついすう: ${hits}`;
+            setTimeout(() => target.el.remove(), 180);
+          }
+        }
+        fireBtn.addEventListener('pointerdown', fire);
+
+        const startTime = performance.now();
+        let rafId;
+
+        function frame(now) {
+          if (!running) return;
+          const elapsed = now - startTime;
+          const remaining = Math.max(0, DURATION_MS - elapsed);
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+          if (now - lastSpawn > spawnInterval) {
+            spawnEnemy();
+            lastSpawn = now;
+          }
+
+          enemies = enemies.filter((enemy) => {
+            if (enemy.resolved) return false;
+            const t = clamp((now - enemy.born) / travelMs, 0, 1);
+            enemy.el.style.left = LANE_X[enemy.lane] + '%';
+            enemy.el.style.top = `${lerp(6, 82, t)}%`;
+            if (t >= 1) {
+              enemy.resolved = true;
+              escapes += 1;
+              flashArena();
+              enemy.el.remove();
+              return false;
+            }
+            return true;
+          });
+
+          if (elapsed >= DURATION_MS) { end(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          enemies.forEach((enemy) => enemy.el.remove());
+          const total = hits + escapes;
+          const score = total > 0 ? Math.round(clamp((hits / total) * 100, 0, 100)) : 0;
+          onComplete(score);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const SHOOTER_GAME_VARIANTS = [
+    makeShooterGame({ title: 'せまりくる てきを うちおとせ!', enemyEmoji: '👾', bulletEmoji: '⭐' }),
+    makeShooterGame({ title: 'いんせきの あらしを うちやぶれ!', enemyEmoji: '☄️', bulletEmoji: '✨' }),
+  ];
+
+  // --- コンボにゅうりょく(かくとうの ひっさつわざコマンド) ---
+  // 表示された アイコンの じゅんばんを おぼえて、おなじ じゅんばんで
+  // ボタンを タップする。かくとうゲームの「ひっさつわざの コマンド入力」を
+  // イメージした、たんきの じゅんばん入力アクション
+  function makeComboInputGame({ title, icons }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const seqLen = Math.round(lerp(3, 4, difficulty));
+        const timeLimitMs = lerp(4500, 3000, difficulty);
+        const sequence = Array.from({ length: seqLen }, () => icons[Math.floor(Math.random() * icons.length)]);
+        let progress = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">${progress}/${seqLen}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-combo-sequence" id="mgComboSeq"></div>
+          <div class="mg-combo-buttons" id="mgComboButtons">
+            ${icons.map((ic) => `<button type="button" class="mg-tap-btn mg-combo-btn" data-icon="${ic}">${ic}</button>`).join('')}
+          </div>
+        `;
+        const seqEl = container.querySelector('#mgComboSeq');
+        const scoreEl = container.querySelector('#mgScore');
+        const buttonsEl = container.querySelector('#mgComboButtons');
+
+        function renderSeq() {
+          seqEl.innerHTML = sequence.map((ic, i) => `<span class="mg-combo-icon ${i < progress ? 'done' : ''} ${i === progress ? 'current' : ''}">${ic}</span>`).join('');
+        }
+        renderSeq();
+
+        function finish(success) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          buttonsEl.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = success ? 100 : Math.round((progress / seqLen) * 60);
+          setTimeout(() => onComplete(score), 300);
+        }
+
+        buttonsEl.addEventListener('pointerdown', (e) => {
+          const btn = e.target.closest('.mg-combo-btn');
+          if (!btn || finished) return;
+          if (btn.dataset.icon === sequence[progress]) {
+            progress += 1;
+            scoreEl.textContent = `${progress}/${seqLen}`;
+            renderSeq();
+            if (progress >= seqLen) finish(true);
+          } else {
+            seqEl.classList.add('mg-combo-fail');
+            finish(false);
+          }
+        });
+
+        timer = setTimeout(() => finish(false), timeLimitMs);
+      },
+    };
+  }
+
+  const COMBO_INPUT_VARIANTS = [
+    makeComboInputGame({ title: 'ひっさつわざ コマンドにゅうりょく!', icons: ['👊', '🦵', '✋'] }),
+  ];
+
+  // --- はこ・カードえらび(たからばこ/カード引き/くじ など きょうつうエンジン) ---
+  // N個の はこ/カードから 1つを えらんで、なかの けっかを あける だけの
+  // たんきの ゲーム。RPGの たからばこ、ぎゃんぶるの くじ・カードひき、
+  // だっしゅつゲームの あやしい ばしょさがし など、いろいろな テーマで
+  // つかいまわす きょうつうエンジン
+  function makeBoxPickGame({ title, boxEmoji, boxCount, outcomes }) {
+    return {
+      start(container, onComplete) {
+        const timeLimitMs = 6000;
+        const order = shuffleArray(outcomes.slice(0, boxCount));
+        let picked = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-box-row" id="mgBoxRow">
+            ${order.map((_, i) => `<button type="button" class="mg-box-btn" data-i="${i}">${boxEmoji}</button>`).join('')}
+          </div>
+          <div class="mg-box-result hidden" id="mgBoxResult"></div>
+        `;
+        const rowEl = container.querySelector('#mgBoxRow');
+        const resultEl = container.querySelector('#mgBoxResult');
+
+        function reveal(i) {
+          if (picked) return;
+          picked = true;
+          clearTimeout(timer);
+          const outcome = order[i];
+          Array.from(rowEl.querySelectorAll('.mg-box-btn')).forEach((b, bi) => {
+            b.disabled = true;
+            if (bi === i) b.textContent = outcome.emoji;
+          });
+          resultEl.textContent = outcome.label;
+          resultEl.classList.remove('hidden');
+          setTimeout(() => onComplete(outcome.score), 700);
+        }
+
+        rowEl.addEventListener('pointerdown', (e) => {
+          const btn = e.target.closest('.mg-box-btn');
+          if (!btn) return;
+          reveal(Number(btn.dataset.i));
+        });
+
+        timer = setTimeout(() => reveal(Math.floor(Math.random() * order.length)), timeLimitMs);
+      },
+    };
+  }
+
+  const BOX_PICK_VARIANTS = [
+    // RPGふう(たからばこ)
+    makeBoxPickGame({
+      title: 'たからばこを 1つ えらぼう!',
+      boxEmoji: '🎁',
+      boxCount: 3,
+      outcomes: [
+        { emoji: '💎', label: 'だいせいこう!おたからを てにいれた!', score: 100 },
+        { emoji: '🪙', label: 'ちいさな おたからを てにいれた', score: 60 },
+        { emoji: '💣', label: 'あ、わなだった…', score: 15 },
+      ],
+    }),
+    // だっしゅつゲームふう(あやしい ばしょさがし)
+    makeBoxPickGame({
+      title: 'あやしい ばしょを 1つ タップして しらべよう!',
+      boxEmoji: '🔍',
+      boxCount: 3,
+      outcomes: [
+        { emoji: '🗝️', label: 'かぎを みつけた!だっしゅつせいこう!', score: 100 },
+        { emoji: '📜', label: 'ヒントを みつけた', score: 55 },
+        { emoji: '🕸️', label: 'なにも なかった…', score: 20 },
+      ],
+    }),
+    // ぎゃんぶるふう(くじびき。げんじつの おかね・かきんとは むかんけい)
+    makeBoxPickGame({
+      title: 'かんたん くじびき!1まい ひいてみよう',
+      boxEmoji: '🎟️',
+      boxCount: 4,
+      outcomes: [
+        { emoji: '🏆', label: 'だいとうしょう!', score: 100 },
+        { emoji: '🎊', label: 'あたり!', score: 70 },
+        { emoji: '🎈', label: 'ちいさな あたり', score: 45 },
+        { emoji: '😅', label: 'はずれ…また ちょうせんしよう', score: 15 },
+      ],
+    }),
+    // ぎゃんぶるふう(カードを 1まい ひく)
+    makeBoxPickGame({
+      title: 'カードを 1まい ひこう!',
+      boxEmoji: '🂠',
+      boxCount: 4,
+      outcomes: [
+        { emoji: '🃏', label: 'ジョーカー!だいせいこう!', score: 100 },
+        { emoji: '♠️', label: 'あたり カード!', score: 65 },
+        { emoji: '♥️', label: 'ふつうの カード', score: 40 },
+        { emoji: '♣️', label: 'ざんねん カード', score: 20 },
+      ],
+    }),
+    // RPGふう(たたかいの まえに ぶきを 1つ えらぶ)
+    makeBoxPickGame({
+      title: 'たたかいに もっていく ぶきを 1つ えらぼう!',
+      boxEmoji: '⚔️',
+      boxCount: 3,
+      outcomes: [
+        { emoji: '🗡️', label: 'でんせつの けん!だいせいこう!', score: 100 },
+        { emoji: '🏹', label: 'まあまあの ぶき', score: 55 },
+        { emoji: '🪓', label: 'ふるい ぶきだった…', score: 25 },
+      ],
+    }),
+  ];
+
+  // --- 属性そうせい(RPGの タイプあいしょうを あてる クイズ) ---
+  const MATCHUP_PAIRS = [
+    { a: '🔥', b: '🌿', label: 'ほのお VS くさ', answer: 'a', reason: 'ほのおは くさに つよい!' },
+    { a: '💧', b: '🔥', label: 'みず VS ほのお', answer: 'a', reason: 'みずは ほのおに つよい!' },
+    { a: '🌿', b: '💧', label: 'くさ VS みず', answer: 'a', reason: 'くさは みずに つよい!' },
+    { a: '⚡', b: '🪨', label: 'でんき VS いわ', answer: 'b', reason: 'いわは でんきに つよい!' },
+    { a: '❄️', b: '🌿', label: 'こおり VS くさ', answer: 'a', reason: 'こおりは くさに つよい!' },
+  ];
+  const matchupQuizGame = {
+    start(container, onComplete) {
+      const timeLimitMs = 6000;
+      const pair = MATCHUP_PAIRS[Math.floor(Math.random() * MATCHUP_PAIRS.length)];
+      let answered = false;
+      let timer;
+
+      container.innerHTML = `
+        <div class="mg-title">ぞくせいの あいしょうクイズ!どっちが つよい?</div>
+        <div class="mg-math-problem" style="font-size:30px;">${pair.a} vs ${pair.b}</div>
+        <div class="mg-math-choices">
+          <button class="mg-math-btn" data-val="a" style="font-size:22px;">${pair.a}</button>
+          <button class="mg-math-btn" data-val="b" style="font-size:22px;">${pair.b}</button>
+        </div>
+      `;
+      const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
+      buttons.forEach((btn) => {
+        btn.addEventListener('pointerdown', () => {
+          if (answered) return;
+          answered = true;
+          clearTimeout(timer);
+          onComplete(btn.dataset.val === pair.answer ? 100 : 20);
+        });
+      });
+      timer = setTimeout(() => { if (!answered) { answered = true; onComplete(10); } }, timeLimitMs);
+    },
+  };
+  const MATCHUP_QUIZ_VARIANTS = [matchupQuizGame];
+
+  // --- あしばわたり(アクション) ---
+  // 表示された ほうこう(◀/▶/▲)の じゅんばんに あわせて タップし、
+  // あしばを 1つずつ わたっていく。まちがえると おちてしまう
+  function makeSteppingStonesGame({ title }) {
+    const DIR_ICONS = { left: '◀', right: '▶', straight: '▲' };
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const stoneCount = Math.round(lerp(5, 7, difficulty));
+        const timeLimitMs = lerp(1600, 1000, difficulty);
+        const dirs = Array.from({ length: stoneCount }, () => ['left', 'right', 'straight'][Math.floor(Math.random() * 3)]);
+        let index = 0;
+        let finished = false;
+        let timer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">${index}/${stoneCount}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-stones-row" id="mgStonesRow"></div>
+          <div class="mg-dpad-mid" id="mgStonesButtons">
+            <button class="mg-tap-btn" data-dir="left">◀</button>
+            <button class="mg-tap-btn" data-dir="straight">▲</button>
+            <button class="mg-tap-btn" data-dir="right">▶</button>
+          </div>
+        `;
+        const rowEl = container.querySelector('#mgStonesRow');
+        const scoreEl = container.querySelector('#mgScore');
+        const buttonsEl = container.querySelector('#mgStonesButtons');
+
+        function renderRow() {
+          rowEl.innerHTML = dirs.map((d, i) => `<span class="mg-stone ${i < index ? 'crossed' : ''} ${i === index ? 'current' : ''}">${DIR_ICONS[d]}</span>`).join('');
+        }
+        renderRow();
+
+        function nextTimer() {
+          clearTimeout(timer);
+          timer = setTimeout(() => finish(false), timeLimitMs);
+        }
+
+        function finish(success) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          buttonsEl.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = success ? 100 : Math.round((index / stoneCount) * 60);
+          setTimeout(() => onComplete(score), 300);
+        }
+
+        buttonsEl.addEventListener('pointerdown', (e) => {
+          const btn = e.target.closest('button');
+          if (!btn || finished) return;
+          if (btn.dataset.dir === dirs[index]) {
+            index += 1;
+            scoreEl.textContent = `${index}/${stoneCount}`;
+            renderRow();
+            if (index >= stoneCount) finish(true);
+            else nextTimer();
+          } else {
+            rowEl.classList.add('mg-combo-fail');
+            finish(false);
+          }
+        });
+
+        nextTimer();
+      },
+    };
+  }
+
+  const STEPPING_STONES_VARIANTS = [
+    makeSteppingStonesGame({ title: 'あしばを わたって むこうがしへ いこう!' }),
+  ];
+
+  // --- しょうじゅん・まとあて(シューティング) ---
+  // うごきまわる しょうじゅんを、まとの うえに くるまで まって
+  // タイミングよく タップする
+  function makeTargetAimGame({ title, targetEmoji, reticleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 3;
+        const speed = lerp(1.2, 2.2, difficulty);
+        let round = 0;
+        const scores = [];
+        let running = true;
+        let rafId;
+        const startTime = performance.now();
+        let fired = false;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">ラウンド 1/${ROUNDS}</span>
+            <span id="mgScore">とくてん: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-aim-field" id="mgAimField">
+            <span class="mg-aim-target">${targetEmoji}</span>
+            <span class="mg-aim-reticle" id="mgAimReticle">${reticleEmoji}</span>
+          </div>
+          <button class="mg-tap-btn" id="mgAimFireBtn">はっしゃ!</button>
+        `;
+        const reticleEl = container.querySelector('#mgAimReticle');
+        const fireBtn = container.querySelector('#mgAimFireBtn');
+        const roundEl = container.querySelector('#mgRound');
+        const scoreEl = container.querySelector('#mgScore');
+        let roundStart = performance.now();
+
+        function frame(now) {
+          if (!running) return;
+          const t = (now - roundStart) / 1000;
+          const x = 50 + Math.sin(t * speed) * 38;
+          const y = 50 + Math.cos(t * speed * 1.6) * 30;
+          reticleEl.style.left = x + '%';
+          reticleEl.style.top = y + '%';
+          if (!fired) rafId = requestAnimationFrame(frame);
+        }
+
+        function fire() {
+          if (fired) return;
+          fired = true;
+          const x = parseFloat(reticleEl.style.left);
+          const y = parseFloat(reticleEl.style.top);
+          const dist = Math.hypot(x - 50, y - 50);
+          let roundScore;
+          if (dist <= 8) roundScore = 100;
+          else if (dist <= 18) roundScore = 70;
+          else if (dist <= 30) roundScore = 40;
+          else roundScore = 10;
+          scores.push(roundScore);
+          scoreEl.textContent = `とくてん: ${Math.round(scores.reduce((a, b) => a + b, 0) / scores.length)}`;
+          round += 1;
+          fireBtn.disabled = true;
+          if (round >= ROUNDS) {
+            setTimeout(end, 500);
+          } else {
+            setTimeout(() => {
+              roundEl.textContent = `ラウンド ${round + 1}/${ROUNDS}`;
+              fired = false;
+              fireBtn.disabled = false;
+              roundStart = performance.now();
+              rafId = requestAnimationFrame(frame);
+            }, 500);
+          }
+        }
+        fireBtn.addEventListener('pointerdown', fire);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          onComplete(Math.round(scores.reduce((a, b) => a + b, 0) / scores.length));
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const TARGET_AIM_VARIANTS = [
+    makeTargetAimGame({ title: 'しゃげきふう!まとを ねらいうちしよう', targetEmoji: '🎯', reticleEmoji: '➕' }),
+    makeTargetAimGame({ title: 'そげきふう!うごく まとを ねらえ', targetEmoji: '🦆', reticleEmoji: '🔴' }),
+  ];
+
+  // --- レース(れんだで はしって あいてに かとう) ---
+  function makeRaceGame({ title, runnerEmoji, rivalEmojis }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 6000;
+        const rivalSpeed = lerp(11, 16, difficulty);
+        let progress = 0;
+        const rivals = rivalEmojis.map(() => 0);
+        let finished = false;
+        let running = true;
+        const startTime = performance.now();
+        let rafId;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 6s</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-race-track" id="mgRaceTrack">
+            <div class="mg-race-lane"><span class="mg-race-runner" id="mgRaceYou">${runnerEmoji}</span><span class="mg-race-goal">🏁</span></div>
+            ${rivalEmojis.map((e, i) => `<div class="mg-race-lane"><span class="mg-race-runner" id="mgRaceRival${i}">${e}</span><span class="mg-race-goal">🏁</span></div>`).join('')}
+          </div>
+          <button class="mg-tap-btn" id="mgRaceRunBtn">はしる!</button>
+        `;
+        const timerEl = container.querySelector('#mgTimer');
+        const youEl = container.querySelector('#mgRaceYou');
+        const rivalEls = rivalEmojis.map((_, i) => container.querySelector(`#mgRaceRival${i}`));
+        const runBtn = container.querySelector('#mgRaceRunBtn');
+
+        runBtn.addEventListener('pointerdown', () => {
+          if (finished) return;
+          progress = Math.min(100, progress + 4.5);
+          youEl.style.left = progress + '%';
+          if (progress >= 100) finish();
+        });
+
+        function frame(now) {
+          if (!running) return;
+          const elapsed = now - startTime;
+          const remaining = Math.max(0, DURATION_MS - elapsed);
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          rivals.forEach((_, i) => {
+            rivals[i] = Math.min(100, rivals[i] + rivalSpeed * (1 / 60) * (0.7 + Math.random() * 0.6));
+            rivalEls[i].style.left = rivals[i] + '%';
+          });
+          if (rivals.some((r) => r >= 100) && !finished) { finish(); return; }
+          if (elapsed >= DURATION_MS) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function finish() {
+          if (finished) return;
+          finished = true;
+          running = false;
+          cancelAnimationFrame(rafId);
+          runBtn.disabled = true;
+          const allProgress = [progress, ...rivals];
+          const rank = allProgress.filter((p) => p > progress).length;
+          const score = rank === 0 ? 100 : rank === 1 ? 60 : 30;
+          setTimeout(() => onComplete(score), 400);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const RACE_GAME_VARIANTS = [
+    makeRaceGame({ title: 'とうそう!れんだで はしって 1いを とろう', runnerEmoji: '🏃', rivalEmojis: ['🐕', '🐇'] }),
+    makeRaceGame({ title: 'じてんしゃレース!ペダルを こいで かとう', runnerEmoji: '🚲', rivalEmojis: ['🛵', '🐎'] }),
+    makeRaceGame({ title: 'ロケットレース!スピードで かちぬけ', runnerEmoji: '🚀', rivalEmojis: ['🛸', '☄️'] }),
+  ];
+
+  // --- スワイプなげ(ボウリング・カーリング) ---
+  // レーンを うえに スワイプして なげる。スワイプの つよさが パワー、
+  // よこの ずれが ねらいの ズレに なる(スマホの スワイプそうさを つかう
+  // すくない ミニゲームの ひとつ)
+  function makeSwipeThrowGame({ title, projectileEmoji, laneClass, evaluate }) {
+    return {
+      start(container, onComplete) {
+        let thrown = false;
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-swipe-lane ${laneClass}" id="mgSwipeLane">
+            <span class="mg-swipe-target" id="mgSwipeTarget"></span>
+            <span class="mg-swipe-projectile hidden" id="mgSwipeProjectile">${projectileEmoji}</span>
+          </div>
+          <div class="mg-hint">レーンを うえに スワイプして なげよう!</div>
+        `;
+        const lane = container.querySelector('#mgSwipeLane');
+        const projectileEl = container.querySelector('#mgSwipeProjectile');
+        let startX = 0, startY = 0, tracking = false;
+
+        lane.addEventListener('pointerdown', (e) => {
+          if (thrown) return;
+          tracking = true;
+          startX = e.clientX;
+          startY = e.clientY;
+        });
+        lane.addEventListener('pointerup', (e) => {
+          if (!tracking || thrown) return;
+          tracking = false;
+          const dx = e.clientX - startX;
+          const dy = startY - e.clientY;
+          if (dy < 20) return; // 上むきの スワイプでないと なげない
+          thrown = true;
+          const power = clamp(dy / 140, 0, 1.4);
+          const aimOffset = clamp(dx / 90, -1, 1);
+          projectileEl.classList.remove('hidden');
+          projectileEl.style.left = (50 + aimOffset * 30) + '%';
+          projectileEl.style.bottom = '10%';
+          void projectileEl.offsetWidth;
+          projectileEl.style.transition = 'bottom 0.6s ease-out';
+          projectileEl.style.bottom = '82%';
+          setTimeout(() => {
+            const { score, label } = evaluate(power, aimOffset);
+            lane.classList.add('landed');
+            const resultEl = document.createElement('div');
+            resultEl.className = 'mg-swipe-result';
+            resultEl.textContent = label;
+            container.appendChild(resultEl);
+            setTimeout(() => onComplete(score), 600);
+          }, 620);
+        });
+
+      },
+    };
+  }
+
+  const SWIPE_THROW_VARIANTS = [
+    // ボウリング(パワーが たりない/つよすぎる、ねらいが ずれている ほど てんすうが さがる)
+    makeSwipeThrowGame({
+      title: 'ボウリングふう!スワイプで ピンを たおそう',
+      projectileEmoji: '🎳',
+      laneClass: 'mg-swipe-lane-bowling',
+      evaluate: (power, aim) => {
+        const powerScore = 1 - Math.abs(power - 1) * 0.8;
+        const aimScore = 1 - Math.abs(aim);
+        const total = clamp((powerScore * 0.5 + aimScore * 0.5), 0, 1);
+        if (total > 0.85) return { score: 100, label: '🎉 ストライク!' };
+        if (total > 0.6) return { score: 70, label: '👍 おしい!スペアねらい' };
+        if (total > 0.35) return { score: 40, label: '😅 すこし たおれた' };
+        return { score: 10, label: '💦 ガター…' };
+      },
+    }),
+    // カーリング(まとの ちゅうしんに ちかいほど てんすうが たかい)
+    makeSwipeThrowGame({
+      title: 'カーリングふう!まとの まんなかを ねらおう',
+      projectileEmoji: '🥌',
+      laneClass: 'mg-swipe-lane-curling',
+      evaluate: (power, aim) => {
+        const powerScore = 1 - Math.abs(power - 1) * 0.7;
+        const aimScore = 1 - Math.abs(aim);
+        const total = clamp((powerScore * 0.4 + aimScore * 0.6), 0, 1);
+        if (total > 0.85) return { score: 100, label: '🎯 ど真ん中!' };
+        if (total > 0.6) return { score: 70, label: '👍 まとに ちかい!' };
+        if (total > 0.35) return { score: 40, label: '😅 すこし それた' };
+        return { score: 10, label: '💦 おおきく それた…' };
+      },
+    }),
+  ];
+
+  // --- パワーメーター2だんかい(ゴルフ・ダーツ・アーチェリー) ---
+  // 1かいめの タップで「パワー」、2かいめの タップで「せいかくさ」を
+  // それぞれ うごく バーを とめて きめる、2だんかいの タイミングゲーム
+  function makePowerMeterGame({ title, icon }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const speed = lerp(1.3, 2.1, difficulty);
+        let stage = 'power';
+        let powerValue = 0;
+        let running = true;
+        let t0 = performance.now();
+        let rafId;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          ${icon ? `<div class="mg-timing-icon">${icon}</div>` : ''}
+          <div class="mg-hint" id="mgPowerHint">パワーを ちょうせつしよう(1かいめ)</div>
+          <div class="mg-gauge" id="mgGauge" style="background:#e879b0">
+            <div class="mg-gauge-zone" style="left:35%;width:30%"></div>
+            <div class="mg-gauge-marker" id="mgMarker"></div>
+          </div>
+          <button class="mg-tap-btn" id="mgPowerBtn">とめる!</button>
+        `;
+        const markerEl = container.querySelector('#mgMarker');
+        const hintEl = container.querySelector('#mgPowerHint');
+        const btn = container.querySelector('#mgPowerBtn');
+        let pct = 0, dir = 1;
+
+        function frame(now) {
+          if (!running) return;
+          const dt = (now - t0) / 1000;
+          t0 = now;
+          pct += dir * speed * 60 * dt;
+          if (pct >= 100) { pct = 100; dir = -1; }
+          if (pct <= 0) { pct = 0; dir = 1; }
+          markerEl.style.left = pct + '%';
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function stop() {
+          if (!running) return;
+          if (stage === 'power') {
+            powerValue = pct;
+            stage = 'accuracy';
+            hintEl.textContent = 'こんどは せいかくさを ねらおう(2かいめ)';
+            pct = 0; dir = 1;
+          } else {
+            running = false;
+            cancelAnimationFrame(rafId);
+            btn.disabled = true;
+            const powerScore = 100 - Math.abs(powerValue - 50) * 2;
+            const accuracyScore = 100 - Math.abs(pct - 50) * 2;
+            const total = Math.round(clamp((powerScore + accuracyScore) / 2, 0, 100));
+            setTimeout(() => onComplete(total), 400);
+          }
+        }
+        btn.addEventListener('pointerdown', stop);
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const POWER_METER_VARIANTS = [
+    makePowerMeterGame({ title: 'ゴルフふう!パワーと せいかくさを あわせよう', icon: '⛳' }),
+    makePowerMeterGame({ title: 'ダーツふう!まんなかを ねらおう', icon: '🎯' }),
+    makePowerMeterGame({ title: 'アーチェリーふう!ゆみを いてみよう', icon: '🏹' }),
+  ];
+
+  // --- おしくらまんじゅう(すもうふう つなひき) ---
+  // れんだタップで じぶんの バーを おして、あいてに かとう
+  function makePushContestGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 5500;
+        const rivalPushMs = lerp(420, 260, difficulty);
+        let position = 50; // 0=あいての かち、100=じぶんの かち
+        let finished = false;
+        let running = true;
+        let rivalTimer;
+        const startTime = performance.now();
+
+        container.innerHTML = `
+          <div class="mg-header"><span id="mgTimer">残り: 6s</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-push-bar-wrap">
+            <span class="mg-push-side">🧑</span>
+            <div class="mg-push-bar"><div class="mg-push-fill" id="mgPushFill" style="width:50%"></div></div>
+            <span class="mg-push-side">🐘</span>
+          </div>
+          <button class="mg-tap-btn" id="mgPushBtn">おす!</button>
+        `;
+        const fillEl = container.querySelector('#mgPushFill');
+        const btn = container.querySelector('#mgPushBtn');
+        const timerEl = container.querySelector('#mgTimer');
+
+        function updateBar() {
+          fillEl.style.width = position + '%';
+        }
+
+        function finish(won) {
+          if (finished) return;
+          finished = true;
+          running = false;
+          clearInterval(rivalTimer);
+          btn.disabled = true;
+          const score = won ? 100 : Math.round(clamp(position, 0, 60));
+          setTimeout(() => onComplete(score), 400);
+        }
+
+        btn.addEventListener('pointerdown', () => {
+          if (finished) return;
+          position = clamp(position + 6, 0, 100);
+          updateBar();
+          if (position >= 100) finish(true);
+        });
+
+        rivalTimer = setInterval(() => {
+          if (finished) return;
+          position = clamp(position - 4, 0, 100);
+          updateBar();
+          if (position <= 0) finish(false);
+        }, rivalPushMs);
+
+        const tick = setInterval(() => {
+          if (!running) { clearInterval(tick); return; }
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) { clearInterval(tick); finish(position >= 50); }
+        }, 200);
+      },
+    };
+  }
+
+  const PUSH_CONTEST_VARIANTS = [
+    makePushContestGame({ title: 'すもうふう!おしくらまんじゅうで かとう' }),
+  ];
+
+  // --- スワイプで やさいを きる(りょうり) ---
+  function makeChopGame({ title, veggieEmojis }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 6000;
+        const neededChops = Math.round(lerp(6, 10, difficulty));
+        let chops = 0;
+        let running = true;
+        const startTime = performance.now();
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 6s</span>
+            <span id="mgScore">きった かず: 0/${neededChops}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-chop-board" id="mgChopBoard">
+            <span class="mg-chop-veggie" id="mgChopVeggie">${veggieEmojis[0]}</span>
+            <span class="mg-chop-knife" id="mgChopKnife">🔪</span>
+          </div>
+          <div class="mg-hint">したに スワイプして きろう!</div>
+        `;
+        const board = container.querySelector('#mgChopBoard');
+        const veggieEl = container.querySelector('#mgChopVeggie');
+        const knifeEl = container.querySelector('#mgChopKnife');
+        const scoreEl = container.querySelector('#mgScore');
+        const timerEl = container.querySelector('#mgTimer');
+        let startY = 0, tracking = false;
+
+        board.addEventListener('pointerdown', (e) => { tracking = true; startY = e.clientY; });
+        board.addEventListener('pointerup', (e) => {
+          if (!tracking || !running) return;
+          tracking = false;
+          const dy = e.clientY - startY;
+          if (dy < 30) return;
+          chops += 1;
+          scoreEl.textContent = `きった かず: ${chops}/${neededChops}`;
+          knifeEl.classList.add('chopping');
+          veggieEl.textContent = veggieEmojis[chops % veggieEmojis.length];
+          setTimeout(() => knifeEl.classList.remove('chopping'), 150);
+          if (chops >= neededChops) end(100);
+        });
+
+        const tick = setInterval(() => {
+          if (!running) { clearInterval(tick); return; }
+          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) { clearInterval(tick); end(Math.round((chops / neededChops) * 90)); }
+        }, 200);
+
+        function end(score) {
+          if (!running) return;
+          running = false;
+          onComplete(clamp(score, 0, 100));
+        }
+      },
+    };
+  }
+
+  const CHOP_GAME_VARIANTS = [
+    makeChopGame({ title: 'やさいを どんどん きろう!', veggieEmojis: ['🥕', '🥦', '🌽', '🍅', '🥒'] }),
+  ];
+
+  // --- ステルス(みはりの すきを ついて すすむ) ---
+  // みはり役が「そっぽを むいている あいだ」だけ「すすむ」ボタンを
+  // おして よい。みはりが こっちを むいている ときに おすと つかまって
+  // しまう。ホラーふう・コメディふうにも おなじ しくみを つかいまわす
+  function makeStealthGame({ title, guardEmoji, safeMessage, dangerMessage }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const stepsNeeded = 6;
+        const minMs = lerp(700, 450, difficulty);
+        const maxMs = lerp(1300, 800, difficulty);
+        let progress = 0;
+        let facingAway = true;
+        let finished = false;
+        let switchTimer;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgScore">${progress}/${stepsNeeded}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-stealth-field" id="mgStealthField">
+            <span class="mg-stealth-guard" id="mgStealthGuard">${guardEmoji}</span>
+            <span class="mg-stealth-status" id="mgStealthStatus">${safeMessage}</span>
+          </div>
+          <button class="mg-tap-btn" id="mgStealthBtn">すすむ!</button>
+        `;
+        const guardEl = container.querySelector('#mgStealthGuard');
+        const statusEl = container.querySelector('#mgStealthStatus');
+        const scoreEl = container.querySelector('#mgScore');
+        const btn = container.querySelector('#mgStealthBtn');
+
+        function scheduleSwitch() {
+          clearTimeout(switchTimer);
+          switchTimer = setTimeout(() => {
+            facingAway = !facingAway;
+            guardEl.classList.toggle('facing-you', !facingAway);
+            statusEl.textContent = facingAway ? safeMessage : dangerMessage;
+            scheduleSwitch();
+          }, minMs + Math.random() * (maxMs - minMs));
+        }
+
+        function finish(caught) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(switchTimer);
+          btn.disabled = true;
+          const score = caught ? Math.round((progress / stepsNeeded) * 55) : 100;
+          setTimeout(() => onComplete(score), 400);
+        }
+
+        btn.addEventListener('pointerdown', () => {
+          if (finished) return;
+          if (!facingAway) { finish(true); return; }
+          progress += 1;
+          scoreEl.textContent = `${progress}/${stepsNeeded}`;
+          if (progress >= stepsNeeded) finish(false);
+        });
+
+        scheduleSwitch();
+      },
+    };
+  }
+
+  const STEALTH_GAME_VARIANTS = [
+    makeStealthGame({
+      title: 'みはりの すきを ついて すすもう!',
+      guardEmoji: '💂',
+      safeMessage: '👀 いま すすめる!',
+      dangerMessage: '🚨 みつかる!とまれ!',
+    }),
+  ];
+
+  // コメディふう(ねている あいてを おこさないように れいぞうこを あける)
+  const COMEDY_STEALTH_VARIANTS = [
+    makeStealthGame({
+      title: 'ねている あいてを おこさず れいぞうこを あけよう!',
+      guardEmoji: '😴',
+      safeMessage: '😴 ぐっすり ねてる…',
+      dangerMessage: '👀 おきそう!とまれ!',
+    }),
+  ];
+
+  // ホラーふう(こわすぎない、なおとっちらしい かわいい えんしゅつ)
+  const CUTE_HORROR_VARIANTS = [
+    makeStealthGame({
+      title: 'ゆうれいに 見つからないように にげよう!(こわくないよ)',
+      guardEmoji: '👻',
+      safeMessage: '🌙 よそ みてる…',
+      dangerMessage: '😱 こっちを 見た!とまれ!',
+    }),
+  ];
+
+  // --- ルーレット(ゲームセンター・ぎゃんぶるふう) ---
+  // わくが じゅんばんに ひかり、すきな タイミングで「ストップ!」を
+  // おして とめる。げんじつの おかね・かきんとは むかんけいの あそび
+  function makeRouletteGame({ title, slots }) {
+    return {
+      start(container, onComplete) {
+        let index = 0;
+        let stopped = false;
+        let spinInterval;
+        const intervalMs = 140;
+
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-roulette-row" id="mgRouletteRow">
+            ${slots.map((s, i) => `<span class="mg-roulette-slot" data-i="${i}">${s.emoji}</span>`).join('')}
+          </div>
+          <button class="mg-tap-btn" id="mgRouletteStopBtn">ストップ!</button>
+        `;
+        const slotEls = Array.from(container.querySelectorAll('.mg-roulette-slot'));
+        const stopBtn = container.querySelector('#mgRouletteStopBtn');
+
+        function highlight() {
+          slotEls.forEach((el, i) => el.classList.toggle('active', i === index));
+        }
+        highlight();
+        spinInterval = setInterval(() => {
+          index = (index + 1) % slots.length;
+          highlight();
+        }, intervalMs);
+
+        stopBtn.addEventListener('pointerdown', () => {
+          if (stopped) return;
+          stopped = true;
+          clearInterval(spinInterval);
+          stopBtn.disabled = true;
+          const outcome = slots[index];
+          const resultEl = document.createElement('div');
+          resultEl.className = 'mg-swipe-result';
+          resultEl.textContent = outcome.label;
+          container.appendChild(resultEl);
+          setTimeout(() => onComplete(outcome.score), 700);
+        });
+      },
+    };
+  }
+
+  const ROULETTE_VARIANTS = [
+    makeRouletteGame({
+      title: 'ルーレットストップ!すきな タイミングで とめよう',
+      slots: [
+        { emoji: '🍒', label: 'あたり!', score: 70 },
+        { emoji: '🔔', label: 'ちいさな あたり', score: 45 },
+        { emoji: '💎', label: 'だいとうしょう!!', score: 100 },
+        { emoji: '⭐', label: 'ちいさな あたり', score: 45 },
+        { emoji: '❌', label: 'はずれ…', score: 15 },
+        { emoji: '🍀', label: 'ラッキー!', score: 65 },
+      ],
+    }),
+  ];
+
+  // --- ブロックくずしふう(レトロゲーム風) ---
+  // なつかしい こていがめん アクションの「パドルで ボールを はねかえして
+  // ブロックを くずす」あそびごこちを モチーフにした オマージュ。パドルは
+  // ◀▶ボタンで うごかす(スマホでも あんていして そうさできる ように)
+  function makeBreakoutGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 15000;
+        const ballSpeed = lerp(55, 75, difficulty);
+        const cols = 4, rows = 2;
+        const blocks = [];
+        for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) blocks.push({ r, c, alive: true });
+        let paddleX = 50;
+        const paddleWidth = 22;
+        let ballX = 50, ballY = 70, vx = 0.6, vy = -1;
+        let running = true;
+        let cleared = false;
+        let rafId;
+        const startTime = performance.now();
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">残り: 15s</span>
+            <span id="mgScore">ブロック: 0/${blocks.length}</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-breakout-field" id="mgBreakoutField">
+            <div class="mg-breakout-blocks" id="mgBreakoutBlocks"></div>
+            <span class="mg-breakout-ball" id="mgBreakoutBall"></span>
+            <div class="mg-breakout-paddle" id="mgBreakoutPaddle"></div>
+          </div>
+          <div class="mg-dpad-mid">
+            <button class="mg-tap-btn" id="mgBreakoutLeft">◀</button>
+            <button class="mg-tap-btn" id="mgBreakoutRight">▶</button>
+          </div>
+        `;
+        const blocksEl = container.querySelector('#mgBreakoutBlocks');
+        const ballEl = container.querySelector('#mgBreakoutBall');
+        const paddleEl = container.querySelector('#mgBreakoutPaddle');
+        const scoreEl = container.querySelector('#mgScore');
+        const timerEl = container.querySelector('#mgTimer');
+
+        function renderBlocks() {
+          blocksEl.innerHTML = blocks.map((b) => `<div class="mg-breakout-block ${b.alive ? '' : 'gone'}" style="left:${(b.c / cols) * 100}%;top:${(b.r / rows) * 42}%;width:${100 / cols}%;height:20%;"></div>`).join('');
+        }
+        renderBlocks();
+
+        function setPaddle(x) {
+          paddleX = clamp(x, paddleWidth / 2, 100 - paddleWidth / 2);
+          paddleEl.style.left = paddleX + '%';
+          paddleEl.style.width = paddleWidth + '%';
+        }
+        setPaddle(paddleX);
+        container.querySelector('#mgBreakoutLeft').addEventListener('pointerdown', () => setPaddle(paddleX - 12));
+        container.querySelector('#mgBreakoutRight').addEventListener('pointerdown', () => setPaddle(paddleX + 12));
+
+        let broken = 0;
+        function frame(now) {
+          if (!running) return;
+          const dt = 1 / 60;
+          ballX += vx * ballSpeed * dt;
+          ballY += vy * ballSpeed * dt;
+          if (ballX <= 2 || ballX >= 98) vx *= -1;
+          if (ballY <= 2) vy *= -1;
+          // パドルとの あたり判定
+          if (ballY >= 88 && ballY <= 94 && Math.abs(ballX - paddleX) <= paddleWidth / 2) {
+            vy = -Math.abs(vy);
+            vx = clamp((ballX - paddleX) / (paddleWidth / 2), -1, 1) * 0.9;
+          }
+          // ブロックとの あたり判定
+          blocks.forEach((b) => {
+            if (!b.alive) return;
+            const bx = (b.c / cols) * 100 + (100 / cols) / 2;
+            const by = (b.r / rows) * 42 + 10;
+            if (Math.abs(ballX - bx) < (100 / cols) / 2 && Math.abs(ballY - by) < 10) {
+              b.alive = false;
+              broken += 1;
+              vy *= -1;
+              scoreEl.textContent = `ブロック: ${broken}/${blocks.length}`;
+              renderBlocks();
+            }
+          });
+          ballEl.style.left = ballX + '%';
+          ballEl.style.top = ballY + '%';
+
+          const remaining = Math.max(0, DURATION_MS - (now - startTime));
+          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
+
+          if (broken >= blocks.length) { cleared = true; end(); return; }
+          if (ballY >= 100) { end(); return; }
+          if (remaining <= 0) { end(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          const score = cleared ? 100 : Math.round((broken / blocks.length) * 90);
+          onComplete(score);
+        }
+
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+
+  const BREAKOUT_VARIANTS = [
+    makeBreakoutGame({ title: 'ブロックくずしふう!ぜんぶ くずそう' }),
+  ];
+
+  // --- スポーツスイング(PK・バッティング・シュート・テニス・たっきゅう・バレー) ---
+  // しょうがいぶつジャンプ(makeJumpGame)と おなじ「せまってくる ものを
+  // タイミングよく さばく」CSSアニメーションの しくみを つかいまわしつつ、
+  // スポーツごとの きょうぎじょう・かけごえを つけて ジャンルを 見わけやすくした
+  function makeSportsSwingGame({ title, fieldEmoji, ballEmoji, tapLabel, successLabel, missLabel }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ROUNDS = 3;
+        const cycleMs = lerp(1300, 850, difficulty);
+        const windowMs = lerp(480, 260, difficulty);
+        let round = 0;
+        let success = 0;
+        let inWindow = false;
+        let running = true;
+        let windowOpenTimeout, windowCloseTimeout;
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgRound">1/${ROUNDS}</span>
+            <span id="mgScore">せいこう: 0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-sports-field">
+            <span class="mg-sports-goal">${fieldEmoji}</span>
+            <span class="mg-sports-ball hidden" id="mgSportsBall">${ballEmoji}</span>
+          </div>
+          <button class="mg-tap-btn" id="mgSportsBtn">${tapLabel}</button>
+        `;
+        const ballEl = container.querySelector('#mgSportsBall');
+        const btn = container.querySelector('#mgSportsBtn');
+        const roundEl = container.querySelector('#mgRound');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function spawn() {
+          if (!running) return;
+          inWindow = false;
+          ballEl.classList.remove('hidden');
+          ballEl.style.animation = 'none';
+          void ballEl.offsetWidth;
+          ballEl.style.animation = `mg-jump-approach ${cycleMs}ms linear`;
+          btn.disabled = false;
+          const windowStart = Math.max(0, cycleMs - windowMs);
+          windowOpenTimeout = setTimeout(() => { inWindow = true; }, windowStart);
+          windowCloseTimeout = setTimeout(() => resolveRound(false), cycleMs);
+        }
+
+        function resolveRound(hit) {
+          clearTimeout(windowCloseTimeout);
+          btn.disabled = true;
+          ballEl.classList.add('hidden');
+          if (hit) success += 1;
+          scoreEl.textContent = `せいこう: ${success}`;
+          round += 1;
+          if (round >= ROUNDS) {
+            setTimeout(end, 400);
+          } else {
+            setTimeout(() => {
+              roundEl.textContent = `${round + 1}/${ROUNDS}`;
+              spawn();
+            }, 350);
+          }
+        }
+
+        btn.addEventListener('pointerdown', () => {
+          if (!running || btn.disabled) return;
+          clearTimeout(windowOpenTimeout);
+          resolveRound(inWindow);
+        });
+
+        function end() {
+          if (!running) return;
+          running = false;
+          const score = Math.round((success / ROUNDS) * 100);
+          onComplete(score);
+        }
+
+        spawn();
+      },
+    };
+  }
+
+  const SPORTS_SWING_VARIANTS = [
+    makeSportsSwingGame({ title: 'サッカーPK!タイミングよく けろう', fieldEmoji: '🥅', ballEmoji: '⚽', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'はずれた…' }),
+    makeSportsSwingGame({ title: 'やきゅうバッティング!ジャストミートを ねらえ', fieldEmoji: '⚾', ballEmoji: '⚾', tapLabel: 'スイング!', successLabel: 'ヒット!', missLabel: 'くうぶり…' }),
+    makeSportsSwingGame({ title: 'バスケシュート!リングを ねらおう', fieldEmoji: '🏀', ballEmoji: '🏀', tapLabel: 'シュート!', successLabel: 'ゴール!', missLabel: 'リングに あたった…' }),
+    makeSportsSwingGame({ title: 'テニスふう!ジャストヒットを ねらえ', fieldEmoji: '🎾', ballEmoji: '🎾', tapLabel: 'スイング!', successLabel: 'ナイスショット!', missLabel: 'アウト…' }),
+    makeSportsSwingGame({ title: 'たっきゅうふう!タイミングよく かえそう', fieldEmoji: '🏓', ballEmoji: '🏓', tapLabel: 'かえす!', successLabel: 'ナイスリターン!', missLabel: 'かえせなかった…' }),
+    makeSportsSwingGame({ title: 'バレーふう!スパイクを きめよう', fieldEmoji: '🏐', ballEmoji: '🏐', tapLabel: 'スパイク!', successLabel: 'きまった!', missLabel: 'ネットに かかった…' }),
+  ];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -8505,6 +10208,25 @@
     ...STACK_GAME_VARIANTS,
     ...FIGHT_GAME_VARIANTS,
     ...RPG_GAME_VARIANTS,
+    ...CHASE_GAME_VARIANTS,
+    ...RUNNER_GAME_VARIANTS,
+    ...SHOOTER_GAME_VARIANTS,
+    ...COMBO_INPUT_VARIANTS,
+    ...BOX_PICK_VARIANTS,
+    ...MATCHUP_QUIZ_VARIANTS,
+    ...STEPPING_STONES_VARIANTS,
+    ...TARGET_AIM_VARIANTS,
+    ...RACE_GAME_VARIANTS,
+    ...SWIPE_THROW_VARIANTS,
+    ...POWER_METER_VARIANTS,
+    ...PUSH_CONTEST_VARIANTS,
+    ...CHOP_GAME_VARIANTS,
+    ...STEALTH_GAME_VARIANTS,
+    ...COMEDY_STEALTH_VARIANTS,
+    ...CUTE_HORROR_VARIANTS,
+    ...ROULETTE_VARIANTS,
+    ...BREAKOUT_VARIANTS,
+    ...SPORTS_SWING_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -8546,6 +10268,25 @@
     ['stack', STACK_GAME_VARIANTS],
     ['fight', FIGHT_GAME_VARIANTS],
     ['rpg', RPG_GAME_VARIANTS],
+    ['chase', CHASE_GAME_VARIANTS],
+    ['runner', RUNNER_GAME_VARIANTS],
+    ['shooter', SHOOTER_GAME_VARIANTS],
+    ['comboInput', COMBO_INPUT_VARIANTS],
+    ['boxPick', BOX_PICK_VARIANTS],
+    ['matchupQuiz', MATCHUP_QUIZ_VARIANTS],
+    ['steppingStones', STEPPING_STONES_VARIANTS],
+    ['targetAim', TARGET_AIM_VARIANTS],
+    ['race', RACE_GAME_VARIANTS],
+    ['swipeThrow', SWIPE_THROW_VARIANTS],
+    ['powerMeter', POWER_METER_VARIANTS],
+    ['pushContest', PUSH_CONTEST_VARIANTS],
+    ['chop', CHOP_GAME_VARIANTS],
+    ['stealth', STEALTH_GAME_VARIANTS],
+    ['comedyStealth', COMEDY_STEALTH_VARIANTS],
+    ['cuteHorror', CUTE_HORROR_VARIANTS],
+    ['roulette', ROULETTE_VARIANTS],
+    ['breakout', BREAKOUT_VARIANTS],
+    ['sportsSwing', SPORTS_SWING_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -8658,6 +10399,91 @@
     ],
   };
 
+  // きせつごとの あそび。地域とはちがい、その category を まるごと
+  // おきかえるのではなく、いま の きせつのあいだだけ「おまけの あと数種類」
+  // として ふつうの プールに くわわる(きせつが すぎれば また 出なくなる)。
+  // しょうらい きせつごとに 出現する ゲームを かえたり ふやしたり できる
+  // よう、REGION_MINIGAMES と おなじ かたち([{category, game}, ...])で
+  // もたせてある
+  const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
+
+  // 「せかい」画面の きせつせんたくで つかう、5つの モード(じどう+てきよう
+  // する きせつ4つ)の 見た目じょうほう。SEASON_MODE_ORDER の じゅんに
+  // せんたくしを ならべる
+  const SEASON_INFO = {
+    [SEASON.SPRING]: { emoji: '🌸', label: 'はる' },
+    [SEASON.SUMMER]: { emoji: '🌻', label: 'なつ' },
+    [SEASON.AUTUMN]: { emoji: '🍁', label: 'あき' },
+    [SEASON.WINTER]: { emoji: '❄️', label: 'ふゆ' },
+  };
+  const SEASON_MODE_AUTO = 'auto';
+  const SEASON_MODE_ORDER = [SEASON_MODE_AUTO, SEASON.SPRING, SEASON.SUMMER, SEASON.AUTUMN, SEASON.WINTER];
+
+  // げんじつの 月から きせつを はんてい する、「こよみの うえの きせつ」。
+  // せってい モードが auto の ときの ばあいに つかわれる(はんていロジック
+  // じたいは てきよう モードに かかわらず つねに けいさんできる)
+  function getCalendarSeason() {
+    const month = new Date().getMonth() + 1;
+    if (month >= 3 && month <= 5) return SEASON.SPRING;
+    if (month >= 6 && month <= 8) return SEASON.SUMMER;
+    if (month >= 9 && month <= 11) return SEASON.AUTUMN;
+    return SEASON.WINTER;
+  }
+
+  // 「せってい モード」(state.lifetime.seasonMode: auto/spring/summer/
+  // autumn/winter)と、「いま じっさいに てきようされている きせつ」
+  // (=じっこう きせつ)は べつものとして あつかう。auto モードなら
+  // げんじつの 月から けいさんし、はる/なつ/あき/ふゆを 手動で えらんで
+  // いれば その きせつに こていする。ミニゲーム・はいけい・イベントなど、
+  // 「いまの きせつ」を しりたい ばしょは すべて この関数だけを 参照すれば
+  // よい(今回の 第1段かいでは ミニゲームの プールに この効果を そのまま
+  // つかいつづける だけで、地域とのくみあわせ調整は 次の段かいで 行う)
+  function getEffectiveSeason() {
+    const mode = state.lifetime.seasonMode;
+    if (mode && mode !== SEASON_MODE_AUTO && SEASON_INFO[mode]) return mode;
+    return getCalendarSeason();
+  }
+
+  const SEASONAL_MINIGAMES = {
+    [SEASON.SPRING]: [
+      { category: 'catch', game: makeCatchGame({
+        title: 'おはなみ!はなびらキャッチ さくらを あつめよう',
+        basketEmoji: '🧺',
+        goodItems: ['🌸', '🍡', '🎎', '🦋'],
+        badItems: ['🐛', '☔', '💨', '🐝'],
+      }) },
+      { category: 'whack', game: makeWhackGame({ title: 'とびだす ちょうちょを タップ!', targetEmoji: '🦋' }) },
+    ],
+    [SEASON.SUMMER]: [
+      { category: 'timing', game: makeTimingGame({ title: 'すいかわり!ねらいを さだめて タップ!', tapLabel: 'それ!', gaugeStyle: '#2e8b57', icon: '🍉' }) },
+      { category: 'catch', game: makeCatchGame({
+        title: 'きんぎょすくい!やぶれないように キャッチ',
+        basketEmoji: '🥄',
+        goodItems: ['🐡', '🐠', '🎏', '⭐'],
+        badItems: ['🕳️', '💦', '🔥', '🐍'],
+      }) },
+      { category: 'reaction', game: makeReactionGame({ title: 'なつまつりの はなび!あがった しゅんかんに タップ!', waitWord: '🌃 よぞら を みつめる…', goWord: '🎆 どーん!', tooSoonWord: 'まだ あがって ないよ!' }) },
+    ],
+    [SEASON.AUTUMN]: [
+      { category: 'mash', game: makeMashGame({ title: 'いもほり!れんだで ほりだそう!', buttonEmoji: '🍠' }) },
+      { category: 'stack', game: makeStackGame({
+        title: 'おちばの やまを たかく つもう!',
+        blockEmoji: '🍁',
+        palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
+      }) },
+    ],
+    [SEASON.WINTER]: [
+      { category: 'catch', game: makeCatchGame({
+        title: 'サンタさんの プレゼントキャッチ!わすれものは いらない',
+        basketEmoji: '🎅',
+        goodItems: ['🎁', '🦌', '⭐', '🧦'],
+        badItems: ['🐺', '🕷️', '💣', '🦇'],
+      }) },
+      { category: 'whack', game: makeWhackGame({ title: 'おには そと!まめまきで タップ!', targetEmoji: '👹' }) },
+      { category: 'mash', game: makeMashGame({ title: 'もちつき!れんだで ぺったんこ!', buttonEmoji: '🍘' }) },
+    ],
+  };
+
   // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
   // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
   // あつかう。だから 地域に いるあいだは その4種類も ほかと まったく
@@ -8669,24 +10495,47 @@
   let minigameQueue = [];
   let currentMinigamePool = MINIGAMES;
   let minigameQueueRegionId = null;
+  let minigameQueueSeason = null;
   let lastMinigame = null;
+  // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
+  // おなじ ジャンルが 3かい れんぞくしないように するための きろく
+  const recentMinigameCategories = [];
+  // このセッション中に なんかい あそんだかを ゲームごとに きろくして、
+  // まだ あそんでいない・あまり あそんでいない ものを ちょっとだけ
+  // ひきやすくする(セーブデータには のこさない、そのばかぎりの ものでよい)
+  const minigamePlayCounts = new Map();
 
   function buildMinigamePool() {
     const regionEntries = REGION_MINIGAMES[state.regionId];
-    if (!regionEntries || !regionEntries.length) return MINIGAMES;
-    const regionCategories = new Set(regionEntries.map((entry) => entry.category));
-    const generalWithoutRegionalCategories = MINIGAMES.filter((game) => !regionCategories.has(minigameCategoryOf.get(game)));
-    return [...generalWithoutRegionalCategories, ...regionEntries.map((entry) => entry.game)];
+    const basePool = (!regionEntries || !regionEntries.length)
+      ? MINIGAMES
+      : (() => {
+        const regionCategories = new Set(regionEntries.map((entry) => entry.category));
+        const generalWithoutRegionalCategories = MINIGAMES.filter((game) => !regionCategories.has(minigameCategoryOf.get(game)));
+        return [...generalWithoutRegionalCategories, ...regionEntries.map((entry) => entry.game)];
+      })();
+    // きせつの あそびは category を おきかえたりせず、いま の きせつのあいだ
+    // だけ「おまけ」として そのまま プールに たしくわえる
+    const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()] || [];
+    if (!seasonEntries.length) return basePool;
+    return [...basePool, ...seasonEntries.map((entry) => entry.game)];
   }
 
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
-    minigameQueue = currentMinigamePool.map((_, i) => i);
-    for (let i = minigameQueue.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [minigameQueue[i], minigameQueue[j]] = [minigameQueue[j], minigameQueue[i]];
-    }
+    minigameQueueSeason = getEffectiveSeason();
+    // ふつうの シャッフル(ぜんぶが かならず 1しゅうする「シャッフルバッグ」)を
+    // ベースに しつつ、まだ あそんでいない・あそんだ かいすうが すくない
+    // ものほど キューの うしろ(=つぎに 出てきやすい ところ)に よりやすい
+    // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
+    const weighted = currentMinigamePool.map((game, i) => {
+      const played = minigamePlayCounts.get(game) || 0;
+      const weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
+      return { i, key: Math.pow(Math.random(), 1 / weight) };
+    });
+    weighted.sort((a, b) => a.key - b.key);
+    minigameQueue = weighted.map((w) => w.i);
     // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
     // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
     // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
@@ -8698,12 +10547,35 @@
   // 「ぜんぶ 出きるまで おなじ ものを くりかえさない」しくみは そのまま、
   // いま いる地域の あそびも まぜた プールぜんたいに たいして はたらく
   function pickRandomMinigame() {
-    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId) {
+    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== getEffectiveSeason()) {
       refillMinigameQueue();
     }
-    const idx = minigameQueue.pop();
-    const game = currentMinigamePool[idx];
+    // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
+    // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
+    // あれば そちらを さきに 出す(なければ そのまま、むりには しない)
+    let idx = minigameQueue.length - 1;
+    let category = minigameCategoryOf.get(currentMinigamePool[minigameQueue[idx]]);
+    if (
+      recentMinigameCategories.length >= 2 &&
+      recentMinigameCategories[recentMinigameCategories.length - 1] === category &&
+      recentMinigameCategories[recentMinigameCategories.length - 2] === category
+    ) {
+      const lookbackLimit = Math.max(0, minigameQueue.length - 8);
+      for (let lookback = idx - 1; lookback >= lookbackLimit; lookback--) {
+        const altCategory = minigameCategoryOf.get(currentMinigamePool[minigameQueue[lookback]]);
+        if (altCategory !== category) {
+          [minigameQueue[lookback], minigameQueue[idx]] = [minigameQueue[idx], minigameQueue[lookback]];
+          category = altCategory;
+          break;
+        }
+      }
+    }
+    const gameIdx = minigameQueue.pop();
+    const game = currentMinigamePool[gameIdx];
     lastMinigame = game;
+    minigamePlayCounts.set(game, (minigamePlayCounts.get(game) || 0) + 1);
+    recentMinigameCategories.push(category);
+    if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
     return game;
   }
 
@@ -9149,7 +11021,42 @@
   }));
 
   // まいかい ちがう 地域が でるよう、今の 地域を のぞいて 抽選する
-  el.travelBtn.addEventListener('click', withFeedback(() => {
+  // 「🌍 せかい」ボタンは、以前の「🧳 たび」の その場じっこうを やめて、
+  // まず「せかい」がめん(きせつを かえる/たびに でる の いりぐち)を
+  // ひらくだけに する。たびの じっこう ロジックじたいは worldTravelBtn に
+  // そのまま うつした(内容は へんこう なし)
+  el.travelBtn.addEventListener('click', () => {
+    worldOpen = true;
+    render();
+  });
+
+  el.worldCloseBtn.addEventListener('click', () => {
+    worldOpen = false;
+    render();
+  });
+
+  el.worldSeasonMenuBtn.addEventListener('click', () => {
+    worldOpen = false;
+    seasonOpen = true;
+    render();
+  });
+
+  el.seasonCloseBtn.addEventListener('click', () => {
+    seasonOpen = false;
+    worldOpen = true;
+    render();
+  });
+
+  el.seasonModeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectSeasonMode(btn.dataset.id);
+  });
+
+  el.worldTravelBtn.addEventListener('click', withFeedback(() => {
+    // たびの けっかは 「せかい」がめんの うえではなく、もとの 基本がめんの
+    // メッセージらんに 出す ので、じっこうまえに がめんを とじておく
+    worldOpen = false;
     if (state.isSleeping) {
       setMessage('ねている… おきてから たびに でよう');
       return;
@@ -9811,7 +11718,7 @@
     // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
     // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
     // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen) return;
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen || worldOpen || seasonOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it

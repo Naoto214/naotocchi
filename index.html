@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260905-1">
+<link rel="stylesheet" href="style.css?v=20260905-3">
 </head>
 <body>
   <div class="region-decor" id="regionDecor"></div>
@@ -25,7 +25,10 @@
           </div>
 
           <div class="sub-status-row hidden" id="subStatusRow">
-            <span id="regionLabel"></span>
+            <div class="world-status" id="worldStatus">
+              <span id="seasonLabel"></span>
+              <span id="regionLabel"></span>
+            </div>
             <span id="partnerLabel"></span>
           </div>
 
@@ -189,6 +192,33 @@
           <div class="theme-scroll">
             <div class="profile-hint" id="pickerHint"></div>
             <div id="pickerGrid"></div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="worldOverlay">
+          <div class="dex-header">
+            <span class="dex-title">せかい</span>
+            <button class="dex-close-btn" id="worldCloseBtn">✕</button>
+          </div>
+          <div class="profile-scroll">
+            <div class="profile-section">
+              <div class="profile-hint">なおとっちが くらす「せかい」の きせつや、いま いる ばしょを ここから かえられます</div>
+              <button class="profile-code-btn" id="worldSeasonMenuBtn">🌸 きせつを かえる</button>
+              <button class="profile-code-btn" id="worldTravelBtn">🧳 たびに でる</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="seasonOverlay">
+          <div class="dex-header">
+            <span class="dex-title">きせつを かえる</span>
+            <button class="dex-close-btn" id="seasonCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="theme-section">
+              <div class="profile-hint">えらんだ きせつは、つぎに 自分で かえるまで ずっと たもたれます。「げんじつに あわせる」を えらぶと、いまの 月から じどうで きせつが きまります</div>
+              <div class="theme-grid" id="seasonModeGrid"></div>
+            </div>
           </div>
         </div>
 
@@ -423,7 +453,7 @@
       <button id="playWithBtn" title="じゃれる">🤗<br><span>じゃれる</span></button>
       <button id="itemBtn" title="あいてむ">🎁<br><span>あいてむ</span></button>
       <button id="courtBtn" title="きゅうあいする">💘<br><span>きゅうあい</span></button>
-      <button id="travelBtn" title="たびにでる">🧳<br><span>たび</span></button>
+      <button id="travelBtn" title="せかい">🌍<br><span>せかい</span></button>
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
       <button id="themeBtn" title="でざいん">🎨<br><span>でざいん</span></button>
@@ -431,6 +461,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260905-1"></script>
+  <script src="script.js?v=20260905-3"></script>
 </body>
 </html>
