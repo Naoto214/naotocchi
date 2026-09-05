@@ -446,8 +446,16 @@
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
     regionDecor: document.getElementById('regionDecor'),
+    seasonLabel: document.getElementById('seasonLabel'),
     regionLabel: document.getElementById('regionLabel'),
     partnerLabel: document.getElementById('partnerLabel'),
+    worldOverlay: document.getElementById('worldOverlay'),
+    worldCloseBtn: document.getElementById('worldCloseBtn'),
+    worldSeasonMenuBtn: document.getElementById('worldSeasonMenuBtn'),
+    worldTravelBtn: document.getElementById('worldTravelBtn'),
+    seasonOverlay: document.getElementById('seasonOverlay'),
+    seasonCloseBtn: document.getElementById('seasonCloseBtn'),
+    seasonModeGrid: document.getElementById('seasonModeGrid'),
     profileBtn: document.getElementById('profileBtn'),
     profileOverlay: document.getElementById('profileOverlay'),
     profileCloseBtn: document.getElementById('profileCloseBtn'),
@@ -669,6 +677,16 @@
         // ずかんと おなじく「はじめから」しても消えない、永続の せってい
         deviceThemeId: 'default',
         screenThemeId: 'default',
+        // 「せかい」→「きせつを かえる」で えらんだ きせつの せってい
+        // モード('auto'|'spring'|'summer'|'autumn'|'winter')。地域(regionId)
+        // とはちがい「なおとっちが くらす せかい」の じょうたいなので、
+        // でざいんの いろ・がらと おなじく「はじめから」しても きえない
+        // 永続せってい としてあつかう。きせつせってい を もたない ふるい
+        // セーブデータは loadState() の lifetime マージで じどうに 'auto'が
+        // 補われる(getEffectiveSeason() 参照)。SEASON_MODE_AUTO 定数は この
+        // freshState() より あとで 定義される ため、じゅんじょの もんだいを
+        // さける ために ここだけ リテラル文字列 'auto' を じかに つかう
+        seasonMode: 'auto',
         // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
         // どくりつに えらべる、もうひとつの おしゃれ せってい
         devicePatternId: 'none',
@@ -3411,7 +3429,7 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !dexOpen && !achOpen && !themeOpen && !profileOpen
+        && !dexOpen && !achOpen && !themeOpen && !profileOpen && !worldOpen && !seasonOpen
         && remaining.length > 0;
       if (canEncounter) {
         const companion = remaining[Math.floor(Math.random() * remaining.length)];
@@ -3580,6 +3598,9 @@
 
     const region = applyRegion();
     el.regionLabel.textContent = `${region.emoji} ${region.label}`;
+    const effectiveSeason = getEffectiveSeason();
+    const seasonInfo = SEASON_INFO[effectiveSeason];
+    el.seasonLabel.textContent = seasonInfo ? `${seasonInfo.emoji} ${seasonInfo.label}` : '';
     el.partnerLabel.textContent = state.partner
       ? `${state.partner.married ? '💍' : '💑'} ${state.partner.emoji} ${state.partner.label}`
       : '';
@@ -3656,6 +3677,11 @@
     el.duelOverlay.classList.toggle('hidden', !duelOpen);
     if (duelOpen) renderDuelOverlay();
 
+    el.worldOverlay.classList.toggle('hidden', !worldOpen);
+
+    el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
+    if (seasonOpen) renderSeasonModeGrid();
+
     renderItemsRow(disableCare);
   }
 
@@ -3666,6 +3692,11 @@
   let commOpen = false;
   let itemOpen = false;
   let duelOpen = false;
+  // 「🌍 せかい」がめん(きせつを かえる/たびに でる の いりぐち)と、
+  // その中の「きせつを かえる」サブがめん。dexOpen などと おなじ しくみで
+  // render() から ひょうじを きりかえる
+  let worldOpen = false;
+  let seasonOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
@@ -3897,6 +3928,26 @@
     if (!theme || !isThemeUnlocked(theme)) return;
     if (target === 'device') state.lifetime.deviceThemeId = id;
     else state.lifetime.screenThemeId = id;
+    saveState();
+    render();
+  }
+
+  // 「せかい」→「きせつを かえる」がめん。でざいんの いろ・がら スウォッチ
+  // (.theme-swatch)と おなじ 見た目を りようして、5つの せってい モード
+  // (げんじつに あわせる/はる/なつ/あき/ふゆ)を いちらん表示する。ロックは
+  // ないので、でざいんとちがい ぜんぶ つねに えらべる
+  function renderSeasonModeGrid() {
+    const currentMode = state.lifetime.seasonMode || SEASON_MODE_AUTO;
+    el.seasonModeGrid.innerHTML = SEASON_MODE_ORDER.map((mode) => {
+      const info = mode === SEASON_MODE_AUTO ? { emoji: '🕐', label: 'げんじつに あわせる' } : SEASON_INFO[mode];
+      const selected = mode === currentMode;
+      return `<button type="button" class="theme-swatch ${selected ? 'selected' : ''}" data-id="${mode}"><span class="theme-swatch-circle">${info.emoji}</span><span class="theme-swatch-label">${info.label}</span></button>`;
+    }).join('');
+  }
+
+  function selectSeasonMode(mode) {
+    if (!SEASON_MODE_ORDER.includes(mode)) return;
+    state.lifetime.seasonMode = mode;
     saveState();
     render();
   }
@@ -10356,12 +10407,41 @@
   // もたせてある
   const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
 
-  function getCurrentSeason() {
+  // 「せかい」画面の きせつせんたくで つかう、5つの モード(じどう+てきよう
+  // する きせつ4つ)の 見た目じょうほう。SEASON_MODE_ORDER の じゅんに
+  // せんたくしを ならべる
+  const SEASON_INFO = {
+    [SEASON.SPRING]: { emoji: '🌸', label: 'はる' },
+    [SEASON.SUMMER]: { emoji: '🌻', label: 'なつ' },
+    [SEASON.AUTUMN]: { emoji: '🍁', label: 'あき' },
+    [SEASON.WINTER]: { emoji: '❄️', label: 'ふゆ' },
+  };
+  const SEASON_MODE_AUTO = 'auto';
+  const SEASON_MODE_ORDER = [SEASON_MODE_AUTO, SEASON.SPRING, SEASON.SUMMER, SEASON.AUTUMN, SEASON.WINTER];
+
+  // げんじつの 月から きせつを はんてい する、「こよみの うえの きせつ」。
+  // せってい モードが auto の ときの ばあいに つかわれる(はんていロジック
+  // じたいは てきよう モードに かかわらず つねに けいさんできる)
+  function getCalendarSeason() {
     const month = new Date().getMonth() + 1;
     if (month >= 3 && month <= 5) return SEASON.SPRING;
     if (month >= 6 && month <= 8) return SEASON.SUMMER;
     if (month >= 9 && month <= 11) return SEASON.AUTUMN;
     return SEASON.WINTER;
+  }
+
+  // 「せってい モード」(state.lifetime.seasonMode: auto/spring/summer/
+  // autumn/winter)と、「いま じっさいに てきようされている きせつ」
+  // (=じっこう きせつ)は べつものとして あつかう。auto モードなら
+  // げんじつの 月から けいさんし、はる/なつ/あき/ふゆを 手動で えらんで
+  // いれば その きせつに こていする。ミニゲーム・はいけい・イベントなど、
+  // 「いまの きせつ」を しりたい ばしょは すべて この関数だけを 参照すれば
+  // よい(今回の 第1段かいでは ミニゲームの プールに この効果を そのまま
+  // つかいつづける だけで、地域とのくみあわせ調整は 次の段かいで 行う)
+  function getEffectiveSeason() {
+    const mode = state.lifetime.seasonMode;
+    if (mode && mode !== SEASON_MODE_AUTO && SEASON_INFO[mode]) return mode;
+    return getCalendarSeason();
   }
 
   const SEASONAL_MINIGAMES = {
@@ -10436,7 +10516,7 @@
       })();
     // きせつの あそびは category を おきかえたりせず、いま の きせつのあいだ
     // だけ「おまけ」として そのまま プールに たしくわえる
-    const seasonEntries = SEASONAL_MINIGAMES[getCurrentSeason()] || [];
+    const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()] || [];
     if (!seasonEntries.length) return basePool;
     return [...basePool, ...seasonEntries.map((entry) => entry.game)];
   }
@@ -10444,7 +10524,7 @@
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
-    minigameQueueSeason = getCurrentSeason();
+    minigameQueueSeason = getEffectiveSeason();
     // ふつうの シャッフル(ぜんぶが かならず 1しゅうする「シャッフルバッグ」)を
     // ベースに しつつ、まだ あそんでいない・あそんだ かいすうが すくない
     // ものほど キューの うしろ(=つぎに 出てきやすい ところ)に よりやすい
@@ -10467,7 +10547,7 @@
   // 「ぜんぶ 出きるまで おなじ ものを くりかえさない」しくみは そのまま、
   // いま いる地域の あそびも まぜた プールぜんたいに たいして はたらく
   function pickRandomMinigame() {
-    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== getCurrentSeason()) {
+    if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== getEffectiveSeason()) {
       refillMinigameQueue();
     }
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
@@ -10941,7 +11021,42 @@
   }));
 
   // まいかい ちがう 地域が でるよう、今の 地域を のぞいて 抽選する
-  el.travelBtn.addEventListener('click', withFeedback(() => {
+  // 「🌍 せかい」ボタンは、以前の「🧳 たび」の その場じっこうを やめて、
+  // まず「せかい」がめん(きせつを かえる/たびに でる の いりぐち)を
+  // ひらくだけに する。たびの じっこう ロジックじたいは worldTravelBtn に
+  // そのまま うつした(内容は へんこう なし)
+  el.travelBtn.addEventListener('click', () => {
+    worldOpen = true;
+    render();
+  });
+
+  el.worldCloseBtn.addEventListener('click', () => {
+    worldOpen = false;
+    render();
+  });
+
+  el.worldSeasonMenuBtn.addEventListener('click', () => {
+    worldOpen = false;
+    seasonOpen = true;
+    render();
+  });
+
+  el.seasonCloseBtn.addEventListener('click', () => {
+    seasonOpen = false;
+    worldOpen = true;
+    render();
+  });
+
+  el.seasonModeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn) return;
+    selectSeasonMode(btn.dataset.id);
+  });
+
+  el.worldTravelBtn.addEventListener('click', withFeedback(() => {
+    // たびの けっかは 「せかい」がめんの うえではなく、もとの 基本がめんの
+    // メッセージらんに 出す ので、じっこうまえに がめんを とじておく
+    worldOpen = false;
     if (state.isSleeping) {
       setMessage('ねている… おきてから たびに でよう');
       return;
@@ -11603,7 +11718,7 @@
     // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
     // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
     // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen) return;
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen || worldOpen || seasonOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
