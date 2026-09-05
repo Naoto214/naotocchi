@@ -1378,6 +1378,76 @@
     return min + (max - min) * t;
   }
 
+  // ================================================================
+  // ミニゲーム きょうつうの UXルール(コード上の きまりごと)
+  // ================================================================
+  // ・せんたく式の ミニゲームは、判定した しゅんかんに つぎへ すすんだり
+  //   onCompleteを よんだり しない。かならず このさきの revealAndProceed()
+  //   などで「なにを えらんで、あっていたか/まちがっていたか」を
+  //   目に 見える かたちで 見せてから すすむ
+  // ・判定と onComplete は おなじ フレームで おこなわない(すくなくとも
+  //   MG_REVEAL_MS ぶんは あいだを あける)
+  // ・誤タップを かんぜんな 無反応に しない(ボタンを おした ことは
+  //   かならず なにかしらの ヘんかで わかる ようにする)
+  // ・かいひ/衝突けいの ゲームでは、判定成立(あたり/はずれの かくてい)と
+  //   しょうがいぶつ/対象を 画面から 消す タイミングを わける(判定した
+  //   しゅんかんに 消さず、うごきおわってから 消す。downhill-themed・
+  //   jump・runner さんしょう)
+  // ・2だんかい構成の ゲームは、さいごの 操作の あとに かならず 結果を
+  //   見せてから おわる(surfing-wave・miniPoker-basic さんしょう)
+  // ・せいかい と ふせいかいで おなじ えんしゅつを つかいまわさない
+  //   (pose さんしょう)
+  // ・あたらしい 地域/季節限定カテゴリを ついかした ときは、
+  //   minigameCategoryOf からも れないよう、REGION_MINIGAMES/
+  //   SEASONAL_MINIGAMESへの category とうろくループ(下の ほう)を
+  //   かならず とおす
+  // ・いろだけに たよらず、⭕/❌/✓ などの きごうでも せいご/ふせいかいが
+  //   つたわる ようにする
+
+  const MG_REVEAL_MS = 480;
+
+  // せんたく式の ミニゲームで つかう、きょうつうの せいかい/ふせいかい
+  // ひょうじヘルパー。タップした ようそに ⭕/❌ の マークと いろを つけ、
+  // ふせいかいの ときは ただしい ようそ(わかれば)にも ✓を つけて 見せる。
+  // MG_REVEAL_MSだけ まってから after() を よぶので、その あいだに
+  // つぎの 判定へ すすむ コードを おかなければ、しぜんに 多重タップも
+  // ふせげる(呼び出しがわの awaitingフラグは 判定した しゅんかんに
+  // falseに し、after() の なかで はじめて trueに もどす こと)
+  function revealAndProceed(tappedEl, correct, correctEl, after) {
+    if (tappedEl) {
+      tappedEl.classList.add(correct ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
+      const mark = document.createElement('span');
+      mark.className = 'mg-reveal-mark';
+      mark.textContent = correct ? '⭕' : '❌';
+      tappedEl.appendChild(mark);
+    }
+    if (!correct && correctEl && correctEl !== tappedEl) {
+      correctEl.classList.add('mg-reveal-correct');
+      const mark = document.createElement('span');
+      mark.className = 'mg-reveal-mark';
+      mark.textContent = '✓';
+      correctEl.appendChild(mark);
+    }
+    setTimeout(after, MG_REVEAL_MS);
+  }
+
+  // 「まちがえた ことは わかるが、ゲームじたいは とめない」けいの ミニ
+  // ゲーム(numberOrder・sumPair など)で つかう、かるい 誤操作フィード
+  // バック。revealAndProceed()とはちがい ゲームの すすみを ブロックせず、
+  // ちいさな シェイク+❌を つけて すぐ もとに もどす だけ
+  function flashMistake(el) {
+    if (!el) return;
+    el.classList.add('mg-mistake-flash');
+    const mark = document.createElement('span');
+    mark.className = 'mg-reveal-mark';
+    mark.textContent = '❌';
+    el.appendChild(mark);
+    setTimeout(() => {
+      el.classList.remove('mg-mistake-flash');
+      mark.remove();
+    }, 300);
+  }
+
   const MESSAGE_DURATION_MS = 4200;
 
   // GENDERS/ORIENTATION_ROLL_POOL は 本来 もっと したの せいべつ関係の
@@ -5210,11 +5280,14 @@
             if (item.bad) {
               points = Math.max(0, points - 20);
               flashField();
+              item.el.remove();
             } else {
               points = Math.min(100, points + 15);
+              // 一しゅん ポップさせてから 消す(そくじ 消滅より 手ごたえを 見せる)
+              item.el.classList.add('mg-catch-pop');
+              setTimeout(() => item.el.remove(), 180);
             }
             scoreEl.textContent = `とくてん: ${points}`;
-            item.el.remove();
             return false;
           }
           if (item.y > fieldHeight) {
@@ -5338,10 +5411,15 @@
         if (i !== activeIndex) return;
         hits += 1;
         scoreEl.textContent = `たいしょう: ${hits}`;
+        // そくじ 消すのではなく、一しゅん ヒットの ポップを 見せてから 消す
         holes[i].classList.remove('active');
-        holes[i].textContent = '';
+        holes[i].classList.add('hit-pop');
         activeIndex = -1;
         clearTimeout(hideTimeout);
+        setTimeout(() => {
+          holes[i].classList.remove('hit-pop');
+          holes[i].textContent = '';
+        }, 120);
         scheduleNext(150);
       }
 
@@ -6263,25 +6341,27 @@
         const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
         let answered = false;
 
-        function finishRound(correct) {
+        function finishRound(correct, tappedBtn) {
           if (answered) return;
           answered = true;
           clearTimeout(timer);
           if (correct) correctCount += 1;
-          round += 1;
-          if (round >= ROUNDS) {
-            const score = Math.round((correctCount / ROUNDS) * 100);
-            setTimeout(() => onComplete(score), 250);
-          } else {
-            setTimeout(renderRound, 250);
-          }
+          const correctBtn = buttons.find((b) => Number(b.dataset.val) === problem.answer);
+          revealAndProceed(tappedBtn, correct, correctBtn, () => {
+            round += 1;
+            if (round >= ROUNDS) {
+              onComplete(Math.round((correctCount / ROUNDS) * 100));
+            } else {
+              renderRound();
+            }
+          });
         }
 
         buttons.forEach((btn) => {
-          btn.addEventListener('pointerdown', () => finishRound(Number(btn.dataset.val) === problem.answer));
+          btn.addEventListener('pointerdown', () => finishRound(Number(btn.dataset.val) === problem.answer, btn));
         });
 
-        timer = setTimeout(() => finishRound(false), timeLimitMs);
+        timer = setTimeout(() => finishRound(false, null), timeLimitMs);
       }
 
       renderRound();
@@ -6422,25 +6502,27 @@
         const buttons = Array.from(container.querySelectorAll('.mg-stroop-btn'));
         let answered = false;
 
-        function finishRound(correct) {
+        function finishRound(correct, tappedBtn) {
           if (answered) return;
           answered = true;
           clearTimeout(timer);
           if (correct) correctCount += 1;
-          round += 1;
-          if (round >= ROUNDS) {
-            const score = Math.round((correctCount / ROUNDS) * 100);
-            setTimeout(() => onComplete(score), 200);
-          } else {
-            setTimeout(renderRound, 200);
-          }
+          const correctBtn = buttons.find((b) => b.dataset.key === inkColor.key);
+          revealAndProceed(tappedBtn, correct, correctBtn, () => {
+            round += 1;
+            if (round >= ROUNDS) {
+              onComplete(Math.round((correctCount / ROUNDS) * 100));
+            } else {
+              renderRound();
+            }
+          });
         }
 
         buttons.forEach((btn) => {
-          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === inkColor.key));
+          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === inkColor.key, btn));
         });
 
-        timer = setTimeout(() => finishRound(false), timeLimitMs);
+        timer = setTimeout(() => finishRound(false, null), timeLimitMs);
       }
 
       renderRound();
@@ -6480,25 +6562,28 @@
         const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
         let answered = false;
 
-        function finishRound(correct) {
+        function finishRound(correct, tappedBtn) {
           if (answered) return;
           answered = true;
           clearTimeout(timer);
           if (correct) correctCount += 1;
-          round += 1;
-          if (round >= ROUNDS) {
-            const score = Math.round((correctCount / ROUNDS) * 100);
-            setTimeout(() => onComplete(score), 200);
-          } else {
-            setTimeout(renderRound, 200);
-          }
+          const correctVal = isBig ? 'big' : 'small';
+          const correctBtn = buttons.find((b) => b.dataset.val === correctVal);
+          revealAndProceed(tappedBtn, correct, correctBtn, () => {
+            round += 1;
+            if (round >= ROUNDS) {
+              onComplete(Math.round((correctCount / ROUNDS) * 100));
+            } else {
+              renderRound();
+            }
+          });
         }
 
         buttons.forEach((btn) => {
-          btn.addEventListener('pointerdown', () => finishRound((btn.dataset.val === 'big') === isBig));
+          btn.addEventListener('pointerdown', () => finishRound((btn.dataset.val === 'big') === isBig, btn));
         });
 
-        timer = setTimeout(() => finishRound(false), timeLimitMs);
+        timer = setTimeout(() => finishRound(false, null), timeLimitMs);
       }
 
       renderRound();
@@ -6544,25 +6629,27 @@
         const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
         let answered = false;
 
-        function finishRound(correct) {
+        function finishRound(correct, tappedBtn) {
           if (answered) return;
           answered = true;
           clearTimeout(timer);
           if (correct) correctCount += 1;
-          round += 1;
-          if (round >= ROUNDS) {
-            const score = Math.round((correctCount / ROUNDS) * 100);
-            setTimeout(() => onComplete(score), 200);
-          } else {
-            setTimeout(renderRound, 200);
-          }
+          const correctBtn = buttons.find((b) => b.dataset.key === arrowDir.key);
+          revealAndProceed(tappedBtn, correct, correctBtn, () => {
+            round += 1;
+            if (round >= ROUNDS) {
+              onComplete(Math.round((correctCount / ROUNDS) * 100));
+            } else {
+              renderRound();
+            }
+          });
         }
 
         buttons.forEach((btn) => {
-          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === arrowDir.key));
+          btn.addEventListener('pointerdown', () => finishRound(btn.dataset.key === arrowDir.key, btn));
         });
 
-        timer = setTimeout(() => finishRound(false), timeLimitMs);
+        timer = setTimeout(() => finishRound(false, null), timeLimitMs);
       }
 
       renderRound();
@@ -6888,14 +6975,16 @@
             answered = true;
             clearTimeout(timer);
             const correct = Number(cell.dataset.i) === oddIndex;
-            onComplete(correct ? 100 : 20);
+            const correctCell = cells.find((c) => Number(c.dataset.i) === oddIndex);
+            revealAndProceed(cell, correct, correctCell, () => onComplete(correct ? 100 : 20));
           });
         });
 
         timer = setTimeout(() => {
           if (!answered) {
             answered = true;
-            onComplete(10);
+            const correctCell = cells.find((c) => Number(c.dataset.i) === oddIndex);
+            revealAndProceed(null, false, correctCell, () => onComplete(10));
           }
         }, timeLimitMs);
       },
@@ -6953,7 +7042,10 @@
       cells.forEach((cell) => {
         cell.addEventListener('pointerdown', () => {
           const n = Number(cell.dataset.n);
-          if (n !== next) return;
+          if (n !== next) {
+            flashMistake(cell);
+            return;
+          }
           cell.style.visibility = 'hidden';
           next += 1;
           if (next > COUNT) {
@@ -7002,7 +7094,9 @@
             answered = true;
             clearTimeout(timer);
             const chosenCount = side.dataset.side === 'left' ? left : right;
-            onComplete(chosenCount === Math.max(left, right) ? 100 : 20);
+            const correct = chosenCount === Math.max(left, right);
+            const correctSide = sides.find((s) => (s.dataset.side === 'left' ? left : right) === Math.max(left, right));
+            revealAndProceed(side, correct, correctSide, () => onComplete(correct ? 100 : 20));
           });
         });
 
@@ -7045,8 +7139,10 @@
             if (answered) return;
             answered = true;
             clearTimeout(timer);
-            const correctSide = bigIsLeft ? 'left' : 'right';
-            onComplete(side.dataset.side === correctSide ? 100 : 20);
+            const correctSideName = bigIsLeft ? 'left' : 'right';
+            const correct = side.dataset.side === correctSideName;
+            const correctSideEl = sides.find((s) => s.dataset.side === correctSideName);
+            revealAndProceed(side, correct, correctSideEl, () => onComplete(correct ? 100 : 20));
           });
         });
 
@@ -7106,14 +7202,17 @@
             if (answered) return;
             answered = true;
             clearTimeout(timer);
-            onComplete(Number(cell.dataset.i) === correctIndex ? 100 : 20);
+            const correct = Number(cell.dataset.i) === correctIndex;
+            const correctCell = cells.find((c) => Number(c.dataset.i) === correctIndex);
+            revealAndProceed(cell, correct, correctCell, () => onComplete(correct ? 100 : 20));
           });
         });
 
         timer = setTimeout(() => {
           if (!answered) {
             answered = true;
-            onComplete(10);
+            const correctCell = cells.find((c) => Number(c.dataset.i) === correctIndex);
+            revealAndProceed(null, false, correctCell, () => onComplete(10));
           }
         }, timeLimitMs);
       },
@@ -7146,26 +7245,32 @@
 
         container.innerHTML = `
           <div class="mg-title">${title}</div>
-          <div class="mg-math-problem" style="filter: brightness(0); font-size:56px;">${answer.emoji}</div>
+          <div class="mg-math-problem" id="mgSilhouette" style="filter: brightness(0); font-size:56px;">${answer.emoji}</div>
           <div class="mg-math-choices">
             ${choices.map((c) => `<button class="mg-math-btn" data-key="${c.key}">${c.label}</button>`).join('')}
           </div>
         `;
 
+        const silhouetteEl = container.querySelector('#mgSilhouette');
         const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
         buttons.forEach((btn) => {
           btn.addEventListener('pointerdown', () => {
             if (answered) return;
             answered = true;
             clearTimeout(timer);
-            onComplete(btn.dataset.key === answer.key ? 100 : 20);
+            silhouetteEl.style.filter = 'none'; // こたえの すがたを 見せる
+            const correct = btn.dataset.key === answer.key;
+            const correctBtn = buttons.find((b) => b.dataset.key === answer.key);
+            revealAndProceed(btn, correct, correctBtn, () => onComplete(correct ? 100 : 20));
           });
         });
 
         timer = setTimeout(() => {
           if (!answered) {
             answered = true;
-            onComplete(10);
+            silhouetteEl.style.filter = 'none';
+            const correctBtn = buttons.find((b) => b.dataset.key === answer.key);
+            revealAndProceed(null, false, correctBtn, () => onComplete(10));
           }
         }, timeLimitMs);
       },
@@ -7260,14 +7365,17 @@
             if (answered) return;
             answered = true;
             clearTimeout(timer);
-            onComplete(String(btn.dataset.val) === String(answer) ? 100 : 20);
+            const correct = String(btn.dataset.val) === String(answer);
+            const correctBtn = buttons.find((b) => String(b.dataset.val) === String(answer));
+            revealAndProceed(btn, correct, correctBtn, () => onComplete(correct ? 100 : 20));
           });
         });
 
         timer = setTimeout(() => {
           if (!answered) {
             answered = true;
-            onComplete(10);
+            const correctBtn = buttons.find((b) => String(b.dataset.val) === String(answer));
+            revealAndProceed(null, false, correctBtn, () => onComplete(10));
           }
         }, timeLimitMs);
       },
@@ -7386,27 +7494,31 @@
           choicesEl.innerHTML = labels
             .map((label, i) => `<button class="mg-choice-btn" data-i="${i}">${label}</button>`)
             .join('');
+          const stepButtons = Array.from(choicesEl.querySelectorAll('.mg-choice-btn'));
           awaitingTap = true;
-          Array.from(choicesEl.querySelectorAll('.mg-choice-btn')).forEach((btn) => {
-            btn.addEventListener('pointerdown', () => onPick(Number(btn.dataset.i) === correctIndex));
+          stepButtons.forEach((btn) => {
+            btn.addEventListener('pointerdown', () => onPick(Number(btn.dataset.i) === correctIndex, btn, stepButtons, correctIndex));
           });
           clearTimeout(stepTimer);
-          stepTimer = setTimeout(() => onPick(false), timeLimitMs);
+          stepTimer = setTimeout(() => onPick(false, null, stepButtons, correctIndex), timeLimitMs);
         }
 
-        function onPick(correct) {
+        function onPick(correct, tappedBtn, stepButtons, correctIndex) {
           if (!awaitingTap) return;
           awaitingTap = false;
           clearTimeout(stepTimer);
           if (correct) correctCount += 1;
           scoreEl.textContent = `せいかい: ${correctCount}`;
-          step += 1;
-          if (step >= STEPS) {
-            onComplete(Math.round((correctCount / STEPS) * 100));
-            return;
-          }
-          stepEl.textContent = `わかれみち ${step + 1}/${STEPS}`;
-          renderStep();
+          const correctBtn = stepButtons.find((b) => Number(b.dataset.i) === correctIndex);
+          revealAndProceed(tappedBtn, correct, correctBtn, () => {
+            step += 1;
+            if (step >= STEPS) {
+              onComplete(Math.round((correctCount / STEPS) * 100));
+              return;
+            }
+            stepEl.textContent = `わかれみち ${step + 1}/${STEPS}`;
+            renderStep();
+          });
         }
 
         renderStep();
@@ -7546,16 +7658,20 @@
         const correct = (dir === 'up' && next > current) || (dir === 'down' && next < current);
         if (correct) correctCount += 1;
         scoreEl.textContent = `せいかい: ${correctCount}`;
-        current = next;
-        round += 1;
-        if (round >= ROUNDS) {
-          onComplete(Math.round((correctCount / ROUNDS) * 100));
-          return;
-        }
-        numberEl.textContent = current;
-        roundEl.textContent = `ラウンド ${round + 1}/${ROUNDS}`;
-        awaitingTap = true;
-        timer = setTimeout(() => onPick('up'), timeLimitMs);
+        const tappedBtn = buttons.find((b) => b.dataset.dir === dir);
+        revealAndProceed(tappedBtn, correct, null, () => {
+          current = next;
+          round += 1;
+          if (round >= ROUNDS) {
+            onComplete(Math.round((correctCount / ROUNDS) * 100));
+            return;
+          }
+          buttons.forEach((b) => { b.classList.remove('mg-reveal-correct', 'mg-reveal-incorrect'); b.querySelectorAll('.mg-reveal-mark').forEach((m) => m.remove()); });
+          numberEl.textContent = current;
+          roundEl.textContent = `ラウンド ${round + 1}/${ROUNDS}`;
+          awaitingTap = true;
+          timer = setTimeout(() => onPick('up'), timeLimitMs);
+        });
       }
 
       buttons.forEach((btn) => btn.addEventListener('pointerdown', () => onPick(btn.dataset.dir)));
@@ -7695,7 +7811,15 @@
             popped = true;
             hits += 1;
             scoreEl.textContent = `ポップ: ${hits}`;
-            bubble.remove();
+            // そくじ 消すのではなく、いま の たかさで はじける ようすを
+            // 一しゅん 見せてから 消す(上昇アニメを とめた いちに こていしてから)
+            const rect = bubble.getBoundingClientRect();
+            const fieldRect = field.getBoundingClientRect();
+            bubble.style.animation = 'none';
+            bubble.style.bottom = (fieldRect.bottom - rect.bottom) + 'px';
+            void bubble.offsetWidth;
+            bubble.classList.add('mg-bubble-pop');
+            setTimeout(() => bubble.remove(), 160);
           });
           bubble.addEventListener('animationend', () => {
             if (!popped) bubble.remove();
@@ -7842,6 +7966,7 @@
         let selected = -1;
         let matchedCount = 0;
         let finished = false;
+        let locked = false;
         let timer;
 
         container.innerHTML = `
@@ -7865,7 +7990,7 @@
         }
 
         function onTap(i) {
-          if (finished || numbers[i] === null) return;
+          if (finished || locked || numbers[i] === null) return;
           if (selected === -1) {
             selected = i;
             render();
@@ -7884,8 +8009,18 @@
             render();
             if (matchedCount >= pairCount) end(true);
           } else {
-            selected = -1;
-            render();
+            // 不一致: なぜ もどったのか わかる よう、2まいとも 一しゅん
+            // ❌フラッシュを 見せてから せんたくを かいじょする
+            locked = true;
+            const cellA = grid.querySelector(`.mg-hole[data-i="${selected}"]`);
+            const cellB = grid.querySelector(`.mg-hole[data-i="${i}"]`);
+            flashMistake(cellA);
+            flashMistake(cellB);
+            setTimeout(() => {
+              locked = false;
+              selected = -1;
+              render();
+            }, 320);
           }
         }
 
@@ -7928,11 +8063,19 @@
         const DURATION_MS = 6000;
         const cycleMs = lerp(1600, 950, difficulty);
         const jumpWindowMs = lerp(550, 300, difficulty);
+        // 判定(cycleMs/jumpWindowMs)は かえず、判定が おわった あとに
+        // だけ「しょうがいぶつが プレイヤーの したを とおりすぎて
+        // 画面外へ ぬける」えんしゅつを つけたす ための、みため専用の
+        // ついか時間(EXIT_MS)。せいこう/しっぱい どちらの ルートでも
+        // おなじ ぬけ演出を つかい、判定した しゅんかんに しょうがいぶつが
+        // 消える ことが ないようにする
+        const EXIT_MS = 260;
+        const JUMP_HOLD_MS = 380;
         let avoided = 0;
         let total = 0;
         let inWindow = false;
         let running = true;
-        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval;
+        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval, exitTimeout, jumpHoldTimeout, hitTimeout;
 
         container.innerHTML = `
           <div class="mg-header">
@@ -7967,9 +8110,7 @@
             inWindow = true;
           }, windowStart);
           windowCloseTimeout = setTimeout(() => {
-            inWindow = false;
-            obstacleEl.classList.add('hidden');
-            scheduleNext();
+            finishObstacle(false);
           }, cycleMs);
         }
 
@@ -7978,16 +8119,34 @@
           nextTimeout = setTimeout(spawnObstacle, 250);
         }
 
+        // 判定(せいこう/しっぱい)が かくてい した あとに よばれる。
+        // ここでは まだ しょうがいぶつを 消さず、プレイヤーの したを
+        // とおりすぎて 画面外へ ぬける ようすを 見せてから 消す
+        function finishObstacle(success) {
+          if (!running) return;
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          inWindow = false;
+          if (!success) {
+            playerEl.classList.add('hit');
+            hitTimeout = setTimeout(() => playerEl.classList.remove('hit'), 300);
+          }
+          obstacleEl.style.animation = 'none';
+          void obstacleEl.offsetWidth;
+          obstacleEl.style.animation = `mg-jump-exit ${EXIT_MS}ms linear`;
+          exitTimeout = setTimeout(() => {
+            obstacleEl.classList.add('hidden');
+            scheduleNext();
+          }, EXIT_MS);
+        }
+
         function onJump() {
           if (!running || !inWindow) return;
           avoided += 1;
-          inWindow = false;
           scoreEl.textContent = `かいひ: ${avoided}`;
           playerEl.classList.add('jumping');
-          setTimeout(() => playerEl.classList.remove('jumping'), 250);
-          clearTimeout(windowCloseTimeout);
-          obstacleEl.classList.add('hidden');
-          scheduleNext();
+          jumpHoldTimeout = setTimeout(() => playerEl.classList.remove('jumping'), JUMP_HOLD_MS);
+          finishObstacle(true);
         }
         jumpBtn.addEventListener('pointerdown', onJump);
 
@@ -8005,6 +8164,9 @@
           clearTimeout(windowOpenTimeout);
           clearTimeout(windowCloseTimeout);
           clearTimeout(nextTimeout);
+          clearTimeout(exitTimeout);
+          clearTimeout(jumpHoldTimeout);
+          clearTimeout(hitTimeout);
           jumpBtn.removeEventListener('pointerdown', onJump);
           const score = total > 0 ? Math.round(clamp((avoided / total) * 100, 0, 100)) : 0;
           onComplete(score);
@@ -8058,14 +8220,17 @@
           if (answered) return;
           answered = true;
           clearTimeout(timer);
-          onComplete(btn.dataset.val === pair.answer ? 100 : 20);
+          const correct = btn.dataset.val === pair.answer;
+          const correctBtn = buttons.find((b) => b.dataset.val === pair.answer);
+          revealAndProceed(btn, correct, correctBtn, () => onComplete(correct ? 100 : 20));
         });
       });
 
       timer = setTimeout(() => {
         if (!answered) {
           answered = true;
-          onComplete(10);
+          const correctBtn = buttons.find((b) => b.dataset.val === pair.answer);
+          revealAndProceed(null, false, correctBtn, () => onComplete(10));
         }
       }, timeLimitMs);
     },
@@ -8209,8 +8374,17 @@
               if (answered) return;
               answered = true;
               clearTimeout(timer);
-              if (btn.dataset.mood === target.mood) correctCount += 1;
-              charEl.className = `pet emote-${target.mood}`;
+              const correct = btn.dataset.mood === target.mood;
+              if (correct) correctCount += 1;
+              btn.classList.add(correct ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
+              const mark = document.createElement('span');
+              mark.className = 'mg-reveal-mark';
+              mark.textContent = correct ? '⭕' : '❌';
+              btn.appendChild(mark);
+              // せいかいは いつもの きもち反応、ふせいかいは あきらかに
+              // ちがう「くびを かしげる」反応に して、あっていたかのように
+              // 見えてしまわない ようにする(過度に ネガティブには しない)
+              charEl.className = correct ? `pet emote-${target.mood}` : 'pet pose-confused';
               setTimeout(() => {
                 charEl.className = 'pet';
                 nextRound();
@@ -9073,13 +9247,18 @@
         const DURATION_MS = 7000;
         const cycleMs = lerp(1500, 900, difficulty);
         const jumpWindowMs = lerp(550, 320, difficulty);
+        // jump系と おなじ りゆうで、判定(cycleMs/jumpWindowMs)は かえず、
+        // 判定後だけ アイテムが プレイヤーの したを とおりすぎて 画面外へ
+        // ぬける えんしゅつを つけたす
+        const EXIT_MS = 260;
+        const JUMP_HOLD_MS = 380;
         let success = 0;
         let total = 0;
         let coins = 0;
         let inWindow = false;
         let currentIsCoin = false;
         let running = true;
-        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval;
+        let windowOpenTimeout, windowCloseTimeout, nextTimeout, tickInterval, exitTimeout, jumpHoldTimeout, hitTimeout;
 
         container.innerHTML = `
           <div class="mg-header">
@@ -9115,9 +9294,7 @@
           const windowStart = Math.max(0, cycleMs - jumpWindowMs);
           windowOpenTimeout = setTimeout(() => { inWindow = true; }, windowStart);
           windowCloseTimeout = setTimeout(() => {
-            inWindow = false;
-            itemEl.classList.add('hidden');
-            scheduleNext();
+            finishItem(false);
           }, cycleMs);
         }
 
@@ -9126,20 +9303,39 @@
           nextTimeout = setTimeout(spawnItem, 200);
         }
 
+        // 判定が かくてい した あとに よばれる。ここでは まだ アイテムを
+        // 消さず、プレイヤーの したを とおりすぎて 画面外へ ぬける ようすを
+        // 見せてから 消す。しょうがいぶつに ぶつかった(コインを のがした
+        // だけでは ない)ときだけ、見て わかる シェイクを つける
+        function finishItem(succeeded) {
+          if (!running) return;
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          inWindow = false;
+          if (!succeeded && !currentIsCoin) {
+            playerEl.classList.add('hit');
+            hitTimeout = setTimeout(() => playerEl.classList.remove('hit'), 300);
+          }
+          itemEl.style.animation = 'none';
+          void itemEl.offsetWidth;
+          itemEl.style.animation = `mg-jump-exit ${EXIT_MS}ms linear`;
+          exitTimeout = setTimeout(() => {
+            itemEl.classList.add('hidden');
+            scheduleNext();
+          }, EXIT_MS);
+        }
+
         function onJump() {
           if (!running) return;
           playerEl.classList.add('jumping');
-          setTimeout(() => playerEl.classList.remove('jumping'), 250);
+          jumpHoldTimeout = setTimeout(() => playerEl.classList.remove('jumping'), JUMP_HOLD_MS);
           if (!inWindow) return;
           success += 1;
           if (currentIsCoin) {
             coins += 1;
             scoreEl.textContent = `🪙 コイン: ${coins}`;
           }
-          inWindow = false;
-          clearTimeout(windowCloseTimeout);
-          itemEl.classList.add('hidden');
-          scheduleNext();
+          finishItem(true);
         }
         jumpBtn.addEventListener('pointerdown', onJump);
 
@@ -9157,6 +9353,9 @@
           clearTimeout(windowOpenTimeout);
           clearTimeout(windowCloseTimeout);
           clearTimeout(nextTimeout);
+          clearTimeout(exitTimeout);
+          clearTimeout(jumpHoldTimeout);
+          clearTimeout(hitTimeout);
           jumpBtn.removeEventListener('pointerdown', onJump);
           const score = total > 0 ? Math.round(clamp((success / total) * 100, 0, 100)) : 0;
           onComplete(score);
@@ -9526,10 +9725,18 @@
           if (answered) return;
           answered = true;
           clearTimeout(timer);
-          onComplete(btn.dataset.val === pair.answer ? 100 : 20);
+          const correct = btn.dataset.val === pair.answer;
+          const correctBtn = buttons.find((b) => b.dataset.val === pair.answer);
+          revealAndProceed(btn, correct, correctBtn, () => onComplete(correct ? 100 : 20));
         });
       });
-      timer = setTimeout(() => { if (!answered) { answered = true; onComplete(10); } }, timeLimitMs);
+      timer = setTimeout(() => {
+        if (!answered) {
+          answered = true;
+          const correctBtn = buttons.find((b) => b.dataset.val === pair.answer);
+          revealAndProceed(null, false, correctBtn, () => onComplete(10));
+        }
+      }, timeLimitMs);
     },
   };
   const MATCHUP_QUIZ_VARIANTS = [mg('matchupQuiz-classic', matchupQuizGame)];
@@ -9694,8 +9901,11 @@
   }
 
   const TARGET_AIM_VARIANTS = [
-    mg('targetAim-shooting', makeTargetAimGame({ title: 'しゃげきふう!まとを ねらいうちしよう', targetEmoji: '🎯', reticleEmoji: '➕' })),
-    mg('targetAim-sniper', makeTargetAimGame({ title: 'そげきふう!うごく まとを ねらえ', targetEmoji: '🦆', reticleEmoji: '🔴' })),
+    // 実際に うごくのは まとではなく しょうじゅん(reticle)がわなので、
+    // 「うごく まと」と ごかいさせない タイトルに している(操作は
+    // かえていない)
+    mg('targetAim-shooting', makeTargetAimGame({ title: 'しゃげきふう!うごく しょうじゅんを まとへ あわせて うとう', targetEmoji: '🎯', reticleEmoji: '➕' })),
+    mg('targetAim-sniper', makeTargetAimGame({ title: 'そげきふう!うごく しょうじゅんを まとに あわせて はなて', targetEmoji: '🦆', reticleEmoji: '🔴' })),
   ];
 
   // --- レース(れんだで はしって あいてに かとう) ---
@@ -9722,11 +9932,13 @@
             ${rivalEmojis.map((e, i) => `<div class="mg-race-lane"><span class="mg-race-runner" id="mgRaceRival${i}">${e}</span><span class="mg-race-goal">🏁</span></div>`).join('')}
           </div>
           <button class="mg-tap-btn" id="mgRaceRunBtn">はしる!</button>
+          <div class="mg-hint" id="mgRaceHint"></div>
         `;
         const timerEl = container.querySelector('#mgTimer');
         const youEl = container.querySelector('#mgRaceYou');
         const rivalEls = rivalEmojis.map((_, i) => container.querySelector(`#mgRaceRival${i}`));
         const runBtn = container.querySelector('#mgRaceRunBtn');
+        const hintEl = container.querySelector('#mgRaceHint');
 
         runBtn.addEventListener('pointerdown', () => {
           if (finished) return;
@@ -9758,7 +9970,12 @@
           const allProgress = [progress, ...rivals];
           const rank = allProgress.filter((p) => p > progress).length;
           const score = rank === 0 ? 100 : rank === 1 ? 60 : 30;
-          setTimeout(() => onComplete(score), 400);
+          // とつぜん がめんが とじたように 見えない よう、さいしゅう
+          // じゅんいを みじかく 見せてから おわる
+          const placeLabels = ['1い!', '2い!', '3い!'];
+          hintEl.textContent = placeLabels[rank] || `${rank + 1}い!`;
+          hintEl.classList.add(rank === 0 ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
+          setTimeout(() => onComplete(score), 700);
         }
 
         rafId = requestAnimationFrame(frame);
@@ -9915,7 +10132,12 @@
             const powerScore = 100 - Math.abs(powerValue - 50) * 2;
             const accuracyScore = 100 - Math.abs(pct - 50) * 2;
             const total = Math.round(clamp((powerScore + accuracyScore) / 2, 0, 100));
-            setTimeout(() => onComplete(total), 400);
+            // 2かいめの 操作の あとに なにも 見せずに おわらせない よう、
+            // てんすうに おうじた みじかい けっかを ひょうじしてから すすむ
+            const resultLabel = total >= 80 ? 'ナイス!' : total >= 50 ? 'おしい!' : 'もうすこし!';
+            hintEl.textContent = `${icon || ''} ${resultLabel}`.trim();
+            hintEl.classList.add(total >= 80 ? 'mg-reveal-correct' : total >= 50 ? '' : 'mg-reveal-incorrect');
+            setTimeout(() => onComplete(total), 650);
           }
         }
         btn.addEventListener('pointerdown', stop);
@@ -10253,12 +10475,14 @@
             <button class="mg-tap-btn" id="mgBreakoutLeft">◀</button>
             <button class="mg-tap-btn" id="mgBreakoutRight">▶</button>
           </div>
+          <div class="mg-hint" id="mgBreakoutHint"></div>
         `;
         const blocksEl = container.querySelector('#mgBreakoutBlocks');
         const ballEl = container.querySelector('#mgBreakoutBall');
         const paddleEl = container.querySelector('#mgBreakoutPaddle');
         const scoreEl = container.querySelector('#mgScore');
         const timerEl = container.querySelector('#mgTimer');
+        const hintEl = container.querySelector('#mgBreakoutHint');
 
         function renderBlocks() {
           blocksEl.innerHTML = blocks.map((b) => `<div class="mg-breakout-block ${b.alive ? '' : 'gone'}" style="left:${(b.c / cols) * 100}%;top:${(b.r / rows) * 42}%;width:${100 / cols}%;height:20%;"></div>`).join('');
@@ -10306,18 +10530,23 @@
           const remaining = Math.max(0, DURATION_MS - (now - startTime));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
 
-          if (broken >= blocks.length) { cleared = true; end(); return; }
-          if (ballY >= 100) { end(); return; }
-          if (remaining <= 0) { end(); return; }
+          if (broken >= blocks.length) { cleared = true; end('clear'); return; }
+          if (ballY >= 100) { end('dropped'); return; }
+          if (remaining <= 0) { end('timeout'); return; }
           rafId = requestAnimationFrame(frame);
         }
 
-        function end() {
+        function end(reason) {
           if (!running) return;
           running = false;
           cancelAnimationFrame(rafId);
           const score = cleared ? 100 : Math.round((broken / blocks.length) * 90);
-          onComplete(score);
+          // とつぜん がめんが とじたように 見えない よう、おわった りゆうを
+          // みじかく 見せてから onComplete する
+          const label = reason === 'clear' ? 'クリア! 🎉' : reason === 'timeout' ? 'タイムアップ!' : 'ボールが おちた…';
+          hintEl.textContent = label;
+          hintEl.classList.add(reason === 'clear' ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
+          setTimeout(() => onComplete(score), 650);
         }
 
         rafId = requestAnimationFrame(frame);
