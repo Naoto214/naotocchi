@@ -4734,3 +4734,16 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   cursor: pointer;
 }
 .game-clear-close-btn.hidden { display: none !important; }
+/* そだち70/80 の セクションと そだち50 の デートボタンも、とどくまで
+   かくして おく。このプロジェクトには はんようの .hidden ルールが ない ので、
+   ここでも 1つずつ 明示的に とじる */
+.profile-code-btn.hidden,
+.theme-section.hidden,
+.dex-section-divider.hidden,
+.companion-dex-row.hidden { display: none !important; }
+
+/* とくべつな たびさきの けしき。ほしぞらの ていりゅうじょは よふけの あお、
+   きおくの みずうみは しろっぽい もや。どちらも ふつうの 8地域とは
+   あきらかに ちがう 空気に なるよう、いろの ふりはばを おおきくとる */
+body.region-star_stop { background: radial-gradient(circle at 50% 18%, #2b2f5e 0%, #171a38 55%, #05060f 100%); }
+body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff 0%, #cfe3ec 55%, #8ba7b5 100%); }

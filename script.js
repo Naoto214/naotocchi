@@ -535,12 +535,15 @@
     worldCloseBtn: document.getElementById('worldCloseBtn'),
     worldSeasonMenuBtn: document.getElementById('worldSeasonMenuBtn'),
     worldTravelBtn: document.getElementById('worldTravelBtn'),
+    worldDateBtn: document.getElementById('worldDateBtn'),
     seasonOverlay: document.getElementById('seasonOverlay'),
     seasonCloseBtn: document.getElementById('seasonCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
     travelOverlay: document.getElementById('travelOverlay'),
     travelCloseBtn: document.getElementById('travelCloseBtn'),
     travelRegionGrid: document.getElementById('travelRegionGrid'),
+    travelSpecialSection: document.getElementById('travelSpecialSection'),
+    travelSpecialGrid: document.getElementById('travelSpecialGrid'),
     profileBtn: document.getElementById('profileBtn'),
     profileOverlay: document.getElementById('profileOverlay'),
     profileCloseBtn: document.getElementById('profileCloseBtn'),
@@ -568,6 +571,9 @@
     companionRight: document.getElementById('companionRight'),
     partnerCompanion: document.getElementById('partnerCompanion'),
     companionDexGrid: document.getElementById('companionDexGrid'),
+    rareCompanionDexDivider: document.getElementById('rareCompanionDexDivider'),
+    rareCompanionDexProgress: document.getElementById('rareCompanionDexProgress'),
+    rareCompanionDexGrid: document.getElementById('rareCompanionDexGrid'),
     companionDexProgress: document.getElementById('companionDexProgress'),
     partnerDexGrid: document.getElementById('partnerDexGrid'),
     partnerDexProgress: document.getElementById('partnerDexProgress'),
@@ -697,6 +703,14 @@
       // ときのすな系(せいちょうの おいかぜ)の この人生での しようかいすう
       sandUsed: 0,
       bigSandUsed: 0,
+      // そだち50「こいの きざし」の デートの クールダウン(tick)。デートは
+      // なんども たのしめる けれど、コイン/アイテムを かせぐ ばしょには
+      // しない ため、つづけて さそえない ように している
+      dateCooldownTicks: 0,
+      // この人生で デートに いった かいすう(人生記録カードに のる)
+      datesThisLife: 0,
+      // そだち90「でんせつの であい」は 1つの 人生で 1かいだけ おきる
+      legendMet: false,
       // この子の 人生の きろく
       lifeLog: [],
       // ♾️ の せかい(パーフェクトクリア後の 自由モード)
@@ -823,6 +837,11 @@
         // ずかん・じっせきと おなじく「はじめから」しても消えず、画面の
         // よこに ずっと 表示されつづける、プレイをまたいだ 永続コレクション
         companionsRecruited: [],
+        // そだち80「レアの きざし」で であえる RARE_COMPANIONS の id 一覧。
+        // companionsRecruited とは べつの ばしょに つむ ことで、じっせきの
+        // 「なかま だいしゅうごう(ぜんいん10にん)」の じょうけんを 1ミリも
+        // かえない(レアなかまが パーフェクトクリアを おもく しない)
+        rareCompanionsRecruited: [],
         // 地域ごとの きめうちキャラ(REGIONSの candidates)のうち、いままで
         // こいびとに なった ことが ある id の一覧と、そのうち けっこんまで
         // いたった id の一覧。どちらも「ずかん」の「こいびと」セクション
@@ -860,6 +879,15 @@
         // の いちらん。じっせきの「せかい いっしゅう」に つかう。「おうち」
         // は さいしょから いる ので、あらかじめ ふくめておく
         regionsVisited: ['home'],
+        // そだち70「たびだち」で ひらく SPECIAL_REGIONS の うち、たどりついた
+        // ことの ある id。regionsVisited とは べつに つむ ことで、じっせきの
+        // 「せかい いっしゅう(ぜんぶの地域8つ)」の じょうけんを かえない
+        specialRegionsVisited: [],
+        // そだち50「こいの きざし」の デートに いった のべ かいすう
+        datesEnjoyed: 0,
+        // そだち90「でんせつの であい」で であった でんせつの id 一覧。
+        // 「はじめから」しても きえない、じっせきに ならない コレクション
+        legendsMet: [],
         // 「あそぶ」で えらばれた ミニゲームを、なんかい あそんだかの
         // きろく(id→かいすう)。id は `${category}#${そのカテゴリの
         // なんばんめか}` の かたち(pickRandomMinigame() ふきん さんしょう)。
@@ -3049,7 +3077,7 @@
       return false;
     });
     if (left.length) {
-      const names = left.map((id) => COMPANIONS.find((c) => c.id === id)?.name || id).join('・');
+      const names = left.map((id) => allCompanionsById(id)?.name || id).join('・');
       setMessage(`${names}が さびしがって、はなれて いってしまった…`);
       applyDecline(8);
       emotePet('sad');
@@ -3195,8 +3223,48 @@
     },
   ];
 
+  // ================================================================
+  // そだち70「たびだち」で ひらく とくべつな たびさき
+  // ================================================================
+  // REGIONS には いれない。REGIONS に いれると region-all(「ぜんぶの
+  // 地域(8つ)」)と partner-all(「全8地域16人」)の 条件が かわって
+  // しまう ため。こいびと候補も おかない(ALL_PARTNER_CANDIDATES を
+  // ふやさない)。ここは「であう ばしょ」では なく「たどりつく ばしょ」
+  const SPECIAL_REGIONS = [
+    {
+      id: 'star_stop', label: 'ほしぞらの ていりゅうじょ', emoji: '🌌', special: true,
+      decor: ['🌌', '✨', '🚏', '🌠', '🛰️', '🌙', '💫', '🪐'],
+      lines: [
+        'だれも こない ていりゅうじょで、こない バスを ずっと まっていた',
+        'ときどき ほしが ながれる。そのたびに ベンチが すこし つめたくなる',
+        'じこくひょうには「まもなく」とだけ かいてある',
+        'となりに だれか すわった き が した。ふりむいたら だれも いなかった',
+      ],
+      candidates: [],
+    },
+    {
+      id: 'memory_lake', label: 'きおくの みずうみ', emoji: '🫧', special: true,
+      decor: ['🫧', '💧', '🌾', '🪞', '🌫️', '🕯️', '🐚', '🌊'],
+      lines: [
+        'みずめんに、まだ おきていない できごとが うつっていた',
+        'こえを だすと、すこし おくれて じぶんの こえが かえってくる',
+        'そこに しずんでいる ものは、どれも みおぼえが ある',
+        'ここに きたことは ない。なのに かえりみちを しっている',
+      ],
+      candidates: [],
+    },
+  ];
+
+  // ふつうの 地域と とくべつな たびさきを まとめて ひく。とくべつな
+  // たびさきも body の region-<id> クラス・かざり emoji・たびの けっか文を
+  // ふつうの 地域と まったく おなじ しくみで つかえる ように する ため、
+  // findRegion() の たんいで 両方を みる(REGIONS じたいには いれない)
   function findRegion(id) {
-    return REGIONS.find((r) => r.id === id) || REGIONS[0];
+    return REGIONS.find((r) => r.id === id) || SPECIAL_REGIONS.find((r) => r.id === id) || REGIONS[0];
+  }
+
+  function isSpecialRegionId(id) {
+    return SPECIAL_REGIONS.some((r) => r.id === id);
   }
 
   // 「ずかん」の「こいびと」セクションで つかう、地域ごとの きめうち
@@ -3220,6 +3288,253 @@
     { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
     { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
   ];
+
+  // ================================================================
+  // そだち80「レアの きざし」で 出会えるように なる レアなかま
+  // ================================================================
+  // 通常の COMPANIONS 10にんとは べつの はいれつに して、
+  // companion-all(「なかまを ぜんいん(10にん)あつめた」)の 条件を
+  // 一切 かえない ように している。きろくも lifetime.rareCompanionsRecruited
+  // という べつの ばしょに つむ。
+  // ほうこうせいは わざと バラバラ - かわいい / かっこいい / 神々しい /
+  // キモかわ / 意味不明 が それぞれ 1にんずつ いる
+  const RARE_COMPANIONS = [
+    {
+      id: 'punyu', emoji: '🫠', name: 'とけかけの ぷにゅ',
+      vibe: 'キモかわ',
+      flavor: 'なにかが とけている。よく みると こっちを みている。というか さっきから ずっと みている…',
+      joined: 'ぷにゅが ぬるりと ついてきた。とくに せつめいは なかった',
+    },
+    {
+      id: 'sekizou', emoji: '🗿', name: 'むひょうじょうの せきぞう',
+      vibe: 'シュール・渋い',
+      flavor: 'いしの ぞうが おかれている。うごく はずが ない。…はずなのに さっきと ばしょが ちがう',
+      joined: 'せきぞうが なかまに なった。はこんだ おぼえは ない',
+    },
+    {
+      id: 'hakuchou', emoji: '🦢', name: 'こうごうしい はくちょう',
+      vibe: '神々しい・美しい',
+      flavor: 'しろい はくちょうが しずかに おりてきた。まわりの おとが すこし とおくなった き が する',
+      joined: 'はくちょうが そばに いてくれる ことに なった。なぜか せすじが のびる',
+    },
+    {
+      id: 'chameleon', emoji: '🦎', name: 'サングラスの カメレオン',
+      vibe: 'おしゃれ・かっこいい',
+      flavor: 'サングラスを かけた カメレオンが かべから はんぶん はえている。かくれる きは ないらしい',
+      joined: 'カメレオンが「よろしく」と いった。サングラスは とらなかった',
+    },
+    {
+      id: 'kinoko', emoji: '🍄', name: 'しゃべる きのこ',
+      vibe: '意味不明・笑える',
+      flavor: 'きのこが はえている。きのこが しゃべっている。「やあ」と いわれた',
+      joined: 'きのこが ついてきた。あるいて いる。きのこなのに',
+    },
+  ];
+
+  // レアなかまと 出会う かくりつ(そだち80いこう、なかまイベントの たびに 抽選)
+  const RARE_COMPANION_CHANCE = 0.35;
+
+  function allCompanionsById(id) {
+    return COMPANIONS.find((c) => c.id === id) || RARE_COMPANIONS.find((c) => c.id === id);
+  }
+
+
+  // ================================================================
+  // そだち50「こいの きざし」で ひらく デート
+  // ================================================================
+  // ・こいびとが いる ときだけ「せかい」から さそえる
+  // ・いま いる ばしょ(REGIONS/SPECIAL_REGIONS)× デートの プラン ×
+  //   こいびとの せいかく(affinityTrait)の 3つで ぶんしょうが きまる ので、
+  //   おなじ くみあわせは なかなか でない
+  // ・もらえる ものは「なかよし度」「きげん」「すこしの せいちょう」だけ。
+  //   コインも アイテムも でない ので、かせぎの ばしょには ならない。
+  //   DATE_COOLDOWN_TICKS の あいだは また さそえないので、連打も できない
+  // ・けっこんへの すすみぐあい(bondCount)は うごかさない。デートは
+  //   「やらないと そんを する こと」では なく「やりたいから やる こと」
+  const DATE_COOLDOWN_TICKS = 60;
+  const DATE_AFFECTION_BOOST = 45;
+
+  const DATE_PLANS = [
+    { id: 'walk', emoji: '🚶', label: 'ならんで あるく', line: 'とくに もくてきも なく、ずっと ならんで あるいた' },
+    { id: 'eat', emoji: '🍡', label: 'なにか たべる', line: 'ひとつを はんぶんこ にして たべた' },
+    { id: 'sunset', emoji: '🌇', label: 'ゆうやけを みる', line: 'そらが きれいで、しばらく どちらも しゃべらなかった' },
+    { id: 'photo', emoji: '📷', label: 'しゃしんを とる', line: 'なんまい とっても どちらかが めを つぶっていた' },
+    { id: 'nap', emoji: '😴', label: 'ひなたぼっこ', line: 'あたたかくて、ふたりとも うっかり ねてしまった' },
+    { id: 'shop', emoji: '🛍️', label: 'ぶらぶら みてまわる', line: 'なにも かわなかったけど、ずっと たのしかった' },
+    { id: 'rain', emoji: '☔', label: 'あめやどり', line: 'きゅうな あめで、おなじ ひさしの したに ならんだ' },
+    { id: 'star', emoji: '🌠', label: 'ほしを さがす', line: 'ながれぼしを みつけたのは、けっきょく あいての ほうだった' },
+    { id: 'talk', emoji: '💬', label: 'どうでも いい はなしを する', line: 'なにを はなしたか もう おぼえていない くらい どうでも いい はなしだった' },
+    { id: 'lost', emoji: '🧭', label: 'まいごに なる', line: 'みちに まよったけど、なぜか おこられなかった' },
+  ];
+
+  // こいびとの せいかく(affinityTrait)ごとの リアクション。おなじ プランでも
+  // あいてが かわると まったく ちがう デートに なる
+  const DATE_TRAIT_LINES = {
+    gentle: [
+      'ずっと にこにこして、なんども「ありがとう」と いってくれた',
+      'そっと そでを つかんで、はぐれないように してくれた',
+      'ちいさな こえで「たのしいね」と いった',
+    ],
+    wild: [
+      'とちゅうで はしりだして、ついていくのが たいへんだった',
+      '「つぎ あっち!」と、よていに ない ばしょへ ひっぱって いかれた',
+      'おおごえで わらって、まわりに ふりかえられた',
+    ],
+    calm: [
+      'なにも いわずに、となりで おなじ ほうを みていた',
+      'いつもの ペースを くずさない。それが すこし うれしかった',
+      '「べつに、ふつうだった」と いいながら ずっと きげんが よかった',
+    ],
+    brave: [
+      '「まかせて」と いって、けっきょく ぜんぶ しきってくれた',
+      'ちょっと あぶない ちかみちを えらんで、どやがおを していた',
+      'こまった ひとを たすけに いって、デートが 30ぷん のびた',
+    ],
+    romantic: [
+      'きゅうに てを にぎってきて、こちらの ほうが あわてた',
+      '「きょうの ことは わすれない」と まじめな かおで いわれた',
+      'なんでも ない ばめんを、いちいち ドラマみたいに してくれる',
+    ],
+  };
+
+  // どの デートでも さいごに ひとつ つく、しめの ひとこと
+  const DATE_CLOSINGS = [
+    'かえりみちは いつもより ゆっくり あるいた。',
+    'また いこうね、と どちらからともなく いった。',
+    'なんでも ない 1にちが、すこし とくべつに なった。',
+    'べつに なにも おこらなかった。それが よかった。',
+    'つぎは どこに いこうか、もう かんがえている。',
+    'この じかんの ことは、たぶん ずっと おぼえている。',
+  ];
+
+  let lastDatePlanId = null;
+
+  // デートに さそえるか どうかと、さそえない ときの りゆうを ひとつに まとめる。
+  // ボタンの ゆうこう/むこうと、じっさいの じっこう りょうほうで つかう
+  function dateBlockReason() {
+    if (!hasPerk(50)) return 'まだ デートには さそえない';
+    if (!isLiveLife() || state.stage !== STAGE.GROWING) return 'いまは デートに いけない';
+    if (!state.partner) return 'いま こいびとが いない';
+    if (state.isSleeping) return 'ねている… おきてから さそおう';
+    if (state.dateCooldownTicks > 0) return 'さっき デートしたばかり… すこし じかんを おこう';
+    return null;
+  }
+
+  function goOnDate() {
+    worldOpen = false;
+    const blocked = dateBlockReason();
+    if (blocked) {
+      setMessage(blocked);
+      saveState();
+      render();
+      return;
+    }
+    const partner = state.partner;
+    const region = findRegion(state.regionId);
+    const plans = DATE_PLANS.filter((p) => p.id !== lastDatePlanId);
+    const plan = plans[Math.floor(Math.random() * plans.length)];
+    lastDatePlanId = plan.id;
+    const traitLines = DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle;
+    const traitLine = traitLines[Math.floor(Math.random() * traitLines.length)];
+    const closing = DATE_CLOSINGS[Math.floor(Math.random() * DATE_CLOSINGS.length)];
+
+    state.dateCooldownTicks = DATE_COOLDOWN_TICKS;
+    state.datesThisLife += 1;
+    state.lifetime.datesEnjoyed += 1;
+    // なでる連打の カウントは、ほかの おせわと おなじく ここで 0に もどす
+    state.affectionStreak = 0;
+    partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
+    state.happiness = clamp(state.happiness + 12, 0, 100);
+    state.energy = clamp(state.energy - 6, 0, 100);
+    state.hunger = clamp(state.hunger - 4, 0, 100);
+    applyGrowth(5);
+    applyDecline(-4);
+    if (state.datesThisLife === 1) {
+      pushLifeLog('💞', `${partner.label}と デートに いった`);
+    }
+    if (!checkMeters()) {
+      setMessage(`💞 ${region.emoji}${region.label}で ${plan.emoji}${plan.label}デート。${plan.line}。${partner.label}は ${traitLine}。${closing}`);
+    }
+    emotePet('love');
+    saveState();
+    render();
+  }
+
+  // ================================================================
+  // そだち90「でんせつ」で おきる「でんせつの であい」
+  // ================================================================
+  // 1つの 人生で 1かいだけ、しかも「いつ おきるか わからない」ように
+  // tick ごとの ていかくりつで しのばせてある(そだち90に とどいた しゅんかんに
+  // おきるのでは なく、そのあとの ふつうの じかんに とつぜん おきる)。
+  // もらえる ものは わざと ちいさい - でんせつの ゆめ(レア種族)や
+  // そだち100・ずかんクリア・パーフェクトクリアの やくわりを とらない ように、
+  // ここは「みた ことが ある か どうか」だけが のこる イベントに している。
+  // 5つの パターンは ほうこうせいを わざと バラバラに して ある
+  const LEGEND_ENCOUNTER_CHANCE = 0.012;
+
+  const LEGEND_ENCOUNTERS = [
+    {
+      id: 'gate', emoji: '⛩️', name: 'そらに うかぶ とりい', vibe: '神々しい',
+      flash: 'そらの まんなかに、おおきな とりいが しずかに うかんでいる',
+      story: 'とりいの むこうがわには なにも ない。なにも ないのに、たしかに 「むこうがわ」だった。しばらく みていたら、とりいの ほうが おじぎを した ような きが した',
+    },
+    {
+      id: 'stairs', emoji: '🪜', name: 'どこにも つながらない かいだん', vibe: '意味不明',
+      flash: 'のはらの まんなかに、かいだんだけが たっている',
+      story: 'のぼっても のぼっても てっぺんに つかない。あきらめて おりたら、3だんしか なかった。だれかが「そういう ものだよ」と いった。だれも いなかった',
+    },
+    {
+      id: 'boss', emoji: '🦑', name: 'あやまりに きた だいおういか', vibe: '笑える',
+      flash: 'とてつもなく おおきい いかが、なぜか ものすごく ていねいに おじぎを している',
+      story: '「このたびは まことに もうしわけ ございませんでした」と いかが いった。なんの ことか まったく わからない。ゆるしたら、すっきりした かおで かえって いった',
+    },
+    {
+      id: 'lamp', emoji: '🏮', name: 'よなかの あかり', vibe: '温かい',
+      flash: 'まっくらな みちの さきに、ちいさな あかりが ひとつ ついている',
+      story: 'ちかづくと、しらない だれかが「おかえり」と いった。しらない ひとの はずなのに、その こえは しっていた。あかりは、こちらが とおりすぎるまで ずっと ついていた',
+    },
+    {
+      id: 'mirror', emoji: '🪞', name: 'としを とった じぶん', vibe: '美しい・こわい',
+      flash: 'みずたまりに、いまより ずっと としを とった じぶんが うつっている',
+      story: 'むこうの じぶんは、こちらを みて うれしそうに わらった。なにか いおうと したけど、なみが たって きえてしまった。わるい かおでは なかった。それだけは はっきり わかった',
+    },
+  ];
+
+  const LEGEND_COIN_GIFT = 200;
+
+  // でんせつの であいが おきる じょうけん。ミニゲーム中・すいみん中・
+  // なにかの がめんを ひらいている あいだは おきない(みのがす のが
+  // いちばん もったいない イベントな ため)
+  function maybeLegendEncounter() {
+    if (!hasPerk(90) || state.legendMet || state.infinite) return;
+    if (state.stage !== STAGE.GROWING || gameActive || state.isSleeping) return;
+    if (state.transformOptions || pendingCompanionId || isAnyMenuOverlayOpen()) return;
+    if (Math.random() >= LEGEND_ENCOUNTER_CHANCE) return;
+    triggerLegendEncounter();
+  }
+
+  // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
+  // かさねる ほど あたらしい でんせつに であえる(ぜんぶ みた あとは
+  // どれかが もういちど でる - コンプリートは じっせきに ならない)
+  function triggerLegendEncounter() {
+    const seen = state.lifetime.legendsMet || [];
+    const unseen = LEGEND_ENCOUNTERS.filter((e) => !seen.includes(e.id));
+    const pool = unseen.length ? unseen : LEGEND_ENCOUNTERS;
+    const legend = pool[Math.floor(Math.random() * pool.length)];
+    state.legendMet = true;
+    if (!seen.includes(legend.id)) state.lifetime.legendsMet = seen.concat(legend.id);
+    const coins = Math.round(LEGEND_COIN_GIFT * coinMultiplier());
+    state.lifetime.money += coins;
+    state.happiness = 100;
+    applyGrowth(8);
+    applyDecline(-25);
+    pushLifeLog(legend.emoji, `${legend.name}に であった`);
+    showStoryEvent({ emoji: legend.emoji, message: legend.flash });
+    setMessage(`${legend.emoji} ${legend.name}。${legend.story}(💰${coins} が おいて あった)`);
+    emotePet('love');
+    saveState();
+    render();
+  }
 
   const COMPANION_RECRUIT_THRESHOLD = 50;
 
@@ -3595,6 +3910,11 @@
     if (age >= GOAL_AGE && state.maxSodachi >= SODACHI_MAX) badges.push('★③ さいこうの いっしょう');
     if (badges.length) rows.push(`<div class="lifecard-badges">${badges.join('<br>')}</div>`);
     rows.push(`<div class="lifecard-line">へんしん ${state.transformsThisLife}かい ／ なかま ${state.companions.length}にん ／ ${state.partner && state.partner.married ? 'けっこん した' : state.partner ? 'こいびとが いた' : 'ひとりで いきた'}</div>`);
+    if (state.datesThisLife > 0) {
+      rows.push(`<div class="lifecard-line">デート ${state.datesThisLife}かい${state.legendMet ? ' ／ でんせつに であった' : ''}</div>`);
+    } else if (state.legendMet) {
+      rows.push('<div class="lifecard-line">でんせつに であった</div>');
+    }
     rows.push(`<div class="lifecard-line">びょうきを ${state.totalSicknessCount}かい のりこえた ／ ずかん ${state.discoveredStages.length} / ${ALL_LINES.length * STAGES_PER_LINE}</div>`);
     const log = (state.lifeLog || []).slice(-8);
     if (log.length) {
@@ -3784,6 +4104,9 @@
     // (ずかんや あいてむを ながめて いる あいだに とけない)
     if (state.boostTicks > 0) state.boostTicks -= 1;
     if (state.recentActionTicks > 0) state.recentActionTicks -= 1;
+    // そだち50の デートの クールダウン。ずかんなどを ひらいて tick が
+    // とまっている あいだは これも すすまない(おいかぜと おなじ かんがえかた)
+    if (state.dateCooldownTicks > 0) state.dateCooldownTicks -= 1;
 
     {
       const sleepFactor = state.isSleeping ? 0.4 : 1;
@@ -3967,6 +4290,10 @@
       // なかまから じゅんに はなれて いってしまう
       decayCompanionBonds();
 
+      // そだち90の「でんせつの であい」を、この tick で おこすか どうか。
+      // ていかくりつ なので いつ おきるか わからず、1つの 人生で 1かいだけ
+      maybeLegendEncounter();
+
       // すがたの へんかは tick の あたまで ねんれいから 導出ずみ。ここでは
       // いのちの はんてい(死亡 / きせきの ふんばり)だけを おこなう
       checkMeters();
@@ -4090,6 +4417,12 @@
     const delay = hasPerk(40) ? 30000 + Math.random() * 50000 : 45000 + Math.random() * 75000;
     setTimeout(() => {
       const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
+      // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
+      // RARE_COMPANIONS の だれかが あらわれる ことが ある。ふつうの なかまが
+      // もう ぜんいん そばに いる ときは、レアだけが のこりの であいに なる
+      const rareRemaining = hasPerk(80)
+        ? RARE_COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id))
+        : [];
       const canEncounter = !gameActive
         && state.stage === STAGE.GROWING
         && !state.isSleeping
@@ -4097,9 +4430,12 @@
         && !message
         && !pendingCompanionId
         && !isAnyMenuOverlayOpen()
-        && remaining.length > 0;
+        && (remaining.length > 0 || rareRemaining.length > 0);
       if (canEncounter) {
-        const companion = remaining[Math.floor(Math.random() * remaining.length)];
+        const useRare = rareRemaining.length > 0
+          && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
+        const pool = useRare ? rareRemaining : remaining;
+        const companion = pool[Math.floor(Math.random() * pool.length)];
         pendingCompanionId = companion.id;
         showStoryEvent({ emoji: companion.emoji, message: companion.flavor });
         setTimeout(() => {
@@ -4375,7 +4711,7 @@
 
   function applyRegion() {
     const region = findRegion(state.regionId);
-    REGIONS.forEach((r) => {
+    REGIONS.concat(SPECIAL_REGIONS).forEach((r) => {
       document.body.classList.toggle(`region-${r.id}`, r === region);
     });
     const season = getEffectiveSeason();
@@ -4545,6 +4881,11 @@
     if (duelOpen) renderDuelOverlay();
 
     el.worldOverlay.classList.toggle('hidden', !worldOpen);
+    // そだち50「こいの きざし」に とどいて はじめて「デートに さそう」が
+    // あらわれる。こいびとが いない/クールダウン中 などの ときは、ボタンは
+    // 出したまま おせない ようにして、りゆうは おしたときに ことばで つたえる
+    el.worldDateBtn.classList.toggle('hidden', !hasPerk(50));
+    el.worldDateBtn.disabled = !!dateBlockReason();
 
     el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
     if (seasonOpen) renderSeasonModeGrid();
@@ -4749,7 +5090,7 @@
 
     if (state.companions.length) {
       el.profileCompanionList.innerHTML = state.companions.map((sc) => {
-        const c = COMPANIONS.find((cc) => cc.id === sc.id);
+        const c = allCompanionsById(sc.id);
         if (!c) return '';
         return `
           <div class="profile-companion-row">
@@ -4844,10 +5185,18 @@
   // 地域は selected の ハイライトを つけつつ、そこへは「たびに でる」
   // いみが ないので タップできないよう disabled に する
   function renderTravelRegionGrid() {
-    el.travelRegionGrid.innerHTML = REGIONS.map((region) => {
+    const swatch = (region) => {
       const isCurrent = region.id === state.regionId;
       return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${region.emoji}</span><span class="theme-swatch-label">${region.label}</span></button>`;
-    }).join('');
+    };
+    el.travelRegionGrid.innerHTML = REGIONS.map(swatch).join('');
+    // そだち70「たびだち」に とどいて はじめて、ふつうの 8地域の したに
+    // 「とくべつな たびさき」が あらわれる。REGIONS とは べつ わく なので、
+    // じっせきの「せかい いっしゅう(8つ)」も「こいびと ぜんいん(16人)」も
+    // これまでと まったく おなじ じょうけんの まま
+    const showSpecial = hasPerk(70);
+    el.travelSpecialSection.classList.toggle('hidden', !showSpecial);
+    el.travelSpecialGrid.innerHTML = showSpecial ? SPECIAL_REGIONS.map(swatch).join('') : '';
   }
 
   // 「アイテム」がめん: SHOP_ITEMS を みにつける ものの いちらんとして
@@ -5587,6 +5936,7 @@
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
     }).join('');
     renderCompanionDex();
+    renderRareCompanionDex();
     renderPartnerDex();
   }
 
@@ -5601,6 +5951,30 @@
       return known
         ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
         : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
+    }).join('');
+  }
+
+  // そだち80「レアの きざし」で であえる レアなかまの セクション。まだ
+  // ひとりも であっていない あいだは セクションごと かくして おく - ❓が
+  // 5つ ならんでいるだけの「たりない ずかん」に 見えない ように する ため。
+  // ヘッダーの ぜんたい数(dexProgress)にも かぞえない。ここは
+  // ずかんクリア(dex-complete)の じょうけんとは まったく べつの、
+  // であえたら うれしい だけの おまけの コレクション
+  function renderRareCompanionDex() {
+    const recruited = state.lifetime.rareCompanionsRecruited || [];
+    const show = recruited.length > 0;
+    el.rareCompanionDexDivider.classList.toggle('hidden', !show);
+    el.rareCompanionDexGrid.classList.toggle('hidden', !show);
+    if (!show) {
+      el.rareCompanionDexGrid.innerHTML = '';
+      return;
+    }
+    el.rareCompanionDexProgress.textContent = `${recruited.length} / ${RARE_COMPANIONS.length}`;
+    el.rareCompanionDexGrid.innerHTML = RARE_COMPANIONS.map((c) => {
+      const known = recruited.includes(c.id);
+      return known
+        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
+        : '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
     }).join('');
   }
 
@@ -5628,7 +6002,7 @@
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
-      .map((sc) => COMPANIONS.find((c) => c.id === sc.id))
+      .map((sc) => allCompanionsById(sc.id))
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
@@ -12745,19 +13119,29 @@
     // メッセージを なかまに なれたか どうかの けっかに おきかえる(ステータス
     // への こうかは ふつうの ミニゲームと まったく おなじ)
     if (pendingCompanionId) {
-      const companion = COMPANIONS.find((c) => c.id === pendingCompanionId);
+      const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
       if (companion) {
         if (clampedScore >= COMPANION_RECRUIT_THRESHOLD) {
-          if (!state.lifetime.companionsRecruited.includes(companion.id)) {
-            state.lifetime.companionsRecruited.push(companion.id);
+          // レアなかまは lifetime.rareCompanionsRecruited に つむ。
+          // companionsRecruited を ふやさない ので、じっせきの
+          // 「なかま だいしゅうごう(10にん)」は これまでどおり 通常なかま
+          // 10にん だけで たっせいできる(パーフェクトクリアが おもく ならない)
+          const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
+          const record = isRare
+            ? state.lifetime.rareCompanionsRecruited
+            : state.lifetime.companionsRecruited;
+          if (!record.includes(companion.id)) {
+            record.push(companion.id);
             pushLifeLog(companion.emoji, `${companion.name}が なかまに なった`);
           }
           if (!state.companions.some((c) => c.id === companion.id)) {
             state.companions.push({ id: companion.id, bond: 100 });
           }
           recruitedNow = true;
-          resultMessage = `${companion.name}が なかまに なった!${companion.emoji}`;
+          resultMessage = isRare
+            ? `${companion.emoji} ${companion.joined}`
+            : `${companion.name}が なかまに なった!${companion.emoji}`;
         } else {
           resultMessage = `${companion.name}とは まだ なかよく なれなかった…また こんど ためそう`;
         }
@@ -13058,12 +13442,23 @@
     // おきゃくさんは じっさいの ともだちの なおとっちなので、地域の
     // きめうちキャラ2人と おなじ かくりつで うもれてしまわないよう、
     // いる ときは 6わり多めの かくりつで 優先的に えらぶ
-    const regionCandidates = findRegion(state.regionId).candidates;
+    // とくべつな たびさき(SPECIAL_REGIONS)には こいびとこうほが いない ので、
+    // candidates が からの ことが ある。あいてが いない ときは しっぱいでは なく
+    // 「ひとりの じかん」として かるく かえす(ここを まもらないと undefined に なる)
+    const regionCandidates = findRegion(state.regionId).candidates || [];
     let candidate;
     if (state.guest && Math.random() < 0.6) {
       candidate = guestCandidate(state.guest);
-    } else {
+    } else if (regionCandidates.length) {
       candidate = regionCandidates[Math.floor(Math.random() * regionCandidates.length)];
+    }
+    if (!candidate) {
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+      if (!checkMeters()) {
+        setMessage('ここには だれも いない… でも、ひとりの じかんも わるく なかった');
+      }
+      emotePet('happy');
+      return;
     }
 
     // まず おたがいの れんあい対象に あいてが ふくまれているか(双方向)を
@@ -13203,6 +13598,14 @@
       render();
       return;
     }
+    // そだち70に とどいていない ときに とくべつな たびさきへ いこうと
+    // しても いけない(ボタンが 出ていない ときの ねんの ための まもり)
+    if (region.special && !hasPerk(70)) {
+      setMessage('その ばしょへの みちは、まだ みつかっていない…');
+      saveState();
+      render();
+      return;
+    }
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
@@ -13212,13 +13615,22 @@
     const travelGuaranteed = state.oneTimeBoosts.travelGuarantee;
     state.oneTimeBoosts.travelGuarantee = false;
     const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
-    const firstVisit = !state.lifetime.regionsVisited.includes(region.id);
+    // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
+    // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
+    // (ぜんぶの地域8つ)」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
+    // しまい、じょうけんの いみが かわって しまう
+    const isSpecial = !!region.special;
+    // ずっと まえの セーブから きた ばあいでも undefined に ならない よう、
+    // ここで かならず はいれつが ある ことを たしかめておく
+    if (!state.lifetime.specialRegionsVisited) state.lifetime.specialRegionsVisited = [];
+    const visitedList = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
+    const firstVisit = !visitedList.includes(region.id);
     state.regionId = region.id;
     // じっせきの「せかい いっしゅう」用に、いちど でも おとずれた ことの
     // ある地域を えいきゅうに きろくしておく(「はじめから」しても きえない)
     if (firstVisit) {
-      state.lifetime.regionsVisited.push(region.id);
-      pushLifeLog(region.emoji, `はじめて ${region.label}に いった`);
+      visitedList.push(region.id);
+      pushLifeLog(region.emoji, isSpecial ? `${region.label}に たどりついた` : `はじめて ${region.label}に いった`);
     }
     // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
     // ごはんの タイミングも のがす)
@@ -13228,7 +13640,7 @@
       state.happiness = clamp(state.happiness - 3, 0, 100);
       applyDecline(5);
     } else {
-      applyGrowth(firstVisit ? 6 : 2);
+      applyGrowth(firstVisit ? (isSpecial ? 12 : 6) : (isSpecial ? 4 : 2));
       applyDecline(-2);
       // リュックサックけいの アイテムを そうびしていると、たびの きげん
       // ボーナスが 上乗せされる
@@ -13252,6 +13664,20 @@
     const btn = e.target.closest('.theme-swatch');
     if (!btn || btn.disabled) return;
     travelToRegion(findRegion(btn.dataset.id));
+  });
+
+  // そだち70「たびだち」で ひらく とくべつな たびさき。いきさきの えらびかた
+  // じたいは ふつうの地域と まったく おなじ(travelToRegion の なかで
+  // とくべつ あつかいに わかれる)
+  el.travelSpecialGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn || btn.disabled) return;
+    travelToRegion(findRegion(btn.dataset.id));
+  });
+
+  // そだち50「こいの きざし」の デート。「せかい」がめんの なかから さそう
+  el.worldDateBtn.addEventListener('click', () => {
+    goOnDate();
   });
 
   // さいごの じかん → 人生記録カード

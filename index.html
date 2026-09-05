@@ -131,6 +131,11 @@
               <span class="dex-progress" id="companionDexProgress">0 / 10</span>
             </div>
             <div class="companion-dex-row" id="companionDexGrid"></div>
+            <div class="dex-section-divider hidden" id="rareCompanionDexDivider">
+              <span class="dex-section-title">レアなかま</span>
+              <span class="dex-progress" id="rareCompanionDexProgress">0 / 5</span>
+            </div>
+            <div class="companion-dex-row hidden" id="rareCompanionDexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">こいびと</span>
               <span class="dex-progress" id="partnerDexProgress">0 / 16</span>
@@ -251,6 +256,7 @@
               <div class="profile-hint">なおとっちが くらす「せかい」の きせつや、いま いる ばしょを ここから かえられます</div>
               <button class="profile-code-btn" id="worldSeasonMenuBtn">🌸 きせつを かえる</button>
               <button class="profile-code-btn" id="worldTravelBtn">🧳 たびに でる</button>
+              <button class="profile-code-btn hidden" id="worldDateBtn">💞 デートに さそう</button>
             </div>
           </div>
         </div>
@@ -277,6 +283,10 @@
             <div class="theme-section">
               <div class="profile-hint">行きたい 場所を えらんで タップすると、その地域へ たびに でられます</div>
               <div class="theme-grid" id="travelRegionGrid"></div>
+            </div>
+            <div class="theme-section hidden" id="travelSpecialSection">
+              <div class="profile-hint">とくべつな たびさき - ちずには のっていない ばしょです</div>
+              <div class="theme-grid" id="travelSpecialGrid"></div>
             </div>
           </div>
         </div>
