@@ -11668,7 +11668,15 @@
   function makeSwipeThrowGame({ title, projectileEmoji, laneClass, evaluate }) {
     return {
       start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        // スワイプが うまく いかなくても かならず おわる ように する
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(11000, 8000, difficulty);
         let thrown = false;
+        const giveUpTimer = setTimeout(() => {
+          if (thrown) return;
+          thrown = true;
+          onComplete(15, 'じかんぎれ… つぎは レーンを うえに スワイプしてみよう!');
+        }, timeLimitMs);
         container.innerHTML = `
           <div class="mg-title">${title}</div>
           <div class="mg-swipe-lane ${laneClass}" id="mgSwipeLane">
@@ -11694,6 +11702,7 @@
           const dy = startY - e.clientY;
           if (dy < 20) return; // 上むきの スワイプでないと なげない
           thrown = true;
+          clearTimeout(giveUpTimer);
           const power = clamp(dy / 140, 0, 1.4);
           const aimOffset = clamp(dx / 90, -1, 1);
           projectileEl.classList.remove('hidden');
