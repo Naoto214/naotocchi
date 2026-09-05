@@ -1403,8 +1403,31 @@
   //   かならず とおす
   // ・いろだけに たよらず、⭕/❌/✓ などの きごうでも せいご/ふせいかいが
   //   つたわる ようにする
+  // ・せいし画面の はんだん系は、もんだいを 表示した しゅんかんから
+  //   タイムアウト用の タイマーを うごかしはじめない(MG_TIMED_CHOICE_
+  //   GRACE_MS ぶん、もんだいを 読む じかんを さきに ひかえておく)。
+  //   はやく こたえれば すぐ すすめる ため、テンポは そこなわない
+  // ・高難易度でも かんがえる じかんが 短くなりすぎない よう、はんだん系は
+  //   MG_TIMED_CHOICE_MIN_MS、めいろ/あしばけいは MG_STEP_MIN_MS を
+  //   さいてい保証する
+  // ・れんぞくアクション系は、がめんが 出た しゅんかんに いきなり うごき
+  //   はじめず、MG_ACTION_START_GRACE_MS ぶん タイトルを 読む ゆうよを おく
+  //   (その あいだは タイマー・オブジェクトとも うごかない)
 
   const MG_REVEAL_MS = 480;
+
+  // せいし画面(えらぶだけ)の はんだん系ミニゲームで つかう、きょうつうの
+  // じかん定数。もんだいを 読む じかんを タイムアウトの けいさんから
+  // わけて、うちのめされる まえに 読みおわる じかんを 保証する
+  const MG_TIMED_CHOICE_GRACE_MS = 700;
+  const MG_TIMED_CHOICE_MIN_MS = 2200;
+  const MG_STEP_MIN_MS = 2500;
+
+  // れんぞくアクション系ミニゲームで つかう、がめんが 出てから じっさいに
+  // うごきはじめる/タイマーが へりはじめるまでの ゆうよ。みじかすぎると
+  // タイトルを 読みきれず、長すぎると テンポが わるくなる ため、
+  // 実際に 文字を 読める さいたん値として 900msを えらんだ
+  const MG_ACTION_START_GRACE_MS = 900;
 
   // せんたく式の ミニゲームで つかう、きょうつうの せいかい/ふせいかい
   // ひょうじヘルパー。タップした ようそに ⭕/❌ の マークと いろを つけ、
@@ -5240,7 +5263,10 @@
       field.addEventListener('pointerdown', onPointerMove);
       field.addEventListener('pointermove', onPointerMove);
 
-      const startTime = performance.now();
+      // がめん表示ちょくごに 突然 うごきだすのを ふせぐ、みじかい
+      // スタート ゆうよ(セクション2)。ゆうよちゅうは タイマー・
+      // オブジェクトとも うごかさない
+      const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
       let rafId;
 
       function spawnItem() {
@@ -5264,6 +5290,11 @@
       function frame(now) {
         if (!running) return;
         const elapsed = now - startTime;
+        if (elapsed < 0) {
+          timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
+          rafId = requestAnimationFrame(frame);
+          return;
+        }
         const remaining = Math.max(0, DURATION_MS - elapsed);
         timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
 
@@ -5442,9 +5473,10 @@
         spawnTimeout = setTimeout(showTarget, delay);
       }
 
-      const startTime = performance.now();
+      // スタート ゆうよちゅうは タイマーも まと出現も とめておく(セクション2)
+      const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
       const tickInterval = setInterval(() => {
-        const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+        const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
         timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
         if (remaining <= 0) end();
       }, 200);
@@ -5459,7 +5491,7 @@
         onComplete(score);
       }
 
-      scheduleNext(300);
+      scheduleNext(MG_ACTION_START_GRACE_MS + 300);
     },
     };
   }
@@ -6307,7 +6339,7 @@
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = 2 + Math.round(difficulty);
-      const timeLimitMs = lerp(4500, 2000, difficulty);
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4500, MG_TIMED_CHOICE_MIN_MS, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -6475,7 +6507,7 @@
       ];
       const activeColors = COLOR_DEFS.slice(0, Math.round(lerp(3, 6, difficulty)));
       const ROUNDS = 3 + Math.round(difficulty);
-      const timeLimitMs = lerp(3200, 1600, difficulty);
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3200, MG_TIMED_CHOICE_MIN_MS, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -6536,7 +6568,7 @@
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = 3 + Math.round(difficulty);
-      const timeLimitMs = lerp(3200, 1600, difficulty);
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3200, MG_TIMED_CHOICE_MIN_MS, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -6602,7 +6634,7 @@
         { key: 'right', label: 'みぎ', arrow: '➡️' },
       ];
       const ROUNDS = 3 + Math.round(difficulty);
-      const timeLimitMs = lerp(3200, 1600, difficulty);
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3200, MG_TIMED_CHOICE_MIN_MS, difficulty);
       let round = 0;
       let correctCount = 0;
       let timer;
@@ -6835,16 +6867,17 @@
         const btn = container.querySelector('#mgMashBtn');
         const timerEl = container.querySelector('#mgTimer');
         const scoreEl = container.querySelector('#mgScore');
-        const startTime = performance.now();
+        // スタートゆうよちゅうは タイマーを すすめない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
 
         btn.addEventListener('pointerdown', () => {
-          if (!running) return;
+          if (!running || performance.now() < startTime) return;
           taps += 1;
           scoreEl.textContent = `タップ: ${taps}`;
         });
 
         const interval = setInterval(() => {
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) {
             running = false;
@@ -6899,16 +6932,25 @@
       const rightBtn = container.querySelector('#mgRightBtn');
 
       leftBtn.addEventListener('pointerdown', () => {
+        if (performance.now() < startTime) return;
         velocity -= nudgeAmount;
       });
       rightBtn.addEventListener('pointerdown', () => {
+        if (performance.now() < startTime) return;
         velocity += nudgeAmount;
       });
 
-      const startTime = performance.now();
+      // スタートゆうよちゅうは マーカーを ドリフトさせず、タイマーも
+      // すすめない(セクション2)
+      const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
 
       function frame(now) {
         if (!running) return;
+        if (now < startTime) {
+          timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
+          rafId = requestAnimationFrame(frame);
+          return;
+        }
         if (lastTime == null) lastTime = now;
         const dt = (now - lastTime) / 1000;
         lastTime = now;
@@ -6953,7 +6995,8 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const GRID_SIZE = Math.round(lerp(8, 14, difficulty));
-        const timeLimitMs = lerp(4500, 2500, difficulty);
+        // さいだい14マスまで さがす ひつようが あるため、少し 余裕を もたせた
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(5200, 2800, difficulty);
         const pair = pairs[Math.floor(Math.random() * pairs.length)];
         const oddIndex = Math.floor(Math.random() * GRID_SIZE);
         const cols = 5;
@@ -7075,7 +7118,7 @@
         const left = 1 + Math.floor(Math.random() * maxCount);
         let right = 1 + Math.floor(Math.random() * maxCount);
         while (right === left) right = 1 + Math.floor(Math.random() * maxCount);
-        const timeLimitMs = lerp(5000, 2800, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(5000, 2800, difficulty);
         let answered = false;
         let timer;
 
@@ -7121,7 +7164,7 @@
         const bigIsLeft = Math.random() < 0.5;
         const leftSize = bigIsLeft ? bigSize : smallSize;
         const rightSize = bigIsLeft ? smallSize : bigSize;
-        const timeLimitMs = lerp(5000, 2800, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(5000, 2800, difficulty);
         let answered = false;
         let timer;
 
@@ -7176,7 +7219,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const GRID_SIZE = Math.round(lerp(6, 12, difficulty));
-        const timeLimitMs = lerp(5500, 3200, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(5800, 3500, difficulty);
         const target = shapes[Math.floor(Math.random() * shapes.length)];
         const decoys = shapes.filter((s) => s !== target);
         const correctIndex = Math.floor(Math.random() * GRID_SIZE);
@@ -7228,7 +7271,7 @@
   function makeSilhouetteGame({ title, pool }) {
     return {
       start(container, onComplete) {
-        const timeLimitMs = 5000;
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + 5000;
         const answer = pool[Math.floor(Math.random() * pool.length)];
         const distractorPool = pool.filter((p) => p.key !== answer.key);
         for (let i = distractorPool.length - 1; i > 0; i--) {
@@ -7321,7 +7364,7 @@
   function makePatternGame({ title, kind }) {
     return {
       start(container, onComplete) {
-        const timeLimitMs = 6000;
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + 6000;
         let sequence;
         let answer;
         let distractors;
@@ -7469,7 +7512,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const STEPS = Math.round(lerp(3, 5, difficulty));
-        const timeLimitMs = lerp(3200, 1900, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3600, MG_STEP_MIN_MS, difficulty);
         let step = 0;
         let correctCount = 0;
         let stepTimer;
@@ -7544,7 +7587,7 @@
         const difficulty = ageDifficulty();
         const GRID_SIZE = Math.round(lerp(8, 12, difficulty));
         const targetCount = Math.max(3, Math.round(GRID_SIZE * 0.4));
-        const timeLimitMs = lerp(4500, 2800, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4500, 2800, difficulty);
         const cells = Array.from({ length: GRID_SIZE }, (_, i) => (i < targetCount ? targetEmoji : otherEmojis[Math.floor(Math.random() * otherEmojis.length)]));
         for (let i = cells.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -7617,7 +7660,7 @@
     start(container, onComplete) {
       const difficulty = ageDifficulty();
       const ROUNDS = Math.round(lerp(3, 5, difficulty));
-      const timeLimitMs = lerp(2800, 1800, difficulty);
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(2800, MG_TIMED_CHOICE_MIN_MS, difficulty);
       let round = 0;
       let correctCount = 0;
       let current = 1 + Math.floor(Math.random() * 100);
@@ -7690,7 +7733,8 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const timeLimitMs = lerp(9000, 6000, difficulty);
+        // ならべかえの かんがえる/ドラッグする 時間を かくほ(セクション9)
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(9500, 6800, difficulty);
         const target = emojiSet;
         const tiles = [...emojiSet];
         do {
@@ -7827,10 +7871,11 @@
           field.appendChild(bubble);
         }
 
-        spawnInterval = setInterval(spawnBubble, spawnIntervalMs);
-        const startTime = performance.now();
+        // スタート ゆうよちゅうは あわを 出さず、タイマーも すすめない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        let startTimeout;
         tickInterval = setInterval(() => {
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) end();
         }, 200);
@@ -7838,13 +7883,18 @@
         function end() {
           if (!running) return;
           running = false;
+          clearTimeout(startTimeout);
           clearInterval(spawnInterval);
           clearInterval(tickInterval);
           const score = spawned > 0 ? Math.round(clamp((hits / spawned) * 100, 0, 100)) : 0;
           onComplete(score);
         }
 
-        spawnBubble();
+        startTimeout = setTimeout(() => {
+          if (!running) return;
+          spawnBubble();
+          spawnInterval = setInterval(spawnBubble, spawnIntervalMs);
+        }, MG_ACTION_START_GRACE_MS);
       },
     };
   }
@@ -7863,7 +7913,7 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const timeLimitMs = lerp(7000, 4500, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(7000, 4500, difficulty);
         const word = words[Math.floor(Math.random() * words.length)];
         const letters = word.split('');
         const DISTRACTOR_POOL = 'あかさたなはまやらわいきしちにひみりうくすつぬふむゆるえけせてねへめれおこそとのほもよろ'.split('');
@@ -7946,7 +7996,8 @@
         const target = targetOverride || (8 + Math.floor(Math.random() * 8));
         const pairCount = Math.round(lerp(2, 3, difficulty));
         const distractorCount = Math.round(lerp(1, 2, difficulty));
-        const timeLimitMs = lerp(8000, 5000, difficulty);
+        // かずを さがして たしざんを かんがえる 時間を かくほ(セクション9)
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(8500, 6000, difficulty);
 
         const numbers = [];
         for (let i = 0; i < pairCount; i++) {
@@ -8060,7 +8111,10 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 6000;
+        // PR#87の EXIT_MS(ぬけ演出)ぶん、1しょうがいぶつ あたりの
+        // しょようじかんが ふえた ため、DURATION_MSを のばして
+        // ちょうせん かいすうを PR#87いぜんと どうとうに もどす(セクション5)
+        const DURATION_MS = 7000;
         const cycleMs = lerp(1600, 950, difficulty);
         const jumpWindowMs = lerp(550, 300, difficulty);
         // 判定(cycleMs/jumpWindowMs)は かえず、判定が おわった あとに
@@ -8150,9 +8204,10 @@
         }
         jumpBtn.addEventListener('pointerdown', onJump);
 
-        const startTime = performance.now();
+        // スタートゆうよちゅうは しょうがいぶつも タイマーも うごかさない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         tickInterval = setInterval(() => {
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) end();
         }, 200);
@@ -8172,7 +8227,7 @@
           onComplete(score);
         }
 
-        spawnObstacle();
+        nextTimeout = setTimeout(spawnObstacle, MG_ACTION_START_GRACE_MS);
       },
     };
   }
@@ -8195,7 +8250,7 @@
 
   const colorMixGame = {
     start(container, onComplete) {
-      const timeLimitMs = 6000;
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + 6000;
       const pair = COLOR_MIX_PAIRS[Math.floor(Math.random() * COLOR_MIX_PAIRS.length)];
       const distractors = COLOR_MIX_PAIRS.map((p) => p.answer).filter((a) => a !== pair.answer);
       const choices = [pair.answer, ...distractors];
@@ -8256,7 +8311,7 @@
         )];
         const GRID_SIZE = Math.round(lerp(8, 12, difficulty));
         const targetCount = Math.max(2, Math.round(GRID_SIZE * 0.25));
-        const timeLimitMs = lerp(4500, 2800, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4500, 2800, difficulty);
         const cells = Array.from({ length: GRID_SIZE }, (_, i) => (
           i < targetCount ? selfEmoji : decoyPool[Math.floor(Math.random() * decoyPool.length)]
         ));
@@ -8331,7 +8386,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const ROUNDS = Math.round(lerp(3, 4, difficulty));
-        const timeLimitMs = lerp(3400, 2000, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3400, MG_TIMED_CHOICE_MIN_MS, difficulty);
         const selfEmoji = currentSprite();
         let round = 0;
         let correctCount = 0;
@@ -8420,7 +8475,8 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 6000;
+        // スタートゆうよぶんの プレイ時間を おぎなう ため、すこし ながく(セクション9)
+        const DURATION_MS = 6500;
         const travelMs = lerp(2000, 1150, difficulty);
         const spawnInterval = lerp(950, 520, difficulty);
         const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
@@ -8478,12 +8534,17 @@
           items.push({ el: itemEl, lane: itemLane, born: performance.now(), bad: isBad, resolved: false });
         }
 
-        const startTime = performance.now();
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         let rafId;
 
         function frame(now) {
           if (!running) return;
           const elapsed = now - startTime;
+          if (elapsed < 0) {
+            timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
+            rafId = requestAnimationFrame(frame);
+            return;
+          }
           const remaining = Math.max(0, DURATION_MS - elapsed);
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
 
@@ -8857,7 +8918,9 @@
           timers.push(setTimeout(() => resolveRound(null), telegraphMs + reactionMs));
         }
 
-        timers.push(setTimeout(nextRound, 600));
+        // がめん表示ちょくごに いきなり こうげきが はじまらない ように、
+        // さいしょの 1手だけ すこし ながめの ゆうよを おく(セクション2)
+        timers.push(setTimeout(nextRound, MG_ACTION_START_GRACE_MS));
       },
     };
   }
@@ -9216,14 +9279,16 @@
           chaserTimer = setTimeout(stepChaser, chaserStepMs);
         }
 
-        startTime = performance.now();
+        // スタート ゆうよちゅうは おいかけっこも タイマーも すすめない
+        // (プレイヤーの ボタンそうさじたいは 先に できて よい)(セクション2)
+        startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         tickTimer = setInterval(() => {
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) { clearInterval(tickTimer); timeUpEnd(); }
         }, 200);
 
-        chaserTimer = setTimeout(stepChaser, chaserStepMs);
+        chaserTimer = setTimeout(stepChaser, MG_ACTION_START_GRACE_MS + chaserStepMs);
       },
     };
   }
@@ -9244,7 +9309,9 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 7000;
+        // jumpと おなじく、EXIT_MSぶんの ちょうせん かいすう げんしょうを
+        // おぎなう ため DURATION_MSを のばした(セクション5)
+        const DURATION_MS = 7900;
         const cycleMs = lerp(1500, 900, difficulty);
         const jumpWindowMs = lerp(550, 320, difficulty);
         // jump系と おなじ りゆうで、判定(cycleMs/jumpWindowMs)は かえず、
@@ -9339,9 +9406,10 @@
         }
         jumpBtn.addEventListener('pointerdown', onJump);
 
-        const startTime = performance.now();
+        // スタートゆうよちゅうは アイテムも タイマーも うごかさない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         tickInterval = setInterval(() => {
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) end();
         }, 200);
@@ -9361,7 +9429,7 @@
           onComplete(score);
         }
 
-        spawnItem();
+        nextTimeout = setTimeout(spawnItem, MG_ACTION_START_GRACE_MS);
       },
     };
   }
@@ -9463,12 +9531,17 @@
         }
         fireBtn.addEventListener('pointerdown', fire);
 
-        const startTime = performance.now();
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         let rafId;
 
         function frame(now) {
           if (!running) return;
           const elapsed = now - startTime;
+          if (elapsed < 0) {
+            timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
+            rafId = requestAnimationFrame(frame);
+            return;
+          }
           const remaining = Math.max(0, DURATION_MS - elapsed);
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
 
@@ -9525,9 +9598,11 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const seqLen = Math.round(lerp(3, 4, difficulty));
-        const timeLimitMs = lerp(4500, 3000, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4500, 3000, difficulty);
         const sequence = Array.from({ length: seqLen }, () => icons[Math.floor(Math.random() * icons.length)]);
         let progress = 0;
+        let mistakes = 0;
+        const MAX_MISTAKES = 1;
         let finished = false;
         let timer;
 
@@ -9568,8 +9643,15 @@
             renderSeq();
             if (progress >= seqLen) finish(true);
           } else {
-            seqEl.classList.add('mg-combo-fail');
-            finish(false);
+            // 1かいめの まちがいまでは つづけられる(2かいめで しっぱい
+            // かくてい)。1手目の ミスだけで ほぼ なにも できずに おわる
+            // ことを ふせぐ
+            flashMistake(btn);
+            mistakes += 1;
+            if (mistakes > MAX_MISTAKES) {
+              seqEl.classList.add('mg-combo-fail');
+              finish(false);
+            }
           }
         });
 
@@ -9590,7 +9672,7 @@
   function makeBoxPickGame({ title, boxEmoji, boxCount, outcomes }) {
     return {
       start(container, onComplete) {
-        const timeLimitMs = 6000;
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + 6000;
         const order = shuffleArray(outcomes.slice(0, boxCount));
         let picked = false;
         let timer;
@@ -9706,7 +9788,7 @@
   ];
   const matchupQuizGame = {
     start(container, onComplete) {
-      const timeLimitMs = 6000;
+      const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + 6000;
       const pair = MATCHUP_PAIRS[Math.floor(Math.random() * MATCHUP_PAIRS.length)];
       let answered = false;
       let timer;
@@ -9750,9 +9832,12 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const stoneCount = Math.round(lerp(5, 7, difficulty));
-        const timeLimitMs = lerp(1600, 1000, difficulty);
+        // むずかしくても 1歩ぶんは かんがえられる 時間を かくほ(セクション7)
+        const timeLimitMs = lerp(2800, MG_STEP_MIN_MS, difficulty);
         const dirs = Array.from({ length: stoneCount }, () => ['left', 'right', 'straight'][Math.floor(Math.random() * 3)]);
         let index = 0;
+        let mistakes = 0;
+        const MAX_MISTAKES = 1;
         let finished = false;
         let timer;
 
@@ -9777,9 +9862,12 @@
         }
         renderRow();
 
-        function nextTimer() {
+        function nextTimer(isFirst) {
           clearTimeout(timer);
-          timer = setTimeout(() => finish(false), timeLimitMs);
+          // さいしょの 1歩だけ、ぜんたいの ほうこうれつを 見て かんがえる
+          // 時間を よぶんに あたえる
+          const delay = isFirst ? MG_TIMED_CHOICE_GRACE_MS + timeLimitMs : timeLimitMs;
+          timer = setTimeout(() => finish(false), delay);
         }
 
         function finish(success) {
@@ -9799,14 +9887,23 @@
             scoreEl.textContent = `${index}/${stoneCount}`;
             renderRow();
             if (index >= stoneCount) finish(true);
-            else nextTimer();
+            else nextTimer(false);
           } else {
-            rowEl.classList.add('mg-combo-fail');
-            finish(false);
+            // 1かいめの まちがいは ゆるし、おなじ いしの うえで
+            // もう1ど ちょうせんできる ようにする(1手目の ミスだけで
+            // ほぼ なにも できずに おわる ことを ふせぐ)
+            flashMistake(btn);
+            mistakes += 1;
+            if (mistakes > MAX_MISTAKES) {
+              rowEl.classList.add('mg-combo-fail');
+              finish(false);
+            } else {
+              nextTimer(false);
+            }
           }
         });
 
-        nextTimer();
+        nextTimer(true);
       },
     };
   }
@@ -9919,7 +10016,8 @@
         const rivals = rivalEmojis.map(() => 0);
         let finished = false;
         let running = true;
-        const startTime = performance.now();
+        // スタートゆうよちゅうは あいても タイマーも うごかさない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         let rafId;
 
         container.innerHTML = `
@@ -9941,7 +10039,7 @@
         const hintEl = container.querySelector('#mgRaceHint');
 
         runBtn.addEventListener('pointerdown', () => {
-          if (finished) return;
+          if (finished || performance.now() < startTime) return;
           progress = Math.min(100, progress + 4.5);
           youEl.style.left = progress + '%';
           if (progress >= 100) finish();
@@ -9949,6 +10047,11 @@
 
         function frame(now) {
           if (!running) return;
+          if (now < startTime) {
+            timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
+            rafId = requestAnimationFrame(frame);
+            return;
+          }
           const elapsed = now - startTime;
           const remaining = Math.max(0, DURATION_MS - elapsed);
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
@@ -10164,7 +10267,8 @@
         let finished = false;
         let running = true;
         let rivalTimer;
-        const startTime = performance.now();
+        // スタートゆうよちゅうは あいても タイマーも うごかさない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
 
         container.innerHTML = `
           <div class="mg-header"><span id="mgTimer">残り: 6s</span></div>
@@ -10195,22 +10299,25 @@
         }
 
         btn.addEventListener('pointerdown', () => {
-          if (finished) return;
+          if (finished || performance.now() < startTime) return;
           position = clamp(position + 6, 0, 100);
           updateBar();
           if (position >= 100) finish(true);
         });
 
-        rivalTimer = setInterval(() => {
+        setTimeout(() => {
           if (finished) return;
-          position = clamp(position - 4, 0, 100);
-          updateBar();
-          if (position <= 0) finish(false);
-        }, rivalPushMs);
+          rivalTimer = setInterval(() => {
+            if (finished) return;
+            position = clamp(position - 4, 0, 100);
+            updateBar();
+            if (position <= 0) finish(false);
+          }, rivalPushMs);
+        }, MG_ACTION_START_GRACE_MS);
 
         const tick = setInterval(() => {
           if (!running) { clearInterval(tick); return; }
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) { clearInterval(tick); finish(position >= 50); }
         }, 200);
@@ -10231,7 +10338,8 @@
         const neededChops = Math.round(lerp(6, 10, difficulty));
         let chops = 0;
         let running = true;
-        const startTime = performance.now();
+        // スタートゆうよちゅうは タイマーを すすめない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
 
         container.innerHTML = `
           <div class="mg-header">
@@ -10254,7 +10362,7 @@
 
         board.addEventListener('pointerdown', (e) => { tracking = true; startY = e.clientY; });
         board.addEventListener('pointerup', (e) => {
-          if (!tracking || !running) return;
+          if (!tracking || !running || performance.now() < startTime) return;
           tracking = false;
           const dy = e.clientY - startY;
           if (dy < 30) return;
@@ -10268,7 +10376,7 @@
 
         const tick = setInterval(() => {
           if (!running) { clearInterval(tick); return; }
-          const remaining = Math.max(0, DURATION_MS - (performance.now() - startTime));
+          const remaining = Math.max(0, Math.min(DURATION_MS, DURATION_MS - (performance.now() - startTime)));
           timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
           if (remaining <= 0) { clearInterval(tick); end(Math.round((chops / neededChops) * 90)); }
         }, 200);
@@ -10569,11 +10677,16 @@
         const ROUNDS = 3;
         const cycleMs = lerp(1300, 850, difficulty);
         const windowMs = lerp(480, 260, difficulty);
+        // jump/runnerと おなじく、判定が おわった あとに だけ「ボールが
+        // プレイヤーの したを とおりすぎて 画面外へ ぬける」えんしゅつを
+        // つけたす ための みため専用の ついか時間(セクション6)。判定した
+        // しゅんかんに ボールが 消える ことが ないようにする
+        const EXIT_MS = 260;
         let round = 0;
         let success = 0;
         let inWindow = false;
         let running = true;
-        let windowOpenTimeout, windowCloseTimeout;
+        let windowOpenTimeout, windowCloseTimeout, exitTimeout, nextTimeout;
 
         container.innerHTML = `
           <div class="mg-header">
@@ -10585,7 +10698,7 @@
             <span class="mg-sports-goal">${fieldEmoji}</span>
             <span class="mg-sports-ball hidden" id="mgSportsBall">${ballEmoji}</span>
           </div>
-          <button class="mg-tap-btn" id="mgSportsBtn">${tapLabel}</button>
+          <button class="mg-tap-btn" id="mgSportsBtn" disabled>${tapLabel}</button>
         `;
         const ballEl = container.querySelector('#mgSportsBall');
         const btn = container.querySelector('#mgSportsBtn');
@@ -10608,17 +10721,26 @@
         function resolveRound(hit) {
           clearTimeout(windowCloseTimeout);
           btn.disabled = true;
-          ballEl.classList.add('hidden');
+          inWindow = false;
           if (hit) success += 1;
           scoreEl.textContent = `せいこう: ${success}`;
           round += 1;
+          // 判定は ここで かくてい するが、ボールは そくじに 消さず、
+          // のこりの うごきを さいごまで 見せてから きえる えんしゅつを
+          // つける(PR#87の jump/runnerと おなじ パターン)
+          ballEl.style.animation = 'none';
+          void ballEl.offsetWidth;
+          ballEl.style.animation = `mg-jump-exit ${EXIT_MS}ms linear`;
+          exitTimeout = setTimeout(() => {
+            ballEl.classList.add('hidden');
+          }, EXIT_MS);
           if (round >= ROUNDS) {
-            setTimeout(end, 400);
+            nextTimeout = setTimeout(end, EXIT_MS + 400);
           } else {
-            setTimeout(() => {
+            nextTimeout = setTimeout(() => {
               roundEl.textContent = `${round + 1}/${ROUNDS}`;
               spawn();
-            }, 350);
+            }, EXIT_MS + 350);
           }
         }
 
@@ -10631,11 +10753,17 @@
         function end() {
           if (!running) return;
           running = false;
+          clearTimeout(windowOpenTimeout);
+          clearTimeout(windowCloseTimeout);
+          clearTimeout(exitTimeout);
+          clearTimeout(nextTimeout);
           const score = Math.round((success / ROUNDS) * 100);
           onComplete(score);
         }
 
-        spawn();
+        // がめん表示ちょくごに いきなり ボールが とんでこない ように、
+        // さいしょの 1こだけ すこし ながめの ゆうよを おく(セクション2)
+        nextTimeout = setTimeout(spawn, MG_ACTION_START_GRACE_MS);
       },
     };
   }
@@ -10732,7 +10860,8 @@
           { key: 'choco', emoji: '🍫', label: 'チョコ', left: 50, top: 20 },
           { key: 'cherry', emoji: '🍒', label: 'さくらんぼ', left: 74, top: 34 },
         ];
-        const TIME_LIMIT_MS = 13000;
+        // ドラッグして かんがえる 時間を たっぷり かくほ(セクション9)
+        const TIME_LIMIT_MS = 16000;
         let roundIndex = 0;
         let placedCount = 0;
         let finished = false;
@@ -10898,10 +11027,19 @@
         const waitMinMs = 1400;
         const waitMaxMs = 3200;
         const biteWindowMs = lerp(950, 600, difficulty);
+        // 1かいの はやオシ/はんのう おくれで ぜんぶ おわらせず、さいてい
+        // 2〜3かいは「まちぶせ→はんのう」を たいけんできる ように する
+        // (セクション3)。せいこうしたら そのしゅんかん おわり、3かい
+        // しっぱいしたら おわり
+        const MAX_CHANCES = 3;
+        let chance = 0;
         let phase = 'waiting'; // waiting -> biting -> done
         let finished = false;
-        let biteTimer, windowTimer;
+        let biteTimer, windowTimer, nextTimer;
         container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgChance">ちょうせん: 1/${MAX_CHANCES}</span>
+          </div>
           <div class="mg-title">${title}</div>
           <div class="mg-fishing-scene" id="mgFishingScene">
             <div class="mg-fishing-water"></div>
@@ -10913,20 +11051,51 @@
         const scene = container.querySelector('#mgFishingScene');
         const bobber = container.querySelector('#mgBobber');
         const hintEl = container.querySelector('#mgHint');
+        const chanceEl = container.querySelector('#mgChance');
 
         function finish(score, message) {
           if (finished) return;
           finished = true;
           clearTimeout(biteTimer);
           clearTimeout(windowTimer);
+          clearTimeout(nextTimer);
           hintEl.textContent = message;
           setTimeout(() => onComplete(score), 500);
+        }
+
+        function startWait() {
+          phase = 'waiting';
+          bobber.classList.remove('biting');
+          chanceEl.textContent = `ちょうせん: ${chance + 1}/${MAX_CHANCES}`;
+          const waitMs = waitMinMs + Math.random() * (waitMaxMs - waitMinMs);
+          biteTimer = setTimeout(() => {
+            if (finished) return;
+            phase = 'biting';
+            bobber.classList.add('biting');
+            hintEl.textContent = '! いまだ!';
+            windowTimer = setTimeout(() => {
+              if (finished) return;
+              missChance('にげちゃった…');
+            }, biteWindowMs);
+          }, waitMs);
+        }
+
+        function missChance(message) {
+          phase = 'done';
+          bobber.classList.remove('biting');
+          chance += 1;
+          if (chance >= MAX_CHANCES) {
+            finish(20, message);
+          } else {
+            hintEl.textContent = `${message} でも まだ ちょうせんできる!`;
+            nextTimer = setTimeout(startWait, 700);
+          }
         }
 
         scene.addEventListener('pointerdown', () => {
           if (finished) return;
           if (phase === 'waiting') {
-            finish(15, 'まだだった…');
+            missChance('まだだった…');
           } else if (phase === 'biting') {
             phase = 'done';
             bobber.classList.remove('biting');
@@ -10934,19 +11103,7 @@
           }
         });
 
-        const waitMs = waitMinMs + Math.random() * (waitMaxMs - waitMinMs);
-        biteTimer = setTimeout(() => {
-          if (finished) return;
-          phase = 'biting';
-          bobber.classList.add('biting');
-          hintEl.textContent = '! いまだ!';
-          windowTimer = setTimeout(() => {
-            if (finished) return;
-            phase = 'done';
-            bobber.classList.remove('biting');
-            finish(20, 'にげちゃった…');
-          }, biteWindowMs);
-        }, waitMs);
+        startWait();
       },
     };
   }
@@ -10974,7 +11131,8 @@
         let totalGates = 0;
         let rafId;
         let spawnTimer;
-        const startTime = performance.now();
+        // スタートゆうよちゅうは しょうがいぶつも タイマーも うごかさない(セクション2)
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
 
         container.innerHTML = `
           <div class="mg-header">
@@ -11031,11 +11189,16 @@
           spawnObstacle();
           spawnTimer = setTimeout(scheduleSpawn, spawnIntervalMs);
         }
-        scheduleSpawn();
+        spawnTimer = setTimeout(scheduleSpawn, MG_ACTION_START_GRACE_MS);
 
         let lastFrame = null;
         function frame(now) {
           if (!running) return;
+          if (now < startTime) {
+            timerEl.textContent = `のこり: ${Math.ceil(DURATION_MS / 1000)}s`;
+            rafId = requestAnimationFrame(frame);
+            return;
+          }
           if (lastFrame === null) lastFrame = now;
           const dt = (now - lastFrame) / 1000;
           lastFrame = now;
@@ -11095,8 +11258,17 @@
         const difficulty = ageDifficulty();
         let finished = false;
         let phase = 'wait'; // wait -> catch -> balance -> done
-        let waveTimer, windowTimer;
+        let waveTimer, windowTimer, nextWaveTimer;
+        // さいしょの なみに のりそこねただけで バランスフェーズを
+        // ぜんぜん たいけんできない ことを ふせぐ ため、なみへの
+        // ちょうせんを 2〜3かい ゆるす(セクション4)。なみに のれたら
+        // BALANCE_MSは いままでどおり
+        const MAX_WAVE_ATTEMPTS = 3;
+        let waveAttempt = 0;
         container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgWaveCount">なみ: 1/${MAX_WAVE_ATTEMPTS}</span>
+          </div>
           <div class="mg-title">${title}</div>
           <div class="mg-surf-scene" id="mgSurfScene">
             <div class="mg-surf-wave" id="mgSurfWave"></div>
@@ -11108,33 +11280,54 @@
         const wave = container.querySelector('#mgSurfWave');
         const board = container.querySelector('#mgSurfBoard');
         const hintEl = container.querySelector('#mgHint');
+        const waveCountEl = container.querySelector('#mgWaveCount');
 
         function finish(score, msg) {
           if (finished) return;
           finished = true;
           clearTimeout(waveTimer);
           clearTimeout(windowTimer);
+          clearTimeout(nextWaveTimer);
           hintEl.textContent = msg;
           setTimeout(() => onComplete(score), 500);
         }
 
         const approachMs = lerp(1600, 1100, difficulty);
         const catchWindowMs = lerp(650, 420, difficulty);
-        waveTimer = setTimeout(() => {
-          if (finished) return;
-          phase = 'catch';
-          wave.classList.add('approaching');
-          hintEl.textContent = 'いまだ!のろう!';
-          windowTimer = setTimeout(() => {
+
+        function scheduleWave() {
+          phase = 'wait';
+          wave.classList.remove('approaching');
+          hintEl.textContent = 'なみが くるまで まとう…';
+          waveCountEl.textContent = `なみ: ${waveAttempt + 1}/${MAX_WAVE_ATTEMPTS}`;
+          waveTimer = setTimeout(() => {
             if (finished) return;
-            finish(15, 'なみに のりおくれた…');
-          }, catchWindowMs);
-        }, approachMs);
+            phase = 'catch';
+            wave.classList.add('approaching');
+            hintEl.textContent = 'いまだ!のろう!';
+            windowTimer = setTimeout(() => {
+              if (finished) return;
+              missWave('なみに のりおくれた…');
+            }, catchWindowMs);
+          }, approachMs);
+        }
+
+        function missWave(msg) {
+          phase = 'wait';
+          wave.classList.remove('approaching');
+          waveAttempt += 1;
+          if (waveAttempt >= MAX_WAVE_ATTEMPTS) {
+            finish(15, msg);
+          } else {
+            hintEl.textContent = `${msg} つぎの なみを まとう!`;
+            nextWaveTimer = setTimeout(scheduleWave, 700);
+          }
+        }
 
         function waitCatchHandler() {
           if (finished) return;
           if (phase === 'wait') {
-            finish(15, 'まだ なみが きてないよ…');
+            missWave('まだ なみが きてないよ…');
           } else if (phase === 'catch') {
             phase = 'balance';
             clearTimeout(windowTimer);
@@ -11146,6 +11339,7 @@
           }
         }
         scene.addEventListener('pointerdown', waitCatchHandler);
+        scheduleWave();
 
         function startBalancePhase() {
           const BALANCE_MS = 4200;
