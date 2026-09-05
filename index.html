@@ -40,6 +40,7 @@
           <div class="pet-area" id="petArea">
             <div class="badges" id="badges"></div>
             <div class="ending-badges" id="endingBadges"></div>
+            <div class="ending-badge-tip hidden" id="endingBadgeTip"></div>
             <div class="pet" id="pet"><span class="partner-companion hidden" id="partnerCompanion"></span><span class="companion-side left" id="companionLeft"></span><span id="petSprite">🥚</span><span class="pet-accessory hidden" id="petAccessory"></span><span class="companion-side right" id="companionRight"></span></div>
             <div class="poop-row" id="poopRow"></div>
             <button class="profile-icon-btn comm-icon-btn hidden" id="commBtn" title="つうしん">✉️</button>
@@ -124,7 +125,8 @@
             <button class="dex-close-btn" id="dexCloseBtn">✕</button>
           </div>
           <div class="dex-scroll">
-            <div class="profile-hint hidden" id="dexFreePlayHint">すきな すがたを タップすると、すぐに その すがたに 変身できます</div>
+            <div class="profile-hint">であった すがたを タップすると、なまえ・しゅぞく・ライフステージと せつめいを 読めます</div>
+            <div class="profile-hint hidden" id="dexFreePlayHint">♾️ の せかいでは、くわしい がめんから そのまま その すがたに なれます</div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
@@ -141,6 +143,17 @@
               <span class="dex-progress" id="partnerDexProgress">0 / 16</span>
             </div>
             <div class="companion-dex-row" id="partnerDexGrid"></div>
+          </div>
+        </div>
+
+        <div class="dex-detail-overlay hidden" id="dexDetailOverlay">
+          <div class="dex-detail-card">
+            <button class="dex-close-btn dex-detail-close" id="dexDetailCloseBtn">✕</button>
+            <div class="dex-detail-emoji" id="dexDetailEmoji"></div>
+            <div class="dex-detail-label" id="dexDetailLabel"></div>
+            <div class="dex-detail-meta" id="dexDetailMeta"></div>
+            <div class="dex-detail-desc" id="dexDetailDesc"></div>
+            <button type="button" class="dex-detail-transform-btn hidden" id="dexDetailTransformBtn">この すがたに なる</button>
           </div>
         </div>
 
@@ -218,6 +231,11 @@
           </div>
           <div class="theme-scroll">
             <div class="theme-section">
+              <div class="theme-section-title">ごほうび</div>
+              <div class="profile-hint">ミニゲームの 大成功や、5さい・10さいごとの おいわいで もらえます。<strong>ふつうの ごほうび</strong>は おなか・ごきげん・げんき・けんこうに、<strong>💫 とくべつな ごほうび</strong>は それに くわえて <strong>おとろえ</strong>と<strong>いのち</strong>にも ききます。もっている ものは タップで つかえます</div>
+              <div class="shop-item-grid" id="rewardItemGrid"></div>
+            </div>
+            <div class="theme-section">
               <div class="theme-section-title">みにつける もの</div>
               <div class="profile-hint">おかねで こうにゅうして そうびできます。そうびすると、なおとっちに ずっと つけつづけます</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
@@ -246,6 +264,18 @@
           </div>
         </div>
 
+        <div class="companion-invite-overlay hidden" id="companionInviteOverlay">
+          <div class="companion-invite-card">
+            <div class="companion-invite-emoji" id="companionInviteEmoji">🐾</div>
+            <div class="companion-invite-title" id="companionInviteTitle"></div>
+            <div class="companion-invite-flavor" id="companionInviteFlavor"></div>
+            <div class="companion-invite-actions">
+              <button type="button" class="companion-invite-btn play" id="companionInvitePlayBtn">あそぶ!</button>
+              <button type="button" class="companion-invite-btn later" id="companionInviteLaterBtn">また こんど</button>
+            </div>
+          </div>
+        </div>
+
         <div class="dex-overlay hidden" id="worldOverlay">
           <div class="dex-header">
             <span class="dex-title">せかい</span>
@@ -256,7 +286,8 @@
               <div class="profile-hint">なおとっちが くらす「せかい」の きせつや、いま いる ばしょを ここから かえられます</div>
               <button class="profile-code-btn" id="worldSeasonMenuBtn">🌸 きせつを かえる</button>
               <button class="profile-code-btn" id="worldTravelBtn">🧳 たびに でる</button>
-              <button class="profile-code-btn hidden" id="worldDateBtn">💞 デートに さそう</button>
+              <button class="profile-code-btn" id="worldDateBtn">💞 デートに さそう</button>
+              <div class="world-date-hint hidden" id="worldDateHint"></div>
             </div>
           </div>
         </div>
