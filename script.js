@@ -5106,6 +5106,19 @@
     };
   }
 
+  // MINIGAME_CATEGORY_GROUPS の 各バリエーションに、配列内の 位置に
+  // まったく 依存しない 固定の 文字列id を くっつける ための ヘルパー。
+  // ゲームオブジェクトを つくった その場で id を タグづけしておくので、
+  // あとから 配列を ならべかえたり、とちゅうに べつの ゲームを 挿入・削除
+  // しても、この id は かわらない(state.lifetime.minigamePlayCounts の
+  // キーとして つかう。下の minigamePlayCount/recordMinigamePlay 参照)。
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームには わざと id を つけず、
+  // これまでどおり あそんだ かいすうの きろく対象がいの まま にしてある
+  function mg(id, game) {
+    game.id = id;
+    return game;
+  }
+
   // shared factory behind every catch-and-avoid themed minigame - only the
   // title, basket emoji, and item pools change between variants
   function makeCatchGame({ title, basketEmoji, goodItems, badItems }) {
@@ -5246,42 +5259,42 @@
     { title: 'おかしキャッチ!からい ものは にがて', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
   ];
   const CATCH_GAME_VARIANTS = [
-    randomThemeGame(makeCatchGame, CATCH_FOOD_THEMES),
-    makeCatchGame({
+    mg('catch-food', randomThemeGame(makeCatchGame, CATCH_FOOD_THEMES)),
+    mg('catch-sushi', makeCatchGame({
       title: 'おすしキャッチ!わさびは からいよ',
       basketEmoji: '🍽️',
       goodItems: ['🍣', '🍱', '🍤', '🍥'],
       badItems: ['🟢', '🔥', '🧨', '🐡'],
-    }),
-    makeCatchGame({
+    })),
+    mg('catch-star', makeCatchGame({
       title: 'ほしキャッチ!いんせきは あぶない',
       basketEmoji: '🛸',
       goodItems: ['⭐', '🌟', '✨', '🌠'],
       badItems: ['☄️', '🪨', '⚡', '🛰️'],
-    }),
+    })),
     // なつかしい 配管工アクションの「キノコと コインを あつめて とげは
     // よける」あそびごこちを モチーフにした オマージュ
-    makeCatchGame({
+    mg('catch-coinMushroom', makeCatchGame({
       title: 'コイン&キノコだいぼうけん!とげは キケン',
       basketEmoji: '🧢',
       goodItems: ['🍄', '🪙', '⭐', '🌼'],
       badItems: ['🐢', '💣', '🔥', '⚡'],
-    }),
+    })),
     // なつかしい 冒険アクションの「ダンジョンで おたからを あつめる」
     // あそびごこちを モチーフにした オマージュ
-    makeCatchGame({
+    mg('catch-dungeon', makeCatchGame({
       title: 'ダンジョンの たからさがし!トゲトゲは あぶない',
       basketEmoji: '🛡️',
       goodItems: ['💎', '💰', '🗝️', '🍯'],
       badItems: ['💀', '🦂', '🕷️', '☠️'],
-    }),
+    })),
     // らくば集めイベントの「おちば」テーマ(季節イベント用にも きょうつうで つかう)
-    makeCatchGame({
+    mg('catch-fallenLeaves', makeCatchGame({
       title: 'おちばキャッチ!ぬれはは よけよう',
       basketEmoji: '🧺',
       goodItems: ['🍁', '🍂', '🌰', '🍄'],
       badItems: ['🐛', '💧', '🕷️', '🦔'],
-    }),
+    })),
   ];
 
   // shared factory behind every whack-a-mole style minigame - only the
@@ -5385,15 +5398,15 @@
     { title: 'とびだす ひよこを タップ!', targetEmoji: '🐥' },
   ];
   const WHACK_GAME_VARIANTS = [
-    randomThemeGame(makeWhackGame, WHACK_TARGET_THEMES),
+    mg('whack-target', randomThemeGame(makeWhackGame, WHACK_TARGET_THEMES)),
     // なつかしい 配管工アクションの「?ブロックを たたく」を モチーフにした
     // オマージュ。商標キャラの名まえは つかわず、モチーフだけ お借りする
-    makeWhackGame({ title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' }),
+    mg('whack-questionBlock', makeWhackGame({ title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' })),
     // かくとうアクションの「ライバルを ふっとばす」あそびごこちを タップの
     // テンポで オマージュ
-    makeWhackGame({ title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' }),
+    mg('whack-rivalFighter', makeWhackGame({ title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' })),
     // むしとりイベントの テーマ(育成ゲームらしい あそび むけ)
-    makeWhackGame({ title: 'とびだす ほたるを つかまえよう!', targetEmoji: '🪰' }),
+    mg('whack-firefly', makeWhackGame({ title: 'とびだす ほたるを つかまえよう!', targetEmoji: '🪰' })),
   ];
 
   // shared factory behind every timing-bar minigame - only the title, tap
@@ -5524,18 +5537,18 @@
     { title: 'リズムに あわせて タップ!', tapLabel: 'いくよ!', gaugeStyle: '#c76fc9' },
   ];
   const TIMING_GAME_VARIANTS = [
-    randomThemeGame(makeTimingGame, TIMING_GENERIC_THEMES),
+    mg('timing-generic', randomThemeGame(makeTimingGame, TIMING_GENERIC_THEMES)),
     // かくとうアクションの「ジャストタイミングで ためて はなつ スマッシュ
     // こうげき」あそびごこちを モチーフにした オマージュ
-    makeTimingGame({ title: 'スマッシュこうげき!タイミングよく ためて はなとう', tapLabel: 'スマッシュ!', gaugeStyle: '#ff6b3d' }),
+    mg('timing-smash', makeTimingGame({ title: 'スマッシュこうげき!タイミングよく ためて はなとう', tapLabel: 'スマッシュ!', gaugeStyle: '#ff6b3d' })),
     // りょうり(キッチンで タイミングよく しあげる)
-    makeTimingGame({ title: 'おにくを ちょうどよく やこう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#d97a3d', icon: '🍖' }),
-    makeTimingGame({ title: 'たまごやきを ひっくりかえそう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#f5c542', icon: '🍳' }),
+    mg('timing-grillMeat', makeTimingGame({ title: 'おにくを ちょうどよく やこう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#d97a3d', icon: '🍖' })),
+    mg('timing-fryEgg', makeTimingGame({ title: 'たまごやきを ひっくりかえそう!', tapLabel: 'ひっくりかえす!', gaugeStyle: '#f5c542', icon: '🍳' })),
     // シミュレーション(のりもの・こうつうを ちょうどいい いちで とめる)
-    makeTimingGame({ title: 'でんしゃを ぴったりの いちで とめよう!', tapLabel: 'ブレーキ!', gaugeStyle: '#4a90d9', icon: '🚃' }),
-    makeTimingGame({ title: 'ひこうきを ちょうどよく ちゃくりくさせよう!', tapLabel: 'ちゃくりく!', gaugeStyle: '#8fb8e8', icon: '✈️' }),
+    mg('timing-train', makeTimingGame({ title: 'でんしゃを ぴったりの いちで とめよう!', tapLabel: 'ブレーキ!', gaugeStyle: '#4a90d9', icon: '🚃' })),
+    mg('timing-airplane', makeTimingGame({ title: 'ひこうきを ちょうどよく ちゃくりくさせよう!', tapLabel: 'ちゃくりく!', gaugeStyle: '#8fb8e8', icon: '✈️' })),
     // ゲームセンター風(クレーンゲーム)
-    makeTimingGame({ title: 'クレーンゲーム!ぴったりで キャッチしよう!', tapLabel: 'キャッチ!', gaugeStyle: '#e879b0', icon: '🕹️' }),
+    mg('timing-craneGame', makeTimingGame({ title: 'クレーンゲーム!ぴったりで キャッチしよう!', tapLabel: 'キャッチ!', gaugeStyle: '#e879b0', icon: '🕹️' })),
   ];
 
   const QUIZ_QUESTIONS = [
@@ -6011,13 +6024,13 @@
   }
 
   const QUIZ_GAME_VARIANTS = [
-    makeQuizGame('all', 'なおとっちが はなしかけてきた'),
-    makeQuizGame('normal', 'なおとっちが ふつうの はなしを してきた'),
-    makeQuizGame('serious', 'なおとっちが しんけんな かおを している…'),
-    makeQuizGame('adult', 'なおとっちが おとなびた はなしを してきた'),
-    makeQuizGame('silly', 'なおとっちが へんなことを いいだした!'),
-    makeQuizGame('romance', 'なおとっちが きゅうに ロマンチックに なった'),
-    makeQuizGame('touching', 'なおとっちが しみじみと かたりはじめた…'),
+    mg('quiz-all', makeQuizGame('all', 'なおとっちが はなしかけてきた')),
+    mg('quiz-normal', makeQuizGame('normal', 'なおとっちが ふつうの はなしを してきた')),
+    mg('quiz-serious', makeQuizGame('serious', 'なおとっちが しんけんな かおを している…')),
+    mg('quiz-adult', makeQuizGame('adult', 'なおとっちが おとなびた はなしを してきた')),
+    mg('quiz-silly', makeQuizGame('silly', 'なおとっちが へんなことを いいだした!')),
+    mg('quiz-romance', makeQuizGame('romance', 'なおとっちが きゅうに ロマンチックに なった')),
+    mg('quiz-touching', makeQuizGame('touching', 'なおとっちが しみじみと かたりはじめた…')),
   ];
 
   // shared factory behind every memory-sequence minigame - only the title
@@ -6137,11 +6150,11 @@
     },
   ];
   const MEMORY_GAME_VARIANTS = [
-    makeMemoryGame({
+    mg('memory-colorPads', makeMemoryGame({
       title: 'じゅんばんを おぼえて タップ!',
       pads: [{ bg: '#ff6b6b' }, { bg: '#4dabf7' }, { bg: '#ffd43b' }, { bg: '#69db7c' }],
-    }),
-    randomThemeGame(makeMemoryGame, MEMORY_EMOJI_THEMES),
+    })),
+    mg('memory-emojiThemes', randomThemeGame(makeMemoryGame, MEMORY_EMOJI_THEMES)),
   ];
 
   function mixedMathProblem(difficulty) {
@@ -6277,11 +6290,11 @@
   }
 
   const MATH_GAME_VARIANTS = [
-    makeMathGame('けいさんチャレンジ!', mixedMathProblem),
-    makeMathGame('たしざんチャレンジ!', addMathProblem),
-    makeMathGame('ひきざんチャレンジ!', subMathProblem),
-    makeMathGame('かけざんチャレンジ!', mulMathProblem),
-    makeMathGame('わりざんチャレンジ!', divMathProblem),
+    mg('math-mixed', makeMathGame('けいさんチャレンジ!', mixedMathProblem)),
+    mg('math-add', makeMathGame('たしざんチャレンジ!', addMathProblem)),
+    mg('math-sub', makeMathGame('ひきざんチャレンジ!', subMathProblem)),
+    mg('math-mul', makeMathGame('かけざんチャレンジ!', mulMathProblem)),
+    mg('math-div', makeMathGame('わりざんチャレンジ!', divMathProblem)),
   ];
 
   // shared factory behind every reaction-time minigame - only the title and
@@ -6363,10 +6376,10 @@
   }
 
   const REACTION_GAME_VARIANTS = [
-    makeReactionGame({ title: 'はんしゃしんけい チャレンジ!', waitWord: 'まってね…', goWord: 'いま!', tooSoonWord: 'はやすぎ!' }),
-    makeReactionGame({ title: 'しゅんぱつりょく チャレンジ!', waitWord: 'じゅんび…', goWord: 'ダッシュ!', tooSoonWord: 'フライング!' }),
+    mg('reaction-classic', makeReactionGame({ title: 'はんしゃしんけい チャレンジ!', waitWord: 'まってね…', goWord: 'いま!', tooSoonWord: 'はやすぎ!' })),
+    mg('reaction-dash', makeReactionGame({ title: 'しゅんぱつりょく チャレンジ!', waitWord: 'じゅんび…', goWord: 'ダッシュ!', tooSoonWord: 'フライング!' })),
     // つり(あたりが きた しゅんかんに タップして あわせる)
-    makeReactionGame({ title: 'つりざお チャレンジ!あたりを のがすな!', waitWord: '🎣 まちうけちゅう…', goWord: '🐟 きた!', tooSoonWord: 'まだ あたって ないよ!' }),
+    mg('reaction-fishing', makeReactionGame({ title: 'つりざお チャレンジ!あたりを のがすな!', waitWord: '🎣 まちうけちゅう…', goWord: '🐟 きた!', tooSoonWord: 'まだ あたって ないよ!' })),
   ];
 
   const stroopGame = {
@@ -6556,7 +6569,7 @@
     },
   };
 
-  const STROOP_GAME_VARIANTS = [stroopGame, numberSizeGame, arrowDirectionGame];
+  const STROOP_GAME_VARIANTS = [mg('stroop-colorWord', stroopGame), mg('stroop-numberSize', numberSizeGame), mg('stroop-arrowDirection', arrowDirectionGame)];
 
   // --- じゃんけん ---
 
@@ -6621,7 +6634,7 @@
     },
   };
 
-  const JANKEN_GAME_VARIANTS = [jankenGame];
+  const JANKEN_GAME_VARIANTS = [mg('janken-classic', jankenGame)];
 
   // --- 神経衰弱(ペアさがし) ---
 
@@ -6711,7 +6724,7 @@
     { title: 'たべもののペアを さがそう!', emojis: ['🍙', '🍣', '🍕', '🍔', '🍜', '🍰'] },
     { title: 'きせつの えがらの ペアを さがそう!', emojis: ['🌸', '🎋', '🎃', '⛄', '🍁', '🌻'] },
   ];
-  const CONCENTRATION_GAME_VARIANTS = [randomThemeGame(makeConcentrationGame, CONCENTRATION_THEMES)];
+  const CONCENTRATION_GAME_VARIANTS = [mg('concentration-themed', randomThemeGame(makeConcentrationGame, CONCENTRATION_THEMES))];
 
   // --- 連打チャレンジ ---
 
@@ -6758,10 +6771,10 @@
   }
 
   const MASH_GAME_VARIANTS = [
-    makeMashGame({ title: 'あわを あつめろ!れんだタップ!', buttonEmoji: '🫧' }),
-    makeMashGame({ title: 'ほしを あつめろ!れんだタップ!', buttonEmoji: '⭐' }),
+    mg('mash-bubbles', makeMashGame({ title: 'あわを あつめろ!れんだタップ!', buttonEmoji: '🫧' })),
+    mg('mash-stars', makeMashGame({ title: 'ほしを あつめろ!れんだタップ!', buttonEmoji: '⭐' })),
     // ゲームセンター風(パンチりょく そくてい)
-    makeMashGame({ title: 'パンチりょく そくてい!れんだで きたえよう!', buttonEmoji: '👊' }),
+    mg('mash-punch', makeMashGame({ title: 'パンチりょく そくてい!れんだで きたえよう!', buttonEmoji: '👊' })),
   ];
 
   // --- バランスゲーム ---
@@ -6844,7 +6857,7 @@
     },
   };
 
-  const BALANCE_GAME_VARIANTS = [balanceGame];
+  const BALANCE_GAME_VARIANTS = [mg('balance-classic', balanceGame)];
 
   // --- まちがいさがし ---
 
@@ -6890,7 +6903,7 @@
   }
 
   const ODD_ONE_OUT_VARIANTS = [
-    makeOddOneOutGame({
+    mg('oddOneOut-color', makeOddOneOutGame({
       title: 'いろが ちがう ものを さがそう!',
       pairs: [
         { common: '🔴', odd: '🟠' },
@@ -6898,8 +6911,8 @@
         { common: '🟡', odd: '🟤' },
         { common: '🟣', odd: '⚪' },
       ],
-    }),
-    makeOddOneOutGame({
+    })),
+    mg('oddOneOut-animal', makeOddOneOutGame({
       title: 'なかまはずれの どうぶつを さがそう!',
       pairs: [
         { common: '🐶', odd: '🐺' },
@@ -6907,7 +6920,7 @@
         { common: '🐭', odd: '🐹' },
         { common: '🐸', odd: '🐢' },
       ],
-    }),
+    })),
   ];
 
   // --- すうじならべ ---
@@ -6955,7 +6968,7 @@
     },
   };
 
-  const NUMBER_ORDER_VARIANTS = [numberOrderGame];
+  const NUMBER_ORDER_VARIANTS = [mg('numberOrder-classic', numberOrderGame)];
 
   // --- くらべっこ(かずくらべ・おおきさくらべ) ---
   // かんがえずに ぱっと 見て こたえられる、いちばん 直感的な なかまの
@@ -7054,8 +7067,8 @@
   const COUNT_COMPARE_THEMES = [{ emoji: '⭐' }, { emoji: '🍬' }, { emoji: '🐟' }];
   const SIZE_COMPARE_THEMES = [{ emoji: '🍎' }, { emoji: '🐸' }, { emoji: '🎈' }];
   const COMPARE_VARIANTS = [
-    randomThemeGame((t) => makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: t.emoji }), COUNT_COMPARE_THEMES),
-    randomThemeGame((t) => makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: t.emoji }), SIZE_COMPARE_THEMES),
+    mg('compare-count', randomThemeGame((t) => makeCountCompareGame({ title: 'かずが おおい ほうを タップ!', emoji: t.emoji }), COUNT_COMPARE_THEMES)),
+    mg('compare-size', randomThemeGame((t) => makeSizeCompareGame({ title: 'おおきい ほうを タップ!', emoji: t.emoji }), SIZE_COMPARE_THEMES)),
   ];
 
   // --- かたちあわせ ---
@@ -7108,7 +7121,7 @@
   }
 
   const SHAPE_MATCH_VARIANTS = [
-    makeShapeMatchGame({ title: 'おてほんと おなじ かたちを タップ!', shapes: ['⚫', '⬛', '🔺', '⭐', '❤️', '🔷'] }),
+    mg('shapeMatch-classic', makeShapeMatchGame({ title: 'おてほんと おなじ かたちを タップ!', shapes: ['⚫', '⬛', '🔺', '⭐', '❤️', '🔷'] })),
   ];
 
   // --- シルエットあてクイズ ---
@@ -7160,7 +7173,7 @@
   }
 
   const SILHOUETTE_VARIANTS = [
-    makeSilhouetteGame({
+    mg('silhouette-animal', makeSilhouetteGame({
       title: 'シルエットの どうぶつは だれ?',
       pool: [
         { key: 'dog', emoji: '🐶', label: 'いぬ' },
@@ -7170,8 +7183,8 @@
         { key: 'panda', emoji: '🐼', label: 'パンダ' },
         { key: 'lion', emoji: '🦁', label: 'ライオン' },
       ],
-    }),
-    makeSilhouetteGame({
+    })),
+    mg('silhouette-food', makeSilhouetteGame({
       title: 'シルエットの たべものは なに?',
       pool: [
         { key: 'apple', emoji: '🍎', label: 'りんご' },
@@ -7181,11 +7194,11 @@
         { key: 'pizza', emoji: '🍕', label: 'ピザ' },
         { key: 'icecream', emoji: '🍦', label: 'アイス' },
       ],
-    }),
+    })),
     // ホラーふう(こわすぎない、なおとっちらしい かわいい ホラー演出)。
     // シルエットの したの すがたを あてる だけの おなじ しくみを つかい、
     // くらやみに まぎれた ものを 見わける という テーマだけを かえている
-    makeSilhouetteGame({
+    mg('silhouette-darkness', makeSilhouetteGame({
       title: 'くらやみの なかの シルエットは だれ?',
       pool: [
         { key: 'friendlyghost', emoji: '👻', label: 'フレンドリーおばけ' },
@@ -7195,7 +7208,7 @@
         { key: 'skeleton', emoji: '💀', label: 'がいこつ' },
         { key: 'spider', emoji: '🕷️', label: 'くも' },
       ],
-    }),
+    })),
   ];
 
   // --- パターンすいりクイズ ---
@@ -7262,8 +7275,8 @@
   }
 
   const PATTERN_GAME_VARIANTS = [
-    makePatternGame({ title: 'つぎに くる かずは?', kind: 'number' }),
-    makePatternGame({ title: 'つぎに くる いろは?', kind: 'color' }),
+    mg('pattern-number', makePatternGame({ title: 'つぎに くる かずは?', kind: 'number' })),
+    mg('pattern-color', makePatternGame({ title: 'つぎに くる いろは?', kind: 'color' })),
   ];
 
   // --- リズムタップ ---
@@ -7333,10 +7346,10 @@
   }
 
   const BEAT_GAME_VARIANTS = [
-    makeBeatGame({ title: 'ビートに あわせて タップ!', beatEmoji: '⭐' }),
-    makeBeatGame({ title: 'ハートの リズムタップ!', beatEmoji: '💗' }),
+    mg('beat-star', makeBeatGame({ title: 'ビートに あわせて タップ!', beatEmoji: '⭐' })),
+    mg('beat-heart', makeBeatGame({ title: 'ハートの リズムタップ!', beatEmoji: '💗' })),
     // スポーツ(なわとび。ビートに あわせて とぶ タイミングを あわせる)
-    makeBeatGame({ title: 'なわとび!リズムよく ジャンプしよう!', beatEmoji: '🪢' }),
+    mg('beat-jumpRope', makeBeatGame({ title: 'なわとび!リズムよく ジャンプしよう!', beatEmoji: '🪢' })),
   ];
 
   // --- けつだんめいろ ---
@@ -7402,11 +7415,11 @@
   }
 
   const MAZE_GAME_VARIANTS = [
-    makeMazeGame({ title: 'もりの めいろを ぬけよう!', pathEmojiPair: ['🌲', '🍄'] }),
-    makeMazeGame({ title: 'ほらあなの めいろを すすもう!', pathEmojiPair: ['🪨', '💧'] }),
+    mg('maze-forest', makeMazeGame({ title: 'もりの めいろを ぬけよう!', pathEmojiPair: ['🌲', '🍄'] })),
+    mg('maze-cave', makeMazeGame({ title: 'ほらあなの めいろを すすもう!', pathEmojiPair: ['🪨', '💧'] })),
     // なつかしい 冒険アクションの「ダンジョンの わかれみちを すすんで
     // たからばこを めざす」あそびごこちを モチーフにした オマージュ
-    makeMazeGame({ title: 'ダンジョンの わかれみちで たからばこを めざそう!', pathEmojiPair: ['🚪', '🗝️'] }),
+    mg('maze-dungeon', makeMazeGame({ title: 'ダンジョンの わかれみちで たからばこを めざそう!', pathEmojiPair: ['🚪', '🗝️'] })),
   ];
 
   // --- いろわけ・しわけ ---
@@ -7476,14 +7489,14 @@
   }
 
   const SORT_GAME_VARIANTS = [
-    makeSortGame({ title: 'くだものだけ タップしよう!', targetEmoji: '🍎', otherEmojis: ['🐛', '🪲', '🐌', '🕷️'] }),
-    makeSortGame({ title: 'あおい ものだけ タップしよう!', targetEmoji: '🔵', otherEmojis: ['🔴', '🟡', '🟢', '🟣'] }),
+    mg('sort-fruit', makeSortGame({ title: 'くだものだけ タップしよう!', targetEmoji: '🍎', otherEmojis: ['🐛', '🪲', '🐌', '🕷️'] })),
+    mg('sort-blue', makeSortGame({ title: 'あおい ものだけ タップしよう!', targetEmoji: '🔵', otherEmojis: ['🔴', '🟡', '🟢', '🟣'] })),
     // なつかしい 冒険アクションの「ハートを あつめて たいりょくを
     // かいふくする」あそびごこちを モチーフにした オマージュ
-    makeSortGame({ title: 'ハートだけ タップして たいりょくを かいふく!', targetEmoji: '❤️', otherEmojis: ['💀', '👹', '🦇', '🕸️'] }),
+    mg('sort-heart', makeSortGame({ title: 'ハートだけ タップして たいりょくを かいふく!', targetEmoji: '❤️', otherEmojis: ['💀', '👹', '🦇', '🕸️'] })),
     // しごと・せいかつ系(おかたづけ)
-    makeSortGame({ title: 'おもちゃだけ タップして おかたづけ!', targetEmoji: '🧸', otherEmojis: ['🗑️', '🍌', '🪨', '🦴'] }),
-    makeSortGame({ title: 'しろい せんたくものだけ タップしよう!', targetEmoji: '⚪', otherEmojis: ['🔴', '🟡', '🟢', '🔵'] }),
+    mg('sort-toys', makeSortGame({ title: 'おもちゃだけ タップして おかたづけ!', targetEmoji: '🧸', otherEmojis: ['🗑️', '🍌', '🪨', '🦴'] })),
+    mg('sort-laundry', makeSortGame({ title: 'しろい せんたくものだけ タップしよう!', targetEmoji: '⚪', otherEmojis: ['🔴', '🟡', '🟢', '🔵'] })),
   ];
 
   // --- ハイ&ロー ---
@@ -7551,7 +7564,7 @@
     },
   };
 
-  const HIGH_LOW_VARIANTS = [highLowGame];
+  const HIGH_LOW_VARIANTS = [mg('highLow-classic', highLowGame)];
 
   // --- タイルならべかえ ---
 
@@ -7636,8 +7649,8 @@
   }
 
   const TILE_SWAP_VARIANTS = [
-    makeTileSwapGame({ title: 'いろを じゅんばんに ならべよう!', emojiSet: ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'] }),
-    makeTileSwapGame({ title: 'おおきさじゅんに ならべよう!', emojiSet: ['🐭', '🐹', '🐰', '🐱', '🐶', '🐴'] }),
+    mg('tileSwap-color', makeTileSwapGame({ title: 'いろを じゅんばんに ならべよう!', emojiSet: ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'] })),
+    mg('tileSwap-size', makeTileSwapGame({ title: 'おおきさじゅんに ならべよう!', emojiSet: ['🐭', '🐹', '🐰', '🐱', '🐶', '🐴'] })),
   ];
 
   // --- バブルポップ ---
@@ -7713,8 +7726,8 @@
   }
 
   const BUBBLE_POP_VARIANTS = [
-    makeBubblePopGame({ title: 'あわを ぜんぶ ポップしよう!', bubbleEmoji: '🫧' }),
-    makeBubblePopGame({ title: 'うきあがる ほしの あわを ポップしよう!', bubbleEmoji: '⭐' }),
+    mg('bubblePop-bubbles', makeBubblePopGame({ title: 'あわを ぜんぶ ポップしよう!', bubbleEmoji: '🫧' })),
+    mg('bubblePop-stars', makeBubblePopGame({ title: 'うきあがる ほしの あわを ポップしよう!', bubbleEmoji: '⭐' })),
   ];
 
   // --- もじつなぎ ---
@@ -7794,8 +7807,8 @@
   }
 
   const SPELL_GAME_VARIANTS = [
-    makeSpellGame({ title: 'どうぶつの なまえを つづろう!', words: ['いぬ', 'ねこ', 'とり', 'うさぎ', 'ぞう', 'くま', 'さる', 'ぱんだ'] }),
-    makeSpellGame({ title: 'たべものの なまえを つづろう!', words: ['いちご', 'りんご', 'ばなな', 'たまご', 'すいか', 'ぶどう', 'めろん'] }),
+    mg('spell-animal', makeSpellGame({ title: 'どうぶつの なまえを つづろう!', words: ['いぬ', 'ねこ', 'とり', 'うさぎ', 'ぞう', 'くま', 'さる', 'ぱんだ'] })),
+    mg('spell-food', makeSpellGame({ title: 'たべものの なまえを つづろう!', words: ['いちご', 'りんご', 'ばなな', 'たまご', 'すいか', 'ぶどう', 'めろん'] })),
   ];
 
   // --- さんすうペア ---
@@ -7898,9 +7911,9 @@
     { title: 'かずの カップリング!' },
   ];
   const SUM_PAIR_VARIANTS = [
-    randomThemeGame(makeSumPairGame, SUM_PAIR_THEMES),
+    mg('sumPair-themed', randomThemeGame(makeSumPairGame, SUM_PAIR_THEMES)),
     // カードゲーム風(ブラックジャックの「21」を ねらう かずあわせ)
-    makeSumPairGame({ title: 'ブラックジャックふう!21に なる ペアを さがそう', targetOverride: 21 }),
+    mg('sumPair-blackjack', makeSumPairGame({ title: 'ブラックジャックふう!21に なる ペアを さがそう', targetOverride: 21 })),
   ];
 
   // --- しょうがいぶつジャンプ ---
@@ -8003,11 +8016,11 @@
   }
 
   const JUMP_GAME_VARIANTS = [
-    makeJumpGame({ title: 'タイミングよく ジャンプしよう!', obstacleEmoji: '🪨' }),
-    makeJumpGame({ title: 'とんでくる ものを よけよう!', obstacleEmoji: '🌵' }),
+    mg('jump-rock', makeJumpGame({ title: 'タイミングよく ジャンプしよう!', obstacleEmoji: '🪨' })),
+    mg('jump-cactus', makeJumpGame({ title: 'とんでくる ものを よけよう!', obstacleEmoji: '🌵' })),
     // なつかしい 配管工アクションの「ころがってくる こうらを ジャンプで
     // よける」あそびごこちを モチーフにした オマージュ
-    makeJumpGame({ title: 'ころがってくる こうらを ジャンプで よけよう!', obstacleEmoji: '🐢' }),
+    mg('jump-shell', makeJumpGame({ title: 'ころがってくる こうらを ジャンプで よけよう!', obstacleEmoji: '🐢' })),
   ];
 
   // --- いろのぐみあわせ ---
@@ -8058,7 +8071,7 @@
     },
   };
 
-  const COLOR_MIX_VARIANTS = [colorMixGame];
+  const COLOR_MIX_VARIANTS = [mg('colorMix-classic', colorMixGame)];
 
   // --- じぶんさがし: 育てている今の姿を、似た他の種族ラインの同じ成長段階
   // の中から見つけてタップする。emoji はプレイ開始時に currentSprite() /
@@ -8136,7 +8149,7 @@
     };
   }
 
-  const FIND_SELF_VARIANTS = [makeFindSelfGame()];
+  const FIND_SELF_VARIANTS = [mg('findSelf-classic', makeFindSelfGame())];
 
   // --- なりきりポーズ: おだいの きもち(うれしい/たのしい/かなしい/おこった)
   // に合う反応を選ぶと、今の自分の姿がその場で emotePet() と同じモーション
@@ -8221,7 +8234,7 @@
     };
   }
 
-  const POSE_GAME_VARIANTS = [makePoseGame()];
+  const POSE_GAME_VARIANTS = [mg('pose-classic', makePoseGame())];
 
   // --- ロードげーむ(3れーんを よけよう・キャッチしよう) ---
 
@@ -8353,21 +8366,21 @@
   }
 
   const ROAD_GAME_VARIANTS = [
-    makeRoadGame({
+    mg('road-street', makeRoadGame({
       title: 'どうろを はしろう!たべものは キャッチ、ゴミは よけて',
       goodItems: ['🍎', '🍙', '🍬', '🍇'],
       badItems: ['🪨', '🚧', '🛢️', '⚠️'],
-    }),
-    makeRoadGame({
+    })),
+    mg('road-sky', makeRoadGame({
       title: 'そらを とぼう!ほしは キャッチ、いんせきは よけて',
       goodItems: ['⭐', '🌟', '✨', '🍀'],
       badItems: ['☄️', '🪨', '⚡', '🛰️'],
-    }),
-    makeRoadGame({
+    })),
+    mg('road-sea', makeRoadGame({
       title: 'うみを およごう!さかなは キャッチ、ゴミは よけて',
       goodItems: ['🐟', '🐠', '🦐', '🐚'],
       badItems: ['🥫', '🪤', '🕸️', '🦈'],
-    }),
+    })),
   ];
 
   // --- スタックタワー(つみきを かさねよう) ---
@@ -8528,13 +8541,13 @@
     { title: 'ケーキタワー!おいわいの たかづみ', blockEmoji: '🍰', palette: ['#ffd1e8', '#ffe4b5', '#d1f0d8', '#d1e8ff', '#e8d1ff', '#fff5b8', '#ffcccb'] },
   ];
   const STACK_GAME_VARIANTS = [
-    randomThemeGame(makeStackGame, STACK_THEMES),
+    mg('stack-themed', randomThemeGame(makeStackGame, STACK_THEMES)),
     // ふゆの ゆきだるまづくり テーマ(育成ゲームらしい あそび むけ)
-    makeStackGame({
+    mg('stack-snowman', makeStackGame({
       title: 'ゆきだるまタワー!まるく かさねよう',
       blockEmoji: '⚪',
       palette: ['#ffffff', '#f0f8ff', '#e6f2ff', '#f5fbff', '#ffffff', '#eef7ff', '#f8fcff'],
-    }),
+    })),
   ];
 
   // --- かくとうゲーム(タイミングよく こうげき/ガード) ---
@@ -8676,13 +8689,13 @@
   }
 
   const FIGHT_GAME_VARIANTS = [
-    makeFightGame({ title: 'ライバルの いぬと たいけつ!', opponentEmoji: '🐕‍🦺', opponentName: 'ライバルいぬ' }),
-    makeFightGame({ title: 'なぞの にんじゃと たいけつ!', opponentEmoji: '🥷', opponentName: 'なぞのにんじゃ' }),
-    makeFightGame({ title: 'きょうてきの とらと たいけつ!', opponentEmoji: '🐯', opponentName: 'きょうてきの とら' }),
+    mg('fight-dog', makeFightGame({ title: 'ライバルの いぬと たいけつ!', opponentEmoji: '🐕‍🦺', opponentName: 'ライバルいぬ' })),
+    mg('fight-ninja', makeFightGame({ title: 'なぞの にんじゃと たいけつ!', opponentEmoji: '🥷', opponentName: 'なぞのにんじゃ' })),
+    mg('fight-tiger', makeFightGame({ title: 'きょうてきの とらと たいけつ!', opponentEmoji: '🐯', opponentName: 'きょうてきの とら' })),
     // にんきキャラが おおぜい あつまる かくとうアクションの「オールスター
     // たいかいで ライバルを ふっとばす」あそびごこちを モチーフにした
     // オマージュ。商標キャラの名まえは つかわず、モチーフだけ お借りする
-    makeFightGame({ title: 'オールスターたいかいで ライバルを ふっとばせ!', opponentEmoji: '🥊', opponentName: 'にんきキャラの ライバル' }),
+    mg('fight-allstar', makeFightGame({ title: 'オールスターたいかいで ライバルを ふっとばせ!', opponentEmoji: '🥊', opponentName: 'にんきキャラの ライバル' })),
   ];
 
   // --- RPGふうバトル(コマンドせんたくで たたかう) ---
@@ -8841,9 +8854,9 @@
   }
 
   const RPG_GAME_VARIANTS = [
-    makeRpgBattleGame({ title: 'RPGふう バトル!スライムが あらわれた', monsterEmoji: '🟢', monsterName: 'スライム' }),
-    makeRpgBattleGame({ title: 'RPGふう バトル!ドラゴンが あらわれた', monsterEmoji: '🐉', monsterName: 'ドラゴン' }),
-    makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' }),
+    mg('rpg-slime', makeRpgBattleGame({ title: 'RPGふう バトル!スライムが あらわれた', monsterEmoji: '🟢', monsterName: 'スライム' })),
+    mg('rpg-dragon', makeRpgBattleGame({ title: 'RPGふう バトル!ドラゴンが あらわれた', monsterEmoji: '🐉', monsterName: 'ドラゴン' })),
+    mg('rpg-ghost', makeRpgBattleGame({ title: 'RPGふう バトル!ゴーストが あらわれた', monsterEmoji: '👻', monsterName: 'ゴースト' })),
   ];
 
   // --- めいろチェイス: めいろを うごきまわって エサを ぜんぶ たべつつ、
@@ -9042,8 +9055,8 @@
   }
 
   const CHASE_GAME_VARIANTS = [
-    makeChaseGame({ title: 'おばけやしきで キャンディを ぜんぶ あつめよう!', dotEmoji: '🍬', chaserEmoji: '👻' }),
-    makeChaseGame({ title: 'もりで どんぐりを ぜんぶ あつめよう!', dotEmoji: '🌰', chaserEmoji: '🦇' }),
+    mg('chase-hauntedHouse', makeChaseGame({ title: 'おばけやしきで キャンディを ぜんぶ あつめよう!', dotEmoji: '🍬', chaserEmoji: '👻' })),
+    mg('chase-forest', makeChaseGame({ title: 'もりで どんぐりを ぜんぶ あつめよう!', dotEmoji: '🌰', chaserEmoji: '🦇' })),
   ];
 
   // --- ランナー: はしりながら ジャンプで てきを よけたり コインを
@@ -9155,8 +9168,8 @@
   }
 
   const RUNNER_GAME_VARIANTS = [
-    makeRunnerGame({ title: 'コインを あつめながら どくキノコを とびこえよう!', obstacleEmoji: '🍄' }),
-    makeRunnerGame({ title: 'コインを あつめながら とげとげを とびこえよう!', obstacleEmoji: '🦔' }),
+    mg('runner-mushroom', makeRunnerGame({ title: 'コインを あつめながら どくキノコを とびこえよう!', obstacleEmoji: '🍄' })),
+    mg('runner-spikes', makeRunnerGame({ title: 'コインを あつめながら とげとげを とびこえよう!', obstacleEmoji: '🦔' })),
   ];
 
   // --- シューティング: レーンを うごきながら、せまってくる てきを
@@ -9300,8 +9313,8 @@
   }
 
   const SHOOTER_GAME_VARIANTS = [
-    makeShooterGame({ title: 'せまりくる てきを うちおとせ!', enemyEmoji: '👾', bulletEmoji: '⭐' }),
-    makeShooterGame({ title: 'いんせきの あらしを うちやぶれ!', enemyEmoji: '☄️', bulletEmoji: '✨' }),
+    mg('shooter-invader', makeShooterGame({ title: 'せまりくる てきを うちおとせ!', enemyEmoji: '👾', bulletEmoji: '⭐' })),
+    mg('shooter-meteor', makeShooterGame({ title: 'いんせきの あらしを うちやぶれ!', enemyEmoji: '☄️', bulletEmoji: '✨' })),
   ];
 
   // --- コンボにゅうりょく(かくとうの ひっさつわざコマンド) ---
@@ -9367,7 +9380,7 @@
   }
 
   const COMBO_INPUT_VARIANTS = [
-    makeComboInputGame({ title: 'ひっさつわざ コマンドにゅうりょく!', icons: ['👊', '🦵', '✋'] }),
+    mg('comboInput-classic', makeComboInputGame({ title: 'ひっさつわざ コマンドにゅうりょく!', icons: ['👊', '🦵', '✋'] })),
   ];
 
   // --- はこ・カードえらび(たからばこ/カード引き/くじ など きょうつうエンジン) ---
@@ -9482,7 +9495,7 @@
       ],
     },
   ];
-  const BOX_PICK_VARIANTS = [randomThemeGame(makeBoxPickGame, BOX_PICK_THEMES)];
+  const BOX_PICK_VARIANTS = [mg('boxPick-themed', randomThemeGame(makeBoxPickGame, BOX_PICK_THEMES))];
 
   // --- 属性そうせい(RPGの タイプあいしょうを あてる クイズ) ---
   const MATCHUP_PAIRS = [
@@ -9519,7 +9532,7 @@
       timer = setTimeout(() => { if (!answered) { answered = true; onComplete(10); } }, timeLimitMs);
     },
   };
-  const MATCHUP_QUIZ_VARIANTS = [matchupQuizGame];
+  const MATCHUP_QUIZ_VARIANTS = [mg('matchupQuiz-classic', matchupQuizGame)];
 
   // --- あしばわたり(アクション) ---
   // 表示された ほうこう(◀/▶/▲)の じゅんばんに あわせて タップし、
@@ -9592,7 +9605,7 @@
   }
 
   const STEPPING_STONES_VARIANTS = [
-    makeSteppingStonesGame({ title: 'あしばを わたって むこうがしへ いこう!' }),
+    mg('steppingStones-classic', makeSteppingStonesGame({ title: 'あしばを わたって むこうがしへ いこう!' })),
   ];
 
   // --- しょうじゅん・まとあて(シューティング) ---
@@ -9681,8 +9694,8 @@
   }
 
   const TARGET_AIM_VARIANTS = [
-    makeTargetAimGame({ title: 'しゃげきふう!まとを ねらいうちしよう', targetEmoji: '🎯', reticleEmoji: '➕' }),
-    makeTargetAimGame({ title: 'そげきふう!うごく まとを ねらえ', targetEmoji: '🦆', reticleEmoji: '🔴' }),
+    mg('targetAim-shooting', makeTargetAimGame({ title: 'しゃげきふう!まとを ねらいうちしよう', targetEmoji: '🎯', reticleEmoji: '➕' })),
+    mg('targetAim-sniper', makeTargetAimGame({ title: 'そげきふう!うごく まとを ねらえ', targetEmoji: '🦆', reticleEmoji: '🔴' })),
   ];
 
   // --- レース(れんだで はしって あいてに かとう) ---
@@ -9754,9 +9767,9 @@
   }
 
   const RACE_GAME_VARIANTS = [
-    makeRaceGame({ title: 'とうそう!れんだで はしって 1いを とろう', runnerEmoji: '🏃', rivalEmojis: ['🐕', '🐇'] }),
-    makeRaceGame({ title: 'じてんしゃレース!ペダルを こいで かとう', runnerEmoji: '🚲', rivalEmojis: ['🛵', '🐎'] }),
-    makeRaceGame({ title: 'ロケットレース!スピードで かちぬけ', runnerEmoji: '🚀', rivalEmojis: ['🛸', '☄️'] }),
+    mg('race-foot', makeRaceGame({ title: 'とうそう!れんだで はしって 1いを とろう', runnerEmoji: '🏃', rivalEmojis: ['🐕', '🐇'] })),
+    mg('race-bicycle', makeRaceGame({ title: 'じてんしゃレース!ペダルを こいで かとう', runnerEmoji: '🚲', rivalEmojis: ['🛵', '🐎'] })),
+    mg('race-rocket', makeRaceGame({ title: 'ロケットレース!スピードで かちぬけ', runnerEmoji: '🚀', rivalEmojis: ['🛸', '☄️'] })),
   ];
 
   // --- スワイプなげ(ボウリング・カーリング) ---
@@ -9817,7 +9830,7 @@
 
   const SWIPE_THROW_VARIANTS = [
     // ボウリング(パワーが たりない/つよすぎる、ねらいが ずれている ほど てんすうが さがる)
-    makeSwipeThrowGame({
+    mg('swipeThrow-bowling', makeSwipeThrowGame({
       title: 'ボウリングふう!スワイプで ピンを たおそう',
       projectileEmoji: '🎳',
       laneClass: 'mg-swipe-lane-bowling',
@@ -9830,9 +9843,9 @@
         if (total > 0.35) return { score: 40, label: '😅 すこし たおれた' };
         return { score: 10, label: '💦 ガター…' };
       },
-    }),
+    })),
     // カーリング(まとの ちゅうしんに ちかいほど てんすうが たかい)
-    makeSwipeThrowGame({
+    mg('swipeThrow-curling', makeSwipeThrowGame({
       title: 'カーリングふう!まとの まんなかを ねらおう',
       projectileEmoji: '🥌',
       laneClass: 'mg-swipe-lane-curling',
@@ -9845,7 +9858,7 @@
         if (total > 0.35) return { score: 40, label: '😅 すこし それた' };
         return { score: 10, label: '💦 おおきく それた…' };
       },
-    }),
+    })),
   ];
 
   // --- パワーメーター2だんかい(ゴルフ・ダーツ・アーチェリー) ---
@@ -9912,9 +9925,9 @@
   }
 
   const POWER_METER_VARIANTS = [
-    makePowerMeterGame({ title: 'ゴルフふう!パワーと せいかくさを あわせよう', icon: '⛳' }),
-    makePowerMeterGame({ title: 'ダーツふう!まんなかを ねらおう', icon: '🎯' }),
-    makePowerMeterGame({ title: 'アーチェリーふう!ゆみを いてみよう', icon: '🏹' }),
+    mg('powerMeter-golf', makePowerMeterGame({ title: 'ゴルフふう!パワーと せいかくさを あわせよう', icon: '⛳' })),
+    mg('powerMeter-darts', makePowerMeterGame({ title: 'ダーツふう!まんなかを ねらおう', icon: '🎯' })),
+    mg('powerMeter-archery', makePowerMeterGame({ title: 'アーチェリーふう!ゆみを いてみよう', icon: '🏹' })),
   ];
 
   // --- おしくらまんじゅう(すもうふう つなひき) ---
@@ -9984,7 +9997,7 @@
   }
 
   const PUSH_CONTEST_VARIANTS = [
-    makePushContestGame({ title: 'すもうふう!おしくらまんじゅうで かとう' }),
+    mg('pushContest-sumo', makePushContestGame({ title: 'すもうふう!おしくらまんじゅうで かとう' })),
   ];
 
   // --- スワイプで やさいを きる(りょうり) ---
@@ -10048,7 +10061,7 @@
   }
 
   const CHOP_GAME_VARIANTS = [
-    makeChopGame({ title: 'やさいを どんどん きろう!', veggieEmojis: ['🥕', '🥦', '🌽', '🍅', '🥒'] }),
+    mg('chop-vegetable', makeChopGame({ title: 'やさいを どんどん きろう!', veggieEmojis: ['🥕', '🥦', '🌽', '🍅', '🥒'] })),
   ];
 
   // --- ステルス(みはりの すきを ついて すすむ) ---
@@ -10116,32 +10129,32 @@
   }
 
   const STEALTH_GAME_VARIANTS = [
-    makeStealthGame({
+    mg('stealth-guard', makeStealthGame({
       title: 'みはりの すきを ついて すすもう!',
       guardEmoji: '💂',
       safeMessage: '👀 いま すすめる!',
       dangerMessage: '🚨 みつかる!とまれ!',
-    }),
+    })),
   ];
 
   // コメディふう(ねている あいてを おこさないように れいぞうこを あける)
   const COMEDY_STEALTH_VARIANTS = [
-    makeStealthGame({
+    mg('comedyStealth-fridge', makeStealthGame({
       title: 'ねている あいてを おこさず れいぞうこを あけよう!',
       guardEmoji: '😴',
       safeMessage: '😴 ぐっすり ねてる…',
       dangerMessage: '👀 おきそう!とまれ!',
-    }),
+    })),
   ];
 
   // ホラーふう(こわすぎない、なおとっちらしい かわいい えんしゅつ)
   const CUTE_HORROR_VARIANTS = [
-    makeStealthGame({
+    mg('cuteHorror-ghost', makeStealthGame({
       title: 'ゆうれいに 見つからないように にげよう!(こわくないよ)',
       guardEmoji: '👻',
       safeMessage: '🌙 よそ みてる…',
       dangerMessage: '😱 こっちを 見た!とまれ!',
-    }),
+    })),
   ];
 
   // --- ルーレット(ゲームセンター・ぎゃんぶるふう) ---
@@ -10191,7 +10204,7 @@
   }
 
   const ROULETTE_VARIANTS = [
-    makeRouletteGame({
+    mg('roulette-classic', makeRouletteGame({
       title: 'ルーレットストップ!すきな タイミングで とめよう',
       slots: [
         { emoji: '🍒', label: 'あたり!', score: 70 },
@@ -10201,7 +10214,7 @@
         { emoji: '❌', label: 'はずれ…', score: 15 },
         { emoji: '🍀', label: 'ラッキー!', score: 65 },
       ],
-    }),
+    })),
   ];
 
   // --- ブロックくずしふう(レトロゲーム風) ---
@@ -10313,7 +10326,7 @@
   }
 
   const BREAKOUT_VARIANTS = [
-    makeBreakoutGame({ title: 'ブロックくずしふう!ぜんぶ くずそう' }),
+    mg('breakout-classic', makeBreakoutGame({ title: 'ブロックくずしふう!ぜんぶ くずそう' })),
   ];
 
   // --- スポーツスイング(PK・バッティング・シュート・テニス・たっきゅう・バレー) ---
@@ -10410,7 +10423,7 @@
     { title: 'たっきゅうふう!タイミングよく かえそう', fieldEmoji: '🏓', ballEmoji: '🏓', tapLabel: 'かえす!', successLabel: 'ナイスリターン!', missLabel: 'かえせなかった…' },
     { title: 'バレーふう!スパイクを きめよう', fieldEmoji: '🏐', ballEmoji: '🏐', tapLabel: 'スパイク!', successLabel: 'きまった!', missLabel: 'ネットに かかった…' },
   ];
-  const SPORTS_SWING_VARIANTS = [randomThemeGame(makeSportsSwingGame, SPORTS_SWING_THEMES)];
+  const SPORTS_SWING_VARIANTS = [mg('sportsSwing-themed', randomThemeGame(makeSportsSwingGame, SPORTS_SWING_THEMES))];
 
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
@@ -10740,28 +10753,23 @@
   // おなじ ジャンルが 3かい れんぞくしないように するための きろく
   const recentMinigameCategories = [];
 
-  // ゲームオブジェクトは ページを ひらきなおす たびに つくりなおされる
-  // ため、そのまま Map の キーには できない(れいがい なく べつの
-  // オブジェクトに なってしまう)。かわりに MINIGAME_CATEGORY_GROUPS
-  // (category, そのカテゴリの なんばんめか)から つくった 文字列id を
-  // つかい、state.lifetime.minigamePlayCounts(id→かいすう)として
-  // えいきゅう保存する。これにより「あそんだ かいすう/みプレイ優遇」が
-  // ページを とじても きえず、なおとっちの いっしょうを こえて
-  // つみあがっていく(regionsVisited などと おなじ あつかい)
-  const minigameIdOf = new Map();
-  for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
-    variants.forEach((game, i) => minigameIdOf.set(game, `${category}#${i}`));
-  }
-
+  // 各ゲームオブジェクトは 上の mg() で つくった その場で 固定の 文字列id
+  // (game.id)を もっている。配列じょうの 位置には いっさい 依存しないので、
+  // MINIGAME_CATEGORY_GROUPS/各バリエーション配列を ならべかえたり、
+  // とちゅうに べつの ゲームを 挿入・削除しても、きそんの ゲームの id は
+  // かわらない。この id を state.lifetime.minigamePlayCounts(id→かいすう)
+  // の キーとして えいきゅう保存する。これにより「あそんだ かいすう/
+  // みプレイ優遇」が ページを とじても きえず、なおとっちの いっしょうを
+  // こえて つみあがっていく(regionsVisited などと おなじ あつかい)。
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームには id を つけていない
+  // ため、game.id が ない ばあいは これまでどおり きろく対象がいの まま
   function minigamePlayCount(game) {
-    const id = minigameIdOf.get(game);
-    return id ? (state.lifetime.minigamePlayCounts[id] || 0) : 0;
+    return game.id ? (state.lifetime.minigamePlayCounts[game.id] || 0) : 0;
   }
 
   function recordMinigamePlay(game) {
-    const id = minigameIdOf.get(game);
-    if (!id) return;
-    state.lifetime.minigamePlayCounts[id] = (state.lifetime.minigamePlayCounts[id] || 0) + 1;
+    if (!game.id) return;
+    state.lifetime.minigamePlayCounts[game.id] = (state.lifetime.minigamePlayCounts[game.id] || 0) + 1;
   }
 
   function buildMinigamePool() {
@@ -10821,7 +10829,11 @@
   // その場所/きせつ らしい ゲームに であいやすく する ための、のこり
   // ブーストかいすう。かわった しゅんかんに セットされ、あそぶ たびに
   // 1へって いく(0に なれば ふつうの かくりつに もどる)。地域の ほうが
-  // 優先・つよめ、きせつは よわめに してある
+  // 優先・つよめ、きせつは よわめに してある。地域と きせつが 同時に
+  // かわり りょうほう ブースト中の ばあいも、それぞれの のこりかいすうは
+  // 独立して へっていく(下の pickRandomMinigame() さんしょう。地域の
+  // 5かいが おわるまで きせつの 3かいが まったく へらない、という 直列の
+  // のびかたには ならない)
   const REGION_ARRIVAL_BOOST_PLAYS = 5;
   const REGION_ARRIVAL_BOOST_LOOKBACK = 24;
   const SEASON_ARRIVAL_BOOST_PLAYS = 3;
@@ -10866,14 +10878,24 @@
     // とうちゃく/きせつ切りかえ 直後の のこり かいすうぶんだけ、その
     // 地域/きせつ げんてい ゲームを 見つけしだい つぎに 出るよう ひきよせる
     // (見つからない ばあいは むりせず、ふつうの じゅんばんの まま)。
-    // 地域の ほうを 優先し、地域ブーストが きれている ときだけ きせつを ためす
+    // 1かいの プレイで ひきよせは さいだい1かいまで:地域の ほうを 優先して
+    // ためし、地域が いま ブースト中でない ときだけ きせつを ためす。
+    // ただし 地域と きせつが 同時に かわった ばあい(りょうほう ブースト
+    // 中)でも、きせつの のこり かいすうは 地域の うらで とめずに へらし
+    // つづける(直列に 5+3=8かい ぶん のびない ため)。地域の ひきよせが
+    // その かいだけ 見つからなかった ときは、その かいに かぎり きせつも
+    // ためす(地域の 5かいぶんの つよさ・きせつの 3かいぶんの ながさは、
+    // それぞれ たんどく発生時と かわらない)
     if (regionArrivalBoostLeft > 0) {
-      trySwapForwardMatching(isRegionExclusiveGame, REGION_ARRIVAL_BOOST_LOOKBACK);
-      regionArrivalBoostLeft -= 1;
+      const regionSwapped = trySwapForwardMatching(isRegionExclusiveGame, REGION_ARRIVAL_BOOST_LOOKBACK);
+      if (!regionSwapped && seasonArrivalBoostLeft > 0) {
+        trySwapForwardMatching(isSeasonExclusiveGame, SEASON_ARRIVAL_BOOST_LOOKBACK);
+      }
     } else if (seasonArrivalBoostLeft > 0) {
       trySwapForwardMatching(isSeasonExclusiveGame, SEASON_ARRIVAL_BOOST_LOOKBACK);
-      seasonArrivalBoostLeft -= 1;
     }
+    if (regionArrivalBoostLeft > 0) regionArrivalBoostLeft -= 1;
+    if (seasonArrivalBoostLeft > 0) seasonArrivalBoostLeft -= 1;
 
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
     // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
