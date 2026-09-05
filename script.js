@@ -446,6 +446,9 @@
     travelBtn: document.getElementById('travelBtn'),
     subStatusRow: document.getElementById('subStatusRow'),
     regionDecor: document.getElementById('regionDecor'),
+    seasonTint: document.getElementById('seasonTint'),
+    seasonBgFx: document.getElementById('seasonBgFx'),
+    seasonFrontFx: document.getElementById('seasonFrontFx'),
     seasonLabel: document.getElementById('seasonLabel'),
     regionLabel: document.getElementById('regionLabel'),
     partnerLabel: document.getElementById('partnerLabel'),
@@ -3511,11 +3514,12 @@
     return { left: 90 + Math.random() * 10, top: Math.random() * 100 };
   }
 
-  // 地域の decor(絵柄)を、デバイスの まわりに ランダムに ちらす。
-  // 地域が かわった ときだけ よびだされるので、おなじ 地域に いるあいだは
-  // いちが ガタガタ かわったりしない
-  function renderRegionDecor(region) {
-    el.regionDecor.innerHTML = (region.decor || []).map((emoji) => {
+  // 地域の decor(絵柄。きせつに よって うわがきされる ことが ある)を、
+  // デバイスの まわりに ランダムに ちらす。地域か きせつが かわった ときだけ
+  // よびだされるので、なにも かわっていない あいだは いちが ガタガタ
+  // かわったりしない
+  function renderRegionDecor(decorList) {
+    el.regionDecor.innerHTML = (decorList || []).map((emoji) => {
       const pos = randomEdgePosition();
       const size = 22 + Math.random() * 20;
       const duration = 7 + Math.random() * 6;
@@ -3524,19 +3528,184 @@
     }).join('');
   }
 
-  // 「たび」で えらんだ 地域を body の class に反映する。「いろ」の
-  // 本体/がめんテーマとは 別レイヤー(まわりの けしき)なので、どんな
-  // いろの くみあわせと あわせても 衝突しない
-  let lastDecorRegionId = null;
+  // ==== きせつ × 地域 の みため(はいけい/ぜんけいエフェクト・タイント・
+  // かざりの うわがき) ============================================
+  // regionId + season(SEASON.*の あたい)だけで ひける、じゅんすいな
+  // データテーブル + かんすうとして きりだしてある。しょうらい ミニゲームの
+  // 抽選や イベントからも、この かたちの まま りようできる ことを 想定している
+
+  // きせつの きほんの エフェクト(region による うわがきが なければ これを つかう)
+  const SEASON_BASE_FX = {
+    spring: { bg: ['🌸', '🌸', '🍃'], bgCount: 5, front: ['🌸'], frontCount: 2, tint: 'spring' },
+    summer: { bg: ['✨', '🍃'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'summer' },
+    autumn: { bg: ['🍂', '🍁'], bgCount: 5, front: ['🍂'], frontCount: 2, tint: 'autumn' },
+    winter: { bg: ['❄️'], bgCount: 5, front: ['❄️'], frontCount: 2, tint: 'winter' },
+  };
+
+  // `${regionId}:${season}` の くみあわせだけ、きほんから 上書きする
+  // (front を からの はいれつに すると、その くみあわせは ぜんけい
+  // エフェクトなし = なんごく/さばくの ふゆ などで つかう)
+  const SEASON_REGION_OVERRIDES = {
+    // ゆきやまは 一年中「ゆきやまらしさ」を のこす(9番の しよう どおり)
+    'snow:spring': { bg: ['🌸', '💧', '❄️'], bgCount: 5, front: ['🌸'], frontCount: 2, tint: 'snowSpring' },
+    'snow:summer': { bg: ['✨', '🌿'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'snowSummer' },
+    'snow:autumn': { bg: ['🍁', '❄️'], bgCount: 5, front: ['🍁'], frontCount: 2, tint: 'snowAutumn' },
+    'snow:winter': { bg: ['❄️', '❄️', '🌨️'], bgCount: 8, front: ['❄️'], frontCount: 3, tint: 'snowWinter' },
+    // もり・いなか・おうちは かるい ゆきげしょう ていど
+    'forest:winter': { bg: ['❄️'], bgCount: 4, front: ['❄️'], frontCount: 1, tint: 'winter' },
+    'countryside:winter': { bg: ['❄️'], bgCount: 3, front: ['❄️'], frontCount: 1, tint: 'winter' },
+    'home:winter': { bg: ['❄️'], bgCount: 3, front: ['❄️'], frontCount: 1, tint: 'winter' },
+    // とかい・うみは ふゆらしい くうきかんだけ、ゆきの ぜんけいは なし
+    'city:winter': { bg: ['❄️'], bgCount: 3, front: [], frontCount: 0, tint: 'winterCity' },
+    'sea:winter': { bg: ['💨', '❄️'], bgCount: 3, front: [], frontCount: 0, tint: 'seaWinter' },
+    // なんごく・さばくは ゆきを ふらせず、いろあい・かぜだけで きせつさを だす
+    'tropical:winter': { bg: ['🌺', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'tropicalMild' },
+    'desert:winter': { bg: ['💨', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'desertMild' },
+    'desert:summer': { bg: ['☀️', '💨'], bgCount: 3, front: [], frontCount: 0, tint: 'desertSummer' },
+    'tropical:summer': { bg: ['🌺', '✨', '🦋'], bgCount: 5, front: ['✨'], frontCount: 1, tint: 'tropicalSummer' },
+    'sea:summer': { bg: ['✨', '💧'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'seaSummer' },
+  };
+
+  // `${regionId}:${season}` の くみあわせだけ、region.decor(かざり emoji)を
+  // うわがきする(ない くみあわせは region.decor の まま。なんごく/さばく
+  // など きせつ差が 小さくて よい地域は、あえて 上書きを もたせていない)
+  const SEASON_DECOR_OVERRIDES = {
+    'snow:spring': ['🌸', '💧', '🏔️', '🌿', '✨', '🦌', '🎿', '🧣'],
+    'snow:summer': ['🏔️', '🌿', '☀️', '🦋', '✨', '🦌', '⛰️', '🎣'],
+    'snow:autumn': ['🍁', '🏔️', '🍂', '❄️', '✨', '🦌', '🎿', '🧣'],
+    'forest:autumn': ['🍂', '🍁', '🌰', '🦉', '🍄', '🐿️', '🌲', '🦔'],
+    'forest:winter': ['🌲', '❄️', '🌨️', '🦉', '🐿️', '🌰', '✨', '🧣'],
+    'countryside:winter': ['🌾', '❄️', '🏚️', '🐄', '☁️', '🧣', '🌨️', '🐓'],
+    'home:winter': ['🏠', '❄️', '☁️', '💕', '✨', '🎀', '🪴', '🧣'],
+    'city:winter': ['🏙️', '❄️', '🌃', '✨', '🚕', '💡', '🎄', '🌆'],
+    'sea:winter': ['🌊', '🧣', '☁️', '🐚', '💨', '🦭', '🏖️', '⚓'],
+  };
+
+  // タイント名 → じっさいの グラデーション(からだ ぜんたいを うっすら
+  // そめる、地域の けしきの さらに うえの いろ・くうきかん レイヤー)
+  const SEASON_TINTS = {
+    spring: 'radial-gradient(circle at 50% 12%, rgba(255,214,230,0.35), rgba(200,240,180,0.12) 60%, transparent 100%)',
+    summer: 'radial-gradient(circle at 50% 8%, rgba(255,250,200,0.32), rgba(255,255,255,0.05) 70%, transparent 100%)',
+    autumn: 'radial-gradient(circle at 50% 15%, rgba(255,196,140,0.32), rgba(150,90,50,0.14) 65%, transparent 100%)',
+    winter: 'radial-gradient(circle at 50% 12%, rgba(255,255,255,0.38), rgba(190,210,230,0.18) 65%, transparent 100%)',
+    snowSpring: 'radial-gradient(circle at 50% 12%, rgba(255,214,230,0.3), rgba(220,235,245,0.2) 65%, transparent 100%)',
+    snowSummer: 'radial-gradient(circle at 50% 10%, rgba(255,255,255,0.28), rgba(190,225,190,0.15) 65%, transparent 100%)',
+    snowAutumn: 'radial-gradient(circle at 50% 14%, rgba(255,196,140,0.28), rgba(210,225,235,0.2) 65%, transparent 100%)',
+    snowWinter: 'radial-gradient(circle at 50% 10%, rgba(255,255,255,0.45), rgba(200,220,240,0.25) 70%, transparent 100%)',
+    winterCity: 'radial-gradient(circle at 50% 10%, rgba(230,235,255,0.3), rgba(180,190,220,0.12) 65%, transparent 100%)',
+    seaWinter: 'radial-gradient(circle at 50% 12%, rgba(220,240,255,0.28), rgba(150,180,210,0.15) 65%, transparent 100%)',
+    tropicalMild: 'radial-gradient(circle at 50% 12%, rgba(255,235,210,0.22), rgba(255,255,255,0.05) 70%, transparent 100%)',
+    desertMild: 'radial-gradient(circle at 50% 12%, rgba(255,240,220,0.22), rgba(255,255,255,0.05) 70%, transparent 100%)',
+    desertSummer: 'radial-gradient(circle at 50% 8%, rgba(255,245,200,0.35), rgba(255,255,255,0.05) 70%, transparent 100%)',
+    tropicalSummer: 'radial-gradient(circle at 50% 8%, rgba(255,250,220,0.3), rgba(255,255,255,0.05) 70%, transparent 100%)',
+    seaSummer: 'radial-gradient(circle at 50% 8%, rgba(255,250,220,0.28), rgba(200,240,255,0.1) 70%, transparent 100%)',
+  };
+
+  // きせつが かわった しゅんかんだけ 出す、みじかい きりかえ えんしゅつの
+  // ぶんしょう/emoji(バーストに つかう emoji は SEASON_BASE_FX の front/bg
+  // を そのまま りようする)
+  const SEASON_CHANGE_ANNOUNCE = {
+    spring: { emoji: '🌸', text: '🌸 はるに なった!' },
+    summer: { emoji: '🌻', text: '🌻 なつに なった!' },
+    autumn: { emoji: '🍁', text: '🍁 あきに なった!' },
+    winter: { emoji: '❄️', text: '❄️ ふゆに なった!' },
+  };
+
+  // regionId + season から、その くみあわせの みための ぜんじょうほうを
+  // ひとつに まとめて かえす。しょうらい ミニゲームなどが「いまの 地域×
+  // きせつ」を しりたい ときも、この かんすうだけ みれば よい
+  function computeSeasonVisual(regionId, season) {
+    const key = `${regionId}:${season}`;
+    const base = SEASON_BASE_FX[season] || SEASON_BASE_FX.spring;
+    const fx = { ...base, ...(SEASON_REGION_OVERRIDES[key] || {}) };
+    const decor = SEASON_DECOR_OVERRIDES[key] || findRegion(regionId).decor;
+    const tint = SEASON_TINTS[fx.tint] || SEASON_TINTS[season] || SEASON_TINTS.spring;
+    return { fx, decor, tint };
+  }
+
+  // した(-10%)から がめん外(115vh)まで ゆっくり ながれおちる、きせつの
+  // エフェクト ようそを かずぶん つくる。よこの ゆれかたが ようそごとに
+  // すこしずつ ちがって 見えるよう --drift を らんすうで もたせる
+  function buildSeasonFxHtml(emojis, count) {
+    if (!emojis || !emojis.length || !count) return '';
+    const items = [];
+    for (let i = 0; i < count; i++) {
+      const emoji = emojis[Math.floor(Math.random() * emojis.length)];
+      const size = 14 + Math.random() * 10;
+      const duration = 10 + Math.random() * 8;
+      const delay = Math.random() * (duration + 6);
+      const left = Math.random() * 100;
+      const drift = Math.round(Math.random() * 50 - 25);
+      items.push(`<span class="season-fx-item" style="left:${left}%; font-size:${size}px; --drift:${drift}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${emoji}</span>`);
+    }
+    return items.join('');
+  }
+
+  // 地域か きせつが かわった ときだけ よびだす、みため ぜんぱんの ふりだし。
+  // かざり(region-decor)・はいけい/ぜんけいエフェクト・からだの タイントを
+  // まとめて つくりなおす
+  function applySeasonRegionVisuals(regionId, season) {
+    const { fx, decor, tint } = computeSeasonVisual(regionId, season);
+    renderRegionDecor(decor);
+    el.seasonBgFx.innerHTML = buildSeasonFxHtml(fx.bg, fx.bgCount);
+    el.seasonFrontFx.innerHTML = buildSeasonFxHtml(fx.front, fx.frontCount);
+    el.seasonTint.style.background = tint;
+  }
+
+  // きせつが きりかわった しゅんかんだけ、すこし つよめに ちる バーストと
+  // みじかい こくちバナーを だす(常時エフェクトは そのまま つづく)
+  function celebrateSeasonChange(regionId, season) {
+    const announce = SEASON_CHANGE_ANNOUNCE[season];
+    if (!announce) return;
+    showStoryEvent({ emoji: announce.emoji, message: announce.text });
+    // 「うごきを へらす」せっていの ときは、テキストの こくちだけに とどめ、
+    // ちる バーストの アニメーションじたいを つくらない(animationend が
+    // 発火せず ようそが のこりつづける じこを さける ため)
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const { fx } = computeSeasonVisual(regionId, season);
+    const burstEmojis = (fx.front && fx.front.length ? fx.front : fx.bg) || [announce.emoji];
+    const burstCount = 10;
+    for (let i = 0; i < burstCount; i++) {
+      const span = document.createElement('span');
+      span.className = 'season-burst-item';
+      const emoji = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+      span.textContent = emoji;
+      const left = Math.random() * 100;
+      const top = -5 - Math.random() * 10;
+      const size = 16 + Math.random() * 14;
+      const fall = 45 + Math.random() * 35;
+      const drift = Math.round(Math.random() * 60 - 30);
+      const duration = 0.8 + Math.random() * 0.6;
+      span.style.left = `${left}%`;
+      span.style.top = `${top}%`;
+      span.style.fontSize = `${size}px`;
+      span.style.setProperty('--drift', `${drift}px`);
+      span.style.setProperty('--fall', `${fall}vh`);
+      span.style.animationDuration = `${duration}s`;
+      // animationend が なんらかの りゆうで 発火しない ばあいの ほけんとして、
+      // すこし よゆうを もった setTimeout でも かならず とりのぞく
+      // (どちらが 先でも 二重に remove() しても むがいなので ガードは 不要)
+      span.addEventListener('animationend', () => span.remove());
+      setTimeout(() => span.remove(), (duration + 0.5) * 1000);
+      el.seasonFrontFx.appendChild(span);
+    }
+  }
+
+  // 「たび」で えらんだ 地域(と、いまの きせつ)を body の class・みため に
+  // 反映する。「いろ」の 本体/がめんテーマとは 別レイヤー(まわりの けしき)
+  // なので、どんな いろの くみあわせと あわせても 衝突しない
+  let lastVisualKey = null;
 
   function applyRegion() {
     const region = findRegion(state.regionId);
     REGIONS.forEach((r) => {
       document.body.classList.toggle(`region-${r.id}`, r === region);
     });
-    if (region.id !== lastDecorRegionId) {
-      renderRegionDecor(region);
-      lastDecorRegionId = region.id;
+    const season = getEffectiveSeason();
+    const visualKey = `${region.id}|${season}`;
+    if (visualKey !== lastVisualKey) {
+      applySeasonRegionVisuals(region.id, season);
+      lastVisualKey = visualKey;
     }
     return region;
   }
@@ -3681,6 +3850,16 @@
 
     el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
     if (seasonOpen) renderSeasonModeGrid();
+
+    // ゲーム機・えきしょうの てまえまで よこぎる ぜんけいの きせつ
+    // エフェクトは、しさが だいじな ばめん(ミニゲーム中や、よみもの/
+    // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
+    // はいけいエフェクト(region-decor/season-bg-fx)は デバイスの うしろに
+    // かくれた ままなので、ここでは とめない
+    const suppressFrontFx = gameActive || hasTransformChoice
+      || dexOpen || achOpen || themeOpen || profileOpen || commOpen || itemOpen
+      || duelOpen || worldOpen || seasonOpen || pickerOpen;
+    el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
 
     renderItemsRow(disableCare);
   }
@@ -3947,9 +4126,17 @@
 
   function selectSeasonMode(mode) {
     if (!SEASON_MODE_ORDER.includes(mode)) return;
+    // 「じっこうされる きせつ」じたいが かわった ときだけ、みじかい
+    // きりかえ えんしゅつを だす(おなじ きせつに なる せんたくを
+    // くりかえしても、そのたびに バーストが 出たりは しない)
+    const seasonBefore = getEffectiveSeason();
     state.lifetime.seasonMode = mode;
+    const seasonAfter = getEffectiveSeason();
     saveState();
     render();
+    if (seasonAfter !== seasonBefore) {
+      celebrateSeasonChange(state.regionId, seasonAfter);
+    }
   }
 
   // 「アイテム」がめん: SHOP_ITEMS を みにつける ものの いちらんとして
@@ -10681,6 +10868,10 @@
 
   function startMinigame(game) {
     gameActive = true;
+    // render() も おなじ じょうけんで これを セットしなおすが、つぎの
+    // render() が よばれるまでの わずかな あいだも きせつの ぜんけい
+    // エフェクトが えきしょうの てまえに のこらないよう、ここで すぐに とめる
+    el.seasonFrontFx.classList.add('suppressed');
     // 直前の「そうじ得意!」のような ストーリーいベント バナー(.story-flash)
     // には じぶんの ひょうじ時間(STORY_FLASH_DURATION_MS)ぶんの タイマーが
     // あり、ミニゲームが はじまっても かってには きえない - ミニゲームの

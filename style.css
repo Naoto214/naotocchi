@@ -67,6 +67,109 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { transform: translateY(-14px) rotate(6deg); }
 }
 
+/* きせつの いろ・くうきかん(はる/なつ/あき/ふゆ)を あらわす、からだの
+   いちばん したの タイントレイヤー。region-decor(z-index:0)の さらに
+   したに ひろがるので、地域の けしきだけを やわらかく そめ、デバイス
+   じたい(不透明)には えいきょうしない。じっさいの グラデーションは
+   JS(applySeasonVisuals())が いろちがいの ぶんだけ せっていする */
+.season-tint {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: background 1.2s ease;
+}
+
+/* きせつの はいけいエフェクト(はなびら・おちば・ゆき など)。region-decor
+   と おなじ z-index の レイヤーで、デバイスの うしろがわに ひろがる。
+   こちらは「つねに ゆっくり うごきつづける」えんしゅつなので、region-decor
+   の ふわふわ うかぶ アニメーションとは べつに、上から したへ ゆっくり
+   ながれおちる うごきを もたせてある */
+.season-bg-fx {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* きせつの ぜんけいエフェクト。デバイス(z-index:1)より further 手前に
+   ひろがり、そとの けしき→ハード→えきしょうを またいで ながれる、
+   ただ1まいの とうめいレイヤー。pointer-events:none で ボタン/タップの
+   はんていを いっさい うばわない。おおくの オーバーレイ(z-index:5〜6)
+   より したなので、それらが ひらいている あいだは じどうに かくれる */
+.season-front-fx {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+/* ミニゲーム中・だいじな オーバーレイが ひらいている あいだは、しさが
+   だいじな ばめんの じゃまを しないよう ぜんけいエフェクトを けす
+   (はいけいエフェクトは デバイスの うしろがわに かくれたままなので
+   そのままで もんだいない) */
+.season-front-fx.suppressed {
+  opacity: 0;
+}
+
+.season-fx-item {
+  position: absolute;
+  top: -10%;
+  line-height: 1;
+  will-change: transform;
+  animation-name: season-fx-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.season-bg-fx .season-fx-item {
+  opacity: 0.55;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
+}
+
+.season-front-fx .season-fx-item {
+  opacity: 0.35;
+}
+
+/* した(-10%)から したの がめん外(110vh ぶん おりる)まで、ゆっくり
+   ながれおちながら すこし よこに ゆれて かいてんする。よこの ゆれは
+   ようそごとの --drift カスタムプロパティ(JSで らんすうに せってい)で
+   すこしずつ ちがう みちすじに 見えるようにしてある */
+@keyframes season-fx-fall {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(var(--drift, 12px), 55vh) rotate(180deg); }
+  100% { transform: translate(0, 115vh) rotate(360deg); }
+}
+
+/* きせつが かわった しゅんかんだけ、すこし つよめに ちる バーストよう
+   ようそ。season-fx-item より はやく・おおきく うごき、アニメーション
+   おわりに JS(el.remove())で とりのぞかれる、その場かぎりの えんしゅつ */
+.season-burst-item {
+  position: absolute;
+  line-height: 1;
+  pointer-events: none;
+  animation-name: season-burst-pop;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes season-burst-pop {
+  0% { transform: translate(0, 0) scale(0.6) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.9; }
+  100% { transform: translate(var(--drift, 20px), var(--fall, 60vh)) scale(1) rotate(200deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .season-fx-item,
+  .season-burst-item {
+    animation: none;
+    display: none;
+  }
+}
+
 /* なかまイベントで なかまに なった COMPANIONS を、#pet の こどもとして
    本体キャラの りょうサイドに くっつけて 表示する。「はじめから」でも
    消えない永続の コレクション。#pet の こどもなので、idle-float の
