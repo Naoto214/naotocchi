@@ -4102,3 +4102,327 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .buttons button.hidden {
   display: none;
 }
+
+/* ================================================================
+   第3段階B: あたらしい操作たいけんの ミニゲーム7しゅるい
+   ================================================================ */
+
+/* ドラッグ&ドロップ きょうつう(ケーキ/おべんとう) */
+
+.mg-cake-stage,
+.mg-bento-stage {
+  position: relative;
+  flex: 1;
+  min-height: 150px;
+  background: #fff3e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.mg-cake-base {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  pointer-events: none;
+}
+
+.mg-drop-target {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px dashed rgba(107, 54, 84, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.mg-drop-target.active {
+  border-color: #ff5ea8;
+  box-shadow: 0 0 0 4px rgba(255, 94, 168, 0.25);
+  animation: mg-target-pulse 0.9s ease-in-out infinite;
+}
+
+@keyframes mg-target-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.12); }
+}
+
+.mg-drop-target.filled {
+  border-style: solid;
+  border-color: #6fae5f;
+  animation: none;
+}
+
+.mg-drop-target.wrong {
+  border-color: #d9534f;
+}
+
+.mg-bento-preview {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mg-drag-tray {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 0 2px;
+  min-height: 48px;
+}
+
+.mg-drag-tray.hidden {
+  display: none;
+}
+
+.mg-drag-item {
+  font-size: 30px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.mg-drag-item.dragging {
+  z-index: 50;
+  transform: scale(1.25);
+  cursor: grabbing;
+}
+
+/* さかなつり */
+
+.mg-fishing-scene {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #bfe3ff 0%, #bfe3ff 30%, #1f6fa8 30%, #14507d 100%);
+  touch-action: none;
+}
+
+.mg-fishing-water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.mg-fishing-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 34%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateX(-50%);
+}
+
+.mg-fishing-bobber {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  font-size: 22px;
+  transform: translate(-50%, -50%);
+  animation: mg-bobber-idle 1.6s ease-in-out infinite;
+}
+
+@keyframes mg-bobber-idle {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(4px); }
+}
+
+.mg-fishing-bobber.biting {
+  animation: mg-bobber-bite 0.35s ease-in-out infinite;
+}
+
+@keyframes mg-bobber-bite {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0) scale(1); }
+  50% { transform: translate(-50%, -50%) translateY(10px) scale(1.15); }
+}
+
+/* ゲレンデすべりおり(スキー/スノーボード) */
+
+.mg-downhill-field {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #eaf4ff 0%, #ffffff 100%);
+}
+
+.mg-downhill-player {
+  position: absolute;
+  bottom: 6%;
+  font-size: 26px;
+  transform: translateX(-50%);
+}
+
+.mg-downhill-obstacle {
+  position: absolute;
+  font-size: 22px;
+  transform: translateX(-50%);
+}
+
+.mg-downhill-obstacle.hit-flash {
+  filter: drop-shadow(0 0 4px #d9534f);
+}
+
+.mg-downhill-gate {
+  position: absolute;
+  font-size: 20px;
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+.mg-downhill-gate.passed {
+  filter: drop-shadow(0 0 4px #6fae5f);
+}
+
+/* サーフィン */
+
+.mg-surf-scene {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #bfe8ff 0%, #4fb8d9 55%, #1f7ea3 100%);
+  touch-action: none;
+}
+
+.mg-surf-wave {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: 30%;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition: bottom 1s ease-in, transform 0.4s ease;
+}
+
+.mg-surf-wave.approaching {
+  bottom: 55%;
+}
+
+.mg-surf-wave.riding {
+  bottom: 50%;
+}
+
+.mg-surf-board {
+  position: absolute;
+  left: 50%;
+  bottom: 45%;
+  font-size: 30px;
+  transform: translateX(-50%);
+  transition: bottom 0.3s ease;
+}
+
+.mg-surf-wave.riding + .mg-surf-board {
+  bottom: 55%;
+}
+
+/* ミニポーカー */
+
+.mg-poker-hand {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  align-items: center;
+}
+
+.mg-poker-card {
+  width: 52px;
+  height: 74px;
+  background: #fffdf5;
+  border: 2px solid #6b3654;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2a2a2a;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  user-select: none;
+}
+
+.mg-poker-card.red {
+  color: #d9534f;
+}
+
+.mg-poker-card.selected {
+  border-color: #ff5ea8;
+  transform: translateY(-8px);
+  box-shadow: 0 8px 10px rgba(255, 94, 168, 0.35);
+}
+
+/* ミニだっしゅつ */
+
+.mg-escape-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  min-height: 150px;
+}
+
+.mg-escape-obj {
+  background: #f5ead0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  transition: opacity 0.2s ease;
+}
+
+.mg-escape-obj.checked {
+  opacity: 0.45;
+}
+
+.mg-escape-exit {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 44px;
+  min-height: 120px;
+}
+
+.mg-escape-exit span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b3654;
+}
+
+.mg-escape-msg {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+}
