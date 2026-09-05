@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260905-4">
+<link rel="stylesheet" href="style.css?v=20260905-5">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -220,6 +220,19 @@
             <div class="theme-section">
               <div class="profile-hint">えらんだ きせつは、つぎに 自分で かえるまで ずっと たもたれます。「げんじつに あわせる」を えらぶと、いまの 月から じどうで きせつが きまります</div>
               <div class="theme-grid" id="seasonModeGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dex-overlay hidden" id="travelOverlay">
+          <div class="dex-header">
+            <span class="dex-title">たびに でる</span>
+            <button class="dex-close-btn" id="travelCloseBtn">✕</button>
+          </div>
+          <div class="theme-scroll">
+            <div class="theme-section">
+              <div class="profile-hint">行きたい 場所を えらんで タップすると、その地域へ たびに でられます</div>
+              <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
           </div>
         </div>
@@ -465,6 +478,6 @@
 
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
-  <script src="script.js?v=20260905-4"></script>
+  <script src="script.js?v=20260905-5"></script>
 </body>
 </html>

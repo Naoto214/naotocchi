@@ -2538,7 +2538,8 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   line-height: 1.1;
 }
 
-.theme-swatch.locked {
+.theme-swatch.locked,
+.theme-swatch:disabled {
   cursor: default;
 }
 

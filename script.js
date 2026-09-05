@@ -459,6 +459,9 @@
     seasonOverlay: document.getElementById('seasonOverlay'),
     seasonCloseBtn: document.getElementById('seasonCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
+    travelOverlay: document.getElementById('travelOverlay'),
+    travelCloseBtn: document.getElementById('travelCloseBtn'),
+    travelRegionGrid: document.getElementById('travelRegionGrid'),
     profileBtn: document.getElementById('profileBtn'),
     profileOverlay: document.getElementById('profileOverlay'),
     profileCloseBtn: document.getElementById('profileCloseBtn'),
@@ -3432,7 +3435,7 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !dexOpen && !achOpen && !themeOpen && !profileOpen && !worldOpen && !seasonOpen
+        && !dexOpen && !achOpen && !themeOpen && !profileOpen && !worldOpen && !seasonOpen && !travelOpen
         && remaining.length > 0;
       if (canEncounter) {
         const companion = remaining[Math.floor(Math.random() * remaining.length)];
@@ -3851,6 +3854,9 @@
     el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
     if (seasonOpen) renderSeasonModeGrid();
 
+    el.travelOverlay.classList.toggle('hidden', !travelOpen);
+    if (travelOpen) renderTravelRegionGrid();
+
     // ゲーム機・えきしょうの てまえまで よこぎる ぜんけいの きせつ
     // エフェクトは、しさが だいじな ばめん(ミニゲーム中や、よみもの/
     // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
@@ -3858,7 +3864,7 @@
     // かくれた ままなので、ここでは とめない
     const suppressFrontFx = gameActive || hasTransformChoice
       || dexOpen || achOpen || themeOpen || profileOpen || commOpen || itemOpen
-      || duelOpen || worldOpen || seasonOpen || pickerOpen;
+      || duelOpen || worldOpen || seasonOpen || travelOpen || pickerOpen;
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
 
     renderItemsRow(disableCare);
@@ -3872,10 +3878,11 @@
   let itemOpen = false;
   let duelOpen = false;
   // 「🌍 せかい」がめん(きせつを かえる/たびに でる の いりぐち)と、
-  // その中の「きせつを かえる」サブがめん。dexOpen などと おなじ しくみで
-  // render() から ひょうじを きりかえる
+  // その中の「きせつを かえる」「たびに でる」サブがめん。dexOpen などと
+  // おなじ しくみで render() から ひょうじを きりかえる
   let worldOpen = false;
   let seasonOpen = false;
+  let travelOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
@@ -4137,6 +4144,17 @@
     if (seasonAfter !== seasonBefore) {
       celebrateSeasonChange(state.regionId, seasonAfter);
     }
+  }
+
+  // 「せかい」→「たびに でる」がめん。きせつの えらびかたと おなじ
+  // theme-swatch グリッドで、8つの地域を いちらん表示する。いま いる
+  // 地域は selected の ハイライトを つけつつ、そこへは「たびに でる」
+  // いみが ないので タップできないよう disabled に する
+  function renderTravelRegionGrid() {
+    el.travelRegionGrid.innerHTML = REGIONS.map((region) => {
+      const isCurrent = region.id === state.regionId;
+      return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${region.emoji}</span><span class="theme-swatch-label">${region.label}</span></button>`;
+    }).join('');
   }
 
   // 「アイテム」がめん: SHOP_ITEMS を みにつける ものの いちらんとして
@@ -11244,12 +11262,37 @@
     selectSeasonMode(btn.dataset.id);
   });
 
-  el.worldTravelBtn.addEventListener('click', withFeedback(() => {
+  // 「🧳 たびに でる」は、以前は 押した しゅんかんに ランダムな 地域へ
+  // その場で 移動していたが、いまは いちど「たびに でる」がめん(地域の
+  // いちらん)を ひらき、行きたい 場所を えらんで タップする かたちに した
+  el.worldTravelBtn.addEventListener('click', () => {
+    worldOpen = false;
+    travelOpen = true;
+    render();
+  });
+
+  el.travelCloseBtn.addEventListener('click', () => {
+    travelOpen = false;
+    worldOpen = true;
+    render();
+  });
+
+  // えらんだ 地域へ じっさいに たびに でる。げんき/まんぷく/きげんの
+  // 増減・たびづかれ判定・ずかん用の きろくなど、なかみは いぜんの
+  // ランダム移動時と まったく おなじ ロジックで、行き先だけが
+  // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
+  function travelToRegion(region) {
     // たびの けっかは 「せかい」がめんの うえではなく、もとの 基本がめんの
-    // メッセージらんに 出す ので、じっこうまえに がめんを とじておく
+    // メッセージらんに 出す ので、じっこうまえに がめんを とじておく。
+    // どちらの ぶんき(ねている/じっさいに たびに でる)でも さいごに
+    // かならず saveState()/render() まで とおるよう、はやい return は
+    // つかわず if/else で くみたてる
+    travelOpen = false;
     worldOpen = false;
     if (state.isSleeping) {
       setMessage('ねている… おきてから たびに でよう');
+      saveState();
+      render();
       return;
     }
     state.affectionStreak = 0;
@@ -11261,8 +11304,6 @@
     const travelGuaranteed = state.oneTimeBoosts.travelGuarantee;
     state.oneTimeBoosts.travelGuarantee = false;
     const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
-    const candidates = REGIONS.filter((r) => r.id !== state.regionId);
-    const region = candidates[Math.floor(Math.random() * candidates.length)];
     state.regionId = region.id;
     // じっせきの「せかい いっしゅう」用に、いちど でも おとずれた ことの
     // ある地域を えいきゅうに きろくしておく(「はじめから」しても きえない)
@@ -11289,7 +11330,15 @@
         : `${region.emoji} ${region.label}に やってきた!${reaction}`);
     }
     emotePet(spammedTravel ? 'sad' : 'fun');
-  }));
+    saveState();
+    render();
+  }
+
+  el.travelRegionGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn || btn.disabled) return;
+    travelToRegion(findRegion(btn.dataset.id));
+  });
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
     // 図鑑 and じっせき are cross-playthrough records, so they survive a
@@ -11909,7 +11958,7 @@
     // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
     // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
     // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen || worldOpen || seasonOpen) return;
+    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen || worldOpen || seasonOpen || travelOpen) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
