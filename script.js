@@ -11441,6 +11441,26 @@
     ],
   };
 
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
+  // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
+  // さんしょう)が、それぞれ すでに もっている category フィールドを
+  // そのまま つかって minigameCategoryOf にも 登録しておく。こうしないと
+  // これらの ゲームは minigameCategoryOf.get(game) が undefined に なり、
+  // pickRandomMinigame() の「同カテゴリ3連続回避」判定で undefined
+  // どうしが おなじ カテゴリと 誤判定されてしまう(fishing/downhill/
+  // surfingのような まったく べつの あそび が、たまたま れんぞくで 出た
+  // ときに 同カテゴリあつかいされる ばぐに つながる)。fishing/downhill/
+  // surfingだけでなく、home/sea/snow/…の 既存の 地域限定・季節限定
+  // ゲーム すべて、そして 今後 あたらしく 追加される 地域限定・季節限定
+  // カテゴリも、この ループが そのまま ひろってくれる ため、個別対応は
+  // 不要(category フィールドを つけわすれない かぎり、いつでも あんぜん)
+  for (const regionEntries of Object.values(REGION_MINIGAMES)) {
+    for (const entry of regionEntries) minigameCategoryOf.set(entry.game, entry.category);
+  }
+  for (const seasonEntries of Object.values(SEASONAL_MINIGAMES)) {
+    for (const entry of seasonEntries) minigameCategoryOf.set(entry.game, entry.category);
+  }
+
   // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
   // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
   // あつかう。だから 地域に いるあいだは その4種類も ほかと まったく
