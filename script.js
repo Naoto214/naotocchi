@@ -708,12 +708,6 @@
       totalSicknessCount: 0,
       isSleeping: false,
       // パーフェクトクリア(ずかん・じっせき りょうほう コンプリート)を
-      // 一度でも たっせいすると true になり、そのプレイぶんは GOAL_DAYS
-      // ゴール判定(checkMeters())を もう トリガーしない - 「じゆうに
-      // あそぶ」ボタン(gameClearFreePlayBtn の ハンドラー さんしょう)で
-      // ゲームオーバー状態を ぬけたあとも おなじ ゴール条件で むげんに
-      // クリア画面が 出つづけない ようにする ための フラグ
-      freePlay: false,
       lowHealthStreak: 0,
       careSum: 0,
       careTicks: 0,
@@ -749,7 +743,7 @@
       // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
       // いっしょに リセットされる、今の いっしょうぶんの じょうたい。
       // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
-      // rollIdentity() で きまる(advanceStage() 参照)
+      // rollIdentity() で きまる(hatchEgg() 参照)
       partner: null,
       gender: null,
       orientationId: null,
@@ -1432,7 +1426,7 @@
   // しゅんかんには まだ おかねを はらわず、pickerOverlay で なにを
   // えらぶかを きめてから(resolvePickerSelection)はじめて はらう。
   // apply()/apply(value) が {} を かえした ばあいは、なかで すでに
-  // setMessage() ずみ(advanceStage/checkMeters けいゆ)という あいずなので、
+  // setMessage() ずみ(onStageChanged/checkMeters けいゆ)という あいずなので、
   // よびだし側は じぶんの メッセージで 上書きしない
   const CONSUMABLE_ITEMS = [
     // --- プチ(40〜120。やすい じゅんに ならんでいる) ---
@@ -3924,10 +3918,8 @@
       // なかまから じゅんに はなれて いってしまう
       decayCompanionBonds();
 
-      // no natural age-based advancement past the egg here on purpose -
-      // growing up beyond hatching only happens through triggerEvolutionJump()
-      // (see checkMeters()), so a full evo meter is the only thing that
-      // actually transforms the pet
+      // すがたの へんかは tick の あたまで ねんれいから 導出ずみ。ここでは
+      // いのちの はんてい(死亡 / きせきの ふんばり)だけを おこなう
       checkMeters();
     }
   }
@@ -5519,7 +5511,7 @@
 
   // 図鑑: shows every species line's 6 growth stages, revealing emoji+label
   // only for line/stage combos recorded in state.discoveredStages so far.
-  // パーフェクトクリアで freePlay に なったあとは、であった すがた(known)
+  // ♾️ の せかいに はいった あとは、であった すがた(known)
   // を タップすると すぐ その すがたに 変身できる(el.dexGrid の クリック
   // ハンドラー さんしょう) - ロックされた すがたは タップしても なにも
   // おきない
@@ -13330,10 +13322,8 @@
   }));
 
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
-    // パーフェクトクリアの ごほうび: ゲームオーバー(STAGE.CLEAR)状態を
-    // ぬけて 通常プレイに もどる。freePlay フラグを たてる ことで
-    // checkMeters() の GOAL_DAYS 判定を もう トリガーしない ようにし、
-    // おなじ 年齢の まま クリア画面が むげんループしないように している
+    // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
+    // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();
   }));
 
@@ -13347,13 +13337,11 @@
     render();
   });
 
-  // パーフェクトクリアの ごほうび「じゆうに あそぶ」中だけ、ずかんで
-  // であった(known)すがたを タップすると すぐ その すがたに 変身できる。
-  // triggerEvolutionJump()/triggerDevolutionJump() と おなじく、age も
-  // その すがたの threshold に あわせて、進化バーなどの 表示が おかしく
-  // ならないようにする。しゅぞく・せいちょうだけでなく、せいべつ・
-  // れんあいタイプ・せいかく傾向も まるごと 新しい こせいとして
-  // ロールしなおす(まったく べつの キャラに なりきる、という えんしゅつ)
+  // ⑤ パーフェクトクリア後の ♾️ の せかいでだけ、ずかんで であった(known)
+  // すがたを タップすると すぐ その すがたに なれる。ここが ゆいいつ
+  // 「ねんれいと みためを きりはなす」ところで、ねんれいは ♾️ の まま
+  // かえない。しゅぞくだけでなく、せいべつ・れんあいタイプ・せいかく傾向も
+  // まるごと 新しい こせいとして ロールしなおす
   el.dexGrid.addEventListener('click', (e) => {
     // ♾️ の せかい(パーフェクトクリア後)だけの とくてん。ここでは ねんれいと
     // みため を きりはなす - ねんれいは ♾️ の まま かえない
