@@ -680,9 +680,31 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .status-row {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 11px;
   font-weight: bold;
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+/* ねんれい と そだち は この ゲームの 中心の かずな ので すこし 大きく、
+   しゅぞく名は のこりの はばで おりかえさずに つめて 見せる */
+.status-row > #ageLabel,
+.status-row > #sodachiLabel {
+  font-size: 12px;
+  flex: 0 0 auto;
+}
+.status-row > #moneyLabel { flex: 0 0 auto; }
+/* しゅぞく名は じぶんの行で まるごと 見せる(ながい 名まえが おおいので) */
+.stage-name-row {
+  font-size: 10.5px;
+  font-weight: bold;
+  opacity: 0.9;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* いまいる地域(たび)・こいびと(きゅうあい)が いるときだけ 出す、
@@ -1768,10 +1790,12 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 .bar-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: bold;
-  width: 38px;
+  width: 62px;
   flex-shrink: 0;
+  white-space: nowrap;
+  letter-spacing: -0.2px;
 }
 
 .bar-value {
@@ -1840,11 +1864,13 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   box-shadow: 0 0 6px rgba(170, 0, 255, 0.8);
 }
 
+/* 「いのち」は はんてんひょうじ(のこりが おおいほど バーが ながい)。
+   じゅうぶん あるうちは おちついた みどり、へってくると あかい 警告に なる */
 .bar-fill.death {
-  background: #8d1414;
+  background: #4a9a5e;
 }
 
-.bar-fill.death.high {
+.bar-fill.death.low {
   background: #d50000;
   animation: death-meter-pulse 0.8s ease-in-out infinite;
 }
@@ -4527,3 +4553,197 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   border-radius: 8px;
   font-size: 11px;
 }
+
+/* ================================================================
+   ねんれい / そだち の あたらしい しくみ ぶんの ひょうじ
+   ================================================================ */
+
+/* 1さいごとの ちいさな トースト - 操作を とめずに ながれる */
+.birthday-toast {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 6;
+  animation: birthday-pop 1.2s ease-out;
+}
+@keyframes birthday-pop {
+  0% { opacity: 0; transform: translate(-50%, 6px); }
+  15% { opacity: 1; transform: translate(-50%, 0); }
+  75% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -6px); }
+}
+
+/* おわかれの まえぶれ - がめんが すこし くらくなる */
+.screen.dying { filter: brightness(0.78) saturate(0.7); }
+
+/* そだち100 の にじの オーラ */
+.screen.rainbow-aura #pet {
+  filter: drop-shadow(0 0 8px rgba(255, 120, 200, 0.85))
+          drop-shadow(0 0 16px rgba(120, 200, 255, 0.7));
+}
+
+/* さいごの じかん の おびと ボタン */
+.farewell-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 10px;
+  background: linear-gradient(180deg, rgba(255, 250, 225, 0.2), rgba(255, 236, 179, 0.92));
+  font-size: 10.5px;
+  z-index: 7;
+}
+.farewell-bar button {
+  font: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  background: #ff9800;
+  color: #fff;
+  cursor: pointer;
+}
+.farewell-bar button:active { transform: translateY(1px); }
+
+/* 人生の きろくカード */
+.life-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(12, 20, 14, 0.92);
+  color: #f2f6f0;
+  z-index: 20;
+  overflow-y: auto;
+}
+.life-card-overlay.gold { box-shadow: inset 0 0 0 3px #e0b45c; }
+.life-card-overlay.rainbow {
+  box-shadow: inset 0 0 0 3px transparent;
+  border-image: linear-gradient(90deg, #ff8ab8, #ffd76f, #8de8c0, #8ec4ff) 1;
+  outline: 3px solid transparent;
+  background-image: linear-gradient(rgba(12, 20, 14, 0.92), rgba(12, 20, 14, 0.92)),
+                    linear-gradient(90deg, #ff8ab8, #ffd76f, #8de8c0, #8ec4ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.life-card { width: 100%; max-width: 260px; text-align: center; line-height: 1.7; }
+.lifecard-title { font-size: 20px; font-weight: bold; }
+.lifecard-age { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
+.lifecard-line { font-size: 10.5px; opacity: 0.92; }
+.lifecard-badges {
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffd76f;
+  margin: 6px 0;
+  line-height: 1.9;
+}
+.lifecard-sep { height: 1px; background: rgba(255, 255, 255, 0.25); margin: 8px 0 6px; }
+.lifecard-log { font-size: 10px; text-align: left; opacity: 0.85; }
+.lifecard-log span { display: inline-block; min-width: 34px; opacity: 0.7; }
+.life-card-next {
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 18px;
+  background: #7ed08e;
+  color: #12301c;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+/* きけんな そうさ(「はじめから」と「完全リセット」を はっきり わける) */
+.danger-zone { border-top: 2px dashed rgba(200, 60, 60, 0.45); padding-top: 10px; }
+.danger-note { font-size: 9.5px; opacity: 0.75; margin: 3px 0 10px; line-height: 1.6; }
+.restart-btn, .wipe-btn {
+  font: inherit; font-size: 11px; font-weight: bold; width: 100%;
+  border: 0; border-radius: 8px; padding: 9px 10px; cursor: pointer;
+}
+.restart-btn { background: #7ed08e; color: #12301c; }
+.wipe-btn { background: #f3d6d6; color: #8e2020; border: 1px solid #d78a8a; }
+.wipe-overlay {
+  position: absolute; inset: 0; z-index: 30; display: flex;
+  align-items: center; justify-content: center; padding: 12px;
+  background: rgba(20, 8, 8, 0.9);
+}
+.wipe-box {
+  background: #fff8f8; color: #3a1414; border-radius: 12px;
+  padding: 14px; width: 100%; max-width: 250px; text-align: center;
+}
+.wipe-title { font-weight: bold; font-size: 13px; margin-bottom: 8px; }
+.wipe-body { font-size: 10.5px; line-height: 1.9; text-align: left; margin-bottom: 8px; }
+.wipe-warn { font-size: 10px; color: #a02020; font-weight: bold; line-height: 1.7; margin-bottom: 10px; }
+.wipe-actions { display: flex; gap: 8px; justify-content: center; margin-top: 8px; }
+.wipe-cancel, .wipe-next {
+  font: inherit; font-size: 11px; font-weight: bold; border: 0;
+  border-radius: 999px; padding: 7px 16px; cursor: pointer;
+}
+.wipe-cancel { background: #ddd; color: #333; }
+.wipe-next { background: #d05050; color: #fff; }
+.wipe-hold {
+  position: relative; overflow: hidden; font: inherit; font-size: 11.5px;
+  font-weight: bold; width: 100%; border: 0; border-radius: 8px;
+  padding: 12px 10px; background: #e8b7b7; color: #6b1414; cursor: pointer;
+  touch-action: none; user-select: none;
+}
+#wipeHoldFill {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+  background: #c03030; transition: width 0.1s linear;
+}
+.wipe-hold-text { position: relative; z-index: 1; }
+
+/* このプロジェクトには はんようの .hidden ルールが ない ので、
+   あたらしく ついかした ようそにも それぞれ ひょうじ/ひひょうじを かく */
+.birthday-toast.hidden,
+.farewell-bar.hidden,
+.life-card-overlay.hidden,
+.wipe-overlay.hidden,
+#infiniteBtn.hidden {
+  display: none !important;
+}
+
+/* ④ずかんクリア / ⑤パーフェクトクリア の おいわい画面を とじる ボタン */
+.game-clear-close-btn {
+  font: inherit;
+  font-size: 11px;
+  font-weight: bold;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 20px;
+  margin-top: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  cursor: pointer;
+}
+.game-clear-close-btn.hidden { display: none !important; }
+/* そだち70/80 の セクションと そだち50 の デートボタンも、とどくまで
+   かくして おく。このプロジェクトには はんようの .hidden ルールが ない ので、
+   ここでも 1つずつ 明示的に とじる */
+.profile-code-btn.hidden,
+.theme-section.hidden,
+.dex-section-divider.hidden,
+.companion-dex-row.hidden { display: none !important; }
+
+/* とくべつな たびさきの けしき。ほしぞらの ていりゅうじょは よふけの あお、
+   きおくの みずうみは しろっぽい もや。どちらも ふつうの 8地域とは
+   あきらかに ちがう 空気に なるよう、いろの ふりはばを おおきくとる */
+body.region-star_stop { background: radial-gradient(circle at 50% 18%, #2b2f5e 0%, #171a38 55%, #05060f 100%); }
+body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff 0%, #cfe3ec 55%, #8ba7b5 100%); }

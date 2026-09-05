@@ -21,10 +21,13 @@
       <div class="screen" id="screen">
         <div class="screen-normal" id="screenNormal">
           <div class="status-row">
-            <span id="ageLabel">年齢: 0</span>
+            <span id="ageLabel">ねんれい: 0さい</span>
+            <span id="sodachiLabel">そだち: 20</span>
             <span id="moneyLabel">💰 0</span>
-            <span id="stageLabel">たまご</span>
           </div>
+          <div class="stage-name-row"><span id="stageLabel">たまご</span></div>
+
+          <div class="birthday-toast hidden" id="birthdayToast"></div>
 
           <div class="sub-status-row hidden" id="subStatusRow">
             <div class="world-status" id="worldStatus">
@@ -45,42 +48,42 @@
 
           <div class="bars">
             <div class="bar-line">
-              <span class="bar-label">満腹</span>
+              <span class="bar-label">おなか</span>
               <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">機嫌</span>
+              <span class="bar-label">ごきげん</span>
               <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">元気</span>
+              <span class="bar-label">げんき</span>
               <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">体力</span>
+              <span class="bar-label">けんこう</span>
               <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
             </div>
           </div>
 
-          <div class="bars meters">
+          <div class="bars meters" id="lifeMeterRow">
             <div class="bar-line">
-              <span class="bar-label">進化</span>
+              <span class="bar-label">せいちょう</span>
               <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">退化</span>
+              <span class="bar-label">おとろえ</span>
               <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">死亡</span>
+              <span class="bar-label">いのち</span>
               <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">変身</span>
+              <span class="bar-label">へんしん</span>
               <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">ゴール</span>
+              <span class="bar-label">ひゃくさいまで</span>
               <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
               <span class="bar-value" id="goalValue">0 / 100</span>
             </div>
@@ -92,6 +95,16 @@
         </div>
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
+
+        <div class="farewell-bar hidden" id="farewellBar">
+          <span>さいごの じかん — ゆっくり おわかれを しよう</span>
+          <button id="farewellBtn">この子の いっしょうを きろくする</button>
+        </div>
+
+        <div class="life-card-overlay hidden" id="lifeCardOverlay">
+          <div class="life-card" id="lifeCardBody"></div>
+          <button class="life-card-next" id="lifeCardNextBtn">あたらしい たまごを むかえる</button>
+        </div>
 
         <div class="story-flash hidden" id="storyFlash">
           <div class="story-flash-emoji" id="storyFlashEmoji"></div>
@@ -118,6 +131,11 @@
               <span class="dex-progress" id="companionDexProgress">0 / 10</span>
             </div>
             <div class="companion-dex-row" id="companionDexGrid"></div>
+            <div class="dex-section-divider hidden" id="rareCompanionDexDivider">
+              <span class="dex-section-title">レアなかま</span>
+              <span class="dex-progress" id="rareCompanionDexProgress">0 / 5</span>
+            </div>
+            <div class="companion-dex-row hidden" id="rareCompanionDexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">こいびと</span>
               <span class="dex-progress" id="partnerDexProgress">0 / 16</span>
@@ -157,6 +175,37 @@
             <div class="theme-section">
               <div class="theme-section-title">がめんの がら</div>
               <div class="theme-grid" id="screenPatternGrid"></div>
+            </div>
+
+            <div class="theme-section danger-zone">
+              <div class="theme-section-title">きけんな そうさ</div>
+              <button class="restart-btn" id="softResetBtn">🥚 あたらしい たまごを むかえる</button>
+              <div class="danger-note">いまの子だけ おわりに して、あたらしい たまごを むかえます。ずかん・じっせき・おかね・アイテムは のこります。</div>
+              <button class="wipe-btn" id="wipeBtn">⚠️ ぜんぶ さいしょから やりなおす</button>
+              <div class="danger-note">セーブデータを ぜんぶ けします。もとに もどせません。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wipe-overlay hidden" id="wipeOverlay">
+          <div class="wipe-box">
+            <div class="wipe-title">⚠️ ぜんぶ さいしょから やりなおす</div>
+            <div class="wipe-body" id="wipeSummary"></div>
+            <div class="wipe-warn">ずかん・じっせき・おかね・アイテム・おもいで、ぜんぶ きえます。<br>もとに もどせません。</div>
+            <div class="wipe-actions">
+              <button class="wipe-cancel" id="wipeCancelBtn">やめる</button>
+              <button class="wipe-next" id="wipeNextBtn">つぎへ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wipe-overlay hidden" id="wipeConfirmOverlay">
+          <div class="wipe-box">
+            <div class="wipe-title">ほんとうに ぜんぶ けしますか?</div>
+            <div class="wipe-warn">けすには したの ボタンを <b>3びょう ながおし</b> してください。</div>
+            <button class="wipe-hold" id="wipeHoldBtn"><span id="wipeHoldFill"></span><span class="wipe-hold-text">ながおしで けす</span></button>
+            <div class="wipe-actions">
+              <button class="wipe-cancel" id="wipeConfirmCancelBtn">やめる</button>
             </div>
           </div>
         </div>
@@ -207,6 +256,7 @@
               <div class="profile-hint">なおとっちが くらす「せかい」の きせつや、いま いる ばしょを ここから かえられます</div>
               <button class="profile-code-btn" id="worldSeasonMenuBtn">🌸 きせつを かえる</button>
               <button class="profile-code-btn" id="worldTravelBtn">🧳 たびに でる</button>
+              <button class="profile-code-btn hidden" id="worldDateBtn">💞 デートに さそう</button>
             </div>
           </div>
         </div>
@@ -234,6 +284,10 @@
               <div class="profile-hint">行きたい 場所を えらんで タップすると、その地域へ たびに でられます</div>
               <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
+            <div class="theme-section hidden" id="travelSpecialSection">
+              <div class="profile-hint">とくべつな たびさき - ちずには のっていない ばしょです</div>
+              <div class="theme-grid" id="travelSpecialGrid"></div>
+            </div>
           </div>
         </div>
 
@@ -245,7 +299,7 @@
           <div class="profile-scroll">
             <div class="profile-section">
               <div class="profile-row"><span class="profile-label">しゅぞく</span><span id="profileSpecies"></span></div>
-              <div class="profile-row"><span class="profile-label">せいちょう</span><span id="profileStage"></span></div>
+              <div class="profile-row"><span class="profile-label">いまの すがた</span><span id="profileStage"></span></div>
               <div class="profile-row"><span class="profile-label">せいべつ</span><span id="profileGender"></span></div>
               <div class="profile-row">
                 <span class="profile-label">れんあいタイプ</span>
@@ -453,7 +507,8 @@
           <div class="game-clear-badges" id="gameClearBadges"></div>
           <div class="game-clear-subtitle">go to heaven!!</div>
           <div class="game-clear-desc" id="gameClearDesc">さいごまで そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう</div>
-          <button class="game-clear-freeplay-btn hidden" id="gameClearFreePlayBtn">じゆうに あそぶ</button>
+          <button class="game-clear-freeplay-btn hidden" id="gameClearFreePlayBtn">♾️ の せかいへ</button>
+          <button class="game-clear-close-btn hidden" id="gameClearCloseBtn">とじる</button>
           <div class="game-clear-confetti" id="gameClearConfettiBottom">✨🎊🎉✨🎊🎉</div>
         </div>
       </div>
@@ -472,7 +527,8 @@
       <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
       <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
       <button id="themeBtn" title="でざいん">🎨<br><span>でざいん</span></button>
-      <button id="resetBtn" title="リセット" class="hidden">🔄<br><span>はじめから</span></button>
+      <button id="resetBtn" title="あたらしい たまご" class="hidden">🥚<br><span>あたらしい たまご</span></button>
+      <button id="infiniteBtn" title="♾️ の せかい" class="hidden">♾️<br><span>♾️のせかい</span></button>
     </div>
   </div>
 
