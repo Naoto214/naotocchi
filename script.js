@@ -678,6 +678,8 @@
     lifeCardBody: document.getElementById('lifeCardBody'),
     lifeCardNextBtn: document.getElementById('lifeCardNextBtn'),
     infiniteBtn: document.getElementById('infiniteBtn'),
+    infiniteBtnIcon: document.getElementById('infiniteBtnIcon'),
+    infiniteBtnLabel: document.getElementById('infiniteBtnLabel'),
     softResetBtn: document.getElementById('softResetBtn'),
     wipeBtn: document.getElementById('wipeBtn'),
     wipeOverlay: document.getElementById('wipeOverlay'),
@@ -971,6 +973,11 @@
       // ♾️ の せかい(パーフェクトクリア後の 自由モード)
       infinite: false,
       infiniteForm: null,
+      // ♾️ に はいる まえの 人生を まるごと しまっておく ばしょ。
+      // 「いっしょうに もどる」で ここから もとの 人生を そのまま
+      // ふくげんする ので、♾️ は 人生を リセットしない。state の 一部な ので
+      // セーブにも のり、ページを ひらきなおしても もどれる
+      infiniteReturn: null,
       schemaVersion: 3,
       poopCount: 0,
       isSick: false,
@@ -1781,7 +1788,7 @@
     // --- でんせつ(30000〜60000。やすい じゅんに ならんでいる。
     //     ほぼ 不可能な くらい 高額) ---
     { id: 'ot_dexpick', label: 'ずかんの ひみつ', emoji: '🔮', price: 8000, picker: 'dex', desc: 'ずかんの すがたを 1つ 好きに えらんで、その場で ずかんに とうろくする(すがたは かわらない)', apply: (value) => { const [line, idxStr] = value.split(':'); const stageIndex = Number(idxStr); const stage = SPECIES[line] && SPECIES[line].stages[stageIndex]; if (!stage) return { message: 'えらべなかった…' }; recordDiscoveryKey(`${line}:${stageIndex}`); return { message: `${stage.emoji} ${stage.label}を ずかんに とうろくした!`, emote: 'love' }; } },
-    { id: 'ot_dreamegg', label: 'たまごの ゆめ', emoji: '🥚', price: 5000, picker: 'dreamline', desc: 'つぎの たまごが どの しゅぞくで うまれるかを えらべる', available: () => (state.lifetime.lifeClears || 0) >= 1, unavailableMessage: 'いっしょうクリアすると つかえる', apply: (value) => { if (!SPECIES[value]) return { message: 'えらべなかった…' }; state.lifetime.nextEggLine = value; return { message: `つぎの たまごは ${SPECIES_DISPLAY_NAMES[value] || value} に なるよ!`, emote: 'love' }; } },
+    { id: 'ot_dreamegg', label: 'たまごの ゆめ', emoji: '🥚', price: 5000, picker: 'dreamline', desc: 'つぎの たまごが どの しゅぞくで うまれるかを えらべる(そだち90まで そだてた ことが あれば、レアな しゅぞくも えらべる)', available: () => (state.lifetime.lifeClears || 0) >= 1 || ((state.lifetime.dreamEggs && state.lifetime.dreamEggs.normal) || 0) > 0, unavailableMessage: 'いっしょうクリアするか、そだち100まで そだてると つかえる', apply: (value) => { if (!SPECIES[value]) return { message: 'えらべなかった…' }; state.lifetime.nextEggLine = value; return { message: `つぎの たまごは ${SPECIES_DISPLAY_NAMES[value] || value} に なるよ!`, emote: 'love' }; } },
     { id: 'ot_achpick', label: 'きせきの じっせき証明書', emoji: '📜', price: 60000, picker: 'achievement', desc: 'じっせきを 1つ 好きに えらんで、その場で 達成した ことにする', available: () => ACHIEVEMENTS.some((a) => !state.achievementsUnlocked.includes(a.id)), unavailableMessage: 'もう ぜんぶの じっせきを たっせいずみ', apply: (value) => { if (!state.achievementsUnlocked.includes(value)) state.achievementsUnlocked.push(value); const ach = ACHIEVEMENTS.find((a) => a.id === value); return { message: `じっせき「${ach.label}」を てにいれた!`, emote: 'love' }; } },
   ];
 
@@ -3259,10 +3266,12 @@
   // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
   // そうびしていると、そこから さらに 2わり おさえられる
   function raiseDeathMeter(amount) {
-    // なおとのリングを もっていると、しぼうメーターは 二度と 上がらない
-    // (=ぜったいに 死亡しない)。かんびょう などで もらえる かいふく分は
-    // ふつうに はたらくので、amount<0 の ばあいだけは そのまま とおす
-    if (amount > 0 && hasNaotoItem('naoto_ring')) return;
+    // 「もう いのちは つきない」じょうたい(なおとのリング / そだち100 /
+    // ♾️)では、しぼうメーターは 二度と 上がらない。むかしは リングだけを
+    // みていた ため、そだち100の あとも メーターだけ たまって
+    // 「ぜったい 死なないのに いのちバーが まっ赤」という くいちがいが
+    // おきていた。かいふく分(amount<0)は どの ばあいも そのまま とおす
+    if (amount > 0 && isImmortal()) return;
     const crownFactor = isEquipped('crown3') ? 0.35 : isEquipped('crown2') ? 0.6 : isEquipped('crown') ? 0.8 : 1;
     state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
   }
@@ -4142,7 +4151,13 @@
     if (value === 100) {
       state.lifetime.dreamEggs.normal += 1;
       state.lifetime.money += 5000;
-      setMessage('👑 さいこうの そだち! 💰5000と たまごの ゆめを もらった!');
+      // 「その人生の のこりは 不死」を UI でも はっきりさせる。
+      // ここで いのちを まんたんに もどし、おわかれの まえぶれも けす
+      state.deathMeter = 0;
+      state.dying = false;
+      state.dyingTicks = 0;
+      state.lowHealthStreak = 0;
+      setMessage('👑 さいこうの そだち! もう いのちは つきない。💰5000と たまごの ゆめを もらった!');
     } else {
       setMessage(`${perk.emoji} そだち ${value}! ${perk.name}`);
     }
@@ -4218,13 +4233,61 @@
 
   // ⑤ パーフェクトクリア後だけ はいれる ♾️ の せかい。ねんれい・いのち・
   // そだちが とまり、ずかんから すきな すがたを えらべる ようになる
+  // ♾️ は「べつの ごほうびモード」であって、人生の やりなおしでは ない。
+  // はいる まえの 人生を まるごと しまってから きりかえる ので、
+  // 「いっしょうに もどる」で ねんれい・そだち・なかま・こいびとまで
+  // そのまま かえってくる(§27「♾️ ⇄ 通常の人生を いつでも 行き来できる」)
   function enterInfinite() {
+    if (state.infinite) return;
+    // ずかん・じっせき・lifetime は 人生を またぐ きろく な ので しまわない。
+    // = ♾️ の あいだに ふえた おかね・ずかん・じっせきは もどっても のこる
+    const snapshot = JSON.parse(JSON.stringify(state));
+    delete snapshot.lifetime;
+    delete snapshot.discoveredStages;
+    delete snapshot.achievementsUnlocked;
+    delete snapshot.infiniteReturn;
+    state.infiniteReturn = snapshot;
     state.stage = STAGE.GROWING;
     state.infinite = true;
     state.dying = false;
+    state.dyingTicks = 0;
     state.lifetime.perfectCleared = true;
     setMessage('♾️ ねんれいから じゆうに なった! ずかんから すきな すがたを えらべるよ');
     emotePet('love');
+  }
+
+  // ♾️ から ふつうの 人生へ もどる。lifetime.resets も pastLives も
+  // ふやさない し、じっせき用の カウンタにも さわらない - ♾️ に
+  // でいりした こと じたいは、なにも きろくに のこさない
+  function exitInfinite() {
+    if (!state.infinite) return;
+    const snapshot = state.infiniteReturn;
+    // 人生を またぐ きろくは そのまま ひきつぐ(♾️ で えた ぶんも のこす)
+    const lifetime = state.lifetime;
+    const discoveredStages = state.discoveredStages;
+    const achievementsUnlocked = state.achievementsUnlocked;
+    if (!snapshot) {
+      // ふるい セーブ(旧 freePlay からの ひきつぎ など)には しまってある
+      // 人生が ない。その ばあいだけ あたらしい たまごから はじめる
+      state = freshState();
+      state.lifetime = lifetime;
+      state.discoveredStages = discoveredStages;
+      state.achievementsUnlocked = achievementsUnlocked;
+      state.declineBaseline = lifetime.devolutions || 0;
+      setMessage('あたらしい たまごが やってきた…');
+      emotePet('happy');
+      return;
+    }
+    state = Object.assign({}, snapshot, {
+      lifetime,
+      discoveredStages,
+      achievementsUnlocked,
+      infinite: false,
+      infiniteForm: null,
+      infiniteReturn: null,
+    });
+    setMessage('♾️ の せかいから、この子の いっしょうに もどってきた');
+    emotePet('happy');
   }
 
   // 人生の きろくカード。死亡時・100さい到達時に 見せる
@@ -5202,11 +5265,14 @@
     el.playWithBtn.disabled = isOver || hasTransformChoice;
     el.courtBtn.disabled = disableCare;
     el.travelBtn.disabled = disableCare;
-    el.resetBtn.classList.toggle('hidden', !isOver && !isFarewell && !state.infinite);
-    // ♾️ の せかいからは、この ボタンで いつでも ふつうの 人生に もどれる(§27)
-    el.resetBtn.querySelector('span').textContent = state.infinite ? 'いっしょうに もどる' : 'あたらしい たまご';
-    el.resetBtn.title = state.infinite ? '♾️ を おわりに して あたらしい たまごを むかえる' : 'あたらしい たまご';
-    el.infiniteBtn.classList.toggle('hidden', !state.lifetime.perfectCleared || state.infinite || state.stage !== STAGE.EGG);
+    el.resetBtn.classList.toggle('hidden', !isOver && !isFarewell);
+    // ♾️ の ボタンは 行き と かえり の りょうほうを かねる。パーフェクト
+    // クリアずみなら、たまご中でも 人生の とちゅうでも いつでも 行き来できる
+    const canEnterInfinite = state.lifetime.perfectCleared && !state.infinite && !isDead;
+    el.infiniteBtn.classList.toggle('hidden', !state.infinite && !canEnterInfinite);
+    el.infiniteBtnIcon.textContent = state.infinite ? '↩️' : '♾️';
+    el.infiniteBtnLabel.textContent = state.infinite ? 'いっしょうに もどる' : '♾️のせかい';
+    el.infiniteBtn.title = state.infinite ? 'この子の いっしょうに もどる' : '♾️ の せかいへ';
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
@@ -5399,7 +5465,7 @@
 
     let orientationText = state.orientationId ? orientationLabel(state.orientationId, state.gender) : '???';
     if (state.orientationId === 'questioning') {
-      orientationText += `(けいけん ${state.questioningEncounters || 0}/${questioningResolveThreshold()})`;
+      orientationText += ` — さがしちゅう ${state.questioningEncounters || 0}/${questioningResolveThreshold()}`;
     }
     el.profileOrientation.textContent = orientationText;
     // アロマンティック/クエスチョニングは ごかいされやすい ことばな ので、
@@ -5410,8 +5476,13 @@
     // しっぱいでは ない、という トーン。プロフィールは キャラ情報を
     // かんけつに 見せたいので、この せつめいは デフォルトでは たたんでおく
     const ORIENTATION_HELP_TEXT = {
-      aro: 'れんあい感情を あまり かんじない/かんじにくい タイプ。なかまや ともだちとの ふかい きずなは ふつうに きずけます',
-      questioning: 'れんあいタイプが まだ きまっていない/さがしている とちゅう。いろんな あいてと であう ことで、いつか べつの タイプに おちつくかも',
+      aro: 'だれかを「すき」に なる きもちが、あまり わいてこない こ。'
+        + 'だから「きゅうあいする」を おしても こいびとには ならないけれど、'
+        + 'なかまや ともだちとは これまでどおり なかよく なれるよ。'
+        + 'ひとりの じかんが すきなだけで、さみしい わけでは ないんだ',
+      questioning: 'じぶんが だれを すきに なるのか、まだ さがしている とちゅうの こ。'
+        + `「きゅうあいする」を おすたびに けいけんが 1つ たまって、${questioningResolveThreshold()}かい たまると じぶんの きもちが はっきりする。`
+        + 'うまく いかなかった かいも、ちゃんと けいけんに なるよ',
     };
     const helpText = ORIENTATION_HELP_TEXT[state.orientationId];
     el.profileOrientationHelpBtn.classList.toggle('hidden', !helpText);
@@ -14350,7 +14421,8 @@
 
   // ♾️ の せかいへ(パーフェクトクリアずみの ときだけ ボタンが 出る)
   el.infiniteBtn.addEventListener('click', withFeedback(() => {
-    enterInfinite();
+    if (state.infinite) exitInfinite();
+    else enterInfinite();
   }));
 
   el.resetBtn.addEventListener('click', withFeedback(() => {
@@ -14358,8 +14430,8 @@
     // reset even though every other stat starts over from scratch
     const discoveredStages = state.discoveredStages;
     // この子の いっしょうを ようやく 1行に して 歴代に のこす。
-    // ♾️ の せかいは「1つの 人生」では ない ので、そこから もどる ときは
-    // 歴代(pastLives)にも さいこう記録にも つまない
+    // ♾️ の せかいは「1つの 人生」では ない ので、そこからは この ボタンに
+    // たどりつかない(♾️ の あいだ resetBtn は かくれている)が、ねんの ため
     if (state.stage !== STAGE.EGG && !state.infinite) archiveLifeAndReset();
     const lifetime = state.lifetime;
     // 古いセーブデータには resets フィールドが無いので || 0 で補う

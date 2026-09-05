@@ -4225,6 +4225,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+/* ♾️ ボタンだけ アイコンも span に なっている ので、アイコン側は
+   ボタン本体の 文字サイズの まま(ラベルの ちいさい 文字に しない) */
+.buttons button > span#infiniteBtnIcon {
+  display: block;
+  font-size: 20px;
+  margin-top: 0;
+  color: inherit;
+}
+
 .buttons button span {
   display: block;
   font-size: 10px;
