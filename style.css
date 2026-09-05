@@ -3496,6 +3496,416 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   color: #ffe27a;
 }
 
+/* タイミングゲーム きょうつうの アイコン(りょうり・シミュレーション・アーケードの ジャンル表示) */
+
+.mg-timing-icon {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 2px;
+}
+
+/* コンボにゅうりょく(かくとう ひっさつわざコマンド) */
+
+.mg-combo-sequence {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.mg-combo-icon {
+  font-size: 24px;
+  opacity: 0.35;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.mg-combo-icon.done {
+  opacity: 1;
+}
+
+.mg-combo-icon.current {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.mg-combo-sequence.mg-combo-fail {
+  animation: mg-fight-shake 0.3s ease;
+}
+
+.mg-combo-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* はこ・カードえらび */
+
+.mg-box-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.mg-box-btn {
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.15s ease;
+}
+
+.mg-box-btn:active {
+  transform: scale(0.9);
+}
+
+.mg-box-btn:disabled {
+  opacity: 0.5;
+}
+
+.mg-box-result {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.mg-box-result.hidden {
+  display: none;
+}
+
+/* あしばわたり */
+
+.mg-stones-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.mg-stone {
+  font-size: 20px;
+  opacity: 0.35;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.mg-stone.crossed {
+  opacity: 0.6;
+}
+
+.mg-stone.current {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.mg-stones-row.mg-combo-fail {
+  animation: mg-fight-shake 0.3s ease;
+}
+
+/* しょうじゅん・まとあて */
+
+.mg-aim-field {
+  position: relative;
+  flex: 1;
+  min-height: 160px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #cfe8f7, #eaf6ff);
+}
+
+.mg-aim-target {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+
+.mg-aim-reticle {
+  position: absolute;
+  font-size: 22px;
+  transform: translate(-50%, -50%);
+}
+
+/* レース */
+
+.mg-race-track {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  min-height: 130px;
+}
+
+.mg-race-lane {
+  position: relative;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 13px;
+}
+
+.mg-race-runner {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  transition: left 0.1s linear;
+}
+
+.mg-race-goal {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+/* スワイプなげ(ボウリング・カーリング) */
+
+.mg-swipe-lane {
+  position: relative;
+  flex: 1;
+  min-height: 190px;
+  border-radius: 6px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.mg-swipe-lane-bowling {
+  background: linear-gradient(to bottom, #e8d9b5 0%, #e8d9b5 80%, #8a6d3b 80%, #8a6d3b 100%);
+}
+
+.mg-swipe-lane-bowling .mg-swipe-target::before {
+  content: '🎳🎳🎳';
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  letter-spacing: 4px;
+}
+
+.mg-swipe-lane-curling {
+  background: linear-gradient(to bottom, #dff3ff 0%, #dff3ff 100%);
+}
+
+.mg-swipe-lane-curling .mg-swipe-target::before {
+  content: '🎯';
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 34px;
+}
+
+.mg-swipe-projectile {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  font-size: 24px;
+  transform: translateX(-50%);
+}
+
+.mg-swipe-projectile.hidden {
+  display: none;
+}
+
+.mg-swipe-result {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+/* おしくらまんじゅう */
+
+.mg-push-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.mg-push-side {
+  font-size: 26px;
+}
+
+.mg-push-bar {
+  flex: 1;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+.mg-push-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9ec4, #ffd166);
+  transition: width 0.15s ease;
+}
+
+/* やさいを きる */
+
+.mg-chop-board {
+  position: relative;
+  flex: 1;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4ead2;
+  border-radius: 10px;
+  border: 3px solid #d9c398;
+  touch-action: none;
+}
+
+.mg-chop-veggie {
+  font-size: 40px;
+}
+
+.mg-chop-knife {
+  position: absolute;
+  right: 20%;
+  top: 20%;
+  font-size: 28px;
+  transition: transform 0.15s ease;
+}
+
+.mg-chop-knife.chopping {
+  transform: translateY(20px) rotate(-20deg);
+}
+
+/* ステルス */
+
+.mg-stealth-field {
+  position: relative;
+  flex: 1;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(to bottom, #d8d8f0, #eaeaff);
+  border-radius: 8px;
+}
+
+.mg-stealth-guard {
+  font-size: 44px;
+  transition: transform 0.2s ease;
+}
+
+.mg-stealth-guard.facing-you {
+  transform: scaleX(-1);
+}
+
+.mg-stealth-status {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* ルーレット */
+
+.mg-roulette-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.mg-roulette-slot {
+  font-size: 26px;
+  opacity: 0.4;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+}
+
+.mg-roulette-slot.active {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* ブロックくずしふう */
+
+.mg-breakout-field {
+  position: relative;
+  flex: 1;
+  min-height: 170px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #14142b;
+}
+
+.mg-breakout-blocks {
+  position: absolute;
+  inset: 0;
+}
+
+.mg-breakout-block {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid #14142b;
+  background: linear-gradient(160deg, #ff9ec4, #ff6b9d);
+  transition: opacity 0.15s ease;
+}
+
+.mg-breakout-block.gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mg-breakout-ball {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffe27a;
+  transform: translate(-50%, -50%);
+}
+
+.mg-breakout-paddle {
+  position: absolute;
+  bottom: 4%;
+  height: 8px;
+  border-radius: 4px;
+  background: #6fae5f;
+  transform: translateX(-50%);
+}
+
+/* スポーツスイング */
+
+.mg-sports-field {
+  position: relative;
+  flex: 1;
+  min-height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: linear-gradient(to bottom, #cfe8f7 0%, #cfe8f7 65%, #9fd88a 65%, #9fd88a 100%);
+  border-radius: 6px;
+  overflow: hidden;
+  padding-bottom: 14px;
+}
+
+.mg-sports-goal {
+  font-size: 44px;
+}
+
+.mg-sports-ball {
+  position: absolute;
+  left: calc(100% - 36px);
+  bottom: 14px;
+  font-size: 26px;
+}
+
+.mg-sports-ball.hidden {
+  display: none;
+}
+
 /* くらべっこ(かずくらべ・おおきさくらべ) */
 
 .mg-compare-row {
