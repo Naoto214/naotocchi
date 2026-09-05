@@ -10425,6 +10425,686 @@
   ];
   const SPORTS_SWING_VARIANTS = [mg('sportsSwing-themed', randomThemeGame(makeSportsSwingGame, SPORTS_SWING_THEMES))];
 
+  // ================================================================
+  // 第3段階B: 「あたらしい 操作たいけん」を もつ ミニゲーム7しゅるい
+  // ここから したは、既存の絵柄違い水増しとは ちがい、いままで なかった
+  // 操作(ドラッグ&ドロップ/まちぶせ→はんのう/れんぞくステアリング/
+  // タイミング→バランスの2だんかい/てふだ判断/2だんかい探索)を
+  // ついかする。既存の抽選・アンチリピート・履歴永続化のしくみには
+  // いっさい 手を くわえていない
+  // ================================================================
+
+  // --- ドラッグ&ドロップ きょうつうエンジン(ケーキ/おべんとうで つかう) ---
+  // pointerdown した ようそを ゆびに ついて うごかす。position:fixed +
+  // clientX/clientYを そのまま つかう ため、ページの スクロールりょうに
+  // えいきょうされない。pointerup/pointercancel の どちらでも かならず
+  // ドラッグを おわらせ、onDropがfalseを かえした ときは もとの いちへ
+  // もどす(ドラッグに しっぱいしても やりなおせる、こどもに やさしい仕様)
+  function enableDragItem(itemEl, onDrop) {
+    let dragging = false;
+    let originLeft = '', originTop = '', originPosition = '';
+    function place(x, y) {
+      const w = parseFloat(itemEl.style.width) || itemEl.offsetWidth;
+      const h = parseFloat(itemEl.style.height) || itemEl.offsetHeight;
+      itemEl.style.left = (x - w / 2) + 'px';
+      itemEl.style.top = (y - h / 2) + 'px';
+    }
+    function onPointerDown(e) {
+      if (dragging || itemEl.classList.contains('placed')) return;
+      dragging = true;
+      try { itemEl.setPointerCapture(e.pointerId); } catch (err) { /* iOS Safariの ふるいばあいも あるので しっぱいは むし */ }
+      const rect = itemEl.getBoundingClientRect();
+      originLeft = itemEl.style.left;
+      originTop = itemEl.style.top;
+      originPosition = itemEl.style.position;
+      itemEl.style.width = rect.width + 'px';
+      itemEl.style.height = rect.height + 'px';
+      itemEl.style.position = 'fixed';
+      itemEl.classList.add('dragging');
+      place(e.clientX, e.clientY);
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      place(e.clientX, e.clientY);
+    }
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      itemEl.classList.remove('dragging');
+      const handled = onDrop(e.clientX, e.clientY, itemEl);
+      if (!handled) {
+        itemEl.style.position = originPosition;
+        itemEl.style.left = originLeft;
+        itemEl.style.top = originTop;
+        itemEl.style.width = '';
+        itemEl.style.height = '';
+      }
+    }
+    itemEl.addEventListener('pointerdown', onPointerDown);
+    itemEl.addEventListener('pointermove', onPointerMove);
+    itemEl.addEventListener('pointerup', endDrag);
+    itemEl.addEventListener('pointercancel', endDrag);
+  }
+
+  function isPointInsideEl(el, x, y) {
+    const r = el.getBoundingClientRect();
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+  }
+
+  // --- 1. ケーキデコレーション(しじされた いちへ ドラッグして おく) ---
+  // トッピングを ゆびで つまんで、ケーキ上の しじされた いちへ ドラッグする
+  // はじめての「ほんものの ドラッグ&ドロップ」ミニゲーム。1かいに 1しゅるい
+  // だけを ハイライトし、まちがえても なにも おこらず やりなおせる
+  function makeCakeDecorateGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const ROUNDS_DEF = [
+          { key: 'strawberry', emoji: '🍓', label: 'いちご', left: 26, top: 34 },
+          { key: 'choco', emoji: '🍫', label: 'チョコ', left: 50, top: 20 },
+          { key: 'cherry', emoji: '🍒', label: 'さくらんぼ', left: 74, top: 34 },
+        ];
+        const TIME_LIMIT_MS = 13000;
+        let roundIndex = 0;
+        let placedCount = 0;
+        let finished = false;
+        let timer;
+        container.innerHTML = `
+          <div class="mg-header"><span id="mgScore">${placedCount}/${ROUNDS_DEF.length}</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-cake-stage" id="mgCakeStage">
+            <div class="mg-cake-base">🍰</div>
+            ${ROUNDS_DEF.map((r) => `<div class="mg-drop-target" data-key="${r.key}" style="left:${r.left}%;top:${r.top}%"></div>`).join('')}
+          </div>
+          <div class="mg-hint" id="mgHint"></div>
+          <div class="mg-drag-tray" id="mgTray">
+            ${ROUNDS_DEF.map((r) => `<div class="mg-drag-item" data-key="${r.key}">${r.emoji}</div>`).join('')}
+          </div>
+        `;
+        const hintEl = container.querySelector('#mgHint');
+        const scoreEl = container.querySelector('#mgScore');
+        const targets = Array.from(container.querySelectorAll('.mg-drop-target'));
+        const items = Array.from(container.querySelectorAll('.mg-drag-item'));
+
+        function currentRound() { return ROUNDS_DEF[roundIndex]; }
+        function updateHint() {
+          const r = currentRound();
+          if (r) hintEl.textContent = `${r.label}を ここに おいてね!`;
+          targets.forEach((t) => t.classList.toggle('active', !!r && t.dataset.key === r.key));
+        }
+        updateHint();
+
+        function finish(score) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          onComplete(score);
+        }
+
+        items.forEach((itemEl) => {
+          enableDragItem(itemEl, (x, y) => {
+            if (finished) return true;
+            const round = currentRound();
+            if (!round || itemEl.dataset.key !== round.key) return false;
+            const target = targets.find((t) => t.dataset.key === round.key);
+            if (!target || !isPointInsideEl(target, x, y)) return false;
+            itemEl.classList.add('placed');
+            itemEl.style.opacity = '0';
+            itemEl.style.pointerEvents = 'none';
+            target.classList.remove('active');
+            target.classList.add('filled');
+            target.textContent = itemEl.textContent;
+            placedCount += 1;
+            scoreEl.textContent = `${placedCount}/${ROUNDS_DEF.length}`;
+            roundIndex += 1;
+            if (placedCount >= ROUNDS_DEF.length) {
+              hintEl.textContent = 'できあがり! 🎂';
+              finish(100);
+            } else {
+              updateHint();
+            }
+            return true;
+          });
+        });
+
+        timer = setTimeout(() => {
+          finish(Math.round((placedCount / ROUNDS_DEF.length) * 100));
+        }, TIME_LIMIT_MS);
+      },
+    };
+  }
+
+  // --- 2. おべんとうづくり(見本を おぼえて おなじ はいちに もどす) ---
+  // ケーキと おなじ ドラッグエンジンを つかいまわすが、かちはい判定は
+  // まったく べつもの:さいしょに 見本を みじかく 見せてから かくし、
+  // プレイヤーは「しじされた いち」ではなく「じぶんの きおく」だけを
+  // たよりに もとの はいちを さいげんする(配置精度のケーキ vs
+  // 記憶+ドラッグの おべんとう、で ルールを 差別化している)
+  function makeBentoBoxGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const ITEMS_DEF = [
+          { key: 'rice', emoji: '🍙', left: 26, top: 30 },
+          { key: 'egg', emoji: '🥚', left: 74, top: 30 },
+          { key: 'shrimp', emoji: '🍤', left: 26, top: 68 },
+          { key: 'broccoli', emoji: '🥦', left: 74, top: 68 },
+        ];
+        const PREVIEW_MS = 2200;
+        const TIME_LIMIT_MS = 11000;
+        let placedCount = 0;
+        let finished = false;
+        let timer;
+        container.innerHTML = `
+          <div class="mg-header"><span id="mgScore">見本を おぼえてね!</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-bento-stage" id="mgBentoStage">
+            ${ITEMS_DEF.map((it) => `<div class="mg-drop-target" data-key="${it.key}" style="left:${it.left}%;top:${it.top}%"></div>`).join('')}
+            ${ITEMS_DEF.map((it) => `<div class="mg-bento-preview" style="left:${it.left}%;top:${it.top}%">${it.emoji}</div>`).join('')}
+          </div>
+          <div class="mg-hint" id="mgHint">見本を おぼえてね!</div>
+          <div class="mg-drag-tray hidden" id="mgTray">
+            ${ITEMS_DEF.map((it) => `<div class="mg-drag-item" data-key="${it.key}">${it.emoji}</div>`).join('')}
+          </div>
+        `;
+        const hintEl = container.querySelector('#mgHint');
+        const scoreEl = container.querySelector('#mgScore');
+        const tray = container.querySelector('#mgTray');
+        const previews = Array.from(container.querySelectorAll('.mg-bento-preview'));
+        const targets = Array.from(container.querySelectorAll('.mg-drop-target'));
+        const items = Array.from(container.querySelectorAll('.mg-drag-item'));
+        let timer2;
+
+        function finish(score) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          clearTimeout(timer2);
+          onComplete(score);
+        }
+
+        items.forEach((itemEl) => {
+          enableDragItem(itemEl, (x, y) => {
+            if (finished) return true;
+            const target = targets.find((t) => !t.classList.contains('filled') && isPointInsideEl(t, x, y));
+            if (!target) return false;
+            const correct = target.dataset.key === itemEl.dataset.key;
+            target.classList.add('filled', correct ? 'correct' : 'wrong');
+            target.textContent = itemEl.textContent;
+            itemEl.style.opacity = '0';
+            itemEl.style.pointerEvents = 'none';
+            if (correct) placedCount += 1;
+            scoreEl.textContent = `${placedCount}/${ITEMS_DEF.length}`;
+            if (items.every((it) => it.style.pointerEvents === 'none')) {
+              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'できあがり! 🍱' : 'できた ところまで できたよ';
+              finish(Math.round((placedCount / ITEMS_DEF.length) * 100));
+            }
+            return true;
+          });
+        });
+
+        timer = setTimeout(() => {
+          previews.forEach((p) => p.remove());
+          tray.classList.remove('hidden');
+          hintEl.textContent = 'おぼえた ばしょへ もどそう!';
+          timer2 = setTimeout(() => {
+            finish(Math.round((placedCount / ITEMS_DEF.length) * 100));
+          }, TIME_LIMIT_MS);
+        }, PREVIEW_MS);
+      },
+    };
+  }
+
+  const DRAG_DECORATE_VARIANTS = [
+    mg('dragDecorate-cake', makeCakeDecorateGame({ title: 'ケーキデコレーション!トッピングを かざろう' })),
+    mg('dragDecorate-bento', makeBentoBoxGame({ title: 'おべんとうづくり!見本どおりに つめよう' })),
+  ];
+
+  // --- 3. ほんものの さかなつり(まちぶせ→はんのう の あたらしい 操作) ---
+  // 既存の「さかなつり」(catchカテゴリ、うごく バスケットで つかまえる)とは
+  // まったく べつの 操作。うきを 見つめて まち、あたりが きた しゅんかん
+  // だけ タップする「まちぶせ→はんのう」型。うみ地域げんてい
+  function makeFishingGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const waitMinMs = 1400;
+        const waitMaxMs = 3200;
+        const biteWindowMs = lerp(950, 600, difficulty);
+        let phase = 'waiting'; // waiting -> biting -> done
+        let finished = false;
+        let biteTimer, windowTimer;
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-fishing-scene" id="mgFishingScene">
+            <div class="mg-fishing-water"></div>
+            <div class="mg-fishing-line"></div>
+            <div class="mg-fishing-bobber" id="mgBobber">🔴</div>
+          </div>
+          <div class="mg-hint" id="mgHint">みずめんを じっと 見つめて まとう…</div>
+        `;
+        const scene = container.querySelector('#mgFishingScene');
+        const bobber = container.querySelector('#mgBobber');
+        const hintEl = container.querySelector('#mgHint');
+
+        function finish(score, message) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(biteTimer);
+          clearTimeout(windowTimer);
+          hintEl.textContent = message;
+          setTimeout(() => onComplete(score), 500);
+        }
+
+        scene.addEventListener('pointerdown', () => {
+          if (finished) return;
+          if (phase === 'waiting') {
+            finish(15, 'まだだった…');
+          } else if (phase === 'biting') {
+            phase = 'done';
+            bobber.classList.remove('biting');
+            finish(100, 'つれたー! 🐟');
+          }
+        });
+
+        const waitMs = waitMinMs + Math.random() * (waitMaxMs - waitMinMs);
+        biteTimer = setTimeout(() => {
+          if (finished) return;
+          phase = 'biting';
+          bobber.classList.add('biting');
+          hintEl.textContent = '! いまだ!';
+          windowTimer = setTimeout(() => {
+            if (finished) return;
+            phase = 'done';
+            bobber.classList.remove('biting');
+            finish(20, 'にげちゃった…');
+          }, biteWindowMs);
+        }, waitMs);
+      },
+    };
+  }
+
+  // --- 4. ゲレンデすべりおり(スキー/スノーボード) ---
+  // ◀▶ボタンで さゆうに うごきつづけながら、上から せまってくる
+  // しょうがいぶつを よけつつ、はたの あいだ(ゲート)を くぐりぬける。
+  // jump/runnerの「1レーンで タイミングよく さばく」だけとはちがい、
+  // レーンを またいで うごきつづける れんぞくてきな そうさが ひつよう。
+  // スキー/スノーボードは 見ためだけの ちがいなので randomThemeGame で
+  // 1エントリに とうごうしてある。ゆきやま地域げんてい
+  function makeDownhillGame({ title, playerEmoji, obstacleEmoji }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 12000;
+        const fallSpeed = lerp(38, 58, difficulty);
+        const spawnIntervalMs = lerp(900, 620, difficulty);
+        const playerWidth = 16;
+        let playerX = 50;
+        let obstacles = [];
+        let running = true;
+        let hits = 0;
+        let gatesPassed = 0;
+        let totalGates = 0;
+        let rafId;
+        let spawnTimer;
+        const startTime = performance.now();
+
+        container.innerHTML = `
+          <div class="mg-header">
+            <span id="mgTimer">のこり: 12s</span>
+            <span id="mgScore">ゲート: 0/0</span>
+          </div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-downhill-field" id="mgDownhillField">
+            <div class="mg-downhill-player" id="mgDownhillPlayer">${playerEmoji}</div>
+          </div>
+          <div class="mg-dpad-mid">
+            <button class="mg-tap-btn" id="mgDownhillLeft">◀</button>
+            <button class="mg-tap-btn" id="mgDownhillRight">▶</button>
+          </div>
+        `;
+        const field = container.querySelector('#mgDownhillField');
+        const playerEl = container.querySelector('#mgDownhillPlayer');
+        const timerEl = container.querySelector('#mgTimer');
+        const scoreEl = container.querySelector('#mgScore');
+
+        function setPlayer(x) {
+          playerX = clamp(x, playerWidth / 2, 100 - playerWidth / 2);
+          playerEl.style.left = playerX + '%';
+        }
+        setPlayer(playerX);
+        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown', () => setPlayer(playerX - 14));
+        container.querySelector('#mgDownhillRight').addEventListener('pointerdown', () => setPlayer(playerX + 14));
+
+        function spawnObstacle() {
+          const isGate = Math.random() < 0.5;
+          const el = document.createElement('div');
+          let x, w, kind;
+          if (isGate) {
+            kind = 'gate';
+            w = 30;
+            x = 20 + Math.random() * 60;
+            el.className = 'mg-downhill-gate';
+            el.textContent = '🚩';
+          } else {
+            kind = 'obstacle';
+            w = 12;
+            x = 10 + Math.random() * 80;
+            el.className = 'mg-downhill-obstacle';
+            el.textContent = obstacleEmoji;
+          }
+          el.style.left = x + '%';
+          el.style.top = '-12%';
+          field.appendChild(el);
+          obstacles.push({ el, x, w, y: -12, kind, resolved: false });
+        }
+
+        function scheduleSpawn() {
+          if (!running) return;
+          spawnObstacle();
+          spawnTimer = setTimeout(scheduleSpawn, spawnIntervalMs);
+        }
+        scheduleSpawn();
+
+        let lastFrame = null;
+        function frame(now) {
+          if (!running) return;
+          if (lastFrame === null) lastFrame = now;
+          const dt = (now - lastFrame) / 1000;
+          lastFrame = now;
+          obstacles.forEach((o) => {
+            o.y += fallSpeed * dt;
+            o.el.style.top = o.y + '%';
+            if (!o.resolved && o.y >= 80) {
+              o.resolved = true;
+              const overlap = Math.abs(playerX - o.x) < (o.w / 2 + playerWidth / 2);
+              if (o.kind === 'obstacle') {
+                if (overlap) { hits += 1; o.el.classList.add('hit-flash'); }
+              } else {
+                totalGates += 1;
+                if (overlap) { gatesPassed += 1; o.el.classList.add('passed'); }
+                scoreEl.textContent = `ゲート: ${gatesPassed}/${totalGates}`;
+              }
+            }
+          });
+          obstacles = obstacles.filter((o) => {
+            if (o.y > 108) { o.el.remove(); return false; }
+            return true;
+          });
+          const remaining = Math.max(0, DURATION_MS - (now - startTime));
+          timerEl.textContent = `のこり: ${Math.ceil(remaining / 1000)}s`;
+          if (remaining <= 0) { end(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        rafId = requestAnimationFrame(frame);
+
+        function end() {
+          if (!running) return;
+          running = false;
+          cancelAnimationFrame(rafId);
+          clearTimeout(spawnTimer);
+          const gateScore = totalGates > 0 ? (gatesPassed / totalGates) * 70 : 35;
+          const hitPenalty = Math.min(50, hits * 15);
+          const score = clamp(Math.round(gateScore + 30 - hitPenalty), 5, 100);
+          onComplete(score);
+        }
+      },
+    };
+  }
+  const DOWNHILL_THEMES = [
+    { title: 'スキーで ゲレンデを すべりおりよう!', playerEmoji: '⛷️', obstacleEmoji: '🌲' },
+    { title: 'スノーボードで ゲレンデを すべりおりよう!', playerEmoji: '🏂', obstacleEmoji: '🪨' },
+  ];
+
+  // --- 5. サーフィン(なみに のる タイミング→バランスの2だんかい) ---
+  // 「タイミングよく タップ」だけの timingカテゴリでも、「かたむきを
+  // ととのえるだけ」の balanceカテゴリでもなく、①なみに のる しゅんかんの
+  // タイミングはんてい→②のった あとの バランスたもち、を つづけて ためす
+  // あたらしいジャンル。なつとの あいしょうが よいため、季節の「おまけ」枠
+  // (SEASONAL_MINIGAMES)を つかい、地域×季節の あたらしいしくみは つくらない
+  function makeSurfingGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        let finished = false;
+        let phase = 'wait'; // wait -> catch -> balance -> done
+        let waveTimer, windowTimer;
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-surf-scene" id="mgSurfScene">
+            <div class="mg-surf-wave" id="mgSurfWave"></div>
+            <div class="mg-surf-board" id="mgSurfBoard">🏄</div>
+          </div>
+          <div class="mg-hint" id="mgHint">なみが くるまで まとう…</div>
+        `;
+        const scene = container.querySelector('#mgSurfScene');
+        const wave = container.querySelector('#mgSurfWave');
+        const board = container.querySelector('#mgSurfBoard');
+        const hintEl = container.querySelector('#mgHint');
+
+        function finish(score, msg) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(waveTimer);
+          clearTimeout(windowTimer);
+          hintEl.textContent = msg;
+          setTimeout(() => onComplete(score), 500);
+        }
+
+        const approachMs = lerp(1600, 1100, difficulty);
+        const catchWindowMs = lerp(650, 420, difficulty);
+        waveTimer = setTimeout(() => {
+          if (finished) return;
+          phase = 'catch';
+          wave.classList.add('approaching');
+          hintEl.textContent = 'いまだ!のろう!';
+          windowTimer = setTimeout(() => {
+            if (finished) return;
+            finish(15, 'なみに のりおくれた…');
+          }, catchWindowMs);
+        }, approachMs);
+
+        function waitCatchHandler() {
+          if (finished) return;
+          if (phase === 'wait') {
+            finish(15, 'まだ なみが きてないよ…');
+          } else if (phase === 'catch') {
+            phase = 'balance';
+            clearTimeout(windowTimer);
+            scene.removeEventListener('pointerdown', waitCatchHandler);
+            wave.classList.remove('approaching');
+            wave.classList.add('riding');
+            hintEl.textContent = 'バランスを たもとう!';
+            startBalancePhase();
+          }
+        }
+        scene.addEventListener('pointerdown', waitCatchHandler);
+
+        function startBalancePhase() {
+          const BALANCE_MS = 4200;
+          const drift = lerp(10, 22, difficulty);
+          let tilt = 0;
+          let velocity = 0;
+          let rafId;
+          const startTime = performance.now();
+          let last = null;
+
+          function tapHandler(e) {
+            if (finished) return;
+            const rect = scene.getBoundingClientRect();
+            const isLeft = (e.clientX - rect.left) < rect.width / 2;
+            velocity += isLeft ? -7 : 7;
+          }
+          scene.addEventListener('pointerdown', tapHandler);
+
+          function step(now) {
+            if (finished) return;
+            if (last === null) last = now;
+            const dt = (now - last) / 1000;
+            last = now;
+            velocity += (Math.random() - 0.5) * drift * dt;
+            tilt = clamp(tilt + velocity * dt, -100, 100);
+            velocity *= 0.9;
+            board.style.transform = `translateX(-50%) rotate(${tilt * 0.3}deg)`;
+            if (Math.abs(tilt) >= 100) {
+              scene.removeEventListener('pointerdown', tapHandler);
+              finish(30, 'バランスを くずして おっこちた…');
+              return;
+            }
+            if (now - startTime >= BALANCE_MS) {
+              scene.removeEventListener('pointerdown', tapHandler);
+              finish(100, 'なみのり せいこう! 🌊');
+              return;
+            }
+            rafId = requestAnimationFrame(step);
+          }
+          rafId = requestAnimationFrame(step);
+        }
+      },
+    };
+  }
+
+  // --- 6. ミニポーカー(てふだを 見て はんだんする、あたらしい 判断けい) ---
+  // sumPair/highLow/boxPickとは ちがい、「くばられた3まいの カードから
+  // 1まいだけ こうかんするか きめて、やくを そろえる」という、しょうぶの
+  // まえに 一度だけ せんたくを はさむ 判断ゲーム。ほんかくてきな 役判定は
+  // せず、こどもでも わかる かんたんな やくだけを つかう
+  const POKER_RANKS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+  const POKER_SUITS = ['♠', '♥', '♦', '♣'];
+  function drawPokerCard() {
+    return { rank: POKER_RANKS[Math.floor(Math.random() * POKER_RANKS.length)], suit: POKER_SUITS[Math.floor(Math.random() * POKER_SUITS.length)] };
+  }
+  function evaluatePokerHand(cards) {
+    const suits = cards.map((c) => c.suit);
+    const allSameSuit = suits.every((s) => s === suits[0]);
+    const rankCounts = {};
+    cards.forEach((c) => { rankCounts[c.rank] = (rankCounts[c.rank] || 0) + 1; });
+    const topCount = Math.max(...Object.values(rankCounts));
+    if (topCount === 3) return { label: '3カード!だいあたり!', score: 100 };
+    if (topCount === 2) return { label: 'ペア!あたり!', score: 70 };
+    if (allSameSuit) return { label: 'おなじ マークが そろった!', score: 60 };
+    return { label: 'やくなし…', score: 25 };
+  }
+  function makeMiniPokerGame({ title }) {
+    return {
+      start(container, onComplete) {
+        let finished = false;
+        let cards = [drawPokerCard(), drawPokerCard(), drawPokerCard()];
+        let selectedIndex = -1;
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-hint" id="mgPokerHint">かえたい カードを 1まいまで タップして「けってい」!</div>
+          <div class="mg-poker-hand" id="mgPokerHand"></div>
+          <button class="mg-tap-btn" id="mgPokerConfirm">けってい!</button>
+        `;
+        const handEl = container.querySelector('#mgPokerHand');
+        const hintEl = container.querySelector('#mgPokerHint');
+        const confirmBtn = container.querySelector('#mgPokerConfirm');
+
+        function renderHand() {
+          handEl.innerHTML = cards.map((c, i) => {
+            const red = c.suit === '♥' || c.suit === '♦';
+            return `<div class="mg-poker-card${i === selectedIndex ? ' selected' : ''}${red ? ' red' : ''}" data-i="${i}"><span>${c.rank}</span><span>${c.suit}</span></div>`;
+          }).join('');
+          Array.from(handEl.querySelectorAll('.mg-poker-card')).forEach((cardEl) => {
+            cardEl.addEventListener('pointerdown', () => {
+              if (finished) return;
+              const i = Number(cardEl.dataset.i);
+              selectedIndex = selectedIndex === i ? -1 : i;
+              renderHand();
+            });
+          });
+        }
+        renderHand();
+
+        confirmBtn.addEventListener('pointerdown', () => {
+          if (finished) return;
+          finished = true;
+          confirmBtn.disabled = true;
+          if (selectedIndex >= 0) cards[selectedIndex] = drawPokerCard();
+          selectedIndex = -1;
+          renderHand();
+          hintEl.textContent = 'けっか はっぴょう!';
+          setTimeout(() => {
+            const result = evaluatePokerHand(cards);
+            hintEl.textContent = result.label;
+            setTimeout(() => onComplete(result.score), 700);
+          }, 500);
+        });
+      },
+    };
+  }
+  const MINI_POKER_VARIANTS = [mg('miniPoker-basic', makeMiniPokerGame({ title: 'ミニポーカー!やくを そろえよう' }))];
+
+  // --- 7. ミニだっしゅつ(2だんかいの いんがかんけいを もつ たんさくゲーム) ---
+  // boxPickの「1つ えらんで あける」だけの ゲームとはちがい、①正しい
+  // ものを しらべて かぎ/てがかりを 見つける→②それを つかって だっしゅつ
+  // する、という 2だんかいの いんがかんけいを もつ。テーマは 部屋の
+  // 見ためだけの ちがいなので randomThemeGame で 1エントリに とうごうする
+  function makeMiniEscapeGame({ title, objects, keyLabel, exitEmoji, exitLabel }) {
+    return {
+      start(container, onComplete) {
+        const TIME_LIMIT_MS = 14000;
+        let stage = 1;
+        let finished = false;
+        let timer;
+        const correctIndex = Math.floor(Math.random() * objects.length);
+        container.innerHTML = `
+          <div class="mg-title">${title}</div>
+          <div class="mg-hint" id="mgHint">あやしい ものを しらべよう!</div>
+          <div class="mg-escape-grid" id="mgEscapeGrid">
+            ${objects.map((o, i) => `<div class="mg-escape-obj" data-i="${i}">${o}</div>`).join('')}
+          </div>
+        `;
+        const grid = container.querySelector('#mgEscapeGrid');
+        const hintEl = container.querySelector('#mgHint');
+
+        function finish(score, msg) {
+          if (finished) return;
+          finished = true;
+          clearTimeout(timer);
+          hintEl.textContent = msg;
+          setTimeout(() => onComplete(score), 500);
+        }
+
+        function toStage2() {
+          stage = 2;
+          hintEl.textContent = `${keyLabel}を みつけた!でぐちを さがそう!`;
+          grid.innerHTML = `<div class="mg-escape-obj mg-escape-exit" id="mgEscapeExit">${exitEmoji}<span>${exitLabel}</span></div>`;
+          container.querySelector('#mgEscapeExit').addEventListener('pointerdown', () => {
+            if (finished) return;
+            finish(100, 'だっしゅつ せいこう! 🎉');
+          });
+        }
+
+        Array.from(grid.querySelectorAll('.mg-escape-obj')).forEach((el) => {
+          el.addEventListener('pointerdown', () => {
+            if (finished || stage !== 1) return;
+            const i = Number(el.dataset.i);
+            if (i === correctIndex) {
+              toStage2();
+            } else {
+              el.classList.add('checked');
+              const msgEl = document.createElement('div');
+              msgEl.className = 'mg-escape-msg';
+              msgEl.textContent = 'なにも なかった…';
+              container.appendChild(msgEl);
+              setTimeout(() => msgEl.remove(), 700);
+            }
+          });
+        });
+
+        timer = setTimeout(() => {
+          finish(stage === 2 ? 40 : 10, 'じかんぎれ…');
+        }, TIME_LIMIT_MS);
+      },
+    };
+  }
+  const MINI_ESCAPE_THEMES = [
+    { title: 'あやしい へやから だっしゅつしよう!', objects: ['🪴', '🛏️', '🖼️'], keyLabel: 'かぎ', exitEmoji: '🚪', exitLabel: 'とびら' },
+    { title: 'としょしつから だっしゅつしよう!', objects: ['📚', '🗄️', '🪟'], keyLabel: 'あんごうの メモ', exitEmoji: '🔒', exitLabel: 'きんこ' },
+    { title: 'だいどころから だっしゅつしよう!', objects: ['🧊', '🍳', '🧺'], keyLabel: 'とびらの かぎ', exitEmoji: '🚪', exitLabel: 'うらぐち' },
+  ];
+  const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
+
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...WHACK_GAME_VARIANTS,
@@ -10479,6 +11159,9 @@
     ...ROULETTE_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
+    ...DRAG_DECORATE_VARIANTS,
+    ...MINI_POKER_VARIANTS,
+    ...MINI_ESCAPE_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -10539,6 +11222,9 @@
     ['roulette', ROULETTE_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
+    ['dragDecorate', DRAG_DECORATE_VARIANTS],
+    ['miniPoker', MINI_POKER_VARIANTS],
+    ['miniEscape', MINI_ESCAPE_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -10557,7 +11243,12 @@
   // もぐらたたき系は 他の7地域 ぜんぶが すでに 地域仕様を もっていて、
   // ここで おうちまで もぐらたたき系を おきかえると 一般の7種類が
   // どこでも 二度と 出せなくなってしまうため、おうちの category からは
-  // わざと はずしてある)
+  // わざと はずしてある)。うみ/ゆきやまは「4種固定」の 例外として 5つめの
+  // あそび(fishing/downhill)を もつ。これらは まったく あたらしい 操作を
+  // もつ ゲームで、一般プールに おなじ category が ないため 既存の どの
+  // category も おきかえない(既存4種を そのまま のこす ための 判断。
+  // buildMinigamePool() の フィルタは 一般プールに その category が
+  // 存在しない ばあい なにも フィルタしないので、あんぜんに 動作する)
   const REGION_MINIGAMES = {
     home: [
       { category: 'mash', game: makeMashGame({ title: 'おそうじ れんだタップ!', buttonEmoji: '🧹' }) },
@@ -10580,6 +11271,12 @@
       { category: 'whack', game: makeWhackGame({ title: 'とびだす カニを タップ!', targetEmoji: '🦀' }) },
       { category: 'maze', game: makeMazeGame({ title: 'さんごしょうの めいろを およごう!', pathEmojiPair: ['🐠', '🪸'] }) },
       { category: 'concentration', game: makeConcentrationGame({ title: 'うみの いきものペアを さがそう!', emojis: ['🐠', '🐙', '🦑', '🦀', '🐬', '🐢'] }) },
+      // ほんものの さかなつり(まちぶせ→はんのう)を あたらしく ついか。
+      // 既存の さかなつり(catchカテゴリ、うごく バスケットで つかまえる)
+      // とは 操作が まったく べつなので、そちらを おきかえずに 5つめの
+      // うみげんてい あそびとして そのまま くわえた(「地域4種固定」より
+      // 既存あそびを のこす ことを 優先した判断。理由の詳細は 最終報告 参照)
+      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
     snow: [
       { category: 'jump', game: makeJumpGame({ title: 'ゆきだるまを よけて すべろう!', obstacleEmoji: '⛄' }) },
@@ -10591,6 +11288,9 @@
         goodItems: ['❄️', '⛷️', '🧣', '☃️'],
         badItems: ['🧊', '⚡', '🥶', '🌨️'],
       }) },
+      // ゲレンデすべりおり(スキー/スノーボード)を あたらしく ついか。
+      // うみと おなじく、既存の4種を おきかえず 5つめとして くわえた
+      { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     city: [
       { category: 'whack', game: makeWhackGame({ title: 'とびだす タクシーを タップ!', targetEmoji: '🚕' }) },
@@ -10715,6 +11415,11 @@
         badItems: ['🕳️', '💦', '🔥', '🐍'],
       }) },
       { category: 'reaction', game: makeReactionGame({ title: 'なつまつりの はなび!あがった しゅんかんに タップ!', waitWord: '🌃 よぞら を みつめる…', goWord: '🎆 どーん!', tooSoonWord: 'まだ あがって ないよ!' }) },
+      // サーフィンは なつとの あいしょうが よいため、地域げんていではなく
+      // この きせつの「おまけ」枠に あたらしく くわえた(地域×季節の
+      // あたらしい しくみは つくらず、既存の拡張点を そのまま つかう
+      // 判断。詳細は 最終報告 参照)
+      { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
     [SEASON.AUTUMN]: [
       { category: 'mash', game: makeMashGame({ title: 'いもほり!れんだで ほりだそう!', buttonEmoji: '🍠' }) },
@@ -10735,6 +11440,26 @@
       { category: 'mash', game: makeMashGame({ title: 'もちつき!れんだで ぺったんこ!', buttonEmoji: '🍘' }) },
     ],
   };
+
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
+  // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
+  // さんしょう)が、それぞれ すでに もっている category フィールドを
+  // そのまま つかって minigameCategoryOf にも 登録しておく。こうしないと
+  // これらの ゲームは minigameCategoryOf.get(game) が undefined に なり、
+  // pickRandomMinigame() の「同カテゴリ3連続回避」判定で undefined
+  // どうしが おなじ カテゴリと 誤判定されてしまう(fishing/downhill/
+  // surfingのような まったく べつの あそび が、たまたま れんぞくで 出た
+  // ときに 同カテゴリあつかいされる ばぐに つながる)。fishing/downhill/
+  // surfingだけでなく、home/sea/snow/…の 既存の 地域限定・季節限定
+  // ゲーム すべて、そして 今後 あたらしく 追加される 地域限定・季節限定
+  // カテゴリも、この ループが そのまま ひろってくれる ため、個別対応は
+  // 不要(category フィールドを つけわすれない かぎり、いつでも あんぜん)
+  for (const regionEntries of Object.values(REGION_MINIGAMES)) {
+    for (const entry of regionEntries) minigameCategoryOf.set(entry.game, entry.category);
+  }
+  for (const seasonEntries of Object.values(SEASONAL_MINIGAMES)) {
+    for (const entry of seasonEntries) minigameCategoryOf.set(entry.game, entry.category);
+  }
 
   // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
   // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
