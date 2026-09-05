@@ -3425,6 +3425,19 @@
   // いま いる なかま(state.companions)だけを のぞくので、じゃれるを
   // おさぼって はなれて いった なかまとも、このイベントで また であって
   // なかまに もどれる
+  // なんらかの メニューがめん(ずかん/じっせき/でざいん/プロフィール/
+  // つうしん/あいてむ/うそつきしょうぶ/せかい/きせつを かえる/たびに でる)が
+  // ひらいているかどうかを まとめて はんていする、きょうつうの ヘルパー。
+  // tick()の じかんていし ガード・なかまイベント抽選ガード・きせつの
+  // ぜんけいエフェクト よくせいの 3か所で つかう。pickerOpen は
+  // useConsumableItem()→openPicker() の けいろでしか ひらかれず、itemOpen
+  // すでに ひらいている ときにしか 到達しないため、ここには ふくめていない
+  // (itemOpen だけで じゅうぶん カバーできる)
+  function isAnyMenuOverlayOpen() {
+    return dexOpen || achOpen || themeOpen || profileOpen || commOpen
+      || itemOpen || duelOpen || worldOpen || seasonOpen || travelOpen;
+  }
+
   function scheduleCompanionEncounter() {
     const delay = 45000 + Math.random() * 75000;
     setTimeout(() => {
@@ -3435,7 +3448,7 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !dexOpen && !achOpen && !themeOpen && !profileOpen && !worldOpen && !seasonOpen && !travelOpen
+        && !isAnyMenuOverlayOpen()
         && remaining.length > 0;
       if (canEncounter) {
         const companion = remaining[Math.floor(Math.random() * remaining.length)];
@@ -3862,9 +3875,7 @@
     // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
     // はいけいエフェクト(region-decor/season-bg-fx)は デバイスの うしろに
     // かくれた ままなので、ここでは とめない
-    const suppressFrontFx = gameActive || hasTransformChoice
-      || dexOpen || achOpen || themeOpen || profileOpen || commOpen || itemOpen
-      || duelOpen || worldOpen || seasonOpen || travelOpen || pickerOpen;
+    const suppressFrontFx = gameActive || hasTransformChoice || isAnyMenuOverlayOpen();
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
 
     renderItemsRow(disableCare);
@@ -11958,7 +11969,7 @@
     // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
     // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
     // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (duelOpen || itemOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen || worldOpen || seasonOpen || travelOpen) return;
+    if (isAnyMenuOverlayOpen()) return;
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
