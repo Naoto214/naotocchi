@@ -1639,28 +1639,28 @@
   // へ さそう 文言に する
   const ENDING_TIERS = [
     {
-      title: 'GAME CLEAR',
+      title: '100さい クリア!',
       confetti: '🎉🎊✨🎉🎊✨',
       badges: [],
-      desc: 'この子の いっしょうを さいごまで みとどけた!<br>つぎは ずかんと じっせきを コンプリートして、もっと すごい ゴールを めざしてね!!',
+      desc: '100さいまで いきて、てんじゅを まっとうした!<br>つぎは ずかんと じっせきを コンプリートして、もっと すごい ゴールを めざしてね!!',
     },
     {
       title: 'ずかん クリア!',
       confetti: '🎉🎊✨📖✨🎊🎉',
       badges: ['📖 ④ ずかんクリア'],
-      desc: '168すべての すがたに であった!<br>あとは じっせきを コンプリートすれば パーフェクトクリアだよ!!',
+      desc: 'ずかん168しゅるいを ぜんぶ うめた!<br>あとは ずかんいがいの じっせきを ぜんぶ たっせいすれば パーフェクトクリアだよ!!',
     },
     {
-      title: 'GAME CLEAR',
+      title: 'じっせき クリア!',
       confetti: '🎉🎊✨🏅✨🎊🎉',
       badges: ['🏅 じっせき コンプリート'],
-      desc: 'あらゆる じっせきを たっせいした!<br>あとは ずかんを コンプリートすれば パーフェクトクリアだよ!!',
+      desc: 'ずかんコンプリートいがいの じっせきを ぜんぶ たっせいした!<br>あとは ずかん168しゅるいを ぜんぶ うめれば パーフェクトクリアだよ!!',
     },
     {
       title: 'PERFECT CLEAR',
       confetti: '👑✨🎉🎊✨🎉🎊✨👑',
       badges: ['📖 ④ ずかんクリア', '🏅 ⑤ パーフェクトクリア'],
-      desc: 'ずかんも じっせきも すべて そろえた!<br>これからは ねんれいから じゆうに なった ♾️ の せかいで あそべるよ',
+      desc: 'ずかん168しゅるいと、ずかんいがいの じっせきを ぜんぶ そろえた!<br>これからは ねんれいから じゆうに なった ♾️ の せかいで あそべるよ',
     },
   ];
 
@@ -4964,7 +4964,7 @@
     state.lifetime.deaths += 1;
     state.dying = false;
     state.lifetime.bestSodachi = Math.max(state.lifetime.bestSodachi || 0, state.maxSodachi);
-    pushLifeLog('👻', `${currentAge()}さいで てんごくへ いった`);
+    pushLifeLog(currentSprite(), `${currentAge()}さいで てんごくへ いった`);
     setMessage('てんごくへ いってしまった…');
   }
 
@@ -5680,7 +5680,8 @@
 
   function currentSprite() {
     if (state.stage === STAGE.EGG) return '🥚';
-    if (state.stage === STAGE.DEAD) return '👻';
+    // 亡くなったあとも、おばけに置きかえず「そのときの すがた」を残す。
+    // 人生記録カードやメイン画面でも、最後に育っていた姿をそのまま見せる。
     const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
     return stages?.[currentFormStageIndex()]?.emoji || '❓';
   }
