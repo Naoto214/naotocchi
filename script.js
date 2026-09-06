@@ -13233,126 +13233,77 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 12000;
-        const fallSpeed = lerp(38, 58, difficulty);
-        const spawnIntervalMs = lerp(900, 620, difficulty);
-        const playerWidth = 16;
-        let playerX = 50;
-        let obstacles = [];
-        let running = true;
-        let hits = 0;
-        let gatesPassed = 0;
-        let totalGates = 0;
-        let rafId;
-        let spawnTimer;
-        // スタートゆうよちゅうは しょうがいぶつも タイマーも うごかさない(セクション2)
+        const DURATION_MS = 15000;
+        const speed = lerp(0.42, 0.60, difficulty);
+        const spawnMs = lerp(900, 620, difficulty);
+        let lane = 1, running = true, hits = 0, gatesPassed = 0, totalGates = 0, jumps = 0;
+        let objects = [], rafId, spawnTimer, lastFrame = null;
+        let airborneUntil = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        const laneX = [28, 50, 72];
 
         container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgTimer">のこり: 12s</span>
-            <span id="mgScore">ゲート: 0/0</span>
-          </div>
+          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩 0/0　🪽 0</span></div>
           <div class="mg-title">${title}</div>
-          <div class="mg-downhill-field" id="mgDownhillField">
-            <div class="mg-downhill-player" id="mgDownhillPlayer">${playerEmoji}</div>
+          <div class="mg-ski3d-scene" id="mgSki3dScene">
+            <div class="mg-ski3d-sky">🏔️</div><div class="mg-ski3d-slope"></div>
+            <div class="mg-ski3d-player" id="mgSki3dPlayer">${playerEmoji}</div>
           </div>
-          <div class="mg-dpad-mid">
-            <button class="mg-tap-btn" id="mgDownhillLeft">◀</button>
-            <button class="mg-tap-btn" id="mgDownhillRight">▶</button>
-          </div>
-        `;
-        const field = container.querySelector('#mgDownhillField');
-        const playerEl = container.querySelector('#mgDownhillPlayer');
-        const timerEl = container.querySelector('#mgTimer');
-        const scoreEl = container.querySelector('#mgScore');
+          <div class="mg-hint">◀ ▶で カーブ。ジャンプ台は そのまま つっこもう!</div>
+          <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDownhillLeft">◀</button><button class="mg-tap-btn" id="mgDownhillRight">▶</button></div>`;
+        const scene=container.querySelector('#mgSki3dScene'),player=container.querySelector('#mgSki3dPlayer');
+        const timerEl=container.querySelector('#mgTimer'),scoreEl=container.querySelector('#mgScore');
+        function move(){player.style.left=laneX[lane]+'%';}
+        const left=()=>{lane=Math.max(0,lane-1);move();};
+        const right=()=>{lane=Math.min(2,lane+1);move();};
+        move();
+        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown',left);
+        container.querySelector('#mgDownhillRight').addEventListener('pointerdown',right);
+        scene.addEventListener('pointerdown',(e)=>{const r=scene.getBoundingClientRect();(e.clientX-r.left<r.width/2?left:right)();});
 
-        function setPlayer(x) {
-          playerX = clamp(x, playerWidth / 2, 100 - playerWidth / 2);
-          playerEl.style.left = playerX + '%';
+        function spawn(){
+          if(!running)return;
+          const r=Math.random();
+          const kind=r<.38?'gate':(r<.57?'jump':'obstacle');
+          const objLane=Math.floor(Math.random()*3),el=document.createElement('div');
+          el.className='mg-ski3d-object '+kind;
+          el.textContent=kind==='gate'?'🚩':(kind==='jump'?'▰':obstacleEmoji);
+          scene.appendChild(el);objects.push({el,lane:objLane,z:0,kind,resolved:false});
+          spawnTimer=setTimeout(spawn,spawnMs);
         }
-        setPlayer(playerX);
-        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown', () => setPlayer(playerX - 14));
-        container.querySelector('#mgDownhillRight').addEventListener('pointerdown', () => setPlayer(playerX + 14));
+        spawnTimer=setTimeout(spawn,MG_ACTION_START_GRACE_MS);
 
-        function spawnObstacle() {
-          const isGate = Math.random() < 0.5;
-          const el = document.createElement('div');
-          let x, w, kind;
-          if (isGate) {
-            kind = 'gate';
-            w = 30;
-            x = 20 + Math.random() * 60;
-            el.className = 'mg-downhill-gate';
-            el.textContent = '🚩';
-          } else {
-            kind = 'obstacle';
-            w = 12;
-            x = 10 + Math.random() * 80;
-            el.className = 'mg-downhill-obstacle';
-            el.textContent = obstacleEmoji;
-          }
-          el.style.left = x + '%';
-          el.style.top = '-12%';
-          field.appendChild(el);
-          obstacles.push({ el, x, w, y: -12, kind, resolved: false });
-        }
-
-        function scheduleSpawn() {
-          if (!running) return;
-          spawnObstacle();
-          spawnTimer = setTimeout(scheduleSpawn, spawnIntervalMs);
-        }
-        spawnTimer = setTimeout(scheduleSpawn, MG_ACTION_START_GRACE_MS);
-
-        let lastFrame = null;
-        function frame(now) {
-          if (!running) return;
-          if (now < startTime) {
-            timerEl.textContent = `のこり: ${Math.ceil(DURATION_MS / 1000)}s`;
-            rafId = requestAnimationFrame(frame);
-            return;
-          }
-          if (lastFrame === null) lastFrame = now;
-          const dt = (now - lastFrame) / 1000;
-          lastFrame = now;
-          obstacles.forEach((o) => {
-            o.y += fallSpeed * dt;
-            o.el.style.top = o.y + '%';
-            if (!o.resolved && o.y >= 80) {
-              o.resolved = true;
-              const overlap = Math.abs(playerX - o.x) < (o.w / 2 + playerWidth / 2);
-              if (o.kind === 'obstacle') {
-                if (overlap) { hits += 1; o.el.classList.add('hit-flash'); }
-              } else {
-                totalGates += 1;
-                if (overlap) { gatesPassed += 1; o.el.classList.add('passed'); }
-                scoreEl.textContent = `ゲート: ${gatesPassed}/${totalGates}`;
-              }
+        function frame(now){
+          if(!running)return;
+          if(now<startTime){rafId=requestAnimationFrame(frame);return;}
+          if(lastFrame===null)lastFrame=now;
+          const dt=Math.min(.05,(now-lastFrame)/1000);lastFrame=now;
+          const airborne=now<airborneUntil;
+          player.classList.toggle('airborne',airborne);
+          for(const o of objects){
+            o.z+=speed*dt;
+            const scale=.18+o.z*1.8,y=24+o.z*70,x=50+(laneX[o.lane]-50)*(.15+o.z*.85);
+            o.el.style.left=x+'%';o.el.style.top=y+'%';o.el.style.transform=`translate(-50%,-50%) scale(${scale})`;
+            o.el.style.opacity=Math.min(1,.3+o.z);
+            if(!o.resolved&&o.z>=.84){
+              o.resolved=true;
+              if(o.kind==='gate'){totalGates++;if(o.lane===lane){gatesPassed++;o.el.classList.add('passed');}}
+              else if(o.kind==='jump'&&o.lane===lane){jumps++;airborneUntil=now+760;o.el.classList.add('passed');}
+              else if(o.kind==='obstacle'&&o.lane===lane&&!airborne){hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
+              scoreEl.textContent=`🚩 ${gatesPassed}/${totalGates}　🪽 ${jumps}`;
             }
-          });
-          obstacles = obstacles.filter((o) => {
-            if (o.y > 108) { o.el.remove(); return false; }
-            return true;
-          });
-          const remaining = Math.max(0, DURATION_MS - (now - startTime));
-          timerEl.textContent = `のこり: ${Math.ceil(remaining / 1000)}s`;
-          if (remaining <= 0) { end(); return; }
-          rafId = requestAnimationFrame(frame);
+          }
+          objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
+          const rem=Math.max(0,DURATION_MS-(now-startTime));timerEl.textContent='のこり: '+Math.ceil(rem/1000)+'s';
+          if(rem<=0){end();return;}rafId=requestAnimationFrame(frame);
         }
-        rafId = requestAnimationFrame(frame);
-
-        function end() {
-          if (!running) return;
-          running = false;
-          cancelAnimationFrame(rafId);
-          clearTimeout(spawnTimer);
-          const gateScore = totalGates > 0 ? (gatesPassed / totalGates) * 70 : 35;
-          const hitPenalty = Math.min(50, hits * 15);
-          const score = clamp(Math.round(gateScore + 30 - hitPenalty), 5, 100);
-          onComplete(score);
+        rafId=requestAnimationFrame(frame);
+        function end(){
+          if(!running)return;running=false;cancelAnimationFrame(rafId);clearTimeout(spawnTimer);
+          const gateScore=totalGates?gatesPassed/totalGates*55:25;
+          onComplete(clamp(Math.round(30+gateScore+jumps*8-hits*18),5,100));
         }
-      },
+      }
     };
   }
   const DOWNHILL_THEMES = [
