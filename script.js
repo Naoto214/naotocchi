@@ -2170,22 +2170,22 @@
       companion: ['おごって!', 'それ たべれる?', 'ぼくのぶん ある?'],
     },
     travel: {
-      pet: ['きたー!', '空気 ちがう!', 'ここ 住めるかも', 'とりあえず 何たべる?', '地図より ぜんぜん いい'],
+      pet: ['ついた!', '空気 ちがう!', 'ここ 住めるかな', 'とりあえず 何たべる?', '地図で 見るより ひろい'],
       partner: ['いっしょに 来れてよかった', '写真 とろうよ', '迷子に ならないでね笑'],
       companion: ['走っていい!?', '知らない におい!', 'ここ ぼくの なわばりにする!'],
     },
     transform: {
       pet: ['え、ぼく!?', '鏡 どこ!?', '中身は ぼくのまま…だよね?', '変身ポーズ いる?', 'なんか 強そう'],
-      partner: ['似合ってる…たぶん笑', '急に 変わりすぎ!', 'でも ちゃんと わかるよ'],
+      partner: ['似合ってる。見慣れるまで ちょっと かかりそう笑', '急に 変わりすぎ!', 'でも ちゃんと わかるよ'],
       companion: ['だれ!?…あ、きみか!', 'ぼくも へんしんしたい!', 'においは おなじ!'],
     },
     partner_new: {
-      pet: ['え、ほんとに!?', 'やばい うれしい', '今日を 記念日に しよう', '心臓 うるさい'],
+      pet: ['え、ほんとに!?', 'うれしくて 何から 話せばいいか わからない', '今日を 記念日に しよう', '心臓 うるさい'],
       partner: ['これから よろしくね', 'そんなに にやけないで笑', 'ちゃんと 大事にしてね'],
       companion: ['おめでとー!', 'ぼくのことも 忘れないで!', '空気 よんだほうがいい?'],
     },
     marriage: {
-      pet: ['ほんとに けっこんした!', '市役所いく? もういった?', 'ずっと いっしょって すごい', '指輪 なくさないようにする'],
+      pet: ['ほんとに けっこんした!', '市役所いく? もういった?', '明日の朝も となりに いるんだね', '指輪 なくさないようにする'],
       partner: ['これからも よろしくね', '逃げないでね笑', '一緒に 年とろうね'],
       companion: ['けっこん!?', 'パーティーは!?', 'ぼくも 家族?'],
     },
@@ -2195,9 +2195,9 @@
       companion: ['いまの 見た!', 'もう1かい!', 'ぼくも やる!', 'なんで そんな できるの!?'],
     },
     minigame_bad: {
-      pet: ['いまのは 練習', '操作が わるい。ぼくは わるくない', '忘れて', '次は 本気出す'],
+      pet: ['いまのは 練習', '押すところ ひとつ まちがえた', '忘れて', 'もう1回なら さっきより いける'],
       partner: ['はいはい笑', '言い訳 はやいって', '次 がんばろ'],
-      companion: ['どんまい!', 'ぼくのほうが うまいかも!'],
+      companion: ['どんまい!', 'つぎ ぼくにも やらせて!'],
     },
   };
 
@@ -2250,14 +2250,14 @@
   }
 
   const PARTNER_IDLE_LINES = [
-    'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
+    'いっしょに いると おちつくね', '気づいたら また となりに いるね', 'つぎは どこへ いこうか?',
     'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
     'きょう なんか いいかおしてる', 'あとで ちょっと さんぽしない?', 'いまの じかん、けっこう すき',
     'さいきん ちゃんと わらってる?', 'カレー たべたいな', 'あの くも、なんか いぬっぽい',
   ];
   const COMPANION_IDLE_LINES = [
     'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
-    'なんか おもしろいこと ない?', 'ずっと そばに いるよ', 'ちょっと じゃれたい!',
+    'なんか おもしろいこと ない?', 'きょうは ここに いるね', 'ちょっと じゃれたい!',
     'おなかすいたー', 'つぎ なにする?', 'ぼく ここ みはってるね',
     'いま なんか うごいた!', 'ひなたぼっこ したい', 'さっきの おと なに?',
   ];
@@ -2278,41 +2278,41 @@
   // going quiet after every pool is used up once
   const STORY_EVENT_POOLS = {
     evolve: [
-      { emoji: '📈', message: 'からだが ムズムズする…これが せいちょうつうか!?' },
-      { emoji: '😲', message: 'きゅうに せが のびて じぶんでも ビックリした!' },
-      { emoji: '💫', message: 'きのうより ちょっと できる きが する!' },
-      { emoji: '🔔', message: 'そだちが のびる おとが きこえた き が した(たぶん きのせい)' },
+      { emoji: '📈', message: '朝から なんとなく 目線が 高い。昨日より すこし 大きくなったみたい' },
+      { emoji: '😲', message: 'いつもの場所に 立ったら、景色が ほんのすこし ちがって見えた' },
+      { emoji: '💫', message: '昨日できなかった 動きが、今日は すこしだけ できた' },
+      { emoji: '🔔', message: '鏡のまえを 通って、二歩 もどって もう一度 見た' },
       { emoji: '📏', message: 'サイズが かわって…ふくは もってないけど なんとなく きつい' },
     ],
     devolve: [
       { emoji: '🤏', message: 'あれ?なんか ちいさく なってない…?' },
-      { emoji: '👶', message: 'こどもがえり ちゅう!ばぶばぶ!' },
-      { emoji: '😴', message: 'せいちょうを いったん おやすみする ことにした' },
+      { emoji: '👶', message: '前に できていたことが、今日は ちょっと うまくいかない' },
+      { emoji: '😴', message: '今日は なんだか 動きが ゆっくり。早めに 休みたそう' },
       { emoji: '📉', message: 'たいじゅうは かわってないのに みための ねんれいが わかがえった' },
       { emoji: '🌀', message: 'じかんが ちょっと まきもどった ような かんかく' },
     ],
     transform: [
-      { emoji: '🌟', message: 'すがたが かわった!げんきに なった…かも!' },
-      { emoji: '🕺', message: 'へんしんポーズを キメて みた(だれも みてない)' },
+      { emoji: '🌟', message: '鏡のなかに、さっきまでと ちがう なおとっちが 立っている' },
+      { emoji: '🕺', message: '新しい すがたを たしかめるように、くるっと 一周してみた' },
       { emoji: '👕', message: 'きがえた みたいな かんかく!なかみは おなじ' },
       { emoji: '🪞', message: 'べつじんに なった き が するけど、なかみは いつもどおり' },
       { emoji: '🎭', message: '「あたらしい じぶん」を いちど えんじて みたく なった' },
     ],
     'minigame-great': [
       { emoji: '🏆', message: '終わったあと、ちょっとだけ ドヤ顔を かくせなかった' },
-      { emoji: '😎', message: 'ドヤがおが とまらない!' },
+      { emoji: '😎', message: '結果を 見たあと、口もとだけ ずっと ゆるんでいる' },
       { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
       { emoji: '🔥', message: 'いまなら もう1回 いける気がする!' },
       { emoji: '🎉', message: 'もう1回やったら もっと いけそうな 気がしてきた' },
     ],
     'minigame-bad': [
-      { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
+      { emoji: '🙈', message: '結果の画面を そっと 閉じた。もう一回なら ちがうはず' },
       { emoji: '😵', message: 'いまの タイミング、ぜんぶ ずれてた…' },
-      { emoji: '🌀', message: 'ちょっと めが まわっただけ!ほんきだせば…' },
+      { emoji: '🌀', message: '最初から ずっと タイミングが 半歩ずつ ずれていた' },
       { emoji: '🫠', message: 'くやしいから、あとで もう1回だけ やる' },
     ],
     'medicine-cure': [
-      { emoji: '🕺', message: 'げんきに なって おどりだしそう!' },
+      { emoji: '🕺', message: 'さっきまで 丸まっていたのに、もう 部屋を うろうろしている' },
       { emoji: '😋', message: 'くすりの あじが まずすぎて めが さめた(べつの いみで げんき)' },
       { emoji: '🎈', message: 'びょうきの ことは もう わすれた!(いたみは わすれてない)' },
       { emoji: '💊', message: 'くすりを のんだ ごほうびに あとで なにか ねだりそう' },
@@ -2320,7 +2320,7 @@
     overfeed: [
       { emoji: '🫃', message: 'おなかが パンパン…しばらく うごけない…' },
       { emoji: '🍚', message: '「もう むり」と いいながら、まだ おさらを 見ている' },
-      { emoji: '🚨', message: 'たべすぎ けいほう、はつれい!' },
+      { emoji: '🚨', message: 'おさらを 見るだけで、さっき 食べた量を 思いだしてしまう' },
       { emoji: '😵‍💫', message: '食べるまえに もどれたら、ひとくちだけ 減らしたい' },
     ],
     'poop-clean': [
@@ -2329,7 +2329,7 @@
       { emoji: '😌', message: 'これで こころおきなく ごろごろできる' },
       { emoji: '🚿', message: '空気まで ちょっと かるくなった きがする' },
       { emoji: '🫡', message: 'みなかったことに するには じゅうぶん きれい' },
-      { emoji: '🧼', message: 'なんか ちゃんと くらしてる かんじが する' },
+      { emoji: '🧼', message: 'きれいに なった床を、意味もなく もう一度 見にきた' },
     ],
   };
 
@@ -3580,7 +3580,7 @@
     // そだち50(こいの きざし)に とうたつしていると、わかれの ダメージが 半分に なる
     applyDecline((wasMarried ? 20 : 12) * (hasPerk(50) ? 0.5 : 1));
     pushLifeLog('💔', wasMarried ? `${label}と りこんした` : `${label}に ふられた`);
-    setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
+    setMessage(wasMarried ? `${label}と 何度も はなして、べつべつに くらすことに なった` : `${label}とは、ここで こいびとを やめることに なった`);
     emotePet('sad');
   }
 
@@ -3605,7 +3605,7 @@
     });
     if (left.length) {
       const names = left.map((id) => allCompanionsById(id)?.name || id).join('・');
-      setMessage(`${names}が さびしがって、はなれて いってしまった…`);
+      setMessage(`${names}の すがたを さいきん 見なくなった。しばらく べつのところで 過ごすみたい`);
       applyDecline(8);
       emotePet('sad');
     }
@@ -4287,7 +4287,7 @@
       rememberSpecialDate(plan, partner);
     }
 
-    setMessage(`💞 ${partner.label}と ${plan.label}デートを たのしんだ`);
+    setMessage(`💞 ${partner.label}と ${plan.label}デート。帰るころには、ふたりとも すこし ゆっくり 歩いていた`);
     emotePet('love');
     saveState();
     playOrdinaryDateMovie(plan, partner, traitLine, closing);
@@ -4647,7 +4647,7 @@
     state.gender = identity.gender;
     state.orientationId = identity.orientationId;
     state.attractedTo = identity.attractedTo;
-    setMessage('たまごがかえった!');
+    setMessage('たまごに ひびが はいって、なかから ちいさな なおとっちが でてきた!');
     emotePet('happy');
     pushLifeLog('🥚', 'たまごから うまれた');
   }
@@ -4690,19 +4690,19 @@
     state.lifetime.money += bonus;
     if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
       state.items.reward = (state.items.reward || 0) + 1;
-      setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
+      setMessage(`🎁 ${age}さい。どこからか ごほうびが 1こ とどいた!`);
       emotePet('love');
     } else if (age % 5 === 0) {
       const fun = randomFunItem();
       state.items[fun.id] = (state.items[fun.id] || 0) + 1;
-      setMessage(`🎂 ${age}さいに なった! おたのしみに ${fun.emoji}${fun.label}を もらった!`);
+      setMessage(`🎂 ${age}さい。${fun.emoji}${fun.label}を もらって、さっそく しまいこんだ`);
       emotePet('happy');
     } else {
       setBirthdayToast(`🎂 ${age}さいに なった`);
     }
     if (age === 90) {
       state.miracleGuard = true;
-      setMessage('🌅 ここまで よく いきてきたね…');
+      setMessage('🌅 90さい。朝のひかりを しばらく だまって 見ていた');
     }
   }
 
@@ -4789,7 +4789,7 @@
       state.lifetime.money += 5000;
       // 「その人生の のこりは 不死」を UI でも はっきりさせる。
       // ここで いのちを まんたんに もどし、おわかれの まえぶれも けす
-      setMessage('👑 さいこうの そだち! 💰5000と たまごの ゆめを もらった!');
+      setMessage('👑 そだち100。💰5000と たまごの ゆめが のこされた');
     } else {
       setMessage(`${perk.emoji} そだち ${value}! ${perk.name}`);
     }
@@ -4860,7 +4860,7 @@
     if (state.maxSodachi >= SODACHI_MAX) L.bestLives += 1;      // ③ さいこうの いっしょう
     if (state.lifetime.devolutions === state.declineBaseline) L.flawlessLives += 1;
     pushLifeLog('🎊', '100さいに なった — てんじゅを まっとうした');
-    setMessage('🎊 100さいに なった！ここまで いっしょに いてくれて ありがとう');
+    setMessage('🎊 100さい。なおとっちは、いつもの場所を ゆっくり 見まわした');
     emotePet('love');
   }
 
@@ -4983,7 +4983,7 @@
       if (state.miracleGuard) {
         state.miracleGuard = false;
         state.deathMeter = 50;
-        setMessage('きせきの ふんばり! もう すこし がんばる…!');
+        setMessage('もう だめかと 思ったところで、なおとっちが ゆっくり 目を あけた');
         emotePet('happy');
         return true;
       }
@@ -5019,7 +5019,7 @@
     } else if (state.dying) {
       state.dying = false;
       state.dyingTicks = 0;
-      setMessage('なおとっちが もちなおした!');
+      setMessage('なおとっちの 呼吸が おちついて、いつもの 顔に もどってきた');
       emotePet('happy');
     }
   }
@@ -5080,7 +5080,7 @@
     const options = pickTransformCandidates();
     if (!options.length) return;
     state.transformOptions = options;
-    setMessage('へんしんの ちからが たまった!すがたを えらべるよ');
+    setMessage('からだが ふわっと 光った。いまなら すがたを かえられそう');
   }
 
   const STORY_FLASH_DURATION_MS = 4200;
@@ -6711,7 +6711,7 @@
   function renderDuelFinalStage(d) {
     const iAmGuesser = d.role === 'guesser';
     const myOutcome = d.matchOutcome === 'draw' ? 'draw' : (d.matchOutcome === (iAmGuesser ? 'B' : 'A') ? 'win' : 'lose');
-    el.duelResultTitle.textContent = myOutcome === 'win' ? '🎉 しょうり!' : (myOutcome === 'lose' ? '😢 はいぼく…' : '🤝 ひきわけ');
+    el.duelResultTitle.textContent = myOutcome === 'win' ? '🎉 Aの かち!' : (myOutcome === 'lose' ? '😢 Bの かち' : '🤝 ひきわけ');
     el.duelResultScore.textContent = `A ${d.aTotal}点 － B ${d.bTotal}点`;
     const delta = d.moneyDelta || 0;
     const moneyLine = delta > 0 ? `+💰${delta}` : (delta < 0 ? `-💰${Math.abs(delta)}` : 'かけきんの やりとりなし(ひきわけ)');
@@ -7316,7 +7316,7 @@
   function skipTransform() {
     if (!state.transformOptions) return;
     state.transformOptions = null;
-    setMessage('いまの すがたのままで いくことにした');
+    setMessage('鏡を 見て、やっぱり いまの すがたで いくことにした');
     saveState();
     render();
   }
@@ -12821,7 +12821,7 @@
             scoreEl.textContent = `${placedCount}/${ROUNDS_DEF.length}`;
             roundIndex += 1;
             if (placedCount >= ROUNDS_DEF.length) {
-              hintEl.textContent = 'できあがり! 🎂';
+              hintEl.textContent = 'さいごの ひとつを おいて、ケーキが できた! 🎂';
               finish(100);
             } else {
               updateHint();
@@ -12898,7 +12898,7 @@
             if (correct) placedCount += 1;
             scoreEl.textContent = `${placedCount}/${ITEMS_DEF.length}`;
             if (items.every((it) => it.style.pointerEvents === 'none')) {
-              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'できあがり! 🍱' : 'できた ところまで できたよ';
+              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'ぜんぶ つめて、おべんとうが できた! 🍱' : '時間までに ここまで つめられた';
               finish(Math.round((placedCount / ITEMS_DEF.length) * 100));
             }
             return true;
@@ -13005,7 +13005,7 @@
           } else if (phase === 'biting') {
             phase = 'done';
             bobber.classList.remove('biting');
-            finish(100, 'つれたー! 🐟');
+            finish(100, 'ウキが しずんだ! ひきあげると 🐟 が かかっていた');
           }
         });
 
@@ -13280,7 +13280,7 @@
             }
             if (now - startTime >= BALANCE_MS) {
               scene.removeEventListener('pointerdown', tapHandler);
-              finish(100, 'なみのり せいこう! 🌊');
+              finish(100, '最後まで ボードの上に のれた! 🌊');
               return;
             }
             rafId = requestAnimationFrame(step);
@@ -13307,8 +13307,8 @@
     const rankCounts = {};
     cards.forEach((c) => { rankCounts[c.rank] = (rankCounts[c.rank] || 0) + 1; });
     const topCount = Math.max(...Object.values(rankCounts));
-    if (topCount === 3) return { label: '3カード!だいあたり!', score: 100 };
-    if (topCount === 2) return { label: 'ペア!あたり!', score: 70 };
+    if (topCount === 3) return { label: '3カード! 3まい そろった!', score: 100 };
+    if (topCount === 2) return { label: 'ペア! 2まい そろった', score: 70 };
     if (allSameSuit) return { label: 'おなじ マークが そろった!', score: 60 };
     return { label: 'やくなし…', score: 25 };
   }
@@ -13400,7 +13400,7 @@
           grid.innerHTML = `<div class="mg-escape-obj mg-escape-exit" id="mgEscapeExit">${exitEmoji}<span>${exitLabel}</span></div>`;
           container.querySelector('#mgEscapeExit').addEventListener('pointerdown', () => {
             if (finished) return;
-            finish(100, 'だっしゅつ せいこう! 🎉');
+            finish(100, 'とびらが あいた! 🎉');
           });
         }
 
@@ -14384,7 +14384,7 @@
       : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
-      setMessage(spammed ? '🐾 じゃれすぎた' : '🐾 いっしょに じゃれた');
+      setMessage(spammed ? '🐾 さすがに じゃれすぎて、ちょっと 距離を とられた' : '🐾 しばらく いっしょに じゃれていた');
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
     }
     emotePet(spammed ? 'angry' : 'happy');
@@ -14466,7 +14466,7 @@
       const reaction = pickReaction(courtFlirtReactions(state.partner.label), lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage('💞 こいびとに きもちを つたえた');
+        setMessage('💞 こいびとに「きょうも すき」と ちゃんと つたえた');
         speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35 });
       }
       emotePet('love');
@@ -14493,7 +14493,7 @@
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (!checkMeters()) {
-        setMessage('💞 きゅうあいする あいては いなかった');
+        setMessage('💞 いまは 気持ちを つたえたい あいてが いない');
         speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
@@ -14566,7 +14566,7 @@
       const reaction = pickReaction(COURT_FAIL_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage('💞 きゅうあいしたが、まだ きもちは とどかなかった');
+        setMessage('💞 気持ちは つたえた。返事は「もう少し 友達で いたい」だった');
         speakEvent('court_fail', { petText: reaction, partnerChance: 0, companionChance: 0.45 });
       }
       emotePet('sad');
@@ -14639,7 +14639,7 @@
     // そだち70に とどいていない ときに とくべつな たびさきへ いこうと
     // しても いけない(ボタンが 出ていない ときの ねんの ための まもり)
     if (region.special && !hasPerk(70)) {
-      setMessage('その ばしょへの みちは、まだ みつかっていない…');
+      setMessage('地図を ひらいたけれど、その ばしょへ つづく道は まだ 見つからない');
       saveState();
       render();
       return;
