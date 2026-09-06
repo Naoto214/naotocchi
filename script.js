@@ -1237,6 +1237,18 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // 旧ショップの上位互換を整理。持っていたものは同系統の新しい1種類へ引き継ぐ。
+      const OLD_ITEM_BASE = {
+        flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
+        poop2:'poop1', poop3:'poop1', scarf2:'scarf', scarf3:'scarf', glasses2:'glasses', glasses3:'glasses',
+        energy2:'energy1', energy3:'energy1', hat2:'hat', hat3:'hat', travel2:'travel1', travel3:'travel1',
+        sleepboost2:'sleepboost1', sleepboost3:'sleepboost1', star2:'star', star3:'star', bond2:'bond1', bond3:'bond1',
+        partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'
+      };
+      const oldOwned = Array.isArray(merged.lifetime.ownedShopItems) ? merged.lifetime.ownedShopItems : [];
+      merged.lifetime.ownedShopItems = [...new Set(oldOwned.map((id) => OLD_ITEM_BASE[id] || id).filter((id) => SHOP_ITEMS.some((it) => it.id === id)))];
+      merged.lifetime.equippedItemId = OLD_ITEM_BASE[merged.lifetime.equippedItemId] || merged.lifetime.equippedItemId;
+      if (!SHOP_ITEMS.some((it) => it.id === merged.lifetime.equippedItemId)) merged.lifetime.equippedItemId = null;
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -1417,7 +1429,7 @@
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめての かんびょう', desc: 'はじめて びょうきを なおした', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこ そだち', desc: 'ねんれい10に とうたつした', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめての おかいもの', desc: 'アイテムを はじめて こうにゅうした', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'consumable-1', emoji: '🎫', label: 'はじめての つかいきり', desc: 'つかいきりアイテムを はじめて つかった', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'consumable-1', emoji: '🎈', label: 'はじめての おたのしみ', desc: 'おたのしみを はじめて つかった', condition: (l) => (l.consumablesUsed || 0) >= 1 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんか デビュー', desc: 'しょじきんが 100に とうたつした', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を おとずれた', condition: (l) => l.regionsVisited.length >= 3 },
 
@@ -1470,7 +1482,7 @@
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'medicine-30', emoji: '🩹', label: 'かんごし はだし', desc: '1しょうがいで くすりを 30かい あげた', condition: (l, s) => s.actionCounts.medicine >= 30 },
     { id: 'region-all', emoji: '🌍', label: 'せかい いっしゅう', desc: 'ぜんぶの地域(8つ)を おとずれた', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🎟️', label: 'つかいきりの たつじん', desc: 'つかいきりアイテムを 30かい つかった', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみ たつじん', desc: 'おたのしみを 30かい つかった', condition: (l) => (l.consumablesUsed || 0) >= 30 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだての きわみ', desc: 'そだちが のべ100 あがった', condition: (l) => l.evolutions >= 100 },
@@ -1497,9 +1509,9 @@
     // --- きわめて むずかしい ---
     { id: 'clear-25', emoji: '🎖️', label: 'いっしょうの でんせつ', desc: '25かい 100さいまで いきた', condition: (l) => l.clears >= 25 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかん コンプリート', desc: 'ずかんを ぜんぶ うめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
-    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるもの コンプリート', desc: 'みにつける アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-    { id: 'consumable-all', emoji: '🧧', label: 'つかいきるもの コンプリート', desc: 'つかいきる アイテムを ぜんぶ(50しゅるい)こうにゅうした', condition: (l) => (l.ownedConsumableItems || []).length >= CONSUMABLE_ITEMS.length },
-    { id: 'item-all', emoji: '💯', label: 'アイテム パーフェクトコレクション', desc: 'みにつけるもの・つかいきるもの、アイテムを ぜんぶ(100しゅるい)こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && (l.ownedConsumableItems || []).length >= CONSUMABLE_ITEMS.length },
+    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるもの コンプリート', desc: 'みにつける アイテムを ぜんぶ こうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみ コンプリート', desc: 'おたのしみを ぜんぶ つかってみた', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'アイテム パーフェクトコレクション', desc: 'みにつけるものを ぜんぶ集め、おたのしみも ぜんぶ使った', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
   ];
 
   function checkAchievements() {
@@ -1693,65 +1705,21 @@
   //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
   //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
   const SHOP_ITEMS = [
-    // --- きほん(15〜90。やすい じゅんに ならんでいる) ---
-    { id: 'flower', label: 'おはな', emoji: '🌼', price: 15, desc: 'きゅうあいの せいこうりつ アップ' },
-    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 20, desc: 'ごきげんの げんしょうが ゆるやかに' },
-    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 20, desc: 'おなかの げんしょうが ゆるやかに' },
-    { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 20, desc: 'うんちが たまりにくい' },
-    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 25, desc: 'びょうきに なりにくい' },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 30, desc: 'ミニゲームの とくてん ボーナス' },
-    { id: 'energy1', label: 'げんきドリンク', emoji: '🥤', price: 35, desc: 'げんきの げんしょうが ゆるやかに' },
-    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 40, desc: 'すがたが かわる ときに へんしんできる かくりつが あがる' },
-    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 40, desc: 'たびの きげんボーナス アップ' },
-    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 45, desc: 'すいみん中の げんき回復 アップ' },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 50, desc: 'ミニゲームの おかねが ふえる' },
-    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 60, desc: 'なかまの きずな度が へりにくい' },
-    { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 70, desc: 'こいびとの なかよし度が へりにくい' },
-    { id: 'crown', label: 'かんむり', emoji: '👑', price: 80, desc: 'いのちの へりかたを おさえる' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 90, desc: 'かいふくアイテムの こうかが アップ' },
-
-    // --- じょうきゅう(180〜450。やすい じゅんに ならんでいる) ---
-    { id: 'ribbon2', label: 'きぬの ローブ', emoji: '🎽', price: 180, desc: 'ごきげんの げんしょうが さらに ゆるやかに(リボンの 上位)' },
-    { id: 'bowtie2', label: 'しょくよくの おふだ', emoji: '🍽️', price: 180, desc: 'おなかの げんしょうが さらに ゆるやかに(ちょうネクタイの 上位)' },
-    { id: 'flower2', label: '花たば', emoji: '💐', price: 220, desc: 'きゅうあいの せいこうりつ さらに アップ(おはなの 上位)' },
-    { id: 'scarf2', label: 'あたたかい コート', emoji: '🧥', price: 240, desc: 'びょうきに さらに なりにくい(マフラーの 上位)' },
-    { id: 'glasses2', label: 'プロようゴーグル', emoji: '🥽', price: 260, desc: 'ミニゲームの とくてん さらに ボーナス(サングラスの 上位)' },
-    { id: 'poop2', label: 'おそうじロボ', emoji: '🤖', price: 260, desc: 'うんちが さらに たまりにくい(トイレットペーパーの 上位)' },
-    { id: 'energy2', label: 'げんきの けっしょう', emoji: '⚡', price: 300, desc: 'げんきの げんしょうが さらに ゆるやかに(げんきドリンクの 上位)' },
-    { id: 'travel2', label: 'こうきゅうトランク', emoji: '🧳', price: 300, desc: 'たびの きげんボーナス さらに アップ(リュックの 上位)' },
-    { id: 'hat2', label: 'まほうの ぼうし', emoji: '🎓', price: 320, desc: 'へんしんできる かくりつが さらに あがる(シルクハットの 上位)' },
-    { id: 'sleepboost2', label: 'こうきゅうベッド', emoji: '🛋️', price: 340, desc: 'すいみん中の げんき回復 さらに アップ(まくらの 上位)' },
-    { id: 'star2', label: 'きんかの ふくろ', emoji: '🪙', price: 380, desc: 'ミニゲームの おかねが さらに ふえる(スターバッジの 上位)' },
-    { id: 'itemluck2', label: 'まもりの お守り', emoji: '🧿', price: 380, desc: 'かいふくアイテムの こうかが さらに アップ(クローバーの 上位)' },
-    { id: 'bond2', label: 'なかよしの ゆびわ', emoji: '💍', price: 400, desc: 'なかまの きずな度が さらに へりにくい(バッジの 上位)' },
-    { id: 'partner2', label: 'ペアの おそろい', emoji: '💞', price: 420, desc: 'こいびとの なかよし度が さらに へりにくい(らぶれたーの 上位)' },
-    { id: 'crown2', label: 'ほうせきの かんむり', emoji: '💎', price: 450, desc: 'いのちの へりかたを さらに おさえる(かんむりの 上位)' },
-
-    // --- プレミアム(850〜2200。やすい じゅんに ならんでいる) ---
-    { id: 'pet_threshold', label: 'おもちゃ', emoji: '🎾', price: 850, desc: 'じゃれる連打で いやがられにくくなる' },
-    { id: 'travel_threshold', label: 'らしんばん', emoji: '🧭', price: 900, desc: 'たびづかれに なるまで もう少し 連続で たびできる' },
-    { id: 'breakup_ease', label: 'きずぐすり', emoji: '🩹', price: 1400, desc: 'わかれ/りこんの いのちへの ダメージが 半分に' },
-    { id: 'questioning_fast', label: 'じぶんさがしの書', emoji: '🔍', price: 1600, desc: 'クエスチョニングが おちつくまでの けいけんが 半分に' },
-    { id: 'marriage_fast', label: 'えいえんの誓い', emoji: '💍', price: 2200, desc: 'けっこんまでに ひつような きゅうあい回数が 半分に' },
-
-    // --- でんせつ/むげん(5500〜20000。やすい じゅんに ならんでいる。
-    //     パーフェクトクリアの あとも おかねを かせぎつづけないと とても
-    //     とどかない、いちばん 豪華な こうか) ---
-    { id: 'flower3', label: 'でんせつの バラ', emoji: '🌹', price: 5500, desc: 'きゅうあいの せいこうりつ 大はばアップ' },
-    { id: 'ribbon3', label: 'でんせつの ドレス', emoji: '👗', price: 6000, desc: 'ごきげんが ほとんど げんしょうしなくなる' },
-    { id: 'bowtie3', label: 'むげんの べんとう', emoji: '🍱', price: 6000, desc: 'おなかが ほとんど げんしょうしなくなる' },
-    { id: 'scarf3', label: 'でんせつの けがわ', emoji: '🦁', price: 6500, desc: 'びょうきに ほとんど ならなくなる' },
-    { id: 'glasses3', label: 'かみの ゴーグル', emoji: '🔬', price: 7000, desc: 'ミニゲームの とくてん 大はばボーナス' },
-    { id: 'hat3', label: 'へんしんの おうかん', emoji: '🌟', price: 8000, desc: 'へんしんできる かくりつが 大はばに あがる' },
-    { id: 'poop3', label: 'せいじょうかの ひかり', emoji: '✨', price: 8000, desc: 'うんちが ほとんど たまらなくなる' },
-    { id: 'star3', label: 'おうごんの つぼ', emoji: '💰', price: 9000, desc: 'ミニゲームの おかねが 大はばに ふえる' },
-    { id: 'energy3', label: 'ふつめつの げんき', emoji: '💫', price: 10000, desc: 'げんきが ほとんど げんしょうしなくなる' },
-    { id: 'sleepboost3', label: 'くもの ベッド', emoji: '☁️', price: 12000, desc: 'すいみん中の げんき回復が 大はばアップ' },
-    { id: 'crown3', label: 'ふめつの かんむり', emoji: '⚜️', price: 15000, desc: 'いのちの へりかたを 大はばに おさえる' },
-    { id: 'travel3', label: 'じくうの とびら', emoji: '🚀', price: 15000, desc: 'たびの きげんボーナス 大はばアップ' },
-    { id: 'itemluck3', label: 'きせきの トロフィー', emoji: '🏆', price: 18000, desc: 'かいふくアイテムの こうかが 大はばアップ' },
-    { id: 'bond3', label: 'えいえんの きずな', emoji: '🌈', price: 20000, desc: 'なかまの きずな度が ほとんど へらなくなる' },
-    { id: 'partner3', label: 'とわの あい', emoji: '💖', price: 20000, desc: 'こいびとの なかよし度が ほとんど へらなくなる' },
+    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいの せいこうりつが すこし あがる' },
+    { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 60, desc: 'ごきげんが すこし へりにくい' },
+    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 60, desc: 'おなかが すこし へりにくい' },
+    { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 70, desc: 'うんちが すこし たまりにくい' },
+    { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 80, desc: 'びょうきに すこし なりにくい' },
+    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの とくてんに すこし ボーナス' },
+    { id: 'energy1', label: 'げんきバンド', emoji: '⚡', price: 100, desc: 'げんきが すこし へりにくい' },
+    { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 110, desc: 'へんしんの ちからが すこし たまりやすい' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: 'たびの ごきげんボーナスが すこし ふえる' },
+    { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 130, desc: 'ねている ときの げんき回復が すこし ふえる' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームで もらえる おかねが すこし ふえる' },
+    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 170, desc: 'なかまの きずなが すこし へりにくい' },
+    { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 190, desc: 'こいびとの なかよし度が すこし へりにくい' },
+    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'いのちへの ダメージを すこし おさえる' },
+    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'レアな ごほうびを ほんのすこし みつけやすくする' },
   ];
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -1767,10 +1735,10 @@
   // unlockTier は isThemeUnlocked() と おなじ フィールド名を つかって
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
-    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', price: 30000, unlockTier: 0, desc: 'びょうきに ぜったいに ならなくなる' },
-    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', price: 35000, unlockTier: 1, desc: 'うんちが 二度と たまらなくなる' },
-    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', price: 50000, unlockTier: 2, desc: 'しぼうメーターが 二度と 上がらなくなる(ぜったいに 死亡しない)' },
-    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', price: 80000, unlockTier: 3, desc: 'おなか・ごきげん・げんき・けんこうが つねに まんたんに たもたれる' },
+    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', price: 30000, unlockTier: 0, desc: 'ようしょうきの いのちの リスクを すこし やわらげる' },
+    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', price: 35000, unlockTier: 1, desc: 'たびで ときどき ふしぎな できごとに であえる' },
+    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', price: 50000, unlockTier: 2, desc: 'とくべつなデートに ここだけの ことばが くわわる' },
+    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', price: 80000, unlockTier: 3, desc: 'おたのしみを つかったとき、ときどき とくべつな リアクションが おきる' },
   ];
 
   function hasNaotoItem(id) {
@@ -1928,7 +1896,7 @@
     state.lifetime.money += bonus;
     // ごほうびは誕生日の確定配布にしない。10歳ごとの節目だけ低確率で手に入り、
     // 一生で余らず「いつ使うか迷う」くらいの希少さにする。
-    if (age % 10 === 0 && Math.random() < 0.25) {
+    if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
       state.items.reward = (state.items.reward || 0) + 1;
       setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
       emotePet('love');
@@ -2394,8 +2362,8 @@
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
-      const hungerFactor = isEquipped('bowtie3') ? 0.15 : isEquipped('bowtie2') ? 0.4 : isEquipped('bowtie') ? 0.6 : 1;
-      const happinessFactor = isEquipped('ribbon3') ? 0.15 : isEquipped('ribbon2') ? 0.4 : isEquipped('ribbon') ? 0.6 : 1;
+      const hungerFactor = isEquipped('bowtie') ? 0.78 : 1;
+      const happinessFactor = isEquipped('ribbon') ? 0.78 : 1;
       // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
@@ -2414,30 +2382,22 @@
         // 0→100が 3tickほど(=約9びょう)で フルに もどる、はっきり はやい
         // ペースに してある。すいみんけいの アイテムを そうびしていると、
         // さらに 回復量が 上乗せされる
-        const sleepBoost = isEquipped('sleepboost3') ? 20 : isEquipped('sleepboost2') ? 12 : isEquipped('sleepboost1') ? 6 : 0;
+        const sleepBoost = isEquipped('sleepboost1') ? 6 : 0;
         state.energy = clamp(state.energy + (state.isSick ? 16 : 40) + sleepBoost, 0, 100);
       } else {
         // 元気けいの アイテムを そうびしていると、おきている あいだの
         // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        const energyFactor = isEquipped('energy3') ? 0.4 : isEquipped('energy2') ? 0.6 : isEquipped('energy1') ? 0.8 : 1;
+        const energyFactor = isEquipped('energy1') ? 0.82 : 1;
         state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
       }
 
-      // なおとの かんむりを もっていると、満腹・機嫌・元気が つねに
-      // まんたんに たもたれる(体力は すこし したの healthDelta 計算の
-      // あとで おなじく まんたんに 上書きする)
-      if (hasNaotoItem('naoto_crown')) {
-        state.hunger = 100;
-        state.happiness = 100;
-        state.energy = 100;
-      }
+      // なおとの ひみつは日常のお世話そのものを無効化しない。
 
-      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい。
-      // なおとの ランタンを もっていると そもそも 二度と たまらなくなる)
-      const poopFactor = isEquipped('poop3') ? 0.12 : isEquipped('poop2') ? 0.35 : isEquipped('poop1') ? 0.6 : 1;
-      if (!hasNaotoItem('naoto_lantern') && Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
+      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい)
+      const poopFactor = isEquipped('poop1') ? 0.7 : 1;
+      if (Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -2447,11 +2407,10 @@
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
       // the odds of falling ill; well cared-for pets almost never trigger this
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
-      // なおとの おまもりを もっていると、びょうきに ぜったいに ならない
-      if (!state.isSick && neglected && !hasNaotoItem('naoto_charm')) {
+      if (!state.isSick && neglected) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.09 * (isEquipped('scarf3') ? 0.12 : isEquipped('scarf2') ? 0.3 : isEquipped('scarf') ? 0.5 : 1);
+        const sicknessChance = 0.09 * (isEquipped('scarf') ? 0.65 : 1);
         if (Math.random() < sicknessChance) {
           // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
           // ここで 1かいぶん つかって びょうきを ふせぐ
@@ -2479,7 +2438,7 @@
       if (state.isSick) healthDelta -= 2 + Math.min(3, Math.floor(state.totalSicknessCount / 3));
       if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += 1;
       state.health = clamp(state.health + healthDelta, 0, 100);
-      if (hasNaotoItem('naoto_crown')) state.health = 100;
+
 
       // track care quality for evolution
       state.careSum += (state.hunger + state.happiness + state.energy) / 3;
@@ -2522,7 +2481,8 @@
       const fromNeglect = lerp(0, 0.8, state.decline / DECLINE_MAX);
       // 年齢リスクはU字型。幼少期は少し弱く、青壮年期がもっとも丈夫、70歳以降は年々高まる。
       // そだちが高いほど軽減されるが、90/100でもゼロにはならない。
-      const ageRisk = age < 10 ? lerp(0.28, 0.04, age / 10) : age >= 70 ? lerp(0.06, 1.15, (age - 70) / 30) : 0;
+      const baseAgeRisk = age < 10 ? lerp(0.28, 0.04, age / 10) : age >= 70 ? lerp(0.06, 1.15, (age - 70) / 30) : 0;
+      const ageRisk = age < 10 && hasNaotoItem('naoto_charm') ? baseAgeRisk * 0.72 : baseAgeRisk;
       const sodachiProtection = lerp(1, 0.55, state.sodachi / SODACHI_MAX);
       const fromAge = ageRisk * sodachiProtection;
       raiseDeathMeter(fromNeglect + fromAge);
@@ -4576,10 +4536,14 @@
     const item = FUN_ITEMS.find((it) => it.id === itemId);
     if (!item || !(state.items[itemId] > 0)) return;
     state.items[itemId] -= 1;
+    state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
+    if (!Array.isArray(state.lifetime.ownedConsumableItems)) state.lifetime.ownedConsumableItems = [];
+    if (!state.lifetime.ownedConsumableItems.includes(itemId)) state.lifetime.ownedConsumableItems.push(itemId);
     if (state.items[itemId] <= 0) delete state.items[itemId];
     // おたのしみは攻略アイテムではない。小さな反応だけを楽しむ。
     state.happiness = clamp(state.happiness + 2, 0, 100);
-    setMessage(`${item.emoji} ${item.message}`);
+    const crownMoment = hasNaotoItem('naoto_crown') && Math.random() < 0.25;
+    setMessage(`${item.emoji} ${item.message}${crownMoment ? ' 👑 なんだか いつもより うれしそう!' : ''}`);
     emotePet(item.emote);
     saveState();
     render();
@@ -11512,7 +11476,7 @@
     // つかいきりアイテムの「やる気の おまもり/大成功の おまもり」は、この
     // ミニゲーム 1かいだけ とくてんを おおきく 底上げする(大成功の おまもりは
     // +100で どんな スコアからでも かならず 大成功あつかいに なる)
-    const glassesBonus = isEquipped('glasses3') ? 22 : isEquipped('glasses2') ? 14 : isEquipped('glasses') ? 8 : 0;
+    const glassesBonus = isEquipped('glasses') ? 6 : 0;
     const minigameBoostBonus = state.oneTimeBoosts.minigameBoost === 'big' ? 100 : state.oneTimeBoosts.minigameBoost === 'small' ? 25 : 0;
     state.oneTimeBoosts.minigameBoost = null;
     const clampedScore = clamp(score + glassesBonus + minigameBoostBonus, 0, 100);
@@ -11525,7 +11489,7 @@
     // fills regardless of score - unlike evo/devo, playing itself (not
     // skill) is what earns a shot at choosing a different growth line。
     // シルクハットを そうびしていると たまりやすさに ボーナスが つく
-    const hatBonus = isEquipped('hat3') ? 18 : isEquipped('hat2') ? 10 : isEquipped('hat') ? 5 : 0;
+    const hatBonus = isEquipped('hat') ? 4 : 0;
     state.transformMeter = clamp(state.transformMeter + (15 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
 
     // good play pushes the evolution meter, a real miss pushes both the
@@ -11538,12 +11502,12 @@
       applyGrowth(14); applyDecline(-8);
       const fun = randomFunItem();
       state.items[fun.id] = (state.items[fun.id] || 0) + 1;
-      const gotReward = Math.random() < 0.12;
+      const gotReward = Math.random() < (isEquipped('itemluck1') ? 0.16 : 0.12);
       if (gotReward) state.items.reward = (state.items.reward || 0) + 1;
       // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる。
       // つかいきりアイテムの「ラッキーコイン」は、この ミニゲーム 1かいだけ
       // もらえる おかねを 2ばいにする
-      const starFactor = isEquipped('star3') ? 2.6 : isEquipped('star2') ? 1.8 : isEquipped('star') ? 1.4 : 1;
+      const starFactor = isEquipped('star') ? 1.25 : 1;
       const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost);
@@ -11959,7 +11923,7 @@
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
     // おはなを そうびしていると、きゅうあいの せいこうりつに ボーナスが つく
-    const flowerBonus = isEquipped('flower3') ? 0.32 : isEquipped('flower2') ? 0.2 : isEquipped('flower') ? 0.12 : 0;
+    const flowerBonus = isEquipped('flower') ? 0.1 : 0;
     // そだち50の「こいの きざし」で +10%、さらに いまの そだちに おうじて 最大+20%
     const sodachiBonus = (hasPerk(50) ? 0.1 : 0) + (hasPerk(50) ? Math.min(0.2, state.sodachi / 500) : 0);
     const successChance = clamp(0.35 + traitBonus + happinessBonus + flowerBonus + sodachiBonus, 0.15, 0.85);
@@ -12125,12 +12089,15 @@
       applyDecline(-2);
       // リュックサックけいの アイテムを そうびしていると、たびの きげん
       // ボーナスが 上乗せされる
-      const travelBonus = isEquipped('travel3') ? 7 : isEquipped('travel2') ? 4 : isEquipped('travel1') ? 2 : 0;
+      const travelBonus = isEquipped('travel1') ? 2 : 0;
       // そだち70(たびだち)に とうたつしていると、たびの きげんボーナスが 2ばいに なる
       state.happiness = clamp(state.happiness + (5 + travelBonus) * (hasPerk(70) ? 2 : 1), 0, 100);
     }
-    const reaction = pickReaction(region.lines, lastTravelReaction);
+    let reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
+    if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) {
+      reaction += ' 🏮 みちの さきに ふしぎな あかりが ひとつ みえた。';
+    }
     if (!checkMeters()) {
       if (specialRewardTrip) {
         pushLifeLog('🎁', `とくべつな旅の おもいで: ${region.label}`);
