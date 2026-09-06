@@ -3807,7 +3807,7 @@
       render();
       return;
     }
-    worldOpen = false;
+    closeAllMenuOverlays();
     dateChoiceOptions = pickDateChoices();
     dateOpen = true;
     clearDateMovieTimers();
@@ -5754,6 +5754,40 @@
   // など)で かってに とじてしまわないよう、ひらいている/いないを
   // ここで おぼえておく
   let orientationHintOpen = false;
+
+  // メインメニュー同士は同時に1枚だけ開く。別メニューを押したら、
+  // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
+  function closeAllMenuOverlays() {
+    dexOpen = false;
+    achOpen = false;
+    themeOpen = false;
+    profileOpen = false;
+    commOpen = false;
+    itemOpen = false;
+    duelOpen = false;
+    worldOpen = false;
+    seasonOpen = false;
+    travelOpen = false;
+    dateOpen = false;
+    companionInviteOpen = false;
+    pickerOpen = false;
+    pickerItem = null;
+    dexDetail = null;
+    orientationHintOpen = false;
+    clearDateMovieTimers();
+  }
+
+  function openExclusiveMenu(kind) {
+    closeAllMenuOverlays();
+    if (kind === 'dex') dexOpen = true;
+    else if (kind === 'ach') achOpen = true;
+    else if (kind === 'theme') themeOpen = true;
+    else if (kind === 'profile') profileOpen = true;
+    else if (kind === 'comm') commOpen = true;
+    else if (kind === 'item') itemOpen = true;
+    else if (kind === 'world') worldOpen = true;
+    render();
+  }
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
   // (CSSの .tier-1/2/3 が いろ・かたちを、ここが 飛びちる パーティクルを
@@ -14485,10 +14519,7 @@
   // まず「せかい」がめん(きせつを かえる/たびに でる の いりぐち)を
   // ひらくだけに する。たびの じっこう ロジックじたいは worldTravelBtn に
   // そのまま うつした(内容は へんこう なし)
-  el.travelBtn.addEventListener('click', () => {
-    worldOpen = true;
-    render();
-  });
+  el.travelBtn.addEventListener('click', () => openExclusiveMenu('world'));
 
   el.worldCloseBtn.addEventListener('click', () => {
     worldOpen = false;
@@ -14496,13 +14527,13 @@
   });
 
   el.worldSeasonMenuBtn.addEventListener('click', () => {
-    worldOpen = false;
+    closeAllMenuOverlays();
     seasonOpen = true;
     render();
   });
 
   el.seasonCloseBtn.addEventListener('click', () => {
-    seasonOpen = false;
+    closeAllMenuOverlays();
     worldOpen = true;
     render();
   });
@@ -14517,13 +14548,13 @@
   // その場で 移動していたが、いまは いちど「たびに でる」がめん(地域の
   // いちらん)を ひらき、行きたい 場所を えらんで タップする かたちに した
   el.worldTravelBtn.addEventListener('click', () => {
-    worldOpen = false;
+    closeAllMenuOverlays();
     travelOpen = true;
     render();
   });
 
   el.travelCloseBtn.addEventListener('click', () => {
-    travelOpen = false;
+    closeAllMenuOverlays();
     worldOpen = true;
     render();
   });
@@ -14827,10 +14858,7 @@
     enterInfinite();
   }));
 
-  el.dexBtn.addEventListener('click', () => {
-    dexOpen = true;
-    render();
-  });
+  el.dexBtn.addEventListener('click', () => openExclusiveMenu('dex'));
 
   el.dexCloseBtn.addEventListener('click', () => {
     dexOpen = false;
@@ -14871,20 +14899,14 @@
     render();
   });
 
-  el.achBtn.addEventListener('click', () => {
-    achOpen = true;
-    render();
-  });
+  el.achBtn.addEventListener('click', () => openExclusiveMenu('ach'));
 
   el.achCloseBtn.addEventListener('click', () => {
     achOpen = false;
     render();
   });
 
-  el.themeBtn.addEventListener('click', () => {
-    themeOpen = true;
-    render();
-  });
+  el.themeBtn.addEventListener('click', () => openExclusiveMenu('theme'));
 
   el.themeCloseBtn.addEventListener('click', () => {
     themeOpen = false;
@@ -14915,10 +14937,7 @@
     selectTheme('screenPattern', btn.dataset.id);
   });
 
-  el.itemBtn.addEventListener('click', () => {
-    itemOpen = true;
-    render();
-  });
+  el.itemBtn.addEventListener('click', () => openExclusiveMenu('item'));
 
   el.itemCloseBtn.addEventListener('click', () => {
     itemOpen = false;
@@ -14995,10 +15014,7 @@
     }
   }
 
-  el.profileBtn.addEventListener('click', () => {
-    profileOpen = true;
-    render();
-  });
+  el.profileBtn.addEventListener('click', () => openExclusiveMenu('profile'));
 
   el.profileCloseBtn.addEventListener('click', () => {
     profileOpen = false;
@@ -15006,9 +15022,8 @@
   });
 
   el.commBtn.addEventListener('click', () => {
-    commOpen = true;
+    openExclusiveMenu('comm');
     el.codeError.classList.add('hidden');
-    render();
   });
 
   el.commCloseBtn.addEventListener('click', () => {
@@ -15017,9 +15032,9 @@
   });
 
   el.openDuelBtn.addEventListener('click', () => {
-    // commOverlay は とじずに したに のこしておく(itemOverlay/pickerOverlay
-    // の おやこ関係と おなじ パターン)。しょうぶを とじると、また
-    // つうしん画面に もどれる
+    dexOpen = false; achOpen = false; themeOpen = false; profileOpen = false;
+    itemOpen = false; worldOpen = false; seasonOpen = false; travelOpen = false; dateOpen = false;
+    // うそつきしょうぶだけは「つうしん」の子画面なので、commOpen は残す。
     duelOpen = true;
     goToDuelStep(duelResumeStep());
     render();
