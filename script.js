@@ -1010,6 +1010,8 @@
       // セーブにも のり、ページを ひらきなおしても もどれる
       infiniteReturn: null,
       schemaVersion: 4,
+      romanceCompatibilityVersion: 2,
+      pendingLegacyRelationshipResolution: null,
       poopCount: 0,
       isSick: false,
       sicknessType: null,
@@ -1286,22 +1288,45 @@
         merged.orientationId = identity.orientationId;
         merged.attractedTo = identity.attractedTo;
       }
-      // 恋愛対象は gender + orientationId から決まる派生値。
-      // 古いセーブや、以前の attractedToFor() の仕様で保存された配列を
-      // そのまま信頼すると、プロフィール表示は「レズビアン」なのに
-      // 内部だけ異性を対象にしたまま、という矛盾が残りうる。
-      // ロード時に必ず現在の定義から再構築して、表示とカップリング判定を一致させる。
+      // 恋愛対象は identity の一部。straight/gay/pan/aro/questioning は
+      // gender + orientationId から再構築し、bi は個体ごとの対象範囲を保存して維持する。
       if (merged.stage === STAGE.GROWING && merged.gender && merged.orientationId) {
-        merged.attractedTo = attractedToFor(merged.gender, merged.orientationId);
+        merged.attractedTo = normalizeAttractedTo(merged.gender, merged.orientationId, parsed.attractedTo);
       }
-      // 既にできている恋人も同様に、保存済み attractedTo ではなく
-      // gender/orientationId を正として扱う。現在の組み合わせが双方向に
-      // 成立しない場合は、既存仕様の mismatched 状態にして自然に関係を再評価する。
-      if (merged.partner && merged.partner.gender && merged.partner.orientationId && merged.gender && merged.orientationId) {
-        const selfTargets = attractedToFor(merged.gender, merged.orientationId);
-        const partnerTargets = attractedToFor(merged.partner.gender, merged.partner.orientationId);
-        merged.attractedTo = selfTargets;
-        merged.partner.mismatched = !(selfTargets.includes(merged.partner.gender) && partnerTargets.includes(merged.gender));
+
+      // 恋人側の bi も、付き合った時点の対象範囲を partner.attractedTo として保存する。
+      // 旧セーブには無いので、その場合だけ現在の identity から補う。
+      if (merged.partner && merged.partner.gender && merged.partner.orientationId) {
+        merged.partner.attractedTo = normalizeAttractedTo(
+          merged.partner.gender,
+          merged.partner.orientationId,
+          parsed.partner && parsed.partner.attractedTo
+        );
+      }
+
+      // 恋愛互換ルールv2への一回限りの移行。
+      // 旧実装の不整合で「表示上は対象外なのに夫婦/恋人」になっていた場合だけ、
+      // アップデート後に自然な会話を出して関係を整理する。通常プレイ中に
+      // 変身などで起きる intentional な「すれちがい」は従来どおり残す。
+      if ((parsed.romanceCompatibilityVersion || 0) < 2) {
+        merged.romanceCompatibilityVersion = 2;
+        if (merged.partner && merged.gender && merged.orientationId) {
+          const selfTargets = normalizeAttractedTo(merged.gender, merged.orientationId, merged.attractedTo);
+          const partnerTargets = normalizeAttractedTo(
+            merged.partner.gender,
+            merged.partner.orientationId,
+            merged.partner.attractedTo
+          );
+          const compatible = selfTargets.includes(merged.partner.gender) && partnerTargets.includes(merged.gender);
+          if (!compatible) {
+            merged.pendingLegacyRelationshipResolution = {
+              label: merged.partner.label,
+              emoji: merged.partner.emoji,
+              married: !!merged.partner.married,
+            };
+            merged.partner = null;
+          }
+        }
       }
       // なかまの bond きのう(state.companions)より 前の セーブには この
       // フィールドが まだ ないので、いままで どおり lifetime.
@@ -2533,6 +2558,19 @@
       return gender === 'male' ? ['female'] : ['male'];
     }
     return [gender]; // gay(同性を対象とする タイプ)
+  }
+
+  // attractedTo は本来 identity の一部で、特に bi は個体ごとの対象範囲を
+  // いちど決めたら、その人生のあいだ勝手に変わってはいけない。
+  // そのためロード時は、bi だけ有効な保存値を優先し、それ以外は現在の定義から再構築する。
+  function normalizeAttractedTo(gender, orientationId, savedTargets) {
+    if (orientationId === 'bi') {
+      const valid = Array.isArray(savedTargets)
+        ? [...new Set(savedTargets)].filter((g) => GENDERS.includes(g)).sort()
+        : [];
+      if (valid.length >= 2) return valid.slice(0, 3);
+    }
+    return attractedToFor(gender, orientationId);
   }
 
   // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
@@ -7275,7 +7313,7 @@
     });
 
     if (!state.partner) return '';
-    const partnerAttractedTo = attractedToFor(state.partner.gender, state.partner.orientationId);
+    const partnerAttractedTo = normalizeAttractedTo(state.partner.gender, state.partner.orientationId, state.partner.attractedTo);
     const stillMatches = partnerAttractedTo.includes(state.gender) && state.attractedTo.includes(state.partner.gender);
     const label = state.partner.label;
     if (stillMatches) {
@@ -14552,6 +14590,7 @@
         emoji: candidate.emoji,
         gender: candidate.gender,
         orientationId: candidate.orientationId,
+        attractedTo: [...candidate.attractedTo],
         affinityTrait: candidate.affinityTrait,
         affection: 100,
         married: false,
@@ -15520,6 +15559,18 @@
     setTimeout(() => { suppressLifeEvents = false; }, 0);
   }
   state.declineBaseline = state.declineBaseline || state.lifetime.devolutions || 0;
+  const legacyResolution = state.pendingLegacyRelationshipResolution;
+  if (legacyResolution) {
+    state.pendingLegacyRelationshipResolution = null;
+    const who = `${legacyResolution.emoji || '💞'} ${legacyResolution.label}`;
+    pushLifeLog('💔', `${legacyResolution.label}と 関係を はなしあって 整理した`);
+    setTimeout(() => {
+      setMessage(legacyResolution.married
+        ? `${who}と ちゃんと はなした。恋愛の向きが ちがうことを 確かめて、夫婦ではなくなることにした`
+        : `${who}と ちゃんと はなした。恋愛の向きが ちがうことを 確かめて、こいびとではなくなることにした`);
+      sayPet('これからは、おたがいに むりのない かたちで いよう');
+    }, 350);
+  }
   saveState();
   render();
   setInterval(loop, TICK_MS);
