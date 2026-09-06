@@ -1332,6 +1332,33 @@
         pendingMigrationQuiet = true;
       }
       merged.schemaVersion = 4;
+
+      // PR #98 より前から けっこんしている セーブには marriageAge がない。
+      // lifeLog の「○さい ... けっこんした」を優先して復元する。記録がない
+      // 古いセーブでは、現在年齢を結婚年齢として扱い、読み込み直後に過去の
+      // 記念日ムービーがまとめて発火しないようにする。
+      if (merged.partner && merged.partner.married && !Number.isFinite(Number(parsed.marriageAge))) {
+        let recoveredMarriageAge = null;
+        const logs = Array.isArray(merged.lifeLog) ? merged.lifeLog : [];
+        for (const entry of logs) {
+          if (!entry || !/けっこん/.test(String(entry.text || ''))) continue;
+          const loggedAge = Number(entry.age);
+          if (Number.isFinite(loggedAge)) {
+            recoveredMarriageAge = clamp(Math.floor(loggedAge), 0, GOAL_AGE);
+            break;
+          }
+        }
+        merged.marriageAge = recoveredMarriageAge == null ? clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) : recoveredMarriageAge;
+        if (!Array.isArray(merged.marriageMilestonesSeen)) merged.marriageMilestonesSeen = [];
+        const marriedYears = Math.max(0, clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) - merged.marriageAge);
+        for (const years of [1, 10, 25, 50]) {
+          if (marriedYears >= years && !merged.marriageMilestonesSeen.includes(years)) {
+            merged.marriageMilestonesSeen.push(years);
+          }
+        }
+        pendingMigrationQuiet = true;
+      }
+
       delete merged.age;
       delete merged.evoMeter;
       delete merged.devoMeter;
