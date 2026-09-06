@@ -2613,8 +2613,32 @@
     if (state.questioningEncounters < questioningResolveThreshold()) return null;
     const resolved = weightedPick(RESOLVED_ORIENTATIONS, RESOLVED_ORIENTATION_WEIGHTS);
     state.orientationId = resolved;
+    // bi に落ち着いた場合も、ここで一度だけ個体ごとの対象範囲を決め、
+    // 以後は state.attractedTo に保存して使い続ける。
     state.attractedTo = attractedToFor(state.gender, resolved);
     state.questioningEncounters = 0;
+
+    // 恋愛タイプが確定した瞬間、既存の恋人との双方向相性も必ず再判定する。
+    // 以前はここが抜けていて、questioning→gay/straight 等に変わったあとも
+    // 対象外の恋人が通常カップル表示のまま残ることがあった。
+    if (state.partner) {
+      const partnerTargets = normalizeAttractedTo(
+        state.partner.gender,
+        state.partner.orientationId,
+        state.partner.attractedTo
+      );
+      const compatible = state.attractedTo.includes(state.partner.gender)
+        && partnerTargets.includes(state.gender);
+      if (!compatible && !state.partner.mismatched) {
+        state.partner.mismatched = true;
+        state.partner.repair = 0;
+        pushLifeLog('💔', `${state.partner.label}と すれちがいはじめた`);
+      } else if (compatible && state.partner.mismatched) {
+        state.partner.mismatched = false;
+        state.partner.repair = 0;
+        pushLifeLog('💞', `${state.partner.label}と また きもちが かさなった`);
+      }
+    }
     return resolved;
   }
 
@@ -14467,7 +14491,10 @@
     if (resolvedOrientation) {
       state.happiness = clamp(state.happiness + 5, 0, 100);
       if (!checkMeters()) {
-        setMessage(`おおきな きもちの へんかを かんじた…じぶんは「${orientationLabel(resolvedOrientation, state.gender)}」なんだと、はっきり わかった気が する!`);
+        const mismatchNote = state.partner && state.partner.mismatched
+          ? ` ${state.partner.label}とは、恋愛の向きが ちがうことにも 気づいた。`
+          : '';
+        setMessage(`じぶんの 気持ちが 少し はっきりした。「${orientationLabel(resolvedOrientation, state.gender)}」なんだと思う。${mismatchNote}`);
       }
       emotePet('fun');
       return;
