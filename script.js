@@ -13593,18 +13593,14 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
+  // 単純な計算・反射1タップ・もぐらたたき・選択肢だけ・2D分岐迷路などは
+  // 抽選プールから外し、操作/判断が連続するゲームを中心にする。
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
-    ...WHACK_GAME_VARIANTS,
-    ...TIMING_GAME_VARIANTS,
-    ...QUIZ_GAME_VARIANTS,
     ...MEMORY_GAME_VARIANTS,
-    ...MATH_GAME_VARIANTS,
-    ...REACTION_GAME_VARIANTS,
     ...STROOP_GAME_VARIANTS,
     ...JANKEN_GAME_VARIANTS,
     ...CONCENTRATION_GAME_VARIANTS,
-    ...MASH_GAME_VARIANTS,
     ...BALANCE_GAME_VARIANTS,
     ...ODD_ONE_OUT_VARIANTS,
     ...NUMBER_ORDER_VARIANTS,
@@ -13613,11 +13609,9 @@
     ...SILHOUETTE_VARIANTS,
     ...PATTERN_GAME_VARIANTS,
     ...BEAT_GAME_VARIANTS,
-    ...MAZE_GAME_VARIANTS,
     ...SORT_GAME_VARIANTS,
     ...HIGH_LOW_VARIANTS,
     ...TILE_SWAP_VARIANTS,
-    ...BUBBLE_POP_VARIANTS,
     ...SPELL_GAME_VARIANTS,
     ...SUM_PAIR_VARIANTS,
     ...JUMP_GAME_VARIANTS,
@@ -13632,19 +13626,14 @@
     ...RUNNER_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
     ...COMBO_INPUT_VARIANTS,
-    ...BOX_PICK_VARIANTS,
-    ...MATCHUP_QUIZ_VARIANTS,
-    ...STEPPING_STONES_VARIANTS,
     ...TARGET_AIM_VARIANTS,
     ...RACE_GAME_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
-    ...POWER_METER_VARIANTS,
     ...PUSH_CONTEST_VARIANTS,
     ...CHOP_GAME_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...COMEDY_STEALTH_VARIANTS,
     ...CUTE_HORROR_VARIANTS,
-    ...ROULETTE_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
@@ -13660,16 +13649,10 @@
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
     ['catch', CATCH_GAME_VARIANTS],
-    ['whack', WHACK_GAME_VARIANTS],
-    ['timing', TIMING_GAME_VARIANTS],
-    ['quiz', QUIZ_GAME_VARIANTS],
     ['memory', MEMORY_GAME_VARIANTS],
-    ['math', MATH_GAME_VARIANTS],
-    ['reaction', REACTION_GAME_VARIANTS],
     ['stroop', STROOP_GAME_VARIANTS],
     ['janken', JANKEN_GAME_VARIANTS],
     ['concentration', CONCENTRATION_GAME_VARIANTS],
-    ['mash', MASH_GAME_VARIANTS],
     ['balance', BALANCE_GAME_VARIANTS],
     ['oddOneOut', ODD_ONE_OUT_VARIANTS],
     ['numberOrder', NUMBER_ORDER_VARIANTS],
@@ -13678,11 +13661,9 @@
     ['silhouette', SILHOUETTE_VARIANTS],
     ['pattern', PATTERN_GAME_VARIANTS],
     ['beat', BEAT_GAME_VARIANTS],
-    ['maze', MAZE_GAME_VARIANTS],
     ['sort', SORT_GAME_VARIANTS],
     ['highLow', HIGH_LOW_VARIANTS],
     ['tileSwap', TILE_SWAP_VARIANTS],
-    ['bubblePop', BUBBLE_POP_VARIANTS],
     ['spell', SPELL_GAME_VARIANTS],
     ['sumPair', SUM_PAIR_VARIANTS],
     ['jump', JUMP_GAME_VARIANTS],
@@ -13697,19 +13678,14 @@
     ['runner', RUNNER_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['comboInput', COMBO_INPUT_VARIANTS],
-    ['boxPick', BOX_PICK_VARIANTS],
-    ['matchupQuiz', MATCHUP_QUIZ_VARIANTS],
-    ['steppingStones', STEPPING_STONES_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
     ['race', RACE_GAME_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
-    ['powerMeter', POWER_METER_VARIANTS],
     ['pushContest', PUSH_CONTEST_VARIANTS],
     ['chop', CHOP_GAME_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['comedyStealth', COMEDY_STEALTH_VARIANTS],
     ['cuteHorror', CUTE_HORROR_VARIANTS],
-    ['roulette', ROULETTE_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
@@ -13737,10 +13713,8 @@
         badItems: ['💩', '🟤', '🐛', '🕸️'],
       }) },
       { category: 'concentration', game: makeConcentrationGame({ title: 'おもちゃばこの ペアを さがそう!', emojis: ['🧸', '🪁', '🎈', '🧩', '🚗', '⚽'] }) },
-      { category: 'maze', game: makeMazeGame({ title: 'おうちの なかを おかたづけめいろで すすもう!', pathEmojiPair: ['🛋️', '🛏️'] }) },
     ],
     sea: [
-      { category: 'maze', game: makeMazeGame({ title: 'さんごしょうの めいろを およごう!', pathEmojiPair: ['🐠', '🪸'] }) },
       { category: 'concentration', game: makeConcentrationGame({ title: 'うみの いきものペアを さがそう!', emojis: ['🐠', '🐙', '🦑', '🦀', '🐬', '🐢'] }) },
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
@@ -13755,7 +13729,6 @@
       { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     city: [
-      { category: 'timing', game: makeTimingGame({ title: 'しんごうが かわる しゅんかんで タップ!', tapLabel: 'GO!', gaugeStyle: '#4a90d9' }) },
       { category: 'road', game: makeRoadGame({
         title: 'とかいを はしろう!ラッキーアイテムは キャッチ、はとの ふんは よけて',
         goodItems: ['🍩', '☕', '🎫', '💰'],
@@ -13772,8 +13745,6 @@
       { category: 'concentration', game: makeConcentrationGame({ title: 'のうさぎょうの どうぐペアを さがそう!', emojis: ['🌾', '🚜', '🧺', '🐓', '🐄', '🌻'] }) },
     ],
     forest: [
-      { category: 'bubblePop', game: makeBubblePopGame({ title: 'きのこの ほうしを ポップしよう!', bubbleEmoji: '🍄' }) },
-      { category: 'maze', game: makeMazeGame({ title: 'ふかい もりの けものみちを すすもう!', pathEmojiPair: ['🍂', '🐿️'] }) },
       { category: 'stack', game: makeStackGame({
         title: 'きのみタワー!たかく つみあげよう',
         blockEmoji: '🌰',
@@ -13795,7 +13766,6 @@
         goodItems: ['🍍', '🥥', '🍌', '🥭'],
         badItems: ['🐝', '🕷️', '🦂', '🌶️'],
       }) },
-      { category: 'bubblePop', game: makeBubblePopGame({ title: 'トロピカルジュースの あわを ポップしよう!', bubbleEmoji: '🫧' }) },
     ],
   };
 
@@ -13855,14 +13825,12 @@
       }) },
     ],
     [SEASON.SUMMER]: [
-      { category: 'timing', game: makeTimingGame({ title: 'すいかわり!ねらいを さだめて タップ!', tapLabel: 'それ!', gaugeStyle: '#2e8b57', icon: '🍉' }) },
       { category: 'catch', game: makeCatchGame({
         title: 'きんぎょすくい!やぶれないように キャッチ',
         basketEmoji: '🥄',
         goodItems: ['🐡', '🐠', '🎏', '⭐'],
         badItems: ['🕳️', '💦', '🔥', '🐍'],
       }) },
-      { category: 'reaction', game: makeReactionGame({ title: 'なつまつりの はなび!あがった しゅんかんに タップ!', waitWord: '🌃 よぞら を みつめる…', goWord: '🎆 どーん!', tooSoonWord: 'まだ あがって ないよ!' }) },
       { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
     [SEASON.AUTUMN]: [
@@ -13879,7 +13847,6 @@
         goodItems: ['🎁', '🦌', '⭐', '🧦'],
         badItems: ['🐺', '🕷️', '💣', '🦇'],
       }) },
-      { category: 'whack', game: makeWhackGame({ title: 'おには そと!まめまきで タップ!', targetEmoji: '👹' }) },
     ],
   };
 
