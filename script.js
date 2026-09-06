@@ -718,6 +718,9 @@
     transformChoices: document.getElementById('transformChoices'),
     transformSkipBtn: document.getElementById('transformSkipBtn'),
     message: document.getElementById('message'),
+    speechBubble: document.getElementById('speechBubble'),
+    speechSpeaker: document.getElementById('speechSpeaker'),
+    speechText: document.getElementById('speechText'),
     itemsRow: document.getElementById('itemsRow'),
     companionInviteOverlay: document.getElementById('companionInviteOverlay'),
     companionInviteEmoji: document.getElementById('companionInviteEmoji'),
@@ -2045,6 +2048,60 @@
       }, MESSAGE_DURATION_MS);
     }
   }
+
+  // メイン育成画面の「だれが しゃべったか」が分かる吹き出し。
+  // setMessage() は成長・病気・結果などのシステム通知専用として残し、
+  // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
+  let speechTimer = null;
+  let speechActive = false;
+  const SPEECH_DURATION_MS = 5200;
+
+  function hideSpeechBubble() {
+    speechActive = false;
+    if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
+    if (el.speechBubble) el.speechBubble.classList.add('hidden');
+  }
+
+  function setSpeechBubble(text, speaker) {
+    if (!el.speechBubble || !text || !speaker) return;
+    if (speechTimer) clearTimeout(speechTimer);
+    speechActive = true;
+    el.speechSpeaker.textContent = speaker.emoji || '💬';
+    el.speechSpeaker.title = speaker.label || '';
+    el.speechText.textContent = text;
+    el.speechBubble.dataset.kind = speaker.kind || 'pet';
+    el.speechBubble.classList.remove('hidden');
+    speechTimer = setTimeout(() => {
+      speechTimer = null;
+      speechActive = false;
+      el.speechBubble.classList.add('hidden');
+    }, SPEECH_DURATION_MS);
+  }
+
+  function petSpeaker() {
+    return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
+  }
+
+  function partnerSpeaker() {
+    const p = state.partner;
+    return p ? { kind: 'partner', emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
+  }
+
+  function companionSpeaker() {
+    if (!state.companions.length) return null;
+    const sc = state.companions[Math.floor(Math.random() * state.companions.length)];
+    const c = allCompanionsById(sc.id);
+    return c ? { kind: 'companion', emoji: c.emoji, label: c.name } : null;
+  }
+
+  const PARTNER_IDLE_LINES = [
+    'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
+    'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
+  ];
+  const COMPANION_IDLE_LINES = [
+    'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
+    'なんか おもしろいこと ない?', 'ずっと そばに いるよ', 'ちょっと じゃれたい!',
+  ];
 
   // flavor beats sprinkled across a play session, reacting to whatever
   // just happened (a fresh evolution, a devolution, a 変身, a great or
@@ -4778,22 +4835,33 @@
     }, delay);
   }
 
-  // 放置していると、たまにキャラのほうから話しかけてくる(IDLE_GREETINGSから
-  // 1つ抽選)。ほかのメッセージやミニゲーム・すいみん中などとかぶらないよう、
-  // 何も表示されていない・普通に育っている最中のときだけ発火する
+  // 放置中の会話はシステム通知欄ではなく、話者つき吹き出しへ出す。
+  // 本人を基本にしつつ、いま一緒にいる恋人・なかまも時々しゃべる。
   function scheduleIdleGreeting() {
-    const delay = 3000 + Math.random() * 9000;
+    const delay = 5000 + Math.random() * 10000;
     setTimeout(() => {
       const canGreet = !gameActive
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
-        && !message;
+        && !message
+        && !speechActive;
       if (canGreet) {
-        const greeting = pickReaction(IDLE_GREETINGS, lastIdleGreeting);
-        lastIdleGreeting = greeting;
-        setMessage(greeting);
-        emotePet('happy');
+        const choices = [{ kind: 'pet', weight: 6 }];
+        if (state.partner) choices.push({ kind: 'partner', weight: 2 });
+        if (state.companions.length) choices.push({ kind: 'companion', weight: 2 });
+        const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
+        const kind = expanded[Math.floor(Math.random() * expanded.length)];
+        if (kind === 'partner') {
+          setSpeechBubble(pickReaction(PARTNER_IDLE_LINES, null), partnerSpeaker());
+        } else if (kind === 'companion') {
+          setSpeechBubble(pickReaction(COMPANION_IDLE_LINES, null), companionSpeaker());
+        } else {
+          const greeting = pickReaction(IDLE_GREETINGS, lastIdleGreeting);
+          lastIdleGreeting = greeting;
+          setSpeechBubble(greeting, petSpeaker());
+          emotePet('happy');
+        }
       }
       scheduleIdleGreeting();
     }, delay);

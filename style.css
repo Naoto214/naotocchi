@@ -1905,6 +1905,46 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
   100% { filter: brightness(1); }
 }
 
+/* メイン育成画面のキャラクター会話。システム通知(.message)とは分離する */
+.speech-bubble {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  width: min(88%, 270px);
+  margin: 5px auto 0;
+  padding: 7px 9px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid rgba(22, 51, 15, 0.82);
+  border-radius: 11px;
+  box-sizing: border-box;
+  font-size: 11px;
+  line-height: 1.35;
+  font-weight: bold;
+  text-align: left;
+  z-index: 4;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  background: rgba(255, 255, 255, 0.96);
+  border-left: 2px solid rgba(22, 51, 15, 0.82);
+  border-top: 2px solid rgba(22, 51, 15, 0.82);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.speech-bubble.hidden { display: none; }
+.speech-speaker { flex: 0 0 auto; font-size: 18px; line-height: 1; }
+.speech-text { min-width: 0; overflow-wrap: anywhere; }
+.speech-bubble[data-kind='partner'] { border-style: double; }
+.speech-bubble[data-kind='companion'] { border-style: dashed; }
+
 .message {
   margin-top: 8px;
   font-size: 12px;
