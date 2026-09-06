@@ -1831,6 +1831,22 @@
 
   function pickWeightedItem() { return RECOVERY_ITEMS[0]; }
 
+  // 日常の「おたのしみ」。下の欄に並び、ぽんぽん使って小さな演出を楽しむ。
+  // 攻略を飛ばす効果は持たせず、人生ログにも残さない。ごほうびとは完全に別物。
+  const FUN_ITEMS = [
+    { id: 'fun_candy', label: 'キャンディ', emoji: '🍭', message: 'ぺろぺろ… あまくて うれしそう!', emote: 'happy' },
+    { id: 'fun_bubbles', label: 'しゃぼんだま', emoji: '🫧', message: 'ふわふわの しゃぼんだまを おいかけた!', emote: 'fun' },
+    { id: 'fun_balloon', label: 'ふうせん', emoji: '🎈', message: 'ふうせんが ふわり。ずっと うえを みている', emote: 'fun' },
+    { id: 'fun_fireworks', label: 'はなび', emoji: '🎇', message: 'ぱっと ひかって、びっくりしてから わらった!', emote: 'fun' },
+    { id: 'fun_camera', label: 'カメラ', emoji: '📸', message: 'はい、チーズ! ちょっと すました かおを した', emote: 'happy' },
+    { id: 'fun_musicbox', label: 'オルゴール', emoji: '🎵', message: 'やさしい おとに あわせて ゆらゆらしている', emote: 'happy' },
+    { id: 'fun_surprise', label: 'びっくりばこ', emoji: '🪄', message: 'びよーん! びっくりして ひっくりかえりそうになった!', emote: 'fun' },
+  ];
+
+  function randomFunItem() {
+    return FUN_ITEMS[Math.floor(Math.random() * FUN_ITEMS.length)];
+  }
+
 
   // ================================================================
   // ねんれい / ライフステージ - ゆいいつの 真実
@@ -1917,7 +1933,10 @@
       setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
       emotePet('love');
     } else if (age % 5 === 0) {
-      setBirthdayToast(`🎂 ${age}さいに なった!`);
+      const fun = randomFunItem();
+      state.items[fun.id] = (state.items[fun.id] || 0) + 1;
+      setMessage(`🎂 ${age}さいに なった! おたのしみに ${fun.emoji}${fun.label}を もらった!`);
+      emotePet('happy');
     } else {
       setBirthdayToast(`🎂 ${age}さいに なった`);
     }
@@ -3932,20 +3951,16 @@
   // 2段階が 目で わかる ように、とくべつには 💫 を つける)。
   // もっている ものは タップで その場で つかえる
   function renderRewardItemGrid() {
-    el.rewardItemGrid.innerHTML = RECOVERY_ITEMS.map((item) => {
-      const count = state.items[item.id] || 0;
-      const special = item.tier === 'special';
-      const status = count > 0 ? `${count}こ もっている` : 'まだ もっていない';
-      return `
-        <button type="button" class="shop-item reward-item ${special ? 'reward-special' : ''} ${count > 0 ? 'owned' : 'locked'}" data-id="${item.id}">
-          <span class="shop-item-badge">${special ? '💫' : ''}</span>
-          <span class="shop-item-emoji">${item.emoji}</span>
-          <span class="shop-item-label">${item.label}</span>
-          <span class="shop-item-desc">${item.desc}</span>
-          <span class="shop-item-status">${status}</span>
-        </button>
-      `;
-    }).join('');
+    const count = state.items.reward || 0;
+    el.rewardItemGrid.innerHTML = `
+      <button type="button" class="shop-item reward-item ${count > 0 ? 'owned' : 'locked'}" data-id="reward">
+        <span class="shop-item-badge">💫</span>
+        <span class="shop-item-emoji">🎁</span>
+        <span class="shop-item-label">ごほうび</span>
+        <span class="shop-item-desc">デートや たびを とくべつな思い出に できる。ここからは使わないよ</span>
+        <span class="shop-item-status">${count > 0 ? `${count}こ もっている` : 'まだ もっていない'}</span>
+      </button>
+    `;
   }
 
   function renderItemOverlay() {
@@ -4544,15 +4559,29 @@
   // ごほうびはミニゲーム大成功などで入手。一生のダメージである
   // おとろえを主に回復し、上位3種はさらにいのちも立て直す。
   function renderItemsRow(disableUse) {
-    const count = state.items.reward || 0;
-    el.itemsRow.innerHTML = count > 0
-      ? `<button class="item-btn special" data-item-id="reward" title="ごほうび - とくべつな体験につかえる" ${disableUse ? 'disabled' : ''}><span class="item-emoji">🎁</span><span class="item-count">${count}</span></button>`
-      : '';
+    const entries = FUN_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
+    if (!entries.length) {
+      el.itemsRow.innerHTML = '';
+      return;
+    }
+    el.itemsRow.innerHTML = entries.map((item) => `
+      <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse ? 'disabled' : ''}>
+        <span class="item-emoji">${item.emoji}</span>
+        <span class="item-count">${state.items[item.id]}</span>
+      </button>
+    `).join('');
   }
 
   function useItem(itemId) {
-    if (itemId !== 'reward' || !(state.items.reward > 0)) return;
-    setMessage('🎁 ごほうびは デートなどの とくべつな体験で つかえるよ');
+    const item = FUN_ITEMS.find((it) => it.id === itemId);
+    if (!item || !(state.items[itemId] > 0)) return;
+    state.items[itemId] -= 1;
+    if (state.items[itemId] <= 0) delete state.items[itemId];
+    // おたのしみは攻略アイテムではない。小さな反応だけを楽しむ。
+    state.happiness = clamp(state.happiness + 2, 0, 100);
+    setMessage(`${item.emoji} ${item.message}`);
+    emotePet(item.emote);
+    saveState();
     render();
   }
 
@@ -4562,8 +4591,10 @@
   });
 
   el.rewardItemGrid.addEventListener('click', () => {
-    if (state.items.reward > 0) setMessage('🎁 ごほうびを もっている! デートで とくべつな思い出に つかえるよ');
-    else setMessage('🎁 ごほうびは とてもレア。ミニゲームの大成功や人生の節目で たまに もらえるよ');
+    const count = state.items.reward || 0;
+    setMessage(count > 0
+      ? `🎁 ごほうびを ${count}こ もっている。デートや たびを とくべつな思い出に できるよ`
+      : '🎁 ごほうびは とてもレア。デートや たびの とくべつな思い出に つかえるよ');
     render();
   });
 
@@ -11505,7 +11536,9 @@
     const isBad = clampedScore < 40;
     if (isGreat) {
       applyGrowth(14); applyDecline(-8);
-      const gotReward = Math.random() < 0.18;
+      const fun = randomFunItem();
+      state.items[fun.id] = (state.items[fun.id] || 0) + 1;
+      const gotReward = Math.random() < 0.12;
       if (gotReward) state.items.reward = (state.items.reward || 0) + 1;
       // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる。
       // つかいきりアイテムの「ラッキーコイン」は、この ミニゲーム 1かいだけ
@@ -11515,7 +11548,7 @@
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost);
       state.lifetime.money += coins;
-      itemMessage = gotReward ? ` ごほうびに 🎁 と 💰${coins} を もらった!` : ` 💰${coins} を もらった!`;
+      itemMessage = gotReward ? ` おたのしみに ${fun.emoji}${fun.label}、さらに 🎁 と 💰${coins} を もらった!` : ` おたのしみに ${fun.emoji}${fun.label} と 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
       applyGrowth(7); applyDecline(-3);
     } else if (state.oneTimeBoosts.safetyNet) {
@@ -12048,6 +12081,12 @@
       render();
       return;
     }
+    const specialRewardTrip = (state.items.reward || 0) > 0
+      && window.confirm('🎁 ごほうびを1こ使って、とくべつな旅にしますか？');
+    if (specialRewardTrip) {
+      state.items.reward -= 1;
+      if (state.items.reward <= 0) delete state.items.reward;
+    }
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
@@ -12093,9 +12132,14 @@
     const reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
     if (!checkMeters()) {
-      setMessage(spammedTravel
-        ? `${region.emoji} ${region.label}に やってきた!でも たびづかれで ちょっと ぐったり…${reaction}`
-        : `${region.emoji} ${region.label}に やってきた!${reaction}`);
+      if (specialRewardTrip) {
+        pushLifeLog('🎁', `とくべつな旅の おもいで: ${region.label}`);
+        setMessage(`🎁 ${region.emoji} ${region.label}で、とくべつな時間を すごした。 ${reaction}`);
+      } else {
+        setMessage(spammedTravel
+          ? `${region.emoji} ${region.label}に やってきた!でも たびづかれで ちょっと ぐったり…${reaction}`
+          : `${region.emoji} ${region.label}に やってきた!${reaction}`);
+      }
     }
     emotePet(spammedTravel ? 'sad' : 'fun');
     saveState();
@@ -12423,12 +12467,6 @@
     const btn = e.target.closest('.shop-item');
     if (!btn || btn.disabled) return;
     buyNaotoItem(btn.dataset.id);
-  });
-
-  el.onetimeItemGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.shop-item');
-    if (!btn) return;
-    useConsumableItem(btn.dataset.id);
   });
 
   el.pickerGrid.addEventListener('click', (e) => {
