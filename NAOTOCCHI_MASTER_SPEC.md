@@ -877,25 +877,29 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 
 ### K-5. RECOVERY_ITEMS（9 件・2 段階）
 
+**設計原則:** 日常4ステータス（おなか / ごきげん / げんき / けんこう）は通常のお世話で戻せるため、ごほうびとは役割を分離する。**ごほうびは「一生で蓄積するダメージ」を癒すアイテム**とし、全9件がおとろえに効き、上位3件はさらにいのちにも効く。
+
 | tier | id | 表示 | rank | weight | effects |
 |---|---|---|---|---|---|
-| normal | `candy` | 🍬 あめ | 1 | 8 | `happiness +20` |
-| normal | `dogfood` | 🦴 ドッグフード | 2 | 6 | `hunger +30` |
-| normal | `catfood` | 🐟 キャットフード | 2 | 6 | `hunger +30` |
-| normal | `udon` | 🍜 うどん | 3 | 5 | `hunger +25, energy +15` |
-| normal | `curry` | 🍛 カレー | 3 | 5 | `hunger +30, happiness +15` |
-| normal | `hotpot` | 🍲 なべ | 4 | 4 | `hunger +30, energy +20, health +15` |
-| **special** | `shoulder` | 💆 かたたたき | 5 | 3 | `energy +30, health +20, decline -20` |
-| **special** | `hug` | 🤗 ハグ | 6 | 2 | `happiness +40, energy +20, decline -30, life +20` |
-| **special** | `kiss` | 💋 キス | 7 | 1 | 4 ステータス各 +30, `decline -50`, `life +40` |
+| normal | `candy` | 🍬 あめ | 1 | 8 | `decline -8` |
+| normal | `dogfood` | 🦴 ドッグフード | 2 | 6 | `decline -12` |
+| normal | `catfood` | 🐟 キャットフード | 2 | 6 | `decline -12` |
+| normal | `udon` | 🍜 うどん | 3 | 5 | `decline -18` |
+| normal | `curry` | 🍛 カレー | 3 | 5 | `decline -20` |
+| normal | `hotpot` | 🍲 なべ | 4 | 4 | `decline -28` |
+| **special** | `shoulder` | 💆 かたたたき | 5 | 3 | `decline -35, life +10` |
+| **special** | `hug` | 🤗 ハグ | 6 | 2 | `decline -45, life +25` |
+| **special** | `kiss` | 💋 キス | 7 | 1 | `decline -65, life +45` |
 
-- `normal` は 4 ステータスのみ、`special` は **おとろえ・いのちにも効く**
+- `normal` 6件も通常ステータス回復ではなく **おとろえ回復**。通常のお世話との差別化を優先
+- `special` 3件は **おとろえ + いのち** を同時に立て直す
+- rank / weight は維持し、上位ほど強く希少
 - `pickWeightedItem()`: `weight × (1 + rankBonus × rank/7)`、`rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0`
 - `recoveryPotency()` = `1 + (itemluck3 0.4 / itemluck2 0.22 / itemluck1 0.1 / なし 0) + (hasPerk(80) ? sodachi/400 : 0)`（最大 ×1.65）
-- `recoveryWouldHelp(item)` が false（満タン）なら**消費せず**「いま つかっても かわる ところが ない… とっておこう」
-- ♾️ 中は `decline` / `life` を「変わるところ」に数えません
-- 使用後メッセージは**実際に動いた分だけ**を列挙（例: `💫 💋キス! おなか +30 / ごきげん +30 / げんき +30 / けんこう +30 / おとろえ -50 / いのち +40`）
-- あいてむ画面の「ごほうび」セクション（`#rewardItemGrid`）に 9 件が説明つきで並び、所持していればタップで使用
+- `recoveryWouldHelp(item)` が false なら消費しない
+- ♾️ 中は `decline` / `life` が停止しているため、これらのごほうびは原則「変わるところがない」となる
+- 使用後メッセージは実際に動いた分だけ列挙する
+- あいてむ画面の「ごほうび」セクションに9件を説明つきで表示し、所持中ならタップ使用できる
 
 ### K-6. 経済の総額
 
@@ -1185,7 +1189,7 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 
 ### P-4. `RECOVERY_ITEMS` の重複
 
-`dogfood`（🦴 ドッグフード）と `catfood`（🐟 キャットフード）は **`tier` / `rank` / `weight` / `effects` / `desc` がすべて同一**です。表示上の絵文字と名前だけが異なります（**意図未確認**）。
+`dogfood`（🦴 ドッグフード）と `catfood`（🐟 キャットフード）は同ランク・同効果のフレーバー違いとして意図的に残す。種族らしいごほうびの見た目の多様性を優先する。
 
 ### P-5. `STAGE.CLEAR` の完全撤去
 
