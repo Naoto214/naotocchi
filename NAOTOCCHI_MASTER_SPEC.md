@@ -1144,6 +1144,8 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 | 実績 | 75 |
 | SHOP / NAOTO / CONSUMABLE / RECOVERY | 50 / 4 / 50 / 9 |
 | いろ / がら | 40 / 40（各: 常時 21・tier0〜3 各 5/5/5/4・にじ 1） |
+
+**でざいん実装ルール:** 本体の40柄と画面の40柄は、どの色テーマと組み合わせても視認できること。`.device.theme-*` の `background` shorthand は `background-image` を消すため、**本体柄の `background-image / background-size / background-position` は色テーマ定義より後で適用する**。
 | 病気 | 10 |
 | でんせつの であい | 5 |
 | デートプラン | 10 |
