@@ -3800,14 +3800,14 @@
   // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
   // ずかんの 「なかま」セクションに ずっと 表示されつづける
   const COMPANIONS = [
-    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
-    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
-    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
-    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
-    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
+    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'しばいぬが ボールを くわえて こっちを みている。投げるまで 帰る気は なさそう' },
+    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'たぬきが 何かを かくしている。目が あった瞬間、知らないふりを した' },
+    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'ペンギンが こっちへ 急いできて、目のまえで きれいに すべった' },
+    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ふくろうが 上から ずっと みている。こっちが 先に 話しかけるのを 待っているみたい' },
+    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'うさぎが 少し先まで 走っては、こっちを 振り返っている。ついてこいって ことらしい' },
     { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', preferredRegions: ['forest','home'], flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
     { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', preferredRegions: ['tropical','forest'], flavor: 'のんびりやの コアラが きから おりてきた' },
-    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
+    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'カワウソが 石を ひとつ 差しだしてきた。たぶん 遊びの 参加券' },
     { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', preferredRegions: ['home','city'], flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
     { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', preferredRegions: ['forest','countryside'], flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
   ];
@@ -5511,15 +5511,15 @@
     const progress = (state.lifetime.companionFriendshipProgress || {})[companion.id] || 0;
     const reunited = progress > 0 && !state.lifetime.companionsRecruited.includes(companion.id);
     el.companionInviteTitle.textContent = isRare
-      ? `${companion.name}が じっと こっちを みている!`
-      : reunited ? `${companion.name}が また あらわれた!` : `${companion.name}が あそびに さそってきた!`;
+      ? `${companion.name}と めが あった`
+      : reunited ? `${companion.name}が また きた` : `${companion.name}が こっちを みている`;
     el.companionInviteFlavor.textContent = companion.flavor;
     el.companionInviteOverlay.classList.toggle('rare', !!isRare);
     // まだ ミニゲームが はじまる まえに、ちゃんと 目に はいるよう
     // ひとこと メッセージらんにも のこす
     setMessage(isRare
-      ? `${companion.emoji} みたことの ない なにかが やってきた…`
-      : reunited ? `${companion.emoji} また あったね! ${companion.name}が こっちに きた` : `${companion.emoji} ${companion.name}が やってきた!`);
+      ? `${companion.emoji} みたことの ない なにかと めが あった…`
+      : reunited ? `${companion.emoji} ${companion.name}だ。また あった` : `${companion.emoji} ${companion.name}が こっちを みている`);
     emotePet('fun');
     render();
   }
@@ -13993,9 +13993,9 @@
 
   function resultMessageForScore(score) {
     const pools = score >= 80
-      ? ['かなり うまくいった!', 'いまのは きもちよかった!', 'これは もう1かい やりたい!', '思ったより できた!', '今日の ちょうし いいかも!']
+      ? ['いまのは きもちよかった!', 'これは もう1かい やりたい!', '最後のところ、もう一度 やりたい!', '思ったより できた!', '手が ちゃんと ついてきた!']
       : score >= 50
-        ? ['いいかんじに あそべた!', 'ちゃんと たのしかった!', 'なかなか わるくない!', 'もうちょい いけそう!', 'いい勝負だった!']
+        ? ['あと ちょっと いけそう!', '途中までは よかった!', 'もう1回なら 変わりそう!', 'いい勝負だった!', 'いまの ミスだけ くやしい!']
         : ['今回は こんなもん!', 'つぎは もうちょい いける!', 'いまのは れんしゅう!', 'ちょっと くやしい!', 'もう1かいなら いけそう!'];
     return pools[Math.floor(Math.random() * pools.length)];
   }
