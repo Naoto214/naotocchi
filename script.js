@@ -13104,6 +13104,124 @@
     };
   }
 
+  // --- プレミアム: 3Dふう奥行きゲーム ---
+  // CSS perspective + requestAnimationFrame で軽量に奥行きを表現する。
+  // 外部3Dライブラリを使わないため、iPhoneでも既存ゲームと同じページ内で遊べる。
+  function makePerspectiveDodgeGame({ title, playerEmoji, obstacleEmojis, collectEmoji, mode = 'space' }) {
+    return {
+      start(container, onComplete) {
+        const DURATION_MS = 15000;
+        const difficulty = ageDifficulty();
+        let lane = 1, running = true, hits = 0, collected = 0, passed = 0;
+        let objects = [], rafId, spawnTimer, lastFrame = null;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        const speed = lerp(0.46, 0.64, difficulty);
+        const spawnMs = lerp(820, 580, difficulty);
+        container.innerHTML = `
+          <div class="mg-header"><span id="mgP3Timer">のこり: 15s</span><span id="mgP3Score">⭐ 0</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-p3-scene mg-p3-${mode}" id="mgP3Scene">
+            <div class="mg-p3-horizon"></div><div class="mg-p3-road"></div>
+            <div class="mg-p3-player" id="mgP3Player">${playerEmoji}</div>
+          </div>
+          <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgP3Left">◀</button><button class="mg-tap-btn" id="mgP3Right">▶</button></div>
+        `;
+        const scene=container.querySelector('#mgP3Scene'), player=container.querySelector('#mgP3Player');
+        const timer=container.querySelector('#mgP3Timer'), scoreEl=container.querySelector('#mgP3Score');
+        const laneX=[27,50,73];
+        const move=()=>{ player.style.left=laneX[lane]+'%'; };
+        move();
+        const left=()=>{lane=Math.max(0,lane-1);move();};
+        const right=()=>{lane=Math.min(2,lane+1);move();};
+        container.querySelector('#mgP3Left').addEventListener('pointerdown',left);
+        container.querySelector('#mgP3Right').addEventListener('pointerdown',right);
+        scene.addEventListener('pointerdown',(e)=>{ const r=scene.getBoundingClientRect(); (e.clientX-r.left<r.width/2?left:right)(); });
+
+        function spawn(){
+          if(!running)return;
+          const good=Math.random()<0.28, objLane=Math.floor(Math.random()*3);
+          const el=document.createElement('div');
+          el.className='mg-p3-object '+(good?'good':'bad');
+          el.textContent=good?collectEmoji:obstacleEmojis[Math.floor(Math.random()*obstacleEmojis.length)];
+          scene.appendChild(el);
+          objects.push({el,lane:objLane,z:0,good,resolved:false});
+          spawnTimer=setTimeout(spawn,spawnMs);
+        }
+        spawnTimer=setTimeout(spawn,MG_ACTION_START_GRACE_MS);
+
+        function frame(now){
+          if(!running)return;
+          if(now<startTime){rafId=requestAnimationFrame(frame);return;}
+          if(lastFrame===null)lastFrame=now;
+          const dt=Math.min(.05,(now-lastFrame)/1000); lastFrame=now;
+          for(const o of objects){
+            o.z+=speed*dt;
+            const scale=.22+o.z*1.65;
+            const y=18+o.z*72;
+            const x=50+(laneX[o.lane]-50)*(.18+o.z*.82);
+            o.el.style.transform=`translate(-50%,-50%) translate(${x-50}%,0) scale(${scale})`;
+            o.el.style.left=x+'%'; o.el.style.top=y+'%'; o.el.style.opacity=Math.min(1,.35+o.z);
+            if(!o.resolved&&o.z>=.86){
+              o.resolved=true; passed++;
+              if(o.lane===lane){
+                if(o.good){collected++;o.el.classList.add('picked');}
+                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),120);}
+                scoreEl.textContent='⭐ '+collected;
+              }
+            }
+          }
+          objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
+          const rem=Math.max(0,DURATION_MS-(now-startTime)); timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';
+          if(rem<=0){end();return;} rafId=requestAnimationFrame(frame);
+        }
+        rafId=requestAnimationFrame(frame);
+        function end(){
+          if(!running)return;running=false;cancelAnimationFrame(rafId);clearTimeout(spawnTimer);
+          const score=clamp(Math.round(55+collected*10-hits*18+Math.min(15,passed)),5,100);onComplete(score);
+        }
+      }
+    };
+  }
+
+  const PERSPECTIVE_3D_VARIANTS = [
+    mg('p3-space', makePerspectiveDodgeGame({ title:'3Dふう うちゅうフライト!リングを あつめて いんせきを よけよう', playerEmoji:'🚀', obstacleEmojis:['☄️','🪨','🛰️'], collectEmoji:'⭕', mode:'space' })),
+    mg('p3-drive', makePerspectiveDodgeGame({ title:'3Dふう ハイウェイ!コインを ひろって くるまを よけよう', playerEmoji:'🏎️', obstacleEmojis:['🚙','🚚','🚧'], collectEmoji:'🪙', mode:'drive' })),
+  ];
+
+  function makeFirstPersonDungeonGame({ title }) {
+    return {
+      start(container,onComplete){
+        const SIZE=5, goal={x:4,y:4}; let x=0,y=0,dir=1,moves=0,treasure=0,done=false;
+        const walls=new Set(['1,0-1,1','2,1-3,1','3,2-3,3','1,3-2,3']);
+        const key=(a,b,c,d)=>{const p=[`${a},${b}`,`${c},${d}`].sort();return p[0]+'-'+p[1];};
+        const blocked=(nx,ny)=>nx<0||ny<0||nx>=SIZE||ny>=SIZE||walls.has(key(x,y,nx,ny));
+        const treasures=new Set(['2,0','4,1','0,4']);
+        container.innerHTML=`
+          <div class="mg-header"><span id="mgDMove">すすんだ: 0</span><span id="mgDTreasure">💎 0/3</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-fp-view" id="mgFPView"><div class="mg-fp-ceiling"></div><div class="mg-fp-floor"></div><div class="mg-fp-wall left"></div><div class="mg-fp-wall right"></div><div class="mg-fp-door" id="mgFPDoor">🚪</div><div class="mg-fp-depth" id="mgFPDepth">🕯️</div></div>
+          <div class="mg-hint" id="mgDHint">← →で むきをかえて、↑で すすもう</div>
+          <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDTurnL">↶</button><button class="mg-tap-btn" id="mgDForward">↑</button><button class="mg-tap-btn" id="mgDTurnR">↷</button></div>`;
+        const dirs=[[0,-1],[1,0],[0,1],[-1,0]], view=container.querySelector('#mgFPView'),hint=container.querySelector('#mgDHint');
+        function renderView(msg=''){
+          const [dx,dy]=dirs[dir], nx=x+dx,ny=y+dy, isWall=blocked(nx,ny);
+          view.classList.toggle('blocked',isWall);
+          container.querySelector('#mgFPDoor').style.display=(x===goal.x&&y===goal.y)?'block':'none';
+          container.querySelector('#mgFPDepth').textContent=isWall?'🧱':(x===goal.x&&y===goal.y?'✨':'🕯️');
+          container.querySelector('#mgDMove').textContent='すすんだ: '+moves;
+          container.querySelector('#mgDTreasure').textContent='💎 '+treasure+'/3';
+          hint.textContent=msg||(x===goal.x&&y===goal.y?'出口を みつけた!':'← →で むきをかえて、↑で すすもう');
+          if(x===goal.x&&y===goal.y&&!done){done=true;setTimeout(()=>onComplete(clamp(100-moves*2+treasure*10,30,100)),450);}
+        }
+        container.querySelector('#mgDTurnL').onclick=()=>{if(done)return;dir=(dir+3)%4;renderView();};
+        container.querySelector('#mgDTurnR').onclick=()=>{if(done)return;dir=(dir+1)%4;renderView();};
+        container.querySelector('#mgDForward').onclick=()=>{if(done)return;const [dx,dy]=dirs[dir],nx=x+dx,ny=y+dy;moves++;if(blocked(nx,ny)){renderView('🧱 かべだ');return;}x=nx;y=ny;const p=x+','+y;if(treasures.delete(p)){treasure++;renderView('💎 たからを みつけた!');}else renderView();};
+        renderView();
+      }
+    };
+  }
+  const FIRST_PERSON_DUNGEON_VARIANTS=[mg('fp-dungeon',makeFirstPersonDungeonGame({title:'3Dふう ダンジョン!一人称で 出口を さがそう'}))];
+
   // --- 4. ゲレンデすべりおり(スキー/スノーボード) ---
   // ◀▶ボタンで さゆうに うごきつづけながら、上から せまってくる
   // しょうがいぶつを よけつつ、はたの あいだ(ゲート)を くぐりぬける。
@@ -13581,6 +13699,8 @@
     ...DRAG_DECORATE_VARIANTS,
     ...MINI_POKER_VARIANTS,
     ...MINI_ESCAPE_VARIANTS,
+    ...PERSPECTIVE_3D_VARIANTS,
+    ...FIRST_PERSON_DUNGEON_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -13644,6 +13764,8 @@
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
     ['miniPoker', MINI_POKER_VARIANTS],
     ['miniEscape', MINI_ESCAPE_VARIANTS],
+    ['perspective3d', PERSPECTIVE_3D_VARIANTS],
+    ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
