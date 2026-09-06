@@ -2170,22 +2170,22 @@
       companion: ['おごって!', 'それ たべれる?', 'ぼくのぶん ある?'],
     },
     travel: {
-      pet: ['きたー!', '空気 ちがう!', 'ここ 住めるかも', 'とりあえず 何たべる?', '地図より ぜんぜん いい'],
+      pet: ['ついた!', '空気 ちがう!', 'ここ 住めるかな', 'とりあえず 何たべる?', '地図で 見るより ひろい'],
       partner: ['いっしょに 来れてよかった', '写真 とろうよ', '迷子に ならないでね笑'],
       companion: ['走っていい!?', '知らない におい!', 'ここ ぼくの なわばりにする!'],
     },
     transform: {
       pet: ['え、ぼく!?', '鏡 どこ!?', '中身は ぼくのまま…だよね?', '変身ポーズ いる?', 'なんか 強そう'],
-      partner: ['似合ってる…たぶん笑', '急に 変わりすぎ!', 'でも ちゃんと わかるよ'],
+      partner: ['似合ってる。見慣れるまで ちょっと かかりそう笑', '急に 変わりすぎ!', 'でも ちゃんと わかるよ'],
       companion: ['だれ!?…あ、きみか!', 'ぼくも へんしんしたい!', 'においは おなじ!'],
     },
     partner_new: {
-      pet: ['え、ほんとに!?', 'やばい うれしい', '今日を 記念日に しよう', '心臓 うるさい'],
+      pet: ['え、ほんとに!?', 'うれしくて 何から 話せばいいか わからない', '今日を 記念日に しよう', '心臓 うるさい'],
       partner: ['これから よろしくね', 'そんなに にやけないで笑', 'ちゃんと 大事にしてね'],
       companion: ['おめでとー!', 'ぼくのことも 忘れないで!', '空気 よんだほうがいい?'],
     },
     marriage: {
-      pet: ['ほんとに けっこんした!', '市役所いく? もういった?', 'ずっと いっしょって すごい', '指輪 なくさないようにする'],
+      pet: ['ほんとに けっこんした!', '市役所いく? もういった?', '明日の朝も となりに いるんだね', '指輪 なくさないようにする'],
       partner: ['これからも よろしくね', '逃げないでね笑', '一緒に 年とろうね'],
       companion: ['けっこん!?', 'パーティーは!?', 'ぼくも 家族?'],
     },
@@ -2195,9 +2195,9 @@
       companion: ['いまの 見た!', 'もう1かい!', 'ぼくも やる!', 'なんで そんな できるの!?'],
     },
     minigame_bad: {
-      pet: ['いまのは 練習', '操作が わるい。ぼくは わるくない', '忘れて', '次は 本気出す'],
+      pet: ['いまのは 練習', '押すところ ひとつ まちがえた', '忘れて', 'もう1回なら さっきより いける'],
       partner: ['はいはい笑', '言い訳 はやいって', '次 がんばろ'],
-      companion: ['どんまい!', 'ぼくのほうが うまいかも!'],
+      companion: ['どんまい!', 'つぎ ぼくにも やらせて!'],
     },
   };
 
@@ -2250,14 +2250,14 @@
   }
 
   const PARTNER_IDLE_LINES = [
-    'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
+    'いっしょに いると おちつくね', '気づいたら また となりに いるね', 'つぎは どこへ いこうか?',
     'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
     'きょう なんか いいかおしてる', 'あとで ちょっと さんぽしない?', 'いまの じかん、けっこう すき',
     'さいきん ちゃんと わらってる?', 'カレー たべたいな', 'あの くも、なんか いぬっぽい',
   ];
   const COMPANION_IDLE_LINES = [
     'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
-    'なんか おもしろいこと ない?', 'ずっと そばに いるよ', 'ちょっと じゃれたい!',
+    'なんか おもしろいこと ない?', 'きょうは ここに いるね', 'ちょっと じゃれたい!',
     'おなかすいたー', 'つぎ なにする?', 'ぼく ここ みはってるね',
     'いま なんか うごいた!', 'ひなたぼっこ したい', 'さっきの おと なに?',
   ];
@@ -6711,7 +6711,7 @@
   function renderDuelFinalStage(d) {
     const iAmGuesser = d.role === 'guesser';
     const myOutcome = d.matchOutcome === 'draw' ? 'draw' : (d.matchOutcome === (iAmGuesser ? 'B' : 'A') ? 'win' : 'lose');
-    el.duelResultTitle.textContent = myOutcome === 'win' ? '🎉 しょうり!' : (myOutcome === 'lose' ? '😢 はいぼく…' : '🤝 ひきわけ');
+    el.duelResultTitle.textContent = myOutcome === 'win' ? '🎉 Aの かち!' : (myOutcome === 'lose' ? '😢 Bの かち' : '🤝 ひきわけ');
     el.duelResultScore.textContent = `A ${d.aTotal}点 － B ${d.bTotal}点`;
     const delta = d.moneyDelta || 0;
     const moneyLine = delta > 0 ? `+💰${delta}` : (delta < 0 ? `-💰${Math.abs(delta)}` : 'かけきんの やりとりなし(ひきわけ)');
@@ -12821,7 +12821,7 @@
             scoreEl.textContent = `${placedCount}/${ROUNDS_DEF.length}`;
             roundIndex += 1;
             if (placedCount >= ROUNDS_DEF.length) {
-              hintEl.textContent = 'できあがり! 🎂';
+              hintEl.textContent = 'さいごの ひとつを おいて、ケーキが できた! 🎂';
               finish(100);
             } else {
               updateHint();
@@ -12898,7 +12898,7 @@
             if (correct) placedCount += 1;
             scoreEl.textContent = `${placedCount}/${ITEMS_DEF.length}`;
             if (items.every((it) => it.style.pointerEvents === 'none')) {
-              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'できあがり! 🍱' : 'できた ところまで できたよ';
+              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'ぜんぶ つめて、おべんとうが できた! 🍱' : '時間までに ここまで つめられた';
               finish(Math.round((placedCount / ITEMS_DEF.length) * 100));
             }
             return true;
@@ -13005,7 +13005,7 @@
           } else if (phase === 'biting') {
             phase = 'done';
             bobber.classList.remove('biting');
-            finish(100, 'つれたー! 🐟');
+            finish(100, 'ウキが しずんだ! ひきあげると 🐟 が かかっていた');
           }
         });
 
@@ -13280,7 +13280,7 @@
             }
             if (now - startTime >= BALANCE_MS) {
               scene.removeEventListener('pointerdown', tapHandler);
-              finish(100, 'なみのり せいこう! 🌊');
+              finish(100, '最後まで ボードの上に のれた! 🌊');
               return;
             }
             rafId = requestAnimationFrame(step);
@@ -13307,8 +13307,8 @@
     const rankCounts = {};
     cards.forEach((c) => { rankCounts[c.rank] = (rankCounts[c.rank] || 0) + 1; });
     const topCount = Math.max(...Object.values(rankCounts));
-    if (topCount === 3) return { label: '3カード!だいあたり!', score: 100 };
-    if (topCount === 2) return { label: 'ペア!あたり!', score: 70 };
+    if (topCount === 3) return { label: '3カード! 3まい そろった!', score: 100 };
+    if (topCount === 2) return { label: 'ペア! 2まい そろった', score: 70 };
     if (allSameSuit) return { label: 'おなじ マークが そろった!', score: 60 };
     return { label: 'やくなし…', score: 25 };
   }
@@ -13400,7 +13400,7 @@
           grid.innerHTML = `<div class="mg-escape-obj mg-escape-exit" id="mgEscapeExit">${exitEmoji}<span>${exitLabel}</span></div>`;
           container.querySelector('#mgEscapeExit').addEventListener('pointerdown', () => {
             if (finished) return;
-            finish(100, 'だっしゅつ せいこう! 🎉');
+            finish(100, 'とびらが あいた! 🎉');
           });
         }
 
