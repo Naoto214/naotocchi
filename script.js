@@ -2228,7 +2228,7 @@
     if (!pool) return;
     clearConversationTimers();
     const beats = [];
-    const petLine = pickConversationLine(pool.pet, ctx);
+    const petLine = ctx.petText || pickConversationLine(pool.pet, ctx);
     if (petLine) beats.push({ speaker: petSpeaker(), text: petLine });
     if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
       const ps = partnerSpeaker();
@@ -14317,8 +14317,7 @@
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
       setMessage(spammed ? '🐾 じゃれすぎた' : '🐾 いっしょに じゃれた');
-      setSpeechBubble(reaction, petSpeaker());
-      speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { partnerChance: 0.45, companionChance: 0.8 });
+      speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
     }
     emotePet(spammed ? 'angry' : 'happy');
   }));
@@ -14400,8 +14399,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage('💞 こいびとに きもちを つたえた');
-        setSpeechBubble(reaction, petSpeaker());
-        speakEvent('court', { partnerChance: 0.9, companionChance: 0.35 });
+        speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35 });
       }
       emotePet('love');
       return;
@@ -14491,8 +14489,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage(`💑 ${candidate.label}と こいびとに なった`);
-        setSpeechBubble(reaction, petSpeaker());
-        speakEvent('partner_new', { partnerChance: 0.95, companionChance: 0.5 });
+        speakEvent('partner_new', { petText: reaction, partnerChance: 0.95, companionChance: 0.5 });
       }
       emotePet('love');
     } else {
@@ -14502,8 +14499,7 @@
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage('💞 きゅうあいしたが、まだ きもちは とどかなかった');
-        setSpeechBubble(reaction, petSpeaker());
-        speakEvent('court_fail', { partnerChance: 0, companionChance: 0.45 });
+        speakEvent('court_fail', { petText: reaction, partnerChance: 0, companionChance: 0.45 });
       }
       emotePet('sad');
     }
