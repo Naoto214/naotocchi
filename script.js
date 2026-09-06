@@ -3983,6 +3983,7 @@
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
     el.dateMovieScene.classList.remove('special-reward');
+    el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
     renderDateChoices();
@@ -4051,12 +4052,14 @@
 
     const beats = special
       ? [
-          `きょうは ごほうびを つかって、${partner.label}と ${plan.label}へ。`,
+          `🎁 ごほうびを つかって、${partner.label}と ${plan.label}へ。`,
+          'きょうだけは、いつものデートより ちょっと とくべつ。',
           traitLine,
           hasNaotoItem('naoto_ring')
             ? '💍 ふたりだけの ひみつの ことばを のこした。'
-            : 'きょうのこと、ずっと おぼえていようね。 💝',
-          '🎁 とくべつな おもいでが ひとつ ふえた。',
+            : 'ふたりで しゃしんを とって、しばらく そのまま ならんでいた。',
+          'きょうのこと、ずっと おぼえていようね。 💝',
+          '🎁 「とくべつな おもいで」として じんせいに のこった。',
         ]
       : [
           `${partner.label}と ${plan.label}へ。`,
@@ -4069,8 +4072,8 @@
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
 
-    // 1文あたり約2秒以上。前の0.8〜1.3秒では読めなかった。
-    const step = special ? 2200 : 2100;
+    // 文章を読んで余韻も残せる速度。通常でも約3.4秒/文、特別デートは約4.2秒/文。
+    const step = special ? 4200 : 3400;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
@@ -4099,34 +4102,54 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.classList.remove('special-reward');
+    el.dateMovieScene.classList.toggle('anniversary-major', milestone.years >= 25);
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
     el.dateMoviePartner.textContent = state.partner.emoji || '💞';
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
-    const beats = milestone.years >= 25
-      ? [
-          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
-          hadMismatch ? 'すれちがった ひも あった。でも、ふたりで ここまで きた。' : 'いろんな おもいでを、ふたりで かさねてきた。',
-          milestone.years >= 50 ? '50ねん、いっしょに いられたね。これからも よろしくね。' : 'これからも、いっしょに あるいていこう。',
-        ]
-      : [
-          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
-          milestone.years === 1 ? 'はじめての けっこんきねんびを、ふたりで むかえた。' : 'あのひから、もう 10ねん。いろんな ことが あったね。',
-          'これからも よろしくね。',
-        ];
+    let beats;
+    if (milestone.years >= 50) {
+      beats = [
+        `${state.partner.label}と けっこんして 50ねん。`,
+        'ふたりで すごした きせつは、もう かぞえきれない。',
+        hadMismatch ? 'すれちがった ひも、なかなおりした ひも、ぜんぶ ふたりの じかんになった。' : 'わらった ひも、しずかな ひも、ぜんぶ ふたりの じかんになった。',
+        'むかしより ゆっくり あるくように なったけど、となりには まだ おなじひとが いる。',
+        '50ねん、いっしょに いられたね。',
+        'これからも、いけるところまで いっしょに。',
+      ];
+    } else if (milestone.years >= 25) {
+      beats = [
+        `${state.partner.label}と けっこんして 25ねん。`,
+        'ぎんこんしき。ふたりの おもいでが ずいぶん ふえた。',
+        hadMismatch ? 'すれちがった ひも あった。でも、そのたびに また はなした。' : 'たいしたことのない まいにちも、あとからみると ちゃんと おもいでだった。',
+        'むかしの しゃしんを みて、ふたりで ちょっと わらった。',
+        'ここまで きたね。',
+        'これからも、いっしょに あるいていこう。',
+      ];
+    } else {
+      beats = [
+        `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
+        milestone.years === 1 ? 'はじめての けっこんきねんびを、ふたりで むかえた。' : 'あのひから、もう 10ねん。いろんな ことが あったね。',
+        'なんでもない ひも、ちゃんと ふたりの じかんだった。',
+        'これからも よろしくね。',
+      ];
+    }
+
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
-    dateMovieTimers.push(setTimeout(() => {
-      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
-      el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat');
-    }, 2200));
-    dateMovieTimers.push(setTimeout(() => {
-      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
-      el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat');
-    }, 4500));
-    dateMovieTimers.push(setTimeout(finishDateMovie, 6800));
+    const step = milestone.years >= 25 ? 4200 : 3600;
+    for (let i = 1; i < beats.length; i += 1) {
+      dateMovieTimers.push(setTimeout(() => {
+        el.dateMovieCaption.classList.remove('beat');
+        void el.dateMovieCaption.offsetWidth;
+        el.dateMovieCaption.textContent = beats[i];
+        el.dateMovieCaption.classList.add('beat');
+      }, step * i));
+    }
+    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 800));
   }
 
   function checkMarriageMilestones(prevAge, age) {
@@ -5055,17 +5078,8 @@
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
-        // 元気の かいふくは、「ねる」を おした しゅんかんの ボーナスには
-        // たよらず、すいみん状態で すごした じかん(=tick かいすう)だけを
-        // 回復の もとに する(sleepBtn の クリックハンドラに あった
-        // その場かぎりの キックスタート分は、寝おき連打で かせげてしまう
-        // ぬけみちに なっていた ため はいししてある)。1tick=3びょう ごとに
-        // 40(びょうき中は 16)回復するので、なにもせず 寝かせつづけるだけで
-        // 0→100が 3tickほど(=約9びょう)で フルに もどる、はっきり はやい
-        // ペースに してある。すいみんけいの アイテムを そうびしていると、
-        // さらに 回復量が 上乗せされる
-        const sleepBoost = isEquipped('sleepboost1') ? 6 : 0;
-        state.energy = clamp(state.energy + (state.isSick ? 16 : 40) + sleepBoost, 0, 100);
+        // 元気回復は startSleepRecovery() の100msタイマーで滑らかに行う。
+        // tick側では回復しないので、起こした後に遅れて回復することもない。
       } else {
         // 元気けいの アイテムを そうびしていると、おきている あいだの
         // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
@@ -5695,6 +5709,7 @@
   }
 
   function render() {
+    if (state.isSleeping && !sleepRecoveryTimer) startSleepRecovery();
     const isDead = state.stage === STAGE.DEAD;
     const isEgg = state.stage === STAGE.EGG;
     const isOver = isDead;
@@ -13746,6 +13761,7 @@
   // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
   // おなじ ジャンルが 3かい れんぞくしないように するための きろく
   const recentMinigameCategories = [];
+  let playsSinceChaseGame = 0;
 
   // 各ゲームオブジェクトは 上の mg() で つくった その場で 固定の 文字列id
   // (game.id)を もっている。配列じょうの 位置には いっさい 依存しないので、
@@ -13885,6 +13901,13 @@
     if (regionArrivalBoostLeft > 0) regionArrivalBoostLeft -= 1;
     if (seasonArrivalBoostLeft > 0) seasonArrivalBoostLeft -= 1;
 
+    // パックマン風の「おいかけっこ」は操作感がユニークなのに、
+    // 巨大な全体プールの中で埋もれやすい。7回以上出ていなければ、
+    // キュー内にある chase を次へ引き寄せる。
+    if (playsSinceChaseGame >= 7) {
+      trySwapForwardMatching((game) => minigameCategoryOf.get(game) === 'chase', minigameQueue.length);
+    }
+
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
     // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
     // あれば そちらを さきに 出す(なければ そのまま、むりには しない)
@@ -13909,6 +13932,8 @@
     const game = currentMinigamePool[gameIdx];
     lastMinigame = game;
     recordMinigamePlay(game);
+    if (category === 'chase') playsSinceChaseGame = 0;
+    else playsSinceChaseGame += 1;
     recentMinigameCategories.push(category);
     if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
     return game;
@@ -14076,6 +14101,33 @@
     game.start(el.minigameOverlay, finishMinigame);
   }
 
+  let sleepRecoveryTimer = null;
+
+  function stopSleepRecovery() {
+    if (sleepRecoveryTimer) {
+      clearInterval(sleepRecoveryTimer);
+      sleepRecoveryTimer = null;
+    }
+  }
+
+  function startSleepRecovery() {
+    stopSleepRecovery();
+    if (!state.isSleeping) return;
+    // 押した瞬間から100msごとに滑らかに回復。起こした瞬間に停止する。
+    sleepRecoveryTimer = setInterval(() => {
+      if (!state.isSleeping || !isLiveLife()) {
+        stopSleepRecovery();
+        return;
+      }
+      const boost = isEquipped('sleepboost1') ? 0.35 : 0;
+      const step = (state.isSick ? 1.15 : 1.8) + boost;
+      const before = state.energy;
+      state.energy = clamp(state.energy + step, 0, 100);
+      if (state.energy !== before) render();
+      if (state.energy >= 100) stopSleepRecovery();
+    }, 100);
+  }
+
   function withFeedback(fn) {
     return () => {
       fn();
@@ -14180,10 +14232,12 @@
       // ぬけみち)ため、あえて はいししてある
       setMessage('🌙 ねむりについた');
       speakEvent('sleep');
+      startSleepRecovery();
       return;
     }
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
     // (ねる→おきるの 連打で かせげてしまう ぬけみちを ふさぐ)
+    stopSleepRecovery();
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
