@@ -13222,6 +13222,56 @@
   }
   const FIRST_PERSON_DUNGEON_VARIANTS=[mg('fp-dungeon',makeFirstPersonDungeonGame({title:'3Dふう ダンジョン!一人称で 出口を さがそう'}))];
 
+  // --- 3Dふう ならびかえ ---
+  // 正解が客観的な「大きい/小さい/年寄り/若い」に加えて、
+  // 「面白そう/神経質そう」のような正解のないお題も混ぜる。
+  // 後者は採点せず、並べ終えた順そのものを楽しむ遊びにする。
+  function makePerspectiveRankingGame({ title, cast, criterion, subjective = false }) {
+    return {
+      start(container,onComplete){
+        let order=[...cast].sort(()=>Math.random()-.5), selected=-1, moves=0, done=false;
+        container.innerHTML=`
+          <div class="mg-header"><span id="mgRankMoves">いれかえ: 0</span><span>${subjective?'正解なし 😏':'ならべよう!'}</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-rank3d-stage" id="mgRankStage"></div>
+          <div class="mg-hint">${subjective?'自分のイメージでOK。2人ずつタップして入れかえよう':'左から順になるよう、2人ずつタップして入れかえよう'}</div>
+          <button class="mg-tap-btn" id="mgRankDone">これで けってい!</button>`;
+        const stage=container.querySelector('#mgRankStage'),movesEl=container.querySelector('#mgRankMoves');
+        function render(){
+          stage.innerHTML=order.map((c,i)=>`<button class="mg-rank3d-card ${i===selected?'selected':''}" data-i="${i}" style="--rank:${i}"><span class="mg-rank3d-emoji">${c.emoji}</span><span>${c.name}</span></button>`).join('');
+          stage.querySelectorAll('.mg-rank3d-card').forEach(btn=>btn.onclick=()=>{
+            if(done)return;const i=Number(btn.dataset.i);
+            if(selected<0){selected=i;render();return;}
+            if(selected!==i){[order[selected],order[i]]=[order[i],order[selected]];moves++;}
+            selected=-1;movesEl.textContent='いれかえ: '+moves;render();
+          });
+        }
+        render();
+        container.querySelector('#mgRankDone').onclick=()=>{
+          if(done)return;done=true;
+          if(subjective){onComplete(90);return;}
+          const ideal=[...cast].sort((a,b)=>a[criterion]-b[criterion]);
+          const pos=new Map(ideal.map((c,i)=>[c.name,i]));
+          let error=0;order.forEach((c,i)=>error+=Math.abs(i-pos.get(c.name)));
+          onComplete(clamp(Math.round(100-error*9-Math.max(0,moves-8)*2),20,100));
+        };
+      }
+    };
+  }
+  const RANKING_3D_CAST = [
+    {emoji:'🐭',name:'ねずみ',size:1,age:2},{emoji:'🐰',name:'うさぎ',size:2,age:4},
+    {emoji:'🐶',name:'いぬ',size:3,age:7},{emoji:'🐷',name:'ぶた',size:4,age:9},
+    {emoji:'🐻',name:'くま',size:5,age:15}
+  ];
+  const PERSPECTIVE_RANKING_VARIANTS = [
+    mg('rank3d-small',makePerspectiveRankingGame({title:'3Dならびかえ!小さい順に ならべよう',cast:RANKING_3D_CAST,criterion:'size'})),
+    mg('rank3d-big',makePerspectiveRankingGame({title:'3Dならびかえ!大きい順に ならべよう',cast:[...RANKING_3D_CAST].map((c,i,a)=>({...c,size:a.length-c.size})),criterion:'size'})),
+    mg('rank3d-young',makePerspectiveRankingGame({title:'3Dならびかえ!若そうな順に ならべよう',cast:RANKING_3D_CAST,criterion:'age'})),
+    mg('rank3d-old',makePerspectiveRankingGame({title:'3Dならびかえ!年寄りそうな順に ならべよう',cast:[...RANKING_3D_CAST].map(c=>({...c,age:20-c.age})),criterion:'age'})),
+    mg('rank3d-funny',makePerspectiveRankingGame({title:'3Dならびかえ!面白そうな順に ならべて笑',cast:RANKING_3D_CAST,criterion:'size',subjective:true})),
+    mg('rank3d-nervous',makePerspectiveRankingGame({title:'3Dならびかえ!神経質そうな順に ならべて笑',cast:RANKING_3D_CAST,criterion:'size',subjective:true})),
+  ];
+
   // --- 4. ゲレンデすべりおり(スキー/スノーボード) ---
   // ◀▶ボタンで さゆうに うごきつづけながら、上から せまってくる
   // しょうがいぶつを よけつつ、はたの あいだ(ゲート)を くぐりぬける。
@@ -13602,18 +13652,9 @@
     ...JANKEN_GAME_VARIANTS,
     ...CONCENTRATION_GAME_VARIANTS,
     ...BALANCE_GAME_VARIANTS,
-    ...ODD_ONE_OUT_VARIANTS,
-    ...NUMBER_ORDER_VARIANTS,
-    ...COMPARE_VARIANTS,
-    ...SHAPE_MATCH_VARIANTS,
-    ...SILHOUETTE_VARIANTS,
-    ...PATTERN_GAME_VARIANTS,
     ...BEAT_GAME_VARIANTS,
-    ...SORT_GAME_VARIANTS,
-    ...HIGH_LOW_VARIANTS,
     ...TILE_SWAP_VARIANTS,
     ...SPELL_GAME_VARIANTS,
-    ...SUM_PAIR_VARIANTS,
     ...JUMP_GAME_VARIANTS,
     ...COLOR_MIX_VARIANTS,
     ...FIND_SELF_VARIANTS,
@@ -13641,6 +13682,7 @@
     ...MINI_ESCAPE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
+    ...PERSPECTIVE_RANKING_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -13654,18 +13696,9 @@
     ['janken', JANKEN_GAME_VARIANTS],
     ['concentration', CONCENTRATION_GAME_VARIANTS],
     ['balance', BALANCE_GAME_VARIANTS],
-    ['oddOneOut', ODD_ONE_OUT_VARIANTS],
-    ['numberOrder', NUMBER_ORDER_VARIANTS],
-    ['compare', COMPARE_VARIANTS],
-    ['shapeMatch', SHAPE_MATCH_VARIANTS],
-    ['silhouette', SILHOUETTE_VARIANTS],
-    ['pattern', PATTERN_GAME_VARIANTS],
     ['beat', BEAT_GAME_VARIANTS],
-    ['sort', SORT_GAME_VARIANTS],
-    ['highLow', HIGH_LOW_VARIANTS],
     ['tileSwap', TILE_SWAP_VARIANTS],
     ['spell', SPELL_GAME_VARIANTS],
-    ['sumPair', SUM_PAIR_VARIANTS],
     ['jump', JUMP_GAME_VARIANTS],
     ['colorMix', COLOR_MIX_VARIANTS],
     ['findSelf', FIND_SELF_VARIANTS],
@@ -13693,6 +13726,7 @@
     ['miniEscape', MINI_ESCAPE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
+    ['perspectiveRanking', PERSPECTIVE_RANKING_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
