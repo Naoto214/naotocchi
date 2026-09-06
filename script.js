@@ -13650,27 +13650,13 @@
     for (const game of variants) minigameCategoryOf.set(game, category);
   }
 
-  // 地域ごとの あそび。それぞれ どの しゅるい(category)の あそびを
-  // 地域仕様に おきかえるものかを あわせて もたせておく。いま いる地域に
-  // その category の 地域限定版が あるあいだは、おなじ category の
-  // ふつうの バリエーションは いっさい 出さず、地域仕様だけが 出る
-  // (例:さばくに いるあいだは、もぐらたたき系は「サソリたたき」だけに
-  // なり、ほし・もぐら・むし・おばけ・ひよこ・はてなブロック・
-  // ライバルファイターは 出ない)。category の 地域限定版が ない しゅるいは、
-  // これまでどおり ふつうの プールから 出る。「おうち」も れっきとした
-  // ひとつの地域なので、おなじ しくみで 専用の4種類を もつ(ただし
-  // もぐらたたき系は 他の7地域 ぜんぶが すでに 地域仕様を もっていて、
-  // ここで おうちまで もぐらたたき系を おきかえると 一般の7種類が
-  // どこでも 二度と 出せなくなってしまうため、おうちの category からは
-  // わざと はずしてある)。うみ/ゆきやまは「4種固定」の 例外として 5つめの
-  // あそび(fishing/downhill)を もつ。これらは まったく あたらしい 操作を
-  // もつ ゲームで、一般プールに おなじ category が ないため 既存の どの
-  // category も おきかえない(既存4種を そのまま のこす ための 判断。
-  // buildMinigamePool() の フィルタは 一般プールに その category が
-  // 存在しない ばあい なにも フィルタしないので、あんぜんに 動作する)
+  // 地域ごとの あそび。一般プールとは別に地域らしいテーマを足す。
+  // 以前は各地域4〜5本をそろえていたが、単純な連打/タップ系が増えすぎて
+  // 面白いゲームを埋もれさせていたため、体験の違いがある2〜3本へ整理した。
   const REGION_MINIGAMES = {
+    // 地域ゲームは「数をそろえる」より、その土地で遊ぶ意味があるものを優先。
+    // 単純な連打/出現物タップの水増しは削り、地域ごと2〜3本の印象が違う遊びに絞る。
     home: [
-      { category: 'mash', game: makeMashGame({ title: 'おそうじ れんだタップ!', buttonEmoji: '🧹' }) },
       { category: 'catch', game: makeCatchGame({
         title: 'せんたくもの キャッチ!どろは いやだ',
         basketEmoji: '🧺',
@@ -13681,45 +13667,27 @@
       { category: 'maze', game: makeMazeGame({ title: 'おうちの なかを おかたづけめいろで すすもう!', pathEmojiPair: ['🛋️', '🛏️'] }) },
     ],
     sea: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'さかなつり!ゴミは いらないよ',
-        basketEmoji: '🎣',
-        goodItems: ['🐟', '🦐', '🐙', '🦑'],
-        badItems: ['🥫', '🛍️', '🪤', '⚓'],
-      }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす カニを タップ!', targetEmoji: '🦀' }) },
       { category: 'maze', game: makeMazeGame({ title: 'さんごしょうの めいろを およごう!', pathEmojiPair: ['🐠', '🪸'] }) },
       { category: 'concentration', game: makeConcentrationGame({ title: 'うみの いきものペアを さがそう!', emojis: ['🐠', '🐙', '🦑', '🦀', '🐬', '🐢'] }) },
-      // ほんものの さかなつり(まちぶせ→はんのう)を あたらしく ついか。
-      // 既存の さかなつり(catchカテゴリ、うごく バスケットで つかまえる)
-      // とは 操作が まったく べつなので、そちらを おきかえずに 5つめの
-      // うみげんてい あそびとして そのまま くわえた(「地域4種固定」より
-      // 既存あそびを のこす ことを 優先した判断。理由の詳細は 最終報告 参照)
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
     snow: [
       { category: 'jump', game: makeJumpGame({ title: 'ゆきだるまを よけて すべろう!', obstacleEmoji: '⛄' }) },
-      { category: 'mash', game: makeMashGame({ title: 'ゆきだるまづくり!れんだタップ!', buttonEmoji: '⛄' }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす ペンギンを タップ!', targetEmoji: '🐧' }) },
       { category: 'catch', game: makeCatchGame({
         title: 'ゆきの けっしょうキャッチ!こおりは あぶない',
         basketEmoji: '🧤',
         goodItems: ['❄️', '⛷️', '🧣', '☃️'],
         badItems: ['🧊', '⚡', '🥶', '🌨️'],
       }) },
-      // ゲレンデすべりおり(スキー/スノーボード)を あたらしく ついか。
-      // うみと おなじく、既存の4種を おきかえず 5つめとして くわえた
       { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     city: [
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす タクシーを タップ!', targetEmoji: '🚕' }) },
       { category: 'timing', game: makeTimingGame({ title: 'しんごうが かわる しゅんかんで タップ!', tapLabel: 'GO!', gaugeStyle: '#4a90d9' }) },
       { category: 'road', game: makeRoadGame({
         title: 'とかいを はしろう!ラッキーアイテムは キャッチ、はとの ふんは よけて',
         goodItems: ['🍩', '☕', '🎫', '💰'],
         badItems: ['🐦', '🚧', '🗑️', '⚠️'],
       }) },
-      { category: 'mash', game: makeMashGame({ title: 'エレベーターの ボタンれんだ!', buttonEmoji: '🛗' }) },
     ],
     countryside: [
       { category: 'catch', game: makeCatchGame({
@@ -13728,12 +13696,9 @@
         goodItems: ['🌾', '🍆', '🎃', '🧅'],
         badItems: ['🐀', '🦗', '🐜', '🦠'],
       }) },
-      { category: 'mash', game: makeMashGame({ title: 'にゅうしぼり!れんだタップ!', buttonEmoji: '🥛' }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす ニワトリを タップ!', targetEmoji: '🐔' }) },
       { category: 'concentration', game: makeConcentrationGame({ title: 'のうさぎょうの どうぐペアを さがそう!', emojis: ['🌾', '🚜', '🧺', '🐓', '🐄', '🌻'] }) },
     ],
     forest: [
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす リスを タップ!', targetEmoji: '🐿️' }) },
       { category: 'bubblePop', game: makeBubblePopGame({ title: 'きのこの ほうしを ポップしよう!', bubbleEmoji: '🍄' }) },
       { category: 'maze', game: makeMazeGame({ title: 'ふかい もりの けものみちを すすもう!', pathEmojiPair: ['🍂', '🐿️'] }) },
       { category: 'stack', game: makeStackGame({
@@ -13743,14 +13708,7 @@
       }) },
     ],
     desert: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'オアシスの みずを キャッチ!さそりは あぶない',
-        basketEmoji: '🏺',
-        goodItems: ['💧', '🍈', '🌴', '⭐'],
-        badItems: ['🦂', '🐍', '☠️', '🔥'],
-      }) },
       { category: 'jump', game: makeJumpGame({ title: 'サボテンを ジャンプで よけよう!', obstacleEmoji: '🌵' }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす サソリを タップ!', targetEmoji: '🦂' }) },
       { category: 'road', game: makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
         goodItems: ['💧', '🍈', '⭐', '🧢'],
@@ -13764,13 +13722,11 @@
         goodItems: ['🍍', '🥥', '🍌', '🥭'],
         badItems: ['🐝', '🕷️', '🦂', '🌶️'],
       }) },
-      { category: 'mash', game: makeMashGame({ title: 'ココナッツわり!れんだタップ!', buttonEmoji: '🥥' }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす オウムを タップ!', targetEmoji: '🦜' }) },
       { category: 'bubblePop', game: makeBubblePopGame({ title: 'トロピカルジュースの あわを ポップしよう!', bubbleEmoji: '🫧' }) },
     ],
   };
 
-  // きせつごとの あそび。地域とはちがい、その category を まるごと
+  // きせつごとの あそび。  // きせつごとの あそび。地域とはちがい、その category を まるごと
   // おきかえるのではなく、いま の きせつのあいだだけ「おまけの あと数種類」
   // として ふつうの プールに くわわる(きせつが すぎれば また 出なくなる)。
   // しょうらい きせつごとに 出現する ゲームを かえたり ふやしたり できる
@@ -13816,6 +13772,7 @@
   }
 
   const SEASONAL_MINIGAMES = {
+    // 季節ゲームも「その季節なら遊びたい」ものだけ残す。
     [SEASON.SPRING]: [
       { category: 'catch', game: makeCatchGame({
         title: 'おはなみ!はなびらキャッチ さくらを あつめよう',
@@ -13823,7 +13780,6 @@
         goodItems: ['🌸', '🍡', '🎎', '🦋'],
         badItems: ['🐛', '☔', '💨', '🐝'],
       }) },
-      { category: 'whack', game: makeWhackGame({ title: 'とびだす ちょうちょを タップ!', targetEmoji: '🦋' }) },
     ],
     [SEASON.SUMMER]: [
       { category: 'timing', game: makeTimingGame({ title: 'すいかわり!ねらいを さだめて タップ!', tapLabel: 'それ!', gaugeStyle: '#2e8b57', icon: '🍉' }) },
@@ -13834,14 +13790,9 @@
         badItems: ['🕳️', '💦', '🔥', '🐍'],
       }) },
       { category: 'reaction', game: makeReactionGame({ title: 'なつまつりの はなび!あがった しゅんかんに タップ!', waitWord: '🌃 よぞら を みつめる…', goWord: '🎆 どーん!', tooSoonWord: 'まだ あがって ないよ!' }) },
-      // サーフィンは なつとの あいしょうが よいため、地域げんていではなく
-      // この きせつの「おまけ」枠に あたらしく くわえた(地域×季節の
-      // あたらしい しくみは つくらず、既存の拡張点を そのまま つかう
-      // 判断。詳細は 最終報告 参照)
       { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
     [SEASON.AUTUMN]: [
-      { category: 'mash', game: makeMashGame({ title: 'いもほり!れんだで ほりだそう!', buttonEmoji: '🍠' }) },
       { category: 'stack', game: makeStackGame({
         title: 'おちばの やまを たかく つもう!',
         blockEmoji: '🍁',
@@ -13856,11 +13807,10 @@
         badItems: ['🐺', '🕷️', '💣', '🦇'],
       }) },
       { category: 'whack', game: makeWhackGame({ title: 'おには そと!まめまきで タップ!', targetEmoji: '👹' }) },
-      { category: 'mash', game: makeMashGame({ title: 'もちつき!れんだで ぺったんこ!', buttonEmoji: '🍘' }) },
     ],
   };
 
-  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
   // さんしょう)が、それぞれ すでに もっている category フィールドを
   // そのまま つかって minigameCategoryOf にも 登録しておく。こうしないと
@@ -13906,8 +13856,8 @@
   // の キーとして えいきゅう保存する。これにより「あそんだ かいすう/
   // みプレイ優遇」が ページを とじても きえず、なおとっちの いっしょうを
   // こえて つみあがっていく(regionsVisited などと おなじ あつかい)。
-  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームには id を つけていない
-  // ため、game.id が ない ばあいは これまでどおり きろく対象がいの まま
+  // REGION_MINIGAMES/SEASONAL_MINIGAMES にも上の登録ループで安定した id を付けるため、
+  // 地域・季節ゲームもプレイ回数と未プレイ優遇の対象になる
   function minigamePlayCount(game) {
     return game.id ? (state.lifetime.minigamePlayCounts[game.id] || 0) : 0;
   }
