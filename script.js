@@ -1218,6 +1218,11 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // 旧バグで、未クリアでも tier0(🎉) が endingTiersReached に入ることがあった。
+      // 実際の100さい完走(clears)が0なら、その誤記録だけをロード時に掃除する。
+      if ((merged.lifetime.clears || 0) <= 0 && Array.isArray(merged.lifetime.endingTiersReached)) {
+        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== 0);
+      }
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -1836,7 +1841,10 @@
   // なる ため)
   function qualifyingEndingTiers() {
     const { dexComplete, achComplete } = endingProgress();
-    const tiers = [0];
+    const tiers = [];
+    // tier0(🎉) は「ふつうクリア」= 100さいまで一生を完走した証。
+    // saveState() は人生の途中でも呼ばれるので、無条件では記録しない。
+    if ((state.lifetime.clears || 0) > 0) tiers.push(0);
     if (dexComplete) tiers.push(1);
     if (achComplete) tiers.push(2);
     if (dexComplete && achComplete) tiers.push(3);
@@ -6257,6 +6265,26 @@
     render();
   }
 
+  // トップレベルのメニューは必ず1画面だけ開く。
+  // picker/duel/season/travel は親画面から入る子画面として従来どおり使うが、
+  // 別のトップレベル画面を開いた時点で、親子まとめて閉じる。
+  function closeTopLevelMenuOverlays() {
+    dexOpen = false;
+    dexDetail = null;
+    achOpen = false;
+    themeOpen = false;
+    profileOpen = false;
+    orientationHintOpen = false;
+    commOpen = false;
+    duelOpen = false;
+    itemOpen = false;
+    pickerOpen = false;
+    pickerItem = null;
+    worldOpen = false;
+    seasonOpen = false;
+    travelOpen = false;
+  }
+
   // picker(すきな 図鑑/じっせき/いろ/がら/地域)で 1つ えらんだ しゅんかんに
   // よばれる。ここで はじめて おかねを はらい、item.apply(value) で こうかを
   // はっきする
@@ -9960,10 +9988,10 @@
   // に合う反応を選ぶと、今の自分の姿がその場で emotePet() と同じモーション
   // を実演してくれる。既存の .pet / .emote-* のCSSをそのまま使い回す
   const POSE_MOODS = [
-    { mood: 'happy', label: 'うれしい' },
-    { mood: 'fun', label: 'たのしい' },
-    { mood: 'sad', label: 'かなしい' },
-    { mood: 'angry', label: 'おこった' },
+    { mood: 'happy', label: 'うれしい', face: '😊' },
+    { mood: 'fun', label: 'たのしい', face: '😆' },
+    { mood: 'sad', label: 'かなしい', face: '😢' },
+    { mood: 'angry', label: 'おこった', face: '😠' },
   ];
 
   function makePoseGame() {
@@ -9982,7 +10010,7 @@
           <div class="mg-header">
             <span id="mgRound">1 / ${ROUNDS}</span>
           </div>
-          <div class="mg-title">おなじ きもちの ボタンを タップ!</div>
+          <div class="mg-title">おだいと おなじ きもちの かおを タップ!</div>
           <div class="pet-area" style="min-height:80px;">
             <span class="pet" id="mgPoseChar">${selfEmoji}</span>
           </div>
@@ -10004,10 +10032,10 @@
           answered = false;
           roundEl.textContent = `${round} / ${ROUNDS}`;
           const target = POSE_MOODS[Math.floor(Math.random() * POSE_MOODS.length)];
-          promptEl.textContent = `「${target.label}」な きもちは どれ?`;
+          promptEl.textContent = `「${target.label}」な きもちは どの かお?`;
           const shuffled = [...POSE_MOODS].sort(() => Math.random() - 0.5);
           choicesEl.innerHTML = shuffled
-            .map((m) => `<button class="mg-math-btn" data-mood="${m.mood}">${m.label}</button>`)
+            .map((m) => `<button class="mg-math-btn mg-pose-face-btn" data-mood="${m.mood}">${m.face}</button>`)
             .join('');
           Array.from(choicesEl.querySelectorAll('button')).forEach((btn) => {
             btn.addEventListener('pointerdown', () => {
@@ -14179,6 +14207,7 @@
   // ひらくだけに する。たびの じっこう ロジックじたいは worldTravelBtn に
   // そのまま うつした(内容は へんこう なし)
   el.travelBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     worldOpen = true;
     render();
   });
@@ -14436,10 +14465,7 @@
     try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* storage unavailable */ }
     state = freshState();
     el.wipeConfirmOverlay.classList.add('hidden');
-    themeOpen = false;
-    dexOpen = false;
-    achOpen = false;
-    itemOpen = false;
+    closeTopLevelMenuOverlays();
     setMessage('ぜんぶ きえました。はじめまして!');
     saveState();
     render();
@@ -14494,6 +14520,7 @@
   }));
 
   el.dexBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     dexOpen = true;
     render();
   });
@@ -14538,6 +14565,7 @@
   });
 
   el.achBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     achOpen = true;
     render();
   });
@@ -14548,6 +14576,7 @@
   });
 
   el.themeBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     themeOpen = true;
     render();
   });
@@ -14582,6 +14611,7 @@
   });
 
   el.itemBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     itemOpen = true;
     render();
   });
@@ -14670,6 +14700,7 @@
   }
 
   el.profileBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     profileOpen = true;
     render();
   });
@@ -14680,6 +14711,7 @@
   });
 
   el.commBtn.addEventListener('click', () => {
+    closeTopLevelMenuOverlays();
     commOpen = true;
     el.codeError.classList.add('hidden');
     render();
