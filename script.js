@@ -8528,7 +8528,6 @@
         let totalDots = 0;
         let collected = 0;
         let running = true;
-        let moving = false;
         let chaserTimer;
         let tickTimer;
         let startTime;
@@ -8632,12 +8631,10 @@
         }
 
         function tryMove(dr, dc) {
-          if (!running || moving) return;
+          if (!running) return;
           const nr = player.row + dr;
           const nc = player.col + dc;
           if (!isWalkable(nr, nc)) return;
-          moving = true;
-          setTimeout(() => { moving = false; }, 55);
           player = { row: nr, col: nc };
           placeEntity(playerEl, player);
           const key = `${nr},${nc}`;
@@ -10058,7 +10055,7 @@
           <div class="mg-header"><span id="mgDMove">すすんだ: 0</span><span id="mgDTreasure">💎 0/3</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-fp-view" id="mgFPView"><div class="mg-fp-ceiling"></div><div class="mg-fp-floor"></div><div class="mg-fp-wall left"></div><div class="mg-fp-wall right"></div><div class="mg-fp-door" id="mgFPDoor">🚪</div><div class="mg-fp-depth" id="mgFPDepth">🕯️</div></div>
-          <div class="mg-hint" id="mgDHint">↶ ↷で向きを変える → ↑で進む。🧱=壁 / 💎=宝 / 🚪=出口</div>
+          <div class="mg-hint" id="mgDHint">↶ ↷で向きを変える → ↑で1マス進む。🧱=壁 / 💎=宝 / 🚪=出口</div>
           <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDTurnL">↶</button><button class="mg-tap-btn" id="mgDForward">↑</button><button class="mg-tap-btn" id="mgDTurnR">↷</button></div>`;
         const dirs=[[0,-1],[1,0],[0,1],[-1,0]], view=container.querySelector('#mgFPView'),hint=container.querySelector('#mgDHint');
         function renderView(msg=''){
@@ -10270,9 +10267,8 @@
         field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#advGem').textContent='💎 '+gems+'/4';
       }
       function finish(score,msg){if(done)return;done=true;hint.textContent=msg;draw();setTimeout(()=>onComplete(clamp(score,20,100)),450);}
-      container.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('pointerdown',(e)=>{
-        e.preventDefault();
-        if(done)return;const d=b.dataset.d,dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0;
+      function moveAdventure(d){
+        if(done)return;const dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0;
         const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H||walls.has(key(nx,ny))){hint.textContent='そこは すすめない!';return;}
         x=nx;y=ny;moves++;turn++;
         const k=key(x,y);if(gemSet.delete(k)){gems++;hint.textContent='💎 ゲット!';}
@@ -10282,7 +10278,17 @@
         if(x===7&&y===6){finish(52+gems*13-Math.max(0,moves-18),'🏰 出口に ついた!');return;}
         if(turn%2===0){moveEnemies();checkEnemyHit();if(hp<=0){finish(20,'てきに つかまった…');return;}}
         draw();
-      }));draw();
+      }
+      container.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('pointerdown',(e)=>{e.preventDefault();moveAdventure(b.dataset.d);}));
+      let advTouchStart=null;
+      field.addEventListener('pointerdown',(e)=>{advTouchStart={x:e.clientX,y:e.clientY};});
+      field.addEventListener('pointerup',(e)=>{
+        if(!advTouchStart||done)return;
+        const dx=e.clientX-advTouchStart.x,dy=e.clientY-advTouchStart.y;advTouchStart=null;
+        if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;
+        moveAdventure(Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down'));
+      });
+      draw();
     }};
   }
   const ADVENTURE_FIELD_VARIANTS=[mg('adventure-field',makeAdventureFieldGame())];
@@ -10357,25 +10363,34 @@
             <div class="mg-ski3d-sky">🏔️</div><div class="mg-ski3d-slope"></div>
             <div class="mg-ski3d-player" id="mgSki3dPlayer">${playerEmoji}</div>
           </div>
-          <div class="mg-hint">◀ ▶で レーン移動 → 🚩と同じレーンを通る。▰ジャンプ台に乗ると障害物を飛び越せる!</div>
-          <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDownhillLeft">◀</button><button class="mg-tap-btn" id="mgDownhillRight">▶</button></div>`;
+          <div class="mg-hint">◀ ▶でレーン移動。木や岩が来たら「ジャンプ!」で飛び越える。🚩は同じレーンを通ろう!</div>
+          <div class="mg-dpad-mid mg-downhill-controls"><button class="mg-tap-btn" id="mgDownhillLeft">◀</button><button class="mg-tap-btn mg-jump-btn" id="mgDownhillJump">ジャンプ!</button><button class="mg-tap-btn" id="mgDownhillRight">▶</button></div>`;
         const scene=container.querySelector('#mgSki3dScene'),player=container.querySelector('#mgSki3dPlayer');
         const timerEl=container.querySelector('#mgTimer'),scoreEl=container.querySelector('#mgScore');
         function move(){player.style.left=laneX[lane]+'%';}
         const left=()=>{lane=Math.max(0,lane-1);move();};
         const right=()=>{lane=Math.min(2,lane+1);move();};
         move();
-        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown',left);
-        container.querySelector('#mgDownhillRight').addEventListener('pointerdown',right);
-        scene.addEventListener('pointerdown',(e)=>{const r=scene.getBoundingClientRect();(e.clientX-r.left<r.width/2?left:right)();});
+        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown',(e)=>{e.preventDefault();left();});
+        container.querySelector('#mgDownhillRight').addEventListener('pointerdown',(e)=>{e.preventDefault();right();});
+        container.querySelector('#mgDownhillJump').addEventListener('pointerdown',(e)=>{
+          e.preventDefault();
+          if(!running)return;
+          const now=performance.now();
+          if(now<airborneUntil)return;
+          jumps++;
+          airborneUntil=now+720;
+          scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　ジャンプ ${jumps}`;
+        });
+        // 画面タップ移動は誤操作が多いため廃止。左右ボタン+ジャンプだけに統一。
 
         function spawn(){
           if(!running)return;
           const r=Math.random();
-          const kind=r<.38?'gate':(r<.57?'jump':'obstacle');
+          const kind=r<.42?'gate':'obstacle';
           const objLane=Math.floor(Math.random()*3),el=document.createElement('div');
           el.className='mg-ski3d-object '+kind;
-          el.textContent=kind==='gate'?'🚩':(kind==='jump'?'▰':obstacleEmoji);
+          el.textContent=kind==='gate'?'🚩':obstacleEmoji;
           scene.appendChild(el);objects.push({el,lane:objLane,z:0,kind,resolved:false});
           spawnTimer=setTimeout(spawn,spawnMs);
         }
@@ -10396,8 +10411,10 @@
             if(!o.resolved&&o.z>=.84){
               o.resolved=true;
               if(o.kind==='gate'){totalGates++;if(o.lane===lane){gatesPassed++;o.el.classList.add('passed');}}
-              else if(o.kind==='jump'&&o.lane===lane){jumps++;airborneUntil=now+760;o.el.classList.add('passed');}
-              else if(o.kind==='obstacle'&&o.lane===lane&&!airborne){hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
+              else if(o.kind==='obstacle'&&o.lane===lane){
+                if(airborne){o.el.classList.add('passed');}
+                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
+              }
               scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　ジャンプ ${jumps}`;
             }
           }
