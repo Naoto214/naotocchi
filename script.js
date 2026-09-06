@@ -6030,7 +6030,7 @@
     } else if (isDead) {
       el.message.textContent = '「はじめから」で あたらしい たまごを そだてよう';
     } else if (isEgg) {
-      el.message.textContent = 'たまごを なでて あたためよう';
+      el.message.textContent = `たまごを タップするか「あたためる」を おしてね　${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%`;
     } else {
       el.message.textContent = '';
     }
@@ -6057,6 +6057,8 @@
     el.infiniteBtn.title = state.infinite ? 'この子の いっしょうに もどる' : '♾️ の せかいへ';
 
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
+    el.playWithBtn.querySelector('span').textContent = isEgg ? 'あたためる' : 'じゃれる';
+    el.playWithBtn.title = isEgg ? 'たまごを あたためる' : 'じゃれる';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
@@ -11553,13 +11555,29 @@
   // the pet between the "real" actions。なでる/はなしかけるの りょうほうの
   // こうかを あわせて 1タップで うけられる ぶん、actionCounts は りょうほう
   // 積みあげる(なでなで まめ/おしゃべりずき の じっせきは そのまま つかえる)
+  function warmEgg() {
+    if (state.stage !== STAGE.EGG) return false;
+    applyGrowth(4);
+    if (state.stage === STAGE.EGG) {
+      const pct = Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100));
+      setMessage(`たまごを あたためた… もぞもぞ うごいている　${pct}%`);
+    }
+    return true;
+  }
+
+  // 卵そのものをタップしても温められる。卵状態で「全部押せない」ように
+  // 見えないよう、画面中央にも明確な操作を用意する。
+  el.petArea.addEventListener('click', (e) => {
+    if (state.stage !== STAGE.EGG) return;
+    if (e.target.closest('button')) return;
+    warmEgg();
+    saveState();
+    render();
+  });
+
   el.playWithBtn.addEventListener('click', withFeedback(() => {
     // たまごの あいだは「あたためる」あつかい。せいちょうが たまると かえる
-    if (state.stage === STAGE.EGG) {
-      applyGrowth(4);
-      if (state.stage === STAGE.EGG) setMessage('たまごを あたためた… もぞもぞ うごいている');
-      return;
-    }
+    if (warmEgg()) return;
     if (state.isSleeping) {
       setMessage(randomBlockedMessage('sleepingPet'));
       return;
