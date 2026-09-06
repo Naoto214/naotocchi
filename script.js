@@ -1333,6 +1333,13 @@
       }
       merged.schemaVersion = 4;
 
+      // 旧版の途中状態などで endingTiersReached に tier0(🎉)だけ残っていても、
+      // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
+      // これで「一度もクリアしていないのに左上に🎉」を既存セーブからも除去する。
+      if ((Number(merged.lifetime.clears) || 0) <= 0 && Array.isArray(merged.lifetime.endingTiersReached)) {
+        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== 0);
+      }
+
       // PR #98 より前から けっこんしている セーブには marriageAge がない。
       // lifeLog の「○さい ... けっこんした」を優先して復元する。記録がない
       // 古いセーブでは、現在年齢を結婚年齢として扱い、読み込み直後に過去の
@@ -5563,6 +5570,9 @@
 
     const endingTiersReached = state.lifetime.endingTiersReached;
     el.endingBadges.innerHTML = [...endingTiersReached]
+      // tier0の🎉は「100さいクリア済み」の証。セーブに古い値が残っても
+      // clears===0なら画面には絶対に出さない。
+      .filter((tierIndex) => tierIndex !== 0 || (state.lifetime.clears || 0) > 0)
       .sort((a, b) => a - b)
       .map((tierIndex) => {
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;
