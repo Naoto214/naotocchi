@@ -13719,7 +13719,6 @@
   // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
   // おなじ ジャンルが 3かい れんぞくしないように するための きろく
   const recentMinigameCategories = [];
-  let playsSinceChaseGame = 0;
 
   // 各ゲームオブジェクトは 上の mg() で つくった その場で 固定の 文字列id
   // (game.id)を もっている。配列じょうの 位置には いっさい 依存しないので、
@@ -13762,6 +13761,21 @@
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
 
+  // そうさ感や展開に変化がある「しっかり遊べる」カテゴリは、特定の1ゲームだけ
+  // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
+  // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
+  const FEATURED_MINIGAME_CATEGORIES = new Set([
+    'chase', 'rpg', 'shooter', 'breakout', 'miniEscape', 'miniPoker',
+    'swipeThrow', 'road', 'dragDecorate', 'stealth', 'comedyStealth',
+    'cuteHorror', 'fishing', 'downhill', 'surfing', 'fight', 'runner',
+    'targetAim', 'sportsSwing',
+  ]);
+
+  function minigameFunWeight(game) {
+    const category = minigameCategoryOf.get(game);
+    return FEATURED_MINIGAME_CATEGORIES.has(category) ? 1.22 : 1;
+  }
+
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
@@ -13775,6 +13789,7 @@
       let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
       if (isRegionExclusiveGame(game)) weight *= 1.45;
       if (isSeasonExclusiveGame(game)) weight *= 1.25;
+      weight *= minigameFunWeight(game);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -13859,13 +13874,6 @@
     if (regionArrivalBoostLeft > 0) regionArrivalBoostLeft -= 1;
     if (seasonArrivalBoostLeft > 0) seasonArrivalBoostLeft -= 1;
 
-    // パックマン風の「おいかけっこ」は操作感がユニークなのに、
-    // 巨大な全体プールの中で埋もれやすい。7回以上出ていなければ、
-    // キュー内にある chase を次へ引き寄せる。
-    if (playsSinceChaseGame >= 5) {
-      trySwapForwardMatching((game) => minigameCategoryOf.get(game) === 'chase', minigameQueue.length);
-    }
-
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
     // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
     // あれば そちらを さきに 出す(なければ そのまま、むりには しない)
@@ -13890,8 +13898,6 @@
     const game = currentMinigamePool[gameIdx];
     lastMinigame = game;
     recordMinigamePlay(game);
-    if (category === 'chase') playsSinceChaseGame = 0;
-    else playsSinceChaseGame += 1;
     recentMinigameCategories.push(category);
     if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
     return game;
