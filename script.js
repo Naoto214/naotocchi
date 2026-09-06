@@ -1450,14 +1450,14 @@
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を おとずれた', condition: (l) => l.regionsVisited.length >= 3 },
 
     // --- やや かんたん ---
-    { id: 'evolve-10', emoji: '🌿', label: 'せいちょう じょうずさん', desc: 'そだちが のべ10 あがった', condition: (l) => l.evolutions >= 10 },
+    { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐん そだつ', desc: 'そだちが のべ10 あがった', condition: (l) => l.evolutions >= 10 },
     { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが のべ5 さがった', condition: (l) => l.devolutions >= 5 },
     { id: 'transform-10', emoji: '🌟', label: 'へんしん ざんまい', desc: '10かい へんしんした', condition: (l) => l.transforms >= 10 },
     { id: 'sick-cured-10', emoji: '💊', label: 'めいいの たまご', desc: 'びょうきを 10かい なおした', condition: (l) => l.sicknessCured >= 10 },
     { id: 'age-25', emoji: '🌼', label: 'すくすく せいちょう', desc: 'ねんれい25に とうたつした', condition: (l) => l.maxAgeReached >= 25 },
     { id: 'dex-25', emoji: '📗', label: 'ずかんの はじまり', desc: 'ずかんを 25しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 25 },
     { id: 'feed-100', emoji: '🍚', label: 'ごはん だいすき', desc: '1しょうがいで ごはんを 100かい あげた', condition: (l, s) => s.actionCounts.feed >= 100 },
-    { id: 'play-100', emoji: '🎯', label: 'あそびじょうず', desc: '1しょうがいで 100かい あそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: '1しょうがいで 100かい あそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
     { id: 'pet-100', emoji: '🤲', label: 'なでなで まめ', desc: '1しょうがいで なでるを 100かい した', condition: (l, s) => s.actionCounts.pet >= 100 },
     { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: '1しょうがいで はなしかけるを 100かい した', condition: (l, s) => s.actionCounts.talk >= 100 },
     { id: 'gentle-10', emoji: '💗', label: 'やさしい こころ', desc: 'やさしい せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.gentle >= 10 },
@@ -1473,7 +1473,7 @@
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: 'ねんれい50に とうたつした', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかん なかば', desc: 'ずかんを 50しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアな であい', desc: 'レアな しゅぞく(かみさま/れんくん/にんぎょ/ユニコーン/フェニックス)に 1かい であった', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'そうじの プロ', desc: '1しょうがいで そうじを 50かい した', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ 50かい', desc: '1しょうがいで そうじを 50かい した', condition: (l, s) => s.actionCounts.clean >= 50 },
     { id: 'reset-5', emoji: '🔄', label: 'なんども ちょうせん', desc: '「はじめから」を 5かい した', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかな なかよしグループ', desc: 'なかまが 5にん できた', condition: (l) => l.companionsRecruited.length >= 5 },
     { id: 'companion-active-5', emoji: '💞', label: 'そばに いる しあわせ', desc: 'いま そばに いる なかまが 5にん いる', condition: (l, s) => s.companions.length >= 5 },
@@ -1492,7 +1492,7 @@
     // --- ややむずかしい ---
     { id: 'evolve-50', emoji: '🌳', label: 'そだちの あしあと', desc: 'そだちが のべ50 あがった', condition: (l) => l.evolutions >= 50 },
     { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえの ぬし', desc: 'そだちが のべ20 さがった', condition: (l) => l.devolutions >= 20 },
-    { id: 'transform-25', emoji: '💫', label: 'へんしん マイスター', desc: '25かい へんしんした', condition: (l) => l.transforms >= 25 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん 25れんぱつ', desc: '25かい へんしんした', condition: (l) => l.transforms >= 25 },
     { id: 'death-10', emoji: '⚰️', label: 'てんごくの じょうれんきゃく', desc: '10かい てんごくに いった', condition: (l) => l.deaths >= 10 },
     { id: 'sick-cured-30', emoji: '🏥', label: 'めいいの たまご(じょうきゅう)', desc: 'びょうきを 30かい なおした', condition: (l) => l.sicknessCured >= 30 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
@@ -1511,7 +1511,7 @@
 
     // --- かなり むずかしい ---
     { id: 'clear-5', emoji: '🏆', label: 'いつつの いっしょう', desc: '5かい 100さいまで いきた', condition: (l) => l.clears >= 5 },
-    { id: 'minigame-1000', emoji: '🎰', label: 'あそびの でんせつ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'minigame-1000', emoji: '🎰', label: '1000かい あそんだ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつ コレクター', desc: 'レアな しゅぞく5しゅるい すべてに であった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'elder-collector', emoji: '👴', label: 'ちょうろう はかせ', desc: '10しゅるい いじょうの さいごの すがたに であった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
     { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: 'なかまを ぜんいん(10にん)あつめた', condition: (l) => l.companionsRecruited.length >= COMPANIONS.length },
@@ -11618,7 +11618,7 @@
       boxEmoji: '🎁',
       boxCount: 3,
       outcomes: [
-        { emoji: '💎', label: 'だいせいこう!おたからを てにいれた!', score: 100 },
+        { emoji: '💎', label: 'おたからを みつけた!', score: 100 },
         { emoji: '🪙', label: 'ちいさな おたからを てにいれた', score: 60 },
         { emoji: '💣', label: 'あ、わなだった…', score: 15 },
       ],
@@ -11652,7 +11652,7 @@
       boxEmoji: '🂠',
       boxCount: 4,
       outcomes: [
-        { emoji: '🃏', label: 'ジョーカー!だいせいこう!', score: 100 },
+        { emoji: '🃏', label: 'ジョーカーが きた!', score: 100 },
         { emoji: '♠️', label: 'あたり カード!', score: 65 },
         { emoji: '♥️', label: 'ふつうの カード', score: 40 },
         { emoji: '♣️', label: 'ざんねん カード', score: 20 },
@@ -11664,8 +11664,8 @@
       boxEmoji: '⚔️',
       boxCount: 3,
       outcomes: [
-        { emoji: '🗡️', label: 'でんせつの けん!だいせいこう!', score: 100 },
-        { emoji: '🏹', label: 'まあまあの ぶき', score: 55 },
+        { emoji: '🗡️', label: 'でんせつの けんを ひいた!', score: 100 },
+        { emoji: '🏹', label: 'ふつうの ぶき', score: 55 },
         { emoji: '🪓', label: 'ふるい ぶきだった…', score: 25 },
       ],
     },
