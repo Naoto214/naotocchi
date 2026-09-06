@@ -5558,8 +5558,6 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   background: linear-gradient(#152238 0 42%, #39485c 43%, #161b22 100%);
   touch-action: manipulation;
 }
-.mg-p3-space { background: radial-gradient(circle at 50% 20%, #263b66 0, #10172b 38%, #05070e 100%); }
-.mg-p3-drive { background: linear-gradient(#87b8df 0 38%, #78965c 39% 45%, #333 46% 100%); }
 .mg-p3-horizon { position:absolute; left:0; right:0; top:40%; height:2px; background:rgba(255,255,255,.35); }
 .mg-p3-road {
   position:absolute; left:20%; right:20%; top:40%; bottom:-8%;
