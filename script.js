@@ -10815,7 +10815,6 @@
       }) },
     ],
     desert: [
-      { category: 'jump', game: makeJumpGame({ title: 'サボテンを ジャンプで よけよう!', obstacleEmoji: '🌵' }) },
       { category: 'road', game: makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
         goodItems: ['💧', '🍈', '⭐', '🧢'],
