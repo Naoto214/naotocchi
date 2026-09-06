@@ -302,12 +302,12 @@ if (renReady && Math.random() < (renEased ? 0.3 : 0.18)) { /* 候補1枠を ren 
 
 | tier | アイコン | ラベル | 条件（`getEndingTier()`） |
 |---|---|---|---|
-| 0 | 🎉 | ふつうクリア | 上記以外 |
+| 0 | 🎉 | ふつうクリア | **100さい完走済み（`lifetime.clears > 0`）** |
 | 1 | 📖 | ずかんコンプリート | `dexComplete` のみ |
 | 2 | 🏅 | じっせきコンプリート | `achComplete` のみ |
 | 3 | 👑 | パーフェクトクリア | 両方 |
 
-- `lifetime.endingTiersReached` に到達した tier が永続記録される
+- `lifetime.endingTiersReached` に到達した tier が永続記録される。**tier0 は一生完走後だけ**記録し、未完走セーブに旧バグで入った tier0 はロード時に除去する
 - tier 3 到達で `lifetime.perfectCleared = true` → `#gameClearFreePlayBtn`（「♾️ の せかいへ」）が出る
 - `NAOTO_ITEMS` の解禁、`COLOR_THEMES` / `PATTERNS` の tier 解禁もこれに連動
 - 4 tier すべて到達すると `unlockAll`（にじ）テーマが解禁
@@ -763,6 +763,10 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 
 代表的な時間制限は `MG_TIMED_CHOICE_GRACE_MS + lerp(高難度前, 高難度後, difficulty)` の形。
 
+### J-5.5. なりきりポーズ（pose-classic）
+
+お題は「うれしい／たのしい／かなしい／おこった」の文字で示し、選択肢は **😊 / 😆 / 😢 / 😠 の表情だけ**を表示する。お題と正解ボタンに同じ文字列を出す旧仕様は廃止。
+
 ### J-6. 全共通 UX ルール（コード内コメントとして明文化されているもの）
 
 `script.js` の「ミニゲーム きょうつうの UXルール」コメントに 11 項目が記載されています。
@@ -970,6 +974,8 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 
 その他: `dexOverlay`, `achOverlay`, `themeOverlay`, `itemOverlay`, `worldOverlay`, `seasonOverlay`, `travelOverlay`, `profileOverlay`, `commOverlay`, `duelOverlay`
 
+**トップレベル画面は排他表示**: ずかん / じっせき / でざいん / プロフィール / つうしん / あいてむ / せかい のどれかを開くと、以前のトップレベル画面とその子画面を閉じる。picker・duel・season/travel は親画面から入る間だけ従来どおり親子関係を保つ。
+
 ### M-2. hidden 制御
 
 **このプロジェクトには汎用の `.hidden { display:none }` ルールがありません。** `display` を持つ要素は個別に `.X.hidden` を書く必要があります。現在、`hidden` クラスを付ける要素で対応 CSS が欠けているものは **0 件**です（`#lifeMeterRow.hidden`, `.duel-choice-row.hidden`, `.companion-invite-overlay.hidden`, `.dex-detail-overlay.hidden`, `.world-date-hint.hidden`, `.ending-badge-tip.hidden` などが個別に定義されています）。
@@ -1049,7 +1055,7 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 
 ### N-5. 完全リセット（`doWipe()`）
 
-`#softResetBtn` / `#wipeBtn` は「でざいん」画面の最下部（danger-zone）。
+`#softResetBtn` / `#wipeBtn` は**「プロフィール」画面の最下部**（danger-zone）。
 
 1. `#wipeBtn` → `#wipeOverlay`（失うものの実数表示 ＋「つぎへ」）
 2. `#wipeNextBtn` → `#wipeConfirmOverlay`
