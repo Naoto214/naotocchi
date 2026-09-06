@@ -3259,6 +3259,9 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 .mg-tap-btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
   background: linear-gradient(160deg, #fff0f7, #ffd3ea);
   border: none;
   border-radius: 10px;
@@ -4186,13 +4189,21 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 .mg-swipe-lane-bowling .mg-swipe-target::before {
-  content: '🎳🎳🎳';
+  content: '🎯';
   position: absolute;
   top: 6%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 22px;
-  letter-spacing: 4px;
+  font-size: 0;
+  width: 86px;
+  height: 54px;
+  background:
+    radial-gradient(circle at 50% 8%, #fff 0 7px, #d33 8px 10px, transparent 11px),
+    radial-gradient(circle at 28% 38%, #fff 0 7px, #d33 8px 10px, transparent 11px),
+    radial-gradient(circle at 72% 38%, #fff 0 7px, #d33 8px 10px, transparent 11px),
+    radial-gradient(circle at 16% 78%, #fff 0 7px, #d33 8px 10px, transparent 11px),
+    radial-gradient(circle at 50% 78%, #fff 0 7px, #d33 8px 10px, transparent 11px),
+    radial-gradient(circle at 84% 78%, #fff 0 7px, #d33 8px 10px, transparent 11px);
 }
 
 .mg-swipe-lane-curling {
@@ -5592,7 +5603,8 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-fp-wall.right { right:0; transform:scaleX(-1); clip-path:polygon(0 0,100% 25%,100% 75%,0 100%); }
 .mg-fp-depth { position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); font-size:42px; z-index:4; }
 .mg-fp-door { position:absolute; left:50%; top:42%; transform:translate(-50%,-50%); font-size:72px; z-index:5; display:none; }
-.mg-fp-view.blocked .mg-fp-depth { font-size:92px; }
+.mg-fp-view.blocked .mg-fp-depth { font-size:92px; filter:drop-shadow(0 0 10px rgba(255,90,70,.8)); }
+.mg-fp-view:not(.blocked) .mg-fp-depth { text-shadow:0 2px 8px rgba(255,220,120,.55); }
 
 /* 3D-style downhill: depth, curves, gates and jump ramps */
 .mg-ski3d-scene{position:relative;height:270px;overflow:hidden;border-radius:18px;perspective:380px;background:linear-gradient(#9ed7ff 0 35%,#eaf7ff 36% 100%);touch-action:manipulation}

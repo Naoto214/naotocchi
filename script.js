@@ -8636,7 +8636,7 @@
           const nc = player.col + dc;
           if (!isWalkable(nr, nc)) return;
           moving = true;
-          setTimeout(() => { moving = false; }, 130);
+          setTimeout(() => { moving = false; }, 55);
           player = { row: nr, col: nc };
           placeEntity(playerEl, player);
           const key = `${nr},${nc}`;
@@ -8650,10 +8650,14 @@
           checkCatch();
         }
 
-        container.querySelector('#mgChaseUp').addEventListener('pointerdown', () => tryMove(-1, 0));
-        container.querySelector('#mgChaseDown').addEventListener('pointerdown', () => tryMove(1, 0));
-        container.querySelector('#mgChaseLeft').addEventListener('pointerdown', () => tryMove(0, -1));
-        container.querySelector('#mgChaseRight').addEventListener('pointerdown', () => tryMove(0, 1));
+        const bindMove = (selector, dr, dc) => {
+          const btn = container.querySelector(selector);
+          btn.addEventListener('pointerdown', (e) => { e.preventDefault(); tryMove(dr, dc); });
+        };
+        bindMove('#mgChaseUp', -1, 0);
+        bindMove('#mgChaseDown', 1, 0);
+        bindMove('#mgChaseLeft', 0, -1);
+        bindMove('#mgChaseRight', 0, 1);
 
         function stepChaser() {
           if (!running) return;
@@ -8965,7 +8969,7 @@
             <span class="mg-swipe-target" id="mgSwipeTarget"></span>
             <span class="mg-swipe-projectile hidden" id="mgSwipeProjectile">${projectileEmoji}</span>
           </div>
-          <div class="mg-hint">レーンを うえに スワイプして なげよう!</div>
+          <div class="mg-hint">下の玉を さわって、そのまま上へスワイプ! 左右で ねらいも かえられるよ</div>
         `;
         const lane = container.querySelector('#mgSwipeLane');
         const projectileEl = container.querySelector('#mgSwipeProjectile');
@@ -9012,7 +9016,7 @@
     // ボウリング(パワーが たりない/つよすぎる、ねらいが ずれている ほど てんすうが さがる)
     mg('swipeThrow-bowling', makeSwipeThrowGame({
       title: 'ボウリングふう!スワイプで ピンを たおそう',
-      projectileEmoji: '🎳',
+      projectileEmoji: '⚫',
       laneClass: 'mg-swipe-lane-bowling',
       evaluate: (power, aim) => {
         const powerScore = 1 - Math.abs(power - 1) * 0.8;
@@ -9397,12 +9401,12 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const DURATION_MS = 15000;
-        const ballSpeed = lerp(55, 75, difficulty);
+        const ballSpeed = lerp(46, 62, difficulty);
         const cols = 4, rows = 2;
         const blocks = [];
         for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) blocks.push({ r, c, alive: true });
         let paddleX = 50;
-        const paddleWidth = 22;
+        const paddleWidth = 30;
         let ballX = 50, ballY = 70, vx = 0.6, vy = -1;
         let running = true;
         let cleared = false;
@@ -9444,8 +9448,16 @@
           paddleEl.style.width = paddleWidth + '%';
         }
         setPaddle(paddleX);
-        container.querySelector('#mgBreakoutLeft').addEventListener('pointerdown', () => setPaddle(paddleX - 12));
-        container.querySelector('#mgBreakoutRight').addEventListener('pointerdown', () => setPaddle(paddleX + 12));
+        container.querySelector('#mgBreakoutLeft').addEventListener('pointerdown', () => setPaddle(paddleX - 14));
+        container.querySelector('#mgBreakoutRight').addEventListener('pointerdown', () => setPaddle(paddleX + 14));
+        // フィールド上を直接なぞってもパドルがついてくる。スマホではこちらを主操作にする。
+        const movePaddleFromPointer = (e) => {
+          const rect = container.querySelector('#mgBreakoutField').getBoundingClientRect();
+          setPaddle(((e.clientX - rect.left) / rect.width) * 100);
+        };
+        container.querySelector('#mgBreakoutField').addEventListener('pointerdown', movePaddleFromPointer);
+        container.querySelector('#mgBreakoutField').addEventListener('pointermove', (e) => { if (e.buttons || e.pointerType === 'touch') movePaddleFromPointer(e); });
+        hintEl.textContent = '下のバーを左右になぞって ボールを はねかえそう!';
 
         let broken = 0;
         function frame(now) {
@@ -9887,7 +9899,7 @@
             <div class="mg-fishing-line"></div>
             <div class="mg-fishing-bobber" id="mgBobber">🔴</div>
           </div>
-          <div class="mg-hint" id="mgHint">みずめんを じっと 見つめて まとう…</div>
+          <div class="mg-hint" id="mgHint">🔴のウキが 大きく沈んで「! いまだ!」になった瞬間だけ タップ!</div>
         `;
         const scene = container.querySelector('#mgFishingScene');
         const bobber = container.querySelector('#mgBobber');
@@ -10045,22 +10057,23 @@
           <div class="mg-header"><span id="mgDMove">すすんだ: 0</span><span id="mgDTreasure">💎 0/3</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-fp-view" id="mgFPView"><div class="mg-fp-ceiling"></div><div class="mg-fp-floor"></div><div class="mg-fp-wall left"></div><div class="mg-fp-wall right"></div><div class="mg-fp-door" id="mgFPDoor">🚪</div><div class="mg-fp-depth" id="mgFPDepth">🕯️</div></div>
-          <div class="mg-hint" id="mgDHint">← →で むきをかえて、↑で すすもう</div>
+          <div class="mg-hint" id="mgDHint">↶ ↷で向きを変える → ↑で進む。🧱=壁 / 💎=宝 / 🚪=出口</div>
           <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDTurnL">↶</button><button class="mg-tap-btn" id="mgDForward">↑</button><button class="mg-tap-btn" id="mgDTurnR">↷</button></div>`;
         const dirs=[[0,-1],[1,0],[0,1],[-1,0]], view=container.querySelector('#mgFPView'),hint=container.querySelector('#mgDHint');
         function renderView(msg=''){
           const [dx,dy]=dirs[dir], nx=x+dx,ny=y+dy, isWall=blocked(nx,ny);
           view.classList.toggle('blocked',isWall);
           container.querySelector('#mgFPDoor').style.display=(x===goal.x&&y===goal.y)?'block':'none';
-          container.querySelector('#mgFPDepth').textContent=isWall?'🧱':(x===goal.x&&y===goal.y?'✨':'🕯️');
+          const here = x+','+y;
+          container.querySelector('#mgFPDepth').textContent=isWall?'🧱':(treasures.has(here)?'💎':(x===goal.x&&y===goal.y?'🚪':'🕯️'));
           container.querySelector('#mgDMove').textContent='すすんだ: '+moves;
           container.querySelector('#mgDTreasure').textContent='💎 '+treasure+'/3';
-          hint.textContent=msg||(x===goal.x&&y===goal.y?'出口を みつけた!':'← →で むきをかえて、↑で すすもう');
+          hint.textContent=msg||(x===goal.x&&y===goal.y?'🚪 出口を みつけた!':'↶ ↷で向きを変える → ↑で進む。🧱壁 / 💎宝');
           if(x===goal.x&&y===goal.y&&!done){done=true;setTimeout(()=>onComplete(clamp(100-moves*2+treasure*10,30,100)),450);}
         }
-        container.querySelector('#mgDTurnL').onclick=()=>{if(done)return;dir=(dir+3)%4;renderView();};
-        container.querySelector('#mgDTurnR').onclick=()=>{if(done)return;dir=(dir+1)%4;renderView();};
-        container.querySelector('#mgDForward').onclick=()=>{if(done)return;const [dx,dy]=dirs[dir],nx=x+dx,ny=y+dy;moves++;if(blocked(nx,ny)){renderView('🧱 かべだ');return;}x=nx;y=ny;const p=x+','+y;if(treasures.delete(p)){treasure++;renderView('💎 たからを みつけた!');}else renderView();};
+        container.querySelector('#mgDTurnL').addEventListener('pointerdown',(e)=>{e.preventDefault();if(done)return;dir=(dir+3)%4;renderView();});
+        container.querySelector('#mgDTurnR').addEventListener('pointerdown',(e)=>{e.preventDefault();if(done)return;dir=(dir+1)%4;renderView();});
+        container.querySelector('#mgDForward').addEventListener('pointerdown',(e)=>{e.preventDefault();if(done)return;const [dx,dy]=dirs[dir],nx=x+dx,ny=y+dy;moves++;if(blocked(nx,ny)){renderView('🧱 かべだ。↶ ↷で向きを変えよう');return;}x=nx;y=ny;const p=x+','+y;if(treasures.delete(p)){treasure++;renderView('💎 たからを みつけた!');}else renderView();});
         renderView();
       }
     };
@@ -10270,7 +10283,8 @@
         field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#advGem').textContent='💎 '+gems+'/4';
       }
       function finish(score,msg){if(done)return;done=true;hint.textContent=msg;draw();setTimeout(()=>onComplete(clamp(score,20,100)),450);}
-      container.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{
+      container.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('pointerdown',(e)=>{
+        e.preventDefault();
         if(done)return;const d=b.dataset.d,dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0;
         const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H||walls.has(key(nx,ny))){hint.textContent='そこは すすめない!';return;}
         x=nx;y=ny;moves++;turn++;
@@ -10281,7 +10295,7 @@
         if(x===7&&y===6){finish(52+gems*13-Math.max(0,moves-18),'🏰 出口に ついた!');return;}
         if(turn%2===0){moveEnemies();checkEnemyHit();if(hp<=0){finish(20,'てきに つかまった…');return;}}
         draw();
-      });draw();
+      }));draw();
     }};
   }
   const ADVENTURE_FIELD_VARIANTS=[mg('adventure-field',makeAdventureFieldGame())];
@@ -10470,13 +10484,13 @@
         function scheduleWave() {
           phase = 'wait';
           wave.classList.remove('approaching');
-          hintEl.textContent = 'なみが くるまで まとう…';
+          hintEl.textContent = '🌊が近づいて「いまだ!」になったら 海をタップ!';
           waveCountEl.textContent = `なみ: ${waveAttempt + 1}/${MAX_WAVE_ATTEMPTS}`;
           waveTimer = setTimeout(() => {
             if (finished) return;
             phase = 'catch';
             wave.classList.add('approaching');
-            hintEl.textContent = 'いまだ!のろう!';
+            hintEl.textContent = 'いまだ! 海をタップして なみにのろう!';
             windowTimer = setTimeout(() => {
               if (finished) return;
               missWave('なみに のりおくれた…');
@@ -10506,7 +10520,7 @@
             scene.removeEventListener('pointerdown', waitCatchHandler);
             wave.classList.remove('approaching');
             wave.classList.add('riding');
-            hintEl.textContent = 'バランスを たもとう!';
+            hintEl.textContent = '左半分タップ=左へ、右半分タップ=右へ。かたむきを もどそう!';
             startBalancePhase();
           }
         }
