@@ -10107,7 +10107,6 @@
         render();
         container.querySelector('#mgRankDone').onclick=()=>{
           if(done)return;done=true;
-          if(subjective){onComplete(90);return;}
           const ideal=[...cast].sort((a,b)=>a[criterion]-b[criterion]);
           const pos=new Map(ideal.map((c,i)=>[c.name,i]));
           let error=0;order.forEach((c,i)=>error+=Math.abs(i-pos.get(c.name)));
@@ -10128,25 +10127,12 @@
     ]
   ];
   function randomRankingCast(){ return RANKING_3D_CASTS[Math.floor(Math.random()*RANKING_3D_CASTS.length)].map(c=>({...c})); }
-  function subjectiveRanking(title,id){ return mg(id,{start(container,onComplete){makePerspectiveRankingGame({title,cast:randomRankingCast(),criterion:'size',subjective:true}).start(container,onComplete);}}); }
   function objectiveRanking(title,id,criterion,reverse=false){return mg(id,{start(container,onComplete){let cast=randomRankingCast();if(reverse)cast=cast.map(c=>({...c,[criterion]:30-c[criterion]}));makePerspectiveRankingGame({title,cast,criterion}).start(container,onComplete);}});}
   const RANKING_GAME_FACTORIES = [
     () => objectiveRanking('3Dならびかえ!小さい順に ならべよう','rank3d-small','size'),
     () => objectiveRanking('3Dならびかえ!大きい順に ならべよう','rank3d-big','size',true),
     () => objectiveRanking('3Dならびかえ!若そうな順に ならべよう','rank3d-young','age'),
     () => objectiveRanking('3Dならびかえ!年寄りそうな順に ならべよう','rank3d-old','age',true),
-    () => subjectiveRanking('3Dならびかえ!面白そうな順に ならべて笑','rank3d-funny'),
-    () => subjectiveRanking('3Dならびかえ!神経質そうな順に ならべて笑','rank3d-nervous'),
-    () => subjectiveRanking('3Dならびかえ!お腹いたそうな順に ならべて笑','rank3d-stomach'),
-    () => subjectiveRanking('3Dならびかえ!ねむそうな順に ならべて笑','rank3d-sleepy'),
-    () => subjectiveRanking('3Dならびかえ!怒ったら こわそうな順に ならべて笑','rank3d-scary'),
-    () => subjectiveRanking('3Dならびかえ!モテそうな順に ならべて笑','rank3d-popular'),
-    () => subjectiveRanking('3Dならびかえ!朝よわそうな順に ならべて笑','rank3d-morning'),
-    () => subjectiveRanking('3Dならびかえ!秘密おおそうな順に ならべて笑','rank3d-secret'),
-    () => subjectiveRanking('3Dならびかえ!方向音痴そうな順に ならべて笑','rank3d-lost'),
-    () => subjectiveRanking('3Dならびかえ!食いしんぼうそうな順に ならべて笑','rank3d-hungry'),
-    () => subjectiveRanking('3Dならびかえ!運動神経よさそうな順に ならべて笑','rank3d-sporty'),
-    () => subjectiveRanking('3Dならびかえ!寝相わるそうな順に ならべて笑','rank3d-sleeper'),
   ];
   const PERSPECTIVE_RANKING_VARIANTS = [
     mg('rank3d-random', {
@@ -10714,8 +10700,8 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 単純な計算・反射1タップ・もぐらたたき・選択肢だけ・2D分岐迷路などは
-  // 抽選プールから外し、操作/判断が連続するゲームを中心にする。
+  // 単純な計算・反射1タップ・運任せ・正解のない主観ランキングなどは
+  // 抽選プールから外し、操作/判断に意味があるゲームを中心にする。
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...BALANCE_GAME_VARIANTS,
@@ -10728,13 +10714,11 @@
     ...SHOOTER_GAME_VARIANTS,
     ...TARGET_AIM_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
-    ...PUSH_CONTEST_VARIANTS,
     ...CHOP_GAME_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
-    ...MINI_POKER_VARIANTS,
     ...MINI_ESCAPE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
@@ -10760,13 +10744,11 @@
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
-    ['pushContest', PUSH_CONTEST_VARIANTS],
     ['chop', CHOP_GAME_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
-    ['miniPoker', MINI_POKER_VARIANTS],
     ['miniEscape', MINI_ESCAPE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
@@ -10969,7 +10951,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'rpg', 'shooter', 'breakout', 'miniEscape', 'miniPoker',
+    'chase', 'rpg', 'shooter', 'breakout', 'miniEscape',
     'swipeThrow', 'road', 'dragDecorate', 'stealth',
     'fishing', 'downhill', 'surfing', 'fight',
     'targetAim', 'sportsSwing', 'creatureCapture', 'adventureField',
