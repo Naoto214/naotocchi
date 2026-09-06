@@ -2064,6 +2064,19 @@
     }, SPEECH_DURATION_MS);
   }
 
+  function sayPet(text) {
+    if (!text) return;
+    setSpeechBubble(text, petSpeaker());
+  }
+
+  function sayReactionPool(poolKey) {
+    const pool = STORY_EVENT_POOLS[poolKey];
+    if (!pool || !pool.length) return;
+    const picked = pool[Math.floor(Math.random() * pool.length)];
+    // 絵文字は吹き出しの話し言葉では省き、本人の言葉として見せる。
+    sayPet(picked.message);
+  }
+
   function petSpeaker() {
     return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
   }
@@ -4092,7 +4105,7 @@
 
   const COMPANION_RECRUIT_THRESHOLD = 50;
 
-  // なにも しなくても、放っておくと たまに キャラのほうから 話しかけてくる
+  // なにも しなくても、放っておくと たまに キャラのほうから吹き出しで話しかけてくる
   // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
   // ネタを できるだけ たくさん 用意して、待っているだけでも 飽きにくくする
   const IDLE_GREETINGS_STANDARD = [
@@ -5196,7 +5209,7 @@
   }
 
   function scheduleCompanionEncounter() {
-    const delay = hasPerk(40) ? 70000 + Math.random() * 70000 : 90000 + Math.random() * 90000;
+    const delay = hasPerk(40) ? 240000 + Math.random() * 240000 : 300000 + Math.random() * 300000;
     setTimeout(() => {
       const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
       // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
@@ -5213,7 +5226,7 @@
         && !pendingCompanionId
         && !isAnyMenuOverlayOpen()
         && (remaining.length > 0 || rareRemaining.length > 0);
-      if (canEncounter) {
+      if (canEncounter && Math.random() < 0.65) {
         const useRare = rareRemaining.length > 0
           && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
         const pool = useRare ? rareRemaining : remaining;
@@ -7942,7 +7955,34 @@
         { label: 'みんなと がっしょうして よろこびを わかちあった', response: 'その いったいかん、かけがえの ない しゅんかんだね', score: 90, trait: 'gentle' },
         { label: 'いままでの ひびを、いっきに おもいだした', response: 'つみかさねた じかんが、むねに せまるね', score: 85, trait: 'calm' },
       ],
+    },,
+    {
+      text: 'ともだちが だれかの たいせつなものを こわして、だまっていてと たのんできた。',
+      choices: [
+        { label: 'いっしょに あやまりにいく', response: 'ともだちを まもりながら、せきにんも とったね', score: 100, trait: 'brave' },
+        { label: 'じぶんは かかわらない', response: 'まきこまれない えらびかたも ある', score: 55, trait: 'calm' },
+        { label: 'だれにも いわず かくす', response: 'ひみつは まもれたけど、こわれたものは もどらない', score: 25, trait: 'wild' },
+        { label: '本人にだけ こっそり あやまるよう すすめる', response: 'まず じぶんで せきにんを とるよう うながした', score: 75, trait: 'gentle' },
+      ],
     },
+    {
+      text: 'ふたりの ともだちが けんかして、どちらも「じぶんの みかたをして」と いってきた。',
+      choices: [
+        { label: 'りょうほうの はなしを きいて、まちがいは まちがいと いう', response: 'やさしさだけでなく、こうへいさも えらんだ', score: 100, trait: 'brave' },
+        { label: 'なかが いいほうの みかたをする', response: 'きもちには よりそえたけど、こうへいでは なかったかも', score: 35, trait: 'romantic' },
+        { label: 'どっちも わるくないと いう', response: 'やさしいけど、ほんとうの かいけつは まだ さきかも', score: 60, trait: 'gentle' },
+        { label: 'けんかが おわるまで はなれる', response: 'きょりを おくのも ひとつの ほうほう', score: 45, trait: 'calm' },
+      ],
+    },
+    {
+      text: 'だれかが みんなの まえで ひとりを からかっている。まわりは わらっている。',
+      choices: [
+        { label: 'からかうのを やめようと いう', response: 'ひとりでも こえを あげる ゆうきを えらんだ', score: 100, trait: 'brave' },
+        { label: 'あとで からかわれたひとに こえをかける', response: 'あとからでも よりそうことは できる', score: 72, trait: 'gentle' },
+        { label: 'じぶんも わらって ごまかす', response: 'そのばには なじめたけど、だれかは きずついた', score: 20, trait: 'wild' },
+        { label: 'みていない ふりをする', response: 'まきこまれなかったけど、たすけにも なれなかった', score: 45, trait: 'calm' },
+      ],
+    }
   ];
 
   // a shuffled, no-immediate-repeat draw over an arbitrary index list - used
@@ -7977,7 +8017,7 @@
     adult: [14, 21],
     silly: [21, 28],
     romance: [28, 35],
-    touching: [35, 40],
+    touching: [35, 43],
   };
 
   function categoryIndices(rangeKey) {
@@ -8000,7 +8040,16 @@
     const nextIndex = makeShuffledDraw(categoryIndices(rangeKey));
     return {
       start(container, onComplete) {
-        const q = QUIZ_QUESTIONS[nextIndex()];
+        const sourceQ = QUIZ_QUESTIONS[nextIndex()];
+        const rankedChoices = sourceQ.choices.slice().sort((a, b) => b.score - a.score);
+        const q = {
+          ...sourceQ,
+          choices: sourceQ.choices.map((choice) => {
+            const rank = rankedChoices.indexOf(choice);
+            const clearScores = [100, 72, 45, 20];
+            return { ...choice, score: clearScores[Math.min(rank, clearScores.length - 1)] };
+          }),
+        };
 
         container.innerHTML = `
           <div class="mg-title">${title}</div>
@@ -8017,7 +8066,7 @@
 
         let answered = false;
 
-        q.choices.forEach((choice) => {
+        shuffleArray(q.choices).forEach((choice) => {
           const btn = document.createElement('button');
           btn.className = 'mg-choice-btn';
           btn.textContent = choice.label;
@@ -9427,11 +9476,20 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const STEPS = Math.round(lerp(3, 5, difficulty));
-        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(3600, MG_STEP_MIN_MS, difficulty);
+        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4800, 3200, difficulty);
         let step = 0;
         let correctCount = 0;
         let stepTimer;
         let awaitingTap = false;
+
+        const CLUES = [
+          { clue: '👣 あしあとが みえる ほうへ!', correct: 0, left: '👣 あしあと', right: '🌫️ きり' },
+          { clue: '💡 あかりが みえる ほうへ!', correct: 1, left: '🌑 まっくら', right: '💡 あかり' },
+          { clue: '🏁 ゴールの はたが みえる!', correct: 0, left: '🏁 はた', right: '🌀 ぐるぐるみち' },
+          { clue: '🗺️ ちずには みずの おとが するほう とある', correct: 1, left: '🪨 かわいたみち', right: '💧 みずのおと' },
+          { clue: '✨ ひかる しるしを たどろう!', correct: 0, left: '✨ ひかるしるし', right: '🕸️ くものす' },
+          { clue: '🔑 かぎの おとが する ほうへ!', correct: 1, left: '🚪 しまったとびら', right: '🔑 かぎのおと' },
+        ];
 
         container.innerHTML = `
           <div class="mg-header">
@@ -9439,24 +9497,30 @@
             <span id="mgScore">せいかい: 0</span>
           </div>
           <div class="mg-title">${title}</div>
+          <div class="mg-hint" id="mgMazeClue"></div>
           <div class="mg-choices" id="mgChoices"></div>
         `;
 
         const stepEl = container.querySelector('#mgStep');
         const scoreEl = container.querySelector('#mgScore');
+        const clueEl = container.querySelector('#mgMazeClue');
         const choicesEl = container.querySelector('#mgChoices');
+        let lastClue = -1;
 
         function renderStep() {
-          const correctIndex = Math.random() < 0.5 ? 0 : 1;
-          const labels = [`${pathEmojiPair[0]} こっち`, `${pathEmojiPair[1]} こっち`];
-          choicesEl.innerHTML = labels
-            .map((label, i) => `<button class="mg-choice-btn" data-i="${i}">${label}</button>`)
-            .join('');
+          let clueIndex;
+          do { clueIndex = Math.floor(Math.random() * CLUES.length); } while (CLUES.length > 1 && clueIndex === lastClue);
+          lastClue = clueIndex;
+          const clue = CLUES[clueIndex];
+          // 左右そのものも時々入れ替えるので、位置暗記では解けない。
+          const swap = Math.random() < 0.5;
+          const labels = swap ? [clue.right, clue.left] : [clue.left, clue.right];
+          const correctIndex = swap ? 1 - clue.correct : clue.correct;
+          clueEl.textContent = clue.clue;
+          choicesEl.innerHTML = labels.map((label, i) => `<button class="mg-choice-btn" data-i="${i}">${label}</button>`).join('');
           const stepButtons = Array.from(choicesEl.querySelectorAll('.mg-choice-btn'));
           awaitingTap = true;
-          stepButtons.forEach((btn) => {
-            btn.addEventListener('pointerdown', () => onPick(Number(btn.dataset.i) === correctIndex, btn, stepButtons, correctIndex));
-          });
+          stepButtons.forEach((btn) => btn.addEventListener('pointerdown', () => onPick(Number(btn.dataset.i) === correctIndex, btn, stepButtons, correctIndex)));
           clearTimeout(stepTimer);
           stepTimer = setTimeout(() => onPick(false, null, stepButtons, correctIndex), timeLimitMs);
         }
@@ -9470,15 +9534,11 @@
           const correctBtn = stepButtons.find((b) => Number(b.dataset.i) === correctIndex);
           revealAndProceed(tappedBtn, correct, correctBtn, () => {
             step += 1;
-            if (step >= STEPS) {
-              onComplete(Math.round((correctCount / STEPS) * 100));
-              return;
-            }
+            if (step >= STEPS) return onComplete(Math.round((correctCount / STEPS) * 100));
             stepEl.textContent = `わかれみち ${step + 1}/${STEPS}`;
             renderStep();
           });
         }
-
         renderStep();
       },
     };
@@ -14232,6 +14292,7 @@
     state.travelStreak = 0;
     applyGrowth(4); applyDecline(-5);
     checkStoryEvents('poop-clean');
+      sayReactionPool('poop-clean');
     if (!checkMeters()) {
       setMessage('おそうじ できた!');
     }
@@ -14276,6 +14337,7 @@
       applyGrowth(8); applyDecline(-12);
       recordSicknessCure();
       checkStoryEvents('medicine-cure');
+      sayReactionPool('medicine-cure');
       if (!checkMeters()) {
         setMessage('げんきに なった!');
       }
