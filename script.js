@@ -1139,6 +1139,9 @@
         // 「なかま だいしゅうごう(ぜんいん10にん)」の じょうけんを 1ミリも
         // かえない(レアなかまが パーフェクトクリアを おもく しない)
         rareCompanionsRecruited: [],
+        // まだ なかまに なっていない相手との交流成功回数(id→回数)。
+        // はじめての出会い1回だけでは仲間にならず、再会の物語を作るために使う。
+        companionFriendshipProgress: {},
         // 地域ごとの きめうちキャラ(REGIONSの candidates)のうち、いままで
         // こいびとに なった ことが ある id の一覧と、そのうち けっこんまで
         // いたった id の一覧。どちらも「ずかん」の「こいびと」セクション
@@ -3626,16 +3629,16 @@
   // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
   // ずかんの 「なかま」セクションに ずっと 表示されつづける
   const COMPANIONS = [
-    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
-    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
-    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
-    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
-    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
-    { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
-    { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', flavor: 'のんびりやの コアラが きから おりてきた' },
-    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
-    { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
-    { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
+    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
+    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
+    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
+    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
+    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
+    { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', preferredRegions: ['forest','home'], flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
+    { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', preferredRegions: ['tropical','forest'], flavor: 'のんびりやの コアラが きから おりてきた' },
+    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
+    { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', preferredRegions: ['home','city'], flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
+    { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', preferredRegions: ['forest','countryside'], flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
   ];
 
   // ================================================================
@@ -3810,6 +3813,7 @@
     clearDateMovieTimers();
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
+    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
     renderDateChoices();
@@ -3857,22 +3861,56 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.dataset.plan = plan.id;
-    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}デート`;
+
+    const special = (state.items.reward || 0) > 0
+      && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
+    if (special) {
+      state.items.reward -= 1;
+      if (state.items.reward <= 0) delete state.items.reward;
+    }
+
+    // ごほうび使用時は見た目も明確に別物にする。
+    el.dateMovieScene.dataset.plan = special ? 'special' : plan.id;
+    el.dateMovieScene.classList.toggle('special-reward', special);
+    el.dateMoviePlace.textContent = special
+      ? `🎁 とくべつな ${plan.label}デート`
+      : `${plan.emoji || '💞'} ${plan.label}デート`;
+
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
     el.dateMoviePartner.textContent = partner.emoji || '💞';
-    const special = (state.items.reward || 0) > 0 && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
-    if (special) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
+
     const beats = special
-      ? [`${partner.label}と ${plan.label}へ。`, traitLine, hasNaotoItem('naoto_ring') ? '💍 ふたりだけの ひみつの ことばを のこした。' : 'きょうのこと、ずっと おぼえていようね。 💝']
-      : [`${partner.label}と ${plan.label}へ。`, traitLine, closing];
+      ? [
+          `きょうは ごほうびを つかって、${partner.label}と ${plan.label}へ。`,
+          traitLine,
+          hasNaotoItem('naoto_ring')
+            ? '💍 ふたりだけの ひみつの ことばを のこした。'
+            : 'きょうのこと、ずっと おぼえていようね。 💝',
+          '🎁 とくべつな おもいでが ひとつ ふえた。',
+        ]
+      : [
+          `${partner.label}と ${plan.label}へ。`,
+          traitLine,
+          closing,
+        ];
+
     if (special) pushLifeLog('💝', `とくべつなデートの おもいで: ${partner.label}と ${plan.label}`);
+
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
-    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat'); }, 850));
-    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat'); }, special ? 1900 : 1550));
-    dateMovieTimers.push(setTimeout(finishDateMovie, special ? 3000 : 2350));
+
+    // 1文あたり約2秒以上。前の0.8〜1.3秒では読めなかった。
+    const step = special ? 2200 : 2100;
+    for (let i = 1; i < beats.length; i += 1) {
+      dateMovieTimers.push(setTimeout(() => {
+        el.dateMovieCaption.classList.remove('beat');
+        void el.dateMovieCaption.offsetWidth;
+        el.dateMovieCaption.textContent = beats[i];
+        el.dateMovieCaption.classList.add('beat');
+      }, step * i));
+    }
+    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
     saveState();
   }
 
@@ -3914,12 +3952,12 @@
     dateMovieTimers.push(setTimeout(() => {
       el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
       el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat');
-    }, 1200));
+    }, 2200));
     dateMovieTimers.push(setTimeout(() => {
       el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
       el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat');
-    }, 2500));
-    dateMovieTimers.push(setTimeout(finishDateMovie, 3900));
+    }, 4500));
+    dateMovieTimers.push(setTimeout(finishDateMovie, 6800));
   }
 
   function checkMarriageMilestones(prevAge, age) {
@@ -5146,8 +5184,19 @@
       || !!grandGoalPending || !!dexDetail;
   }
 
+  function pickCompanionByRegion(pool) {
+    if (!pool.length) return null;
+    const weighted = [];
+    pool.forEach((c) => {
+      const local = Array.isArray(c.preferredRegions) && c.preferredRegions.includes(state.regionId);
+      const weight = local ? 4 : 1;
+      for (let i = 0; i < weight; i += 1) weighted.push(c);
+    });
+    return weighted[Math.floor(Math.random() * weighted.length)] || pool[0];
+  }
+
   function scheduleCompanionEncounter() {
-    const delay = hasPerk(40) ? 30000 + Math.random() * 50000 : 45000 + Math.random() * 75000;
+    const delay = hasPerk(40) ? 70000 + Math.random() * 70000 : 90000 + Math.random() * 90000;
     setTimeout(() => {
       const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
       // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
@@ -5168,7 +5217,7 @@
         const useRare = rareRemaining.length > 0
           && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
         const pool = useRare ? rareRemaining : remaining;
-        const companion = pool[Math.floor(Math.random() * pool.length)];
+        const companion = useRare ? pool[Math.floor(Math.random() * pool.length)] : pickCompanionByRegion(pool);
         openCompanionInvite(companion, useRare);
       }
       scheduleCompanionEncounter();
@@ -5183,16 +5232,18 @@
     pendingCompanionId = companion.id;
     companionInviteOpen = true;
     el.companionInviteEmoji.textContent = companion.emoji;
+    const progress = (state.lifetime.companionFriendshipProgress || {})[companion.id] || 0;
+    const reunited = progress > 0 && !state.lifetime.companionsRecruited.includes(companion.id);
     el.companionInviteTitle.textContent = isRare
       ? `${companion.name}が じっと こっちを みている!`
-      : `${companion.name}が あそびに さそってきた!`;
+      : reunited ? `${companion.name}が また あらわれた!` : `${companion.name}が あそびに さそってきた!`;
     el.companionInviteFlavor.textContent = companion.flavor;
     el.companionInviteOverlay.classList.toggle('rare', !!isRare);
     // まだ ミニゲームが はじまる まえに、ちゃんと 目に はいるよう
     // ひとこと メッセージらんにも のこす
     setMessage(isRare
       ? `${companion.emoji} みたことの ない なにかが やってきた…`
-      : `${companion.emoji} ${companion.name}が やってきた!`);
+      : reunited ? `${companion.emoji} また あったね! ${companion.name}が こっちに きた` : `${companion.emoji} ${companion.name}が やってきた!`);
     emotePet('fun');
     render();
   }
@@ -13978,25 +14029,40 @@
       pendingCompanionId = null;
       if (companion) {
         if (clampedScore >= COMPANION_RECRUIT_THRESHOLD) {
-          // レアなかまは lifetime.rareCompanionsRecruited に つむ。
-          // companionsRecruited を ふやさない ので、じっせきの
-          // 「なかま だいしゅうごう(10にん)」は これまでどおり 通常なかま
-          // 10にん だけで たっせいできる(パーフェクトクリアが おもく ならない)
           const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
           const record = isRare
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
-          if (!record.includes(companion.id)) {
-            record.push(companion.id);
-            pushLifeLog(companion.emoji, `${companion.name}が なかまに なった`);
+
+          if (isRare || record.includes(companion.id)) {
+            if (!record.includes(companion.id)) record.push(companion.id);
+            if (!state.companions.some((c) => c.id === companion.id)) {
+              state.companions.push({ id: companion.id, bond: 100 });
+            }
+            recruitedNow = true;
+            resultMessage = isRare
+              ? `${companion.emoji} ${companion.joined}`
+              : `${companion.name}が また なかまに なった!${companion.emoji}`;
+          } else {
+            if (!state.lifetime.companionFriendshipProgress || typeof state.lifetime.companionFriendshipProgress !== 'object') {
+              state.lifetime.companionFriendshipProgress = {};
+            }
+            const next = (state.lifetime.companionFriendshipProgress[companion.id] || 0) + 1;
+            state.lifetime.companionFriendshipProgress[companion.id] = next;
+            if (next >= 2) {
+              record.push(companion.id);
+              delete state.lifetime.companionFriendshipProgress[companion.id];
+              pushLifeLog(companion.emoji, `${companion.name}が なかまに なった`);
+              if (!state.companions.some((c) => c.id === companion.id)) {
+                state.companions.push({ id: companion.id, bond: 100 });
+              }
+              recruitedNow = true;
+              resultMessage = `${companion.emoji} また あえたね! ${companion.name}が なかまに なった!`;
+            } else {
+              resultMessage = `${companion.emoji} ${companion.name}と ちょっと なかよく なった! また あえたら なかまに なれそう`;
+              setSpeechBubble('また あそぼうね!', { kind: 'companion', emoji: companion.emoji, label: companion.name });
+            }
           }
-          if (!state.companions.some((c) => c.id === companion.id)) {
-            state.companions.push({ id: companion.id, bond: 100 });
-          }
-          recruitedNow = true;
-          resultMessage = isRare
-            ? `${companion.emoji} ${companion.joined}`
-            : `${companion.name}が なかまに なった!${companion.emoji}`;
         } else {
           resultMessage = `${companion.name}とは まだ なかよく なれなかった…また こんど ためそう`;
         }
