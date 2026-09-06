@@ -2736,6 +2736,205 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .device.theme-radiance { background: linear-gradient(160deg, #fff6d5 0%, #ffe066 45%, #ffd700 100%); }
 .device.theme-prism { background: radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8); }
 
+/* --- ほんたい追加30がら: theme-* の background shorthand より後で再適用 ---
+   追加30柄は上段で screen/device 共通定義されているが、その後の .device.theme-*
+   が background: を指定すると background-image までリセットされる。
+   本体ではここで pattern の image/size/position を再適用し、色テーマと柄を両立する。 */
+.device.pattern-diamond {
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%);
+  background-size: 22px 22px;
+}
+
+.device.pattern-crosshatch {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px);
+}
+
+.device.pattern-pinstripe {
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+}
+
+.device.pattern-brick {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+  background-size: 24px 12px;
+  background-position: 0 0, 12px 6px;
+}
+
+.device.pattern-herringbone {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 0;
+}
+
+.device.pattern-scallop {
+  background-image: radial-gradient(circle at 50% 0%, transparent 60%, rgba(255, 255, 255, 0.4) 61%, rgba(255, 255, 255, 0.4) 65%, transparent 66%);
+  background-size: 16px 10px;
+}
+
+.device.pattern-bubbles {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5) 10%, transparent 11%),
+    radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.4) 14%, transparent 15%),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.45) 8%, transparent 9%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.4) 11%, transparent 12%);
+  background-size: 30px 30px;
+}
+
+.device.pattern-zigzag {
+  background-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 0;
+}
+
+.device.pattern-rings {
+  background-image: radial-gradient(circle, transparent 30%, rgba(255, 255, 255, 0.5) 31%, rgba(255, 255, 255, 0.5) 36%, transparent 37%);
+  background-size: 18px 18px;
+}
+
+.device.pattern-tartan {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px);
+}
+
+.device.pattern-bigdots {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 26%, transparent 27%);
+  background-size: 26px 26px;
+}
+
+.device.pattern-starburst {
+  background-image: repeating-conic-gradient(rgba(255, 255, 255, 0.4) 0deg 10deg, transparent 10deg 30deg);
+  background-size: 20px 20px;
+}
+
+.device.pattern-pinwheel {
+  background-image: conic-gradient(rgba(255, 255, 255, 0.45) 0deg 90deg, transparent 90deg 180deg, rgba(255, 255, 255, 0.45) 180deg 270deg, transparent 270deg 360deg);
+  background-size: 18px 18px;
+}
+
+.device.pattern-basket {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px);
+}
+
+.device.pattern-sunray {
+  background-image:
+    repeating-conic-gradient(rgba(255, 255, 255, 0.3) 0deg 6deg, transparent 6deg 24deg),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25), transparent 60%);
+  background-size: 26px 26px, 100% 100%;
+}
+
+.device.pattern-ripple {
+  background-image: repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+  background-size: 26px 26px;
+}
+
+.device.pattern-petal {
+  background-image:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%);
+  background-size: 22px 22px;
+}
+
+.device.pattern-cloud {
+  background-image:
+    radial-gradient(ellipse 60% 30% at 30% 40%, rgba(255, 255, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 50% 25% at 70% 60%, rgba(255, 255, 255, 0.3), transparent 70%);
+  background-size: 60px 40px;
+}
+
+.device.pattern-leaf {
+  background-image:
+    radial-gradient(ellipse 40% 70% at 30% 30%, rgba(255, 255, 255, 0.45), transparent 70%),
+    radial-gradient(ellipse 40% 70% at 70% 70%, rgba(255, 255, 255, 0.4), transparent 70%);
+  background-size: 24px 24px;
+}
+
+.device.pattern-bamboo {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 4px, transparent 4px 16px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0 2px, transparent 2px 20px);
+  background-size: 16px 20px;
+}
+
+.device.pattern-pebble {
+  background-image:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.35) 9%, transparent 10%),
+    radial-gradient(circle at 65% 20%, rgba(255, 255, 255, 0.3) 7%, transparent 8%),
+    radial-gradient(circle at 45% 65%, rgba(255, 255, 255, 0.35) 10%, transparent 11%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.3) 6%, transparent 7%);
+  background-size: 22px 22px;
+}
+
+.device.pattern-vine {
+  background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 6px);
+  background-size: 18px 18px;
+}
+
+.device.pattern-facet {
+  background-image: conic-gradient(from 45deg, rgba(255, 255, 255, 0.4) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.4) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.4) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.4) 270deg 315deg, transparent 315deg 360deg);
+  background-size: 24px 24px;
+}
+
+.device.pattern-glitter {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 4%, transparent 8%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 3%, transparent 6%);
+  background-size: 14px 14px, 9px 9px;
+  background-position: 0 0, 5px 5px;
+}
+
+.device.pattern-crownmotif {
+  background-image:
+    linear-gradient(60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%),
+    linear-gradient(-60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%);
+  background-size: 20px 34px;
+}
+
+.device.pattern-medallion {
+  background-image:
+    radial-gradient(circle, transparent 35%, rgba(255, 255, 255, 0.45) 36%, rgba(255, 255, 255, 0.45) 40%, transparent 41%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 8%, transparent 9%);
+  background-size: 26px 26px;
+}
+
+.device.pattern-nebula {
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 6%, transparent 10%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.4) 5%, transparent 9%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.45) 6%, transparent 10%),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.35) 4%, transparent 8%);
+  background-size: 34px 34px;
+}
+
+.device.pattern-kaleidoscope {
+  background-image: conic-gradient(rgba(255, 94, 168, 0.35) 0deg 60deg, rgba(255, 210, 63, 0.35) 60deg 120deg, rgba(85, 230, 165, 0.35) 120deg 180deg, rgba(79, 195, 247, 0.35) 180deg 240deg, rgba(199, 125, 255, 0.35) 240deg 300deg, rgba(255, 94, 168, 0.35) 300deg 360deg);
+  background-size: 30px 30px;
+}
+
+.device.pattern-crownjewel {
+  background-image:
+    conic-gradient(from 45deg, rgba(255, 255, 255, 0.35) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.35) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.35) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.35) 270deg 315deg, transparent 315deg 360deg),
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 5%, transparent 9%);
+  background-size: 24px 24px, 12px 12px;
+}
+
+.device.pattern-prismshine {
+  background-image: repeating-linear-gradient(-60deg, rgba(255, 94, 168, 0.3) 0 4px, rgba(255, 210, 63, 0.3) 4px 8px, rgba(85, 230, 165, 0.3) 8px 12px, rgba(79, 195, 247, 0.3) 12px 16px, rgba(199, 125, 255, 0.3) 16px 20px);
+}
+
+
 /* ほんたいの がら。うえの .device.theme-* が いろ(background)を きめた
    あとに、ここで background-image/-size/-position だけを かさねる(この
    ブロックが あとに 書いてあるので、いろの shorthand が いちど けした
