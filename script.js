@@ -2,6 +2,8 @@
   'use strict';
 
   const SAVE_KEY = 'naotocchi-save-v1';
+  const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
+  let stateLoadRecovered = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
@@ -1235,7 +1237,10 @@
       const raw = localStorage.getItem(SAVE_KEY);
       if (!raw) return freshState();
       const parsed = JSON.parse(raw);
-      if (!parsed || typeof parsed !== 'object') return freshState();
+      if (!parsed || typeof parsed !== 'object') throw new Error('invalid save payload');
+      // マイグレーションで万一エラーが起きても元セーブを失わないよう、
+      // 読み込み成功した生データを別キーにも退避してから加工する。
+      try { localStorage.setItem(SAVE_BACKUP_KEY, raw); } catch (backupError) { /* storage unavailable */ }
       const merged = { ...freshState(), ...parsed };
       // lifetime is a nested object, so the shallow merge above replaces it
       // wholesale with the save's own (possibly older, field-missing)
@@ -1453,6 +1458,29 @@
       delete merged.freePlay;
       return merged;
     } catch (e) {
+      // 以前はここで freshState() を返し、起動直後の saveState() がそのまま
+      // 元セーブを上書きしていた。読み込み失敗を「新規ゲーム」と誤認しない。
+      // まずバックアップ、次に現在キーの生JSONから、危険なマイグレーションを
+      // 通さない最小復旧を試す。復旧できた場合はこの起動中に警告を出す。
+      const candidates = [];
+      try { candidates.push(localStorage.getItem(SAVE_BACKUP_KEY)); } catch (ignore) {}
+      try { candidates.push(localStorage.getItem(SAVE_KEY)); } catch (ignore) {}
+      for (const candidate of candidates) {
+        if (!candidate) continue;
+        try {
+          const parsed = JSON.parse(candidate);
+          if (!parsed || typeof parsed !== 'object') continue;
+          const recovered = { ...freshState(), ...parsed };
+          recovered.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+          if (!Array.isArray(recovered.discoveredStages)) recovered.discoveredStages = [];
+          if (!Array.isArray(recovered.achievementsUnlocked)) recovered.achievementsUnlocked = [];
+          if (!Array.isArray(recovered.companions)) recovered.companions = [];
+          stateLoadRecovered = true;
+          return recovered;
+        } catch (ignore) { /* try next candidate */ }
+      }
+      // 何も復元できない場合でも、起動直後に空データを自動保存しないための印。
+      stateLoadRecovered = true;
       return freshState();
     }
   }
@@ -1907,6 +1935,8 @@
     checkAchievements();
     checkGrandGoals();
     try {
+      const previous = localStorage.getItem(SAVE_KEY);
+      if (previous) localStorage.setItem(SAVE_BACKUP_KEY, previous);
       localStorage.setItem(SAVE_KEY, JSON.stringify(state));
     } catch (e) {
       // storage unavailable; ignore
@@ -12692,7 +12722,13 @@
       sayPet('これからは、おたがいに むりのない かたちで いよう');
     }, 350);
   }
-  saveState();
+  if (!stateLoadRecovered) {
+    saveState();
+  } else {
+    // 読み込み異常時は、復旧候補を表示するだけで元セーブを自動上書きしない。
+    // 次の正常なユーザー操作/定期保存までにバックアップが残る。
+    setTimeout(() => setMessage('セーブデータを保護して復旧しました。内容を確認してください'), 250);
+  }
   render();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
