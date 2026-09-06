@@ -13346,13 +13346,13 @@
         const laneX = [28, 50, 72];
 
         container.innerHTML = `
-          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩 0/0　🪽 0</span></div>
+          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩通過 0/0　ジャンプ 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-ski3d-scene" id="mgSki3dScene">
             <div class="mg-ski3d-sky">🏔️</div><div class="mg-ski3d-slope"></div>
             <div class="mg-ski3d-player" id="mgSki3dPlayer">${playerEmoji}</div>
           </div>
-          <div class="mg-hint">◀ ▶で カーブ。ジャンプ台は そのまま つっこもう!</div>
+          <div class="mg-hint">◀ ▶で レーン移動 → 🚩と同じレーンを通る。▰ジャンプ台に乗ると障害物を飛び越せる!</div>
           <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDownhillLeft">◀</button><button class="mg-tap-btn" id="mgDownhillRight">▶</button></div>`;
         const scene=container.querySelector('#mgSki3dScene'),player=container.querySelector('#mgSki3dPlayer');
         const timerEl=container.querySelector('#mgTimer'),scoreEl=container.querySelector('#mgScore');
@@ -13393,7 +13393,7 @@
               if(o.kind==='gate'){totalGates++;if(o.lane===lane){gatesPassed++;o.el.classList.add('passed');}}
               else if(o.kind==='jump'&&o.lane===lane){jumps++;airborneUntil=now+760;o.el.classList.add('passed');}
               else if(o.kind==='obstacle'&&o.lane===lane&&!airborne){hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
-              scoreEl.textContent=`🚩 ${gatesPassed}/${totalGates}　🪽 ${jumps}`;
+              scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　ジャンプ ${jumps}`;
             }
           }
           objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
@@ -13700,15 +13700,10 @@
   // 抽選プールから外し、操作/判断が連続するゲームを中心にする。
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
-    ...MEMORY_GAME_VARIANTS,
-    ...STROOP_GAME_VARIANTS,
-    ...JANKEN_GAME_VARIANTS,
     ...CONCENTRATION_GAME_VARIANTS,
     ...BALANCE_GAME_VARIANTS,
-    ...BEAT_GAME_VARIANTS,
     ...TILE_SWAP_VARIANTS,
     ...SPELL_GAME_VARIANTS,
-    ...JUMP_GAME_VARIANTS,
     ...FIND_SELF_VARIANTS,
     ...POSE_GAME_VARIANTS,
     ...ROAD_GAME_VARIANTS,
@@ -13716,7 +13711,6 @@
     ...FIGHT_GAME_VARIANTS,
     ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
-    ...RUNNER_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
     ...TARGET_AIM_VARIANTS,
     ...RACE_GAME_VARIANTS,
@@ -13745,15 +13739,10 @@
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
     ['catch', CATCH_GAME_VARIANTS],
-    ['memory', MEMORY_GAME_VARIANTS],
-    ['stroop', STROOP_GAME_VARIANTS],
-    ['janken', JANKEN_GAME_VARIANTS],
     ['concentration', CONCENTRATION_GAME_VARIANTS],
     ['balance', BALANCE_GAME_VARIANTS],
-    ['beat', BEAT_GAME_VARIANTS],
     ['tileSwap', TILE_SWAP_VARIANTS],
     ['spell', SPELL_GAME_VARIANTS],
-    ['jump', JUMP_GAME_VARIANTS],
     ['findSelf', FIND_SELF_VARIANTS],
     ['pose', POSE_GAME_VARIANTS],
     ['road', ROAD_GAME_VARIANTS],
@@ -13761,7 +13750,6 @@
     ['fight', FIGHT_GAME_VARIANTS],
     ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
-    ['runner', RUNNER_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
     ['race', RACE_GAME_VARIANTS],
@@ -13808,7 +13796,6 @@
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
     snow: [
-      { category: 'jump', game: makeJumpGame({ title: 'ゆきだるまを よけて すべろう!', obstacleEmoji: '⛄' }) },
       { category: 'catch', game: makeCatchGame({
         title: 'ゆきの けっしょうキャッチ!こおりは あぶない',
         basketEmoji: '🧤',
