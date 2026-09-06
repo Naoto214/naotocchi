@@ -13294,12 +13294,12 @@
   // --- 名作ジャンルへのオマージュ: 固有キャラ/名称は使わず遊びの核だけ再構成 ---
   function makeCreatureCaptureGame(){
     return {start(container,onComplete){
-      let aim=50,power=0,rising=true,balls=5,caught=0,running=true,raf;
+      let balls=5,caught=0,running=true;
       container.innerHTML=`<div class="mg-header"><span id="capBalls">カプセル: 5</span><span id="capCaught">つかまえた: 0</span></div><div class="mg-title">3D モンスターキャッチ!ねらって カプセルを なげよう</div><div class="mg-capture3d" id="capScene"><div class="mg-capture-monster" id="capMonster">👾</div><div class="mg-capture-reticle" id="capAim">◎</div></div><input id="capSlider" type="range" min="10" max="90" value="50"><button class="mg-tap-btn" id="capThrow">なげる!</button>`;
-      const slider=container.querySelector('#capSlider'),monster=container.querySelector('#capMonster'),aim=container.querySelector('#capAim');
+      const slider=container.querySelector('#capSlider'),monster=container.querySelector('#capMonster'),aimEl=container.querySelector('#capAim');
       const monsters=['👾','👻','🐲','🦖','🦄'];let target=25+Math.random()*50;
       monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];monster.style.left=target+'%';
-      slider.oninput=()=>aim.style.left=slider.value+'%';
+      slider.oninput=()=>aimEl.style.left=slider.value+'%';
       container.querySelector('#capThrow').onclick=()=>{if(!running||balls<=0)return;balls--;const d=Math.abs(Number(slider.value)-target);if(d<11){caught++;monster.classList.add('caught');setTimeout(()=>{monster.classList.remove('caught');target=20+Math.random()*60;monster.style.left=target+'%';monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];},300);}container.querySelector('#capBalls').textContent='カプセル: '+balls;container.querySelector('#capCaught').textContent='つかまえた: '+caught;if(!balls){running=false;setTimeout(()=>onComplete(clamp(25+caught*15,25,100)),450);}};
     }};
   }
