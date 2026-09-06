@@ -10700,12 +10700,10 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 単純な計算・反射1タップ・運任せ・正解のない主観ランキングなどは
-  // 抽選プールから外し、操作/判断に意味があるゲームを中心にする。
+  // 単純な計算・反射1タップ・運任せ・正解のない主観ランキングに加え、
+  // 「左右で拾うだけ」「中央維持だけ」「同じ気持ちを選ぶだけ」「上下スワイプ連打だけ」
+  // の薄いゲームも抽選から外し、操作/判断に展開があるゲームを中心にする。
   const MINIGAMES = [
-    ...CATCH_GAME_VARIANTS,
-    ...BALANCE_GAME_VARIANTS,
-    ...POSE_GAME_VARIANTS,
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
     ...FIGHT_GAME_VARIANTS,
@@ -10714,7 +10712,6 @@
     ...SHOOTER_GAME_VARIANTS,
     ...TARGET_AIM_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
-    ...CHOP_GAME_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
@@ -10733,9 +10730,6 @@
   // Map として おぼえておく。地域限定あそびが「その しゅるい」を まるごと
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
-    ['catch', CATCH_GAME_VARIANTS],
-    ['balance', BALANCE_GAME_VARIANTS],
-    ['pose', POSE_GAME_VARIANTS],
     ['road', ROAD_GAME_VARIANTS],
     ['stack', STACK_GAME_VARIANTS],
     ['fight', FIGHT_GAME_VARIANTS],
@@ -10744,7 +10738,6 @@
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
-    ['chop', CHOP_GAME_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
@@ -10763,7 +10756,7 @@
   }
 
   // 地域ごとの あそび。一般プールとは別に地域らしいテーマを足す。
-  // 同じ「左右に動いて落下物を拾う」キャッチ系は一般プールの1本へ集約。
+  // 同じ「左右に動いて落下物を拾う」キャッチ系は一般・地域とも抽選から外した。
   // 地域側は釣り・滑走・ロード・積み上げなど、操作感が変わるものだけ残す。
   const REGION_MINIGAMES = {
     // 地域ゲームは「数をそろえる」より、その土地で遊ぶ意味があるものを優先。
@@ -10773,12 +10766,6 @@
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
     snow: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'ゆきの けっしょうキャッチ!こおりは あぶない',
-        basketEmoji: '🧤',
-        goodItems: ['❄️', '⛷️', '🧣', '☃️'],
-        badItems: ['🧊', '⚡', '🥶', '🌨️'],
-      }) },
       { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     city: [
