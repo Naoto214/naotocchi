@@ -5023,7 +5023,9 @@
   // alongside the bigger but rarer full-screen STORY_EVENT_POOLS flashes
   const EMOTE_CONFIG = {
     happy: { animClass: 'emote-happy', particles: ['💖', '✨'], duration: 620 },
-    fun: { animClass: 'emote-fun', particles: ['🎉', '✨'], duration: 720 },
+    // 🎉 はクリア等の本当のお祝い専用。通常の「たのしい」リアクションで
+    // 画面左上に飛び込んで見えることがあったため、日常演出では使わない
+    fun: { animClass: 'emote-fun', particles: ['⭐', '✨'], duration: 720 },
     sad: { animClass: 'emote-sad', particles: ['😢', '💧'], duration: 720 },
     angry: { animClass: 'emote-angry', particles: ['💢'], duration: 520 },
     love: { animClass: 'emote-love', particles: ['💕', '💘', '💖'], duration: 900 },
