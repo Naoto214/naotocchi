@@ -55,7 +55,7 @@ const STAGE = { EGG: 'egg', GROWING: 'growing', FAREWELL: 'farewell', DEAD: 'dea
 ### A-4. 100さい
 
 - `tick()` 内で `state.ageTicks += 1` → `currentAge() >= GOAL_AGE(100)` で `enterFarewell()`
-- `AGE_TICKS_PER_YEAR = 18`, `TICK_MS = 3000` → **1さい = 54秒 / 100さい = 1,800 tick = 90.0分**
+- `AGE_TICKS_PER_YEAR = 20`, `TICK_MS = 3000` → **1さい = 60秒 / 100さい = 2,000 tick = 100分**
 - `state.lifetime.maxAgeReached = 100` を記録
 
 ### A-5. さいごの じかん（`farewell`）
@@ -109,7 +109,7 @@ const STAGE = { EGG: 'egg', GROWING: 'growing', FAREWELL: 'farewell', DEAD: 'dea
 ### B-1. ねんれい
 
 - 唯一の真実は `state.ageTicks`
-- `currentAge()` = `Math.min(100, Math.floor(ageTicks / 18))`
+- `currentAge()` = `Math.min(100, Math.floor(ageTicks / 20))`
 - `state.stageIndex` は**キャッシュ**であり、`stageForAge(currentAge())` から再導出されます
 - `ageTicks` を減らすコードは存在しません（不可逆）
 - `tick()` は `!isLiveLife()`（`egg` / `farewell` / `dead`）と `state.infinite` で進みません。またメニューを開いている間も止まります（`isAnyMenuOverlayOpen()`）
@@ -564,7 +564,7 @@ successChance  = clamp(0.35 + 合計, 0.15, 0.85)
 ### G-7. 維持減衰と破局
 
 ```js
-PARTNER_AFFECTION_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS(28) × AGE_TICKS_PER_YEAR(18))
+PARTNER_AFFECTION_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS(28) × AGE_TICKS_PER_YEAR(20))
                                  ≒ 0.1984 / tick
 ```
 
@@ -635,7 +635,7 @@ PARTNER_AFFECTION_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS(28) × AGE_TICKS_
 ### H-5. bond と離脱・再会
 
 ```js
-COMPANION_BOND_DECAY_PER_TICK = 100 / (28 × 18) ≒ 0.1984 / tick
+COMPANION_BOND_DECAY_PER_TICK = 100 / (28 × 20) ≒ 0.1786 / tick
 COMPANION_PLAYWITH_BOND_BOOST = 30
 ```
 
@@ -1023,6 +1023,8 @@ merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
 
 ### N-3. 移行（migration）
 
+**E. schemaVersion 4（1さい=1分化）** — v3 の `ageTicks` を `20/18` 倍して、表示年齢だけでなく「次の誕生日までの途中経過」も維持する。`infiniteReturn.ageTicks` も同じ比率で移行するため、♾️往復用に保存した人生も若返らない。
+
 **A. 旧ステージ名の写像（`OLD_STAGE_MAP`）** — `adult_good` / `adult_bad` / `baby` / `child` / `teen` / `adult` / `elder` を `{stageIndex, species}` に変換
 
 **B. gender 補完** — `stage === GROWING && !merged.gender` なら `rollIdentity()` で遡って生成
@@ -1032,12 +1034,12 @@ merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
 **D. `schemaVersion < 3` の移行**:
 ```js
 displayedAge = clamp(floor((parsed.age || 0) / 20), 0, 100)
-merged.ageTicks   = displayedAge * 18        // 表示年齢を変えない
+merged.ageTicks   = displayedAge * 20        // 表示年齢を変えない
 merged.stageIndex = stageForAge(displayedAge)
 merged.growth = 0; merged.decline = 0
 merged.sodachi = 50; merged.maxSodachi = 50  // 途中から始まる子は中間値
 if (parsed.freePlay) { lifetime.perfectCleared = true; merged.infinite = true; }
-if (parsed.stage === 'clear') { stage = FAREWELL; ageTicks = 100*18; stageIndex = stageForAge(100); }
+if (parsed.stage === 'clear') { stage = FAREWELL; ageTicks = 100*20; stageIndex = stageForAge(100); }
 merged.declineBaseline = lifetime.devolutions || 0
 merged.schemaVersion = 3
 pendingMigrationQuiet = true   // 移行時は演出を抑止
@@ -1076,7 +1078,7 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 | 定数 | 値 | 用途 |
 |---|---|---|
 | `TICK_MS` | 3000 | 1 tick = 3 秒 |
-| `AGE_TICKS_PER_YEAR` | 18 | 1さい = 18 tick = 54 秒 |
+| `AGE_TICKS_PER_YEAR` | 20 | 1さい = 20 tick = 60 秒 |
 | `GOAL_AGE` | 100 | 100さい = 1,800 tick = 90.0 分 |
 | `MAX_DIFFICULTY_AGE` | 60 | ミニゲーム難易度が最大になる年齢 |
 | `RECENT_ACTION_TICKS` | 20 | 「直近のお世話」判定（60 秒） |
@@ -1199,7 +1201,40 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 
 ---
 
-## Q. 要確認事項（コードだけでは設計意図を判断できない箇所）
+## Q. 過去アイデア棚卸し（2026-09-06 main照合）
+
+過去チャットで「未実装かもしれない」と残っていた案を現mainへ逆引きした結果。**現行仕様と将来候補を混ぜないための台帳**であり、未実装欄は自動的な実装指示ではありません。
+
+### Q-1. 実装済みを確認
+
+- そだち50 **デート**: `DATE_PLANS` 10種、恋人の性格別リアクション、クールダウン、人生記録まで実装済み
+- そだち70 **特別な旅先**: `SPECIAL_REGIONS` と専用表示・移動処理あり
+- そだち80 **レアなかま**: `RARE_COMPANIONS` 5人、通常10人と別コレクションで実装済み
+- そだち90 **でんせつの であい**: 5イベント、未見優先、1人生1回の抽選まで実装済み
+- **人生記録 / おもいで**: `lifeLog`、人生記録カード、`pastLives` まで実装済み
+- **アロマンティック / クエスチョニング説明**: プロフィールの説明導線と、クエスチョニングの進行表示・収束処理まで実装済み
+- 変身後の恋愛 **すれちがい**: 関係修復回数を持つ処理まで実装済み
+
+### Q-2. 一部実装だが完成形ではない
+
+- **キャラが自発的に話す**: `IDLE_GREETINGS` と `setMessage()` はある。ただしメイン画面は本人・恋人・なかま・システム通知を同じ `#message` に流す単一話者UIのまま
+- ミニゲーム側には `.mg-comic-bubble`（顔＋吹き出し）があるが、メイン育成画面には未転用
+- 恋人/なかまには文章リアクションがあるが、**話者アイコン付きの会話UI**にはなっていない
+
+### Q-3. 未実装・今後の候補
+
+- **メイン画面の吹き出し会話システム**: なおとっち本人 / 恋人 / なかまを話者付き吹き出し、システム通知は現在のメッセージ欄、という役割分担
+- **過去の行動を覚えた会話**: `state.lifetime` / `lifeLog` の履歴を本人のセリフへ反映する仕組み
+- **168形態の最終ドット絵**: 21×8の構造は実装済みだが、本番ビジュアル制作は不具合整理後に行う
+- **図鑑説明文の最終リライト**: 現在168件の表示機能と文はあるが、最終ドット絵・正式名称確定後に内容を合わせる
+
+### Q-4. 要判断として残すもの
+
+- `IDLE_GREETINGS_DIALECT` は全地域共通プールに混ざっており、現在地でフィルタされない。地域演出として使うなら地域別化、単なるランダムな方言ネタなら現状維持
+
+---
+
+## R. 要確認事項（コードだけでは設計意図を判断できない箇所）
 
 1. **`dreamEggs.normal` / `dreamEggs.rare` の「個数」の意味** — インクリメントのみでデクリメントがなく、実質「一度でも到達したか」の永続フラグとして機能しています。「1 個」という表現が在庫を意図したものか、永続解禁を意図したものかコードからは判断できません。
 
@@ -1223,7 +1258,7 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 
 ---
 
-## R. コード → 仕様 逆引き監査
+## S. コード → 仕様 逆引き監査
 
 `script.js` / `index.html` / `style.css` に実在する要素が、本仕様書のどこかに記載されているかの確認結果です。
 

@@ -34,7 +34,7 @@
   // ひらいて あそんでいる じかん」だけが ねんれいに なる - タブを とじて
   // いる あいだも、ずかん/あいてむ などの がめんを ひらいて いる あいだも
   // ねんれいは とまる(loop() さんしょう)
-  const AGE_TICKS_PER_YEAR = 18; // ★人生の長さを きめる ゆいいつの 定数(1さい=54秒 / 100さい=90分)
+  const AGE_TICKS_PER_YEAR = 20; // ★人生の長さを きめる ゆいいつの 定数(1さい=60秒 / 100さい=100分)
   const GOAL_AGE = 100;
   const HATCH_GROWTH = 20; // たまごは「せいちょう」を これだけ ためると かえる
 
@@ -653,7 +653,7 @@
       if (line === 'ren') return false;
       if (line === 'god') return avgCare >= (eased ? 82 : 90);
       // せいかくは「せいかくクイズ」でしか たまらず、それは ぜんミニゲームの
-      // 6%。90分で 6かいほどしか まわってこない ので、基本閾値を 3 に する
+      // 6%。100分でも 7かい前後しか まわってこない ので、基本閾値を 3 に する
       if (line === 'mermaid') return state.traitCounts.gentle >= (eased ? 2 : 3);
       if (line === 'unicorn') return state.traitCounts.brave >= (eased ? 2 : 3);
       // ★ 「なった かいすう」では なく「なおした かいすう」。
@@ -990,7 +990,7 @@
       // ふくげんする ので、♾️ は 人生を リセットしない。state の 一部な ので
       // セーブにも のり、ページを ひらきなおしても もどれる
       infiniteReturn: null,
-      schemaVersion: 3,
+      schemaVersion: 4,
       poopCount: 0,
       isSick: false,
       sicknessType: null,
@@ -1296,6 +1296,23 @@
         // ぼうはつ しない ように、この よみこみでは 演出を ぬく
         pendingMigrationQuiet = true;
       }
+
+      // ================================================================
+      // schemaVersion 4 への いこう(1さい=54秒 → 1さい=60秒)
+      // ================================================================
+      // v3 セーブの ageTicks は 18tick/年で記録されている。そのまま20へ変えると
+      // 例: 50さいの子が45さいに見えてしまうので、人生の進み具合を 20/18 倍して
+      // 表示年齢と「次の誕生日までの途中経過」を両方そのまま保つ。
+      if ((parsed.schemaVersion || 0) === 3) {
+        const OLD_AGE_TICKS_PER_YEAR = 18;
+        merged.ageTicks = Math.round((Number(parsed.ageTicks) || 0) * AGE_TICKS_PER_YEAR / OLD_AGE_TICKS_PER_YEAR);
+        if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
+          merged.infiniteReturn.ageTicks = Math.round((Number(merged.infiniteReturn.ageTicks) || 0) * AGE_TICKS_PER_YEAR / OLD_AGE_TICKS_PER_YEAR);
+          merged.infiniteReturn.schemaVersion = 4;
+        }
+        pendingMigrationQuiet = true;
+      }
+      merged.schemaVersion = 4;
       delete merged.age;
       delete merged.evoMeter;
       delete merged.devoMeter;
