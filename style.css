@@ -5181,7 +5181,40 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
     linear-gradient(180deg,#6f4ca7 0%,#df7eb5 46%,#ffc987 70%,#56466f 100%);
   box-shadow: 0 0 0 2px rgba(255,226,132,.75), 0 10px 34px rgba(0,0,0,.56), 0 0 26px rgba(255,173,221,.32);
 }
-.date-movie-scene.special-reward .date-movie-heart { font-size: 26px; animation-duration: .72s; }
+.date-movie-scene.special-reward .date-movie-heart { font-size: 30px; animation-duration: .9s; }
+.date-movie-scene.special-reward {
+  position: relative;
+  animation: rewardMovieGlow 2.2s ease-in-out infinite alternate;
+}
+.date-movie-scene.special-reward::after {
+  content: 'SPECIAL MEMORY';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  padding: 4px 7px;
+  border-radius: 999px;
+  color: #fff8d6;
+  background: rgba(82,39,100,.58);
+  border: 1px solid rgba(255,231,143,.82);
+  box-shadow: 0 0 16px rgba(255,223,132,.35);
+}
+.date-movie-scene.anniversary-major {
+  animation: anniversaryGlow 3s ease-in-out infinite alternate;
+}
+.date-movie-scene.anniversary-major .date-movie-heart {
+  font-size: 28px;
+}
+@keyframes rewardMovieGlow {
+  from { filter: saturate(1) brightness(1); transform: scale(1); }
+  to { filter: saturate(1.12) brightness(1.07); transform: scale(1.008); }
+}
+@keyframes anniversaryGlow {
+  from { box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+  to { box-shadow: 0 10px 36px rgba(0,0,0,.5), 0 0 26px rgba(255,224,150,.3); }
+}
 .date-movie-scene.special-reward .date-movie-sparkles { font-size: 15px; color: rgba(255,244,181,.95); }
 
 .date-movie-sparkles {
