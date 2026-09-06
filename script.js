@@ -2169,6 +2169,26 @@
       partner: ['貯金しなよ笑', 'おごってくれる?', 'また すぐ つかわないでね'],
       companion: ['おごって!', 'それ たべれる?', 'ぼくのぶん ある?'],
     },
+    travel: {
+      pet: ['きたー!', '空気 ちがう!', 'ここ 住めるかも', 'とりあえず 何たべる?', '地図より ぜんぜん いい'],
+      partner: ['いっしょに 来れてよかった', '写真 とろうよ', '迷子に ならないでね笑'],
+      companion: ['走っていい!?', '知らない におい!', 'ここ ぼくの なわばりにする!'],
+    },
+    transform: {
+      pet: ['え、ぼく!?', '鏡 どこ!?', '中身は ぼくのまま…だよね?', '変身ポーズ いる?', 'なんか 強そう'],
+      partner: ['似合ってる…たぶん笑', '急に 変わりすぎ!', 'でも ちゃんと わかるよ'],
+      companion: ['だれ!?…あ、きみか!', 'ぼくも へんしんしたい!', 'においは おなじ!'],
+    },
+    partner_new: {
+      pet: ['え、ほんとに!?', 'やばい うれしい', '今日を 記念日に しよう', '心臓 うるさい'],
+      partner: ['これから よろしくね', 'そんなに にやけないで笑', 'ちゃんと 大事にしてね'],
+      companion: ['おめでとー!', 'ぼくのことも 忘れないで!', '空気 よんだほうがいい?'],
+    },
+    marriage: {
+      pet: ['ほんとに けっこんした!', '市役所いく? もういった?', 'ずっと いっしょって すごい', '指輪 なくさないようにする'],
+      partner: ['これからも よろしくね', '逃げないでね笑', '一緒に 年とろうね'],
+      companion: ['けっこん!?', 'パーティーは!?', 'ぼくも 家族?'],
+    },
     minigame_great: {
       pet: ['見た!? いまの見た!?', '天才、爆誕', 'ドヤがおが もどらない', '今日のぼく 仕上がってる'],
       partner: ['ちょっと かっこよかった', '調子のってる笑', 'ちゃんと 見てたよ'],
@@ -4557,7 +4577,6 @@
     applyDecline(-5, { silent: true });
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    speakEvent('money', { coins: bonus, partnerChance: 0.25, companionChance: 0.25 });
     if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
       state.items.reward = (state.items.reward || 0) + 1;
       setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
@@ -7185,6 +7204,7 @@
       ? `？？？の しょうたいは 「${stage.label}」だった…!${breakupMessage}`
       : `${stage.label}に へんしんした!${breakupMessage}`);
     checkStoryEvents('transform');
+    speakEvent('transform', { partnerChance: 0.65, companionChance: 0.65 });
     emotePet(breakupMessage ? 'sad' : 'fun');
     saveState();
     render();
@@ -14138,7 +14158,6 @@
     state.travelStreak = 0;
     applyGrowth(4); applyDecline(-5);
     checkStoryEvents('poop-clean');
-      sayReactionPool('poop-clean');
     if (!checkMeters()) {
       setMessage('🧹 おそうじを した');
       speakEvent('clean');
@@ -14186,7 +14205,6 @@
       applyGrowth(8); applyDecline(-12);
       recordSicknessCure();
       checkStoryEvents('medicine-cure');
-      sayReactionPool('medicine-cure');
       if (!checkMeters()) {
         setMessage('💊 くすりを のんで びょうきが なおった');
         speakEvent('medicine_cure');
@@ -14318,7 +14336,8 @@
           state.lifetime.partnersMarried.push(state.partner.id);
         }
         if (!checkMeters()) {
-          setMessage(`${state.partner.label}と けっこんした!💍 これからも ずっと いっしょ`);
+          setMessage(`💍 ${state.partner.label}と けっこんした`);
+          speakEvent('marriage', { partnerChance: 1, companionChance: 0.65 });
         }
         emotePet('love');
         return;
@@ -14417,7 +14436,9 @@
       const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage(`${candidate.emoji} ${candidate.label}と こいびとに なった!${reaction}`);
+        setMessage(`💑 ${candidate.label}と こいびとに なった`);
+        setSpeechBubble(reaction, petSpeaker());
+        speakEvent('partner_new', { partnerChance: 0.95, companionChance: 0.5 });
       }
       emotePet('love');
     } else {
@@ -14426,7 +14447,9 @@
       const reaction = pickReaction(COURT_FAIL_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage(reaction);
+        setMessage('💞 きゅうあいしたが、まだ きもちは とどかなかった');
+        setSpeechBubble(reaction, petSpeaker());
+        speakEvent('court_fail', { partnerChance: 0, companionChance: 0.45 });
       }
       emotePet('sad');
     }
@@ -14549,6 +14572,7 @@
     }
     let reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
+    speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
     if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) reaction += ' 🏮 みちの さきに ふしぎな あかりが ひとつ みえた。';
     if (!checkMeters()) {
       if (specialRewardTrip) {
