@@ -1793,11 +1793,11 @@
     { id: 'ot_minigamewinsmall', label: 'やる気の おまもり', emoji: '🔥', price: 300, desc: 'つぎの ミニゲームの けっかを すこし よくする', apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気が わいてきた!', emote: 'fun' }; } },
     { id: 'ot_evoup', label: 'そだちの くすり', emoji: '🌱', price: 300, desc: 'そだちを 1 あげる', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
     { id: 'ot_evodown', label: 'たてなおしの くすり', emoji: '🍼', price: 250, desc: 'おとろえで さがった そだちを 1つ とりもどす', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < state.maxSodachi, unavailableMessage: 'いまは とりもどす ぶんが ない', apply: () => { state.sodachi = Math.min(state.maxSodachi, state.sodachi + 1); state.decline = 0; return { message: `そだちが ${state.sodachi}に もどった!`, emote: 'happy' }; } },
-    { id: 'ot_sickcurebig', label: 'とっこう万能薬', emoji: '🍶', price: 240, desc: 'びょうきよけの はんていを 3かいぶん むこうにする(おふだ3まいより おトク)。いま びょうきなら それも なおす', apply: () => { if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; state.sicknessCuredThisLife = (state.sicknessCuredThisLife || 0) + 1; } state.oneTimeBoosts.sicknessShieldCount += 3; return { message: 'からだが すっかり じょうぶに なった!', emote: 'happy' }; } },
+    { id: 'ot_sickcurebig', label: 'とっこう万能薬', emoji: '🍶', price: 240, desc: 'びょうきよけの はんていを 3かいぶん むこうにする(おふだ3まいより おトク)。いま びょうきなら それも なおす', apply: () => { if (state.isSick) { state.isSick = false; state.sicknessType = null; recordSicknessCure(); } state.oneTimeBoosts.sicknessShieldCount += 3; return { message: 'からだが すっかり じょうぶに なった!', emote: 'happy' }; } },
     { id: 'ot_travelguarantee', label: 'たびの おまもり', emoji: '🧭', price: 400, desc: 'つぎの たびで かならず よい おもいでを もちかえる', apply: () => { state.oneTimeBoosts.travelGuarantee = true; return { message: 'たびの おまもりを みにつけた!', emote: 'fun' }; } },
     { id: 'ot_breakupshieldhalf', label: 'わかれよけの おふだ', emoji: '🩹', price: 400, desc: 'つぎの わかれ/りこんの ダメージを 半分にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = state.oneTimeBoosts.breakupShield === 'full' ? 'full' : 'half'; return { message: 'わかれよけの おふだを みにつけた!', emote: 'happy' }; } },
     { id: 'ot_transform', label: 'へんしんの カギ', emoji: '🗝️', price: 400, desc: 'その場で すがた選びを はじめる', available: () => state.stage === STAGE.GROWING && !state.infinite && !state.transformOptions, unavailableMessage: 'いまは つかえない', apply: () => { state.transformMeter = 100; checkMeters(); return {}; } },
-    { id: 'ot_megapack', label: 'お世話 プレミアムパック', emoji: '🎁', price: 400, desc: '4つの ステータス全回復+うんちそうじ+びょうき治療を まとめて おこなう', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; state.sicknessCuredThisLife = (state.sicknessCuredThisLife || 0) + 1; } return { message: 'すみずみまで きっちり お世話された!', emote: 'happy' }; } },
+    { id: 'ot_megapack', label: 'お世話 プレミアムパック', emoji: '🎁', price: 400, desc: '4つの ステータス全回復+うんちそうじ+びょうき治療を まとめて おこなう', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; recordSicknessCure(); } return { message: 'すみずみまで きっちり お世話された!', emote: 'happy' }; } },
     { id: 'ot_safetynet', label: 'スコアほけん', emoji: '☂️', price: 450, desc: 'つぎの ミニゲームが しっぱいでも わるい えいきょうを うけない', apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに はいった!', emote: 'happy' }; } },
 
     // --- アッパー(500〜1800。やすい じゅんに ならんでいる) ---
@@ -1808,7 +1808,7 @@
     { id: 'ot_minigamewinbig', label: '大成功の おまもり', emoji: '🌟', price: 800, desc: 'つぎの ミニゲームを かならず 大成功にする', apply: () => { state.oneTimeBoosts.minigameBoost = 'big'; return { message: '大成功が やくそくされた き が する!', emote: 'fun' }; } },
     { id: 'ot_breakupshieldfull', label: 'わかれよけの けっかい', emoji: '🛡️', price: 900, desc: 'つぎの わかれ/りこんの ダメージを 無効にする', available: () => !!state.partner, unavailableMessage: 'いま こいびとが いない', apply: () => { state.oneTimeBoosts.breakupShield = 'full'; return { message: 'つよい けっかいに つつまれた!', emote: 'happy' }; } },
     { id: 'ot_bigevo', label: 'そだちの だいジャンプ', emoji: '🚀', price: 900, desc: 'そだちを 3 あげる', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sodachi < SODACHI_MAX, unavailableMessage: 'いまは つかえない', apply: () => { for (let i = 0; i < 3; i += 1) applyGrowth(sodachiCost(state.sodachi)); return { message: `そだちが ${state.sodachi}に なった!`, emote: 'love' }; } },
-    { id: 'ot_perfectcare', label: 'かんぺき お世話 デラックス', emoji: '💫', price: 1200, desc: 'ステータス全回復+うんちそうじ+びょうき治療+せいちょう/へんしんを ちょっとずつ すすめる', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; state.lifetime.sicknessCured += 1; state.sicknessCuredThisLife = (state.sicknessCuredThisLife || 0) + 1; } if (state.stage === STAGE.GROWING) { applyGrowth(sodachiCost(state.sodachi) * 0.3); applyDecline(-30); state.transformMeter = clamp(state.transformMeter + 30, 0, 100); } return { message: 'これいじょうない くらい かんぺきに お世話された!', emote: 'love' }; } },
+    { id: 'ot_perfectcare', label: 'かんぺき お世話 デラックス', emoji: '💫', price: 1200, desc: 'ステータス全回復+うんちそうじ+びょうき治療+せいちょう/へんしんを ちょっとずつ すすめる', apply: () => { state.hunger = 100; state.happiness = 100; state.energy = 100; state.health = 100; state.poopCount = 0; if (state.isSick) { state.isSick = false; state.sicknessType = null; recordSicknessCure(); } if (state.stage === STAGE.GROWING) { applyGrowth(sodachiCost(state.sodachi) * 0.3); applyDecline(-30); state.transformMeter = clamp(state.transformMeter + 30, 0, 100); } return { message: 'これいじょうない くらい かんぺきに お世話された!', emote: 'love' }; } },
     { id: 'ot_agejump', label: 'せいちょうの おいかぜ', emoji: '⏳', price: 1200, desc: 'しばらくの あいだ せいちょうが 2ばいに なる(1つの 人生で 3かいまで)', available: () => state.stage === STAGE.GROWING && !state.infinite && state.sandUsed < 3, unavailableMessage: 'この 人生では もう つかえない', apply: () => { state.sandUsed += 1; state.boostTicks = Math.max(state.boostTicks, 0) + 400; return { message: 'せいちょうの おいかぜが ふいた! しばらく そだちやすく なる', emote: 'fun' }; } },
     { id: 'ot_marriageprep', label: 'プロポーズの練習', emoji: '💐', price: 1800, desc: 'きゅうあいの すすみぐあいを けっこん一歩手前まで すすめる', available: () => !!state.partner && !state.partner.married, unavailableMessage: 'いまは つかえない', apply: () => { state.partner.bondCount = Math.max(state.partner.bondCount || 0, marriageBondThreshold() - 1); return { message: 'プロポーズの れんしゅうを した!', emote: 'love' }; } },
 
@@ -3961,6 +3961,59 @@
     return choices[Math.floor(Math.random() * choices.length)];
   }
 
+  // いまの人生で本当に起きた出来事だけを、本人がたまに思い出して話す。
+  // lifeLog にない出来事は会話に使わないので、「やっていないことを覚えている」
+  // という嘘の記憶は作らない。通常のランダム会話もそのまま残す。
+  const MEMORY_RECALL_MARKERS = [
+    'びょうきを なおしてもらった',
+    'こいびとに なった',
+    'けっこんした',
+    'デートに いった',
+    'なかなおりした',
+    'なかまに なった',
+    'はじめて ',
+    'たどりついた',
+    'へんしんした',
+    'れんくんに であった',
+    'に であった',
+  ];
+  let lastMemoryRecallKey = null;
+
+  function pickMemoryGreeting() {
+    if (!Array.isArray(state.lifeLog)) return null;
+    const memories = state.lifeLog.filter((entry) => entry
+      && typeof entry.text === 'string'
+      && MEMORY_RECALL_MARKERS.some((marker) => entry.text.includes(marker)));
+    if (!memories.length) return null;
+
+    // 年を重ね、思い出がいくつもできた個体は、ときどき人生全体を振り返る。
+    if (currentAge() >= 40 && memories.length >= 3 && Math.random() < 0.2) {
+      return `もう ${currentAge()}さいかぁ。いろいろ あったね`;
+    }
+
+    const recent = memories.slice(-12);
+    const keyOf = (entry) => `${entry.age}|${entry.icon || ''}|${entry.text}`;
+    const choices = recent.length > 1
+      ? recent.filter((entry) => keyOf(entry) !== lastMemoryRecallKey)
+      : recent;
+    const entry = choices[Math.floor(Math.random() * choices.length)] || recent[recent.length - 1];
+    if (!entry) return null;
+    lastMemoryRecallKey = keyOf(entry);
+
+    const text = String(entry.text)
+      .replace(/^\d+さい\s+/, '')
+      .replace(/[。!！]+$/, '');
+    const eventAge = Number(entry.age);
+    const when = Number.isFinite(eventAge)
+      ? (currentAge() <= eventAge + 1 ? 'このまえ' : `${eventAge}さいの とき`)
+      : 'まえに';
+
+    if (text === 'びょうきを なおしてもらった') {
+      return `${when} びょうきを なおしてくれたね。ありがとう!`;
+    }
+    return `${when}、${text}ね。おぼえてる?`;
+  }
+
   // rewards for a great minigame result: each heals the death meter by a
   // different amount. weight controls drop rarity - the strongest healers
   // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
@@ -4468,6 +4521,14 @@
     if (state.lifeLog.length > 60) state.lifeLog.shift();
   }
 
+  // びょうきを治した事実も「この人生の思い出」に残す。
+  // 薬ボタン・万能薬・お世話パック等のどの治療経路でも同じ1件として記録する。
+  function recordSicknessCure() {
+    state.lifetime.sicknessCured += 1;
+    state.sicknessCuredThisLife = (state.sicknessCuredThisLife || 0) + 1;
+    pushLifeLog('💊', 'びょうきを なおしてもらった');
+  }
+
   // 1さいごとの ちいさな トースト(操作を とめない)
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
@@ -4857,8 +4918,9 @@
         } else if (kind === 'companion') {
           setSpeechBubble(pickReaction(COMPANION_IDLE_LINES, null), companionSpeaker());
         } else {
-          const greeting = pickReaction(IDLE_GREETINGS, lastIdleGreeting);
-          lastIdleGreeting = greeting;
+          const memoryGreeting = Math.random() < 0.3 ? pickMemoryGreeting() : null;
+          const greeting = memoryGreeting || pickReaction(IDLE_GREETINGS, lastIdleGreeting);
+          if (!memoryGreeting) lastIdleGreeting = greeting;
           setSpeechBubble(greeting, petSpeaker());
           emotePet('happy');
         }
@@ -13993,8 +14055,7 @@
       state.health = clamp(state.health + 20, 0, 100);
       state.energy = clamp(state.energy - 10, 0, 100);
       applyGrowth(8); applyDecline(-12);
-      state.lifetime.sicknessCured += 1;
-      state.sicknessCuredThisLife = (state.sicknessCuredThisLife || 0) + 1;
+      recordSicknessCure();
       checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
         setMessage('げんきに なった!');
