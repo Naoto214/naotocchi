@@ -1291,17 +1291,28 @@
       // 恋愛対象は identity の一部。straight/gay/pan/aro/questioning は
       // gender + orientationId から再構築し、bi は個体ごとの対象範囲を保存して維持する。
       if (merged.stage === STAGE.GROWING && merged.gender && merged.orientationId) {
-        merged.attractedTo = normalizeAttractedTo(merged.gender, merged.orientationId, parsed.attractedTo);
+        const savedSelfTargets = parsed.attractedTo;
+        const legacyBiWithoutTargets = merged.orientationId === 'bi'
+          && (!Array.isArray(savedSelfTargets) || savedSelfTargets.length < 2);
+        merged.attractedTo = legacyBiWithoutTargets && merged.partner
+          ? [...GENDERS]
+          : normalizeAttractedTo(merged.gender, merged.orientationId, savedSelfTargets);
       }
 
       // 恋人側の bi も、付き合った時点の対象範囲を partner.attractedTo として保存する。
       // 旧セーブには無いので、その場合だけ現在の identity から補う。
       if (merged.partner && merged.partner.gender && merged.partner.orientationId) {
-        merged.partner.attractedTo = normalizeAttractedTo(
-          merged.partner.gender,
-          merged.partner.orientationId,
-          parsed.partner && parsed.partner.attractedTo
-        );
+        const savedPartnerTargets = parsed.partner && parsed.partner.attractedTo;
+        // 旧バージョンでは partner.attractedTo 自体を保存していなかった。
+        // その相手が bi の場合、ここでランダム再抽選して「対象外」と判定すると、
+        // 本来成立していた古いカップルまで誤って解消してしまう。
+        // 情報が失われている旧bi恋人だけは、既存関係が成立していた事実を優先し、
+        // 全ジェンダー対象として安全に移行する。今後の新規bi恋人は実際の対象範囲を保存する。
+        const legacyBiWithoutTargets = merged.partner.orientationId === 'bi'
+          && (!Array.isArray(savedPartnerTargets) || savedPartnerTargets.length < 2);
+        merged.partner.attractedTo = legacyBiWithoutTargets
+          ? [...GENDERS]
+          : normalizeAttractedTo(merged.partner.gender, merged.partner.orientationId, savedPartnerTargets);
       }
 
       // 恋愛互換ルールv2への一回限りの移行。
