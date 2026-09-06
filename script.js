@@ -1286,6 +1286,23 @@
         merged.orientationId = identity.orientationId;
         merged.attractedTo = identity.attractedTo;
       }
+      // 恋愛対象は gender + orientationId から決まる派生値。
+      // 古いセーブや、以前の attractedToFor() の仕様で保存された配列を
+      // そのまま信頼すると、プロフィール表示は「レズビアン」なのに
+      // 内部だけ異性を対象にしたまま、という矛盾が残りうる。
+      // ロード時に必ず現在の定義から再構築して、表示とカップリング判定を一致させる。
+      if (merged.stage === STAGE.GROWING && merged.gender && merged.orientationId) {
+        merged.attractedTo = attractedToFor(merged.gender, merged.orientationId);
+      }
+      // 既にできている恋人も同様に、保存済み attractedTo ではなく
+      // gender/orientationId を正として扱う。現在の組み合わせが双方向に
+      // 成立しない場合は、既存仕様の mismatched 状態にして自然に関係を再評価する。
+      if (merged.partner && merged.partner.gender && merged.partner.orientationId && merged.gender && merged.orientationId) {
+        const selfTargets = attractedToFor(merged.gender, merged.orientationId);
+        const partnerTargets = attractedToFor(merged.partner.gender, merged.partner.orientationId);
+        merged.attractedTo = selfTargets;
+        merged.partner.mismatched = !(selfTargets.includes(merged.partner.gender) && partnerTargets.includes(merged.gender));
+      }
       // なかまの bond きのう(state.companions)より 前の セーブには この
       // フィールドが まだ ないので、いままで どおり lifetime.
       // companionsRecruited ぜんいんが bond100で そばに いる じょうたいから
