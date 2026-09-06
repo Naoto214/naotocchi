@@ -14244,22 +14244,28 @@
     }
   }
 
+  function recoverSleepStep() {
+    if (!state.isSleeping || !isLiveLife()) {
+      stopSleepRecovery();
+      return;
+    }
+    const boost = isEquipped('sleepboost1') ? 0.35 : 0;
+    const step = (state.isSick ? 1.15 : 1.8) + boost;
+    const before = state.energy;
+    state.energy = clamp(state.energy + step, 0, 100);
+    if (state.energy !== before) render();
+    if (state.energy >= 100) stopSleepRecovery();
+  }
+
   function startSleepRecovery() {
     stopSleepRecovery();
     if (!state.isSleeping) return;
-    // 押した瞬間から100msごとに滑らかに回復。起こした瞬間に停止する。
-    sleepRecoveryTimer = setInterval(() => {
-      if (!state.isSleeping || !isLiveLife()) {
-        stopSleepRecovery();
-        return;
-      }
-      const boost = isEquipped('sleepboost1') ? 0.35 : 0;
-      const step = (state.isSick ? 1.15 : 1.8) + boost;
-      const before = state.energy;
-      state.energy = clamp(state.energy + step, 0, 100);
-      if (state.energy !== before) render();
-      if (state.energy >= 100) stopSleepRecovery();
-    }, 100);
+    // 「ねる」を押したその場で最初の回復を1回入れ、その後100msごとに
+    // なめらかに回復し続ける。最初の100ms待ちをなくして反応を即時にする。
+    recoverSleepStep();
+    if (state.isSleeping && state.energy < 100) {
+      sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
+    }
   }
 
   const ACTION_RESULT_MESSAGES = {
@@ -14269,6 +14275,21 @@
     wake: ['☀️ おはよう!', '☀️ 目が さめた!', '☀️ よく ねた!', '☀️ さて、なにしよう'],
     cure: ['💊 げんきが もどった!', '💊 なおった!', '💊 もう だいじょうぶそう', '💊 ちょっと らくに なった'],
   };
+
+  const ACTION_BLOCKED_MESSAGES = {
+    cleanAlready: ['🧹 まだ きれいだよ', '🧹 そうじするところ、いまは なさそう', '🧹 床を 見た。うん、まだ だいじょうぶ', '🧹 ほうきを 持ったけど、出番は なかった'],
+    sleepingFeed: ['💤 ねてる。ごはんは あとで', '💤 いま 起こすのは かわいそうかも', '💤 ごはんの においにも まだ 起きない'],
+    sleepingPlay: ['💤 ぐっすり。あそぶのは 起きてから', '💤 いまは 夢のなかで あそんでるかも', '💤 起きるまで ちょっと 待とう'],
+    lowEnergyPlay: ['😮‍💨 いまは ちょっと つかれてる', '😮‍💨 あそぶ前に すこし 休みたいみたい', '😮‍💨 いま走ったら たぶん すぐ 座りこむ'],
+    sleepingPet: ['💤 ぐっすり ねている', '💤 じゃれるのは 起きてからに しよう', '💤 いまは そっと しておこう'],
+    sleepingCourt: ['💤 ねている。気持ちは 起きてから つたえよう', '💤 いま告白しても たぶん 聞いてない', '💤 起きたら ちゃんと はなそう'],
+    sleepingTravel: ['💤 ねている。旅は 起きてから', '💤 このまま 連れていくのは さすがに むり', '💤 まず 起こしてから 出かけよう'],
+  };
+
+  function randomBlockedMessage(key) {
+    const pool = ACTION_BLOCKED_MESSAGES[key] || [];
+    return pool.length ? pool[Math.floor(Math.random() * pool.length)] : '';
+  }
 
   function randomActionMessage(key) {
     const pool = ACTION_RESULT_MESSAGES[key] || [];
@@ -14285,7 +14306,7 @@
 
   el.feedBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage('ねている… おきてから あげよう');
+      setMessage(randomBlockedMessage('sleepingFeed'));
       return;
     }
     const overfed = state.hunger >= 80;
@@ -14327,13 +14348,13 @@
   el.playBtn.addEventListener('click', () => {
     if (gameActive) return;
     if (state.isSleeping) {
-      setMessage('ねている… おきてから あそぼう');
+      setMessage(randomBlockedMessage('sleepingPlay'));
       saveState();
       render();
       return;
     }
     if (state.energy < 10) {
-      setMessage('つかれていて あそべない…');
+      setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
       return;
@@ -14347,7 +14368,7 @@
 
   el.cleanBtn.addEventListener('click', withFeedback(() => {
     if (state.poopCount === 0) {
-      setMessage('もう きれい!');
+      setMessage(randomBlockedMessage('cleanAlready'));
       return;
     }
     state.poopCount = 0;
@@ -14371,12 +14392,9 @@
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       state.sleptTicks = 0;
-      // ここでは じょうたいの きりかえ(state.isSleeping)だけを おこない、
-      // 元気を その場で 回復させたりは しない。回復は あくまで tick()の
-      // すいみん中ぶんの けいさんに まかせる - 「ねる」を おした しゅんかん
-      // だけ とくをする ボーナスが あると、ねる→おきる→ねる…と 連打する
-      // ほうが 寝つづけるより おトクに なってしまう(いわゆる 寝おき連打の
-      // ぬけみち)ため、あえて はいししてある
+      // 回復は専用タイマーで連続して行う。最初の1ステップも押した瞬間に
+      // 入るので見た目の待ち時間はない。成長ボーナスは十分な睡眠時間を
+      // とった場合だけなので、寝る/起きる連打で得をすることはない
       setMessage(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
@@ -14437,7 +14455,7 @@
       return;
     }
     if (state.isSleeping) {
-      setMessage('ねている… おきてから じゃれよう');
+      setMessage(randomBlockedMessage('sleepingPet'));
       return;
     }
     state.affectionStreak += 1;
@@ -14474,7 +14492,7 @@
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
   el.courtBtn.addEventListener('click', withFeedback(() => {
     if (state.isSleeping) {
-      setMessage('ねている… おきてから きゅうあいしよう');
+      setMessage(randomBlockedMessage('sleepingCourt'));
       return;
     }
     state.affectionStreak = 0;
@@ -14714,7 +14732,7 @@
     travelOpen = false;
     worldOpen = false;
     if (state.isSleeping) {
-      setMessage('ねている… おきてから たびに でよう');
+      setMessage(randomBlockedMessage('sleepingTravel'));
       saveState();
       render();
       return;
