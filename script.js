@@ -1450,14 +1450,14 @@
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を おとずれた', condition: (l) => l.regionsVisited.length >= 3 },
 
     // --- やや かんたん ---
-    { id: 'evolve-10', emoji: '🌿', label: 'せいちょう じょうずさん', desc: 'そだちが のべ10 あがった', condition: (l) => l.evolutions >= 10 },
+    { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐん そだつ', desc: 'そだちが のべ10 あがった', condition: (l) => l.evolutions >= 10 },
     { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが のべ5 さがった', condition: (l) => l.devolutions >= 5 },
-    { id: 'transform-10', emoji: '🌟', label: 'へんしん たつじん', desc: '10かい へんしんした', condition: (l) => l.transforms >= 10 },
+    { id: 'transform-10', emoji: '🌟', label: 'へんしん ざんまい', desc: '10かい へんしんした', condition: (l) => l.transforms >= 10 },
     { id: 'sick-cured-10', emoji: '💊', label: 'めいいの たまご', desc: 'びょうきを 10かい なおした', condition: (l) => l.sicknessCured >= 10 },
     { id: 'age-25', emoji: '🌼', label: 'すくすく せいちょう', desc: 'ねんれい25に とうたつした', condition: (l) => l.maxAgeReached >= 25 },
     { id: 'dex-25', emoji: '📗', label: 'ずかんの はじまり', desc: 'ずかんを 25しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 25 },
     { id: 'feed-100', emoji: '🍚', label: 'ごはん だいすき', desc: '1しょうがいで ごはんを 100かい あげた', condition: (l, s) => s.actionCounts.feed >= 100 },
-    { id: 'play-100', emoji: '🎯', label: 'あそびじょうず', desc: '1しょうがいで 100かい あそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: '1しょうがいで 100かい あそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
     { id: 'pet-100', emoji: '🤲', label: 'なでなで まめ', desc: '1しょうがいで なでるを 100かい した', condition: (l, s) => s.actionCounts.pet >= 100 },
     { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: '1しょうがいで はなしかけるを 100かい した', condition: (l, s) => s.actionCounts.talk >= 100 },
     { id: 'gentle-10', emoji: '💗', label: 'やさしい こころ', desc: 'やさしい せんたくを 1しょうがいで 10かい した', condition: (l, s) => s.traitCounts.gentle >= 10 },
@@ -1469,11 +1469,11 @@
 
     // --- ふつう ---
     { id: 'death-5', emoji: '💀', label: 'なんども おわかれ', desc: '5かい てんごくに いった', condition: (l) => l.deaths >= 5 },
-    { id: 'minigame-300', emoji: '🕹️', label: 'あそびの たつじん', desc: 'ミニゲームを 300かい あそんだ', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'minigame-300', emoji: '🕹️', label: 'あそび どっぷり', desc: 'ミニゲームを 300かい あそんだ', condition: (l) => l.minigamesPlayed >= 300 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: 'ねんれい50に とうたつした', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかん なかば', desc: 'ずかんを 50しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアな であい', desc: 'レアな しゅぞく(かみさま/れんくん/にんぎょ/ユニコーン/フェニックス)に 1かい であった', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'そうじの プロ', desc: '1しょうがいで そうじを 50かい した', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ 50かい', desc: '1しょうがいで そうじを 50かい した', condition: (l, s) => s.actionCounts.clean >= 50 },
     { id: 'reset-5', emoji: '🔄', label: 'なんども ちょうせん', desc: '「はじめから」を 5かい した', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかな なかよしグループ', desc: 'なかまが 5にん できた', condition: (l) => l.companionsRecruited.length >= 5 },
     { id: 'companion-active-5', emoji: '💞', label: 'そばに いる しあわせ', desc: 'いま そばに いる なかまが 5にん いる', condition: (l, s) => s.companions.length >= 5 },
@@ -1484,21 +1484,21 @@
     { id: 'sodachi-90', emoji: '💫', label: 'でんせつの そだて', desc: 'そだちが 90に とうたつした', condition: (l) => (l.bestSodachi || 0) >= 90 },
     { id: 'sodachi-100', emoji: '👑', label: 'さいこうの そだち', desc: 'そだちが 100に とうたつした', condition: (l) => (l.bestSodachi || 0) >= 100 },
     { id: 'lifeclear-1', emoji: '🎊', label: 'はじめての いっしょうクリア', desc: '100さいまで いき、そだち70いじょうに とどいた', condition: (l) => (l.lifeClears || 0) >= 1 },
-    { id: 'lifeclear-10', emoji: '🏵️', label: 'いっしょうの たつじん', desc: 'いっしょうクリアを 10かい した', condition: (l) => (l.lifeClears || 0) >= 10 },
+    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい 10しゅう', desc: 'いっしょうクリアを 10かい した', condition: (l) => (l.lifeClears || 0) >= 10 },
     { id: 'bestlife-1', emoji: '🌈', label: 'さいこうの いっしょう', desc: '100さいまで いき、そだち100に とうたつした', condition: (l) => (l.bestLives || 0) >= 1 },
     { id: 'pastlives-10', emoji: '📔', label: 'じゅうにんの なおとっち', desc: '10にんの なおとっちを そだてた', condition: (l) => (l.pastLives || []).length >= 10 },
     { id: 'nodecline', emoji: '🕊️', label: 'いちども おとろえなかった', desc: 'おとろえゼロの まま 100さいまで いきた', condition: (l) => (l.flawlessLives || 0) >= 1 },
 
     // --- ややむずかしい ---
-    { id: 'evolve-50', emoji: '🌳', label: 'そだての たつじん', desc: 'そだちが のべ50 あがった', condition: (l) => l.evolutions >= 50 },
+    { id: 'evolve-50', emoji: '🌳', label: 'そだちの あしあと', desc: 'そだちが のべ50 あがった', condition: (l) => l.evolutions >= 50 },
     { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえの ぬし', desc: 'そだちが のべ20 さがった', condition: (l) => l.devolutions >= 20 },
-    { id: 'transform-25', emoji: '💫', label: 'へんしん マイスター', desc: '25かい へんしんした', condition: (l) => l.transforms >= 25 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん 25れんぱつ', desc: '25かい へんしんした', condition: (l) => l.transforms >= 25 },
     { id: 'death-10', emoji: '⚰️', label: 'てんごくの じょうれんきゃく', desc: '10かい てんごくに いった', condition: (l) => l.deaths >= 10 },
     { id: 'sick-cured-30', emoji: '🏥', label: 'めいいの たまご(じょうきゅう)', desc: 'びょうきを 30かい なおした', condition: (l) => l.sicknessCured >= 30 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさい ばんざい', desc: 'ねんれい100に とうたつした', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'medicine-30', emoji: '🩹', label: 'かんごし はだし', desc: '1しょうがいで くすりを 30かい あげた', condition: (l, s) => s.actionCounts.medicine >= 30 },
     { id: 'region-all', emoji: '🌍', label: 'せかい いっしゅう', desc: 'ぜんぶの地域(8つ)を おとずれた', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみ たつじん', desc: 'おたのしみを 30かい つかった', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみ いっぱい', desc: 'おたのしみを 30かい つかった', condition: (l) => (l.consumablesUsed || 0) >= 30 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだての きわみ', desc: 'そだちが のべ100 あがった', condition: (l) => l.evolutions >= 100 },
@@ -1511,7 +1511,7 @@
 
     // --- かなり むずかしい ---
     { id: 'clear-5', emoji: '🏆', label: 'いつつの いっしょう', desc: '5かい 100さいまで いきた', condition: (l) => l.clears >= 5 },
-    { id: 'minigame-1000', emoji: '🎰', label: 'あそびの でんせつ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'minigame-1000', emoji: '🎰', label: '1000かい あそんだ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつ コレクター', desc: 'レアな しゅぞく5しゅるい すべてに であった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'elder-collector', emoji: '👴', label: 'ちょうろう はかせ', desc: '10しゅるい いじょうの さいごの すがたに であった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
     { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: 'なかまを ぜんいん(10にん)あつめた', condition: (l) => l.companionsRecruited.length >= COMPANIONS.length },
@@ -2121,12 +2121,12 @@
     },
     clean: {
       pet: ['よし、いいかんじ!', 'なんか へやが ひろくなった きがする', 'これなら ごろごろできる', 'においまで ちがう!', 'ちゃんと 片づくと きもちいい', 'いまの ぼく、ちょっと できる子'],
-      partner: ['お、いいじゃん', 'ちゃんと きれいに なったね', 'このくらいなら ずっと いられる笑', 'めずらしく 仕事が はやい'],
+      partner: ['お、いいじゃん', 'ちゃんと きれいに なったね', 'このくらいなら ずっと いられる笑', 'めずらしく 仕事が はやい', '先に やってくれたんだ。ありがと', 'これなら 今日は くつしたで 歩けるね笑'],
       companion: ['わー!ひろくなった!', 'ここ 走っていい?', 'さっきより ぜんぜん いい!', 'ぼくの せいじゃ ないけど きれい!'],
     },
     medicine_cure: {
       pet: ['まずっ!! でも なおった!', 'げんき もどった!', 'くすりって まずいほど きくの?', 'いまなら なんでも できそう'],
-      partner: ['のめて えらい笑', 'よかった、なおったね', 'もう むりしないでよ'],
+      partner: ['よかった、なおったね', '顔色 もどってきたね', 'もう むりしないでよ', 'まずそうな顔してる笑', '今日は ちょっと ゆっくりしよ'],
       companion: ['それ ぼくには くれないで', 'なおったー!', 'においだけで まずそう!'],
     },
     medicine_wrong: {
@@ -2192,7 +2192,7 @@
     minigame_great: {
       pet: ['見た!? いまの見た!?', '天才、爆誕', 'ドヤがおが もどらない', '今日のぼく 仕上がってる'],
       partner: ['ちょっと かっこよかった', '調子のってる笑', 'ちゃんと 見てたよ'],
-      companion: ['すごっ!', 'もう1かい!', 'ぼくも やる!'],
+      companion: ['いまの 見た!', 'もう1かい!', 'ぼくも やる!', 'なんで そんな できるの!?'],
     },
     minigame_bad: {
       pet: ['いまのは 練習', '操作が わるい。ぼくは わるくない', '忘れて', '次は 本気出す'],
@@ -2299,11 +2299,11 @@
       { emoji: '🎭', message: '「あたらしい じぶん」を いちど えんじて みたく なった' },
     ],
     'minigame-great': [
-      { emoji: '🏆', message: 'てんさいって よばれても おかしくない できばえ!' },
+      { emoji: '🏆', message: '終わったあと、ちょっとだけ ドヤ顔を かくせなかった' },
       { emoji: '😎', message: 'ドヤがおが とまらない!' },
       { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
       { emoji: '🔥', message: 'きょうの ちょうしは いつもの100ばい あるかも!' },
-      { emoji: '🎉', message: 'しょうきんが でるなら もらいたい くらい じょうず' },
+      { emoji: '🎉', message: 'もう1回やったら もっと いけそうな 気がしてきた' },
     ],
     'minigame-bad': [
       { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
@@ -3922,12 +3922,14 @@
 
   // どの デートでも さいごに ひとつ つく、しめの ひとこと
   const DATE_CLOSINGS = [
-    'かえりみちは いつもより ゆっくり あるいた。',
-    'また いこうね、と どちらからともなく いった。',
-    'なんでも ない 1にちが、すこし とくべつに なった。',
-    'べつに なにも おこらなかった。それが よかった。',
-    'つぎは どこに いこうか、もう かんがえている。',
-    'この じかんの ことは、たぶん ずっと おぼえている。',
+    'かえりみち、さっきより すこし ちかくを あるいた。',
+    '「また いこうね」が、ほとんど おなじ タイミングで でた。',
+    'なにを したかより、となりに いたことの ほうを おぼえていそう。',
+    'とくべつなことは なかった。でも、かえりたくなるのが すこし おそかった。',
+    '「つぎ どこいく?」の はなしが、もう はじまっていた。',
+    'しゃべらない じかんも、ぜんぜん きまずくなかった。',
+    'わかれる まえに、もう1回だけ ふりかえった。',
+    'きょうの しゃしん、あとで 何回も 見そう。',
   ];
 
   let lastDatePlanId = null;
@@ -4052,16 +4054,28 @@
     el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
     el.dateMoviePartner.textContent = partner.emoji || '💞';
 
+    const specialMiddleLines = [
+      '「きょう、ちょっと いつもと ちがうね」',
+      'ふたりとも すこしだけ よそいきの 顔を していた。',
+      '「こういう日、たまには いいかも」',
+      'いつもより ゆっくり はなして、いつもより よく わらった。',
+    ];
+    const specialClosingLines = [
+      '「これ、あとで ちゃんと おぼえてようね」',
+      '「また とくべつに しよう。たまにで いいから」',
+      'かえりぎわ、どちらも すぐには あるきださなかった。',
+      '今日のことを 何年後かに また 話せたらいいな、と 思った。',
+    ];
     const beats = special
       ? [
-          `🎁 ごほうびを つかって、${partner.label}と ${plan.label}へ。`,
-          'きょうだけは、いつものデートより ちょっと とくべつ。',
+          `🎁 ${partner.label}と ${plan.label}へ。`,
+          specialMiddleLines[Math.floor(Math.random() * specialMiddleLines.length)],
           traitLine,
           hasNaotoItem('naoto_ring')
-            ? '💍 ふたりだけの ひみつの ことばを のこした。'
-            : 'ふたりで しゃしんを とって、しばらく そのまま ならんでいた。',
-          'きょうのこと、ずっと おぼえていようね。 💝',
-          '🎁 「とくべつな おもいで」として じんせいに のこった。',
+            ? '💍 「これ、ふたりだけの ことばに しよっか」'
+            : '「しゃしん とろう」って いったのに、なぜか 何枚も とった。',
+          specialClosingLines[Math.floor(Math.random() * specialClosingLines.length)],
+          '🎁 この日のことが、ひとつ おもいでに のこった。',
         ]
       : [
           `${partner.label}と ${plan.label}へ。`,
@@ -4095,6 +4109,10 @@
     { years: 50, icon: '🥇', title: 'きんこんしき' },
   ];
 
+  function pickMovieLine(lines) {
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+
   function playMarriageMovie(milestone) {
     if (!state.partner || !state.partner.married) return;
     clearDateMovieTimers();
@@ -4111,38 +4129,106 @@
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
     el.dateMoviePartner.textContent = state.partner.emoji || '💞';
+    const name = state.partner.label;
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+
+    const commonSmallTalk = [
+      `「${name}、きょう なんの日か おぼえてる?」`,
+      '「ちゃんと おぼえてるよ。そっちは?」',
+      '「こういう日くらい、ちょっと ちゃんとしようか」',
+      '「何年たっても、こういうの ちょっと はずかしいね」',
+    ];
+    const sharedMemory = hadMismatch
+      ? [
+          '「いろいろ あったね」「ほんとにね。でも まだ となりにいる」',
+          'すれちがった日の はなしも、いまは ふたりで できる はなしに なっていた。',
+          '「あのとき ちゃんと はなして よかったね」',
+        ]
+      : [
+          '「思い出せない日も いっぱいあるね」「たぶん それで いいんだよ」',
+          '何でもない日の ほうが、あとから たくさん 思い出せた。',
+          '「結局、ふつうの日が いちばん 多かったね」',
+        ];
+
     let beats;
     if (milestone.years >= 50) {
       beats = [
-        `${state.partner.label}と けっこんして 50ねん。`,
-        'ふたりで すごした きせつは、もう かぞえきれない。',
-        hadMismatch ? 'すれちがった ひも、なかなおりした ひも、ぜんぶ ふたりの じかんになった。' : 'わらった ひも、しずかな ひも、ぜんぶ ふたりの じかんになった。',
-        'むかしより ゆっくり あるくように なったけど、となりには まだ おなじひとが いる。',
-        '50ねん、いっしょに いられたね。',
-        'これからも、いけるところまで いっしょに。',
+        `${name}と けっこんして 50ねん。`,
+        pickMovieLine([
+          '「50ねんって、言うと すごいね」「言わなきゃ いつもどおりだけどね」',
+          '「50ねん たったらしいよ」「ほんと? まだ しゃべること あるね」',
+          '「むかしより 歩くの おそくなったね」「そっちもね」',
+        ]),
+        pickMovieLine(sharedMemory),
+        pickMovieLine([
+          'むかしの しゃしんを 見て、どっちが 先に 老けたかで しばらく もめた。',
+          '「あのころの ふたりに 教えたら 信じるかな」「たぶん 信じない」',
+          '手をつなぐほどでもないのに、歩く速さは ずっと おなじだった。',
+        ]),
+        pickMovieLine([
+          '「まだ いっしょに いるね」「うん。まだ いるね」',
+          '「ここまで 来たね」「じゃあ、もう少し 行こっか」',
+          '「これからも よろしく、で いい?」「もう それで いいよ」',
+        ]),
+        'ふたりは また、いつもの 速さで あるきだした。',
       ];
     } else if (milestone.years >= 25) {
       beats = [
-        `${state.partner.label}と けっこんして 25ねん。`,
-        'ぎんこんしき。ふたりの おもいでが ずいぶん ふえた。',
-        hadMismatch ? 'すれちがった ひも あった。でも、そのたびに また はなした。' : 'たいしたことのない まいにちも、あとからみると ちゃんと おもいでだった。',
-        'むかしの しゃしんを みて、ふたりで ちょっと わらった。',
-        'ここまで きたね。',
-        'これからも、いっしょに あるいていこう。',
+        `${name}と けっこんして 25ねん。ぎんこんしき。`,
+        pickMovieLine([
+          '「銀婚式だって」「銀って 何か もらえるの?」「知らない笑」',
+          '「25ねん。長かった?」「短かったって 言ったら うそになるね」',
+          '「昔の しゃしん 見る?」「それは ちょっと こわい」',
+        ]),
+        pickMovieLine(sharedMemory),
+        pickMovieLine([
+          '古い しゃしんを ひらいて、服と髪型の はなしだけで しばらく 笑った。',
+          '「このころ 若いね」「今も まあまあ いけるでしょ」',
+          '思い出せない出来事も 多かったけど、となりにいたことは ちゃんと わかった。',
+        ]),
+        pickMovieLine([
+          '「ここまで きたね」「うん。意外と きたね」',
+          '「また 25ねん後も これ やる?」「そのとき 考えよ」',
+          '「これからも よろしく」「それ、何回目?」',
+        ]),
+        '帰り道は、いつもと ほとんど おなじだった。',
+      ];
+    } else if (milestone.years === 10) {
+      beats = [
+        `${name}と けっこんして 10ねん。`,
+        pickMovieLine([
+          '「10ねんだって」「そんなに たった?」',
+          '「10周年らしいよ」「じゃあ 今日は ちょっと いいもの 食べよ」',
+          '「あの日から 10ねん」「あの日って どの日?」「そこから!?」',
+        ]),
+        pickMovieLine(sharedMemory),
+        pickMovieLine([
+          '「変わった?」「変わった。でも 変わってないとこも ある」',
+          '「10年前より 好き?」「そういう 質問する?笑」',
+          'ふたりで 10年前の はなしをして、半分くらい 記憶が ちがっていた。',
+        ]),
+        '「まあ、これからも よろしく」',
       ];
     } else {
       beats = [
-        `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
-        milestone.years === 1 ? 'はじめての けっこんきねんびを、ふたりで むかえた。' : 'あのひから、もう 10ねん。いろんな ことが あったね。',
-        'なんでもない ひも、ちゃんと ふたりの じかんだった。',
-        'これからも よろしくね。',
+        `${name}と はじめての けっこんきねんび。`,
+        pickMovieLine([
+          '「1ねん たったね」「まだ 1ねんなんだね」',
+          '「きょう 記念日だよ」「忘れてないよ。たぶん」',
+          '「結婚して 1ねん」「なんか もっと 長い気がする笑」',
+        ]),
+        pickMovieLine([
+          '「まだ 新婚って いっていい?」「いいんじゃない?」',
+          '「1年目、どうでした?」「面接みたいに 聞かないで笑」',
+          'ふたりとも 少しだけ てれながら、最初の一年を 思い返した。',
+        ]),
+        '「来年も おぼえてたら、また こうしよう」',
       ];
     }
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
-    const step = milestone.years >= 25 ? 4200 : 3600;
+    const step = milestone.years >= 25 ? 4300 : 3700;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
@@ -11532,7 +11618,7 @@
       boxEmoji: '🎁',
       boxCount: 3,
       outcomes: [
-        { emoji: '💎', label: 'だいせいこう!おたからを てにいれた!', score: 100 },
+        { emoji: '💎', label: 'おたからを みつけた!', score: 100 },
         { emoji: '🪙', label: 'ちいさな おたからを てにいれた', score: 60 },
         { emoji: '💣', label: 'あ、わなだった…', score: 15 },
       ],
@@ -11566,7 +11652,7 @@
       boxEmoji: '🂠',
       boxCount: 4,
       outcomes: [
-        { emoji: '🃏', label: 'ジョーカー!だいせいこう!', score: 100 },
+        { emoji: '🃏', label: 'ジョーカーが きた!', score: 100 },
         { emoji: '♠️', label: 'あたり カード!', score: 65 },
         { emoji: '♥️', label: 'ふつうの カード', score: 40 },
         { emoji: '♣️', label: 'ざんねん カード', score: 20 },
@@ -11578,8 +11664,8 @@
       boxEmoji: '⚔️',
       boxCount: 3,
       outcomes: [
-        { emoji: '🗡️', label: 'でんせつの けん!だいせいこう!', score: 100 },
-        { emoji: '🏹', label: 'まあまあの ぶき', score: 55 },
+        { emoji: '🗡️', label: 'でんせつの けんを ひいた!', score: 100 },
+        { emoji: '🏹', label: 'ふつうの ぶき', score: 55 },
         { emoji: '🪓', label: 'ふるい ぶきだった…', score: 25 },
       ],
     },
@@ -14044,7 +14130,7 @@
     // render() が よばれるまでの わずかな あいだも きせつの ぜんけい
     // エフェクトが えきしょうの てまえに のこらないよう、ここで すぐに とめる
     el.seasonFrontFx.classList.add('suppressed');
-    // 直前の「そうじ得意!」のような ストーリーいベント バナー(.story-flash)
+    // 直前の「そうじリアクション」のような ストーリーいベント バナー(.story-flash)
     // には じぶんの ひょうじ時間(STORY_FLASH_DURATION_MS)ぶんの タイマーが
     // あり、ミニゲームが はじまっても かってには きえない - ミニゲームの
     // タイトル/せつめい文(.mg-title など、がめん じょうぶ)と おなじ いちに
