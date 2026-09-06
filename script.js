@@ -2080,10 +2080,14 @@
   const PARTNER_IDLE_LINES = [
     'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
     'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
+    'きょう なんか いいかおしてる', 'あとで ちょっと さんぽしない?', 'いまの じかん、けっこう すき',
+    'さいきん ちゃんと わらってる?', 'カレー たべたいな', 'あの くも、なんか いぬっぽい',
   ];
   const COMPANION_IDLE_LINES = [
     'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
     'なんか おもしろいこと ない?', 'ずっと そばに いるよ', 'ちょっと じゃれたい!',
+    'おなかすいたー', 'つぎ なにする?', 'ぼく ここ みはってるね',
+    'いま なんか うごいた!', 'ひなたぼっこ したい', 'さっきの おと なに?',
   ];
 
   // flavor beats sprinkled across a play session, reacting to whatever
@@ -4188,17 +4192,56 @@
   ];
 
   const FUN_ITEMS = [
-    { id: 'fun_candy', label: 'キャンディ', emoji: '🍭', message: 'ぺろぺろ… あまくて うれしそう!', emote: 'happy' },
-    { id: 'fun_bubbles', label: 'しゃぼんだま', emoji: '🫧', message: 'ふわふわの しゃぼんだまを おいかけた!', emote: 'fun' },
-    { id: 'fun_balloon', label: 'ふうせん', emoji: '🎈', message: 'ふうせんが ふわり。ずっと うえを みている', emote: 'fun' },
-    { id: 'fun_fireworks', label: 'はなび', emoji: '🎇', message: 'ぱっと ひかって、びっくりしてから わらった!', emote: 'fun' },
-    { id: 'fun_camera', label: 'カメラ', emoji: '📸', message: 'はい、チーズ! ちょっと すました かおを した', emote: 'happy' },
-    { id: 'fun_musicbox', label: 'オルゴール', emoji: '🎵', message: 'やさしい おとに あわせて ゆらゆらしている', emote: 'happy' },
-    { id: 'fun_surprise', label: 'びっくりばこ', emoji: '🪄', message: 'びよーん! びっくりして ひっくりかえりそうになった!', emote: 'fun' },
+    { id: 'fun_candy', label: 'キャンディ', emoji: '🍭', narration: '🍭 キャンディを ぺろぺろ。ちいさな おやつタイム!', emote: 'happy',
+      petLines: ['あまーい!', 'もう ひとくち!', 'これ すき!'], partnerLines: ['おいしそうだね', 'ひとくち ちょうだい?', 'うれしそうで かわいい'], companionLines: ['ぼくも たべたい!', 'あまい におい!', 'いいなー!'] },
+    { id: 'fun_bubbles', label: 'しゃぼんだま', emoji: '🫧', narration: '🫧 しゃぼんだまが ふわふわ ひろがった', emote: 'fun',
+      petLines: ['まてまて〜!', 'こっちにも きた!', 'われるまえに つかまえる!'], partnerLines: ['ふふ、たのしそう', 'きれいだね', 'そっちにも とんでるよ'], companionLines: ['こっちこっち!', 'おおきいの きた!', 'つかまえた!…われた!'] },
+    { id: 'fun_balloon', label: 'ふうせん', emoji: '🎈', narration: '🎈 ふうせんが ふわり。みんなで みあげた', emote: 'fun',
+      petLines: ['どこまで いくの?', 'おちてこーい!', 'ふわふわ〜'], partnerLines: ['にげないように みてよう', 'なんか いいね', 'ずっと みてられる'], companionLines: ['つかまえる!', 'たかい!', 'ぼくの ところにも!'] },
+    { id: 'fun_fireworks', label: 'はなび', emoji: '🎇', narration: '🎇 よぞらに はなびが ひらいた', emote: 'fun',
+      petLines: ['わあっ!', 'もういっかい!', 'おおきい!'], partnerLines: ['きれい…', 'いっしょに みれて よかった', 'このまま みてたいね'], companionLines: ['どーん!', 'びっくりした!', 'つぎ くるかな?'] },
+    { id: 'fun_camera', label: 'カメラ', emoji: '📸', narration: '📸 みんなで きねんしゃしんを とった', emote: 'happy',
+      petLines: ['はい、チーズ!', 'どう? うつってる?', 'もう1まい!'], partnerLines: ['このしゃしん、とっておこうね', 'もうすこし こっち', 'いいかお してる'], companionLines: ['ぼくも はいる!', 'へんな かお する!', 'みせてみせて!'] },
+    { id: 'fun_musicbox', label: 'オルゴール', emoji: '🎵', narration: '🎵 やさしい おとが へやに ひろがった', emote: 'happy',
+      petLines: ['ゆらゆら〜', 'この おと すき', 'なんか ねむくなる…'], partnerLines: ['おちつくね', 'このまま ゆっくりしよう', 'いい きょくだね'], companionLines: ['おどろう!', 'ふしぎな おと!', 'もういっかい ききたい!'] },
+    { id: 'fun_surprise', label: 'びっくりばこ', emoji: '🪄', narration: '🪄 びっくりばこが びよーん!', emote: 'fun',
+      petLines: ['うわっ!', 'びっくりしたー!', 'もう こわくないぞ!'], partnerLines: ['ふふ、いい かおした', 'びっくりしたね', 'つぎは わたしが あける'], companionLines: ['わああ!', 'もう1かい!', 'いまの みた!?'] },
   ];
 
   function randomFunItem() {
     return FUN_ITEMS[Math.floor(Math.random() * FUN_ITEMS.length)];
+  }
+
+  let funSceneTimers = [];
+  function clearFunSceneTimers() {
+    funSceneTimers.forEach((t) => clearTimeout(t));
+    funSceneTimers = [];
+  }
+
+  function pickFunLine(lines) {
+    if (!lines || !lines.length) return null;
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+
+  function playFunScene(item) {
+    clearFunSceneTimers();
+    setMessage(item.narration || `${item.emoji} ${item.label}で あそんだ`);
+    showStoryEvent({ emoji: item.emoji, message: item.label });
+    emotePet(item.emote || 'fun');
+
+    const beats = [{ speaker: petSpeaker(), text: pickFunLine(item.petLines) }];
+    if (state.partner && Math.random() < 0.85) beats.push({ speaker: partnerSpeaker(), text: pickFunLine(item.partnerLines) });
+    if (state.companions.length && Math.random() < 0.85) beats.push({ speaker: companionSpeaker(), text: pickFunLine(item.companionLines) });
+
+    const crownExtra = hasNaotoItem('naoto_crown') && Math.random() < 0.25;
+    if (crownExtra) beats.push({ speaker: petSpeaker(), text: '👑 きょうは なんだか とくべつ!' });
+
+    beats.filter((b) => b.speaker && b.text).slice(0, 3).forEach((beat, idx) => {
+      funSceneTimers.push(setTimeout(() => {
+        setSpeechBubble(beat.text, beat.speaker);
+        if (idx === 0 || beat.speaker.kind === 'pet') emotePet(item.emote || 'fun');
+      }, 220 + idx * 1050));
+    });
   }
 
   const RECOVERY_EFFECT_LABELS = {
@@ -5057,9 +5100,9 @@
         && !message
         && !speechActive;
       if (canGreet) {
-        const choices = [{ kind: 'pet', weight: 6 }];
-        if (state.partner) choices.push({ kind: 'partner', weight: 2 });
-        if (state.companions.length) choices.push({ kind: 'companion', weight: 2 });
+        const choices = [{ kind: 'pet', weight: 4 }];
+        if (state.partner) choices.push({ kind: 'partner', weight: 3 });
+        if (state.companions.length) choices.push({ kind: 'companion', weight: 3 });
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
@@ -6950,9 +6993,7 @@
     if (!Array.isArray(state.lifetime.ownedConsumableItems)) state.lifetime.ownedConsumableItems = [];
     if (!state.lifetime.ownedConsumableItems.includes(itemId)) state.lifetime.ownedConsumableItems.push(itemId);
     state.happiness = clamp(state.happiness + 2, 0, 100);
-    const crownMoment = hasNaotoItem('naoto_crown') && Math.random() < 0.25;
-    setMessage(`${item.emoji} ${item.message}${crownMoment ? ' 👑 なんだか いつもより うれしそう!' : ''}`);
-    emotePet(item.emote);
+    playFunScene(item);
     saveState(); render();
   }
 
@@ -13675,21 +13716,22 @@
   // ゲーム すべて、そして 今後 あたらしく 追加される 地域限定・季節限定
   // カテゴリも、この ループが そのまま ひろってくれる ため、個別対応は
   // 不要(category フィールドを つけわすれない かぎり、いつでも あんぜん)
-  for (const regionEntries of Object.values(REGION_MINIGAMES)) {
-    for (const entry of regionEntries) minigameCategoryOf.set(entry.game, entry.category);
+  let themedGameSerial = 0;
+  for (const [regionId, regionEntries] of Object.entries(REGION_MINIGAMES)) {
+    for (const entry of regionEntries) {
+      if (!entry.game.id) entry.game.id = `region:${regionId}:${entry.category}:${themedGameSerial++}`;
+      minigameCategoryOf.set(entry.game, entry.category);
+    }
   }
-  for (const seasonEntries of Object.values(SEASONAL_MINIGAMES)) {
-    for (const entry of seasonEntries) minigameCategoryOf.set(entry.game, entry.category);
+  for (const [seasonId, seasonEntries] of Object.entries(SEASONAL_MINIGAMES)) {
+    for (const entry of seasonEntries) {
+      if (!entry.game.id) entry.game.id = `season:${seasonId}:${entry.category}:${themedGameSerial++}`;
+      minigameCategoryOf.set(entry.game, entry.category);
+    }
   }
 
-  // 地域専用のあそびは わざわざ 優先あつかいせず、いま いる地域に あわせて
-  // ふつうの プールに くわわる 「そのとき だけの あと数種類」として
-  // あつかう。だから 地域に いるあいだは その4種類も ほかと まったく
-  // おなじ かくりつで まざり、地域を はなれれば また ふつうの プールに
-  // もどる(おうちなど 専用あそびが ない地域では ふつうの プールのまま)。
-  // ただし、地域限定版が ある category(しゅるい)については、ふつうの
-  // バリエーションを プールから のぞき、地域限定版だけに おきかえる
-  // (例:さばくでは もぐらたたき系は サソリたたきだけに なる)
+  // 地域・季節ゲームは常に抽選候補。現在地・現在季節のものだけ少し出やすくする。
+  // これにより、ゲームを見るために毎回地域や季節を切り替える必要はない。
   let minigameQueue = [];
   let currentMinigamePool = MINIGAMES;
   let minigameQueueRegionId = null;
@@ -13719,19 +13761,11 @@
   }
 
   function buildMinigamePool() {
-    const regionEntries = REGION_MINIGAMES[state.regionId];
-    const basePool = (!regionEntries || !regionEntries.length)
-      ? MINIGAMES
-      : (() => {
-        const regionCategories = new Set(regionEntries.map((entry) => entry.category));
-        const generalWithoutRegionalCategories = MINIGAMES.filter((game) => !regionCategories.has(minigameCategoryOf.get(game)));
-        return [...generalWithoutRegionalCategories, ...regionEntries.map((entry) => entry.game)];
-      })();
-    // きせつの あそびは category を おきかえたりせず、いま の きせつのあいだ
-    // だけ「おまけ」として そのまま プールに たしくわえる
-    const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()] || [];
-    if (!seasonEntries.length) return basePool;
-    return [...basePool, ...seasonEntries.map((entry) => entry.game)];
+    // 地域・季節は「その場所でしか遊べない条件」ではなく、出やすさの個性として扱う。
+    // すべての地域/季節ゲームを常に候補へ入れ、現在地・現在季節のものだけ後段で優遇する。
+    const regionalGames = Object.values(REGION_MINIGAMES).flat().map((entry) => entry.game);
+    const seasonalGames = Object.values(SEASONAL_MINIGAMES).flat().map((entry) => entry.game);
+    return [...new Set([...MINIGAMES, ...regionalGames, ...seasonalGames])];
   }
 
   // いま の 地域/きせつに だけ 出る ゲームかどうかを、category名の 文字列
@@ -13758,7 +13792,9 @@
     // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
     const weighted = currentMinigamePool.map((game, i) => {
       const played = minigamePlayCount(game);
-      const weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
+      let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
+      if (isRegionExclusiveGame(game)) weight *= 1.45;
+      if (isSeasonExclusiveGame(game)) weight *= 1.25;
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -13780,10 +13816,10 @@
   // 独立して へっていく(下の pickRandomMinigame() さんしょう。地域の
   // 5かいが おわるまで きせつの 3かいが まったく へらない、という 直列の
   // のびかたには ならない)
-  const REGION_ARRIVAL_BOOST_PLAYS = 5;
-  const REGION_ARRIVAL_BOOST_LOOKBACK = 24;
-  const SEASON_ARRIVAL_BOOST_PLAYS = 3;
-  const SEASON_ARRIVAL_BOOST_LOOKBACK = 16;
+  const REGION_ARRIVAL_BOOST_PLAYS = 2;
+  const REGION_ARRIVAL_BOOST_LOOKBACK = 10;
+  const SEASON_ARRIVAL_BOOST_PLAYS = 1;
+  const SEASON_ARRIVAL_BOOST_LOOKBACK = 8;
   let regionArrivalBoostLeft = 0;
   let seasonArrivalBoostLeft = 0;
 
