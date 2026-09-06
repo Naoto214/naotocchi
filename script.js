@@ -13593,7 +13593,9 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 単純な計算・反射1タップ・もぐらたたき・選択肢だけ・2D分岐迷路などは\n  // 抽選プールから外し、操作/判断が連続するゲームを中心にする。\n  const MINIGAMES = [
+  // 単純な計算・反射1タップ・もぐらたたき・選択肢だけ・2D分岐迷路などは
+  // 抽選プールから外し、操作/判断が連続するゲームを中心にする。
+  const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...MEMORY_GAME_VARIANTS,
     ...STROOP_GAME_VARIANTS,
