@@ -13258,19 +13258,72 @@
       }
     };
   }
-  const RANKING_3D_CAST = [
-    {emoji:'🐭',name:'ねずみ',size:1,age:2},{emoji:'🐰',name:'うさぎ',size:2,age:4},
-    {emoji:'🐶',name:'いぬ',size:3,age:7},{emoji:'🐷',name:'ぶた',size:4,age:9},
-    {emoji:'🐻',name:'くま',size:5,age:15}
+  const RANKING_3D_CASTS = [
+    [
+      {emoji:'🐭',name:'ねずみ',size:1,age:2},{emoji:'🐰',name:'うさぎ',size:2,age:4},{emoji:'🐶',name:'いぬ',size:3,age:7},{emoji:'🐷',name:'ぶた',size:4,age:9},{emoji:'🐻',name:'くま',size:5,age:15}
+    ],
+    [
+      {emoji:'🐣',name:'ひよこ',size:1,age:1},{emoji:'🐱',name:'ねこ',size:2,age:5},{emoji:'🦊',name:'きつね',size:3,age:8},{emoji:'🦁',name:'ライオン',size:4,age:12},{emoji:'🐘',name:'ぞう',size:5,age:18}
+    ],
+    [
+      {emoji:'👶',name:'あかちゃん',size:1,age:1},{emoji:'🧒',name:'こども',size:2,age:5},{emoji:'🧑',name:'おとな',size:3,age:10},{emoji:'🧔',name:'おじさん',size:4,age:14},{emoji:'👴',name:'おじいさん',size:5,age:20}
+    ]
   ];
+  function randomRankingCast(){ return RANKING_3D_CASTS[Math.floor(Math.random()*RANKING_3D_CASTS.length)].map(c=>({...c})); }
+  function subjectiveRanking(title,id){ return mg(id,{start(container,onComplete){makePerspectiveRankingGame({title,cast:randomRankingCast(),criterion:'size',subjective:true}).start(container,onComplete);}}); }
+  function objectiveRanking(title,id,criterion,reverse=false){return mg(id,{start(container,onComplete){let cast=randomRankingCast();if(reverse)cast=cast.map(c=>({...c,[criterion]:30-c[criterion]}));makePerspectiveRankingGame({title,cast,criterion}).start(container,onComplete);}});}
   const PERSPECTIVE_RANKING_VARIANTS = [
-    mg('rank3d-small',makePerspectiveRankingGame({title:'3Dならびかえ!小さい順に ならべよう',cast:RANKING_3D_CAST,criterion:'size'})),
-    mg('rank3d-big',makePerspectiveRankingGame({title:'3Dならびかえ!大きい順に ならべよう',cast:[...RANKING_3D_CAST].map((c,i,a)=>({...c,size:a.length-c.size})),criterion:'size'})),
-    mg('rank3d-young',makePerspectiveRankingGame({title:'3Dならびかえ!若そうな順に ならべよう',cast:RANKING_3D_CAST,criterion:'age'})),
-    mg('rank3d-old',makePerspectiveRankingGame({title:'3Dならびかえ!年寄りそうな順に ならべよう',cast:[...RANKING_3D_CAST].map(c=>({...c,age:20-c.age})),criterion:'age'})),
-    mg('rank3d-funny',makePerspectiveRankingGame({title:'3Dならびかえ!面白そうな順に ならべて笑',cast:RANKING_3D_CAST,criterion:'size',subjective:true})),
-    mg('rank3d-nervous',makePerspectiveRankingGame({title:'3Dならびかえ!神経質そうな順に ならべて笑',cast:RANKING_3D_CAST,criterion:'size',subjective:true})),
+    objectiveRanking('3Dならびかえ!小さい順に ならべよう','rank3d-small','size'),
+    objectiveRanking('3Dならびかえ!大きい順に ならべよう','rank3d-big','size',true),
+    objectiveRanking('3Dならびかえ!若そうな順に ならべよう','rank3d-young','age'),
+    objectiveRanking('3Dならびかえ!年寄りそうな順に ならべよう','rank3d-old','age',true),
+    subjectiveRanking('3Dならびかえ!面白そうな順に ならべて笑','rank3d-funny'),
+    subjectiveRanking('3Dならびかえ!神経質そうな順に ならべて笑','rank3d-nervous'),
+    subjectiveRanking('3Dならびかえ!お腹いたそうな順に ならべて笑','rank3d-stomach'),
+    subjectiveRanking('3Dならびかえ!ねむそうな順に ならべて笑','rank3d-sleepy'),
+    subjectiveRanking('3Dならびかえ!怒ったら こわそうな順に ならべて笑','rank3d-scary'),
+    subjectiveRanking('3Dならびかえ!モテそうな順に ならべて笑','rank3d-popular'),
+    subjectiveRanking('3Dならびかえ!朝よわそうな順に ならべて笑','rank3d-morning'),
+    subjectiveRanking('3Dならびかえ!秘密おおそうな順に ならべて笑','rank3d-secret'),
+    subjectiveRanking('3Dならびかえ!方向音痴そうな順に ならべて笑','rank3d-lost'),
+    subjectiveRanking('3Dならびかえ!食いしんぼうそうな順に ならべて笑','rank3d-hungry'),
+    subjectiveRanking('3Dならびかえ!運動神経よさそうな順に ならべて笑','rank3d-sporty'),
+    subjectiveRanking('3Dならびかえ!寝相わるそうな順に ならべて笑','rank3d-sleeper'),
   ];
+
+  // --- 名作ジャンルへのオマージュ: 固有キャラ/名称は使わず遊びの核だけ再構成 ---
+  function makeCreatureCaptureGame(){
+    return {start(container,onComplete){
+      let balls=5,caught=0,running=true;
+      container.innerHTML=`<div class="mg-header"><span id="capBalls">カプセル: 5</span><span id="capCaught">つかまえた: 0</span></div><div class="mg-title">3D モンスターキャッチ!ねらって カプセルを なげよう</div><div class="mg-capture3d" id="capScene"><div class="mg-capture-monster" id="capMonster">👾</div><div class="mg-capture-reticle" id="capAim">◎</div></div><input id="capSlider" type="range" min="10" max="90" value="50"><button class="mg-tap-btn" id="capThrow">なげる!</button>`;
+      const slider=container.querySelector('#capSlider'),monster=container.querySelector('#capMonster'),aimEl=container.querySelector('#capAim');
+      const monsters=['👾','👻','🐲','🦖','🦄'];let target=25+Math.random()*50;
+      monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];monster.style.left=target+'%';
+      slider.oninput=()=>aimEl.style.left=slider.value+'%';
+      container.querySelector('#capThrow').onclick=()=>{if(!running||balls<=0)return;balls--;const d=Math.abs(Number(slider.value)-target);if(d<11){caught++;monster.classList.add('caught');setTimeout(()=>{monster.classList.remove('caught');target=20+Math.random()*60;monster.style.left=target+'%';monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];},300);}container.querySelector('#capBalls').textContent='カプセル: '+balls;container.querySelector('#capCaught').textContent='つかまえた: '+caught;if(!balls){running=false;setTimeout(()=>onComplete(clamp(25+caught*15,25,100)),450);}};
+    }};
+  }
+  const CREATURE_CAPTURE_VARIANTS=[mg('creature-capture-3d',makeCreatureCaptureGame())];
+
+  function makeAdventureFieldGame(){
+    return {start(container,onComplete){
+      const W=7,H=6;let x=1,y=1,hp=3,gems=0,moves=0,done=false;const walls=new Set(['3,1','3,2','1,3','5,3','2,4']);const gemSet=new Set(['5,1','2,2','4,4']);const enemy={x:5,y:4};
+      container.innerHTML=`<div class="mg-header"><span id="advHp">❤️❤️❤️</span><span id="advGem">💎 0/3</span></div><div class="mg-title">ちいさな冒険!フィールドを探索して 宝をあつめて出口へ</div><div class="mg-adventure-field" id="advField"></div><div class="mg-dpad"><button data-d="up">▲</button><div><button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button></div></div>`;
+      const field=container.querySelector('#advField');function draw(){let html='';for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){const k=xx+','+yy;let e='·';if(walls.has(k))e='🌲';if(gemSet.has(k))e='💎';if(xx===enemy.x&&yy===enemy.y)e='👹';if(xx===6&&yy===5)e='🏰';if(xx===x&&yy===y)e=currentSprite();html+=`<span>${e}</span>`;}field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(hp);container.querySelector('#advGem').textContent='💎 '+gems+'/3';}
+      container.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{if(done)return;const d=b.dataset.d,dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0,nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H||walls.has(nx+','+ny))return;x=nx;y=ny;moves++;const k=x+','+y;if(gemSet.delete(k))gems++;if(x===enemy.x&&y===enemy.y){hp--;enemy.x=Math.max(0,enemy.x-1);if(hp<=0){done=true;draw();setTimeout(()=>onComplete(20),350);return;}}if(x===6&&y===5){done=true;draw();setTimeout(()=>onComplete(clamp(55+gems*15-moves,30,100)),350);return;}draw();});draw();
+    }};
+  }
+  const ADVENTURE_FIELD_VARIANTS=[mg('adventure-field',makeAdventureFieldGame())];
+
+  function makeRetroPetGame(){
+    return {start(container,onComplete){
+      let hunger=2,happy=2,clean=1,steps=0,done=false;
+      container.innerHTML=`<div class="mg-title">レトロ育成ゲームを 操作して お世話ミッション!</div><div class="mg-retropet"><div class="mg-retropet-screen"><div id="rpStats"></div><div class="mg-retropet-creature">◉ᴥ◉</div><div id="rpMsg">ぜんぶ 3にしよう!</div></div><div class="mg-retropet-buttons"><button data-a="food">🍚</button><button data-a="play">🎾</button><button data-a="clean">🧹</button></div></div>`;
+      const stats=container.querySelector('#rpStats'),msg=container.querySelector('#rpMsg');function draw(){stats.textContent=`🍚${hunger}/3　😊${happy}/3　✨${clean}/3`;if(hunger>=3&&happy>=3&&clean>=3&&!done){done=true;msg.textContent='おせわ かんりょう!';setTimeout(()=>onComplete(clamp(100-steps*5,50,100)),400);}}
+      container.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{if(done)return;steps++;if(b.dataset.a==='food')hunger=Math.min(3,hunger+1);if(b.dataset.a==='play')happy=Math.min(3,happy+1);if(b.dataset.a==='clean')clean=Math.min(3,clean+1);draw();});draw();
+    }};
+  }
+  const RETRO_PET_VARIANTS=[mg('retro-pet-care',makeRetroPetGame())];
 
   // --- 4. ゲレンデすべりおり(スキー/スノーボード) ---
   // ◀▶ボタンで さゆうに うごきつづけながら、上から せまってくる
@@ -13656,7 +13709,6 @@
     ...TILE_SWAP_VARIANTS,
     ...SPELL_GAME_VARIANTS,
     ...JUMP_GAME_VARIANTS,
-    ...COLOR_MIX_VARIANTS,
     ...FIND_SELF_VARIANTS,
     ...POSE_GAME_VARIANTS,
     ...ROAD_GAME_VARIANTS,
@@ -13666,7 +13718,6 @@
     ...CHASE_GAME_VARIANTS,
     ...RUNNER_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
-    ...COMBO_INPUT_VARIANTS,
     ...TARGET_AIM_VARIANTS,
     ...RACE_GAME_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
@@ -13683,6 +13734,9 @@
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
     ...PERSPECTIVE_RANKING_VARIANTS,
+    ...CREATURE_CAPTURE_VARIANTS,
+    ...ADVENTURE_FIELD_VARIANTS,
+    ...RETRO_PET_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -13700,7 +13754,6 @@
     ['tileSwap', TILE_SWAP_VARIANTS],
     ['spell', SPELL_GAME_VARIANTS],
     ['jump', JUMP_GAME_VARIANTS],
-    ['colorMix', COLOR_MIX_VARIANTS],
     ['findSelf', FIND_SELF_VARIANTS],
     ['pose', POSE_GAME_VARIANTS],
     ['road', ROAD_GAME_VARIANTS],
@@ -13710,7 +13763,6 @@
     ['chase', CHASE_GAME_VARIANTS],
     ['runner', RUNNER_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
-    ['comboInput', COMBO_INPUT_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
     ['race', RACE_GAME_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
@@ -13727,6 +13779,9 @@
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
     ['perspectiveRanking', PERSPECTIVE_RANKING_VARIANTS],
+    ['creatureCapture', CREATURE_CAPTURE_VARIANTS],
+    ['adventureField', ADVENTURE_FIELD_VARIANTS],
+    ['retroPet', RETRO_PET_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
