@@ -5172,6 +5172,17 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .date-movie-scene[data-plan='star'] { background: radial-gradient(circle at 70% 18%,#fff 0 1px,transparent 2px), radial-gradient(circle at 24% 28%,#fff 0 1px,transparent 2px), linear-gradient(180deg,#10132f,#30336b 58%,#16221d 59%); }
 .date-movie-scene[data-plan='rain'] { background: repeating-linear-gradient(105deg,rgba(255,255,255,.16) 0 2px,transparent 2px 17px), linear-gradient(180deg,#667b8c,#9aabb5 55%,#52625b 56%); }
 .date-movie-scene[data-plan='nap'] { background: linear-gradient(180deg,#8ed1ed,#d7f2ff 48%,#9ccf6a 49%,#6ea24b); }
+.date-movie-scene.special-reward,
+.date-movie-scene[data-plan='special'] {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255,255,255,.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 24%, rgba(255,244,165,.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 62% 10%, rgba(255,196,226,.9) 0 2px, transparent 3px),
+    linear-gradient(180deg,#6f4ca7 0%,#df7eb5 46%,#ffc987 70%,#56466f 100%);
+  box-shadow: 0 0 0 2px rgba(255,226,132,.75), 0 10px 34px rgba(0,0,0,.56), 0 0 26px rgba(255,173,221,.32);
+}
+.date-movie-scene.special-reward .date-movie-heart { font-size: 26px; animation-duration: .72s; }
+.date-movie-scene.special-reward .date-movie-sparkles { font-size: 15px; color: rgba(255,244,181,.95); }
 
 .date-movie-sparkles {
   position: absolute;
