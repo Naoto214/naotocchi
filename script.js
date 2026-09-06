@@ -3912,6 +3912,33 @@
     el.dateMovie.classList.add('hidden');
   }
 
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
+    clearDateMovieTimers();
+    dateOpen = true;
+    el.dateOverlay.classList.remove('hidden');
+    el.dateChooser.classList.add('hidden');
+    el.dateMovie.classList.remove('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}デート`;
+    const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
+    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    el.dateMoviePartner.textContent = partner.emoji || '💞';
+    const special = (state.items.reward || 0) > 0 && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
+    if (special) state.items.reward -= 1;
+    const beats = special
+      ? [`${partner.label}と ${plan.label}へ。`, traitLine, 'きょうのこと、ずっと おぼえていようね。 💝']
+      : [`${partner.label}と ${plan.label}へ。`, traitLine, closing];
+    if (special) pushLifeLog('💝', `とくべつなデートの おもいで: ${partner.label}と ${plan.label}`);
+    el.dateMovieCaption.textContent = beats[0];
+    el.dateMovieCaption.classList.add('beat');
+    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat'); }, 850));
+    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat'); }, special ? 1900 : 1550));
+    dateMovieTimers.push(setTimeout(finishDateMovie, special ? 3000 : 2350));
+    saveState();
+  }
+
   const MARRIAGE_MILESTONES = [
     { years: 1, icon: '💐', title: 'はじめての けっこんきねんび' },
     { years: 10, icon: '🎀', title: 'けっこん 10しゅうねん' },
@@ -4008,7 +4035,7 @@
     setMessage(`💞 ${partner.label}と ${plan.label}デートを たのしんだ`);
     emotePet('love');
     saveState();
-    finishOrdinaryDate();
+    playOrdinaryDateMovie(plan, partner, traitLine, closing);
     render();
   }
 
@@ -4223,70 +4250,12 @@
   // ほどくもの、上位はさらに「いのち」を立て直すものとして役割を分ける。
   // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
   const RECOVERY_ITEMS = [
-    { id: 'candy', label: 'あめ', emoji: '🍬', tier: 'normal', rank: 1, weight: 8,
-      effects: { decline: 8 }, desc: 'おとろえが ほんのすこし ほどける' },
-    { id: 'dogfood', label: 'ドッグフード', emoji: '🦴', tier: 'normal', rank: 2, weight: 6,
-      effects: { decline: 12 }, desc: 'おとろえが すこし ほどける' },
-    { id: 'catfood', label: 'キャットフード', emoji: '🐟', tier: 'normal', rank: 2, weight: 6,
-      effects: { decline: 12 }, desc: 'おとろえが すこし ほどける' },
-    { id: 'udon', label: 'うどん', emoji: '🍜', tier: 'normal', rank: 3, weight: 5,
-      effects: { decline: 18 }, desc: 'おとろえが ほどける' },
-    { id: 'curry', label: 'カレー', emoji: '🍛', tier: 'normal', rank: 3, weight: 5,
-      effects: { decline: 20 }, desc: 'おとろえが しっかり ほどける' },
-    { id: 'hotpot', label: 'なべ', emoji: '🍲', tier: 'normal', rank: 4, weight: 4,
-      effects: { decline: 28 }, desc: 'おとろえが おおきく ほどける' },
-    { id: 'shoulder', label: 'かたたたき', emoji: '💆', tier: 'special', rank: 5, weight: 3,
-      effects: { decline: 35, life: 10 }, desc: 'おとろえを ほどき、いのちも すこし もちなおす' },
-    { id: 'hug', label: 'ハグ', emoji: '🤗', tier: 'special', rank: 6, weight: 2,
-      effects: { decline: 45, life: 25 }, desc: 'おとろえを おおきく ほどき、いのちも もちなおす' },
-    { id: 'kiss', label: 'キス', emoji: '💋', tier: 'special', rank: 7, weight: 1,
-      effects: { decline: 65, life: 45 }, desc: 'おとろえと いのちを まとめて たてなおす' },
+    { id: 'reward', label: 'ごほうび', emoji: '🎁', tier: 'special', rank: 1, weight: 1,
+      effects: {}, desc: 'デートなどを とくべつな おもいでに できる' },
   ];
 
-  const RECOVERY_EFFECT_LABELS = {
-    hunger: 'おなか', happiness: 'ごきげん', energy: 'げんき',
-    health: 'けんこう', decline: 'おとろえ', life: 'いのち',
-  };
+  function pickWeightedItem() { return RECOVERY_ITEMS[0]; }
 
-  // よつばのクローバーけい(そうび)と そだち80で、ごほうびの こうかが
-  // まとめて 何ばいに なるか。むかしは かいふく量に 直に +15 する
-  // たしざん だった ため、ちいさな ごほうびほど 相対的に 効きすぎていた
-  function recoveryPotency() {
-    const equipBonus = isEquipped('itemluck3') ? 0.4 : isEquipped('itemluck2') ? 0.22 : isEquipped('itemluck1') ? 0.1 : 0;
-    const sodachiBonus = hasPerk(80) ? state.sodachi / 400 : 0;
-    return 1 + equipBonus + sodachiBonus;
-  }
-
-  // その ごほうびを いま つかって、じっさいに なにか かわるか。
-  // まんたんの ときに だまって きえて しまわない ように、つかう まえに しらべる
-  function recoveryWouldHelp(item) {
-    const e = item.effects;
-    if (e.hunger && state.hunger < 100) return true;
-    if (e.happiness && state.happiness < 100) return true;
-    if (e.energy && state.energy < 100) return true;
-    if (e.health && state.health < 100) return true;
-    // ♾️ の せかいでは おとろえも いのちも とまっている ので、
-    // その 2つは「かわる ところ」に かぞえない
-    if (!state.infinite) {
-      if (e.decline && state.decline > 0) return true;
-      if (e.life && state.deathMeter > 0) return true;
-    }
-    return false;
-  }
-
-  // そだち30(はじめての ごほうび)で ドロップが 1だん 上位に よる。
-  // そだち80(レアの きざし)では さらに キス/ハグ などの 最上位が 出やすくなる
-  function pickWeightedItem() {
-    const rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0;
-    const weights = RECOVERY_ITEMS.map((it) => it.weight * (1 + rankBonus * (it.rank / 7)));
-    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
-    let roll = Math.random() * totalWeight;
-    for (let i = 0; i < RECOVERY_ITEMS.length; i += 1) {
-      roll -= weights[i];
-      if (roll <= 0) return RECOVERY_ITEMS[i];
-    }
-    return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
-  }
 
   // ================================================================
   // ねんれい / ライフステージ - ゆいいつの 真実
@@ -4366,19 +4335,14 @@
     applyDecline(-5, { silent: true });
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    if (age % 10 === 0 && hasPerk(30)) {
-      const item = pickWeightedItem();
-      state.items[item.id] = (state.items[item.id] || 0) + 1;
-      const gift = Math.round((60 + state.maxSodachi * 1.2) * coinMultiplier());
-      state.lifetime.money += gift;
-      setMessage(`🎁 ${age}さいの おいわい! ${item.label}${item.emoji} と 💰${gift} を もらった!`);
+    // ごほうびは誕生日の確定配布にしない。10歳ごとの節目だけ低確率で手に入り、
+    // 一生で余らず「いつ使うか迷う」くらいの希少さにする。
+    if (age % 10 === 0 && Math.random() < 0.25) {
+      state.items.reward = (state.items.reward || 0) + 1;
+      setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
       emotePet('love');
     } else if (age % 5 === 0) {
-      // 5さいごとは すこし にぎやかに + かいふくアイテムを 1つ
-      const item = pickWeightedItem();
-      state.items[item.id] = (state.items[item.id] || 0) + 1;
-      setMessage(`🎂 ${age}さいに なった! ${item.label}${item.emoji}を もらった!`);
-      emotePet('happy');
+      setBirthdayToast(`🎂 ${age}さいに なった!`);
     } else {
       setBirthdayToast(`🎂 ${age}さいに なった`);
     }
@@ -4467,13 +4431,9 @@
     if (value === 100) {
       state.lifetime.dreamEggs.normal += 1;
       state.lifetime.money += 5000;
-      // 「その人生の のこりは 不死」を UI でも はっきりさせる。
+      // そだち100は最高到達の大きな報酬だが、不死にはしない。
       // ここで いのちを まんたんに もどし、おわかれの まえぶれも けす
-      state.deathMeter = 0;
-      state.dying = false;
-      state.dyingTicks = 0;
-      state.lowHealthStreak = 0;
-      setMessage('👑 さいこうの そだち! もう いのちは つきない。💰5000と たまごの ゆめを もらった!');
+      setMessage('👑 さいこうの そだち! 💰5000と たまごの ゆめを もらった!');
     } else {
       setMessage(`${perk.emoji} そだち ${value}! ${perk.name}`);
     }
@@ -4681,9 +4641,9 @@
 
   // いのちが つきない じょうたい(そだち100の 特典 / なおとの リング)
   function isImmortal() {
-    // ★ state.sodachi では なく maxSodachi。いちど 100に とどいたら、
-    //   そのあと おとろえで さがっても その人生の のこりは 不死の まま
-    return state.maxSodachi >= SODACHI_MAX || hasNaotoItem('naoto_ring') || state.infinite;
+    // 通常の人生では、どれだけ上手に育てても老いと死はなくならない。
+    // ♾️の世界だけは別モードとして不死。
+    return state.infinite;
   }
 
   // ================================================================
@@ -4966,7 +4926,11 @@
       // ろうねん(70さい〜)からで、そだち90いじょうなら それも なくなる
       const age = currentAge();
       const fromNeglect = lerp(0, 0.8, state.decline / DECLINE_MAX);
-      const fromAge = age >= 70 && !hasPerk(90) ? lerp(0, 0.5, (age - 70) / 30) : 0;
+      // 年齢リスクはU字型。幼少期は少し弱く、青壮年期がもっとも丈夫、70歳以降は年々高まる。
+      // そだちが高いほど軽減されるが、90/100でもゼロにはならない。
+      const ageRisk = age < 10 ? lerp(0.28, 0.04, age / 10) : age >= 70 ? lerp(0.06, 1.15, (age - 70) / 30) : 0;
+      const sodachiProtection = lerp(1, 0.55, state.sodachi / SODACHI_MAX);
+      const fromAge = ageRisk * sodachiProtection;
       raiseDeathMeter(fromNeglect + fromAge);
 
       // お世話が じゅうぶん いきとどいている あいだ(びょうきでなく、
@@ -4980,7 +4944,9 @@
         && state.energy >= 60
         && state.health >= 60;
       if (wellCared && state.deathMeter > 0) {
-        state.deathMeter = clamp(state.deathMeter - 2, 0, 100);
+        const age = currentAge();
+        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(1.4, 0.35, (age - 70) / 30) : 1.4;
+        state.deathMeter = clamp(state.deathMeter - recovery, 0, 100);
       }
 
       // 安定ボーナス - 4つの ステータスが そろって よく、びょうきでもなく、
@@ -7003,95 +6969,27 @@
   // ごほうびはミニゲーム大成功などで入手。一生のダメージである
   // おとろえを主に回復し、上位3種はさらにいのちも立て直す。
   function renderItemsRow(disableUse) {
-    const entries = RECOVERY_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
-    if (entries.length === 0) {
-      el.itemsRow.innerHTML = '';
-      return;
-    }
-    el.itemsRow.innerHTML = entries
-      .map(
-        (item) => `
-          <button class="item-btn ${item.tier === 'special' ? 'special' : ''}" data-item-id="${item.id}" title="${item.label} - ${item.desc}" ${disableUse ? 'disabled' : ''}>
-            <span class="item-emoji">${item.emoji}</span>
-            <span class="item-count">${state.items[item.id]}</span>
-          </button>
-        `
-      )
-      .join('');
+    const count = state.items.reward || 0;
+    el.itemsRow.innerHTML = count > 0
+      ? `<button class="item-btn special" data-item-id="reward" title="ごほうび - とくべつな体験につかえる" ${disableUse ? 'disabled' : ''}><span class="item-emoji">🎁</span><span class="item-count">${count}</span></button>`
+      : '';
   }
 
   function useItem(itemId) {
-    const count = state.items[itemId] || 0;
-    if (count <= 0) return;
-    const item = RECOVERY_ITEMS.find((it) => it.id === itemId);
-    if (!item) return;
-    // まんたんで なにも かわらない ときは、だまって 1こ きえないように
-    // ここで とめて、理由を ことばで つたえる
-    if (!recoveryWouldHelp(item)) {
-      setMessage(`${item.emoji}${item.label}は いま つかっても かわる ところが ない… とっておこう`);
-      render();
-      return;
-    }
-    state.items[itemId] = count - 1;
-    if (state.items[itemId] <= 0) delete state.items[itemId];
-
-    const potency = recoveryPotency();
-    const amount = (key) => Math.round((item.effects[key] || 0) * potency);
-    const changed = [];
-    const bump = (key, before, after) => {
-      const diff = Math.round(after - before);
-      if (diff > 0) changed.push(`${RECOVERY_EFFECT_LABELS[key]} +${diff}`);
-    };
-
-    for (const key of ['hunger', 'happiness', 'energy', 'health']) {
-      if (!item.effects[key]) continue;
-      const before = state[key];
-      state[key] = clamp(before + amount(key), 0, 100);
-      bump(key, before, state[key]);
-    }
-    if (item.effects.decline) {
-      const before = state.decline;
-      // applyDecline を とおす ことで、おとろえが 0を われて そだちが
-      // 二重に あがったり しない(applyDecline がわで まとめて 面倒を みる)
-      applyDecline(-amount('decline'));
-      const diff = Math.round(before - state.decline);
-      if (diff > 0) changed.push(`${RECOVERY_EFFECT_LABELS.decline} -${diff}`);
-    }
-    if (item.effects.life) {
-      const before = state.deathMeter;
-      state.deathMeter = clamp(before - amount('life'), 0, 100);
-      const diff = Math.round(before - state.deathMeter);
-      if (diff > 0) changed.push(`${RECOVERY_EFFECT_LABELS.life} +${diff}`);
-    }
-
-    // 「げんきに なった!」とだけ 出して なにが かわったか わからない、
-    // という むかしの メッセージは やめて、じっさいに うごいた ぶんだけを ならべる
-    const tierLabel = item.tier === 'special' ? '💫 ' : '';
-    setMessage(`${tierLabel}${item.emoji}${item.label}! ${changed.join(' / ')}`);
-    emotePet(item.tier === 'special' ? 'love' : 'happy');
-    saveState();
+    if (itemId !== 'reward' || !(state.items.reward > 0)) return;
+    setMessage('🎁 ごほうびは デートなどの とくべつな体験で つかえるよ');
     render();
   }
 
   el.itemsRow.addEventListener('click', (e) => {
     const btn = e.target.closest('.item-btn');
-    if (!btn || btn.disabled) return;
-    useItem(btn.dataset.itemId);
+    if (btn && !btn.disabled) useItem(btn.dataset.itemId);
   });
 
-  // あいてむ画面の「ごほうび」いちらんからも、もっていれば その場で つかえる。
-  // もっていない ものを タップした ときは、どうすれば もらえるかを つたえる
-  el.rewardItemGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.shop-item');
-    if (!btn) return;
-    const item = RECOVERY_ITEMS.find((it) => it.id === btn.dataset.id);
-    if (!item) return;
-    if (!(state.items[item.id] > 0)) {
-      setMessage(`${item.emoji}${item.label}は まだ もっていない。ミニゲームの 大成功や おたんじょうびで もらえるよ`);
-      render();
-      return;
-    }
-    useItem(item.id);
+  el.rewardItemGrid.addEventListener('click', () => {
+    if (state.items.reward > 0) setMessage('🎁 ごほうびを もっている! デートで とくべつな思い出に つかえるよ');
+    else setMessage('🎁 ごほうびは とてもレア。ミニゲームの大成功や人生の節目で たまに もらえるよ');
+    render();
   });
 
   // --- minigames (triggered by the play button) ---
@@ -14032,8 +13930,8 @@
     const isBad = clampedScore < 40;
     if (isGreat) {
       applyGrowth(14); applyDecline(-8);
-      const item = pickWeightedItem();
-      state.items[item.id] = (state.items[item.id] || 0) + 1;
+      const gotReward = Math.random() < 0.18;
+      if (gotReward) state.items.reward = (state.items.reward || 0) + 1;
       // スターバッジを そうびしていると、もらえる おかねが 4わり ふえる。
       // つかいきりアイテムの「ラッキーコイン」は、この ミニゲーム 1かいだけ
       // もらえる おかねを 2ばいにする
@@ -14042,7 +13940,7 @@
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost);
       state.lifetime.money += coins;
-      itemMessage = ` ごほうびに ${item.label}${item.emoji} と 💰${coins} を もらった!`;
+      itemMessage = gotReward ? ` ごほうびに 🎁 と 💰${coins} を もらった!` : ` 💰${coins} を もらった!`;
     } else if (clampedScore >= 40) {
       applyGrowth(7); applyDecline(-3);
     } else if (state.oneTimeBoosts.safetyNet) {
