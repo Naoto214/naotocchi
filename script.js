@@ -1721,21 +1721,21 @@
   //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
   //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
   const SHOP_ITEMS = [
-    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいの せいこうりつが すこし あがる' },
+    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいが すこし うまくいきやすくなる' },
     { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 60, desc: 'ごきげんが すこし へりにくい' },
     { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 60, desc: 'おなかが すこし へりにくい' },
     { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 70, desc: 'うんちが すこし たまりにくい' },
     { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 80, desc: 'びょうきに すこし なりにくい' },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの とくてんに すこし ボーナス' },
+    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの とくてんが すこし のびる' },
     { id: 'energy1', label: 'げんきバンド', emoji: '⚡', price: 100, desc: 'げんきが すこし へりにくい' },
     { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 110, desc: 'へんしんの ちからが すこし たまりやすい' },
-    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: 'たびの ごきげんボーナスが すこし ふえる' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: 'たびから かえったあとの ごきげんが すこし よくなる' },
     { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 130, desc: 'ねている ときの げんき回復が すこし ふえる' },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームで もらえる おかねが すこし ふえる' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームの あとに もらえる コインが すこし ふえる' },
     { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 170, desc: 'なかまの きずなが すこし へりにくい' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 190, desc: 'こいびとの なかよし度が すこし へりにくい' },
-    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'いのちへの ダメージを すこし おさえる' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'レアな ごほうびを ほんのすこし みつけやすくする' },
+    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'つらいことが あったとき、いのちが すこし へりにくい' },
+    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'めずらしい ごほうびに ほんのすこし であいやすくなる' },
   ];
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -3825,32 +3825,32 @@
     {
       id: 'punyu', emoji: '🫠', name: 'とけかけの ぷにゅ',
       vibe: 'キモかわ',
-      flavor: 'なにかが とけている。よく みると こっちを みている。というか さっきから ずっと みている…',
-      joined: 'ぷにゅが ぬるりと ついてきた。とくに せつめいは なかった',
+      flavor: 'なにかが とけている。目だけは はっきり こっちを 見ている。少しずつ 近づいている 気もする',
+      joined: '歩きだしたら、ぷにゅも ぬるっと ついてきた。止まると ぷにゅも 止まった',
     },
     {
       id: 'sekizou', emoji: '🗿', name: 'むひょうじょうの せきぞう',
       vibe: 'シュール・渋い',
       flavor: 'いしの ぞうが おかれている。うごく はずが ない。…はずなのに さっきと ばしょが ちがう',
-      joined: 'せきぞうが なかまに なった。はこんだ おぼえは ない',
+      joined: '帰ろうとしたら、せきぞうが さっきより 近くにいた。そのまま 家まで ついてきた',
     },
     {
       id: 'hakuchou', emoji: '🦢', name: 'こうごうしい はくちょう',
       vibe: '神々しい・美しい',
       flavor: 'しろい はくちょうが しずかに おりてきた。まわりの おとが すこし とおくなった き が する',
-      joined: 'はくちょうが そばに いてくれる ことに なった。なぜか せすじが のびる',
+      joined: 'はくちょうが となりを 歩きはじめた。歩幅を 合わせているのは こっちのほうだった',
     },
     {
       id: 'chameleon', emoji: '🦎', name: 'サングラスの カメレオン',
       vibe: 'おしゃれ・かっこいい',
       flavor: 'サングラスを かけた カメレオンが かべから はんぶん はえている。かくれる きは ないらしい',
-      joined: 'カメレオンが「よろしく」と いった。サングラスは とらなかった',
+      joined: 'カメレオンが「よろしく」と ひとことだけ 言った。サングラスの 奥は 最後まで 見えなかった',
     },
     {
       id: 'kinoko', emoji: '🍄', name: 'しゃべる きのこ',
       vibe: '意味不明・笑える',
       flavor: 'きのこが はえている。きのこが しゃべっている。「やあ」と いわれた',
-      joined: 'きのこが ついてきた。あるいて いる。きのこなのに',
+      joined: '「じゃ、いこっか」と きのこが 歩きだした。どうやって 歩いているかは 見ないことにした',
     },
   ];
 
@@ -4309,28 +4309,28 @@
   const LEGEND_ENCOUNTERS = [
     {
       id: 'gate', emoji: '⛩️', name: 'そらに うかぶ とりい', vibe: '神々しい',
-      flash: 'そらの まんなかに、おおきな とりいが しずかに うかんでいる',
-      story: 'とりいの むこうがわには なにも ない。なにも ないのに、たしかに 「むこうがわ」だった。しばらく みていたら、とりいの ほうが おじぎを した ような きが した',
+      flash: '見上げると、雲より ずっと下に とりいが ひとつ うかんでいる',
+      story: 'くぐれる 高さでは ないのに、なぜか 足が とまった。しばらく 見ていると、とりいが ほんの少し こちらへ かたむいた。風は なかった',
     },
     {
       id: 'stairs', emoji: '🪜', name: 'どこにも つながらない かいだん', vibe: '意味不明',
       flash: 'のはらの まんなかに、かいだんだけが たっている',
-      story: 'のぼっても のぼっても てっぺんに つかない。あきらめて おりたら、3だんしか なかった。だれかが「そういう ものだよ」と いった。だれも いなかった',
+      story: '何段 のぼったか わからなくなって、いったん おりた。地面から 見ると 3段しかない。もう一度 のぼる気には なれなかった',
     },
     {
       id: 'boss', emoji: '🦑', name: 'あやまりに きた だいおういか', vibe: '笑える',
       flash: 'とてつもなく おおきい いかが、なぜか ものすごく ていねいに おじぎを している',
-      story: '「このたびは まことに もうしわけ ございませんでした」と いかが いった。なんの ことか まったく わからない。ゆるしたら、すっきりした かおで かえって いった',
+      story: '「このたびは まことに もうしわけ ございませんでした」と いかが いった。何のことか 聞いても、もう一度 深く おじぎを するだけ。とりあえず「いいよ」と 言ったら 帰っていった',
     },
     {
       id: 'lamp', emoji: '🏮', name: 'よなかの あかり', vibe: '温かい',
       flash: 'まっくらな みちの さきに、ちいさな あかりが ひとつ ついている',
-      story: 'ちかづくと、しらない だれかが「おかえり」と いった。しらない ひとの はずなのに、その こえは しっていた。あかりは、こちらが とおりすぎるまで ずっと ついていた',
+      story: '近づくと、暗がりから「おかえり」と 聞こえた。だれも 見えない。通りすぎて 振り返ると、あかりだけが まだ そこに あった',
     },
     {
       id: 'mirror', emoji: '🪞', name: 'としを とった じぶん', vibe: '美しい・こわい',
       flash: 'みずたまりに、いまより ずっと としを とった じぶんが うつっている',
-      story: 'むこうの じぶんは、こちらを みて うれしそうに わらった。なにか いおうと したけど、なみが たって きえてしまった。わるい かおでは なかった。それだけは はっきり わかった',
+      story: 'みずたまりの 自分だけが 先に わらった。口が 何かを 言うように 動いたところで、水面が ゆれた。消える直前の 顔は、おだやかだった',
     },
   ];
 
@@ -4364,7 +4364,7 @@
     applyDecline(-25);
     pushLifeLog(legend.emoji, `${legend.name}に であった`);
     showStoryEvent({ emoji: legend.emoji, message: legend.flash });
-    setMessage(`${legend.emoji} ${legend.name}。${legend.story}(💰${coins} が おいて あった)`);
+    setMessage(`${legend.emoji} ${legend.name}。${legend.story} 帰ろうとしたら、足もとに 💰${coins} が 置かれていた。`);
     emotePet('love');
     saveState();
     render();
@@ -7550,10 +7550,10 @@
   // おすし(からさの ハザード)・ほし(宇宙テーマ)は バスケットの 見た目・
   // ハザードの しゅるいが 他と はっきり ちがうので べつエントリの まま のこした
   const CATCH_FOOD_THEMES = [
-    { title: 'おやつキャッチ!わるい ものは よけよう', basketEmoji: '🧺', goodItems: ['🍙', '🍎', '🍬', '🍇'], badItems: ['💩', '🪳', '🔪', '🔫'] },
-    { title: 'くだものキャッチ!くさった のは いらない', basketEmoji: '🧺', goodItems: ['🍓', '🍊', '🍑', '🍌'], badItems: ['🐛', '🦠', '🗑️', '☠️'] },
+    { title: 'おやつキャッチ!おいしいものだけ ひろおう', basketEmoji: '🧺', goodItems: ['🍙', '🍎', '🍬', '🍇'], badItems: ['💩', '🪳', '🧦', '🧼'] },
+    { title: 'くだものキャッチ!おいしそうなのを ひろおう', basketEmoji: '🧺', goodItems: ['🍓', '🍊', '🍑', '🍌'], badItems: ['🐛', '🦠', '🗑️', '🧽'] },
     { title: 'やさいキャッチ!むしは いやだよね', basketEmoji: '🧺', goodItems: ['🥕', '🥦', '🌽', '🍅'], badItems: ['🐛', '🐌', '🪱', '🕷️'] },
-    { title: 'おかしキャッチ!からい ものは にがて', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
+    { title: 'おかしキャッチ!からい ものは よけよう', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
   ];
   const CATCH_GAME_VARIANTS = [
     mg('catch-themed', randomThemeGame(makeCatchGame, [
@@ -7561,7 +7561,7 @@
       { title: 'おすしキャッチ!わさびは からいよ', basketEmoji: '🍽️', goodItems: ['🍣', '🍱', '🍤', '🍥'], badItems: ['🟢', '🔥', '🧨', '🐡'] },
       { title: 'ほしキャッチ!いんせきは あぶない', basketEmoji: '🛸', goodItems: ['⭐', '🌟', '✨', '🌠'], badItems: ['☄️', '🪨', '⚡', '🛰️'] },
       { title: 'コイン&キノコだいぼうけん!とげは キケン', basketEmoji: '🧢', goodItems: ['🍄', '🪙', '⭐', '🌼'], badItems: ['🐢', '💣', '🔥', '⚡'] },
-      { title: 'ダンジョンの たからさがし!トゲトゲは あぶない', basketEmoji: '🛡️', goodItems: ['💎', '💰', '🗝️', '🍯'], badItems: ['💀', '🦂', '🕷️', '☠️'] },
+      { title: 'ダンジョンの たからさがし!じゃまものは よけよう', basketEmoji: '🛡️', goodItems: ['💎', '💰', '🗝️', '🍯'], badItems: ['🕸️', '🦂', '🕷️', '🪨'] },
       { title: 'おちばキャッチ!ぬれはは よけよう', basketEmoji: '🧺', goodItems: ['🍁', '🍂', '🌰', '🍄'], badItems: ['🐛', '💧', '🕷️', '🦔'] },
     ])),
   ];
@@ -7676,7 +7676,7 @@
     mg('whack-themed', randomThemeGame(makeWhackGame, [
       ...WHACK_TARGET_THEMES,
       { title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' },
-      { title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' },
+      { title: 'とびだす ライバルファイターを タップ!', targetEmoji: '🤺' },
       { title: 'とびだす ほたるを つかまえよう!', targetEmoji: '🪰' },
     ])),
   ];
@@ -8028,13 +8028,13 @@
   }
 
   const QUIZ_GAME_VARIANTS = [
-    mg('quiz-all', makeQuizGame('all', 'なおとっちが はなしかけてきた')),
-    mg('quiz-normal', makeQuizGame('normal', 'なおとっちが「どうする？」と きいてきた')),
-    mg('quiz-serious', makeQuizGame('serious', 'なおとっちが しんけんな かおを している…')),
-    mg('quiz-adult', makeQuizGame('adult', 'なおとっちが おとなびた はなしを してきた')),
-    mg('quiz-silly', makeQuizGame('silly', 'へんな じょうきょう。でも ちゃんと かんがえよう')),
-    mg('quiz-romance', makeQuizGame('romance', 'なおとっちが きゅうに ロマンチックに なった')),
-    mg('quiz-touching', makeQuizGame('touching', 'きもちだけじゃ きめにくい はなし')),
+    mg('quiz-all', makeQuizGame('all', 'なおとっちが「ちょっと きいていい？」と こっちを みた')),
+    mg('quiz-normal', makeQuizGame('normal', 'なおとっちが「これ、どうする？」と きいてきた')),
+    mg('quiz-serious', makeQuizGame('serious', 'なおとっちが 少し まよってから 話しはじめた')),
+    mg('quiz-adult', makeQuizGame('adult', 'なおとっちが「こういうときってさ」と 話しはじめた')),
+    mg('quiz-silly', makeQuizGame('silly', 'なおとっちが「変な話なんだけど」と かなり変な話を はじめた')),
+    mg('quiz-romance', makeQuizGame('romance', 'なおとっちが 恋の話を しようとして、ちょっと 言いよどんだ')),
+    mg('quiz-touching', makeQuizGame('touching', 'なおとっちが「答え、ひとつじゃ ないかも」と つぶやいた')),
   ];
 
   // shared factory behind every memory-sequence minigame - only the title
