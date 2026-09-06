@@ -993,6 +993,10 @@
       dateCooldownTicks: 0,
       // この人生で デートに いった かいすう(人生記録カードに のる)
       datesThisLife: 0,
+      // けっこんした ときの ねんれいと、すでに おいわいした きねんび。
+      // 1/10/25/50周年だけを人生の大きな節目として扱う
+      marriageAge: null,
+      marriageMilestonesSeen: [],
       // そだち90「でんせつの であい」は 1つの 人生で 1かいだけ おきる
       legendMet: false,
       // この子の 人生の きろく
@@ -3405,6 +3409,8 @@
     if (p.bondCount < marriageBondThreshold()) return false;
     p.married = true;
     p.bondCount = 0;
+    state.marriageAge = currentAge();
+    state.marriageMilestonesSeen = [];
     return true;
   }
 
@@ -3862,39 +3868,75 @@
     el.dateMovieSkipBtn.classList.add('hidden');
   }
 
-  function playDateMovie(plan, partner, region, traitLine, closing) {
+  // ふつうのデートではムービーを流さない。ムービーは結婚など人生の
+  // 大きな節目のために取っておき、毎回見せて特別感を薄めない
+  function finishOrdinaryDate() {
     clearDateMovieTimers();
+    dateOpen = false;
+    el.dateOverlay.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+  }
+
+  const MARRIAGE_MILESTONES = [
+    { years: 1, icon: '💐', title: 'はじめての けっこんきねんび' },
+    { years: 10, icon: '🎀', title: 'けっこん 10しゅうねん' },
+    { years: 25, icon: '🥈', title: 'ぎんこんしき' },
+    { years: 50, icon: '🥇', title: 'きんこんしき' },
+  ];
+
+  function playMarriageMovie(milestone) {
+    if (!state.partner || !state.partner.married) return;
+    clearDateMovieTimers();
+    dateOpen = true;
+    el.dateOverlay.classList.remove('hidden');
     el.dateChooser.classList.add('hidden');
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.dataset.plan = plan.id;
-    el.dateMoviePlace.textContent = `${region.emoji} ${region.label}　${plan.emoji} ${plan.label}`;
+    el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
+    el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
-    el.dateMoviePartner.textContent = partner.emoji || '💞';
-
-    const beats = [
-      plan.line,
-      `${partner.label}は ${traitLine}。`,
-      closing,
-    ];
+    el.dateMoviePartner.textContent = state.partner.emoji || '💞';
+    const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+    const beats = milestone.years >= 25
+      ? [
+          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
+          hadMismatch ? 'すれちがった ひも あった。でも、ふたりで ここまで きた。' : 'いろんな おもいでを、ふたりで かさねてきた。',
+          milestone.years >= 50 ? '50ねん、いっしょに いられたね。これからも よろしくね。' : 'これからも、いっしょに あるいていこう。',
+        ]
+      : [
+          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
+          milestone.years === 1 ? 'はじめての けっこんきねんびを、ふたりで むかえた。' : 'あのひから、もう 10ねん。いろんな ことが あったね。',
+          'これからも よろしくね。',
+        ];
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat');
+    }, 1200));
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat');
+    }, 2500));
+    dateMovieTimers.push(setTimeout(finishDateMovie, 3900));
+  }
 
-    dateMovieTimers.push(setTimeout(() => {
-      el.dateMovieCaption.classList.remove('beat');
-      void el.dateMovieCaption.offsetWidth;
-      el.dateMovieCaption.textContent = beats[1];
-      el.dateMovieCaption.classList.add('beat');
-    }, 1050));
-    dateMovieTimers.push(setTimeout(() => {
-      el.dateMovieCaption.classList.remove('beat');
-      void el.dateMovieCaption.offsetWidth;
-      el.dateMovieCaption.textContent = beats[2];
-      el.dateMovieCaption.classList.add('beat');
-    }, 2150));
-    dateMovieTimers.push(setTimeout(finishDateMovie, 3300));
+  function checkMarriageMilestones(prevAge, age) {
+    if (!state.partner || !state.partner.married || state.marriageAge == null) return;
+    if (!Array.isArray(state.marriageMilestonesSeen)) state.marriageMilestonesSeen = [];
+    for (const milestone of MARRIAGE_MILESTONES) {
+      if (state.marriageMilestonesSeen.includes(milestone.years)) continue;
+      const targetAge = state.marriageAge + milestone.years;
+      if (prevAge < targetAge && age >= targetAge) {
+        state.marriageMilestonesSeen.push(milestone.years);
+        pushLifeLog(milestone.icon, `${state.partner.label}と ${milestone.title}を むかえた`);
+        playMarriageMovie(milestone);
+        break;
+      }
+    }
   }
 
   function goOnDate(plan) {
@@ -3932,7 +3974,7 @@
     setMessage(`💞 ${partner.label}と ${plan.label}デートを たのしんだ`);
     emotePet('love');
     saveState();
-    playDateMovie(plan, partner, region, traitLine, closing);
+    finishOrdinaryDate();
     render();
   }
 
@@ -4737,7 +4779,10 @@
     if (!state.infinite) {
       const prevAge = currentAge();
       state.ageTicks += 1;
-      if (currentAge() !== prevAge && currentAge() < GOAL_AGE) onAgeChanged(prevAge);
+      if (currentAge() !== prevAge && currentAge() < GOAL_AGE) {
+        onAgeChanged(prevAge);
+        checkMarriageMilestones(prevAge, currentAge());
+      }
       if (currentAge() >= GOAL_AGE) {
         state.stageIndex = stageForAge(GOAL_AGE);
         state.lifetime.maxAgeReached = GOAL_AGE;
