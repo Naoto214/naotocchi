@@ -10115,33 +10115,184 @@
   // --- 名作ジャンルへのオマージュ: 固有キャラ/名称は使わず遊びの核だけ再構成 ---
   function makeCreatureCaptureGame(){
     return {start(container,onComplete){
-      let balls=5,caught=0,running=true;
-      container.innerHTML=`<div class="mg-header"><span id="capBalls">カプセル: 5</span><span id="capCaught">つかまえた: 0</span></div><div class="mg-title">3D モンスターキャッチ!ねらって カプセルを なげよう</div><div class="mg-capture3d" id="capScene"><div class="mg-capture-monster" id="capMonster">👾</div><div class="mg-capture-reticle" id="capAim">◎</div></div><input id="capSlider" type="range" min="10" max="90" value="50"><button class="mg-tap-btn" id="capThrow">なげる!</button>`;
-      const slider=container.querySelector('#capSlider'),monster=container.querySelector('#capMonster'),aimEl=container.querySelector('#capAim');
-      const monsters=['👾','👻','🐲','🦖','🦄'];let target=25+Math.random()*50;
-      monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];monster.style.left=target+'%';
-      slider.oninput=()=>aimEl.style.left=slider.value+'%';
-      container.querySelector('#capThrow').onclick=()=>{if(!running||balls<=0)return;balls--;const d=Math.abs(Number(slider.value)-target);if(d<11){caught++;monster.classList.add('caught');setTimeout(()=>{monster.classList.remove('caught');target=20+Math.random()*60;monster.style.left=target+'%';monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];},300);}container.querySelector('#capBalls').textContent='カプセル: '+balls;container.querySelector('#capCaught').textContent='つかまえた: '+caught;if(!balls){running=false;setTimeout(()=>onComplete(clamp(25+caught*15,25,100)),450);}};
+      const difficulty=ageDifficulty();
+      const DURATION_MS=11000;
+      const monsters=['👾','👻','🐲','🦖','🦄'];
+      let balls=6,caught=0,throws=0,running=true,targetX=50,targetY=42,targetVX=0,targetVY=0;
+      let aimX=50,aimY=65,dragging=false,dragStart=null,rafId,last=null;
+      const startTime=performance.now()+MG_ACTION_START_GRACE_MS;
+
+      container.innerHTML=`
+        <div class="mg-header"><span id="capTimer">のこり: 11s</span><span id="capBalls">カプセル 6　つかまえた 0</span></div>
+        <div class="mg-title">3D モンスターキャッチ!うごきを よんで スワイプで なげよう</div>
+        <div class="mg-capture3d" id="capScene">
+          <div class="mg-capture-monster" id="capMonster">👾</div>
+          <div class="mg-capture-reticle" id="capAim">◎</div>
+          <div id="capBall" style="position:absolute;left:50%;bottom:6%;font-size:25px;transform:translateX(-50%);">⚪</div>
+        </div>
+        <div class="mg-hint" id="capHint">画面を ドラッグして ねらう → うえにスワイプして なげる!</div>`;
+      const scene=container.querySelector('#capScene'),monster=container.querySelector('#capMonster'),aim=container.querySelector('#capAim');
+      const ball=container.querySelector('#capBall'),timer=container.querySelector('#capTimer'),status=container.querySelector('#capBalls'),hint=container.querySelector('#capHint');
+
+      function respawn(){
+        targetX=18+Math.random()*64;targetY=25+Math.random()*30;
+        const speed=.016+Math.random()*(.012+difficulty*.012);
+        targetVX=(Math.random()<.5?-1:1)*speed;targetVY=(Math.random()<.5?-1:1)*speed*.5;
+        monster.textContent=monsters[Math.floor(Math.random()*monsters.length)];
+        monster.style.left=targetX+'%';monster.style.top=targetY+'%';
+      }
+      function setAim(e){
+        const r=scene.getBoundingClientRect();
+        aimX=clamp((e.clientX-r.left)/r.width*100,8,92);
+        aimY=clamp((e.clientY-r.top)/r.height*100,12,88);
+        aim.style.left=aimX+'%';aim.style.top=aimY+'%';
+      }
+      scene.addEventListener('pointerdown',(e)=>{if(!running)return;dragging=true;dragStart={x:e.clientX,y:e.clientY};setAim(e);});
+      scene.addEventListener('pointermove',(e)=>{if(dragging)setAim(e);});
+      scene.addEventListener('pointerup',(e)=>{
+        if(!dragging||!running||performance.now()<startTime)return;
+        dragging=false;setAim(e);
+        const dy=dragStart.y-e.clientY;
+        if(dy<28){hint.textContent='うえに スワイプして カプセルを なげよう!';return;}
+        throwBall();
+      });
+      scene.addEventListener('pointercancel',()=>{dragging=false;});
+
+      function throwBall(){
+        if(!running||balls<=0)return;
+        balls--;throws++;
+        const d=Math.hypot((aimX-targetX)*1.05,(aimY-targetY)*1.25);
+        ball.style.left=aimX+'%';ball.style.bottom=(100-aimY)+'%';ball.style.transform='translate(-50%,50%) scale(.45)';
+        const great=d<8,hit=d<15;
+        if(hit){
+          const catchChance=great?.92:.62;
+          monster.classList.add('caught');
+          if(Math.random()<catchChance){caught++;hint.textContent=great?'✨ ナイススロー!つかまえた!':'つかまえた!';setTimeout(respawn,320);}
+          else hint.textContent='あたった!でも にげられた!';
+          setTimeout(()=>monster.classList.remove('caught'),300);
+        }else hint.textContent='おしい!モンスターの うごきを よもう';
+        status.textContent=`カプセル ${balls}　つかまえた ${caught}`;
+        setTimeout(()=>{ball.style.left='50%';ball.style.bottom='6%';ball.style.transform='translateX(-50%)';},220);
+        if(!balls)setTimeout(()=>end(),420);
+      }
+      function frame(now){
+        if(!running)return;
+        if(now>=startTime){
+          if(last==null)last=now;const dt=Math.min(40,now-last);last=now;
+          targetX+=targetVX*dt;targetY+=targetVY*dt;
+          if(targetX<14||targetX>86){targetVX*=-1;targetX=clamp(targetX,14,86);}
+          if(targetY<20||targetY>58){targetVY*=-1;targetY=clamp(targetY,20,58);}
+          monster.style.left=targetX+'%';monster.style.top=targetY+'%';
+          const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';
+          if(rem<=0){end();return;}
+        }
+        rafId=requestAnimationFrame(frame);
+      }
+      function end(){
+        if(!running)return;running=false;cancelAnimationFrame(rafId);
+        const accuracy=throws?caught/throws:0;
+        onComplete(clamp(Math.round(35+caught*13+accuracy*25),20,100));
+      }
+      respawn();rafId=requestAnimationFrame(frame);
     }};
   }
   const CREATURE_CAPTURE_VARIANTS=[mg('creature-capture-3d',makeCreatureCaptureGame())];
 
   function makeAdventureFieldGame(){
     return {start(container,onComplete){
-      const W=7,H=6;let x=1,y=1,hp=3,gems=0,moves=0,done=false;const walls=new Set(['3,1','3,2','1,3','5,3','2,4']);const gemSet=new Set(['5,1','2,2','4,4']);const enemy={x:5,y:4};
-      container.innerHTML=`<div class="mg-header"><span id="advHp">❤️❤️❤️</span><span id="advGem">💎 0/3</span></div><div class="mg-title">ちいさな冒険!フィールドを探索して 宝をあつめて出口へ</div><div class="mg-adventure-field" id="advField"></div><div class="mg-dpad"><button data-d="up">▲</button><div><button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button></div></div>`;
-      const field=container.querySelector('#advField');function draw(){let html='';for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){const k=xx+','+yy;let e='·';if(walls.has(k))e='🌲';if(gemSet.has(k))e='💎';if(xx===enemy.x&&yy===enemy.y)e='👹';if(xx===6&&yy===5)e='🏰';if(xx===x&&yy===y)e=currentSprite();html+=`<span>${e}</span>`;}field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(hp);container.querySelector('#advGem').textContent='💎 '+gems+'/3';}
-      container.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{if(done)return;const d=b.dataset.d,dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0,nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H||walls.has(nx+','+ny))return;x=nx;y=ny;moves++;const k=x+','+y;if(gemSet.delete(k))gems++;if(x===enemy.x&&y===enemy.y){hp--;enemy.x=Math.max(0,enemy.x-1);if(hp<=0){done=true;draw();setTimeout(()=>onComplete(20),350);return;}}if(x===6&&y===5){done=true;draw();setTimeout(()=>onComplete(clamp(55+gems*15-moves,30,100)),350);return;}draw();});draw();
+      const W=8,H=7;let x=1,y=1,hp=3,gems=0,moves=0,done=false,turn=0;
+      const walls=new Set(['3,1','3,2','1,3','5,3','6,3','2,5','4,5']);
+      const gemSet=new Set(['6,1','2,2','4,4','6,5']);
+      const potionSet=new Set(['1,5']);
+      const enemies=[{x:6,y:4},{x:4,y:2}];
+      container.innerHTML=`
+        <div class="mg-header"><span id="advHp">❤️❤️❤️</span><span id="advGem">💎 0/4</span></div>
+        <div class="mg-title">ちいさな冒険!宝を あつめて てきを かわし 出口へ</div>
+        <div class="mg-adventure-field" id="advField"></div>
+        <div class="mg-hint" id="advHint">💎を集めるほど高得点。🧪はHP回復。👹は動くよ!</div>
+        <div class="mg-dpad"><button data-d="up">▲</button><div><button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button></div></div>`;
+      const field=container.querySelector('#advField'),hint=container.querySelector('#advHint');
+      const key=(a,b)=>a+','+b;
+      function occupiedByEnemy(xx,yy){return enemies.some(en=>en.x===xx&&en.y===yy);}
+      function moveEnemies(){
+        enemies.forEach(en=>{
+          const opts=[[1,0],[-1,0],[0,1],[0,-1]]
+            .map(([dx,dy])=>({x:en.x+dx,y:en.y+dy}))
+            .filter(p=>p.x>=0&&p.y>=0&&p.x<W&&p.y<H&&!walls.has(key(p.x,p.y))&&!(p.x===7&&p.y===6));
+          opts.sort((a,b)=>(Math.abs(a.x-x)+Math.abs(a.y-y))-(Math.abs(b.x-x)+Math.abs(b.y-y)));
+          const chosen=Math.random()<.72?opts[0]:opts[Math.floor(Math.random()*opts.length)];
+          if(chosen){en.x=chosen.x;en.y=chosen.y;}
+        });
+      }
+      function checkEnemyHit(){
+        if(occupiedByEnemy(x,y)){hp--;hint.textContent='👹に ぶつかった!HP -1';enemies.forEach(en=>{if(en.x===x&&en.y===y){en.x=Math.max(0,en.x-1);}});return true;}return false;
+      }
+      function draw(){
+        let html='';
+        for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+          const k=key(xx,yy);let e='·';
+          if(walls.has(k))e='🌲';else if(gemSet.has(k))e='💎';else if(potionSet.has(k))e='🧪';
+          if(occupiedByEnemy(xx,yy))e='👹';if(xx===7&&yy===6)e='🏰';if(xx===x&&yy===y)e=currentSprite();
+          html+=`<span>${e}</span>`;
+        }
+        field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#advGem').textContent='💎 '+gems+'/4';
+      }
+      function finish(score,msg){if(done)return;done=true;hint.textContent=msg;draw();setTimeout(()=>onComplete(clamp(score,20,100)),450);}
+      container.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{
+        if(done)return;const d=b.dataset.d,dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0;
+        const nx=x+dx,ny=y+dy;if(nx<0||ny<0||nx>=W||ny>=H||walls.has(key(nx,ny))){hint.textContent='そこは すすめない!';return;}
+        x=nx;y=ny;moves++;turn++;
+        const k=key(x,y);if(gemSet.delete(k)){gems++;hint.textContent='💎 ゲット!';}
+        if(potionSet.delete(k)){hp=Math.min(3,hp+1);hint.textContent='🧪 HPかいふく!';}
+        checkEnemyHit();
+        if(hp<=0){finish(20,'ちからつきた…');return;}
+        if(x===7&&y===6){finish(52+gems*13-Math.max(0,moves-18),'🏰 出口に ついた!');return;}
+        if(turn%2===0){moveEnemies();checkEnemyHit();if(hp<=0){finish(20,'てきに つかまった…');return;}}
+        draw();
+      });draw();
     }};
   }
   const ADVENTURE_FIELD_VARIANTS=[mg('adventure-field',makeAdventureFieldGame())];
 
   function makeRetroPetGame(){
     return {start(container,onComplete){
-      let hunger=2,happy=2,clean=1,steps=0,done=false;
-      container.innerHTML=`<div class="mg-title">レトロ育成ゲームを 操作して お世話ミッション!</div><div class="mg-retropet"><div class="mg-retropet-screen"><div id="rpStats"></div><div class="mg-retropet-creature">◉ᴥ◉</div><div id="rpMsg">ぜんぶ 3にしよう!</div></div><div class="mg-retropet-buttons"><button data-a="food">🍚</button><button data-a="play">🎾</button><button data-a="clean">🧹</button></div></div>`;
-      const stats=container.querySelector('#rpStats'),msg=container.querySelector('#rpMsg');function draw(){stats.textContent=`🍚${hunger}/3　😊${happy}/3　✨${clean}/3`;if(hunger>=3&&happy>=3&&clean>=3&&!done){done=true;msg.textContent='おせわ かんりょう!';setTimeout(()=>onComplete(clamp(100-steps*5,50,100)),400);}}
-      container.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{if(done)return;steps++;if(b.dataset.a==='food')hunger=Math.min(3,hunger+1);if(b.dataset.a==='play')happy=Math.min(3,happy+1);if(b.dataset.a==='clean')clean=Math.min(3,clean+1);draw();});draw();
+      const DURATION_MS=12000;let hunger=2,happy=1,clean=2,poop=0,steps=0,done=false,rafId,lastDecay=performance.now();
+      const startTime=performance.now()+MG_ACTION_START_GRACE_MS;
+      container.innerHTML=`
+        <div class="mg-header"><span id="rpTimer">のこり: 12s</span><span id="rpScore">おせわ 0</span></div>
+        <div class="mg-title">レトロ育成ゲーム!ようすを見て いちばん必要な おせわをしよう</div>
+        <div class="mg-retropet"><div class="mg-retropet-screen"><div id="rpStats"></div><div class="mg-retropet-creature" id="rpCreature">◉ᴥ◉</div><div id="rpMsg">げんきに してあげよう!</div></div>
+        <div class="mg-retropet-buttons"><button data-a="food">🍚</button><button data-a="play">🎾</button><button data-a="clean">🧹</button><button data-a="pet">🤲</button></div></div>`;
+      const stats=container.querySelector('#rpStats'),msg=container.querySelector('#rpMsg'),creature=container.querySelector('#rpCreature'),timer=container.querySelector('#rpTimer'),scoreEl=container.querySelector('#rpScore');
+      function needScore(){return hunger+happy+clean-poop*2;}
+      function draw(){
+        stats.textContent=`🍚${hunger}/3　😊${happy}/3　✨${clean}/3　💩${poop}`;
+        scoreEl.textContent='おせわ '+Math.max(0,needScore());
+        creature.textContent=poop?'◉︵◉':(hunger<=1||happy<=1?'◉﹏◉':'◉ᴥ◉');
+      }
+      function decay(){
+        const choices=['hunger','happy','clean'];const k=choices[Math.floor(Math.random()*choices.length)];
+        if(k==='hunger')hunger=Math.max(0,hunger-1);if(k==='happy')happy=Math.max(0,happy-1);if(k==='clean')clean=Math.max(0,clean-1);
+        if(Math.random()<.38)poop=Math.min(2,poop+1);msg.textContent=poop?'💩した!そうじしてあげよう':'ようすが かわった!';draw();
+      }
+      container.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{
+        if(done||performance.now()<startTime)return;steps++;const a=b.dataset.a;
+        if(a==='food'){hunger=Math.min(3,hunger+1);if(Math.random()<.3)poop=Math.min(2,poop+1);msg.textContent='🍚 おなかいっぱい!';}
+        if(a==='play'){happy=Math.min(3,happy+1);hunger=Math.max(0,hunger-1);msg.textContent='🎾 たのしそう!でも おなかへった';}
+        if(a==='clean'){if(poop>0)poop--;clean=Math.min(3,clean+1);msg.textContent='🧹 きれいになった!';}
+        if(a==='pet'){happy=Math.min(3,happy+1);msg.textContent='🤲 なでなで!';}
+        draw();
+        if(hunger===3&&happy===3&&clean===3&&poop===0){done=true;msg.textContent='✨ げんきいっぱい!おせわ大成功';setTimeout(()=>onComplete(clamp(100-steps*3,60,100)),450);}
+      });
+      function frame(now){
+        if(done)return;if(now>=startTime){
+          if(now-lastDecay>3200){lastDecay=now;decay();}
+          const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';
+          if(rem<=0){done=true;const score=clamp(Math.round(35+needScore()*7-steps),20,95);msg.textContent='おせわ しゅうりょう!';setTimeout(()=>onComplete(score),350);return;}
+        }
+        rafId=requestAnimationFrame(frame);
+      }
+      draw();rafId=requestAnimationFrame(frame);
     }};
   }
   const RETRO_PET_VARIANTS=[mg('retro-pet-care',makeRetroPetGame())];
@@ -10814,12 +10965,30 @@
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
     'chase', 'rpg', 'shooter', 'breakout', 'miniEscape', 'miniPoker',
-    'swipeThrow', 'road', 'dragDecorate', 'stealth', 'comedyStealth',
-    'cuteHorror', 'fishing', 'downhill', 'surfing', 'fight', 'runner',
-    'targetAim', 'sportsSwing',
+    'swipeThrow', 'road', 'dragDecorate', 'stealth',
+    'fishing', 'downhill', 'surfing', 'fight',
+    'targetAim', 'sportsSwing', 'creatureCapture', 'adventureField',
+    'retroPet', 'firstPersonDungeon', 'perspective3d',
+  ]);
+
+  // プレイテストで「当たり」と判断したゲームは、単に並び順を少し前へ
+  // 動かすだけでは体感差が小さいため、1周のシャッフルバッグに追加チケットを
+  // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
+  // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
+  const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'chase-themed',
+    'breakout-classic',
+    'rpg-themed',
+    'fight-themed',
+    'fp-dungeon',
+    'creature-capture-3d',
+    'adventure-field',
+    'retro-pet-care',
+    'miniEscape-themed',
   ]);
 
   function minigameFunWeight(game) {
+    if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) return 1.55;
     const category = minigameCategoryOf.get(game);
     return FEATURED_MINIGAME_CATEGORIES.has(category) ? 1.22 : 1;
   }
@@ -10842,6 +11011,19 @@
     });
     weighted.sort((a, b) => a.key - b.key);
     minigameQueue = weighted.map((w) => w.i);
+
+    // 「特に面白い」ゲームだけ追加チケットを1枚。元の1枚は必ず残るので、
+    // 全体の多様性を維持したまま、およそ2倍の頻度で遭遇できる。
+    // 未プレイ優遇・地域/季節優遇と競合しないよう、追加チケットも同じ
+    // キューに混ぜてから軽くシャッフルする。
+    const spotlightTickets = [];
+    currentMinigamePool.forEach((game, i) => {
+      if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) spotlightTickets.push(i);
+    });
+    for (const ticket of spotlightTickets) {
+      const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));
+      minigameQueue.splice(insertAt, 0, ticket);
+    }
     // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
     // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
     // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
@@ -10921,6 +11103,19 @@
     }
     if (regionArrivalBoostLeft > 0) regionArrivalBoostLeft -= 1;
     if (seasonArrivalBoostLeft > 0) seasonArrivalBoostLeft -= 1;
+
+    // 追加チケットで同じゲームが連続しないよう、次が前回と同一なら
+    // 近くにある別ゲームと入れ替える。出現率は上げても「またこれか」は防ぐ。
+    let immediateIdx = minigameQueue.length - 1;
+    if (immediateIdx > 0 && currentMinigamePool[minigameQueue[immediateIdx]] === lastMinigame) {
+      const lookbackLimit = Math.max(0, minigameQueue.length - 10);
+      for (let lookback = immediateIdx - 1; lookback >= lookbackLimit; lookback--) {
+        if (currentMinigamePool[minigameQueue[lookback]] !== lastMinigame) {
+          [minigameQueue[lookback], minigameQueue[immediateIdx]] = [minigameQueue[immediateIdx], minigameQueue[lookback]];
+          break;
+        }
+      }
+    }
 
     // おなじ ジャンル(カテゴリ)が 3かい れんぞくで 出てしまいそうなら、
     // すぐ ちかく(=もうすぐ 出てくる ところ)に ちがう ジャンルが
