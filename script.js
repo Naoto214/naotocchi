@@ -1357,6 +1357,13 @@
       if ((Number(merged.lifetime.clears) || 0) <= 0 && Array.isArray(merged.lifetime.endingTiersReached)) {
         merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== 0);
       }
+      // 旧版で購入式だった「なおとの〜」を、達成報酬式へ移行する。
+      if (!Array.isArray(merged.lifetime.ownedNaotoItems)) merged.lifetime.ownedNaotoItems = [];
+      NAOTO_ITEMS.forEach((item) => {
+        if (merged.lifetime.endingTiersReached.includes(item.unlockTier) && !merged.lifetime.ownedNaotoItems.includes(item.id)) {
+          merged.lifetime.ownedNaotoItems.push(item.id);
+        }
+      });
 
       // PR #98 より前から けっこんしている セーブには marriageAge がない。
       // lifeLog の「○さい ... けっこんした」を優先して復元する。記録がない
@@ -1741,14 +1748,26 @@
   // unlockTier は isThemeUnlocked() と おなじ フィールド名を つかって
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
-    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', price: 30000, unlockTier: 0, desc: 'ようしょうきの いのちの リスクを すこし やわらげる' },
-    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', price: 35000, unlockTier: 1, desc: 'たびで ときどき ふしぎな できごとに であえる' },
-    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', price: 50000, unlockTier: 2, desc: 'とくべつなデートに ここだけの ことばが くわわる' },
-    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', price: 80000, unlockTier: 3, desc: 'おたのしみを つかったとき、ときどき とくべつな リアクションが おきる' },
+    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', unlockTier: 0, desc: 'ようしょうきの いのちの リスクを すこし やわらげる' },
+    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', unlockTier: 1, desc: 'たびで ときどき ふしぎな できごとに であえる' },
+    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', unlockTier: 2, desc: 'とくべつなデートに ここだけの ことばが くわわる' },
+    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 3, desc: 'おたのしみを つかったとき、ときどき とくべつな リアクションが おきる' },
   ];
 
   function hasNaotoItem(id) {
     return state.lifetime.ownedNaotoItems.includes(id);
+  }
+
+  // 「なおとの〜」はショップ商品ではなく、対応するクリア段階の達成報酬。
+  // 条件を満たしたら自動で所持扱いにし、コインでは購入させない。
+  function syncNaotoRewardItems() {
+    if (!state.lifetime || !Array.isArray(state.lifetime.endingTiersReached)) return;
+    if (!Array.isArray(state.lifetime.ownedNaotoItems)) state.lifetime.ownedNaotoItems = [];
+    NAOTO_ITEMS.forEach((item) => {
+      if (state.lifetime.endingTiersReached.includes(item.unlockTier) && !state.lifetime.ownedNaotoItems.includes(item.id)) {
+        state.lifetime.ownedNaotoItems.push(item.id);
+      }
+    });
   }
 
   // NAOTO_ITEMS の ロック画面(renderNaotoItemGrid)で つかう、tier ごとの
@@ -4429,6 +4448,7 @@
     qualifyingEndingTiers().forEach((t) => {
       if (!state.lifetime.endingTiersReached.includes(t)) state.lifetime.endingTiersReached.push(t);
     });
+    syncNaotoRewardItems();
     if (dexComplete && !state.lifetime.dexCleared) {
       state.lifetime.dexCleared = true;
       grandGoalPending = 'dex';
@@ -6353,30 +6373,29 @@
   }
 
   // 「なおとの〜」でんせつアイテム: unlockTier に とどいていない あいだは
-  // ロック表示(？？？)、とどいていれば ねだん/こうにゅうずみ表示にする。
+  // ロック表示(？？？)、とどいたら 自動でもらえる。
   // SHOP_ITEMS と ちがい そうび/かいじょの きがえは なく、なんこ もっていても いい
   function renderNaotoItemGrid() {
+    syncNaotoRewardItems();
     el.naotoItemGrid.innerHTML = NAOTO_ITEMS.map((item) => {
       const unlocked = state.lifetime.endingTiersReached.includes(item.unlockTier);
-      const owned = hasNaotoItem(item.id);
       if (!unlocked) {
         return `
           <button type="button" class="shop-item" disabled data-id="${item.id}">
             <span class="shop-item-emoji">🔒</span>
             <span class="shop-item-label">？？？</span>
-            <span class="shop-item-desc">${ENDING_TIER_ICONS[item.unlockTier]} ${ENDING_TIER_UNLOCK_LABELS[item.unlockTier]}を たっせいすると 解放</span>
+            <span class="shop-item-desc">${ENDING_TIER_ICONS[item.unlockTier]} ${ENDING_TIER_UNLOCK_LABELS[item.unlockTier]}を たっせいすると もらえる</span>
             <span class="shop-item-status"></span>
           </button>
         `;
       }
-      const statusText = owned ? 'こうにゅうずみ' : `💰${item.price}`;
       return `
-        <button type="button" class="shop-item ${owned ? 'equipped owned' : ''}" data-id="${item.id}">
-          <span class="shop-item-badge">${owned ? '✔️' : ''}</span>
+        <button type="button" class="shop-item equipped owned" disabled data-id="${item.id}">
+          <span class="shop-item-badge">✔️</span>
           <span class="shop-item-emoji">${item.emoji}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
-          <span class="shop-item-status">${statusText}</span>
+          <span class="shop-item-status">たっせいほうしゅう</span>
         </button>
       `;
     }).join('');
@@ -6385,22 +6404,9 @@
   // こうにゅうすれば それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS
   // の ように そうび/かいじょを きりかえる ものではないので、こうにゅう
   // ずみなら それ以上 なにも おきない ボタンに なる)
-  function buyNaotoItem(id) {
-    const item = NAOTO_ITEMS.find((it) => it.id === id);
-    if (!item) return;
-    if (!state.lifetime.endingTiersReached.includes(item.unlockTier)) return;
-    if (hasNaotoItem(id)) return;
-    if (state.lifetime.money < item.price) {
-      setMessage('おかねが たりない…');
-      render();
-      return;
-    }
-    state.lifetime.money -= item.price;
-    state.lifetime.ownedNaotoItems.push(id);
-    setMessage(`${item.label}を てにいれた!${item.emoji} ${item.desc}`);
-    emotePet('love');
-    saveState();
-    render();
+  function buyNaotoItem() {
+    // なおとのアイテムは購入しない。クリア条件を満たすと自動でもらえる。
+    return;
   }
 
   // みこうにゅうなら おかねが たりれば こうにゅうして そのまま そうび、
@@ -14825,10 +14831,8 @@
     buyOrEquipShopItem(btn.dataset.id);
   });
 
-  el.naotoItemGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.shop-item');
-    if (!btn || btn.disabled) return;
-    buyNaotoItem(btn.dataset.id);
+  el.naotoItemGrid.addEventListener('click', () => {
+    // 達成報酬なので購入操作はない。
   });
 
   el.pickerGrid.addEventListener('click', (e) => {
