@@ -10781,19 +10781,12 @@
   }
 
   // 地域ごとの あそび。一般プールとは別に地域らしいテーマを足す。
-  // 以前は各地域4〜5本をそろえていたが、単純な連打/タップ系が増えすぎて
-  // 面白いゲームを埋もれさせていたため、体験の違いがある2〜3本へ整理した。
+  // 同じ「左右に動いて落下物を拾う」キャッチ系は一般プールの1本へ集約。
+  // 地域側は釣り・滑走・ロード・積み上げなど、操作感が変わるものだけ残す。
   const REGION_MINIGAMES = {
     // 地域ゲームは「数をそろえる」より、その土地で遊ぶ意味があるものを優先。
     // 単純な連打/出現物タップの水増しは削り、地域ごと2〜3本の印象が違う遊びに絞る。
-    home: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'せんたくもの キャッチ!どろは いやだ',
-        basketEmoji: '🧺',
-        goodItems: ['👕', '🧦', '🩳', '👖'],
-        badItems: ['💩', '🟤', '🐛', '🕸️'],
-      }) },
-    ],
+    home: [],
     sea: [
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
@@ -10813,14 +10806,7 @@
         badItems: ['🐦', '🚧', '🗑️', '⚠️'],
       }) },
     ],
-    countryside: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'はたけの しゅうかく!がいちゅうは よけて',
-        basketEmoji: '🧺',
-        goodItems: ['🌾', '🍆', '🎃', '🧅'],
-        badItems: ['🐀', '🦗', '🐜', '🦠'],
-      }) },
-    ],
+    countryside: [],
     forest: [
       { category: 'stack', game: makeStackGame({
         title: 'きのみタワー!たかく つみあげよう',
@@ -10835,14 +10821,7 @@
         badItems: ['🦂', '🐍', '☠️', '🔥'],
       }) },
     ],
-    tropical: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'フルーツキャッチ!とげとげは いらない',
-        basketEmoji: '🧺',
-        goodItems: ['🍍', '🥥', '🍌', '🥭'],
-        badItems: ['🐝', '🕷️', '🦂', '🌶️'],
-      }) },
-    ],
+    tropical: [],
   };
 
   // きせつごとの あそび。  // きせつごとの あそび。地域とはちがい、その category を まるごと
@@ -10853,6 +10832,7 @@
   // もたせてある
   const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
 
+  // 季節ゲームも同じキャッチ操作の着せ替えは削り、操作が変わるものだけ残す。
   // 「せかい」画面の きせつせんたくで つかう、5つの モード(じどう+てきよう
   // する きせつ4つ)の 見た目じょうほう。SEASON_MODE_ORDER の じゅんに
   // せんたくしを ならべる
@@ -10892,21 +10872,8 @@
 
   const SEASONAL_MINIGAMES = {
     // 季節ゲームも「その季節なら遊びたい」ものだけ残す。
-    [SEASON.SPRING]: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'おはなみ!はなびらキャッチ さくらを あつめよう',
-        basketEmoji: '🧺',
-        goodItems: ['🌸', '🍡', '🎎', '🦋'],
-        badItems: ['🐛', '☔', '💨', '🐝'],
-      }) },
-    ],
+    [SEASON.SPRING]: [],
     [SEASON.SUMMER]: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'きんぎょすくい!やぶれないように キャッチ',
-        basketEmoji: '🥄',
-        goodItems: ['🐡', '🐠', '🎏', '⭐'],
-        badItems: ['🕳️', '💦', '🔥', '🐍'],
-      }) },
       { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
     [SEASON.AUTUMN]: [
@@ -10916,14 +10883,7 @@
         palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
       }) },
     ],
-    [SEASON.WINTER]: [
-      { category: 'catch', game: makeCatchGame({
-        title: 'サンタさんの プレゼントキャッチ!わすれものは いらない',
-        basketEmoji: '🎅',
-        goodItems: ['🎁', '🦌', '⭐', '🧦'],
-        badItems: ['🐺', '🕷️', '💣', '🦇'],
-      }) },
-    ],
+    [SEASON.WINTER]: [],
   };
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
