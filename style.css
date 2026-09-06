@@ -5068,6 +5068,213 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 }
 
 /* ================================================================
+   デート - 3択 + ちいさな映画のようなカットシーン
+   ================================================================ */
+.date-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(9, 8, 14, 0.78);
+  animation: story-fade 0.24s ease-out;
+}
+
+.date-overlay.hidden,
+.date-card.hidden,
+.date-movie.hidden,
+.date-movie-close.hidden,
+.date-movie-skip.hidden { display: none !important; }
+
+.date-card {
+  width: 100%;
+  max-width: 270px;
+  padding: 15px 13px 12px;
+  border-radius: 16px;
+  text-align: center;
+  background: linear-gradient(160deg, #fff8fb, #ffe3ee);
+  box-shadow: 0 10px 28px rgba(0,0,0,.42);
+}
+
+.date-kicker {
+  font-size: 10px;
+  color: #9d4b68;
+  font-weight: 700;
+}
+
+.date-title {
+  margin: 3px 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #5e2740;
+}
+
+.date-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.date-choice-btn {
+  min-height: 82px;
+  border: 0;
+  border-radius: 12px;
+  padding: 8px 5px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 3px 0 rgba(105,45,69,.16);
+  color: #5e2740;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.date-choice-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(105,45,69,.16); }
+.date-choice-emoji { display:block; font-size: 27px; margin-bottom: 5px; }
+.date-choice-label { display:block; font-size: 9.5px; line-height: 1.25; font-weight: 800; }
+
+.date-cancel-btn,
+.date-movie-skip,
+.date-movie-close {
+  border: 0;
+  border-radius: 999px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.date-cancel-btn {
+  margin-top: 10px;
+  padding: 7px 13px;
+  background: rgba(94,39,64,.1);
+  color: #75435a;
+  font-size: 10px;
+}
+
+.date-movie {
+  width: 100%;
+  max-width: 286px;
+  text-align: center;
+}
+
+.date-movie-scene {
+  position: relative;
+  min-height: 228px;
+  overflow: hidden;
+  border-radius: 12px;
+  border-top: 18px solid #08080a;
+  border-bottom: 18px solid #08080a;
+  padding: 18px 12px 16px;
+  background: linear-gradient(180deg, #7e9fce 0%, #f6c987 52%, #496c52 53%, #294431 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+.date-movie-scene[data-plan='sunset'] { background: linear-gradient(180deg,#735aa8 0%,#ff9b6f 48%,#f6cc75 64%,#493b48 65%,#25202a 100%); }
+.date-movie-scene[data-plan='star'] { background: radial-gradient(circle at 70% 18%,#fff 0 1px,transparent 2px), radial-gradient(circle at 24% 28%,#fff 0 1px,transparent 2px), linear-gradient(180deg,#10132f,#30336b 58%,#16221d 59%); }
+.date-movie-scene[data-plan='rain'] { background: repeating-linear-gradient(105deg,rgba(255,255,255,.16) 0 2px,transparent 2px 17px), linear-gradient(180deg,#667b8c,#9aabb5 55%,#52625b 56%); }
+.date-movie-scene[data-plan='nap'] { background: linear-gradient(180deg,#8ed1ed,#d7f2ff 48%,#9ccf6a 49%,#6ea24b); }
+
+.date-movie-sparkles {
+  position: absolute;
+  inset: 6px 0 auto;
+  color: rgba(255,255,255,.78);
+  font-size: 12px;
+  letter-spacing: 3px;
+  animation: date-sparkle 1.8s ease-in-out infinite;
+}
+
+.date-movie-place {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  text-shadow: 0 2px 3px rgba(0,0,0,.7);
+}
+
+.date-movie-actors {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+  min-height: 68px;
+}
+
+.date-movie-actor {
+  font-size: 49px;
+  line-height: 1;
+  filter: drop-shadow(0 5px 4px rgba(0,0,0,.35));
+  animation: date-actor-walk 1.2s ease-in-out infinite alternate;
+}
+
+.date-movie-actor.partner { animation-delay: .2s; }
+.date-movie-heart {
+  align-self: center;
+  color: #ff608c;
+  font-size: 20px;
+  text-shadow: 0 0 8px #fff;
+  animation: date-heart 1s ease-in-out infinite;
+}
+
+.date-movie-caption {
+  position: relative;
+  z-index: 1;
+  margin: 18px auto 0;
+  min-height: 42px;
+  padding: 8px 9px;
+  border-radius: 8px;
+  background: rgba(8,8,12,.78);
+  color: #fff;
+  font-size: 10.5px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.date-movie-caption.beat { animation: date-caption-in .32s ease-out; }
+
+.date-movie-actions {
+  display: flex;
+  justify-content: center;
+  min-height: 34px;
+  margin-top: 8px;
+}
+
+.date-movie-skip {
+  padding: 7px 14px;
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 10px;
+}
+
+.date-movie-close {
+  padding: 8px 16px;
+  background: linear-gradient(160deg,#ff8eb3,#ff5f91);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  box-shadow: 0 3px 0 rgba(116,35,65,.35);
+}
+
+@keyframes date-actor-walk {
+  from { transform: translateY(1px) rotate(-2deg); }
+  to { transform: translateY(-7px) rotate(2deg); }
+}
+@keyframes date-heart {
+  0%,100% { transform: scale(.85); opacity:.65; }
+  50% { transform: scale(1.25); opacity:1; }
+}
+@keyframes date-caption-in {
+  from { opacity:0; transform: translateY(5px); }
+  to { opacity:1; transform: translateY(0); }
+}
+@keyframes date-sparkle {
+  0%,100% { opacity:.35; transform: translateX(-4px); }
+  50% { opacity:1; transform: translateX(4px); }
+}
+
+/* ================================================================
    なかまからの さそい - 通常操作を はっきり 中断する せんよう演出
    ================================================================ */
 .companion-invite-overlay {

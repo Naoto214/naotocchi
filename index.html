@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260906-13">
+<link rel="stylesheet" href="style.css?v=20260906-14">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -276,6 +276,31 @@
             <div class="companion-invite-actions">
               <button type="button" class="companion-invite-btn play" id="companionInvitePlayBtn">あそぶ!</button>
               <button type="button" class="companion-invite-btn later" id="companionInviteLaterBtn">また こんど</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="date-overlay hidden" id="dateOverlay">
+          <div class="date-card" id="dateChooser">
+            <div class="date-kicker">💞 きょうは どこへ いく?</div>
+            <div class="date-title">デートを えらぼう</div>
+            <div class="date-choice-grid" id="dateChoiceGrid"></div>
+            <button type="button" class="date-cancel-btn" id="dateCancelBtn">また こんど</button>
+          </div>
+          <div class="date-movie hidden" id="dateMovie">
+            <div class="date-movie-scene" id="dateMovieScene">
+              <div class="date-movie-sparkles" aria-hidden="true">✦　·　✧　·　✦</div>
+              <div class="date-movie-place" id="dateMoviePlace"></div>
+              <div class="date-movie-actors">
+                <span class="date-movie-actor pet" id="dateMoviePet"></span>
+                <span class="date-movie-heart" aria-hidden="true">♥</span>
+                <span class="date-movie-actor partner" id="dateMoviePartner"></span>
+              </div>
+              <div class="date-movie-caption" id="dateMovieCaption"></div>
+            </div>
+            <div class="date-movie-actions">
+              <button type="button" class="date-movie-skip" id="dateMovieSkipBtn">スキップ</button>
+              <button type="button" class="date-movie-close hidden" id="dateMovieCloseBtn">おもいでに しまう</button>
             </div>
           </div>
         </div>
@@ -569,6 +594,6 @@
 
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
-  <script src="script.js?v=20260906-13"></script>
+  <script src="script.js?v=20260906-14"></script>
 </body>
 </html>
