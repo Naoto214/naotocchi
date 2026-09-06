@@ -2093,25 +2093,140 @@
     return c ? { kind: 'companion', emoji: c.emoji, label: c.name } : null;
   }
 
-  let ageSpeechTimer = null;
-  function celebrateAgeSpeech(age, stageLabel) {
-    clearTimeout(ageSpeechTimer);
-    const selfLines = stageLabel
-      ? [`${age}さい! ${stageLabel}に なった!`, `また ひとつ おおきく なったよ!`, `${age}さいの ぼく、よろしく!`]
-      : [`${age}さいに なった!`, `もう ${age}さいだって!`, `${age}さいの ぼくも よろしく!`];
-    setSpeechBubble(selfLines[Math.floor(Math.random() * selfLines.length)], petSpeaker());
+  // ================================================================
+  // なおとっち会話エンジン
+  // ================================================================
+  // 事実説明は setMessage / 上部イベント表示へ残し、キャラの感情・ツッコミ・
+  // ひとりごとはここへ流す。本人→恋人/仲間の順に会話が続くこともある。
+  const CONVERSATION_POOLS = {
+    feed: {
+      pet: ['うまっ!', 'これ毎日でよくない?', '炭水化物は うらぎらない', 'いま たぶん しあわせの かおしてる', 'あと3はい いける気がする'],
+      partner: ['食べるの はやすぎ笑', 'くちに ついてるよ', 'ひとくち ちょうだい?', 'また そんなに たべて笑'],
+      companion: ['ぼくも!', 'ひとくち!', 'ぜんぶ いる!', 'いいにおい!'],
+    },
+    overfeed: {
+      pet: ['むり。もう はいる ばしょない', 'おなかが たいへんなことに なってる', 'たべるまえの ぼくを とめたい', 'ダイエットは あしたの ぼくに まかせた'],
+      partner: ['だから いったのに笑', 'おなか さすろうか?', 'ほんとに ぜんぶ たべたの?'],
+      companion: ['ぼくは まだ いける!', 'そのぶん ぼくが たべれば よかったのに!'],
+    },
+    sleep: {
+      pet: ['おやすみ。あしたから ほんきだす', 'もう むり。ねる', '夢で あおう', '5ふんだけ…たぶん'],
+      partner: ['おやすみ。へんな夢みないでね', 'ちゃんと ふとん かけてね', '寝顔 みてもいい?'],
+      companion: ['もう ねるの?', 'ぼくも ねよ', 'いびき うるさくしないでね!'],
+    },
+    wake: {
+      pet: ['おはよ。まだ ねむい', 'よし、きょうも いきるか', '夢のつづき どこいった?', 'ねた。たぶん げんき'],
+      partner: ['おはよう', 'ねぐせ すごいよ笑', 'ちゃんと ねれた?'],
+      companion: ['おきたー!', 'あそぼ!', 'ずっと まってた!'],
+    },
+    clean: {
+      pet: ['スッキリ!', 'そうじの たつじん!', 'これで せかいは すくわれた', 'ぼく、きれいな ところ すき'],
+      partner: ['えらいえらい', 'やっと きれいになった笑', 'そのまま キープしてね'],
+      companion: ['ピカピカ!', 'ここ すべれる!', 'ぼく なんも してないけど きれい!'],
+    },
+    medicine_cure: {
+      pet: ['まずっ!! でも なおった!', 'げんき もどった!', 'くすりって まずいほど きくの?', 'いまなら なんでも できそう'],
+      partner: ['のめて えらい笑', 'よかった、なおったね', 'もう むりしないでよ'],
+      companion: ['それ ぼくには くれないで', 'なおったー!', 'においだけで まずそう!'],
+    },
+    medicine_wrong: {
+      pet: ['びょうきじゃないって!', 'なんで いま!?', 'それ いらない! ほんとに!', 'くすりガチャ やめて'],
+      partner: ['それ いま のませるやつ?', 'ちゃんと ようす みてあげて笑'],
+      companion: ['ぼくに こないで!', 'にげろー!'],
+    },
+    play_with: {
+      pet: ['うおおおお!', 'もっと!', 'いまの もう1かい!', 'たのしすぎて いみわからん'],
+      partner: ['なにしてんの笑', 'たのしそうで なにより', 'ちょっと まぜて'],
+      companion: ['顔やめて顔!', 'つかまえた!', 'まだ まけてない!'],
+    },
+    play_with_annoyed: {
+      pet: ['ちょ、しつこい笑', 'もう いいって!', '距離感 バグってるよ', 'いまは ひとりに して!'],
+      partner: ['ちょっと やりすぎ笑', '休ませてあげて'],
+      companion: ['もう おなかいっぱい!', 'ぼくも ちょっと つかれた!'],
+    },
+    court: {
+      pet: ['すきなんだけど!!!!', 'いま いわないと たぶん むり', '距離 ちかくしていい?', 'その顔 反則', '今日は ちょっと 帰したくないかも'],
+      partner: ['声でかい笑', '近い近い笑', 'それ ずるい', 'もうちょっと こっちきて', 'そんな顔されたら こまる'],
+      companion: ['また はじまった!', 'ぼく どこ みればいい?', '空気に なるね!'],
+    },
+    court_fail: {
+      pet: ['いまの なしで!', 'しにたいほど はずかしい', 'タイミング ぜったい ちがった', '心だけ 先に 走った'],
+      partner: ['いまは ちょっと…', 'きらいじゃないけど、ちょっと まって', '急すぎ笑'],
+      companion: ['うわあ…', 'ぼく みてないことにする'],
+    },
+    age: {
+      pet: ['{age}さいに なった!', 'もう {age}さいだって!', '{age}さいの ぼくも よろしく!', '年齢だけ すすむの はやくない?'],
+      partner: ['{age}さい おめでとう! 💕', 'また ひとつ おもいでが ふえたね', 'これからも いっしょに いようね'],
+      companion: ['{age}さい おめでとう!', 'また おおきく なったね!', 'きょうは ちょっと とくべつだね!'],
+    },
+    sodachi: {
+      pet: ['なんか きょう デカくない?', 'また そだった!', 'ぼく ちょっと つよくなった?', '成長、実感。たぶん'],
+      partner: ['ちょっと おとなっぽく なった?', '育ってる育ってる', 'なんか かっこよく なった?'],
+      companion: ['でかく なってる!', 'ぼくより おおきく ならないで!', 'そだち すごい!'],
+    },
+    money: {
+      pet: ['金だ!!', 'これは 貯金…たぶん', 'いま ちょっと お金持ち', 'コインの音、すき'],
+      partner: ['貯金しなよ笑', 'おごってくれる?', 'また すぐ つかわないでね'],
+      companion: ['おごって!', 'それ たべれる?', 'ぼくのぶん ある?'],
+    },
+    minigame_great: {
+      pet: ['見た!? いまの見た!?', '天才、爆誕', 'ドヤがおが もどらない', '今日のぼく 仕上がってる'],
+      partner: ['ちょっと かっこよかった', '調子のってる笑', 'ちゃんと 見てたよ'],
+      companion: ['すごっ!', 'もう1かい!', 'ぼくも やる!'],
+    },
+    minigame_bad: {
+      pet: ['いまのは 練習', '操作が わるい。ぼくは わるくない', '忘れて', '次は 本気出す'],
+      partner: ['はいはい笑', '言い訳 はやいって', '次 がんばろ'],
+      companion: ['どんまい!', 'ぼくのほうが うまいかも!'],
+    },
+  };
 
-    const others = [];
-    const ps = partnerSpeaker();
-    const cs = companionSpeaker();
-    if (ps) others.push({ speaker: ps, lines: [`${age}さい おめでとう! 💕`, 'これからも いっしょに いようね', 'また ひとつ おもいでが ふえたね'] });
-    if (cs) others.push({ speaker: cs, lines: [`${age}さい おめでとう!`, 'また おおきく なったね!', 'きょうは ちょっと とくべつだね!'] });
-    if (others.length) {
-      const picked = others[Math.floor(Math.random() * others.length)];
-      ageSpeechTimer = setTimeout(() => {
-        setSpeechBubble(picked.lines[Math.floor(Math.random() * picked.lines.length)], picked.speaker);
-      }, 1800);
+  let conversationTimers = [];
+  let recentConversationLines = [];
+  function clearConversationTimers() {
+    conversationTimers.forEach((t) => clearTimeout(t));
+    conversationTimers = [];
+  }
+  function fillConversationLine(line, ctx) {
+    if (!line) return line;
+    return line.replaceAll('{age}', String(ctx.age ?? currentAge()))
+      .replaceAll('{sodachi}', String(ctx.sodachi ?? state.sodachi))
+      .replaceAll('{coins}', String(ctx.coins ?? 0));
+  }
+  function pickConversationLine(lines, ctx) {
+    if (!lines || !lines.length) return null;
+    let pool = lines.map((x) => fillConversationLine(x, ctx || {}));
+    const fresh = pool.filter((x) => !recentConversationLines.includes(x));
+    if (fresh.length) pool = fresh;
+    const line = pool[Math.floor(Math.random() * pool.length)];
+    recentConversationLines.push(line);
+    if (recentConversationLines.length > 24) recentConversationLines.shift();
+    return line;
+  }
+  function speakEvent(eventKey, ctx = {}) {
+    const pool = CONVERSATION_POOLS[eventKey];
+    if (!pool) return;
+    clearConversationTimers();
+    const beats = [];
+    const petLine = pickConversationLine(pool.pet, ctx);
+    if (petLine) beats.push({ speaker: petSpeaker(), text: petLine });
+    if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
+      const ps = partnerSpeaker();
+      const line = pickConversationLine(pool.partner, ctx);
+      if (ps && line) beats.push({ speaker: ps, text: line });
     }
+    if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
+      const cs = companionSpeaker();
+      const line = pickConversationLine(pool.companion, ctx);
+      if (cs && line) beats.push({ speaker: cs, text: line });
+    }
+    beats.slice(0, 3).forEach((beat, i) => {
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1550));
+    });
+  }
+
+  function celebrateAgeSpeech(age, stageLabel) {
+    speakEvent('age', { age, stageLabel, partnerChance: 0.8, companionChance: 0.75 });
   }
 
   const PARTNER_IDLE_LINES = [
@@ -4168,7 +4283,8 @@
   const IDLE_GREETINGS_SILLY = [
     'ンモー!', 'なんちゃって!', 'ジャジャン!', 'びっくりした?', 'あなたの ばんです!',
     'ぴぴぴっ!', 'ドキッと した?', 'あそびに きたよ!', 'ここに いるよー!',
-    'きゅうに はなしかけて ごめんね!',
+    'きゅうに はなしかけて ごめんね!', 'いまの ぼく、たぶん 天才', '冷蔵庫に 何か いた気がする',
+    '人類は なぜ ねむるのか…ぼくは ねむいから', '今日ちょっと 顔よくない?', '急に 市役所いく?',
   ];
 
   const IDLE_GREETINGS = [
@@ -4441,6 +4557,7 @@
     applyDecline(-5, { silent: true });
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
+    speakEvent('money', { coins: bonus, partnerChance: 0.25, companionChance: 0.25 });
     if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
       state.items.reward = (state.items.reward || 0) + 1;
       setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
@@ -4502,6 +4619,7 @@
     for (let i = 0; i < n && state.sodachi < SODACHI_MAX; i += 1) {
       state.sodachi += 1;
       state.lifetime.evolutions += 1;
+      if (!suppressLifeEvents) speakEvent('sodachi', { sodachi: state.sodachi, partnerChance: 0.35, companionChance: 0.35 });
       if (state.sodachi > state.maxSodachi) {
         state.maxSodachi = state.sodachi;
         // じっせき(sodachi-70/90/100)が 人生の おわりを またずに 出る ように、
@@ -4532,6 +4650,7 @@
     if (!perk) return;
     const reward = Math.round(perk.coins * coinMultiplier());
     state.lifetime.money += reward;
+    speakEvent('money', { coins: reward, partnerChance: 0.4, companionChance: 0.4 });
     pushLifeLog(perk.emoji, `そだちが ${value}に とどいた — ${perk.name}`);
     showStoryEvent({ emoji: perk.emoji, message: `そだち ${value}！ ${perk.name}\n${perk.desc}` });
     if (value === 90) state.lifetime.dreamEggs.rare += 1;
@@ -13835,6 +13954,8 @@
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
+    if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
+    else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
     let recruitedNow = false;
 
     // なかまイベントの さいちゅうだった プレイなら、つうじょうの けっか
@@ -13964,9 +14085,11 @@
         state.sicknessType = sickness.label;
         state.totalSicknessCount += 1;
         raiseDeathMeter(4);
-        setMessage(`たべすぎて ${sickness.label}に なってしまった…`);
+        setMessage(`🍚 たべすぎて ${sickness.label}に なった`);
+        speakEvent('overfeed');
       } else {
-        setMessage('もう おなかいっぱい… たべすぎ!');
+        setMessage('🍚 たべすぎた');
+        speakEvent('overfeed');
       }
       checkStoryEvents('overfeed');
       checkMeters();
@@ -13976,7 +14099,8 @@
     state.happiness = clamp(state.happiness + 3, 0, 100);
     applyGrowth(4); applyDecline(-4);
     if (!checkMeters()) {
-      setMessage('もぐもぐ おいしい!');
+      setMessage('🍚 ごはんを たべた');
+      speakEvent('feed');
     }
     emotePet('happy');
   }));
@@ -14016,7 +14140,8 @@
     checkStoryEvents('poop-clean');
       sayReactionPool('poop-clean');
     if (!checkMeters()) {
-      setMessage('おそうじ できた!');
+      setMessage('🧹 おそうじを した');
+      speakEvent('clean');
     }
     emotePet('happy');
   }));
@@ -14034,7 +14159,8 @@
       // だけ とくをする ボーナスが あると、ねる→おきる→ねる…と 連打する
       // ほうが 寝つづけるより おトクに なってしまう(いわゆる 寝おき連打の
       // ぬけみち)ため、あえて はいししてある
-      setMessage('おやすみなさい…');
+      setMessage('🌙 ねむりについた');
+      speakEvent('sleep');
       return;
     }
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
@@ -14042,7 +14168,8 @@
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
-      setMessage('おはよう!');
+      setMessage('☀️ おきた');
+      speakEvent('wake');
     }
     emotePet('happy');
   }));
@@ -14061,7 +14188,8 @@
       checkStoryEvents('medicine-cure');
       sayReactionPool('medicine-cure');
       if (!checkMeters()) {
-        setMessage('げんきに なった!');
+        setMessage('💊 くすりを のんで びょうきが なおった');
+        speakEvent('medicine_cure');
       }
       emotePet('happy');
     } else {
@@ -14069,7 +14197,8 @@
       state.health = clamp(state.health - 5, 0, 100);
       applyDecline(10);
       if (!checkMeters()) {
-        setMessage('びょうきじゃないのに… いやがっている');
+        setMessage('💊 びょうきではないのに くすりを のませた');
+        speakEvent('medicine_wrong');
       }
       emotePet('angry');
     }
@@ -14115,7 +14244,9 @@
       : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
-      setMessage(reaction);
+      setMessage(spammed ? '🐾 じゃれすぎた' : '🐾 いっしょに じゃれた');
+      setSpeechBubble(reaction, petSpeaker());
+      speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { partnerChance: 0.45, companionChance: 0.8 });
     }
     emotePet(spammed ? 'angry' : 'happy');
   }));
@@ -14195,7 +14326,9 @@
       const reaction = pickReaction(courtFlirtReactions(state.partner.label), lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage(reaction);
+        setMessage('💞 こいびとに きもちを つたえた');
+        setSpeechBubble(reaction, petSpeaker());
+        speakEvent('court', { partnerChance: 0.9, companionChance: 0.35 });
       }
       emotePet('love');
       return;
@@ -14221,7 +14354,8 @@
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (!checkMeters()) {
-        setMessage('ここには だれも いない… でも、ひとりの じかんも わるく なかった');
+        setMessage('💞 きゅうあいする あいては いなかった');
+        speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
       return;
