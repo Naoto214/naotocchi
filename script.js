@@ -2120,9 +2120,9 @@
       companion: ['おきたー!', 'あそぼ!', 'ずっと まってた!'],
     },
     clean: {
-      pet: ['スッキリ!', 'そうじの たつじん!', 'これで せかいは すくわれた', 'ぼく、きれいな ところ すき'],
-      partner: ['えらいえらい', 'やっと きれいになった笑', 'そのまま キープしてね'],
-      companion: ['ピカピカ!', 'ここ すべれる!', 'ぼく なんも してないけど きれい!'],
+      pet: ['よし、いいかんじ!', 'なんか へやが ひろくなった きがする', 'これなら ごろごろできる', 'においまで ちがう!', 'ちゃんと 片づくと きもちいい', 'いまの ぼく、ちょっと できる子'],
+      partner: ['お、いいじゃん', 'ちゃんと きれいに なったね', 'このくらいなら ずっと いられる笑', 'めずらしく 仕事が はやい'],
+      companion: ['わー!ひろくなった!', 'ここ 走っていい?', 'さっきより ぜんぜん いい!', 'ぼくの せいじゃ ないけど きれい!'],
     },
     medicine_cure: {
       pet: ['まずっ!! でも なおった!', 'げんき もどった!', 'くすりって まずいほど きくの?', 'いまなら なんでも できそう'],
@@ -2324,10 +2324,12 @@
       { emoji: '😵‍💫', message: 'まんぷく すぎて まんぞくと こうかいが なかよく どうきょ ちゅう' },
     ],
     'poop-clean': [
-      { emoji: '✨', message: 'スッキリ!せかいが きゅうに きれいに みえる!' },
-      { emoji: '🧹', message: 'そうじの プロに なれる き が してきた' },
-      { emoji: '😌', message: 'うんちに なまえを つけそうに なった ところで やめた' },
-      { emoji: '🚿', message: 'きれいずき が いっかい あがった き が する' },
+      { emoji: '✨', message: 'さっきまでの ことは なかったことに しよう' },
+      { emoji: '🧹', message: '床が ちゃんと 床に もどった!' },
+      { emoji: '😌', message: 'これで こころおきなく ごろごろできる' },
+      { emoji: '🚿', message: '空気まで ちょっと かるくなった きがする' },
+      { emoji: '🫡', message: 'みなかったことに するには じゅうぶん きれい' },
+      { emoji: '🧼', message: 'なんか ちゃんと くらしてる かんじが する' },
     ],
   };
 
@@ -13904,9 +13906,12 @@
   }
 
   function resultMessageForScore(score) {
-    if (score >= 80) return 'だいせいこう!たのしかった!';
-    if (score >= 50) return 'たのしく あそんだ!';
-    return 'まあまあ あそべた!';
+    const pools = score >= 80
+      ? ['かなり うまくいった!', 'いまのは きもちよかった!', 'これは もう1かい やりたい!', '思ったより できた!', '今日の ちょうし いいかも!']
+      : score >= 50
+        ? ['いいかんじに あそべた!', 'ちゃんと たのしかった!', 'なかなか わるくない!', 'もうちょい いけそう!', 'いい勝負だった!']
+        : ['今回は こんなもん!', 'つぎは もうちょい いける!', 'いまのは れんしゅう!', 'ちょっと くやしい!', 'もう1かいなら いけそう!'];
+    return pools[Math.floor(Math.random() * pools.length)];
   }
 
   function finishMinigame(score, customMessage) {
@@ -14092,6 +14097,19 @@
     }, 100);
   }
 
+  const ACTION_RESULT_MESSAGES = {
+    feed: ['🍚 ごちそうさま!', '🍚 おなかが みたされた', '🍚 いいにおいだった!', '🍚 ぺろっと たべた'],
+    clean: ['🧹 きれいに なった!', '🧹 さっぱりした!', '🧹 ピカピカに なった!', '🧹 これで よし!'],
+    sleep: ['🌙 すやすや…', '🌙 ねむりに ついた', '🌙 おやすみモード', '🌙 もう ねてる…'],
+    wake: ['☀️ おはよう!', '☀️ 目が さめた!', '☀️ よく ねた!', '☀️ さて、なにしよう'],
+    cure: ['💊 げんきが もどった!', '💊 なおった!', '💊 もう だいじょうぶそう', '💊 ちょっと らくに なった'],
+  };
+
+  function randomActionMessage(key) {
+    const pool = ACTION_RESULT_MESSAGES[key] || [];
+    return pool.length ? pool[Math.floor(Math.random() * pool.length)] : '';
+  }
+
   function withFeedback(fn) {
     return () => {
       fn();
@@ -14135,7 +14153,7 @@
     state.happiness = clamp(state.happiness + 3, 0, 100);
     applyGrowth(4); applyDecline(-4);
     if (!checkMeters()) {
-      setMessage('🍚 ごはんを たべた');
+      setMessage(randomActionMessage('feed'));
       speakEvent('feed');
     }
     emotePet('happy');
@@ -14175,7 +14193,7 @@
     applyGrowth(4); applyDecline(-5);
     checkStoryEvents('poop-clean');
     if (!checkMeters()) {
-      setMessage('🧹 おそうじを した');
+      setMessage(randomActionMessage('clean'));
       speakEvent('clean');
     }
     emotePet('happy');
@@ -14194,7 +14212,7 @@
       // だけ とくをする ボーナスが あると、ねる→おきる→ねる…と 連打する
       // ほうが 寝つづけるより おトクに なってしまう(いわゆる 寝おき連打の
       // ぬけみち)ため、あえて はいししてある
-      setMessage('🌙 ねむりについた');
+      setMessage(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
       return;
@@ -14205,7 +14223,7 @@
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
-      setMessage('☀️ おきた');
+      setMessage(randomActionMessage('wake'));
       speakEvent('wake');
     }
     emotePet('happy');
@@ -14224,7 +14242,7 @@
       recordSicknessCure();
       checkStoryEvents('medicine-cure');
       if (!checkMeters()) {
-        setMessage('💊 くすりを のんで びょうきが なおった');
+        setMessage(randomActionMessage('cure'));
         speakEvent('medicine_cure');
       }
       emotePet('happy');
