@@ -5593,3 +5593,16 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-fp-depth { position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); font-size:42px; z-index:4; }
 .mg-fp-door { position:absolute; left:50%; top:42%; transform:translate(-50%,-50%); font-size:72px; z-index:5; display:none; }
 .mg-fp-view.blocked .mg-fp-depth { font-size:92px; }
+
+/* 3D-style downhill: depth, curves, gates and jump ramps */
+.mg-ski3d-scene{position:relative;height:270px;overflow:hidden;border-radius:18px;perspective:380px;background:linear-gradient(#9ed7ff 0 35%,#eaf7ff 36% 100%);touch-action:manipulation}
+.mg-ski3d-sky{position:absolute;top:8%;left:0;right:0;text-align:center;font-size:54px;opacity:.8}
+.mg-ski3d-slope{position:absolute;left:12%;right:12%;top:34%;bottom:-12%;clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);background:linear-gradient(rgba(255,255,255,.9),rgba(215,237,250,.95));box-shadow:inset 0 0 20px rgba(80,150,190,.18)}
+.mg-ski3d-slope:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 31%,rgba(80,150,190,.12) 32% 33%,transparent 34% 65%,rgba(80,150,190,.12) 66% 67%,transparent 68%)}
+.mg-ski3d-player{position:absolute;left:50%;bottom:5%;transform:translateX(-50%);font-size:46px;z-index:20;transition:left .12s ease-out,transform .18s ease;filter:drop-shadow(0 6px 4px rgba(0,0,0,.25))}
+.mg-ski3d-player.airborne{transform:translateX(-50%) translateY(-38px) rotate(-8deg) scale(1.12)}
+.mg-ski3d-object{position:absolute;left:50%;top:24%;font-size:31px;z-index:10;transform-origin:center;will-change:transform,top,left;pointer-events:none}
+.mg-ski3d-object.jump{width:42px;height:12px;background:linear-gradient(#fff,#9ccbe7);border:2px solid rgba(70,130,170,.5);border-radius:4px;overflow:hidden;color:transparent}
+.mg-ski3d-object.gate{letter-spacing:12px}
+.mg-ski3d-object.passed{opacity:.35!important}
+.mg-ski3d-scene.hit{animation:mg-p3-hit .14s linear 1}
