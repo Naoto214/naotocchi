@@ -1721,21 +1721,21 @@
   //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
   //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
   const SHOP_ITEMS = [
-    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいの せいこうりつが すこし あがる' },
+    { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいが すこし うまくいきやすくなる' },
     { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 60, desc: 'ごきげんが すこし へりにくい' },
     { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️', price: 60, desc: 'おなかが すこし へりにくい' },
     { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻', price: 70, desc: 'うんちが すこし たまりにくい' },
     { id: 'scarf', label: 'マフラー', emoji: '🧣', price: 80, desc: 'びょうきに すこし なりにくい' },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの とくてんに すこし ボーナス' },
+    { id: 'glasses', label: 'サングラス', emoji: '🕶️', price: 90, desc: 'ミニゲームの とくてんが すこし のびる' },
     { id: 'energy1', label: 'げんきバンド', emoji: '⚡', price: 100, desc: 'げんきが すこし へりにくい' },
     { id: 'hat', label: 'シルクハット', emoji: '🎩', price: 110, desc: 'へんしんの ちからが すこし たまりやすい' },
-    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: 'たびの ごきげんボーナスが すこし ふえる' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒', price: 120, desc: 'たびから かえったあとの ごきげんが すこし よくなる' },
     { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️', price: 130, desc: 'ねている ときの げんき回復が すこし ふえる' },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームで もらえる おかねが すこし ふえる' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐', price: 150, desc: 'ミニゲームの あとに もらえる コインが すこし ふえる' },
     { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾', price: 170, desc: 'なかまの きずなが すこし へりにくい' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌', price: 190, desc: 'こいびとの なかよし度が すこし へりにくい' },
-    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'いのちへの ダメージを すこし おさえる' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'レアな ごほうびを ほんのすこし みつけやすくする' },
+    { id: 'crown', label: 'かんむり', emoji: '👑', price: 220, desc: 'つらいことが あったとき、いのちが すこし へりにくい' },
+    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀', price: 250, desc: 'めずらしい ごほうびに ほんのすこし であいやすくなる' },
   ];
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -7550,10 +7550,10 @@
   // おすし(からさの ハザード)・ほし(宇宙テーマ)は バスケットの 見た目・
   // ハザードの しゅるいが 他と はっきり ちがうので べつエントリの まま のこした
   const CATCH_FOOD_THEMES = [
-    { title: 'おやつキャッチ!わるい ものは よけよう', basketEmoji: '🧺', goodItems: ['🍙', '🍎', '🍬', '🍇'], badItems: ['💩', '🪳', '🔪', '🔫'] },
-    { title: 'くだものキャッチ!くさった のは いらない', basketEmoji: '🧺', goodItems: ['🍓', '🍊', '🍑', '🍌'], badItems: ['🐛', '🦠', '🗑️', '☠️'] },
+    { title: 'おやつキャッチ!おいしいものだけ ひろおう', basketEmoji: '🧺', goodItems: ['🍙', '🍎', '🍬', '🍇'], badItems: ['💩', '🪳', '🧦', '🧼'] },
+    { title: 'くだものキャッチ!おいしそうなのを ひろおう', basketEmoji: '🧺', goodItems: ['🍓', '🍊', '🍑', '🍌'], badItems: ['🐛', '🦠', '🗑️', '🧽'] },
     { title: 'やさいキャッチ!むしは いやだよね', basketEmoji: '🧺', goodItems: ['🥕', '🥦', '🌽', '🍅'], badItems: ['🐛', '🐌', '🪱', '🕷️'] },
-    { title: 'おかしキャッチ!からい ものは にがて', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
+    { title: 'おかしキャッチ!からい ものは よけよう', basketEmoji: '🎪', goodItems: ['🍭', '🍩', '🧁', '🍫'], badItems: ['🌶️', '🔥', '🥵', '🍛'] },
   ];
   const CATCH_GAME_VARIANTS = [
     mg('catch-themed', randomThemeGame(makeCatchGame, [
@@ -7561,7 +7561,7 @@
       { title: 'おすしキャッチ!わさびは からいよ', basketEmoji: '🍽️', goodItems: ['🍣', '🍱', '🍤', '🍥'], badItems: ['🟢', '🔥', '🧨', '🐡'] },
       { title: 'ほしキャッチ!いんせきは あぶない', basketEmoji: '🛸', goodItems: ['⭐', '🌟', '✨', '🌠'], badItems: ['☄️', '🪨', '⚡', '🛰️'] },
       { title: 'コイン&キノコだいぼうけん!とげは キケン', basketEmoji: '🧢', goodItems: ['🍄', '🪙', '⭐', '🌼'], badItems: ['🐢', '💣', '🔥', '⚡'] },
-      { title: 'ダンジョンの たからさがし!トゲトゲは あぶない', basketEmoji: '🛡️', goodItems: ['💎', '💰', '🗝️', '🍯'], badItems: ['💀', '🦂', '🕷️', '☠️'] },
+      { title: 'ダンジョンの たからさがし!じゃまものは よけよう', basketEmoji: '🛡️', goodItems: ['💎', '💰', '🗝️', '🍯'], badItems: ['🕸️', '🦂', '🕷️', '🪨'] },
       { title: 'おちばキャッチ!ぬれはは よけよう', basketEmoji: '🧺', goodItems: ['🍁', '🍂', '🌰', '🍄'], badItems: ['🐛', '💧', '🕷️', '🦔'] },
     ])),
   ];
@@ -7676,7 +7676,7 @@
     mg('whack-themed', randomThemeGame(makeWhackGame, [
       ...WHACK_TARGET_THEMES,
       { title: 'とびだす はてなブロックを たたいて コインゲット!', targetEmoji: '❓' },
-      { title: 'とびだす ライバルファイターを たたいて ふっとばせ!', targetEmoji: '🤺' },
+      { title: 'とびだす ライバルファイターを タップ!', targetEmoji: '🤺' },
       { title: 'とびだす ほたるを つかまえよう!', targetEmoji: '🪰' },
     ])),
   ];
