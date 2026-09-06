@@ -808,6 +808,18 @@
     worldTravelBtn: document.getElementById('worldTravelBtn'),
     worldDateBtn: document.getElementById('worldDateBtn'),
     worldDateHint: document.getElementById('worldDateHint'),
+    dateOverlay: document.getElementById('dateOverlay'),
+    dateChooser: document.getElementById('dateChooser'),
+    dateChoiceGrid: document.getElementById('dateChoiceGrid'),
+    dateCancelBtn: document.getElementById('dateCancelBtn'),
+    dateMovie: document.getElementById('dateMovie'),
+    dateMovieScene: document.getElementById('dateMovieScene'),
+    dateMoviePlace: document.getElementById('dateMoviePlace'),
+    dateMoviePet: document.getElementById('dateMoviePet'),
+    dateMoviePartner: document.getElementById('dateMoviePartner'),
+    dateMovieCaption: document.getElementById('dateMovieCaption'),
+    dateMovieSkipBtn: document.getElementById('dateMovieSkipBtn'),
+    dateMovieCloseBtn: document.getElementById('dateMovieCloseBtn'),
     seasonOverlay: document.getElementById('seasonOverlay'),
     seasonCloseBtn: document.getElementById('seasonCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
@@ -3717,12 +3729,12 @@
   const DATE_PLANS = [
     { id: 'walk', emoji: '🚶', label: 'ならんで あるく', line: 'とくに もくてきも なく、ずっと ならんで あるいた' },
     { id: 'eat', emoji: '🍡', label: 'なにか たべる', line: 'ひとつを はんぶんこ にして たべた' },
-    { id: 'sunset', emoji: '🌇', label: 'ゆうやけを みる', line: 'そらが きれいで、しばらく どちらも しゃべらなかった' },
-    { id: 'photo', emoji: '📷', label: 'しゃしんを とる', line: 'なんまい とっても どちらかが めを つぶっていた' },
+    { id: 'sunset', emoji: '🌇', label: 'ゆうやけを みる', line: 'そらが きれいで、しばらく どちらも しゃべらなかった', memory: 'ゆうやけを ふたりで みた' },
+    { id: 'photo', emoji: '📷', label: 'しゃしんを とる', line: 'なんまい とっても どちらかが めを つぶっていた', memory: 'ふたりで しゃしんを とった' },
     { id: 'nap', emoji: '😴', label: 'ひなたぼっこ', line: 'あたたかくて、ふたりとも うっかり ねてしまった' },
     { id: 'shop', emoji: '🛍️', label: 'ぶらぶら みてまわる', line: 'なにも かわなかったけど、ずっと たのしかった' },
-    { id: 'rain', emoji: '☔', label: 'あめやどり', line: 'きゅうな あめで、おなじ ひさしの したに ならんだ' },
-    { id: 'star', emoji: '🌠', label: 'ほしを さがす', line: 'ながれぼしを みつけたのは、けっきょく あいての ほうだった' },
+    { id: 'rain', emoji: '☔', label: 'あめやどり', line: 'きゅうな あめで、おなじ ひさしの したに ならんだ', memory: 'あめやどりを した' },
+    { id: 'star', emoji: '🌠', label: 'ほしを さがす', line: 'ながれぼしを みつけたのは、けっきょく あいての ほうだった', memory: 'ながれぼしを さがした' },
     { id: 'talk', emoji: '💬', label: 'どうでも いい はなしを する', line: 'なにを はなしたか もう おぼえていない くらい どうでも いい はなしだった' },
     { id: 'lost', emoji: '🧭', label: 'まいごに なる', line: 'みちに まよったけど、なぜか おこられなかった' },
   ];
@@ -3780,8 +3792,34 @@
     return null;
   }
 
-  function goOnDate() {
-    worldOpen = false;
+  let dateOpen = false;
+  let dateChoiceOptions = [];
+  let dateMovieTimers = [];
+
+  function clearDateMovieTimers() {
+    dateMovieTimers.forEach((t) => clearTimeout(t));
+    dateMovieTimers = [];
+  }
+
+  function pickDateChoices() {
+    const pool = DATE_PLANS.filter((p) => p.id !== lastDatePlanId);
+    const shuffled = pool.slice().sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
+  }
+
+  function renderDateChoices() {
+    el.dateChoiceGrid.innerHTML = '';
+    dateChoiceOptions.forEach((plan) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'date-choice-btn';
+      btn.dataset.plan = plan.id;
+      btn.innerHTML = `<span class="date-choice-emoji">${plan.emoji}</span><span class="date-choice-label">${plan.label}</span>`;
+      el.dateChoiceGrid.appendChild(btn);
+    });
+  }
+
+  function openDateChooser() {
     const blocked = dateBlockReason();
     if (blocked) {
       setMessage(blocked);
@@ -3789,10 +3827,87 @@
       render();
       return;
     }
+    worldOpen = false;
+    dateChoiceOptions = pickDateChoices();
+    dateOpen = true;
+    clearDateMovieTimers();
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    renderDateChoices();
+    render();
+  }
+
+  function closeDateOverlay() {
+    clearDateMovieTimers();
+    dateOpen = false;
+    el.dateOverlay.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+    render();
+  }
+
+  function rememberSpecialDate(plan, partner) {
+    if (!plan.memory || state.datesThisLife <= 1) return;
+    const memoryText = `デートの おもいで: ${partner.label}と ${plan.memory}`;
+    if (state.lifeLog.some((entry) => entry && entry.text === memoryText)) return;
+    pushLifeLog('💗', memoryText);
+  }
+
+  function finishDateMovie() {
+    clearDateMovieTimers();
+    el.dateMovieCaption.classList.remove('beat');
+    el.dateMovieCloseBtn.classList.remove('hidden');
+    el.dateMovieSkipBtn.classList.add('hidden');
+  }
+
+  function playDateMovie(plan, partner, region, traitLine, closing) {
+    clearDateMovieTimers();
+    el.dateChooser.classList.add('hidden');
+    el.dateMovie.classList.remove('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${region.emoji} ${region.label}　${plan.emoji} ${plan.label}`;
+    const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
+    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    el.dateMoviePartner.textContent = partner.emoji || '💞';
+
+    const beats = [
+      plan.line,
+      `${partner.label}は ${traitLine}。`,
+      closing,
+    ];
+    el.dateMovieCaption.textContent = beats[0];
+    el.dateMovieCaption.classList.add('beat');
+
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat');
+      void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[1];
+      el.dateMovieCaption.classList.add('beat');
+    }, 1050));
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat');
+      void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[2];
+      el.dateMovieCaption.classList.add('beat');
+    }, 2150));
+    dateMovieTimers.push(setTimeout(finishDateMovie, 3300));
+  }
+
+  function goOnDate(plan) {
+    const blocked = dateBlockReason();
+    if (blocked) {
+      closeDateOverlay();
+      setMessage(blocked);
+      saveState();
+      render();
+      return;
+    }
     const partner = state.partner;
     const region = findRegion(state.regionId);
-    const plans = DATE_PLANS.filter((p) => p.id !== lastDatePlanId);
-    const plan = plans[Math.floor(Math.random() * plans.length)];
     lastDatePlanId = plan.id;
     const traitLines = DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle;
     const traitLine = traitLines[Math.floor(Math.random() * traitLines.length)];
@@ -3801,7 +3916,6 @@
     state.dateCooldownTicks = DATE_COOLDOWN_TICKS;
     state.datesThisLife += 1;
     state.lifetime.datesEnjoyed += 1;
-    // なでる連打の カウントは、ほかの おせわと おなじく ここで 0に もどす
     state.affectionStreak = 0;
     partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
     state.happiness = clamp(state.happiness + 12, 0, 100);
@@ -3810,13 +3924,15 @@
     applyGrowth(5);
     applyDecline(-4);
     if (state.datesThisLife === 1) {
-      pushLifeLog('💞', `${partner.label}と デートに いった`);
+      pushLifeLog('💞', `${partner.label}と はじめての デートに いった`);
+    } else {
+      rememberSpecialDate(plan, partner);
     }
-    if (!checkMeters()) {
-      setMessage(`💞 ${region.emoji}${region.label}で ${plan.emoji}${plan.label}デート。${plan.line}。${partner.label}は ${traitLine}。${closing}`);
-    }
+
+    setMessage(`💞 ${partner.label}と ${plan.label}デートを たのしんだ`);
     emotePet('love');
     saveState();
+    playDateMovie(plan, partner, region, traitLine, closing);
     render();
   }
 
@@ -3969,6 +4085,8 @@
     'こいびとに なった',
     'けっこんした',
     'デートに いった',
+    'はじめての デートに いった',
+    'デートの おもいで:',
     'なかなおりした',
     'なかまに なった',
     'はじめて ',
@@ -4010,6 +4128,9 @@
 
     if (text === 'びょうきを なおしてもらった') {
       return `${when} びょうきを なおしてくれたね。ありがとう!`;
+    }
+    if (text.startsWith('デートの おもいで:')) {
+      return `${when}の デート、${text.replace('デートの おもいで:', '').trim()}。おぼえてる?`;
     }
     return `${when}、${text}ね。おぼえてる?`;
   }
@@ -4947,7 +5068,7 @@
   function isAnyMenuOverlayOpen() {
     return dexOpen || achOpen || themeOpen || profileOpen || commOpen
       || itemOpen || duelOpen || worldOpen || seasonOpen || travelOpen
-      || companionInviteOpen
+      || dateOpen || companionInviteOpen
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
       // なかまの さそいが かぶさって、クリアの ボタンが おせなく なる
@@ -5449,6 +5570,7 @@
     el.companionInviteOverlay.classList.toggle('hidden', !companionInviteOpen);
 
     el.worldOverlay.classList.toggle('hidden', !worldOpen);
+    el.dateOverlay.classList.toggle('hidden', !dateOpen);
     // そだち50「こいの きざし」に とどいて はじめて「デートに さそう」が
     // あらわれる。こいびとが いない/クールダウン中 などの ときは、ボタンは
     // 出したまま おせない ようにして、りゆうは おしたときに ことばで つたえる
@@ -14440,7 +14562,26 @@
 
   // そだち50「こいの きざし」の デート。「せかい」がめんの なかから さそう
   el.worldDateBtn.addEventListener('click', () => {
-    goOnDate();
+    openDateChooser();
+  });
+
+  el.dateChoiceGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.date-choice-btn');
+    if (!btn) return;
+    const plan = dateChoiceOptions.find((p) => p.id === btn.dataset.plan);
+    if (plan) goOnDate(plan);
+  });
+
+  el.dateCancelBtn.addEventListener('click', () => {
+    closeDateOverlay();
+  });
+
+  el.dateMovieSkipBtn.addEventListener('click', () => {
+    finishDateMovie();
+  });
+
+  el.dateMovieCloseBtn.addEventListener('click', () => {
+    closeDateOverlay();
   });
 
   // なかまからの さそい: 「あそぶ!」で ミニゲームへ、「また こんど」で
