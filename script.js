@@ -2093,6 +2093,27 @@
     return c ? { kind: 'companion', emoji: c.emoji, label: c.name } : null;
   }
 
+  let ageSpeechTimer = null;
+  function celebrateAgeSpeech(age, stageLabel) {
+    clearTimeout(ageSpeechTimer);
+    const selfLines = stageLabel
+      ? [`${age}さい! ${stageLabel}に なった!`, `また ひとつ おおきく なったよ!`, `${age}さいの ぼく、よろしく!`]
+      : [`${age}さいに なった!`, `もう ${age}さいだって!`, `${age}さいの ぼくも よろしく!`];
+    setSpeechBubble(selfLines[Math.floor(Math.random() * selfLines.length)], petSpeaker());
+
+    const others = [];
+    const ps = partnerSpeaker();
+    const cs = companionSpeaker();
+    if (ps) others.push({ speaker: ps, lines: [`${age}さい おめでとう! 💕`, 'これからも いっしょに いようね', 'また ひとつ おもいでが ふえたね'] });
+    if (cs) others.push({ speaker: cs, lines: [`${age}さい おめでとう!`, 'また おおきく なったね!', 'きょうは ちょっと とくべつだね!'] });
+    if (others.length) {
+      const picked = others[Math.floor(Math.random() * others.length)];
+      ageSpeechTimer = setTimeout(() => {
+        setSpeechBubble(picked.lines[Math.floor(Math.random() * picked.lines.length)], picked.speaker);
+      }, 1800);
+    }
+  }
+
   const PARTNER_IDLE_LINES = [
     'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
     'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
@@ -4406,6 +4427,7 @@
     state.lifetime.money += 100;
     pushLifeLog(stage.emoji, `${age}さい ${stage.label}に なった`);
     showStoryEvent({ emoji: stage.emoji, message: `${age}さいに なった！\n${stage.label}` });
+    celebrateAgeSpeech(age, stage.label);
     checkStoryEvents('evolve');
     // すがたが かわった しゅんかんだけ、へんしんの ちゅうせんを おこなう
     rollTransformChance();
@@ -4415,6 +4437,7 @@
   // 10さいごと: 「としの おくりもの」(そだち30で 解禁)
   function onBirthday(age) {
     applyGrowth(2, { silent: true });
+    celebrateAgeSpeech(age);
     applyDecline(-5, { silent: true });
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
@@ -7590,399 +7613,107 @@
   ];
 
   const QUIZ_QUESTIONS = [
-    // --- ふつう ---
-    {
-      text: 'きゅうに あめが ふってきたよ!どうする?',
-      choices: [
-        { label: 'いそいで やねの したに はしる', response: 'セーフ!ぬれなかったね', score: 90, trait: 'brave' },
-        { label: 'あめの なかで おどっちゃう', response: 'たのしいけど ちょっと びしょぬれ…', score: 60, trait: 'wild' },
-        { label: 'きにせず そのまま すすむ', response: 'かぜ ひかないでね…', score: 40, trait: 'wild' },
-        { label: 'ちかくの おみせに にげこむ', response: 'きてんの きく こうどう!', score: 80, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'おなかが すいてきた…なにを たべたい?',
-      choices: [
-        { label: 'おにぎり', response: 'もぐもぐ!げんきが でるね', score: 80, trait: 'gentle' },
-        { label: 'あまい おかし', response: 'にっこり!しあわせな あじ', score: 70, trait: 'wild' },
-        { label: 'なんでも いいや', response: 'じゃあ おまかせだね', score: 50, trait: 'calm' },
-        { label: 'やさいを たべる', response: 'けんこうてき!からだ よろこぶね', score: 90, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'ともだちが けんかを してるみたい。どうする?',
-      choices: [
-        { label: 'なかに はいって なかなおりさせる', response: 'ふたりとも わらってくれた!', score: 90, trait: 'brave' },
-        { label: 'そっと みまもる', response: 'しずかに おさまったみたい', score: 65, trait: 'calm' },
-        { label: 'みなかったことに する', response: 'ちょっと きになるけど…', score: 35, trait: 'wild' },
-        { label: 'りょうほうの はなしを べつべつに きく', response: 'こうへいな しせい、りっぱだね', score: 85, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'よる ねむれないとき、なにを する?',
-      choices: [
-        { label: 'ひつじを かぞえる', response: '1ぴき、2ひき…すやすや', score: 70, trait: 'calm' },
-        { label: 'すきな おんがくを きく', response: 'こころが おちついたね', score: 85, trait: 'gentle' },
-        { label: 'がんばって おきてる', response: 'あさに なって ねむそう…', score: 40, trait: 'wild' },
-        { label: 'あたたかい ミルクを のむ', response: 'からだも こころも ほっとするね', score: 80, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'あたらしい ぼうしを もらったよ!どうする?',
-      choices: [
-        { label: 'さっそく かぶってみる', response: 'よく にあってるよ!', score: 85, trait: 'wild' },
-        { label: 'だいじに しまっておく', response: 'たいせつに するんだね', score: 60, trait: 'calm' },
-        { label: 'かがみで にあうか かくにんする', response: 'ばっちり!じしんまんまん', score: 75, trait: 'brave' },
-        { label: 'ともだちに みせびらかす', response: 'うれしさが つたわってくるよ', score: 70, trait: 'wild' },
-      ],
-    },
-    {
-      text: 'きょう ちょっと つかれちゃった…',
-      choices: [
-        { label: 'はやめに ねる', response: 'ぐっすり やすめそう', score: 90, trait: 'calm' },
-        { label: 'すこし やすんでから がんばる', response: 'むりせず ちょうどいいね', score: 70, trait: 'calm' },
-        { label: 'がまんして がんばりつづける', response: 'むりは きんもつだよ…', score: 30, trait: 'brave' },
-        { label: 'あたたかい おふろに はいる', response: 'つかれが とけていくね', score: 85, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'かいものに いったら、レジで さいふを わすれたことに きづいた。',
-      choices: [
-        { label: 'てんいんに しょうじきに つたえる', response: 'せいじつな たいおう、りっぱだね', score: 85, trait: 'brave' },
-        { label: 'こっそり にげる', response: 'それは だめだよ…', score: 20, trait: 'wild' },
-        { label: 'けいたいで かぞくに れんらくする', response: 'たよれる ひとが いて よかったね', score: 70, trait: 'gentle' },
-        { label: 'つぎに もってくる ことを やくそくする', response: 'てんいんさんも わかってくれたね', score: 75, trait: 'calm' },
-      ],
-    },
-    // --- シリアス ---
-    {
-      text: 'ずっと がんばってきたことが、うまくいかなかった。',
-      choices: [
-        { label: 'なみだを ふいて、またはじめから やりなおす', response: 'その つよさが、きっと みらいを かえる', score: 95, trait: 'brave' },
-        { label: 'どうしてなのか、しずかに かんがえる', response: 'こたえは まだ みつからないけど…', score: 75, trait: 'calm' },
-        { label: 'もう なにも かんがえたくない', response: 'たまには やすんでも いいんだよ', score: 35, trait: 'wild' },
-        { label: 'しっぱいから まなぼうと する', response: 'その しせいが、つぎに つながるよ', score: 88, trait: 'brave' },
-      ],
-    },
-    {
-      text: 'たいせつな なにかを、うしなってしまった。',
-      choices: [
-        { label: 'かなしみを うけとめて、まえを むく', response: 'その きもち、わすれなくて いいんだよ', score: 90, trait: 'gentle' },
-        { label: 'だれかに きもちを はなす', response: 'ひとりじゃ ないって おもえたね', score: 80, trait: 'gentle' },
-        { label: 'なかったことに しようとする', response: 'むりに わすれなくても だいじょうぶ', score: 30, trait: 'wild' },
-        { label: 'しずかに なみだを ながす', response: 'なくのも、こころの だいじな しょほう', score: 85, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'じぶんの いきる いみって、なんだろう。ふと そんなことを かんがえた。',
-      choices: [
-        { label: 'こたえは ひとつじゃないと きづく', response: 'そのとおり。きみの ものがたりは、きみだけの もの', score: 90, trait: 'calm' },
-        { label: 'みらいの じぶんに きいてみる', response: 'いつか こたえが みえてくるかも', score: 75, trait: 'calm' },
-        { label: 'かんがえるのを やめる', response: 'たまには そういう ひも あるよね', score: 40, trait: 'wild' },
-        { label: 'いま この しゅんかんを たいせつに する', response: 'それこそが、いちばんの こたえ かもしれない', score: 88, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'みんなが すすむ みちと、じぶんの きもちが ちがう きがする。',
-      choices: [
-        { label: 'じぶんの こえを しんじて すすむ', response: 'その ゆうきが、みちを ひらくよ', score: 90, trait: 'brave' },
-        { label: 'もうすこし かんがえる じかんを もつ', response: 'あわてなくても だいじょうぶ', score: 75, trait: 'calm' },
-        { label: 'みんなに あわせておく', response: 'それも ひとつの えらびかた', score: 45, trait: 'wild' },
-        { label: 'しんらいできる ひとに そうだんする', response: 'ひとりで かかえなくて いいんだよ', score: 85, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'もう にどと あえない ひとが いる。ふと おもいだす よるが ある。',
-      choices: [
-        { label: 'おもいでを たいせつに しまっておく', response: 'その おもいでは、きえたりしないよ', score: 90, trait: 'gentle' },
-        { label: 'つたえられなかった かんしゃを くやむ', response: 'いまからでも、こころの なかで つたえられるよ', score: 65, trait: 'gentle' },
-        { label: 'かんがえないように する', response: 'むりせず、じぶんの ペースで いいんだよ', score: 35, trait: 'wild' },
-        { label: 'そのひとの ぶんまで げんきに いきようと おもう', response: 'それは、すてきな くようの かたち', score: 88, trait: 'brave' },
-      ],
-    },
-    {
-      text: 'あしたが こなければいいのに、と おもう よるが ある。',
-      choices: [
-        { label: 'その きもちを、だれかに はなしてみる', response: 'ひとりで かかえなくて いいんだよ', score: 90, trait: 'gentle' },
-        { label: 'あさまで ただ じっと まつ', response: 'よるは、いつか あけるから', score: 60, trait: 'calm' },
-        { label: 'なにも かんがえずに ねむる', response: 'ゆっくり やすんでね', score: 55, trait: 'calm' },
-        { label: 'すきな ものがたりを よんで きを まぎらわす', response: 'こころが すこし かるく なったかな', score: 75, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'いっしょうけんめい がんばったのに、だれにも きづいてもらえなかった。',
-      choices: [
-        { label: 'じぶんで じぶんを ほめる', response: 'その りっぱな こころが、きみを ささえるよ', score: 85, trait: 'brave' },
-        { label: 'すこし さみしく なる', response: 'その きもちも、しぜんな ことだよ', score: 70, trait: 'gentle' },
-        { label: 'もう がんばるのを やめようと おもう', response: 'つかれた ときは、やすんで いいんだよ', score: 35, trait: 'wild' },
-        { label: 'いつか だれかが きづいてくれると しんじる', response: 'その しんねんが、きっと みちを てらすよ', score: 80, trait: 'calm' },
-      ],
-    },
-    // --- 大人っぽい ---
-    {
-      text: 'あしたは だいじな しごとの ひ。きんちょうで ねむれない…',
-      choices: [
-        { label: 'じゅんびは できてる。じぶんを しんじる', response: 'その じしんが、きっと ちからに なる', score: 90, trait: 'brave' },
-        { label: 'なんども だんどりを かくにんしてしまう', response: 'まじめだね。でも たまには きゅうけいも', score: 70, trait: 'calm' },
-        { label: 'かんがえるのを やめて スマホを みる', response: 'げんじつ とうひも、たまには ひつよう', score: 45, trait: 'wild' },
-        { label: 'はやめに ふとんに はいって めを とじる', response: 'リラックスも たいせつな じゅんび', score: 80, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'きゅうりょうびまえで、さいふの なかが さみしい。',
-      choices: [
-        { label: 'つぎの げつまつまで けいかくを たてる', response: 'その りせいてきさ、みならいたい', score: 85, trait: 'calm' },
-        { label: 'すこしだけ ぜいたくして じぶんに ごほうび', response: 'たまには いいよね', score: 65, trait: 'wild' },
-        { label: 'みなかったことに して つかっちゃう', response: 'あとで こうかいしても しらないよ…', score: 30, trait: 'wild' },
-        { label: 'いえに ある もので すごす', response: 'くふうする ちから、すごいね', score: 80, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'かいぎで、じぶんの いけんと まわりの いけんが ぶつかった。',
-      choices: [
-        { label: 'れいせいに、じぶんの かんがえを つたえる', response: 'おとなの たいおう、かっこいいね', score: 90, trait: 'calm' },
-        { label: 'あいての いいぶんも きいてみる', response: 'そのバランスかんかく、だいじだね', score: 85, trait: 'gentle' },
-        { label: 'めんどうだから だまっておく', response: 'それも ひとつの せんたく', score: 40, trait: 'wild' },
-        { label: 'いちど もちかえって かんがえる', response: 'あわてない、その よゆう だいじだね', score: 80, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'ふと、じぶんの しょうらいの ことを かんがえてしまう よるが ある。',
-      choices: [
-        { label: 'すこしずつ ちょきんを はじめる', response: 'みらいの じぶんが よろこぶよ', score: 85, trait: 'calm' },
-        { label: 'かんがえても しかたないから いまを たのしむ', response: 'それも ひとつの いきかた', score: 65, trait: 'wild' },
-        { label: 'かんがえたくなくて めを そらす', response: 'いつか むきあう ひが くるかも', score: 35, trait: 'wild' },
-        { label: 'あたらしい スキルを べんきょうしはじめる', response: 'みらいへの とうし、すてきだね', score: 88, trait: 'brave' },
-      ],
-    },
-    {
-      text: 'こうはいから、しんけんな そうだんを もちかけられた。',
-      choices: [
-        { label: 'じっくり はなしを きいて アドバイスする', response: 'たよりに されてるね', score: 90, trait: 'gentle' },
-        { label: 'じぶんの けいけんを シェアする', response: 'それも りっぱな サポート', score: 75, trait: 'gentle' },
-        { label: 'めんどうだと おもいつつ うなずいておく', response: 'せめて きくしせいは だいじだよ', score: 40, trait: 'wild' },
-        { label: 'いっしょに かいけつさくを かんがえる', response: 'こころ強い せんぱいだね', score: 88, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'ふと、じぶんの おやの としを かんがえてしまった。',
-      choices: [
-        { label: 'こんど れんらくしてみようと きめる', response: 'その きもち、つたわると いいね', score: 90, trait: 'gentle' },
-        { label: 'かんしゃの きもちが わいてくる', response: 'そのきもち、たいせつに', score: 85, trait: 'gentle' },
-        { label: 'いそがしくて わすれてしまう', response: 'ふと おもいだした いまが チャンスかも', score: 40, trait: 'wild' },
-        { label: 'しゃしんを みかえして きもちに ひたる', response: 'そのじかんも、たいせつな くよう', score: 75, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'ながねん つとめた しごとを、やめる ひが きた。',
-      choices: [
-        { label: 'せいせいと わかれを つげる', response: 'つぎの いっぽへ、じしんを もって', score: 85, trait: 'brave' },
-        { label: 'なかまとの おもいでに ひたる', response: 'その きずなは、きえないよ', score: 80, trait: 'gentle' },
-        { label: 'ふあんで いっぱいに なる', response: 'あたらしい みちには、ふあんも つきものだね', score: 50, trait: 'wild' },
-        { label: 'これからの けいかくを たてはじめる', response: 'まえむきな いっぽ、いいね', score: 88, trait: 'calm' },
-      ],
-    },
-    // --- 馬鹿らしい ---
-    {
-      text: 'めのまえに、たいやきが あらわれた!なぜか しゃべる。',
-      choices: [
-        { label: 'たいやきと ともだちに なる', response: 'あんこの なかまが ふえたね', score: 80, trait: 'gentle' },
-        { label: 'とりあえず たべる', response: 'ちょっと ざんこくだけど…おいしかった?', score: 60, trait: 'wild' },
-        { label: 'さけぶ', response: 'たいやきも びっくりしてる', score: 40, trait: 'wild' },
-        { label: 'いっしょに さんぽに でかける', response: 'へんな コンビの たんじょうだ', score: 70, trait: 'wild' },
-      ],
-    },
-    {
-      text: 'そらから いきなり バナナが ふってきた。',
-      choices: [
-        { label: 'かさがわりに する', response: 'あたらしい はつめいかも しれない', score: 70, trait: 'wild' },
-        { label: 'みんなに くばる', response: 'バナナパーティーの はじまりだ', score: 85, trait: 'gentle' },
-        { label: 'ふまないように そっと よける', response: 'けんめいな はんだん', score: 55, trait: 'calm' },
-        { label: 'たべて エネルギーほきゅう', response: 'バナナパワー じゅうてん!', score: 75, trait: 'wild' },
-      ],
-    },
-    {
-      text: 'あさおきたら、じぶんの あたまが キャベツに なっていた。',
-      choices: [
-        { label: 'きにせず いつもどおり すごす', response: 'その どきょう、すごい', score: 75, trait: 'brave' },
-        { label: 'ぼうしを かぶって かくす', response: 'さくせん せいこう?', score: 65, trait: 'calm' },
-        { label: 'サラダに されないか しんぱいする', response: 'きもちは わかる', score: 50, trait: 'wild' },
-        { label: 'びょういんに いくか なやむ', response: 'しんちょうな はんだんだね', score: 60, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'ペットが きゅうに にんげんの ことばで はなしかけてきた。',
-      choices: [
-        { label: 'ふつうに かいわを たのしむ', response: 'あたらしい なかまとの かいわ、たのしそう', score: 85, trait: 'gentle' },
-        { label: 'びっくりして こしを ぬかす', response: 'むりも ないね', score: 55, trait: 'wild' },
-        { label: 'ゆめだと おもって もういちど ねる', response: 'げんじつだったら どうしよう', score: 60, trait: 'calm' },
-        { label: 'なにか おねがいごとを きいてみる', response: 'ちゃっかりしてるね', score: 70, trait: 'wild' },
-      ],
-    },
-    {
-      text: 'せかいが きゅうに ぜんぶ プリンに なってしまった。',
-      choices: [
-        { label: 'よろこんで たべまくる', response: 'あまい せかい、さいこう', score: 80, trait: 'wild' },
-        { label: 'もったいなくて どうしようか なやむ', response: 'なやんでいるうちに とけちゃうかも', score: 60, trait: 'calm' },
-        { label: 'もとに もどす ほうほうを さがす', response: 'けんきゅうしゃの すじが あるかも', score: 65, trait: 'calm' },
-        { label: 'プリンの うえで ジャンプする', response: 'むじゃきで たのしそう', score: 70, trait: 'wild' },
-      ],
-    },
-    {
-      text: 'みぎあしと ひだりあしが、けんかを はじめてしまった。',
-      choices: [
-        { label: 'なかなおりさせる', response: 'へいわが もどったね', score: 75, trait: 'gentle' },
-        { label: 'そのまま けんかを みまもる', response: 'あしあと、じぐざぐに なってるよ', score: 45, trait: 'calm' },
-        { label: 'みてみぬふりを する', response: 'あしあと そのまま すすもう', score: 55, trait: 'wild' },
-        { label: 'りょうほうに ごほうびを あげる', response: 'こうへいな かいけつほうだね', score: 65, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'じぶんの かげが、きゅうに かってに うごきだした。',
-      choices: [
-        { label: 'かげと おいかけっこ する', response: 'たいへんな うんどうに なったね', score: 75, trait: 'wild' },
-        { label: 'かげに はなしかける', response: 'どんな へんじが かえって きたかな', score: 70, trait: 'wild' },
-        { label: 'びっくりして うごけなく なる', response: 'むりも ないね', score: 50, trait: 'calm' },
-        { label: 'かげと いっしょに おどる', response: 'ふたりの あいぼう、たんじょう', score: 80, trait: 'wild' },
-      ],
-    },
-    // --- ラブロマンス的 ---
-    {
-      text: 'きになる ひとと めが あった。しゅんかん、じかんが とまった きが した。',
-      choices: [
-        { label: 'おもいきって わらいかけてみる', response: 'せかいが きゅうに いろづいて みえたね', score: 90, trait: 'romantic' },
-        { label: 'どきどきして めを そらしてしまう', response: 'その きもちも、りっぱな こいの はじまり', score: 70, trait: 'romantic' },
-        { label: 'きのせいだと じぶんに いいきかせる', response: 'ほんとうに、そうかな?', score: 45, trait: 'calm' },
-        { label: 'しぜんに あいさつを する', response: 'その いっぽが、なにかを かえるかも', score: 80, trait: 'brave' },
-      ],
-    },
-    {
-      text: 'たいせつな ひとに、きもちを つたえる ひが きた。',
-      choices: [
-        { label: 'まっすぐ きもちを ことばに する', response: 'その ゆうき、いつまでも おぼえておいて', score: 95, trait: 'romantic' },
-        { label: 'てがみに かいて わたす', response: 'ことばには できない おもいも、とどくよ', score: 85, trait: 'romantic' },
-        { label: 'けっきょく いえずに おわる', response: 'つぎの チャンスは、きっと くる', score: 40, trait: 'calm' },
-        { label: 'ともだちに せなかを おしてもらう', response: 'だれかの ちからを かりるのも ゆうき', score: 80, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'あめの ひ、かさを わすれた ひとに かさを さしだされた。',
-      choices: [
-        { label: 'どきどきしながら いっしょに あるく', response: 'あめさえも、うつくしく みえる しゅんかん', score: 90, trait: 'romantic' },
-        { label: 'おれいを いって わかれる', response: 'その やさしさは、きっと わすれない', score: 65, trait: 'calm' },
-        { label: 'えんりょして ことわる', response: 'ちょっと もったいなかったかも?', score: 40, trait: 'wild' },
-        { label: 'かさを いっしょに もつ ていあんを する', response: 'きょりが ちかづく しゅんかんだね', score: 85, trait: 'romantic' },
-      ],
-    },
-    {
-      text: 'むかしの こいびとから、ふいに れんらくが きた。',
-      choices: [
-        { label: 'なつかしさに ほほえんで へんじを する', response: 'おもいでは、やさしく こころに のこってる', score: 80, trait: 'romantic' },
-        { label: 'すこし まよってから へんじする', response: 'そのまよいも、しぜんな きもち', score: 70, trait: 'calm' },
-        { label: 'みなかったことに する', response: 'いまの じぶんを だいじに するのも だいじ', score: 50, trait: 'wild' },
-        { label: 'いまの きもちを しょうじきに つたえる', response: 'せいじつさが、いちばん つたわるよ', score: 88, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'ふたりで みた ゆうやけが、わすれられないほど きれいだった。',
-      choices: [
-        { label: 'この しゅんかんを、いつまでも おぼえておこうと おもう', response: 'その きもちが、いちばんの たからもの', score: 90, trait: 'romantic' },
-        { label: 'しゃしんに とって のこす', response: 'きろくも、また すてきな しゅだん', score: 80, trait: 'calm' },
-        { label: 'とくに なにも かんじない', response: 'ひとそれぞれ、かんじかたは ちがうよね', score: 50, trait: 'wild' },
-        { label: 'となりの ひとの よこがおを ちらっと みる', response: 'その どきどきも、たからものだね', score: 85, trait: 'romantic' },
-      ],
-    },
-    {
-      text: 'ずっと そばに いてくれた ひとの ありがたみに、ふと きづいた。',
-      choices: [
-        { label: 'すなおに 「ありがとう」と つたえる', response: 'その ひとことが、なによりの プレゼント', score: 95, trait: 'gentle' },
-        { label: 'こんど なにか おかえしを しようと きめる', response: 'きもちが かたちに なると うれしいね', score: 80, trait: 'gentle' },
-        { label: 'きづいたけど、なんとなく いいそびれる', response: 'つたえるのに、おそすぎることは ないよ', score: 45, trait: 'wild' },
-        { label: 'てがみを かいて わたす', response: 'ことばに した きもちは、ずっと のこるよ', score: 90, trait: 'romantic' },
-      ],
-    },
-    {
-      text: 'けっこんしきで、ゆうじんの スピーチに ないてしまった。',
-      choices: [
-        { label: 'なみだを かくさず ながす', response: 'その すなおさが、うつくしいね', score: 90, trait: 'romantic' },
-        { label: 'こっそり なみだを ふく', response: 'やさしい きもちが つたわってくるよ', score: 75, trait: 'gentle' },
-        { label: 'わらって ごまかす', response: 'てれかくしも、かわいいね', score: 50, trait: 'wild' },
-        { label: 'あとで てがみを かこうと きめる', response: 'きもちを かたちに するのは すてきだね', score: 85, trait: 'romantic' },
-      ],
-    },
-    // --- 感動 ---
-    {
-      text: 'そだてた いえの こどもが、きょう ひとりだちして いえを でていった。',
-      choices: [
-        { label: 'げんかんで、みえなくなるまで てを ふりつづけた', response: 'その せなかを、いつまでも おうえんしてるよ', score: 95, trait: 'gentle' },
-        { label: 'へやに のこった においを かいで、なみだが こぼれた', response: 'その あいじょうは、ちゃんと とどいていたよ', score: 90, trait: 'romantic' },
-        { label: 'さみしさを かくして、げんきに おくりだした', response: 'その つよさこそ、あいの かたちだね', score: 85, trait: 'brave' },
-        { label: 'けいたいに 「げんきでね」と メッセージを おくった', response: 'ことばに した きもち、きっと とどくよ', score: 88, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'むかし かってた ペットが てんごくへ いった ひの ことを、ふと おもいだした。',
-      choices: [
-        { label: 'しゃしんを みながら、いっしょに すごした じかんに かんしゃした', response: 'その おもいでは、いつまでも きえないよ', score: 92, trait: 'gentle' },
-        { label: 'こえに だして「ありがとう」と つぶやいた', response: 'その ことば、きっと とどいているよ', score: 90, trait: 'gentle' },
-        { label: 'なみだが とまらなく なった', response: 'なくほど あいした あかし だね', score: 88, trait: 'romantic' },
-        { label: 'あたらしい いのちを だいじに しようと ちかった', response: 'その きもちが、めぐりめぐって いくんだね', score: 85, trait: 'brave' },
-      ],
-    },
-    {
-      text: 'びょういんの ベッドで、かぞくが てを にぎってくれていた ときの ことを おもいだす。',
-      choices: [
-        { label: 'あのときの あたたかさを、いまも わすれない', response: 'その てのひらの ぬくもりは、たからものだね', score: 93, trait: 'gentle' },
-        { label: 'じぶんも だれかの ささえに なろうと おもった', response: 'うけとった あいを、つなげていくんだね', score: 90, trait: 'brave' },
-        { label: 'なにも いえなかったことを、いま こうかいしている', response: 'いまからでも、つたえられる ことは あるよ', score: 70, trait: 'calm' },
-        { label: 'あのひとに もういちど あいたいと おもう', response: 'その おもいは、きっと とどいているよ', score: 85, trait: 'romantic' },
-      ],
-    },
-    {
-      text: 'ずっと けんかしていた きょうだいから、ひさしぶりに れんらくが きた。',
-      choices: [
-        { label: 'なにも なかったかのように へんじする', response: 'そのやさしさが、きずなを むすびなおすね', score: 85, trait: 'gentle' },
-        { label: 'なみだ ながら でんわに でる', response: 'がまんしていた きもちが、あふれたんだね', score: 90, trait: 'romantic' },
-        { label: 'すぐには へんじ できず、しばらく かんがえこんだ', response: 'そのじかんも、たいせつな プロセスだよ', score: 75, trait: 'calm' },
-        { label: '「げんき?」の ひとことに、すべての わだかまりが とけた', response: 'たったひとことで、こころは つながるんだね', score: 92, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'そつぎょうしきで、せんせいが「きみたちを ほこりに おもう」と いってくれた。',
-      choices: [
-        { label: 'こらえきれず なみだが あふれた', response: 'その ことばは、いつまでも こころに のこるね', score: 93, trait: 'romantic' },
-        { label: 'せんせいに ふかく あたまを さげた', response: 'そのかんしゃの きもち、つたわったはず', score: 88, trait: 'brave' },
-        { label: 'みんなと がっしょうして よろこびを わかちあった', response: 'その いったいかん、かけがえの ない しゅんかんだね', score: 90, trait: 'gentle' },
-        { label: 'いままでの ひびを、いっきに おもいだした', response: 'つみかさねた じかんが、むねに せまるね', score: 85, trait: 'calm' },
-      ],
-    },,
-    {
-      text: 'ともだちが だれかの たいせつなものを こわして、だまっていてと たのんできた。',
-      choices: [
-        { label: 'いっしょに あやまりにいく', response: 'ともだちを まもりながら、せきにんも とったね', score: 100, trait: 'brave' },
-        { label: 'じぶんは かかわらない', response: 'まきこまれない えらびかたも ある', score: 55, trait: 'calm' },
-        { label: 'だれにも いわず かくす', response: 'ひみつは まもれたけど、こわれたものは もどらない', score: 25, trait: 'wild' },
-        { label: '本人にだけ こっそり あやまるよう すすめる', response: 'まず じぶんで せきにんを とるよう うながした', score: 75, trait: 'gentle' },
-      ],
-    },
-    {
-      text: 'ふたりの ともだちが けんかして、どちらも「じぶんの みかたをして」と いってきた。',
-      choices: [
-        { label: 'りょうほうの はなしを きいて、まちがいは まちがいと いう', response: 'やさしさだけでなく、こうへいさも えらんだ', score: 100, trait: 'brave' },
-        { label: 'なかが いいほうの みかたをする', response: 'きもちには よりそえたけど、こうへいでは なかったかも', score: 35, trait: 'romantic' },
-        { label: 'どっちも わるくないと いう', response: 'やさしいけど、ほんとうの かいけつは まだ さきかも', score: 60, trait: 'gentle' },
-        { label: 'けんかが おわるまで はなれる', response: 'きょりを おくのも ひとつの ほうほう', score: 45, trait: 'calm' },
-      ],
-    },
-    {
-      text: 'だれかが みんなの まえで ひとりを からかっている。まわりは わらっている。',
-      choices: [
-        { label: 'からかうのを やめようと いう', response: 'ひとりでも こえを あげる ゆうきを えらんだ', score: 100, trait: 'brave' },
-        { label: 'あとで からかわれたひとに こえをかける', response: 'あとからでも よりそうことは できる', score: 72, trait: 'gentle' },
-        { label: 'じぶんも わらって ごまかす', response: 'そのばには なじめたけど、だれかは きずついた', score: 20, trait: 'wild' },
-        { label: 'みていない ふりをする', response: 'まきこまれなかったけど、たすけにも なれなかった', score: 45, trait: 'calm' },
-      ],
-    }
+    // 日常
+    { text:'ともだちが、べつの ともだちの わるぐちを こっそり いってきた。どうする?', choices:[
+      {label:'ほんにんの いないところで いうのは やめようと いう',response:'いいにくいことでも、せいじつさを えらんだ',score:100,trait:'brave'},
+      {label:'なにも いわず ききながす',response:'けんかは さけたけど、もやもやは のこった',score:45,trait:'calm'},
+      {label:'あとで ほんにんに ぜんぶ つたえる',response:'しょうじきだけど、つたえかたは もうすこし えらべたかも',score:72,trait:'gentle'},
+      {label:'そのばで いっしょに わらう',response:'そのばは もりあがったけど、だれかは きずつくかも',score:20,trait:'wild'} ]},
+    { text:'レジで おつりを 1000えん おおく もらった。てんいんは きづいていない。', choices:[
+      {label:'すぐ てんいんに つたえる',response:'だれも みていなくても せいじつで いられた',score:100,trait:'brave'},
+      {label:'あとで きづいたら かえす',response:'かえす きもちは あるけど、いま できることを さきのばしに した',score:72,trait:'calm'},
+      {label:'となりの ひとに どうするか きく',response:'ひとに ゆだねるより、じぶんで きめても よかったかも',score:45,trait:'gentle'},
+      {label:'そのまま もらう',response:'とくは したけど、じぶんの なかに のこるものも ある',score:20,trait:'wild'} ]},
+    { text:'グループで ひとりだけ いけんが ちがう。みんなは はやく きめたがっている。', choices:[
+      {label:'いったん そのひとの りゆうを きく',response:'じかんは かかるけど、こうへいさを えらんだ',score:100,trait:'gentle'},
+      {label:'みんなが なっとくするまで けつろんを ださない',response:'ていねいだけど、きめる ひつようも ある',score:72,trait:'calm'},
+      {label:'たすうけつで すぐ きめる',response:'わかりやすいけど、いつも それが いちばんとは かぎらない',score:45,trait:'calm'},
+      {label:'そのひとを のこして きめる',response:'はやく きまったけど、だれかの こえは きえた',score:20,trait:'wild'} ]},
+
+    // シリアス
+    { text:'しんゆうが しごとで みすを して、それを かくそうとしている。あなたは しっている。', choices:[
+      {label:'まず しんゆうに じぶんで ほうこくするよう すすめる',response:'かんけいも せきにんも どちらも すてなかった',score:100,trait:'gentle'},
+      {label:'すぐ じょうしに つたえる',response:'せきにんは はっきりしたけど、本人に なおす きかいは あげられなかった',score:72,trait:'brave'},
+      {label:'じぶんも しらなかったことに する',response:'まきこまれなかったけど、せきにんからも はなれた',score:45,trait:'calm'},
+      {label:'しんゆうだから だまっておく',response:'しんゆうは まもれたけど、みすは そのまま のこった',score:20,trait:'romantic'} ]},
+    { text:'だれかが みんなの まえで ひとりを からかっている。まわりは わらっている。', choices:[
+      {label:'からかうのを やめようと いう',response:'ひとりでも こえを あげる ゆうきを えらんだ',score:100,trait:'brave'},
+      {label:'あとで からかわれたひとに こえをかける',response:'あとからでも よりそうことは できる',score:72,trait:'gentle'},
+      {label:'みていない ふりをする',response:'まきこまれなかったけど、たすけにも なれなかった',score:45,trait:'calm'},
+      {label:'じぶんも わらって ごまかす',response:'そのばには なじめたけど、だれかは きずついた',score:20,trait:'wild'} ]},
+    { text:'じぶんが せいかいだと おもっていたことを、あいてに ろんりてきに ひていされた。', choices:[
+      {label:'いったん みとめて、かんがえなおす',response:'じぶんを まもるより、まなぶことを えらんだ',score:100,trait:'calm'},
+      {label:'そのばでは だまって、あとで じぶんで たしかめる',response:'すぐには みとめなかったけど、かんがえなおす みちは のこした',score:72,trait:'calm'},
+      {label:'あいての あらを さがす',response:'ろんてんは ずれてしまった',score:45,trait:'brave'},
+      {label:'まけたくないので はなしを そらす',response:'じぶんは まもれたけど、こたえからは とおざかった',score:20,trait:'wild'} ]},
+
+    // 大人
+    { text:'しごとで じぶんの せいかが ほめられた。でも ほんとうは チームの てつだいが おおきかった。', choices:[
+      {label:'てつだった ひとの こうけんも つたえる',response:'じぶんの せいかも みとめつつ、こうへいさを まもった',score:100,trait:'gentle'},
+      {label:'あとで こじんてきに おれいを いう',response:'かんしゃは つたわるけど、公の ひょうかは そのまま',score:72,trait:'romantic'},
+      {label:'じぶんは なにも していないと いう',response:'けんそんしすぎると、じぶんの どりょくまで けしてしまう',score:45,trait:'calm'},
+      {label:'じぶんだけの せいかとして うけとる',response:'ひょうかは もらえたけど、こうへいでは なかった',score:20,trait:'wild'} ]},
+    { text:'いそがしい ときに、こうはいが たすけを もとめてきた。じぶんにも しめきりが ある。', choices:[
+      {label:'できる はんいを きめて てつだう',response:'じぶんと あいての りょうほうを まもった',score:100,trait:'calm'},
+      {label:'ぜんぶ てつだう',response:'やさしいけど、じぶんの しごとが たおれるかも',score:72,trait:'gentle'},
+      {label:'いそがしいから ことわる',response:'じぶんは まもれたけど、ほかの くふうも あったかも',score:45,trait:'brave'},
+      {label:'だれか ほかのひとに まるなげする',response:'もんだいは うごいたけど、せきにんは うすくなった',score:20,trait:'wild'} ]},
+    { text:'みんなが さんせいしている けいかくに、じぶんだけ きけんな てんが みえている。', choices:[
+      {label:'こんきょを そえて いけんを いう',response:'はんたいするだけでなく、りゆうまで つたえた',score:100,trait:'brave'},
+      {label:'こっそり ひとりにだけ そうだんする',response:'いっぽは ふみだしたけど、まだ ぜんたいには とどいていない',score:72,trait:'gentle'},
+      {label:'けいかくが しっぱいしてから いう',response:'あっていたことは しょうめいできても、おそいかも',score:45,trait:'wild'},
+      {label:'くうきを よんで だまる',response:'そのばは へいわでも、きけんは のこる',score:20,trait:'calm'} ]},
+
+    // へんな状況
+    { text:'みちで しゃべる さいふを ひろった。「ぼくを つれていって」と いっている。', choices:[
+      {label:'もちぬしを さがす ほうほうを かんがえる',response:'ふしぎでも、やることは ちゃんと えらべた',score:100,trait:'gentle'},
+      {label:'しゃべる りゆうを きいてから きめる',response:'しんちょうで おもしろい たいおう',score:72,trait:'calm'},
+      {label:'こわいから そのばに おく',response:'きけんは さけたけど、もんだいも そのまま',score:45,trait:'calm'},
+      {label:'おもしろいから もってかえる',response:'おもしろいけど、もちぬしは こまっているかも',score:20,trait:'wild'} ]},
+    { text:'あさ おきたら じぶんが おうさまに なっていた。みんなが なんでも いうことを きく。', choices:[
+      {label:'まず みんなが こまっていることを きく',response:'ちからより せきにんを さきに かんがえた',score:100,trait:'gentle'},
+      {label:'こわいので すぐ やめる',response:'あぶない ちからから はなれるのも ひとつ',score:72,trait:'calm'},
+      {label:'だれか ひとりに ぜんぶ まかせる',response:'らくには なったけど、せきにんも わたしてしまった',score:45,trait:'calm'},
+      {label:'すきなことを なんでも めいれいする',response:'たのしいけど、ちからの つかいかたは それでいいかな',score:20,trait:'wild'} ]},
+    { text:'みらいの じぶんから「その えらびかたは やめたほうがいい」と てがみが とどいた。', choices:[
+      {label:'りゆうを かんがえてから きめる',response:'けいこくを むしせず、じぶんでも かんがえた',score:100,trait:'calm'},
+      {label:'ぜったいに したがう',response:'みらいは しんじたけど、いまの じぶんで かんがえることも たいせつ',score:72,trait:'calm'},
+      {label:'ほかのひとに きめてもらう',response:'じぶんの みらいの ことを ひとに ゆだねた',score:45,trait:'gentle'},
+      {label:'いたずらだと おもって すてる',response:'すっきりしたけど、てがかりも すてた',score:20,trait:'wild'} ]},
+
+    // 恋愛
+    { text:'こいびとが「だいじょうぶ」と いうけど、どうみても つらそう。', choices:[
+      {label:'はなしたくなったら きくよ、と そばにいる',response:'きょりと やさしさの バランスを えらんだ',score:100,trait:'gentle'},
+      {label:'すぐ たのしいところへ つれていく',response:'きぶんてんかんに なるかも。でも まず きもちを みてもいい',score:72,trait:'romantic'},
+      {label:'だいじょうぶと いったから そのままにする',response:'ことばは そんちょうしたけど、ようすも みてよかったかも',score:45,trait:'calm'},
+      {label:'むりに ぜんぶ はなさせる',response:'しんぱいでも、むりに きくのは ちがうかも',score:20,trait:'romantic'} ]},
+    { text:'こいびとが じぶんの しらない ひとと よく でかけている。すこし ふあん。', choices:[
+      {label:'ふあんに おもっていることを そのまま はなす',response:'あいてを せめずに、じぶんの きもちを つたえた',score:100,trait:'brave'},
+      {label:'なにも いわず がまんする',response:'けんかは さけたけど、ふあんは たまりつづける',score:45,trait:'calm'},
+      {label:'スマホを こっそり みる',response:'ふあんは へるかも。でも しんらいは きずつく',score:20,trait:'wild'},
+      {label:'じぶんも だれかと でかけて しかえす',response:'きもちの バランスは とれても、かんけいは よくならない',score:20,trait:'wild'} ]},
+    { text:'こいびとが じぶんとは ちがう しょうらいを えがいていることが わかった。', choices:[
+      {label:'おたがいに たいせつなものを はなして かんがえる',response:'すぐ こたえを ださず、ふたりの みらいを かんがえた',score:100,trait:'gentle'},
+      {label:'あいてに あわせる',response:'かんけいは つづくかも。でも じぶんの きもちも たいせつ',score:45,trait:'romantic'},
+      {label:'じぶんに あわせてもらう',response:'じぶんは まもれるけど、あいての みらいは どうだろう',score:20,trait:'brave'},
+      {label:'そのはなしを さける',response:'いまは へいわでも、みらいの もんだいは のこる',score:20,trait:'calm'} ]},
+
+    // 感情
+    { text:'ともだちが しっぱいして おちこんでいる。でも その しっぱいは ほんにんの じゅんびぶそくも げんいんだった。', choices:[
+      {label:'まず きもちを きいて、あとで つぎの くふうを いっしょに かんがえる',response:'きもちも げんいんも どちらも みた',score:100,trait:'gentle'},
+      {label:'ぜんぶ だいじょうぶだよ、と なぐさめる',response:'やさしいけど、つぎに つながる ことばは たりないかも',score:72,trait:'gentle'},
+      {label:'じゅんびぶそくだったと すぐ いう',response:'ただしいけど、いま つたえる じゅんばんは ちがうかも',score:45,trait:'brave'},
+      {label:'じぶんで きづくまで ほうっておく',response:'かんがえる じかんは できるけど、ひとりに なりすぎるかも',score:20,trait:'calm'} ]},
+    { text:'たいせつな ひとが、じぶんには できないことを せいこうさせた。うれしいけど くやしい。', choices:[
+      {label:'うれしい きもちを つたえて、くやしさは じぶんの ちからに かえる',response:'ふたつの きもちを どちらも みとめた',score:100,trait:'brave'},
+      {label:'くやしさを かくして ほめる',response:'やさしいけど、じぶんの きもちも ちゃんと みていい',score:72,trait:'gentle'},
+      {label:'くやしいから きょりを おく',response:'じぶんは まもれるけど、たいせつな かんけいも はなれる',score:45,trait:'wild'},
+      {label:'あいての せいこうを ちいさく いう',response:'じぶんは らくでも、あいてを きずつける',score:20,trait:'wild'} ]},
+    { text:'じぶんが まちがっていたと わかった。でも もう たくさんの ひとに じしんまんまんで はなしてしまった。', choices:[
+      {label:'まちがっていたと みとめて ていせいする',response:'はずかしくても、せいじつさを えらんだ',score:100,trait:'brave'},
+      {label:'だれかに かわりに ていせいしてもらう',response:'なおしたけど、じぶんで せきにんを とる きかいは へった',score:72,trait:'gentle'},
+      {label:'しずかに けして なかったことにする',response:'めだたないけど、みていた ひとには のこるかも',score:45,trait:'calm'},
+      {label:'そのまま おしとおす',response:'はずかしさは さけたけど、まちがいは ひろがる',score:20,trait:'wild'} ]},
   ];
 
   // a shuffled, no-immediate-repeat draw over an arbitrary index list - used
@@ -8012,12 +7743,12 @@
   // ふつう/シリアス/大人っぽい/馬鹿らしい/ラブロマンス的/感動, in the order
   // they appear in QUIZ_QUESTIONS above (7,7,7,7,7,5 questions respectively)
   const QUIZ_CATEGORY_RANGES = {
-    normal: [0, 7],
-    serious: [7, 14],
-    adult: [14, 21],
-    silly: [21, 28],
-    romance: [28, 35],
-    touching: [35, 43],
+    normal: [0, 3],
+    serious: [3, 6],
+    adult: [6, 9],
+    silly: [9, 12],
+    romance: [12, 15],
+    touching: [15, 18],
   };
 
   function categoryIndices(rangeKey) {
@@ -8040,16 +7771,7 @@
     const nextIndex = makeShuffledDraw(categoryIndices(rangeKey));
     return {
       start(container, onComplete) {
-        const sourceQ = QUIZ_QUESTIONS[nextIndex()];
-        const rankedChoices = sourceQ.choices.slice().sort((a, b) => b.score - a.score);
-        const q = {
-          ...sourceQ,
-          choices: sourceQ.choices.map((choice) => {
-            const rank = rankedChoices.indexOf(choice);
-            const clearScores = [100, 72, 45, 20];
-            return { ...choice, score: clearScores[Math.min(rank, clearScores.length - 1)] };
-          }),
-        };
+        const q = QUIZ_QUESTIONS[nextIndex()];
 
         container.innerHTML = `
           <div class="mg-title">${title}</div>
@@ -8099,12 +7821,12 @@
 
   const QUIZ_GAME_VARIANTS = [
     mg('quiz-all', makeQuizGame('all', 'なおとっちが はなしかけてきた')),
-    mg('quiz-normal', makeQuizGame('normal', 'なおとっちが ふつうの はなしを してきた')),
+    mg('quiz-normal', makeQuizGame('normal', 'なおとっちが「どうする？」と きいてきた')),
     mg('quiz-serious', makeQuizGame('serious', 'なおとっちが しんけんな かおを している…')),
     mg('quiz-adult', makeQuizGame('adult', 'なおとっちが おとなびた はなしを してきた')),
-    mg('quiz-silly', makeQuizGame('silly', 'なおとっちが へんなことを いいだした!')),
+    mg('quiz-silly', makeQuizGame('silly', 'へんな じょうきょう。でも ちゃんと かんがえよう')),
     mg('quiz-romance', makeQuizGame('romance', 'なおとっちが きゅうに ロマンチックに なった')),
-    mg('quiz-touching', makeQuizGame('touching', 'なおとっちが しみじみと かたりはじめた…')),
+    mg('quiz-touching', makeQuizGame('touching', 'きもちだけじゃ きめにくい はなし')),
   ];
 
   // shared factory behind every memory-sequence minigame - only the title
