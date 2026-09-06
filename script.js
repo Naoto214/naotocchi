@@ -7747,257 +7747,6 @@
 
   const BALANCE_GAME_VARIANTS = [mg('balance-classic', balanceGame)];
 
-  // --- タイルならべかえ ---
-
-  // tap two tiles to swap them, sorting the shuffled row back into the
-  // fixed target order - a slide-puzzle feel without needing drag input
-  function makeTileSwapGame({ title, emojiSet }) {
-    return {
-      start(container, onComplete) {
-        const difficulty = ageDifficulty();
-        // ならべかえの かんがえる/ドラッグする 時間を かくほ(セクション9)
-        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(9500, 6800, difficulty);
-        const target = emojiSet;
-        const tiles = [...emojiSet];
-        do {
-          for (let i = tiles.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
-          }
-        } while (tiles.every((t, i) => t === target[i]));
-
-        let selected = -1;
-        let swaps = 0;
-        let finished = false;
-        let timer;
-
-        container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgSwaps">いれかえ: 0</span>
-          </div>
-          <div class="mg-title">${title}</div>
-          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr);"></div>
-          <div class="mg-hint">2つ タップして いれかえよう</div>
-        `;
-
-        const grid = container.querySelector('#mgGrid');
-        const swapsEl = container.querySelector('#mgSwaps');
-
-        function render() {
-          grid.innerHTML = tiles
-            .map((emoji, i) => `<div class="mg-hole${i === selected ? ' selected' : ''}" data-i="${i}" style="cursor:pointer;">${emoji}</div>`)
-            .join('');
-          Array.from(grid.querySelectorAll('.mg-hole')).forEach((cell) => {
-            cell.addEventListener('pointerdown', () => onTapTile(Number(cell.dataset.i)));
-          });
-        }
-
-        function onTapTile(i) {
-          if (finished) return;
-          if (selected === -1) {
-            selected = i;
-            render();
-            return;
-          }
-          if (selected === i) {
-            selected = -1;
-            render();
-            return;
-          }
-          [tiles[selected], tiles[i]] = [tiles[i], tiles[selected]];
-          swaps += 1;
-          swapsEl.textContent = `いれかえ: ${swaps}`;
-          selected = -1;
-          render();
-          if (tiles.every((t, idx) => t === target[idx])) end(true);
-        }
-
-        function end(solved) {
-          if (finished) return;
-          finished = true;
-          clearTimeout(timer);
-          if (solved) {
-            onComplete(clamp(Math.round(100 - swaps * 6), 40, 100));
-          } else {
-            const correctPositions = tiles.filter((t, idx) => t === target[idx]).length;
-            onComplete(clamp(Math.round((correctPositions / tiles.length) * 60), 10, 60));
-          }
-        }
-
-        render();
-        timer = setTimeout(() => end(false), timeLimitMs);
-      },
-    };
-  }
-
-  const TILE_SWAP_VARIANTS = [
-    mg('tileSwap-themed', randomThemeGame(makeTileSwapGame, [
-      { title: 'いろを じゅんばんに ならべよう!', emojiSet: ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'] },
-      { title: 'おおきさじゅんに ならべよう!', emojiSet: ['🐭', '🐹', '🐰', '🐱', '🐶', '🐴'] },
-    ])),
-  ];
-
-  // --- もじつなぎ ---
-
-  // spell the shown word by tapping its hiragana in order out of a mixed
-  // set of tiles - a sequence-input puzzle, distinct from the other
-  // multiple-choice or grid-tap games
-  function makeSpellGame({ title, words }) {
-    return {
-      start(container, onComplete) {
-        const difficulty = ageDifficulty();
-        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(7000, 4500, difficulty);
-        const word = words[Math.floor(Math.random() * words.length)];
-        const letters = word.split('');
-        const DISTRACTOR_POOL = 'あかさたなはまやらわいきしちにひみりうくすつぬふむゆるえけせてねへめれおこそとのほもよろ'.split('');
-        const extraCount = Math.max(2, letters.length);
-        const distractors = [];
-        while (distractors.length < extraCount) {
-          const c = DISTRACTOR_POOL[Math.floor(Math.random() * DISTRACTOR_POOL.length)];
-          if (!letters.includes(c) && !distractors.includes(c)) distractors.push(c);
-        }
-        const tiles = [...letters, ...distractors];
-        for (let i = tiles.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
-        }
-
-        let nextIndex = 0;
-        let mistakes = 0;
-        let finished = false;
-        let timer;
-        const filled = [];
-
-        container.innerHTML = `
-          <div class="mg-title">${title}</div>
-          <div class="mg-spell-target" id="mgSpellTarget">${'　'.repeat(letters.length)}</div>
-          <div class="mg-math-choices" id="mgSpellTiles" style="grid-template-columns: repeat(4, 1fr);">
-            ${tiles.map((c, i) => `<button class="mg-math-btn" data-i="${i}">${c}</button>`).join('')}
-          </div>
-        `;
-        const targetEl = container.querySelector('#mgSpellTarget');
-        const buttons = Array.from(container.querySelectorAll('.mg-math-btn'));
-
-        buttons.forEach((btn) => {
-          btn.addEventListener('pointerdown', () => {
-            if (finished || btn.disabled) return;
-            const c = btn.textContent;
-            if (c === letters[nextIndex]) {
-              filled.push(c);
-              nextIndex += 1;
-              btn.disabled = true;
-              btn.style.visibility = 'hidden';
-              targetEl.textContent = filled.join('') + '　'.repeat(letters.length - filled.length);
-              if (nextIndex >= letters.length) end(true);
-            } else {
-              mistakes += 1;
-              btn.classList.add('wrong');
-              setTimeout(() => btn.classList.remove('wrong'), 200);
-            }
-          });
-        });
-
-        function end(solved) {
-          if (finished) return;
-          finished = true;
-          clearTimeout(timer);
-          if (solved) {
-            onComplete(clamp(Math.round(100 - mistakes * 15), 30, 100));
-          } else {
-            onComplete(clamp(Math.round((nextIndex / letters.length) * 50), 5, 50));
-          }
-        }
-
-        timer = setTimeout(() => end(false), timeLimitMs);
-      },
-    };
-  }
-
-  const SPELL_GAME_VARIANTS = [
-    mg('spell-themed', randomThemeGame(makeSpellGame, [
-      { title: 'どうぶつの なまえを つづろう!', words: ['いぬ', 'ねこ', 'とり', 'うさぎ', 'ぞう', 'くま', 'さる', 'ぱんだ'] },
-      { title: 'たべものの なまえを つづろう!', words: ['いちご', 'りんご', 'ばなな', 'たまご', 'すいか', 'ぶどう', 'めろん'] },
-    ])),
-  ];
-
-  // --- じぶんさがし: 育てている今の姿を、似た他の種族ラインの同じ成長段階
-  // の中から見つけてタップする。emoji はプレイ開始時に currentSprite() /
-  // state.speciesLine / state.stageIndex から毎回組み立てるので、種族や
-  // 成長段階が変わっても常にそのときの本人が出題される
-  function makeFindSelfGame() {
-    return {
-      start(container, onComplete) {
-        const difficulty = ageDifficulty();
-        const selfEmoji = currentSprite();
-        const stageIdx = state.stageIndex;
-        const decoyPool = [...new Set(
-          ALL_LINES
-            .filter((line) => line !== state.speciesLine)
-            .map((line) => SPECIES[line].stages[stageIdx]?.emoji)
-            .filter((emoji) => emoji && emoji !== selfEmoji)
-        )];
-        const GRID_SIZE = Math.round(lerp(8, 12, difficulty));
-        const targetCount = Math.max(2, Math.round(GRID_SIZE * 0.25));
-        const timeLimitMs = MG_TIMED_CHOICE_GRACE_MS + lerp(4500, 2800, difficulty);
-        const cells = Array.from({ length: GRID_SIZE }, (_, i) => (
-          i < targetCount ? selfEmoji : decoyPool[Math.floor(Math.random() * decoyPool.length)]
-        ));
-        for (let i = cells.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [cells[i], cells[j]] = [cells[j], cells[i]];
-        }
-        const cols = 4;
-        const rows = Math.ceil(GRID_SIZE / cols);
-        let correctTaps = 0;
-        let mistakes = 0;
-        let finished = false;
-        let timer;
-
-        container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgScore">みつけた: 0/${targetCount}</span>
-          </div>
-          <div class="mg-title">じぶんの すがたを ぜんぶ みつけよう!</div>
-          <div class="mg-whack-grid" id="mgGrid" style="grid-template-columns: repeat(${cols}, 1fr); grid-template-rows: repeat(${rows}, 1fr);">
-            ${cells.map((emoji, i) => `<div class="mg-hole" data-i="${i}" data-target="${emoji === selfEmoji}" style="cursor:pointer;">${emoji}</div>`).join('')}
-          </div>
-        `;
-
-        const scoreEl = container.querySelector('#mgScore');
-        const cellEls = Array.from(container.querySelectorAll('.mg-hole'));
-
-        cellEls.forEach((cell) => {
-          cell.addEventListener('pointerdown', () => {
-            if (finished || cell.classList.contains('done')) return;
-            if (cell.dataset.target === 'true') {
-              cell.classList.add('done');
-              cell.style.visibility = 'hidden';
-              correctTaps += 1;
-              scoreEl.textContent = `みつけた: ${correctTaps}/${targetCount}`;
-              if (correctTaps >= targetCount) end();
-            } else {
-              mistakes += 1;
-              cell.classList.add('wrong');
-              setTimeout(() => cell.classList.remove('wrong'), 200);
-            }
-          });
-        });
-
-        function end() {
-          if (finished) return;
-          finished = true;
-          clearTimeout(timer);
-          const score = clamp(Math.round((correctTaps / targetCount) * 100 - mistakes * 15), 10, 100);
-          onComplete(score);
-        }
-
-        timer = setTimeout(end, timeLimitMs);
-      },
-    };
-  }
-
-  const FIND_SELF_VARIANTS = [mg('findSelf-classic', makeFindSelfGame())];
-
   // --- なりきりポーズ: おだいの きもち(うれしい/たのしい/かなしい/おこった)
   // に合う反応を選ぶと、今の自分の姿がその場で emotePet() と同じモーション
   // を実演してくれる。既存の .pet / .emote-* のCSSをそのまま使い回す
@@ -9162,95 +8911,6 @@
     ])),
   ];
 
-  // --- レース(れんだで はしって あいてに かとう) ---
-  function makeRaceGame({ title, runnerEmoji, rivalEmojis }) {
-    return {
-      start(container, onComplete) {
-        const difficulty = ageDifficulty();
-        const DURATION_MS = 6000;
-        const rivalSpeed = lerp(11, 16, difficulty);
-        let progress = 0;
-        const rivals = rivalEmojis.map(() => 0);
-        let finished = false;
-        let running = true;
-        // スタートゆうよちゅうは あいても タイマーも うごかさない(セクション2)
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
-        let rafId;
-
-        container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgTimer">残り: 6s</span>
-          </div>
-          <div class="mg-title">${title}</div>
-          <div class="mg-race-track" id="mgRaceTrack">
-            <div class="mg-race-lane"><span class="mg-race-runner" id="mgRaceYou">${runnerEmoji}</span><span class="mg-race-goal">🏁</span></div>
-            ${rivalEmojis.map((e, i) => `<div class="mg-race-lane"><span class="mg-race-runner" id="mgRaceRival${i}">${e}</span><span class="mg-race-goal">🏁</span></div>`).join('')}
-          </div>
-          <button class="mg-tap-btn" id="mgRaceRunBtn">はしる!</button>
-          <div class="mg-hint" id="mgRaceHint"></div>
-        `;
-        const timerEl = container.querySelector('#mgTimer');
-        const youEl = container.querySelector('#mgRaceYou');
-        const rivalEls = rivalEmojis.map((_, i) => container.querySelector(`#mgRaceRival${i}`));
-        const runBtn = container.querySelector('#mgRaceRunBtn');
-        const hintEl = container.querySelector('#mgRaceHint');
-
-        runBtn.addEventListener('pointerdown', () => {
-          if (finished || performance.now() < startTime) return;
-          progress = Math.min(100, progress + 4.5);
-          youEl.style.left = progress + '%';
-          if (progress >= 100) finish();
-        });
-
-        function frame(now) {
-          if (!running) return;
-          if (now < startTime) {
-            timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
-            rafId = requestAnimationFrame(frame);
-            return;
-          }
-          const elapsed = now - startTime;
-          const remaining = Math.max(0, DURATION_MS - elapsed);
-          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
-          rivals.forEach((_, i) => {
-            rivals[i] = Math.min(100, rivals[i] + rivalSpeed * (1 / 60) * (0.7 + Math.random() * 0.6));
-            rivalEls[i].style.left = rivals[i] + '%';
-          });
-          if (rivals.some((r) => r >= 100) && !finished) { finish(); return; }
-          if (elapsed >= DURATION_MS) { finish(); return; }
-          rafId = requestAnimationFrame(frame);
-        }
-
-        function finish() {
-          if (finished) return;
-          finished = true;
-          running = false;
-          cancelAnimationFrame(rafId);
-          runBtn.disabled = true;
-          const allProgress = [progress, ...rivals];
-          const rank = allProgress.filter((p) => p > progress).length;
-          const score = rank === 0 ? 100 : rank === 1 ? 60 : 30;
-          // とつぜん がめんが とじたように 見えない よう、さいしゅう
-          // じゅんいを みじかく 見せてから おわる
-          const placeLabels = ['1い!', '2い!', '3い!'];
-          hintEl.textContent = placeLabels[rank] || `${rank + 1}い!`;
-          hintEl.classList.add(rank === 0 ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
-          setTimeout(() => onComplete(score), 700);
-        }
-
-        rafId = requestAnimationFrame(frame);
-      },
-    };
-  }
-
-  const RACE_GAME_VARIANTS = [
-    mg('race-themed', randomThemeGame(makeRaceGame, [
-      { title: 'とうそう!れんだで はしって 1いを とろう', runnerEmoji: '🏃', rivalEmojis: ['🐕', '🐇'] },
-      { title: 'じてんしゃレース!ペダルを こいで かとう', runnerEmoji: '🚲', rivalEmojis: ['🛵', '🐎'] },
-      { title: 'ロケットレース!スピードで かちぬけ', runnerEmoji: '🚀', rivalEmojis: ['🛸', '☄️'] },
-    ])),
-  ];
-
   // --- スワイプなげ(ボウリング・カーリング) ---
   // レーンを うえに スワイプして なげる。スワイプの つよさが パワー、
   // よこの ずれが ねらいの ズレに なる(スマホの スワイプそうさを つかう
@@ -9629,32 +9289,11 @@
   }
 
   const STEALTH_GAME_VARIANTS = [
-    mg('stealth-guard', makeStealthGame({
-      title: 'みはりの すきを ついて すすもう!',
-      guardEmoji: '💂',
-      safeMessage: '👀 いま すすめる!',
-      dangerMessage: '🚨 みつかる!とまれ!',
-    })),
-  ];
-
-  // コメディふう(ねている あいてを おこさないように れいぞうこを あける)
-  const COMEDY_STEALTH_VARIANTS = [
-    mg('comedyStealth-fridge', makeStealthGame({
-      title: 'ねている あいてを おこさず れいぞうこを あけよう!',
-      guardEmoji: '😴',
-      safeMessage: '😴 ぐっすり ねてる…',
-      dangerMessage: '👀 おきそう!とまれ!',
-    })),
-  ];
-
-  // ホラーふう(こわすぎない、なおとっちらしい かわいい えんしゅつ)
-  const CUTE_HORROR_VARIANTS = [
-    mg('cuteHorror-ghost', makeStealthGame({
-      title: 'ゆうれいに 見つからないように にげよう!(こわくないよ)',
-      guardEmoji: '👻',
-      safeMessage: '🌙 よそ みてる…',
-      dangerMessage: '😱 こっちを 見た!とまれ!',
-    })),
+    mg('stealth-themed', randomThemeGame(makeStealthGame, [
+      { title: 'みはりの すきを ついて すすもう!', guardEmoji: '💂', safeMessage: '👀 いま すすめる!', dangerMessage: '🚨 みつかる!とまれ!' },
+      { title: 'ねている あいてを おこさず れいぞうこを あけよう!', guardEmoji: '😴', safeMessage: '😴 ぐっすり ねてる…', dangerMessage: '👀 おきそう!とまれ!' },
+      { title: 'ゆうれいに 見つからないように にげよう!(こわくないよ)', guardEmoji: '👻', safeMessage: '🌙 よそ みてる…', dangerMessage: '😱 こっちを 見た!とまれ!' },
+    ])),
   ];
 
   // --- ルーレット(ゲームセンター・ぎゃんぶるふう) ---
@@ -10446,23 +10085,31 @@
   function randomRankingCast(){ return RANKING_3D_CASTS[Math.floor(Math.random()*RANKING_3D_CASTS.length)].map(c=>({...c})); }
   function subjectiveRanking(title,id){ return mg(id,{start(container,onComplete){makePerspectiveRankingGame({title,cast:randomRankingCast(),criterion:'size',subjective:true}).start(container,onComplete);}}); }
   function objectiveRanking(title,id,criterion,reverse=false){return mg(id,{start(container,onComplete){let cast=randomRankingCast();if(reverse)cast=cast.map(c=>({...c,[criterion]:30-c[criterion]}));makePerspectiveRankingGame({title,cast,criterion}).start(container,onComplete);}});}
+  const RANKING_GAME_FACTORIES = [
+    () => objectiveRanking('3Dならびかえ!小さい順に ならべよう','rank3d-small','size'),
+    () => objectiveRanking('3Dならびかえ!大きい順に ならべよう','rank3d-big','size',true),
+    () => objectiveRanking('3Dならびかえ!若そうな順に ならべよう','rank3d-young','age'),
+    () => objectiveRanking('3Dならびかえ!年寄りそうな順に ならべよう','rank3d-old','age',true),
+    () => subjectiveRanking('3Dならびかえ!面白そうな順に ならべて笑','rank3d-funny'),
+    () => subjectiveRanking('3Dならびかえ!神経質そうな順に ならべて笑','rank3d-nervous'),
+    () => subjectiveRanking('3Dならびかえ!お腹いたそうな順に ならべて笑','rank3d-stomach'),
+    () => subjectiveRanking('3Dならびかえ!ねむそうな順に ならべて笑','rank3d-sleepy'),
+    () => subjectiveRanking('3Dならびかえ!怒ったら こわそうな順に ならべて笑','rank3d-scary'),
+    () => subjectiveRanking('3Dならびかえ!モテそうな順に ならべて笑','rank3d-popular'),
+    () => subjectiveRanking('3Dならびかえ!朝よわそうな順に ならべて笑','rank3d-morning'),
+    () => subjectiveRanking('3Dならびかえ!秘密おおそうな順に ならべて笑','rank3d-secret'),
+    () => subjectiveRanking('3Dならびかえ!方向音痴そうな順に ならべて笑','rank3d-lost'),
+    () => subjectiveRanking('3Dならびかえ!食いしんぼうそうな順に ならべて笑','rank3d-hungry'),
+    () => subjectiveRanking('3Dならびかえ!運動神経よさそうな順に ならべて笑','rank3d-sporty'),
+    () => subjectiveRanking('3Dならびかえ!寝相わるそうな順に ならべて笑','rank3d-sleeper'),
+  ];
   const PERSPECTIVE_RANKING_VARIANTS = [
-    objectiveRanking('3Dならびかえ!小さい順に ならべよう','rank3d-small','size'),
-    objectiveRanking('3Dならびかえ!大きい順に ならべよう','rank3d-big','size',true),
-    objectiveRanking('3Dならびかえ!若そうな順に ならべよう','rank3d-young','age'),
-    objectiveRanking('3Dならびかえ!年寄りそうな順に ならべよう','rank3d-old','age',true),
-    subjectiveRanking('3Dならびかえ!面白そうな順に ならべて笑','rank3d-funny'),
-    subjectiveRanking('3Dならびかえ!神経質そうな順に ならべて笑','rank3d-nervous'),
-    subjectiveRanking('3Dならびかえ!お腹いたそうな順に ならべて笑','rank3d-stomach'),
-    subjectiveRanking('3Dならびかえ!ねむそうな順に ならべて笑','rank3d-sleepy'),
-    subjectiveRanking('3Dならびかえ!怒ったら こわそうな順に ならべて笑','rank3d-scary'),
-    subjectiveRanking('3Dならびかえ!モテそうな順に ならべて笑','rank3d-popular'),
-    subjectiveRanking('3Dならびかえ!朝よわそうな順に ならべて笑','rank3d-morning'),
-    subjectiveRanking('3Dならびかえ!秘密おおそうな順に ならべて笑','rank3d-secret'),
-    subjectiveRanking('3Dならびかえ!方向音痴そうな順に ならべて笑','rank3d-lost'),
-    subjectiveRanking('3Dならびかえ!食いしんぼうそうな順に ならべて笑','rank3d-hungry'),
-    subjectiveRanking('3Dならびかえ!運動神経よさそうな順に ならべて笑','rank3d-sporty'),
-    subjectiveRanking('3Dならびかえ!寝相わるそうな順に ならべて笑','rank3d-sleeper'),
+    mg('rank3d-random', {
+      start(container, onComplete) {
+        const game = RANKING_GAME_FACTORIES[Math.floor(Math.random() * RANKING_GAME_FACTORIES.length)]();
+        game.start(container, onComplete);
+      },
+    }),
   ];
 
   // --- 名作ジャンルへのオマージュ: 固有キャラ/名称は使わず遊びの核だけ再構成 ---
@@ -10875,9 +10522,6 @@
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
     ...BALANCE_GAME_VARIANTS,
-    ...TILE_SWAP_VARIANTS,
-    ...SPELL_GAME_VARIANTS,
-    ...FIND_SELF_VARIANTS,
     ...POSE_GAME_VARIANTS,
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -10886,13 +10530,10 @@
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
     ...TARGET_AIM_VARIANTS,
-    ...RACE_GAME_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...PUSH_CONTEST_VARIANTS,
     ...CHOP_GAME_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
-    ...COMEDY_STEALTH_VARIANTS,
-    ...CUTE_HORROR_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
@@ -10913,9 +10554,6 @@
   const MINIGAME_CATEGORY_GROUPS = [
     ['catch', CATCH_GAME_VARIANTS],
     ['balance', BALANCE_GAME_VARIANTS],
-    ['tileSwap', TILE_SWAP_VARIANTS],
-    ['spell', SPELL_GAME_VARIANTS],
-    ['findSelf', FIND_SELF_VARIANTS],
     ['pose', POSE_GAME_VARIANTS],
     ['road', ROAD_GAME_VARIANTS],
     ['stack', STACK_GAME_VARIANTS],
@@ -10924,13 +10562,10 @@
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['targetAim', TARGET_AIM_VARIANTS],
-    ['race', RACE_GAME_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['pushContest', PUSH_CONTEST_VARIANTS],
     ['chop', CHOP_GAME_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
-    ['comedyStealth', COMEDY_STEALTH_VARIANTS],
-    ['cuteHorror', CUTE_HORROR_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
