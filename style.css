@@ -5619,3 +5619,33 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-capture-reticle{position:absolute;left:50%;bottom:15%;transform:translateX(-50%);font-size:44px;transition:left .08s}
 .mg-adventure-field{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:8px;background:#6ba85e;border-radius:14px;min-height:210px}.mg-adventure-field span{display:flex;align-items:center;justify-content:center;aspect-ratio:1;background:rgba(255,255,255,.13);border-radius:5px;font-size:22px}
 .mg-retropet{padding:14px;border-radius:24px;background:#ddd;box-shadow:inset 0 0 0 4px #aaa}.mg-retropet-screen{min-height:180px;padding:14px;text-align:center;border-radius:12px;background:#a9b879;font-family:monospace;box-shadow:inset 0 0 15px rgba(0,0,0,.25)}.mg-retropet-creature{font-size:58px;margin:24px 0}.mg-retropet-buttons{display:flex;justify-content:center;gap:22px;margin-top:12px}.mg-retropet-buttons button{width:52px;height:52px;border-radius:50%;font-size:24px}
+
+/* Creature capture homage */
+.mg-capture3d{position:relative;height:250px;border-radius:18px;overflow:hidden;background:linear-gradient(#9fd7ff 0 48%,#8ecb74 49% 100%);perspective:420px}
+.mg-capture-monster{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%) translateZ(20px);font-size:64px;transition:left .25s ease,transform .25s ease,opacity .25s ease}
+.mg-capture-monster.caught{transform:translate(-50%,-50%) scale(.25) rotate(360deg);opacity:.2}
+.mg-capture-reticle{position:absolute;bottom:22%;left:50%;transform:translateX(-50%);font-size:40px;pointer-events:none}
+#capSlider{width:90%;margin:10px auto;display:block}
+
+/* Adventure field homage */
+.mg-adventure-field{display:grid;grid-template-columns:repeat(7,1fr);grid-template-rows:repeat(6,1fr);gap:3px;background:#264d2d;padding:7px;border-radius:16px;min-height:220px}
+.mg-adventure-field span{display:flex;align-items:center;justify-content:center;background:#8ccf79;border-radius:6px;font-size:25px;min-height:31px}
+
+/* Retro virtual-pet homage */
+.mg-retropet{display:flex;flex-direction:column;align-items:center;gap:12px}
+.mg-retropet-screen{width:min(280px,90%);background:#c8d08c;border:10px solid #4e5542;border-radius:24px;box-shadow:inset 0 0 0 4px #78805f;padding:14px;text-align:center;font-family:monospace}
+.mg-retropet-creature{font-size:54px;line-height:1.4;filter:grayscale(1) contrast(1.5)}
+.mg-retropet-buttons{display:flex;gap:12px}
+.mg-retropet-buttons button{width:58px;height:58px;border-radius:50%;font-size:26px;border:0;box-shadow:0 4px 0 rgba(0,0,0,.25)}
+
+/* action homage games + clearer ranking */
+.mg-rank3d-card small{font-size:10px;line-height:1.1;opacity:.7;min-height:22px}
+.mg-capture3d{position:relative;height:245px;overflow:hidden;border-radius:18px;perspective:420px;background:radial-gradient(circle at 50% 25%,#d8f4ff,#78b96f 58%,#3c7144 100%)}
+.mg-capture-monster{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%) translateZ(35px);font-size:70px;transition:left .25s,transform .25s,opacity .25s}
+.mg-capture-monster.caught{transform:translate(-50%,-50%) scale(.15);opacity:.2}
+.mg-capture-reticle{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-size:55px;pointer-events:none}
+.mg-adventure-field{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;padding:8px;border-radius:14px;background:#6d9f52;font-size:25px;text-align:center}
+.mg-adventure-field span{aspect-ratio:1;display:grid;place-items:center;background:rgba(255,255,255,.12);border-radius:5px}
+.mg-retropet{max-width:310px;margin:auto;padding:18px;border-radius:28px;background:#e9d2a6;box-shadow:inset 0 0 0 5px rgba(80,60,35,.16),0 10px 20px rgba(0,0,0,.18)}
+.mg-retropet-screen{min-height:160px;padding:14px;border:7px solid #5f5945;border-radius:10px;background:#b9c18a;color:#253020;font-family:monospace;text-align:center}
+.mg-retropet-creature{font-size:48px;margin:22px 0}.mg-retropet-buttons{display:flex;justify-content:space-around;margin-top:14px}.mg-retropet-buttons button{width:58px;height:58px;border-radius:50%;font-size:25px}

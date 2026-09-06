@@ -13238,7 +13238,7 @@
           <button class="mg-tap-btn" id="mgRankDone">これで けってい!</button>`;
         const stage=container.querySelector('#mgRankStage'),movesEl=container.querySelector('#mgRankMoves');
         function render(){
-          stage.innerHTML=order.map((c,i)=>`<button class="mg-rank3d-card ${i===selected?'selected':''}" data-i="${i}" style="--rank:${i}"><span class="mg-rank3d-emoji">${c.emoji}</span><span>${c.name}</span></button>`).join('');
+          stage.innerHTML=order.map((c,i)=>`<button class="mg-rank3d-card ${i===selected?'selected':''}" data-i="${i}" style="--rank:${i}"><span class="mg-rank3d-emoji">${c.emoji}</span><strong>${c.name}</strong><small>${c.tag || ('No.'+(i+1))}</small></button>`).join('');
           stage.querySelectorAll('.mg-rank3d-card').forEach(btn=>btn.onclick=()=>{
             if(done)return;const i=Number(btn.dataset.i);
             if(selected<0){selected=i;render();return;}
@@ -13260,13 +13260,13 @@
   }
   const RANKING_3D_CASTS = [
     [
-      {emoji:'🐭',name:'ねずみ',size:1,age:2},{emoji:'🐰',name:'うさぎ',size:2,age:4},{emoji:'🐶',name:'いぬ',size:3,age:7},{emoji:'🐷',name:'ぶた',size:4,age:9},{emoji:'🐻',name:'くま',size:5,age:15}
+      {emoji:'🐭',name:'ねずみ',tag:'ちょこちょこ',size:1,age:2},{emoji:'🐰',name:'うさぎ',tag:'みみ長め',size:2,age:4},{emoji:'🐶',name:'いぬ',tag:'しっぽ元気',size:3,age:7},{emoji:'🐷',name:'ぶた',tag:'のんびり',size:4,age:9},{emoji:'🐻',name:'くま',tag:'どっしり',size:5,age:15}
     ],
     [
-      {emoji:'🐣',name:'ひよこ',size:1,age:1},{emoji:'🐱',name:'ねこ',size:2,age:5},{emoji:'🦊',name:'きつね',size:3,age:8},{emoji:'🦁',name:'ライオン',size:4,age:12},{emoji:'🐘',name:'ぞう',size:5,age:18}
+      {emoji:'🐣',name:'ひよこ',tag:'ぴよぴよ',size:1,age:1},{emoji:'🐱',name:'ねこ',tag:'きまぐれ',size:2,age:5},{emoji:'🦊',name:'きつね',tag:'目がするどい',size:3,age:8},{emoji:'🦁',name:'ライオン',tag:'たてがみ',size:4,age:12},{emoji:'🐘',name:'ぞう',tag:'ゆったり',size:5,age:18}
     ],
     [
-      {emoji:'👶',name:'あかちゃん',size:1,age:1},{emoji:'🧒',name:'こども',size:2,age:5},{emoji:'🧑',name:'おとな',size:3,age:10},{emoji:'🧔',name:'おじさん',size:4,age:14},{emoji:'👴',name:'おじいさん',size:5,age:20}
+      {emoji:'👶',name:'あかちゃん',tag:'よちよち',size:1,age:1},{emoji:'🧒',name:'こども',tag:'げんき',size:2,age:5},{emoji:'🧑',name:'おとな',tag:'しゃきっと',size:3,age:10},{emoji:'🧔',name:'おじさん',tag:'ひげ',size:4,age:14},{emoji:'👴',name:'おじいさん',tag:'つえ',size:5,age:20}
     ]
   ];
   function randomRankingCast(){ return RANKING_3D_CASTS[Math.floor(Math.random()*RANKING_3D_CASTS.length)].map(c=>({...c})); }
@@ -13700,7 +13700,7 @@
   // 抽選プールから外し、操作/判断が連続するゲームを中心にする。
   const MINIGAMES = [
     ...CATCH_GAME_VARIANTS,
-    ...CONCENTRATION_GAME_VARIANTS,
+    // 神経衰弱は「記憶する脳トレ寄り」なので抽選しない。
     ...BALANCE_GAME_VARIANTS,
     ...TILE_SWAP_VARIANTS,
     ...SPELL_GAME_VARIANTS,
@@ -13739,7 +13739,6 @@
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
     ['catch', CATCH_GAME_VARIANTS],
-    ['concentration', CONCENTRATION_GAME_VARIANTS],
     ['balance', BALANCE_GAME_VARIANTS],
     ['tileSwap', TILE_SWAP_VARIANTS],
     ['spell', SPELL_GAME_VARIANTS],
@@ -13789,10 +13788,8 @@
         goodItems: ['👕', '🧦', '🩳', '👖'],
         badItems: ['💩', '🟤', '🐛', '🕸️'],
       }) },
-      { category: 'concentration', game: makeConcentrationGame({ title: 'おもちゃばこの ペアを さがそう!', emojis: ['🧸', '🪁', '🎈', '🧩', '🚗', '⚽'] }) },
     ],
     sea: [
-      { category: 'concentration', game: makeConcentrationGame({ title: 'うみの いきものペアを さがそう!', emojis: ['🐠', '🐙', '🦑', '🦀', '🐬', '🐢'] }) },
       { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
     ],
     snow: [
@@ -13818,7 +13815,6 @@
         goodItems: ['🌾', '🍆', '🎃', '🧅'],
         badItems: ['🐀', '🦗', '🐜', '🦠'],
       }) },
-      { category: 'concentration', game: makeConcentrationGame({ title: 'のうさぎょうの どうぐペアを さがそう!', emojis: ['🌾', '🚜', '🧺', '🐓', '🐄', '🌻'] }) },
     ],
     forest: [
       { category: 'stack', game: makeStackGame({
