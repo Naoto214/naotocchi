@@ -3892,55 +3892,31 @@
   // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
   // items still tends to be mostly low-tier
   // ================================================================
-  // ごほうび(かいふくアイテム) - はっきり 2段階に わける
+  // ごほうび(かいふくアイテム)
   // ================================================================
-  // ミニゲームの 大成功と、5さい/10さいごとの おいわいで もらえる。
-  //
-  //  ふつうの ごほうび   … 4つの ステータス(おなか/ごきげん/げんき/けんこう)
-  //                        だけに きく、かるい もの
-  //  とくべつな ごほうび … ステータスに くわえて「おとろえ」と「いのち」まで
-  //                        たてなおす、たすけの ちから。出る かくりつは ひくい
-  //
-  // effects の いみ:
-  //   hunger/happiness/energy/health … その ステータスを その ぶん あげる
-  //   decline … おとろえメーターを その ぶん さげる
-  //   life    … いのちを その ぶん もちなおす(内部の deathMeter を さげる)
-  //
-  // ★ むかしは 9こ ぜんぶが「deathMeter を へらす だけ」で、いのちが
-  //   まんたんの ときは なにも おきないのに「げんきに なった!」とだけ
-  //   出ていた(=説明と 実こうかが あっていない・体系も なかった)。
-  //   ここで 効果対象・数値・説明・つかったあとの メッセージを
-  //   ぜんぶ そろえてある
+  // 日常ステータスは「たべる・あそぶ・ねる・くすり」で戻せるため、
+  // ごほうびの主役にはしない。ごほうびは一生の中でたまる「おとろえ」を
+  // ほどくもの、上位はさらに「いのち」を立て直すものとして役割を分ける。
+  // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
   const RECOVERY_ITEMS = [
-    // --- ふつうの ごほうび(ステータスだけ) ---
     { id: 'candy', label: 'あめ', emoji: '🍬', tier: 'normal', rank: 1, weight: 8,
-      effects: { happiness: 20 },
-      desc: 'ごきげんが すこし よくなる' },
+      effects: { decline: 8 }, desc: 'おとろえが ほんのすこし ほどける' },
     { id: 'dogfood', label: 'ドッグフード', emoji: '🦴', tier: 'normal', rank: 2, weight: 6,
-      effects: { hunger: 30 },
-      desc: 'おなかが しっかり ふくれる' },
+      effects: { decline: 12 }, desc: 'おとろえが すこし ほどける' },
     { id: 'catfood', label: 'キャットフード', emoji: '🐟', tier: 'normal', rank: 2, weight: 6,
-      effects: { hunger: 30 },
-      desc: 'おなかが しっかり ふくれる' },
+      effects: { decline: 12 }, desc: 'おとろえが すこし ほどける' },
     { id: 'udon', label: 'うどん', emoji: '🍜', tier: 'normal', rank: 3, weight: 5,
-      effects: { hunger: 25, energy: 15 },
-      desc: 'おなかが ふくれて げんきも もどる' },
+      effects: { decline: 18 }, desc: 'おとろえが ほどける' },
     { id: 'curry', label: 'カレー', emoji: '🍛', tier: 'normal', rank: 3, weight: 5,
-      effects: { hunger: 30, happiness: 15 },
-      desc: 'おなかが ふくれて ごきげんも よくなる' },
+      effects: { decline: 20 }, desc: 'おとろえが しっかり ほどける' },
     { id: 'hotpot', label: 'なべ', emoji: '🍲', tier: 'normal', rank: 4, weight: 4,
-      effects: { hunger: 30, energy: 20, health: 15 },
-      desc: 'おなか・げんき・けんこうが まとめて もどる' },
-    // --- とくべつな ごほうび(おとろえと いのちにも きく) ---
+      effects: { decline: 28 }, desc: 'おとろえが おおきく ほどける' },
     { id: 'shoulder', label: 'かたたたき', emoji: '💆', tier: 'special', rank: 5, weight: 3,
-      effects: { energy: 30, health: 20, decline: 20 },
-      desc: 'げんきと けんこうが もどり、おとろえも すこし ほどける' },
+      effects: { decline: 35, life: 10 }, desc: 'おとろえを ほどき、いのちも すこし もちなおす' },
     { id: 'hug', label: 'ハグ', emoji: '🤗', tier: 'special', rank: 6, weight: 2,
-      effects: { happiness: 40, energy: 20, decline: 30, life: 20 },
-      desc: 'ごきげんが はねあがり、おとろえが ほどけて いのちも もちなおす' },
+      effects: { decline: 45, life: 25 }, desc: 'おとろえを おおきく ほどき、いのちも もちなおす' },
     { id: 'kiss', label: 'キス', emoji: '💋', tier: 'special', rank: 7, weight: 1,
-      effects: { hunger: 30, happiness: 30, energy: 30, health: 30, decline: 50, life: 40 },
-      desc: 'ぜんぶの ステータスと おとろえ・いのちを まとめて たてなおす' },
+      effects: { decline: 65, life: 45 }, desc: 'おとろえと いのちを まとめて たてなおす' },
   ];
 
   const RECOVERY_EFFECT_LABELS = {
@@ -6671,8 +6647,8 @@
 
   el.transformSkipBtn.addEventListener('click', skipTransform);
 
-  // recovery items are earned from great minigame results and heal the
-  // death meter by an amount that depends on the item (see RECOVERY_ITEMS)
+  // ごほうびはミニゲーム大成功などで入手。一生のダメージである
+  // おとろえを主に回復し、上位3種はさらにいのちも立て直す。
   function renderItemsRow(disableUse) {
     const entries = RECOVERY_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
     if (entries.length === 0) {
