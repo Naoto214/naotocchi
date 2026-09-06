@@ -1237,7 +1237,7 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
-      // 旧ショップの上位互換を整理。持っていたものは同系統の新しい1種類へ引き継ぐ。
+      // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
       const OLD_ITEM_BASE = {
         flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
         poop2:'poop1', poop3:'poop1', scarf2:'scarf', scarf3:'scarf', glasses2:'glasses', glasses3:'glasses',
@@ -1249,6 +1249,12 @@
       merged.lifetime.ownedShopItems = [...new Set(oldOwned.map((id) => OLD_ITEM_BASE[id] || id).filter((id) => SHOP_ITEMS.some((it) => it.id === id)))];
       merged.lifetime.equippedItemId = OLD_ITEM_BASE[merged.lifetime.equippedItemId] || merged.lifetime.equippedItemId;
       if (!SHOP_ITEMS.some((it) => it.id === merged.lifetime.equippedItemId)) merged.lifetime.equippedItemId = null;
+      // 旧回復ごほうびは在庫をそのまま大量変換せず、まとめて最大2個の新ごほうびへ。
+      const oldRewardIds = ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss'];
+      let oldRewardCount = 0;
+      if (!merged.items || typeof merged.items !== 'object') merged.items = {};
+      oldRewardIds.forEach((id) => { oldRewardCount += Number(merged.items[id]) || 0; delete merged.items[id]; });
+      if (oldRewardCount > 0) merged.items.reward = (Number(merged.items.reward) || 0) + Math.min(2, Math.ceil(oldRewardCount / 5));
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -1696,7 +1702,14 @@
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
   // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
   //
-  // 同じ効果の上位互換は置かず、役割のちがう装備だけに整理している。
+  // ぜんぶで50しゅるい。多くは おなじ こうかの グレードアップ チェーン
+  // (むじるし → 2 → 3)に なっていて、ねだんが たかい ものほど こうかも
+  // 豪華に なる。だいたい 4つの ねだん帯に わかれる:
+  //   ・きほん(10〜90): さいしょから すこし ためれば かえる
+  //   ・じょうきゅう(150〜600): ある程度 ミニゲームを かさねないと とどかない
+  //   ・プレミアム(800〜2200): まとまった プレイが ひつよう
+  //   ・でんせつ/むげん(5000〜20000): パーフェクトクリアの あとも おかねを
+  //     かせぎつづけないと とても とどかない、いちばん 豪華な こうか
   const SHOP_ITEMS = [
     { id: 'flower', label: 'おはな', emoji: '🌼', price: 60, desc: 'きゅうあいの せいこうりつが すこし あがる' },
     { id: 'ribbon', label: 'リボン', emoji: '🎀', price: 60, desc: 'ごきげんが すこし へりにくい' },
@@ -1778,6 +1791,2371 @@
   // よびだし側は じぶんの メッセージで 上書きしない
   const CONSUMABLE_ITEMS = [];
 
+
+  function endingProgress() {
+    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
+    const achComplete = ACHIEVEMENTS
+      .filter((ach) => ach.id !== 'dex-complete')
+      .every((ach) => state.achievementsUnlocked.includes(ach.id));
+    return { dexComplete, achComplete };
+  }
+
+  // その回の クリアで いちばん はでな 1つの tier だけを えらぶ - クリア
+  // えんしゅつ(タイトル・バッジ・いろ)の 表示に つかう
+  function getEndingTier() {
+    const { dexComplete, achComplete } = endingProgress();
+    if (dexComplete && achComplete) return 3;
+    if (achComplete) return 2;
+    if (dexComplete) return 1;
+    return 0;
+  }
+
+  // その回の クリアで じっさいに みたした ぜんぶの tier(0はつねに、
+  // 1はずかんコンプリート、2はじっせきコンプリート、3はりょうほう)を
+  // 記録用に かえす。getEndingTier() は 表示用に いちばん はでな tierを
+  // 1つだけ えらぶが、えいぞくの バッジ記録(endingTiersReached)は
+  // みたした ぶんを ぜんぶ 記録しないと、ずかん/じっせきの どちらが
+  // 先に コンプリートしたかで もういっぽうの たんどくバッジが えいえいに
+  // とれなくなってしまう(あとから りょうほう そろうと つねに tier3だけに
+  // なる ため)
+  function qualifyingEndingTiers() {
+    const { dexComplete, achComplete } = endingProgress();
+    const tiers = [0];
+    if (dexComplete) tiers.push(1);
+    if (achComplete) tiers.push(2);
+    if (dexComplete && achComplete) tiers.push(3);
+    return tiers;
+  }
+
+  function saveState() {
+    recordDiscovery();
+    checkAchievements();
+    checkGrandGoals();
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+    } catch (e) {
+      // storage unavailable; ignore
+    }
+  }
+
+  function clamp(n, min, max) {
+    return Math.max(min, Math.min(max, n));
+  }
+
+  // 0 (freshly hatched) -> 1 (elder age) - every minigame scales its own
+  // difficulty knobs off of this so the whole game gets meaner as the pet
+  // gets older, instead of staying at "baby" difficulty forever
+  function ageDifficulty() {
+    const base = clamp(currentAge() / MAX_DIFFICULTY_AGE, 0, 1);
+    // そだち40(なかまの わ)に とうたつしていると、なかまイベントの
+    // ミニゲームだけ すこし やさしく なる
+    if (pendingCompanionId && hasPerk(40)) return base * 0.7;
+    return base;
+  }
+
+  function lerp(min, max, t) {
+    return min + (max - min) * t;
+  }
+
+  // ================================================================
+  // ミニゲーム きょうつうの UXルール(コード上の きまりごと)
+  // ================================================================
+  // ・せんたく式の ミニゲームは、判定した しゅんかんに つぎへ すすんだり
+  //   onCompleteを よんだり しない。かならず このさきの revealAndProceed()
+  //   などで「なにを えらんで、あっていたか/まちがっていたか」を
+  //   目に 見える かたちで 見せてから すすむ
+  // ・判定と onComplete は おなじ フレームで おこなわない(すくなくとも
+  //   MG_REVEAL_MS ぶんは あいだを あける)
+  // ・誤タップを かんぜんな 無反応に しない(ボタンを おした ことは
+  //   かならず なにかしらの ヘんかで わかる ようにする)
+  // ・かいひ/衝突けいの ゲームでは、判定成立(あたり/はずれの かくてい)と
+  //   しょうがいぶつ/対象を 画面から 消す タイミングを わける(判定した
+  //   しゅんかんに 消さず、うごきおわってから 消す。downhill-themed・
+  //   jump・runner さんしょう)
+  // ・2だんかい構成の ゲームは、さいごの 操作の あとに かならず 結果を
+  //   見せてから おわる(surfing-wave・miniPoker-basic さんしょう)
+  // ・せいかい と ふせいかいで おなじ えんしゅつを つかいまわさない
+  //   (pose さんしょう)
+  // ・あたらしい 地域/季節限定カテゴリを ついかした ときは、
+  //   minigameCategoryOf からも れないよう、REGION_MINIGAMES/
+  //   SEASONAL_MINIGAMESへの category とうろくループ(下の ほう)を
+  //   かならず とおす
+  // ・いろだけに たよらず、⭕/❌/✓ などの きごうでも せいご/ふせいかいが
+  //   つたわる ようにする
+  // ・せいし画面の はんだん系は、もんだいを 表示した しゅんかんから
+  //   タイムアウト用の タイマーを うごかしはじめない(MG_TIMED_CHOICE_
+  //   GRACE_MS ぶん、もんだいを 読む じかんを さきに ひかえておく)。
+  //   はやく こたえれば すぐ すすめる ため、テンポは そこなわない
+  // ・高難易度でも かんがえる じかんが 短くなりすぎない よう、はんだん系は
+  //   MG_TIMED_CHOICE_MIN_MS、めいろ/あしばけいは MG_STEP_MIN_MS を
+  //   さいてい保証する
+  // ・れんぞくアクション系は、がめんが 出た しゅんかんに いきなり うごき
+  //   はじめず、MG_ACTION_START_GRACE_MS ぶん タイトルを 読む ゆうよを おく
+  //   (その あいだは タイマー・オブジェクトとも うごかない)
+
+  const MG_REVEAL_MS = 480;
+
+  // せいし画面(えらぶだけ)の はんだん系ミニゲームで つかう、きょうつうの
+  // じかん定数。もんだいを 読む じかんを タイムアウトの けいさんから
+  // わけて、うちのめされる まえに 読みおわる じかんを 保証する
+  const MG_TIMED_CHOICE_GRACE_MS = 700;
+  const MG_TIMED_CHOICE_MIN_MS = 2200;
+  const MG_STEP_MIN_MS = 2500;
+
+  // れんぞくアクション系ミニゲームで つかう、がめんが 出てから じっさいに
+  // うごきはじめる/タイマーが へりはじめるまでの ゆうよ。みじかすぎると
+  // タイトルを 読みきれず、長すぎると テンポが わるくなる ため、
+  // 実際に 文字を 読める さいたん値として 900msを えらんだ
+  const MG_ACTION_START_GRACE_MS = 900;
+
+  // せんたく式の ミニゲームで つかう、きょうつうの せいかい/ふせいかい
+  // ひょうじヘルパー。タップした ようそに ⭕/❌ の マークと いろを つけ、
+  // ふせいかいの ときは ただしい ようそ(わかれば)にも ✓を つけて 見せる。
+  // MG_REVEAL_MSだけ まってから after() を よぶので、その あいだに
+  // つぎの 判定へ すすむ コードを おかなければ、しぜんに 多重タップも
+  // ふせげる(呼び出しがわの awaitingフラグは 判定した しゅんかんに
+  // falseに し、after() の なかで はじめて trueに もどす こと)
+  function revealAndProceed(tappedEl, correct, correctEl, after) {
+    if (tappedEl) {
+      tappedEl.classList.add(correct ? 'mg-reveal-correct' : 'mg-reveal-incorrect');
+      const mark = document.createElement('span');
+      mark.className = 'mg-reveal-mark';
+      mark.textContent = correct ? '⭕' : '❌';
+      tappedEl.appendChild(mark);
+    }
+    if (!correct && correctEl && correctEl !== tappedEl) {
+      correctEl.classList.add('mg-reveal-correct');
+      const mark = document.createElement('span');
+      mark.className = 'mg-reveal-mark';
+      mark.textContent = '✓';
+      correctEl.appendChild(mark);
+    }
+    setTimeout(after, MG_REVEAL_MS);
+  }
+
+  // 「まちがえた ことは わかるが、ゲームじたいは とめない」けいの ミニ
+  // ゲーム(numberOrder・sumPair など)で つかう、かるい 誤操作フィード
+  // バック。revealAndProceed()とはちがい ゲームの すすみを ブロックせず、
+  // ちいさな シェイク+❌を つけて すぐ もとに もどす だけ
+  function flashMistake(el) {
+    if (!el) return;
+    el.classList.add('mg-mistake-flash');
+    const mark = document.createElement('span');
+    mark.className = 'mg-reveal-mark';
+    mark.textContent = '❌';
+    el.appendChild(mark);
+    setTimeout(() => {
+      el.classList.remove('mg-mistake-flash');
+      mark.remove();
+    }, 300);
+  }
+
+  const MESSAGE_DURATION_MS = 4200;
+
+  // GENDERS/ORIENTATION_ROLL_POOL は 本来 もっと したの せいべつ関係の
+  // まとまりで 定義しているが、loadState() が(gender の ない ふるい
+  // セーブを いま ここで ロールしなおす ために)rollIdentity() 経由で
+  // すぐ したで つかうので、const の TDZ(まだ 初期化されていない
+  // じょうたいで 参照すると ReferenceError に なる せいしつ)に
+  // ひっかからないよう、この関連の consts だけ ここで さきに 定義しておく
+  const GENDERS = ['male', 'female', 'nonbinary'];
+  const RESOLVED_ORIENTATIONS = ['straight', 'gay', 'bi', 'pan', 'aro'];
+  const ORIENTATION_ROLL_POOL = [...RESOLVED_ORIENTATIONS, 'questioning'];
+
+  // せいべつ/れんあいタイプは どちらも「げんじつ社会を ざっくり
+  // さんこうにした 重みつき」ランダムで きまる(均等抽選だと 少数派の
+  // タイプが 不自然に 高頻度に なってしまう ため)。GENDERS/
+  // ORIENTATION_ROLL_POOL と おなじ ならびじゅんに 対応する 重みの はいれつ。
+  // 「同性を れんあい対象と する タイプ」は gay という 1つの id/8%の
+  // 抽選の まま(ゲイ/レズビアンで べつべつに 抽選しない)で、表示だけ
+  // gender に あわせて 分ける(下の orientationLabel を さんしょう)
+  const GENDER_WEIGHTS = [47.5, 47.5, 5]; // 男の子 / 女の子 / ノンバイナリー
+  const ORIENTATION_WEIGHTS = [68, 8, 12, 5, 2, 5]; // straight / gay / bi / pan / aro / questioning
+
+  // 重みつき抽選: items[i] が えらばれる かくりつは weights[i] / 合計
+  function weightedPick(items, weights) {
+    const total = weights.reduce((sum, w) => sum + w, 0);
+    let roll = Math.random() * total;
+    for (let i = 0; i < items.length; i += 1) {
+      roll -= weights[i];
+      if (roll < 0) return items[i];
+    }
+    return items[items.length - 1];
+  }
+
+  let state = loadState();
+  let message = '';
+  let gameActive = false;
+  let messageTimer = null;
+  // なかまイベントが とちゅうの あいだだけ セットされる、いま くどいて
+  // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
+  // リセットされる いちじてきな 状態なので state には いれない
+  let pendingCompanionId = null;
+
+  function setMessage(msg) {
+    message = msg;
+    el.message.textContent = msg;
+
+    // A message must stay on screen for a fixed, guaranteed stretch of time -
+    // it must NOT be at the mercy of the background tick's own independent
+    // 3-second phase, which could otherwise blank it out (or overwrite it)
+    // a fraction of a second after it appeared.
+    if (messageTimer) {
+      clearTimeout(messageTimer);
+      messageTimer = null;
+    }
+    if (msg) {
+      messageTimer = setTimeout(() => {
+        messageTimer = null;
+        message = '';
+        if (!gameActive) render();
+      }, MESSAGE_DURATION_MS);
+    }
+  }
+
+  // メイン育成画面の「だれが しゃべったか」が分かる吹き出し。
+  // setMessage() は成長・病気・結果などのシステム通知専用として残し、
+  // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
+  let speechTimer = null;
+  let speechActive = false;
+  const SPEECH_DURATION_MS = 5200;
+
+  function hideSpeechBubble() {
+    speechActive = false;
+    if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
+    if (el.speechBubble) el.speechBubble.classList.add('hidden');
+  }
+
+  function setSpeechBubble(text, speaker) {
+    if (!el.speechBubble || !text || !speaker) return;
+    if (speechTimer) clearTimeout(speechTimer);
+    speechActive = true;
+    el.speechSpeaker.textContent = speaker.emoji || '💬';
+    el.speechSpeaker.title = speaker.label || '';
+    el.speechText.textContent = text;
+    el.speechBubble.dataset.kind = speaker.kind || 'pet';
+    el.speechBubble.classList.remove('hidden');
+    speechTimer = setTimeout(() => {
+      speechTimer = null;
+      speechActive = false;
+      el.speechBubble.classList.add('hidden');
+    }, SPEECH_DURATION_MS);
+  }
+
+  function petSpeaker() {
+    return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
+  }
+
+  function partnerSpeaker() {
+    const p = state.partner;
+    return p ? { kind: 'partner', emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
+  }
+
+  function companionSpeaker() {
+    if (!state.companions.length) return null;
+    const sc = state.companions[Math.floor(Math.random() * state.companions.length)];
+    const c = allCompanionsById(sc.id);
+    return c ? { kind: 'companion', emoji: c.emoji, label: c.name } : null;
+  }
+
+  const PARTNER_IDLE_LINES = [
+    'いっしょに いると おちつくね', 'きょうも となりに いるよ', 'つぎは どこへ いこうか?',
+    'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
+  ];
+  const COMPANION_IDLE_LINES = [
+    'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
+    'なんか おもしろいこと ない?', 'ずっと そばに いるよ', 'ちょっと じゃれたい!',
+  ];
+
+  // flavor beats sprinkled across a play session, reacting to whatever
+  // just happened (a fresh evolution, a devolution, a 変身, a great or
+  // terrible minigame score, an illness beaten, overeating, cleanup) -
+  // see checkStoryEvents() for exactly when each pool is eligible
+  // chance that a qualifying moment (an evolution, a great minigame score,
+  // ...) actually pops a flash at all - keeps it feeling like a fun surprise
+  // rather than a guaranteed interruption on every single occurrence
+  const STORY_EVENT_CHANCE = 0.45;
+
+  // one flavor line is rolled from the matching pool each time its context
+  // happens, so unlike the old one-time-ever milestones these can repeat -
+  // with 4-6 humorous takes per pool that's still a lot of variety, and it
+  // means the game keeps reacting to what's actually going on instead of
+  // going quiet after every pool is used up once
+  const STORY_EVENT_POOLS = {
+    evolve: [
+      { emoji: '📈', message: 'からだが ムズムズする…これが せいちょうつうか!?' },
+      { emoji: '😲', message: 'きゅうに せが のびて じぶんでも ビックリした!' },
+      { emoji: '💫', message: 'きのうより ちょっと できる きが する!' },
+      { emoji: '🔔', message: 'そだちが のびる おとが きこえた き が した(たぶん きのせい)' },
+      { emoji: '📏', message: 'サイズが かわって…ふくは もってないけど なんとなく きつい' },
+    ],
+    devolve: [
+      { emoji: '🤏', message: 'あれ?なんか ちいさく なってない…?' },
+      { emoji: '👶', message: 'こどもがえり ちゅう!ばぶばぶ!' },
+      { emoji: '😴', message: 'せいちょうを いったん おやすみする ことにした' },
+      { emoji: '📉', message: 'たいじゅうは かわってないのに みための ねんれいが わかがえった' },
+      { emoji: '🌀', message: 'じかんが ちょっと まきもどった ような かんかく' },
+    ],
+    transform: [
+      { emoji: '🌟', message: 'すがたが かわった!げんきに なった…かも!' },
+      { emoji: '🕺', message: 'へんしんポーズを キメて みた(だれも みてない)' },
+      { emoji: '👕', message: 'きがえた みたいな かんかく!なかみは おなじ' },
+      { emoji: '🪞', message: 'べつじんに なった き が するけど、なかみは いつもどおり' },
+      { emoji: '🎭', message: '「あたらしい じぶん」を いちど えんじて みたく なった' },
+    ],
+    'minigame-great': [
+      { emoji: '🏆', message: 'てんさいって よばれても おかしくない できばえ!' },
+      { emoji: '😎', message: 'ドヤがおが とまらない!' },
+      { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
+      { emoji: '🔥', message: 'きょうの ちょうしは いつもの100ばい あるかも!' },
+      { emoji: '🎉', message: 'しょうきんが でるなら もらいたい くらい じょうず' },
+    ],
+    'minigame-bad': [
+      { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
+      { emoji: '😵', message: 'うでが なまってた だけ!じつりょくじゃ ない!' },
+      { emoji: '🌀', message: 'ちょっと めが まわっただけ!ほんきだせば…' },
+      { emoji: '🫠', message: 'つぎは かならず リベンジする!(こんかいは しない)' },
+    ],
+    'medicine-cure': [
+      { emoji: '🕺', message: 'げんきに なって おどりだしそう!' },
+      { emoji: '😋', message: 'くすりの あじが まずすぎて めが さめた(べつの いみで げんき)' },
+      { emoji: '🎈', message: 'びょうきの ことは もう わすれた!(いたみは わすれてない)' },
+      { emoji: '💊', message: 'くすりを のんだ ごほうびに あとで なにか ねだりそう' },
+    ],
+    overfeed: [
+      { emoji: '🫃', message: 'おなかが パンパン…しばらく うごけない…' },
+      { emoji: '🍚', message: '「もう たべられない」と いいつつ もう いっこ いけそう' },
+      { emoji: '🚨', message: 'たべすぎ けいほう、はつれい!' },
+      { emoji: '😵‍💫', message: 'まんぷく すぎて まんぞくと こうかいが なかよく どうきょ ちゅう' },
+    ],
+    'poop-clean': [
+      { emoji: '✨', message: 'スッキリ!せかいが きゅうに きれいに みえる!' },
+      { emoji: '🧹', message: 'そうじの プロに なれる き が してきた' },
+      { emoji: '😌', message: 'うんちに なまえを つけそうに なった ところで やめた' },
+      { emoji: '🚿', message: 'きれいずき が いっかい あがった き が する' },
+    ],
+  };
+
+  // なでる/はなしかける は毎回かならず1つ表示される軽いリアクション文 -
+  // 通常のメッセージ欄に出すだけなので、STORY_EVENT_POOLSのような大きな
+  // 演出やSTORY_EVENT_CHANCEの抽選は使わない
+  const PET_REACTIONS = [
+    'うれしそうに すりよってきた!',
+    'ゴロゴロ… きもちよさそう',
+    'くすぐったいのか、ぴくっと うごいた',
+    'なでられて めを ほそめた',
+    'もっと なでて!って かおを してる',
+    'あったかい てが きもちいいみたい',
+    'うっとりした ひょうじょうに なった',
+    '「もう1かい!」と せがまれた き が した',
+    'そっと めを とじて リラックスしてる',
+    'しあわせそうな こえを だした',
+    'ふわふわの てざわりに ほっこりする',
+    'なでる てに あわせて からだを よせてきた',
+  ];
+
+  const TALK_REACTIONS = [
+    '「きょうも げんきだよ!」と いってる き が する',
+    'なにか はなしかけてきたけど、わからなかった',
+    'うれしそうに なにか さけんでる!',
+    'じっと めを みて なにか つたえようと してる',
+    'ひとりごとを つぶやいてる みたい',
+    '「あそぼう!」って いってる ような き が する',
+    'なぞの げんごで はなしかけてきた',
+    'こたえの かわりに ぴょんと はねた',
+    'うんうんと うなずいて くれた(たぶん)',
+    'ないしょばなしを してくれた(ひみつ)',
+    '「だいすき」って いった…かも',
+    'くびを かしげて こっちを みてる',
+  ];
+
+  // なかまが そばに いる ときだけ、じゃれるの リアクションに まざる
+  // すこし ちがった 文言。なかまの bond かいふくは じゃれるの ハンドラー
+  // じたいで おこなう(ここは メッセージの バリエーションだけ)
+  const COMPANION_PET_REACTIONS = [
+    'なかまたちも まざって いっしょに あまえてきた!',
+    'そばに いる なかまも うれしそうに はねてる',
+    'なかまと じゃれあう すがたが ほほえましい',
+    'みんなで よりそって、なかよしの わの なかに いる きぶん',
+  ];
+
+  const COMPANION_TALK_REACTIONS = [
+    'なかまたちにも なにか はなしかけてる みたい',
+    'なかまと いっしょに こっちを みて くびを かしげた',
+    'なかまたちが まわりで にぎやかに さわいでる',
+    'なかまとの おしゃべりに まざれた き が した',
+  ];
+
+  const COMPANION_ANNOYED_REACTIONS = [
+    'なかまたちも すこし げんなり してる みたい',
+    'なかまも いっしょに そっぽを むいてしまった',
+  ];
+
+  // beyond this many なでる/はなしかける in a row (with no real care action
+  // in between), the action flips from its normal small positive into an
+  // annoyed negative instead - spamming either stops being free stats
+  const AFFECTION_SPAM_THRESHOLD = 3;
+
+  // おなじように、たびを 連続で おしすぎた ときも「たびづかれ」で 機嫌の
+  // ボーナスが きえて 逆に すこし へる - 元気/満腹の コストと あわせて、
+  // たびボタンを 連打するだけの ごうりつ機嫌かせぎに ならないようにする
+  const TRAVEL_SPAM_THRESHOLD = 3;
+
+  // おもちゃ を そうびしていると、じゃれる連打で いやがられるまでの
+  // かいすうが ふえる
+  function affectionSpamThreshold() {
+    return AFFECTION_SPAM_THRESHOLD + (isEquipped('pet_threshold') ? 2 : 0);
+  }
+
+  // らしんばん を そうびしていると、たびづかれに なるまで もう少し
+  // 連続で たびに でられる
+  function travelSpamThreshold() {
+    return TRAVEL_SPAM_THRESHOLD + (isEquipped('travel_threshold') ? 2 : 0);
+  }
+
+  const PET_ANNOYED_REACTIONS = [
+    'もう なでなでは じゅうぶん!と いう かおを してる',
+    'しつこいと ちょっと おこられた…',
+    'てを やんわり ふりはらわれた!',
+    'つかれた ような かおを してる',
+    'そろそろ ひとりに して ほしいみたい',
+    'なですぎ けいほう、はつれい!',
+  ];
+
+  const TALK_ANNOYED_REACTIONS = [
+    'もう はなしかけないで!と いう かおを してる',
+    'すっかり むしされてしまった…',
+    'ふーっと ためいきを つかれた',
+    'みみを ふさぐ しぐさを された(みみ、ないけど)',
+    'そろそろ しずかに して ほしいみたい',
+    'おしゃべりが すぎたと おもわれたかも…',
+  ];
+
+  // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
+  // ぞくせい。ストレート・同性を対象とする タイプ・バイセクシャル・
+  // パンセクシャル・アロマンティック・クエスチョニングは どれも 優劣の
+  // ない、とくしゅな 属性としては あつかわない こせいとして 実装する
+  // (ORIENTATION_WEIGHTS で 出現率には ゲームバランス上の ちがいを
+  // つけているが、それは あくまで 出現頻度の はなしで、タイプそのものに
+  // 優劣を つける ものでは ない)。ノンバイナリーに 限らず どのせいべつにも
+  // どのれんあいタイプも 原則 わりあてられる(下の attractedToFor が
+  // それぞれに ちゃんと いみのある あいて候補を かえす)
+  // GENDERS/RESOLVED_ORIENTATIONS/ORIENTATION_ROLL_POOL は、loadState()
+  // からも つかわれる ため、この ファイルの ずっと うえのほう(state を
+  // ロールする ちょくぜん)で すでに 定義ずみ
+  const GENDER_LABELS = { male: '男の子', female: '女の子', nonbinary: 'ノンバイナリー' };
+  // gay は「同性を れんあい対象と する タイプ」を あらわす 1つの id
+  // (抽選も 8%の 1本)で、この マップの 値は あくまで gender が
+  // わからない ときの ひかえめな フォールバック。じっさいの 表示は
+  // gender に あわせて 分ける orientationLabel() を つかう
+  const ORIENTATION_LABELS = {
+    straight: 'ストレート',
+    gay: '同性を対象とする タイプ',
+    bi: 'バイセクシャル',
+    pan: 'パンセクシャル',
+    aro: 'アロマンティック',
+    questioning: 'クエスチョニング',
+  };
+
+  // gay id を もつ キャラの 表示ラベルは gender で わける:
+  // 男の子→「ゲイ」、女の子→「レズビアン」。ノンバイナリーには
+  // 「ゲイ」「レズビアン」「クィア」のような、本人が じぶんの アイデン
+  // ティティとして 選びとる ことばを ゲーム側から 機械的に わりあてない
+  // (「クィア」は とくに 自称として つかわれる ことばな ので、なおさら
+  // 自動付与すべきでない)。かわりに、実際に 内部で 設定されている
+  // 恋愛対象(gay id は gender に かんけいなく「じぶんと おなじ
+  // ジェンダー」が 対象、という ランダム要素の ない きまった 意味な ので、
+  // ここで あらためて 計算しなおしても 表示が ぶれない)を そのまま
+  // 中立的に せつめいする 表記にする。gay いがいは これまでどおり
+  // ORIENTATION_LABELS を そのまま つかう
+  function orientationLabel(orientationId, gender) {
+    if (orientationId === 'gay') {
+      if (gender === 'male') return 'ゲイ';
+      if (gender === 'female') return 'レズビアン';
+      return '恋愛対象：同じジェンダー';
+    }
+    return ORIENTATION_LABELS[orientationId] || '???';
+  }
+
+  // gender+orientationId から「だれに ひかれるか」を くみたてる。
+  // ストレートだけ「じぶんと ちがう せいべつ」の いみが gender ごとに
+  // かわる(男の子↔女の子、ノンバイナリーは 男の子/女の子)ので gender で
+  // わける。
+  //
+  // バイと パンは どちらも「1つの せいべつだけに かぎらない」タイプだが、
+  // ゲーム内では かんがえかたを わけて あつかう:
+  //   ・バイセクシャル: 「ふくすうの ジェンダーが 恋愛対象に なりうる」
+  //     タイプ。どの くみあわせに ひかれるかは 人それぞれの こたいさで、
+  //     男の子+女の子/男の子+ノンバイナリー/女の子+ノンバイナリーの
+  //     2しゅるいの くみあわせは もちろん、3しゅるい ぜんぶが 対象になる
+  //     こともある(「バイ=かならず2しゅるい」という きめうちには しない)。
+  //     どの くみあわせに なっても、プロフィールの 表示は「バイセクシャル」
+  //     の まま(内部の 対象しゅるいすうで 表示は かえない)
+  //   ・パンセクシャル: ジェンダーそのものを 恋愛成立の せいげん条件に
+  //     しない タイプ。バイと ちがい こたいさは なく、つねに ぜんジェンダー
+  //     が むじょうけんに 対象に なる
+  // クエスチョニングは まだ さがしている とちゅうで、とくてい の せいべつを
+  // こていの 対象から はずさず ひろく ひらかれている(パンと おなじ 実装だが、
+  // 「まだ さだまっていない」という べつの いみあいを もつ)。
+  // アロマンティックは だれにも れんあい感情を もたない。gay(同性を
+  // 対象と する タイプ)は gender に かんけいなく「じぶんと おなじ
+  // せいべつの 人」が たいしょう ― ノンバイナリーの ばあいも おなじ
+  // ロジックを つかう(むかしは ノンバイナリーだけ とくべつあつかいで
+  // bi/pan/aro/questioning まで ぜんぶ「ノンバイナリー どうしのみ」に
+  // まとめてしまう バグが あったので、gender による とくべつあつかいは
+  // straight だけに かぎっている)
+  function attractedToFor(gender, orientationId) {
+    if (orientationId === 'aro') return [];
+    if (orientationId === 'pan' || orientationId === 'questioning') return [...GENDERS];
+    if (orientationId === 'bi') {
+      const shuffled = [...GENDERS].sort(() => Math.random() - 0.5);
+      // 2しゅるいの くみあわせを やや 多めに しつつ、3しゅるい ぜんぶが
+      // 対象に なる こたいも ふつうに ありうる あつかいに する
+      const count = Math.random() < 0.65 ? 2 : 3;
+      return shuffled.slice(0, count).sort();
+    }
+    if (orientationId === 'straight') {
+      if (gender === 'nonbinary') return ['male', 'female'];
+      return gender === 'male' ? ['female'] : ['male'];
+    }
+    return [gender]; // gay(同性を対象とする タイプ)
+  }
+
+  // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
+  // いっしょに きまる。man/woman ラインは 既存の せりふ(あかちゃんの
+  // おんなのこ、など)に あわせて せいべつを こていし、それ以外の
+  // ラインは GENDER_WEIGHTS に したがった 重みつき ランダム。れんあい
+  // タイプも おなじく せいべつに かんけいなく ORIENTATION_WEIGHTS で
+  // ロールする(げんじつ社会を ざっくり さんこうに した ひりつだが、
+  // 少数派の タイプが ゲームの なかで 不自然に 出にくく ならないよう
+  // ある程度 高めに たもってある)
+  function rollIdentity(speciesLine) {
+    let gender;
+    if (speciesLine === 'man') gender = 'male';
+    else if (speciesLine === 'woman') gender = 'female';
+    else gender = weightedPick(GENDERS, GENDER_WEIGHTS);
+    const orientationId = weightedPick(ORIENTATION_ROLL_POOL, ORIENTATION_WEIGHTS);
+    return { gender, orientationId, attractedTo: attractedToFor(gender, orientationId) };
+  }
+
+  // クエスチョニングの あいだに「きゅうあいする」を おすたびに1つ
+  // けいけんを つみ、いきの しきい値に とどくと べつの タイプに おちつく
+  // (questioning 自身には もどらない)。しっぱい/友達あつかいの けっかでも、
+  // いろんな あいてと であうこと じたいが けいけんに なる、という
+  // かんがえかた。おちつく さきも ORIENTATION_WEIGHTS と おなじ ひりつの
+  // 重みつき ランダム(RESOLVED_ORIENTATIONS は ORIENTATION_ROLL_POOL から
+  // questioning を のぞいた ならびと おなじ じゅんばんな ので、対応する
+  // 重みも 先頭から おなじ かず ぶん きりだせる)
+  const QUESTIONING_RESOLVE_THRESHOLD = 4;
+  const RESOLVED_ORIENTATION_WEIGHTS = ORIENTATION_WEIGHTS.slice(0, RESOLVED_ORIENTATIONS.length);
+
+  // じぶんさがしの書 を そうびしていると、クエスチョニングが おちつくまでの
+  // けいけん回数が 半分に なる(きりあげ)
+  function questioningResolveThreshold() {
+    return isEquipped('questioning_fast') ? Math.ceil(QUESTIONING_RESOLVE_THRESHOLD / 2) : QUESTIONING_RESOLVE_THRESHOLD;
+  }
+
+  function checkQuestioningResolution() {
+    if (state.orientationId !== 'questioning') return null;
+    state.questioningEncounters = (state.questioningEncounters || 0) + 1;
+    if (state.questioningEncounters < questioningResolveThreshold()) return null;
+    const resolved = weightedPick(RESOLVED_ORIENTATIONS, RESOLVED_ORIENTATION_WEIGHTS);
+    state.orientationId = resolved;
+    state.attractedTo = attractedToFor(state.gender, resolved);
+    state.questioningEncounters = 0;
+    return resolved;
+  }
+
+  // 「きゅうあいする」の おあいて候補を つくる ヘルパー。affinityTrait は
+  // traitCounts の どのせいかく(やさしい/やんちゃ/おだやか/ゆうかん/
+  // ロマンチック)を 積み重ねていると成功しやすいかで、null は せいかくに
+  // 左右されない ニュートラルな あいて
+  function courtCandidate({ id, label, emoji, gender, orientationId, affinityTrait = null }) {
+    return { id, label, emoji, gender, orientationId, attractedTo: attractedToFor(gender, orientationId), affinityTrait };
+  }
+
+  // 「あいてコード」: サーバーも つうしんも つかわず、じぶんの なおとっちの
+  // すがたを みじかい 文字れつに して ともだちに わたし、うけとった
+  // がわが よみこむと「たびさきの おきゃくさん」として あらわれる。
+  // GITHUB_PAGES の ような 静的サイトの ままでも できる、いちばん かるい
+  // 「つうしん」の しくみ
+  const GUEST_CODE_PREFIX = 'NAOTOCCHI1:';
+
+  function encodeGuestCode() {
+    const payload = {
+      s: state.speciesLine,
+      i: state.stageIndex,
+      g: state.gender,
+      o: state.orientationId,
+      t: state.traitCounts,
+    };
+    return GUEST_CODE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  // よみこんだ コードが こわれていたり、いたずらで へんな 値に
+  // かきかえられていても、ゲームが こわれない よう ぜんぶ けんしょうする
+  function decodeGuestCode(raw) {
+    try {
+      // 一部の アプリ(メッセージの リンク自動検出 など)は URIスキームっぽい
+      // コードの プレフィックス部分だけを こぴー/ひょうじ 時に 小文字化する
+      // ことが あるため、プレフィックスの ひかくは 大文字小文字を くべつしない
+      const trimmed = raw.trim().replace(/^NAOTOCCHI1:/i, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!ALL_LINES.includes(payload.s)) return null;
+      if (!Number.isInteger(payload.i) || payload.i < 0 || payload.i >= STAGES_PER_LINE) return null;
+      if (!GENDERS.includes(payload.g)) return null;
+      if (!ORIENTATION_ROLL_POOL.includes(payload.o)) return null;
+      const traitCounts = {};
+      Object.keys(TRAIT_LABELS).forEach((key) => {
+        const v = payload.t && payload.t[key];
+        traitCounts[key] = Number.isFinite(v) ? v : 0;
+      });
+      return {
+        speciesLine: payload.s,
+        stageIndex: payload.i,
+        gender: payload.g,
+        orientationId: payload.o,
+        attractedTo: attractedToFor(payload.g, payload.o),
+        traitCounts,
+      };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // ゲストの traitCounts から いちばん たかい せいかくを 1つ えらび、
+  // その ひとの affinityTrait(すきな ところ)として あつかう。すべて 0
+  // (よみこんだ ばかりで まだ なにも 選んでいない)なら ニュートラル
+  function dominantTrait(traitCounts) {
+    const entries = Object.entries(traitCounts);
+    const max = Math.max(...entries.map(([, v]) => v));
+    if (max <= 0) return null;
+    const top = entries.filter(([, v]) => v === max);
+    return top[Math.floor(Math.random() * top.length)][0];
+  }
+
+  function guestCandidate(guest) {
+    const stage = SPECIES[guest.speciesLine].stages[guest.stageIndex];
+    return {
+      id: 'guest',
+      label: `ともだちの ${stage.label}`,
+      emoji: stage.emoji,
+      gender: guest.gender,
+      orientationId: guest.orientationId,
+      attractedTo: guest.attractedTo,
+      affinityTrait: dominantTrait(guest.traitCounts),
+    };
+  }
+
+  // 「うそつきしょうぶ」: 2人だけの 心理戦ミニゲーム。あいてコードと おなじく
+  // サーバーを つかわず、コードの やりとり(3回)だけで あそべる。
+  // A(かいとうしゃ)が 5つの 二択しつもんに ほんねで こたえ、しつもんごとに
+  // 「本音で こうかいする」か「うそを つく(逆を こうかいする)」かを
+  // A自身が えらぶ(うそは 1試合5問につき さいだい DUEL_LIE_BUDGET かい
+  // までの「うそコイン」せいで、つかう義務は ない)。B(すいりしゃ)は
+  // 5問ぶんの こうかいされた こたえを まとめて 見てから、それぞれが
+  // 本音か うそかを すいりする。とくてんは 本音を めぐる こうぼう=1点、
+  // うそを めぐる こうぼう=2点(ハイリスク・ハイリターン)で、5問の
+  // ごうけいとくてんが 多い ほうが その試合の しょうり(どうてんなら
+  // ひきわけで、かけきんの やりとりは なし)。
+  // かけきんの けっさんは、Aと Bが それぞれ じぶんの たんまつで おなじ
+  // しきを つかって けいさんする(どちらかが 一方的に けっかを きめて
+  // つたえる かたちには しない)ので、コードを さきに つくった がわが
+  // ゆうりに ならない こうへいな しくみに なっている
+  const DUEL_TRAIT_LABELS = {
+    cautious: '慎重派',
+    active: '行動派',
+    jealous: '嫉妬深い',
+    romantic: 'ロマンチスト',
+    secretive: '秘密主義',
+    spoiled: '甘えん坊',
+    myPace: 'マイペース',
+    realist: '現実派',
+  };
+
+  // A(かいとうしゃ)が こうかいする こたえに そえられる、みじかい
+  // ひとこと証言。人狼の「弁明」に ちかい えんしゅつ要素で、本音でも
+  // ブラフでも 自由に つかってよい(せいかく分析には いっさい つかわない)。
+  // スマホでの テンポを たもつため 定型文の タップせんたくのみ
+  const DUEL_TESTIMONY_PRESETS = [
+    { id: 'gachi', label: 'これは ガチ' },
+    { id: 'nocomment', label: 'ノーコメント笑' },
+    { id: 'believe', label: '信じていいよ' },
+    { id: 'guess', label: 'たぶん 想像どおり' },
+    { id: 'secret', label: 'ひみつ' },
+    { id: 'dunno', label: 'さあ、どうかな〜?' },
+  ];
+
+  // category: しつもんの ジャンル(1試合の なかで おなじ ジャンルが
+  // かたよりすぎない ように つかう)。weight: 1=かるい/2=ふつう/3=おもい
+  // (1試合の なかで かるい話題と おもい話題が まざるように つかう)
+  const DUEL_QUESTIONS = [
+    // 【秘密・隠し事】
+    { id: 'dq1', category: 'sec', weight: 2, emoji: '🤫', text: '恋人に言ってない秘密は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq2', category: 'sec', weight: 2, emoji: '📓', text: '誰にも言ってない黒歴史は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq3', category: 'sec', weight: 2, emoji: '🎭', text: '見せたくない自分は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq4', category: 'sec', weight: 2, emoji: '⚰️', text: '墓場まで持っていきたい秘密は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq5', category: 'sec', weight: 2, emoji: '🤥', text: '恋人に嘘をついた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq6', category: 'sec', weight: 2, emoji: '😶', text: '本当は嫌でも「いいよ」と言う?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq7', category: 'sec', weight: 2, emoji: '🎨', text: '好きなふりをした?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq8', category: 'sec', weight: 2, emoji: '💭', text: '好きでもない人と付き合った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq9', category: 'sec', weight: 2, emoji: '🌫️', text: '「好き」と言いながら迷った?', a: { label: 'ある', traits: ['secretive', 'cautious'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq10', category: 'sec', weight: 2, emoji: '🎪', text: '趣味や好みを偽った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq11', category: 'sec', weight: 2, emoji: '🎈', text: '話を盛ったことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq12', category: 'sec', weight: 2, emoji: '🛍️', text: '言えない買い物は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq13', category: 'sec', weight: 2, emoji: '🚶', text: '言わずに誰かと会った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq14', category: 'sec', weight: 2, emoji: '🎭', text: '本音と建前は?', a: { label: 'かなり使い分ける', traits: ['secretive'] }, b: { label: 'ほぼ使い分けない', traits: ['active'] } },
+    { id: 'dq15', category: 'sec', weight: 2, emoji: '🔒', text: '知られたくない過去は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    // 【スマホ・SNS】
+    { id: 'dq16', category: 'sns', weight: 2, emoji: '🔍', text: '検索履歴は?', a: { label: '全部見せられる', traits: ['active'] }, b: { label: '絶対見せたくない', traits: ['secretive'] } },
+    { id: 'dq17', category: 'sns', weight: 2, emoji: '🖼️', text: '写真フォルダは?', a: { label: '全部見せられる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq18', category: 'sns', weight: 2, emoji: '💬', text: 'LINE/DMは?', a: { label: '全部見せられる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq19', category: 'sns', weight: 2, emoji: '🔢', text: 'パスコードは?', a: { label: '教えられる', traits: ['active'] }, b: { label: '教えたくない', traits: ['secretive'] } },
+    { id: 'dq20', category: 'sns', weight: 2, emoji: '👀', text: '元恋人のSNSをこっそり見た?', a: { label: 'ある', traits: ['jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq21', category: 'sns', weight: 2, emoji: '📱', text: '好きな人のSNSを遡って見た?', a: { label: 'ある', traits: ['jealous', 'romantic'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq22', category: 'sns', weight: 2, emoji: '📲', text: '恋人のSNSは?', a: { label: 'チェックしてしまう', traits: ['jealous'] }, b: { label: 'ほとんどしない', traits: ['myPace'] } },
+    { id: 'dq23', category: 'sns', weight: 2, emoji: '❤️', text: '恋人の「いいね」は?', a: { label: '気になる', traits: ['jealous'] }, b: { label: '気にならない', traits: ['myPace'] } },
+    { id: 'dq24', category: 'sns', weight: 2, emoji: '🔓', text: '恋人のスマホを見たい?', a: { label: 'ある', traits: ['jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq25', category: 'sns', weight: 2, emoji: '📴', text: '開いたままのスマホは?', a: { label: '少し気になる', traits: ['jealous'] }, b: { label: '全く気にならない', traits: ['myPace'] } },
+    { id: 'dq26', category: 'sns', weight: 2, emoji: '🗑️', text: '元恋人との写真は?', a: { label: 'まだ持っている', traits: ['romantic'] }, b: { label: '全部消した', traits: ['realist'] } },
+    { id: 'dq27', category: 'sns', weight: 2, emoji: '✉️', text: '元恋人とのメッセージは?', a: { label: '残している', traits: ['romantic'] }, b: { label: '消している', traits: ['realist'] } },
+    { id: 'dq28', category: 'sns', weight: 2, emoji: '😰', text: '焦る検索履歴は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq29', category: 'sns', weight: 2, emoji: '📸', text: '説明に困る写真は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq30', category: 'sns', weight: 2, emoji: '📨', text: '見られたくないDMは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    // 【元恋人・過去の恋愛】
+    { id: 'dq31', category: 'ex', weight: 2, emoji: '💭', text: '今でも思い出す元恋人は?', a: { label: 'いる', traits: ['romantic'] }, b: { label: 'いない', traits: ['realist'] } },
+    { id: 'dq32', category: 'ex', weight: 2, emoji: '🚪', text: '会ってみたい元恋人は?', a: { label: 'いる', traits: ['romantic'] }, b: { label: 'いない', traits: ['realist'] } },
+    { id: 'dq33', category: 'ex', weight: 2, emoji: '📞', text: '元恋人から連絡が来たら?', a: { label: '少し嬉しい', traits: ['romantic'] }, b: { label: '何とも思わない', traits: ['realist'] } },
+    { id: 'dq34', category: 'ex', weight: 2, emoji: '🔄', text: '復縁を言われたら?', a: { label: '少し迷うかも', traits: ['romantic'] }, b: { label: '全くない', traits: ['realist'] } },
+    { id: 'dq35', category: 'ex', weight: 2, emoji: '⚖️', text: '元恋人と今の恋人を比べた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq36', category: 'ex', weight: 2, emoji: '💔', text: '元恋人の方が良かったと思った?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq37', category: 'ex', weight: 2, emoji: '📵', text: '今でも元恋人のSNSを見る?', a: { label: 'ある', traits: ['jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq38', category: 'ex', weight: 2, emoji: '🎁', text: '思い出の品は?', a: { label: '残している', traits: ['romantic'] }, b: { label: '残していない', traits: ['realist'] } },
+    { id: 'dq39', category: 'ex', weight: 2, emoji: '🖼️', text: '元恋人との写真を見返した?', a: { label: 'ある', traits: ['romantic'] }, b: { label: 'ない', traits: ['realist'] } },
+    { id: 'dq40', category: 'ex', weight: 2, emoji: '😔', text: '別れを後悔している相手は?', a: { label: 'いる', traits: ['romantic'] }, b: { label: 'いない', traits: ['realist'] } },
+    { id: 'dq41', category: 'ex', weight: 2, emoji: '💫', text: '本気で復縁を考えた?', a: { label: 'ある', traits: ['romantic'] }, b: { label: 'ない', traits: ['realist'] } },
+    { id: 'dq42', category: 'ex', weight: 2, emoji: '📞', text: '寂しさで元恋人に連絡した?', a: { label: 'ある', traits: ['spoiled'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq43', category: 'ex', weight: 2, emoji: '😒', text: '元恋人に新しい恋人ができたら?', a: { label: '少し嫉妬する', traits: ['jealous'] }, b: { label: '何とも思わない', traits: ['myPace'] } },
+    { id: 'dq44', category: 'ex', weight: 2, emoji: '🔟', text: '過去の交際人数は?', a: { label: '正確に言える', traits: ['active'] }, b: { label: 'ぼかしたい', traits: ['secretive'] } },
+    { id: 'dq45', category: 'ex', weight: 2, emoji: '✨', text: '過去の恋愛を良く話した?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    // 【嫉妬・独占欲】
+    { id: 'dq46', category: 'jea', weight: 2, emoji: '😤', text: '自分は嫉妬深い?', a: { label: 'そう思う', traits: ['jealous'] }, b: { label: 'そうでもない', traits: ['myPace'] } },
+    { id: 'dq47', category: 'jea', weight: 2, emoji: '🤐', text: '嫉妬したら?', a: { label: '隠す', traits: ['secretive'] }, b: { label: '相手に言う', traits: ['active'] } },
+    { id: 'dq48', category: 'jea', weight: 2, emoji: '🍷', text: '異性と二人飲みは?', a: { label: '嫌', traits: ['jealous'] }, b: { label: '平気', traits: ['myPace'] } },
+    { id: 'dq49', category: 'jea', weight: 2, emoji: '📵', text: '元恋人との連絡は?', a: { label: '嫌', traits: ['jealous'] }, b: { label: '平気', traits: ['myPace'] } },
+    { id: 'dq50', category: 'jea', weight: 2, emoji: '🍽️', text: '元恋人と二人で食事は?', a: { label: '無理', traits: ['jealous'] }, b: { label: '平気', traits: ['myPace'] } },
+    { id: 'dq51', category: 'jea', weight: 2, emoji: '😰', text: '恋人がモテると?', a: { label: '不安になる', traits: ['jealous'] }, b: { label: 'むしろ嬉しい', traits: ['myPace'] } },
+    { id: 'dq52', category: 'jea', weight: 2, emoji: '😏', text: '恋人が他の人を褒めると?', a: { label: '少し嫉妬する', traits: ['jealous'] }, b: { label: '気にならない', traits: ['myPace'] } },
+    { id: 'dq53', category: 'jea', weight: 2, emoji: '🚫', text: '異性の親友は?', a: { label: '正直ちょっと嫌', traits: ['jealous'] }, b: { label: '全く平気', traits: ['myPace'] } },
+    { id: 'dq54', category: 'jea', weight: 2, emoji: '👑', text: '優先してほしいのは?', a: { label: '自分が一番', traits: ['spoiled'] }, b: { label: 'そこまで求めない', traits: ['realist'] } },
+    { id: 'dq55', category: 'jea', weight: 2, emoji: '🗺️', text: '恋人の行動は?', a: { label: '把握していたい', traits: ['jealous'] }, b: { label: '知らなくても平気', traits: ['myPace'] } },
+    { id: 'dq56', category: 'jea', weight: 2, emoji: '⏳', text: '返信がないと?', a: { label: '気になる', traits: ['jealous'] }, b: { label: '気にならない', traits: ['myPace'] } },
+    { id: 'dq57', category: 'jea', weight: 2, emoji: '😊', text: '嫉妬されると?', a: { label: '少し嬉しい', traits: ['romantic'] }, b: { label: '面倒', traits: ['myPace'] } },
+    { id: 'dq58', category: 'jea', weight: 2, emoji: '⛓️', text: '束縛されると?', a: { label: '愛を感じる', traits: ['spoiled'] }, b: { label: '全く感じない', traits: ['myPace'] } },
+    { id: 'dq59', category: 'jea', weight: 2, emoji: '🔑', text: '独占欲は?', a: { label: '少し出る', traits: ['jealous'] }, b: { label: 'ほとんど出ない', traits: ['myPace'] } },
+    { id: 'dq60', category: 'jea', weight: 2, emoji: '🥺', text: '恋人が他の人と楽しそうだと?', a: { label: '少し寂しい', traits: ['spoiled'] }, b: { label: '平気', traits: ['myPace'] } },
+    // 【浮気・境界線】
+    { id: 'dq61', category: 'aff', weight: 3, emoji: '💔', text: '浮気したことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq62', category: 'aff', weight: 3, emoji: '⚡', text: '浮気しそうになった?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq63', category: 'aff', weight: 3, emoji: '💘', text: '恋人以外に本気で惹かれた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq64', category: 'aff', weight: 3, emoji: '💭', text: '別の人と付き合う想像は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq65', category: 'aff', weight: 3, emoji: '💌', text: '他の人から告白されて嬉しかった?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq66', category: 'aff', weight: 3, emoji: '🤫', text: '二人で会ったことを黙っていた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq67', category: 'aff', weight: 3, emoji: '📵', text: '連絡を隠したことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq68', category: 'aff', weight: 3, emoji: '😅', text: '怒られると思いつつやったことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq69', category: 'aff', weight: 3, emoji: '💋', text: '浮気の境界線は?', a: { label: 'キスから', traits: ['realist'] }, b: { label: '気持ちが動いた時点で', traits: ['romantic'] } },
+    { id: 'dq70', category: 'aff', weight: 3, emoji: '💔', text: '一度の浮気は?', a: { label: '許せるかも', traits: ['romantic'] }, b: { label: '絶対無理', traits: ['cautious'] } },
+    { id: 'dq71', category: 'aff', weight: 3, emoji: '🤔', text: '自分は浮気しないと?', a: { label: '言い切れる', traits: ['cautious'] }, b: { label: '言い切れない', traits: ['realist'] } },
+    { id: 'dq72', category: 'aff', weight: 3, emoji: '🙈', text: 'バレなければ許されること?', a: { label: 'あると思う', traits: ['realist'] }, b: { label: '思わない', traits: ['cautious'] } },
+    // 【恋愛の本音】
+    { id: 'dq73', category: 'loveTruth', weight: 2, emoji: '💞', text: '求めるのは?', a: { label: '愛されたい', traits: ['spoiled'] }, b: { label: '愛したい', traits: ['active'] } },
+    { id: 'dq74', category: 'loveTruth', weight: 2, emoji: '⚡', text: '惹かれるのは?', a: { label: 'ドキドキする人', traits: ['active'] }, b: { label: '安心できる人', traits: ['realist'] } },
+    { id: 'dq75', category: 'loveTruth', weight: 2, emoji: '👀', text: '見た目を優先すること?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ほぼない', traits: ['active'] } },
+    { id: 'dq76', category: 'loveTruth', weight: 2, emoji: '✨', text: '見た目は?', a: { label: 'かなり重要', traits: ['realist'] }, b: { label: 'そこまで重要ではない', traits: ['romantic'] } },
+    { id: 'dq77', category: 'loveTruth', weight: 2, emoji: '💰', text: '収入は?', a: { label: '正直気になる', traits: ['realist'] }, b: { label: 'あまり気にならない', traits: ['romantic'] } },
+    { id: 'dq78', category: 'loveTruth', weight: 2, emoji: '💼', text: '職業は?', a: { label: '正直気になる', traits: ['realist'] }, b: { label: 'あまり気にならない', traits: ['romantic'] } },
+    { id: 'dq79', category: 'loveTruth', weight: 2, emoji: '🎓', text: '学歴は?', a: { label: '気になる', traits: ['realist'] }, b: { label: '気にならない', traits: ['romantic'] } },
+    { id: 'dq80', category: 'loveTruth', weight: 2, emoji: '🏠', text: '家柄・家庭環境は?', a: { label: '気になる', traits: ['realist'] }, b: { label: '気にならない', traits: ['romantic'] } },
+    { id: 'dq81', category: 'loveTruth', weight: 2, emoji: '💍', text: '条件が良ければ?', a: { label: '結婚できるかも', traits: ['realist'] }, b: { label: '無理', traits: ['romantic'] } },
+    { id: 'dq82', category: 'loveTruth', weight: 2, emoji: '⚖️', text: '条件が悪ければ?', a: { label: '別れるかも', traits: ['realist'] }, b: { label: '好きなら関係ない', traits: ['romantic'] } },
+    { id: 'dq83', category: 'loveTruth', weight: 2, emoji: '🏡', text: '結婚で優先するのは?', a: { label: '安定', traits: ['realist'] }, b: { label: '愛情', traits: ['romantic'] } },
+    { id: 'dq84', category: 'loveTruth', weight: 2, emoji: '🤷', text: 'もっといい人と付き合えると考えた?', a: { label: 'ある', traits: ['secretive', 'realist'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq85', category: 'loveTruth', weight: 2, emoji: '🎤', text: '自慢できるか?', a: { label: '少し気になる', traits: ['realist'] }, b: { label: '全く気にならない', traits: ['myPace'] } },
+    { id: 'dq86', category: 'loveTruth', weight: 2, emoji: '👥', text: '周囲からどう見えるか?', a: { label: '気になる', traits: ['realist'] }, b: { label: '気にならない', traits: ['myPace'] } },
+    // 【性的・身体的な本音】
+    { id: 'dq87', category: 'phys', weight: 3, emoji: '💋', text: 'キスは?', a: { label: '自分からしたい', traits: ['active'] }, b: { label: 'されたい', traits: ['spoiled'] } },
+    { id: 'dq88', category: 'phys', weight: 3, emoji: '😉', text: '誘うのは?', a: { label: '自分から', traits: ['active'] }, b: { label: '誘われたい', traits: ['spoiled'] } },
+    { id: 'dq89', category: 'phys', weight: 3, emoji: '🎯', text: '恋愛では?', a: { label: 'リードしたい', traits: ['active'] }, b: { label: 'リードされたい', traits: ['spoiled'] } },
+    { id: 'dq90', category: 'phys', weight: 3, emoji: '🤝', text: 'スキンシップは?', a: { label: '多い方が好き', traits: ['spoiled'] }, b: { label: '少なめでも平気', traits: ['myPace'] } },
+    { id: 'dq91', category: 'phys', weight: 3, emoji: '🌙', text: '触れ合う頻度は?', a: { label: '毎日触れ合いたい', traits: ['spoiled'] }, b: { label: '毎日でなくていい', traits: ['myPace'] } },
+    { id: 'dq92', category: 'phys', weight: 3, emoji: '🛌', text: '寝る時は?', a: { label: 'くっつきたい', traits: ['spoiled'] }, b: { label: '離れて寝たい', traits: ['myPace'] } },
+    { id: 'dq93', category: 'phys', weight: 3, emoji: '🛁', text: '一緒にお風呂は?', a: { label: '入れる', traits: ['active'] }, b: { label: '恥ずかしい', traits: ['secretive'] } },
+    { id: 'dq94', category: 'phys', weight: 3, emoji: '😘', text: '人前でキスは?', a: { label: 'できる', traits: ['active'] }, b: { label: '無理', traits: ['secretive'] } },
+    { id: 'dq95', category: 'phys', weight: 3, emoji: '🔥', text: '恋人には?', a: { label: '大胆になれる', traits: ['active'] }, b: { label: '恥ずかしさが勝つ', traits: ['secretive'] } },
+    { id: 'dq96', category: 'phys', weight: 3, emoji: '🕯️', text: '大事にするのは?', a: { label: '雰囲気', traits: ['romantic'] }, b: { label: '勢い', traits: ['active'] } },
+    { id: 'dq97', category: 'phys', weight: 3, emoji: '🌸', text: '香りは?', a: { label: 'かなり重要', traits: ['romantic'] }, b: { label: 'あまり気にしない', traits: ['realist'] } },
+    { id: 'dq98', category: 'phys', weight: 3, emoji: '💫', text: '性的魅力の重要度は?', a: { label: 'かなり重要', traits: ['realist'] }, b: { label: 'そこまで重要ではない', traits: ['romantic'] } },
+    { id: 'dq99', category: 'phys', weight: 3, emoji: '🤔', text: '身体的に惹かれないと?', a: { label: '付き合うのは難しい', traits: ['realist'] }, b: { label: '付き合える', traits: ['romantic'] } },
+    { id: 'dq100', category: 'phys', weight: 3, emoji: '⚡', text: '身体的に強く惹かれると?', a: { label: '気になることがある', traits: ['realist'] }, b: { label: 'ない', traits: ['romantic'] } },
+    { id: 'dq101', category: 'phys', weight: 3, emoji: '💬', text: '性的な好みは?', a: { label: '全部話せる', traits: ['active'] }, b: { label: '話せないこともある', traits: ['secretive'] } },
+    { id: 'dq102', category: 'phys', weight: 3, emoji: '🔐', text: '言っていない性的な好みは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq103', category: 'phys', weight: 3, emoji: '🔍', text: '性的な検索履歴は?', a: { label: '見られても平気', traits: ['myPace'] }, b: { label: '絶対嫌', traits: ['secretive'] } },
+    { id: 'dq104', category: 'phys', weight: 3, emoji: '💥', text: '興奮するのは?', a: { label: '相手から積極的に', traits: ['spoiled'] }, b: { label: '自分から行く方', traits: ['active'] } },
+    { id: 'dq105', category: 'phys', weight: 3, emoji: '💗', text: '重要なのは?', a: { label: '身体的な相性', traits: ['realist'] }, b: { label: '愛情', traits: ['romantic'] } },
+    // 【お金・ステータス】
+    { id: 'dq106', category: 'money', weight: 3, emoji: '💰', text: '貯金額は?', a: { label: '正確に言える', traits: ['active'] }, b: { label: '言いたくない', traits: ['secretive'] } },
+    { id: 'dq107', category: 'money', weight: 3, emoji: '💵', text: '給料は?', a: { label: '正確に言える', traits: ['active'] }, b: { label: '言いたくない', traits: ['secretive'] } },
+    { id: 'dq108', category: 'money', weight: 3, emoji: '💳', text: '借金があったら?', a: { label: '付き合う前に言う', traits: ['cautious'] }, b: { label: '深くなってから言う', traits: ['secretive'] } },
+    { id: 'dq109', category: 'money', weight: 3, emoji: '📉', text: '収入差は?', a: { label: '少し気になる', traits: ['realist'] }, b: { label: '全く気にならない', traits: ['myPace'] } },
+    { id: 'dq110', category: 'money', weight: 3, emoji: '🤔', text: '収入が低すぎると?', a: { label: '結婚を迷う', traits: ['realist'] }, b: { label: '迷わない', traits: ['romantic'] } },
+    { id: 'dq111', category: 'money', weight: 3, emoji: '💸', text: '浪費癖は?', a: { label: '別れる理由になる', traits: ['realist'] }, b: { label: 'ならない', traits: ['romantic'] } },
+    { id: 'dq112', category: 'money', weight: 3, emoji: '💒', text: 'お金がない相手とは?', a: { label: '結婚は難しい', traits: ['realist'] }, b: { label: '愛情があればできる', traits: ['romantic'] } },
+    { id: 'dq113', category: 'money', weight: 3, emoji: '🎓', text: '社会的地位は?', a: { label: '求める', traits: ['realist'] }, b: { label: '求めない', traits: ['romantic'] } },
+    { id: 'dq114', category: 'money', weight: 3, emoji: '🛒', text: '言わず高額な買い物は?', a: { label: 'あり', traits: ['secretive'] }, b: { label: 'なし', traits: ['active'] } },
+    // 【結婚・将来】
+    { id: 'dq115', category: 'marriage', weight: 3, emoji: '💍', text: '好きでも結婚したくない相手は?', a: { label: 'いると思う', traits: ['realist'] }, b: { label: '好きなら結婚できる', traits: ['romantic'] } },
+    { id: 'dq116', category: 'marriage', weight: 3, emoji: '📋', text: '結婚相手への条件は?', a: { label: 'より求める', traits: ['realist'] }, b: { label: '求めない', traits: ['romantic'] } },
+    { id: 'dq117', category: 'marriage', weight: 3, emoji: '👶', text: '子どもの希望が違えば?', a: { label: '別れる可能性が高い', traits: ['realist'] }, b: { label: '話し合って考える', traits: ['cautious'] } },
+    { id: 'dq118', category: 'marriage', weight: 3, emoji: '👪', text: '家族と合わなければ?', a: { label: '諦める可能性がある', traits: ['realist'] }, b: { label: '相手が好きなら結婚する', traits: ['romantic'] } },
+    { id: 'dq119', category: 'marriage', weight: 3, emoji: '💭', text: '感情が薄れても?', a: { label: '一緒にいられる', traits: ['realist'] }, b: { label: '難しい', traits: ['romantic'] } },
+    { id: 'dq120', category: 'marriage', weight: 3, emoji: '👨‍👩‍👧', text: '愛情がなくなったら?', a: { label: '家族として一緒にいられる', traits: ['realist'] }, b: { label: '別れたい', traits: ['romantic'] } },
+    { id: 'dq121', category: 'marriage', weight: 3, emoji: '🔐', text: '結婚後の秘密は?', a: { label: 'あっていい', traits: ['secretive'] }, b: { label: '全部共有したい', traits: ['active'] } },
+    { id: 'dq122', category: 'marriage', weight: 3, emoji: '🧘', text: '一人の時間は?', a: { label: '絶対必要', traits: ['myPace'] }, b: { label: '基本的に一緒にいたい', traits: ['spoiled'] } },
+    { id: 'dq123', category: 'marriage', weight: 3, emoji: '🌠', text: '相手の夢のために?', a: { label: '変えられる', traits: ['romantic'] }, b: { label: '難しい', traits: ['realist'] } },
+    { id: 'dq124', category: 'marriage', weight: 3, emoji: '🎯', text: '自分の夢のためなら?', a: { label: '離れる選択もできる', traits: ['realist'] }, b: { label: '恋人を優先する', traits: ['romantic'] } },
+    // 【かなり聞かれたくない本音】
+    { id: 'dq125', category: 'deep', weight: 3, emoji: '👀', text: '気になる人は他にも?', a: { label: 'いる', traits: ['secretive'] }, b: { label: 'いない', traits: ['active'] } },
+    { id: 'dq126', category: 'deep', weight: 3, emoji: '✨', text: 'より魅力的だと思う人は?', a: { label: 'いる', traits: ['secretive'] }, b: { label: 'いない', traits: ['active'] } },
+    { id: 'dq127', category: 'deep', weight: 3, emoji: '💫', text: '恋人以外から好かれたい?', a: { label: 'ある', traits: ['spoiled', 'secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq128', category: 'deep', weight: 3, emoji: '🤷', text: 'もっといい人がいるかもと思った?', a: { label: 'ある', traits: ['secretive', 'realist'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq129', category: 'deep', weight: 3, emoji: '💭', text: '別れを具体的に想像した?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq130', category: 'deep', weight: 3, emoji: '🌫️', text: '別れた後の相手を想像した?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq131', category: 'deep', weight: 3, emoji: '🤐', text: '言えない不満は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq132', category: 'deep', weight: 3, emoji: '👁️', text: '見た目で気になる部分は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq133', category: 'deep', weight: 3, emoji: '😑', text: '我慢している部分は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq134', category: 'deep', weight: 3, emoji: '⚖️', text: '妥協していると感じる?', a: { label: 'ある', traits: ['secretive', 'realist'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq135', category: 'deep', weight: 3, emoji: '💢', text: '根に持っている言葉は?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq136', category: 'deep', weight: 3, emoji: '😤', text: 'まだ許していないことは?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq137', category: 'deep', weight: 3, emoji: '🎭', text: '本当の自分は?', a: { label: '全部見せている', traits: ['active'] }, b: { label: 'まだ隠している部分がある', traits: ['secretive'] } },
+    { id: 'dq138', category: 'deep', weight: 3, emoji: '🤔', text: 'ずっと一緒でいいのかなと思った?', a: { label: 'ある', traits: ['secretive', 'realist'] }, b: { label: 'ない', traits: ['romantic'] } },
+    { id: 'dq139', category: 'deep', weight: 3, emoji: '😨', text: '怖くて関係を続けた?', a: { label: 'ある', traits: ['spoiled', 'secretive'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq140', category: 'deep', weight: 3, emoji: '🥺', text: '寂しいから付き合った?', a: { label: 'ある', traits: ['spoiled'] }, b: { label: 'ない', traits: ['myPace'] } },
+    // 【恥ずかしい・笑える秘密】
+    { id: 'dq141', category: 'funny', weight: 1, emoji: '💨', text: 'おならは?', a: { label: '我慢している', traits: ['secretive'] }, b: { label: '普通にできる', traits: ['active'] } },
+    { id: 'dq142', category: 'funny', weight: 1, emoji: '🌙', text: '寝た後にスマホを見る?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq143', category: 'funny', weight: 1, emoji: '💌', text: 'LINEを何度も読み返した?', a: { label: 'ある', traits: ['romantic', 'spoiled'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq144', category: 'funny', weight: 1, emoji: '⏰', text: '返信をわざと遅らせた?', a: { label: 'ある', traits: ['secretive'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq145', category: 'funny', weight: 1, emoji: '♟️', text: '返信時間で駆け引きした?', a: { label: 'ある', traits: ['secretive', 'romantic'] }, b: { label: 'ない', traits: ['active'] } },
+    { id: 'dq146', category: 'funny', weight: 1, emoji: '🔍', text: '名前を検索した?', a: { label: 'ある', traits: ['romantic'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq147', category: 'funny', weight: 1, emoji: '🖼️', text: '昔の写真まで探した?', a: { label: 'ある', traits: ['romantic', 'jealous'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq148', category: 'funny', weight: 1, emoji: '📸', text: '寝顔をこっそり撮った?', a: { label: 'ある', traits: ['romantic'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq149', category: 'funny', weight: 1, emoji: '👃', text: '匂いをこっそり嗅いだ?', a: { label: 'ある', traits: ['romantic'] }, b: { label: 'ない', traits: ['myPace'] } },
+    { id: 'dq150', category: 'funny', weight: 1, emoji: '🧥', text: '恋人の物の匂いを嗅いだ?', a: { label: 'ある', traits: ['romantic', 'spoiled'] }, b: { label: 'ない', traits: ['myPace'] } },
+  ];
+
+  const DUEL_MATCH_QUESTION_COUNT = 5;
+  const DUEL_RECENT_HISTORY_LIMIT = 20;
+  // 1試合5問につき Aが つかえる「うそコイン」の まいすう。つかう義務は
+  // なく、0〜DUEL_LIE_BUDGET かいの あいだで じゆうに つかえる
+  const DUEL_LIE_BUDGET = 2;
+  // 1試合ぶんの weight(1=かるい/2=ふつう/3=おもい)の くみあわせ。
+  // かるい話題1問+ふつう2問+おもい2問を きほんとし、じゅんばんは
+  // pickDuelQuestions() さいごの シャッフルで きまる ので、とくに
+  // ふかい話題が あとの ほうに かたよる、といった かたい きまりは ない
+  const DUEL_WEIGHT_MIX = [1, 2, 2, 3, 3];
+  // 1試合の なかで おなじ カテゴリーの しつもんが これいじょう かたよらない ように
+  const DUEL_CATEGORY_LIMIT = 2;
+
+  function shuffleArray(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // カテゴリーの かたより(さいだい DUEL_CATEGORY_LIMIT 問まで)と、
+  // かるい/ふつう/おもい話題の おんどさ(DUEL_WEIGHT_MIX)を りょうほう
+  // みたす ように 5問を えらび、さいごに じゅんばんを シャッフルする
+  function pickDuelQuestions(recentIds) {
+    const recent = Array.isArray(recentIds) ? recentIds : [];
+    const used = [];
+    const categoryCounts = {};
+    const picked = [];
+    shuffleArray(DUEL_WEIGHT_MIX).forEach((weight) => {
+      const byWeight = DUEL_QUESTIONS.filter((q) => q.weight === weight && !used.includes(q.id));
+      let pool = byWeight.filter((q) => !recent.includes(q.id) && (categoryCounts[q.category] || 0) < DUEL_CATEGORY_LIMIT);
+      if (pool.length === 0) pool = byWeight.filter((q) => (categoryCounts[q.category] || 0) < DUEL_CATEGORY_LIMIT);
+      if (pool.length === 0) pool = byWeight.filter((q) => !recent.includes(q.id));
+      if (pool.length === 0) pool = byWeight;
+      if (pool.length === 0) pool = DUEL_QUESTIONS.filter((q) => !used.includes(q.id) && (categoryCounts[q.category] || 0) < DUEL_CATEGORY_LIMIT);
+      if (pool.length === 0) pool = DUEL_QUESTIONS.filter((q) => !used.includes(q.id));
+      const chosen = pool[Math.floor(Math.random() * pool.length)];
+      picked.push(chosen);
+      used.push(chosen.id);
+      categoryCounts[chosen.category] = (categoryCounts[chosen.category] || 0) + 1;
+    });
+    return shuffleArray(picked);
+  }
+
+  function rememberDuelQuestions(ids) {
+    const list = state.lifetime.duelRecentQuestionIds || [];
+    state.lifetime.duelRecentQuestionIds = [...list, ...ids].slice(-DUEL_RECENT_HISTORY_LIMIT);
+  }
+
+  // せいかく・かちかんの すいてい: プレイヤーの ほんね(truth)だけを
+  // かさねて きろくする(こうかいされた こたえや、本音/うその せんたくは
+  // いっさい つかわない)。1問だけで はんだんせず、なんかいも あそぶうちに
+  // すこしずつ 傾向が みえてくる ように、ここでは たんに +1 するだけに とどめる
+  function applyDuelTrait(question, truth) {
+    const side = truth === 'a' ? question.a : question.b;
+    (side.traits || []).forEach((t) => {
+      state.lifetime.duelTraits[t] = (state.lifetime.duelTraits[t] || 0) + 1;
+    });
+  }
+
+  const DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC1:';
+  const DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG1:';
+  const DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR1:';
+  const DUEL_MAX_BET = 999999;
+
+  // 挑戦コードに のるのは かけきんと「こうかいされる こたえ(pub)」だけ。
+  // Aの ほんね(truth)や、どの もんで うそコインを つかったかは この
+  // コードに いっさい ふくまれない ので、Bに もれる ことは ない
+  // ひとこと証言(testimony)も この コードだけで はこぶ(あんごうの
+  // かいすうは ふやさない)。空文字を「証言なし」の しるしとして つかう
+  function encodeDuelChallenge() {
+    const d = state.duel;
+    const payload = { bet: d.bet, q: d.entries.map((e) => [e.qId, e.pub, e.testimony || '']) };
+    return DUEL_CHALLENGE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelChallenge(raw) {
+    try {
+      // GUEST_CODE_PREFIX と おなじ りゆうで、プレフィックスは 大文字小文字を
+      // くべつせず よみとる(こぴー元アプリの リンク自動検出による 小文字化 対策)
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELC1:/i, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.q) || payload.q.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const items = [];
+      for (const entry of payload.q) {
+        if (!Array.isArray(entry) || entry.length !== 3) return null;
+        const [qId, pub, testimony] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (pub !== 'a' && pub !== 'b') return null;
+        if (testimony !== '' && !DUEL_TESTIMONY_PRESETS.some((t) => t.id === testimony)) return null;
+        items.push({ qId, pub, testimony: testimony || null });
+      }
+      return { bet: Math.round(payload.bet), items };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // 自信度(confidence)と「いちばん あやしい」の 指名(sus)も この コードで
+  // はこぶ。sus は かならず どれか1問の qId に なる(Aが 1回も うそを
+  // つかっていない ばあいでも、Bは かならず 1問を えらぶ しくみのため)
+  function encodeDuelGuess() {
+    const d = state.duel;
+    const payload = { bet: d.bet, g: d.guesses.map((g) => [g.qId, g.guess, g.confidence]), sus: d.suspicionQId };
+    return DUEL_GUESS_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelGuess(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELG1:/i, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.g) || payload.g.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const guesses = [];
+      for (const entry of payload.g) {
+        if (!Array.isArray(entry) || entry.length !== 3) return null;
+        const [qId, guess, confidence] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (guess !== 'honest' && guess !== 'lie') return null;
+        if (confidence !== 'maybe' && confidence !== 'certain') return null;
+        guesses.push({ qId, guess, confidence });
+      }
+      if (typeof payload.sus !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === payload.sus)) return null;
+      if (!guesses.some((g) => g.qId === payload.sus)) return null;
+      return { bet: Math.round(payload.bet), guesses, suspicionQId: payload.sus };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function encodeDuelReveal() {
+    const d = state.duel;
+    const payload = { bet: d.bet, r: d.entries.map((e) => [e.qId, e.truth]) };
+    return DUEL_REVEAL_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
+  }
+
+  function decodeDuelReveal(raw) {
+    try {
+      const trimmed = raw.trim().replace(/^NAOTOCCHIDUELR1:/i, '');
+      const payload = JSON.parse(decodeURIComponent(atob(trimmed)));
+      if (!payload || typeof payload !== 'object') return null;
+      if (!Number.isFinite(payload.bet) || payload.bet <= 0 || payload.bet > DUEL_MAX_BET) return null;
+      if (!Array.isArray(payload.r) || payload.r.length !== DUEL_MATCH_QUESTION_COUNT) return null;
+      const reveals = [];
+      for (const entry of payload.r) {
+        if (!Array.isArray(entry) || entry.length !== 2) return null;
+        const [qId, truth] = entry;
+        if (typeof qId !== 'string' || !DUEL_QUESTIONS.some((q) => q.id === qId)) return null;
+        if (truth !== 'a' && truth !== 'b') return null;
+        reveals.push({ qId, truth });
+      }
+      return { bet: Math.round(payload.bet), reveals };
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // A(かいとうしゃ)やく: かけきんを きめて しんきの しょうぶを はじめる。
+  // entries は 5つぶんの こたえを かならず このながさで もつ かためられた
+  // はいれつ(未回答は null)で、d.currentIndex が いま 見ている しつもんの
+  // ばんごうを あらわす。これにより「もどる」「前の しつもんへ 編集しに
+  // もどる」といった 行き来を entries.push() に たよらずに あんぜんに
+  // あつかえる
+  function startDuelChallenge(bet) {
+    const roundedBet = Math.round(bet);
+    if (!Number.isFinite(roundedBet) || roundedBet <= 0 || roundedBet > DUEL_MAX_BET) return null;
+    if (roundedBet > state.lifetime.money) return null;
+    const questions = pickDuelQuestions(state.lifetime.duelRecentQuestionIds);
+    state.duel = {
+      role: 'challenger',
+      step: 'answering',
+      bet: roundedBet,
+      questions,
+      entries: new Array(questions.length).fill(null),
+      currentIndex: 0,
+      pendingTruth: null,
+      pendingTestimony: null,
+      lieCoinsMax: DUEL_LIE_BUDGET,
+    };
+    return state.duel;
+  }
+
+  // いま つかっている うそコインの まいすう。entries は かためられた
+  // はいれつな ので、たんに isLie の こたえを かぞえるだけで つねに 正しい
+  // かずが もとまる(前は フィールドに 手動で +1/-1 していたが、回答を
+  // あとから 変更できる ように した ため、かぞえなおす 方式に した)
+  function duelLieCoinsUsed(d, excludeIndex) {
+    return d.entries.reduce((n, e, idx) => (idx !== excludeIndex && e && e.isLie ? n + 1 : n), 0);
+  }
+
+  // A: いま でている しつもんに たいする 本心を えらぶ(この じてんでは
+  // まだ こうかいの けってい(本音/うそ)は しない。おなじ しつもん画面の
+  // なかで つづけて 本音/うそを えらべるよう、pendingTruth に いったん
+  // とどめておく)
+  function chooseDuelTruth(choice) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    const q = d.questions[d.currentIndex];
+    if (!q) return null;
+    d.pendingTruth = choice === 'a' ? 'a' : 'b';
+    return d;
+  }
+
+  // A: 本音/うそを えらぶ まえに、この こたえに そえる ひとこと証言を
+  // にんいで えらべる(えらばなくても いい)。せいかく分析には つかわない
+  function setDuelPendingTestimony(id) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    if (d.pendingTruth == null) return null;
+    if (id !== null && !DUEL_TESTIMONY_PRESETS.some((t) => t.id === id)) return null;
+    d.pendingTestimony = id;
+    return d;
+  }
+
+  // A: 直前に えらんだ 本心を「本音で こうかいする」か「うそを つく(逆を
+  // こうかいする)」かを きめる。うそは 1試合につき さいだい lieCoinsMax
+  // かいまでで、のこりが 0の ときに うそを えらぼうとすると エラーを かえす
+  // (いま 編集している この しつもん じしんが すでに うそだった ばあいは、
+  // その ぶんを のぞいて かぞえるので、うそ→うそへの ぬりなおしは コインを
+  // 消費しない)。せいかく傾向の しゅうけい(applyDuelTrait)と 直近しつもん
+  // りれきの きろく(rememberDuelQuestions)は、ここでは まだ おこなわず、
+  // finalizeDuelChallenge() で 5問ぶん まとめて 1かいだけ おこなう(なんども
+  // 見なおし・へんこうできる ように した ため、ここで つど かぞえると
+  // 二重に かぞえて しまう)
+  function chooseDuelHonesty(isLie) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    if (d.pendingTruth == null) return null;
+    if (isLie && duelLieCoinsUsed(d, d.currentIndex) >= d.lieCoinsMax) return { error: 'noLieCoins' };
+    const q = d.questions[d.currentIndex];
+    if (!q) return null;
+    const truth = d.pendingTruth;
+    const pub = isLie ? (truth === 'a' ? 'b' : 'a') : truth;
+    d.entries[d.currentIndex] = { qId: q.id, truth, pub, isLie: !!isLie, testimony: d.pendingTestimony || null };
+    d.pendingTruth = null;
+    d.pendingTestimony = null;
+    const nextEmpty = d.entries.findIndex((e) => e === null);
+    if (nextEmpty === -1) {
+      d.step = 'review';
+    } else {
+      d.currentIndex = nextEmpty;
+    }
+    return d;
+  }
+
+  // A: 「← もどる」。2だんかいめ(本音/うそ選択)なら 同じ しつもんの
+  // 1だんかいめに もどり(まだ かくてい していない pendingTruth/
+  // pendingTestimony だけを 消す。entries の 既存の こたえは そのまま)、
+  // 1だんかいめなら 1つ前の しつもんの 2だんかいめへ もどって、その
+  // しつもんの こたえ(本心/本音うそ/証言)を pending に つみなおして
+  // 見なおせる ようにする。いちばん さいしょの しつもんの 1だんかいめでは
+  // なにも しない(それより 前は ない)
+  function goBackDuelQuestion() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'answering') return null;
+    if (d.pendingTruth != null) {
+      d.pendingTruth = null;
+      d.pendingTestimony = null;
+      return d;
+    }
+    if (d.currentIndex <= 0) return null;
+    d.currentIndex -= 1;
+    const prev = d.entries[d.currentIndex];
+    d.pendingTruth = prev ? prev.truth : null;
+    d.pendingTestimony = prev ? prev.testimony : null;
+    return d;
+  }
+
+  // A: 回答確認画面(review)から、5問の うち 1問を タップして その しつもんの
+  // 2だんかいめ(本音/うそ・証言)を もういちど 見なおす。entries[index] は
+  // すでに こたえずみの はずなので、その ないようを pending に つみなおして
+  // 「answering」ステップに もどる
+  function editDuelAnswer(index) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'review') return null;
+    const entry = d.entries[index];
+    if (!entry) return null;
+    d.currentIndex = index;
+    d.pendingTruth = entry.truth;
+    d.pendingTestimony = entry.testimony;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 「↻ さいしょから」。おなじ5問の まま、こたえ・証言・うそコイン
+  // 使用状況を すべて リセットして 1問目から こたえなおす
+  function restartDuelAnswers() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || (d.step !== 'answering' && d.step !== 'review')) return null;
+    d.entries = new Array(d.questions.length).fill(null);
+    d.currentIndex = 0;
+    d.pendingTruth = null;
+    d.pendingTestimony = null;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 「🎲 しつもんを かえる」。いまの5問を まるごと はいき して、150問の
+  // プールから 新しい5問を 引きなおす。直近の しあいの りれきに くわえて、
+  // いま はいき する 5問も さける ように わたす ことで、引きなおした
+  // 直後に おなじ5問に なる ことを ふせぐ。こたえ・証言・うそコインは
+  // すべて リセットされ、1問目から こたえなおす
+  function rerollDuelQuestions() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || (d.step !== 'answering' && d.step !== 'review')) return null;
+    const avoid = [...(state.lifetime.duelRecentQuestionIds || []), ...d.questions.map((q) => q.id)];
+    d.questions = pickDuelQuestions(avoid);
+    d.entries = new Array(d.questions.length).fill(null);
+    d.currentIndex = 0;
+    d.pendingTruth = null;
+    d.pendingTestimony = null;
+    d.step = 'answering';
+    return d;
+  }
+
+  // A: 回答確認画面から、5問ぶんの ないようを さいしゅう かくてい する。
+  // ここで はじめて せいかく傾向(本心のみ)を しゅうけいし、直近しつもん
+  // りれきに この5問を きろくする(どちらも 1回だけ おこなう ひつようが
+  // あるので、entries を なんど 書きなおしても ここに たどりつくまでは
+  // 実行されない)。この あと d.step は 'ready' に なり、挑戦コードが
+  // つくれる ように なる - ここから さきは「このしょうぶを やめる」以外の
+  // 方法で ないようを 書きかえられない(3コード交換の こうへいせいを まもる ため)
+  function finalizeDuelChallenge() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'review') return null;
+    if (!d.entries.every((e) => e !== null)) return null;
+    d.entries.forEach((e, idx) => applyDuelTrait(d.questions[idx], e.truth));
+    rememberDuelQuestions(d.questions.map((q) => q.id));
+    d.step = 'ready';
+    return d;
+  }
+
+  // A: 挑戦コードを すでに 発行した あと(d.step === 'ready')に ないように
+  // 手を いれたい ばあいの ための「このしょうぶを やめる」。発行ずみの
+  // コードは 書きかえず、しあい じたいを はいきして あたらしい しょうぶを
+  // ゼロから つくりなおす あつかいに する(3コード交換の こうへいせいを
+  // まもる ため)
+  function abandonDuelChallenge() {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'ready') return null;
+    state.duel = null;
+    return true;
+  }
+
+  // B(すいりしゃ)やく: A から うけとった 挑戦コードを よみこんで
+  // しょうぶに さんかする。かけきん以上の おかねを もっていないと
+  // 参加できない
+  function startDuelGuess(code) {
+    const decoded = decodeDuelChallenge(code);
+    if (!decoded) return { error: 'invalid' };
+    if (decoded.bet > state.lifetime.money) return { error: 'funds' };
+    const items = decoded.items.map((item) => ({ qId: item.qId, pub: item.pub, testimony: item.testimony, question: DUEL_QUESTIONS.find((q) => q.id === item.qId) }));
+    if (items.some((item) => !item.question)) return { error: 'invalid' };
+    state.duel = { role: 'guesser', step: 'guessing', bet: decoded.bet, items, guesses: [], suspicionQId: null };
+    return state.duel;
+  }
+
+  // B: 5問ぶんを まとめて 見てから、それぞれの すいり(本音/うそ)を
+  // すきな じゅんばんで セット・セットしなおしできる(1問ずつ かくてい
+  // していく かたちには しない)。自信度は はじめて えらんだ ときは
+  // 「🤔たぶん」を デフォルトに しておき、「🔥ぜったい」に したい ときだけ
+  // setDuelConfidence() で あげる(タップ回数を へらす ための くふう)
+  function setDuelGuess(qId, guess) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
+    if (!d.items.some((i) => i.qId === qId)) return null;
+    const value = guess === 'honest' ? 'honest' : 'lie';
+    const existing = d.guesses.find((g) => g.qId === qId);
+    if (existing) existing.guess = value;
+    else d.guesses.push({ qId, guess: value, confidence: 'maybe' });
+    return d;
+  }
+
+  // B: すでに すいりずみの もんの 自信度を きりかえる(まず 本音/うそを
+  // えらんでいないと つかえない)
+  function setDuelConfidence(qId, level) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
+    const existing = d.guesses.find((g) => g.qId === qId);
+    if (!existing) return null;
+    existing.confidence = level === 'certain' ? 'certain' : 'maybe';
+    return d;
+  }
+
+  function allDuelGuessesSet() {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser') return false;
+    return d.items.every((i) => d.guesses.some((g) => g.qId === i.qId));
+  }
+
+  // B: 5問ぜんぶの すいりが そろったら かくていし、つぎの「いちばん
+  // あやしい」の せんたく段階へ すすむ(ここまでは なんども えらびなおせる)
+  function confirmDuelGuesses() {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'guessing') return null;
+    if (!allDuelGuessesSet()) return null;
+    d.step = 'suspicion';
+    return d;
+  }
+
+  // B: 5問の なかから「いちばん あやしい」1問を さいごに 指名する。
+  // Aが 1回も うそを つかっていない かのうせいも あるが、それでも
+  // かならず 1問を えらぶ ひつよう が あるので、「ぜんぶ 本音」という
+  // Aの せんじゅつ じたいが ブラフとして きのうする
+  function chooseDuelSuspicion(qId) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'suspicion') return null;
+    if (!d.items.some((i) => i.qId === qId)) return null;
+    d.suspicionQId = qId;
+    d.step = 'ready';
+    rememberDuelQuestions(d.items.map((i) => i.qId));
+    return d;
+  }
+
+  // じぶんの たんまつで、けっさんを じぶんの おかねに はんえいさせる。
+  // outcome='win'なら かけきんを うけとり、'lose'なら かけきんを しはらい
+  // (しょじきん未満しか はらえない ばあいは もっている ぶんだけに とどめる)、
+  // 'draw'なら おかねの やりとりは しない
+  function settleDuelForSelf(outcome) {
+    const d = state.duel;
+    if (outcome === 'win') {
+      d.moneyDelta = d.bet;
+    } else if (outcome === 'lose') {
+      d.moneyDelta = -Math.min(d.bet, state.lifetime.money);
+    } else {
+      d.moneyDelta = 0;
+    }
+    state.lifetime.money += d.moneyDelta;
+  }
+
+  function recordDuelOutcome(outcome) {
+    state.lifetime.duelMatchesPlayed = (state.lifetime.duelMatchesPlayed || 0) + 1;
+    if (outcome === 'win') state.lifetime.duelWins = (state.lifetime.duelWins || 0) + 1;
+    else if (outcome === 'lose') state.lifetime.duelLosses = (state.lifetime.duelLosses || 0) + 1;
+    else state.lifetime.duelDraws = (state.lifetime.duelDraws || 0) + 1;
+  }
+
+  const DUEL_CONFIDENCE_LABELS = { maybe: '🤔たぶん', certain: '🔥ぜったい' };
+
+  // 1問ぶんの とくてんと えんしゅつを けいさんする。本音を めぐる
+  // こうぼうは 1点、うそを めぐる こうぼうは 2点(ハイリスク・ハイリターン)。
+  // 自信度(confidence)は とくてんには えいきょうせず、えんしゅつ文言
+  // だけに はんえいさせる。A/Bの どちらの がわで けいさんしても おなじ
+  // しきな ので、りょうほうの たんまつで かならず おなじ けっかに なる
+  function computeDuelRow(qId, question, pubLabel, wasHonest, guess, confidence, testimony) {
+    const guessedHonest = guess === 'honest';
+    const bCorrect = guessedHonest === wasHonest;
+    const confLabel = DUEL_CONFIDENCE_LABELS[confidence] || DUEL_CONFIDENCE_LABELS.maybe;
+    let aPoints = 0;
+    let bPoints = 0;
+    let flourishTitle = '';
+    let flourishDesc = '';
+    let pointsLabel = '';
+    if (wasHonest && bCorrect) {
+      bPoints = 1;
+      flourishTitle = '👀 本音だった!';
+      flourishDesc = `${confLabel}本音だと 見ぬいた!`;
+      pointsLabel = 'B +1';
+    } else if (wasHonest && !bCorrect) {
+      aPoints = 1;
+      flourishTitle = '😳 まさかの本音でした';
+      flourishDesc = `${confLabel}うそだと うたがっていたのに…`;
+      pointsLabel = 'A +1';
+    } else if (!wasHonest && bCorrect) {
+      bPoints = 2;
+      flourishTitle = '🃏 うそを見破った!';
+      flourishDesc = `${confLabel}うそだと 見やぶった!`;
+      pointsLabel = 'B +2';
+    } else {
+      aPoints = 2;
+      flourishTitle = '😈 完全にだまされた!';
+      flourishDesc = `${confLabel}本音だと 信じていたのに…`;
+      pointsLabel = 'A +2';
+    }
+    return {
+      qId,
+      emoji: question.emoji,
+      text: question.text,
+      pubLabel,
+      testimony,
+      wasHonest,
+      guess,
+      confidence,
+      correct: bCorrect,
+      aPoints,
+      bPoints,
+      flourishTitle,
+      flourishDesc,
+      pointsLabel,
+    };
+  }
+
+  // 「いちばん あやしい」の ボーナスてんを けいさんする(breakdown・
+  // すでに もとまった aTotal/bTotal に くわえる)。うそだったら B+1、
+  // 本音だったら A+1
+  function applyDuelSuspicionBonus(breakdown, susQId, aTotal, bTotal) {
+    const row = breakdown.find((r) => r.qId === susQId);
+    if (!row) return { aTotal, bTotal, susBonus: null };
+    if (!row.wasHonest) return { aTotal, bTotal: bTotal + 1, susBonus: 'B' };
+    return { aTotal: aTotal + 1, bTotal, susBonus: 'A' };
+  }
+
+  // A じしんの せいせき(うその せいこう率・れんぞく記録 など)を、
+  // じぶんの entries と breakdown から しゅうけいする
+  function updateDuelChallengerStats(entries, breakdown) {
+    let streak = 0;
+    entries.forEach((e, idx) => {
+      const row = breakdown[idx];
+      if (e.isLie) {
+        state.lifetime.duelLiesUsed = (state.lifetime.duelLiesUsed || 0) + 1;
+        if (!row.correct) {
+          state.lifetime.duelLiesSucceeded = (state.lifetime.duelLiesSucceeded || 0) + 1;
+          streak += 1;
+          state.lifetime.duelLongestLieStreak = Math.max(state.lifetime.duelLongestLieStreak || 0, streak);
+        } else {
+          streak = 0;
+        }
+      } else {
+        state.lifetime.duelHonestAnswersGiven = (state.lifetime.duelHonestAnswersGiven || 0) + 1;
+        if (!row.correct) state.lifetime.duelHonestMisread = (state.lifetime.duelHonestMisread || 0) + 1;
+        streak = 0;
+      }
+    });
+  }
+
+  // B じしんの せいせき(うそを 見やぶった率)を breakdown から しゅうけいする
+  function updateDuelGuesserStats(breakdown) {
+    breakdown.forEach((row) => {
+      if (!row.wasHonest) {
+        state.lifetime.duelLiesFacedAsGuesser = (state.lifetime.duelLiesFacedAsGuesser || 0) + 1;
+        if (row.correct) state.lifetime.duelLiesDetected = (state.lifetime.duelLiesDetected || 0) + 1;
+      }
+    });
+  }
+
+  // A: B から うけとった 推理コードを よみこんで けっちゃくを つける。
+  // Aは この じてんで しんじつ(truth)と すいり(guess)の りょうほうを
+  // もっているので、じぶんの たんまつだけで けっかを かくてい できる
+  function resolveDuelWithGuessCode(code) {
+    const d = state.duel;
+    if (!d || d.role !== 'challenger' || d.step !== 'ready') return { error: 'state' };
+    const decoded = decodeDuelGuess(code);
+    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    const guessMap = {};
+    decoded.guesses.forEach((g) => { guessMap[g.qId] = g; });
+    if (!d.entries.every((e) => guessMap[e.qId])) return { error: 'invalid' };
+    if (!d.entries.some((e) => e.qId === decoded.suspicionQId)) return { error: 'invalid' };
+    const breakdown = d.entries.map((e) => {
+      const q = DUEL_QUESTIONS.find((qq) => qq.id === e.qId);
+      const wasHonest = e.truth === e.pub;
+      const pubSide = e.pub === 'a' ? q.a : q.b;
+      const g = guessMap[e.qId];
+      return computeDuelRow(e.qId, q, pubSide.label, wasHonest, g.guess, g.confidence, e.testimony);
+    });
+    let aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
+    let bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    const susResult = applyDuelSuspicionBonus(breakdown, decoded.suspicionQId, aTotal, bTotal);
+    aTotal = susResult.aTotal;
+    bTotal = susResult.bTotal;
+    const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
+    const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'A' ? 'win' : 'lose');
+    settleDuelForSelf(selfOutcome);
+    recordDuelOutcome(selfOutcome);
+    updateDuelChallengerStats(d.entries, breakdown);
+    d.step = 'done';
+    d.breakdown = breakdown;
+    d.aTotal = aTotal;
+    d.bTotal = bTotal;
+    d.matchOutcome = matchOutcome;
+    d.suspicionQId = decoded.suspicionQId;
+    d.susBonus = susResult.susBonus;
+    return d;
+  }
+
+  // B: A から うけとった 決着コードで しんじつを しり、じぶんが
+  // もっている すいり(guess)と つきあわせて、じぶんの たんまつだけで
+  // けっかを かくてい する(Aの ほうこくを そのまま しんじる のではなく、
+  // おなじ しきで けいさんしなおす ことで こうへいさを たもつ)
+  function resolveDuelWithRevealCode(code) {
+    const d = state.duel;
+    if (!d || d.role !== 'guesser' || d.step !== 'ready') return { error: 'state' };
+    const decoded = decodeDuelReveal(code);
+    if (!decoded || decoded.bet !== d.bet) return { error: 'invalid' };
+    const truthMap = {};
+    decoded.reveals.forEach((r) => { truthMap[r.qId] = r.truth; });
+    if (!d.items.every((i) => truthMap[i.qId])) return { error: 'invalid' };
+    const guessMap = {};
+    d.guesses.forEach((g) => { guessMap[g.qId] = g; });
+    const breakdown = d.items.map((i) => {
+      const truth = truthMap[i.qId];
+      const wasHonest = truth === i.pub;
+      const pubSide = i.pub === 'a' ? i.question.a : i.question.b;
+      const g = guessMap[i.qId];
+      return computeDuelRow(i.qId, i.question, pubSide.label, wasHonest, g.guess, g.confidence, i.testimony);
+    });
+    let aTotal = breakdown.reduce((sum, r) => sum + r.aPoints, 0);
+    let bTotal = breakdown.reduce((sum, r) => sum + r.bPoints, 0);
+    const susResult = applyDuelSuspicionBonus(breakdown, d.suspicionQId, aTotal, bTotal);
+    aTotal = susResult.aTotal;
+    bTotal = susResult.bTotal;
+    const matchOutcome = aTotal > bTotal ? 'A' : (bTotal > aTotal ? 'B' : 'draw');
+    const selfOutcome = matchOutcome === 'draw' ? 'draw' : (matchOutcome === 'B' ? 'win' : 'lose');
+    settleDuelForSelf(selfOutcome);
+    recordDuelOutcome(selfOutcome);
+    updateDuelGuesserStats(breakdown);
+    d.step = 'done';
+    d.breakdown = breakdown;
+    d.aTotal = aTotal;
+    d.bTotal = bTotal;
+    d.matchOutcome = matchOutcome;
+    d.susBonus = susResult.susBonus;
+    return d;
+  }
+
+  // こいびと関係の いじ・けっこんへの しんてん・わかれ に かかわる
+  // すうち。あいてが 地域のNPCでも「あいてコード」の おきゃくさんでも、
+  // state.partner オブジェクトに おなじ フィールドを もたせるので、
+  // どちらも まったく おなじ ルールで あつかわれる
+  const PARTNER_AFFECTION_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS * AGE_TICKS_PER_YEAR);
+  const PARTNER_FLIRT_AFFECTION_BOOST = 30;
+  const MARRIAGE_BOND_THRESHOLD = 8;
+  const BREAKUP_DEATH_PENALTY = { dating: 10, married: 20 };
+  const DEATH_METER_MULTIPLIER = { none: 1, dating: 0.75, married: 0.5 };
+
+  function relationshipStage() {
+    if (!state.partner) return 'none';
+    return state.partner.married ? 'married' : 'dating';
+  }
+
+  // えいえんの誓い を そうびしていると、けっこんまでに ひつような
+  // きゅうあい回数が 半分に なる(きりあげ)
+  function marriageBondThreshold() {
+    const base = isEquipped('marriage_fast') ? Math.ceil(MARRIAGE_BOND_THRESHOLD / 2) : MARRIAGE_BOND_THRESHOLD;
+    return Math.max(2, base - (hasPerk(50) ? 2 : 0));
+  }
+
+  // きずぐすり を そうびしていると、わかれ/りこんの 死亡メーターダメージが
+  // 半分に おさえられる(raiseDeathMeter() の こいびと/夫婦・かんむり
+  // けいの けいげんとは べつに、breakup 専用の けいげん)
+  function breakupPenalty(wasMarried) {
+    const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
+    const eased = isEquipped('breakup_ease') ? base * 0.5 : base;
+    // つかいきりアイテムの「わかれよけの おふだ/けっかい」は、この わかれ
+    // 1かいぶんだけ こうかを はっきして きえる
+    if (state.oneTimeBoosts.breakupShield === 'full') {
+      state.oneTimeBoosts.breakupShield = null;
+      return 0;
+    }
+    if (state.oneTimeBoosts.breakupShield === 'half') {
+      state.oneTimeBoosts.breakupShield = null;
+      return eased * 0.5;
+    }
+    return eased;
+  }
+
+  // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
+  // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
+  // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
+  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
+  // そうびしていると、そこから さらに 2わり おさえられる
+  function raiseDeathMeter(amount) {
+    // 「もう いのちは つきない」じょうたい(なおとのリング / そだち100 /
+    // ♾️)では、しぼうメーターは 二度と 上がらない。むかしは リングだけを
+    // みていた ため、そだち100の あとも メーターだけ たまって
+    // 「ぜったい 死なないのに いのちバーが まっ赤」という くいちがいが
+    // おきていた。かいふく分(amount<0)は どの ばあいも そのまま とおす
+    if (amount > 0 && isImmortal()) return;
+    const crownFactor = isEquipped('crown') ? 0.85 : 1;
+    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
+  }
+
+  // いま そばに いる なかま(state.companions - じゃれるを おさぼると
+  // はなれて いく ことが ある、いっしょうぶんの じょうたい)が ふえるほど、
+  // 時間経過による「元気」の げんしょうが おだやかに なる - にぎやかな
+  // なかまとの くらしが、ひとりの ときより つかれを やわらげる、という
+  // かんがえかた。1たいごとに 5%ずつ おだやかになり、10たい そろうと
+  // 半分の げんしょうスピードになる(それ いじょう ふえても これより
+  // ゆるくは ならない)
+  function energyDecayMultiplier() {
+    const count = state.companions.length;
+    return clamp(1 - count * 0.05, 0.5, 1);
+  }
+
+  // 「きゅうあいする」で いちゃついた ぶんだけ なかよし度(affection)が
+  // かいふくし、bondCount が つみあがって しきい値に とどくと 夫婦に
+  // しんてんする。すでに 夫婦なら bondCount は もう つかわない
+  function reinforceRelationship() {
+    const p = state.partner;
+    p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+    if (p.married) return false;
+    // つかいきりアイテムの「こいの おまじない/キューピッド」を つかった
+    // ちょくごの きゅうあい 1かいだけ、bondCount の のびが おおきくなる
+    const courtBoost = state.oneTimeBoosts.courtBoost === 'big' ? 4 : state.oneTimeBoosts.courtBoost === 'small' ? 2 : 0;
+    state.oneTimeBoosts.courtBoost = null;
+    p.bondCount = (p.bondCount || 0) + 1 + courtBoost;
+    if (p.bondCount < marriageBondThreshold()) return false;
+    p.married = true;
+    p.bondCount = 0;
+    state.marriageAge = currentAge();
+    state.marriageMilestonesSeen = [];
+    return true;
+  }
+
+  // ほうっておくと(=きゅうあいで いちゃつかないと)なかよし度が すこしずつ
+  // へっていき、0に なると ふられる/りこんする。夫婦の ほうが わかれた
+  // ときの 死亡メーターへの ダメージが おおきい - 「そのぶん 別れたら より
+  // ダメージくる」という つよい きずなの うらがえし
+  function decayRelationship() {
+    if (!state.partner || !isLiveLife()) return;
+    const p = state.partner;
+    // らぶれたーけいの アイテムを そうびしていると、なかよし度が へりにくい
+    const affectionDecayFactor = isEquipped('partner1') ? 0.75 : 1;
+    // すれちがい中は きもちが はなれるのが はやい。ほうっておくと
+    // ふつうより ずっと はやく わかれに ちかづく
+    const mismatchFactor = p.mismatched ? 2.5 : 1;
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * affectionDecayFactor * mismatchFactor, 0, 100);
+    if (p.affection > 0) return;
+    const wasMarried = !!p.married;
+    const label = p.label;
+    state.partner = null;
+    raiseDeathMeter(breakupPenalty(wasMarried));
+    // そだち50(こいの きざし)に とうたつしていると、わかれの ダメージが 半分に なる
+    applyDecline((wasMarried ? 20 : 12) * (hasPerk(50) ? 0.5 : 1));
+    pushLifeLog('💔', wasMarried ? `${label}と りこんした` : `${label}に ふられた`);
+    setMessage(wasMarried ? `${label}と りこんしてしまった…` : `${label}に ふられてしまった…`);
+    emotePet('sad');
+  }
+
+  // なかまとの きずな(bond)も、こいびとの なかよし度と おなじ しくみ。
+  // じゃれるで かいふくし、ほうっておくと じわじわ へっていって、0に
+  // なると その なかまだけ いっしょうぶんの あいだ はなれて いってしまう
+  // (state.lifetime.companionsRecruited の えいきゅうきろくは きえない -
+  // 「はじめから」すれば また bond100で もどってくる)
+  const COMPANION_BOND_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS * AGE_TICKS_PER_YEAR);
+  const COMPANION_PLAYWITH_BOND_BOOST = 30;
+
+  function decayCompanionBonds() {
+    if (!state.companions.length || !isLiveLife()) return;
+    const left = [];
+    // おともだちバッジけいの アイテムを そうびしていると、きずな度が へりにくい
+    const bondDecayFactor = (isEquipped('bond1') ? 0.75 : 1) * (hasPerk(40) ? 0.5 : 1);
+    state.companions = state.companions.filter((c) => {
+      c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
+      if (c.bond > 0) return true;
+      left.push(c.id);
+      return false;
+    });
+    if (left.length) {
+      const names = left.map((id) => allCompanionsById(id)?.name || id).join('・');
+      setMessage(`${names}が さびしがって、はなれて いってしまった…`);
+      applyDecline(8);
+      emotePet('sad');
+    }
+  }
+
+  const COURT_SUCCESS_REACTIONS = [
+    '「つきあってください!」…って いったら まさかの OK!',
+    'めが あった しゅんかん、うんめいを かんじた(たぶん)',
+    'テレながらも、おもいを つたえられた!',
+    'こくはく せいこう!はずかしくて めが まわりそう',
+    'まさかの てんかいに、じぶんが いちばん おどろいてる',
+  ];
+
+  const COURT_FAIL_REACTIONS = [
+    'ゆうきを だして こくはくしたけど…「ともだちでいよう」だって',
+    'テレすぎて、へんな ことばしか でてこなかった…',
+    'ふられた…でも つぎが ある!(たぶん)',
+    'アピールが からまわりしちゃった みたい',
+    'きんちょうしすぎて、なにを いったか おぼえてない',
+  ];
+
+  // れんあい対象が あわなかった ときの リアクション。しっぱい あつかいの
+  // 「ふられた」トーンには せず、「友達なら いいよ」くらいの かるい
+  // しぜんな はんのうに とどめる - LGBTQを ふくむ どの タイプの あわなさも
+  // ネガティブに えがかない
+  const COURT_FRIEND_REACTIONS = [
+    '「ごめんね、恋愛のタイプが ちがうかも。でも 友達なら いいよ!」と わらわれた',
+    'きょうみの むきが ちがったみたい。「なかよくは しようね!」だって',
+    '「タイプじゃ ないけど、気は あうかも!」と あくしゅを かわした',
+    'れんあいの むきは あわなかったけど、なかよく なれそうな よかん',
+    '「そういう るいの すきじゃ ないんだ〜。でも また あそぼうね!」',
+  ];
+
+  // すでに こいびとが いるときに もういちど「きゅうあいする」を おすと、
+  // あたらしい あいてを さがしに いくのではなく、今の こいびとと いちゃつく
+  // 軽い リアクションに なる(せいこう/しっぱいの 抽選は しない)
+  function courtFlirtReactions(partnerLabel) {
+    return [
+      `${partnerLabel}と いつもどおり ラブラブ!`,
+      `${partnerLabel}の ことを かんがえて、にやにや してしまった`,
+      `${partnerLabel}に ぞっこんなのは かわらない みたい`,
+    ];
+  }
+
+  // 「たびにでる」で うつる 地域。home は なおとっちの もとの すみか
+  // (「はじめから」した ときの デフォルト)で、それ以外は README の
+  // れい(うみ・ゆきやま・とかい・いなか・もり・さばく・なんごく)に
+  // ならった。cssClass は body に つける region-<id> の いろちがい
+  // (「いろ」きのうの ほんたい/がめんの いろとは べつレイヤー)。
+  // candidates は その地域でだけ 出会える「きゅうあいする」の おあいてで、
+  // せいべつ・れんあいタイプ・しゅぞく(動物/植物/ロボットなど)を
+  // ひろく ちらして あり、どの ラインの なおとっちでも 種族を こえた
+  // 恋愛が できる
+  const REGIONS = [
+    {
+      id: 'home',
+      label: 'おうち',
+      emoji: '🏠',
+      decor: ['🏠', '🌸', '☁️', '💕', '✨', '🎀', '🪴', '🕊️'],
+      lines: ['やっぱり じぶんの おうちが いちばん おちつく', 'おなじみの けしきに ほっとした'],
+      candidates: [
+        courtCandidate({ id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' }),
+        courtCandidate({ id: 'park-dog', label: 'こうえんの わんこ', emoji: '🐶', gender: 'male', orientationId: 'straight', affinityTrait: 'wild' }),
+      ],
+    },
+    {
+      id: 'sea',
+      label: 'うみ',
+      emoji: '🌊',
+      decor: ['🌊', '🐚', '🐠', '⛵', '☀️', '🦀', '🐬', '🏖️'],
+      lines: ['なみの おとが きもちいい!', 'すなはまを ぴょんぴょん はねまわった', 'かいがらを ひろって じまんげ'],
+      candidates: [
+        courtCandidate({ id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'surfer-turtle', label: 'なみのり カメくん', emoji: '🐢', gender: 'male', orientationId: 'gay', affinityTrait: 'calm' }),
+      ],
+    },
+    {
+      id: 'snow',
+      label: 'ゆきやま',
+      emoji: '🏔️',
+      decor: ['❄️', '⛄', '🏔️', '🌨️', '✨', '🦌', '🎿', '🧣'],
+      lines: ['さむい!でも ゆきだるまを つくってみた', 'いきが しろく なるのが おもしろい', 'つるっと すべって しりもちを ついた'],
+      candidates: [
+        courtCandidate({ id: 'snow-spirit', label: 'ゆきの せいれい', emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' }),
+        courtCandidate({ id: 'cabin-bear', label: 'やまごやの クマさん', emoji: '🐻', gender: 'male', orientationId: 'bi', affinityTrait: 'brave' }),
+      ],
+    },
+    {
+      id: 'city',
+      label: 'とかい',
+      emoji: '🏙️',
+      decor: ['🏙️', '🌃', '✨', '🚕', '🌆', '💡', '🚦', '🎡'],
+      lines: ['ビルの たかさに びっくり!', 'ネオンの ひかりに めが きらきら', 'ひとの おおさに ちょっと つかれた'],
+      candidates: [
+        courtCandidate({ id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' }),
+        courtCandidate({ id: 'ceo-cat', label: 'ビルの ねこ社長', emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' }),
+      ],
+    },
+    {
+      id: 'countryside',
+      label: 'いなか',
+      emoji: '🌾',
+      decor: ['🌾', '🌻', '🐄', '🚜', '☀️', '🦋', '🌈', '🐓'],
+      lines: ['たんぼの かぜが きもちいい', 'のはらを おもいっきり かけまわった', 'むぎわらぼうしが にあうと ほめられた(き が する)'],
+      candidates: [
+        courtCandidate({ id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'meadow-cow', label: 'のはらの うしさん', emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' }),
+      ],
+    },
+    {
+      id: 'forest',
+      label: 'もり',
+      emoji: '🌲',
+      decor: ['🌲', '🍄', '🦋', '🐿️', '🌿', '🍃', '🦉', '🌰'],
+      lines: ['きの えだから とりの こえが きこえる', 'はっぱの におい に しんこきゅう', 'こだぬきと めが あった(かもしれない)'],
+      candidates: [
+        courtCandidate({ id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
+        courtCandidate({ id: 'tree-squirrel', label: 'こだちの リス', emoji: '🐿️', gender: 'female', orientationId: 'bi', affinityTrait: 'wild' }),
+      ],
+    },
+    {
+      id: 'desert',
+      label: 'さばく',
+      emoji: '🏜️',
+      decor: ['🏜️', '🌵', '🐫', '☀️', '🦂', '🌅', '⛺', '🦎'],
+      lines: ['あつい!でも すなの うえを あるくのが たのしい', 'サボテンに ちかづきすぎて ちょっと いたい めに あった', 'ほしぞらが びっくりする くらい きれいだった'],
+      candidates: [
+        courtCandidate({ id: 'desert-scorpion', label: 'さばくの さそりさん', emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' }),
+        courtCandidate({ id: 'oasis-camel', label: 'オアシスの らくださん', emoji: '🐫', gender: 'male', orientationId: 'straight', affinityTrait: 'calm' }),
+      ],
+    },
+    {
+      id: 'tropical',
+      label: 'なんごく',
+      emoji: '🌴',
+      decor: ['🌴', '🌺', '🦜', '🍍', '🐠', '☀️', '🥥', '🦩'],
+      lines: ['やしの みを みつけて うれしそう', 'あたたかい かぜが きもちいい', 'カラフルな とりに てを ふってみた'],
+      candidates: [
+        courtCandidate({ id: 'tropical-parrot', label: 'なんごくの インコ', emoji: '🦜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
+        courtCandidate({ id: 'palm-lizard', label: 'やしの きの リザードさん', emoji: '🦎', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
+      ],
+    },
+  ];
+
+  // ================================================================
+  // そだち70「たびだち」で ひらく とくべつな たびさき
+  // ================================================================
+  // REGIONS には いれない。REGIONS に いれると region-all(「ぜんぶの
+  // 地域(8つ)」)と partner-all(「全8地域16人」)の 条件が かわって
+  // しまう ため。こいびと候補も おかない(ALL_PARTNER_CANDIDATES を
+  // ふやさない)。ここは「であう ばしょ」では なく「たどりつく ばしょ」
+  const SPECIAL_REGIONS = [
+    {
+      id: 'star_stop', label: 'ほしぞらの ていりゅうじょ', emoji: '🌌', special: true,
+      decor: ['🌌', '✨', '🚏', '🌠', '🛰️', '🌙', '💫', '🪐'],
+      lines: [
+        'だれも こない ていりゅうじょで、こない バスを ずっと まっていた',
+        'ときどき ほしが ながれる。そのたびに ベンチが すこし つめたくなる',
+        'じこくひょうには「まもなく」とだけ かいてある',
+        'となりに だれか すわった き が した。ふりむいたら だれも いなかった',
+      ],
+      candidates: [],
+    },
+    {
+      id: 'memory_lake', label: 'きおくの みずうみ', emoji: '🫧', special: true,
+      decor: ['🫧', '💧', '🌾', '🪞', '🌫️', '🕯️', '🐚', '🌊'],
+      lines: [
+        'みずめんに、まだ おきていない できごとが うつっていた',
+        'こえを だすと、すこし おくれて じぶんの こえが かえってくる',
+        'そこに しずんでいる ものは、どれも みおぼえが ある',
+        'ここに きたことは ない。なのに かえりみちを しっている',
+      ],
+      candidates: [],
+    },
+  ];
+
+  // ふつうの 地域と とくべつな たびさきを まとめて ひく。とくべつな
+  // たびさきも body の region-<id> クラス・かざり emoji・たびの けっか文を
+  // ふつうの 地域と まったく おなじ しくみで つかえる ように する ため、
+  // findRegion() の たんいで 両方を みる(REGIONS じたいには いれない)
+  function findRegion(id) {
+    return REGIONS.find((r) => r.id === id) || SPECIAL_REGIONS.find((r) => r.id === id) || REGIONS[0];
+  }
+
+  // 「ずかん」の「こいびと」セクションで つかう、地域ごとの きめうち
+  // キャラの ぜんいちらん(REGIONSの candidatesを ひとつに まとめたもの)
+  const ALL_PARTNER_CANDIDATES = REGIONS.flatMap((r) => r.candidates);
+
+  // なかまイベントで であえる キャラたち。ランダムに 1たい えらばれて
+  // とうじょうし、そのあとに はじまる ミニゲームを クリアできれば なかまに
+  // なる。なかまに なった id は state.lifetime.companionsRecruited に
+  // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
+  // ずかんの 「なかま」セクションに ずっと 表示されつづける
+  const COMPANIONS = [
+    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
+    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
+    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
+    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
+    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
+    { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
+    { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', flavor: 'のんびりやの コアラが きから おりてきた' },
+    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
+    { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
+    { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
+  ];
+
+  // ================================================================
+  // そだち80「レアの きざし」で 出会えるように なる レアなかま
+  // ================================================================
+  // 通常の COMPANIONS 10にんとは べつの はいれつに して、
+  // companion-all(「なかまを ぜんいん(10にん)あつめた」)の 条件を
+  // 一切 かえない ように している。きろくも lifetime.rareCompanionsRecruited
+  // という べつの ばしょに つむ。
+  // ほうこうせいは わざと バラバラ - かわいい / かっこいい / 神々しい /
+  // キモかわ / 意味不明 が それぞれ 1にんずつ いる
+  const RARE_COMPANIONS = [
+    {
+      id: 'punyu', emoji: '🫠', name: 'とけかけの ぷにゅ',
+      vibe: 'キモかわ',
+      flavor: 'なにかが とけている。よく みると こっちを みている。というか さっきから ずっと みている…',
+      joined: 'ぷにゅが ぬるりと ついてきた。とくに せつめいは なかった',
+    },
+    {
+      id: 'sekizou', emoji: '🗿', name: 'むひょうじょうの せきぞう',
+      vibe: 'シュール・渋い',
+      flavor: 'いしの ぞうが おかれている。うごく はずが ない。…はずなのに さっきと ばしょが ちがう',
+      joined: 'せきぞうが なかまに なった。はこんだ おぼえは ない',
+    },
+    {
+      id: 'hakuchou', emoji: '🦢', name: 'こうごうしい はくちょう',
+      vibe: '神々しい・美しい',
+      flavor: 'しろい はくちょうが しずかに おりてきた。まわりの おとが すこし とおくなった き が する',
+      joined: 'はくちょうが そばに いてくれる ことに なった。なぜか せすじが のびる',
+    },
+    {
+      id: 'chameleon', emoji: '🦎', name: 'サングラスの カメレオン',
+      vibe: 'おしゃれ・かっこいい',
+      flavor: 'サングラスを かけた カメレオンが かべから はんぶん はえている。かくれる きは ないらしい',
+      joined: 'カメレオンが「よろしく」と いった。サングラスは とらなかった',
+    },
+    {
+      id: 'kinoko', emoji: '🍄', name: 'しゃべる きのこ',
+      vibe: '意味不明・笑える',
+      flavor: 'きのこが はえている。きのこが しゃべっている。「やあ」と いわれた',
+      joined: 'きのこが ついてきた。あるいて いる。きのこなのに',
+    },
+  ];
+
+  // レアなかまと 出会う かくりつ(そだち80いこう、なかまイベントの たびに 抽選)
+  const RARE_COMPANION_CHANCE = 0.35;
+
+  function allCompanionsById(id) {
+    return COMPANIONS.find((c) => c.id === id) || RARE_COMPANIONS.find((c) => c.id === id);
+  }
+
+
+  // ================================================================
+  // そだち50「こいの きざし」で ひらく デート
+  // ================================================================
+  // ・こいびとが いる ときだけ「せかい」から さそえる
+  // ・いま いる ばしょ(REGIONS/SPECIAL_REGIONS)× デートの プラン ×
+  //   こいびとの せいかく(affinityTrait)の 3つで ぶんしょうが きまる ので、
+  //   おなじ くみあわせは なかなか でない
+  // ・もらえる ものは「なかよし度」「きげん」「すこしの せいちょう」だけ。
+  //   コインも アイテムも でない ので、かせぎの ばしょには ならない。
+  //   DATE_COOLDOWN_TICKS の あいだは また さそえないので、連打も できない
+  // ・けっこんへの すすみぐあい(bondCount)は うごかさない。デートは
+  //   「やらないと そんを する こと」では なく「やりたいから やる こと」
+  const DATE_COOLDOWN_TICKS = 60;
+  const DATE_AFFECTION_BOOST = 45;
+
+  const DATE_PLANS = [
+    { id: 'walk', emoji: '🚶', label: 'ならんで あるく', line: 'とくに もくてきも なく、ずっと ならんで あるいた' },
+    { id: 'eat', emoji: '🍡', label: 'なにか たべる', line: 'ひとつを はんぶんこ にして たべた' },
+    { id: 'sunset', emoji: '🌇', label: 'ゆうやけを みる', line: 'そらが きれいで、しばらく どちらも しゃべらなかった', memory: 'ゆうやけを ふたりで みた' },
+    { id: 'photo', emoji: '📷', label: 'しゃしんを とる', line: 'なんまい とっても どちらかが めを つぶっていた', memory: 'ふたりで しゃしんを とった' },
+    { id: 'nap', emoji: '😴', label: 'ひなたぼっこ', line: 'あたたかくて、ふたりとも うっかり ねてしまった' },
+    { id: 'shop', emoji: '🛍️', label: 'ぶらぶら みてまわる', line: 'なにも かわなかったけど、ずっと たのしかった' },
+    { id: 'rain', emoji: '☔', label: 'あめやどり', line: 'きゅうな あめで、おなじ ひさしの したに ならんだ', memory: 'あめやどりを した' },
+    { id: 'star', emoji: '🌠', label: 'ほしを さがす', line: 'ながれぼしを みつけたのは、けっきょく あいての ほうだった', memory: 'ながれぼしを さがした' },
+    { id: 'talk', emoji: '💬', label: 'どうでも いい はなしを する', line: 'なにを はなしたか もう おぼえていない くらい どうでも いい はなしだった' },
+    { id: 'lost', emoji: '🧭', label: 'まいごに なる', line: 'みちに まよったけど、なぜか おこられなかった' },
+  ];
+
+  // こいびとの せいかく(affinityTrait)ごとの リアクション。おなじ プランでも
+  // あいてが かわると まったく ちがう デートに なる
+  const DATE_TRAIT_LINES = {
+    gentle: [
+      'ずっと にこにこして、なんども「ありがとう」と いってくれた',
+      'そっと そでを つかんで、はぐれないように してくれた',
+      'ちいさな こえで「たのしいね」と いった',
+    ],
+    wild: [
+      'とちゅうで はしりだして、ついていくのが たいへんだった',
+      '「つぎ あっち!」と、よていに ない ばしょへ ひっぱって いかれた',
+      'おおごえで わらって、まわりに ふりかえられた',
+    ],
+    calm: [
+      'なにも いわずに、となりで おなじ ほうを みていた',
+      'いつもの ペースを くずさない。それが すこし うれしかった',
+      '「べつに、ふつうだった」と いいながら ずっと きげんが よかった',
+    ],
+    brave: [
+      '「まかせて」と いって、けっきょく ぜんぶ しきってくれた',
+      'ちょっと あぶない ちかみちを えらんで、どやがおを していた',
+      'こまった ひとを たすけに いって、デートが 30ぷん のびた',
+    ],
+    romantic: [
+      'きゅうに てを にぎってきて、こちらの ほうが あわてた',
+      '「きょうの ことは わすれない」と まじめな かおで いわれた',
+      'なんでも ない ばめんを、いちいち ドラマみたいに してくれる',
+    ],
+  };
+
+  // どの デートでも さいごに ひとつ つく、しめの ひとこと
+  const DATE_CLOSINGS = [
+    'かえりみちは いつもより ゆっくり あるいた。',
+    'また いこうね、と どちらからともなく いった。',
+    'なんでも ない 1にちが、すこし とくべつに なった。',
+    'べつに なにも おこらなかった。それが よかった。',
+    'つぎは どこに いこうか、もう かんがえている。',
+    'この じかんの ことは、たぶん ずっと おぼえている。',
+  ];
+
+  let lastDatePlanId = null;
+
+  // デートに さそえるか どうかと、さそえない ときの りゆうを ひとつに まとめる。
+  // ボタンの ゆうこう/むこうと、じっさいの じっこう りょうほうで つかう
+  function dateBlockReason() {
+    if (!hasPerk(50)) return 'まだ デートには さそえない';
+    if (!isLiveLife() || state.stage !== STAGE.GROWING) return 'いまは デートに いけない';
+    if (!state.partner) return 'いま こいびとが いない';
+    if (state.isSleeping) return 'ねている… おきてから さそおう';
+    if (state.dateCooldownTicks > 0) return 'さっき デートしたばかり… すこし じかんを おこう';
+    return null;
+  }
+
+  let dateOpen = false;
+  let dateChoiceOptions = [];
+  let dateMovieTimers = [];
+
+  function clearDateMovieTimers() {
+    dateMovieTimers.forEach((t) => clearTimeout(t));
+    dateMovieTimers = [];
+  }
+
+  function pickDateChoices() {
+    const pool = DATE_PLANS.filter((p) => p.id !== lastDatePlanId);
+    const shuffled = pool.slice().sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
+  }
+
+  function renderDateChoices() {
+    el.dateChoiceGrid.innerHTML = '';
+    dateChoiceOptions.forEach((plan) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'date-choice-btn';
+      btn.dataset.plan = plan.id;
+      btn.innerHTML = `<span class="date-choice-emoji">${plan.emoji}</span><span class="date-choice-label">${plan.label}</span>`;
+      el.dateChoiceGrid.appendChild(btn);
+    });
+  }
+
+  function openDateChooser() {
+    const blocked = dateBlockReason();
+    if (blocked) {
+      setMessage(blocked);
+      saveState();
+      render();
+      return;
+    }
+    worldOpen = false;
+    dateChoiceOptions = pickDateChoices();
+    dateOpen = true;
+    clearDateMovieTimers();
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    renderDateChoices();
+    render();
+  }
+
+  function closeDateOverlay() {
+    clearDateMovieTimers();
+    dateOpen = false;
+    el.dateOverlay.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+    render();
+  }
+
+  function rememberSpecialDate(plan, partner) {
+    if (!plan.memory || state.datesThisLife <= 1) return;
+    const memoryText = `デートの おもいで: ${partner.label}と ${plan.memory}`;
+    if (state.lifeLog.some((entry) => entry && entry.text === memoryText)) return;
+    pushLifeLog('💗', memoryText);
+  }
+
+  function finishDateMovie() {
+    clearDateMovieTimers();
+    el.dateMovieCaption.classList.remove('beat');
+    el.dateMovieCloseBtn.classList.remove('hidden');
+    el.dateMovieSkipBtn.classList.add('hidden');
+  }
+
+  // ふつうのデートではムービーを流さない。ムービーは結婚など人生の
+  // 大きな節目のために取っておき、毎回見せて特別感を薄めない
+  function finishOrdinaryDate() {
+    clearDateMovieTimers();
+    dateOpen = false;
+    el.dateOverlay.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    el.dateMovie.classList.add('hidden');
+  }
+
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
+    clearDateMovieTimers();
+    dateOpen = true;
+    el.dateOverlay.classList.remove('hidden');
+    el.dateChooser.classList.add('hidden');
+    el.dateMovie.classList.remove('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}デート`;
+    const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
+    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    el.dateMoviePartner.textContent = partner.emoji || '💞';
+    const special = (state.items.reward || 0) > 0 && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
+    if (special) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
+    const beats = special
+      ? [`${partner.label}と ${plan.label}へ。`, traitLine, hasNaotoItem('naoto_ring') ? '💍 ふたりだけの ひみつの ことばを のこした。' : 'きょうのこと、ずっと おぼえていようね。 💝']
+      : [`${partner.label}と ${plan.label}へ。`, traitLine, closing];
+    if (special) pushLifeLog('💝', `とくべつなデートの おもいで: ${partner.label}と ${plan.label}`);
+    el.dateMovieCaption.textContent = beats[0];
+    el.dateMovieCaption.classList.add('beat');
+    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat'); }, 850));
+    dateMovieTimers.push(setTimeout(() => { el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth; el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat'); }, special ? 1900 : 1550));
+    dateMovieTimers.push(setTimeout(finishDateMovie, special ? 3000 : 2350));
+    saveState();
+  }
+
+  const MARRIAGE_MILESTONES = [
+    { years: 1, icon: '💐', title: 'はじめての けっこんきねんび' },
+    { years: 10, icon: '🎀', title: 'けっこん 10しゅうねん' },
+    { years: 25, icon: '🥈', title: 'ぎんこんしき' },
+    { years: 50, icon: '🥇', title: 'きんこんしき' },
+  ];
+
+  function playMarriageMovie(milestone) {
+    if (!state.partner || !state.partner.married) return;
+    clearDateMovieTimers();
+    dateOpen = true;
+    el.dateOverlay.classList.remove('hidden');
+    el.dateChooser.classList.add('hidden');
+    el.dateMovie.classList.remove('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
+    el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
+    const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
+    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    el.dateMoviePartner.textContent = state.partner.emoji || '💞';
+    const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+    const beats = milestone.years >= 25
+      ? [
+          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
+          hadMismatch ? 'すれちがった ひも あった。でも、ふたりで ここまで きた。' : 'いろんな おもいでを、ふたりで かさねてきた。',
+          milestone.years >= 50 ? '50ねん、いっしょに いられたね。これからも よろしくね。' : 'これからも、いっしょに あるいていこう。',
+        ]
+      : [
+          `${state.partner.label}と けっこんして ${milestone.years}ねん。`,
+          milestone.years === 1 ? 'はじめての けっこんきねんびを、ふたりで むかえた。' : 'あのひから、もう 10ねん。いろんな ことが あったね。',
+          'これからも よろしくね。',
+        ];
+    el.dateMovieCaption.textContent = beats[0];
+    el.dateMovieCaption.classList.add('beat');
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[1]; el.dateMovieCaption.classList.add('beat');
+    }, 1200));
+    dateMovieTimers.push(setTimeout(() => {
+      el.dateMovieCaption.classList.remove('beat'); void el.dateMovieCaption.offsetWidth;
+      el.dateMovieCaption.textContent = beats[2]; el.dateMovieCaption.classList.add('beat');
+    }, 2500));
+    dateMovieTimers.push(setTimeout(finishDateMovie, 3900));
+  }
+
+  function checkMarriageMilestones(prevAge, age) {
+    if (!state.partner || !state.partner.married || state.marriageAge == null) return;
+    if (!Array.isArray(state.marriageMilestonesSeen)) state.marriageMilestonesSeen = [];
+    for (const milestone of MARRIAGE_MILESTONES) {
+      if (state.marriageMilestonesSeen.includes(milestone.years)) continue;
+      const targetAge = state.marriageAge + milestone.years;
+      if (prevAge < targetAge && age >= targetAge) {
+        state.marriageMilestonesSeen.push(milestone.years);
+        pushLifeLog(milestone.icon, `${state.partner.label}と ${milestone.title}を むかえた`);
+        playMarriageMovie(milestone);
+        break;
+      }
+    }
+  }
+
+  function goOnDate(plan) {
+    const blocked = dateBlockReason();
+    if (blocked) {
+      closeDateOverlay();
+      setMessage(blocked);
+      saveState();
+      render();
+      return;
+    }
+    const partner = state.partner;
+    const region = findRegion(state.regionId);
+    lastDatePlanId = plan.id;
+    const traitLines = DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle;
+    const traitLine = traitLines[Math.floor(Math.random() * traitLines.length)];
+    const closing = DATE_CLOSINGS[Math.floor(Math.random() * DATE_CLOSINGS.length)];
+
+    state.dateCooldownTicks = DATE_COOLDOWN_TICKS;
+    state.datesThisLife += 1;
+    state.lifetime.datesEnjoyed += 1;
+    state.affectionStreak = 0;
+    partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
+    state.happiness = clamp(state.happiness + 12, 0, 100);
+    state.energy = clamp(state.energy - 6, 0, 100);
+    state.hunger = clamp(state.hunger - 4, 0, 100);
+    applyGrowth(5);
+    applyDecline(-4);
+    if (state.datesThisLife === 1) {
+      pushLifeLog('💞', `${partner.label}と はじめての デートに いった`);
+    } else {
+      rememberSpecialDate(plan, partner);
+    }
+
+    setMessage(`💞 ${partner.label}と ${plan.label}デートを たのしんだ`);
+    emotePet('love');
+    saveState();
+    playOrdinaryDateMovie(plan, partner, traitLine, closing);
+    render();
+  }
+
+  // ================================================================
+  // そだち90「でんせつ」で おきる「でんせつの であい」
+  // ================================================================
+  // 1つの 人生で 1かいだけ、しかも「いつ おきるか わからない」ように
+  // tick ごとの ていかくりつで しのばせてある(そだち90に とどいた しゅんかんに
+  // おきるのでは なく、そのあとの ふつうの じかんに とつぜん おきる)。
+  // もらえる ものは わざと ちいさい - でんせつの ゆめ(レア種族)や
+  // そだち100・ずかんクリア・パーフェクトクリアの やくわりを とらない ように、
+  // ここは「みた ことが ある か どうか」だけが のこる イベントに している。
+  // 5つの パターンは ほうこうせいを わざと バラバラに して ある
+  const LEGEND_ENCOUNTER_CHANCE = 0.012;
+
+  const LEGEND_ENCOUNTERS = [
+    {
+      id: 'gate', emoji: '⛩️', name: 'そらに うかぶ とりい', vibe: '神々しい',
+      flash: 'そらの まんなかに、おおきな とりいが しずかに うかんでいる',
+      story: 'とりいの むこうがわには なにも ない。なにも ないのに、たしかに 「むこうがわ」だった。しばらく みていたら、とりいの ほうが おじぎを した ような きが した',
+    },
+    {
+      id: 'stairs', emoji: '🪜', name: 'どこにも つながらない かいだん', vibe: '意味不明',
+      flash: 'のはらの まんなかに、かいだんだけが たっている',
+      story: 'のぼっても のぼっても てっぺんに つかない。あきらめて おりたら、3だんしか なかった。だれかが「そういう ものだよ」と いった。だれも いなかった',
+    },
+    {
+      id: 'boss', emoji: '🦑', name: 'あやまりに きた だいおういか', vibe: '笑える',
+      flash: 'とてつもなく おおきい いかが、なぜか ものすごく ていねいに おじぎを している',
+      story: '「このたびは まことに もうしわけ ございませんでした」と いかが いった。なんの ことか まったく わからない。ゆるしたら、すっきりした かおで かえって いった',
+    },
+    {
+      id: 'lamp', emoji: '🏮', name: 'よなかの あかり', vibe: '温かい',
+      flash: 'まっくらな みちの さきに、ちいさな あかりが ひとつ ついている',
+      story: 'ちかづくと、しらない だれかが「おかえり」と いった。しらない ひとの はずなのに、その こえは しっていた。あかりは、こちらが とおりすぎるまで ずっと ついていた',
+    },
+    {
+      id: 'mirror', emoji: '🪞', name: 'としを とった じぶん', vibe: '美しい・こわい',
+      flash: 'みずたまりに、いまより ずっと としを とった じぶんが うつっている',
+      story: 'むこうの じぶんは、こちらを みて うれしそうに わらった。なにか いおうと したけど、なみが たって きえてしまった。わるい かおでは なかった。それだけは はっきり わかった',
+    },
+  ];
+
+  const LEGEND_COIN_GIFT = 200;
+
+  // でんせつの であいが おきる じょうけん。ミニゲーム中・すいみん中・
+  // なにかの がめんを ひらいている あいだは おきない(みのがす のが
+  // いちばん もったいない イベントな ため)
+  function maybeLegendEncounter() {
+    if (!hasPerk(90) || state.legendMet || state.infinite) return;
+    if (state.stage !== STAGE.GROWING || gameActive || state.isSleeping) return;
+    if (state.transformOptions || pendingCompanionId || isAnyMenuOverlayOpen()) return;
+    if (Math.random() >= LEGEND_ENCOUNTER_CHANCE) return;
+    triggerLegendEncounter();
+  }
+
+  // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
+  // かさねる ほど あたらしい でんせつに であえる(ぜんぶ みた あとは
+  // どれかが もういちど でる - コンプリートは じっせきに ならない)
+  function triggerLegendEncounter() {
+    const seen = state.lifetime.legendsMet || [];
+    const unseen = LEGEND_ENCOUNTERS.filter((e) => !seen.includes(e.id));
+    const pool = unseen.length ? unseen : LEGEND_ENCOUNTERS;
+    const legend = pool[Math.floor(Math.random() * pool.length)];
+    state.legendMet = true;
+    if (!seen.includes(legend.id)) state.lifetime.legendsMet = seen.concat(legend.id);
+    const coins = Math.round(LEGEND_COIN_GIFT * coinMultiplier());
+    state.lifetime.money += coins;
+    state.happiness = 100;
+    applyGrowth(8);
+    applyDecline(-25);
+    pushLifeLog(legend.emoji, `${legend.name}に であった`);
+    showStoryEvent({ emoji: legend.emoji, message: legend.flash });
+    setMessage(`${legend.emoji} ${legend.name}。${legend.story}(💰${coins} が おいて あった)`);
+    emotePet('love');
+    saveState();
+    render();
+  }
+
+  const COMPANION_RECRUIT_THRESHOLD = 50;
+
+  // なにも しなくても、放っておくと たまに キャラのほうから 話しかけてくる
+  // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
+  // ネタを できるだけ たくさん 用意して、待っているだけでも 飽きにくくする
+  const IDLE_GREETINGS_STANDARD = [
+    'おい!', 'やあ!', 'こんにちは!', 'こんばんは!', 'こら!', 'ねえねえ!', 'もしもし!',
+    'ちょっと きいて!', 'こっち むいて!', 'ひま?', 'あそぼうよ!', 'かまって かまって!',
+    'げんき?', 'なにしてるの?', 'さみしいよ…', 'おーい!', 'もう!むし しないで!',
+    'ひとりごと きいてくれる?', 'ちょっと じかん ある?', 'なんか はなしてよ!',
+    'ボーっと してない?', 'サボってない?', 'たいくつだよ〜', 'こっちみて こっちみて!',
+    'わたしを わすれないでね', 'ねえ、ちゃんと みてる?', 'ひさしぶりな きが する!',
+  ];
+
+  const IDLE_GREETINGS_DIALECT = [
+    // 関西弁
+    'なにしてんねん!', 'げんきに しとる?', 'はなし きこか?', 'なんでやねん!',
+    'ほんまに?', 'せやせや!', 'まいど!', 'おおきに!', 'ようきたな!',
+    'かまへん かまへん', 'いくで〜!', 'ごっつ ひまやわ〜', 'ちゃうちゃう!', 'あかんて!',
+    // 博多弁(福岡)
+    'ちかっぱ げんき?', 'なんしよっと?', 'よかよか!', 'ばり ひまっちゃ〜', 'そうたい!',
+    // 広島弁
+    'ぶち げんき?', 'ほうじゃけん!', 'なんしょん?',
+    // 名古屋弁
+    'だがや!', 'ええでや!', 'きゃー いかんわ!',
+    // 東北弁
+    'げんき だっぺ?', 'おばんです!', 'なじょ してたん?', 'めんこいなぁ',
+    // 北海道弁
+    'なまら げんき?', 'したっけ〜!',
+    // 土佐弁(高知)
+    'げんきで やってるぜよ?', 'よう おいでたぜよ!',
+    // うちなーぐち(沖縄)
+    'はいさい!', 'めんそーれ!', 'なんくるないさ〜',
+  ];
+
+  const IDLE_GREETINGS_FOREIGN = [
+    'Hello!', 'Hi there!', 'Hey!', 'Bonjour!', 'Hola!', 'Ciao!', 'Guten Tag!',
+    '你好!', '안녕!', 'Aloha!', 'Namaste!', 'Привет!', "G'day mate!", 'Salut!',
+    'Hej!', 'Olá!', 'Merhaba!', 'Shalom!', 'Yo!', 'Howdy!',
+  ];
+
+  const IDLE_GREETINGS_SILLY = [
+    'ンモー!', 'なんちゃって!', 'ジャジャン!', 'びっくりした?', 'あなたの ばんです!',
+    'ぴぴぴっ!', 'ドキッと した?', 'あそびに きたよ!', 'ここに いるよー!',
+    'きゅうに はなしかけて ごめんね!',
+  ];
+
+  const IDLE_GREETINGS = [
+    ...IDLE_GREETINGS_STANDARD,
+    ...IDLE_GREETINGS_DIALECT,
+    ...IDLE_GREETINGS_FOREIGN,
+    ...IDLE_GREETINGS_SILLY,
+  ];
+
+  let lastIdleGreeting = null;
+
+  let lastPlayWithReaction = null;
+  let lastCourtReaction = null;
+  let lastTravelReaction = null;
+
+  function pickReaction(pool, lastPicked) {
+    const choices = pool.length > 1 ? pool.filter((m) => m !== lastPicked) : pool;
+    return choices[Math.floor(Math.random() * choices.length)];
+  }
+
+  // いまの人生で本当に起きた出来事だけを、本人がたまに思い出して話す。
+  // lifeLog にない出来事は会話に使わないので、「やっていないことを覚えている」
+  // という嘘の記憶は作らない。通常のランダム会話もそのまま残す。
+  const MEMORY_RECALL_MARKERS = [
+    'びょうきを なおしてもらった',
+    'こいびとに なった',
+    'けっこんした',
+    'デートに いった',
+    'はじめての デートに いった',
+    'デートの おもいで:',
+    'なかなおりした',
+    'なかまに なった',
+    'はじめて ',
+    'たどりついた',
+    'へんしんした',
+    'れんくんに であった',
+    'に であった',
+  ];
+  let lastMemoryRecallKey = null;
+
+  function pickMemoryGreeting() {
+    if (!Array.isArray(state.lifeLog)) return null;
+    const memories = state.lifeLog.filter((entry) => entry
+      && typeof entry.text === 'string'
+      && MEMORY_RECALL_MARKERS.some((marker) => entry.text.includes(marker)));
+    if (!memories.length) return null;
+
+    // 年を重ね、思い出がいくつもできた個体は、ときどき人生全体を振り返る。
+    if (currentAge() >= 40 && memories.length >= 3 && Math.random() < 0.2) {
+      return `もう ${currentAge()}さいかぁ。いろいろ あったね`;
+    }
+
+    const recent = memories.slice(-12);
+    const keyOf = (entry) => `${entry.age}|${entry.icon || ''}|${entry.text}`;
+    const choices = recent.length > 1
+      ? recent.filter((entry) => keyOf(entry) !== lastMemoryRecallKey)
+      : recent;
+    const entry = choices[Math.floor(Math.random() * choices.length)] || recent[recent.length - 1];
+    if (!entry) return null;
+    lastMemoryRecallKey = keyOf(entry);
+
+    const text = String(entry.text)
+      .replace(/^\d+さい\s+/, '')
+      .replace(/[。!！]+$/, '');
+    const eventAge = Number(entry.age);
+    const when = Number.isFinite(eventAge)
+      ? (currentAge() <= eventAge + 1 ? 'このまえ' : `${eventAge}さいの とき`)
+      : 'まえに';
+
+    if (text === 'びょうきを なおしてもらった') {
+      return `${when} びょうきを なおしてくれたね。ありがとう!`;
+    }
+    if (text.startsWith('デートの おもいで:')) {
+      return `${when}の デート、${text.replace('デートの おもいで:', '').trim()}。おぼえてる?`;
+    }
+    return `${when}、${text}ね。おぼえてる?`;
+  }
+
+  // rewards for a great minigame result: each heals the death meter by a
+  // different amount. weight controls drop rarity - the strongest healers
+  // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
+  // items still tends to be mostly low-tier
   // ================================================================
   // ごほうび(かいふくアイテム)
   // ================================================================
@@ -1787,13 +4165,9 @@
   // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
   const RECOVERY_ITEMS = [
     { id: 'reward', label: 'ごほうび', emoji: '🎁', tier: 'special', rank: 1, weight: 1,
-      effects: {}, desc: 'デートなどを とくべつな おもいでに できる' },
+      effects: {}, desc: 'デートや たびを とくべつな おもいでに できる' },
   ];
 
-  function pickWeightedItem() { return RECOVERY_ITEMS[0]; }
-
-  // 日常の「おたのしみ」。下の欄に並び、ぽんぽん使って小さな演出を楽しむ。
-  // 攻略を飛ばす効果は持たせず、人生ログにも残さない。ごほうびとは完全に別物。
   const FUN_ITEMS = [
     { id: 'fun_candy', label: 'キャンディ', emoji: '🍭', message: 'ぺろぺろ… あまくて うれしそう!', emote: 'happy' },
     { id: 'fun_bubbles', label: 'しゃぼんだま', emoji: '🫧', message: 'ふわふわの しゃぼんだまを おいかけた!', emote: 'fun' },
@@ -1808,6 +4182,50 @@
     return FUN_ITEMS[Math.floor(Math.random() * FUN_ITEMS.length)];
   }
 
+  const RECOVERY_EFFECT_LABELS = {
+    hunger: 'おなか', happiness: 'ごきげん', energy: 'げんき',
+    health: 'けんこう', decline: 'おとろえ', life: 'いのち',
+  };
+
+  // よつばのクローバーけい(そうび)と そだち80で、ごほうびの こうかが
+  // まとめて 何ばいに なるか。むかしは かいふく量に 直に +15 する
+  // たしざん だった ため、ちいさな ごほうびほど 相対的に 効きすぎていた
+  function recoveryPotency() {
+    const equipBonus = isEquipped('itemluck3') ? 0.4 : isEquipped('itemluck2') ? 0.22 : isEquipped('itemluck1') ? 0.1 : 0;
+    const sodachiBonus = hasPerk(80) ? state.sodachi / 400 : 0;
+    return 1 + equipBonus + sodachiBonus;
+  }
+
+  // その ごほうびを いま つかって、じっさいに なにか かわるか。
+  // まんたんの ときに だまって きえて しまわない ように、つかう まえに しらべる
+  function recoveryWouldHelp(item) {
+    const e = item.effects;
+    if (e.hunger && state.hunger < 100) return true;
+    if (e.happiness && state.happiness < 100) return true;
+    if (e.energy && state.energy < 100) return true;
+    if (e.health && state.health < 100) return true;
+    // ♾️ の せかいでは おとろえも いのちも とまっている ので、
+    // その 2つは「かわる ところ」に かぞえない
+    if (!state.infinite) {
+      if (e.decline && state.decline > 0) return true;
+      if (e.life && state.deathMeter > 0) return true;
+    }
+    return false;
+  }
+
+  // そだち30(はじめての ごほうび)で ドロップが 1だん 上位に よる。
+  // そだち80(レアの きざし)では さらに キス/ハグ などの 最上位が 出やすくなる
+  function pickWeightedItem() {
+    const rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0;
+    const weights = RECOVERY_ITEMS.map((it) => it.weight * (1 + rankBonus * (it.rank / 7)));
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+    let roll = Math.random() * totalWeight;
+    for (let i = 0; i < RECOVERY_ITEMS.length; i += 1) {
+      roll -= weights[i];
+      if (roll <= 0) return RECOVERY_ITEMS[i];
+    }
+    return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
+  }
 
   // ================================================================
   // ねんれい / ライフステージ - ゆいいつの 真実
@@ -1887,8 +4305,6 @@
     applyDecline(-5, { silent: true });
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    // ごほうびは誕生日の確定配布にしない。10歳ごとの節目だけ低確率で手に入り、
-    // 一生で余らず「いつ使うか迷う」くらいの希少さにする。
     if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
       state.items.reward = (state.items.reward || 0) + 1;
       setMessage(`🎁 ${age}さいの とくべつな おいわい! ごほうびを 1こ もらった!`);
@@ -1986,7 +4402,7 @@
     if (value === 100) {
       state.lifetime.dreamEggs.normal += 1;
       state.lifetime.money += 5000;
-      // そだち100は最高到達の大きな報酬だが、不死にはしない。
+      // 「その人生の のこりは 不死」を UI でも はっきりさせる。
       // ここで いのちを まんたんに もどし、おわかれの まえぶれも けす
       setMessage('👑 さいこうの そだち! 💰5000と たまごの ゆめを もらった!');
     } else {
@@ -2194,10 +4610,8 @@
     return false;
   }
 
-  // いのちが つきない じょうたい(♾️の世界だけ)
+  // いのちが つきない じょうたい(そだち100の 特典 / なおとの リング)
   function isImmortal() {
-    // 通常の人生では、どれだけ上手に育てても老いと死はなくならない。
-    // ♾️の世界だけは別モードとして不死。
     return state.infinite;
   }
 
@@ -2388,7 +4802,8 @@
 
       // なおとの ひみつは日常のお世話そのものを無効化しない。
 
-      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい)
+      // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい。
+      // なおとの ランタンを もっていると そもそも 二度と たまらなくなる)
       const poopFactor = isEquipped('poop1') ? 0.7 : 1;
       if (Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
@@ -2400,6 +4815,7 @@
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
       // the odds of falling ill; well cared-for pets almost never trigger this
       const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
+      // なおとの おまもりを もっていると、びょうきに ぜったいに ならない
       if (!state.isSick && neglected) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
@@ -2445,7 +4861,7 @@
         state.lowHealthStreak = 0;
       }
       const deathThreshold = Math.max(6, 15 - state.totalSicknessCount);
-      // ♾️ の世界だけはこの経路でも死亡しない
+      // なおとの リング / そだち100 / ♾️ の あいだは この けいろでも 死亡しない
       if (state.lowHealthStreak >= deathThreshold && !isImmortal()) {
         if (state.miracleGuard) {
           state.miracleGuard = false;
@@ -2467,12 +4883,11 @@
       // どんなに かんぺきに お世話しても すこしずつ あがってしまっていたが、
       // いまは 4項目を 60いじょう たもてる 熟練プレイヤーなら 自然じょうしょう分を
       // 自動かいふくで うわまわり、しっかり さげられる)
-      // 自然リスクは「怠り」と「年齢」の2本立て。幼少期と老年期は少し弱く、
-      // 青壮年期がもっとも安定する。そだちが高いほど軽くなるがゼロにはならない。
+      // 自然減は「怠り」と「老い」の 2本立て。ちゃんと お世話できていれば
+      // おとろえが たまらないので、じつしつ ゼロに ちかい。老いのぶんは
+      // ろうねん(70さい〜)からで、そだち90いじょうなら それも なくなる
       const age = currentAge();
       const fromNeglect = lerp(0, 0.8, state.decline / DECLINE_MAX);
-      // 年齢リスクはU字型。幼少期は少し弱く、青壮年期がもっとも丈夫、70歳以降は年々高まる。
-      // そだちが高いほど軽減されるが、90/100でもゼロにはならない。
       const baseAgeRisk = age < 10 ? lerp(0.28, 0.04, age / 10) : age >= 70 ? lerp(0.06, 1.15, (age - 70) / 30) : 0;
       const ageRisk = age < 10 && hasNaotoItem('naoto_charm') ? baseAgeRisk * 0.72 : baseAgeRisk;
       const sodachiProtection = lerp(1, 0.55, state.sodachi / SODACHI_MAX);
@@ -4508,18 +6923,14 @@
 
   el.transformSkipBtn.addEventListener('click', skipTransform);
 
-  // 下段は日常の「おたのしみ」専用。ごほうび🎁はアイテムボックスで所持数を確認し、
-  // デートや旅など体験側から使う。
+  // ごほうびはミニゲーム大成功などで入手。一生のダメージである
+  // おとろえを主に回復し、上位3種はさらにいのちも立て直す。
   function renderItemsRow(disableUse) {
     const entries = FUN_ITEMS.filter((item) => (state.items[item.id] || 0) > 0);
-    if (!entries.length) {
-      el.itemsRow.innerHTML = '';
-      return;
-    }
+    if (!entries.length) { el.itemsRow.innerHTML = ''; return; }
     el.itemsRow.innerHTML = entries.map((item) => `
       <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse ? 'disabled' : ''}>
-        <span class="item-emoji">${item.emoji}</span>
-        <span class="item-count">${state.items[item.id]}</span>
+        <span class="item-emoji">${item.emoji}</span><span class="item-count">${state.items[item.id]}</span>
       </button>
     `).join('');
   }
@@ -4528,17 +6939,15 @@
     const item = FUN_ITEMS.find((it) => it.id === itemId);
     if (!item || !(state.items[itemId] > 0)) return;
     state.items[itemId] -= 1;
+    if (state.items[itemId] <= 0) delete state.items[itemId];
     state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
     if (!Array.isArray(state.lifetime.ownedConsumableItems)) state.lifetime.ownedConsumableItems = [];
     if (!state.lifetime.ownedConsumableItems.includes(itemId)) state.lifetime.ownedConsumableItems.push(itemId);
-    if (state.items[itemId] <= 0) delete state.items[itemId];
-    // おたのしみは攻略アイテムではない。小さな反応だけを楽しむ。
     state.happiness = clamp(state.happiness + 2, 0, 100);
     const crownMoment = hasNaotoItem('naoto_crown') && Math.random() < 0.25;
     setMessage(`${item.emoji} ${item.message}${crownMoment ? ' 👑 なんだか いつもより うれしそう!' : ''}`);
     emotePet(item.emote);
-    saveState();
-    render();
+    saveState(); render();
   }
 
   el.itemsRow.addEventListener('click', (e) => {
@@ -12037,12 +14446,8 @@
       render();
       return;
     }
-    const specialRewardTrip = (state.items.reward || 0) > 0
-      && window.confirm('🎁 ごほうびを1こ使って、とくべつな旅にしますか？');
-    if (specialRewardTrip) {
-      state.items.reward -= 1;
-      if (state.items.reward <= 0) delete state.items.reward;
-    }
+    const specialRewardTrip = (state.items.reward || 0) > 0 && window.confirm('🎁 ごほうびを1こ使って、とくべつな旅にしますか？');
+    if (specialRewardTrip) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
@@ -12087,9 +14492,7 @@
     }
     let reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
-    if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) {
-      reaction += ' 🏮 みちの さきに ふしぎな あかりが ひとつ みえた。';
-    }
+    if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) reaction += ' 🏮 みちの さきに ふしぎな あかりが ひとつ みえた。';
     if (!checkMeters()) {
       if (specialRewardTrip) {
         pushLifeLog('🎁', `とくべつな旅の おもいで: ${region.label}`);
