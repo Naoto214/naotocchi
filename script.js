@@ -2160,9 +2160,9 @@
       companion: ['{age}さい おめでとう!', 'また おおきく なったね!', 'きょうは ちょっと とくべつだね!'],
     },
     sodachi: {
-      pet: ['なんか きょう デカくない?', 'また そだった!', 'ぼく ちょっと つよくなった?', '成長、実感。たぶん'],
-      partner: ['ちょっと おとなっぽく なった?', '育ってる育ってる', 'なんか かっこよく なった?'],
-      companion: ['でかく なってる!', 'ぼくより おおきく ならないで!', 'そだち すごい!'],
+      pet: ['あれ、目線 ちょっと 高くなった?', 'また そだった!', 'さっきまでの 服なら もう きつそう', '鏡みたら ちょっと 変わってる!'],
+      partner: ['ちょっと おとなっぽく なった?', 'あ、ほんとに 変わってる', '前の しゃしんと くらべてみよっか'],
+      companion: ['でかく なってる!', 'ぼくより おおきく ならないで!', '昨日と ちがう!'],
     },
     money: {
       pet: ['金だ!!', 'これは 貯金…たぶん', 'いま ちょっと お金持ち', 'コインの音、すき'],
@@ -2190,8 +2190,8 @@
       companion: ['けっこん!?', 'パーティーは!?', 'ぼくも 家族?'],
     },
     minigame_great: {
-      pet: ['見た!? いまの見た!?', '天才、爆誕', 'ドヤがおが もどらない', '今日のぼく 仕上がってる'],
-      partner: ['ちょっと かっこよかった', '調子のってる笑', 'ちゃんと 見てたよ'],
+      pet: ['見た!? いまの見た!?', 'いまの もう1回 できるかな', 'ドヤがおが もどらない', '手が まだ ちょっと 震えてる笑'],
+      partner: ['いまの 見てたよ', 'もう 顔が 得意げ笑', 'さっきの とこ どうやったの?'],
       companion: ['いまの 見た!', 'もう1かい!', 'ぼくも やる!', 'なんで そんな できるの!?'],
     },
     minigame_bad: {
@@ -2302,14 +2302,14 @@
       { emoji: '🏆', message: '終わったあと、ちょっとだけ ドヤ顔を かくせなかった' },
       { emoji: '😎', message: 'ドヤがおが とまらない!' },
       { emoji: '📸', message: 'だれか いま の みてた?みてて ほしかった!' },
-      { emoji: '🔥', message: 'きょうの ちょうしは いつもの100ばい あるかも!' },
+      { emoji: '🔥', message: 'いまなら もう1回 いける気がする!' },
       { emoji: '🎉', message: 'もう1回やったら もっと いけそうな 気がしてきた' },
     ],
     'minigame-bad': [
       { emoji: '🙈', message: 'いまのは わすれて ほしい…れんしゅうだったし!' },
-      { emoji: '😵', message: 'うでが なまってた だけ!じつりょくじゃ ない!' },
+      { emoji: '😵', message: 'いまの タイミング、ぜんぶ ずれてた…' },
       { emoji: '🌀', message: 'ちょっと めが まわっただけ!ほんきだせば…' },
-      { emoji: '🫠', message: 'つぎは かならず リベンジする!(こんかいは しない)' },
+      { emoji: '🫠', message: 'くやしいから、あとで もう1回だけ やる' },
     ],
     'medicine-cure': [
       { emoji: '🕺', message: 'げんきに なって おどりだしそう!' },
@@ -2319,9 +2319,9 @@
     ],
     overfeed: [
       { emoji: '🫃', message: 'おなかが パンパン…しばらく うごけない…' },
-      { emoji: '🍚', message: '「もう たべられない」と いいつつ もう いっこ いけそう' },
+      { emoji: '🍚', message: '「もう むり」と いいながら、まだ おさらを 見ている' },
       { emoji: '🚨', message: 'たべすぎ けいほう、はつれい!' },
-      { emoji: '😵‍💫', message: 'まんぷく すぎて まんぞくと こうかいが なかよく どうきょ ちゅう' },
+      { emoji: '😵‍💫', message: '食べるまえに もどれたら、ひとくちだけ 減らしたい' },
     ],
     'poop-clean': [
       { emoji: '✨', message: 'さっきまでの ことは なかったことに しよう' },
@@ -2373,14 +2373,14 @@
     'なかまたちも まざって いっしょに あまえてきた!',
     'そばに いる なかまも うれしそうに はねてる',
     'なかまと じゃれあう すがたが ほほえましい',
-    'みんなで よりそって、なかよしの わの なかに いる きぶん',
+    '気づいたら みんな すぐ となりに 集まっていた',
   ];
 
   const COMPANION_TALK_REACTIONS = [
     'なかまたちにも なにか はなしかけてる みたい',
     'なかまと いっしょに こっちを みて くびを かしげた',
     'なかまたちが まわりで にぎやかに さわいでる',
-    'なかまとの おしゃべりに まざれた き が した',
+    '何を はなしてるか わからないけど、たぶん 盛りあがってる',
   ];
 
   const COMPANION_ANNOYED_REACTIONS = [
@@ -3612,19 +3612,19 @@
   }
 
   const COURT_SUCCESS_REACTIONS = [
-    '「つきあってください!」…って いったら まさかの OK!',
-    'めが あった しゅんかん、うんめいを かんじた(たぶん)',
-    'テレながらも、おもいを つたえられた!',
-    'こくはく せいこう!はずかしくて めが まわりそう',
-    'まさかの てんかいに、じぶんが いちばん おどろいてる',
+    '「つきあってください」「…うん」返事を きくまでが 長かった',
+    '目が あって、どっちも 先に そらさなかった',
+    '言いなおしそうに なったけど、そのまま 気持ちを つたえた',
+    '返事を きいたあと、何を はなしたか あまり おぼえていない',
+    '「ほんとに?」って 2回 ききかえしてしまった',
   ];
 
   const COURT_FAIL_REACTIONS = [
-    'ゆうきを だして こくはくしたけど…「ともだちでいよう」だって',
+    '「ごめん。友達で いたい」しばらく 返事が できなかった',
     'テレすぎて、へんな ことばしか でてこなかった…',
-    'ふられた…でも つぎが ある!(たぶん)',
-    'アピールが からまわりしちゃった みたい',
-    'きんちょうしすぎて、なにを いったか おぼえてない',
+    '返事は だめだった。帰り道だけ ちょっと 長く かんじた',
+    '気持ちは つたわった。でも、返事は おなじじゃなかった',
+    '言いたかったことの 半分くらいしか 言えなかった',
   ];
 
   // れんあい対象が あわなかった ときの リアクション。しっぱい あつかいの
@@ -3644,9 +3644,9 @@
   // 軽い リアクションに なる(せいこう/しっぱいの 抽選は しない)
   function courtFlirtReactions(partnerLabel) {
     return [
-      `${partnerLabel}と いつもどおり ラブラブ!`,
-      `${partnerLabel}の ことを かんがえて、にやにや してしまった`,
-      `${partnerLabel}に ぞっこんなのは かわらない みたい`,
+      `${partnerLabel}と 目が あって、どっちも ちょっと わらった。`,
+      `「こっち きて」と ${partnerLabel}の となりを あけた。`,
+      `${partnerLabel}の 手を つないで、そのまま しばらく はなさなかった。`,
     ];
   }
 
@@ -3698,7 +3698,7 @@
       label: 'とかい',
       emoji: '🏙️',
       decor: ['🏙️', '🌃', '✨', '🚕', '🌆', '💡', '🚦', '🎡'],
-      lines: ['ビルの たかさに びっくり!', 'ネオンの ひかりに めが きらきら', 'ひとの おおさに ちょっと つかれた'],
+      lines: ['上を 見ながら 歩いて、あやうく 人に ぶつかりそうになった', 'ネオンを 見ていたら、帰るころには 首が つかれた', '人の ながれに のっていたら、行きたい方向と 逆に すすんでいた'],
       candidates: [
         courtCandidate({ id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' }),
         courtCandidate({ id: 'ceo-cat', label: 'ビルの ねこ社長', emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' }),
@@ -3709,7 +3709,7 @@
       label: 'いなか',
       emoji: '🌾',
       decor: ['🌾', '🌻', '🐄', '🚜', '☀️', '🦋', '🌈', '🐓'],
-      lines: ['たんぼの かぜが きもちいい', 'のはらを おもいっきり かけまわった', 'むぎわらぼうしが にあうと ほめられた(き が する)'],
+      lines: ['田んぼの かぜで、しばらく 何も しゃべらずに 立っていた', 'のはらを 走ったら、思ったより すぐ 息が きれた', 'むぎわらぼうしを かぶって、写真だけ ちょっと 得意げに とった'],
       candidates: [
         courtCandidate({ id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' }),
         courtCandidate({ id: 'meadow-cow', label: 'のはらの うしさん', emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' }),
@@ -3742,7 +3742,7 @@
       label: 'なんごく',
       emoji: '🌴',
       decor: ['🌴', '🌺', '🦜', '🍍', '🐠', '☀️', '🥥', '🦩'],
-      lines: ['やしの みを みつけて うれしそう', 'あたたかい かぜが きもちいい', 'カラフルな とりに てを ふってみた'],
+      lines: ['やしの実を 見つけて、どうやって 開けるかで しばらく 悩んだ', 'あたたかい 風で、帰る気が ちょっと なくなった', 'カラフルな とりに 手を ふったら、完全に 無視された'],
       candidates: [
         courtCandidate({ id: 'tropical-parrot', label: 'なんごくの インコ', emoji: '🦜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
         courtCandidate({ id: 'palm-lizard', label: 'やしの きの リザードさん', emoji: '🦎', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
@@ -3800,14 +3800,14 @@
   // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
   // ずかんの 「なかま」セクションに ずっと 表示されつづける
   const COMPANIONS = [
-    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'げんきいっぱいの しばいぬが ちかづいてきた!いっしょに あそんで なかよくなろう!' },
-    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'いたずらっこの たぬきが とつぜん あらわれた!ゆだんすると からかわれちゃうかも?' },
-    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'よちよち あるく ペンギンが めのまえに!なかまに なってくれるか ためしてみよう' },
-    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ものしりな ふくろうが きの えだから みつめている…なかまに できるかな?' },
-    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'すばしっこい うさぎが とびはねながら やってきた!ついてこられる?' },
+    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'しばいぬが ボールを くわえて こっちを みている。投げるまで 帰る気は なさそう' },
+    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'たぬきが 何かを かくしている。目が あった瞬間、知らないふりを した' },
+    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'ペンギンが こっちへ 急いできて、目のまえで きれいに すべった' },
+    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ふくろうが 上から ずっと みている。こっちが 先に 話しかけるのを 待っているみたい' },
+    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'うさぎが 少し先まで 走っては、こっちを 振り返っている。ついてこいって ことらしい' },
     { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', preferredRegions: ['forest','home'], flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
     { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', preferredRegions: ['tropical','forest'], flavor: 'のんびりやの コアラが きから おりてきた' },
-    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'あそぶのが だいすきな カワウソが きょうみしんしんで ちかづいてきた!' },
+    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'カワウソが 石を ひとつ 差しだしてきた。たぶん 遊びの 参加券' },
     { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', preferredRegions: ['home','city'], flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
     { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', preferredRegions: ['forest','countryside'], flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
   ];
@@ -5511,15 +5511,15 @@
     const progress = (state.lifetime.companionFriendshipProgress || {})[companion.id] || 0;
     const reunited = progress > 0 && !state.lifetime.companionsRecruited.includes(companion.id);
     el.companionInviteTitle.textContent = isRare
-      ? `${companion.name}が じっと こっちを みている!`
-      : reunited ? `${companion.name}が また あらわれた!` : `${companion.name}が あそびに さそってきた!`;
+      ? `${companion.name}と めが あった`
+      : reunited ? `${companion.name}が また きた` : `${companion.name}が こっちを みている`;
     el.companionInviteFlavor.textContent = companion.flavor;
     el.companionInviteOverlay.classList.toggle('rare', !!isRare);
     // まだ ミニゲームが はじまる まえに、ちゃんと 目に はいるよう
     // ひとこと メッセージらんにも のこす
     setMessage(isRare
-      ? `${companion.emoji} みたことの ない なにかが やってきた…`
-      : reunited ? `${companion.emoji} また あったね! ${companion.name}が こっちに きた` : `${companion.emoji} ${companion.name}が やってきた!`);
+      ? `${companion.emoji} みたことの ない なにかと めが あった…`
+      : reunited ? `${companion.emoji} ${companion.name}だ。また あった` : `${companion.emoji} ${companion.name}が こっちを みている`);
     emotePet('fun');
     render();
   }
@@ -13993,9 +13993,9 @@
 
   function resultMessageForScore(score) {
     const pools = score >= 80
-      ? ['かなり うまくいった!', 'いまのは きもちよかった!', 'これは もう1かい やりたい!', '思ったより できた!', '今日の ちょうし いいかも!']
+      ? ['いまのは きもちよかった!', 'これは もう1かい やりたい!', '最後のところ、もう一度 やりたい!', '思ったより できた!', '手が ちゃんと ついてきた!']
       : score >= 50
-        ? ['いいかんじに あそべた!', 'ちゃんと たのしかった!', 'なかなか わるくない!', 'もうちょい いけそう!', 'いい勝負だった!']
+        ? ['あと ちょっと いけそう!', '途中までは よかった!', 'もう1回なら 変わりそう!', 'いい勝負だった!', 'いまの ミスだけ くやしい!']
         : ['今回は こんなもん!', 'つぎは もうちょい いける!', 'いまのは れんしゅう!', 'ちょっと くやしい!', 'もう1かいなら いけそう!'];
     return pools[Math.floor(Math.random() * pools.length)];
   }
@@ -14695,7 +14695,7 @@
     if (!checkMeters()) {
       if (specialRewardTrip) {
         pushLifeLog('🎁', `とくべつな旅の おもいで: ${region.label}`);
-        setMessage(`🎁 ${region.emoji} ${region.label}で、とくべつな時間を すごした。 ${reaction}`);
+        setMessage(`🎁 ${region.emoji} ${region.label}で、いつもより ゆっくり すごした。 ${reaction}`);
       } else {
         setMessage(spammedTravel
           ? `${region.emoji} ${region.label}に やってきた!でも たびづかれで ちょっと ぐったり…${reaction}`
