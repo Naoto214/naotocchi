@@ -800,3 +800,12 @@ Runtime smoke test SUCCESS確認済み。
 - master asset自動接続を使用。script個別編集なし。
 - チェックポイントQ `eb8cfeb2` Runtime smoke test run #120 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → cicada / antlionへ進む。
+
+
+## チェックポイント S — セミ・アリジゴク8段階 PNG 実装
+- `assets/characters/cicada/01.png`〜`08.png`、`assets/characters/antlion/01.png`〜`08.png` を追加。
+- セミは若齢幼虫→幼虫→大幼虫→終齢幼虫→地上脱出→羽化中→若成虫→成虫。前脚の発達、地上脱出姿勢、抜け殻からの羽化、柔らかい若成虫、完成した成虫で差を出した。
+- アリジゴクは小幼虫→巣作り幼虫→成長幼虫→巨大幼虫→繭→蛹→羽化→ウスバカゲロウ。幼虫期は大顎と砂地表現を強め、5以降は繭・蛹・羽化・透明翅の成虫へ大きく変化。
+- master asset自動接続を使用。script個別編集なし。
+- チェックポイントR `1615b40f` Runtime smoke test run #121 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → hermit_crab / jellyfishへ進む。
