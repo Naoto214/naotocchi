@@ -2123,7 +2123,7 @@
   // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
   let speechTimer = null;
   let speechActive = false;
-  const SPEECH_DURATION_MS = 5200;
+  const SPEECH_DURATION_MS = 6200;
 
   function hideSpeechBubble() {
     speechActive = false;
@@ -2352,7 +2352,7 @@
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
     beats.slice(0, 4).forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1050));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 2600));
     });
   }
 
@@ -5610,7 +5610,7 @@
   function scheduleIdleGreeting() {
     // 通常画面では「誰かがほぼ常に何か言っている」くらい賑やかにする。
     // 吹き出し表示時間(5.2秒)より短めも含む間隔で次の発言を予約する。
-    const delay = 2800 + Math.random() * 3200;
+    const delay = 5200 + Math.random() * 3800;
     setTimeout(() => {
       const canGreet = !gameActive
         && state.stage === STAGE.GROWING
