@@ -10274,17 +10274,17 @@
         const blocked=(nx,ny)=>edgeBlocked(x,y,nx,ny);
         const treasures=new Set(['2,0','4,1','0,4']);
         container.innerHTML=`
-          <div class="mg-header"><span id="mgDMove">すすんだ: 0</span><span id="mgDTreasure">🧰 0/3</span></div>
+          <div class="mg-header"><span id="mgDMove">すすんだ: 0</span><span id="mgDTreasure">宝箱 0/3</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-fp-view" id="mgFPView">
             <div class="mg-fp-ceiling"></div><div class="mg-fp-floor"></div>
             <div class="mg-fp-corridor far"></div><div class="mg-fp-corridor mid"></div>
             <div class="mg-fp-sidewall left" id="mgFPSideL"></div><div class="mg-fp-sidewall right" id="mgFPSideR"></div>
-            <div class="mg-fp-frontwall" id="mgFPFrontWall"><span>🧱</span></div>
+            <div class="mg-fp-frontwall" id="mgFPFrontWall"></div>
             <div class="mg-fp-object" id="mgFPObject"></div>
             <div class="mg-fp-compass" id="mgFPCompass">→</div>
           </div>
-          <div class="mg-hint" id="mgDHint">↶ ↷で向きを変える → ↑で1マス進む。宝箱🧰を集めて出口🚪へ!</div>
+          <div class="mg-hint" id="mgDHint">↶ ↷で向きを変える → ↑で1マス進む。宝箱を3つ集めて出口🚪へ!</div>
           <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgDTurnL">↶</button><button class="mg-tap-btn" id="mgDForward">↑ すすむ</button><button class="mg-tap-btn" id="mgDTurnR">↷</button></div>`;
         const dirs=[[0,-1],[1,0],[0,1],[-1,0]], arrows=['↑','→','↓','←'];
         const view=container.querySelector('#mgFPView'),hint=container.querySelector('#mgDHint');
@@ -10310,17 +10310,18 @@
           const one=cellAhead(1),two=cellAhead(2);
           const oneKey=one.x+','+one.y,twoKey=two.x+','+two.y;
           let object='',depth='here';
-          if(treasures.has(here)){object='🧰';}
+          if(treasures.has(here)){object='CHEST';}
           else if(x===goal.x&&y===goal.y){object='🚪';}
-          else if(!isWall&&treasures.has(oneKey)){object='🧰';depth='near';}
+          else if(!isWall&&treasures.has(oneKey)){object='CHEST';depth='near';}
           else if(!isWall&&one.x===goal.x&&one.y===goal.y){object='🚪';depth='near';}
-          else if(!isWall&&!edgeBlocked(one.x,one.y,two.x,two.y)&&treasures.has(twoKey)){object='🧰';depth='far';}
+          else if(!isWall&&!edgeBlocked(one.x,one.y,two.x,two.y)&&treasures.has(twoKey)){object='CHEST';depth='far';}
           else if(!isWall&&!edgeBlocked(one.x,one.y,two.x,two.y)&&two.x===goal.x&&two.y===goal.y){object='🚪';depth='far';}
-          obj.textContent=object;
-          obj.className='mg-fp-object '+depth+(object==='🧰'?' treasure':object==='🚪'?' exit':'');
+          obj.textContent=object==='CHEST'?'':object;
+          obj.className='mg-fp-object '+depth+(object==='CHEST'?' treasure':object==='🚪'?' exit':'');
+          if(object==='CHEST') obj.innerHTML='<span class="mg-fp-chest"><i></i></span>';
           container.querySelector('#mgDMove').textContent='すすんだ: '+moves;
-          container.querySelector('#mgDTreasure').textContent='🧰 '+treasure+'/3';
-          hint.textContent=msg||(x===goal.x&&y===goal.y?'🚪 出口を みつけた!':isWall?'🧱 正面は壁。↶か↷で向きを変えよう':object==='🧰'?'🧰 宝箱が見える! ↑で近づこう':'↑で進む / ↶↷で曲がる');
+          container.querySelector('#mgDTreasure').textContent='宝箱 '+treasure+'/3';
+          hint.textContent=msg||(x===goal.x&&y===goal.y?'🚪 出口を みつけた!':isWall?'🧱 正面は壁。↶か↷で向きを変えよう':object==='CHEST'?'宝箱が見える! ↑で近づこう':'↑で進む / ↶↷で曲がる');
         }
         container.querySelector('#mgDTurnL').addEventListener('pointerdown',(e)=>{e.preventDefault();if(done)return;dir=(dir+3)%4;renderView('左を向いた');});
         container.querySelector('#mgDTurnR').addEventListener('pointerdown',(e)=>{e.preventDefault();if(done)return;dir=(dir+1)%4;renderView('右を向いた');});
@@ -10330,9 +10331,16 @@
           if(blocked(nx,ny)){renderView('🧱 壁! ここは進めない');return;}
           moves++;x=nx;y=ny;
           const p=x+','+y;
-          if(treasures.delete(p)){treasure++;renderView('🧰 宝箱をゲット!');}
+          if(treasures.delete(p)){treasure++;renderView('宝箱をゲット!');}
           else renderView();
-          if(x===goal.x&&y===goal.y&&!done){done=true;setTimeout(()=>onComplete(clamp(100-moves*2+treasure*10,30,100)),650);}
+          if(x===goal.x&&y===goal.y&&!done){
+            done=true;
+            view.className='mg-fp-view cleared';
+            view.innerHTML='<div class="mg-fp-clear-door">🚪</div><div class="mg-fp-clear-text">出口だ!</div>';
+            hint.textContent='ダンジョンクリア!';
+            container.querySelector('.mg-dpad-mid').style.visibility='hidden';
+            setTimeout(()=>onComplete(clamp(100-moves*2+treasure*10,30,100)),650);
+          }
         });
         renderView();
       }
