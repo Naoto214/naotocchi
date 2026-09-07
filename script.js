@@ -1832,7 +1832,7 @@
   // unlockTier は isThemeUnlocked() と おなじ フィールド名を つかって
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
-    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', unlockTier: 0, desc: 'ようしょうきの いのちの リスクを すこし やわらげる' },
+    { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', unlockTier: 0, desc: 'ようしょうきと こうれいきの いのちの リスクを すこし やわらげる' },
     { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', unlockTier: 1, desc: 'たびで ときどき ふしぎな できごとに であえる' },
     { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', unlockTier: 2, desc: 'とくべつなデートに ここだけの ことばが くわわる' },
     { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 3, desc: 'おたのしみを つかったとき、ときどき とくべつな リアクションが おきる' },
@@ -5100,6 +5100,12 @@
     if (!isLiveLife()) return false;
     if (state.stage === STAGE.EGG) return false;
     if (state.deathMeter >= 100 && !isImmortal()) {
+      // 80をこえたときに始まる「おわかれの まえぶれ」は、本当に最低2分の猶予にする。
+      // 以前は dyingTicks を表示用に減らすだけで、100に届くと同じtickで死亡できていた。
+      if (state.dying && state.dyingTicks > 0) {
+        state.deathMeter = 99;
+        return false;
+      }
       if (state.miracleGuard) {
         state.miracleGuard = false;
         state.deathMeter = 50;
@@ -5385,8 +5391,19 @@
       // ろうねん(70さい〜)からで、そだち90いじょうなら それも なくなる
       const age = currentAge();
       const fromNeglect = lerp(0, 0.8, state.decline / DECLINE_MAX);
-      const baseAgeRisk = age < 10 ? lerp(0.28, 0.04, age / 10) : age >= 70 ? lerp(0.06, 1.15, (age - 70) / 30) : 0;
-      const ageRisk = age < 10 && hasNaotoItem('naoto_charm') ? baseAgeRisk * 0.72 : baseAgeRisk;
+      // 年齢そのものによる自然リスクは、幼少期と高齢期だけに持たせる。
+      // 高齢期は 70さいから 100さいへ向けてなだらかに上がるが、
+      // 90代に入った瞬間に「しっかりお世話していても急に赤くなる」感触を避けるため
+      // 100さい直前の上限を以前の 1.15/tick から 0.90/tick へ緩和する。
+      const baseAgeRisk = age < 10
+        ? lerp(0.28, 0.04, age / 10)
+        : age >= 70
+          ? lerp(0.06, 0.90, (age - 70) / 30)
+          : 0;
+      // ①クリア報酬「なおとの おまもり」は、人生の両端を守る。
+      // 幼少期だけでなく、70さい以降の老いによる自然リスクにも同じ軽減をかける。
+      const charmProtectsAge = age < 10 || age >= 70;
+      const ageRisk = charmProtectsAge && hasNaotoItem('naoto_charm') ? baseAgeRisk * 0.72 : baseAgeRisk;
       const sodachiProtection = lerp(1, 0.55, state.sodachi / SODACHI_MAX);
       const fromAge = ageRisk * sodachiProtection;
       raiseDeathMeter(fromNeglect + fromAge);
@@ -5403,7 +5420,9 @@
         && state.health >= 60;
       if (wellCared && state.deathMeter > 0) {
         const age = currentAge();
-        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(1.4, 0.35, (age - 70) / 30) : 1.4;
+        // 高齢になっても「ちゃんとお世話すれば いのちを戻せる」余地は残す。
+        // 以前は100さい直前に 0.35/tick まで落ち、自然リスクとの差が急に開いていた。
+        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(1.4, 0.50, (age - 70) / 30) : 1.4;
         state.deathMeter = clamp(state.deathMeter - recovery, 0, 100);
       }
 
