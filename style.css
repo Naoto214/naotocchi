@@ -5673,3 +5673,18 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   touch-action: manipulation;
 }
 .mg-chase-player,.mg-chase-chaser { transition: left .07s linear, top .07s linear; }
+
+/* mobile minigame input audit */
+.mg-road,.mg-shooter-arena,.mg-p3-scene,.mg-capture3d,.mg-adventure-field,
+.mg-swipe-lane,.mg-drag-item,.mg-rank3d-card,.mg-retropet-buttons button {
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.mg-road-controls .mg-tap-btn,
+.mg-shooter-controls .mg-tap-btn,
+.mg-dpad-mid .mg-tap-btn {
+  min-height:44px;
+}
+.mg-road-controls,.mg-shooter-controls { gap:12px; }
+.mg-shooter-fire { min-width:92px; }

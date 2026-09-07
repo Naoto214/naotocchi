@@ -7926,6 +7926,7 @@
             <div class="mg-road-surface"></div>
             <div class="mg-road-player" id="mgRoadPlayer" style="left:${LANE_NEAR_X[1]}%">${currentSprite()}</div>
           </div>
+          <div class="mg-hint">左右ボタン、または道路の3レーンを直接タップして移動</div>
           <div class="mg-road-controls">
             <button class="mg-tap-btn" id="mgRoadLeft">◀</button>
             <button class="mg-tap-btn" id="mgRoadRight">▶</button>
@@ -7943,8 +7944,14 @@
           lane = clamp(next, 0, 2);
           playerEl.style.left = LANE_NEAR_X[lane] + '%';
         }
-        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
-        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+        leftBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane - 1); });
+        rightBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane + 1); });
+        road.addEventListener('pointerdown', (e) => {
+          e.preventDefault();
+          const r = road.getBoundingClientRect();
+          const pct = (e.clientX - r.left) / r.width;
+          setLane(pct < 1/3 ? 0 : pct > 2/3 ? 2 : 1);
+        });
 
         function flashRoad() {
           road.classList.add('hit');
@@ -8750,6 +8757,7 @@
           <div class="mg-shooter-arena" id="mgShooterArena">
             <div class="mg-shooter-player" id="mgShooterPlayer" style="left:${LANE_X[1]}%">${currentSprite()}</div>
           </div>
+          <div class="mg-hint">左右ボタンか画面のレーンをタップして移動 → 同じレーンに来たら「うつ!」</div>
           <div class="mg-shooter-controls">
             <button class="mg-tap-btn" id="mgShooterLeft">◀</button>
             <button class="mg-tap-btn mg-shooter-fire" id="mgShooterFire">🔫 うつ!</button>
@@ -8769,8 +8777,14 @@
           lane = clamp(next, 0, 2);
           playerEl.style.left = LANE_X[lane] + '%';
         }
-        leftBtn.addEventListener('pointerdown', () => setLane(lane - 1));
-        rightBtn.addEventListener('pointerdown', () => setLane(lane + 1));
+        leftBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane - 1); });
+        rightBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane + 1); });
+        arena.addEventListener('pointerdown', (e) => {
+          e.preventDefault();
+          const r = arena.getBoundingClientRect();
+          const pct = (e.clientX - r.left) / r.width;
+          setLane(pct < 1/3 ? 0 : pct > 2/3 ? 2 : 1);
+        });
 
         function flashArena() {
           arena.classList.add('hit');
@@ -8810,7 +8824,7 @@
             setTimeout(() => target.el.remove(), 180);
           }
         }
-        fireBtn.addEventListener('pointerdown', fire);
+        fireBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); fire(); });
 
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         let rafId;
@@ -8990,20 +9004,27 @@
         `;
         const lane = container.querySelector('#mgSwipeLane');
         const projectileEl = container.querySelector('#mgSwipeProjectile');
+        const hintEl = container.querySelector('.mg-hint');
         let startX = 0, startY = 0, tracking = false;
 
         lane.addEventListener('pointerdown', (e) => {
           if (thrown) return;
+          e.preventDefault();
           tracking = true;
           startX = e.clientX;
           startY = e.clientY;
+          try { lane.setPointerCapture(e.pointerId); } catch (err) {}
         });
         lane.addEventListener('pointerup', (e) => {
           if (!tracking || thrown) return;
+          e.preventDefault();
           tracking = false;
           const dx = e.clientX - startX;
           const dy = startY - e.clientY;
-          if (dy < 20) return; // 上むきの スワイプでないと なげない
+          if (dy < 24) {
+            hintEl.textContent = 'もう少し長く、下から上へスワイプしてみよう!';
+            return;
+          }
           thrown = true;
           clearTimeout(giveUpTimer);
           const power = clamp(dy / 140, 0, 1.4);
@@ -9024,6 +9045,7 @@
             setTimeout(() => onComplete(score), 600);
           }, 620);
         });
+        lane.addEventListener('pointercancel', () => { tracking = false; });
 
       },
     };
@@ -9678,6 +9700,7 @@
     }
     function onPointerDown(e) {
       if (dragging || itemEl.classList.contains('placed')) return;
+      e.preventDefault();
       dragging = true;
       try { itemEl.setPointerCapture(e.pointerId); } catch (err) { /* iOS Safariの ふるいばあいも あるので しっぱいは むし */ }
       const rect = itemEl.getBoundingClientRect();
@@ -9690,27 +9713,36 @@
       itemEl.classList.add('dragging');
       place(e.clientX, e.clientY);
     }
+    function restore() {
+      itemEl.style.position = originPosition;
+      itemEl.style.left = originLeft;
+      itemEl.style.top = originTop;
+      itemEl.style.width = '';
+      itemEl.style.height = '';
+    }
     function onPointerMove(e) {
       if (!dragging) return;
+      e.preventDefault();
       place(e.clientX, e.clientY);
     }
     function endDrag(e) {
       if (!dragging) return;
+      e.preventDefault();
       dragging = false;
       itemEl.classList.remove('dragging');
       const handled = onDrop(e.clientX, e.clientY, itemEl);
-      if (!handled) {
-        itemEl.style.position = originPosition;
-        itemEl.style.left = originLeft;
-        itemEl.style.top = originTop;
-        itemEl.style.width = '';
-        itemEl.style.height = '';
-      }
+      if (!handled) restore();
+    }
+    function cancelDrag() {
+      if (!dragging) return;
+      dragging = false;
+      itemEl.classList.remove('dragging');
+      restore();
     }
     itemEl.addEventListener('pointerdown', onPointerDown);
     itemEl.addEventListener('pointermove', onPointerMove);
     itemEl.addEventListener('pointerup', endDrag);
-    itemEl.addEventListener('pointercancel', endDrag);
+    itemEl.addEventListener('pointercancel', cancelDrag);
   }
 
   function isPointInsideEl(el, x, y) {
@@ -10007,9 +10039,15 @@
         move();
         const left=()=>{lane=Math.max(0,lane-1);move();};
         const right=()=>{lane=Math.min(2,lane+1);move();};
-        container.querySelector('#mgP3Left').addEventListener('pointerdown',left);
-        container.querySelector('#mgP3Right').addEventListener('pointerdown',right);
-        scene.addEventListener('pointerdown',(e)=>{ const r=scene.getBoundingClientRect(); (e.clientX-r.left<r.width/2?left:right)(); });
+        container.querySelector('#mgP3Left').addEventListener('pointerdown',(e)=>{e.preventDefault();left();});
+        container.querySelector('#mgP3Right').addEventListener('pointerdown',(e)=>{e.preventDefault();right();});
+        scene.addEventListener('pointerdown',(e)=>{
+          e.preventDefault();
+          const r=scene.getBoundingClientRect();
+          const pct=(e.clientX-r.left)/r.width;
+          lane=pct<1/3?0:pct>2/3?2:1;
+          move();
+        });
 
         function spawn(){
           if(!running)return;
@@ -10098,23 +10136,21 @@
   const FIRST_PERSON_DUNGEON_VARIANTS=[mg('fp-dungeon',makeFirstPersonDungeonGame({title:'3Dふう ダンジョン!一人称で 出口を さがそう'}))];
 
   // --- 3Dふう ならびかえ ---
-  // 正解が客観的な「大きい/小さい/年寄り/若い」に加えて、
-  // 「面白そう/神経質そう」のような正解のないお題も混ぜる。
-  // 後者は採点せず、並べ終えた順そのものを楽しむ遊びにする。
-  function makePerspectiveRankingGame({ title, cast, criterion, subjective = false }) {
+  // 大きさ・年齢など、客観的に正解を判定できるお題だけを使う。
+  function makePerspectiveRankingGame({ title, cast, criterion }) {
     return {
       start(container,onComplete){
         let order=[...cast].sort(()=>Math.random()-.5), selected=-1, moves=0, done=false;
         container.innerHTML=`
-          <div class="mg-header"><span id="mgRankMoves">いれかえ: 0</span><span>${subjective?'正解なし 😏':'ならべよう!'}</span></div>
+          <div class="mg-header"><span id="mgRankMoves">いれかえ: 0</span><span>ならべよう!</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-rank3d-stage" id="mgRankStage"></div>
-          <div class="mg-hint">${subjective?'自分のイメージでOK。2人ずつタップして入れかえよう':'左から順になるよう、2人ずつタップして入れかえよう'}</div>
+          <div class="mg-hint">左から順になるよう、2人ずつタップして入れかえよう</div>
           <button class="mg-tap-btn" id="mgRankDone">これで けってい!</button>`;
         const stage=container.querySelector('#mgRankStage'),movesEl=container.querySelector('#mgRankMoves');
         function render(){
           stage.innerHTML=order.map((c,i)=>`<button class="mg-rank3d-card ${i===selected?'selected':''}" data-i="${i}" style="--rank:${i}"><span class="mg-rank3d-emoji">${c.emoji}</span><strong>${c.name}</strong><small>${c.tag || ('No.'+(i+1))}</small></button>`).join('');
-          stage.querySelectorAll('.mg-rank3d-card').forEach(btn=>btn.onclick=()=>{
+          stage.querySelectorAll('.mg-rank3d-card').forEach(btn=>btn.onpointerdown=(e)=>{e.preventDefault();
             if(done)return;const i=Number(btn.dataset.i);
             if(selected<0){selected=i;render();return;}
             if(selected!==i){[order[selected],order[i]]=[order[i],order[selected]];moves++;}
@@ -10122,7 +10158,7 @@
           });
         }
         render();
-        container.querySelector('#mgRankDone').onclick=()=>{
+        container.querySelector('#mgRankDone').onpointerdown=(e)=>{e.preventDefault();
           if(done)return;done=true;
           const ideal=[...cast].sort((a,b)=>a[criterion]-b[criterion]);
           const pos=new Map(ideal.map((c,i)=>[c.name,i]));
@@ -10195,11 +10231,19 @@
         aimY=clamp((e.clientY-r.top)/r.height*100,12,88);
         aim.style.left=aimX+'%';aim.style.top=aimY+'%';
       }
-      scene.addEventListener('pointerdown',(e)=>{if(!running)return;dragging=true;dragStart={x:e.clientX,y:e.clientY};setAim(e);});
-      scene.addEventListener('pointermove',(e)=>{if(dragging)setAim(e);});
+      scene.addEventListener('pointerdown',(e)=>{
+        if(!running)return;
+        e.preventDefault();
+        dragging=true;dragStart={x:e.clientX,y:e.clientY};setAim(e);
+        try{scene.setPointerCapture(e.pointerId);}catch(err){}
+      });
+      scene.addEventListener('pointermove',(e)=>{if(dragging){e.preventDefault();setAim(e);}});
       scene.addEventListener('pointerup',(e)=>{
-        if(!dragging||!running||performance.now()<startTime)return;
-        dragging=false;setAim(e);
+        if(!dragging||!running)return;
+        e.preventDefault();
+        dragging=false;
+        if(performance.now()<startTime){hint.textContent='スタート! モンスターをねらって上へスワイプ';return;}
+        setAim(e);
         const dy=dragStart.y-e.clientY;
         if(dy<28){hint.textContent='うえに スワイプして カプセルを なげよう!';return;}
         throwBall();
@@ -10300,13 +10344,19 @@
       }
       container.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('pointerdown',(e)=>{e.preventDefault();moveAdventure(b.dataset.d);}));
       let advTouchStart=null;
-      field.addEventListener('pointerdown',(e)=>{advTouchStart={x:e.clientX,y:e.clientY};});
+      field.addEventListener('pointerdown',(e)=>{
+        e.preventDefault();
+        advTouchStart={x:e.clientX,y:e.clientY};
+        try{field.setPointerCapture(e.pointerId);}catch(err){}
+      });
       field.addEventListener('pointerup',(e)=>{
         if(!advTouchStart||done)return;
+        e.preventDefault();
         const dx=e.clientX-advTouchStart.x,dy=e.clientY-advTouchStart.y;advTouchStart=null;
-        if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;
+        if(Math.max(Math.abs(dx),Math.abs(dy))<12)return;
         moveAdventure(Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down'));
       });
+      field.addEventListener('pointercancel',()=>{advTouchStart=null;});
       draw();
     }};
   }
@@ -10333,7 +10383,7 @@
         if(k==='hunger')hunger=Math.max(0,hunger-1);if(k==='happy')happy=Math.max(0,happy-1);if(k==='clean')clean=Math.max(0,clean-1);
         if(Math.random()<.38)poop=Math.min(2,poop+1);msg.textContent=poop?'💩した!そうじしてあげよう':'ようすが かわった!';draw();
       }
-      container.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{
+      container.querySelectorAll('[data-a]').forEach(b=>b.onpointerdown=(e)=>{e.preventDefault();
         if(done||performance.now()<startTime)return;steps++;const a=b.dataset.a;
         if(a==='food'){hunger=Math.min(3,hunger+1);if(Math.random()<.3)poop=Math.min(2,poop+1);msg.textContent='🍚 おなかいっぱい!';}
         if(a==='play'){happy=Math.min(3,happy+1);hunger=Math.max(0,hunger-1);msg.textContent='🎾 たのしそう!でも おなかへった';}
