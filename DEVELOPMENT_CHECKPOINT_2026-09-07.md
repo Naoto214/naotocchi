@@ -872,3 +872,13 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #130 = SUCCESS。
 - 次工程: WORLD_MASTERのRARE登録順どおり `ghost` → `star`。存在しない種は追加しない。
 
+## チェックポイント Z — おばけ・ほし8段階 PNG 実装
+- WORLD_MASTERのRARE登録順どおり `ghost` → `star` を実装。
+- `ghost`: 小さな魂→小幽霊→幼い怪異→おばけ→大怪異→古い霊→穏やかな霊→成仏寸前。
+- `star`: 星間雲→凝縮雲→原始星→若い恒星→恒星→巨星→超新星→星の残骸。
+- 各01〜08、計16枚を64×64 RGBA透過PNG、非アンチエイリアス、少色で追加。卵は段階に含めていない。
+- 既存Character Rendererのパス規約による自動接続を使用し、Renderer/WORLD_MASTER本体は変更していない。
+- PNG投入コミット: `e76bc8962bba19ed7d8bcf9d67c27beafdd47c7e`。
+- Runtime smoke test run #132 = SUCCESS。
+- 次工程: WORLD_MASTERのRARE登録順どおり `plush` → `unknown`。存在しない種は追加しない。
+
