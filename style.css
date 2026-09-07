@@ -5591,20 +5591,33 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 @keyframes mg-p3-hit { 0%,100%{transform:translateX(0)} 33%{transform:translateX(-5px)} 66%{transform:translateX(5px)} }
 
 .mg-fp-view {
-  position:relative; height:250px; overflow:hidden; border-radius:18px;
-  perspective:300px; background:#171512;
-  box-shadow:inset 0 0 35px rgba(0,0,0,.75);
+  position:relative;height:270px;overflow:hidden;border-radius:18px;perspective:420px;
+  background:linear-gradient(#17191e,#25201b);box-shadow:inset 0 0 45px rgba(0,0,0,.82);
+  touch-action:none;
 }
-.mg-fp-ceiling,.mg-fp-floor { position:absolute; left:0; right:0; height:50%; }
-.mg-fp-ceiling { top:0; background:linear-gradient(#171512,#2b261f); clip-path:polygon(0 0,100% 0,72% 100%,28% 100%); }
-.mg-fp-floor { bottom:0; background:linear-gradient(#5b4a34,#201b16); clip-path:polygon(28% 0,72% 0,100% 100%,0 100%); }
-.mg-fp-wall { position:absolute; top:0; bottom:0; width:35%; background:linear-gradient(90deg,#332b23,#67543f); z-index:2; }
-.mg-fp-wall.left { left:0; clip-path:polygon(0 0,100% 25%,100% 75%,0 100%); }
-.mg-fp-wall.right { right:0; transform:scaleX(-1); clip-path:polygon(0 0,100% 25%,100% 75%,0 100%); }
-.mg-fp-depth { position:absolute; left:50%; top:48%; transform:translate(-50%,-50%); font-size:42px; z-index:4; }
-.mg-fp-door { position:absolute; left:50%; top:42%; transform:translate(-50%,-50%); font-size:72px; z-index:5; display:none; }
-.mg-fp-view.blocked .mg-fp-depth { font-size:92px; filter:drop-shadow(0 0 10px rgba(255,90,70,.8)); }
-.mg-fp-view:not(.blocked) .mg-fp-depth { text-shadow:0 2px 8px rgba(255,220,120,.55); }
+.mg-fp-ceiling{position:absolute;inset:0 0 50%;background:linear-gradient(#17191e,#37312a);clip-path:polygon(0 0,100% 0,68% 100%,32% 100%)}
+.mg-fp-floor{position:absolute;inset:50% 0 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 42px),linear-gradient(#574b3c,#211d19);clip-path:polygon(32% 0,68% 0,100% 100%,0 100%)}
+.mg-fp-corridor{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:3px solid rgba(201,172,126,.3);z-index:2}
+.mg-fp-corridor.far{width:24%;height:27%;box-shadow:0 0 28px rgba(255,205,120,.08)}
+.mg-fp-corridor.mid{width:47%;height:55%;border-color:rgba(201,172,126,.18)}
+.mg-fp-sidewall{position:absolute;top:0;bottom:0;width:34%;z-index:3;background:
+  repeating-linear-gradient(0deg,transparent 0 27px,rgba(0,0,0,.22) 28px 30px),
+  repeating-linear-gradient(90deg,#5b4937 0 42px,#45372c 43px 45px)}
+.mg-fp-sidewall.left{left:0;clip-path:polygon(0 0,100% 24%,100% 76%,0 100%)}
+.mg-fp-sidewall.right{right:0;clip-path:polygon(0 24%,100% 0,100% 100%,0 76%)}
+.mg-fp-sidewall.open{opacity:.28;background:#171512}
+.mg-fp-frontwall{position:absolute;left:31%;right:31%;top:25%;bottom:25%;z-index:5;display:none;align-items:center;justify-content:center;
+  border:4px solid #2c211a;border-radius:4px;background:
+  repeating-linear-gradient(0deg,transparent 0 27px,rgba(30,18,12,.42) 28px 31px),
+  repeating-linear-gradient(90deg,#8a6548 0 43px,#5d432f 44px 47px);
+  box-shadow:0 0 35px rgba(0,0,0,.75)}
+.mg-fp-frontwall span{font-size:58px;filter:drop-shadow(0 5px 5px rgba(0,0,0,.5))}
+.mg-fp-object{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);z-index:8;filter:drop-shadow(0 8px 5px rgba(0,0,0,.55));transition:font-size .12s,top .12s}
+.mg-fp-object.here{font-size:76px;top:60%}.mg-fp-object.near{font-size:54px}.mg-fp-object.far{font-size:30px;top:49%}
+.mg-fp-object.treasure{animation:mg-fp-glow 1s ease-in-out infinite alternate}.mg-fp-object.exit{font-size:78px}
+.mg-fp-compass{position:absolute;right:10px;top:10px;z-index:10;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);color:#fff;font-size:22px;border:1px solid rgba(255,255,255,.3)}
+.mg-fp-view.blocked .mg-fp-corridor{opacity:.15}
+@keyframes mg-fp-glow{from{filter:drop-shadow(0 5px 4px rgba(0,0,0,.5))}to{filter:drop-shadow(0 0 15px rgba(255,210,70,.95))}}
 
 /* 3D-style downhill: depth, curves, gates and jump ramps */
 .mg-ski3d-scene{position:relative;height:270px;overflow:hidden;border-radius:18px;perspective:380px;background:linear-gradient(#9ed7ff 0 35%,#eaf7ff 36% 100%);touch-action:manipulation}
