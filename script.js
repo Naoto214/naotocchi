@@ -10642,20 +10642,20 @@
         const DURATION_MS = 15000;
         const speed = lerp(0.42, 0.60, difficulty);
         const spawnMs = lerp(900, 620, difficulty);
-        let lane = 1, running = true, hits = 0, gatesPassed = 0, totalGates = 0, jumps = 0;
+        let lane = 1, running = true, hits = 0, gatesPassed = 0, totalGates = 0, jumps = 0, jumpClears = 0, spawnCount = 0;
         let objects = [], rafId, spawnTimer, lastFrame = null;
         let airborneUntil = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         const laneX = [28, 50, 72];
 
         container.innerHTML = `
-          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩通過 0/0　ジャンプ 0</span></div>
+          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩通過 0/0　🪵ジャンプ成功 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-ski3d-scene" id="mgSki3dScene">
-            <div class="mg-ski3d-sky">🏔️</div><div class="mg-ski3d-slope"></div>
+            <div class="mg-ski3d-sky">🏔️</div>
             <div class="mg-ski3d-player" id="mgSki3dPlayer">${playerEmoji}</div>
           </div>
-          <div class="mg-hint">◀ ▶でレーン移動。木や岩が来たら「ジャンプ!」で飛び越える。🚩は同じレーンを通ろう!</div>
+          <div class="mg-hint">◀ ▶でよける。🪵が横いっぱいに来たらジャンプ必須! 🚩は同じレーンを通ろう</div>
           <div class="mg-dpad-mid mg-downhill-controls"><button class="mg-tap-btn" id="mgDownhillLeft">◀</button><button class="mg-tap-btn mg-jump-btn" id="mgDownhillJump">ジャンプ!</button><button class="mg-tap-btn" id="mgDownhillRight">▶</button></div>`;
         const scene=container.querySelector('#mgSki3dScene'),player=container.querySelector('#mgSki3dPlayer');
         const timerEl=container.querySelector('#mgTimer'),scoreEl=container.querySelector('#mgScore');
@@ -10672,17 +10672,19 @@
           if(now<airborneUntil)return;
           jumps++;
           airborneUntil=now+720;
-          scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　ジャンプ ${jumps}`;
+          scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　🪵ジャンプ成功 ${jumpClears}`;
         });
         // 画面タップ移動は誤操作が多いため廃止。左右ボタン+ジャンプだけに統一。
 
         function spawn(){
           if(!running)return;
+          spawnCount++;
+          const forceJump = spawnCount % 5 === 0;
           const r=Math.random();
-          const kind=r<.42?'gate':'obstacle';
-          const objLane=Math.floor(Math.random()*3),el=document.createElement('div');
+          const kind=forceJump?'jumpBarrier':(r<.38?'gate':'obstacle');
+          const objLane=kind==='jumpBarrier'?null:Math.floor(Math.random()*3),el=document.createElement('div');
           el.className='mg-ski3d-object '+kind;
-          el.textContent=kind==='gate'?'🚩':obstacleEmoji;
+          el.textContent=kind==='gate'?'🚩':kind==='jumpBarrier'?'🪵🪵🪵':obstacleEmoji;
           scene.appendChild(el);objects.push({el,lane:objLane,z:0,kind,resolved:false});
           spawnTimer=setTimeout(spawn,spawnMs);
         }
@@ -10697,17 +10699,22 @@
           player.classList.toggle('airborne',airborne);
           for(const o of objects){
             o.z+=speed*dt;
-            const scale=.18+o.z*1.8,y=24+o.z*70,x=50+(laneX[o.lane]-50)*(.15+o.z*.85);
+            const scale=.18+o.z*1.8,y=24+o.z*70;
+            const x=o.kind==='jumpBarrier'?50:50+(laneX[o.lane]-50)*(.15+o.z*.85);
             o.el.style.left=x+'%';o.el.style.top=y+'%';o.el.style.transform=`translate(-50%,-50%) scale(${scale})`;
             o.el.style.opacity=Math.min(1,.3+o.z);
             if(!o.resolved&&o.z>=.84){
               o.resolved=true;
               if(o.kind==='gate'){totalGates++;if(o.lane===lane){gatesPassed++;o.el.classList.add('passed');}}
+              else if(o.kind==='jumpBarrier'){
+                if(airborne){jumpClears++;o.el.classList.add('passed');}
+                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),180);}
+              }
               else if(o.kind==='obstacle'&&o.lane===lane){
                 if(airborne){o.el.classList.add('passed');}
                 else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
               }
-              scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　ジャンプ ${jumps}`;
+              scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　🪵ジャンプ成功 ${jumpClears}`;
             }
           }
           objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
@@ -10717,8 +10724,9 @@
         rafId=requestAnimationFrame(frame);
         function end(){
           if(!running)return;running=false;cancelAnimationFrame(rafId);clearTimeout(spawnTimer);
-          const gateScore=totalGates?gatesPassed/totalGates*55:25;
-          onComplete(clamp(Math.round(30+gateScore+jumps*8-hits*18),5,100));
+          const gateScore=totalGates?gatesPassed/totalGates*45:20;
+          const jumpScore=Math.min(35,jumpClears*12);
+          onComplete(clamp(Math.round(25+gateScore+jumpScore-hits*20),5,100));
         }
       }
     };
