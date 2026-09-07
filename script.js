@@ -11054,6 +11054,45 @@
     }};
   }
   const CRANE_GAME_VARIANTS=[mg('crane-game-3d',makeCraneGame())];
+  // --- ピンボール: 物理ボール・バンパー・左右フリッパー ---
+  function makePinballGame(){
+    return {start(container,onComplete){
+      const DURATION_MS=26000,GOAL=650;
+      let x=50,y=22,vx=17,vy=-8,score=0,balls=3,running=true,leftActive=false,rightActive=false,rafId,last=null,start=performance.now();
+      const bumpers=[{x:32,y:34,r:9,v:90},{x:68,y:34,r:9,v:90},{x:50,y:52,r:10,v:120}];
+      container.innerHTML=`
+        <div class="mg-header"><span id="pbTimer">のこり: 26s</span><span id="pbScore">0 / ${GOAL}pt　●●●</span></div>
+        <div class="mg-title">ピンボール!フリッパーでボールを落とすな</div>
+        <div class="mg-pinball" id="pbField">
+          <div class="mg-pinball-bumper b1">90</div><div class="mg-pinball-bumper b2">90</div><div class="mg-pinball-bumper b3">120</div>
+          <div class="mg-pinball-target t1">★</div><div class="mg-pinball-target t2">★</div>
+          <div class="mg-pinball-ball" id="pbBall"></div>
+          <div class="mg-pinball-flipper left" id="pbFlipL"></div><div class="mg-pinball-flipper right" id="pbFlipR"></div>
+        </div>
+        <div class="mg-hint" id="pbHint">左右のフリッパーで打ち返して ${GOAL}ptを目指そう</div>
+        <div class="mg-pinball-controls"><button class="mg-tap-btn" id="pbLeft">◀ 左</button><button class="mg-tap-btn" id="pbRight">右 ▶</button></div>`;
+      const field=container.querySelector('#pbField'),ball=container.querySelector('#pbBall'),timer=container.querySelector('#pbTimer'),scoreEl=container.querySelector('#pbScore'),hint=container.querySelector('#pbHint'),fl=container.querySelector('#pbFlipL'),fr=container.querySelector('#pbFlipR');
+      function resetBall(){x=50;y=24;vx=(Math.random()<.5?-1:1)*(14+Math.random()*8);vy=-20;render();}
+      function render(){ball.style.left=x+'%';ball.style.top=y+'%';scoreEl.textContent=score+' / '+GOAL+'pt　'+'●'.repeat(balls);}
+      function hitBumper(b){const dx=x-b.x,dy=y-b.y,d=Math.max(0.001,Math.hypot(dx,dy));if(d<b.r+3){const nx=dx/d,ny=dy/d,speed=Math.max(24,Math.hypot(vx,vy)*1.08);vx=nx*speed;vy=ny*speed;score+=b.v;hint.textContent='バンパー! +'+b.v;return true;}return false;}
+      function flip(side){if(!running)return;const isLeft=side==='left';if(isLeft){leftActive=true;fl.classList.add('active');setTimeout(()=>{leftActive=false;fl.classList.remove('active');},130);}else{rightActive=true;fr.classList.add('active');setTimeout(()=>{rightActive=false;fr.classList.remove('active');},130);}const nearBottom=y>70,nearSide=isLeft?x<56:x>44;if(nearBottom&&nearSide&&vy>0){vx+=(isLeft?18:-18);vy=-Math.max(30,Math.abs(vy)*1.08);score+=10;hint.textContent='ナイスショット!';}}
+      container.querySelector('#pbLeft').onpointerdown=e=>{e.preventDefault();flip('left');};container.querySelector('#pbRight').onpointerdown=e=>{e.preventDefault();flip('right');};
+      field.onpointerdown=e=>{e.preventDefault();const r=field.getBoundingClientRect();flip(e.clientX-r.left<r.width/2?'left':'right');};
+      function frame(now){if(!running)return;if(last===null)last=now;const dt=Math.min(.028,(now-last)/1000);last=now;
+        vy+=35*dt;x+=vx*dt;y+=vy*dt;
+        if(x<6){x=6;vx=Math.abs(vx)*.92;}if(x>94){x=94;vx=-Math.abs(vx)*.92;}if(y<6){y=6;vy=Math.abs(vy)*.92;score+=15;}
+        bumpers.forEach(hitBumper);
+        if(y>78&&y<88){if(leftActive&&x<52){vy=-34;vx=16+Math.random()*10;}if(rightActive&&x>48){vy=-34;vx=-(16+Math.random()*10);}}
+        if((x<17||x>83)&&y>52&&y<68){score+=25;vx*=-1;vy=-Math.abs(vy);}
+        if(y>104){balls--;if(balls<=0){finish(false);return;}hint.textContent='ボールを落とした… のこり '+balls;resetBall();}
+        const rem=Math.max(0,DURATION_MS-(now-start));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';render();
+        if(score>=GOAL){finish(true);return;}if(rem<=0){finish(false);return;}rafId=requestAnimationFrame(frame);
+      }
+      function finish(clear){if(!running)return;running=false;cancelAnimationFrame(rafId);hint.textContent=clear?'🎉 目標スコア達成!':'しゅうりょう! '+score+'pt';setTimeout(()=>onComplete(clear?clamp(72+balls*8+Math.min(15,(score-GOAL)/20),72,100):clamp(25+score/14,20,70)),650);}
+      resetBall();rafId=requestAnimationFrame(frame);
+    }};
+  }
+  const PINBALL_VARIANTS=[mg('pinball-physics',makePinballGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -11062,6 +11101,7 @@
     ...ACTION_BOSS_VARIANTS,
     ...FALLING_BLOCK_VARIANTS,
     ...CRANE_GAME_VARIANTS,
+    ...PINBALL_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -11085,6 +11125,7 @@
     ['actionBoss', ACTION_BOSS_VARIANTS],
     ['fallingBlock', FALLING_BLOCK_VARIANTS],
     ['craneGame', CRANE_GAME_VARIANTS],
+    ['pinball', PINBALL_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11283,7 +11324,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'pinball', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11294,6 +11335,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'pinball-physics',
     'crane-game-3d',
     'falling-block-puzzle',
     'action-boss-3d',
