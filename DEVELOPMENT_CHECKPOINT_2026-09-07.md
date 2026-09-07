@@ -861,3 +861,14 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #128 = SUCCESS。
 - 次工程: WORLD_MASTERのRARE登録順どおり `god` → `world_tree`。
 
+## チェックポイント Y — かみさま・世界樹8段階 PNG 実装
+- WORLD_MASTERのRARE登録順どおり `god` → `world_tree` を実装。
+- `assets/characters/god/01.png`〜`08.png`、`assets/characters/world_tree/01.png`〜`08.png` を追加。
+- かみさまは、光の粒→光の子→精霊→小神→神→大神→神格→光そのもの。成長するほど人型を強めるのではなく、後半ほど輪郭を光へ溶かし、8では人型を消して大きな光そのものへ抽象化。
+- 世界樹は、光る芽→神秘の苗→幼樹→精霊樹→大樹→巨大樹→天空樹→世界樹。サクラとの差別化のため、6以降は枝/根が画面端へ迫り、7は樹冠が雲上へ抜け、8は幹の一部しか収まらず周囲に小島/星のような世界要素を持つ構成。
+- 16枚すべて64×64 RGBA透過PNG、非アンチエイリアス、少色の既存なおとっちドット絵テイスト。既存Character Rendererの `assets/characters/<species>/<01..08>.png` 自動接続をそのまま使用。
+- WORLD_MASTER/Character Renderer本体の再設計・個別script編集なし。
+- PNG投入コミット: `8ed9e648e5d8a002fbb5eec87ebe4f10c0004346`。
+- Runtime smoke test run #130 = SUCCESS。
+- 次工程: WORLD_MASTERのRARE登録順どおり `ghost` → `star`。存在しない種は追加しない。
+
