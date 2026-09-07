@@ -769,3 +769,13 @@ Runtime smoke test SUCCESS確認済み。
 - masterから生成する全22通常+8レアstageへ `assets/characters/<species>/<01..08>.png` のstable asset pathを自動付与するよう修正。
 - これにより既に投入済み man/woman/dog/cat のPNGが実runtimeでも確実に使われる。未制作種族は画像ロード失敗時に従来emojiへfallbackするため段階的移行を維持。
 - 次工程: Runtime smoke test確認 → frog/salmonへ進む。
+
+
+## チェックポイント P — カエル・サケ8段階 PNG 実装
+- `assets/characters/frog/01.png`〜`08.png`、`assets/characters/salmon/01.png`〜`08.png` を追加。
+- master asset自動接続済みのためscript個別編集は不要。既存 `installMasterSpecies()` がstable pathを付与し、未読込時のみemojiへfallbackする。
+- カエルは小オタマ→オタマ→後脚→四肢＋尾→変態直後→子ガエル→成体→老成体。尾の縮小、脚の出現、頭身/体格、老齢の質感を段階ごとに変更。
+- サケは仔魚→稚魚→パー→スモルト→海洋若魚→成魚→遡上魚→婚姻色成熟魚。卵黄嚢、パーマーク、銀化、成魚の大型化、遡上時の婚姻色/顔つき、最終段階のくすみ・傷で「川→海→川」の物語を見せる。
+- 42px縮小プレビューで、カエルの変態過程とサケのパーマーク/銀化/婚姻色の差が維持されることを確認。
+- チェックポイントO `a2e5d5e0` のRuntime smoke test run #118 = SUCCESS確認済み。
+- 次工程: このコミットのRuntime smoke test確認 → clownfish / butterflyへ進む。
