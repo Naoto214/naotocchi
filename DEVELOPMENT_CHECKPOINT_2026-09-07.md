@@ -904,3 +904,18 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #137 = SUCCESS（WORLD_MASTER更新）、#138 = SUCCESS（PNG修復）。
 - 未修復対象: `beetle` / `stagbeetle` / `cicada` / `jellyfish`。この4種を優先し、その後SECRET `ren` に進む。
 
+
+
+## チェックポイント AC — カブトムシ・クワガタムシ・セミ・クラゲ PNG 修復
+- チェックポイントAB後の未修復対象 `beetle` / `stagbeetle` / `cicada` / `jellyfish` をWORLD_MASTER現行8段階へ合わせて修復。
+- 卵はゲーム開始時に別で存在するため、いずれの8段階にも含めていない。
+- `beetle`: 孵化幼虫→幼虫→成熟幼虫→蛹→羽化直後→若成虫→成虫→老成虫。後半は角・体格・色・翅・摩耗表現で5/6/7/8を分離。
+- `stagbeetle`: 孵化幼虫→幼虫→成熟幼虫→蛹→羽化直後→若成虫→成虫→老成虫。蛹以降は大顎を主シルエットにし、成虫期の差を強調。
+- `cicada`: 若齢幼虫→幼虫→終齢幼虫→地上脱出→羽化中→若成虫→成虫→老成虫。地中幼虫、地上脱出、羽化中、淡色の若成虫、完成翅、老化した成虫を分離。
+- `jellyfish`: プラヌラ→ポリプ→ストロビラ→エフィラ→若クラゲ→成体→大型成熟体→老成体。旧画像の生活環素材を現行順へ再配置し、8段階目の老成体を新規追加。
+- 32枚すべて `assets/characters/<species>/01.png`〜`08.png` に配置。64×64 RGBA PNG、透過背景、文字・UI・シート背景なし。
+- Character Renderer / WORLD_MASTER本体は変更せず、既存のstable asset path自動接続規約をそのまま利用。
+- PNG修復コミット: `c565353d71537b5d87c4a687c483bc04b8e874fa`。
+- Runtime smoke test run #140 = SUCCESS。
+- これでチェックポイントAAで未完了だった `beetle` / `stagbeetle` / `cicada` / `antlion` / `jellyfish` のPNG再制作は全て完了。
+- 次工程: SECRET `ren` の専用8段階PNG。通常人間ラインの色違いにしない。
