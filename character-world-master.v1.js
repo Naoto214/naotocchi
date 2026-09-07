@@ -142,32 +142,26 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
 
 
   compatibility: {
-    // 現行main（旧構成）から新マスターへ読み替えるための暫定マップ。
-    // ここでは既存セーブを書き換えず、「新マスター側でどう解釈するか」だけ定義する。
-    species: {
+    // 旧IDを「似ている新キャラ」へ無理に変換しない。
+    // 同一キャラクター/同一概念と判断できるものだけ alias を張り、
+    // それ以外は legacy-only として旧IDを保持する。
+    speciesAliases: {
       dog: 'dog',
       cat: 'cat',
-      bird: 'penguin',
       man: 'man',
       woman: 'woman',
       beetle: 'beetle',
       stagbeetle: 'stagbeetle',
-      rabbit: 'cat',
-      fish: 'salmon',
       dragon: 'dragon',
-      panda: 'dog',
-      fox: 'cat',
-      owl: 'penguin',
-      plant: 'dandelion',
-      robot: 'plush',
-      dinosaur: 'dragon',
       god: 'god',
       ren: 'ren',
-      mermaid: 'unknown',
-      unicorn: 'unknown',
       phoenix: 'phoenix',
     },
-    companions: {
+    legacyOnlySpecies: [
+      'bird','rabbit','fish','panda','fox','owl','plant','robot','dinosaur','mermaid','unicorn',
+    ],
+
+    companionAliases: {
       shiba: 'shiba',
       tanuki: 'tanuki',
       penguin: 'penguin_friend',
@@ -180,29 +174,27 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       squirrel: 'squirrel',
       punyu: 'punyu',
       sekizou: 'sekizou',
-      hakuchou: 'unicorn',
       chameleon: 'chameleon',
       kinoko: 'kinoko',
     },
-    partners: {
-      home_cat: 'cat_ceo',
-      park_dog: 'field_cow',
-      sea_mermaid: 'sea_mermaid',
-      surf_turtle: 'rock_octopus',
-      snow_spirit: 'snow_spirit',
-      lodge_bear: 'forest_bear',
-      city_robot: 'robot_neighbor',
-      cat_ceo: 'cat_ceo',
-      sunflower: 'sunflower_partner',
-      field_cow: 'field_cow',
-      forest_fox: 'grove_deer',
-      grove_squirrel: 'grove_deer',
-      desert_scorpion: 'desert_scorpion',
-      oasis_camel: 'oasis_cactus',
-      tropical_parrot: 'gentle_gorilla',
-      palm_lizard: 'knitting_spider',
+    legacyOnlyCompanions: ['hakuchou'],
+
+    partnerAliases: {
+      mermaid: 'sea_mermaid',
+      'snow-spirit': 'snow_spirit',
+      'cabin-bear': 'forest_bear',
+      'town-robot': 'robot_neighbor',
+      'ceo-cat': 'cat_ceo',
+      'field-sunflower': 'sunflower_partner',
+      'meadow-cow': 'field_cow',
+      'desert-scorpion': 'desert_scorpion',
     },
-    regions: {
+    legacyOnlyPartners: [
+      'neighbor-cat','park-dog','surfer-turtle','forest-fox','tree-squirrel',
+      'oasis-camel','tropical-parrot','palm-lizard',
+    ],
+
+    regionAliases: {
       home: 'home',
       sea: 'sea',
       snow: 'snow',
@@ -214,12 +206,15 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       star_stop: 'star_stop',
       memory_lake: 'memory_lake',
     },
+
     policy: {
       preserveRawSaveIds: true,
-      unknownSpeciesFallback: 'dog',
-      unknownCompanionPolicy: 'keep-raw-id-and-hide-only-if-unresolvable',
-      unknownPartnerPolicy: 'keep-current-partner-snapshot',
+      migrateOnlyExactAliases: true,
+      unknownSpeciesPolicy: 'keep-legacy-id-and-render-with-legacy-definition-until-life-reset',
+      unknownCompanionPolicy: 'keep-legacy-id-and-render-with-legacy-definition',
+      unknownPartnerPolicy: 'keep-current-partner-snapshot-and-legacy-id',
       unknownRegionFallback: 'home',
+      migrationTiming: 'current-life values are preserved; new pools apply from new encounters/new lives unless exact alias is safe',
     },
   },
 
