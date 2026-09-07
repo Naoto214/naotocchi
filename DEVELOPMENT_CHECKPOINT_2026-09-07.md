@@ -963,3 +963,14 @@ Runtime smoke test SUCCESS確認済み。
 - 正式8段階: `ちびれん / げんきれん / こどもれん / しょうねんれん / わかものれん / おとなれん / としをかさねたれん / おじいちゃんれん`。
 - 表記修正コミット: `1fd100e101c0de083779482bd56c2f281649f65e`。
 - Runtime smoke test run #146 = SUCCESS。
+
+
+## チェックポイント AF — 248形態/runtime回帰監査（第1段階）
+- 監査開始HEAD: `892fcd45604c727828246132c6408a232e336b86`（Runtime smoke test #147 = SUCCESS）。
+- WORLD_MASTERのplayerSpeciesを実データから再列挙し、NORMAL 22 + RARE 8 + SECRET ren 1 = 31ライン、各8段階 = 248形態であることを確認。
+- `installMasterSpecies()` は normal / rare / secret を同じstable asset path `assets/characters/<id>/<01..08>.png` へ接続する構造。ren専用Renderer分岐は追加していない。
+- 人生8段階は `LIFE_STAGES` と年齢から導出し、`stageIndex` はキャッシュ扱い。既存セーブのschema v2→v3、v3→v4移行と旧clear→FAREWELL移行を保持。
+- セーブ読込失敗時はバックアップキー→現在キーの生JSONから最小復旧し、空セーブで即上書きしない既存防御を確認。
+- 100歳到達は `enterFarewell()` →「さいごのじかん」→人生記録カード→新しい卵、という共通フローで動作することをコード監査。
+- 現時点では `ren` 第8段階専用の振り返りムービー分岐は存在せず、他種と同じ人生記録カードへ入る。これは「実装済み」とみなさず次工程の明示的な検討対象とする。
+- Runtime smoke testによる静的/runtime基本回帰は継続してSUCCESS。248ファイル全件のGitHub API個別ヘッダ再走査はコネクタ1回あたりのcall上限があるため、種単位の既存検証＋各投入コミットのSUCCESSを正として継続監査する。
