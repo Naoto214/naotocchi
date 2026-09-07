@@ -10856,23 +10856,18 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 数より質を優先。単純な計算・1タップ・運任せ・主観ランキング・単純キャッチ等に加え、
-  // 客観ランキングやレトロ育成のような「操作の展開が薄い」ものも通常抽選から外す。
-  // 3D/探索/戦闘/回避/複数段階など、遊びとして展開があるゲームを中心にする。
+  // 数より質を優先。「何も考えず反射だけ」で成立するゲームは通常抽選に入れない。
+  // 単発の狙い撃ち/スワイプ投げ/スポーツスイング/積み上げ/ランダム物探し脱出も除外。
+  // 操作が簡単でも、位置取り・進路選択・攻守・探索・リスク判断など意思決定が続くゲームだけ残す。
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
-    ...STACK_GAME_VARIANTS,
     ...FIGHT_GAME_VARIANTS,
     ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
-    ...TARGET_AIM_VARIANTS,
-    ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
-    ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
-    ...MINI_ESCAPE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
     ...CREATURE_CAPTURE_VARIANTS,
@@ -10885,18 +10880,13 @@
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
     ['road', ROAD_GAME_VARIANTS],
-    ['stack', STACK_GAME_VARIANTS],
     ['fight', FIGHT_GAME_VARIANTS],
     ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
-    ['targetAim', TARGET_AIM_VARIANTS],
-    ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
-    ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
-    ['miniEscape', MINI_ESCAPE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
     ['creatureCapture', CREATURE_CAPTURE_VARIANTS],
@@ -10928,13 +10918,7 @@
       }) },
     ],
     countryside: [],
-    forest: [
-      { category: 'stack', game: makeStackGame({
-        title: 'きのみタワー!たかく つみあげよう',
-        blockEmoji: '🌰',
-        palette: ['#8a9a5b', '#a3b18a', '#dad7cd', '#588157', '#3a5a40', '#344e41', '#bc6c25'],
-      }) },
-    ],
+    forest: [],
     desert: [
       { category: 'road', game: makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
@@ -10997,13 +10981,7 @@
     [SEASON.SUMMER]: [
       { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
-    [SEASON.AUTUMN]: [
-      { category: 'stack', game: makeStackGame({
-        title: 'おちばの やまを たかく つもう!',
-        blockEmoji: '🍁',
-        palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
-      }) },
-    ],
+    [SEASON.AUTUMN]: [],
     [SEASON.WINTER]: [],
   };
 
@@ -11108,7 +11086,6 @@
     'rpg-themed',
     'fight-themed',
     'breakout-classic',
-    'miniEscape-themed',
     'shooter-themed',
   ]);
 
