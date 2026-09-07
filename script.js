@@ -10860,8 +10860,6 @@
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
-    ...FIGHT_GAME_VARIANTS,
-    ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
@@ -10882,8 +10880,6 @@
   const MINIGAME_CATEGORY_GROUPS = [
     ['road', ROAD_GAME_VARIANTS],
     ['stack', STACK_GAME_VARIANTS],
-    ['fight', FIGHT_GAME_VARIANTS],
-    ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
@@ -11084,7 +11080,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'rpg', 'shooter', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11099,8 +11095,6 @@
     'creature-capture-3d',
     'adventure-field',
     'chase-themed',
-    'rpg-themed',
-    'fight-themed',
     'breakout-classic',
     'shooter-themed',
   ]);
