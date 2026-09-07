@@ -10857,11 +10857,77 @@
   // 数より質を優先。ただし「操作が単純」だけを理由に削らない。
   // ボウリング/カーリング、スポーツ、積み上げのように短くても狙い・手応え・爽快感があるものは残す。
   // 正解や工夫がほぼなく、反射/ランダムだけで爽快感も薄いものを通常抽選から外す。
+  // --- アクションボス戦: 実際に動いて避け、隙を見て攻撃する ---
+  function makeActionBossGame(){
+    return {start(container,onComplete){
+      const DURATION_MS=18000, lanes=[18,50,82];
+      let lane=1,bossHp=6,hitsTaken=0,running=true,weak=false,projectiles=[],rafId,lastSpawn=0;
+      const startTime=performance.now()+MG_ACTION_START_GRACE_MS;
+      container.innerHTML=`
+        <div class="mg-header"><span id="abTimer">のこり: 18s</span><span id="abBoss">ボスHP: 💢💢💢💢💢💢</span></div>
+        <div class="mg-title">3Dボスバトル!よけて、隙を見て こうげき!</div>
+        <div class="mg-action-boss" id="abScene">
+          <div class="mg-action-boss-enemy" id="abEnemy">👹</div>
+          <div class="mg-action-boss-player" id="abPlayer">${currentSprite()}</div>
+        </div>
+        <div class="mg-hint" id="abHint">左右でよける。ボスがひるんだら「こうげき!」</div>
+        <div class="mg-action-boss-controls">
+          <button class="mg-tap-btn" id="abLeft">◀</button>
+          <button class="mg-tap-btn" id="abAttack">⚔️ こうげき!</button>
+          <button class="mg-tap-btn" id="abRight">▶</button>
+        </div>`;
+      const scene=container.querySelector('#abScene'),enemy=container.querySelector('#abEnemy'),player=container.querySelector('#abPlayer');
+      const hint=container.querySelector('#abHint'),timer=container.querySelector('#abTimer'),boss=container.querySelector('#abBoss');
+      const move=()=>{player.style.left=lanes[lane]+'%';}; move();
+      const setLane=(n)=>{lane=clamp(n,0,2);move();};
+      container.querySelector('#abLeft').addEventListener('pointerdown',e=>{e.preventDefault();setLane(lane-1);});
+      container.querySelector('#abRight').addEventListener('pointerdown',e=>{e.preventDefault();setLane(lane+1);});
+      scene.addEventListener('pointerdown',e=>{e.preventDefault();const r=scene.getBoundingClientRect(),p=(e.clientX-r.left)/r.width;setLane(p<1/3?0:p>2/3?2:1);});
+      container.querySelector('#abAttack').addEventListener('pointerdown',e=>{
+        e.preventDefault(); if(!running)return;
+        if(!weak){hint.textContent='まだ隙がない! 先に攻撃をよけよう';return;}
+        weak=false;bossHp--;enemy.classList.add('hit');setTimeout(()=>enemy.classList.remove('hit'),180);
+        boss.textContent='ボスHP: '+'💢'.repeat(Math.max(0,bossHp));
+        hint.textContent='ヒット! つぎの攻撃にそなえよう';
+        if(bossHp<=0)finish(true);
+      });
+      function spawnAttack(now){
+        const attackLane=Math.floor(Math.random()*3),el=document.createElement('div');
+        el.className='mg-action-boss-projectile';el.textContent=Math.random()<.5?'🔥':'💥';scene.appendChild(el);
+        projectiles.push({el,lane:attackLane,born:now,resolved:false});
+        enemy.classList.add('attack');setTimeout(()=>enemy.classList.remove('attack'),220);hint.textContent='攻撃がくる! レーンを変えてよけよう';
+      }
+      function frame(now){
+        if(!running)return;if(now<startTime){rafId=requestAnimationFrame(frame);return;}
+        if(now-lastSpawn>1500){spawnAttack(now);lastSpawn=now;}
+        projectiles=projectiles.filter(p=>{
+          const t=clamp((now-p.born)/1050,0,1);p.el.style.left=lanes[p.lane]+'%';p.el.style.top=(18+t*68)+'%';
+          p.el.style.transform='translate(-50%,-50%) scale('+(0.45+t*1.05)+')';
+          if(t>=1&&!p.resolved){p.resolved=true;
+            if(p.lane===lane){hitsTaken++;scene.classList.add('hit');hint.textContent='くらった! 別レーンへよけよう';setTimeout(()=>scene.classList.remove('hit'),160);}
+            else{weak=true;enemy.classList.add('weak');hint.textContent='ボスがひるんだ! いま「こうげき!」';setTimeout(()=>enemy.classList.remove('weak'),700);}
+            p.el.remove();return false;
+          } return true;
+        });
+        const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';
+        if(rem<=0){finish(false);return;} rafId=requestAnimationFrame(frame);
+      }
+      function finish(win){
+        if(!running)return;running=false;cancelAnimationFrame(rafId);projectiles.forEach(p=>p.el.remove());
+        hint.textContent=win?'🏆 ボスをたおした!':'時間切れ! ボスHP '+bossHp;
+        const score=win?clamp(100-hitsTaken*12,60,100):clamp(55-bossHp*6-hitsTaken*10,15,60);
+        setTimeout(()=>onComplete(score),700);
+      }
+      rafId=requestAnimationFrame(frame);
+    }};
+  }
+  const ACTION_BOSS_VARIANTS=[mg('action-boss-3d',makeActionBossGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
+    ...ACTION_BOSS_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -10882,6 +10948,7 @@
     ['stack', STACK_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
+    ['actionBoss', ACTION_BOSS_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11080,7 +11147,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11091,6 +11158,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'action-boss-3d',
     'fp-dungeon',
     'creature-capture-3d',
     'adventure-field',
