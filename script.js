@@ -2130,7 +2130,7 @@
   // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
   let speechTimer = null;
   let speechActive = false;
-  const SPEECH_DURATION_MS = 2400;
+  const SPEECH_DURATION_MS = 2500;
 
   function hideSpeechBubble() {
     speechActive = false;
@@ -4288,7 +4288,7 @@
     el.dateMovieCaption.classList.add('beat');
 
     // 文章を読んで余韻も残せる速度。通常でも約3.4秒/文、特別デートは約4.2秒/文。
-    const step = special ? 4200 : 3400;
+    const step = special ? 4000 : 3500;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
@@ -4427,7 +4427,7 @@
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
-    const step = milestone.years >= 25 ? 4300 : 3700;
+    const step = 4000;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
@@ -4607,7 +4607,7 @@
     const beats = (beatsById[legend.id] || [legend.flash, legend.story]).concat([`💰 足もとに ${coins} が 置かれていた。`]);
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
-    const step = 3300;
+    const step = 3500;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
