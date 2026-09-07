@@ -2489,21 +2489,22 @@
   // なかまが そばに いる ときも、吹き出しの話者はなおとっち本人。
   const COMPANION_PET_REACTIONS = [
     'みんなも いっしょに じゃれよ!',
-    'なかまも たのしそう!',
+    'ねえ、みんなも こっち きて!',
     'みんなで あそぶと たのしい!',
-    '気づいたら みんな となりに いる笑',
+    '全員集合〜!',
   ];
 
   const COMPANION_TALK_REACTIONS = [
-    'みんなにも はなしかけてくる!',
-    'みんなで そっち みてるよ',
-    'なかまたち、きょう ずっと にぎやか笑',
-    '何の はなししてたかは ひみつ!',
+    'みんなにも はなしかけよ!',
+    'ねえ、みんな きいて!',
+    '今日は ずっと しゃべってたい笑',
+    'この話は みんなには ひみつね!',
   ];
 
   const COMPANION_ANNOYED_REACTIONS = [
-    'みんなも ちょっと つかれてきたかも',
-    'みんなで ちょっと 休ませて!',
+    'みんな、ちょっと 休憩しよ!',
+    'いったん 全員しずかにしよ笑',
+    'もう みんなで ごろごろしよ',
   ];
 
   // beyond this many なでる/はなしかける in a row (with no real care action
@@ -2529,21 +2530,25 @@
   }
 
   const PET_ANNOYED_REACTIONS = [
-    'もう なでなでは じゅうぶん!と いう かおを してる',
-    'しつこいと ちょっと おこられた…',
-    'てを やんわり ふりはらわれた!',
-    'つかれた ような かおを してる',
-    'そろそろ ひとりに して ほしいみたい',
+    'もう なでなでは じゅうぶん!',
+    'ちょっと しつこいって笑',
+    'その手 いったん おしまい!',
+    'ちょっと 休ませて〜',
+    'そろそろ ひとりに して!',
     'なですぎ けいほう、はつれい!',
+    '好きなのは わかったから笑',
+    '距離感! 距離感!',
   ];
 
   const TALK_ANNOYED_REACTIONS = [
-    'もう はなしかけないで!と いう かおを してる',
-    'すっかり むしされてしまった…',
-    'ふーっと ためいきを つかれた',
-    'みみを ふさぐ しぐさを された(みみ、ないけど)',
-    'そろそろ しずかに して ほしいみたい',
-    'おしゃべりが すぎたと おもわれたかも…',
+    'もう ちょっと しずかにして笑',
+    'いまは 返事しない!',
+    'ふぅ〜…ちょっと 休憩!',
+    '耳ふさぎたい! みみ ないけど!',
+    'そろそろ 無言タイムにしよ',
+    'しゃべりすぎた〜',
+    '次の話題は 5分後で!',
+    '口が つかれた笑',
   ];
 
   // せいべつ/ジェンダーと れんあいタイプ(だれに ひかれるか)は べつべつの
@@ -11726,7 +11731,9 @@
       : pickReaction([...PET_REACTIONS, ...TALK_REACTIONS, ...(hasCompanions ? [...COMPANION_PET_REACTIONS, ...COMPANION_TALK_REACTIONS] : [])], lastPlayWithReaction);
     lastPlayWithReaction = reaction;
     if (!checkMeters()) {
-      setMessage(spammed ? '🐾 さすがに じゃれすぎて、ちょっと 距離を とられた' : '🐾 しばらく いっしょに じゃれていた');
+      // 日常の「じゃれる」は客観ナレーションを出さず、会話だけで見せる。
+      // 状態変化の事実通知が必要な場面だけ setMessage() を使う。
+      setMessage('');
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
     }
     emotePet(spammed ? 'angry' : 'happy');
@@ -11811,7 +11818,8 @@
       const reaction = pickReaction(courtFlirtReactions(state.partner.label), lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
-        setMessage('💞 こいびとに「きょうも すき」と ちゃんと つたえた');
+        // 恋人への日常的ないちゃつきは、客観説明を重ねず会話だけで見せる。
+        setMessage('');
         speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35 });
       }
       emotePet('love');
