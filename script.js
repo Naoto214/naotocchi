@@ -2285,10 +2285,15 @@
   };
 
   let conversationTimers = [];
+  let conversationBusyUntil = 0;
   let recentConversationLines = [];
   function clearConversationTimers() {
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
+    conversationBusyUntil = 0;
+  }
+  function conversationIsBusy() {
+    return Date.now() < conversationBusyUntil;
   }
   function fillConversationLine(line, ctx) {
     if (!line) return line;
@@ -2351,7 +2356,10 @@
       const line = pickConversationLine(followUps[eventKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    beats.slice(0, 4).forEach((beat, i) => {
+    const visibleBeats = beats.slice(0, 4);
+    // 掛け合いが終わるまでは放置会話などに上書きさせない。
+    conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * 2600) + SPEECH_DURATION_MS);
+    visibleBeats.forEach((beat, i) => {
       conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 2600));
     });
   }
@@ -5616,7 +5624,8 @@
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
-        && !message;
+        && !message
+        && !conversationIsBusy();
       if (canGreet) {
         const choices = [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
