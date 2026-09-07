@@ -3,6 +3,30 @@ const fs = require('fs');
 const source = fs.readFileSync('script.js', 'utf8');
 const html = fs.readFileSync('index.html', 'utf8');
 
+const masterSource = fs.readFileSync('character-world-master.v1.js', 'utf8');
+let master;
+try {
+  master = new Function(masterSource + '\nreturn NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;')();
+} catch (e) {
+  fail('character-world-master.v1.js syntax/runtime error: ' + e.stack);
+}
+if (!master) fail('character/world master missing');
+if (master.playerSpecies.normal.length !== 22) fail('expected 22 normal player species');
+if (master.playerSpecies.rare.length !== 8) fail('expected 8 rare player species');
+if (master.companions.normal.length !== 18) fail('expected 18 normal companions');
+if (master.companions.rare.length !== 8) fail('expected 8 rare companions');
+if (master.partners.length !== 18) fail('expected 18 partners');
+if (master.regions.normal.length !== 10) fail('expected 10 normal travel regions');
+if (master.regions.special.length !== 2) fail('expected 2 special regions');
+if (master.legends.length !== 5) fail('expected 5 legends');
+for (const line of [...master.playerSpecies.normal, ...master.playerSpecies.rare]) {
+  if (!Array.isArray(line.stages) || line.stages.length !== 8) fail('player species must have 8 stages: ' + line.id);
+}
+if (master.compatibility.speciesAliases.rabbit) fail('retired rabbit species must not be force-mapped');
+if (!master.compatibility.legacyOnlySpecies.includes('rabbit')) fail('retired rabbit species must remain legacy-only');
+if (master.compatibility.partnerAliases['neighbor-cat']) fail('retired partner must not be force-mapped');
+if (!master.compatibility.legacyOnlyPartners.includes('neighbor-cat')) fail('retired partner must remain legacy-only');
+
 function fail(msg) {
   console.error('SMOKE TEST FAILED:', msg);
   process.exit(1);
@@ -59,6 +83,7 @@ global.document = {
   visibilityState: 'visible',
 };
 global.window = { addEventListener: noop, innerWidth: 390, innerHeight: 844 };
+global.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = master;
 global.localStorage = { getItem: () => null, setItem: noop, removeItem: noop };
 global.navigator = { userAgent: 'smoke-test', maxTouchPoints: 1 };
 global.performance = { now: () => 1000 };

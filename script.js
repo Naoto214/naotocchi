@@ -2,6 +2,7 @@
   'use strict';
 
   const SAVE_KEY = 'naotocchi-save-v1';
+  const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   let stateLoadRecovered = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
@@ -114,26 +115,26 @@
   const SPECIES = {
     dog: {
       stages: [
-        { emoji: '🐶', label: 'あかちゃんいぬ' },
-        { emoji: '🐶', label: 'よちよちあるく こいぬ', message: 'よちよちあるく こいぬに せいちょうした!' },
-        { emoji: '🐶', label: 'こいぬ', message: 'こいぬに せいちょうした!' },
-        { emoji: '🐕', label: 'わんぱくいぬ', message: 'わんぱくいぬに せいちょうした!' },
-        { emoji: '🐕', label: 'そとあそび だいすきな いぬ', message: 'そとあそび だいすきな いぬに せいちょうした!' },
-        { emoji: '🐕', label: 'わかいいぬ', message: 'わかいいぬに せいちょうした!' },
-        { emoji: '🐕', label: 'いぬ', message: 'げんきいっぱいの いぬに へんしんした!' },
-        { emoji: '🐕', label: 'としをとった いぬ', message: 'としをとった いぬに なった…' },
+        { emoji: '🐶', asset: 'assets/characters/dog/01.png', label: 'あかちゃんいぬ' },
+        { emoji: '🐶', asset: 'assets/characters/dog/02.png', label: 'よちよちあるく こいぬ', message: 'よちよちあるく こいぬに せいちょうした!' },
+        { emoji: '🐶', asset: 'assets/characters/dog/03.png', label: 'こいぬ', message: 'こいぬに せいちょうした!' },
+        { emoji: '🐕', asset: 'assets/characters/dog/04.png', label: 'わんぱくいぬ', message: 'わんぱくいぬに せいちょうした!' },
+        { emoji: '🐕', asset: 'assets/characters/dog/05.png', label: 'そとあそび だいすきな いぬ', message: 'そとあそび だいすきな いぬに せいちょうした!' },
+        { emoji: '🐕', asset: 'assets/characters/dog/06.png', label: 'わかいいぬ', message: 'わかいいぬに せいちょうした!' },
+        { emoji: '🐕', asset: 'assets/characters/dog/07.png', label: 'いぬ', message: 'げんきいっぱいの いぬに へんしんした!' },
+        { emoji: '🐕', asset: 'assets/characters/dog/08.png', label: 'としをとった いぬ', message: 'としをとった いぬに なった…' },
       ],
     },
     cat: {
       stages: [
-        { emoji: '🐱', label: 'あかちゃんねこ' },
-        { emoji: '🐱', label: 'よちよちあるく こねこ', message: 'よちよちあるく こねこに せいちょうした!' },
-        { emoji: '🐱', label: 'こねこ', message: 'こねこに せいちょうした!' },
-        { emoji: '🐈', label: 'おてんばねこ', message: 'おてんばねこに せいちょうした!' },
-        { emoji: '🐈', label: 'きままに あるきまわる ねこ', message: 'きままに あるきまわる ねこに せいちょうした!' },
-        { emoji: '🐈', label: 'わかいねこ', message: 'わかいねこに せいちょうした!' },
-        { emoji: '🐈', label: 'ねこ', message: 'きままな ねこに へんしんした!' },
-        { emoji: '🐈', label: 'としをとった ねこ', message: 'としをとった ねこに なった…' },
+        { emoji: '🐱', asset: 'assets/characters/cat/01.png', label: 'あかちゃんねこ' },
+        { emoji: '🐱', asset: 'assets/characters/cat/02.png', label: 'よちよちあるく こねこ', message: 'よちよちあるく こねこに せいちょうした!' },
+        { emoji: '🐱', asset: 'assets/characters/cat/03.png', label: 'こねこ', message: 'こねこに せいちょうした!' },
+        { emoji: '🐈', asset: 'assets/characters/cat/04.png', label: 'おてんばねこ', message: 'おてんばねこに せいちょうした!' },
+        { emoji: '🐈', asset: 'assets/characters/cat/05.png', label: 'きままに あるきまわる ねこ', message: 'きままに あるきまわる ねこに せいちょうした!' },
+        { emoji: '🐈', asset: 'assets/characters/cat/06.png', label: 'わかいねこ', message: 'わかいねこに せいちょうした!' },
+        { emoji: '🐈', asset: 'assets/characters/cat/07.png', label: 'ねこ', message: 'きままな ねこに へんしんした!' },
+        { emoji: '🐈', asset: 'assets/characters/cat/08.png', label: 'としをとった ねこ', message: 'としをとった ねこに なった…' },
       ],
     },
     bird: {
@@ -150,26 +151,26 @@
     },
     man: {
       stages: [
-        { emoji: '👶', label: 'あかちゃん' },
-        { emoji: '👶', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
-        { emoji: '🧒', label: 'おとこのこ', message: 'おとこのこに せいちょうした!' },
-        { emoji: '👦', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
-        { emoji: '👦', label: 'はんぱんきの しょうねん', message: 'はんぱんきの しょうねんに せいちょうした!' },
-        { emoji: '🧑', label: 'せいねん', message: 'せいねんに せいちょうした!' },
-        { emoji: '🧑', label: 'おとこのひと', message: 'たくましい おとこのひとに せいちょうした!' },
-        { emoji: '👴', label: 'おじいさん', message: 'おじいさんに なった…' },
+        { emoji: '👶', asset: 'assets/characters/man/01.png', label: 'あかちゃん' },
+        { emoji: '👶', asset: 'assets/characters/man/02.png', label: 'ようじ', message: 'ようじに せいちょうした!' },
+        { emoji: '🧒', asset: 'assets/characters/man/03.png', label: 'こども', message: 'こどもに せいちょうした!' },
+        { emoji: '👦', asset: 'assets/characters/man/04.png', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
+        { emoji: '👦', asset: 'assets/characters/man/05.png', label: 'わかもの', message: 'わかものに せいちょうした!' },
+        { emoji: '🧑', asset: 'assets/characters/man/06.png', label: 'おとな', message: 'おとなに せいちょうした!' },
+        { emoji: '🧑', asset: 'assets/characters/man/07.png', label: 'ちゅうねん', message: 'ちゅうねんに なった!' },
+        { emoji: '👴', asset: 'assets/characters/man/08.png', label: 'おじいさん', message: 'おじいさんに なった…' },
       ],
     },
     woman: {
       stages: [
-        { emoji: '👶', label: 'あかちゃん' },
-        { emoji: '👶', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
-        { emoji: '🧒', label: 'おんなのこ', message: 'おんなのこに せいちょうした!' },
-        { emoji: '👧', label: 'しょうじょ', message: 'しょうじょに せいちょうした!' },
-        { emoji: '👧', label: 'おしゃれに めざめた しょうじょ', message: 'おしゃれに めざめた しょうじょに せいちょうした!' },
-        { emoji: '👧', label: 'わかいおんなのひと', message: 'わかいおんなのひとに せいちょうした!' },
-        { emoji: '👩', label: 'おんなのひと', message: 'りりしい おんなのひとに せいちょうした!' },
-        { emoji: '👵', label: 'おばあさん', message: 'おばあさんに なった…' },
+        { emoji: '👶', asset: 'assets/characters/woman/01.png', label: 'あかちゃん' },
+        { emoji: '👶', asset: 'assets/characters/woman/02.png', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
+        { emoji: '🧒', asset: 'assets/characters/woman/03.png', label: 'おんなのこ', message: 'おんなのこに せいちょうした!' },
+        { emoji: '👧', asset: 'assets/characters/woman/04.png', label: 'しょうじょ', message: 'しょうじょに せいちょうした!' },
+        { emoji: '👧', asset: 'assets/characters/woman/05.png', label: 'おしゃれに めざめた しょうじょ', message: 'おしゃれに めざめた しょうじょに せいちょうした!' },
+        { emoji: '👧', asset: 'assets/characters/woman/06.png', label: 'わかいおんなのひと', message: 'わかいおんなのひとに せいちょうした!' },
+        { emoji: '👩', asset: 'assets/characters/woman/07.png', label: 'おんなのひと', message: 'りりしい おんなのひとに せいちょうした!' },
+        { emoji: '👵', asset: 'assets/characters/woman/08.png', label: 'おばあさん', message: 'おばあさんに なった…' },
       ],
     },
     beetle: {
@@ -368,21 +369,62 @@
     },
   };
 
+  // マスターの8段階をランタイムSPECIESへ接続する。
+  // 専用ドット絵が完成するまでは分類ごとの仮絵文字を使うが、段階名・ID・抽選は新仕様。
+  const MASTER_SPECIES_EMOJI = {
+    man:['👶','🚼','🧒','👦','🧑','🧑','🧔','👴'], woman:['👶','🚼','🧒','👧','🧑','👩','👩','👵'],
+    dog:['🐶','🐶','🐕','🐕','🐕','🐕','🐕','🐕'], cat:['🐱','🐱','🐈','🐈','🐈','🐈','🐈','🐈'],
+    penguin:['🐣','🐧','🐧','🐧','🐧','🐧','🐧','🐧'], turtle:['🐢','🐢','🐢','🐢','🐢','🐢','🐢','🐢'],
+    frog:['〰️','〰️','🐸','🐸','🐸','🐸','🐸','🐸'], salmon:['🐟','🐟','🐟','🐟','🐟','🐟','🐟','🐟'],
+    clownfish:['🐟','🐟','🐠','🐠','🐠','🐠','🐠','🐠'], butterfly:['🐛','🐛','🐛','🟤','🟤','🦋','🦋','🦋'],
+    beetle:['🐛','🐛','🐛','🐛','🟤','🟤','🪲','🪲'], stagbeetle:['🐛','🐛','🐛','🐛','🟤','🟤','🪲','🪲'],
+    cicada:['🐛','🐛','🐛','🐛','🐛','🟤','🪰','🪰'], antlion:['🐛','🐛','🐛','🐛','🟤','🟤','🪰','🪰'],
+    hermit_crab:['🦀','🦀','🦀','🦀','🦀','🦀','🦀','🦀'], jellyfish:['•','◉','◉','✺','🪼','🪼','🪼','🪼'],
+    starfish:['•','✦','⭐','⭐','⭐','⭐','⭐','⭐'], coral:['•','🪸','🪸','🪸','🪸','🪸','🪸','🪸'],
+    dandelion:['🌱','🌱','🌿','🌿','🌼','🌼','🌬️','🌿'], sakura:['🌱','🌱','🌳','🌳','🌳','🌸','🌸','🌳'],
+    venus_flytrap:['🌱','🌱','🌿','🌿','🪴','🪴','🌼','🪴'], mushroom:['〰️','〰️','•','🍄','🍄','🍄','🍄','🍄'],
+    dragon:['🦎','🦎','🐉','🐉','🐉','🐉','🐉','🐉'], phoenix:['🔥','🐣','🐥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🔥'],
+    god:['✨','👼','🧚','😇','😇','🌟','🌟','☀️'], world_tree:['🌱','🌱','🌳','🌳','🌳','🌳','🌳','🌳'],
+    ghost:['✨','👻','👻','👻','👻','👻','👻','✨'], star:['☁️','☁️','✨','⭐','☀️','🌟','💥','✨'],
+    plush:['🧸','🧸','🧸','🧸','🧸','🧸','🧸','🧸'], unknown:['•','🫧','〰️','👁️','🪽','⬤','·','•'], ren:['👶','🏃','🧒','🧒','🧑','🧑','🧓','👴'],
+  };
+  function installMasterSpecies() {
+    if (!WORLD_MASTER) return;
+    const defs = [...WORLD_MASTER.playerSpecies.normal, ...WORLD_MASTER.playerSpecies.rare, ...(WORLD_MASTER.playerSpecies.secret || [])];
+    defs.forEach((def) => {
+      const emojis = MASTER_SPECIES_EMOJI[def.id] || Array(8).fill('❓');
+      SPECIES[def.id] = {
+        stages: def.stages.map((label, i) => ({
+          emoji: emojis[i] || emojis[emojis.length - 1] || '❓',
+          // 全マスター種族は同じstable pathを使う。未制作PNGはrenderer側でemojiへfallback。
+          asset: `assets/characters/${def.id}/${String(i + 1).padStart(2, '0')}.png`,
+          label,
+          message: i ? `${label}に なった!` : undefined,
+        })),
+      };
+    });
+  }
+  installMasterSpecies();
+
   // god/ren/mermaid/unicorn/phoenix are intentionally left out of the
   // random hatch pool - they stay rare, earned surprises unlocked only
   // through a 変身 choice
-  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle', 'rabbit', 'fish', 'dragon', 'panda', 'fox', 'owl', 'plant', 'robot', 'dinosaur'];
-  const RARE_LINES = ['god', 'ren', 'mermaid', 'unicorn', 'phoenix'];
-  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
+  const MASTER_NORMAL_LINES = (WORLD_MASTER?.playerSpecies?.normal || []).map((x) => x.id);
+  const MASTER_RARE_LINES = (WORLD_MASTER?.playerSpecies?.rare || []).map((x) => x.id);
+  // 現在の人生が旧種族なら、その人生だけは旧定義を保持する。
+  // 新しい卵・新しい変身候補からはマスターの22通常+8レアを使う。
+  const LEGACY_NORMAL_LINES = ['bird','rabbit','fish','panda','fox','owl','plant','robot','dinosaur'];
+  const LEGACY_RARE_LINES = ['mermaid','unicorn'];
+  const NORMAL_LINES = MASTER_NORMAL_LINES.length ? MASTER_NORMAL_LINES : ['dog','cat','man','woman','beetle','stagbeetle'];
+  const RARE_LINES = MASTER_RARE_LINES.length ? MASTER_RARE_LINES : ['dragon','phoenix','god'];
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, 'ren'];
 
-  // プロフィール表示用の しゅぞく名(README の ずかん一覧と おなじ表記)
-  const SPECIES_DISPLAY_NAMES = {
-    dog: 'いぬ', cat: 'ねこ', bird: 'とり', man: 'おとこのひと', woman: 'おんなのひと',
-    beetle: 'カブトムシ', stagbeetle: 'クワガタムシ', rabbit: 'うさぎ', fish: 'さかな',
-    dragon: 'りゅう', panda: 'パンダ', fox: 'きつね', owl: 'ふくろう', plant: 'はな',
-    robot: 'ロボット', dinosaur: 'きょうりゅう',
-    god: 'かみさま', ren: 'れんくん', mermaid: 'にんぎょ', unicorn: 'ユニコーン', phoenix: 'フェニックス',
-  };
+  // プロフィール表示用の しゅぞく名。新マスターを正とし、れんくんだけsecret枠から追加。
+  const SPECIES_DISPLAY_NAMES = Object.fromEntries([
+    ...(WORLD_MASTER?.playerSpecies?.normal || []),
+    ...(WORLD_MASTER?.playerSpecies?.rare || []),
+    ...(WORLD_MASTER?.playerSpecies?.secret || []),
+  ].map((x) => [x.id, x.label]));
 
   // ================================================================
   // 168形態ぶんの せつめい文(ずかんから 読める)
@@ -1153,6 +1195,7 @@
         // として 永続に 記録される(あいてコードの おきゃくさんは 種族の
         // ずかんに 記録されるので、ここには ふくまれない)
         partnersRecorded: [],
+        partnerEncounters: [],
         partnersMarried: [],
         // おかね(ミニゲーム大成功などで もらえる)と、それで こうにゅう
         // した SHOP_ITEMS の id 一覧、いま そうびちゅうの id。いろ・がら
@@ -2318,6 +2361,33 @@
     if (recentConversationLines.length > 24) recentConversationLines.shift();
     return line;
   }
+  const PARTNER_DAILY_REACTIONS = {
+    cat_ceo:{play_with:['「いま休憩中。……もう少し そのまま」'],medicine_cure:['「体調管理も 仕事のうち。なおって よかった」'],travel:['「移動時間も 予定に 入れといた」'],minigame_great:['「成果は 数字で出ると きもちいいね」'],minigame_bad:['「改善案、あとで まとめよ」']},
+    robot_neighbor:{play_with:['「スキンシップ……好感度 上昇を確認」'],medicine_cure:['「バイタル、正常化。安心しました」'],travel:['「未知ノ地域データヲ 取得シマス」'],minigame_great:['「ハイスコアヲ 記録しました」'],minigame_bad:['「再試行デ 改善可能デス」']},
+    field_cow:{play_with:['「のんびり しよ」'],medicine_cure:['「元気に なって よかった。草 いる？」'],travel:['「いい草 あるかな」'],minigame_great:['「すごいねえ」'],minigame_bad:['「まあまあ。草でも 食べよ」']},
+    sunflower_partner:{play_with:['「もっと こっち 向いて」'],medicine_cure:['「元気なら また きみの方 向ける」'],travel:['「どこでも きみの方は わかるよ」'],minigame_great:['「いま すごく まぶしかった」'],minigame_bad:['「下むかないで。こっち 見て」']},
+    forest_bear:{play_with:['「あったかいね」'],medicine_cure:['「よかった。はちみつ たべる？」'],travel:['「つかれたら すぐ 休もう」'],minigame_great:['「すごい。ぎゅーしていい？」'],minigame_bad:['「だいじょうぶ。ゆっくりで いいよ」']},
+    grove_deer:{play_with:['「……もう少し 近くても いいよ」'],medicine_cure:['「顔色、もどったね」'],travel:['「しずかな道 みつけた」'],minigame_great:['「見てた。すごかった」'],minigame_bad:['「次は となりで 見てる」']},
+    cliff_goat:{play_with:['「じゃれたら 次 のぼろ！」'],medicine_cure:['「元気なら 山いけるね」'],travel:['「あっち、道じゃないけど 行けそう」'],minigame_great:['「その勢いで 崖もいける！」'],minigame_bad:['「近道 探そ！」']},
+    high_eagle:{play_with:['「……近い」'],medicine_cure:['「顔が もどった。よかった」'],travel:['「上から 先を 見てくる」'],minigame_great:['「よく 見えてた」'],minigame_bad:['「次は もっと遠くを 見て」']},
+    snow_spirit:{play_with:['「つめたくない？」'],medicine_cure:['「熱、もう だいじょうぶ？」'],travel:['「雪があると うれしい」'],minigame_great:['「きらきら してた」'],minigame_bad:['「雪みたいに また 積めばいいよ」']},
+    snowman:{play_with:['「ぎゅーは 短めで おねがい」'],medicine_cure:['「なおって よかった。ぼくは とけてない」'],travel:['「日かげルートで いこ」'],minigame_great:['「クールだったね。ぼくほどじゃないけど」'],minigame_bad:['「頭ひやそ。ぼくの横 くる？」']},
+    rock_octopus:{play_with:['「どの手で じゃれる？」'],medicine_cure:['「8本で 看病したかい あった！」'],travel:['「荷物 8こまで 持てるよ」'],minigame_great:['「8回 拍手する！」'],minigame_bad:['「8回やれば 1回は勝てる！」']},
+    sea_mermaid:{play_with:['「陸の じゃれかたって こう？」'],medicine_cure:['「海の薬より 効いたね」'],travel:['「また 新しい陸 教えて」'],minigame_great:['「海の底まで 自慢しにいこ」'],minigame_bad:['「海なら もっと うまくできるかも」']},
+    anglerfish:{play_with:['「灯り、近づけるね」'],medicine_cure:['「顔が また ちゃんと 見える」'],travel:['「暗い道なら まかせて」'],minigame_great:['「いま すごく 光って見えた」'],minigame_bad:['「暗くして もう1回やる？」']},
+    swamp_croc:{play_with:['「……もう少しなら いい」'],medicine_cure:['「べつに 心配してない。ちょっとだけ」'],travel:['「水辺なら 先いく」'],minigame_great:['「……やるじゃん」'],minigame_bad:['「見てない。だから 気にしなくていい」']},
+    gentle_gorilla:{play_with:['「ちから ぬくね。そっとね」'],medicine_cure:['「よかった。ほんとに よかった」'],travel:['「荷物 ぜんぶ もつよ」'],minigame_great:['「すごい！でも びっくりさせないよう 小声で言うね」'],minigame_bad:['「だいじょうぶ。手 つなぐ？」']},
+    knitting_spider:{play_with:['「動かないで。いま 糸ついた」'],medicine_cure:['「元気祝いに 何か 編むね」'],travel:['「いい糸の場所 ありそう」'],minigame_great:['「記念の 模様にしておく」'],minigame_bad:['「ほどいて やりなおせば いいよ」']},
+    desert_scorpion:{play_with:['「しっぽには 気をつけて」'],medicine_cure:['「……よかった」'],travel:['「日陰側、こっち」'],minigame_great:['「強いね。知ってた」'],minigame_bad:['「次は となりで やる」']},
+    oasis_cactus:{play_with:['「近い近い。とげ あるよ」'],medicine_cure:['「元気なら それでいい」'],travel:['「水、忘れないで」'],minigame_great:['「ハイタッチは……エアで」'],minigame_bad:['「落ちこんだら となりに 立ってる」']},
+  };
+
+  function partnerDailyLine(eventKey, ctx) {
+    if (!state.partner) return null;
+    const lines = PARTNER_DAILY_REACTIONS[state.partner.id]?.[eventKey];
+    return pickConversationLine(lines, ctx || {});
+  }
+
   function speakEvent(eventKey, ctx = {}) {
     const pool = CONVERSATION_POOLS[eventKey];
     if (!pool) return;
@@ -2327,7 +2397,7 @@
     if (petLine) beats.push({ speaker: petSpeaker(), text: petLine });
     if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
       const ps = partnerSpeaker();
-      const line = pickConversationLine(pool.partner, ctx);
+      const line = partnerDailyLine(eventKey, ctx) || pickConversationLine(pool.partner, ctx);
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
     if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
@@ -3858,96 +3928,85 @@
   // せいべつ・れんあいタイプ・しゅぞく(動物/植物/ロボットなど)を
   // ひろく ちらして あり、どの ラインの なおとっちでも 種族を こえた
   // 恋愛が できる
-  const REGIONS = [
-    {
-      id: 'home',
-      label: 'おうち',
-      emoji: '🏠',
-      decor: ['🏠', '🌸', '☁️', '💕', '✨', '🎀', '🪴', '🕊️'],
-      lines: ['やっぱり じぶんの おうちが いちばん おちつく', 'おなじみの けしきに ほっとした'],
-      candidates: [
-        courtCandidate({ id: 'neighbor-cat', label: 'となりの ねこ', emoji: '🐱', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' }),
-        courtCandidate({ id: 'park-dog', label: 'こうえんの わんこ', emoji: '🐶', gender: 'male', orientationId: 'straight', affinityTrait: 'wild' }),
-      ],
-    },
-    {
-      id: 'sea',
-      label: 'うみ',
-      emoji: '🌊',
-      decor: ['🌊', '🐚', '🐠', '⛵', '☀️', '🦀', '🐬', '🏖️'],
-      lines: ['なみの おとが きもちいい!', 'すなはまを ぴょんぴょん はねまわった', 'かいがらを ひろって じまんげ'],
-      candidates: [
-        courtCandidate({ id: 'mermaid', label: 'うみの にんぎょ', emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
-        courtCandidate({ id: 'surfer-turtle', label: 'なみのり カメくん', emoji: '🐢', gender: 'male', orientationId: 'gay', affinityTrait: 'calm' }),
-      ],
-    },
-    {
-      id: 'snow',
-      label: 'ゆきやま',
-      emoji: '🏔️',
-      decor: ['❄️', '⛄', '🏔️', '🌨️', '✨', '🦌', '🎿', '🧣'],
-      lines: ['さむい!でも ゆきだるまを つくってみた', 'いきが しろく なるのが おもしろい', 'つるっと すべって しりもちを ついた'],
-      candidates: [
-        courtCandidate({ id: 'snow-spirit', label: 'ゆきの せいれい', emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' }),
-        courtCandidate({ id: 'cabin-bear', label: 'やまごやの クマさん', emoji: '🐻', gender: 'male', orientationId: 'bi', affinityTrait: 'brave' }),
-      ],
-    },
-    {
-      id: 'city',
-      label: 'とかい',
-      emoji: '🏙️',
-      decor: ['🏙️', '🌃', '✨', '🚕', '🌆', '💡', '🚦', '🎡'],
-      lines: ['上を 見ながら 歩いて、あやうく 人に ぶつかりそうになった', 'ネオンを 見ていたら、帰るころには 首が つかれた', '人の ながれに のっていたら、行きたい方向と 逆に すすんでいた'],
-      candidates: [
-        courtCandidate({ id: 'town-robot', label: 'となりまちの ロボット', emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' }),
-        courtCandidate({ id: 'ceo-cat', label: 'ビルの ねこ社長', emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' }),
-      ],
-    },
-    {
-      id: 'countryside',
-      label: 'いなか',
-      emoji: '🌾',
-      decor: ['🌾', '🌻', '🐄', '🚜', '☀️', '🦋', '🌈', '🐓'],
-      lines: ['田んぼの かぜで、しばらく 何も しゃべらずに 立っていた', 'のはらを 走ったら、思ったより すぐ 息が きれた', 'むぎわらぼうしを かぶって、写真だけ ちょっと 得意げに とった'],
-      candidates: [
-        courtCandidate({ id: 'field-sunflower', label: 'はたけの ひまわりさん', emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' }),
-        courtCandidate({ id: 'meadow-cow', label: 'のはらの うしさん', emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' }),
-      ],
-    },
-    {
-      id: 'forest',
-      label: 'もり',
-      emoji: '🌲',
-      decor: ['🌲', '🍄', '🦋', '🐿️', '🌿', '🍃', '🦉', '🌰'],
-      lines: ['きの えだから とりの こえが きこえる', 'はっぱの におい に しんこきゅう', 'こだぬきと めが あった(かもしれない)'],
-      candidates: [
-        courtCandidate({ id: 'forest-fox', label: 'もりの きつね', emoji: '🦊', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
-        courtCandidate({ id: 'tree-squirrel', label: 'こだちの リス', emoji: '🐿️', gender: 'female', orientationId: 'bi', affinityTrait: 'wild' }),
-      ],
-    },
-    {
-      id: 'desert',
-      label: 'さばく',
-      emoji: '🏜️',
-      decor: ['🏜️', '🌵', '🐫', '☀️', '🦂', '🌅', '⛺', '🦎'],
-      lines: ['あつい!でも すなの うえを あるくのが たのしい', 'サボテンに ちかづきすぎて ちょっと いたい めに あった', 'ほしぞらが びっくりする くらい きれいだった'],
-      candidates: [
-        courtCandidate({ id: 'desert-scorpion', label: 'さばくの さそりさん', emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' }),
-        courtCandidate({ id: 'oasis-camel', label: 'オアシスの らくださん', emoji: '🐫', gender: 'male', orientationId: 'straight', affinityTrait: 'calm' }),
-      ],
-    },
-    {
-      id: 'tropical',
-      label: 'なんごく',
-      emoji: '🌴',
-      decor: ['🌴', '🌺', '🦜', '🍍', '🐠', '☀️', '🥥', '🦩'],
-      lines: ['やしの実を 見つけて、どうやって 開けるかで しばらく 悩んだ', 'あたたかい 風で、帰る気が ちょっと なくなった', 'カラフルな とりに 手を ふったら、完全に 無視された'],
-      candidates: [
-        courtCandidate({ id: 'tropical-parrot', label: 'なんごくの インコ', emoji: '🦜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' }),
-        courtCandidate({ id: 'palm-lizard', label: 'やしの きの リザードさん', emoji: '🦎', gender: 'male', orientationId: 'gay', affinityTrait: 'wild' }),
-      ],
-    },
-  ];
+  const PARTNER_RUNTIME_PROFILE = {
+    cat_ceo: { emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' },
+    robot_neighbor: { emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' },
+    field_cow: { emoji: '🐄', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' },
+    sunflower_partner: { emoji: '🌻', gender: 'female', orientationId: 'straight', affinityTrait: 'romantic' },
+    forest_bear: { emoji: '🐻', gender: 'male', orientationId: 'bi', affinityTrait: 'gentle' },
+    grove_deer: { emoji: '🦌', gender: 'female', orientationId: 'bi', affinityTrait: 'calm' },
+    cliff_goat: { emoji: '🐐', gender: 'male', orientationId: 'straight', affinityTrait: 'wild' },
+    high_eagle: { emoji: '🦅', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' },
+    snow_spirit: { emoji: '❄️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' },
+    snowman: { emoji: '☃️', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'gentle' },
+    rock_octopus: { emoji: '🐙', gender: 'male', orientationId: 'bi', affinityTrait: 'gentle' },
+    sea_mermaid: { emoji: '🧜', gender: 'female', orientationId: 'pan', affinityTrait: 'romantic' },
+    anglerfish: { emoji: '🐟', gender: 'female', orientationId: 'bi', affinityTrait: 'calm' },
+    swamp_croc: { emoji: '🐊', gender: 'male', orientationId: 'straight', affinityTrait: 'calm' },
+    gentle_gorilla: { emoji: '🦍', gender: 'male', orientationId: 'pan', affinityTrait: 'gentle' },
+    knitting_spider: { emoji: '🕷️', gender: 'female', orientationId: 'bi', affinityTrait: 'gentle' },
+    desert_scorpion: { emoji: '🦂', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'brave' },
+    oasis_cactus: { emoji: '🌵', gender: 'nonbinary', orientationId: 'pan', affinityTrait: 'calm' },
+  };
+
+  const REGION_RUNTIME_META = {
+    home: { emoji:'🏠', visualBaseId:'home', minigameBaseId:'home', decor:['🏠','🌸','☁️','💕','✨','🎀','🪴','🕊️'], lines:['やっぱり じぶんの おうちが いちばん おちつく','おなじみの けしきに ほっとした'] },
+    city: { emoji:'🏙️', visualBaseId:'city', minigameBaseId:'city', decor:['🏙️','🌃','✨','🚕','🌆','💡','🚦','🎡'], lines:['上を 見ながら 歩いて、あやうく 人に ぶつかりそうになった','ネオンを 見ていたら、帰るころには 首が つかれた'] },
+    countryside: { emoji:'🌾', visualBaseId:'countryside', minigameBaseId:'countryside', decor:['🌾','🌻','🐄','🚜','☀️','🦋','🌈','🐓'], lines:['田んぼの かぜで、しばらく 何も しゃべらずに 立っていた','のはらを 走ったら、思ったより すぐ 息が きれた'] },
+    forest: { emoji:'🌲', visualBaseId:'forest', minigameBaseId:'forest', decor:['🌲','🍄','🦋','🐿️','🌿','🍃','🦉','🌰'], lines:['きの えだから とりの こえが きこえる','はっぱの におい に しんこきゅう'] },
+    mountain: { emoji:'⛰️', visualBaseId:'snow', minigameBaseId:'snow', decor:['⛰️','🪨','🌲','🦅','🥾','🏕️','♨️','☁️'], lines:['山の かぜが つよい。ちょっとだけ えらくなった きがする','みおろすと さっきまでいた場所が ずっと ちいさい'] },
+    snow: { emoji:'❄️', visualBaseId:'snow', minigameBaseId:'snow', decor:['❄️','⛄','🏔️','🌨️','✨','🦌','🎿','🧣'], lines:['さむい!でも ゆきだるまを つくってみた','いきが しろく なるのが おもしろい'] },
+    sea: { emoji:'🌊', visualBaseId:'sea', minigameBaseId:'sea', decor:['🌊','🐚','🐠','⛵','☀️','🦀','🐬','🏖️'], lines:['なみの おとが きもちいい!','すなはまを ぴょんぴょん はねまわった'] },
+    deepsea: { emoji:'🌌', visualBaseId:'sea', minigameBaseId:'sea', decor:['🌌','💡','🐟','🦑','🪼','⚓','🫧','🪸'], lines:['くらい。なのに ところどころ ひかっている','上を 見ても どこが うみの うえか わからない'] },
+    river_lake: { emoji:'🏞️', visualBaseId:'forest', minigameBaseId:'forest', decor:['🏞️','💧','🐟','🦆','🌿','🪷','🪨','🌈'], lines:['みずの おとを きいていたら しばらく うごけなくなった','かわべりを あるくと 風が すこし つめたい'] },
+    jungle: { emoji:'🌴', visualBaseId:'tropical', minigameBaseId:'tropical', decor:['🌴','🌺','🦜','🦍','🌿','🍌','🐍','💧'], lines:['葉っぱが でかい。何もかも でかい','どこかで ずっと なにかが 鳴いている'] },
+    desert: { emoji:'🏜️', visualBaseId:'desert', minigameBaseId:'desert', decor:['🏜️','🌵','🐫','☀️','🦂','🌅','⛺','🦎'], lines:['あつい!でも すなの うえを あるくのが たのしい','ほしぞらが びっくりする くらい きれいだった'] },
+  };
+
+  function makeMasterPartner(def) {
+    const p = PARTNER_RUNTIME_PROFILE[def.id];
+    return courtCandidate({
+      id: def.id,
+      label: def.label,
+      emoji: p.emoji,
+      gender: p.gender,
+      orientationId: p.orientationId,
+      affinityTrait: p.affinityTrait,
+    });
+  }
+
+  function makeMasterRegion(def) {
+    const meta = REGION_RUNTIME_META[def.id];
+    const candidates = (WORLD_MASTER?.partners || [])
+      .filter((p) => p.firstRegion === def.id)
+      .map(makeMasterPartner);
+    return {
+      id: def.id,
+      label: def.label,
+      emoji: meta.emoji,
+      visualBaseId: meta.visualBaseId,
+      minigameBaseId: meta.minigameBaseId,
+      decor: meta.decor,
+      lines: meta.lines,
+      candidates,
+    };
+  }
+
+  const REGIONS = WORLD_MASTER
+    ? [
+        {
+          id: 'home',
+          label: WORLD_MASTER.regions.home.label,
+          emoji: REGION_RUNTIME_META.home.emoji,
+          visualBaseId: 'home',
+          minigameBaseId: 'home',
+          decor: REGION_RUNTIME_META.home.decor,
+          lines: REGION_RUNTIME_META.home.lines,
+          candidates: [],
+        },
+        ...WORLD_MASTER.regions.normal.map(makeMasterRegion),
+      ]
+    : [];
 
   // ================================================================
   // そだち70「たびだち」で ひらく とくべつな たびさき
@@ -3998,66 +4057,78 @@
   // なる。なかまに なった id は state.lifetime.companionsRecruited に
   // 永続で きろくされ(「はじめから」でも消えない)、画面の よこの れつと
   // ずかんの 「なかま」セクションに ずっと 表示されつづける
-  const COMPANIONS = [
-    { id: 'shiba', emoji: '🐕', name: 'げんきな しばいぬ', preferredRegions: ['home','countryside'], flavor: 'しばいぬが ボールを くわえて こっちを みている。投げるまで 帰る気は なさそう' },
-    { id: 'tanuki', emoji: '🦝', name: 'いたずら たぬき', preferredRegions: ['forest','countryside'], flavor: 'たぬきが 何かを かくしている。目が あった瞬間、知らないふりを した' },
-    { id: 'penguin', emoji: '🐧', name: 'おっちょこちょい ペンギン', preferredRegions: ['snow','sea'], flavor: 'ペンギンが こっちへ 急いできて、目のまえで きれいに すべった' },
-    { id: 'owl', emoji: '🦉', name: 'ものしり ふくろう', preferredRegions: ['forest','snow'], flavor: 'ふくろうが 上から ずっと みている。こっちが 先に 話しかけるのを 待っているみたい' },
-    { id: 'rabbit', emoji: '🐰', name: 'すばしっこい うさぎ', preferredRegions: ['countryside','forest'], flavor: 'うさぎが 少し先まで 走っては、こっちを 振り返っている。ついてこいって ことらしい' },
-    { id: 'hedgehog', emoji: '🦔', name: 'はずかしがり はりねずみ', preferredRegions: ['forest','home'], flavor: 'はずかしがりやの はりねずみが そっと かおを だした…' },
-    { id: 'koala', emoji: '🐨', name: 'のんびり コアラ', preferredRegions: ['tropical','forest'], flavor: 'のんびりやの コアラが きから おりてきた' },
-    { id: 'otter', emoji: '🦦', name: 'あそびずき カワウソ', preferredRegions: ['sea','forest'], flavor: 'カワウソが 石を ひとつ 差しだしてきた。たぶん 遊びの 参加券' },
-    { id: 'hamster', emoji: '🐹', name: 'ほおぶくろ ハムスター', preferredRegions: ['home','city'], flavor: 'ほおぶくろパンパンの ハムスターが てちょうを のぞきこんでいる' },
-    { id: 'squirrel', emoji: '🐿️', name: 'おっちょこちょい リス', preferredRegions: ['forest','countryside'], flavor: 'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた' },
-  ];
+  const COMPANION_RUNTIME = {
+    cat_friend:{emoji:'🐱', flavor:'ねこが こっちを 見た。呼んでも こない。でも帰ろうとすると ついてくる'},
+    rabbit_friend:{emoji:'🐰', flavor:'うさぎが 少し先まで 走っては、こっちを 振り返っている'},
+    tanuki:{emoji:'🦝', flavor:'たぬきが 何かを かくしている。目が あった瞬間、知らないふりをした'},
+    squirrel:{emoji:'🐿️', flavor:'どんぐりを かかえた リスが しっぽを ふりふり ちかづいてきた'},
+    owl:{emoji:'🦉', flavor:'ふくろうが 上から ずっと みている。話しかけるのを 待っているみたい'},
+    otter:{emoji:'🦦', flavor:'カワウソが 石を ひとつ 差しだしてきた。たぶん 遊びの 参加券'},
+    hamster:{emoji:'🐹', flavor:'ほおぶくろパンパンの ハムスターが こっちを のぞきこんでいる'},
+    panda:{emoji:'🐼', flavor:'パンダが ねころんでいる。こちらを 見ても 起きる気は ないらしい'},
+    monkey:{emoji:'🐒', flavor:'サルが さっきから こっちの 動きを ぜんぶ まねしている'},
+    parrot:{emoji:'🦜', flavor:'オウムが 何か しゃべった。たぶん さっきの こっちの セリフだ'},
+    sheep:{emoji:'🐑', flavor:'ヒツジが ふわふわ 近づいてきた。すでに ねむそう'},
+    seal:{emoji:'🦭', flavor:'アザラシが ごろごろ 転がりながら 近づいてきた'},
+    bat:{emoji:'🦇', flavor:'コウモリが 逆さまのまま こっちを 見ている'},
+    chicken:{emoji:'🐓', flavor:'ニワトリが ものすごく 元気に 近づいてきた'},
+    penguin_friend:{emoji:'🐧', flavor:'ペンギンが こっちへ 急いできて、目のまえで きれいに すべった'},
+    hedgehog:{emoji:'🦔', flavor:'はりねずみが そっと かおを だした。目があうと また まるくなった'},
+    shiba:{emoji:'🐕', flavor:'しばいぬが ボールを くわえて こっちを みている。投げるまで 帰る気は なさそう'},
+    koala:{emoji:'🐨', flavor:'コアラが ゆっくり 近づいてきた。途中で 一回 ねた'},
+  };
 
-  // ================================================================
-  // そだち80「レアの きざし」で 出会えるように なる レアなかま
-  // ================================================================
-  // 通常の COMPANIONS 10にんとは べつの はいれつに して、
-  // companion-all(「なかまを ぜんいん(10にん)あつめた」)の 条件を
-  // 一切 かえない ように している。きろくも lifetime.rareCompanionsRecruited
-  // という べつの ばしょに つむ。
-  // ほうこうせいは わざと バラバラ - かわいい / かっこいい / 神々しい /
-  // キモかわ / 意味不明 が それぞれ 1にんずつ いる
-  const RARE_COMPANIONS = [
-    {
-      id: 'punyu', emoji: '🫠', name: 'とけかけの ぷにゅ',
-      vibe: 'キモかわ',
-      flavor: 'なにかが とけている。目だけは はっきり こっちを 見ている。少しずつ 近づいている 気もする',
-      joined: '歩きだしたら、ぷにゅも ぬるっと ついてきた。止まると ぷにゅも 止まった',
-    },
-    {
-      id: 'sekizou', emoji: '🗿', name: 'むひょうじょうの せきぞう',
-      vibe: 'シュール・渋い',
-      flavor: 'いしの ぞうが おかれている。うごく はずが ない。…はずなのに さっきと ばしょが ちがう',
-      joined: '帰ろうとしたら、せきぞうが さっきより 近くにいた。そのまま 家まで ついてきた',
-    },
-    {
-      id: 'hakuchou', emoji: '🦢', name: 'こうごうしい はくちょう',
-      vibe: '神々しい・美しい',
-      flavor: 'しろい はくちょうが しずかに おりてきた。まわりの おとが すこし とおくなった き が する',
-      joined: 'はくちょうが となりを 歩きはじめた。歩幅を 合わせているのは こっちのほうだった',
-    },
-    {
-      id: 'chameleon', emoji: '🦎', name: 'サングラスの カメレオン',
-      vibe: 'おしゃれ・かっこいい',
-      flavor: 'サングラスを かけた カメレオンが かべから はんぶん はえている。かくれる きは ないらしい',
-      joined: 'カメレオンが「よろしく」と ひとことだけ 言った。サングラスの 奥は 最後まで 見えなかった',
-    },
-    {
-      id: 'kinoko', emoji: '🍄', name: 'しゃべる きのこ',
-      vibe: '意味不明・笑える',
-      flavor: 'きのこが はえている。きのこが しゃべっている。「やあ」と いわれた',
-      joined: '「じゃ、いこっか」と きのこが 歩きだした。どうやって 歩いているかは 見ないことにした',
-    },
-  ];
+  const RARE_COMPANION_RUNTIME = {
+    punyu:{emoji:'🫠',vibe:'キモかわ',flavor:'なにかが とけている。目だけは はっきり こっちを 見ている',joined:'ぷにゅも ぬるっと ついてきた'},
+    sekizou:{emoji:'🗿',vibe:'シュール',flavor:'石像が ある。さっきより 近い 気がする',joined:'気づいたら 家まで ついてきた'},
+    chameleon:{emoji:'🦎',vibe:'おしゃれ',flavor:'サングラスを かけた カメレオンが かべから はんぶん はえている',joined:'「よろしく」と ひとことだけ 言った'},
+    kinoko:{emoji:'🍄',vibe:'意味不明',flavor:'きのこが しゃべっている。「やあ」と いわれた',joined:'「じゃ、いこっか」と きのこが 歩きだした'},
+    unicorn:{emoji:'🦄',vibe:'神々しい',flavor:'ユニコーンが まよいこんできた。本人は ぜんぜん 困っていない',joined:'なぜか そのまま ついてきた'},
+    many_tail_fox:{emoji:'🦊',vibe:'妖しい',flavor:'きつねの しっぽを 数えた。数えるたびに 数が ちがう',joined:'しっぽを ゆらして ついてきた'},
+    watcher:{emoji:'👁️',vibe:'こわい',flavor:'画面の はしから なにかが ずっと みている',joined:'見ないふりをしたら いつのまにか 仲間の列にいた'},
+    box:{emoji:'📦',vibe:'意味不明',flavor:'ただの はこが ある。たぶん ただの はこ',joined:'帰ったら はこも いた'},
+  };
+
+  const COMPANIONS = WORLD_MASTER
+    ? WORLD_MASTER.companions.normal.map((def) => ({
+        id:def.id,
+        emoji:COMPANION_RUNTIME[def.id].emoji,
+        name:def.label,
+        preferredRegions:[],
+        flavor:COMPANION_RUNTIME[def.id].flavor,
+      }))
+    : [];
+
+  const RARE_COMPANIONS = WORLD_MASTER
+    ? WORLD_MASTER.companions.rare.map((def) => ({
+        id:def.id,
+        emoji:RARE_COMPANION_RUNTIME[def.id].emoji,
+        name:def.label,
+        vibe:RARE_COMPANION_RUNTIME[def.id].vibe,
+        flavor:RARE_COMPANION_RUNTIME[def.id].flavor,
+        joined:RARE_COMPANION_RUNTIME[def.id].joined,
+      }))
+    : [];
+
+  function canonicalCompanionId(id) {
+    return WORLD_MASTER?.compatibility?.companionAliases?.[id] || id;
+  }
+
+  function hasActiveCompanionId(id) {
+    return state.companions.some((sc) => canonicalCompanionId(sc.id) === id);
+  }
+
+  function hasRecruitedCompanionId(id) {
+    return state.lifetime.companionsRecruited.some((rawId) => canonicalCompanionId(rawId) === id)
+      || state.lifetime.rareCompanionsRecruited.some((rawId) => canonicalCompanionId(rawId) === id);
+  }
 
   // レアなかまと 出会う かくりつ(そだち80いこう、なかまイベントの たびに 抽選)
   const RARE_COMPANION_CHANCE = 0.35;
 
   function allCompanionsById(id) {
-    return COMPANIONS.find((c) => c.id === id) || RARE_COMPANIONS.find((c) => c.id === id);
+    const canonical = canonicalCompanionId(id);
+    return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical);
   }
 
 
@@ -4117,6 +4188,50 @@
       '「きょうの ことは わすれない」と まじめな かおで いわれた',
       'なんでも ない ばめんを、いちいち ドラマみたいに してくれる',
     ],
+  };
+
+  // 18体それぞれの口調。性格カテゴリに加えて固有台詞を優先し、
+  // 誰と付き合っているかがデート中にも分かるようにする。
+  const PARTNER_SIGNATURE_LINES = {
+    cat_ceo:['「このあと会議。だから、あと10ぷんだけ延長」','「予定には なかったけど……まあ、悪くない」'],
+    robot_neighbor:['「たのしい、を いま 学習中」','「この時間は 保存しても いいですか？」'],
+    field_cow:['「ゆっくりで いいよ。草も そうして のびるし」','おいしい草を 見つけるたび 半分くれた。'],
+    sunflower_partner:['「きょうは たいようより こっち 見てる」','帰り道も ずっと こちらの方を 向いていた。'],
+    forest_bear:['「つかれたら 休もう。はちみつ あるよ」','大きな手で そっと 歩幅を あわせてくれた。'],
+    grove_deer:['「しずかな ところ、すき」','少し先を歩いて、何度も こちらを 振り返った。'],
+    cliff_goat:['「あっちの道、ぜったい おもしろい」','気づけば また 高いところに 連れていかれた。'],
+    high_eagle:['「上から見ると、だいたい 小さいよ」','いちばん景色のいい場所を 当然みたいに 知っていた。'],
+    snow_spirit:['「手、つめたい？ わたしは これが ふつう」','雪が降るたび 少しだけ うれしそうに 光った。'],
+    snowman:['「あったかい場所は……ちょっとだけね」','日なたを避けながら、それでも となりを歩いた。'],
+    rock_octopus:['「手、つなぐ？ 8本あるけど」','写真を撮るたび ポーズが 8個ずつ増えた。'],
+    sea_mermaid:['「陸って まだ知らないこと いっぱい」','こちらが海の話を聞くより、陸の話を たくさん聞かれた。'],
+    anglerfish:['「暗いほうが 顔、よく見えるよ」','小さな灯りだけで ずっと となりにいてくれた。'],
+    swamp_croc:['「べつに 楽しいとは……言ってない」','帰ろうとしたら、無言で もう少し先を 指さした。'],
+    gentle_gorilla:['「だいじょうぶ？ 荷物 もつよ」','花を踏まないように 大きな体で ずっと小さく歩いた。'],
+    knitting_spider:['「じっとして。いま おそろい 作ってる」','帰るころには 小さなおそろいの飾りが できていた。'],
+    desert_scorpion:['「危ないから こっち歩いて」','強そうな顔のまま、ずっと 日陰側を ゆずってくれた。'],
+    oasis_cactus:['「近くに いていいよ。さわらなければ」','距離は少しあるのに、不思議と ずっと一緒だった。'],
+  };
+
+  const PARTNER_RELATIONSHIP_LINES = {
+    cat_ceo:{court:'「……じゃあ、予定に入れとく」',marriage:'「長期契約ってことで。解約は なしね」'},
+    robot_neighbor:{court:'「コイビト……登録しました」',marriage:'「この関係を、終了条件なしに設定します」'},
+    field_cow:{court:'「じゃあ、これからも 草 いっしょに食べよ」',marriage:'「ずっと となりの のはらに いよう」'},
+    sunflower_partner:{court:'「これからは たいようと きみを 見る」',marriage:'「ずっと こっち 向いてるね」'},
+    forest_bear:{court:'「うれしい。はちみつ もってくるね」',marriage:'「冬眠しても、起きたら となりに いてね」'},
+    grove_deer:{court:'「もう にげないよ」',marriage:'「これからは 振り返らなくても となりに いるね」'},
+    cliff_goat:{court:'「じゃあ 次は もっと高いとこ 行こう」',marriage:'「一生ぶんの ちかみち、いっしょに 探そ」'},
+    high_eagle:{court:'「……悪くない」',marriage:'「ずっと 上からじゃなく、となりで 見る」'},
+    snow_spirit:{court:'「この手、つめたいけど いい？」',marriage:'「季節が かわっても、ここにいる」'},
+    snowman:{court:'「とけないように がんばる」',marriage:'「一生ぶん、まだ とけないつもり」'},
+    rock_octopus:{court:'「じゃあ まず どの手 つなぐ？」',marriage:'「8本ぜんぶでも 足りないくらい」'},
+    sea_mermaid:{court:'「もっと 陸のこと 教えて」',marriage:'「海も陸も、帰る場所は いっしょにしよ」'},
+    anglerfish:{court:'「くらいところでも ちゃんと 見つけてね」',marriage:'「ずっと この灯りで となりにいる」'},
+    swamp_croc:{court:'「……まあ、いいけど」',marriage:'「べつに 泣いてない。水が はねただけ」'},
+    gentle_gorilla:{court:'「うれしい。つぶさないように だきしめるね」',marriage:'「ずっと たいせつに する」'},
+    knitting_spider:{court:'「じゃあ ふたりぶん 編むね」',marriage:'「ほどけても また 編みなおせば いいよ」'},
+    desert_scorpion:{court:'「……じゃあ となり 歩いて」',marriage:'「これからも 日陰は 半分こ」'},
+    oasis_cactus:{court:'「さわれなくても、好きで いいよ」',marriage:'「ちかづけないぶん、ずっと ここにいる」'},
   };
 
   // どの デートでも さいごに ひとつ つく、しめの ひとこと
@@ -4312,6 +4427,15 @@
     return lines[Math.floor(Math.random() * lines.length)];
   }
 
+  function partnerAnniversaryLine(partner, years) {
+    const lines = PARTNER_SIGNATURE_LINES[partner.id] || [];
+    if (!lines.length) return null;
+    if (years >= 50) return `50ねんたっても、${lines[0]}`;
+    if (years >= 25) return `銀婚式でも、いつもの ${partner.label}だった。 ${lines[1] || lines[0]}`;
+    if (years >= 10) return `10ねんたっても 変わらない。 ${lines[0]}`;
+    return `1ねんたって、少しだけ わかってきた。 ${lines[1] || lines[0]}`;
+  }
+
   function playMarriageMovie(milestone) {
     if (!state.partner || !state.partner.married) return;
     clearDateMovieTimers();
@@ -4330,6 +4454,7 @@
     el.dateMoviePartner.textContent = state.partner.emoji || '💞';
     const name = state.partner.label;
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+    const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
 
     const commonSmallTalk = [
       `「${name}、きょう なんの日か おぼえてる?」`,
@@ -4358,7 +4483,7 @@
           '「50ねん たったらしいよ」「ほんと? まだ しゃべること あるね」',
           '「むかしより 歩くの おそくなったね」「そっちもね」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           'むかしの しゃしんを 見て、どっちが 先に 老けたかで しばらく もめた。',
           '「あのころの ふたりに 教えたら 信じるかな」「たぶん 信じない」',
@@ -4379,7 +4504,7 @@
           '「25ねん。長かった?」「短かったって 言ったら うそになるね」',
           '「昔の しゃしん 見る?」「それは ちょっと こわい」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           '古い しゃしんを ひらいて、服と髪型の はなしだけで しばらく 笑った。',
           '「このころ 若いね」「今も まあまあ いけるでしょ」',
@@ -4400,7 +4525,7 @@
           '「10周年らしいよ」「じゃあ 今日は ちょっと いいもの 食べよ」',
           '「あの日から 10ねん」「あの日って どの日?」「そこから!?」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           '「変わった?」「変わった。でも 変わってないとこも ある」',
           '「10年前より 好き?」「そういう 質問する?笑」',
@@ -4466,7 +4591,10 @@
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
-    const traitLines = DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle;
+    const signatureLines = PARTNER_SIGNATURE_LINES[partner.id];
+    const traitLines = signatureLines && signatureLines.length
+      ? signatureLines
+      : (DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle);
     const traitLine = traitLines[Math.floor(Math.random() * traitLines.length)];
     const closing = DATE_CLOSINGS[Math.floor(Math.random() * DATE_CLOSINGS.length)];
 
@@ -5210,6 +5338,20 @@
     const rows = [];
     rows.push(`<div class="lifecard-title">${currentSprite()} ${species}</div>`);
     rows.push(`<div class="lifecard-age">${age}さいまで いきた</div>`);
+    // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
+    // 削らずに小さな専用回想を添える。別Renderer/別エンディングにはせず、
+    // 248形態共通の人生記録フローを保ったまま「同じ一人が育った」ことを見せる。
+    if (state.speciesLine === 'ren' && age >= GOAL_AGE) {
+      const renStages = SPECIES.ren?.stages || [];
+      const renMemories = [0, 2, 4, 5, 7]
+        .map((stageIndex) => renStages[stageIndex])
+        .filter(Boolean)
+        .map((stage) => `<span class="lifecard-ren-stage">${stageVisualHTML(stage, 'thumb')}<small>${stage.label}</small></span>`)
+        .join('<span class="lifecard-ren-arrow">→</span>');
+      if (renMemories) {
+        rows.push(`<div class="lifecard-ren-memory"><div class="lifecard-ren-caption">⭐ れんくんの いっしょう</div><div class="lifecard-ren-stages">${renMemories}</div><div class="lifecard-ren-message">ちいさかった れんくんも、たくさんの おもいでと いっしょに おじいちゃんに なった。</div></div>`);
+      }
+    }
     rows.push(`<div class="lifecard-line">さいごの そだち <b>${state.sodachi}</b> ／ さいこうの そだち <b>${state.maxSodachi}</b></div>`);
     const badges = [];
     if (age >= GOAL_AGE) badges.push('★① てんじゅを まっとうした');
@@ -5774,12 +5916,12 @@
     // そだち40以降は「なかまの わ」でさらに出会いやすくなる。
     const delay = hasPerk(40) ? 90000 + Math.random() * 90000 : 120000 + Math.random() * 120000;
     setTimeout(() => {
-      const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
+      const remaining = COMPANIONS.filter((c) => !hasActiveCompanionId(c.id));
       // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
       // RARE_COMPANIONS の だれかが あらわれる ことが ある。ふつうの なかまが
       // もう ぜんいん そばに いる ときは、レアだけが のこりの であいに なる
       const rareRemaining = hasPerk(80)
-        ? RARE_COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id))
+        ? RARE_COMPANIONS.filter((c) => !hasActiveCompanionId(c.id))
         : [];
       const canEncounter = !gameActive
         && state.stage === STAGE.GROWING
@@ -5809,7 +5951,7 @@
     companionInviteOpen = true;
     el.companionInviteEmoji.textContent = companion.emoji;
     const progress = (state.lifetime.companionFriendshipProgress || {})[companion.id] || 0;
-    const reunited = progress > 0 && !state.lifetime.companionsRecruited.includes(companion.id);
+    const reunited = progress > 0 && !hasRecruitedCompanionId(companion.id);
     el.companionInviteTitle.textContent = isRare
       ? `${companion.name}と めが あった`
       : reunited ? `${companion.name}が また きた` : `${companion.name}が こっちを みている`;
@@ -5856,6 +5998,47 @@
   function currentFormStageIndex() {
     if (state.infinite && state.infiniteForm) return state.infiniteForm.stageIndex;
     return stageForAge(currentAge());
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;',
+    }[ch]));
+  }
+
+  // Character Renderer:
+  // stage.asset がある形態だけPNGを使い、未制作/読込失敗時は必ずemojiへ戻る。
+  // 1形態1ファイルを基本にし、メイン/図鑑/変身など全UIで同じマスターを使う。
+  function stageVisualHTML(stage, size = 'medium') {
+    const emoji = stage?.emoji || '❓';
+    const asset = stage?.asset || '';
+    const safeEmoji = escapeHtml(emoji);
+    if (!asset) {
+      return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${safeEmoji}</span></span>`;
+    }
+    return `<span class="character-visual character-${size} has-asset">
+      <img class="character-asset" src="${escapeHtml(asset)}" alt="" draggable="false">
+      <span class="character-emoji-fallback">${safeEmoji}</span>
+    </span>`;
+  }
+
+  function setStageVisual(target, stage, size = 'medium') {
+    if (!target) return;
+    target.innerHTML = stageVisualHTML(stage, size);
+  }
+
+  // innerHTML で差し込んだimgも含め、404/壊れた画像は自動的にemojiへ戻す。
+  document.addEventListener('error', (event) => {
+    const img = event.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains('character-asset')) return;
+    const wrapper = img.closest('.character-visual');
+    if (wrapper) wrapper.classList.add('asset-failed');
+  }, true);
+
+  function currentVisualStage() {
+    if (state.stage === STAGE.EGG) return { emoji:'🥚', label:'たまご' };
+    const stages = state.speciesLine && SPECIES[state.speciesLine]?.stages;
+    return stages?.[currentFormStageIndex()] || { emoji:'❓', label:'???' };
   }
 
   function currentSprite() {
@@ -6085,13 +6268,14 @@
 
   function applyRegion() {
     const region = findRegion(state.regionId);
+    const visualBaseId = region.visualBaseId || region.id;
     REGIONS.concat(SPECIAL_REGIONS).forEach((r) => {
-      document.body.classList.toggle(`region-${r.id}`, r === region);
+      document.body.classList.toggle(`region-${r.id}`, r.id === region.id);
     });
     const season = getEffectiveSeason();
-    const visualKey = `${region.id}|${season}`;
+    const visualKey = `${visualBaseId}|${season}`;
     if (visualKey !== lastVisualKey) {
-      applySeasonRegionVisuals(region.id, season);
+      applySeasonRegionVisuals(visualBaseId, season);
       lastVisualKey = visualKey;
     }
     return region;
@@ -6104,7 +6288,7 @@
     const isOver = isDead;
     const isFarewell = state.stage === STAGE.FAREWELL;
 
-    el.petSprite.textContent = currentSprite();
+    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
     const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
     el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
     el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
@@ -6562,7 +6746,7 @@
         : '';
       el.guestStatus.innerHTML = `
         <div class="profile-partner-card">
-          <span class="profile-partner-emoji">${stage.emoji}</span>
+          <span class="profile-partner-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">ともだちの ${stage.label}</span>
             <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${orientationLabel(g.orientationId, g.gender)}</span>
@@ -7268,7 +7452,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = lines.map((line) => `
         <div class="dex-cell known tappable" data-picker-value="${line}">
-          <span class="dex-cell-emoji">${SPECIES[line].stages[0].emoji}</span>
+          <span class="dex-cell-emoji">${stageVisualHTML(SPECIES[line].stages[0], 'thumb')}</span>
           <span class="dex-cell-label">${SPECIES_DISPLAY_NAMES[line] || line}</span>
         </div>
       `).join('');
@@ -7276,7 +7460,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = ALL_LINES.map((line) => SPECIES[line].stages.map((stage, i) => `
         <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
-          <span class="dex-cell-emoji">${stage.emoji}</span>
+          <span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <span class="dex-cell-label">${stage.label}</span>
         </div>
       `).join('')).join('');
@@ -7388,7 +7572,7 @@
     const stage = SPECIES[line].stages[stageIndex];
     const isRare = RARE_LINES.includes(line);
     el.dexDetailOverlay.classList.toggle('rare', isRare);
-    el.dexDetailEmoji.textContent = stage.emoji;
+    setStageVisual(el.dexDetailEmoji, stage, 'detail');
     el.dexDetailLabel.textContent = stage.label;
     el.dexDetailMeta.textContent = `${isRare ? '✨レア ' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ ${LIFE_STAGES[stageIndex].name}(${LIFE_STAGES[stageIndex].min}さい〜)`;
     el.dexDetailDesc.textContent = stageDesc(line, stageIndex);
@@ -7414,7 +7598,7 @@
           // であった すがたは いつでも タップして、なまえ・しゅぞく・
           // ライフステージ・せつめい文を 読める(§28)。♾️ の せかいでは
           // その くわしい がめんから そのまま その すがたに なれる
-          return `<div class="dex-cell known tappable" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`;
+          return `<div class="dex-cell known tappable" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span><span class="dex-cell-label">${stage.label}</span></div>`;
         })
         .join('');
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
@@ -7533,7 +7717,7 @@
         const stage = SPECIES[line].stages[stageForAge(currentAge())];
         return `
           <button class="transform-choice-btn" data-line="${line}">
-            <span class="transform-choice-emoji">${stage.emoji}</span>
+            <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
             <span>${stage.label}</span>
           </button>
         `;
@@ -11182,38 +11366,54 @@
   // 同じ「左右に動いて落下物を拾う」キャッチ系は一般・地域とも抽選から外した。
   // 地域側は釣り・滑走・ロード・積み上げなど、操作感が変わるものだけ残す。
   const REGION_MINIGAMES = {
-    // 地域ゲームは「数をそろえる」より、その土地で遊ぶ意味があるものを優先。
-    // 単純な連打/出現物タップの水増しは削り、地域ごと2〜3本の印象が違う遊びに絞る。
     home: [],
-    sea: [
-      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
-    ],
-    snow: [
-      { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
-    ],
     city: [
       { category: 'road', game: makeRoadGame({
-        title: 'とかいを はしろう!ラッキーアイテムは キャッチ、はとの ふんは よけて',
-        goodItems: ['🍩', '☕', '🎫', '💰'],
-        badItems: ['🐦', '🚧', '🗑️', '⚠️'],
+        title: 'とかいを はしろう!ラッキーアイテムは キャッチ、しょうがいぶつは よけて',
+        goodItems: ['🍩','☕','🎫','💰'], badItems: ['🐦','🚧','🗑️','⚠️'],
       }) },
     ],
-    countryside: [],
+    countryside: [
+      { category: 'stack', game: makeStackGame({
+        title: 'いなかの しゅうかくタワー!くずさず つもう',
+        blockEmoji: '🌾',
+        palette: ['#d6b85a','#af9b4f','#8c7b3f','#e4cf77','#9f8c53','#cab86e','#776638'],
+      }) },
+    ],
     forest: [
       { category: 'stack', game: makeStackGame({
         title: 'きのみタワー!たかく つみあげよう',
         blockEmoji: '🌰',
-        palette: ['#8a9a5b', '#a3b18a', '#dad7cd', '#588157', '#3a5a40', '#344e41', '#bc6c25'],
+        palette: ['#8a9a5b','#a3b18a','#dad7cd','#588157','#3a5a40','#344e41','#bc6c25'],
+      }) },
+    ],
+    mountain: [
+      { category: 'downhill', game: mg('downhill-mountain', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
+    ],
+    snow: [
+      { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
+    ],
+    sea: [
+      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'うみで さかなつり!あたりを のがすな' })) },
+    ],
+    deepsea: [
+      { category: 'fishing', game: mg('fishing-deepsea', makeFishingGame({ title: 'しんかいフィッシング!なにが かかるか わからない' })) },
+    ],
+    river_lake: [
+      { category: 'fishing', game: mg('fishing-river', makeFishingGame({ title: 'かわ・みずうみで さかなつり!ながれを よもう' })) },
+    ],
+    jungle: [
+      { category: 'road', game: makeRoadGame({
+        title: 'ジャングルを かけぬけろ!くだものは とって、とげとヘビは よけて',
+        goodItems: ['🍌','🥭','🥥','⭐'], badItems: ['🐍','🌵','🕸️','⚠️'],
       }) },
     ],
     desert: [
       { category: 'road', game: makeRoadGame({
-        title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
-        goodItems: ['💧', '🍈', '⭐', '🧢'],
-        badItems: ['🦂', '🐍', '☠️', '🔥'],
+        title: 'さばくを はしろう!オアシスの めぐみは とって、とげは よけて',
+        goodItems: ['💧','🍈','⭐','🧢'], badItems: ['🦂','🐍','☠️','🔥'],
       }) },
     ],
-    tropical: [],
   };
 
   // きせつごとの あそび。  // きせつごとの あそび。地域とはちがい、その category を まるごと
@@ -11348,7 +11548,8 @@
   // ゲームオブジェクトとの いちぃ でなおに はんていする(データこうぞうを
   // そのまま りようするので、タイトル文字列などに たよらない)
   function isRegionExclusiveGame(game) {
-    const regionEntries = REGION_MINIGAMES[state.regionId];
+    const activeRegion = findRegion(state.regionId);
+    const regionEntries = REGION_MINIGAMES[activeRegion.minigameBaseId || activeRegion.id];
     return !!regionEntries && regionEntries.some((entry) => entry.game === game);
   }
 
@@ -11964,6 +12165,43 @@
     emotePet(spammed ? 'angry' : 'happy');
   }));
 
+  const PARTNER_FIRST_ENCOUNTERS = {
+    cat_ceo: ['🏙️ ビルの まえで、ねこが でんわを しながら いそいでいる。','🐈‍⬛「……5ふんだけなら あいてる」'],
+    robot_neighbor: ['🤖 ロボットが こちらを じっと みている。','🤖「コレハ……キョウミ、デスカ？」'],
+    field_cow: ['🐄 のはらで うしが 草を いっぽん さしだしてきた。','🐄「たべる？」'],
+    sunflower_partner: ['🌻 ひまわりが こちらを むいた。たいようは べつの方向だ。','🌻「……。」'],
+    forest_bear: ['🐻 木の うしろから 大きな クマが こちらを 見ている。','🐻「……みた？」'],
+    grove_deer: ['🦌 シカと 目があった。すぐ にげた。','🦌 でも 少し先で また こっちを 見ている。'],
+    cliff_goat: ['🐐 どうやって のぼったのか わからない崖に ヤギがいる。','🐐「こっち くる？」'],
+    high_eagle: ['🦅 頭のうえを 大きな影が とおった。','🦅 ワシが 少しだけ こちらを 見た。'],
+    snow_spirit: ['❄️ 雪のなかに ひとつだけ とけない光がある。','❄️「さむくない？」'],
+    snowman: ['☃️ さっきまで なかった 雪だるまが ある。','☃️「……またきたね」'],
+    rock_octopus: ['🐙 岩場から 8本の手が いっせいに 手をふった。','🐙「どれで あいさつする？」'],
+    sea_mermaid: ['🧜 波のむこうから だれかが 陸を じっと見ている。','🧜「そこ、どんな ところ？」'],
+    anglerfish: ['🐟 まっくらな海で 小さな光だけが 近づいてくる。','🐟「まぶしくない ここ、すき」'],
+    swamp_croc: ['🐊 水面に 目だけが ふたつ。','🐊「……べつに まってない」'],
+    gentle_gorilla: ['🦍 大きなゴリラが 道をふさいでいる。','🦍 そっと 花を どけて 道をあけてくれた。'],
+    knitting_spider: ['🕷️ 木のあいだに きれいな糸の模様がある。','🕷️「ほどかないでね。まだ とちゅう」'],
+    desert_scorpion: ['🦂 日かげが ひとつしかない。サソリが 少し よけた。','🦂「……ここ、あいてる」'],
+    oasis_cactus: ['🌵 オアシスのそばに ひときわ 立派なサボテンがいる。','🌵「さわる？……おすすめは しない」'],
+  };
+
+  function playFirstPartnerEncounter(candidate) {
+    if (!state.lifetime.partnerEncounters) state.lifetime.partnerEncounters = [];
+    if (state.lifetime.partnerEncounters.includes(candidate.id)) return false;
+    state.lifetime.partnerEncounters.push(candidate.id);
+    const beats = PARTNER_FIRST_ENCOUNTERS[candidate.id] || [
+      `${candidate.emoji} ${candidate.label}と はじめて 目があった。`,
+      'なんとなく、また 会う気がした。',
+    ];
+    showStoryEvent({ emoji: candidate.emoji, message: beats[0] });
+    setTimeout(() => showStoryEvent({ emoji: candidate.emoji, message: beats[1] }), 2300);
+    pushLifeLog(candidate.emoji, `${candidate.label}と はじめて であった`);
+    state.happiness = clamp(state.happiness + 3, 0, 100);
+    saveState();
+    return true;
+  }
+
   // すでに こいびとが いる ときは あたらしい あいてを さがしにいかず、
   // 今の こいびとと いちゃつく だけ(せいこう/しっぱいの 抽選なし) -
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
@@ -12035,7 +12273,8 @@
         }
         if (!checkMeters()) {
           setMessage(`💍 ${state.partner.label}と けっこんした`);
-          speakEvent('marriage', { partnerChance: 1, companionChance: 0.65 });
+          const marriageLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.marriage;
+          speakEvent('marriage', { petText: marriageLine || undefined, partnerChance: 1, companionChance: 0.65 });
         }
         emotePet('love');
         return;
@@ -12075,6 +12314,15 @@
         speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
+      return;
+    }
+
+    // 地域固有の恋人は、初回は「出会う」だけ。次に会ったときから求愛できる。
+    // これで地域を旅する理由と、知り合ってから恋へ進む一段階を作る。
+    if (candidate.id !== 'guest' && playFirstPartnerEncounter(candidate)) {
+      setMessage(`${candidate.emoji} ${candidate.label}と しりあった。また 会えそうだ`);
+      emotePet('fun');
+      render();
       return;
     }
 
@@ -12132,7 +12380,8 @@
         // きねんに 記録する(「はじめから」しても きえない永続コレクション)
         state.lifetime.partnersRecorded.push(candidate.id);
       }
-      const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
+      const relationLines = PARTNER_RELATIONSHIP_LINES[candidate.id];
+      const reaction = relationLines?.court || pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage(`💑 ${candidate.label}と こいびとに なった`);

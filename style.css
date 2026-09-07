@@ -28,6 +28,10 @@ body.region-countryside { background: radial-gradient(circle at 50% 20%, #fef6d0
 body.region-forest { background: radial-gradient(circle at 50% 20%, #e3f3d6 0%, #a3cf85 55%, #4f7a3d 100%); }
 body.region-desert { background: radial-gradient(circle at 50% 20%, #fff3d6 0%, #f0c877 55%, #d99a4e 100%); }
 body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%, #7fe0c9 55%, #1fa98a 100%); }
+body.region-mountain { background: radial-gradient(circle at 50% 20%, #edf1e8 0%, #9fb39a 55%, #596c57 100%); }
+body.region-deepsea { background: radial-gradient(circle at 50% 20%, #18345f 0%, #0b1f3b 58%, #03101f 100%); }
+body.region-river_lake { background: radial-gradient(circle at 50% 20%, #dff7ef 0%, #83c8ba 55%, #3b7f74 100%); }
+body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, #61aa68 55%, #245b3a 100%); }
 
 .device {
   width: 340px;
@@ -4922,6 +4926,15 @@ body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%
 .life-card { width: 100%; max-width: 260px; text-align: center; line-height: 1.7; }
 .lifecard-title { font-size: 20px; font-weight: bold; }
 .lifecard-age { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
+.lifecard-ren-memory { margin: 7px 0 8px; padding: 7px 5px; border: 1px solid rgba(255, 215, 105, 0.45); border-radius: 9px; background: rgba(255, 255, 255, 0.07); }
+.lifecard-ren-caption { font-size: 11px; font-weight: bold; margin-bottom: 5px; }
+.lifecard-ren-stages { display: flex; align-items: center; justify-content: center; gap: 2px; }
+.lifecard-ren-stage { min-width: 34px; display: inline-flex; flex-direction: column; align-items: center; gap: 1px; }
+.lifecard-ren-stage .character-visual { width: 30px; height: 30px; }
+.lifecard-ren-stage .character-asset { width: 30px; height: 30px; image-rendering: pixelated; }
+.lifecard-ren-stage small { font-size: 6.5px; line-height: 1.1; white-space: nowrap; }
+.lifecard-ren-arrow { font-size: 8px; opacity: 0.6; }
+.lifecard-ren-message { margin-top: 5px; font-size: 8.5px; line-height: 1.55; }
 .lifecard-line { font-size: 10.5px; opacity: 0.92; }
 .lifecard-badges {
   font-size: 11px;
@@ -5843,3 +5856,55 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 @keyframes mg-ab-slash{0%{opacity:0;transform:scaleX(.15) rotate(-12deg)}35%{opacity:1}100%{opacity:0;transform:scaleX(1.18) rotate(7deg)}}
 @keyframes mg-ab-impact{0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(-20deg)}38%{opacity:1;transform:translate(-50%,-50%) scale(1.25) rotate(8deg)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(18deg)}}
 @keyframes mg-ab-screen-hit{0%,100%{filter:none}35%{filter:brightness(1.55);transform:translateX(-3px)}65%{transform:translateX(3px)}}
+
+
+/* ================================================================
+   Character Renderer
+   1形態1PNGを基本に、未制作/読込失敗時はemojiへ自動フォールバック。
+   ================================================================ */
+.character-visual{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  vertical-align:middle;
+  line-height:1;
+  position:relative;
+}
+.character-asset{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.character-emoji-fallback{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.character-visual.has-asset .character-emoji-fallback{display:none}
+.character-visual.has-asset.asset-failed .character-asset{display:none}
+.character-visual.has-asset.asset-failed .character-emoji-fallback{display:inline-flex}
+.character-hero{width:82px;height:82px;font-size:62px}
+.character-detail{width:104px;height:104px;font-size:76px}
+.character-thumb{width:42px;height:42px;font-size:30px}
+.character-medium{width:56px;height:56px;font-size:40px}
+
+#petSprite{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+#petSprite > .character-visual{pointer-events:none}
+.dex-cell-emoji .character-visual,
+.transform-choice-emoji .character-visual,
+.profile-partner-emoji .character-visual{margin:auto}
+
+@media (max-width:420px){
+  .character-hero{width:76px;height:76px;font-size:58px}
+  .character-detail{width:92px;height:92px;font-size:68px}
+  .character-thumb{width:38px;height:38px;font-size:28px}
+}
