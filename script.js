@@ -4546,6 +4546,79 @@
     triggerLegendEncounter();
   }
 
+  function playLegendEncounterMovie(legend, coins) {
+    clearDateMovieTimers();
+    clearConversationTimers();
+    clearSpeechBubble();
+    dateOpen = true;
+    el.dateOverlay.classList.remove('hidden');
+    el.dateChooser.classList.add('hidden');
+    el.dateMovie.classList.remove('hidden');
+    el.dateMovieCloseBtn.classList.add('hidden');
+    el.dateMovieSkipBtn.classList.remove('hidden');
+    el.dateMovieScene.classList.remove('special-reward', 'anniversary-major');
+    el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
+    el.dateMoviePlace.textContent = `${legend.emoji} でんせつの であい`;
+    const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
+    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    el.dateMoviePartner.textContent = legend.emoji;
+
+    const beatsById = {
+      gate: [
+        '空を 見上げた。',
+        '⛩️ 雲より下に、とりいが ひとつ 浮かんでいる。',
+        '風は ない。',
+        'それなのに、とりいが 少しだけ こちらへ かたむいた。',
+        '「……いま、動いたよね?」',
+      ],
+      stairs: [
+        '野原の まんなかに、階段だけが 立っていた。',
+        '「……どこ行くの、これ」',
+        'のぼっても のぼっても、何段目か わからない。',
+        'いったん おりて 振り返る。',
+        '階段は、3段しか なかった。',
+        '「もう のぼらん」',
+      ],
+      boss: [
+        '🦑 とてつもなく 大きなイカが あらわれた。',
+        'ダイオウイカは、ものすごく 丁寧に おじぎをした。',
+        '🦑「このたびは まことに もうしわけ ございませんでした」',
+        '「……なにが?」',
+        '🦑 もう一度、深々と おじぎをした。',
+        '「まあ……いいよ」',
+        '🦑 ダイオウイカは 帰っていった。',
+      ],
+      lamp: [
+        'まっくらな道の先に、小さな あかりが ひとつ。',
+        '近づくと、暗がりから 声がした。',
+        '「おかえり」',
+        '「……ただいま?」',
+        '振り返ると、あかりだけが まだ そこにあった。',
+      ],
+      mirror: [
+        '水たまりを のぞきこんだ。',
+        'そこには、ずっと年をとった 自分がいた。',
+        '「……ぼく?」',
+        '水の中の自分だけが、先に わらった。',
+        '何かを 言いかけた瞬間、水面が ゆれた。',
+        '消える直前の顔は、おだやかだった。',
+      ],
+    };
+    const beats = (beatsById[legend.id] || [legend.flash, legend.story]).concat([`💰 足もとに ${coins} が 置かれていた。`]);
+    el.dateMovieCaption.textContent = beats[0];
+    el.dateMovieCaption.classList.add('beat');
+    const step = 3300;
+    for (let i = 1; i < beats.length; i += 1) {
+      dateMovieTimers.push(setTimeout(() => {
+        el.dateMovieCaption.classList.remove('beat');
+        void el.dateMovieCaption.offsetWidth;
+        el.dateMovieCaption.textContent = beats[i];
+        el.dateMovieCaption.classList.add('beat');
+      }, step * i));
+    }
+    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
+  }
+
   // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
   // かさねる ほど あたらしい でんせつに であえる(ぜんぶ みた あとは
   // どれかが もういちど でる - コンプリートは じっせきに ならない)
@@ -4562,9 +4635,10 @@
     applyGrowth(8);
     applyDecline(-25);
     pushLifeLog(legend.emoji, `${legend.name}に であった`);
-    showStoryEvent({ emoji: legend.emoji, message: legend.flash });
-    setMessage(`${legend.emoji} ${legend.name}。${legend.story} 帰ろうとしたら、足もとに 💰${coins} が 置かれていた。`);
+    // 一生に一度の特別イベントなので、通常通知へ長文を流さず専用ムービーで見せる。
+    setMessage('');
     emotePet('love');
+    playLegendEncounterMovie(legend, coins);
     saveState();
     render();
   }
