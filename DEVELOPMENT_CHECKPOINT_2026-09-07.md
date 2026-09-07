@@ -882,3 +882,14 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #132 = SUCCESS。
 - 次工程: WORLD_MASTERのRARE登録順どおり `plush` → `unknown`。存在しない種は追加しない。
 
+## チェックポイント AA — ぬいぐるみ・？？？ 8段階 PNG 実装
+- WORLD_MASTERのRARE登録順どおり `plush` → `unknown` を実装。
+- `plush`: 新品→遊ばれる→お気に入り→汚れる→ほつれる→継ぎはぎ→ボロボロ→大切な宝物。
+- `unknown`: 点→ぷる→足？→目？→羽？→巨大化→極小化→点……？。
+- 各01〜08、計16枚を64×64 RGBA透過PNGとして追加。シート文字・背景は含めず、ゲーム用個別スプライトとして投入。
+- 既存Character Rendererの `assets/characters/<species>/<01..08>.png` 自動接続規約をそのまま使用。Renderer本体の個別改変なし。
+- PNG投入コミット: `82ebd9cbc1d413203189edb1383811a60e2f8c95`。
+- Runtime smoke test run #135 = SUCCESS。
+- なお、先に監査で発見した `beetle` / `stagbeetle` / `cicada` / `antlion` / `jellyfish` のPNG再制作は未完了。WORLD_MASTER側の5種ライフステージ修正は `5612cefe` で完了済み。次工程ではこの5種の画像修復を優先する。
+- `ren` はSECRET専用8段階であり、通常人間ラインの色違いにしない。
+
