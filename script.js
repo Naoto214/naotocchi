@@ -2,6 +2,7 @@
   'use strict';
 
   const SAVE_KEY = 'naotocchi-save-v1';
+  const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   let stateLoadRecovered = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
@@ -3925,8 +3926,6 @@
   // せいべつ・れんあいタイプ・しゅぞく(動物/植物/ロボットなど)を
   // ひろく ちらして あり、どの ラインの なおとっちでも 種族を こえた
   // 恋愛が できる
-  const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
-
   const PARTNER_RUNTIME_PROFILE = {
     cat_ceo: { emoji: '🐈‍⬛', gender: 'female', orientationId: 'gay', affinityTrait: 'brave' },
     robot_neighbor: { emoji: '🤖', gender: 'nonbinary', orientationId: 'bi', affinityTrait: 'calm' },
