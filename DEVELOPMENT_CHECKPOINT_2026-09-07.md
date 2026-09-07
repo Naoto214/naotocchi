@@ -984,3 +984,13 @@ Runtime smoke test SUCCESS確認済み。
 - 途中死亡時には専用回想を出さず、100歳到達時だけ表示する。
 - 実装コミット: `a34182f0a43b1356dd44a314360a4395db1e16d6`、表示調整コミット: `1d7358751c2a7a423d439797e4f1a9e1bc900543`。
 - Runtime smoke test #149 / #150 を実行し、最終 #150 = SUCCESS。
+
+
+## チェックポイント AH — PR #182 最終マージ前監査
+- 監査時HEAD: `e182590ed35ee5bad555373c35afab2b83c5b7ba`。
+- PR #182 は open / draft / mergeable=true。baseは `main@6d744e430b6189ec683a0aef113c6dcf735d1934`、headはbaseより70 commits ahead / 0 behindで、main取り込み漏れなし。
+- PR全体は255 changed files。248形態PNG、WORLD_MASTER、Character Renderer接続、asset spec、runtime変更、チェックポイント文書を含む。
+- HEADのRuntime smoke test #151 = SUCCESS。
+- GitHub上のreview submissions 0件、未解決review threads 0件。commit combined status APIのlegacy statusesは0件だが、ActionsのRuntime smoke testはSUCCESSを確認済み。
+- PRは技術的にはmergeableだが、現時点ではdraftのため自動でReady/mergeには変更しない。ユーザー確認後にReady化→最終HEAD CI再確認→mergeの順で進める。
+- PR本文冒頭の「このファイルは現時点ではscript.js/index.htmlから読み込んでいない」という初期説明は、その後の70コミットで実装範囲が拡張された現在状態とは不一致。マージ前にPR本文を現状へ更新する必要あり。
