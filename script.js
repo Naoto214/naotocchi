@@ -2123,7 +2123,7 @@
   // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
   let speechTimer = null;
   let speechActive = false;
-  const SPEECH_DURATION_MS = 6200;
+  const SPEECH_DURATION_MS = 3500;
 
   function hideSpeechBubble() {
     speechActive = false;
@@ -2358,9 +2358,9 @@
     }
     const visibleBeats = beats.slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
-    conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * 2600) + SPEECH_DURATION_MS);
+    conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
     visibleBeats.forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 2600));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * SPEECH_DURATION_MS));
     });
   }
 
