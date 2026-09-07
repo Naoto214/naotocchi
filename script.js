@@ -11026,6 +11026,34 @@
     }};
   }
   const FALLING_BLOCK_VARIANTS=[mg('falling-block-puzzle',makeFallingBlockPuzzleGame())];
+  // --- クレーンゲーム: 横位置→奥行き→下降→キャッチ ---
+  function makeCraneGame(){
+    return {start(container,onComplete){
+      const prizes=[{e:'🧸',x:24,y:72,v:30},{e:'🎁',x:48,y:68,v:45},{e:'👑',x:72,y:74,v:70}];
+      let cx=50,cy=18,phase='aimX',done=false,grabbed=null,moves=0;
+      container.innerHTML=`
+        <div class="mg-header"><span id="crPhase">① よこ位置</span><span id="crScore">うごかした 0</span></div>
+        <div class="mg-title">3Dクレーンゲーム!ねらって景品をつかもう</div>
+        <div class="mg-crane-scene" id="crScene"><div class="mg-crane-rail"></div><div class="mg-crane-head" id="crHead">⬇️</div><div class="mg-crane-claw" id="crClaw">🤏</div><div class="mg-crane-prizes" id="crPrizes"></div></div>
+        <div class="mg-hint" id="crHint">左右でクレーンを景品の真上へ</div>
+        <div class="mg-crane-controls" id="crControls"><button class="mg-tap-btn" id="crLeft">◀</button><button class="mg-tap-btn" id="crNext">けってい</button><button class="mg-tap-btn" id="crRight">▶</button></div>`;
+      const scene=container.querySelector('#crScene'),head=container.querySelector('#crHead'),claw=container.querySelector('#crClaw'),prizeEl=container.querySelector('#crPrizes');
+      const hint=container.querySelector('#crHint'),phaseEl=container.querySelector('#crPhase'),scoreEl=container.querySelector('#crScore'),controls=container.querySelector('#crControls');
+      function renderPrizes(){prizeEl.innerHTML=prizes.map((p,i)=>'<span data-i="'+i+'" style="left:'+p.x+'%;top:'+p.y+'%">'+p.e+'</span>').join('');}
+      function render(){head.style.left=cx+'%';head.style.top=Math.min(cy,48)+'%';claw.style.left=cx+'%';claw.style.top=cy+'%';scoreEl.textContent='うごかした '+moves;}
+      function moveX(dx){if(done||phase!=='aimX')return;cx=clamp(cx+dx,12,88);moves++;render();}
+      function moveY(dy){if(done||phase!=='aimY')return;cy=clamp(cy+dy,18,56);moves++;render();}
+      function setPhase(p){phase=p;if(p==='aimY'){phaseEl.textContent='② おく行き';hint.textContent='▲ ▼でクレーンを奥/手前に合わせる';controls.innerHTML='<button class="mg-tap-btn" id="crUp">▲</button><button class="mg-tap-btn" id="crNext2">けってい</button><button class="mg-tap-btn" id="crDown">▼</button>';container.querySelector('#crUp').onpointerdown=e=>{e.preventDefault();moveY(-6);};container.querySelector('#crDown').onpointerdown=e=>{e.preventDefault();moveY(6);};container.querySelector('#crNext2').onpointerdown=e=>{e.preventDefault();drop();};}}
+      function drop(){if(done)return;phase='drop';phaseEl.textContent='③ キャッチ';hint.textContent='クレーン下降中…';controls.innerHTML='';const targetY=78;let start=performance.now(),from=cy;function step(now){const t=clamp((now-start)/650,0,1);cy=from+(targetY-from)*t;render();if(t<1)requestAnimationFrame(step);else grab();}requestAnimationFrame(step);}
+      function grab(){let best=null,bestD=999;prizes.forEach((p,i)=>{const dx=(p.x-cx)*1.15,dy=p.y-cy,d=Math.hypot(dx,dy);if(d<bestD){bestD=d;best={p,i};}});grabbed=bestD<18?best:null;if(grabbed){hint.textContent='つかんだ! 戻っている…';const el=prizeEl.querySelector('[data-i="'+grabbed.i+'"]');if(el)el.classList.add('grabbed');}else hint.textContent='つかめなかった…';returnHome();}
+      function returnHome(){let start=performance.now(),fromY=cy,fromX=cx;function step(now){const t=clamp((now-start)/800,0,1);cy=fromY+(18-fromY)*t;cx=fromX+(50-fromX)*t;render();if(grabbed){const el=prizeEl.querySelector('[data-i="'+grabbed.i+'"]');if(el){el.style.left=cx+'%';el.style.top=(cy+18)+'%';}}if(t<1)requestAnimationFrame(step);else finish();}requestAnimationFrame(step);}
+      function finish(){done=true;phaseEl.textContent='結果';controls.innerHTML='';if(grabbed){hint.textContent=grabbed.p.e+' ゲット!';setTimeout(()=>onComplete(clamp(55+grabbed.p.v-moves*2,55,100)),650);}else{hint.textContent='もう少し!';setTimeout(()=>onComplete(clamp(30-moves,10,35)),650);}}
+      container.querySelector('#crLeft').onpointerdown=e=>{e.preventDefault();moveX(-6);};container.querySelector('#crRight').onpointerdown=e=>{e.preventDefault();moveX(6);};container.querySelector('#crNext').onpointerdown=e=>{e.preventDefault();setPhase('aimY');};
+      scene.onpointerdown=e=>{if(done)return;const r=scene.getBoundingClientRect(),px=(e.clientX-r.left)/r.width*100,py=(e.clientY-r.top)/r.height*100;if(phase==='aimX'){cx=clamp(px,12,88);moves++;render();}else if(phase==='aimY'){cy=clamp(py,18,56);moves++;render();}};
+      renderPrizes();render();
+    }};
+  }
+  const CRANE_GAME_VARIANTS=[mg('crane-game-3d',makeCraneGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -11033,6 +11061,7 @@
     ...SHOOTER_GAME_VARIANTS,
     ...ACTION_BOSS_VARIANTS,
     ...FALLING_BLOCK_VARIANTS,
+    ...CRANE_GAME_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -11055,6 +11084,7 @@
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['actionBoss', ACTION_BOSS_VARIANTS],
     ['fallingBlock', FALLING_BLOCK_VARIANTS],
+    ['craneGame', CRANE_GAME_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11253,7 +11283,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11264,6 +11294,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'crane-game-3d',
     'falling-block-puzzle',
     'action-boss-3d',
     'fp-dungeon',
