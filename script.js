@@ -1153,6 +1153,7 @@
         // として 永続に 記録される(あいてコードの おきゃくさんは 種族の
         // ずかんに 記録されるので、ここには ふくまれない)
         partnersRecorded: [],
+        partnerEncounters: [],
         partnersMarried: [],
         // おかね(ミニゲーム大成功などで もらえる)と、それで こうにゅう
         // した SHOP_ITEMS の id 一覧、いま そうびちゅうの id。いろ・がら
@@ -6089,9 +6090,8 @@
   function applyRegion() {
     const region = findRegion(state.regionId);
     const visualBaseId = region.visualBaseId || region.id;
-    const visualIds = new Set(REGIONS.concat(SPECIAL_REGIONS).map((r) => r.visualBaseId || r.id));
-    visualIds.forEach((id) => {
-      document.body.classList.toggle(`region-${id}`, id === visualBaseId);
+    REGIONS.concat(SPECIAL_REGIONS).forEach((r) => {
+      document.body.classList.toggle(`region-${r.id}`, r.id === region.id);
     });
     const season = getEffectiveSeason();
     const visualKey = `${visualBaseId}|${season}`;
@@ -11187,38 +11187,54 @@
   // 同じ「左右に動いて落下物を拾う」キャッチ系は一般・地域とも抽選から外した。
   // 地域側は釣り・滑走・ロード・積み上げなど、操作感が変わるものだけ残す。
   const REGION_MINIGAMES = {
-    // 地域ゲームは「数をそろえる」より、その土地で遊ぶ意味があるものを優先。
-    // 単純な連打/出現物タップの水増しは削り、地域ごと2〜3本の印象が違う遊びに絞る。
     home: [],
-    sea: [
-      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'ほんものの さかなつり!あたりを のがすな' })) },
-    ],
-    snow: [
-      { category: 'downhill', game: mg('downhill-themed', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
-    ],
     city: [
       { category: 'road', game: makeRoadGame({
-        title: 'とかいを はしろう!ラッキーアイテムは キャッチ、はとの ふんは よけて',
-        goodItems: ['🍩', '☕', '🎫', '💰'],
-        badItems: ['🐦', '🚧', '🗑️', '⚠️'],
+        title: 'とかいを はしろう!ラッキーアイテムは キャッチ、しょうがいぶつは よけて',
+        goodItems: ['🍩','☕','🎫','💰'], badItems: ['🐦','🚧','🗑️','⚠️'],
       }) },
     ],
-    countryside: [],
+    countryside: [
+      { category: 'stack', game: makeStackGame({
+        title: 'いなかの しゅうかくタワー!くずさず つもう',
+        blockEmoji: '🌾',
+        palette: ['#d6b85a','#af9b4f','#8c7b3f','#e4cf77','#9f8c53','#cab86e','#776638'],
+      }) },
+    ],
     forest: [
       { category: 'stack', game: makeStackGame({
         title: 'きのみタワー!たかく つみあげよう',
         blockEmoji: '🌰',
-        palette: ['#8a9a5b', '#a3b18a', '#dad7cd', '#588157', '#3a5a40', '#344e41', '#bc6c25'],
+        palette: ['#8a9a5b','#a3b18a','#dad7cd','#588157','#3a5a40','#344e41','#bc6c25'],
+      }) },
+    ],
+    mountain: [
+      { category: 'downhill', game: mg('downhill-mountain', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
+    ],
+    snow: [
+      { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
+    ],
+    sea: [
+      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'うみで さかなつり!あたりを のがすな' })) },
+    ],
+    deepsea: [
+      { category: 'fishing', game: mg('fishing-deepsea', makeFishingGame({ title: 'しんかいフィッシング!なにが かかるか わからない' })) },
+    ],
+    river_lake: [
+      { category: 'fishing', game: mg('fishing-river', makeFishingGame({ title: 'かわ・みずうみで さかなつり!ながれを よもう' })) },
+    ],
+    jungle: [
+      { category: 'road', game: makeRoadGame({
+        title: 'ジャングルを かけぬけろ!くだものは とって、とげとヘビは よけて',
+        goodItems: ['🍌','🥭','🥥','⭐'], badItems: ['🐍','🌵','🕸️','⚠️'],
       }) },
     ],
     desert: [
       { category: 'road', game: makeRoadGame({
-        title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
-        goodItems: ['💧', '🍈', '⭐', '🧢'],
-        badItems: ['🦂', '🐍', '☠️', '🔥'],
+        title: 'さばくを はしろう!オアシスの めぐみは とって、とげは よけて',
+        goodItems: ['💧','🍈','⭐','🧢'], badItems: ['🦂','🐍','☠️','🔥'],
       }) },
     ],
-    tropical: [],
   };
 
   // きせつごとの あそび。  // きせつごとの あそび。地域とはちがい、その category を まるごと
@@ -11970,6 +11986,43 @@
     emotePet(spammed ? 'angry' : 'happy');
   }));
 
+  const PARTNER_FIRST_ENCOUNTERS = {
+    cat_ceo: ['🏙️ ビルの まえで、ねこが でんわを しながら いそいでいる。','🐈‍⬛「……5ふんだけなら あいてる」'],
+    robot_neighbor: ['🤖 ロボットが こちらを じっと みている。','🤖「コレハ……キョウミ、デスカ？」'],
+    field_cow: ['🐄 のはらで うしが 草を いっぽん さしだしてきた。','🐄「たべる？」'],
+    sunflower_partner: ['🌻 ひまわりが こちらを むいた。たいようは べつの方向だ。','🌻「……。」'],
+    forest_bear: ['🐻 木の うしろから 大きな クマが こちらを 見ている。','🐻「……みた？」'],
+    grove_deer: ['🦌 シカと 目があった。すぐ にげた。','🦌 でも 少し先で また こっちを 見ている。'],
+    cliff_goat: ['🐐 どうやって のぼったのか わからない崖に ヤギがいる。','🐐「こっち くる？」'],
+    high_eagle: ['🦅 頭のうえを 大きな影が とおった。','🦅 ワシが 少しだけ こちらを 見た。'],
+    snow_spirit: ['❄️ 雪のなかに ひとつだけ とけない光がある。','❄️「さむくない？」'],
+    snowman: ['☃️ さっきまで なかった 雪だるまが ある。','☃️「……またきたね」'],
+    rock_octopus: ['🐙 岩場から 8本の手が いっせいに 手をふった。','🐙「どれで あいさつする？」'],
+    sea_mermaid: ['🧜 波のむこうから だれかが 陸を じっと見ている。','🧜「そこ、どんな ところ？」'],
+    anglerfish: ['🐟 まっくらな海で 小さな光だけが 近づいてくる。','🐟「まぶしくない ここ、すき」'],
+    swamp_croc: ['🐊 水面に 目だけが ふたつ。','🐊「……べつに まってない」'],
+    gentle_gorilla: ['🦍 大きなゴリラが 道をふさいでいる。','🦍 そっと 花を どけて 道をあけてくれた。'],
+    knitting_spider: ['🕷️ 木のあいだに きれいな糸の模様がある。','🕷️「ほどかないでね。まだ とちゅう」'],
+    desert_scorpion: ['🦂 日かげが ひとつしかない。サソリが 少し よけた。','🦂「……ここ、あいてる」'],
+    oasis_cactus: ['🌵 オアシスのそばに ひときわ 立派なサボテンがいる。','🌵「さわる？……おすすめは しない」'],
+  };
+
+  function playFirstPartnerEncounter(candidate) {
+    if (!state.lifetime.partnerEncounters) state.lifetime.partnerEncounters = [];
+    if (state.lifetime.partnerEncounters.includes(candidate.id)) return false;
+    state.lifetime.partnerEncounters.push(candidate.id);
+    const beats = PARTNER_FIRST_ENCOUNTERS[candidate.id] || [
+      `${candidate.emoji} ${candidate.label}と はじめて 目があった。`,
+      'なんとなく、また 会う気がした。',
+    ];
+    showStoryEvent({ emoji: candidate.emoji, message: beats[0] });
+    setTimeout(() => showStoryEvent({ emoji: candidate.emoji, message: beats[1] }), 2300);
+    pushLifeLog(candidate.emoji, `${candidate.label}と はじめて であった`);
+    state.happiness = clamp(state.happiness + 3, 0, 100);
+    saveState();
+    return true;
+  }
+
   // すでに こいびとが いる ときは あたらしい あいてを さがしにいかず、
   // 今の こいびとと いちゃつく だけ(せいこう/しっぱいの 抽選なし) -
   // 一生のあいだ 1にん だけの、じみに おだやかな 恋愛システム
@@ -12081,6 +12134,15 @@
         speakEvent('court_fail', { partnerChance: 0, companionChance: 0.35 });
       }
       emotePet('happy');
+      return;
+    }
+
+    // 地域固有の恋人は、初回は「出会う」だけ。次に会ったときから求愛できる。
+    // これで地域を旅する理由と、知り合ってから恋へ進む一段階を作る。
+    if (candidate.id !== 'guest' && playFirstPartnerEncounter(candidate)) {
+      setMessage(`${candidate.emoji} ${candidate.label}と しりあった。また 会えそうだ`);
+      emotePet('fun');
+      render();
       return;
     }
 
