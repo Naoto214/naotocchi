@@ -5788,3 +5788,13 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-action-boss-projectile{position:absolute;top:18%;font-size:34px;pointer-events:none}
 .mg-action-boss.hit{animation:mg-p3-hit .14s linear 1}.mg-action-boss-enemy.hit{transform:translate(-50%,-50%) scale(.86) rotate(8deg)}
 .mg-action-boss-controls{display:flex;justify-content:center;gap:10px;margin-top:9px}.mg-action-boss-controls .mg-tap-btn{min-height:48px;min-width:64px}.mg-action-boss-controls #abAttack{min-width:112px}
+
+/* falling block puzzle */
+.mg-falling-wrap{display:flex;justify-content:center;margin:6px 0}
+.mg-falling-board{display:grid;grid-template-columns:repeat(8,24px);grid-template-rows:repeat(14,24px);gap:2px;padding:7px;border-radius:14px;background:#17191d;box-shadow:inset 0 0 18px rgba(0,0,0,.75);touch-action:none}
+.mg-falling-board span{width:24px;height:24px;border-radius:4px;background:#292d34;box-sizing:border-box}
+.mg-falling-board span.fixed{background:linear-gradient(#d0d4dc,#8c93a1);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.mg-falling-board span.active{background:linear-gradient(#fff4a3,#e8b84c);box-shadow:0 0 8px rgba(255,220,90,.65),inset 0 0 0 2px rgba(255,255,255,.45)}
+.mg-falling-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.mg-falling-controls .mg-tap-btn{min-width:58px;min-height:46px}
+#fbDrop{min-width:88px}
