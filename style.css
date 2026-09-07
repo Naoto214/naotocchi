@@ -5798,3 +5798,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-falling-controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
 .mg-falling-controls .mg-tap-btn{min-width:58px;min-height:46px}
 #fbDrop{min-width:88px}
+
+/* crane game */
+.mg-crane-scene{position:relative;height:265px;border-radius:18px;overflow:hidden;background:linear-gradient(#bfe9ff 0 18%,#eef7ff 19% 66%,#d8c8ab 67%);box-shadow:inset 0 0 25px rgba(0,0,0,.18);touch-action:none}
+.mg-crane-rail{position:absolute;left:8%;right:8%;top:11%;height:10px;border-radius:8px;background:#727b86;box-shadow:0 3px 4px rgba(0,0,0,.25)}
+.mg-crane-head{position:absolute;left:50%;top:18%;transform:translate(-50%,-50%);font-size:28px;z-index:5;transition:left .08s,top .08s}
+.mg-crane-claw{position:absolute;left:50%;top:18%;transform:translate(-50%,-50%);font-size:38px;z-index:6;filter:drop-shadow(0 4px 3px rgba(0,0,0,.3))}
+.mg-crane-prizes span{position:absolute;transform:translate(-50%,-50%);font-size:44px;transition:left .08s,top .08s,transform .15s}
+.mg-crane-prizes span.grabbed{transform:translate(-50%,-50%) scale(.85);filter:drop-shadow(0 0 10px rgba(255,220,90,.8))}
+.mg-crane-controls{display:flex;justify-content:center;gap:10px;margin-top:9px}.mg-crane-controls .mg-tap-btn{min-width:72px;min-height:46px}
