@@ -386,11 +386,11 @@
     dragon:['🦎','🦎','🐉','🐉','🐉','🐉','🐉','🐉'], phoenix:['🔥','🐣','🐥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🔥'],
     god:['✨','👼','🧚','😇','😇','🌟','🌟','☀️'], world_tree:['🌱','🌱','🌳','🌳','🌳','🌳','🌳','🌳'],
     ghost:['✨','👻','👻','👻','👻','👻','👻','✨'], star:['☁️','☁️','✨','⭐','☀️','🌟','💥','✨'],
-    plush:['🧸','🧸','🧸','🧸','🧸','🧸','🧸','🧸'], unknown:['•','🫧','〰️','👁️','🪽','⬤','·','•'],
+    plush:['🧸','🧸','🧸','🧸','🧸','🧸','🧸','🧸'], unknown:['•','🫧','〰️','👁️','🪽','⬤','·','•'], ren:['👶','🏃','🧒','🧒','🧑','🧑','🧓','👴'],
   };
   function installMasterSpecies() {
     if (!WORLD_MASTER) return;
-    const defs = [...WORLD_MASTER.playerSpecies.normal, ...WORLD_MASTER.playerSpecies.rare];
+    const defs = [...WORLD_MASTER.playerSpecies.normal, ...WORLD_MASTER.playerSpecies.rare, ...(WORLD_MASTER.playerSpecies.secret || [])];
     defs.forEach((def) => {
       const emojis = MASTER_SPECIES_EMOJI[def.id] || Array(8).fill('❓');
       SPECIES[def.id] = {
