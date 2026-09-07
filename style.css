@@ -5606,12 +5606,13 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-fp-sidewall.left{left:0;clip-path:polygon(0 0,100% 24%,100% 76%,0 100%)}
 .mg-fp-sidewall.right{right:0;clip-path:polygon(0 24%,100% 0,100% 100%,0 76%)}
 .mg-fp-sidewall.open{opacity:.28;background:#171512}
-.mg-fp-frontwall{position:absolute;left:31%;right:31%;top:25%;bottom:25%;z-index:5;display:none;align-items:center;justify-content:center;
-  border:4px solid #2c211a;border-radius:4px;background:
-  repeating-linear-gradient(0deg,transparent 0 27px,rgba(30,18,12,.42) 28px 31px),
-  repeating-linear-gradient(90deg,#8a6548 0 43px,#5d432f 44px 47px);
-  box-shadow:0 0 35px rgba(0,0,0,.75)}
-.mg-fp-frontwall span{font-size:58px;filter:drop-shadow(0 5px 5px rgba(0,0,0,.5))}
+.mg-fp-frontwall{position:absolute;left:29%;right:29%;top:22%;bottom:22%;z-index:5;display:none;
+  border:3px solid #2d2925;border-radius:3px;
+  background:
+    linear-gradient(90deg,transparent 48%,rgba(20,18,16,.5) 49% 51%,transparent 52%),
+    repeating-linear-gradient(0deg,#5b554d 0 31px,#292622 32px 35px);
+  box-shadow:inset 0 0 25px rgba(0,0,0,.42),0 0 35px rgba(0,0,0,.72)}
+
 .mg-fp-object{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);z-index:8;filter:drop-shadow(0 8px 5px rgba(0,0,0,.55));transition:font-size .12s,top .12s}
 .mg-fp-object.here{font-size:76px;top:60%}.mg-fp-object.near{font-size:54px}.mg-fp-object.far{font-size:30px;top:49%}
 .mg-fp-object.treasure{animation:mg-fp-glow 1s ease-in-out infinite alternate}.mg-fp-object.exit{font-size:78px}
@@ -5752,3 +5753,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   line-height: 1.45;
   padding: 6px 8px;
 }
+
+/* dungeon: readable wall, actual CSS treasure chest, clean goal state */
+.mg-fp-chest{position:relative;display:block;width:62px;height:43px;border:4px solid #4b2b16;border-radius:5px;background:linear-gradient(#b96a27 0 48%,#7d421d 49% 100%);box-shadow:0 8px 10px rgba(0,0,0,.55)}
+.mg-fp-chest:before{content:"";position:absolute;left:-4px;right:-4px;top:-22px;height:24px;border:4px solid #4b2b16;border-radius:18px 18px 3px 3px;background:linear-gradient(#c8792f,#8e4b20)}
+.mg-fp-chest:after{content:"";position:absolute;left:50%;top:13px;transform:translateX(-50%);width:13px;height:17px;border-radius:2px;background:#e2b94f;border:2px solid #5a3b18}
+.mg-fp-object.near .mg-fp-chest{transform:scale(.76)}.mg-fp-object.far .mg-fp-chest{transform:scale(.46)}
+.mg-fp-view.cleared{display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at center,#fff5b8,#604f35 62%,#171512);box-shadow:inset 0 0 35px rgba(0,0,0,.55)}
+.mg-fp-clear-door{font-size:92px;filter:drop-shadow(0 8px 8px rgba(0,0,0,.45))}
+.mg-fp-clear-text{margin-top:4px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.88);font-weight:900;font-size:20px}
