@@ -5985,6 +5985,47 @@
     return stageForAge(currentAge());
   }
 
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (ch) => ({
+      '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;',
+    }[ch]));
+  }
+
+  // Character Renderer:
+  // stage.asset がある形態だけPNGを使い、未制作/読込失敗時は必ずemojiへ戻る。
+  // 1形態1ファイルを基本にし、メイン/図鑑/変身など全UIで同じマスターを使う。
+  function stageVisualHTML(stage, size = 'medium') {
+    const emoji = stage?.emoji || '❓';
+    const asset = stage?.asset || '';
+    const safeEmoji = escapeHtml(emoji);
+    if (!asset) {
+      return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${safeEmoji}</span></span>`;
+    }
+    return `<span class="character-visual character-${size} has-asset">
+      <img class="character-asset" src="${escapeHtml(asset)}" alt="" draggable="false">
+      <span class="character-emoji-fallback">${safeEmoji}</span>
+    </span>`;
+  }
+
+  function setStageVisual(target, stage, size = 'medium') {
+    if (!target) return;
+    target.innerHTML = stageVisualHTML(stage, size);
+  }
+
+  // innerHTML で差し込んだimgも含め、404/壊れた画像は自動的にemojiへ戻す。
+  document.addEventListener('error', (event) => {
+    const img = event.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains('character-asset')) return;
+    const wrapper = img.closest('.character-visual');
+    if (wrapper) wrapper.classList.add('asset-failed');
+  }, true);
+
+  function currentVisualStage() {
+    if (state.stage === STAGE.EGG) return { emoji:'🥚', label:'たまご' };
+    const stages = state.speciesLine && SPECIES[state.speciesLine]?.stages;
+    return stages?.[currentFormStageIndex()] || { emoji:'❓', label:'???' };
+  }
+
   function currentSprite() {
     if (state.stage === STAGE.EGG) return '🥚';
     // 亡くなったあとも、おばけに置きかえず「そのときの すがた」を残す。
@@ -6232,7 +6273,7 @@
     const isOver = isDead;
     const isFarewell = state.stage === STAGE.FAREWELL;
 
-    el.petSprite.textContent = currentSprite();
+    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
     const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
     el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
     el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
@@ -6690,7 +6731,7 @@
         : '';
       el.guestStatus.innerHTML = `
         <div class="profile-partner-card">
-          <span class="profile-partner-emoji">${stage.emoji}</span>
+          <span class="profile-partner-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">ともだちの ${stage.label}</span>
             <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${orientationLabel(g.orientationId, g.gender)}</span>
@@ -7396,7 +7437,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = lines.map((line) => `
         <div class="dex-cell known tappable" data-picker-value="${line}">
-          <span class="dex-cell-emoji">${SPECIES[line].stages[0].emoji}</span>
+          <span class="dex-cell-emoji">${stageVisualHTML(SPECIES[line].stages[0], 'thumb')}</span>
           <span class="dex-cell-label">${SPECIES_DISPLAY_NAMES[line] || line}</span>
         </div>
       `).join('');
@@ -7404,7 +7445,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = ALL_LINES.map((line) => SPECIES[line].stages.map((stage, i) => `
         <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
-          <span class="dex-cell-emoji">${stage.emoji}</span>
+          <span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <span class="dex-cell-label">${stage.label}</span>
         </div>
       `).join('')).join('');
@@ -7516,7 +7557,7 @@
     const stage = SPECIES[line].stages[stageIndex];
     const isRare = RARE_LINES.includes(line);
     el.dexDetailOverlay.classList.toggle('rare', isRare);
-    el.dexDetailEmoji.textContent = stage.emoji;
+    setStageVisual(el.dexDetailEmoji, stage, 'detail');
     el.dexDetailLabel.textContent = stage.label;
     el.dexDetailMeta.textContent = `${isRare ? '✨レア ' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ ${LIFE_STAGES[stageIndex].name}(${LIFE_STAGES[stageIndex].min}さい〜)`;
     el.dexDetailDesc.textContent = stageDesc(line, stageIndex);
@@ -7542,7 +7583,7 @@
           // であった すがたは いつでも タップして、なまえ・しゅぞく・
           // ライフステージ・せつめい文を 読める(§28)。♾️ の せかいでは
           // その くわしい がめんから そのまま その すがたに なれる
-          return `<div class="dex-cell known tappable" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stage.emoji}</span><span class="dex-cell-label">${stage.label}</span></div>`;
+          return `<div class="dex-cell known tappable" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span><span class="dex-cell-label">${stage.label}</span></div>`;
         })
         .join('');
       return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
@@ -7661,7 +7702,7 @@
         const stage = SPECIES[line].stages[stageForAge(currentAge())];
         return `
           <button class="transform-choice-btn" data-line="${line}">
-            <span class="transform-choice-emoji">${stage.emoji}</span>
+            <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
             <span>${stage.label}</span>
           </button>
         `;
