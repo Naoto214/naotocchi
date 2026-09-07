@@ -10856,17 +10856,20 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 数より質を優先。「何も考えず反射だけ」で成立するゲームは通常抽選に入れない。
-  // 単発の狙い撃ち/スワイプ投げ/スポーツスイング/積み上げ/ランダム物探し脱出も除外。
-  // 操作が簡単でも、位置取り・進路選択・攻守・探索・リスク判断など意思決定が続くゲームだけ残す。
+  // 数より質を優先。ただし「操作が単純」だけを理由に削らない。
+  // ボウリング/カーリング、スポーツ、積み上げのように短くても狙い・手応え・爽快感があるものは残す。
+  // 正解や工夫がほぼなく、反射/ランダムだけで爽快感も薄いものを通常抽選から外す。
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
+    ...STACK_GAME_VARIANTS,
     ...FIGHT_GAME_VARIANTS,
     ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
+    ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
+    ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
@@ -10880,12 +10883,15 @@
   // 地域仕様に おきかえる さいに つかう(下の buildMinigamePool 参照)
   const MINIGAME_CATEGORY_GROUPS = [
     ['road', ROAD_GAME_VARIANTS],
+    ['stack', STACK_GAME_VARIANTS],
     ['fight', FIGHT_GAME_VARIANTS],
     ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
+    ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
+    ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
@@ -10918,7 +10924,13 @@
       }) },
     ],
     countryside: [],
-    forest: [],
+    forest: [
+      { category: 'stack', game: makeStackGame({
+        title: 'きのみタワー!たかく つみあげよう',
+        blockEmoji: '🌰',
+        palette: ['#8a9a5b', '#a3b18a', '#dad7cd', '#588157', '#3a5a40', '#344e41', '#bc6c25'],
+      }) },
+    ],
     desert: [
       { category: 'road', game: makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは キャッチ、とげは よけて',
@@ -10981,7 +10993,13 @@
     [SEASON.SUMMER]: [
       { category: 'surfing', game: mg('surfing-wave', makeSurfingGame({ title: 'サーフィン!なみに のって バランスを たもとう' })) },
     ],
-    [SEASON.AUTUMN]: [],
+    [SEASON.AUTUMN]: [
+      { category: 'stack', game: makeStackGame({
+        title: 'おちばの やまを たかく つもう!',
+        blockEmoji: '🍁',
+        palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
+      }) },
+    ],
     [SEASON.WINTER]: [],
   };
 
