@@ -4569,6 +4569,7 @@
   }
 
   const COMPANION_RECRUIT_THRESHOLD = 50;
+  const RARE_COMPANION_RECRUIT_THRESHOLD = 70;
 
   // なにも しなくても、放っておくと たまに キャラのほうから吹き出しで話しかけてくる
   // ひとことセリフ集。標準語 + 各地の方言 + 外国語のあいさつ + ちょっとした
@@ -5697,7 +5698,9 @@
   }
 
   function scheduleCompanionEncounter() {
-    const delay = hasPerk(40) ? 240000 + Math.random() * 240000 : 300000 + Math.random() * 300000;
+    // 1つの人生(100分)の中で通常なかま10人が十分そろえるよう、出会い間隔を短めにする。
+    // そだち40以降は「なかまの わ」でさらに出会いやすくなる。
+    const delay = hasPerk(40) ? 90000 + Math.random() * 90000 : 120000 + Math.random() * 120000;
     setTimeout(() => {
       const remaining = COMPANIONS.filter((c) => !state.companions.some((sc) => sc.id === c.id));
       // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
@@ -5714,7 +5717,7 @@
         && !pendingCompanionId
         && !isAnyMenuOverlayOpen()
         && (remaining.length > 0 || rareRemaining.length > 0);
-      if (canEncounter && Math.random() < 0.65) {
+      if (canEncounter && Math.random() < 0.9) {
         const useRare = rareRemaining.length > 0
           && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
         const pool = useRare ? rareRemaining : remaining;
@@ -11338,43 +11341,28 @@
       const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
       if (companion) {
-        if (clampedScore >= COMPANION_RECRUIT_THRESHOLD) {
-          const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
+        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
+        const threshold = isRare ? RARE_COMPANION_RECRUIT_THRESHOLD : COMPANION_RECRUIT_THRESHOLD;
+        if (clampedScore >= threshold) {
           const record = isRare
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
-
-          if (isRare || record.includes(companion.id)) {
-            if (!record.includes(companion.id)) record.push(companion.id);
-            if (!state.companions.some((c) => c.id === companion.id)) {
-              state.companions.push({ id: companion.id, bond: 100 });
-            }
-            recruitedNow = true;
-            resultMessage = isRare
-              ? `${companion.emoji} ${companion.joined}`
-              : `${companion.name}が また なかまに なった!${companion.emoji}`;
-          } else {
-            if (!state.lifetime.companionFriendshipProgress || typeof state.lifetime.companionFriendshipProgress !== 'object') {
-              state.lifetime.companionFriendshipProgress = {};
-            }
-            const next = (state.lifetime.companionFriendshipProgress[companion.id] || 0) + 1;
-            state.lifetime.companionFriendshipProgress[companion.id] = next;
-            if (next >= 2) {
-              record.push(companion.id);
-              delete state.lifetime.companionFriendshipProgress[companion.id];
-              pushLifeLog(companion.emoji, `${companion.name}が なかまに なった`);
-              if (!state.companions.some((c) => c.id === companion.id)) {
-                state.companions.push({ id: companion.id, bond: 100 });
-              }
-              recruitedNow = true;
-              resultMessage = `${companion.emoji} また あえたね! ${companion.name}が なかまに なった!`;
-            } else {
-              resultMessage = `${companion.emoji} ${companion.name}と ちょっと なかよく なった! また あえたら なかまに なれそう`;
-              setSpeechBubble('また あそぼうね!', { kind: 'companion', emoji: companion.emoji, label: companion.name });
-            }
+          if (!record.includes(companion.id)) record.push(companion.id);
+          if (state.lifetime.companionFriendshipProgress) {
+            delete state.lifetime.companionFriendshipProgress[companion.id];
           }
+          if (!state.companions.some((c) => c.id === companion.id)) {
+            state.companions.push({ id: companion.id, bond: 100 });
+          }
+          pushLifeLog(companion.emoji, `${companion.name}が なかまに なった`);
+          recruitedNow = true;
+          resultMessage = isRare
+            ? `${companion.emoji} ${companion.joined}`
+            : `${companion.emoji} ${companion.name}が なかまに なった!`;
         } else {
-          resultMessage = `${companion.name}とは まだ なかよく なれなかった…また こんど ためそう`;
+          resultMessage = isRare
+            ? `${companion.name}とは まだ なかよく なれなかった… レアなかまは ${RARE_COMPANION_RECRUIT_THRESHOLD}てん いじょうで なかまに なれる`
+            : `${companion.name}とは まだ なかよく なれなかった… ${COMPANION_RECRUIT_THRESHOLD}てん いじょうで なかまに なれる`;
         }
       }
     }
