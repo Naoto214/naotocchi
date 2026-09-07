@@ -919,3 +919,17 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #140 = SUCCESS。
 - これでチェックポイントAAで未完了だった `beetle` / `stagbeetle` / `cicada` / `antlion` / `jellyfish` のPNG再制作は全て完了。
 - 次工程: SECRET `ren` の専用8段階PNG。通常人間ラインの色違いにしない。
+
+
+## チェックポイント AD — 残り4種PNG再監査・クワガタ幼虫差別化修正
+- PR #182、現在HEAD、チェックポイント文書、Runtime smoke test履歴をGitHub実状態で再監査。
+- 停止直前の4種修復は `c565353d71537b5d87c4a687c483bc04b8e874fa` としてHEADへ正式接続済みで、続くチェックポイントAC文書コミットは `d593a88f932c85d7bdbb4073d981fe3dc329ac53`。
+- Runtime smoke test run #140 = SUCCESS（4種PNG修復）、#141 = SUCCESS（チェックポイントAC文書）。
+- 32ファイルすべてについてPNGヘッダを再確認し、64×64 / 8-bit RGBA（PNG color type 6）であることを確認。
+- 監査で `stagbeetle/01.png`〜`03.png` が `beetle/01.png`〜`03.png` と同一blob SHAだったことを検出。既定設計「クワガタ幼虫はカブトより細身・頭部大きめ」に反するため完了扱いせず修正。
+- `stagbeetle/01.png`〜`03.png` を、より細身のC字体型・大きめの褐色頭部・大顎の予兆が分かる専用ドット絵へ差し替え。卵は8段階に含めていない。
+- 差別化修正コミット: `499cae341d95e2eb47568bff46ae6d07b7b8f151`。
+- Runtime smoke test run #142 = SUCCESS。
+- チェックポイントAB以降の差分にはCharacter Renderer / WORLD_MASTER本体の不要な変更なし。既存の `assets/characters/<species>/<01..08>.png` 自動接続規約を維持。
+- antlionの修復コミット `6431385d7fa7fdf7e4b45c8e90bbb1a269820ce2` と正式段階定義 `fabd8b65828923dee05f9ef10da75840af6cc548` は現ブランチ履歴上に保持。
+- 次工程はSECRET `ren` の専用8段階PNG。通常人間ラインの色違いにしない。
