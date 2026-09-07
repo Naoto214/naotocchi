@@ -2129,7 +2129,7 @@
   // キャラ本人 / こいびと / なかまのセリフだけをこちらへ流す。
   let speechTimer = null;
   let speechActive = false;
-  const SPEECH_DURATION_MS = 2800;
+  const SPEECH_DURATION_MS = 2600;
 
   function hideSpeechBubble() {
     speechActive = false;
