@@ -5275,13 +5275,10 @@
   // ================================================================
   // へんしん - ライフステージが かわった しゅんかんに だけ ちゅうせん
   // ================================================================
-  function transformLimit() {
-    return 3 + (hasPerk(60) ? 1 : 0);
-  }
-
   function rollTransformChance() {
     if (state.stage !== STAGE.GROWING || state.transformOptions) return;
-    if (state.transformsThisLife >= transformLimit()) { state.transformMeter = 0; return; }
+    // 人生全体の変身回数上限は設けない。変身チャンス自体は
+    // ライフステージが変わる節目ごとに1回だけなので、最大回数は自然に制限される。
     const stageKey = String(state.stageIndex);
     if (state.transformStageDone.includes(stageKey)) { state.transformMeter = 0; return; }
     const chance = (state.transformMeter / 100) * (1 + state.sodachi / 200);
