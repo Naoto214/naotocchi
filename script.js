@@ -10828,9 +10828,9 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 単純な計算・反射1タップ・運任せ・正解のない主観ランキングに加え、
-  // 「左右で拾うだけ」「中央維持だけ」「同じ気持ちを選ぶだけ」「上下スワイプ連打だけ」
-  // の薄いゲームも抽選から外し、操作/判断に展開があるゲームを中心にする。
+  // 数より質を優先。単純な計算・1タップ・運任せ・主観ランキング・単純キャッチ等に加え、
+  // 客観ランキングやレトロ育成のような「操作の展開が薄い」ものも通常抽選から外す。
+  // 3D/探索/戦闘/回避/複数段階など、遊びとして展開があるゲームを中心にする。
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -10847,10 +10847,8 @@
     ...MINI_ESCAPE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
-    ...PERSPECTIVE_RANKING_VARIANTS,
     ...CREATURE_CAPTURE_VARIANTS,
     ...ADVENTURE_FIELD_VARIANTS,
-    ...RETRO_PET_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -10873,10 +10871,8 @@
     ['miniEscape', MINI_ESCAPE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
-    ['perspectiveRanking', PERSPECTIVE_RANKING_VARIANTS],
     ['creatureCapture', CREATURE_CAPTURE_VARIANTS],
     ['adventureField', ADVENTURE_FIELD_VARIANTS],
-    ['retroPet', RETRO_PET_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -11067,10 +11063,9 @@
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
     'chase', 'rpg', 'shooter', 'breakout', 'miniEscape',
-    'swipeThrow', 'road', 'dragDecorate', 'stealth',
-    'fishing', 'downhill', 'surfing', 'fight',
-    'targetAim', 'sportsSwing', 'creatureCapture', 'adventureField',
-    'retroPet', 'firstPersonDungeon', 'perspective3d',
+    'stealth', 'fishing', 'downhill', 'surfing', 'fight',
+    'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
+    'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
   ]);
 
   // プレイテストで「当たり」と判断したゲームは、単に並び順を少し前へ
@@ -11078,21 +11073,21 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
-    'chase-themed',
-    'breakout-classic',
-    'rpg-themed',
-    'fight-themed',
     'fp-dungeon',
     'creature-capture-3d',
     'adventure-field',
-    'retro-pet-care',
+    'chase-themed',
+    'rpg-themed',
+    'fight-themed',
+    'breakout-classic',
     'miniEscape-themed',
+    'shooter-themed',
   ]);
 
   function minigameFunWeight(game) {
-    if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) return 1.55;
+    if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) return 2.15;
     const category = minigameCategoryOf.get(game);
-    return FEATURED_MINIGAME_CATEGORIES.has(category) ? 1.22 : 1;
+    return FEATURED_MINIGAME_CATEGORIES.has(category) ? 1.4 : 0.78;
   }
 
   function refillMinigameQueue() {
@@ -11114,13 +11109,13 @@
     weighted.sort((a, b) => a.key - b.key);
     minigameQueue = weighted.map((w) => w.i);
 
-    // 「特に面白い」ゲームだけ追加チケットを1枚。元の1枚は必ず残るので、
-    // 全体の多様性を維持したまま、およそ2倍の頻度で遭遇できる。
+    // 「特に面白い」ゲームは追加チケットを2枚。質の高いゲームへ明確に寄せつつ、
+    // 元のプールも残すので同じ数本だけに固定はしない。
     // 未プレイ優遇・地域/季節優遇と競合しないよう、追加チケットも同じ
     // キューに混ぜてから軽くシャッフルする。
     const spotlightTickets = [];
     currentMinigamePool.forEach((game, i) => {
-      if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) spotlightTickets.push(i);
+      if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) spotlightTickets.push(i, i);
     });
     for (const ticket of spotlightTickets) {
       const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));
