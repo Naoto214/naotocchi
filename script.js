@@ -10408,8 +10408,11 @@
         <div class="mg-header"><span id="advHp">❤️❤️❤️</span><span id="advGem">💎 0/4</span></div>
         <div class="mg-title">ちいさな冒険!宝を あつめて てきを かわし 出口へ</div>
         <div class="mg-adventure-field" id="advField"></div>
-        <div class="mg-hint" id="advHint">💎を集めるほど高得点。🧪はHP回復。👹は動くよ!</div>
-        <div class="mg-dpad"><button data-d="up">▲</button><div><button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button></div></div>`;
+        <div class="mg-hint" id="advHint">🏰へ行こう。矢印・スワイプ・となりのマスをタップで1マス移動</div>
+        <div class="mg-dpad mg-adventure-dpad">
+          <span></span><button data-d="up">▲</button><span></span>
+          <button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button>
+        </div>`;
       const field=container.querySelector('#advField'),hint=container.querySelector('#advHint');
       const key=(a,b)=>a+','+b;
       function occupiedByEnemy(xx,yy){return enemies.some(en=>en.x===xx&&en.y===yy);}
@@ -10432,9 +10435,10 @@
           const k=key(xx,yy);let e='·';
           if(walls.has(k))e='🌲';else if(gemSet.has(k))e='💎';else if(potionSet.has(k))e='🧪';
           if(occupiedByEnemy(xx,yy))e='👹';if(xx===7&&yy===6)e='🏰';if(xx===x&&yy===y)e=currentSprite();
-          html+=`<span>${e}</span>`;
+          html+=`<span data-x="${xx}" data-y="${yy}">${e}</span>`;
         }
         field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#advGem').textContent='💎 '+gems+'/4';
+        const playerCell=field.querySelector(`[data-x="${x}"][data-y="${y}"]`);if(playerCell)playerCell.classList.add('player-cell');
       }
       function finish(score,msg){if(done)return;done=true;hint.textContent=msg;draw();setTimeout(()=>onComplete(clamp(score,20,100)),450);}
       function moveAdventure(d){
@@ -10450,8 +10454,14 @@
         draw();
       }
       container.querySelectorAll('[data-d]').forEach(b=>b.addEventListener('pointerdown',(e)=>{e.preventDefault();moveAdventure(b.dataset.d);}));
+      field.addEventListener('pointerdown',(e)=>{
+        const cell=e.target.closest('[data-x][data-y]');if(!cell||done)return;
+        const tx=Number(cell.dataset.x),ty=Number(cell.dataset.y),dx=tx-x,dy=ty-y;
+        if(Math.abs(dx)+Math.abs(dy)===1){e.preventDefault();moveAdventure(dx<0?'left':dx>0?'right':dy<0?'up':'down');}
+      });
       let advTouchStart=null;
       field.addEventListener('pointerdown',(e)=>{
+        if(e.target.closest('[data-x][data-y]')) return;
         e.preventDefault();
         advTouchStart={x:e.clientX,y:e.clientY};
         try{field.setPointerCapture(e.pointerId);}catch(err){}
@@ -10622,132 +10632,66 @@
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        let finished = false;
-        let phase = 'wait'; // wait -> catch -> balance -> done
-        let waveTimer, windowTimer, nextWaveTimer;
-        // さいしょの なみに のりそこねただけで バランスフェーズを
-        // ぜんぜん たいけんできない ことを ふせぐ ため、なみへの
-        // ちょうせんを 2〜3かい ゆるす(セクション4)。なみに のれたら
-        // BALANCE_MSは いままでどおり
-        const MAX_WAVE_ATTEMPTS = 3;
-        let waveAttempt = 0;
-        container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgWaveCount">なみ: 1/${MAX_WAVE_ATTEMPTS}</span>
-          </div>
+        let finished=false,phase='wait',waveAttempt=0,waveTimer,windowTimer,nextWaveTimer;
+        const MAX_WAVE_ATTEMPTS=3;
+        container.innerHTML=`
+          <div class="mg-header"><span id="mgWaveCount">なみ: 1/${MAX_WAVE_ATTEMPTS}</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-surf-scene" id="mgSurfScene">
             <div class="mg-surf-wave" id="mgSurfWave"></div>
             <div class="mg-surf-board" id="mgSurfBoard">🏄</div>
+            <div class="mg-surf-ready" id="mgSurfReady">まて…</div>
           </div>
-          <div class="mg-hint" id="mgHint">なみが くるまで まとう…</div>
-        `;
-        const scene = container.querySelector('#mgSurfScene');
-        const wave = container.querySelector('#mgSurfWave');
-        const board = container.querySelector('#mgSurfBoard');
-        const hintEl = container.querySelector('#mgHint');
-        const waveCountEl = container.querySelector('#mgWaveCount');
+          <div class="mg-hint" id="mgHint">① 波が近づくまで待つ → ②「のる!」が光ったら押す</div>
+          <div class="mg-surf-controls" id="mgSurfControls">
+            <button class="mg-tap-btn" id="mgSurfRide" disabled>🌊 のる!</button>
+          </div>`;
+        const scene=container.querySelector('#mgSurfScene'),wave=container.querySelector('#mgSurfWave'),board=container.querySelector('#mgSurfBoard');
+        const hint=container.querySelector('#mgHint'),count=container.querySelector('#mgWaveCount'),ready=container.querySelector('#mgSurfReady'),controls=container.querySelector('#mgSurfControls');
+        const rideBtn=container.querySelector('#mgSurfRide');
+        const approachMs=lerp(1800,1250,difficulty),catchWindowMs=lerp(900,620,difficulty);
 
-        function finish(score, msg) {
-          if (finished) return;
-          finished = true;
-          clearTimeout(waveTimer);
-          clearTimeout(windowTimer);
-          clearTimeout(nextWaveTimer);
-          hintEl.textContent = msg;
-          setTimeout(() => onComplete(score), 500);
+        function finish(score,msg){if(finished)return;finished=true;clearTimeout(waveTimer);clearTimeout(windowTimer);clearTimeout(nextWaveTimer);hint.textContent=msg;setTimeout(()=>onComplete(score),550);}
+        function scheduleWave(){
+          phase='wait';rideBtn.disabled=true;rideBtn.classList.remove('ready');ready.textContent='まて…';wave.classList.remove('approaching','riding');
+          hint.textContent='波が近づくまで待とう。「のる!」が光ったら押す';count.textContent=`なみ: ${waveAttempt+1}/${MAX_WAVE_ATTEMPTS}`;
+          waveTimer=setTimeout(()=>{
+            if(finished)return;phase='catch';wave.classList.add('approaching');rideBtn.disabled=false;rideBtn.classList.add('ready');ready.textContent='いまだ!';
+            hint.textContent='いまだ! 「🌊 のる!」を押そう!';
+            windowTimer=setTimeout(()=>missWave('波にのりおくれた…'),catchWindowMs);
+          },approachMs);
         }
-
-        const approachMs = lerp(1600, 1100, difficulty);
-        const catchWindowMs = lerp(650, 420, difficulty);
-
-        function scheduleWave() {
-          phase = 'wait';
-          wave.classList.remove('approaching');
-          hintEl.textContent = '🌊が近づいて「いまだ!」になったら 海をタップ!';
-          waveCountEl.textContent = `なみ: ${waveAttempt + 1}/${MAX_WAVE_ATTEMPTS}`;
-          waveTimer = setTimeout(() => {
-            if (finished) return;
-            phase = 'catch';
-            wave.classList.add('approaching');
-            hintEl.textContent = 'いまだ! 海をタップして なみにのろう!';
-            windowTimer = setTimeout(() => {
-              if (finished) return;
-              missWave('なみに のりおくれた…');
-            }, catchWindowMs);
-          }, approachMs);
+        function missWave(msg){
+          if(finished||phase==='balance')return;phase='wait';clearTimeout(windowTimer);rideBtn.disabled=true;rideBtn.classList.remove('ready');wave.classList.remove('approaching');waveAttempt++;
+          if(waveAttempt>=MAX_WAVE_ATTEMPTS)finish(20,msg);
+          else{hint.textContent=msg+' つぎの波を待とう';nextWaveTimer=setTimeout(scheduleWave,750);}
         }
-
-        function missWave(msg) {
-          phase = 'wait';
-          wave.classList.remove('approaching');
-          waveAttempt += 1;
-          if (waveAttempt >= MAX_WAVE_ATTEMPTS) {
-            finish(15, msg);
-          } else {
-            hintEl.textContent = `${msg} つぎの なみを まとう!`;
-            nextWaveTimer = setTimeout(scheduleWave, 700);
+        rideBtn.addEventListener('pointerdown',e=>{
+          e.preventDefault();if(finished)return;
+          if(phase!=='catch'){hint.textContent='まだ! 「いまだ!」が出るまで待とう';return;}
+          phase='balance';clearTimeout(windowTimer);rideBtn.disabled=true;rideBtn.classList.remove('ready');wave.classList.remove('approaching');wave.classList.add('riding');ready.textContent='バランス!';
+          startBalance();
+        });
+        function startBalance(){
+          const BALANCE_MS=4600,drift=lerp(9,18,difficulty);let tilt=0,velocity=0,last=null,rafId;const start=performance.now();
+          controls.innerHTML='<button class="mg-tap-btn" id="mgSurfLeft">◀ 左へ</button><button class="mg-tap-btn" id="mgSurfRight">右へ ▶</button>';
+          hint.textContent='ボードが傾いた反対側を押して、まんなかに戻そう';
+          const left=container.querySelector('#mgSurfLeft'),right=container.querySelector('#mgSurfRight');
+          left.addEventListener('pointerdown',e=>{e.preventDefault();velocity-=8;});
+          right.addEventListener('pointerdown',e=>{e.preventDefault();velocity+=8;});
+          function step(now){
+            if(finished)return;if(last===null)last=now;const dt=Math.min(.05,(now-last)/1000);last=now;
+            velocity+=(Math.random()-.5)*drift*dt;tilt=clamp(tilt+velocity*dt*8,-105,105);velocity*=.92;
+            board.style.transform=`translateX(-50%) rotate(${tilt*.28}deg)`;
+            ready.textContent=Math.abs(tilt)<28?'◎ 安定':tilt<0?'← 左に傾いてる':'右に傾いてる →';
+            if(Math.abs(tilt)>=100){finish(35,'バランスを崩して落ちた…');return;}
+            if(now-start>=BALANCE_MS){finish(100,'最後まで波に乗れた! 🌊');return;}
+            rafId=requestAnimationFrame(step);
           }
+          rafId=requestAnimationFrame(step);
         }
-
-        function waitCatchHandler() {
-          if (finished) return;
-          if (phase === 'wait') {
-            missWave('まだ なみが きてないよ…');
-          } else if (phase === 'catch') {
-            phase = 'balance';
-            clearTimeout(windowTimer);
-            scene.removeEventListener('pointerdown', waitCatchHandler);
-            wave.classList.remove('approaching');
-            wave.classList.add('riding');
-            hintEl.textContent = '左半分タップ=左へ、右半分タップ=右へ。かたむきを もどそう!';
-            startBalancePhase();
-          }
-        }
-        scene.addEventListener('pointerdown', waitCatchHandler);
         scheduleWave();
-
-        function startBalancePhase() {
-          const BALANCE_MS = 4200;
-          const drift = lerp(10, 22, difficulty);
-          let tilt = 0;
-          let velocity = 0;
-          let rafId;
-          const startTime = performance.now();
-          let last = null;
-
-          function tapHandler(e) {
-            if (finished) return;
-            const rect = scene.getBoundingClientRect();
-            const isLeft = (e.clientX - rect.left) < rect.width / 2;
-            velocity += isLeft ? -7 : 7;
-          }
-          scene.addEventListener('pointerdown', tapHandler);
-
-          function step(now) {
-            if (finished) return;
-            if (last === null) last = now;
-            const dt = (now - last) / 1000;
-            last = now;
-            velocity += (Math.random() - 0.5) * drift * dt;
-            tilt = clamp(tilt + velocity * dt, -100, 100);
-            velocity *= 0.9;
-            board.style.transform = `translateX(-50%) rotate(${tilt * 0.3}deg)`;
-            if (Math.abs(tilt) >= 100) {
-              scene.removeEventListener('pointerdown', tapHandler);
-              finish(30, 'バランスを くずして おっこちた…');
-              return;
-            }
-            if (now - startTime >= BALANCE_MS) {
-              scene.removeEventListener('pointerdown', tapHandler);
-              finish(100, '最後まで ボードの上に のれた! 🌊');
-              return;
-            }
-            rafId = requestAnimationFrame(step);
-          }
-          rafId = requestAnimationFrame(step);
-        }
-      },
+      }
     };
   }
 
