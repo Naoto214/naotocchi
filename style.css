@@ -28,6 +28,10 @@ body.region-countryside { background: radial-gradient(circle at 50% 20%, #fef6d0
 body.region-forest { background: radial-gradient(circle at 50% 20%, #e3f3d6 0%, #a3cf85 55%, #4f7a3d 100%); }
 body.region-desert { background: radial-gradient(circle at 50% 20%, #fff3d6 0%, #f0c877 55%, #d99a4e 100%); }
 body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%, #7fe0c9 55%, #1fa98a 100%); }
+body.region-mountain { background: radial-gradient(circle at 50% 20%, #edf1e8 0%, #9fb39a 55%, #596c57 100%); }
+body.region-deepsea { background: radial-gradient(circle at 50% 20%, #18345f 0%, #0b1f3b 58%, #03101f 100%); }
+body.region-river_lake { background: radial-gradient(circle at 50% 20%, #dff7ef 0%, #83c8ba 55%, #3b7f74 100%); }
+body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, #61aa68 55%, #245b3a 100%); }
 
 .device {
   width: 340px;
