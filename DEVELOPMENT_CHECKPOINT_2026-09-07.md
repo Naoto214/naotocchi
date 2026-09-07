@@ -839,3 +839,15 @@ Runtime smoke test SUCCESS確認済み。
 - master asset自動接続を使用。script個別編集なし。
 - チェックポイントU `eb30bb7f` Runtime smoke test run #124 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → venus_flytrap / mushroomへ進む。
+
+## チェックポイント W — ハエトリグサ・キノコ8段階 PNG 実装
+- WORLD_MASTER登録順を再確認し、通常種の次対象として `venus_flytrap` → `mushroom` を実装。
+- `assets/characters/venus_flytrap/01.png`〜`08.png`、`assets/characters/mushroom/01.png`〜`08.png` を追加。
+- ハエトリグサは発芽→小苗→小捕虫葉→若株→成長株→成株→開花株→老成巨大株。普通葉から捕虫葉が増え、後半は赤い捕虫葉・ハエ・白い花茎・古葉＋新葉で段階差を出した。
+- キノコは菌糸→菌糸網→原基→幼菌→若菌→成菌→胞子成熟→老菌。地上の子実体だけでなく、最終段階では崩れた老子実体より地下菌糸網を大きく見せ、「本体は地下菌糸」の成長物語を維持。
+- 16枚すべて64×64 RGBA透過PNG、非アンチエイリアスのドット絵、非空ピクセルありを確認。
+- master asset自動接続を使用。Character RendererやWORLD_MASTER本体の再設計・個別script編集はなし。既存の `assets/characters/<species>/<01..08>.png` 自動接続とemojiフォールバックをそのまま利用。
+- PNG投入コミット: `672c971434bd59d226d46e266047f2326b0cf8ef`。
+- Runtime smoke test run #126 = SUCCESS。
+- 通常22種のPNG実装はこれで最後の2種まで到達。次工程はWORLD_MASTER登録順のRARE先頭 `dragon` → `phoenix`。存在しない種は追加しない。
+
