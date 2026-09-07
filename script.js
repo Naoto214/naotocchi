@@ -10235,6 +10235,85 @@
       }
     };
   }
+  // --- 3Dダンジョン冒険: 探索→宝箱→装備→ボス戦 ---
+  // 1操作だけで終わらず、探索で装備を集めた結果がボス戦の選択肢に影響する。
+  function makeDungeonBossAdventureGame(){
+    return {start(container,onComplete){
+      let phase='explore',room=0,hp=3,bossHp=5,weapon=false,shield=false,potion=false,score=0,done=false;
+      const rooms=[
+        {scene:'🕯️　　🧱　　🕯️',text:'石の回廊。左右に道が分かれている',left:{to:1,label:'← ひだりの扉'},right:{to:2,label:'みぎの階段 →'}},
+        {scene:'🧱　🧰　🧱',text:'古い宝箱がある小部屋',loot:'weapon',back:0},
+        {scene:'🕸️　　🧰　　🕸️',text:'蜘蛛の巣の奥に宝箱が見える',loot:'shield',back:0},
+        {scene:'🔥　　🚪　　🔥',text:'巨大な扉の向こうから唸り声がする',boss:true}
+      ];
+      container.innerHTML=`
+        <div class="mg-header"><span id="dbHp">❤️❤️❤️</span><span id="dbGear">装備: なし</span></div>
+        <div class="mg-title">3Dダンジョン!装備を集めて ボスをたおせ</div>
+        <div class="mg-db-scene" id="dbScene"><div class="mg-db-depth" id="dbDepth"></div><div class="mg-db-enemy" id="dbEnemy"></div></div>
+        <div class="mg-hint" id="dbHint"></div>
+        <div class="mg-db-actions" id="dbActions"></div>`;
+      const scene=container.querySelector('#dbScene'),depth=container.querySelector('#dbDepth'),enemy=container.querySelector('#dbEnemy');
+      const hint=container.querySelector('#dbHint'),actions=container.querySelector('#dbActions');
+      function gearText(){return [weapon?'⚔️':'',shield?'🛡️':'',potion?'🧪':''].filter(Boolean).join(' ')||'なし';}
+      function stats(){container.querySelector('#dbHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#dbGear').textContent='装備: '+gearText();}
+      function button(label,fn,cls=''){const b=document.createElement('button');b.className='mg-tap-btn '+cls;b.textContent=label;b.addEventListener('pointerdown',e=>{e.preventDefault();if(!done)fn();});actions.appendChild(b);}
+      function renderExplore(msg=''){
+        phase='explore';enemy.textContent='';scene.classList.remove('boss','attack');const r=rooms[room];depth.textContent=r.scene;hint.textContent=msg||r.text;actions.innerHTML='';stats();
+        if(room===0){
+          button(r.left.label,()=>{room=1;renderExplore();});
+          button(r.right.label,()=>{room=2;renderExplore();});
+          if(weapon&&shield)button('🚪 ボスの扉へ',()=>{room=3;renderExplore('装備はそろった。入る?');},'danger');
+          else button('奥へ進む',()=>{room=3;renderExplore('まだ装備を探した方が安全かも…');});
+        } else if(r.loot){
+          const has=r.loot==='weapon'?weapon:shield;
+          if(!has)button('🧰 宝箱をあける',()=>{
+            if(r.loot==='weapon'){weapon=true;score+=12;renderExplore('⚔️ 古い剣を手に入れた! ボスへの攻撃が強くなる');}
+            else{shield=true;score+=12;renderExplore('🛡️ 盾を手に入れた! 強い攻撃を防げる');}
+          });
+          button('↩ 回廊にもどる',()=>{room=0;renderExplore();});
+        } else if(r.boss){
+          button('🚪 入る',startBoss,'danger');button('↩ もどって探索',()=>{room=0;renderExplore();});
+        }
+      }
+      function startBoss(){
+        phase='boss';scene.classList.add('boss');depth.textContent='🔥　⚔️　🔥';enemy.textContent='👹';hint.textContent='ボス出現! 攻撃の予兆を見て行動を選べ';actions.innerHTML='';stats();setTimeout(bossTurn,650);
+      }
+      function bossTurn(){
+        if(done)return;if(bossHp<=0){finish();return;}
+        actions.innerHTML='';scene.classList.remove('attack');
+        const heavy=Math.random()<.46;
+        hint.textContent=heavy?'👹 大きく振りかぶった! 強攻撃がくる!':'👹 こちらを狙っている…';
+        if(heavy)scene.classList.add('attack');
+        button('⚔️ 攻撃',()=>resolve('attack',heavy));
+        button('🛡️ 防御',()=>resolve('guard',heavy));
+        button('↔️ 回避',()=>resolve('dodge',heavy));
+        if(hp<3&&!potion)button('🧪 回復薬を探す',()=>resolve('potion',heavy));
+      }
+      function resolve(action,heavy){
+        actions.innerHTML='';let msg='';
+        if(action==='attack'){
+          const dmg=weapon?2:1;bossHp-=dmg;score+=dmg*8;
+          if(heavy){hp-=shield?1:2;msg=`⚔️ ${dmg}ダメージ! でも強攻撃を受けた!`;}else msg=`⚔️ 隙を突いて ${dmg}ダメージ!`;
+        }else if(action==='guard'){
+          if(heavy){hp-=shield?0:1;score+=shield?10:4;msg=shield?'🛡️ 盾で強攻撃を完全に防いだ!':'防いだが少しダメージ';}
+          else{score+=2;msg='🛡️ 防御した。今回は攻撃が弱かった';}
+        }else if(action==='dodge'){
+          const success=heavy?Math.random()<.78:Math.random()<.9;
+          if(success){score+=6;msg='↔️ 攻撃をかわした!';}else{hp--;msg='回避失敗! ❤️-1';}
+        }else{
+          potion=true;hp=Math.min(3,hp+1);score+=4;msg='🧪 回復薬を見つけて ❤️+1';if(heavy){hp--;msg+=' その隙に攻撃された!';}
+        }
+        stats();
+        if(hp<=0){done=true;hint.textContent='👹 ボスにやられた…';setTimeout(()=>onComplete(clamp(25+score,20,55)),650);return;}
+        if(bossHp<=0){finish();return;}
+        hint.textContent=msg+`　ボスHP: ${'💢'.repeat(bossHp)}`;setTimeout(bossTurn,850);
+      }
+      function finish(){done=true;enemy.textContent='💥';scene.classList.remove('attack');hint.textContent='🏆 ボスをたおした! ダンジョンクリア!';actions.innerHTML='';setTimeout(()=>onComplete(clamp(55+score+(weapon?8:0)+(shield?8:0),55,100)),800);}
+      renderExplore();
+    }};
+  }
+  const DUNGEON_BOSS_VARIANTS=[mg('dungeon-boss-3d',makeDungeonBossAdventureGame())];
+
   const FIRST_PERSON_DUNGEON_VARIANTS=[mg('fp-dungeon',makeFirstPersonDungeonGame({title:'3Dふう ダンジョン!一人称で 出口を さがそう'}))];
 
   // --- 3Dふう ならびかえ ---
@@ -10906,6 +10985,7 @@
     ...DRAG_DECORATE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
+    ...DUNGEON_BOSS_VARIANTS,
     ...CREATURE_CAPTURE_VARIANTS,
     ...ADVENTURE_FIELD_VARIANTS,
   ];
@@ -10928,6 +11008,7 @@
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
+    ['dungeonBoss', DUNGEON_BOSS_VARIANTS],
     ['creatureCapture', CREATURE_CAPTURE_VARIANTS],
     ['adventureField', ADVENTURE_FIELD_VARIANTS],
   ];
@@ -11121,7 +11202,7 @@
   const FEATURED_MINIGAME_CATEGORIES = new Set([
     'chase', 'rpg', 'shooter', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
-    'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
+    'creatureCapture', 'adventureField', 'firstPersonDungeon', 'dungeonBoss', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
   ]);
 
@@ -11130,6 +11211,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'dungeon-boss-3d',
     'fp-dungeon',
     'creature-capture-3d',
     'adventure-field',
