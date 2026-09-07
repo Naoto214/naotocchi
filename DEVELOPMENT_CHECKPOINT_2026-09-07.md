@@ -851,3 +851,13 @@ Runtime smoke test SUCCESS確認済み。
 - Runtime smoke test run #126 = SUCCESS。
 - 通常22種のPNG実装はこれで最後の2種まで到達。次工程はWORLD_MASTER登録順のRARE先頭 `dragon` → `phoenix`。存在しない種は追加しない。
 
+## チェックポイント X — りゅう・フェニックス8段階 PNG 実装
+- WORLD_MASTERのRARE登録順どおり `dragon` → `phoenix` を実装。
+- `assets/characters/dragon/01.png`〜`08.png`、`assets/characters/phoenix/01.png`〜`08.png` を追加。
+- りゅうは、ちび竜→幼竜→角竜→翼芽竜→翼竜→火炎竜→巨竜→古龍。4で小さな翼芽、5で完成翼、6で火炎、7で画面幅に迫る巨体、8では枝分かれ角・傷/古い鱗を加え、単なる最強化ではなく長寿の古龍として差別化。
+- フェニックスは、火の雛→幼火鳥→若火鳥→火鳥→炎鳥→黄金鳥→老火鳥→灰から再生。6を黄金の最盛期、7で炎と羽を弱らせ灰を混ぜ、8は完成鳥へ戻さず灰の山から小さな光/雛が生まれ始める瞬間にした。
+- 16枚すべて64×64 RGBA透過PNG。既存Character Rendererの `assets/characters/<species>/<01..08>.png` 自動接続をそのまま使用し、WORLD_MASTER/Renderer本体の再設計・個別script編集なし。
+- PNG投入コミット: `2edf4f2d80f904c6196c057b6814a92a8c50d3b7`。
+- Runtime smoke test run #128 = SUCCESS。
+- 次工程: WORLD_MASTERのRARE登録順どおり `god` → `world_tree`。
+
