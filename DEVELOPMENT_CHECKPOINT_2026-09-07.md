@@ -933,3 +933,25 @@ Runtime smoke test SUCCESS確認済み。
 - チェックポイントAB以降の差分にはCharacter Renderer / WORLD_MASTER本体の不要な変更なし。既存の `assets/characters/<species>/<01..08>.png` 自動接続規約を維持。
 - antlionの修復コミット `6431385d7fa7fdf7e4b45c8e90bbb1a269820ce2` と正式段階定義 `fabd8b65828923dee05f9ef10da75840af6cc548` は現ブランチ履歴上に保持。
 - 次工程はSECRET `ren` の専用8段階PNG。通常人間ラインの色違いにしない。
+
+
+## チェックポイント AE — SECRET れんくん8段階 PNG 実装
+- チェックポイントGの専用設計を正として、SECRET `ren` の8段階を実装。
+- WORLD_MASTERの `ren.stages` を数値8から正式段階名配列へ明示化:
+  1. ちびれん
+  2. げんきなれん
+  3. こどもれん
+  4. しょうねんれん
+  5. わかものれん
+  6. おとなれん
+  7. としをかさねたれん
+  8. おじいちゃんれん
+- 通常の男の人ラインの色違いにはせず、全8段階に共通する固有要素として「青い星モチーフ」と特徴的な前髪を採用。同じ一人が成長していることを優先。
+- 実在本人の顔立ちは想像して似顔絵化せず、なおとっち世界の専用キャラクターとして制作。
+- `assets/characters/ren/01.png`〜`08.png` を追加。64×64 RGBA透過PNG、文字・番号・背景・UIなし。
+- 旧runtimeでは `ren` がmaster asset自動接続の対象外だったため、`installMasterSpecies()` の対象へ `playerSpecies.secret` を追加。Renderer本体をren専用に改造せず、NORMAL/RAREと同じstable asset path規約で接続。
+- 既存の旧 `SPECIES.ren` は初期定義として残るが、master install時に正式8段階＋assetへ上書きされるため既存互換を維持。
+- 実装コミット: `9ed3434bab9a8a9e6543806ec460999705fdc79b`。
+- Runtime smoke test run #144 = SUCCESS。
+- これでNORMAL 22種×8 + RARE 8種×8 + SECRET ren 8種 = 248形態の専用PNG投入が完了。
+- 次工程: 248形態全体のアセット完全性監査、runtime/セーブ回帰、れんくん第8段階到達時の専用振り返りムービー実装確認、その後PR #182をReady/merge可能か最終判断。
