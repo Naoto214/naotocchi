@@ -55,10 +55,11 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
     secret: [
       { id: 'ren', label: 'れんくん', stages: ['ちびれん','げんきれん','こどもれん','しょうねんれん','わかものれん','おとなれん','としをかさねたれん','おじいちゃんれん'], design: '専用8段階。通常の人間ラインの色違いにしない。青い星モチーフと前髪の固有特徴を一生通す' },
     ],
-    author: { id: 'naoto', label: 'ナオト', playable: false },
+    author: { id: 'naoto', label: 'ナオト', playable: false, asset: 'assets/characters/author/naoto.png', design: '作者シークレット。既存のなおとっち世界と同じ64×64ドット絵方向。実在本人の顔立ちは参照画像なしに想像しない' },
   },
 
   companions: {
+    assetRule: 'assets/characters/companions/<id>.png',
     normal: [
       { id: 'cat_friend', label: 'きまぐれな ねこ', behavior: '自由に寝る・箱に入る' },
       { id: 'rabbit_friend', label: 'すばしっこい うさぎ', behavior: '急に横切る・跳ねる' },
@@ -110,6 +111,8 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       { id: 'memory_lake', label: 'きおくの みずうみ' },
     ],
   },
+
+  partnerAssetRule: 'assets/characters/partners/<id>.png',
 
   partners: [
     { id: 'cat_ceo', label: 'ビルの ねこ社長', firstRegion: 'city', hook: '仕事人なのにデートのため普通にサボる' },
