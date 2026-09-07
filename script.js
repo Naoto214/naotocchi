@@ -368,21 +368,60 @@
     },
   };
 
+  // マスターの8段階をランタイムSPECIESへ接続する。
+  // 専用ドット絵が完成するまでは分類ごとの仮絵文字を使うが、段階名・ID・抽選は新仕様。
+  const MASTER_SPECIES_EMOJI = {
+    man:['👶','🚼','🧒','👦','🧑','🧑','🧔','👴'], woman:['👶','🚼','🧒','👧','🧑','👩','👩','👵'],
+    dog:['🐶','🐶','🐕','🐕','🐕','🐕','🐕','🐕'], cat:['🐱','🐱','🐈','🐈','🐈','🐈','🐈','🐈'],
+    penguin:['🐣','🐧','🐧','🐧','🐧','🐧','🐧','🐧'], turtle:['🐢','🐢','🐢','🐢','🐢','🐢','🐢','🐢'],
+    frog:['〰️','〰️','🐸','🐸','🐸','🐸','🐸','🐸'], salmon:['🐟','🐟','🐟','🐟','🐟','🐟','🐟','🐟'],
+    clownfish:['🐟','🐟','🐠','🐠','🐠','🐠','🐠','🐠'], butterfly:['🐛','🐛','🐛','🟤','🟤','🦋','🦋','🦋'],
+    beetle:['🐛','🐛','🐛','🐛','🟤','🟤','🪲','🪲'], stagbeetle:['🐛','🐛','🐛','🐛','🟤','🟤','🪲','🪲'],
+    cicada:['🐛','🐛','🐛','🐛','🐛','🟤','🪰','🪰'], antlion:['🐛','🐛','🐛','🐛','🟤','🟤','🪰','🪰'],
+    hermit_crab:['🦀','🦀','🦀','🦀','🦀','🦀','🦀','🦀'], jellyfish:['•','◉','◉','✺','🪼','🪼','🪼','🪼'],
+    starfish:['•','✦','⭐','⭐','⭐','⭐','⭐','⭐'], coral:['•','🪸','🪸','🪸','🪸','🪸','🪸','🪸'],
+    dandelion:['🌱','🌱','🌿','🌿','🌼','🌼','🌬️','🌿'], sakura:['🌱','🌱','🌳','🌳','🌳','🌸','🌸','🌳'],
+    venus_flytrap:['🌱','🌱','🌿','🌿','🪴','🪴','🌼','🪴'], mushroom:['〰️','〰️','•','🍄','🍄','🍄','🍄','🍄'],
+    dragon:['🦎','🦎','🐉','🐉','🐉','🐉','🐉','🐉'], phoenix:['🔥','🐣','🐥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🐦‍🔥','🔥'],
+    god:['✨','👼','🧚','😇','😇','🌟','🌟','☀️'], world_tree:['🌱','🌱','🌳','🌳','🌳','🌳','🌳','🌳'],
+    ghost:['✨','👻','👻','👻','👻','👻','👻','✨'], star:['☁️','☁️','✨','⭐','☀️','🌟','💥','✨'],
+    plush:['🧸','🧸','🧸','🧸','🧸','🧸','🧸','🧸'], unknown:['•','🫧','〰️','👁️','🪽','⬤','·','•'],
+  };
+  function installMasterSpecies() {
+    if (!WORLD_MASTER) return;
+    const defs = [...WORLD_MASTER.playerSpecies.normal, ...WORLD_MASTER.playerSpecies.rare];
+    defs.forEach((def) => {
+      const emojis = MASTER_SPECIES_EMOJI[def.id] || Array(8).fill('❓');
+      SPECIES[def.id] = {
+        stages: def.stages.map((label, i) => ({
+          emoji: emojis[i] || emojis[emojis.length - 1] || '❓',
+          label,
+          message: i ? `${label}に なった!` : undefined,
+        })),
+      };
+    });
+  }
+  installMasterSpecies();
+
   // god/ren/mermaid/unicorn/phoenix are intentionally left out of the
   // random hatch pool - they stay rare, earned surprises unlocked only
   // through a 変身 choice
-  const NORMAL_LINES = ['dog', 'cat', 'bird', 'man', 'woman', 'beetle', 'stagbeetle', 'rabbit', 'fish', 'dragon', 'panda', 'fox', 'owl', 'plant', 'robot', 'dinosaur'];
-  const RARE_LINES = ['god', 'ren', 'mermaid', 'unicorn', 'phoenix'];
-  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES];
+  const MASTER_NORMAL_LINES = (WORLD_MASTER?.playerSpecies?.normal || []).map((x) => x.id);
+  const MASTER_RARE_LINES = (WORLD_MASTER?.playerSpecies?.rare || []).map((x) => x.id);
+  // 現在の人生が旧種族なら、その人生だけは旧定義を保持する。
+  // 新しい卵・新しい変身候補からはマスターの22通常+8レアを使う。
+  const LEGACY_NORMAL_LINES = ['bird','rabbit','fish','panda','fox','owl','plant','robot','dinosaur'];
+  const LEGACY_RARE_LINES = ['mermaid','unicorn'];
+  const NORMAL_LINES = MASTER_NORMAL_LINES.length ? MASTER_NORMAL_LINES : ['dog','cat','man','woman','beetle','stagbeetle'];
+  const RARE_LINES = MASTER_RARE_LINES.length ? MASTER_RARE_LINES : ['dragon','phoenix','god'];
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, 'ren'];
 
-  // プロフィール表示用の しゅぞく名(README の ずかん一覧と おなじ表記)
-  const SPECIES_DISPLAY_NAMES = {
-    dog: 'いぬ', cat: 'ねこ', bird: 'とり', man: 'おとこのひと', woman: 'おんなのひと',
-    beetle: 'カブトムシ', stagbeetle: 'クワガタムシ', rabbit: 'うさぎ', fish: 'さかな',
-    dragon: 'りゅう', panda: 'パンダ', fox: 'きつね', owl: 'ふくろう', plant: 'はな',
-    robot: 'ロボット', dinosaur: 'きょうりゅう',
-    god: 'かみさま', ren: 'れんくん', mermaid: 'にんぎょ', unicorn: 'ユニコーン', phoenix: 'フェニックス',
-  };
+  // プロフィール表示用の しゅぞく名。新マスターを正とし、れんくんだけsecret枠から追加。
+  const SPECIES_DISPLAY_NAMES = Object.fromEntries([
+    ...(WORLD_MASTER?.playerSpecies?.normal || []),
+    ...(WORLD_MASTER?.playerSpecies?.rare || []),
+    ...(WORLD_MASTER?.playerSpecies?.secret || []),
+  ].map((x) => [x.id, x.label]));
 
   // ================================================================
   // 168形態ぶんの せつめい文(ずかんから 読める)
