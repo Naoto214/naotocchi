@@ -1838,7 +1838,7 @@
     { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', unlockTier: 0, desc: 'ようしょうきと こうれいきの いのちの リスクを すこし やわらげる' },
     { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', unlockTier: 1, desc: 'ひみつの たびや ふしぎな できごとが ひらかれる' },
     { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', unlockTier: 2, desc: 'とくべつな デート・ふうふの ことば・きねんびの おもいでが ひらかれる' },
-    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 4, desc: 'この せかいの ひみつが みえるようになる。SECRETへの かぎ' },
+    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 3, desc: 'この せかいの ひみつが みえるようになる。SECRETへの かぎ' },
   ];
 
   function hasNaotoItem(id) {
