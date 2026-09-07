@@ -737,5 +737,5 @@ Runtime smoke test SUCCESS確認済み。
 - 第7段階のruntime表示名は既に `ちゅうねん` へ統一済みであることを再確認。
 - PNG単体検査: 8枚すべて64×64 RGBA、透明背景あり、非空ピクセルあり。GitHub tree上でも8ファイル存在確認済み。
 - PNG投入コミット: `df7c2fe96f6a26e7d8de83c31ee03ff3bb8b3334`
-- Runtime smoke test はPNG投入コミットで自動実行される。完了後に結果を再確認する。
-- 次工程: Runtime smoke結果確認 → asset読込/renderer経路の回帰確認 → パイロット見た目の必要微調整 → womanラインへ展開。
+- Runtime smoke test: PNG投入コミット `df7c2fe9` = SUCCESS、チェックポイントコミット `1cf6f004` = SUCCESS を確認済み。
+- 次工程: 実ブラウザ表示で82px/42pxの見分けやすさを確認 → 必要ならパイロット見た目微調整 → womanラインへ展開。
