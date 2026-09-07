@@ -789,3 +789,14 @@ Runtime smoke test SUCCESS確認済み。
 - 42px縮小でも「幼虫→蛹→蝶」の大変態と、クマノミの成長/成熟雌の大型化が判別できることを確認。
 - チェックポイントP `c1cbe7da` Runtime smoke test run #119 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → beetle / stagへ進む。
+
+
+## チェックポイント R — カブトムシ・クワガタムシ8段階 PNG 実装
+- `assets/characters/beetle/01.png`〜`08.png`、`stagbeetle/01.png`〜`08.png` を追加。
+- 以前の確定仕様どおり卵段階は入れず、両種とも初齢幼虫→二齢幼虫→三齢幼虫→成熟幼虫→前蛹→蛹→若成虫→成虫。
+- 幼虫4段階はC字型幼虫のサイズ・節・頭部比率を変化。前蛹は縮んだ姿、蛹は成虫器官が見える姿へ大きく変更。
+- 若成虫/成虫ではカブトムシは頭角、クワガタムシは大顎で明確に別シルエット。最終成虫では角/大顎と体格をさらに発達させた。
+- 幼虫期は両種が似る生物学的自然さを残し、蛹以降で種差が明瞭になる構成。
+- master asset自動接続を使用。script個別編集なし。
+- チェックポイントQ `eb8cfeb2` Runtime smoke test run #120 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → cicada / antlionへ進む。
