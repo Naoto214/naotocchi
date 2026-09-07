@@ -10862,9 +10862,9 @@
   ];
   const MINI_ESCAPE_VARIANTS = [mg('miniEscape-themed', randomThemeGame(makeMiniEscapeGame, MINI_ESCAPE_THEMES))];
 
-  // 数より質を優先。単純な計算・1タップ・運任せ・主観ランキング・単純キャッチ等に加え、
-  // 客観ランキングやレトロ育成のような「操作の展開が薄い」ものも通常抽選から外す。
-  // 3D/探索/戦闘/回避/複数段階など、遊びとして展開があるゲームを中心にする。
+  // 数より質を優先。ただし「操作が単純」だけを理由に削らない。
+  // ボウリング/カーリング、スポーツ、積み上げのように短くても狙い・手応え・爽快感があるものは残す。
+  // 正解や工夫がほぼなく、反射/ランダムだけで爽快感も薄いものを通常抽選から外す。
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -10872,13 +10872,11 @@
     ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
-    ...TARGET_AIM_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
     ...SPORTS_SWING_VARIANTS,
     ...DRAG_DECORATE_VARIANTS,
-    ...MINI_ESCAPE_VARIANTS,
     ...PERSPECTIVE_3D_VARIANTS,
     ...FIRST_PERSON_DUNGEON_VARIANTS,
     ...CREATURE_CAPTURE_VARIANTS,
@@ -10896,13 +10894,11 @@
     ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
-    ['targetAim', TARGET_AIM_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
     ['sportsSwing', SPORTS_SWING_VARIANTS],
     ['dragDecorate', DRAG_DECORATE_VARIANTS],
-    ['miniEscape', MINI_ESCAPE_VARIANTS],
     ['perspective3d', PERSPECTIVE_3D_VARIANTS],
     ['firstPersonDungeon', FIRST_PERSON_DUNGEON_VARIANTS],
     ['creatureCapture', CREATURE_CAPTURE_VARIANTS],
@@ -11114,7 +11110,6 @@
     'rpg-themed',
     'fight-themed',
     'breakout-classic',
-    'miniEscape-themed',
     'shooter-themed',
   ]);
 
