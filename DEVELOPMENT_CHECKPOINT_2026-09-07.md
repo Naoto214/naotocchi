@@ -818,3 +818,14 @@ Runtime smoke test SUCCESS確認済み。
 - master asset自動接続を使用。script個別編集なし。
 - チェックポイントS `e57fa117` Runtime smoke test run #122 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → crab / squidへ進む。
+
+
+## チェックポイント U — ヒトデ・サンゴ8段階 PNG 実装
+- WORLD_MASTERを再確認し、登録済み通常種だけを順番どおり実装する方針を再固定。
+- `assets/characters/starfish/01.png`〜`08.png`、`assets/characters/coral/01.png`〜`08.png` を追加。
+- ヒトデは幼生I→幼生II→着底→変態→極小ヒトデ→小ヒトデ→成体→大型成体。左右相称の幼生から五放射体へ移る途中を省略せず、最終段階では傷/再生途中の腕で長く生きた個体感を出す。
+- サンゴは着底幼生→1ポリプ→出芽→小群体→若群体→成熟群体→大群体→巨大群体。個体から群体へ、最後は小魚が寄る「環境そのもの」に近づく見せ方。
+- 42px縮小プレビューで、ヒトデの幼生→五放射変態と、サンゴの単独ポリプ→群体拡大の流れを確認済み。
+- master asset自動接続を使用。script個別編集なし。
+- チェックポイントT `53b16323` Runtime smoke test run #123 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → dandelion / sakuraへ進む。
