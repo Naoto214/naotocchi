@@ -2323,8 +2323,9 @@
       const line = pickConversationLine(pool.companion, ctx);
       if (cs && line) beats.push({ speaker: cs, text: line });
     }
+    // いるキャラが次々しゃべるテンポを優先。吹き出しが空く時間を減らす。
     beats.slice(0, 3).forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1550));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1250));
     });
   }
 
@@ -2337,12 +2338,19 @@
     'ちゃんと こっちも みてる?', 'なんでもない じかんも すき', 'また デート しようね',
     'きょう なんか いいかおしてる', 'あとで ちょっと さんぽしない?', 'いまの じかん、けっこう すき',
     'さいきん ちゃんと わらってる?', 'カレー たべたいな', 'あの くも、なんか いぬっぽい',
+    'ねえ、ちょっと こっち きて', 'いま 目あったよね?', '手、あいてるけど?', '今日も すき。はい、報告おわり',
+    'ちょっと くっついていい?', '近い? まあ いいか', 'その顔 ずるくない?', 'ふたりで どっか 消える?',
+    'さっきから ちょっと かわいいんだけど', 'いまなら ぎゅーしても 怒られない気がする',
+    '冷蔵庫あけたら 何か人生かわるかな', 'ねえ、くだらない話しよ', '急に旅行いく?', '今日の晩ごはん会議しよ',
   ];
   const COMPANION_IDLE_LINES = [
     'いっしょに あそぼう!', 'ここ けっこう すき!', 'きょうも げんき?',
     'なんか おもしろいこと ない?', 'きょうは ここに いるね', 'ちょっと じゃれたい!',
     'おなかすいたー', 'つぎ なにする?', 'ぼく ここ みはってるね',
     'いま なんか うごいた!', 'ひなたぼっこ したい', 'さっきの おと なに?',
+    'ぼくのこと 忘れてない?', 'ねえねえねえねえ!', '走ろう!', 'なんか 食べよう!',
+    '恋人ばっかり ずるい!', 'ぼくも まぜて!', 'いま ひま! すごく ひま!', '何か事件 おきないかな',
+    'さっきから ずっと 見てるよ', '今日の ぼく、ちょっと かわいくない?', 'とりあえず はねとく!', '会議しよう。議題は おやつ',
   ];
 
   // flavor beats sprinkled across a play session, reacting to whatever
@@ -5562,18 +5570,20 @@
   // 放置中の会話はシステム通知欄ではなく、話者つき吹き出しへ出す。
   // 本人を基本にしつつ、いま一緒にいる恋人・なかまも時々しゃべる。
   function scheduleIdleGreeting() {
-    const delay = 5000 + Math.random() * 10000;
+    // 通常画面では「誰かがほぼ常に何か言っている」くらい賑やかにする。
+    // 吹き出し表示時間(5.2秒)より短めも含む間隔で次の発言を予約する。
+    const delay = 2800 + Math.random() * 3200;
     setTimeout(() => {
       const canGreet = !gameActive
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
-        && !message
-        && !speechActive;
+        && !message;
       if (canGreet) {
         const choices = [{ kind: 'pet', weight: 4 }];
-        if (state.partner) choices.push({ kind: 'partner', weight: 3 });
-        if (state.companions.length) choices.push({ kind: 'companion', weight: 3 });
+        // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
+        if (state.partner) choices.push({ kind: 'partner', weight: 4 });
+        if (state.companions.length) choices.push({ kind: 'companion', weight: 4 });
         const expanded = choices.flatMap((x) => Array(x.weight).fill(x.kind));
         const kind = expanded[Math.floor(Math.random() * expanded.length)];
         if (kind === 'partner') {
