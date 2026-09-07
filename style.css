@@ -5701,3 +5701,14 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 }
 .mg-road-controls,.mg-shooter-controls { gap:12px; }
 .mg-shooter-fire { min-width:92px; }
+
+/* 3D dungeon boss adventure */
+.mg-db-scene{position:relative;height:245px;border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at center,#4b3b2c 0,#1c1917 52%,#090909 100%);box-shadow:inset 0 0 55px rgba(0,0,0,.85);perspective:420px}
+.mg-db-scene:before,.mg-db-scene:after{content:'';position:absolute;top:0;bottom:0;width:30%;background:repeating-linear-gradient(0deg,transparent 0 27px,rgba(0,0,0,.28) 28px 31px),repeating-linear-gradient(90deg,#5d4635 0 40px,#3b2d24 41px 44px)}
+.mg-db-scene:before{left:0;clip-path:polygon(0 0,100% 24%,100% 76%,0 100%)}.mg-db-scene:after{right:0;clip-path:polygon(0 24%,100% 0,100% 100%,0 76%)}
+.mg-db-depth{position:absolute;z-index:3;left:50%;top:48%;transform:translate(-50%,-50%);font-size:48px;white-space:nowrap;text-shadow:0 6px 12px #000}
+.mg-db-enemy{position:absolute;z-index:5;left:50%;top:52%;transform:translate(-50%,-50%);font-size:88px;filter:drop-shadow(0 8px 8px #000);transition:transform .15s}
+.mg-db-scene.attack .mg-db-enemy{transform:translate(-50%,-50%) scale(1.22) rotate(-6deg)}
+.mg-db-scene.boss{box-shadow:inset 0 0 65px rgba(120,0,0,.55)}
+.mg-db-actions{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:10px}
+.mg-db-actions .mg-tap-btn{min-height:46px;min-width:92px}.mg-db-actions .danger{font-weight:800}
