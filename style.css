@@ -5847,3 +5847,55 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 @keyframes mg-ab-slash{0%{opacity:0;transform:scaleX(.15) rotate(-12deg)}35%{opacity:1}100%{opacity:0;transform:scaleX(1.18) rotate(7deg)}}
 @keyframes mg-ab-impact{0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(-20deg)}38%{opacity:1;transform:translate(-50%,-50%) scale(1.25) rotate(8deg)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(18deg)}}
 @keyframes mg-ab-screen-hit{0%,100%{filter:none}35%{filter:brightness(1.55);transform:translateX(-3px)}65%{transform:translateX(3px)}}
+
+
+/* ================================================================
+   Character Renderer
+   1形態1PNGを基本に、未制作/読込失敗時はemojiへ自動フォールバック。
+   ================================================================ */
+.character-visual{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  vertical-align:middle;
+  line-height:1;
+  position:relative;
+}
+.character-asset{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.character-emoji-fallback{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.character-visual.has-asset .character-emoji-fallback{display:none}
+.character-visual.has-asset.asset-failed .character-asset{display:none}
+.character-visual.has-asset.asset-failed .character-emoji-fallback{display:inline-flex}
+.character-hero{width:82px;height:82px;font-size:62px}
+.character-detail{width:104px;height:104px;font-size:76px}
+.character-thumb{width:42px;height:42px;font-size:30px}
+.character-medium{width:56px;height:56px;font-size:40px}
+
+#petSprite{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+#petSprite > .character-visual{pointer-events:none}
+.dex-cell-emoji .character-visual,
+.transform-choice-emoji .character-visual,
+.profile-partner-emoji .character-visual{margin:auto}
+
+@media (max-width:420px){
+  .character-hero{width:76px;height:76px;font-size:58px}
+  .character-detail{width:92px;height:92px;font-size:68px}
+  .character-thumb{width:38px;height:38px;font-size:28px}
+}
