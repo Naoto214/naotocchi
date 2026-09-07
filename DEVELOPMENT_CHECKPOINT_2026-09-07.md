@@ -893,3 +893,14 @@ Runtime smoke test SUCCESS確認済み。
 - なお、先に監査で発見した `beetle` / `stagbeetle` / `cicada` / `antlion` / `jellyfish` のPNG再制作は未完了。WORLD_MASTER側の5種ライフステージ修正は `5612cefe` で完了済み。次工程ではこの5種の画像修復を優先する。
 - `ren` はSECRET専用8段階であり、通常人間ラインの色違いにしない。
 
+## チェックポイント AB — アリジゴク8段階 PNG 修復
+- `antlion` の正式8段階を `小幼虫 → 巣作り幼虫 → 成熟幼虫 → 繭 → 蛹 → 羽化直後 → 全盛期成虫 → 老成虫` に確定。
+- 卵はゲーム開始時に別で存在するため8段階には含めない。
+- 幼虫期は土中・すり鉢状の巣を明示してアリジゴクらしさを強化。
+- 6/7/8はすべて成虫期とし、6=羽化直後、7=全盛期の飛翔、8=老成虫の飛翔として差を大きくした。
+- `assets/characters/antlion/01.png`〜`08.png` を64×64 RGBA透過PNGとして全置換。
+- WORLD_MASTER段階名確定コミット: `fabd8b65828923dee05f9ef10da75840af6cc548`。
+- PNG修復コミット: `6431385d7fa7fdf7e4b45c8e90bbb1a269820ce2`。
+- Runtime smoke test run #137 = SUCCESS（WORLD_MASTER更新）、#138 = SUCCESS（PNG修復）。
+- 未修復対象: `beetle` / `stagbeetle` / `cicada` / `jellyfish`。この4種を優先し、その後SECRET `ren` に進む。
+
