@@ -1630,37 +1630,40 @@
   // 判定し、ずかん達成/じっせき(dex以外)達成を独立した2軸として扱う
   // 一生のあいだに たどりついた クリアパターンの あかしとして、ふだんの
   // 画面に ずっと 残る バッジ(state.lifetime.endingTiersReached に記録)
-  const ENDING_TIER_ICONS = ['🎉', '📖', '🏅', '👑'];
-
-  // desc の 2行目は、tier 0〜2 では「つぎに なにを コンプリートすれば
-  // もっと はでな ゴールに なるか」を つたえる ヒント文言(不足している
-  // 条件だけを ぐたいてきに 示す)。tier 3(パーフェクト)だけは めざす先が
-  // もう ない ので、かわりに「じゆうに あそぶ」ボタン(gameClearFreePlayBtn)
-  // へ さそう 文言に する
+  // 5つのゴール:
+  // ①〜③は100さいの人生評価、④は通常図鑑168形態、⑤は全実績。
+  // ①〜③を同じ人生で同時達成した場合は最高位だけを大きく見せる。
+  const ENDING_TIER_ICONS = ['🎉', '🏮', '🌳', '📖', '👑'];
   const ENDING_TIERS = [
     {
-      title: '100さい クリア!',
-      confetti: '🎉🎊✨🎉🎊✨',
-      badges: [],
-      desc: '100さいまで いきて、てんじゅを まっとうした!<br>つぎは ずかんと じっせきを コンプリートして、もっと すごい ゴールを めざしてね!!',
+      title: 'てんじゅを まっとうした!',
+      confetti: '🌇✨🎉✨🌇',
+      badges: ['★① てんじゅを まっとうした'],
+      desc: '100さいまで いっしょうを いきぬいた!<br>つぎのゴール: 100さい ＋ そだち70いじょう',
     },
     {
-      title: 'ずかん クリア!',
-      confetti: '🎉🎊✨📖✨🎊🎉',
+      title: 'いっしょうクリア!',
+      confetti: '🏮✨🌙✨🏮',
+      badges: ['★① てんじゅ', '★② いっしょうクリア'],
+      desc: 'よく そだてながら、100さいまで いきぬいた!<br>つぎのゴール: 100さい ＋ そだち100',
+    },
+    {
+      title: 'さいこうの いっしょう!',
+      confetti: '🌳✨🌈✨🌳',
+      badges: ['★① てんじゅ', '★② いっしょう', '★③ さいこうのいっしょう'],
+      desc: 'そだち100。そして、100さいまで いきぬいた。<br>つぎは ずかん168しゅるいを ぜんぶ みつけよう!',
+    },
+    {
+      title: 'ずかんクリア!',
+      confetti: '📖✨👑✨📖',
       badges: ['📖 ④ ずかんクリア'],
-      desc: 'ずかん168しゅるいを ぜんぶ うめた!<br>あとは ずかんいがいの じっせきを ぜんぶ たっせいすれば パーフェクトクリアだよ!!',
+      desc: '168 / 168　すべての すがたを みつけた!<br>……でも、まだ だれか いるみたい。　SECRET ???<br>のこった じっせきを すべて たっせいしよう!',
     },
     {
-      title: 'じっせき クリア!',
-      confetti: '🎉🎊✨🏅✨🎊🎉',
-      badges: ['🏅 じっせき コンプリート'],
-      desc: 'ずかんコンプリートいがいの じっせきを ぜんぶ たっせいした!<br>あとは ずかん168しゅるいを ぜんぶ うめれば パーフェクトクリアだよ!!',
-    },
-    {
-      title: 'PERFECT CLEAR',
-      confetti: '👑✨🎉🎊✨🎉🎊✨👑',
-      badges: ['📖 ④ ずかんクリア', '🏅 ⑤ パーフェクトクリア'],
-      desc: 'ずかん168しゅるいと、ずかんいがいの じっせきを ぜんぶ そろえた!<br>これからは ねんれいから じゆうに なった ♾️ の せかいで あそべるよ',
+      title: 'PERFECT CLEAR!',
+      confetti: '👑✨🌈♾️🌈✨👑',
+      badges: ['📖 ④ ずかんクリア', '👑 ⑤ PERFECT CLEAR'],
+      desc: 'ずかんも、じっせきも、ぜんぶ コンプリート!<br>♾️ の せかいが ひらいた!',
     },
   ];
 
@@ -1704,7 +1707,7 @@
     { id: 'moonlight', label: 'つきかげ', deviceSwatch: '#b8c4d9', screenSwatch: '#e0e6f0', unlockTier: 1 },
     { id: 'mist', label: 'もりのきり', deviceSwatch: '#a8c9a0', screenSwatch: '#d3e6cd', unlockTier: 1 },
     { id: 'gold', label: 'おうごん', deviceSwatch: '#ffd76a', screenSwatch: '#e8cf7a', unlockTier: 2 },
-    { id: 'galaxy', label: 'ぎんが', deviceSwatch: '#4a3f7a', screenSwatch: '#8577b3', unlockTier: 2 },
+    { id: 'galaxy', label: 'ぎんが', deviceSwatch: '#4a3f7a', screenSwatch: '#8577b3', unlockTier: 3 },
     { id: 'jade', label: 'ひすい', deviceSwatch: '#2f9e7a', screenSwatch: '#6fcaac', unlockTier: 2 },
     { id: 'ruby', label: 'ルビー', deviceSwatch: '#a3243f', screenSwatch: '#d1637a', unlockTier: 2 },
     { id: 'sapphire', label: 'サファイア', deviceSwatch: '#2a4d8f', screenSwatch: '#6a8fc9', unlockTier: 2 },
@@ -1720,22 +1723,22 @@
       label: 'オーロラ',
       deviceSwatch: 'linear-gradient(90deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d)',
       screenSwatch: 'linear-gradient(90deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d)',
-      unlockTier: 3,
+      unlockTier: 4,
     },
     {
       id: 'radiance',
       label: 'こうごん',
       deviceSwatch: 'linear-gradient(90deg, #fff6d5, #ffe066, #ffd700, #f5b942)',
       screenSwatch: 'linear-gradient(90deg, #fff6d5, #ffe066, #ffd700, #f5b942)',
-      unlockTier: 3,
+      unlockTier: 4,
     },
-    { id: 'starlight', label: 'せいざ', deviceSwatch: '#2e1a47', screenSwatch: '#4a3564', unlockTier: 3 },
+    { id: 'starlight', label: 'せいざ', deviceSwatch: '#2e1a47', screenSwatch: '#4a3564', unlockTier: 4 },
     {
       id: 'prism',
       label: 'にじいろのプリズム',
       deviceSwatch: 'radial-gradient(circle, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
       screenSwatch: 'radial-gradient(circle, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
-      unlockTier: 3,
+      unlockTier: 4,
     },
   ];
 
@@ -1777,13 +1780,13 @@
     { id: 'sparkle', label: 'きらきら', emoji: '✨', unlockTier: 2 },
     { id: 'facet', label: 'カット', emoji: '💎', unlockTier: 2 },
     { id: 'glitter', label: 'ラメ', emoji: '✨', unlockTier: 2 },
-    { id: 'crownmotif', label: 'かんむりもよう', emoji: '👑', unlockTier: 2 },
+    { id: 'crownmotif', label: 'かんむりもよう', emoji: '👑', unlockTier: 3 },
     { id: 'medallion', label: 'メダリオン', emoji: '🏵️', unlockTier: 2 },
     { id: 'rainbow', label: 'レインボー', emoji: '🌈', unlockAll: true },
-    { id: 'nebula', label: 'せいうん', emoji: '🌌', unlockTier: 3 },
-    { id: 'kaleidoscope', label: 'まんげきょう', emoji: '🔮', unlockTier: 3 },
-    { id: 'crownjewel', label: 'おうかん', emoji: '💠', unlockTier: 3 },
-    { id: 'prismshine', label: 'プリズムのひかり', emoji: '🌈', unlockTier: 3 },
+    { id: 'nebula', label: 'せいうん', emoji: '🌌', unlockTier: 4 },
+    { id: 'kaleidoscope', label: 'まんげきょう', emoji: '🔮', unlockTier: 4 },
+    { id: 'crownjewel', label: 'おうかん', emoji: '💠', unlockTier: 4 },
+    { id: 'prismshine', label: 'プリズムのひかり', emoji: '🌈', unlockTier: 4 },
   ];
 
   // おかねで こうにゅうできる、みにつける アイテム。一度 こうにゅう
@@ -1833,36 +1836,51 @@
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
     { id: 'naoto_charm', label: 'なおとの おまもり', emoji: '🧿', unlockTier: 0, desc: 'ようしょうきと こうれいきの いのちの リスクを すこし やわらげる' },
-    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', unlockTier: 1, desc: 'たびで ときどき ふしぎな できごとに であえる' },
-    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', unlockTier: 2, desc: 'とくべつなデートに ここだけの ことばが くわわる' },
-    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 3, desc: 'おたのしみを つかったとき、ときどき とくべつな リアクションが おきる' },
+    { id: 'naoto_lantern', label: 'なおとの ランタン', emoji: '🏮', unlockTier: 1, desc: 'ひみつの たびや ふしぎな できごとが ひらかれる' },
+    { id: 'naoto_ring', label: 'なおとの リング', emoji: '💍', unlockTier: 2, desc: 'とくべつな デート・ふうふの ことば・きねんびの おもいでが ひらかれる' },
+    { id: 'naoto_crown', label: 'なおとの かんむり', emoji: '👑', unlockTier: 3, desc: 'この せかいの ひみつが みえるようになる。SECRETへの かぎ' },
   ];
 
   function hasNaotoItem(id) {
     return state.lifetime.ownedNaotoItems.includes(id);
   }
 
-  // 「なおとの〜」はショップ商品ではなく、対応するクリア段階の達成報酬。
-  // 条件を満たしたら自動で所持扱いにし、コインでは購入させない。
+  // 既存セーブの本物の記録を正として5ゴールへ復元する。
+  // 旧4tierで既に得たアイテムは没収しない(grandfather)。
+  function achievedGoalTiers() {
+    const L = state.lifetime || {};
+    const tiers = [];
+    if ((L.clears || 0) >= 1) tiers.push(0);
+    if ((L.lifeClears || 0) >= 1) tiers.push(1);
+    if ((L.bestLives || 0) >= 1) tiers.push(2);
+    if (L.dexCleared || state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE) tiers.push(3);
+    if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(4);
+    return tiers;
+  }
+
   function syncNaotoRewardItems() {
-    if (!state.lifetime || !Array.isArray(state.lifetime.endingTiersReached)) return;
+    if (!state.lifetime) return;
     if (!Array.isArray(state.lifetime.ownedNaotoItems)) state.lifetime.ownedNaotoItems = [];
+    const reached = achievedGoalTiers();
     NAOTO_ITEMS.forEach((item) => {
-      if (state.lifetime.endingTiersReached.includes(item.unlockTier) && !state.lifetime.ownedNaotoItems.includes(item.id)) {
+      if (reached.includes(item.unlockTier) && !state.lifetime.ownedNaotoItems.includes(item.id)) {
         state.lifetime.ownedNaotoItems.push(item.id);
       }
     });
   }
 
-  // NAOTO_ITEMS の ロック画面(renderNaotoItemGrid)で つかう、tier ごとの
-  // みじかい 解放条件ラベル(ENDING_TIERS.title は tier0〜2 が ぜんぶ
-  // 「GAME CLEAR」に なっていて 区別が つかないので、ここで べつに もつ)
-  const ENDING_TIER_UNLOCK_LABELS = ['ふつうクリア', 'ずかんコンプリート', 'じっせきコンプリート', 'パーフェクトクリア'];
+  const ENDING_TIER_UNLOCK_LABELS = [
+    'てんじゅをまっとう',
+    'いっしょうクリア',
+    'さいこうのいっしょう',
+    'ずかんクリア',
+    'PERFECT CLEAR',
+  ];
 
   // COLOR_THEMES/PATTERNS 共通の解放判定(どちらも unlockTier/
   // unlockAll という おなじ フィールドしか みないので、そのまま りようできる)
   function isThemeUnlocked(theme) {
-    if (theme.unlockAll) return state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
+    if (theme.unlockAll) return achievedGoalTiers().includes(4);
     if (theme.unlockTier === undefined) return true;
     if (state.lifetime.endingTiersReached.includes(theme.unlockTier)) return true;
     // つかいきり アイテムの「すきな いろ/がらの チケット」による、tier
@@ -1897,37 +1915,25 @@
 
   function endingProgress() {
     const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
-    const achComplete = ACHIEVEMENTS
-      .filter((ach) => ach.id !== 'dex-complete')
-      .every((ach) => state.achievementsUnlocked.includes(ach.id));
+    // 「実績だけクリア」は廃止。⑤は dex-complete を含む全ACHIEVEMENTSで判定する。
+    const achComplete = ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id));
     return { dexComplete, achComplete };
   }
 
-  // その回の クリアで いちばん はでな 1つの tier だけを えらぶ - クリア
-  // えんしゅつ(タイトル・バッジ・いろ)の 表示に つかう
   function getEndingTier() {
-    const { dexComplete, achComplete } = endingProgress();
-    if (dexComplete && achComplete) return 3;
-    if (achComplete) return 2;
-    if (dexComplete) return 1;
-    return 0;
+    if (grandGoalPending === 'perfect') return 4;
+    if (grandGoalPending === 'dex') return 3;
+    if (state.stage === STAGE.FAREWELL) {
+      if (state.maxSodachi >= SODACHI_MAX) return 2;
+      if (state.maxSodachi >= LIFE_CLEAR_SODACHI) return 1;
+      return 0;
+    }
+    const reached = achievedGoalTiers();
+    return reached.length ? Math.max(...reached) : 0;
   }
 
-  // その回の クリアで じっさいに みたした ぜんぶの tier(0はつねに、
-  // 1はずかんコンプリート、2はじっせきコンプリート、3はりょうほう)を
-  // 記録用に かえす。getEndingTier() は 表示用に いちばん はでな tierを
-  // 1つだけ えらぶが、えいぞくの バッジ記録(endingTiersReached)は
-  // みたした ぶんを ぜんぶ 記録しないと、ずかん/じっせきの どちらが
-  // 先に コンプリートしたかで もういっぽうの たんどくバッジが えいえいに
-  // とれなくなってしまう(あとから りょうほう そろうと つねに tier3だけに
-  // なる ため)
   function qualifyingEndingTiers() {
-    const { dexComplete, achComplete } = endingProgress();
-    const tiers = [0];
-    if (dexComplete) tiers.push(1);
-    if (achComplete) tiers.push(2);
-    if (dexComplete && achComplete) tiers.push(3);
-    return tiers;
+    return achievedGoalTiers();
   }
 
   function saveState() {
@@ -5011,8 +5017,10 @@
       state.lifetime.dexCleared = true;
       grandGoalPending = 'dex';
     }
-    if (dexComplete && achComplete && !state.lifetime.perfectCleared) {
+    if (achComplete && !state.lifetime.perfectCleared) {
       state.lifetime.perfectCleared = true;
+      // dex-complete は全実績の一部なので、⑤成立時には④も必ず成立済み。
+      // 同時成立なら PERFECT を最終表示として優先する。
       grandGoalPending = 'perfect';
     }
   }
@@ -5053,6 +5061,9 @@
     if (state.lifetime.devolutions === state.declineBaseline) L.flawlessLives += 1;
     pushLifeLog('🎊', '100さいに なった — てんじゅを まっとうした');
     setMessage('🎊 100さい。なおとっちは、いつもの場所を ゆっくり 見まわした');
+    // ①〜③は条件を累積記録し、最高位のクリア画面を1枚だけ出す。
+    grandGoalPending = 'life';
+    syncNaotoRewardItems();
     emotePet('love');
   }
 
@@ -7244,9 +7255,9 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    el.gameClearOverlay.classList.toggle('tier-1', tier === ENDING_TIERS[1]);
-    el.gameClearOverlay.classList.toggle('tier-2', tier === ENDING_TIERS[2]);
-    el.gameClearOverlay.classList.toggle('tier-3', tier === ENDING_TIERS[3]);
+    el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
+    el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
+    el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
     // パーフェクト(tier 3)の ときだけ「じゆうに あそぶ」ボタンを 出す -
     // それいがいの tier は めざす さきが まだ ある ので、「はじめから」で
     // また ちょうせんしなおす ことを うながす
@@ -7257,16 +7268,12 @@
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
-    const hadAllTiers = state.lifetime.endingTiersReached.length >= ENDING_TIERS.length;
+    const hadPerfect = state.lifetime.endingTiersReached.includes(4);
     qualifyingEndingTiers().forEach((t) => {
-      if (!state.lifetime.endingTiersReached.includes(t)) {
-        state.lifetime.endingTiersReached.push(t);
-      }
+      if (!state.lifetime.endingTiersReached.includes(t)) state.lifetime.endingTiersReached.push(t);
     });
-    // はじめて 4つ ぜんぶ そろった しゅんかんに、がめんの いろを
-    // レインボーに 自動で きりかえる(その あとは「いろ」から いつでも
-    // えらびなおせる、強制ではない いち回だけの おいわい)
-    if (!hadAllTiers && state.lifetime.endingTiersReached.length >= ENDING_TIERS.length) {
+    syncNaotoRewardItems();
+    if (!hadPerfect && state.lifetime.endingTiersReached.includes(4)) {
       state.lifetime.screenThemeId = 'rainbow';
     }
     if (!endingCelebrationShown) {
