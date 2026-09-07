@@ -5831,3 +5831,15 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-haunt-view.danger{box-shadow:inset 0 0 55px rgba(110,0,20,.7)}
 .mg-haunt-dpad{display:grid!important;grid-template-columns:repeat(3,58px);justify-content:center;gap:6px;margin-top:8px}.mg-haunt-dpad button{min-width:58px;min-height:48px;font-size:20px}
 @keyframes mg-haunt-glow{from{filter:drop-shadow(0 5px 4px rgba(0,0,0,.5))}to{filter:drop-shadow(0 0 18px rgba(255,240,120,1))}}
+
+/* action boss: player attack feedback */
+.mg-action-boss-player.slash{animation:mg-ab-player-lunge .32s cubic-bezier(.2,.8,.25,1)}
+.mg-action-boss-slash{position:absolute;left:50%;top:31%;width:118px;height:92px;transform:translate(-50%,-50%) rotate(-12deg);z-index:18;pointer-events:none}
+.mg-action-boss-slash i{position:absolute;left:8px;right:8px;height:7px;border-radius:999px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.98) 24%,rgba(255,232,102,.95) 62%,transparent);box-shadow:0 0 11px rgba(255,245,170,.95);animation:mg-ab-slash .34s ease-out forwards}
+.mg-action-boss-slash i:nth-child(1){top:18px;transform:rotate(-20deg)}.mg-action-boss-slash i:nth-child(2){top:43px;transform:rotate(-5deg);animation-delay:.035s}.mg-action-boss-slash i:nth-child(3){top:66px;transform:rotate(13deg);animation-delay:.07s}
+.mg-action-boss-impact{position:absolute;left:50%;top:25%;transform:translate(-50%,-50%);z-index:19;font-size:68px;text-shadow:0 0 12px #fff,0 0 24px #ffd84f;pointer-events:none;animation:mg-ab-impact .34s ease-out forwards}
+.mg-action-boss.player-hit{animation:mg-ab-screen-hit .22s ease-out}
+@keyframes mg-ab-player-lunge{0%{transform:translateX(-50%) scale(1)}45%{transform:translate(-50%,-38px) scale(1.22)}100%{transform:translateX(-50%) scale(1)}}
+@keyframes mg-ab-slash{0%{opacity:0;transform:scaleX(.15) rotate(-12deg)}35%{opacity:1}100%{opacity:0;transform:scaleX(1.18) rotate(7deg)}}
+@keyframes mg-ab-impact{0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(-20deg)}38%{opacity:1;transform:translate(-50%,-50%) scale(1.25) rotate(8deg)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(18deg)}}
+@keyframes mg-ab-screen-hit{0%,100%{filter:none}35%{filter:brightness(1.55);transform:translateX(-3px)}65%{transform:translateX(3px)}}
