@@ -739,3 +739,13 @@ Runtime smoke test SUCCESS確認済み。
 - PNG投入コミット: `df7c2fe96f6a26e7d8de83c31ee03ff3bb8b3334`
 - Runtime smoke test: PNG投入コミット `df7c2fe9` = SUCCESS、チェックポイントコミット `1cf6f004` = SUCCESS を確認済み。
 - 次工程: 実ブラウザ表示で82px/42pxの見分けやすさを確認 → 必要ならパイロット見た目微調整 → womanラインへ展開。
+
+
+## チェックポイント M — おんなのひと8段階 PNG パイロット
+- 男性ラインの42px/82px確認では、8段階および特に6→7→8のシルエット差が縮小時にも維持されることを確認。
+- `assets/characters/woman/01.png`〜`08.png` の64×64透過PNGを追加。
+- woman runtime 8段階へ stable asset path を接続し、既存Character Renderer経由でPNG表示・失敗時emojiフォールバックを利用する。
+- 女性ラインも単純な色違いではなく、幼児→少女→若年成人→中年→老人で頭身、髪型、服装、姿勢、白髪、杖を変える。
+- 42px縮小プレビューでも各段階を判別できることを確認。
+- 既存の女性段階ラベル/成長メッセージは変更せず、画像接続のみ追加。
+- 次工程: Runtime smoke test確認後、犬/猫ラインの実画像化へ進む。
