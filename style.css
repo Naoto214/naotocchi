@@ -5818,3 +5818,16 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-pinball-flipper.left{left:13%;transform:rotate(18deg)}.mg-pinball-flipper.right{right:13%;transform-origin:15% 50%;transform:rotate(-18deg)}
 .mg-pinball-flipper.left.active{transform:rotate(-12deg)}.mg-pinball-flipper.right.active{transform:rotate(12deg)}
 .mg-pinball-controls{display:flex;justify-content:center;gap:14px;margin-top:9px}.mg-pinball-controls .mg-tap-btn{min-width:100px;min-height:48px}
+
+/* haunted house 3D */
+.mg-haunt-view{position:relative;height:255px;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#4d4656,#201d26 58%,#0b0a0d);box-shadow:inset 0 0 55px rgba(0,0,0,.85);touch-action:none}
+.mg-haunt-hall{position:absolute;left:18%;right:18%;top:8%;bottom:0;clip-path:polygon(30% 0,70% 0,100% 100%,0 100%);background:linear-gradient(rgba(120,110,130,.18),rgba(40,35,48,.75));border-left:3px solid rgba(255,255,255,.08);border-right:3px solid rgba(255,255,255,.08)}
+.mg-haunt-view:before,.mg-haunt-view:after{content:"";position:absolute;top:0;bottom:0;width:32%;background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(0,0,0,.22) 31px 33px),linear-gradient(90deg,#3f3744,#252129);z-index:2}
+.mg-haunt-view:before{left:0;clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}.mg-haunt-view:after{right:0;clip-path:polygon(0 22%,100% 0,100% 100%,0 78%)}
+.mg-haunt-object{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);z-index:6;font-size:64px;filter:drop-shadow(0 7px 6px rgba(0,0,0,.55))}
+.mg-haunt-object.exit{font-size:84px}.mg-haunt-object.near{animation:mg-haunt-glow .55s ease-in-out infinite alternate}
+.mg-haunt-ghost{position:absolute;left:50%;z-index:7;transform:translate(-50%,-50%);filter:drop-shadow(0 0 12px rgba(230,230,255,.75))}
+.mg-haunt-ghost.far{top:42%;font-size:30px;opacity:.55}.mg-haunt-ghost.near{top:48%;font-size:62px}.mg-haunt-ghost.caught{top:53%;font-size:108px}
+.mg-haunt-view.danger{box-shadow:inset 0 0 55px rgba(110,0,20,.7)}
+.mg-haunt-dpad{display:grid!important;grid-template-columns:repeat(3,58px);justify-content:center;gap:6px;margin-top:8px}.mg-haunt-dpad button{min-width:58px;min-height:48px;font-size:20px}
+@keyframes mg-haunt-glow{from{filter:drop-shadow(0 5px 4px rgba(0,0,0,.5))}to{filter:drop-shadow(0 0 18px rgba(255,240,120,1))}}
