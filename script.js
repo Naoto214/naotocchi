@@ -734,6 +734,7 @@
     storyFlashEmoji: document.getElementById('storyFlashEmoji'),
     storyFlashText: document.getElementById('storyFlashText'),
     gameClearOverlay: document.getElementById('gameClearOverlay'),
+    gameClearArt: document.getElementById('gameClearArt'),
     gameClearConfettiTop: document.getElementById('gameClearConfettiTop'),
     gameClearConfettiBottom: document.getElementById('gameClearConfettiBottom'),
     gameClearTitle: document.getElementById('gameClearTitle'),
@@ -7255,6 +7256,13 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
+    // クリア条件ごとの暫定ドット絵。正式キャラデザインが決まったら
+    // assets/clear/goal-1.jpg〜goal-5.jpg を差し替えるだけで全画面に反映できる。
+    if (el.gameClearArt) {
+      el.gameClearArt.src = `assets/clear/goal-${tierIndex + 1}.jpg?v=20260907-01`;
+      el.gameClearArt.alt = tier.title;
+    }
+    el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
     el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
     el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
     el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
