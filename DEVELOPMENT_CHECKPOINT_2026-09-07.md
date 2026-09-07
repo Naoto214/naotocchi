@@ -829,3 +829,13 @@ Runtime smoke test SUCCESS確認済み。
 - master asset自動接続を使用。script個別編集なし。
 - チェックポイントT `53b16323` Runtime smoke test run #123 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → dandelion / sakuraへ進む。
+
+
+## チェックポイント V — タンポポ・サクラ8段階 PNG 実装
+- WORLD_MASTER登録順を再確認し、通常種の次対象として `dandelion` → `sakura` を実装。
+- `assets/characters/dandelion/01.png`〜`08.png`、`assets/characters/sakura/01.png`〜`08.png` を追加。
+- タンポポは発芽→双葉→ロゼット→成長株→蕾→開花→綿毛→種を飛ばす株。最終段階は枯死ではなく、綿毛が飛び次世代へつながる場面。
+- サクラは発芽→小苗→苗木→幼木→若木→初開花→満開成木→老桜。6→7→8を単純拡大にせず、幹の太さ・枝ぶり・空洞・苔・開花量で老木らしいシルエット差を出す。
+- master asset自動接続を使用。script個別編集なし。
+- チェックポイントU `eb30bb7f` Runtime smoke test run #124 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → venus_flytrap / mushroomへ進む。
