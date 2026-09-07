@@ -151,14 +151,14 @@
     },
     man: {
       stages: [
-        { emoji: '👶', label: 'あかちゃん' },
-        { emoji: '👶', label: 'よちよちあるきの こども', message: 'よちよちあるきの こどもに せいちょうした!' },
-        { emoji: '🧒', label: 'おとこのこ', message: 'おとこのこに せいちょうした!' },
-        { emoji: '👦', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
-        { emoji: '👦', label: 'はんぱんきの しょうねん', message: 'はんぱんきの しょうねんに せいちょうした!' },
-        { emoji: '🧑', label: 'せいねん', message: 'せいねんに せいちょうした!' },
-        { emoji: '🧑', label: 'おとこのひと', message: 'たくましい おとこのひとに せいちょうした!' },
-        { emoji: '👴', label: 'おじいさん', message: 'おじいさんに なった…' },
+        { emoji: '👶', asset: 'assets/characters/man/01.png', label: 'あかちゃん' },
+        { emoji: '👶', asset: 'assets/characters/man/02.png', label: 'ようじ', message: 'ようじに せいちょうした!' },
+        { emoji: '🧒', asset: 'assets/characters/man/03.png', label: 'こども', message: 'こどもに せいちょうした!' },
+        { emoji: '👦', asset: 'assets/characters/man/04.png', label: 'しょうねん', message: 'しょうねんに せいちょうした!' },
+        { emoji: '👦', asset: 'assets/characters/man/05.png', label: 'わかもの', message: 'わかものに せいちょうした!' },
+        { emoji: '🧑', asset: 'assets/characters/man/06.png', label: 'おとな', message: 'おとなに せいちょうした!' },
+        { emoji: '🧑', asset: 'assets/characters/man/07.png', label: 'ちゅうねん', message: 'ちゅうねんに なった!' },
+        { emoji: '👴', asset: 'assets/characters/man/08.png', label: 'おじいさん', message: 'おじいさんに なった…' },
       ],
     },
     woman: {
