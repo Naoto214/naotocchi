@@ -779,3 +779,13 @@ Runtime smoke test SUCCESS確認済み。
 - 42px縮小プレビューで、カエルの変態過程とサケのパーマーク/銀化/婚姻色の差が維持されることを確認。
 - チェックポイントO `a2e5d5e0` のRuntime smoke test run #118 = SUCCESS確認済み。
 - 次工程: このコミットのRuntime smoke test確認 → clownfish / butterflyへ進む。
+
+
+## チェックポイント Q — カクレクマノミ・ちょう8段階 PNG 実装
+- `assets/characters/clownfish/01.png`〜`08.png`、`assets/characters/butterfly/01.png`〜`08.png` を追加。
+- master asset自動接続を使用するため、種族ごとのscript編集なしでCharacter Rendererへ接続。
+- カクレクマノミは仔魚→稚魚→幼魚→若魚→群れ成魚→繁殖雄→性転換中→成熟雌。体長、白帯、黒縁、群れ感、繁殖雄、性転換時の中間体格、最終段階の大型雌で差を出した。
+- ちょうは初齢幼虫→中齢幼虫→終齢幼虫→前蛹→蛹→羽化直後→成虫→老成虫。幼虫の成長だけでなく、前蛹/蛹でシルエットを完全に変え、羽化直後は翅が小さく、成虫で展翅、老成虫は翅の欠け/退色を加えた。
+- 42px縮小でも「幼虫→蛹→蝶」の大変態と、クマノミの成長/成熟雌の大型化が判別できることを確認。
+- チェックポイントP `c1cbe7da` Runtime smoke test run #119 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → beetle / stagへ進む。
