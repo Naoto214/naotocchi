@@ -659,3 +659,37 @@ punyu, sekizou, chameleon, kinoko, unicorn, many_tail_fox, watcher, box
 - 合計 = **248/248形態**
 - 次工程: 各形態の実ドット絵制作仕様 → asset命名/配置 → runtime接続 → 回帰テスト。
 - 仮emojiは最終デザインではない。248形態すべて専用ドット絵へ置換する。
+
+
+## チェックポイント H — Character Renderer 基盤
+248形態の画像制作前に、主人公表示を emoji 固定から画像アセット対応へ移行する基盤を実装。
+
+### 実装内容
+- 各 stage は従来の `emoji` に加え、将来 `asset` を持てる。
+- `stage.asset` がある場合はPNG等の画像を表示。
+- `asset` がない場合は従来どおりemoji。
+- 画像読込失敗時も自動でemojiへフォールバック。
+- `stageVisualHTML()` / `setStageVisual()` を共通レンダラーとして追加。
+- メイン主人公表示、図鑑詳細、図鑑セル、変身候補、アイテムの図鑑/夢ピッカー、ゲスト表示を同じ仕組みに寄せた。
+- CSSに `.character-visual`, `.character-asset`, hero/detail/thumb サイズを追加。
+- `image-rendering: pixelated` / crisp-edges を利用。
+- 基本アセット構成は「1形態1ファイル」を推奨。例: `assets/characters/dog/01.png`。
+- 248枚を1スプライトシートに先に固定しない。開発中の差し替えやすさを優先。
+- まだPNG自体は追加していないため、現状表示はemojiのままで壊れない。
+
+### 重要な修正
+主人公22+8 runtime接続時に `WORLD_MASTER` 宣言位置が遅く、初期化前参照になる問題をCIで発見。
+`WORLD_MASTER` をファイル冒頭で初期化するよう修正。
+Runtime smoke test SUCCESS確認済み。
+
+### 主要コミット
+- `9d481c29`: reusable character asset renderer
+- `d55461d7`: pixel character renderer CSS
+- `d4fa0e61`: WORLD_MASTER初期化順修正、CI成功
+
+### 次工程
+1. 実画像の基準仕様を決める（キャンバスサイズ、透明背景、基準線、最大占有率、向き）
+2. まず1種8枚をパイロット制作する
+3. メイン/図鑑/変身で実表示確認
+4. 問題なければ248形態を分類単位で制作・接続
+5. 各区切りでチェックポイント更新
