@@ -4123,6 +4123,29 @@
     ],
   };
 
+  // 18体それぞれの口調。性格カテゴリに加えて固有台詞を優先し、
+  // 誰と付き合っているかがデート中にも分かるようにする。
+  const PARTNER_SIGNATURE_LINES = {
+    cat_ceo:['「このあと会議。だから、あと10ぷんだけ延長」','「予定には なかったけど……まあ、悪くない」'],
+    robot_neighbor:['「たのしい、を いま 学習中」','「この時間は 保存しても いいですか？」'],
+    field_cow:['「ゆっくりで いいよ。草も そうして のびるし」','おいしい草を 見つけるたび 半分くれた。'],
+    sunflower_partner:['「きょうは たいようより こっち 見てる」','帰り道も ずっと こちらの方を 向いていた。'],
+    forest_bear:['「つかれたら 休もう。はちみつ あるよ」','大きな手で そっと 歩幅を あわせてくれた。'],
+    grove_deer:['「しずかな ところ、すき」','少し先を歩いて、何度も こちらを 振り返った。'],
+    cliff_goat:['「あっちの道、ぜったい おもしろい」','気づけば また 高いところに 連れていかれた。'],
+    high_eagle:['「上から見ると、だいたい 小さいよ」','いちばん景色のいい場所を 当然みたいに 知っていた。'],
+    snow_spirit:['「手、つめたい？ わたしは これが ふつう」','雪が降るたび 少しだけ うれしそうに 光った。'],
+    snowman:['「あったかい場所は……ちょっとだけね」','日なたを避けながら、それでも となりを歩いた。'],
+    rock_octopus:['「手、つなぐ？ 8本あるけど」','写真を撮るたび ポーズが 8個ずつ増えた。'],
+    sea_mermaid:['「陸って まだ知らないこと いっぱい」','こちらが海の話を聞くより、陸の話を たくさん聞かれた。'],
+    anglerfish:['「暗いほうが 顔、よく見えるよ」','小さな灯りだけで ずっと となりにいてくれた。'],
+    swamp_croc:['「べつに 楽しいとは……言ってない」','帰ろうとしたら、無言で もう少し先を 指さした。'],
+    gentle_gorilla:['「だいじょうぶ？ 荷物 もつよ」','花を踏まないように 大きな体で ずっと小さく歩いた。'],
+    knitting_spider:['「じっとして。いま おそろい 作ってる」','帰るころには 小さなおそろいの飾りが できていた。'],
+    desert_scorpion:['「危ないから こっち歩いて」','強そうな顔のまま、ずっと 日陰側を ゆずってくれた。'],
+    oasis_cactus:['「近くに いていいよ。さわらなければ」','距離は少しあるのに、不思議と ずっと一緒だった。'],
+  };
+
   // どの デートでも さいごに ひとつ つく、しめの ひとこと
   const DATE_CLOSINGS = [
     'かえりみち、さっきより すこし ちかくを あるいた。',
@@ -4316,6 +4339,15 @@
     return lines[Math.floor(Math.random() * lines.length)];
   }
 
+  function partnerAnniversaryLine(partner, years) {
+    const lines = PARTNER_SIGNATURE_LINES[partner.id] || [];
+    if (!lines.length) return null;
+    if (years >= 50) return `50ねんたっても、${lines[0]}`;
+    if (years >= 25) return `銀婚式でも、いつもの ${partner.label}だった。 ${lines[1] || lines[0]}`;
+    if (years >= 10) return `10ねんたっても 変わらない。 ${lines[0]}`;
+    return `1ねんたって、少しだけ わかってきた。 ${lines[1] || lines[0]}`;
+  }
+
   function playMarriageMovie(milestone) {
     if (!state.partner || !state.partner.married) return;
     clearDateMovieTimers();
@@ -4334,6 +4366,7 @@
     el.dateMoviePartner.textContent = state.partner.emoji || '💞';
     const name = state.partner.label;
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
+    const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
 
     const commonSmallTalk = [
       `「${name}、きょう なんの日か おぼえてる?」`,
@@ -4362,7 +4395,7 @@
           '「50ねん たったらしいよ」「ほんと? まだ しゃべること あるね」',
           '「むかしより 歩くの おそくなったね」「そっちもね」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           'むかしの しゃしんを 見て、どっちが 先に 老けたかで しばらく もめた。',
           '「あのころの ふたりに 教えたら 信じるかな」「たぶん 信じない」',
@@ -4383,7 +4416,7 @@
           '「25ねん。長かった?」「短かったって 言ったら うそになるね」',
           '「昔の しゃしん 見る?」「それは ちょっと こわい」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           '古い しゃしんを ひらいて、服と髪型の はなしだけで しばらく 笑った。',
           '「このころ 若いね」「今も まあまあ いけるでしょ」',
@@ -4404,7 +4437,7 @@
           '「10周年らしいよ」「じゃあ 今日は ちょっと いいもの 食べよ」',
           '「あの日から 10ねん」「あの日って どの日?」「そこから!?」',
         ]),
-        pickMovieLine(sharedMemory),
+        signatureAnniversary || pickMovieLine(sharedMemory),
         pickMovieLine([
           '「変わった?」「変わった。でも 変わってないとこも ある」',
           '「10年前より 好き?」「そういう 質問する?笑」',
@@ -4470,7 +4503,10 @@
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
-    const traitLines = DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle;
+    const signatureLines = PARTNER_SIGNATURE_LINES[partner.id];
+    const traitLines = signatureLines && signatureLines.length
+      ? signatureLines
+      : (DATE_TRAIT_LINES[partner.affinityTrait] || DATE_TRAIT_LINES.gentle);
     const traitLine = traitLines[Math.floor(Math.random() * traitLines.length)];
     const closing = DATE_CLOSINGS[Math.floor(Math.random() * DATE_CLOSINGS.length)];
 
