@@ -10136,18 +10136,16 @@
   const FIRST_PERSON_DUNGEON_VARIANTS=[mg('fp-dungeon',makeFirstPersonDungeonGame({title:'3Dふう ダンジョン!一人称で 出口を さがそう'}))];
 
   // --- 3Dふう ならびかえ ---
-  // 正解が客観的な「大きい/小さい/年寄り/若い」に加えて、
-  // 「面白そう/神経質そう」のような正解のないお題も混ぜる。
-  // 後者は採点せず、並べ終えた順そのものを楽しむ遊びにする。
-  function makePerspectiveRankingGame({ title, cast, criterion, subjective = false }) {
+  // 大きさ・年齢など、客観的に正解を判定できるお題だけを使う。
+  function makePerspectiveRankingGame({ title, cast, criterion }) {
     return {
       start(container,onComplete){
         let order=[...cast].sort(()=>Math.random()-.5), selected=-1, moves=0, done=false;
         container.innerHTML=`
-          <div class="mg-header"><span id="mgRankMoves">いれかえ: 0</span><span>${subjective?'正解なし 😏':'ならべよう!'}</span></div>
+          <div class="mg-header"><span id="mgRankMoves">いれかえ: 0</span><span>ならべよう!</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-rank3d-stage" id="mgRankStage"></div>
-          <div class="mg-hint">${subjective?'自分のイメージでOK。2人ずつタップして入れかえよう':'左から順になるよう、2人ずつタップして入れかえよう'}</div>
+          <div class="mg-hint">左から順になるよう、2人ずつタップして入れかえよう</div>
           <button class="mg-tap-btn" id="mgRankDone">これで けってい!</button>`;
         const stage=container.querySelector('#mgRankStage'),movesEl=container.querySelector('#mgRankMoves');
         function render(){
