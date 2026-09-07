@@ -4146,6 +4146,27 @@
     oasis_cactus:['「近くに いていいよ。さわらなければ」','距離は少しあるのに、不思議と ずっと一緒だった。'],
   };
 
+  const PARTNER_RELATIONSHIP_LINES = {
+    cat_ceo:{court:'「……じゃあ、予定に入れとく」',marriage:'「長期契約ってことで。解約は なしね」'},
+    robot_neighbor:{court:'「コイビト……登録しました」',marriage:'「この関係を、終了条件なしに設定します」'},
+    field_cow:{court:'「じゃあ、これからも 草 いっしょに食べよ」',marriage:'「ずっと となりの のはらに いよう」'},
+    sunflower_partner:{court:'「これからは たいようと きみを 見る」',marriage:'「ずっと こっち 向いてるね」'},
+    forest_bear:{court:'「うれしい。はちみつ もってくるね」',marriage:'「冬眠しても、起きたら となりに いてね」'},
+    grove_deer:{court:'「もう にげないよ」',marriage:'「これからは 振り返らなくても となりに いるね」'},
+    cliff_goat:{court:'「じゃあ 次は もっと高いとこ 行こう」',marriage:'「一生ぶんの ちかみち、いっしょに 探そ」'},
+    high_eagle:{court:'「……悪くない」',marriage:'「ずっと 上からじゃなく、となりで 見る」'},
+    snow_spirit:{court:'「この手、つめたいけど いい？」',marriage:'「季節が かわっても、ここにいる」'},
+    snowman:{court:'「とけないように がんばる」',marriage:'「一生ぶん、まだ とけないつもり」'},
+    rock_octopus:{court:'「じゃあ まず どの手 つなぐ？」',marriage:'「8本ぜんぶでも 足りないくらい」'},
+    sea_mermaid:{court:'「もっと 陸のこと 教えて」',marriage:'「海も陸も、帰る場所は いっしょにしよ」'},
+    anglerfish:{court:'「くらいところでも ちゃんと 見つけてね」',marriage:'「ずっと この灯りで となりにいる」'},
+    swamp_croc:{court:'「……まあ、いいけど」',marriage:'「べつに 泣いてない。水が はねただけ」'},
+    gentle_gorilla:{court:'「うれしい。つぶさないように だきしめるね」',marriage:'「ずっと たいせつに する」'},
+    knitting_spider:{court:'「じゃあ ふたりぶん 編むね」',marriage:'「ほどけても また 編みなおせば いいよ」'},
+    desert_scorpion:{court:'「……じゃあ となり 歩いて」',marriage:'「これからも 日陰は 半分こ」'},
+    oasis_cactus:{court:'「さわれなくても、好きで いいよ」',marriage:'「ちかづけないぶん、ずっと ここにいる」'},
+  };
+
   // どの デートでも さいごに ひとつ つく、しめの ひとこと
   const DATE_CLOSINGS = [
     'かえりみち、さっきより すこし ちかくを あるいた。',
@@ -12130,7 +12151,8 @@
         }
         if (!checkMeters()) {
           setMessage(`💍 ${state.partner.label}と けっこんした`);
-          speakEvent('marriage', { partnerChance: 1, companionChance: 0.65 });
+          const marriageLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.marriage;
+          speakEvent('marriage', { petText: marriageLine || undefined, partnerChance: 1, companionChance: 0.65 });
         }
         emotePet('love');
         return;
@@ -12236,7 +12258,8 @@
         // きねんに 記録する(「はじめから」しても きえない永続コレクション)
         state.lifetime.partnersRecorded.push(candidate.id);
       }
-      const reaction = pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
+      const relationLines = PARTNER_RELATIONSHIP_LINES[candidate.id];
+      const reaction = relationLines?.court || pickReaction(COURT_SUCCESS_REACTIONS, lastCourtReaction);
       lastCourtReaction = reaction;
       if (!checkMeters()) {
         setMessage(`💑 ${candidate.label}と こいびとに なった`);
