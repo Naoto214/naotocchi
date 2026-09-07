@@ -83,6 +83,7 @@ global.document = {
   visibilityState: 'visible',
 };
 global.window = { addEventListener: noop, innerWidth: 390, innerHeight: 844 };
+global.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = master;
 global.localStorage = { getItem: () => null, setItem: noop, removeItem: noop };
 global.navigator = { userAgent: 'smoke-test', maxTouchPoints: 1 };
 global.performance = { now: () => 1000 };
