@@ -2323,9 +2323,36 @@
       const line = pickConversationLine(pool.companion, ctx);
       if (cs && line) beats.push({ speaker: cs, text: line });
     }
-    // いるキャラが次々しゃべるテンポを優先。吹き出しが空く時間を減らす。
-    beats.slice(0, 3).forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1250));
+    // いるキャラが次々しゃべるテンポを優先。本人→恋人→仲間だけで終わらず、
+    // 複数キャラがいる場面では最後に本人がもう一言返して「掛け合い」にする。
+    if (beats.length >= 2 && Math.random() < 0.82) {
+      const followUps = {
+        feed: ['いや、これは ぼくの!', 'あと一口だけ!', '食べものの恨みは こわいぞ笑'],
+        overfeed: ['いま 笑った?', 'もう 食べものの話しないで!', '明日から 本気だすって!'],
+        sleep: ['もう しゃべらない…ねる…', 'おやすみって 何回いうの笑', '電気けして〜'],
+        wake: ['起きたってば!', '朝から 元気すぎ笑', 'あと3分だけは だめ?'],
+        clean: ['ほめていいよ!', '今日は できる子なので', 'この状態を 何分キープできるかな'],
+        medicine_cure: ['まずかったけど 勝った!', 'もう薬は しばらく見たくない', '元気になったから あそぼ!'],
+        medicine_wrong: ['だから 元気だって!', '薬しまって!', 'その手に持ってるの こわい笑'],
+        play_with: ['まだ やる!', '次ぼくの番!', 'ちょっと本気だす!'],
+        play_with_annoyed: ['ほんとに 休憩!', '5分だけ 放置して笑', 'かまいすぎ警報です'],
+        court: ['聞こえてた!?', 'ちょっと みんな静かにして笑', '今いいところだから!'],
+        court_fail: ['その話は もう終わり!', '見てた人 全員 忘れて!', 'はい次の話題!'],
+        age: ['まあ 中身は いつものぼくだけどね', '誕生日ってことで 何かちょうだい?', '今日は 主役でいい?'],
+        sodachi: ['まだ そだつの!?', '鏡もう1回みよ', 'なんか 強くなった気がする'],
+        money: ['これは ぼくの資産です', '使わないよ。たぶん', 'とりあえず 数えよ!'],
+        travel: ['まず ごはん!', '迷子には ならない。たぶん', '全部みたい!'],
+        transform: ['見すぎ見すぎ笑', '写真とっとこ!', '声まで変わってないよね?'],
+        partner_new: ['にやけてないし!', '今日は ちょっと浮かれていい?', 'みんな、今だけ 空気よんで笑'],
+        marriage: ['なんか 急に照れてきた', '今日から 家族会議する?', 'ほんとに 夫婦なんだなぁ'],
+        minigame_great: ['もう1回ほめて!', '録画してた!?', 'いまのは 保存版です'],
+        minigame_bad: ['次は勝つ!', 'いまのは ノーカウント!', '見なかったことにして!'],
+      };
+      const line = pickConversationLine(followUps[eventKey], ctx);
+      if (line) beats.push({ speaker: petSpeaker(), text: line });
+    }
+    beats.slice(0, 4).forEach((beat, i) => {
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * 1050));
     });
   }
 
