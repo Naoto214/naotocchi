@@ -11093,6 +11093,35 @@
     }};
   }
   const PINBALL_VARIANTS=[mg('pinball-physics',makePinballGame())];
+  // --- 3Dおばけ屋敷: 鍵を探し、追ってくる幽霊から逃げて出口へ ---
+  function makeHauntedHouseGame(){
+    return {start(container,onComplete){
+      const W=5,H=5,walls=new Set(['1,0','3,0','1,2','3,2','0,3','2,3']);
+      const keyPos={x:4,y:1},exit={x:4,y:4};let x=0,y=0,gx=2,gy=4,hasKey=false,moves=0,done=false;
+      container.innerHTML=`
+        <div class="mg-header"><span id="hhKey">🔑 なし</span><span id="hhMoves">すすんだ 0</span></div>
+        <div class="mg-title">3Dおばけ屋敷!鍵を見つけて逃げろ</div>
+        <div class="mg-haunt-view" id="hhView"><div class="mg-haunt-hall"></div><div class="mg-haunt-object" id="hhObject"></div><div class="mg-haunt-ghost" id="hhGhost"></div></div>
+        <div class="mg-hint" id="hhHint">鍵🔑を探して出口🚪へ。1歩ごとに幽霊も動く!</div>
+        <div class="mg-dpad mg-haunt-dpad"><span></span><button data-d="up">▲</button><span></span><button data-d="left">◀</button><button data-d="down">▼</button><button data-d="right">▶</button></div>`;
+      const view=container.querySelector('#hhView'),obj=container.querySelector('#hhObject'),ghost=container.querySelector('#hhGhost'),hint=container.querySelector('#hhHint');
+      const key=(a,b)=>a+','+b,isWall=(a,b)=>a<0||b<0||a>=W||b>=H||walls.has(key(a,b));
+      function dist(ax,ay,bx,by){return Math.abs(ax-bx)+Math.abs(ay-by);}
+      function moveGhost(){const opts=[[1,0],[-1,0],[0,1],[0,-1]].map(([dx,dy])=>({x:gx+dx,y:gy+dy})).filter(p=>!isWall(p.x,p.y));opts.sort((a,b)=>dist(a.x,a.y,x,y)-dist(b.x,b.y,x,y));if(opts.length){const best=opts.filter(p=>dist(p.x,p.y,x,y)===dist(opts[0].x,opts[0].y,x,y));const pick=Math.random()<.82?best[Math.floor(Math.random()*best.length)]:opts[Math.floor(Math.random()*opts.length)];gx=pick.x;gy=pick.y;}}
+      function draw(msg=''){const d=dist(x,y,gx,gy);view.classList.toggle('danger',d<=2);container.querySelector('#hhKey').textContent=hasKey?'🔑 もってる':'🔑 なし';container.querySelector('#hhMoves').textContent='すすんだ '+moves;
+        obj.textContent='';obj.className='mg-haunt-object';if(x===keyPos.x&&y===keyPos.y&&!hasKey){obj.textContent='🔑';obj.classList.add('near');}else if(x===exit.x&&y===exit.y){obj.textContent='🚪';obj.classList.add('exit');}
+        if(d===0){ghost.textContent='👻';ghost.className='mg-haunt-ghost caught';}else if(d===1){ghost.textContent='👻';ghost.className='mg-haunt-ghost near';}else if(d===2){ghost.textContent='👻';ghost.className='mg-haunt-ghost far';}else{ghost.textContent='';ghost.className='mg-haunt-ghost';}
+        const exits=[];for(const [name,dx,dy] of [['↑',0,-1],['→',1,0],['↓',0,1],['←',-1,0]])if(!isWall(x+dx,y+dy))exits.push(name);
+        hint.textContent=msg||(d<=2?'👻 近い! 一本道に追い込まれないよう逃げよう':'進める方向: '+exits.join(' '));
+      }
+      function finish(score,msg){if(done)return;done=true;hint.textContent=msg;container.querySelectorAll('.mg-haunt-dpad button').forEach(b=>b.disabled=true);setTimeout(()=>onComplete(clamp(score,15,100)),700);}
+      function move(d){if(done)return;const dx=d==='left'?-1:d==='right'?1:0,dy=d==='up'?-1:d==='down'?1:0,nx=x+dx,ny=y+dy;if(isWall(nx,ny)){draw('壁だ! 別の方向へ');return;}x=nx;y=ny;moves++;if(x===keyPos.x&&y===keyPos.y&&!hasKey){hasKey=true;draw('🔑 鍵を手に入れた! 出口へ急ごう');}moveGhost();if(x===gx&&y===gy){finish(20,'👻 つかまった…');return;}if(x===exit.x&&y===exit.y){if(hasKey){finish(100-Math.max(0,moves-12)*3,'🚪 脱出成功!');return;}draw('🚪 鍵がない! 先に🔑を探そう');return;}draw();}
+      container.querySelectorAll('[data-d]').forEach(b=>b.onpointerdown=e=>{e.preventDefault();move(b.dataset.d);});
+      let start=null;view.onpointerdown=e=>{e.preventDefault();start={x:e.clientX,y:e.clientY};try{view.setPointerCapture(e.pointerId);}catch(err){}};view.onpointerup=e=>{if(!start)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;start=null;if(Math.max(Math.abs(dx),Math.abs(dy))<18)return;move(Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down'));};view.onpointercancel=()=>{start=null;};
+      draw();
+    }};
+  }
+  const HAUNTED_HOUSE_VARIANTS=[mg('haunted-house-3d',makeHauntedHouseGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -11102,6 +11131,7 @@
     ...FALLING_BLOCK_VARIANTS,
     ...CRANE_GAME_VARIANTS,
     ...PINBALL_VARIANTS,
+    ...HAUNTED_HOUSE_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -11126,6 +11156,7 @@
     ['fallingBlock', FALLING_BLOCK_VARIANTS],
     ['craneGame', CRANE_GAME_VARIANTS],
     ['pinball', PINBALL_VARIANTS],
+    ['hauntedHouse', HAUNTED_HOUSE_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11324,7 +11355,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'pinball', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'pinball', 'hauntedHouse', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11335,6 +11366,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'haunted-house-3d',
     'pinball-physics',
     'crane-game-3d',
     'falling-block-puzzle',
