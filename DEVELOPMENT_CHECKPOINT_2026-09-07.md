@@ -759,3 +759,13 @@ Runtime smoke test SUCCESS確認済み。
 - 両ラインとも42px縮小プレビューで8段階の流れを確認済み。単純な拡大縮小や色替えだけにはしていない。
 - 既存の段階ラベル/成長メッセージは変更せず、画像接続のみ追加。
 - 次工程: Runtime smoke test確認 → ペンギン/カメの実画像化。
+
+
+## チェックポイント O — ペンギン・かめ PNG + master asset接続修正
+- `assets/characters/penguin/01.png`〜`08.png`、`turtle/01.png`〜`08.png` を追加。
+- ペンギンは小雛→綿毛雛→大雛→換羽中→若鳥→成鳥→老成鳥→老鳥。綿毛、換羽色、成鳥の白黒、白髪様の退色、老鳥の前傾/杖的シルエットで差を出した。
+- かめは孵化仔→小亀→幼亀→若亀→成亀→大亀→古亀→老亀。甲羅サイズ/模様、頭・脚比率、古傷、苔、老化姿勢で段階差を出した。
+- 重要回帰修正: `installMasterSpecies()` が既存の man/woman/dog/cat のstage定義をマスターから再生成しており、先に手書きした `asset` を上書きしていたことを発見。
+- masterから生成する全22通常+8レアstageへ `assets/characters/<species>/<01..08>.png` のstable asset pathを自動付与するよう修正。
+- これにより既に投入済み man/woman/dog/cat のPNGが実runtimeでも確実に使われる。未制作種族は画像ロード失敗時に従来emojiへfallbackするため段階的移行を維持。
+- 次工程: Runtime smoke test確認 → frog/salmonへ進む。

@@ -396,6 +396,8 @@
       SPECIES[def.id] = {
         stages: def.stages.map((label, i) => ({
           emoji: emojis[i] || emojis[emojis.length - 1] || '❓',
+          // 全マスター種族は同じstable pathを使う。未制作PNGはrenderer側でemojiへfallback。
+          asset: `assets/characters/${def.id}/${String(i + 1).padStart(2, '0')}.png`,
           label,
           message: i ? `${label}に なった!` : undefined,
         })),
