@@ -2319,6 +2319,33 @@
     if (recentConversationLines.length > 24) recentConversationLines.shift();
     return line;
   }
+  const PARTNER_DAILY_REACTIONS = {
+    cat_ceo:{play_with:['「いま休憩中。……もう少し そのまま」'],medicine_cure:['「体調管理も 仕事のうち。なおって よかった」'],travel:['「移動時間も 予定に 入れといた」'],minigame_great:['「成果は 数字で出ると きもちいいね」'],minigame_bad:['「改善案、あとで まとめよ」']},
+    robot_neighbor:{play_with:['「スキンシップ……好感度 上昇を確認」'],medicine_cure:['「バイタル、正常化。安心しました」'],travel:['「未知ノ地域データヲ 取得シマス」'],minigame_great:['「ハイスコアヲ 記録しました」'],minigame_bad:['「再試行デ 改善可能デス」']},
+    field_cow:{play_with:['「のんびり しよ」'],medicine_cure:['「元気に なって よかった。草 いる？」'],travel:['「いい草 あるかな」'],minigame_great:['「すごいねえ」'],minigame_bad:['「まあまあ。草でも 食べよ」']},
+    sunflower_partner:{play_with:['「もっと こっち 向いて」'],medicine_cure:['「元気なら また きみの方 向ける」'],travel:['「どこでも きみの方は わかるよ」'],minigame_great:['「いま すごく まぶしかった」'],minigame_bad:['「下むかないで。こっち 見て」']},
+    forest_bear:{play_with:['「あったかいね」'],medicine_cure:['「よかった。はちみつ たべる？」'],travel:['「つかれたら すぐ 休もう」'],minigame_great:['「すごい。ぎゅーしていい？」'],minigame_bad:['「だいじょうぶ。ゆっくりで いいよ」']},
+    grove_deer:{play_with:['「……もう少し 近くても いいよ」'],medicine_cure:['「顔色、もどったね」'],travel:['「しずかな道 みつけた」'],minigame_great:['「見てた。すごかった」'],minigame_bad:['「次は となりで 見てる」']},
+    cliff_goat:{play_with:['「じゃれたら 次 のぼろ！」'],medicine_cure:['「元気なら 山いけるね」'],travel:['「あっち、道じゃないけど 行けそう」'],minigame_great:['「その勢いで 崖もいける！」'],minigame_bad:['「近道 探そ！」']},
+    high_eagle:{play_with:['「……近い」'],medicine_cure:['「顔が もどった。よかった」'],travel:['「上から 先を 見てくる」'],minigame_great:['「よく 見えてた」'],minigame_bad:['「次は もっと遠くを 見て」']},
+    snow_spirit:{play_with:['「つめたくない？」'],medicine_cure:['「熱、もう だいじょうぶ？」'],travel:['「雪があると うれしい」'],minigame_great:['「きらきら してた」'],minigame_bad:['「雪みたいに また 積めばいいよ」']},
+    snowman:{play_with:['「ぎゅーは 短めで おねがい」'],medicine_cure:['「なおって よかった。ぼくは とけてない」'],travel:['「日かげルートで いこ」'],minigame_great:['「クールだったね。ぼくほどじゃないけど」'],minigame_bad:['「頭ひやそ。ぼくの横 くる？」']},
+    rock_octopus:{play_with:['「どの手で じゃれる？」'],medicine_cure:['「8本で 看病したかい あった！」'],travel:['「荷物 8こまで 持てるよ」'],minigame_great:['「8回 拍手する！」'],minigame_bad:['「8回やれば 1回は勝てる！」']},
+    sea_mermaid:{play_with:['「陸の じゃれかたって こう？」'],medicine_cure:['「海の薬より 効いたね」'],travel:['「また 新しい陸 教えて」'],minigame_great:['「海の底まで 自慢しにいこ」'],minigame_bad:['「海なら もっと うまくできるかも」']},
+    anglerfish:{play_with:['「灯り、近づけるね」'],medicine_cure:['「顔が また ちゃんと 見える」'],travel:['「暗い道なら まかせて」'],minigame_great:['「いま すごく 光って見えた」'],minigame_bad:['「暗くして もう1回やる？」']},
+    swamp_croc:{play_with:['「……もう少しなら いい」'],medicine_cure:['「べつに 心配してない。ちょっとだけ」'],travel:['「水辺なら 先いく」'],minigame_great:['「……やるじゃん」'],minigame_bad:['「見てない。だから 気にしなくていい」']},
+    gentle_gorilla:{play_with:['「ちから ぬくね。そっとね」'],medicine_cure:['「よかった。ほんとに よかった」'],travel:['「荷物 ぜんぶ もつよ」'],minigame_great:['「すごい！でも びっくりさせないよう 小声で言うね」'],minigame_bad:['「だいじょうぶ。手 つなぐ？」']},
+    knitting_spider:{play_with:['「動かないで。いま 糸ついた」'],medicine_cure:['「元気祝いに 何か 編むね」'],travel:['「いい糸の場所 ありそう」'],minigame_great:['「記念の 模様にしておく」'],minigame_bad:['「ほどいて やりなおせば いいよ」']},
+    desert_scorpion:{play_with:['「しっぽには 気をつけて」'],medicine_cure:['「……よかった」'],travel:['「日陰側、こっち」'],minigame_great:['「強いね。知ってた」'],minigame_bad:['「次は となりで やる」']},
+    oasis_cactus:{play_with:['「近い近い。とげ あるよ」'],medicine_cure:['「元気なら それでいい」'],travel:['「水、忘れないで」'],minigame_great:['「ハイタッチは……エアで」'],minigame_bad:['「落ちこんだら となりに 立ってる」']},
+  };
+
+  function partnerDailyLine(eventKey, ctx) {
+    if (!state.partner) return null;
+    const lines = PARTNER_DAILY_REACTIONS[state.partner.id]?.[eventKey];
+    return pickConversationLine(lines, ctx || {});
+  }
+
   function speakEvent(eventKey, ctx = {}) {
     const pool = CONVERSATION_POOLS[eventKey];
     if (!pool) return;
@@ -2328,7 +2355,7 @@
     if (petLine) beats.push({ speaker: petSpeaker(), text: petLine });
     if (state.partner && pool.partner && Math.random() < (ctx.partnerChance ?? 0.6)) {
       const ps = partnerSpeaker();
-      const line = pickConversationLine(pool.partner, ctx);
+      const line = partnerDailyLine(eventKey, ctx) || pickConversationLine(pool.partner, ctx);
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
     if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
