@@ -5338,6 +5338,20 @@
     const rows = [];
     rows.push(`<div class="lifecard-title">${currentSprite()} ${species}</div>`);
     rows.push(`<div class="lifecard-age">${age}さいまで いきた</div>`);
+    // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
+    // 削らずに小さな専用回想を添える。別Renderer/別エンディングにはせず、
+    // 248形態共通の人生記録フローを保ったまま「同じ一人が育った」ことを見せる。
+    if (state.speciesLine === 'ren' && age >= GOAL_AGE) {
+      const renStages = SPECIES.ren?.stages || [];
+      const renMemories = [0, 2, 4, 5, 7]
+        .map((stageIndex) => renStages[stageIndex])
+        .filter(Boolean)
+        .map((stage) => `<span class="lifecard-ren-stage">${stageVisualHTML(stage, 'thumb')}<small>${stage.label}</small></span>`)
+        .join('<span class="lifecard-ren-arrow">→</span>');
+      if (renMemories) {
+        rows.push(`<div class="lifecard-ren-memory"><div class="lifecard-ren-caption">⭐ れんくんの いっしょう</div><div class="lifecard-ren-stages">${renMemories}</div><div class="lifecard-ren-message">ちいさかった れんくんも、たくさんの おもいでと いっしょに おじいちゃんに なった。</div></div>`);
+      }
+    }
     rows.push(`<div class="lifecard-line">さいごの そだち <b>${state.sodachi}</b> ／ さいこうの そだち <b>${state.maxSodachi}</b></div>`);
     const badges = [];
     if (age >= GOAL_AGE) badges.push('★① てんじゅを まっとうした');
