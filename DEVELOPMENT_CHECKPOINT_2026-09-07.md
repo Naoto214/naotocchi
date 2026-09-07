@@ -809,3 +809,12 @@ Runtime smoke test SUCCESS確認済み。
 - master asset自動接続を使用。script個別編集なし。
 - チェックポイントR `1615b40f` Runtime smoke test run #121 = SUCCESS。
 - 次工程: このコミットのRuntime smoke test確認 → hermit_crab / jellyfishへ進む。
+
+
+## チェックポイント T — ヤドカリ・クラゲ8段階 PNG 実装
+- `assets/characters/hermit_crab/01.png`〜`08.png`、`assets/characters/jellyfish/01.png`〜`08.png` を追加。
+- ヤドカリは極小幼体→小殻→殻交換→若個体→中型殻→大型殻→豪華な殻→老個体。成長に伴い体格と殻サイズを上げ、殻交換段階、豪華な巻貝、老齢の摩耗した殻/姿勢で差を出す。
+- クラゲはプラヌラ→ポリプ→成熟ポリプ→ストロビラ→エフィラ→若クラゲ→成体→大型成熟体。固着ポリプ期から分節するストロビラ、星形エフィラ、傘と触手が発達する成体まで生活環を視覚化。
+- master asset自動接続を使用。script個別編集なし。
+- チェックポイントS `e57fa117` Runtime smoke test run #122 = SUCCESS。
+- 次工程: このコミットのRuntime smoke test確認 → crab / squidへ進む。
