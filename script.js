@@ -10981,12 +10981,58 @@
     }};
   }
   const ACTION_BOSS_VARIANTS=[mg('action-boss-3d',makeActionBossGame())];
+  // --- 落ちものパズル: 左右移動・回転・高速落下・ライン消し ---
+  function makeFallingBlockPuzzleGame(){
+    return {start(container,onComplete){
+      const W=8,H=14,board=Array.from({length:H},()=>Array(W).fill(0));
+      const SHAPES=[
+        [[1,1,1,1]],
+        [[1,1],[1,1]],
+        [[0,1,0],[1,1,1]],
+        [[1,0],[1,0],[1,1]],
+        [[0,1,1],[1,1,0]],
+      ];
+      let piece=null,px=2,py=0,lines=0,score=0,done=false,lastDrop=0,rafId;
+      const startTime=performance.now(),DURATION_MS=32000;
+      container.innerHTML=`
+        <div class="mg-header"><span id="fbTimer">のこり: 32s</span><span id="fbScore">ライン 0　0pt</span></div>
+        <div class="mg-title">ブロックパズル!そろえて消そう</div>
+        <div class="mg-falling-wrap"><div class="mg-falling-board" id="fbBoard"></div></div>
+        <div class="mg-hint" id="fbHint">◀ ▶で移動　↻で回転　▼で一気に落とす</div>
+        <div class="mg-falling-controls"><button class="mg-tap-btn" id="fbLeft">◀</button><button class="mg-tap-btn" id="fbRotate">↻</button><button class="mg-tap-btn" id="fbDrop">▼ おとす</button><button class="mg-tap-btn" id="fbRight">▶</button></div>`;
+      const boardEl=container.querySelector('#fbBoard'),hint=container.querySelector('#fbHint'),timer=container.querySelector('#fbTimer'),scoreEl=container.querySelector('#fbScore');
+      function cloneShape(shape){return shape.map(r=>r.slice());}
+      function spawn(){piece=cloneShape(SHAPES[Math.floor(Math.random()*SHAPES.length)]);px=Math.floor((W-piece[0].length)/2);py=0;if(collides(piece,px,py)){finish();return;}render();}
+      function collides(shape,x,y){for(let r=0;r<shape.length;r++)for(let q=0;q<shape[r].length;q++)if(shape[r][q]){const bx=x+q,by=y+r;if(bx<0||bx>=W||by>=H||by>=0&&board[by][bx])return true;}return false;}
+      function rotateShape(shape){const h=shape.length,w=shape[0].length;return Array.from({length:w},(_,x)=>Array.from({length:h},(_,y)=>shape[h-1-y][x]));}
+      function lock(){for(let r=0;r<piece.length;r++)for(let q=0;q<piece[r].length;q++)if(piece[r][q]&&py+r>=0)board[py+r][px+q]=1;clearLines();spawn();}
+      function clearLines(){let cleared=0;for(let y=H-1;y>=0;y--){if(board[y].every(Boolean)){board.splice(y,1);board.unshift(Array(W).fill(0));cleared++;y++;}}if(cleared){lines+=cleared;score+=cleared===1?100:cleared===2?260:cleared===3?480:800;hint.textContent=cleared>=3?'✨ まとめ消し!':'ラインを消した!';scoreEl.textContent='ライン '+lines+'　'+score+'pt';}}
+      function render(){const cells=[];for(let y=0;y<H;y++)for(let x=0;x<W;x++){let on=board[y][x];if(piece){const ry=y-py,rx=x-px;if(ry>=0&&ry<piece.length&&rx>=0&&rx<piece[0].length&&piece[ry][rx])on=2;}cells.push('<span class="'+(on===2?'active':on===1?'fixed':'')+'"></span>');}boardEl.innerHTML=cells.join('');}
+      function move(dx){if(done||!piece)return;if(!collides(piece,px+dx,py)){px+=dx;render();}}
+      function rotate(){if(done||!piece)return;const r=rotateShape(piece);for(const kick of [0,-1,1,-2,2]){if(!collides(r,px+kick,py)){piece=r;px+=kick;render();return;}}hint.textContent='ここでは回せない!';}
+      function softDrop(){if(done||!piece)return;if(!collides(piece,px,py+1)){py++;score+=1;render();}else lock();}
+      function hardDrop(){if(done||!piece)return;let n=0;while(!collides(piece,px,py+1)){py++;n++;}score+=n*2;lock();scoreEl.textContent='ライン '+lines+'　'+score+'pt';}
+      container.querySelector('#fbLeft').onpointerdown=e=>{e.preventDefault();move(-1);};
+      container.querySelector('#fbRight').onpointerdown=e=>{e.preventDefault();move(1);};
+      container.querySelector('#fbRotate').onpointerdown=e=>{e.preventDefault();rotate();};
+      container.querySelector('#fbDrop').onpointerdown=e=>{e.preventDefault();hardDrop();};
+      let swipeStart=null;
+      boardEl.onpointerdown=e=>{e.preventDefault();swipeStart={x:e.clientX,y:e.clientY};try{boardEl.setPointerCapture(e.pointerId);}catch(err){}};
+      boardEl.onpointerup=e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.max(Math.abs(dx),Math.abs(dy))<18){rotate();return;}if(Math.abs(dx)>Math.abs(dy))move(dx<0?-1:1);else if(dy>0)hardDrop();};
+      boardEl.onpointercancel=()=>{swipeStart=null;};
+      function frame(now){if(done)return;const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';const interval=Math.max(240,620-lines*18);if(now-lastDrop>interval){lastDrop=now;softDrop();}if(rem<=0){finish();return;}rafId=requestAnimationFrame(frame);}
+      function finish(){if(done)return;done=true;cancelAnimationFrame(rafId);hint.textContent='しゅうりょう! '+lines+'ライン消した';const result=clamp(35+lines*10+Math.min(25,score/80),30,100);setTimeout(()=>onComplete(Math.round(result)),650);}
+      spawn();rafId=requestAnimationFrame(frame);
+    }};
+  }
+  const FALLING_BLOCK_VARIANTS=[mg('falling-block-puzzle',makeFallingBlockPuzzleGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
     ...ACTION_BOSS_VARIANTS,
+    ...FALLING_BLOCK_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -11008,6 +11054,7 @@
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
     ['actionBoss', ACTION_BOSS_VARIANTS],
+    ['fallingBlock', FALLING_BLOCK_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11206,7 +11253,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'actionBoss', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11217,6 +11264,7 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'falling-block-puzzle',
     'action-boss-3d',
     'fp-dungeon',
     'creature-capture-3d',
