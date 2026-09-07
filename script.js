@@ -10955,13 +10955,38 @@
   // 数より質を優先。ただし「操作が単純」だけを理由に削らない。
   // ボウリング/カーリング、スポーツ、積み上げのように短くても狙い・手応え・爽快感があるものは残す。
   // 正解や工夫がほぼなく、反射/ランダムだけで爽快感も薄いものを通常抽選から外す。
+  // --- アクション型3Dボス戦 ---
+  function makeActionBossGame(){
+    return {start(container,onComplete){
+      const DURATION_MS=18000,lanes=[18,50,82];
+      let lane=1,bossHp=6,hits=0,running=true,weak=false,lastSpawn=0,projectiles=[],rafId;
+      const startTime=performance.now()+MG_ACTION_START_GRACE_MS;
+      container.innerHTML=`
+        <div class="mg-header"><span id="abTimer">のこり: 18s</span><span id="abBoss">ボスHP: 💢💢💢💢💢💢</span></div>
+        <div class="mg-title">3Dボスバトル!よけて、隙を見てこうげき!</div>
+        <div class="mg-action-boss" id="abScene"><div class="mg-action-boss-enemy" id="abEnemy">👹</div><div class="mg-action-boss-player" id="abPlayer">${currentSprite()}</div></div>
+        <div class="mg-hint" id="abHint">左右でよける。攻撃をかわすとボスがひるむ!</div>
+        <div class="mg-action-boss-controls"><button class="mg-tap-btn" id="abLeft">◀</button><button class="mg-tap-btn" id="abAttack">⚔️ こうげき!</button><button class="mg-tap-btn" id="abRight">▶</button></div>`;
+      const scene=container.querySelector('#abScene'),enemy=container.querySelector('#abEnemy'),player=container.querySelector('#abPlayer');
+      const hint=container.querySelector('#abHint'),timer=container.querySelector('#abTimer'),boss=container.querySelector('#abBoss');
+      const move=()=>player.style.left=lanes[lane]+'%';const setLane=n=>{lane=clamp(n,0,2);move();};move();
+      container.querySelector('#abLeft').onpointerdown=e=>{e.preventDefault();setLane(lane-1);};
+      container.querySelector('#abRight').onpointerdown=e=>{e.preventDefault();setLane(lane+1);};
+      scene.onpointerdown=e=>{e.preventDefault();const r=scene.getBoundingClientRect(),p=(e.clientX-r.left)/r.width;setLane(p<1/3?0:p>2/3?2:1);};
+      container.querySelector('#abAttack').onpointerdown=e=>{e.preventDefault();if(!running)return;if(!weak){hint.textContent='まだ隙がない! まずよけよう';return;}weak=false;bossHp--;boss.textContent='ボスHP: '+'💢'.repeat(Math.max(0,bossHp));enemy.classList.add('hit');setTimeout(()=>enemy.classList.remove('hit'),180);hint.textContent='ヒット!';if(bossHp<=0)finish(true);};
+      function spawn(now){const l=Math.floor(Math.random()*3),el=document.createElement('div');el.className='mg-action-boss-projectile';el.textContent=Math.random()<.5?'🔥':'💥';scene.appendChild(el);projectiles.push({el,l,born:now});enemy.classList.add('attack');setTimeout(()=>enemy.classList.remove('attack'),180);hint.textContent='攻撃がくる! 別レーンへ!';}
+      function frame(now){if(!running)return;if(now<startTime){rafId=requestAnimationFrame(frame);return;}if(now-lastSpawn>1450){spawn(now);lastSpawn=now;}projectiles=projectiles.filter(p=>{const t=clamp((now-p.born)/1050,0,1);p.el.style.left=lanes[p.l]+'%';p.el.style.top=(18+t*68)+'%';p.el.style.transform='translate(-50%,-50%) scale('+(0.45+t)+')';if(t>=1){if(p.l===lane){hits++;scene.classList.add('hit');hint.textContent='くらった!';setTimeout(()=>scene.classList.remove('hit'),150);}else{weak=true;enemy.classList.add('weak');hint.textContent='いま攻撃!';setTimeout(()=>enemy.classList.remove('weak'),650);}p.el.remove();return false;}return true;});const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';if(rem<=0){finish(false);return;}rafId=requestAnimationFrame(frame);}
+      function finish(win){if(!running)return;running=false;cancelAnimationFrame(rafId);projectiles.forEach(p=>p.el.remove());hint.textContent=win?'🏆 ボスをたおした!':'時間切れ!';setTimeout(()=>onComplete(win?clamp(100-hits*12,60,100):clamp(50-bossHp*5-hits*8,15,55)),650);}
+      rafId=requestAnimationFrame(frame);
+    }};
+  }
+  const ACTION_BOSS_VARIANTS=[mg('action-boss-3d',makeActionBossGame())];
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
-    ...FIGHT_GAME_VARIANTS,
-    ...RPG_GAME_VARIANTS,
     ...CHASE_GAME_VARIANTS,
     ...SHOOTER_GAME_VARIANTS,
+    ...ACTION_BOSS_VARIANTS,
     ...SWIPE_THROW_VARIANTS,
     ...STEALTH_GAME_VARIANTS,
     ...BREAKOUT_VARIANTS,
@@ -10980,10 +11005,9 @@
   const MINIGAME_CATEGORY_GROUPS = [
     ['road', ROAD_GAME_VARIANTS],
     ['stack', STACK_GAME_VARIANTS],
-    ['fight', FIGHT_GAME_VARIANTS],
-    ['rpg', RPG_GAME_VARIANTS],
     ['chase', CHASE_GAME_VARIANTS],
     ['shooter', SHOOTER_GAME_VARIANTS],
+    ['actionBoss', ACTION_BOSS_VARIANTS],
     ['swipeThrow', SWIPE_THROW_VARIANTS],
     ['stealth', STEALTH_GAME_VARIANTS],
     ['breakout', BREAKOUT_VARIANTS],
@@ -11182,7 +11206,7 @@
   // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
   // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
   const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'rpg', 'shooter', 'breakout', 'miniEscape',
+    'chase', 'shooter', 'actionBoss', 'breakout', 'miniEscape',
     'stealth', 'fishing', 'downhill', 'surfing', 'fight',
     'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
     'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
@@ -11193,12 +11217,11 @@
   // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
   // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
   const SPOTLIGHT_MINIGAME_IDS = new Set([
+    'action-boss-3d',
     'fp-dungeon',
     'creature-capture-3d',
     'adventure-field',
     'chase-themed',
-    'rpg-themed',
-    'fight-themed',
     'breakout-classic',
     'shooter-themed',
   ]);

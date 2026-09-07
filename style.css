@@ -5779,3 +5779,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   width:82%;text-align:center;letter-spacing:-5px;font-size:30px;z-index:12;
   filter:drop-shadow(0 5px 3px rgba(0,0,0,.28))
 }
+
+/* action boss */
+.mg-action-boss{position:relative;height:255px;border-radius:18px;overflow:hidden;background:linear-gradient(#2d2340 0 48%,#4b2f25 49%);box-shadow:inset 0 0 45px rgba(0,0,0,.55);touch-action:none}
+.mg-action-boss-enemy{position:absolute;left:50%;top:25%;transform:translate(-50%,-50%);font-size:78px;transition:transform .15s,filter .15s}
+.mg-action-boss-enemy.attack{transform:translate(-50%,-50%) scale(1.18)}.mg-action-boss-enemy.weak{filter:drop-shadow(0 0 18px #ffd84d)}
+.mg-action-boss-player{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);font-size:42px;transition:left .08s linear}
+.mg-action-boss-projectile{position:absolute;top:18%;font-size:34px;pointer-events:none}
+.mg-action-boss.hit{animation:mg-p3-hit .14s linear 1}.mg-action-boss-enemy.hit{transform:translate(-50%,-50%) scale(.86) rotate(8deg)}
+.mg-action-boss-controls{display:flex;justify-content:center;gap:10px;margin-top:9px}.mg-action-boss-controls .mg-tap-btn{min-height:48px;min-width:64px}.mg-action-boss-controls #abAttack{min-width:112px}
