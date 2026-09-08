@@ -995,6 +995,29 @@ Runtime smoke test SUCCESS確認済み。
 - PRは技術的にはmergeableだが、現時点ではdraftのため自動でReady/mergeには変更しない。ユーザー確認後にReady化→最終HEAD CI再確認→mergeの順で進める。
 - PR本文冒頭の「このファイルは現時点ではscript.js/index.htmlから読み込んでいない」という初期説明は、その後の70コミットで実装範囲が拡張された現在状態とは不一致。マージ前にPR本文を現状へ更新する必要あり。
 
+## チェックポイント AI — ミニゲーム操作性の総点検と 3D新作(2026-09-08)
+- ブランチ: `claude/game-improvements-new-titles-s0mqvv`
+- 共通入力レイヤーを `script.js` に追加(`MG_HOLD_PROFILES`/`mgStartHold`/`bindHeldButton`/`createMgCanvas`/`mgPointerPos`/`generateMaze`/`mazeBfs`)。`data-hold="step|fast"` で おしっぱなし連打、`data-key` で PCキーボード。overlay に 1回だけ pointerdown(capture) と keydown/keyup を とりつけている。
+- ピンボール `makePinballGame` を canvas 物理で全面作り直し(旧版は バンパーと天井の あいだで ボールが 永久に はねて フリッパーに 届かず、何もしなくても 目標点に 達していた)。
+- レイキャスト3Dエンジン `createRaycastView`(+`rcMove`/`bindFirstPersonControls`/`pickFarCell`/`markSeen`)を追加し、`makeHauntedHouseGame` と `makeFirstPersonDungeonGame` を それに 載せ替え(ランダム迷路・なめらか移動・ミニマップ・コンパス・ゴーストの BFS追跡)。
+- 新作4本: `makeRoadRaceGame`(race-3d)・`makeRhythmHighwayGame`(rhythm-highway-3d)・`makeTiltMazeGame`(tilt-maze-3d)・`makeSpaceGunnerGame`(space-gunner-3d)。カテゴリ `roadRace`/`rhythmHighway`/`tiltMaze`/`spaceGunner` を `MINIGAME_CATEGORY_GROUPS`・`FEATURED_MINIGAME_CATEGORIES`・`SPOTLIGHT_MINIGAME_IDS` に登録。
+- 既存ゲームの修正: クレーン(おく行きが判定に効く)、ぼうけんフィールド(スワイプ復活・8列はみ出し修正・移動予算26)、ブロックくずし(実dt・スタート猶予・touch-action)、めいろチェイス(hold+スワイプ・時間切れ上限80)、ゲレンデ(衝突-11・ジャンプ中disabled)、しのびあし(猶予・150ms許容・40s打ち切り)、モンスターキャッチ(ドラッグ開始点に投げる・閾値18px)、落ちもの(猶予・hold)、ロード/シューティング(到達不能スポーン停止)、さかなつり(preventDefault)、スポーツ振りぬき(成功/失敗ラベル)、3Dボス(隙の有効時間1.1s)。
+- CSS: `.mg-canvas-wrap`/`.mg-canvas`、`.mg-dpad` を3列グリッド化、`.mg-dpad-mid` の gap:40px 撤廃(3ボタンで画面外に出ていた)、`.mg-fp-controls`/`.mg-race-controls`/`.mg-rhythm-controls`/`.mg-gunner-controls`/`.mg-tilt-dpad`、`.mg-adventure-field` の minmax(0,1fr)。
+- 検証: `node tests/smoke-test.js` OK(38ゲーム起動)。Playwright(Chromium 390px)で 全38ゲームを起動し ボタン連打・ページエラー0・ボタンはみ出し0・横スクロール0 を確認。ピンボールは フリッパー操作で スコアが 積み上がり ゴールに 到達することを 自動操作で確認。
+
+## チェックポイント AJ — 3D新作 第2弾・ゲレンデ作り直し・出現率ティア(2026-09-08)
+- `createPseudoRoad`(ぎじ3Dロードエンジン)を切り出し、`makeRoadRaceGame` と `makeDownhillGame`(canvas版に全面作り直し。旧DOM版は削除)で共用。`drawRearCar`/`drawRider` で進行方向を向いた後ろ姿の乗り物/人物を描く。
+- 新作: `makeMiniGolfGame`(mini-golf-physics、`MINI_GOLF_HOLES` 6コースから3ホール)・`makeRealFishingGame`(real-fishing、`FISHING_SPECIES` 6種、キャスト→あわせ→テンション管理のファイト)。カテゴリ `miniGolf`/`realFishing`。
+- 出現率: `SPOTLIGHT_MINIGAME_IDS`/`FEATURED_MINIGAME_CATEGORIES` を廃止し、`MINIGAME_TIER_BY_ID`/`MINIGAME_TIER_BY_CATEGORY` + `MINIGAME_TIER_WEIGHT`(S2.4/A1.45/B0.7) + `MINIGAME_TIER_TICKETS`(S2/A1/B0) に置き換え(`minigameTier()`)。
+- 落ちものパズルのボタンを2段グリッドに(`#fbSoft` ソフトドロップ追加)。ぼうけんフィールドのタイルに wall/gem/enemy/goal/potion クラスを付与して見分けやすく。
+- 検証: smoke-test OK(40ゲーム)。Playwright で全40ゲーム起動・ページエラー0・はみ出し0。ゴルフはドラッグ→パット、さかなつりはキャスト→あたり発生まで自動操作で確認。
+
+## チェックポイント AK — ゴール後画面(おいわい画面・人生記録カード)のレイアウト修正(2026-09-08)
+- `.game-clear-overlay` と `.life-card-overlay` を position:absolute の被せ表示から、`.screen-normal` と入れ替わる通常フローのブロックに変更(render() で `screenNormal`/`farewellBar` の表示を切り替え、`showLifeCard()` でも即時に隠す)。内容の高さで画面が伸びるので、スマホで下が見切れない・おわかれバーと重ならない。
+- `assets/clear/goal-1〜5.jpg` を正式アート(5枚組の1枚絵から分割、①②③ 約505×513、④⑤ 約760×493)に差し替え。壊れていた③〜⑤の切り出しCSSは撤去し、画像は自然な縦横比で全体表示。
+- Playwright で ①〜⑤の全ティアと人生記録カード(8行ログ)を描画し、はみ出し・重なりなしを確認。
+
+
 
 ## チェックポイント AI — PR #183 れんくん写真ベース再制作・実状態監査
 - 監査開始HEAD: `8ee64c6e0d6f20b4b999fbb8d8423cefe975fb70`。PR #183 は open / draft / mergeable=true、base=`main@f5739bcbed63e7e4e8258a0cfe7951c4e0034f55`、2 commits ahead / 0 behind。
@@ -1061,3 +1084,14 @@ Runtime smoke test SUCCESS確認済み。
 - コミット変更は上記16 PNGのみ。WORLD_MASTER / stable ID / Character Renderer / 出会い・仲間・恋愛ロジックには変更なし。
 - Runtime smoke test #162 = SUCCESS。
 - 次工程は、既存31プレイヤー種全体の統一テイスト再監査。GitHubのWORLD_MASTER実登録種だけを対象とし、未登録種を混ぜない。差が大きいセットを小さな安全コミット単位で修正する。
+
+## チェックポイント AN — 7種56段階の128pxアート正式実装
+- 監査開始の安全HEAD: `a4d3df9bb27c4bb4551115ec6509bb7779709e10`。PR #183、ブランチHEAD、tree、直近コミットを実取得し、対象56枚が旧版のままであることを確認して作業を開始した。
+- ユーザーの後続承認により、当初の64px仕様から128×128へ変更。個性・表情・隣接段階の差を調整した採用デザインを基準に、56枚を個別に統一したドット表現へ仕上げた。サクラ②は最初の一覧の顔付き発芽版を維持。
+- 対象は `coral / dandelion / mushroom / sakura / starfish / venus_flytrap / world_tree` の各 `01.png`〜`08.png`。アート差し替えコミット `eed93d54d7dc85bc03baafc214916808fcccfa94` の変更はこの56 PNGのみ。
+- 全56枚について PNG / 128×128 / RGBA / 透過 / 8px以上の透明余白を検証。個別比較、実寸表示、白背景と濃い背景の一覧で、全身・顔・枝葉花・触手・泡・重要装飾・文字や隣接段階の混入・縮尺を視覚確認した。
+- タンポポ⑧の顔付近の不要な色片と世界樹⑥の樹冠両端を個別修正してから採用。ハエトリグサ④は非対称の2捕虫葉、⑤は3捕虫葉で明確に区別。
+- GitHubから上記アートコミットを再取得し、56パスすべてのPNG復号、128×128 RGBA、透過、SHA-256とGit blob SHAの一致を確認した。
+- 既存のID・パス・WORLD_MASTER・Character Rendererを維持。Character Rendererの56段階×4表示サイズ、224ケースで参照を検証。
+- main `72e16f8da02c395a631bab1b73c5a770816e2247` の更新を同期。競合はこの開発記録の末尾追記のみで、両ブランチの記録を原文のまま保持した。mainのゲームコードとゴール画像はそのまま取り込んでいる。
+- 同期後のローカルRuntime smoke test = SUCCESS（DOM 277 / ミニゲーム40 / variant collections 50）、Character Renderer 224ケース = SUCCESS。GitHub Actionsの最終結果は同期コミットのチェックで確認する。

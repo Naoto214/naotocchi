@@ -4359,6 +4359,9 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   border-radius: 6px;
   overflow: hidden;
   background: #14142b;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .mg-breakout-blocks {
@@ -4537,8 +4540,8 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 
 .mg-drop-target {
   position: absolute;
-  width: 34px;
-  height: 34px;
+  width: 46px;
+  height: 46px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: 2px dashed rgba(107, 54, 84, 0.35);
@@ -5908,3 +5911,81 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   .character-detail{width:92px;height:92px;font-size:68px}
   .character-thumb{width:38px;height:38px;font-size:28px}
 }
+
+/* ================================================================
+   canvasミニゲーム きょうつう(ピンボール・3Dめいろ・レース など)
+   ================================================================ */
+.mg-canvas-wrap{position:relative;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 22px rgba(0,0,0,.35);background:#101820;touch-action:none;-webkit-user-select:none;user-select:none;line-height:0}
+.mg-canvas{display:block;width:100%;touch-action:none;-webkit-tap-highlight-color:transparent}
+.mg-hold-btn.mg-held,.mg-tap-btn.mg-holding{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.15);filter:brightness(.93)}
+.mg-pinball-controls{display:flex;justify-content:center;gap:8px;margin-top:9px}
+.mg-pinball-controls .mg-tap-btn{flex:1 1 0;min-width:0;min-height:52px;padding:10px 4px;white-space:nowrap}
+.mg-pinball-controls .mg-launch-btn{background:linear-gradient(160deg,#fff6d6,#ffd98a);color:#6b4a12}
+.mg-pinball-controls .mg-launch-btn:disabled{opacity:.45}
+/* ボタンが がめん(244px)から はみださない ように。以前は gap:40px で
+   3つならぶと 右の ボタンが 画面のそとに 出てしまい「反応しない」原因に なっていた */
+.mg-dpad-mid{gap:10px;flex-wrap:nowrap;width:100%;justify-content:center;box-sizing:border-box}
+.mg-dpad-mid .mg-tap-btn{flex:1 1 0;min-width:0;max-width:112px;padding:10px 6px;white-space:nowrap;min-height:48px}
+.mg-dpad .mg-tap-btn{min-height:48px}
+.mg-action-boss-controls .mg-tap-btn,.mg-crane-controls .mg-tap-btn,.mg-falling-controls .mg-tap-btn,.mg-road-controls .mg-tap-btn,.mg-shooter-controls .mg-tap-btn{flex:1 1 0;min-width:0;max-width:120px;padding:10px 4px;white-space:nowrap}
+.mg-action-boss-controls,.mg-crane-controls,.mg-falling-controls{gap:8px}
+.mg-haunt-dpad button,.mg-adventure-dpad button{touch-action:none}
+/* 3D(レイキャスト)ビュー きょうつう の そうさボタン */
+.mg-fp-controls{display:grid;grid-template-columns:1fr 1.45fr 1fr 1fr;gap:6px;margin-top:8px}
+.mg-fp-controls .mg-tap-btn{min-width:0;min-height:52px;padding:8px 2px;font-size:13px;white-space:nowrap;overflow:hidden}
+.mg-fp-controls .mg-tap-btn.primary{background:linear-gradient(160deg,#fff6d6,#ffd98a);color:#6b4a12}
+.mg-canvas-caption{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:11px;font-weight:bold;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.8);pointer-events:none;line-height:1.3}
+/* レース・リズム・たまころがし・ガンナー */
+.mg-race-controls,.mg-rhythm-controls,.mg-gunner-controls{display:flex;gap:8px;margin-top:8px}
+.mg-race-controls .mg-tap-btn,.mg-rhythm-controls .mg-tap-btn,.mg-gunner-controls .mg-tap-btn{flex:1 1 0;min-width:0;min-height:54px;padding:8px 2px;white-space:nowrap;font-size:15px}
+.mg-race-controls .mg-tap-btn.primary,.mg-gunner-controls .mg-tap-btn.primary{background:linear-gradient(160deg,#ffe3e3,#ff9c9c);color:#7a1f1f}
+.mg-rhythm-controls .mg-tap-btn{font-size:18px;min-height:60px}
+.mg-tilt-dpad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.mg-tilt-dpad .mg-tap-btn{min-width:0;min-height:46px;padding:6px 2px;font-size:16px}
+.mg-gunner-controls .mg-tap-btn.primary{flex:1.7 1 0}
+/* ぼうけんフィールド: 8れつが がめん(244px)から はみださない ように
+   (以前は セルの min-height/font-size の せいで 右はしの 1れつが 見きれていた) */
+.mg-adventure-field{grid-template-columns:repeat(8,minmax(0,1fr))!important;gap:2px!important;padding:5px!important;min-height:0!important}
+.mg-adventure-field span{min-width:0;min-height:0!important;font-size:19px!important;aspect-ratio:1}
+/* 十字キーは 3れつの グリッドに そろえる(▲▼が まん中、◀▶が りょうはし) */
+.mg-dpad{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;align-items:stretch}
+.mg-dpad>.mg-tap-btn{grid-column:2;max-width:none}
+.mg-dpad>.mg-dpad-mid{grid-column:1/4;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:auto}
+.mg-dpad>.mg-dpad-mid>.mg-tap-btn{max-width:none}
+.mg-dpad>.mg-dpad-mid>.mg-tap-btn:first-child{grid-column:1}
+.mg-dpad>.mg-dpad-mid>.mg-tap-btn:last-child{grid-column:3}
+.mg-haunt-dpad,.mg-adventure-dpad{grid-template-columns:repeat(3,1fr)!important}
+/* 落ちものパズルの ボタン: 上だん=移動と回転、下だん=さげる/いっきに */
+.mg-falling-controls{display:grid!important;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:6px}
+.mg-falling-controls .mg-tap-btn{max-width:none;min-height:48px;padding:8px 2px;font-size:14px}
+.mg-falling-controls #fbLeft,.mg-falling-controls #fbRight,.mg-falling-controls #fbRotate{grid-column:span 2}
+.mg-falling-controls #fbSoft,.mg-falling-controls #fbDrop{grid-column:span 3}
+.mg-falling-controls .fb-rotate{background:linear-gradient(160deg,#fff6d6,#ffd98a);color:#6b4a12}
+.mg-falling-controls .fb-hard{background:linear-gradient(160deg,#ffe3e3,#ff9c9c);color:#7a1f1f}
+/* ぼうけんフィールドの タイル */
+.mg-adventure-field span.wall{background:#2f6b38!important}
+.mg-adventure-field span.gem{background:#cfe9ff!important;animation:mg-adv-gem 1.2s ease-in-out infinite alternate}
+.mg-adventure-field span.enemy{background:#ffb3b3!important}
+.mg-adventure-field span.goal{background:#ffe08a!important}
+.mg-adventure-field span.potion{background:#e6d5ff!important}
+@keyframes mg-adv-gem{from{box-shadow:inset 0 0 0 0 rgba(255,255,255,0)}to{box-shadow:inset 0 0 10px rgba(255,255,255,.95)}}
+
+/* ================================================================
+   ゴール後の がめん(おいわい画面・人生記録カード)を ながれの なかに 置く
+   ================================================================
+   以前は position:absolute で ふつうの がめんに かぶせていたため、なかみが
+   がめんより たかいと したが 見きれ、おわかれバーとも かさなっていた。
+   screen-normal と いれかわる ふつうの ブロックに して、たかさは なかみで きめる */
+.game-clear-overlay{position:relative;inset:auto;min-height:250px;justify-content:flex-start;overflow:hidden;padding:8px 10px 12px;gap:5px;box-sizing:border-box}
+.game-clear-art{width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;flex:0 0 auto;image-rendering:auto;background:rgba(255,255,255,.25)}
+.game-clear-overlay .game-clear-title{font-size:20px;line-height:1.25;padding:0 4px}
+.game-clear-overlay .game-clear-subtitle{font-size:14px}
+.game-clear-desc{width:100%;box-sizing:border-box;font-size:11px}
+.game-clear-badges{width:100%}
+.game-clear-close-btn,.game-clear-freeplay-btn{position:relative;z-index:1;min-height:36px}
+.life-card-overlay{position:relative;inset:auto;min-height:250px;justify-content:flex-start;overflow:visible;padding:12px 10px 14px;border-radius:8px;box-sizing:border-box}
+.life-card{max-width:100%;word-break:break-word}
+.lifecard-line{line-height:1.6;margin:2px 0}
+.lifecard-log{line-height:1.5;margin:2px 0;padding-left:36px;text-indent:-36px}
+.lifecard-log span{text-indent:0;min-width:34px}
+.life-card-next{position:relative;z-index:1;margin-top:6px;min-height:38px}
