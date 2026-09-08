@@ -1022,3 +1022,9 @@ Runtime smoke test SUCCESS確認済み。
 - ボウリングは擬似3Dレーン(カメラ z=-8, y=7.5)、10ピンの円形衝突(ボール→ピンはピンごとに1回のインパルス、ピン→ピンはペアごとに300msに1回、倒れかけのピンは当たり判定を広く)。ラックは z=22〜37.6(LANE_L=40 の内側)。2フレーム制、ストライク/スペア加点。
 - 新作: `makeBasketballGame`(basketball-3d、放物線・リム/バックボード衝突・動くゴール)、`makePingPongGame`(pingpong-3d、指追従ラケット・テーブル/ネット物理・AI)。カテゴリ `basketball`/`pingPong`、ティア S。`swipeThrow` カテゴリも S に。
 - 検証: smoke-test OK(42ゲーム)。node 上の擬似DOMでフレームループを回す `simgame.js` でボウリングの当たり(方向・フック・速度別の倒れ本数)と卓球のサーブ/ラリーを確認。Playwright で全42ゲーム起動・ページエラー0。
+
+## チェックポイント AM — 全ゲーム総点検 第2弾と フラッグシップ新作5本(2026-09-08)
+- Playwright で全42ゲームのコンタクトシートを撮って目視点検。ロード系(4種)と3Dふうフライト(2種)がDOMの平面表示で見劣りしていたため `makeRoadGame` を `createPseudoRoad` ベースの canvas 版に置き換え(`LANE_RUSH_SCENES` 8シーン、`makePerspectiveDodgeGame` は削除し PERSPECTIVE_3D_VARIANTS も makeRoadGame に統一)。地域のさかなつり(タップ1回のみの `makeFishingGame`)は削除し、`makeRealFishingGame` に species/水色パラメータを追加して `RIVER_FISH`/`DEEPSEA_FISH` で置換。スタックタワーはCSSで質感と着地アニメを追加。
+- 新作5本: `makeChainPuzzleGame`(chain-puzzle)・`makeStreetFightGame`(street-fight、`FIGHT_RIVALS` 3人)・`makeFreeKickGame`(free-kick-3d)・`makeTowerDefenseGame`(tower-defense)・`makeRoguelikeGame`(roguelike-dungeon)。カテゴリ chainPuzzle/streetFight/freeKick/towerDefense/roguelike、すべて S ティア。地域さかなつり3種も S。
+- CSS: `.mg-fight-controls`(6列グリッド)、`.mg-td-controls`(3列+ワイド)。
+- 検証: smoke-test OK(47ゲーム)。Playwright で5本とも操作→反応(パズルの消去、格闘のヒット/ガード、FKのセーブ判定、TDのタワー設置とウェーブ、ローグの移動/戦闘)を確認。全ゲーム一括スイープでページエラー0。
