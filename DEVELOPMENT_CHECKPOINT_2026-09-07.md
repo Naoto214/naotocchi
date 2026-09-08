@@ -1017,6 +1017,12 @@ Runtime smoke test SUCCESS確認済み。
 - `assets/clear/goal-1〜5.jpg` を正式アート(5枚組の1枚絵から分割、①②③ 約505×513、④⑤ 約760×493)に差し替え。壊れていた③〜⑤の切り出しCSSは撤去し、画像は自然な縦横比で全体表示。
 - Playwright で ①〜⑤の全ティアと人生記録カード(8行ログ)を描画し、はみ出し・重なりなしを確認。
 
+## チェックポイント AL — ボウリング/まとあて作り直し・3Dバスケ・3Dたっきゅう(2026-09-08)
+- `makeSwipeThrowGame`(ボウリング/カーリング。投げた後に点数を出すだけでピンが倒れない、まとあてがカーリングの滑りになっていた)を削除し、`SWIPE_THROW_VARIANTS` を `makeBowlingGame`(bowling-3d)と `makeArcheryGame`(archery-3d)に置き換え。
+- ボウリングは擬似3Dレーン(カメラ z=-8, y=7.5)、10ピンの円形衝突(ボール→ピンはピンごとに1回のインパルス、ピン→ピンはペアごとに300msに1回、倒れかけのピンは当たり判定を広く)。ラックは z=22〜37.6(LANE_L=40 の内側)。2フレーム制、ストライク/スペア加点。
+- 新作: `makeBasketballGame`(basketball-3d、放物線・リム/バックボード衝突・動くゴール)、`makePingPongGame`(pingpong-3d、指追従ラケット・テーブル/ネット物理・AI)。カテゴリ `basketball`/`pingPong`、ティア S。`swipeThrow` カテゴリも S に。
+- 検証: smoke-test OK(42ゲーム)。node 上の擬似DOMでフレームループを回す `simgame.js` でボウリングの当たり(方向・フック・速度別の倒れ本数)と卓球のサーブ/ラリーを確認。Playwright で全42ゲーム起動・ページエラー0。
+
 
 
 ## チェックポイント AI — PR #183 れんくん写真ベース再制作・実状態監査
@@ -1095,3 +1101,13 @@ Runtime smoke test SUCCESS確認済み。
 - 既存のID・パス・WORLD_MASTER・Character Rendererを維持。Character Rendererの56段階×4表示サイズ、224ケースで参照を検証。
 - main `72e16f8da02c395a631bab1b73c5a770816e2247` の更新を同期。競合はこの開発記録の末尾追記のみで、両ブランチの記録を原文のまま保持した。mainのゲームコードとゴール画像はそのまま取り込んでいる。
 - 同期後のローカルRuntime smoke test = SUCCESS（DOM 277 / ミニゲーム40 / variant collections 50）、Character Renderer 224ケース = SUCCESS。GitHub Actionsの最終結果は同期コミットのチェックで確認する。
+
+
+## チェックポイント AO — クラゲ8段階の128pxアート実装
+- 監査開始HEAD: `6ed3867d70292e27e256c183c92382b22bf68705`。対象8枚のうち旧02・05・06・08はPNG復号エラーを実確認。
+- 2026-09-08 05:02 UTC承認の「クラゲの一生 8段階図鑑」を基準に、8枚を個別に128pxへ仕上げた。卵なし、全段階に顔、⑥と⑦の傘・触手の差、⑧の閉じた笑顔を維持。
+- アートコミット: `a34afdf899ac80b9add5667bdd9889d21c8109c2`。変更は `assets/characters/jellyfish/01.png`〜`08.png` の8 PNGのみ。
+- 全8枚 PNG / 128×128 / RGBA / 透過 / 8px以上の余白。原画比較、実寸、白・濃色背景一覧の検査に合格。③の口、⑦の余分な周辺クラゲと背景だけを個別修正。
+- 先行7種56枚はSHA-256一致を検証し、変更なし。WORLD_MASTER、既存ID、Character Renderer、仲間・恋愛ロジックの独自変更なし。
+- main `6caab07d41d6ca23164ee0c0dab6cfa019fc8820` を同期。開発記録の追記競合は両側の原文を保持し、mainのREADME・index.html・script.jsをそのまま取り込む。
+- GitHub再取得とRuntime smoke testの最終結果は同期コミットのチェックおよび成果物の検証記録で確認する。
