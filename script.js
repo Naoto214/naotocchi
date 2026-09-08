@@ -5111,6 +5111,8 @@
     '今日のご飯 なにー？',
     'スマホばっかり 見てないで こっち見て！',
     '人生、楽しんだモン勝ちやで！',
+    '中の人なんておらんからな！絶対おらんからな！',
+    '呼吸するんも めんどくさいわぁ…',
 
   ];
 
@@ -5133,6 +5135,12 @@
     'げんきで やってるぜよ?', 'よう おいでたぜよ!',
     // うちなーぐち(沖縄)
     'はいさい!', 'めんそーれ!', 'なんくるないさ〜',
+    // 津軽弁(青森)
+    'わんどの事、わすれでねぇべな？', 'どさ？ゆさ！',
+    // 京都弁
+    'よろしおすなぁ、おヒマそうで…', 'ぶぶ漬けでも いかがどす？', 'はぁ〜、えらいわぁ',
+    // 熊本弁
+    'たいぎゃ ヒマばい！', 'どぎゃんしたと？',
         '腹減って しゃーないわ！',
     'なんなん！ワイのこと 放置して！',
     'あかーん！ヒマすぎて 死にそうや！',
@@ -5167,6 +5175,9 @@
     'ズンドコ ズンドコ♪',
     'あばばばばば！',
     'ワイは 神だ！崇めよ！',
+    'ジャカジャン！今、脳内でエアギター弾いてるで！',
+    'タンタタン♪ 今、ワイの中で謎のステップが流行中や！',
+    'シュッシュッ！ワイは今シャドーボクシングの練習中や！',
 
   ];
 
@@ -8649,7 +8660,7 @@
         const { ctx, W, H } = createMgCanvas(canvas, 215);
         const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
-        const MAX_SPEED = SEG_LEN * lerp(34, 46, difficulty);
+        const MAX_SPEED = SEG_LEN * lerp(26, 34, difficulty);
         for (let i = 0; i < 14; i++) { const dir = Math.random() < 0.5 ? -1 : 1; road.addRoad(10, 10 + Math.floor(Math.random() * 10), 10, dir * (1 + Math.random() * 2.2), (Math.random() - 0.5) * 30); }
         const TRACK_LEN = road.trackLength();
         for (let n = 0; n < segments.length; n += 3) {
@@ -11490,7 +11501,7 @@
         const { ctx, W, H } = createMgCanvas(canvas, 215);
         const road = createPseudoRoad(ctx, W, H, { roadWidth: 1500, colors: (dark) => (dark ? { grass: '#cfe6f5', road: '#ffffff', rumble: '#a9d3ec', rumbleWidth: 0.05 } : { grass: '#c4def0', road: '#f4fbff', rumble: '#a9d3ec', rumbleWidth: 0.05 }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
-        const MAX_SPEED = SEG_LEN * 52, ACCEL = MAX_SPEED / 2.6;
+        const MAX_SPEED = SEG_LEN * 40, ACCEL = MAX_SPEED / 2.6;
         road.addRoad(10, 20, 10, 0, -10);
         for (let i = 0; i < 8; i++) {
           const dir = Math.random() < 0.5 ? -1 : 1;
@@ -12388,7 +12399,7 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const TIME_LIMIT_MS = Math.round(lerp(52000, 44000, difficulty));
-        const CENTRIFUGAL = 0.34;
+        const CENTRIFUGAL = 0.26;
         let position = 0, speed = 0, playerX = 0, steer = 0, steerTarget = 0, accelHeld = false, touchAccel = false, touchSteer = null;
         let hits = 0, offroadTime = 0, running = true, rafId = null, last = null, flash = 0, msg = '', msgUntil = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -12402,12 +12413,13 @@
         const { ctx, W, H } = createMgCanvas(canvas, 215);
         const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: ground[0], rumble: rumble[0], road: roadColors[0], lane: '#fff8c8' } : { grass: ground[1], rumble: rumble[1], road: roadColors[1] }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
-        const MAX_SPEED = SEG_LEN * 60;
-        const ACCEL = MAX_SPEED / 3.4, COAST = -MAX_SPEED / 4.5, OFF_DECEL = -MAX_SPEED / 1.4, OFF_LIMIT = MAX_SPEED / 4;
+        // あそびやすさ優先: さいこう速度は ひかえめ(以前は SEG_LEN*60 で はやすぎた)
+        const MAX_SPEED = SEG_LEN * 36;
+        const ACCEL = MAX_SPEED / 3.0, COAST = -MAX_SPEED / 4.5, OFF_DECEL = -MAX_SPEED / 1.4, OFF_LIMIT = MAX_SPEED / 4;
         road.addRoad(10, 25, 10, 0, 0);
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 6; i++) {
           const dir = Math.random() < 0.5 ? -1 : 1;
-          const curve = dir * (2 + Math.random() * 3 + difficulty * 1.5);
+          const curve = dir * (1.6 + Math.random() * 2.6 + difficulty * 1.2);
           road.addRoad(12 + Math.floor(Math.random() * 10), 14 + Math.floor(Math.random() * 14), 12 + Math.floor(Math.random() * 10), curve, (Math.random() - 0.5) * 60);
           if (Math.random() < 0.6) road.addRoad(8, 8 + Math.floor(Math.random() * 12), 8, 0, (Math.random() - 0.5) * 40);
         }
@@ -12478,7 +12490,7 @@
               c.z += SEG_LEN * 2;
             }
           }
-          speedEl.textContent = Math.round(speedPct * 240) + ' km/h';
+          speedEl.textContent = Math.round(speedPct * 180) + ' km/h';
           if (position + PLAYER_Z >= FINISH_INDEX * SEG_LEN) finish(true);
         }
         function frame(now) {
