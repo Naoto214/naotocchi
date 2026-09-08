@@ -1006,3 +1006,16 @@ Runtime smoke test SUCCESS確認済み。
 - PR #183の現差分は `character-world-master.v1.js` 1ファイルのみ。れんくんPNG8枚はPR差分に含まれていない。
 - 本人写真ベースの承認済み新画像について、未接続blob SHA / tree SHA / commit SHA / 画像バイナリの引き継ぎ可能情報は確認できず。承認済み画像そのものを取得できない状態で別案を勝手に再生成・投入しない。
 - 次工程: 承認済みれんくん8段階画像を再取得できた時点で、01〜08を64×64 RGBA透過PNG・文字なしで正式差し替え → 8枚検証 → Character Renderer接続確認 → Runtime smoke test SUCCESS → 安全コミット。その後 AUTHOR ナオト → 通常仲間18 → レア仲間8 → 恋人18 の順で専用アート実装を継続する。
+
+
+## チェックポイント AJ — SECRET れんくん写真ベース8段階 PNG 正式差し替え
+- ユーザーが再添付した承認済みデザインシートを基準に、SECRET `ren` の8段階を正式差し替え。
+- 正式段階名は変更なし: `ちびれん / げんきれん / こどもれん / しょうねんれん / わかものれん / おとなれん / としをかさねたれん / おじいちゃんれん`。
+- 本人らしさとして黒髪の流し前髪、明るい表情、サッカー要素を維持。同じ一人が乳幼児→幼児→子ども→少年→若者→成人→中高年→高齢へ明確に年齢を重ねる構成を維持。
+- 特に4 `しょうねんれん` と5 `わかものれん` は、体格・顔つき・服装の差が64×64でも分かる承認済み方向を採用。
+- `assets/characters/ren/01.png`〜`08.png` を全置換。GitHub再取得で8枚すべて 64×64 / 8-bit RGBA (color type 6) を確認し、全blobがmain旧版と異なることを確認。
+- final blob SHA: 01=`b77beb95dc2c1f2af5ba58c4937d8464809daa48`, 02=`1da12fc24eca39e9c14495e844997f580999389a`, 03=`8a4fc10224c8c130af4e95a57a7279827d9b4333`, 04=`300c738b4f479a70d1a8e5e7712a4505887dbd55`, 05=`657ea702a8dedece9800e55b757bf187c0a7da24`, 06=`50ac2b6b492d176b83d324d36dc027ee4ddc715f`, 07=`54b4768ab72e1fef12d37c1aec2c0070ec032524`, 08=`5c3bd532b0872a9fe6fba42b8aad01d0d768b807`。
+- Character Renderer / WORLD_MASTER / 既存ID / 仲間・恋愛ロジックは再設計せず、既存stable asset path `assets/characters/<id>/<01..08>.png` をそのまま使用。
+- PNG差し替えコミット: `8d3a73b64c8f0a61282f712ea4182bab0cb2b68e`。
+- Runtime smoke test run #157 = SUCCESS。
+- 次工程: AUTHOR ナオト専用アート。その後、通常仲間18体 → レア仲間8体 → 恋人18体を小さな安全コミット単位で実装する。
