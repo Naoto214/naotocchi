@@ -1016,3 +1016,9 @@ Runtime smoke test SUCCESS確認済み。
 - `.game-clear-overlay` と `.life-card-overlay` を position:absolute の被せ表示から、`.screen-normal` と入れ替わる通常フローのブロックに変更(render() で `screenNormal`/`farewellBar` の表示を切り替え、`showLifeCard()` でも即時に隠す)。内容の高さで画面が伸びるので、スマホで下が見切れない・おわかれバーと重ならない。
 - `assets/clear/goal-1〜5.jpg` を正式アート(5枚組の1枚絵から分割、①②③ 約505×513、④⑤ 約760×493)に差し替え。壊れていた③〜⑤の切り出しCSSは撤去し、画像は自然な縦横比で全体表示。
 - Playwright で ①〜⑤の全ティアと人生記録カード(8行ログ)を描画し、はみ出し・重なりなしを確認。
+
+## チェックポイント AL — ボウリング/まとあて作り直し・3Dバスケ・3Dたっきゅう(2026-09-08)
+- `makeSwipeThrowGame`(ボウリング/カーリング。投げた後に点数を出すだけでピンが倒れない、まとあてがカーリングの滑りになっていた)を削除し、`SWIPE_THROW_VARIANTS` を `makeBowlingGame`(bowling-3d)と `makeArcheryGame`(archery-3d)に置き換え。
+- ボウリングは擬似3Dレーン(カメラ z=-8, y=7.5)、10ピンの円形衝突(ボール→ピンはピンごとに1回のインパルス、ピン→ピンはペアごとに300msに1回、倒れかけのピンは当たり判定を広く)。ラックは z=22〜37.6(LANE_L=40 の内側)。2フレーム制、ストライク/スペア加点。
+- 新作: `makeBasketballGame`(basketball-3d、放物線・リム/バックボード衝突・動くゴール)、`makePingPongGame`(pingpong-3d、指追従ラケット・テーブル/ネット物理・AI)。カテゴリ `basketball`/`pingPong`、ティア S。`swipeThrow` カテゴリも S に。
+- 検証: smoke-test OK(42ゲーム)。node 上の擬似DOMでフレームループを回す `simgame.js` でボウリングの当たり(方向・フック・速度別の倒れ本数)と卓球のサーブ/ラリーを確認。Playwright で全42ゲーム起動・ページエラー0。
