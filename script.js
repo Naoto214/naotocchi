@@ -5509,6 +5509,8 @@
     el.lifeCardOverlay.classList.toggle('rainbow', state.maxSodachi >= SODACHI_MAX);
     el.lifeCardOverlay.classList.toggle('gold', state.maxSodachi >= LIFE_CLEAR_SODACHI && state.maxSodachi < SODACHI_MAX);
     el.lifeCardOverlay.classList.remove('hidden');
+    el.screenNormal.classList.add('hidden');
+    el.farewellBar.classList.add('hidden');
   }
 
   // その子の いっしょうを ようやく 1行に して 歴代に つみ、あたらしい たまごへ
@@ -6485,6 +6487,13 @@
       showLifeCard();
     }
     if (!isDead) deathCardShown = false;
+    // ゴールの おいわい画面と 人生記録カードは、がめんに かぶせる のではなく
+    // ふつうの がめん(screen-normal)と いれかわりで ながれの なかに 置く。
+    // こうすると なかみの たかさに あわせて がめんが のびるので、
+    // スマホで したが 見きれたり、おわかれバーと かさなったり しない
+    const lifeCardVisible = !el.lifeCardOverlay.classList.contains('hidden');
+    el.screenNormal.classList.toggle('hidden', gameActive || !!grandGoalPending || lifeCardVisible);
+    el.farewellBar.classList.toggle('hidden', state.stage !== STAGE.FAREWELL || !!grandGoalPending || lifeCardVisible);
     applyTheme();
 
     const region = applyRegion();
