@@ -1019,3 +1019,19 @@ Runtime smoke test SUCCESS確認済み。
 - PNG差し替えコミット: `8d3a73b64c8f0a61282f712ea4182bab0cb2b68e`。
 - Runtime smoke test run #157 = SUCCESS。
 - 次工程: AUTHOR ナオト専用アート。その後、通常仲間18体 → レア仲間8体 → 恋人18体を小さな安全コミット単位で実装する。
+
+
+## チェックポイント AK — 全キャラクター実装アート監査（統一テイスト修正前）
+- 監査対象HEAD: `4a1a8836c0de4f996a1edd09e990fecdbb039b55`。GitHub tree実体を正として `assets/characters/**` を全件列挙。
+- 現在HEADから到達可能なプレイヤー用stage PNGは248枚 = 31キャラクター×8段階。内訳は WORLD_MASTER の normal 22種 + rare 8種 + secret ren 1種と一致。
+- ただし「同じドット絵テイスト」という品質条件は未達。スクリーンショット上でも旧人間ライン（特に woman / man）の単純な矩形ベース表現と、写真ベースで更新済みの ren の高密度ピクセルアートに明確な画風差がある。
+- PNGデータ密度にも複数世代の制作パイプライン差が見える。man/womanや多数の旧stageは数百byte級、renは約2.5〜3.5KB級、antlionは約3〜6KB級、beetle/cicada/stagbeetleの一部は約16.5KB級で、同一制作規約で作られたセットとはみなさない。
+- 重大な内容重複を検出: jellyfish 01〜07 のうち7枚が hermit_crab の別stageとblob SHA完全一致。具体的に jellyfish/01=hermit_crab/01, 02=02, 03=04, 04=05, 05=06, 06=07, 07=08。クラゲとして独立した正しい8段階アートになっていないため要修正。
+- WORLD_MASTER上の通常なかま18体は次で固定: cat_friend / rabbit_friend / tanuki / squirrel / owl / otter / hamster / panda / monkey / parrot / sheep / seal / bat / chicken / penguin_friend / hedgehog / shiba / koala。tanukiは1体のみ。
+- WORLD_MASTER上のレアなかま8体は punyu / sekizou / chameleon / kinoko / unicorn / many_tail_fox / watcher / box。
+- WORLD_MASTER上の恋人18体は cat_ceo / robot_neighbor / field_cow / sunflower_partner / forest_bear / grove_deer / cliff_goat / high_eagle / snow_spirit / snowman / rock_octopus / sea_mermaid / anglerfish / swamp_croc / gentle_gorilla / knitting_spider / desert_scorpion / oasis_cactus。
+- 直前に生成した「STYLE GUIDE」参考画像は、WORLD_MASTERに存在しない仲間・レア仲間・恋人を混在させ、たぬきを重複させているため、キャラクター台帳としては不採用。今後は必ずWORLD_MASTERのstable ID一覧を入力台帳として生成・実装する。
+- 統一アート規約（修正基準）: 64×64 / RGBA / transparent PNG / 文字なし / 同一ピクセル密度 / 同一輪郭太さ / 同一陰影段階 / 同一顔パーツ解像度 / 同程度の頭身・余白・接地位置。種族固有の形態差は保ちつつ「同じゲーム世界の同じ絵師」が描いたように揃える。
+- 人間系は ren の更新済み品質を基準側とし、man / woman は8段階とも再制作候補。特に woman は現行スクリーンショットで画風差が顕著。
+- 修正順: (1) 明白な誤アセット jellyfish、(2) man/woman、(3) 既存31種を統一規約で視覚再監査し差の大きいセットを順次再制作、(4) その後 AUTHOR naoto → 通常なかま18 → レアなかま8 → 恋人18。
+- 既存WORLD_MASTER、stable ID、Character Renderer、出会い・仲間・恋愛ロジックは変更しない。アート差し替え単位ごとに小さな安全コミット + Runtime smoke testを行う。
