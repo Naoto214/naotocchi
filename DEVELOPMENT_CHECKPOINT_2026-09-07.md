@@ -994,3 +994,15 @@ Runtime smoke test SUCCESS確認済み。
 - GitHub上のreview submissions 0件、未解決review threads 0件。commit combined status APIのlegacy statusesは0件だが、ActionsのRuntime smoke testはSUCCESSを確認済み。
 - PRは技術的にはmergeableだが、現時点ではdraftのため自動でReady/mergeには変更しない。ユーザー確認後にReady化→最終HEAD CI再確認→mergeの順で進める。
 - PR本文冒頭の「このファイルは現時点ではscript.js/index.htmlから読み込んでいない」という初期説明は、その後の70コミットで実装範囲が拡張された現在状態とは不一致。マージ前にPR本文を現状へ更新する必要あり。
+
+
+## チェックポイント AI — PR #183 れんくん写真ベース再制作・実状態監査
+- 監査開始HEAD: `8ee64c6e0d6f20b4b999fbb8d8423cefe975fb70`。PR #183 は open / draft / mergeable=true、base=`main@f5739bcbed63e7e4e8258a0cfe7951c4e0034f55`、2 commits ahead / 0 behind。
+- Runtime smoke test run #155 = SUCCESS をGitHub Actions実状態で確認。
+- WORLD_MASTERのSECRET `ren` 正式8段階は変更なし: `ちびれん / げんきれん / こどもれん / しょうねんれん / わかものれん / おとなれん / としをかさねたれん / おじいちゃんれん`。
+- HEAD上の `assets/characters/ren/01.png`〜`08.png` をmainとblob SHA比較した結果、8枚すべてmainと完全一致。前チャットで開始した「本人写真を参考にした承認済み新デザインへの差し替え」はHEADへ接続されておらず、未完了と判定。
+- 現行8枚はPNGヘッダ上すべて 64×64 / 8-bit RGBA (color type 6) で形式要件は満たすが、内容は旧版のため今回の写真ベース再制作完了とはみなさない。
+- Character Rendererは `installMasterSpecies()` でnormal/rare/secretを共通のstable path `assets/characters/<id>/<01..08>.png` へ接続し、`stageVisualHTML()` がasset読込失敗時emoji fallbackを行う。ren専用の再設計は不要で、画像差し替えだけで全UIへ反映可能な接続状態を確認。
+- PR #183の現差分は `character-world-master.v1.js` 1ファイルのみ。れんくんPNG8枚はPR差分に含まれていない。
+- 本人写真ベースの承認済み新画像について、未接続blob SHA / tree SHA / commit SHA / 画像バイナリの引き継ぎ可能情報は確認できず。承認済み画像そのものを取得できない状態で別案を勝手に再生成・投入しない。
+- 次工程: 承認済みれんくん8段階画像を再取得できた時点で、01〜08を64×64 RGBA透過PNG・文字なしで正式差し替え → 8枚検証 → Character Renderer接続確認 → Runtime smoke test SUCCESS → 安全コミット。その後 AUTHOR ナオト → 通常仲間18 → レア仲間8 → 恋人18 の順で専用アート実装を継続する。
