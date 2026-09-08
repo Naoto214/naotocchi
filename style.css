@@ -5989,3 +5989,22 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .lifecard-log{line-height:1.5;margin:2px 0;padding-left:36px;text-indent:-36px}
 .lifecard-log span{text-indent:0;min-width:34px}
 .life-card-next{position:relative;z-index:1;margin-top:6px;min-height:38px}
+/* スタックタワーの 見た目: いろつきの ブロックに 光と かげ、テーマえもじを かざりに */
+.mg-stack-tower{background:linear-gradient(#bfe6ff,#eef8ff 60%,#d8ecd0);border-radius:14px;box-shadow:inset 0 0 18px rgba(0,0,0,.12)}
+.mg-stack-block,.mg-stack-moving{border-radius:7px;box-shadow:inset 0 3px 0 rgba(255,255,255,.55),inset 0 -4px 0 rgba(0,0,0,.18),0 3px 4px rgba(0,0,0,.18);font-size:16px;letter-spacing:6px;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.mg-stack-moving{background:linear-gradient(#ffffff,#e9f0ff)!important;outline:2px dashed rgba(0,0,0,.18);outline-offset:-3px}
+.mg-stack-block{animation:mg-stack-land .22s ease-out}
+@keyframes mg-stack-land{0%{transform:translateY(-6px) scaleX(1.04)}60%{transform:translateY(1px) scaleX(.98)}100%{transform:none}}
+/* かくとう・タワーディフェンスの ボタン */
+.mg-fight-controls{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:6px}
+.mg-fight-controls .mg-tap-btn{min-width:0;min-height:50px;padding:6px 2px;font-size:13px;white-space:nowrap}
+.mg-fight-controls #sfLeft,.mg-fight-controls #sfRight{grid-column:span 1;font-size:18px}
+.mg-fight-controls #sfPunch,.mg-fight-controls #sfKick{grid-column:span 2}
+.mg-fight-controls #sfGuard{grid-column:span 6;min-height:44px;background:linear-gradient(160deg,#e3f0ff,#9cc7ff);color:#12406b}
+.mg-fight-controls .punch{background:linear-gradient(160deg,#fff6d6,#ffd98a);color:#6b4a12}
+.mg-fight-controls .kick{background:linear-gradient(160deg,#ffe3e3,#ff9c9c);color:#7a1f1f}
+.mg-td-controls{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.mg-td-controls .mg-tap-btn{min-width:0;min-height:44px;padding:6px 2px;font-size:13px;white-space:nowrap}
+.mg-td-controls .mg-tap-btn.sel{box-shadow:0 0 0 3px #ffd23f inset,0 3px 0 rgba(0,0,0,.15)}
+.mg-td-controls .primary{grid-column:span 3;background:linear-gradient(160deg,#ffe3e3,#ff9c9c);color:#7a1f1f}
+.mg-tilt-dpad #rgPotion,.mg-tilt-dpad #rgWait{font-size:12px}
