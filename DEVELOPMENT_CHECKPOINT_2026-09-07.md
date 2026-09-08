@@ -1052,3 +1052,14 @@ Runtime smoke test SUCCESS確認済み。
 - `makeBubbleShooterGame`(bubble-shooter): オフセット六角格子、壁反射の照準線、3連結消去+浮遊塊落下、N ショットごとに1段追加、デッドライン判定。
 - 登録: MINIGAMES / MINIGAME_CATEGORY_GROUPS(billiards/animalShogi/minesweeper/snake/baseball/ringFlight/bubbleShooter)/ S ティア。キャッシュ `script.js?v=20260908-9`。
 - 検証: smoke-test OK(59ゲーム)。Playwright 全59ゲーム スイープ ページエラー0・はみ出し0。7本とも操作→反応を自動操作で確認(ショットで散開、🐤の取り合い、開マス/フラグ、方向転換、HR/3B 判定、リング6連続、3連結消去)。
+
+## チェックポイント AQ — 新作バッチ2(7本): カタパルト/コネクトフォー/2048/フロッガー/スキージャンプ/エアホッケー/サブマリン3D(2026-09-08)
+- `makeCatapultGame`(catapult-castle): AABB ブロック(wood/stone/target)の簡易剛体(重力・接地・上下/左右の押し出し・支えがないと傾く)、ボール衝突でインパルス、👻は衝撃 or 落下で撃破。2ステージ、予測軌道ドット。
+- `makeConnectFourGame`(connect-four): 7×6、αβ探索(depth 2/4/5)、窓評価、落下アニメ、勝ち筋ハイライト。
+- `makeTwentyFortyEightGame`(puzzle-2048): 移動/合体アニメ、スポーン拡大、手詰まり検出。スコアは最大タイルのティア+合計。
+- `makeFroggerGame`(frogger-road): 9×12、車5レーン・いかだ4レーン、いかだ上で流される、🏠3つ、ライフ3。
+- `makeSkiJumpGame`(ski-jump): 助走路 `24*(1-x/40)^1.6`、着地斜面 `-(0.62d+2(1-e^{-d/2}))`、揚力 `1+clamp(q,-0.6,1)*3.5`(node シムで 60〜170m を確認)。転倒は着地時の前かがみ誤差>0.5 のみ。当初の助走路は台端で 18m の段差があったので式を差し替え。
+- `makeAirHockeyGame`(air-hockey): マレット速度を持ち込む反発、AI は難易度で速度可変、5点先取/90秒。
+- `makeSubmarineGame`(submarine-3d): 透視投影、岩/クラゲ/💎/🫧、酸素、無敵時間、深さで背景色が変化、ソナーリング。
+- 登録: カテゴリ catapult/connectFour/twenty48/frogger/skiJump/airHockey/submarine、S ティア。キャッシュ `script.js?v=20260908-10`。
+- 検証: smoke-test OK(66ゲーム)。Playwright 全66ゲーム スイープ ページエラー0。7本とも操作→反応(👻撃破、着手/AI応手、合体、車ヒット判定、飛距離表示、ゴール判定、💎取得)を確認。
