@@ -1049,3 +1049,15 @@ Runtime smoke test SUCCESS確認済み。
 - 旧監査で検出した hermit_crab とのblob重複は解消。
 - Runtime smoke test #160 = SUCCESS。
 - 次工程は man / woman の旧式ドット絵を、ren・jellyfishを含む新統一テイストへ合わせて再制作・差し替えする。
+
+
+## チェックポイント AM — おとこのひと / おんなのひと 8段階アート統一完了
+- 直前安全地点 AL: `dccd2fe44ebaeb201a900c5285df2c2e07e959f8`
+- 男女16枚差し替えコミット: `e1dde6133cdc427b53cc2a2be6d82257dbdf03cf`
+- `assets/characters/man/01.png`〜`08.png` と `assets/characters/woman/01.png`〜`08.png` を、承認済みの新統一テイストへ一括差し替え。
+- 全16枚はローカル検証で 64×64 / RGBA / transparent PNG / 文字なし。GitHub HEADから再取得し、全16pathが投入した新blob SHAと一致することを確認。
+- 8段階は乳幼児→幼児→子ども→少年/少女→若者→成人→中高年→高齢として、特に6→7→8が64×64でも判別できるよう髪・顔つき・服装・シルエットを変化させた。
+- man / woman 間は同じ輪郭密度・陰影・顔パーツ解像度・頭身・接地位置を共有し、旧式の単純矩形ドット絵との差を解消。
+- コミット変更は上記16 PNGのみ。WORLD_MASTER / stable ID / Character Renderer / 出会い・仲間・恋愛ロジックには変更なし。
+- Runtime smoke test #162 = SUCCESS。
+- 次工程は、既存31プレイヤー種全体の統一テイスト再監査。GitHubのWORLD_MASTER実登録種だけを対象とし、未登録種を混ぜない。差が大きいセットを小さな安全コミット単位で修正する。
