@@ -1033,3 +1033,10 @@ Runtime smoke test SUCCESS確認済み。
 - 3Dレース: MAX_SPEED SEG_LEN*60 → *36、加速 /3.4 → /3.0、遠心力 0.34 → 0.26、コース 9区間 → 6区間、速度表示 ×240 → ×180 km/h。制限時間はそのまま(52〜44s)。
 - レーンラッシュ(ロード/フライト): MAX_SPEED lerp(34,46) → lerp(26,34)。ゲレンデ: 52 → 40。
 - node ハーネス(simrace.js)でアクセル全開・無操作の走行を確認: コース外に落ちても制限時間内にゴール可能。
+
+## チェックポイント AO — 全ゲーム再監査・UFOキャッチャー作り直し・新作5本(2026-09-08)
+- `makeCraneGame`(crane-game-3d)を canvas の UFOキャッチャーに全面作り直し。1ボタン長押しで アーム横移動→奥移動→落下→つかむ→運ぶ、`gripPower`(中心からのずれ)で 0.35s ごとにスリップ判定。落ちた景品はその場に残り、おとしぐち(`CHUTE`)へ押しずらす戦略が成立。3トライ。ティア A→S。
+- 新作5本: `makeGrandPrixGame`(grand-prix-3d、`createPseudoRoad` 共用、ライバル5台AI・3周・ブースト/オイルパッド・順位表示)、`makeSkyShooterGame`(sky-shooter、横スクロールSTG、ウェーブ3種・P/B・ボム・ボス)、`makeJumpQuestGame`(jump-quest、タイルプラットフォーマー、可変ジャンプ・コヨーテタイム・踏みつけ)、`makePushPuzzleGame`(push-puzzle、倉庫番 `PUSH_PUZZLE_LEVELS` 4面→3面、undo/reset/スワイプ)、`makeReversiGame`(reversi-6、6×6オセロ、重みつき貪欲AI、合法手ヒント、めくりアニメ)。カテゴリ grandPrix/skyShooter/jumpQuest/pushPuzzle/reversi、すべて S ティア。
+- 再監査: 全52ゲームのコンタクトシートを目視点検。DOMベースの シューター/ステルス/ブロックくずし/スポーツスイング/サーフィンの背景・質感を CSS で強化(星空・部屋・グロス付きブロック・コート)。グランプリのヒット数は 700ms クールダウンで加算、スカイシューターのボムボタンは `💣×N` 表記に短縮(はみ出し対策)。
+- キャッシュ: `script.js?v=20260908-8`, `style.css?v=20260908-7`。
+- 検証: smoke-test OK(52ゲーム)。Playwright で全52ゲーム起動・ページエラー0・ボタンはみ出し0・横スクロール0。新作6本(作り直し含む)は操作→反応(クレーンの獲得/落下、GPの順位変動とゴール、STGのボム、ジャンプ・コイン、倉庫番の移動/undo、オセロの着手とAI応手)を自動操作で確認。
