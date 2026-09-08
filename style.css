@@ -5977,12 +5977,7 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
    がめんより たかいと したが 見きれ、おわかれバーとも かさなっていた。
    screen-normal と いれかわる ふつうの ブロックに して、たかさは なかみで きめる */
 .game-clear-overlay{position:relative;inset:auto;min-height:250px;justify-content:flex-start;overflow:hidden;padding:8px 10px 12px;gap:5px;box-sizing:border-box}
-.game-clear-art{width:100%;height:auto;max-height:none;aspect-ratio:4/3;object-fit:cover;object-position:top center;flex:0 0 auto;background:rgba(255,255,255,.25)}
-/* ③〜⑤の 暫定アートは 画像ファイルの した半分が こわれている(灰色/ノイズ)ので、
-   ぶじな うえの ぶぶんだけを 見せる。⑤は ほぼ 全部 こわれているので 出さない */
-.game-clear-overlay[data-goal="3"] .game-clear-art{aspect-ratio:160/92}
-.game-clear-overlay[data-goal="4"] .game-clear-art{aspect-ratio:160/68}
-.game-clear-overlay[data-goal="5"] .game-clear-art{display:none}
+.game-clear-art{width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;flex:0 0 auto;image-rendering:auto;background:rgba(255,255,255,.25)}
 .game-clear-overlay .game-clear-title{font-size:20px;line-height:1.25;padding:0 4px}
 .game-clear-overlay .game-clear-subtitle{font-size:14px}
 .game-clear-desc{width:100%;box-sizing:border-box;font-size:11px}
