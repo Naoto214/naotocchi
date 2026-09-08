@@ -1023,6 +1023,12 @@ Runtime smoke test SUCCESS確認済み。
 - 新作: `makeBasketballGame`(basketball-3d、放物線・リム/バックボード衝突・動くゴール)、`makePingPongGame`(pingpong-3d、指追従ラケット・テーブル/ネット物理・AI)。カテゴリ `basketball`/`pingPong`、ティア S。`swipeThrow` カテゴリも S に。
 - 検証: smoke-test OK(42ゲーム)。node 上の擬似DOMでフレームループを回す `simgame.js` でボウリングの当たり(方向・フック・速度別の倒れ本数)と卓球のサーブ/ラリーを確認。Playwright で全42ゲーム起動・ページエラー0。
 
+## チェックポイント AM — 全ゲーム総点検 第2弾と フラッグシップ新作5本(2026-09-08)
+- Playwright で全42ゲームのコンタクトシートを撮って目視点検。ロード系(4種)と3Dふうフライト(2種)がDOMの平面表示で見劣りしていたため `makeRoadGame` を `createPseudoRoad` ベースの canvas 版に置き換え(`LANE_RUSH_SCENES` 8シーン、`makePerspectiveDodgeGame` は削除し PERSPECTIVE_3D_VARIANTS も makeRoadGame に統一)。地域のさかなつり(タップ1回のみの `makeFishingGame`)は削除し、`makeRealFishingGame` に species/水色パラメータを追加して `RIVER_FISH`/`DEEPSEA_FISH` で置換。スタックタワーはCSSで質感と着地アニメを追加。
+- 新作5本: `makeChainPuzzleGame`(chain-puzzle)・`makeStreetFightGame`(street-fight、`FIGHT_RIVALS` 3人)・`makeFreeKickGame`(free-kick-3d)・`makeTowerDefenseGame`(tower-defense)・`makeRoguelikeGame`(roguelike-dungeon)。カテゴリ chainPuzzle/streetFight/freeKick/towerDefense/roguelike、すべて S ティア。地域さかなつり3種も S。
+- CSS: `.mg-fight-controls`(6列グリッド)、`.mg-td-controls`(3列+ワイド)。
+- 検証: smoke-test OK(47ゲーム)。Playwright で5本とも操作→反応(パズルの消去、格闘のヒット/ガード、FKのセーブ判定、TDのタワー設置とウェーブ、ローグの移動/戦闘)を確認。全ゲーム一括スイープでページエラー0。
+
 
 
 ## チェックポイント AI — PR #183 れんくん写真ベース再制作・実状態監査
@@ -1111,3 +1117,14 @@ Runtime smoke test SUCCESS確認済み。
 - 先行7種56枚はSHA-256一致を検証し、変更なし。WORLD_MASTER、既存ID、Character Renderer、仲間・恋愛ロジックの独自変更なし。
 - main `6caab07d41d6ca23164ee0c0dab6cfa019fc8820` を同期。開発記録の追記競合は両側の原文を保持し、mainのREADME・index.html・script.jsをそのまま取り込む。
 - GitHub再取得とRuntime smoke testの最終結果は同期コミットのチェックおよび成果物の検証記録で確認する。
+
+
+## チェックポイント AP — 男女・れんくん24段階の128pxアート実装
+- 監査開始HEAD: `e81b8ed0e16cba4ac273fe0c54dc67b21fc35664`。PR #183、branch ref、tree、直近コミットを実確認。先行8種64枚は変更なし。
+- `man / woman / ren` の各01〜08、合計24枚を128×128 RGBA透過PNGへ更新。既存の採用デザインと原画を照合し、髪型・表情・服装・持ち物・年齢差を保持した。
+- 男女16枚は「男女の人生ステージ・ドット絵スプライトシート」の既存alphaから各キャラを個別選択。16成分を重複・欠落なく保持し、原画のRGBから直接縮小。描き直しなし。
+- れんくん8枚は「れんくん★成長ピクセル図鑑」の主役ポーズを個別処理。青いおしゃぶり、流し前髪、サッカーボール、④の半ズボン、⑤の長ズボン、⑦の白髪交じり、⑧の白髪と杖を保持。背景と旧素材上端の線を除去。③の26は原画のユニフォーム模様として残す。
+- 24枚ともPNG復号・128×128・RGBA・透過・8px以上の透明余白を検証。個別原画比較、実寸、白/濃色背景、24枚一覧を視覚検査し合格。
+- main `67fbb5c5f6f25f79be14785e95ce52db2677b33b` を同期。競合は開発記録の末尾追記のみで、両側の原文を保持。README・index.html・script.js・style.cssはmainと完全一致。
+- ローカルRuntime smoke test = SUCCESS（DOM 277 / ミニゲーム47 / variant collections 57）。128px実装済み11種88枚のRenderer参照を4表示サイズ、352ケースで検証しSUCCESS。WORLD_MASTER、ID、パスの独自変更なし。
+- GitHubからの再取得、最終HEAD到達性、Actionsの結果は同期コミットと成果物の検証記録で確認する。

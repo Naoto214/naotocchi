@@ -8387,137 +8387,120 @@
   // ほかんし、とどくまでの しんちょくに 2じょうの イージングを かけることで、
   // せまい がめんの なかでも「おくから せまってくる」たちたいてきな
   // おくゆき感を だす、みちを はしる/よける タイプの ミニゲーム
-  function makeRoadGame({ title, goodItems, badItems }) {
+  // --- レーンラッシュ(canvas ぎじ3D): 3レーンの みちを はしり、よい ものを
+  //     とって わるい ものを よける。どうろ/そら/うみ/うちゅう/ハイウェイの
+  //     テーマで 見た目が かわる。ロードげーむ と 3Dふうフライトの きょうつう本体 ---
+  const LANE_RUSH_SCENES = {
+    road: { sky: ['#69b7ff', '#d9f1ff'], ground: ['#4f9f4a', '#5aae52'], road: ['#5c5c66', '#63636d'], rumble: ['#f3f3f3', '#d8383c'], scenery: ['🌳', '🏠', '🌲', '🪧'] },
+    city: { sky: ['#7fb3ff', '#e4f0ff'], ground: ['#8d9aa8', '#98a5b3'], road: ['#4a4d57', '#51545e'], rumble: ['#eeeeee', '#e0a020'], scenery: ['🏢', '🏬', '🏪', '🚏'] },
+    jungle: { sky: ['#5fb98a', '#d7f5e3'], ground: ['#2f7a3a', '#357f40'], road: ['#7a5a35', '#82613b'], rumble: ['#c9a96e', '#8a5a2b'], scenery: ['🌴', '🌿', '🌺', '🌳'] },
+    desert: { sky: ['#ffb366', '#ffe6b3'], ground: ['#d9b36a', '#e2bf78'], road: ['#b08a55', '#b8925c'], rumble: ['#f2e2c4', '#c0392b'], scenery: ['🌵', '🪨', '🏜️', '🐪'] },
+    sky: { sky: ['#3b7dd8', '#bfe0ff'], ground: ['#a9d3ff', '#b6dbff'], road: ['#dbeeff', '#e6f3ff'], rumble: ['#ffffff', '#9fc9ff'], scenery: ['☁️', '🎈', '🪁', '☁️'] },
+    sea: { sky: ['#4fb3ff', '#d2efff'], ground: ['#1f6fb5', '#2378bf'], road: ['#2a8fd6', '#3197dc'], rumble: ['#bfe9ff', '#1b5f9a'], scenery: ['🪸', '🐚', '🌊', '⛵'] },
+    space: { sky: ['#03061a', '#1b1f4a'], ground: ['#0b0f2a', '#0e1230'], road: ['#1c2350', '#212858'], rumble: ['#6f7cff', '#c46fff'], scenery: ['🪐', '🌟', '🛰️', '✨'] },
+    highway: { sky: ['#5aa9ff', '#dff1ff'], ground: ['#5fa85a', '#68b062'], road: ['#4a4a55', '#52525d'], rumble: ['#f3f3f3', '#d8383c'], scenery: ['🌳', '🛣️', '🏢', '🌲'] },
+  };
+  function makeRoadGame({ title, goodItems, badItems, scene = 'road', playerEmoji, duration }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        // スタートゆうよぶんの プレイ時間を おぎなう ため、すこし ながく(セクション9)
-        const DURATION_MS = 6500;
-        const travelMs = lerp(2000, 1150, difficulty);
-        const spawnInterval = lerp(950, 520, difficulty);
+        const DURATION_MS = duration || Math.round(lerp(16000, 13000, difficulty));
+        const th = LANE_RUSH_SCENES[scene] || LANE_RUSH_SCENES.road;
         const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
-        const LANE_HORIZON_X = [44, 50, 56];
-        const LANE_NEAR_X = [16, 50, 84];
-        let lane = 1;
-        let points = 0;
-        let running = true;
-        let lastSpawn = 0;
-        let items = [];
-
+        const LANES = [-0.62, 0, 0.62];
+        let lane = 1, playerX = 0, position = 0, speed = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, flash = 0, sparkle = 0;
+        let good = 0, bad = 0, points = 0, combo = 0, bestCombo = 0, nextSpawnZ = 0;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgTimer">残り: 6s</span>
-            <span id="mgScore">とくてん: 0</span>
-          </div>
+          <div class="mg-header"><span id="lrTimer">残り: ${Math.ceil(DURATION_MS / 1000)}s</span><span id="lrScore">とくてん: 0</span></div>
           <div class="mg-title">${title}</div>
-          <div class="mg-road" id="mgRoad">
-            <div class="mg-road-surface"></div>
-            <div class="mg-road-player" id="mgRoadPlayer" style="left:${LANE_NEAR_X[1]}%">${currentSprite()}</div>
-          </div>
-          <div class="mg-hint">左右ボタン、または道路の3レーンを直接タップして移動</div>
-          <div class="mg-road-controls">
-            <button class="mg-tap-btn" id="mgRoadLeft" data-hold="step" data-key="left">◀</button>
-            <button class="mg-tap-btn" id="mgRoadRight" data-hold="step" data-key="right">▶</button>
-          </div>
-        `;
-
-        const road = container.querySelector('#mgRoad');
-        const playerEl = container.querySelector('#mgRoadPlayer');
-        const timerEl = container.querySelector('#mgTimer');
-        const scoreEl = container.querySelector('#mgScore');
-        const leftBtn = container.querySelector('#mgRoadLeft');
-        const rightBtn = container.querySelector('#mgRoadRight');
-
-        function setLane(next) {
-          lane = clamp(next, 0, 2);
-          playerEl.style.left = LANE_NEAR_X[lane] + '%';
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="lrCanvas"></canvas></div>
+          <div class="mg-hint" id="lrHint">◀▶(おしっぱなしOK)か がめんの 左/中/右を タップで レーン移動。よい ものは とって、わるい ものは よけよう</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn" id="lrLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="lrRight" data-hold="step" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#lrCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 215);
+        const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
+        const { SEG_LEN, PLAYER_Z, segments } = road;
+        const MAX_SPEED = SEG_LEN * lerp(34, 46, difficulty);
+        for (let i = 0; i < 14; i++) { const dir = Math.random() < 0.5 ? -1 : 1; road.addRoad(10, 10 + Math.floor(Math.random() * 10), 10, dir * (1 + Math.random() * 2.2), (Math.random() - 0.5) * 30); }
+        const TRACK_LEN = road.trackLength();
+        for (let n = 0; n < segments.length; n += 3) {
+          if (Math.random() < 0.65) segments[n].sprites.push({ emoji: th.scenery[Math.floor(Math.random() * th.scenery.length)], offset: -1.5 - Math.random() * 1.6, size: 0.5 });
+          if (Math.random() < 0.65) segments[n].sprites.push({ emoji: th.scenery[Math.floor(Math.random() * th.scenery.length)], offset: 1.5 + Math.random() * 1.6, size: 0.5 });
         }
-        leftBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane - 1); });
-        rightBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane + 1); });
-        road.addEventListener('pointerdown', (e) => {
-          e.preventDefault();
-          const r = road.getBoundingClientRect();
-          const pct = (e.clientX - r.left) / r.width;
-          setLane(pct < 1/3 ? 0 : pct > 2/3 ? 2 : 1);
-        });
-
-        function flashRoad() {
-          road.classList.add('hit');
-          setTimeout(() => road.classList.remove('hit'), 200);
-        }
-
-        function spawnItem() {
+        const items = [];
+        const timerEl = container.querySelector('#lrTimer'), scoreEl = container.querySelector('#lrScore'), hint = container.querySelector('#lrHint');
+        const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const setLane = (n) => { lane = clamp(n, 0, 2); };
+        container.querySelector('#lrLeft').addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane - 1); });
+        container.querySelector('#lrRight').addEventListener('pointerdown', (e) => { e.preventDefault(); setLane(lane + 1); });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); setLane(p.nx < 1 / 3 ? 0 : p.nx > 2 / 3 ? 2 : 1); });
+        const pet = playerEmoji || currentSprite();
+        function spawn() {
           const isBad = Math.random() < BAD_CHANCE;
           const pool = isBad ? badItems : goodItems;
-          const itemLane = Math.floor(Math.random() * 3);
-          const itemEl = document.createElement('div');
-          itemEl.className = 'mg-road-item';
-          itemEl.textContent = pool[Math.floor(Math.random() * pool.length)];
-          road.appendChild(itemEl);
-          items.push({ el: itemEl, lane: itemLane, born: performance.now(), bad: isBad, resolved: false });
+          const laneIdx = Math.floor(Math.random() * 3);
+          const it = { z: position + PLAYER_Z + SEG_LEN * 42, lane: laneIdx, offset: LANES[laneIdx], bad: isBad, emoji: pool[Math.floor(Math.random() * pool.length)], size: 0.3, done: false };
+          items.push(it);
         }
-
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
-        let rafId;
-
+        function update(dt, now) {
+          speed = Math.min(MAX_SPEED, speed + MAX_SPEED * dt / 1.2);
+          position += speed * dt;
+          if (position >= TRACK_LEN) { position -= TRACK_LEN; for (const it of items) it.z -= TRACK_LEN; nextSpawnZ -= TRACK_LEN; }
+          playerX += (LANES[lane] - playerX) * Math.min(1, dt * 12);
+          const gap = SEG_LEN * lerp(7, 4.5, difficulty);
+          if (position + PLAYER_Z + SEG_LEN * 42 > nextSpawnZ) { spawn(); nextSpawnZ = position + PLAYER_Z + SEG_LEN * 42 + gap; }
+          for (const seg of segments) seg.dynamic.length = 0;
+          const pz = position + PLAYER_Z;
+          for (const it of items) {
+            if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN).dynamic.push(it);
+            if (!it.done && it.z <= pz + SEG_LEN * 0.4) {
+              it.done = true;
+              if (it.lane === lane) {
+                if (it.bad) { bad++; combo = 0; points = Math.max(0, points - 15); flash = 0.5; say('💥 ぶつかった!'); }
+                else { good++; combo++; bestCombo = Math.max(bestCombo, combo); points += 12 + Math.min(8, combo * 2); sparkle = 1; say(combo >= 3 ? '✨ ' + combo + 'れんぞく!' : 'ゲット!', 600); }
+                scoreEl.textContent = 'とくてん: ' + points;
+              }
+            }
+          }
+          for (let i = items.length - 1; i >= 0; i--) if (items[i].z < pz - SEG_LEN * 2) items.splice(i, 1);
+        }
+        function render(now) {
+          if (!ctx) return;
+          const skyG = ctx.createLinearGradient(0, 0, 0, H * 0.6); skyG.addColorStop(0, th.sky[0]); skyG.addColorStop(1, th.sky[1]);
+          ctx.fillStyle = skyG; ctx.fillRect(0, 0, W, H);
+          if (scene === 'space') { ctx.fillStyle = '#fff'; for (let i = 0; i < 46; i++) { const sx = ((i * 173 + 31) % 997 / 997 * W + position / 60) % W, sy = (i * 389 + 7) % 991 / 991 * H * 0.5; ctx.globalAlpha = 0.25 + (i % 5) * 0.15; ctx.fillRect(sx, sy, 1.5 + (i % 3) * 0.5, 1.5 + (i % 3) * 0.5); } ctx.globalAlpha = 1; }
+          else { ctx.fillStyle = 'rgba(255,255,255,.4)'; for (let i = 0; i < 4; i++) { const cx = ((i * 97 + 20) - (position / 500)) % (W + 60); ctx.beginPath(); ctx.ellipse((cx + W + 60) % (W + 60) - 30, 20 + i * 11, 22, 7, 0, 0, Math.PI * 2); ctx.fill(); } }
+          road.render(position, playerX);
+          const bob = Math.sin(now / 90) * 1.5;
+          ctx.font = '40px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+          ctx.fillStyle = 'rgba(0,0,0,.3)'; ctx.beginPath(); ctx.ellipse(W / 2, H - 6, 20, 6, 0, 0, Math.PI * 2); ctx.fill();
+          ctx.shadowColor = 'rgba(0,0,0,.4)'; ctx.shadowBlur = 6; ctx.fillText(pet, W / 2, H - 8 + bob); ctx.shadowBlur = 0;
+          if (sparkle > 0) { ctx.globalAlpha = sparkle; ctx.font = '22px sans-serif'; ctx.fillText('✨', W / 2 + 24, H - 40 - (1 - sparkle) * 20); ctx.globalAlpha = 1; sparkle = Math.max(0, sparkle - 0.05); }
+          if (flash > 0) { ctx.fillStyle = `rgba(255,70,70,${flash})`; ctx.fillRect(0, 0, W, H); flash = Math.max(0, flash - 0.04); }
+          ctx.fillStyle = 'rgba(255,255,255,.35)'; for (let i = 0; i < 3; i++) if (i === lane) { ctx.fillRect(W / 2 - 18 + (i - 1) * 0, H - 4, 36, 3); }
+          if (now < startTime) { ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 6; ctx.fillText('READY…', W / 2, H / 2 - 30); ctx.shadowBlur = 0; }
+          if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(W / 2 - 80, H / 2 - 44, 160, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2 - 31); }
+        }
         function frame(now) {
           if (!running) return;
-          const elapsed = now - startTime;
-          if (elapsed < 0) {
-            timerEl.textContent = `残り: ${Math.ceil(DURATION_MS / 1000)}s`;
-            rafId = requestAnimationFrame(frame);
-            return;
-          }
-          const remaining = Math.max(0, DURATION_MS - elapsed);
-          timerEl.textContent = `残り: ${Math.ceil(remaining / 1000)}s`;
-
-          if (now - lastSpawn > spawnInterval && remaining > travelMs) {
-            spawnItem();
-            lastSpawn = now;
-          }
-
-          items = items.filter((item) => {
-            const t = clamp((now - item.born) / travelMs, 0, 1);
-            const eased = t * t;
-            const x = lerp(LANE_HORIZON_X[item.lane], LANE_NEAR_X[item.lane], eased);
-            const y = lerp(10, 84, eased);
-            const scale = lerp(0.3, 1.25, eased);
-            item.el.style.left = x + '%';
-            item.el.style.top = y + '%';
-            item.el.style.opacity = Math.min(1, eased * 2.4);
-            item.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            if (t >= 1 && !item.resolved) {
-              item.resolved = true;
-              if (item.lane === lane) {
-                if (item.bad) {
-                  points = Math.max(0, points - 20);
-                  flashRoad();
-                } else {
-                  points = Math.min(100, points + 16);
-                }
-                scoreEl.textContent = `とくてん: ${points}`;
-              }
-              item.el.remove();
-              return false;
-            }
-            return true;
-          });
-
-          if (elapsed >= DURATION_MS) {
-            end();
-            return;
-          }
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          if (now >= startTime) update(dt, now);
+          const rem = Math.max(0, DURATION_MS - Math.max(0, now - startTime));
+          timerEl.textContent = '残り: ' + Math.ceil(rem / 1000) + 's';
+          render(now);
+          if (rem <= 0) { finish(); return; }
           rafId = requestAnimationFrame(frame);
         }
-
-        function end() {
-          if (!running) return;
-          running = false;
-          cancelAnimationFrame(rafId);
-          items.forEach((item) => item.el.remove());
-          onComplete(points);
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = clamp(Math.round(points + bestCombo * 2), 0, 100);
+          say(`けっか: ゲット ${good}こ / ぶつかった ${bad}かい`, 1800);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 800);
         }
-
         rafId = requestAnimationFrame(frame);
       },
     };
@@ -8525,9 +8508,9 @@
 
   const ROAD_GAME_VARIANTS = [
     mg('road-themed', randomThemeGame(makeRoadGame, [
-      { title: 'どうろを はしろう!たべものは キャッチ、ゴミは よけて', goodItems: ['🍎', '🍙', '🍬', '🍇'], badItems: ['🪨', '🚧', '🛢️', '⚠️'] },
-      { title: 'そらを とぼう!ほしは キャッチ、いんせきは よけて', goodItems: ['⭐', '🌟', '✨', '🍀'], badItems: ['☄️', '🪨', '⚡', '🛰️'] },
-      { title: 'うみを およごう!さかなは キャッチ、ゴミは よけて', goodItems: ['🐟', '🐠', '🦐', '🐚'], badItems: ['🥫', '🪤', '🕸️', '🦈'] },
+      { title: 'どうろを はしろう!たべものは キャッチ、ゴミは よけて', goodItems: ['🍎', '🍙', '🍬', '🍇'], badItems: ['🪨', '🚧', '🛢️', '⚠️'], scene: 'road' },
+      { title: 'そらを とぼう!ほしは キャッチ、いんせきは よけて', goodItems: ['⭐', '🌟', '✨', '🍀'], badItems: ['☄️', '🪨', '⚡', '🛰️'], scene: 'sky' },
+      { title: 'うみを およごう!さかなは キャッチ、ゴミは よけて', goodItems: ['🐟', '🐠', '🦐', '🐚'], badItems: ['🥫', '🪤', '🕸️', '🦈'], scene: 'sea' },
     ])),
   ];
 
@@ -10643,183 +10626,14 @@
   // 既存の「さかなつり」(catchカテゴリ、うごく バスケットで つかまえる)とは
   // まったく べつの 操作。うきを 見つめて まち、あたりが きた しゅんかん
   // だけ タップする「まちぶせ→はんのう」型。うみ地域げんてい
-  function makeFishingGame({ title }) {
-    return {
-      start(container, onComplete) {
-        const difficulty = ageDifficulty();
-        const waitMinMs = 1400;
-        const waitMaxMs = 3200;
-        const biteWindowMs = lerp(950, 600, difficulty);
-        // 1かいの はやオシ/はんのう おくれで ぜんぶ おわらせず、さいてい
-        // 2〜3かいは「まちぶせ→はんのう」を たいけんできる ように する
-        // (セクション3)。せいこうしたら そのしゅんかん おわり、3かい
-        // しっぱいしたら おわり
-        const MAX_CHANCES = 3;
-        let chance = 0;
-        let phase = 'waiting'; // waiting -> biting -> done
-        let finished = false;
-        let biteTimer, windowTimer, nextTimer;
-        container.innerHTML = `
-          <div class="mg-header">
-            <span id="mgChance">ちょうせん: 1/${MAX_CHANCES}</span>
-          </div>
-          <div class="mg-title">${title}</div>
-          <div class="mg-fishing-scene" id="mgFishingScene">
-            <div class="mg-fishing-water"></div>
-            <div class="mg-fishing-line"></div>
-            <div class="mg-fishing-bobber" id="mgBobber">🔴</div>
-          </div>
-          <div class="mg-hint" id="mgHint">🔴のウキが 大きく沈んで「! いまだ!」になった瞬間だけ タップ!</div>
-        `;
-        const scene = container.querySelector('#mgFishingScene');
-        const bobber = container.querySelector('#mgBobber');
-        const hintEl = container.querySelector('#mgHint');
-        const chanceEl = container.querySelector('#mgChance');
-
-        function finish(score, message) {
-          if (finished) return;
-          finished = true;
-          clearTimeout(biteTimer);
-          clearTimeout(windowTimer);
-          clearTimeout(nextTimer);
-          hintEl.textContent = message;
-          setTimeout(() => onComplete(score), 500);
-        }
-
-        function startWait() {
-          phase = 'waiting';
-          bobber.classList.remove('biting');
-          chanceEl.textContent = `ちょうせん: ${chance + 1}/${MAX_CHANCES}`;
-          const waitMs = waitMinMs + Math.random() * (waitMaxMs - waitMinMs);
-          biteTimer = setTimeout(() => {
-            if (finished) return;
-            phase = 'biting';
-            bobber.classList.add('biting');
-            hintEl.textContent = '! いまだ!';
-            windowTimer = setTimeout(() => {
-              if (finished) return;
-              missChance('にげちゃった…');
-            }, biteWindowMs);
-          }, waitMs);
-        }
-
-        function missChance(message) {
-          phase = 'done';
-          bobber.classList.remove('biting');
-          chance += 1;
-          if (chance >= MAX_CHANCES) {
-            finish(20, message);
-          } else {
-            hintEl.textContent = `${message} でも まだ ちょうせんできる!`;
-            nextTimer = setTimeout(startWait, 700);
-          }
-        }
-
-        scene.addEventListener('pointerdown', (e) => {
-          if (e.preventDefault) e.preventDefault();
-          if (finished) return;
-          if (phase === 'waiting') {
-            missChance('まだだった…');
-          } else if (phase === 'biting') {
-            phase = 'done';
-            bobber.classList.remove('biting');
-            finish(100, 'ウキが しずんだ! ひきあげると 🐟 が かかっていた');
-          }
-        });
-
-        startWait();
-      },
-    };
-  }
 
   // --- プレミアム: 3Dふう奥行きゲーム ---
   // CSS perspective + requestAnimationFrame で軽量に奥行きを表現する。
   // 外部3Dライブラリを使わないため、iPhoneでも既存ゲームと同じページ内で遊べる。
-  function makePerspectiveDodgeGame({ title, playerEmoji, obstacleEmojis, collectEmoji, mode = 'space' }) {
-    return {
-      start(container, onComplete) {
-        const DURATION_MS = 15000;
-        const difficulty = ageDifficulty();
-        let lane = 1, running = true, hits = 0, collected = 0, passed = 0;
-        let objects = [], rafId, spawnTimer, lastFrame = null;
-        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
-        const speed = lerp(0.46, 0.64, difficulty);
-        const spawnMs = lerp(820, 580, difficulty);
-        container.innerHTML = `
-          <div class="mg-header"><span id="mgP3Timer">のこり: 15s</span><span id="mgP3Score">⭐ 0</span></div>
-          <div class="mg-title">${title}</div>
-          <div class="mg-p3-scene mg-p3-${mode}" id="mgP3Scene">
-            <div class="mg-p3-horizon"></div><div class="mg-p3-road"></div>
-            <div class="mg-p3-player" id="mgP3Player">${playerEmoji}</div>
-          </div>
-          <div class="mg-dpad-mid"><button class="mg-tap-btn" id="mgP3Left" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="mgP3Right" data-hold="step" data-key="right">▶</button></div>
-        `;
-        const scene=container.querySelector('#mgP3Scene'), player=container.querySelector('#mgP3Player');
-        const timer=container.querySelector('#mgP3Timer'), scoreEl=container.querySelector('#mgP3Score');
-        const laneX=[27,50,73];
-        const move=()=>{ player.style.left=laneX[lane]+'%'; };
-        move();
-        const left=()=>{lane=Math.max(0,lane-1);move();};
-        const right=()=>{lane=Math.min(2,lane+1);move();};
-        container.querySelector('#mgP3Left').addEventListener('pointerdown',(e)=>{e.preventDefault();left();});
-        container.querySelector('#mgP3Right').addEventListener('pointerdown',(e)=>{e.preventDefault();right();});
-        scene.addEventListener('pointerdown',(e)=>{
-          e.preventDefault();
-          const r=scene.getBoundingClientRect();
-          const pct=(e.clientX-r.left)/r.width;
-          lane=pct<1/3?0:pct>2/3?2:1;
-          move();
-        });
-
-        function spawn(){
-          if(!running)return;
-          const good=Math.random()<0.28, objLane=Math.floor(Math.random()*3);
-          const el=document.createElement('div');
-          el.className='mg-p3-object '+(good?'good':'bad');
-          el.textContent=good?collectEmoji:obstacleEmojis[Math.floor(Math.random()*obstacleEmojis.length)];
-          scene.appendChild(el);
-          objects.push({el,lane:objLane,z:0,good,resolved:false});
-          spawnTimer=setTimeout(spawn,spawnMs);
-        }
-        spawnTimer=setTimeout(spawn,MG_ACTION_START_GRACE_MS);
-
-        function frame(now){
-          if(!running)return;
-          if(now<startTime){rafId=requestAnimationFrame(frame);return;}
-          if(lastFrame===null)lastFrame=now;
-          const dt=Math.min(.05,(now-lastFrame)/1000); lastFrame=now;
-          for(const o of objects){
-            o.z+=speed*dt;
-            const scale=.22+o.z*1.65;
-            const y=18+o.z*72;
-            const x=50+(laneX[o.lane]-50)*(.18+o.z*.82);
-            o.el.style.transform=`translate(-50%,-50%) translate(${x-50}%,0) scale(${scale})`;
-            o.el.style.left=x+'%'; o.el.style.top=y+'%'; o.el.style.opacity=Math.min(1,.35+o.z);
-            if(!o.resolved&&o.z>=.86){
-              o.resolved=true; passed++;
-              if(o.lane===lane){
-                if(o.good){collected++;o.el.classList.add('picked');}
-                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),120);}
-                scoreEl.textContent='⭐ '+collected;
-              }
-            }
-          }
-          objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
-          const rem=Math.max(0,DURATION_MS-(now-startTime)); timer.textContent='のこり: '+Math.ceil(rem/1000)+'s';
-          if(rem<=0){end();return;} rafId=requestAnimationFrame(frame);
-        }
-        rafId=requestAnimationFrame(frame);
-        function end(){
-          if(!running)return;running=false;cancelAnimationFrame(rafId);clearTimeout(spawnTimer);
-          const score=clamp(Math.round(55+collected*10-hits*18+Math.min(15,passed)),5,100);onComplete(score);
-        }
-      }
-    };
-  }
 
   const PERSPECTIVE_3D_VARIANTS = [
-    mg('p3-space', makePerspectiveDodgeGame({ title:'3Dふう うちゅうフライト!リングを あつめて いんせきを よけよう', playerEmoji:'🚀', obstacleEmojis:['☄️','🪨','🛰️'], collectEmoji:'⭕', mode:'space' })),
-    mg('p3-drive', makePerspectiveDodgeGame({ title:'3Dふう ハイウェイ!コインを ひろって くるまを よけよう', playerEmoji:'🏎️', obstacleEmojis:['🚙','🚚','🚧'], collectEmoji:'🪙', mode:'drive' })),
+    mg('p3-space', makeRoadGame({ title: '3Dうちゅうフライト!ほしを あつめて いんせきを よけよう', goodItems: ['⭐', '🌟', '💫', '🪙'], badItems: ['☄️', '🪨', '🛰️', '👾'], scene: 'space', playerEmoji: '🚀' })),
+    mg('p3-drive', makeRoadGame({ title: '3Dハイウェイ!コインを ひろって くるまを よけよう', goodItems: ['🪙', '💎', '⛽', '🍔'], badItems: ['🚙', '🚚', '🚧', '🛢️'], scene: 'highway', playerEmoji: '🏎️' })),
   ];
 
   // --- 3D レイキャスト ビュー(おばけ屋敷・ダンジョン きょうつう) ---
@@ -13016,7 +12830,7 @@
     { emoji: '🐙', name: 'たこ', size: 1.6, value: 48, pull: 1.7, speed: 22 },
     { emoji: '🦈', name: 'さめ', size: 2.2, value: 70, pull: 2.4, speed: 50 },
   ];
-  function makeRealFishingGame({ title }) {
+  function makeRealFishingGame({ title, species = FISHING_SPECIES, waterTop = '#3fa6e8', waterBottom = '#0b3f7a' }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
@@ -13038,7 +12852,7 @@
         const say = (t, ms = 1400) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const fishes = [];
         function spawnFish() {
-          const sp = FISHING_SPECIES[Math.min(FISHING_SPECIES.length - 1, Math.floor(Math.pow(Math.random(), 1.6 - difficulty * 0.5) * FISHING_SPECIES.length))];
+          const sp = species[Math.min(species.length - 1, Math.floor(Math.pow(Math.random(), 1.6 - difficulty * 0.5) * species.length))];
           const dir = Math.random() < 0.5 ? 1 : -1;
           fishes.push({ sp, x: dir > 0 ? -20 : W + 20, y: WATER_Y + 30 + Math.random() * (H - WATER_Y - 50), dir, speed: sp.speed * (0.7 + Math.random() * 0.6), state: 'swim', wobble: Math.random() * 10, size: 16 + sp.size * 8 });
         }
@@ -13136,7 +12950,7 @@
           if (!ctx) return;
           const sky = ctx.createLinearGradient(0, 0, 0, WATER_Y); sky.addColorStop(0, '#7cc6ff'); sky.addColorStop(1, '#dff3ff');
           ctx.fillStyle = sky; ctx.fillRect(0, 0, W, WATER_Y);
-          const water = ctx.createLinearGradient(0, WATER_Y, 0, H); water.addColorStop(0, '#3fa6e8'); water.addColorStop(1, '#0b3f7a');
+          const water = ctx.createLinearGradient(0, WATER_Y, 0, H); water.addColorStop(0, waterTop); water.addColorStop(1, waterBottom);
           ctx.fillStyle = water; ctx.fillRect(0, WATER_Y, W, H - WATER_Y);
           ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1;
           for (let i = 0; i < 4; i++) { ctx.beginPath(); for (let x = 0; x <= W; x += 8) { const y = WATER_Y + 12 + i * 34 + Math.sin(x / 22 + now / 500 + i) * 3; if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); } ctx.stroke(); }
@@ -13196,6 +13010,22 @@
       },
     };
   }
+  const RIVER_FISH = [
+    { emoji: '🐟', name: 'あゆ', size: 1, value: 20, pull: 0.9, speed: 36 },
+    { emoji: '🦐', name: 'てながえび', size: 0.9, value: 22, pull: 0.7, speed: 30 },
+    { emoji: '🐸', name: 'かえる', size: 1.1, value: 24, pull: 1.0, speed: 28 },
+    { emoji: '🦞', name: 'ざりがに', size: 1.3, value: 32, pull: 1.4, speed: 22 },
+    { emoji: '🐢', name: 'かめ', size: 1.5, value: 40, pull: 1.6, speed: 18 },
+    { emoji: '🐊', name: 'ワニ', size: 2.2, value: 70, pull: 2.5, speed: 40 },
+  ];
+  const DEEPSEA_FISH = [
+    { emoji: '🐡', name: 'ふぐ', size: 1.2, value: 28, pull: 1.2, speed: 26 },
+    { emoji: '🦑', name: 'いか', size: 1.4, value: 40, pull: 1.4, speed: 36 },
+    { emoji: '🐙', name: 'たこ', size: 1.6, value: 48, pull: 1.7, speed: 22 },
+    { emoji: '🦀', name: 'かに', size: 1.3, value: 36, pull: 1.5, speed: 20 },
+    { emoji: '🦈', name: 'さめ', size: 2.2, value: 70, pull: 2.4, speed: 50 },
+    { emoji: '🐋', name: 'くじら', size: 2.8, value: 95, pull: 3.0, speed: 30 },
+  ];
   const REAL_FISHING_VARIANTS = [mg('real-fishing', makeRealFishingGame({ title: 'ほんかく さかなつり!あわせて、まいて、つりあげろ' }))];
 
   // --- 3Dバスケ シュート: うえに はらって シュート。ボールは ほうぶつせんを
@@ -13433,6 +13263,694 @@
   }
   const PING_PONG_VARIANTS = [mg('pingpong-3d', makePingPongGame({ title: '3Dたっきゅう!ラリーで あいてを ぬけ' }))];
 
+  // ================================================================
+  // フラッグシップ新作: れんさパズル / かくとう / フリーキック / タワーディフェンス / ローグライク
+  // ================================================================
+
+  // --- れんさパズル: 2こ1くみの いろだまを つんで、おなじ いろが 4こ
+  //     つながると きえる。きえた あとに おちて また つながると れんさ! ---
+  function makeChainPuzzleGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const COLS = 6, ROWS = 12, COLORS = difficulty > 0.6 ? 5 : 4;
+        const PALETTE = [['#ff5f7e', '#ffb3c1'], ['#4cc9f0', '#bdefff'], ['#7ed957', '#d2f5c0'], ['#ffd23f', '#fff0b3'], ['#c77dff', '#ead9ff']];
+        const DURATION_MS = Math.round(lerp(60000, 50000, difficulty));
+        const board = Array.from({ length: ROWS }, () => Array(COLS).fill(-1));
+        let piece = null, nextPair = [rnd(), rnd()], popped = 0, chains = 0, maxChain = 0, score = 0, running = true, rafId = null, last = null, dropAcc = 0, phase = 'fall', phaseUntil = 0, popping = [], chainNow = 0, msg = '', msgUntil = 0, softHeld = false, gameOver = false;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        function rnd() { return Math.floor(Math.random() * COLORS); }
+        container.innerHTML = `
+          <div class="mg-header"><span id="cpTimer">のこり: ${Math.ceil(DURATION_MS / 1000)}s</span><span id="cpScore">0pt　さいだい 0れんさ</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="cpCanvas"></canvas></div>
+          <div class="mg-hint" id="cpHint">おなじ いろを 4こ つなげると きえる。きえた あとに おちて つながれば れんさ!</div>
+          <div class="mg-falling-controls"><button class="mg-tap-btn" id="fbLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="fbRight" data-hold="step" data-key="right">▶</button><button class="mg-tap-btn fb-rotate" id="fbRotate" data-key="up">↻ かいてん</button><button class="mg-tap-btn fb-soft mg-hold-btn" id="fbSoft" data-key="down">▼ さげる</button><button class="mg-tap-btn fb-hard" id="fbDrop" data-key="action">⏬ いっきに</button></div>`;
+        const canvas = container.querySelector('#cpCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 300);
+        const CELL = Math.floor(Math.min((W - 70) / COLS, (H - 8) / ROWS)), OX = 8, OY = H - CELL * ROWS - 4;
+        const timerEl = container.querySelector('#cpTimer'), scoreEl = container.querySelector('#cpScore'), hint = container.querySelector('#cpHint');
+        const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        function spawn() {
+          piece = { x: 2, y: 0, rot: 0, a: nextPair[0], b: nextPair[1] };
+          nextPair = [rnd(), rnd()];
+          if (!fits(piece)) { gameOver = true; finish(); }
+        }
+        function cells(p) { const d = [[0, -1], [1, 0], [0, 1], [-1, 0]][p.rot]; return [{ x: p.x, y: p.y, c: p.a }, { x: p.x + d[0], y: p.y + d[1], c: p.b }]; }
+        function fits(p) { return cells(p).every((c) => c.x >= 0 && c.x < COLS && c.y < ROWS && (c.y < 0 || board[c.y][c.x] === -1)); }
+        function move(dx) { if (!piece || phase !== 'fall') return; const q = { ...piece, x: piece.x + dx }; if (fits(q)) piece = q; }
+        function rotate() { if (!piece || phase !== 'fall') return; for (const kick of [0, -1, 1]) { const q = { ...piece, rot: (piece.rot + 1) % 4, x: piece.x + kick }; if (fits(q)) { piece = q; return; } } }
+        function stepDown() { if (!piece) return false; const q = { ...piece, y: piece.y + 1 }; if (fits(q)) { piece = q; return true; } lock(); return false; }
+        function hardDrop() { if (!piece || phase !== 'fall') return; while (stepDown()); }
+        function lock() {
+          for (const c of cells(piece)) if (c.y >= 0) board[c.y][c.x] = c.c;
+          piece = null; chainNow = 0; applyGravity(); phase = 'settle'; phaseUntil = performance.now() + 120;
+        }
+        function applyGravity() { for (let x = 0; x < COLS; x++) { let w = ROWS - 1; for (let y = ROWS - 1; y >= 0; y--) { if (board[y][x] !== -1) { const v = board[y][x]; board[y][x] = -1; board[w][x] = v; w--; } } } }
+        function findGroups() {
+          const seen = Array.from({ length: ROWS }, () => Array(COLS).fill(false)); const groups = [];
+          for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+            if (board[y][x] === -1 || seen[y][x]) continue;
+            const col = board[y][x], stack = [[x, y]], g = []; seen[y][x] = true;
+            while (stack.length) { const [cx, cy] = stack.pop(); g.push([cx, cy]); for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const nx = cx + dx, ny = cy + dy; if (nx >= 0 && nx < COLS && ny >= 0 && ny < ROWS && !seen[ny][nx] && board[ny][nx] === col) { seen[ny][nx] = true; stack.push([nx, ny]); } } }
+            if (g.length >= 4) groups.push(g);
+          }
+          return groups;
+        }
+        function resolve() {
+          const groups = findGroups();
+          if (!groups.length) { phase = 'fall'; if (chainNow > 0) { chains++; maxChain = Math.max(maxChain, chainNow); } spawn(); return; }
+          chainNow++;
+          popping = groups.flat();
+          const n = popping.length;
+          const mult = chainNow === 1 ? 1 : chainNow === 2 ? 2 : chainNow === 3 ? 4 : chainNow === 4 ? 8 : 16;
+          score += n * 10 * mult; popped += n;
+          if (chainNow >= 2) say(chainNow + 'れんさ! ×' + mult, 1200); else if (n >= 6) say('おおきく けした!', 800);
+          scoreEl.textContent = score + 'pt　さいだい ' + Math.max(maxChain, chainNow) + 'れんさ';
+          phase = 'pop'; phaseUntil = performance.now() + 340;
+        }
+        function afterPop() { for (const [x, y] of popping) board[y][x] = -1; popping = []; applyGravity(); phase = 'settle'; phaseUntil = performance.now() + 140; }
+        container.querySelector('#fbLeft').addEventListener('pointerdown', (e) => { e.preventDefault(); move(-1); });
+        container.querySelector('#fbRight').addEventListener('pointerdown', (e) => { e.preventDefault(); move(1); });
+        container.querySelector('#fbRotate').addEventListener('pointerdown', (e) => { e.preventDefault(); rotate(); });
+        container.querySelector('#fbDrop').addEventListener('pointerdown', (e) => { e.preventDefault(); hardDrop(); });
+        bindHeldButton(container.querySelector('#fbSoft'), (v) => { softHeld = v; });
+        let swipe = null;
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 14) { rotate(); return; } if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1); else if (dy > 0) hardDrop(); });
+        canvas.addEventListener('pointercancel', () => { swipe = null; });
+        function drawBlob(px, py, col, size, alpha = 1, glow = false) {
+          const [c1, c2] = PALETTE[col]; ctx.globalAlpha = alpha;
+          if (glow) { ctx.shadowColor = '#fff'; ctx.shadowBlur = 12; }
+          const g = ctx.createRadialGradient(px - size * 0.2, py - size * 0.25, size * 0.1, px, py, size * 0.55); g.addColorStop(0, c2); g.addColorStop(1, c1);
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, size * 0.46, 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0;
+          ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(px - size * 0.14, py - size * 0.06, size * 0.1, 0, Math.PI * 2); ctx.arc(px + size * 0.14, py - size * 0.06, size * 0.1, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#333'; ctx.beginPath(); ctx.arc(px - size * 0.12, py - size * 0.05, size * 0.05, 0, Math.PI * 2); ctx.arc(px + size * 0.16, py - size * 0.05, size * 0.05, 0, Math.PI * 2); ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#1e2233'; ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = '#2a3048'; ctx.fillRect(OX, OY, CELL * COLS, CELL * ROWS);
+          ctx.strokeStyle = 'rgba(255,255,255,.06)'; for (let x = 0; x <= COLS; x++) { ctx.beginPath(); ctx.moveTo(OX + x * CELL, OY); ctx.lineTo(OX + x * CELL, OY + CELL * ROWS); ctx.stroke(); } for (let y = 0; y <= ROWS; y++) { ctx.beginPath(); ctx.moveTo(OX, OY + y * CELL); ctx.lineTo(OX + CELL * COLS, OY + y * CELL); ctx.stroke(); }
+          // つながり
+          for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) { const c = board[y][x]; if (c === -1) continue; ctx.fillStyle = PALETTE[c][0]; if (x + 1 < COLS && board[y][x + 1] === c) ctx.fillRect(OX + x * CELL + CELL / 2, OY + y * CELL + CELL * 0.3, CELL, CELL * 0.4); if (y + 1 < ROWS && board[y + 1][x] === c) ctx.fillRect(OX + x * CELL + CELL * 0.3, OY + y * CELL + CELL / 2, CELL * 0.4, CELL); }
+          const popSet = new Set(popping.map(([x, y]) => x + ',' + y));
+          const popT = phase === 'pop' ? (phaseUntil - now) / 340 : 1;
+          for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) { const c = board[y][x]; if (c === -1) continue; const isPop = popSet.has(x + ',' + y); drawBlob(OX + x * CELL + CELL / 2, OY + y * CELL + CELL / 2, c, isPop ? CELL * (0.6 + 0.5 * popT) : CELL, isPop ? Math.max(0.2, popT) : 1, isPop); }
+          if (piece) { const gy = ghostY(); for (const c of cells({ ...piece, y: gy })) if (c.y >= 0) { ctx.strokeStyle = PALETTE[c.c][0]; ctx.globalAlpha = 0.4; ctx.beginPath(); ctx.arc(OX + c.x * CELL + CELL / 2, OY + c.y * CELL + CELL / 2, CELL * 0.4, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1; } for (const c of cells(piece)) if (c.y >= 0) drawBlob(OX + c.x * CELL + CELL / 2, OY + c.y * CELL + CELL / 2, c.c, CELL); }
+          // NEXT
+          const nx = OX + CELL * COLS + 12; ctx.fillStyle = 'rgba(255,255,255,.08)'; mgRoundRect(ctx, nx, OY, W - nx - 6, CELL * 3, 8);
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.fillText('NEXT', nx + (W - nx - 6) / 2, OY + 4);
+          drawBlob(nx + (W - nx - 6) / 2, OY + CELL * 1.2, nextPair[1], CELL * 0.8); drawBlob(nx + (W - nx - 6) / 2, OY + CELL * 2.1, nextPair[0], CELL * 0.8);
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+          ctx.fillText('けした', nx + (W - nx - 6) / 2, OY + CELL * 3.4); ctx.font = 'bold 16px sans-serif'; ctx.fillText(String(popped), nx + (W - nx - 6) / 2, OY + CELL * 3.9);
+          ctx.font = 'bold 11px sans-serif'; ctx.fillText('れんさ', nx + (W - nx - 6) / 2, OY + CELL * 5.2); ctx.font = 'bold 16px sans-serif'; ctx.fillText(String(maxChain), nx + (W - nx - 6) / 2, OY + CELL * 5.7);
+          if (now < msgUntil) { ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#ff5f7e'; ctx.shadowBlur = 10; ctx.fillText(msg, OX + CELL * COLS / 2, OY + CELL * 4); ctx.shadowBlur = 0; }
+          if (now < startTime) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.fillText('READY…', OX + CELL * COLS / 2, OY + CELL * 5); }
+        }
+        function ghostY() { let q = { ...piece }; while (fits({ ...q, y: q.y + 1 })) q.y++; return q.y; }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          if (now >= startTime) {
+            if (phase === 'fall') {
+              if (!piece) spawn();
+              if (piece) { const interval = softHeld ? 0.05 : Math.max(0.28, 0.75 - (now - startTime) / 90000); dropAcc += dt; if (dropAcc >= interval) { dropAcc = 0; stepDown(); } }
+            } else if (phase === 'settle' && now >= phaseUntil) resolve();
+            else if (phase === 'pop' && now >= phaseUntil) afterPop();
+          }
+          if (!running) return;
+          const rem = Math.max(0, DURATION_MS - Math.max(0, now - startTime));
+          timerEl.textContent = 'のこり: ' + Math.ceil(rem / 1000) + 's';
+          render(now);
+          if (rem <= 0) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const result = clamp(Math.round(18 + popped * 1.1 + maxChain * 12 + Math.min(20, score / 60)), 10, 100);
+          say(gameOver ? 'つみあがった… ' + popped + 'こ けした' : 'しゅうりょう! ' + popped + 'こ けした / さいだい ' + maxChain + 'れんさ', 2200);
+          render(performance.now());
+          setTimeout(() => onComplete(result), 900);
+        }
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const CHAIN_PUZZLE_VARIANTS = [mg('chain-puzzle', makeChainPuzzleGame({ title: 'れんさパズル!いろだまを 4こ つなげて けそう' }))];
+
+  // --- かくとう(リアルタイム): よこから 見た ステージで、うごく・パンチ・
+  //     キック・ガードを つかいわけて AIあいてを たおす ---
+  function makeStreetFightGame({ title, rival }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 50000, FLOOR = 0.78;
+        const me = { x: 0.25, hp: 100, face: 1, state: 'idle', stateUntil: 0, guard: false, stun: 0, emoji: currentSprite(), color: '#3a86ff', combo: 0 };
+        const ai = { x: 0.75, hp: 100, face: -1, state: 'idle', stateUntil: 0, guard: false, stun: 0, emoji: rival.emoji, color: rival.color, think: 0, aggro: lerp(0.45, 0.8, difficulty) };
+        let running = true, rafId = null, last = null, msg = '', msgUntil = 0, shake = 0, sparks = [], leftHeld = false, rightHeld = false, hits = 0, taken = 0, ko = null;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        container.innerHTML = `
+          <div class="mg-header"><span id="sfTimer">のこり: 50s</span><span id="sfRound">${rival.name} と たいせん</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="sfCanvas"></canvas></div>
+          <div class="mg-hint" id="sfHint">パンチは はやい、キックは つよくて ふきとばす。あいてが ひかったら ガード(ながおし)!</div>
+          <div class="mg-fight-controls"><button class="mg-tap-btn mg-hold-btn" id="sfLeft" data-key="left">◀</button><button class="mg-tap-btn mg-hold-btn" id="sfRight" data-key="right">▶</button><button class="mg-tap-btn punch" id="sfPunch" data-key="action">👊 パンチ</button><button class="mg-tap-btn kick" id="sfKick" data-key="action2">🦵 キック</button><button class="mg-tap-btn mg-hold-btn guard" id="sfGuard" data-key="down">🛡️ ガード</button></div>`;
+        const canvas = container.querySelector('#sfCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 230);
+        const timerEl = container.querySelector('#sfTimer'), hint = container.querySelector('#sfHint');
+        const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        bindHeldButton(container.querySelector('#sfLeft'), (v) => { leftHeld = v; });
+        bindHeldButton(container.querySelector('#sfRight'), (v) => { rightHeld = v; });
+        bindHeldButton(container.querySelector('#sfGuard'), (v) => { me.guard = v; });
+        container.querySelector('#sfPunch').addEventListener('pointerdown', (e) => { e.preventDefault(); attack(me, ai, 'punch'); });
+        container.querySelector('#sfKick').addEventListener('pointerdown', (e) => { e.preventDefault(); attack(me, ai, 'kick'); });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); attack(me, ai, p.ny < 0.5 ? 'punch' : 'kick'); });
+        const MOVES = { punch: { windup: 120, active: 110, recover: 180, range: 0.17, dmg: 7, push: 0.02 }, kick: { windup: 260, active: 140, recover: 320, range: 0.23, dmg: 13, push: 0.07 } };
+        function attack(f, target, kind) {
+          const now = performance.now();
+          if (!running || now < startTime || f.state !== 'idle' || f.stun > 0 || f.guard) return;
+          f.state = 'windup'; f.move = kind; f.stateUntil = now + MOVES[kind].windup; f.hitDone = false;
+        }
+        function updateFighter(f, target, dt, now) {
+          if (f.stun > 0) { f.stun -= dt; if (f.stun <= 0) f.state = 'idle'; return; }
+          const mv = MOVES[f.move] || MOVES.punch;
+          if (f.state === 'windup' && now >= f.stateUntil) { f.state = 'active'; f.stateUntil = now + mv.active; }
+          else if (f.state === 'active') {
+            if (!f.hitDone && Math.abs(target.x - f.x) < mv.range + 0.06 && Math.sign(target.x - f.x) === f.face) {
+              f.hitDone = true;
+              const blocked = target.guard && target.stun <= 0;
+              const dmg = blocked ? Math.round(mv.dmg * 0.2) : mv.dmg;
+              target.hp = Math.max(0, target.hp - dmg);
+              target.x = clamp(target.x + f.face * (blocked ? mv.push * 0.5 : mv.push), 0.08, 0.92);
+              if (!blocked) { target.stun = f.move === 'kick' ? 0.45 : 0.25; target.state = 'hit'; target.guard = false; shake = f.move === 'kick' ? 7 : 4; }
+              sparks.push({ x: target.x, y: FLOOR - 0.45, born: now, blocked });
+              if (f === me) { hits++; if (!blocked) { me.combo++; if (me.combo >= 3) say('🔥 ' + me.combo + 'れんぞく ヒット!', 800); } else say('ガードされた!', 600); }
+              else { taken++; me.combo = 0; if (blocked) say('🛡️ ガード せいこう!', 700); }
+              if (target.hp <= 0) { ko = target === ai ? 'win' : 'lose'; setTimeout(() => finish(), 900); }
+            }
+            if (now >= f.stateUntil) { f.state = 'recover'; f.stateUntil = now + mv.recover; }
+          } else if (f.state === 'recover' && now >= f.stateUntil) f.state = 'idle';
+        }
+        function aiThink(dt, now) {
+          if (ai.stun > 0 || ai.state !== 'idle') return;
+          ai.think -= dt; if (ai.think > 0) return;
+          ai.think = 0.12 + Math.random() * 0.2;
+          const dist = Math.abs(me.x - ai.x);
+          ai.face = me.x < ai.x ? -1 : 1;
+          const threatened = me.state === 'windup' && dist < 0.3;
+          if (threatened && Math.random() < lerp(0.35, 0.75, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
+          ai.guard = false;
+          if (dist > 0.26) { ai.x = clamp(ai.x + ai.face * 0.55 * dt * 4, 0.08, 0.92); }
+          else if (Math.random() < ai.aggro) attack(ai, me, Math.random() < 0.55 ? 'punch' : 'kick');
+          else if (Math.random() < 0.3) ai.x = clamp(ai.x - ai.face * 0.5 * dt * 4, 0.08, 0.92);
+        }
+        function drawFighter(f, now, isMe) {
+          const px = f.x * W, base = FLOOR * H, s = 1;
+          const bob = f.state === 'idle' ? Math.sin(now / 160 + (isMe ? 0 : 2)) * 2 : 0;
+          const lean = f.state === 'windup' ? -f.face * 6 : f.state === 'active' ? f.face * 10 : f.state === 'hit' ? -f.face * 12 : 0;
+          ctx.save(); ctx.translate(px, base);
+          ctx.fillStyle = 'rgba(0,0,0,.3)'; ctx.beginPath(); ctx.ellipse(0, 0, 22, 6, 0, 0, Math.PI * 2); ctx.fill();
+          ctx.translate(lean, bob);
+          // あし
+          ctx.strokeStyle = '#2b2f3a'; ctx.lineWidth = 7; ctx.lineCap = 'round';
+          const kick = f.state === 'active' && f.move === 'kick';
+          ctx.beginPath(); ctx.moveTo(-6, -34); ctx.lineTo(-10, -4); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(6, -34); if (kick) ctx.lineTo(f.face * 34, -30); else ctx.lineTo(10, -4); ctx.stroke();
+          if (kick) { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(f.face * 38, -30, 7, 0, Math.PI * 2); ctx.fill(); }
+          // どう
+          ctx.fillStyle = f.color; mgRoundRect(ctx, -14, -66, 28, 36, 8);
+          ctx.fillStyle = mgShade(f.color, 0.8); mgRoundRect(ctx, -14, -46, 28, 8, 3);
+          // うで
+          ctx.strokeStyle = f.color; ctx.lineWidth = 7;
+          const punch = f.state === 'active' && f.move === 'punch';
+          ctx.beginPath(); ctx.moveTo(f.face * 10, -58); if (punch) ctx.lineTo(f.face * 40, -56); else if (f.guard) ctx.lineTo(f.face * 18, -44); else ctx.lineTo(f.face * 20, -40); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(-f.face * 10, -58); if (f.guard) ctx.lineTo(f.face * 14, -60); else ctx.lineTo(-f.face * 14, -42); ctx.stroke();
+          ctx.fillStyle = '#ffe1b8'; ctx.beginPath(); ctx.arc(punch ? f.face * 44 : f.guard ? f.face * 18 : f.face * 20, punch ? -56 : f.guard ? -46 : -40, 7, 0, Math.PI * 2); ctx.fill();
+          if (f.guard) { ctx.fillStyle = 'rgba(120,200,255,.45)'; ctx.beginPath(); ctx.arc(f.face * 20, -56, 18, 0, Math.PI * 2); ctx.fill(); }
+          // あたま(えもじ)
+          ctx.font = '30px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          if (f.stun > 0) ctx.rotate(-f.face * 0.2);
+          ctx.fillText(f.emoji, 0, -84);
+          if (f.state === 'windup') { ctx.strokeStyle = '#ffd23f'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, -84, 22 + (f.stateUntil - now) / 20, 0, Math.PI * 2); ctx.stroke(); }
+          ctx.restore();
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.save();
+          if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
+          const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, rival.bg[0]); bg.addColorStop(0.75, rival.bg[1]); bg.addColorStop(0.76, rival.floor[0]); bg.addColorStop(1, rival.floor[1]);
+          ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
+          ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.globalAlpha = 0.85;
+          rival.decor.forEach((d, i) => ctx.fillText(d, 30 + i * 60, H * 0.62)); ctx.globalAlpha = 1;
+          ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(0, FLOOR * H, W, 2);
+          // HPバー
+          const bar = (x, w, hp, col, right) => { ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(x, 8, w, 12); ctx.fillStyle = hp > 40 ? col : '#ff5c5c'; ctx.fillRect(right ? x + w - w * hp / 100 : x, 8, w * hp / 100, 12); ctx.strokeStyle = '#fff'; ctx.strokeRect(x, 8, w, 12); };
+          bar(8, W / 2 - 20, me.hp, '#3ae374', false); bar(W / 2 + 12, W / 2 - 20, ai.hp, '#3ae374', true);
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('じぶん', 8, 22); ctx.textAlign = 'right'; ctx.fillText(rival.name, W - 8, 22);
+          const order = me.x < ai.x ? [me, ai] : [ai, me];
+          drawFighter(order[0], now, order[0] === me); drawFighter(order[1], now, order[1] === me);
+          sparks = sparks.filter((s) => now - s.born < 260);
+          for (const s of sparks) { const t = (now - s.born) / 260; ctx.globalAlpha = 1 - t; ctx.font = `${22 + t * 20}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s.blocked ? '🛡️' : '💥', s.x * W, s.y * H); ctx.globalAlpha = 1; }
+          if (ko) { ctx.font = 'bold 34px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = ko === 'win' ? '#ffd23f' : '#ff5c5c'; ctx.shadowColor = '#000'; ctx.shadowBlur = 8; ctx.fillText(ko === 'win' ? 'K.O.!' : 'まけ…', W / 2, H * 0.4); ctx.shadowBlur = 0; }
+          else if (now < startTime) { ctx.font = 'bold 22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 6; ctx.fillText('FIGHT!', W / 2, H * 0.4); ctx.shadowBlur = 0; }
+          if (now < msgUntil && !ko) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(W / 2 - 80, 30, 160, 22); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, 41); }
+          ctx.restore();
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          if (now >= startTime && !ko) {
+            if (me.state === 'idle' && me.stun <= 0 && !me.guard) { const mv = (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0); if (mv) { me.x = clamp(me.x + mv * 0.42 * dt, 0.08, 0.92); } }
+            me.face = ai.x >= me.x ? 1 : -1;
+            if (ai.guard && now > (ai.guardUntil || 0)) ai.guard = false;
+            aiThink(dt, now);
+            updateFighter(me, ai, dt, now); updateFighter(ai, me, dt, now);
+            if (Math.abs(me.x - ai.x) < 0.12) { const mid = (me.x + ai.x) / 2; me.x = clamp(mid - me.face * 0.06, 0.08, 0.92); ai.x = clamp(mid + me.face * 0.06, 0.08, 0.92); }
+          }
+          const rem = Math.max(0, DURATION_MS - Math.max(0, now - startTime));
+          timerEl.textContent = 'のこり: ' + Math.ceil(rem / 1000) + 's';
+          render(now);
+          if (rem <= 0 && !ko) { ko = me.hp >= ai.hp ? 'win' : 'lose'; setTimeout(() => finish(), 900); }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const win = ko === 'win';
+          const score = clamp(Math.round((win ? 60 : 18) + me.hp * 0.35 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);
+          say(win ? `🏆 かった! のこりHP ${me.hp}` : `まけた… あいての のこりHP ${ai.hp}`, 2200);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 900);
+        }
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const FIGHT_RIVALS = [
+    { title: 'かくとうバトル!パンチ・キック・ガードで たおせ', rival: { name: 'おに', emoji: '👹', color: '#c0392b', bg: ['#2b1d3a', '#5a3a6b'], floor: ['#6b4a2b', '#4a3220'], decor: ['🏮', '⛩️', '🏮', '🎋'] } },
+    { title: 'かくとうバトル!ロボと たたかえ', rival: { name: 'ロボ', emoji: '🤖', color: '#5f6f8a', bg: ['#0d1b2a', '#1b3a5a'], floor: ['#3a4a5a', '#2a3440'], decor: ['🛰️', '💡', '⚙️', '🔋'] } },
+    { title: 'かくとうバトル!にんじゃに いどめ', rival: { name: 'にんじゃ', emoji: '🥷', color: '#2d2d3a', bg: ['#1a2a1a', '#3a5a3a'], floor: ['#5a4a3a', '#3a3020'], decor: ['🎋', '🌙', '🏯', '🍃'] } },
+  ];
+  const STREET_FIGHT_VARIANTS = [mg('street-fight', randomThemeGame(makeStreetFightGame, FIGHT_RIVALS))];
+
+  // --- フリーキック(ぎじ3D): かべと キーパーを こえて ゴールへ。スワイプの
+  //     むきと はやさ、とちゅうの まがりで カーブを かける ---
+  function makeFreeKickGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const KICKS = 5, CAM_Z = -3, CAM_Y = 1.7, F_RATIO = 0.95;
+        const GOAL_Z = 15, GOAL_HW = 3.66, GOAL_H = 2.44, WALL_Z = 8, BALL_R = 0.11;
+        let kick = 0, goals = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, ball = null, drag = null, net = 0, results = [];
+        let wallX = 0, keeper = { x: 0, tx: 0, dive: 0, react: 0 };
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="fkNo">1/${KICKS}本目</span><span id="fkScore">⚽ 0</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="fkCanvas"></canvas></div>
+          <div class="mg-hint" id="fkHint">ボールから うえへ はらって シュート。はやさで つよさ、ななめで ねらい、とちゅうで まげると カーブ!</div>`;
+        const canvas = container.querySelector('#fkCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 250);
+        const F = W * F_RATIO, HOR = H * 0.42;
+        const noEl = container.querySelector('#fkNo'), scoreEl = container.querySelector('#fkScore'), hint = container.querySelector('#fkHint');
+        const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        function project(x, y, z) { const dz = z - CAM_Z; const s = F / dz; return { x: W / 2 + x * s, y: HOR + (CAM_Y - y) * s, s }; }
+        function setup() { wallX = (Math.random() - 0.5) * 2.4; keeper = { x: (Math.random() - 0.5) * 1.2, tx: 0, dive: 0, react: lerp(0.55, 0.3, difficulty), reach: lerp(1.5, 2.2, difficulty) }; }
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (ball || !running || kick >= KICKS) return; const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, pts: [{ x: p.x, y: p.y, t: performance.now() }] }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointermove', (e) => { if (!drag || e.pointerId !== drag.id) return; const p = mgPointerPos(canvas, e); drag.pts.push({ x: p.x, y: p.y, t: performance.now() }); if (drag.pts.length > 30) drag.pts.shift(); });
+        const release = (e) => {
+          if (!drag || e.pointerId !== drag.id) return;
+          const pts = drag.pts; drag = null;
+          const a = pts[0], b = pts[pts.length - 1];
+          const dy = a.y - b.y, dx = b.x - a.x, dt = Math.max(50, b.t - a.t);
+          if (dy < 30) { say('うえへ はらって シュート!', 900); return; }
+          const speed = Math.hypot(dx, dy) / dt * 1000;
+          const power = clamp(speed / 1600 * 0.6 + dy / 220 * 0.4, 0.4, 1.25);
+          const mid = pts[Math.floor(pts.length / 2)];
+          const curve = clamp(((b.x - mid.x) - (mid.x - a.x)) / 50, -1, 1);
+          const aim = clamp(dx / dy, -0.7, 0.7);
+          ball = { x: 0, y: BALL_R, z: 0, vx: aim * 9 * power, vy: 4.2 + power * 4.6 * (1 - Math.abs(aim) * 0.3), vz: 14 + power * 12, curve: curve * 7, done: false, result: null };
+          kick++; noEl.textContent = Math.min(KICKS, kick) + '/' + KICKS + '本目';
+          keeper.tx = keeper.x; keeper.timer = 0;
+        };
+        canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', release);
+        function step(dt) {
+          if (!ball) return;
+          const b = ball;
+          b.vy -= 9.8 * dt; b.vx += b.curve * dt * (b.z > 3 ? 1 : 0.3);
+          b.x += b.vx * dt; b.y += b.vy * dt; b.z += b.vz * dt;
+          if (b.y < BALL_R && b.vy < 0) { b.y = BALL_R; b.vy = Math.abs(b.vy) * 0.45; b.vx *= 0.8; b.vz *= 0.85; }
+          // かべ
+          if (!b.done && b.z >= WALL_Z - 0.2 && b.z <= WALL_Z + 0.4 && b.y < 1.85 && Math.abs(b.x - wallX) < 1.35) { b.done = true; b.result = 'wall'; b.vz = -b.vz * 0.3; b.vx = (b.x - wallX) * 2; say('🧱 かべに あたった!'); }
+          // キーパー
+          keeper.timer = (keeper.timer || 0) + dt;
+          if (keeper.timer > keeper.react && !b.done) { const tGoal = Math.max(0.01, (GOAL_Z - b.z) / Math.max(1, b.vz)); const predX = b.x + b.vx * tGoal + b.curve * tGoal * tGoal * 0.5; keeper.tx = clamp(predX + (Math.random() - 0.5) * 0.6, -GOAL_HW, GOAL_HW); }
+          keeper.x += clamp(keeper.tx - keeper.x, -keeper.reach * dt * 2.2, keeper.reach * dt * 2.2);
+          if (!b.done && b.z >= GOAL_Z) {
+            b.done = true;
+            const inFrame = Math.abs(b.x) < GOAL_HW && b.y < GOAL_H;
+            const saved = inFrame && Math.abs(b.x - keeper.x) < 0.75 && b.y < 2.1;
+            if (!inFrame) { b.result = 'miss'; say(b.y >= GOAL_H ? 'うえに はずれた…' : 'よこに はずれた…'); b.vz *= 0.3; }
+            else if (saved) { b.result = 'save'; keeper.dive = 1; say('🧤 キーパーに とめられた!'); b.vz = -b.vz * 0.25; b.vx = (b.x - keeper.x) * 3; }
+            else { b.result = 'goal'; goals++; net = 1; scoreEl.textContent = '⚽ ' + goals; say(Math.abs(b.curve) > 3 ? '⚽ カーブが きまった! ゴール!!' : '⚽ ゴール!!', 1500); b.vz *= 0.15; b.vx *= 0.2; }
+            results.push(b.result);
+          }
+          if (b.z > GOAL_Z + 3 || b.z < -2 || (b.done && Math.hypot(b.vx, b.vz) < 0.5)) { ball = null; if (kick >= KICKS) setTimeout(finish, 900); else { setup(); } }
+        }
+        function drawPlayer(x, z, color, head, dive = 0, face = 1) {
+          const p = project(x, 0, z); const s = p.s;
+          ctx.save(); ctx.translate(p.x, p.y);
+          ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(0, 0, 0.35 * s, 0.1 * s, 0, 0, Math.PI * 2); ctx.fill();
+          if (dive) ctx.rotate(face * dive * 1.1);
+          ctx.strokeStyle = '#2b2f3a'; ctx.lineWidth = Math.max(2, 0.12 * s); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-0.1 * s, -0.8 * s); ctx.lineTo(-0.16 * s, 0); ctx.moveTo(0.1 * s, -0.8 * s); ctx.lineTo(0.16 * s, 0); ctx.stroke();
+          ctx.fillStyle = color; mgRoundRect(ctx, -0.26 * s, -1.4 * s, 0.52 * s, 0.65 * s, 0.1 * s);
+          ctx.strokeStyle = color; ctx.beginPath(); ctx.moveTo(-0.24 * s, -1.3 * s); ctx.lineTo(-0.45 * s, dive ? -1.7 * s : -0.9 * s); ctx.moveTo(0.24 * s, -1.3 * s); ctx.lineTo(0.45 * s, dive ? -1.7 * s : -0.9 * s); ctx.stroke();
+          ctx.font = `${0.55 * s}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(head, 0, -1.65 * s);
+          ctx.restore();
+        }
+        function render(now) {
+          if (!ctx) return;
+          const sky = ctx.createLinearGradient(0, 0, 0, HOR); sky.addColorStop(0, '#2b3a6b'); sky.addColorStop(1, '#5e7fc4'); ctx.fillStyle = sky; ctx.fillRect(0, 0, W, HOR + 1);
+          ctx.fillStyle = 'rgba(255,255,255,.12)'; for (let i = 0; i < 60; i++) ctx.fillRect((i * 53) % W, HOR - 22 + (i * 17) % 18, 3, 3);
+          const g = ctx.createLinearGradient(0, HOR, 0, H); g.addColorStop(0, '#2f8f3a'); g.addColorStop(1, '#4fb04a'); ctx.fillStyle = g; ctx.fillRect(0, HOR, W, H - HOR);
+          for (let z = 2; z < GOAL_Z; z += 4) { const a = project(-10, 0, z), b2 = project(-10, 0, z + 2); ctx.fillStyle = 'rgba(0,0,0,.06)'; ctx.fillRect(0, b2.y, W, a.y - b2.y); }
+          // ゴール
+          const gl = project(-GOAL_HW, 0, GOAL_Z), gr = project(GOAL_HW, 0, GOAL_Z), glt = project(-GOAL_HW, GOAL_H, GOAL_Z), grt = project(GOAL_HW, GOAL_H, GOAL_Z);
+          const bl = project(-GOAL_HW, 0, GOAL_Z + 1.5), br = project(GOAL_HW, 0, GOAL_Z + 1.5), blt = project(-GOAL_HW, GOAL_H, GOAL_Z + 1.5), brt = project(GOAL_HW, GOAL_H, GOAL_Z + 1.5);
+          ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1;
+          for (let i = 0; i <= 8; i++) { const t = i / 8; ctx.beginPath(); ctx.moveTo(gl.x + (gr.x - gl.x) * t, glt.y + net * 3); ctx.lineTo(bl.x + (br.x - bl.x) * t, blt.y); ctx.lineTo(bl.x + (br.x - bl.x) * t, bl.y); ctx.stroke(); }
+          for (let i = 0; i <= 5; i++) { const t = i / 5; ctx.beginPath(); ctx.moveTo(gl.x, glt.y + (gl.y - glt.y) * t); ctx.lineTo(bl.x, blt.y + (bl.y - blt.y) * t); ctx.lineTo(br.x, brt.y + (br.y - brt.y) * t); ctx.lineTo(gr.x, grt.y + (gr.y - grt.y) * t); ctx.stroke(); }
+          ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(gl.x, gl.y); ctx.lineTo(glt.x, glt.y); ctx.lineTo(grt.x, grt.y); ctx.lineTo(gr.x, gr.y); ctx.stroke();
+          if (net > 0) net = Math.max(0, net - 0.03);
+          // ペナルティエリアの せん
+          ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 2; const pl = project(-9, 0, GOAL_Z), pr = project(9, 0, GOAL_Z), pfl = project(-9, 0, GOAL_Z - 5.5), pfr = project(9, 0, GOAL_Z - 5.5);
+          ctx.beginPath(); ctx.moveTo(pl.x, pl.y); ctx.lineTo(pfl.x, pfl.y); ctx.lineTo(pfr.x, pfr.y); ctx.lineTo(pr.x, pr.y); ctx.stroke();
+          // キーパー・かべ・ボールを おくから じゅんに
+          drawPlayer(keeper.x, GOAL_Z - 0.6, '#ffd23f', '🧤', keeper.dive, ball && ball.x < keeper.x ? -1 : 1);
+          if (keeper.dive > 0) keeper.dive = Math.max(0, keeper.dive - 0.02);
+          const drawBallAt = () => { if (!ball) return; const b = ball; const sh = project(b.x, 0, b.z); ctx.fillStyle = 'rgba(0,0,0,.3)'; ctx.beginPath(); ctx.ellipse(sh.x, sh.y, 0.16 * sh.s, 0.06 * sh.s, 0, 0, Math.PI * 2); ctx.fill(); const p = project(b.x, b.y, b.z); const r = Math.max(2.5, BALL_R * p.s * 1.4); ctx.font = `${r * 2.4}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('⚽', p.x, p.y); };
+          if (ball && ball.z > WALL_Z) drawBallAt();
+          for (let i = -1; i <= 1; i++) drawPlayer(wallX + i * 0.62, WALL_Z, '#e63946', '🧍');
+          if (ball && ball.z <= WALL_Z) drawBallAt();
+          if (!ball && running && kick < KICKS) {
+            const p = project(0, BALL_R, 0); ctx.font = `${BALL_R * p.s * 3.4}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('⚽', p.x, p.y);
+            if (drag && drag.pts.length > 1) { const a = drag.pts[0], e = drag.pts[drag.pts.length - 1]; ctx.strokeStyle = 'rgba(255,255,255,.75)'; ctx.lineWidth = 3; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x + (e.x - a.x), p.y + (e.y - a.y)); ctx.stroke(); ctx.setLineDash([]); }
+            else { ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 4; ctx.fillText('↑ はらって シュート(まげると カーブ)', W / 2, p.y - 36); ctx.shadowBlur = 0; }
+          }
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.shadowColor = '#000'; ctx.shadowBlur = 3;
+          ctx.fillText(results.map((r) => r === 'goal' ? '⚽' : r === 'save' ? '🧤' : r === 'wall' ? '🧱' : '✖').join(' '), 8, 8); ctx.shadowBlur = 0;
+          if (now < msgUntil) { ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 95, HOR + 8, 190, 28); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, HOR + 22); }
+        }
+        function loop(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.04, (now - last) / 1000); last = now;
+          const sub = 3; for (let i = 0; i < sub; i++) step(dt / sub);
+          render(now);
+          if (now - startTime > 70000) { finish(); return; }
+          rafId = requestAnimationFrame(loop);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          const score = clamp(Math.round(12 + goals * 18 + (goals === KICKS ? 10 : 0)), 10, 100);
+          say(`けっか: ${goals} / ${KICKS} ゴール`, 2000);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 900);
+        }
+        setup();
+        rafId = requestAnimationFrame(loop);
+      },
+    };
+  }
+  const FREE_KICK_VARIANTS = [mg('free-kick-3d', makeFreeKickGame({ title: 'フリーキック!かべと キーパーを こえて ゴールへ' }))];
+
+  // --- タワーディフェンス: みちを あるいてくる てきを、マスに おいた
+  //     タワーで たおす。おかねで タワーを たてて/きょうかして 6ウェーブ まもりきる ---
+  function makeTowerDefenseGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const COLS = 8, ROWS = 7;
+        const PATH = [[0, 1], [1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [2, 3], [1, 3], [1, 4], [1, 5], [2, 5], [3, 5], [4, 5], [5, 5], [5, 4], [5, 3], [5, 2], [6, 2], [7, 2]];
+        const pathSet = new Set(PATH.map(([x, y]) => x + ',' + y));
+        const TOWER_TYPES = { arrow: { name: 'ゆみ', emoji: '🏹', cost: 40, range: 1.9, rate: 0.55, dmg: 3, splash: 0 }, bomb: { name: 'ばくだん', emoji: '💣', cost: 70, range: 1.6, rate: 1.4, dmg: 6, splash: 0.9 }, ice: { name: 'こおり', emoji: '❄️', cost: 55, range: 1.7, rate: 0.9, dmg: 1.5, splash: 0, slow: 0.5 } };
+        const WAVES = 6;
+        let gold = 90, lives = 10, wave = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, selType = 'arrow', selected = null;
+        let towers = [], enemies = [], shots = [], booms = [], spawnQueue = [], spawnTimer = 0, waveActive = false, nextWaveAt = 0, kills = 0;
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="tdWave">ウェーブ 0/${WAVES}</span><span id="tdStat">💰 90　❤️ 10</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="tdCanvas"></canvas></div>
+          <div class="mg-hint" id="tdHint">みち(茶色)いがいの マスを タップして タワーを たてる。タワーを タップで きょうか。ウェーブが くるまえに そなえよう</div>
+          <div class="mg-td-controls"><button class="mg-tap-btn sel" id="tdArrow" data-key="left">🏹 40</button><button class="mg-tap-btn" id="tdBomb" data-key="up">💣 70</button><button class="mg-tap-btn" id="tdIce" data-key="right">❄️ 55</button><button class="mg-tap-btn primary" id="tdNext" data-key="action">つぎの ウェーブ ▶</button></div>`;
+        const canvas = container.querySelector('#tdCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * ROWS / COLS));
+        const CELL = W / COLS;
+        const waveEl = container.querySelector('#tdWave'), statEl = container.querySelector('#tdStat'), hint = container.querySelector('#tdHint');
+        const btns = { arrow: container.querySelector('#tdArrow'), bomb: container.querySelector('#tdBomb'), ice: container.querySelector('#tdIce') };
+        const nextBtn = container.querySelector('#tdNext');
+        const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { statEl.textContent = `💰 ${gold}　❤️ ${lives}`; waveEl.textContent = `ウェーブ ${wave}/${WAVES}`; for (const k in btns) btns[k].classList.toggle('sel', selType === k); };
+        for (const k in btns) btns[k].addEventListener('pointerdown', (e) => { e.preventDefault(); selType = k; selected = null; hud(); });
+        nextBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!waveActive && wave < WAVES) startWave(true); });
+        canvas.addEventListener('pointerdown', (e) => {
+          e.preventDefault(); if (!running) return;
+          const p = mgPointerPos(canvas, e); const cx = Math.floor(p.x / CELL), cy = Math.floor(p.y / CELL);
+          if (cx < 0 || cy < 0 || cx >= COLS || cy >= ROWS) return;
+          const t = towers.find((tw) => tw.cx === cx && tw.cy === cy);
+          if (t) { if (selected === t) { upgrade(t); } else { selected = t; say(`${TOWER_TYPES[t.type].emoji} Lv${t.level}　もういちど タップで きょうか(💰${upgradeCost(t)})`, 1500); } return; }
+          selected = null;
+          if (pathSet.has(cx + ',' + cy)) { say('みちの うえには たてられない', 800); return; }
+          const tt = TOWER_TYPES[selType];
+          if (gold < tt.cost) { say('おかねが たりない…', 800); return; }
+          gold -= tt.cost; towers.push({ cx, cy, type: selType, level: 1, cd: 0 }); hud(); say(`${tt.emoji} ${tt.name}を たてた!`, 700);
+        });
+        const upgradeCost = (t) => 30 + t.level * 25;
+        function upgrade(t) { const c = upgradeCost(t); if (t.level >= 3) { say('もう さいきょう!', 700); return; } if (gold < c) { say('おかねが たりない…', 800); return; } gold -= c; t.level++; hud(); say(`⬆️ Lv${t.level}に きょうか!`, 800); }
+        function startWave(early) {
+          wave++; waveActive = true; hud();
+          if (early && wave > 1) { gold += 15; say(`はやめの ウェーブ! ボーナス💰15`, 1000); }
+          const count = 6 + wave * 3, boss = wave === WAVES;
+          spawnQueue = [];
+          for (let i = 0; i < count; i++) {
+            const fast = Math.random() < 0.25 + wave * 0.05;
+            spawnQueue.push({ hp: (fast ? 5 : 9) * (1 + wave * 0.45) * lerp(0.85, 1.2, difficulty), speed: fast ? 1.5 : 0.9, emoji: fast ? '🐇' : ['👾', '🐌', '🐗', '🦂'][wave % 4], gold: fast ? 4 : 6 });
+          }
+          if (boss) spawnQueue.push({ hp: 140 * lerp(0.85, 1.25, difficulty), speed: 0.55, emoji: '🐉', gold: 40, boss: true });
+          spawnTimer = 0;
+        }
+        function posAlong(d) { const i = Math.min(PATH.length - 2, Math.floor(d)); const t = d - i; const a = PATH[i], b = PATH[i + 1]; return { x: (a[0] + (b[0] - a[0]) * t + 0.5) * CELL, y: (a[1] + (b[1] - a[1]) * t + 0.5) * CELL }; }
+        function update(dt, now) {
+          if (waveActive) {
+            spawnTimer -= dt;
+            if (spawnQueue.length && spawnTimer <= 0) { const e = spawnQueue.shift(); enemies.push({ ...e, maxHp: e.hp, d: 0, slow: 0 }); spawnTimer = e.boss ? 1.2 : 0.75; }
+            if (!spawnQueue.length && !enemies.length) { waveActive = false; if (wave >= WAVES) { finish(true); return; } gold += 25; hud(); say(`ウェーブ ${wave} クリア! 💰+25`, 1400); nextWaveAt = now + 6000; }
+          } else if (wave < WAVES && now > nextWaveAt) startWave(false);
+          for (const e of enemies) {
+            const sp = e.speed * (e.slow > 0 ? 0.5 : 1); if (e.slow > 0) e.slow -= dt;
+            e.d += sp * dt;
+            if (e.d >= PATH.length - 1) { e.dead = true; lives -= e.boss ? 3 : 1; hud(); say('てきが とおりぬけた! ❤️-1', 900); if (lives <= 0) { finish(false); return; } }
+          }
+          enemies = enemies.filter((e) => !e.dead);
+          for (const t of towers) {
+            const tt = TOWER_TYPES[t.type]; t.cd -= dt; if (t.cd > 0) continue;
+            const tx = (t.cx + 0.5) * CELL, ty = (t.cy + 0.5) * CELL, range = tt.range * CELL * (1 + (t.level - 1) * 0.15);
+            let target = null, bestD = -1;
+            for (const e of enemies) { const p = posAlong(e.d); if (Math.hypot(p.x - tx, p.y - ty) <= range && e.d > bestD) { bestD = e.d; target = e; } }
+            if (!target) continue;
+            t.cd = tt.rate / (1 + (t.level - 1) * 0.3);
+            const p = posAlong(target.d);
+            shots.push({ x: tx, y: ty, tx: p.x, ty: p.y, born: now, type: t.type });
+            const dmg = tt.dmg * (1 + (t.level - 1) * 0.6);
+            const hitList = tt.splash ? enemies.filter((e) => { const q = posAlong(e.d); return Math.hypot(q.x - p.x, q.y - p.y) <= tt.splash * CELL; }) : [target];
+            if (tt.splash) booms.push({ x: p.x, y: p.y, born: now });
+            for (const e of hitList) { e.hp -= dmg; if (tt.slow) e.slow = 1.2; if (e.hp <= 0 && !e.dead) { e.dead = true; kills++; gold += e.gold; hud(); } }
+            enemies = enemies.filter((e) => !e.dead);
+          }
+          shots = shots.filter((s) => now - s.born < 120); booms = booms.filter((b) => now - b.born < 300);
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#5fae4a'; ctx.fillRect(0, 0, W, H);
+          for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) { ctx.fillStyle = (x + y) % 2 ? 'rgba(255,255,255,.06)' : 'rgba(0,0,0,.04)'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); }
+          ctx.strokeStyle = '#8b5a2b'; ctx.lineWidth = CELL * 0.72; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.beginPath(); PATH.forEach(([x, y], i) => { const px = (x + 0.5) * CELL, py = (y + 0.5) * CELL; if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); }); ctx.stroke();
+          ctx.strokeStyle = '#a97142'; ctx.lineWidth = CELL * 0.6; ctx.stroke();
+          const s0 = posAlong(0), sE = posAlong(PATH.length - 1.001);
+          ctx.font = `${CELL * 0.6}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🚪', s0.x, s0.y); ctx.fillText('🏰', sE.x, sE.y);
+          for (const t of towers) {
+            const tx = (t.cx + 0.5) * CELL, ty = (t.cy + 0.5) * CELL, tt = TOWER_TYPES[t.type];
+            if (selected === t) { ctx.fillStyle = 'rgba(255,255,255,.18)'; ctx.beginPath(); ctx.arc(tx, ty, tt.range * CELL * (1 + (t.level - 1) * 0.15), 0, Math.PI * 2); ctx.fill(); }
+            ctx.fillStyle = '#d9c9a5'; ctx.beginPath(); ctx.arc(tx, ty, CELL * 0.4, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = '#6b4a2b'; ctx.lineWidth = 2; ctx.stroke();
+            ctx.font = `${CELL * 0.5}px sans-serif`; ctx.fillText(tt.emoji, tx, ty);
+            for (let i = 0; i < t.level; i++) { ctx.fillStyle = '#ffd23f'; ctx.beginPath(); ctx.arc(tx - CELL * 0.25 + i * CELL * 0.25, ty + CELL * 0.36, 2.5, 0, Math.PI * 2); ctx.fill(); }
+          }
+          for (const s of shots) { ctx.strokeStyle = s.type === 'ice' ? '#bdefff' : s.type === 'bomb' ? '#ffb347' : '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(s.x, s.y); ctx.lineTo(s.tx, s.ty); ctx.stroke(); }
+          for (const b of booms) { const t = (now - b.born) / 300; ctx.strokeStyle = `rgba(255,140,40,${1 - t})`; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(b.x, b.y, CELL * 0.9 * t, 0, Math.PI * 2); ctx.stroke(); }
+          for (const e of enemies) {
+            const p = posAlong(e.d); const sz = e.boss ? CELL * 0.85 : CELL * 0.55;
+            ctx.font = `${sz}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            if (e.slow > 0) { ctx.fillStyle = 'rgba(150,220,255,.5)'; ctx.beginPath(); ctx.arc(p.x, p.y, sz * 0.6, 0, Math.PI * 2); ctx.fill(); }
+            ctx.fillText(e.emoji, p.x, p.y);
+            ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(p.x - sz * 0.5, p.y - sz * 0.65, sz, 3); ctx.fillStyle = e.hp / e.maxHp > 0.5 ? '#3ae374' : '#ff5c5c'; ctx.fillRect(p.x - sz * 0.5, p.y - sz * 0.65, sz * clamp(e.hp / e.maxHp, 0, 1), 3);
+          }
+          if (!waveActive && wave < WAVES && running) { const secs = Math.max(0, Math.ceil((nextWaveAt - now) / 1000)); ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 80, 4, 160, 22); ctx.fillStyle = '#fff'; ctx.fillText(wave === 0 ? 'タワーを おいて そなえよう' : `つぎの ウェーブまで ${secs}s`, W / 2, 15); }
+          if (now < msgUntil) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 95, H - 30, 190, 24); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H - 18); }
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          update(dt, now);
+          if (!running) return;
+          render(now);
+          if (now - startTime > 150000) { finish(lives > 0); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish(win) {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = win ? clamp(Math.round(62 + lives * 3.8), 60, 100) : clamp(Math.round(12 + wave * 6 + kills * 0.4), 10, 55);
+          say(win ? `🏆 まもりきった! ❤️${lives} のこし` : `おしろが おちた… ウェーブ ${wave} まで`, 2400);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1000);
+        }
+        nextWaveAt = startTime + 12000;
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const TOWER_DEFENSE_VARIANTS = [mg('tower-defense', makeTowerDefenseGame({ title: 'タワーディフェンス!おしろを 6ウェーブ まもりきれ' }))];
+
+  // --- ローグライク ダンジョン: ターンせいで うごく。まいかい ちがう
+  //     ダンジョンを 3かい おりて、てきと たたかい、アイテムを ひろう ---
+  function makeRoguelikeGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const COLS = 11, ROWS = 11, FLOORS = 3;
+        let floor = 1, map, seen, px, py, hp = 20, maxHp = 20, atk = 3, gold = 0, kills = 0, enemies = [], items = [], stairs, running = true, rafId = null, msg = '', msgUntil = 0, anim = [], log = [], turn = 0, potions = 0, dead = false;
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="rgFloor">B1F</span><span id="rgStat">❤️ 20/20　⚔️ 3　💰 0</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rgCanvas"></canvas></div>
+          <div class="mg-hint" id="rgHint">1マス うごくと てきも うごく。てきに ぶつかって こうげき。🧪は かいふく、⚔️は こうげき力アップ、🪜で つぎの かいへ</div>
+          <div class="mg-tilt-dpad"><button class="mg-tap-btn" id="rgPotion" data-key="action2">🧪 0</button><button class="mg-tap-btn" id="rgUp" data-hold="step" data-key="up">▲</button><button class="mg-tap-btn" id="rgWait" data-key="action">⏳ まつ</button><button class="mg-tap-btn" id="rgLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="rgDown" data-hold="step" data-key="down">▼</button><button class="mg-tap-btn" id="rgRight" data-hold="step" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#rgCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
+        const CELL = W / COLS;
+        const floorEl = container.querySelector('#rgFloor'), statEl = container.querySelector('#rgStat'), hint = container.querySelector('#rgHint'), potionBtn = container.querySelector('#rgPotion');
+        const say = (t, ms = 1500) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { statEl.textContent = `❤️ ${hp}/${maxHp}　⚔️ ${atk}　💰 ${gold}`; floorEl.textContent = 'B' + floor + 'F'; potionBtn.textContent = '🧪 ' + potions; };
+        function genFloor() {
+          map = generateMaze(COLS, ROWS, 10 + floor * 2).map((r) => r.split(''));
+          // すこし ひろい へやを つくる
+          for (let k = 0; k < 3; k++) { const rx = 1 + Math.floor(Math.random() * (COLS - 4)), ry = 1 + Math.floor(Math.random() * (ROWS - 4)); for (let y = ry; y < ry + 3; y++) for (let x = rx; x < rx + 3; x++) map[y][x] = '.'; }
+          seen = Array.from({ length: ROWS }, () => Array(COLS).fill(false));
+          px = 1; py = 1; map[1][1] = '.';
+          const d = mazeBfs(map.map((r) => r.join('')), 1, 1);
+          const cells = []; for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (map[y][x] === '.' && d[y][x] >= 4) cells.push({ x, y, d: d[y][x] });
+          cells.sort((a, b) => b.d - a.d);
+          stairs = cells[0] || { x: COLS - 2, y: ROWS - 2 };
+          const rest = cells.slice(1).sort(() => Math.random() - 0.5);
+          enemies = []; items = [];
+          const nE = 3 + floor + Math.round(difficulty * 2);
+          for (let i = 0; i < nE && rest.length; i++) { const c = rest.pop(); const strong = Math.random() < 0.3 + floor * 0.15; enemies.push({ x: c.x, y: c.y, hp: strong ? 8 + floor * 3 : 4 + floor * 2, maxHp: strong ? 8 + floor * 3 : 4 + floor * 2, atk: strong ? 3 + floor : 1 + floor, emoji: strong ? ['👺', '🐗', '🧟'][floor - 1] : ['🦇', '🐀', '🕷️'][Math.floor(Math.random() * 3)], awake: false, gold: strong ? 12 : 5 }); }
+          for (let i = 0; i < 2 && rest.length; i++) { const c = rest.pop(); items.push({ x: c.x, y: c.y, kind: 'potion', emoji: '🧪' }); }
+          for (let i = 0; i < 3 && rest.length; i++) { const c = rest.pop(); items.push({ x: c.x, y: c.y, kind: 'gold', emoji: '💰' }); }
+          if (rest.length) { const c = rest.pop(); items.push({ x: c.x, y: c.y, kind: 'sword', emoji: '⚔️' }); }
+          reveal();
+          hud();
+        }
+        function reveal() { for (let y = py - 2; y <= py + 2; y++) for (let x = px - 2; x <= px + 2; x++) if (y >= 0 && x >= 0 && y < ROWS && x < COLS && Math.abs(x - px) + Math.abs(y - py) <= 3) seen[y][x] = true; }
+        const free = (x, y) => x >= 0 && y >= 0 && x < COLS && y < ROWS && map[y][x] === '.';
+        function tryMove(dx, dy) {
+          if (!running || dead) return;
+          const nx = px + dx, ny = py + dy;
+          const en = enemies.find((e) => e.x === nx && e.y === ny);
+          if (en) { hitEnemy(en); endTurn(); return; }
+          if (!free(nx, ny)) { say('かべだ', 500); return; }
+          anim.push({ kind: 'move', from: [px, py], born: performance.now() });
+          px = nx; py = ny; reveal();
+          const it = items.find((i) => i.x === px && i.y === py);
+          if (it) { items.splice(items.indexOf(it), 1); if (it.kind === 'potion') { potions++; say('🧪 くすりを ひろった'); } else if (it.kind === 'gold') { gold += 10 + floor * 5; say('💰 おかねを ひろった'); } else { atk += 2; say('⚔️ けんを ひろった! こうげき力+2'); } hud(); }
+          if (px === stairs.x && py === stairs.y) { if (floor >= FLOORS) { finish(true); return; } floor++; say(`🪜 B${floor}Fへ おりた…`, 1400); genFloor(); return; }
+          endTurn();
+        }
+        function hitEnemy(en) {
+          const dmg = atk + Math.floor(Math.random() * 2); en.hp -= dmg; en.awake = true; anim.push({ kind: 'hit', x: en.x, y: en.y, born: performance.now(), text: '-' + dmg });
+          if (en.hp <= 0) { enemies.splice(enemies.indexOf(en), 1); kills++; gold += en.gold; say(`${en.emoji}を たおした! 💰+${en.gold}`, 900); hud(); } else say(`${en.emoji}に ${dmg}ダメージ`, 700);
+        }
+        function endTurn() {
+          turn++;
+          for (const e of enemies) {
+            const dist = Math.abs(e.x - px) + Math.abs(e.y - py);
+            if (dist <= 5) e.awake = true;
+            if (!e.awake) { if (Math.random() < 0.3) { const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]].sort(() => Math.random() - 0.5); for (const [dx, dy] of dirs) if (free(e.x + dx, e.y + dy) && !enemies.some((o) => o.x === e.x + dx && o.y === e.y + dy)) { e.x += dx; e.y += dy; break; } } continue; }
+            if (dist === 1) { const dmg = e.atk + Math.floor(Math.random() * 2); hp -= dmg; anim.push({ kind: 'hit', x: px, y: py, born: performance.now(), text: '-' + dmg, me: true }); say(`${e.emoji}の こうげき! ${dmg}ダメージ`, 800); hud(); if (hp <= 0) { dead = true; finish(false); return; } continue; }
+            const dmap = mazeBfs(map.map((r) => r.join('')), px, py);
+            let best = null;
+            for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const nx = e.x + dx, ny = e.y + dy; if (!free(nx, ny) || enemies.some((o) => o.x === nx && o.y === ny) || (nx === px && ny === py)) continue; if (dmap[ny][nx] >= 0 && (!best || dmap[ny][nx] < best.d)) best = { x: nx, y: ny, d: dmap[ny][nx] }; }
+            if (best && best.d < dmap[e.y][e.x]) { e.x = best.x; e.y = best.y; }
+          }
+        }
+        container.querySelector('#rgUp').addEventListener('pointerdown', (e) => { e.preventDefault(); tryMove(0, -1); });
+        container.querySelector('#rgDown').addEventListener('pointerdown', (e) => { e.preventDefault(); tryMove(0, 1); });
+        container.querySelector('#rgLeft').addEventListener('pointerdown', (e) => { e.preventDefault(); tryMove(-1, 0); });
+        container.querySelector('#rgRight').addEventListener('pointerdown', (e) => { e.preventDefault(); tryMove(1, 0); });
+        container.querySelector('#rgWait').addEventListener('pointerdown', (e) => { e.preventDefault(); if (running && !dead) { hp = Math.min(maxHp, hp + 1); hud(); endTurn(); } });
+        potionBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || dead || potions <= 0) return; potions--; hp = Math.min(maxHp, hp + 10); hud(); say('🧪 HPが 10 かいふく', 900); });
+        let swipe = null;
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 14) { const p = mgPointerPos(canvas, e); const cx = Math.floor(p.x / CELL), cy = Math.floor(p.y / CELL); const ddx = cx - px, ddy = cy - py; if (Math.abs(ddx) + Math.abs(ddy) === 1) tryMove(ddx, ddy); return; } if (Math.abs(dx) > Math.abs(dy)) tryMove(dx < 0 ? -1 : 1, 0); else tryMove(0, dy < 0 ? -1 : 1); });
+        canvas.addEventListener('pointercancel', () => { swipe = null; });
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#0d0b12'; ctx.fillRect(0, 0, W, H);
+          for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
+            if (!seen[y][x]) continue;
+            const inSight = Math.abs(x - px) + Math.abs(y - py) <= 3;
+            const wall = map[y][x] === '#';
+            ctx.fillStyle = wall ? (inSight ? '#4a3f5c' : '#2a2434') : (inSight ? '#8a7a66' : '#4a4238');
+            ctx.fillRect(x * CELL, y * CELL, CELL + 0.5, CELL + 0.5);
+            if (!wall) { ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2); }
+            else { ctx.fillStyle = 'rgba(255,255,255,.08)'; ctx.fillRect(x * CELL, y * CELL, CELL, 3); }
+          }
+          ctx.font = `${CELL * 0.72}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          if (seen[stairs.y][stairs.x]) ctx.fillText('🪜', (stairs.x + 0.5) * CELL, (stairs.y + 0.5) * CELL);
+          for (const it of items) if (seen[it.y][it.x]) ctx.fillText(it.emoji, (it.x + 0.5) * CELL, (it.y + 0.5) * CELL);
+          for (const e of enemies) { if (!seen[e.y][e.x] || Math.abs(e.x - px) + Math.abs(e.y - py) > 4) continue; ctx.fillText(e.emoji, (e.x + 0.5) * CELL, (e.y + 0.5) * CELL); ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(e.x * CELL + 3, e.y * CELL + 2, CELL - 6, 3); ctx.fillStyle = '#ff5c5c'; ctx.fillRect(e.x * CELL + 3, e.y * CELL + 2, (CELL - 6) * clamp(e.hp / e.maxHp, 0, 1), 3); }
+          const mv = anim.find((a) => a.kind === 'move' && now - a.born < 110);
+          let dx = 0, dy = 0; if (mv) { const t = 1 - (now - mv.born) / 110; dx = (mv.from[0] - px) * t; dy = (mv.from[1] - py) * t; }
+          ctx.fillStyle = 'rgba(255,230,150,.18)'; ctx.beginPath(); ctx.arc((px + 0.5 + dx) * CELL, (py + 0.5 + dy) * CELL, CELL * 1.6, 0, Math.PI * 2); ctx.fill();
+          ctx.font = `${CELL * 0.8}px sans-serif`; ctx.fillText(currentSprite(), (px + 0.5 + dx) * CELL, (py + 0.5 + dy) * CELL);
+          anim = anim.filter((a) => now - a.born < 600);
+          for (const a of anim) if (a.kind === 'hit') { const t = (now - a.born) / 600; ctx.globalAlpha = 1 - t; ctx.fillStyle = a.me ? '#ff5c5c' : '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.fillText(a.text, (a.x + 0.5) * CELL, (a.y + 0.2) * CELL - t * 14); ctx.globalAlpha = 1; }
+          if (now < msgUntil) { ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 100, H - 26, 200, 22); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H - 15); }
+        }
+        function loop(now) { if (!running) return; render(now); if (now - startTime > 180000) { finish(false); return; } rafId = requestAnimationFrame(loop); }
+        function finish(win) {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = win ? clamp(Math.round(60 + hp * 1.2 + Math.min(20, gold * 0.3)), 60, 100) : clamp(Math.round(12 + (floor - 1) * 14 + kills * 3 + Math.min(10, gold * 0.2)), 10, 58);
+          say(win ? `🏆 ダンジョンを ぬけた! 💰${gold} たおした${kills}` : dead ? `たおれた… B${floor}F で ちからつきた` : 'じかんぎれ…', 2400);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1000);
+        }
+        genFloor();
+        rafId = requestAnimationFrame(loop);
+      },
+    };
+  }
+  const ROGUELIKE_VARIANTS = [mg('roguelike-dungeon', makeRoguelikeGame({ title: 'ローグライク!ダンジョンを 3かい おりて だっしゅつ' }))];
+
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -13460,6 +13978,11 @@
     ...REAL_FISHING_VARIANTS,
     ...BASKETBALL_VARIANTS,
     ...PING_PONG_VARIANTS,
+    ...CHAIN_PUZZLE_VARIANTS,
+    ...STREET_FIGHT_VARIANTS,
+    ...FREE_KICK_VARIANTS,
+    ...TOWER_DEFENSE_VARIANTS,
+    ...ROGUELIKE_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -13493,6 +14016,11 @@
     ['realFishing', REAL_FISHING_VARIANTS],
     ['basketball', BASKETBALL_VARIANTS],
     ['pingPong', PING_PONG_VARIANTS],
+    ['chainPuzzle', CHAIN_PUZZLE_VARIANTS],
+    ['streetFight', STREET_FIGHT_VARIANTS],
+    ['freeKick', FREE_KICK_VARIANTS],
+    ['towerDefense', TOWER_DEFENSE_VARIANTS],
+    ['roguelike', ROGUELIKE_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -13507,7 +14035,7 @@
     city: [
       { category: 'road', game: makeRoadGame({
         title: 'とかいを はしろう!ラッキーアイテムは キャッチ、しょうがいぶつは よけて',
-        goodItems: ['🍩','☕','🎫','💰'], badItems: ['🐦','🚧','🗑️','⚠️'],
+        goodItems: ['🍩','☕','🎫','💰'], badItems: ['🐦','🚧','🗑️','⚠️'], scene: 'city',
       }) },
     ],
     countryside: [
@@ -13531,24 +14059,24 @@
       { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
     ],
     sea: [
-      { category: 'fishing', game: mg('fishing-sea', makeFishingGame({ title: 'うみで さかなつり!あたりを のがすな' })) },
+      { category: 'fishing', game: mg('fishing-sea', makeRealFishingGame({ title: 'うみで ほんかく さかなつり!あわせて まいて つりあげろ' })) },
     ],
     deepsea: [
-      { category: 'fishing', game: mg('fishing-deepsea', makeFishingGame({ title: 'しんかいフィッシング!なにが かかるか わからない' })) },
+      { category: 'fishing', game: mg('fishing-deepsea', makeRealFishingGame({ title: 'しんかいフィッシング!なにが かかるか わからない', species: DEEPSEA_FISH, waterTop: '#1d5a8a', waterBottom: '#03122a' })) },
     ],
     river_lake: [
-      { category: 'fishing', game: mg('fishing-river', makeFishingGame({ title: 'かわ・みずうみで さかなつり!ながれを よもう' })) },
+      { category: 'fishing', game: mg('fishing-river', makeRealFishingGame({ title: 'かわ・みずうみで さかなつり!ながれを よもう', species: RIVER_FISH, waterTop: '#5fc0b0', waterBottom: '#1c5a5a' })) },
     ],
     jungle: [
       { category: 'road', game: makeRoadGame({
         title: 'ジャングルを かけぬけろ!くだものは とって、とげとヘビは よけて',
-        goodItems: ['🍌','🥭','🥥','⭐'], badItems: ['🐍','🌵','🕸️','⚠️'],
+        goodItems: ['🍌','🥭','🥥','⭐'], badItems: ['🐍','🌵','🕸️','⚠️'], scene: 'jungle',
       }) },
     ],
     desert: [
       { category: 'road', game: makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは とって、とげは よけて',
-        goodItems: ['💧','🍈','⭐','🧢'], badItems: ['🦂','🐍','☠️','🔥'],
+        goodItems: ['💧','🍈','⭐','🧢'], badItems: ['🦂','🐍','☠️','🔥'], scene: 'desert',
       }) },
     ],
   };
@@ -13706,13 +14234,15 @@
     'pinball-physics': 'S', 'haunted-house-3d': 'S', 'fp-dungeon': 'S', 'race-3d': 'S', 'rhythm-highway-3d': 'S',
     'tilt-maze-3d': 'S', 'space-gunner-3d': 'S', 'mini-golf-physics': 'S', 'real-fishing': 'S',
     'bowling-3d': 'S', 'archery-3d': 'S', 'basketball-3d': 'S', 'pingpong-3d': 'S',
+    'chain-puzzle': 'S', 'street-fight': 'S', 'free-kick-3d': 'S', 'tower-defense': 'S', 'roguelike-dungeon': 'S',
+    'road-themed': 'A', 'p3-space': 'A', 'p3-drive': 'A', 'fishing-sea': 'S', 'fishing-deepsea': 'S', 'fishing-river': 'S',
     'downhill-mountain': 'S', 'downhill-snow': 'S',
     'crane-game-3d': 'A', 'falling-block-puzzle': 'A', 'action-boss-3d': 'A', 'creature-capture-3d': 'A',
     'adventure-field': 'A', 'chase-themed': 'A', 'breakout-classic': 'A', 'shooter-themed': 'A',
     'p3-space': 'A', 'p3-drive': 'A', 'surfing-wave': 'A', 'stealth-themed': 'A',
   };
   const MINIGAME_TIER_BY_CATEGORY = {
-    roadRace: 'S', rhythmHighway: 'S', tiltMaze: 'S', spaceGunner: 'S', miniGolf: 'S', realFishing: 'S', basketball: 'S', pingPong: 'S', swipeThrow: 'S', pinball: 'S', hauntedHouse: 'S', firstPersonDungeon: 'S', downhill: 'S',
+    roadRace: 'S', rhythmHighway: 'S', tiltMaze: 'S', spaceGunner: 'S', miniGolf: 'S', realFishing: 'S', basketball: 'S', pingPong: 'S', swipeThrow: 'S', chainPuzzle: 'S', streetFight: 'S', freeKick: 'S', towerDefense: 'S', roguelike: 'S', pinball: 'S', hauntedHouse: 'S', firstPersonDungeon: 'S', downhill: 'S',
     chase: 'A', shooter: 'A', actionBoss: 'A', fallingBlock: 'A', craneGame: 'A', breakout: 'A', miniEscape: 'A', stealth: 'A', fishing: 'A', surfing: 'A', fight: 'A',
     creatureCapture: 'A', adventureField: 'A', perspective3d: 'A', road: 'A', sportsSwing: 'A', dragDecorate: 'A', targetAim: 'A',
   };
