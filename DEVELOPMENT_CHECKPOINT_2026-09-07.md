@@ -994,3 +994,13 @@ Runtime smoke test SUCCESS確認済み。
 - GitHub上のreview submissions 0件、未解決review threads 0件。commit combined status APIのlegacy statusesは0件だが、ActionsのRuntime smoke testはSUCCESSを確認済み。
 - PRは技術的にはmergeableだが、現時点ではdraftのため自動でReady/mergeには変更しない。ユーザー確認後にReady化→最終HEAD CI再確認→mergeの順で進める。
 - PR本文冒頭の「このファイルは現時点ではscript.js/index.htmlから読み込んでいない」という初期説明は、その後の70コミットで実装範囲が拡張された現在状態とは不一致。マージ前にPR本文を現状へ更新する必要あり。
+
+## チェックポイント AI — ミニゲーム操作性の総点検と 3D新作(2026-09-08)
+- ブランチ: `claude/game-improvements-new-titles-s0mqvv`
+- 共通入力レイヤーを `script.js` に追加(`MG_HOLD_PROFILES`/`mgStartHold`/`bindHeldButton`/`createMgCanvas`/`mgPointerPos`/`generateMaze`/`mazeBfs`)。`data-hold="step|fast"` で おしっぱなし連打、`data-key` で PCキーボード。overlay に 1回だけ pointerdown(capture) と keydown/keyup を とりつけている。
+- ピンボール `makePinballGame` を canvas 物理で全面作り直し(旧版は バンパーと天井の あいだで ボールが 永久に はねて フリッパーに 届かず、何もしなくても 目標点に 達していた)。
+- レイキャスト3Dエンジン `createRaycastView`(+`rcMove`/`bindFirstPersonControls`/`pickFarCell`/`markSeen`)を追加し、`makeHauntedHouseGame` と `makeFirstPersonDungeonGame` を それに 載せ替え(ランダム迷路・なめらか移動・ミニマップ・コンパス・ゴーストの BFS追跡)。
+- 新作4本: `makeRoadRaceGame`(race-3d)・`makeRhythmHighwayGame`(rhythm-highway-3d)・`makeTiltMazeGame`(tilt-maze-3d)・`makeSpaceGunnerGame`(space-gunner-3d)。カテゴリ `roadRace`/`rhythmHighway`/`tiltMaze`/`spaceGunner` を `MINIGAME_CATEGORY_GROUPS`・`FEATURED_MINIGAME_CATEGORIES`・`SPOTLIGHT_MINIGAME_IDS` に登録。
+- 既存ゲームの修正: クレーン(おく行きが判定に効く)、ぼうけんフィールド(スワイプ復活・8列はみ出し修正・移動予算26)、ブロックくずし(実dt・スタート猶予・touch-action)、めいろチェイス(hold+スワイプ・時間切れ上限80)、ゲレンデ(衝突-11・ジャンプ中disabled)、しのびあし(猶予・150ms許容・40s打ち切り)、モンスターキャッチ(ドラッグ開始点に投げる・閾値18px)、落ちもの(猶予・hold)、ロード/シューティング(到達不能スポーン停止)、さかなつり(preventDefault)、スポーツ振りぬき(成功/失敗ラベル)、3Dボス(隙の有効時間1.1s)。
+- CSS: `.mg-canvas-wrap`/`.mg-canvas`、`.mg-dpad` を3列グリッド化、`.mg-dpad-mid` の gap:40px 撤廃(3ボタンで画面外に出ていた)、`.mg-fp-controls`/`.mg-race-controls`/`.mg-rhythm-controls`/`.mg-gunner-controls`/`.mg-tilt-dpad`、`.mg-adventure-field` の minmax(0,1fr)。
+- 検証: `node tests/smoke-test.js` OK(38ゲーム起動)。Playwright(Chromium 390px)で 全38ゲームを起動し ボタン連打・ページエラー0・ボタンはみ出し0・横スクロール0 を確認。ピンボールは フリッパー操作で スコアが 積み上がり ゴールに 到達することを 自動操作で確認。
