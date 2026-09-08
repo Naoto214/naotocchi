@@ -1028,3 +1028,8 @@ Runtime smoke test SUCCESS確認済み。
 - 新作5本: `makeChainPuzzleGame`(chain-puzzle)・`makeStreetFightGame`(street-fight、`FIGHT_RIVALS` 3人)・`makeFreeKickGame`(free-kick-3d)・`makeTowerDefenseGame`(tower-defense)・`makeRoguelikeGame`(roguelike-dungeon)。カテゴリ chainPuzzle/streetFight/freeKick/towerDefense/roguelike、すべて S ティア。地域さかなつり3種も S。
 - CSS: `.mg-fight-controls`(6列グリッド)、`.mg-td-controls`(3列+ワイド)。
 - 検証: smoke-test OK(47ゲーム)。Playwright で5本とも操作→反応(パズルの消去、格闘のヒット/ガード、FKのセーブ判定、TDのタワー設置とウェーブ、ローグの移動/戦闘)を確認。全ゲーム一括スイープでページエラー0。
+
+## チェックポイント AN — レース系の速度を遊びやすく(2026-09-08)
+- 3Dレース: MAX_SPEED SEG_LEN*60 → *36、加速 /3.4 → /3.0、遠心力 0.34 → 0.26、コース 9区間 → 6区間、速度表示 ×240 → ×180 km/h。制限時間はそのまま(52〜44s)。
+- レーンラッシュ(ロード/フライト): MAX_SPEED lerp(34,46) → lerp(26,34)。ゲレンデ: 52 → 40。
+- node ハーネス(simrace.js)でアクセル全開・無操作の走行を確認: コース外に落ちても制限時間内にゴール可能。
