@@ -11112,10 +11112,10 @@
       function draw(){
         let html='';
         for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
-          const k=key(xx,yy);let e='·';
-          if(walls.has(k))e='🌲';else if(gemSet.has(k))e='💎';else if(potionSet.has(k))e='🧪';
-          if(occupiedByEnemy(xx,yy))e='👹';if(xx===7&&yy===6)e='🏰';if(xx===x&&yy===y)e=currentSprite();
-          html+=`<span data-x="${xx}" data-y="${yy}">${e}</span>`;
+          const k=key(xx,yy);let e='·',cls='';
+          if(walls.has(k)){e='🌲';cls='wall';}else if(gemSet.has(k)){e='💎';cls='gem';}else if(potionSet.has(k)){e='🧪';cls='potion';}
+          if(occupiedByEnemy(xx,yy)){e='👹';cls='enemy';}if(xx===7&&yy===6){e='🏰';cls='goal';}if(xx===x&&yy===y)e=currentSprite();
+          html+=`<span class="${cls}" data-x="${xx}" data-y="${yy}">${e}</span>`;
         }
         field.innerHTML=html;container.querySelector('#advHp').textContent='❤️'.repeat(Math.max(0,hp));container.querySelector('#advGem').textContent='💎 '+gems+'/4';
         const playerCell=field.querySelector(`[data-x="${x}"][data-y="${y}"]`);if(playerCell)playerCell.classList.add('player-cell');
@@ -11212,106 +11212,157 @@
   // レーンを またいで うごきつづける れんぞくてきな そうさが ひつよう。
   // スキー/スノーボードは 見ためだけの ちがいなので randomThemeGame で
   // 1エントリに とうごうしてある。ゆきやま地域げんてい
-  function makeDownhillGame({ title, playerEmoji, obstacleEmoji }) {
+  // --- ゲレンデすべりおり(canvas ぎじ3D版): カーブする ゲレンデを
+  //     すべりおり、🚩の あいだを くぐり、木と岩を よけ、丸太は ジャンプ ---
+  function makeDownhillGame({ title, rider }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const DURATION_MS = 15000;
-        const speed = lerp(0.42, 0.60, difficulty);
-        const spawnMs = lerp(900, 620, difficulty);
-        let lane = 1, running = true, hits = 0, gatesPassed = 0, totalGates = 0, jumps = 0, jumpClears = 0, spawnCount = 0;
-        let objects = [], rafId, spawnTimer, lastFrame = null;
-        let airborneUntil = 0;
+        const TIME_LIMIT_MS = Math.round(lerp(40000, 34000, difficulty));
+        let position = 0, speed = 0, playerX = 0, steer = 0, steerTarget = 0, touchSteer = null;
+        let hits = 0, gates = 0, gatesTotal = 0, jumpsOk = 0, running = true, rafId = null, last = null, flash = 0, msg = '', msgUntil = 0;
+        let airborneUntil = 0, tumbleUntil = 0, offSnow = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
-        const laneX = [28, 50, 72];
-
         container.innerHTML = `
-          <div class="mg-header"><span id="mgTimer">のこり: 15s</span><span id="mgScore">🚩通過 0/0　🪵ジャンプ成功 0</span></div>
+          <div class="mg-header"><span id="dhTimer">のこり: ${Math.ceil(TIME_LIMIT_MS / 1000)}s</span><span id="dhScore">🚩 0/0　🪵 0</span></div>
           <div class="mg-title">${title}</div>
-          <div class="mg-ski3d-scene" id="mgSki3dScene">
-            <div class="mg-ski3d-sky">🏔️</div>
-            <div class="mg-ski3d-player" id="mgSki3dPlayer">${playerEmoji}</div>
-          </div>
-          <div class="mg-hint">◀ ▶でよける。🪵が横いっぱいに来たらジャンプ必須! 🚩は同じレーンを通ろう</div>
-          <div class="mg-dpad-mid mg-downhill-controls"><button class="mg-tap-btn" id="mgDownhillLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn mg-jump-btn" id="mgDownhillJump" data-key="action">ジャンプ!</button><button class="mg-tap-btn" id="mgDownhillRight" data-hold="step" data-key="right">▶</button></div>`;
-        const scene=container.querySelector('#mgSki3dScene'),player=container.querySelector('#mgSki3dPlayer');
-        const timerEl=container.querySelector('#mgTimer'),scoreEl=container.querySelector('#mgScore');
-        function move(){player.style.left=laneX[lane]+'%';}
-        const left=()=>{lane=Math.max(0,lane-1);move();};
-        const right=()=>{lane=Math.min(2,lane+1);move();};
-        move();
-        container.querySelector('#mgDownhillLeft').addEventListener('pointerdown',(e)=>{e.preventDefault();left();});
-        container.querySelector('#mgDownhillRight').addEventListener('pointerdown',(e)=>{e.preventDefault();right();});
-        container.querySelector('#mgDownhillJump').addEventListener('pointerdown',(e)=>{
-          e.preventDefault();
-          if(!running)return;
-          const now=performance.now();
-          if(now<airborneUntil)return;
-          jumps++;
-          airborneUntil=now+720;
-          const jumpBtn=e.currentTarget;jumpBtn.disabled=true;setTimeout(()=>{if(running)jumpBtn.disabled=false;},720);
-          scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　🪵ジャンプ成功 ${jumpClears}`;
-        });
-        // 画面タップ移動は誤操作が多いため廃止。左右ボタン+ジャンプだけに統一。
-
-        function spawn(){
-          if(!running)return;
-          spawnCount++;
-          const forceJump = spawnCount % 5 === 0;
-          const r=Math.random();
-          const kind=forceJump?'jumpBarrier':(r<.38?'gate':'obstacle');
-          const objLane=kind==='jumpBarrier'?null:Math.floor(Math.random()*3),el=document.createElement('div');
-          el.className='mg-ski3d-object '+kind;
-          el.textContent=kind==='gate'?'🚩':kind==='jumpBarrier'?'🪵🪵🪵':obstacleEmoji;
-          scene.appendChild(el);objects.push({el,lane:objLane,z:0,kind,resolved:false});
-          spawnTimer=setTimeout(spawn,spawnMs);
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="dhCanvas"></canvas></div>
+          <div class="mg-hint" id="dhHint">◀▶(おしっぱなし)か がめんドラッグで ステア。🚩🚩の あいだを とおり、🪵は ジャンプで こえよう</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="dhLeft" data-key="left">◀</button><button class="mg-tap-btn primary" id="dhJump" data-key="action">ジャンプ!</button><button class="mg-tap-btn mg-hold-btn" id="dhRight" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#dhCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 215);
+        const road = createPseudoRoad(ctx, W, H, { roadWidth: 1500, colors: (dark) => (dark ? { grass: '#cfe6f5', road: '#ffffff', rumble: '#a9d3ec', rumbleWidth: 0.05 } : { grass: '#c4def0', road: '#f4fbff', rumble: '#a9d3ec', rumbleWidth: 0.05 }) });
+        const { SEG_LEN, PLAYER_Z, segments } = road;
+        const MAX_SPEED = SEG_LEN * 52, ACCEL = MAX_SPEED / 2.6;
+        road.addRoad(10, 20, 10, 0, -10);
+        for (let i = 0; i < 8; i++) {
+          const dir = Math.random() < 0.5 ? -1 : 1;
+          road.addRoad(10 + Math.floor(Math.random() * 8), 12 + Math.floor(Math.random() * 12), 10 + Math.floor(Math.random() * 8), dir * (1.5 + Math.random() * 2.5 + difficulty), -(10 + Math.random() * 30));
+          if (Math.random() < 0.5) road.addRoad(6, 6 + Math.floor(Math.random() * 10), 6, 0, -(5 + Math.random() * 20));
         }
-        spawnTimer=setTimeout(spawn,MG_ACTION_START_GRACE_MS);
-
-        function frame(now){
-          if(!running)return;
-          if(now<startTime){rafId=requestAnimationFrame(frame);return;}
-          if(lastFrame===null)lastFrame=now;
-          const dt=Math.min(.05,(now-lastFrame)/1000);lastFrame=now;
-          const airborne=now<airborneUntil;
-          player.classList.toggle('airborne',airborne);
-          for(const o of objects){
-            o.z+=speed*dt;
-            const scale=.18+o.z*1.8,y=24+o.z*70;
-            const x=o.kind==='jumpBarrier'?50:50+(laneX[o.lane]-50)*(.15+o.z*.85);
-            o.el.style.left=x+'%';o.el.style.top=y+'%';o.el.style.transform=`translate(-50%,-50%) scale(${scale})`;
-            o.el.style.opacity=Math.min(1,.3+o.z);
-            if(!o.resolved&&o.z>=.84){
-              o.resolved=true;
-              if(o.kind==='gate'){totalGates++;if(o.lane===lane){gatesPassed++;o.el.classList.add('passed');}}
-              else if(o.kind==='jumpBarrier'){
-                if(airborne){jumpClears++;o.el.classList.add('passed');}
-                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),180);}
-              }
-              else if(o.kind==='obstacle'&&o.lane===lane){
-                if(airborne){o.el.classList.add('passed');}
-                else{hits++;scene.classList.add('hit');setTimeout(()=>scene.classList.remove('hit'),140);}
-              }
-              scoreEl.textContent=`🚩通過 ${gatesPassed}/${totalGates}　🪵ジャンプ成功 ${jumpClears}`;
-            }
+        road.addRoad(10, 30, 10, 0, -10);
+        const FINISH_INDEX = segments.length - 12;
+        const items = [];
+        for (let n = 8; n < FINISH_INDEX; n += 2) {
+          if (Math.random() < 0.55) segments[n].sprites.push({ emoji: '🌲', offset: -1.3 - Math.random() * 1.4, size: 0.5 });
+          if (Math.random() < 0.55) segments[n].sprites.push({ emoji: '🌲', offset: 1.3 + Math.random() * 1.4, size: 0.5 });
+        }
+        for (let n = 30; n < FINISH_INDEX - 10; n += Math.floor(lerp(14, 9, difficulty)) + Math.floor(Math.random() * 6)) {
+          const r = Math.random();
+          if (r < 0.45) {
+            const center = (Math.random() - 0.5) * 1.1;
+            const item = { kind: 'gate', z: n * SEG_LEN, center, done: false };
+            items.push(item);
+            segments[n].sprites.push({ emoji: '🚩', offset: center - 0.32, size: 0.24, item });
+            segments[n].sprites.push({ emoji: '🚩', offset: center + 0.32, size: 0.24, item });
+          } else if (r < 0.8) {
+            const off = (Math.random() - 0.5) * 1.6;
+            const item = { kind: 'obstacle', z: n * SEG_LEN, offset: off, done: false };
+            items.push(item);
+            segments[n].sprites.push({ emoji: Math.random() < 0.5 ? '🌲' : '🪨', offset: off, size: 0.3, item });
+          } else {
+            const item = { kind: 'log', z: n * SEG_LEN, done: false };
+            items.push(item);
+            for (let k = -2; k <= 2; k++) segments[n].sprites.push({ emoji: '🪵', offset: k * 0.42, size: 0.28, item });
           }
-          objects=objects.filter(o=>{if(o.z>1.12){o.el.remove();return false;}return true;});
-          const rem=Math.max(0,DURATION_MS-(now-startTime));timerEl.textContent='のこり: '+Math.ceil(rem/1000)+'s';
-          if(rem<=0){end();return;}rafId=requestAnimationFrame(frame);
         }
-        rafId=requestAnimationFrame(frame);
-        function end(){
-          if(!running)return;running=false;cancelAnimationFrame(rafId);clearTimeout(spawnTimer);
-          const gateScore=totalGates?gatesPassed/totalGates*45:20;
-          const jumpScore=Math.min(35,jumpClears*12);
-          onComplete(clamp(Math.round(25+gateScore+jumpScore-hits*11),5,100));
+        for (let n = FINISH_INDEX; n < FINISH_INDEX + 2; n++) { segments[n].sprites.push({ emoji: '🏁', offset: -1.1, size: 0.4 }); segments[n].sprites.push({ emoji: '🏁', offset: 1.1, size: 0.4 }); }
+        const timerEl = container.querySelector('#dhTimer'), scoreEl = container.querySelector('#dhScore'), hint = container.querySelector('#dhHint'), jumpBtn = container.querySelector('#dhJump');
+        let leftHeld = false, rightHeld = false;
+        bindHeldButton(container.querySelector('#dhLeft'), (v) => { leftHeld = v; });
+        bindHeldButton(container.querySelector('#dhRight'), (v) => { rightHeld = v; });
+        function jump() {
+          const now = performance.now();
+          if (!running || now < startTime || now < airborneUntil || now < tumbleUntil) return;
+          airborneUntil = now + 760;
+          jumpBtn.disabled = true; setTimeout(() => { if (running) jumpBtn.disabled = false; }, 760);
         }
-      }
+        jumpBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); jump(); });
+        let drag = null;
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} drag = { x: e.clientX, y: e.clientY, moved: 0 }; touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });
+        canvas.addEventListener('pointermove', (e) => { if (!drag) return; drag.moved += Math.abs(e.clientX - drag.x); touchSteer = clamp((mgPointerPos(canvas, e).nx - 0.5) * 2.6, -1, 1); });
+        const endTouch = (e) => { if (drag && drag.moved < 6 && e.clientY - drag.y < -20) jump(); drag = null; touchSteer = null; };
+        canvas.addEventListener('pointerup', endTouch); canvas.addEventListener('pointercancel', endTouch);
+        const say = (t, ms = 1100) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { scoreEl.textContent = `🚩 ${gates}/${gatesTotal}　🪵 ${jumpsOk}`; };
+        function render(now) {
+          if (!ctx) return;
+          const skyG = ctx.createLinearGradient(0, 0, 0, H * 0.5); skyG.addColorStop(0, '#6fb8ff'); skyG.addColorStop(1, '#dff1ff');
+          ctx.fillStyle = skyG; ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = '#eef6fb';
+          ctx.beginPath(); ctx.moveTo(0, H * 0.42); for (let i = 0; i <= 6; i++) ctx.lineTo(i * W / 6 + ((position / 900) % (W / 6)) * 0 - 0, H * 0.42 - [18, 40, 26, 48, 30, 44, 20][i]); ctx.lineTo(W, H * 0.42); ctx.closePath(); ctx.fill();
+          road.render(position, playerX);
+          const air = now < airborneUntil ? Math.sin(((airborneUntil - now) / 760) * Math.PI) : 0;
+          const tumble = now < tumbleUntil;
+          ctx.save();
+          if (tumble) { ctx.translate(W / 2, H - 10); ctx.rotate(Math.sin(now / 40) * 0.5); ctx.translate(-W / 2, -(H - 10)); }
+          drawRider(ctx, W / 2 + steer * 6, H - 8, 34, rider, steer, air);
+          ctx.restore();
+          if (air > 0) { ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 4; ctx.fillText('JUMP!', W / 2, H - 70); ctx.shadowBlur = 0; }
+          const progress = clamp((position + PLAYER_Z) / (FINISH_INDEX * SEG_LEN), 0, 1);
+          ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(8, 8, W - 16, 8);
+          ctx.fillStyle = '#7dff9a'; ctx.fillRect(8, 8, (W - 16) * progress, 8);
+          ctx.font = '11px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 3;
+          ctx.fillText('🏁 ' + Math.round(progress * 100) + '%　' + Math.round(speed / MAX_SPEED * 80) + ' km/h', 8, 19); ctx.shadowBlur = 0;
+          if (flash > 0) { ctx.fillStyle = `rgba(255,255,255,${flash})`; ctx.fillRect(0, 0, W, H); flash = Math.max(0, flash - 0.05); }
+          if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(W / 2 - 90, H / 2 - 40, 180, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2 - 27); }
+          if (now < startTime) { ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#fff'; ctx.shadowColor = '#000'; ctx.shadowBlur = 6; ctx.fillText('READY…', W / 2, H / 2 - 30); ctx.shadowBlur = 0; }
+        }
+        function update(dt, now) {
+          const speedPct = speed / MAX_SPEED;
+          const seg = road.findSegment(position + PLAYER_Z);
+          const airborne = now < airborneUntil, tumbling = now < tumbleUntil;
+          steerTarget = touchSteer != null ? touchSteer : (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0);
+          steer += (steerTarget - steer) * Math.min(1, dt * 8);
+          position += speed * dt;
+          playerX += steer * dt * 2.3 * speedPct * (airborne ? 0.45 : 1);
+          playerX -= dt * 1.6 * speedPct * speedPct * seg.curve * 0.3;
+          if (!tumbling) speed += ACCEL * dt * (1 - Math.abs(steer) * 0.25); else speed -= MAX_SPEED * 1.5 * dt;
+          if (Math.abs(playerX) > 1) { offSnow += dt; speed = Math.min(speed, MAX_SPEED * 0.42); }
+          playerX = clamp(playerX, -1.8, 1.8);
+          speed = clamp(speed, 0, MAX_SPEED);
+          const pz = position + PLAYER_Z;
+          for (const it of items) {
+            if (it.done || it.z > pz || it.z < pz - SEG_LEN * 1.5) continue;
+            it.done = true;
+            if (it.kind === 'gate') { gatesTotal++; if (Math.abs(playerX - it.center) < 0.32) { gates++; say('🚩 ゲート通過!', 700); } else say('ゲートを はずした…', 900); }
+            else if (it.kind === 'obstacle') { if (!airborne && Math.abs(playerX - it.offset) < 0.28) { hits++; tumbleUntil = now + 650; flash = 0.6; say('💥 ぶつかった!'); } }
+            else if (it.kind === 'log') { if (airborne) { jumpsOk++; say('🪵 ジャンプ せいこう!', 800); } else if (Math.abs(playerX) < 1.05) { hits++; tumbleUntil = now + 650; flash = 0.6; say('🪵 まるたに つまずいた!'); } }
+            hud();
+          }
+          if (pz >= FINISH_INDEX * SEG_LEN) finish(true);
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          if (now >= startTime) update(dt, now);
+          if (!running) return;
+          const rem = Math.max(0, TIME_LIMIT_MS - Math.max(0, now - startTime));
+          timerEl.textContent = 'のこり: ' + Math.ceil(rem / 1000) + 's';
+          render(now);
+          if (rem <= 0) { finish(false); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish(win) {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const progress = clamp((position + PLAYER_Z) / (FINISH_INDEX * SEG_LEN), 0, 1);
+          const gateRatio = gatesTotal ? gates / gatesTotal : 0.5;
+          let score;
+          if (win) { score = clamp(45 + gateRatio * 35 + Math.min(20, jumpsOk * 5) - hits * 6, 30, 100); say('🏁 ゴール! ゲート ' + gates + '/' + gatesTotal); }
+          else { score = clamp(10 + progress * 40 + gateRatio * 10, 10, 55); say('タイムアップ… ' + Math.round(progress * 100) + '% まで すべった'); }
+          render(performance.now());
+          setTimeout(() => onComplete(Math.round(score)), 800);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
     };
   }
   const DOWNHILL_THEMES = [
-    { title: 'スキーで ゲレンデを すべりおりよう!', playerEmoji: '⛷️', obstacleEmoji: '🌲' },
-    { title: 'スノーボードで ゲレンデを すべりおりよう!', playerEmoji: '🏂', obstacleEmoji: '🪨' },
+    { title: 'スキーで ゲレンデを すべりおりよう!', rider: { kind: 'ski', board: '#ff5a5a', jacket: '#2f6fed', helmet: '#f1f1f1' } },
+    { title: 'スノーボードで ゲレンデを すべりおりよう!', rider: { kind: 'board', board: '#ffb703', jacket: '#e63946', helmet: '#222' } },
   ];
 
   // --- 5. サーフィン(なみに のる タイミング→バランスの2だんかい) ---
@@ -11582,8 +11633,8 @@
         <div class="mg-header"><span id="fbTimer">のこり: 32s</span><span id="fbScore">ライン 0　0pt</span></div>
         <div class="mg-title">ブロックパズル!そろえて消そう</div>
         <div class="mg-falling-wrap"><div class="mg-falling-board" id="fbBoard"></div></div>
-        <div class="mg-hint" id="fbHint">◀ ▶で移動　↻で回転　▼で一気に落とす</div>
-        <div class="mg-falling-controls"><button class="mg-tap-btn" id="fbLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="fbRotate" data-key="up">↻</button><button class="mg-tap-btn" id="fbDrop" data-key="down">▼ おとす</button><button class="mg-tap-btn" id="fbRight" data-hold="step" data-key="right">▶</button></div>`;
+        <div class="mg-hint" id="fbHint">◀▶で移動(おしっぱなしOK)　↻で回転　▼おしっぱなしで はやく さげる　⏬で一気に</div>
+        <div class="mg-falling-controls"><button class="mg-tap-btn" id="fbLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="fbRight" data-hold="step" data-key="right">▶</button><button class="mg-tap-btn fb-rotate" id="fbRotate" data-key="up">↻ かいてん</button><button class="mg-tap-btn fb-soft" id="fbSoft" data-hold="fast" data-key="down">▼ さげる</button><button class="mg-tap-btn fb-hard" id="fbDrop" data-key="action">⏬ いっきに</button></div>`;
       const boardEl=container.querySelector('#fbBoard'),hint=container.querySelector('#fbHint'),timer=container.querySelector('#fbTimer'),scoreEl=container.querySelector('#fbScore');
       function cloneShape(shape){return shape.map(r=>r.slice());}
       function spawn(){piece=cloneShape(SHAPES[Math.floor(Math.random()*SHAPES.length)]);px=Math.floor((W-piece[0].length)/2);py=0;if(collides(piece,px,py)){finish();return;}render();}
@@ -11600,6 +11651,7 @@
       container.querySelector('#fbRight').onpointerdown=e=>{e.preventDefault();move(1);};
       container.querySelector('#fbRotate').onpointerdown=e=>{e.preventDefault();rotate();};
       container.querySelector('#fbDrop').onpointerdown=e=>{e.preventDefault();hardDrop();};
+      container.querySelector('#fbSoft').onpointerdown=e=>{e.preventDefault();softDrop();};
       let swipeStart=null;
       boardEl.onpointerdown=e=>{e.preventDefault();swipeStart={x:e.clientX,y:e.clientY};try{boardEl.setPointerCapture(e.pointerId);}catch(err){}};
       boardEl.onpointerup=e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.max(Math.abs(dx),Math.abs(dy))<18){rotate();return;}if(Math.abs(dx)>Math.abs(dy))move(dx<0?-1:1);else if(dy>0)hardDrop();};
@@ -11944,57 +11996,142 @@
   // (すべて canvas 2D + requestAnimationFrame。外部ライブラリなし)
   // ================================================================
 
+  // --- ぎじ3D ロードエンジン(3Dレース・ゲレンデ きょうつう) ---
+  // セグメントごとの カーブ/おかを カメラから とうえいして、手前から
+  // おくへ ならぶ 台形で 道を 描く。スプライトは 道はば きじゅんの
+  // offset(0=まん中, ±1=道はし)と size(道はば に たいする わりあい)で おく
+  function createPseudoRoad(ctx, W, H, opts) {
+    const SEG_LEN = 200, ROAD_W = opts.roadWidth || 1100, RUMBLE = 3, CAM_H = 1000, DRAW_DIST = opts.drawDistance || 70;
+    const CAM_DEPTH = 1 / Math.tan((100 / 2) * Math.PI / 180);
+    const PLAYER_Z = CAM_H * CAM_DEPTH;
+    const segments = [];
+    const easeIn = (a, b, p) => a + (b - a) * p * p;
+    const easeInOut = (a, b, p) => a + (b - a) * ((-Math.cos(p * Math.PI) / 2) + 0.5);
+    const lastY = () => (segments.length ? segments[segments.length - 1].p2.world.y : 0);
+    function addSeg(curve, y) {
+      const n = segments.length;
+      segments.push({ index: n, p1: { world: { y: lastY(), z: n * SEG_LEN }, camera: {}, screen: {} }, p2: { world: { y, z: (n + 1) * SEG_LEN }, camera: {}, screen: {} }, curve, sprites: [], dynamic: [], dark: Math.floor(n / RUMBLE) % 2 === 0, clip: 0 });
+    }
+    function addRoad(enter, hold, leave, curve, hill) {
+      const startY = lastY(), endY = startY + hill * SEG_LEN, total = enter + hold + leave;
+      for (let n = 0; n < enter; n++) addSeg(easeIn(0, curve, n / enter), easeInOut(startY, endY, n / total));
+      for (let n = 0; n < hold; n++) addSeg(curve, easeInOut(startY, endY, (enter + n) / total));
+      for (let n = 0; n < leave; n++) addSeg(easeInOut(curve, 0, n / leave), easeInOut(startY, endY, (enter + hold + n) / total));
+    }
+    const findSegment = (z) => segments[Math.floor(Math.max(0, z) / SEG_LEN) % segments.length];
+    const trackLength = () => segments.length * SEG_LEN;
+    function project(p, camX, camY, camZ) {
+      p.camera.x = (p.world.x || 0) - camX; p.camera.y = p.world.y - camY; p.camera.z = p.world.z - camZ;
+      p.screen.scale = CAM_DEPTH / Math.max(1, p.camera.z);
+      p.screen.x = W / 2 + p.screen.scale * p.camera.x * W / 2;
+      p.screen.y = H / 2 - p.screen.scale * p.camera.y * H / 2;
+      p.screen.w = p.screen.scale * ROAD_W * W / 2;
+    }
+    function polygon(x1, y1, x2, y2, x3, y3, x4, y4, color) { ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.lineTo(x3, y3); ctx.lineTo(x4, y4); ctx.closePath(); ctx.fill(); }
+    function drawSegment(seg) {
+      const p1 = seg.p1.screen, p2 = seg.p2.screen;
+      const c = opts.colors(seg.dark);
+      const r1 = p1.w * (c.rumbleWidth || 1 / 6), r2 = p2.w * (c.rumbleWidth || 1 / 6), l1 = p1.w / 28, l2 = p2.w / 28;
+      ctx.fillStyle = c.grass; ctx.fillRect(0, p2.y, W, p1.y - p2.y);
+      if (c.rumble) {
+        polygon(p1.x - p1.w - r1, p1.y, p1.x - p1.w, p1.y, p2.x - p2.w, p2.y, p2.x - p2.w - r2, p2.y, c.rumble);
+        polygon(p1.x + p1.w + r1, p1.y, p1.x + p1.w, p1.y, p2.x + p2.w, p2.y, p2.x + p2.w + r2, p2.y, c.rumble);
+      }
+      polygon(p1.x - p1.w, p1.y, p1.x + p1.w, p1.y, p2.x + p2.w, p2.y, p2.x - p2.w, p2.y, c.road);
+      if (c.lane) polygon(p1.x - l1, p1.y, p1.x + l1, p1.y, p2.x + l2, p2.y, p2.x - l2, p2.y, c.lane);
+    }
+    // position: カメラの きょり、playerX: 道はば きじゅんの よこ位置(-1..1 が 道の うえ)
+    function render(position, playerX) {
+      const baseSeg = findSegment(position);
+      const basePercent = (position % SEG_LEN) / SEG_LEN;
+      const playerSeg = findSegment(position + PLAYER_Z);
+      const playerPercent = ((position + PLAYER_Z) % SEG_LEN) / SEG_LEN;
+      const playerY = playerSeg.p1.world.y + (playerSeg.p2.world.y - playerSeg.p1.world.y) * playerPercent;
+      let maxy = H, x = 0, dx = -(baseSeg.curve * basePercent);
+      const len = trackLength();
+      for (let n = 0; n < DRAW_DIST; n++) {
+        const seg = segments[(baseSeg.index + n) % segments.length];
+        const looped = seg.index < baseSeg.index;
+        seg.clip = maxy;
+        project(seg.p1, playerX * ROAD_W - x, playerY + CAM_H, position - (looped ? len : 0));
+        x += dx; dx += seg.curve;
+        project(seg.p2, playerX * ROAD_W - x, playerY + CAM_H, position - (looped ? len : 0));
+        if (seg.p1.camera.z <= CAM_DEPTH || seg.p2.screen.y >= seg.p1.screen.y || seg.p2.screen.y >= maxy) continue;
+        drawSegment(seg);
+        maxy = seg.p1.screen.y;
+      }
+      ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      for (let n = DRAW_DIST - 1; n > 0; n--) {
+        const seg = segments[(baseSeg.index + n) % segments.length];
+        if (seg.p1.camera.z <= CAM_DEPTH) continue;
+        const scale = seg.p1.screen.scale;
+        const drawOne = (s) => {
+          const sx = seg.p1.screen.x + scale * s.offset * ROAD_W * W / 2;
+          const sy = seg.p1.screen.y;
+          if (sy > seg.clip + 2) return;
+          const px = Math.max(3, scale * ROAD_W * W / 2 * s.size);
+          if (s.draw) s.draw(ctx, sx, sy, px, s);
+          else { ctx.font = `${px}px sans-serif`; ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+        };
+        for (const s of seg.sprites) drawOne(s);
+        for (const s of seg.dynamic) drawOne(s);
+      }
+      return { baseSeg, playerSeg, playerY };
+    }
+    return { SEG_LEN, ROAD_W, PLAYER_Z, segments, addRoad, addSeg, lastY, findSegment, trackLength, render };
+  }
+  function mgRoundRect(ctx, x, y, w, h, r) {
+    const rr = Math.min(r, w / 2, h / 2);
+    ctx.beginPath(); ctx.moveTo(x + rr, y); ctx.lineTo(x + w - rr, y); ctx.quadraticCurveTo(x + w, y, x + w, y + rr);
+    ctx.lineTo(x + w, y + h - rr); ctx.quadraticCurveTo(x + w, y + h, x + w - rr, y + h); ctx.lineTo(x + rr, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - rr); ctx.lineTo(x, y + rr); ctx.quadraticCurveTo(x, y, x + rr, y); ctx.closePath(); ctx.fill();
+  }
+  function mgShade(hex, k) {
+    const n = parseInt(hex.slice(1), 16);
+    const r = Math.min(255, ((n >> 16) & 255) * k), g = Math.min(255, ((n >> 8) & 255) * k), b = Math.min(255, (n & 255) * k);
+    return `rgb(${r | 0},${g | 0},${b | 0})`;
+  }
+  // うしろから 見た くるま(しんこう方向を むいている)。x,y は そこの まん中
+  function drawRearCar(ctx, x, y, w, color, lean = 0, sporty = false) {
+    const h = w * 0.62;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(lean * 0.08);
+    ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(0, -h * 0.02, w * 0.56, h * 0.12, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#1b1b21'; mgRoundRect(ctx, -w * 0.52, -h * 0.42, w * 0.18, h * 0.44, w * 0.04); mgRoundRect(ctx, w * 0.34, -h * 0.42, w * 0.18, h * 0.44, w * 0.04);
+    ctx.fillStyle = color; mgRoundRect(ctx, -w * 0.46, -h * 0.78, w * 0.92, h * 0.72, w * 0.08);
+    ctx.fillStyle = mgShade(color, 0.72); mgRoundRect(ctx, -w * 0.46, -h * 0.3, w * 0.92, h * 0.22, w * 0.04);
+    if (sporty) { ctx.fillStyle = mgShade(color, 0.6); mgRoundRect(ctx, -w * 0.42, -h * 1.02, w * 0.84, h * 0.08, w * 0.02); ctx.fillRect(-w * 0.4, -h * 1.02, w * 0.05, h * 0.26); ctx.fillRect(w * 0.35, -h * 1.02, w * 0.05, h * 0.26); }
+    ctx.fillStyle = mgShade(color, 0.85); mgRoundRect(ctx, -w * 0.32, -h * 1.06, w * 0.64, h * 0.4, w * 0.08);
+    ctx.fillStyle = 'rgba(70,90,120,.92)'; mgRoundRect(ctx, -w * 0.28, -h * 1.0, w * 0.56, h * 0.28, w * 0.05);
+    ctx.fillStyle = '#ff5a4a'; mgRoundRect(ctx, -w * 0.42, -h * 0.66, w * 0.16, h * 0.13, w * 0.02); mgRoundRect(ctx, w * 0.26, -h * 0.66, w * 0.16, h * 0.13, w * 0.02);
+    ctx.fillStyle = '#e8e8f0'; ctx.fillRect(-w * 0.1, -h * 0.5, w * 0.2, h * 0.1);
+    ctx.restore();
+  }
+  // うしろから 見た スキーヤー/スノーボーダー。lean で かたむく、air で うかぶ
+  function drawRider(ctx, x, y, w, style, lean = 0, air = 0) {
+    const h = w * 1.35;
+    ctx.save(); ctx.translate(x, y);
+    ctx.fillStyle = 'rgba(0,0,0,.28)'; ctx.beginPath(); ctx.ellipse(0, 0, w * 0.5 * (1 - air * 0.35), h * 0.08 * (1 - air * 0.35), 0, 0, Math.PI * 2); ctx.fill();
+    ctx.translate(0, -air * h * 0.55); ctx.rotate(lean * 0.35);
+    ctx.fillStyle = style.board;
+    if (style.kind === 'ski') { mgRoundRect(ctx, -w * 0.42, -h * 0.08, w * 0.3, h * 0.08, w * 0.04); mgRoundRect(ctx, w * 0.12, -h * 0.08, w * 0.3, h * 0.08, w * 0.04); }
+    else { mgRoundRect(ctx, -w * 0.5, -h * 0.1, w * 1.0, h * 0.1, w * 0.06); }
+    ctx.fillStyle = '#2b2f3a'; mgRoundRect(ctx, -w * 0.28, -h * 0.5, w * 0.2, h * 0.45, w * 0.05); mgRoundRect(ctx, w * 0.08, -h * 0.5, w * 0.2, h * 0.45, w * 0.05);
+    ctx.fillStyle = style.jacket; mgRoundRect(ctx, -w * 0.34, -h * 0.95, w * 0.68, h * 0.5, w * 0.12);
+    ctx.fillStyle = mgShade(style.jacket, 0.75); ctx.fillRect(-w * 0.34, -h * 0.72, w * 0.68, h * 0.06);
+    ctx.fillStyle = style.helmet; ctx.beginPath(); ctx.arc(0, -h * 1.05, w * 0.2, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#ffe1b8'; ctx.fillRect(-w * 0.12, -h * 1.02, w * 0.24, h * 0.07);
+    if (style.kind === 'ski') { ctx.strokeStyle = '#888'; ctx.lineWidth = Math.max(1, w * 0.04); ctx.beginPath(); ctx.moveTo(-w * 0.4, -h * 0.75); ctx.lineTo(-w * 0.5, -h * 0.1); ctx.moveTo(w * 0.4, -h * 0.75); ctx.lineTo(w * 0.5, -h * 0.1); ctx.stroke(); }
+    ctx.restore();
+  }
+
   // --- 3Dレース: ぎじ3Dの ロードを はしり、カーブの えんしんりょくと
   //     こうつうを さばきながら 時間内に ゴールを めざす ---
-  function makeRoadRaceGame({ title, playerEmoji, trafficEmojis, sceneryEmojis, sky, ground, road }) {
+  function makeRoadRaceGame({ title, playerColor, trafficColors, sceneryEmojis, sky, ground, road: roadColors, rumble }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const SEG_LEN = 200, ROAD_W = 1100, RUMBLE = 3, CAM_H = 1000, DRAW_DIST = 70, FOV = 100;
-        const CAM_DEPTH = 1 / Math.tan((FOV / 2) * Math.PI / 180);
-        const PLAYER_Z = CAM_H * CAM_DEPTH;
-        const MAX_SPEED = SEG_LEN * 60;
-        const ACCEL = MAX_SPEED / 3.4, COAST = -MAX_SPEED / 4.5, OFF_DECEL = -MAX_SPEED / 1.4, OFF_LIMIT = MAX_SPEED / 4;
-        const CENTRIFUGAL = 0.34;
         const TIME_LIMIT_MS = Math.round(lerp(52000, 44000, difficulty));
-        const segments = [];
-        const easeIn = (a, b, p) => a + (b - a) * p * p;
-        const easeInOut = (a, b, p) => a + (b - a) * ((-Math.cos(p * Math.PI) / 2) + 0.5);
-        function lastY() { return segments.length ? segments[segments.length - 1].p2.world.y : 0; }
-        function addSeg(curve, y) {
-          const n = segments.length;
-          segments.push({ index: n, p1: { world: { y: lastY(), z: n * SEG_LEN }, camera: {}, screen: {} }, p2: { world: { y, z: (n + 1) * SEG_LEN }, camera: {}, screen: {} }, curve, sprites: [], cars: [], dark: Math.floor(n / RUMBLE) % 2 === 0 });
-        }
-        function addRoad(enter, hold, leave, curve, hill) {
-          const startY = lastY(), endY = startY + hill * SEG_LEN, total = enter + hold + leave;
-          for (let n = 0; n < enter; n++) addSeg(easeIn(0, curve, n / enter), easeInOut(startY, endY, n / total));
-          for (let n = 0; n < hold; n++) addSeg(curve, easeInOut(startY, endY, (enter + n) / total));
-          for (let n = 0; n < leave; n++) addSeg(easeInOut(curve, 0, n / leave), easeInOut(startY, endY, (enter + hold + n) / total));
-        }
-        addRoad(10, 25, 10, 0, 0);
-        const pieces = 9;
-        for (let i = 0; i < pieces; i++) {
-          const dir = Math.random() < 0.5 ? -1 : 1;
-          const curve = dir * (2 + Math.random() * 3 + difficulty * 1.5);
-          const hill = (Math.random() - 0.5) * 60;
-          addRoad(12 + Math.floor(Math.random() * 10), 14 + Math.floor(Math.random() * 14), 12 + Math.floor(Math.random() * 10), curve, hill);
-          if (Math.random() < 0.6) addRoad(8, 8 + Math.floor(Math.random() * 12), 8, 0, (Math.random() - 0.5) * 40);
-        }
-        addRoad(10, 40, 10, 0, -lastY() / SEG_LEN);
-        const FINISH_INDEX = segments.length - 12;
-        const TRACK_LEN = segments.length * SEG_LEN;
-        for (let n = 0; n < FINISH_INDEX; n += 3) {
-          if (Math.random() < 0.7) segments[n].sprites.push({ emoji: sceneryEmojis[Math.floor(Math.random() * sceneryEmojis.length)], offset: -1.4 - Math.random() * 1.6 });
-          if (Math.random() < 0.7) segments[n].sprites.push({ emoji: sceneryEmojis[Math.floor(Math.random() * sceneryEmojis.length)], offset: 1.4 + Math.random() * 1.6 });
-        }
-        for (let n = FINISH_INDEX; n < FINISH_INDEX + 2; n++) { segments[n].sprites.push({ emoji: '🏁', offset: -1.25 }); segments[n].sprites.push({ emoji: '🏁', offset: 1.25 }); }
-        const cars = [];
-        const carCount = Math.round(lerp(9, 16, difficulty));
-        for (let i = 0; i < carCount; i++) {
-          const z = (30 + Math.random() * (FINISH_INDEX - 45)) * SEG_LEN;
-          if (cars.some((c) => Math.abs(c.z - z) < SEG_LEN * 5)) { i--; continue; }
-          cars.push({ z, offset: (Math.random() < 0.5 ? -1 : 1) * (0.15 + Math.random() * 0.5), speed: MAX_SPEED * (0.28 + Math.random() * 0.3), emoji: trafficEmojis[Math.floor(Math.random() * trafficEmojis.length)] });
-        }
+        const CENTRIFUGAL = 0.34;
         let position = 0, speed = 0, playerX = 0, steer = 0, steerTarget = 0, accelHeld = false, touchAccel = false, touchSteer = null;
         let hits = 0, offroadTime = 0, running = true, rafId = null, last = null, flash = 0, msg = '', msgUntil = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -12006,6 +12143,33 @@
           <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="rcLeft" data-key="left">◀</button><button class="mg-tap-btn mg-hold-btn primary" id="rcAccel" data-key="action">アクセル</button><button class="mg-tap-btn mg-hold-btn" id="rcRight" data-key="right">▶</button></div>`;
         const canvas = container.querySelector('#rcCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 215);
+        const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: ground[0], rumble: rumble[0], road: roadColors[0], lane: '#fff8c8' } : { grass: ground[1], rumble: rumble[1], road: roadColors[1] }) });
+        const { SEG_LEN, PLAYER_Z, segments } = road;
+        const MAX_SPEED = SEG_LEN * 60;
+        const ACCEL = MAX_SPEED / 3.4, COAST = -MAX_SPEED / 4.5, OFF_DECEL = -MAX_SPEED / 1.4, OFF_LIMIT = MAX_SPEED / 4;
+        road.addRoad(10, 25, 10, 0, 0);
+        for (let i = 0; i < 9; i++) {
+          const dir = Math.random() < 0.5 ? -1 : 1;
+          const curve = dir * (2 + Math.random() * 3 + difficulty * 1.5);
+          road.addRoad(12 + Math.floor(Math.random() * 10), 14 + Math.floor(Math.random() * 14), 12 + Math.floor(Math.random() * 10), curve, (Math.random() - 0.5) * 60);
+          if (Math.random() < 0.6) road.addRoad(8, 8 + Math.floor(Math.random() * 12), 8, 0, (Math.random() - 0.5) * 40);
+        }
+        road.addRoad(10, 40, 10, 0, -road.lastY() / SEG_LEN);
+        const FINISH_INDEX = segments.length - 12;
+        const TRACK_LEN = road.trackLength();
+        for (let n = 0; n < FINISH_INDEX; n += 3) {
+          if (Math.random() < 0.7) segments[n].sprites.push({ emoji: sceneryEmojis[Math.floor(Math.random() * sceneryEmojis.length)], offset: -1.4 - Math.random() * 1.6, size: 0.55 });
+          if (Math.random() < 0.7) segments[n].sprites.push({ emoji: sceneryEmojis[Math.floor(Math.random() * sceneryEmojis.length)], offset: 1.4 + Math.random() * 1.6, size: 0.55 });
+        }
+        for (let n = FINISH_INDEX; n < FINISH_INDEX + 2; n++) { segments[n].sprites.push({ emoji: '🏁', offset: -1.25, size: 0.5 }); segments[n].sprites.push({ emoji: '🏁', offset: 1.25, size: 0.5 }); }
+        const cars = [];
+        const carCount = Math.round(lerp(9, 16, difficulty));
+        for (let i = 0; i < carCount; i++) {
+          const z = (30 + Math.random() * (FINISH_INDEX - 45)) * SEG_LEN;
+          if (cars.some((c) => Math.abs(c.z - z) < SEG_LEN * 5)) { i--; continue; }
+          const color = trafficColors[Math.floor(Math.random() * trafficColors.length)];
+          cars.push({ z, offset: (Math.random() < 0.5 ? -1 : 1) * (0.15 + Math.random() * 0.5), speed: MAX_SPEED * (0.28 + Math.random() * 0.3), size: 0.32, draw: (c, sx, sy, px) => drawRearCar(c, sx, sy, px, color, 0, false) });
+        }
         const timerEl = container.querySelector('#rcTimer'), speedEl = container.querySelector('#rcSpeed'), hint = container.querySelector('#rcHint');
         let leftHeld = false, rightHeld = false;
         bindHeldButton(container.querySelector('#rcLeft'), (v) => { leftHeld = v; });
@@ -12016,73 +12180,15 @@
         const endTouch = () => { touchAccel = false; touchSteer = null; };
         canvas.addEventListener('pointerup', endTouch); canvas.addEventListener('pointercancel', endTouch);
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        function findSegment(z) { return segments[Math.floor(z / SEG_LEN) % segments.length]; }
-        function project(p, camX, camY, camZ) {
-          p.camera.x = (p.world.x || 0) - camX; p.camera.y = p.world.y - camY; p.camera.z = p.world.z - camZ;
-          p.screen.scale = CAM_DEPTH / Math.max(1, p.camera.z);
-          p.screen.x = W / 2 + p.screen.scale * p.camera.x * W / 2;
-          p.screen.y = H / 2 - p.screen.scale * p.camera.y * H / 2;
-          p.screen.w = p.screen.scale * ROAD_W * W / 2;
-        }
-        function polygon(x1, y1, x2, y2, x3, y3, x4, y4, color) { ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.lineTo(x3, y3); ctx.lineTo(x4, y4); ctx.closePath(); ctx.fill(); }
-        function drawSegment(seg) {
-          const p1 = seg.p1.screen, p2 = seg.p2.screen;
-          const r1 = p1.w / 6, r2 = p2.w / 6, l1 = p1.w / 28, l2 = p2.w / 28;
-          const c = seg.dark ? { grass: ground[0], rumble: '#f3f3f3', road: road[0] } : { grass: ground[1], rumble: '#d8383c', road: road[1] };
-          ctx.fillStyle = c.grass; ctx.fillRect(0, p2.y, W, p1.y - p2.y);
-          polygon(p1.x - p1.w - r1, p1.y, p1.x - p1.w, p1.y, p2.x - p2.w, p2.y, p2.x - p2.w - r2, p2.y, c.rumble);
-          polygon(p1.x + p1.w + r1, p1.y, p1.x + p1.w, p1.y, p2.x + p2.w, p2.y, p2.x + p2.w + r2, p2.y, c.rumble);
-          polygon(p1.x - p1.w, p1.y, p1.x + p1.w, p1.y, p2.x + p2.w, p2.y, p2.x - p2.w, p2.y, c.road);
-          if (seg.dark) {
-            polygon(p1.x - l1, p1.y, p1.x + l1, p1.y, p2.x + l2, p2.y, p2.x - l2, p2.y, '#fff8c8');
-          }
-        }
         function render(now) {
           if (!ctx) return;
-          const baseSeg = findSegment(position);
-          const basePercent = (position % SEG_LEN) / SEG_LEN;
-          const playerSeg = findSegment(position + PLAYER_Z);
-          const playerPercent = ((position + PLAYER_Z) % SEG_LEN) / SEG_LEN;
-          const playerY = playerSeg.p1.world.y + (playerSeg.p2.world.y - playerSeg.p1.world.y) * playerPercent;
           const skyG = ctx.createLinearGradient(0, 0, 0, H * 0.6); skyG.addColorStop(0, sky[0]); skyG.addColorStop(1, sky[1]);
           ctx.fillStyle = skyG; ctx.fillRect(0, 0, W, H);
           ctx.fillStyle = 'rgba(255,255,255,.35)';
-          for (let i = 0; i < 5; i++) { const cx = ((i * 97 + 20) - (position / 400 + baseSeg.curve * 20) * 0.35) % (W + 60); ctx.beginPath(); ctx.ellipse((cx + W + 60) % (W + 60) - 30, 22 + i * 9, 22, 7, 0, 0, Math.PI * 2); ctx.fill(); }
-          let maxy = H, x = 0, dx = -(baseSeg.curve * basePercent);
-          for (let n = 0; n < DRAW_DIST; n++) {
-            const seg = segments[(baseSeg.index + n) % segments.length];
-            const looped = seg.index < baseSeg.index;
-            seg.clip = maxy;
-            project(seg.p1, playerX * ROAD_W - x, playerY + CAM_H, position - (looped ? TRACK_LEN : 0));
-            x += dx; dx += seg.curve;
-            project(seg.p2, playerX * ROAD_W - x, playerY + CAM_H, position - (looped ? TRACK_LEN : 0));
-            if (seg.p1.camera.z <= CAM_DEPTH || seg.p2.screen.y >= seg.p1.screen.y || seg.p2.screen.y >= maxy) continue;
-            drawSegment(seg);
-            maxy = seg.p1.screen.y;
-          }
-          ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-          for (let n = DRAW_DIST - 1; n > 0; n--) {
-            const seg = segments[(baseSeg.index + n) % segments.length];
-            if (seg.p1.camera.z <= CAM_DEPTH) continue;
-            const scale = seg.p1.screen.scale;
-            const drawSprite = (emoji, offset, sizeMul) => {
-              const sx = seg.p1.screen.x + scale * offset * ROAD_W * W / 2;
-              const sy = seg.p1.screen.y;
-              if (sy > seg.clip + 2) return;
-              const size = Math.max(3, scale * ROAD_W * W / 2 * sizeMul);
-              ctx.font = `${size}px sans-serif`;
-              ctx.fillText(emoji, sx, sy + size * 0.08);
-            };
-            for (const s of seg.sprites) drawSprite(s.emoji, s.offset, 0.55);
-            for (const c of seg.cars) drawSprite(c.emoji, c.offset, 0.3);
-          }
-          // プレイヤーの くるま
-          const bounce = speed > 0 ? (Math.random() - 0.5) * 1.6 * (speed / MAX_SPEED) : 0;
-          ctx.save(); ctx.translate(W / 2 + steer * 6, H - 6 + bounce); ctx.rotate(steer * 0.12);
-          ctx.font = '40px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
-          ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 8; ctx.fillText(playerEmoji, 0, 0); ctx.shadowBlur = 0;
-          ctx.restore();
-          // しんちょく バー
+          for (let i = 0; i < 5; i++) { const cx = ((i * 97 + 20) - (position / 400) * 0.35) % (W + 60); ctx.beginPath(); ctx.ellipse((cx + W + 60) % (W + 60) - 30, 22 + i * 9, 22, 7, 0, 0, Math.PI * 2); ctx.fill(); }
+          road.render(position, playerX);
+          const bounce = speed > 0 ? (Math.random() - 0.5) * 1.4 * (speed / MAX_SPEED) : 0;
+          drawRearCar(ctx, W / 2 + steer * 5, H - 8 + bounce, 46, playerColor, steer, true);
           const progress = clamp((position + PLAYER_Z) / (FINISH_INDEX * SEG_LEN), 0, 1);
           ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(8, 8, W - 16, 8);
           ctx.fillStyle = '#7dff9a'; ctx.fillRect(8, 8, (W - 16) * progress, 8);
@@ -12093,7 +12199,7 @@
         }
         function update(dt) {
           const speedPct = speed / MAX_SPEED;
-          const playerSeg = findSegment(position + PLAYER_Z);
+          const playerSeg = road.findSegment(position + PLAYER_Z);
           steerTarget = touchSteer != null ? touchSteer : (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0);
           steer += (steerTarget - steer) * Math.min(1, dt * 9);
           position += speed * dt;
@@ -12104,11 +12210,11 @@
           if (offroad) { offroadTime += dt; if (speed > OFF_LIMIT) speed += OFF_DECEL * dt; }
           playerX = clamp(playerX, -2.2, 2.2);
           speed = clamp(speed, 0, MAX_SPEED);
-          for (const seg of segments) seg.cars.length = 0;
+          for (const seg of segments) seg.dynamic.length = 0;
           for (const c of cars) {
             c.z += c.speed * dt;
             if (c.z >= TRACK_LEN) c.z -= TRACK_LEN;
-            findSegment(c.z).cars.push(c);
+            road.findSegment(c.z).dynamic.push(c);
             const rel = c.z - (position + PLAYER_Z);
             if (rel > -SEG_LEN * 0.6 && rel < SEG_LEN * 1.2 && Math.abs(playerX - c.offset) < 0.34 && speed > c.speed) {
               speed = c.speed * 0.6; hits++; flash = 0.5; say('💥 ぶつかった!');
@@ -12147,9 +12253,9 @@
     };
   }
   const RACE_THEMES = [
-    { title: '3Dレース!ハイウェイを はしりぬけ ゴールへ', playerEmoji: '🏎️', trafficEmojis: ['🚗', '🚙', '🚚', '🚌'], sceneryEmojis: ['🌴', '🌳', '🏢', '🪧'], sky: ['#69b7ff', '#d9f1ff'], ground: ['#4f9f4a', '#5aae52'], road: ['#5c5c66', '#63636d'] },
-    { title: '3Dレース!さばくの ラリーで 先頭を めざせ', playerEmoji: '🚙', trafficEmojis: ['🚐', '🛻', '🚜', '🐪'], sceneryEmojis: ['🌵', '🪨', '🏜️', '🌵'], sky: ['#ffb366', '#ffe6b3'], ground: ['#d9b36a', '#e2bf78'], road: ['#8a7355', '#93795a'] },
-    { title: '3Dレース!よるの ネオンハイウェイを かけぬけろ', playerEmoji: '🏍️', trafficEmojis: ['🚕', '🚓', '🚗', '🚚'], sceneryEmojis: ['🏙️', '🌃', '🗼', '🏬'], sky: ['#0b1030', '#3a2a6b'], ground: ['#1e2740', '#242e4a'], road: ['#2f3140', '#353748'] },
+    { title: '3Dレース!ハイウェイを はしりぬけ ゴールへ', playerColor: '#e63946', trafficColors: ['#3a86ff', '#ffbe0b', '#8ecae6', '#f4f1de', '#6a994e'], sceneryEmojis: ['🌴', '🌳', '🏢', '🪧'], sky: ['#69b7ff', '#d9f1ff'], ground: ['#4f9f4a', '#5aae52'], road: ['#5c5c66', '#63636d'], rumble: ['#f3f3f3', '#d8383c'] },
+    { title: '3Dレース!さばくの ラリーで 先頭を めざせ', playerColor: '#ff8c1a', trafficColors: ['#9d8189', '#d8e2dc', '#5c4033', '#457b9d'], sceneryEmojis: ['🌵', '🪨', '🏜️', '🌵'], sky: ['#ffb366', '#ffe6b3'], ground: ['#d9b36a', '#e2bf78'], road: ['#8a7355', '#93795a'], rumble: ['#f2e2c4', '#c0392b'] },
+    { title: '3Dレース!よるの ネオンハイウェイを かけぬけろ', playerColor: '#b5179e', trafficColors: ['#4cc9f0', '#f72585', '#ffd60a', '#e0e0e0'], sceneryEmojis: ['🏙️', '🌃', '🗼', '🏬'], sky: ['#0b1030', '#3a2a6b'], ground: ['#1e2740', '#242e4a'], road: ['#2f3140', '#353748'], rumble: ['#8f9bff', '#ff4fa3'] },
   ];
   const ROAD_RACE_VARIANTS = [mg('race-3d', randomThemeGame(makeRoadRaceGame, RACE_THEMES))];
 
@@ -12551,6 +12657,332 @@
   ];
   const SPACE_GUNNER_VARIANTS = [mg('space-gunner-3d', randomThemeGame(makeSpaceGunnerGame, GUNNER_THEMES))];
 
+  // --- ミニゴルフ: ひっぱって はなす スリングショット操作の 物理パット。
+  //     かべ・バンカー・いけ・さかみち の ある コースを 3ホール、パー以下を めざす ---
+  const MINI_GOLF_HOLES = [
+    { par: 2, start: [30, 200], hole: [200, 40], walls: [[110, 90, 20, 110]], sand: [], water: [], slopes: [] },
+    { par: 3, start: [30, 210], hole: [210, 30], walls: [[70, 0, 18, 150], [150, 100, 18, 144]], sand: [[120, 60, 26]], water: [], slopes: [] },
+    { par: 3, start: [122, 215], hole: [122, 34], walls: [[95, 110, 54, 16]], sand: [], water: [[40, 120, 26], [204, 120, 26]], slopes: [[0, 150, 244, 50, 0, -220]] },
+    { par: 3, start: [40, 40], hole: [204, 200], walls: [[0, 100, 150, 16], [94, 160, 150, 16]], sand: [[200, 60, 24]], water: [], slopes: [[150, 0, 94, 100, 90, 0]] },
+    { par: 3, start: [122, 210], hole: [122, 60], walls: [[60, 120, 40, 16], [144, 120, 40, 16], [100, 40, 44, 12]], sand: [], water: [[122, 100, 18]], slopes: [] },
+    { par: 2, start: [30, 40], hole: [210, 205], walls: [[60, 60, 16, 120]], sand: [[150, 150, 30]], water: [], slopes: [[100, 120, 144, 60, 0, 180]] },
+  ];
+  function makeMiniGolfGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const holes = MINI_GOLF_HOLES.slice().sort(() => Math.random() - 0.5).slice(0, 3);
+        const TIME_LIMIT_MS = 80000, MAX_STROKES = 6;
+        let holeIdx = 0, strokes = 0, totalStrokes = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0;
+        let bx = 0, by = 0, vx = 0, vy = 0, lastRest = [0, 0], moving = false, sunk = false, sinkAnim = 0, aim = null, splash = 0;
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="gfHole">HOLE 1/3　PAR ${holes[0].par}</span><span id="gfStrokes">だせい 0</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="gfCanvas"></canvas></div>
+          <div class="mg-hint" id="gfHint">ボールから うしろへ ひっぱって はなすと パット。ひっぱる ながさが つよさ</div>`;
+        const canvas = container.querySelector('#gfCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
+        const S = W / 244;
+        const holeEl = container.querySelector('#gfHole'), strokesEl = container.querySelector('#gfStrokes'), hint = container.querySelector('#gfHint');
+        const R = 6 * S, HOLE_R = 8 * S;
+        const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const cur = () => holes[holeIdx];
+        function loadHole() {
+          const h = cur(); strokes = 0; bx = h.start[0] * S; by = h.start[1] * S; vx = vy = 0; moving = false; sunk = false; sinkAnim = 0; lastRest = [bx, by];
+          holeEl.textContent = `HOLE ${holeIdx + 1}/3　PAR ${h.par}`; strokesEl.textContent = 'だせい 0';
+        }
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || moving || sunk) return; const p = mgPointerPos(canvas, e); aim = { id: e.pointerId, x: p.x, y: p.y }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointermove', (e) => { if (!aim || e.pointerId !== aim.id) return; const p = mgPointerPos(canvas, e); aim.x = p.x; aim.y = p.y; });
+        const release = (e) => {
+          if (!aim || e.pointerId !== aim.id) return;
+          const dx = bx - aim.x, dy = by - aim.y; aim = null;
+          const len = Math.hypot(dx, dy);
+          if (len < 10 * S) { say('もっと ひっぱろう', 800); return; }
+          const power = clamp(len / (95 * S), 0.12, 1);
+          vx = dx / len * power * 560 * S; vy = dy / len * power * 560 * S;
+          moving = true; strokes++; totalStrokes++; strokesEl.textContent = 'だせい ' + strokes; lastRest = [bx, by];
+        };
+        canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', release);
+        function inCircle(c) { return Math.hypot(bx - c[0] * S, by - c[1] * S) < c[2] * S; }
+        function collideWalls() {
+          const h = cur();
+          const rects = h.walls.map((w) => [w[0] * S, w[1] * S, w[2] * S, w[3] * S]).concat([[-20, -20, W + 40, 20], [-20, H, W + 40, 20], [-20, -20, 20, H + 40], [W, -20, 20, H + 40]]);
+          for (const [rx, ry, rw, rh] of rects) {
+            const nx = clamp(bx, rx, rx + rw), ny = clamp(by, ry, ry + rh);
+            let dx = bx - nx, dy = by - ny; const d = Math.hypot(dx, dy);
+            if (d >= R) continue;
+            if (d === 0) { dx = bx - (rx + rw / 2); dy = by - (ry + rh / 2); if (Math.abs(dx) > Math.abs(dy)) dy = 0; else dx = 0; const dd = Math.hypot(dx, dy) || 1; dx /= dd; dy /= dd; bx = nx + dx * R; by = ny + dy * R; }
+            else { dx /= d; dy /= d; bx = nx + dx * R; by = ny + dy * R; }
+            const vn = vx * dx + vy * dy; if (vn < 0) { vx -= 1.65 * vn * dx; vy -= 1.65 * vn * dy; }
+          }
+        }
+        function update(dt) {
+          if (!moving) return;
+          const h = cur();
+          for (const sl of h.slopes) if (bx >= sl[0] * S && bx <= (sl[0] + sl[2]) * S && by >= sl[1] * S && by <= (sl[1] + sl[3]) * S) { vx += sl[4] * S * dt; vy += sl[5] * S * dt; }
+          const inSand = h.sand.some(inCircle);
+          const damp = Math.pow(inSand ? 0.004 : 0.32, dt); vx *= damp; vy *= damp;
+          const sp = Math.hypot(vx, vy);
+          const sub = Math.max(1, Math.ceil(sp * dt / (R * 0.8)));
+          for (let i = 0; i < sub; i++) { bx += vx * dt / sub; by += vy * dt / sub; collideWalls(); }
+          const hd = Math.hypot(bx - h.hole[0] * S, by - h.hole[1] * S);
+          if (hd < HOLE_R && sp < 330 * S) { sunk = true; moving = false; sinkAnim = 1; const diff = strokes - h.par; say(diff <= -2 ? '🦅 イーグル!' : diff === -1 ? '🐦 バーディー!' : diff === 0 ? '⛳ パー!' : diff === 1 ? 'ボギー' : 'ダブルボギー…', 1500); setTimeout(nextHole, 1200); return; }
+          if (hd < HOLE_R * 1.4 && sp >= 330 * S) { const nx = (bx - h.hole[0] * S) / hd, ny = (by - h.hole[1] * S) / hd; vx += nx * 40 * S; vy += ny * 40 * S; }
+          if (h.water.some(inCircle)) { splash = 1; say('💦 いけに おちた! +1だせい'); strokes++; totalStrokes++; strokesEl.textContent = 'だせい ' + strokes; bx = lastRest[0]; by = lastRest[1]; vx = vy = 0; moving = false; return; }
+          if (sp < 9 * S) { vx = vy = 0; moving = false; if (strokes >= MAX_STROKES) { say('だせい オーバー… つぎの ホールへ'); setTimeout(nextHole, 900); } }
+        }
+        function nextHole() {
+          if (!running) return;
+          holeIdx++;
+          if (holeIdx >= holes.length) { finish(); return; }
+          loadHole();
+        }
+        function render(now) {
+          if (!ctx) return;
+          const h = cur();
+          ctx.fillStyle = '#3f8f3a'; ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = 'rgba(255,255,255,.05)'; for (let i = 0; i < W; i += 24 * S) ctx.fillRect(i, 0, 12 * S, H);
+          for (const sl of h.slopes) { const cx = (sl[0] + sl[2] / 2) * S, cy = (sl[1] + sl[3] / 2) * S, al = Math.hypot(sl[4], sl[5]) || 1, ux = sl[4] / al, uy = sl[5] / al, hl = Math.min(sl[2], sl[3]) * S / 2; const g = ctx.createLinearGradient(cx - ux * hl, cy - uy * hl, cx + ux * hl, cy + uy * hl); g.addColorStop(0, 'rgba(255,255,255,.16)'); g.addColorStop(1, 'rgba(0,0,0,.2)'); ctx.fillStyle = g; ctx.fillRect(sl[0] * S, sl[1] * S, sl[2] * S, sl[3] * S); ctx.fillStyle = 'rgba(255,255,255,.5)'; ctx.font = `${14 * S}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(sl[5] < 0 ? '⬆' : sl[5] > 0 ? '⬇' : sl[4] > 0 ? '➡' : '⬅', (sl[0] + sl[2] / 2) * S, (sl[1] + sl[3] / 2) * S); }
+          for (const c of h.sand) { ctx.fillStyle = '#e6d28a'; ctx.beginPath(); ctx.arc(c[0] * S, c[1] * S, c[2] * S, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.beginPath(); ctx.arc(c[0] * S, c[1] * S, c[2] * S * 0.6, 0, Math.PI * 2); ctx.fill(); }
+          for (const c of h.water) { const g = ctx.createRadialGradient(c[0] * S, c[1] * S, 2, c[0] * S, c[1] * S, c[2] * S); g.addColorStop(0, '#7fd0ff'); g.addColorStop(1, '#2b7fc4'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(c[0] * S, c[1] * S, c[2] * S, 0, Math.PI * 2); ctx.fill(); }
+          for (const w of h.walls) { ctx.fillStyle = '#5b3a1e'; ctx.fillRect(w[0] * S, w[1] * S + 4 * S, w[2] * S, w[3] * S); ctx.fillStyle = '#9c6b3c'; ctx.fillRect(w[0] * S, w[1] * S, w[2] * S, w[3] * S); }
+          const hg = ctx.createRadialGradient(h.hole[0] * S, h.hole[1] * S, 1, h.hole[0] * S, h.hole[1] * S, HOLE_R); hg.addColorStop(0, '#000'); hg.addColorStop(1, '#1d2a1c');
+          ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(h.hole[0] * S, h.hole[1] * S, HOLE_R, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = '#eee'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(h.hole[0] * S, h.hole[1] * S); ctx.lineTo(h.hole[0] * S, h.hole[1] * S - 26 * S); ctx.stroke();
+          ctx.fillStyle = '#ff3b5c'; ctx.beginPath(); ctx.moveTo(h.hole[0] * S, h.hole[1] * S - 26 * S); ctx.lineTo(h.hole[0] * S + 14 * S, h.hole[1] * S - 21 * S); ctx.lineTo(h.hole[0] * S, h.hole[1] * S - 16 * S); ctx.closePath(); ctx.fill();
+          if (aim && !moving) {
+            const dx = bx - aim.x, dy = by - aim.y, len = Math.hypot(dx, dy), power = clamp(len / (95 * S), 0, 1);
+            ctx.strokeStyle = `rgba(255,255,255,.85)`; ctx.lineWidth = 2; ctx.setLineDash([4, 4]); ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(bx + dx / (len || 1) * power * 90 * S, by + dy / (len || 1) * power * 90 * S); ctx.stroke(); ctx.setLineDash([]);
+            ctx.strokeStyle = 'rgba(0,0,0,.35)'; ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(aim.x, aim.y); ctx.stroke();
+            ctx.fillStyle = power > 0.8 ? '#ff5c8a' : power > 0.45 ? '#ffd257' : '#8de0a0'; ctx.fillRect(10 * S, H - 16 * S, (W - 20 * S) * power, 8 * S); ctx.strokeStyle = '#fff'; ctx.strokeRect(10 * S, H - 16 * S, W - 20 * S, 8 * S);
+          }
+          const sh = sunk ? Math.max(0, sinkAnim) : 1;
+          if (sunk) sinkAnim = Math.max(0, sinkAnim - 0.05);
+          ctx.fillStyle = 'rgba(0,0,0,.3)'; ctx.beginPath(); ctx.ellipse(bx + 2, by + 3, R * sh, R * 0.7 * sh, 0, 0, Math.PI * 2); ctx.fill();
+          const g = ctx.createRadialGradient(bx - R * 0.3, by - R * 0.3, 1, bx, by, R); g.addColorStop(0, '#fff'); g.addColorStop(1, '#c9ccd6');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(bx, by, R * sh, 0, Math.PI * 2); ctx.fill();
+          if (splash > 0) { ctx.strokeStyle = `rgba(150,220,255,${splash})`; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(bx, by, (1 - splash) * 30 * S + 6, 0, Math.PI * 2); ctx.stroke(); splash = Math.max(0, splash - 0.04); }
+          if (now < msgUntil) { ctx.font = `bold ${14 * S}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 90 * S, 12 * S, 180 * S, 26 * S); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, 25 * S); }
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.04, (now - last) / 1000); last = now;
+          update(dt);
+          if (!running) return;
+          render(now);
+          if (now - startTime > TIME_LIMIT_MS) { say('じかんぎれ…'); finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          const playedPar = holes.reduce((a, h) => a + h.par, 0);
+          const over = totalStrokes - playedPar + (holeIdx < holes.length ? (holes.length - holeIdx) * 4 : 0);
+          const score = clamp(100 - Math.max(0, over) * 9 + Math.min(0, over) * -4, 15, 100);
+          say(over <= 0 ? `🏆 ${totalStrokes}だせい (パー${playedPar}) すばらしい!` : `${totalStrokes}だせい (パー${playedPar}) +${over}`, 2000);
+          render(performance.now());
+          setTimeout(() => onComplete(Math.round(score)), 900);
+        }
+        loadHole();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const MINI_GOLF_VARIANTS = [mg('mini-golf-physics', makeMiniGolfGame({ title: 'ミニゴルフ!ひっぱって はなして パー以下を めざせ' }))];
+
+  // --- ほんかく さかなつり: なげる → さかなが よってくる → あたりで あわせる →
+  //     テンションを 見ながら まく、の 4だんかい。おおきい さかなほど つよく ひく ---
+  const FISHING_SPECIES = [
+    { emoji: '🐟', name: 'あじ', size: 1, value: 20, pull: 0.9, speed: 34 },
+    { emoji: '🐠', name: 'ねったいぎょ', size: 1.1, value: 26, pull: 1.0, speed: 42 },
+    { emoji: '🐡', name: 'ふぐ', size: 1.3, value: 34, pull: 1.3, speed: 26 },
+    { emoji: '🦑', name: 'いか', size: 1.4, value: 40, pull: 1.4, speed: 36 },
+    { emoji: '🐙', name: 'たこ', size: 1.6, value: 48, pull: 1.7, speed: 22 },
+    { emoji: '🦈', name: 'さめ', size: 2.2, value: 70, pull: 2.4, speed: 50 },
+  ];
+  function makeRealFishingGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = Math.round(lerp(60000, 50000, difficulty));
+        let phase = 'ready', running = true, rafId = null, last = null, charge = 0, charging = false, msg = '', msgUntil = 0;
+        let lureX = 0, lureY = 0, lureVx = 0, lureVy = 0, targetDepth = 0, castDist = 0;
+        let hooked = null, biteUntil = 0, nibbleUntil = 0, tension = 0, lineLen = 0, reeling = false, dashUntil = 0, slackMs = 0, caught = [], escaped = 0;
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="rfTimer">のこり: ${Math.ceil(DURATION_MS / 1000)}s</span><span id="rfScore">つった: 0ひき　0pt</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="rfCanvas"></canvas></div>
+          <div class="mg-hint" id="rfHint">ボタン ながおしで ためて はなすと キャスト。うきが しずんだら「あわせる」!</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn primary" id="rfMain" data-key="action">キャスト(ながおし)</button></div>`;
+        const canvas = container.querySelector('#rfCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 235);
+        const WATER_Y = H * 0.34, SHORE_X = 28;
+        const timerEl = container.querySelector('#rfTimer'), scoreEl = container.querySelector('#rfScore'), hint = container.querySelector('#rfHint'), mainBtn = container.querySelector('#rfMain');
+        const say = (t, ms = 1400) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const fishes = [];
+        function spawnFish() {
+          const sp = FISHING_SPECIES[Math.min(FISHING_SPECIES.length - 1, Math.floor(Math.pow(Math.random(), 1.6 - difficulty * 0.5) * FISHING_SPECIES.length))];
+          const dir = Math.random() < 0.5 ? 1 : -1;
+          fishes.push({ sp, x: dir > 0 ? -20 : W + 20, y: WATER_Y + 30 + Math.random() * (H - WATER_Y - 50), dir, speed: sp.speed * (0.7 + Math.random() * 0.6), state: 'swim', wobble: Math.random() * 10, size: 16 + sp.size * 8 });
+        }
+        for (let i = 0; i < 3; i++) { spawnFish(); fishes[i].x = 40 + Math.random() * (W - 80); }
+        function setPhase(p) {
+          phase = p;
+          mainBtn.classList.toggle('primary', true);
+          if (p === 'ready') mainBtn.textContent = 'キャスト(ながおし)';
+          else if (p === 'wait') mainBtn.textContent = 'あわせる!';
+          else if (p === 'fight') mainBtn.textContent = 'まく(ながおし)';
+        }
+        bindHeldButton(mainBtn, (v) => {
+          if (!running) return;
+          if (phase === 'ready') { if (v) { charging = true; charge = 0; } else if (charging) { charging = false; cast(); } }
+          else if (phase === 'wait') { if (v) strike(); }
+          else if (phase === 'fight') reeling = v;
+        });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (phase === 'wait') strike(); else if (phase === 'ready' && !charging) { charging = true; charge = 0; } else if (phase === 'fight') reeling = true; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        const canvasUp = () => { if (phase === 'ready' && charging) { charging = false; cast(); } if (phase === 'fight') reeling = false; };
+        canvas.addEventListener('pointerup', canvasUp); canvas.addEventListener('pointercancel', canvasUp);
+        function cast() {
+          if (charge < 0.1) { say('もっと ながく ためよう', 900); return; }
+          castDist = 40 + charge * (W - 80);
+          lureX = SHORE_X; lureY = WATER_Y - 40; lureVx = castDist / 0.9; lureVy = -140;
+          targetDepth = WATER_Y + 40 + Math.random() * (H - WATER_Y - 70);
+          setPhase('cast'); say('キャスト!', 700);
+        }
+        function strike() {
+          if (phase !== 'wait') return;
+          const now = performance.now();
+          const biter = fishes.find((f) => f.state === 'bite');
+          if (biter && now < biteUntil) {
+            hooked = biter; biter.state = 'hooked'; tension = 30; lineLen = Math.hypot(lureX - SHORE_X, lureY - (WATER_Y - 40)); reeling = false; slackMs = 0; dashUntil = now + 600;
+            setPhase('fight'); say('🎣 ヒット! ' + hooked.sp.name + ' だ! テンションに ちゅうい', 1600);
+          } else {
+            const nib = fishes.find((f) => f.state === 'nibble' || f.state === 'approach');
+            if (nib) { nib.state = 'flee'; say('はやすぎ! さかなが にげた…'); } else say('まだ あたりが ない…', 800);
+          }
+        }
+        function landFish() {
+          caught.push(hooked.sp); const idx = fishes.indexOf(hooked); if (idx >= 0) fishes.splice(idx, 1); spawnFish();
+          say('🎉 ' + hooked.sp.name + ' を つった! +' + hooked.sp.value + 'pt', 1600); hooked = null;
+          scoreEl.textContent = 'つった: ' + caught.length + 'ひき　' + caught.reduce((a, f) => a + f.value, 0) + 'pt';
+          setPhase('ready');
+        }
+        function loseFish(reason) {
+          escaped++; if (hooked) { hooked.state = 'flee'; hooked = null; }
+          say(reason, 1500); setPhase('ready');
+        }
+        function update(dt, now) {
+          if (charging) charge = Math.min(1, charge + dt / 1.1);
+          for (const f of fishes) {
+            f.wobble += dt * 6;
+            if (f.state === 'swim' || f.state === 'flee') {
+              const sp = f.state === 'flee' ? f.speed * 2.2 : f.speed;
+              f.x += f.dir * sp * dt; f.y += Math.sin(f.wobble) * 6 * dt;
+              if (f.x < -40 || f.x > W + 40) { const i = fishes.indexOf(f); fishes.splice(i, 1); spawnFish(); }
+              if (f.state === 'swim' && phase === 'wait' && !fishes.some((o) => o.state === 'approach' || o.state === 'nibble' || o.state === 'bite') && Math.hypot(f.x - lureX, f.y - lureY) < 90 && Math.random() < dt * 0.9) f.state = 'approach';
+            } else if (f.state === 'approach') {
+              const dx = lureX - f.x, dy = lureY - f.y, d = Math.hypot(dx, dy);
+              if (d < 14) { f.state = 'nibble'; nibbleUntil = now + 700 + Math.random() * 900; }
+              else { f.x += dx / d * f.speed * 1.1 * dt; f.y += dy / d * f.speed * 1.1 * dt; f.dir = dx > 0 ? 1 : -1; }
+              if (phase !== 'wait') f.state = 'swim';
+            } else if (f.state === 'nibble') {
+              f.x = lureX + Math.sin(now / 60) * 3; f.y = lureY + 8;
+              if (now > nibbleUntil) { f.state = 'bite'; biteUntil = now + lerp(750, 520, difficulty); }
+              if (phase !== 'wait') f.state = 'swim';
+            } else if (f.state === 'bite') {
+              f.x = lureX; f.y = lureY + 10;
+              if (now > biteUntil) { f.state = 'flee'; say('にがした… あたりを のがした', 1200); }
+            } else if (f.state === 'hooked') {
+              f.x = SHORE_X + lineLen * 0.98; f.y = lureY + Math.sin(now / 90) * 4;
+            }
+          }
+          if (phase === 'cast') {
+            lureVy += 420 * dt; lureX += lureVx * dt; lureY += lureVy * dt;
+            if (lureY >= WATER_Y) { lureY = WATER_Y; lureVx = 0; lureVy = 0; setPhase('wait'); say('うきを 見て… しずんだら あわせる!', 1400); }
+          } else if (phase === 'wait') {
+            if (lureY < targetDepth) lureY += 30 * dt;
+          } else if (phase === 'fight' && hooked) {
+            const f = hooked;
+            if (now > dashUntil && Math.random() < dt * 0.55) { dashUntil = now + 500 + Math.random() * 500; }
+            const dashing = now < dashUntil;
+            const pull = f.sp.pull * (dashing ? 1 : 0.35);
+            if (reeling) { lineLen -= 55 * dt; tension += (28 + pull * 34) * dt; slackMs = 0; }
+            else { tension -= 42 * dt; lineLen += pull * 14 * dt; slackMs += dt * 1000; }
+            tension = clamp(tension, 0, 100);
+            lureX = SHORE_X + lineLen; lureY = f.y;
+            if (tension >= 100) { loseFish('💥 いとが きれた! テンションの あげすぎ'); return; }
+            if (slackMs > 2600) { loseFish('いとが たるんで ばれた…'); return; }
+            if (lineLen <= 6) { landFish(); return; }
+          }
+        }
+        function render(now) {
+          if (!ctx) return;
+          const sky = ctx.createLinearGradient(0, 0, 0, WATER_Y); sky.addColorStop(0, '#7cc6ff'); sky.addColorStop(1, '#dff3ff');
+          ctx.fillStyle = sky; ctx.fillRect(0, 0, W, WATER_Y);
+          const water = ctx.createLinearGradient(0, WATER_Y, 0, H); water.addColorStop(0, '#3fa6e8'); water.addColorStop(1, '#0b3f7a');
+          ctx.fillStyle = water; ctx.fillRect(0, WATER_Y, W, H - WATER_Y);
+          ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1;
+          for (let i = 0; i < 4; i++) { ctx.beginPath(); for (let x = 0; x <= W; x += 8) { const y = WATER_Y + 12 + i * 34 + Math.sin(x / 22 + now / 500 + i) * 3; if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); } ctx.stroke(); }
+          ctx.fillStyle = '#7a5a3a'; ctx.fillRect(0, WATER_Y - 14, SHORE_X + 10, 14); ctx.fillStyle = '#9ccc65'; ctx.fillRect(0, WATER_Y - 18, SHORE_X + 10, 6);
+          ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), SHORE_X - 6, WATER_Y - 16);
+          const rodTipX = SHORE_X + 26, rodTipY = WATER_Y - 62;
+          ctx.strokeStyle = '#5b3a1e'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(SHORE_X + 4, WATER_Y - 22); ctx.lineTo(rodTipX, rodTipY); ctx.stroke();
+          for (const f of fishes) {
+            const sh = f.state === 'hooked' ? 1 : 0.55;
+            ctx.globalAlpha = sh; ctx.font = `${f.size}px sans-serif`; ctx.textBaseline = 'middle';
+            ctx.save(); ctx.translate(f.x, f.y); if (f.dir > 0) ctx.scale(-1, 1); ctx.fillText(f.sp.emoji, 0, 0); ctx.restore();
+            ctx.globalAlpha = 1;
+            if (f.state === 'nibble') { ctx.fillStyle = '#fff'; ctx.font = '12px sans-serif'; ctx.fillText('…', f.x, f.y - f.size * 0.7); }
+          }
+          if (phase !== 'ready') {
+            ctx.strokeStyle = 'rgba(255,255,255,.8)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(rodTipX, rodTipY); ctx.lineTo(lureX, Math.min(lureY, WATER_Y)); if (lureY > WATER_Y) ctx.lineTo(lureX, lureY); ctx.stroke();
+            const bobbing = fishes.some((f) => f.state === 'nibble'), biting = fishes.some((f) => f.state === 'bite');
+            const floatY = phase === 'fight' ? Math.min(lureY, WATER_Y + 8) : WATER_Y + (biting ? 12 : bobbing ? Math.sin(now / 50) * 4 : Math.sin(now / 400) * 1.5);
+            ctx.font = '16px sans-serif'; ctx.textBaseline = 'middle'; ctx.fillText(phase === 'cast' ? '🪝' : '🔴', lureX, phase === 'cast' ? lureY : floatY);
+            if (phase === 'wait' && lureY > WATER_Y + 4) { ctx.fillStyle = '#ffd257'; ctx.beginPath(); ctx.arc(lureX, lureY, 3, 0, Math.PI * 2); ctx.fill(); }
+            if (biting) { ctx.font = 'bold 15px sans-serif'; ctx.fillStyle = '#ff3b5c'; ctx.shadowColor = '#fff'; ctx.shadowBlur = 6; ctx.fillText('あたり! いま!', lureX, WATER_Y - 18); ctx.shadowBlur = 0; }
+          }
+          if (charging) { ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(W / 2 - 60, 12, 120, 12); ctx.fillStyle = charge > 0.8 ? '#ff5c8a' : '#8de0a0'; ctx.fillRect(W / 2 - 60, 12, 120 * charge, 12); ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textBaseline = 'top'; ctx.fillText('とおくへ なげる', W / 2, 26); }
+          if (phase === 'fight') {
+            ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(10, 10, W - 20, 30);
+            ctx.fillStyle = '#fff'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText('テンション', 14, 13);
+            ctx.fillStyle = 'rgba(255,255,255,.2)'; ctx.fillRect(14, 26, W - 28, 9);
+            ctx.fillStyle = tension > 80 ? '#ff3b5c' : tension > 55 ? '#ffd257' : '#8de0a0'; ctx.fillRect(14, 26, (W - 28) * tension / 100, 9);
+            ctx.fillStyle = '#fff'; ctx.textAlign = 'right'; ctx.fillText('あと ' + Math.max(0, Math.round(lineLen)) + 'm', W - 14, 13);
+            if (tension > 80) { ctx.fillStyle = `rgba(255,60,60,${0.2 + 0.2 * Math.abs(Math.sin(now / 90))})`; ctx.fillRect(0, 0, W, H); }
+          }
+          if (now < msgUntil) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 100, H - 34, 200, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H - 21); }
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now;
+          const dt = Math.min(0.05, (now - last) / 1000); last = now;
+          update(dt, now);
+          if (!running) return;
+          const rem = Math.max(0, DURATION_MS - (now - startTime));
+          timerEl.textContent = 'のこり: ' + Math.ceil(rem / 1000) + 's';
+          render(now);
+          if (rem <= 0) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          mainBtn.disabled = true;
+          const pts = caught.reduce((a, f) => a + f.value, 0);
+          const score = clamp(18 + pts * 0.85 - escaped * 4, 10, 100);
+          say(caught.length ? `しゅうりょう! ${caught.length}ひき ${pts}pt` : 'しゅうりょう… つれなかった', 2000);
+          render(performance.now());
+          setTimeout(() => onComplete(Math.round(score)), 900);
+        }
+        setPhase('ready');
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const REAL_FISHING_VARIANTS = [mg('real-fishing', makeRealFishingGame({ title: 'ほんかく さかなつり!あわせて、まいて、つりあげろ' }))];
+
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -12574,6 +13006,8 @@
     ...RHYTHM_HIGHWAY_VARIANTS,
     ...TILT_MAZE_VARIANTS,
     ...SPACE_GUNNER_VARIANTS,
+    ...MINI_GOLF_VARIANTS,
+    ...REAL_FISHING_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -12603,6 +13037,8 @@
     ['rhythmHighway', RHYTHM_HIGHWAY_VARIANTS],
     ['tiltMaze', TILT_MAZE_VARIANTS],
     ['spaceGunner', SPACE_GUNNER_VARIANTS],
+    ['miniGolf', MINI_GOLF_VARIANTS],
+    ['realFishing', REAL_FISHING_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -12805,43 +13241,33 @@
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
 
-  // そうさ感や展開に変化がある「しっかり遊べる」カテゴリは、特定の1ゲームだけ
-  // 特別扱いせず、グループ全体にごく弱い重みを足す。出現保証はしないので、
-  // シャッフルバッグの多様性をこわさず、少しだけ出会いやすくする。
-  const FEATURED_MINIGAME_CATEGORIES = new Set([
-    'chase', 'shooter', 'actionBoss', 'fallingBlock', 'craneGame', 'pinball', 'hauntedHouse', 'breakout', 'miniEscape',
-    'stealth', 'fishing', 'downhill', 'surfing', 'fight',
-    'creatureCapture', 'adventureField', 'firstPersonDungeon', 'perspective3d',
-    'road', 'sportsSwing', 'swipeThrow', 'dragDecorate', 'targetAim',
-    'roadRace', 'rhythmHighway', 'tiltMaze', 'spaceGunner',
-  ]);
-
-  // プレイテストで「当たり」と判断したゲームは、単に並び順を少し前へ
-  // 動かすだけでは体感差が小さいため、1周のシャッフルバッグに追加チケットを
-  // 1枚だけ入れる。これで本当に出会いやすくなる一方、同じゲームだけに
-  // 偏らないよう、直後の同一ゲーム回避は pickRandomMinigame() で行う。
-  const SPOTLIGHT_MINIGAME_IDS = new Set([
-    'haunted-house-3d',
-    'pinball-physics',
-    'crane-game-3d',
-    'falling-block-puzzle',
-    'action-boss-3d',
-    'fp-dungeon',
-    'creature-capture-3d',
-    'adventure-field',
-    'chase-themed',
-    'breakout-classic',
-    'shooter-themed',
-    'race-3d',
-    'rhythm-highway-3d',
-    'tilt-maze-3d',
-    'space-gunner-3d',
-  ]);
-
-  function minigameFunWeight(game) {
-    if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) return 2.15;
+  // ミニゲームの 出やすさは「質の ティア」で きめる。
+  //  S: 物理/3D/れんぞく操作が ある、いちばん あそびごたえの ある ゲーム(追加チケット2枚)
+  //  A: 操作感や 展開に 変化が あって しっかり あそべる ゲーム(追加チケット1枚)
+  //  B: みじかい タイミング/選択の ゲーム(そのまま)
+  // ゲームid に ついた ティアが 優先、なければ カテゴリの ティア、それも なければ B
+  const MINIGAME_TIER_WEIGHT = { S: 2.4, A: 1.45, B: 0.7 };
+  const MINIGAME_TIER_TICKETS = { S: 2, A: 1, B: 0 };
+  const MINIGAME_TIER_BY_ID = {
+    'pinball-physics': 'S', 'haunted-house-3d': 'S', 'fp-dungeon': 'S', 'race-3d': 'S', 'rhythm-highway-3d': 'S',
+    'tilt-maze-3d': 'S', 'space-gunner-3d': 'S', 'mini-golf-physics': 'S', 'real-fishing': 'S',
+    'downhill-mountain': 'S', 'downhill-snow': 'S',
+    'crane-game-3d': 'A', 'falling-block-puzzle': 'A', 'action-boss-3d': 'A', 'creature-capture-3d': 'A',
+    'adventure-field': 'A', 'chase-themed': 'A', 'breakout-classic': 'A', 'shooter-themed': 'A',
+    'p3-space': 'A', 'p3-drive': 'A', 'surfing-wave': 'A', 'stealth-themed': 'A',
+  };
+  const MINIGAME_TIER_BY_CATEGORY = {
+    roadRace: 'S', rhythmHighway: 'S', tiltMaze: 'S', spaceGunner: 'S', miniGolf: 'S', realFishing: 'S', pinball: 'S', hauntedHouse: 'S', firstPersonDungeon: 'S', downhill: 'S',
+    chase: 'A', shooter: 'A', actionBoss: 'A', fallingBlock: 'A', craneGame: 'A', breakout: 'A', miniEscape: 'A', stealth: 'A', fishing: 'A', surfing: 'A', fight: 'A',
+    creatureCapture: 'A', adventureField: 'A', perspective3d: 'A', road: 'A', sportsSwing: 'A', swipeThrow: 'A', dragDecorate: 'A', targetAim: 'A',
+  };
+  function minigameTier(game) {
+    if (game.id && MINIGAME_TIER_BY_ID[game.id]) return MINIGAME_TIER_BY_ID[game.id];
     const category = minigameCategoryOf.get(game);
-    return FEATURED_MINIGAME_CATEGORIES.has(category) ? 1.4 : 0.78;
+    return MINIGAME_TIER_BY_CATEGORY[category] || 'B';
+  }
+  function minigameFunWeight(game) {
+    return MINIGAME_TIER_WEIGHT[minigameTier(game)];
   }
 
   function refillMinigameQueue() {
@@ -12854,7 +13280,7 @@
     // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
     const weighted = currentMinigamePool.map((game, i) => {
       const played = minigamePlayCount(game);
-      let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.15);
+      let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
       if (isRegionExclusiveGame(game)) weight *= 1.45;
       if (isSeasonExclusiveGame(game)) weight *= 1.25;
       weight *= minigameFunWeight(game);
@@ -12863,13 +13289,13 @@
     weighted.sort((a, b) => a.key - b.key);
     minigameQueue = weighted.map((w) => w.i);
 
-    // 「特に面白い」ゲームは追加チケットを2枚。質の高いゲームへ明確に寄せつつ、
+    // ティアに おうじて 追加チケット(S:2枚 A:1枚)。質の高いゲームへ明確に寄せつつ、
     // 元のプールも残すので同じ数本だけに固定はしない。
     // 未プレイ優遇・地域/季節優遇と競合しないよう、追加チケットも同じ
     // キューに混ぜてから軽くシャッフルする。
     const spotlightTickets = [];
     currentMinigamePool.forEach((game, i) => {
-      if (SPOTLIGHT_MINIGAME_IDS.has(game.id)) spotlightTickets.push(i, i);
+      for (let t = 0; t < MINIGAME_TIER_TICKETS[minigameTier(game)]; t++) spotlightTickets.push(i);
     });
     for (const ticket of spotlightTickets) {
       const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));

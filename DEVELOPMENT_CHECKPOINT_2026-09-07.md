@@ -1004,3 +1004,10 @@ Runtime smoke test SUCCESS確認済み。
 - 既存ゲームの修正: クレーン(おく行きが判定に効く)、ぼうけんフィールド(スワイプ復活・8列はみ出し修正・移動予算26)、ブロックくずし(実dt・スタート猶予・touch-action)、めいろチェイス(hold+スワイプ・時間切れ上限80)、ゲレンデ(衝突-11・ジャンプ中disabled)、しのびあし(猶予・150ms許容・40s打ち切り)、モンスターキャッチ(ドラッグ開始点に投げる・閾値18px)、落ちもの(猶予・hold)、ロード/シューティング(到達不能スポーン停止)、さかなつり(preventDefault)、スポーツ振りぬき(成功/失敗ラベル)、3Dボス(隙の有効時間1.1s)。
 - CSS: `.mg-canvas-wrap`/`.mg-canvas`、`.mg-dpad` を3列グリッド化、`.mg-dpad-mid` の gap:40px 撤廃(3ボタンで画面外に出ていた)、`.mg-fp-controls`/`.mg-race-controls`/`.mg-rhythm-controls`/`.mg-gunner-controls`/`.mg-tilt-dpad`、`.mg-adventure-field` の minmax(0,1fr)。
 - 検証: `node tests/smoke-test.js` OK(38ゲーム起動)。Playwright(Chromium 390px)で 全38ゲームを起動し ボタン連打・ページエラー0・ボタンはみ出し0・横スクロール0 を確認。ピンボールは フリッパー操作で スコアが 積み上がり ゴールに 到達することを 自動操作で確認。
+
+## チェックポイント AJ — 3D新作 第2弾・ゲレンデ作り直し・出現率ティア(2026-09-08)
+- `createPseudoRoad`(ぎじ3Dロードエンジン)を切り出し、`makeRoadRaceGame` と `makeDownhillGame`(canvas版に全面作り直し。旧DOM版は削除)で共用。`drawRearCar`/`drawRider` で進行方向を向いた後ろ姿の乗り物/人物を描く。
+- 新作: `makeMiniGolfGame`(mini-golf-physics、`MINI_GOLF_HOLES` 6コースから3ホール)・`makeRealFishingGame`(real-fishing、`FISHING_SPECIES` 6種、キャスト→あわせ→テンション管理のファイト)。カテゴリ `miniGolf`/`realFishing`。
+- 出現率: `SPOTLIGHT_MINIGAME_IDS`/`FEATURED_MINIGAME_CATEGORIES` を廃止し、`MINIGAME_TIER_BY_ID`/`MINIGAME_TIER_BY_CATEGORY` + `MINIGAME_TIER_WEIGHT`(S2.4/A1.45/B0.7) + `MINIGAME_TIER_TICKETS`(S2/A1/B0) に置き換え(`minigameTier()`)。
+- 落ちものパズルのボタンを2段グリッドに(`#fbSoft` ソフトドロップ追加)。ぼうけんフィールドのタイルに wall/gem/enemy/goal/potion クラスを付与して見分けやすく。
+- 検証: smoke-test OK(40ゲーム)。Playwright で全40ゲーム起動・ページエラー0・はみ出し0。ゴルフはドラッグ→パット、さかなつりはキャスト→あたり発生まで自動操作で確認。
