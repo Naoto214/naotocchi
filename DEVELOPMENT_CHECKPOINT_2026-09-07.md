@@ -1011,3 +1011,8 @@ Runtime smoke test SUCCESS確認済み。
 - 出現率: `SPOTLIGHT_MINIGAME_IDS`/`FEATURED_MINIGAME_CATEGORIES` を廃止し、`MINIGAME_TIER_BY_ID`/`MINIGAME_TIER_BY_CATEGORY` + `MINIGAME_TIER_WEIGHT`(S2.4/A1.45/B0.7) + `MINIGAME_TIER_TICKETS`(S2/A1/B0) に置き換え(`minigameTier()`)。
 - 落ちものパズルのボタンを2段グリッドに(`#fbSoft` ソフトドロップ追加)。ぼうけんフィールドのタイルに wall/gem/enemy/goal/potion クラスを付与して見分けやすく。
 - 検証: smoke-test OK(40ゲーム)。Playwright で全40ゲーム起動・ページエラー0・はみ出し0。ゴルフはドラッグ→パット、さかなつりはキャスト→あたり発生まで自動操作で確認。
+
+## チェックポイント AK — ゴール後画面(おいわい画面・人生記録カード)のレイアウト修正(2026-09-08)
+- `.game-clear-overlay` と `.life-card-overlay` を position:absolute の被せ表示から、`.screen-normal` と入れ替わる通常フローのブロックに変更(render() で `screenNormal`/`farewellBar` の表示を切り替え、`showLifeCard()` でも即時に隠す)。内容の高さで画面が伸びるので、スマホで下が見切れない・おわかれバーと重ならない。
+- `assets/clear/goal-1〜5.jpg` を正式アート(5枚組の1枚絵から分割、①②③ 約505×513、④⑤ 約760×493)に差し替え。壊れていた③〜⑤の切り出しCSSは撤去し、画像は自然な縦横比で全体表示。
+- Playwright で ①〜⑤の全ティアと人生記録カード(8行ログ)を描画し、はみ出し・重なりなしを確認。

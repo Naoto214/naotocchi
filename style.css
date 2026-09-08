@@ -5969,3 +5969,23 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-adventure-field span.goal{background:#ffe08a!important}
 .mg-adventure-field span.potion{background:#e6d5ff!important}
 @keyframes mg-adv-gem{from{box-shadow:inset 0 0 0 0 rgba(255,255,255,0)}to{box-shadow:inset 0 0 10px rgba(255,255,255,.95)}}
+
+/* ================================================================
+   ゴール後の がめん(おいわい画面・人生記録カード)を ながれの なかに 置く
+   ================================================================
+   以前は position:absolute で ふつうの がめんに かぶせていたため、なかみが
+   がめんより たかいと したが 見きれ、おわかれバーとも かさなっていた。
+   screen-normal と いれかわる ふつうの ブロックに して、たかさは なかみで きめる */
+.game-clear-overlay{position:relative;inset:auto;min-height:250px;justify-content:flex-start;overflow:hidden;padding:8px 10px 12px;gap:5px;box-sizing:border-box}
+.game-clear-art{width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;flex:0 0 auto;image-rendering:auto;background:rgba(255,255,255,.25)}
+.game-clear-overlay .game-clear-title{font-size:20px;line-height:1.25;padding:0 4px}
+.game-clear-overlay .game-clear-subtitle{font-size:14px}
+.game-clear-desc{width:100%;box-sizing:border-box;font-size:11px}
+.game-clear-badges{width:100%}
+.game-clear-close-btn,.game-clear-freeplay-btn{position:relative;z-index:1;min-height:36px}
+.life-card-overlay{position:relative;inset:auto;min-height:250px;justify-content:flex-start;overflow:visible;padding:12px 10px 14px;border-radius:8px;box-sizing:border-box}
+.life-card{max-width:100%;word-break:break-word}
+.lifecard-line{line-height:1.6;margin:2px 0}
+.lifecard-log{line-height:1.5;margin:2px 0;padding-left:36px;text-indent:-36px}
+.lifecard-log span{text-indent:0;min-width:34px}
+.life-card-next{position:relative;z-index:1;margin-top:6px;min-height:38px}

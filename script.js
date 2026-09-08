@@ -5509,6 +5509,8 @@
     el.lifeCardOverlay.classList.toggle('rainbow', state.maxSodachi >= SODACHI_MAX);
     el.lifeCardOverlay.classList.toggle('gold', state.maxSodachi >= LIFE_CLEAR_SODACHI && state.maxSodachi < SODACHI_MAX);
     el.lifeCardOverlay.classList.remove('hidden');
+    el.screenNormal.classList.add('hidden');
+    el.farewellBar.classList.add('hidden');
   }
 
   // その子の いっしょうを ようやく 1行に して 歴代に つみ、あたらしい たまごへ
@@ -6485,6 +6487,13 @@
       showLifeCard();
     }
     if (!isDead) deathCardShown = false;
+    // ゴールの おいわい画面と 人生記録カードは、がめんに かぶせる のではなく
+    // ふつうの がめん(screen-normal)と いれかわりで ながれの なかに 置く。
+    // こうすると なかみの たかさに あわせて がめんが のびるので、
+    // スマホで したが 見きれたり、おわかれバーと かさなったり しない
+    const lifeCardVisible = !el.lifeCardOverlay.classList.contains('hidden');
+    el.screenNormal.classList.toggle('hidden', gameActive || !!grandGoalPending || lifeCardVisible);
+    el.farewellBar.classList.toggle('hidden', state.stage !== STAGE.FAREWELL || !!grandGoalPending || lifeCardVisible);
     applyTheme();
 
     const region = applyRegion();
@@ -7645,10 +7654,10 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    // クリア条件ごとの暫定ドット絵。正式キャラデザインが決まったら
-    // assets/clear/goal-1.jpg〜goal-5.jpg を差し替えるだけで全画面に反映できる。
+    // クリア条件ごとのゴールアート(assets/clear/goal-1.jpg〜goal-5.jpg)。
+    // 差し替えるだけで全画面に反映できる。
     if (el.gameClearArt) {
-      el.gameClearArt.src = `assets/clear/goal-${tierIndex + 1}.jpg?v=20260907-01`;
+      el.gameClearArt.src = `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
       el.gameClearArt.alt = tier.title;
     }
     el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
