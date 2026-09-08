@@ -1040,3 +1040,15 @@ Runtime smoke test SUCCESS確認済み。
 - 再監査: 全52ゲームのコンタクトシートを目視点検。DOMベースの シューター/ステルス/ブロックくずし/スポーツスイング/サーフィンの背景・質感を CSS で強化(星空・部屋・グロス付きブロック・コート)。グランプリのヒット数は 700ms クールダウンで加算、スカイシューターのボムボタンは `💣×N` 表記に短縮(はみ出し対策)。
 - キャッシュ: `script.js?v=20260908-8`, `style.css?v=20260908-7`。
 - 検証: smoke-test OK(52ゲーム)。Playwright で全52ゲーム起動・ページエラー0・ボタンはみ出し0・横スクロール0。新作6本(作り直し含む)は操作→反応(クレーンの獲得/落下、GPの順位変動とゴール、STGのボム、ジャンプ・コイン、倉庫番の移動/undo、オセロの着手とAI応手)を自動操作で確認。
+
+## チェックポイント AP — 新作バッチ1(7本): ビリヤード/どうぶつしょうぎ/マインスイーパー/スネーク/やきゅう/リングフライト/バブルシューター(2026-09-08)
+- 方針: 「操作系がぜんぶ違う7本」を1バッチとして追加(ドラッグ物理・タップ思考・十字/スワイプ・タイミング・3D操縦・照準)。以降もバッチ単位(6〜8本/PR)で増やす。
+- `makeBilliardsGame`(billiards-6): 円衝突+摩擦+ポケット、ガイド線(最初の接触球と弾く向き)、スクラッチ復帰、ショット数制限。
+- `makeAnimalShogiGame`(animal-shogi): 3×4、持ち駒打ち、🐤→🐔成り、トライ勝ち(安全な最奥到達)、αβ 3手よみ(difficulty<0.35 は 2手)。`fwd(o)` は MOVES の dy<0 を「前」とし ME=+1/AI=-1(符号ミスを修正済み)。
+- `makeMinesweeperGame`(minesweeper-8): 初手安全配置、フラッドフィル、🚩モード/長押し、コード開き、開く演出。
+- `makeSnakeGame`(snake-classic): 15×15、tick 230→105ms、⭐ボーナス、スワイプ/十字。
+- `makeBaseballGame`(baseball-batting): 擬似3D(proj の z は 0〜1.05 にクランプ。打球の z>1.2 で負の半径になる ellipse エラーを修正)、球種3、コース×タイミングで HR/3B/2B/1B/ファウル/空振り。
+- `makeRingFlightGame`(ring-flight-3d): 透視投影 F/(z+0.35)、リング/くも/コインのスポーン、バンク描画、Math.random 固定で全リング中央通過を確認。
+- `makeBubbleShooterGame`(bubble-shooter): オフセット六角格子、壁反射の照準線、3連結消去+浮遊塊落下、N ショットごとに1段追加、デッドライン判定。
+- 登録: MINIGAMES / MINIGAME_CATEGORY_GROUPS(billiards/animalShogi/minesweeper/snake/baseball/ringFlight/bubbleShooter)/ S ティア。キャッシュ `script.js?v=20260908-9`。
+- 検証: smoke-test OK(59ゲーム)。Playwright 全59ゲーム スイープ ページエラー0・はみ出し0。7本とも操作→反応を自動操作で確認(ショットで散開、🐤の取り合い、開マス/フラグ、方向転換、HR/3B 判定、リング6連続、3連結消去)。
