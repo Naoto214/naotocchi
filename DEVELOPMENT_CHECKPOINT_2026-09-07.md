@@ -1194,3 +1194,23 @@ Runtime smoke test SUCCESS確認済み。
 - 新しい10枚以外の採用済み102枚は変更しない。WORLD_MASTER、既存ID・asset path、Character Renderer、仲間・恋愛ロジックを独自変更しない。
 - 128px対応総数は14種112枚のまま。残り17種136枚、作者・通常仲間・レア仲間・恋人の専用45素材は未完了。今後は未対応種を個別に仕上げる。
 - 最終コミットをbranchから到達可能にした後、GitHubから112枚の実バイトを再取得し、PNG復号・ハッシュ・画素保持・mainの到達性・最新Actions SUCCESSを検証記録に残す。PR #183はopen / Draftのまま保持し、マージしない。
+
+## チェックポイント AO — 全ゲーム再監査・UFOキャッチャー作り直し・新作5本(2026-09-08)
+- `makeCraneGame`(crane-game-3d)を canvas の UFOキャッチャーに全面作り直し。1ボタン長押しで アーム横移動→奥移動→落下→つかむ→運ぶ、`gripPower`(中心からのずれ)で 0.35s ごとにスリップ判定。落ちた景品はその場に残り、おとしぐち(`CHUTE`)へ押しずらす戦略が成立。3トライ。ティア A→S。
+- 新作5本: `makeGrandPrixGame`(grand-prix-3d、`createPseudoRoad` 共用、ライバル5台AI・3周・ブースト/オイルパッド・順位表示)、`makeSkyShooterGame`(sky-shooter、横スクロールSTG、ウェーブ3種・P/B・ボム・ボス)、`makeJumpQuestGame`(jump-quest、タイルプラットフォーマー、可変ジャンプ・コヨーテタイム・踏みつけ)、`makePushPuzzleGame`(push-puzzle、倉庫番 `PUSH_PUZZLE_LEVELS` 4面→3面、undo/reset/スワイプ)、`makeReversiGame`(reversi-6、6×6オセロ、重みつき貪欲AI、合法手ヒント、めくりアニメ)。カテゴリ grandPrix/skyShooter/jumpQuest/pushPuzzle/reversi、すべて S ティア。
+- 再監査: 全52ゲームのコンタクトシートを目視点検。DOMベースの シューター/ステルス/ブロックくずし/スポーツスイング/サーフィンの背景・質感を CSS で強化(星空・部屋・グロス付きブロック・コート)。グランプリのヒット数は 700ms クールダウンで加算、スカイシューターのボムボタンは `💣×N` 表記に短縮(はみ出し対策)。
+- キャッシュ: `script.js?v=20260908-8`, `style.css?v=20260908-7`。
+- 検証: smoke-test OK(52ゲーム)。Playwright で全52ゲーム起動・ページエラー0・ボタンはみ出し0・横スクロール0。新作6本(作り直し含む)は操作→反応(クレーンの獲得/落下、GPの順位変動とゴール、STGのボム、ジャンプ・コイン、倉庫番の移動/undo、オセロの着手とAI応手)を自動操作で確認。
+
+## チェックポイント AV — 犬・猫16段階の128px実装とmain同期
+- 監査開始HEAD `99530b4135aa004c86fc415ee18fa74ee85de74c`、tree `9e39c4e2c926e42442f1bf9d2608d8ce7b8e4844`。GitHubのPR #183、live branch/main ref、全tree、直近コミットを実取得し、犬・猫16枚が旧64px素材であることを確認した。
+- 対象は `assets/characters/dog/01.png`〜`08.png` と `assets/characters/cat/01.png`〜`08.png`。現行WORLD_MASTERの新生仔→子犬/子猫→幼犬/幼猫→若犬/若猫→若成犬/若成猫→成犬/成猫→シニア→老犬/老猫を維持する。古い王冠・衣装段階の犬一覧は現行設定と不一致のため使用しない。
+- 旧素材の茶色い雑種犬・グレーの猫を基準に、承認済みの128px統一方針で一体ずつ仕上げた。全16段階に目または閉じたまぶたと口を持たせる。眠り、好奇心の丸い口、元気な笑顔、ウインク、落ち着いた笑顔などを変化させ、頭身・耳・足・姿勢・尾・白毛で年齢差を表す。衣装や別犬種の追加はしない。
+- 犬⑤の耳、犬⑦の落ち着いた目元と白い口元はその画像だけ個別修正。犬⑦の書き出しで見つけた紫の背景色残りもこの1枚だけ修正し、最終PNGの紫色残り0を検証した。他の15枚は再生成していない。
+- 各原案は単体画像として処理。既存alpha、または各画像で確認した背景に対する輪郭外からの連結領域処理で透過し、身体のRGBを再描画せず縮小した。均等セル分割・一覧からの一括crop・GrabCutは使用しない。各段階の全身に合わせた縮尺と接地位置、8px以上の透明余白を保持する。
+- 全16枚はPNG / 128×128 / 8-bit RGBA / alpha 0・255 / 最大63不透明色 / 文字なし。PNG全chunk CRC、復号、寸法、余白、SHA-256を検証。原案比較、実寸、白/濃色背景の一覧と犬⑦の追加拡大検査で、顔・身体・耳・足・尾、背景残り・文字/隣段階混入・縮尺・隣接段階の差を確認し合格。
+- 作業中にmainが `c5ad411f318762b2b1b649971e5df786e487bba2` から `265cfbeb46d1860b85d0b7c0b9f7a3fc1090baed`（PR #191）へ進んだため、2コミット・5ファイルの差分を監査して同期する。競合は本記録の末尾追記のみ。作業ブランチの記録全文とmainの新規追記を両方保持した。script.js / index.html / style.css / README.md はmainと実バイト完全一致であり、新作5ゲームなどはmain由来の更新。
+- 先行14種112枚はSHA-256一致で変更なし。WORLD_MASTER、既存ID・asset path、Character Renderer、仲間・恋愛ロジックを独自変更しない。同期以外の変更は犬・猫16 PNGと本追記だけ。
+- 同期後のローカルRuntime smoke test SUCCESS（DOM 277 / ミニゲーム52 / variant collections 62）、16種128枚×4表示サイズのCharacter Renderer参照512ケースSUCCESS。これは既存RuntimeハーネスとHTML参照検証で、ブラウザー画像による画面テストではない。
+- 128px対応は31プレイヤー種248段階のうち16種128枚。未対応は15種120枚（penguin / turtle / frog / salmon / clownfish / butterfly / beetle / stagbeetle / cicada / hermit_crab / dragon / phoenix / god / star / unknown）。作者・通常仲間・レア仲間・恋人の専用45素材も未完了。全キャラクター完成とは扱わない。
+- ブランチから到達可能な最終コミットを作成後、GitHubから128枚の実バイトを再取得し、PNG復号・CRC・ハッシュ・main到達性・最新Actions SUCCESSを成果物の検証記録に残す。PR #183はopen / Draftを保持し、マージしない。
