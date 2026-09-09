@@ -1023,6 +1023,15 @@
     dexCloseBtn: document.getElementById('dexCloseBtn'),
     achOverlay: document.getElementById('achOverlay'),
     achGrid: document.getElementById('achGrid'),
+    achTitle: document.getElementById('achTitle'),
+    achTabs: document.getElementById('achTabs'),
+    gameListGrid: document.getElementById('gameListGrid'),
+    mgResultToast: document.getElementById('mgResultToast'),
+    mgQuit: document.getElementById('mgQuit'),
+    mgQuitBtn: document.getElementById('mgQuitBtn'),
+    mgQuitConfirm: document.getElementById('mgQuitConfirm'),
+    mgQuitYesBtn: document.getElementById('mgQuitYesBtn'),
+    mgQuitNoBtn: document.getElementById('mgQuitNoBtn'),
     achProgress: document.getElementById('achProgress'),
     achCloseBtn: document.getElementById('achCloseBtn'),
     device: document.getElementById('device'),
@@ -1453,6 +1462,11 @@
         // きえない プレイヤーぜんたいの けいけんとして あつかう(未プレイ
         // 優遇/アンチリピートの おもみづけに つかう)
         minigamePlayCounts: {},
+        // ゲームごとの じこベスト(id→{ best, last })。てんすうは アイテムの
+        // ボーナスを のぞいた「じつりょくの てんすう」(0〜100)で きろくし、
+        // ランク(S/A/B/C/D)も ここから ひく。minigamePlayCounts と おなじく
+        // 「はじめから」しても きえない
+        minigameRecords: {},
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -1501,6 +1515,22 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
+      // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
+      const LEGACY_MINIGAME_IDS = {
+        'region:city:road:0': 'road-city', 'region:countryside:stack:1': 'stack-harvest', 'region:forest:stack:2': 'stack-acorn',
+        'region:jungle:road:3': 'road-jungle', 'region:desert:road:4': 'road-desert',
+        'season:spring:stack:5': 'stack-sakura', 'season:autumn:stack:6': 'stack-leaves',
+      };
+      const counts = merged.lifetime.minigamePlayCounts;
+      if (counts && typeof counts === 'object') {
+        for (const [oldId, newId] of Object.entries(LEGACY_MINIGAME_IDS)) {
+          if (counts[oldId] == null) continue;
+          counts[newId] = (counts[newId] || 0) + counts[oldId];
+          delete counts[oldId];
+        }
+      }
+      if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
       const OLD_ITEM_BASE = {
         flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
@@ -9939,7 +9969,19 @@
   // いと 目指しようが ないので、ラベル・せつめい文は 未達成でも つねに 見
   // せる。達成ずみかどうかは ❓ に すりかえるのではなく、カードの いろ
   // (ach-cell.locked のグレー ⇔ 達成いろ)だけで 判別する
+  let achTab = 'ach';
   function renderAchievements() {
+    const gamesTab = achTab === 'games';
+    if (el.achTabs) {
+      for (const btn of el.achTabs.querySelectorAll('.ach-tab')) btn.classList.toggle('active', btn.dataset.tab === achTab);
+    }
+    if (el.achTitle) el.achTitle.textContent = gamesTab ? 'ゲームきろく' : 'じっせき';
+    el.achGrid.classList.toggle('hidden', gamesTab);
+    if (el.gameListGrid) el.gameListGrid.classList.toggle('hidden', !gamesTab);
+    if (gamesTab) {
+      renderGameList();
+      return;
+    }
     const unlockedCount = state.achievementsUnlocked.length;
     el.achProgress.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
     el.achGrid.innerHTML = ACHIEVEMENTS.map((ach) => {
@@ -9947,6 +9989,46 @@
       const emoji = known ? ach.emoji : '🔒';
       return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
     }).join('');
+  }
+
+  // 「ゲームきろく」タブ: ぜんゲームを ジャンルごとに ならべ、じこベスト・
+  // ランク・あそんだ かいすうを 見せる。タップすると その ゲームで あそべる
+  // (「あそぶ」と おなじ 条件・おなじ ごほうび)
+  function renderGameList() {
+    if (!el.gameListGrid) return;
+    const pool = buildMinigamePool();
+    const effectiveSeason = getEffectiveSeason();
+    let played = 0;
+    const rankCounts = { S: 0, A: 0, B: 0, C: 0, D: 0 };
+    for (const game of pool) {
+      const record = minigameRecordOf(game);
+      if (!record) continue;
+      played += 1;
+      rankCounts[minigameRankOf(record.best)] += 1;
+    }
+    el.achProgress.textContent = `あそんだ ${played} / ${pool.length}`;
+    const rankSummary = ['S', 'A', 'B'].map((r) => `<span class="mg-rank rank-${r}">${r}</span>${rankCounts[r]}`).join('');
+    let html = `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
+    html += '<div class="game-list-hint">タップすると その ゲームで あそべる(げんきを つかう)</div>';
+    for (const genre of MINIGAME_GENRES) {
+      const games = pool.filter((game) => minigameGenreId(game) === genre.id);
+      if (!games.length) continue;
+      html += `<div class="game-section-title">${genre.emoji} ${genre.label} (${games.length})</div>`;
+      for (const game of games) {
+        const info = minigameInfo(game);
+        const record = minigameRecordOf(game);
+        const plays = minigamePlayCount(game);
+        const home = minigameHomeOf.get(game);
+        const isNow = home && ((home.kind === 'region' && home.id === state.regionId) || (home.kind === 'season' && home.id === effectiveSeason));
+        const tag = home ? `<span class="game-cell-tag ${isNow ? 'now' : ''}">${home.emoji}${home.label}${isNow ? ' 2ばい' : ''}</span>` : '';
+        const rank = record ? minigameRankOf(record.best) : null;
+        const rankHtml = rank ? `<span class="mg-rank rank-${rank}">${rank}</span>` : '<span class="mg-rank rank-none">—</span>';
+        const bestHtml = record ? `<span class="game-cell-best">${record.best}てん</span>` : `<span class="game-cell-best">${plays ? 'きろく なし' : 'みプレイ'}</span>`;
+        const playsHtml = plays ? `<span class="game-cell-plays">${plays}かい</span>` : '';
+        html += `<button type="button" class="game-cell ${record ? 'known' : 'unplayed'} ${isNow ? 'spotlight' : ''}" data-game-id="${game.id}"><span class="game-cell-emoji">${info.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${info.name}${tag}</span><span class="game-cell-desc">${info.desc}</span></div><div class="game-cell-record">${rankHtml}${bestHtml}${playsHtml}</div></button>`;
+      }
+    }
+    el.gameListGrid.innerHTML = html;
   }
 
   function renderThemeSwatchGrid(gridEl, selectedId, swatchField) {
@@ -19412,24 +19494,24 @@
   const REGION_MINIGAMES = {
     home: [],
     city: [
-      { category: 'road', game: makeRoadGame({
+      { category: 'road', game: mg('road-city', makeRoadGame({
         title: 'とかいを はしろう!ラッキーアイテムは キャッチ、しょうがいぶつは よけて',
         goodItems: ['🍩','☕','🎫','💰'], badItems: ['🐦','🚧','🗑️','⚠️'], scene: 'city',
-      }) },
+      })) },
     ],
     countryside: [
-      { category: 'stack', game: makeStackGame({
+      { category: 'stack', game: mg('stack-harvest', makeStackGame({
         title: 'いなかの しゅうかくタワー!くずさず つもう',
         blockEmoji: '🌾',
         palette: ['#d6b85a','#af9b4f','#8c7b3f','#e4cf77','#9f8c53','#cab86e','#776638'],
-      }) },
+      })) },
     ],
     forest: [
-      { category: 'stack', game: makeStackGame({
+      { category: 'stack', game: mg('stack-acorn', makeStackGame({
         title: 'きのみタワー!たかく つみあげよう',
         blockEmoji: '🌰',
         palette: ['#8a9a5b','#a3b18a','#dad7cd','#588157','#3a5a40','#344e41','#bc6c25'],
-      }) },
+      })) },
     ],
     mountain: [
       { category: 'downhill', game: mg('downhill-mountain', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
@@ -19447,16 +19529,16 @@
       { category: 'fishing', game: mg('fishing-river', makeRealFishingGame({ title: 'かわ・みずうみで さかなつり!ながれを よもう', species: RIVER_FISH, waterTop: '#5fc0b0', waterBottom: '#1c5a5a' })) },
     ],
     jungle: [
-      { category: 'road', game: makeRoadGame({
+      { category: 'road', game: mg('road-jungle', makeRoadGame({
         title: 'ジャングルを かけぬけろ!くだものは とって、とげとヘビは よけて',
         goodItems: ['🍌','🥭','🥥','⭐'], badItems: ['🐍','🌵','🕸️','⚠️'], scene: 'jungle',
-      }) },
+      })) },
     ],
     desert: [
-      { category: 'road', game: makeRoadGame({
+      { category: 'road', game: mg('road-desert', makeRoadGame({
         title: 'さばくを はしろう!オアシスの めぐみは とって、とげは よけて',
         goodItems: ['💧','🍈','⭐','🧢'], badItems: ['🦂','🐍','☠️','🔥'], scene: 'desert',
-      }) },
+      })) },
     ],
   };
 
@@ -19509,21 +19591,21 @@
   const SEASONAL_MINIGAMES = {
     // 季節ゲームも「その季節なら遊びたい」ものだけ残す。
     [SEASON.SPRING]: [
-      { category: 'stack', game: makeStackGame({
+      { category: 'stack', game: mg('stack-sakura', makeStackGame({
         title: 'さくらタワー!はなびらを そっと かさねよう',
         blockEmoji: '🌸',
         palette: ['#ffc4d6', '#ffa8c5', '#ff8fb3', '#ffd6e3', '#f9a8d4', '#f472b6', '#fbcfe8'],
-      }) },
+      })) },
     ],
     [SEASON.SUMMER]: [
       { category: 'ringFlight', game: mg('ring-flight-summer', makeRingFlightGame({ title: 'なつの うみ フライト!ゆうやけの リングを くぐれ', theme: 'summer' })) },
     ],
     [SEASON.AUTUMN]: [
-      { category: 'stack', game: makeStackGame({
+      { category: 'stack', game: mg('stack-leaves', makeStackGame({
         title: 'おちばの やまを たかく つもう!',
         blockEmoji: '🍁',
         palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
-      }) },
+      })) },
     ],
     [SEASON.WINTER]: [
       { category: 'curling', game: mg('curling-winter', makeCurlingGame({ title: 'ふゆの カーリング たいかい!5こずつで しょうぶ', stoneCount: 5 })) },
@@ -19563,6 +19645,201 @@
   let currentMinigamePool = MINIGAMES;
   let minigameQueueRegionId = null;
   let minigameQueueSeason = null;
+  // --- ゲームいちらん用の 見出し情報 -----------------------------------
+  // ゲーム本体(makeXxxGame)は タイトル文字列を クロージャの なかに とじこめて
+  // いて 外から よめない ので、「じっせき > ゲームきろく」の いちらんに
+  // 出す みじかい名前・アイコン・ひとこと説明は、この表で id ごとに もつ。
+  // ジャンルは category から ひく(MINIGAME_GENRE_OF_CATEGORY)。
+  // tests/smoke-test.js が「すべての ゲーム id に この表の エントリが ある」
+  // ことを 確かめる ので、ゲームを 足したら ここにも 1行 足すこと。
+  const MINIGAME_GENRES = [
+    { id: 'action', emoji: '🕹️', label: 'アクション' },
+    { id: 'drive3d', emoji: '🚀', label: '3D・のりもの' },
+    { id: 'sports', emoji: '⚽', label: 'スポーツ' },
+    { id: 'puzzle', emoji: '🧩', label: 'パズル' },
+    { id: 'board', emoji: '♟️', label: 'ボード・テーブル' },
+    { id: 'strategy', emoji: '🏰', label: 'ストラテジー・RPG' },
+  ];
+  const MINIGAME_GENRE_OF_CATEGORY = {
+    road: 'action', stack: 'action', craneGame: 'action', pinball: 'action', breakout: 'action', jumpQuest: 'action',
+    frogger: 'action', snake: 'action', doodleJump: 'action', bomber: 'action', asteroids: 'action', skyShooter: 'action',
+    tankBattle: 'action', fruitSlice: 'action', sushiBelt: 'action', catapult: 'action', streetFight: 'action',
+    halfpipe: 'action', dominoRun: 'action', jenga: 'action',
+    perspective3d: 'drive3d', firstPersonDungeon: 'drive3d', hauntedHouse: 'drive3d', roadRace: 'drive3d', rhythmHighway: 'drive3d',
+    tiltMaze: 'drive3d', spaceGunner: 'drive3d', grandPrix: 'drive3d', ringFlight: 'drive3d', submarine: 'drive3d',
+    hangGlider: 'drive3d', planeLanding: 'drive3d', voxelMine: 'drive3d',
+    swipeThrow: 'sports', miniGolf: 'sports', realFishing: 'sports', fishing: 'sports', basketball: 'sports', pingPong: 'sports',
+    freeKick: 'sports', baseball: 'sports', skiJump: 'sports', airHockey: 'sports', tennis: 'sports', darts: 'sports',
+    trackField: 'sports', curling: 'sports', downhill: 'sports',
+    fallingBlock: 'puzzle', chainPuzzle: 'puzzle', pushPuzzle: 'puzzle', minesweeper: 'puzzle', bubbleShooter: 'puzzle',
+    twenty48: 'puzzle', matchThree: 'puzzle', picross: 'puzzle', pipeConnect: 'puzzle', lightsOut: 'puzzle', lineTrace: 'puzzle',
+    memoryCards: 'puzzle', sudoku: 'puzzle', dragDecorate: 'puzzle',
+    reversi: 'board', animalShogi: 'board', billiards: 'board', connectFour: 'board', gomoku: 'board', blackjack: 'board',
+    yachtDice: 'board', checkers: 'board', mancala: 'board',
+    towerDefense: 'strategy', roguelike: 'strategy',
+  };
+  const MINIGAME_INFO = {
+    'road-themed': { name: 'ロードラン', emoji: '🏃', desc: 'よい ものを キャッチ、わるい ものは よけて' },
+    'stack-themed': { name: 'つみあげタワー', emoji: '🏗️', desc: 'ゆれる クレーンから おとして たかく つもう' },
+    'stack-snowman': { name: 'ゆきだるまタワー', emoji: '⛄', desc: 'まるく かさねよう' },
+    'bowling-3d': { name: 'ボウリング', emoji: '🎳', desc: 'スワイプで なげて ストライクを ねらえ' },
+    'archery-3d': { name: 'アーチェリー', emoji: '🏹', desc: 'かぜを よんで まとの まんなかへ' },
+    'breakout-classic': { name: 'ブロックくずし', emoji: '🧱', desc: 'ゆびで パドルを うごかして ぜんぶ くずそう' },
+    'dragDecorate-cake': { name: 'ケーキデコレーション', emoji: '🎂', desc: 'トッピングを かざろう' },
+    'dragDecorate-bento': { name: 'おべんとうづくり', emoji: '🍱', desc: '見本どおりに つめよう' },
+    'p3-space': { name: 'うちゅうフライト3D', emoji: '🛸', desc: 'ほしを あつめて いんせきを よけよう' },
+    'p3-drive': { name: 'ハイウェイ3D', emoji: '🛣️', desc: 'コインを ひろって くるまを よけよう' },
+    'fp-dungeon': { name: 'ダンジョン3D', emoji: '🗝️', desc: '宝箱を あつめて 出口を さがそう' },
+    'falling-block-puzzle': { name: 'ブロックパズル', emoji: '🟦', desc: 'そろえて けそう' },
+    'crane-game-3d': { name: 'クレーンゲーム', emoji: '🕹️', desc: 'アームを うごかして けいひんを つかめ' },
+    'pinball-physics': { name: 'ピンボール', emoji: '🎯', desc: 'フリッパーで はじいて スコアを かせげ' },
+    'haunted-house-3d': { name: 'おばけやしき3D', emoji: '👻', desc: 'かぎを 見つけて 出口から にげろ' },
+    'race-3d': { name: 'カーレース3D', emoji: '🏎️', desc: 'ハイウェイ・さばく・ネオンの コースを はしりぬけ' },
+    'rhythm-highway-3d': { name: 'リズムハイウェイ', emoji: '🎵', desc: 'ながれてくる ノーツを ジャストで たたけ' },
+    'tilt-maze-3d': { name: 'たまころがし迷路', emoji: '🪀', desc: 'ばんを かたむけて ゴールへ' },
+    'space-gunner-3d': { name: 'スペースガンナー', emoji: '🔫', desc: 'せまる てきを しょうじゅんで うちおとせ' },
+    'mini-golf-physics': { name: 'ミニゴルフ', emoji: '⛳', desc: 'ひっぱって はなして パー以下を めざせ' },
+    'real-fishing': { name: 'ほんかく さかなつり', emoji: '🎣', desc: 'あわせて、まいて、つりあげろ' },
+    'basketball-3d': { name: 'バスケ3D', emoji: '🏀', desc: 'はらって シュート、リングを ねらえ' },
+    'pingpong-3d': { name: 'たっきゅう3D', emoji: '🏓', desc: 'ラリーで あいてを ぬけ' },
+    'chain-puzzle': { name: 'れんさパズル', emoji: '🔮', desc: 'いろだまを 4こ つなげて けそう' },
+    'street-fight': { name: 'かくとうバトル', emoji: '🥊', desc: 'パンチ・キック・ガードで ライバルを たおせ' },
+    'free-kick-3d': { name: 'フリーキック', emoji: '⚽', desc: 'かべと キーパーを こえて ゴールへ' },
+    'tower-defense': { name: 'タワーディフェンス', emoji: '🏰', desc: 'おしろを 6ウェーブ まもりきれ' },
+    'roguelike-dungeon': { name: 'ローグライク', emoji: '⚔️', desc: 'ダンジョンを 3かい おりて だっしゅつ' },
+    'grand-prix-3d': { name: 'グランプリ', emoji: '🏁', desc: 'ライバル5台と 3しゅう レース' },
+    'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'だんまくを かわして ボスを たおせ' },
+    'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: 'はしって とんで はたまで' },
+    'push-puzzle': { name: 'そうこばん', emoji: '📦', desc: 'はこを おして ★へ' },
+    'reversi-6': { name: 'オセロ', emoji: '⚫', desc: 'かどを とって あいてに かとう' },
+    'billiards-6': { name: 'ビリヤード', emoji: '🎱', desc: '6この ボールを ぜんぶ ポケットへ' },
+    'animal-shogi': { name: 'どうぶつしょうぎ', emoji: '🦁', desc: '🦁を とるか おくまで すすめ' },
+    'minesweeper-8': { name: 'マインスイーパー', emoji: '💣', desc: 'すうじを よんで ばくだんを さけろ' },
+    'snake-classic': { name: 'スネーク', emoji: '🐍', desc: '🍎を たべて どこまで のびる?' },
+    'baseball-batting': { name: 'やきゅう', emoji: '⚾', desc: 'コースを あわせて タイミング スイング' },
+    'ring-flight-3d': { name: 'リングフライト3D', emoji: '🛩️', desc: 'そらの リングを くぐりぬけろ' },
+    'bubble-shooter': { name: 'バブルシューター', emoji: '🫧', desc: 'おなじ いろを 3こ そろえて けせ' },
+    'catapult-castle': { name: 'カタパルト', emoji: '🏯', desc: 'とうを くずして 👻を たおせ' },
+    'connect-four': { name: 'コネクトフォー', emoji: '🔴', desc: '4つ ならべて あいてに かとう' },
+    'puzzle-2048': { name: '2048', emoji: '🔢', desc: 'おなじ かずを あわせて おおきく' },
+    'frogger-road': { name: 'かえるの おうちがえり', emoji: '🐸', desc: 'どうろと かわを わたって おうちへ' },
+    'ski-jump': { name: 'スキージャンプ', emoji: '⛷️', desc: 'とびだしと まえかがみで とおくへ' },
+    'air-hockey': { name: 'エアホッケー', emoji: '🏒', desc: 'パックを はじいて さきに 5てん' },
+    'submarine-3d': { name: 'サブマリン3D', emoji: '🐙', desc: 'ふかい うみで おたからを さがせ' },
+    'match-3': { name: 'フルーツマッチ3', emoji: '🍓', desc: 'いれかえて そろえて けす' },
+    'gomoku-9': { name: '五目ならべ', emoji: '⚪', desc: '5つ ならべて あいてに かとう' },
+    'tank-battle': { name: 'タンクバトル', emoji: '🪖', desc: 'かべを くだいて てきを ぜんめつ' },
+    'tennis-rally': { name: 'テニス', emoji: '🎾', desc: 'ラリーで あいてを ゆさぶれ' },
+    'picross-5': { name: 'ピクロス', emoji: '🖼️', desc: 'すうじを よんで えを ぬろう' },
+    'darts-board': { name: 'ダーツ', emoji: '🎯', desc: 'ゆれる ねらいを おさえて ブルを ねらえ' },
+    'hang-glider-3d': { name: 'ハンググライダー3D', emoji: '🪂', desc: '気流に のって とおくまで' },
+    'bomber-maze': { name: 'ボンバー', emoji: '💥', desc: 'ばくだんで レンガを くだき てきを たおせ' },
+    'blackjack-21': { name: 'ブラックジャック', emoji: '🃏', desc: '21に ちかづけて ディーラーに かとう' },
+    'pipe-connect': { name: 'パイプつなぎ', emoji: '🔧', desc: 'まわして みずを とおそう' },
+    'fruit-slice': { name: 'フルーツ斬り', emoji: '🍉', desc: 'スワイプで スパッと きろう' },
+    'track-field': { name: 'りくじょう', emoji: '🏃‍♀️', desc: '100mダッシュと はばとび' },
+    'voxel-mine': { name: 'ボクセルマイニング', emoji: '⛏️', desc: 'ほって ほって おたからを' },
+    'sushi-belt': { name: 'かいてんずし', emoji: '🍣', desc: 'ちゅうもんの ネタを とって' },
+    'asteroids-classic': { name: 'アステロイド', emoji: '☄️', desc: 'まわして ふんしゃして いわを くだけ' },
+    'yacht-dice': { name: 'ヨット', emoji: '🎲', desc: 'サイコロで やくを そろえよう' },
+    'lights-out': { name: 'ライツアウト', emoji: '💡', desc: 'ぜんぶの ライトを けそう' },
+    'doodle-jump': { name: 'ぴょんぴょんジャンプ', emoji: '🐰', desc: 'だいを つたって うえへ' },
+    'curling-ice': { name: 'カーリング', emoji: '🥌', desc: 'まんなかに よせよう' },
+    'jenga-tower': { name: 'ジェンガ', emoji: '🪵', desc: 'くずさず なんこ ぬける?' },
+    'line-trace': { name: 'せんなぞり', emoji: '✏️', desc: 'おてほんを ぴったり なぞろう' },
+    'checkers-6': { name: 'チェッカー', emoji: '🔘', desc: 'とびこして あいての こまを とれ' },
+    'memory-cards': { name: 'しんけいすいじゃく', emoji: '🃏', desc: 'おなじ えを そろえよう' },
+    'halfpipe-skate': { name: 'ハーフパイプ', emoji: '🛹', desc: 'ポンプで かそく、エアで かいてん' },
+    'domino-run': { name: 'ドミノたおし', emoji: '🁢', desc: 'かけた ところを うめて 🔔まで' },
+    'sudoku-mini': { name: 'ナンプレ', emoji: '🔢', desc: 'かずを ぜんぶ うめよう' },
+    'mancala-kalah': { name: 'マンカラ', emoji: '🫘', desc: 'たねを まいて ストアに あつめよう' },
+    'plane-landing': { name: 'ひこうき ちゃくりく', emoji: '🛬', desc: 'ふわっと おりよう' },
+    'road-city': { name: 'とかいラン', emoji: '🏙️', desc: 'ラッキーアイテムは キャッチ、しょうがいぶつは よけて' },
+    'stack-harvest': { name: 'しゅうかくタワー', emoji: '🌾', desc: 'いなかの みのりを くずさず つもう' },
+    'stack-acorn': { name: 'きのみタワー', emoji: '🌰', desc: 'もりの きのみを たかく つみあげよう' },
+    'downhill-mountain': { name: 'やまの ゲレンデ', emoji: '🏔️', desc: 'スキー/ボードで すべりおりよう' },
+    'downhill-snow': { name: 'ゆきの ゲレンデ', emoji: '🎿', desc: 'スキー/ボードで すべりおりよう' },
+    'fishing-sea': { name: 'うみの さかなつり', emoji: '🐟', desc: 'あわせて まいて つりあげろ' },
+    'fishing-deepsea': { name: 'しんかいフィッシング', emoji: '🦑', desc: 'なにが かかるか わからない' },
+    'fishing-river': { name: 'かわの さかなつり', emoji: '🐠', desc: 'ながれを よもう' },
+    'road-jungle': { name: 'ジャングルラン', emoji: '🌴', desc: 'くだものは とって、とげとヘビは よけて' },
+    'road-desert': { name: 'さばくラン', emoji: '🏜️', desc: 'オアシスの めぐみは とって、とげは よけて' },
+    'stack-sakura': { name: 'さくらタワー', emoji: '🌸', desc: 'はなびらを そっと かさねよう' },
+    'ring-flight-summer': { name: 'なつの うみ フライト', emoji: '🌅', desc: 'ゆうやけの リングを くぐれ' },
+    'stack-leaves': { name: 'おちばタワー', emoji: '🍂', desc: 'おちばの やまを たかく つもう' },
+    'curling-winter': { name: 'ふゆの カーリング たいかい', emoji: '🥌', desc: '5こずつで しょうぶ' },
+  };
+  function minigameInfo(game) {
+    const info = MINIGAME_INFO[game.id];
+    if (info) return info;
+    const category = minigameCategoryOf.get(game) || 'game';
+    return { name: category, emoji: '🎮', desc: '' };
+  }
+  function minigameGenreId(game) {
+    return MINIGAME_GENRE_OF_CATEGORY[minigameCategoryOf.get(game)] || 'action';
+  }
+
+  // 地域/きせつ げんていの ゲームが「どこ/いつの ゲームか」を いちらんの
+  // タグに 出すための 逆引き(ゲーム → {kind, id, emoji, label})
+  const minigameHomeOf = new Map();
+  for (const [regionId, regionEntries] of Object.entries(REGION_MINIGAMES)) {
+    const region = findRegion(regionId);
+    for (const entry of regionEntries) minigameHomeOf.set(entry.game, { kind: 'region', id: regionId, emoji: region.emoji, label: region.label });
+  }
+  for (const [seasonId, seasonEntries] of Object.entries(SEASONAL_MINIGAMES)) {
+    const info = SEASON_INFO[seasonId];
+    for (const entry of seasonEntries) minigameHomeOf.set(entry.game, { kind: 'season', id: seasonId, emoji: info.emoji, label: info.label });
+  }
+
+  // --- じこベストと ランク ---------------------------------------------
+  // ランクは アイテムの ボーナスを のぞいた てんすう(0〜100)で きめる。
+  // S は「ほぼ かんぺき」、A は「じょうず」、B は「なかなか」、C は
+  // 「もうすこし」、D は「これから」。finishMinigame() の 大成功(70+)と
+  // A(75+)が ほぼ そろう ように しきい値を あわせてある
+  const MINIGAME_RANKS = [
+    { id: 'S', min: 90 },
+    { id: 'A', min: 75 },
+    { id: 'B', min: 55 },
+    { id: 'C', min: 35 },
+    { id: 'D', min: 0 },
+  ];
+  function minigameRankOf(score) {
+    return (MINIGAME_RANKS.find((r) => score >= r.min) || MINIGAME_RANKS[MINIGAME_RANKS.length - 1]).id;
+  }
+  function minigameRecordOf(game) {
+    if (!game || !game.id) return null;
+    const records = state.lifetime.minigameRecords || (state.lifetime.minigameRecords = {});
+    return records[game.id] || null;
+  }
+  // 1かいの けっかを きろくし、けっかカードに 出す じょうほうを かえす
+  function recordMinigameResult(game, rawScore) {
+    if (!game || !game.id) return null;
+    const records = state.lifetime.minigameRecords || (state.lifetime.minigameRecords = {});
+    const score = clamp(Math.round(rawScore), 0, 100);
+    const prev = records[game.id] || null;
+    const isNewBest = !prev || score > prev.best;
+    const best = isNewBest ? score : prev.best;
+    records[game.id] = { best, last: score };
+    return { score, best, prevBest: prev ? prev.best : null, isNewBest, rank: minigameRankOf(score), bestRank: minigameRankOf(best) };
+  }
+
+  let mgResultToastTimer = null;
+  function showMinigameResultToast(result) {
+    if (!el.mgResultToast || !result) return;
+    let sub;
+    let subClass = 'mg-result-sub';
+    if (result.prevBest == null) sub = 'はじめての きろく!';
+    else if (result.isNewBest) { sub = `じこベスト こうしん! ${result.prevBest} → ${result.score}`; subClass += ' new-best'; }
+    else sub = `じこベスト ${result.best}てん (ランク${result.bestRank})`;
+    el.mgResultToast.innerHTML = `<span class="mg-rank rank-${result.rank}">${result.rank}</span><div class="mg-result-body"><span class="mg-result-score">${result.score}てん</span><span class="${subClass}">${sub}</span></div>`;
+    // アニメーションを あたまから やりなおす ために いちど けして つけなおす
+    el.mgResultToast.classList.add('hidden');
+    void el.mgResultToast.offsetWidth;
+    el.mgResultToast.classList.remove('hidden');
+    clearTimeout(mgResultToastTimer);
+    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), 3600);
+  }
+
   let lastMinigame = null;
   // 直近さいだい4かいぶんの カテゴリ(=ジャンル)を おぼえておいて、
   // おなじ ジャンルが 3かい れんぞくしないように するための きろく
@@ -19779,7 +20056,176 @@
     return pools[Math.floor(Math.random() * pools.length)];
   }
 
+  // --- ミニゲームの「セッション」と、とちゅうで やめる しくみ ---------------
+  // ゲーム本体は requestAnimationFrame/setTimeout で じぶんの ループを
+  // まわしている。ふつうは ゲームが じぶんで おわる ときに ループを とめる
+  // が、「ゲームを やめる」で 外から おわらせた ときは、ゲームがわの ループ
+  // や タイマーが とりのこされて うごきつづけて しまう(見えない canvas に
+  // えがきつづける、おくれて onComplete を もう1かい よぶ、など)。
+  // そこで、ゲームの コードが うごいている あいだ(start() の なか、および
+  // そこから 予約された コールバック/overlay 内の DOM イベントの なか)に
+  // 予約された rAF/setTimeout には「どの セッションの ものか」の しるしを
+  // つけ、セッションが おわったあとは 実行せずに すてる。ふつうの がめんの
+  // コード(ゲームの そとで 予約した タイマー)には しるしが つかないので、
+  // これまでどおり うごく
+  let mgSession = 0;        // いま うごいている ゲームの セッション番号(0 = なし)
+  let mgSessionSerial = 0;
+  let mgCodeDepth = 0;      // > 0 なら「ゲームの コードの なか」
+  let mgCodeSession = 0;    // その コードが どの セッションに ぞくするか
+  let activeMinigame = null;
+  function mgRunTagged(session, fn, thisArg, args) {
+    const prevDepth = mgCodeDepth;
+    const prevSession = mgCodeSession;
+    mgCodeDepth += 1;
+    mgCodeSession = session;
+    try {
+      return fn.apply(thisArg, args);
+    } finally {
+      mgCodeDepth = prevDepth;
+      mgCodeSession = prevSession;
+    }
+  }
+  function mgTagNow() {
+    return mgCodeDepth > 0 ? mgCodeSession : 0;
+  }
+  function mgTagAlive(tag) {
+    return tag === 0 || tag === mgSession;
+  }
+  const nativeRequestAnimationFrame = typeof window.requestAnimationFrame === 'function' ? window.requestAnimationFrame.bind(window) : null;
+  const nativeSetTimeout = typeof window.setTimeout === 'function' ? window.setTimeout.bind(window) : null;
+  if (nativeRequestAnimationFrame) {
+    window.requestAnimationFrame = function (cb) {
+      const tag = mgTagNow();
+      if (!tag || typeof cb !== 'function') return nativeRequestAnimationFrame(cb);
+      return nativeRequestAnimationFrame((t) => {
+        if (!mgTagAlive(tag)) return;
+        mgRunTagged(tag, cb, null, [t]);
+      });
+    };
+  }
+  if (nativeSetTimeout) {
+    window.setTimeout = function (cb, delay, ...args) {
+      const tag = mgTagNow();
+      if (!tag || typeof cb !== 'function') return nativeSetTimeout(cb, delay, ...args);
+      return nativeSetTimeout(() => {
+        if (!mgTagAlive(tag)) return;
+        mgRunTagged(tag, cb, null, args);
+      }, delay);
+    };
+  }
+  // overlay の なかで おきた DOM イベント(タップ/ドラッグ/キー)の ハンドラも
+  // 「ゲームの コード」あつかいに する。document の capture で 入り、
+  // window の bubble で 出る(stopPropagation された ばあいの ほけんとして
+  // つぎの タスクでも かならず 出る)
+  const MG_EVENT_TYPES = ['pointerdown', 'pointerup', 'pointermove', 'pointercancel', 'click', 'touchstart', 'touchmove', 'touchend', 'touchcancel', 'mousedown', 'mouseup', 'mousemove', 'keydown', 'keyup'];
+  let mgEventSaved = null;
+  let mgEventResetTimer = null;
+  function mgEventEnter() {
+    if (!mgSession || mgEventSaved) return;
+    mgEventSaved = { depth: mgCodeDepth, session: mgCodeSession };
+    mgCodeDepth += 1;
+    mgCodeSession = mgSession;
+    if (nativeSetTimeout) mgEventResetTimer = nativeSetTimeout(mgEventLeave, 0);
+  }
+  function mgEventLeave() {
+    if (!mgEventSaved) return;
+    mgCodeDepth = mgEventSaved.depth;
+    mgCodeSession = mgEventSaved.session;
+    mgEventSaved = null;
+    if (mgEventResetTimer != null) { clearTimeout(mgEventResetTimer); mgEventResetTimer = null; }
+  }
+  for (const type of MG_EVENT_TYPES) {
+    document.addEventListener(type, mgEventEnter, true);
+    window.addEventListener(type, mgEventLeave, false);
+  }
+
+  function closeMinigameScreen() {
+    gameActive = false;
+    mgSession = 0;
+    activeMinigame = null;
+    hideMinigameQuit();
+    el.minigameOverlay.classList.add('hidden');
+    el.minigameOverlay.innerHTML = '';
+    el.screenNormal.classList.remove('hidden');
+  }
+
+  // 「ゲームを やめる」: てんすう なし・ごほうび なし・ばつ なし。げんきだけ
+  // すこし つかう(あそびはじめた ぶん)。じこベストも うごかない
+  function retireMinigame() {
+    if (!gameActive) return;
+    // finishMinigame() と おなじく、ふつうの がめんの タイマーに ゲームの
+    // しるしが つかない ように「ゲームの コードの そと」で 処理する
+    const savedDepth = mgCodeDepth;
+    mgCodeDepth = 0;
+    try {
+      retireMinigameInner();
+    } finally {
+      mgCodeDepth = savedDepth;
+    }
+  }
+
+  function retireMinigameInner() {
+    const game = activeMinigame;
+    closeMinigameScreen();
+    state.energy = clamp(state.energy - 6, 0, 100);
+    state.happiness = clamp(state.happiness + 2, 0, 100);
+    let message = 'むりせず とちゅうで やめた。また こんど ちょうせん!';
+    if (pendingCompanionId) {
+      const companion = allCompanionsById(pendingCompanionId);
+      pendingCompanionId = null;
+      if (companion) message = `${companion.name}との あそびは とちゅうで おわり。また こんど さそってみよう`;
+    }
+    if (game && minigameInfo(game).name) message = `${minigameInfo(game).emoji} ${message}`;
+    setMessage(message);
+    emotePet('happy');
+    checkMeters();
+    saveState();
+    render();
+  }
+
+  let mgQuitConfirmTimer = null;
+  function showMinigameQuit() {
+    if (!el.mgQuit) return;
+    el.mgQuit.classList.remove('hidden');
+    setMinigameQuitConfirm(false);
+  }
+  function hideMinigameQuit() {
+    if (!el.mgQuit) return;
+    el.mgQuit.classList.add('hidden');
+    setMinigameQuitConfirm(false);
+  }
+  function setMinigameQuitConfirm(open) {
+    if (!el.mgQuitConfirm) return;
+    el.mgQuitConfirm.classList.toggle('hidden', !open);
+    el.mgQuitBtn.classList.toggle('hidden', open);
+    clearTimeout(mgQuitConfirmTimer);
+    // おしまちがい むけ: なにも しなければ 4びょうで もとの ボタンに もどる
+    if (open) mgQuitConfirmTimer = setTimeout(() => setMinigameQuitConfirm(false), 4000);
+  }
+  if (el.mgQuitBtn) {
+    el.mgQuitBtn.addEventListener('click', () => { if (gameActive) setMinigameQuitConfirm(true); });
+    el.mgQuitNoBtn.addEventListener('click', () => setMinigameQuitConfirm(false));
+    el.mgQuitYesBtn.addEventListener('click', () => retireMinigame());
+  }
+
   function finishMinigame(score, customMessage) {
+    const game = activeMinigame;
+    // ここから さきの ふつうの がめんの タイマー(えもーと/ふきだし など)に
+    // ゲームの セッションの しるしが つかない よう、いったん「ゲームの
+    // コードの そと」に 出る(finally で もとに もどす ので、この あとに
+    // つづく ゲームがわの コードが 予約した ものは ちゃんと すてられる)
+    const savedDepth = mgCodeDepth;
+    mgCodeDepth = 0;
+    try {
+      finishMinigameInner(game, score, customMessage);
+    } finally {
+      mgCodeDepth = savedDepth;
+    }
+  }
+
+  function finishMinigameInner(game, score, customMessage) {
+    // じこベスト/ランクは アイテムの ボーナスを のせる まえの てんすうで
+    const record = recordMinigameResult(game, score);
     // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく。
     // つかいきりアイテムの「やる気の おまもり/大成功の おまもり」は、この
     // ミニゲーム 1かいだけ とくてんを おおきく 底上げする(大成功の おまもりは
@@ -19872,10 +20318,8 @@
 
     setMessage(resultMessage);
 
-    gameActive = false;
-    el.minigameOverlay.classList.add('hidden');
-    el.minigameOverlay.innerHTML = '';
-    el.screenNormal.classList.remove('hidden');
+    closeMinigameScreen();
+    showMinigameResultToast(record);
 
     // checkStoryEvents() no-ops while gameActive, so this must run after
     // gameActive flips back to false above
@@ -19917,7 +20361,18 @@
     el.achBtn.disabled = true;
     el.themeBtn.disabled = true;
     el.itemBtn.disabled = true;
-    game.start(el.minigameOverlay, finishMinigame);
+    mgSessionSerial += 1;
+    const session = mgSessionSerial;
+    mgSession = session;
+    activeMinigame = game;
+    showMinigameQuit();
+    // ゲームがわから おくれて/2かい よばれても、その セッションが もう
+    // おわっていれば なにも しない
+    const onComplete = (result, message) => {
+      if (session !== mgSession || !gameActive) return;
+      finishMinigame(result, message);
+    };
+    mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
   }
 
   let sleepRecoveryTimer = null;
@@ -20160,6 +20615,11 @@
   }
   document.addEventListener('keydown', (e) => {
     if (!gameActive || el.minigameOverlay.classList.contains('hidden')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      setMinigameQuitConfirm(el.mgQuitConfirm && el.mgQuitConfirm.classList.contains('hidden'));
+      return;
+    }
     const key = MG_KEY_MAP[e.key];
     if (!key) return;
     e.preventDefault();
@@ -20178,26 +20638,43 @@
     mgStopHold(btn);
   });
 
-  el.playBtn.addEventListener('click', () => {
-    if (gameActive) return;
+  // 「あそぶ」ボタン(ランダム)と「ゲームきろく」からの えらんで あそぶ の
+  // 共通いりぐち。chosenGame が あれば その ゲームを、なければ 抽選する。
+  // えらんで あそんだ ときも プレイ回数・直前ゲーム・ジャンルの きろくは
+  // ランダムの ときと おなじように のこす(未プレイ優遇の もとデータ)
+  function tryStartPlay(chosenGame) {
+    if (gameActive) return false;
     if (state.isSleeping) {
       setMessage(randomBlockedMessage('sleepingPlay'));
       saveState();
       render();
-      return;
+      return false;
     }
+    if (el.playBtn.disabled) return false;
     if (state.energy < 10) {
       setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
-      return;
+      return false;
     }
     state.actionCounts.play += 1;
     state.affectionStreak = 0;
     state.travelStreak = 0;
-    const game = pickRandomMinigame();
+    let game;
+    if (chosenGame) {
+      game = chosenGame;
+      lastMinigame = game;
+      recordMinigamePlay(game);
+      recentMinigameCategories.push(minigameCategoryOf.get(game));
+      if (recentMinigameCategories.length > 4) recentMinigameCategories.shift();
+    } else {
+      game = pickRandomMinigame();
+    }
     startMinigame(game);
-  });
+    return true;
+  }
+
+  el.playBtn.addEventListener('click', () => { tryStartPlay(null); });
 
   el.cleanBtn.addEventListener('click', withFeedback(() => {
     if (state.poopCount === 0) {
@@ -20966,6 +21443,29 @@
     achOpen = false;
     render();
   });
+  if (el.achTabs) {
+    el.achTabs.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest ? e.target.closest('.ach-tab') : null;
+      if (!btn || !btn.dataset.tab) return;
+      achTab = btn.dataset.tab;
+      render();
+    });
+  }
+  if (el.gameListGrid) {
+    el.gameListGrid.addEventListener('click', (e) => {
+      const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
+      if (!cell) return;
+      const game = buildMinigamePool().find((g) => g.id === cell.dataset.gameId);
+      if (!game) return;
+      // いちらんを とじてから はじめる。あそべない ときは ふつうの がめんに
+      // りゆうの メッセージが 出る(ねている/げんき不足 など)
+      closeAllMenuOverlays();
+      clearConversationTimers();
+      hideSpeechBubble();
+      render();
+      tryStartPlay(game);
+    });
+  }
 
   el.themeBtn.addEventListener('click', () => openExclusiveMenu('theme'));
 

@@ -1123,3 +1123,11 @@ Runtime smoke test SUCCESS確認済み。
 - 季節ゲーム追加: 春 `season:spring:stack`(さくらタワー、makeStackGame テーマ)、夏 `ring-flight-summer`(makeRingFlightGame に `theme:'summer'` を追加: 夕焼け空・🐚コイン・🐬)、冬 `curling-winter`(makeCurlingGame に `stoneCount` を追加、5個ずつ)。夏のサーフィン削除で空いていた枠を埋め、四季すべてに1本ずつ。
 - README の出現率の説明を新方式に書きなおし。キャッシュ `script.js?v=20260909-7`。
 - 検証: smoke-test OK(89ゲーム)。Playwright 全89ゲーム スイープ ページエラー0。季節3本は季節を切り替えて起動・操作を確認。
+
+## チェックポイント AX — じこベスト/ランク、ゲームきろく(えらんで あそぶ)、とちゅうで やめる(2026-09-09)
+- じこベスト: `state.lifetime.minigameRecords[id] = { best, last }`(アイテムボーナス前の 0〜100 点)。`MINIGAME_RANKS`(S90/A75/B55/C35/D)、`recordMinigameResult()` が finishMinigame の先頭で記録し、`showMinigameResultToast()`(`#mgResultToast`、3.6秒)でランク・点数・「じこベスト こうしん! 62 → 93」を表示。
+- ゲームきろく: `#achOverlay` に `.ach-tabs`(じっせき/ゲームきろく)と `#gameListGrid` を追加。`MINIGAME_INFO`(id→name/emoji/desc、89本)、`MINIGAME_GENRES`/`MINIGAME_GENRE_OF_CATEGORY`(category→6ジャンル)、`minigameHomeOf`(地域/季節タグ、滞在中は「2ばい」)。`renderGameList()`、セルのタップ→`tryStartPlay(game)`(「あそぶ」と共通の入口。選んだ場合もプレイ回数/直前ゲーム/ジャンル履歴を更新)。
+- 地域/季節の自動 id(`region:city:road:0` 等)を固定 id(road-city/stack-harvest/stack-acorn/road-jungle/road-desert/stack-sakura/stack-leaves)に変更し、`loadState()` で旧 id のプレイ回数を引き継ぎ。smoke-test に「全ゲームが固定 id を持ち、重複なし、MINIGAME_INFO/ジャンル表に載っている」検査を追加。
+- とちゅうで やめる: `#mgQuit`(`.buttons` の直前、height:0 の絶対配置レイヤーで canvas の位置を動かさない)。ボタン→確認(4秒で自動キャンセル)→`retireMinigame()`(点数/ごほうび/ばつ なし、げんき -6、じこベスト更新なし、なかまイベント中は不成立扱い)。Esc キーでも確認を開閉。
+- ゲームの後始末(セッション方式): `mgSession`(生きているゲームの番号)と `mgCodeDepth/mgCodeSession`(「ゲームのコードの中か」)。`window.requestAnimationFrame`/`window.setTimeout` をラップし、ゲームのコード(start() の中、そこから予約されたコールバック、overlay 内 DOM イベントのハンドラ)から予約されたものに セッション番号を付け、セッション終了後は実行せずに捨てる。ふつうの画面のコードが予約したものには印が付かないので従来どおり。`finishMinigame`/`retireMinigame` は本体を `mgCodeDepth=0` で実行し、えもーと/ふきだし等のタイマーが巻き込まれないようにする。onComplete は `session !== mgSession` なら無視(遅延/二重呼び出し対策)。
+- 検証: smoke-test OK(89ゲーム、id/info 検査込み)。Playwright: やめる UI の表示/確認/キャンセル/実行、9ゲームを途中終了して 500ms 後の rAF 実行 0(孤立ループなし)、記録トースト(初回/更新/据え置き)、ゲームきろく 89セル・横はみ出しなし・タップ起動・げんき不足時のブロック、旧 id 移行。全89ゲーム スイープ ページエラー0。キャッシュ `script.js?v=20260909-8`、`style.css?v=20260909-2`。
