@@ -1351,3 +1351,31 @@ Runtime smoke test SUCCESS確認済み。
 - 上記はRuntimeハーネス・HTML/CSS参照・PNG実復号の検証。実ブラウザー本体が環境に存在せず、追加ダウンロードもタイムアウトしたため、今回のブラウザー画面撮影テストは未実施として記録する。
 - 128px対応はプレイヤー31種248枚のうち26種208枚、作者・仲間・恋人の45素材のうちカタツムリ1枚。残りはプレイヤー5種40枚（dragon / phoenix / god / star / unknown）と専用キャスト44枚。全キャラ完成とは扱わない。
 - branchから到達可能なコミットとして反映後、GitHubから再取得した実ファイルのPNG・ハッシュ・参照、最新コミットのActionsを検証記録に残す。PR #183はopen / Draftを保持する。
+
+## チェックポイント AV — 全ゲーム総監査(品質・操作性・見た目・難易度)(2026-09-09)
+- 全94ゲームのコンタクトシート目視 + ランダム操作ハーネス(`randplay.js`: 各ゲームを最大95秒ランダム入力で遊び、最終スコアを記録)で監査。
+- 削除(操作の手ごたえが薄い DOM ゲーム 8本): shooter-themed / stealth-themed / sportsSwing-themed / surfing-wave(夏の季節ゲーム) / creature-capture-3d / action-boss-3d / chase-themed / adventure-field。あわせて抽選に入っていなかった旧ファクトリ(catch/balance/pose/fight/rpg/targetAim/powerMeter/pushContest/chop/roulette/perspectiveRanking/retroPet/miniPoker/miniEscape)も削除(約2,100行、script.js は 1.6MB→1.5MB)。
+- 作りなおし: `makeStackGame` を canvas 版(クレーンから落とす、はみ出しカット、パーフェクトで幅回復、カメラ追従、60秒)に。テーマ引数(title/blockEmoji/palette)は互換なので地域/季節版もそのまま。`makeBreakoutGame` を canvas 版(指追従パドル、角度反射、硬いブロック、ワイド/マルチボール/スローのアイテム、3ステージ、ライフ3)に。両方 S ティア。
+- 難易度/スコア調整(ランダム入力で高得点が出たもの): マッチ3 `score/14→/30`、レーンラッシュ 得点 12→8/個・最終 `points*0.9 - bad*4`・時間 16〜13s→24〜20s、タンクバトル 敵 6〜9体・移動+20%・射撃頻度アップ、ハンググライダー `dist/26→/42`(気流ボーナス追加)、しんけいすいじゃく 効率の比重アップ(42+eff*50)。ブロックくずしは自動追従プレイで進みが遅かったためボール速度 245〜295 + ヒットごと +2%、制限 150s。
+- 思考ゲームの制限時間を最長 180s に統一(どうぶつしょうぎ/チェッカー/マンカラ 240→180)。
+- 検証: smoke-test OK(86ゲーム)。Playwright 全86ゲーム スイープ ページエラー0。
+
+## チェックポイント AW — 出現率を全ゲーム同確率に、地域/季節は滞在中だけ2倍、春夏冬の季節ゲーム追加(2026-09-09)
+- `MINIGAME_TIER_WEIGHT`/`MINIGAME_TIER_TICKETS`/`MINIGAME_TIER_BY_*`/`minigameTier()`/`minigameFunWeight()` を削除。`refillMinigameQueue()` のチケットは「いま いる地域 or いまの季節のゲーム」だけ +1枚(袋に2枚)。並び順の重み(未プレイ 2.2、地域 1.45、季節 1.25、プレイ回数減衰)と到着ブースト(地域2回/季節1回)は据え置き。
+- シミュレーション(20,000回×4条件): 通常 1.11%/本、滞在中の地域/季節ゲーム 2.2%、それ以外の地域でも 1.1% で出る(「出ないゲーム」なし)。
+- 季節ゲーム追加: 春 `season:spring:stack`(さくらタワー、makeStackGame テーマ)、夏 `ring-flight-summer`(makeRingFlightGame に `theme:'summer'` を追加: 夕焼け空・🐚コイン・🐬)、冬 `curling-winter`(makeCurlingGame に `stoneCount` を追加、5個ずつ)。夏のサーフィン削除で空いていた枠を埋め、四季すべてに1本ずつ。
+- README の出現率の説明を新方式に書きなおし。キャッシュ `script.js?v=20260909-7`。
+- 検証: smoke-test OK(89ゲーム)。Playwright 全89ゲーム スイープ ページエラー0。季節3本は季節を切り替えて起動・操作を確認。
+
+## チェックポイント BB — ドラゴン・フェニックス16段階の128px実装（2026-09-09）
+- 監査開始HEAD `d128ada53c5c96049fcac352114f9af61daf4301`、tree `ea7303ea1c491cbda5f1d57217c1ec34edf4c3e8`。PR #183のopen / Draft、直近コミットとrecursive tree、対象16枚が旧64pxで新素材の中途投入がないことを実確認。
+- 制作中にmainへPR #200が入り、`cb442fcda47befc7f2beafa0f40a04a2353daffb` までのミニゲーム整理・季節ゲーム追加を監査して取り込んだ。script.js / READMEのmainとの差分が、前回からの既存ブランチ差分と一致することを検証し、独自のゲームロジック変更はない。記録の競合は両側を全文保持。WORLD_MASTERとstyleのカタツムリ用読込版を保持し、統合scriptの読込版だけ更新。
+- 対象は `assets/characters/dragon/01.png`〜`08.png`、`assets/characters/phoenix/01.png`〜`08.png` の16枚。承認済みの128px統一・全段階に顔・表情変化の方針に基づき、一枚ずつ制作。保存済みの卵から始まらない「naotocchi ドラゴン＆フェニックス進化図鑑」を種族の配色と意匠の参考とし、段階名・進化順は現在のWORLD_MASTERを優先。最初の確定7種は再制作していない。
+- ドラゴン: ちび竜→幼竜→角竜→翼芽竜→翼竜→火炎竜→巨竜→古龍。①〜③には翼を生やさず、④は小さな翼芽。四肢、⑤以降の両翼、角・尾・顔を残す。①②の角や四肢、⑤の前肢は対象画像だけ修正。⑥の炎、⑦の体格、⑧の枝角・落ち着いた表情と経年色で段階差を出した。
+- フェニックス: 火の雛→幼火鳥→若火鳥→火鳥→炎鳥→黄金鳥→老火鳥→灰から再生。両翼・両足・尾羽と目・口（くちばし）を保持。⑥は黄金色と目を閉じた微笑みに個別修正。⑦は灰色の混じる欠けのない羽と弱い炎。⑧は灰を主体に、小さな雛の目・口・翼先が中央から現れる姿で、顔を消さない。
+- 全16枚で個別原画比較、128px実寸、白・濃色背景montageを目視確認。顔・身体・重要部位の欠け、他キャラや文字、背景混入、異常な縮尺なし。ドラゴン⑤⑥⑧とフェニックス⑦の閉じた隙間だけを個別指定で透過し、灰・火の粉・爪・羽先を一律除去しない。均等セル切り出し、GrabCut、一括再生成は不使用。
+- PNG / 128×128 / 8-bit RGBA / alpha 0・255 / 最大63不透明色 / 全方向8px以上の透明余白。全chunk CRC、実復号、SHA-256、寸法、透過に合格。先行209枚（プレイヤー208＋カタツムリ1）をバイナリ不変で保持し、今回以外の全キャラクター素材も不変。WORLD_MASTER、Character Renderer本体、CSS、回帰テストは変更しない。
+- ローカルRuntime smoke test SUCCESS（DOM 277 / ミニゲーム89 / variant collections 80）。プレイヤー28種224枚×4サイズのRenderer参照896ケースSUCCESS。DIALOGUE / WHOLE-TEXT / CASTテストも通過し、旧コアラのセーブ・なかよし度・図鑑・獲得済み実績とカタツムリの固有反応を保持。
+- 検証はRuntimeハーネス・HTML/CSS参照・PNG実復号。実ブラウザー本体が利用できないため、このバッチのブラウザー画面撮影テストは未実施。上流記録にあるPlaywright結果と、このバッチ自身の実施結果を混同しない。
+- 128px対応はプレイヤー31種248枚中28種224枚、専用キャスト45素材中カタツムリ1枚。残りは god / star / unknown の24枚と専用キャスト44枚。全キャラ完成とは扱わない。
+- 到達可能なbranchコミットとして反映後、GitHubから再取得した実ファイルのPNG・ハッシュ・Renderer・Runtimeと、当該HEADのActions SUCCESSを検証記録に残す。PR #183はopen / Draftを保持し、マージしない。
