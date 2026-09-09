@@ -1476,3 +1476,21 @@ Runtime smoke test SUCCESS確認済み。
 - キャラPNG294枚と旧ゴールJPG5枚は、BHのGitHub treeとのGit blob SHA照合で全299枚バイト不変。`docs/art/author-ending-art.md` と検証JSONに生成指示・参照と画像ハッシュ・検証範囲を保存した。
 - 作者イベント・エンディングのコードと画像はこのチェックポイントで接続。実ブラウザーでの画面確認は開発画面の `net::ERR_BLOCKED_BY_CLIENT` により未完了であり、画像レビューやRuntime結果を代わりの完了根拠にしない。PR #183はopen / Draft・未マージを継続し、全体未完了として残す。
 - 反映後にGitHubから到達可能な全tree・変更ファイルの実内容・当該HEADのActionsを再取得し、PR本文へ最新HEAD・tree・CI結果を記録する。
+
+## 追加チェックポイント BJ（2026-09-09）：mainのPR #202取り込みと競合解消
+
+- BI HEAD `042a23b2113169c5ef5a13f09f9237d7086f1864`、tree `f3db2b3e704ebd7b838d8bb111f10d48348daeee` をPR #183へ保存し、全327ファイルのGit blob SHAと変更9ファイルの実内容をGitHubから照合した。BIのActionsが始まらないことを調べ、制作中にmainへPR #202が入り、PR #183が `mergeable_state: dirty` になっていることを確認した。テスト成功を推定して完了とは扱わない。
+- 最新mainは `586ed13e5d0722e810b313c9a7c6377678e62641`、tree `a76692642a81fe440be6624e2cbfbc42f2364923`。PR #202（head `8ade64e3ffed1ade514d09bbd6a726d8459bf561`）のマージと、mainのRuntime #228 SUCCESSをGitHubで確認。新作6本（ドットイーター・ミサイルコマンド・じんとり・ソリティア・ヒット&ブロー・ルナランダー）を取り込んだ。
+- 共通祖先 `044780ddebdcb75ebb9e13ea26043b5230e003c7` と両側の実ファイルで3-way統合。script.js / README.mdは自動統合され、mainとの差分が統合前のブランチ独自差分と完全一致することを検証した。競合した開発記録は両側の全文を保持。indexは現在のキャラ/作者DOMと画像・CSS参照を保持し、統合scriptの読込版のみ `20260909-cast-main-bj-1` に更新した。
+- 統合後の `node tests/smoke-test.js` 成功（DOM 287 / ミニゲーム95 / variant collections 86）。会話・全248段階本文・通常/レア仲間・時計・旧コアラ/旧きのこ・恋人18体・作者イベント/旧セーブ/報酬/ゴール画像の全回帰が成功。今回の統合でゲーム内容やキャスト画像を再編集していない。
+- BIの新エンディング画像2枚とキャラPNG294枚を含む既存画像はすべてバイト不変。作者イベント・専用ゴール画像の接続は維持される。実ゲーム画面は引き続き環境側の接続拒否で未確認であり、PR #202側のPlaywright結果を今回の実画面確認に流用しない。
+- BIと最新mainを両親に持つマージコミットとしてfeatureブランチを更新し、到達可能な全ファイルと当該HEADのActionsを再確認する。PR #183はopen / Draft・未マージを保持する。
+## チェックポイント AY — 新作バッチ7(6本): ドットイーター/ミサイルコマンド/じんとり/ソリティア/ヒット&ブロー/ルナランダー(2026-09-09)
+- `makeDotEaterGame`(dot-eater): `generateMaze(15,15,16)`+中央のおばけ部屋、グリッド移動 `moveEntity()`(マス中央でのみ方向転換、逆向きは常時、1フレームで中央を跨ぐ分は分割)、おばけ AI(追跡確率 `CHASE_P`、フライト時は逃走)、⭐で 6 秒反撃、ライフ 2、95 秒。
+- `makeMissileCommandGame`(missile-command): タップ→最寄りの弾のある基地から迎撃、爆発半径の膨張/収縮、連鎖爆発、分裂ミサイル(wave≥2)、3 ウェーブ、都市 6/基地 3、被弾で弾 -3。
+- `makeAreaClaimGame`(area-claim): 36×36 グリッド(0 未取得/1 陣地/2 線)、線を閉じたら ✨のいる領域を flood fill で残し他を陣地化、隣接線への侵入禁止、✨は反射移動+ふらつき、線/描画中プレイヤーに触れるとミス、75% でクリア、背景の絵が陣地部分に見える。
+- `makeSolitaireGame`(solitaire-klondike): 1 枚めくり、タップ選択→タップ配置、同カード再タップで台へ、`autoUp()` で台へ一括、`hitTest()` は FAN/FAN_DOWN の重なりを考慮、240 秒、スコア=台の枚数(勝利 90+)。
+- `makeHitBlowGame`(hit-blow): 6 色から重複なし 4 色、ヒット/ブロー判定、8〜10 回、答えの行は終了時に公開、スコア=100-(回数-3)×9。
+- `makeLunarLanderGame`(lunar-lander): 重力 20/推力 52/回転 150°/s、燃料 100(14/s)、地形生成にパッド ×1(幅3)/×2(幅2)/×3(幅1)、着陸判定 |vy|<22・|vx|<14・|角|<14°、3 回、粒子でクラッシュ/噴射。
+- 共通: `mgMsgBox()`(文字幅に合わせたメッセージ帯)。登録: カテゴリ dotEater/missileCommand/areaClaim/solitaire/hitBlow/lunarLander、ジャンル action×3/board/puzzle/drive3d、`MINIGAME_INFO` 6 件。キャッシュ `script.js?v=20260909-9`。
+- 検証: smoke-test OK(95 ゲーム、id/info 検査込み)。Playwright: 6 本とも操作→反応(ドット捕食、迎撃 💥、陣地 +11%、めくり/手数、推理 1 回目、着陸試行)。ランダム入力ハーネス: lander 6 / dot 20 / missile 30 / area 36(思考系 2 本はタイムアウト=想定どおり)。全 95 ゲーム スイープ ページエラー 0。

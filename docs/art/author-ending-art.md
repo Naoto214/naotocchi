@@ -36,3 +36,5 @@ Runtime smoke成功（DOM 287 / ミニゲーム89 / variant collections 80）。
 通常128pxナオトを含むキャラPNG294枚と旧ゴールJPG5枚は、GitHubのBH treeとのGit blob SHA照合で全299枚バイト不変を確認。恋人18/18枚、現行専用キャスト45/45枚、今回の作者イベント・エンディング接続まで反映した。
 
 実ゲームのブラウザー確認は、開発画面が `net::ERR_BLOCKED_BY_CLIENT` で拒否されたため未完了。画像の縮小レビューとRuntimeハーネスを実画面撮影として扱わず、過去のmain用表示検査も流用しない。PR #183はopen / Draft・未マージを継続する。
+
+追記（BJ）：制作中にmainへ入ったPR #202の新作6本を統合し、Runtime smokeはDOM 287 / ミニゲーム95 / variant collections 86で成功。上記の作者回帰も再度成功し、作者・キャスト・新旧のゴール画像はバイト不変で保持した。
