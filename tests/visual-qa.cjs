@@ -49,6 +49,13 @@ function createFixtures() {
           marriageMilestonesSeen:[1,10,25,50].filter(y=>y<years)});
       }
       make('anniversary_10_scrolled',26,{ageTicks:696,marriageAge:25,marriageMilestonesSeen:[1]});
+      // Leave four real ticks for pre-movie care/scroll operations on BP-1.
+      for (const years of [1,50]) {
+        const delayed = make('anniversary_' + years + '_scrolled',26,{
+          ageTicks:(25+years)*20-4,marriageAge:25,
+          marriageMilestonesSeen:[1,10,25,50].filter(y=>y<years)});
+        if (years === 50) delayed.lifetime.money = 123456789;
+      }
       const legendPending = make('legend_boss',26,{partner:null,legendMet:false,
         sodachi:95,maxSodachi:95,hunger:100,energy:100,happiness:100});
       legendPending.lifetime.legendsMet = ['gate','stairs','lamp','mirror'];
@@ -57,9 +64,22 @@ function createFixtures() {
         sodachi:95,maxSodachi:95,hunger:85,energy:100,happiness:100});
       legendCared.lifetime.legendsMet = ['gate','stairs','lamp','mirror'];
       legendCared.oneTimeBoosts.sicknessShieldCount = 12;
+      // Constrain only the saved encounter history; story and trigger RNG stay real.
+      for (const id of ['gate','stairs','lamp','mirror']) {
+        const pending = make('legend_' + id + '_cared',26,{partner:null,legendMet:false,
+          sodachi:95,maxSodachi:95,hunger:85,energy:100,happiness:100});
+        pending.lifetime.legendsMet = ['gate','stairs','boss','lamp','mirror'].filter(other=>other!==id);
+        pending.oneTimeBoosts.sicknessShieldCount = 12;
+      }
       const specialDate = make('special_date',26,{items:{reward:1},datesThisLife:2});
       specialDate.lifetime.money = 123456789;
+      const specialTwo = make('special_date_two',26,{items:{reward:2},datesThisLife:2});
+      specialTwo.lifetime.money = 123456789;
+      const specialRing = make('special_date_ring',26,{items:{reward:1},datesThisLife:2});
+      specialRing.lifetime.ownedNaotoItems = ['naoto_ring'];
       make('deepsea_date',26,{regionId:'deepsea',partner:partner('anglerfish',{married:true})});
+      make('deepsea_special_date',26,{regionId:'deepsea',partner:partner('anglerfish',{married:true}),
+        items:{reward:1},datesThisLife:2});
       const scrolledAnniversary = make('anniversary_scrolled',26,{ageTicks:1498,
         marriageAge:25,marriageMilestonesSeen:[1,10,25]});
       scrolledAnniversary.lifetime.money = 123456789;

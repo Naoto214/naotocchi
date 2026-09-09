@@ -16,6 +16,8 @@ const events = [];
 const captions = [];
 const storyCaptions = [];
 const scrollRequests = [];
+const confirmPrompts = [];
+const savedWrites = [];
 const noop = () => {};
 function element(id = '') {
   const classes = new Set(['hidden']);
@@ -30,12 +32,16 @@ function element(id = '') {
       toggle: (n, force) => { const on = force ?? !classes.has(n); if (on) classes.add(n); else classes.delete(n); return on; },
     },
     addEventListener: (type, fn) => { if (!listeners.has(type)) listeners.set(type, []); listeners.get(type).push(fn); },
-    removeEventListener: noop, appendChild: noop, remove: noop,
+    removeEventListener: noop, appendChild: (child) => { target.children.push(child); return child; }, remove: noop,
     querySelector: (selector) => getElement(selector), querySelectorAll: () => [], closest: () => null,
     getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }),
     setAttribute: noop, focus: noop,
     scrollIntoView: (options) => scrollRequests.push({id, ...options}),
   };
+  let html = '';
+  Object.defineProperty(target, 'innerHTML', { get: () => html, set: (value) => {
+    html = value; target.children.length = 0;
+  } });
   let content = '';
   Object.defineProperty(target, 'textContent', { get: () => content, set: (value) => {
     content = value;
@@ -70,8 +76,10 @@ const sandbox = {
     getElementById: getElement, querySelector: getElement, querySelectorAll: () => [], createElement: () => element(),
     addEventListener: noop, body: element('body'), documentElement: element('html'), visibilityState: 'visible',
   },
-  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844, confirm: () => confirmResult, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
-  localStorage: { getItem: () => savedPayload, setItem: noop, removeItem: noop },
+  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844,
+    confirm: (prompt) => { confirmPrompts.push(prompt); return confirmResult; }, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
+  localStorage: { getItem: () => savedPayload,
+    setItem: (key, value) => { if (key === 'naotocchi-save-v1') savedWrites.push(value); }, removeItem: noop },
   navigator: { userAgent: 'dialogue-test', maxTouchPoints: 1 },
   performance: { now: () => now }, requestAnimationFrame: () => 1, cancelAnimationFrame: noop,
   setInterval: () => 1, clearInterval: noop,
@@ -118,6 +126,7 @@ const expose = `
         hunger: 50, energy: 90, happiness: 80, health: 100,
       }, patch);
       recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
+      lastDatePlanId = null; dateChoiceOptions = [];
       grandGoalPending = null; pendingCompanionId = null;
       endingCelebrationShown = false;
       clearTimeout(storyFlashTimer); el.storyFlash.classList.add('hidden'); el.storyFlashEmoji.innerHTML = '';
@@ -133,6 +142,7 @@ function reset(patch = {}) {
   random = 0.25;
   confirmResult = false; storyCaptions.length = 0;
   scrollRequests.length = 0;
+  confirmPrompts.length = 0; savedWrites.length = 0;
 }
 function partner(id = 'robot_neighbor', extra = {}) {
   const candidate = api.ALL_PARTNER_CANDIDATES.find((p) => p.id === id);
@@ -402,6 +412,142 @@ api.goOnDate(api.DATE_PLANS[0]); api.finishDateMovie();
 const dateSkipCount = captions.length; advance(35000);
 assert.equal(captions.length, dateSkipCount, 'skipped date still changes captions');
 assert.equal(api.getState().items.reward || 0, 0, 'missing reward underflow');
+
+// BQ: exercise the actual chooser/skip/close handlers, not finishDateMovie directly.
+// Catches a missing consumption/save, ignored confirm result, broken ring branch,
+// lingering captions, or failure to resume the clock after returning to care.
+function assertDateReturned(expectedAge, expectedCooldown, label) {
+  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, label + ': overlay stayed open');
+  assert.equal(getElement('dateMovie').classList.contains('hidden'), true, label + ': movie stayed visible');
+  assert.equal(getElement('dateChooser').classList.contains('hidden'), false, label + ': chooser not reset');
+  const count = captions.length;
+  advance(35000);
+  assert.equal(captions.length, count, label + ': captions continued after close');
+  api.loop();
+  assert.equal(api.getState().ageTicks, expectedAge + 1, label + ': care clock did not resume');
+  assert.equal(api.getState().dateCooldownTicks, expectedCooldown - 1, label + ': cooldown did not resume');
+}
+for (const testCase of [
+  { name:'accept-one', reward:1, accept:true, remaining:0, beats:7, skip:false },
+  { name:'accept-two-skip', reward:2, accept:true, remaining:1, beats:7, skip:true },
+  { name:'decline', reward:1, accept:false, remaining:1, beats:4, skip:false },
+  { name:'no-reward', reward:0, accept:true, remaining:0, beats:4, skip:false },
+  { name:'deepsea-ring', reward:1, accept:true, remaining:0, beats:7, skip:false, deepsea:true, ring:true },
+  { name:'deepsea-ordinary', reward:0, accept:false, remaining:0, beats:4, skip:false, deepsea:true },
+]) {
+  const { name, reward, accept, remaining, beats, skip, deepsea, ring } = testCase;
+  reset({ partner:partner(deepsea ? 'anglerfish' : 'robot_neighbor', { married:true }),
+    gender:'male', orientationId:'pan', attractedTo:['male','female','nonbinary'],
+    marriageMilestonesSeen:[1,10,25,50], legendMet:true, datesThisLife:2,
+    regionId:deepsea ? 'deepsea' : 'home', items:reward ? {reward} : {} });
+  api.getState().lifetime.money = 123456789;
+  if (ring) api.getState().lifetime.ownedNaotoItems = ['naoto_ring'];
+  confirmResult = accept;
+  const age = api.getState().ageTicks;
+  click('worldDateBtn');
+  assert.equal(getElement('dateOverlay').classList.contains('hidden'), false, name + ': chooser did not open');
+  const choices = getElement('dateChoiceGrid').children;
+  assert.equal(choices.length, 3, name + ': missing rendered choices');
+  assert.equal(new Set(choices.map(button => button.dataset.plan)).size, 3);
+  api.loop();
+  assert.equal(api.getState().ageTicks, age, name + ': chooser did not pause clock');
+  const selected = choices[0];
+  click('dateChoiceGrid', {target:{closest:selector => selector === '.date-choice-btn' ? selected : null}});
+  assert.equal(confirmPrompts.length, reward ? 1 : 0, name + ': incorrect prompt count');
+  if (reward) assert.match(confirmPrompts[0], /ごほうびを1こ/);
+  assert.equal(api.getState().items.reward || 0, remaining, name + ': incorrect reward consumption');
+  assert.equal(api.getState().datesThisLife, 3, name + ': wrong date count');
+  assert.equal(api.getState().lifetime.datesEnjoyed, 1, name + ': lifetime date counted twice');
+  assert.equal(api.getState().lifetime.money, 123456789, name + ': date spent coins');
+  const special = beats === 7;
+  assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), special);
+  assert.equal(getElement('dateMovieScene').dataset.plan, special ? 'special' : selected.dataset.plan);
+  assert.equal(getElement('dateMoviePlace').textContent.startsWith('🎁'), special);
+  assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\/man\/06\.png/);
+  assert.ok(getElement('dateMoviePartner').innerHTML.includes('assets/characters/partners/' + (deepsea ? 'anglerfish' : 'robot_neighbor') + '.png'));
+  const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートの おもいで:')).length;
+  assert.equal(specialMemories(), special ? 1 : 0);
+  assert.ok(savedWrites.length > 0, name + ': no saved state');
+  savedPayload = savedWrites.at(-1);
+  const loaded = api.loadState(); savedPayload = null;
+  assert.equal(loaded.items.reward || 0, remaining, name + ': consumed reward returned after loading');
+  assert.equal(loaded.datesThisLife, 3, name + ': date not persisted');
+  assert.equal(loaded.lifetime.money, 123456789);
+  assert.equal(loaded.partner.id, deepsea ? 'anglerfish' : 'robot_neighbor');
+  assert.equal(loaded.lifeLog.filter(entry => entry.text.startsWith('とくべつなデートの おもいで:')).length, special ? 1 : 0);
+  const cooldown = api.getState().dateCooldownTicks;
+  assert.equal(cooldown, 60);
+  api.loop();
+  assert.equal(api.getState().ageTicks, age, name + ': movie did not pause clock');
+  assert.equal(api.getState().dateCooldownTicks, cooldown, name + ': movie reduced cooldown');
+  if (skip) {
+    advance(8000); click('dateMovieSkipBtn');
+    const count = captions.length;
+    advance(35000);
+    assert.equal(captions.length, count, name + ': skipped movie restarted before close');
+  } else {
+    const step = special ? 4000 : 3500;
+    assert.equal(captions.length, 1);
+    for (let beat = 1; beat < beats; beat += 1) {
+      advance(step - 1); assert.equal(captions.length, beat, name + ': caption arrived early');
+      advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
+    }
+    if (ring) assert.match(captions[4], /💍/);
+    else if (special) assert.match(captions[4], /しゃしん/);
+    assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
+    advance(step + 499);
+    assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), true, name + ': ending appeared early');
+    advance(1);
+  }
+  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
+  assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'), true);
+  click('dateMovieCloseBtn');
+  assertDateReturned(age, cooldown, name);
+  assert.equal(api.getState().items.reward || 0, remaining, name + ': close consumed reward again');
+  assert.equal(specialMemories(), special ? 1 : 0, name + ': close duplicated memory');
+  click('worldDateBtn');
+  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, name + ': cooldown allowed a second date');
+  assert.equal(api.getState().datesThisLife, 3);
+  assert.equal(confirmPrompts.length, reward ? 1 : 0, name + ': cooldown prompted for reward again');
+}
+reset({partner:partner(),items:{reward:1}});
+const beforeCancelledDate = JSON.stringify(api.getState());
+click('worldDateBtn'); click('dateCancelBtn'); advance(35000);
+assert.equal(JSON.stringify(api.getState()), beforeCancelledDate, 'cancelled chooser changed saved game');
+assert.equal(captions.length, 0, 'cancelled chooser started a movie');
+assert.equal(confirmPrompts.length, 0, 'cancelled chooser prompted for reward');
+assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, 'cancelled chooser stayed open');
+assert.equal(getElement('dateMovie').classList.contains('hidden'), true, 'cancelled chooser showed movie');
+assert.equal(getElement('dateChooser').classList.contains('hidden'), false, 'cancelled chooser was not reset');
+api.loop();
+assert.equal(api.getState().ageTicks, JSON.parse(beforeCancelledDate).ageTicks + 1, 'cancelled chooser did not resume clock');
+assert.equal(api.getState().dateCooldownTicks, 0, 'cancelled chooser started cooldown');
+assert.equal(api.getState().datesThisLife, 0, 'cancelled chooser counted a date');
+assert.equal(api.getState().items.reward, 1, 'cancelled chooser consumed reward');
+
+// Every deep-sea plan's three opening-line branches must reach the final beat
+// and return; the localized memory must never revert to the land activity.
+const deepseaObservedLines = new Map();
+for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
+  reset({partner:partner('anglerfish',{married:true}),regionId:'deepsea',datesThisLife:2,
+    legendMet:true,marriageMilestonesSeen:[1,10,25,50]}); random = value;
+  const age = api.getState().ageTicks;
+  api.goOnDate(plan); advance(14500);
+  assert.equal(captions.length, 4, 'deepsea ' + plan.id + ': incomplete movie');
+  if (!deepseaObservedLines.has(plan.id)) deepseaObservedLines.set(plan.id, new Set());
+  deepseaObservedLines.get(plan.id).add(captions[1]);
+  assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
+  if (['walk','sunset','nap','rain','star'].includes(plan.id)) {
+    assert.ok(!captions.slice(0,2).some(text => /ゆうやけ|あめやどり|ひなたぼっこ|流れ星/.test(text)), plan.id + ': land activity leaked underwater');
+  }
+  const memoryNeedle = {sunset:'光るさかな',rain:'岩かげ',star:'海の中で 小さな光'}[plan.id];
+  if (memoryNeedle) assert.ok(api.getState().lifeLog.some(entry => entry.text.startsWith('デートの おもいで:') && entry.text.includes(memoryNeedle)), plan.id + ': regional memory missing');
+  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
+  click('dateMovieCloseBtn');
+  assertDateReturned(age, 60, 'deepsea ' + plan.id);
+}
+for (const [id, lines] of deepseaObservedLines) assert.equal(lines.size, 3, 'deepsea ' + id + ': opening branches collapsed');
+console.log('DATE LIFECYCLE TEST OK: 6 chooser cases; confirm accept/decline/absent; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; chooser cancel; 30 complete deepsea branches.');
 for (const def of master.partners) {
   reset({ partner: partner(def.id, { married: true }) });
   const lines = api.PARTNER_ANNIVERSARY_LINES[def.id];

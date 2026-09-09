@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "node tests/smoke-test.js && node tests/dialogue-test.js"
+    "test": "node tests/smoke-test.js && node tests/dialogue-test.js && node tests/visual-qa-test.cjs"
   },
   "devDependencies": {
     "vite": "8.2.2"
