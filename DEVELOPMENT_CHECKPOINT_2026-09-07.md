@@ -1086,3 +1086,14 @@ Runtime smoke test SUCCESS確認済み。
 - `makeSushiBeltGame`(sushi-belt): 2レーン(近/遠でスケール違い)、注文は 2→4 品に増える、6秒以内ボーナス、🌶わさびトラップ。
 - 登録: カテゴリ bomber/blackjack/pipeConnect/fruitSlice/trackField/voxelMine/sushiBelt、S ティア。キャッシュ `script.js?v=20260909-2`。
 - 検証: smoke-test OK(80ゲーム)。Playwright 全80ゲーム スイープ ページエラー0。7本とも操作→反応(爆発/被弾、スタンド勝敗、パイプ回転、2コンボ斬り、100m 10.17s→幅跳び、⛓採掘、わさびペナルティ)を確認。
+
+## チェックポイント AT — 新作バッチ5(7本): アステロイド/ヨット/ライツアウト/ぴょんぴょんジャンプ/カーリング/ジェンガ/せんなぞり(2026-09-09)
+- `makeAsteroidsGame`(asteroids-classic): 回転+推進+慣性(減衰 0.5/s)、画面ラップ、岩 3→2→1 分裂、ウェーブ制、無敵時間。
+- `makeYachtDiceGame`(yacht-dice): 13役の判定関数テーブル `CATS`、キープ/3回振り、6ターン、リスト上に現在の目での得点プレビュー。
+- `makeLightsOutGame`(lights-out): ランダム押しで生成(必ず可解)、par(最小手数)との比較で効率スコア、3問。
+- `makeDoodleJumpGame`(doodle-jump): 自動バウンド、通常/移動/破壊/バネ台、⭐、横ラップ、カメラ追従、高度で背景が夜へ。
+- `makeCurlingGame`(curling-ice): スワイプ速度→初速、横ずれ→カール、摩擦 38px/s²(スイープで最大 -20)、石同士の衝突、ホッグライン、AI は距離から必要初速を逆算。
+- `makeJengaGame`(jenga-tower): 段ごとの上部重心が支持範囲内かで安定度、危険度に応じた確率崩壊、抜いたブロックを上に積む(3つで新しい段)、崩壊アニメ。
+- `makeLineTraceGame`(line-trace): `TRACE_SHAPES` 6形状(パラメトリック)、最近点距離で精度、カバー率、色分けトレイル。
+- 登録: カテゴリ asteroids/yachtDice/lightsOut/doodleJump/curling/jenga/lineTrace、S ティア。キャッシュ `script.js?v=20260909-3`。
+- 検証: smoke-test OK(87ゲーム)。Playwright 全87ゲーム スイープ ページエラー0。7本とも操作→反応(岩破壊 260pt、チャンス +24、4手、20m 到達、投擲→AI応手、6本抜き 88%、なぞり精度 94%)を確認。
