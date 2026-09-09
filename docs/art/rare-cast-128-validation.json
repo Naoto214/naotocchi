@@ -1,8 +1,26 @@
 {
-  "checkpoint": "BE",
+  "checkpoint": "BF",
   "date": "2026-09-09",
   "status": "incomplete",
+  "decision": "User approved replacing the rare talking mushroom with a clock. Playable mushroom stays; legacy recruited kinoko is preserved separately.",
   "audit": {
+    "baseline": "db0969d95eaffb502af677222df2217f63e95de5",
+    "baselineTree": "5afd32b58da3743d1862fffa203dc8b220d2c5ba",
+    "previousPngsUnchanged": 275,
+    "newPngs": 1,
+    "totalCharacterPngs": 276,
+    "unmodifiedBaselineFiles": 290,
+    "unrelatedMasterData": "PASS",
+    "PNG_CRC": "PASS",
+    "RGBA128": "PASS",
+    "binaryAlpha": "PASS",
+    "minimumMargin": 8,
+    "newOpaqueColors": 63,
+    "legacyKinoko": "kept as kinoko, excluded from new encounters",
+    "rareRecruitThreshold": 70,
+    "browserGameScreenshot": "NOT RUN (prior environment ERR_BLOCKED_BY_CLIENT)"
+  },
+  "previousCheckpointAudit": {
     "baseline": "79a47d46ee47075c238e08945ca458d8e7d38f41",
     "previousPngsUnchanged": 267,
     "newPngs": 8,
@@ -23,17 +41,20 @@
     "authorPngs": 1,
     "normalCompanions": 18,
     "rareCompanions": 8,
-    "remainingPartners": 18
+    "remainingPartners": 18,
+    "legacyCharacterPngs": 1,
+    "totalCharacterPngs": 276
   },
   "references": [
     "character-world-master.v1.js: companions.rare",
     "script.js: RARE_COMPANION_RUNTIME / COMPANION_CHARACTER_IDLE_LINES",
-    "naotocchi-cast-audit-20260909.md: rare companion design guidance"
+    "naotocchi-cast-audit-20260909.md: rare companion design guidance",
+    "Current user approval: そうですね 時計に変えますか！ それで進めて"
   ],
   "export": {
-    "generation": "one sprite per built-in imagegen call; only chameleon revised",
+    "generation": "BF: one new clock sprite, one built-in imagegen call. All 275 previous character PNGs byte-identical.",
     "scaling": "individual full foreground bounds; nearest-neighbor",
-    "background": "generated alpha threshold 128; chameleon reserved magenta keyed out including inner gaps",
+    "background": "Clock: generated alpha threshold 128, no color keying or background erasure",
     "quantization": "64-entry palette (63 opaque colors + transparency), no dithering; final 8-bit RGBA PNG",
     "marginOrder": [
       "left",
@@ -47,7 +68,7 @@
     "actual128": "PASS",
     "whiteBackground": "PASS",
     "darkBackground": "PASS",
-    "gameBrowserScreenshot": "NOT RUN; local game URL blocked by ERR_BLOCKED_BY_CLIENT in this environment"
+    "gameBrowserScreenshot": "NOT RUN; earlier environment attempt failed with ERR_BLOCKED_BY_CLIENT"
   },
   "sprites": [
     {
@@ -191,29 +212,29 @@
       ]
     },
     {
-      "id": "companions/kinoko",
-      "path": "assets/characters/companions/kinoko.png",
-      "source": "exec-67588462-15fd-4d18-bbd8-b7e0477055dc.png",
-      "sourceSha256": "826ed64690d386f5967aa761ae03c9f5a4e795a51d82c41db8e18ff449a46d65",
-      "sha256": "1f8ff2bf480cf58bb48aece462e8d64ec784d58d05203996aaeaf231c207a1b3",
+      "id": "companions/clock",
+      "path": "assets/characters/companions/clock.png",
+      "source": "exec-c64f255a-6788-40a5-b350-b7a7768507bd.png",
+      "sourceSha256": "0c2bd69f7ae0aa687aaeebdeb5df7f82dc57846881ed2c748c7b79c141ddeeec",
+      "sha256": "ded1b89e7d170abfdd5ed501028476da1833ad436b9a814aabe2d91ad595ffab",
       "sourceBounds": {
-        "left": 118,
-        "top": 50,
-        "width": 1019,
-        "height": 1145,
-        "pixels": 600913
+        "left": 203,
+        "top": 162,
+        "width": 904,
+        "height": 949,
+        "pixels": 480617
       },
       "bounds": {
-        "left": 17,
-        "top": 16,
-        "width": 93,
-        "height": 104,
-        "pixels": 4993
+        "left": 12,
+        "top": 12,
+        "width": 103,
+        "height": 108,
+        "pixels": 6247
       },
       "margins": [
-        17,
-        16,
-        18,
+        12,
+        12,
+        13,
         8
       ],
       "colors": 63,
@@ -226,7 +247,7 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: しゃべる きのこ, an eccentric walking mushroom companion in the middle of a conversation. One broad asymmetrical copper-orange cap tilted like a floppy umbrella, small irregular pale cream patches and a visibly ribbed pale underside. A tall gently crooked ivory stalk with two short stubby walking feet (one lifted slightly), two small arm nubs, one arm gesturing out while speaking. Friendly half-lidded eyes and small open talking mouth on the stalk. Curious but casual, not a baby or a group of growing mushrooms. Cap shape, bent stalk and walking pose are its individuality; no clothes, hat on cap, tools, roots, soil, scenery or speech bubble. Entire cap, arms, stalk and both feet visible.",
+      "prompt": "Use case: stylized-concept.\nCreate ONE complete character sprite for the Japanese pixel-art life-simulation game Naotocchi. Character: \"じかんに ルーズな とけい\" (a clock that is casually late), a new rare companion.\nPrimary subject: a small living vintage twin-bell alarm clock, fully visible, standing in a relaxed three-quarter front view slightly toward the right. A clearly circular silver-blue metal body and two small rounded muted-brass bells at the top, joined by their proper handle/striker structure. Warm ivory clock dial with a few clean hour tick marks and two readable dark clock hands attached to one pivot in the upper part of the dial. A separate clearly readable character face in the lower half: two half-lidded friendly eyes, subtle rosy cheeks, and a small gently amused smile. Two small connected arms (one making a casual greeting), two short sturdy metal legs with both rounded feet visible. Let the body lean a little in an unhurried pose, as if it arrived late and thinks everything is fine. A tiny wind-up key may be visible on the side only if it stays fully attached and readable. Not asleep, not worried, not a frantic running clock.\nStyle: charming handcrafted Japanese game pixel art, designed to remain readable at 128 by 128 pixels, with deliberate square pixel clusters, crisp stepped edges, restrained two or three-tone shading, thin dark blue-gray outline, no photorealism and no glossy 3D rendering. Rich enough to fit the existing cute detailed Naotocchi animal and object sprites, but no tiny noisy texture. Overall silver-blue and ivory body with small antique-brass accents; keep all facial features and appendages easy to distinguish.\nComposition: ONE isolated full-body character only, centered in a square canvas, generous fully transparent empty margin around the entire character. Both bells, the top handle, both arms, both legs and both complete feet must stay inside the canvas with ample room. No floor, no cast shadow, no ground, no scene, no speech bubble, no words, no numerals, no label, no watermark, no extra character, no inset, no sprite sheet or montage.\nBackground: genuine PNG alpha transparency including internal gaps between the arms, feet and bells. Do not draw a checkerboard. Preserve the warm ivory dial as part of the character.\n",
       "revisions": []
     },
     {
@@ -384,6 +405,48 @@
       "background": "generated-alpha",
       "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: ただの はこ, an ordinary small closed brown cardboard box, full cube in three-quarter view showing the front, right side and taped top. Plain kraft cardboard with sparse corrugated edge pixels and a few softly worn corners, one simple tan packing-tape strip across the top seam. On the lower front panel are only two tiny dark eye marks and a short understated straight mouth, subtly readable as a face at 128px without becoming a giant cartoon face. Quiet ambiguous expression, as if the box is pretending it is just a box. All lid flaps remain closed, contents completely hidden and undefined. No arms, legs, tail, ears, fangs, monster, cat, label, printed icon, shipping mark, text, glow or scenery. Complete bottom corners and full top must fit within generous margins.",
       "revisions": []
+    }
+  ],
+  "legacySprites": [
+    {
+      "id": "companions/kinoko",
+      "path": "assets/characters/companions/kinoko.png",
+      "source": "exec-67588462-15fd-4d18-bbd8-b7e0477055dc.png",
+      "sourceSha256": "826ed64690d386f5967aa761ae03c9f5a4e795a51d82c41db8e18ff449a46d65",
+      "sha256": "1f8ff2bf480cf58bb48aece462e8d64ec784d58d05203996aaeaf231c207a1b3",
+      "sourceBounds": {
+        "left": 118,
+        "top": 50,
+        "width": 1019,
+        "height": 1145,
+        "pixels": 600913
+      },
+      "bounds": {
+        "left": 17,
+        "top": 16,
+        "width": 93,
+        "height": 104,
+        "pixels": 4993
+      },
+      "margins": [
+        17,
+        16,
+        18,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: しゃべる きのこ, an eccentric walking mushroom companion in the middle of a conversation. One broad asymmetrical copper-orange cap tilted like a floppy umbrella, small irregular pale cream patches and a visibly ribbed pale underside. A tall gently crooked ivory stalk with two short stubby walking feet (one lifted slightly), two small arm nubs, one arm gesturing out while speaking. Friendly half-lidded eyes and small open talking mouth on the stalk. Curious but casual, not a baby or a group of growing mushrooms. Cap shape, bent stalk and walking pose are its individuality; no clothes, hat on cap, tools, roots, soil, scenery or speech bubble. Entire cap, arms, stalk and both feet visible.",
+      "revisions": [],
+      "status": "Only retained for old recruited kinoko saves; not a current encounter."
     }
   ]
 }

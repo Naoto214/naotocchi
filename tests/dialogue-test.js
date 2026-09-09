@@ -101,7 +101,7 @@ const expose = `
     hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
-    renderRareCompanionDex, renderProfile, openCompanionInvite,
+    renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
       clearConversationTimers(); clearDateMovieTimers(); hideSpeechBubble(); closeAllMenuOverlays();
@@ -111,6 +111,7 @@ const expose = `
         hunger: 50, energy: 90, happiness: 80, health: 100,
       }, patch);
       recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
+      grandGoalPending = null; pendingCompanionId = null;
       lastMemoryRecallKey = null;
     },
   };
@@ -524,3 +525,76 @@ for (const c of [...normalCast, ...rareCast]) assert.equal(allRows.join('').spli
 assert.equal(getElement('companionDexProgress').textContent, '18 / 18');
 assert.equal(getElement('rareCompanionDexProgress').textContent, '8 / 8');
 console.log('RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/row/dex; hidden and partial dex; 13+13 mixed rows; bond retained.');
+
+// The new clock has its own encounter and dialogue; a collected mushroom stays itself.
+const clockCompanion = api.allCompanionsById('clock');
+assert.ok(clockCompanion);
+assert.equal(clockCompanion.name, 'じかんに ルーズな とけい');
+assert.ok(api.RARE_COMPANIONS.some((c) => c.id === 'clock'));
+assert.ok(!api.RARE_COMPANIONS.some((c) => c.id === 'kinoko'));
+assert.equal(api.canonicalCompanionId('kinoko'), 'kinoko');
+assert.ok(master.compatibility.legacyOnlyCompanions.includes('kinoko'));
+reset();
+const oldRareLife = JSON.parse(JSON.stringify(api.getState()));
+oldRareLife.companions = [{ id: 'kinoko', bond: 73 }];
+oldRareLife.lifetime.rareCompanionsRecruited = ['kinoko'];
+oldRareLife.achievementsUnlocked = ['companion-all'];
+savedPayload = JSON.stringify(oldRareLife);
+const loadedOldRareLife = api.loadState();
+assert.equal(savedPayload, JSON.stringify(oldRareLife), 'source save must remain intact');
+savedPayload = null;
+assert.equal(loadedOldRareLife.companions[0].id, 'kinoko');
+assert.equal(loadedOldRareLife.companions[0].bond, 73);
+assert.deepEqual([...loadedOldRareLife.lifetime.rareCompanionsRecruited], ['kinoko']);
+assert.ok(loadedOldRareLife.achievementsUnlocked.includes('companion-all'));
+reset(loadedOldRareLife);
+assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'kinoko');
+api.renderCompanionRow(); api.renderProfile(); api.renderRareCompanionDex(); api.renderCompanionDex();
+assert.equal(getElement('rareCompanionDexProgress').textContent, '1 / 9');
+assert.equal(getElement('companionDexProgress').textContent, '0 / 18');
+for (const id of ['companionLeft', 'profileCompanionList', 'rareCompanionDexGrid']) {
+  assert.match(getElement(id).innerHTML, /assets\/characters\/companions\/kinoko\.png/);
+  assert.ok(!getElement(id).innerHTML.includes(clockCompanion.asset), 'old mushroom must not unlock or become the clock');
+}
+assert.ok(!getElement('companionDexGrid').innerHTML.includes('kinoko'));
+api.speakEvent('feed', { companionChance: 1 }); advance(10000);
+assert.ok(spoken.some((beat) => beat.speaker.id === 'kinoko' && api.COMPANION_DAILY_REACTIONS.kinoko.feed.includes(beat.text)));
+
+// Current entries and an already collected legacy entry count once, including across lives.
+reset();
+api.getState().lifetime.rareCompanionsRecruited = [...rareCast.map((c) => c.id), 'kinoko', 'kinoko', 'unrecognized-old-id'];
+api.renderRareCompanionDex();
+assert.equal(getElement('rareCompanionDexProgress').textContent, '9 / 9');
+assert.equal(getElement('rareCompanionDexGrid').innerHTML.split('src="assets/characters/companions/kinoko.png"').length - 1, 1);
+assert.equal(api.rareCompanionDexEntries().length, 9);
+reset();
+assert.equal(api.rareCompanionDexEntries().length, 8, 'unmet legacy character must not add a locked slot');
+api.getState().lifetime.rareCompanionsRecruited = ['unrecognized-old-id'];
+api.renderRareCompanionDex();
+assert.ok(getElement('rareCompanionDexGrid').classList.contains('hidden'));
+
+for (const [key, lines] of Object.entries(api.COMPANION_DAILY_REACTIONS.clock)) {
+  reset({ companions: [{ id: 'clock', bond: 80 }] });
+  api.speakEvent(key, { companionChance: 1, partnerChance: 0 }); advance(10000);
+  assert.ok(spoken.some((beat) => beat.speaker.id === 'clock' && lines.includes(beat.text)), key + ': clock reaction missing');
+}
+
+// With every other current companion present, the actual scheduler offers the new clock.
+reset({ sodachi: 80, maxSodachi: 80, companions: [...normalCast, ...rareCast.filter((c) => c.id !== 'clock'), { id: 'kinoko' }].map((c) => ({ id: c.id, bond: 80 })) });
+api.scheduleCompanionEncounter(); advance(180000);
+assert.equal(getElement('companionInviteTitle').textContent, 'じかんに ルーズな とけいと めが あった');
+assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
+click('companionInviteLaterBtn');
+
+// Preserve the actual GitHub baseline: rare recruitment requires 70 points.
+for (const score of [69, 70]) {
+  reset({ sodachi: 80, maxSodachi: 80 });
+  api.openCompanionInvite(clockCompanion, true);
+  api.finishMinigame(score);
+  assert.equal(api.getState().lifetime.rareCompanionsRecruited.includes('clock'), score >= 70);
+  assert.equal(api.getState().companions.some((c) => c.id === 'clock'), score >= 70);
+  assert.ok(!api.getState().lifetime.companionsRecruited.includes('clock'), 'clock must use the rare collection');
+  if (score >= 70) assert.equal(api.getState().companions.find((c) => c.id === 'clock').bond, 100);
+  click('companionInviteLaterBtn');
+}
+console.log('CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.');

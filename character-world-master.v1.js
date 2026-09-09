@@ -84,7 +84,7 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       { id: 'punyu', label: 'とけかけの ぷにゅ', asset: 'assets/characters/companions/punyu.png' },
       { id: 'sekizou', label: 'むひょうじょうの せきぞう', asset: 'assets/characters/companions/sekizou.png' },
       { id: 'chameleon', label: 'サングラスの カメレオン', asset: 'assets/characters/companions/chameleon.png' },
-      { id: 'kinoko', label: 'しゃべる きのこ', asset: 'assets/characters/companions/kinoko.png' },
+      { id: 'clock', label: 'じかんに ルーズな とけい', behavior: '時刻を聞かれても大まかに答える。遅れて来ても落ち着いている', asset: 'assets/characters/companions/clock.png' },
       { id: 'unicorn', label: 'まよいこんだ ユニコーン', asset: 'assets/characters/companions/unicorn.png' },
       { id: 'many_tail_fox', label: 'しっぽの おおい きつね', asset: 'assets/characters/companions/many_tail_fox.png' },
       { id: 'watcher', label: 'みている なにか', asset: 'assets/characters/companions/watcher.png' },
@@ -180,7 +180,7 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       chameleon: 'chameleon',
       kinoko: 'kinoko',
     },
-    legacyOnlyCompanions: ['hakuchou','koala'],
+    legacyOnlyCompanions: ['hakuchou','koala','kinoko'],
 
     partnerAliases: {
       mermaid: 'sea_mermaid',

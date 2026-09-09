@@ -4012,6 +4012,11 @@
       "座る前から ここに生えてた",
       "傘は 貸せないんだ"
     ],
+    "clock": [
+      "ぴったり 遅れてきたよ",
+      "秒針だけ 先に帰った",
+      "今? だいたい このへん"
+    ],
     "unicorn": [
       "道に迷った顔では ないよ",
       "角の向きだけ 気をつけるね",
@@ -4424,6 +4429,23 @@
       ],
       "minigame_bad": [
         "日かげで 作戦たてよう"
+      ]
+    },
+    "clock": {
+      "feed": [
+        "おやつに 時計は合わせてある"
+      ],
+      "play_with": [
+        "もう一回? じゃあ針は 見ないでおく"
+      ],
+      "travel": [
+        "出発時刻? 着いてから決めよう"
+      ],
+      "minigame_great": [
+        "拍手の時間だね。ここは遅れない"
+      ],
+      "minigame_bad": [
+        "休憩は きっちり計らなくていいよ"
       ]
     },
     "unicorn": {
@@ -6943,6 +6965,7 @@
     sekizou:{emoji:'🗿',vibe:'シュール',flavor:'石像が ある。さっきより 近い 気がする',joined:'気づいたら 家まで ついてきた'},
     chameleon:{emoji:'🦎',vibe:'おしゃれ',flavor:'サングラスを かけた カメレオンが かべから はんぶん はえている',joined:'「よろしく」と ひとことだけ 言った'},
     kinoko:{emoji:'🍄',vibe:'意味不明',flavor:'きのこが しゃべっている。「やあ」と いわれた',joined:'「じゃ、いこっか」と きのこが 歩きだした'},
+    clock:{emoji:'⏰',vibe:'マイペース',flavor:'時計が「ぴったり遅れてきたよ」と 手を振った。待ち合わせは していない',joined:'「出発は だいたい今だね」と 時計が ついてきた'},
     unicorn:{emoji:'🦄',vibe:'神々しい',flavor:'ユニコーンが まよいこんできた。本人は ぜんぜん 困っていない',joined:'なぜか そのまま ついてきた'},
     many_tail_fox:{emoji:'🦊',vibe:'妖しい',flavor:'きつねの しっぽを 数えた。数えるたびに 数が ちがう',joined:'しっぽを ゆらして ついてきた'},
     watcher:{emoji:'👁️',vibe:'こわい',flavor:'画面の はしから なにかが ずっと みている',joined:'見ないふりをしたら いつのまにか 仲間の列にいた'},
@@ -6982,6 +7005,12 @@
     { id:'koala', name:'のんびり コアラ', preferredRegions:[], ...COMPANION_RUNTIME.koala },
   ];
 
+  // 既に出会ったきのこは、その姿・会話・なかよし度・レア図鑑を保つ。
+  // 時計へのID変換や新規遭遇は行わない。
+  const LEGACY_RARE_COMPANIONS = [
+    { id:'kinoko', name:'しゃべる きのこ', asset:'assets/characters/companions/kinoko.png', ...RARE_COMPANION_RUNTIME.kinoko },
+  ];
+
   function hasAllCurrentCompanions(lifetime) {
     const known = new Set((lifetime.companionsRecruited || []).map(canonicalCompanionId));
     return COMPANIONS.every((c) => known.has(c.id));
@@ -6989,6 +7018,11 @@
 
   function companionDexEntries() {
     return COMPANIONS.concat(LEGACY_COMPANIONS.filter((c) => hasRecruitedCompanionId(c.id)));
+  }
+
+  function rareCompanionDexEntries() {
+    const known = new Set((state.lifetime.rareCompanionsRecruited || []).map(canonicalCompanionId));
+    return RARE_COMPANIONS.concat(LEGACY_RARE_COMPANIONS.filter((c) => known.has(c.id)));
   }
 
   function companionVisualHTML(companion, size = 'thumb') {
@@ -7010,7 +7044,8 @@
   function allCompanionsById(id) {
     const canonical = canonicalCompanionId(id);
     return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical)
-      || LEGACY_COMPANIONS.find((c) => c.id === canonical);
+      || LEGACY_COMPANIONS.find((c) => c.id === canonical)
+      || LEGACY_RARE_COMPANIONS.find((c) => c.id === canonical);
   }
 
 
@@ -11099,22 +11134,24 @@
 
   // そだち80「レアの きざし」で であえる レアなかまの セクション。まだ
   // ひとりも であっていない あいだは セクションごと かくして おく - ❓が
-  // 5つ ならんでいるだけの「たりない ずかん」に 見えない ように する ため。
+  // ならんでいるだけの「たりない ずかん」に 見えない ように する ため。
   // ヘッダーの ぜんたい数(dexProgress)にも かぞえない。ここは
   // ずかんクリア(dex-complete)の じょうけんとは まったく べつの、
   // であえたら うれしい だけの おまけの コレクション
   function renderRareCompanionDex() {
-    const recruited = state.lifetime.rareCompanionsRecruited || [];
-    const show = recruited.length > 0;
+    const entries = rareCompanionDexEntries();
+    const recruited = new Set((state.lifetime.rareCompanionsRecruited || []).map(canonicalCompanionId));
+    const knownCount = entries.filter((c) => recruited.has(c.id)).length;
+    const show = knownCount > 0;
     el.rareCompanionDexDivider.classList.toggle('hidden', !show);
     el.rareCompanionDexGrid.classList.toggle('hidden', !show);
     if (!show) {
       el.rareCompanionDexGrid.innerHTML = '';
       return;
     }
-    el.rareCompanionDexProgress.textContent = `${recruited.length} / ${RARE_COMPANIONS.length}`;
-    el.rareCompanionDexGrid.innerHTML = RARE_COMPANIONS.map((c) => {
-      const known = recruited.includes(c.id);
+    el.rareCompanionDexProgress.textContent = `${knownCount} / ${entries.length}`;
+    el.rareCompanionDexGrid.innerHTML = entries.map((c) => {
+      const known = recruited.has(c.id);
       return known
         ? `<div class="dex-cell known"><span class="dex-cell-emoji">${companionVisualHTML(c)}</span><span class="dex-cell-label">${c.name}</span></div>`
         : '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
@@ -20337,7 +20374,8 @@
       const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
       if (companion) {
-        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
+        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id)
+          || LEGACY_RARE_COMPANIONS.some((c) => c.id === companion.id);
         const threshold = isRare ? RARE_COMPANION_RECRUIT_THRESHOLD : COMPANION_RECRUIT_THRESHOLD;
         if (clampedScore >= threshold) {
           const record = isRare
