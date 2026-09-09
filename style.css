@@ -6063,3 +6063,203 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
    たかさが かわって canvas が うえしたに ずれ、タップ位置が くるう。
    ヒント欄は さいてい 3行ぶん たかさを たもつ --- */
 .mg-hint{min-height:4.2em}
+
+/* ================= ミニゲームの きろく(じこベスト/ランク) ================= */
+
+/* ゲームが おわった 直後に、ふつうの がめんの うえに ぽんと 出る けっかカード。
+   ランクの 文字いろで S/A/B/C/D を ひと目で わかるように する */
+.mg-result-toast {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 30, 20, 0.86);
+  color: #fff;
+  padding: 6px 12px 6px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: mg-result-pop 3.6s ease-out forwards;
+}
+.mg-result-toast.hidden { display: none; }
+.mg-result-toast .mg-result-body { display: flex; flex-direction: column; gap: 1px; }
+.mg-result-toast .mg-result-score { font-size: 12px; font-weight: 900; }
+.mg-result-toast .mg-result-sub { font-size: 9px; opacity: 0.9; }
+.mg-result-toast .mg-result-sub.new-best { color: #ffe27a; font-weight: bold; }
+@keyframes mg-result-pop {
+  0% { opacity: 0; transform: translate(-50%, 8px) scale(0.92); }
+  10% { opacity: 1; transform: translate(-50%, 0) scale(1.04); }
+  16% { transform: translate(-50%, 0) scale(1); }
+  82% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -6px); }
+}
+
+/* ランクの まる。いちらんと けっかカードで 共通 */
+.mg-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  flex-shrink: 0;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+}
+.mg-rank.rank-S { background: linear-gradient(135deg, #ffd54a, #ff9800); box-shadow: 0 0 6px rgba(255, 200, 0, 0.7); }
+.mg-rank.rank-A { background: linear-gradient(135deg, #ff7b9c, #e53957); }
+.mg-rank.rank-B { background: linear-gradient(135deg, #64b5f6, #1e6fd9); }
+.mg-rank.rank-C { background: linear-gradient(135deg, #81c784, #2e8b57); }
+.mg-rank.rank-D { background: linear-gradient(135deg, #b0b0b0, #7a7a7a); }
+.mg-rank.rank-none { background: rgba(0, 0, 0, 0.12); color: rgba(0, 0, 0, 0.45); text-shadow: none; font-size: 11px; }
+
+/* ================= じっせき > ゲームきろく タブ ================= */
+.ach-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.ach-tab {
+  flex: 1;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 0;
+  font-size: 11px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.08);
+  color: #16330f;
+  cursor: pointer;
+}
+.ach-tab.active {
+  background: #16330f;
+  color: #fff;
+}
+.ach-grid.hidden { display: none; }
+
+.game-list-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.game-list-summary .game-list-ranks { display: flex; gap: 4px; align-items: center; }
+.game-list-summary .mg-rank { width: 18px; height: 18px; font-size: 10px; }
+.game-list-hint {
+  font-size: 9px;
+  opacity: 0.75;
+  text-align: center;
+}
+.game-section-title {
+  font-size: 11px;
+  font-weight: 900;
+  margin: 6px 0 0;
+  padding-left: 2px;
+}
+.game-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 6px 8px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #fffdf5, #fff1cf);
+  border-color: rgba(255, 196, 0, 0.35);
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.2s ease;
+}
+.game-cell:active { transform: scale(0.97); }
+.game-cell.unplayed {
+  background: rgba(120, 120, 120, 0.12);
+  border-color: rgba(120, 120, 120, 0.25);
+}
+.game-cell.spotlight { border-color: #ff9800; box-shadow: 0 0 0 1px rgba(255, 152, 0, 0.35); }
+.game-cell-emoji { font-size: 22px; flex-shrink: 0; width: 26px; text-align: center; }
+.game-cell-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1; }
+.game-cell-label { font-size: 10px; font-weight: bold; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.game-cell-desc { font-size: 8px; opacity: 0.8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game-cell-tag {
+  font-size: 7px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+.game-cell-tag.now { background: #ff9800; color: #fff; }
+.game-cell-record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  flex-shrink: 0;
+  min-width: 34px;
+}
+.game-cell-best { font-size: 9px; font-weight: bold; font-variant-numeric: tabular-nums; }
+.game-cell-plays { font-size: 7px; opacity: 0.7; }
+
+/* ================= ゲームを とちゅうで やめる ================= */
+
+/* がめんと したの ボタンの あいだの すきまに うかぶ、たかさ 0 の レイヤー。
+   レイアウトを いっさい うごかさない(canvas の いちが ずれない)ように
+   height: 0 で おき、なかみだけ 絶対配置で うかせる */
+.mg-quit {
+  position: relative;
+  height: 0;
+  z-index: 5;
+}
+.mg-quit.hidden { display: none; }
+.mg-quit-inner {
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+.mg-quit-btn,
+.mg-quit-yes,
+.mg-quit-no {
+  border: none;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18);
+  font-family: inherit;
+}
+.mg-quit-btn {
+  background: rgba(40, 20, 35, 0.78);
+  color: #fff;
+}
+.mg-quit-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18); }
+.mg-quit-btn.hidden { display: none; }
+.mg-quit-confirm {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(40, 20, 35, 0.9);
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 4px 3px 10px;
+  white-space: nowrap;
+}
+.mg-quit-confirm.hidden { display: none; }
+.mg-quit-ask { font-size: 10px; font-weight: bold; }
+.mg-quit-yes { background: #e53957; color: #fff; padding: 3px 10px; }
+.mg-quit-no { background: #fff; color: #16330f; padding: 3px 10px; }
