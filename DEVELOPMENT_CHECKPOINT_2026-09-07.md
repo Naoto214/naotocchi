@@ -1075,3 +1075,14 @@ Runtime smoke test SUCCESS確認済み。
 - レイアウト: `say()` でヒントが短くなると overlay の高さが変わり canvas が上下にずれてタップ位置が狂う問題を確認(縦中央寄せの環境)。`.mg-hint{min-height:4.2em}` で緩和。
 - 登録: カテゴリ matchThree/gomoku/tankBattle/tennis/picross/darts/hangGlider、S ティア。キャッシュ `script.js?v=20260909-1`, `style.css?v=20260909-1`。
 - 検証: smoke-test OK(73ゲーム)。Playwright 全73ゲーム スイープ ページエラー0。7本とも操作→反応(2連鎖+60、AI応手、敵撃破、ラリー継続、塗り/ミス判定、ブル50、🎈と気流)を確認。
+
+## チェックポイント AS — 新作バッチ4(7本): ボンバー/ブラックジャック/パイプつなぎ/フルーツ斬り/りくじょう/ボクセルマイニング/かいてんずし(2026-09-09)
+- `makeBomberGame`(bomber-maze): 11×11(偶数座標は壁)、レンガ確率 0.42〜0.55、爆弾 2s → 十字に範囲2(アイテムで最大5)、連鎖爆発、👾3〜5体、ライフ2。
+- `makeBlackjackGame`(blackjack-21): 5ハンド固定ベット20、A は 11/1 自動、ディーラー 17 ストップ、ナチュラル 1.5倍、カード配りアニメ。スコアは `50 + (chips-100)*0.5`。
+- `makePipeConnectGame`(pipe-connect): 4ビット接続マスク(上1右2下4左8)と `rotate()`、右寄り重みのランダム経路から生成 → 残りをランダムパイプ → 全体回転、DFS で到達判定と濡れセル表示。3問。
+- `makeFruitSliceGame`(fruit-slice): 指の移動線分と円の当たり判定、コンボ、半分に割れる演出(clip)、💣でライフ減。
+- `makeTrackFieldGame`(track-field): 交互タップで加速(同じキー連打は減速)、100m はライバル3人と順位、幅跳びは 60m ラインの手前で長押し角度(20〜69°)、`v = speed*0.82`(当初 1.05 で 10m 超えたため調整)。
+- `makeVoxelMineGame`(voxel-mine): 9×60 地層、硬さ別の掘削時間、落下、マグマ無敵時間、距離による暗さ、深さ HUD。
+- `makeSushiBeltGame`(sushi-belt): 2レーン(近/遠でスケール違い)、注文は 2→4 品に増える、6秒以内ボーナス、🌶わさびトラップ。
+- 登録: カテゴリ bomber/blackjack/pipeConnect/fruitSlice/trackField/voxelMine/sushiBelt、S ティア。キャッシュ `script.js?v=20260909-2`。
+- 検証: smoke-test OK(80ゲーム)。Playwright 全80ゲーム スイープ ページエラー0。7本とも操作→反応(爆発/被弾、スタンド勝敗、パイプ回転、2コンボ斬り、100m 10.17s→幅跳び、⛓採掘、わさびペナルティ)を確認。
