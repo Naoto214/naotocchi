@@ -1063,3 +1063,15 @@ Runtime smoke test SUCCESS確認済み。
 - `makeSubmarineGame`(submarine-3d): 透視投影、岩/クラゲ/💎/🫧、酸素、無敵時間、深さで背景色が変化、ソナーリング。
 - 登録: カテゴリ catapult/connectFour/twenty48/frogger/skiJump/airHockey/submarine、S ティア。キャッシュ `script.js?v=20260908-10`。
 - 検証: smoke-test OK(66ゲーム)。Playwright 全66ゲーム スイープ ページエラー0。7本とも操作→反応(👻撃破、着手/AI応手、合体、車ヒット判定、飛距離表示、ゴール判定、💎取得)を確認。
+
+## チェックポイント AR — 新作バッチ3(7本): マッチ3/五目ならべ/タンクバトル/テニス/ピクロス/ダーツ/ハンググライダー3D(2026-09-09)
+- `makeMatchThreeGame`(match-3): 7×7、初期盤面は「マッチなし・手あり」を保証、スワップ→判定→ポップ→落下→連鎖の非同期パイプライン、5秒放置でヒント。
+- `makeGomokuGame`(gomoku-9): 9×9、仮置き→確定の2タップ、`scoreCell` の連数×開放端パターン評価で攻守を合算。
+- `makeTankBattleGame`(tank-battle): 11×11、レンガ/鉄、弾の相殺、敵AI(向き変え・プレイヤー方向・射線一致で発射)、硬い敵(hp2)。鉄ブロックは中央列を避けて (3,3)(7,3)(3,7)(7,7) に配置。
+- `makeTennisGame`(tennis-rally): 横視点、重力・バウンド・ネット。ショットは着地目標から vx を逆算(高さで奥/ロブが変わる)する方式にして「アウトばかり」を解消。
+- `PICROSS_PUZZLES`(10問) + `makePicrossGame`(picross-5): 行/列ヒント、✕モード/長押し、ドラッグ塗り、行列完成でヒントを薄く、正解でえもじ表示。
+- `makeDartsGame`(darts-board): 20セクター(実配列)・ダブル/トリプル/ブル判定、押している時間の2乗で揺れ増加、投擲アニメ。
+- `makeHangGliderGame`(hang-glider-3d): 透視投影(地上グリッド)、ピッチで速度/沈下、サーマル柱で上昇、🎈収集、高度メーター。
+- レイアウト: `say()` でヒントが短くなると overlay の高さが変わり canvas が上下にずれてタップ位置が狂う問題を確認(縦中央寄せの環境)。`.mg-hint{min-height:4.2em}` で緩和。
+- 登録: カテゴリ matchThree/gomoku/tankBattle/tennis/picross/darts/hangGlider、S ティア。キャッシュ `script.js?v=20260909-1`, `style.css?v=20260909-1`。
+- 検証: smoke-test OK(73ゲーム)。Playwright 全73ゲーム スイープ ページエラー0。7本とも操作→反応(2連鎖+60、AI応手、敵撃破、ラリー継続、塗り/ミス判定、ブル50、🎈と気流)を確認。
