@@ -1253,3 +1253,40 @@ Runtime smoke test SUCCESS確認済み。
 - ローカルRuntime smoke test SUCCESS（DOM 277 / 地域・季節込みのユニークなミニゲーム59 / variant collections 69）。20種160枚×4表示サイズのCharacter Renderer参照640ケースSUCCESS。これはRuntimeハーネスとHTML/CSS参照検証であり、ブラウザー画面を撮影したテストではない。
 - 128px対応は31プレイヤー種248段階のうち20種160枚。残り11種88枚（clownfish / butterfly / beetle / stagbeetle / cicada / hermit_crab / dragon / phoenix / god / star / unknown）、作者・仲間・恋人の専用キャスト45素材は未完了。全キャラ完成とは扱わない。
 - 最終コミットをbranchから到達可能にした後、GitHubから160枚の実バイトを再取得してPNG復号・CRC・ハッシュ・Renderer・最新Actions SUCCESSを成果物へ記録する。PR #183はopen / Draftのまま保持し、マージしない。
+
+## チェックポイント AQ — 新作バッチ2(7本): カタパルト/コネクトフォー/2048/フロッガー/スキージャンプ/エアホッケー/サブマリン3D(2026-09-08)
+- `makeCatapultGame`(catapult-castle): AABB ブロック(wood/stone/target)の簡易剛体(重力・接地・上下/左右の押し出し・支えがないと傾く)、ボール衝突でインパルス、👻は衝撃 or 落下で撃破。2ステージ、予測軌道ドット。
+- `makeConnectFourGame`(connect-four): 7×6、αβ探索(depth 2/4/5)、窓評価、落下アニメ、勝ち筋ハイライト。
+- `makeTwentyFortyEightGame`(puzzle-2048): 移動/合体アニメ、スポーン拡大、手詰まり検出。スコアは最大タイルのティア+合計。
+- `makeFroggerGame`(frogger-road): 9×12、車5レーン・いかだ4レーン、いかだ上で流される、🏠3つ、ライフ3。
+- `makeSkiJumpGame`(ski-jump): 助走路 `24*(1-x/40)^1.6`、着地斜面 `-(0.62d+2(1-e^{-d/2}))`、揚力 `1+clamp(q,-0.6,1)*3.5`(node シムで 60〜170m を確認)。転倒は着地時の前かがみ誤差>0.5 のみ。当初の助走路は台端で 18m の段差があったので式を差し替え。
+- `makeAirHockeyGame`(air-hockey): マレット速度を持ち込む反発、AI は難易度で速度可変、5点先取/90秒。
+- `makeSubmarineGame`(submarine-3d): 透視投影、岩/クラゲ/💎/🫧、酸素、無敵時間、深さで背景色が変化、ソナーリング。
+- 登録: カテゴリ catapult/connectFour/twenty48/frogger/skiJump/airHockey/submarine、S ティア。キャッシュ `script.js?v=20260908-10`。
+- 検証: smoke-test OK(66ゲーム)。Playwright 全66ゲーム スイープ ページエラー0。7本とも操作→反応(👻撃破、着手/AI応手、合体、車ヒット判定、飛距離表示、ゴール判定、💎取得)を確認。
+
+## チェックポイント AR — 新作バッチ3(7本): マッチ3/五目ならべ/タンクバトル/テニス/ピクロス/ダーツ/ハンググライダー3D(2026-09-09)
+- `makeMatchThreeGame`(match-3): 7×7、初期盤面は「マッチなし・手あり」を保証、スワップ→判定→ポップ→落下→連鎖の非同期パイプライン、5秒放置でヒント。
+- `makeGomokuGame`(gomoku-9): 9×9、仮置き→確定の2タップ、`scoreCell` の連数×開放端パターン評価で攻守を合算。
+- `makeTankBattleGame`(tank-battle): 11×11、レンガ/鉄、弾の相殺、敵AI(向き変え・プレイヤー方向・射線一致で発射)、硬い敵(hp2)。鉄ブロックは中央列を避けて (3,3)(7,3)(3,7)(7,7) に配置。
+- `makeTennisGame`(tennis-rally): 横視点、重力・バウンド・ネット。ショットは着地目標から vx を逆算(高さで奥/ロブが変わる)する方式にして「アウトばかり」を解消。
+- `PICROSS_PUZZLES`(10問) + `makePicrossGame`(picross-5): 行/列ヒント、✕モード/長押し、ドラッグ塗り、行列完成でヒントを薄く、正解でえもじ表示。
+- `makeDartsGame`(darts-board): 20セクター(実配列)・ダブル/トリプル/ブル判定、押している時間の2乗で揺れ増加、投擲アニメ。
+- `makeHangGliderGame`(hang-glider-3d): 透視投影(地上グリッド)、ピッチで速度/沈下、サーマル柱で上昇、🎈収集、高度メーター。
+- レイアウト: `say()` でヒントが短くなると overlay の高さが変わり canvas が上下にずれてタップ位置が狂う問題を確認(縦中央寄せの環境)。`.mg-hint{min-height:4.2em}` で緩和。
+- 登録: カテゴリ matchThree/gomoku/tankBattle/tennis/picross/darts/hangGlider、S ティア。キャッシュ `script.js?v=20260909-1`, `style.css?v=20260909-1`。
+- 検証: smoke-test OK(73ゲーム)。Playwright 全73ゲーム スイープ ページエラー0。7本とも操作→反応(2連鎖+60、AI応手、敵撃破、ラリー継続、塗り/ミス判定、ブル50、🎈と気流)を確認。
+
+## チェックポイント AY — クマノミ・チョウ16段階の128px実装とmain同期（2026-09-09）
+- 監査開始HEAD `42a5c54f5d9d18f821f399ce7315b912514b1431`、tree `be7ef91f811d4224186f1aefbaf53bc9cf513075`。PR #183、live branch/main ref、全300項目tree、直近コミットを実取得。先行20種160枚はSHA-256一致で変更なし。今回素材の中途投入はなかった。
+- 対象は `assets/characters/clownfish/01.png`〜`08.png` と `assets/characters/butterfly/01.png`〜`08.png`。現行WORLD_MASTERの仔魚→稚魚→幼魚→若魚→群れ成魚→繁殖雄→性転換中→成熟雌、初齢幼虫→中齢幼虫→終齢幼虫→前蛹→蛹→羽化直後→成虫→老成虫を保持する。古い卵始まりの段階へ変更しない。
+- 旧16 PNGは導入コミット `eb8cfeb2c94573ca2c82a4e8fd3799291ad1de83` から同じ壊れたデータで、chunk CRCだけでなく圧縮ストリームそのものが不正。全16枚とも復号不能であり、元の絵を完全復元できたとは扱わない。該当する確定一覧は検索で特定できず、別種の昆虫・海洋生物一覧は除外した。
+- 承認済みの全キャラ128px・全段階に顔・表情変化の方針に基づき、保存済みの個体/成長仕様から一枚ずつ描画した。クマノミのオレンジと白帯は既存仕様に従う。緑の幼虫・青い成虫の配色は既存の幼虫/チョウの識別色に沿う実装上の選択であり、失われた確定原画の復元と偽らない。元7種を含む先行160枚は一切変更しない。
+- クマノミは淡い仔稚魚、幼魚の帯の出現、若魚の明瞭な帯、群れ、繁殖雄の体格、性転換中の腹部と姿勢、成熟雌の深い体を区別。⑤は主個体と小さい仲間2匹すべてに顔を持たせる。白帯や余分な背びれの問題が出た③④⑤⑥だけを個別修正し、3本の帯と一続きの背びれを確認した。性別記号や人間的な装飾は加えない。
+- チョウは幼虫①〜③の太さ/模様/表情、④のJ字の前蛹、⑤の顔付きの閉じた蛹、⑥の短く折れた翅と空の蛹殻、⑦の4枚の広い翅、⑧の退色と穏やかな目元で差を出す。成虫⑦の脚はその画像だけ修正して6本を保持。枝・葉・糸・蛹殻、翅、触角、脚を欠損させない。⑧の小さな翅縁の傷みは既存の老成虫仕様に沿う表現で、切り出し不良ではない。
+- 各単体画像を個別に透過・縮小し、全身を含む縮尺と余白を設定。均等セル分割、一括crop、GrabCutは使用しない。4面の原案比較、128px実寸、白/濃色の一覧で全16枚を視覚確認。顔・身体・重要部位の欠け、背景/文字/隣段階混入なし、隣接段階の違いを確認し合格した。⑤の3匹、チョウ⑥の本体と殻/枝の離れた要素を不要な断片として削除していない。
+- 新16枚はPNG / 128×128 / 8-bit RGBA / alpha 0・255 / 最大63不透明色 / 全方向8px以上の透明余白。全chunk CRC・復号・寸法・透過・SHA-256を検証。先行160枚を再減色しない（先行antlionの78〜79色も実測値のまま保持）。
+- 作業中にmainが `0cce6d81217572ba4dd22b03a7dcac7914592781` から `9b6ecea821b746ab2e5ad475ef3d0250b6e85545`（PR #193、mergeを含む3コミット・5ファイル、新作14ゲームとヒント欄の高さ調整）へ更新。監査して取り込み、本記録だけの競合を双方の全文保持で解消。README.md / index.html / script.js / style.css はmainとバイト完全一致。WORLD_MASTER、既存ID・参照パス、Character Renderer、仲間・恋愛・ゲームロジックの独自変更はない。
+- 統合後のローカルRuntime smoke test SUCCESS（DOM 277 / 地域・季節込みのユニークなミニゲーム73 / variant collections 83）。22種176枚×4表示サイズのCharacter Renderer参照704ケースSUCCESS。RuntimeハーネスとHTML/CSS参照の検証であり、ブラウザー画面を撮影したテストではない。
+- 128px対応は31プレイヤー種248段階のうち22種176枚。残り9種72枚（beetle / stagbeetle / cicada / hermit_crab / dragon / phoenix / god / star / unknown）、作者・仲間・恋人の専用45素材は未完了。全キャラ完成とは扱わない。
+- 最終コミットをbranchから到達可能にした後、GitHubから176枚の実バイトを再取得し、PNG復号・CRC・ハッシュ・Renderer・最新Actions SUCCESSを検証記録に残す。PR #183はopen / Draftを保持し、マージしない。
