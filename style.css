@@ -5213,11 +5213,13 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   position: relative;
   animation: rewardMovieGlow 2.2s ease-in-out infinite alternate;
 }
-.date-movie-scene.special-reward::after {
+.date-movie-scene.special-reward::before {
   content: 'とくべつな おもいで';
-  position: absolute;
-  top: 10px;
-  right: 12px;
+  /* タイトルが折り返しても、バッジと同じ行に重ならないようにする。 */
+  position: relative;
+  display: table;
+  max-width: 100%;
+  margin: 0 auto 8px;
   font-size: 10px;
   font-weight: 900;
   letter-spacing: .12em;
