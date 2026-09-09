@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260909-1">
+<link rel="stylesheet" href="style.css?v=20260909-movie-layout-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -94,7 +94,7 @@
             </div>
           </div>
 
-          <div class="message" id="message">卵がやってきた…</div>
+          <div class="message" id="message">たまごが やってきた…</div>
 
           <div class="items-row" id="itemsRow"></div>
         </div>
@@ -125,26 +125,26 @@
         <div class="dex-overlay hidden" id="dexOverlay">
           <div class="dex-header">
             <span class="dex-title">ずかん</span>
-            <span class="dex-progress" id="dexProgress">0 / 194</span>
+            <span class="dex-progress" id="dexProgress">0 / —</span>
             <button class="dex-close-btn" id="dexCloseBtn">✕</button>
           </div>
           <div class="dex-scroll">
-            <div class="profile-hint">であった すがたを タップすると、なまえ・しゅぞく・ライフステージと せつめいを 読めます</div>
+            <div class="profile-hint">であった すがたを タップすると、なまえや 成長段階、その子の 小さな話を 読めます</div>
             <div class="profile-hint hidden" id="dexFreePlayHint">♾️ の せかいでは、くわしい がめんから そのまま その すがたに なれます</div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
-              <span class="dex-progress" id="companionDexProgress">0 / 10</span>
+              <span class="dex-progress" id="companionDexProgress">0 / —</span>
             </div>
             <div class="companion-dex-row" id="companionDexGrid"></div>
             <div class="dex-section-divider hidden" id="rareCompanionDexDivider">
               <span class="dex-section-title">レアなかま</span>
-              <span class="dex-progress" id="rareCompanionDexProgress">0 / 5</span>
+              <span class="dex-progress" id="rareCompanionDexProgress">0 / —</span>
             </div>
             <div class="companion-dex-row hidden" id="rareCompanionDexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">こいびと</span>
-              <span class="dex-progress" id="partnerDexProgress">0 / 16</span>
+              <span class="dex-progress" id="partnerDexProgress">0 / —</span>
             </div>
             <div class="companion-dex-row" id="partnerDexGrid"></div>
           </div>
@@ -164,7 +164,7 @@
         <div class="dex-overlay hidden" id="achOverlay">
           <div class="dex-header">
             <span class="dex-title">じっせき</span>
-            <span class="dex-progress" id="achProgress">0 / 67</span>
+            <span class="dex-progress" id="achProgress">0 / —</span>
             <button class="dex-close-btn" id="achCloseBtn">✕</button>
           </div>
           <div class="ach-grid" id="achGrid"></div>
@@ -229,17 +229,17 @@
           <div class="theme-scroll">
             <div class="theme-section">
               <div class="theme-section-title">ごほうび</div>
-              <div class="profile-hint">ショップでは買えない、とてもレアなごほうびです。デートや旅を「とくべつな思い出」にするときに使えます。ここでは所持数だけ確認し、使うかどうかはデート・旅のときに選びます</div>
+              <div class="profile-hint">ミニゲームなどで たまに もらえます。デートや たびのときに 1こ使うと、とくべつな おもいでに。使うかどうかは 出かけるときに えらべます</div>
               <div class="shop-item-grid" id="rewardItemGrid"></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">みにつける もの</div>
-              <div class="profile-hint">おかねで こうにゅうして そうびできます。そうびすると、なおとっちに ずっと つけつづけます</div>
+              <div class="profile-hint">おかねで 買って みにつけます。そうび中のものを もう一度タップすると はずせます</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">なおとの ひみつ</div>
-              <div class="profile-hint">4だんかいの クリアで それぞれ 1つずつ もらえる、とくべつな たっせいほうしゅう。おかねでは こうにゅうできず、もらったあとは ずっと こうかを はっきする</div>
+              <div class="profile-hint">4つのクリアで 1こずつ もらえる、なおとからの贈りもの。もらったあとは、ずっと こうかが 続きます</div>
               <div class="shop-item-grid" id="naotoItemGrid"></div>
             </div>
             <div id="onetimeItemGrid" class="hidden"></div>
@@ -317,7 +317,7 @@
           </div>
           <div class="theme-scroll">
             <div class="theme-section">
-              <div class="profile-hint">えらんだ きせつは、つぎに 自分で かえるまで ずっと たもたれます。「げんじつに あわせる」を えらぶと、いまの 月から じどうで きせつが きまります</div>
+              <div class="profile-hint">えらんだ きせつは、自分で かえるまで 続きます。「げんじつに あわせる」では、いまの月に あわせて きせつが かわります</div>
               <div class="theme-grid" id="seasonModeGrid"></div>
             </div>
           </div>
@@ -474,7 +474,7 @@
 
             <div class="profile-section hidden" id="duelAnswerReviewSection">
               <div class="profile-section-title">回答を 見直す</div>
-              <div class="profile-hint">5問ぜんぶに こたえました。それぞれを タップすると、その しつもんの こたえを 見なおせます。ここから 「挑戦コードを つくる」を おすまでは、なんども じゆうに 見なおし・変更できます</div>
+              <div class="profile-hint">5問の こたえが そろいました。タップすると 見なおせます。「挑戦コードを つくる」を おすまでは、何度でも 変更できます</div>
               <div class="duel-lie-coin-row" id="duelAnswerReviewLieRow">🃏 つかった うそコイン: <span id="duelAnswerReviewLieCount"></span></div>
               <div id="duelAnswerReviewList"></div>
               <div class="duel-review-actions">
@@ -563,7 +563,7 @@
           <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
           <div class="game-clear-badges" id="gameClearBadges"></div>
           <div class="game-clear-subtitle">なおとっちと いっしょに。</div>
-          <div class="game-clear-desc" id="gameClearDesc">さいごまで そだてきった!<br>「はじめから」で またあたらしい たまごを そだてよう</div>
+          <div class="game-clear-desc" id="gameClearDesc">さいごまで いっしょに 過ごした。<br>「あたらしい たまご」で、つぎの子を むかえよう</div>
           <button class="game-clear-freeplay-btn hidden" id="gameClearFreePlayBtn">♾️ の せかいへ</button>
           <button class="game-clear-close-btn hidden" id="gameClearCloseBtn">とじる</button>
           <div class="game-clear-confetti" id="gameClearConfettiBottom">✨🎊🎉✨🎊🎉</div>
@@ -592,6 +592,6 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
   <script src="character-world-master.v1.js?v=20260907-1"></script>
-  <script src="script.js?v=20260909-4"></script>
+  <script src="script.js?v=20260909-5"></script>
 </body>
 </html>
