@@ -1536,3 +1536,16 @@ Runtime smoke test SUCCESS確認済み。
 - `npm test`成功（DOM 287 / ミニゲーム100 / variant collections 91）。会話・全文248段階・恋人18体・仲間26体・旧コアラ/旧きのこ・作者④⑤・以前のPERFECTの作者/王冠/自由モード維持を含む全回帰が成功。開発fixture生成・構文・diffの検査も成功。
 - `docs/art/cast-layout-validation.md`、`cast-layout-browser-results.json`、`cast-layout-validation.json`、`qa-bl/`の15枚の画面記録へ、再現方法・不具合・検証範囲・実測値・ソース/画像ハッシュを保存。当該保存コミットのHEAD/treeとGitHub Actions確定結果はPR #183本文とChecksへ記録する。
 - 物理端末のiPhone/Safari・Android、全248形態の個別アニメーション、全恋人の全ムービー、100本すべての手動完走は今回未確認。代表例の目視と自動回帰を、これら全組み合わせの確認済みとは扱わない。全体開発は継続中。PR #183はDraft・未マージを保持する。
+
+## チェックポイント BM（2026-09-09）：ムービーの画像枠のはみ出し修正・恋人18体の実画面確認
+
+- GitHubの実状態からBL `78f505693cbd5d7bb3da109bad754b7344214c83`（tree `e7764b657b00c12eb814ba50d795f679c610ecc5`）を再開。Runtime #234（run `34349755583`）SUCCESS。mainは `da5c631a911504e78c8b88fae373f30b85f26b31`（PR #203）で保存前にも変更なし。PRはopen / Draft・未マージ、競合なし。
+- 正規のSites開発プレビューとCloud Browserでこのcheckoutを表示。公開mainや古いタブは代用せず、URLポリシーの迂回なし。
+- 幅320px（client305）のデートで、キャラ行173pxに内容192px、画像枠の見切れを実測。BLの共有 `.pet` に入った仲間用3列gridがムービーの主人公にも適用されていた。共通 `.pet` をinline-blockへ戻し、3列gridをメイン画面の `#pet` に限定。修正後は173px / 173pxで見切れ0。CSS版 `20260909-cast-layout-bm-1`。
+- 自由モードで選んだ姿とデートの画像は実操作で一致した（老人 `man/08.png`）。保存時に段階が同期されており、この疑いについてゲームコードを変更していない。
+- 恋人18体それぞれ1プランのデート冒頭を幅320pxで目視し、専用PNG・名前・字幕・全身表示を確認。全18体の配置・画像がPASS。自由モードの320/390/768pxと高さ640px、ロボットの銀婚式320×640/390×844/768×844pxもPASS。
+- メイン画面の幅320/390/768px × 仲間0/26/王冠装備26体の9ケースがPASS。静的計測は再撮影を含む36件すべてPASS。動作は自由モード235・銀婚式240・最終自由モード240フレームの計715フレームが総合PASS。
+- 別の探索計測240フレームでは3フレームが総合NG（最初のNGは画像28枚の読み込み待ち）。PASS数には含めず、探索記録も保存。計測を配置失敗・読込待ち・破損・ムービー表示へ分けた最終240フレームではすべて0、ムービーの歩くアニメーションを全フレーム確認。
+- `script.js`・WORLD_MASTER・画像・セーブ処理はBLから不変。PNG294枚＋ゴールJPEG7枚の承認済み画像を保持。`npm test`、fixture生成、diff検査成功。DOM287 / ミニゲーム100 / variant collections91、旧PERFECT・作者④⑤・王冠・自由モード・旧キャストを含む回帰も成功。
+- `docs/art/cast-movie-layout-validation.md`、`cast-movie-browser-results.json`、`cast-movie-validation.json`、`qa-bm/`の22枚へ再現手順・範囲・実測・ハッシュを保存。当該コミットの確定HEAD/tree/ActionsはPR #183本文とChecksに記録する。
+- 18体の各1プラン冒頭の目視を、全ムービーの完走とは扱わない。物理iPhone/Safari・Android、全248形態の動作、全恋人の全プラン/全記念日/全初遭遇、ミニゲーム100本の手動完走は未確認。BLのプロフィール・図鑑・作者演出の実画面結果も保持。全体は継続中で、明示的なマージ依頼までPR #183をDraft・未マージで維持する。

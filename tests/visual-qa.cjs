@@ -45,6 +45,12 @@ function createFixtures() {
       greeting.lifetime.endingTiersReached = [3];
       make('anniversary',2,{ageTicks:499,marriageAge:0,marriageMilestonesSeen:[1,10]});
       make('firstEncounter',26,{partner:null,regionId:'city'});
+      const freeForm = make('freeForm',26,{infinite:true,infiniteForm:{line:'man',stageIndex:7}});
+      freeForm.lifetime.perfectCleared = true;
+      freeForm.lifetime.endingTiersReached = [3,4];
+      for (const candidate of api.ALL_PARTNER_CANDIDATES) {
+        make('partner_' + candidate.id,26,{partner:partner(candidate.id,{married:true})});
+      }
       return fixtures;
     })()
   `, { require, console:{log() {}} });
@@ -103,10 +109,25 @@ function visualQaPlugin() {
             const speechOverlap=actors.some(r=>intersects(r,speech));
             const actorOverlap=actors.some((r,i)=>actors.slice(i+1).some(other=>intersects(r,other)));
             const overlapPairs=actors.flatMap((r,i)=>actors.slice(i+1).flatMap((other,j)=>intersects(r,other)?[[i,i+j+1]]:[]));
+            const movie=doc.getElementById('dateMovieScene');
+            const movieBounds=movie.getBoundingClientRect();
+            const movieActors=[...doc.querySelectorAll('.date-movie-actor .character-visual')].map(e=>e.getBoundingClientRect()).filter(r=>r.width>0);
+            const movieCaption=doc.getElementById('dateMovieCaption').getBoundingClientRect();
+            const movieActorRow=doc.querySelector('.date-movie-actors');
+            const movieOverflow=movieBounds.width>0&&movieActorRow.scrollWidth>movieActorRow.clientWidth;
+            const movieClipped=movieActors.some(r=>r.left<movieBounds.left||r.right>movieBounds.right||r.top<movieBounds.top||r.bottom>movieBounds.bottom);
+            const movieCaptionOverlap=movieActors.some(r=>intersects(r,movieCaption));
+            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
             const result={scene:document.getElementById('scene').value,width:doc.documentElement.clientWidth,
               height:doc.documentElement.clientHeight,pageHeight:doc.documentElement.scrollHeight,
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
+              moviePetAsset:doc.querySelector('#dateMoviePet img')?.getAttribute('src')||null,
+              moviePartnerAsset:doc.querySelector('#dateMoviePartner img')?.getAttribute('src')||null,
+              movieVisible:movieBounds.width>0,movieOverflow,movieClipped,movieCaptionOverlap,
+              movieRowWidth:movieActorRow.clientWidth,movieRowContentWidth:movieActorRow.scrollWidth,
+              moviePetDisplay:doc.defaultView.getComputedStyle(doc.getElementById('dateMoviePet')).display,
+              movieAnimation:doc.defaultView.getComputedStyle(doc.getElementById('dateMoviePet')).animationName,
               petDisplay:doc.defaultView.getComputedStyle(doc.getElementById('pet')).display,
               areaWidth:Math.round(area.width),speechOverlap,actorOverlap,overlapPairs,detached,panelOverflow,storyOutsideViewport,
               animations:[doc.getElementById('pet'),doc.getElementById('petSprite')].map(e=>doc.defaultView.getComputedStyle(e).animationName),
@@ -114,7 +135,7 @@ function visualQaPlugin() {
               pendingImages:images.filter(e=>!e.complete).length,
               brokenImages:images.filter(e=>e.complete&&!e.naturalWidth).length,
               horizontalOverflow:doc.documentElement.scrollWidth>doc.documentElement.clientWidth,
-              checksPass:outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&images.every(e=>e.complete&&e.naturalWidth)&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth};
+              layoutChecksPass,checksPass:layoutChecksPass&&images.every(e=>e.complete&&e.naturalWidth)};
             return result;
           }
           document.getElementById('measure').onclick=()=>document.getElementById('result').textContent=JSON.stringify(measure(),null,2);
@@ -125,8 +146,13 @@ function visualQaPlugin() {
               samples.push(measure());
               if(performance.now()-start<4000){requestAnimationFrame(sample);return;}
               const failed=samples.filter(s=>!s.checksPass);
-              document.getElementById('result').textContent=JSON.stringify({scene:samples[0].scene,width:samples[0].width,
+              document.getElementById('result').textContent=JSON.stringify({scene:samples[0].scene,width:samples[0].width,height:samples[0].height,
                 samples:samples.length,failedFrames:failed.length,firstFailure:failed[0],
+                layoutFailedFrames:samples.filter(s=>!s.layoutChecksPass).length,
+                pendingImageFrames:samples.filter(s=>s.pendingImages>0).length,
+                brokenImageFrames:samples.filter(s=>s.brokenImages>0).length,
+                movieVisibleFrames:samples.filter(s=>s.movieVisible).length,
+                movieAnimations:[...new Set(samples.map(s=>s.movieAnimation))],
                 animations:[...new Set(samples.flatMap(s=>s.animations))],checksPass:!failed.length},null,2);
             }
             requestAnimationFrame(sample);

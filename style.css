@@ -778,13 +778,18 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 
 .pet {
   position: relative;
+  display: inline-block;
+  font-size: 64px;
+  line-height: 1;
+  filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.15));
+}
+
+/* 仲間の左右列はメイン画面専用。ムービーの .pet は単独の1体。 */
+#pet {
   display: inline-grid;
   grid-template-columns: 51px auto 51px;
   align-items: center;
   column-gap: 4px;
-  font-size: 64px;
-  line-height: 1;
-  filter: drop-shadow(1px 2px 0 rgba(0,0,0,0.15));
 }
 
 /* 恋人・装備の段も中央セルの高さに含める。本体だけを動かすので、
