@@ -1214,3 +1214,29 @@ Runtime smoke test SUCCESS確認済み。
 - 同期後のローカルRuntime smoke test SUCCESS（DOM 277 / ミニゲーム52 / variant collections 62）、16種128枚×4表示サイズのCharacter Renderer参照512ケースSUCCESS。これは既存RuntimeハーネスとHTML参照検証で、ブラウザー画像による画面テストではない。
 - 128px対応は31プレイヤー種248段階のうち16種128枚。未対応は15種120枚（penguin / turtle / frog / salmon / clownfish / butterfly / beetle / stagbeetle / cicada / hermit_crab / dragon / phoenix / god / star / unknown）。作者・通常仲間・レア仲間・恋人の専用45素材も未完了。全キャラクター完成とは扱わない。
 - ブランチから到達可能な最終コミットを作成後、GitHubから128枚の実バイトを再取得し、PNG復号・CRC・ハッシュ・main到達性・最新Actions SUCCESSを成果物の検証記録に残す。PR #183はopen / Draftを保持し、マージしない。
+
+## チェックポイント AP — 新作バッチ1(7本): ビリヤード/どうぶつしょうぎ/マインスイーパー/スネーク/やきゅう/リングフライト/バブルシューター(2026-09-08)
+- 方針: 「操作系がぜんぶ違う7本」を1バッチとして追加(ドラッグ物理・タップ思考・十字/スワイプ・タイミング・3D操縦・照準)。以降もバッチ単位(6〜8本/PR)で増やす。
+- `makeBilliardsGame`(billiards-6): 円衝突+摩擦+ポケット、ガイド線(最初の接触球と弾く向き)、スクラッチ復帰、ショット数制限。
+- `makeAnimalShogiGame`(animal-shogi): 3×4、持ち駒打ち、🐤→🐔成り、トライ勝ち(安全な最奥到達)、αβ 3手よみ(difficulty<0.35 は 2手)。`fwd(o)` は MOVES の dy<0 を「前」とし ME=+1/AI=-1(符号ミスを修正済み)。
+- `makeMinesweeperGame`(minesweeper-8): 初手安全配置、フラッドフィル、🚩モード/長押し、コード開き、開く演出。
+- `makeSnakeGame`(snake-classic): 15×15、tick 230→105ms、⭐ボーナス、スワイプ/十字。
+- `makeBaseballGame`(baseball-batting): 擬似3D(proj の z は 0〜1.05 にクランプ。打球の z>1.2 で負の半径になる ellipse エラーを修正)、球種3、コース×タイミングで HR/3B/2B/1B/ファウル/空振り。
+- `makeRingFlightGame`(ring-flight-3d): 透視投影 F/(z+0.35)、リング/くも/コインのスポーン、バンク描画、Math.random 固定で全リング中央通過を確認。
+- `makeBubbleShooterGame`(bubble-shooter): オフセット六角格子、壁反射の照準線、3連結消去+浮遊塊落下、N ショットごとに1段追加、デッドライン判定。
+- 登録: MINIGAMES / MINIGAME_CATEGORY_GROUPS(billiards/animalShogi/minesweeper/snake/baseball/ringFlight/bubbleShooter)/ S ティア。キャッシュ `script.js?v=20260908-9`。
+- 検証: smoke-test OK(59ゲーム)。Playwright 全59ゲーム スイープ ページエラー0・はみ出し0。7本とも操作→反応を自動操作で確認(ショットで散開、🐤の取り合い、開マス/フラグ、方向転換、HR/3B 判定、リング6連続、3連結消去)。
+
+## チェックポイント AW — ペンギン・カメ16段階の128px実装とmain同期（2026-09-09）
+- 監査開始HEAD `9bbc9ea31f4538d862fe08551e58a65f25c0fdeb`、tree `7badc0a2757a193157ad28a9a4880f0e18081182`。PR #183、live branch/main ref、全300項目tree、直近コミットを実取得。作業ブランチは前回安全地点のまま、対象16枚は旧64px素材で、先行16種128枚は全SHA-256一致を確認した。
+- 対象は `assets/characters/penguin/01.png`〜`08.png` と `assets/characters/turtle/01.png`〜`08.png`。現行WORLD_MASTERの小雛→綿毛雛→大雛→換羽中→若鳥→成鳥→老成鳥→老鳥、孵化仔→小亀→幼亀→若亀→成亀→大亀→古亀→老亀を保持。仲間の `penguin_friend` とは別で、ID・段階名・参照パスを変更しない。
+- 現行の灰色綿毛〜白黒ペンギン、緑のカメという既存個体の特徴と確定済み成長仕様を基準に、一体ずつ128pxへ仕上げた。該当する新しい確定一覧は検索で特定できず、別キャラの一覧や古い段階へ置き換えていない。元7種56枚を含む先行128枚の画像は一切変更しない。
+- 旧 `turtle/05.png` は導入コミット `a2e5d5e048170b082e1b38090df1293a1609be2e` からPNG chunk/圧縮データが破損しており復号不能。完全復元できたとは扱わず、現行「成亀」の確定仕様と正常な④・⑥の個体参照から中間の成体を仕上げた。今回の⑤はPNG全chunk CRCと復号が合格する正常素材へ差し替える。
+- 全段階に認識できる目またはまぶたと口（ペンギンは嘴の開閉）を残す。眠り、驚き、目を細めた喜び、困り顔、集中、開口笑顔、穏やかな半開き、老齢の笑顔を変化させた。ペンギン③のみ②との顔の類似を減らす個別修正を実施し再検査。他の15枚はその修正で再生成していない。
+- ペンギン④のまだらな綿毛、⑤の若い滑らかな羽、⑥の広い胸、⑦の丸い体、⑧の前傾と既存の小さな杖を保持。カメは首・手足・甲羅の比率、明瞭になる甲羅模様、⑥の高い甲羅、⑦の少量の苔と古傷、⑧の広い苔と長い首で成長差を表現する。
+- 単体16画像を各々確認してから背景透過・個別縮尺・接地位置を設定。輪郭外からの連結領域処理で描画されたチェック背景を除去し、身体を描き直す自動分離・均等セル分割・一括crop・GrabCutは使わない。原案との比較、全16枚の実寸・白/濃色背景・一覧で、全身/顔/羽/足/甲羅/尾/杖の完全性、背景・文字・隣段階混入なし、縮尺と隣接表情差を確認し合格した。
+- 全16枚はPNG / 128×128 / 8-bit RGBA / alpha 0・255 / 最大63不透明色 / 全方向8px以上の透明余白。PNG全chunk CRC、復号、SHA-256、寸法・透過を検証。先行128枚のバイナリ不変も検証済み。
+- mainは前回 `265cfbeb46d1860b85d0b7c0b9f7a3fc1090baed` から `0cce6d81217572ba4dd22b03a7dcac7914592781`（PR #192、2コミット・4ファイル、新作7ゲーム）へ更新。差分監査後に同期し、本記録の末尾競合は双方の履歴全文を保持して解消。README.md / index.html / script.js / style.css はmainと実バイト完全一致。WORLD_MASTER、Character Renderer、仲間・恋愛・ゲームロジックの独自変更はない。
+- ローカルRuntime smoke test SUCCESS（DOM 277 / 地域・季節込みのユニークなミニゲーム59 / variant collections 69）。18種144枚×4表示サイズのCharacter Renderer参照576ケースSUCCESS。これはRuntimeハーネスとHTML参照の検証であり、ブラウザー画面を撮影したテストではない。
+- 128px対応は31プレイヤー種248段階のうち18種144枚。残り13種104枚（frog / salmon / clownfish / butterfly / beetle / stagbeetle / cicada / hermit_crab / dragon / phoenix / god / star / unknown）、専用キャスト45素材は未完了。全キャラ完成とは扱わない。
+- 最終コミットをbranchから到達可能にした後、GitHubから144枚を再取得してPNG復号・CRC・ハッシュ、main到達性、Renderer、最新Actions SUCCESSを成果物の検証記録へ残す。PR #183はopen / Draftのまま保持し、マージしない。
