@@ -7,11 +7,13 @@ const vm = require('node:vm');
 let now = 1000;
 let timerId = 0;
 let random = 0.25;
+let confirmResult = false;
 const timers = new Map();
 const elements = new Map();
 const spoken = [];
 const events = [];
 const captions = [];
+const storyCaptions = [];
 const noop = () => {};
 function element(id = '') {
   const classes = new Set(['hidden']);
@@ -35,6 +37,7 @@ function element(id = '') {
   Object.defineProperty(target, 'textContent', { get: () => content, set: (value) => {
     content = value;
     if (id === 'dateMovieCaption') captions.push(String(value));
+    if (id === 'storyFlashText') storyCaptions.push({ text: value, at: now });
   } });
   return new Proxy(target, { get: (obj, key) => key in obj ? obj[key] : noop });
 }
@@ -64,7 +67,7 @@ const sandbox = {
     getElementById: getElement, querySelector: getElement, querySelectorAll: () => [], createElement: () => element(),
     addEventListener: noop, body: element('body'), documentElement: element('html'), visibilityState: 'visible',
   },
-  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844, confirm: () => false, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
+  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844, confirm: () => confirmResult, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
   localStorage: { getItem: () => null, setItem: noop, removeItem: noop },
   navigator: { userAgent: 'dialogue-test', maxTouchPoints: 1 },
   performance: { now: () => now }, requestAnimationFrame: () => 1, cancelAnimationFrame: noop,
@@ -91,6 +94,10 @@ const expose = `
     CONVERSATION_POOLS, PARTNER_DAILY_REACTIONS, PARTNER_CHARACTER_IDLE_LINES,
     COMPANION_DAILY_REACTIONS, COMPANION_CHARACTER_IDLE_LINES, PARTNER_RELATIONSHIP_LINES,
     PARTNER_IDLE_LINES, COMPANION_IDLE_LINES, ALL_PARTNER_CANDIDATES,
+    stageDesc, SPECIES, SPECIES_STAGE_DESCS, DATE_PLANS, DATE_PLAN_VARIATIONS, DEEPSEA_DATE_PLANS,
+    PARTNER_ANNIVERSARY_LINES, FUN_ITEMS, PARTNER_FIRST_ENCOUNTERS,
+    datePlanForRegion, goOnDate, playFunScene, useItem, pickMemoryGreeting, playFirstPartnerEncounter,
+    hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
       clearConversationTimers(); clearDateMovieTimers(); hideSpeechBubble(); closeAllMenuOverlays();
@@ -100,6 +107,7 @@ const expose = `
         hunger: 50, energy: 90, happiness: 80, health: 100,
       }, patch);
       recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
+      lastMemoryRecallKey = null;
     },
   };
 `;
@@ -109,6 +117,7 @@ const api = sandbox.dialogue;
 function reset(patch = {}) {
   api.reset(patch); timers.clear(); spoken.length = 0; events.length = 0; captions.length = 0;
   random = 0.25;
+  confirmResult = false; storyCaptions.length = 0;
 }
 function partner(id = 'robot_neighbor', extra = {}) {
   const candidate = api.ALL_PARTNER_CANDIDATES.find((p) => p.id === id);
@@ -251,3 +260,136 @@ for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
 }
 console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 legend stories; 16 anniversary cases.');
+
+// Every current form has its own description, including new master species.
+const currentSpecies = [...master.playerSpecies.normal, ...master.playerSpecies.rare, ...master.playerSpecies.secret];
+const descriptions = [];
+for (const def of currentSpecies) {
+  assert.equal(api.SPECIES[def.id].stages.length, def.stages.length, def.id);
+  for (let i = 0; i < def.stages.length; i++) {
+    const text = api.stageDesc(def.id, i);
+    assert.ok(text && text.trim(), def.id + ':' + i + ' empty dex description');
+    assert.ok(!/undefined|TODO/.test(text), text); descriptions.push(text);
+  }
+}
+assert.equal(descriptions.length, 248);
+assert.equal(new Set(descriptions).size, descriptions.length, 'identical descriptions across forms');
+// Existing save IDs still have all eight descriptions.
+for (const id of ['bird', 'rabbit', 'fish', 'panda', 'fox', 'owl', 'plant', 'robot', 'dinosaur', 'mermaid', 'unicorn']) {
+  assert.ok(api.SPECIES_STAGE_DESCS[id], id + ' lost legacy descriptions');
+  assert.equal(api.SPECIES_STAGE_DESCS[id].filter(Boolean).length, 8, id);
+}
+
+// Show every ordinary plan line, including all three variants, through the real date path.
+for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
+  reset({ partner: partner() }); random = value;
+  api.speakEvent('feed'); advance(0);
+  const before = spoken.length;
+  api.goOnDate(plan); advance(20000);
+  assert.equal(spoken.length, before, 'old care speech leaked into a date');
+  assert.equal(captions.length, 4, plan.id);
+  const lines = [plan.line, ...api.DATE_PLAN_VARIATIONS[plan.id]];
+  assert.equal(captions[1], lines[Math.floor(value * lines.length)], plan.id);
+  assert.ok(!captions.some((text) => /undefined|へ。/.test(text)), plan.id);
+  assert.equal(api.getState().datesThisLife, 1);
+  assert.equal(api.getState().partner.bondCount, 0, 'date changed marriage progress');
+  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
+}
+for (const plan of api.DATE_PLANS) {
+  reset({ partner: partner('anglerfish'), regionId: 'deepsea' });
+  const local = api.datePlanForRegion(plan);
+  api.goOnDate(plan); advance(20000);
+  if (api.DEEPSEA_DATE_PLANS[plan.id]) {
+    assert.notEqual(local.label, plan.label);
+    assert.ok([local.line, ...local.variations].includes(captions[1]));
+    assert.ok(!captions.slice(0, 2).some((s) => /ゆうやけ|あめやどり|ひなたぼっこ|流れ星/.test(s)));
+  }
+}
+for (const accept of [false, true]) {
+  reset({ partner: partner(), items: { reward: 1 } }); confirmResult = accept;
+  api.goOnDate(api.DATE_PLANS[0]); advance(35000);
+  assert.equal(captions.length, accept ? 7 : 4);
+  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1);
+  assert.equal(api.getState().lifeLog.filter((r) => r.text.startsWith('とくべつなデートの おもいで:')).length, accept ? 1 : 0);
+  api.finishDateMovie(); advance(35000);
+  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1, 'reward consumed twice');
+}
+reset({ partner: partner() }); confirmResult = true;
+api.goOnDate(api.DATE_PLANS[0]); api.finishDateMovie();
+const dateSkipCount = captions.length; advance(35000);
+assert.equal(captions.length, dateSkipCount, 'skipped date still changes captions');
+assert.equal(api.getState().items.reward || 0, 0, 'missing reward underflow');
+for (const def of master.partners) {
+  reset({ partner: partner(def.id, { married: true }) });
+  const lines = api.PARTNER_ANNIVERSARY_LINES[def.id];
+  assert.equal(lines.length, 2);
+  const first = api.partnerAnniversaryLine(api.getState().partner, 10);
+  assert.ok(lines.includes(first));
+  assert.notEqual(first, api.partnerAnniversaryLine(api.getState().partner, 10));
+}
+
+// Items use the same clock, recency and speaker ownership as everyday dialogue.
+for (const item of api.FUN_ITEMS) {
+  reset({ partner: partner(), companions: [{ id: 'otter' }], items: { [item.id]: 1 } });
+  api.useItem(item.id); advance(0);
+  assert.equal(api.conversationIsBusy(), true);
+  advance(7500); validSpeech();
+  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet', 'partner', 'companion']);
+  for (const beat of spoken) assert.ok(item[beat.speaker.kind + 'Lines'].includes(beat.text));
+  assert.equal(api.getState().items[item.id] || 0, 0);
+  assert.equal(api.getState().lifetime.consumablesUsed, 1);
+  assert.equal(api.conversationIsBusy(), false);
+  const before = spoken.length; api.useItem(item.id); advance(10000);
+  assert.equal(spoken.length, before, 'empty item replayed');
+  reset(); api.playFunScene(item); advance(10000);
+  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet']);
+}
+for (const stop of [() => click('feedBtn'), () => api.openExclusiveMenu('dex'), () => api.openDateChooser(), () => api.triggerDeath(), () => api.enterFarewell()]) {
+  reset({ partner: partner(), companions: [{ id: 'otter' }] });
+  api.playFunScene(api.FUN_ITEMS[0]); advance(0);
+  stop(); advance(10000);
+  assert.ok(!spoken.slice(1).some((b) => api.FUN_ITEMS[0][b.speaker.kind + 'Lines'].includes(b.text)), 'item line leaked after transition');
+}
+
+// Memories must refer to recorded events, with compact copy even for long old logs.
+for (const patch of [{}, { lifeLog: [{ text: 'たまごから うまれた' }] }, { lifeLog: [{ text: 'はじめて くしゃみした' }] }]) {
+  reset(patch); assert.equal(api.pickMemoryGreeting(), null);
+}
+const memorySamples = [
+  ['びょうきを なおしてもらった', /看病|元気/],
+  ['ロボと こいびとに なった', /恋人|返事/], ['ロボと けっこんした', /けっこん|結婚/],
+  ['ロボと はじめての デートに いった', /デート/],
+  ['デートの おもいで: ロボと あめやどりを した', /雨やどり|デート/],
+  ['とくべつなデートの おもいで: ロボと なにか たべる', /デート|ごほうび/],
+  ['とくべつな旅の おもいで: 深海', /旅/], ['ロボと なかなおりした', /話して|仲直り/],
+  ['カワウソが なかまに なった', /仲間|にぎやか/], ['はじめて 森に いった', /場所|旅/],
+  ['星のバス停に たどりついた', /場所|旅/], ['新しい姿に へんしんした', /姿|変身/],
+  ['ロボと はじめて であった', /出会い/], ['れんくんに であった', /出会い/],
+];
+for (const [text, expected] of memorySamples) for (const age of [undefined, 1, 25]) {
+  reset({ lifeLog: [{ text, age }] });
+  const line = api.pickMemoryGreeting(); assert.match(line, expected);
+  assert.ok([...line].length <= 38, 'long memory: ' + line);
+  assert.ok(!/undefined|NaN|まえにの/.test(line));
+}
+
+// Every first encounter keeps both captions on screen for their full duration.
+for (const candidate of api.ALL_PARTNER_CANDIDATES) {
+  reset(); api.checkAchievements(); storyCaptions.length = 0;
+  assert.equal(api.playFirstPartnerEncounter(candidate), true);
+  const expected = api.PARTNER_FIRST_ENCOUNTERS[candidate.id].length;
+  assert.equal(storyCaptions.length, 1); advance(4199); assert.equal(storyCaptions.length, 1);
+  advance(1); assert.equal(storyCaptions.length, expected, candidate.id);
+  assert.ok(storyCaptions.every((r) => typeof r.text === 'string' && r.text.trim()));
+  assert.equal(api.playFirstPartnerEncounter(candidate), false);
+}
+reset(); api.playFirstPartnerEncounter(partner()); click('cleanBtn');
+const storyCount = storyCaptions.length; advance(10000);
+assert.equal(storyCaptions.length, storyCount, 'encounter continued after a new action');
+reset(); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごから うまれた');
+// Dream eggs retain access to every current species, including the eight rare lines.
+for (const def of currentSpecies) {
+  reset(); api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
+  assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
+}
+console.log('WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.');
