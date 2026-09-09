@@ -1,0 +1,11 @@
+{
+  "name": "naotocchi",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "test": "node tests/smoke-test.js && node tests/dialogue-test.js"
+  },
+  "devDependencies": {
+    "vite": "8.2.2"
+  }
+}

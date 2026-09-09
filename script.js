@@ -9032,6 +9032,8 @@
     else el.storyFlashEmoji.textContent = event.emoji;
     el.storyFlashText.textContent = event.message;
     el.storyFlash.classList.remove('hidden');
+    // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
+    if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
@@ -11242,8 +11244,7 @@
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼって
   // はなれて いった なかまは ここに いない)を、#pet の こどもとして
-  // 本体キャラの りょうサイドに くっつけて 表示する。#pet の こどもなので、
-  // idle-float の ゆれにも 本体キャラと まったく おなじように ついてくる。
+  // 本体キャラの左右の列に表示する。本体だけを動かし、仲間の位置は保つ。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
@@ -11257,8 +11258,7 @@
   }
 
   // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
-  // ハートで かこんで 表示する。#pet の こどもなので、idle-float の ゆれにも
-  // 本体キャラと まったく おなじように ついてくる。けっこんずみの ときは
+  // ハートで囲み、中央セルの左上に表示する。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
     const p = !hide && state.partner;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260909-cast-main-bk-1">
+  <link rel="stylesheet" href="style.css?v=20260909-cast-layout-bl-5">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -42,7 +42,15 @@
             <div class="badges" id="badges"></div>
             <div class="ending-badges" id="endingBadges"></div>
             <div class="ending-badge-tip hidden" id="endingBadgeTip"></div>
-            <div class="pet" id="pet"><span class="partner-companion hidden" id="partnerCompanion"></span><span class="companion-side left" id="companionLeft"></span><span id="petSprite">🥚</span><span class="pet-accessory hidden" id="petAccessory"></span><span class="companion-side right" id="companionRight"></span></div>
+            <div class="pet" id="pet">
+              <span class="companion-side left" id="companionLeft"></span>
+              <span class="pet-core">
+                <span class="partner-companion hidden" id="partnerCompanion"></span>
+                <span id="petSprite">🥚</span>
+                <span class="pet-accessory hidden" id="petAccessory"></span>
+              </span>
+              <span class="companion-side right" id="companionRight"></span>
+            </div>
             <div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText"></span>
@@ -609,6 +617,6 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
-  <script src="script.js?v=20260909-cast-main-bk-1"></script>
+  <script src="script.js?v=20260909-cast-layout-bl-1"></script>
 </body>
 </html>
