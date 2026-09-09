@@ -1131,3 +1131,13 @@ Runtime smoke test SUCCESS確認済み。
 - とちゅうで やめる: `#mgQuit`(`.buttons` の直前、height:0 の絶対配置レイヤーで canvas の位置を動かさない)。ボタン→確認(4秒で自動キャンセル)→`retireMinigame()`(点数/ごほうび/ばつ なし、げんき -6、じこベスト更新なし、なかまイベント中は不成立扱い)。Esc キーでも確認を開閉。
 - ゲームの後始末(セッション方式): `mgSession`(生きているゲームの番号)と `mgCodeDepth/mgCodeSession`(「ゲームのコードの中か」)。`window.requestAnimationFrame`/`window.setTimeout` をラップし、ゲームのコード(start() の中、そこから予約されたコールバック、overlay 内 DOM イベントのハンドラ)から予約されたものに セッション番号を付け、セッション終了後は実行せずに捨てる。ふつうの画面のコードが予約したものには印が付かないので従来どおり。`finishMinigame`/`retireMinigame` は本体を `mgCodeDepth=0` で実行し、えもーと/ふきだし等のタイマーが巻き込まれないようにする。onComplete は `session !== mgSession` なら無視(遅延/二重呼び出し対策)。
 - 検証: smoke-test OK(89ゲーム、id/info 検査込み)。Playwright: やめる UI の表示/確認/キャンセル/実行、9ゲームを途中終了して 500ms 後の rAF 実行 0(孤立ループなし)、記録トースト(初回/更新/据え置き)、ゲームきろく 89セル・横はみ出しなし・タップ起動・げんき不足時のブロック、旧 id 移行。全89ゲーム スイープ ページエラー0。キャッシュ `script.js?v=20260909-8`、`style.css?v=20260909-2`。
+
+## チェックポイント AY — 新作バッチ7(6本): ドットイーター/ミサイルコマンド/じんとり/ソリティア/ヒット&ブロー/ルナランダー(2026-09-09)
+- `makeDotEaterGame`(dot-eater): `generateMaze(15,15,16)`+中央のおばけ部屋、グリッド移動 `moveEntity()`(マス中央でのみ方向転換、逆向きは常時、1フレームで中央を跨ぐ分は分割)、おばけ AI(追跡確率 `CHASE_P`、フライト時は逃走)、⭐で 6 秒反撃、ライフ 2、95 秒。
+- `makeMissileCommandGame`(missile-command): タップ→最寄りの弾のある基地から迎撃、爆発半径の膨張/収縮、連鎖爆発、分裂ミサイル(wave≥2)、3 ウェーブ、都市 6/基地 3、被弾で弾 -3。
+- `makeAreaClaimGame`(area-claim): 36×36 グリッド(0 未取得/1 陣地/2 線)、線を閉じたら ✨のいる領域を flood fill で残し他を陣地化、隣接線への侵入禁止、✨は反射移動+ふらつき、線/描画中プレイヤーに触れるとミス、75% でクリア、背景の絵が陣地部分に見える。
+- `makeSolitaireGame`(solitaire-klondike): 1 枚めくり、タップ選択→タップ配置、同カード再タップで台へ、`autoUp()` で台へ一括、`hitTest()` は FAN/FAN_DOWN の重なりを考慮、240 秒、スコア=台の枚数(勝利 90+)。
+- `makeHitBlowGame`(hit-blow): 6 色から重複なし 4 色、ヒット/ブロー判定、8〜10 回、答えの行は終了時に公開、スコア=100-(回数-3)×9。
+- `makeLunarLanderGame`(lunar-lander): 重力 20/推力 52/回転 150°/s、燃料 100(14/s)、地形生成にパッド ×1(幅3)/×2(幅2)/×3(幅1)、着陸判定 |vy|<22・|vx|<14・|角|<14°、3 回、粒子でクラッシュ/噴射。
+- 共通: `mgMsgBox()`(文字幅に合わせたメッセージ帯)。登録: カテゴリ dotEater/missileCommand/areaClaim/solitaire/hitBlow/lunarLander、ジャンル action×3/board/puzzle/drive3d、`MINIGAME_INFO` 6 件。キャッシュ `script.js?v=20260909-9`。
+- 検証: smoke-test OK(95 ゲーム、id/info 検査込み)。Playwright: 6 本とも操作→反応(ドット捕食、迎撃 💥、陣地 +11%、めくり/手数、推理 1 回目、着陸試行)。ランダム入力ハーネス: lander 6 / dot 20 / missile 30 / area 36(思考系 2 本はタイムアウト=想定どおり)。全 95 ゲーム スイープ ページエラー 0。
