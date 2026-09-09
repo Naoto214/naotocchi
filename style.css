@@ -5214,7 +5214,7 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   animation: rewardMovieGlow 2.2s ease-in-out infinite alternate;
 }
 .date-movie-scene.special-reward::after {
-  content: 'SPECIAL MEMORY';
+  content: 'とくべつな おもいで';
   position: absolute;
   top: 10px;
   right: 12px;
