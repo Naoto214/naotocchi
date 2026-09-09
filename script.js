@@ -2394,6 +2394,8 @@
   const MG_HOLD_PROFILES = { step: { delay: 240, interval: 140 }, fast: { delay: 80, interval: 45 } };
   let mgHoldTimer = null;
   let mgHoldButton = null;
+  const mgKeysDown = new Map();
+  const mgHeldButtons = new Set();
   function mgStopHold(btn) {
     if (btn && mgHoldButton && btn !== mgHoldButton) return;
     if (mgHoldTimer) { clearTimeout(mgHoldTimer); mgHoldTimer = null; }
@@ -2426,6 +2428,7 @@
     const set = (v) => {
       if (held === v) return;
       held = v;
+      if (v) mgHeldButtons.add(btn); else mgHeldButtons.delete(btn);
       if (btn.classList) btn.classList.toggle('mg-held', v);
       onChange(v);
     };
@@ -2441,6 +2444,18 @@
     btn.addEventListener('lostpointercapture', release);
     return () => held;
   }
+  // keyup/pointerup が別のタブ・アプリへ届いても、入力を押したままにしない。
+  function resetMinigameInput() {
+    const buttons = new Set([...mgKeysDown.values(), ...mgHeldButtons]);
+    if (mgHoldButton) buttons.add(mgHoldButton);
+    mgKeysDown.clear();
+    mgStopHold();
+    for (const btn of buttons) mgDispatchPointer(btn, 'pointercancel');
+  }
+  window.addEventListener('blur', resetMinigameInput);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') resetMinigameInput();
+  });
   // canvas を おおもとの CSS幅(=ミニゲームがめんの はば)に あわせて
   // 用意する。height は かず、または はば→たかさ の かんすう
   function createMgCanvas(canvas, height) {
@@ -21882,15 +21897,16 @@
   const MG_EVENT_TYPES = ['pointerdown', 'pointerup', 'pointermove', 'pointercancel', 'click', 'touchstart', 'touchmove', 'touchend', 'touchcancel', 'mousedown', 'mouseup', 'mousemove', 'keydown', 'keyup'];
   let mgEventSaved = null;
   let mgEventResetTimer = null;
-  function mgEventEnter() {
+  function mgEventEnter(event) {
     if (!mgSession || mgEventSaved) return;
-    mgEventSaved = { depth: mgCodeDepth, session: mgCodeSession };
+    mgEventSaved = { depth: mgCodeDepth, session: mgCodeSession, event };
     mgCodeDepth += 1;
     mgCodeSession = mgSession;
-    if (nativeSetTimeout) mgEventResetTimer = nativeSetTimeout(mgEventLeave, 0);
+    if (nativeSetTimeout) mgEventResetTimer = nativeSetTimeout(() => mgEventLeave(event), 0);
   }
-  function mgEventLeave() {
-    if (!mgEventSaved) return;
+  function mgEventLeave(event) {
+    // 合成pointerイベントが入れ子になっても、外側の入力の記録を消さない。
+    if (!mgEventSaved || mgEventSaved.event !== event) return;
     mgCodeDepth = mgEventSaved.depth;
     mgCodeSession = mgEventSaved.session;
     mgEventSaved = null;
@@ -21902,8 +21918,11 @@
   }
 
   function closeMinigameScreen() {
+    const endedSession = mgSession;
     gameActive = false;
     mgSession = 0;
+    // 解除ハンドラーが予約する処理も、終了したゲームに所属させる。
+    mgRunTagged(endedSession, resetMinigameInput, null, []);
     activeMinigame = null;
     hideMinigameQuit();
     el.minigameOverlay.classList.add('hidden');
@@ -22365,7 +22384,6 @@
     ' ': 'action', Enter: 'action', z: 'action', x: 'action2', Shift: 'action2',
   };
   const MG_KEY_GLYPHS = { left: '◀', right: '▶', up: '▲', down: '▼' };
-  const mgKeysDown = new Map();
   function mgFindKeyButton(key) {
     const root = el.minigameOverlay;
     let btn = root.querySelector('button[data-key="' + key + '"]');
