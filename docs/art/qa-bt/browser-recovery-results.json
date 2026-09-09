@@ -1,0 +1,168 @@
+{
+  "checkpoint": "BT",
+  "date": "2026-09-09",
+  "repository": "Naoto214/naotocchi",
+  "branch": "feature/character-cast-art-v1",
+  "pullRequest": 183,
+  "baseline": {
+    "head": "3161713500b2b6f61277d90dc0b622916f504dde",
+    "tree": "02ff17f25affba84d67ccdd839399ac54bb2736b",
+    "workflow": {
+      "runNumber": 241,
+      "id": 34372248595,
+      "conclusion": "success"
+    },
+    "main": "da5c631a911504e78c8b88fae373f30b85f26b31",
+    "draft": true,
+    "merged": false,
+    "remoteBlobAndModeComparison": {
+      "files": 466,
+      "mismatches": 0
+    }
+  },
+  "operations": [
+    {
+      "operation": "browser bootstrap",
+      "result": "success"
+    },
+    {
+      "operation": "browser.tabs.list",
+      "result": "success",
+      "tabs": [
+        {
+          "id": "1",
+          "url": "about:blank"
+        }
+      ]
+    },
+    {
+      "operation": "empty tab DOM snapshot",
+      "result": "success",
+      "text": ""
+    },
+    {
+      "operation": "sites-preview start on current checkout",
+      "result": "running"
+    },
+    {
+      "operation": "navigate to existing /__qa",
+      "result": "Navigation completed"
+    },
+    {
+      "operation": "QA page DOM snapshot",
+      "result": "success",
+      "existingSceneOptions": true
+    },
+    {
+      "operation": "special_date; 320 x 640; Load and observe next movie",
+      "result": "game DOM returned; Waiting for next movie: 2s",
+      "visible": {
+        "age": 25,
+        "sodachi": 85,
+        "money": 123456789,
+        "partner": "となりまちの ロボット",
+        "companionNames": 26
+      }
+    },
+    {
+      "operation": "exploratory court button",
+      "result": "court speech; no date chooser; subsequent sickness message",
+      "classification": "operator used a non-date control; not a movie test or product defect"
+    },
+    {
+      "operation": "reload special_date with Load and observe next movie",
+      "result": "success"
+    },
+    {
+      "operation": "world menu then invite to date",
+      "result": "date chooser DOM returned",
+      "options": [
+        "🛍️ ぶらぶら みてまわる",
+        "😴 ひなたぼっこ",
+        "💬 どうでも いい はなしを する"
+      ]
+    },
+    {
+      "operation": "click 🛍️ ぶらぶら みてまわる",
+      "locatorTimeoutMs": 1500,
+      "executionTimeoutMs": 10000,
+      "result": "js execution timed out; kernel reset, rerun your request",
+      "reportedToolWallTimeSeconds": 21.4,
+      "dialogObserved": false
+    },
+    {
+      "operation": "browser bootstrap after reported kernel reset",
+      "result": "success"
+    },
+    {
+      "operation": "read documented browser interaction troubleshooting",
+      "result": "success"
+    },
+    {
+      "operation": "browser.tabs.list after reset",
+      "executionTimeoutMs": 25000,
+      "result": "CDP operation refresh tabs timed out after 20000ms"
+    },
+    {
+      "operation": "combined browser.tabs.get('1') then getJsDialog()",
+      "executionTimeoutMs": 25000,
+      "result": "js execution timed out; kernel reset, rerun your request",
+      "limitation": "No intermediate result; do not identify which awaited operation timed out. Dialog presence/content/acceptance/dismissal remains unknown."
+    },
+    {
+      "operation": "sites-preview stop",
+      "result": "stopped"
+    },
+    {
+      "operation": "sites-preview status after stop",
+      "result": "stopped"
+    }
+  ],
+  "conclusions": {
+    "initialPageAndGameDomRecovered": true,
+    "failedAfterPlanSelection": true,
+    "nativeDialogDisplayed": "unknown",
+    "nativeDialogHandled": false,
+    "productConfirmDefectEstablished": false,
+    "newCompleteBrowserMovies": 0,
+    "newObservedCaptionSequences": 0,
+    "newScreenshots": 0,
+    "rewardConsumptionVerifiedInBrowser": false,
+    "returnToCareVerifiedInBrowser": false,
+    "deepseaAttempted": false,
+    "wholeDevelopmentComplete": false
+  },
+  "localValidation": {
+    "initialNpmTest": "Partial stdout only; polling returned 'network approval was cancelled before a decision was returned'. Not counted as completed.",
+    "focusedVisualQaRouteTest": {
+      "exitCode": 0
+    },
+    "finalNpmTest": {
+      "exitCode": 0,
+      "domIds": 287,
+      "minigames": 100,
+      "variantCollections": 91,
+      "includes": [
+        "smoke",
+        "dialogue",
+        "date lifecycle",
+        "deepsea branches",
+        "cast compatibility",
+        "author endings",
+        "visual QA fixture generation"
+      ],
+      "notBrowserEvidence": true
+    },
+    "productFilesChanged": 0,
+    "approvedImagesChanged": 0,
+    "testsChanged": 0,
+    "qaFixturesChanged": 0
+  },
+  "nextSteps": [
+    "Verify latest GitHub HEAD/PR/checkpoints/Actions again; do not roll back to BS, BP or BO if later commits exist.",
+    "Restore browser tab and native-dialog inspection first. Preserve existing product confirmation logic, clock and RNG.",
+    "On a working connection, use existing /__qa for special_date/deepsea_special_date and deepsea_date; record complete captions, consumption, and independent post-close return evidence.",
+    "If native-dialog inspection remains unavailable but ordinary page interaction works, validate deepsea_date without rewards as its own ordinary-date case; never count it as special-date verification.",
+    "Continue BP-1 first/golden anniversaries, tenth-anniversary return, remaining nine legend stories; keep physical devices, 248 forms, all partner/plan/line combinations and 100 manual minigames explicitly incomplete."
+  ]
+}
