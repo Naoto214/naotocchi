@@ -1028,3 +1028,61 @@ Runtime smoke test SUCCESS確認済み。
 - 新作5本: `makeChainPuzzleGame`(chain-puzzle)・`makeStreetFightGame`(street-fight、`FIGHT_RIVALS` 3人)・`makeFreeKickGame`(free-kick-3d)・`makeTowerDefenseGame`(tower-defense)・`makeRoguelikeGame`(roguelike-dungeon)。カテゴリ chainPuzzle/streetFight/freeKick/towerDefense/roguelike、すべて S ティア。地域さかなつり3種も S。
 - CSS: `.mg-fight-controls`(6列グリッド)、`.mg-td-controls`(3列+ワイド)。
 - 検証: smoke-test OK(47ゲーム)。Playwright で5本とも操作→反応(パズルの消去、格闘のヒット/ガード、FKのセーブ判定、TDのタワー設置とウェーブ、ローグの移動/戦闘)を確認。全ゲーム一括スイープでページエラー0。
+
+## チェックポイント AN — レース系の速度を遊びやすく(2026-09-08)
+- 3Dレース: MAX_SPEED SEG_LEN*60 → *36、加速 /3.4 → /3.0、遠心力 0.34 → 0.26、コース 9区間 → 6区間、速度表示 ×240 → ×180 km/h。制限時間はそのまま(52〜44s)。
+- レーンラッシュ(ロード/フライト): MAX_SPEED lerp(34,46) → lerp(26,34)。ゲレンデ: 52 → 40。
+- node ハーネス(simrace.js)でアクセル全開・無操作の走行を確認: コース外に落ちても制限時間内にゴール可能。
+
+## チェックポイント AO — 全ゲーム再監査・UFOキャッチャー作り直し・新作5本(2026-09-08)
+- `makeCraneGame`(crane-game-3d)を canvas の UFOキャッチャーに全面作り直し。1ボタン長押しで アーム横移動→奥移動→落下→つかむ→運ぶ、`gripPower`(中心からのずれ)で 0.35s ごとにスリップ判定。落ちた景品はその場に残り、おとしぐち(`CHUTE`)へ押しずらす戦略が成立。3トライ。ティア A→S。
+- 新作5本: `makeGrandPrixGame`(grand-prix-3d、`createPseudoRoad` 共用、ライバル5台AI・3周・ブースト/オイルパッド・順位表示)、`makeSkyShooterGame`(sky-shooter、横スクロールSTG、ウェーブ3種・P/B・ボム・ボス)、`makeJumpQuestGame`(jump-quest、タイルプラットフォーマー、可変ジャンプ・コヨーテタイム・踏みつけ)、`makePushPuzzleGame`(push-puzzle、倉庫番 `PUSH_PUZZLE_LEVELS` 4面→3面、undo/reset/スワイプ)、`makeReversiGame`(reversi-6、6×6オセロ、重みつき貪欲AI、合法手ヒント、めくりアニメ)。カテゴリ grandPrix/skyShooter/jumpQuest/pushPuzzle/reversi、すべて S ティア。
+- 再監査: 全52ゲームのコンタクトシートを目視点検。DOMベースの シューター/ステルス/ブロックくずし/スポーツスイング/サーフィンの背景・質感を CSS で強化(星空・部屋・グロス付きブロック・コート)。グランプリのヒット数は 700ms クールダウンで加算、スカイシューターのボムボタンは `💣×N` 表記に短縮(はみ出し対策)。
+- キャッシュ: `script.js?v=20260908-8`, `style.css?v=20260908-7`。
+- 検証: smoke-test OK(52ゲーム)。Playwright で全52ゲーム起動・ページエラー0・ボタンはみ出し0・横スクロール0。新作6本(作り直し含む)は操作→反応(クレーンの獲得/落下、GPの順位変動とゴール、STGのボム、ジャンプ・コイン、倉庫番の移動/undo、オセロの着手とAI応手)を自動操作で確認。
+
+## チェックポイント AP — 新作バッチ1(7本): ビリヤード/どうぶつしょうぎ/マインスイーパー/スネーク/やきゅう/リングフライト/バブルシューター(2026-09-08)
+- 方針: 「操作系がぜんぶ違う7本」を1バッチとして追加(ドラッグ物理・タップ思考・十字/スワイプ・タイミング・3D操縦・照準)。以降もバッチ単位(6〜8本/PR)で増やす。
+- `makeBilliardsGame`(billiards-6): 円衝突+摩擦+ポケット、ガイド線(最初の接触球と弾く向き)、スクラッチ復帰、ショット数制限。
+- `makeAnimalShogiGame`(animal-shogi): 3×4、持ち駒打ち、🐤→🐔成り、トライ勝ち(安全な最奥到達)、αβ 3手よみ(difficulty<0.35 は 2手)。`fwd(o)` は MOVES の dy<0 を「前」とし ME=+1/AI=-1(符号ミスを修正済み)。
+- `makeMinesweeperGame`(minesweeper-8): 初手安全配置、フラッドフィル、🚩モード/長押し、コード開き、開く演出。
+- `makeSnakeGame`(snake-classic): 15×15、tick 230→105ms、⭐ボーナス、スワイプ/十字。
+- `makeBaseballGame`(baseball-batting): 擬似3D(proj の z は 0〜1.05 にクランプ。打球の z>1.2 で負の半径になる ellipse エラーを修正)、球種3、コース×タイミングで HR/3B/2B/1B/ファウル/空振り。
+- `makeRingFlightGame`(ring-flight-3d): 透視投影 F/(z+0.35)、リング/くも/コインのスポーン、バンク描画、Math.random 固定で全リング中央通過を確認。
+- `makeBubbleShooterGame`(bubble-shooter): オフセット六角格子、壁反射の照準線、3連結消去+浮遊塊落下、N ショットごとに1段追加、デッドライン判定。
+- 登録: MINIGAMES / MINIGAME_CATEGORY_GROUPS(billiards/animalShogi/minesweeper/snake/baseball/ringFlight/bubbleShooter)/ S ティア。キャッシュ `script.js?v=20260908-9`。
+- 検証: smoke-test OK(59ゲーム)。Playwright 全59ゲーム スイープ ページエラー0・はみ出し0。7本とも操作→反応を自動操作で確認(ショットで散開、🐤の取り合い、開マス/フラグ、方向転換、HR/3B 判定、リング6連続、3連結消去)。
+
+## チェックポイント AQ — 新作バッチ2(7本): カタパルト/コネクトフォー/2048/フロッガー/スキージャンプ/エアホッケー/サブマリン3D(2026-09-08)
+- `makeCatapultGame`(catapult-castle): AABB ブロック(wood/stone/target)の簡易剛体(重力・接地・上下/左右の押し出し・支えがないと傾く)、ボール衝突でインパルス、👻は衝撃 or 落下で撃破。2ステージ、予測軌道ドット。
+- `makeConnectFourGame`(connect-four): 7×6、αβ探索(depth 2/4/5)、窓評価、落下アニメ、勝ち筋ハイライト。
+- `makeTwentyFortyEightGame`(puzzle-2048): 移動/合体アニメ、スポーン拡大、手詰まり検出。スコアは最大タイルのティア+合計。
+- `makeFroggerGame`(frogger-road): 9×12、車5レーン・いかだ4レーン、いかだ上で流される、🏠3つ、ライフ3。
+- `makeSkiJumpGame`(ski-jump): 助走路 `24*(1-x/40)^1.6`、着地斜面 `-(0.62d+2(1-e^{-d/2}))`、揚力 `1+clamp(q,-0.6,1)*3.5`(node シムで 60〜170m を確認)。転倒は着地時の前かがみ誤差>0.5 のみ。当初の助走路は台端で 18m の段差があったので式を差し替え。
+- `makeAirHockeyGame`(air-hockey): マレット速度を持ち込む反発、AI は難易度で速度可変、5点先取/90秒。
+- `makeSubmarineGame`(submarine-3d): 透視投影、岩/クラゲ/💎/🫧、酸素、無敵時間、深さで背景色が変化、ソナーリング。
+- 登録: カテゴリ catapult/connectFour/twenty48/frogger/skiJump/airHockey/submarine、S ティア。キャッシュ `script.js?v=20260908-10`。
+- 検証: smoke-test OK(66ゲーム)。Playwright 全66ゲーム スイープ ページエラー0。7本とも操作→反応(👻撃破、着手/AI応手、合体、車ヒット判定、飛距離表示、ゴール判定、💎取得)を確認。
+
+## チェックポイント AR — 新作バッチ3(7本): マッチ3/五目ならべ/タンクバトル/テニス/ピクロス/ダーツ/ハンググライダー3D(2026-09-09)
+- `makeMatchThreeGame`(match-3): 7×7、初期盤面は「マッチなし・手あり」を保証、スワップ→判定→ポップ→落下→連鎖の非同期パイプライン、5秒放置でヒント。
+- `makeGomokuGame`(gomoku-9): 9×9、仮置き→確定の2タップ、`scoreCell` の連数×開放端パターン評価で攻守を合算。
+- `makeTankBattleGame`(tank-battle): 11×11、レンガ/鉄、弾の相殺、敵AI(向き変え・プレイヤー方向・射線一致で発射)、硬い敵(hp2)。鉄ブロックは中央列を避けて (3,3)(7,3)(3,7)(7,7) に配置。
+- `makeTennisGame`(tennis-rally): 横視点、重力・バウンド・ネット。ショットは着地目標から vx を逆算(高さで奥/ロブが変わる)する方式にして「アウトばかり」を解消。
+- `PICROSS_PUZZLES`(10問) + `makePicrossGame`(picross-5): 行/列ヒント、✕モード/長押し、ドラッグ塗り、行列完成でヒントを薄く、正解でえもじ表示。
+- `makeDartsGame`(darts-board): 20セクター(実配列)・ダブル/トリプル/ブル判定、押している時間の2乗で揺れ増加、投擲アニメ。
+- `makeHangGliderGame`(hang-glider-3d): 透視投影(地上グリッド)、ピッチで速度/沈下、サーマル柱で上昇、🎈収集、高度メーター。
+- レイアウト: `say()` でヒントが短くなると overlay の高さが変わり canvas が上下にずれてタップ位置が狂う問題を確認(縦中央寄せの環境)。`.mg-hint{min-height:4.2em}` で緩和。
+- 登録: カテゴリ matchThree/gomoku/tankBattle/tennis/picross/darts/hangGlider、S ティア。キャッシュ `script.js?v=20260909-1`, `style.css?v=20260909-1`。
+- 検証: smoke-test OK(73ゲーム)。Playwright 全73ゲーム スイープ ページエラー0。7本とも操作→反応(2連鎖+60、AI応手、敵撃破、ラリー継続、塗り/ミス判定、ブル50、🎈と気流)を確認。
+
+## チェックポイント AS — 新作バッチ4(7本): ボンバー/ブラックジャック/パイプつなぎ/フルーツ斬り/りくじょう/ボクセルマイニング/かいてんずし(2026-09-09)
+- `makeBomberGame`(bomber-maze): 11×11(偶数座標は壁)、レンガ確率 0.42〜0.55、爆弾 2s → 十字に範囲2(アイテムで最大5)、連鎖爆発、👾3〜5体、ライフ2。
+- `makeBlackjackGame`(blackjack-21): 5ハンド固定ベット20、A は 11/1 自動、ディーラー 17 ストップ、ナチュラル 1.5倍、カード配りアニメ。スコアは `50 + (chips-100)*0.5`。
+- `makePipeConnectGame`(pipe-connect): 4ビット接続マスク(上1右2下4左8)と `rotate()`、右寄り重みのランダム経路から生成 → 残りをランダムパイプ → 全体回転、DFS で到達判定と濡れセル表示。3問。
+- `makeFruitSliceGame`(fruit-slice): 指の移動線分と円の当たり判定、コンボ、半分に割れる演出(clip)、💣でライフ減。
+- `makeTrackFieldGame`(track-field): 交互タップで加速(同じキー連打は減速)、100m はライバル3人と順位、幅跳びは 60m ラインの手前で長押し角度(20〜69°)、`v = speed*0.82`(当初 1.05 で 10m 超えたため調整)。
+- `makeVoxelMineGame`(voxel-mine): 9×60 地層、硬さ別の掘削時間、落下、マグマ無敵時間、距離による暗さ、深さ HUD。
+- `makeSushiBeltGame`(sushi-belt): 2レーン(近/遠でスケール違い)、注文は 2→4 品に増える、6秒以内ボーナス、🌶わさびトラップ。
+- 登録: カテゴリ bomber/blackjack/pipeConnect/fruitSlice/trackField/voxelMine/sushiBelt、S ティア。キャッシュ `script.js?v=20260909-2`。
+- 検証: smoke-test OK(80ゲーム)。Playwright 全80ゲーム スイープ ページエラー0。7本とも操作→反応(爆発/被弾、スタンド勝敗、パイプ回転、2コンボ斬り、100m 10.17s→幅跳び、⛓採掘、わさびペナルティ)を確認。
