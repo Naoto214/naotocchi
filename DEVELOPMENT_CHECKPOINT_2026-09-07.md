@@ -1150,3 +1150,11 @@ Runtime smoke test SUCCESS確認済み。
 - `makeTakoyakiGame`(takoyaki-grill): 9 穴、片面 `COOK_MS`(5.2→3.6 秒、穴ごとに速度ゆらぎ)、焼き加減 0.85〜1.05 パーフェクト/0.7〜1.2 OK、1.4 超で自動廃棄、両面の低い方で採点、60 秒。
 - 登録: カテゴリ shanghai/beachVolley/slidePuzzle/sugoroku/takoyaki、ジャンル board×2/sports/puzzle/action、`MINIGAME_INFO` 5 件。合計 100 本。キャッシュ `script.js?v=20260909-10`。
 - 検証: smoke-test OK(100 ゲーム)。Playwright: 5 本とも操作→反応(ペア取得 4/30、得点、手数 11、CPU 手番進行、たこやき 9 個提供)。ランダム入力: volley 19 / sugoroku 71(運要素のあるパーティー系、1 位配点を 80 に調整)/ takoyaki 5 / slide 8 / shanghai タイムアウト。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BA — 第2回 総監査(100本)・グラフィック強化・ゲームきろくの じっせき(2026-09-09)
+- じっせき 6 件追加(`countMinigameRecords()`/`countMinigamesPlayed()`: 現在のプールにあるゲームだけを数える): record-rank-s-1 / games-played-25 / games-played-60 / record-rank-a-20 / games-complete-100 / record-rank-s-15。PERFECT エンディング判定(全 ACHIEVEMENTS)に含まれるため S ランク側は 15 本に抑えた。
+- 監査: `sheet.js` で 100 本のコンタクトシート(9 枚)を目視、`randplay.js`(id 配列のバグ修正: ONLY 未指定時に空になっていた)で全 100 本をランダム入力(難度 0 = 最も易しい設定)。90 点以上: road-themed 100 / asteroids 98 / pinball 91 / sugoroku 90 / reversi 90、bowling 77、chain 68 / street-fight 66 / 2048 66。
+- 再調整: ロードラン `points*0.72→0.58, bad*6→8`、アステロイド `10+score/12+lives*5 → 8+score/18+lives*4`・連射 0.22→0.28s、ピンボール GOAL 900〜1300→1400〜1900、オセロ AI ノイズ lerp(6,1)→(3,0.6)・勝利点 65+diff*2.5→62+diff*2、ボウリング `14+pins*2.9+strikes*12+spares*5`、れんさ `12+popped*0.9+maxChain*11+min(20,score/80)`、かくとう 勝利 60→56・AI aggro/guard 上げ、2048 ティア(128→54, 256→70, 512→86)、すごろく 1位 72/2位 46/3位 26。
+- グラフィック: 共通 `mgSpaceBackdrop()`(グラデーション+星雲ブロブ+ハッシュ配置のまたたく星+輪つきの惑星)。アステロイド(惑星つき)、スペースガンナー(視差つき星雲)、タンクバトル(草地タイル+草のディテール)、フルーツ斬り(スポットライト・漂う光・木のまな板)、ケーキ/おべんとう(お皿のグラデーション、ドロップ先の白皿、置いたときのポップ、チップ風トッピング)。
+- 追加調整: ロードランのあたり判定を「選んだレーン」から実際の位置(playerX)へ(レーン変更中は間に合わない)、`points*0.5 - bad*10`、BAD_CHANCE 0.4〜0.55、とくてん表示を整数に。かくとう 勝利 50 + hp*0.3。れんさ `popped*0.7 + maxChain*9`。
+- 検証: smoke-test OK(100 ゲーム)。じっせき 6 件の解放を Playwright で確認。再調整後のランダム入力(難度 0): road 0 / asteroids 42 / pinball 20 / reversi 12 / bowling 23 / sugoroku 56 / 2048 43 / street-fight 16 / chain 31(すべて 60 未満)。全 100 ゲーム スイープ ページエラー 0。キャッシュ `script.js?v=20260909-11`、`style.css?v=20260909-3`。

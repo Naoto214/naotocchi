@@ -1807,6 +1807,8 @@
     { id: 'transform-1', emoji: '✨', label: 'はじめての へんしん', desc: 'はじめて へんしんした', condition: (l) => l.transforms >= 1 },
     { id: 'death-1', emoji: '👻', label: 'はじめての おわかれ', desc: 'はじめて てんごくに いった', condition: (l) => l.deaths >= 1 },
     { id: 'minigame-50', emoji: '🎮', label: 'あそびの みならい', desc: 'ミニゲームを 50かい あそんだ', condition: (l) => l.minigamesPlayed >= 50 },
+    { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめての S', desc: 'ゲームきろくで はじめて Sランクを とった', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
+    { id: 'games-played-25', emoji: '🗂️', label: 'あそび めぐり', desc: '25しゅるいの ミニゲームを あそんだ', condition: (l) => countMinigamesPlayed(l) >= 25 },
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめての かんびょう', desc: 'はじめて びょうきを なおした', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこ そだち', desc: '10さいに なった', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめての おかいもの', desc: 'アイテムを はじめて こうにゅうした', condition: (l) => l.ownedShopItems.length >= 1 },
@@ -1835,6 +1837,8 @@
     // --- ふつう ---
     { id: 'death-5', emoji: '💀', label: 'なんども おわかれ', desc: '5かい てんごくに いった', condition: (l) => l.deaths >= 5 },
     { id: 'minigame-300', emoji: '🕹️', label: 'あそび どっぷり', desc: 'ミニゲームを 300かい あそんだ', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'games-played-60', emoji: '🧭', label: 'あそび たんけんか', desc: '60しゅるいの ミニゲームを あそんだ', condition: (l) => countMinigamesPlayed(l) >= 60 },
+    { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランク コレクター', desc: '20しゅるいの ゲームで Aランク いじょう', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいに なった', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかん なかば', desc: 'ずかんを 50しゅるい うめた', condition: (l, s) => s.discoveredStages.length >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアな であい', desc: 'レアな しゅぞくに はじめて であった', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
@@ -1877,6 +1881,8 @@
     // --- かなり むずかしい ---
     { id: 'clear-5', emoji: '🏆', label: 'いつつの いっしょう', desc: '5かい 100さいまで いきた', condition: (l) => l.clears >= 5 },
     { id: 'minigame-1000', emoji: '🎰', label: '1000かい あそんだ', desc: 'ミニゲームを 1000かい あそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'games-complete-100', emoji: '💯', label: '100ぼん コンプリート', desc: 'ぜんぶの ミニゲームを 1かい いじょう あそんだ', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
+    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランク マスター', desc: '15しゅるいの ゲームで Sランク', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつ コレクター', desc: 'レアな しゅぞく すべてに であった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'elder-collector', emoji: '👴', label: 'ちょうろう はかせ', desc: '10しゅるい いじょうの さいごの すがたに であった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
     { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: '通常の なかま全員と なかよくなった', condition: (l) => l.companionsRecruited.length >= COMPANIONS.length },
@@ -1894,6 +1900,20 @@
     { id: 'consumable-all', emoji: '🎪', label: 'おたのしみ コンプリート', desc: 'おたのしみを ぜんぶ つかってみた', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
     { id: 'item-all', emoji: '💯', label: 'アイテム パーフェクトコレクション', desc: 'みにつけるものを ぜんぶ集め、おたのしみも ぜんぶ使った', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
   ];
+
+  // ゲームきろく(じこベスト/ランク)を つかう じっせきの ための かぞえかた。
+  // いま の プールに ある ゲームだけを かぞえる(さくじょされた ゲームの
+  // ふるい きろくで かずが ずれない ように)
+  function countMinigameRecords(lifetime, predicate) {
+    const records = (lifetime && lifetime.minigameRecords) || {};
+    let n = 0;
+    for (const game of buildMinigamePool()) { const r = records[game.id]; if (r && predicate(r)) n++; }
+    return n;
+  }
+  function countMinigamesPlayed(lifetime) {
+    const counts = (lifetime && lifetime.minigamePlayCounts) || {};
+    return buildMinigamePool().filter((game) => (counts[game.id] || 0) > 0).length;
+  }
 
   function checkAchievements() {
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, currentAge());
@@ -11348,7 +11368,7 @@
         const difficulty = ageDifficulty();
         const DURATION_MS = duration || Math.round(lerp(16000, 13000, difficulty));
         const th = LANE_RUSH_SCENES[scene] || LANE_RUSH_SCENES.road;
-        const BAD_CHANCE = lerp(0.35, 0.55, difficulty);
+        const BAD_CHANCE = lerp(0.4, 0.55, difficulty);
         const LANES = [-0.62, 0, 0.62];
         let lane = 1, playerX = 0, position = 0, speed = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, flash = 0, sparkle = 0;
         let good = 0, bad = 0, points = 0, combo = 0, bestCombo = 0, nextSpawnZ = 0;
@@ -11398,10 +11418,12 @@
             if (it.z >= pz - SEG_LEN && it.z < pz + SEG_LEN * 60) road.findSegment(((it.z % TRACK_LEN) + TRACK_LEN) % TRACK_LEN).dynamic.push(it);
             if (!it.done && it.z <= pz + SEG_LEN * 0.4) {
               it.done = true;
-              if (it.lane === lane) {
+              // あたり判定は「えらんだ レーン」ではなく、じっさいの いち(playerX)で。
+              // レーン変更は 0.2〜0.3秒 かかる ので、ぎりぎりの きりかえは まにあわない
+              if (Math.abs(playerX - it.offset) < Math.abs(LANES[1] - LANES[0]) * 0.45) {
                 if (it.bad) { bad++; combo = 0; points = Math.max(0, points - 15); flash = 0.5; say('💥 ぶつかった!'); }
                 else { good++; combo++; bestCombo = Math.max(bestCombo, combo); points += 8 + Math.min(6, combo * 1.5); sparkle = 1; say(combo >= 3 ? '✨ ' + combo + 'れんぞく!' : 'ゲット!', 600); }
-                scoreEl.textContent = 'とくてん: ' + points;
+                scoreEl.textContent = 'とくてん: ' + Math.round(points);
               }
             }
           }
@@ -11438,7 +11460,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(points * 0.72 + bestCombo * 2 - bad * 6), 0, 100);
+          const score = clamp(Math.round(points * 0.5 + bestCombo * 2 - bad * 10), 0, 100);
           say(`けっか: ゲット ${good}こ / ぶつかった ${bad}かい`, 1800);
           render(performance.now());
           setTimeout(() => onComplete(score), 800);
@@ -11740,7 +11762,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(22 + pinsDown * 3.2 + strikes * 8 + spares * 4), 15, 100);
+          const score = clamp(Math.round(14 + pinsDown * 2.9 + strikes * 12 + spares * 5), 12, 100);
           say(`けっか: ${pinsDown}ほん${strikes ? ' ストライク' + strikes : ''}${spares ? ' スペア' + spares : ''}`, 2000);
           render(performance.now());
           setTimeout(() => onComplete(score), 900);
@@ -12894,7 +12916,7 @@
     return {start(container,onComplete){
       const difficulty=ageDifficulty();
       const DURATION_MS=Math.round(lerp(40000,32000,difficulty));
-      const GOAL=Math.round(lerp(900,1300,difficulty)/50)*50;
+      const GOAL=Math.round(lerp(1400,1900,difficulty)/50)*50;
       const FW=100,FH=122,BR=2.2,G=78,MAX_V=175;
       const LANE_X=90,LANE_GATE_Y=28;
       let balls=3,score=0,running=true,rafId=null,last=null,startTime=null,launched=false;
@@ -13795,6 +13817,7 @@
           if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
           const bg = ctx.createRadialGradient(W / 2 - panX() * 0.5, H / 2 - panY() * 0.5, 10, W / 2, H / 2, H); bg.addColorStop(0, '#182a55'); bg.addColorStop(1, '#03060f');
           ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
+          mgSpaceBackdrop(ctx, W, H, now, { stars: false, top: 'rgba(0,0,0,0)', bottom: 'rgba(0,0,0,0)', blobs: [[0.25 - panX() / W * 0.2, 0.35, 0.5, 'rgba(120,70,200,.22)'], [0.8 - panX() / W * 0.2, 0.7, 0.55, 'rgba(60,150,230,.18)']] });
           for (const s of stars) { const sx = W / 2 + (s.x * F) / s.z - panX(), sy = H / 2 + (s.y * F) / s.z - panY(); const a = clamp(1 - s.z / 7, 0.1, 1); ctx.fillStyle = `rgba(255,255,255,${a})`; ctx.fillRect(sx, sy, 1.5 + a, 1.5 + a); }
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           const sorted = enemies.slice().sort((a, b) => b.z - a.z);
@@ -14558,7 +14581,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const result = clamp(Math.round(18 + popped * 1.1 + maxChain * 12 + Math.min(20, score / 60)), 10, 100);
+          const result = clamp(Math.round(12 + popped * 0.7 + maxChain * 9 + Math.min(20, score / 80)), 10, 100);
           say(gameOver ? 'つみあがった… ' + popped + 'こ けした' : 'しゅうりょう! ' + popped + 'こ けした / さいだい ' + maxChain + 'れんさ', 2200);
           render(performance.now());
           setTimeout(() => onComplete(result), 900);
@@ -14577,7 +14600,7 @@
         const difficulty = ageDifficulty();
         const DURATION_MS = 50000, FLOOR = 0.78;
         const me = { x: 0.25, hp: 100, face: 1, state: 'idle', stateUntil: 0, guard: false, stun: 0, emoji: currentSprite(), color: '#3a86ff', combo: 0 };
-        const ai = { x: 0.75, hp: 100, face: -1, state: 'idle', stateUntil: 0, guard: false, stun: 0, emoji: rival.emoji, color: rival.color, think: 0, aggro: lerp(0.45, 0.8, difficulty) };
+        const ai = { x: 0.75, hp: 100, face: -1, state: 'idle', stateUntil: 0, guard: false, stun: 0, emoji: rival.emoji, color: rival.color, think: 0, aggro: lerp(0.55, 0.85, difficulty) };
         let running = true, rafId = null, last = null, msg = '', msgUntil = 0, shake = 0, sparks = [], leftHeld = false, rightHeld = false, hits = 0, taken = 0, ko = null;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
@@ -14629,7 +14652,7 @@
           const dist = Math.abs(me.x - ai.x);
           ai.face = me.x < ai.x ? -1 : 1;
           const threatened = me.state === 'windup' && dist < 0.3;
-          if (threatened && Math.random() < lerp(0.35, 0.75, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
+          if (threatened && Math.random() < lerp(0.45, 0.8, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
           ai.guard = false;
           if (dist > 0.26) { ai.x = clamp(ai.x + ai.face * 0.55 * dt * 4, 0.08, 0.92); }
           else if (Math.random() < ai.aggro) attack(ai, me, Math.random() < 0.55 ? 'punch' : 'kick');
@@ -14709,7 +14732,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const win = ko === 'win';
-          const score = clamp(Math.round((win ? 60 : 18) + me.hp * 0.35 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);
+          const score = clamp(Math.round((win ? 50 : 16) + me.hp * 0.3 + Math.min(12, hits) - Math.min(15, taken)), 10, 100);
           say(win ? `🏆 かった! のこりHP ${me.hp}` : `まけた… あいての のこりHP ${ai.hp}`, 2200);
           render(performance.now());
           setTimeout(() => onComplete(score), 900);
@@ -15605,7 +15628,7 @@
             const caps = captures(board, x, y, AI);
             const b2 = board.map((r) => r.slice()); b2[y][x] = AI; for (const [cx, cy] of caps) b2[cy][cx] = AI;
             const mob = legal(b2, ME).length;
-            let v = WEIGHTS[y][x] * 2 + caps.length * lerp(1.5, 0.8, difficulty) - mob * lerp(0.6, 1.6, difficulty) + (Math.random() - 0.5) * lerp(6, 1, difficulty);
+            let v = WEIGHTS[y][x] * 2 + caps.length * lerp(1.5, 0.8, difficulty) - mob * lerp(0.6, 1.6, difficulty) + (Math.random() - 0.5) * lerp(3, 0.6, difficulty);
             if (v > bestV) { bestV = v; best = [x, y]; }
           }
           place(best[0], best[1], AI); next();
@@ -15634,7 +15657,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const [a, c] = count(); const diff = a - c;
-          const score = diff > 0 ? clamp(Math.round(65 + diff * 2.5), 62, 100) : diff === 0 ? 50 : clamp(Math.round(40 + diff * 1.5), 12, 45);
+          const score = diff > 0 ? clamp(Math.round(62 + diff * 2), 60, 100) : diff === 0 ? 50 : clamp(Math.round(40 + diff * 1.5), 12, 45);
           say(diff > 0 ? `🏆 ${a}-${c} で かち!` : diff === 0 ? `${a}-${c} ひきわけ` : `${a}-${c} で まけ…`, 2500);
           hud(); turnEl.textContent = 'しゅうりょう';
           render(performance.now());
@@ -16745,7 +16768,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const tierScore = best >= 1024 ? 100 : best >= 512 ? 90 : best >= 256 ? 76 : best >= 128 ? 62 : best >= 64 ? 46 : best >= 32 ? 32 : 18;
+          const tierScore = best >= 1024 ? 100 : best >= 512 ? 86 : best >= 256 ? 70 : best >= 128 ? 54 : best >= 64 ? 40 : best >= 32 ? 28 : 16;
           const finalScore = clamp(Math.round(tierScore + Math.min(10, score / 300)), 10, 100);
           say(`おわり! さいだい ${best}、スコア ${score}`, 2600);
           render(performance.now());
@@ -17379,8 +17402,8 @@
         }
         function render(now) {
           if (!ctx) return;
-          ctx.fillStyle = '#2b2b30'; ctx.fillRect(0, 0, W, H);
-          for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { const v = map[y][x]; if (!v) { if ((x + y) % 2) { ctx.fillStyle = 'rgba(255,255,255,.03)'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); } continue; } if (v === 1) { ctx.fillStyle = '#b5552b'; ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2); ctx.fillStyle = 'rgba(0,0,0,.25)'; ctx.fillRect(x * CELL + 1, y * CELL + CELL / 2 - 1, CELL - 2, 2); ctx.fillRect(x * CELL + CELL / 2 - 1, y * CELL + 1, 2, CELL / 2); ctx.fillRect(x * CELL + CELL / 4, y * CELL + CELL / 2, 2, CELL / 2); } else { const g = ctx.createLinearGradient(x * CELL, y * CELL, (x + 1) * CELL, (y + 1) * CELL); g.addColorStop(0, '#d0d5dd'); g.addColorStop(1, '#7d8794'); ctx.fillStyle = g; ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2); } }
+          ctx.fillStyle = '#4a4a3c'; ctx.fillRect(0, 0, W, H);
+          for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { const v = map[y][x]; if (!v) { ctx.fillStyle = (x + y) % 2 ? '#575a44' : '#4f523f'; ctx.fillRect(x * CELL, y * CELL, CELL, CELL); const h1 = Math.sin((x * 31 + y * 17) * 12.9898) * 43758.5453, k = h1 - Math.floor(h1); if (k > 0.55) { ctx.fillStyle = 'rgba(120,150,70,.35)'; ctx.fillRect(x * CELL + k * CELL * 0.6, y * CELL + (1 - k) * CELL * 0.6, 4, 2); } continue; } if (v === 1) { ctx.fillStyle = '#b5552b'; ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2); ctx.fillStyle = 'rgba(0,0,0,.25)'; ctx.fillRect(x * CELL + 1, y * CELL + CELL / 2 - 1, CELL - 2, 2); ctx.fillRect(x * CELL + CELL / 2 - 1, y * CELL + 1, 2, CELL / 2); ctx.fillRect(x * CELL + CELL / 4, y * CELL + CELL / 2, 2, CELL / 2); } else { const g = ctx.createLinearGradient(x * CELL, y * CELL, (x + 1) * CELL, (y + 1) * CELL); g.addColorStop(0, '#d0d5dd'); g.addColorStop(1, '#7d8794'); ctx.fillStyle = g; ctx.fillRect(x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2); } }
           for (const e of enemies) if (e.alive) drawTank(e, e.hp > 1 ? '#7b2cbf' : '#c1121f', false);
           if (player.alive) drawTank(player, '#2a9d8f', invuln > 0 && Math.floor(now / 90) % 2 === 0);
           for (const b of bullets) { ctx.fillStyle = b.mine ? '#ffd23f' : '#ff8fa3'; ctx.beginPath(); ctx.arc(b.x * CELL, b.y * CELL, 3, 0, Math.PI * 2); ctx.fill(); }
@@ -18038,7 +18061,9 @@
         function render(now) {
           if (!ctx) return;
           const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, '#4b2c5e'); bg.addColorStop(1, '#1f1533'); ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = '#5c3a21'; ctx.fillRect(0, H - 8, W, 8);
+          const spot = ctx.createRadialGradient(W / 2, H * 0.35, 10, W / 2, H * 0.35, W * 0.7); spot.addColorStop(0, 'rgba(255,200,240,.22)'); spot.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = spot; ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = 'rgba(255,255,255,.06)'; for (let i = 0; i < 14; i++) { const h1 = Math.sin(i * 12.9898) * 43758.5453, h2 = Math.sin(i * 78.233) * 12345.678; const k1 = h1 - Math.floor(h1), k2 = h2 - Math.floor(h2); ctx.beginPath(); ctx.arc(k1 * W, ((k2 + now / 9000) % 1) * H, 2 + k1 * 3, 0, Math.PI * 2); ctx.fill(); }
+          const wood = ctx.createLinearGradient(0, H - 14, 0, H); wood.addColorStop(0, '#8a5a32'); wood.addColorStop(1, '#4a2c16'); ctx.fillStyle = wood; ctx.fillRect(0, H - 14, W, 14); ctx.fillStyle = 'rgba(0,0,0,.18)'; for (let i = 0; i < W; i += 23) ctx.fillRect(i, H - 14, 1, 14);
           for (const s of splashes) { ctx.globalAlpha = clamp(s.life * 2, 0, 1); ctx.fillStyle = s.color; ctx.beginPath(); ctx.arc(s.x, s.y, 3, 0, Math.PI * 2); ctx.fill(); } ctx.globalAlpha = 1;
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
           for (const h of halves) { ctx.save(); ctx.translate(h.x, h.y); ctx.rotate(h.ang + h.rot); ctx.beginPath(); ctx.rect(-30, h.side > 0 ? -30 : 0, 60, 30); ctx.clip(); ctx.font = '36px sans-serif'; ctx.fillText(h.emoji, 0, 1); ctx.restore(); }
@@ -18370,7 +18395,7 @@
         function spawnRock(size, x, y) { const r = size === 3 ? 26 : size === 2 ? 16 : 9; const a = Math.random() * Math.PI * 2; const sp = lerp(30, 45, difficulty) * (4 - size) * 0.8 + 20; const pts = []; const n = 9; for (let i = 0; i < n; i++) pts.push(0.7 + Math.random() * 0.4); rocks.push({ x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp, r, size, pts, rot: 0, rs: (Math.random() - 0.5) * 2 }); }
         function spawnWave() { const n = 2 + wave; for (let i = 0; i < n; i++) { let x, y; do { x = Math.random() * W; y = Math.random() * H; } while (Math.hypot(x - ship.x, y - ship.y) < 90); spawnRock(3, x, y); } }
         spawnWave();
-        function fire() { if (!running || fireCd > 0 || performance.now() < startTime) return; fireCd = 0.22; bullets.push({ x: ship.x + Math.cos(ship.a) * 12, y: ship.y + Math.sin(ship.a) * 12, vx: Math.cos(ship.a) * 330 + ship.vx * 0.3, vy: Math.sin(ship.a) * 330 + ship.vy * 0.3, life: 0.9 }); }
+        function fire() { if (!running || fireCd > 0 || performance.now() < startTime) return; fireCd = 0.28; bullets.push({ x: ship.x + Math.cos(ship.a) * 12, y: ship.y + Math.sin(ship.a) * 12, vx: Math.cos(ship.a) * 330 + ship.vx * 0.3, vy: Math.sin(ship.a) * 330 + ship.vy * 0.3, life: 0.9 }); }
         function burst(x, y, n, color) { for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, s = 40 + Math.random() * 120; parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 0.6, color }); } }
         function update(dt, now) {
           if (fireCd > 0) fireCd -= dt; if (invuln > 0) invuln -= dt;
@@ -18389,8 +18414,7 @@
         function drawShip(x, y, a) { ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(14, 0); ctx.lineTo(-10, 9); ctx.lineTo(-6, 0); ctx.lineTo(-10, -9); ctx.closePath(); ctx.stroke(); ctx.fillStyle = 'rgba(80,160,255,.35)'; ctx.fill(); ctx.rotate(-a); ctx.font = '11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(currentSprite(), 0, 0); ctx.restore(); }
         function render(now) {
           if (!ctx) return;
-          ctx.fillStyle = '#05060f'; ctx.fillRect(0, 0, W, H);
-          ctx.fillStyle = 'rgba(255,255,255,.7)'; for (let i = 0; i < 40; i++) { const sx = (i * 73) % W, sy = (i * 131) % H; ctx.fillRect(sx, sy, 1.2, 1.2); }
+          mgSpaceBackdrop(ctx, W, H, now, { planet: [W - 40, 44, 16, '#ffb27a', '#7a3a4a'] });
           for (const r of rocks) { ctx.save(); ctx.translate(r.x, r.y); ctx.rotate(r.rot); ctx.strokeStyle = '#d8d8e0'; ctx.lineWidth = 2; ctx.fillStyle = 'rgba(120,120,140,.35)'; ctx.beginPath(); r.pts.forEach((k, i) => { const a = i / r.pts.length * Math.PI * 2; const px = Math.cos(a) * r.r * k, py = Math.sin(a) * r.r * k; if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); }); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore(); }
           for (const b of bullets) { ctx.fillStyle = '#ffd23f'; ctx.beginPath(); ctx.arc(b.x, b.y, 2.5, 0, Math.PI * 2); ctx.fill(); }
           for (const p of parts) { ctx.globalAlpha = clamp(p.life * 2, 0, 1); ctx.fillStyle = p.color; ctx.fillRect(p.x - 1.5, p.y - 1.5, 3, 3); } ctx.globalAlpha = 1;
@@ -18411,7 +18435,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const final = clamp(Math.round(10 + score / 12 + lives * 5), 10, 100);
+          const final = clamp(Math.round(8 + score / 18 + lives * 4), 8, 100);
           say(lives <= 0 ? `💥 きたい そうしつ… ${score}pt` : `おわり! ${score}pt いわ ${destroyed}こ`, 2600); render(performance.now());
           setTimeout(() => onComplete(final), 1000);
         }
@@ -19332,6 +19356,34 @@
   }
   const PLANE_LANDING_VARIANTS = [mg('plane-landing', makePlaneLandingGame({ title: 'ひこうき ちゃくりく!ふわっと おりよう' }))];
 
+  // うちゅうの はいけい(ふかい グラデーション + 星雲の もや + またたく 星 +
+  // まるい わくせい)。アステロイド/スペースガンナー などで 共通に つかう
+  function mgSpaceBackdrop(ctx, W, H, now, opts = {}) {
+    const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, opts.top || '#070a24'); g.addColorStop(1, opts.bottom || '#120a2e');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    const blobs = opts.blobs || [[0.2, 0.3, 0.55, 'rgba(120,70,200,.28)'], [0.8, 0.7, 0.6, 'rgba(40,140,220,.22)'], [0.6, 0.15, 0.35, 'rgba(255,110,170,.16)']];
+    for (const [nx, ny, nr, col] of blobs) {
+      const r = ctx.createRadialGradient(nx * W, ny * H, 0, nx * W, ny * H, nr * W); r.addColorStop(0, col); r.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = r; ctx.fillRect(0, 0, W, H);
+    }
+    if (opts.stars !== false) {
+      const n = opts.starCount || 46;
+      for (let i = 0; i < n; i++) {
+        const h1 = Math.sin(i * 12.9898) * 43758.5453, h2 = Math.sin(i * 78.233) * 12345.678, h3 = Math.sin(i * 39.17) * 9876.54;
+        const x = (h1 - Math.floor(h1)) * W, y = (h2 - Math.floor(h2)) * H, k = h3 - Math.floor(h3);
+        const tw = 0.45 + 0.55 * Math.abs(Math.sin(now / (500 + k * 900) + i));
+        ctx.globalAlpha = tw; ctx.fillStyle = k > 0.8 ? '#ffe9b3' : k > 0.6 ? '#bfe3ff' : '#ffffff'; const sz = k > 0.9 ? 2.2 : 1.3;
+        ctx.fillRect(x, y, sz, sz);
+      }
+      ctx.globalAlpha = 1;
+    }
+    if (opts.planet) {
+      const [px, py, pr, c1, c2] = opts.planet;
+      const pg = ctx.createRadialGradient(px - pr * 0.4, py - pr * 0.4, pr * 0.1, px, py, pr); pg.addColorStop(0, c1); pg.addColorStop(1, c2);
+      ctx.fillStyle = pg; ctx.beginPath(); ctx.arc(px, py, pr, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(px, py, pr * 1.7, pr * 0.45, -0.35, 0, Math.PI * 2); ctx.stroke();
+    }
+  }
   // メッセージを 文字はばに あわせた くろい おびで えがく(バッチ7いこうの 共通)
   function mgMsgBox(ctx, W, text, cy, size = 14) {
     ctx.font = `bold ${size}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -20732,7 +20784,7 @@
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
           const rank = rankOf();
-          const score = clamp(Math.round((rank === 1 ? 80 : rank === 2 ? 52 : 30) + coins * 1.5 + players[0].pos / LEN * 6), 5, 100);
+          const score = clamp(Math.round((rank === 1 ? 72 : rank === 2 ? 46 : 26) + coins * 1.5 + players[0].pos / LEN * 6), 5, 100);
           say(rank === 1 ? '🏆 1い! おめでとう' : `${rank}い… つぎは かとう`, 2500);
           hud(); render(performance.now());
           setTimeout(() => onComplete(score), 1400);
