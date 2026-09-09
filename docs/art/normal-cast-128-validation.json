@@ -1,0 +1,782 @@
+{
+  "checkpoint": "BD",
+  "date": "2026-09-09",
+  "status": "incomplete",
+  "audit": {
+    "baseline": "f6a43977297be2a557a1546b779ada17edbc1d8c",
+    "previousPngsUnchanged": 249,
+    "newPngs": 18,
+    "allPngsDecoded": 267,
+    "unmodifiedBaselineFiles": 260,
+    "masterIdentityAndBehavior": "PASS",
+    "PNG_CRC": "PASS",
+    "RGBA128": "PASS",
+    "binaryAlpha": "PASS",
+    "minimumMargin": 8,
+    "newMaximumColors": 63,
+    "browserGameScreenshot": "NOT RUN: ERR_BLOCKED_BY_CLIENT"
+  },
+  "counts": {
+    "playerSpecies": 31,
+    "playerStagePngs": 248,
+    "dedicatedCastTotal": 45,
+    "dedicatedCastPngs": 19,
+    "normalCompanions": 18,
+    "remainingRareCompanions": 8,
+    "remainingPartners": 18
+  },
+  "reference": {
+    "author": "なおとのスペシャルキャラクターシート.png",
+    "normalCompanions": "character-world-master.v1.js: companions.normal / behavior"
+  },
+  "export": {
+    "generation": "one sprite per imagegen call; author background-only revision",
+    "scaling": "individual full foreground bounds; nearest-neighbor",
+    "background": "source alpha threshold 128; author reserved green removed including inner gaps",
+    "quantization": "64-entry palette (63 opaque colors + transparency), no dithering; output 8-bit RGBA PNG",
+    "marginOrder": [
+      "left",
+      "top",
+      "right",
+      "bottom"
+    ]
+  },
+  "visualReview": {
+    "original": "PASS",
+    "actual128": "PASS",
+    "whiteBackground": "PASS",
+    "darkBackground": "PASS",
+    "gameBrowserScreenshot": "NOT RUN: ERR_BLOCKED_BY_CLIENT"
+  },
+  "sprites": [
+    {
+      "id": "author/naoto",
+      "path": "assets/characters/author/naoto.png",
+      "source": "exec-9b7b1a0f-f16d-4363-b593-46346d4873a2.png",
+      "sourceSha256": "9a305778e2d91e6c0276f07d8425f969031a68a4ec65a8dc2ea7d2686088c028",
+      "sha256": "b87cd30262026ced43075a5334102acf8d27197113ff86a287918589991cbe59",
+      "sourceBounds": {
+        "left": 358,
+        "top": 167,
+        "width": 520,
+        "height": 924,
+        "pixels": 311609
+      },
+      "bounds": {
+        "left": 34,
+        "top": 14,
+        "width": 60,
+        "height": 106,
+        "pixels": 4150
+      },
+      "margins": [
+        34,
+        14,
+        34,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "green",
+      "prompt": "Use case: identity-preserve. From the provided APPROVED Naoto character sheet, create ONE individual full-body FRONT-FACING standing Naoto sprite, based precisely on the first small basic front view in the lower middle row. Preserve this same approved man's wavy center-parted dark brown hair, gentle dark eyes, small friendly CLOSED-MOUTH smile, light skin, white/light grey zip hoodie over charcoal shirt, dark navy trousers and dark shoes. Both arms resting naturally at sides, both hands and both feet clearly visible. Same cute head-body proportions and crisp stepped pixel style. Do not create a new person; do not add a crown, props, words, additional faces, sheet panels, actual photographs, border or signature. This is the normal single author sprite, not the toothy ending portrait. Fit complete hair, head, hoodie, hands and shoes with at least 8% free margin on all sides of a square canvas. Genuine transparent background. Intended final export is 128x128 pixels. One character, one frame.",
+      "referenceImages": [
+        "なおとのスペシャルキャラクターシート.png"
+      ],
+      "revisions": [
+        {
+          "prompt": "Use case: background-extraction. Edit ONLY the background of this exact approved Naoto sprite. Remove every grey/white checkerboard square and replace all background with perfectly flat solid vivid green #00FF00, including the gap between the legs and inside elbow/hair gaps. This green is a working background, NOT any part of the character. Preserve the exact existing character's full hair outline, face, gentle closed mouth, skin, white-grey hoodie, charcoal shirt, navy trousers, hands and shoes, all original details, same size and position. Do not recolor any white clothing to green. Do not redraw, restyle, crop or change pose or expression. One sprite only. No checkers, gradients, shadows, text, panels, letters or added objects.",
+          "referenceImages": [
+            "exec-df649a89-b69e-483a-8e16-85749af791bb.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "companions/cat_friend",
+      "path": "assets/characters/companions/cat_friend.png",
+      "source": "exec-2b276a92-5f26-4d59-bddb-317c99770f74.png",
+      "sourceSha256": "11313dcdf6acc5f60e9cb303085eb711043a9cc4ec5d1169599ee52bd238d2c8",
+      "sha256": "223734ac14fc26bdbedae1073063855001382706c89675c4c7705045b04ea5b0",
+      "sourceBounds": {
+        "left": 42,
+        "top": 137,
+        "width": 1204,
+        "height": 983,
+        "pixels": 728904
+      },
+      "bounds": {
+        "left": 10,
+        "top": 32,
+        "width": 108,
+        "height": 88,
+        "pixels": 5880
+      },
+      "margins": [
+        10,
+        32,
+        10,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: きまぐれな ねこ, a capricious CALICO cat companion (cream-white body with orange and dark brown patches). It lounges on its side with full curved tail and all four paws visible, one front paw casually raised, half-open eyes and a tiny knowing smile, watching the viewer as if it may follow but refuses to be called. Distinct from a grey sitting player cat and a formal black cat CEO. No box obscuring its body, no collar, no props.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/rabbit_friend",
+      "path": "assets/characters/companions/rabbit_friend.png",
+      "source": "exec-9cc38922-6eea-4b62-b153-35a536995905.png",
+      "sourceSha256": "4c53714201b725d30116714d53be435b3a36da8c853fea3d93e76c36427031fc",
+      "sha256": "2dd16ef68a0a57f2ebcc525a382e36f058f6cd7452af7cff9bdad1e993e58dfb",
+      "sourceBounds": {
+        "left": 208,
+        "top": 12,
+        "width": 919,
+        "height": 1233,
+        "pixels": 629850
+      },
+      "bounds": {
+        "left": 24,
+        "top": 12,
+        "width": 80,
+        "height": 108,
+        "pixels": 4829
+      },
+      "margins": [
+        24,
+        12,
+        24,
+        8
+      ],
+      "colors": 62,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: すばしっこい うさぎ, a quick light cream rabbit with pink inner ears and tiny fluffy white tail. Captured just before a hop, three-quarter right view, hind feet planted and forepaws lifted, one ear upright and the other swept back, lively bright eyes and open happy little mouth. Full pair of ears, both forepaws and both larger hindfeet visible. No clothes, no carrot, no motion streaks.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/tanuki",
+      "path": "assets/characters/companions/tanuki.png",
+      "source": "exec-6cefa47d-8b86-45a1-b881-389e762c89c0.png",
+      "sourceSha256": "8067e88ef2a76b22e11117ec56bb3c499aa2cd14efb82f0fe7392a6ee6cd319c",
+      "sha256": "9159ed94c89d2e0752b6c826fdefa2ca3db0c7de2df6f2cc2a09a3ef510fec17",
+      "sourceBounds": {
+        "left": 94,
+        "top": 60,
+        "width": 1068,
+        "height": 1160,
+        "pixels": 848787
+      },
+      "bounds": {
+        "left": 15,
+        "top": 14,
+        "width": 98,
+        "height": 106,
+        "pixels": 7133
+      },
+      "margins": [
+        15,
+        14,
+        15,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: いたずら たぬき, mischievous JAPANESE RACCOON DOG, NOT a raccoon. Warm tawny brown round body, dark eye patches, cream muzzle and belly, small rounded ears, a short thick bushy tail WITHOUT RINGS. Sitting with both hindfeet visible and one forepaw lifted cheekily, other forepaw holding a small green leaf beside belly, conspiratorial side glance and a crooked tiny grin. Clearly a tanuki, no striped raccoon tail.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/squirrel",
+      "path": "assets/characters/companions/squirrel.png",
+      "source": "exec-fa84de3e-5cf3-4a73-85c6-54c0316f1492.png",
+      "sourceSha256": "a374c0bdf14b80d92ce8dfd0078a702128c9f5d81ae30c8a9011a54db625812c",
+      "sha256": "571b799fe75878de5d705d2b26596a9e4f72883b25106883f1a2570d5f73e2cf",
+      "sourceBounds": {
+        "left": 189,
+        "top": 37,
+        "width": 1033,
+        "height": 1161,
+        "pixels": 843143
+      },
+      "bounds": {
+        "left": 16,
+        "top": 12,
+        "width": 96,
+        "height": 108,
+        "pixels": 7302
+      },
+      "margins": [
+        16,
+        12,
+        16,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: おっちょこちょい リス: a russet squirrel sitting upright, holding one large acorn precariously tilted in BOTH small forepaws, wide slightly surprised eyes and small round mouth, very large curled fluffy tail fully visible, cream chest and both hindfeet. The slightly tilted acorn expresses clumsiness. No detached floating objects.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/owl",
+      "path": "assets/characters/companions/owl.png",
+      "source": "exec-d3ddb591-e927-4749-a736-bf64f0f21bb7.png",
+      "sourceSha256": "35e7e1e40a07924cdff657fdb670c1fe55d303e97edc081f152172e751bf6757",
+      "sha256": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+      "sourceBounds": {
+        "left": 224,
+        "top": 37,
+        "width": 859,
+        "height": 1193,
+        "pixels": 746715
+      },
+      "bounds": {
+        "left": 26,
+        "top": 14,
+        "width": 76,
+        "height": 106,
+        "pixels": 5895
+      },
+      "margins": [
+        26,
+        14,
+        26,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ものしり ふくろう: a small chestnut and tan owl with wide round face disks and short ear tufts, standing upright, one wing folded and one wing tip held thoughtfully beside beak, calm half-open wise eyes. Warm cream chest with a few feather marks. Both taloned feet visible. A subtle small smiling beak, no glasses, no books, no professor costume.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/otter",
+      "path": "assets/characters/companions/otter.png",
+      "source": "exec-99ef84f4-329c-45fe-8083-537e2626da96.png",
+      "sourceSha256": "77e72289acdf9050ba59e688af0be2424e93c545bc8dccc67583b73a94ef2f72",
+      "sha256": "3f24e4d6ff26e80fd7e9dd1bd8aa2f8e3ff4ad6d00267fd746f2d49db538a530",
+      "sourceBounds": {
+        "left": 64,
+        "top": 82,
+        "width": 1163,
+        "height": 1125,
+        "pixels": 604769
+      },
+      "bounds": {
+        "left": 9,
+        "top": 14,
+        "width": 110,
+        "height": 106,
+        "pixels": 5407
+      },
+      "margins": [
+        9,
+        14,
+        9,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: あそびずき カワウソ: a playful brown river otter lying on its back at a slight diagonal, cream muzzle and throat, both forepaws holding one smooth small grey stone over belly, both hindpaws and entire long tapered tail clearly visible. Curious happy eyes and open tiny smile. No water or scenery.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/hamster",
+      "path": "assets/characters/companions/hamster.png",
+      "source": "exec-32642980-0b04-446a-a5a2-d516f480cdc7.png",
+      "sourceSha256": "67215ffdda98ad0d00a36a29290a4336f70adc9bf18064aa0312503c560f4bd0",
+      "sha256": "ba59cffa84a07e831d3722a7eea159664a79119becfe3f376142bc6f05bf8aa1",
+      "sourceBounds": {
+        "left": 130,
+        "top": 137,
+        "width": 986,
+        "height": 1024,
+        "pixels": 735232
+      },
+      "bounds": {
+        "left": 16,
+        "top": 21,
+        "width": 95,
+        "height": 99,
+        "pixels": 6877
+      },
+      "margins": [
+        16,
+        21,
+        17,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ほおぶくろ ハムスター: a tiny golden Syrian hamster with immense stuffed cream cheek pouches, both small forepaws beside mouth and two hindfeet, pink nose, tiny rounded ears. Bright earnest eyes and tiny pursed mouth still visible between cheeks. Soft round body, small natural tail peeking out. No extra food obscuring its face.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/panda",
+      "path": "assets/characters/companions/panda.png",
+      "source": "exec-64a69e34-f0f8-46ef-8565-ddf67f01430f.png",
+      "sourceSha256": "8eab42cc9e7c41a3beb25ac2023301895643c3966570af82a444cfbdd79a8e50",
+      "sha256": "611784a35a3efc1d0190474af374aac5410afdcc2ac84366bbc6f8bfda268c38",
+      "sourceBounds": {
+        "left": 39,
+        "top": 15,
+        "width": 1186,
+        "height": 1226,
+        "pixels": 996595
+      },
+      "bounds": {
+        "left": 11,
+        "top": 10,
+        "width": 106,
+        "height": 110,
+        "pixels": 8027
+      },
+      "margins": [
+        11,
+        10,
+        11,
+        8
+      ],
+      "colors": 62,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ぐうたら パンダ: a chubby black-and-white giant panda reclining lazily with belly toward viewer, entire rounded body and four black paws visible, holding a short bamboo stalk in one forepaw and lazily scratching belly with other. Half-lidded sleepy eyes, small contented mouth. Full ears; no background patch or bed.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/monkey",
+      "path": "assets/characters/companions/monkey.png",
+      "source": "exec-fbe6ca19-ba9b-47ba-9107-404cf9b61979.png",
+      "sourceSha256": "f7544cbe714c548b68ad225190d85b0c5e3e080337a1687975157adbabb32853",
+      "sha256": "4cbdd49a2faae11387a5df966ad82a16903e5ce80d62806a882b0d109bfada33",
+      "sourceBounds": {
+        "left": 124,
+        "top": 49,
+        "width": 1020,
+        "height": 1151,
+        "pixels": 675263
+      },
+      "bounds": {
+        "left": 16,
+        "top": 13,
+        "width": 95,
+        "height": 107,
+        "pixels": 5887
+      },
+      "margins": [
+        16,
+        13,
+        17,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: まねっこ サル: a cute small cinnamon-brown monkey with cream face and belly, big rounded ears and long curving unringed tail. Both hindfeet planted, one forearm raised beside its head as if copying a friend's wave, other hand held out. Eager open eyes and cheeky smiling mouth. Four limbs only. No clothes or banana.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/parrot",
+      "path": "assets/characters/companions/parrot.png",
+      "source": "exec-8c5ffd05-01dd-45d0-afd4-7cbc2b4ba445.png",
+      "sourceSha256": "2716447e8d3d63ea9ace41b911a12248bfd84aeaaa555c544cc4e409aab830da",
+      "sha256": "b9b159aea4ba964050dd9ca05658f21075f949085084ea3777b736c46f884520",
+      "sourceBounds": {
+        "left": 72,
+        "top": 14,
+        "width": 1107,
+        "height": 1234,
+        "pixels": 620089
+      },
+      "bounds": {
+        "left": 15,
+        "top": 12,
+        "width": 97,
+        "height": 108,
+        "pixels": 4764
+      },
+      "margins": [
+        15,
+        12,
+        16,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: おしゃべり オウム: a white cockatoo with a bright yellow raised crest, soft lavender-grey feather shadows, grey curved beak OPEN as if chatting, bright playful eyes. One wing slightly lifted, other folded, both grey feet on invisible baseline and long white tail fully visible. No branch, words or speech bubbles; unmistakable cockatoo not macaw.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/sheep",
+      "path": "assets/characters/companions/sheep.png",
+      "source": "exec-7a589c4c-a35f-41f2-b6dd-5ff09f9fcd55.png",
+      "sourceSha256": "e7d2b7ac822610ff9322f4d37f57cae369cfc3c08834ff2296bd435a8a8a4513",
+      "sha256": "9db5c7ca81fddb4611ea29bb6dbfc7ed351f718ea0a5eb2f6afee639c2125546",
+      "sourceBounds": {
+        "left": 44,
+        "top": 84,
+        "width": 1178,
+        "height": 1107,
+        "pixels": 841809
+      },
+      "bounds": {
+        "left": 10,
+        "top": 19,
+        "width": 108,
+        "height": 101,
+        "pixels": 7063
+      },
+      "margins": [
+        10,
+        19,
+        10,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ふわふわ ヒツジ: a rounded incredibly fluffy cream-white sheep with a small peach-beige face, small drooping ears and four short brown-hooved legs, a tiny woolly tail. Soft sleepy smiling eyes and visible small gentle mouth. Upright four-leg three-quarter view. No horns, no objects, no ground shadow, full wool silhouette complete.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/seal",
+      "path": "assets/characters/companions/seal.png",
+      "source": "exec-402bffe3-a5ca-402c-8745-d27226a0cac1.png",
+      "sourceSha256": "6dca4e40bd67656d34e0d098828c4f05f9699ccf41ee0c0fb2627a19cf749fe3",
+      "sha256": "781f9c3e380b0266ff8abc4f3bd49d275e0b03513d857ff2e96678a09d5f13fa",
+      "sourceBounds": {
+        "left": 65,
+        "top": 123,
+        "width": 1148,
+        "height": 1057,
+        "pixels": 771999
+      },
+      "bounds": {
+        "left": 9,
+        "top": 19,
+        "width": 110,
+        "height": 101,
+        "pixels": 7103
+      },
+      "margins": [
+        9,
+        19,
+        9,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ごろごろ アザラシ: a plump pale blue-grey spotted seal curled sideways as if happily rolling, head turned toward viewer with playful round eyes and an open cheerful little mouth. Both foreflippers and both connected rear flippers visible, tiny whiskers, no ear flaps, no legs. An oval smooth flexible body, no ball or scenery.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/bat",
+      "path": "assets/characters/companions/bat.png",
+      "source": "exec-68df2754-e5bd-4e48-9c44-1ab68430fe63.png",
+      "sourceSha256": "10ea33aec773378cd332695751b641a46c2bf5ca66b30055979cfa79a3db640e",
+      "sha256": "60e2f47209a343e43422905091e76c7c47e17e4c5beef89f065a7a7d38161bfc",
+      "sourceBounds": {
+        "left": 189,
+        "top": 19,
+        "width": 877,
+        "height": 1214,
+        "pixels": 632776
+      },
+      "bounds": {
+        "left": 25,
+        "top": 11,
+        "width": 77,
+        "height": 106,
+        "pixels": 4864
+      },
+      "margins": [
+        25,
+        11,
+        26,
+        11
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: よふかし コウモリ: a small purple-grey bat hanging upside down from its own two little feet at top (no branch); head at lower center with big ears, sleepy eyes and tiny yawning open mouth. Both wings partially folded around its furry body like a cape, pale plum membranes. All wingtips and toes fully inside frame. Cute night owl character without text or Z symbols.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/chicken",
+      "path": "assets/characters/companions/chicken.png",
+      "source": "exec-6ad51d4e-2f60-4fbc-bf64-42b6248b6604.png",
+      "sourceSha256": "1361e203315bc7b07c3ca0e3a05b4e291ac61214d98d090e68f871a55e1a9df8",
+      "sha256": "fee8f538d375342e3e44e1d558672abed8e92a37a0fcd08f757aeeb2d1a110d9",
+      "sourceBounds": {
+        "left": 66,
+        "top": 13,
+        "width": 1132,
+        "height": 1231,
+        "pixels": 717964
+      },
+      "bounds": {
+        "left": 14,
+        "top": 12,
+        "width": 99,
+        "height": 108,
+        "pixels": 5522
+      },
+      "margins": [
+        14,
+        12,
+        15,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: はやおき ニワトリ: a lively russet rooster crowing, upright chest, bright red comb and wattle, cream neck feathers and dark teal curved tail feathers, both golden three-toed feet visible. One small wing raised and beak OPEN in energetic morning call, confident eyes. No sunrise, scenery or speech symbols.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/penguin_friend",
+      "path": "assets/characters/companions/penguin_friend.png",
+      "source": "exec-7775201f-c480-4dd4-91b7-61414642e453.png",
+      "sourceSha256": "2e098d1142a9eab867737a4d6b51b31431679404e59172751c33c72875b29d5a",
+      "sha256": "cd5c10182e742c681c4a6a654f1823de65258f350a989f88bd9f2ae9793da935",
+      "sourceBounds": {
+        "left": 26,
+        "top": 377,
+        "width": 1221,
+        "height": 565,
+        "pixels": 468258
+      },
+      "bounds": {
+        "left": 9,
+        "top": 69,
+        "width": 110,
+        "height": 51,
+        "pixels": 3828
+      },
+      "margins": [
+        9,
+        69,
+        9,
+        8
+      ],
+      "colors": 60,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: すべりたがり ペンギン: a playful adult penguin sliding on its cream-white belly, low HORIZONTAL profile pointing right, deep navy back and head, a soft pale yellow cheek patch, both flippers swept outward and BOTH orange feet stretched behind the body visible, short tail. Looking toward viewer with excited eyes and open orange beak smile. No ice or motion streaks. Different silhouette from an upright standing player penguin.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/hedgehog",
+      "path": "assets/characters/companions/hedgehog.png",
+      "source": "exec-f24892e0-1610-4da4-96cb-2d875efaaff5.png",
+      "sourceSha256": "57e87f7268e2e99d594c6f9d51815cc063c34e4eba333427122e78a2fee069a4",
+      "sha256": "ae76cf927cb23eb5db3b35835a228fe9eae632886e77542cfe698f02839867b6",
+      "sourceBounds": {
+        "left": 86,
+        "top": 82,
+        "width": 1082,
+        "height": 1084,
+        "pixels": 877836
+      },
+      "bounds": {
+        "left": 14,
+        "top": 22,
+        "width": 99,
+        "height": 98,
+        "pixels": 7350
+      },
+      "margins": [
+        14,
+        22,
+        15,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: びっくり ハリネズミ: a startled little hedgehog curled into a round ball of brown cream-tipped spines, its cream face peeking out toward viewer with wide round eyes and small surprised O mouth. Four tiny pink feet peek from below, small ears visible. Spines form complete round silhouette, not sharp dangerous needles. No shock icon or text.",
+      "referenceImages": [],
+      "revisions": []
+    },
+    {
+      "id": "companions/shiba",
+      "path": "assets/characters/companions/shiba.png",
+      "source": "exec-1cad31ef-9198-4647-a1d2-09eb41ba6698.png",
+      "sourceSha256": "e08ea1f977acc82879274745c3b170e86057531524b5a02998aadc0c96a10f8a",
+      "sha256": "4afad488def1c0c73d350440546c21f013f1feed295dba56800d6db98d89d71c",
+      "sourceBounds": {
+        "left": 37,
+        "top": 85,
+        "width": 1193,
+        "height": 1099,
+        "pixels": 748249
+      },
+      "bounds": {
+        "left": 10,
+        "top": 21,
+        "width": 108,
+        "height": 99,
+        "pixels": 6118
+      },
+      "margins": [
+        10,
+        21,
+        10,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Create ONE finished standalone game sprite for the Japanese virtual-pet game Naotocchi. Clean cute Japanese pixel art, matching a polished 128x128 game asset enlarged without smoothing: clearly stepped dark colored outlines, compact clustered pixel shading, a restrained palette, friendly expressive readable eyes and mouth, subtle blush. Full body completely visible, a single character with no other characters; keep every ear, limb, toe and tail inside canvas with generous blank margins on all sides. Roughly 80-85% of the square canvas occupied. Transparent background with genuine alpha, no checkerboard printed into background, no shadow plate, no ground scenery, no text, labels, letters, numbers, UI or watermark. Not vector, not smooth painted illustration, not 3D. Keep a natural animal anatomy despite cute proportions. Subject: ひとなつっこい しばいぬ: a friendly red-tan Shiba Inu dog in a cheerful little play-bow, forepaws extended on ground and hindquarters raised, both hindfeet visible, tightly curled tail fully visible, cream muzzle/chest/underside and small triangular ears. Bright eyes and tiny open happy mouth with a pink tongue. No collar, clothing, toys or motion lines.",
+      "referenceImages": [],
+      "revisions": []
+    }
+  ]
+}

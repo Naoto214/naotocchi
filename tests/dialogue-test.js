@@ -440,3 +440,37 @@ const snailSpeech = spoken.find((beat) => beat.speaker.kind === 'companion');
 assert.equal(snailSpeech.speaker.id, 'snail');
 assert.ok(api.COMPANION_DAILY_REACTIONS.snail.feed.includes(snailSpeech.text));
 console.log('CAST TEST OK: snail encounters and speech; legacy koala load, bond, row, dex and earned achievements; PNG renderer reference.');
+
+// Every current normal companion resolves its own PNG in both live rows and the dex.
+const normalCast = [...api.COMPANIONS];
+assert.equal(new Set(normalCast.map((c) => c.asset)).size, 18, 'shared or missing companion asset');
+for (const c of normalCast) {
+  assert.equal(c.asset, `assets/characters/companions/${c.id}.png`);
+  for (const size of ['hero', 'detail', 'thumb', 'medium', 'companion']) {
+    const html = api.companionVisualHTML(c, size);
+    assert.ok(html.includes(`src="${c.asset}"`), `${c.id}: ${size} asset missing`);
+    assert.match(html, /character-emoji-fallback/);
+  }
+}
+for (const asset of [master.playerSpecies.author.asset, ...normalCast.map((c) => c.asset)]) {
+  const png = fs.readFileSync(asset);
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', asset);
+  assert.equal(png.readUInt32BE(16), 128, asset);
+  assert.equal(png.readUInt32BE(20), 128, asset);
+  assert.equal(png[24], 8, asset);
+  assert.equal(png[25], 6, asset);
+}
+reset({ companions: normalCast.map((c) => ({ id: c.id, bond: 80 })) });
+api.getState().lifetime.companionsRecruited = normalCast.map((c) => c.id);
+api.renderCompanionRow(); api.renderCompanionDex();
+const rows = ['companionLeft', 'companionRight'].map((id) => getElement(id).innerHTML);
+for (const row of rows) assert.equal((row.match(/class="companion-chip-small"/g) || []).length, 9);
+for (const c of normalCast) for (const html of [rows.join(''), getElement('companionDexGrid').innerHTML]) {
+  assert.equal(html.split(`src="${c.asset}"`).length - 1, 1, `${c.id}: duplicate or omitted PNG`);
+}
+assert.equal(getElement('companionDexProgress').textContent, '18 / 18');
+reset(); api.renderCompanionRow(); api.renderCompanionDex();
+assert.equal(getElement('companionLeft').innerHTML + getElement('companionRight').innerHTML, '');
+assert.ok(!getElement('companionDexGrid').innerHTML.includes('assets/characters/companions/'), 'unmet companion revealed');
+assert.equal(getElement('companionDexProgress').textContent, '0 / 18');
+console.log('NORMAL CAST PNG TEST OK: 19 PNG headers; 18 companions x 5 renderer sizes; 9+9 live rows; collected and locked dex.');
