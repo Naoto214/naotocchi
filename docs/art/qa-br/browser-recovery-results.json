@@ -1,0 +1,37 @@
+{
+  "checkpoint": "BR",
+  "date": "2026-09-09",
+  "baselineHead": "b5a2b29b444d1763e0e99bb9a3ea2790e9cfd487",
+  "baselineTree": "77102c2dd98c7f949fbfd7ab30b0c03a0c9c22be",
+  "baselineActions": {"number":239,"runId":34370152470,"conclusion":"success"},
+  "main": "da5c631a911504e78c8b88fae373f30b85f26b31",
+  "laterCommitsAtResume": false,
+  "browserOperations": [
+    {"operation":"browser.tabs.list","result":"CDP operation refresh tabs timed out after 20000ms"},
+    {"operation":"inspect the retained qaTab binding from the BQ combined call","result":{"type":"object","id":"10"}},
+    {"operation":"qaTab.getJsDialog on the retained handle","result":"CDP operation refresh tabs timed out after 20000ms"},
+    {"operation":"qaTab.goto preview root followed by domSnapshot in one call, timeout_ms=25000","result":"js execution timed out; kernel reset, rerun your request","limit":"No intermediate navigation result was emitted; cannot identify whether navigation or subsequent snapshot blocked."}
+  ],
+  "bqCorrection": {
+    "file":"docs/art/qa-bq/browser-connection-limitation.json",
+    "previousAttribution":"tab handle was not obtained and getJsDialog was not reached",
+    "correctedAttribution":"The combined BQ call did retain qaTab with id 10. Tab creation returned a handle, but dialog state could not be retrieved. The combined error had been incorrectly attributed to creation.",
+    "oldErrorTextPreserved":true,
+    "nativeConfirmState":"unresolved",
+    "browserRecovered":false
+  },
+  "previewOperations": [
+    {"operation":"first supervised start with node_modules pointing to prior checkout","result":"exited before healthy: sh: 1: vite: not found"},
+    {"operation":"status","result":"stopped"},
+    {"operation":"dependency repair","result":"Verified identical package-lock.json; replaced this turn's symlink with a physical copy of already-installed dependencies inside this checkout. Vite entry and bin exist. No tracked dependency or product files changed."},
+    {"operation":"second supervised start","result":"running"},
+    {"operation":"final supervised stop and status","result":"stopped"}
+  ],
+  "productChanges":[],
+  "newTests":0,
+  "newBrowserCasesCompleted":0,
+  "newScreenshots":0,
+  "nativeConfirmChanged":false,
+  "alternateBrowserControlUsed":false,
+  "fullDevelopmentComplete":false
+}

@@ -18,3 +18,5 @@ jobs:
         run: node tests/smoke-test.js
       - name: Run dialogue regression test
         run: node tests/dialogue-test.js
+      - name: Validate development visual QA fixtures
+        run: node tests/visual-qa-test.cjs

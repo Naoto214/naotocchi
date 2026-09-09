@@ -1,0 +1,44 @@
+{
+  "checkpoint": "BS",
+  "date": "2026-09-09",
+  "baselineHead": "a92ab771eefc64d88cb32f9975764ad4f6aaed28",
+  "baselineTree": "d2fe437bcf8e4d4b46aba13f464a2113131b960c",
+  "baselineActions": {"number":240,"runId":34371055177,"conclusion":"success"},
+  "main": "da5c631a911504e78c8b88fae373f30b85f26b31",
+  "laterCommitsAtResume": false,
+  "browserOperations": [
+    {"operation":"initialize supported runtime after the BR kernel reset and select Chrome","result":"success"},
+    {"operation":"browser.tabs.list","result":"CDP operation refresh tabs timed out after 20000ms"},
+    {"operation":"browser.tabs.new in a standalone call","result":{"createdTab":"11"}},
+    {"operation":"tab 11 goto supervised preview root in a standalone call","result":"Navigation completed"},
+    {"operation":"tab 11 playwright.domSnapshot in a standalone call","result":"CDP operation refresh tabs was superseded by browser recovery"},
+    {"operation":"browser.tabs.list once after the explicit recovery error","result":"CDP operation refresh tabs was superseded by browser recovery"},
+    {"operation":"tab 11 dom_cua.get_visible_dom","result":"CDP operation refresh tabs was superseded by browser recovery"},
+    {"operation":"tab 11 screenshot, fullPage false","result":"CDP operation refresh tabs timed out after 20000ms"},
+    {"operation":"tab 11 getJsDialog","result":"CDP operation refresh tabs timed out after 20000ms"},
+    {"operation":"agent.browsers.list once according to supported troubleshooting documentation","result":"The same selected Chrome remained discoverable; no backend switch was performed."}
+  ],
+  "previewOperations": [
+    {"operation":"supervised start for the current checkout","result":"running on the first attempt"},
+    {"operation":"status after failed browser reads","result":"running"},
+    {"operation":"supervised stop","result":"stopped"},
+    {"operation":"final status","result":"stopped"}
+  ],
+  "evidenceLimits": {
+    "tabCreationAcknowledged":true,
+    "navigationAcknowledged":true,
+    "pageRenderingVerified":false,
+    "gameInteractionAttempted":false,
+    "nativeConfirmState":"unresolved; the tab 11 query failed and gives no conclusion about a dialog possibly remaining in an earlier tab",
+    "browserReadingRecovered":false,
+    "kernelResetReportedThisAttempt":false
+  },
+  "productChanges":[],
+  "newTests":0,
+  "localRegressionRerun":false,
+  "newBrowserCasesCompleted":0,
+  "newScreenshots":0,
+  "nativeConfirmChanged":false,
+  "alternateBrowserControlUsed":false,
+  "fullDevelopmentComplete":false
+}

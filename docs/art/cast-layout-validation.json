@@ -1,0 +1,3020 @@
+{
+  "checkpoint": "BL",
+  "baseline": "c1609eb2864b88acda311e60824d49c00cbd7328",
+  "sourceSha256": {
+    "index.html": "412ee040075b4dd64e65515baec6f6e73d4795b533cdbf11687f25550badd4a2",
+    "script.js": "c5c2064c1b72c1927fc4dc3b19d68fef9433ce3fff40eb6d8da7c4ce7b2b70cd",
+    "style.css": "57119ac2f573c0d016532122744e3fb1aec0d2c8772015d756c049a0cf0db86e",
+    "character-world-master.v1.js": "4547553d6cbb41436a75a90aaa23c0296c08f9fe7b1bf5a26b308eb5cf061c53",
+    "tests/visual-qa.cjs": "c86685fae7cb46db683a6d6cfa46ad6d621732e0ef33aae775ced963635e56c3",
+    "vite.config.mjs": "569f37fc65bb6f07e5663b4589f72078b99a4cef897a688051d1582a70c8d8a9",
+    "package.json": "cb17ff76a41eb1f88dbc4768f04e36acae732c3b5cd092b155bb72bd70af24b1",
+    "package-lock.json": "f30bcda1b184e7a874fd73cd1a2091289a974fee6ee69bf271bbd918c24c9c39"
+  },
+  "assetsUnchangedFromBaseline": true,
+  "pngCount": 294,
+  "pngs": [
+    {
+      "path": "assets/characters/antlion/01.png",
+      "sha256": "8ae81e8a9ad75e8cf69ca4e9e81cec17a56f2bbe3807db061ca96fa7f51087ed",
+      "transparentMargins": [
+        16,
+        46,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/02.png",
+      "sha256": "d49e82c215612bb9b4cce853bf5f91ec59bfc052b653d50b703b50f6c559dd1a",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/03.png",
+      "sha256": "6da45bbccfc435e09fa147eecec5737b96a8b8d05a7ab671d0f59d705ea685d0",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/04.png",
+      "sha256": "a75aa0f43ffcc7303b996e469ca3071496b7a447ae27897cdd3d99c82034ee6e",
+      "transparentMargins": [
+        22,
+        8,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/05.png",
+      "sha256": "03da5baf28985f5762afbaa84f6fec0f4ed25868e988ee19412df3e6952888cb",
+      "transparentMargins": [
+        25,
+        8,
+        25,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/06.png",
+      "sha256": "c7522f7d5aed4542e7962e77ea757d2f62a105fb9ba57f7d6c107278addb8616",
+      "transparentMargins": [
+        8,
+        36,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/07.png",
+      "sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
+      "transparentMargins": [
+        8,
+        21,
+        8,
+        22
+      ]
+    },
+    {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/author/naoto.png",
+      "sha256": "b87cd30262026ced43075a5334102acf8d27197113ff86a287918589991cbe59",
+      "transparentMargins": [
+        34,
+        14,
+        34,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/01.png",
+      "sha256": "64e7fbd5b81f48b35f9243d03c335320398811548f6257619eea0b5503f0351a",
+      "transparentMargins": [
+        30,
+        50,
+        30,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/02.png",
+      "sha256": "ffaa67e580226c916e1df48f999532af33eb45908c868a95dbdc74474da32cbb",
+      "transparentMargins": [
+        19,
+        31,
+        20,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/03.png",
+      "sha256": "dd1a695066b01d2d0bf07e566ee6bddaabfb63927656fb36672a42ebcf6f66d7",
+      "transparentMargins": [
+        12,
+        10,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/04.png",
+      "sha256": "ba65abbe4c60fb260ed31a1a9420a1450f190a4e6e253f7f2241c8b90ff47adc",
+      "transparentMargins": [
+        31,
+        17,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/05.png",
+      "sha256": "85eba35721a95bd34f05f42b2164e5fcb23931f1ab9c5e14e0ecc19ed1392b57",
+      "transparentMargins": [
+        16,
+        24,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/06.png",
+      "sha256": "8ded8e4af2d788e6344a543f1c65dd46678b6eb1b7ed5de707081c8e00819c26",
+      "transparentMargins": [
+        15,
+        16,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/07.png",
+      "sha256": "fd835ea89b97477d5b75a1d390c95fd6f5fe007dcd9b36f9774803864c0e6d7f",
+      "transparentMargins": [
+        12,
+        8,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/beetle/08.png",
+      "sha256": "5b09c234b750dc8c990f916991aa1cd52be9ec5029fa35e256ad4e929560ac61",
+      "transparentMargins": [
+        13,
+        10,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/01.png",
+      "sha256": "af05fb84d18e89704b84740ca96644a0a161c02fb81aa2620ce62e3be4b00ad8",
+      "transparentMargins": [
+        31,
+        37,
+        30,
+        47
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/02.png",
+      "sha256": "b33ab14c49ffacf77b97b997a6add5eabd6b0234bf732e76a9a4a6f79e417ecb",
+      "transparentMargins": [
+        23,
+        34,
+        22,
+        34
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/03.png",
+      "sha256": "0fb0d70175b1a7aff382c5918c100a069cef1a6c77f9c9a43d0f406f59d1afa0",
+      "transparentMargins": [
+        14,
+        24,
+        14,
+        24
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/04.png",
+      "sha256": "fcffcc78f5a9de2302adb5b8291e11965fca4727550d398bd13fd585bb7e604a",
+      "transparentMargins": [
+        15,
+        10,
+        15,
+        10
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/05.png",
+      "sha256": "b38357310dc9e9d501ae99252ba773dc5f62598d81cd6a8e7e2217f71d6a0939",
+      "transparentMargins": [
+        17,
+        10,
+        18,
+        10
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/06.png",
+      "sha256": "bce91fa9a00a3c4ef1d31c69021f3bcb1fc20d72ad20d2f788da25b4a4562ced",
+      "transparentMargins": [
+        12,
+        8,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/07.png",
+      "sha256": "fa03c4a8ea871beb6aaa05a4b2af166093789df497d05d1c332158ee4f75dca2",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/butterfly/08.png",
+      "sha256": "04a5d230501ea700d9f4ec85b69544104ae1af2252f9b13d464d247ac51cd748",
+      "transparentMargins": [
+        8,
+        14,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "assets/characters/cat/01.png",
+      "sha256": "8493f98e043ddee32d6dff9a470aaedf6059e857e12db05301fbdb887b91b05a",
+      "transparentMargins": [
+        32,
+        73,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/02.png",
+      "sha256": "078ad9d62d34fe5bbdec751f14749f99a8d8d994a87572d5bf06495ed466c3bf",
+      "transparentMargins": [
+        29,
+        40,
+        29,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/03.png",
+      "sha256": "5e778cfcce98ea1f68cbbd0d5c639d6d28600c35f3e4fe803a8e56325ae85b4b",
+      "transparentMargins": [
+        21,
+        28,
+        21,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/04.png",
+      "sha256": "a0045ad9b1e77cf825163d1df8617fcae8b8537d91daa96680d1a545afa8a6b0",
+      "transparentMargins": [
+        8,
+        38,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/05.png",
+      "sha256": "e07b335470ac64cd35308eb52830d426a380bfb30680e6ed8e7783545c1ea997",
+      "transparentMargins": [
+        17,
+        15,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/06.png",
+      "sha256": "8f6beedbfd82135cfc17c24d3aa5ea1869c9344f65b0a21e3950995c5768c6da",
+      "transparentMargins": [
+        16,
+        8,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/07.png",
+      "sha256": "587b9a20cd1313f209b7de61582e10d3636f7821e5e2a02d8aca3d5c1983b22e",
+      "transparentMargins": [
+        18,
+        14,
+        19,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cat/08.png",
+      "sha256": "31e2e413220c5ddf6574e2c2cea3b6d18cf6a6220fc9b737ab0f59f908d3c54b",
+      "transparentMargins": [
+        14,
+        22,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/01.png",
+      "sha256": "858ca18bcad40189c714a12e3c6dc6ce6b9669ea632a732484bc8628273578ca",
+      "transparentMargins": [
+        31,
+        57,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/02.png",
+      "sha256": "0cb07e00c8d37881d20149c7a013518417288e657cc55f396cee57f44c77214c",
+      "transparentMargins": [
+        23,
+        36,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/03.png",
+      "sha256": "91e78ec15f121909056e2c3d82228882beaa294aac4da4c54312f99f1a556944",
+      "transparentMargins": [
+        12,
+        19,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/04.png",
+      "sha256": "addd42e893f939ab97b46f2c726b5196508075d0f89ded7ae3b3452c14daf755",
+      "transparentMargins": [
+        13,
+        10,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/05.png",
+      "sha256": "4824188dbe4cee4cd648d9f2cee60266ef70d09757d724a4b035ab80180e1143",
+      "transparentMargins": [
+        22,
+        8,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/06.png",
+      "sha256": "0aa7fcd811cdd1eadc0679d4d4210b4446e686eeaab424c646a9c16653e6e184",
+      "transparentMargins": [
+        21,
+        20,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/07.png",
+      "sha256": "c0cfc06808e211b92bfe4d7ccfe6496290a312035f2fed706eb622f5f3aa5e75",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/cicada/08.png",
+      "sha256": "e40beafd474ca5d78b3bd393a7b37937e6d98c2a8f6644639773c30912ead71b",
+      "transparentMargins": [
+        11,
+        12,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/01.png",
+      "sha256": "bd9097cf21d9e7eff29109a1bfc6cdb2331307057e1b86bcd24b15e46d163436",
+      "transparentMargins": [
+        33,
+        49,
+        33,
+        49
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/02.png",
+      "sha256": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28",
+      "transparentMargins": [
+        27,
+        45,
+        27,
+        46
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/03.png",
+      "sha256": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641",
+      "transparentMargins": [
+        21,
+        39,
+        21,
+        39
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/04.png",
+      "sha256": "b4939fe1cfcee1e23be5719769f250f6cabae2316bc643195e6a64ab8703c2e1",
+      "transparentMargins": [
+        17,
+        36,
+        17,
+        36
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/05.png",
+      "sha256": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/06.png",
+      "sha256": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f",
+      "transparentMargins": [
+        13,
+        32,
+        13,
+        33
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/07.png",
+      "sha256": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c",
+      "transparentMargins": [
+        10,
+        26,
+        10,
+        27
+      ]
+    },
+    {
+      "path": "assets/characters/clownfish/08.png",
+      "sha256": "205f15a7c3603f020604dbdc39e7d38335381162c34b23a507f143ec7f67570a",
+      "transparentMargins": [
+        8,
+        26,
+        8,
+        25
+      ]
+    },
+    {
+      "path": "assets/characters/companions/bat.png",
+      "sha256": "60e2f47209a343e43422905091e76c7c47e17e4c5beef89f065a7a7d38161bfc",
+      "transparentMargins": [
+        25,
+        11,
+        26,
+        11
+      ]
+    },
+    {
+      "path": "assets/characters/companions/box.png",
+      "sha256": "088daf06f8aa26af3a3ebed6e50f4559727dfe41671c8ad312695798d0a70c16",
+      "transparentMargins": [
+        17,
+        27,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/cat_friend.png",
+      "sha256": "223734ac14fc26bdbedae1073063855001382706c89675c4c7705045b04ea5b0",
+      "transparentMargins": [
+        10,
+        32,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/chameleon.png",
+      "sha256": "9384a95a8d0ec1950f033663039fcb73bd7dada32b2c24fb8f4b9e0f6d90306a",
+      "transparentMargins": [
+        9,
+        28,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/chicken.png",
+      "sha256": "fee8f538d375342e3e44e1d558672abed8e92a37a0fcd08f757aeeb2d1a110d9",
+      "transparentMargins": [
+        14,
+        12,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/clock.png",
+      "sha256": "ded1b89e7d170abfdd5ed501028476da1833ad436b9a814aabe2d91ad595ffab",
+      "transparentMargins": [
+        12,
+        12,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/hamster.png",
+      "sha256": "ba59cffa84a07e831d3722a7eea159664a79119becfe3f376142bc6f05bf8aa1",
+      "transparentMargins": [
+        16,
+        21,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/hedgehog.png",
+      "sha256": "ae76cf927cb23eb5db3b35835a228fe9eae632886e77542cfe698f02839867b6",
+      "transparentMargins": [
+        14,
+        22,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/kinoko.png",
+      "sha256": "1f8ff2bf480cf58bb48aece462e8d64ec784d58d05203996aaeaf231c207a1b3",
+      "transparentMargins": [
+        17,
+        16,
+        18,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/many_tail_fox.png",
+      "sha256": "5c0f806280f746c3a6b0b62d22cc5bcd02508ba3494f8a89319a4f2bd0bcdfee",
+      "transparentMargins": [
+        9,
+        12,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/monkey.png",
+      "sha256": "4cbdd49a2faae11387a5df966ad82a16903e5ce80d62806a882b0d109bfada33",
+      "transparentMargins": [
+        16,
+        13,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/otter.png",
+      "sha256": "3f24e4d6ff26e80fd7e9dd1bd8aa2f8e3ff4ad6d00267fd746f2d49db538a530",
+      "transparentMargins": [
+        9,
+        14,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/owl.png",
+      "sha256": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
+      "transparentMargins": [
+        26,
+        14,
+        26,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/panda.png",
+      "sha256": "611784a35a3efc1d0190474af374aac5410afdcc2ac84366bbc6f8bfda268c38",
+      "transparentMargins": [
+        11,
+        10,
+        11,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/parrot.png",
+      "sha256": "b9b159aea4ba964050dd9ca05658f21075f949085084ea3777b736c46f884520",
+      "transparentMargins": [
+        15,
+        12,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/penguin_friend.png",
+      "sha256": "cd5c10182e742c681c4a6a654f1823de65258f350a989f88bd9f2ae9793da935",
+      "transparentMargins": [
+        9,
+        69,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/punyu.png",
+      "sha256": "b0fa6f743e64d3f2a215d0a994e0078920d7cf1f73b0091667009d6f11c792d2",
+      "transparentMargins": [
+        10,
+        38,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/rabbit_friend.png",
+      "sha256": "2dd16ef68a0a57f2ebcc525a382e36f058f6cd7452af7cff9bdad1e993e58dfb",
+      "transparentMargins": [
+        24,
+        12,
+        24,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/seal.png",
+      "sha256": "781f9c3e380b0266ff8abc4f3bd49d275e0b03513d857ff2e96678a09d5f13fa",
+      "transparentMargins": [
+        9,
+        19,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/sekizou.png",
+      "sha256": "6a50c8dd1d084a854b233694800fed23b9475abbc2f9fff380ef31053923046a",
+      "transparentMargins": [
+        36,
+        12,
+        37,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/sheep.png",
+      "sha256": "9db5c7ca81fddb4611ea29bb6dbfc7ed351f718ea0a5eb2f6afee639c2125546",
+      "transparentMargins": [
+        10,
+        19,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/shiba.png",
+      "sha256": "4afad488def1c0c73d350440546c21f013f1feed295dba56800d6db98d89d71c",
+      "transparentMargins": [
+        10,
+        21,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/snail.png",
+      "sha256": "1c01972f5b6223bef99afdcf31bb15b06cc9b3bd6b81f6ddfbd88936deaaa847",
+      "transparentMargins": [
+        8,
+        38,
+        8,
+        38
+      ]
+    },
+    {
+      "path": "assets/characters/companions/squirrel.png",
+      "sha256": "571b799fe75878de5d705d2b26596a9e4f72883b25106883f1a2570d5f73e2cf",
+      "transparentMargins": [
+        16,
+        12,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/tanuki.png",
+      "sha256": "9159ed94c89d2e0752b6c826fdefa2ca3db0c7de2df6f2cc2a09a3ef510fec17",
+      "transparentMargins": [
+        15,
+        14,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/unicorn.png",
+      "sha256": "4b2634a6eaf848789e46b4b335729e9b5fb669d5ac180ff850565e3cc9aa759d",
+      "transparentMargins": [
+        13,
+        10,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/companions/watcher.png",
+      "sha256": "4b6370d0afbbc8bd5cdd9dc7ae9d2cd7c251c2d7b793fc360d460dbe7938809d",
+      "transparentMargins": [
+        45,
+        11,
+        46,
+        11
+      ]
+    },
+    {
+      "path": "assets/characters/coral/01.png",
+      "sha256": "8f74d734f786ce0c5f8e20d8b25609627ff3fd19b9a4c1be29387e0c93531ed4",
+      "transparentMargins": [
+        8,
+        13,
+        8,
+        14
+      ]
+    },
+    {
+      "path": "assets/characters/coral/02.png",
+      "sha256": "dd97585a8fa684c0e00ba728d96eb5a69cdb90b4cfaac2d3a3370e7a76bc6b6c",
+      "transparentMargins": [
+        8,
+        17,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/03.png",
+      "sha256": "495883cad6380f2d349cb4239d8ee6b517b584e409ad537e3a1b1f99cca8bfda",
+      "transparentMargins": [
+        14,
+        8,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/04.png",
+      "sha256": "74d3f4bc46e2e4d906144c2dd216656f18e0a630ef2843a3466031e2a5e0eef9",
+      "transparentMargins": [
+        8,
+        28,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/05.png",
+      "sha256": "1203cfd60459b3c3c1182ea569cc05f62ff347c648a429a7bbc64aff5bb27285",
+      "transparentMargins": [
+        8,
+        43,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/06.png",
+      "sha256": "733297c088055e54c0aa45fe82e4e30c04531942272090845341f1f350a33968",
+      "transparentMargins": [
+        8,
+        36,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/07.png",
+      "sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
+      "transparentMargins": [
+        8,
+        25,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/coral/08.png",
+      "sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "transparentMargins": [
+        8,
+        54,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/01.png",
+      "sha256": "6a597b0f008abc9d7385ed97a75e248d3766153726d102ddc975202dbdd70ee7",
+      "transparentMargins": [
+        11,
+        8,
+        11,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/02.png",
+      "sha256": "209e9734d5ba1ba78b0c9f47d0a2dac80ea3ca1c3d74a4f94c46da183c4c3126",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/03.png",
+      "sha256": "6db34567124680686c80917faf264e68abaa9402596b2cefcb38598af598191a",
+      "transparentMargins": [
+        8,
+        37,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/04.png",
+      "sha256": "9bf10c335194a8fab141a8f2e58953a96d11042f26056a392254cd8fddae96b1",
+      "transparentMargins": [
+        8,
+        52,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/05.png",
+      "sha256": "95c4d3a9b50e5e7fededfbab75f84d2e4be154d1a278bc0cab58271d9f0e1d60",
+      "transparentMargins": [
+        8,
+        24,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/06.png",
+      "sha256": "fac2b34bea35fc8f241d74ed4cc20c065b98a6d49ae6291045a652bd36fb514e",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/07.png",
+      "sha256": "82b93af4cfb010ce48e9fef6cb1028f696a7fd2da60b72647e29dc64fb4c6115",
+      "transparentMargins": [
+        8,
+        20,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dandelion/08.png",
+      "sha256": "4fc6357e4f7a7d2ce97a91c05f34e751ef04135b476d00d7b8a19a0a125f3e83",
+      "transparentMargins": [
+        8,
+        17,
+        8,
+        18
+      ]
+    },
+    {
+      "path": "assets/characters/dog/01.png",
+      "sha256": "0b4fbe1b5d39e7d3de9df99abf177613a11cdd727274e52dbf2b6d802961419e",
+      "transparentMargins": [
+        31,
+        81,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/02.png",
+      "sha256": "7e8f25a1006e957a4f7d12ab0199f480f6f0121d2eed09542ee30735ce0dcfc2",
+      "transparentMargins": [
+        27,
+        40,
+        28,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/03.png",
+      "sha256": "539fb6b30e43d39c7e08b4f48ac07aed8b431748ecd6aadb923559f96334a472",
+      "transparentMargins": [
+        21,
+        29,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/04.png",
+      "sha256": "2a30a664493e6e6e4ad6539255a75381cd86f0f35acb4d8c6bc80b85de31abe7",
+      "transparentMargins": [
+        11,
+        14,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/05.png",
+      "sha256": "5176f315bf90341b3a0354c13f11f5d1ca7e3813b33893518fae094a4adc96f7",
+      "transparentMargins": [
+        15,
+        12,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/06.png",
+      "sha256": "377669ea5b91689dbbb85ace4e19a93fd44aa07e0f0e289b9c1b0d080de40d20",
+      "transparentMargins": [
+        16,
+        8,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/07.png",
+      "sha256": "21a1af296e0e9ebd530db0ad7e8e500f0bba5daefd83a18f184ffab77741cded",
+      "transparentMargins": [
+        22,
+        14,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dog/08.png",
+      "sha256": "5d944d8e799dc3702f1f2e155264e9a56f581b2c28d1c3bd22ce3396d284a62f",
+      "transparentMargins": [
+        13,
+        28,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/01.png",
+      "sha256": "ee4253c9060ee40344c6eb5a18eee8441c1ac165f3124ce30f5d9fe43dcba468",
+      "transparentMargins": [
+        31,
+        64,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/02.png",
+      "sha256": "9dabb093a8d25ac9de2fb572c9812da70d22da127c8c41364bdc23f18d51f2f2",
+      "transparentMargins": [
+        22,
+        39,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/03.png",
+      "sha256": "862eb8a705db9d996a93b97dc83d1e6347c2440053871b21ce82fb4e284b7e13",
+      "transparentMargins": [
+        15,
+        22,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/04.png",
+      "sha256": "5a176b88933207a3468f7afafb7b060ced9734e6de95ac28e3dd3296ef2812ca",
+      "transparentMargins": [
+        15,
+        12,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/05.png",
+      "sha256": "3b7b28d248ecbe9a806902d10cda8cd96382a2fad3a1257f1862d5280cc1dc47",
+      "transparentMargins": [
+        8,
+        23,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/06.png",
+      "sha256": "61b1e3c00fb37a3e67396c0e13eddf1ad8aa550d426bb7189308042a1f840211",
+      "transparentMargins": [
+        8,
+        21,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/07.png",
+      "sha256": "d0dd2e26caf8c101fe902846fd60549665325127644aba9fea64ad32307c78b4",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/dragon/08.png",
+      "sha256": "b14fbf6ce1315c58ec58921454091ee0bde1588157dc093827210453929f6553",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/frog/01.png",
+      "sha256": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f",
+      "transparentMargins": [
+        32,
+        45,
+        32,
+        45
+      ]
+    },
+    {
+      "path": "assets/characters/frog/02.png",
+      "sha256": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952",
+      "transparentMargins": [
+        22,
+        47,
+        22,
+        47
+      ]
+    },
+    {
+      "path": "assets/characters/frog/03.png",
+      "sha256": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7",
+      "transparentMargins": [
+        16,
+        40,
+        16,
+        41
+      ]
+    },
+    {
+      "path": "assets/characters/frog/04.png",
+      "sha256": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571",
+      "transparentMargins": [
+        10,
+        68,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/frog/05.png",
+      "sha256": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf",
+      "transparentMargins": [
+        25,
+        50,
+        25,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/frog/06.png",
+      "sha256": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0",
+      "transparentMargins": [
+        16,
+        44,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/frog/07.png",
+      "sha256": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b",
+      "transparentMargins": [
+        8,
+        16,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/frog/08.png",
+      "sha256": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264",
+      "transparentMargins": [
+        8,
+        24,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/01.png",
+      "sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "transparentMargins": [
+        45,
+        32,
+        46,
+        32
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/02.png",
+      "sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "transparentMargins": [
+        26,
+        26,
+        26,
+        27
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/03.png",
+      "sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "transparentMargins": [
+        21,
+        20,
+        21,
+        20
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/04.png",
+      "sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "transparentMargins": [
+        14,
+        14,
+        15,
+        14
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/05.png",
+      "sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        9
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/06.png",
+      "sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "transparentMargins": [
+        15,
+        8,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/07.png",
+      "sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "transparentMargins": [
+        14,
+        8,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ghost/08.png",
+      "sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "transparentMargins": [
+        21,
+        8,
+        21,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/god/01.png",
+      "sha256": "3e9ba7ff83036637beab953d84d321b13f13ae6e2e0cef4fab8a4d2adcb46ca5",
+      "transparentMargins": [
+        43,
+        40,
+        43,
+        40
+      ]
+    },
+    {
+      "path": "assets/characters/god/02.png",
+      "sha256": "47f4bd18d29ab15c8977776f05d2a7fdf22183c6b3a69020c8953fe80c38cf68",
+      "transparentMargins": [
+        41,
+        30,
+        42,
+        30
+      ]
+    },
+    {
+      "path": "assets/characters/god/03.png",
+      "sha256": "68184e0b5f36156281403e1100569088b620f570991319b5daa12216596e39a7",
+      "transparentMargins": [
+        29,
+        22,
+        29,
+        22
+      ]
+    },
+    {
+      "path": "assets/characters/god/04.png",
+      "sha256": "493e5f6866f33750bb2319107df728f3fbf0589b4ab250bc82c0801b1486fdf9",
+      "transparentMargins": [
+        23,
+        16,
+        23,
+        16
+      ]
+    },
+    {
+      "path": "assets/characters/god/05.png",
+      "sha256": "4fb80b48f2c3009044b31f930507aa484d2969efba2b19c0408e960895314c98",
+      "transparentMargins": [
+        10,
+        11,
+        10,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/god/06.png",
+      "sha256": "10afbe41502067c5fd4244035c8f5845cc695f94ac64eaa2f8b9a25273d1c16a",
+      "transparentMargins": [
+        9,
+        8,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/god/07.png",
+      "sha256": "4f6352b11fe931d3d6b586b45d42e3b3fee1230f4136a8e0a7269b424a651772",
+      "transparentMargins": [
+        14,
+        8,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/god/08.png",
+      "sha256": "1a3ad9b9fc3adf621f67c421b4af1c541c9d9286db207b06f7230c6f2fa17f89",
+      "transparentMargins": [
+        8,
+        9,
+        8,
+        10
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/01.png",
+      "sha256": "5fe665da3c4bb3d5fe4a234ac677ae0bf73572e1a9b33377464c40c15a9b91bf",
+      "transparentMargins": [
+        31,
+        71,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/02.png",
+      "sha256": "cae030a8b86b37856b505e9419e67420a0eafa706f843ba83afe95f43a560d9f",
+      "transparentMargins": [
+        25,
+        63,
+        25,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/03.png",
+      "sha256": "e9dac608376cd40044b5d6d355a28bc4390d62abd3efece8420c4e18ac5285bb",
+      "transparentMargins": [
+        11,
+        35,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/04.png",
+      "sha256": "e158f132474609798727eb451f3e7214dd0b8d8bf39b60e7b769f60ac08356fa",
+      "transparentMargins": [
+        19,
+        49,
+        19,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/05.png",
+      "sha256": "45fd38d768c30d07d66b997379dee9e1cd60a890b5082360e7f91c085f75c787",
+      "transparentMargins": [
+        14,
+        49,
+        15,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/06.png",
+      "sha256": "f923be8b4b74fad1a37daa86c5cda632f4a2b2d4cb4a1f22cea14dfe5cd1d02a",
+      "transparentMargins": [
+        10,
+        37,
+        11,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/07.png",
+      "sha256": "68e125db17e00b65d5bc2af9862efbc22712266985a49d8bb426d97daef60b57",
+      "transparentMargins": [
+        8,
+        36,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/hermit_crab/08.png",
+      "sha256": "1acaf0e07e1aa4cfa9ad6d3ec4fc01b6ac982b2210565e1aef238c0e2a153b13",
+      "transparentMargins": [
+        9,
+        24,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/01.png",
+      "sha256": "d9b139bcb6f891eb49bdcf839fefe34e33a845feec79454852679a47a8bc5cb3",
+      "transparentMargins": [
+        22,
+        8,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/02.png",
+      "sha256": "38312ddf07cb2109056dfe23deb67689880bc8f8920e2842be9b6a77d91db5b6",
+      "transparentMargins": [
+        19,
+        8,
+        19,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/03.png",
+      "sha256": "279b518fcbb1b19a5cafa652360b70ee36b56d1f964ff7ff5571350ff52c377d",
+      "transparentMargins": [
+        8,
+        14,
+        8,
+        14
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/04.png",
+      "sha256": "8b938512aa638c00e8614c0f651058eb450a5e6d9acb3b706439e4b20a2e2145",
+      "transparentMargins": [
+        8,
+        15,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/05.png",
+      "sha256": "eec6a0ef167c56c596e56fd7127f618c690db3ef963341251fe77ab96e4c44d7",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/06.png",
+      "sha256": "9f704cb89c7e7945b77368fdff96e95a61bdb6f70addc2ded09efd17228173f5",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        9
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/07.png",
+      "sha256": "2f88c51c59db4758dca6a9f5bdf66c800c359b9aca3e7551d4c6ea025b643b62",
+      "transparentMargins": [
+        8,
+        13,
+        8,
+        14
+      ]
+    },
+    {
+      "path": "assets/characters/jellyfish/08.png",
+      "sha256": "1b68a87b3d90de534d19484dc62bb3a08bfa4faee90e521d6ab669f3c9b78553",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/man/01.png",
+      "sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "transparentMargins": [
+        36,
+        53,
+        37,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/02.png",
+      "sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "transparentMargins": [
+        29,
+        25,
+        30,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/03.png",
+      "sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "transparentMargins": [
+        33,
+        21,
+        34,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/04.png",
+      "sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "transparentMargins": [
+        33,
+        10,
+        34,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/05.png",
+      "sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "transparentMargins": [
+        33,
+        9,
+        33,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/06.png",
+      "sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "transparentMargins": [
+        32,
+        8,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/07.png",
+      "sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "transparentMargins": [
+        32,
+        10,
+        33,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/man/08.png",
+      "sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "transparentMargins": [
+        35,
+        17,
+        36,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/01.png",
+      "sha256": "a12b080494b48c483cb10ac9300e53f9d08fc690860920163c7552c7c7a84f16",
+      "transparentMargins": [
+        8,
+        15,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/02.png",
+      "sha256": "4f21304d95f45cd1380b8560f206ddd6a3b82ac01705f0694f901077b7f96bb0",
+      "transparentMargins": [
+        8,
+        23,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/03.png",
+      "sha256": "55022b95a49cfaf8b43ec351019a7fdf733e724fc71e7e9e72b33e35675bcc1e",
+      "transparentMargins": [
+        8,
+        20,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/04.png",
+      "sha256": "74c4e1b86a7898b0c5534dfe997e36defb95c7b277eae8daf350600566ea7c5d",
+      "transparentMargins": [
+        27,
+        8,
+        27,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/05.png",
+      "sha256": "20ebc6457d975c52c4f4beef38f5da855276d85d1a433e3a9e6be85f5b03e207",
+      "transparentMargins": [
+        8,
+        16,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/06.png",
+      "sha256": "1c165152179115c920c6c839992f295cb5513b980ca3ef1859bfb98f42ab5f06",
+      "transparentMargins": [
+        8,
+        30,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/07.png",
+      "sha256": "e621465e511a0234fcebfddf43c20a1d4b64dfaf7ccd79210ba3e577e52f3d3f",
+      "transparentMargins": [
+        8,
+        23,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/mushroom/08.png",
+      "sha256": "9a431ab24c02560cf4240d50efea37663fdf8c29df6d50fa7908597fce74a52b",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/anglerfish.png",
+      "sha256": "44f2acdadea59d4d969516668ead57f77ab8d2a15fddb24672ec3a8edabf9006",
+      "transparentMargins": [
+        10,
+        30,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/cat_ceo.png",
+      "sha256": "1e23ba75cea57fe5d1830fca55287861101e63911107d100d2f95b653eff6027",
+      "transparentMargins": [
+        37,
+        12,
+        37,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/cliff_goat.png",
+      "sha256": "f111750eb1b177bbdcf3203b8e1aeb6c09da1c31eea296832c4ecd3c3750dced",
+      "transparentMargins": [
+        33,
+        12,
+        34,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/desert_scorpion.png",
+      "sha256": "7ac3fc6c683b0991f73f7cda6ff3188f8cf71baf43cc593defede91cae67fcc9",
+      "transparentMargins": [
+        21,
+        8,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/field_cow.png",
+      "sha256": "de7b5bde0d77e236d2c16a0b25c7c3cd408da163ad46d38fb6232b6013a0b20f",
+      "transparentMargins": [
+        11,
+        12,
+        11,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/forest_bear.png",
+      "sha256": "0a62ed9e7c8037f75e54a6b7d8aa6f138d011c7f16a84952caf807cfa0efd959",
+      "transparentMargins": [
+        11,
+        12,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/gentle_gorilla.png",
+      "sha256": "8977f4fdf01cc41e6b03412cf398c3858bb10b9f50251190f61202afc945b9b1",
+      "transparentMargins": [
+        21,
+        12,
+        21,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/grove_deer.png",
+      "sha256": "88c0d7bc9823bbd030331db156c92fcfd34ccb873636eb6ff1ee6b97df06c5aa",
+      "transparentMargins": [
+        34,
+        12,
+        35,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/high_eagle.png",
+      "sha256": "f01fe97dc9b400ed23b84684c9be5b7f48ab0d27d5e931776c1c37e5e9c1c48c",
+      "transparentMargins": [
+        10,
+        12,
+        11,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/knitting_spider.png",
+      "sha256": "f919346a71abf227dc2ec753c478657d0bbfc76bd7f8059d6460a88d5b95aaf0",
+      "transparentMargins": [
+        8,
+        23,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/oasis_cactus.png",
+      "sha256": "8efe1be00bf96a69d57a3a45628228bf23f674d9e63547840a227359637713c4",
+      "transparentMargins": [
+        28,
+        12,
+        29,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/robot_neighbor.png",
+      "sha256": "71386df66b1478bac9c847b314e911ef30269b1b3aef041a9058ccd308c36b6c",
+      "transparentMargins": [
+        27,
+        12,
+        28,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/rock_octopus.png",
+      "sha256": "cf338f3770fb2c43ec6e6f479d902a12e12fe3c085a6d530794a91fe112ca332",
+      "transparentMargins": [
+        8,
+        18,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/sea_mermaid.png",
+      "sha256": "1328ecd58c2680e475241d564b18b6b71631bf3836b8a816e6f09ad03965b78c",
+      "transparentMargins": [
+        23,
+        12,
+        24,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/snow_spirit.png",
+      "sha256": "409634c432c13dae543df65ea3b3f0614773a41d2fead21cd2229524cb86d9ed",
+      "transparentMargins": [
+        38,
+        13,
+        39,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/snowman.png",
+      "sha256": "bd7e8101f538576b805b972e554400ecea8091195956d798403edddd31499ec7",
+      "transparentMargins": [
+        13,
+        12,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/sunflower_partner.png",
+      "sha256": "f43c2b6d67a35920a7a688b75583bc8393764553d4672ef079414ae453735726",
+      "transparentMargins": [
+        35,
+        12,
+        35,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/partners/swamp_croc.png",
+      "sha256": "c6ec355264d9ff1c2c4cc912e29b148938962f716764573243165002e4bfd61c",
+      "transparentMargins": [
+        14,
+        12,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/01.png",
+      "sha256": "1e3c09920dc8edb3f7d6cf107a67c883bf3948d2f1934f777142dd5733111b8e",
+      "transparentMargins": [
+        36,
+        56,
+        36,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/02.png",
+      "sha256": "94a64c31f5554661704315e01bb0bb9450e6bac405bc538f3c90ca630bcbe104",
+      "transparentMargins": [
+        28,
+        40,
+        29,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/03.png",
+      "sha256": "135c59c912ca9870f3113b4b35d40bca5d35980a418f84d27fe57a83ead842b6",
+      "transparentMargins": [
+        25,
+        28,
+        26,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/04.png",
+      "sha256": "826a374b27a0741e12e6e1d4d15eef4b614a230f0c658009aea942bdb071adba",
+      "transparentMargins": [
+        27,
+        18,
+        27,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/05.png",
+      "sha256": "ff18675618304f5e2429ff85578302c6b04fe97e47109379bd72f2dc5f5226a1",
+      "transparentMargins": [
+        29,
+        16,
+        29,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/06.png",
+      "sha256": "444e6fa64916da93dd5c5a7fc5c20ebbe63f688bc28b237432199829ac8cd610",
+      "transparentMargins": [
+        18,
+        8,
+        18,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/07.png",
+      "sha256": "f35e007ac80eaa8914a5356abc826267d6f7102ac98229f8c92f5f79198d203d",
+      "transparentMargins": [
+        23,
+        10,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/penguin/08.png",
+      "sha256": "d7cc3627e011384258d6b6e47bf1cb646b308eddfa843096b9fc2182e05c6577",
+      "transparentMargins": [
+        22,
+        14,
+        23,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/01.png",
+      "sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+      "transparentMargins": [
+        39,
+        60,
+        40,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/02.png",
+      "sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+      "transparentMargins": [
+        30,
+        45,
+        30,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/03.png",
+      "sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+      "transparentMargins": [
+        26,
+        30,
+        26,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/04.png",
+      "sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+      "transparentMargins": [
+        14,
+        31,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/05.png",
+      "sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+      "transparentMargins": [
+        12,
+        8,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/06.png",
+      "sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+      "transparentMargins": [
+        16,
+        8,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/07.png",
+      "sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+      "transparentMargins": [
+        15,
+        12,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/phoenix/08.png",
+      "sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+      "transparentMargins": [
+        12,
+        43,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/01.png",
+      "sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+      "transparentMargins": [
+        19,
+        8,
+        19,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/02.png",
+      "sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+      "transparentMargins": [
+        20,
+        8,
+        20,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/03.png",
+      "sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+      "transparentMargins": [
+        14,
+        8,
+        14,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/04.png",
+      "sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+      "transparentMargins": [
+        18,
+        8,
+        18,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/05.png",
+      "sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+      "transparentMargins": [
+        16,
+        8,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/06.png",
+      "sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+      "transparentMargins": [
+        17,
+        8,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/07.png",
+      "sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+      "transparentMargins": [
+        8,
+        15,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/plush/08.png",
+      "sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/01.png",
+      "sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
+      "transparentMargins": [
+        30,
+        42,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/02.png",
+      "sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
+      "transparentMargins": [
+        33,
+        29,
+        34,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/03.png",
+      "sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
+      "transparentMargins": [
+        27,
+        20,
+        28,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/04.png",
+      "sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
+      "transparentMargins": [
+        31,
+        14,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/05.png",
+      "sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
+      "transparentMargins": [
+        31,
+        10,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/06.png",
+      "sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
+      "transparentMargins": [
+        31,
+        8,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/07.png",
+      "sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
+      "transparentMargins": [
+        30,
+        12,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/ren/08.png",
+      "sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
+      "transparentMargins": [
+        31,
+        16,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/01.png",
+      "sha256": "0294afc2b70765d9ff879ddc20f35648dd87fe7a7323103fe8b629250c3a3bb2",
+      "transparentMargins": [
+        16,
+        8,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/02.png",
+      "sha256": "2b1e25834e50ea61623eaf3a0095bc428a11a84a901f97af52f3e48f1ab70064",
+      "transparentMargins": [
+        9,
+        8,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/03.png",
+      "sha256": "a8d06928d78ab39202c84f3211b33016d0794ef58124b672ff94257c58127c22",
+      "transparentMargins": [
+        8,
+        27,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/04.png",
+      "sha256": "cb62c198767caf4d684a4655591d2caa3f8486382f9f6bea10071cd9909f9dea",
+      "transparentMargins": [
+        8,
+        19,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/05.png",
+      "sha256": "74a84919fdb9f731959127f067f230ffff5724eb32de657d9333ccb27c3fce94",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/06.png",
+      "sha256": "26cc6e952826e00a379e6f13a19f1d078d10cd3bcd45838fc1266840d6676e9e",
+      "transparentMargins": [
+        8,
+        44,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/07.png",
+      "sha256": "fadf96db3cfd624edeb0794292cf3d2c2e56b691aff421cf540e29afeed089fc",
+      "transparentMargins": [
+        8,
+        13,
+        8,
+        13
+      ]
+    },
+    {
+      "path": "assets/characters/sakura/08.png",
+      "sha256": "84946ab7139403f4c0dde3522c4592a59c08c3278b0ebe963c35a2999e6efe26",
+      "transparentMargins": [
+        8,
+        29,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/01.png",
+      "sha256": "681a2d0ef8e946d0f1a02abdf0c9e76f54202645e21b44b6a2b1e27fa58042aa",
+      "transparentMargins": [
+        31,
+        47,
+        31,
+        48
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/02.png",
+      "sha256": "10598560ff0c23ca57f8a7ba6b5124417ed1864c0713d83d3edd97e95cd5724c",
+      "transparentMargins": [
+        25,
+        46,
+        25,
+        46
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/03.png",
+      "sha256": "e0bbe35b13c99c05e4e4f1646f3fa69557997eeb5db20a92093b5711ada0bcbe",
+      "transparentMargins": [
+        20,
+        44,
+        20,
+        43
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/04.png",
+      "sha256": "ff1f735aac2a5f67432864aebf9ae2668e8265f56e128ee77f316e0d9362c3b5",
+      "transparentMargins": [
+        16,
+        44,
+        16,
+        44
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/05.png",
+      "sha256": "0a9dbd9534b3a9c81548753eb4efee7e1d7c298a72bddfbceeb10d0ac030d6c4",
+      "transparentMargins": [
+        12,
+        38,
+        12,
+        39
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/06.png",
+      "sha256": "d5d3f119c556617761a3acfb5dfa3ffe39679e9c311d2b58c029cb10d560f012",
+      "transparentMargins": [
+        8,
+        37,
+        8,
+        37
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/07.png",
+      "sha256": "65a7d33acdbab4575be2332b9609889a37f263275632748aaa9e529afca881c0",
+      "transparentMargins": [
+        8,
+        35,
+        8,
+        35
+      ]
+    },
+    {
+      "path": "assets/characters/salmon/08.png",
+      "sha256": "165add62ab980440643104cde64538fda49ae715fc34e7d6d2fe01ac440face7",
+      "transparentMargins": [
+        9,
+        37,
+        8,
+        38
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/01.png",
+      "sha256": "dc7b2c02c015f46d96ac666f1f9fe4656432fc891c4db9eaee259abb3d4289cd",
+      "transparentMargins": [
+        35,
+        52,
+        36,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/02.png",
+      "sha256": "4940b74ad2d677136dc996fd4dba62874814a0340c360efaea58043f75b02e82",
+      "transparentMargins": [
+        25,
+        32,
+        25,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/03.png",
+      "sha256": "d6a91f216bdca35bcf252819995760106865725093de0b826e833f7b9cbd13db",
+      "transparentMargins": [
+        18,
+        12,
+        18,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/04.png",
+      "sha256": "366f6423272b7d9faec527d91fc839b2d9143881c168a37814006912908de234",
+      "transparentMargins": [
+        28,
+        19,
+        28,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/05.png",
+      "sha256": "9b8d62afcee49f542adc89082e49c4ffd7869d8c6e5900aad4df8938ad5deb39",
+      "transparentMargins": [
+        16,
+        24,
+        17,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/06.png",
+      "sha256": "c03b29c84f3a74050f73e22d9023fb5fd5e6d50347e394aebda4b74c9b28341a",
+      "transparentMargins": [
+        12,
+        22,
+        12,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/07.png",
+      "sha256": "da19acd79f2b808797058b0f46a7ad6e3871a7ce25760fadd794250d63b9ca51",
+      "transparentMargins": [
+        8,
+        13,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/stagbeetle/08.png",
+      "sha256": "7b7086bb06d73313bc6a223a741d58999d515bd571ff0e1235a8a2c888fcc050",
+      "transparentMargins": [
+        9,
+        17,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/star/01.png",
+      "sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
+      "transparentMargins": [
+        31,
+        30,
+        31,
+        30
+      ]
+    },
+    {
+      "path": "assets/characters/star/02.png",
+      "sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
+      "transparentMargins": [
+        23,
+        29,
+        23,
+        29
+      ]
+    },
+    {
+      "path": "assets/characters/star/03.png",
+      "sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
+      "transparentMargins": [
+        16,
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "assets/characters/star/04.png",
+      "sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
+      "transparentMargins": [
+        20,
+        19,
+        20,
+        19
+      ]
+    },
+    {
+      "path": "assets/characters/star/05.png",
+      "sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
+      "transparentMargins": [
+        12,
+        14,
+        12,
+        14
+      ]
+    },
+    {
+      "path": "assets/characters/star/06.png",
+      "sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
+      "transparentMargins": [
+        8,
+        10,
+        8,
+        11
+      ]
+    },
+    {
+      "path": "assets/characters/star/07.png",
+      "sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/star/08.png",
+      "sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
+      "transparentMargins": [
+        13,
+        12,
+        13,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/01.png",
+      "sha256": "dcbd67f8016518b3492842ccccded235137b81fb7584cbd6fd422632a98183d7",
+      "transparentMargins": [
+        8,
+        9,
+        8,
+        10
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/02.png",
+      "sha256": "c96b74fd84f18ab534b46f7c21289a3ec151b5beca47df726c0e2a0ef756f28f",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/03.png",
+      "sha256": "b7224acbc062e564eede8d8b7588a7da15c0f20b1b82f54f56d64aa51e6b5ac9",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        12
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/04.png",
+      "sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863",
+      "transparentMargins": [
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/05.png",
+      "sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        11
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/06.png",
+      "sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8",
+      "transparentMargins": [
+        8,
+        14,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/07.png",
+      "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa",
+      "transparentMargins": [
+        8,
+        15,
+        8,
+        16
+      ]
+    },
+    {
+      "path": "assets/characters/starfish/08.png",
+      "sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
+      "transparentMargins": [
+        8,
+        14,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/01.png",
+      "sha256": "bf7079cb7c9e0ec34e87063a78bcb0f854c185afb4140ef076be261541e7331f",
+      "transparentMargins": [
+        31,
+        77,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/02.png",
+      "sha256": "91faaf94e250445a27e72ea35c17df5661f46417bd01f02fa5637c1f1d6a03ff",
+      "transparentMargins": [
+        24,
+        56,
+        24,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/03.png",
+      "sha256": "38f559d3522237c27bc5f3a0fc4e78fef60d6ea86b212cf9387d575cd34e4816",
+      "transparentMargins": [
+        18,
+        49,
+        18,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/04.png",
+      "sha256": "b97164b573669ff82a4116f58b5d3d8127850e23117807aa2df3c0744bc9096f",
+      "transparentMargins": [
+        13,
+        45,
+        13,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/05.png",
+      "sha256": "45fc3c5eb7c2c2ac7fc25e9dfdcf70853a3cab1093f38be3c0a775b6fd683342",
+      "transparentMargins": [
+        10,
+        46,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/06.png",
+      "sha256": "c90a224d260d7db714e7c2fa9814a36f3b2f5f36c431d87a178c5a12b55ea9c6",
+      "transparentMargins": [
+        8,
+        34,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/07.png",
+      "sha256": "33ed962d966ab25a4e33b495b1863e72f9b15a9a33f0023f42a2bd06009cbaa9",
+      "transparentMargins": [
+        8,
+        34,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/turtle/08.png",
+      "sha256": "cbb57262a6f3e939b755ac8a3288746c835a2aa41dbe00c7d9aad51ca9bdaee9",
+      "transparentMargins": [
+        8,
+        31,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/01.png",
+      "sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+      "transparentMargins": [
+        45,
+        47,
+        45,
+        48
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/02.png",
+      "sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+      "transparentMargins": [
+        33,
+        39,
+        33,
+        39
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/03.png",
+      "sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+      "transparentMargins": [
+        25,
+        29,
+        25,
+        29
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/04.png",
+      "sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+      "transparentMargins": [
+        34,
+        19,
+        34,
+        19
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/05.png",
+      "sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+      "transparentMargins": [
+        12,
+        23,
+        12,
+        23
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/06.png",
+      "sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+      "transparentMargins": [
+        8,
+        13,
+        8,
+        13
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/07.png",
+      "sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+      "transparentMargins": [
+        47,
+        43,
+        48,
+        42
+      ]
+    },
+    {
+      "path": "assets/characters/unknown/08.png",
+      "sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+      "transparentMargins": [
+        46,
+        44,
+        47,
+        44
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/01.png",
+      "sha256": "d586056a4e164ac574fccc5cf4b2acf86beb76c710dc9b8d36d14e9bfb0e024c",
+      "transparentMargins": [
+        10,
+        8,
+        10,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/02.png",
+      "sha256": "0c0067ce3b95e27dc9463a51ea785f8fcad3d3c380d10cfa423367e97d4d09ea",
+      "transparentMargins": [
+        8,
+        49,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/03.png",
+      "sha256": "b7edace25d2d34220702708d0af7f4fac5b399fcd86251e729873af5b5b60c74",
+      "transparentMargins": [
+        8,
+        49,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/04.png",
+      "sha256": "062ff88a73e4abcec43f6881288a1915517cc7c35a8c54295819850aeda5d5a6",
+      "transparentMargins": [
+        8,
+        26,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/05.png",
+      "sha256": "58e8790f4d077f7088bfab312b68b4bc9af525fa8709b05beea7db4503e0a45b",
+      "transparentMargins": [
+        8,
+        14,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/06.png",
+      "sha256": "4934f0480cdbbaae77bbc7d99737766df1671581cdf1f9832992bc77403e7693",
+      "transparentMargins": [
+        8,
+        44,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/07.png",
+      "sha256": "84b47f608d3daf2b4bcf57567b0c20574ffdb34a6fbcff8c7e6f12172007e216",
+      "transparentMargins": [
+        8,
+        22,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/venus_flytrap/08.png",
+      "sha256": "1a2660506e3bfb98584abc08d815e12c4f46bb903122e4037e046adfc945857f",
+      "transparentMargins": [
+        8,
+        12,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/01.png",
+      "sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "transparentMargins": [
+        36,
+        52,
+        37,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/02.png",
+      "sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "transparentMargins": [
+        27,
+        27,
+        27,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/03.png",
+      "sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "transparentMargins": [
+        31,
+        18,
+        31,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/04.png",
+      "sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "transparentMargins": [
+        31,
+        18,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/05.png",
+      "sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "transparentMargins": [
+        31,
+        14,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/06.png",
+      "sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "transparentMargins": [
+        27,
+        14,
+        28,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/07.png",
+      "sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "transparentMargins": [
+        31,
+        13,
+        32,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/woman/08.png",
+      "sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "transparentMargins": [
+        35,
+        17,
+        35,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/01.png",
+      "sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+      "transparentMargins": [
+        16,
+        8,
+        16,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/02.png",
+      "sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+      "transparentMargins": [
+        22,
+        9,
+        22,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/03.png",
+      "sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+      "transparentMargins": [
+        8,
+        8,
+        9,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/04.png",
+      "sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+      "transparentMargins": [
+        19,
+        8,
+        19,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/05.png",
+      "sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+      "transparentMargins": [
+        8,
+        11,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/06.png",
+      "sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+      "transparentMargins": [
+        8,
+        35,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/07.png",
+      "sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+      "transparentMargins": [
+        8,
+        23,
+        8,
+        8
+      ]
+    },
+    {
+      "path": "assets/characters/world_tree/08.png",
+      "sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+      "transparentMargins": [
+        8,
+        20,
+        8,
+        20
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/art/qa-bl/alone-640.jpg",
+      "sha256": "f147c1f6f916977dc8639cc9afa876eb0f50c6023df083f3a1a99d6850e1d17d"
+    },
+    {
+      "path": "docs/art/qa-bl/anniversary.jpg",
+      "sha256": "322e8f4d9894d3c8f1d8d2ac2b7e4ef61dd1c4fc5dd3c578d6bbb39eb05da062"
+    },
+    {
+      "path": "docs/art/qa-bl/author-repeat-640.jpg",
+      "sha256": "cd1593ce0827cc5261e133aacf477dfda8ef9d488b106257438c26e52659edec"
+    },
+    {
+      "path": "docs/art/qa-bl/bk-all26-before.jpg",
+      "sha256": "c55bb5f8c64bdfba4c4d7ae3a76b4d6d06900ed764d0d7f1ce64d0f084fb2ebf"
+    },
+    {
+      "path": "docs/art/qa-bl/cast-equipped-speech-320.jpg",
+      "sha256": "2044f8384ac84f2bab61688a61c84cdc92e15cb3d9d190a1a6ec377ba7f5aaaa"
+    },
+    {
+      "path": "docs/art/qa-bl/date.jpg",
+      "sha256": "0800d75bf502fc79b4b8a8c64480947c5900b4d9bb629e43b8f336d9aa3063dd"
+    },
+    {
+      "path": "docs/art/qa-bl/first-encounter.jpg",
+      "sha256": "dc9ee1bb2f8e4895ba02e3aec4f8a5baaf494247d5d7f57ad2e5b860824179e0"
+    },
+    {
+      "path": "docs/art/qa-bl/goal4-greeting-640.jpg",
+      "sha256": "64841b6607f07e1ff4755a40f0f1e495962797faff0e14231ac2f9df285d4039"
+    },
+    {
+      "path": "docs/art/qa-bl/goal4.jpg",
+      "sha256": "28d780746099171d29d15cef6d85d23417c0739a6b2a133ab7a95d7a94118451"
+    },
+    {
+      "path": "docs/art/qa-bl/goal5-greeting-640.jpg",
+      "sha256": "6ef6d25a2a96529796783b8dcc77bd0af3954fd6960b281bd5155deb25cbb3da"
+    },
+    {
+      "path": "docs/art/qa-bl/goal5.jpg",
+      "sha256": "a60d7ac1f047282068b0a47f51dc07ac9f4eb2ac311706ef51fdc8871195773c"
+    },
+    {
+      "path": "docs/art/qa-bl/partner-dex-after.jpg",
+      "sha256": "27d095fd06ef481aa6a78269bba307873ec16cf4ea8ae0a78372fcbddcbd684a"
+    },
+    {
+      "path": "docs/art/qa-bl/partner-dex-before.jpg",
+      "sha256": "d6f41a892b8c9bda3f4fb4dd5bb0df3acc6cf1bdaa9243d2510240597da45b25"
+    },
+    {
+      "path": "docs/art/qa-bl/player-mushroom.jpg",
+      "sha256": "ff9b73fa14dc7d0a11245fbffe043d73678a2b79155881ee0e6ac04571f6da28"
+    },
+    {
+      "path": "docs/art/qa-bl/profile.jpg",
+      "sha256": "0d9d6be44653870e28e66efcc338323ba1ccb43623b219af9b4513cc31bcc3c5"
+    }
+  ]
+}

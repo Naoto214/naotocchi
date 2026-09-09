@@ -1,0 +1,935 @@
+{
+  "checkpoint": "BL",
+  "date": "2026-09-09",
+  "baseline": "c1609eb2864b88acda311e60824d49c00cbd7328",
+  "main": "da5c631a911504e78c8b88fae373f30b85f26b31",
+  "runtime": "Cloud Browser Chromium through supervised Sites development preview; real checkout game in same-origin iframe; fixture saves only",
+  "finalMatrix": [
+    {
+      "requestedWidth": 320,
+      "scene": "alone",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 856,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 320,
+      "scene": "normal18",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 920,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 18,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 320,
+      "scene": "all26",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 320,
+      "scene": "legacy28",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 28,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 320,
+      "scene": "equipped",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 1001,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 390,
+      "scene": "alone",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 872,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 390,
+      "scene": "normal18",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 936,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 18,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 390,
+      "scene": "all26",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 990,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 390,
+      "scene": "legacy28",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 990,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 28,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 390,
+      "scene": "equipped",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 1017,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 768,
+      "scene": "alone",
+      "width": 753,
+      "height": 844,
+      "pageHeight": 878,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 244,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 768,
+      "scene": "normal18",
+      "width": 753,
+      "height": 844,
+      "pageHeight": 936,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 244,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 18,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 768,
+      "scene": "all26",
+      "width": 753,
+      "height": 844,
+      "pageHeight": 990,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 244,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 768,
+      "scene": "legacy28",
+      "width": 753,
+      "height": 844,
+      "pageHeight": 990,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 244,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 28,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "requestedWidth": 768,
+      "scene": "equipped",
+      "width": 753,
+      "height": 844,
+      "pageHeight": 1017,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 244,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    }
+  ],
+  "motion": {
+    "note": "Captured after the motion/attachment fix (stylesheet bl-3). These keyframes and occupied attachment layout were unchanged by subsequent dex and conditional-empty-spacing fixes.",
+    "results": [
+      {
+        "action": "feed",
+        "scene": "equipped",
+        "width": 320,
+        "samples": 232,
+        "failedFrames": 0,
+        "animations": [
+          "none",
+          "idle-float",
+          "emote-happy"
+        ],
+        "checksPass": true
+      },
+      {
+        "action": "idle",
+        "scene": "legend",
+        "width": 320,
+        "samples": 236,
+        "failedFrames": 0,
+        "animations": [
+          "legend-aura-pulse",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": true
+      },
+      {
+        "action": "idle",
+        "scene": "sleeping",
+        "width": 320,
+        "samples": 239,
+        "failedFrames": 0,
+        "animations": [
+          "none",
+          "idle-sleep"
+        ],
+        "checksPass": true
+      },
+      {
+        "action": "idle",
+        "scene": "sick",
+        "width": 320,
+        "samples": 240,
+        "failedFrames": 0,
+        "animations": [
+          "none",
+          "sick-wobble"
+        ],
+        "checksPass": true
+      },
+      {
+        "action": "court",
+        "scene": "equipped",
+        "width": 305,
+        "samples": 234,
+        "failedFrames": 0,
+        "animations": [
+          "none",
+          "idle-float",
+          "emote-love",
+          "idle-perk"
+        ],
+        "checksPass": true
+      },
+      {
+        "action": "bubbles",
+        "scene": "equipped",
+        "width": 305,
+        "samples": 240,
+        "failedFrames": 0,
+        "animations": [
+          "none",
+          "idle-float",
+          "emote-fun",
+          "idle-perk"
+        ],
+        "checksPass": true
+      }
+    ]
+  },
+  "additional": [
+    {
+      "scene": "egg",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 818,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": null,
+      "petDisplay": "grid",
+      "areaWidth": 193,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "scene": "mushroom",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/mushroom/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "surface": "profile",
+      "scene": "equipped",
+      "width": 375,
+      "height": 844,
+      "pageHeight": 1017,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 239,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    }
+  ],
+  "dex": [
+    {
+      "scene": "alone",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 856,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "scene": "goal4",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    }
+  ],
+  "greetings": [
+    {
+      "scene": "goal4",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "exit": "infinite",
+      "scene": "goal5",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 1013,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 193,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "exit": "repeat-1",
+      "scene": "goal5",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 1013,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 193,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "exit": "repeat-2",
+      "scene": "goal5",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 1013,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 193,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "exit": "first-encounter",
+      "scene": "firstEncounter",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 994,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "emote-fun"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    },
+    {
+      "exit": "close",
+      "scene": "goal5",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 1064,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "heroAsset": "assets/characters/man/06.png",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true
+    }
+  ],
+  "flows": [
+    {
+      "flow": "goal4-close-author",
+      "passed": true
+    },
+    {
+      "flow": "goal5-freeplay-author",
+      "passed": true
+    },
+    {
+      "flow": "repeat-author-twice",
+      "passed": true
+    },
+    {
+      "flow": "goal5-close-author",
+      "passed": true
+    },
+    {
+      "flow": "silver anniversary",
+      "result": "PASS",
+      "width": 320,
+      "detail": "Age crossed 24 to 25 naturally; dedicated player and robot PNGs, title, caption and skip visible."
+    },
+    {
+      "flow": "first encounter",
+      "result": "PASS",
+      "width": 320,
+      "detail": "City court action showed cat_ceo PNG and the first encounter banner; 26 companions remained within the play area."
+    },
+    {
+      "flow": "partner dex",
+      "result": "PASS",
+      "width": 320,
+      "detail": "All 18 dedicated PNGs visible, including the last row; internal horizontal clipping reproduced and fixed."
+    },
+    {
+      "flow": "profile and date",
+      "result": "PASS",
+      "width": 390,
+      "detail": "Profile robot PNG and companion list; rain-shelter date with both PNGs, title, heart, caption and skip."
+    }
+  ],
+  "regressions": {
+    "equippedBefore": {
+      "scene": "equipped",
+      "width": 305,
+      "samples": 238,
+      "failedFrames": 238,
+      "firstFailure": {
+        "scene": "equipped",
+        "width": 305,
+        "stylesheet": "style.css?v=20260909-cast-layout-bl-1",
+        "petDisplay": "grid",
+        "areaWidth": 201,
+        "speechOverlap": false,
+        "actorOverlap": true,
+        "detached": 2,
+        "animations": [
+          "cast-idle-float",
+          "none"
+        ],
+        "companions": 26,
+        "outside": 1,
+        "brokenImages": 0,
+        "horizontalOverflow": false,
+        "checksPass": false
+      },
+      "animations": [
+        "cast-idle-float",
+        "none",
+        "idle-perk",
+        "emote-happy"
+      ],
+      "checksPass": false
+    },
+    "dexBefore": {
+      "scene": "alone",
+      "width": 305,
+      "height": 844,
+      "pageHeight": 856,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-4",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [
+        {
+          "panel": "dex-scroll",
+          "width": 194,
+          "contentWidth": 216
+        }
+      ],
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 0,
+      "outside": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": false
+    },
+    "greetingBefore": {
+      "scene": "goal4",
+      "width": 305,
+      "height": 640,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bl-5",
+      "petDisplay": "grid",
+      "areaWidth": 201,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": true,
+      "animations": [
+        "none",
+        "idle-float"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "checksPass": true,
+      "note": "storyOutsideViewport was measured separately before inclusion in checksPass."
+    },
+    "baselineCrowded": {
+      "scene": "all26",
+      "requestedWidth": 390,
+      "actualWidth": 375,
+      "companions": 26,
+      "outside": 21,
+      "horizontalOverflow": true
+    }
+  },
+  "initialLoadObservation": {
+    "pendingImages": 237,
+    "note": "The first full 248-image dex sample occurred while network requests were pending. After completion: zero failed or pending images. No missing asset was found."
+  },
+  "limitations": [
+    "Browser viewport fixtures are not physical iPhone/Safari or Android testing.",
+    "All 248 player PNGs were loaded in the dex and checked for missing images; individual live animation of every form was not reviewed.",
+    "Partner 18-image dex reviewed; profile/date/anniversary use robot and first encounter uses cat_ceo. Other 17 individual partner movies were not replayed.",
+    "100 minigames passed runtime startup/regressions; this session did not manually play every minigame.",
+    "Vertical scrolling is expected in short viewports; controls were reached and used."
+  ]
+}

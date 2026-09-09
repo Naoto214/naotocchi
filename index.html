@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-<link rel="stylesheet" href="style.css?v=20260909-3">
+  <link rel="stylesheet" href="style.css?v=20260910-date-reward-bu-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -42,7 +42,15 @@
             <div class="badges" id="badges"></div>
             <div class="ending-badges" id="endingBadges"></div>
             <div class="ending-badge-tip hidden" id="endingBadgeTip"></div>
-            <div class="pet" id="pet"><span class="partner-companion hidden" id="partnerCompanion"></span><span class="companion-side left" id="companionLeft"></span><span id="petSprite">🥚</span><span class="pet-accessory hidden" id="petAccessory"></span><span class="companion-side right" id="companionRight"></span></div>
+            <div class="pet" id="pet">
+              <span class="companion-side left" id="companionLeft"></span>
+              <span class="pet-core">
+                <span class="partner-companion hidden" id="partnerCompanion"></span>
+                <span id="petSprite">🥚</span>
+                <span class="pet-accessory hidden" id="petAccessory"></span>
+              </span>
+              <span class="companion-side right" id="companionRight"></span>
+            </div>
             <div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText"></span>
@@ -247,6 +255,7 @@
               <div class="theme-section-title">なおとの ひみつ</div>
               <div class="profile-hint">4つのクリアで 1こずつ もらえる、なおとからの贈りもの。もらったあとは、ずっと こうかが 続きます</div>
               <div class="shop-item-grid" id="naotoItemGrid"></div>
+              <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
             </div>
             <div id="onetimeItemGrid" class="hidden"></div>
           </div>
@@ -281,6 +290,16 @@
             <div class="date-title">デートを えらぼう</div>
             <div class="date-choice-grid" id="dateChoiceGrid"></div>
             <button type="button" class="date-cancel-btn" id="dateCancelBtn">また こんど</button>
+          </div>
+          <div class="date-card date-reward-confirm hidden" id="dateRewardConfirm" role="group" aria-labelledby="dateRewardTitle">
+            <p class="date-kicker" id="dateRewardPlan"></p>
+            <h2 class="date-title" id="dateRewardTitle" tabindex="-1">🎁 ごほうびを1こ使って、<br>とくべつなデートにする？</h2>
+            <p class="date-reward-count" id="dateRewardCount"></p>
+            <div class="date-reward-actions">
+              <button type="button" class="date-reward-btn" id="dateRewardUseBtn">ごほうびを1こ使う</button>
+              <button type="button" class="date-reward-btn secondary" id="dateRewardSkipBtn">使わずにデートする</button>
+            </div>
+            <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">行き先にもどる</button>
           </div>
           <div class="date-movie hidden" id="dateMovie">
             <div class="date-movie-scene" id="dateMovieScene">
@@ -607,7 +626,7 @@
 
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
-  <script src="character-world-master.v1.js?v=20260907-1"></script>
-  <script src="script.js?v=20260909-11"></script>
+  <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
+  <script src="script.js?v=20260910-date-reward-bu-1"></script>
 </body>
 </html>

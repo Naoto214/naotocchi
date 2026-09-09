@@ -1,0 +1,23 @@
+{
+  "scene": "special_date",
+  "partner": "robot_neighbor",
+  "rewardFixtureCount": 1,
+  "moneyFixture": 123456789,
+  "attemptedPlan": "あめやどり",
+  "completedBrowserVerification": false,
+  "errors": [
+    {
+      "operation": "Click plan",
+      "message": "Input.dispatchMouseEvent timed out. Increase the protocolTimeout setting in launch/connect calls for a higher timeout if needed."
+    },
+    {
+      "operation": "Read JavaScript dialog",
+      "message": "CDP operation refresh tabs timed out after 20000ms"
+    },
+    {
+      "operation": "Screenshot after timeout",
+      "message": "CDP operation refresh tabs timed out after 20000ms"
+    }
+  ],
+  "note": "Confirm dialog acceptance, reward consumption and full movie were not verified. No production confirm/RNG/clock overrides. Deepsea fixture was prepared but not run."
+}

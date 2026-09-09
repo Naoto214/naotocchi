@@ -1049,6 +1049,7 @@
     itemCloseBtn: document.getElementById('itemCloseBtn'),
     shopItemGrid: document.getElementById('shopItemGrid'),
     naotoItemGrid: document.getElementById('naotoItemGrid'),
+    naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
     rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
@@ -1076,6 +1077,13 @@
     dateChooser: document.getElementById('dateChooser'),
     dateChoiceGrid: document.getElementById('dateChoiceGrid'),
     dateCancelBtn: document.getElementById('dateCancelBtn'),
+    dateRewardConfirm: document.getElementById('dateRewardConfirm'),
+    dateRewardPlan: document.getElementById('dateRewardPlan'),
+    dateRewardTitle: document.getElementById('dateRewardTitle'),
+    dateRewardCount: document.getElementById('dateRewardCount'),
+    dateRewardUseBtn: document.getElementById('dateRewardUseBtn'),
+    dateRewardSkipBtn: document.getElementById('dateRewardSkipBtn'),
+    dateRewardBackBtn: document.getElementById('dateRewardBackBtn'),
     dateMovie: document.getElementById('dateMovie'),
     dateMovieScene: document.getElementById('dateMovieScene'),
     dateMoviePlace: document.getElementById('dateMoviePlace'),
@@ -1885,8 +1893,8 @@
     { id: 'record-rank-s-15', emoji: '👑', label: 'Sランク マスター', desc: '15しゅるいの ゲームで Sランク', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつ コレクター', desc: 'レアな しゅぞく すべてに であった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'elder-collector', emoji: '👴', label: 'ちょうろう はかせ', desc: '10しゅるい いじょうの さいごの すがたに であった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
-    { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: '通常の なかま全員と なかよくなった', condition: (l) => l.companionsRecruited.length >= COMPANIONS.length },
-    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきな なおとっちライフ', desc: 'けっこんと、通常の なかま全員との出会いを たっせいした', condition: (l) => l.partnersMarried.length >= 1 && l.companionsRecruited.length >= COMPANIONS.length },
+    { id: 'companion-all', emoji: '🎉', label: 'なかま だいしゅうごう', desc: '通常の なかま全員と なかよくなった', condition: (l) => hasAllCurrentCompanions(l) },
+    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきな なおとっちライフ', desc: 'けっこんと、通常の なかま全員との出会いを たっせいした', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
 
     // --- 超むずかしい ---
     { id: 'clear-10', emoji: '👑', label: 'とおの いっしょう', desc: '10かい 100さいまで いきた', condition: (l) => l.clears >= 10 },
@@ -1959,12 +1967,16 @@
     },
     {
       title: 'ずかんクリア!',
+      art: 'assets/clear/goal-4-naoto-v1.jpg?v=20260909-cast-author-bi-1',
+      artAlt: 'ずかんクリア。図書室でナオトが犬と一緒に、みんなの図鑑をひらいている',
       confetti: '📖✨👑✨📖',
       badges: ['📖 ④ ずかんクリア'],
       desc: 'ずかんの すべてのすがたを みつけた!<br>見覚えのある顔が、こんなに ふえた。<br>つぎは のこった じっせきに ちょうせんしよう!',
     },
     {
       title: 'PERFECT CLEAR!',
+      art: 'assets/clear/goal-5-naoto-v1.jpg?v=20260909-cast-author-bi-1',
+      artAlt: 'PERFECT CLEAR。むげんのせかいで犬と並び、歯を見せて笑うナオトが手をふっている',
       confetti: '👑✨🌈♾️🌈✨👑',
       badges: ['📖 ④ ずかんクリア', '👑 ⑤ PERFECT CLEAR'],
       desc: 'ずかんも、じっせきも、ぜんぶ コンプリート!<br>♾️ の せかいが ひらいた!',
@@ -4002,6 +4014,11 @@
       "ボール持って 待ってる!",
       "となりを歩く係、やりたい!"
     ],
+    "snail": [
+      "先に行くね! まだ ここだけど",
+      "気持ちは もう 次の角!",
+      "待って! こっちが急いでるの!"
+    ],
     "koala": [
       "集合までに 一回寝ていい?",
       "ゆっくり来たら また眠い",
@@ -4026,6 +4043,11 @@
       "きのうの話? 根はないけど",
       "座る前から ここに生えてた",
       "傘は 貸せないんだ"
+    ],
+    "clock": [
+      "ぴったり 遅れてきたよ",
+      "秒針だけ 先に帰った",
+      "今? だいたい このへん"
     ],
     "unicorn": [
       "道に迷った顔では ないよ",
@@ -4339,6 +4361,23 @@
         "ボールだけ 置いていくね"
       ]
     },
+    "snail": {
+      "feed": [
+        "ごはんが逃げないうちに!"
+      ],
+      "play_with": [
+        "準備はできた! 体がまだ!"
+      ],
+      "travel": [
+        "出発は 誰より早かったんだよ"
+      ],
+      "minigame_great": [
+        "すごい! 追いついてから ほめるね!"
+      ],
+      "minigame_bad": [
+        "大丈夫。今そっちへ 向かってる!"
+      ]
+    },
     "koala": {
       "feed": [
         "食べるのも ゆっくりでいい?"
@@ -4422,6 +4461,23 @@
       ],
       "minigame_bad": [
         "日かげで 作戦たてよう"
+      ]
+    },
+    "clock": {
+      "feed": [
+        "おやつに 時計は合わせてある"
+      ],
+      "play_with": [
+        "もう一回? じゃあ針は 見ないでおく"
+      ],
+      "travel": [
+        "出発時刻? 着いてから決めよう"
+      ],
+      "minigame_great": [
+        "拍手の時間だね。ここは遅れない"
+      ],
+      "minigame_bad": [
+        "休憩は きっちり計らなくていいよ"
       ]
     },
     "unicorn": {
@@ -6932,6 +6988,7 @@
     penguin_friend:{emoji:'🐧', flavor:'ペンギンが こっちへ 急いできて、目のまえで きれいに すべった'},
     hedgehog:{emoji:'🦔', flavor:'はりねずみが そっと かおを だした。目があうと また まるくなった'},
     shiba:{emoji:'🐕', flavor:'しばいぬが ボールを くわえて こっちを みている。投げるまで 帰る気は なさそう'},
+    snail:{emoji:'🐌', flavor:'カタツムリが「先に行くね!」と言った。まだ となりにいる'},
     koala:{emoji:'🐨', flavor:'コアラが ゆっくり 近づいてきた。途中で 一回 ねた'},
   };
 
@@ -6940,6 +6997,7 @@
     sekizou:{emoji:'🗿',vibe:'シュール',flavor:'石像が ある。さっきより 近い 気がする',joined:'気づいたら 家まで ついてきた'},
     chameleon:{emoji:'🦎',vibe:'おしゃれ',flavor:'サングラスを かけた カメレオンが かべから はんぶん はえている',joined:'「よろしく」と ひとことだけ 言った'},
     kinoko:{emoji:'🍄',vibe:'意味不明',flavor:'きのこが しゃべっている。「やあ」と いわれた',joined:'「じゃ、いこっか」と きのこが 歩きだした'},
+    clock:{emoji:'⏰',vibe:'マイペース',flavor:'時計が「ぴったり遅れてきたよ」と 手を振った。待ち合わせは していない',joined:'「出発は だいたい今だね」と 時計が ついてきた'},
     unicorn:{emoji:'🦄',vibe:'神々しい',flavor:'ユニコーンが まよいこんできた。本人は ぜんぜん 困っていない',joined:'なぜか そのまま ついてきた'},
     many_tail_fox:{emoji:'🦊',vibe:'妖しい',flavor:'きつねの しっぽを 数えた。数えるたびに 数が ちがう',joined:'しっぽを ゆらして ついてきた'},
     watcher:{emoji:'👁️',vibe:'こわい',flavor:'画面の はしから なにかが ずっと みている',joined:'見ないふりをしたら いつのまにか 仲間の列にいた'},
@@ -6950,6 +7008,7 @@
     ? WORLD_MASTER.companions.normal.map((def) => ({
         id:def.id,
         emoji:COMPANION_RUNTIME[def.id].emoji,
+        asset:def.asset || '',
         name:def.label,
         preferredRegions:[],
         flavor:COMPANION_RUNTIME[def.id].flavor,
@@ -6960,6 +7019,7 @@
     ? WORLD_MASTER.companions.rare.map((def) => ({
         id:def.id,
         emoji:RARE_COMPANION_RUNTIME[def.id].emoji,
+        asset:def.asset || '',
         name:def.label,
         vibe:RARE_COMPANION_RUNTIME[def.id].vibe,
         flavor:RARE_COMPANION_RUNTIME[def.id].flavor,
@@ -6969,6 +7029,66 @@
 
   function canonicalCompanionId(id) {
     return WORLD_MASTER?.compatibility?.companionAliases?.[id] || id;
+  }
+
+  // 旧セーブのコアラを別の生物に変えず、同行・会話・図鑑を保持する。
+  // 新しい遭遇候補には加えない。
+  const LEGACY_COMPANIONS = [
+    { id:'koala', name:'のんびり コアラ', preferredRegions:[], ...COMPANION_RUNTIME.koala },
+  ];
+
+  // 既に出会ったきのこは、その姿・会話・なかよし度・レア図鑑を保つ。
+  // 時計へのID変換や新規遭遇は行わない。
+  const LEGACY_RARE_COMPANIONS = [
+    { id:'kinoko', name:'しゃべる きのこ', asset:'assets/characters/companions/kinoko.png', ...RARE_COMPANION_RUNTIME.kinoko },
+  ];
+
+  function hasAllCurrentCompanions(lifetime) {
+    const known = new Set((lifetime.companionsRecruited || []).map(canonicalCompanionId));
+    return COMPANIONS.every((c) => known.has(c.id));
+  }
+
+  function companionDexEntries() {
+    return COMPANIONS.concat(LEGACY_COMPANIONS.filter((c) => hasRecruitedCompanionId(c.id)));
+  }
+
+  function rareCompanionDexEntries() {
+    const known = new Set((state.lifetime.rareCompanionsRecruited || []).map(canonicalCompanionId));
+    return RARE_COMPANIONS.concat(LEGACY_RARE_COMPANIONS.filter((c) => known.has(c.id)));
+  }
+
+  function companionVisualHTML(companion, size = 'thumb') {
+    return companion.asset ? stageVisualHTML(companion, size) : escapeHtml(companion.emoji);
+  }
+
+  // 保存済みの恋人も現在の専用PNGを使う。セーブの関係性や通信相手は書き換えない。
+  function partnerVisualHTML(partner, size = 'thumb') {
+    const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner?.id] || partner?.id;
+    const def = WORLD_MASTER?.partners?.find((p) => p.id === id);
+    const emoji = partner?.emoji || PARTNER_RUNTIME_PROFILE[id]?.emoji || '💞';
+    return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
+  }
+
+  // 作者は育成・なかま・恋人の枠に入れず、④以降のシークレットとして会える。
+  // 以前の図鑑/パーフェクト達成記録でも開放を保つ。
+  function isAuthorUnlocked() {
+    return achievedGoalTiers().some((tier) => tier >= 3);
+  }
+
+  function authorVisualHTML(size = 'thumb') {
+    const author = WORLD_MASTER?.playerSpecies?.author;
+    return author?.asset ? stageVisualHTML({ asset:author.asset, emoji:'🧑' }, size) : '🧑';
+  }
+
+  function showAuthorGreeting(kind = 'hello') {
+    if (!isAuthorUnlocked()) return false;
+    const lines = {
+      hello: 'ナオト「やあ！ 遊んでくれて、ありがとう！」',
+      dex: 'ナオト「こんなに たくさんの子と 会えたんだね。遊んでくれて、ありがとう！」',
+      perfect: 'ナオト「ぜんぶ 見つけてくれたんだね！ これからも、なおとっちを よろしくね！」',
+    };
+    showStoryEvent({ author:true, message:lines[kind] || lines.hello });
+    return true;
   }
 
   function hasActiveCompanionId(id) {
@@ -6985,7 +7105,9 @@
 
   function allCompanionsById(id) {
     const canonical = canonicalCompanionId(id);
-    return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical);
+    return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical)
+      || LEGACY_COMPANIONS.find((c) => c.id === canonical)
+      || LEGACY_RARE_COMPANIONS.find((c) => c.id === canonical);
   }
 
 
@@ -7259,6 +7381,7 @@
 
   let dateOpen = false;
   let dateChoiceOptions = [];
+  let pendingDatePlan = null;
   let dateMovieTimers = [];
 
   function clearDateMovieTimers() {
@@ -7352,6 +7475,8 @@
     clearConversationTimers();
     hideSpeechBubble();
     dateChoiceOptions = pickDateChoices();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
     el.dateChooser.classList.remove('hidden');
@@ -7366,6 +7491,8 @@
 
   function closeDateOverlay() {
     clearDateMovieTimers();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
@@ -7385,18 +7512,21 @@
     el.dateMovieCaption.classList.remove('beat');
     el.dateMovieCloseBtn.classList.remove('hidden');
     el.dateMovieSkipBtn.classList.add('hidden');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
   }
 
   // デートの選択画面へ戻らず、育成画面へ復帰する。
   function finishOrdinaryDate() {
     clearDateMovieTimers();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
   }
 
-  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -7407,8 +7537,7 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
 
-    const special = (state.items.reward || 0) > 0
-      && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
+    const special = useReward === true && (state.items.reward || 0) > 0;
     if (special) {
       state.items.reward -= 1;
       if (state.items.reward <= 0) delete state.items.reward;
@@ -7422,8 +7551,8 @@
       : `${plan.emoji || '💞'} ${plan.label}`;
 
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
-    el.dateMoviePartner.textContent = partner.emoji || '💞';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
+    el.dateMoviePartner.innerHTML = partnerVisualHTML(partner, 'medium');
 
     const specialMiddleLines = [
       '「きょう、ちょっと いつもと ちがうね」',
@@ -7461,6 +7590,7 @@
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
 
     // 文章を読んで余韻も残せる速度。通常は3.5秒/文、特別デートは4秒/文。
     const step = special ? 4000 : 3500;
@@ -7470,6 +7600,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
@@ -7509,8 +7640,8 @@
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
-    el.dateMoviePartner.textContent = state.partner.emoji || '💞';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
+    el.dateMoviePartner.innerHTML = partnerVisualHTML(state.partner, 'medium');
     const name = state.partner.label;
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
     const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
@@ -7613,6 +7744,7 @@
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 4000;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
@@ -7620,6 +7752,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 800));
@@ -7640,7 +7773,7 @@
     }
   }
 
-  function goOnDate(plan) {
+  function goOnDate(plan, useReward) {
     plan = datePlanForRegion(plan);
     const blocked = dateBlockReason();
     if (blocked) {
@@ -7650,6 +7783,26 @@
       render();
       return;
     }
+    // Native dialogs may be suppressed by an embedded browser. Keep this
+    // decision in the game, and commit no date effects until a choice is made.
+    if ((state.items.reward || 0) > 0 && typeof useReward !== 'boolean') {
+      pendingDatePlan = plan;
+      dateOpen = true;
+      clearDateMovieTimers();
+      clearConversationTimers();
+      hideSpeechBubble();
+      el.dateChooser.classList.add('hidden');
+      el.dateMovie.classList.add('hidden');
+      el.dateRewardPlan.textContent = `${state.partner.label}と、${plan.label}`;
+      el.dateRewardCount.textContent = `ごほうびを${state.items.reward}こ持っている`;
+      el.dateRewardConfirm.classList.remove('hidden');
+      render();
+      el.dateRewardTitle.focus({ preventScroll: true });
+      el.dateRewardConfirm.scrollIntoView({ block: 'nearest' });
+      return;
+    }
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
@@ -7675,7 +7828,7 @@
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きは また今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward);
     render();
   }
 
@@ -7746,7 +7899,7 @@
     el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${legend.emoji} でんせつの であい`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
     el.dateMoviePartner.textContent = legend.emoji;
 
     const beatsById = {
@@ -7834,6 +7987,7 @@
     const beats = (stories.length ? pickMovieLine(stories) : [legend.flash, legend.story]).concat([`💰 足もとに ${coins} が 置かれていた。`]);
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 3500;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
@@ -7841,6 +7995,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
@@ -8912,9 +9067,13 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
-    el.storyFlashEmoji.textContent = event.emoji;
+    if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
+    else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
+    else el.storyFlashEmoji.textContent = event.emoji;
     el.storyFlashText.textContent = event.message;
     el.storyFlash.classList.remove('hidden');
+    // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
+    if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
@@ -9336,7 +9495,7 @@
   function openCompanionInvite(companion, isRare) {
     pendingCompanionId = companion.id;
     companionInviteOpen = true;
-    el.companionInviteEmoji.textContent = companion.emoji;
+    el.companionInviteEmoji.innerHTML = companionVisualHTML(companion, 'hero');
     const progress = (state.lifetime.companionFriendshipProgress || {})[companion.id] || 0;
     const reunited = progress > 0 && !hasRecruitedCompanionId(companion.id);
     el.companionInviteTitle.textContent = isRare
@@ -9927,6 +10086,8 @@
     seasonOpen = false;
     travelOpen = false;
     dateOpen = false;
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     companionInviteOpen = false;
     pickerOpen = false;
     pickerItem = null;
@@ -10145,7 +10306,7 @@
         : `<span class="profile-partner-detail">つぎの ふしめまで あと ${marriageBondThreshold() - (p.bondCount || 0)}かいの きゅうあい</span>`;
       el.profilePartnerCard.innerHTML = `
         <div class="profile-partner-card">
-          <span class="profile-partner-emoji">${p.emoji}</span>
+          <span class="profile-partner-emoji">${partnerVisualHTML(p)}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">${p.label}(${p.married ? '夫婦 💍' : 'こいびと 💑'})</span>
             <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender)}</span>
@@ -10168,7 +10329,7 @@
         if (!c) return '';
         return `
           <div class="profile-companion-row">
-            <span class="profile-companion-emoji">${c.emoji}</span>
+            <span class="profile-companion-emoji">${companionVisualHTML(c, 'companion')}</span>
             <span class="profile-companion-name">${c.name}</span>
             <div class="profile-trait-bar"><div class="profile-trait-fill" style="width:${sc.bond ?? 100}%"></div></div>
           </div>
@@ -10717,6 +10878,10 @@
   // SHOP_ITEMS と ちがい そうび/かいじょの きがえは なく、なんこ もっていても いい
   function renderNaotoItemGrid() {
     syncNaotoRewardItems();
+    const authorUnlocked = isAuthorUnlocked();
+    el.naotoGreetingBtn.classList.toggle('hidden', !authorUnlocked);
+    el.naotoGreetingBtn.innerHTML = authorUnlocked
+      ? `${authorVisualHTML('thumb')}<span>ナオトに はなしかける</span>` : '';
     el.naotoItemGrid.innerHTML = NAOTO_ITEMS.map((item) => {
       const unlocked = state.lifetime.endingTiersReached.includes(item.unlockTier);
       if (!unlocked) {
@@ -10962,11 +11127,10 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    // クリア条件ごとのゴールアート(assets/clear/goal-1.jpg〜goal-5.jpg)。
-    // 差し替えるだけで全画面に反映できる。
+    // ④・⑤は承認済み作者シートに基づく専用アート。正確な達成数はUIで表示する。
     if (el.gameClearArt) {
-      el.gameClearArt.src = `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
-      el.gameClearArt.alt = tier.title;
+      el.gameClearArt.src = tier.art || `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
+      el.gameClearArt.alt = tier.artAlt || tier.title;
     }
     el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
     el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
@@ -10981,6 +11145,11 @@
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
+    if (tierIndex === 3) {
+      const totalForms = ALL_LINES.length * STAGES_PER_LINE;
+      const knownForms = Math.min(state.discoveredStages.length, totalForms);
+      el.gameClearDesc.innerHTML += `<br>📖 みつけた すがた: ${knownForms} / ${totalForms}<br>👑 なおとの かんむりを もらった!`;
+    }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
     const hadPerfect = state.lifetime.endingTiersReached.includes(4);
     qualifyingEndingTiers().forEach((t) => {
@@ -11033,8 +11202,9 @@
     // ヘッダーの ぜんたい数は、しゅぞく・なかま・こいびとの 3セクション
     // ぶんを あわせた かずで あらわす(dex-complete じっせきの はんてい
     // じたいは しゅぞくだけの totalCount の ままで、ここは 表示だけ)
-    const combinedDiscovered = discoveredCount + state.lifetime.companionsRecruited.length + state.lifetime.partnersRecorded.length;
-    const combinedTotal = totalCount + COMPANIONS.length + ALL_PARTNER_CANDIDATES.length;
+    const companionEntries = companionDexEntries();
+    const combinedDiscovered = discoveredCount + companionEntries.filter((c) => hasRecruitedCompanionId(c.id)).length + state.lifetime.partnersRecorded.length;
+    const combinedTotal = totalCount + companionEntries.length + ALL_PARTNER_CANDIDATES.length;
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexFreePlayHint.classList.toggle('hidden', !state.infinite);
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
@@ -11060,36 +11230,39 @@
   // いちらんを べつセクションとして あらわす。種族の ずかんと おなじ
   // dex-cell の 見た目を つかいまわしている
   function renderCompanionDex() {
-    const recruited = state.lifetime.companionsRecruited;
-    el.companionDexProgress.textContent = `${recruited.length} / ${COMPANIONS.length}`;
-    el.companionDexGrid.innerHTML = COMPANIONS.map((c) => {
-      const known = recruited.includes(c.id);
+    const entries = companionDexEntries();
+    const knownCount = entries.filter((c) => hasRecruitedCompanionId(c.id)).length;
+    el.companionDexProgress.textContent = `${knownCount} / ${entries.length}`;
+    el.companionDexGrid.innerHTML = entries.map((c) => {
+      const known = hasRecruitedCompanionId(c.id);
       return known
-        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
+        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${companionVisualHTML(c)}</span><span class="dex-cell-label">${c.name}</span></div>`
         : `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
     }).join('');
   }
 
   // そだち80「レアの きざし」で であえる レアなかまの セクション。まだ
   // ひとりも であっていない あいだは セクションごと かくして おく - ❓が
-  // 5つ ならんでいるだけの「たりない ずかん」に 見えない ように する ため。
+  // ならんでいるだけの「たりない ずかん」に 見えない ように する ため。
   // ヘッダーの ぜんたい数(dexProgress)にも かぞえない。ここは
   // ずかんクリア(dex-complete)の じょうけんとは まったく べつの、
   // であえたら うれしい だけの おまけの コレクション
   function renderRareCompanionDex() {
-    const recruited = state.lifetime.rareCompanionsRecruited || [];
-    const show = recruited.length > 0;
+    const entries = rareCompanionDexEntries();
+    const recruited = new Set((state.lifetime.rareCompanionsRecruited || []).map(canonicalCompanionId));
+    const knownCount = entries.filter((c) => recruited.has(c.id)).length;
+    const show = knownCount > 0;
     el.rareCompanionDexDivider.classList.toggle('hidden', !show);
     el.rareCompanionDexGrid.classList.toggle('hidden', !show);
     if (!show) {
       el.rareCompanionDexGrid.innerHTML = '';
       return;
     }
-    el.rareCompanionDexProgress.textContent = `${recruited.length} / ${RARE_COMPANIONS.length}`;
-    el.rareCompanionDexGrid.innerHTML = RARE_COMPANIONS.map((c) => {
-      const known = recruited.includes(c.id);
+    el.rareCompanionDexProgress.textContent = `${knownCount} / ${entries.length}`;
+    el.rareCompanionDexGrid.innerHTML = entries.map((c) => {
+      const known = recruited.has(c.id);
       return known
-        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
+        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${companionVisualHTML(c)}</span><span class="dex-cell-label">${c.name}</span></div>`
         : '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
     }).join('');
   }
@@ -11107,14 +11280,13 @@
         return '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
       }
       const label = married.includes(c.id) ? `💍 ${c.label}` : c.label;
-      return `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${label}</span></div>`;
+      return `<div class="dex-cell known"><span class="dex-cell-emoji">${partnerVisualHTML(c)}</span><span class="dex-cell-label">${label}</span></div>`;
     }).join('');
   }
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼって
   // はなれて いった なかまは ここに いない)を、#pet の こどもとして
-  // 本体キャラの りょうサイドに くっつけて 表示する。#pet の こどもなので、
-  // idle-float の ゆれにも 本体キャラと まったく おなじように ついてくる。
+  // 本体キャラの左右の列に表示する。本体だけを動かし、仲間の位置は保つ。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
@@ -11122,14 +11294,13 @@
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
-    const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${c.emoji}</span>`;
+    const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${companionVisualHTML(c, 'companion')}</span>`;
     el.companionLeft.innerHTML = left.map(chip).join('');
     el.companionRight.innerHTML = right.map(chip).join('');
   }
 
   // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
-  // ハートで かこんで 表示する。#pet の こどもなので、idle-float の ゆれにも
-  // 本体キャラと まったく おなじように ついてくる。けっこんずみの ときは
+  // ハートで囲み、中央セルの左上に表示する。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
     const p = !hide && state.partner;
@@ -11140,7 +11311,7 @@
     }
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${p.label}">${p.emoji}${ring}</span><span class="partner-heart">💕</span>`;
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(p.label)}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
   }
 
   // まだ 1どでも であった ことの ない れんくんは、こうほに まぎれても
@@ -21881,7 +22052,8 @@
       const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
       if (companion) {
-        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
+        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id)
+          || LEGACY_RARE_COMPANIONS.some((c) => c.id === companion.id);
         const threshold = isRare ? RARE_COMPANION_RECRUIT_THRESHOLD : COMPANION_RECRUIT_THRESHOLD;
         if (clampedScore >= threshold) {
           const record = isRare
@@ -22125,13 +22297,15 @@
     return pool.length ? pool[Math.floor(Math.random() * pool.length)] : '';
   }
 
-  function withFeedback(fn) {
+  function withFeedback(fn, afterRender) {
     return () => {
       clearConversationTimers();
       hideSpeechBubble();
-      fn();
+      const result = fn();
       saveState();
       render();
+      // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
+      if (afterRender) afterRender(result);
     };
   }
 
@@ -22435,9 +22609,9 @@
       `${candidate.emoji} ${candidate.label}と はじめて 目があった。`,
       'なんとなく、また 会う気がした。',
     ];
-    showStoryEvent({ emoji: candidate.emoji, message: beats[0] });
+    showStoryEvent({ emoji: candidate.emoji, character:candidate, message: beats[0] });
     beats.slice(1).filter(Boolean).forEach((text, index) => {
-      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
     });
     pushLifeLog(candidate.emoji, `${candidate.label}と はじめて であった`);
     state.happiness = clamp(state.happiness + 3, 0, 100);
@@ -22807,6 +22981,33 @@
     closeDateOverlay();
   });
 
+  function confirmDateReward(useReward) {
+    const plan = pendingDatePlan;
+    if (!dateOpen || !plan) return;
+    pendingDatePlan = null;
+    goOnDate(plan, useReward);
+  }
+
+  function returnToDateChoices() {
+    if (!dateOpen || !pendingDatePlan) return;
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    render();
+    el.dateCancelBtn.focus({ preventScroll: true });
+    el.dateChooser.scrollIntoView({ block: 'nearest' });
+  }
+
+  el.dateRewardUseBtn.addEventListener('click', () => confirmDateReward(true));
+  el.dateRewardSkipBtn.addEventListener('click', () => confirmDateReward(false));
+  el.dateRewardBackBtn.addEventListener('click', returnToDateChoices);
+  el.dateRewardConfirm.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      returnToDateChoices();
+    }
+  });
+
   el.dateMovieSkipBtn.addEventListener('click', () => {
     finishDateMovie();
   });
@@ -22977,14 +23178,22 @@
   }));
 
   el.gameClearCloseBtn.addEventListener('click', withFeedback(() => {
+    const goal = grandGoalPending;
     grandGoalPending = null;
+    return goal;
+  }, (goal) => {
+    if (goal === 'dex' || goal === 'perfect') showAuthorGreeting(goal);
   }));
 
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
+    const goal = grandGoalPending;
     grandGoalPending = null;
     // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
     // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();
+    return goal;
+  }, (goal) => {
+    if (goal === 'perfect') showAuthorGreeting(goal);
   }));
 
   el.dexBtn.addEventListener('click', () => openExclusiveMenu('dex'));
@@ -23107,6 +23316,14 @@
   el.naotoItemGrid.addEventListener('click', () => {
     // 達成報酬なので購入操作はない。
   });
+
+  el.naotoGreetingBtn.addEventListener('click', withFeedback(() => {
+    if (!isAuthorUnlocked()) return false;
+    closeAllMenuOverlays();
+    return true;
+  }, (opened) => {
+    if (opened) showAuthorGreeting();
+  }));
 
   el.pickerGrid.addEventListener('click', (e) => {
     const cell = e.target.closest('[data-picker-value]');

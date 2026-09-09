@@ -1,0 +1,193 @@
+{
+  "checkpoint": "BQ",
+  "date": "2026-09-09",
+  "baseline": {
+    "head": "7a4f7d8db5c6885f93df99587845072370a59fa4",
+    "tree": "f0dbe178416c1e9479a8a0aee092c014cc6e5b31",
+    "workflow": {
+      "number": 238,
+      "runId": 34368234028,
+      "conclusion": "success"
+    },
+    "main": "da5c631a911504e78c8b88fae373f30b85f26b31",
+    "filesMatchedByBlobAndMode": 457,
+    "noLaterChangesAtResume": true
+  },
+  "productionChanges": [],
+  "regression": {
+    "command": "npm test",
+    "exitCode": 0,
+    "log": "docs/art/qa-bq/npm-test.log",
+    "domIds": 287,
+    "minigames": 100,
+    "variantCollections": 91,
+    "newChooserCases": 6,
+    "newChooserCasesComplete": 5,
+    "newChooserCasesSkipped": 1,
+    "chooserCancellation": true,
+    "distinctDeepseaOpeningBranches": 30,
+    "deepseaPlans": 10,
+    "nativeGameHandlersUsed": [
+      "worldDateBtn",
+      "dateChoiceGrid",
+      "dateMovieSkipBtn",
+      "dateMovieCloseBtn",
+      "dateCancelBtn"
+    ],
+    "saveOutputFedThroughRealLoadState": true,
+    "clockAndCooldownPauseResume": true,
+    "ringBranch": true,
+    "testDependencies": "Mock DOM, controlled Node VM timers/RNG, synchronous confirm stub and captured storage writes; real product functions and handlers. Not browser rendering.",
+    "review": "Read-only independent review of tests, fixtures, package and CI. Cancel-return gap fixed. No remaining findings in that reviewed scope."
+  },
+  "mutations": {
+    "resultsFile": "docs/art/qa-bq/date-mutation-results.json",
+    "cases": 4,
+    "expectedFailuresCaught": 4,
+    "productionFileEdited": false
+  },
+  "testDevelopmentCorrections": [
+    {
+      "issue": "Initial expected cooldown 8 did not match existing product value 60",
+      "resolution": "Corrected test expectation after checking product specification/comment and constant",
+      "isProductDefect": false
+    },
+    {
+      "issue": "Initial cancel test did not prove the overlay closes and clock resumes",
+      "resolution": "Added assertions and verified no-op-cancel mutation fails",
+      "isProductDefect": false
+    }
+  ],
+  "developmentFixtures": {
+    "newCount": 9,
+    "newNames": [
+      "anniversary_1_scrolled",
+      "anniversary_50_scrolled",
+      "legend_gate_cared",
+      "legend_stairs_cared",
+      "legend_lamp_cared",
+      "legend_mirror_cared",
+      "special_date_two",
+      "special_date_ring",
+      "deepsea_special_date"
+    ],
+    "existingBpFixturesPreserved": true,
+    "productionClockRngOrClosureOverrides": false,
+    "routeValidation": "tests/visual-qa-test.cjs"
+  },
+  "browser": {
+    "limitationFile": "docs/art/qa-bq/browser-connection-limitation.json",
+    "newCasesCompleted": 0,
+    "newScreenshots": 0,
+    "previewStarted": false,
+    "nativeConfirmState": "unresolved",
+    "productionConfirmChanged": false
+  },
+  "approvedImages": {
+    "total": 301,
+    "characterPNG": 294,
+    "endingJPEG": 7,
+    "byteIdenticalToBP": true,
+    "referenceManifest": "docs/art/movie-completion-validation.json#approvedImages"
+  },
+  "productFilesUnchanged": [
+    "script.js",
+    "style.css",
+    "index.html",
+    "character-world-master.v1.js",
+    "CHARACTER_ASSET_SPEC_V1.md"
+  ],
+  "remainingBrowserChecks": [
+    "special date full movie and consumption",
+    "deepsea full movie",
+    "BP-1 first and fiftieth anniversaries",
+    "tenth anniversary post-close return",
+    "remaining nine legend stories",
+    "physical iPhone/Safari and Android",
+    "all 248 forms motion",
+    "all partners/plans/dialogue branches",
+    "100 minigames manually completed"
+  ],
+  "pullRequestPolicy": {
+    "number": 183,
+    "keepDraft": true,
+    "mergeOnlyOnExplicitUserRequest": true
+  },
+  "hashes": [
+    {
+      "path": "script.js",
+      "sha256": "9d171e3d5272ec545cadb9967073b6374d7f0aaf01fa89c842c46b3b8a066c1e",
+      "gitBlobSha": "b3ddfd4fb18aa842301ce925aef9042423b3fa7e"
+    },
+    {
+      "path": "style.css",
+      "sha256": "edc9b5b62397ce0b44b2dcaab6cbaa6da6eef07cc4c82f5afe0ed8ec322b66a2",
+      "gitBlobSha": "6c8640c6a90c4fbfef9425006d1ef0637457f60e"
+    },
+    {
+      "path": "index.html",
+      "sha256": "11394b14fac45667716a692cc36b5edb502cdb1eb45f8e66116a6fb371e64a42",
+      "gitBlobSha": "82e69ae2e672f880e49e221f1e4f138832061146"
+    },
+    {
+      "path": "character-world-master.v1.js",
+      "sha256": "4547553d6cbb41436a75a90aaa23c0296c08f9fe7b1bf5a26b308eb5cf061c53",
+      "gitBlobSha": "f84faa45763db2ecc33bebcc7fc2cb2545270912"
+    },
+    {
+      "path": "CHARACTER_ASSET_SPEC_V1.md",
+      "sha256": "0757f844cc9af43df41590012fa1e3374e58854204e5f5d485231c22f439bb1f",
+      "gitBlobSha": "03de8a2723be761e8115d84fcfbfc584ba751bfc"
+    },
+    {
+      "path": ".github/workflows/runtime-smoke-test.yml",
+      "sha256": "0ca0c4a19ac3622250050b877916ebed9cd77c326a98dd7687da2645888e6477",
+      "gitBlobSha": "c29fc6edeffa05b9497ac0c1e5b66c6184fe7d3f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "dd6f7aad89db97fd13c59d19e4693a5090535ebefb6750f00f637b9dbdbf93be",
+      "gitBlobSha": "9400a43604d3a771c776370038aae952f26dd675"
+    },
+    {
+      "path": "tests/dialogue-test.js",
+      "sha256": "5d8724a9ff72cecd66c5e18565921121bd7ee04566b521514529adb9df8b6685",
+      "gitBlobSha": "f729c2b6b7360b2f73d453b5fef868715c56ddfb"
+    },
+    {
+      "path": "tests/visual-qa.cjs",
+      "sha256": "5443a19136af24097605d601222f5b6cf2a7074548ddb6dabb50317401203925",
+      "gitBlobSha": "b5e8fd5977685a30b3420b6ba3766513e13d14ac"
+    },
+    {
+      "path": "tests/visual-qa-test.cjs",
+      "sha256": "65236606b57d016dacb84814d5c94320e6c0c342b8df61a5ada3cb1e4849dfe8",
+      "gitBlobSha": "e2f0bab89129f266ac194c0013d01ff3e761ae6c"
+    },
+    {
+      "path": "docs/art/date-lifecycle-validation.md",
+      "sha256": "ea92e11778b1dfd71612f01018ec8bb32005441f1cf027375aa327bfca249fa0",
+      "gitBlobSha": "e1afca86b2108b42c310186084a22a910dc428b9"
+    },
+    {
+      "path": "DEVELOPMENT_CHECKPOINT_2026-09-07.md",
+      "sha256": "44af97edbfebf883458375e231fa77bf9824acababe0baf7a1dc30d30520c25e",
+      "gitBlobSha": "bde7c2d782bfa553c324c523e3ef2be618f257e4"
+    },
+    {
+      "path": "docs/art/qa-bq/browser-connection-limitation.json",
+      "sha256": "b4eefc9d11191bd0363f2bed3df6e7e6e738e8fbd7fc5131c03d8a45944e68e4",
+      "gitBlobSha": "f3a567de1609f72a1d5bc66314012d3c4c1babcc"
+    },
+    {
+      "path": "docs/art/qa-bq/date-mutation-results.json",
+      "sha256": "69452116d3985505a71553e95daea4ab3c01a11d66d69383e91965436f2914a2",
+      "gitBlobSha": "530184e7a2662e35e183f55ca647398eeae989ae"
+    },
+    {
+      "path": "docs/art/qa-bq/npm-test.log",
+      "sha256": "a0b7b6e84c366b54b48fa1f65ab9549f850934e042f32a0af10b179f738b1d91",
+      "gitBlobSha": "5110d7a887d3147898cd5b0c3c580894357aa984"
+    }
+  ]
+}

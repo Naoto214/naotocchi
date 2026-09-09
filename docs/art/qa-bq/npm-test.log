@@ -1,0 +1,21 @@
+
+> test
+> node tests/smoke-test.js && node tests/dialogue-test.js && node tests/visual-qa-test.cjs
+
+SMOKE TEST OK
+DOM ids: 287
+minigames started: 100
+variant collections: 91
+LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.
+DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 legend stories; 16 anniversary cases.
+DATE LIFECYCLE TEST OK: 6 chooser cases; confirm accept/decline/absent; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; chooser cancel; 30 complete deepsea branches.
+WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.
+CAST TEST OK: snail encounters and speech; legacy koala load, bond, row, dex and earned achievements; PNG renderer reference.
+NORMAL CAST PNG TEST OK: 19 PNG headers; 18 companions x 5 renderer sizes; 9+9 live rows; collected and locked dex.
+RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/row/dex; hidden and partial dex; 13+13 mixed rows; bond retained.
+CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.
+PARTNER CAST PNG TEST OK: 18 PNGs x 5 sizes; saved relationships; companion/profile/dex; 180 complete dates; 72 complete anniversaries; first encounters; aliases, guests and hidden dex.
+AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5 and both exits; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; original goals 1-3.
+MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.
+VISUAL QA ROUTE TEST OK: generated script compiles; 3 delayed anniversaries; 5 pending legends; reward counts, ring and deepsea saves. No browser rendering claimed.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.

@@ -1,0 +1,46 @@
+{
+  "method": "Transient source replacement inside Node VM only; production files not written",
+  "results": [
+    {
+      "name": "chooser-cancel-does-nothing",
+      "productionReplacement": {
+        "before": "el.dateCancelBtn.addEventListener('click', () => {\n    closeDateOverlay();\n  });",
+        "after": "el.dateCancelBtn.addEventListener('click', () => {});"
+      },
+      "expectedFailure": "cancelled chooser stayed open",
+      "failure": "cancelled chooser stayed open\n\nfalse !== true\n",
+      "caughtExpectedFailure": true
+    },
+    {
+      "name": "omit-save-after-special-reward",
+      "productionReplacement": {
+        "before": "    saveState();\n  }\n\n  const MARRIAGE_MILESTONES",
+        "after": "  }\n\n  const MARRIAGE_MILESTONES"
+      },
+      "expectedFailure": "accept-one: consumed reward returned after loading",
+      "failure": "accept-one: consumed reward returned after loading\n\n1 !== 0\n",
+      "caughtExpectedFailure": true
+    },
+    {
+      "name": "special-close-only-finishes-movie",
+      "productionReplacement": {
+        "before": "el.dateMovieCloseBtn.addEventListener('click', () => {\n    closeDateOverlay();\n  });",
+        "after": "el.dateMovieCloseBtn.addEventListener('click', () => {\n    if (el.dateMovieScene.dataset.plan === 'special') finishDateMovie();\n    else closeDateOverlay();\n  });"
+      },
+      "expectedFailure": "accept-one: overlay stayed open",
+      "failure": "accept-one: overlay stayed open\n\nfalse !== true\n",
+      "caughtExpectedFailure": true
+    },
+    {
+      "name": "deepsea-memory-reverts-to-land",
+      "productionReplacement": {
+        "before": "\"memory\": \"岩かげで ひと休みした\"",
+        "after": "\"memory\": \"あめやどりを した\""
+      },
+      "expectedFailure": "rain: regional memory missing",
+      "failure": "rain: regional memory missing",
+      "caughtExpectedFailure": true
+    }
+  ],
+  "productionBytesUnchanged": true
+}

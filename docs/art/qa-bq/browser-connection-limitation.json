@@ -1,0 +1,19 @@
+{
+  "checkpoint": "BQ",
+  "date": "2026-09-09",
+  "baselineHead": "7a4f7d8db5c6885f93df99587845072370a59fa4",
+  "browserSetupSucceeded": true,
+  "observations": [
+    { "operation": "browser.tabs.list", "outcome": "CDP operation refresh tabs timed out after 20000ms" },
+    { "operation": "browser discovery after reading troubleshooting guidance", "outcome": "existing Chrome browser is advertised" },
+    { "operation": "browser.tabs.new followed by intended getJsDialog", "outcome": "CDP operation refresh tabs timed out after 20000ms; tab handle was not obtained and getJsDialog was not reached" },
+    { "operation": "browser.user.openTabs", "outcome": "empty list; does not establish that no JavaScript dialog remains" }
+  ],
+  "dialogState": "unresolved; neither read nor dismissed in BQ",
+  "previewStarted": false,
+  "newBrowserCasesCompleted": 0,
+  "newScreenshots": 0,
+  "productionConfirmChanged": false,
+  "alternateBrowserControlUsed": false,
+  "conclusion": "Browser tab access is unavailable in this session. The prior special-date timeout is not established as a game defect. Automated Node results do not add to browser coverage."
+}
