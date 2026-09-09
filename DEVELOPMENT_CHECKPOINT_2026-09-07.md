@@ -1612,3 +1612,12 @@ Runtime smoke test SUCCESS確認済み。
 - プレビューへの移動とDOM取得を続けて行う呼び出し全体が25秒でタイムアウトし、実行環境のkernel reset通知が返った。途中結果がなく、どちらの操作で停止したかは断定しない。プレビューを停止し、停止状態を確認した。新しい実画面完走・写真は0件。製品confirmやゲームの時計・乱数は変更していない。
 - BRは記録のみの変更。BQの製品・テスト・9つの追加セーブ、31種248形態、301画像、旧キャスト/旧PERFECT解放、100ミニゲームを保持。`docs/art/browser-recovery-validation.md` と `qa-br/browser-recovery-results.json` に操作結果と再開時の注意点を保存。確定HEAD/treeと当該HEADのActionsは保存後に再取得しPR #183に記録する。
 - ブラウザー接続が利用可能になるまで実画面確認は継続できない。特別/深海全編、BP-1の1周年/金婚式、10周年終了後復帰、残り9伝説物語、物理端末・全248形態動作・全恋人/プラン/台詞・100ミニゲーム手動完走の未確認範囲は変わらない。全体開発は未完了。明示的なマージ依頼までDraft・未マージを維持する。
+
+## チェックポイント BS（2026-09-09）：移動成功と画面取得停止の切り分け
+
+- GitHubのPR本文・HEAD・直近履歴・当該HEADのActions・最新mainを取得。BR `a92ab771eefc64d88cb32f9975764ad4f6aaed28` / tree `d2fe437bcf8e4d4b46aba13f464a2113131b960c` / Runtime #240（run `34371055177`）SUCCESSから後続変更なし。mainは `da5c631a911504e78c8b88fae373f30b85f26b31`。PR #183はopen / Draft・未マージ・競合なし。巻き戻しなし。
+- このcheckoutのプレビューは初回起動でrunning。タブ作成・移動・画面取得を単独の呼び出しに分け、新規タブID 11の作成成功とプレビューへの `Navigation completed` を取得した。BRのように複合操作の結果から停止箇所を推測していない。
+- DOM取得・復旧通知後のタブ一覧・対応済みの別APIによる表示DOM取得は `CDP operation refresh tabs was superseded by browser recovery`。撮影とID 11のダイアログ取得は20秒でタイムアウト。選択済みChromeは引き続き検出されたが、画面の読み取りは復旧していない。元のタブの残存confirmの有無・内容・解除も未確認。
+- 移動成功の応答をゲームの描画確認とは扱わない。特別デートの操作に進めず、新しい実画面完走・字幕観測・写真・消費/復帰の確認は0件。製品confirm・時計・乱数は変更していない。プレビューを停止し、停止状態を確認した。
+- BSは記録3ファイルのみ。`docs/art/browser-recovery-validation.md` のBS追記と `qa-bs/browser-recovery-results.json` に各結果を保存。製品・301画像・テスト・検証セーブは未変更。保存後のHEAD・tree・当該HEADのActionsをGitHubから再取得してPR本文に記録する。
+- 実画面確認は接続復旧が必要。特別/深海全編、BP-1の1周年/金婚式、10周年終了後復帰、残り9伝説物語、物理iPhone/Safari・Android、全248形態動作、全恋人×全プラン×全台詞分岐、100ミニゲーム手動完走の未確認範囲は変わらない。全体開発は未完了。明示的なマージ依頼までDraft・未マージを維持する。
