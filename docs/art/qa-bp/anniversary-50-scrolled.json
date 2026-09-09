@@ -1,0 +1,63 @@
+{
+  "mode": "next-movie",
+  "scene": "anniversary_scrolled",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 6149.600000008941,
+  "observedMovieMs": 25824.29999999702,
+  "completeAtMs": 24808.5,
+  "maxFrameGapMs": 48.599999994039536,
+  "openingFrameGapMs": 21.80000001192093,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1530,
+  "failedFrames": 0,
+  "layoutFailedFrames": 0,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1530,
+  "movieCompleteFrames": 61,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "となりまちの ロボットと けっこんして 50ねん。"
+    },
+    {
+      "atMs": 4011.0999999940395,
+      "text": "「急がなくなったね」「待つのも 上手になった」"
+    },
+    {
+      "atMs": 8010.29999999702,
+      "text": "「思い出が 増えても、整理は しないでおきます」"
+    },
+    {
+      "atMs": 12009.199999988079,
+      "text": "「昔のふたり、信じるかな」「まず 座ってもらおう」"
+    },
+    {
+      "atMs": 16012.09999999404,
+      "text": "「これからも よろしく、で いい?」「うん。こちらこそ」"
+    },
+    {
+      "atMs": 20008.39999999106,
+      "text": "ふたりは また、いつもの 速さで あるきだした。"
+    }
+  ],
+  "movieTitles": [
+    "🥇 きんこんしき"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/08.png"
+  ],
+  "moviePartnerAssets": [
+    "assets/characters/partners/robot_neighbor.png"
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": true
+}

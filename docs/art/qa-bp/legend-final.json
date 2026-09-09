@@ -1,0 +1,67 @@
+{
+  "mode": "next-movie",
+  "scene": "legend_boss_cared",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 144134.20000000298,
+  "observedMovieMs": 26026.29999999702,
+  "completeAtMs": 25009.79999999702,
+  "maxFrameGapMs": 46.900000005960464,
+  "openingFrameGapMs": 19.799999997019768,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1516,
+  "failedFrames": 0,
+  "layoutFailedFrames": 0,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1516,
+  "movieCompleteFrames": 60,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "🦑 大きなイカが、遠くから おじぎをしている。"
+    },
+    {
+      "atMs": 3497.0999999940395,
+      "text": "近づいてみたら、まだ おじぎをしていた。"
+    },
+    {
+      "atMs": 6996.0999999940395,
+      "text": "🦑「お時間を とらせてしまい……」"
+    },
+    {
+      "atMs": 10495.79999999702,
+      "text": "「話す前から あやまってない?」"
+    },
+    {
+      "atMs": 14011.09999999404,
+      "text": "🦑 イカは 少し考えて、もう一度おじぎをした。"
+    },
+    {
+      "atMs": 17511.29999999702,
+      "text": "何の用だったのかは、最後まで わからなかった。"
+    },
+    {
+      "atMs": 21009.79999999702,
+      "text": "💰 足もとに 350 が 置かれていた。"
+    }
+  ],
+  "movieTitles": [
+    "🦑 でんせつの であい"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/06.png"
+  ],
+  "moviePartnerAssets": [
+    null
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": true
+}

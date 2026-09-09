@@ -5249,6 +5249,8 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   width: 100%;
   max-width: 286px;
   text-align: center;
+  /* Keep a small inset when scrollIntoView rounds fractional panel positions. */
+  scroll-margin-block: 8px;
 }
 
 .date-movie-scene {

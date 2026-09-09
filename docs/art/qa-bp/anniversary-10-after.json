@@ -1,0 +1,116 @@
+{
+  "mode": "next-movie",
+  "scene": "anniversary_10",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 3063.2000000029802,
+  "observedMovieMs": 21826.40000000596,
+  "completeAtMs": 20809.60000000894,
+  "maxFrameGapMs": 57.599999994039536,
+  "openingFrameGapMs": 20.599999994039536,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1275,
+  "failedFrames": 458,
+  "firstFailure": {
+    "scene": "anniversary_10",
+    "width": 305,
+    "height": 640,
+    "pageHeight": 1038,
+    "stylesheet": "style.css?v=20260909-cast-layout-bp-1",
+    "gameScript": "script.js?v=20260909-cast-movies-bo-2",
+    "heroAsset": "assets/characters/man/06.png",
+    "storyVisible": false,
+    "storyText": null,
+    "storyTextOverflow": false,
+    "storyAsset": null,
+    "profileVisible": false,
+    "profilePartnerAsset": null,
+    "profilePartnerText": null,
+    "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+    "moviePetAsset": "assets/characters/man/06.png",
+    "moviePartnerAsset": "assets/characters/partners/robot_neighbor.png",
+    "movieVisible": true,
+    "movieOverflow": false,
+    "movieClipped": false,
+    "movieCaptionOverlap": false,
+    "movieOutsideViewport": true,
+    "moviePanelBounds": {
+      "top": -135.078125,
+      "bottom": 156.453125,
+      "height": 291.53125
+    },
+    "movieCaptionOverflow": false,
+    "movieCaptionOutside": false,
+    "movieText": "となりまちの ロボットと けっこんして 10ねん。",
+    "movieTitle": "🎀 けっこん 10しゅうねん",
+    "movieComplete": false,
+    "movieRowWidth": 173,
+    "movieRowContentWidth": 173,
+    "moviePetDisplay": "block",
+    "movieAnimation": "date-actor-walk",
+    "petDisplay": "grid",
+    "areaWidth": 193,
+    "speechOverlap": false,
+    "actorOverlap": false,
+    "overlapPairs": [],
+    "detached": 0,
+    "panelOverflow": [],
+    "storyOutsideViewport": false,
+    "animations": [
+      "none",
+      "emote-happy"
+    ],
+    "companions": 26,
+    "outside": 0,
+    "pendingImages": 0,
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "layoutChecksPass": false,
+    "checksPass": false
+  },
+  "layoutFailedFrames": 458,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1275,
+  "movieCompleteFrames": 58,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "となりまちの ロボットと けっこんして 10ねん。"
+    },
+    {
+      "atMs": 3996.7999999970198,
+      "text": "「10周年らしいよ」「じゃあ 今日は ちょっと いいもの 食べよ」"
+    },
+    {
+      "atMs": 7994.9000000059605,
+      "text": "「好きの計算、まだ 終わりません」"
+    },
+    {
+      "atMs": 11994.70000000298,
+      "text": "ふたりで 10年前の はなしをして、半分くらい 記憶が ちがっていた。"
+    },
+    {
+      "atMs": 16010.70000000298,
+      "text": "「まあ、これからも よろしく」"
+    }
+  ],
+  "movieTitles": [
+    "🎀 けっこん 10しゅうねん"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/06.png"
+  ],
+  "moviePartnerAssets": [
+    "assets/characters/partners/robot_neighbor.png"
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": false
+}

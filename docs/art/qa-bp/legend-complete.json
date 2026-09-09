@@ -1,0 +1,119 @@
+{
+  "mode": "next-movie",
+  "scene": "legend_boss_cared",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 432202.69999999553,
+  "observedMovieMs": 26028.80000001192,
+  "completeAtMs": 25016.80000001192,
+  "maxFrameGapMs": 72,
+  "openingFrameGapMs": 33.5,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1515,
+  "failedFrames": 1353,
+  "firstFailure": {
+    "scene": "legend_boss_cared",
+    "width": 305,
+    "height": 640,
+    "pageHeight": 1018,
+    "stylesheet": "style.css?v=20260909-cast-layout-bo-2",
+    "gameScript": "script.js?v=20260909-cast-movies-bo-2",
+    "heroAsset": "assets/characters/man/06.png",
+    "storyVisible": false,
+    "storyText": null,
+    "storyTextOverflow": false,
+    "storyAsset": null,
+    "profileVisible": false,
+    "profilePartnerAsset": null,
+    "profilePartnerText": null,
+    "partnerAsset": null,
+    "moviePetAsset": "assets/characters/man/06.png",
+    "moviePartnerAsset": null,
+    "movieVisible": true,
+    "movieOverflow": false,
+    "movieClipped": false,
+    "movieCaptionOverlap": false,
+    "movieOutsideViewport": true,
+    "movieCaptionOverflow": false,
+    "movieCaptionOutside": false,
+    "movieText": "🦑 大きなイカが、遠くから おじぎをしている。",
+    "movieTitle": "🦑 でんせつの であい",
+    "movieComplete": false,
+    "movieRowWidth": 173,
+    "movieRowContentWidth": 173,
+    "moviePetDisplay": "block",
+    "movieAnimation": "date-actor-walk",
+    "petDisplay": "grid",
+    "areaWidth": 193,
+    "speechOverlap": false,
+    "actorOverlap": false,
+    "overlapPairs": [],
+    "detached": 0,
+    "panelOverflow": [],
+    "storyOutsideViewport": false,
+    "animations": [
+      "legend-aura-pulse",
+      "emote-love"
+    ],
+    "companions": 26,
+    "outside": 0,
+    "pendingImages": 0,
+    "brokenImages": 0,
+    "horizontalOverflow": false,
+    "layoutChecksPass": false,
+    "checksPass": false
+  },
+  "layoutFailedFrames": 1353,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1515,
+  "movieCompleteFrames": 62,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "🦑 大きなイカが、遠くから おじぎをしている。"
+    },
+    {
+      "atMs": 3499.300000011921,
+      "text": "近づいてみたら、まだ おじぎをしていた。"
+    },
+    {
+      "atMs": 6998.5,
+      "text": "🦑「お時間を とらせてしまい……」"
+    },
+    {
+      "atMs": 10499,
+      "text": "「話す前から あやまってない?」"
+    },
+    {
+      "atMs": 13998.800000011921,
+      "text": "🦑 イカは 少し考えて、もう一度おじぎをした。"
+    },
+    {
+      "atMs": 17536.60000000894,
+      "text": "何の用だったのかは、最後まで わからなかった。"
+    },
+    {
+      "atMs": 20997.10000000894,
+      "text": "💰 足もとに 350 が 置かれていた。"
+    }
+  ],
+  "movieTitles": [
+    "🦑 でんせつの であい"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/06.png"
+  ],
+  "moviePartnerAssets": [
+    null
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": false
+}

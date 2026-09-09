@@ -48,10 +48,18 @@ function createFixtures() {
         make('anniversary_' + years,26,{ageTicks:(25+years)*20-1,marriageAge:25,
           marriageMilestonesSeen:[1,10,25,50].filter(y=>y<years)});
       }
+      make('anniversary_10_scrolled',26,{ageTicks:696,marriageAge:25,marriageMilestonesSeen:[1]});
       const legendPending = make('legend_boss',26,{partner:null,legendMet:false,
         sodachi:95,maxSodachi:95,hunger:100,energy:100,happiness:100});
       legendPending.lifetime.legendsMet = ['gate','stairs','lamp','mirror'];
       legendPending.lifetime.money = 362;
+      const legendCared = make('legend_boss_cared',26,{partner:null,legendMet:false,
+        sodachi:95,maxSodachi:95,hunger:85,energy:100,happiness:100});
+      legendCared.lifetime.legendsMet = ['gate','stairs','lamp','mirror'];
+      legendCared.oneTimeBoosts.sicknessShieldCount = 12;
+      const specialDate = make('special_date',26,{items:{reward:1},datesThisLife:2});
+      specialDate.lifetime.money = 123456789;
+      make('deepsea_date',26,{regionId:'deepsea',partner:partner('anglerfish',{married:true})});
       const scrolledAnniversary = make('anniversary_scrolled',26,{ageTicks:1498,
         marriageAge:25,marriageMilestonesSeen:[1,10,25]});
       scrolledAnniversary.lifetime.money = 123456789;
@@ -92,6 +100,7 @@ function visualQaPlugin() {
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
           <button id="load">Load scene</button> <button id="measure">Measure layout</button>
+          <button id="loadMovie">Load and observe next movie</button>
           <button id="observe">Observe motion (4s)</button>
           <button id="observeStory">Observe story (9s)</button>
           <button id="observeMovie">Observe movie (32s)</button>
@@ -99,7 +108,9 @@ function visualQaPlugin() {
           <script>
           const fixtures=${JSON.stringify(fixtures).replace(/</g,'\\u003c')};
           const mount=document.getElementById('mount');
-          document.getElementById('load').onclick=()=>{
+          let observationToken=0;
+          function loadScene(watchMovie=false){
+            observationToken++;
             // Let the old game finish its unload save before installing the fixture.
             mount.replaceChildren();
             setTimeout(()=>{
@@ -107,11 +118,14 @@ function visualQaPlugin() {
               const frame=document.createElement('iframe');frame.title='Game preview';frame.id='game';
               frame.width=document.getElementById('width').value;frame.height=document.getElementById('height').value;frame.src='/';mount.append(frame);
               document.getElementById('result').textContent='Loaded '+document.getElementById('scene').value;
+              if(watchMovie)observeNextMovie();
             },0);
-          };
+          }
+          document.getElementById('load').onclick=()=>loadScene();
+          document.getElementById('loadMovie').onclick=()=>loadScene(true);
           function measure(){
             const doc=document.getElementById('game')?.contentDocument;
-            if(!doc)return;
+            if(!doc||doc.readyState==='loading'||!doc.getElementById('petArea'))return;
             const area=doc.getElementById('petArea').getBoundingClientRect();
             const chips=[...doc.querySelectorAll('.companion-chip-small')];
             const outside=chips.filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&(r.left<area.left||r.right>area.right||r.top<area.top||r.bottom>area.bottom)});
@@ -159,6 +173,7 @@ function visualQaPlugin() {
               moviePetAsset:doc.querySelector('#dateMoviePet img')?.getAttribute('src')||null,
               moviePartnerAsset:doc.querySelector('#dateMoviePartner img')?.getAttribute('src')||null,
               movieVisible:movieBounds.width>0,movieOverflow,movieClipped,movieCaptionOverlap,movieOutsideViewport,
+              moviePanelBounds:{top:moviePanel.top,bottom:moviePanel.bottom,height:moviePanel.height},
               movieCaptionOverflow,movieCaptionOutside,
               movieText:movieBounds.width>0?movieCaptionNode.textContent:null,
               movieTitle:movieBounds.width>0?doc.getElementById('dateMoviePlace').textContent:null,
@@ -178,9 +193,11 @@ function visualQaPlugin() {
           }
           document.getElementById('measure').onclick=()=>document.getElementById('result').textContent=JSON.stringify(measure(),null,2);
           function observe(duration){
+            const token=++observationToken;
             const samples=[];const start=performance.now();
             document.getElementById('result').textContent='Observing';
             function sample(){
+              if(token!==observationToken)return;
               samples.push(measure());
               if(performance.now()-start<duration){requestAnimationFrame(sample);return;}
               const failed=samples.filter(s=>!s.checksPass);
@@ -201,6 +218,75 @@ function visualQaPlugin() {
                 storyVisibleFrames:samples.filter(s=>s.storyVisible).length,
                 movieAnimations:[...new Set(samples.map(s=>s.movieAnimation))],
                 animations:[...new Set(samples.flatMap(s=>s.animations))],checksPass:!failed.length},null,2);
+            }
+            requestAnimationFrame(sample);
+          }
+          // Observe UI only: never replace the game's clock/RNG or call its closure.
+          // Watch as soon as the iframe DOM is ready; do not wait for image load.
+          function observeNextMovie(){
+            const token=++observationToken;
+            const started=performance.now();const samples=[];const transitions=[];
+            let opened=null,completed=null,previousFrame=null,maxFrameGapMs=0;
+            let hiddenBeforeOpening=false,lastWaitingReport=-1000;
+            let lastWaitingFrame=null,openingFrameGapMs=null;
+            document.getElementById('result').textContent='Waiting for next movie';
+            function finish(reason){
+              const first=samples[0];
+              const failures=samples.filter(s=>!s.checksPass);
+              document.getElementById('result').textContent=JSON.stringify({
+                mode:'next-movie',scene:document.getElementById('scene').value,reason,
+                hiddenBeforeOpening,waitMs:opened===null?performance.now()-started:opened-started,
+                observedMovieMs:opened===null?0:performance.now()-opened,
+                completeAtMs:completed===null?null:completed-opened,maxFrameGapMs,openingFrameGapMs,
+                continuousSampling:openingFrameGapMs!==null&&maxFrameGapMs<1000,
+                width:first?.width,height:first?.height,samples:samples.length,
+                failedFrames:failures.length,firstFailure:failures[0],
+                layoutFailedFrames:samples.filter(s=>!s.layoutChecksPass).length,
+                pendingImageFrames:samples.filter(s=>s.pendingImages>0).length,
+                brokenImageFrames:samples.filter(s=>s.brokenImages>0).length,
+                movieVisibleFrames:samples.filter(s=>s.movieVisible).length,
+                movieCompleteFrames:samples.filter(s=>s.movieComplete).length,
+                movieBeats:transitions,movieTitles:[...new Set(samples.map(s=>s.movieTitle))],
+                moviePetAssets:[...new Set(samples.map(s=>s.moviePetAsset))],
+                moviePartnerAssets:[...new Set(samples.map(s=>s.moviePartnerAsset))],
+                movieAnimations:[...new Set(samples.map(s=>s.movieAnimation))],
+                gameScripts:[...new Set(samples.map(s=>s.gameScript))],
+                checksPass:samples.length>0&&hiddenBeforeOpening&&openingFrameGapMs!==null&&maxFrameGapMs<1000&&reason==='complete'&&!failures.length
+              },null,2);
+            }
+            function sample(){
+              if(token!==observationToken)return;
+              const now=performance.now();const value=measure();
+              if(!value){
+                if(now-started>=10000)return finish('frame-unavailable');
+                requestAnimationFrame(sample);return;
+              }
+              if(opened===null){
+                if(!value.movieVisible){
+                  hiddenBeforeOpening=true;
+                  lastWaitingFrame=now;
+                  if(now-started>=600000)return finish('start-timeout');
+                  if(now-started-lastWaitingReport>=1000){
+                    lastWaitingReport=now-started;
+                    document.getElementById('result').textContent='Waiting for next movie: '+Math.floor((now-started)/1000)+'s';
+                  }
+                  requestAnimationFrame(sample);return;
+                }
+                opened=now;
+                openingFrameGapMs=lastWaitingFrame===null?null:now-lastWaitingFrame;
+                if(openingFrameGapMs!==null)maxFrameGapMs=openingFrameGapMs;
+                document.getElementById('result').textContent='Observing next movie';
+              }
+              if(!value.movieVisible)return finish('closed-before-observation-finished');
+              if(previousFrame!==null)maxFrameGapMs=Math.max(maxFrameGapMs,now-previousFrame);
+              previousFrame=now;samples.push(value);
+              if(!transitions.length||transitions[transitions.length-1].text!==value.movieText){
+                transitions.push({atMs:now-opened,text:value.movieText});
+              }
+              if(value.movieComplete&&completed===null)completed=now;
+              if(completed!==null&&now-completed>=1000)return finish('complete');
+              if(now-opened>=45000)return finish('completion-timeout');
+              requestAnimationFrame(sample);
             }
             requestAnimationFrame(sample);
           }

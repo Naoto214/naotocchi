@@ -1,0 +1,63 @@
+{
+  "mode": "next-movie",
+  "scene": "anniversary_25",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 3148.5,
+  "observedMovieMs": 25825.5,
+  "completeAtMs": 24816.60000000894,
+  "maxFrameGapMs": 46,
+  "openingFrameGapMs": 19,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1537,
+  "failedFrames": 0,
+  "layoutFailedFrames": 0,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1537,
+  "movieCompleteFrames": 61,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "となりまちの ロボットと けっこんして 25ねん。ぎんこんしき。"
+    },
+    {
+      "atMs": 3994.7999999970198,
+      "text": "「25ねん。長かった?」「短かったって 言ったら うそになるね」"
+    },
+    {
+      "atMs": 7994.100000008941,
+      "text": "「今日の話は?」「おやつが おいしかった」「それで十分」"
+    },
+    {
+      "atMs": 11992.70000000298,
+      "text": "「このころ 若いね」「今も まあまあ いけるでしょ」"
+    },
+    {
+      "atMs": 15992.90000000596,
+      "text": "「ここまで きたね」「うん。意外と きたね」"
+    },
+    {
+      "atMs": 19992.10000000894,
+      "text": "帰り道は、いつもと ほとんど おなじだった。"
+    }
+  ],
+  "movieTitles": [
+    "🥈 ぎんこんしき"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/07.png"
+  ],
+  "moviePartnerAssets": [
+    "assets/characters/partners/robot_neighbor.png"
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": true
+}

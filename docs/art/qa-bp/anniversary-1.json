@@ -1,0 +1,59 @@
+{
+  "mode": "next-movie",
+  "scene": "anniversary_1",
+  "reason": "complete",
+  "hiddenBeforeOpening": true,
+  "waitMs": 3153.0999999940395,
+  "observedMovieMs": 21824.79999999702,
+  "completeAtMs": 20806.5,
+  "maxFrameGapMs": 54.19999998807907,
+  "openingFrameGapMs": 21,
+  "continuousSampling": true,
+  "width": 305,
+  "height": 640,
+  "samples": 1272,
+  "failedFrames": 0,
+  "layoutFailedFrames": 0,
+  "pendingImageFrames": 0,
+  "brokenImageFrames": 0,
+  "movieVisibleFrames": 1272,
+  "movieCompleteFrames": 62,
+  "movieBeats": [
+    {
+      "atMs": 0,
+      "text": "となりまちの ロボットと はじめての けっこんきねんび。"
+    },
+    {
+      "atMs": 4010.7000000029802,
+      "text": "「1ねん たったね」「まだ 1ねんなんだね」"
+    },
+    {
+      "atMs": 8026,
+      "text": "「まだ 新婚って いっていい?」「いいんじゃない?」"
+    },
+    {
+      "atMs": 12009.20000000298,
+      "text": "「静かだね」「ふたりとも 話すこと忘れたね」"
+    },
+    {
+      "atMs": 16006.90000000596,
+      "text": "「来年も やろうね。忘れてたら 呼んで」"
+    }
+  ],
+  "movieTitles": [
+    "💐 はじめての けっこんきねんび"
+  ],
+  "moviePetAssets": [
+    "assets/characters/man/06.png"
+  ],
+  "moviePartnerAssets": [
+    "assets/characters/partners/robot_neighbor.png"
+  ],
+  "movieAnimations": [
+    "date-actor-walk"
+  ],
+  "gameScripts": [
+    "script.js?v=20260909-cast-movies-bo-2"
+  ],
+  "checksPass": true
+}

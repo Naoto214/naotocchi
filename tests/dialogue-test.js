@@ -92,6 +92,7 @@ const expose = `
   globalThis.dialogue = {
     speakEvent, pickConversationLine, pickCharacterConversationLine, partnerDailyLine, companionSpeaker,
     clearConversationTimers, conversationIsBusy, scheduleIdleGreeting, playMarriageMovie, playLegendEncounterMovie,
+    maybeLegendEncounter, loop,
     finishDateMovie, celebrateAgeSpeech, finishMinigame, partnerAnniversaryLine,
     gainSodachi, onSodachiMilestone, travelToRegion, findRegion, chooseTransform,
     CONVERSATION_POOLS, PARTNER_DAILY_REACTIONS, PARTNER_CHARACTER_IDLE_LINES,
@@ -280,6 +281,60 @@ api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'},17);
 assert.match(getElement('dateMoviePet').innerHTML, /emoji-only/);
 assert.ok(!getElement('dateMoviePet').innerHTML.includes('<img'));
 assert.equal(api.getState().speciesLine, 'rabbit');
+
+// The real scheduler must respect blocked scenes and grant a legend only once.
+// These are ordered-clock unit regressions, separate from browser observation.
+const legendReady = {sodachi:95,maxSodachi:95,legendMet:false};
+for (const [name, patch] of [
+  ['growth below 90',{sodachi:89,maxSodachi:89}],
+  ['already met',{legendMet:true}],
+  ['free mode',{infinite:true}],
+  ['egg',{stage:'egg'}],
+  ['sleeping',{isSleeping:true}],
+  ['transformation choice',{transformOptions:['man']}],
+]) {
+  reset({...legendReady,...patch});random=0;
+  const money=api.getState().lifetime.money;
+  api.maybeLegendEncounter();
+  assert.equal(captions.length,0,name+': legend interrupted a blocked scene');
+  assert.equal(api.getState().lifetime.money,money,name+': blocked event granted coins');
+}
+for (const menu of ['dex','ach','theme','profile','comm','item','world']) {
+  reset(legendReady);api.openExclusiveMenu(menu);random=0;
+  const age=api.getState().ageTicks;
+  api.maybeLegendEncounter();api.loop();
+  assert.equal(captions.length,0,menu+': legend interrupted a menu');
+  assert.equal(api.getState().ageTicks,age,menu+': time advanced behind a menu');
+}
+reset(legendReady);random=0.012;api.maybeLegendEncounter();
+assert.equal(captions.length,0,'non-winning roll triggered legend');
+for (const id of ['gate','stairs','boss','lamp','mirror']) {
+  reset(legendReady);
+  api.getState().lifetime.legendsMet=['gate','stairs','boss','lamp','mirror'].filter(x=>x!==id);
+  const initialMoney=api.getState().lifetime.money;
+  random=0;api.maybeLegendEncounter();
+  assert.ok(api.getState().legendMet);
+  assert.equal(api.getState().lifetime.legendsMet.at(-1),id,'unseen legend not selected');
+  const awardedMoney=api.getState().lifetime.money;
+  assert.ok(awardedMoney>initialMoney,'legend coins missing');
+  const pausedAge=api.getState().ageTicks;
+  api.loop();
+  assert.equal(api.getState().ageTicks,pausedAge,'movie must pause the life clock');
+  click('dateMovieSkipBtn');
+  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false,'Skip did not expose Close');
+  assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'),true,'Skip stayed visible');
+  const skippedCaptions=captions.length;
+  advance(35000);
+  assert.equal(captions.length,skippedCaptions,'Skip handler left captions scheduled');
+  click('dateMovieCloseBtn');
+  const captionCount=captions.length;
+  api.maybeLegendEncounter();advance(35000);
+  assert.equal(captions.length,captionCount,'skipped legend left captions or replayed');
+  assert.equal(api.getState().lifetime.money,awardedMoney,'legend paid twice');
+  assert.equal(getElement('dateOverlay').classList.contains('hidden'),true);
+}
+console.log('LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.');
+
 for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (const value of [0, 0.99]) {
   reset({ partner: partner('robot_neighbor', { married: true }), lifeLog: mismatch ? [{ text: 'なかなおりした' }] : [] });
   random = value; api.playMarriageMovie({ years, icon: '💐', title: '記念日' }); advance(35000);
