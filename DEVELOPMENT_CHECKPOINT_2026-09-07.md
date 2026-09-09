@@ -1494,3 +1494,31 @@ Runtime smoke test SUCCESS確認済み。
 - `makeLunarLanderGame`(lunar-lander): 重力 20/推力 52/回転 150°/s、燃料 100(14/s)、地形生成にパッド ×1(幅3)/×2(幅2)/×3(幅1)、着陸判定 |vy|<22・|vx|<14・|角|<14°、3 回、粒子でクラッシュ/噴射。
 - 共通: `mgMsgBox()`(文字幅に合わせたメッセージ帯)。登録: カテゴリ dotEater/missileCommand/areaClaim/solitaire/hitBlow/lunarLander、ジャンル action×3/board/puzzle/drive3d、`MINIGAME_INFO` 6 件。キャッシュ `script.js?v=20260909-9`。
 - 検証: smoke-test OK(95 ゲーム、id/info 検査込み)。Playwright: 6 本とも操作→反応(ドット捕食、迎撃 💥、陣地 +11%、めくり/手数、推理 1 回目、着陸試行)。ランダム入力ハーネス: lander 6 / dot 20 / missile 30 / area 36(思考系 2 本はタイムアウト=想定どおり)。全 95 ゲーム スイープ ページエラー 0。
+
+## チェックポイント AZ — 新作バッチ8(5本): 上海/ビーチバレー/スライドパズル/すごろく/たこやき — 100本到達(2026-09-09)
+- `makeShanghaiGame`(shanghai-tiles): ハーフ単位座標のレイアウト(層0 8×5、層1 6×3、層2 4×2/2×1、層3 2×1)、`isFree()`(上に牌なし かつ 左右どちらか空き)、`deal()` は「全牌を置いた状態から free な 2 枚に同じ絵を割り当てて外す」逆順生成で必ず解ける、手詰まり時は残り位置で再 deal、ヒント 3 回、180 秒。
+- `makeBeachVolleyGame`(beach-volley): 重力 620、ネット高 74、頭部円との衝突で `hitBy()`(3 タッチ制限、アタック押下中/直後はスパイク、それ以外は高く上げる)、CPU は落下点予測+スパイク確率(難度)、先に 7 点/100 秒。
+- `makeSlidePuzzleGame`(slide-puzzle): オフスクリーン canvas に絵(グラデ+絵文字+番号)を描いて `drawImage` で切り出し、正しい手順(逆戻り禁止)で 60/140 回シャッフル、スライドアニメ、3×3(難度<0.45)/4×4。
+- `makeSugorokuGame`(sugoroku-race): 蛇順 30 マス、回転するサイコロをタップで止める、➕/➖(移動後にゴール判定)、⭐コイン、💤休み、CPU 2 人(難度で 4〜6 が出やすい)、下部トレイにサイコロと手番表示、150 秒。
+- `makeTakoyakiGame`(takoyaki-grill): 9 穴、片面 `COOK_MS`(5.2→3.6 秒、穴ごとに速度ゆらぎ)、焼き加減 0.85〜1.05 パーフェクト/0.7〜1.2 OK、1.4 超で自動廃棄、両面の低い方で採点、60 秒。
+- 登録: カテゴリ shanghai/beachVolley/slidePuzzle/sugoroku/takoyaki、ジャンル board×2/sports/puzzle/action、`MINIGAME_INFO` 5 件。合計 100 本。キャッシュ `script.js?v=20260909-10`。
+- 検証: smoke-test OK(100 ゲーム)。Playwright: 5 本とも操作→反応(ペア取得 4/30、得点、手数 11、CPU 手番進行、たこやき 9 個提供)。ランダム入力: volley 19 / sugoroku 71(運要素のあるパーティー系、1 位配点を 80 に調整)/ takoyaki 5 / slide 8 / shanghai タイムアウト。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BA — 第2回 総監査(100本)・グラフィック強化・ゲームきろくの じっせき(2026-09-09)
+- じっせき 6 件追加(`countMinigameRecords()`/`countMinigamesPlayed()`: 現在のプールにあるゲームだけを数える): record-rank-s-1 / games-played-25 / games-played-60 / record-rank-a-20 / games-complete-100 / record-rank-s-15。PERFECT エンディング判定(全 ACHIEVEMENTS)に含まれるため S ランク側は 15 本に抑えた。
+- 監査: `sheet.js` で 100 本のコンタクトシート(9 枚)を目視、`randplay.js`(id 配列のバグ修正: ONLY 未指定時に空になっていた)で全 100 本をランダム入力(難度 0 = 最も易しい設定)。90 点以上: road-themed 100 / asteroids 98 / pinball 91 / sugoroku 90 / reversi 90、bowling 77、chain 68 / street-fight 66 / 2048 66。
+- 再調整: ロードラン `points*0.72→0.58, bad*6→8`、アステロイド `10+score/12+lives*5 → 8+score/18+lives*4`・連射 0.22→0.28s、ピンボール GOAL 900〜1300→1400〜1900、オセロ AI ノイズ lerp(6,1)→(3,0.6)・勝利点 65+diff*2.5→62+diff*2、ボウリング `14+pins*2.9+strikes*12+spares*5`、れんさ `12+popped*0.9+maxChain*11+min(20,score/80)`、かくとう 勝利 60→56・AI aggro/guard 上げ、2048 ティア(128→54, 256→70, 512→86)、すごろく 1位 72/2位 46/3位 26。
+- グラフィック: 共通 `mgSpaceBackdrop()`(グラデーション+星雲ブロブ+ハッシュ配置のまたたく星+輪つきの惑星)。アステロイド(惑星つき)、スペースガンナー(視差つき星雲)、タンクバトル(草地タイル+草のディテール)、フルーツ斬り(スポットライト・漂う光・木のまな板)、ケーキ/おべんとう(お皿のグラデーション、ドロップ先の白皿、置いたときのポップ、チップ風トッピング)。
+- 追加調整: ロードランのあたり判定を「選んだレーン」から実際の位置(playerX)へ(レーン変更中は間に合わない)、`points*0.5 - bad*10`、BAD_CHANCE 0.4〜0.55、とくてん表示を整数に。かくとう 勝利 50 + hp*0.3。れんさ `popped*0.7 + maxChain*9`。
+- 検証: smoke-test OK(100 ゲーム)。じっせき 6 件の解放を Playwright で確認。再調整後のランダム入力(難度 0): road 0 / asteroids 42 / pinball 20 / reversi 12 / bowling 23 / sugoroku 56 / 2048 43 / street-fight 16 / chain 31(すべて 60 未満)。全 100 ゲーム スイープ ページエラー 0。キャッシュ `script.js?v=20260909-11`、`style.css?v=20260909-3`。
+
+## 追加チェックポイント BK（2026-09-09）：mainのPR #203取り込みと旧PERFECT記録の確認
+
+- 再開時にPR #183、main、当該HEADのActionsをGitHubから再取得。開始HEADはBJ `0b70ba88fe7ee7e14f499128355aea3b50d57eff`、tree `96d7de0c97668325ead90df39f5ed0fd3f70eadf`、Runtime #230 SUCCESS。PRはopen / Draftだが、新しいmainに対して競合が生じていた。
+- 最新mainは `da5c631a911504e78c8b88fae373f30b85f26b31`、tree `f86d8ad29306ec86ad6e7f09433e6f82722022bd`、Runtime #232 SUCCESS。PR #203の新作5本、配点/AI調整、グラフィック強化、ゲーム記録の実績6件を取り込んだ。ミニゲームは100本となる。
+- 共通祖先 `586ed13e5d0722e810b313c9a7c6377678e62641` と両側の実ファイルで3-way統合。script.js / README.md / style.cssは自動統合し、mainに対するブランチ独自の追加・削除行が統合前と完全一致することを確認。実績近辺の上流文脈が変わるため、周辺行や行番号は一致条件に含めない。開発記録は両側の全文を保持した。
+- indexの競合はscript/styleの読込版2か所。現在のキャラ・作者DOMとWORLD_MASTER参照を保ち、統合script/styleの版を `20260909-cast-main-bk-1` に更新。キャラPNG294枚と新旧ゴールJPG7枚は全301枚バイト不変で保持した。
+- ローカルRuntime smoke成功（DOM 287 / ミニゲーム100 / variant collections 91）。会話・全248段階本文・時計/カタツムリ・旧きのこ/旧コアラ・通常/レア仲間・恋人18体・作者イベント/ゴールの全回帰が成功。
+- 実績6件の追加に合わせ、以前のPERFECTセーブで作者・王冠・むげんのせかいの解放を失わず、未達成の新実績を勝手に付与しないことを検証。新規達成では現行99本＋廃止ゲームの記録で100本達成と判定されず、現行100本目で⑤の専用画像と作者の挨拶へ進む境界を実コードで確認した。
+- 実画面の確認用ページを同じブラウザーで再読込したがエラーページになり、後続の表示読取もCloud BrowserのURLポリシーで拒否された。実画面の確認は依然未完了。Runtimeの成功や、上流PRのPlaywright記録を今回の実画面確認として扱わない。
+- BJと最新mainを両親に持つコミットとしてfeatureブランチへ保存し、到達可能な全tree・変更ファイル実内容・当該HEADのActionsを再取得する。PR #183はopen / Draft・未マージのまま継続する。

@@ -104,7 +104,7 @@ const expose = `
     renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter,
     partnerVisualHTML, renderPartnerCompanion, renderPartnerDex,
     isAuthorUnlocked, authorVisualHTML, showAuthorGreeting, renderNaotoItemGrid,
-    renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS,
+    renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS, buildMinigamePool,
     pendingGoal: () => grandGoalPending,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
@@ -799,3 +799,46 @@ for (const goal of [4, 5]) {
   assert.equal(jpeg.subarray(-2).toString('hex'), 'ffd9');
 }
 console.log('AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5 and both exits; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; original goals 1-3.');
+
+// Main #203 adds six achievements. Existing perfect saves keep their earned mode and author access.
+const recordAchievementIds = ['record-rank-s-1', 'games-played-25', 'games-played-60', 'record-rank-a-20', 'games-complete-100', 'record-rank-s-15'];
+for (const id of recordAchievementIds) assert.ok(api.ACHIEVEMENTS.some((a) => a.id === id));
+reset({ discoveredStages: allForms.slice(), achievementsUnlocked: api.ACHIEVEMENTS.filter((a) => !recordAchievementIds.includes(a.id)).map((a) => a.id) });
+api.getState().lifetime.dexCleared = true;
+api.getState().lifetime.perfectCleared = true;
+api.getState().lifetime.endingTiersReached = [3, 4];
+api.getState().lifetime.ownedNaotoItems = ['naoto_crown'];
+savedPayload = JSON.stringify(api.getState());
+const preRecordAchievementSave = api.loadState(); savedPayload = null;
+reset(preRecordAchievementSave); api.checkAchievements(); api.checkGrandGoals(); api.renderEnding();
+assert.equal(api.getState().lifetime.perfectCleared, true);
+assert.equal(api.pendingGoal(), null, 'expanded achievements replayed an old perfect clear');
+assert.equal(api.isAuthorUnlocked(), true);
+assert.ok(getElement('gameClearArt').src.includes('goal-5-naoto-v1.jpg'));
+assert.ok(!getElement('gameClearFreePlayBtn').classList.contains('hidden'));
+assert.ok(recordAchievementIds.every((id) => !api.getState().achievementsUnlocked.includes(id)), 'unearned new achievements were granted');
+click('gameClearFreePlayBtn');
+assert.equal(api.getState().infinite, true, 'earned infinite mode was lost');
+assert.ok(api.getState().lifetime.ownedNaotoItems.includes('naoto_crown'));
+
+// For new perfect clears, 99 current games plus retired records must not count as 100.
+const currentGameIds = Array.from(api.buildMinigamePool(), (game) => game.id);
+assert.equal(currentGameIds.length, 100); assert.equal(new Set(currentGameIds).size, 100);
+reset({ discoveredStages: allForms.slice(), achievementsUnlocked: api.ACHIEVEMENTS.filter((a) => a.id !== 'games-complete-100').map((a) => a.id) });
+api.getState().lifetime.dexCleared = true;
+api.getState().lifetime.minigamePlayCounts = Object.fromEntries(currentGameIds.slice(0, -1).map((id) => [id, 1]));
+api.getState().lifetime.minigamePlayCounts['retired-test-game'] = 1000;
+api.checkAchievements(); api.checkGrandGoals();
+assert.ok(!api.getState().achievementsUnlocked.includes('games-complete-100'));
+assert.equal(api.getState().lifetime.perfectCleared, false);
+assert.equal(api.pendingGoal(), null);
+api.getState().lifetime.minigamePlayCounts[currentGameIds.at(-1)] = 1;
+api.checkAchievements(); api.checkGrandGoals(); api.renderEnding();
+assert.ok(api.getState().achievementsUnlocked.includes('games-complete-100'));
+assert.equal(api.getState().lifetime.perfectCleared, true);
+assert.equal(api.pendingGoal(), 'perfect');
+assert.ok(getElement('gameClearArt').src.includes('goal-5-naoto-v1.jpg'));
+click('gameClearCloseBtn');
+assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
+assert.match(getElement('storyFlashText').textContent, /ナオト「ぜんぶ/);
+console.log('MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.');
