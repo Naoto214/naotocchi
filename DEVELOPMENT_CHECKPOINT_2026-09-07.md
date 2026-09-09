@@ -1097,3 +1097,14 @@ Runtime smoke test SUCCESS確認済み。
 - `makeLineTraceGame`(line-trace): `TRACE_SHAPES` 6形状(パラメトリック)、最近点距離で精度、カバー率、色分けトレイル。
 - 登録: カテゴリ asteroids/yachtDice/lightsOut/doodleJump/curling/jenga/lineTrace、S ティア。キャッシュ `script.js?v=20260909-3`。
 - 検証: smoke-test OK(87ゲーム)。Playwright 全87ゲーム スイープ ページエラー0。7本とも操作→反応(岩破壊 260pt、チャンス +24、4手、20m 到達、投擲→AI応手、6本抜き 88%、なぞり精度 94%)を確認。
+
+## チェックポイント AU — 新作バッチ6(7本): チェッカー/しんけいすいじゃく/ハーフパイプ/ドミノたおし/ナンプレ/マンカラ/ひこうき ちゃくりく(2026-09-09)
+- `makeCheckersGame`(checkers-6): 6×6、捕獲強制、連続ジャンプ(`chain`)、キング、αβ(depth 2/4)、駒の跳ねアニメ。
+- `makeMemoryCardsGame`(memory-cards): 4×4/4×5、`scaleX=|cos(tπ)|` のフリップ(当初 face-down 静止時に 0 幅になるバグを修正)、連続ペアボーナス。
+- `makeHalfpipeGame`(halfpipe-skate): ランプ座標 s∈[-1,1]、h=s²·2.2、傾斜加速+ポンプ、縁で速度>3 ならエア、空中で回転目標を追従、着地時の残り回転で成否、コンボ。
+- `makeDominoRunGame`(domino-run): ウェイポイントからドミノ列を生成、ギャップ配置、手持ちドミノ配置/回収、`tilt` 伝播で倒れる連鎖、🔔判定。3問。
+- `makeSudokuGame`(sudoku-mini): 基底パターン+数字置換+帯/列シャッフルで 4×4(6×6)を生成、空欄数は難度で可変、衝突ハイライト。
+- `makeMancalaGame`(mancala-kalah): カラー(相手ストアをスキップ、追加ターン、キャプチャ)、種が飛ぶアニメ、AI は depth 1/3 探索。
+- `makePlaneLandingGame`(plane-landing): 目標降下率にピッチ・風・突風、グライドパス表示、ゾーン/降下速度で採点、3回。
+- 登録: カテゴリ checkers/memoryCards/halfpipe/dominoRun/sudoku/mancala/planeLanding、S ティア。キャッシュ `script.js?v=20260909-4`。
+- 検証: smoke-test OK(94ゲーム)。Playwright 全94ゲーム スイープ ページエラー0。7本とも操作→反応(駒移動と AI 応手、カードフリップ、トリック +30pt、ドミノ連鎖→次の問題、数字入力とミス判定、追加ターン、着地判定)を確認。
