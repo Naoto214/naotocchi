@@ -101,6 +101,7 @@ const expose = `
     hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
+    renderRareCompanionDex, renderProfile, openCompanionInvite,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
       clearConversationTimers(); clearDateMovieTimers(); hideSpeechBubble(); closeAllMenuOverlays();
@@ -474,3 +475,52 @@ assert.equal(getElement('companionLeft').innerHTML + getElement('companionRight'
 assert.ok(!getElement('companionDexGrid').innerHTML.includes('assets/characters/companions/'), 'unmet companion revealed');
 assert.equal(getElement('companionDexProgress').textContent, '0 / 18');
 console.log('NORMAL CAST PNG TEST OK: 19 PNG headers; 18 companions x 5 renderer sizes; 9+9 live rows; collected and locked dex.');
+
+// Rare PNGs are visible through the shared views but retain discovery boundaries.
+const rareCast = [...api.RARE_COMPANIONS];
+assert.equal(rareCast.length, 8);
+assert.equal(new Set([...normalCast, ...rareCast].map((c) => c.asset)).size, 26);
+reset(); api.renderRareCompanionDex();
+assert.ok(getElement('rareCompanionDexDivider').classList.contains('hidden'));
+assert.ok(getElement('rareCompanionDexGrid').classList.contains('hidden'));
+assert.equal(getElement('rareCompanionDexGrid').innerHTML, '');
+for (const c of rareCast) {
+  assert.equal(c.asset, `assets/characters/companions/${c.id}.png`);
+  const png = fs.readFileSync(c.asset);
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', c.id);
+  assert.equal(png.readUInt32BE(16), 128, c.id);
+  assert.equal(png.readUInt32BE(20), 128, c.id);
+  assert.equal(png[24], 8, c.id); assert.equal(png[25], 6, c.id);
+  for (const size of ['hero', 'detail', 'thumb', 'medium', 'companion']) {
+    const html = api.companionVisualHTML(c, size);
+    assert.ok(html.includes(`src="${c.asset}"`), `${c.id}: ${size}`);
+    assert.match(html, /character-emoji-fallback/);
+  }
+  reset({ companions: [{ id: c.id, bond: 72 }] });
+  api.getState().lifetime.rareCompanionsRecruited = [c.id];
+  api.renderRareCompanionDex(); api.renderCompanionRow(); api.renderProfile();
+  assert.ok(!getElement('rareCompanionDexDivider').classList.contains('hidden'));
+  assert.ok(!getElement('rareCompanionDexGrid').classList.contains('hidden'));
+  assert.equal(getElement('rareCompanionDexProgress').textContent, '1 / 8');
+  for (const id of ['rareCompanionDexGrid', 'companionLeft', 'profileCompanionList']) {
+    const html = getElement(id).innerHTML;
+    assert.equal(html.split(`src="${c.asset}"`).length - 1, 1, `${c.id}: ${id}`);
+    for (const other of rareCast.filter((r) => r.id !== c.id)) assert.ok(!html.includes(other.asset), 'unmet rare companion revealed');
+  }
+  api.openCompanionInvite(c, true);
+  assert.ok(getElement('companionInviteEmoji').innerHTML.includes(`src="${c.asset}"`));
+  assert.equal(getElement('companionInviteTitle').textContent, `${c.name}と めが あった`);
+  assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
+  click('companionInviteLaterBtn');
+  assert.equal(api.getState().companions[0].bond, 72, 'rendering changed bond');
+}
+reset({ companions: [...normalCast, ...rareCast].map((c) => ({ id: c.id, bond: 80 })) });
+api.getState().lifetime.companionsRecruited = normalCast.map((c) => c.id);
+api.getState().lifetime.rareCompanionsRecruited = rareCast.map((c) => c.id);
+api.renderCompanionRow(); api.renderCompanionDex(); api.renderRareCompanionDex();
+const allRows = ['companionLeft', 'companionRight'].map((id) => getElement(id).innerHTML);
+for (const row of allRows) assert.equal((row.match(/class="companion-chip-small"/g) || []).length, 13);
+for (const c of [...normalCast, ...rareCast]) assert.equal(allRows.join('').split(`src="${c.asset}"`).length - 1, 1, c.id);
+assert.equal(getElement('companionDexProgress').textContent, '18 / 18');
+assert.equal(getElement('rareCompanionDexProgress').textContent, '8 / 8');
+console.log('RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/row/dex; hidden and partial dex; 13+13 mixed rows; bond retained.');

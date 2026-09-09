@@ -6964,6 +6964,7 @@
     ? WORLD_MASTER.companions.rare.map((def) => ({
         id:def.id,
         emoji:RARE_COMPANION_RUNTIME[def.id].emoji,
+        asset:def.asset || '',
         name:def.label,
         vibe:RARE_COMPANION_RUNTIME[def.id].vibe,
         flavor:RARE_COMPANION_RUNTIME[def.id].flavor,
@@ -11115,7 +11116,7 @@
     el.rareCompanionDexGrid.innerHTML = RARE_COMPANIONS.map((c) => {
       const known = recruited.includes(c.id);
       return known
-        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${c.name}</span></div>`
+        ? `<div class="dex-cell known"><span class="dex-cell-emoji">${companionVisualHTML(c)}</span><span class="dex-cell-label">${c.name}</span></div>`
         : '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
     }).join('');
   }

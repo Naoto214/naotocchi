@@ -1,0 +1,389 @@
+{
+  "checkpoint": "BE",
+  "date": "2026-09-09",
+  "status": "incomplete",
+  "audit": {
+    "baseline": "79a47d46ee47075c238e08945ca458d8e7d38f41",
+    "previousPngsUnchanged": 267,
+    "newPngs": 8,
+    "allPngsDecoded": 275,
+    "unmodifiedBaselineFiles": 282,
+    "masterIdentityAndBehavior": "PASS",
+    "PNG_CRC": "PASS",
+    "RGBA128": "PASS",
+    "binaryAlpha": "PASS",
+    "minimumMargin": 8,
+    "newMaximumColors": 63,
+    "browserGameScreenshot": "NOT RUN: ERR_BLOCKED_BY_CLIENT"
+  },
+  "counts": {
+    "playerStagePngs": 248,
+    "dedicatedCastTotal": 45,
+    "dedicatedCastPngs": 27,
+    "authorPngs": 1,
+    "normalCompanions": 18,
+    "rareCompanions": 8,
+    "remainingPartners": 18
+  },
+  "references": [
+    "character-world-master.v1.js: companions.rare",
+    "script.js: RARE_COMPANION_RUNTIME / COMPANION_CHARACTER_IDLE_LINES",
+    "naotocchi-cast-audit-20260909.md: rare companion design guidance"
+  ],
+  "export": {
+    "generation": "one sprite per built-in imagegen call; only chameleon revised",
+    "scaling": "individual full foreground bounds; nearest-neighbor",
+    "background": "generated alpha threshold 128; chameleon reserved magenta keyed out including inner gaps",
+    "quantization": "64-entry palette (63 opaque colors + transparency), no dithering; final 8-bit RGBA PNG",
+    "marginOrder": [
+      "left",
+      "top",
+      "right",
+      "bottom"
+    ]
+  },
+  "visualReview": {
+    "original": "PASS",
+    "actual128": "PASS",
+    "whiteBackground": "PASS",
+    "darkBackground": "PASS",
+    "gameBrowserScreenshot": "NOT RUN; local game URL blocked by ERR_BLOCKED_BY_CLIENT in this environment"
+  },
+  "sprites": [
+    {
+      "id": "companions/punyu",
+      "path": "assets/characters/companions/punyu.png",
+      "source": "exec-17be8d71-e411-494c-92cc-48dd7cee5db6.png",
+      "sourceSha256": "38d8c6b047eea1efce521fb136adbc1f0576f191447ee17ccb843a90b4de98e6",
+      "sha256": "b0fa6f743e64d3f2a215d0a994e0078920d7cf1f73b0091667009d6f11c792d2",
+      "sourceBounds": {
+        "left": 77,
+        "top": 237,
+        "width": 1100,
+        "height": 835,
+        "pixels": 549995
+      },
+      "bounds": {
+        "left": 10,
+        "top": 38,
+        "width": 108,
+        "height": 82,
+        "pixels": 5351
+      },
+      "margins": [
+        10,
+        38,
+        10,
+        8
+      ],
+      "colors": 62,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: とけかけの ぷにゅ, a buttery pale yellow melting blob creature. Asymmetric low soft mound sagging to its left into a continuous small rounded puddle, with a bent drippy top and 3 broad soft scallops along its base. Two clearly defined oval dark eyes looking toward the viewer while the body slumps, one eye slightly lower, a small wobbly worried mouth and subtle peach cheeks. It seems determined to stay upright but slowly spreads when sitting. Opaque creamy gel shaded with warm amber, a few small pale highlights. No arms, legs, horn, wings or detached puddle droplets. Different from a purple shapeshifting mystery creature and a blue ghost. Its melting body itself is the whole character; do not turn it into a normal round slime ball.",
+      "revisions": []
+    },
+    {
+      "id": "companions/sekizou",
+      "path": "assets/characters/companions/sekizou.png",
+      "source": "exec-8508de37-839c-4781-9ec0-e34f614e9a88.png",
+      "sourceSha256": "8aad7f9f4f79379f75364454f580ea1e0d8febaf21c22c12687c357047125825",
+      "sha256": "6a50c8dd1d084a854b233694800fed23b9475abbc2f9fff380ef31053923046a",
+      "sourceBounds": {
+        "left": 343,
+        "top": 75,
+        "width": 566,
+        "height": 1109,
+        "pixels": 537760
+      },
+      "bounds": {
+        "left": 36,
+        "top": 12,
+        "width": 55,
+        "height": 108,
+        "pixels": 5115
+      },
+      "margins": [
+        36,
+        12,
+        37,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: むひょうじょうの せきぞう, a compact grey stone statue with a quietly deadpan Moai-inspired face. One continuous upright stone figure: large tall blunt head, heavy brow, two narrow carved eyes, long blunt nose, perfectly straight small mouth, compact integral torso with both short arms carved against its sides and a low broad rectangular stone base. Full intact statue including top of head, sides, body and bottom base. Slate grey with cool pale edges, sparse fine cracks and stone flecks; no moss hiding the face. Absolutely expressionless: no smile, blush, tears, raised arms or cute excitement. Its personality is that it appears a little closer when nobody looks. No elaborate pedestal, scenery, floating particles, metal joints or robotic parts.",
+      "revisions": []
+    },
+    {
+      "id": "companions/chameleon",
+      "path": "assets/characters/companions/chameleon.png",
+      "source": "exec-5ad07e04-58c9-47a7-a142-a080a914035d.png",
+      "sourceSha256": "c4c741d797627992ee073ad908458f56cecead94a9cda473939ea2f7bec6ca6f",
+      "sha256": "9384a95a8d0ec1950f033663039fcb73bd7dada32b2c24fb8f4b9e0f6d90306a",
+      "sourceBounds": {
+        "left": 60,
+        "top": 163,
+        "width": 1130,
+        "height": 945,
+        "pixels": 622564
+      },
+      "bounds": {
+        "left": 9,
+        "top": 28,
+        "width": 110,
+        "height": 92,
+        "pixels": 5946
+      },
+      "margins": [
+        9,
+        28,
+        9,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "magenta",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: サングラスの カメレオン, a stylish bright leaf-green chameleon with subtle turquoise back scales wearing dark charcoal sunglasses across its two bulging eyes. Both lenses and bridge clear; only lens highlights, no extra uncovered eyes. Small confident sideways closed-mouth smirk. Entire body shown in a 3/4 side view facing right, head turned slightly toward viewer, all FOUR short limbs and their little gripping toe groups visible, an intact long spiral-curled tail lifted behind the body, two toe groups reaching ahead as though climbing invisibly. No wall or branch cutting off its body. Small natural chameleon ridge, no horns, no clothes beyond the sunglasses. Crisp green/yellow pixel shading.",
+      "revisions": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit ONLY the feet and directly connected lower limbs of this exact chameleon sprite. Preserve exactly the green/turquoise body, curled tail, crest, head, sunglasses, smile, shading, framing and transparent background. The short hanging green nub underneath the belly between the two lower visible feet is its FAR HIND LEG: replace that nub with a complete short bent leg ending in a clearly visible small gripping foot, without overlap with the other three limbs. Keep exactly FOUR total limbs, all four ending in complete feet. For all four feet use the characteristic chameleon two opposing gripping toe bundles with little pointed claws, not rounded frog suction pads or a hand with fingers spread in a star. Keep the other three existing limb placements: near hind leg at lower left, near front leg at lower right, far front arm lifted on the right. Show four full feet clearly inside the margins. No fifth limb, no extra foot, no branch, no wall, no text. Do not change anything else.",
+          "referenceImages": [
+            {
+              "file": "exec-571ac118-c405-45a8-b53b-5861454823ea.png",
+              "sha256": "d477dab3d1f8bb6c69e8114fec4ea3c22bc6faecbd6e92575502cad4c8a88aaf"
+            }
+          ],
+          "output": "exec-b5024c45-ffa6-43e9-bfe8-b75057bab095.png",
+          "outputSha256": "6b6f840c025ffef433da4240555d0d69b9459bc3b8c7f9e63abafe7c96916b24"
+        },
+        {
+          "prompt": "Use case: background-extraction. Edit ONLY the background of this exact green chameleon sprite. Replace EVERY grey/white checkerboard square with perfectly flat solid MAGENTA #FF00FF, including inside the spiral tail and every gap between the four legs, toes, claws and body. Magenta is only a temporary background color; the character has no magenta. Preserve the exact existing chameleon silhouette, four complete legs and all clawed feet, green/turquoise scales, tail, sunglasses, grey/white lens reflections, crest and smile. Do not redraw, simplify, reposition or recolor the character. Do not add checkerboard, transparency preview pattern, shadow, text or additional elements. One full character, unchanged scale and placement.",
+          "referenceImages": [
+            {
+              "file": "exec-b5024c45-ffa6-43e9-bfe8-b75057bab095.png",
+              "sha256": "6b6f840c025ffef433da4240555d0d69b9459bc3b8c7f9e63abafe7c96916b24"
+            }
+          ],
+          "output": "exec-5ad07e04-58c9-47a7-a142-a080a914035d.png",
+          "outputSha256": "c4c741d797627992ee073ad908458f56cecead94a9cda473939ea2f7bec6ca6f"
+        }
+      ]
+    },
+    {
+      "id": "companions/kinoko",
+      "path": "assets/characters/companions/kinoko.png",
+      "source": "exec-67588462-15fd-4d18-bbd8-b7e0477055dc.png",
+      "sourceSha256": "826ed64690d386f5967aa761ae03c9f5a4e795a51d82c41db8e18ff449a46d65",
+      "sha256": "1f8ff2bf480cf58bb48aece462e8d64ec784d58d05203996aaeaf231c207a1b3",
+      "sourceBounds": {
+        "left": 118,
+        "top": 50,
+        "width": 1019,
+        "height": 1145,
+        "pixels": 600913
+      },
+      "bounds": {
+        "left": 17,
+        "top": 16,
+        "width": 93,
+        "height": 104,
+        "pixels": 4993
+      },
+      "margins": [
+        17,
+        16,
+        18,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: しゃべる きのこ, an eccentric walking mushroom companion in the middle of a conversation. One broad asymmetrical copper-orange cap tilted like a floppy umbrella, small irregular pale cream patches and a visibly ribbed pale underside. A tall gently crooked ivory stalk with two short stubby walking feet (one lifted slightly), two small arm nubs, one arm gesturing out while speaking. Friendly half-lidded eyes and small open talking mouth on the stalk. Curious but casual, not a baby or a group of growing mushrooms. Cap shape, bent stalk and walking pose are its individuality; no clothes, hat on cap, tools, roots, soil, scenery or speech bubble. Entire cap, arms, stalk and both feet visible.",
+      "revisions": []
+    },
+    {
+      "id": "companions/unicorn",
+      "path": "assets/characters/companions/unicorn.png",
+      "source": "exec-a5e89c7a-c3e4-46ee-a123-609825af13f2.png",
+      "sourceSha256": "95dd9116eb82f21342bad18dbcb8d01c57c182867aa8163de7bc2b224accfb91",
+      "sha256": "4b2634a6eaf848789e46b4b335729e9b5fb669d5ac180ff850565e3cc9aa759d",
+      "sourceBounds": {
+        "left": 146,
+        "top": 86,
+        "width": 994,
+        "height": 1078,
+        "pixels": 550177
+      },
+      "bounds": {
+        "left": 13,
+        "top": 10,
+        "width": 101,
+        "height": 110,
+        "pixels": 5714
+      },
+      "margins": [
+        13,
+        10,
+        14,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: まよいこんだ ユニコーン, a small pearly white unicorn with a pale lavender and icy blue flowing mane and full curved tail, ONE slim golden spiral horn on the forehead, two ears and all FOUR legs with four distinct hooves. 3/4 standing pose, one foreleg taking a tentative small step, looking calmly to the side as if it has lost the path but refuses to look worried. Relaxed half-open eyes and a tiny serene closed-mouth smile. Compact graceful horse proportions with an unmistakably equine muzzle, no wings, no crown, no tack, no big glow, no star confetti or scenery. Entire horn tip, mane, ears, tail and all hooves inside the margins.",
+      "revisions": []
+    },
+    {
+      "id": "companions/many_tail_fox",
+      "path": "assets/characters/companions/many_tail_fox.png",
+      "source": "exec-b0c347d4-2e5a-4f9c-aa63-d3aac62bb004.png",
+      "sourceSha256": "993011e08a4b6aa6fa159481ba90e5857af4543d39adafc2d4304a1fe320a5d2",
+      "sha256": "5c0f806280f746c3a6b0b62d22cc5bcd02508ba3494f8a89319a4f2bd0bcdfee",
+      "sourceBounds": {
+        "left": 72,
+        "top": 75,
+        "width": 1128,
+        "height": 1110,
+        "pixels": 851426
+      },
+      "bounds": {
+        "left": 9,
+        "top": 12,
+        "width": 110,
+        "height": 108,
+        "pixels": 8101
+      },
+      "margins": [
+        9,
+        12,
+        9,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: しっぽの おおい きつね, a small mysterious amber-orange fox with cream muzzle and chest, pointed ears, dark paws, gently narrowed golden eyes and a small knowing smile. It sits three-quarter facing viewer. Several long bushy tails overlap in an irregular layered fan behind and around it; FIVE distinct cream-tipped tail ends visible, roots overlapped rather than five detached objects or a symmetrical wheel. Tails turn in different directions to invite counting and make the true total feel uncertain. Keep all five tips and complete fox body, both ears, chest, both front paws and folded hind paws visible. No fire, masks, robes, shrine props or extra eyes.",
+      "revisions": []
+    },
+    {
+      "id": "companions/watcher",
+      "path": "assets/characters/companions/watcher.png",
+      "source": "exec-9637bd86-763d-42e1-a22b-d0f024396c9a.png",
+      "sourceSha256": "046d50831d12855c941f8719a188e040708719e2b742100963110e549a48e04d",
+      "sha256": "4b6370d0afbbc8bd5cdd9dc7ae9d2cd7c251c2d7b793fc360d460dbe7938809d",
+      "sourceBounds": {
+        "left": 445,
+        "top": 30,
+        "width": 418,
+        "height": 1194,
+        "pixels": 268945
+      },
+      "bounds": {
+        "left": 45,
+        "top": 11,
+        "width": 37,
+        "height": 106,
+        "pixels": 2109
+      },
+      "margins": [
+        45,
+        11,
+        46,
+        11
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: みている なにか, a quietly uncanny slender dark presence that seems to be peeking toward the viewer. One COMPLETE asymmetrical upright midnight-navy smoky silhouette, tall and narrow rather than a round blob, leaning very slightly sideways; top tapered and bottom narrowing into a short intact wisp. ONE large open pale grey-teal eye watches the viewer from the upper part of this dark shape, with a small iris and clean pupil, and a tiny discreet horizontal mouth below. It is a nonhuman shadow character, not a realistic detached eyeball. Sparse indigo pixel highlights define the full boundary even against a dark game background. No second eye, arms, legs, hood, teeth, blood, tentacles, scenery or screen border hiding half the subject. Unsettling but suitable for a cute game. No blushing smiling pet face.",
+      "revisions": []
+    },
+    {
+      "id": "companions/box",
+      "path": "assets/characters/companions/box.png",
+      "source": "exec-175c41f7-41ab-46f7-becb-df8676251838.png",
+      "sourceSha256": "bce62055f78ccdc0189c0be8c2a9768b711653f508cbcfc25dbb67dc227d46ad",
+      "sha256": "088daf06f8aa26af3a3ebed6e50f4559727dfe41671c8ad312695798d0a70c16",
+      "sourceBounds": {
+        "left": 205,
+        "top": 209,
+        "width": 868,
+        "height": 856,
+        "pixels": 599682
+      },
+      "bounds": {
+        "left": 17,
+        "top": 27,
+        "width": 94,
+        "height": 93,
+        "pixels": 7063
+      },
+      "margins": [
+        17,
+        27,
+        17,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: one individual rare companion sprite for the Japanese virtual pet game Naotocchi. Clean cute Japanese pixel art matching the existing polished 128x128 companion assets, enlarged with crisp stepped dark colored outlines, compact pixel clusters, restrained palette and 2-4 shade ramps. Not smooth vector, painted illustration, 3D or a sheet. One entire subject centered on a square canvas with genuine transparent alpha background. Keep its entire silhouette, every appendage, tail and prop at least 8% from every image border. About 80-85% canvas occupancy. No checkerboard printed in the image, no cast-shadow plate, ground scenery, UI, labels, letters, numbers, watermark or additional characters. Readable face and complete subject; respect the specific expression below. Subject: ただの はこ, an ordinary small closed brown cardboard box, full cube in three-quarter view showing the front, right side and taped top. Plain kraft cardboard with sparse corrugated edge pixels and a few softly worn corners, one simple tan packing-tape strip across the top seam. On the lower front panel are only two tiny dark eye marks and a short understated straight mouth, subtly readable as a face at 128px without becoming a giant cartoon face. Quiet ambiguous expression, as if the box is pretending it is just a box. All lid flaps remain closed, contents completely hidden and undefined. No arms, legs, tail, ears, fangs, monster, cat, label, printed icon, shipping mark, text, glow or scenery. Complete bottom corners and full top must fit within generous margins.",
+      "revisions": []
+    }
+  ]
+}
