@@ -19332,6 +19332,875 @@
   }
   const PLANE_LANDING_VARIANTS = [mg('plane-landing', makePlaneLandingGame({ title: 'ひこうき ちゃくりく!ふわっと おりよう' }))];
 
+  // メッセージを 文字はばに あわせた くろい おびで えがく(バッチ7いこうの 共通)
+  function mgMsgBox(ctx, W, text, cy, size = 14) {
+    ctx.font = `bold ${size}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    const tw = Math.min(W - 8, ctx.measureText(text).width + 22);
+    ctx.fillStyle = 'rgba(0,0,0,.62)'; mgRoundRect(ctx, W / 2 - tw / 2, cy - 13, tw, 26, 7);
+    ctx.fillStyle = '#fff'; ctx.fillText(text, W / 2, cy);
+  }
+  // ================================================================
+  // 新作バッチ7(2026-09-09): ドットイーター / ミサイルコマンド / じんとり
+  // ================================================================
+
+  // --- ドットイーター(canvas): めいろの ドットを ぜんぶ たべる。おばけに
+  //     つかまらないよう にげ、パワーエサ(⭐)を たべると おばけを たべかえせる ---
+  function makeDotEaterGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const N = 15, DURATION_MS = 95000;
+        const GHOST_COUNT = difficulty < 0.35 ? 2 : 3;
+        const CHASE_P = lerp(0.55, 0.85, difficulty);
+        const PLAYER_SPEED = 4.6, GHOST_SPEED = lerp(3.4, 4.3, difficulty), FRIGHT_SPEED = 2.6;
+        let running = true, rafId = null, last = null, dots = 0, dotsTotal = 0, eatenGhosts = 0, lives = 2, msg = '', msgUntil = 0, frightUntil = 0, caughtAt = 0, cleared = false, swipe = null, mouth = 0;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        container.innerHTML = `
+          <div class="mg-header"><span id="deTimer">のこり: ${Math.round(DURATION_MS / 1000)}s</span><span id="deScore">● 0/0　❤️ 2</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="deCanvas"></canvas></div>
+          <div class="mg-hint" id="deHint">十字キーか がめんスワイプで すすむ。ドットを ぜんぶ たべよう。⭐を たべると 6びょう おばけを たべかえせる!</div>
+          <div class="mg-tilt-dpad"><span></span><button class="mg-tap-btn" id="deUp" data-key="up">▲</button><span></span><button class="mg-tap-btn" id="deLeft" data-key="left">◀</button><button class="mg-tap-btn" id="deDown" data-key="down">▼</button><button class="mg-tap-btn" id="deRight" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#deCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
+        const CELL = W / N;
+        const timerEl = container.querySelector('#deTimer'), scoreEl = container.querySelector('#deScore'), hint = container.querySelector('#deHint');
+        const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { scoreEl.textContent = `● ${dotsTotal - dots}/${dotsTotal}　${'❤️'.repeat(Math.max(0, lives))}`; };
+        // めいろ: ループ多めで にげみちを つくる。まんなかは おばけの おうち
+        const map = generateMaze(N, N, 16).map((r) => r.split(''));
+        for (let y = 6; y <= 8; y++) for (let x = 6; x <= 8; x++) map[y][x] = '.';
+        for (let x = 5; x <= 9; x++) { map[5][x] = '.'; map[9][x] = '.'; }
+        map[5][7] = '.'; map[4][7] = '.';
+        const open = (x, y) => x >= 0 && y >= 0 && x < N && y < N && map[y][x] === '.';
+        // ドット: ゆかの ぜんぶ(おばけの おうち いがい)。かどの 4つは パワーエサ
+        const dot = Array.from({ length: N }, () => Array(N).fill(0));
+        for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { if (open(x, y) && !(x >= 6 && x <= 8 && y >= 6 && y <= 8)) { dot[y][x] = 1; dots++; } }
+        for (const [x, y] of [[1, 1], [N - 2, 1], [1, N - 2], [N - 2, N - 2]]) { if (open(x, y)) { if (!dot[y][x]) { dot[y][x] = 1; dots++; } dot[y][x] = 2; } }
+        dotsTotal = dots;
+        const player = { x: 1, y: 1, dir: [0, 0], want: [0, 0] };
+        const ghosts = [];
+        const GHOST_COLORS = ['#ff5a7a', '#5ad0ff', '#ffb050'];
+        for (let i = 0; i < GHOST_COUNT; i++) ghosts.push({ x: 6 + i, y: 7, dir: [0, -1], color: GHOST_COLORS[i], dead: 0, releaseAt: startTime + i * 2500, home: [6 + i, 7] });
+        function turnTo(dx, dy) { player.want = [dx, dy]; }
+        const bind = (id, dx, dy) => container.querySelector(id).addEventListener('pointerdown', (e) => { e.preventDefault(); turnTo(dx, dy); });
+        bind('#deUp', 0, -1); bind('#deDown', 0, 1); bind('#deLeft', -1, 0); bind('#deRight', 1, 0);
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 18) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
+        const endSwipe = () => { swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
+        // マスの まん中に ついた ときだけ まがれる(ぎゃくむきは いつでも)。
+        // すすむ さきが かべなら まん中で とまる。1フレームで まん中を
+        // とおりこす ぶんは、まん中で いちど とまって はんていし なおす
+        function moveEntity(ent, speed, dt, chooser) {
+          let step = speed * dt / 1000;
+          let guard = 0;
+          while (step > 0 && guard++ < 8) {
+            const cx = Math.round(ent.x), cy = Math.round(ent.y);
+            const atCenter = Math.abs(ent.x - cx) + Math.abs(ent.y - cy) < 1e-6;
+            if (atCenter) {
+              ent.x = cx; ent.y = cy;
+              const want = chooser(ent, cx, cy);
+              if (want && (want[0] || want[1]) && open(cx + want[0], cy + want[1])) ent.dir = want;
+              if (!(ent.dir[0] || ent.dir[1]) || !open(cx + ent.dir[0], cy + ent.dir[1])) { ent.dir = [0, 0]; return; }
+              const mv = Math.min(step, 1);
+              ent.x += ent.dir[0] * mv; ent.y += ent.dir[1] * mv; step -= mv;
+              if (mv === 1) { ent.x = Math.round(ent.x); ent.y = Math.round(ent.y); } else return;
+            } else {
+              const want = ent.want;
+              if (want && (want[0] || want[1]) && want[0] === -ent.dir[0] && want[1] === -ent.dir[1]) ent.dir = want;
+              const tx = ent.dir[0] > 0 ? Math.ceil(ent.x - 1e-9) : ent.dir[0] < 0 ? Math.floor(ent.x + 1e-9) : Math.round(ent.x);
+              const ty = ent.dir[1] > 0 ? Math.ceil(ent.y - 1e-9) : ent.dir[1] < 0 ? Math.floor(ent.y + 1e-9) : Math.round(ent.y);
+              const d = Math.abs(tx - ent.x) + Math.abs(ty - ent.y);
+              if (d < 1e-9) { ent.x = tx; ent.y = ty; continue; }
+              const mv = Math.min(step, d);
+              ent.x += ent.dir[0] * mv; ent.y += ent.dir[1] * mv; step -= mv;
+              if (mv >= d - 1e-9) { ent.x = tx; ent.y = ty; }
+            }
+          }
+        }
+        function ghostChoose(g, cx, cy) {
+          const now = performance.now();
+          const options = [[1, 0], [-1, 0], [0, 1], [0, -1]].filter(([dx, dy]) => open(cx + dx, cy + dy) && !(dx === -g.dir[0] && dy === -g.dir[1]));
+          if (!options.length) return [-g.dir[0], -g.dir[1]];
+          const fright = now < frightUntil && !g.dead;
+          let target;
+          if (g.dead) target = g.home; else target = [player.x, player.y];
+          const score = ([dx, dy]) => Math.hypot(cx + dx - target[0], cy + dy - target[1]);
+          if (fright) { options.sort((a, b) => score(b) - score(a)); return Math.random() < 0.7 ? options[0] : options[Math.floor(Math.random() * options.length)]; }
+          if (g.dead || Math.random() < CHASE_P) { options.sort((a, b) => score(a) - score(b)); return options[0]; }
+          return options[Math.floor(Math.random() * options.length)];
+        }
+        function resetPositions() {
+          player.x = 1; player.y = 1; player.dir = [0, 0]; player.want = [0, 0];
+          ghosts.forEach((g, i) => { g.x = g.home[0]; g.y = g.home[1]; g.dir = [0, -1]; g.dead = 0; g.releaseAt = performance.now() + 1200 + i * 1500; });
+        }
+        function update(now, dt) {
+          if (caughtAt) { if (now - caughtAt > 1200) { caughtAt = 0; if (lives <= 0) { finish(); return; } resetPositions(); } return; }
+          moveEntity(player, PLAYER_SPEED, dt, (ent) => ent.want);
+          mouth += dt * 0.012;
+          const px = Math.round(player.x), py = Math.round(player.y);
+          if (Math.abs(player.x - px) < 0.3 && Math.abs(player.y - py) < 0.3 && dot[py][px]) {
+            const kind = dot[py][px]; dot[py][px] = 0; dots--;
+            if (kind === 2) { frightUntil = now + 6000; say('⭐ おばけを たべかえせ!', 1200); }
+            hud();
+            if (dots === 0) { cleared = true; say('🎉 ぜんぶ たべた!', 2500); finish(); return; }
+          }
+          for (const g of ghosts) {
+            if (now < g.releaseAt) continue;
+            const fright = now < frightUntil && !g.dead;
+            moveEntity(g, g.dead ? 7 : fright ? FRIGHT_SPEED : GHOST_SPEED, dt, ghostChoose);
+            if (g.dead && Math.abs(g.x - g.home[0]) < 0.2 && Math.abs(g.y - g.home[1]) < 0.2) { g.dead = 0; g.releaseAt = now + 1500; }
+            if (!g.dead && Math.hypot(g.x - player.x, g.y - player.y) < 0.6) {
+              if (fright) { g.dead = 1; eatenGhosts++; say(`👻 たべた! +${eatenGhosts * 5}`, 900); }
+              else { lives--; caughtAt = now; say(lives > 0 ? '💫 つかまった…' : '💀 つかまった…', 1200); hud(); }
+            }
+          }
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#0b1230'; ctx.fillRect(0, 0, W, H);
+          for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+            if (map[y][x] === '#') { ctx.fillStyle = '#2843a8'; mgRoundRect(ctx, x * CELL + 1, y * CELL + 1, CELL - 2, CELL - 2, 3); ctx.fillStyle = '#4a6be0'; mgRoundRect(ctx, x * CELL + 3, y * CELL + 3, CELL - 6, CELL - 6, 2); }
+            else if (dot[y][x] === 1) { ctx.fillStyle = '#ffe9a8'; ctx.beginPath(); ctx.arc((x + 0.5) * CELL, (y + 0.5) * CELL, CELL * 0.11, 0, Math.PI * 2); ctx.fill(); }
+            else if (dot[y][x] === 2) { const s = 0.6 + 0.2 * Math.sin(now / 130); ctx.font = `${Math.round(CELL * s)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('⭐', (x + 0.5) * CELL, (y + 0.5) * CELL + 1); }
+          }
+          // おばけ
+          for (const g of ghosts) {
+            const gx = (g.x + 0.5) * CELL, gy = (g.y + 0.5) * CELL, r = CELL * 0.42;
+            const fright = now < frightUntil && !g.dead;
+            const blink = fright && frightUntil - now < 1800 && Math.floor(now / 160) % 2 === 0;
+            ctx.fillStyle = g.dead ? 'rgba(255,255,255,.25)' : fright ? (blink ? '#fff' : '#3b3bd6') : g.color;
+            ctx.beginPath(); ctx.arc(gx, gy - r * 0.15, r, Math.PI, 0); ctx.lineTo(gx + r, gy + r * 0.75);
+            for (let i = 0; i < 4; i++) { const fx = gx + r - (i + 0.5) * (r / 2); ctx.lineTo(fx, gy + r * 0.75 - (i % 2 ? 0 : r * 0.3)); }
+            ctx.lineTo(gx - r, gy + r * 0.75); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = '#fff'; for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(gx + s * r * 0.38, gy - r * 0.2, r * 0.26, 0, Math.PI * 2); ctx.fill(); }
+            ctx.fillStyle = fright ? '#f55' : '#223'; for (const s of [-1, 1]) { ctx.beginPath(); ctx.arc(gx + s * r * 0.38 + g.dir[0] * r * 0.1, gy - r * 0.2 + g.dir[1] * r * 0.1, r * 0.13, 0, Math.PI * 2); ctx.fill(); }
+          }
+          // プレイヤー
+          const px = (player.x + 0.5) * CELL, py = (player.y + 0.5) * CELL, pr = CELL * 0.44;
+          const moving = player.dir[0] || player.dir[1];
+          const ang = Math.atan2(player.dir[1], player.dir[0] || (moving ? 0 : 1));
+          const openAmt = moving ? (0.15 + 0.3 * Math.abs(Math.sin(mouth))) : 0.12;
+          ctx.fillStyle = caughtAt && Math.floor((now - caughtAt) / 120) % 2 === 0 ? '#c44' : '#ffd93b';
+          ctx.beginPath(); ctx.moveTo(px, py); ctx.arc(px, py, pr, ang + openAmt * Math.PI, ang - openAmt * Math.PI + Math.PI * 2); ctx.closePath(); ctx.fill();
+          ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(px + Math.cos(ang - Math.PI / 2) * pr * 0.45 + Math.cos(ang) * pr * 0.1, py + Math.sin(ang - Math.PI / 2) * pr * 0.45 + Math.sin(ang) * pr * 0.1, pr * 0.14, 0, Math.PI * 2); ctx.fill();
+          if (now < startTime) { ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 80, H / 2 - 14, 160, 28); ctx.fillStyle = '#fff'; ctx.fillText('スタート!', W / 2, H / 2); }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, 29);
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now; const dt = Math.min(60, now - last); last = now;
+          if (now >= startTime) update(now, dt);
+          if (!running) return;
+          const remain = Math.max(0, DURATION_MS - (now - startTime)); timerEl.textContent = `のこり: ${Math.ceil(remain / 1000)}s`;
+          render(now);
+          if (remain <= 0) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const eatenRatio = (dotsTotal - dots) / Math.max(1, dotsTotal);
+          const score = clamp(Math.round(eatenRatio * 68 + eatenGhosts * 5 + (cleared ? 18 : 0) + Math.max(0, lives) * 3), 5, 100);
+          if (!cleared) say(lives <= 0 ? `${dotsTotal - dots}こ たべた…` : `タイムアップ! ${dotsTotal - dots}こ たべた`, 2500);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1100);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const DOT_EATER_VARIANTS = [mg('dot-eater', makeDotEaterGame({ title: 'ドットイーター!ドットを ぜんぶ たべて おばけから にげろ' }))];
+
+  // --- ミサイルコマンド(canvas): そらを タップして げいげきミサイルを うち、
+  //     ばくはつの わで おちてくる ミサイルを けして まちを まもる ---
+  function makeMissileCommandGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const WAVES = 3;
+        let running = true, rafId = null, last = null, wave = 0, incoming = [], shots = [], booms = [], cities = [], batteries = [], spawnLeft = 0, spawnAt = 0, destroyed = 0, totalIncoming = 0, msg = '', msgUntil = 0, waveEndAt = 0, phase = 'wave', flash = 0;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        container.innerHTML = `
+          <div class="mg-header"><span id="mcWave">ウェーブ 1/${WAVES}</span><span id="mcScore">💥 0　🏙 6</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="mcCanvas"></canvas></div>
+          <div class="mg-hint" id="mcHint">そらを タップすると いちばん ちかい きちから げいげきミサイルが とぶ。ばくはつの わに ミサイルを まきこんで まちを まもれ! きちの だんは ウェーブごとに ほきゅう</div>`;
+        const canvas = container.querySelector('#mcCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 270);
+        const GROUND = H - 22;
+        const waveEl = container.querySelector('#mcWave'), scoreEl = container.querySelector('#mcScore'), hint = container.querySelector('#mcHint');
+        const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const aliveCities = () => cities.filter((c) => c.alive).length;
+        const hud = () => { waveEl.textContent = `ウェーブ ${Math.min(WAVES, wave + 1)}/${WAVES}`; scoreEl.textContent = `💥 ${destroyed}　🏙 ${aliveCities()}`; };
+        const cityXs = [0.16, 0.27, 0.38, 0.62, 0.73, 0.84];
+        cities = cityXs.map((k) => ({ x: k * W, alive: true }));
+        batteries = [0.05, 0.5, 0.95].map((k) => ({ x: k * W, ammo: 0, max: 0 }));
+        function startWave() {
+          phase = 'wave';
+          const n = Math.round(lerp(8, 12, difficulty) + wave * 3);
+          spawnLeft = n; totalIncoming += n; spawnAt = performance.now() + 600;
+          for (const b of batteries) { b.max = Math.round(lerp(8, 6, difficulty) + wave); b.ammo = b.max; }
+          say(`ウェーブ ${wave + 1} スタート!`, 1200); hud();
+        }
+        function spawnIncoming(now) {
+          const targets = [...cities.filter((c) => c.alive).map((c) => c.x), ...batteries.map((b) => b.x)];
+          if (!targets.length) return;
+          const tx = targets[Math.floor(Math.random() * targets.length)];
+          const sx = Math.random() * W;
+          const speed = lerp(22, 34, difficulty) + wave * 5 + Math.random() * 6;
+          const dx = tx - sx, dy = GROUND - 0;
+          const len = Math.hypot(dx, dy);
+          incoming.push({ x: sx, y: 0, sx, sy: 0, vx: dx / len * speed, vy: dy / len * speed, tx, alive: true, born: now });
+          // たまに 分裂する ミサイル
+          if (wave >= 1 && Math.random() < 0.25) incoming[incoming.length - 1].split = true;
+        }
+        function fireAt(x, y) {
+          if (!running || phase !== 'wave' || y > GROUND - 30) return;
+          let best = null, bestD = 1e9;
+          for (const b of batteries) { if (b.ammo <= 0) continue; const d = Math.abs(b.x - x); if (d < bestD) { bestD = d; best = b; } }
+          if (!best) { say('だんぎれ… つぎの ウェーブまで まって', 900); return; }
+          best.ammo--;
+          const dx = x - best.x, dy = y - (GROUND - 6), len = Math.hypot(dx, dy) || 1, speed = 260;
+          shots.push({ x: best.x, y: GROUND - 6, tx: x, ty: y, vx: dx / len * speed, vy: dy / len * speed, sx: best.x, sy: GROUND - 6 });
+        }
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); fireAt(p.x, p.y); });
+        function update(now, dt) {
+          const s = dt / 1000;
+          if (phase === 'wave') {
+            if (spawnLeft > 0 && now >= spawnAt) { spawnIncoming(now); spawnLeft--; spawnAt = now + lerp(1100, 750, difficulty) - wave * 80 + Math.random() * 400; }
+            if (spawnLeft === 0 && !incoming.some((m) => m.alive) && !shots.length && !booms.length) { phase = 'between'; waveEndAt = now + 1600; const bonus = batteries.reduce((a, b) => a + b.ammo, 0); say(`ウェーブ クリア! のこり だん ${bonus}`, 1500); }
+          } else if (phase === 'between') {
+            if (now >= waveEndAt) { wave++; if (wave >= WAVES) { finish(); return; } startWave(); }
+          }
+          for (const sh of shots) {
+            sh.x += sh.vx * s; sh.y += sh.vy * s;
+            if ((sh.vy < 0 && sh.y <= sh.ty) || (sh.vy >= 0 && sh.y >= sh.ty)) { sh.done = true; booms.push({ x: sh.tx, y: sh.ty, r: 4, max: lerp(26, 22, difficulty), born: now, life: 900 }); }
+          }
+          shots = shots.filter((sh) => !sh.done);
+          for (const b of booms) { const t = (now - b.born) / b.life; b.r = t < 0.5 ? b.max * (t / 0.5) : b.max * (1 - (t - 0.5) / 0.5); if (t >= 1) b.done = true; }
+          booms = booms.filter((b) => !b.done);
+          for (const m of incoming) {
+            if (!m.alive) continue;
+            m.x += m.vx * s; m.y += m.vy * s;
+            if (m.split && m.y > H * 0.35) { m.split = false; for (const k of [-1, 1]) { const targets = cities.filter((c) => c.alive); const tx = targets.length ? targets[Math.floor(Math.random() * targets.length)].x : m.tx; const dx = tx - m.x, dy = GROUND - m.y, len = Math.hypot(dx, dy) || 1, sp = Math.hypot(m.vx, m.vy); incoming.push({ x: m.x, y: m.y, sx: m.x, sy: m.y, vx: dx / len * sp, vy: dy / len * sp, tx, alive: true, born: now }); void k; } totalIncoming += 2; }
+            for (const b of booms) { if (Math.hypot(m.x - b.x, m.y - b.y) < b.r) { m.alive = false; destroyed++; booms.push({ x: m.x, y: m.y, r: 3, max: 18, born: now, life: 700 }); hud(); break; } }
+            if (!m.alive) continue;
+            if (m.y >= GROUND) {
+              m.alive = false; flash = now;
+              const city = cities.find((c) => c.alive && Math.abs(c.x - m.x) < 16);
+              if (city) { city.alive = false; say('💥 まちが やられた!', 1000); hud(); }
+              const bat = batteries.find((b) => Math.abs(b.x - m.x) < 14);
+              if (bat && bat.ammo > 0) { bat.ammo = Math.max(0, bat.ammo - 3); say('💥 きちが ひばくした… だん -3', 1000); }
+              booms.push({ x: m.x, y: GROUND, r: 3, max: 16, born: now, life: 600 });
+              if (aliveCities() === 0) { finish(); return; }
+            }
+          }
+          incoming = incoming.filter((m) => m.alive || now - m.born < 100);
+        }
+        function render(now) {
+          if (!ctx) return;
+          const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#05081c'); g.addColorStop(1, '#1a2450');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+          if (flash && now - flash < 120) { ctx.fillStyle = 'rgba(255,120,80,.25)'; ctx.fillRect(0, 0, W, H); }
+          ctx.fillStyle = '#e8e8f0'; for (let i = 0; i < 26; i++) { const h1 = Math.sin(i * 12.9898) * 43758.5453, h2 = Math.sin(i * 78.233) * 12345.678; const sx = (h1 - Math.floor(h1)) * W, sy = (h2 - Math.floor(h2)) * (GROUND - 60); ctx.globalAlpha = 0.4 + 0.4 * Math.sin(now / 700 + i); ctx.fillRect(sx, sy, 1.5, 1.5); } ctx.globalAlpha = 1;
+          ctx.fillStyle = '#3c2f4a'; ctx.fillRect(0, GROUND, W, H - GROUND);
+          for (const b of batteries) {
+            ctx.fillStyle = '#6b5a7a'; ctx.beginPath(); ctx.moveTo(b.x - 16, GROUND); ctx.lineTo(b.x, GROUND - 14); ctx.lineTo(b.x + 16, GROUND); ctx.closePath(); ctx.fill();
+            for (let i = 0; i < b.ammo; i++) { ctx.fillStyle = '#ffd36b'; ctx.fillRect(b.x - 8 + (i % 4) * 4.5, GROUND - 5 - Math.floor(i / 4) * 4, 3, 3); }
+          }
+          for (const c of cities) {
+            if (c.alive) { ctx.fillStyle = '#7bd2ff'; ctx.fillRect(c.x - 9, GROUND - 10, 5, 10); ctx.fillRect(c.x - 3, GROUND - 15, 6, 15); ctx.fillRect(c.x + 4, GROUND - 8, 5, 8); ctx.fillStyle = '#fff6a8'; ctx.fillRect(c.x - 2, GROUND - 12, 2, 2); ctx.fillRect(c.x + 1, GROUND - 8, 2, 2); }
+            else { ctx.fillStyle = '#4b3b5a'; ctx.fillRect(c.x - 9, GROUND - 4, 18, 4); }
+          }
+          ctx.lineWidth = 1.2;
+          for (const m of incoming) { if (!m.alive) continue; ctx.strokeStyle = 'rgba(255,90,90,.75)'; ctx.beginPath(); ctx.moveTo(m.sx, m.sy); ctx.lineTo(m.x, m.y); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(m.x, m.y, 2.2, 0, Math.PI * 2); ctx.fill(); }
+          for (const sh of shots) { ctx.strokeStyle = 'rgba(120,220,255,.85)'; ctx.beginPath(); ctx.moveTo(sh.sx, sh.sy); ctx.lineTo(sh.x, sh.y); ctx.stroke(); ctx.strokeStyle = '#8ff'; ctx.beginPath(); ctx.moveTo(sh.tx - 4, sh.ty); ctx.lineTo(sh.tx + 4, sh.ty); ctx.moveTo(sh.tx, sh.ty - 4); ctx.lineTo(sh.tx, sh.ty + 4); ctx.stroke(); }
+          for (const b of booms) { const t = (now - b.born) / b.life; ctx.fillStyle = `hsla(${40 + t * 300},100%,${70 - t * 20}%,.85)`; ctx.beginPath(); ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2); ctx.fill(); }
+          if (now < startTime) { ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 80, H / 2 - 14, 160, 28); ctx.fillStyle = '#fff'; ctx.fillText('スタート!', W / 2, H / 2); }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, 29);
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now; const dt = Math.min(60, now - last); last = now;
+          if (now >= startTime) { if (wave === 0 && totalIncoming === 0 && phase === 'wave' && spawnLeft === 0) startWave(); update(now, dt); }
+          if (!running) return;
+          render(now);
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          const ratio = destroyed / Math.max(1, totalIncoming);
+          const score = clamp(Math.round(ratio * 62 + aliveCities() * 6 + (aliveCities() === 6 ? 4 : 0)), 5, 100);
+          say(aliveCities() === 0 ? '💥 まちが ぜんめつ…' : `🎉 まもりきった! まち ${aliveCities()}/6`, 2500);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1200);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const MISSILE_COMMAND_VARIANTS = [mg('missile-command', makeMissileCommandGame({ title: 'ミサイルコマンド!タップで げいげきして まちを まもれ' }))];
+
+  // --- じんとり(Qix ふう、canvas): ふちを はしり、なかへ せんを ひいて かこむと
+  //     その ぶぶんが じぶんの じんち に。うごきまわる ✨に せんを さわられないで ---
+  function makeAreaClaimGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const G = 36, DURATION_MS = 90000, GOAL = 75;
+        const QIX_COUNT = difficulty < 0.5 ? 1 : 2;
+        const QIX_SPEED = lerp(6, 9, difficulty);
+        let running = true, rafId = null, last = null, lives = 3, claimed = 0, msg = '', msgUntil = 0, held = { l: false, r: false, u: false, d: false }, stepAcc = 0, trail = [], trailStart = null, hitAt = 0, won = false, swipe = null;
+        const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+        container.innerHTML = `
+          <div class="mg-header"><span id="acTimer">のこり: ${Math.round(DURATION_MS / 1000)}s</span><span id="acScore">じんち 0%　❤️❤️❤️</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="acCanvas"></canvas></div>
+          <div class="mg-hint" id="acHint">十字キー(おしっぱなし)で ふちを うごき、なかへ せんを ひいて かこもう。${GOAL}% とれば クリア。✨が せんに ふれると 1ミス</div>
+          <div class="mg-tilt-dpad"><span></span><button class="mg-tap-btn mg-hold-btn" id="acUp" data-key="up">▲</button><span></span><button class="mg-tap-btn mg-hold-btn" id="acLeft" data-key="left">◀</button><button class="mg-tap-btn mg-hold-btn" id="acDown" data-key="down">▼</button><button class="mg-tap-btn mg-hold-btn" id="acRight" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#acCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
+        const CELL = W / G;
+        const timerEl = container.querySelector('#acTimer'), scoreEl = container.querySelector('#acScore'), hint = container.querySelector('#acHint');
+        const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { scoreEl.textContent = `じんち ${claimed}%　${'❤️'.repeat(Math.max(0, lives))}`; };
+        // 0=まだ 1=じんち(ふちを ふくむ) 2=ひいている せん
+        const cell = Array.from({ length: G }, () => Array(G).fill(0));
+        for (let i = 0; i < G; i++) { cell[0][i] = cell[G - 1][i] = cell[i][0] = cell[i][G - 1] = 1; }
+        const INNER = (G - 2) * (G - 2);
+        const player = { x: Math.floor(G / 2), y: G - 1 };
+        const qixes = [];
+        for (let i = 0; i < QIX_COUNT; i++) { const a = Math.random() * Math.PI * 2; qixes.push({ x: G / 2 + (i ? 6 : -6), y: G / 2 - 4, vx: Math.cos(a) * QIX_SPEED, vy: Math.sin(a) * QIX_SPEED, hue: i ? 300 : 190, tail: [] }); }
+        // はいけいの え(じんちに なった ところだけ 見える)
+        const PICS = ['🌸', '🍰', '🐳', '🌈', '🎈', '🦋'];
+        const pic = PICS[Math.floor(Math.random() * PICS.length)];
+        bindHeldButton(container.querySelector('#acLeft'), (v) => { held.l = v; });
+        bindHeldButton(container.querySelector('#acRight'), (v) => { held.r = v; });
+        bindHeldButton(container.querySelector('#acUp'), (v) => { held.u = v; });
+        bindHeldButton(container.querySelector('#acDown'), (v) => { held.d = v; });
+        canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 10) return; held = { l: dx < -Math.abs(dy), r: dx > Math.abs(dy), u: dy < -Math.abs(dx), d: dy > Math.abs(dx) }; swipe.x = e.clientX; swipe.y = e.clientY; swipe.moved = true; });
+        const endSwipe = () => { if (swipe && swipe.moved) held = { l: false, r: false, u: false, d: false }; swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
+        const inside = (x, y) => x >= 0 && y >= 0 && x < G && y < G;
+        function tryStep() {
+          let dx = 0, dy = 0;
+          if (held.l) dx = -1; else if (held.r) dx = 1; else if (held.u) dy = -1; else if (held.d) dy = 1; else return;
+          const nx = player.x + dx, ny = player.y + dy;
+          if (!inside(nx, ny)) return;
+          const target = cell[ny][nx];
+          if (target === 2) return; // じぶんの せんは またげない
+          if (target === 1) {
+            if (trail.length) { closeTrail(); }
+            player.x = nx; player.y = ny; return;
+          }
+          // target === 0: せんを ひく。せんの となりに すでに せんが あると ゆびが ぬける ので、
+          // ひとつ まえの ます いがいの せんに 隣接する ますには 入れない
+          for (const [ox, oy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const ax = nx + ox, ay = ny + oy; if (inside(ax, ay) && cell[ay][ax] === 2 && !(ax === player.x && ay === player.y)) return; }
+          if (!trail.length) trailStart = { x: player.x, y: player.y };
+          cell[ny][nx] = 2; trail.push([nx, ny]); player.x = nx; player.y = ny;
+        }
+        function closeTrail() {
+          // ✨が いる がわは のこし、それ いがいの「0」の りょういきを じんちに する
+          const reach = Array.from({ length: G }, () => Array(G).fill(false));
+          const stack = [];
+          for (const q of qixes) { const qx = clamp(Math.round(q.x), 0, G - 1), qy = clamp(Math.round(q.y), 0, G - 1); if (cell[qy][qx] === 0 && !reach[qy][qx]) { reach[qy][qx] = true; stack.push([qx, qy]); } }
+          while (stack.length) { const [x, y] = stack.pop(); for (const [ox, oy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const ax = x + ox, ay = y + oy; if (inside(ax, ay) && cell[ay][ax] === 0 && !reach[ay][ax]) { reach[ay][ax] = true; stack.push([ax, ay]); } } }
+          let gained = 0;
+          for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) { if (cell[y][x] === 2) { cell[y][x] = 1; gained++; } else if (cell[y][x] === 0 && !reach[y][x]) { cell[y][x] = 1; gained++; } }
+          trail = []; trailStart = null;
+          let count = 0; for (let y = 1; y < G - 1; y++) for (let x = 1; x < G - 1; x++) if (cell[y][x] === 1) count++;
+          claimed = Math.round(count / INNER * 100);
+          const pct = Math.round(gained / INNER * 100);
+          say(pct >= 20 ? `✨ おおきく とった! +${pct}%` : `+${pct}%`, 900); hud();
+          if (claimed >= GOAL) { won = true; say('🎉 クリア!', 2500); finish(); }
+        }
+        function loseTrail(now) {
+          lives--; hitAt = now;
+          for (const [x, y] of trail) cell[y][x] = 0;
+          trail = [];
+          if (trailStart) { player.x = trailStart.x; player.y = trailStart.y; trailStart = null; }
+          say(lives > 0 ? '💫 せんに さわられた!' : '💀 ミス…', 1000); hud();
+          if (lives <= 0) finish();
+        }
+        function update(now, dt) {
+          if (hitAt && now - hitAt < 700) return;
+          stepAcc += dt;
+          const STEP = 42;
+          while (stepAcc >= STEP) { stepAcc -= STEP; tryStep(); if (!running) return; }
+          const s = dt / 1000;
+          for (const q of qixes) {
+            let nx = q.x + q.vx * s, ny = q.y + q.vy * s;
+            const cx = clamp(Math.round(nx), 0, G - 1), cy = clamp(Math.round(q.y), 0, G - 1);
+            if (cell[cy][cx] !== 0) { q.vx = -q.vx; nx = q.x; }
+            const cx2 = clamp(Math.round(q.x), 0, G - 1), cy2 = clamp(Math.round(ny), 0, G - 1);
+            if (cell[cy2][cx2] !== 0) { q.vy = -q.vy; ny = q.y; }
+            q.x = nx; q.y = ny;
+            // すこし ふらふら
+            const ang = Math.atan2(q.vy, q.vx) + (Math.random() - 0.5) * 0.25; const sp = Math.hypot(q.vx, q.vy);
+            q.vx = Math.cos(ang) * sp; q.vy = Math.sin(ang) * sp;
+            q.tail.push([q.x, q.y]); if (q.tail.length > 10) q.tail.shift();
+            // せん(2)か、せんを ひいている プレイヤーに ふれたら ミス
+            const qx = Math.round(q.x), qy = Math.round(q.y);
+            let hit = false;
+            for (let oy = -1; oy <= 1 && !hit; oy++) for (let ox = -1; ox <= 1; ox++) { const ax = qx + ox, ay = qy + oy; if (inside(ax, ay) && (cell[ay][ax] === 2 || (trail.length && ax === player.x && ay === player.y))) { hit = true; break; } }
+            if (hit && trail.length) { loseTrail(now); return; }
+          }
+        }
+        function render(now) {
+          if (!ctx) return;
+          // したじ: とった ところに え が 見える
+          const g = ctx.createLinearGradient(0, 0, W, H); g.addColorStop(0, '#ffd1e8'); g.addColorStop(0.5, '#fff5c2'); g.addColorStop(1, '#c2f0ff');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+          ctx.font = `${Math.round(W * 0.6)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pic, W / 2, H / 2 + 8);
+          ctx.fillStyle = '#12142a';
+          for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) { if (cell[y][x] === 0) ctx.fillRect(x * CELL, y * CELL, CELL + 0.5, CELL + 0.5); }
+          // ふち(じんちの りんかく)
+          ctx.fillStyle = 'rgba(255,255,255,.55)';
+          for (let y = 0; y < G; y++) for (let x = 0; x < G; x++) { if (cell[y][x] === 1) { let edge = false; for (const [ox, oy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const ax = x + ox, ay = y + oy; if (inside(ax, ay) && cell[ay][ax] === 0) { edge = true; break; } } if (edge) ctx.fillRect(x * CELL, y * CELL, CELL, CELL); } }
+          ctx.fillStyle = '#ff5aa0';
+          for (const [x, y] of trail) ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+          for (const q of qixes) {
+            for (let i = 0; i < q.tail.length; i++) { const [tx, ty] = q.tail[i]; ctx.fillStyle = `hsla(${q.hue},100%,70%,${(i + 1) / q.tail.length * 0.6})`; ctx.beginPath(); ctx.arc((tx + 0.5) * CELL, (ty + 0.5) * CELL, CELL * 0.5, 0, Math.PI * 2); ctx.fill(); }
+            ctx.font = `${Math.round(CELL * 2.2)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('✨', (q.x + 0.5) * CELL, (q.y + 0.5) * CELL);
+          }
+          const px = (player.x + 0.5) * CELL, py = (player.y + 0.5) * CELL;
+          ctx.fillStyle = hitAt && now - hitAt < 700 && Math.floor(now / 100) % 2 === 0 ? '#c44' : '#ffd93b';
+          ctx.beginPath(); ctx.arc(px, py, CELL * 1.1, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#222'; ctx.beginPath(); ctx.arc(px, py, CELL * 0.45, 0, Math.PI * 2); ctx.fill();
+          ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(6, 6, 74, 18); ctx.fillStyle = '#fff'; ctx.fillText(`${claimed}% / ${GOAL}%`, 10, 9);
+          if (now < startTime) { ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(W / 2 - 80, H / 2 - 14, 160, 28); ctx.fillStyle = '#fff'; ctx.fillText('スタート!', W / 2, H / 2); }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, 43);
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now; const dt = Math.min(60, now - last); last = now;
+          if (now >= startTime) update(now, dt);
+          if (!running) return;
+          const remain = Math.max(0, DURATION_MS - (now - startTime)); timerEl.textContent = `のこり: ${Math.ceil(remain / 1000)}s`;
+          render(now);
+          if (remain <= 0) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const score = clamp(Math.round(won ? 82 + Math.max(0, lives) * 6 : claimed * 1.05 + Math.max(0, lives) * 2), 5, 100);
+          if (!won) say(lives <= 0 ? `${claimed}% とった…` : `タイムアップ! ${claimed}% とった`, 2500);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1100);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const AREA_CLAIM_VARIANTS = [mg('area-claim', makeAreaClaimGame({ title: 'じんとり!せんを ひいて かこんで 75% とれ' }))];
+
+  // --- ソリティア(クロンダイク、canvas): タップで カードを えらび、タップで
+  //     おき場所を えらぶ。えらんだ カードを もういちど タップすると 台へ ---
+  function makeSolitaireGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const DURATION_MS = 240000;
+        const SUITS = ['♠', '♥', '♦', '♣'], RED = { '♥': true, '♦': true };
+        const RANK_LABEL = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        let running = true, rafId = null, stock = [], waste = [], found = [[], [], [], []], tab = [[], [], [], [], [], [], []], sel = null, moves = 0, msg = '', msgUntil = 0, won = false, anim = [];
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="soTimer">のこり: ${Math.round(DURATION_MS / 1000)}s</span><span id="soScore">🏠 0/52　${'てかず'} 0</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="soCanvas"></canvas></div>
+          <div class="mg-hint" id="soHint">カードを タップして えらび、おきたい 列か 右上の 台を タップ。えらんだ カードを もう1かい タップすると 台へ。やまふだは タップで めくる</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn" id="soDraw" data-key="action2">🂠 めくる</button><button class="mg-tap-btn primary" id="soAuto" data-key="action">⤴ 台へ あげる</button></div>`;
+        const canvas = container.querySelector('#soCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 300);
+        const timerEl = container.querySelector('#soTimer'), scoreEl = container.querySelector('#soScore'), hint = container.querySelector('#soHint');
+        const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const foundCount = () => found.reduce((a, f) => a + f.length, 0);
+        const hud = () => { scoreEl.textContent = `🏠 ${foundCount()}/52　てかず ${moves}`; };
+        // レイアウト
+        const GAP = 4, CW = Math.floor((W - GAP * 8) / 7), CH = Math.round(CW * 1.4), TOP = 6, TAB_Y = TOP + CH + 10, FAN = 15, FAN_DOWN = 6;
+        const colX = (i) => GAP + i * (CW + GAP);
+        // くばる
+        const deck = [];
+        for (const s of SUITS) for (let r = 1; r <= 13; r++) deck.push({ s, r, up: false });
+        for (let i = deck.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [deck[i], deck[j]] = [deck[j], deck[i]]; }
+        for (let c = 0; c < 7; c++) { for (let k = 0; k <= c; k++) { const card = deck.pop(); card.up = k === c; tab[c].push(card); } }
+        stock = deck;
+        const canStackTab = (card, col) => { if (!col.length) return card.r === 13; const top = col[col.length - 1]; return top.up && top.r === card.r + 1 && (RED[top.s] !== RED[card.s]); };
+        const canFound = (card, f) => (f.length === 0 ? card.r === 1 : f[f.length - 1].s === card.s && f[f.length - 1].r === card.r - 1);
+        const foundIdx = (card) => SUITS.indexOf(card.s);
+        function takeSel() {
+          // えらんでいる カード(たち)を もとの 場所から はずして かえす
+          if (sel.from === 'waste') return [waste.pop()];
+          if (sel.from === 'found') return [found[sel.idx].pop()];
+          const col = tab[sel.idx]; const cards = col.splice(sel.pos); if (col.length && !col[col.length - 1].up) col[col.length - 1].up = true; return cards;
+        }
+        function selCards() {
+          if (sel.from === 'waste') return [waste[waste.length - 1]];
+          if (sel.from === 'found') return [found[sel.idx][found[sel.idx].length - 1]];
+          return tab[sel.idx].slice(sel.pos);
+        }
+        function moveTo(target) {
+          const cards = selCards(); if (!cards.length || !cards[0]) { sel = null; return; }
+          if (target.kind === 'found') {
+            if (cards.length !== 1) { say('1まいずつ 台へ', 800); sel = null; return; }
+            const fi = foundIdx(cards[0]);
+            if (!canFound(cards[0], found[fi])) { say('その カードは まだ 台に おけない', 800); sel = null; return; }
+            const c = takeSel()[0]; found[fi].push(c); moves++; sel = null; hud();
+            if (foundCount() === 52) { won = true; say('🎉 ぜんぶ そろった!', 3000); finish(); }
+            return;
+          }
+          const col = tab[target.idx];
+          if (sel.from === 'tab' && sel.idx === target.idx) { sel = null; return; }
+          if (!canStackTab(cards[0], col)) { say(col.length ? 'いろちがいで 1つ 小さい カードだけ' : 'あいた 列には K だけ', 900); sel = null; return; }
+          const moved = takeSel(); for (const c of moved) col.push(c); moves++; sel = null; hud();
+        }
+        function draw() {
+          if (!running) return;
+          sel = null;
+          if (!stock.length) { if (!waste.length) return; stock = waste.reverse().map((c) => ({ ...c, up: false })); waste = []; say('やまふだを もどした', 700); moves++; return; }
+          const c = stock.pop(); c.up = true; waste.push(c); moves++; hud();
+        }
+        function autoUp() {
+          if (!running) return;
+          sel = null; let n = 0;
+          for (let guard = 0; guard < 60; guard++) {
+            let moved = false;
+            const tryCard = (getter, remover) => { const c = getter(); if (!c) return false; const fi = foundIdx(c); if (!canFound(c, found[fi])) return false; remover(); found[fi].push(c); n++; return true; };
+            if (tryCard(() => waste[waste.length - 1], () => waste.pop())) moved = true;
+            for (let i = 0; i < 7; i++) { const col = tab[i]; if (tryCard(() => (col.length && col[col.length - 1].up ? col[col.length - 1] : null), () => { col.pop(); if (col.length) col[col.length - 1].up = true; })) moved = true; }
+            if (!moved) break;
+          }
+          if (n) { moves++; say(`${n}まい 台へ`, 800); hud(); if (foundCount() === 52) { won = true; say('🎉 ぜんぶ そろった!', 3000); finish(); } }
+          else say('いま 台に あげられる カードは ない', 800);
+        }
+        container.querySelector('#soDraw').addEventListener('pointerdown', (e) => { e.preventDefault(); draw(); });
+        container.querySelector('#soAuto').addEventListener('pointerdown', (e) => { e.preventDefault(); autoUp(); });
+        function hitTest(x, y) {
+          if (y < TAB_Y - 4) {
+            const i = Math.floor((x - GAP) / (CW + GAP));
+            if (i === 0) return { kind: 'stock' };
+            if (i === 1) return { kind: 'waste' };
+            if (i >= 3 && i <= 6) return { kind: 'found', idx: i - 3 };
+            return null;
+          }
+          const i = clamp(Math.floor((x - GAP) / (CW + GAP)), 0, 6);
+          const col = tab[i];
+          if (!col.length) return { kind: 'tab', idx: i, pos: 0, empty: true };
+          // うえから じゅんに かさなっている。いちばん した(=さいご)の カードいがいは FAN の はばだけ 見えている
+          let yy = TAB_Y, pos = -1;
+          for (let k = 0; k < col.length; k++) { const h = k === col.length - 1 ? CH : (col[k].up ? FAN : FAN_DOWN); if (y >= yy && y < yy + h) { pos = k; break; } yy += h; }
+          if (pos < 0) pos = y >= yy ? col.length - 1 : -1;
+          return { kind: 'tab', idx: i, pos };
+        }
+        canvas.addEventListener('pointerdown', (e) => {
+          if (!running) return; e.preventDefault();
+          const p = mgPointerPos(canvas, e); const t = hitTest(p.x, p.y); if (!t) { sel = null; return; }
+          if (t.kind === 'stock') { draw(); return; }
+          if (sel) {
+            // おなじ カードを もう1かい → 台へ
+            if ((t.kind === 'waste' && sel.from === 'waste') || (t.kind === 'tab' && sel.from === 'tab' && sel.idx === t.idx && t.pos === sel.pos)) { if (selCards().length === 1) moveTo({ kind: 'found' }); else sel = null; return; }
+            if (t.kind === 'found') { moveTo({ kind: 'found', idx: t.idx }); return; }
+            if (t.kind === 'tab') { moveTo({ kind: 'tab', idx: t.idx }); return; }
+            sel = null; return;
+          }
+          if (t.kind === 'waste') { if (waste.length) sel = { from: 'waste' }; return; }
+          if (t.kind === 'found') { if (found[t.idx].length) sel = { from: 'found', idx: t.idx }; return; }
+          if (t.kind === 'tab') {
+            const col = tab[t.idx]; if (!col.length || t.pos < 0) return;
+            if (!col[t.pos].up) { if (t.pos === col.length - 1) { col[t.pos].up = true; } return; }
+            sel = { from: 'tab', idx: t.idx, pos: t.pos };
+          }
+        });
+        function drawCard(x, y, card, selected) {
+          ctx.fillStyle = 'rgba(0,0,0,.25)'; mgRoundRect(ctx, x + 1, y + 2, CW, CH, 4);
+          if (!card.up) { ctx.fillStyle = '#3557b8'; mgRoundRect(ctx, x, y, CW, CH, 4); ctx.fillStyle = 'rgba(255,255,255,.18)'; for (let i = 3; i < CW - 3; i += 6) for (let j = 3; j < CH - 3; j += 6) ctx.fillRect(x + i, y + j, 2, 2); return; }
+          ctx.fillStyle = selected ? '#fff3b0' : '#fffdf6'; mgRoundRect(ctx, x, y, CW, CH, 4);
+          if (selected) { ctx.strokeStyle = '#ff9800'; ctx.lineWidth = 2; ctx.strokeRect(x + 1, y + 1, CW - 2, CH - 2); }
+          ctx.fillStyle = RED[card.s] ? '#d3283c' : '#1a1a2e';
+          ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+          ctx.fillText(RANK_LABEL[card.r], x + 3, y + 2); ctx.fillText(card.s, x + 3, y + 13);
+          ctx.font = '16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(card.s, x + CW / 2, y + CH * 0.66);
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#1f6b3a'; ctx.fillRect(0, 0, W, H);
+          ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1.5;
+          const slot = (x, y, label) => { ctx.strokeRect(x + 0.5, y + 0.5, CW - 1, CH - 1); if (label) { ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.font = '16px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(label, x + CW / 2, y + CH / 2); } };
+          slot(colX(0), TOP, stock.length ? '' : '↻'); if (stock.length) drawCard(colX(0), TOP, { up: false }, false);
+          slot(colX(1), TOP, ''); if (waste.length) drawCard(colX(1), TOP, waste[waste.length - 1], sel && sel.from === 'waste');
+          for (let i = 0; i < 4; i++) { slot(colX(3 + i), TOP, SUITS[i]); const f = found[i]; if (f.length) drawCard(colX(3 + i), TOP, f[f.length - 1], sel && sel.from === 'found' && sel.idx === i); }
+          for (let i = 0; i < 7; i++) {
+            const col = tab[i]; let y = TAB_Y;
+            if (!col.length) slot(colX(i), TAB_Y, '');
+            for (let k = 0; k < col.length; k++) { const c = col[k]; drawCard(colX(i), y, c, sel && sel.from === 'tab' && sel.idx === i && k >= sel.pos); y += c.up ? FAN : FAN_DOWN; }
+          }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, H - 21, 13);
+        }
+        function frame(now) {
+          if (!running) return;
+          const remain = Math.max(0, DURATION_MS - (now - startTime)); timerEl.textContent = `のこり: ${Math.ceil(remain / 1000)}s`;
+          render(now);
+          if (remain <= 0) { finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const n = foundCount();
+          const remainS = Math.max(0, DURATION_MS - (performance.now() - startTime)) / 1000;
+          const score = clamp(Math.round(won ? 90 + Math.min(10, remainS / 12) : 8 + n * 1.6), 5, 100);
+          if (!won) say(`タイムアップ! 台に ${n}まい`, 2500);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1200);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const SOLITAIRE_VARIANTS = [mg('solitaire-klondike', makeSolitaireGame({ title: 'ソリティア!4つの 台に A から K まで そろえよう' }))];
+
+  // --- ヒット&ブロー(canvas+ボタン): かくされた 4しょくの ならびを あてる。
+  //     ヒット=いろも 場所も あたり、ブロー=いろは あるが 場所ちがい ---
+  function makeHitBlowGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const DURATION_MS = 150000;
+        const COLORS = [{ e: '🔴', c: '#e53957' }, { e: '🟡', c: '#f2c230' }, { e: '🟢', c: '#3fae5a' }, { e: '🔵', c: '#2f7fd6' }, { e: '🟣', c: '#8e44ad' }, { e: '🟠', c: '#f07c1f' }];
+        const SLOTS = 4, MAX_TRIES = difficulty < 0.4 ? 10 : 8;
+        let running = true, rafId = null, guesses = [], cur = [], msg = '', msgUntil = 0, solved = false, revealAt = 0;
+        const startTime = performance.now();
+        // こたえ: 6しょくから 4しょく(かぶりなし)
+        const pool = [0, 1, 2, 3, 4, 5]; for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+        const answer = pool.slice(0, SLOTS);
+        container.innerHTML = `
+          <div class="mg-header"><span id="hbTimer">のこり: ${Math.round(DURATION_MS / 1000)}s</span><span id="hbScore">${MAX_TRIES}かい まで</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="hbCanvas"></canvas></div>
+          <div class="mg-hint" id="hbHint">こたえは 6しょくから 4しょく(おなじ いろは 2つ ない)。いろを 4つ えらんで「けってい」。🎯ヒット=いろも 場所も あたり、💨ブロー=いろは あるけど 場所ちがい</div>
+          <div class="mg-tilt-dpad" id="hbPalette">${COLORS.map((c, i) => `<button class="mg-tap-btn" data-color="${i}">${c.e}</button>`).join('')}</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn" id="hbClear" data-key="action2">⌫ けす</button><button class="mg-tap-btn primary" id="hbSubmit" data-key="action">けってい</button></div>`;
+        const canvas = container.querySelector('#hbCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 250);
+        const timerEl = container.querySelector('#hbTimer'), scoreEl = container.querySelector('#hbScore'), hint = container.querySelector('#hbHint');
+        const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const hud = () => { scoreEl.textContent = `${guesses.length}/${MAX_TRIES}かい`; };
+        container.querySelector('#hbPalette').addEventListener('pointerdown', (e) => {
+          const btn = e.target && e.target.closest ? e.target.closest('button[data-color]') : null; if (!btn || !running || solved) return; e.preventDefault();
+          const ci = +btn.dataset.color; if (cur.length >= SLOTS) return;
+          if (cur.includes(ci)) { say('おなじ いろは 2つ つかえない', 800); return; }
+          cur.push(ci);
+        });
+        container.querySelector('#hbClear').addEventListener('pointerdown', (e) => { e.preventDefault(); if (running) cur.pop(); });
+        container.querySelector('#hbSubmit').addEventListener('pointerdown', (e) => { e.preventDefault(); submit(); });
+        function judge(g) { let hit = 0, blow = 0; for (let i = 0; i < SLOTS; i++) { if (g[i] === answer[i]) hit++; else if (answer.includes(g[i])) blow++; } return { hit, blow }; }
+        function submit() {
+          if (!running || solved) return;
+          if (cur.length < SLOTS) { say(`あと ${SLOTS - cur.length}しょく えらんで`, 800); return; }
+          const r = judge(cur); guesses.push({ g: cur.slice(), ...r }); cur = []; hud();
+          if (r.hit === SLOTS) { solved = true; revealAt = performance.now(); say(`🎉 せいかい! ${guesses.length}かいめで あてた`, 3000); finish(); return; }
+          say(r.hit === 0 && r.blow === 0 ? '💨 ぜんぶ ちがう いろ! それも ヒント' : `🎯 ヒット ${r.hit}　💨 ブロー ${r.blow}`, 1500);
+          if (guesses.length >= MAX_TRIES) { revealAt = performance.now(); say('ざんねん… こたえは これ', 3000); finish(); }
+        }
+        function drawPeg(x, y, r, ci, hollow) {
+          if (ci == null) { ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); return; }
+          ctx.fillStyle = COLORS[ci].c; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = 'rgba(255,255,255,.4)'; ctx.beginPath(); ctx.arc(x - r * 0.3, y - r * 0.3, r * 0.35, 0, Math.PI * 2); ctx.fill();
+          void hollow;
+        }
+        function render(now) {
+          if (!ctx) return;
+          ctx.fillStyle = '#3b2b40'; ctx.fillRect(0, 0, W, H);
+          const ROW_H = (H - 34) / MAX_TRIES, PEG = Math.min(9, ROW_H * 0.36), X0 = 22, DX = 26;
+          // こたえの 行(かくし)
+          ctx.fillStyle = 'rgba(0,0,0,.35)'; mgRoundRect(ctx, 6, 4, W - 12, 26, 6);
+          const reveal = revealAt > 0;
+          for (let i = 0; i < SLOTS; i++) { const x = X0 + i * DX, y = 17; if (reveal) drawPeg(x, y, PEG, answer[i]); else { ctx.fillStyle = '#5a4a60'; ctx.beginPath(); ctx.arc(x, y, PEG, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('?', x, y); } }
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(reveal ? 'こたえ' : 'こたえ(かくれている)', X0 + SLOTS * DX + 2, 17);
+          for (let k = 0; k < MAX_TRIES; k++) {
+            const y = 34 + k * ROW_H + ROW_H / 2;
+            const row = guesses[k];
+            const isCur = k === guesses.length && !solved;
+            if (isCur) { ctx.fillStyle = 'rgba(255,255,255,.1)'; mgRoundRect(ctx, 6, y - ROW_H / 2 + 1, W - 12, ROW_H - 2, 5); }
+            ctx.fillStyle = 'rgba(255,255,255,.5)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'right'; ctx.textBaseline = 'middle'; ctx.fillText(String(k + 1), 14, y);
+            for (let i = 0; i < SLOTS; i++) { const x = X0 + i * DX; drawPeg(x, y, PEG, row ? row.g[i] : isCur && i < cur.length ? cur[i] : null); }
+            if (row) {
+              // ヒット=あか、ブロー=しろ の ちいさな ピン
+              let px = X0 + SLOTS * DX + 8;
+              for (let i = 0; i < SLOTS; i++) { const c = i < row.hit ? '#ff3b5c' : i < row.hit + row.blow ? '#fff' : null; if (c) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(px + (i % 2) * 10, y - 5 + Math.floor(i / 2) * 10, 3.6, 0, Math.PI * 2); ctx.fill(); } else { ctx.strokeStyle = 'rgba(255,255,255,.3)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(px + (i % 2) * 10, y - 5 + Math.floor(i / 2) * 10, 3.6, 0, Math.PI * 2); ctx.stroke(); } }
+              ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.fillText(`🎯${row.hit} 💨${row.blow}`, px + 26, y);
+            } else if (isCur) { ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'left'; ctx.fillText(cur.length < SLOTS ? `あと ${SLOTS - cur.length}しょく` : 'けってい!', X0 + SLOTS * DX + 8, y); }
+          }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, H / 2, 13);
+        }
+        function frame(now) {
+          if (!running) return;
+          const remain = Math.max(0, DURATION_MS - (now - startTime)); timerEl.textContent = `のこり: ${Math.ceil(remain / 1000)}s`;
+          render(now);
+          if (remain <= 0) { revealAt = now; say('タイムアップ! こたえは これ', 3000); finish(); return; }
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const last = guesses[guesses.length - 1];
+          const score = clamp(Math.round(solved ? 100 - Math.max(0, guesses.length - 3) * 9 : 18 + (last ? last.hit * 6 + last.blow * 2 : 0)), 5, 100);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1600);
+        }
+        hud();
+        rafId = requestAnimationFrame(frame);
+      },
+    };
+  }
+  const HIT_BLOW_VARIANTS = [mg('hit-blow', makeHitBlowGame({ title: 'ヒット&ブロー!かくれた 4しょくの ならびを あてろ' }))];
+
+  // --- ルナランダー(canvas、物理): かたむけと ぎゃくふんしゃで ちゃくりくパッドに
+  //     やさしく おりる。パッドが せまいほど とくてん ばい ---
+  function makeLunarLanderGame({ title }) {
+    return {
+      start(container, onComplete) {
+        const difficulty = ageDifficulty();
+        const ATTEMPTS = 3, GRAVITY = 20, THRUST = 52, ROT = 150, FUEL_MAX = 100;
+        let running = true, rafId = null, last = null, attempt = 0, lander = null, held = { l: false, r: false, t: false }, terrain = [], pads = [], results = [], msg = '', msgUntil = 0, particles = [], nextAt = 0, phase = 'fly';
+        const startTime = performance.now();
+        container.innerHTML = `
+          <div class="mg-header"><span id="llCount">1/${ATTEMPTS}かいめ</span><span id="llScore">🚀 0pt　⛽ 100</span></div>
+          <div class="mg-title">${title}</div>
+          <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="llCanvas"></canvas></div>
+          <div class="mg-hint" id="llHint">◀▶で かたむけ、🔥で ぎゃくふんしゃ。たいらな パッド(×2/×3)に、まっすぐ・ゆっくり おりよう。はやすぎたり ななめだと クラッシュ</div>
+          <div class="mg-race-controls"><button class="mg-tap-btn mg-hold-btn" id="llLeft" data-key="left">◀</button><button class="mg-tap-btn primary mg-hold-btn" id="llThrust" data-key="action">🔥 ふんしゃ</button><button class="mg-tap-btn mg-hold-btn" id="llRight" data-key="right">▶</button></div>`;
+        const canvas = container.querySelector('#llCanvas');
+        const { ctx, W, H } = createMgCanvas(canvas, 260);
+        const countEl = container.querySelector('#llCount'), scoreEl = container.querySelector('#llScore'), hint = container.querySelector('#llHint');
+        const say = (t, ms = 1400) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const total = () => results.reduce((a, b) => a + b, 0);
+        const hud = () => { countEl.textContent = `${Math.min(ATTEMPTS, attempt + 1)}/${ATTEMPTS}かいめ`; scoreEl.textContent = `🚀 ${total()}pt　⛽ ${lander ? Math.round(lander.fuel) : FUEL_MAX}`; };
+        bindHeldButton(container.querySelector('#llLeft'), (v) => { held.l = v; });
+        bindHeldButton(container.querySelector('#llRight'), (v) => { held.r = v; });
+        bindHeldButton(container.querySelector('#llThrust'), (v) => { held.t = v; });
+        function makeTerrain() {
+          terrain = []; pads = [];
+          const SEG = 14, n = Math.ceil(W / SEG) + 1;
+          let y = H * 0.72;
+          const padSlots = [];
+          const p1 = 3 + Math.floor(Math.random() * 4), p2 = 9 + Math.floor(Math.random() * 4), p3 = 14 + Math.floor(Math.random() * 3);
+          padSlots.push({ at: p1, w: 3, mult: 1 }, { at: p2, w: 2, mult: 2 }, { at: p3, w: 1, mult: 3 });
+          for (let i = 0; i < n; i++) {
+            const pad = padSlots.find((p) => i >= p.at && i < p.at + p.w);
+            if (pad) { if (i === pad.at) { pad.x1 = i * SEG; pad.y = y; } pad.x2 = (i + 1) * SEG; terrain.push([i * SEG, y]); if (i === pad.at + pad.w - 1) { terrain.push([(i + 1) * SEG, y]); pads.push(pad); } continue; }
+            terrain.push([i * SEG, y]);
+            y = clamp(y + (Math.random() - 0.5) * lerp(26, 40, difficulty), H * 0.5, H * 0.9);
+          }
+          terrain.push([n * SEG + SEG, y]);
+        }
+        function groundAt(x) { for (let i = 0; i < terrain.length - 1; i++) { const [x1, y1] = terrain[i], [x2, y2] = terrain[i + 1]; if (x >= x1 && x <= x2) return lerp(y1, y2, (x - x1) / (x2 - x1 || 1)); } return H; }
+        function newAttempt() {
+          makeTerrain(); phase = 'fly';
+          lander = { x: 24, y: 22, vx: lerp(12, 22, difficulty), vy: 0, ang: 0, fuel: FUEL_MAX, thrusting: false };
+          held = { l: false, r: false, t: false }; particles = [];
+          say(`${attempt + 1}かいめ: ちゃくりく せよ`, 1200); hud();
+        }
+        function land(now) {
+          const g = groundAt(lander.x);
+          const pad = pads.find((p) => lander.x - 7 >= p.x1 - 2 && lander.x + 7 <= p.x2 + 2);
+          const slow = Math.abs(lander.vy) < 22 && Math.abs(lander.vx) < 14, upright = Math.abs(lander.ang) < 14;
+          void g;
+          let pts = 0, text;
+          if (pad && slow && upright) {
+            const soft = clamp(1 - Math.abs(lander.vy) / 22, 0, 1);
+            pts = Math.round((10 + soft * 10) * pad.mult) + Math.round(lander.fuel / 10);
+            text = `🎉 ちゃくりく せいこう! ×${pad.mult} ${pts}pt`;
+            phase = 'landed';
+          } else {
+            text = !pad ? '💥 パッドの そとに おちた…' : !upright ? '💥 ななめに ぶつかった…' : '💥 はやすぎた… クラッシュ';
+            phase = 'crash';
+            for (let i = 0; i < 26; i++) { const a = Math.random() * Math.PI * 2, sp = 30 + Math.random() * 90; particles.push({ x: lander.x, y: lander.y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 40, life: 1, col: ['#ffb14a', '#ff5a3c', '#ffe27a', '#ccc'][i % 4] }); }
+          }
+          results.push(pts); say(text, 1800); hud(); nextAt = now + 2000;
+        }
+        function update(now, dt) {
+          const s = dt / 1000;
+          if (phase !== 'fly') { if (now >= nextAt) { attempt++; if (attempt >= ATTEMPTS) { finish(); return; } newAttempt(); } return; }
+          if (held.l) lander.ang -= ROT * s; if (held.r) lander.ang += ROT * s;
+          lander.ang = clamp(lander.ang, -90, 90);
+          lander.thrusting = held.t && lander.fuel > 0;
+          if (lander.thrusting) {
+            const a = (lander.ang - 90) * Math.PI / 180;
+            lander.vx += Math.cos(a) * THRUST * s; lander.vy += Math.sin(a) * THRUST * s; lander.fuel = Math.max(0, lander.fuel - 14 * s);
+            particles.push({ x: lander.x - Math.cos(a) * 10 + (Math.random() - 0.5) * 4, y: lander.y - Math.sin(a) * 10, vx: -Math.cos(a) * 70 + (Math.random() - 0.5) * 30, vy: -Math.sin(a) * 70 + (Math.random() - 0.5) * 30, life: 0.5, col: Math.random() < 0.5 ? '#ffb14a' : '#ffe27a' });
+            if (lander.fuel === 0) say('⛽ ねんりょうぎれ!', 1000);
+          }
+          lander.vy += GRAVITY * s;
+          lander.x += lander.vx * s; lander.y += lander.vy * s;
+          if (lander.x < 8) { lander.x = 8; lander.vx = Math.abs(lander.vx) * 0.3; } if (lander.x > W - 8) { lander.x = W - 8; lander.vx = -Math.abs(lander.vx) * 0.3; }
+          if (lander.y < 6) { lander.y = 6; lander.vy = Math.max(0, lander.vy); }
+          const g = groundAt(lander.x);
+          if (lander.y + 9 >= g) { lander.y = g - 9; land(now); }
+          hud();
+        }
+        function updateParticles(dt) { const s = dt / 1000; for (const p of particles) { p.x += p.vx * s; p.y += p.vy * s; p.vy += 40 * s; p.life -= s * 1.6; } particles = particles.filter((p) => p.life > 0); }
+        function render(now) {
+          if (!ctx) return;
+          const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, '#02030d'); g.addColorStop(1, '#1b1b3a');
+          ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+          ctx.fillStyle = '#fff'; for (let i = 0; i < 30; i++) { const h1 = Math.sin(i * 12.9898) * 43758.5453, h2 = Math.sin(i * 78.233) * 12345.678; ctx.globalAlpha = 0.3 + 0.5 * Math.abs(Math.sin(now / 900 + i)); ctx.fillRect((h1 - Math.floor(h1)) * W, (h2 - Math.floor(h2)) * (H * 0.55), 1.5, 1.5); } ctx.globalAlpha = 1;
+          ctx.fillStyle = '#e8e2f0'; ctx.beginPath(); ctx.arc(W - 36, 34, 14, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#c9c1d6'; ctx.beginPath(); ctx.arc(W - 40, 30, 4, 0, Math.PI * 2); ctx.arc(W - 30, 38, 3, 0, Math.PI * 2); ctx.fill();
+          // ちけい
+          ctx.fillStyle = '#5b5670'; ctx.beginPath(); ctx.moveTo(0, H); for (const [x, y] of terrain) ctx.lineTo(x, y); ctx.lineTo(W, H); ctx.closePath(); ctx.fill();
+          ctx.strokeStyle = '#9a93b5'; ctx.lineWidth = 2; ctx.beginPath(); for (let i = 0; i < terrain.length; i++) { const [x, y] = terrain[i]; if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); } ctx.stroke();
+          for (const p of pads) { ctx.fillStyle = '#4ad9a2'; ctx.fillRect(p.x1, p.y - 3, p.x2 - p.x1, 4); ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(`×${p.mult}`, (p.x1 + p.x2) / 2, p.y - 5); }
+          for (const p of particles) { ctx.globalAlpha = clamp(p.life, 0, 1); ctx.fillStyle = p.col; ctx.fillRect(p.x - 1.5, p.y - 1.5, 3, 3); } ctx.globalAlpha = 1;
+          if (lander && phase !== 'crash') {
+            // そくど ひょうじ
+            const vOk = Math.abs(lander.vy) < 22, hOk = Math.abs(lander.vx) < 14, aOk = Math.abs(lander.ang) < 14;
+            ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+            ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(6, 6, 96, 40);
+            ctx.fillStyle = vOk ? '#7dffb0' : '#ff7d7d'; ctx.fillText(`${lander.vy < -1 ? '↑' : '↓'} ${Math.abs(lander.vy).toFixed(0)}${vOk ? ' OK' : ' はやい'}`, 10, 9);
+            ctx.fillStyle = hOk ? '#7dffb0' : '#ff7d7d'; ctx.fillText(`↔ ${Math.abs(lander.vx).toFixed(0)}${hOk ? ' OK' : ' はやい'}`, 10, 21);
+            ctx.fillStyle = aOk ? '#7dffb0' : '#ff7d7d'; ctx.fillText(`∠ ${Math.abs(lander.ang).toFixed(0)}°${aOk ? ' OK' : ' ななめ'}`, 10, 33);
+            ctx.fillStyle = 'rgba(255,255,255,.25)'; ctx.fillRect(W - 14, 60, 8, 80); ctx.fillStyle = lander.fuel > 25 ? '#4ad9a2' : '#ff5a5a'; ctx.fillRect(W - 14, 60 + 80 * (1 - lander.fuel / FUEL_MAX), 8, 80 * lander.fuel / FUEL_MAX);
+            ctx.save(); ctx.translate(lander.x, lander.y); ctx.rotate(lander.ang * Math.PI / 180);
+            ctx.fillStyle = '#d8dbe6'; ctx.beginPath(); ctx.moveTo(-7, 3); ctx.lineTo(-5, -6); ctx.lineTo(5, -6); ctx.lineTo(7, 3); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = '#8fb8ff'; ctx.fillRect(-3, -4, 6, 4);
+            ctx.strokeStyle = '#aab'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-5, 3); ctx.lineTo(-9, 9); ctx.moveTo(5, 3); ctx.lineTo(9, 9); ctx.stroke();
+            if (lander.thrusting) { ctx.fillStyle = `rgba(255,${160 + Math.random() * 60 | 0},60,.9)`; ctx.beginPath(); ctx.moveTo(-3, 4); ctx.lineTo(0, 12 + Math.random() * 8); ctx.lineTo(3, 4); ctx.closePath(); ctx.fill(); }
+            ctx.restore();
+          }
+          if (now < msgUntil) mgMsgBox(ctx, W, msg, H / 2, 13);
+        }
+        function frame(now) {
+          if (!running) return;
+          if (last === null) last = now; const dt = Math.min(50, now - last); last = now;
+          update(now, dt);
+          if (!running) return;
+          updateParticles(dt);
+          render(now);
+          rafId = requestAnimationFrame(frame);
+        }
+        function finish() {
+          if (!running) return; running = false; cancelAnimationFrame(rafId);
+          container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+          const landed = results.filter((r) => r > 0).length;
+          const score = clamp(Math.round(6 + total() * 0.72 + landed * 6), 5, 100);
+          say(`おわり! ${landed}かい ちゃくりく、${total()}pt`, 2500);
+          render(performance.now());
+          setTimeout(() => onComplete(score), 1400);
+        }
+        newAttempt();
+        rafId = requestAnimationFrame(frame);
+        void startTime;
+      },
+    };
+  }
+  const LUNAR_LANDER_VARIANTS = [mg('lunar-lander', makeLunarLanderGame({ title: 'ルナランダー!ぎゃくふんしゃで やさしく ちゃくりく' }))];
+
   const MINIGAMES = [
     ...ROAD_GAME_VARIANTS,
     ...STACK_GAME_VARIANTS,
@@ -19404,6 +20273,12 @@
     ...SUDOKU_VARIANTS,
     ...MANCALA_VARIANTS,
     ...PLANE_LANDING_VARIANTS,
+    ...DOT_EATER_VARIANTS,
+    ...MISSILE_COMMAND_VARIANTS,
+    ...AREA_CLAIM_VARIANTS,
+    ...SOLITAIRE_VARIANTS,
+    ...HIT_BLOW_VARIANTS,
+    ...LUNAR_LANDER_VARIANTS,
   ];
 
   // MINIGAMES の どの ゲームが どの「しゅるい」(生成もとの make*Game
@@ -19482,6 +20357,12 @@
     ['sudoku', SUDOKU_VARIANTS],
     ['mancala', MANCALA_VARIANTS],
     ['planeLanding', PLANE_LANDING_VARIANTS],
+    ['dotEater', DOT_EATER_VARIANTS],
+    ['missileCommand', MISSILE_COMMAND_VARIANTS],
+    ['areaClaim', AREA_CLAIM_VARIANTS],
+    ['solitaire', SOLITAIRE_VARIANTS],
+    ['hitBlow', HIT_BLOW_VARIANTS],
+    ['lunarLander', LUNAR_LANDER_VARIANTS],
   ];
   const minigameCategoryOf = new Map();
   for (const [category, variants] of MINIGAME_CATEGORY_GROUPS) {
@@ -19664,18 +20545,18 @@
     road: 'action', stack: 'action', craneGame: 'action', pinball: 'action', breakout: 'action', jumpQuest: 'action',
     frogger: 'action', snake: 'action', doodleJump: 'action', bomber: 'action', asteroids: 'action', skyShooter: 'action',
     tankBattle: 'action', fruitSlice: 'action', sushiBelt: 'action', catapult: 'action', streetFight: 'action',
-    halfpipe: 'action', dominoRun: 'action', jenga: 'action',
+    halfpipe: 'action', dominoRun: 'action', jenga: 'action', dotEater: 'action', missileCommand: 'action', areaClaim: 'action',
     perspective3d: 'drive3d', firstPersonDungeon: 'drive3d', hauntedHouse: 'drive3d', roadRace: 'drive3d', rhythmHighway: 'drive3d',
     tiltMaze: 'drive3d', spaceGunner: 'drive3d', grandPrix: 'drive3d', ringFlight: 'drive3d', submarine: 'drive3d',
-    hangGlider: 'drive3d', planeLanding: 'drive3d', voxelMine: 'drive3d',
+    hangGlider: 'drive3d', planeLanding: 'drive3d', voxelMine: 'drive3d', lunarLander: 'drive3d',
     swipeThrow: 'sports', miniGolf: 'sports', realFishing: 'sports', fishing: 'sports', basketball: 'sports', pingPong: 'sports',
     freeKick: 'sports', baseball: 'sports', skiJump: 'sports', airHockey: 'sports', tennis: 'sports', darts: 'sports',
     trackField: 'sports', curling: 'sports', downhill: 'sports',
     fallingBlock: 'puzzle', chainPuzzle: 'puzzle', pushPuzzle: 'puzzle', minesweeper: 'puzzle', bubbleShooter: 'puzzle',
     twenty48: 'puzzle', matchThree: 'puzzle', picross: 'puzzle', pipeConnect: 'puzzle', lightsOut: 'puzzle', lineTrace: 'puzzle',
-    memoryCards: 'puzzle', sudoku: 'puzzle', dragDecorate: 'puzzle',
+    memoryCards: 'puzzle', sudoku: 'puzzle', dragDecorate: 'puzzle', hitBlow: 'puzzle',
     reversi: 'board', animalShogi: 'board', billiards: 'board', connectFour: 'board', gomoku: 'board', blackjack: 'board',
-    yachtDice: 'board', checkers: 'board', mancala: 'board',
+    yachtDice: 'board', checkers: 'board', mancala: 'board', solitaire: 'board',
     towerDefense: 'strategy', roguelike: 'strategy',
   };
   const MINIGAME_INFO = {
@@ -19768,6 +20649,12 @@
     'ring-flight-summer': { name: 'なつの うみ フライト', emoji: '🌅', desc: 'ゆうやけの リングを くぐれ' },
     'stack-leaves': { name: 'おちばタワー', emoji: '🍂', desc: 'おちばの やまを たかく つもう' },
     'curling-winter': { name: 'ふゆの カーリング たいかい', emoji: '🥌', desc: '5こずつで しょうぶ' },
+    'dot-eater': { name: 'ドットイーター', emoji: '👻', desc: 'ドットを ぜんぶ たべて おばけから にげろ' },
+    'missile-command': { name: 'ミサイルコマンド', emoji: '🚀', desc: 'タップで げいげきして まちを まもれ' },
+    'area-claim': { name: 'じんとり', emoji: '🟪', desc: 'せんを ひいて かこんで 75% とれ' },
+    'solitaire-klondike': { name: 'ソリティア', emoji: '🃏', desc: '4つの 台に A から K まで そろえよう' },
+    'hit-blow': { name: 'ヒット&ブロー', emoji: '🎯', desc: 'かくれた 4しょくの ならびを あてろ' },
+    'lunar-lander': { name: 'ルナランダー', emoji: '🌙', desc: 'ぎゃくふんしゃで やさしく ちゃくりく' },
   };
   function minigameInfo(game) {
     const info = MINIGAME_INFO[game.id];
