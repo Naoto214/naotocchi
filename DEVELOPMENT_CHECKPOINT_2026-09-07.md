@@ -1141,3 +1141,12 @@ Runtime smoke test SUCCESS確認済み。
 - `makeLunarLanderGame`(lunar-lander): 重力 20/推力 52/回転 150°/s、燃料 100(14/s)、地形生成にパッド ×1(幅3)/×2(幅2)/×3(幅1)、着陸判定 |vy|<22・|vx|<14・|角|<14°、3 回、粒子でクラッシュ/噴射。
 - 共通: `mgMsgBox()`(文字幅に合わせたメッセージ帯)。登録: カテゴリ dotEater/missileCommand/areaClaim/solitaire/hitBlow/lunarLander、ジャンル action×3/board/puzzle/drive3d、`MINIGAME_INFO` 6 件。キャッシュ `script.js?v=20260909-9`。
 - 検証: smoke-test OK(95 ゲーム、id/info 検査込み)。Playwright: 6 本とも操作→反応(ドット捕食、迎撃 💥、陣地 +11%、めくり/手数、推理 1 回目、着陸試行)。ランダム入力ハーネス: lander 6 / dot 20 / missile 30 / area 36(思考系 2 本はタイムアウト=想定どおり)。全 95 ゲーム スイープ ページエラー 0。
+
+## チェックポイント AZ — 新作バッチ8(5本): 上海/ビーチバレー/スライドパズル/すごろく/たこやき — 100本到達(2026-09-09)
+- `makeShanghaiGame`(shanghai-tiles): ハーフ単位座標のレイアウト(層0 8×5、層1 6×3、層2 4×2/2×1、層3 2×1)、`isFree()`(上に牌なし かつ 左右どちらか空き)、`deal()` は「全牌を置いた状態から free な 2 枚に同じ絵を割り当てて外す」逆順生成で必ず解ける、手詰まり時は残り位置で再 deal、ヒント 3 回、180 秒。
+- `makeBeachVolleyGame`(beach-volley): 重力 620、ネット高 74、頭部円との衝突で `hitBy()`(3 タッチ制限、アタック押下中/直後はスパイク、それ以外は高く上げる)、CPU は落下点予測+スパイク確率(難度)、先に 7 点/100 秒。
+- `makeSlidePuzzleGame`(slide-puzzle): オフスクリーン canvas に絵(グラデ+絵文字+番号)を描いて `drawImage` で切り出し、正しい手順(逆戻り禁止)で 60/140 回シャッフル、スライドアニメ、3×3(難度<0.45)/4×4。
+- `makeSugorokuGame`(sugoroku-race): 蛇順 30 マス、回転するサイコロをタップで止める、➕/➖(移動後にゴール判定)、⭐コイン、💤休み、CPU 2 人(難度で 4〜6 が出やすい)、下部トレイにサイコロと手番表示、150 秒。
+- `makeTakoyakiGame`(takoyaki-grill): 9 穴、片面 `COOK_MS`(5.2→3.6 秒、穴ごとに速度ゆらぎ)、焼き加減 0.85〜1.05 パーフェクト/0.7〜1.2 OK、1.4 超で自動廃棄、両面の低い方で採点、60 秒。
+- 登録: カテゴリ shanghai/beachVolley/slidePuzzle/sugoroku/takoyaki、ジャンル board×2/sports/puzzle/action、`MINIGAME_INFO` 5 件。合計 100 本。キャッシュ `script.js?v=20260909-10`。
+- 検証: smoke-test OK(100 ゲーム)。Playwright: 5 本とも操作→反応(ペア取得 4/30、得点、手数 11、CPU 手番進行、たこやき 9 個提供)。ランダム入力: volley 19 / sugoroku 71(運要素のあるパーティー系、1 位配点を 80 に調整)/ takoyaki 5 / slide 8 / shanghai タイムアウト。全 100 ゲーム スイープ ページエラー 0。
