@@ -78,7 +78,7 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       { id: 'penguin_friend', label: 'すべりたがり ペンギン', behavior: '腹ばいで滑る' },
       { id: 'hedgehog', label: 'びっくり ハリネズミ', behavior: '驚くと丸くなる' },
       { id: 'shiba', label: 'ひとなつっこい しばいぬ', behavior: '主人公の近くを歩く' },
-      { id: 'koala', label: 'のんびり コアラ', behavior: 'よく眠る・ゆっくり動く' },
+      { id: 'snail', label: 'せっかちな カタツムリ', behavior: '気持ちは先へ急ぐが、からだはゆっくり進む', asset: 'assets/characters/companions/snail.png' },
     ],
     rare: [
       { id: 'punyu', label: 'とけかけの ぷにゅ' },
@@ -180,7 +180,7 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       chameleon: 'chameleon',
       kinoko: 'kinoko',
     },
-    legacyOnlyCompanions: ['hakuchou'],
+    legacyOnlyCompanions: ['hakuchou','koala'],
 
     partnerAliases: {
       mermaid: 'sea_mermaid',
