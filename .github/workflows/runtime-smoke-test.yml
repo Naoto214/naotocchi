@@ -16,3 +16,5 @@ jobs:
           node-version: 22
       - name: Run runtime smoke test
         run: node tests/smoke-test.js
+      - name: Run dialogue regression test
+        run: node tests/dialogue-test.js
