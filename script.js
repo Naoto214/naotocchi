@@ -1049,6 +1049,7 @@
     itemCloseBtn: document.getElementById('itemCloseBtn'),
     shopItemGrid: document.getElementById('shopItemGrid'),
     naotoItemGrid: document.getElementById('naotoItemGrid'),
+    naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
     rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
@@ -1939,12 +1940,16 @@
     },
     {
       title: 'ずかんクリア!',
+      art: 'assets/clear/goal-4-naoto-v1.jpg?v=20260909-cast-author-bi-1',
+      artAlt: 'ずかんクリア。図書室でナオトが犬と一緒に、みんなの図鑑をひらいている',
       confetti: '📖✨👑✨📖',
       badges: ['📖 ④ ずかんクリア'],
       desc: 'ずかんの すべてのすがたを みつけた!<br>見覚えのある顔が、こんなに ふえた。<br>つぎは のこった じっせきに ちょうせんしよう!',
     },
     {
       title: 'PERFECT CLEAR!',
+      art: 'assets/clear/goal-5-naoto-v1.jpg?v=20260909-cast-author-bi-1',
+      artAlt: 'PERFECT CLEAR。むげんのせかいで犬と並び、歯を見せて笑うナオトが手をふっている',
       confetti: '👑✨🌈♾️🌈✨👑',
       badges: ['📖 ④ ずかんクリア', '👑 ⑤ PERFECT CLEAR'],
       desc: 'ずかんも、じっせきも、ぜんぶ コンプリート!<br>♾️ の せかいが ひらいた!',
@@ -7037,6 +7042,28 @@
     return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
   }
 
+  // 作者は育成・なかま・恋人の枠に入れず、④以降のシークレットとして会える。
+  // 以前の図鑑/パーフェクト達成記録でも開放を保つ。
+  function isAuthorUnlocked() {
+    return achievedGoalTiers().some((tier) => tier >= 3);
+  }
+
+  function authorVisualHTML(size = 'thumb') {
+    const author = WORLD_MASTER?.playerSpecies?.author;
+    return author?.asset ? stageVisualHTML({ asset:author.asset, emoji:'🧑' }, size) : '🧑';
+  }
+
+  function showAuthorGreeting(kind = 'hello') {
+    if (!isAuthorUnlocked()) return false;
+    const lines = {
+      hello: 'ナオト「やあ！ 遊んでくれて、ありがとう！」',
+      dex: 'ナオト「こんなに たくさんの子と 会えたんだね。遊んでくれて、ありがとう！」',
+      perfect: 'ナオト「ぜんぶ 見つけてくれたんだね！ これからも、なおとっちを よろしくね！」',
+    };
+    showStoryEvent({ author:true, message:lines[kind] || lines.hello });
+    return true;
+  }
+
   function hasActiveCompanionId(id) {
     return state.companions.some((sc) => canonicalCompanionId(sc.id) === id);
   }
@@ -8980,7 +9007,8 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
-    if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
+    if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
+    else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else el.storyFlashEmoji.textContent = event.emoji;
     el.storyFlashText.textContent = event.message;
     el.storyFlash.classList.remove('hidden');
@@ -10786,6 +10814,10 @@
   // SHOP_ITEMS と ちがい そうび/かいじょの きがえは なく、なんこ もっていても いい
   function renderNaotoItemGrid() {
     syncNaotoRewardItems();
+    const authorUnlocked = isAuthorUnlocked();
+    el.naotoGreetingBtn.classList.toggle('hidden', !authorUnlocked);
+    el.naotoGreetingBtn.innerHTML = authorUnlocked
+      ? `${authorVisualHTML('thumb')}<span>ナオトに はなしかける</span>` : '';
     el.naotoItemGrid.innerHTML = NAOTO_ITEMS.map((item) => {
       const unlocked = state.lifetime.endingTiersReached.includes(item.unlockTier);
       if (!unlocked) {
@@ -11031,11 +11063,10 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    // クリア条件ごとのゴールアート(assets/clear/goal-1.jpg〜goal-5.jpg)。
-    // 差し替えるだけで全画面に反映できる。
+    // ④・⑤は承認済み作者シートに基づく専用アート。正確な達成数はUIで表示する。
     if (el.gameClearArt) {
-      el.gameClearArt.src = `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
-      el.gameClearArt.alt = tier.title;
+      el.gameClearArt.src = tier.art || `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
+      el.gameClearArt.alt = tier.artAlt || tier.title;
     }
     el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
     el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
@@ -11050,6 +11081,11 @@
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
+    if (tierIndex === 3) {
+      const totalForms = ALL_LINES.length * STAGES_PER_LINE;
+      const knownForms = Math.min(state.discoveredStages.length, totalForms);
+      el.gameClearDesc.innerHTML += `<br>📖 みつけた すがた: ${knownForms} / ${totalForms}<br>👑 なおとの かんむりを もらった!`;
+    }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
     const hadPerfect = state.lifetime.endingTiersReached.includes(4);
     qualifyingEndingTiers().forEach((t) => {
@@ -20628,13 +20664,15 @@
     return pool.length ? pool[Math.floor(Math.random() * pool.length)] : '';
   }
 
-  function withFeedback(fn) {
+  function withFeedback(fn, afterRender) {
     return () => {
       clearConversationTimers();
       hideSpeechBubble();
-      fn();
+      const result = fn();
       saveState();
       render();
+      // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
+      if (afterRender) afterRender(result);
     };
   }
 
@@ -21480,14 +21518,22 @@
   }));
 
   el.gameClearCloseBtn.addEventListener('click', withFeedback(() => {
+    const goal = grandGoalPending;
     grandGoalPending = null;
+    return goal;
+  }, (goal) => {
+    if (goal === 'dex' || goal === 'perfect') showAuthorGreeting(goal);
   }));
 
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
+    const goal = grandGoalPending;
     grandGoalPending = null;
     // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
     // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();
+    return goal;
+  }, (goal) => {
+    if (goal === 'perfect') showAuthorGreeting(goal);
   }));
 
   el.dexBtn.addEventListener('click', () => openExclusiveMenu('dex'));
@@ -21610,6 +21656,14 @@
   el.naotoItemGrid.addEventListener('click', () => {
     // 達成報酬なので購入操作はない。
   });
+
+  el.naotoGreetingBtn.addEventListener('click', withFeedback(() => {
+    if (!isAuthorUnlocked()) return false;
+    closeAllMenuOverlays();
+    return true;
+  }, (opened) => {
+    if (opened) showAuthorGreeting();
+  }));
 
   el.pickerGrid.addEventListener('click', (e) => {
     const cell = e.target.closest('[data-picker-value]');

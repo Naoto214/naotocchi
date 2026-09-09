@@ -103,6 +103,9 @@ const expose = `
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
     renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter,
     partnerVisualHTML, renderPartnerCompanion, renderPartnerDex,
+    isAuthorUnlocked, authorVisualHTML, showAuthorGreeting, renderNaotoItemGrid,
+    renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS,
+    pendingGoal: () => grandGoalPending,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
       clearConversationTimers(); clearDateMovieTimers(); hideSpeechBubble(); closeAllMenuOverlays();
@@ -113,6 +116,8 @@ const expose = `
       }, patch);
       recentConversationLines = []; message = ''; gameActive = false; dateOpen = false;
       grandGoalPending = null; pendingCompanionId = null;
+      endingCelebrationShown = false;
+      clearTimeout(storyFlashTimer); el.storyFlash.classList.add('hidden'); el.storyFlashEmoji.innerHTML = '';
       lastMemoryRecallKey = null;
     },
   };
@@ -672,3 +677,125 @@ api.renderPartnerDex();
 assert.equal(getElement('partnerDexProgress').textContent, '18 / 18');
 for (const p of partnerArt) assert.ok(getElement('partnerDexGrid').innerHTML.includes(p.asset));
 console.log(`PARTNER CAST PNG TEST OK: ${partnerArt.length} PNGs x 5 sizes; saved relationships; companion/profile/dex/date/anniversary/first encounter; aliases, guests and hidden dex.`);
+
+// The author stays outside the playable/companion/partner collections and appears only after goal 4/5.
+const allForms = Array.from(api.ALL_LINES).flatMap((line) => Array.from({ length: api.STAGES_PER_LINE }, (_, i) => `${line}:${i}`));
+assert.equal(api.ALL_LINES.length, 31); assert.equal(allForms.length, 248);
+assert.ok(!api.ALL_LINES.includes('naoto'));
+assert.ok(![...api.COMPANIONS, ...api.RARE_COMPANIONS, ...api.ALL_PARTNER_CANDIDATES].some((c) => c.id === 'naoto'));
+assert.equal(master.playerSpecies.author.playable, false);
+const authorAsset = master.playerSpecies.author.asset;
+assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(authorAsset)).digest('hex'),
+  'b87cd30262026ced43075a5334102acf8d27197113ff86a287918589991cbe59', 'approved normal author sprite changed');
+for (const size of ['hero', 'detail', 'thumb', 'medium', 'companion']) {
+  assert.ok(api.authorVisualHTML(size).includes(`src="${authorAsset}"`));
+  assert.match(api.authorVisualHTML(size), /character-emoji-fallback/);
+}
+for (const count of [0, allForms.length - 1]) {
+  reset({ discoveredStages: allForms.slice(0, count) });
+  api.checkGrandGoals(); api.renderNaotoItemGrid();
+  assert.equal(api.isAuthorUnlocked(), false); assert.equal(api.pendingGoal(), null);
+  assert.ok(getElement('naotoGreetingBtn').classList.contains('hidden'));
+  assert.equal(getElement('naotoGreetingBtn').innerHTML, '');
+  assert.equal(api.showAuthorGreeting('dex'), false); assert.equal(storyCaptions.length, 0);
+  click('naotoGreetingBtn');
+  assert.ok(!getElement('storyFlashEmoji').innerHTML.includes(authorAsset), 'locked button revealed author');
+}
+
+reset({ discoveredStages: allForms.slice(), partner: partner(), companions: [{ id: 'clock', bond: 84 }] });
+api.checkGrandGoals(); api.renderEnding(); api.renderNaotoItemGrid();
+assert.equal(api.pendingGoal(), 'dex'); assert.equal(api.getEndingTier(), 3);
+assert.equal(api.getState().lifetime.dexCleared, true);
+assert.equal(api.getState().lifetime.perfectCleared, false);
+assert.equal(getElement('gameClearOverlay').dataset.goal, '4');
+assert.match(getElement('gameClearArt').src, /^assets\/clear\/goal-4-naoto-v1\.jpg\?/);
+assert.ok(getElement('gameClearDesc').innerHTML.includes(`${allForms.length} / ${allForms.length}`));
+assert.ok(!getElement('gameClearDesc').innerHTML.includes('168'));
+assert.ok(getElement('gameClearDesc').innerHTML.includes('なおとの かんむり'));
+assert.ok(getElement('gameClearFreePlayBtn').classList.contains('hidden'));
+assert.ok(!getElement('naotoGreetingBtn').classList.contains('hidden'));
+assert.ok(getElement('naotoGreetingBtn').innerHTML.includes(authorAsset));
+api.checkGrandGoals(); api.renderEnding();
+assert.equal(api.getState().lifetime.ownedNaotoItems.filter((id) => id === 'naoto_crown').length, 1);
+const dexRelations = JSON.stringify([api.getState().partner, api.getState().companions]);
+const dexMoney = api.getState().lifetime.money;
+click('gameClearCloseBtn');
+assert.equal(api.pendingGoal(), null);
+assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
+assert.ok(!getElement('storyFlash').classList.contains('hidden'));
+assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
+assert.match(getElement('storyFlashText').textContent, /ナオト「こんなに/);
+advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
+advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
+assert.equal(JSON.stringify([api.getState().partner, api.getState().companions]), dexRelations);
+assert.equal(api.getState().lifetime.money, dexMoney);
+api.checkGrandGoals(); assert.equal(api.pendingGoal(), null, 'dismissed goal replayed');
+
+// Goal 5 takes priority when both goals are first completed; both exit routes keep the earned unlocks.
+for (const exitButton of ['gameClearCloseBtn', 'gameClearFreePlayBtn']) {
+  reset({ discoveredStages: allForms.slice(), achievementsUnlocked: api.ACHIEVEMENTS.map((a) => a.id) });
+  api.checkGrandGoals(); api.renderEnding();
+  assert.equal(api.pendingGoal(), 'perfect'); assert.equal(api.getEndingTier(), 4);
+  assert.equal(getElement('gameClearOverlay').dataset.goal, '5');
+  assert.match(getElement('gameClearArt').src, /^assets\/clear\/goal-5-naoto-v1\.jpg\?/);
+  assert.match(getElement('gameClearArt').alt, /歯を見せて笑う/);
+  assert.ok(!getElement('gameClearFreePlayBtn').classList.contains('hidden'));
+  assert.equal(api.getState().lifetime.dexCleared, true);
+  assert.equal(api.getState().lifetime.perfectCleared, true);
+  click(exitButton);
+  assert.equal(api.pendingGoal(), null);
+  assert.equal(api.getState().infinite, exitButton === 'gameClearFreePlayBtn');
+  assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
+  assert.match(getElement('storyFlashText').textContent, /ナオト「ぜんぶ/);
+  assert.equal(api.getState().discoveredStages.length, allForms.length);
+  assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
+}
+
+// Previous saves retain their earned author access even while today's expanded dex is incomplete.
+for (const oldGoal of ['dexCleared', 'perfectCleared']) {
+  reset({ discoveredStages: ['man:4'], partner: partner('robot_neighbor', { affection: 71, married: true }), companions: [{ id: 'kinoko', bond: 63 }] });
+  api.getState().lifetime[oldGoal] = true;
+  api.getState().lifetime.ownedNaotoItems = ['naoto_charm'];
+  const oldAuthorSave = JSON.parse(JSON.stringify(api.getState()));
+  savedPayload = JSON.stringify(oldAuthorSave);
+  const loadedAuthorSave = api.loadState(); savedPayload = null;
+  assert.equal(loadedAuthorSave.lifetime[oldGoal], true);
+  assert.equal(JSON.stringify(loadedAuthorSave.partner), JSON.stringify(oldAuthorSave.partner));
+  assert.equal(JSON.stringify(loadedAuthorSave.companions), JSON.stringify(oldAuthorSave.companions));
+  reset(loadedAuthorSave); api.checkGrandGoals();
+  assert.equal(api.pendingGoal(), null, 'old goal replayed on load');
+  if (oldGoal === 'dexCleared') {
+    api.renderEnding();
+    assert.ok(getElement('gameClearDesc').innerHTML.includes(`${api.getState().discoveredStages.length} / ${allForms.length}`), 'old unlock must not fake a full current dex');
+  }
+  api.openExclusiveMenu('item');
+  assert.ok(!getElement('itemOverlay').classList.contains('hidden'));
+  assert.ok(!getElement('naotoGreetingBtn').classList.contains('hidden'));
+  const beforeTalk = JSON.stringify([api.getState().partner, api.getState().companions, api.getState().lifetime.money, api.getState().ageTicks]);
+  click('naotoGreetingBtn');
+  assert.ok(getElement('itemOverlay').classList.contains('hidden'), 'shop obscures author greeting');
+  assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
+  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.equal(JSON.stringify([api.getState().partner, api.getState().companions, api.getState().lifetime.money, api.getState().ageTicks]), beforeTalk);
+  assert.ok(api.getState().lifetime.ownedNaotoItems.includes('naoto_charm'), 'old reward lost');
+  advance(4200); api.openExclusiveMenu('item'); click('naotoGreetingBtn');
+  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.ok(!getElement('storyFlash').classList.contains('hidden'), 'unlocked author could not be greeted again');
+}
+
+// Returning to the earlier life goals must restore their original artwork and never add an author greeting.
+for (const [sodachi, tier] of [[69, 0], [70, 1], [100, 2]]) {
+  reset({ maxSodachi: sodachi, sodachi }); api.enterFarewell(); api.renderEnding();
+  assert.equal(api.getEndingTier(), tier);
+  assert.equal(getElement('gameClearArt').src, `assets/clear/goal-${tier + 1}.jpg?v=20260908-02`);
+  assert.ok(!getElement('gameClearDesc').innerHTML.includes('みつけた すがた:'));
+  assert.equal(api.isAuthorUnlocked(), false);
+  click('gameClearCloseBtn');
+  assert.ok(!storyCaptions.some((caption) => caption.text.startsWith('ナオト「')));
+}
+for (const goal of [4, 5]) {
+  const jpeg = fs.readFileSync(`assets/clear/goal-${goal}-naoto-v1.jpg`);
+  assert.equal(jpeg.subarray(0, 2).toString('hex'), 'ffd8');
+  assert.equal(jpeg.subarray(-2).toString('hex'), 'ffd9');
+}
+console.log('AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5 and both exits; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; original goals 1-3.');

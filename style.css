@@ -1010,6 +1010,16 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   box-sizing: border-box;
 }
 
+.naoto-greeting-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+}
+
 .profile-code-box.hidden {
   display: none;
 }
