@@ -1108,3 +1108,11 @@ Runtime smoke test SUCCESS確認済み。
 - `makePlaneLandingGame`(plane-landing): 目標降下率にピッチ・風・突風、グライドパス表示、ゾーン/降下速度で採点、3回。
 - 登録: カテゴリ checkers/memoryCards/halfpipe/dominoRun/sudoku/mancala/planeLanding、S ティア。キャッシュ `script.js?v=20260909-4`。
 - 検証: smoke-test OK(94ゲーム)。Playwright 全94ゲーム スイープ ページエラー0。7本とも操作→反応(駒移動と AI 応手、カードフリップ、トリック +30pt、ドミノ連鎖→次の問題、数字入力とミス判定、追加ターン、着地判定)を確認。
+
+## チェックポイント AV — 全ゲーム総監査(品質・操作性・見た目・難易度)(2026-09-09)
+- 全94ゲームのコンタクトシート目視 + ランダム操作ハーネス(`randplay.js`: 各ゲームを最大95秒ランダム入力で遊び、最終スコアを記録)で監査。
+- 削除(操作の手ごたえが薄い DOM ゲーム 8本): shooter-themed / stealth-themed / sportsSwing-themed / surfing-wave(夏の季節ゲーム) / creature-capture-3d / action-boss-3d / chase-themed / adventure-field。あわせて抽選に入っていなかった旧ファクトリ(catch/balance/pose/fight/rpg/targetAim/powerMeter/pushContest/chop/roulette/perspectiveRanking/retroPet/miniPoker/miniEscape)も削除(約2,100行、script.js は 1.6MB→1.5MB)。
+- 作りなおし: `makeStackGame` を canvas 版(クレーンから落とす、はみ出しカット、パーフェクトで幅回復、カメラ追従、60秒)に。テーマ引数(title/blockEmoji/palette)は互換なので地域/季節版もそのまま。`makeBreakoutGame` を canvas 版(指追従パドル、角度反射、硬いブロック、ワイド/マルチボール/スローのアイテム、3ステージ、ライフ3)に。両方 S ティア。
+- 難易度/スコア調整(ランダム入力で高得点が出たもの): マッチ3 `score/14→/30`、レーンラッシュ 得点 12→8/個・最終 `points*0.9 - bad*4`・時間 16〜13s→24〜20s、タンクバトル 敵 6〜9体・移動+20%・射撃頻度アップ、ハンググライダー `dist/26→/42`(気流ボーナス追加)、しんけいすいじゃく 効率の比重アップ(42+eff*50)。ブロックくずしは自動追従プレイで進みが遅かったためボール速度 245〜295 + ヒットごと +2%、制限 150s。
+- 思考ゲームの制限時間を最長 180s に統一(どうぶつしょうぎ/チェッカー/マンカラ 240→180)。
+- 検証: smoke-test OK(86ゲーム)。Playwright 全86ゲーム スイープ ページエラー0。
