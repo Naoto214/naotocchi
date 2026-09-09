@@ -1077,6 +1077,13 @@
     dateChooser: document.getElementById('dateChooser'),
     dateChoiceGrid: document.getElementById('dateChoiceGrid'),
     dateCancelBtn: document.getElementById('dateCancelBtn'),
+    dateRewardConfirm: document.getElementById('dateRewardConfirm'),
+    dateRewardPlan: document.getElementById('dateRewardPlan'),
+    dateRewardTitle: document.getElementById('dateRewardTitle'),
+    dateRewardCount: document.getElementById('dateRewardCount'),
+    dateRewardUseBtn: document.getElementById('dateRewardUseBtn'),
+    dateRewardSkipBtn: document.getElementById('dateRewardSkipBtn'),
+    dateRewardBackBtn: document.getElementById('dateRewardBackBtn'),
     dateMovie: document.getElementById('dateMovie'),
     dateMovieScene: document.getElementById('dateMovieScene'),
     dateMoviePlace: document.getElementById('dateMoviePlace'),
@@ -7374,6 +7381,7 @@
 
   let dateOpen = false;
   let dateChoiceOptions = [];
+  let pendingDatePlan = null;
   let dateMovieTimers = [];
 
   function clearDateMovieTimers() {
@@ -7467,6 +7475,8 @@
     clearConversationTimers();
     hideSpeechBubble();
     dateChoiceOptions = pickDateChoices();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
     el.dateChooser.classList.remove('hidden');
@@ -7481,6 +7491,8 @@
 
   function closeDateOverlay() {
     clearDateMovieTimers();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
@@ -7506,13 +7518,15 @@
   // デートの選択画面へ戻らず、育成画面へ復帰する。
   function finishOrdinaryDate() {
     clearDateMovieTimers();
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
   }
 
-  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -7523,8 +7537,7 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
 
-    const special = (state.items.reward || 0) > 0
-      && window.confirm('🎁 ごほうびを1こ使って、とくべつなデートにしますか？');
+    const special = useReward === true && (state.items.reward || 0) > 0;
     if (special) {
       state.items.reward -= 1;
       if (state.items.reward <= 0) delete state.items.reward;
@@ -7760,7 +7773,7 @@
     }
   }
 
-  function goOnDate(plan) {
+  function goOnDate(plan, useReward) {
     plan = datePlanForRegion(plan);
     const blocked = dateBlockReason();
     if (blocked) {
@@ -7770,6 +7783,26 @@
       render();
       return;
     }
+    // Native dialogs may be suppressed by an embedded browser. Keep this
+    // decision in the game, and commit no date effects until a choice is made.
+    if ((state.items.reward || 0) > 0 && typeof useReward !== 'boolean') {
+      pendingDatePlan = plan;
+      dateOpen = true;
+      clearDateMovieTimers();
+      clearConversationTimers();
+      hideSpeechBubble();
+      el.dateChooser.classList.add('hidden');
+      el.dateMovie.classList.add('hidden');
+      el.dateRewardPlan.textContent = `${state.partner.label}と、${plan.label}`;
+      el.dateRewardCount.textContent = `ごほうびを${state.items.reward}こ持っている`;
+      el.dateRewardConfirm.classList.remove('hidden');
+      render();
+      el.dateRewardTitle.focus({ preventScroll: true });
+      el.dateRewardConfirm.scrollIntoView({ block: 'nearest' });
+      return;
+    }
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
@@ -7795,7 +7828,7 @@
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きは また今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward);
     render();
   }
 
@@ -10053,6 +10086,8 @@
     seasonOpen = false;
     travelOpen = false;
     dateOpen = false;
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
     companionInviteOpen = false;
     pickerOpen = false;
     pickerItem = null;
@@ -22944,6 +22979,33 @@
 
   el.dateCancelBtn.addEventListener('click', () => {
     closeDateOverlay();
+  });
+
+  function confirmDateReward(useReward) {
+    const plan = pendingDatePlan;
+    if (!dateOpen || !plan) return;
+    pendingDatePlan = null;
+    goOnDate(plan, useReward);
+  }
+
+  function returnToDateChoices() {
+    if (!dateOpen || !pendingDatePlan) return;
+    pendingDatePlan = null;
+    el.dateRewardConfirm.classList.add('hidden');
+    el.dateChooser.classList.remove('hidden');
+    render();
+    el.dateCancelBtn.focus({ preventScroll: true });
+    el.dateChooser.scrollIntoView({ block: 'nearest' });
+  }
+
+  el.dateRewardUseBtn.addEventListener('click', () => confirmDateReward(true));
+  el.dateRewardSkipBtn.addEventListener('click', () => confirmDateReward(false));
+  el.dateRewardBackBtn.addEventListener('click', returnToDateChoices);
+  el.dateRewardConfirm.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      returnToDateChoices();
+    }
   });
 
   el.dateMovieSkipBtn.addEventListener('click', () => {

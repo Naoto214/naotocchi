@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260909-cast-layout-bp-1">
+  <link rel="stylesheet" href="style.css?v=20260910-date-reward-bu-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -290,6 +290,16 @@
             <div class="date-title">デートを えらぼう</div>
             <div class="date-choice-grid" id="dateChoiceGrid"></div>
             <button type="button" class="date-cancel-btn" id="dateCancelBtn">また こんど</button>
+          </div>
+          <div class="date-card date-reward-confirm hidden" id="dateRewardConfirm" role="group" aria-labelledby="dateRewardTitle">
+            <p class="date-kicker" id="dateRewardPlan"></p>
+            <h2 class="date-title" id="dateRewardTitle" tabindex="-1">🎁 ごほうびを1こ使って、<br>とくべつなデートにする？</h2>
+            <p class="date-reward-count" id="dateRewardCount"></p>
+            <div class="date-reward-actions">
+              <button type="button" class="date-reward-btn" id="dateRewardUseBtn">ごほうびを1こ使う</button>
+              <button type="button" class="date-reward-btn secondary" id="dateRewardSkipBtn">使わずにデートする</button>
+            </div>
+            <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">行き先にもどる</button>
           </div>
           <div class="date-movie hidden" id="dateMovie">
             <div class="date-movie-scene" id="dateMovieScene">
@@ -617,6 +627,6 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
-  <script src="script.js?v=20260909-cast-movies-bo-2"></script>
+  <script src="script.js?v=20260910-date-reward-bu-1"></script>
 </body>
 </html>

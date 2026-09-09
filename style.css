@@ -5228,6 +5228,31 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 .date-choice-emoji { display:block; font-size: 27px; margin-bottom: 5px; }
 .date-choice-label { display:block; font-size: 9.5px; line-height: 1.25; font-weight: 800; }
 
+.date-reward-confirm {
+  scroll-margin-block: 8px;
+  overflow-wrap: anywhere;
+}
+.date-reward-confirm .date-title { font-size: 15px; line-height: 1.5; }
+.date-reward-count { margin: 8px 0 12px; font-size: 12px; color: #75435a; }
+.date-reward-actions { display: grid; gap: 8px; }
+.date-reward-btn {
+  min-height: 44px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 12px;
+  background: #954b70;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+  cursor: pointer;
+}
+.date-reward-btn.secondary { background: #fff; color: #5e2740; }
+.date-reward-btn:focus-visible,
+.date-reward-confirm .date-cancel-btn:focus-visible { outline: 3px solid #5e2740; outline-offset: 2px; }
+.date-reward-confirm .date-cancel-btn { min-height: 40px; font-size: 12px; }
+
 .date-cancel-btn,
 .date-movie-skip,
 .date-movie-close {
