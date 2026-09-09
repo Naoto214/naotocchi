@@ -602,16 +602,12 @@ console.log('CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dial
 
 // Saved partners resolve their current artwork without changing their relationship or identity.
 const partnerArt = master.partners.filter((p) => p.asset);
-assert.equal(partnerArt.length, 6, 'checkpoint BG partner PNG count');
+assert.equal(partnerArt.length, 18, 'checkpoint BH partner PNG count');
 assert.equal(new Set(partnerArt.map((p) => p.asset)).size, partnerArt.length);
 for (const def of master.partners) {
   const candidate = api.ALL_PARTNER_CANDIDATES.find((p) => p.id === def.id);
   assert.ok(candidate, def.id);
   assert.ok(api.findRegion(def.firstRegion).candidates.some((p) => p.id === def.id));
-  if (!def.asset) {
-    assert.equal(api.partnerVisualHTML(candidate), candidate.emoji, 'unfinished partner retains emoji');
-    continue;
-  }
   assert.equal(def.asset, `assets/characters/partners/${def.id}.png`);
   const png = fs.readFileSync(def.asset);
   assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', def.id);

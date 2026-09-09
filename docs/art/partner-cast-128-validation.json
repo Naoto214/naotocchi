@@ -1,21 +1,25 @@
 {
-  "checkpoint": "BG",
+  "checkpoint": "BH",
   "date": "2026-09-09",
-  "status": "incomplete",
+  "status": "partner-art-complete; overall-PR-incomplete",
   "audit": {
     "baseline": "20786e47a47424c63322cb3993e41a6ac8c808f3",
     "baselineTree": "e0dbec77d63dbc8ee741bb2eafb32974b29013ba",
     "previousPngsUnchanged": 276,
-    "newPartnerPngs": 6,
-    "totalCharacterPngs": 282,
-    "remainingPartners": 12,
+    "newPartnerPngs": 18,
+    "totalCharacterPngs": 294,
+    "remainingPartners": 0,
     "masterCastRegionsAndHooks": "UNCHANGED",
     "PNG_CRC": "PASS (individual exporter)",
     "RGBA128": "PASS",
     "binaryAlpha": "PASS",
     "minimumMargin": 8,
     "maximumOpaqueColors": 63,
-    "browserGameScreenshot": "NOT RUN; earlier development URL was blocked with ERR_BLOCKED_BY_CLIENT"
+    "browserGameScreenshot": "BLOCKED: current local development preview returned net::ERR_BLOCKED_BY_CLIENT in the documented cloud browser; actual game layout remains unverified",
+    "latestCheckpointBaseline": "f2777e19073efe9f7f333c4f0bdf5b6f4f7e0272",
+    "latestCheckpointTree": "46ed91884607fb581093a5ef528075c8733ef4c2",
+    "checkpointPngsUnchanged": 282,
+    "newPngsSinceCheckpoint": 12
   },
   "counts": {
     "playerPngs": 248,
@@ -23,25 +27,39 @@
     "normalCompanionPngs": 18,
     "rareCompanionPngs": 8,
     "legacyKinokoPngs": 1,
-    "partnerPngs": 6,
-    "remainingPartners": 12,
-    "dedicatedCastPngs": 33,
-    "dedicatedCastTotal": 45
+    "partnerPngs": 18,
+    "remainingPartners": 0,
+    "dedicatedCastPngs": 45,
+    "dedicatedCastTotal": 45,
+    "totalCharacterPngs": 294
   },
   "references": [
     "GitHub current WORLD_MASTER partners and PARTNER_RUNTIME_PROFILE",
     "naotocchi-cast-audit-20260909.md: partner-specific role and visual distinctions",
-    "Existing approved 128px character art style; no dedicated prior partner PNGs were found"
+    "Existing approved 128px character art style",
+    "partner-scorpion-anatomy-guide.svg: exact eight-leg layout, rasterized with Sharp only as input guidance; final sprite generated with built-in imagegen"
   ],
-  "generation": "One individual built-in imagegen call per new sprite",
-  "export": "Generated alpha threshold 128; individual foreground bounds; nearest-neighbor; no dithering; 63 opaque colors plus transparency; final 8-bit RGBA PNG",
+  "generation": "One character per built-in imagegen call. Targeted edits and individual regenerations are recorded; no shared source sprite sheet.",
+  "generationCalls": 30,
+  "export": "Preserve generated alpha (threshold 128); individual foreground bounds; nearest-neighbor; no dithering; at most 63 opaque colors plus transparency; final 8-bit RGBA PNG. No GrabCut or scripted background removal.",
   "visualReview": {
     "original": "PASS",
     "actual128": "PASS",
     "whiteBackground": "PASS",
     "darkBackground": "PASS",
-    "gameBrowserScreenshot": "NOT RUN"
+    "eyesAndMouth": "PASS for all 18",
+    "octopusArms": 8,
+    "spiderLegs": 8,
+    "scorpionWalkingLegs": 8,
+    "scorpionPincers": 2,
+    "gameBrowserScreenshot": "BLOCKED: net::ERR_BLOCKED_BY_CLIENT for current development preview"
   },
+  "tests": [
+    "node tests/smoke-test.js: PASS (DOM 286, minigames 89, variant collections 80)",
+    "node tests/dialogue-test.js: PASS, including all 18 partners x 5 sizes and old-save/view/event regressions",
+    "git diff --check: PASS",
+    "All 282 pre-BH character PNG hashes unchanged; total 294"
+  ],
   "sprites": [
     {
       "id": "partners/cat_ceo",
@@ -79,8 +97,10 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adult elegant female black cat company president, standing upright on two feline paws. Slim charcoal-black fur, small warm ivory muzzle and clear amber eyes with a confident but affectionate half-smile. Wearing a tailored slate-blue business blazer, ivory shirt and straight dark trousers; not a dress or high heels. A small closed plain notebook held under one forearm, the other forepaw casually raised as if leaving work for a date. Both triangular ears, two forepaws, two standing feet and one long curved black tail visible. Clothes and upright stance must distinguish her from an unclothed player cat or a curled-up cat friend. No glasses, text or logos.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adult elegant female black cat company president, standing upright on two feline paws. Slim charcoal-black fur, small warm ivory muzzle and clear amber eyes with a confident but affectionate half-smile. Wearing a tailored slate-blue business blazer, ivory shirt and straight dark trousers; not a dress or high heels. A small closed plain notebook held under one forearm, the other forepaw casually raised as if leaving work for a date. Both triangular ears, two forepaws, two standing feet and one long curved black tail visible. Clothes and upright stance must distinguish her from an unclothed player cat or a curled-up cat friend. No glasses, text or logos.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adult elegant female black cat company president, standing upright on two feline paws. Slim charcoal-black fur, small warm ivory muzzle and clear amber eyes with a confident but affectionate half-smile. Wearing a tailored slate-blue business blazer, ivory shirt and straight dark trousers; not a dress or high heels. A small closed plain notebook held under one forearm, the other forepaw casually raised as if leaving work for a date. Both triangular ears, two forepaws, two standing feet and one long curved black tail visible. Clothes and upright stance must distinguish her from an unclothed player cat or a curled-up cat friend. No glasses, text or logos.",
+      "revisions": [],
+      "visualReview": "黒猫のスーツ姿、手帳、立ち姿。育成ねこ・気まぐれなねこと服装・姿勢を分けた。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     },
     {
       "id": "partners/robot_neighbor",
@@ -118,8 +138,10 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A small androgynous neighborhood robot learning affection: a rounded-square mint-green metal head, warm cream face panel with two dark oval eyes and a small curious smile, subtle peach cheek lights. Compact off-white rectangular torso with two simple teal chest buttons, attached segmented arms and short legs, large rounded teal feet. One hand rests carefully near its chest, the other makes a tentative greeting. Head tilted thoughtfully. One short antenna with a rounded tip. Exactly two arms and two legs, every joint and hand visible. Soft domestic appliance character with a square silhouette, no screen text, weapons, extra heads or detached parts. Different from a circular silver-blue alarm clock.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A small androgynous neighborhood robot learning affection: a rounded-square mint-green metal head, warm cream face panel with two dark oval eyes and a small curious smile, subtle peach cheek lights. Compact off-white rectangular torso with two simple teal chest buttons, attached segmented arms and short legs, large rounded teal feet. One hand rests carefully near its chest, the other makes a tentative greeting. Head tilted thoughtfully. One short antenna with a rounded tip. Exactly two arms and two legs, every joint and hand visible. Soft domestic appliance character with a square silhouette, no screen text, weapons, extra heads or detached parts. Different from a circular silver-blue alarm clock.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A small androgynous neighborhood robot learning affection: a rounded-square mint-green metal head, warm cream face panel with two dark oval eyes and a small curious smile, subtle peach cheek lights. Compact off-white rectangular torso with two simple teal chest buttons, attached segmented arms and short legs, large rounded teal feet. One hand rests carefully near its chest, the other makes a tentative greeting. Head tilted thoughtfully. One short antenna with a rounded tip. Exactly two arms and two legs, every joint and hand visible. Soft domestic appliance character with a square silhouette, no screen text, weapons, extra heads or detached parts. Different from a circular silver-blue alarm clock.",
+      "revisions": [],
+      "visualReview": "ミント色の四角い頭とクリーム色の体。胸に手を添えた、感情を覚えるロボット。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     },
     {
       "id": "partners/field_cow",
@@ -157,8 +179,10 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A gentle adult male black-and-white cow with small cream horns, broad rosy-beige muzzle, kind sleepy-looking eyes and a clearly smiling mouth. A complete sturdy four-legged bovine body in three-quarter view, all FOUR hooves visible and a short curved tail with dark tuft. White coat with large charcoal patches. Holding a small fresh bunch of grass at the side of its mouth, as if offering some to its partner; grass must not conceal the smile. Mature proportions rather than a baby calf, no udder, clothes or accessories.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A gentle adult male black-and-white cow with small cream horns, broad rosy-beige muzzle, kind sleepy-looking eyes and a clearly smiling mouth. A complete sturdy four-legged bovine body in three-quarter view, all FOUR hooves visible and a short curved tail with dark tuft. White coat with large charcoal patches. Holding a small fresh bunch of grass at the side of its mouth, as if offering some to its partner; grass must not conceal the smile. Mature proportions rather than a baby calf, no udder, clothes or accessories.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A gentle adult male black-and-white cow with small cream horns, broad rosy-beige muzzle, kind sleepy-looking eyes and a clearly smiling mouth. A complete sturdy four-legged bovine body in three-quarter view, all FOUR hooves visible and a short curved tail with dark tuft. White coat with large charcoal patches. Holding a small fresh bunch of grass at the side of its mouth, as if offering some to its partner; grass must not conceal the smile. Mature proportions rather than a baby calf, no udder, clothes or accessories.",
+      "revisions": [],
+      "visualReview": "白黒の牛、4本の脚、口元の草。相手へ草を渡す日常を表す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     },
     {
       "id": "partners/sunflower_partner",
@@ -196,8 +220,10 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A tall slender living sunflower affectionately turning its face toward the viewer's side. A single large round dark-ochre seed disk surrounded by a full circle of broad golden-yellow petals, expressive bright eyes and a warm closed-mouth smile with subtle rosy cheeks. Long gently bent green stalk, two broad serrated heart-shaped leaves as arms, two small root-like feet at the bottom. One leaf extends in a welcoming gesture. Taller stalk and larger broad seed disk distinguish it from a dandelion; no puffball or detached seeds. No flowerpot, soil mound, other flowers or sparkles.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A tall slender living sunflower affectionately turning its face toward the viewer's side. A single large round dark-ochre seed disk surrounded by a full circle of broad golden-yellow petals, expressive bright eyes and a warm closed-mouth smile with subtle rosy cheeks. Long gently bent green stalk, two broad serrated heart-shaped leaves as arms, two small root-like feet at the bottom. One leaf extends in a welcoming gesture. Taller stalk and larger broad seed disk distinguish it from a dandelion; no puffball or detached seeds. No flowerpot, soil mound, other flowers or sparkles.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A tall slender living sunflower affectionately turning its face toward the viewer's side. A single large round dark-ochre seed disk surrounded by a full circle of broad golden-yellow petals, expressive bright eyes and a warm closed-mouth smile with subtle rosy cheeks. Long gently bent green stalk, two broad serrated heart-shaped leaves as arms, two small root-like feet at the bottom. One leaf extends in a welcoming gesture. Taller stalk and larger broad seed disk distinguish it from a dandelion; no puffball or detached seeds. No flowerpot, soil mound, other flowers or sparkles.",
+      "revisions": [],
+      "visualReview": "長い茎、大きな花の中心、葉の腕、根の足。タンポポと輪郭を分けた。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     },
     {
       "id": "partners/forest_bear",
@@ -235,8 +261,10 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A large gentle warm-brown adult forest bear seated comfortably, broad pear-shaped belly with a soft tan chest and muzzle. Both substantial hind paws visible in front, both forearms open loosely as if offering somewhere safe to lean. Small rounded ears, kind relaxed eyes, a clear friendly mouth, subtle warm cheeks. Weighty and reassuring, full natural bear body, no clothing, toys or props. Not sleeping, not a panda, not an upright silverback gorilla; emphasize the inviting seated belly and relaxed open arms.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A large gentle warm-brown adult forest bear seated comfortably, broad pear-shaped belly with a soft tan chest and muzzle. Both substantial hind paws visible in front, both forearms open loosely as if offering somewhere safe to lean. Small rounded ears, kind relaxed eyes, a clear friendly mouth, subtle warm cheeks. Weighty and reassuring, full natural bear body, no clothing, toys or props. Not sleeping, not a panda, not an upright silverback gorilla; emphasize the inviting seated belly and relaxed open arms.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A large gentle warm-brown adult forest bear seated comfortably, broad pear-shaped belly with a soft tan chest and muzzle. Both substantial hind paws visible in front, both forearms open loosely as if offering somewhere safe to lean. Small rounded ears, kind relaxed eyes, a clear friendly mouth, subtle warm cheeks. Weighty and reassuring, full natural bear body, no clothing, toys or props. Not sleeping, not a panda, not an upright silverback gorilla; emphasize the inviting seated belly and relaxed open arms.",
+      "revisions": [],
+      "visualReview": "腕を開いて座る大きな茶色のクマ。寄りかかれる安心感を表す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     },
     {
       "id": "partners/grove_deer",
@@ -274,22 +302,596 @@
       "PNG_CRC": "PASS",
       "decode": "PASS",
       "background": "generated-alpha",
-      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A graceful adult female sika-like deer, no antlers. Chestnut coat with a few small ivory spots, pale throat and belly, long delicate legs, all FOUR complete cloven hooves visible. Large alert ears, a little white-edged short tail, shy attentive eyes glancing toward the viewer and a small tentative smile. One forehoof lifted a little as if deciding to take a step closer; hind legs support the body. Slender mature proportions, not a baby fawn. No clothes, flowers, crown or forest backdrop.",
-      "revisions": []
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A graceful adult female sika-like deer, no antlers. Chestnut coat with a few small ivory spots, pale throat and belly, long delicate legs, all FOUR complete cloven hooves visible. Large alert ears, a little white-edged short tail, shy attentive eyes glancing toward the viewer and a small tentative smile. One forehoof lifted a little as if deciding to take a step closer; hind legs support the body. Slender mature proportions, not a baby fawn. No clothes, flowers, crown or forest backdrop.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A graceful adult female sika-like deer, no antlers. Chestnut coat with a few small ivory spots, pale throat and belly, long delicate legs, all FOUR complete cloven hooves visible. Large alert ears, a little white-edged short tail, shy attentive eyes glancing toward the viewer and a small tentative smile. One forehoof lifted a little as if deciding to take a step closer; hind legs support the body. Slender mature proportions, not a baby fawn. No clothes, flowers, crown or forest backdrop.",
+      "revisions": [],
+      "visualReview": "大きな耳と細い4本の脚。前脚を上げ、信頼とともに近づく姿。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/cliff_goat",
+      "path": "assets/characters/partners/cliff_goat.png",
+      "source": "exec-29321a7e-8e3e-4b66-8d30-729dcfe10c94.png",
+      "sourceSha256": "f58557e06960781dc096dd757971fffd3239c2a47ea6f43151e1da6f0d650c8d",
+      "sha256": "f111750eb1b177bbdcf3203b8e1aeb6c09da1c31eea296832c4ecd3c3750dced",
+      "sourceBounds": {
+        "left": 316,
+        "top": 57,
+        "width": 651,
+        "height": 1155,
+        "pixels": 396156
+      },
+      "bounds": {
+        "left": 33,
+        "top": 12,
+        "width": 61,
+        "height": 108,
+        "pixels": 3474
+      },
+      "margins": [
+        33,
+        12,
+        34,
+        8
+      ],
+      "colors": 62,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adventurous adult mountain goat balancing confidently on one tiny angular slate rock that is wholly included as part of the sprite. Cream-white coat with a small gray shoulder patch, shaggy chin beard, two short swept-back charcoal horns, pointed ears and bright bold eyes with an amused smile. All FOUR slim legs and cloven hooves must be distinguishable: three planted at different heights on the tiny rock, one forehoof lifted for the next step. Short raised tail visible. No large cliff, landscape, clouds, clothing or extra rocks.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adventurous adult mountain goat balancing confidently on one tiny angular slate rock that is wholly included as part of the sprite. Cream-white coat with a small gray shoulder patch, shaggy chin beard, two short swept-back charcoal horns, pointed ears and bright bold eyes with an amused smile. All FOUR slim legs and cloven hooves must be distinguishable: three planted at different heights on the tiny rock, one forehoof lifted for the next step. Short raised tail visible. No large cliff, landscape, clouds, clothing or extra rocks.",
+      "revisions": [],
+      "visualReview": "小さな岩に立つ白いヤギ。角2本、ひげ、尾、4本の脚を含める。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/high_eagle",
+      "path": "assets/characters/partners/high_eagle.png",
+      "source": "exec-02884197-400c-4c34-9363-3bf8208cdeef.png",
+      "sourceSha256": "8e88ffac0e85cfb8dbcf64619b3d22ff9e27b05a6d38cc613e16dc5ae730ec0a",
+      "sha256": "f01fe97dc9b400ed23b84684c9be5b7f48ab0d27d5e931776c1c37e5e9c1c48c",
+      "sourceBounds": {
+        "left": 149,
+        "top": 129,
+        "width": 977,
+        "height": 985,
+        "pixels": 529025
+      },
+      "bounds": {
+        "left": 10,
+        "top": 12,
+        "width": 107,
+        "height": 108,
+        "pixels": 6356
+      },
+      "margins": [
+        10,
+        12,
+        11,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A calm watchful adult eagle with rich chestnut-brown body, a white feathered head and neck, gold curved beak, sharp amber eyes softened into a reserved friendly expression. Stand on two strong golden feet with all talons contained. Both wings partially opened downward to show separate feather fans; complete short tail feathers visible behind. Broad shoulder silhouette and a noble upright pose, no crown, clothing, flames, flying particles or branch. The beak seam must read as a gentle mouth, not an angry snarl.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A calm watchful adult eagle with rich chestnut-brown body, a white feathered head and neck, gold curved beak, sharp amber eyes softened into a reserved friendly expression. Stand on two strong golden feet with all talons contained. Both wings partially opened downward to show separate feather fans; complete short tail feathers visible behind. Broad shoulder silhouette and a noble upright pose, no crown, clothing, flames, flying particles or branch. The beak seam must read as a gentle mouth, not an angry snarl.",
+      "revisions": [],
+      "visualReview": "白い頭と茶色い翼。両翼・尾羽・両足を収めた、静かに見守る立ち姿。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/snow_spirit",
+      "path": "assets/characters/partners/snow_spirit.png",
+      "source": "exec-93272e32-0e98-4fb4-9dfa-a832b9424b45.png",
+      "sourceSha256": "68cb536f5fcad0e6d2b91c3ebc8dee73c9fad89e779e82fea2400169af689e15",
+      "sha256": "409634c432c13dae543df65ea3b3f0614773a41d2fead21cd2229524cb86d9ed",
+      "sourceBounds": {
+        "left": 345,
+        "top": 28,
+        "width": 564,
+        "height": 1198,
+        "pixels": 344524
+      },
+      "bounds": {
+        "left": 38,
+        "top": 13,
+        "width": 51,
+        "height": 107,
+        "pixels": 2819
+      },
+      "margins": [
+        38,
+        13,
+        39,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An ageless androgynous snow spirit with a slender upright crystalline silhouette. Pale icy-blue face, two deep blue gentle eyes, small serene smiling mouth and subtle pink cheeks. Short flowing translucent-looking aqua hair shaped into clean icicle locks, a small three-point frost crest, long folded ice-blue cape-like body narrowing to two tiny pointed feet. Two small clearly attached hands visible outside the cape. Angular snow-crystal edges with a few white facets, limited opaque icy colors that suggest frost. No round snowman balls, carrot nose, coal, hat, angel wings, halo, ghostly smoke or detached snowflakes. Entire crest, hands and hem visible.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An ageless androgynous snow spirit with a slender upright crystalline silhouette. Pale icy-blue face, two deep blue gentle eyes, small serene smiling mouth and subtle pink cheeks. Short flowing translucent-looking aqua hair shaped into clean icicle locks, a small three-point frost crest, long folded ice-blue cape-like body narrowing to two tiny pointed feet. Two small clearly attached hands visible outside the cape. Angular snow-crystal edges with a few white facets, limited opaque icy colors that suggest frost. No round snowman balls, carrot nose, coal, hat, angel wings, halo, ghostly smoke or detached snowflakes. Entire crest, hands and hem visible.",
+      "revisions": [],
+      "visualReview": "氷の冠、細い結晶の衣、両手と尖った足。雪だるまと輪郭を分けた。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/snowman",
+      "path": "assets/characters/partners/snowman.png",
+      "source": "exec-2b116c20-48b4-4946-9cdf-873899c19ebb.png",
+      "sourceSha256": "4498393b263606627dcd63b6c70b01a746eb1fa3c0676875d9c19063f7fe4e19",
+      "sha256": "bd7e8101f538576b805b972e554400ecea8091195956d798403edddd31499ec7",
+      "sourceBounds": {
+        "left": 132,
+        "top": 126,
+        "width": 995,
+        "height": 1055,
+        "pixels": 497610
+      },
+      "bounds": {
+        "left": 13,
+        "top": 12,
+        "width": 102,
+        "height": 108,
+        "pixels": 5217
+      },
+      "margins": [
+        13,
+        12,
+        13,
+        8
+      ],
+      "colors": 61,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A cheerful sturdy living snowman made of THREE graduated opaque white snowballs, with dark expressive coal eyes, a short rounded orange carrot nose and a clear smiling coal mouth. Small dark-blue wool hat with no pompom floating off, a snug muted red scarf whose short ends remain attached. Two complete brown twig arms spread helpfully, tiny rounded snow feet at the bottom. A pair of dark buttons on the middle ball. Firm dry snowy shape with NO melting drips or puddle. Gentle dependable expression; all hat, scarf ends, twig fingers and feet visible. No scenery or snowflakes.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A cheerful sturdy living snowman made of THREE graduated opaque white snowballs, with dark expressive coal eyes, a short rounded orange carrot nose and a clear smiling coal mouth. Small dark-blue wool hat with no pompom floating off, a snug muted red scarf whose short ends remain attached. Two complete brown twig arms spread helpfully, tiny rounded snow feet at the bottom. A pair of dark buttons on the middle ball. Firm dry snowy shape with NO melting drips or puddle. Gentle dependable expression; all hat, scarf ends, twig fingers and feet visible. No scenery or snowflakes.",
+      "revisions": [],
+      "visualReview": "丸い雪玉3段、帽子、赤いマフラー、枝の腕、雪の足。溶けない日常の姿。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/rock_octopus",
+      "path": "assets/characters/partners/rock_octopus.png",
+      "source": "exec-21a2836b-f8d1-4b07-81e6-6cadfb2de574.png",
+      "sourceSha256": "a2314f072d7a5e91306ec65be594264ef7641f0ddaa4951f164320e6e91bf13c",
+      "sha256": "cf338f3770fb2c43ec6e6f479d902a12e12fe3c085a6d530794a91fe112ca332",
+      "sourceBounds": {
+        "left": 38,
+        "top": 87,
+        "width": 1177,
+        "height": 1068,
+        "pixels": 704066
+      },
+      "bounds": {
+        "left": 8,
+        "top": 18,
+        "width": 112,
+        "height": 102,
+        "pixels": 6438
+      },
+      "margins": [
+        8,
+        18,
+        8,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A kind helpful adult coral-red octopus with a pear-shaped rounded mantle, warm peach underside, two expressive friendly eyes, slightly rosy cheeks and a small clearly smiling mouth. Exactly EIGHT separate complete arms, with FOUR radiating on the left and FOUR on the right in a readable fan. Use a slightly elevated three-quarter frontal view so all eight arm bases and tips can be followed; two upper arms raised in a helpful greeting, six lower arms splayed at staggered angles. Distinct curled tips and simple pale sucker marks on the visible undersides. Leave visible gaps between every arm. No additional hands or legs, no tools, no props, no squid fins, no missing or hidden arms.",
+      "finalPrompt": "Produce a genuine TRANSPARENT-BACKGROUND PNG cutout of the referenced single octopus character. Remove the entire drawn gray-and-white checkerboard background, including every gap between the eight arms, and replace those pixels with actual alpha=0 transparency. Do NOT draw any checkerboard or solid background. This is a background correction only. Preserve the coral red octopus, its warm eyes and smiling mouth, all EIGHT separate attached arms and all eight curled tips exactly as in the reference, all cream sucker marks and stepped dark pixel outline. Keep the character completely opaque, whole and centered with transparent padding on every side, no crop. No scenery, shadow, texture, labels, frames or additional characters. The final deliverable must have real alpha transparency, with eight complete visible octopus arms.",
+      "revisions": [
+        {
+          "mode": "edit",
+          "previousOutput": "exec-99319cbb-dc79-4951-b863-12adf47b719b.png",
+          "previousOutputSha256": "5a189157d042d6b57116082eb0dd097883386be349214e9b9a47b95493d07003",
+          "prompt": "Edit only this ONE individual octopus sprite. Preserve the existing adorable face, eyes, mouth, coral red and peach colors, pixel art style, head shape, and existing complete arms. Anatomical repair: the current octopus has only SEVEN arms (three on each side and one at bottom center). It must have exactly EIGHT visible arms. Add one NEW fully attached curved arm into the empty lower-left gap between the current lowest leftward arm and the bottom-center arm. It should start at the central underside, extend diagonally downward-left, then curl its complete tip left; leave transparent space around it so its tip is separately countable. The finished sprite must visibly contain eight distinct arm tips with no hidden arm and no extra arm. Retain all seven existing arms; add only this eighth arm. One full character, true transparent PNG alpha background including gaps, no text or drawn checkerboard, no props, at least 8% transparent margin on every side. Keep crisp pixel clusters and readable silhouette suitable for 128x128 export.",
+          "reason": "Initial image had seven visible arms; add missing eighth arm."
+        },
+        {
+          "mode": "background-extraction",
+          "previousOutput": "exec-0d551c20-973c-44a7-a4cb-6e433783cb7a.png",
+          "previousOutputSha256": "76383f60d4b1ae2aa82101805297f940be3c3771d1e317ad29450cb21968e643",
+          "prompt": "Produce a genuine TRANSPARENT-BACKGROUND PNG cutout of the referenced single octopus character. Remove the entire drawn gray-and-white checkerboard background, including every gap between the eight arms, and replace those pixels with actual alpha=0 transparency. Do NOT draw any checkerboard or solid background. This is a background correction only. Preserve the coral red octopus, its warm eyes and smiling mouth, all EIGHT separate attached arms and all eight curled tips exactly as in the reference, all cream sucker marks and stepped dark pixel outline. Keep the character completely opaque, whole and centered with transparent padding on every side, no crop. No scenery, shadow, texture, labels, frames or additional characters. The final deliverable must have real alpha transparency, with eight complete visible octopus arms.",
+          "reason": "Eight-arm revision contained an opaque checkerboard; correct background only."
+        }
+      ],
+      "visualReview": "赤い体と8本の腕。すべての腕先が見え、吸盤と笑顔で世話焼きを表す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/sea_mermaid",
+      "path": "assets/characters/partners/sea_mermaid.png",
+      "source": "exec-12a2bab3-8746-47c7-9054-e118eaf3f03d.png",
+      "sourceSha256": "e5e61f23800cfea17285003f5b8ebd0a6854abde1cc959f98f913ecc3ea49a24",
+      "sha256": "1328ecd58c2680e475241d564b18b6b71631bf3836b8a816e6f09ad03965b78c",
+      "sourceBounds": {
+        "left": 188,
+        "top": 28,
+        "width": 892,
+        "height": 1193,
+        "pixels": 391351
+      },
+      "bounds": {
+        "left": 23,
+        "top": 12,
+        "width": 81,
+        "height": 108,
+        "pixels": 3225
+      },
+      "margins": [
+        23,
+        12,
+        24,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A friendly adult mermaid with long flowing dark teal hair gathered in one clear curve, a warm lightly peach-toned face, two curious eyes and a bright gentle smile. A modest opaque sea-green sleeveless bodice covers the torso completely. Exactly TWO complete arms with both hands visible: one hand near the chest and the other reaching curiously toward land. One long turquoise-scaled fish tail curves to the side and ends in two broad coral-pink fin lobes, both entirely visible. Upright relaxed pose, graceful mature proportions, no legs, crowns, jewelry, shell props or water scenery. The tail and hair should form a readable single-character silhouette.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A friendly adult mermaid with long flowing dark teal hair gathered in one clear curve, a warm lightly peach-toned face, two curious eyes and a bright gentle smile. A modest opaque sea-green sleeveless bodice covers the torso completely. Exactly TWO complete arms with both hands visible: one hand near the chest and the other reaching curiously toward land. One long turquoise-scaled fish tail curves to the side and ends in two broad coral-pink fin lobes, both entirely visible. Upright relaxed pose, graceful mature proportions, no legs, crowns, jewelry, shell props or water scenery. The tail and hair should form a readable single-character silhouette.",
+      "revisions": [],
+      "visualReview": "青緑の髪、両手、1本の尾と二股の尾びれ。陸へ手を伸ばす姿。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/anglerfish",
+      "path": "assets/characters/partners/anglerfish.png",
+      "source": "exec-0df94fb9-c70f-4f93-a229-08a083cad1bf.png",
+      "sourceSha256": "21faa2523141d73b94d1926845214e41ecdf71e093f53cae83ba20bacaf18501",
+      "sha256": "44f2acdadea59d4d969516668ead57f77ab8d2a15fddb24672ec3a8edabf9006",
+      "sourceBounds": {
+        "left": 159,
+        "top": 242,
+        "width": 933,
+        "height": 780,
+        "pixels": 409692
+      },
+      "bounds": {
+        "left": 10,
+        "top": 30,
+        "width": 108,
+        "height": 90,
+        "pixels": 5491
+      },
+      "margins": [
+        10,
+        30,
+        10,
+        8
+      ],
+      "colors": 61,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A shy charming deep-sea anglerfish, rounded squat dusky-indigo and muted plum body with a pale mauve belly. One long curved attached lure grows from the forehead, ending in a small opaque warm-gold glowing bulb. Two large bashful eyes, rosy cheek patches, a small friendly mouth with only a couple of tiny rounded tooth tips. Both side fins and one complete fan-shaped tail must be clearly visible. Compact mature fish silhouette, little dorsal fin, no legs or arms, no extra lure or floating light particles. Gold lure must be visible at small size without a huge glow hiding its shape.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A shy charming deep-sea anglerfish, rounded squat dusky-indigo and muted plum body with a pale mauve belly. One long curved attached lure grows from the forehead, ending in a small opaque warm-gold glowing bulb. Two large bashful eyes, rosy cheek patches, a small friendly mouth with only a couple of tiny rounded tooth tips. Both side fins and one complete fan-shaped tail must be clearly visible. Compact mature fish silhouette, little dorsal fin, no legs or arms, no extra lure or floating light particles. Gold lure must be visible at small size without a huge glow hiding its shape.",
+      "revisions": [],
+      "visualReview": "紫の丸い体、金色の提灯、両ひれと尾びれ。光と控えめな表情を残す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/swamp_croc",
+      "path": "assets/characters/partners/swamp_croc.png",
+      "source": "exec-fdbc0990-18cf-48eb-840f-fa7ac64ffaff.png",
+      "sourceSha256": "ae3165ebdbefadbc57a0592cfc49ef4c4e5a22447d79b25d304855ae16f54da5",
+      "sha256": "c6ec355264d9ff1c2c4cc912e29b148938962f716764573243165002e4bfd61c",
+      "sourceBounds": {
+        "left": 83,
+        "top": 78,
+        "width": 1034,
+        "height": 1122,
+        "pixels": 709718
+      },
+      "bounds": {
+        "left": 14,
+        "top": 12,
+        "width": 100,
+        "height": 108,
+        "pixels": 6614
+      },
+      "margins": [
+        14,
+        12,
+        14,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A broad-snouted olive-green adult crocodile sitting in a shy three-quarter pose. Strong chunky head with two watchful golden eyes glancing aside, subtle peach blush near the cheeks, a closed mouth line with one tiny visible tooth that looks bashful rather than threatening. Cream belly, darker green dorsal scutes, ONE thick tail curling to the side with its complete pointed tip visible. Exactly FOUR limbs: two forepaws held awkwardly close together in front, two sturdy hind feet planted apart, all fingers/toes complete. No clothing, flower, water or ground; show the contrast between tough appearance and shy expression.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A broad-snouted olive-green adult crocodile sitting in a shy three-quarter pose. Strong chunky head with two watchful golden eyes glancing aside, subtle peach blush near the cheeks, a closed mouth line with one tiny visible tooth that looks bashful rather than threatening. Cream belly, darker green dorsal scutes, ONE thick tail curling to the side with its complete pointed tip visible. Exactly FOUR limbs: two forepaws held awkwardly close together in front, two sturdy hind feet planted apart, all fingers/toes complete. No clothing, flower, water or ground; show the contrast between tough appearance and shy expression.",
+      "revisions": [],
+      "visualReview": "大きな口先、前で合わせた両手、両足、横へ巻いた尾。強面と照れを両立。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/gentle_gorilla",
+      "path": "assets/characters/partners/gentle_gorilla.png",
+      "source": "exec-1946ff5f-ade6-4489-ad2d-85d28ff76fb7.png",
+      "sourceSha256": "425665759237185f9e80a50a00ab1d2cfc868baed1fda8d84f98f924cf89d69b",
+      "sha256": "8977f4fdf01cc41e6b03412cf398c3858bb10b9f50251190f61202afc945b9b1",
+      "sourceBounds": {
+        "left": 182,
+        "top": 34,
+        "width": 940,
+        "height": 1181,
+        "pixels": 719557
+      },
+      "bounds": {
+        "left": 21,
+        "top": 12,
+        "width": 86,
+        "height": 108,
+        "pixels": 6033
+      },
+      "margins": [
+        21,
+        12,
+        21,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A powerful gentle adult gorilla, charcoal fur, muted silver-gray chest and face, massive shoulders and long heavy forearms. A slightly crouched full-body pose with both hind feet visible. Carefully holding ONE tiny yellow wildflower between the fingertips of one large hand, while the other open hand supports the flower from below. Both huge hands and all four limbs remain visible. Kind focused eyes, a small soft smile and understated warm cheeks. Emphasize delicate handling of the tiny flower, not a round relaxed bear belly. No clothes, hats, dumbbells or other props.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A powerful gentle adult gorilla, charcoal fur, muted silver-gray chest and face, massive shoulders and long heavy forearms. A slightly crouched full-body pose with both hind feet visible. Carefully holding ONE tiny yellow wildflower between the fingertips of one large hand, while the other open hand supports the flower from below. Both huge hands and all four limbs remain visible. Kind focused eyes, a small soft smile and understated warm cheeks. Emphasize delicate handling of the tiny flower, not a round relaxed bear belly. No clothes, hats, dumbbells or other props.",
+      "revisions": [],
+      "visualReview": "灰黒の体と大きな両手で小さな花を支える姿。クマとの違いを手の仕草で出す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/knitting_spider",
+      "path": "assets/characters/partners/knitting_spider.png",
+      "source": "exec-66085190-367d-4e39-a858-2a927083b03e.png",
+      "sourceSha256": "daf6390cb9660a399ab0839ab8aa6e1687b9bd5f80b8b6bb3677a23a262b6599",
+      "sha256": "f919346a71abf227dc2ec753c478657d0bbfc76bd7f8059d6460a88d5b95aaf0",
+      "sourceBounds": {
+        "left": 137,
+        "top": 237,
+        "width": 980,
+        "height": 845,
+        "pixels": 346211
+      },
+      "bounds": {
+        "left": 8,
+        "top": 23,
+        "width": 112,
+        "height": 97,
+        "pixels": 4565
+      },
+      "margins": [
+        8,
+        23,
+        8,
+        8
+      ],
+      "colors": 62,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A cute attentive adult spider who loves knitting, with a compact dark-plum round abdomen and smaller lavender-brown head. Two large warm friendly eyes and a small pleased mouth with subtle rosy cheeks. Exactly EIGHT complete jointed legs: SIX support legs clearly fanned as three on the left and three on the right; the TWO front legs reach forward to hold two short knitting needles and a small mint-green knitted strip. One small connected yarn ball below the work, thread visibly attached. Front knitting limbs are part of the eight legs, not additional human arms. Leave enough gaps to count all eight legs; all needle points and leg tips contained. No web backdrop, clothes, glasses, extra limbs or missing feet.",
+      "finalPrompt": "Create ONE standalone transparent PNG game sprite: a friendly plum-purple spider knitting a mint-green scarf. Cute Japanese pixel art with crisp stepped dark outlines, deliberate square clusters, compact colors, readable at 128x128.\nSTRICT SYMMETRICAL STRAIGHT-ON FRONT VIEW, camera slightly above, NO three-quarter perspective. Round plum abdomen sits behind a small lavender face with two expressive brown eyes, soft cheeks and a clearly smiling mouth.\nEXACTLY EIGHT SEPARATE LIMBS. Arrange SIX thin supporting legs in a clear symmetric fan: THREE legs on the left and THREE on the right, with three distinct jointed paths and three pointed tips visible on EACH side. Rear pair points diagonally upward/outward then down; middle pair extends directly outward then down; front support pair reaches diagonally downward/outward. All six supporting leg tips are separated by large empty transparent gaps.\nThe remaining TWO short FRONT LEGS curve inward in front of the chest, each holding one small golden knitting needle. Together they knit a small mint-green strip in the center below the face. These knitting limbs are two of the eight total, not extra human arms. One small mint yarn ball hangs connected by thread beneath the strip. Do not cover any support legs with knitting.\nOne complete character, all eight limbs and all props wholly visible, centered in a square canvas with at least 10% empty margin on EVERY side. No floor, shadow, background pattern, scenery, letters, watermark or sprite sheet. Background must be TRUE PNG ALPHA TRANSPARENCY, also in internal gaps. No drawn checkerboard. Keep every character pixel opaque.",
+      "revisions": [
+        {
+          "mode": "edit",
+          "previousOutput": "exec-3107cb56-de8a-4b41-abf3-837f0b2093cc.png",
+          "previousOutputSha256": "1e6c79a51dd94937b9f6a2babfc05443d35ed4e0e18bf18fab061cd770b3d039",
+          "prompt": "Edit this ONE knitting spider pixel-art sprite to repair exactly one missing leg. Preserve the friendly face, plum body, knitting needles, mint knitted strip, connected yarn ball, and all existing visible legs. It currently has three supporting leg tips on the viewer's LEFT, only TWO supporting leg tips on the viewer's RIGHT, and two front knitting legs: SEVEN total. Add exactly ONE additional rear support leg on the viewer's RIGHT, behind the other two right legs. Attach it to the right side of the body, bend its knee higher and farther right than the existing knees, and extend a distinct slim jointed lower segment outward/down with its own complete pointed foot. Leave a clear transparent gap from the existing two right legs. The finished spider must have THREE separate support leg tips on the left, THREE separate support leg tips on the right, and TWO front knitting legs: EIGHT legs total, all countable. Do not add any human arms or any other legs. Make the square canvas comfortably wide enough so every leg tip stays inside generous transparent margins. True PNG ALPHA transparency everywhere outside the character and within leg gaps. NO DRAWN CHECKERBOARD, no solid background, no shadow, no ground, no text. Crisp stepped pixel outlines and limited palette suitable for 128px export.",
+          "reason": "Initial image exposed only two right support leg tips; add the third for eight total limbs."
+        },
+        {
+          "mode": "background-extraction",
+          "previousOutput": "exec-f9eb271c-59fc-403f-9606-798c7a1e834d.png",
+          "previousOutputSha256": "c684d8b036ac5a5c851a87f9181b27529a277c0172ca29729b1a60033c1aef08",
+          "prompt": "Produce a genuine TRANSPARENT-BACKGROUND PNG cutout of the referenced ONE knitting spider. Remove the entire drawn gray-and-white checkerboard background, including every gap between the legs, knitting needles, thread and yarn ball, and replace it with actual alpha=0 transparent pixels. Do NOT draw a checkerboard, texture, solid background or ground. Background correction only: preserve the plum spider, friendly eyes and smiling mouth, EXACTLY EIGHT complete legs (three support feet visible on each side plus two front knitting legs), every joint and pointed foot, the two wooden knitting needles, mint-green knitted strip and connected yarn ball. Keep the character fully opaque. One whole centered character, all eight limbs fully inside transparent margins, no crop or added content. Preserve crisp stepped pixel-art outline suitable for a 128px game sprite.",
+          "reason": "Eight-leg revision contained a drawn checkerboard; correct background only."
+        },
+        {
+          "mode": "background-extraction",
+          "previousOutput": "exec-dc41df54-fa39-4599-b718-d409ff20b9f9.png",
+          "previousOutputSha256": "50ccbe0cbdb7a58c442c689bb348261e3c345887002a5f34b1b69cd80be3d4a9",
+          "prompt": "背景を完全に削除して、実際に背景透過されたPNGにしてください。灰色と白色の市松模様は背景の絵なので、すべて消してください。市松模様を描かないでください。クモと編み物だけを、透明なアルファチャンネル付きのPNG切り抜き素材として出力してください。脚の間や毛糸の周囲も実際の透明色です。キャラクターの顔、目、口、8本の脚、編み針、毛糸はそのまま残してください。全身を切らずに余白をつけてください。Transparent PNG cutout, actual transparent alpha channel, isolated sprite, no background.",
+          "reason": "Prior background correction still had zero transparent pixels; request actual alpha cutout."
+        },
+        {
+          "mode": "regenerate",
+          "previousOutput": "exec-c072a319-78cc-422a-914f-6ac88ed07167.png",
+          "previousOutputSha256": "f83176195b2137e5855d27d3f6c04dea29046b75480721855374f99640c41ac0",
+          "prompt": "Create ONE standalone transparent PNG game sprite: a friendly plum-purple spider knitting a mint-green scarf. Cute Japanese pixel art with crisp stepped dark outlines, deliberate square clusters, compact colors, readable at 128x128.\nSTRICT SYMMETRICAL STRAIGHT-ON FRONT VIEW, camera slightly above, NO three-quarter perspective. Round plum abdomen sits behind a small lavender face with two expressive brown eyes, soft cheeks and a clearly smiling mouth.\nEXACTLY EIGHT SEPARATE LIMBS. Arrange SIX thin supporting legs in a clear symmetric fan: THREE legs on the left and THREE on the right, with three distinct jointed paths and three pointed tips visible on EACH side. Rear pair points diagonally upward/outward then down; middle pair extends directly outward then down; front support pair reaches diagonally downward/outward. All six supporting leg tips are separated by large empty transparent gaps.\nThe remaining TWO short FRONT LEGS curve inward in front of the chest, each holding one small golden knitting needle. Together they knit a small mint-green strip in the center below the face. These knitting limbs are two of the eight total, not extra human arms. One small mint yarn ball hangs connected by thread beneath the strip. Do not cover any support legs with knitting.\nOne complete character, all eight limbs and all props wholly visible, centered in a square canvas with at least 10% empty margin on EVERY side. No floor, shadow, background pattern, scenery, letters, watermark or sprite sheet. Background must be TRUE PNG ALPHA TRANSPARENCY, also in internal gaps. No drawn checkerboard. Keep every character pixel opaque.",
+          "reason": "Repeated edit outputs retained an opaque checkerboard. Regenerate only this unfinished sprite from a frontal eight-leg composition."
+        }
+      ],
+      "visualReview": "正面向き。6本の支え脚と編み物に使う前2本で計8本。編み針・編み地・毛糸玉を含む。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/desert_scorpion",
+      "path": "assets/characters/partners/desert_scorpion.png",
+      "source": "exec-1bde3121-bc11-400e-9344-298a84a25a4a.png",
+      "sourceSha256": "98160059891a81345d131fa14c3e3f564d93da2b1aada292228231b867950f1c",
+      "sha256": "7ac3fc6c683b0991f73f7cda6ff3188f8cf71baf43cc593defede91cae67fcc9",
+      "sourceBounds": {
+        "left": 183,
+        "top": 31,
+        "width": 889,
+        "height": 1177,
+        "pixels": 481464
+      },
+      "bounds": {
+        "left": 21,
+        "top": 8,
+        "width": 85,
+        "height": 112,
+        "pixels": 4363
+      },
+      "margins": [
+        21,
+        8,
+        22,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body in a straight-on front view, camera slightly elevated. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A quietly helpful adult desert scorpion in a slightly elevated straight-on symmetrical frontal view, warm ochre segmented shell with muted russet shadows. Exactly EIGHT slender walking legs clearly visible as FOUR on each side, plus TWO separate large front pincers, and ONE segmented tail arching safely above the back with its single curved stinger fully visible. All leg tips, both jaws of each pincer and the whole tail must be complete and separable. Two small dark attentive eyes, a tiny restrained friendly mouth, subtle peach cheeks. Sturdy and practical, no aggressive lunging pose, weapons, hats, sand backdrop, rock or extra creatures. Countable silhouette: all FOUR walking-leg tips on EACH side must be unobstructed and separated by wide transparent gaps. Raise the two large pincers in front of the body so they do not cover the walking legs. No perspective-hidden legs.",
+      "finalPrompt": "Use case: background-extraction.\nAsset type: game sprite, transparent PNG cutout.\nInput image: edit target.\nPrimary request: REMOVE THE BACKGROUND. Return only the golden scorpion on a genuinely transparent alpha channel. All gray and white checkerboard pixels must become fully transparent, including gaps between legs and claws. Preserve the entire scorpion and its dark outline unchanged. Keep all eight walking legs, both pincers, whole tail, face, eyes and smiling mouth. Actual alpha transparency is required. Do not represent transparency by drawing a checkerboard. No background color, floor, shadow, border or text.",
+      "revisions": [
+        {
+          "mode": "regenerate",
+          "previousOutput": "exec-4b8b827f-5599-40a4-bc8b-f30c86e7771f.png",
+          "previousOutputSha256": "ad92c8721e94d7a0ff1284b428ca9611350c948fb646f7324595619c328b5b42",
+          "prompt": "Create ONE individual desert scorpion transparent PNG sprite for a cute Japanese pixel-art game. True PNG alpha transparency, no background pattern, no drawn checkerboard, no ground or shadow, no text.\nA warm ochre scorpion seen from directly above and slightly in front. Long narrow segmented golden body, tail arching above it with one rounded curved russet stinger, two big open pincers reaching diagonally downward in front, a small face with two friendly dark eyes, pink cheeks and a tiny smiling mouth. No mouth fangs or extra face appendages.\nThe anatomy must have EIGHT WALKING LEGS plus TWO PINCERS plus ONE TAIL. There are FOUR distinct pairs of slender walking legs arranged as FOUR clearly separated horizontal tiers along the long body: rear pair closest to tail base, upper-middle pair, lower-middle pair, and front pair closest to head. Each tier has one complete jointed leg extending to the left and one complete jointed leg extending to the right. FOUR separate walking foot tips on the left and FOUR on the right. All eight legs must be equally visible, individually attached and surrounded by ample empty transparent space; none hidden behind other legs, head, or pincers. Keep the two large front pincers lower than all walking feet so they do not obscure the front leg pair. Do not reduce the walking legs to three pairs.\nCrisp stepped pixel outlines, chunky deliberate pixel clusters, 3-tone ochre/russet shading, friendly mature character matching small 128x128 game sprites. One whole centered creature with all eight leg tips, all four pincer jaws, whole tail and stinger inside generous 10% transparent margins. No extra objects or characters.",
+          "reason": "Initial sprite had only three walking-leg pairs. Regenerate this unfinished sprite with four unobstructed pairs and no extra mouth appendages."
+        },
+        {
+          "mode": "edit",
+          "previousOutput": "exec-338e56f2-055e-4bd0-89fc-b5e7d3c80433.png",
+          "previousOutputSha256": "301048239b2b22c5fe5b4bb188fdde6eea4ee2bd0dfbcafe9f40f7b7fb9f6e54",
+          "prompt": "Edit this one scorpion sprite. Preserve the golden body, cute face, smile, tail, two pincers, colors and pixel-art style. Repair only the lowest/front walking-leg pair: their feet are currently hidden by the two large pincers. Lengthen and bend that pair OUTWARD, far to the left and far to the right, so each ends in a clearly visible slim pointed reddish foot OUTSIDE its neighboring pincer. The new left front foot must be farther left than every part of the left pincer, at around the height of the top of that pincer. The new right front foot must be farther right than every part of the right pincer at the same height. Leave a generous visible gap between these two walking feet and the pincers. All FOUR walking leg tips on EACH side must now be separately visible. Keep exactly eight walking legs, two pincers, one tail. Preserve all the other three leg pairs. Preserve the real transparent alpha background in the reference, also in all gaps. Whole character within generous transparent margins. Output an actual transparent PNG cutout.",
+          "reason": "Four leg pairs present, but front feet overlapped pincers. Expose both front foot tips outside pincers."
+        },
+        {
+          "mode": "background-extraction",
+          "previousOutput": "exec-ca974951-5340-4747-988b-e5c6ea054135.png",
+          "previousOutputSha256": "1c91a58fdca4bf8a2f5f0ca040a9281d24a27a8d0ac8922989f5a4660fa4c8e0",
+          "prompt": "Produce a genuine TRANSPARENT-BACKGROUND PNG cutout of the referenced single scorpion character. Remove the entire drawn gray-and-white checkerboard background, including every gap between the eight legs and the pincers, and replace those pixels with actual alpha=0 transparency. Do NOT draw any checkerboard or solid background. This is a background correction only. Preserve the golden scorpion, its warm eyes and smiling mouth, all EIGHT separate attached walking legs and all eight pointed foot tips exactly as in the reference, both large pincers, complete tail, and stepped dark pixel outline. Keep the character completely opaque, whole and centered with transparent padding on every side, no crop. No scenery, shadow, texture, labels, frames or additional characters. The final deliverable must have real alpha transparency, with eight complete visible walking legs.",
+          "reason": "Leg-tip repair introduced an opaque checkerboard; correct background only."
+        },
+        {
+          "mode": "regenerate",
+          "previousOutput": "exec-8bc9edd1-b6ca-4efc-9dc1-035f7a668528.png",
+          "previousOutputSha256": "7a727274ca1506b60719b81058b8c2a7448a93d6f0063de6ebeacf5eb1c82322",
+          "prompt": "One complete adorable golden desert SCORPION game sprite, actual TRANSPARENT PNG background and transparent internal gaps. Crisp chunky Japanese pixel art, stepped dark-brown outline, only a few warm ochre, amber and russet shading tones. Two kind dark eyes, blush and a tiny smiling mouth.\nStrict symmetrical TOP VIEW, tail at top, head near bottom. A long narrow segmented body provides room for FOUR DISTINCT PAIRS of walking legs. Exactly FOUR walking legs extend left and exactly FOUR extend right. Arrange all four pairs like four separated chevrons along the upper and middle body. Every leg ends in its own reddish pointed foot. ALL EIGHT WALKING FOOT TIPS terminate ABOVE THE HEAD'S EYE LEVEL, far outside the body; no walking foot extends into the lower claw area.\nBelow the head, TWO SHORT SEPARATE arms carry TWO large open pincers pointing down-left and down-right. These claw arms originate near the cheeks, wholly BELOW every walking leg. Visible empty gaps separate the pincers and their short arms from the lowest walking-leg pair. Each claw has two complete curved jaws.\nONE complete segmented tail arches at the top, ending in one curved russet stinger. No mouth fangs or face appendages.\nOne character only, full tail, eight separate walking feet and both pincers completely inside the square canvas, at least 10% clear margin on all sides. No ground, shadow, scenery, texture, gray/white squares, checkerboard, label or text. Real alpha transparency, character itself opaque, readable when exported to 128x128.",
+          "reason": "Edited output retained an opaque checkerboard and shared front leg/claw geometry; regenerate only this unfinished sprite with walking feet above face and separate pincers below."
+        },
+        {
+          "mode": "generate-from-anatomy-guide",
+          "previousOutput": "exec-9e8d79dc-9a09-4aa5-9561-bfa760b09d40.png",
+          "previousOutputSha256": "b928ed3e0adb25d239ea354e9090a9303d420f3ac9b9771563c742b2056e33a5",
+          "prompt": "Transform the attached anatomical layout guide into ONE finished charming Japanese pixel-art scorpion game sprite. STRICTLY preserve the guide's topology and layout: FOUR walking legs on the left, FOUR walking legs on the right, two separate short arms with pincers below the head, and one full arching tail above. There must be four separate complete walking feet on EACH side, in the four positions shown. Do not remove or merge a leg. The guide is only for anatomy; replace the smooth lines and simple flat shapes with crisp stepped dark outlines, deliberate square pixel clusters, warm golden segmented shell, 3-tone ochre/russet shading, eight pointed reddish feet, chunky curved pincers and a segmented tail ending in one curved stinger. Keep a small friendly face with two dark expressive eyes, a smiling mouth and soft pink cheeks. Maintain the generous gaps between all eight walking legs and between front legs and pincers. Remove the pale mint guide background entirely and use real transparent PNG alpha, also in all internal gaps. No floor, shadow, text, drawn checkerboard or other objects. All body parts wholly visible with 8% transparent margins. Finished sprite should read at 128x128, whole character centered in a square image.",
+          "reason": "Fresh attempts still omitted one leg pair. Use an explicit eight-leg topology guide to preserve four pairs and separate pincers.",
+          "reference": "partner-scorpion-anatomy-guide.svg",
+          "referenceRasterSha256": "2693c15ad05b601a530b2d6240e6c9399adf59cb16040d862b08904a49455c64"
+        },
+        {
+          "mode": "background-extraction",
+          "previousOutput": "exec-de9cc150-2e98-4149-bbb8-a3c35af16865.png",
+          "previousOutputSha256": "acb46c3b4cf435fe1b89c062e9e685112ddccc44a2fedb557abd49dffc988f94",
+          "prompt": "Use case: background-extraction.\nAsset type: game sprite, transparent PNG cutout.\nInput image: edit target.\nPrimary request: REMOVE THE BACKGROUND. Return only the golden scorpion on a genuinely transparent alpha channel. All gray and white checkerboard pixels must become fully transparent, including gaps between legs and claws. Preserve the entire scorpion and its dark outline unchanged. Keep all eight walking legs, both pincers, whole tail, face, eyes and smiling mouth. Actual alpha transparency is required. Do not represent transparency by drawing a checkerboard. No background color, floor, shadow, border or text.",
+          "reason": "Eight-leg topology now correct; extract the background as a separate targeted operation."
+        }
+      ],
+      "visualReview": "金色の体。左右4本ずつの歩行脚、独立したハサミ2つ、節のある尾と針を収める。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
+    },
+    {
+      "id": "partners/oasis_cactus",
+      "path": "assets/characters/partners/oasis_cactus.png",
+      "source": "exec-a4dd4aae-ad3b-4682-84b6-e6f9ad51a7fa.png",
+      "sourceSha256": "d81c7a627a3afe045fe89a2dcef1329f5ab0c08f9c6d57628a847c59d44b6b65",
+      "sha256": "8efe1be00bf96a69d57a3a45628228bf23f674d9e63547840a227359637713c4",
+      "sourceBounds": {
+        "left": 262,
+        "top": 51,
+        "width": 756,
+        "height": 1153,
+        "pixels": 429807
+      },
+      "bounds": {
+        "left": 28,
+        "top": 12,
+        "width": 71,
+        "height": 108,
+        "pixels": 3808
+      },
+      "margins": [
+        28,
+        12,
+        29,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "initialPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An androgynous living saguaro-like cactus with a tall ribbed deep-green central column and two branching cactus arms held gently open with a little hesitation. A single small soft-pink flower near the top side. Two warm dark eyes, a small shy smile and subtle rosy cheeks on the central stem. Keep many clearly visible short ivory spine clusters along the ribs and arm edges; do not erase the thorns to make hugging easy. Two short root-like walking feet at the bottom, fully visible. Chunky column silhouette unlike the slender leafy sunflower. No pot, soil, desert scenery, water, hat, scarf or other props.",
+      "finalPrompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An androgynous living saguaro-like cactus with a tall ribbed deep-green central column and two branching cactus arms held gently open with a little hesitation. A single small soft-pink flower near the top side. Two warm dark eyes, a small shy smile and subtle rosy cheeks on the central stem. Keep many clearly visible short ivory spine clusters along the ribs and arm edges; do not erase the thorns to make hugging easy. Two short root-like walking feet at the bottom, fully visible. Chunky column silhouette unlike the slender leafy sunflower. No pot, soil, desert scenery, water, hat, scarf or other props.",
+      "revisions": [],
+      "visualReview": "太い緑の柱、2本の腕、根の足と桃色の花。抱きしめづらさを表す棘を残す。 原画・128px実寸・白/濃色背景で目と口、全身を確認。"
     }
   ],
-  "remaining": [
-    "partners/cliff_goat",
-    "partners/high_eagle",
-    "partners/snow_spirit",
-    "partners/snowman",
-    "partners/rock_octopus",
-    "partners/sea_mermaid",
-    "partners/anglerfish",
-    "partners/swamp_croc",
-    "partners/gentle_gorilla",
-    "partners/knitting_spider",
-    "partners/desert_scorpion",
-    "partners/oasis_cactus"
+  "remainingPartnerImages": [],
+  "remainingProjectWork": [
+    "Author image in author event and ending, including separate toothy-smile ending art",
+    "Actual game browser layout review"
   ]
 }
