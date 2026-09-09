@@ -1,0 +1,423 @@
+{
+  "checkpoint": "BO",
+  "initialGameScript": "script.js?v=20260909-cast-movies-bo-1",
+  "finalGameScript": "script.js?v=20260909-cast-movies-bo-2",
+  "movieObservations": [
+    {
+      "scene": "anniversary_1",
+      "width": 305,
+      "height": 640,
+      "samples": 1899,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1838,
+      "movieBeats": [
+        "となりまちの ロボットと はじめての けっこんきねんび。",
+        "「きょう 記念日だよ」「忘れてないよ。たぶん」",
+        "ふたりとも 少しだけ てれながら、最初の一年を 思い返した。",
+        "「思い出が 増えても、整理は しないでおきます」",
+        "「来年も やろうね。忘れてたら 呼んで」"
+      ],
+      "movieTitles": [
+        "💐 はじめての けっこんきねんび"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/06.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 603,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-1"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "idle-float",
+        "idle-perk"
+      ],
+      "checksPass": true
+    },
+    {
+      "scene": "anniversary_10",
+      "width": 305,
+      "height": 640,
+      "samples": 1897,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1897,
+      "movieBeats": [
+        "となりまちの ロボットと けっこんして 10ねん。",
+        "「あの日から 10ねん」「あの日って どの日?」「そこから!?」",
+        "「好きの計算、まだ 終わりません」",
+        "「変わった?」「変わった。でも 変わってないとこも ある」",
+        "「まあ、これからも よろしく」"
+      ],
+      "movieTitles": [
+        "🎀 けっこん 10しゅうねん"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/06.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 668,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-1"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "emote-happy",
+        "idle-float",
+        "idle-perk"
+      ],
+      "checksPass": true
+    },
+    {
+      "scene": "anniversary_25",
+      "width": 305,
+      "height": 640,
+      "samples": 1903,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1893,
+      "movieBeats": [
+        "となりまちの ロボットと けっこんして 25ねん。ぎんこんしき。",
+        "「昔の しゃしん 見る?」「それは ちょっと こわい」",
+        "「思い出が 増えても、整理は しないでおきます」",
+        "古い写真を ひらいた。ふたりとも、同じ一枚で 笑った。",
+        "「また 25ねん後も これ やる?」「そのとき 考えよ」",
+        "帰り道は、いつもと ほとんど おなじだった。"
+      ],
+      "movieTitles": [
+        "🥈 ぎんこんしき"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/07.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 420,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-1"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "idle-float",
+        "emote-love",
+        "idle-perk"
+      ],
+      "checksPass": true
+    },
+    {
+      "scene": "anniversary_50",
+      "width": 305,
+      "height": 640,
+      "samples": 1897,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1897,
+      "movieBeats": [
+        "となりまちの ロボットと けっこんして 50ねん。",
+        "「50ねんだって」「今日の お茶は いつもどおりね」",
+        "「結局、ふつうの日が いちばん 多かったね」",
+        "「昔のふたり、信じるかな」「まず 座ってもらおう」",
+        "「ここまで 来たね」「じゃあ、もう少し 行こっか」",
+        "ふたりは また、いつもの 速さで あるきだした。"
+      ],
+      "movieTitles": [
+        "🥇 きんこんしき"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/08.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 429,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-1"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "emote-happy",
+        "idle-float",
+        "idle-perk"
+      ],
+      "checksPass": true
+    }
+  ],
+  "legendExploration": {
+    "scene": "legend_boss",
+    "width": 305,
+    "height": 625,
+    "samples": 1897,
+    "failedFrames": 1897,
+    "firstFailure": {
+      "scene": "legend_boss",
+      "width": 305,
+      "height": 625,
+      "pageHeight": 974,
+      "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+      "gameScript": "script.js?v=20260909-cast-movies-bo-1",
+      "heroAsset": "assets/characters/man/06.png",
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": null,
+      "moviePetAsset": "assets/characters/man/06.png",
+      "moviePartnerAsset": null,
+      "movieVisible": true,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": "🦑 もう一度、深々と おじぎをした。",
+      "movieTitle": "🦑 でんせつの であい",
+      "movieComplete": false,
+      "movieRowWidth": 194,
+      "movieRowContentWidth": 194,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "grid",
+      "areaWidth": 214,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "legend-aura-pulse",
+        "sick-wobble"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": true,
+      "layoutChecksPass": false,
+      "checksPass": false
+    },
+    "layoutFailedFrames": 1897,
+    "pendingImageFrames": 0,
+    "brokenImageFrames": 0,
+    "movieVisibleFrames": 1897,
+    "movieBeats": [
+      "🦑 もう一度、深々と おじぎをした。",
+      "「まあ……いいよ」",
+      "🦑 ダイオウイカは 帰っていった。",
+      "💰 足もとに 350 が 置かれていた。"
+    ],
+    "movieTitles": [
+      "🦑 でんせつの であい"
+    ],
+    "moviePetAssets": [
+      "assets/characters/man/06.png"
+    ],
+    "moviePartnerAssets": [
+      null
+    ],
+    "movieCompleteFrames": 1176,
+    "gameScripts": [
+      "script.js?v=20260909-cast-movies-bo-1"
+    ],
+    "storyBeats": [],
+    "storyAssets": [],
+    "storyVisibleFrames": 0,
+    "movieAnimations": [
+      "date-actor-walk"
+    ],
+    "animations": [
+      "legend-aura-pulse",
+      "sick-wobble"
+    ],
+    "checksPass": false
+  },
+  "finalMovieObservations": [
+    {
+      "scene": "anniversary_scrolled",
+      "width": 305,
+      "height": 640,
+      "samples": 1895,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1713,
+      "movieBeats": [
+        "となりまちの ロボットと けっこんして 50ねん。",
+        "「急がなくなったね」「待つのも 上手になった」",
+        "何でもない日の ほうが、あとから たくさん 思い出せた。",
+        "「昔のふたり、信じるかな」「まず 座ってもらおう」",
+        "「ここまで 来たね」「じゃあ、もう少し 行こっか」",
+        "ふたりは また、いつもの 速さで あるきだした。"
+      ],
+      "movieTitles": [
+        "🥇 きんこんしき"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/08.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 248,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-2"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "idle-float",
+        "idle-perk",
+        "emote-happy"
+      ],
+      "checksPass": true
+    },
+    {
+      "scene": "partner_robot_neighbor",
+      "width": 305,
+      "height": 640,
+      "samples": 1900,
+      "failedFrames": 0,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 0,
+      "brokenImageFrames": 0,
+      "movieVisibleFrames": 1884,
+      "movieBeats": [
+        "となりまちの ロボットと、ほしを さがす。",
+        "同じ星を 指したつもりが、少しずつ ずれていた。",
+        "歩く速さが少しずつ合って、話すのを忘れた",
+        "話し忘れたことを、帰ってから思い出した。"
+      ],
+      "movieTitles": [
+        "🌠 ほしを さがす"
+      ],
+      "moviePetAssets": [
+        "assets/characters/man/06.png"
+      ],
+      "moviePartnerAssets": [
+        "assets/characters/partners/robot_neighbor.png"
+      ],
+      "movieCompleteFrames": 1015,
+      "gameScripts": [
+        "script.js?v=20260909-cast-movies-bo-2"
+      ],
+      "storyBeats": [],
+      "storyAssets": [],
+      "storyVisibleFrames": 0,
+      "movieAnimations": [
+        "date-actor-walk"
+      ],
+      "animations": [
+        "none",
+        "idle-perk",
+        "idle-float",
+        "emote-love"
+      ],
+      "checksPass": true
+    }
+  ],
+  "notes": [
+    "The four initial anniversary observations preceded the viewport and status-row fixes; final observations are listed separately.",
+    "One observation-result wait expired for anniversary_10; the completed result was recovered without rerunning the scene.",
+    "Legend exploration was observed after its opening beats and failed layout checks; do not count it as a complete story or a pass.",
+    "Final BO-2 legend was measured after the story had reached its last caption: 236 end-state frames passed, not a complete-story observation."
+  ],
+  "finalLegendEndObservation": {
+    "scene": "legend_boss",
+    "width": 305,
+    "height": 640,
+    "samples": 236,
+    "failedFrames": 0,
+    "layoutFailedFrames": 0,
+    "pendingImageFrames": 0,
+    "brokenImageFrames": 0,
+    "movieVisibleFrames": 236,
+    "movieBeats": [
+      "💰 足もとに 350 が 置かれていた。"
+    ],
+    "movieTitles": [
+      "🦑 でんせつの であい"
+    ],
+    "moviePetAssets": [
+      "assets/characters/man/06.png"
+    ],
+    "moviePartnerAssets": [
+      null
+    ],
+    "movieCompleteFrames": 236,
+    "gameScripts": [
+      "script.js?v=20260909-cast-movies-bo-2"
+    ],
+    "storyBeats": [],
+    "storyAssets": [],
+    "storyVisibleFrames": 0,
+    "movieAnimations": [
+      "date-actor-walk"
+    ],
+    "animations": [
+      "legend-aura-pulse",
+      "sick-wobble"
+    ],
+    "checksPass": true
+  },
+  "finalLegendEndGeometry": {
+    "moviePanel": {
+      "top": 239.421875,
+      "bottom": 530.953125,
+      "width": 197,
+      "height": 291.53125
+    },
+    "viewport": {
+      "clientWidth": 305,
+      "scrollWidth": 305,
+      "clientHeight": 640
+    }
+  }
+}

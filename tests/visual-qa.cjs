@@ -44,6 +44,17 @@ function createFixtures() {
       greeting.lifetime.dexCleared = true;
       greeting.lifetime.endingTiersReached = [3];
       make('anniversary',2,{ageTicks:499,marriageAge:0,marriageMilestonesSeen:[1,10]});
+      for (const years of [1,10,25,50]) {
+        make('anniversary_' + years,26,{ageTicks:(25+years)*20-1,marriageAge:25,
+          marriageMilestonesSeen:[1,10,25,50].filter(y=>y<years)});
+      }
+      const legendPending = make('legend_boss',26,{partner:null,legendMet:false,
+        sodachi:95,maxSodachi:95,hunger:100,energy:100,happiness:100});
+      legendPending.lifetime.legendsMet = ['gate','stairs','lamp','mirror'];
+      legendPending.lifetime.money = 362;
+      const scrolledAnniversary = make('anniversary_scrolled',26,{ageTicks:1498,
+        marriageAge:25,marriageMilestonesSeen:[1,10,25]});
+      scrolledAnniversary.lifetime.money = 123456789;
       make('firstEncounter',26,{partner:null,regionId:'city'});
       const freeForm = make('freeForm',26,{infinite:true,infiniteForm:{line:'man',stageIndex:7}});
       freeForm.lifetime.perfectCleared = true;
@@ -83,6 +94,7 @@ function visualQaPlugin() {
           <button id="load">Load scene</button> <button id="measure">Measure layout</button>
           <button id="observe">Observe motion (4s)</button>
           <button id="observeStory">Observe story (9s)</button>
+          <button id="observeMovie">Observe movie (32s)</button>
           <output id="result"></output><div id="mount"></div>
           <script>
           const fixtures=${JSON.stringify(fixtures).replace(/</g,'\\u003c')};
@@ -121,16 +133,22 @@ function visualQaPlugin() {
             const overlapPairs=actors.flatMap((r,i)=>actors.slice(i+1).flatMap((other,j)=>intersects(r,other)?[[i,i+j+1]]:[]));
             const movie=doc.getElementById('dateMovieScene');
             const movieBounds=movie.getBoundingClientRect();
+            const moviePanel=doc.getElementById('dateMovie').getBoundingClientRect();
+            const movieOutsideViewport=movieBounds.width>0&&(moviePanel.top<0||moviePanel.bottom>doc.documentElement.clientHeight);
             const movieActors=[...doc.querySelectorAll('.date-movie-actor .character-visual')].map(e=>e.getBoundingClientRect()).filter(r=>r.width>0);
-            const movieCaption=doc.getElementById('dateMovieCaption').getBoundingClientRect();
+            const movieCaptionNode=doc.getElementById('dateMovieCaption');
+            const movieCaption=movieCaptionNode.getBoundingClientRect();
+            const movieCaptionOverflow=movieBounds.width>0&&(movieCaptionNode.scrollWidth>movieCaptionNode.clientWidth||movieCaptionNode.scrollHeight>movieCaptionNode.clientHeight);
+            const movieCaptionOutside=movieBounds.width>0&&(movieCaption.left<movieBounds.left||movieCaption.right>movieBounds.right||movieCaption.top<movieBounds.top||movieCaption.bottom>movieBounds.bottom);
             const movieActorRow=doc.querySelector('.date-movie-actors');
             const movieOverflow=movieBounds.width>0&&movieActorRow.scrollWidth>movieActorRow.clientWidth;
             const movieClipped=movieActors.some(r=>r.left<movieBounds.left||r.right>movieBounds.right||r.top<movieBounds.top||r.bottom>movieBounds.bottom);
             const movieCaptionOverlap=movieActors.some(r=>intersects(r,movieCaption));
-            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
+            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&!movieCaptionOverflow&&!movieCaptionOutside&&!movieOutsideViewport&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
             const result={scene:document.getElementById('scene').value,width:doc.documentElement.clientWidth,
               height:doc.documentElement.clientHeight,pageHeight:doc.documentElement.scrollHeight,
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
+              gameScript:doc.querySelector('script[src^="script.js"]').getAttribute('src'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
               storyVisible:story.width>0,storyText:story.width>0?storyText.textContent:null,storyTextOverflow,
               storyAsset:story.width>0?doc.querySelector('#storyFlashEmoji img')?.getAttribute('src')||null:null,
@@ -140,7 +158,11 @@ function visualQaPlugin() {
               partnerAsset:doc.querySelector('#partnerCompanion img')?.getAttribute('src')||null,
               moviePetAsset:doc.querySelector('#dateMoviePet img')?.getAttribute('src')||null,
               moviePartnerAsset:doc.querySelector('#dateMoviePartner img')?.getAttribute('src')||null,
-              movieVisible:movieBounds.width>0,movieOverflow,movieClipped,movieCaptionOverlap,
+              movieVisible:movieBounds.width>0,movieOverflow,movieClipped,movieCaptionOverlap,movieOutsideViewport,
+              movieCaptionOverflow,movieCaptionOutside,
+              movieText:movieBounds.width>0?movieCaptionNode.textContent:null,
+              movieTitle:movieBounds.width>0?doc.getElementById('dateMoviePlace').textContent:null,
+              movieComplete:movieBounds.width>0&&!doc.getElementById('dateMovieCloseBtn').classList.contains('hidden'),
               movieRowWidth:movieActorRow.clientWidth,movieRowContentWidth:movieActorRow.scrollWidth,
               moviePetDisplay:doc.defaultView.getComputedStyle(doc.getElementById('dateMoviePet')).display,
               movieAnimation:doc.defaultView.getComputedStyle(doc.getElementById('dateMoviePet')).animationName,
@@ -168,6 +190,12 @@ function visualQaPlugin() {
                 pendingImageFrames:samples.filter(s=>s.pendingImages>0).length,
                 brokenImageFrames:samples.filter(s=>s.brokenImages>0).length,
                 movieVisibleFrames:samples.filter(s=>s.movieVisible).length,
+                movieBeats:[...new Set(samples.filter(s=>s.movieVisible).map(s=>s.movieText))],
+                movieTitles:[...new Set(samples.filter(s=>s.movieVisible).map(s=>s.movieTitle))],
+                moviePetAssets:[...new Set(samples.filter(s=>s.movieVisible).map(s=>s.moviePetAsset))],
+                moviePartnerAssets:[...new Set(samples.filter(s=>s.movieVisible).map(s=>s.moviePartnerAsset))],
+                movieCompleteFrames:samples.filter(s=>s.movieComplete).length,
+                gameScripts:[...new Set(samples.map(s=>s.gameScript))],
                 storyBeats:[...new Set(samples.filter(s=>s.storyVisible).map(s=>s.storyText))],
                 storyAssets:[...new Set(samples.filter(s=>s.storyVisible).map(s=>s.storyAsset))],
                 storyVisibleFrames:samples.filter(s=>s.storyVisible).length,
@@ -178,6 +206,7 @@ function visualQaPlugin() {
           }
           document.getElementById('observe').onclick=()=>observe(4000);
           document.getElementById('observeStory').onclick=()=>observe(9000);
+          document.getElementById('observeMovie').onclick=()=>observe(32000);
           </script></html>`);
       });
     },

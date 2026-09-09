@@ -15,6 +15,7 @@ const spoken = [];
 const events = [];
 const captions = [];
 const storyCaptions = [];
+const scrollRequests = [];
 const noop = () => {};
 function element(id = '') {
   const classes = new Set(['hidden']);
@@ -33,6 +34,7 @@ function element(id = '') {
     querySelector: (selector) => getElement(selector), querySelectorAll: () => [], closest: () => null,
     getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }),
     setAttribute: noop, focus: noop,
+    scrollIntoView: (options) => scrollRequests.push({id, ...options}),
   };
   let content = '';
   Object.defineProperty(target, 'textContent', { get: () => content, set: (value) => {
@@ -129,6 +131,7 @@ function reset(patch = {}) {
   api.reset(patch); timers.clear(); spoken.length = 0; events.length = 0; captions.length = 0;
   random = 0.25;
   confirmResult = false; storyCaptions.length = 0;
+  scrollRequests.length = 0;
 }
 function partner(id = 'robot_neighbor', extra = {}) {
   const candidate = api.ALL_PARTNER_CANDIDATES.find((p) => p.id === id);
@@ -253,7 +256,12 @@ for (const [bondCount, key] of [[0, 'court'], [100, 'marriage']]) {
 for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value of [0, 0.99]) {
   reset(); random = value;
   api.speakEvent('feed'); advance(0);
+  getElement('dateMoviePet').innerHTML = '';
   api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' }, 17);
+  assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'),
+    id + ': legend movie must show the current player PNG');
+  assert.ok(scrollRequests.some(r=>r.id==='dateMovie'&&r.block==='nearest'),
+    id + ': bring the movie into view after a scrolled care action');
   assert.equal(getElement('speechBubble').classList.contains('hidden'), true);
   const speechCount = spoken.length; advance(35000);
   assert.equal(spoken.length, speechCount, 'conversation leaked into movie');
@@ -263,6 +271,15 @@ for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value 
 }
 reset(); api.playLegendEncounterMovie({ id: 'boss', emoji: '🦑' }, 17); api.finishDateMovie();
 const skippedAt = captions.length; advance(35000); assert.equal(captions.length, skippedAt, 'skip left captions queued');
+// Use the selected species/stage, while keeping old saves without art playable.
+reset({speciesLine:'sakura',stageIndex:0});
+api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'},17);
+assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/sakura/01.png"'));
+reset({speciesLine:'rabbit',stageIndex:4});
+api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'},17);
+assert.match(getElement('dateMoviePet').innerHTML, /emoji-only/);
+assert.ok(!getElement('dateMoviePet').innerHTML.includes('<img'));
+assert.equal(api.getState().speciesLine, 'rabbit');
 for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (const value of [0, 0.99]) {
   reset({ partner: partner('robot_neighbor', { married: true }), lifeLog: mismatch ? [{ text: 'なかなおりした' }] : [] });
   random = value; api.playMarriageMovie({ years, icon: '💐', title: '記念日' }); advance(35000);
@@ -649,15 +666,25 @@ for (const def of master.partners) {
   assert.ok(getElement('partnerCompanion').classList.contains('hidden'));
   assert.equal(getElement('partnerCompanion').innerHTML, '');
 
-  reset({ partner: savedPartner });
-  api.goOnDate(api.DATE_PLANS[0]);
-  assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), def.id + ': date');
-  assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\//);
-  api.finishDateMovie();
-  reset({ partner: savedPartner });
-  api.playMarriageMovie({ years: 25, icon: '💐', title: '銀婚式' });
-  assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), def.id + ': anniversary');
-  api.finishDateMovie();
+  for (const plan of api.DATE_PLANS) {
+    reset({ partner: savedPartner });
+    api.goOnDate(plan); advance(20000);
+    assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), `${def.id}: date ${plan.id}`);
+    assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'));
+    assert.equal(captions.length,4,`${def.id}: complete date ${plan.id}`);
+    assert.ok(captions.every(text=>text.trim()&&!/undefined|\[object Object\]/.test(text)));
+    assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false);
+  }
+  for (const years of [1,10,25,50]) {
+    reset({ partner: savedPartner });
+    api.playMarriageMovie({ years, icon:'💐', title:'記念日' }); advance(35000);
+    assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), `${def.id}: anniversary ${years}`);
+    assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'));
+    assert.ok(captions.length>=5&&captions.every(text=>text.trim()&&!/undefined|\[object Object\]/.test(text)));
+    assert.ok(captions.some(text=>api.PARTNER_ANNIVERSARY_LINES[def.id].some(line=>text.includes(line))),
+      `${def.id}: own anniversary dialogue at ${years} years`);
+    assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false);
+  }
   reset();
   assert.ok(api.playFirstPartnerEncounter(candidate));
   assert.ok(getElement('storyFlashEmoji').innerHTML.includes(`src="${def.asset}"`), def.id + ': first encounter');
@@ -676,7 +703,7 @@ api.getState().lifetime.partnersRecorded = master.partners.map((p) => p.id);
 api.renderPartnerDex();
 assert.equal(getElement('partnerDexProgress').textContent, '18 / 18');
 for (const p of partnerArt) assert.ok(getElement('partnerDexGrid').innerHTML.includes(p.asset));
-console.log(`PARTNER CAST PNG TEST OK: ${partnerArt.length} PNGs x 5 sizes; saved relationships; companion/profile/dex/date/anniversary/first encounter; aliases, guests and hidden dex.`);
+console.log(`PARTNER CAST PNG TEST OK: ${partnerArt.length} PNGs x 5 sizes; saved relationships; companion/profile/dex; 180 complete dates; 72 complete anniversaries; first encounters; aliases, guests and hidden dex.`);
 
 // The author stays outside the playable/companion/partner collections and appears only after goal 4/5.
 const allForms = Array.from(api.ALL_LINES).flatMap((line) => Array.from({ length: api.STAGES_PER_LINE }, (_, i) => `${line}:${i}`));

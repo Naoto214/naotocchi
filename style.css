@@ -680,6 +680,8 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 
 .status-row {
   display: flex;
+  /* 所持金の桁が増えても、本体を画面幅より押し広げない。 */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 4px;

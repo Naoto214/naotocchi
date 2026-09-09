@@ -7500,6 +7500,7 @@
     el.dateMovieCaption.classList.remove('beat');
     el.dateMovieCloseBtn.classList.remove('hidden');
     el.dateMovieSkipBtn.classList.add('hidden');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
   }
 
   // デートの選択画面へ戻らず、育成画面へ復帰する。
@@ -7576,6 +7577,7 @@
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
 
     // 文章を読んで余韻も残せる速度。通常は3.5秒/文、特別デートは4秒/文。
     const step = special ? 4000 : 3500;
@@ -7585,6 +7587,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
@@ -7728,6 +7731,7 @@
 
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 4000;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
@@ -7735,6 +7739,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 800));
@@ -7861,7 +7866,7 @@
     el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${legend.emoji} でんせつの であい`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
     el.dateMoviePartner.textContent = legend.emoji;
 
     const beatsById = {
@@ -7949,6 +7954,7 @@
     const beats = (stories.length ? pickMovieLine(stories) : [legend.flash, legend.story]).concat([`💰 足もとに ${coins} が 置かれていた。`]);
     el.dateMovieCaption.textContent = beats[0];
     el.dateMovieCaption.classList.add('beat');
+    el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 3500;
     for (let i = 1; i < beats.length; i += 1) {
       dateMovieTimers.push(setTimeout(() => {
@@ -7956,6 +7962,7 @@
         void el.dateMovieCaption.offsetWidth;
         el.dateMovieCaption.textContent = beats[i];
         el.dateMovieCaption.classList.add('beat');
+        el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
     }
     dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
