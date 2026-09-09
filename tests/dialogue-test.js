@@ -102,6 +102,7 @@ const expose = `
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
     renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter,
+    partnerVisualHTML, renderPartnerCompanion, renderPartnerDex,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
       clearConversationTimers(); clearDateMovieTimers(); hideSpeechBubble(); closeAllMenuOverlays();
@@ -598,3 +599,80 @@ for (const score of [69, 70]) {
   click('companionInviteLaterBtn');
 }
 console.log('CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.');
+
+// Saved partners resolve their current artwork without changing their relationship or identity.
+const partnerArt = master.partners.filter((p) => p.asset);
+assert.equal(partnerArt.length, 6, 'checkpoint BG partner PNG count');
+assert.equal(new Set(partnerArt.map((p) => p.asset)).size, partnerArt.length);
+for (const def of master.partners) {
+  const candidate = api.ALL_PARTNER_CANDIDATES.find((p) => p.id === def.id);
+  assert.ok(candidate, def.id);
+  assert.ok(api.findRegion(def.firstRegion).candidates.some((p) => p.id === def.id));
+  if (!def.asset) {
+    assert.equal(api.partnerVisualHTML(candidate), candidate.emoji, 'unfinished partner retains emoji');
+    continue;
+  }
+  assert.equal(def.asset, `assets/characters/partners/${def.id}.png`);
+  const png = fs.readFileSync(def.asset);
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', def.id);
+  assert.equal(png.readUInt32BE(16), 128); assert.equal(png.readUInt32BE(20), 128);
+  assert.equal(png[24], 8); assert.equal(png[25], 6);
+  for (const size of ['hero', 'detail', 'thumb', 'medium', 'companion']) {
+    const html = api.partnerVisualHTML(candidate, size);
+    assert.ok(html.includes(`src="${def.asset}"`), `${def.id}: ${size}`);
+    assert.match(html, /character-emoji-fallback/);
+  }
+  const savedPartner = { ...candidate, affection: 73, bondCount: 4, married: true };
+  delete savedPartner.asset;
+  reset();
+  const oldPartnerLife = JSON.parse(JSON.stringify(api.getState()));
+  oldPartnerLife.partner = savedPartner;
+  oldPartnerLife.lifetime.partnersRecorded = [def.id];
+  oldPartnerLife.lifetime.partnersMarried = [def.id];
+  savedPayload = JSON.stringify(oldPartnerLife);
+  const loadedPartnerLife = api.loadState();
+  savedPayload = null;
+  assert.equal(JSON.stringify(loadedPartnerLife.partner), JSON.stringify(savedPartner), 'image upgrade rewrote saved relationship');
+  reset(loadedPartnerLife);
+  const beforePartnerRender = JSON.stringify(api.getState().partner);
+  api.renderPartnerCompanion(false); api.renderProfile(); api.renderPartnerDex();
+  for (const id of ['partnerCompanion', 'profilePartnerCard', 'partnerDexGrid']) {
+    assert.ok(getElement(id).innerHTML.includes(`src="${def.asset}"`), `${def.id}: ${id}`);
+    assert.match(getElement(id).innerHTML, /💍/);
+  }
+  assert.match(getElement('partnerCompanion').innerHTML, /partner-heart/);
+  assert.match(getElement('partnerCompanion').innerHTML, /character-companion/);
+  assert.equal(getElement('partnerDexProgress').textContent, '1 / 18');
+  assert.equal(JSON.stringify(api.getState().partner), beforePartnerRender, 'rendering changed relationship');
+  api.renderPartnerCompanion(true);
+  assert.ok(getElement('partnerCompanion').classList.contains('hidden'));
+  assert.equal(getElement('partnerCompanion').innerHTML, '');
+
+  reset({ partner: savedPartner });
+  api.goOnDate(api.DATE_PLANS[0]);
+  assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), def.id + ': date');
+  assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\//);
+  api.finishDateMovie();
+  reset({ partner: savedPartner });
+  api.playMarriageMovie({ years: 25, icon: '💐', title: '銀婚式' });
+  assert.ok(getElement('dateMoviePartner').innerHTML.includes(`src="${def.asset}"`), def.id + ': anniversary');
+  api.finishDateMovie();
+  reset();
+  assert.ok(api.playFirstPartnerEncounter(candidate));
+  assert.ok(getElement('storyFlashEmoji').innerHTML.includes(`src="${def.asset}"`), def.id + ': first encounter');
+  advance(10000);
+  assert.ok(getElement('storyFlashEmoji').innerHTML.includes(`src="${def.asset}"`), def.id + ': later encounter beat');
+  assert.ok(!api.playFirstPartnerEncounter(candidate), 'first encounter repeated');
+}
+assert.ok(api.partnerVisualHTML({ id: 'ceo-cat', emoji: '🐈‍⬛' }).includes('assets/characters/partners/cat_ceo.png'));
+for (const p of [{ id: 'guest', emoji: '🐸' }, { id: 'forest-fox', emoji: '🦊' }, { id: 'unknown-partner', emoji: '💕' }]) {
+  assert.equal(api.partnerVisualHTML(p), p.emoji, 'unmapped partner must keep its own emoji');
+}
+reset(); api.renderPartnerDex();
+assert.equal(getElement('partnerDexProgress').textContent, '0 / 18');
+assert.ok(!getElement('partnerDexGrid').innerHTML.includes('assets/characters/partners/'), 'unmet partner revealed');
+api.getState().lifetime.partnersRecorded = master.partners.map((p) => p.id);
+api.renderPartnerDex();
+assert.equal(getElement('partnerDexProgress').textContent, '18 / 18');
+for (const p of partnerArt) assert.ok(getElement('partnerDexGrid').innerHTML.includes(p.asset));
+console.log(`PARTNER CAST PNG TEST OK: ${partnerArt.length} PNGs x 5 sizes; saved relationships; companion/profile/dex/date/anniversary/first encounter; aliases, guests and hidden dex.`);

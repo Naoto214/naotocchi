@@ -7029,6 +7029,14 @@
     return companion.asset ? stageVisualHTML(companion, size) : escapeHtml(companion.emoji);
   }
 
+  // 保存済みの恋人も現在の専用PNGを使う。セーブの関係性や通信相手は書き換えない。
+  function partnerVisualHTML(partner, size = 'thumb') {
+    const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner?.id] || partner?.id;
+    const def = WORLD_MASTER?.partners?.find((p) => p.id === id);
+    const emoji = partner?.emoji || PARTNER_RUNTIME_PROFILE[id]?.emoji || '💞';
+    return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
+  }
+
   function hasActiveCompanionId(id) {
     return state.companions.some((sc) => canonicalCompanionId(sc.id) === id);
   }
@@ -7482,8 +7490,8 @@
       : `${plan.emoji || '💞'} ${plan.label}`;
 
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
-    el.dateMoviePartner.textContent = partner.emoji || '💞';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
+    el.dateMoviePartner.innerHTML = partnerVisualHTML(partner, 'medium');
 
     const specialMiddleLines = [
       '「きょう、ちょっと いつもと ちがうね」',
@@ -7569,8 +7577,8 @@
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
-    el.dateMoviePet.textContent = ownStage ? ownStage.emoji : '✨';
-    el.dateMoviePartner.textContent = state.partner.emoji || '💞';
+    setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
+    el.dateMoviePartner.innerHTML = partnerVisualHTML(state.partner, 'medium');
     const name = state.partner.label;
     const hadMismatch = (state.lifeLog || []).some((e) => e && /すれちがい|なかなおり/.test(e.text || ''));
     const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
@@ -8972,7 +8980,8 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
-    el.storyFlashEmoji.textContent = event.emoji;
+    if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
+    else el.storyFlashEmoji.textContent = event.emoji;
     el.storyFlashText.textContent = event.message;
     el.storyFlash.classList.remove('hidden');
     clearTimeout(storyFlashTimer);
@@ -10205,7 +10214,7 @@
         : `<span class="profile-partner-detail">つぎの ふしめまで あと ${marriageBondThreshold() - (p.bondCount || 0)}かいの きゅうあい</span>`;
       el.profilePartnerCard.innerHTML = `
         <div class="profile-partner-card">
-          <span class="profile-partner-emoji">${p.emoji}</span>
+          <span class="profile-partner-emoji">${partnerVisualHTML(p)}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">${p.label}(${p.married ? '夫婦 💍' : 'こいびと 💑'})</span>
             <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender)}</span>
@@ -11171,7 +11180,7 @@
         return '<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>';
       }
       const label = married.includes(c.id) ? `💍 ${c.label}` : c.label;
-      return `<div class="dex-cell known"><span class="dex-cell-emoji">${c.emoji}</span><span class="dex-cell-label">${label}</span></div>`;
+      return `<div class="dex-cell known"><span class="dex-cell-emoji">${partnerVisualHTML(c)}</span><span class="dex-cell-label">${label}</span></div>`;
     }).join('');
   }
 
@@ -11204,7 +11213,7 @@
     }
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${p.label}">${p.emoji}${ring}</span><span class="partner-heart">💕</span>`;
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(p.label)}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
   }
 
   // まだ 1どでも であった ことの ない れんくんは、こうほに まぎれても
@@ -20929,9 +20938,9 @@
       `${candidate.emoji} ${candidate.label}と はじめて 目があった。`,
       'なんとなく、また 会う気がした。',
     ];
-    showStoryEvent({ emoji: candidate.emoji, message: beats[0] });
+    showStoryEvent({ emoji: candidate.emoji, character:candidate, message: beats[0] });
     beats.slice(1).filter(Boolean).forEach((text, index) => {
-      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => showStoryEvent({ emoji: candidate.emoji, character:candidate, message: text }), (index + 1) * STORY_FLASH_DURATION_MS));
     });
     pushLifeLog(candidate.emoji, `${candidate.label}と はじめて であった`);
     state.happiness = clamp(state.happiness + 3, 0, 100);

@@ -1,0 +1,295 @@
+{
+  "checkpoint": "BG",
+  "date": "2026-09-09",
+  "status": "incomplete",
+  "audit": {
+    "baseline": "20786e47a47424c63322cb3993e41a6ac8c808f3",
+    "baselineTree": "e0dbec77d63dbc8ee741bb2eafb32974b29013ba",
+    "previousPngsUnchanged": 276,
+    "newPartnerPngs": 6,
+    "totalCharacterPngs": 282,
+    "remainingPartners": 12,
+    "masterCastRegionsAndHooks": "UNCHANGED",
+    "PNG_CRC": "PASS (individual exporter)",
+    "RGBA128": "PASS",
+    "binaryAlpha": "PASS",
+    "minimumMargin": 8,
+    "maximumOpaqueColors": 63,
+    "browserGameScreenshot": "NOT RUN; earlier development URL was blocked with ERR_BLOCKED_BY_CLIENT"
+  },
+  "counts": {
+    "playerPngs": 248,
+    "authorPngs": 1,
+    "normalCompanionPngs": 18,
+    "rareCompanionPngs": 8,
+    "legacyKinokoPngs": 1,
+    "partnerPngs": 6,
+    "remainingPartners": 12,
+    "dedicatedCastPngs": 33,
+    "dedicatedCastTotal": 45
+  },
+  "references": [
+    "GitHub current WORLD_MASTER partners and PARTNER_RUNTIME_PROFILE",
+    "naotocchi-cast-audit-20260909.md: partner-specific role and visual distinctions",
+    "Existing approved 128px character art style; no dedicated prior partner PNGs were found"
+  ],
+  "generation": "One individual built-in imagegen call per new sprite",
+  "export": "Generated alpha threshold 128; individual foreground bounds; nearest-neighbor; no dithering; 63 opaque colors plus transparency; final 8-bit RGBA PNG",
+  "visualReview": {
+    "original": "PASS",
+    "actual128": "PASS",
+    "whiteBackground": "PASS",
+    "darkBackground": "PASS",
+    "gameBrowserScreenshot": "NOT RUN"
+  },
+  "sprites": [
+    {
+      "id": "partners/cat_ceo",
+      "path": "assets/characters/partners/cat_ceo.png",
+      "source": "exec-94b043b2-526d-41ea-8961-20e42b36219e.png",
+      "sourceSha256": "882b5525176ee989180312e3260556a7587d4cc3609360d19e88adcfe288a72e",
+      "sha256": "1e23ba75cea57fe5d1830fca55287861101e63911107d100d2f95b653eff6027",
+      "sourceBounds": {
+        "left": 305,
+        "top": 30,
+        "width": 594,
+        "height": 1193,
+        "pixels": 313805
+      },
+      "bounds": {
+        "left": 37,
+        "top": 12,
+        "width": 54,
+        "height": 108,
+        "pixels": 2597
+      },
+      "margins": [
+        37,
+        12,
+        37,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: An adult elegant female black cat company president, standing upright on two feline paws. Slim charcoal-black fur, small warm ivory muzzle and clear amber eyes with a confident but affectionate half-smile. Wearing a tailored slate-blue business blazer, ivory shirt and straight dark trousers; not a dress or high heels. A small closed plain notebook held under one forearm, the other forepaw casually raised as if leaving work for a date. Both triangular ears, two forepaws, two standing feet and one long curved black tail visible. Clothes and upright stance must distinguish her from an unclothed player cat or a curled-up cat friend. No glasses, text or logos.",
+      "revisions": []
+    },
+    {
+      "id": "partners/robot_neighbor",
+      "path": "assets/characters/partners/robot_neighbor.png",
+      "source": "exec-d500e10f-b3d2-4e50-b530-c1e4956ff5a6.png",
+      "sourceSha256": "23fd07c9025508419f299983f8abde51ae3c5d4d48f3633a3eca68ee4c1ecd2a",
+      "sha256": "71386df66b1478bac9c847b314e911ef30269b1b3aef041a9058ccd308c36b6c",
+      "sourceBounds": {
+        "left": 283,
+        "top": 56,
+        "width": 764,
+        "height": 1127,
+        "pixels": 449116
+      },
+      "bounds": {
+        "left": 27,
+        "top": 12,
+        "width": 73,
+        "height": 108,
+        "pixels": 4120
+      },
+      "margins": [
+        27,
+        12,
+        28,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A small androgynous neighborhood robot learning affection: a rounded-square mint-green metal head, warm cream face panel with two dark oval eyes and a small curious smile, subtle peach cheek lights. Compact off-white rectangular torso with two simple teal chest buttons, attached segmented arms and short legs, large rounded teal feet. One hand rests carefully near its chest, the other makes a tentative greeting. Head tilted thoughtfully. One short antenna with a rounded tip. Exactly two arms and two legs, every joint and hand visible. Soft domestic appliance character with a square silhouette, no screen text, weapons, extra heads or detached parts. Different from a circular silver-blue alarm clock.",
+      "revisions": []
+    },
+    {
+      "id": "partners/field_cow",
+      "path": "assets/characters/partners/field_cow.png",
+      "source": "exec-7c9fea7e-eb28-48f6-85cd-ea8dbaa50d52.png",
+      "sourceSha256": "f849e3fb4f391113ee857347369a0a87b3255ab8cb02cd69ef6811cf6819b397",
+      "sha256": "de7b5bde0d77e236d2c16a0b25c7c3cd408da163ad46d38fb6232b6013a0b20f",
+      "sourceBounds": {
+        "left": 95,
+        "top": 86,
+        "width": 1095,
+        "height": 1115,
+        "pixels": 640833
+      },
+      "bounds": {
+        "left": 11,
+        "top": 12,
+        "width": 106,
+        "height": 108,
+        "pixels": 6025
+      },
+      "margins": [
+        11,
+        12,
+        11,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A gentle adult male black-and-white cow with small cream horns, broad rosy-beige muzzle, kind sleepy-looking eyes and a clearly smiling mouth. A complete sturdy four-legged bovine body in three-quarter view, all FOUR hooves visible and a short curved tail with dark tuft. White coat with large charcoal patches. Holding a small fresh bunch of grass at the side of its mouth, as if offering some to its partner; grass must not conceal the smile. Mature proportions rather than a baby calf, no udder, clothes or accessories.",
+      "revisions": []
+    },
+    {
+      "id": "partners/sunflower_partner",
+      "path": "assets/characters/partners/sunflower_partner.png",
+      "source": "exec-1a273c2c-114a-48e5-87a3-d547a5440ea5.png",
+      "sourceSha256": "7587bc87b73f4f61584324bb58ec82b1edc00a659cad139f2c3a811c8227ca76",
+      "sha256": "f43c2b6d67a35920a7a688b75583bc8393764553d4672ef079414ae453735726",
+      "sourceBounds": {
+        "left": 348,
+        "top": 14,
+        "width": 655,
+        "height": 1224,
+        "pixels": 349533
+      },
+      "bounds": {
+        "left": 35,
+        "top": 12,
+        "width": 58,
+        "height": 108,
+        "pixels": 2756
+      },
+      "margins": [
+        35,
+        12,
+        35,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A tall slender living sunflower affectionately turning its face toward the viewer's side. A single large round dark-ochre seed disk surrounded by a full circle of broad golden-yellow petals, expressive bright eyes and a warm closed-mouth smile with subtle rosy cheeks. Long gently bent green stalk, two broad serrated heart-shaped leaves as arms, two small root-like feet at the bottom. One leaf extends in a welcoming gesture. Taller stalk and larger broad seed disk distinguish it from a dandelion; no puffball or detached seeds. No flowerpot, soil mound, other flowers or sparkles.",
+      "revisions": []
+    },
+    {
+      "id": "partners/forest_bear",
+      "path": "assets/characters/partners/forest_bear.png",
+      "source": "exec-cd8989c9-b860-4bf9-b87c-cf18fb6dbb8b.png",
+      "sourceSha256": "e4257b419c43ce5be4c4bc930caa44790d7267feb47086492e17ca9c146c1133",
+      "sha256": "0a62ed9e7c8037f75e54a6b7d8aa6f138d011c7f16a84952caf807cfa0efd959",
+      "sourceBounds": {
+        "left": 93,
+        "top": 51,
+        "width": 1100,
+        "height": 1136,
+        "pixels": 764625
+      },
+      "bounds": {
+        "left": 11,
+        "top": 12,
+        "width": 105,
+        "height": 108,
+        "pixels": 6963
+      },
+      "margins": [
+        11,
+        12,
+        12,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A large gentle warm-brown adult forest bear seated comfortably, broad pear-shaped belly with a soft tan chest and muzzle. Both substantial hind paws visible in front, both forearms open loosely as if offering somewhere safe to lean. Small rounded ears, kind relaxed eyes, a clear friendly mouth, subtle warm cheeks. Weighty and reassuring, full natural bear body, no clothing, toys or props. Not sleeping, not a panda, not an upright silverback gorilla; emphasize the inviting seated belly and relaxed open arms.",
+      "revisions": []
+    },
+    {
+      "id": "partners/grove_deer",
+      "path": "assets/characters/partners/grove_deer.png",
+      "source": "exec-d58808f6-feb6-461a-9cdb-a234082685f6.png",
+      "sourceSha256": "0d1c027340b28455dd22990aaca241d29f7623ed31fd2e8faf7ac967ff6fe5cc",
+      "sha256": "88c0d7bc9823bbd030331db156c92fcfd34ccb873636eb6ff1ee6b97df06c5aa",
+      "sourceBounds": {
+        "left": 315,
+        "top": 30,
+        "width": 643,
+        "height": 1176,
+        "pixels": 330883
+      },
+      "bounds": {
+        "left": 34,
+        "top": 12,
+        "width": 59,
+        "height": 108,
+        "pixels": 2793
+      },
+      "margins": [
+        34,
+        12,
+        35,
+        8
+      ],
+      "colors": 63,
+      "alpha": [
+        0,
+        255
+      ],
+      "width": 128,
+      "height": 128,
+      "PNG_CRC": "PASS",
+      "decode": "PASS",
+      "background": "generated-alpha",
+      "prompt": "Use case: stylized-concept. Asset type: ONE individual partner character sprite for the Japanese life-simulation game Naotocchi.\nStyle: charming handcrafted Japanese pixel art, matching polished 128x128 game characters: crisp stepped dark colored outlines, deliberate square pixel clusters, compact limited palette with 2-4 shading tones, warm readable expressive face. Not realistic, smooth vector, painted concept art or glossy 3D. Must still read when reduced to 128x128. One whole body, 3/4 front view slightly facing right unless specified otherwise. Eyes or eyelids AND a clear mouth, with appropriate gentle expression.\nComposition: one isolated complete character centered in square canvas. Entire silhouette, every limb, ear, horn, wing, tail, fin and specified prop fully visible, at least 8% empty margin from EVERY image edge. Do not cut off any body part. No additional character, speech bubble, label, letters, numerals, watermark, UI, inset, montage or sprite sheet. No scenery, horizon, floor or cast shadow. Only props expressly specified below.\nBackground: genuine PNG alpha transparency, also in internal gaps. Never draw a checkerboard. Do not make white body parts transparent.\nSubject: A graceful adult female sika-like deer, no antlers. Chestnut coat with a few small ivory spots, pale throat and belly, long delicate legs, all FOUR complete cloven hooves visible. Large alert ears, a little white-edged short tail, shy attentive eyes glancing toward the viewer and a small tentative smile. One forehoof lifted a little as if deciding to take a step closer; hind legs support the body. Slender mature proportions, not a baby fawn. No clothes, flowers, crown or forest backdrop.",
+      "revisions": []
+    }
+  ],
+  "remaining": [
+    "partners/cliff_goat",
+    "partners/high_eagle",
+    "partners/snow_spirit",
+    "partners/snowman",
+    "partners/rock_octopus",
+    "partners/sea_mermaid",
+    "partners/anglerfish",
+    "partners/swamp_croc",
+    "partners/gentle_gorilla",
+    "partners/knitting_spider",
+    "partners/desert_scorpion",
+    "partners/oasis_cactus"
+  ]
+}

@@ -115,12 +115,12 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
   partnerAssetRule: 'assets/characters/partners/<id>.png',
 
   partners: [
-    { id: 'cat_ceo', label: 'ビルの ねこ社長', firstRegion: 'city', hook: '仕事人なのにデートのため普通にサボる' },
-    { id: 'robot_neighbor', label: 'となりまちの ロボット', firstRegion: 'city', hook: '感情を少しずつ覚える' },
-    { id: 'field_cow', label: 'のはらの うしさん', firstRegion: 'countryside', hook: '何年経っても草をくれる' },
-    { id: 'sunflower_partner', label: 'はたけの ひまわりさん', firstRegion: 'countryside', hook: '主人公の方を向く' },
-    { id: 'forest_bear', label: 'もりの クマさん', firstRegion: 'forest', hook: '大きくて優しい' },
-    { id: 'grove_deer', label: 'こだちの シカ', firstRegion: 'forest', hook: '最初は逃げるが徐々に近づく' },
+    { id: 'cat_ceo', label: 'ビルの ねこ社長', firstRegion: 'city', hook: '仕事人なのにデートのため普通にサボる', asset: 'assets/characters/partners/cat_ceo.png' },
+    { id: 'robot_neighbor', label: 'となりまちの ロボット', firstRegion: 'city', hook: '感情を少しずつ覚える', asset: 'assets/characters/partners/robot_neighbor.png' },
+    { id: 'field_cow', label: 'のはらの うしさん', firstRegion: 'countryside', hook: '何年経っても草をくれる', asset: 'assets/characters/partners/field_cow.png' },
+    { id: 'sunflower_partner', label: 'はたけの ひまわりさん', firstRegion: 'countryside', hook: '主人公の方を向く', asset: 'assets/characters/partners/sunflower_partner.png' },
+    { id: 'forest_bear', label: 'もりの クマさん', firstRegion: 'forest', hook: '大きくて優しい', asset: 'assets/characters/partners/forest_bear.png' },
+    { id: 'grove_deer', label: 'こだちの シカ', firstRegion: 'forest', hook: '最初は逃げるが徐々に近づく', asset: 'assets/characters/partners/grove_deer.png' },
     { id: 'cliff_goat', label: 'がけの ヤギさん', firstRegion: 'mountain', hook: '毎回ありえない場所にいる' },
     { id: 'high_eagle', label: 'たかねの ワシ', firstRegion: 'mountain', hook: '無口だが年月とともに心を開く' },
     { id: 'snow_spirit', label: 'ゆきの せいれい', firstRegion: 'snow', hook: '主人公が老いても姿が変わらない' },
