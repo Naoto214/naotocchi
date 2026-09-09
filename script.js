@@ -16142,10 +16142,11 @@
 
   // --- リングフライト3D: ゆびで ひこうきを うごかし、まえから くる リングを
   //     くぐる。くもは よける。コインも あつめて ---
-  function makeRingFlightGame({ title }) {
+  function makeRingFlightGame({ title, theme }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
+        const T = theme === 'summer' ? { sky: ['#ff8c5a', '#ffd9a8'], sea: ['#2f6fb5', '#0b2f5c'], sun: 'rgba(255,110,70,.95)', coin: '🐚', deco: '🐬' } : { sky: ['#3f8fe0', '#b9e2ff'], sea: ['#2f7fb8', '#0f4f80'], sun: 'rgba(255,240,180,.9)', coin: '🪙', deco: null };
         const DURATION_MS = 60000;
         let running = true, rafId = null, last = null, px = 0, py = 0, tx = 0, ty = 0, held = { left: false, right: false, up: false, down: false }, drag = null, rings = 0, missed = 0, coins = 0, speed = lerp(2.0, 2.6, difficulty), objs = [], spawnZ = 6, msg = '', msgUntil = 0, shake = 0, bank = 0, flash = 0, streak = 0;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -16159,7 +16160,7 @@
         const { ctx, W, H } = createMgCanvas(canvas, 240);
         const timerEl = container.querySelector('#rfTimer'), scoreEl = container.querySelector('#rfScore'), hint = container.querySelector('#rfHint');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
-        const hud = () => { scoreEl.textContent = `⭕ ${rings}　🪙 ${coins}`; };
+        const hud = () => { scoreEl.textContent = `⭕ ${rings}　${T.coin} ${coins}`; };
         for (const k of ['Left', 'Right', 'Up', 'Down']) bindHeldButton(container.querySelector('#rf' + k), (v) => { held[k.toLowerCase()] = v; });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, x: p.x, y: p.y, tx, ty }; });
         canvas.addEventListener('pointermove', (e) => { if (!drag || e.pointerId !== drag.id) return; const p = mgPointerPos(canvas, e); tx = clamp(drag.tx + (p.x - drag.x) / (W * 0.3), -1, 1); ty = clamp(drag.ty - (p.y - drag.y) / (H * 0.3), -1, 1); });
@@ -16187,7 +16188,7 @@
             const d = Math.hypot(o.x - px, o.y - py); o.hit = true;
             if (o.kind === 'ring') { if (d < o.r) { rings++; streak++; flash = 0.35; say(d < o.r * 0.4 ? `🎯 まんなか! ×${streak}` : `⭕ くぐった!`, 700); } else { missed++; streak = 0; say('はずれ…', 600); } }
             else if (o.kind === 'cloud') { if (d < o.r + 0.12) { speed = Math.max(1.6, speed * 0.7); shake = 10; streak = 0; say('☁ くもに つっこんだ!', 800); } }
-            else if (o.kind === 'coin') { if (d < o.r + 0.16) { coins++; say('🪙', 400); } }
+            else if (o.kind === 'coin') { if (d < o.r + 0.16) { coins++; say(T.coin, 400); } }
             hud();
           }
           objs = objs.filter((o) => o.z > -0.4);
@@ -16206,8 +16207,8 @@
         function render(now) {
           if (!ctx) return;
           ctx.save(); if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
-          const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#3f8fe0'); sky.addColorStop(0.55, '#b9e2ff'); sky.addColorStop(0.56, '#2f7fb8'); sky.addColorStop(1, '#0f4f80'); ctx.fillStyle = sky; ctx.fillRect(-10, -10, W + 20, H + 20);
-          ctx.fillStyle = 'rgba(255,240,180,.9)'; ctx.beginPath(); ctx.arc(W * 0.78, H * 0.2, 16, 0, Math.PI * 2); ctx.fill();
+          const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, T.sky[0]); sky.addColorStop(0.55, T.sky[1]); sky.addColorStop(0.56, T.sea[0]); sky.addColorStop(1, T.sea[1]); ctx.fillStyle = sky; ctx.fillRect(-10, -10, W + 20, H + 20);
+          ctx.fillStyle = T.sun; ctx.beginPath(); ctx.arc(W * 0.78, H * 0.2, 16, 0, Math.PI * 2); ctx.fill(); if (T.deco) { ctx.font = '18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const jump = Math.abs(Math.sin(now / 700)); ctx.fillText(T.deco, W * 0.2 + Math.sin(now / 1500) * 20, H * 0.62 - jump * 18); }
           // うみの ライン(スピードかん)
           for (let i = 0; i < 6; i++) { const z = ((i * 1.2 + (now / 1000 * speed) % 1.2)); const p = proj(0, -1.1, z); ctx.strokeStyle = `rgba(255,255,255,${0.25 * (1 - z / 7)})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(0, p.sy); ctx.lineTo(W, p.sy); ctx.stroke(); }
           const sorted = objs.slice().sort((a, b) => b.z - a.z);
@@ -16215,7 +16216,7 @@
             if (o.z < -0.2) continue; const p = proj(o.x, o.y, o.z); const R = o.r * W * 0.42 * p.s; const a = clamp(1 - o.z / 7, 0.15, 1);
             if (o.kind === 'ring') { ctx.lineWidth = Math.max(2, 7 * p.s); ctx.strokeStyle = o.hit ? 'rgba(120,255,140,.9)' : `rgba(255,${Math.round(lerp(120, 210, a))},60,${a})`; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, R, R * 1.05, 0, 0, Math.PI * 2); ctx.stroke(); ctx.lineWidth = Math.max(1, 2 * p.s); ctx.strokeStyle = `rgba(255,255,255,${a * 0.6})`; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, R * 0.86, R * 0.9, 0, 0, Math.PI * 2); ctx.stroke(); }
             else if (o.kind === 'cloud') { ctx.fillStyle = `rgba(255,255,255,${a * 0.9})`; for (const [dx, dy, k] of [[0, 0, 1], [-0.7, 0.2, 0.7], [0.7, 0.2, 0.7], [0.2, -0.4, 0.6]]) { ctx.beginPath(); ctx.arc(p.sx + dx * R, p.sy + dy * R, R * k, 0, Math.PI * 2); ctx.fill(); } }
-            else { ctx.font = `${Math.max(6, Math.round(R * 2.2))}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.globalAlpha = a; ctx.fillText('🪙', p.sx, p.sy); ctx.globalAlpha = 1; }
+            else { ctx.font = `${Math.max(6, Math.round(R * 2.2))}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.globalAlpha = a; ctx.fillText(T.coin, p.sx, p.sy); ctx.globalAlpha = 1; }
           }
           const pp = proj(px, py, 0); drawPlane(pp.sx, pp.sy, bank);
           if (flash > 0) { ctx.fillStyle = `rgba(255,255,255,${flash})`; ctx.fillRect(-10, -10, W + 20, H + 20); flash = Math.max(0, flash - 0.03); }
@@ -18548,11 +18549,11 @@
   // --- カーリング: ストーンを うえへ スワイプして なげる。ながさで つよさ、
   //     ななめで カール。なげた あと タップれんだで スイープ(のびる)。
   //     4こずつ なげて、ボタンに いちばん ちかい ほうが とくてん ---
-  function makeCurlingGame({ title }) {
+  function makeCurlingGame({ title, stoneCount }) {
     return {
       start(container, onComplete) {
         const difficulty = ageDifficulty();
-        const STONES = 4, TIME_LIMIT_MS = 150000;
+        const STONES = stoneCount || 4, TIME_LIMIT_MS = 150000;
         let running = true, rafId = null, last = null, stones = [], turn = 0, myThrown = 0, aiThrown = 0, aiming = null, moving = false, sweep = 0, msg = '', msgUntil = 0, phase = 'me', aiAt = 0, sweeps = 0;
         const startTime = performance.now();
         container.innerHTML = `
@@ -19507,8 +19508,15 @@
 
   const SEASONAL_MINIGAMES = {
     // 季節ゲームも「その季節なら遊びたい」ものだけ残す。
-    [SEASON.SPRING]: [],
+    [SEASON.SPRING]: [
+      { category: 'stack', game: makeStackGame({
+        title: 'さくらタワー!はなびらを そっと かさねよう',
+        blockEmoji: '🌸',
+        palette: ['#ffc4d6', '#ffa8c5', '#ff8fb3', '#ffd6e3', '#f9a8d4', '#f472b6', '#fbcfe8'],
+      }) },
+    ],
     [SEASON.SUMMER]: [
+      { category: 'ringFlight', game: mg('ring-flight-summer', makeRingFlightGame({ title: 'なつの うみ フライト!ゆうやけの リングを くぐれ', theme: 'summer' })) },
     ],
     [SEASON.AUTUMN]: [
       { category: 'stack', game: makeStackGame({
@@ -19517,7 +19525,9 @@
         palette: ['#c1440e', '#e3843b', '#d4a017', '#a0522d', '#8b5a2b', '#6b4226', '#e08214'],
       }) },
     ],
-    [SEASON.WINTER]: [],
+    [SEASON.WINTER]: [
+      { category: 'curling', game: mg('curling-winter', makeCurlingGame({ title: 'ふゆの カーリング たいかい!5こずつで しょうぶ', stoneCount: 5 })) },
+    ],
   };
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
@@ -19605,39 +19615,9 @@
   //  A: 操作感や 展開に 変化が あって しっかり あそべる ゲーム(追加チケット1枚)
   //  B: みじかい タイミング/選択の ゲーム(そのまま)
   // ゲームid に ついた ティアが 優先、なければ カテゴリの ティア、それも なければ B
-  const MINIGAME_TIER_WEIGHT = { S: 2.4, A: 1.45, B: 0.7 };
-  const MINIGAME_TIER_TICKETS = { S: 2, A: 1, B: 0 };
-  const MINIGAME_TIER_BY_ID = {
-    'pinball-physics': 'S', 'haunted-house-3d': 'S', 'fp-dungeon': 'S', 'race-3d': 'S', 'rhythm-highway-3d': 'S',
-    'tilt-maze-3d': 'S', 'space-gunner-3d': 'S', 'mini-golf-physics': 'S', 'real-fishing': 'S',
-    'bowling-3d': 'S', 'archery-3d': 'S', 'basketball-3d': 'S', 'pingpong-3d': 'S',
-    'chain-puzzle': 'S', 'street-fight': 'S', 'free-kick-3d': 'S', 'tower-defense': 'S', 'roguelike-dungeon': 'S',
-    'grand-prix-3d': 'S', 'sky-shooter': 'S', 'jump-quest': 'S', 'push-puzzle': 'S', 'reversi-6': 'S',
-    'billiards-6': 'S', 'animal-shogi': 'S', 'minesweeper-8': 'S', 'snake-classic': 'S', 'baseball-batting': 'S', 'ring-flight-3d': 'S', 'bubble-shooter': 'S',
-    'catapult-castle': 'S', 'connect-four': 'S', 'puzzle-2048': 'S', 'frogger-road': 'S', 'ski-jump': 'S', 'air-hockey': 'S', 'submarine-3d': 'S',
-    'match-3': 'S', 'gomoku-9': 'S', 'tank-battle': 'S', 'tennis-rally': 'S', 'picross-5': 'S', 'darts-board': 'S', 'hang-glider-3d': 'S',
-    'bomber-maze': 'S', 'blackjack-21': 'S', 'pipe-connect': 'S', 'fruit-slice': 'S', 'track-field': 'S', 'voxel-mine': 'S', 'sushi-belt': 'S',
-    'asteroids-classic': 'S', 'yacht-dice': 'S', 'lights-out': 'S', 'doodle-jump': 'S', 'curling-ice': 'S', 'jenga-tower': 'S', 'line-trace': 'S',
-    'checkers-6': 'S', 'memory-cards': 'S', 'halfpipe-skate': 'S', 'domino-run': 'S', 'sudoku-mini': 'S', 'mancala-kalah': 'S', 'plane-landing': 'S',
-    'road-themed': 'A', 'p3-space': 'A', 'p3-drive': 'A', 'fishing-sea': 'S', 'fishing-deepsea': 'S', 'fishing-river': 'S',
-    'downhill-mountain': 'S', 'downhill-snow': 'S',
-    'crane-game-3d': 'S', 'falling-block-puzzle': 'A',
-    'breakout-classic': 'S',
-  };
-  const MINIGAME_TIER_BY_CATEGORY = {
-    roadRace: 'S', rhythmHighway: 'S', tiltMaze: 'S', spaceGunner: 'S', miniGolf: 'S', realFishing: 'S', basketball: 'S', pingPong: 'S', swipeThrow: 'S', chainPuzzle: 'S', streetFight: 'S', freeKick: 'S', towerDefense: 'S', roguelike: 'S', grandPrix: 'S', skyShooter: 'S', jumpQuest: 'S', pushPuzzle: 'S', reversi: 'S', billiards: 'S', animalShogi: 'S', minesweeper: 'S', snake: 'S', baseball: 'S', ringFlight: 'S', bubbleShooter: 'S', catapult: 'S', connectFour: 'S', twenty48: 'S', frogger: 'S', skiJump: 'S', airHockey: 'S', submarine: 'S', matchThree: 'S', gomoku: 'S', tankBattle: 'S', tennis: 'S', picross: 'S', darts: 'S', hangGlider: 'S', bomber: 'S', blackjack: 'S', pipeConnect: 'S', fruitSlice: 'S', trackField: 'S', voxelMine: 'S', sushiBelt: 'S', asteroids: 'S', yachtDice: 'S', lightsOut: 'S', doodleJump: 'S', curling: 'S', jenga: 'S', lineTrace: 'S', checkers: 'S', memoryCards: 'S', halfpipe: 'S', dominoRun: 'S', sudoku: 'S', mancala: 'S', planeLanding: 'S', craneGame: 'S', pinball: 'S', hauntedHouse: 'S', firstPersonDungeon: 'S', downhill: 'S',
-    fallingBlock: 'A', breakout: 'S', fishing: 'A',
-    perspective3d: 'A', road: 'A', stack: 'A', dragDecorate: 'A',
-  };
-  function minigameTier(game) {
-    if (game.id && MINIGAME_TIER_BY_ID[game.id]) return MINIGAME_TIER_BY_ID[game.id];
-    const category = minigameCategoryOf.get(game);
-    return MINIGAME_TIER_BY_CATEGORY[category] || 'B';
-  }
-  function minigameFunWeight(game) {
-    return MINIGAME_TIER_WEIGHT[minigameTier(game)];
-  }
-
+  // 出やすさは ぜんゲーム 同確率。いま いる地域 / いまの きせつの ゲームだけ
+  // 袋に 2まい 入れて、滞在中は 約2ばい 出やすくする(ほかの 地域でも
+  // ふつうの 確率で 出る。「出ない ゲーム」は つくらない)
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
@@ -19651,7 +19631,6 @@
       let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
       if (isRegionExclusiveGame(game)) weight *= 1.45;
       if (isSeasonExclusiveGame(game)) weight *= 1.25;
-      weight *= minigameFunWeight(game);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -19663,7 +19642,7 @@
     // キューに混ぜてから軽くシャッフルする。
     const spotlightTickets = [];
     currentMinigamePool.forEach((game, i) => {
-      for (let t = 0; t < MINIGAME_TIER_TICKETS[minigameTier(game)]; t++) spotlightTickets.push(i);
+      if (isRegionExclusiveGame(game) || isSeasonExclusiveGame(game)) spotlightTickets.push(i);
     });
     for (const ticket of spotlightTickets) {
       const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));
