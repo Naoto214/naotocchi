@@ -96,7 +96,7 @@ global.clearTimeout = noop;
 global.location = { href: 'https://naoto214.github.io/naotocchi/' };
 global.crypto = { getRandomValues: a => a };
 
-const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES};\n';
+const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf};\n';
 const instrumented = source.replace(/\}\)\(\);\s*$/, expose + '})();');
 
 try {
@@ -126,6 +126,25 @@ for (const game of uniqueGames) {
   }
 }
 if (failures.length) fail('minigame start failures:\n' + failures.join('\n'));
+
+// すべての ゲームが 固定の id を もち、id が かぶらず、「ゲームきろく」
+// いちらんに 出す 名前/ジャンルの 表(MINIGAME_INFO/MINIGAME_GENRE_OF_CATEGORY)
+// に もれなく のっている ことを たしかめる
+const idProblems = [];
+const seenIds = new Set();
+for (const game of uniqueGames) {
+  if (!game.id) { idProblems.push('game without id (category ' + audit.minigameCategoryOf.get(game) + ')'); continue; }
+  if (seenIds.has(game.id)) idProblems.push('duplicate id: ' + game.id);
+  seenIds.add(game.id);
+  const info = audit.MINIGAME_INFO[game.id];
+  if (!info || !info.name || !info.emoji) idProblems.push('missing MINIGAME_INFO: ' + game.id);
+  const category = audit.minigameCategoryOf.get(game);
+  if (!audit.MINIGAME_GENRE_OF_CATEGORY[category]) idProblems.push('missing genre for category ' + category + ' (' + game.id + ')');
+}
+for (const id of Object.keys(audit.MINIGAME_INFO)) {
+  if (!seenIds.has(id)) idProblems.push('MINIGAME_INFO entry without game: ' + id);
+}
+if (idProblems.length) fail('minigame id/info problems:\n' + idProblems.join('\n'));
 
 console.log('SMOKE TEST OK');
 console.log('DOM ids:', new Set(ids).size);

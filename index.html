@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260909-cast-snail-ba-1">
+  <link rel="stylesheet" href="style.css?v=20260909-cast-final-player-bc-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -28,6 +28,7 @@
           <div class="stage-name-row"><span id="stageLabel">たまご</span></div>
 
           <div class="birthday-toast hidden" id="birthdayToast"></div>
+          <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
 
           <div class="sub-status-row hidden" id="subStatusRow">
             <div class="world-status" id="worldStatus">
@@ -163,11 +164,16 @@
 
         <div class="dex-overlay hidden" id="achOverlay">
           <div class="dex-header">
-            <span class="dex-title">じっせき</span>
+            <span class="dex-title" id="achTitle">じっせき</span>
             <span class="dex-progress" id="achProgress">0 / —</span>
             <button class="dex-close-btn" id="achCloseBtn">✕</button>
           </div>
+          <div class="ach-tabs" id="achTabs">
+            <button type="button" class="ach-tab active" data-tab="ach">🏅 じっせき</button>
+            <button type="button" class="ach-tab" data-tab="games">🎮 ゲームきろく</button>
+          </div>
           <div class="ach-grid" id="achGrid"></div>
+          <div class="ach-grid game-list hidden" id="gameListGrid"></div>
         </div>
 
         <div class="dex-overlay hidden" id="themeOverlay">
@@ -571,6 +577,16 @@
       </div>
     </div>
 
+    <div class="mg-quit hidden" id="mgQuit">
+      <div class="mg-quit-inner">
+        <button type="button" class="mg-quit-btn" id="mgQuitBtn">✕ ゲームを やめる</button>
+        <div class="mg-quit-confirm hidden" id="mgQuitConfirm">
+          <span class="mg-quit-ask">とちゅうで やめる?</span>
+          <button type="button" class="mg-quit-yes" id="mgQuitYesBtn">やめる</button>
+          <button type="button" class="mg-quit-no" id="mgQuitNoBtn">つづける</button>
+        </div>
+      </div>
+    </div>
     <div class="buttons">
       <button id="feedBtn" title="ごはん">🍚<br><span>ごはん</span></button>
       <button id="playBtn" title="あそぶ">🎮<br><span>あそぶ</span></button>
@@ -592,6 +608,6 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
   <script src="character-world-master.v1.js?v=20260909-cast-snail-ba-1"></script>
-  <script src="script.js?v=20260909-cast-dragon-phoenix-bb-1"></script>
+  <script src="script.js?v=20260909-cast-final-player-bc-1"></script>
 </body>
 </html>

@@ -1379,3 +1379,25 @@ Runtime smoke test SUCCESS確認済み。
 - 検証はRuntimeハーネス・HTML/CSS参照・PNG実復号。実ブラウザー本体が利用できないため、このバッチのブラウザー画面撮影テストは未実施。上流記録にあるPlaywright結果と、このバッチ自身の実施結果を混同しない。
 - 128px対応はプレイヤー31種248枚中28種224枚、専用キャスト45素材中カタツムリ1枚。残りは god / star / unknown の24枚と専用キャスト44枚。全キャラ完成とは扱わない。
 - 到達可能なbranchコミットとして反映後、GitHubから再取得した実ファイルのPNG・ハッシュ・Renderer・Runtimeと、当該HEADのActions SUCCESSを検証記録に残す。PR #183はopen / Draftを保持し、マージしない。
+
+## チェックポイント AX — じこベスト/ランク、ゲームきろく(えらんで あそぶ)、とちゅうで やめる(2026-09-09)
+- じこベスト: `state.lifetime.minigameRecords[id] = { best, last }`(アイテムボーナス前の 0〜100 点)。`MINIGAME_RANKS`(S90/A75/B55/C35/D)、`recordMinigameResult()` が finishMinigame の先頭で記録し、`showMinigameResultToast()`(`#mgResultToast`、3.6秒)でランク・点数・「じこベスト こうしん! 62 → 93」を表示。
+- ゲームきろく: `#achOverlay` に `.ach-tabs`(じっせき/ゲームきろく)と `#gameListGrid` を追加。`MINIGAME_INFO`(id→name/emoji/desc、89本)、`MINIGAME_GENRES`/`MINIGAME_GENRE_OF_CATEGORY`(category→6ジャンル)、`minigameHomeOf`(地域/季節タグ、滞在中は「2ばい」)。`renderGameList()`、セルのタップ→`tryStartPlay(game)`(「あそぶ」と共通の入口。選んだ場合もプレイ回数/直前ゲーム/ジャンル履歴を更新)。
+- 地域/季節の自動 id(`region:city:road:0` 等)を固定 id(road-city/stack-harvest/stack-acorn/road-jungle/road-desert/stack-sakura/stack-leaves)に変更し、`loadState()` で旧 id のプレイ回数を引き継ぎ。smoke-test に「全ゲームが固定 id を持ち、重複なし、MINIGAME_INFO/ジャンル表に載っている」検査を追加。
+- とちゅうで やめる: `#mgQuit`(`.buttons` の直前、height:0 の絶対配置レイヤーで canvas の位置を動かさない)。ボタン→確認(4秒で自動キャンセル)→`retireMinigame()`(点数/ごほうび/ばつ なし、げんき -6、じこベスト更新なし、なかまイベント中は不成立扱い)。Esc キーでも確認を開閉。
+- ゲームの後始末(セッション方式): `mgSession`(生きているゲームの番号)と `mgCodeDepth/mgCodeSession`(「ゲームのコードの中か」)。`window.requestAnimationFrame`/`window.setTimeout` をラップし、ゲームのコード(start() の中、そこから予約されたコールバック、overlay 内 DOM イベントのハンドラ)から予約されたものに セッション番号を付け、セッション終了後は実行せずに捨てる。ふつうの画面のコードが予約したものには印が付かないので従来どおり。`finishMinigame`/`retireMinigame` は本体を `mgCodeDepth=0` で実行し、えもーと/ふきだし等のタイマーが巻き込まれないようにする。onComplete は `session !== mgSession` なら無視(遅延/二重呼び出し対策)。
+- 検証: smoke-test OK(89ゲーム、id/info 検査込み)。Playwright: やめる UI の表示/確認/キャンセル/実行、9ゲームを途中終了して 500ms 後の rAF 実行 0(孤立ループなし)、記録トースト(初回/更新/据え置き)、ゲームきろく 89セル・横はみ出しなし・タップ起動・げんき不足時のブロック、旧 id 移行。全89ゲーム スイープ ページエラー0。キャッシュ `script.js?v=20260909-8`、`style.css?v=20260909-2`。
+
+## チェックポイント BC — かみさま・ほし・？？？24段階の128px実装（2026-09-09）
+- 再開時は過去の完了メッセージで判断せず、PR #183・live branch/main・直近コミット・recursive tree・当該HEADのActionsを実取得。最後の成功HEADは `d27efc768e5ff265eff21cf49e3a00e7a4653f52`、tree `a1f2143d10677c9afc95a5fff27b1d0466d606f2`、Runtime #219（run `34314082348`）SUCCESS。カタツムリ＋セミ・ヤドカリの `d128ada53c5c96049fcac352114f9af61daf4301` は到達可能な親であり、再投入しない。先行プレイヤー224枚＋カタツムリ1枚を再検証した。
+- main `044780ddebdcb75ebb9e13ea26043b5230e003c7`（PR #201）のゲーム記録・ランク・選択プレイ・途中終了を監査して統合。開発記録は双方の全文を保持し、indexは新しいmainのDOMを保持してscript/styleの読込版だけ今回用に更新。script.js / README.md / style.css のmainとの差分が、従来からのブランチ差分と一致することを検証。smoke-testはmainと同一、WORLD_MASTER・会話テスト・Character Renderer本体は前回HEADと同一。
+- 対象は `assets/characters/god/01.png`〜`08.png`、`assets/characters/star/01.png`〜`08.png`、`assets/characters/unknown/01.png`〜`08.png`。保存済み一覧の種族意匠と現行WORLD_MASTERの8段階を照合し、承認済みの128px統一・全段階に顔・表情変化に沿って24枚を個別制作。旧原画の段階名で現行設定を上書きせず、最初の確定7種と先行素材を再制作しない。
+- かみさま: 光の粒→光の子→精霊→小神→神→大神→神格→光そのもの。①は丸い光の粒へ個別修正。幼い光から翼・衣・杖を持つ神へ育ち、⑦は顔と上体から光のリボンへ移り、⑧は人の身体を持たない顔付きの光へ変わる。古い一覧の老人像を最終段階へ戻さない。⑤の白髪・⑥の白い羽は背景処理で欠けたため元画像の背景だけを個別修正して再検査した。
+- ほし: 星間雲→凝縮雲→原始星→若い恒星→恒星→巨星→超新星→星の残骸。青紫の雲、暖色の核と円盤、黄色い恒星、赤い巨星、爆発、白青の小さな核と星雲を区別。全段階に目・口・表情差を残し、⑧を顔のない黒穴に固定しない。光線・コロナ・星雲の先端を含めて配置した。
+- ？？？: 点→ぷる→足？→目？→羽？→巨大化→極小化→点……？。青紫の体と明るい顔を保ち、脚・頭上の目らしい突起・翼・巨大化・極小化を順に区別。④の二つの目らしい突起は確定原画の特徴として保持し、本体の通常の目と口も残す。⑤以降に不要な突起を持ち越さず、⑦⑧は意図した小さな縮尺と表情を保持。文字の疑問符は描き込まない。
+- 個別原画と全24枚の128px実寸・白背景・濃色背景を目視確認。顔・身体・翼・杖・光輪・突起の欠け、背景/文字の混入なし。緑の作業背景はキャラに使わないキー色として内側の隙間も透過し、灰色背景の閉じた光輪だけは個別指定で除去。白髪・羽と光の粒を一律に除去しない。均等セル分割・GrabCutは不使用。
+- 新24枚はPNG / 128×128 / 8-bit RGBA / alpha 0・255 / 最大63不透明色 / 全方向8px以上の透明余白。計249枚の全chunk CRC・実復号・寸法・透過・SHA-256を検証。先行225枚はバイナリ不変で保持し、今回以外のキャラ画像もすべて不変。既存アリジゴクの色数を今回の上限に合わせて再減色していない。
+- 統合後のローカルRuntime smoke test SUCCESS（DOM 286 / ミニゲーム89 / variant collections 80）。プレイヤー31種248枚×4表示サイズのRenderer参照992ケースSUCCESS。DIALOGUE / WHOLE-TEXT / CASTテストが通過し、カタツムリの遭遇・会話と旧コアラの読込・同行・図鑑・なかよし度・獲得済み実績を保持。
+- 今回はブラウザー接続はできたが、作業中のゲームへのアクセスが環境側で拒否された（ERR_BLOCKED_BY_CLIENT）。実画面の撮影テストは未実施であり、上記はPNG実復号・Runtimeハーネス・HTML/CSS参照の検証。上流のPlaywright記録と混同しない。
+- プレイヤー31種248段階の128px対応はこの24枚で揃う。専用キャスト45素材はカタツムリ1枚のみ対応済みで、作者1・通常仲間17・レア仲間8・恋人18の計44枚が残る。全キャスト完成・PR完了とは扱わない。
+- branchから到達可能なコミットとして反映後、GitHubから取り直した実ファイルをPNG・ハッシュ・Renderer・Runtimeで検証し、当該HEADのActions SUCCESSとPR状態を成果物に記録する。PR #183はopen / Draft・未マージを保持する。
