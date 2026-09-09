@@ -51,6 +51,12 @@ function createFixtures() {
       for (const candidate of api.ALL_PARTNER_CANDIDATES) {
         make('partner_' + candidate.id,26,{partner:partner(candidate.id,{married:true})});
       }
+      for (const regionId of new Set(master.partners.map(p=>p.firstRegion))) {
+        const first = make('first_' + regionId,26,{partner:null,regionId});
+        first.lifetime.partnersRecorded = [];
+        first.lifetime.partnersMarried = [];
+        first.lifetime.partnerEncounters = [];
+      }
       return fixtures;
     })()
   `, { require, console:{log() {}} });
@@ -76,6 +82,7 @@ function visualQaPlugin() {
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
           <button id="load">Load scene</button> <button id="measure">Measure layout</button>
           <button id="observe">Observe motion (4s)</button>
+          <button id="observeStory">Observe story (9s)</button>
           <output id="result"></output><div id="mount"></div>
           <script>
           const fixtures=${JSON.stringify(fixtures).replace(/</g,'\\u003c')};
@@ -105,6 +112,9 @@ function visualQaPlugin() {
             const actors=[...chips.map(e=>e.getBoundingClientRect()),hero,...attachments];
             const speech=doc.getElementById('speechBubble').getBoundingClientRect();
             const story=doc.getElementById('storyFlash').getBoundingClientRect();
+            const storyText=doc.getElementById('storyFlashText');
+            const storyTextOverflow=story.width>0&&storyText.scrollWidth>storyText.clientWidth;
+            const profile=doc.getElementById('profilePartnerCard');
             const storyOutsideViewport=story.width>0&&(story.top<0||story.bottom>doc.documentElement.clientHeight);
             const speechOverlap=actors.some(r=>intersects(r,speech));
             const actorOverlap=actors.some((r,i)=>actors.slice(i+1).some(other=>intersects(r,other)));
@@ -117,11 +127,17 @@ function visualQaPlugin() {
             const movieOverflow=movieBounds.width>0&&movieActorRow.scrollWidth>movieActorRow.clientWidth;
             const movieClipped=movieActors.some(r=>r.left<movieBounds.left||r.right>movieBounds.right||r.top<movieBounds.top||r.bottom>movieBounds.bottom);
             const movieCaptionOverlap=movieActors.some(r=>intersects(r,movieCaption));
-            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
+            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
             const result={scene:document.getElementById('scene').value,width:doc.documentElement.clientWidth,
               height:doc.documentElement.clientHeight,pageHeight:doc.documentElement.scrollHeight,
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
+              storyVisible:story.width>0,storyText:story.width>0?storyText.textContent:null,storyTextOverflow,
+              storyAsset:story.width>0?doc.querySelector('#storyFlashEmoji img')?.getAttribute('src')||null:null,
+              profileVisible:profile.getBoundingClientRect().width>0,
+              profilePartnerAsset:doc.querySelector('#profilePartnerCard img')?.getAttribute('src')||null,
+              profilePartnerText:profile.getBoundingClientRect().width>0?profile.textContent.trim():null,
+              partnerAsset:doc.querySelector('#partnerCompanion img')?.getAttribute('src')||null,
               moviePetAsset:doc.querySelector('#dateMoviePet img')?.getAttribute('src')||null,
               moviePartnerAsset:doc.querySelector('#dateMoviePartner img')?.getAttribute('src')||null,
               movieVisible:movieBounds.width>0,movieOverflow,movieClipped,movieCaptionOverlap,
@@ -139,12 +155,12 @@ function visualQaPlugin() {
             return result;
           }
           document.getElementById('measure').onclick=()=>document.getElementById('result').textContent=JSON.stringify(measure(),null,2);
-          document.getElementById('observe').onclick=()=>{
+          function observe(duration){
             const samples=[];const start=performance.now();
             document.getElementById('result').textContent='Observing';
             function sample(){
               samples.push(measure());
-              if(performance.now()-start<4000){requestAnimationFrame(sample);return;}
+              if(performance.now()-start<duration){requestAnimationFrame(sample);return;}
               const failed=samples.filter(s=>!s.checksPass);
               document.getElementById('result').textContent=JSON.stringify({scene:samples[0].scene,width:samples[0].width,height:samples[0].height,
                 samples:samples.length,failedFrames:failed.length,firstFailure:failed[0],
@@ -152,11 +168,16 @@ function visualQaPlugin() {
                 pendingImageFrames:samples.filter(s=>s.pendingImages>0).length,
                 brokenImageFrames:samples.filter(s=>s.brokenImages>0).length,
                 movieVisibleFrames:samples.filter(s=>s.movieVisible).length,
+                storyBeats:[...new Set(samples.filter(s=>s.storyVisible).map(s=>s.storyText))],
+                storyAssets:[...new Set(samples.filter(s=>s.storyVisible).map(s=>s.storyAsset))],
+                storyVisibleFrames:samples.filter(s=>s.storyVisible).length,
                 movieAnimations:[...new Set(samples.map(s=>s.movieAnimation))],
                 animations:[...new Set(samples.flatMap(s=>s.animations))],checksPass:!failed.length},null,2);
             }
             requestAnimationFrame(sample);
-          };
+          }
+          document.getElementById('observe').onclick=()=>observe(4000);
+          document.getElementById('observeStory').onclick=()=>observe(9000);
           </script></html>`);
       });
     },

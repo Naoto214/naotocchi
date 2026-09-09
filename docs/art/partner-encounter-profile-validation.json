@@ -1,0 +1,1779 @@
+{
+  "checkpoint": "BN",
+  "date": "2026-09-09",
+  "baseline": "088e62fa27e4a8c631ab3f9bc271092e0c052101",
+  "baselineTree": "29bbaa30b822a5342f0f231393c27a6bcb078233",
+  "baselineWorkflow": {
+    "number": 235,
+    "runId": 34352048465,
+    "conclusion": "success"
+  },
+  "mainAtResume": "da5c631a911504e78c8b88fae373f30b85f26b31",
+  "preview": {
+    "method": "Supported Sites development preview through Cloud Browser",
+    "url": "http://terminal.local:4173/__qa",
+    "requestedViewport": [
+      320,
+      640
+    ],
+    "clientViewport": [
+      305,
+      640
+    ],
+    "productionFilesUnchangedFromBaseline": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "character-world-master.v1.js"
+    ],
+    "gameRandomOrTimeOverrides": false
+  },
+  "sourceSha256": {
+    "index.html": "e29197177f9264a544fa685e389ed71958b67b3e92ec0cd3029fb8606e4f53d4",
+    "style.css": "b63dd8da56299de9b65da7a175fb59a2842e733b415a28d5f7a3db29379bcaf1",
+    "script.js": "c5c2064c1b72c1927fc4dc3b19d68fef9433ce3fff40eb6d8da7c4ce7b2b70cd",
+    "character-world-master.v1.js": "4547553d6cbb41436a75a90aaa23c0296c08f9fe7b1bf5a26b308eb5cf061c53",
+    "tests/visual-qa.cjs": "7b7a69d8ae1fdae8324067af5a941c92988418f4cb3950ce305e9968b6494f8e",
+    "vite.config.mjs": "569f37fc65bb6f07e5663b4589f72078b99a4cef897a688051d1582a70c8d8a9",
+    "package.json": "cb17ff76a41eb1f88dbc4768f04e36acae732c3b5cd092b155bb72bd70af24b1",
+    "package-lock.json": "f30bcda1b184e7a874fd73cd1a2091289a974fee6ee69bf271bbd918c24c9c39"
+  },
+  "assets": {
+    "unchangedFromBaseline": true,
+    "comparedFiles": 301,
+    "pngCount": 294,
+    "goalJpegCount": 7,
+    "sha256Manifest": "docs/art/cast-movie-validation.json",
+    "sha256ManifestHash": "7d0851ef370c1b2f0aa500c15d165638d91f79922095520a87671eef450ef7b4"
+  },
+  "staticMeasurements": {
+    "count": 65,
+    "checksPass": 65,
+    "uniqueVisibleProfiles": 18
+  },
+  "storyObservations": {
+    "countIncludingExploratoryRepeats": 20,
+    "uniquePartners": 18,
+    "expectedBeatsMatchedPerPartner": 2,
+    "allObservations": {
+      "samples": 10574,
+      "failedFrames": 68,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 68,
+      "brokenImageFrames": 0,
+      "storyVisibleFrames": 9185
+    },
+    "latestObservationPerPartner": {
+      "samples": 9506,
+      "failedFrames": 68,
+      "layoutFailedFrames": 0,
+      "pendingImageFrames": 68,
+      "brokenImageFrames": 0,
+      "storyVisibleFrames": 8256
+    },
+    "overallAllFramesPass": false,
+    "note": "failedFrames are pending-image frames across all measurable game images; no layout or broken-image failure. This does not establish flicker-free playback."
+  },
+  "partners": [
+    {
+      "id": "cat_ceo",
+      "label": "ビルの ねこ社長",
+      "firstRegion": "city",
+      "asset": "assets/characters/partners/cat_ceo.png",
+      "expectedStoryBeats": [
+        "🏙️ ビルの まえで、ねこが でんわを しながら いそいでいる。",
+        "🐈‍⬛「……5ふんだけなら あいてる」"
+      ],
+      "latestObservation": {
+        "scene": "first_city",
+        "width": 305,
+        "height": 640,
+        "samples": 530,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_city",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🏙️ ビルの まえで、ねこが でんわを しながら いそいでいる。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/cat_ceo.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🏙️ ビルの まえで、ねこが でんわを しながら いそいでいる。",
+          "🐈‍⬛「……5ふんだけなら あいてる」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/cat_ceo.png"
+        ],
+        "storyVisibleFrames": 463,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "cat_ceo"
+      },
+      "profileMeasurementLabel": "profile-cat_ceo-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-cat_ceo.jpg",
+        "profile": "qa-bn/profile-cat_ceo.jpg"
+      }
+    },
+    {
+      "id": "robot_neighbor",
+      "label": "となりまちの ロボット",
+      "firstRegion": "city",
+      "asset": "assets/characters/partners/robot_neighbor.png",
+      "expectedStoryBeats": [
+        "🤖 ロボットが こちらを じっと みている。",
+        "🤖「コレハ……キョウミ、デスカ？」"
+      ],
+      "latestObservation": {
+        "scene": "first_city",
+        "width": 305,
+        "height": 640,
+        "samples": 536,
+        "failedFrames": 6,
+        "firstFailure": {
+          "scene": "first_city",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🤖 ロボットが こちらを じっと みている。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/robot_neighbor.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 6,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🤖 ロボットが こちらを じっと みている。",
+          "🤖「コレハ……キョウミ、デスカ？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/robot_neighbor.png"
+        ],
+        "storyVisibleFrames": 465,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "robot_neighbor",
+        "note": "Observation completed; browser wait call timed out."
+      },
+      "profileMeasurementLabel": "profile-robot_neighbor-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-robot_neighbor.jpg",
+        "profile": "qa-bn/profile-robot_neighbor.jpg"
+      }
+    },
+    {
+      "id": "field_cow",
+      "label": "のはらの うしさん",
+      "firstRegion": "countryside",
+      "asset": "assets/characters/partners/field_cow.png",
+      "expectedStoryBeats": [
+        "🐄 のはらで うしが 草を いっぽん さしだしてきた。",
+        "🐄「たべる？」"
+      ],
+      "latestObservation": {
+        "scene": "first_countryside",
+        "width": 305,
+        "height": 640,
+        "samples": 531,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_countryside",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐄 のはらで うしが 草を いっぽん さしだしてきた。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/field_cow.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐄 のはらで うしが 草を いっぽん さしだしてきた。",
+          "🐄「たべる？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/field_cow.png"
+        ],
+        "storyVisibleFrames": 464,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "field_cow"
+      },
+      "profileMeasurementLabel": "profile-field_cow-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-field_cow.jpg",
+        "profile": "qa-bn/profile-field_cow.jpg"
+      }
+    },
+    {
+      "id": "sunflower_partner",
+      "label": "はたけの ひまわりさん",
+      "firstRegion": "countryside",
+      "asset": "assets/characters/partners/sunflower_partner.png",
+      "expectedStoryBeats": [
+        "🌻 ひまわりが こちらを むいた。たいようは べつの方向だ。",
+        "🌻「……。」"
+      ],
+      "latestObservation": {
+        "scene": "first_countryside",
+        "width": 305,
+        "height": 640,
+        "samples": 525,
+        "failedFrames": 12,
+        "firstFailure": {
+          "scene": "first_countryside",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🌻 ひまわりが こちらを むいた。たいようは べつの方向だ。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/sunflower_partner.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 12,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🌻 ひまわりが こちらを むいた。たいようは べつの方向だ。",
+          "🌻「……。」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/sunflower_partner.png"
+        ],
+        "storyVisibleFrames": 454,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "sunflower_partner"
+      },
+      "profileMeasurementLabel": "profile-sunflower_partner-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-sunflower_partner.jpg",
+        "profile": "qa-bn/profile-sunflower_partner.jpg"
+      }
+    },
+    {
+      "id": "forest_bear",
+      "label": "もりの クマさん",
+      "firstRegion": "forest",
+      "asset": "assets/characters/partners/forest_bear.png",
+      "expectedStoryBeats": [
+        "🐻 木の うしろから 大きな クマが こちらを 見ている。",
+        "🐻「通る? ちょっと よけるね」"
+      ],
+      "latestObservation": {
+        "scene": "first_forest",
+        "width": 305,
+        "height": 640,
+        "samples": 532,
+        "failedFrames": 2,
+        "firstFailure": {
+          "scene": "first_forest",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐻 木の うしろから 大きな クマが こちらを 見ている。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/forest_bear.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 2,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐻 木の うしろから 大きな クマが こちらを 見ている。",
+          "🐻「通る? ちょっと よけるね」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/forest_bear.png"
+        ],
+        "storyVisibleFrames": 463,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "forest_bear"
+      },
+      "profileMeasurementLabel": "profile-forest_bear-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-forest_bear.jpg",
+        "profile": "qa-bn/profile-forest_bear.jpg"
+      }
+    },
+    {
+      "id": "grove_deer",
+      "label": "こだちの シカ",
+      "firstRegion": "forest",
+      "asset": "assets/characters/partners/grove_deer.png",
+      "expectedStoryBeats": [
+        "🦌 シカと 目があった。すぐ にげた。",
+        "🦌 でも 少し先で また こっちを 見ている。"
+      ],
+      "latestObservation": {
+        "scene": "first_forest",
+        "width": 305,
+        "height": 640,
+        "samples": 515,
+        "failedFrames": 2,
+        "firstFailure": {
+          "scene": "first_forest",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🦌 シカと 目があった。すぐ にげた。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/grove_deer.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-perk"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 2,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🦌 シカと 目があった。すぐ にげた。",
+          "🦌 でも 少し先で また こっちを 見ている。"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/grove_deer.png"
+        ],
+        "storyVisibleFrames": 450,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "grove_deer"
+      },
+      "profileMeasurementLabel": "profile-grove_deer-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-grove_deer.jpg",
+        "profile": "qa-bn/profile-grove_deer.jpg"
+      }
+    },
+    {
+      "id": "cliff_goat",
+      "label": "がけの ヤギさん",
+      "firstRegion": "mountain",
+      "asset": "assets/characters/partners/cliff_goat.png",
+      "expectedStoryBeats": [
+        "🐐 どうやって のぼったのか わからない崖に ヤギがいる。",
+        "🐐「こっち くる？」"
+      ],
+      "latestObservation": {
+        "scene": "first_mountain",
+        "width": 305,
+        "height": 640,
+        "samples": 524,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_mountain",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐐 どうやって のぼったのか わからない崖に ヤギがいる。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/cliff_goat.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐐 どうやって のぼったのか わからない崖に ヤギがいる。",
+          "🐐「こっち くる？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/cliff_goat.png"
+        ],
+        "storyVisibleFrames": 454,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "cliff_goat"
+      },
+      "profileMeasurementLabel": "profile-cliff_goat-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-cliff_goat.jpg",
+        "profile": "qa-bn/profile-cliff_goat.jpg"
+      }
+    },
+    {
+      "id": "high_eagle",
+      "label": "たかねの ワシ",
+      "firstRegion": "mountain",
+      "asset": "assets/characters/partners/high_eagle.png",
+      "expectedStoryBeats": [
+        "🦅 頭のうえを 大きな影が とおった。",
+        "🦅 ワシが 少しだけ こちらを 見た。"
+      ],
+      "latestObservation": {
+        "scene": "first_mountain",
+        "width": 305,
+        "height": 640,
+        "samples": 531,
+        "failedFrames": 2,
+        "firstFailure": {
+          "scene": "first_mountain",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🦅 頭のうえを 大きな影が とおった。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/high_eagle.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 2,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🦅 頭のうえを 大きな影が とおった。",
+          "🦅 ワシが 少しだけ こちらを 見た。"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/high_eagle.png"
+        ],
+        "storyVisibleFrames": 460,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "high_eagle"
+      },
+      "profileMeasurementLabel": "profile-high_eagle-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-high_eagle.jpg",
+        "profile": "qa-bn/profile-high_eagle.jpg"
+      }
+    },
+    {
+      "id": "snow_spirit",
+      "label": "ゆきの せいれい",
+      "firstRegion": "snow",
+      "asset": "assets/characters/partners/snow_spirit.png",
+      "expectedStoryBeats": [
+        "❄️ 雪のなかに ひとつだけ とけない光がある。",
+        "❄️「さむくない？」"
+      ],
+      "latestObservation": {
+        "scene": "first_snow",
+        "width": 305,
+        "height": 640,
+        "samples": 534,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_snow",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "❄️ 雪のなかに ひとつだけ とけない光がある。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/snow_spirit.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "❄️ 雪のなかに ひとつだけ とけない光がある。",
+          "❄️「さむくない？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/snow_spirit.png"
+        ],
+        "storyVisibleFrames": 463,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "snow_spirit"
+      },
+      "profileMeasurementLabel": "profile-snow_spirit-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-snow_spirit.jpg",
+        "profile": "qa-bn/profile-snow_spirit.jpg"
+      }
+    },
+    {
+      "id": "snowman",
+      "label": "とけない ゆきだるま",
+      "firstRegion": "snow",
+      "asset": "assets/characters/partners/snowman.png",
+      "expectedStoryBeats": [
+        "☃️ さっきまで なかった 雪だるまが ある。",
+        "☃️「……いま 気づいた?」"
+      ],
+      "latestObservation": {
+        "scene": "first_snow",
+        "width": 305,
+        "height": 640,
+        "samples": 509,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_snow",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "☃️ さっきまで なかった 雪だるまが ある。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/snowman.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "☃️ さっきまで なかった 雪だるまが ある。",
+          "☃️「……いま 気づいた?」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/snowman.png"
+        ],
+        "storyVisibleFrames": 440,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "snowman"
+      },
+      "profileMeasurementLabel": "profile-snowman-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-snowman.jpg",
+        "profile": "qa-bn/profile-snowman.jpg"
+      }
+    },
+    {
+      "id": "rock_octopus",
+      "label": "いわばの タコさん",
+      "firstRegion": "sea",
+      "asset": "assets/characters/partners/rock_octopus.png",
+      "expectedStoryBeats": [
+        "🐙 岩場から 8本の手が いっせいに 手をふった。",
+        "🐙「どれで あいさつする？」"
+      ],
+      "latestObservation": {
+        "scene": "first_sea",
+        "width": 305,
+        "height": 640,
+        "samples": 526,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_sea",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐙 岩場から 8本の手が いっせいに 手をふった。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/rock_octopus.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐙 岩場から 8本の手が いっせいに 手をふった。",
+          "🐙「どれで あいさつする？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/rock_octopus.png"
+        ],
+        "storyVisibleFrames": 454,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "rock_octopus"
+      },
+      "profileMeasurementLabel": "profile-rock_octopus-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-rock_octopus.jpg",
+        "profile": "qa-bn/profile-rock_octopus.jpg"
+      }
+    },
+    {
+      "id": "sea_mermaid",
+      "label": "うみの にんぎょ",
+      "firstRegion": "sea",
+      "asset": "assets/characters/partners/sea_mermaid.png",
+      "expectedStoryBeats": [
+        "🧜 波のむこうから だれかが 陸を じっと見ている。",
+        "🧜「そこ、どんな ところ？」"
+      ],
+      "latestObservation": {
+        "scene": "first_sea",
+        "width": 305,
+        "height": 640,
+        "samples": 529,
+        "failedFrames": 2,
+        "firstFailure": {
+          "scene": "first_sea",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🧜 波のむこうから だれかが 陸を じっと見ている。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/sea_mermaid.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 25,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 2,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🧜 波のむこうから だれかが 陸を じっと見ている。",
+          "🧜「そこ、どんな ところ？」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/sea_mermaid.png"
+        ],
+        "storyVisibleFrames": 460,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "sea_mermaid"
+      },
+      "profileMeasurementLabel": "profile-sea_mermaid-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-sea_mermaid.jpg",
+        "profile": "qa-bn/profile-sea_mermaid.jpg"
+      }
+    },
+    {
+      "id": "anglerfish",
+      "label": "ひかる チョウチンアンコウ",
+      "firstRegion": "deepsea",
+      "asset": "assets/characters/partners/anglerfish.png",
+      "expectedStoryBeats": [
+        "🐟 まっくらな海で 小さな光だけが 近づいてくる。",
+        "🐟「まぶしくない ここ、すき」"
+      ],
+      "latestObservation": {
+        "scene": "first_deepsea",
+        "width": 305,
+        "height": 640,
+        "samples": 539,
+        "failedFrames": 6,
+        "firstFailure": {
+          "scene": "first_deepsea",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐟 まっくらな海で 小さな光だけが 近づいてくる。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/anglerfish.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 6,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐟 まっくらな海で 小さな光だけが 近づいてくる。",
+          "🐟「まぶしくない ここ、すき」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/anglerfish.png"
+        ],
+        "storyVisibleFrames": 468,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "anglerfish"
+      },
+      "profileMeasurementLabel": "profile-anglerfish-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-anglerfish.jpg",
+        "profile": "qa-bn/profile-anglerfish.jpg"
+      }
+    },
+    {
+      "id": "swamp_croc",
+      "label": "ぬまの ワニさん",
+      "firstRegion": "river_lake",
+      "asset": "assets/characters/partners/swamp_croc.png",
+      "expectedStoryBeats": [
+        "🐊 水面に 目だけが ふたつ。",
+        "🐊「……べつに まってない」"
+      ],
+      "latestObservation": {
+        "scene": "first_river_lake",
+        "width": 305,
+        "height": 640,
+        "samples": 528,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_river_lake",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🐊 水面に 目だけが ふたつ。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/swamp_croc.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🐊 水面に 目だけが ふたつ。",
+          "🐊「……べつに まってない」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/swamp_croc.png"
+        ],
+        "storyVisibleFrames": 459,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "swamp_croc"
+      },
+      "profileMeasurementLabel": "profile-swamp_croc-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-swamp_croc.jpg",
+        "profile": "qa-bn/profile-swamp_croc.jpg"
+      }
+    },
+    {
+      "id": "gentle_gorilla",
+      "label": "やさしい ゴリラ",
+      "firstRegion": "jungle",
+      "asset": "assets/characters/partners/gentle_gorilla.png",
+      "expectedStoryBeats": [
+        "🦍 大きなゴリラが 道をふさいでいる。",
+        "🦍 そっと 花を どけて 道をあけてくれた。"
+      ],
+      "latestObservation": {
+        "scene": "first_jungle",
+        "width": 305,
+        "height": 640,
+        "samples": 525,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_jungle",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🦍 大きなゴリラが 道をふさいでいる。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/gentle_gorilla.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🦍 大きなゴリラが 道をふさいでいる。",
+          "🦍 そっと 花を どけて 道をあけてくれた。"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/gentle_gorilla.png"
+        ],
+        "storyVisibleFrames": 458,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk",
+          "emote-happy"
+        ],
+        "checksPass": false,
+        "id": "gentle_gorilla"
+      },
+      "profileMeasurementLabel": "profile-gentle_gorilla-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-gentle_gorilla.jpg",
+        "profile": "qa-bn/profile-gentle_gorilla.jpg"
+      }
+    },
+    {
+      "id": "knitting_spider",
+      "label": "あみものが すきな クモさん",
+      "firstRegion": "jungle",
+      "asset": "assets/characters/partners/knitting_spider.png",
+      "expectedStoryBeats": [
+        "🕷️ 木のあいだに きれいな糸の模様がある。",
+        "🕷️「ほどかないでね。まだ とちゅう」"
+      ],
+      "latestObservation": {
+        "scene": "first_jungle",
+        "width": 305,
+        "height": 640,
+        "samples": 536,
+        "failedFrames": 4,
+        "firstFailure": {
+          "scene": "first_jungle",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🕷️ 木のあいだに きれいな糸の模様がある。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/knitting_spider.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 4,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🕷️ 木のあいだに きれいな糸の模様がある。",
+          "🕷️「ほどかないでね。まだ とちゅう」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/knitting_spider.png"
+        ],
+        "storyVisibleFrames": 467,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "knitting_spider"
+      },
+      "profileMeasurementLabel": "profile-knitting_spider-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-knitting_spider.jpg",
+        "profile": "qa-bn/profile-knitting_spider.jpg"
+      }
+    },
+    {
+      "id": "desert_scorpion",
+      "label": "さばくの サソリさん",
+      "firstRegion": "desert",
+      "asset": "assets/characters/partners/desert_scorpion.png",
+      "expectedStoryBeats": [
+        "🦂 日かげが ひとつしかない。サソリが 少し よけた。",
+        "🦂「……ここ、あいてる」"
+      ],
+      "latestObservation": {
+        "scene": "first_desert",
+        "width": 305,
+        "height": 640,
+        "samples": 521,
+        "failedFrames": 3,
+        "firstFailure": {
+          "scene": "first_desert",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🦂 日かげが ひとつしかない。サソリが 少し よけた。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/desert_scorpion.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-float"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 3,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🦂 日かげが ひとつしかない。サソリが 少し よけた。",
+          "🦂「……ここ、あいてる」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/desert_scorpion.png"
+        ],
+        "storyVisibleFrames": 451,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "desert_scorpion"
+      },
+      "profileMeasurementLabel": "profile-desert_scorpion-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-desert_scorpion.jpg",
+        "profile": "qa-bn/profile-desert_scorpion.jpg"
+      }
+    },
+    {
+      "id": "oasis_cactus",
+      "label": "オアシスの サボテンさん",
+      "firstRegion": "desert",
+      "asset": "assets/characters/partners/oasis_cactus.png",
+      "expectedStoryBeats": [
+        "🌵 オアシスのそばに ひときわ 立派なサボテンがいる。",
+        "🌵「話すなら、このくらいの 距離で」"
+      ],
+      "latestObservation": {
+        "scene": "first_desert",
+        "width": 305,
+        "height": 640,
+        "samples": 535,
+        "failedFrames": 5,
+        "firstFailure": {
+          "scene": "first_desert",
+          "width": 305,
+          "height": 640,
+          "pageHeight": 994,
+          "stylesheet": "style.css?v=20260909-cast-layout-bm-1",
+          "heroAsset": "assets/characters/man/06.png",
+          "storyVisible": true,
+          "storyText": "🌵 オアシスのそばに ひときわ 立派なサボテンがいる。",
+          "storyTextOverflow": false,
+          "storyAsset": "assets/characters/partners/oasis_cactus.png",
+          "profileVisible": false,
+          "profilePartnerAsset": null,
+          "profilePartnerText": null,
+          "partnerAsset": null,
+          "moviePetAsset": null,
+          "moviePartnerAsset": null,
+          "movieVisible": false,
+          "movieOverflow": false,
+          "movieClipped": false,
+          "movieCaptionOverlap": false,
+          "movieRowWidth": 0,
+          "movieRowContentWidth": 0,
+          "moviePetDisplay": "block",
+          "movieAnimation": "date-actor-walk",
+          "petDisplay": "grid",
+          "areaWidth": 201,
+          "speechOverlap": false,
+          "actorOverlap": false,
+          "overlapPairs": [],
+          "detached": 0,
+          "panelOverflow": [],
+          "storyOutsideViewport": false,
+          "animations": [
+            "none",
+            "idle-perk"
+          ],
+          "companions": 26,
+          "outside": 0,
+          "pendingImages": 27,
+          "brokenImages": 0,
+          "horizontalOverflow": false,
+          "layoutChecksPass": true,
+          "checksPass": false
+        },
+        "layoutFailedFrames": 0,
+        "pendingImageFrames": 5,
+        "brokenImageFrames": 0,
+        "movieVisibleFrames": 0,
+        "storyBeats": [
+          "🌵 オアシスのそばに ひときわ 立派なサボテンがいる。",
+          "🌵「話すなら、このくらいの 距離で」"
+        ],
+        "storyAssets": [
+          "assets/characters/partners/oasis_cactus.png"
+        ],
+        "storyVisibleFrames": 463,
+        "movieAnimations": [
+          "date-actor-walk"
+        ],
+        "animations": [
+          "none",
+          "emote-fun",
+          "idle-float",
+          "idle-perk"
+        ],
+        "checksPass": false,
+        "id": "oasis_cactus"
+      },
+      "profileMeasurementLabel": "profile-oasis_cactus-visible",
+      "profileChecksPass": true,
+      "screenshots": {
+        "first": "qa-bn/first-oasis_cactus.jpg",
+        "profile": "qa-bn/profile-oasis_cactus.jpg"
+      }
+    }
+  ],
+  "rawResultsSha256": "a8b70e55aec5c943c84c785407971c1bae324de64440292a3e5197227bbe44e2",
+  "screenshots": {
+    "docs/art/qa-bn/first-cat_ceo.jpg": "c9204355eacdb0514753bdd05fe13acd9bbd103e1479c2ed8689f5926be870bf",
+    "docs/art/qa-bn/profile-cat_ceo.jpg": "e99bef587dc23b3022c52fad85da871101aa9967ee4a40aa99e655e1b5ff817c",
+    "docs/art/qa-bn/first-robot_neighbor.jpg": "28d31bcf94c06b3bdae8d3829e14f7cf321ba0b86366aef251ceb8009c47579b",
+    "docs/art/qa-bn/profile-robot_neighbor.jpg": "e19abd7e1137c12e39f3a4accc8ec8d84639d21beb40248497546164ad46a561",
+    "docs/art/qa-bn/first-field_cow.jpg": "79a7e217ab478bad730658a80ff4c9de81558b390d2fc596b5b47b37bf6f005e",
+    "docs/art/qa-bn/profile-field_cow.jpg": "5827ec00258a9abe0b633993931bad9e01b307022468c2fdbda31b993c4de827",
+    "docs/art/qa-bn/first-sunflower_partner.jpg": "0f8e9ee04e297650b01ecb704857531dc2c2c2fc403433af4d194f126cfc0471",
+    "docs/art/qa-bn/profile-sunflower_partner.jpg": "57cac664871fab0af84e7ab566aa61c6edcebbdda0bbb2f4b9b002c08431cb7c",
+    "docs/art/qa-bn/first-forest_bear.jpg": "0e5390a25e540ab4d2c08b6d98c256211eab1e34e08d75499ddef42cf4f456ef",
+    "docs/art/qa-bn/profile-forest_bear.jpg": "c4acceece5c39bdd4998155034f5d08483b67529afe3e8639887c23ee608a792",
+    "docs/art/qa-bn/first-grove_deer.jpg": "aa9de7426829e838abd317dcfa66d44b52c7f5ddd27be43469503ceedd438bb8",
+    "docs/art/qa-bn/profile-grove_deer.jpg": "91e39ff4999974084f044d0e052eac12329c01c9642cec04b67418a4e2bb4bf7",
+    "docs/art/qa-bn/first-cliff_goat.jpg": "270b66107575f92db1aff032701cf863d4166f976aeb75ab1317654bfb765e5c",
+    "docs/art/qa-bn/profile-cliff_goat.jpg": "bd747b06c1fe6f54eb793e39815f60bed8fbd5fdc8e4f5f4869f065f8d0810aa",
+    "docs/art/qa-bn/first-high_eagle.jpg": "56e9a22f82c89656bb0e683cf2d5b0826167cabc63e2f59d8c41d496b88aae45",
+    "docs/art/qa-bn/profile-high_eagle.jpg": "3d389b77efd0a1f543e61485788ffc6f1e5428aab4278575bbc32b98832da81b",
+    "docs/art/qa-bn/first-snow_spirit.jpg": "6de72a490d0e7b0427d907a67b0a708b47d83326f51d0cc46866943718cbfc9c",
+    "docs/art/qa-bn/profile-snow_spirit.jpg": "39b85c21b36946ba5cd137a916920bd4ec68f625f3afadab69dd0626b59a9de6",
+    "docs/art/qa-bn/first-snowman.jpg": "b78228d99aa51e5a74add93252659cf76f0ccf46e26c1148caf4834f9db03964",
+    "docs/art/qa-bn/profile-snowman.jpg": "07aa2a12643dcaf04f3f554bc481b8449520a4eaca9538baac62b3458d7a8cba",
+    "docs/art/qa-bn/first-rock_octopus.jpg": "757dedb1cd4789bf2e7ff55efacf330b69701902bacd2919eb6821dd8aeb8727",
+    "docs/art/qa-bn/profile-rock_octopus.jpg": "8d0ef30b6baa83db54542221ecfe9d3fb10d23c00c98afbe54d404b5aee6a4fd",
+    "docs/art/qa-bn/first-sea_mermaid.jpg": "beed9f811bd27bbbb3c62bf0dd5e5e4a0539fa50bc8992a8c8b5562032e0f4d8",
+    "docs/art/qa-bn/profile-sea_mermaid.jpg": "75a2770b2cc6ebb2fdcc33e955bb6122967c44e5c0898da35b772b83219a382b",
+    "docs/art/qa-bn/first-anglerfish.jpg": "fc5df00987c0f48ca7a7d1c139eb6949f7128a4f9811d0da0b0719ed3c9cc132",
+    "docs/art/qa-bn/profile-anglerfish.jpg": "6da7fe3ec688d9230888e514ff00f0825c6c2999ba64249a3f92fb6ad9bc3b6f",
+    "docs/art/qa-bn/first-swamp_croc.jpg": "38c70c511154b2e2e5854bcce11c8d9facf0d988b5b9634601ef5e74d414ae6c",
+    "docs/art/qa-bn/profile-swamp_croc.jpg": "59292982dde8708b79d071490ebca5cad100b6c1e718830729a9475f2f640f80",
+    "docs/art/qa-bn/first-gentle_gorilla.jpg": "cb374efa1902240a5445923d5d039cbb04fda7f7b6956c90d19b4886932ee177",
+    "docs/art/qa-bn/profile-gentle_gorilla.jpg": "aa0e9da6edffacaa2a9b69e6ec755762f9911682a4c6ec4e7eef9d86d83e2870",
+    "docs/art/qa-bn/first-knitting_spider.jpg": "da39c2ad0e89350c95ffe93218de4c45f4cba3e4ee1bc1da0ae3a39239935fa7",
+    "docs/art/qa-bn/profile-knitting_spider.jpg": "f4f30141e9e19d5baac9bf2cefe0aaf60b86deb5e97774593906fb09d4c17eef",
+    "docs/art/qa-bn/first-desert_scorpion.jpg": "65bc8afcd1567b18ed7aed6433a5d7de5f116ea97b022445e37c81880bb79742",
+    "docs/art/qa-bn/profile-desert_scorpion.jpg": "becae7d5e06521119265bea1dc82b075307ad7384d7bba056d1c28a90f2a982c",
+    "docs/art/qa-bn/first-oasis_cactus.jpg": "89a66d0e5369824b57d27c080e2c16d302b1b534106c719e5d0e4f001235e015",
+    "docs/art/qa-bn/profile-oasis_cactus.jpg": "41632d10422376666c106c2c66992f21bee186239c85869be2dab02a846f7f5d"
+  },
+  "localVerification": {
+    "npmTest": "PASS: smoke DOM 287 / minigames 100 / variant collections 91; dialogue and all existing cast, author and old PERFECT regressions",
+    "fixtureGeneration": "PASS"
+  },
+  "limitations": [
+    "Physical iPhone/Safari and Android devices not tested",
+    "Individual animation of all 248 player forms not tested",
+    "All date plans and anniversary variants for every partner not completed",
+    "All 100 minigames not manually completed",
+    "Screenshots capture one first-encounter beat per partner; both beat texts and layout were recorded by the 9-second observer",
+    "Profiles use synthetic married saved states to check rendering, not relationship eligibility",
+    "profileVisible means a rendered box, not viewport intersection; visible profile cards were separately scrolled into view and inspected in screenshots",
+    "Browser selector waits for the second beat timed out in exploratory attempts; completed observation summaries were recovered and retained",
+    "Project remains ongoing; PR stays open, Draft and unmerged"
+  ]
+}

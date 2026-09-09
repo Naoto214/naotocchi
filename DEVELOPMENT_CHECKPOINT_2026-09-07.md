@@ -1549,3 +1549,15 @@ Runtime smoke test SUCCESS確認済み。
 - `script.js`・WORLD_MASTER・画像・セーブ処理はBLから不変。PNG294枚＋ゴールJPEG7枚の承認済み画像を保持。`npm test`、fixture生成、diff検査成功。DOM287 / ミニゲーム100 / variant collections91、旧PERFECT・作者④⑤・王冠・自由モード・旧キャストを含む回帰も成功。
 - `docs/art/cast-movie-layout-validation.md`、`cast-movie-browser-results.json`、`cast-movie-validation.json`、`qa-bm/`の22枚へ再現手順・範囲・実測・ハッシュを保存。当該コミットの確定HEAD/tree/ActionsはPR #183本文とChecksに記録する。
 - 18体の各1プラン冒頭の目視を、全ムービーの完走とは扱わない。物理iPhone/Safari・Android、全248形態の動作、全恋人の全プラン/全記念日/全初遭遇、ミニゲーム100本の手動完走は未確認。BLのプロフィール・図鑑・作者演出の実画面結果も保持。全体は継続中で、明示的なマージ依頼までPR #183をDraft・未マージで維持する。
+
+## チェックポイント BN（2026-09-09）：恋人18体の初遭遇2台詞とプロフィールを実画面で確認
+
+- GitHubのPR本文・HEAD・履歴・Actions・main・画像仕様を取得して再開。開始HEADはBM `088e62fa27e4a8c631ab3f9bc271092e0c052101`、tree `29bbaa30b822a5342f0f231393c27a6bcb078233`、Runtime #235（run `34352048465`）SUCCESS。mainは `da5c631a911504e78c8b88fae373f30b85f26b31`（PR #203）。PRはopen / Draft・未マージ、競合なし。
+- 正規のSites開発プレビュー `http://terminal.local:4173/__qa` とCloud Browserで、このcheckoutの通常のゲームを確認。公開main・古いタブは代用せず、URLポリシーの拒否・迂回なし。追加の表示不具合は今回の範囲では見つからず、ゲーム本体は変更していない。
+- 幅320×高さ640px（実clientWidth305px）、仲間26体で全18恋人の初遭遇を確認。10地域の通常抽選と求愛ボタンを使用し、必要時は通常の「じゃれる」後に求愛。ゲームの乱数・時間・タイマー・クロージャーは差し替えず、4.2秒で切り替わる2台詞と専用PNGが現行定義に一致することを9秒観測で確認した。
+- 全18体のプロフィールも同じ画面条件で開き、恋人カードまでスクロールして専用PNG・名前・属性・なかよし度を目視。長い名前/説明も枠内で折り返される。婚姻済みfixtureは表示確認用であり、交際の成立条件や性別の組み合わせの可否の確認とは扱わない。
+- 静的計測65件は探索中の再試行を含め、画像読込完了後にすべてPASS。初遭遇観測は重複込み20回・10,574フレーム、各キャラ最後の18回では9,506フレーム。配置失敗・破損画像0、読込中68フレームを記録。読込中は全ゲーム画像の値で、総合PASSやちらつきなしの保証には含めない。探索での待機期限エラーから回収した観測もそのまま保存した。
+- `tests/visual-qa.cjs` に地域ごとの未遭遇fixture、9秒観測、通知本文/画像/横overflow、プロフィール画像/本文の診断を追加。開発サーバー専用で、ゲーム本体の動作を差し替えない。`profileVisible` だけでスクロール枠内の可視性を断定せず、スクリーンショットで別途確認した。
+- `npm test`とfixture生成成功。DOM287 / ミニゲーム100 / variant collections91、会話・全248段階・恋人18体・仲間26体・旧キャスト・作者④⑤・旧PERFECTの作者/王冠/自由モード維持を含む既存回帰が成功。HTML/CSS/JS/WORLD_MASTERと、PNG294枚＋ゴールJPEG7枚はBMのGit実体とバイト一致。承認済みの絵・育成キノコ・時計・カタツムリを保持した。
+- `docs/art/partner-encounter-profile-validation.md`、同名の検証JSON、`partner-encounter-profile-browser-results.json`、`qa-bn/`の36枚（初遭遇18＋プロフィール18）へ手順・期待台詞・実測・ハッシュを保存。初遭遇写真は各1台詞の瞬間で、2台詞の全時間を動画保存したものではない。確定HEAD/treeと当該HEADのActionsはPR #183本文とChecksへ記録する。
+- BLの配置・図鑑・ゴール④⑤・ナオトの挨拶、BMのデート18体各1プラン冒頭・代表の銀婚式の実画面記録も保持。今回、全18体の初遭遇とプロフィールを追加確認した。物理iPhone/Safari・Android、全248形態の個別動作、全恋人の全プラン/全記念日、ミニゲーム100本の手動完走は未確認。全体は継続中で、明示的なマージ依頼までPR #183をDraft・未マージで保持する。
