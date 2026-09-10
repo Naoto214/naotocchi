@@ -11,6 +11,7 @@
   root.installNaotocchiMinigames = function installNaotocchiMinigames(S) {
   const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
   const perfLow = typeof S.perfLow === 'function' ? S.perfLow : () => false;
+  const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
@@ -814,12 +815,12 @@
           <div class="mg-header"><span id="mgScore">${placedCount}/${ROUNDS_DEF.length}</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-cake-stage" id="mgCakeStage">
-            <div class="mg-cake-base">🍰</div>
+            <div class="mg-cake-base">${foodIconHTML('slice','🍰')}</div>
             ${ROUNDS_DEF.map((r) => `<div class="mg-drop-target" data-key="${r.key}" style="left:${r.left}%;top:${r.top}%"></div>`).join('')}
           </div>
           <div class="mg-hint" id="mgHint"></div>
           <div class="mg-drag-tray" id="mgTray">
-            ${ROUNDS_DEF.map((r) => `<div class="mg-drag-item" data-key="${r.key}">${r.emoji}</div>`).join('')}
+            ${ROUNDS_DEF.map((r) => `<div class="mg-drag-item" data-key="${r.key}">${foodIconHTML(r.key,r.emoji)}</div>`).join('')}
           </div>
         `;
         const hintEl = container.querySelector('#mgHint');
@@ -854,12 +855,12 @@
             itemEl.style.pointerEvents = 'none';
             target.classList.remove('active');
             target.classList.add('filled'); sfx('pop');
-            target.textContent = itemEl.textContent;
+            target.innerHTML = foodIconHTML(round.key,round.emoji);
             placedCount += 1;
             scoreEl.textContent = `${placedCount}/${ROUNDS_DEF.length}`;
             roundIndex += 1;
             if (placedCount >= ROUNDS_DEF.length) {
-              hintEl.textContent = 'さいごのひとつをおいて、ケーキができた!🎂';
+              hintEl.innerHTML = 'さいごのひとつをおいて、ケーキができた!'+foodIconHTML('cake','🎂');
               finish(100);
             } else {
               updateHint();
@@ -900,11 +901,11 @@
           <div class="mg-title">${title}</div>
           <div class="mg-bento-stage" id="mgBentoStage">
             ${ITEMS_DEF.map((it) => `<div class="mg-drop-target" data-key="${it.key}" style="left:${it.left}%;top:${it.top}%"></div>`).join('')}
-            ${ITEMS_DEF.map((it) => `<div class="mg-bento-preview" style="left:${it.left}%;top:${it.top}%">${it.emoji}</div>`).join('')}
+            ${ITEMS_DEF.map((it) => `<div class="mg-bento-preview" style="left:${it.left}%;top:${it.top}%">${foodIconHTML(it.key,it.emoji)}</div>`).join('')}
           </div>
           <div class="mg-hint" id="mgHint">見本をおぼえてね!</div>
           <div class="mg-drag-tray hidden" id="mgTray">
-            ${ITEMS_DEF.map((it) => `<div class="mg-drag-item" data-key="${it.key}">${it.emoji}</div>`).join('')}
+            ${ITEMS_DEF.map((it) => `<div class="mg-drag-item" data-key="${it.key}">${foodIconHTML(it.key,it.emoji)}</div>`).join('')}
           </div>
         `;
         const hintEl = container.querySelector('#mgHint');
@@ -930,13 +931,14 @@
             if (!target) return false;
             const correct = target.dataset.key === itemEl.dataset.key;
             target.classList.add('filled', correct ? 'correct' : 'wrong'); sfx(correct ? 'pop' : 'bad');
-            target.textContent = itemEl.textContent;
+            const food = ITEMS_DEF.find(it => it.key === itemEl.dataset.key);
+            target.innerHTML = foodIconHTML(food.key,food.emoji);
             itemEl.style.opacity = '0';
             itemEl.style.pointerEvents = 'none';
             if (correct) placedCount += 1;
             scoreEl.textContent = `${placedCount}/${ITEMS_DEF.length}`;
             if (items.every((it) => it.style.pointerEvents === 'none')) {
-              hintEl.textContent = placedCount === ITEMS_DEF.length ? 'ぜんぶつめて、おべんとうができた!🍱' : '時間までにここまでつめられた';
+              hintEl.innerHTML = placedCount === ITEMS_DEF.length ? 'ぜんぶつめて、おべんとうができた!'+foodIconHTML('bento','🍱') : '時間までにここまでつめられた';
               finish(Math.round((placedCount / ITEMS_DEF.length) * 100));
             }
             return true;

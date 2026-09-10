@@ -1,0 +1,883 @@
+{
+  "at": "2026-09-10T15:12:19.615028+00:00",
+  "base": "9969a44ec14ef0339294281f857232067a33846d",
+  "existingImages": 311,
+  "changedImages": [],
+  "unchangedFiles": [
+    "character-world-master.v1.js",
+    "style.css",
+    "design.css",
+    "ui.css",
+    "egg-hatching.css",
+    "cast-layout.js",
+    "cast-motion.js",
+    "care-status.js",
+    "care-status.css",
+    "world-environment.js",
+    "audio.js"
+  ],
+  "unchangedFunctions": [
+    "freshState",
+    "loadState",
+    "saveState",
+    "tick",
+    "triggerDeath",
+    "enterFarewell",
+    "onBirthday",
+    "applyGrowth",
+    "applyDecline",
+    "gainSodachi",
+    "applyRegion",
+    "applySeasonRegionVisuals",
+    "renderHomeCast",
+    "homeCastActors",
+    "homeCastMotionRadius",
+    "compactJapaneseText",
+    "pushLifeLog",
+    "currentVisualStage",
+    "currentSprite"
+  ],
+  "achievementAndEnvironmentDefinitionsUnchanged": true,
+  "gamesOutsideTwoDOMFactoriesUnchanged": true,
+  "sharedDragEngineUnchanged": true,
+  "browser": {
+    "gameScreenshots": 0,
+    "result": "CDP operation refresh tabs timed out after 20000ms"
+  },
+  "sha256": {
+    "script.js": "e27de97cdce3ad61526b9a991b9cd8bcb89e6844b14174ee4f1ec9b895db86e2",
+    "games.js": "e3e4fc9f4918d06ab8e59d076b834711d79acde51e2350e0399cfcc87af4fa21",
+    "ui-illustrations.css": "12fce813075b99c7330fd096997b41bd9ecb25211fd10d9898dacfd17da62824"
+  },
+  "sourceCommit": "798aa4ab2dfd77250ebbbebe2ef850956d1656a2",
+  "localTestCommit": "882fd4c6f924bf9356745dcddfafd7222d1de0b2",
+  "sourceTree": "fe70289e5af95704cdbc4e9faafbafcdb3738877",
+  "tests": {
+    "command": "npm test",
+    "pass": 170,
+    "fail": 0,
+    "skip": 0,
+    "newTests": 9,
+    "output": "notice-food-test-output-2026-09-10.txt",
+    "method": "Node production code with substituted DOM, clock and explicit rectangles; not browser rendering",
+    "smoke": {
+      "domIds": 329,
+      "registeredGames": 100,
+      "variantCollections": 91
+    },
+    "githubWorkflow": ".github/workflows/runtime-smoke-test.yml",
+    "githubStep": "Run achievement and food illustration regression tests"
+  },
+  "achievements": [
+    {
+      "id": "evolve-1",
+      "label": "はじめのいっぽ",
+      "originalEmoji": "🌱",
+      "artType": "care-icon",
+      "art": "growth",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "devolve-1",
+      "label": "はじめてのおとろえ",
+      "originalEmoji": "👶",
+      "artType": "care-icon",
+      "art": "decline",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "transform-1",
+      "label": "はじめてのへんしん",
+      "originalEmoji": "✨",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "death-1",
+      "label": "はじめてのおわかれ",
+      "originalEmoji": "👻",
+      "artType": "comment-symbol",
+      "art": "bouquet",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "minigame-50",
+      "label": "あそびのみならい",
+      "originalEmoji": "🎮",
+      "artType": "care-icon",
+      "art": "game",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "record-rank-s-1",
+      "label": "はじめてのS",
+      "originalEmoji": "🌟",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "games-played-25",
+      "label": "あそびめぐり",
+      "originalEmoji": "🗂️",
+      "artType": "comment-symbol",
+      "art": "compass",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sick-cured-1",
+      "label": "はじめてのかんびょう",
+      "originalEmoji": "💉",
+      "artType": "care-icon",
+      "art": "medicine",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "age-10",
+      "label": "ひよっこそだち",
+      "originalEmoji": "🐣",
+      "artType": "care-icon",
+      "art": "growth",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "shop-1",
+      "label": "はじめてのおかいもの",
+      "originalEmoji": "🎁",
+      "artType": "care-icon",
+      "art": "gift",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "consumable-1",
+      "label": "はじめてのおたのしみ",
+      "originalEmoji": "🎈",
+      "artType": "ui-icon",
+      "art": "balloon",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "money-100",
+      "label": "ちょきんかデビュー",
+      "originalEmoji": "💰",
+      "artType": "care-icon",
+      "art": "coin",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "region-3",
+      "label": "たびずき",
+      "originalEmoji": "🧳",
+      "artType": "comment-symbol",
+      "art": "compass",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "time-all",
+      "label": "いちにちの ともだち",
+      "originalEmoji": "🕰️",
+      "artType": "comment-symbol",
+      "art": "clock",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "rain-play",
+      "label": "あめの日の あそび",
+      "originalEmoji": "☔",
+      "artType": "ui-icon",
+      "art": "rain",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "snow-play",
+      "label": "ゆきの日の あそび",
+      "originalEmoji": "⛄",
+      "artType": "picture",
+      "art": "assets/characters/partners/snowman.png",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "evolve-10",
+      "label": "ぐんぐんそだつ",
+      "originalEmoji": "🌿",
+      "artType": "ui-icon",
+      "art": "green_leaf",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "devolve-5",
+      "label": "かえりみち",
+      "originalEmoji": "🍼",
+      "artType": "care-icon",
+      "art": "decline",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "transform-10",
+      "label": "へんしんざんまい",
+      "originalEmoji": "🌟",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sick-cured-10",
+      "label": "めいいのたまご",
+      "originalEmoji": "💊",
+      "artType": "care-icon",
+      "art": "medicine",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "age-25",
+      "label": "すくすくせいちょう",
+      "originalEmoji": "🌼",
+      "artType": "ui-icon",
+      "art": "flower",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "dex-25",
+      "label": "ずかんのはじまり",
+      "originalEmoji": "📗",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "feed-100",
+      "label": "ごはんだいすき",
+      "originalEmoji": "🍚",
+      "artType": "care-icon",
+      "art": "food",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "play-100",
+      "label": "あそびっぱなし",
+      "originalEmoji": "🎯",
+      "artType": "care-icon",
+      "art": "play",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "pet-100",
+      "label": "なでなでまめ",
+      "originalEmoji": "🤲",
+      "artType": "care-icon",
+      "art": "love",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "talk-100",
+      "label": "おしゃべりずき",
+      "originalEmoji": "💬",
+      "artType": "comment-symbol",
+      "art": "speech",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "gentle-10",
+      "label": "やさしいこころ",
+      "originalEmoji": "💗",
+      "artType": "care-icon",
+      "art": "love",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "brave-10",
+      "label": "ゆうかんなこころ",
+      "originalEmoji": "🦁",
+      "artType": "ui-icon",
+      "art": "medal",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "romantic-10",
+      "label": "ロマンチスト",
+      "originalEmoji": "💘",
+      "artType": "care-icon",
+      "art": "love",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "companion-1",
+      "label": "はじめてのなかま",
+      "originalEmoji": "🐾",
+      "artType": "ui-icon",
+      "art": "paw_badge",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "partner-1",
+      "label": "はじめてのこいびと",
+      "originalEmoji": "💑",
+      "artType": "comment-symbol",
+      "art": "couple",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "money-500",
+      "label": "おおがねもち",
+      "originalEmoji": "💴",
+      "artType": "care-icon",
+      "art": "coin",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "weather-all",
+      "label": "てんきはかせ",
+      "originalEmoji": "🌦️",
+      "artType": "comment-symbol",
+      "art": "rainbow",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "night-play-10",
+      "label": "よふかし",
+      "originalEmoji": "🦉",
+      "artType": "picture",
+      "art": "assets/characters/companions/owl.png",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "env-moments-10",
+      "label": "せかいを かんじる",
+      "originalEmoji": "🍃",
+      "artType": "ui-icon",
+      "art": "green_leaf",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "death-5",
+      "label": "なんどもおわかれ",
+      "originalEmoji": "💀",
+      "artType": "comment-symbol",
+      "art": "bouquet",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "minigame-300",
+      "label": "あそびどっぷり",
+      "originalEmoji": "🕹️",
+      "artType": "care-icon",
+      "art": "game",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "games-played-60",
+      "label": "あそびたんけんか",
+      "originalEmoji": "🧭",
+      "artType": "comment-symbol",
+      "art": "compass",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "record-rank-a-20",
+      "label": "Aランクコレクター",
+      "originalEmoji": "🎖️",
+      "artType": "ui-icon",
+      "art": "medal",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "age-50",
+      "label": "はんせいき",
+      "originalEmoji": "🎂",
+      "artType": "comment-symbol",
+      "art": "cake",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "dex-50",
+      "label": "ずかんなかば",
+      "originalEmoji": "📘",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "rare-line-1",
+      "label": "レアなであい",
+      "originalEmoji": "🌈",
+      "artType": "comment-symbol",
+      "art": "rainbow",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "clean-50",
+      "label": "ピカピカ50かい",
+      "originalEmoji": "🧹",
+      "artType": "care-icon",
+      "art": "clean",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "reset-5",
+      "label": "なんどもちょうせん",
+      "originalEmoji": "🔄",
+      "artType": "comment-symbol",
+      "art": "cycle",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "companion-5",
+      "label": "にぎやかななかよしグループ",
+      "originalEmoji": "🐕",
+      "artType": "ui-icon",
+      "art": "paw_badge",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "companion-active-5",
+      "label": "そばにいるしあわせ",
+      "originalEmoji": "💞",
+      "artType": "care-icon",
+      "art": "love",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "married-1",
+      "label": "はじめてのけっこん",
+      "originalEmoji": "💍",
+      "artType": "ui-icon",
+      "art": "ring",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sodachi-70",
+      "label": "よくそだてた",
+      "originalEmoji": "🌟",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sodachi-90",
+      "label": "でんせつのそだて",
+      "originalEmoji": "💫",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sodachi-100",
+      "label": "さいこうのそだち",
+      "originalEmoji": "👑",
+      "artType": "ui-icon",
+      "art": "crown",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "lifeclear-1",
+      "label": "はじめてのいっしょうクリア",
+      "originalEmoji": "🎊",
+      "artType": "comment-symbol",
+      "art": "celebration",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "lifeclear-10",
+      "label": "じんせい10しゅう",
+      "originalEmoji": "🏵️",
+      "artType": "comment-symbol",
+      "art": "trophy",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "bestlife-1",
+      "label": "さいこうのいっしょう",
+      "originalEmoji": "🌈",
+      "artType": "comment-symbol",
+      "art": "rainbow",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "pastlives-10",
+      "label": "じゅうにんのなおとっち",
+      "originalEmoji": "📔",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "nodecline",
+      "label": "いちどもおとろえなかった",
+      "originalEmoji": "🕊️",
+      "artType": "ui-icon",
+      "art": "tree",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "evolve-50",
+      "label": "そだちのあしあと",
+      "originalEmoji": "🌳",
+      "artType": "ui-icon",
+      "art": "tree",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "devolve-20",
+      "label": "おとろえのぬし",
+      "originalEmoji": "😵‍💫",
+      "artType": "care-icon",
+      "art": "decline",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "transform-25",
+      "label": "へんしん25れんぱつ",
+      "originalEmoji": "💫",
+      "artType": "comment-symbol",
+      "art": "sparkles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "death-10",
+      "label": "てんごくのじょうれんきゃく",
+      "originalEmoji": "⚰️",
+      "artType": "comment-symbol",
+      "art": "bouquet",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "sick-cured-30",
+      "label": "めいいのたまご(じょうきゅう)",
+      "originalEmoji": "🏥",
+      "artType": "care-icon",
+      "art": "medicine",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "age-100",
+      "label": "ひゃくさいばんざい",
+      "originalEmoji": "🎊",
+      "artType": "comment-symbol",
+      "art": "celebration",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "medicine-30",
+      "label": "かんびょうのきろく",
+      "originalEmoji": "🩹",
+      "artType": "care-icon",
+      "art": "medicine",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "region-all",
+      "label": "せかいいっしゅう",
+      "originalEmoji": "🌍",
+      "artType": "ui-icon",
+      "art": "world",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "consumable-30",
+      "label": "おたのしみいっぱい",
+      "originalEmoji": "🫧",
+      "artType": "ui-icon",
+      "art": "bubbles",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "evolve-100",
+      "label": "そだてのきわみ",
+      "originalEmoji": "🌲",
+      "artType": "ui-icon",
+      "art": "pine",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "clear-1",
+      "label": "てんじゅをまっとうした",
+      "originalEmoji": "🏅",
+      "artType": "ui-icon",
+      "art": "medal",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "dex-100",
+      "label": "ずかんたいはん",
+      "originalEmoji": "📙",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "every-normal-line",
+      "label": "どうぶつはかせ",
+      "originalEmoji": "🐾",
+      "artType": "ui-icon",
+      "art": "paw_badge",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "reset-20",
+      "label": "むげんループのたび",
+      "originalEmoji": "♾️",
+      "artType": "comment-symbol",
+      "art": "infinity",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "married-3",
+      "label": "なんどもウェディング",
+      "originalEmoji": "👰",
+      "artType": "ui-icon",
+      "art": "ring",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "naoto-1",
+      "label": "でんせつへのいっぽ",
+      "originalEmoji": "🧿",
+      "artType": "ui-icon",
+      "art": "naoto_crown",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "clear-5",
+      "label": "いつつのいっしょう",
+      "originalEmoji": "🏆",
+      "artType": "comment-symbol",
+      "art": "trophy",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "minigame-1000",
+      "label": "1000かいあそんだ",
+      "originalEmoji": "🎰",
+      "artType": "care-icon",
+      "art": "game",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "games-complete-100",
+      "label": "100ぼんコンプリート",
+      "originalEmoji": "💯",
+      "artType": "comment-symbol",
+      "art": "trophy",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "record-rank-s-15",
+      "label": "Sランクマスター",
+      "originalEmoji": "👑",
+      "artType": "ui-icon",
+      "art": "crown",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "rare-line-all",
+      "label": "でんせつコレクター",
+      "originalEmoji": "🎇",
+      "artType": "ui-icon",
+      "art": "fireworks",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "elder-collector",
+      "label": "ちょうろうはかせ",
+      "originalEmoji": "👴",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "companion-all",
+      "label": "なかまだいしゅうごう",
+      "originalEmoji": "🎉",
+      "artType": "comment-symbol",
+      "art": "celebration",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "perfect-life",
+      "label": "かんぺきななおとっちライフ",
+      "originalEmoji": "🏵️",
+      "artType": "comment-symbol",
+      "art": "trophy",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "clear-10",
+      "label": "とおのいっしょう",
+      "originalEmoji": "👑",
+      "artType": "ui-icon",
+      "art": "crown",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "dex-150",
+      "label": "ずかんもうすぐ",
+      "originalEmoji": "📕",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "partner-all",
+      "label": "れんあいたっせいしゃ",
+      "originalEmoji": "🌏",
+      "artType": "ui-icon",
+      "art": "world",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "clear-25",
+      "label": "いっしょうのでんせつ",
+      "originalEmoji": "🎖️",
+      "artType": "ui-icon",
+      "art": "medal",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "dex-complete",
+      "label": "ずかんコンプリート",
+      "originalEmoji": "📖",
+      "artType": "ui-icon",
+      "art": "book",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "shop-all",
+      "label": "みにつけるものコンプリート",
+      "originalEmoji": "🛍️",
+      "artType": "care-icon",
+      "art": "gift",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "consumable-all",
+      "label": "おたのしみコンプリート",
+      "originalEmoji": "🎪",
+      "artType": "ui-icon",
+      "art": "balloon",
+      "fallbackPreserved": true
+    },
+    {
+      "id": "item-all",
+      "label": "アイテムパーフェクトコレクション",
+      "originalEmoji": "💯",
+      "artType": "comment-symbol",
+      "art": "trophy",
+      "fallbackPreserved": true
+    }
+  ],
+  "food": {
+    "newSVG": [
+      "strawberry",
+      "choco",
+      "cherry",
+      "rice",
+      "egg",
+      "shrimp",
+      "broccoli",
+      "slice",
+      "bento"
+    ],
+    "reusedSVG": [
+      "cake"
+    ],
+    "games": [
+      "dragDecorate-cake",
+      "dragDecorate-bento"
+    ],
+    "unchangedCanvasGames": 97,
+    "unchangedOtherDOMGames": 1,
+    "foodContextOnly": true
+  },
+  "environmentPictures": [
+    {
+      "emoji": "🐌",
+      "path": "assets/characters/companions/snail.png"
+    },
+    {
+      "emoji": "🐸",
+      "path": "assets/characters/frog/05.png"
+    },
+    {
+      "emoji": "⛄",
+      "path": "assets/characters/partners/snowman.png"
+    },
+    {
+      "emoji": "🦋",
+      "path": "assets/characters/butterfly/07.png"
+    },
+    {
+      "emoji": "🦇",
+      "path": "assets/characters/companions/bat.png"
+    },
+    {
+      "emoji": "🦉",
+      "path": "assets/characters/companions/owl.png"
+    }
+  ],
+  "newCommentSymbols": [
+    "lock",
+    "check",
+    "trophy",
+    "diamond",
+    "galaxy",
+    "clock",
+    "speech",
+    "cycle"
+  ],
+  "review": {
+    "status": "complete",
+    "initialImportantFindings": 1,
+    "resolved": 1,
+    "unresolved": 0,
+    "localHEAD": "882fd4c6f924bf9356745dcddfafd7222d1de0b2",
+    "tree": "fe70289e5af95704cdbc4e9faafbafcdb3738877",
+    "independentTests": {
+      "initialFullSuitePass": 169,
+      "finalFocusedPass": 18,
+      "fail": 0,
+      "skip": 0
+    },
+    "finding": "Generic frog PNG was applied to a different growth-stage transformation notice. Restricted pictures to environmental/achievement contexts and added actual dex handler regression."
+  },
+  "publication": {
+    "basePR": 230,
+    "merged": true,
+    "main": "9969a44ec14ef0339294281f857232067a33846d",
+    "tree": "d302ba0150a73417c0a3a6d7aea4218a32a58d3f",
+    "runtime": {
+      "number": 307,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34491598002"
+    },
+    "pages": {
+      "number": 228,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34491596185"
+    },
+    "postMergePublicBytesVerified": false,
+    "reason": "Earlier public-file download was cancelled by network approval; Pages success is not treated as byte verification.",
+    "thisChangeMerged": false,
+    "thisChangePublished": false
+  },
+  "coordination": {
+    "otherOpenPRs": [
+      92
+    ],
+    "claudeBranch": "claude/review-existing-code-readme-naq7pv",
+    "claudeHEAD": "cc7aaa462bca784a18faf91bdade7f7447bae098",
+    "otherTabUncommittedFiles": "unverified",
+    "separateTasks": [
+      "region visualBaseId/reference audit",
+      "Japanese text/kanji audit",
+      "PR92 issue triage"
+    ]
+  },
+  "limits": [
+    "No game screenshots in this change",
+    "iPhone rendering/touch/audio/FPS/jank unverified",
+    "320px/regular width/text zoom/colors/notice transitions/image failure in browser unverified",
+    "Static art sheet is not a game screenshot",
+    "Unknown comment emoji stay unchanged; bird/desert/river-lake and other game props remain"
+  ]
+}
