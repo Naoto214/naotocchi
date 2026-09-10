@@ -1051,6 +1051,14 @@
     dexCloseBtn: document.getElementById('dexCloseBtn'),
     achOverlay: document.getElementById('achOverlay'),
     achGrid: document.getElementById('achGrid'),
+    saveExportBtn: document.getElementById('saveExportBtn'),
+    saveExportBox: document.getElementById('saveExportBox'),
+    saveExportText: document.getElementById('saveExportText'),
+    saveExportCopyBtn: document.getElementById('saveExportCopyBtn'),
+    saveExportCopied: document.getElementById('saveExportCopied'),
+    saveImportInput: document.getElementById('saveImportInput'),
+    saveImportBtn: document.getElementById('saveImportBtn'),
+    saveImportStatus: document.getElementById('saveImportStatus'),
     achTitle: document.getElementById('achTitle'),
     achTabs: document.getElementById('achTabs'),
     gameListGrid: document.getElementById('gameListGrid'),
@@ -2281,7 +2289,11 @@
     return achievedGoalTiers();
   }
 
+  // セーブコードの よみこみ中は、ページを とじる ときの じどうセーブで
+  // よみこんだ セーブを うわがきしない ように とめる
+  let saveLocked = false;
   function saveState() {
+    if (saveLocked) return;
     // 復旧候補がすべて読めないときは、非表示時の保存でも原本を消さない。
     if (saveWriteBlocked) return;
     recordDiscovery();
@@ -2519,7 +2531,8 @@
     const num = (v, d) => (typeof v === 'number' && v > 0 && isFinite(v) ? v : d);
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
     const H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
-    const dpr = Math.min(2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
+    // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
+    const dpr = Math.min(mgPerfLow ? 1 : 2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
     if (!ctx || typeof ctx.setTransform !== 'function') ctx = null;
     if (canvas) {
@@ -11970,7 +11983,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -12544,6 +12557,21 @@
   // つけ、セッションが おわったあとは 実行せずに すてる。ふつうの がめんの
   // コード(ゲームの そとで 予約した タイマー)には しるしが つかないので、
   // これまでどおり うごく
+  // けいりょうモード: ゲーム中の フレーム間かくを はかり、へいきんが 30ms を
+  // こえたら(おおよそ 33fps 未満)、それいこうの canvas を かいぞうど 1 で
+  // つくり、星などの かざりを へらす(このセッションの あいだ ゆうこう)
+  let mgPerfLow = false;
+  const mgPerf = { last: 0, samples: [] };
+  function mgPerfSample() {
+    const t = performance.now();
+    const dt = t - mgPerf.last; mgPerf.last = t;
+    if (dt < 4 || dt > 250) return;
+    mgPerf.samples.push(dt);
+    if (mgPerf.samples.length < 90) return;
+    const avg = mgPerf.samples.reduce((a, b) => a + b, 0) / mgPerf.samples.length;
+    mgPerf.samples = [];
+    if (avg > 30 && !mgPerfLow) mgPerfLow = true;
+  }
   let mgSession = 0;        // いま うごいている ゲームの セッション番号(0 = なし)
   let mgSessionSerial = 0;
   let mgCodeDepth = 0;      // > 0 なら「ゲームの コードの なか」
@@ -12577,6 +12605,7 @@
       if (!tag || typeof cb !== 'function') return nativeRequestAnimationFrame(cb);
       return nativeRequestAnimationFrame((t) => {
         if (!mgTagAlive(tag)) return;
+        mgPerfSample();
         mgRunTagged(tag, cb, null, [t]);
       });
     };
@@ -14470,6 +14499,47 @@
     el.myCodeBox.focus();
     el.myCodeBox.select();
   });
+
+  // --- セーブの バックアップ: セーブ(JSON)を 'NTS1.' + base64 の コードに ---
+  const SAVE_CODE_PREFIX = 'NTS1.';
+  function encodeSaveCode(json) {
+    const bytes = new TextEncoder().encode(json);
+    let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return SAVE_CODE_PREFIX + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function decodeSaveCode(code) {
+    const t = (code || '').trim();
+    if (!t.startsWith(SAVE_CODE_PREFIX)) throw new Error('これは セーブコードでは ない');
+    let b64 = t.slice(SAVE_CODE_PREFIX.length).replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const json = new TextDecoder().decode(bytes);
+    const parsed = JSON.parse(json);
+    if (!parsed || typeof parsed !== 'object' || !parsed.lifetime || typeof parsed.stage !== 'string') throw new Error('セーブの なかみが ちがう');
+    return json;
+  }
+  let saveImportArmedAt = 0;
+  if (el.saveExportBtn) {
+    el.saveExportBtn.addEventListener('click', () => {
+      saveState();
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) { el.saveImportStatus.textContent = 'まだ セーブが ない'; return; }
+      el.saveExportText.value = encodeSaveCode(raw);
+      el.saveExportBox.classList.remove('hidden');
+      el.saveImportStatus.textContent = `コードは ${el.saveExportText.value.length} もじ。メモアプリなどに はりつけて とっておこう`;
+    });
+    el.saveExportCopyBtn.addEventListener('click', () => copyCodeToClipboard(el.saveExportText.value, el.saveExportText, el.saveExportCopied));
+    el.saveImportBtn.addEventListener('click', () => {
+      let json;
+      try { json = decodeSaveCode(el.saveImportInput.value); } catch (err) { el.saveImportStatus.textContent = `よみこめない: ${err.message}`; saveImportArmedAt = 0; return; }
+      const now = Date.now();
+      if (now - saveImportArmedAt > 6000) { saveImportArmedAt = now; el.saveImportStatus.textContent = 'いまの セーブを このコードで おきかえます。よければ もういちど おして'; return; }
+      saveLocked = true;
+      try { localStorage.setItem(SAVE_BACKUP_KEY, localStorage.getItem(SAVE_KEY) || ''); localStorage.setItem(SAVE_KEY, json); } catch (err) { saveLocked = false; el.saveImportStatus.textContent = 'ほぞんに しっぱい'; return; }
+      el.saveImportStatus.textContent = 'おきかえた! よみこみなおします…';
+      setTimeout(() => location.reload(), 600);
+    });
+  }
 
   el.myCodeCopyBtn.addEventListener('click', () => {
     copyCodeToClipboard(el.myCodeBox.value, el.myCodeBox, el.myCodeCopyMsg);

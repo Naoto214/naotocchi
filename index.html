@@ -415,6 +415,19 @@
               <div class="profile-hint">「じゃれる」できずながもどります。ほうっておくとすこしずつさがり、0になるとはなれていってしまいます</div>
               <div id="profileCompanionList"></div>
             </div>
+            <div class="profile-section">
+              <div class="profile-section-title">セーブのバックアップ</div>
+              <div class="profile-hint">セーブをコードにして、機種変更やもしもの時にもどせます。</div>
+              <button class="profile-code-btn" id="saveExportBtn">📋セーブコードをつくる</button>
+              <div class="profile-code-box hidden" id="saveExportBox">
+                <textarea readonly class="profile-code-input" id="saveExportText" rows="3"></textarea>
+                <button class="profile-code-btn profile-code-copy-btn" id="saveExportCopyBtn">📋コードをコピー</button>
+                <div class="profile-hint hidden" id="saveExportCopied">コピーした!</div>
+              </div>
+              <input type="text" class="profile-code-input" id="saveImportInput" placeholder="セーブコードをここに">
+              <button class="profile-code-btn" id="saveImportBtn">よみこんでおきかえる</button>
+              <div class="profile-hint" id="saveImportStatus" role="status"></div>
+            </div>
             <div class="profile-section danger-zone">
               <div class="profile-section-title">きけんなそうさ</div>
               <button class="restart-btn" id="softResetBtn">🥚あたらしいたまごをむかえる</button>
@@ -648,7 +661,7 @@
   <script src="cast-motion.js?v=20260910-motion-1"></script>
   <script src="cast-layout.js?v=20260910-space-1"></script>
   <script src="world-environment.js?v=20260910-ui-1"></script>
-  <script src="games.js?v=20260910-3"></script>
-  <script src="script.js?v=20260910-daily-1"></script>
+  <script src="games.js?v=20260910-4"></script>
+  <script src="script.js?v=20260910-backup-1"></script>
 </body>
 </html>

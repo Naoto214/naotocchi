@@ -1698,3 +1698,8 @@ Runtime smoke test SUCCESS確認済み。
 - ならびかえチップ(ジャンル / みプレイ / ランクひくい順 / ベスト高い順): `gameListSort`(セッション内)、みプレイは記録のないゲームだけ、ひくい順は みプレイ→D→S。
 - きょうのチャレンジ: `dailyKey()`(端末のローカル日付 YYYY-MM-DD)のハッシュで id 順プールから 1 本を決定(`dailyChallengeGame()`)。カードの「ちょうせん」→ `dailyPending` → `startMinigame` で `activeMinigameDaily` に写し、`finishMinigameInner` で `state.lifetime.dailyChallenge = {date, gameId, score, rank}`、💰+10、`dailyStreak`/`dailyLastDate`(前日に続けていれば +1)。途中でやめた場合は消費しない。クリア済みはカードが緑になりランクと点数を表示。
 - 検証: `npm test` 全通過。Playwright: カードとチップの表示、ひくい順/みプレイの切替、ちょうせん→初回カード→クリアで記録・+10・メッセージ・クリア済み表示、ページエラー 0。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BG — けいりょうモード と セーブのバックアップ(2026-09-10)
+- けいりょうモード: ミニゲームのセッション付き rAF コールバックの間隔を `mgPerfSample()` で計測(4〜250ms のみ、90 サンプルごとに平均)。平均 30ms 超で `mgPerfLow = true`(セッション中のみ)。以後の `createMgCanvas()` は DPR を 1 に、`mgSpaceBackdrop()` の星を 46→18 に(`S.perfLow`)。
+- セーブのバックアップ(プロフィール画面): `encodeSaveCode()` = `'NTS1.' + base64url(UTF-8 JSON)`、`decodeSaveCode()` は接頭辞・JSON・`lifetime`/`stage` を検証。「よみこんでおきかえる」は 6 秒以内の 2 回押しで確定、既存セーブを `SAVE_BACKUP_KEY` に退避してから置換し、`saveLocked` で離脱時の自動セーブによる上書きを防いでリロード。
+- 検証: `npm test` 全通過。Playwright: コード生成(約 4,100 文字)→ 不正コードの拒否 → 2 回押しで置換 → リロード後に値が復元、DPR の切替。全 100 ゲーム スイープ ページエラー 0。

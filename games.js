@@ -10,6 +10,7 @@
   const root = typeof globalThis !== 'undefined' ? globalThis : window;
   root.installNaotocchiMinigames = function installNaotocchiMinigames(S) {
   const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
+  const perfLow = typeof S.perfLow === 'function' ? S.perfLow : () => false;
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
@@ -8069,7 +8070,7 @@
       ctx.fillStyle = r; ctx.fillRect(0, 0, W, H);
     }
     if (opts.stars !== false) {
-      const n = opts.starCount || 46;
+      const n = opts.starCount || (perfLow() ? 18 : 46);
       for (let i = 0; i < n; i++) {
         const h1 = Math.sin(i * 12.9898) * 43758.5453, h2 = Math.sin(i * 78.233) * 12345.678, h3 = Math.sin(i * 39.17) * 9876.54;
         const x = (h1 - Math.floor(h1)) * W, y = (h2 - Math.floor(h2)) * H, k = h3 - Math.floor(h3);
