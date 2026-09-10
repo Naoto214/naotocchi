@@ -2588,6 +2588,8 @@
   }
 
   let state = loadState();
+  // Presentation only: never saved, and never allowed to follow a replaced life.
+  let eggVisualReaction = null;
 
   // Old saves can still contain spaced labels/logs. Compact their display only;
   // English words, numeric separators and the saved originals stay intact.
@@ -9699,6 +9701,51 @@
     target.innerHTML = stageVisualHTML(stage, size);
   }
 
+  function eggVisualStage() {
+    const progress = state.growth / HATCH_GROWTH;
+    const frame = progress >= 0.8 ? 'ready' : progress >= 0.4 ? 'cracking' : 'intact';
+    return { emoji:'🥚', label:'たまご', asset:`assets/characters/egg/${frame}.png` };
+  }
+
+  function renderPetVisual() {
+    const reaction = eggVisualReaction?.life === state ? eggVisualReaction.kind : '';
+    eggVisualReaction = null;
+    // A new inner visual restarts a finite reaction without forcing layout or
+    // replacing the shared cast-sway / petSprite motion layers.
+    if (reaction) el.petSprite.dataset.visualKey = '';
+    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    if (!reaction || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
+    const visual = el.petSprite.querySelector('.character-visual');
+    if (!visual) return;
+    let shell = null;
+    if (reaction === 'warm') {
+      visual.classList.add('egg-warming');
+    } else {
+      visual.classList.add('egg-newborn');
+      shell = document.createElement('span');
+      shell.className = 'egg-hatch-shell';
+      shell.setAttribute('aria-hidden', 'true');
+      shell.innerHTML = '<span class="egg-shell-top"></span><span class="egg-shell-bottom"></span>';
+      visual.appendChild(shell);
+    }
+    // display:none cancels CSS animations; leaving the class attached would
+    // hatch the same child again when a minigame reveals the home screen.
+    // Capture this visual only: a reset or another tap may already replace it.
+    const cleanup = () => {
+      visual.removeEventListener('animationend', onAnimationDone);
+      visual.removeEventListener('animationcancel', onAnimationDone);
+      clearTimeout(cleanupTimer);
+      visual.classList.remove('egg-warming', 'egg-newborn');
+      if (shell) shell.remove();
+    };
+    const onAnimationDone = (event) => {
+      if (event.animationName?.startsWith('egg-')) cleanup();
+    };
+    const cleanupTimer = setTimeout(cleanup, reaction === 'warm' ? 560 : 900);
+    visual.addEventListener('animationend', onAnimationDone);
+    visual.addEventListener('animationcancel', onAnimationDone);
+  }
+
   // innerHTML で差し込んだimgも含め、404/壊れた画像は自動的にemojiへ戻す。
   document.addEventListener('error', (event) => {
     const img = event.target;
@@ -9713,7 +9760,7 @@
   }, true);
 
   function currentVisualStage() {
-    if (state.stage === STAGE.EGG) return { emoji:'🥚', label:'たまご' };
+    if (state.stage === STAGE.EGG) return eggVisualStage();
     const stages = state.speciesLine && SPECIES[state.speciesLine]?.stages;
     return stages?.[currentFormStageIndex()] || { emoji:'❓', label:'???' };
   }
@@ -9966,7 +10013,7 @@
     const isOver = isDead;
     const isFarewell = state.stage === STAGE.FAREWELL;
 
-    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    renderPetVisual();
     const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
     el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
     el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
@@ -22824,9 +22871,11 @@
   function warmEgg() {
     if (state.stage !== STAGE.EGG) return false;
     applyGrowth(4);
+    eggVisualReaction = { life:state, kind:state.stage === STAGE.EGG ? 'warm' : 'hatch' };
     if (state.stage === STAGE.EGG) {
       const pct = Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100));
-      setMessage(`たまごをあたためた…もぞもぞうごいている${pct}%`);
+      const response = pct >= 80 ? 'ひびがひろがった。もうすぐ会えそう' : pct >= 40 ? '小さなひびがはいった。中でもぞもぞ' : '中でもぞもぞうごいている';
+      setMessage(`たまごをあたためた…${response} ${pct}%`);
     }
     return true;
   }
