@@ -44,7 +44,9 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #petArea {padding:0;min-height:0;display:block}
 .cast-stage {position:relative;min-height:144px;height:160px;width:100%;isolation:isolate}
 .cast-sway {position:absolute;inset:0;animation:cast-together 3.2s ease-in-out infinite;will-change:transform;transform-origin:center}
-@keyframes cast-together {0%,100%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+@keyframes cast-together {0%,100%{transform:translate(-4px,0)}25%,75%{transform:translate(0,-1px)}50%{transform:translate(4px,0)}}
+.screen.sleeping .cast-sway {animation-duration:7s}
+.device.ui-menu-open .cast-sway,.device.ui-game-active .cast-sway {animation-play-state:paused}
 #pet {position:absolute;inset:0;display:block;filter:none;font-size:0;width:100%;height:100%;cursor:pointer}
 #pet .pet-core,#pet .pet-core:has(.partner-companion:not(.hidden),.pet-accessory:not(.hidden)) {position:static;display:contents;padding:0;min-width:0}
 #pet .companion-side {position:absolute;inset:0;display:block;direction:ltr;pointer-events:none}
@@ -59,8 +61,11 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet .partner-ring {font-size:13px;right:0;bottom:-2px}
 #pet .pet-accessory {width:36px;height:36px;top:0;left:calc(50% + 24px);font-size:32px}
 #pet .hidden {display:none}
-/* Emotional reactions retain their classes/speech without displacing one body
-   into another. The sole translating element is the common cast-sway parent. */
+/* Local gestures use Web Animations inside the layout's reserved 1–3px envelope.
+   Legacy large bounces/spins remain disabled. No layout animation or art edits. */
+#pet #petSprite.cast-speaking,#pet .cast-speaking {filter:drop-shadow(0 0 2px #f9d99a)}
+#pet .partner-heart {opacity:.75;transition:opacity .18s ease-in-out}
+#pet .partner-companion:has(.cast-speaking,[data-reaction="love"],[data-reaction="shy"]) .partner-heart {opacity:1}
 #pet.emote-love #petSprite {filter:drop-shadow(0 0 3px #f2a0ba)}
 #pet.emote-happy #petSprite,#pet.emote-fun #petSprite {filter:brightness(1.04)}
 .screen.sleeping #pet,.screen.sick #pet {transform:none;animation:none}
@@ -141,4 +146,4 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .screen.theme-starlight {color:#fffaf3}
 .screen.theme-starlight .bar {background:#ffffff40}
 @media(max-width:360px){.device{padding:12px 8px 8px}.screen{padding:8px}.buttons{gap:7px}.buttons button{gap:4px}.buttons button span{font-size:12px}.name-plate{font-size:18px}.meters .bar-line{grid-template-columns:76px minmax(0,1fr) 44px;gap:4px}}
-@media(prefers-reduced-motion:reduce){.cast-sway{animation:none;transform:none;will-change:auto}}
+@media(prefers-reduced-motion:reduce){.cast-sway{animation:none;transform:none;will-change:auto}#pet .partner-heart{transition:none}}

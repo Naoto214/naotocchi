@@ -7,9 +7,11 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
+  const motionListeners = [];
+  const motionPreference = {matches:reducedMotion,addEventListener:(type,fn)=>{if(type==='change')motionListeners.push(fn);}};
   const noop = () => {};
   let document, window;
   const event = (type, init = {}) => ({ type, bubbles: true, preventDefault: noop, ...init });
@@ -19,7 +21,7 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
     let html = '';
     const el = {
       id, listeners, dataset: {}, style: { setProperty: noop, removeProperty: noop },
-      children: [], textContent: '', value: '', disabled: false, isConnected: true,
+      children: [], animations: [], textContent: '', value: '', disabled: false, isConnected: true,
       clientWidth: 300, clientHeight: 300,
       classList: {
         add: (...ns) => ns.forEach(n => classes.add(n)),
@@ -40,6 +42,16 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
       },
       querySelectorAll: selector => selector === 'button' ? el.children.filter(c => c.tagName === 'BUTTON') : [],
       appendChild(child) { child.isConnected = true; el.children.push(child); return child; },
+      animate(frames, options) {
+        const animation = {frames, options, playState: 'running', cancel() {
+          animation.playState = 'idle'; timers.delete(animation.timer);
+        }};
+        animation.timer = schedule(() => {
+          animation.playState = 'finished'; animation.onfinish?.();
+        }, options.duration + (options.delay || 0));
+        el.animations.push(animation);
+        return animation;
+      },
       closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: 300}),
       getContext: () => null, setAttribute: noop, focus: () => { document.activeElement = el; }, scrollIntoView: noop,
@@ -50,6 +62,10 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
       html = value;
       el.children.forEach(c => { c.isConnected = false; });
       el.children = []; queries.clear();
+      // Cast identity is needed to exercise reactions against the actual speaker.
+      for (const [, id] of String(value).matchAll(/<span\b[^>]*\bdata-companion-id="([^"]+)"[^>]*>/g)) {
+        const child = node(); child.dataset.companionId = id; el.children.push(child);
+      }
       // Only input metadata is needed; canvas/layout are deliberately absent.
       for (const [, attrs, label] of String(value).matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)) {
         const id = attrs.match(/\bid="([^"]+)"/)?.[1];
@@ -85,7 +101,10 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
+    NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
     NaotocchiEnvironment: require('../../world-environment.js'),
+    matchMedia: () => motionPreference,
+    getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
     localStorage: storage || {getItem: () => null, setItem: noop, removeItem: noop},
     location: {href: 'https://naoto214.github.io/naotocchi/'},
@@ -101,6 +120,7 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
       startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
+      speakEvent, setSpeechBubble, clearConversationTimers, scheduleIdlePerk,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,
@@ -124,7 +144,9 @@ function harness({storage, resume = false, geolocation, fetcher} = {}) {
     }
     now = until;
   }
-  return {api: sandbox.lifecycle, get, advance, sandbox, dispatch: (target, type, init) => dispatch(target, event(type, init)), document, window};
+  return {api: sandbox.lifecycle, get, advance, sandbox, dispatch: (target, type, init) => dispatch(target, event(type, init)), document, window,
+    setReducedMotion(matches) {motionPreference.matches=matches;motionListeners.forEach(fn=>fn({matches}));},
+  };
 }
 
 module.exports = {harness};
