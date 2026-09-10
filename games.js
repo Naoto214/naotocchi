@@ -492,7 +492,7 @@
         const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const TX = W / 2, TY = H * 0.42;
         function newRound() {
-          wind = (Math.random() - 0.5) * 2 * lerp(0.5, 1.2, difficulty);
+          wind = (Math.random() - 0.5) * 2 * lerp(0.5, 1.0, difficulty);
           dist = 0.85 + Math.random() * 0.5;
           hits = [];
         }
@@ -512,7 +512,7 @@
           arrowNo++;
         };
         canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', release);
-        function shakeAmount() { const held = (performance.now() - holdSince) / 1000; return lerp(4, 10, difficulty) + Math.max(0, held - 1.5) * 8; }
+        function shakeAmount() { const held = (performance.now() - holdSince) / 1000; return lerp(4, 8, difficulty) + Math.max(0, held - 1.5) * 8; }
         // ひっぱった むきの はんたい(=やの とぶ むき)。まっすぐ したへ
         // いっぱいに ひくと まとの まんなか、ひきが よわい/ななめだと したに おちる
         function sightPoint(dx, dy, len, draw) { const ux = dx / len, uy = dy / len; return { sx: W / 2 + ux * 150, sy: TY + (1 - draw) * 90 + (1 + uy) * 45 }; }
@@ -2078,7 +2078,7 @@
         }
         for (let n = FINISH_INDEX; n < FINISH_INDEX + 2; n++) { segments[n].sprites.push({ emoji: '🏁', offset: -1.25, size: 0.5 }); segments[n].sprites.push({ emoji: '🏁', offset: 1.25, size: 0.5 }); }
         const cars = [];
-        const carCount = Math.round(lerp(9, 16, difficulty));
+        const carCount = Math.round(lerp(9, 14, difficulty));
         for (let i = 0; i < carCount; i++) {
           const z = (30 + Math.random() * (FINISH_INDEX - 45)) * SEG_LEN;
           if (cars.some((c) => Math.abs(c.z - z) < SEG_LEN * 5)) { i--; continue; }
@@ -2925,7 +2925,7 @@
         const CAM_Z = -4, CAM_Y = 3.2, F_RATIO = 0.62;
         const HOOP_Z = 9, HOOP_Y = 3.05, RIM_R = 0.45, BALL_R = 0.24, BOARD_Z = HOOP_Z + 0.55;
         let hoopX = 0, hoopVx = 0, made = 0, shots = 0, streak = 0, best = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0;
-        let ball = null, drag = null, net = 0, rimFlash = 0, sway = lerp(0, 1.4, difficulty);
+        let ball = null, drag = null, net = 0, rimFlash = 0, sway = lerp(0, 1.0, difficulty);
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
           <div class="mg-header"><span id="bkTimer">のこり: ${Math.ceil(DURATION_MS / 1000)}s</span><span id="bkScore">🏀 0／0</span></div>
@@ -3034,7 +3034,7 @@
         const difficulty = ageDifficulty();
         const WIN = 5, TIME_LIMIT_MS = mgDuration(75000);
         const TABLE_L = 2.74, TABLE_HW = 0.76, NET_H = 0.15, CAM_Z = -1.3, CAM_Y = 1.25, F_RATIO = 0.62;
-        const AI_SPEED = lerp(1.3, 2.4, difficulty), AI_ERR = lerp(0.22, 0.09, difficulty);
+        const AI_SPEED = lerp(1.3, 2.2, difficulty), AI_ERR = lerp(0.22, 0.11, difficulty);
         let me = 0, ai = 0, rally = 0, bestRally = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0, serveAt = 0, server = 'me';
         let ball = null, px = 0, py = 0.25, prevPx = 0, prevPy = 0.25, pvx = 0, aiX = 0, aiY = 0.25, hitFlash = 0;
         const startTime = performance.now();
@@ -4004,7 +4004,9 @@
           for (const e of enemies) { e.t += dt; e.x -= (60 + wave * 4) * dt; if (e.kind === 'sine') e.y += Math.sin(e.t * 3) * 60 * dt; if (e.kind === 'dive' && e.x < W * 0.6) e.y += (ship.y - e.y) * dt * 1.2; e.shot -= dt; if (e.shot <= 0 && e.x < W) { e.shot = 1.8 + Math.random() * 1.2; const a = Math.atan2(ship.y - e.y, ship.x - e.x); eBullets.push({ x: e.x, y: e.y, vx: Math.cos(a) * 120, vy: Math.sin(a) * 120 }); } }
           enemies = enemies.filter((e) => e.x > -30);
           if (boss) { boss.t += dt; boss.x += (W - 50 - boss.x) * dt * 1.5; boss.y = H / 2 + Math.sin(boss.t * 1.1) * 60; boss.fire -= dt; if (boss.fire <= 0) { boss.fire = 0.9; for (let k = -2; k <= 2; k++) { const a = Math.PI + k * 0.25; eBullets.push({ x: boss.x - 20, y: boss.y, vx: Math.cos(a) * 130, vy: Math.sin(a) * 130 }); } } if (boss.hp <= 0) { bossDead = true; score += 200; shake = 12; for (let i = 0; i < 30; i++) particles.push({ x: boss.x, y: boss.y, vx: (Math.random() - 0.5) * 260, vy: (Math.random() - 0.5) * 260, born: now, color: '#ff5ea8' }); boss = null; say('🎆ボスをたおした!!', 2000); hud(); } }
-          for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; for (const e of enemies) { if (Math.hypot(e.x - b.x, e.y - b.y) < e.r + 3) { e.hp -= b.big ? 2 : 1; b.dead = true; if (e.hp <= 0) killEnemy(e); } } if (boss && Math.hypot(boss.x - b.x, boss.y - b.y) < boss.r) { boss.hp -= b.big ? 2 : 1; b.dead = true; } }
+          // 1はつの たまは 1たいにしか あたらない(あたった たまは そこで おわり)。
+          // hp が 0 いかの てきは、この フレームの あとで けされる ので もう あてない
+          for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; for (const e of enemies) { if (e.hp <= 0) continue; if (Math.hypot(e.x - b.x, e.y - b.y) < e.r + 3) { e.hp -= b.big ? 2 : 1; b.dead = true; if (e.hp <= 0) killEnemy(e); break; } } if (!b.dead && boss && Math.hypot(boss.x - b.x, boss.y - b.y) < boss.r) { boss.hp -= b.big ? 2 : 1; b.dead = true; } }
           bullets = bullets.filter((b) => !b.dead && b.x < W + 10); enemies = enemies.filter((e) => e.hp > 0);
           for (const b of eBullets) { b.x += b.vx * dt; b.y += b.vy * dt; }
           eBullets = eBullets.filter((b) => b.x > -10 && b.x < W + 10 && b.y > -10 && b.y < H + 10);
@@ -4049,7 +4051,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const result = clamp(Math.round(15 + kills * 2.2 + (bossDead ? 30 : 0) + ship.lives * 6), 10, 100);
+          const result = clamp(Math.round(14 + Math.min(44, kills * 2.0) + (bossDead ? 34 : 0) + ship.lives * 6), 10, 100);
           say(ship.lives <= 0 ? `げきついされた…げきは${kills}` : bossDead ? `🏆ボスげきは!げきは${kills} ❤️${ship.lives}` : `しゅうりょう!げきは${kills}`, 2200);
           render(performance.now());
           setTimeout(() => onComplete(result), 900);
@@ -4325,7 +4327,7 @@
             const caps = captures(board, x, y, AI);
             const b2 = board.map((r) => r.slice()); b2[y][x] = AI; for (const [cx, cy] of caps) b2[cy][cx] = AI;
             const mob = legal(b2, ME).length;
-            let v = WEIGHTS[y][x] * 2 + caps.length * lerp(1.5, 0.8, difficulty) - mob * lerp(0.6, 1.6, difficulty) + (Math.random() - 0.5) * lerp(3, 0.6, difficulty);
+            let v = WEIGHTS[y][x] * 2 + caps.length * lerp(1.5, 0.8, difficulty) - mob * lerp(0.6, 1.4, difficulty) + (Math.random() - 0.5) * lerp(3, 0.6, difficulty);
             if (v > bestV) { bestV = v; best = [x, y]; }
           }
           place(best[0], best[1], AI); next();
@@ -5502,7 +5504,7 @@
         // レーン: row → {kind, speed(cells/s), items:[{x,w,emoji}]}
         const lanes = {};
         const mk = (row, kind, speed, count, w, emojis) => { const items = []; for (let i = 0; i < count; i++) items.push({ x: (i * COLS / count) + Math.random() * 1.2, w, emoji: emojis[i % emojis.length] }); lanes[row] = { kind, speed, items }; };
-        const sp = lerp(1.0, 1.7, difficulty);
+        const sp = lerp(1.0, 1.55, difficulty);
         mk(1, 'log', 1.1 * sp, 2, 3, ['🪵']); mk(2, 'log', -1.5 * sp, 3, 2, ['🐢']); mk(3, 'log', 0.9 * sp, 2, 4, ['🪵']); mk(4, 'log', -1.2 * sp, 3, 2, ['🪵']);
         mk(6, 'car', -1.6 * sp, 2, 1, ['🚗']); mk(7, 'car', 1.2 * sp, 2, 1.6, ['🚚']); mk(8, 'car', -2.4 * sp, 1, 1, ['🏎️']); mk(9, 'car', 1.4 * sp, 3, 1, ['🚙', '🚕']); mk(10, 'car', -1.0 * sp, 2, 1.4, ['🚌']);
         function hop(dx, dy) {
@@ -5598,7 +5600,7 @@
         const rampY = (px) => (px < RAMP_END ? 24 * Math.pow(1 - px / RAMP_END, 1.6) : 0);
         const hillY = (px) => { const d = px - RAMP_END; return d <= 0 ? 0 : -(0.62 * d + 2 * (1 - Math.exp(-d / 2))); };
         const groundY = (px) => (px <= RAMP_END ? rampY(px) : hillY(px));
-        function startRun() { phase = 'run'; x = 0; y = rampY(0); vx = 0; vy = 0; lean = 0; telemark = false; crashed = false; flightT = 0; wind = (Math.random() - 0.5) * lerp(0.3, 0.9, difficulty); leanTarget = 0.5 + wind * 0.4; say('だいのはしでタップ!', 1500); }
+        function startRun() { phase = 'run'; x = 0; y = rampY(0); vx = 0; vy = 0; lean = 0; telemark = false; crashed = false; flightT = 0; wind = (Math.random() - 0.5) * lerp(0.3, 0.8, difficulty); leanTarget = 0.5 + wind * 0.4; say('だいのはしでタップ!', 1500); }
         function takeoff() {
           if (phase !== 'run') return; const late = x - RAMP_END; // >0 は はしを こえてから
           const err = Math.abs(late); const q = clamp(1 - err / 4, 0, 1);
@@ -5616,7 +5618,7 @@
             const slope = (rampY(x + 0.1) - rampY(x)) / 0.1; vx += (G * -slope * 0.9 - vx * 0.02) * dt; vx = Math.max(vx, 0); x += vx * dt; y = rampY(x);
             if (x > RAMP_END + 2.5) { takeoff(); vy = 0.5; say('とびだしがおそい!', 900); }
           } else if (phase === 'fly') {
-            flightT += dt; windT += dt; if (windT > 0.6) { windT = 0; leanTarget = clamp(0.5 + wind * 0.4 + (Math.random() - 0.5) * lerp(0.1, 0.35, difficulty), 0.1, 0.95); }
+            flightT += dt; windT += dt; if (windT > 0.6) { windT = 0; leanTarget = clamp(0.5 + wind * 0.4 + (Math.random() - 0.5) * lerp(0.1, 0.3, difficulty), 0.1, 0.95); }
             lean += ((held ? 1 : 0) - lean) * Math.min(1, dt * 3.2);
             const q = 1 - Math.abs(lean - leanTarget) / 0.5; const lift = 1.0 + clamp(q, -0.6, 1) * 3.5;
             vy += (-G + lift) * dt; vx += (q > 0.6 ? 0.6 : -0.8) * dt; vx = Math.max(vx, 8);
@@ -5720,7 +5722,7 @@
           // じぶんの マレット(ゆびに ついてくる)
           const nx = mine.x + (mine.px - mine.x) * Math.min(1, dt * 22), ny = mine.y + (mine.py - mine.y) * Math.min(1, dt * 22); mine.vx = (nx - mine.x) / dt; mine.vy = (ny - mine.y) / dt; mine.x = nx; mine.y = ny;
           // AI
-          const aiSpeed = lerp(230, 420, difficulty); let tx = W / 2, ty = H * 0.18;
+          const aiSpeed = lerp(230, 380, difficulty); let tx = W / 2, ty = H * 0.18;
           if (puck.y < H / 2 + 40 && puck.vy <= 80) { tx = puck.x; ty = puck.y - (puck.y < opp.y ? -30 : 0); if (puck.y < opp.y) ty = puck.y + 10; else ty = Math.max(MR + 4, puck.y - 6); }
           else { tx = W / 2 + (puck.x - W / 2) * 0.4; ty = H * 0.16; }
           const ddx = tx - opp.x, ddy = clamp(ty, MR, H / 2 - MR) - opp.y; const dd = Math.hypot(ddx, ddy) || 1; const stepL = Math.min(dd, aiSpeed * dt); const ox = opp.x, oy = opp.y; opp.x += ddx / dd * stepL; opp.y += ddy / dd * stepL; opp.vx = (opp.x - ox) / dt; opp.vy = (opp.y - oy) / dt;
@@ -6333,8 +6335,8 @@
           let ang = Math.atan2(dx, -dy); if (ang < 0) ang += Math.PI * 2; const idx = Math.round(ang / (Math.PI * 2 / 20)) % 20; const n = SECTORS[idx];
           if (d > 0.92) return { pts: n * 2, label: `ダブル${n}! ${n * 2}` }; if (d > 0.56 && d < 0.64) return { pts: n * 3, label: `トリプル${n}!! ${n * 3}` }; return { pts: n, label: `${n}てん` };
         }
-        function throwDart(tx, ty) { const spread = lerp(3, 7, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); darts.push({ x: fx, y: fy, pts: r.pts }); total += r.pts; best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
-        function update(dt, now) { if (aim) { holdT += dt; const amp = Math.min(26, holdT * holdT * lerp(9, 16, difficulty)); wob.x = Math.sin(now / 90) * amp * 0.6 + Math.sin(now / 37) * amp * 0.25; wob.y = Math.cos(now / 73) * amp * 0.6 + Math.sin(now / 51) * amp * 0.25; drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }
+        function throwDart(tx, ty) { const spread = lerp(3, 6, difficulty); const fx = tx + (Math.random() - 0.5) * spread, fy = ty + (Math.random() - 0.5) * spread; flying = { fx, fy, born: performance.now() }; setTimeout(() => { if (!running) return; const r = scoreAt(fx, fy); darts.push({ x: fx, y: fy, pts: r.pts }); total += r.pts; best = Math.max(best, r.pts); thrown++; flying = null; say(r.label, 1100); hud(); if (thrown >= DARTS) setTimeout(finish, 1300); }, 320); }
+        function update(dt, now) { if (aim) { holdT += dt; const amp = Math.min(26, holdT * holdT * lerp(9, 14, difficulty)); wob.x = Math.sin(now / 90) * amp * 0.6 + Math.sin(now / 37) * amp * 0.25; wob.y = Math.cos(now / 73) * amp * 0.6 + Math.sin(now / 51) * amp * 0.25; drift.x += (Math.random() - 0.5) * dt * 40 * holdT; drift.y += (Math.random() - 0.5) * dt * 40 * holdT; } else { wob.x *= 0.8; wob.y *= 0.8; } }
         function drawBoard() {
           ctx.fillStyle = '#3a2418'; ctx.beginPath(); ctx.arc(CX, CY, R * 1.12, 0, Math.PI * 2); ctx.fill();
           for (let i = 0; i < 20; i++) { const a0 = (i - 0.5) * Math.PI * 2 / 20 - Math.PI / 2, a1 = a0 + Math.PI * 2 / 20; const dark = i % 2 === 0;
@@ -8002,13 +8004,13 @@
         // ワールド: x 0..400(m)、かっそうろ 300..400、ちゃくりく ゾーン 310..345。グライドパス: alt = (300 - x) * 0.1 (m)
         const RUN0 = 300, ZONE = [310, 345], SPEED = lerp(26, 32, difficulty);
         const glide = (px) => Math.max(0, (RUN0 + 6 - px) * 0.1);
-        function reset() { x = 0; alt = glide(0) + 4; vy = 0; pitch = 0; wind = (Math.random() - 0.5) * lerp(0.6, 1.6, difficulty); phase = 'fly'; flareBonus = false; say(`${n + 1}かいめ: 緑の線にあわせよう`, 1400); }
+        function reset() { x = 0; alt = glide(0) + 4; vy = 0; pitch = 0; wind = (Math.random() - 0.5) * lerp(0.6, 1.4, difficulty); phase = 'fly'; flareBonus = false; say(`${n + 1}かいめ: 緑の線にあわせよう`, 1400); }
         reset();
         function update(dt, now) {
           if (phase !== 'fly') return;
           const kp = (upHeld ? 1 : 0) - (downHeld ? 1 : 0); if (kp) pitch = clamp(pitch + kp * dt * 1.8, -1, 1); else if (!drag) pitch += (0 - pitch) * Math.min(1, dt * 0.8);
           gust += ((Math.random() - 0.5) * 2 - gust) * Math.min(1, dt * 0.6);
-          const targetVy = pitch * 6 - 2.8 + wind * 0.8 + gust * lerp(0.4, 1.0, difficulty); vy += (targetVy - vy) * Math.min(1, dt * 2.2);
+          const targetVy = pitch * 6 - 2.8 + wind * 0.8 + gust * lerp(0.4, 0.9, difficulty); vy += (targetVy - vy) * Math.min(1, dt * 2.2);
           alt += vy * dt; x += SPEED * dt; camX += (x - camX) * Math.min(1, dt * 6);
           if (alt <= 0) { alt = 0; phase = 'landed'; judge(); return; }
           if (x > 420) { phase = 'landed'; results.push(0); total += 0; say('💦かっそうろをとおりすぎた…やりなおし', 1600); hud(); setTimeout(next, 1800); return; }
@@ -8852,7 +8854,7 @@
         function groundAt(x) { for (let i = 0; i < terrain.length - 1; i++) { const [x1, y1] = terrain[i], [x2, y2] = terrain[i + 1]; if (x >= x1 && x <= x2) return lerp(y1, y2, (x - x1) / (x2 - x1 || 1)); } return H; }
         function newAttempt() {
           makeTerrain(); phase = 'fly';
-          lander = { x: 24, y: 22, vx: lerp(12, 22, difficulty), vy: 0, ang: 0, fuel: FUEL_MAX, thrusting: false };
+          lander = { x: 24, y: 22, vx: lerp(12, 19, difficulty), vy: 0, ang: 0, fuel: FUEL_MAX, thrusting: false };
           held = { l: false, r: false, t: false }; particles = [];
           say(`${attempt + 1}かいめ:ちゃくりくせよ`, 1200); hud();
         }
@@ -9112,7 +9114,7 @@
         const say = (t, ms = 1200) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `わたし${me} - ${cpu}あいて`; };
         const P = { x: W * 0.25, y: GROUND, vy: 0, jumping: false };
-        const C = { x: W * 0.75, y: GROUND, vy: 0, jumping: false, think: 0, targetX: W * 0.75, spikeChance: lerp(0.45, 0.85, difficulty), speed: lerp(150, 215, difficulty) };
+        const C = { x: W * 0.75, y: GROUND, vy: 0, jumping: false, think: 0, targetX: W * 0.75, spikeChance: lerp(0.45, 0.8, difficulty), speed: lerp(150, 215, difficulty) };
         bindHeldButton(container.querySelector('#bvLeft'), (v) => { held.l = v; });
         bindHeldButton(container.querySelector('#bvRight'), (v) => { held.r = v; });
         bindHeldButton(container.querySelector('#bvAttack'), (v) => { held.a = v; if (v) { attackAt = performance.now(); if (!P.jumping) { P.jumping = true; P.vy = -300; } } });
@@ -9159,7 +9161,7 @@
               // らっかてんを よそう
               let px = ball.x, py = ball.y, vx = ball.vx, vy = ball.vy, t = 0;
               while (py < GROUND - PLAYER_R && t < 3) { vx *= 1; vy += GRAV * 0.016; px += vx * 0.016; py += vy * 0.016; t += 0.016; if (px < NET_X + BALL_R || px > W - BALL_R) vx = -vx; }
-              C.targetX = ball.x > NET_X ? clamp(px + (Math.random() - 0.5) * lerp(30, 8, difficulty), NET_X + PLAYER_R + 4, W - PLAYER_R) : W * 0.75;
+              C.targetX = ball.x > NET_X ? clamp(px + (Math.random() - 0.5) * lerp(30, 12, difficulty), NET_X + PLAYER_R + 4, W - PLAYER_R) : W * 0.75;
             } else C.targetX = W * 0.72;
             const dx = C.targetX - C.x; const mv = Math.sign(dx) * Math.min(Math.abs(dx), C.speed * s); C.x += mv;
             if (!C.jumping && ball.x > NET_X && Math.abs(ball.x - C.x) < 30 && ball.y < C.y - 30 && ball.y > C.y - 90 && ball.vy > 0 && touches.cpu >= 1 && Math.random() < 0.5) { C.jumping = true; C.vy = -300; }
