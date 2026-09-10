@@ -1,6 +1,10 @@
 const fs = require('fs');
 
-const source = fs.readFileSync('script.js', 'utf8');
+// ミニゲーム本体(games.js)は script.js より さきに よみこまれる。テストでは
+// 2つを つなげて 1つの ソースとして あつかう(script.js の おわりの })(); が
+// ぜんたいの おわりに なる)
+const gamesSource = fs.readFileSync('games.js', 'utf8');
+const source = gamesSource + '\n' + fs.readFileSync('script.js', 'utf8');
 const html = fs.readFileSync('index.html', 'utf8');
 
 const masterSource = fs.readFileSync('character-world-master.v1.js', 'utf8');
