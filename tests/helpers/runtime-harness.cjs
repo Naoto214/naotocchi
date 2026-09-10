@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -20,7 +20,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     const queries = new Map();
     let html = '';
     const el = {
-      id, listeners, dataset: {}, style: { setProperty: noop, removeProperty: noop },
+      id, listeners, dataset: {}, style: { setProperty(k,v) {this[k]=String(v);}, removeProperty(k) {delete this[k];} },
       children: [], animations: [], textContent: '', value: '', disabled: false, isConnected: true,
       clientWidth: 300, clientHeight: 300,
       classList: {
@@ -91,6 +91,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     body: node('body'), documentElement: node('html'), visibilityState: 'visible', activeElement: null,
   });
   window = {...node('window')};
+  if (viewportHeight) window.visualViewport=Object.assign(node('viewport'),{height:viewportHeight,scale:1});
   const schedule = (fn, delay = 0, ...args) => {
     const id = ++serial; timers.set(id, {at: now + Math.max(1, delay), fn: () => fn(...args)}); return id;
   };
@@ -120,7 +121,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
-      speakEvent, setSpeechBubble, clearConversationTimers, scheduleIdlePerk,
+      speakEvent, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,

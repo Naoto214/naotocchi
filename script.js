@@ -1978,18 +1978,24 @@
   const ENDING_TIERS = [
     {
       title: 'てんじゅをまっとうした!',
+      art: 'assets/clear/goal-1-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '夕焼けの縁側で、白いパーカーのナオトと犬が並んで景色を眺める後ろ姿',
       confetti: '🌇✨🎉✨🌇',
       badges: ['★①てんじゅをまっとうした'],
       desc: '100さいまでいっしょうをいきぬいた!<br>つぎのゴール: 100さい＋そだち70いじょう',
     },
     {
       title: 'いっしょうクリア!',
+      art: 'assets/clear/goal-2-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '星空の港で、白いパーカーのナオトと犬がランタンのそばに座る後ろ姿',
       confetti: '🏮✨🌙✨🏮',
       badges: ['★①てんじゅ', '★②いっしょうクリア'],
       desc: 'よくそだてながら、100さいまでいきぬいた!<br>つぎのゴール: 100さい＋そだち100',
     },
     {
       title: 'さいこうのいっしょう!',
+      art: 'assets/clear/goal-3-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '思い出の写真が揺れる木の下で、白いパーカーのナオトと犬が寄り添う後ろ姿',
       confetti: '🌳✨🌈✨🌳',
       badges: ['★①てんじゅ', '★②いっしょう', '★③さいこうのいっしょう'],
       desc: 'そだち100にとどき、100さいをむかえた。<br>つぎはずかんのすべてのすがたをみつけよう!',
@@ -2017,72 +2023,62 @@
   // endingTiersReached)を それぞれ 一度でも たっせいすると てにはいる、
   // 永続の ごほうび(unlockTier が その ENDING_TIERS の インデックス。
   // レインボーだけは 4つ ぜんぶ そろって はじめて 解放される ので
-  // unlockAll を つかう)。deviceSwatch/screenSwatch は それぞれの グリッドの
-  // プレビュー丸に つかう いろ - "default"(はじめから の くみあわせ)だけ
-  // ほんたい(もも)と がめん(みどりの LCD)で いろが ちがうので わけてある
+  // unlockAll をつかう)。実際の色とプレビューは design.css の同じ定義を使う。
   const COLOR_THEMES = [
-    { id: 'default', label: 'クラシック', deviceSwatch: '#efd4df', screenSwatch: '#e9f0dc' },
-    { id: 'sky', label: 'そら', deviceSwatch: '#6fa8ff', screenSwatch: '#8ecbe8' },
-    { id: 'mint', label: 'ミント', deviceSwatch: '#5fe0a0', screenSwatch: '#8de8c0' },
-    { id: 'lavender', label: 'ラベンダー', deviceSwatch: '#b98aff', screenSwatch: '#c9b3f0' },
-    { id: 'lemon', label: 'レモン', deviceSwatch: '#ffe066', screenSwatch: '#f0e28d' },
-    { id: 'charcoal', label: 'すみいろ', deviceSwatch: '#444444', screenSwatch: '#8a9a8a' },
-    { id: 'coral', label: 'さんごいろ', deviceSwatch: '#ff8a80', screenSwatch: '#ffab9e' },
-    { id: 'peach', label: 'ピーチ', deviceSwatch: '#ffb27a', screenSwatch: '#ffd4a8' },
-    { id: 'turquoise', label: 'ターコイズ', deviceSwatch: '#33c9c9', screenSwatch: '#7fe0e0' },
-    { id: 'indigo', label: 'あいいろ', deviceSwatch: '#3f5f9e', screenSwatch: '#93a9cc' },
-    { id: 'olive', label: 'オリーブ', deviceSwatch: '#8a9a5b', screenSwatch: '#c3d19c' },
-    { id: 'mustard', label: 'からしいろ', deviceSwatch: '#d9a441', screenSwatch: '#ecc98a' },
-    { id: 'sakura', label: 'さくらいろ', deviceSwatch: '#ffb7c5', screenSwatch: '#ffd6df' },
-    { id: 'crystal', label: 'すいしょう', deviceSwatch: '#a9c6d8', screenSwatch: '#d3e6ef' },
-    { id: 'wakakusa', label: 'わかくさ', deviceSwatch: '#9fcf5a', screenSwatch: '#c9e692' },
-    { id: 'grape', label: 'ぶどういろ', deviceSwatch: '#7d4fae', screenSwatch: '#b493d6' },
-    { id: 'apricot', label: 'あんずいろ', deviceSwatch: '#f4a86a', screenSwatch: '#f8c99a' },
-    { id: 'navy', label: 'こんじょう', deviceSwatch: '#2d4a73', screenSwatch: '#6d8bb0' },
-    { id: 'crimson', label: 'べにいろ', deviceSwatch: '#c94f5c', screenSwatch: '#e08a92' },
-    { id: 'rosegold', label: 'ローズゴールド', deviceSwatch: '#d9a5a0', screenSwatch: '#ecc9c4' },
-    { id: 'sunset', label: 'ゆうやけ', deviceSwatch: '#ff8965', screenSwatch: '#f0b98d', unlockTier: 0 },
-    { id: 'dawn', label: 'あさやけ', deviceSwatch: '#ffcf8f', screenSwatch: '#ffe0b8', unlockTier: 0 },
-    { id: 'twilight', label: 'たそがれ', deviceSwatch: '#6b6ea8', screenSwatch: '#a3a8d1', unlockTier: 0 },
-    { id: 'flame', label: 'ほのお', deviceSwatch: '#ff5e3a', screenSwatch: '#ff9a72', unlockTier: 0 },
-    { id: 'amber', label: 'こはくいろ', deviceSwatch: '#e8a33d', screenSwatch: '#f5c97a', unlockTier: 0 },
-    { id: 'forest', label: 'しんりん', deviceSwatch: '#4caf6e', screenSwatch: '#6fae7a', unlockTier: 1 },
-    { id: 'stream', label: 'せせらぎ', deviceSwatch: '#4fb8b0', screenSwatch: '#8fd9d2', unlockTier: 1 },
-    { id: 'grove', label: 'こだちいろ', deviceSwatch: '#1f5c38', screenSwatch: '#5a9268', unlockTier: 1 },
-    { id: 'moonlight', label: 'つきかげ', deviceSwatch: '#b8c4d9', screenSwatch: '#e0e6f0', unlockTier: 1 },
-    { id: 'mist', label: 'もりのきり', deviceSwatch: '#a8c9a0', screenSwatch: '#d3e6cd', unlockTier: 1 },
-    { id: 'gold', label: 'おうごん', deviceSwatch: '#ffd76a', screenSwatch: '#e8cf7a', unlockTier: 2 },
-    { id: 'galaxy', label: 'ぎんが', deviceSwatch: '#4a3f7a', screenSwatch: '#8577b3', unlockTier: 3 },
-    { id: 'jade', label: 'ひすい', deviceSwatch: '#2f9e7a', screenSwatch: '#6fcaac', unlockTier: 2 },
-    { id: 'ruby', label: 'ルビー', deviceSwatch: '#a3243f', screenSwatch: '#d1637a', unlockTier: 2 },
-    { id: 'sapphire', label: 'サファイア', deviceSwatch: '#2a4d8f', screenSwatch: '#6a8fc9', unlockTier: 2 },
+    { id: 'default', label: 'クラシック' },
+    { id: 'sky', label: 'そら' },
+    { id: 'mint', label: 'ミント' },
+    { id: 'lavender', label: 'ラベンダー' },
+    { id: 'lemon', label: 'レモン' },
+    { id: 'charcoal', label: 'すみいろ' },
+    { id: 'coral', label: 'さんごいろ' },
+    { id: 'peach', label: 'ピーチ' },
+    { id: 'turquoise', label: 'ターコイズ' },
+    { id: 'indigo', label: 'あいいろ' },
+    { id: 'olive', label: 'オリーブ' },
+    { id: 'mustard', label: 'からしいろ' },
+    { id: 'sakura', label: 'さくらいろ' },
+    { id: 'crystal', label: 'すいしょう' },
+    { id: 'wakakusa', label: 'わかくさ' },
+    { id: 'grape', label: 'ぶどういろ' },
+    { id: 'apricot', label: 'あんずいろ' },
+    { id: 'navy', label: 'こんじょう' },
+    { id: 'crimson', label: 'べにいろ' },
+    { id: 'rosegold', label: 'ローズゴールド' },
+    { id: 'sunset', label: 'ゆうやけ', unlockTier: 0 },
+    { id: 'dawn', label: 'あさやけ', unlockTier: 0 },
+    { id: 'twilight', label: 'たそがれ', unlockTier: 0 },
+    { id: 'flame', label: 'ほのお', unlockTier: 0 },
+    { id: 'amber', label: 'こはくいろ', unlockTier: 0 },
+    { id: 'forest', label: 'しんりん', unlockTier: 1 },
+    { id: 'stream', label: 'せせらぎ', unlockTier: 1 },
+    { id: 'grove', label: 'こだちいろ', unlockTier: 1 },
+    { id: 'moonlight', label: 'つきかげ', unlockTier: 1 },
+    { id: 'mist', label: 'もりのきり', unlockTier: 1 },
+    { id: 'gold', label: 'おうごん', unlockTier: 2 },
+    { id: 'galaxy', label: 'ぎんが', unlockTier: 3 },
+    { id: 'jade', label: 'ひすい', unlockTier: 2 },
+    { id: 'ruby', label: 'ルビー', unlockTier: 2 },
+    { id: 'sapphire', label: 'サファイア', unlockTier: 2 },
     {
       id: 'rainbow',
       label: 'レインボー',
-      deviceSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
-      screenSwatch: 'linear-gradient(90deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
       unlockAll: true,
     },
     {
       id: 'aurora',
       label: 'オーロラ',
-      deviceSwatch: 'linear-gradient(90deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d)',
-      screenSwatch: 'linear-gradient(90deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d)',
       unlockTier: 4,
     },
     {
       id: 'radiance',
       label: 'こうごん',
-      deviceSwatch: 'linear-gradient(90deg, #fff6d5, #ffe066, #ffd700, #f5b942)',
-      screenSwatch: 'linear-gradient(90deg, #fff6d5, #ffe066, #ffd700, #f5b942)',
       unlockTier: 4,
     },
-    { id: 'starlight', label: 'せいざ', deviceSwatch: '#2e1a47', screenSwatch: '#4a3564', unlockTier: 4 },
+    { id: 'starlight', label: 'せいざ', unlockTier: 4 },
     {
       id: 'prism',
       label: 'にじいろのプリズム',
-      deviceSwatch: 'radial-gradient(circle, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
-      screenSwatch: 'radial-gradient(circle, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff)',
       unlockTier: 4,
     },
   ];
@@ -2687,6 +2683,7 @@
     el.speechText.textContent = compactJapaneseText(text);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
+    renderHomeCast();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
@@ -7199,8 +7196,9 @@
     if (!isAuthorUnlocked()) return false;
     const lines = {
       hello: 'ナオト「やあ！遊んでくれて、ありがとう！」',
-      dex: 'ナオト「こんなにたくさんの子と会えたんだね。遊んでくれて、ありがとう！」',
-      perfect: 'ナオト「ぜんぶ見つけてくれたんだね！これからも、なおとっちをよろしくね！」',
+      dex: 'ナオト「ナオトだよ！たくさんの子に会ってくれて、ありがとう！」',
+      // ④を経ずに⑤へ進んでも、この挨拶だけで誰に会ったかがわかる。
+      perfect: 'ナオト「ナオトだよ！ぜんぶ見つけてくれて、ありがとう！」',
     };
     showStoryEvent({ author:true, message:lines[kind] || lines.hello });
     return true;
@@ -9815,15 +9813,14 @@
   // ロックされた/存在しない id が しれっと 残っていても(セーブデータ改変
   // など)、その場合は もも(default)に フォールバックする
   function applyTheme() {
-    const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t));
-    const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t));
-    el.device.style.setProperty('--ui-case', deviceTheme?.deviceSwatch || '#efd4df');
+    const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
+    const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
     COLOR_THEMES.forEach((t) => {
       el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
       el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
     });
-    const devicePattern = PATTERNS.find((p) => p.id === state.lifetime.devicePatternId && isThemeUnlocked(p));
-    const screenPattern = PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p));
+    const devicePattern = PATTERNS.find((p) => p.id === state.lifetime.devicePatternId && isThemeUnlocked(p)) || PATTERNS[0];
+    const screenPattern = PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p)) || PATTERNS[0];
     PATTERNS.forEach((p) => {
       el.device.classList.toggle(`pattern-${p.id}`, p === devicePattern);
       el.screen.classList.toggle(`pattern-${p.id}`, p === screenPattern);
@@ -10149,7 +10146,6 @@
 
     renderCompanionRow();
     renderPartnerCompanion(isEgg || isOver);
-    renderHomeCast();
     if (gameActive || isDead || state.transformOptions || isAnyMenuOverlayOpen() || document.visibilityState === 'hidden') castMotion?.clear();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
@@ -10261,7 +10257,9 @@
     el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
+    el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     renderItemsRow(disableCare);
+    renderHomeCast();
   }
 
   let menuOpen = false;
@@ -10439,27 +10437,32 @@
     el.gameListGrid.innerHTML = html;
   }
 
-  function renderThemeSwatchGrid(gridEl, selectedId, swatchField) {
+  function designPreview(target, colorId, patternId) {
+    const color = COLOR_THEMES.find(t => t.id === colorId && isThemeUnlocked(t)) || COLOR_THEMES[0];
+    const pattern = PATTERNS.find(p => p.id === patternId && isThemeUnlocked(p)) || PATTERNS[0];
+    return `<span class="theme-swatch-circle surface-${target} theme-${color.id} pattern-${pattern.id}" aria-hidden="true"></span>`;
+  }
+
+  function renderThemeSwatchGrid(gridEl, selectedId, target, patternId) {
+    selectedId = COLOR_THEMES.find(t => t.id === selectedId && isThemeUnlocked(t))?.id || 'default';
     gridEl.innerHTML = COLOR_THEMES.map((t) => {
       const unlocked = isThemeUnlocked(t);
       const selected = unlocked && t.id === selectedId;
-      const circleStyle = unlocked ? ` style="background:${t[swatchField]}"` : '';
       const label = unlocked ? t.label : '？？？';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle"${circleStyle}>${unlocked ? '' : '🔒'}</span><span class="theme-swatch-label">${label}</span></button>`;
+      const preview = unlocked ? designPreview(target,t.id,patternId) : '<span class="theme-swatch-circle">🔒</span>';
+      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
     }).join('');
   }
 
-  // COLOR_THEMES の いろスウォッチと ちがい、PATTERNS は 単色を
-  // もたないので、まる の なかみに その がらの めじるしの emoji を
-  // そのまま おく(じっさいの タイル もようは 選んで がめんに 反映した
-  // ときに style.css の .screen.pattern-<id> で 見える)
-  function renderPatternSwatchGrid(gridEl, selectedId) {
+  // Preview the actual selected color with each motif, using the same CSS.
+  function renderPatternSwatchGrid(gridEl, selectedId, target, colorId) {
+    selectedId = PATTERNS.find(p => p.id === selectedId && isThemeUnlocked(p))?.id || 'none';
     gridEl.innerHTML = PATTERNS.map((p) => {
       const unlocked = isThemeUnlocked(p);
       const selected = unlocked && p.id === selectedId;
       const label = unlocked ? p.label : '？？？';
-      const circleContent = unlocked ? p.emoji : '🔒';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${p.id}" ${unlocked ? '' : 'disabled'}><span class="theme-swatch-circle">${circleContent}</span><span class="theme-swatch-label">${label}</span></button>`;
+      const preview = unlocked ? designPreview(target,colorId,p.id) : '<span class="theme-swatch-circle">🔒</span>';
+      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${p.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
     }).join('');
   }
 
@@ -10469,10 +10472,10 @@
     const unlockedColors = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
     const unlockedPatterns = PATTERNS.filter((p) => isThemeUnlocked(p)).length;
     el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + PATTERNS.length}`;
-    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'deviceSwatch');
-    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
-    renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId);
-    renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId);
+    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'device', state.lifetime.devicePatternId);
+    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screen', state.lifetime.screenPatternId);
+    renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId, 'device', state.lifetime.deviceThemeId);
+    renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId, 'screen', state.lifetime.screenThemeId);
     el.fontSelect.value = state.lifetime.fontStyle || 'rounded';
     el.textSizeSelect.value = state.lifetime.textSize || 'normal';
   }
@@ -11320,7 +11323,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = COLOR_THEMES.filter((t) => t.unlockTier !== undefined && !t.unlockAll && !isThemeUnlocked(t)).map((t) => `
         <button type="button" class="theme-swatch" data-picker-value="${t.id}">
-          <span class="theme-swatch-circle" style="background:${t.deviceSwatch}"></span>
+          <span class="theme-swatch-circle surface-device theme-${t.id} pattern-none" aria-hidden="true"></span>
           <span class="theme-swatch-label">${t.label}</span>
         </button>
       `).join('');
@@ -11328,7 +11331,7 @@
       el.pickerGrid.className = 'theme-grid';
       html = PATTERNS.filter((p) => p.unlockTier !== undefined && !p.unlockAll && !isThemeUnlocked(p)).map((p) => `
         <button type="button" class="theme-swatch" data-picker-value="${p.id}">
-          <span class="theme-swatch-circle">${p.emoji}</span>
+          <span class="theme-swatch-circle surface-device theme-default pattern-${p.id}" aria-hidden="true"></span>
           <span class="theme-swatch-label">${p.label}</span>
         </button>
       `).join('');
@@ -11358,7 +11361,7 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    // ④・⑤は承認済み作者シートに基づく専用アート。正確な達成数はUIで表示する。
+    // ①〜③はナオトの後ろ姿、④⑤は正面。文字・達成数・報酬はUIで表示する。
     if (el.gameClearArt) {
       el.gameClearArt.src = tier.art || `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
       el.gameClearArt.alt = tier.artAlt || tier.title;
@@ -11367,19 +11370,29 @@
     el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
     el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
     el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
-    // パーフェクト(tier 3)の ときだけ「じゆうに あそぶ」ボタンを 出す -
-    // それいがいの tier は めざす さきが まだ ある ので、「はじめから」で
-    // また ちょうせんしなおす ことを うながす
+    // ⑤を一度でも達成していれば、人生を残したまま♾️のせかいへ進める。
     el.gameClearFreePlayBtn.classList.toggle('hidden', !state.lifetime.perfectCleared);
     el.gameClearCloseBtn.classList.remove('hidden');
+    const meetsAuthor = grandGoalPending === 'dex' || grandGoalPending === 'perfect';
+    el.gameClearCloseBtn.textContent = meetsAuthor ? 'ナオトにあう'
+      : grandGoalPending === 'life' ? 'おわかれのじかんへ' : 'とじる';
     el.gameClearTitle.textContent = tier.title;
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
+    if (tierIndex < 3) {
+      const reward = NAOTO_ITEMS.find((item) => item.unlockTier === tierIndex);
+      if (reward) el.gameClearDesc.innerHTML += `<br>${escapeHtml(reward.emoji)} ${escapeHtml(reward.label)}をもらった!<br>${escapeHtml(reward.desc)}`;
+    }
     if (tierIndex === 3) {
       const totalForms = ALL_LINES.length * STAGES_PER_LINE;
       const knownForms = Math.min(state.discoveredStages.length, totalForms);
       el.gameClearDesc.innerHTML += `<br>📖みつけたすがた: ${knownForms} / ${totalForms}<br>👑なおとのかんむりをもらった!`;
+    }
+    if (meetsAuthor) {
+      el.gameClearDesc.innerHTML += '<br>ゲームをつくったナオトが、あいさつにくるよ。<br>「あいてむ」の「なおとのひみつ」で、またはなせるよ。';
+    } else if (grandGoalPending === 'life') {
+      el.gameClearDesc.innerHTML += '<br>このあと、おわかれのじかんに<br>この子のいっしょうをきろくできるよ。';
     }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
     const hadPerfect = state.lifetime.endingTiersReached.includes(4);
@@ -11591,7 +11604,9 @@
 
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
-    const width = Math.floor(el.castStage.getBoundingClientRect().width);
+    const stageRect = el.castStage.getBoundingClientRect();
+    const width = Math.floor(stageRect.width);
+    const height = el.device.classList.contains('ui-home-active') ? Math.max(96,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;
     const main = currentVisualStage();
     const p = state.partner;
@@ -11601,7 +11616,7 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
     if (key === homeCastLayoutKey) return;
     homeCastLayoutKey = key;
@@ -11613,7 +11628,8 @@
       node.style.width = frame.w + 'px'; node.style.height = frame.h + 'px';
       node.style.fontSize = Math.floor(frame.w * .8) + 'px';
     };
-    el.castStage.style.height = layout.height + 'px';
+    el.castStage.style.height = height ? '' : layout.height + 'px';
+    el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
     const left=el.companionLeft.children,right=el.companionRight.children;
     layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
@@ -14659,8 +14675,22 @@
   window.addEventListener('beforeunload', () => {
     saveState();
   });
+  function syncHomeViewport() {
+    const viewport = window.visualViewport;
+    // Pinch zoom remains a real zoom; do not shrink the app to undo it.
+    if (viewport && viewport.scale !== 1) return;
+    const height = Math.round(viewport?.height || window.innerHeight);
+    if (height > 0) {
+      document.documentElement.style.setProperty('--app-height',height + 'px');
+      el.device.classList.toggle('ui-home-compact', height <= 640);
+    }
+    el.castStage.style.minHeight = '';
+    renderHomeCast();
+  }
   if (typeof ResizeObserver === 'function') new ResizeObserver(renderHomeCast).observe(el.castStage);
-  else window.addEventListener('resize', renderHomeCast);
+  window.addEventListener('resize', syncHomeViewport);
+  window.visualViewport?.addEventListener('resize', syncHomeViewport);
+  syncHomeViewport();
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (!el.wipeConfirmOverlay.classList.contains('hidden')) {

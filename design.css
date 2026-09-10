@@ -1,0 +1,334 @@
+/* One palette/motif definition paints both the home and design previews.
+   The pattern has its own layer: choosing "none" cannot erase a color gradient. */
+.surface-screen,.surface-device {
+  --surface-color:#e9f0dc; --surface-image:none; --surface-ink:#34382f;
+  --pattern-image:none; --pattern-size:auto; --pattern-position:0 0;
+  --pattern-opacity:.22;
+}
+.surface-device {--surface-color:#efd4df;--pattern-opacity:.65}
+.screen.surface-screen,.device.surface-device,.theme-swatch-circle.surface-screen,.theme-swatch-circle.surface-device {
+  position:relative;isolation:isolate;
+  background-color:var(--surface-color);background-image:var(--surface-image);
+  background-size:100% 100%;background-position:0 0;animation:none;text-shadow:none;
+}
+.surface-screen::before,.surface-device::before {
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;
+  background-image:var(--pattern-image);background-size:var(--pattern-size);
+  background-position:var(--pattern-position);opacity:var(--pattern-opacity);
+}
+.screen.surface-screen {color:var(--surface-ink)}
+.screen.surface-screen .sub-status-row {opacity:1}
+.screen.surface-screen .message {color:inherit}
+.surface-screen.theme-starlight {--surface-ink:#fffaf3;--pattern-opacity:.18}
+.screen.surface-screen.theme-starlight .bar {background:#fffaf34d}
+.screen.surface-screen.theme-starlight .bar-fill:not(.low):not(.critical):not(.high) {background:#bee6c6}
+.screen.surface-screen.sick {--surface-color:#b8cd99;--surface-image:none;--surface-ink:#34382f}
+.screen.surface-screen.dead {--surface-color:#b9b9b9;--surface-image:none;--surface-ink:#333333}
+.screen.surface-screen:is(.sick,.dead) .bar {background:#54684b26}
+.screen.surface-screen:is(.sick,.dead) .bar-fill:not(.low):not(.critical):not(.high) {background:var(--ui-teal)}
+.theme-swatch-circle.surface-screen,.theme-swatch-circle.surface-device {width:48px;height:40px;border-radius:10px;flex-shrink:0}
+.theme-swatch[aria-pressed="true"] {background:#e9efe6;box-shadow:inset 0 0 0 2px var(--ui-teal)}
+.theme-swatch[aria-pressed="true"] .theme-swatch-circle {border-color:var(--ui-teal);box-shadow:none}
+.surface-screen.theme-sky {--surface-color:#8ecbe8}
+.surface-screen.theme-mint {--surface-color:#8de8c0}
+.surface-screen.theme-lavender {--surface-color:#c9b3f0}
+.surface-screen.theme-lemon {--surface-color:#f0e28d}
+.surface-screen.theme-charcoal {--surface-color:#a7b6a8}
+.surface-screen.theme-sunset {--surface-color:#f0b98d}
+.surface-screen.theme-forest {--surface-color:#8bbe94}
+.surface-screen.theme-gold {--surface-color:#e8cf7a}
+.surface-screen.theme-rainbow {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), linear-gradient(120deg, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8)}
+.surface-screen.theme-coral {--surface-color:#ffab9e}
+.surface-screen.theme-peach {--surface-color:#ffd4a8}
+.surface-screen.theme-turquoise {--surface-color:#7fe0e0}
+.surface-screen.theme-indigo {--surface-color:#93a9cc}
+.surface-screen.theme-olive {--surface-color:#c3d19c}
+.surface-screen.theme-mustard {--surface-color:#ecc98a}
+.surface-screen.theme-sakura {--surface-color:#ffd6df}
+.surface-screen.theme-crystal {--surface-color:#d3e6ef}
+.surface-screen.theme-wakakusa {--surface-color:#c9e692}
+.surface-screen.theme-grape {--surface-color:#b493d6}
+.surface-screen.theme-apricot {--surface-color:#f8c99a}
+.surface-screen.theme-navy {--surface-color:#9db5d1}
+.surface-screen.theme-crimson {--surface-color:#e08a92}
+.surface-screen.theme-rosegold {--surface-color:#ecc9c4}
+.surface-screen.theme-dawn {--surface-color:#ffe0b8}
+.surface-screen.theme-twilight {--surface-color:#a3a8d1}
+.surface-screen.theme-flame {--surface-color:#ff9a72}
+.surface-screen.theme-amber {--surface-color:#f5c97a}
+.surface-screen.theme-stream {--surface-color:#8fd9d2}
+.surface-screen.theme-grove {--surface-color:#96b99e}
+.surface-screen.theme-moonlight {--surface-color:#e0e6f0}
+.surface-screen.theme-mist {--surface-color:#d3e6cd}
+.surface-screen.theme-galaxy {--surface-color:#b5a6d4}
+.surface-screen.theme-jade {--surface-color:#6fcaac}
+.surface-screen.theme-ruby {--surface-color:#e3a0ad}
+.surface-screen.theme-sapphire {--surface-color:#9eb9e2}
+.surface-screen.theme-starlight {--surface-color:#4a3564;--surface-image:linear-gradient(160deg, #4a3564 0%, #1b1035 100%)}
+.surface-screen.theme-aurora {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff4d,#ffffff4d), linear-gradient(120deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d, #43e97b)}
+.surface-screen.theme-radiance {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), linear-gradient(120deg, #fff6d5, #ffe066, #ffd700, #f5b942, #fff6d5)}
+.surface-screen.theme-prism {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8)}
+.surface-screen.theme-default {--surface-color:#e9f0dc}
+.surface-device.theme-sky {--surface-color:#9ecbff;--surface-image:linear-gradient(160deg, #9ecbff 0%, #6fa8ff 45%, #4f7ff4 100%)}
+.surface-device.theme-mint {--surface-color:#9effc9;--surface-image:linear-gradient(160deg, #9effc9 0%, #5fe0a0 45%, #34c37f 100%)}
+.surface-device.theme-lavender {--surface-color:#d8b8ff;--surface-image:linear-gradient(160deg, #d8b8ff 0%, #b98aff 45%, #8f5ff0 100%)}
+.surface-device.theme-lemon {--surface-color:#fff3a0;--surface-image:linear-gradient(160deg, #fff3a0 0%, #ffe066 45%, #f7c948 100%)}
+.surface-device.theme-charcoal {--surface-color:#6b6b6b;--surface-image:linear-gradient(160deg, #6b6b6b 0%, #444444 45%, #2a2a2a 100%)}
+.surface-device.theme-sunset {--surface-color:#ffb677;--surface-image:linear-gradient(160deg, #ffb677 0%, #ff8965 45%, #ff5f7e 100%)}
+.surface-device.theme-forest {--surface-color:#7fd99a;--surface-image:linear-gradient(160deg, #7fd99a 0%, #4caf6e 45%, #2e7d4f 100%)}
+.surface-device.theme-gold {--surface-color:#fff2c2;--surface-image:linear-gradient(160deg, #fff2c2 0%, #ffd76a 45%, #e0a939 100%)}
+.surface-device.theme-rainbow {--surface-color:#ff9ecb;--surface-image:linear-gradient(160deg, #ff9ecb 0%, #a78bfa 30%, #60d0ff 60%, #6dffb0 100%)}
+.surface-device.theme-coral {--surface-color:#ffb69e;--surface-image:linear-gradient(160deg, #ffb69e 0%, #ff8a80 45%, #f2604f 100%)}
+.surface-device.theme-peach {--surface-color:#ffe0bd;--surface-image:linear-gradient(160deg, #ffe0bd 0%, #ffb27a 45%, #f2924a 100%)}
+.surface-device.theme-turquoise {--surface-color:#a0f0f0;--surface-image:linear-gradient(160deg, #a0f0f0 0%, #33c9c9 45%, #1f9e9e 100%)}
+.surface-device.theme-indigo {--surface-color:#8fa3c9;--surface-image:linear-gradient(160deg, #8fa3c9 0%, #3f5f9e 45%, #2a4270 100%)}
+.surface-device.theme-olive {--surface-color:#c9d79f;--surface-image:linear-gradient(160deg, #c9d79f 0%, #8a9a5b 45%, #66743e 100%)}
+.surface-device.theme-mustard {--surface-color:#f0d49e;--surface-image:linear-gradient(160deg, #f0d49e 0%, #d9a441 45%, #b6842c 100%)}
+.surface-device.theme-sakura {--surface-color:#ffe3ea;--surface-image:linear-gradient(160deg, #ffe3ea 0%, #ffb7c5 45%, #f591a3 100%)}
+.surface-device.theme-crystal {--surface-color:#e3f1f7;--surface-image:linear-gradient(160deg, #e3f1f7 0%, #a9c6d8 45%, #83a9bd 100%)}
+.surface-device.theme-wakakusa {--surface-color:#d6ee9f;--surface-image:linear-gradient(160deg, #d6ee9f 0%, #9fcf5a 45%, #7fb63f 100%)}
+.surface-device.theme-grape {--surface-color:#c3a6e0;--surface-image:linear-gradient(160deg, #c3a6e0 0%, #7d4fae 45%, #5c3685 100%)}
+.surface-device.theme-apricot {--surface-color:#fbdcb4;--surface-image:linear-gradient(160deg, #fbdcb4 0%, #f4a86a 45%, #e08a3f 100%)}
+.surface-device.theme-navy {--surface-color:#5f7fa6;--surface-image:linear-gradient(160deg, #5f7fa6 0%, #2d4a73 45%, #1c3454 100%)}
+.surface-device.theme-crimson {--surface-color:#e6a2a9;--surface-image:linear-gradient(160deg, #e6a2a9 0%, #c94f5c 45%, #a13540 100%)}
+.surface-device.theme-rosegold {--surface-color:#f2d8d4;--surface-image:linear-gradient(160deg, #f2d8d4 0%, #d9a5a0 45%, #bf827c 100%)}
+.surface-device.theme-dawn {--surface-color:#ffedd0;--surface-image:linear-gradient(160deg, #ffedd0 0%, #ffcf8f 45%, #ff9e5e 100%)}
+.surface-device.theme-twilight {--surface-color:#b4b8dc;--surface-image:linear-gradient(160deg, #b4b8dc 0%, #6b6ea8 45%, #4a4d80 100%)}
+.surface-device.theme-flame {--surface-color:#ffb18f;--surface-image:linear-gradient(160deg, #ffb18f 0%, #ff5e3a 45%, #d43d1f 100%)}
+.surface-device.theme-amber {--surface-color:#f9dca0;--surface-image:linear-gradient(160deg, #f9dca0 0%, #e8a33d 45%, #c47f22 100%)}
+.surface-device.theme-stream {--surface-color:#a8e6e0;--surface-image:linear-gradient(160deg, #a8e6e0 0%, #4fb8b0 45%, #328f89 100%)}
+.surface-device.theme-grove {--surface-color:#6ba879;--surface-image:linear-gradient(160deg, #6ba879 0%, #1f5c38 45%, #123d25 100%)}
+.surface-device.theme-moonlight {--surface-color:#eef1f7;--surface-image:linear-gradient(160deg, #eef1f7 0%, #b8c4d9 45%, #93a3bf 100%)}
+.surface-device.theme-mist {--surface-color:#e0eeda;--surface-image:linear-gradient(160deg, #e0eeda 0%, #a8c9a0 45%, #87ab7e 100%)}
+.surface-device.theme-galaxy {--surface-color:#9a8cc4;--surface-image:linear-gradient(160deg, #9a8cc4 0%, #4a3f7a 45%, #302757 100%)}
+.surface-device.theme-jade {--surface-color:#8adcbf;--surface-image:linear-gradient(160deg, #8adcbf 0%, #2f9e7a 45%, #1f7a5c 100%)}
+.surface-device.theme-ruby {--surface-color:#dd7f92;--surface-image:linear-gradient(160deg, #dd7f92 0%, #a3243f 45%, #7a1a2e 100%)}
+.surface-device.theme-sapphire {--surface-color:#84a3d4;--surface-image:linear-gradient(160deg, #84a3d4 0%, #2a4d8f 45%, #1c3766 100%)}
+.surface-device.theme-starlight {--surface-color:#4a3564;--surface-image:linear-gradient(160deg, #4a3564 0%, #2e1a47 45%, #0f0c29 100%)}
+.surface-device.theme-aurora {--surface-color:#43e97b;--surface-image:linear-gradient(160deg, #43e97b 0%, #38f9d7 45%, #6a82fb 100%)}
+.surface-device.theme-radiance {--surface-color:#fff6d5;--surface-image:linear-gradient(160deg, #fff6d5 0%, #ffe066 45%, #ffd700 100%)}
+.surface-device.theme-prism {--surface-color:#ff5ea8;--surface-image:radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8)}
+.surface-device.theme-default {--surface-color:#efd4df}
+.pattern-none {
+  --pattern-image: none;
+}
+.pattern-dots {
+  --pattern-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 16%, transparent 17%);
+  --pattern-size: 14px 14px;
+}
+.pattern-stripes {
+  --pattern-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0 5px, transparent 5px 11px);
+}
+.pattern-checker {
+  --pattern-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%);
+  --pattern-size: 16px 16px;
+  --pattern-position: 0 0, 8px 8px;
+}
+.pattern-grid {
+  --pattern-image:
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  --pattern-size: 12px 12px;
+}
+.pattern-flower {
+  --pattern-image:
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.5) 8%, transparent 9%),
+    radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.5) 8%, transparent 9%),
+    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.5) 8%, transparent 9%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.5) 8%, transparent 9%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 9%, transparent 10%);
+  --pattern-size: 20px 20px;
+}
+.pattern-wave {
+  --pattern-image: radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.45) 50%, transparent 51%);
+  --pattern-size: 16px 8px;
+}
+.pattern-confetti {
+  --pattern-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.6) 4%, transparent 5%),
+    radial-gradient(circle at 70% 20%, rgba(255, 214, 102, 0.6) 5%, transparent 6%),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.5) 3%, transparent 4%),
+    radial-gradient(circle at 85% 65%, rgba(255, 158, 203, 0.55) 4%, transparent 5%),
+    radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.5) 4%, transparent 5%);
+  --pattern-size: 26px 26px;
+}
+.pattern-sparkle {
+  --pattern-image: radial-gradient(circle, rgba(255, 255, 255, 0.85) 6%, rgba(255, 255, 255, 0.15) 10%, transparent 14%);
+  --pattern-size: 18px 18px;
+}
+.pattern-rainbow {
+  --pattern-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 94, 168, 0.35) 0 6px,
+    rgba(255, 210, 63, 0.35) 6px 12px,
+    rgba(85, 230, 165, 0.35) 12px 18px,
+    rgba(79, 195, 247, 0.35) 18px 24px,
+    rgba(199, 125, 255, 0.35) 24px 30px
+  );
+}
+.pattern-diamond {
+  --pattern-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.3) 75%);
+  --pattern-size: 22px 22px;
+}
+.pattern-crosshatch {
+  --pattern-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.3) 0 2px, transparent 2px 10px);
+}
+.pattern-pinstripe {
+  --pattern-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+}
+.pattern-brick {
+  --pattern-image:
+    linear-gradient(rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+  --pattern-size: 24px 12px;
+  --pattern-position: 0 0, 12px 6px;
+}
+.pattern-herringbone {
+  --pattern-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 0 4px, transparent 4px 8px);
+  --pattern-size: 16px 16px;
+  --pattern-position: 0 0, 8px 0;
+}
+.pattern-scallop {
+  --pattern-image: radial-gradient(circle at 50% 0%, transparent 60%, rgba(255, 255, 255, 0.4) 61%, rgba(255, 255, 255, 0.4) 65%, transparent 66%);
+  --pattern-size: 16px 10px;
+}
+.pattern-bubbles {
+  --pattern-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5) 10%, transparent 11%),
+    radial-gradient(circle at 60% 50%, rgba(255, 255, 255, 0.4) 14%, transparent 15%),
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.45) 8%, transparent 9%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.4) 11%, transparent 12%);
+  --pattern-size: 30px 30px;
+}
+.pattern-zigzag {
+  --pattern-image:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%);
+  --pattern-size: 14px 14px;
+  --pattern-position: 0 0, 7px 0;
+}
+.pattern-rings {
+  --pattern-image: radial-gradient(circle, transparent 30%, rgba(255, 255, 255, 0.5) 31%, rgba(255, 255, 255, 0.5) 36%, transparent 37%);
+  --pattern-size: 18px 18px;
+}
+.pattern-tartan {
+  --pattern-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 12px);
+}
+.pattern-bigdots {
+  --pattern-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 26%, transparent 27%);
+  --pattern-size: 26px 26px;
+}
+.pattern-starburst {
+  --pattern-image: repeating-conic-gradient(rgba(255, 255, 255, 0.4) 0deg 10deg, transparent 10deg 30deg);
+  --pattern-size: 20px 20px;
+}
+.pattern-pinwheel {
+  --pattern-image: conic-gradient(rgba(255, 255, 255, 0.45) 0deg 90deg, transparent 90deg 180deg, rgba(255, 255, 255, 0.45) 180deg 270deg, transparent 270deg 360deg);
+  --pattern-size: 18px 18px;
+}
+.pattern-basket {
+  --pattern-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 6px, transparent 6px 12px);
+}
+.pattern-sunray {
+  --pattern-image:
+    repeating-conic-gradient(rgba(255, 255, 255, 0.3) 0deg 6deg, transparent 6deg 24deg),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25), transparent 60%);
+  --pattern-size: 26px 26px, 100% 100%;
+}
+.pattern-ripple {
+  --pattern-image: repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.35) 0 2px, transparent 2px 8px);
+  --pattern-size: 26px 26px;
+}
+.pattern-petal {
+  --pattern-image:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 25% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%),
+    radial-gradient(circle at 75% 70%, rgba(255, 255, 255, 0.5) 12%, transparent 13%);
+  --pattern-size: 22px 22px;
+}
+.pattern-cloud {
+  --pattern-image:
+    radial-gradient(ellipse 60% 30% at 30% 40%, rgba(255, 255, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 50% 25% at 70% 60%, rgba(255, 255, 255, 0.3), transparent 70%);
+  --pattern-size: 60px 40px;
+}
+.pattern-leaf {
+  --pattern-image:
+    radial-gradient(ellipse 40% 70% at 30% 30%, rgba(255, 255, 255, 0.45), transparent 70%),
+    radial-gradient(ellipse 40% 70% at 70% 70%, rgba(255, 255, 255, 0.4), transparent 70%);
+  --pattern-size: 24px 24px;
+}
+.pattern-bamboo {
+  --pattern-image:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0 4px, transparent 4px 16px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.25) 0 2px, transparent 2px 20px);
+  --pattern-size: 16px 20px;
+}
+.pattern-pebble {
+  --pattern-image:
+    radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.35) 9%, transparent 10%),
+    radial-gradient(circle at 65% 20%, rgba(255, 255, 255, 0.3) 7%, transparent 8%),
+    radial-gradient(circle at 45% 65%, rgba(255, 255, 255, 0.35) 10%, transparent 11%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.3) 6%, transparent 7%);
+  --pattern-size: 22px 22px;
+}
+.pattern-vine {
+  --pattern-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0 3px, transparent 3px 6px);
+  --pattern-size: 18px 18px;
+}
+.pattern-facet {
+  --pattern-image: conic-gradient(from 45deg, rgba(255, 255, 255, 0.4) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.4) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.4) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.4) 270deg 315deg, transparent 315deg 360deg);
+  --pattern-size: 24px 24px;
+}
+.pattern-glitter {
+  --pattern-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 4%, transparent 8%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.5) 3%, transparent 6%);
+  --pattern-size: 14px 14px, 9px 9px;
+  --pattern-position: 0 0, 5px 5px;
+}
+.pattern-crownmotif {
+  --pattern-image:
+    linear-gradient(60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%),
+    linear-gradient(-60deg, rgba(255, 255, 255, 0.4) 25%, transparent 25.5%, transparent 75%, rgba(255, 255, 255, 0.4) 75.5%);
+  --pattern-size: 20px 34px;
+}
+.pattern-medallion {
+  --pattern-image:
+    radial-gradient(circle, transparent 35%, rgba(255, 255, 255, 0.45) 36%, rgba(255, 255, 255, 0.45) 40%, transparent 41%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 8%, transparent 9%);
+  --pattern-size: 26px 26px;
+}
+.pattern-nebula {
+  --pattern-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5) 6%, transparent 10%),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.4) 5%, transparent 9%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.45) 6%, transparent 10%),
+    radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.35) 4%, transparent 8%);
+  --pattern-size: 34px 34px;
+}
+.pattern-kaleidoscope {
+  --pattern-image: conic-gradient(rgba(255, 94, 168, 0.35) 0deg 60deg, rgba(255, 210, 63, 0.35) 60deg 120deg, rgba(85, 230, 165, 0.35) 120deg 180deg, rgba(79, 195, 247, 0.35) 180deg 240deg, rgba(199, 125, 255, 0.35) 240deg 300deg, rgba(255, 94, 168, 0.35) 300deg 360deg);
+  --pattern-size: 30px 30px;
+}
+.pattern-crownjewel {
+  --pattern-image:
+    conic-gradient(from 45deg, rgba(255, 255, 255, 0.35) 0 45deg, transparent 45deg 90deg, rgba(255, 255, 255, 0.35) 90deg 135deg, transparent 135deg 180deg, rgba(255, 255, 255, 0.35) 180deg 225deg, transparent 225deg 270deg, rgba(255, 255, 255, 0.35) 270deg 315deg, transparent 315deg 360deg),
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 5%, transparent 9%);
+  --pattern-size: 24px 24px, 12px 12px;
+}
+.pattern-prismshine {
+  --pattern-image: repeating-linear-gradient(-60deg, rgba(255, 94, 168, 0.3) 0 4px, rgba(255, 210, 63, 0.3) 4px 8px, rgba(85, 230, 165, 0.3) 8px 12px, rgba(79, 195, 247, 0.3) 12px 16px, rgba(199, 125, 255, 0.3) 16px 20px);
+}
