@@ -212,10 +212,23 @@ test('a new narration starts at the top while normal renders preserve the readin
 
 test('a new speech starts at its first line without truncating a long message', () => {
   const h=harness(), speech=h.get('speechText');
-  speech.scrollTop=25;
+  const bubble=h.get('speechBubble');
+  let readingPosition=0;
+  // A scroll setter has no effect while display:none removes the CSS box.
+  // Keep the saved position to model an expired bubble being shown again.
+  Object.defineProperty(speech,'scrollTop',{
+    get:()=>bubble.classList.contains('hidden')?0:readingPosition,
+    set:value=>{if(!bubble.classList.contains('hidden'))readingPosition=value;},
+  });
   const text='いっしょにいると楽しいね。'.repeat(8);
   h.api.setSpeechBubble(text,{kind:'pet',emoji:'🐢',label:'かめ'});
   assert.equal(speech.textContent,text);
+  speech.scrollTop=25;
+  h.advance(2500);
+  assert.ok(bubble.classList.contains('hidden'));
+  const next=text+'またあそぼう。';
+  h.api.setSpeechBubble(next,{kind:'pet',emoji:'🐢',label:'かめ'});
+  assert.equal(speech.textContent,next);
   assert.equal(speech.scrollTop,0);
   h.advance(2500);
   assert.ok(h.get('speechBubble').classList.contains('hidden'));

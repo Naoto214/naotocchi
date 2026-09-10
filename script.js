@@ -2682,9 +2682,10 @@
     el.speechSpeaker.textContent = speaker.emoji || '💬';
     el.speechSpeaker.title = compactJapaneseText(speaker.label);
     el.speechText.textContent = compactJapaneseText(text);
-    el.speechText.scrollTop = 0;
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
+    // A display:none ancestor has no scroll box; reset after revealing it.
+    el.speechText.scrollTop = 0;
     renderHomeCast();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
