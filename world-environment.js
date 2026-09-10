@@ -174,8 +174,8 @@
   }
 
   function locationMessage(reason) {
-    if (reason === 'location_denied') return '位置情報の利用が拒否されました。';
-    if (reason === 'location_timeout') return '位置情報の取得がタイムアウトしました。';
+    if (reason === 'location_denied') return '位置情報の利用が許可されていません。';
+    if (reason === 'location_timeout') return '現在地を調べるのに時間がかかりすぎました。';
     return '位置情報を利用できません。';
   }
 
@@ -215,15 +215,15 @@
           var current = now();
           var weather = results[1].status === 'fulfilled' ? weatherFromResponse(results[1].value, current) : null;
           var missing = [];
-          if (!municipality) missing.push('市区町村を取得できません。');
-          if (!weather) missing.push('天気を取得できません。');
+          if (!municipality) missing.push('市区町村を調べられません。');
+          if (!weather) missing.push('天気を調べられません。');
           var status = municipality && weather ? 'ready' : municipality || weather ? 'partial' : 'error';
           return publish({ status: status, municipality: municipality, weather: weather,
-            updatedAt: new Date(milliseconds(current)).toISOString(), error: missing.length ? missing.join(' ') : null });
+            updatedAt: new Date(milliseconds(current)).toISOString(), error: missing.length ? missing.join('') : null });
         });
       }).catch(function (failure) {
         var reason = failure && failure.message;
-        var error = reason && reason.indexOf('location_') === 0 ? locationMessage(reason) : '環境情報を取得できません。';
+        var error = reason && reason.indexOf('location_') === 0 ? locationMessage(reason) : '現在地や天気を調べられません。';
         return publish({ status: 'error', municipality: null, weather: null, updatedAt: null, error: error });
       }).finally(function () { inFlight = null; });
       return inFlight;

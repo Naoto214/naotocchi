@@ -177,9 +177,9 @@ test('location failures are distinct, clear stale results, and malformed coordin
   assert.equal(result.status, 'error');
   assert.equal(result.municipality, null);
   assert.equal(result.weather, null);
-  assert.match(result.error, /拒否/);
+  assert.match(result.error, /許可されていません/);
   mode = 'timeout';
-  assert.match((await tracker.request()).error, /タイムアウト/);
+  assert.match((await tracker.request()).error, /時間がかかりすぎ/);
   mode = 'malformed';
   assert.match((await tracker.request()).error, /利用できません/);
   assert.equal(fetchCalls, 2);
@@ -197,7 +197,7 @@ test('missing fetch support reports municipality and weather unavailable separat
   const tracker = env.createTracker({ geolocation: geoSuccess(), fetcher: null, now: () => NOW });
   const result = await tracker.request();
   assert.equal(result.status, 'error');
-  assert.match(result.error, /市区町村を取得できません/);
-  assert.match(result.error, /天気を取得できません/);
+  assert.match(result.error, /市区町村を調べられません/);
+  assert.match(result.error, /天気を調べられません/);
   assert.doesNotMatch(result.error, /環境情報/);
 });

@@ -74,7 +74,7 @@ test('life and health notices choose one useful action from the actual cause', (
     ['safe affection can restore mood', { happiness: 40 }, 'playWithBtn', /じゃれ/],
     ['tired pets need sleep rather than play', { happiness: 40, energy: 20 }, 'sleepBtn', /ねて.*げんき/],
     ['dirt can be removed', { poopCount: 2 }, 'cleanBtn', /そうじ/],
-    ['health recovery takes continued balanced care', {}, '', /すこしずつ.*かいふく/],
+    ['health recovery takes continued balanced care', {}, '', /少しずつ.*回復/],
   ];
 
   for (const [name, cause, action, detail] of cases) {
@@ -155,7 +155,7 @@ test('sleep notices distinguish ongoing recovery from a completed rest', () => {
   assert.equal(recovering.kind, 'sleep');
   assert.equal(recovering.icon, 'sleep');
   assert.equal(recovering.action, '');
-  assert.match(recovering.detail, /げんき.*かいふく/);
+  assert.match(recovering.detail, /げんき.*回復/);
 
   const rested = careStatus.assess(growing({ isSleeping: true, energy: 100 }));
   assert.equal(rested.kind, 'sleep');

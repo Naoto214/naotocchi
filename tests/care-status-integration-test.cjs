@@ -115,10 +115,10 @@ test('reduced motion and lightweight mode retain static warning text', () => {
 test('numeric feedback keeps the explanation of a mistaken medicine visible', () => {
   const h=harness();Object.assign(h.api.state(),{hunger:80,happiness:80,energy:80,health:80});h.api.render();
   h.dispatch(h.get('medicineBtn'),'click');
-  assert.match(h.get('message').textContent,/びょうきではないのにくすりをのませた/);
+  assert.match(h.get('message').textContent,/びょうきではないのに、くすりを飲ませた/);
   assert.match(h.get('message').textContent,/けんこう −5/);
   h.advance(4199);
-  assert.match(h.get('message').textContent,/びょうきではないのにくすりをのませた/);
+  assert.match(h.get('message').textContent,/びょうきではないのに、くすりを飲ませた/);
 });
 
 test('a growth milestone waits for action feedback instead of being forgotten', () => {

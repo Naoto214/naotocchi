@@ -108,6 +108,65 @@ test('all 100 registered games can retire without delayed rewards or repopulatin
   }
 });
 
+// The lightweight harness only parses buttons into queryable text nodes.
+// Read the rendered .mg-hint element itself so a title cannot satisfy a goal.
+function initialBodyHint(view) {
+  return view.innerHTML.match(/<div class="mg-hint"[^>]*>([\s\S]*?)<\/div>/)?.[1] || '';
+}
+
+test('first-play instructions include each dynamic goal needed to finish the game', async (t) => {
+  const cases = [
+    ['tilt-maze-3d', /ゴールへ/],
+    ['pingpong-3d', /先に5点/],
+    ['sudoku-mini', /4×4.*6×6/, /4×4.*1〜4/],
+    ['area-claim', /75%/],
+    ['beach-volley', /先に7点/],
+  ];
+  const h = harness();
+  for (const [id, goal, bodyGoal = goal] of cases) await t.test(id, () => {
+    const game = h.api.games.find((candidate) => candidate.id === id);
+    h.api.startMinigame(game, {intro: true});
+    const instructions = h.get('minigameOverlay').innerHTML.match(/<div class="mg-intro-controls">([\s\S]*?)<\/div>([\s\S]*?)<\/div>/)?.[2];
+    assert.match(instructions || '', goal, `${id}: controls must state the goal even without the short description`);
+    const view = h.get('minigameOverlay');
+    h.dispatch(view.querySelector('#mgIntroStart'), 'click');
+    assert.match(initialBodyHint(view), bodyGoal, `${id}: game instructions must retain the goal after starting`);
+    h.api.retireMinigame();
+  });
+});
+
+for (const [mode, ageTicks, size] of [['easy', 0, 4], ['hard', 100000, 6]]) {
+  test(`Sudoku instructions follow the actual ${size}×${size} board`, () => {
+    const h = harness();
+    h.api.state().lifetime.minigameDifficulty = mode;
+    h.api.state().ageTicks = ageTicks;
+    h.api.startMinigame(h.api.games.find((g) => g.id === 'sudoku-mini'));
+    const view = h.get('minigameOverlay');
+    const pad = view.querySelector('#sdPad');
+    assert.equal(pad.children.filter((b) => b.dataset.v !== '0').length, size);
+    assert.match(initialBodyHint(view), new RegExp(`${size}×${size}.*1〜${size}`));
+  });
+}
+
+test('Mancala explains sowing toward the right-hand own store and follows that path', () => {
+  const h = harness();
+  const game = h.api.games.find((g) => g.id === 'mancala-kalah');
+  h.api.startMinigame(game, {intro: true});
+  const view = h.get('minigameOverlay');
+  const intro = view.innerHTML.match(/<div class="mg-intro-controls">([\s\S]*?)<\/div>([\s\S]*?)<\/div>/)?.[2] || '';
+  h.dispatch(view.querySelector('#mgIntroStart'), 'click');
+  const body = initialBodyHint(view);
+  // The third lower pit has four seeds: right through three pits into the store.
+  h.dispatch(view.querySelector('#mkCanvas'), 'pointerdown', {clientX: 131, clientY: 140});
+  h.advance(561);
+  assert.match(view.querySelector('#mkScore').textContent, /🟢 1 - 0 🟠/);
+  assert.equal(view.querySelector('#mkTurn').textContent, 'あなたの番', 'ending in own store earns another turn');
+  for (const instructions of [intro, body]) {
+    assert.match(instructions, /たねを1つずつ[^。]*自分のストア[^。]*まく/);
+    assert.doesNotMatch(instructions, /右回り/);
+  }
+});
+
 // A game whose code throws must not leave the overlay open with gameActive stuck.
 test('a game whose frame loop throws is closed without rewards and the next game works', () => {
   const h = harness();

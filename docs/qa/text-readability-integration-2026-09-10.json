@@ -1,0 +1,681 @@
+{
+  "date": "2026-09-10T23:09:21.125163+00:00",
+  "repository": "Naoto214/naotocchi",
+  "pullRequest": 234,
+  "scope": "Integration of PR234 with merged PR233 and PR232; prior corpus retained",
+  "branch": "feature/text-readability-20260910",
+  "mergedToMain": false,
+  "fullTests": {
+    "tests": 214,
+    "pass": 214,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "exitCode": 0,
+    "log": "text-readability-integration-2026-09-10-tests.txt"
+  },
+  "conflictFiles": [
+    "games.js",
+    "script.js",
+    "index.html",
+    "tests/minigame-lifecycle-test.cjs"
+  ],
+  "preservation": {
+    "main": "927456d1c3bea2897f1526268d8a8d05742a8356",
+    "prior": "21844921f76a3da504302cfc26c23be70d81e967",
+    "mergeBase": "1b812864f8e39de9e9117401c15186c4de54d9b9",
+    "files": [
+      {
+        "file": "audio.js",
+        "sha256": "eeb14a7146f5b7a709ce2501d51d0985bc3208b4a89a57b2d815e3f8cd3576a9",
+        "gitBlob": "2572419e01e37b998ac5f221fe62902627598845",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "care-status.js",
+        "sha256": "7ee4053193d07650f0ddf643f225eb9b3acebd8700b7675af0289ea75acf7489",
+        "gitBlob": "847a681a1e4725ce8b8fcfdeb22efce31a7d84b8",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "cast-bounds.js",
+        "sha256": "7f125308544144f3c451e2e930e61cd1cf627d010e4d009ce81e700d9ff1b086",
+        "gitBlob": "442375cbeb394353dde1e94b141264081711651c",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "cast-layout.js",
+        "sha256": "b660a4b162faa8bec7898ba1da90a59a36bbce561cc67690b97b114038e6d5b1",
+        "gitBlob": "3d17624180206594b20df171f29bb1f394db6410",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "cast-motion.js",
+        "sha256": "0e47435e361c6a6213e443ae8cc0a9cb5a19f7e24952212ae75ff2cd34a85845",
+        "gitBlob": "732071163f73a483e5cda4c052e6ace0a6aa84da",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "character-world-master.v1.js",
+        "sha256": "624200f6adaa91686be1548fdc93dc8036e9e7d0f7c35a73c2ee50c7ea2af5b8",
+        "gitBlob": "7a0f752e38dd6854fe26eb7836f2eacf939a03e3",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "games.js",
+        "sha256": "a0f871a5b04ed181a6c60c4bd5fc0d6283f57c4e6240557dc0ed8fdd6aceb16f",
+        "gitBlob": "4b1dc9db5f3a78ee868a455e3f1ae301e16323f5",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "prop-illustrations.js",
+        "sha256": "bbe3df9b67997ea5da88c6c110d62c067ae4d0cc4835a225034d020ee7be388a",
+        "gitBlob": "1abd819fb3b1f70cf397f05f83859b85a9ef83e0",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "script.js",
+        "sha256": "92f8a26502151e5a999cda44ed9c8ba648f3e39c2714f03f700a237fa969b879",
+        "gitBlob": "f6c54785c112f59f0abd6ba9ee9aae0e4f1bbf89",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      },
+      {
+        "file": "world-environment.js",
+        "sha256": "5396ba2b2b688671801b0f8a93fb97fa357bcec3b0f17326ed4012eff5831c16",
+        "gitBlob": "651ba7e50483563ed9bee1a80c7de2b7564a773b",
+        "numericAndBooleanLiteralsEqual": true,
+        "propertyKeysEqual": true
+      }
+    ],
+    "changedNonTextFunctions": [
+      {
+        "file": "games.js",
+        "name": "makeRoadRaceGame",
+        "alreadyChangedInPriorPR": true
+      },
+      {
+        "file": "games.js",
+        "name": "makeSudokuGame",
+        "alreadyChangedInPriorPR": true
+      },
+      {
+        "file": "script.js",
+        "name": "lifeLogTextKey",
+        "alreadyChangedInPriorPR": true
+      }
+    ],
+    "allNonStringLiteralsEqual": true,
+    "allPropertyKeysEqual": true,
+    "japaneseSpaceCandidates": [],
+    "assetFiles": 318,
+    "changedAssets": [],
+    "assetReferences": [
+      {
+        "file": "style.css",
+        "token": "20260910-88eb60da",
+        "hashMatches": true
+      },
+      {
+        "file": "ui.css",
+        "token": "20260910-0110ed9b",
+        "hashMatches": true
+      },
+      {
+        "file": "design.css",
+        "token": "20260910-465df341",
+        "hashMatches": true
+      },
+      {
+        "file": "egg-hatching.css",
+        "token": "20260910-8449f9f9",
+        "hashMatches": true
+      },
+      {
+        "file": "care-status.css",
+        "token": "20260910-0191a051",
+        "hashMatches": true
+      },
+      {
+        "file": "ui-illustrations.css",
+        "token": "20260910-823ec14f",
+        "hashMatches": true
+      },
+      {
+        "file": "character-world-master.v1.js",
+        "token": "20260910-3f8b0832",
+        "hashMatches": true
+      },
+      {
+        "file": "cast-bounds.js",
+        "token": "20260910-c9130956",
+        "hashMatches": true
+      },
+      {
+        "file": "cast-motion.js",
+        "token": "20260910-c479a13a",
+        "hashMatches": true
+      },
+      {
+        "file": "cast-layout.js",
+        "token": "20260910-4a13a5ab",
+        "hashMatches": true
+      },
+      {
+        "file": "world-environment.js",
+        "token": "20260910-4c56cc41",
+        "hashMatches": true
+      },
+      {
+        "file": "prop-illustrations.js",
+        "token": "20260910-c63683dd",
+        "hashMatches": true
+      },
+      {
+        "file": "games.js",
+        "token": "20260910-14267700",
+        "hashMatches": true
+      },
+      {
+        "file": "audio.js",
+        "token": "20260910-bca193a8",
+        "hashMatches": true
+      },
+      {
+        "file": "care-status.js",
+        "token": "20260910-7d4603e7",
+        "hashMatches": true
+      },
+      {
+        "file": "script.js",
+        "token": "20260910-a4f70bdb",
+        "hashMatches": true
+      }
+    ],
+    "propModuleUnchanged": true,
+    "retainedMainTestRegistrations": true,
+    "ciMatchesMain": true,
+    "harnessMatchesMain": true,
+    "visualQAConfigMatchesMain": true,
+    "htmlStructureMatchesMainExceptDisplayAttributesAndCacheTokens": true
+  },
+  "additionalRuntimeChecks": [
+    {
+      "scenario": "daily-third-day",
+      "moneyAdded": 50,
+      "boostTicks": 200,
+      "milestone": "3日連続ボーナス💰30を含む",
+      "message": "いまのは練習!／🗓️今日のチャレンジクリア!／💰+50／✨せいちょう2ばい(10分)／🔥3日連続／🎉3日連続ボーナス💰30を含む"
+    },
+    {
+      "scenario": "c_mgsmall",
+      "rawRecord": {
+        "best": 20,
+        "last": 20
+      },
+      "deathMeter": 0,
+      "description": "つぎのゲームのごほうびと失敗の判定に25点を加える（記録とランクは変わらない）"
+    },
+    {
+      "scenario": "c_mgbig",
+      "rawRecord": {
+        "best": 0,
+        "last": 0
+      },
+      "deathMeter": 0,
+      "description": "つぎのゲームで大成功と同じごほうび・回復効果（記録とランクは変わらない）"
+    },
+    {
+      "scenario": "growth-drink-near-cap",
+      "beforeTicks": 180,
+      "afterTicks": 200,
+      "description": "せいちょう2ばいの時間を5分追加（合計10分まで）"
+    },
+    {
+      "scenario": "offline-return",
+      "happiness": 50,
+      "energy": 70,
+      "ageTicks": 500,
+      "newLog": {
+        "age": 25,
+        "icon": "🏠",
+        "text": "るすばん：10分"
+      },
+      "message": "🏠おかえり。留守のあいだ（10分）、おとなしく待っていた。変化：おなか-50／ごきげん-50／げんき-30／うんち+1／💰+2"
+    },
+    {
+      "scenario": "breakup-shield-full",
+      "penalty": 0,
+      "description": "つぎに別れたとき、いのちが減らない（別れは防げない）"
+    },
+    {
+      "scenario": "quota-then-different-write-error",
+      "primaryAttempts": 2,
+      "inMemoryMoney": 555,
+      "message": "⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。"
+    },
+    {
+      "scenario": "export-after-save-failure",
+      "inMemoryMoney": 222,
+      "exportedMoney": 111,
+      "message": "⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。"
+    }
+  ],
+  "copyEdits": [
+    [
+      "ひとくちめを、いつもよりゆっくり味わっていた",
+      "ひと口目を、いつもよりゆっくり味わっていた"
+    ],
+    [
+      "たべおわって、おさらをそっとよせた",
+      "食べ終わって、お皿をそっとよせた"
+    ],
+    [
+      "いちばんおいしいところを、さいごまでとっておいた",
+      "いちばんおいしいところを、最後までとっておいた"
+    ],
+    [
+      "たべながら、まどのそとをぼんやりながめていた",
+      "食べながら、窓の外をぼんやりながめていた"
+    ],
+    [
+      "なでられて、目をほそめた",
+      "なでられて、目を細めた"
+    ],
+    [
+      "あそんだあと、そっとよりそってきた",
+      "遊んだあと、そっとよりそってきた"
+    ],
+    [
+      "くすぐったそうに、ころんとねころがった",
+      "くすぐったそうに、ころんと寝ころがった"
+    ],
+    [
+      "あそびのとちゅうで、ふと何かを思い出したような顔をした",
+      "遊びの途中で、ふと何かを思い出したような顔をした"
+    ],
+    [
+      "たびさきのにおいを、すんすんとかいでいた",
+      "旅先のにおいを、すんすんとかいでいた"
+    ],
+    [
+      "きれいなけしきを見て、しばらく立ちどまっていた",
+      "きれいな景色を見て、しばらく立ちどまっていた"
+    ],
+    [
+      "みちにまよいかけて、でもすぐに見つけた",
+      "道に迷いかけたけれど、すぐに行き先を見つけた"
+    ],
+    [
+      "たびさきのおやつを、ひとつだけ買ってみた",
+      "旅先のおやつを、ひとつだけ買ってみた"
+    ],
+    [
+      "たびのおわりに、おうちのことをすこし考えていた",
+      "旅の終わりに、おうちのことを少し考えていた"
+    ],
+    [
+      "はなをわたしたあと、てれてそっぽを向いた",
+      "花をわたしたあと、照れてそっぽを向いた"
+    ],
+    [
+      "うまく言えなかったけれど、きもちはつたわったみたいだ",
+      "うまく言えなかったけれど、気持ちは伝わったみたいだ"
+    ],
+    [
+      "ふたりでしばらく、おなじ空を見ていた",
+      "ふたりでしばらく、同じ空を見ていた"
+    ],
+    [
+      "かえりみち、小さく鼻歌をうたっていた",
+      "帰り道、小さく鼻歌を歌っていた"
+    ],
+    [
+      "おきぬけに、まどをあけて風をいれた",
+      "起きぬけに、窓を開けて風を入れた"
+    ],
+    [
+      "ゆめのつづきを、しばらく思い出そうとしていた",
+      "夢の続きを、しばらく思い出そうとしていた"
+    ],
+    [
+      "ことりのこえで、きげんよく目がさめた",
+      "小鳥の声で、ごきげんに目が覚めた"
+    ],
+    [
+      "しゅみを見つけた。しずかな時間がすきになった",
+      "趣味を見つけた。静かな時間が好きになった"
+    ],
+    [
+      "ふたりでしゅみをはじめた。しずかな時間をわけあった",
+      "ふたりで趣味をはじめた。静かな時間を分けあった"
+    ],
+    [
+      "50さいのおいわい。とおくから手紙がとどいた",
+      "50さいのお祝い。遠くから手紙が届いた"
+    ],
+    [
+      "50さいのおいわい。なかまとこいびとがあつまった",
+      "50さいのお祝い。こいびととお祝いの時間を過ごした"
+    ],
+    [
+      "むかしのアルバムをひらいた。わらっている自分がいた",
+      "昔のアルバムを開いた。笑っている自分がいた"
+    ],
+    [
+      "むかしのアルバムをふたりでひらいた。わらっている自分たちがいた",
+      "昔のアルバムをふたりで開いた。笑っている自分たちがいた"
+    ],
+    [
+      "にわに小さな花をうえた。あしたが少したのしみになった",
+      "庭に小さな花を植えた。明日が少し楽しみになった"
+    ],
+    [
+      "ふたりでにわに花をうえた。あしたが少したのしみになった",
+      "ふたりで庭に花を植えた。明日が少し楽しみになった"
+    ],
+    [
+      "ちいさなたびの計画をたてた。つぎのたびはきっといい日になる",
+      "小さな旅の計画を立てた。つぎの旅はきっといい日になる"
+    ],
+    [
+      "ふたりでたびの計画をたてた。つぎのたびはきっといい日になる",
+      "ふたりで旅の計画を立てた。つぎの旅はきっといい日になる"
+    ],
+    [
+      "⚠️ ほぞんできない: ブラウザの ほぞん容量が いっぱい。「データ」の セーブコードを ひかえて、ほかのサイトのデータを けしてみて",
+      "⚠️保存できませんでした。空き容量など、ブラウザーの設定を確認してください。「データ」のセーブコードをひかえておくと、今の記録を残せます。"
+    ],
+    [
+      "1日1回。クリアで💰+10",
+      "1日1回。クリアで💰10〜60＋連続ボーナス／せいちょう2ばい（10分）"
+    ],
+    [
+      "${streak}にちれんぞくボーナス 💰+${bonus}",
+      "${streak}日連続ボーナス💰${bonus}を含む"
+    ],
+    [
+      "／✨Sランク!せいちょう2ばい(2分)",
+      "／✨Sランク!せいちょう2ばいを2分追加（合計10分まで）"
+    ],
+    [
+      "いまの子の つぎの すがたは ${LIFE_STAGES[idx].min}さい(あと${Math.max(0, LIFE_STAGES[idx].min - currentAge())}ねん)",
+      "今の子のつぎの姿は${LIFE_STAGES[idx].min}さい（あと${Math.max(0, LIFE_STAGES[idx].min - currentAge())}年）"
+    ],
+    [
+      "いまの子の すがたは ぜんぶ 見た",
+      "今の子の姿は全部見た"
+    ],
+    [
+      "📗 ずかんの まとめ",
+      "📗ずかんのまとめ"
+    ],
+    [
+      "せいちょう2ばい あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}ふん",
+      "せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）"
+    ],
+    [
+      "いまもっているこうか: ${list.join(' / ')}",
+      "いまのこうか：${list.join('／')}"
+    ],
+    [
+      "いまもっているこうかはない",
+      "いまのこうかはない"
+    ],
+    [
+      "⚠️ ${name}でエラーがおきたので、とちゅうでおわりにした(ばつはなし)",
+      "⚠️${name}がうまく動かなかったので、途中で終わりにした（ばつはなし）"
+    ],
+    [
+      "d('happiness', 'きげん')",
+      "d('happiness', 'ごきげん')"
+    ],
+    [
+      "`${Math.floor(minutes / 60)}じかん` : `${minutes}ふん`",
+      "`${Math.floor(minutes / 60)}時間` : `${minutes}分`"
+    ],
+    [
+      "`🏠 おかえり。るすのあいだ(${span})${sleeping ? 'ぐっすりねていた' : 'おとなしくまっていた'}${parts.length ? '：' + parts.join('・') : ''}`",
+      "`🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`"
+    ],
+    [
+      "`るすばん ${span}`",
+      "`るすばん：${span}`"
+    ],
+    [
+      "`おかえり!るすのあいだ ${span}${gift ? `\\n${gift.emoji}${gift.label}を みつけて とっておいた` : coins ? `\\n💰${coins} ひろっておいた` : ''}`",
+      "`おかえり!${span}、お留守番していたよ${gift ? `\\n${gift.emoji}${gift.label}を見つけて、とっておいた` : coins ? `\\n💰${coins}を拾っておいた` : ''}`"
+    ],
+    [
+      "'🧭たびのおまもりをもらった' : ''].filter(Boolean).join(' ')",
+      "'🧭たびのおまもりをもらった' : ''].filter(Boolean).join('／')"
+    ],
+    [
+      "`${age}さい ${text}`",
+      "`${age}さい：${text}`"
+    ],
+    [
+      "つぎのミニゲームでもらえるおかねが2ばい",
+      "つぎのミニゲーム大成功でもらうおかねが2ばい（チャレンジの報酬は別）"
+    ],
+    [
+      "🪙ラッキーコインをにぎりしめた。つぎのゲームのおかねが2ばい!",
+      "🪙ラッキーコインをにぎりしめた。つぎのミニゲーム大成功でもらうおかねが2ばい!"
+    ],
+    [
+      "つぎのミニゲームでしっぱいしても、おとろえ・いのちがへらない",
+      "つぎのミニゲーム失敗で、おとろえは増えず、いのちも減らない"
+    ],
+    [
+      "🛡️スコアほけんにはいった。つぎのゲームはあんしん",
+      "🛡️スコアほけんに入った。つぎのミニゲーム失敗で、おとろえといのちを守る"
+    ],
+    [
+      "つぎのミニゲームのとくてん+25",
+      "つぎのゲームのごほうびと失敗の判定に25点を加える（記録とランクは変わらない）"
+    ],
+    [
+      "🔥やる気がわいてきた。つぎのゲームのとくてん+25",
+      "🔥やる気がわいてきた。つぎのゲームのごほうびと失敗の判定に25点を加える"
+    ],
+    [
+      "つぎのミニゲームがかならず大成功になる",
+      "つぎのゲームで大成功と同じごほうび・回復効果（記録とランクは変わらない）"
+    ],
+    [
+      "💫大成功のおまもりをにぎった。つぎのゲームはかならず大成功!",
+      "💫大成功のおまもりをにぎった。つぎのゲームで、大成功と同じごほうび・回復効果!"
+    ],
+    [
+      "びょうきになりそうなとき3かいまでふせぐ",
+      "自然に病気になりそうなとき、3回まで防ぐ"
+    ],
+    [
+      "🧧びょうきよけのおふだをはった(3かいぶん)",
+      "🧧びょうきよけのおふだをはった（3回分）"
+    ],
+    [
+      "5ふんのあいだ せいちょうが2ばい(さいだい10ぷんまでかさなる)",
+      "せいちょう2ばいの時間を5分追加（合計10分まで）"
+    ],
+    [
+      "もう2ばいがめいっぱい",
+      "今はせいちょうドリンクを使えない"
+    ],
+    [
+      "🧃せいちょうドリンクをのんだ。5ふんのあいだ せいちょう2ばい!",
+      "🧃せいちょうドリンクを飲んだ。せいちょう2ばいの時間を5分追加（合計10分まで）"
+    ],
+    [
+      "つぎのきゅうあいがすこしうまくいきやすい",
+      "つぎのきゅうあいが少しうまくいきやすい"
+    ],
+    [
+      "つぎにわかれそうになったとき、なかよし度のへりが半分",
+      "つぎに別れたとき、いのちの減りが半分になる（別れは防げない）"
+    ],
+    [
+      "つぎにわかれそうになったとき、1かいだけなかったことに",
+      "つぎに別れたとき、いのちが減らない（別れは防げない）"
+    ],
+    [
+      "つぎのたびは たびづかれなしで かならずよいけっかに",
+      "つぎの旅は、続けて出かけても「たびづかれ」にならない（げんき・おなかは使う）"
+    ],
+    [
+      "🧭たびのおまもりをもった。つぎのたびはあんしん",
+      "🧭たびのおまもりを持った。つぎの旅は「たびづかれ」にならない"
+    ],
+    [
+      "もうもっている(つぎのたびでつかわれる)",
+      "もう持っている（つぎの旅で使う）"
+    ],
+    [
+      "おまもりはひとつずつ(つぎのきゅうあいでつかわれる)",
+      "おまもりはひとつずつ（つぎのきゅうあいで使う）"
+    ],
+    [
+      "おまもりはひとつずつ(つぎのゲームでつかわれる)",
+      "おまもりはひとつずつ（つぎのゲームで使う）"
+    ],
+    [
+      "⚠️${name}がうまく動かなかったので、途中で終わりにした（ばつはなし）",
+      "⚠️${name}がうまく動かなかったので、途中で終わりにした。今回の得点は記録されないよ"
+    ],
+    [
+      "available: () => !state.oneTimeBoosts.doubleCoins, unavailableMessage: 'もうもっている(つぎのゲームでつかわれる)'",
+      "available: () => !state.oneTimeBoosts.doubleCoins, unavailableMessage: 'もう持っている（つぎのミニゲーム大成功で使う）'"
+    ],
+    [
+      "available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'もうもっている(つぎのゲームでつかわれる)'",
+      "available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'もう持っている（つぎのミニゲーム失敗で使う）'"
+    ],
+    [
+      "⚡ ながい ゲームを みじかめ に した(90びょう いじょうの ゲームが 6わりの ながさ)",
+      "⚡ゲームを「みじかめ」にした（90秒以上の制限時間を60%にする）"
+    ],
+    [
+      "⏱️ ゲームの ながさを ふつう に した",
+      "⏱️ゲームのながさを「ふつう」にした"
+    ],
+    [
+      "out.push('🪙おかね2ばい')",
+      "out.push('🪙ラッキーコイン')"
+    ],
+    [
+      "out.push(b.minigameBoost === 'big' ? '💫大成功' : '🔥やる気')",
+      "out.push(b.minigameBoost === 'big' ? '💫大成功のおまもり' : '🔥やる気のおまもり')"
+    ],
+    [
+      "`🧧おふだ×${b.sicknessShieldCount}`",
+      "`🧧びょうきよけのおふだ×${b.sicknessShieldCount}`"
+    ],
+    [
+      "out.push(b.breakupShield === 'full' ? '💞きずな' : '🩹なかなおり')",
+      "out.push(b.breakupShield === 'full' ? '💞きずなのおまもり' : '🩹なかなおりのおまもり')"
+    ],
+    [
+      "out.push('🧭たび')",
+      "out.push('🧭たびのおまもり')"
+    ],
+    [
+      "自然に病気になりそうなとき、3回まで防ぐ",
+      "お世話不足で病気になりそうなとき、3回まで防ぐ"
+    ],
+    [
+      "⚠️保存できませんでした。空き容量など、ブラウザーの設定を確認してください。「データ」のセーブコードをひかえておくと、今の記録を残せます。",
+      "⚠️ブラウザーへの保存に失敗しました。今の内容は、この画面を閉じるまで残ります。「データ」でセーブコードをひかえてください。"
+    ],
+    [
+      "つぎのきゅうあいが少しうまくいきやすい",
+      "夫婦になる前のきゅうあいが、1回だけ少しうまくいきやすい"
+    ],
+    [
+      "つぎのきゅうあいがかなりうまくいきやすい",
+      "夫婦になる前のきゅうあいが、1回だけかなりうまくいきやすい"
+    ],
+    [
+      "💘こいのおまもりをもった。つぎのきゅうあいがうまくいきやすい",
+      "💘こいのおまもりを持った。夫婦になる前のきゅうあいを1回助けてくれる"
+    ],
+    [
+      "💝こいの大おまもりをもった。つぎのきゅうあいはかなりうまくいきやすい",
+      "💝こいの大おまもりを持った。夫婦になる前のきゅうあいを1回、大きく助けてくれる"
+    ],
+    [
+      "おまもりはひとつずつ（つぎのきゅうあいで使う）",
+      "おまもりはひとつずつ（夫婦になる前のきゅうあいで使う）"
+    ],
+    [
+      "🧭たびのおまもりをもらった",
+      "🧭たびのおまもりが手元にある"
+    ],
+    [
+      "ゲーム: ${ups.join('・')}↑",
+      "ゲーム：${ups.join('・')}↑"
+    ],
+    [
+      "ごとうちゲーム ${local}本",
+      "ごとうちゲーム：${local}本"
+    ],
+    [
+      "こいびと候補 ${partners}人",
+      "こいびと候補：${partners}人"
+    ],
+    [
+      "⚠️ブラウザーへの保存に失敗しました。今の内容は、この画面を閉じるまで残ります。「データ」でセーブコードをひかえてください。",
+      "⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。"
+    ]
+  ],
+  "review": {
+    "verdict": "approved",
+    "unresolvedCritical": 0,
+    "unresolvedImportant": 0,
+    "targetedTestsPassed": 30,
+    "report": "text-readability-integration-2026-09-10-review.md"
+  },
+  "browser": {
+    "setup": "success",
+    "tabs": "success",
+    "navigation": "net::ERR_BLOCKED_BY_CLIENT",
+    "gameScreenshots": 0,
+    "unverified": [
+      "narrow wrapping",
+      "iPhone touch",
+      "audio",
+      "FPS",
+      "movie rendering",
+      "public delivery"
+    ]
+  },
+  "finalFileHashes": {
+    "games.js": "a0f871a5b04ed181a6c60c4bd5fc0d6283f57c4e6240557dc0ed8fdd6aceb16f",
+    "character-world-master.v1.js": "624200f6adaa91686be1548fdc93dc8036e9e7d0f7c35a73c2ee50c7ea2af5b8",
+    "world-environment.js": "5396ba2b2b688671801b0f8a93fb97fa357bcec3b0f17326ed4012eff5831c16",
+    "care-status.js": "7ee4053193d07650f0ddf643f225eb9b3acebd8700b7675af0289ea75acf7489",
+    "cast-motion.js": "0e47435e361c6a6213e443ae8cc0a9cb5a19f7e24952212ae75ff2cd34a85845",
+    "script.js": "92f8a26502151e5a999cda44ed9c8ba648f3e39c2714f03f700a237fa969b879",
+    "prop-illustrations.js": "bbe3df9b67997ea5da88c6c110d62c067ae4d0cc4835a225034d020ee7be388a",
+    "cast-layout.js": "b660a4b162faa8bec7898ba1da90a59a36bbce561cc67690b97b114038e6d5b1",
+    "cast-bounds.js": "7f125308544144f3c451e2e930e61cd1cf627d010e4d009ce81e700d9ff1b086",
+    "audio.js": "eeb14a7146f5b7a709ce2501d51d0985bc3208b4a89a57b2d815e3f8cd3576a9",
+    "design.css": "3b2c7a5d9911a11118b04b0d59c68650b009e8929952d47f1923148c2b8d55b4",
+    "ui-illustrations.css": "12fce813075b99c7330fd096997b41bd9ecb25211fd10d9898dacfd17da62824",
+    "care-status.css": "1b93917f433481f7130323f08112d64387da4116fc5bc873d76fba9bc7b1d4bb",
+    "ui.css": "73299639a38177bcd9ee5bed5b1ae12b1f3b0c25e5d80f23d5f56d160636d434",
+    "style.css": "16c5998803b5bee06597b9d54eaf2d42b74301897d20a9aae9363e8b64b83554",
+    "egg-hatching.css": "9e7535ff5bd03fc7c7216799d66a4d0f2b897cde687a715b8e00cd98526d44e2",
+    "index.html": "aac1ed27fe5c4de7dfadd194df7966bb4d990319ed75f7985ae2a33e06f66b40",
+    "package.json": "d1343c790d82619e3c763023fc169d4604d405144eb4c4de96c0ed55654250bb",
+    ".github/workflows/runtime-smoke-test.yml": "349fb57679a4a53d9e4e3d6b00630595fff342f1bf832150bd67e5c01ab2a30e",
+    "tests/helpers/runtime-harness.cjs": "1278be38bf9f4a3d4379a9cf3cf2aaecc3a94ed9d19a94bd1696f2e21fe20327"
+  }
+}

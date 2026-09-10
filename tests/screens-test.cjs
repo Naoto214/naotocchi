@@ -10,7 +10,7 @@ test('the dex shows a summary and one progress head per species line', () => {
   assert.equal((grid.match(/dex-line-head/g) || []).length, h.api.ALL_LINES.length);
   assert.match(grid, /2\/8/);
   assert.ok(/dex-line-block unknown/.test(grid), 'undiscovered lines are marked');
-  assert.match(h.get('dexSummary').innerHTML, /ずかんの まとめ/);
+  assert.match(h.get('dexSummary').innerHTML, /ずかんのまとめ/);
   assert.match(h.get('dexSummary').innerHTML, /2\/\d+しゅぞく/);
 });
 
@@ -22,7 +22,7 @@ test('travel shows region cards with effects and marks the current region', () =
   assert.equal((grid.match(/travel-card/g) || []).length >= h.api.REGIONS.length, true);
   assert.match(grid, /data-id="forest"[^>]*disabled/);
   assert.match(grid, /いまここ/);
-  assert.match(grid, /なかまに であいやすい/, 'the forest card explains its effect');
+  assert.match(grid, /なかまに出会いやすい/, 'the forest card explains its effect');
 });
 
 test('care meters are hidden while the pet is an egg', () => {

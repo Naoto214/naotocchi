@@ -50,23 +50,23 @@
       return { action: 'feedBtn', detail: lifeRecovery ? 'おなかを60以上にしよう' : 'ごはんをあげよう' };
     }
     if (state.isSleeping && needsHappiness) {
-      if (needsEnergy) return { action: '', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'まずはねてげんきをかいふくしよう' };
+      if (needsEnergy) return { action: '', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'まずはねてげんきを回復しよう' };
       return { action: 'sleepBtn', detail: lifeRecovery ? 'おきてごきげんを60以上にしよう' : 'おきてごきげんをととのえよう' };
     }
     if (needsHappiness) {
-      if (energy <= 25) return { action: 'sleepBtn', detail: 'まずはねてげんきをかいふくしよう' };
+      if (energy <= 25) return { action: 'sleepBtn', detail: 'まずはねてげんきを回復しよう' };
       if (petAvailable) return { action: 'playWithBtn', detail: lifeRecovery ? 'じゃれてごきげんを60以上にしよう' : 'やさしくじゃれよう' };
       if (lifeRecovery && energy < 60) return { action: 'sleepBtn', detail: 'まずげんきを60以上にしよう' };
       return { action: 'playBtn', detail: lifeRecovery ? 'あそんでごきげんを60以上にしよう' : 'あそんでごきげんをととのえよう' };
     }
     if (needsEnergy) {
-      if (state.isSleeping) return { action: '', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'ねむりながらげんきをかいふく中' };
-      return { action: 'sleepBtn', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'ねてげんきをかいふくしよう' };
+      if (state.isSleeping) return { action: '', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'ねむりながらげんきを回復中' };
+      return { action: 'sleepBtn', detail: lifeRecovery ? 'ねてげんきを60以上にしよう' : 'ねてげんきを回復しよう' };
     }
     if (numeric(state, 'poopCount', 0) >= 2) {
       return { action: 'cleanBtn', detail: 'うんちが原因。そうじしよう' };
     }
-    return { action: '', detail: 'おせわを保ってすこしずつかいふくをまとう' };
+    return { action: '', detail: 'おせわを続けて、少しずつ回復するのを待とう' };
   }
 
   function assess(input, options) {
@@ -140,9 +140,9 @@
 
     if (state.isSleeping) {
       if (energy >= 100) {
-        return notice('sleep', 'info', 'げんきがもどった', 'じゅうぶんやすんだよ。おきよう', 'recovery', 'sleepBtn', '');
+        return notice('sleep', 'info', 'げんきがもどった', '十分休んだよ。おきよう', 'recovery', 'sleepBtn', '');
       }
-      return notice('sleep', 'info', 'すやすやねている', 'ねむりながらげんきをかいふく中', 'sleep', '', '');
+      return notice('sleep', 'info', 'すやすやねている', 'ねむりながらげんきを回復中', 'sleep', '', '');
     }
 
     return null;

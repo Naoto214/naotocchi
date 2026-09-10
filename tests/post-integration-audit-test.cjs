@@ -16,10 +16,10 @@ test('a correct Sudoku cell keeps the incomplete board; only the last cell advan
     pad.listeners.find(l=>l.type==='pointerdown'&&!l.capture).fn({target:digit,preventDefault(){}});
   };
   put(0,0,1);h.advance(1701);
-  assert.equal(round.textContent,'1/3もんめ','one correct digit is not a completed board');
+  assert.equal(round.textContent,'1/3問目','one correct digit is not a completed board');
   for(const [r,c,n] of [[0,1,2],[0,2,3],[0,3,4],[1,0,3],[1,1,4],[1,2,1]])put(r,c,n);
-  h.advance(1701);assert.equal(round.textContent,'2/3もんめ');
-  h.advance(1701);assert.equal(round.textContent,'2/3もんめ','one solved board schedules one transition');
+  h.advance(1701);assert.equal(round.textContent,'2/3問目');
+  h.advance(1701);assert.equal(round.textContent,'2/3問目','one solved board schedules one transition');
 });
 
 const rain=h=>(h.get('weatherFx').innerHTML.match(/wx-drop/g)||[]).length;

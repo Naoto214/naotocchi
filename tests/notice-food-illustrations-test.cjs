@@ -27,7 +27,7 @@ test('achievement grid, recent list, goals and unlock flash share artwork and pr
   s.achievementsUnlocked=h.api.achievements.filter(a=>a.id!==ach.id).map(a=>a.id);
   s.lifetime.sicknessCured=1;h.api.checkAchievements();
   assert.equal(h.get('storyFlashEmoji').innerHTML,h.api.achievementIconHTML(ach));
-  assert.match(h.get('storyFlashText').textContent,/じっせきかいほう!「はじめてのかんびょう」/);
+  assert.match(h.get('storyFlashText').textContent,/じっせきたっせい!「はじめてのかんびょう」/);
   assert.ok(s.achievementsUnlocked.includes(ach.id));
 });
 
@@ -51,7 +51,7 @@ test('form-change notices and generic butterfly comments do not assume an adult 
   const grid=h.get('dexGrid');grid.closest=()=>({dataset:{line:'frog',stage:'2'}});
   h.dispatch(grid,'click');h.dispatch(h.get('dexDetailTransformBtn'),'click');
   assert.equal(s.infiniteForm.line,'frog');assert.equal(s.infiniteForm.stageIndex,2);
-  assert.match(h.get('message').textContent,/後脚にすがたをかえた!/);
+  assert.match(h.get('message').textContent,/後ろ足が出たおたまにすがたをかえた!/);
   assert.doesNotMatch(h.get('message').innerHTML,/assets\/characters\/frog\/05\.png/);
   assert.equal(h.api.commentTextHTML('🐸後脚にすがたをかえた!'),'🐸後脚にすがたをかえた!');
   assert.equal(h.api.commentTextHTML('🦋ようちゅう'),'🦋ようちゅう');
