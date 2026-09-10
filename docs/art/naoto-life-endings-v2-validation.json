@@ -1,0 +1,46 @@
+{
+  "base": "5915955f0312b42dd660e0ece909a06a5709e8e0",
+  "integratedMain": "a47dd94543b1cc4a177bd953c0e112eba9cd158c",
+  "generation": "Built-in image generation, one independent image per ending. Existing five ending images as references; goals 4 and 5 anchor Naoto identity and style.",
+  "export": "1536x1024 source; 768x512 nearest-neighbor JPEG quality 94, 4:4:4, mozjpeg. No cropping or content retouching. Same dimensions and export method as goals 4 and 5.",
+  "art": [
+    {
+      "goal": 1,
+      "path": "assets/clear/goal-1-naoto-v2.jpg",
+      "source": "goal-1-naoto-v2-original.png",
+      "sourceSha256": "ffcbf57b7fa28a41933c7100b844b94cd36258da377e45bbfc6cbdb45c089a02",
+      "sha256": "9933f05154025616584c64bcdea3ac1a911b49857d4b7a624f2411d924f49460",
+      "bytes": 379523,
+      "width": 768,
+      "height": 512
+    },
+    {
+      "goal": 2,
+      "path": "assets/clear/goal-2-naoto-v2.jpg",
+      "source": "exec-e163bdf1-640b-4763-90e3-4e0c9c8db840.png",
+      "sourceSha256": "c14389a7d55364ca38c7c6a625db042669465280ed61431746be4acdd5628886",
+      "sha256": "9a90003185b035bc5cfcc1d61f64f6f3bc065bea860a85c6bae1ad45122ec994",
+      "bytes": 364494,
+      "width": 768,
+      "height": 512
+    },
+    {
+      "goal": 3,
+      "path": "assets/clear/goal-3-naoto-v2.jpg",
+      "source": "exec-04ae8dea-d5a1-437c-8825-917717bc6ba0.png",
+      "sourceSha256": "b7b564d65dd18966ec4a0942020bbb34432b2cbc0d2efce674a988fd236bf6d4",
+      "sha256": "f4e96796d8eca0370c9f2a3126e8de3dec4744e3c31b94711f2388a0040fcb0c",
+      "bytes": 423735,
+      "width": 768,
+      "height": 512
+    }
+  ],
+  "unchanged": {
+    "assets/clear/goal-4-naoto-v1.jpg": "2652f8525a9138dde63fe5563d23896d933ee897eaa60475bc850840299339f4",
+    "assets/clear/goal-5-naoto-v1.jpg": "b33eece108db33a2f83ede0a60f251d880eead47be5ff0470166799d71610656"
+  },
+  "scope": "Artwork, native reward notices, explicit author-meeting and life-record guidance, and self-introducing goal 4/5 greetings. Goal ordering, unlock conditions, author placement and life-record storage are unchanged.",
+  "authorFlowQa": "npm test passed: direct goal 5 at age 25 and 100, through both exits; 4200ms greeting, main pet return, life snapshot preservation, and record-card access after returning from infinite mode. Existing goal 4 and old-save tests passed.",
+  "integrationQa": "After merging main a47dd94 (PR #212), npm test passed: 72 Node tests plus runtime smoke, dialogue and visual QA fixtures. Main home layout, CSS, palette, egg and cast behavior retained.",
+  "browserQa": "Not verified: browser connection timed out during this conversation."
+}

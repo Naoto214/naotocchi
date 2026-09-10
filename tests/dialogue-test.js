@@ -120,7 +120,7 @@ const expose = `
     revealSavedDuel: (d) => { duelRevealIndex = 0; duelRevealPhase = 'revealed'; renderDuelRevealCard(d); },
     partnerVisualHTML, renderPartnerCompanion, renderPartnerDex,
     isAuthorUnlocked, authorVisualHTML, showAuthorGreeting, renderNaotoItemGrid,
-    renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS, buildMinigamePool,
+    renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS, buildMinigamePool, AGE_TICKS_PER_YEAR, stageForAge,
     pendingGoal: () => grandGoalPending,
     getState: () => state, recent: () => [...recentConversationLines],
     reset: (patch) => {
@@ -134,6 +134,7 @@ const expose = `
       lastDatePlanId = null; dateChoiceOptions = [];
       grandGoalPending = null; pendingCompanionId = null;
       endingCelebrationShown = false;
+      el.lifeCardOverlay.classList.add('hidden');
       clearTimeout(storyFlashTimer); el.storyFlash.classList.add('hidden'); el.storyFlashEmoji.innerHTML = '';
       lastMemoryRecallKey = null;
     },
@@ -1086,31 +1087,57 @@ assert.equal(api.pendingGoal(), null);
 assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
 assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「こんなに/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！たくさんの子に/);
 advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
 assert.equal(JSON.stringify([api.getState().partner, api.getState().companions]), dexRelations);
 assert.equal(api.getState().lifetime.money, dexMoney);
 api.checkGrandGoals(); assert.equal(api.pendingGoal(), null, 'dismissed goal replayed');
 
-// Goal 5 takes priority when both goals are first completed; both exit routes keep the earned unlocks.
-for (const exitButton of ['gameClearCloseBtn', 'gameClearFreePlayBtn']) {
-  reset({ discoveredStages: allForms.slice(), achievementsUnlocked: api.ACHIEVEMENTS.map((a) => a.id) });
-  api.checkGrandGoals(); api.renderEnding();
-  assert.equal(api.pendingGoal(), 'perfect'); assert.equal(api.getEndingTier(), 4);
-  assert.equal(getElement('gameClearOverlay').dataset.goal, '5');
-  assert.match(getElement('gameClearArt').src, /^assets\/clear\/goal-5-naoto-v1\.jpg\?/);
-  assert.match(getElement('gameClearArt').alt, /歯を見せて笑う/);
-  assert.ok(!getElement('gameClearFreePlayBtn').classList.contains('hidden'));
-  assert.equal(api.getState().lifetime.dexCleared, true);
-  assert.equal(api.getState().lifetime.perfectCleared, true);
-  click(exitButton);
-  assert.equal(api.pendingGoal(), null);
-  assert.equal(api.getState().infinite, exitButton === 'gameClearFreePlayBtn');
-  assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-  assert.match(getElement('storyFlashText').textContent, /ナオト「ぜんぶ/);
-  assert.equal(api.getState().discoveredStages.length, allForms.length);
-  assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
+// Direct goal 5 introduces Naoto through both exits, during life or at 100, without replacing the pet or its life record.
+for (const atLifeEnd of [false, true]) {
+  for (const exitButton of ['gameClearCloseBtn', 'gameClearFreePlayBtn']) {
+    reset({ discoveredStages: allForms.slice(), achievementsUnlocked: api.ACHIEVEMENTS.map((a) => a.id),
+      partner: partner(), companions: [{ id: 'clock', bond: 84 }],
+      lifeLog: [{ age: 12, icon: '🌱', text: 'はじめてのたび' }] });
+    if (atLifeEnd) {
+      api.getState().ageTicks = 100 * api.AGE_TICKS_PER_YEAR;
+      api.getState().stageIndex = api.stageForAge(100);
+      api.enterFarewell();
+    }
+    const lifeDetails = (s) => JSON.stringify([s.speciesLine, s.stageIndex, s.ageTicks, s.partner, s.companions, s.lifeLog]);
+    const lifeBefore = lifeDetails(api.getState());
+    api.checkGrandGoals(); api.renderEnding();
+    assert.equal(api.pendingGoal(), 'perfect'); assert.equal(api.getEndingTier(), 4);
+    assert.equal(getElement('gameClearOverlay').dataset.goal, '5');
+    assert.match(getElement('gameClearArt').src, /^assets\/clear\/goal-5-naoto-v1\.jpg\?/);
+    assert.match(getElement('gameClearArt').alt, /歯を見せて笑う/);
+    assert.ok(!getElement('gameClearFreePlayBtn').classList.contains('hidden'));
+    assert.equal(api.getState().lifetime.dexCleared, true);
+    assert.equal(api.getState().lifetime.perfectCleared, true);
+    click(exitButton);
+    assert.equal(api.pendingGoal(), null);
+    assert.equal(api.getState().infinite, exitButton === 'gameClearFreePlayBtn');
+    assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
+    assert.ok(!getElement('screenNormal').classList.contains('hidden'), `main pet did not return after goal 5: ${JSON.stringify({ atLifeEnd, exitButton, stage: api.getState().stage, lifeCardHidden: getElement('lifeCardOverlay').classList.contains('hidden') })}`);
+    assert.ok(getElement('lifeCardOverlay').classList.contains('hidden'), 'goal 5 ended this life prematurely');
+    assert.ok(!getElement('storyFlash').classList.contains('hidden'));
+    assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
+    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
+    assert.equal(lifeDetails(api.getState().infiniteReturn || api.getState()), lifeBefore);
+    assert.equal(api.getState().discoveredStages.length, allForms.length);
+    assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
+    advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
+    advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
+    if (atLifeEnd) {
+      if (api.getState().infinite) click('infiniteBtn');
+      assert.ok(!getElement('farewellBar').classList.contains('hidden'), 'life record route was lost');
+      click('farewellBtn');
+      assert.ok(!getElement('lifeCardOverlay').classList.contains('hidden'));
+      assert.match(getElement('lifeCardBody').innerHTML, /100さいまでいきた/);
+      assert.match(getElement('lifeCardBody').innerHTML, /はじめてのたび/);
+    }
+  }
 }
 
 // Previous saves retain their earned author access even while today's expanded dex is incomplete.
@@ -1145,11 +1172,12 @@ for (const oldGoal of ['dexCleared', 'perfectCleared']) {
   assert.ok(!getElement('storyFlash').classList.contains('hidden'), 'unlocked author could not be greeted again');
 }
 
-// Returning to the earlier life goals must restore their original artwork and never add an author greeting.
+// Life goals keep Naoto's face hidden and explain rewards outside the textless art.
 for (const [sodachi, tier] of [[69, 0], [70, 1], [100, 2]]) {
   reset({ maxSodachi: sodachi, sodachi }); api.enterFarewell(); api.renderEnding();
   assert.equal(api.getEndingTier(), tier);
-  assert.equal(getElement('gameClearArt').src, `assets/clear/goal-${tier + 1}.jpg?v=20260908-02`);
+  assert.equal(getElement('gameClearArt').src, `assets/clear/goal-${tier + 1}-naoto-v2.jpg?v=20260910-ending-1`);
+  assert.ok(getElement('gameClearDesc').innerHTML.includes(['なおとのおまもり', 'なおとのランタン', 'なおとのリング'][tier]), 'textless art must retain the earned reward notice');
   assert.ok(!getElement('gameClearDesc').innerHTML.includes('みつけたすがた:'));
   assert.equal(api.isAuthorUnlocked(), false);
   click('gameClearCloseBtn');
@@ -1160,7 +1188,7 @@ for (const goal of [4, 5]) {
   assert.equal(jpeg.subarray(0, 2).toString('hex'), 'ffd8');
   assert.equal(jpeg.subarray(-2).toString('hex'), 'ffd9');
 }
-console.log('AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5 and both exits; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; original goals 1-3.');
+console.log('AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5; direct goal 5 at 25/100 and both exits; pet and life-record preservation; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; textless goals 1-3 and reward notices.');
 
 // Main #203 adds six achievements. Existing perfect saves keep their earned mode and author access.
 const recordAchievementIds = ['record-rank-s-1', 'games-played-25', 'games-played-60', 'record-rank-a-20', 'games-complete-100', 'record-rank-s-15'];
@@ -1202,5 +1230,5 @@ assert.equal(api.pendingGoal(), 'perfect');
 assert.ok(getElement('gameClearArt').src.includes('goal-5-naoto-v1.jpg'));
 click('gameClearCloseBtn');
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「ぜんぶ/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
 console.log('MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.');

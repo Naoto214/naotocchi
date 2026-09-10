@@ -1971,18 +1971,24 @@
   const ENDING_TIERS = [
     {
       title: 'てんじゅをまっとうした!',
+      art: 'assets/clear/goal-1-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '夕焼けの縁側で、白いパーカーのナオトと犬が並んで景色を眺める後ろ姿',
       confetti: '🌇✨🎉✨🌇',
       badges: ['★①てんじゅをまっとうした'],
       desc: '100さいまでいっしょうをいきぬいた!<br>つぎのゴール: 100さい＋そだち70いじょう',
     },
     {
       title: 'いっしょうクリア!',
+      art: 'assets/clear/goal-2-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '星空の港で、白いパーカーのナオトと犬がランタンのそばに座る後ろ姿',
       confetti: '🏮✨🌙✨🏮',
       badges: ['★①てんじゅ', '★②いっしょうクリア'],
       desc: 'よくそだてながら、100さいまでいきぬいた!<br>つぎのゴール: 100さい＋そだち100',
     },
     {
       title: 'さいこうのいっしょう!',
+      art: 'assets/clear/goal-3-naoto-v2.jpg?v=20260910-ending-1',
+      artAlt: '思い出の写真が揺れる木の下で、白いパーカーのナオトと犬が寄り添う後ろ姿',
       confetti: '🌳✨🌈✨🌳',
       badges: ['★①てんじゅ', '★②いっしょう', '★③さいこうのいっしょう'],
       desc: 'そだち100にとどき、100さいをむかえた。<br>つぎはずかんのすべてのすがたをみつけよう!',
@@ -7164,8 +7170,9 @@
     if (!isAuthorUnlocked()) return false;
     const lines = {
       hello: 'ナオト「やあ！遊んでくれて、ありがとう！」',
-      dex: 'ナオト「こんなにたくさんの子と会えたんだね。遊んでくれて、ありがとう！」',
-      perfect: 'ナオト「ぜんぶ見つけてくれたんだね！これからも、なおとっちをよろしくね！」',
+      dex: 'ナオト「ナオトだよ！たくさんの子に会ってくれて、ありがとう！」',
+      // ④を経ずに⑤へ進んでも、この挨拶だけで誰に会ったかがわかる。
+      perfect: 'ナオト「ナオトだよ！ぜんぶ見つけてくれて、ありがとう！」',
     };
     showStoryEvent({ author:true, message:lines[kind] || lines.hello });
     return true;
@@ -11322,7 +11329,7 @@
     // ⑤ パーフェクトクリア(ずかん + じっせき 両方)を 一度でも たっせいしたら
     // ♾️ の せかいを えいきゅうに 解禁する
     const tier = ENDING_TIERS[tierIndex];
-    // ④・⑤は承認済み作者シートに基づく専用アート。正確な達成数はUIで表示する。
+    // ①〜③はナオトの後ろ姿、④⑤は正面。文字・達成数・報酬はUIで表示する。
     if (el.gameClearArt) {
       el.gameClearArt.src = tier.art || `assets/clear/goal-${tierIndex + 1}.jpg?v=20260908-02`;
       el.gameClearArt.alt = tier.artAlt || tier.title;
@@ -11331,19 +11338,29 @@
     el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
     el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
     el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
-    // パーフェクト(tier 3)の ときだけ「じゆうに あそぶ」ボタンを 出す -
-    // それいがいの tier は めざす さきが まだ ある ので、「はじめから」で
-    // また ちょうせんしなおす ことを うながす
+    // ⑤を一度でも達成していれば、人生を残したまま♾️のせかいへ進める。
     el.gameClearFreePlayBtn.classList.toggle('hidden', !state.lifetime.perfectCleared);
     el.gameClearCloseBtn.classList.remove('hidden');
+    const meetsAuthor = grandGoalPending === 'dex' || grandGoalPending === 'perfect';
+    el.gameClearCloseBtn.textContent = meetsAuthor ? 'ナオトにあう'
+      : grandGoalPending === 'life' ? 'おわかれのじかんへ' : 'とじる';
     el.gameClearTitle.textContent = tier.title;
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
+    if (tierIndex < 3) {
+      const reward = NAOTO_ITEMS.find((item) => item.unlockTier === tierIndex);
+      if (reward) el.gameClearDesc.innerHTML += `<br>${escapeHtml(reward.emoji)} ${escapeHtml(reward.label)}をもらった!<br>${escapeHtml(reward.desc)}`;
+    }
     if (tierIndex === 3) {
       const totalForms = ALL_LINES.length * STAGES_PER_LINE;
       const knownForms = Math.min(state.discoveredStages.length, totalForms);
       el.gameClearDesc.innerHTML += `<br>📖みつけたすがた: ${knownForms} / ${totalForms}<br>👑なおとのかんむりをもらった!`;
+    }
+    if (meetsAuthor) {
+      el.gameClearDesc.innerHTML += '<br>ゲームをつくったナオトが、あいさつにくるよ。<br>「あいてむ」の「なおとのひみつ」で、またはなせるよ。';
+    } else if (grandGoalPending === 'life') {
+      el.gameClearDesc.innerHTML += '<br>このあと、おわかれのじかんに<br>この子のいっしょうをきろくできるよ。';
     }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
     const hadPerfect = state.lifetime.endingTiersReached.includes(4);
