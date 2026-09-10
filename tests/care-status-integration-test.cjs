@@ -146,3 +146,17 @@ test('a delayed sleep recovery never tells an already awake pet to wake', () => 
   assert.match(h.get('message').textContent,/げんき/);
   assert.doesNotMatch(h.get('message').textContent,/おきる|おきよう/);
 });
+
+test('illness care is readable before an arbitrarily long saved disease name', () => {
+  const h=harness();
+  const disease='しんぞうがバクバクする、とてもながいなまえのびょうき';
+  for (const health of [0, 20, 90]) {
+    Object.assign(h.api.state(),{isSick:true,sicknessType:disease,health,hunger:80,energy:80});
+    h.api.render();
+    const text=h.get('message').textContent;
+    assert.ok(text.indexOf('くすり')>=0 && text.indexOf('くすり')<text.indexOf(disease), text);
+    assert.ok(text.includes(disease), 'the saved illness remains available in full');
+    assert.equal(h.get('medicineBtn').dataset.careRecommended,'true');
+    assert.equal(h.api.state().sicknessType,disease);
+  }
+});

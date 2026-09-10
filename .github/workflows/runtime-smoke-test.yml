@@ -31,4 +31,4 @@ jobs:
       - name: Run audio and post-integration regression tests
         run: node --test tests/audio-regression-test.cjs tests/post-integration-audit-test.cjs
       - name: Run care status regression tests
-        run: node --test tests/care-status-test.cjs tests/care-status-integration-test.cjs
+        run: node --test tests/care-status-test.cjs tests/care-status-integration-test.cjs tests/ui-illustrations-test.cjs

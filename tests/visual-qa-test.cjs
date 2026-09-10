@@ -53,4 +53,36 @@ for (const name of ['special_date','special_date_two','special_date_ring','deeps
   assert.ok(fixtures[name].partner.married);
   assert.equal(fixtures[name].companions.length, 26);
 }
-console.log('VISUAL QA ROUTE TEST OK: generated script compiles; 3 egg stages; 3 delayed anniversaries; 5 pending legends; reward counts, ring and deepsea saves. No browser rendering claimed.');
+// The dedicated long-name fixture must expose sickness, not a higher-priority
+// low-health notice. The illustrated fixture must keep all inspection targets.
+const care = require('../care-status.js');
+const sick = care.assess(fixtures.care_sick_only);
+assert.equal(sick.kind, 'sick');
+assert.equal(sick.action, 'medicineBtn');
+const {harness} = require('./helpers/runtime-harness.cjs');
+const saved = new Map([['naotocchi-save-v1',JSON.stringify(fixtures.ui_illustrations)]]);
+const h = harness({resume:true,storage:{getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)}});
+assert.equal(h.api.state().companions.length,26);
+assert.equal(h.api.state().partner.id,'robot_neighbor');
+assert.equal(h.api.state().lifetime.ownedShopItems.length,15);
+assert.equal(h.api.state().lifetime.ownedNaotoItems.length,4);
+assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
+assert.equal(Object.keys(h.api.state().items).filter(id=>id.startsWith('fun_')&&h.api.state().items[id]===2).length,7);
+
+// Execute the actual emitted discovery code with backgrounds already removed
+// by production fallback. Hidden probes must still report the failed atlas.
+const discovery=script.slice(script.indexOf('const iconNodes='),script.indexOf('const panelOverflow='));
+const callbacks=[];
+const context={iconLoads:new Map(),Image:class{set src(value){callbacks.push(()=>this.onerror());}},doc:{
+  querySelectorAll:selector=>selector==='img[data-icon-atlas]'?[{src:'https://example.test/failed-atlas.png'}]:[],
+  getElementById:()=>({}),defaultView:{getComputedStyle:()=>({backgroundImage:'none'})},
+}};
+vm.createContext(context);
+vm.runInContext('function sample(){'+discovery+'return iconImages;} first=sample();',context);
+assert.equal(context.first.length,1,'failed atlas disappeared after its CSS background was removed');
+assert.equal(context.first[0].status,'pending');
+callbacks[0]();
+assert.equal(context.first[0].status,'pending','later load/error mutated an earlier measurement');
+vm.runInContext('second=sample();',context);
+assert.equal(context.second[0].status,'failed');
+console.log('VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 15 shop items, 4 rewards, 7 fun props. No browser rendering claimed.');

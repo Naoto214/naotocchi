@@ -52,9 +52,19 @@ function createFixtures() {
       make('care_sleep_full',26,{isSleeping:true,energy:100,hunger:80,happiness:80,health:90});
       make('care_sleep_hungry',26,{isSleeping:true,energy:25,hunger:15,happiness:80,health:90});
       make('care_sick',26,{isSick:true,sicknessType:'しんぞうがバクバクするびょうき',health:25,hunger:80,happiness:80,energy:80});
+      make('care_sick_only',26,{isSick:true,sicknessType:'しんぞうがバクバクする、とてもながいなまえのびょうき',health:90,hunger:80,happiness:80,energy:80});
       const careLarge=make('care_large',26,{isSick:true,sicknessType:'げんいんふめいのこうねつ',health:20,hunger:80});
       careLarge.lifetime.textSize='large';
       make('care_infinite',26,{infinite:true,health:0,hunger:0,energy:0,deathMeter:95});
+      const illustrated=make('ui_illustrations',26,{hunger:80,health:90,energy:80,happiness:80});
+      illustrated.lifetime.money=9999;
+      illustrated.lifetime.ownedShopItems=['flower','ribbon','bowtie','poop1','scarf','glasses','energy1','hat','travel1','sleepboost1','star','bond1','partner1','crown','itemluck1'];
+      illustrated.lifetime.equippedItemId='ribbon';
+      illustrated.lifetime.endingTiersReached=[0,1,2,3];
+      illustrated.lifetime.ownedNaotoItems=['naoto_charm','naoto_lantern','naoto_ring','naoto_crown'];
+      illustrated.lifetime.clears=1;illustrated.lifetime.lifeClears=1;illustrated.lifetime.bestLives=1;illustrated.lifetime.dexCleared=true;
+      illustrated.lifetime.consumablesUsed=2;
+      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) illustrated.items[id]=2;
       make('mushroom',26,{speciesLine:'mushroom',stageIndex:7});
       make('goal4',26,{discoveredStages:allForms.slice(),achievementsUnlocked:[]});
       make('goal5',26,{discoveredStages:allForms.slice(),achievementsUnlocked:api.ACHIEVEMENTS.map(a=>a.id)});
@@ -137,6 +147,7 @@ function visualQaPlugin() {
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
+          <label><input type="checkbox" id="failIcons">Simulate missing icon image</label>
           <button id="load">Load scene</button> <button id="measure">Measure layout</button>
           <button id="loadMovie">Load and observe next movie</button>
           <button id="observe">Observe motion (4s)</button>
@@ -147,6 +158,7 @@ function visualQaPlugin() {
           const fixtures=${JSON.stringify(fixtures).replace(/</g,'\\u003c')};
           const mount=document.getElementById('mount');
           let observationToken=0;
+          const iconLoads=new Map();
           function loadScene(watchMovie=false){
             observationToken++;
             // Let the old game finish its unload save before installing the fixture.
@@ -154,6 +166,12 @@ function visualQaPlugin() {
             setTimeout(()=>{
               localStorage.setItem('naotocchi-save-v1',JSON.stringify(fixtures[document.getElementById('scene').value]));
               const frame=document.createElement('iframe');frame.title='Game preview';frame.id='game';
+              if(document.getElementById('failIcons').checked) frame.addEventListener('load',()=>{
+                const style=frame.contentDocument.createElement('style');
+                style.textContent='.care-icon,#message[data-care-icon]::before{background-image:url("/__qa-missing-icon.png")!important}';
+                frame.contentDocument.head.append(style);
+                frame.contentDocument.querySelectorAll('img[data-icon-atlas]').forEach(img=>{img.src='/__qa-missing-icon.png';});
+              },{once:true});
               frame.width=document.getElementById('width').value;frame.height=document.getElementById('height').value;frame.src='/';mount.append(frame);
               document.getElementById('result').textContent='Loaded '+document.getElementById('scene').value;
               if(watchMovie)observeNextMovie();
@@ -168,6 +186,20 @@ function visualQaPlugin() {
             const chips=[...doc.querySelectorAll('.companion-chip-small')];
             const outside=chips.filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&(r.left<area.left||r.right>area.right||r.top<area.top||r.bottom>area.bottom)});
             const images=[...doc.images].filter(e=>e.getBoundingClientRect().width>0);
+            // CSS sprite sheets are not doc.images. Track their actual URLs so
+            // a failed atlas cannot be reported as "all images loaded".
+            const iconNodes=[...doc.querySelectorAll('.care-icon')].filter(e=>e.getBoundingClientRect().width>0);
+            const backgrounds=iconNodes.map(e=>doc.defaultView.getComputedStyle(e).backgroundImage);
+            backgrounds.push(doc.defaultView.getComputedStyle(doc.getElementById('message'),'::before').backgroundImage);
+            // A failed atlas is removed from computed backgrounds by fallback
+            // CSS. Hidden probes keep it in the measured resource set.
+            const probeSources=[...doc.querySelectorAll('img[data-icon-atlas]')].map(img=>img.src);
+            const iconSources=[...new Set([...backgrounds.map(s=>s.match(/url\\(["']?(.*?)["']?\\)/)?.[1]),...probeSources].filter(Boolean))];
+            for(const src of iconSources) if(!iconLoads.has(src)){
+              const record={src,status:'pending'};iconLoads.set(src,record);
+              const image=new Image();image.onload=()=>record.status='loaded';image.onerror=()=>record.status='failed';image.src=src;
+            }
+            const iconImages=iconSources.map(src=>({...iconLoads.get(src)}));
             const panelOverflow=[...doc.querySelectorAll('.dex-scroll,.profile-scroll')].filter(e=>e.clientWidth>0&&e.scrollWidth>e.clientWidth).map(e=>({panel:e.className,width:e.clientWidth,contentWidth:e.scrollWidth}));
             const intersects=(a,b)=>a.width>0&&b.width>0&&a.left<b.right&&b.left<a.right&&a.top<b.bottom&&b.top<a.bottom;
             const hero=doc.getElementById('petSprite').getBoundingClientRect();
@@ -207,6 +239,8 @@ function visualQaPlugin() {
               careNoticeHeight:doc.getElementById('message').getBoundingClientRect().height,
               careNoticeOverflow:doc.getElementById('message').scrollHeight>doc.getElementById('message').clientHeight,
               careRecommended:[...doc.querySelectorAll('[data-care-recommended="true"]')].map(e=>e.id),
+              careButtonBounds:[...doc.querySelectorAll('.buttons button')].map(e=>{const r=e.getBoundingClientRect();return {id:e.id,x:r.x,y:r.y,width:r.width,height:r.height};}),
+              iconImages,missingIconsRequested:document.getElementById('failIcons').checked,
               storyVisible:story.width>0,storyText:story.width>0?storyText.textContent:null,storyTextOverflow,
               storyAsset:story.width>0?doc.querySelector('#storyFlashEmoji img')?.getAttribute('src')||null:null,
               profileVisible:profile.getBoundingClientRect().width>0,
@@ -231,7 +265,7 @@ function visualQaPlugin() {
               pendingImages:images.filter(e=>!e.complete).length,
               brokenImages:images.filter(e=>e.complete&&!e.naturalWidth).length,
               horizontalOverflow:doc.documentElement.scrollWidth>doc.documentElement.clientWidth,
-              layoutChecksPass,checksPass:layoutChecksPass&&images.every(e=>e.complete&&e.naturalWidth)};
+              layoutChecksPass,checksPass:layoutChecksPass&&images.every(e=>e.complete&&e.naturalWidth)&&iconImages.every(e=>e.status==='loaded')};
             return result;
           }
           document.getElementById('measure').onclick=()=>document.getElementById('result').textContent=JSON.stringify(measure(),null,2);

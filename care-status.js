@@ -38,7 +38,9 @@
       const sickness = state.sicknessType || 'びょうき';
       return {
         action: 'medicineBtn',
-        detail: `${sickness}が原因。くすりでなおそう`,
+        // Saved disease names can be long. Put the care before that unbounded
+        // text so the fixed two-line notice exposes the next action first.
+        detail: `くすりでなおそう：${sickness}`,
       };
     }
     if (state.isSleeping && needsHunger) {
@@ -98,15 +100,15 @@
 
     if (state.isSick) {
       const sickness = state.sicknessType || 'びょうき';
-      return notice('sick', 'warning', `びょうき：${sickness}`, 'くすりはねていても使えるよ', 'sick', 'medicineBtn', 'droop');
+      return notice('sick', 'warning', 'びょうき。くすりでなおそう', `${sickness}（ねていても使えるよ）`, 'sick', 'medicineBtn', 'droop');
     }
 
     const hunger = numeric(state, 'hunger', 100);
     if (hunger <= 25) {
       if (state.isSleeping) {
-        return notice('hunger', 'warning', 'おなかがすいている', 'おきてからごはんをあげよう', 'food', 'sleepBtn', 'droop');
+        return notice('hunger', 'warning', 'おなかがすいている', 'おきてからごはんをあげよう', 'hunger', 'sleepBtn', 'droop');
       }
-      return notice('hunger', 'warning', 'おなかがすいている', 'ごはんをあげよう', 'food', 'feedBtn', 'droop');
+      return notice('hunger', 'warning', 'おなかがすいている', 'ごはんをあげよう', 'hunger', 'feedBtn', 'droop');
     }
 
     const energy = numeric(state, 'energy', 100);

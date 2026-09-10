@@ -1,0 +1,442 @@
+{
+  "dateUTC": "2026-09-10",
+  "recordedAtUTC": "2026-09-10T12:42:52.972296+00:00",
+  "baseMain": "f847cd78dcf652601bf4c960257e673d81c459d2",
+  "baseTree": "c606e90928e2171d5fda39a9c099935e81bb8b93",
+  "branch": "feature/ui-illustrations-followup-20260910",
+  "finalCommitTreeCI": "Read the pull request for this branch; this record is included in that commit.",
+  "candidatePublication": "unmerged and unpublished when this record was written",
+  "priorPRs": [
+    {
+      "number": 224,
+      "mergedAt": "2026-09-10T12:17:55Z",
+      "merge": "dd224cba7e5ae86b972d1766c1d0ecdc7b758e22"
+    },
+    {
+      "number": 225,
+      "mergedAt": "2026-09-10T12:18:12Z",
+      "merge": "f847cd78dcf652601bf4c960257e673d81c459d2"
+    }
+  ],
+  "baseCI": [
+    {
+      "name": "Runtime smoke test",
+      "run": 296,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34475969178"
+    },
+    {
+      "name": "pages build and deployment",
+      "run": 223,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34475968075"
+    }
+  ],
+  "publishedFiles": {
+    "checkedAtUTC": "2026-09-10T12:35:53Z",
+    "main": "f847cd78dcf652601bf4c960257e673d81c459d2",
+    "files": [
+      {
+        "path": "index.html",
+        "url": "https://naoto214.github.io/naotocchi/index.html",
+        "status": 200,
+        "bytes": 44879,
+        "sha256": "6dd79942cc4f746c5875ba0e3c6a2c28b647d19a2dd94039a722ab20fe6d6477",
+        "matchesMain": true
+      },
+      {
+        "path": "script.js",
+        "url": "https://naoto214.github.io/naotocchi/script.js",
+        "status": 200,
+        "bytes": 840997,
+        "sha256": "e3ae09ea9532e9ea07d433e97c44667bc16d785d264160519f5b539e427e7192",
+        "matchesMain": true
+      },
+      {
+        "path": "care-status.js",
+        "url": "https://naoto214.github.io/naotocchi/care-status.js",
+        "status": 200,
+        "bytes": 8818,
+        "sha256": "ab7ffa4615ba32883fdfa863d9de716ee68c048d5fa74ce50aeae799bd6b9536",
+        "matchesMain": true
+      },
+      {
+        "path": "care-status.css",
+        "url": "https://naoto214.github.io/naotocchi/care-status.css",
+        "status": 200,
+        "bytes": 4485,
+        "sha256": "ad75b77c84a5746f3a89dc405b81c6a2c34bb08a562814117316b81780eda5dc",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/care-atlas-v1.png",
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/care-atlas-v1.png",
+        "status": 200,
+        "bytes": 1226620,
+        "sha256": "d544d139c400f20f2720915b8e6e9c8dd07c660de346d647577decd0f9a59d95",
+        "matchesMain": true
+      }
+    ]
+  },
+  "tests": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 135,
+    "pass": 135,
+    "fail": 0,
+    "skip": 0,
+    "baseCount": 129,
+    "newCareTests": 1,
+    "newUITests": 5,
+    "smoke": {
+      "domIds": 329,
+      "gamesStarted": 100,
+      "variantCollections": 91
+    },
+    "qaRoute": "compiled; actual illustrated-save reload; hidden failed atlas remains measured; prior measurements immutable"
+  },
+  "invariants": {
+    "approved": {
+      "ref": "9a523e46dccfd0b7d32c30ed75afc13d2549ad48",
+      "images": 301,
+      "byteDifferences": 0,
+      "changed": []
+    },
+    "current": {
+      "ref": "f847cd78dcf652601bf4c960257e673d81c459d2",
+      "images": 307,
+      "byteDifferences": 0,
+      "changed": []
+    },
+    "functionsUnchanged": {
+      "loadState": true,
+      "saveState": true,
+      "tick": true,
+      "isImmortal": true,
+      "triggerDeath": true,
+      "updateDyingWarning": true,
+      "raiseDeathMeter": true,
+      "recoverSleepStep": true,
+      "renderHomeCast": true
+    },
+    "definitionsUnchanged": {
+      "SHOP_ITEMS": true,
+      "NAOTO_ITEMS": true,
+      "FUN_ITEMS": true
+    },
+    "sourceFilesUnchanged": {
+      "character-world-master.v1.js": true,
+      "cast-layout.js": true,
+      "cast-motion.js": true,
+      "games.js": true,
+      "audio.js": true,
+      "world-environment.js": true,
+      "style.css": true,
+      "ui.css": true,
+      "design.css": true,
+      "care-status.css": true,
+      "egg-hatching.css": true,
+      "assets/ui/care-atlas-v1.png": true,
+      "assets/ui/care-atlas-v1.json": true
+    },
+    "careHandlersAndDialogueTailUnchanged": true
+  },
+  "atlas": {
+    "frames": 36,
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "bytes": 1457487,
+    "sha256": "edf8893222b8399d8b1e9bd23dd29e7809d4659bfc8b6ca1d1a31fe4611023d0",
+    "sourceBytesPreserved": true,
+    "checks": [
+      {
+        "key": "flower",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "ribbon",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "bowtie",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "paper",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "scarf",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "glasses",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "band",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "hat",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "backpack",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "star_badge",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "paw_badge",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "letter",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "crown",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "clover",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "charm",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "lantern",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "ring",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "naoto_crown",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "world",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "book",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "medal",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "palette",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "sun",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "cloud",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "rain",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "snow",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "moon",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "sunrise",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "sunset",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "candy",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "bubbles",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "balloon",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "fireworks",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "camera",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "musicbox",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      },
+      {
+        "key": "surprise",
+        "boundsValid": true,
+        "cssCoordinatesMatch": true,
+        "opaqueEdgePixels": 0
+      }
+    ]
+  },
+  "review": {
+    "reviewer": "independent read-only agent",
+    "findings": [
+      "fun inventory had no visible atlas-error fallback",
+      "QA samples shared mutable image status",
+      "fallback removed failed atlas from computed background discovery"
+    ],
+    "resolution": "all three findings fixed and scoped re-reviewed; no unresolved Critical, Important or Minor findings; full npm test 135 passed",
+    "finalVerdict": "ready to proceed within reviewed scope; browser rendering remains unverified"
+  },
+  "browser": {
+    "initialized": true,
+    "tabList": "20 second timeout",
+    "recoveryTabCreated": true,
+    "navigationAndDom": "CDP operation refresh tabs timed out after 20000ms",
+    "gameScreenshots": 0,
+    "staticIllustrationSamplesPx": [
+      20,
+      26,
+      40
+    ],
+    "staticSamplesAreBrowserScreenshots": false,
+    "iphoneRendering": "unverified",
+    "touchAudioFPS": "unverified",
+    "jitterCause": "unresolved"
+  },
+  "pendingVisualChecks": [
+    "320x640 and 390x844",
+    "application large text and browser 200 percent zoom",
+    "26 companions plus partner and equipment",
+    "long sickness text",
+    "every palette and time/weather",
+    "notice entry/exit and action text plus deltas",
+    "real image load failure fallback",
+    "reduced motion and lightweight mode",
+    "16px inventory and 18px world icons"
+  ],
+  "coordination": {
+    "otherOpenPRsAtCheck": [
+      92
+    ],
+    "oldPR92Changed": false,
+    "publicClaudeBranch": "claude/review-existing-code-readme-naq7pv",
+    "publicClaudeHead": "cc7aaa462bca784a18faf91bdade7f7447bae098",
+    "publicClaudeAdditionalPNG": 0,
+    "otherTabsUncommittedAssets": "unverified",
+    "existingCanvasGamesPreserved": true
+  },
+  "priorAcceptances": [
+    "normal date OK",
+    "special and deepsea date OK",
+    "end button OK",
+    "anniversary provisionally OK",
+    "PR183 published",
+    "PR204 integrated into PR205 and closed"
+  ],
+  "sourceSha256": {
+    ".github/workflows/runtime-smoke-test.yml": "cf89c625d9a96b8595de3a5b9eef6fbfe99489cb53aa084d6ac66f9c32b5f0e6",
+    "care-status.js": "16d32c744bbc2e88a6bb23e7c46f6862e4db6ce72a8854a3e4df966cfe8e837d",
+    "index.html": "d8becfacc897a1fa123061b503052fd175d2c05ec35e4f09d703a11adc16ebd3",
+    "package.json": "8ef9e5f64be5b5cc3cf105bb6f6ed5725872cb8af4b14e2f74499f1e06b86a46",
+    "script.js": "4746913e6188bba19fd85f1b5455573075b6351ba993d32539f73ea2bc9c5cb9",
+    "tests/care-status-integration-test.cjs": "fd251b5cc9a344de5ac45f51b56d84d4db9905e39e1baa8cdd82895b8eb3af39",
+    "tests/care-status-test.cjs": "b8eb793f877b45d44c7a2ba54a9446cbb2403e9e9a2b1d68d2987bbbb8d74c4f",
+    "tests/visual-qa-test.cjs": "6efe54ad43401f245eafb7286445337d605c619744102a14726f13aebde80958",
+    "tests/visual-qa.cjs": "d0f8fc0e09eac08999fd088860c57d80df3f08ee1787ac6c153533b3a9d7f492",
+    "ui-illustrations.css": "7266e36d12a58267c4e5b516e5a1045550b940554867f5fae74f6d37fcbd8042",
+    "tests/ui-illustrations-test.cjs": "06e2fb606a8282f49cea8ecced77d7c7ebc6a5580697762c91ecd2b11359872a",
+    "assets/ui/world-items-atlas-v1.json": "38be64c92083cb8a2c011db2ee12f74e596d923a04f36c17130057235f5efd08"
+  },
+  "overallDevelopment": "incomplete"
+}

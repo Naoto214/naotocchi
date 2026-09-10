@@ -1,0 +1,51 @@
+/* Original RGBA atlas, displayed in fixed-size frames; labels live outside the image. */
+.ui-icon {background-image:url("assets/ui/world-items-atlas-v1.png");background-size:var(--ui-size) var(--ui-size);background-position:var(--ui-x) var(--ui-y)}
+[data-ui-icon="flower"] {--ui-x:1.85873606%;--ui-y:2.32342007%;--ui-size:704.49438202%}
+[data-ui-icon="ribbon"] {--ui-x:21.08655617%;--ui-y:2.85451197%;--ui-size:746.42857143%}
+[data-ui-icon="bowtie"] {--ui-x:40.18779343%;--ui-y:1.78403756%;--ui-size:663.49206349%}
+[data-ui-icon="paper"] {--ui-x:59.68342644%;--ui-y:2.14152700%;--ui-size:696.66666667%}
+[data-ui-icon="scarf"] {--ui-x:78.54477612%;--ui-y:2.61194030%;--ui-size:689.01098901%}
+[data-ui-icon="glasses"] {--ui-x:98.58356941%;--ui-y:2.36071766%;--ui-size:643.07692308%}
+[data-ui-icon="band"] {--ui-x:1.85873606%;--ui-y:21.00371747%;--ui-size:704.49438202%}
+[data-ui-icon="hat"] {--ui-x:20.77431539%;--ui-y:20.96317280%;--ui-size:643.07692308%}
+[data-ui-icon="backpack"] {--ui-x:40.11246485%;--ui-y:20.61855670%;--ui-size:670.58823529%}
+[data-ui-icon="star_badge"] {--ui-x:58.94833948%;--ui-y:20.84870849%;--ui-size:737.64705882%}
+[data-ui-icon="paw_badge"] {--ui-x:80.43684710%;--ui-y:20.89268756%;--ui-size:623.88059701%}
+[data-ui-icon="letter"] {--ui-x:98.76777251%;--ui-y:20.56872038%;--ui-size:630.15075377%}
+[data-ui-icon="crown"] {--ui-x:2.67034991%;--ui-y:40.51565378%;--ui-size:746.42857143%}
+[data-ui-icon="clover"] {--ui-x:20.80223881%;--ui-y:40.11194030%;--ui-size:689.01098901%}
+[data-ui-icon="charm"] {--ui-x:40.00000000%;--ui-y:40.09389671%;--ui-size:663.49206349%}
+[data-ui-icon="lantern"] {--ui-x:59.33333333%;--ui-y:40.09523810%;--ui-size:614.70588235%}
+[data-ui-icon="ring"] {--ui-x:80.56603774%;--ui-y:40.56603774%;--ui-size:646.39175258%}
+[data-ui-icon="naoto_crown"] {--ui-x:98.76777251%;--ui-y:40.09478673%;--ui-size:630.15075377%}
+[data-ui-icon="world"] {--ui-x:1.04364326%;--ui-y:59.29791271%;--ui-size:627.00000000%}
+[data-ui-icon="book"] {--ui-x:19.90384615%;--ui-y:60.28846154%;--ui-size:585.98130841%}
+[data-ui-icon="medal"] {--ui-x:40.13220019%;--ui-y:59.58451369%;--ui-size:643.07692308%}
+[data-ui-icon="palette"] {--ui-x:59.25572519%;--ui-y:59.06488550%;--ui-size:608.73786408%}
+[data-ui-icon="sun"] {--ui-x:80.19230769%;--ui-y:60.09615385%;--ui-size:585.98130841%}
+[data-ui-icon="cloud"] {--ui-x:99.04942966%;--ui-y:59.98098859%;--ui-size:620.79207921%}
+[data-ui-icon="rain"] {--ui-x:1.31332083%;--ui-y:79.17448405%;--ui-size:667.02127660%}
+[data-ui-icon="snow"] {--ui-x:21.55411656%;--ui-y:78.53839038%;--ui-size:724.85549133%}
+[data-ui-icon="moon"] {--ui-x:40.79696395%;--ui-y:79.03225806%;--ui-size:627.00000000%}
+[data-ui-icon="sunrise"] {--ui-x:58.92351275%;--ui-y:79.69782814%;--ui-size:643.07692308%}
+[data-ui-icon="sunset"] {--ui-x:78.72539831%;--ui-y:79.38144330%;--ui-size:670.58823529%}
+[data-ui-icon="candy"] {--ui-x:98.22097378%;--ui-y:77.90262172%;--ui-size:674.19354839%}
+[data-ui-icon="bubbles"] {--ui-x:1.70940171%;--ui-y:97.24596391%;--ui-size:623.88059701%}
+[data-ui-icon="balloon"] {--ui-x:20.22792023%;--ui-y:97.43589744%;--ui-size:623.88059701%}
+[data-ui-icon="fireworks"] {--ui-x:39.23220974%;--ui-y:97.28464419%;--ui-size:674.19354839%}
+[data-ui-icon="camera"] {--ui-x:60.09615385%;--ui-y:98.75000000%;--ui-size:585.98130841%}
+[data-ui-icon="musicbox"] {--ui-x:78.95734597%;--ui-y:97.63033175%;--ui-size:630.15075377%}
+[data-ui-icon="surprise"] {--ui-x:99.04761905%;--ui-y:97.52380952%;--ui-size:614.70588235%}
+.menu-grid .care-icon {width:32px;height:32px;flex-basis:32px}
+#petAccessory .care-icon {width:1em;height:1em;flex:0 0 1em;background-color:transparent;border-radius:0}
+.item-emoji .care-icon {width:1em;height:1em;flex-basis:1em}
+.theme-swatch-circle .care-icon {width:26px;height:26px;flex-basis:26px}
+.world-now-chip .care-icon,.world-now-effect .care-icon {width:18px;height:18px;flex-basis:18px}
+.world-now-chip {display:inline-flex;align-items:center;gap:2px}
+#storyFlashEmoji .care-icon {width:32px;height:32px;flex-basis:32px}
+.icon-fallback {display:none;line-height:1}
+.care-icon:has(> .icon-fallback) {text-align:center;line-height:1}
+html[data-ui-atlas="failed"] .ui-icon,
+html[data-care-atlas="failed"] [data-care-icon]:has(> .icon-fallback) {background-image:none}
+html[data-ui-atlas="failed"] .ui-icon > .icon-fallback,
+html[data-care-atlas="failed"] [data-care-icon] > .icon-fallback {display:inline}
