@@ -7891,7 +7891,20 @@
         }
         gen(); hud();
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || solvedAt) return; const p = mgPointerPos(canvas, e); const c = Math.floor((p.x - PAD) / CELL), r = Math.floor((p.y - PAD) / CELL); if (r < 0 || c < 0 || r >= N || c >= N) return; if (fixed[r][c]) { sel = null; say('それはさいしょからあるかず', 700); return; } sel = [r, c]; });
-        pad.addEventListener('pointerdown', (e) => { e.preventDefault(); const b = e.target.closest('button'); if (!b || !running || solvedAt) return; if (!sel) { say('まずマスをタップして', 700); return; } const v = +b.dataset.v; const [r, c] = sel; if (v === 0) { grid[r][c] = 0; return; } grid[r][c] = v; popAt[r + ',' + c] = performance.now(); if (v !== sol[r][c]) { mistakes++; sfx('bad'); hud(); say('❌ちがう…', 700); } else if (grid.every((row, rr) => row.every((val, cc) => val === sol[rr][cc]))) { solvedAt = performance.now(); solved++; sfx('coin'); } else { sfx('tick'); say('🎉かんせい!', 1500); setTimeout(() => { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); hud(); }, 1700); } });
+        pad.addEventListener('pointerdown', (e) => {
+          e.preventDefault(); const b = e.target.closest('button');
+          if (!b || !running || solvedAt) return;
+          if (!sel) { say('まずマスをタップして', 700); return; }
+          const v = +b.dataset.v; const [r, c] = sel;
+          if (v === 0) { grid[r][c] = 0; return; }
+          grid[r][c] = v; popAt[r + ',' + c] = performance.now();
+          if (v !== sol[r][c]) {
+            mistakes++; sfx('bad'); hud(); say('❌ちがう…', 700);
+          } else if (grid.every((row, rr) => row.every((val, cc) => val === sol[rr][cc]))) {
+            solvedAt = performance.now(); solved++; sfx('coin'); say('🎉かんせい!', 1500);
+            setTimeout(() => { if (!running) return; round++; if (round >= ROUNDS) { finish(); return; } gen(); hud(); }, 1700);
+          } else { sfx('tick'); }
+        });
         const conflict = (r, c) => { const v = grid[r][c]; if (!v) return false; for (let i = 0; i < N; i++) { if (i !== c && grid[r][i] === v) return true; if (i !== r && grid[i][c] === v) return true; } const br = Math.floor(r / BR) * BR, bc = Math.floor(c / BC) * BC; for (let rr = br; rr < br + BR; rr++) for (let cc = bc; cc < bc + BC; cc++) if ((rr !== r || cc !== c) && grid[rr][cc] === v) return true; return false; };
         function render(now) {
           if (!ctx) return;

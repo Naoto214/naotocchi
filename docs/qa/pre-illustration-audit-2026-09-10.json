@@ -1,0 +1,404 @@
+{
+  "dateUTC": "2026-09-10",
+  "baseMain": "068864a7ddc44bc6f6e9ab4a6bb41f7e597749a2",
+  "baseTree": "84d66af7e0cd9e17aa6000f02ac374df14184e62",
+  "auditBranch": "audit/pre-illustration-20260910",
+  "finalCommitAndCI": "See the pull request for this branch; this file is part of that commit.",
+  "verification": {
+    "command": "npm test",
+    "exitCode": 0,
+    "nodeTests": 101,
+    "fail": 0,
+    "skip": 0,
+    "baselineNodeTests": 85,
+    "smoke": {
+      "domIds": 329,
+      "gamesStarted": 100,
+      "variantCollections": 91
+    },
+    "approvedAssets": {
+      "baseline": "9a523e46dccfd0b7d32c30ed75afc13d2549ad48",
+      "images": 301,
+      "byteDifferences": 0
+    },
+    "browser": {
+      "initialization": "succeeded",
+      "tabList": "20 second timeout",
+      "recoveryNewTab": "created",
+      "navigationAndDom": "20 second timeout",
+      "newGameScreenshots": 0,
+      "iphoneRendering": "unverified",
+      "jitterCause": "unresolved"
+    }
+  },
+  "sourceSha256": {
+    "index.html": "95b8c20176f015f9e5557d581c4f96bef8d0a59a37d4a34f303378d499279f72",
+    "style.css": "878b020367476c9df45a169b330f4644fa59c990d2eba94ebf027d5d1eb815b8",
+    "script.js": "b9fadec471876f7dffcf2a272b0ebfa5a575ab738cb5a07fd5dc7f40061e5412",
+    "games.js": "4113bbf717e3121c64b8f23b6d34c27be45649fbfbbabf44d49bbbb21eb7ed82",
+    "audio.js": "eeb14a7146f5b7a709ce2501d51d0985bc3208b4a89a57b2d815e3f8cd3576a9",
+    "character-world-master.v1.js": "92447b1b64fc030cd1093276c31da2bc44a99ca48400d4a9ae78d422f91eaac2",
+    "tests/helpers/runtime-harness.cjs": "785016eb941a1bfbdafdcd9e3936b64f13da895eebdc9162cb552f1c2a352b4f",
+    "tests/save-recovery-test.cjs": "2f9a7c846609c8f4351e400c815636d901d18a2da81be6ae4beaa12ad69acbe3",
+    "tests/audio-regression-test.cjs": "58ee42f045fff280817bf95a626372cf463d174bf71ee371fcd079402615e17c",
+    "tests/post-integration-audit-test.cjs": "2bda2fdc2a4af3e7394c043294c145a83f90e97aa01f85dd632fed1fb202a19d"
+  },
+  "healthWarningGap": {
+    "status": "Observed; not fixed in this audit",
+    "method": "Real runtime harness tick; synthetic state and test-only deterministic random; not real device timing",
+    "setup": {
+      "health": 0,
+      "hunger": 0,
+      "happiness": 0,
+      "energy": 0,
+      "totalSicknessCount": 10,
+      "ageTicks": 101,
+      "random": 0.9999
+    },
+    "observations": [
+      {
+        "tick": 1,
+        "stage": "growing",
+        "health": 0,
+        "lowHealthStreak": 1,
+        "deathMeter": 4.1204,
+        "dying": false,
+        "dyingTicks": 0
+      },
+      {
+        "tick": 2,
+        "stage": "growing",
+        "health": 0,
+        "lowHealthStreak": 2,
+        "deathMeter": 8.2528,
+        "dying": false,
+        "dyingTicks": 0
+      },
+      {
+        "tick": 3,
+        "stage": "growing",
+        "health": 0,
+        "lowHealthStreak": 3,
+        "deathMeter": 12.3972,
+        "dying": false,
+        "dyingTicks": 0
+      },
+      {
+        "tick": 4,
+        "stage": "growing",
+        "health": 0,
+        "lowHealthStreak": 4,
+        "deathMeter": 16.5536,
+        "dying": false,
+        "dyingTicks": 0
+      },
+      {
+        "tick": 5,
+        "stage": "growing",
+        "health": 0,
+        "lowHealthStreak": 5,
+        "deathMeter": 20.721999999999998,
+        "dying": false,
+        "dyingTicks": 0
+      },
+      {
+        "tick": 6,
+        "stage": "dead",
+        "health": 0,
+        "lowHealthStreak": 6,
+        "deathMeter": 24.902399999999997,
+        "dying": false,
+        "dyingTicks": 0
+      }
+    ]
+  },
+  "tintContrast": {
+    "method": "Numeric alpha composition; not browser rasterization",
+    "samples": [
+      {
+        "theme": "grape",
+        "ink": "#34382f",
+        "background": "#b493d6",
+        "original": 4.612893994198384,
+        "oldNightTop": 3.098172184833651,
+        "oldNightBottom": 3.6740854237919005
+      },
+      {
+        "theme": "crimson",
+        "ink": "#34382f",
+        "background": "#e08a92",
+        "original": 4.689779713728205,
+        "oldNightTop": 3.1011885526506546,
+        "oldNightBottom": 3.702200962076533
+      },
+      {
+        "theme": "indigo",
+        "ink": "#34382f",
+        "background": "#93a9cc",
+        "original": 5.013735865639426,
+        "oldNightTop": 3.3193414867299813,
+        "oldNightBottom": 3.962519489450733
+      }
+    ]
+  },
+  "artInventory": {
+    "caveat": "Current tracked main only. Source emoji counts include comments and symbols and are not asset requirements. Uncommitted artwork in other tabs is unknown.",
+    "trackedAssetCount": 310,
+    "groups": {
+      "assets/characters/antlion": 8,
+      "assets/characters/author": 1,
+      "assets/characters/beetle": 8,
+      "assets/characters/butterfly": 8,
+      "assets/characters/cat": 8,
+      "assets/characters/cicada": 8,
+      "assets/characters/clownfish": 8,
+      "assets/characters/companions": 27,
+      "assets/characters/coral": 8,
+      "assets/characters/dandelion": 8,
+      "assets/characters/dog": 8,
+      "assets/characters/dragon": 8,
+      "assets/characters/egg": 3,
+      "assets/characters/frog": 8,
+      "assets/characters/ghost": 8,
+      "assets/characters/god": 8,
+      "assets/characters/hermit_crab": 8,
+      "assets/characters/jellyfish": 8,
+      "assets/characters/man": 8,
+      "assets/characters/mushroom": 8,
+      "assets/characters/partners": 18,
+      "assets/characters/penguin": 8,
+      "assets/characters/phoenix": 8,
+      "assets/characters/plush": 8,
+      "assets/characters/ren": 8,
+      "assets/characters/sakura": 8,
+      "assets/characters/salmon": 8,
+      "assets/characters/stagbeetle": 8,
+      "assets/characters/star": 8,
+      "assets/characters/starfish": 8,
+      "assets/characters/turtle": 8,
+      "assets/characters/unknown": 8,
+      "assets/characters/venus_flytrap": 8,
+      "assets/characters/woman": 8,
+      "assets/characters/world_tree": 8,
+      "assets/clear": 10,
+      "assets/fonts": 3
+    },
+    "sourceEmojiCounts": {
+      "index.html": {
+        "unique": 32,
+        "occurrences": 60,
+        "mostFrequent": [
+          [
+            "♾️",
+            5
+          ],
+          [
+            "📋",
+            4
+          ],
+          [
+            "🎉",
+            4
+          ],
+          [
+            "🎊",
+            4
+          ],
+          [
+            "✨",
+            4
+          ],
+          [
+            "🥚",
+            3
+          ],
+          [
+            "🎮",
+            3
+          ],
+          [
+            "🃏",
+            3
+          ],
+          [
+            "💰",
+            2
+          ],
+          [
+            "🏅",
+            2
+          ],
+          [
+            "⚠️",
+            2
+          ],
+          [
+            "💞",
+            2
+          ],
+          [
+            "🎁",
+            2
+          ],
+          [
+            "📍",
+            2
+          ],
+          [
+            "👤",
+            1
+          ],
+          [
+            "✉️",
+            1
+          ]
+        ]
+      },
+      "script.js": {
+        "unique": 459,
+        "occurrences": 1804,
+        "mostFrequent": [
+          [
+            "✨",
+            65
+          ],
+          [
+            "♾️",
+            46
+          ],
+          [
+            "❄️",
+            30
+          ],
+          [
+            "💤",
+            27
+          ],
+          [
+            "🐛",
+            26
+          ],
+          [
+            "▶",
+            25
+          ],
+          [
+            "◀",
+            24
+          ],
+          [
+            "👑",
+            22
+          ],
+          [
+            "🐟",
+            21
+          ],
+          [
+            "💰",
+            21
+          ],
+          [
+            "☀️",
+            20
+          ],
+          [
+            "⭐",
+            18
+          ],
+          [
+            "🧹",
+            18
+          ],
+          [
+            "🌙",
+            18
+          ],
+          [
+            "🔥",
+            17
+          ],
+          [
+            "🌿",
+            15
+          ]
+        ]
+      },
+      "games.js": {
+        "unique": 287,
+        "occurrences": 1180,
+        "mostFrequent": [
+          [
+            "▶",
+            61
+          ],
+          [
+            "◀",
+            58
+          ],
+          [
+            "❤️",
+            58
+          ],
+          [
+            "💥",
+            40
+          ],
+          [
+            "🏆",
+            36
+          ],
+          [
+            "✨",
+            34
+          ],
+          [
+            "⭐",
+            27
+          ],
+          [
+            "🎉",
+            25
+          ],
+          [
+            "🔥",
+            22
+          ],
+          [
+            "🔴",
+            18
+          ],
+          [
+            "💣",
+            18
+          ],
+          [
+            "🏁",
+            17
+          ],
+          [
+            "💎",
+            16
+          ],
+          [
+            "🚩",
+            16
+          ],
+          [
+            "💦",
+            14
+          ],
+          [
+            "🪙",
+            14
+          ]
+        ]
+      },
+      "character-world-master.v1.js": {
+        "unique": 0,
+        "occurrences": 0,
+        "mostFrequent": []
+      }
+    }
+  }
+}

@@ -5835,13 +5835,13 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .ach-mini.goal { background: rgba(0, 0, 0, 0.08); }
 .ach-new { font-size: 7px; font-weight: 900; color: #fff; background: #ff7043; padding: 1px 5px; border-radius: 999px; margin-left: 4px; vertical-align: middle; }
 
-/* じかんたいの いろ(がめん ぜんたいに うすく かかる)。よるは あお、
-   ゆうがたは オレンジ、あさは きいろ。ゲーム中は はずす */
+/* じかんたいの いろは本体の背面に置き、文字のコントラストを保つ。
+   よるは あお、ゆうがたは オレンジ、あさは きいろ。ゲーム中は はずす */
 .time-tint {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 3;
+  z-index: 0;
   transition: background 1.2s ease, opacity 0.6s ease;
 }
 .time-tint.suppressed { opacity: 0; }

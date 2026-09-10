@@ -137,3 +137,97 @@ test('unreadable storage still permits boot and gameplay without throwing', () =
   assert.equal(h.api.state().lifetime.money, 0);
   assert.doesNotThrow(() => h.api.saveState());
 });
+
+const SNAPS = SAVE + '-snaps';
+function replacementHarness(storage) {
+  const h=boot(storage);
+  Object.assign(h.sandbox,{TextEncoder,TextDecoder,atob,btoa});
+  h.sandbox.location.reload=()=>{};
+  h.advance(10000);
+  return h;
+}
+function replaceLife(h,action,raw) {
+  if(action==='import') {
+    h.get('saveImportInput').value='NTS1.'+Buffer.from(raw).toString('base64url');
+    h.dispatch(h.get('saveImportBtn'),'click');h.dispatch(h.get('saveImportBtn'),'click');
+  } else {
+    const snap={at:900,raw};
+    h.api.restoreSaveSnapshot(snap);h.api.restoreSaveSnapshot(snap);
+  }
+}
+for(const action of ['import','restore']) {
+  test(action+' retains a newer primary saved by another tab before replacement', () => {
+    const storage=storageWith([[SAVE,savedLife()]]),first=replacementHarness(storage);
+    const second=replacementHarness(storage);
+    second.api.state().lifetime.money=9876;second.api.saveState();
+    const latest=storage.getItem(SAVE),target=JSON.parse(latest);target.lifetime.money=99;
+    assert.ok(!JSON.parse(storage.getItem(SNAPS)).some(s=>s.raw===latest),'the periodic interval has not retained it yet');
+    replaceLife(first,action,JSON.stringify(target));
+    assert.equal(boot(storage).api.state().lifetime.money,99);
+    const prior=JSON.parse(storage.getItem(SNAPS)).find(s=>s.raw===latest);
+    assert.ok(prior,'the other tab\'s most recent persisted life remains available for undo');
+    const next=replacementHarness(storage);next.api.restoreSaveSnapshot(prior);next.api.restoreSaveSnapshot(prior);
+    assert.equal(boot(storage).api.state().lifetime.money,9876);
+  });
+  test(action+' failure cannot poison a recovered backup with the broken primary', () => {
+    const good=savedLife(),target=JSON.parse(good);target.lifetime.money=99;
+    const storage=storageWith([[SAVE,'{broken'],[BACKUP,good]]),h=replacementHarness(storage);
+    storage.failWrites.add(SAVE);
+    replaceLife(h,action,JSON.stringify(target));
+    assert.equal(storage.getItem(BACKUP),good);
+    assert.equal(boot(storage).api.state().lifetime.money,4321);
+  });
+  test(action+' stops before replacing a save if its safety snapshot cannot be written', () => {
+    const good=savedLife(),target=JSON.parse(good);target.lifetime.money=99;
+    const storage=storageWith([[SAVE,good]]),h=replacementHarness(storage);
+    const before=storage.getItem(SAVE);
+    storage.removeItem(SNAPS); // No prior safety copy: boot may have saved one already.
+    storage.failWrites.add(SNAPS);
+    replaceLife(h,action,JSON.stringify(target));
+    assert.equal(storage.getItem(SAVE),before);
+    assert.equal(boot(storage).api.state().lifetime.money,4321);
+  });
+  test(action+' retains the prior life across replacement, reload and undo, including duplicate snapshots', () => {
+    const good=savedLife(),target=JSON.parse(good);target.lifetime.money=99;
+    const storage=storageWith([[SAVE,good],[SNAPS,JSON.stringify([{at:800,raw:good}])]]);
+    const h=replacementHarness(storage);
+    const before=storage.getItem(SAVE);
+    storage.setItem(SNAPS,JSON.stringify([{at:800,raw:before}]));
+    storage.failWrites.add(SNAPS); // The identical retained copy does not need another write.
+    replaceLife(h,action,JSON.stringify(target));
+    h.dispatch(h.window,'beforeunload',{bubbles:false});
+    assert.equal(boot(storage).api.state().lifetime.money,99,'pending reload cannot overwrite the target');
+    const snapshots=JSON.parse(storage.getItem(SNAPS));
+    const prior=snapshots.find(s=>s.raw===before);assert.ok(prior,'the original remains available after reload');
+    storage.failWrites.delete(SNAPS);
+    const next=replacementHarness(storage);
+    next.api.restoreSaveSnapshot(prior);next.api.restoreSaveSnapshot(prior);
+    assert.equal(boot(storage).api.state().lifetime.money,4321);
+  });
+}
+
+test('export uses the recoverable save when a broken primary cannot be repaired', () => {
+  const good=savedLife(),storage=storageWith([[SAVE,'{broken'],[BACKUP,good]]),h=replacementHarness(storage);
+  storage.failWrites.add(SAVE);
+  h.dispatch(h.get('saveExportBtn'),'click');
+  const json=Buffer.from(h.get('saveExportText').value.slice(5),'base64url').toString();
+  assert.equal(JSON.parse(json).lifetime.money,4321);
+});
+
+test('explicit import can recover unreadable saves while retaining both originals for inspection', () => {
+  const storage=storageWith([[SAVE,'{broken-primary'],[BACKUP,'{broken-backup']]);
+  const h=replacementHarness(storage);
+  replaceLife(h,'import',savedLife());
+  assert.equal(boot(storage).api.state().lifetime.money,4321);
+  const retained=JSON.parse(storage.getItem(SNAPS)).map(s=>s.raw);
+  assert.ok(retained.includes('{broken-primary'));
+  assert.ok(retained.includes('{broken-backup'));
+});
+
+test('import from backup recovery with no primary retains the former life after reload', () => {
+  const good=savedLife(),target=JSON.parse(good);target.lifetime.money=99;
+  const storage=storageWith([[BACKUP,good]]),h=replacementHarness(storage);
+  replaceLife(h,'import',JSON.stringify(target));
+  assert.equal(boot(storage).api.state().lifetime.money,99);
+  assert.ok(JSON.parse(storage.getItem(SNAPS)).some(s=>s.raw===good));
+});

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "test": "node tests/smoke-test.js && node tests/dialogue-test.js && node tests/visual-qa-test.cjs && node --test tests/minigame-lifecycle-test.cjs tests/save-recovery-test.cjs tests/ui-integration-test.cjs tests/cast-layout-test.cjs tests/cast-motion-test.cjs tests/world-environment-test.cjs tests/viewport-design-test.cjs tests/egg-hatching-test.cjs"
+    "test": "node tests/smoke-test.js && node tests/dialogue-test.js && node tests/visual-qa-test.cjs && node --test tests/minigame-lifecycle-test.cjs tests/save-recovery-test.cjs tests/ui-integration-test.cjs tests/cast-layout-test.cjs tests/cast-motion-test.cjs tests/world-environment-test.cjs tests/viewport-design-test.cjs tests/egg-hatching-test.cjs tests/audio-regression-test.cjs tests/post-integration-audit-test.cjs"
   },
   "devDependencies": {
     "vite": "8.2.2"

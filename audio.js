@@ -91,7 +91,7 @@
     // drums: 16文字の パターン('x' で ならす)、arp: true なら 2しゅうめ ごと、'always' なら つねに
     const _ = null;
     const TRACKS = {
-      home: { bpm: 96, swing: 0.08, lead: 'triangle', leadVol: 0.12, detune: 6, bassVol: 0.1, hat: 0.05, kick: 0.14, snare: 0.05, arp: true, arpVol: 0.035,
+      home: { bpm: 96, swing: 0.08, leadType: 'triangle', leadVol: 0.12, detune: 6, bassVol: 0.1, hat: 0.05, kick: 0.14, snare: 0.05, arp: true, arpVol: 0.035,
         chords: [[60, 64, 67], [57, 60, 64], [65, 69, 72], [67, 71, 74], [60, 64, 67], [64, 67, 71], [65, 69, 72], [67, 71, 74, 77]],
         roots: [48, 45, 41, 43, 48, 40, 41, 43],
         bass: [0, _, _, _, 7, _, _, _, 0, _, _, _, 12, _, 7, _],
@@ -105,7 +105,7 @@
           [79, _, _, 83, _, _, 79, _, 76, _, 74, _, 76, _, _, _],
           [77, _, 76, _, 77, _, 81, _, 84, _, _, _, 81, _, 77, _],
           [79, _, _, _, 77, _, 74, _, 71, _, _, _, 74, _, 72, _]] },
-      night: { bpm: 66, swing: 0, lead: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0, kick: 0, arp: 'always', arpVol: 0.03, padVol: 0.03,
+      night: { bpm: 66, swing: 0, leadType: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0, kick: 0, arp: 'always', arpVol: 0.03, padVol: 0.03,
         chords: [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62], [57, 60, 64], [50, 53, 57], [52, 56, 59], [57, 60, 64]],
         roots: [45, 41, 48, 43, 45, 50, 52, 45],
         bass: [0, _, _, _, _, _, _, _, 7, _, _, _, _, _, _, _],
@@ -119,7 +119,7 @@
           [77, _, _, _, 74, _, _, _, 69, _, _, _, 74, _, _, _],
           [80, _, _, _, 76, _, _, _, 71, _, _, _, 68, _, _, _],
           [69, _, _, _, _, _, _, _, 72, _, _, _, 69, _, _, _]] },
-      game: { bpm: 138, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.1, hat: 0.06, kick: 0.2, snare: 0.09, arp: true, arpVol: 0.03,
+      game: { bpm: 138, swing: 0, leadType: 'square', leadVol: 0.07, bassVol: 0.1, hat: 0.06, kick: 0.2, snare: 0.09, arp: true, arpVol: 0.03,
         chords: [[60, 64, 67], [60, 64, 67], [65, 69, 72], [67, 71, 74], [57, 60, 64], [65, 69, 72], [67, 71, 74], [67, 71, 74]],
         roots: [48, 48, 41, 43, 45, 41, 43, 43],
         bass: [0, _, 12, _, 0, _, 12, _, 0, _, 12, _, 0, _, 7, _],
@@ -133,7 +133,7 @@
           [81, _, 81, _, 79, _, 77, _, 72, _, _, 77, _, 81, _, _],
           [83, _, 83, _, 86, _, 83, _, 79, _, 74, _, 79, _, _, _],
           [74, _, 76, _, 79, _, 83, _, 86, _, _, _, 84, _, 83, _]] },
-      movie: { bpm: 112, swing: 0, lead: 'sine', leadVol: 0.11, detune: 5, bassVol: 0.09, hat: 0.03, kick: 0.07, waltz: true, arp: true, arpVol: 0.03,
+      movie: { bpm: 112, swing: 0, leadType: 'sine', leadVol: 0.11, detune: 5, bassVol: 0.09, hat: 0.03, kick: 0.07, waltz: true, arp: true, arpVol: 0.03,
         chords: [[60, 64, 67, 71], [57, 60, 64, 67], [62, 65, 69, 72], [67, 71, 74, 77], [64, 67, 71, 74], [57, 60, 64, 67], [62, 65, 69, 72], [67, 71, 74, 77]],
         roots: [48, 45, 50, 43, 52, 45, 50, 43],
         bass: [0, _, _, _, _, _, 7, _, _, _, _, 7, _, _, _, _],
@@ -147,7 +147,7 @@
           [76, _, _, _, 79, _, 76, _, _, _, 72, _, 69, _, _, _],
           [77, _, _, _, 81, _, 77, _, _, _, 74, _, 72, _, _, _],
           [71, _, _, _, 74, _, 77, _, _, _, 79, _, _, _, _, _]] },
-      puzzle: { bpm: 100, swing: 0.1, lead: 'sine', leadVol: 0.1, detune: 4, bassVol: 0.08, hat: 0.03, kick: 0, arp: true, arpVol: 0.03,
+      puzzle: { bpm: 100, swing: 0.1, leadType: 'sine', leadVol: 0.1, detune: 4, bassVol: 0.08, hat: 0.03, kick: 0, arp: true, arpVol: 0.03,
         chords: [[57, 60, 64, 67], [65, 69, 72, 76], [60, 64, 67, 71], [67, 71, 74], [62, 65, 69, 72], [64, 67, 71, 74], [65, 69, 72, 76], [67, 71, 74]],
         roots: [45, 41, 48, 43, 50, 52, 41, 43],
         bass: [0, _, _, _, _, _, 7, _, 0, _, _, _, _, _, 12, _],
@@ -161,7 +161,7 @@
           [79, _, _, 83, _, _, 79, _, _, _, 76, _, 74, _, _, _],
           [76, _, _, 77, _, _, 81, _, _, _, 84, _, 81, _, _, _],
           [79, _, _, _, 83, _, _, _, 86, _, _, _, 83, _, 79, _]] },
-      race: { bpm: 152, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.11, hat: 0.07, kick: 0.22, snare: 0.1, arp: true, arpVol: 0.03,
+      race: { bpm: 152, swing: 0, leadType: 'square', leadVol: 0.07, bassVol: 0.11, hat: 0.07, kick: 0.22, snare: 0.1, arp: true, arpVol: 0.03,
         chords: [[57, 60, 64], [57, 60, 64], [65, 69, 72], [67, 71, 74], [57, 60, 64], [60, 64, 67], [65, 69, 72], [64, 68, 71]],
         roots: [45, 45, 41, 43, 45, 48, 41, 52],
         bass: [0, 0, 12, 0, 0, 12, 0, 0, 0, 0, 12, 0, 7, 7, 12, 12],
@@ -175,7 +175,7 @@
           [79, _, 84, _, 79, _, 76, _, 72, _, 76, _, 79, _, _, _],
           [81, _, 84, _, 81, _, 77, _, 77, _, 76, _, 81, _, _, _],
           [80, _, 83, _, 80, _, 76, _, 71, _, 76, _, 80, _, 83, _]] },
-      sports: { bpm: 124, swing: 0.05, lead: 'triangle', leadVol: 0.11, detune: 5, bassVol: 0.1, hat: 0.06, kick: 0.18, snare: 0.08, arp: true, arpVol: 0.03,
+      sports: { bpm: 124, swing: 0.05, leadType: 'triangle', leadVol: 0.11, detune: 5, bassVol: 0.1, hat: 0.06, kick: 0.18, snare: 0.08, arp: true, arpVol: 0.03,
         chords: [[65, 69, 72], [67, 71, 74], [69, 72, 76], [67, 71, 74], [65, 69, 72], [69, 72, 76], [70, 74, 77], [72, 76, 79]],
         roots: [41, 43, 45, 43, 41, 45, 46, 48],
         bass: [0, _, 0, _, 7, _, 0, _, 0, _, 0, _, 12, _, 7, _],
@@ -189,7 +189,7 @@
           [88, _, _, 84, _, _, 81, _, 84, _, 88, _, 91, _, _, _],
           [86, _, _, 82, _, _, 77, _, 82, _, 86, _, 89, _, _, _],
           [88, _, _, 84, _, 79, _, 76, _, 79, _, 84, _, 88, _, _]] },
-      farewell: { bpm: 60, swing: 0, lead: 'sine', leadVol: 0.12, detune: 4, bassVol: 0.08, hat: 0, kick: 0, padVol: 0.045,
+      farewell: { bpm: 60, swing: 0, leadType: 'sine', leadVol: 0.12, detune: 4, bassVol: 0.08, hat: 0, kick: 0, padVol: 0.045,
         chords: [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62], [57, 60, 64], [53, 57, 60], [52, 56, 59], [57, 60, 64]],
         roots: [45, 41, 48, 43, 45, 41, 52, 45],
         bass: [0, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _],
@@ -224,7 +224,7 @@
       // コード(パッド): しょうせつの あたま と 3はく目(ワルツは 2・3はく目)
       if (s === 0 || (tr.waltz ? (s === 6 || s === 11) : s === 8)) { for (const n of chord) synthNote(n, t, stepDur * (tr.waltz ? 5 : 7), 'triangle', tr.padVol || 0.035, sceneGain); }
       const b = tr.bass[s]; if (b != null) synthNote(root + b, t, stepDur * 1.8, 'triangle', tr.bassVol, sceneGain);
-      const l = tr.lead[bar][s]; if (l != null) synthNote(l, t, stepDur * 2.2, tr.lead, tr.leadVol, sceneGain, tr.detune || 0);
+      const l = tr.lead[bar][s]; if (l != null) synthNote(l, t, stepDur * 2.2, tr.leadType, tr.leadVol, sceneGain, tr.detune || 0);
       // アルペジオ: うらの 8分に コードの おとを 1こずつ。2しゅうめ ごとに 入って へんかを つける
       if ((tr.arp === 'always' || (tr.arp && loop % 2 === 1)) && s % 4 === 2) synthNote(chord[(s >> 2) % chord.length] + 12, t, stepDur * 1.6, 'sine', tr.arpVol || 0.03, sceneGain);
       const d = tr.drums || {}; const on = (p) => p && p[s] === 'x';

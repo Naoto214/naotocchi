@@ -118,7 +118,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   });
   const expose = `
     globalThis.lifecycle = {
-      startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe,
+      startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,

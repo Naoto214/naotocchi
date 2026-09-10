@@ -10312,7 +10312,7 @@
     // そうさを おもんじる かくオーバーレイ)を ひらいている あいだ とめる。
     // はいけいエフェクト(region-decor/season-bg-fx)は デバイスの うしろに
     // かくれた ままなので、ここでは とめない
-    const suppressFrontFx = gameActive || hasTransformChoice || isAnyMenuOverlayOpen();
+    const suppressFrontFx = gameActive || hasTransformChoice || lifeCardVisible || isAnyMenuOverlayOpen();
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
@@ -11882,15 +11882,15 @@
     el.worldNowCard.innerHTML = `<div class="world-now-head"><span class="world-now-title">いまの せかい</span>${chips.map((c) => `<span class="world-now-chip">${c}</span>`).join('')}</div><div class="world-now-effects">${effects}</div>${games}`;
   }
   // てんきの えんしゅつ(あめ・ゆき・くも・ひざし・よるの ほし)を つくりなおす。
-  // おなじ てんき・じかんたいの あいだは つくりなおさない
+  // てんき・じかんたい・動きを減らす設定・軽量モードの 変更時だけ つくりなおす
   let weatherFxKey = '';
   function applyWeatherFx(weather, time) {
     if (!el.weatherFx) return;
-    const key = `${weather || 'none'}|${time}`;
+    const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const low = mgPerfLow;
+    const key = `${weather || 'none'}|${time}|${reduced}|${low}`;
     if (key === weatherFxKey) return;
     weatherFxKey = key;
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const low = typeof mgPerfLow !== 'undefined' && mgPerfLow;
     const items = [];
     const rnd = (a, b) => a + Math.random() * (b - a);
     if (weather === 'rain') {
@@ -14715,11 +14715,31 @@
     if (!raw) return false;
     const snaps = readSaveSnaps();
     const now = Date.now();
-    if (snaps.length && snaps[0].raw === raw) return false;
+    if (snaps.length && snaps[0].raw === raw) return force;
     if (!force && snaps.length && now - snaps[0].at < SAVE_SNAP_INTERVAL_MS) return false;
     snaps.unshift({ at: now, raw });
     while (snaps.length > SAVE_SNAP_MAX) snaps.pop();
     return writeSaveSnaps(snaps);
+  }
+  // 読めたセーブを必ず退避してから置き換える。壊れた primary を正常な backup に
+  // 上書きせず、退避できないときは置き換えも止める。成功後は再読込まで自動保存を止める。
+  function replaceSavedLife(raw) {
+    if (saveLocked) return false;
+    saveLocked = true;
+    try {
+      // 別タブが保存した新しい primary も退避。検証前の raw は backup には書かない。
+      const previous = lastGoodSaveRaw ? [lastGoodSaveRaw, localStorage.getItem(SAVE_KEY)].filter(Boolean) :
+        [localStorage.getItem(SAVE_KEY), localStorage.getItem(SAVE_BACKUP_KEY)].filter(Boolean);
+      for (const saved of new Set(previous)) {
+        if (!takeSaveSnapshot(saved, true)) throw new Error('Previous save could not be retained');
+      }
+      if (lastGoodSaveRaw) localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw);
+      localStorage.setItem(SAVE_KEY, raw);
+      return true;
+    } catch (err) {
+      saveLocked = false;
+      return false;
+    }
   }
   function describeSaveRaw(raw) {
     try {
@@ -14775,12 +14795,7 @@
       return;
     }
     saveSnapArmed = null;
-    saveLocked = true;
-    try {
-      const current = localStorage.getItem(SAVE_KEY) || '';
-      if (current) { takeSaveSnapshot(current, true); localStorage.setItem(SAVE_BACKUP_KEY, current); }
-      localStorage.setItem(SAVE_KEY, snap.raw);
-    } catch (err) { saveLocked = false; el.saveSnapStatus.textContent = 'もどすのに しっぱい'; return; }
+    if (!replaceSavedLife(snap.raw)) { el.saveSnapStatus.textContent = 'セーブを のこせなかったため、もどしませんでした'; return; }
     el.saveSnapStatus.textContent = 'もどした! よみこみなおします…';
     setTimeout(() => location.reload(), 600);
   }
@@ -14789,7 +14804,7 @@
   if (el.saveExportBtn) {
     el.saveExportBtn.addEventListener('click', () => {
       saveState();
-      const raw = localStorage.getItem(SAVE_KEY);
+      const raw = lastGoodSaveRaw;
       if (!raw) { el.saveImportStatus.textContent = 'まだ セーブが ない'; return; }
       el.saveExportText.value = encodeSaveCode(raw);
       el.saveExportBox.classList.remove('hidden');
@@ -14801,8 +14816,8 @@
       try { json = decodeSaveCode(el.saveImportInput.value); } catch (err) { el.saveImportStatus.textContent = `よみこめない: ${err.message}`; saveImportArmedAt = 0; return; }
       const now = Date.now();
       if (now - saveImportArmedAt > 6000) { saveImportArmedAt = now; el.saveImportStatus.textContent = 'いまの セーブを このコードで おきかえます。よければ もういちど おして'; return; }
-      saveLocked = true;
-      try { const current = localStorage.getItem(SAVE_KEY) || ''; if (current) takeSaveSnapshot(current, true); localStorage.setItem(SAVE_BACKUP_KEY, current); localStorage.setItem(SAVE_KEY, json); } catch (err) { saveLocked = false; el.saveImportStatus.textContent = 'ほぞんに しっぱい'; return; }
+      saveImportArmedAt = 0;
+      if (!replaceSavedLife(json)) { el.saveImportStatus.textContent = 'セーブを のこせなかったため、おきかえませんでした'; return; }
       el.saveImportStatus.textContent = 'おきかえた! よみこみなおします…';
       setTimeout(() => location.reload(), 600);
     });
@@ -15273,4 +15288,5 @@
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
   });
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change', renderEnvironment);
 })();

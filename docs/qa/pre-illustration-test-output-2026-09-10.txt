@@ -1,0 +1,130 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> test
+> node tests/smoke-test.js && node tests/dialogue-test.js && node tests/visual-qa-test.cjs && node --test tests/minigame-lifecycle-test.cjs tests/save-recovery-test.cjs tests/ui-integration-test.cjs tests/cast-layout-test.cjs tests/cast-motion-test.cjs tests/world-environment-test.cjs tests/viewport-design-test.cjs tests/egg-hatching-test.cjs tests/audio-regression-test.cjs tests/post-integration-audit-test.cjs
+
+SMOKE TEST OK
+DOM ids: 329
+minigames started: 100
+variant collections: 91
+LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.
+DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 legend stories; 16 anniversary cases.
+DATE LIFECYCLE TEST OK: in-game reward choice with native dialogs suppressed; accept/decline/absent; double tap, back, escape and cancel; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; 30 complete deepsea branches.
+WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.
+CAST TEST OK: snail encounters and speech; legacy koala load, bond, row, dex and earned achievements; PNG renderer reference.
+NORMAL CAST PNG TEST OK: 19 PNG headers; 18 companions x 5 renderer sizes; 9+9 live rows; collected and locked dex.
+RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/row/dex; hidden and partial dex; 13+13 mixed rows; bond retained.
+CLOCK CAST TEST OK: real encounter and 69/70 recruitment; five dialogue events; legacy mushroom save, bond, PNG, dialogue and rare dex; unique current/legacy counts.
+PARTNER CAST PNG TEST OK: 18 PNGs x 5 sizes; saved relationships; companion/profile/dex; 180 complete dates; 72 complete anniversaries; first encounters; aliases, guests and hidden dex.
+AUTHOR ENDING TEST OK: 247/248 unlock; native dex count; goals 4/5; direct goal 5 at 25/100 and both exits; pet and life-record preservation; 4200ms greeting; old-save access and rewards; hidden/repeatable shop greeting; textless goals 1-3 and reward notices.
+MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.
+VISUAL QA ROUTE TEST OK: generated script compiles; 3 egg stages; 3 delayed anniversaries; 5 pending legends; reward counts, ring and deepsea saves. No browser rendering claimed.
+✔ all eight BGM scenes request valid waveforms and schedule two complete loops (77.830626ms)
+✔ a home cast stays in view during its larger hop and sway and leaves the floor clear (600.608873ms)
+✔ whole cast fits with room for sway and four-pixel companion gaps (3185.844882ms)
+✔ unknown or failed art retains complete frames without overlapping the core (103.633294ms)
+✔ independent reactions retain full frames and four-pixel friend gaps throughout the sway (2100.702613ms)
+✔ a ticklish line moves the pet and equipment together, then the speaking friend answers (198.533224ms)
+✔ courtship follows the actual partner, while a failed courtship never celebrates (100.502276ms)
+✔ play and courtship visibly lift a crowded cast, while negative outcomes settle once (627.751344ms)
+✔ poop updates preserve every placed actor and do not interrupt a reaction (45.196033ms)
+✔ care moods follow the line and outcome instead of always bouncing happily (22.381207ms)
+✔ a comforting reply cannot make the disappointed or unwell pet celebrate (54.920891ms)
+✔ a new action cancels old replies and an old animation cannot clear a new one (117.788782ms)
+✔ menus and hidden pages stop reactions, and reduced motion still identifies the speaker (84.895117ms)
+✔ a companion who left before their turn cannot speak or animate a different companion (89.224177ms)
+✔ enabling reduced motion mid-speech stops movement but preserves the current speaker (25.422125ms)
+✔ every motion and its interpolation stay inside the reserved one- or three-pixel envelope (508.998659ms)
+✔ five warming taps show progressive egg art and hatch once at the existing boundary (83.891548ms)
+✔ each saved egg resumes its crack stage without replaying a touch reaction (167.321195ms)
+✔ reload immediately after the fifth tap keeps the same newborn and one birth record (79.011632ms)
+✔ reset during the hatch effect cannot alter or decorate the replacement egg (32.062854ms)
+✔ the egg itself can be warmed and newborn care remains available immediately (29.794453ms)
+✔ all 31 next-egg species keep their stable identity and first-form artwork (930.970367ms)
+✔ a failed egg image uses the existing emoji fallback and can still hatch (29.162313ms)
+✔ finished reactions are removed and cannot replay when returning from a minigame (65.047383ms)
+✔ cancelled hatch animation is cleaned before an immediate minigame return (46.444287ms)
+✔ reduced motion shows the correct egg and newborn without a pending reveal (31.627451ms)
+✔ retire clears a held key before the next game (68.155089ms)
+✔ complete clears a held key before the next game (12.848943ms)
+✔ blur releases keyboard steering and allows a new press (13.140315ms)
+✔ hidden releases keyboard steering and allows a new press (11.72872ms)
+✔ a background switch stops repeating button input without ending the game (21.007852ms)
+✔ a background switch releases a touch-held control without a pointerup (14.041193ms)
+✔ input scope is restored when an event never bubbles to window (11.978276ms)
+✔ all 100 registered games can retire without delayed rewards or repopulating the screen (209.402535ms)
+✔ a correct Sudoku cell keeps the incomplete board; only the last cell advances once (147.283968ms)
+✔ weather follows motion preferences immediately in both directions (26.413922ms)
+✔ returning home after a slow minigame rebuilds the unchanged rain in lightweight mode (47.069347ms)
+✔ life records suppress weather and seasonal foreground effects until returning home (33.761627ms)
+✔ backup write failure does not stop a writable primary save (138.155717ms)
+✔ failed primary migration cannot replace a working backup (36.654426ms)
+✔ a failed save after recovery leaves a usable backup for the next reload (48.193398ms)
+✔ backup advances to the latest successful save and survives the next write failure (58.279213ms)
+✔ a missing primary resumes the backup instead of creating a new life (75.373751ms)
+✔ backup recovery applies legacy migrations once and preserves old characters (41.578382ms)
+✔ invalid top-level payloads fall back without replacing the backup (113.959278ms)
+✔ confirmed full reset cannot later resurrect the removed life from backup (66.49825ms)
+✔ unrecoverable saves remain intact through hidden, unload and repeated saves until explicit reset (92.483485ms)
+✔ unreadable storage still permits boot and gameplay without throwing (12.988086ms)
+✔ import retains a newer primary saved by another tab before replacement (119.609319ms)
+✔ import failure cannot poison a recovered backup with the broken primary (54.895371ms)
+✔ import stops before replacing a save if its safety snapshot cannot be written (72.442192ms)
+✔ import retains the prior life across replacement, reload and undo, including duplicate snapshots (113.123886ms)
+✔ restore retains a newer primary saved by another tab before replacement (142.359255ms)
+✔ restore failure cannot poison a recovered backup with the broken primary (42.589578ms)
+✔ restore stops before replacing a save if its safety snapshot cannot be written (32.563819ms)
+✔ restore retains the prior life across replacement, reload and undo, including duplicate snapshots (98.978891ms)
+✔ export uses the recoverable save when a broken primary cannot be repaired (18.625877ms)
+✔ explicit import can recover unreadable saves while retaining both originals for inspection (31.631944ms)
+✔ import from backup recovery with no primary retains the former life after reload (43.382911ms)
+✔ dying treatment stays on home content without containing viewport overlays (8.162606ms)
+✔ travel opens destinations directly, then closes back to care (153.791905ms)
+✔ the menu stops aging and an exclusive page replaces it (27.504426ms)
+✔ court rapid taps still count individually (39.795163ms)
+✔ medicine while healthy still changes the care state and reacts immediately (37.282042ms)
+✔ play starts a random game with no chooser (31.271133ms)
+✔ home header and menu cannot interrupt an active minigame (21.211382ms)
+✔ game selection and achievements each open their own destination (38.307673ms)
+✔ late weather does not override manual settings or write a location into a save (20.718548ms)
+✔ late current-location result cannot pull a player out of another menu (31.912457ms)
+✔ Escape cancels the first reset prompt and leaves Data paused (27.234735ms)
+✔ Escape cancels a held final reset without wiping or resuming age (25.501794ms)
+✔ failed location permission waits for explicit retry while successful snapshots auto-refresh (74.999457ms)
+✔ blocked sleeping travel preserves the active current-city selection (23.515265ms)
+✔ a small newborn uses spare space and stays near the speech below it (2.929603ms)
+✔ bottom transparency cannot leave a fish far above its speech (83.739965ms)
+✔ closer core actors retain the readable size of both full companion arcs (9.074958ms)
+✔ equipment and the partner sit near the visible body instead of the transparent image top (60.313652ms)
+✔ height-constrained companions keep curved wings instead of straight columns (101.691898ms)
+✔ height-constrained cast keeps all frames, two sides and motion gaps (3529.341646ms)
+✔ more vertical room grows the cast instead of leaving a fixed small scene (2.279516ms)
+✔ design choices keep independent selections and show the selected pattern on the selected color (24.151996ms)
+✔ viewport changes follow browser chrome height while pinch zoom remains usable (26.781121ms)
+✔ short visible viewports switch meter arrangement and recover without undoing pinch zoom (27.186929ms)
+✔ a viewport resize lays out before the next reaction and does not cancel it on render (12.911083ms)
+✔ a new narration starts at the top while normal renders preserve the reading position (21.435621ms)
+✔ a new speech starts at its first line without truncating a long message (10.069645ms)
+✔ locked or invalid saved design IDs show selected classic fallback without changing the save (12.32458ms)
+✔ every saved color and pattern has one shared preview definition and independent paint layers (12.710504ms)
+✔ screen palette samples retain at least 4.5 contrast with white and colored motifs (31.658052ms)
+✔ static script exposes the same interface on window (5.891613ms)
+✔ simulated weather is deterministic per 3-hour block and region (5.242358ms)
+✔ simulated weather follows the region climate and the season (4.480916ms)
+✔ timeOfDay honors manual modes and uses the local hour for auto/invalid modes (0.337386ms)
+✔ weatherFromResponse maps official codes and rejects unknown or stale readings (1.024517ms)
+✔ municipalityFromResponse selects only the nearest municipality within 25km (0.855645ms)
+✔ tracker preserves municipality precision, rounds only weather, and exposes no coordinates (5.286658ms)
+✔ tracker tolerates independent provider failure and identifies the missing result (3.873303ms)
+✔ tracker coalesces overlap and permits a retry after a provider failure (28.980829ms)
+✔ location failures are distinct, clear stale results, and malformed coordinates never fetch (9.291909ms)
+✔ missing geolocation returns an error without prompting or throwing (0.396205ms)
+✔ missing fetch support reports municipality and weather unavailable separately (0.446392ms)
+ℹ tests 101
+ℹ suites 0
+ℹ pass 101
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6152.159427
