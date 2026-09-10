@@ -6,11 +6,13 @@
 - GitHubコード保存: `798aa4ab2dfd77250ebbbebe2ef850956d1656a2`
 - ローカル検証commit: `882fd4c6f924bf9356745dcddfafd7222d1de0b2`
 - 共通tree: `fe70289e5af95704cdbc4e9faafbafcdb3738877`
-- 保存記録だけを追加した最終HEAD/tree・CIは最新PR本文／コメントを参照する。
+- 以後は保存記録とCIへの追加9テストの接続を追加。最終HEAD/tree・CIは最新PR本文／コメントを参照する。
 
 ## 自動検証
 
 `npm test`: **170成功／失敗0／skip0**。追加9件。boot smokeは329 DOM ID・100ゲームの起動・91登録集合を確認。これは100ゲームの描画検査ではない。
+
+追加9件は `.github/workflows/runtime-smoke-test.yml` にも登録した。最初のRuntime #308は追加前の既存テストの成功であり、最終保存HEADの再実行結果を最新PRへ記録する。
 
 | 対象 | 確認したこと |
 | --- | --- |

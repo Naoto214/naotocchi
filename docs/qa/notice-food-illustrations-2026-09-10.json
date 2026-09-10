@@ -64,7 +64,9 @@
       "domIds": 329,
       "registeredGames": 100,
       "variantCollections": 91
-    }
+    },
+    "githubWorkflow": ".github/workflows/runtime-smoke-test.yml",
+    "githubStep": "Run achievement and food illustration regression tests"
   },
   "achievements": [
     {
