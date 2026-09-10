@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260910-fit-2">
-  <link rel="stylesheet" href="ui.css?v=20260910-fit-2">
+  <link rel="stylesheet" href="ui.css?v=20260910-home-4">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
   <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
@@ -24,11 +24,8 @@
     <header class="device-header">
       <div class="header-title">
         <div class="name-plate">なおとっち</div>
-        <div class="status-row">
-          <span id="ageLabel">ねんれい: 0さい</span>
-          <span id="sodachiLabel">そだち: 20</span>
-          <span id="moneyLabel">💰 0</span>
-        </div>
+        <div class="cast-badges"><div class="badges" id="badges"></div><div class="ending-badges" id="endingBadges"></div></div>
+        <div class="ending-badge-tip hidden" id="endingBadgeTip" role="status"></div>
       </div>
       <div class="header-actions">
         <button type="button" class="header-button hidden" id="profileBtn" title="データ">👤<span>データ</span></button>
@@ -39,6 +36,10 @@
     <div class="screen-frame">
       <div class="screen surface-screen" id="screen">
         <div class="screen-normal" id="screenNormal">
+          <div class="status-row">
+            <div class="age-status"><span id="ageLabel">ねんれい: 0さい</span><span id="sodachiLabel">そだち: 20</span></div>
+            <span id="moneyLabel">💰 0</span>
+          </div>
           <div class="birthday-toast hidden" id="birthdayToast"></div>
           <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
 
@@ -51,9 +52,10 @@
           </div>
 
           <div class="cast-heading">
-            <div class="cast-names"><div id="mainNameLabel">たまご</div><div id="partnerLabel"></div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
-            <div class="cast-badges"><div class="badges" id="badges"></div><div class="ending-badges" id="endingBadges"></div></div>
-            <div class="ending-badge-tip hidden" id="endingBadgeTip" role="status"></div>
+            <div class="cast-names">
+              <div class="cast-title-line"><div id="mainNameLabel">たまご</div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
+              <div id="partnerLabel"></div>
+            </div>
           </div>
           <div class="pet-area" id="petArea">
             <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="pet" id="pet">
@@ -74,7 +76,7 @@
           </div>
 
           <div class="home-meters">
-            <div class="bars">
+            <div class="bars care-meters" role="group" aria-label="おせわのようす">
               <div class="bar-line">
                 <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
                 <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
@@ -93,7 +95,7 @@
               </div>
             </div>
   
-            <div class="bars meters" id="lifeMeterRow">
+            <div class="bars meters" id="lifeMeterRow" role="group" aria-label="せいちょうといっしょう">
               <div class="bar-line">
                 <span class="bar-label">せいちょう</span>
                 <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
@@ -644,6 +646,6 @@
   <script src="cast-motion.js?v=20260910-motion-1"></script>
   <script src="cast-layout.js?v=20260910-fit-2"></script>
   <script src="world-environment.js?v=20260910-ui-1"></script>
-  <script src="script.js?v=20260910-ending-art-3"></script>
+  <script src="script.js?v=20260910-home-4"></script>
 </body>
 </html>
