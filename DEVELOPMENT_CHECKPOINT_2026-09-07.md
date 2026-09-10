@@ -1675,3 +1675,31 @@ Runtime smoke test SUCCESS確認済み。
 - おと: `audio` モジュール(WebAudio、ファイルなし)。SFX 24 種、BGM 5 曲(home 96bpm / night 66 / game 138 / movie 112 ワルツ風 / farewell 60)を 16 分音符ステップのスケジューラ(100ms 先読み、`nativeSetTimeout` でミニゲームのセッション破棄の影響を受けない)で生成、場面切替は 0.6〜0.8 秒クロスフェード。場面は `state.stage`/`gameActive`/`#dateMovie`/`dateOpen`/`isSleeping` から判定。初回の pointerdown/keydown で AudioContext を解錠、`visibilitychange` で suspend/resume。ミニゲームの効果音は `.mg-hint` の MutationObserver でヒント文を分類(🎉→clear、💥💫💦…→bad、✨ゲット…→good、スタート→start)。フック: finishMinigame(ランク別 fanfare/clear/fail)、retire(close)、openExclusiveMenu(open)、showStoryEvent(notify)、evolutions(levelup)、DEAD(die)、sleep/wake、emotePet(sad/chirp)、hatchEgg(hatch)、全ボタン pointerdown(tap)。
 - 分割: `games.js`(9,856 行)= randomThemeGame/mg から MINIGAMES/MINIGAME_CATEGORY_GROUPS/minigameCategoryOf/REGION_MINIGAMES/SEASONAL_MINIGAMES まで。`globalThis.installNaotocchiMinigames(S)` に 13 個の共通ヘルパー(MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase)を渡し、6 個(MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf)を受け取る。SEASON/SEASON_INFO/getEffectiveSeason などの季節ロジックは script.js に残した。script.js は 14,573 行。ゲーム以外(育成・イベント・UI)は分割していない。テスト(smoke/dialogue/runtime-harness)は games.js + script.js を連結して評価。index.html は `games.js?v=20260910-1` → `script.js?v=20260910-audio-1` の順。
 - 検証: `npm test` 全通過(smoke 100 ゲーム、dialogue、visual-qa、node --test 44 件)。Playwright: BGM の解錠→home 再生(アナライザで RMS 0.03)、場面切替(game/home/night)、BGM OFF/ON、むずかしさ 3 段階の ageDifficulty/mgDuration の変化、せかい画面のグリッド表示とクリック保存、バッチ 8 の操作テスト。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BC — 高難度側の監査(年齢100・むずかしい/ふつう)(2026-09-10)
+- ハーネス: `randplay.js`/`sheet.js` に `NG_AGE`/`NG_DIFF` 環境変数を追加(ページ読込後に `state.ageTicks`/`minigameDifficulty` を設定)。年齢 100 のむずかしい(難度 1.0)とふつう(0.7)で全 100 本をランダム入力、むずかしいでコンタクトシート 9 枚を目視。
+- 結果: ランダム入力の平均生存時間は 易 42.2s / ふつう@100 42.9s / むずかしい@100 40.7s で、高難度で即死する構造のゲームはなし。目視でも弾幕・敵密度は妥当。
+- バグ修正: スカイシューターで 1 発の弾が同フレームの複数の敵/同じ敵に多重ヒットし、撃墜数が水増しされていた(ふつう@100 のランダム入力で 100 点)。`hp<=0` の敵をスキップし、命中したら `break`。配点も `14 + min(44, kills*2) + boス34 + lives*6` に(再計測 42/16 点)。
+- むずかしい側の上限を緩和(難度 1.0 での値): バスケの照準ゆれ 1.4→1.0、アーチェリーの手ぶれ 10→8・風 1.2→1.0、ダーツの散り 7→6・振れ幅 16→14、たっきゅう AI 速度 2.4→2.2・誤差 0.09→0.11、エアホッケー AI 420→380、ビーチバレー CPU 誤差 8→12・スパイク率 0.85→0.8、グランプリの車 16→14 台、ルナランダー初速 22→19、フロッガー速度 1.7→1.55、ひこうき着陸の突風 1.6→1.4/1.0→0.9、スキージャンプの風 0.35→0.3・前傾要求 0.9→0.8、オセロ AI の機動性重み 1.6→1.4。
+- 検証: `npm test` 全通過。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BD — おとの作り込み: ジャンル別 BGM とゲーム固有の効果音(2026-09-10)
+- BGM を 5 曲→8 曲に: puzzle(100bpm、7th コード、ドラムなし。パズル/ボード系)、race(152bpm、8 分のベース、3D・のりもの系)、sports(124bpm、明るいメジャー、スポーツ系)。`audio.currentScene()` がミニゲーム中は `minigameGenreId(activeMinigame)` で曲を選ぶ(action/strategy は従来の game)。
+- games.js に `S.sfx` を渡し(script.js: `sfx: (name) => audio.play(name)`)、27 か所にゲーム固有の効果音: ピンボール(得点 coin/tick)、ジャンプクエスト(jump/coin/hit)、ぴょんぴょん(jump)、アステロイド/スカイシューター/タンク/ボンバー/ミサイル(hit)、スカイシューターのドロップ・ロードラン・リングフライト・スタックのパーフェクト(coin)、フルーツ斬り/ビリヤード/ボウリング/カーリング(whoosh)、スタックの着地・マッチ3・れんさ・バブル・たっきゅう・テニス・たこやき(pop)、ブロックくずし(hit/tick)。
+- ヒント文の分類(GOOD)に おいしい/もぐもぐ/のびた/くぐった/まんなか/ふんだ/かった/せいかい を追加。
+- 検証: `npm test` 全通過。Playwright: ジャンル別の場面(2048→puzzle、レース→race、テニス→sports、スネーク→game、オセロ→puzzle)、効果音フック(jump/hit/coin/good が発火、ページエラー 0)。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BE — はじめてのゲームの せつめいカード(2026-09-10)
+- `MINIGAME_CONTROLS`(id → そうさの文、100 件)を games.js の各ゲームのヒント文(`class="mg-hint"` の初期文)から生成して script.js に追加。ケーキ/おべんとうはヒントが動的なので手書き。smoke-test が全 id の存在を検査。
+- `startMinigame(game, { intro })`: `tryStartPlay`(「あそぶ」/ゲームきろく)からの初回プレイ(`isFirstMinigamePlay` = じこベストなし かつ プレイ回数がこの 1 回だけ)だけ `renderMinigameIntro()` でカード(絵文字・名前・ジャンル・説明・そうさ・「▶ はじめる」)を出し、ボタンで `game.start()`。テスト/ハーネスの直接 `startMinigame()` は従来どおり即開始(main の minigame-lifecycle テストを壊さない)。カード中も「ゲームを やめる」が使える。
+- 検証: `npm test` 全通過(78 件)。Playwright: 初回でカード表示 → はじめるでゲーム開始 → 2 回目は即開始、カードからのやめる。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BF — ゲームきろくの ならびかえ と きょうのチャレンジ(2026-09-10)
+- ならびかえチップ(ジャンル / みプレイ / ランクひくい順 / ベスト高い順): `gameListSort`(セッション内)、みプレイは記録のないゲームだけ、ひくい順は みプレイ→D→S。
+- きょうのチャレンジ: `dailyKey()`(端末のローカル日付 YYYY-MM-DD)のハッシュで id 順プールから 1 本を決定(`dailyChallengeGame()`)。カードの「ちょうせん」→ `dailyPending` → `startMinigame` で `activeMinigameDaily` に写し、`finishMinigameInner` で `state.lifetime.dailyChallenge = {date, gameId, score, rank}`、💰+10、`dailyStreak`/`dailyLastDate`(前日に続けていれば +1)。途中でやめた場合は消費しない。クリア済みはカードが緑になりランクと点数を表示。
+- 検証: `npm test` 全通過。Playwright: カードとチップの表示、ひくい順/みプレイの切替、ちょうせん→初回カード→クリアで記録・+10・メッセージ・クリア済み表示、ページエラー 0。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BG — けいりょうモード と セーブのバックアップ(2026-09-10)
+- けいりょうモード: ミニゲームのセッション付き rAF コールバックの間隔を `mgPerfSample()` で計測(4〜250ms のみ、90 サンプルごとに平均)。平均 30ms 超で `mgPerfLow = true`(セッション中のみ)。以後の `createMgCanvas()` は DPR を 1 に、`mgSpaceBackdrop()` の星を 46→18 に(`S.perfLow`)。
+- セーブのバックアップ(プロフィール画面): `encodeSaveCode()` = `'NTS1.' + base64url(UTF-8 JSON)`、`decodeSaveCode()` は接頭辞・JSON・`lifetime`/`stage` を検証。「よみこんでおきかえる」は 6 秒以内の 2 回押しで確定、既存セーブを `SAVE_BACKUP_KEY` に退避してから置換し、`saveLocked` で離脱時の自動セーブによる上書きを防いでリロード。
+- 検証: `npm test` 全通過。Playwright: コード生成(約 4,100 文字)→ 不正コードの拒否 → 2 回押しで置換 → リロード後に値が復元、DPR の切替。全 100 ゲーム スイープ ページエラー 0。

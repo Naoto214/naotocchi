@@ -1051,6 +1051,14 @@
     dexCloseBtn: document.getElementById('dexCloseBtn'),
     achOverlay: document.getElementById('achOverlay'),
     achGrid: document.getElementById('achGrid'),
+    saveExportBtn: document.getElementById('saveExportBtn'),
+    saveExportBox: document.getElementById('saveExportBox'),
+    saveExportText: document.getElementById('saveExportText'),
+    saveExportCopyBtn: document.getElementById('saveExportCopyBtn'),
+    saveExportCopied: document.getElementById('saveExportCopied'),
+    saveImportInput: document.getElementById('saveImportInput'),
+    saveImportBtn: document.getElementById('saveImportBtn'),
+    saveImportStatus: document.getElementById('saveImportStatus'),
     achTitle: document.getElementById('achTitle'),
     achTabs: document.getElementById('achTabs'),
     gameListGrid: document.getElementById('gameListGrid'),
@@ -1508,6 +1516,10 @@
         // ランク(S/A/B/C/D)も ここから ひく。minigamePlayCounts と おなじく
         // 「はじめから」しても きえない
         minigameRecords: {},
+        // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
+        dailyChallenge: null,
+        dailyStreak: 0,
+        dailyLastDate: null,
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -2277,7 +2289,11 @@
     return achievedGoalTiers();
   }
 
+  // セーブコードの よみこみ中は、ページを とじる ときの じどうセーブで
+  // よみこんだ セーブを うわがきしない ように とめる
+  let saveLocked = false;
   function saveState() {
+    if (saveLocked) return;
     // 復旧候補がすべて読めないときは、非表示時の保存でも原本を消さない。
     if (saveWriteBlocked) return;
     recordDiscovery();
@@ -2515,7 +2531,8 @@
     const num = (v, d) => (typeof v === 'number' && v > 0 && isFinite(v) ? v : d);
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
     const H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
-    const dpr = Math.min(2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
+    // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
+    const dpr = Math.min(mgPerfLow ? 1 : 2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
     if (!ctx || typeof ctx.setTransform !== 'function') ctx = null;
     if (canvas) {
@@ -10400,6 +10417,23 @@
   // 「ゲームきろく」タブ: ぜんゲームを ジャンルごとに ならべ、じこベスト・
   // ランク・あそんだ かいすうを 見せる。タップすると その ゲームで あそべる
   // (「あそぶ」と おなじ 条件・おなじ ごほうび)
+  // --- きょうの チャレンジ: ひづけ(YYYY-MM-DD)から 1本 きまる。1日1かい だけ ---
+  function dailyKey(d = new Date()) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+  function dailyChallengeGame() {
+    const pool = buildMinigamePool().slice().sort((a, b) => (a.id < b.id ? -1 : 1));
+    if (!pool.length) return null;
+    let h = 0; for (const ch of dailyKey()) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    return pool[h % pool.length];
+  }
+  function dailyChallengeToday() {
+    const d = state.lifetime.dailyChallenge;
+    return d && d.date === dailyKey() ? d : null;
+  }
+  let gameListSort = 'genre'; // genre / unplayed / low / high
+  const GAME_LIST_SORTS = [['genre', 'ジャンル'], ['unplayed', 'みプレイ'], ['low', 'ランクひくい順'], ['high', 'ベスト高い順']];
+
   function renderGameList() {
     if (!el.gameListGrid) return;
     const pool = buildMinigamePool();
@@ -10414,12 +10448,36 @@
     }
     el.achProgress.textContent = `あそんだ${played} / ${pool.length}`;
     const rankSummary = ['S', 'A', 'B'].map((r) => `<span class="mg-rank rank-${r}">${r}</span>${rankCounts[r]}`).join('');
-    let html = `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
+    let html = '';
+    // きょうの チャレンジ カード
+    const daily = dailyChallengeGame();
+    if (daily) {
+      const dInfo = minigameInfo(daily);
+      const done = dailyChallengeToday();
+      const streak = state.lifetime.dailyStreak || 0;
+      const status = done && done.score != null
+        ? `<span class="mg-rank rank-${done.rank}">${done.rank}</span><span class="daily-score">${done.score}てん</span>`
+        : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
+      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}にちれんぞく</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? 'きょうはクリアずみ。またあした!' : '1日1かい。クリアで 💰+10'}</span></div><div class="daily-status">${status}</div></div></div>`;
+    }
+    html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
+    html += `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
     html += `<div class="game-list-hint">タップするとそのゲームであそべる(げんきをつかう)・むずかしさ: ${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}(せかいがめんでかえられる)</div>`;
-    for (const genre of MINIGAME_GENRES) {
-      const games = pool.filter((game) => minigameGenreId(game) === genre.id);
-      if (!games.length) continue;
-      html += `<div class="game-section-title">${genre.emoji} ${genre.label} (${games.length})</div>`;
+    const bestOf = (game) => { const r = minigameRecordOf(game); return r ? r.best : -1; };
+    const sections = [];
+    if (gameListSort === 'genre') {
+      for (const genre of MINIGAME_GENRES) { const games = pool.filter((game) => minigameGenreId(game) === genre.id); if (games.length) sections.push({ title: `${genre.emoji} ${genre.label} (${games.length})`, games }); }
+    } else if (gameListSort === 'unplayed') {
+      const games = pool.filter((game) => !minigameRecordOf(game)); sections.push({ title: `🗂️ まだ きろくの ない ゲーム (${games.length})`, games });
+    } else if (gameListSort === 'low') {
+      const games = pool.slice().sort((a, b) => bestOf(a) - bestOf(b)); sections.push({ title: '📉 ランクの ひくい じゅん(みプレイ → D → S)', games });
+    } else {
+      const games = pool.slice().sort((a, b) => bestOf(b) - bestOf(a)); sections.push({ title: '📈 ベストの 高い じゅん', games });
+    }
+    for (const section of sections) {
+      const games = section.games;
+      if (!games.length) { html += `<div class="game-section-title">${section.title}</div><div class="game-list-hint">ぜんぶ きろくが ある!</div>`; continue; }
+      html += `<div class="game-section-title">${section.title}</div>`;
       for (const game of games) {
         const info = minigameInfo(game);
         const record = minigameRecordOf(game);
@@ -11925,7 +11983,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -12094,6 +12152,111 @@
     'slide-puzzle': { name: 'スライドパズル', emoji: '🧩', desc: 'ピースをすべらせてえをかんせい' },
     'sugoroku-race': { name: 'すごろく', emoji: '🎲', desc: 'サイコロをねらってとめてさきにゴール' },
     'takoyaki-grill': { name: 'たこやきやさん', emoji: '🐙', desc: 'ちょうどいいやきぐあいでかえしてとれ' },
+  };
+  // はじめて あそぶ ゲームの まえに 出す「そうさの せつめい」。games.js の 各ゲームの
+  // ヒント文(class="mg-hint" の さいしょの 文)から 生成した 表(id → 文)。
+  // ゲームを 足したら ここにも 1行 足す(smoke-test が もれを 検査する)
+  const MINIGAME_CONTROLS = {
+    "road-themed": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "stack-themed": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "stack-snowman": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "bowling-3d": "ボールからうえへスワイプ!はやくはらうほどつよく、ななめにはらうとねらいがかわる。◀▶で立ち位置",
+    "archery-3d": "がめんをおさえてうしろへひっぱり、はなすとはっしゃ。かぜのぶんだけずらしてねらおう",
+    "breakout-classic": "がめんをよこになぞる(か◀▶)でパドルをうごかす。パドルのはしでうつとボールがななめにとぶ。おちてくるアイテム: ⬌ワイド、●マルチボール、🐢スロー",
+    "dragDecorate-cake": "したのトッピングをゆびでドラッグして、てんせんのばしょにおく。ヒントにあったトッピングをえらぼう",
+    "dragDecorate-bento": "見本をおぼえてね!",
+    "p3-space": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "p3-drive": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "fp-dungeon": "↶↷でむきをかえ、↑ですすむ(おしっぱなしOK)。がめんをドラッグしても見まわせる",
+    "falling-block-puzzle": "◀▶で移動(おしっぱなしOK)／↻で回転／▼おしっぱなしではやくさげる／⏬で一気に",
+    "crane-game-3d": "ボタンをおしているあいだアームがうごく。けいひんのどまんなかではなそう。落ちても、左手前の落とし口に入ればゲット!",
+    "pinball-physics": "「はっしゃ」をながおしでためてはなす。フリッパーはおしっぱなしで上がる",
+    "haunted-house-3d": "↶↷でむきをかえ、▲ですすむ(おしっぱなしOK)。かぎをとるとゆうれいがおいかけてくる!",
+    "race-3d": "アクセルをおしっぱなしでかそく。カーブでは外にふられるので◀▶でおさえよう",
+    "rhythm-highway-3d": "ノーツが手前のラインにかさなったしゅんかんに、そのレーンのボタンをタップ!",
+    "tilt-maze-3d": "ばんをドラッグしてかたむける(十字ボタンでもOK)。あなにおちないようへ",
+    "space-gunner-3d": "ドラッグでねらいをあわせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
+    "mini-golf-physics": "ボールからうしろへひっぱってはなすとパット。ひっぱるながさがつよさ",
+    "real-fishing": "ボタンながおしでためてはなすとキャスト。うきがしずんだら「あわせる」!",
+    "basketball-3d": "ボールをうえへはらってシュート。はらうながさとはやさでとぶきょりがかわる。バックボードにあててもOK",
+    "pingpong-3d": "がめんをなぞってラケットをうごかす。ボールのきたところにラケットをおけばかえせる。さきにてん!",
+    "chain-puzzle": "おなじいろを4こつなげるときえる。きえたあとにおちてつながればれんさ!",
+    "street-fight": "パンチははやい、キックはつよくてふきとばす。あいてがひかったらガード(ながおし)!",
+    "free-kick-3d": "ボールからうえへはらってシュート。はやさでつよさ、ななめでねらい、とちゅうでまげるとカーブ!",
+    "tower-defense": "茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!",
+    "roguelike-dungeon": "1マスうごくとてきもうごく。てきにぶつかってこうげき。🧪はかいふく、⚔️はこうげき力アップ、🪜でつぎのかいへ",
+    "grand-prix-3d": "アクセルを長押し、◀▶でハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
+    "sky-shooter": "画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
+    "jump-quest": "◀▶ではしり、ジャンプはながおしでたかく。てきはうえからふむ、とげはとびこえて、🚩まで!",
+    "push-puzzle": "はこ(📦)をおして★のマスへ。ひっぱれないのでおすむきをかんがえよう。↩で1てもどせる",
+    "reversi-6": "ひかっているマスをタップ。あいてのいしをはさむとぜんぶじぶんのいろに。かどをとるとつよい!",
+    "billiards-6": "白いボールからうしろへひっぱってはなすとショット。ひっぱるながさでつよさがかわる。ガイド線をみてねらおう!",
+    "animal-shogi": "こまをタップ→ひかったマスへ。🦁をとるか、🦁がいちばんおくまでいけばかち。とったこまはしたのてもちからうてる",
+    "minesweeper-8": "マスをタップでひらく。すうじはまわり8マスのばくだんのかず。あやしいマスは🚩モード(かながおし)ではたをたてよう",
+    "snake-classic": "十字キーかがめんスワイプでむきをかえる。🍎でのびてスピードアップ、⭐は3こぶん!かべとからだにぶつからないで",
+    "baseball-batting": "◀▶かがめんドラッグでバットをたまのコースへ。たまがホームベースにくるしゅんかんにスイング!まんなかであてるとホームラン",
+    "ring-flight-3d": "がめんをなぞってひこうきをうごかす(十字キーでもOK)。リングのまんなかをくぐると○、くもにあたるとスピードダウン",
+    "bubble-shooter": "がめんをおさえてねらいをきめ、はなすとはっしゃ。おなじいろが3こつながるときえる。かべにはねかえしてうらからねらうのもアリ",
+    "catapult-castle": "ボールをおさえてうしろへひっぱり、はなすとはっしゃ。ブロックをくずして👻をたおそう。たかいところからおとしてもOK",
+    "connect-four": "おとしたいれつをタップ。たて・よこ・ななめに4つならべたらかち。あいて(🟡)の3つならびはふさごう",
+    "puzzle-2048": "スワイプ(か十字キー)でぜんぶのタイルがすべる。おなじかずがぶつかるとたされて1つに。おおきいかずをかどにためるのがコツ",
+    "frogger-road": "十字キーかスワイプで1マスとぶ。くるまにあたらないでどうろをわたり、かわは🪵のうえだけあんぜん。あいている🏠へ!",
+    "ski-jump": "ボタンでスタート→だいのはし(あかい線)でタップしてとびだす!くうちゅうはながおしでまえかがみ。かぜのめじるし(▽)にかさねよう。ちゃくちちょくぜんにタップでテレマーク",
+    "air-hockey": "したはんぶんでゆびをうごかすとマレットがついてくる。パックをはじいてうえのゴールへ!じぶんのゴールはまもろう。さきに5てん",
+    "submarine-3d": "がめんをなぞって(か十字キー)せんすいかんをうごかす。💎をとり、いわ・クラゲはよける。さんそメーターがへったら🫧をとろう",
+    "match-3": "となりあうフルーツをスワイプ(か2かいタップ)でいれかえ。たて・よこに3ついじょうそろうときえる。4つ・5つやれんさでおおきくかせごう",
+    "gomoku-9": "マスをタップするとかりおき、もういちどおなじところをタップでけってい。たて・よこ・ななめに5つならべたらかち。あいての3・4はふさごう",
+    "tank-battle": "十字キー(ながおし)でうごき、まんなかの🔥ではっしゃ。むいているむきにたまがとぶ。レンガのかべはこわしてみちをつくれる",
+    "tennis-rally": "◀▶でうごいて、ボールがちかづいたらスイング!ひくいところでうつとはやいドライブ、たかいところでうつとロブ。あいてのコートにおとそう。4ポイントさきどり",
+    "picross-5": "すうじはそのれつでつづけてぬるマスのかず(「2 1」なら2つぬってあいだをあけて1つ)。タップでぬる、✕モード(かながおし)でぬらないしるし",
+    "darts-board": "がめんをおさえてねらいをうごかし、はなすとなげる。おさえているあいだてがゆれてくるので、はやめにはなすのがコツ。まんなかのブルは50てん!",
+    "hang-glider-3d": "なぞって(か◀▶)ひだりみぎ、▲▼できしゅのあげさげ。さげるとはやくすすむがたかさがへる。🌀のじょうしょう気流でたかさをかせぎ、🎈をあつめよう。じめんにつくとちゃくりく",
+    "bomber-maze": "十字キー(ながおし)でうごき、💣でばくだんをおく。2びょうでじゅうじにばくはつ!じぶんもまきこまれるのではなれよう。レンガからアイテムがでる",
+    "blackjack-21": "カードのごうけいを21にちかづける(21をこえたらまけ)。Aは1か11、えふだは10。ヒットで1まいひく、スタンドでしょうぶ。ディーラーは17いじょうでとまる",
+    "pipe-connect": "パイプをタップすると90°まわる。ひだりの🚰からみぎの🌻までみずがとおるみちをつくろう。すくないタップでつなぐとこうとくてん",
+    "fruit-slice": "ゆびをすばやくなぞってフルーツをきる!1かいのスワイプでなんこもきるとコンボ。💣をきるとライフがへる。おとしすぎにもちゅうい",
+    "track-field": "◀と▶をこうごにすばやくタップしてはしる!100mのあとははばとび。しろいラインのてまえでジャンプボタンをおして、はなすととぶ(ながくおすとたかく)",
+    "voxel-mine": "十字キーをながおしでそのむきにほる。いしはじかんがかかる。⚫せきたん→⛓てつ→🟡きん→💎ダイヤはふかいほどおおい。🔥マグマにさわるとダメージ!",
+    "sushi-belt": "うえの「ちゅうもん」とおなじネタのおさらを、レーンからタップしてとる。ちがうおさらや🌶わさびはペナルティ。はやくそろえるとボーナス",
+    "asteroids-classic": "◀▶でまわり、▲ながおしですすむ。🔥かがめんタップでうつ。いわをわると、小さくはやくなる。がめんのはしはつながっている",
+    "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふりなおす。やくをタップできろく。同じやくは1回だけ",
+    "lights-out": "タップしたマスと、上下左右のライトがはんてんする。ぜんぶ消せばクリア。「さいてい」の手数をめざそう",
+    "doodle-jump": "◀▶かよこドラッグで動き、だいにおりよう。ジャンプはじどう。みどりはふつう、あおは動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている",
+    "curling-ice": "🔴をうえへスワイプ。はやいほど強く、ななめなら曲がる。投げたあとは連打でのばそう。まんなかにいちばん近い石のチームが得点",
+    "jenga-tower": "タップしたブロックをぬいて、上につみなおすよ。まんなかを残すとあんてい、はしだけだとくずれやすい。あんてい%を見ながら選ぼう",
+    "line-trace": "●から灰色の線をひと筆でなぞろう。線に近いとみどり、離れると赤。指を離すと判定するよ",
+    "checkers-6": "こまをタップ→ひかったマスへ。ななめまえに1マス、あいてのこまをとびこすととれる(つづけてとべる)。おくまでいくと👑キングになってうしろにもすすめる",
+    "memory-cards": "カードを2まいタップしてめくる。おなじえならそのまま、ちがえばもどる。ばしょをおぼえて、すくないかいすうでぜんぶそろえよう",
+    "halfpipe-skate": "くだり坂で「ポンプ」をながおしするとかそく。いきおいがつくとふちからとびだす。くうちゅうで「トリック」をおすと1かいてん(なんどもおせる)。ちゃくちまでにまわりきらないとてんとう!",
+    "domino-run": "みちのとちゅうでドミノがかけている(てんせん)。てもちのドミノをかけたばしょにタップでおき、ぜんぶつながったら「おす!」。あまったてもちはボーナス",
+    "sudoku-mini": "たて・よこ・ふといわくのなかに、1〜が1つずつはいる。マスをタップしてえらび、したのかずボタンでいれる。まちがうとあかくひかる",
+    "mancala-kalah": "したのじぶんのあなをタップ。たねを1つずつみぎまわりにまく。さいごのたねがみぎのじぶんのストアにはいるともう1かい。からのじぶんのあなにおちるとむかいのたねももらえる",
+    "plane-landing": "▲▼か縦ドラッグで機首を上げ下げ。緑の線をめやすに、滑走路の⬛へふわっと降りよう。風で浮き沈みするよ",
+    "dot-eater": "十字キーかがめんスワイプですすむ。ドットをぜんぶたべよう。⭐をたべると6びょうおばけをたべかえせる!",
+    "missile-command": "そらをタップするといちばんちかいきちからげいげきミサイルがとぶ。ばくはつのわにミサイルをまきこんでまちをまもれ!きちのだんはウェーブごとにほきゅう",
+    "area-claim": "十字キー(おしっぱなし)でふちをうごき、なかへせんをひいてかこもう。%とればクリア。✨がせんにふれると1ミス",
+    "solitaire-klondike": "カードをタップしてえらび、おきたい列か右上の台をタップ。えらんだカードをもう1かいタップすると台へ。やまふだはタップでめくる",
+    "hit-blow": "こたえは6色のうち4色(おなじいろは2つない)。いろを4つえらんで「けってい」。🎯ヒット=いろも場所もあたり、💨ブロー=いろはあるけど場所ちがい",
+    "lunar-lander": "◀▶でかたむけ、🔥でぎゃくふんしゃ。たいらなパッド(×2/×3)に、まっすぐ・ゆっくりおりよう。はやすぎたりななめだとクラッシュ",
+    "shanghai-tiles": "うえに牌がなく、ひだりかみぎがあいている牌だけとれる。おなじ絵の2まいをタップしてけそう。かならずとききれるならびになっている",
+    "beach-volley": "◀▶でうごいてボールのしたへ。ふれるとたかくあがる(うけ)。🏐アタックをおしながらふれるとあいてのコートへスパイク!さきにてん",
+    "slide-puzzle": "あいたますのとなりのピースをタップ(かスワイプ)してすべらせる。ひだりうえからじゅんばんにならべてえをかんせいさせよう",
+    "sugoroku-race": "「🎲とめる」をおすとまわっているサイコロがとまる(ねらってとめよう)。➕はすすむ、➖はもどる、⭐はコイン、💤は1かいやすみ。さきにゴールへ!",
+    "takoyaki-grill": "きつねいろ(みどりのゾーン)になったらタップでひっくりかえす。うらもきつねいろでタップしてとりだす。はやいとなま、おそいとこげ!",
+    "road-city": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "stack-harvest": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "stack-acorn": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "downhill-mountain": "◀▶(おしっぱなし)かがめんドラッグでステア。🚩🚩のあいだをとおり、🪵はジャンプでこえよう",
+    "downhill-snow": "◀▶(おしっぱなし)かがめんドラッグでステア。🚩🚩のあいだをとおり、🪵はジャンプでこえよう",
+    "fishing-sea": "ボタンながおしでためてはなすとキャスト。うきがしずんだら「あわせる」!",
+    "fishing-deepsea": "ボタンながおしでためてはなすとキャスト。うきがしずんだら「あわせる」!",
+    "fishing-river": "ボタンながおしでためてはなすとキャスト。うきがしずんだら「あわせる」!",
+    "road-jungle": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "road-desert": "◀▶(おしっぱなしOK)かがめんの左/中/右をタップでレーン移動。よいものはとって、わるいものはよけよう",
+    "stack-sakura": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "ring-flight-summer": "がめんをなぞってひこうきをうごかす(十字キーでもOK)。リングのまんなかをくぐると○、くもにあたるとスピードダウン",
+    "stack-leaves": "うえでゆれているブロックを、したのブロックとかさなるタイミングでタップしておとす。はみでたぶぶんはきりおとされてどんどんほそくなる。ぴったりかさねると✨パーフェクトではばがもどる!",
+    "curling-winter": "🔴をうえへスワイプ。はやいほど強く、ななめなら曲がる。投げたあとは連打でのばそう。まんなかにいちばん近い石のチームが得点",
   };
   function minigameInfo(game) {
     const info = MINIGAME_INFO[game.id];
@@ -12394,11 +12557,28 @@
   // つけ、セッションが おわったあとは 実行せずに すてる。ふつうの がめんの
   // コード(ゲームの そとで 予約した タイマー)には しるしが つかないので、
   // これまでどおり うごく
+  // けいりょうモード: ゲーム中の フレーム間かくを はかり、へいきんが 30ms を
+  // こえたら(おおよそ 33fps 未満)、それいこうの canvas を かいぞうど 1 で
+  // つくり、星などの かざりを へらす(このセッションの あいだ ゆうこう)
+  let mgPerfLow = false;
+  const mgPerf = { last: 0, samples: [] };
+  function mgPerfSample() {
+    const t = performance.now();
+    const dt = t - mgPerf.last; mgPerf.last = t;
+    if (dt < 4 || dt > 250) return;
+    mgPerf.samples.push(dt);
+    if (mgPerf.samples.length < 90) return;
+    const avg = mgPerf.samples.reduce((a, b) => a + b, 0) / mgPerf.samples.length;
+    mgPerf.samples = [];
+    if (avg > 30 && !mgPerfLow) mgPerfLow = true;
+  }
   let mgSession = 0;        // いま うごいている ゲームの セッション番号(0 = なし)
   let mgSessionSerial = 0;
   let mgCodeDepth = 0;      // > 0 なら「ゲームの コードの なか」
   let mgCodeSession = 0;    // その コードが どの セッションに ぞくするか
   let activeMinigame = null;
+  let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
+  let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
   function mgRunTagged(session, fn, thisArg, args) {
     const prevDepth = mgCodeDepth;
     const prevSession = mgCodeSession;
@@ -12425,6 +12605,7 @@
       if (!tag || typeof cb !== 'function') return nativeRequestAnimationFrame(cb);
       return nativeRequestAnimationFrame((t) => {
         if (!mgTagAlive(tag)) return;
+        mgPerfSample();
         mgRunTagged(tag, cb, null, [t]);
       });
     };
@@ -12496,6 +12677,7 @@
 
   function retireMinigameInner() {
     const game = activeMinigame;
+    activeMinigameDaily = false;
     closeMinigameScreen();
     audio.play('close');
     state.energy = clamp(state.energy - 6, 0, 100);
@@ -12610,6 +12792,17 @@
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
+    // きょうの チャレンジ: きょうの スコアを きろくし、💰+10 と れんぞく日数
+    if (activeMinigameDaily && record) {
+      activeMinigameDaily = false;
+      const key = dailyKey();
+      const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+      const streak = state.lifetime.dailyLastDate === dailyKey(yesterday) ? (state.lifetime.dailyStreak || 0) + 1 : 1;
+      state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
+      state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
+      state.lifetime.money += 10;
+      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+10${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}`;
+    }
     if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
     let recruitedNow = false;
@@ -12665,7 +12858,10 @@
     render();
   }
 
-  function startMinigame(game) {
+  // opts.intro: はじめて あそぶ ゲームの まえに そうさの せつめいを 出す(「あそぶ」/
+  // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
+  // ちょくせつの startMinigame() は すぐ はじまる)
+  function startMinigame(game, opts = {}) {
     gameActive = true;
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
@@ -12703,6 +12899,7 @@
     const session = mgSessionSerial;
     mgSession = session;
     activeMinigame = game;
+    activeMinigameDaily = dailyPending; dailyPending = false;
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
@@ -12710,7 +12907,41 @@
       if (session !== mgSession || !gameActive) return;
       finishMinigame(result, message);
     };
-    mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
+    const launch = () => {
+      if (session !== mgSession || !gameActive) return;
+      el.minigameOverlay.innerHTML = '';
+      mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
+    };
+    // はじめて あそぶ ゲームは、うごきだす まえに そうさの せつめいを 1まい 出す
+    if (opts.intro) renderMinigameIntro(game, launch);
+    else launch();
+  }
+
+  // 「はじめて」= じこベストが なく、あそんだ かいすうが この1かい だけ
+  function isFirstMinigamePlay(game) {
+    return !!game.id && !minigameRecordOf(game) && minigamePlayCount(game) <= 1;
+  }
+
+  function renderMinigameIntro(game, onStart) {
+    const info = minigameInfo(game);
+    const controls = MINIGAME_CONTROLS[game.id] || '';
+    const genre = MINIGAME_GENRES.find((x) => x.id === minigameGenreId(game));
+    el.minigameOverlay.innerHTML = `
+      <div class="mg-intro">
+        <div class="mg-intro-badge">✨ はじめての ゲーム</div>
+        <div class="mg-intro-emoji">${info.emoji}</div>
+        <div class="mg-intro-name">${info.name}</div>
+        <div class="mg-intro-genre">${genre ? `${genre.emoji} ${genre.label}` : ''}</div>
+        <div class="mg-intro-desc">${info.desc}</div>
+        <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div>${controls}</div>
+        <button type="button" class="mg-tap-btn primary mg-intro-start" id="mgIntroStart" data-key="action">▶ はじめる</button>
+        <div class="mg-intro-note">つぎからは すぐ はじまるよ</div>
+      </div>`;
+    const btn = el.minigameOverlay.querySelector('#mgIntroStart');
+    let started = false;
+    const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; onStart(); };
+    btn.addEventListener('pointerdown', go);
+    btn.addEventListener('click', go);
   }
 
   let sleepRecoveryTimer = null;
@@ -12979,6 +13210,18 @@
         chords: [[60, 64, 67, 71], [57, 60, 64, 67], [62, 65, 69, 72], [55, 59, 62, 65]],
         bass: [48, null, null, null, 52, null, 55, null, null, null, 52, null, 48, null, null, null],
         lead: [[79, null, null, null, 76, null, 74, null, null, null, 72, null, 76, null, null, null], [76, null, null, null, 72, null, 69, null, null, null, 67, null, 72, null, null, null], [77, null, null, null, 74, null, 72, null, null, null, 69, null, 74, null, null, null], [74, null, null, null, 71, null, 67, null, null, null, 71, null, 74, null, null, null]] },
+      puzzle: { bpm: 100, swing: 0.1, lead: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0.03, kick: 0,
+        chords: [[57, 60, 64, 67], [65, 69, 72, 76], [60, 64, 67, 71], [67, 71, 74, 77]],
+        bass: [45, null, null, null, null, null, 52, null, 45, null, null, null, null, null, 50, null],
+        lead: [[76, null, null, 79, null, null, 81, null, null, null, 79, null, 76, null, null, null], [77, null, null, 81, null, null, 84, null, null, null, 81, null, 77, null, null, null], [79, null, null, 76, null, null, 72, null, null, null, 76, null, 79, null, null, null], [74, null, null, 77, null, null, 79, null, null, null, 83, null, 79, null, null, null]] },
+      race: { bpm: 152, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.11, hat: 0.07, kick: 0.22,
+        chords: [[57, 60, 64], [57, 60, 64], [53, 57, 60], [55, 59, 62]],
+        bass: [45, 45, 57, 45, 45, 57, 45, 45, 45, 45, 57, 45, 52, 52, 55, 55],
+        lead: [[76, null, 76, null, 79, 76, null, 74, null, 76, null, null, 79, null, 81, null], [76, null, 76, null, 79, 76, null, 74, null, 72, null, null, 71, null, 72, null], [77, null, 77, null, 81, 77, null, 76, null, 77, null, null, 81, null, 84, null], [79, null, 79, null, 83, 79, null, 78, null, 79, null, null, 83, null, 86, null]] },
+      sports: { bpm: 124, swing: 0.05, lead: 'triangle', leadVol: 0.11, bassVol: 0.1, hat: 0.06, kick: 0.18,
+        chords: [[65, 69, 72], [67, 71, 74], [69, 72, 76], [67, 71, 74]],
+        bass: [53, null, 53, null, 60, null, 53, null, 55, null, 55, null, 62, null, 55, null],
+        lead: [[81, null, 84, null, 81, null, 77, null, 79, null, null, null, 81, null, null, null], [83, null, 86, null, 83, null, 79, null, 81, null, null, null, 83, null, null, null], [84, null, 88, null, 84, null, 81, null, 79, null, null, null, 81, null, null, null], [83, null, 79, null, 76, null, 79, null, 83, null, null, null, 86, null, null, null]] },
       farewell: { bpm: 60, swing: 0, lead: 'sine', leadVol: 0.1, bassVol: 0.07, hat: 0, kick: 0,
         chords: [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62]],
         bass: [45, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
@@ -13033,7 +13276,11 @@
       try {
         if (!state) return 'home';
         if (state.stage === STAGE.DEAD || state.stage === STAGE.FAREWELL || (el.lifeCardOverlay && !el.lifeCardOverlay.classList.contains('hidden'))) return 'farewell';
-        if (gameActive) return 'game';
+        if (gameActive) {
+          // ジャンルごとに きょくを かえる(3D・のりもの→race、パズル/ボード→puzzle、スポーツ→sports、ほかは game)
+          const genre = activeMinigame && typeof minigameGenreId === 'function' ? minigameGenreId(activeMinigame) : 'action';
+          return genre === 'drive3d' ? 'race' : (genre === 'puzzle' || genre === 'board') ? 'puzzle' : genre === 'sports' ? 'sports' : 'game';
+        }
         const movie = document.getElementById('dateMovie');
         if ((movie && !movie.classList.contains('hidden')) || dateOpen) return 'movie';
         if (state.isSleeping) return 'night';
@@ -13059,7 +13306,7 @@
   (() => {
     if (typeof MutationObserver !== 'function' || !el.minigameOverlay) return;
     let lastText = '', lastAt = 0;
-    const GOOD = /🎉|✨|ゲット|パーフェクト|ストライク|スペア|ホームラン|せいこう|クリア|ボーナス|れんぞく|\+\d|たべた|とった|いい/;
+    const GOOD = /🎉|✨|ゲット|パーフェクト|ストライク|スペア|ホームラン|せいこう|クリア|ボーナス|れんぞく|\+\d|たべた|とった|いい|おいしい|もぐもぐ|のびた|くぐった|まんなか|ふんだ|かった|せいかい/;
     const BAD = /💥|💫|💦|💀|😣|😵|🔥|ガター|ミス|ぶつかった|クラッシュ|こげ|なま|つかまった|おちた|しっぱい|やられた|ざんねん|アウト/;
     const START = /スタート/;
     const obs = new MutationObserver(() => {
@@ -13225,7 +13472,7 @@
     } else {
       game = pickRandomMinigame();
     }
-    startMinigame(game);
+    startMinigame(game, { intro: isFirstMinigamePlay(game) });
     return true;
   }
 
@@ -14084,9 +14331,13 @@
   }
   if (el.gameListGrid) {
     el.gameListGrid.addEventListener('click', (e) => {
+      const sortBtn = e.target && e.target.closest ? e.target.closest('.game-list-sort') : null;
+      if (sortBtn) { gameListSort = sortBtn.dataset.sort; renderGameList(); return; }
+      const dailyBtn = e.target && e.target.closest ? e.target.closest('.daily-start') : null;
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
-      if (!cell) return;
-      const game = buildMinigamePool().find((g) => g.id === cell.dataset.gameId);
+      if (!cell && !dailyBtn) return;
+      const game = buildMinigamePool().find((g) => g.id === (dailyBtn ? dailyBtn.dataset.gameId : cell.dataset.gameId));
+      if (dailyBtn) { if (dailyChallengeToday()) return; dailyPending = true; }
       if (!game) return;
       // いちらんを とじてから はじめる。あそべない ときは ふつうの がめんに
       // りゆうの メッセージが 出る(ねている/げんき不足 など)
@@ -14094,7 +14345,7 @@
       clearConversationTimers();
       hideSpeechBubble();
       render();
-      tryStartPlay(game);
+      if (!tryStartPlay(game)) dailyPending = false;
     });
   }
 
@@ -14248,6 +14499,47 @@
     el.myCodeBox.focus();
     el.myCodeBox.select();
   });
+
+  // --- セーブの バックアップ: セーブ(JSON)を 'NTS1.' + base64 の コードに ---
+  const SAVE_CODE_PREFIX = 'NTS1.';
+  function encodeSaveCode(json) {
+    const bytes = new TextEncoder().encode(json);
+    let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return SAVE_CODE_PREFIX + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function decodeSaveCode(code) {
+    const t = (code || '').trim();
+    if (!t.startsWith(SAVE_CODE_PREFIX)) throw new Error('これは セーブコードでは ない');
+    let b64 = t.slice(SAVE_CODE_PREFIX.length).replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const json = new TextDecoder().decode(bytes);
+    const parsed = JSON.parse(json);
+    if (!parsed || typeof parsed !== 'object' || !parsed.lifetime || typeof parsed.stage !== 'string') throw new Error('セーブの なかみが ちがう');
+    return json;
+  }
+  let saveImportArmedAt = 0;
+  if (el.saveExportBtn) {
+    el.saveExportBtn.addEventListener('click', () => {
+      saveState();
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) { el.saveImportStatus.textContent = 'まだ セーブが ない'; return; }
+      el.saveExportText.value = encodeSaveCode(raw);
+      el.saveExportBox.classList.remove('hidden');
+      el.saveImportStatus.textContent = `コードは ${el.saveExportText.value.length} もじ。メモアプリなどに はりつけて とっておこう`;
+    });
+    el.saveExportCopyBtn.addEventListener('click', () => copyCodeToClipboard(el.saveExportText.value, el.saveExportText, el.saveExportCopied));
+    el.saveImportBtn.addEventListener('click', () => {
+      let json;
+      try { json = decodeSaveCode(el.saveImportInput.value); } catch (err) { el.saveImportStatus.textContent = `よみこめない: ${err.message}`; saveImportArmedAt = 0; return; }
+      const now = Date.now();
+      if (now - saveImportArmedAt > 6000) { saveImportArmedAt = now; el.saveImportStatus.textContent = 'いまの セーブを このコードで おきかえます。よければ もういちど おして'; return; }
+      saveLocked = true;
+      try { localStorage.setItem(SAVE_BACKUP_KEY, localStorage.getItem(SAVE_KEY) || ''); localStorage.setItem(SAVE_KEY, json); } catch (err) { saveLocked = false; el.saveImportStatus.textContent = 'ほぞんに しっぱい'; return; }
+      el.saveImportStatus.textContent = 'おきかえた! よみこみなおします…';
+      setTimeout(() => location.reload(), 600);
+    });
+  }
 
   el.myCodeCopyBtn.addEventListener('click', () => {
     copyCodeToClipboard(el.myCodeBox.value, el.myCodeBox, el.myCodeCopyMsg);
