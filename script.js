@@ -938,6 +938,7 @@
     mainNameLabel: document.getElementById('mainNameLabel'),
     castStage: document.getElementById('castStage'),
     castSway: document.getElementById('castSway'),
+    castResponse: document.getElementById('castResponse'),
     menuBtn: document.getElementById('menuBtn'),
     menuOverlay: document.getElementById('menuOverlay'),
     menuCloseBtn: document.getElementById('menuCloseBtn'),
@@ -2684,6 +2685,7 @@
   const SPEECH_DURATION_MS = 2500;
   const castMotion = window.NaotocchiCastMotion?.createController({
     getActors: homeCastActors,
+    getGroup: () => el.castResponse,
     canAnimate: () => document.visibilityState !== 'hidden' && !gameActive
       && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
     isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
@@ -10106,6 +10108,8 @@
     el.goalValue.textContent = state.infinite ? '♾️' : `${isDead ? 0 : goalAge} / ${GOAL_AGE}`;
 
     el.poopRow.textContent = '💩'.repeat(state.poopCount);
+    el.poopRow.setAttribute('aria-label', `うんち ${state.poopCount}こ`);
+    el.poopRow.setAttribute('aria-hidden', String(state.poopCount === 0));
 
     const badges = [];
     if (state.isSick) {
@@ -11681,7 +11685,7 @@
     el.device.dataset.castCrowded = String(recruited.length > 0);
     const stageRect = el.castStage.getBoundingClientRect();
     const width = Math.floor(stageRect.width);
-    const height = el.device.classList.contains('ui-home-active') ? Math.max(96,Math.floor(stageRect.height)) : undefined;
+    const height = el.device.classList.contains('ui-home-active') ? Math.max(132,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
@@ -11691,7 +11695,7 @@
     if (key === homeCastLayoutKey) return;
     homeCastLayoutKey = key;
     castMotion?.clear();
-    const layout = window.NaotocchiCast.layoutCast(args);
+    const layout = window.NaotocchiCast.layoutHomeCast(args);
     const place = (node,frame) => {
       if (!node || !frame) return;
       node.style.left = frame.x + 'px'; node.style.top = frame.y + 'px';

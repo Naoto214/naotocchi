@@ -1,7 +1,14 @@
 /* Home UI layer. Existing character art, game canvases and movie choreography
    stay in style.css; these rules are scoped to the home cast and menus. */
+@font-face {
+  font-family:"Naotocchi Rounded";
+  src:url("assets/fonts/mplus-rounded-1c-regular.woff2") format("woff2");
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+}
 :root {
-  --ui-font: -apple-system, BlinkMacSystemFont, "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --ui-font:"Naotocchi Rounded","Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro",ui-rounded,"Hiragino Sans",sans-serif;
   --ui-ink:#34382f; --ui-muted:#5a6654; --ui-paper:#fffaf3;
   --ui-teal:#286c62; --ui-rose:#98526a; --ui-purple:#776090;
   --ui-case:#efd4df; --ui-line:#c7d0ba;
@@ -10,7 +17,7 @@
 :root {--app-height:100vh;--home-top:max(6px,env(safe-area-inset-top));--home-bottom:max(6px,env(safe-area-inset-bottom))}
 @supports(height:100dvh){:root{--app-height:100dvh}}
 body {padding:var(--home-top) 6px var(--home-bottom);min-height:var(--app-height);align-items:flex-start;font-family:var(--ui-font)}
-button, select, textarea {font-family:inherit}
+button, input, select, textarea {font-family:inherit}
 button {touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #286c62;outline-offset:3px}
 [hidden] {display:none!important}
@@ -22,7 +29,7 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .header-title {position:relative;min-width:0;color:var(--ui-ink);border-radius:12px;padding:0 5px}
 .device:not(.theme-default) .header-title {background:#fffaf3eb;padding:3px 6px}
 .device-header {display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:44px;padding:0 2px 6px}
-.name-plate {font-size:20px;line-height:1.2;font-weight:500;letter-spacing:.05em;color:#684253;text-shadow:none;text-align:left;margin:0}
+.name-plate {font-size:20px;line-height:1.2;font-weight:600;letter-spacing:.035em;color:#684253;text-shadow:none;text-align:left;margin:0}
 
 .header-actions {display:flex;gap:6px}
 .header-button {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:48px;min-height:44px;padding:3px 5px;border:0;border-radius:12px;background:#faeef3;color:#633e51;font-size:18px;cursor:pointer}
@@ -54,9 +61,10 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .ending-badge {display:inline-flex;align-items:center;justify-content:center;min-width:24px;min-height:24px;margin:0;border:0;background:transparent;font:inherit;cursor:pointer;padding:2px}
 .ending-badge-tip {z-index:12;top:100%;bottom:auto;left:0;right:auto;width:max-content;max-width:min(300px,calc(100vw - 54px));font-size:12px}
 #petArea {padding:0;min-height:min-content;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;flex:1}
-.cast-stage {position:relative;min-height:96px;flex:1;height:auto;width:100%;isolation:isolate}
+.cast-stage {position:relative;min-height:132px;flex:1;height:auto;width:100%;isolation:isolate}
 .cast-sway {position:absolute;inset:0;animation:cast-together 3.2s ease-in-out infinite;will-change:transform;transform-origin:center}
-@keyframes cast-together {0%,100%{transform:translate(-4px,0)}25%,75%{transform:translate(0,-1px)}50%{transform:translate(4px,0)}}
+.cast-response {position:absolute;inset:0}
+@keyframes cast-together {0%,100%{transform:translate(-6px,0)}25%,75%{transform:translate(0,-1px)}50%{transform:translate(6px,0)}}
 .screen.sleeping .cast-sway {animation-duration:7s}
 .device.ui-menu-open .cast-sway,.device.ui-game-active .cast-sway {animation-play-state:paused}
 #pet {position:absolute;inset:0;display:block;filter:none;font-size:0;width:100%;height:100%;cursor:pointer}
@@ -75,8 +83,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet .partner-ring {font-size:13px;right:0;bottom:-2px}
 #pet .pet-accessory {width:36px;height:36px;top:0;left:calc(50% + 24px);font-size:32px}
 #pet .hidden {display:none}
-/* Local gestures use Web Animations inside the layout's reserved 1–3px envelope.
-   Legacy large bounces/spins remain disabled. No layout animation or art edits. */
+/* Local gestures keep their safe gaps. A separate shared lift adds 10–16px of
+   visible response without changing the actors' sizes or restarting idle sway. */
 #pet #petSprite.cast-speaking,#pet .cast-speaking {filter:drop-shadow(0 0 2px #f9d99a)}
 #pet .partner-heart {opacity:.75;transition:opacity .18s ease-in-out}
 #pet .partner-companion:has(.cast-speaking,[data-reaction="love"],[data-reaction="shy"]) .partner-heart {opacity:1}
@@ -92,8 +100,9 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .speech-slot .speech-bubble.hidden {display:none}
 .speech-speaker {font-size:17px;line-height:1.2}
 .speech-text {min-width:0;max-height:2.8em;overflow-y:auto;overflow-wrap:anywhere;overscroll-behavior:contain}
-#poopRow {min-height:0;font-size:17px;line-height:1.2;margin:0;text-align:center}
-#poopRow:not(:empty) {padding:2px}
+/* The floor never participates in flex sizing and never moves with the cast. */
+#poopRow {position:absolute;inset:auto 0 0;height:20px;min-height:0;padding:0;margin:0;font-size:17px;line-height:20px;letter-spacing:3px;text-align:center;white-space:nowrap;pointer-events:none}
+#poopRow:empty {visibility:hidden}
 /* Daily care is read in two columns. Longer-term meters keep aligned rows. */
 .home-meters {display:flex;flex-direction:column;gap:0;margin-top:5px;min-width:0;font-variant-numeric:tabular-nums}
 .home-meters .care-meters {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;margin:0}

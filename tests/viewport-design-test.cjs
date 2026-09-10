@@ -34,8 +34,8 @@ test('bottom transparency cannot leave a fish far above its speech', () => {
   const size=parseFloat(pet.style.width),top=parseFloat(pet.style.top);
   const offset=parseFloat(pet.style['--cast-art-offset-y'])||0;
   const bottom=top+size*79/128+offset;
-  assert.ok(270-bottom<=12,'the painted fish, not its empty canvas, stays near speech');
-  assert.ok(bottom<=266.001,'painted body reserves its reaction margin');
+  assert.ok(270-bottom<=32,'only the 20px floor and the reaction gap separate the fish from speech');
+  assert.ok(bottom<=246.001,'painted body reserves its reaction margin above the floor');
   h.api.setSpeechBubble('いっしょに泳ごう。',{kind:'pet',emoji:'🐠',label:'クマノミ'},{event:'play_with'});
   const animation=pet.animations.at(-1);
   h.api.render();
