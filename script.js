@@ -1322,6 +1322,8 @@
       lifeLog: [],
       // 40〜70さいの あいだに 1かいずつ おきる「ちゅうねんの できごと」の ねんれい
       midlifeSeen: [],
+      // さいごに ほぞんした じこく(るすのあいだの けいかを だす ため)
+      savedAt: 0,
       // ♾️ の せかい(パーフェクトクリア後の 自由モード)
       infinite: false,
       infiniteForm: null,
@@ -2422,6 +2424,7 @@
     recordDiscovery();
     checkAchievements();
     checkGrandGoals();
+    state.savedAt = Date.now();
     let raw;
     try { raw = JSON.stringify(state); } catch (e) { return; }
     // 復旧中の壊れた主キーではなく、最後に読込／保存できたデータを退避。
@@ -15770,6 +15773,46 @@
     render();
   });
 
+  const OFFLINE_MIN_MS = 2 * 60 * 1000;
+  const OFFLINE_CAP_TICKS = 600; // 30ぷんぶん
+  const OFFLINE_FLOOR = 20;
+  function applyOfflineProgress(now = Date.now()) {
+    const savedAt = Number(state.savedAt) || 0;
+    if (!savedAt || state.stage !== STAGE.GROWING || state.infinite) return null;
+    const elapsed = now - savedAt;
+    if (elapsed < OFFLINE_MIN_MS) return null;
+    const ticks = Math.min(OFFLINE_CAP_TICKS, Math.floor(elapsed / TICK_MS));
+    const minutes = Math.round(elapsed / 60000);
+    const sleeping = !!state.isSleeping;
+    const factor = sleeping ? 0.4 : 1;
+    const before = { hunger: state.hunger, happiness: state.happiness, energy: state.energy };
+    // ぶんだけ さがるが、るすで あぶなく なる ことは ない(20 どまり)
+    const drop = (v, per) => Math.max(Math.min(v, OFFLINE_FLOOR), v - per * ticks);
+    state.hunger = clamp(drop(state.hunger, 0.6 * factor), 0, 100);
+    state.happiness = clamp(drop(state.happiness, 0.6 * factor), 0, 100);
+    if (sleeping) state.energy = clamp(state.energy + 2.2 * Math.min(ticks, 40), 0, 100);
+    else state.energy = clamp(drop(state.energy, 0.32), 0, 100);
+    let poop = 0;
+    if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
+    // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ
+    const coins = Math.min(12, Math.floor(elapsed / (5 * 60 * 1000)));
+    let gift = null;
+    if (coins > 0) state.lifetime.money += coins;
+    if (elapsed >= 30 * 60 * 1000 && Math.random() < 0.35) { gift = randomFunItem(); state.items[gift.id] = (state.items[gift.id] || 0) + 1; }
+    const parts = [];
+    const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
+    d('hunger', 'おなか'); d('happiness', 'きげん'); d('energy', 'げんき');
+    if (poop) parts.push('うんち+1');
+    if (coins) parts.push(`💰+${coins}`);
+    if (gift) parts.push(`${gift.emoji}${gift.label}`);
+    const span = minutes >= 120 ? `${Math.floor(minutes / 60)}じかん` : `${minutes}ふん`;
+    const summary = `🏠 おかえり。るすのあいだ(${span})${sleeping ? 'ぐっすりねていた' : 'おとなしくまっていた'}${parts.length ? '：' + parts.join('・') : ''}`;
+    pushLifeLog('🏠', `るすばん ${span}`);
+    setMessage(summary);
+    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!るすのあいだ ${span}${gift ? `\n${gift.emoji}${gift.label}を みつけて とっておいた` : coins ? `\n💰${coins} ひろっておいた` : ''}` });
+    return { ticks, minutes, coins, gift, poop, sleeping };
+  }
+
   function loop() {
     if (gameActive) {
       // still age/decay stats in the background, but don't touch the DOM
@@ -15833,6 +15876,11 @@
       ? 'きろくを読みこめませんでした。前のきろくを守るため、いまは保存を止めています'
       : '前のきろくから復旧しました。内容をたしかめてください'), 250);
   }
+  // るすのあいだの けいか(ひかえめ): ページを とじていた じかんの ぶんだけ、
+  // さいだい 30ぷんぶん ステータスが すこし さがる(20 より したには ならず、
+  // としも とらない)。ねていれば げんきが かいふくする。もどってきたら
+  // 「おかえり」の おしらせと、るすの ながさに おうじた ちいさな おみやげ
+  applyOfflineProgress();
   render();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
