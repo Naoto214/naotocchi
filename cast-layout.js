@@ -24,16 +24,17 @@
   function overlaps(a,b,gap=4) {
     return a.x<b.x+b.w+gap-.001 && b.x<a.x+a.w+gap-.001 && a.y<b.y+b.h+gap-.001 && b.y<a.y+a.h+gap-.001;
   }
-  function layoutCast({width,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[]}) {
+  function layoutCast({width,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[],motionRadius=0}) {
     width=Math.max(240,Math.floor(width));
+    const motionGap=2*Math.max(0,Number(motionRadius)||0);
     const room=width-16, count=companions.length, m=room>=310?112:104,p=m/2;
     const main=rect(-m/2,-m*.26+8,m);
     const partner=hasPartner?rect(-m/2-p*.18,main.y-p*.4,p):null;
     const accessory=hasAccessory?rect(m/2-38,main.y-12,36):null;
     const mainPoly=polygon(main,mainAsset);
     // Move only the attachment towards the shoulder, never scale/crop artwork.
-    if(partner)while(!separated(mainPoly,polygon(partner,partnerAsset),2))partner.y-=1;
-    if(accessory)while(!separated(mainPoly,polygon(accessory,null),2) || (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2)))accessory.y-=1;
+    if(partner)while(!separated(mainPoly,polygon(partner,partnerAsset),2+motionGap))partner.y-=1;
+    if(accessory)while(!separated(mainPoly,polygon(accessory,null),2+motionGap) || (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2+motionGap)))accessory.y-=1;
     const hearts=partner?[rect(partner.x+5,partner.y-24,26),rect(partner.x+p-17,partner.y-12,18)]:[];
     const core=[body(main,mainAsset),...(partner?[body(partner,partnerAsset)]:[]),...(accessory?[accessory]:[]),...hearts];
     const coreFrames=[main,...(partner?[partner]:[]),...(accessory?[accessory]:[]),...hearts];
@@ -54,7 +55,7 @@
             const [angle,rx,sy]=slots[Math.floor(i/2)],sign=i%2?1:-1,b=shape(companions[i]).box;
             const frame=rect(sign*rx*Math.cos(angle*Math.PI/180)-size*(b[0]+b[2])/256,sy*Math.sin(angle*Math.PI/180)-size*(b[1]+b[3])/256,size);
             const visible=body(frame,companions[i]);
-            if(frame.x < -room/2 || frame.x+size>room/2 || [...core,...bodies].some(other=>overlaps(visible,other))){collision=true;break;}
+            if(frame.x < -room/2 || frame.x+size>room/2 || [...core,...bodies].some(other=>overlaps(visible,other,4+motionGap))){collision=true;break;}
             frames.push(frame);bodies.push(visible);
           }
           if(collision)continue;
@@ -70,11 +71,11 @@
     // Unbounded legacy collections still keep every body. Only collections that
     // cannot fit in arcs use extra rows below the core; no saved IDs are removed.
     if(!answer && !fallback) {
-      const size=32, columns=Math.max(1,Math.floor(room/(size+4)));
-      const startY=Math.max(...coreFrames.map(f=>f.y+f.h))+8;
-      const frames=companions.map((_,i)=>rect((i%columns-(columns-1)/2)*(size+4)-size/2,startY+Math.floor(i/columns)*(size+4),size));
+      const size=32, spacing=size+4+motionGap, columns=Math.max(1,Math.floor(room/spacing));
+      const startY=Math.max(...coreFrames.map(f=>f.y+f.h))+8+motionGap;
+      const frames=companions.map((_,i)=>rect((i%columns-(columns-1)/2)*spacing-size/2,startY+Math.floor(i/columns)*spacing,size));
       const top=Math.min(...coreFrames.map(f=>f.y))-4;
-      fallback={size,frames,bodies:frames.map((f,i)=>body(f,companions[i])),top,height:Math.ceil(startY+Math.ceil(count/columns)*(size+4)-top)};
+      fallback={size,frames,bodies:frames.map((f,i)=>body(f,companions[i])),top,height:Math.ceil(startY+Math.ceil(count/columns)*spacing-top)};
     }
     const result=answer || fallback;
     const move=f=>f?{...f,x:f.x+width/2,y:f.y-result.top}:null;

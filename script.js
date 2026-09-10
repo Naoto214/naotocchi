@@ -2614,6 +2614,8 @@
   }
 
   let state = loadState();
+  // Presentation only: never saved, and never allowed to follow a replaced life.
+  let eggVisualReaction = null;
 
   // Old saves can still contain spaced labels/logs. Compact their display only;
   // English words, numeric separators and the saved originals stay intact.
@@ -2658,15 +2660,26 @@
   let speechTimer = null;
   let speechActive = false;
   const SPEECH_DURATION_MS = 2500;
+  const castMotion = window.NaotocchiCastMotion?.createController({
+    getActors: homeCastActors,
+    canAnimate: () => document.visibilityState !== 'hidden' && !gameActive
+      && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
+    isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
+    getMotionRadius: homeCastMotionRadius,
+    env: window,
+  });
 
   function hideSpeechBubble() {
     speechActive = false;
     if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
     if (el.speechBubble) el.speechBubble.classList.add('hidden');
+    castMotion?.clearSpeaker();
   }
 
-  function setSpeechBubble(text, speaker) {
+  function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
+    if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
+    if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
     el.speechSpeaker.textContent = speaker.emoji || '💬';
@@ -2674,10 +2687,12 @@
     el.speechText.textContent = compactJapaneseText(text);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
+    castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
       speechActive = false;
       el.speechBubble.classList.add('hidden');
+      castMotion?.clearSpeaker();
     }, SPEECH_DURATION_MS);
   }
 
@@ -2700,7 +2715,7 @@
 
   function partnerSpeaker() {
     const p = state.partner;
-    return p ? { kind: 'partner', emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
+    return p ? { kind: 'partner', id:p.id, emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
   }
 
   function companionSpeaker() {
@@ -3395,6 +3410,7 @@
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
     conversationBusyUntil = 0;
+    castMotion?.clear(false);
   }
   function conversationIsBusy() {
     return Date.now() < conversationBusyUntil;
@@ -4845,17 +4861,21 @@
       const line = pickConversationLine(followUps[eventKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    playConversationBeats(beats);
+    playConversationBeats(beats, eventKey);
   }
 
-  function playConversationBeats(beats) {
+  function playConversationBeats(beats, event = 'idle') {
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
     conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
     visibleBeats.forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * SPEECH_DURATION_MS));
+      const listener = beat.speaker.kind === 'pet'
+        ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
+          : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
+        : petSpeaker();
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), i * SPEECH_DURATION_MS));
     });
   }
 
@@ -9432,6 +9452,11 @@
   let petBusyUntil = 0;
 
   function bouncePet() {
+    if (castMotion) {
+      if (!conversationIsBusy()) castMotion.emote('bounce');
+      petBusyUntil = Date.now() + 960;
+      return;
+    }
     el.pet.classList.remove('bounce', ...EMOTE_CLASSES);
     // force reflow to restart animation
     void el.pet.offsetWidth;
@@ -9441,6 +9466,11 @@
 
   function emotePet(kind) {
     if (kind === 'sad') audio.play('sad'); else if (kind === 'fun') audio.play('chirp');
+    if (castMotion) {
+      if (!conversationIsBusy()) castMotion.emote({happy:'bounce',fun:'bounce',sad:'droop',angry:'shake',love:'love'}[kind] || 'nod');
+      petBusyUntil = Date.now() + 1400;
+      return;
+    }
     const cfg = EMOTE_CONFIG[kind];
     if (!cfg) {
       bouncePet();
@@ -9477,11 +9507,18 @@
       const idleOk = !gameActive
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
+        && !state.isSleeping && !state.isSick && !state.dying
+        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
         && Date.now() >= petBusyUntil;
       if (idleOk) {
+        if (castMotion) {
+          castMotion.idle();
+          petBusyUntil = Date.now() + 1600;
+        } else {
         el.pet.classList.add('idle-perk');
         petBusyUntil = Date.now() + 520;
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
+        }
       }
       scheduleIdlePerk();
     }, delay);
@@ -9520,7 +9557,7 @@
           const greeting = memoryGreeting || pickReaction(greetingPool, lastIdleGreeting);
           if (!memoryGreeting) lastIdleGreeting = greeting;
           setSpeechBubble(greeting, petSpeaker());
-          emotePet('happy');
+          if (!castMotion) emotePet('happy');
         }
       }
       scheduleIdleGreeting();
@@ -9695,6 +9732,51 @@
     target.innerHTML = stageVisualHTML(stage, size);
   }
 
+  function eggVisualStage() {
+    const progress = state.growth / HATCH_GROWTH;
+    const frame = progress >= 0.8 ? 'ready' : progress >= 0.4 ? 'cracking' : 'intact';
+    return { emoji:'🥚', label:'たまご', asset:`assets/characters/egg/${frame}.png` };
+  }
+
+  function renderPetVisual() {
+    const reaction = eggVisualReaction?.life === state ? eggVisualReaction.kind : '';
+    eggVisualReaction = null;
+    // A new inner visual restarts a finite reaction without forcing layout or
+    // replacing the shared cast-sway / petSprite motion layers.
+    if (reaction) el.petSprite.dataset.visualKey = '';
+    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    if (!reaction || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
+    const visual = el.petSprite.querySelector('.character-visual');
+    if (!visual) return;
+    let shell = null;
+    if (reaction === 'warm') {
+      visual.classList.add('egg-warming');
+    } else {
+      visual.classList.add('egg-newborn');
+      shell = document.createElement('span');
+      shell.className = 'egg-hatch-shell';
+      shell.setAttribute('aria-hidden', 'true');
+      shell.innerHTML = '<span class="egg-shell-top"></span><span class="egg-shell-bottom"></span>';
+      visual.appendChild(shell);
+    }
+    // display:none cancels CSS animations; leaving the class attached would
+    // hatch the same child again when a minigame reveals the home screen.
+    // Capture this visual only: a reset or another tap may already replace it.
+    const cleanup = () => {
+      visual.removeEventListener('animationend', onAnimationDone);
+      visual.removeEventListener('animationcancel', onAnimationDone);
+      clearTimeout(cleanupTimer);
+      visual.classList.remove('egg-warming', 'egg-newborn');
+      if (shell) shell.remove();
+    };
+    const onAnimationDone = (event) => {
+      if (event.animationName?.startsWith('egg-')) cleanup();
+    };
+    const cleanupTimer = setTimeout(cleanup, reaction === 'warm' ? 560 : 900);
+    visual.addEventListener('animationend', onAnimationDone);
+    visual.addEventListener('animationcancel', onAnimationDone);
+  }
+
   // innerHTML で差し込んだimgも含め、404/壊れた画像は自動的にemojiへ戻す。
   document.addEventListener('error', (event) => {
     const img = event.target;
@@ -9709,7 +9791,7 @@
   }, true);
 
   function currentVisualStage() {
-    if (state.stage === STAGE.EGG) return { emoji:'🥚', label:'たまご' };
+    if (state.stage === STAGE.EGG) return eggVisualStage();
     const stages = state.speciesLine && SPECIES[state.speciesLine]?.stages;
     return stages?.[currentFormStageIndex()] || { emoji:'❓', label:'???' };
   }
@@ -9962,7 +10044,7 @@
     const isOver = isDead;
     const isFarewell = state.stage === STAGE.FAREWELL;
 
-    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    renderPetVisual();
     const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
     el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
     el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
@@ -10068,6 +10150,7 @@
     renderCompanionRow();
     renderPartnerCompanion(isEgg || isOver);
     renderHomeCast();
+    if (gameActive || isDead || state.transformOptions || isAnyMenuOverlayOpen() || document.visibilityState === 'hidden') castMotion?.clear();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -11434,7 +11517,7 @@
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼって
   // はなれて いった なかまは ここに いない)を、#pet の こどもとして
-  // 本体キャラの左右の列に表示する。本体だけを動かし、仲間の位置は保つ。
+  // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
@@ -11442,7 +11525,7 @@
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
-    const chip = (c) => `<span class="companion-chip-small" title="${escapeHtml(c.name)}">${companionVisualHTML(c, 'companion')}</span>`;
+    const chip = (c) => `<span class="companion-chip-small" data-companion-id="${escapeHtml(c.id)}" title="${escapeHtml(c.name)}">${companionVisualHTML(c, 'companion')}</span>`;
     const key = recruited.map(c => c.id + ':' + (c.asset || c.emoji)).join('|');
     if (key === companionRenderKey) return;
     companionRenderKey = key;
@@ -11485,6 +11568,27 @@
     onChange: () => renderEnvironment(),
   });
 
+  function homeCastMotionRadius() {
+    const count = state.companions.filter(c=>allCompanionsById(c.id)).length;
+    return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
+  }
+
+  function homeCastActors() {
+    const actors = [{kind:'pet',id:state.speciesLine,node:el.petSprite,direction:-1}];
+    if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD) return actors;
+    if (state.partner && !el.partnerCompanion.classList.contains('hidden')) {
+      const node = el.partnerCompanion.querySelector('.partner-emoji');
+      if (node) actors.push({kind:'partner',id:state.partner.id,node,size:parseFloat(el.partnerCompanion.style.width) || 52});
+    }
+    if (!el.petAccessory.classList.contains('hidden')) actors.push({kind:'accessory',node:el.petAccessory});
+    for (const [side,direction] of [[el.companionLeft,1],[el.companionRight,-1]]) {
+      for (const node of side.children) if (node.dataset.companionId) {
+        actors.push({kind:'companion',id:node.dataset.companionId,node,direction});
+      }
+    }
+    return actors;
+  }
+
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const width = Math.floor(el.castStage.getBoundingClientRect().width);
@@ -11497,10 +11601,11 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset))};
+    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
     if (key === homeCastLayoutKey) return;
     homeCastLayoutKey = key;
+    castMotion?.clear();
     const layout = window.NaotocchiCast.layoutCast(args);
     const place = (node,frame) => {
       if (!node || !frame) return;
@@ -12542,6 +12647,7 @@
 
   function startMinigame(game) {
     gameActive = true;
+    castMotion?.clear();
     el.device.classList.add('ui-game-active');
     el.menuBtn.disabled = true;
     el.profileBtn.disabled = true;
@@ -13190,9 +13296,11 @@
   function warmEgg() {
     if (state.stage !== STAGE.EGG) return false;
     applyGrowth(4);
+    eggVisualReaction = { life:state, kind:state.stage === STAGE.EGG ? 'warm' : 'hatch' };
     if (state.stage === STAGE.EGG) {
       const pct = Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100));
-      setMessage(`たまごをあたためた…もぞもぞうごいている${pct}%`);
+      const response = pct >= 80 ? 'ひびがひろがった。もうすぐ会えそう' : pct >= 40 ? '小さなひびがはいった。中でもぞもぞ' : '中でもぞもぞうごいている';
+      setMessage(`たまごをあたためた…${response} ${pct}%`);
     }
     return true;
   }
@@ -14544,6 +14652,7 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       saveState();
     }
   });

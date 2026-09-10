@@ -25,7 +25,9 @@ function createFixtures() {
         return fixtures[name];
       };
       make('alone',0,{partner:null});
-      make('egg',0,{stage:'egg',ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
+      make('egg',0,{stage:'egg',growth:0,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
+      make('egg_cracking',0,{stage:'egg',growth:8,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
+      make('egg_ready',0,{stage:'egg',growth:16,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
       make('pair',2);
       make('normal18',18);
       make('all26',26);

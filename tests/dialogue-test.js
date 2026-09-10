@@ -90,6 +90,7 @@ const sandbox = {
 };
 const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
+sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
 const expose = `
   const realSpeech = setSpeechBubble;
