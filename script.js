@@ -1508,6 +1508,10 @@
         // ランク(S/A/B/C/D)も ここから ひく。minigamePlayCounts と おなじく
         // 「はじめから」しても きえない
         minigameRecords: {},
+        // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
+        dailyChallenge: null,
+        dailyStreak: 0,
+        dailyLastDate: null,
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -10400,6 +10404,23 @@
   // 「ゲームきろく」タブ: ぜんゲームを ジャンルごとに ならべ、じこベスト・
   // ランク・あそんだ かいすうを 見せる。タップすると その ゲームで あそべる
   // (「あそぶ」と おなじ 条件・おなじ ごほうび)
+  // --- きょうの チャレンジ: ひづけ(YYYY-MM-DD)から 1本 きまる。1日1かい だけ ---
+  function dailyKey(d = new Date()) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+  function dailyChallengeGame() {
+    const pool = buildMinigamePool().slice().sort((a, b) => (a.id < b.id ? -1 : 1));
+    if (!pool.length) return null;
+    let h = 0; for (const ch of dailyKey()) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    return pool[h % pool.length];
+  }
+  function dailyChallengeToday() {
+    const d = state.lifetime.dailyChallenge;
+    return d && d.date === dailyKey() ? d : null;
+  }
+  let gameListSort = 'genre'; // genre / unplayed / low / high
+  const GAME_LIST_SORTS = [['genre', 'ジャンル'], ['unplayed', 'みプレイ'], ['low', 'ランクひくい順'], ['high', 'ベスト高い順']];
+
   function renderGameList() {
     if (!el.gameListGrid) return;
     const pool = buildMinigamePool();
@@ -10414,12 +10435,36 @@
     }
     el.achProgress.textContent = `あそんだ${played} / ${pool.length}`;
     const rankSummary = ['S', 'A', 'B'].map((r) => `<span class="mg-rank rank-${r}">${r}</span>${rankCounts[r]}`).join('');
-    let html = `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
+    let html = '';
+    // きょうの チャレンジ カード
+    const daily = dailyChallengeGame();
+    if (daily) {
+      const dInfo = minigameInfo(daily);
+      const done = dailyChallengeToday();
+      const streak = state.lifetime.dailyStreak || 0;
+      const status = done && done.score != null
+        ? `<span class="mg-rank rank-${done.rank}">${done.rank}</span><span class="daily-score">${done.score}てん</span>`
+        : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
+      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}にちれんぞく</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? 'きょうはクリアずみ。またあした!' : '1日1かい。クリアで 💰+10'}</span></div><div class="daily-status">${status}</div></div></div>`;
+    }
+    html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
+    html += `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
     html += `<div class="game-list-hint">タップするとそのゲームであそべる(げんきをつかう)・むずかしさ: ${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}(せかいがめんでかえられる)</div>`;
-    for (const genre of MINIGAME_GENRES) {
-      const games = pool.filter((game) => minigameGenreId(game) === genre.id);
-      if (!games.length) continue;
-      html += `<div class="game-section-title">${genre.emoji} ${genre.label} (${games.length})</div>`;
+    const bestOf = (game) => { const r = minigameRecordOf(game); return r ? r.best : -1; };
+    const sections = [];
+    if (gameListSort === 'genre') {
+      for (const genre of MINIGAME_GENRES) { const games = pool.filter((game) => minigameGenreId(game) === genre.id); if (games.length) sections.push({ title: `${genre.emoji} ${genre.label} (${games.length})`, games }); }
+    } else if (gameListSort === 'unplayed') {
+      const games = pool.filter((game) => !minigameRecordOf(game)); sections.push({ title: `🗂️ まだ きろくの ない ゲーム (${games.length})`, games });
+    } else if (gameListSort === 'low') {
+      const games = pool.slice().sort((a, b) => bestOf(a) - bestOf(b)); sections.push({ title: '📉 ランクの ひくい じゅん(みプレイ → D → S)', games });
+    } else {
+      const games = pool.slice().sort((a, b) => bestOf(b) - bestOf(a)); sections.push({ title: '📈 ベストの 高い じゅん', games });
+    }
+    for (const section of sections) {
+      const games = section.games;
+      if (!games.length) { html += `<div class="game-section-title">${section.title}</div><div class="game-list-hint">ぜんぶ きろくが ある!</div>`; continue; }
+      html += `<div class="game-section-title">${section.title}</div>`;
       for (const game of games) {
         const info = minigameInfo(game);
         const record = minigameRecordOf(game);
@@ -12504,6 +12549,8 @@
   let mgCodeDepth = 0;      // > 0 なら「ゲームの コードの なか」
   let mgCodeSession = 0;    // その コードが どの セッションに ぞくするか
   let activeMinigame = null;
+  let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
+  let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
   function mgRunTagged(session, fn, thisArg, args) {
     const prevDepth = mgCodeDepth;
     const prevSession = mgCodeSession;
@@ -12601,6 +12648,7 @@
 
   function retireMinigameInner() {
     const game = activeMinigame;
+    activeMinigameDaily = false;
     closeMinigameScreen();
     audio.play('close');
     state.energy = clamp(state.energy - 6, 0, 100);
@@ -12715,6 +12763,17 @@
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
+    // きょうの チャレンジ: きょうの スコアを きろくし、💰+10 と れんぞく日数
+    if (activeMinigameDaily && record) {
+      activeMinigameDaily = false;
+      const key = dailyKey();
+      const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+      const streak = state.lifetime.dailyLastDate === dailyKey(yesterday) ? (state.lifetime.dailyStreak || 0) + 1 : 1;
+      state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
+      state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
+      state.lifetime.money += 10;
+      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+10${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}`;
+    }
     if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
     let recruitedNow = false;
@@ -12811,6 +12870,7 @@
     const session = mgSessionSerial;
     mgSession = session;
     activeMinigame = game;
+    activeMinigameDaily = dailyPending; dailyPending = false;
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
@@ -14242,9 +14302,13 @@
   }
   if (el.gameListGrid) {
     el.gameListGrid.addEventListener('click', (e) => {
+      const sortBtn = e.target && e.target.closest ? e.target.closest('.game-list-sort') : null;
+      if (sortBtn) { gameListSort = sortBtn.dataset.sort; renderGameList(); return; }
+      const dailyBtn = e.target && e.target.closest ? e.target.closest('.daily-start') : null;
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
-      if (!cell) return;
-      const game = buildMinigamePool().find((g) => g.id === cell.dataset.gameId);
+      if (!cell && !dailyBtn) return;
+      const game = buildMinigamePool().find((g) => g.id === (dailyBtn ? dailyBtn.dataset.gameId : cell.dataset.gameId));
+      if (dailyBtn) { if (dailyChallengeToday()) return; dailyPending = true; }
       if (!game) return;
       // いちらんを とじてから はじめる。あそべない ときは ふつうの がめんに
       // りゆうの メッセージが 出る(ねている/げんき不足 など)
@@ -14252,7 +14316,7 @@
       clearConversationTimers();
       hideSpeechBubble();
       render();
-      tryStartPlay(game);
+      if (!tryStartPlay(game)) dailyPending = false;
     });
   }
 

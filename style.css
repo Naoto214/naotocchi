@@ -5747,3 +5747,23 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .mg-intro-controls-title { font-weight: 900; margin-bottom: 2px; }
 .mg-intro-start { min-width: 160px; min-height: 48px; font-size: 15px; margin-top: 6px; }
 .mg-intro-note { font-size: 9px; opacity: 0.7; }
+
+/* ================= ゲームきろく: ならびかえ と きょうのチャレンジ ================= */
+.game-list-sorts { display: flex; gap: 4px; flex-wrap: wrap; }
+.game-list-sort {
+  border: none; border-radius: 999px; padding: 4px 9px; font-size: 9px; font-weight: bold;
+  background: rgba(0, 0, 0, 0.08); color: #16330f; cursor: pointer; font-family: inherit;
+}
+.game-list-sort.active { background: #16330f; color: #fff; }
+.daily-card {
+  border-radius: 10px; padding: 7px 8px; border: 2px solid #ffb300;
+  background: linear-gradient(135deg, #fff8dc, #ffe9a8);
+  box-shadow: 0 2px 6px rgba(255, 179, 0, 0.35);
+}
+.daily-card.done { border-color: #9ccc65; background: linear-gradient(135deg, #f1f8e9, #dcedc8); box-shadow: none; }
+.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+.daily-streak { font-size: 9px; background: #ff7043; color: #fff; padding: 1px 7px; border-radius: 999px; }
+.daily-body { display: flex; align-items: center; gap: 8px; }
+.daily-status { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.daily-score { font-size: 10px; font-weight: bold; }
+.daily-start { min-height: 34px; padding: 4px 12px; font-size: 11px; }

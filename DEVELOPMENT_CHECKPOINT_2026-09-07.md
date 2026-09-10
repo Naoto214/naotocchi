@@ -1693,3 +1693,8 @@ Runtime smoke test SUCCESS確認済み。
 - `MINIGAME_CONTROLS`(id → そうさの文、100 件)を games.js の各ゲームのヒント文(`class="mg-hint"` の初期文)から生成して script.js に追加。ケーキ/おべんとうはヒントが動的なので手書き。smoke-test が全 id の存在を検査。
 - `startMinigame(game, { intro })`: `tryStartPlay`(「あそぶ」/ゲームきろく)からの初回プレイ(`isFirstMinigamePlay` = じこベストなし かつ プレイ回数がこの 1 回だけ)だけ `renderMinigameIntro()` でカード(絵文字・名前・ジャンル・説明・そうさ・「▶ はじめる」)を出し、ボタンで `game.start()`。テスト/ハーネスの直接 `startMinigame()` は従来どおり即開始(main の minigame-lifecycle テストを壊さない)。カード中も「ゲームを やめる」が使える。
 - 検証: `npm test` 全通過(78 件)。Playwright: 初回でカード表示 → はじめるでゲーム開始 → 2 回目は即開始、カードからのやめる。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BF — ゲームきろくの ならびかえ と きょうのチャレンジ(2026-09-10)
+- ならびかえチップ(ジャンル / みプレイ / ランクひくい順 / ベスト高い順): `gameListSort`(セッション内)、みプレイは記録のないゲームだけ、ひくい順は みプレイ→D→S。
+- きょうのチャレンジ: `dailyKey()`(端末のローカル日付 YYYY-MM-DD)のハッシュで id 順プールから 1 本を決定(`dailyChallengeGame()`)。カードの「ちょうせん」→ `dailyPending` → `startMinigame` で `activeMinigameDaily` に写し、`finishMinigameInner` で `state.lifetime.dailyChallenge = {date, gameId, score, rank}`、💰+10、`dailyStreak`/`dailyLastDate`(前日に続けていれば +1)。途中でやめた場合は消費しない。クリア済みはカードが緑になりランクと点数を表示。
+- 検証: `npm test` 全通過。Playwright: カードとチップの表示、ひくい順/みプレイの切替、ちょうせん→初回カード→クリアで記録・+10・メッセージ・クリア済み表示、ページエラー 0。全 100 ゲーム スイープ ページエラー 0。
