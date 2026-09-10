@@ -2861,6 +2861,14 @@
     '⛄':['partners/snowman.png','ゆきだるま'],'🦋':['butterfly/07.png','ちょう'],
     '🦇':['companions/bat.png','こうもり'],'🦉':['companions/owl.png','ふくろう'],
   };
+  // Only environment moments and achievement marks may assume this generic
+  // animal. A form-change notice can mean a different stage of the same species.
+  function commentAnimalVisual(emoji) {
+    const key=emoji.replace(/[\uFE0E\uFE0F]/g,'');
+    if (!Object.hasOwn(COMMENT_PICTURES,key)) return null;
+    const [path,label]=COMMENT_PICTURES[key];
+    return {asset:`assets/characters/${path}`,emoji,label};
+  }
   // Context-specific achievement marks express the recorded action. The
   // original emoji/condition/ID remains in ACHIEVEMENTS and in the fallback.
   const ACHIEVEMENT_MARKS = Object.fromEntries([
@@ -2876,6 +2884,8 @@
   function achievementIconHTML(ach) {
     if (ach.id==='naoto-1') return uiIconHTML('naoto_crown','なおとのかんむり',ach.emoji);
     const mark=Object.hasOwn(ACHIEVEMENT_MARKS,ach.id) ? ACHIEVEMENT_MARKS[ach.id] : ach.emoji;
+    const animal=commentAnimalVisual(mark);
+    if (animal) return commentPictureHTML(animal.asset,ach.emoji,animal.label);
     return commentIconHTML(mark,ach.emoji)||escapeHtml(ach.emoji||'');
   }
   // Food appears only in the two food-decoration games. In particular, the
@@ -2911,9 +2921,6 @@
     }
     if (Object.hasOwn(COMMENT_UI,key)) {
       const icon=COMMENT_UI[key];return uiIconHTML(icon,COMMENT_LABELS[icon],fallback);
-    }
-    if (Object.hasOwn(COMMENT_PICTURES,key)) {
-      const [path,label]=COMMENT_PICTURES[key];return commentPictureHTML(`assets/characters/${path}`,fallback,label);
     }
     return '';
   }
@@ -9578,14 +9585,15 @@
 
   function showStoryEvent(event) {
     audio.play('notify');
+    const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
+      : event.environmentMoment ? commentAnimalVisual(event.emoji) : null;
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
     else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
-    else setCommentText(el.storyFlashEmoji, event.emoji, true);
-    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true,
-      event.character ? commentActorVisual({...event.character,kind:'partner'}) : null);
+    else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
+    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
@@ -12314,7 +12322,7 @@
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             if (m.money) state.lifetime.money += m.money;
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
-            showStoryEvent({ emoji: m.emoji, message: m.message });
+            showStoryEvent({ emoji: m.emoji, message: m.message, environmentMoment: true });
             emotePet(m.happiness < 0 ? 'sad' : 'happy');
             saveState();
             render();

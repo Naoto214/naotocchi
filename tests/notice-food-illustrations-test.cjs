@@ -35,12 +35,26 @@ test('environment notices use matching whole animal PNGs and keep unknown birds 
   const h=harness();
   for(const [emoji,path] of [['🐌','companions/snail.png'],['🐸','frog/05.png'],['⛄','partners/snowman.png'],
     ['🦋','butterfly/07.png'],['🦇','companions/bat.png'],['🦉','companions/owl.png']]){
-    const html=h.api.commentTextHTML(emoji);
+    h.api.showStoryEvent({emoji,message:emoji+'をみつけた',environmentMoment:true});
+    const html=h.get('storyFlashEmoji').innerHTML;
     assert.ok(html.includes(`src="assets/characters/${path}"`));
     assert.ok(fs.existsSync(`assets/characters/${path}`));
     assert.match(html,/class="icon-fallback"/);
   }
   assert.equal(h.api.commentTextHTML('🐦ことり'),'🐦ことり');
+});
+
+test('form-change notices and generic butterfly comments do not assume an adult growth stage',()=>{
+  const h=harness();
+  const s=h.api.state();s.infinite=true;s.discoveredStages.push('frog:2');
+  Object.assign(s,{hunger:100,energy:100,health:100,happiness:100});
+  const grid=h.get('dexGrid');grid.closest=()=>({dataset:{line:'frog',stage:'2'}});
+  h.dispatch(grid,'click');h.dispatch(h.get('dexDetailTransformBtn'),'click');
+  assert.equal(s.infiniteForm.line,'frog');assert.equal(s.infiniteForm.stageIndex,2);
+  assert.match(h.get('message').textContent,/後脚にすがたをかえた!/);
+  assert.doesNotMatch(h.get('message').innerHTML,/assets\/characters\/frog\/05\.png/);
+  assert.equal(h.api.commentTextHTML('🐸後脚にすがたをかえた!'),'🐸後脚にすがたをかえた!');
+  assert.equal(h.api.commentTextHTML('🦋ようちゅう'),'🦋ようちゅう');
 });
 
 test('food illustrations distinguish onigiri and cooked egg from care rice and hatching egg',()=>{
