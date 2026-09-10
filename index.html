@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260910-env-1">
-  <link rel="stylesheet" href="ui.css?v=20260910-notice-2">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
+  <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
   <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
@@ -59,7 +60,7 @@
             </div>
           </div>
           <div class="pet-area" id="petArea">
-            <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="pet" id="pet">
+            <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="cast-response" id="castResponse"><div class="pet" id="pet">
               <span class="companion-side left" id="companionLeft"></span>
               <span class="pet-core">
                 <span class="partner-companion hidden" id="partnerCompanion"></span>
@@ -67,12 +68,11 @@
                 <span class="pet-accessory hidden" id="petAccessory"></span>
               </span>
               <span class="companion-side right" id="companionRight"></span>
-            </div></div></div>
+            </div></div></div><div class="poop-row" id="poopRow" role="img" aria-label="うんち"></div></div>
             <div class="speech-slot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
             </div></div>
-            <div class="poop-row" id="poopRow"></div>
 
           </div>
 
@@ -665,11 +665,11 @@
 
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
   <script src="cast-bounds.js?v=20260910-egg-1"></script>
-  <script src="cast-motion.js?v=20260910-motion-1"></script>
-  <script src="cast-layout.js?v=20260910-space-1"></script>
+  <script src="cast-motion.js?v=20260910-expressive-1"></script>
+  <script src="cast-layout.js?v=20260910-expressive-1"></script>
   <script src="world-environment.js?v=20260910-env-1"></script>
   <script src="games.js?v=20260910-5"></script>
   <script src="audio.js?v=20260910-1"></script>
-  <script src="script.js?v=20260910-env-1"></script>
+  <script src="script.js?v=20260910-env-2"></script>
 </body>
 </html>

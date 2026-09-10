@@ -181,6 +181,18 @@
     const move=f=>f?{...f,x:f.x+width/2,y:f.y-result.top}:null;
     return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
   }
-  const api={layoutCast};
+  function layoutHomeCast(args) {
+    // These spaces are constant, whether the floor is empty or has four poops.
+    // Extra side room supports the wider 6px idle sway; 16px above the cast
+    // supports the shared tap response without enlarging every actor's gap.
+    const side=2, top=16, floor=20;
+    const height=Number.isFinite(args.height) ? Math.max(96,args.height-top-floor) : undefined;
+    const r=layoutCast({...args,width:args.width-2*side,height});
+    const move=f=>translate(f,side,top);
+    return {...r,width:r.width+2*side,height:r.height+top+floor,
+      main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),
+      hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
+  }
+  const api={layoutCast,layoutHomeCast};
   if(typeof module==='object' && module.exports)module.exports=api;else root.NaotocchiCast=api;
 })(typeof window!=='undefined'?window:globalThis);
