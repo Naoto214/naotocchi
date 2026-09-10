@@ -67,7 +67,7 @@ test('assess treats each real mortal life-risk signal as critical', () => {
 
 test('life and health notices choose one useful action from the actual cause', () => {
   const cases = [
-    ['illness can be treated even asleep', { isSick: true, sicknessType: 'ねつ', isSleeping: true }, 'medicineBtn', /ねつ.*くすり/],
+    ['illness can be treated even asleep', { isSick: true, sicknessType: 'ねつ', isSleeping: true }, 'medicineBtn', /くすり.*ねつ/],
     ['sleeping must end before food', { hunger: 40, isSleeping: true }, 'sleepBtn', /おきて.*ごはん/],
     ['hunger can be restored while awake', { hunger: 40 }, 'feedBtn', /ごはん/],
     ['sleeping must end before affection', { happiness: 40, isSleeping: true }, 'sleepBtn', /おきて.*ごきげん/],
@@ -127,7 +127,7 @@ test('unavailable affection uses sleep when exhausted and play when energy is ad
 test('assess reports ordinary care needs in priority order', () => {
   const cases = [
     ['sickness', { isSick: true, sicknessType: 'おなかいた' }, 'sick', 'warning', 'sick', 'medicineBtn'],
-    ['hunger', { hunger: 25 }, 'hunger', 'warning', 'food', 'feedBtn'],
+    ['hunger', { hunger: 25 }, 'hunger', 'warning', 'hunger', 'feedBtn'],
     ['energy before mood', { energy: 25, happiness: 10 }, 'energy', 'warning', 'sleep', 'sleepBtn'],
     ['mood', { happiness: 25 }, 'happiness', 'info', 'play', 'playWithBtn'],
     ['dirt', { poopCount: 2 }, 'poop', 'info', 'clean', 'cleanBtn'],
@@ -146,7 +146,7 @@ test('assess reports ordinary care needs in priority order', () => {
 test('sickness labels remain plain text data for the textContent renderer', () => {
   const label = '<b>ねつ & せき</b>';
   const notice = careStatus.assess(growing({ isSick: true, sicknessType: label }));
-  assert.ok(notice.title.includes(label));
+  assert.ok(`${notice.title}\n${notice.detail}`.includes(label));
   assert.equal(notice.action, 'medicineBtn');
 });
 

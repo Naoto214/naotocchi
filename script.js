@@ -2706,10 +2706,55 @@
     if (!CARE_STATUS || !before || before.stage !== state.stage) return;
     showCareFeedback(CARE_STATUS.changes(before, CARE_STATUS.snapshot(state)));
   }
-  function careIconHTML(icon, label = '') {
+  function iconFallbackHTML(emoji) {
+    return emoji ? `<span class="icon-fallback" aria-hidden="true">${escapeHtml(emoji)}</span>` : '';
+  }
+  function careIconHTML(icon, label = '', fallback = '') {
     const known = ['food','game','clean','sleep','medicine','play','love','coin','gift','hunger','sick','danger','recovery','growth','decline','poop','egg'];
     if (!known.includes(icon)) return '';
-    return `<i class="care-icon" data-care-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}></i>`;
+    return `<i class="care-icon" data-care-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
+  }
+  // Display mappings only. Item definitions, saved emoji, IDs and effects stay
+  // unchanged; old/unmapped items keep their original display fallback.
+  const UI_ILLUSTRATION_KEYS = new Set([
+    'flower','ribbon','bowtie','paper','scarf','glasses',
+    'band','hat','backpack','star_badge','paw_badge','letter',
+    'crown','clover','charm','lantern','ring','naoto_crown',
+    'world','book','medal','palette','sun','cloud',
+    'rain','snow','moon','sunrise','sunset','candy',
+    'bubbles','balloon','fireworks','camera','musicbox','surprise',
+  ]);
+  const ITEM_ILLUSTRATIONS = {
+    flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
+    energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
+    partner1:'letter',crown:'crown',itemluck1:'clover',
+    naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
+    fun_candy:'candy',fun_bubbles:'bubbles',fun_balloon:'balloon',fun_fireworks:'fireworks',
+    fun_camera:'camera',fun_musicbox:'musicbox',fun_surprise:'surprise',
+  };
+  // CSS background failures do not emit element error events. A single hidden
+  // image per atlas observes loading; failure only changes presentation state.
+  for (const [atlas,src] of [['ui','assets/ui/world-items-atlas-v1.png'],['care','assets/ui/care-atlas-v1.png']]) {
+    const probe=document.createElement('img');
+    probe.hidden=true;probe.alt='';probe.dataset.iconAtlas=atlas;
+    probe.addEventListener('error',()=>{document.documentElement.dataset[atlas+'Atlas']='failed';});
+    probe.addEventListener('load',()=>{document.documentElement.dataset[atlas+'Atlas']='loaded';});
+    document.body.appendChild(probe);probe.src=src;
+  }
+  function uiIconHTML(icon, label = '', fallback = '') {
+    if (!UI_ILLUSTRATION_KEYS.has(icon)) return '';
+    return `<i class="care-icon ui-icon" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
+  }
+  function itemIconHTML(item, labelled = false) {
+    const label = labelled ? item.label : '';
+    if (item.id === 'sleepboost1') return careIconHTML('sleep', label, item.emoji);
+    const key = Object.hasOwn(ITEM_ILLUSTRATIONS, item.id) ? ITEM_ILLUSTRATIONS[item.id] : '';
+    return uiIconHTML(key, label, item.emoji) || escapeHtml(item.emoji || '');
+  }
+  function environmentIconHTML(kind, id, fallback) {
+    const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
+      : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'} : {};
+    return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '') || escapeHtml(fallback || '');
   }
   function renderCareNotice(observe = false) {
     if (!CARE_STATUS) return;
@@ -8749,7 +8794,7 @@
     clearConversationTimers();
     hideSpeechBubble();
     setMessage(item.narration || `${item.emoji} ${item.label}であそんだ`);
-    showStoryEvent({ emoji: item.emoji, message: item.label });
+    showStoryEvent({ emoji: item.emoji, item, message: item.label });
     emotePet(item.emote || 'fun');
 
     const beats = [{ speaker: petSpeaker(), text: pickConversationLine(item.petLines) }];
@@ -9338,6 +9383,7 @@
     audio.play('notify');
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
+    else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
     else el.storyFlashEmoji.textContent = event.emoji;
     el.storyFlashText.textContent = compactJapaneseText(event.message);
     el.storyFlash.classList.remove('hidden');
@@ -10193,7 +10239,8 @@
 
     renderPetVisual();
     const equippedItem = SHOP_ITEMS.find((it) => it.id === state.lifetime.equippedItemId);
-    el.petAccessory.textContent = equippedItem ? equippedItem.emoji : '';
+    const accessoryHTML = equippedItem ? itemIconHTML(equippedItem, true) : '';
+    if (el.petAccessory.innerHTML !== accessoryHTML) el.petAccessory.innerHTML = accessoryHTML;
     el.petAccessory.classList.toggle('hidden', !equippedItem || isEgg || isDead);
     const crown = state.sodachi >= SODACHI_MAX ? ' 👑' : '';
     el.ageLabel.textContent = state.infinite ? 'ねんれい: ♾️' : `ねんれい: ${currentAge()}さい${crown}`;
@@ -11343,7 +11390,7 @@
       return `
         <button type="button" class="shop-item ${equipped ? 'equipped owned' : (owned ? 'owned' : '')}" data-id="${item.id}">
           <span class="shop-item-badge">${badge}</span>
-          <span class="shop-item-emoji">${item.emoji}</span>
+          <span class="shop-item-emoji">${itemIconHTML(item)}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
           <span class="shop-item-status">${statusText}</span>
@@ -11378,7 +11425,7 @@
       return `
         <button type="button" class="shop-item equipped owned" disabled data-id="${item.id}">
           <span class="shop-item-badge">✔️</span>
-          <span class="shop-item-emoji">${item.emoji}</span>
+          <span class="shop-item-emoji">${itemIconHTML(item)}</span>
           <span class="shop-item-label">${item.label}</span>
           <span class="shop-item-desc">${item.desc}</span>
           <span class="shop-item-status">たっせいほうしゅう</span>
@@ -11957,15 +12004,15 @@
   function renderWorldNowCard(env) {
     if (!el.worldNowCard) return;
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
-    const weatherChip = env.weather ? `${WEATHER_CHOICES[env.weather][0]}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんき ふめい';
+    const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんき ふめい';
     const season = SEASON_INFO[env.season];
-    const chips = [`${TIME_CHOICES[env.time][0]}${TIME_CHOICES[env.time][1]}`, weatherChip, `${season.emoji}${season.label}`, `${region.emoji}${region.label}`];
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${season.emoji}${season.label}`, `${region.emoji}${region.label}`];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
       ['season', env.season, season.emoji],
       ['region', env.region, region.emoji],
-    ].map(([kind, key, icon]) => { const e = key && ENV_EFFECTS[kind][key]; return e && e.text ? `<div class="world-now-effect"><span class="icon">${icon}</span><span>${e.text}</span></div>` : ''; }).join('');
+    ].map(([kind, key, icon]) => { const e = key && ENV_EFFECTS[kind][key]; return e && e.text ? `<div class="world-now-effect"><span class="icon">${environmentIconHTML(kind,key,icon)}</span><span>${e.text}</span></div>` : ''; }).join('');
     const g = environmentGenreSummary();
     const games = g.up.length || g.down.length
       ? `<div class="world-now-games">ゲームの 出やすさ: ${g.up.map((t) => `<span class="up">${t}↑</span>`).join(' ')} ${g.down.map((t) => `<span class="down">${t}↓</span>`).join(' ')}</div>`
@@ -12147,11 +12194,11 @@
     el.designDeviceTab.setAttribute('aria-pressed',String(!screen));
   }
 
-  function renderEnvironmentChoices(grid,choices,mode) {
+  function renderEnvironmentChoices(grid,choices,mode,kind = '') {
     if (grid.dataset.choiceMode === mode) return;
     grid.dataset.choiceMode = mode;
     grid.innerHTML = Object.entries(choices).map(([id,[emoji,label]])=>
-      `<button type="button" class="theme-swatch ${id === mode ? 'selected' : ''}" data-id="${id}" aria-pressed="${id === mode}"><span class="theme-swatch-circle">${emoji}</span><span class="theme-swatch-label">${label}</span></button>`).join('');
+      `<button type="button" class="theme-swatch ${id === mode ? 'selected' : ''}" data-id="${id}" aria-pressed="${id === mode}"><span class="theme-swatch-circle">${environmentIconHTML(kind,id,emoji)}</span><span class="theme-swatch-label">${label}</span></button>`).join('');
   }
 
   function renderEnvironment() {
@@ -12182,9 +12229,9 @@
     el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで取得できます。');
     if (worldOpen) {
       renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
-      renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode);
+      renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode,'time');
       renderSeasonModeGrid();
-      renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode);
+      renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode,'weather');
       if (el.difficultyModeGrid) renderEnvironmentChoices(el.difficultyModeGrid, DIFFICULTY_CHOICES, minigameDifficultyMode());
       if (el.sfxModeGrid) renderEnvironmentChoices(el.sfxModeGrid, SFX_CHOICES, state.lifetime.soundSfx === false ? 'off' : 'on');
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
@@ -12346,7 +12393,7 @@
     if (!entries.length) { el.itemsRow.innerHTML = ''; return; }
     el.itemsRow.innerHTML = entries.map((item) => `
       <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse ? 'disabled' : ''}>
-        <span class="item-emoji">${item.emoji}</span><span class="item-count">${state.items[item.id]}</span>
+        <span class="item-emoji">${itemIconHTML(item,true)}</span><span class="item-count">${state.items[item.id]}</span>
       </button>
     `).join('');
   }
