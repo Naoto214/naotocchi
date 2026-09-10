@@ -4,20 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-date-reward-bu-1">
-  <link rel="stylesheet" href="ui.css?v=20260910-motion-1">
+  <link rel="stylesheet" href="style.css?v=20260910-fit-1">
+  <link rel="stylesheet" href="ui.css?v=20260910-fit-1">
+  <link rel="stylesheet" href="design.css?v=20260910-fit-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
   <div class="region-decor" id="regionDecor"></div>
   <div class="season-bg-fx" id="seasonBgFx"></div>
-  <div class="device" id="device">
+  <div class="device surface-device" id="device">
     <div class="device-top">
       <div class="lamp" id="lamp"></div>
     </div>
 
     <header class="device-header">
-      <div class="name-plate">なおとっち</div>
+      <div class="header-title">
+        <div class="name-plate">なおとっち</div>
+        <div class="status-row">
+          <span id="ageLabel">ねんれい: 0さい</span>
+          <span id="sodachiLabel">そだち: 20</span>
+          <span id="moneyLabel">💰 0</span>
+        </div>
+      </div>
       <div class="header-actions">
         <button type="button" class="header-button hidden" id="profileBtn" title="データ">👤<span>データ</span></button>
         <button type="button" class="header-button hidden" id="commBtn" title="つうしん">✉️<span>つうしん</span></button>
@@ -25,15 +33,8 @@
     </header>
 
     <div class="screen-frame">
-      <div class="screen" id="screen">
+      <div class="screen surface-screen" id="screen">
         <div class="screen-normal" id="screenNormal">
-          <div class="status-row">
-            <span id="ageLabel">ねんれい: 0さい</span>
-            <span id="sodachiLabel">そだち: 20</span>
-            <span id="moneyLabel">💰 0</span>
-          </div>
-
-
           <div class="birthday-toast hidden" id="birthdayToast"></div>
           <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
 
@@ -68,51 +69,54 @@
 
           </div>
 
-          <div class="bars">
-            <div class="bar-line">
-              <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
-              <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
+          <div class="home-meters">
+            <div class="bars">
+              <div class="bar-line">
+                <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
+                <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">ごきげん</span><span class="bar-value" id="happinessValue">0</span>
+                <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">げんき</span><span class="bar-value" id="energyValue">0</span>
+                <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">けんこう</span><span class="bar-value" id="healthValue">0</span>
+                <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
+              </div>
             </div>
-            <div class="bar-line">
-              <span class="bar-label">ごきげん</span><span class="bar-value" id="happinessValue">0</span>
-              <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
+  
+            <div class="bars meters" id="lifeMeterRow">
+              <div class="bar-line">
+                <span class="bar-label">せいちょう</span>
+                <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
+                <span class="bar-value" id="evoValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">おとろえ</span>
+                <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
+                <span class="bar-value" id="devoValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">いのち</span>
+                <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
+                <span class="bar-value" id="deathValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">へんしん</span>
+                <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
+                <span class="bar-value" id="transformValue">0 / 100</span>
+              </div>
+              <div class="bar-line">
+                <span class="bar-label">100さいまで</span>
+                <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
+                <span class="bar-value" id="goalValue">0 / 100</span>
+              </div>
             </div>
-            <div class="bar-line">
-              <span class="bar-label">げんき</span><span class="bar-value" id="energyValue">0</span>
-              <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
-            </div>
-            <div class="bar-line">
-              <span class="bar-label">けんこう</span><span class="bar-value" id="healthValue">0</span>
-              <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
-            </div>
-          </div>
 
-          <div class="bars meters" id="lifeMeterRow">
-            <div class="bar-line">
-              <span class="bar-label">せいちょう</span>
-              <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
-              <span class="bar-value" id="evoValue">0 / 100</span>
-            </div>
-            <div class="bar-line">
-              <span class="bar-label">おとろえ</span>
-              <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
-              <span class="bar-value" id="devoValue">0 / 100</span>
-            </div>
-            <div class="bar-line">
-              <span class="bar-label">いのち</span>
-              <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
-              <span class="bar-value" id="deathValue">0 / 100</span>
-            </div>
-            <div class="bar-line">
-              <span class="bar-label">へんしん</span>
-              <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
-              <span class="bar-value" id="transformValue">0 / 100</span>
-            </div>
-            <div class="bar-line">
-              <span class="bar-label">100さいまで</span>
-              <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
-              <span class="bar-value" id="goalValue">0 / 100</span>
-            </div>
           </div>
 
           <div class="message" id="message">たまごがやってきた…</div>
@@ -634,8 +638,8 @@
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
   <script src="cast-bounds.js?v=20260910-ui-1"></script>
   <script src="cast-motion.js?v=20260910-motion-1"></script>
-  <script src="cast-layout.js?v=20260910-motion-1"></script>
+  <script src="cast-layout.js?v=20260910-fit-1"></script>
   <script src="world-environment.js?v=20260910-ui-1"></script>
-  <script src="script.js?v=20260910-motion-1"></script>
+  <script src="script.js?v=20260910-fit-1"></script>
 </body>
 </html>
