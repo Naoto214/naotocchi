@@ -49,3 +49,11 @@ html[data-ui-atlas="failed"] .ui-icon,
 html[data-care-atlas="failed"] [data-care-icon]:has(> .icon-fallback) {background-image:none}
 html[data-ui-atlas="failed"] .ui-icon > .icon-fallback,
 html[data-care-atlas="failed"] [data-care-icon] > .icon-fallback {display:inline}
+/* The existing effect wrapper owns placement, opacity and movement. */
+:is(.region-decor-item,.season-fx-item,.season-burst-item,.wx-cloud,.wx-flake,.wx-moon) > .ui-icon {
+  width:1em;height:1em;flex-basis:1em;vertical-align:top;
+  background-color:transparent;border-radius:0;
+}
+@media (prefers-reduced-motion:reduce) {
+  .region-decor-item {animation:none;transform:none;will-change:auto}
+}

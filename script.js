@@ -2753,8 +2753,19 @@
   }
   function environmentIconHTML(kind, id, fallback) {
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
-      : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'} : {};
-    return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '') || escapeHtml(fallback || '');
+      : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
+      : kind === 'season' ? {winter:'snow'} : {};
+    return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || escapeHtml(fallback || '');
+  }
+  // Reuse only illustrations of the same object. Region/season data and saved
+  // emoji remain intact; unillustrated scenery keeps its original symbol.
+  const SCENERY_ILLUSTRATIONS = {
+    '☀️':'sun','🌞':'sun','☁️':'cloud','❄️':'snow','❄':'snow','🌙':'moon',
+    '🌼':'flower','🍀':'clover','🎀':'ribbon','🧣':'scarf',
+  };
+  function sceneryIconHTML(emoji) {
+    const icon = Object.hasOwn(SCENERY_ILLUSTRATIONS,emoji) ? SCENERY_ILLUSTRATIONS[emoji] : '';
+    return uiIconHTML(icon, '', emoji) || escapeHtml(emoji || '');
   }
   function renderCareNotice(observe = false) {
     if (!CARE_STATUS) return;
@@ -10043,7 +10054,7 @@
       const size = 22 + Math.random() * 20;
       const duration = 7 + Math.random() * 6;
       const delay = Math.random() * duration;
-      return `<span class="region-decor-item" style="left:${pos.left}%; top:${pos.top}%; font-size:${size}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${emoji}</span>`;
+      return `<span class="region-decor-item" style="left:${pos.left}%; top:${pos.top}%; font-size:${size}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${sceneryIconHTML(emoji)}</span>`;
     }).join('');
   }
 
@@ -10155,7 +10166,7 @@
       const delay = Math.random() * (duration + 6);
       const left = Math.random() * 100;
       const drift = Math.round(Math.random() * 50 - 25);
-      items.push(`<span class="season-fx-item" style="left:${left}%; font-size:${size}px; --drift:${drift}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${emoji}</span>`);
+      items.push(`<span class="season-fx-item" style="left:${left}%; font-size:${size}px; --drift:${drift}px; animation-duration:${duration}s; animation-delay:-${delay}s;">${sceneryIconHTML(emoji)}</span>`);
     }
     return items.join('');
   }
@@ -10188,7 +10199,7 @@
       const span = document.createElement('span');
       span.className = 'season-burst-item';
       const emoji = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
-      span.textContent = emoji;
+      span.innerHTML = sceneryIconHTML(emoji);
       const left = Math.random() * 100;
       const top = -5 - Math.random() * 10;
       const size = 16 + Math.random() * 14;
@@ -10923,7 +10934,7 @@
     el.seasonModeGrid.innerHTML = SEASON_MODE_ORDER.map((mode) => {
       const info = mode === SEASON_MODE_AUTO ? { emoji: '🕐', label: 'げんざい' } : SEASON_INFO[mode];
       const selected = mode === currentMode;
-      return `<button type="button" class="theme-swatch ${selected ? 'selected' : ''}" data-id="${mode}"><span class="theme-swatch-circle">${info.emoji}</span><span class="theme-swatch-label">${info.label}</span></button>`;
+      return `<button type="button" class="theme-swatch ${selected ? 'selected' : ''}" data-id="${mode}" aria-pressed="${selected}"><span class="theme-swatch-circle">${environmentIconHTML('season',mode,info.emoji)}</span><span class="theme-swatch-label">${info.label}</span></button>`;
     }).join('');
   }
 
@@ -12006,7 +12017,7 @@
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
     const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんき ふめい';
     const season = SEASON_INFO[env.season];
-    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${season.emoji}${season.label}`, `${region.emoji}${region.label}`];
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${season.label}`, `${region.emoji}${region.label}`];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
@@ -12036,10 +12047,10 @@
       for (let i = 0; i < n; i++) items.push(`<span class="wx-drop" style="left:${rnd(0, 100).toFixed(1)}%;animation-duration:${rnd(0.7, 1.2).toFixed(2)}s;animation-delay:${rnd(-1.2, 0).toFixed(2)}s;height:${Math.round(rnd(14, 24))}px;opacity:${rnd(0.4, 0.9).toFixed(2)}"></span>`);
     } else if (weather === 'snow') {
       const n = low ? 12 : 26;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">❄</span>`);
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">${sceneryIconHTML('❄')}</span>`);
     } else if (weather === 'cloudy') {
       const n = low ? 3 : 5;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-cloud" style="top:${rnd(2, 22).toFixed(1)}%;font-size:${Math.round(rnd(30, 56))}px;animation-duration:${rnd(60, 110).toFixed(0)}s;animation-delay:${rnd(-100, 0).toFixed(0)}s">☁️</span>`);
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-cloud" style="top:${rnd(2, 22).toFixed(1)}%;font-size:${Math.round(rnd(30, 56))}px;animation-duration:${rnd(60, 110).toFixed(0)}s;animation-delay:${rnd(-100, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
     } else if (weather === 'sunny' && time !== 'night') {
       items.push('<span class="wx-sun"></span>');
       const n = low ? 3 : 7;
@@ -12048,7 +12059,7 @@
     if (time === 'night' && weather !== 'rain' && weather !== 'snow') {
       const n = low ? 14 : 30;
       for (let i = 0; i < n; i++) items.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 45).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
-      if (weather !== 'cloudy') items.push('<span class="wx-moon">🌙</span>');
+      if (weather !== 'cloudy') items.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
     }
     el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)).join('') : items.join('');
   }

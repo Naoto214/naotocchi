@@ -65,6 +65,13 @@ function createFixtures() {
       illustrated.lifetime.clears=1;illustrated.lifetime.lifeClears=1;illustrated.lifetime.bestLives=1;illustrated.lifetime.dexCleared=true;
       illustrated.lifetime.consumablesUsed=2;
       for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) illustrated.items[id]=2;
+      for(const [name,season,weather,time] of [
+        ['scenery_clouds','winter','cloudy','day'],['scenery_snow','winter','snow','night'],
+        ['scenery_moon','summer','sunny','night'],['scenery_rain','spring','rain','day'],
+      ]) {
+        const scene=make(name,26,{regionId:'home',hunger:80,health:90,energy:80,happiness:80});
+        Object.assign(scene.lifetime,{seasonMode:season,weatherMode:weather,timeMode:time});
+      }
       make('mushroom',26,{speciesLine:'mushroom',stageIndex:7});
       make('goal4',26,{discoveredStages:allForms.slice(),achievementsUnlocked:[]});
       make('goal5',26,{discoveredStages:allForms.slice(),achievementsUnlocked:api.ACHIEVEMENTS.map(a=>a.id)});
@@ -241,6 +248,13 @@ function visualQaPlugin() {
               careRecommended:[...doc.querySelectorAll('[data-care-recommended="true"]')].map(e=>e.id),
               careButtonBounds:[...doc.querySelectorAll('.buttons button')].map(e=>{const r=e.getBoundingClientRect();return {id:e.id,x:r.x,y:r.y,width:r.width,height:r.height};}),
               iconImages,missingIconsRequested:document.getElementById('failIcons').checked,
+              environment:{time:doc.body.dataset.time,weather:doc.body.dataset.weather,
+                reducedMotion:doc.defaultView.matchMedia('(prefers-reduced-motion: reduce)').matches,
+                rainDrops:doc.querySelectorAll('#weatherFx .wx-drop').length,
+                snowflakes:doc.querySelectorAll('#weatherFx .wx-flake').length,
+                clouds:doc.querySelectorAll('#weatherFx .wx-cloud').length,
+                sceneryIcons:[...new Set([...doc.querySelectorAll('#weatherFx [data-ui-icon],#regionDecor [data-ui-icon],#seasonBgFx [data-ui-icon],#seasonFrontFx [data-ui-icon]')].map(e=>e.dataset.uiIcon))],
+                decorAnimations:[...new Set([...doc.querySelectorAll('.region-decor-item')].map(e=>doc.defaultView.getComputedStyle(e).animationName))]},
               storyVisible:story.width>0,storyText:story.width>0?storyText.textContent:null,storyTextOverflow,
               storyAsset:story.width>0?doc.querySelector('#storyFlashEmoji img')?.getAttribute('src')||null:null,
               profileVisible:profile.getBoundingClientRect().width>0,
