@@ -5,6 +5,8 @@
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   let stateLoadRecovered = false;
+  let lastGoodSaveRaw = null;
+  let saveWriteBlocked = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
 
@@ -1509,14 +1511,10 @@
   let pendingMigrationQuiet = false;
 
   function loadState() {
-    try {
-      const raw = localStorage.getItem(SAVE_KEY);
-      if (!raw) return freshState();
+    // 通常セーブもバックアップも、同じ移行処理を最後まで通してから採用する。
+    const migrate = (raw) => {
       const parsed = JSON.parse(raw);
-      if (!parsed || typeof parsed !== 'object') throw new Error('invalid save payload');
-      // マイグレーションで万一エラーが起きても元セーブを失わないよう、
-      // 読み込み成功した生データを別キーにも退避してから加工する。
-      try { localStorage.setItem(SAVE_BACKUP_KEY, raw); } catch (backupError) { /* storage unavailable */ }
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('invalid save payload');
       const merged = { ...freshState(), ...parsed };
       // lifetime is a nested object, so the shallow merge above replaces it
       // wholesale with the save's own (possibly older, field-missing)
@@ -1749,32 +1747,32 @@
       delete merged.devoMeter;
       delete merged.freePlay;
       return merged;
-    } catch (e) {
-      // 以前はここで freshState() を返し、起動直後の saveState() がそのまま
-      // 元セーブを上書きしていた。読み込み失敗を「新規ゲーム」と誤認しない。
-      // まずバックアップ、次に現在キーの生JSONから、危険なマイグレーションを
-      // 通さない最小復旧を試す。復旧できた場合はこの起動中に警告を出す。
-      const candidates = [];
-      try { candidates.push(localStorage.getItem(SAVE_BACKUP_KEY)); } catch (ignore) {}
-      try { candidates.push(localStorage.getItem(SAVE_KEY)); } catch (ignore) {}
-      for (const candidate of candidates) {
-        if (!candidate) continue;
-        try {
-          const parsed = JSON.parse(candidate);
-          if (!parsed || typeof parsed !== 'object') continue;
-          const recovered = { ...freshState(), ...parsed };
-          recovered.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
-          if (!Array.isArray(recovered.discoveredStages)) recovered.discoveredStages = [];
-          if (!Array.isArray(recovered.achievementsUnlocked)) recovered.achievementsUnlocked = [];
-          if (!Array.isArray(recovered.companions)) recovered.companions = [];
+    };
+    stateLoadRecovered = false;
+    lastGoodSaveRaw = null;
+    saveWriteBlocked = false;
+    let failed = false;
+    for (const key of [SAVE_KEY, SAVE_BACKUP_KEY]) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (!raw) continue;
+        const merged = migrate(raw);
+        lastGoodSaveRaw = raw;
+        if (key === SAVE_KEY) {
+          // 移行に失敗したデータで、正常なバックアップを上書きしない。
+          try { localStorage.setItem(SAVE_BACKUP_KEY, raw); } catch (ignore) { /* backup is best effort */ }
+        } else {
           stateLoadRecovered = true;
-          return recovered;
-        } catch (ignore) { /* try next candidate */ }
+        }
+        return merged;
+      } catch (e) {
+        failed = true;
       }
-      // 何も復元できない場合でも、起動直後に空データを自動保存しないための印。
-      stateLoadRecovered = true;
-      return freshState();
     }
+    // 読み取り失敗と新規ゲームを区別し、起動直後の空データ保存を防ぐ。
+    stateLoadRecovered = failed;
+    saveWriteBlocked = failed;
+    return freshState();
   }
 
   // marks the current line+stage as met, so the 図鑑 can show it instead of
@@ -2253,13 +2251,22 @@
   }
 
   function saveState() {
+    // 復旧候補がすべて読めないときは、非表示時の保存でも原本を消さない。
+    if (saveWriteBlocked) return;
     recordDiscovery();
     checkAchievements();
     checkGrandGoals();
+    let raw;
+    try { raw = JSON.stringify(state); } catch (e) { return; }
+    // 復旧中の壊れた主キーではなく、最後に読込／保存できたデータを退避。
+    // バックアップだけ書けない場合も、通常セーブの書き込みは試す。
+    if (lastGoodSaveRaw) {
+      try { localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw); } catch (e) { /* backup is best effort */ }
+    }
     try {
-      const previous = localStorage.getItem(SAVE_KEY);
-      if (previous) localStorage.setItem(SAVE_BACKUP_KEY, previous);
-      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+      localStorage.setItem(SAVE_KEY, raw);
+      lastGoodSaveRaw = raw;
+      stateLoadRecovered = false;
     } catch (e) {
       // storage unavailable; ignore
     }
@@ -23146,7 +23153,12 @@
   ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach((t) => el.wipeHoldBtn.addEventListener(t, cancelWipeHold));
 
   function doWipe() {
-    try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* storage unavailable */ }
+    for (const key of [SAVE_KEY, SAVE_BACKUP_KEY]) {
+      try { localStorage.removeItem(key); } catch (e) { /* storage unavailable */ }
+    }
+    lastGoodSaveRaw = null;
+    stateLoadRecovered = false;
+    saveWriteBlocked = false;
     state = freshState();
     el.wipeConfirmOverlay.classList.add('hidden');
     themeOpen = false;
@@ -23845,9 +23857,10 @@
   if (!stateLoadRecovered) {
     saveState();
   } else {
-    // 読み込み異常時は、復旧候補を表示するだけで元セーブを自動上書きしない。
-    // 次の正常なユーザー操作/定期保存までにバックアップが残る。
-    setTimeout(() => setMessage('セーブデータを保護して復旧しました。内容を確認してください'), 250);
+    // 復旧できた場合は次の保存から再開。候補が全滅した場合は原本を保持する。
+    setTimeout(() => setMessage(saveWriteBlocked
+      ? 'セーブを読みこめませんでした。元データを守るため保存を止めています'
+      : 'セーブデータを保護して復旧しました。内容を確認してください'), 250);
   }
   render();
   setInterval(loop, TICK_MS);
