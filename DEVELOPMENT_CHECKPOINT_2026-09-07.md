@@ -1709,3 +1709,9 @@ Runtime smoke test SUCCESS確認済み。
 - じどうバックアップ: `SAVE_SNAP_KEY = 'naotocchi-save-v1-snaps'` に `{at, raw}` を最大 3 件。`saveState()` 成功時に `takeSaveSnapshot(raw)`(先頭と同一、または 20 分未満なら何もしない)。セーブコード読み込み/もどす の直前は `force=true` で必ず現在のセーブを残す。プロフィールの `renderSaveSnaps()` が 日時・種族・段階・年齢・おかね の行と「この時点にもどす」(6 秒以内 2 回押しで確定 → `saveLocked` → `SAVE_KEY` を置換してリロード)を描く。`doWipe()` はスナップも消す。
 - 検証: `npm test` 全通過。Playwright: 20 分未満の再セーブでは増えない → 3 世代で打ち止め → プロフィールに 3 行 → 2 回押しで復元(リロード後の値を確認)。全 100 ゲームの乱打プレイで `sfx()` の発火を記録(`sfxplay.js`)、全 100 ゲーム スイープ ページエラー 0。
 
+## チェックポイント BI — BGM の 8小節化・ゲームきろくの まとめ・audio.js への分割(2026-09-10)
+- BGM: 8曲すべてを 8小節ループに書き直し。各曲は `chords`(パッド)・`roots`+`bass`(ねからの半音オフセットで進行に追従するベースリフ)・`lead`(8小節×16分)・`drums`(kick/snare/hat の16文字パターン)・`arp`(2周目ごと、または `'always'`)を持つ。`synthNote()` に `detune` で 2本目を重ねるコーラス、`drum('snare')` を追加。強拍(1・3拍目)はコードトーン、全音は調内(コード構成音は例外)になるよう node の検証スクリプトで確認してから投入。テンポの速い曲(120bpm 以上)は 2周目ごとにハイハット16分が加わる。
+- ゲームきろく: 「きろくのまとめ」カード(あそんだ本数バー、S〜D+未プレイの内訳バー、平均ベスト、コンプリートまでの残り/コンプリート後は Sランクの残り)、ジャンル見出しに `きろく数/本数` と Sランク数、各カードに「まえ(直近スコア)」と ランク色の枠(`accent-S` など)。旧「ランクべつ」行は廃止。
+- 分割: おとの IIFE を `audio.js` の `installNaotocchiAudio(S)` に移動。S は `nativeSetTimeout`・`getState`・`STAGE`・`el`・`isGameActive`・`getActiveMinigame`・`minigameGenreId`・`isDateOpen`(`let` 変数は getter で渡す)。index.html は games.js → audio.js → script.js の順、テストの読込(smoke/dialogue/runtime-harness)も 3 ファイル連結に変更。
+- 検証: `npm test` 全通過。Playwright: 8曲すべて 2周(256ステップ)をエラーなくスケジュール、場面を強制して各曲の出力(RMS 0.019〜0.032)を確認、既存の audio テスト 10 件通過。きろく画面のスクリーンショット確認。全 100 ゲーム スイープ ページエラー 0。
+
