@@ -24,6 +24,8 @@ jobs:
         run: node --test tests/minigame-lifecycle-test.cjs
       - name: Run minigame illustration regression tests
         run: node --test tests/minigame-illustrations-test.cjs
+      - name: Run achievement and food illustration regression tests
+        run: node --test tests/notice-food-illustrations-test.cjs
       - name: Run save recovery regression test
         run: node --test tests/save-recovery-test.cjs
       - name: Run UI, cast and environment regression tests

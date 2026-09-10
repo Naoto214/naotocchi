@@ -72,6 +72,9 @@ function createFixtures() {
       const comments=make('comment_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       comments.lifetime.money=9999;comments.lifetime.consumablesUsed=2;
       for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) comments.items[id]=2;
+      const notices=make('notice_food_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
+      notices.achievementsUnlocked=api.ACHIEVEMENTS.filter((a,i)=>i%2===0).map(a=>a.id);
+      notices.lifetime.achievementUnlockedAt=Object.fromEntries(notices.achievementsUnlocked.map(id=>[id,Date.now()]));
       for(const [name,season,region] of [
         ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
         ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
@@ -171,6 +174,7 @@ function visualQaPlugin() {
           <p>Development saves only. Load replaces this preview origin's save.</p>
           <p>For stack_* scenes, open プロフィール → ゲームを選ぶ, then choose しゅうかくタワー / さくらタワー / おちばタワー. The missing-image option also applies to their Canvas motifs. Layout measurements below cover the home UI, not the Canvas picture.</p>
           <p>For comment_illustrations, the next age tick shows a birthday notice. Use the small items and おせわ to inspect illustrated notices and speech portraits with 26 companions and a partner. The missing-image option covers new comment portraits too; SVG symbols remain readable without an image download.</p>
+          <p>For notice_food_illustrations, open じっせき to compare unlocked pictures, locks, recent marks and goals. In ゲームきろく, choose ケーキデコレーション or おべんとうづくり. Check the preview, tray, dropped food, wrong slots and completion text. These fixtures do not establish browser or device verification.</p>
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>

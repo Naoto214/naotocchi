@@ -2010,7 +2010,7 @@
       (state.lifetime.achievementUnlockedAt || (state.lifetime.achievementUnlockedAt = {}))[ach.id] = Date.now();
       // a minigame overlay owns the screen while gameActive - the unlock
       // is still recorded, just shown silently until it's safe to flash
-      if (!gameActive) showStoryEvent({ emoji: ach.emoji, message: `じっせきかいほう!「${ach.label}」` });
+      if (!gameActive) showStoryEvent({ emoji: ach.emoji, achievement: ach, message: `じっせきかいほう!「${ach.label}」` });
     }
   }
 
@@ -2832,7 +2832,8 @@
   // a cake, a key stays a key; none borrows a food, egg or character picture.
   const COMMENT_SYMBOL_KEYS = {'🎂':'cake','🎉':'celebration','🎊':'celebration','✨':'sparkles','🌟':'sparkles',
     '💐':'bouquet','🗝':'key','🔑':'key','🧭':'compass','🌈':'rainbow','⚡':'bolt','🔥':'fire',
-    '🙂':'smile','💑':'couple','♾':'infinity'};
+    '🙂':'smile','💑':'couple','♾':'infinity','🔒':'lock','✅':'check','🏆':'trophy',
+    '💎':'diamond','🌌':'galaxy','🕰':'clock','💬':'speech','🔄':'cycle'};
   const COMMENT_SYMBOLS = {
     cake:['ケーキ','<path fill="#f7c7a6" d="M4 12h16v9H4z"/><path fill="#fff5df" d="M4 10h16v5l-3-2-3 2-3-2-3 2-4-2z"/><path d="M8 10V6m8 4V6"/><path fill="#efb34f" d="m8 1-2 3 2 2 2-2zm8 0-2 3 2 2 2-2z"/>'],
     celebration:['おいわい','<path fill="#efb34f" d="m3 21 4-13 9 9z"/><path fill="none" d="m6 12 6 6m0-13 3-3m3 10 4-1m-4-7 2 3"/><path fill="#d56b84" d="M5 2h3v3H5zm14 15h3v3h-3z"/><circle fill="#789daa" cx="15" cy="9" r="1.5"/>'],
@@ -2846,21 +2847,80 @@
     smile:['えがお','<circle fill="#f4d48d" cx="12" cy="12" r="10"/><path d="M8 8v2m8-2v2"/><path fill="none" d="M7 14q5 7 10 0"/>'],
     couple:['こいびと','<circle fill="#f2c7a0" cx="6" cy="13" r="3"/><circle fill="#f2c7a0" cx="18" cy="13" r="3"/><path fill="#87a9a3" d="M1 23v-3a5 5 0 0 1 10 0v3z"/><path fill="#c28b9b" d="M13 23v-3a5 5 0 0 1 10 0v3z"/><path fill="#dd8295" d="M12 10 6 5C3 0 10-1 12 3c2-4 9-3 6 2z"/>'],
     infinity:['むげん','<path fill="none" stroke-width="2.5" d="M12 12C6 1 2 7 2 12s4 11 10 0 10-5 10 0-4 11-10 0z"/>'],
+    lock:['みかいほう','<path fill="none" stroke-width="2.4" d="M6 11V7a6 6 0 0 1 12 0v4"/><rect fill="#b9b4ab" x="3" y="10" width="18" height="12" rx="3"/><circle fill="#694d3b" cx="12" cy="15" r="1.4"/><path d="M12 16v3"/>'],
+    check:['かんりょう','<rect fill="#80a779" x="2" y="2" width="20" height="20" rx="5"/><path fill="none" stroke="#fff5df" stroke-width="2.6" d="m6 12 4 5 8-10"/>'],
+    trophy:['トロフィー','<path fill="#f4c85e" d="M7 3h10v8a5 5 0 0 1-10 0z"/><path fill="none" d="M7 5H2v3q0 5 5 5m10-8h5v3q0 5-5 5M12 16v4"/><path fill="#dcaa57" d="M7 20h10v3H7z"/>'],
+    diamond:['ほうせき','<path fill="#99c6cf" d="m2 8 5-6h10l5 6-10 14z"/><path fill="#d9eef0" d="m7 2 5 6 5-6z"/><path fill="none" d="M2 8h20M7 2l-1 6 6 14 6-14-1-6"/>'],
+    galaxy:['ほしぞら','<circle fill="#5b6399" cx="12" cy="12" r="10"/><path fill="none" stroke="#b8cee3" stroke-width="2.2" d="M4 16C6 4 20 5 20 10c0 7-14 9-14 5 0-4 10-7 10-4 0 2-5 5-6 3"/><path fill="#fff0b2" stroke="none" d="m7 3 1 2 2 1-2 1-1 2-1-2-2-1 2-1zm11 12 1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/>'],
+    clock:['とけい','<circle fill="#d5b47c" cx="12" cy="12" r="10"/><circle fill="#fff5df" cx="12" cy="12" r="7.5"/><path fill="none" stroke-width="1.8" d="M12 6v6l4 3"/><path d="M12 3v1m9 8h-1M12 21v-1M3 12h1"/>'],
+    speech:['おはなし','<path fill="#fff5df" d="M3 3h18v14H10l-6 5v-5H3z"/><path fill="none" d="M7 8h10M7 12h7"/>'],
+    cycle:['めぐり','<path fill="none" stroke="#83a6a5" stroke-width="2.5" d="M4 9a8 8 0 0 1 14-3M20 15A8 8 0 0 1 6 18"/><path fill="#83a6a5" d="m14 6 6-5v8zm-4 12-6 5v-8z"/>'],
   };
+  const COMMENT_PICTURES = {
+    '🐌':['companions/snail.png','かたつむり'],'🐸':['frog/05.png','かえる'],
+    '⛄':['partners/snowman.png','ゆきだるま'],'🦋':['butterfly/07.png','ちょう'],
+    '🦇':['companions/bat.png','こうもり'],'🦉':['companions/owl.png','ふくろう'],
+  };
+  // Only environment moments and achievement marks may assume this generic
+  // animal. A form-change notice can mean a different stage of the same species.
+  function commentAnimalVisual(emoji) {
+    const key=emoji.replace(/[\uFE0E\uFE0F]/g,'');
+    if (!Object.hasOwn(COMMENT_PICTURES,key)) return null;
+    const [path,label]=COMMENT_PICTURES[key];
+    return {asset:`assets/characters/${path}`,emoji,label};
+  }
+  // Context-specific achievement marks express the recorded action. The
+  // original emoji/condition/ID remains in ACHIEVEMENTS and in the fallback.
+  const ACHIEVEMENT_MARKS = Object.fromEntries([
+    ['🍂','devolve-1 devolve-5 devolve-20'],['💐','death-1 death-5 death-10'],
+    ['🎮','minigame-300 minigame-1000'],['🧭','games-played-25 region-3'],
+    ['💊','sick-cured-1 sick-cured-30 medicine-30'],['🌱','age-10'],
+    ['📖','dex-25 dex-50 dex-100 dex-150 pastlives-10 elder-collector'],
+    ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
+    ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
+    ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
+    ['💍','married-3'],['🎁','shop-all'],['🎈','consumable-all'],
+  ].flatMap(([mark,ids])=>ids.split(' ').map(id=>[id,mark])));
+  function achievementIconHTML(ach) {
+    if (ach.id==='naoto-1') return uiIconHTML('naoto_crown','なおとのかんむり',ach.emoji);
+    const mark=Object.hasOwn(ACHIEVEMENT_MARKS,ach.id) ? ACHIEVEMENT_MARKS[ach.id] : ach.emoji;
+    const animal=commentAnimalVisual(mark);
+    if (animal) return commentPictureHTML(animal.asset,ach.emoji,animal.label);
+    return commentIconHTML(mark,ach.emoji)||escapeHtml(ach.emoji||'');
+  }
+  // Food appears only in the two food-decoration games. In particular, the
+  // boiled egg never replaces a hatching egg or an ambiguous egg in dialogue.
+  const MINIGAME_FOOD = {
+    strawberry:['いちご','<path fill="#df7581" d="M3 9c0-5 6-6 9-3 3-3 9-2 9 3 0 6-6 13-9 13S3 15 3 9z"/><path fill="#81a96e" d="m12 2 2 4 5-2-2 5-5-2-5 2-2-5 5 2z"/><path stroke="#fff0b2" d="m7 11 1 1m8-1-1 1m-3 2v1m-3 2 1 1m5-1-1 1"/>'],
+    choco:['チョコ','<path fill="#9c6850" d="M5 2h14v20H5z"/><path fill="none" d="M12 2v13M5 8h14M5 14h14"/><path fill="#b6c6d0" d="m3 13 6 3 4-3 8 3v7H3z"/><path fill="#d37e8a" d="M3 18h18v5H3z"/>'],
+    cherry:['さくらんぼ','<path fill="none" stroke="#789363" stroke-width="1.8" d="M7 15q7-5 7-13 0 8 4 12"/><path fill="#86a66f" d="M14 3q-8-5-9 2 7 3 9-2z"/><circle fill="#cd697c" cx="6" cy="17" r="4.5"/><circle fill="#da7580" cx="18" cy="17" r="4.5"/><path stroke="#fff0da" d="m4 15 1-1m11 1 1-1"/>'],
+    rice:['おにぎり','<path fill="#fff5df" d="M9 3q3-3 6 0l8 14q2 5-4 5H5q-6 0-4-5z"/><path fill="#516b58" d="M8 13h8v9H8z"/><path stroke="#d8ccae" d="M7 10h1m8-1h1M4 17h1m14 1h1"/>'],
+    egg:['ゆでたまご','<path fill="#fff5df" d="M12 2C7 2 3 10 3 15a9 7 0 0 0 18 0c0-5-4-13-9-13z"/><ellipse fill="#efc35f" cx="12" cy="14" rx="5.5" ry="6"/><path fill="none" stroke="#fff0b2" d="M9 11q3-3 5 0"/>'],
+    shrimp:['エビフライ','<path fill="#e18471" d="m4 8-3-6 6 2 1 5zm1 0 4-6 2 5-3 4z"/><path fill="#e8b15f" d="M6 7c3-2 7 2 6 6 0 4 4 3 5 0 1-4 6-3 6 0 0 9-13 12-17 4C4 13 3 9 6 7z"/><path fill="none" stroke="#f8d88d" stroke-width="1.5" d="m7 10 2 1m-2 4 2 1m2 3h2m3-2 1-1m3-3v-1"/>'],
+    broccoli:['ブロッコリー','<path fill="#9ab779" d="M9 13h6l2 9H7z"/><path fill="none" d="m12 19-5-8m5 8 5-8"/><path fill="#699861" d="M5 14a5 5 0 0 1-2-9 5 5 0 0 1 8-2 5 5 0 0 1 8 2 5 5 0 0 1 1 9c-3 2-5-1-8 0-3-1-4 2-7 0z"/><path fill="none" stroke="#a6c486" d="M5 7q2-2 4 0m5-1q3-2 4 1m-9 3q2-2 4 0"/>'],
+    slice:['ショートケーキ','<path fill="#f4d7ac" d="m2 10 20-6v15L2 23z"/><path fill="#ef9b9e" d="m2 14 20-5v4L2 18z"/><path fill="#fff5df" d="m2 10 14-9 6 3v4L2 14z"/><path fill="#df7581" d="M13 4c0-3 6-4 6-1 0 2-2 4-3 4s-3-2-3-3z"/><path fill="#81a96e" d="m16 1 1 1 2-1-1 2-2-1-2 1 1-2z"/>'],
+    bento:['おべんとう','<rect fill="#be7d66" x="1" y="3" width="22" height="19" rx="4"/><path fill="#fff5df" d="M4 6h8v13H4z"/><path fill="#526d59" d="M6 13h4v5H6z"/><circle fill="#82a36e" cx="17" cy="9" r="3"/><ellipse fill="#efc35f" cx="17" cy="16" rx="3" ry="2.5"/>'],
+    cake:COMMENT_SYMBOLS.cake,
+  };
+  function minigameFoodHTML(key, fallback) {
+    if (!Object.hasOwn(MINIGAME_FOOD,key)) return escapeHtml(fallback||'');
+    const [label,art]=MINIGAME_FOOD[key];
+    return `<span class="mg-food-picture" data-food-symbol="${key}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(fallback)}</span>`;
+  }
   function commentPictureHTML(asset, emoji, label = '') {
     return `<span class="comment-picture" ${label ? `role="img" aria-label="${escapeHtml(label)}"` : 'aria-hidden="true"'}><img class="comment-asset" src="${escapeHtml(asset)}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(emoji)}</span>`;
   }
-  function commentIconHTML(emoji) {
+  function commentIconHTML(emoji, fallback = emoji) {
     const key = emoji.replace(/[\uFE0E\uFE0F]/g,'');
     if (Object.hasOwn(COMMENT_SYMBOL_KEYS,key)) {
       const symbol=COMMENT_SYMBOL_KEYS[key],[label,art]=COMMENT_SYMBOLS[symbol];
-      return `<span class="comment-drawing" data-comment-symbol="${symbol}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(emoji)}</span>`;
+      return `<span class="comment-drawing" data-comment-symbol="${symbol}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(fallback)}</span>`;
     }
     if (Object.hasOwn(COMMENT_CARE,key)) {
-      const icon=COMMENT_CARE[key];return careIconHTML(icon,COMMENT_LABELS[icon],emoji);
+      const icon=COMMENT_CARE[key];return careIconHTML(icon,COMMENT_LABELS[icon],fallback);
     }
     if (Object.hasOwn(COMMENT_UI,key)) {
-      const icon=COMMENT_UI[key];return uiIconHTML(icon,COMMENT_LABELS[icon],emoji);
+      const icon=COMMENT_UI[key];return uiIconHTML(icon,COMMENT_LABELS[icon],fallback);
     }
     return '';
   }
@@ -9525,13 +9585,15 @@
 
   function showStoryEvent(event) {
     audio.play('notify');
+    const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
+      : event.environmentMoment ? commentAnimalVisual(event.emoji) : null;
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
+    else if (event.achievement) el.storyFlashEmoji.innerHTML = achievementIconHTML(event.achievement);
     else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
-    else setCommentText(el.storyFlashEmoji, event.emoji, true);
-    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true,
-      event.character ? commentActorVisual({...event.character,kind:'partner'}) : null);
+    else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
+    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
@@ -10751,7 +10813,7 @@
     const isNew = (ach) => at[ach.id] && now - at[ach.id] < 24 * 60 * 60 * 1000;
     const cell = (ach) => {
       const known = unlockedSet.has(ach.id);
-      const emoji = known ? ach.emoji : '🔒';
+      const emoji = known ? achievementIconHTML(ach) : commentIconHTML('🔒');
       const badge = known && isNew(ach) ? '<span class="ach-new">NEW</span>' : '';
       return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}${badge}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
     };
@@ -10760,22 +10822,22 @@
     const tierChips = ACHIEVEMENT_TIERS.map((tier) => {
       const list = ACHIEVEMENTS.filter((a) => a.tier === tier.id);
       const done = list.filter((a) => unlockedSet.has(a.id)).length;
-      return `<span class="ach-tier-chip ${done === list.length ? 'done' : ''}" title="${tier.label}">${tier.emoji}${done}/${list.length}</span>`;
+      return `<span class="ach-tier-chip ${done === list.length ? 'done' : ''}" title="${tier.label}">${commentTextHTML(tier.emoji)}${done}/${list.length}</span>`;
     }).join('');
     const nextGoals = ACHIEVEMENTS.filter((a) => !unlockedSet.has(a.id)).slice(0, 3);
     const recent = ACHIEVEMENTS.filter((a) => unlockedSet.has(a.id) && at[a.id]).sort((a, b) => at[b.id] - at[a.id]).slice(0, 3);
     const headline = unlockedCount >= ACHIEVEMENTS.length ? '👑 ぜんぶ かいほう!' : `あと${ACHIEVEMENTS.length - unlockedCount}こ`;
-    let html = `<div class="records-summary ach-summary"><div class="records-head"><span class="records-title">🏅 じっせきの まとめ</span><span class="records-headline">${headline}</span></div>`
+    let html = `<div class="records-summary ach-summary"><div class="records-head"><span class="records-title">${commentIconHTML('🏅')} じっせきの まとめ</span><span class="records-headline">${commentTextHTML(headline)}</span></div>`
       + `<div class="records-row"><span class="records-label">かいほう</span><span class="records-bar"><span class="records-bar-fill ach-fill" style="width:${(unlockedCount / total * 100).toFixed(1)}%"></span></span><span class="records-num">${unlockedCount}/${ACHIEVEMENTS.length}</span></div>`
       + `<div class="ach-tier-chips">${tierChips}</div>`
-      + (recent.length ? `<div class="ach-mini-list"><span class="ach-mini-title">さいきん かいほう</span>${recent.map((a) => `<span class="ach-mini ${isNew(a) ? 'new' : ''}">${a.emoji}${a.label}</span>`).join('')}</div>` : '')
-      + (nextGoals.length ? `<div class="ach-mini-list"><span class="ach-mini-title">つぎの もくひょう</span>${nextGoals.map((a) => `<span class="ach-mini goal">${a.emoji}${a.label}</span>`).join('')}</div>` : '')
+      + (recent.length ? `<div class="ach-mini-list"><span class="ach-mini-title">さいきん かいほう</span>${recent.map((a) => `<span class="ach-mini ${isNew(a) ? 'new' : ''}">${achievementIconHTML(a)}${a.label}</span>`).join('')}</div>` : '')
+      + (nextGoals.length ? `<div class="ach-mini-list"><span class="ach-mini-title">つぎの もくひょう</span>${nextGoals.map((a) => `<span class="ach-mini goal">${achievementIconHTML(a)}${a.label}</span>`).join('')}</div>` : '')
       + '</div>';
     for (const tier of ACHIEVEMENT_TIERS) {
       const list = ACHIEVEMENTS.filter((a) => a.tier === tier.id);
       if (!list.length) continue;
       const done = list.filter((a) => unlockedSet.has(a.id)).length;
-      html += `<div class="game-section-title"><span>${tier.emoji} ${tier.label}</span><span class="game-section-meta">${done}/${list.length}${done === list.length ? ' ✅' : ''}</span></div>`;
+      html += `<div class="game-section-title"><span>${commentTextHTML(tier.emoji)} ${tier.label}</span><span class="game-section-meta">${done}/${list.length}${done === list.length ? ' '+commentIconHTML('✅') : ''}</span></div>`;
       html += list.map(cell).join('');
     }
     el.achGrid.innerHTML = html;
@@ -11763,7 +11825,7 @@
       el.pickerGrid.className = 'ach-grid';
       html = ACHIEVEMENTS.filter((ach) => !state.achievementsUnlocked.includes(ach.id)).map((ach) => `
         <div class="ach-cell locked pickable" data-picker-value="${ach.id}">
-          <span class="ach-cell-emoji">${ach.emoji}</span>
+          <span class="ach-cell-emoji">${achievementIconHTML(ach)}</span>
           <div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div>
         </div>
       `).join('');
@@ -12260,7 +12322,7 @@
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             if (m.money) state.lifetime.money += m.money;
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
-            showStoryEvent({ emoji: m.emoji, message: m.message });
+            showStoryEvent({ emoji: m.emoji, message: m.message, environmentMoment: true });
             emotePet(m.happiness < 0 ? 'sad' : 'happy');
             saveState();
             render();
@@ -12626,7 +12688,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
