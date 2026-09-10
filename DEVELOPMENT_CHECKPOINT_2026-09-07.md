@@ -1744,3 +1744,11 @@ Runtime smoke test SUCCESS確認済み。
 承認済み301画像のバイト変更0、安定ID・旧セーブ互換を保持。公式ブラウザーはタイムアウトし
 今回のゲーム実画面取得0件。上のBJ以前の実画面報告を今回の修正後の実測に数えず、
 がたつきの原因未確定・実機未確認を維持。既存ユーザー確認は暫定OKを含め保持し、全体開発を継続する。
+
+## チェックポイント BK — 復帰不能バグの封じ込め と ほぞん容量ぎれの けんち(2026-09-10)
+- `mgRunTagged()` に catch を追加: ゲームのセッション中(start/フレーム/タイマー)で例外が出たら `handleMinigameCrash()` → `reportRuntimeError()` に記録し `retireMinigame()`(ばつ なし)でオーバーレイを閉じ、メッセージで知らせる。ゲーム外の例外はそのまま投げる。
+- `reportRuntimeError(err, where)`: 最近20件を `globalThis.__naotocchiErrors` に保持。`window` の `error` / `unhandledrejection` も記録(がめんは止めない)。
+- `saveState()`: `QuotaExceededError`(name/code 22/1014/メッセージ)を `isQuotaError()` で判定し、じどうバックアップ(`SAVE_SNAP_KEY`)を消して1回だけ再試行。それでも失敗なら `noteStorageWarning(true)`(5分に1回 `setMessage` で警告、`where:'storage'` として記録)。成功したら警告を解除。
+- `render()` の `regionLabel`/`seasonLabel`/`partnerLabel`/`endingBadges` の innerHTML を `setHTMLIfChanged()` で「変わったときだけ」に。
+- テスト: minigame-lifecycle に「フレームで throw するゲームは閉じられ、報酬なし、次のゲームが動く」「start で throw」、save-recovery に「容量ぎれでスナップ削除→再試行で保存」「常に容量ぎれなら記録して警告」。`npm test` 165件通過。全100ゲーム スイープ ページエラー 0。
+

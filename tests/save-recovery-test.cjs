@@ -231,3 +231,26 @@ test('import from backup recovery with no primary retains the former life after 
   assert.equal(boot(storage).api.state().lifetime.money,99);
   assert.ok(JSON.parse(storage.getItem(SNAPS)).some(s=>s.raw===good));
 });
+
+test('a full storage drops the automatic snapshots and still writes the primary save', () => {
+  const SNAPS = 'naotocchi-save-v1-snaps';
+  const storage = storageWith([[SAVE, savedLife()], [SNAPS, '[]']]), h = boot(storage);
+  let failsLeft = 1;
+  const plainSet = storage.setItem.bind(storage);
+  storage.setItem = (key, value) => {
+    if (key === SAVE && failsLeft > 0) { failsLeft--; const e = new Error('The quota has been exceeded.'); e.name = 'QuotaExceededError'; throw e; }
+    return plainSet(key, value);
+  };
+  h.api.state().lifetime.money = 999;
+  h.api.saveState();
+  assert.equal(storage.data.has(SNAPS), false, 'snapshots are pruned first');
+  assert.match(storage.data.get(SAVE), /"money":999/, 'the primary save is retried and written');
+});
+
+test('a permanently full storage warns instead of failing silently', () => {
+  const storage = storageWith([[SAVE, savedLife()]]), h = boot(storage);
+  storage.setItem = () => { const e = new Error('quota'); e.name = 'QuotaExceededError'; throw e; };
+  h.api.state().lifetime.money = 555;
+  h.api.saveState();
+  assert.ok(h.sandbox.__naotocchiErrors.some(e => e.where === 'storage'), 'the quota failure is recorded and surfaced');
+});

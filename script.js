@@ -2327,6 +2327,36 @@
     return achievedGoalTiers();
   }
 
+  // --- じっこう中の エラーの きろく(さいきん 20けん)。がめんは とめない ---
+  const runtimeErrors = [];
+  function reportRuntimeError(err, where) {
+    const entry = { at: Date.now(), where, message: err && err.message ? String(err.message) : String(err), stack: err && err.stack ? String(err.stack).slice(0, 600) : '' };
+    runtimeErrors.push(entry);
+    if (runtimeErrors.length > 20) runtimeErrors.shift();
+    try { console.error('[naotocchi]', where, err); } catch (e) { /* ignore */ }
+    return entry;
+  }
+  globalThis.__naotocchiErrors = runtimeErrors;
+  if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+    window.addEventListener('error', (ev) => { if (ev && (ev.error || ev.message)) reportRuntimeError(ev.error || ev.message, 'window'); });
+    window.addEventListener('unhandledrejection', (ev) => { reportRuntimeError(ev && ev.reason, 'promise'); });
+  }
+  // --- ほぞん容量ぎれ(QuotaExceeded)の けんち ---
+  function isQuotaError(e) {
+    return !!e && (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED' || e.code === 22 || e.code === 1014 || /quota/i.test(String(e.message || e)));
+  }
+  let storageWarnedAt = 0;
+  let storageWarning = false;
+  function noteStorageWarning(on) {
+    storageWarning = on;
+    if (!on) return;
+    const now = Date.now();
+    if (storageWarnedAt && now - storageWarnedAt < 5 * 60 * 1000) return;
+    storageWarnedAt = now;
+    reportRuntimeError(new Error('localStorage quota exceeded'), 'storage');
+    try { setMessage('⚠️ ほぞんできない: ブラウザの ほぞん容量が いっぱい。「データ」の セーブコードを ひかえて、ほかのサイトのデータを けしてみて'); } catch (e) { /* ignore */ }
+  }
+
   // セーブコードの よみこみ中は、ページを とじる ときの じどうセーブで
   // よみこんだ セーブを うわがきしない ように とめる
   let saveLocked = false;
@@ -2349,13 +2379,30 @@
       lastGoodSaveRaw = raw;
       stateLoadRecovered = false;
       takeSaveSnapshot(raw);
+      if (storageWarning) noteStorageWarning(false);
     } catch (e) {
-      // storage unavailable; ignore
+      if (!isQuotaError(e)) return; // storage unavailable; ignore
+      // 容量ぎれ: じどうバックアップ(3世代)を けして もういちど だけ ためす。
+      // それでも だめなら、ほぞんできない ことを がめんに 出す
+      try {
+        localStorage.removeItem(SAVE_SNAP_KEY);
+        localStorage.setItem(SAVE_KEY, raw);
+        lastGoodSaveRaw = raw;
+        stateLoadRecovered = false;
+        noteStorageWarning(false);
+      } catch (e2) {
+        noteStorageWarning(true);
+      }
     }
   }
 
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
+  }
+  // innerHTML の かきかえは、なかみが かわった ときだけ(3秒ごとの render で
+  // おなじ HTML を くみなおさない)
+  function setHTMLIfChanged(node, html) {
+    if (node && node.innerHTML !== html) node.innerHTML = html;
   }
 
   // 0 (freshly hatched) -> 1 (elder age) - every minigame scales its own
@@ -10473,13 +10520,13 @@
     applyTheme();
 
     const region = applyRegion();
-    el.regionLabel.innerHTML = `${environmentIconHTML('region',region.id,region.emoji)} ${escapeHtml(region.label)}`;
+    setHTMLIfChanged(el.regionLabel, `${environmentIconHTML('region',region.id,region.emoji)} ${escapeHtml(region.label)}`);
     const effectiveSeason = getEffectiveSeason();
     const seasonInfo = SEASON_INFO[effectiveSeason];
-    el.seasonLabel.innerHTML = seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '';
-    el.partnerLabel.innerHTML = state.partner
+    setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
+    setHTMLIfChanged(el.partnerLabel, state.partner
       ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}`
-      : '';
+      : '');
     el.partnerLabel.title = state.partner
       ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
@@ -10488,7 +10535,7 @@
     el.commBtn.classList.toggle('hidden', isEgg || isOver);
 
     const endingTiersReached = state.lifetime.endingTiersReached;
-    el.endingBadges.innerHTML = [...endingTiersReached]
+    setHTMLIfChanged(el.endingBadges, [...endingTiersReached]
       // tier0の🎉は「100さいクリア済み」の証。セーブに古い値が残っても
       // clears===0なら画面には絶対に出さない。
       .filter((tierIndex) => tierIndex !== 0 || (state.lifetime.clears || 0) > 0)
@@ -10497,7 +10544,7 @@
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;
         return `<button type="button" class="ending-badge" data-title="${ENDING_TIER_ICONS[tierIndex]} ${label}をたっせいずみ" title="${label}" aria-label="${label}をたっせいずみ">${endingBadgeIconHTML(tierIndex)}</button>`;
       })
-      .join('');
+      .join(''));
 
     renderCompanionRow();
     renderPartnerCompanion(isEgg || isOver);
@@ -13233,9 +13280,33 @@
     mgCodeSession = session;
     try {
       return fn.apply(thisArg, args);
+    } catch (err) {
+      // ゲームの コード(フレーム/タイマー/はじめの start)が 例外で とまっても、
+      // がめんが ひらきっぱなしで もどれなく ならない ように、その ゲームを
+      // 「やめた」あつかいで とじる(ばつ なし)。ゲームの そとの 例外は そのまま なげる
+      if (session && session === mgSession && gameActive) { handleMinigameCrash(err); return undefined; }
+      throw err;
     } finally {
       mgCodeDepth = prevDepth;
       mgCodeSession = prevSession;
+    }
+  }
+  let mgCrashHandling = false;
+  function handleMinigameCrash(err) {
+    if (mgCrashHandling) return;
+    mgCrashHandling = true;
+    try {
+      reportRuntimeError(err, 'minigame');
+      const game = activeMinigame;
+      const name = game && minigameInfo(game).name ? minigameInfo(game).name : 'ミニゲーム';
+      retireMinigame();
+      setMessage(`⚠️ ${name}でエラーがおきたので、とちゅうでおわりにした(ばつはなし)`);
+      render();
+    } catch (e2) {
+      // ここで さらに こけても ゲームぜんたいは とめない
+      try { closeMinigameScreen(); } catch (e3) { /* ignore */ }
+    } finally {
+      mgCrashHandling = false;
     }
   }
   function mgTagNow() {
