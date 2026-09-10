@@ -11,7 +11,35 @@ test('static script exposes the same interface on window', () => {
   const context = { window: {}, URL, URLSearchParams, AbortController, Date, Promise, setTimeout, clearTimeout };
   vm.runInNewContext(fs.readFileSync(require.resolve('../world-environment.js'), 'utf8'), context);
   assert.deepEqual(Object.keys(context.window.NaotocchiEnvironment).sort(),
-    ['createTracker', 'municipalityFromResponse', 'timeOfDay', 'weatherFromResponse']);
+    ['createTracker', 'municipalityFromResponse', 'simulatedWeather', 'timeOfDay', 'weatherFromResponse']);
+});
+
+test('simulated weather is deterministic per 3-hour block and region', () => {
+  const a = env.simulatedWeather('forest', 'spring', new Date(2026, 8, 10, 13, 5));
+  const b = env.simulatedWeather('forest', 'spring', new Date(2026, 8, 10, 14, 50));
+  assert.deepEqual(a, b);
+  assert.equal(a.simulated, true);
+  assert.match(a.label, /^(はれ|くもり|あめ|ゆき)$/);
+  const modes = new Set();
+  for (let day = 1; day <= 28; day++) for (let h = 0; h < 24; h += 3) modes.add(env.simulatedWeather('home', 'spring', new Date(2026, 3, day, h)).mode);
+  assert.ok(modes.size >= 3, 'a month of home weather covers several modes: ' + [...modes]);
+});
+
+test('simulated weather follows the region climate and the season', () => {
+  const count = (region, season) => {
+    const c = { sunny: 0, cloudy: 0, rain: 0, snow: 0 };
+    for (let day = 1; day <= 28; day++) for (let h = 0; h < 24; h += 3) c[env.simulatedWeather(region, season, new Date(2026, 0, day, h)).mode]++;
+    return c;
+  };
+  const desert = count('desert', 'summer');
+  assert.ok(desert.sunny > desert.rain + desert.cloudy, 'desert is mostly sunny: ' + JSON.stringify(desert));
+  assert.equal(desert.snow, 0);
+  const snowWinter = count('snow', 'winter');
+  assert.ok(snowWinter.snow >= snowWinter.sunny, 'snow country in winter snows a lot: ' + JSON.stringify(snowWinter));
+  const seaSummer = count('sea', 'summer');
+  assert.equal(seaSummer.snow, 0);
+  const homeWinter = count('home', 'winter');
+  assert.ok(homeWinter.snow > 0, 'home can snow in winter');
 });
 
 function response(body, ok = true) {

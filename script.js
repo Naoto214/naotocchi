@@ -948,6 +948,9 @@
     sfxModeGrid: document.getElementById('sfxModeGrid'),
     bgmModeGrid: document.getElementById('bgmModeGrid'),
     weatherModeGrid: document.getElementById('weatherModeGrid'),
+    weatherFx: document.getElementById('weatherFx'),
+    timeTint: document.getElementById('timeTint'),
+    worldNowCard: document.getElementById('worldNowCard'),
     environmentLabel: document.getElementById('environmentLabel'),
     worldLocationLabel: document.getElementById('worldLocationLabel'),
     environmentStatus: document.getElementById('environmentStatus'),
@@ -1441,6 +1444,12 @@
         seasonMode: 'auto',
         timeMode: 'auto',
         weatherMode: 'auto',
+        // せかい(てんき・じかんたい)の きろく: 見た てんき/じかんたい、
+        // てんき・じかんたい ごとの あそんだ かいすう、できごとの かいすう
+        weatherSeen: [],
+        timeSeen: [],
+        envPlays: {},
+        envMoments: 0,
         // ミニゲームの むずかしさ(easy/normal/hard)と おとの せってい
         minigameDifficulty: 'normal',
         soundSfx: true,
@@ -1858,103 +1867,121 @@
   // とどかない ものに なって しまうため
   const ACHIEVEMENTS = [
     // --- かんたん(ふつうに あそんでいれば すぐ とどく) ---
-    { id: 'evolve-1', emoji: '🌱', label: 'はじめのいっぽ', desc: 'はじめてそだちがあがった', condition: (l) => l.evolutions >= 1 },
-    { id: 'devolve-1', emoji: '👶', label: 'はじめてのおとろえ', desc: 'はじめてそだちがさがった', condition: (l) => l.devolutions >= 1 },
-    { id: 'transform-1', emoji: '✨', label: 'はじめてのへんしん', desc: 'はじめてへんしんした', condition: (l) => l.transforms >= 1 },
-    { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', condition: (l) => l.deaths >= 1 },
-    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを50かいあそんだ', condition: (l) => l.minigamesPlayed >= 50 },
-    { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
-    { id: 'games-played-25', emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', condition: (l) => countMinigamesPlayed(l) >= 25 },
-    { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', condition: (l) => l.sicknessCured >= 1 },
-    { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', condition: (l) => l.maxAgeReached >= 10 },
-    { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'アイテムをはじめてこうにゅうした', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', condition: (l) => (l.consumablesUsed || 0) >= 1 },
-    { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: 'しょじきんが100にとうたつした', condition: (l) => l.money >= 100 },
-    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域をおとずれた', condition: (l) => l.regionsVisited.length >= 3 },
+    { id: 'evolve-1', emoji: '🌱', label: 'はじめのいっぽ', desc: 'はじめてそだちがあがった', tier: 'easy', condition: (l) => l.evolutions >= 1 },
+    { id: 'devolve-1', emoji: '👶', label: 'はじめてのおとろえ', desc: 'はじめてそだちがさがった', tier: 'easy', condition: (l) => l.devolutions >= 1 },
+    { id: 'transform-1', emoji: '✨', label: 'はじめてのへんしん', desc: 'はじめてへんしんした', tier: 'easy', condition: (l) => l.transforms >= 1 },
+    { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', tier: 'easy', condition: (l) => l.deaths >= 1 },
+    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを50かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 50 },
+    { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
+    { id: 'games-played-25', emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
+    { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
+    { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
+    { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'アイテムをはじめてこうにゅうした', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
+    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: 'しょじきんが100にとうたつした', tier: 'easy', condition: (l) => l.money >= 100 },
+    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域をおとずれた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
 
     // --- やや かんたん ---
-    { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちがのべ10あがった', condition: (l) => l.evolutions >= 10 },
-    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちがのべ5さがった', condition: (l) => l.devolutions >= 5 },
-    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '10かいへんしんした', condition: (l) => l.transforms >= 10 },
-    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを10かいなおした', condition: (l) => l.sicknessCured >= 10 },
-    { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', condition: (l) => l.maxAgeReached >= 25 },
-    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', condition: (l, s) => s.discoveredStages.length >= 25 },
-    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: '1しょうがいでごはんを100かいあげた', condition: (l, s) => s.actionCounts.feed >= 100 },
-    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: '1しょうがいで100かいあそんだ', condition: (l, s) => s.actionCounts.play >= 100 },
-    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を100かいした', condition: (l, s) => s.actionCounts.pet >= 100 },
-    { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: 'ひとつの人生で「じゃれる」を100かいした', condition: (l, s) => s.actionCounts.talk >= 100 },
-    { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'やさしいせんたくを1しょうがいで10かいした', condition: (l, s) => s.traitCounts.gentle >= 10 },
-    { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ゆうかんなせんたくを1しょうがいで10かいした', condition: (l, s) => s.traitCounts.brave >= 10 },
-    { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ロマンチックなせんたくを1しょうがいで10かいした', condition: (l, s) => s.traitCounts.romantic >= 10 },
-    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', condition: (l) => l.companionsRecruited.length >= 1 },
-    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', condition: (l) => l.partnersRecorded.length >= 1 },
-    { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: 'しょじきんが500にとうたつした', condition: (l) => l.money >= 500 },
+    { id: 'time-all', emoji: '🕰️', label: 'いちにちの ともだち', desc: 'あさ・ひる・ゆう・よるを ぜんぶ すごした', tier: 'easy2', condition: (l) => (l.timeSeen || []).length >= 4 },
+    { id: 'rain-play', emoji: '☔', label: 'あめの日の あそび', desc: 'あめの日に ミニゲームで あそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).rain || 0) >= 1 },
+    { id: 'snow-play', emoji: '⛄', label: 'ゆきの日の あそび', desc: 'ゆきの日に ミニゲームで あそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).snow || 0) >= 1 },
+    { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちがのべ10あがった', tier: 'easy2', condition: (l) => l.evolutions >= 10 },
+    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちがのべ5さがった', tier: 'easy2', condition: (l) => l.devolutions >= 5 },
+    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '10かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 10 },
+    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを10かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 10 },
+    { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },
+    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => s.discoveredStages.length >= 25 },
+    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: '1しょうがいでごはんを100かいあげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 100 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: '1しょうがいで100かいあそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 100 },
+    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 100 },
+    { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.talk >= 100 },
+    { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'やさしいせんたくを1しょうがいで10かいした', tier: 'easy2', condition: (l, s) => s.traitCounts.gentle >= 10 },
+    { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ゆうかんなせんたくを1しょうがいで10かいした', tier: 'easy2', condition: (l, s) => s.traitCounts.brave >= 10 },
+    { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ロマンチックなせんたくを1しょうがいで10かいした', tier: 'easy2', condition: (l, s) => s.traitCounts.romantic >= 10 },
+    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => l.companionsRecruited.length >= 1 },
+    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => l.partnersRecorded.length >= 1 },
+    { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: 'しょじきんが500にとうたつした', tier: 'easy2', condition: (l) => l.money >= 500 },
 
     // --- ふつう ---
-    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '5かいてんごくにいった', condition: (l) => l.deaths >= 5 },
-    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを300かいあそんだ', condition: (l) => l.minigamesPlayed >= 300 },
-    { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', condition: (l) => countMinigamesPlayed(l) >= 60 },
-    { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
-    { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', condition: (l) => l.maxAgeReached >= 50 },
-    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', condition: (l, s) => s.discoveredStages.length >= 50 },
-    { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ50かい', desc: '1しょうがいでそうじを50かいした', condition: (l, s) => s.actionCounts.clean >= 50 },
-    { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', condition: (l) => (l.resets || 0) >= 5 },
-    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', condition: (l) => l.companionsRecruited.length >= 5 },
-    { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', condition: (l, s) => s.companions.length >= 5 },
-    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', condition: (l) => l.partnersMarried.length >= 1 },
+    { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: 'はれ・くもり・あめ・ゆきを ぜんぶ 見た', tier: 'normal', condition: (l) => (l.weatherSeen || []).length >= 4 },
+    { id: 'night-play-10', emoji: '🦉', label: 'よふかし', desc: 'よるに ミニゲームで 10かい あそんだ', tier: 'normal', condition: (l) => ((l.envPlays || {}).night || 0) >= 10 },
+    { id: 'env-moments-10', emoji: '🍃', label: 'せかいを かんじる', desc: 'てんきや じかんの できごとに 10かい であった', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
+    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '5かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 5 },
+    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを300かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
+    { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
+    { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
+    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => s.discoveredStages.length >= 50 },
+    { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ50かい', desc: '1しょうがいでそうじを50かいした', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
+    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
+    { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
+    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
 
     // --- そだち・いっしょう(あたらしい じっせき) ---
-    { id: 'sodachi-70', emoji: '🌟', label: 'よくそだてた', desc: 'そだちが70にとうたつした', condition: (l) => (l.bestSodachi || 0) >= 70 },
-    { id: 'sodachi-90', emoji: '💫', label: 'でんせつのそだて', desc: 'そだちが90にとうたつした', condition: (l) => (l.bestSodachi || 0) >= 90 },
-    { id: 'sodachi-100', emoji: '👑', label: 'さいこうのそだち', desc: 'そだちが100にとうたつした', condition: (l) => (l.bestSodachi || 0) >= 100 },
-    { id: 'lifeclear-1', emoji: '🎊', label: 'はじめてのいっしょうクリア', desc: '100さいまでいき、そだち70いじょうにとどいた', condition: (l) => (l.lifeClears || 0) >= 1 },
-    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい10しゅう', desc: 'いっしょうクリアを10かいした', condition: (l) => (l.lifeClears || 0) >= 10 },
-    { id: 'bestlife-1', emoji: '🌈', label: 'さいこうのいっしょう', desc: '100さいまでいき、そだち100にとうたつした', condition: (l) => (l.bestLives || 0) >= 1 },
-    { id: 'pastlives-10', emoji: '📔', label: 'じゅうにんのなおとっち', desc: '10にんのなおとっちをそだてた', condition: (l) => (l.pastLives || []).length >= 10 },
-    { id: 'nodecline', emoji: '🕊️', label: 'いちどもおとろえなかった', desc: 'そだちを一度も下げずに100さいまでいきた', condition: (l) => (l.flawlessLives || 0) >= 1 },
+    { id: 'sodachi-70', emoji: '🌟', label: 'よくそだてた', desc: 'そだちが70にとうたつした', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 70 },
+    { id: 'sodachi-90', emoji: '💫', label: 'でんせつのそだて', desc: 'そだちが90にとうたつした', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 90 },
+    { id: 'sodachi-100', emoji: '👑', label: 'さいこうのそだち', desc: 'そだちが100にとうたつした', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 100 },
+    { id: 'lifeclear-1', emoji: '🎊', label: 'はじめてのいっしょうクリア', desc: '100さいまでいき、そだち70いじょうにとどいた', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 1 },
+    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい10しゅう', desc: 'いっしょうクリアを10かいした', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 10 },
+    { id: 'bestlife-1', emoji: '🌈', label: 'さいこうのいっしょう', desc: '100さいまでいき、そだち100にとうたつした', tier: 'life', condition: (l) => (l.bestLives || 0) >= 1 },
+    { id: 'pastlives-10', emoji: '📔', label: 'じゅうにんのなおとっち', desc: '10にんのなおとっちをそだてた', tier: 'life', condition: (l) => (l.pastLives || []).length >= 10 },
+    { id: 'nodecline', emoji: '🕊️', label: 'いちどもおとろえなかった', desc: 'そだちを一度も下げずに100さいまでいきた', tier: 'life', condition: (l) => (l.flawlessLives || 0) >= 1 },
 
     // --- ややむずかしい ---
-    { id: 'evolve-50', emoji: '🌳', label: 'そだちのあしあと', desc: 'そだちがのべ50あがった', condition: (l) => l.evolutions >= 50 },
-    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちがのべ20さがった', condition: (l) => l.devolutions >= 20 },
-    { id: 'transform-25', emoji: '💫', label: 'へんしん25れんぱつ', desc: '25かいへんしんした', condition: (l) => l.transforms >= 25 },
-    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '10かいてんごくにいった', condition: (l) => l.deaths >= 10 },
-    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを30かいなおした', condition: (l) => l.sicknessCured >= 30 },
-    { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', condition: (l) => l.maxAgeReached >= 100 },
-    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: '1しょうがいでくすりを30かいあげた', condition: (l, s) => s.actionCounts.medicine >= 30 },
-    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむすべての通常地域をおとずれた', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'evolve-50', emoji: '🌳', label: 'そだちのあしあと', desc: 'そだちがのべ50あがった', tier: 'hard1', condition: (l) => l.evolutions >= 50 },
+    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちがのべ20さがった', tier: 'hard1', condition: (l) => l.devolutions >= 20 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん25れんぱつ', desc: '25かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 25 },
+    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '10かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 10 },
+    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを30かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 30 },
+    { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
+    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: '1しょうがいでくすりを30かいあげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
+    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむすべての通常地域をおとずれた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
+    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
 
     // --- むずかしい ---
-    { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちがのべ100あがった', condition: (l) => l.evolutions >= 100 },
-    { id: 'clear-1', emoji: '🏅', label: 'てんじゅをまっとうした', desc: 'はじめて100さいまでいきた', condition: (l) => l.clears >= 1 },
-    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', condition: (l, s) => s.discoveredStages.length >= 100 },
-    { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつはかせ', desc: 'ふつうのしゅぞくすべてにであった', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを20かいむかえた', condition: (l) => (l.resets || 0) >= 20 },
-    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', condition: (l) => l.partnersMarried.length >= 3 },
-    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」でんせつアイテムをはじめててにいれた', condition: (l) => (l.ownedNaotoItems || []).length >= 1 },
+    { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちがのべ100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
+    { id: 'clear-1', emoji: '🏅', label: 'てんじゅをまっとうした', desc: 'はじめて100さいまでいきた', tier: 'hard2', condition: (l) => l.clears >= 1 },
+    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => s.discoveredStages.length >= 100 },
+    { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつはかせ', desc: 'ふつうのしゅぞくすべてにであった', tier: 'hard2', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
+    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを20かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 20 },
+    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => l.partnersMarried.length >= 3 },
+    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」でんせつアイテムをはじめててにいれた', tier: 'hard2', condition: (l) => (l.ownedNaotoItems || []).length >= 1 },
 
     // --- かなり むずかしい ---
-    { id: 'clear-5', emoji: '🏆', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', condition: (l) => l.clears >= 5 },
-    { id: 'minigame-1000', emoji: '🎰', label: '1000かいあそんだ', desc: 'ミニゲームを1000かいあそんだ', condition: (l) => l.minigamesPlayed >= 1000 },
-    { id: 'games-complete-100', emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
-    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '15しゅるいのゲームでSランク', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
-    { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '10しゅるいいじょうのさいごのすがたにであった', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
-    { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', condition: (l) => hasAllCurrentCompanions(l) },
-    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
+    { id: 'clear-5', emoji: '🏆', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 5 },
+    { id: 'minigame-1000', emoji: '🎰', label: '1000かいあそんだ', desc: 'ミニゲームを1000かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'games-complete-100', emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
+    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '15しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
+    { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', tier: 'hard3', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
+    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '10しゅるいいじょうのさいごのすがたにであった', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
+    { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', tier: 'hard3', condition: (l) => hasAllCurrentCompanions(l) },
+    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
 
     // --- 超むずかしい ---
-    { id: 'clear-10', emoji: '👑', label: 'とおのいっしょう', desc: '10かい100さいまでいきた', condition: (l) => l.clears >= 10 },
-    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', condition: (l, s) => s.discoveredStages.length >= 150 },
-    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員としりあった', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
+    { id: 'clear-10', emoji: '👑', label: 'とおのいっしょう', desc: '10かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 10 },
+    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => s.discoveredStages.length >= 150 },
+    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員としりあった', tier: 'hard4', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
 
     // --- きわめて むずかしい ---
-    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', condition: (l) => l.clears >= 25 },
-    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
-    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: 'みにつけるアイテムをぜんぶこうにゅうした', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみコンプリート', desc: 'おたのしみをぜんぶつかってみた', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'アイテムパーフェクトコレクション', desc: 'みにつけるものをぜんぶ集め、おたのしみもぜんぶ使った', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 25 },
+    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
+    { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: 'みにつけるアイテムをぜんぶこうにゅうした', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
+    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみコンプリート', desc: 'おたのしみをぜんぶつかってみた', tier: 'hard5', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'アイテムパーフェクトコレクション', desc: 'みにつけるものをぜんぶ集め、おたのしみもぜんぶ使った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+  ];
+  // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
+  const ACHIEVEMENT_TIERS = [
+    { id: 'easy', emoji: '🌱', label: 'かんたん' },
+    { id: 'easy2', emoji: '🍀', label: 'ややかんたん' },
+    { id: 'normal', emoji: '⭐', label: 'ふつう' },
+    { id: 'life', emoji: '🌳', label: 'そだち・いっしょう' },
+    { id: 'hard1', emoji: '🔥', label: 'ややむずかしい' },
+    { id: 'hard2', emoji: '💎', label: 'むずかしい' },
+    { id: 'hard3', emoji: '🏔️', label: 'かなりむずかしい' },
+    { id: 'hard4', emoji: '🌌', label: '超むずかしい' },
+    { id: 'hard5', emoji: '👑', label: 'きわめてむずかしい' },
   ];
 
   // ゲームきろく(じこベスト/ランク)を つかう じっせきの ための かぞえかた。
@@ -1977,6 +2004,8 @@
       if (state.achievementsUnlocked.includes(ach.id)) continue;
       if (!ach.condition(state.lifetime, state)) continue;
       state.achievementsUnlocked.push(ach.id);
+      // かいほうした ひづけ(じっせき画面の「さいきん」と NEW の しるしに つかう)
+      (state.lifetime.achievementUnlockedAt || (state.lifetime.achievementUnlockedAt = {}))[ach.id] = Date.now();
       // a minigame overlay owns the screen while gameActive - the unlock
       // is still recorded, just shown silently until it's safe to flash
       if (!gameActive) showStoryEvent({ emoji: ach.emoji, message: `じっせきかいほう!「${ach.label}」` });
@@ -9278,8 +9307,11 @@
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
       // ほどで お世話ぎれの 状態に なってしまっていた)
-      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor * legendFactor, 0, 100);
-      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor * legendFactor, 0, 100);
+      // てんき・じかんたい・きせつ・地域の こうか(envModifiers)
+      const envMod = envModifiers();
+      { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
+      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
@@ -9629,7 +9661,8 @@
   function scheduleCompanionEncounter() {
     // 1つの人生(100分)の中で通常なかま10人が十分そろえるよう、出会い間隔を短めにする。
     // そだち40以降は「なかまの わ」でさらに出会いやすくなる。
-    const delay = hasPerk(40) ? 90000 + Math.random() * 90000 : 120000 + Math.random() * 120000;
+    // てんき・じかんたい・きせつ・地域で であいやすさが かわる(envModifiers().meet)
+    const delay = (hasPerk(40) ? 90000 + Math.random() * 90000 : 120000 + Math.random() * 120000) / envModifiers().meet;
     setTimeout(() => {
       const remaining = COMPANIONS.filter((c) => !hasActiveCompanionId(c.id));
       // そだち80「レアの きざし」に とどいていると、ふつうの なかまの かわりに
@@ -10277,6 +10310,8 @@
     // かくれた ままなので、ここでは とめない
     const suppressFrontFx = gameActive || hasTransformChoice || isAnyMenuOverlayOpen();
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
+    if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
+    if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
 
     el.device.classList.toggle('ui-game-active', gameActive);
     el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
@@ -10413,13 +10448,42 @@
       renderGameList();
       return;
     }
-    const unlockedCount = state.achievementsUnlocked.length;
+    const unlockedSet = new Set(state.achievementsUnlocked);
+    const unlockedCount = ACHIEVEMENTS.filter((a) => unlockedSet.has(a.id)).length;
     el.achProgress.textContent = `${unlockedCount} / ${ACHIEVEMENTS.length}`;
-    el.achGrid.innerHTML = ACHIEVEMENTS.map((ach) => {
-      const known = state.achievementsUnlocked.includes(ach.id);
+    const at = state.lifetime.achievementUnlockedAt || {};
+    const now = Date.now();
+    const isNew = (ach) => at[ach.id] && now - at[ach.id] < 24 * 60 * 60 * 1000;
+    const cell = (ach) => {
+      const known = unlockedSet.has(ach.id);
       const emoji = known ? ach.emoji : '🔒';
-      return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
+      const badge = known && isNew(ach) ? '<span class="ach-new">NEW</span>' : '';
+      return `<div class="ach-cell ${known ? 'known' : 'locked'}"><span class="ach-cell-emoji">${emoji}</span><div class="ach-cell-text"><span class="ach-cell-label">${ach.label}${badge}</span><span class="ach-cell-desc">${ach.desc}</span></div></div>`;
+    };
+    // まとめカード: かいほう数の バー、だんかいごとの かず、さいきん、つぎの もくひょう
+    const total = ACHIEVEMENTS.length || 1;
+    const tierChips = ACHIEVEMENT_TIERS.map((tier) => {
+      const list = ACHIEVEMENTS.filter((a) => a.tier === tier.id);
+      const done = list.filter((a) => unlockedSet.has(a.id)).length;
+      return `<span class="ach-tier-chip ${done === list.length ? 'done' : ''}" title="${tier.label}">${tier.emoji}${done}/${list.length}</span>`;
     }).join('');
+    const nextGoals = ACHIEVEMENTS.filter((a) => !unlockedSet.has(a.id)).slice(0, 3);
+    const recent = ACHIEVEMENTS.filter((a) => unlockedSet.has(a.id) && at[a.id]).sort((a, b) => at[b.id] - at[a.id]).slice(0, 3);
+    const headline = unlockedCount >= ACHIEVEMENTS.length ? '👑 ぜんぶ かいほう!' : `あと${ACHIEVEMENTS.length - unlockedCount}こ`;
+    let html = `<div class="records-summary ach-summary"><div class="records-head"><span class="records-title">🏅 じっせきの まとめ</span><span class="records-headline">${headline}</span></div>`
+      + `<div class="records-row"><span class="records-label">かいほう</span><span class="records-bar"><span class="records-bar-fill ach-fill" style="width:${(unlockedCount / total * 100).toFixed(1)}%"></span></span><span class="records-num">${unlockedCount}/${ACHIEVEMENTS.length}</span></div>`
+      + `<div class="ach-tier-chips">${tierChips}</div>`
+      + (recent.length ? `<div class="ach-mini-list"><span class="ach-mini-title">さいきん かいほう</span>${recent.map((a) => `<span class="ach-mini ${isNew(a) ? 'new' : ''}">${a.emoji}${a.label}</span>`).join('')}</div>` : '')
+      + (nextGoals.length ? `<div class="ach-mini-list"><span class="ach-mini-title">つぎの もくひょう</span>${nextGoals.map((a) => `<span class="ach-mini goal">${a.emoji}${a.label}</span>`).join('')}</div>` : '')
+      + '</div>';
+    for (const tier of ACHIEVEMENT_TIERS) {
+      const list = ACHIEVEMENTS.filter((a) => a.tier === tier.id);
+      if (!list.length) continue;
+      const done = list.filter((a) => unlockedSet.has(a.id)).length;
+      html += `<div class="game-section-title"><span>${tier.emoji} ${tier.label}</span><span class="game-section-meta">${done}/${list.length}${done === list.length ? ' ✅' : ''}</span></div>`;
+      html += list.map(cell).join('');
+    }
+    el.achGrid.innerHTML = html;
   }
 
   // 「ゲームきろく」タブ: ぜんゲームを ジャンルごとに ならべ、じこベスト・
@@ -11660,6 +11724,256 @@
   const BGM_CHOICES = { on: ['🎵', 'BGM ON'], off: ['🔇', 'OFF'] };
   const TIME_CHOICES = {auto:['🕐','げんざい'],morning:['🌅','あさ'],day:['☀️','ひる'],evening:['🌇','ゆう'],night:['🌙','よる']};
   const WEATHER_CHOICES = {auto:['📍','げんざい'],sunny:['☀️','はれ'],cloudy:['☁️','くもり'],rain:['🌧️','あめ'],snow:['❄️','ゆき']};
+
+  // --- せかいの こうか: てんき・じかんたい・きせつ・地域 ごとの ステータス補正 ---
+  // happy/hunger: 自然減の ばいりつ(小さいほど さがりにくい)、sleep: ねむりの
+  // かいふく、play: ミニゲームの げんき消費、coin: ミニゲームの おかね、
+  // meet: なかまとの であいやすさ。text は せかい画面の せつめい
+  const ENV_EFFECTS = {
+    weather: {
+      sunny: { happy: 0.85, coin: 1.1, text: 'きげんが さがりにくい・ゲームの おかね+10%' },
+      cloudy: { meet: 1.15, text: 'なかまに であいやすい' },
+      rain: { happy: 1.15, meet: 0.7, coin: 1.15, text: 'きげんが さがりやすい・であいが へる・ゲームの おかね+15%' },
+      snow: { hunger: 1.1, play: 1.2, sleep: 1.15, text: 'おなかが すきやすい・あそぶと つかれやすい・ねると よく かいふく' },
+    },
+    time: {
+      morning: { sleep: 1.2, hunger: 1.1, text: 'ねむると かいふくが はやい・おなかが すきやすい' },
+      day: { coin: 1.1, text: 'ゲームの おかね+10%' },
+      evening: { happy: 0.9, text: 'きげんが さがりにくい' },
+      night: { happy: 1.1, meet: 0.6, sleep: 1.3, text: 'よふかしは きげんが さがりやすい・であいが へる・ねると よく かいふく' },
+    },
+    season: {
+      spring: { happy: 0.9, meet: 1.2, text: 'きげんが さがりにくい・であいが ふえる' },
+      summer: { play: 1.15, hunger: 1.1, coin: 1.05, text: 'あそぶと つかれやすい・おなかが すきやすい' },
+      autumn: { coin: 1.15, happy: 0.95, text: 'ゲームの おかね+15%' },
+      winter: { hunger: 1.15, sleep: 1.1, text: 'おなかが すきやすい・ねると よく かいふく' },
+    },
+    region: {
+      home: { text: 'おちつく' },
+      city: { coin: 1.1, text: 'ゲームの おかね+10%' },
+      countryside: { hunger: 0.9, text: 'おなかが すきにくい' },
+      forest: { meet: 1.3, text: 'なかまに であいやすい' },
+      mountain: { sleep: 1.1, play: 1.1, text: 'ねると よく かいふく・あそぶと つかれやすい' },
+      snow: { hunger: 1.1, text: 'おなかが すきやすい' },
+      sea: { meet: 1.2, happy: 0.95, text: 'なかまに であいやすい' },
+      deepsea: { happy: 0.9, meet: 0.8, text: 'きげんが さがりにくい・であいが へる' },
+      river_lake: { happy: 0.9, text: 'きげんが さがりにくい' },
+      jungle: { meet: 1.2, hunger: 1.1, text: 'なかまに であいやすい・おなかが すきやすい' },
+      desert: { hunger: 1.15, coin: 1.1, text: 'おなかが すきやすい・ゲームの おかね+10%' },
+      star_stop: { happy: 0.85, text: 'きげんが さがりにくい' },
+      memory_lake: { happy: 0.85, text: 'きげんが さがりにくい' },
+    },
+  };
+  // ジャンルごとの 出やすさ(ミニゲームの ちゅうせん)。1 より 大きいと 出やすい
+  const ENV_GAME_WEIGHTS = {
+    weather: {
+      sunny: { sports: 1.3, drive3d: 1.2, puzzle: 0.9 },
+      cloudy: { action: 1.1 },
+      rain: { puzzle: 1.6, board: 1.4, sports: 0.7, drive3d: 0.8 },
+      snow: { board: 1.2, sports: 0.8 },
+    },
+    time: {
+      morning: { sports: 1.2 },
+      day: { action: 1.1 },
+      evening: { drive3d: 1.2, sports: 1.1 },
+      night: { puzzle: 1.4, board: 1.3, action: 0.85 },
+    },
+    season: {
+      spring: { board: 1.1 },
+      summer: { sports: 1.3 },
+      autumn: { puzzle: 1.2 },
+      winter: { board: 1.2 },
+    },
+    region: {
+      city: { action: 1.2 }, countryside: { board: 1.2 }, forest: { puzzle: 1.2 }, mountain: { strategy: 1.1 },
+      snow: { strategy: 1.1 }, sea: { sports: 1.3, drive3d: 1.1 }, deepsea: { puzzle: 1.3 }, river_lake: { puzzle: 1.1 },
+      jungle: { action: 1.2 }, desert: { drive3d: 1.4 },
+    },
+  };
+  // てんきに ちなんだ ゲーム(id の パターン)は さらに 出やすく
+  const ENV_GAME_ID_BOOSTS = { snow: [/snow|ski|curling|downhill/i, 2], rain: [/fishing/i, 1.3], sunny: [/beach|summer|ring-flight/i, 1.3] };
+
+  // いまの てんき。じゅんばんに: 手で えらんだ もの → 現在地の 観測(2時間いない)
+  // → 地域の 気候からの 予想(simulatedWeather)。source で どれかを かえす
+  function effectiveWeather() {
+    const weatherMode = WEATHER_CHOICES[state.lifetime.weatherMode] ? state.lifetime.weatherMode : 'auto';
+    if (weatherMode !== 'auto') return { weather: weatherMode, source: 'manual' };
+    const snapshot = environmentTracker?.snapshot();
+    const observed = snapshot?.weather;
+    const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
+    if (fresh) return { weather: observed.mode, source: 'observed' };
+    const sim = window.NaotocchiEnvironment?.simulatedWeather?.(state.regionId, getEffectiveSeason());
+    return sim ? { weather: sim.mode, source: 'sim' } : { weather: null, source: 'none' };
+  }
+  function currentTimeOfDay() {
+    const mode = TIME_CHOICES[state.lifetime.timeMode] ? state.lifetime.timeMode : 'auto';
+    return window.NaotocchiEnvironment?.timeOfDay(mode) || 'day';
+  }
+  function currentEnvironment() {
+    const w = effectiveWeather();
+    return { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+  }
+  // 4つの こうかを かけあわせた ばいりつ(0.7〜1.5 に おさめる)
+  function envModifiers() {
+    const env = currentEnvironment();
+    const parts = [ENV_EFFECTS.weather[env.weather], ENV_EFFECTS.time[env.time], ENV_EFFECTS.season[env.season], ENV_EFFECTS.region[env.region]];
+    const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
+    for (const part of parts) { if (!part) continue; for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k]; }
+    for (const k of Object.keys(out)) out[k] = clamp(out[k], 0.7, 1.5);
+    return out;
+  }
+  function environmentGameWeight(game) {
+    const env = currentEnvironment();
+    const genre = minigameGenreId(game);
+    let w = 1;
+    for (const [kind, key] of [['weather', env.weather], ['time', env.time], ['season', env.season], ['region', env.region]]) {
+      const table = ENV_GAME_WEIGHTS[kind][key];
+      if (table && table[genre] != null) w *= table[genre];
+    }
+    const idBoost = ENV_GAME_ID_BOOSTS[env.weather];
+    if (idBoost && game.id && idBoost[0].test(game.id)) w *= idBoost[1];
+    return w;
+  }
+  // てんき/じかんたいの ジャンル補正を、せかい画面に 出す ための みじかい 文
+  function environmentGenreSummary() {
+    const env = currentEnvironment();
+    const totals = {};
+    for (const [kind, key] of [['weather', env.weather], ['time', env.time], ['season', env.season], ['region', env.region]]) {
+      const table = ENV_GAME_WEIGHTS[kind][key]; if (!table) continue;
+      for (const [genre, v] of Object.entries(table)) totals[genre] = (totals[genre] || 1) * v;
+    }
+    const up = [], down = [];
+    for (const genre of MINIGAME_GENRES) { const v = totals[genre.id]; if (!v) continue; if (v > 1.05) up.push(`${genre.emoji}${genre.label}`); else if (v < 0.95) down.push(`${genre.emoji}${genre.label}`); }
+    return { up, down };
+  }
+  // 見た てんき・じかんたい を きろく(じっせき用)。手で えらんだ ときは かぞえない
+  function noteEnvironmentSeen(time, weather, weatherSource) {
+    if (state.stage !== STAGE.GROWING) return;
+    const l = state.lifetime;
+    if (TIME_CHOICES[state.lifetime.timeMode] && state.lifetime.timeMode === 'auto') { l.timeSeen = l.timeSeen || []; if (time && !l.timeSeen.includes(time)) l.timeSeen.push(time); }
+    if (weather && weatherSource !== 'manual') { l.weatherSeen = l.weatherSeen || []; if (!l.weatherSeen.includes(weather)) l.weatherSeen.push(weather); }
+  }
+  function recordEnvironmentPlay() {
+    const env = currentEnvironment();
+    const plays = state.lifetime.envPlays || (state.lifetime.envPlays = {});
+    if (env.weather) plays[env.weather] = (plays[env.weather] || 0) + 1;
+    plays[env.time] = (plays[env.time] || 0) + 1;
+  }
+  function renderWorldNowCard(env) {
+    if (!el.worldNowCard) return;
+    const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
+    const weatherChip = env.weather ? `${WEATHER_CHOICES[env.weather][0]}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんき ふめい';
+    const season = SEASON_INFO[env.season];
+    const chips = [`${TIME_CHOICES[env.time][0]}${TIME_CHOICES[env.time][1]}`, weatherChip, `${season.emoji}${season.label}`, `${region.emoji}${region.label}`];
+    const effects = [
+      ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
+      ['time', env.time, TIME_CHOICES[env.time][0]],
+      ['season', env.season, season.emoji],
+      ['region', env.region, region.emoji],
+    ].map(([kind, key, icon]) => { const e = key && ENV_EFFECTS[kind][key]; return e && e.text ? `<div class="world-now-effect"><span class="icon">${icon}</span><span>${e.text}</span></div>` : ''; }).join('');
+    const g = environmentGenreSummary();
+    const games = g.up.length || g.down.length
+      ? `<div class="world-now-games">ゲームの 出やすさ: ${g.up.map((t) => `<span class="up">${t}↑</span>`).join(' ')} ${g.down.map((t) => `<span class="down">${t}↓</span>`).join(' ')}</div>`
+      : '';
+    el.worldNowCard.innerHTML = `<div class="world-now-head"><span class="world-now-title">いまの せかい</span>${chips.map((c) => `<span class="world-now-chip">${c}</span>`).join('')}</div><div class="world-now-effects">${effects}</div>${games}`;
+  }
+  // てんきの えんしゅつ(あめ・ゆき・くも・ひざし・よるの ほし)を つくりなおす。
+  // おなじ てんき・じかんたいの あいだは つくりなおさない
+  let weatherFxKey = '';
+  function applyWeatherFx(weather, time) {
+    if (!el.weatherFx) return;
+    const key = `${weather || 'none'}|${time}`;
+    if (key === weatherFxKey) return;
+    weatherFxKey = key;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const low = typeof mgPerfLow !== 'undefined' && mgPerfLow;
+    const items = [];
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    if (weather === 'rain') {
+      const n = low ? 18 : 42;
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-drop" style="left:${rnd(0, 100).toFixed(1)}%;animation-duration:${rnd(0.7, 1.2).toFixed(2)}s;animation-delay:${rnd(-1.2, 0).toFixed(2)}s;height:${Math.round(rnd(14, 24))}px;opacity:${rnd(0.4, 0.9).toFixed(2)}"></span>`);
+    } else if (weather === 'snow') {
+      const n = low ? 12 : 26;
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">❄</span>`);
+    } else if (weather === 'cloudy') {
+      const n = low ? 3 : 5;
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-cloud" style="top:${rnd(2, 22).toFixed(1)}%;font-size:${Math.round(rnd(30, 56))}px;animation-duration:${rnd(60, 110).toFixed(0)}s;animation-delay:${rnd(-100, 0).toFixed(0)}s">☁️</span>`);
+    } else if (weather === 'sunny' && time !== 'night') {
+      items.push('<span class="wx-sun"></span>');
+      const n = low ? 3 : 7;
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
+    }
+    if (time === 'night' && weather !== 'rain' && weather !== 'snow') {
+      const n = low ? 14 : 30;
+      for (let i = 0; i < n; i++) items.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 45).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
+      if (weather !== 'cloudy') items.push('<span class="wx-moon">🌙</span>');
+    }
+    el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)).join('') : items.join('');
+  }
+  // --- せかいの できごと: てんき・じかんたいに ちなんだ 小さな できごとが ときどき おこる ---
+  const ENV_MOMENTS = {
+    sunny: [
+      { emoji: '🌞', message: 'ひなたぼっこで ぽかぽか。げんき+5', energy: 5 },
+      { emoji: '🌈', message: 'にじを 見つけた!きげん+8', happiness: 8 },
+    ],
+    cloudy: [
+      { emoji: '☁️', message: 'くもを ながめて のんびり。げんき+3', energy: 3 },
+      { emoji: '🍃', message: 'すずしい かぜが ふいた。きげん+4', happiness: 4 },
+    ],
+    rain: [
+      { emoji: '☔', message: 'あまやどりしながら おしゃべり。きげん+6', happiness: 6 },
+      { emoji: '🐌', message: 'かたつむりを 見つけた。きげん+4', happiness: 4 },
+      { emoji: '🐸', message: 'かえるの がっしょうを きいた。きげん+3', happiness: 3 },
+    ],
+    snow: [
+      { emoji: '⛄', message: 'ゆきだるまを つくった!きげん+8 げんき-3', happiness: 8, energy: -3 },
+      { emoji: '❄️', message: 'ゆきを ぱくっと キャッチ。きげん+5', happiness: 5 },
+    ],
+    morning: [
+      { emoji: '🐦', message: 'ことりの こえで すっきり めざめ。げんき+4', energy: 4 },
+      { emoji: '🌄', message: 'あさひを あびて しんこきゅう。きげん+4', happiness: 4 },
+    ],
+    day: [
+      { emoji: '🦋', message: 'ちょうちょを おいかけた。きげん+4', happiness: 4 },
+    ],
+    evening: [
+      { emoji: '🌇', message: 'ゆうやけが きれい。きげん+6', happiness: 6 },
+      { emoji: '🦇', message: 'こうもりが とんでいった。ちょっと びっくり', happiness: 1 },
+    ],
+    night: [
+      { emoji: '⭐', message: 'ながれぼしに おねがい。💰+8', money: 8 },
+      { emoji: '🦉', message: 'ふくろうの こえ…ちょっと こわい。きげん-2', happiness: -2 },
+      { emoji: '🌙', message: 'つきが きれいだね。きげん+5', happiness: 5 },
+    ],
+  };
+  function scheduleEnvironmentMoment() {
+    const delay = 150000 + Math.random() * 150000;
+    setTimeout(() => {
+      try {
+        const idleOk = !gameActive
+          && state.stage === STAGE.GROWING
+          && !state.isSleeping && !state.isSick && !state.dying
+          && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
+          && !message && !pendingCompanionId;
+        if (idleOk && Math.random() < 0.45) {
+          const env = currentEnvironment();
+          const pool = [...(ENV_MOMENTS[env.weather] || []), ...(ENV_MOMENTS[env.time] || [])];
+          if (pool.length) {
+            const m = pool[Math.floor(Math.random() * pool.length)];
+            if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
+            if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
+            if (m.money) state.lifetime.money += m.money;
+            state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
+            showStoryEvent({ emoji: m.emoji, message: m.message });
+            emotePet(m.happiness < 0 ? 'sad' : 'happy');
+            saveState();
+            render();
+          }
+        }
+      } catch (err) { /* できごとが おきなくても ゲームは とめない */ }
+      scheduleEnvironmentMoment();
+    }, delay);
+  }
   let environmentRequested = false;
   let environmentRequestedAt = 0;
   const environmentTracker = window.NaotocchiEnvironment?.createTracker({
@@ -11750,12 +12064,14 @@
     const mode = TIME_CHOICES[state.lifetime.timeMode] ? state.lifetime.timeMode : 'auto';
     const time = window.NaotocchiEnvironment?.timeOfDay(mode) || 'day';
     const weatherMode = WEATHER_CHOICES[state.lifetime.weatherMode] ? state.lifetime.weatherMode : 'auto';
-    const observed = snapshot?.weather;
-    const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
-    const weather = weatherMode === 'auto' ? (fresh ? observed.mode : null) : weatherMode;
+    const eff = effectiveWeather();
+    const weather = eff.weather;
     el.screen.dataset.time = time;
     el.screen.dataset.weather = weather || 'unknown';
-    const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') : 'てんき 未取得';
+    document.body.dataset.time = time;
+    document.body.dataset.weather = weather || 'unknown';
+    applyWeatherFx(weather, time);
+    const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : 'てんき 未取得';
     el.environmentLabel.textContent = `${TIME_CHOICES[time].join(' ')}・${weatherText}`;
     const city = snapshot?.municipality?.display;
     const locationLabel = `げんざいち　${city || '未取得'}`;
@@ -11770,6 +12086,7 @@
     el.environmentStatus.textContent = status;
     el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで取得できます。');
     if (worldOpen) {
+      renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
       renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode);
       renderSeasonModeGrid();
       renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode);
@@ -12397,8 +12714,10 @@
   // そのまま りようするので、タイトル文字列などに たよらない)
   function isRegionExclusiveGame(game) {
     const activeRegion = findRegion(state.regionId);
-    const regionEntries = REGION_MINIGAMES[activeRegion.minigameBaseId || activeRegion.id];
-    return !!regionEntries && regionEntries.some((entry) => entry.game === game);
+    // 地域じしんの id と、見た目の ベース地域(minigameBaseId)の りょうほうを 見る
+    // (やま→ゆきぐに の ように ベースだけ 見ると、やま こゆうの ゲームが 優遇されない)
+    const keys = [activeRegion.id, activeRegion.minigameBaseId].filter(Boolean);
+    return keys.some((key) => (REGION_MINIGAMES[key] || []).some((entry) => entry.game === game));
   }
 
   function isSeasonExclusiveGame(game) {
@@ -12427,6 +12746,8 @@
       let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
       if (isRegionExclusiveGame(game)) weight *= 1.45;
       if (isSeasonExclusiveGame(game)) weight *= 1.25;
+      // てんき・じかんたい・きせつ・地域に あう ジャンルを 出やすく する
+      weight *= environmentGameWeight(game);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -12779,7 +13100,7 @@
     const clampedScore = clamp(score + glassesBonus + minigameBoostBonus, 0, 100);
     const happinessGain = Math.round(5 + (clampedScore / 100) * 20);
     state.happiness = clamp(state.happiness + happinessGain, 0, 100);
-    state.energy = clamp(state.energy - 12, 0, 100);
+    state.energy = clamp(state.energy - Math.round(12 * envModifiers().play), 0, 100);
     state.minigameScoreSum += clampedScore;
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
@@ -12807,7 +13128,7 @@
       const starFactor = isEquipped('star') ? 1.25 : 1;
       const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
       state.oneTimeBoosts.doubleCoins = false;
-      const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost);
+      const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost * envModifiers().coin);
       state.lifetime.money += coins;
       itemMessage = gotReward ? `おたのしみに${fun.emoji}${fun.label}、さらに🎁と💰${coins}をもらった!` : `おたのしみに${fun.emoji}${fun.label}と💰${coins}をもらった!`;
     } else if (clampedScore >= 40) {
@@ -12902,6 +13223,8 @@
     // render() が よばれるまでの わずかな あいだも きせつの ぜんけい
     // エフェクトが えきしょうの てまえに のこらないよう、ここで すぐに とめる
     el.seasonFrontFx.classList.add('suppressed');
+    if (el.weatherFx) el.weatherFx.classList.add('suppressed');
+    if (el.timeTint) el.timeTint.classList.add('suppressed');
     // 直前の「そうじリアクション」のような ストーリーいベント バナー(.story-flash)
     // には じぶんの ひょうじ時間(STORY_FLASH_DURATION_MS)ぶんの タイマーが
     // あり、ミニゲームが はじまっても かってには きえない - ミニゲームの
@@ -12989,7 +13312,7 @@
       return;
     }
     const boost = isEquipped('sleepboost1') ? 0.35 : 0;
-    const step = (state.isSick ? 1.15 : 1.8) + boost;
+    const step = ((state.isSick ? 1.15 : 1.8) + boost) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();
@@ -13315,6 +13638,7 @@
     state.actionCounts.play += 1;
     state.affectionStreak = 0;
     state.travelStreak = 0;
+    recordEnvironmentPlay();
     let game;
     if (chosenGame) {
       game = chosenGame;
@@ -14897,6 +15221,7 @@
   render();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
+  scheduleEnvironmentMoment();
   scheduleIdleGreeting();
   scheduleCompanionEncounter();
 
