@@ -1307,8 +1307,6 @@
       declineBaseline: 0,
       transformStageDone: [],
       // ときのすな系(せいちょうの おいかぜ)の この人生での しようかいすう
-      sandUsed: 0,
-      bigSandUsed: 0,
       // そだち50「こいの きざし」の デートの クールダウン(tick)。デートは
       // なんども たのしめる けれど、コイン/アイテムを かせぐ ばしょには
       // しない ため、つづけて さそえない ように している
@@ -1527,7 +1525,7 @@
         regionsVisited: ['home'],
         // そだち70「たびだち」で ひらく SPECIAL_REGIONS の うち、たどりついた
         // ことの ある id。regionsVisited とは べつに つむ ことで、じっせきの
-        // 「せかい いっしゅう(ぜんぶの地域8つ)」の じょうけんを かえない
+        // 「せかい いっしゅう(ぜんぶの地域(REGIONS の 11))」の じょうけんを かえない
         specialRegionsVisited: [],
         // そだち50「こいの きざし」の デートに いった のべ かいすう
         datesEnjoyed: 0,
@@ -2292,12 +2290,6 @@
     return state.lifetime.bonusUnlockedThemeIds.includes(`${kind}:${theme.id}`);
   }
 
-  // いちばん きずな度(bond)の ひくい、いま そばに いる なかまを かえす
-  // (companionfull1/companionpartial1 の こうか先を えらぶ ための ヘルパー)
-  function lowestBondCompanion() {
-    if (!state.companions.length) return null;
-    return state.companions.reduce((min, c) => ((c.bond ?? 100) < (min.bond ?? 100) ? c : min), state.companions[0]);
-  }
 
   // つかいきり アイテム(CONSUMABLE_ITEMS)。SHOP_ITEMS/NAOTO_ITEMS の ように
   // そうびして のこる ものでは なく、こうにゅうした しゅんかんに 1かいだけ
@@ -2584,22 +2576,6 @@
     setTimeout(after, MG_REVEAL_MS);
   }
 
-  // 「まちがえた ことは わかるが、ゲームじたいは とめない」けいの ミニ
-  // ゲーム(numberOrder・sumPair など)で つかう、かるい 誤操作フィード
-  // バック。revealAndProceed()とはちがい ゲームの すすみを ブロックせず、
-  // ちいさな シェイク+❌を つけて すぐ もとに もどす だけ
-  function flashMistake(el) {
-    if (!el) return;
-    el.classList.add('mg-mistake-flash');
-    const mark = document.createElement('span');
-    mark.className = 'mg-reveal-mark';
-    mark.textContent = '❌';
-    el.appendChild(mark);
-    setTimeout(() => {
-      el.classList.remove('mg-mistake-flash');
-      mark.remove();
-    }, 300);
-  }
 
 
   // ================================================================
@@ -3214,13 +3190,6 @@
     setSpeechBubble(text, petSpeaker());
   }
 
-  function sayReactionPool(poolKey) {
-    const pool = STORY_EVENT_POOLS[poolKey];
-    if (!pool || !pool.length) return;
-    const picked = pool[Math.floor(Math.random() * pool.length)];
-    // 絵文字は吹き出しの話し言葉では省き、本人の言葉として見せる。
-    sayPet(picked.message);
-  }
 
   function petSpeaker() {
     return { kind: 'pet', emoji: currentSprite(), label: SPECIES_DISPLAY_NAMES[state.speciesLine] || 'なおとっち' };
@@ -5870,13 +5839,13 @@
   // おもちゃ を そうびしていると、じゃれる連打で いやがられるまでの
   // かいすうが ふえる
   function affectionSpamThreshold() {
-    return AFFECTION_SPAM_THRESHOLD + (isEquipped('pet_threshold') ? 2 : 0);
+    return AFFECTION_SPAM_THRESHOLD;
   }
 
   // らしんばん を そうびしていると、たびづかれに なるまで もう少し
   // 連続で たびに でられる
   function travelSpamThreshold() {
-    return TRAVEL_SPAM_THRESHOLD + (isEquipped('travel_threshold') ? 2 : 0);
+    return TRAVEL_SPAM_THRESHOLD;
   }
 
   const PET_ANNOYED_REACTIONS = [
@@ -6053,7 +6022,7 @@
   // じぶんさがしの書 を そうびしていると、クエスチョニングが おちつくまでの
   // けいけん回数が 半分に なる(きりあげ)
   function questioningResolveThreshold() {
-    return isEquipped('questioning_fast') ? Math.ceil(QUESTIONING_RESOLVE_THRESHOLD / 2) : QUESTIONING_RESOLVE_THRESHOLD;
+    return QUESTIONING_RESOLVE_THRESHOLD;
   }
 
   function checkQuestioningResolution() {
@@ -7016,7 +6985,7 @@
   // えいえんの誓い を そうびしていると、けっこんまでに ひつような
   // きゅうあい回数が 半分に なる(きりあげ)
   function marriageBondThreshold() {
-    const base = isEquipped('marriage_fast') ? Math.ceil(MARRIAGE_BOND_THRESHOLD / 2) : MARRIAGE_BOND_THRESHOLD;
+    const base = MARRIAGE_BOND_THRESHOLD;
     return Math.max(2, base - (hasPerk(50) ? 2 : 0));
   }
 
@@ -7025,7 +6994,7 @@
   // けいの けいげんとは べつに、breakup 専用の けいげん)
   function breakupPenalty(wasMarried) {
     const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
-    const eased = isEquipped('breakup_ease') ? base * 0.5 : base;
+    const eased = base;
     // つかいきりアイテムの「わかれよけの おふだ/けっかい」は、この わかれ
     // 1かいぶんだけ こうかを はっきして きえる
     if (state.oneTimeBoosts.breakupShield === 'full') {
@@ -7558,7 +7527,7 @@
   // そだち70「たびだち」で ひらく とくべつな たびさき
   // ================================================================
   // REGIONS には いれない。REGIONS に いれると region-all(「ぜんぶの
-  // 地域(8つ)」)と partner-all(「全8地域16人」)の 条件が かわって
+  // 地域(8つ)」)と partner-all(「全地域のこいびと候補ぜんいん」)の 条件が かわって
   // しまう ため。こいびと候補も おかない(ALL_PARTNER_CANDIDATES を
   // ふやさない)。ここは「であう ばしょ」では なく「たどりつく ばしょ」
   const SPECIAL_REGIONS = [
@@ -8177,16 +8146,6 @@
     el.dateMovie.scrollIntoView({ block: 'nearest' });
   }
 
-  // デートの選択画面へ戻らず、育成画面へ復帰する。
-  function finishOrdinaryDate() {
-    clearDateMovieTimers();
-    pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
-    dateOpen = false;
-    el.dateOverlay.classList.add('hidden');
-    el.dateChooser.classList.remove('hidden');
-    el.dateMovie.classList.add('hidden');
-  }
 
   function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
     clearDateMovieTimers();
@@ -9171,45 +9130,8 @@
     health: 'けんこう', decline: 'おとろえ', life: 'いのち',
   };
 
-  // よつばのクローバーけい(そうび)と そだち80で、ごほうびの こうかが
-  // まとめて 何ばいに なるか。むかしは かいふく量に 直に +15 する
-  // たしざん だった ため、ちいさな ごほうびほど 相対的に 効きすぎていた
-  function recoveryPotency() {
-    const equipBonus = isEquipped('itemluck3') ? 0.4 : isEquipped('itemluck2') ? 0.22 : isEquipped('itemluck1') ? 0.1 : 0;
-    const sodachiBonus = hasPerk(80) ? state.sodachi / 400 : 0;
-    return 1 + equipBonus + sodachiBonus;
-  }
 
-  // その ごほうびを いま つかって、じっさいに なにか かわるか。
-  // まんたんの ときに だまって きえて しまわない ように、つかう まえに しらべる
-  function recoveryWouldHelp(item) {
-    const e = item.effects;
-    if (e.hunger && state.hunger < 100) return true;
-    if (e.happiness && state.happiness < 100) return true;
-    if (e.energy && state.energy < 100) return true;
-    if (e.health && state.health < 100) return true;
-    // ♾️ の せかいでは おとろえも いのちも とまっている ので、
-    // その 2つは「かわる ところ」に かぞえない
-    if (!state.infinite) {
-      if (e.decline && state.decline > 0) return true;
-      if (e.life && state.deathMeter > 0) return true;
-    }
-    return false;
-  }
 
-  // そだち30(はじめての ごほうび)で ドロップが 1だん 上位に よる。
-  // そだち80(レアの きざし)では さらに キス/ハグ などの 最上位が 出やすくなる
-  function pickWeightedItem() {
-    const rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0;
-    const weights = RECOVERY_ITEMS.map((it) => it.weight * (1 + rankBonus * (it.rank / 7)));
-    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
-    let roll = Math.random() * totalWeight;
-    for (let i = 0; i < RECOVERY_ITEMS.length; i += 1) {
-      roll -= weights[i];
-      if (roll <= 0) return RECOVERY_ITEMS[i];
-    }
-    return RECOVERY_ITEMS[RECOVERY_ITEMS.length - 1];
-  }
 
   // ================================================================
   // ねんれい / ライフステージ - ゆいいつの 真実
@@ -10184,7 +10106,7 @@
   // (itemOpen だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
     return menuOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen
-      || itemOpen || duelOpen || worldOpen || seasonOpen || travelOpen
+      || itemOpen || duelOpen || worldOpen || travelOpen
       || dateOpen || companionInviteOpen
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
@@ -10895,7 +10817,6 @@
   // その中の「きせつを かえる」「たびに でる」サブがめん。dexOpen などと
   // おなじ しくみで render() から ひょうじを きりかえる
   let worldOpen = false;
-  let seasonOpen = false;
   let travelOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
@@ -10915,6 +10836,7 @@
   // メインメニュー同士は同時に1枚だけ開く。別メニューを押したら、
   // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
   function closeAllMenuOverlays() {
+    restoreFocusToMenu();
     menuOpen = false;
     currentLocationIntent += 1;
     dexOpen = false;
@@ -10925,7 +10847,6 @@
     itemOpen = false;
     duelOpen = false;
     worldOpen = false;
-    seasonOpen = false;
     travelOpen = false;
     dateOpen = false;
     pendingDatePlan = null;
@@ -10954,6 +10875,23 @@
     else if (kind === 'item') itemOpen = true;
     else if (kind === 'world') worldOpen = true;
     render();
+    focusOverlayClose(kind);
+  }
+  // キーボード/スクリーンリーダー むけ: ひらいた オーバーレイの とじるボタンに
+  // フォーカスを うつし、とじたら メニューボタンに もどす
+  const OVERLAY_CLOSE_IDS = { menu: 'menuCloseBtn', travel: 'travelCloseBtn', dex: 'dexCloseBtn', ach: 'achCloseBtn', theme: 'themeCloseBtn', profile: 'profileCloseBtn', comm: 'commCloseBtn', item: 'itemCloseBtn', world: 'worldCloseBtn' };
+  function focusOverlayClose(kind) {
+    const id = OVERLAY_CLOSE_IDS[kind];
+    const btn = id && document.getElementById(id);
+    if (!btn || typeof btn.focus !== 'function') return;
+    try { btn.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+  }
+  function restoreFocusToMenu() {
+    const active = document.activeElement;
+    if (!active || active === document.body || !el.menuBtn || typeof el.menuBtn.focus !== 'function') return;
+    if (typeof active.closest === 'function' && active.closest('.dex-overlay')) {
+      try { el.menuBtn.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+    }
   }
 
   // エンディングの派手さは tier ごとに 見た目も うごきも まったく別物にする
@@ -11382,9 +11320,9 @@
       return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="theme-swatch-label">${region.label}</span></button>`;
     };
     el.travelRegionGrid.innerHTML = REGIONS.map(swatch).join('');
-    // そだち70「たびだち」に とどいて はじめて、ふつうの 8地域の したに
+    // そだち70「たびだち」に とどいて はじめて、ふつうの 地域の したに
     // 「とくべつな たびさき」が あらわれる。REGIONS とは べつ わく なので、
-    // じっせきの「せかい いっしゅう(8つ)」も「こいびと ぜんいん(16人)」も
+    // じっせきの「せかい いっしゅう」も「こいびと ぜんいん」も
     // これまでと まったく おなじ じょうけんの まま
     const showSpecial = hasPerk(70);
     el.travelSpecialSection.classList.toggle('hidden', !showSpecial);
@@ -11864,13 +11802,6 @@
     }).join('');
   }
 
-  // こうにゅうすれば それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS
-  // の ように そうび/かいじょを きりかえる ものではないので、こうにゅう
-  // ずみなら それ以上 なにも おきない ボタンに なる)
-  function buyNaotoItem() {
-    // なおとのアイテムは購入しない。クリア条件を満たすと自動でもらえる。
-    return;
-  }
 
   // みこうにゅうなら おかねが たりれば こうにゅうして そのまま そうび、
   // こうにゅうずみなら タップの たびに そうび/かいじょを きりかえる
@@ -14800,7 +14731,7 @@
     const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
     // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
     // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
-    // (ぜんぶの地域8つ)」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
+    // (ぜんぶの地域(REGIONS の 11))」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
     // しまい、じょうけんの いみが かわって しまう
     const isSpecial = !!region.special;
     // ずっと まえの セーブから きた ばあいでも undefined に ならない よう、
@@ -15323,7 +15254,7 @@
 
   el.openDuelBtn.addEventListener('click', () => {
     dexOpen = false; achOpen = false; themeOpen = false; profileOpen = false;
-    itemOpen = false; worldOpen = false; seasonOpen = false; travelOpen = false; dateOpen = false;
+    itemOpen = false; worldOpen = false; travelOpen = false; dateOpen = false;
     // うそつきしょうぶだけは「つうしん」の子画面なので、commOpen は残す。
     duelOpen = true;
     goToDuelStep(duelResumeStep());

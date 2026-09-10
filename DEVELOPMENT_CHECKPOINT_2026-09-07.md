@@ -1788,3 +1788,10 @@ Runtime smoke test SUCCESS確認済み。
 - かくとうバトル: `f.rushed`(前の攻撃終了から 350ms 未満)で威力 0.7・硬直 1.5倍。`target.recentHits` が 3 以上ならスタンなし・威力 0.6、AI は3連続くらうと 600ms ガード。AI は脅威時のガード率を 0.55〜0.85 に、ガード成功後は反撃(`justBlocked`)。乱打プレイの平均スコア 70 → 10〜17。
 - テスト: growth-balance に mgDuration の short 判定。`npm test` 192件通過。全100ゲーム スイープ ページエラー 0。
 
+## チェックポイント BR — そうじ と 開発の どうぐ(2026-09-10)
+- style.css: どのファイルからも参照されないクラスだけを使うルール 395 個(1,771 行、旧 DOM 版ミニゲームの `.mg-*` が中心)を削除(動的に組み立てるクラス `seg-${…}` `accent-${…}` `rank-${…}` `region-${…}` は除外)。5,962 → 4,235 行。
+- script.js: 未使用関数 8 個(flashMistake / lowestBondCompanion / sayReactionPool / recoveryPotency / recoveryWouldHelp / pickWeightedItem / finishOrdinaryDate / buyNaotoItem)、`seasonOpen`、`sandUsed`/`bigSandUsed`、存在しないアイテム id への `isEquipped()` 分岐 7 か所(marriage_fast / breakup_ease / itemluck2・3 / pet_threshold / travel_threshold / questioning_fast)を削除。「地域8つ」「16人」のコメントを実データに合わせて修正。
+- フォーカス: `openExclusiveMenu()` が開いたオーバーレイの ✕ にフォーカスを移し(`OVERLAY_CLOSE_IDS`)、`closeAllMenuOverlays()` はオーバーレイ内にフォーカスがあればメニューボタンへ戻す。
+- どうぐ: `tools/bump-versions.js`(`npm run bump`、index.html の `?v=` を日付+sha1 の 8 桁に。変わったファイルだけ更新)。CI(`runtime-smoke-test.yml`)は `npm test` を 1 ステップで実行(ローカルと同じ内容)。
+- テスト: `tests/scoring-shop-test.cjs`(ランクしきい値・ベスト/直近・クランプ、ショップの購入/装備/解除/二重払い防止、じっせき解放の日時と重複防止)、`tests/asset-versions-test.cjs`(参照先の存在と読み込み順)。`npm test` 197件通過。
+
