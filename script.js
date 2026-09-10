@@ -11604,15 +11604,18 @@
 
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
-    const stageRect = el.castStage.getBoundingClientRect();
-    const width = Math.floor(stageRect.width);
-    const height = el.device.classList.contains('ui-home-active') ? Math.max(96,Math.floor(stageRect.height)) : undefined;
-    if (width < 240) return;
     const main = currentVisualStage();
     const p = state.partner;
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
     const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
     const recruited = state.companions.map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    // Let sparse scenes share more of the available height with the care keys.
+    // Measure after changing this attribute, before starting a speech reaction.
+    el.device.dataset.castCrowded = String(recruited.length > 0);
+    const stageRect = el.castStage.getBoundingClientRect();
+    const width = Math.floor(stageRect.width);
+    const height = el.device.classList.contains('ui-home-active') ? Math.max(96,Math.floor(stageRect.height)) : undefined;
+    if (width < 240) return;
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
@@ -11631,6 +11634,7 @@
     el.castStage.style.height = height ? '' : layout.height + 'px';
     el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
+    el.petSprite.style.setProperty('--cast-art-offset-y',(layout.main.artOffsetY || 0) + 'px');
     const left=el.companionLeft.children,right=el.companionRight.children;
     layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
     if (layout.partner) el.partnerCompanion.querySelectorAll('.partner-heart').forEach((node,i)=>{

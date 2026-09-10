@@ -14,7 +14,8 @@ button, select, textarea {font-family:inherit}
 button {touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #286c62;outline-offset:3px}
 [hidden] {display:none!important}
-.device {width:min(100%,420px);border-radius:36px 36px 30px 30px;padding:10px 10px 8px;box-shadow:0 8px 24px #45313e18,inset 0 2px 0 #fff7fb;background-color:var(--ui-case);font-family:var(--ui-font)}
+.device {--home-action-height:clamp(44px,calc((var(--app-height) - 552px)/3),64px);width:min(100%,420px);border-radius:36px 36px 30px 30px;padding:10px 10px 8px;box-shadow:0 8px 24px #45313e18,inset 0 2px 0 #fff7fb;background-color:var(--ui-case);font-family:var(--ui-font)}
+.device[data-cast-crowded="true"] {--home-action-height:clamp(44px,calc((var(--app-height) - 650px)/3),56px)}
 .device.ui-home-active {height:calc(var(--app-height) - var(--home-top) - var(--home-bottom));min-height:min-content;display:grid;grid-template-rows:auto minmax(min-content,1fr) auto auto}
 .device-top {position:absolute;top:4px;left:calc(50% - 3px);margin:0}
 .device-top .lamp {width:6px;height:6px}
@@ -66,6 +67,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet #petSprite {width:104px;height:104px;font-size:80px;left:calc(50% - 52px);top:35px}
 #pet .character-visual {width:100%;height:100%;font-size:inherit}
 #pet .character-asset {width:100%;height:100%;object-fit:contain}
+/* Static image placement composes with hatch transforms and parent reactions. */
+#pet #petSprite > .character-visual > .character-asset {position:relative;top:var(--cast-art-offset-y,0px);transform-origin:50% calc(50% - var(--cast-art-offset-y,0px))}
 #pet .partner-companion {width:52px;height:52px;top:0;left:calc(50% - 90px);font-size:40px}
 #pet .partner-emoji {width:100%;height:100%;font-size:inherit;filter:none;display:flex;align-items:center;justify-content:center}
 #pet .partner-heart {position:absolute;font-size:24px;line-height:1;z-index:1;filter:none;display:flex;align-items:center;justify-content:center}
@@ -113,8 +116,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .message:empty {display:none}
 #itemsRow {display:none} /* all inventory remains available in the item menu */
 .buttons {position:relative;z-index:9;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:7px;padding:0 0 2px;background:transparent;border-radius:15px}
-.buttons button {display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:row;min-height:44px;min-width:0;padding:4px 2px;font-size:17px;line-height:1.2;border:1px solid #bbcfbf;border-radius:14px;background:#dcece1;color:var(--ui-teal);box-shadow:0 2px 0 #a4b9a8}
-.buttons button span {font-size:13px;line-height:1.2;color:inherit;margin:0;font-weight:500;min-width:0;white-space:normal;overflow-wrap:anywhere}
+.buttons button {display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:row;min-height:var(--home-action-height);min-width:0;padding:4px 2px;font-size:20px;line-height:1.2;border:1px solid #bbcfbf;border-radius:14px;background:#dcece1;color:var(--ui-teal);box-shadow:0 2px 0 #a4b9a8}
+.buttons button span {font-size:14px;line-height:1.2;color:inherit;margin:0;font-weight:500;min-width:0;white-space:normal;overflow-wrap:anywhere}
 #playBtn {background:var(--ui-teal);color:#fffdf7;border-color:var(--ui-teal)}
 #courtBtn {background:#f7e6ee;color:var(--ui-rose);border-color:#d6b2c1;box-shadow:0 2px 0 #c09ba9}
 #playWithBtn {background:#f7e6ee;color:var(--ui-rose);border-color:#d6b2c1;box-shadow:0 2px 0 #c09ba9}
@@ -170,10 +173,10 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .device[data-text-size="large"] .home-meters .meters .bar-line {font-size:14px}
 .device[data-text-size="large"] .home-meters .bar-value {font-size:12px}
 .device[data-text-size="large"] .buttons button span {font-size:14px}
-@media(max-width:360px){.device{padding:8px 8px 6px}.name-plate{font-size:18px}.header-button{min-width:44px}.header-actions{gap:4px}.screen{padding-inline:7px}.home-meters .care-meters{column-gap:10px}.buttons{gap:6px}.buttons button{gap:3px;font-size:15px}.buttons button span{font-size:12px}}
+@media(max-width:360px){.device{padding:8px 8px 6px}.name-plate{font-size:18px}.header-button{min-width:44px}.header-actions{gap:4px}.screen{padding-inline:7px}.home-meters .care-meters{column-gap:10px}.buttons{gap:6px}.buttons button{gap:3px;font-size:17px}.buttons button span{font-size:13px}}
 @media(max-width:360px){.device[data-text-size="large"] .buttons button{gap:2px;font-size:13px}}
 @media(max-height:620px){.device-header{padding-bottom:4px}.home-meters{margin-top:4px}.home-meters .care-meters{row-gap:4px}.home-meters .bars.meters{gap:2px;margin-top:5px;padding-top:5px}.cast-heading{padding-top:2px}.buttons{gap:6px;margin-top:6px}}
-@media(min-height:800px){.buttons button{min-height:48px}.device-header{padding-bottom:8px}.screen{padding:9px 10px}.home-meters .bars.meters{gap:4px}}
+@media(min-height:800px){.device-header{padding-bottom:8px}.screen{padding:9px 10px}.home-meters .bars.meters{gap:4px}}
 /* Safari's visible height can be shorter than its CSS layout viewport.
    Keep both groups and every value visible, using fewer rows in that case. */
 .device.ui-home-compact .device-header {padding-bottom:4px}
@@ -192,6 +195,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .device.ui-home-compact .meters .bar {grid-column:1;grid-row:2}
 .device.ui-home-compact .meters .bar-value {grid-column:2;grid-row:2}
 .device.ui-home-compact .buttons {grid-template-columns:repeat(20,minmax(0,1fr));column-gap:4px;margin-top:6px}
-.device.ui-home-compact .buttons button {grid-column:span 4;min-height:44px}
+.device.ui-home-compact .buttons button {grid-column:span 4;min-height:44px;font-size:16px}
+.device.ui-home-compact .buttons button span {font-size:12px}
+.device.ui-home-compact[data-text-size="large"] .buttons button span {font-size:14px}
 .device.ui-home-compact .buttons button:nth-child(n+6) {grid-column:span 5}
 @media(prefers-reduced-motion:reduce){.cast-sway{animation:none;transform:none;will-change:auto}#pet .partner-heart{transition:none}}

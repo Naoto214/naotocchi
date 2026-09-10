@@ -7,6 +7,85 @@ const master = new Function(fs.readFileSync('character-world-master.v1.js','utf8
 const friends = [...master.companions.normal,...master.companions.rare].map(c=>c.asset);
 const separated = (a,b,gap) => a.x+a.w+gap<=b.x+.001 || b.x+b.w+gap<=a.x+.001 || a.y+a.h+gap<=b.y+.001 || b.y+b.h+gap<=a.y+.001;
 
+test('a small newborn uses spare space and stays near the speech below it', () => {
+  // The reported turtle has a small body low in its original 128px image.
+  // Keeping a fixed 112px frame left ~80px below it in a 270px stage.
+  for (const height of [220,270,320]) {
+    const r=layoutCast({width:338,height,mainAsset:'assets/characters/turtle/01.png',hasAccessory:true,motionRadius:3});
+    const visibleWidth=r.main.w*66/128;
+    const visibleBottom=r.main.y+r.main.h*120/128+(r.main.artOffsetY||0);
+    assert.ok(visibleWidth>=90,'spare space should enlarge the small newborn');
+    assert.ok(height-visibleBottom<=24,'do not leave a large gap above speech');
+    for(const f of [r.main,r.accessory]) {
+      assert.ok(f.x>=7 && f.x+f.w<=331,'keep the complete image during sway');
+      assert.ok(f.y>=4 && f.y+f.h<=height-4,'keep the complete image during reactions');
+    }
+  }
+});
+
+test('bottom transparency cannot leave a fish far above its speech', () => {
+  const h=harness(), s=h.api.state();
+  s.speciesLine='clownfish';s.ageTicks=0;
+  h.get('lifeCardOverlay').classList.add('hidden');
+  h.get('castStage').getBoundingClientRect=()=>({width:338,height:270});
+  h.api.render();
+  const pet=h.get('petSprite');
+  assert.ok(pet.innerHTML.includes('assets/characters/clownfish/01.png'));
+  const size=parseFloat(pet.style.width),top=parseFloat(pet.style.top);
+  const offset=parseFloat(pet.style['--cast-art-offset-y'])||0;
+  const bottom=top+size*79/128+offset;
+  assert.ok(270-bottom<=12,'the painted fish, not its empty canvas, stays near speech');
+  assert.ok(bottom<=266.001,'painted body reserves its reaction margin');
+  h.api.setSpeechBubble('いっしょに泳ごう。',{kind:'pet',emoji:'🐠',label:'クマノミ'},{event:'play_with'});
+  const animation=pet.animations.at(-1);
+  h.api.render();
+  assert.equal(animation.playState,'running','static placement must not cancel the response');
+
+  h.sandbox.HTMLImageElement=class {};
+  const img=h.get('failed-main-image');Object.setPrototypeOf(img,h.sandbox.HTMLImageElement.prototype);
+  img.classList.add('character-asset');
+  img.getAttribute=()=> 'assets/characters/clownfish/01.png';
+  img.closest=()=>h.get('fish-visual');
+  h.dispatch(img,'error');
+  assert.equal(pet.style['--cast-art-offset-y'],'0px','emoji fallback must not inherit PNG padding');
+});
+
+test('closer core actors retain the readable size of both full companion arcs', () => {
+  for(const [count,minimum] of [[6,58],[26,32]]) {
+    const r=layoutCast({width:338,height:270,mainAsset:'assets/characters/sakura/04.png',hasPartner:true,
+      partnerAsset:'assets/characters/partners/forest_bear.png',hasAccessory:true,companions:friends.slice(0,count),motionRadius:count>18?1:3});
+    assert.ok(r.size>=minimum,'do not spend companion width on extra core spacing');
+    assert.equal(r.companions.length,count);
+  }
+});
+
+test('equipment and the partner sit near the visible body instead of the transparent image top', () => {
+  const bounds=require('../cast-bounds.js');
+  const visible=(f,asset)=>{const b=bounds[asset]?.box||[0,0,128,128];return {x:f.x+f.w*b[0]/128,y:f.y+f.h*b[1]/128+(f.artOffsetY||0),w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};};
+  const hull=(f,asset)=>(bounds[asset]?.hull||[[0,0],[128,0],[128,128],[0,128]]).map(([x,y])=>[f.x+x*f.w/128,f.y+y*f.h/128+(f.artOffsetY||0)]);
+  const pointToEdge=(p,a,b)=>{const dx=b[0]-a[0],dy=b[1]-a[1];const t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy||1)));return Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy);};
+  const distance=(a,b)=>Math.min(...a.flatMap(p=>b.map((v,i)=>pointToEdge(p,v,b[(i+1)%b.length]))),...b.flatMap(p=>a.map((v,i)=>pointToEdge(p,v,a[(i+1)%a.length]))));
+  const bear='assets/characters/partners/forest_bear.png';
+  const cases=['assets/characters/turtle/01.png','assets/characters/sakura/04.png','assets/characters/antlion/01.png',null].map(asset=>[asset,bear]);
+  cases.push(['assets/characters/unknown/01.png','assets/characters/partners/cliff_goat.png'],['assets/characters/unknown/07.png',bear]);
+  for(const [asset,partner] of cases) {
+    const r=layoutCast({width:338,height:270,mainAsset:asset,hasPartner:true,partnerAsset:partner,hasAccessory:true,motionRadius:3});
+    const a=visible(r.main,asset),p=visible(r.partner,partner);
+    for(const [b,frame,image] of [[p,r.partner,partner],[r.accessory,r.accessory,null]]) {
+      assert.ok(separated(a,b,0),'the visible bodies do not intersect');
+      // Check distance between painted outlines independently of the layout's
+      // separating-axis calculation; diagonal clearance can share a box edge.
+      assert.ok(distance(hull(r.main,asset),hull(frame,image))>=7.999,'reserve both reactions along the outline');
+      assert.ok(a.y-(b.y+b.h)<=12,'transparent padding must not separate the core actors');
+    }
+    assert.ok(distance(hull(r.partner,partner),hull(r.accessory,null))>=7.999,'partner and equipment reserve both reactions');
+    for(const f of [r.main,r.partner,r.accessory,...r.hearts]) {
+      assert.ok(f.x>=7 && f.x+f.w<=331,'narrow bodies must retain the whole frame during sway');
+      assert.ok(f.y>=4 && f.y+f.h<=266,'narrow bodies must retain the whole frame during reactions');
+    }
+  }
+});
+
 test('height-constrained companions keep curved wings instead of straight columns', () => {
   for (const width of [294,354]) for (const height of [96,104,120,160,220,300]) {
     for (const count of [6,9,10,26]) for (const together of [false,true]) {

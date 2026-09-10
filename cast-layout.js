@@ -6,9 +6,9 @@
   const shape = asset => bounds?.[asset] || full;
   const body = (frame,asset) => {
     const b=shape(asset).box;
-    return rect(frame.x+frame.w*b[0]/128,frame.y+frame.h*b[1]/128,frame.w*(b[2]-b[0])/128,frame.h*(b[3]-b[1])/128);
+    return rect(frame.x+frame.w*b[0]/128,frame.y+frame.h*b[1]/128+(frame.artOffsetY||0),frame.w*(b[2]-b[0])/128,frame.h*(b[3]-b[1])/128);
   };
-  const polygon = (frame,asset) => shape(asset).hull.map(([x,y])=>[frame.x+x*frame.w/128,frame.y+y*frame.h/128]);
+  const polygon = (frame,asset) => shape(asset).hull.map(([x,y])=>[frame.x+x*frame.w/128,frame.y+y*frame.h/128+(frame.artOffsetY||0)]);
   // Separating axes of conservative alpha hulls. A clear axis leaves at least
   // `gap` CSS pixels between bodies; the transparent image frames stay intact.
   function separated(a,b,gap) {
@@ -27,8 +27,18 @@
   function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap) {
     const p=m/2, scale=m/104;
     const main=rect(-m/2,-m*.26+8,m);
-    const partner=hasPartner?rect(-m/2-p*.18,main.y-p*.4,p):null;
-    const accessory=hasAccessory?rect(m/2-38*scale,main.y-12*scale,36*scale):null;
+    // Move only transparent bottom padding outside this logical frame. Every
+    // painted pixel stays inside it; the source PNG and its proportions stay.
+    main.artOffsetY=m*(128-shape(mainAsset).box[3])/128;
+    // Anchor to the painted body. Young characters may have a large transparent
+    // area above them; that space should not push their partner or item away.
+    const visible=body(main,mainAsset), pb=shape(partnerAsset).box, a=36*scale;
+    const pairWidth=(p*(pb[2]-pb[0])/128+a)/2;
+    // A narrow body needs outward anchors so the item can stay beside the
+    // partner instead of being pushed above it by the collision check.
+    const inset=hasPartner && hasAccessory?Math.min(visible.w*.12,(visible.w-pairWidth-3-motionGap)/2):visible.w*.12;
+    const partner=hasPartner?rect(visible.x+inset-p*(pb[0]+pb[2])/256,visible.y-p*pb[3]/128,p):null;
+    const accessory=hasAccessory?rect(visible.x+visible.w-inset-a/2,visible.y-a,a):null;
     const mainPoly=polygon(main,mainAsset);
     if(partner)while(!separated(mainPoly,polygon(partner,partnerAsset),2+motionGap))partner.y-=1;
     if(accessory)while(!separated(mainPoly,polygon(accessory,null),2+motionGap) || (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2+motionGap)))accessory.y-=1;
@@ -53,11 +63,12 @@
     const sideCounts=[Math.ceil(count/2),Math.floor(count/2)];
     const laneLimits=sideCounts.map(n=>Math.min(4,Math.max(1,Math.floor((n+1)/3))));
     const maxLanes=Math.max(...laneLimits);
-    const maxMain=Math.min(room>=310?112:104,Math.floor(height*.7));
+    const mainLimit=count===0?Math.min(256,room*.78):room>=310?112:104;
+    const maxMain=Math.floor(Math.min(mainLimit,count===0?height-8:height*.7));
     for(let m=maxMain;m>=40;m-=2) {
       const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
-      const e=extent(c.coreFrames), coreX=-(e.left+e.right)/2, coreY=(height-e.bottom-e.top)/2;
-      if(e.bottom-e.top>height-8)continue;
+      const e=extent(c.coreFrames), coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
+      if(e.bottom-e.top>height-8 || e.right-e.left>room)continue;
       const sideWidth=(room-(e.right-e.left))/2-gap;
       for(let size=count?72:48;size>=12;size--) {
         let best=null;
@@ -103,7 +114,7 @@
             const ex=extent(sides[side].map(v=>v.f));
             if(ex.right-ex.left>sideWidth || ex.bottom-ex.top>height-8){fits=false;break;}
             const x=side ? e.right+coreX+gap-ex.left : e.left+coreX-gap-ex.right;
-            const y=(height-ex.bottom-ex.top)/2;
+            const y=height-4-ex.bottom;
             for(const {i,f} of sides[side])frames[i]=translate(f,x,y);
           }
           if(fits){best=frames;break;}

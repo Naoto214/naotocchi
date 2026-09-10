@@ -46,7 +46,7 @@ test('independent reactions retain full frames and four-pixel friend gaps throug
     const core=[r.main,r.partner,r.accessory];
     for (const f of [...core,...r.companions]) {
       assert.ok(f.x-radius-4>=0 && f.x+f.w+radius+4<=width,`full horizontal frame ${width}/${count}`);
-      assert.ok(f.y-radius-1>=0 && f.y+f.h+radius+1<=r.height,`full vertical frame ${width}/${count}`);
+      assert.ok(f.y-radius-1>=-1e-6 && f.y+f.h+radius+1<=r.height+1e-6,`full vertical frame ${width}/${count}`);
     }
     const separated=(a,b,gap)=>a.x+a.w+gap<=b.x+.001 || b.x+b.w+gap<=a.x+.001 || a.y+a.h+gap<=b.y+.001 || b.y+b.h+gap<=a.y+.001;
     for(let i=0;i<core.length;i++) for(let j=0;j<i;j++) assert.ok(separated(core[i],core[j],2+2*radius),'core reserves two reaction envelopes');
