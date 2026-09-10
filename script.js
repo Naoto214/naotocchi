@@ -4,6 +4,11 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
+  // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
+  // のこし、プロフィールの「もどす」で その時点に もどせる
+  const SAVE_SNAP_KEY = 'naotocchi-save-v1-snaps';
+  const SAVE_SNAP_MAX = 3;
+  const SAVE_SNAP_INTERVAL_MS = 20 * 60 * 1000;
   let stateLoadRecovered = false;
   let lastGoodSaveRaw = null;
   let saveWriteBlocked = false;
@@ -1059,6 +1064,8 @@
     saveImportInput: document.getElementById('saveImportInput'),
     saveImportBtn: document.getElementById('saveImportBtn'),
     saveImportStatus: document.getElementById('saveImportStatus'),
+    saveSnapList: document.getElementById('saveSnapList'),
+    saveSnapStatus: document.getElementById('saveSnapStatus'),
     achTitle: document.getElementById('achTitle'),
     achTabs: document.getElementById('achTabs'),
     gameListGrid: document.getElementById('gameListGrid'),
@@ -2310,6 +2317,7 @@
       localStorage.setItem(SAVE_KEY, raw);
       lastGoodSaveRaw = raw;
       stateLoadRecovered = false;
+      takeSaveSnapshot(raw);
     } catch (e) {
       // storage unavailable; ignore
     }
@@ -10542,6 +10550,7 @@
   // せいかく傾向(traitCounts)と、こいびとが いれば その せいべつ・
   // れんあいタイプ・affinityTrait を まとめて 見せる
   function renderProfile() {
+    renderSaveSnaps();
     el.profileSpecies.textContent = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     el.profileStage.textContent = currentStageLabel();
     el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
@@ -14201,7 +14210,7 @@
   ['mouseup', 'mouseleave', 'touchend', 'touchcancel'].forEach((t) => el.wipeHoldBtn.addEventListener(t, cancelWipeHold));
 
   function doWipe() {
-    for (const key of [SAVE_KEY, SAVE_BACKUP_KEY]) {
+    for (const key of [SAVE_KEY, SAVE_BACKUP_KEY, SAVE_SNAP_KEY]) {
       try { localStorage.removeItem(key); } catch (e) { /* storage unavailable */ }
     }
     lastGoodSaveRaw = null;
@@ -14518,6 +14527,92 @@
     if (!parsed || typeof parsed !== 'object' || !parsed.lifetime || typeof parsed.stage !== 'string') throw new Error('セーブの なかみが ちがう');
     return json;
   }
+  // --- じどうバックアップ(3世代) ---
+  function readSaveSnaps() {
+    try {
+      const list = JSON.parse(localStorage.getItem(SAVE_SNAP_KEY) || '[]');
+      return Array.isArray(list) ? list.filter((s) => s && typeof s.raw === 'string' && typeof s.at === 'number') : [];
+    } catch (e) { return []; }
+  }
+  function writeSaveSnaps(list) {
+    try { localStorage.setItem(SAVE_SNAP_KEY, JSON.stringify(list)); return true; } catch (e) { return false; }
+  }
+  // force=true は セーブコードの よみこみ/もどす の 直前に、いまの セーブを
+  // かならず のこす ため(あとで「もどすのを やめる」が できる)
+  function takeSaveSnapshot(raw, force = false) {
+    if (!raw) return false;
+    const snaps = readSaveSnaps();
+    const now = Date.now();
+    if (snaps.length && snaps[0].raw === raw) return false;
+    if (!force && snaps.length && now - snaps[0].at < SAVE_SNAP_INTERVAL_MS) return false;
+    snaps.unshift({ at: now, raw });
+    while (snaps.length > SAVE_SNAP_MAX) snaps.pop();
+    return writeSaveSnaps(snaps);
+  }
+  function describeSaveRaw(raw) {
+    try {
+      const s = JSON.parse(raw);
+      if (!s || typeof s !== 'object' || !s.lifetime || typeof s.stage !== 'string') return null;
+      const age = Math.max(0, Math.floor((s.ageTicks || 0) / AGE_TICKS_PER_YEAR));
+      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり' : LIFE_STAGES[stageForAge(age)].name;
+      const species = s.stage === STAGE.EGG ? '' : (SPECIES_DISPLAY_NAMES[s.speciesLine] || '');
+      return { species, stage, age, money: Math.max(0, Math.round(s.lifetime.money || 0)) };
+    } catch (e) { return null; }
+  }
+  function formatSnapTime(at) {
+    const d = new Date(at);
+    const pad = (n) => String(n).padStart(2, '0');
+    return `${d.getMonth() + 1}/${d.getDate()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  }
+  let saveSnapArmed = null;
+  function renderSaveSnaps() {
+    if (!el.saveSnapList) return;
+    const snaps = readSaveSnaps();
+    el.saveSnapList.innerHTML = '';
+    if (!snaps.length) {
+      el.saveSnapList.innerHTML = '<div class="profile-hint">まだ ない(あそんでいると じどうで たまる)</div>';
+      return;
+    }
+    snaps.forEach((snap, i) => {
+      const info = describeSaveRaw(snap.raw);
+      const row = document.createElement('div');
+      row.className = 'save-snap-row';
+      const label = document.createElement('div');
+      label.className = 'save-snap-label';
+      label.textContent = info
+        ? `${formatSnapTime(snap.at)} ・ ${info.species ? info.species + ' ' : ''}${info.stage} ${info.age}さい ・ 🪙\u00a0${info.money}`
+        : `${formatSnapTime(snap.at)} ・ (よめない)`;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'profile-code-btn save-snap-btn';
+      btn.textContent = saveSnapArmed && saveSnapArmed.at === snap.at && Date.now() - saveSnapArmed.when < 6000 ? 'ほんとうに もどす' : 'この時点にもどす';
+      btn.disabled = !info;
+      btn.addEventListener('click', () => restoreSaveSnapshot(snap));
+      row.appendChild(label);
+      row.appendChild(btn);
+      el.saveSnapList.appendChild(row);
+    });
+  }
+  function restoreSaveSnapshot(snap) {
+    if (!el.saveSnapStatus) return;
+    const now = Date.now();
+    if (!saveSnapArmed || saveSnapArmed.at !== snap.at || now - saveSnapArmed.when > 6000) {
+      saveSnapArmed = { at: snap.at, when: now };
+      el.saveSnapStatus.textContent = `${formatSnapTime(snap.at)} の セーブに もどします(いまの セーブも バックアップに のこる)。よければ もういちど おして`;
+      renderSaveSnaps();
+      return;
+    }
+    saveSnapArmed = null;
+    saveLocked = true;
+    try {
+      const current = localStorage.getItem(SAVE_KEY) || '';
+      if (current) { takeSaveSnapshot(current, true); localStorage.setItem(SAVE_BACKUP_KEY, current); }
+      localStorage.setItem(SAVE_KEY, snap.raw);
+    } catch (err) { saveLocked = false; el.saveSnapStatus.textContent = 'もどすのに しっぱい'; return; }
+    el.saveSnapStatus.textContent = 'もどした! よみこみなおします…';
+    setTimeout(() => location.reload(), 600);
+  }
+
   let saveImportArmedAt = 0;
   if (el.saveExportBtn) {
     el.saveExportBtn.addEventListener('click', () => {
@@ -14535,7 +14630,7 @@
       const now = Date.now();
       if (now - saveImportArmedAt > 6000) { saveImportArmedAt = now; el.saveImportStatus.textContent = 'いまの セーブを このコードで おきかえます。よければ もういちど おして'; return; }
       saveLocked = true;
-      try { localStorage.setItem(SAVE_BACKUP_KEY, localStorage.getItem(SAVE_KEY) || ''); localStorage.setItem(SAVE_KEY, json); } catch (err) { saveLocked = false; el.saveImportStatus.textContent = 'ほぞんに しっぱい'; return; }
+      try { const current = localStorage.getItem(SAVE_KEY) || ''; if (current) takeSaveSnapshot(current, true); localStorage.setItem(SAVE_BACKUP_KEY, current); localStorage.setItem(SAVE_KEY, json); } catch (err) { saveLocked = false; el.saveImportStatus.textContent = 'ほぞんに しっぱい'; return; }
       el.saveImportStatus.textContent = 'おきかえた! よみこみなおします…';
       setTimeout(() => location.reload(), 600);
     });

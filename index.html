@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-daily-1">
+  <link rel="stylesheet" href="style.css?v=20260910-snap-1">
   <link rel="stylesheet" href="ui.css?v=20260910-notice-2">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
   <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
@@ -427,6 +427,10 @@
               <input type="text" class="profile-code-input" id="saveImportInput" placeholder="セーブコードをここに">
               <button class="profile-code-btn" id="saveImportBtn">よみこんでおきかえる</button>
               <div class="profile-hint" id="saveImportStatus" role="status"></div>
+              <div class="save-snap-title">じどうバックアップ</div>
+              <div class="profile-hint">20分いじょうあいだがあいたセーブを3つまでのこします。まちがえたときはここからもどせます。</div>
+              <div id="saveSnapList"></div>
+              <div class="profile-hint" id="saveSnapStatus" role="status"></div>
             </div>
             <div class="profile-section danger-zone">
               <div class="profile-section-title">きけんなそうさ</div>
@@ -661,7 +665,7 @@
   <script src="cast-motion.js?v=20260910-motion-1"></script>
   <script src="cast-layout.js?v=20260910-space-1"></script>
   <script src="world-environment.js?v=20260910-ui-1"></script>
-  <script src="games.js?v=20260910-4"></script>
-  <script src="script.js?v=20260910-backup-1"></script>
+  <script src="games.js?v=20260910-5"></script>
+  <script src="script.js?v=20260910-snap-1"></script>
 </body>
 </html>
