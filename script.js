@@ -79,14 +79,16 @@
   // ひつような せいちょう量」。そだちが たかいほど 1 あげるのが おもくなる
   const SODACHI_START = 20;
   const SODACHI_MAX = 100;
+  // そだち 1 を あげる のに ひつような せいちょうの 量。20→70 で 680、20→100 で
+  // 1,660(以前は 1,000 / 3,300 で、100分の いっしょうでは そだち100 に とどかなかった)
   const SODACHI_COST_BANDS = [
-    { max: 19, cost: 9 },
-    { max: 39, cost: 11 },
-    { max: 59, cost: 20 },
-    { max: 69, cost: 38 },
-    { max: 79, cost: 55 },
-    { max: 89, cost: 75 },
-    { max: 99, cost: 100 },
+    { max: 19, cost: 8 },
+    { max: 39, cost: 10 },
+    { max: 59, cost: 14 },
+    { max: 69, cost: 20 },
+    { max: 79, cost: 26 },
+    { max: 89, cost: 32 },
+    { max: 99, cost: 40 },
   ];
   // おとろえは そだちの たかさに かかわらず つねに この量で まんたんに なる
   // (ミスの ダメージは いつでも おなじ ぜったい量)
@@ -3019,7 +3021,9 @@
     const urgent = visible && notice && notice.severity !== 'info';
     if (observe) {
       const next = CARE_STATUS.snapshot(state);
-      const quarter = Math.floor(4 * state.growth / sodachiCost(state.sodachi));
+      // 「せいちょう ↑」の しらせは 5 せいちょう ごと(コストが 20 を こえたら その 1/4 ごと)。
+      // コストが やすい あいだに ごはん 1かい ごとに ならない ように
+      const quarter = Math.floor(state.growth / Math.max(5, sodachiCost(state.sodachi) / 4));
       // Collect before advancing the snapshot, even while the slot is occupied.
       // One latest summary coalesces simultaneous milestones instead of replaying
       // an unbounded queue of old changes on returning home.
@@ -9208,6 +9212,15 @@
   function growthMultiplier() {
     return state.boostTicks > 0 ? 2 : 1;
   }
+  // せいちょう2ばい: ミニゲームの Sランクで 2ふん、きょうの チャレンジで 10ぷん(かさなる、さいだい 10ぷん)
+  const BOOST_TICKS_S_RANK = 40;
+  const BOOST_TICKS_DAILY = 200;
+  const BOOST_TICKS_MAX = 200;
+  function grantGrowthBoost(ticks) {
+    if (!isLiveLife() || state.infinite) return 0;
+    state.boostTicks = Math.min(BOOST_TICKS_MAX, (state.boostTicks || 0) + ticks);
+    return state.boostTicks;
+  }
 
   const RECENT_ACTION_TICKS = 20; // 60秒
   function markCared() { state.recentActionTicks = RECENT_ACTION_TICKS; }
@@ -9835,7 +9848,9 @@
         const age = currentAge();
         // 高齢になっても「ちゃんとお世話すれば いのちを戻せる」余地は残す。
         // 以前は100さい直前に 0.35/tick まで落ち、自然リスクとの差が急に開いていた。
-        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(1.4, 0.50, (age - 70) / 30) : 1.4;
+        // 90さいだいは 老いの リスク(さいだい 0.9)が 自動かいふくを うわまわる ことが
+        // あり、そだちが ひくいと 老衰も ありうる(以前は かいふくが つねに 上で 老衰が おきなかった)
+        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(0.9, 0.35, (age - 70) / 30) : 1.4;
         state.deathMeter = clamp(state.deathMeter - recovery, 0, 100);
       }
 
@@ -10548,6 +10563,7 @@
     const badges = [];
     if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
     if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
+    if (state.boostTicks > 0 && !isEgg && !isOver) badges.push(`<span class="badge badge-boost" title="せいちょう2ばい あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}ふん">✨2ばい</span>`);
     const badgesHTML = badges.join('');
     if (el.badges.innerHTML !== badgesHTML) el.badges.innerHTML = badgesHTML;
 
@@ -13582,7 +13598,12 @@
       state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
       state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
       state.lifetime.money += 10;
-      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+10${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}`;
+      grantGrowthBoost(BOOST_TICKS_DAILY);
+      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+10 ✨せいちょう2ばい(10ぷん)${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}`;
+    }
+    if (record && record.rank === 'S' && !activeMinigameDaily) {
+      grantGrowthBoost(BOOST_TICKS_S_RANK);
+      resultMessage += ' ✨Sランク! せいちょう2ばい(2ふん)';
     }
     if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
@@ -13737,13 +13758,24 @@
     }
   }
 
+  // recoverSleepStep → render → startSleepRecovery → recoverSleepStep の
+  // さいきよびだしを ふせぐ(以前は これで「ねる」の しゅんかんに いっきに
+  // かいふくして いた)
+  let sleepStepBusy = false;
   function recoverSleepStep() {
+    if (sleepStepBusy) return;
     if (!state.isSleeping || !isLiveLife()) {
       stopSleepRecovery();
       return;
     }
-    const boost = isEquipped('sleepboost1') ? 0.35 : 0;
-    const step = ((state.isSick ? 1.15 : 1.8) + boost) * envModifiers().sleep;
+    sleepStepBusy = true;
+    try { recoverSleepStepInner(); } finally { sleepStepBusy = false; }
+  }
+  function recoverSleepStepInner() {
+    // 100ms ごと。0→100 が やく 45びょう(以前は 1.8/100ms で 6びょうたらず、
+    // げんきが リソースとして 意味を なしていなかった)
+    const boost = isEquipped('sleepboost1') ? 0.06 : 0;
+    const step = ((state.isSick ? 0.14 : 0.22) + boost) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();
@@ -13755,10 +13787,10 @@
     if (!state.isSleeping) return;
     // 「ねる」を押したその場で最初の回復を1回入れ、その後100msごとに
     // なめらかに回復し続ける。最初の100ms待ちをなくして反応を即時にする。
-    recoverSleepStep();
     if (state.isSleeping && state.energy < 100) {
       sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
     }
+    recoverSleepStep();
   }
 
   const ACTION_RESULT_MESSAGES = {
@@ -13970,13 +14002,13 @@
       // spamming ごはん when the pet is already full doesn't help evolution -
       // it risks making it sick instead
       state.happiness = clamp(state.happiness - 4, 0, 100);
-      applyDecline(8);
-      if (!state.isSick && Math.random() < 0.3) {
+      applyDecline(4);
+      if (!state.isSick && Math.random() < 0.15) {
         const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
         state.isSick = true;
         state.sicknessType = sickness.label;
         state.totalSicknessCount += 1;
-        raiseDeathMeter(4);
+        raiseDeathMeter(2);
         setMessage(`🍚たべすぎて${sickness.label}になった`);
         speakEvent('overfeed');
       } else {

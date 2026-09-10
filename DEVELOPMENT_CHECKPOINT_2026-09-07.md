@@ -1752,3 +1752,11 @@ Runtime smoke test SUCCESS確認済み。
 - `render()` の `regionLabel`/`seasonLabel`/`partnerLabel`/`endingBadges` の innerHTML を `setHTMLIfChanged()` で「変わったときだけ」に。
 - テスト: minigame-lifecycle に「フレームで throw するゲームは閉じられ、報酬なし、次のゲームが動く」「start で throw」、save-recovery に「容量ぎれでスナップ削除→再試行で保存」「常に容量ぎれなら記録して警告」。`npm test` 165件通過。全100ゲーム スイープ ページエラー 0。
 
+## チェックポイント BL — そだちのバランス(2026-09-10)
+- `SODACHI_COST_BANDS` を 8/10/14/20/26/32/40 に(20→70: 680、20→100: 1,660。以前 1,000 / 3,300)。
+- せいちょう2ばい `boostTicks` を実際に使う: `grantGrowthBoost(ticks)`(上限 200 tick = 10分)。Sランク(きょうのチャレンジ以外)で +40、きょうのチャレンジ クリアで +200。バッジ `✨2ばい`(残り分数を title に)。
+- ねむり: `recoverSleepStep` を 0.22/100ms(病気 0.14、sleepboost1 +0.06)に。`recoverSleepStep → render → startSleepRecovery → recoverSleepStep` の再帰(「ねる」の瞬間に全回復していた)を `sleepStepBusy` ガードと「タイマーを先に張る」順序で解消。
+- 老い: wellCared の自動回復を 70さい以降 `lerp(0.9, 0.35)` に(老いリスク最大 0.9 が上回りうる)。たべすぎ: おとろえ +4、病気 15%、死亡メーター +2。
+- お世話の しらせ: 「せいちょう ↑」の刻みを `max(5, cost/4)` に(コストが安い帯でごはん1回ごとに出ない)。
+- テスト: `tests/growth-balance-test.cjs`(コスト合計の範囲、ねむり 0→100 が 30〜90秒、Sランクで boost・2倍・tick で減る・上限)。harness に `finishMinigame/sodachiCost/applyGrowth/recoverSleepStep/grantGrowthBoost` を公開。
+
