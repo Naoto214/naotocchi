@@ -313,7 +313,7 @@ assert.equal(api.getState().speciesLine, 'rabbit');
 // These are ordered-clock unit regressions, separate from browser observation.
 const legendReady = {sodachi:95,maxSodachi:95,legendMet:false};
 for (const [name, patch] of [
-  ['growth below 90',{sodachi:89,maxSodachi:89}],
+  ['growth below 70',{sodachi:69,maxSodachi:69}],
   ['already met',{legendMet:true}],
   ['free mode',{infinite:true}],
   ['egg',{stage:'egg'}],

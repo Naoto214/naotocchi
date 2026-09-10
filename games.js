@@ -12,6 +12,7 @@
   const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
   const perfLow = typeof S.perfLow === 'function' ? S.perfLow : () => false;
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
+  const drawProp = typeof S.drawProp === 'function' ? S.drawProp : () => false;
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
@@ -81,7 +82,7 @@
           <div class="mg-race-controls"><button class="mg-tap-btn" id="lrLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="lrRight" data-hold="step" data-key="right">▶</button></div>`;
         const canvas = container.querySelector('#lrCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 215);
-        const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
+        const road = createPseudoRoad(ctx, W, H, { drawEmoji:drawProp, colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
         const MAX_SPEED = SEG_LEN * lerp(26, 34, difficulty);
         for (let i = 0; i < 14; i++) { const dir = Math.random() < 0.5 ? -1 : 1; road.addRoad(10, 10 + Math.floor(Math.random() * 10), 10, dir * (1 + Math.random() * 2.2), (Math.random() - 0.5) * 30); }
@@ -1619,7 +1620,7 @@
           update(dt, now);
           if (!running) return;
           render(now);
-          if (now - startTime > 90000 && phase === 'idle') { finish(); return; }
+          if (now - startTime > mgDuration(90000) && phase === 'idle') { finish(); return; }
           rafId = requestAnimationFrame(frame);
         }
         function finish() {
@@ -2018,7 +2019,7 @@
           if (sy > seg.clip + 2) return;
           const px = Math.max(3, scale * ROAD_W * W / 2 * s.size);
           if (s.draw) s.draw(ctx, sx, sy, px, s);
-          else { ctx.font = `${px}px sans-serif`; ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+          else { ctx.font = `${px}px sans-serif`; if (!opts.drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
         };
         for (const s of seg.sprites) drawOne(s);
         for (const s of seg.dynamic) drawOne(s);
@@ -3353,6 +3354,9 @@
         function attack(f, target, kind) {
           const now = performance.now();
           if (!running || now < startTime || f.state !== 'idle' || f.stun > 0 || f.guard) return;
+          // れんだ たいさく: まえの こうげきの すぐあと(350ms いない)に つぎを 出すと
+          // 「あせり」で いりょくが おち、すきも 大きく なる
+          f.rushed = now - (f.lastAttackEnd || 0) < 350;
           f.state = 'windup'; f.move = kind; f.stateUntil = now + MOVES[kind].windup; f.hitDone = false; if (f === me) sfx('whoosh');
         }
         function updateFighter(f, target, dt, now) {
@@ -3363,17 +3367,25 @@
             if (!f.hitDone && Math.abs(target.x - f.x) < mv.range + 0.06 && Math.sign(target.x - f.x) === f.face) {
               f.hitDone = true;
               const blocked = target.guard && target.stun <= 0;
-              const dmg = blocked ? Math.round(mv.dmg * 0.2) : mv.dmg;
+              // スタンはめ たいさく: おなじ あいてに 3れんぞく いじょう あてると、
+              // その あとの ヒットは スタンしなく なり いりょくも さがる
+              const chained = (target.recentHits || 0) >= 3;
+              const dmg = Math.round(mv.dmg * (blocked ? 0.2 : 1) * (f.rushed ? 0.7 : 1) * (chained ? 0.6 : 1));
               target.hp = Math.max(0, target.hp - dmg);
               target.x = clamp(target.x + f.face * (blocked ? mv.push * 0.5 : mv.push), 0.08, 0.92);
-              if (!blocked) { target.stun = f.move === 'kick' ? 0.45 : 0.25; target.state = 'hit'; target.guard = false; shake = f.move === 'kick' ? 7 : 4; }
+              if (!blocked && !chained) { target.stun = f.move === 'kick' ? 0.45 : 0.25; target.state = 'hit'; target.guard = false; shake = f.move === 'kick' ? 7 : 4; }
+              target.recentHits = blocked ? 0 : (target.recentHits || 0) + 1; target.lastHitAt = now;
+              // 3れんぞく くらった あいては いちど ガードで たてなおす(AI)
+              if (target === ai && !blocked && target.recentHits >= 3) { ai.guard = true; ai.guardUntil = now + 600; ai.recentHits = 0; }
               sparks.push({ x: target.x, y: FLOOR - 0.45, born: now, blocked }); sfx(blocked ? 'tick' : 'hit');
               if (f === me) { hits++; if (!blocked) { me.combo++; if (me.combo >= 3) say('🔥 ' + me.combo + '連続ヒット!', 800); } else say('ガードされた!', 600); }
               else { taken++; me.combo = 0; if (blocked) say('🛡️ガード成功!', 700); }
+              if (blocked && target === ai) ai.justBlocked = true;
               if (target.hp <= 0) { ko = target === ai ? 'win' : 'lose'; setTimeout(() => finish(), 900); }
             }
-            if (now >= f.stateUntil) { f.state = 'recover'; f.stateUntil = now + mv.recover; }
-          } else if (f.state === 'recover' && now >= f.stateUntil) f.state = 'idle';
+            if (now >= f.stateUntil) { f.state = 'recover'; f.stateUntil = now + mv.recover * (f.rushed ? 1.5 : 1); }
+          } else if (f.state === 'recover' && now >= f.stateUntil) { f.state = 'idle'; f.lastAttackEnd = now; }
+          if (f.recentHits && now - (f.lastHitAt || 0) > 1200) f.recentHits = 0;
         }
         function aiThink(dt, now) {
           if (ai.stun > 0 || ai.state !== 'idle') return;
@@ -3382,8 +3394,10 @@
           const dist = Math.abs(me.x - ai.x);
           ai.face = me.x < ai.x ? -1 : 1;
           const threatened = me.state === 'windup' && dist < 0.3;
-          if (threatened && Math.random() < lerp(0.45, 0.8, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
+          if (threatened && Math.random() < lerp(0.55, 0.85, difficulty)) { ai.guard = true; ai.guardUntil = now + 420; return; }
           ai.guard = false;
+          // ガードした 直後は はんげき(あいての すきに あわせる)
+          if (ai.justBlocked && dist < 0.3) { ai.justBlocked = false; attack(ai, me, Math.random() < 0.5 ? 'punch' : 'kick'); return; }
           if (dist > 0.26) { ai.x = clamp(ai.x + ai.face * 0.55 * dt * 4, 0.08, 0.92); }
           else if (Math.random() < ai.aggro) attack(ai, me, Math.random() < 0.55 ? 'punch' : 'kick');
           else if (Math.random() < 0.3) ai.x = clamp(ai.x - ai.face * 0.5 * dt * 4, 0.08, 0.92);
@@ -3729,7 +3743,7 @@
           update(dt, now);
           if (!running) return;
           render(now);
-          if (now - startTime > 150000) { finish(lives > 0); return; }
+          if (now - startTime > mgDuration(150000)) { finish(lives > 0); return; }
           rafId = requestAnimationFrame(frame);
         }
         function finish(win) {
@@ -3855,7 +3869,7 @@
           for (const a of anim) if (a.kind === 'hit') { const t = (now - a.born) / 600; ctx.globalAlpha = 1 - t; ctx.fillStyle = a.me ? '#ff5c5c' : '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.fillText(a.text, (a.x + 0.5) * CELL, (a.y + 0.2) * CELL - t * 14); ctx.globalAlpha = 1; }
           if (now < msgUntil) { ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 100, H - 26, 200, 22); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H - 15); }
         }
-        function loop(now) { if (!running) return; render(now); if (now - startTime > 180000) { finish(false); return; } rafId = requestAnimationFrame(loop); }
+        function loop(now) { if (!running) return; render(now); if (now - startTime > mgDuration(180000)) { finish(false); return; } rafId = requestAnimationFrame(loop); }
         function finish(win) {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
@@ -7722,7 +7736,7 @@
           ctx.save(); ctx.translate(x + w / 2, y + h / 2); if (c.shakeAt && now - c.shakeAt < 300) ctx.translate(Math.sin((now - c.shakeAt) / 20) * 3, 0); ctx.scale(Math.max(0.04, sx), 1);
           if (c.done) { const dt = clamp((now - c.doneAt) / 400, 0, 1); ctx.globalAlpha = 1 - dt * 0.45; ctx.scale(1 - dt * 0.08, 1 - dt * 0.08); }
           ctx.fillStyle = 'rgba(0,0,0,.25)'; mgRoundRect(ctx, -w / 2 + 2, -h / 2 + 3, w, h, 8);
-          if (showFace) { ctx.fillStyle = '#fff'; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = c.done ? '#2a9d8f' : '#e0a800'; ctx.lineWidth = 2; ctx.strokeRect(-w / 2 + 1, -h / 2 + 1, w - 2, h - 2); ctx.font = `${Math.round(Math.min(w, h) * 0.6)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.e, 0, 2); }
+          if (showFace) { ctx.fillStyle = '#fff'; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = c.done ? '#2a9d8f' : '#e0a800'; ctx.lineWidth = 2; ctx.strokeRect(-w / 2 + 1, -h / 2 + 1, w - 2, h - 2); ctx.font = `${Math.round(Math.min(w, h) * 0.6)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const size=Math.round(Math.min(w,h)*0.6); if (!drawProp(ctx,c.e,-size/2,2-size/2,size)) ctx.fillText(c.e, 0, 2); }
           else { const g = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2); g.addColorStop(0, '#5b8def'); g.addColorStop(1, '#2f5fb5'); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 1.5; ctx.strokeRect(-w / 2 + 5, -h / 2 + 5, w - 10, h - 10); ctx.font = `${Math.round(Math.min(w, h) * 0.4)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.fillText('?', 0, 1); }
           ctx.restore();
         }

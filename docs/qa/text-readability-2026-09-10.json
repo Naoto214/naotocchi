@@ -2897,5 +2897,7 @@
       "movie rendering",
       "published site file equality"
     ]
-  }
+  },
+  "recordScope": "Original PR234 before latest-main integration; historical hashes and179 tests retained",
+  "supersededByIntegrationRecord": "text-readability-integration-2026-09-10.json"
 }

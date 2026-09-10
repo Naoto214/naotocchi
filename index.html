@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-audit-1">
+  <link rel="stylesheet" href="style.css?v=20260910-88eb60da">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
-  <link rel="stylesheet" href="design.css?v=20260910-fit-2">
-  <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
-  <link rel="stylesheet" href="care-status.css?v=20260910-transparent-1">
-  <link rel="stylesheet" href="ui-illustrations.css?v=20260910-comment-art-1">
+  <link rel="stylesheet" href="ui.css?v=20260910-0110ed9b">
+  <link rel="stylesheet" href="design.css?v=20260910-465df341">
+  <link rel="stylesheet" href="egg-hatching.css?v=20260910-8449f9f9">
+  <link rel="stylesheet" href="care-status.css?v=20260910-0191a051">
+  <link rel="stylesheet" href="ui-illustrations.css?v=20260910-823ec14f">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
@@ -79,7 +79,7 @@
           </div>
 
           <div class="home-meters">
-            <div class="bars care-meters" role="group" aria-label="おせわのようす">
+            <div class="bars care-meters" id="careMeters" role="group" aria-label="おせわのようす">
               <div class="bar-line">
                 <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
                 <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
@@ -165,6 +165,7 @@
           <div class="dex-scroll">
             <div class="profile-hint">出会った姿をタップすると、名前や成長の段階、その子の小さな話を読めます</div>
             <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしい画面から、その姿になれます</div>
+            <div id="dexSummary"></div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
@@ -279,7 +280,12 @@
               <div class="shop-item-grid" id="naotoItemGrid"></div>
               <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
             </div>
-            <div id="onetimeItemGrid" class="hidden"></div>
+            <div class="theme-section">
+              <div class="theme-section-title">つかいきり</div>
+              <div class="profile-hint">買うとすぐに使えます。多くは「つぎの1回」に効果があり、同じおまもりは1つずつ持てます。回数や時間は、それぞれの説明で確認してください。</div>
+              <div class="profile-hint" id="onetimeActive"></div>
+              <div class="shop-item-grid" id="onetimeItemGrid"></div>
+            </div>
           </div>
         </div>
 
@@ -361,6 +367,7 @@
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
+            <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
             <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気を調べるために使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
@@ -665,14 +672,15 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
   <div class="weather-fx" id="weatherFx"></div>
 
-  <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
-  <script src="cast-bounds.js?v=20260910-egg-1"></script>
-  <script src="cast-motion.js?v=20260910-expressive-1"></script>
-  <script src="cast-layout.js?v=20260910-expressive-1"></script>
-  <script src="world-environment.js?v=20260910-env-1"></script>
-  <script src="games.js?v=20260910-stack-art-1"></script>
-  <script src="audio.js?v=20260910-audit-1"></script>
-  <script src="care-status.js?v=20260910-care-2"></script>
-  <script src="script.js?v=20260910-comment-art-1"></script>
+  <script src="character-world-master.v1.js?v=20260910-3f8b0832"></script>
+  <script src="cast-bounds.js?v=20260910-c9130956"></script>
+  <script src="cast-motion.js?v=20260910-c479a13a"></script>
+  <script src="cast-layout.js?v=20260910-4a13a5ab"></script>
+  <script src="world-environment.js?v=20260910-4c56cc41"></script>
+  <script src="prop-illustrations.js?v=20260910-c63683dd"></script>
+  <script src="games.js?v=20260910-14267700"></script>
+  <script src="audio.js?v=20260910-bca193a8"></script>
+  <script src="care-status.js?v=20260910-7d4603e7"></script>
+  <script src="script.js?v=20260910-a4f70bdb"></script>
 </body>
 </html>
