@@ -10459,8 +10459,22 @@
       rankCounts[minigameRankOf(record.best)] += 1;
     }
     el.achProgress.textContent = `あそんだ${played} / ${pool.length}`;
-    const rankSummary = ['S', 'A', 'B'].map((r) => `<span class="mg-rank rank-${r}">${r}</span>${rankCounts[r]}`).join('');
     let html = '';
+    // まとめカード: あそんだ わりあいの バー、ランクの うちわけ バー、のこり本数
+    const total = pool.length || 1;
+    const left = pool.length - played;
+    const rankOrder = ['S', 'A', 'B', 'C', 'D'];
+    const rankBar = rankOrder.map((r) => rankCounts[r] ? `<span class="rank-bar-seg seg-${r}" style="width:${(rankCounts[r] / total * 100).toFixed(1)}%"></span>` : '').join('') + (left ? `<span class="rank-bar-seg seg-none" style="width:${(left / total * 100).toFixed(1)}%"></span>` : '');
+    const rankCells = rankOrder.map((r) => `<span class="rank-count"><span class="mg-rank rank-${r}">${r}</span>${rankCounts[r]}</span>`).join('');
+    const bestAvg = played ? Math.round(pool.reduce((a, g) => { const r = minigameRecordOf(g); return a + (r ? r.best : 0); }, 0) / played) : 0;
+    const complete = left === 0;
+    const headline = complete
+      ? (rankCounts.S >= pool.length ? '👑 ぜんぶ Sランク!' : `🏁 100本コンプリート! Sランク あと${pool.length - rankCounts.S}本`)
+      : `あと${left}本で コンプリート`;
+    html += `<div class="records-summary"><div class="records-head"><span class="records-title">📒 きろくの まとめ</span><span class="records-headline">${headline}</span></div>`
+      + `<div class="records-row"><span class="records-label">あそんだ</span><span class="records-bar"><span class="records-bar-fill" style="width:${(played / total * 100).toFixed(1)}%"></span></span><span class="records-num">${played}/${pool.length}</span></div>`
+      + `<div class="records-row"><span class="records-label">ランク</span><span class="records-bar rank-bar">${rankBar}</span><span class="records-num">${played ? 'へいきん' + bestAvg + 'てん' : '—'}</span></div>`
+      + `<div class="records-ranks">${rankCells}</div></div>`;
     // きょうの チャレンジ カード
     const daily = dailyChallengeGame();
     if (daily) {
@@ -10473,12 +10487,17 @@
       html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}にちれんぞく</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? 'きょうはクリアずみ。またあした!' : '1日1かい。クリアで 💰+10'}</span></div><div class="daily-status">${status}</div></div></div>`;
     }
     html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
-    html += `<div class="game-list-summary"><span>ランクべつ</span><span class="game-list-ranks">${rankSummary}</span></div>`;
     html += `<div class="game-list-hint">タップするとそのゲームであそべる(げんきをつかう)・むずかしさ: ${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}(せかいがめんでかえられる)</div>`;
     const bestOf = (game) => { const r = minigameRecordOf(game); return r ? r.best : -1; };
     const sections = [];
     if (gameListSort === 'genre') {
-      for (const genre of MINIGAME_GENRES) { const games = pool.filter((game) => minigameGenreId(game) === genre.id); if (games.length) sections.push({ title: `${genre.emoji} ${genre.label} (${games.length})`, games }); }
+      for (const genre of MINIGAME_GENRES) {
+        const games = pool.filter((game) => minigameGenreId(game) === genre.id);
+        if (!games.length) continue;
+        const done = games.filter((game) => minigameRecordOf(game)).length;
+        const s = games.filter((game) => { const r = minigameRecordOf(game); return r && minigameRankOf(r.best) === 'S'; }).length;
+        sections.push({ title: `${genre.emoji} ${genre.label}`, meta: `${done}/${games.length}${s ? ` <span class="mg-rank rank-S mini">S</span>${s}` : ''}`, games });
+      }
     } else if (gameListSort === 'unplayed') {
       const games = pool.filter((game) => !minigameRecordOf(game)); sections.push({ title: `🗂️ まだ きろくの ない ゲーム (${games.length})`, games });
     } else if (gameListSort === 'low') {
@@ -10488,8 +10507,9 @@
     }
     for (const section of sections) {
       const games = section.games;
-      if (!games.length) { html += `<div class="game-section-title">${section.title}</div><div class="game-list-hint">ぜんぶ きろくが ある!</div>`; continue; }
-      html += `<div class="game-section-title">${section.title}</div>`;
+      const titleHtml = `<div class="game-section-title"><span>${section.title}</span>${section.meta ? `<span class="game-section-meta">${section.meta}</span>` : ''}</div>`;
+      if (!games.length) { html += `${titleHtml}<div class="game-list-hint">ぜんぶ きろくが ある!</div>`; continue; }
+      html += titleHtml;
       for (const game of games) {
         const info = minigameInfo(game);
         const record = minigameRecordOf(game);
@@ -10499,9 +10519,10 @@
         const tag = home ? `<span class="game-cell-tag ${isNow ? 'now' : ''}">${home.emoji}${home.label}${isNow ? ' 2ばい' : ''}</span>` : '';
         const rank = record ? minigameRankOf(record.best) : null;
         const rankHtml = rank ? `<span class="mg-rank rank-${rank}">${rank}</span>` : '<span class="mg-rank rank-none">—</span>';
-        const bestHtml = record ? `<span class="game-cell-best">${record.best}てん</span>` : `<span class="game-cell-best">${plays ? 'きろくなし' : 'みプレイ'}</span>`;
+        const bestHtml = record ? `<span class="game-cell-best">ベスト${record.best}</span>` : `<span class="game-cell-best">${plays ? 'きろくなし' : 'みプレイ'}</span>`;
+        const lastHtml = record && record.last != null && record.last !== record.best ? `<span class="game-cell-plays">まえ${record.last}</span>` : '';
         const playsHtml = plays ? `<span class="game-cell-plays">${plays}かい</span>` : '';
-        html += `<button type="button" class="game-cell ${record ? 'known' : 'unplayed'} ${isNow ? 'spotlight' : ''}" data-game-id="${game.id}"><span class="game-cell-emoji">${info.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${info.name}${tag}</span><span class="game-cell-desc">${info.desc}</span></div><div class="game-cell-record">${rankHtml}${bestHtml}${playsHtml}</div></button>`;
+        html += `<button type="button" class="game-cell ${record ? 'known' : 'unplayed'} ${isNow ? 'spotlight' : ''} ${rank ? 'accent-' + rank : ''}" data-game-id="${game.id}"><span class="game-cell-emoji">${info.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${info.name}${tag}</span><span class="game-cell-desc">${info.desc}</span></div><div class="game-cell-record">${rankHtml}${bestHtml}${lastHtml}${playsHtml}</div></button>`;
       }
     }
     el.gameListGrid.innerHTML = html;
@@ -13124,194 +13145,17 @@
   // おわかれ)ごとに べつの きょくを ループし、場面が かわると ふわっと きりかわる。
   // せっていは state.lifetime.soundSfx / soundBgm(せかい がめん)
   // ================================================================
-  const audio = (() => {
-    const rawSetTimeout = typeof nativeSetTimeout === 'function' ? nativeSetTimeout : (typeof window.setTimeout === 'function' ? window.setTimeout.bind(window) : (fn, ms) => setTimeout(fn, ms));
-    let ctx = null, master = null, sfxBus = null, bgmBus = null, unlocked = false, noiseBuf = null;
-    let scene = null, track = null, nextNoteTime = 0, step = 0, schedTimer = null, sceneGain = null;
-    const sfxOn = () => !state || !state.lifetime || state.lifetime.soundSfx !== false;
-    const bgmOn = () => !state || !state.lifetime || state.lifetime.soundBgm !== false;
-    function ensure() {
-      if (ctx) return ctx;
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (!AC) return null;
-      try { ctx = new AC(); } catch (err) { return null; }
-      master = ctx.createGain(); master.gain.value = 0.9; master.connect(ctx.destination);
-      sfxBus = ctx.createGain(); sfxBus.gain.value = 0.9; sfxBus.connect(master);
-      bgmBus = ctx.createGain(); bgmBus.gain.value = 0.28; bgmBus.connect(master);
-      const len = Math.floor(ctx.sampleRate * 0.5); noiseBuf = ctx.createBuffer(1, len, ctx.sampleRate);
-      const d = noiseBuf.getChannelData(0); for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
-      return ctx;
-    }
-    function unlock() {
-      const c = ensure(); if (!c) return;
-      if (c.state === 'suspended') { try { c.resume(); } catch (err) {} }
-      unlocked = true;
-      startScheduler();
-    }
-    // --- こうかおん の 部品 ---
-    function tone(freq, dur, o = {}) {
-      const c = ensure(); if (!c || !unlocked || !sfxOn()) return;
-      const t0 = c.currentTime + (o.delay || 0);
-      const osc = c.createOscillator(); osc.type = o.type || 'sine';
-      osc.frequency.setValueAtTime(freq, t0);
-      if (o.slide) osc.frequency.exponentialRampToValueAtTime(Math.max(30, freq + o.slide), t0 + dur);
-      const g = c.createGain(); const v = o.vol == null ? 0.18 : o.vol;
-      g.gain.setValueAtTime(0.0001, t0); g.gain.linearRampToValueAtTime(v, t0 + (o.attack || 0.005)); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-      osc.connect(g); g.connect(sfxBus); osc.start(t0); osc.stop(t0 + dur + 0.02);
-    }
-    function noise(dur, o = {}) {
-      const c = ensure(); if (!c || !unlocked || !sfxOn()) return;
-      const t0 = c.currentTime + (o.delay || 0);
-      const src = c.createBufferSource(); src.buffer = noiseBuf;
-      const f = c.createBiquadFilter(); f.type = o.filter || 'lowpass'; f.frequency.setValueAtTime(o.freq || 1200, t0); if (o.freqEnd) f.frequency.exponentialRampToValueAtTime(o.freqEnd, t0 + dur);
-      const g = c.createGain(); const v = o.vol == null ? 0.2 : o.vol;
-      g.gain.setValueAtTime(v, t0); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-      src.connect(f); f.connect(g); g.connect(sfxBus); src.start(t0); src.stop(t0 + dur + 0.02);
-    }
-    const N = (n) => 440 * Math.pow(2, (n - 69) / 12);
-    const SFX = {
-      tap: () => tone(N(84), 0.05, { type: 'square', vol: 0.05 }),
-      open: () => { tone(N(76), 0.07, { type: 'triangle', vol: 0.12 }); tone(N(83), 0.1, { type: 'triangle', vol: 0.12, delay: 0.06 }); },
-      close: () => { tone(N(83), 0.07, { type: 'triangle', vol: 0.1 }); tone(N(76), 0.1, { type: 'triangle', vol: 0.1, delay: 0.06 }); },
-      good: () => { tone(N(79), 0.08, { type: 'triangle', vol: 0.16 }); tone(N(86), 0.14, { type: 'triangle', vol: 0.16, delay: 0.07 }); },
-      coin: () => { tone(N(88), 0.06, { type: 'square', vol: 0.1 }); tone(N(95), 0.16, { type: 'square', vol: 0.1, delay: 0.06 }); },
-      pop: () => tone(N(90), 0.07, { type: 'sine', vol: 0.16, slide: 300 }),
-      bad: () => { tone(N(45), 0.28, { type: 'sawtooth', vol: 0.14, slide: -40 }); noise(0.16, { vol: 0.12, freq: 900, freqEnd: 200 }); },
-      hit: () => noise(0.12, { vol: 0.2, freq: 1800, freqEnd: 300 }),
-      jump: () => tone(N(60), 0.16, { type: 'square', vol: 0.09, slide: 500 }),
-      whoosh: () => noise(0.22, { vol: 0.12, filter: 'bandpass', freq: 600, freqEnd: 2400 }),
-      start: () => { tone(N(72), 0.09, { type: 'square', vol: 0.1 }); tone(N(72), 0.09, { type: 'square', vol: 0.1, delay: 0.14 }); tone(N(79), 0.22, { type: 'square', vol: 0.12, delay: 0.28 }); },
-      clear: () => { [72, 76, 79, 84].forEach((n, i) => tone(N(n), 0.16, { type: 'triangle', vol: 0.16, delay: i * 0.09 })); },
-      fanfare: () => { [72, 76, 79, 84, 79, 84].forEach((n, i) => tone(N(n), i >= 4 ? 0.3 : 0.14, { type: 'square', vol: 0.11, delay: i * 0.1 })); [60, 64, 67, 72].forEach((n, i) => tone(N(n), 0.5, { type: 'triangle', vol: 0.08, delay: 0.4 + i * 0.02 })); },
-      fail: () => { [67, 64, 60].forEach((n, i) => tone(N(n), 0.22, { type: 'triangle', vol: 0.14, delay: i * 0.16 })); },
-      notify: () => { tone(N(88), 0.08, { type: 'sine', vol: 0.14 }); tone(N(93), 0.2, { type: 'sine', vol: 0.14, delay: 0.09 }); },
-      levelup: () => { [60, 64, 67, 72, 76, 79].forEach((n, i) => tone(N(n), 0.12, { type: 'triangle', vol: 0.14, delay: i * 0.06 })); tone(N(84), 0.5, { type: 'triangle', vol: 0.16, delay: 0.38 }); },
-      hatch: () => { noise(0.1, { vol: 0.15, freq: 2500 }); [72, 79, 84].forEach((n, i) => tone(N(n), 0.18, { type: 'sine', vol: 0.15, delay: 0.1 + i * 0.1 })); },
-      chirp: () => { tone(N(91), 0.06, { type: 'sine', vol: 0.1, slide: 200 }); tone(N(95), 0.08, { type: 'sine', vol: 0.1, delay: 0.08, slide: 150 }); },
-      sad: () => { tone(N(67), 0.2, { type: 'sine', vol: 0.12, slide: -60 }); tone(N(62), 0.3, { type: 'sine', vol: 0.12, delay: 0.18, slide: -80 }); },
-      sleep: () => { [72, 67, 64].forEach((n, i) => tone(N(n), 0.32, { type: 'sine', vol: 0.1, delay: i * 0.22 })); },
-      wake: () => { [64, 67, 72].forEach((n, i) => tone(N(n), 0.14, { type: 'sine', vol: 0.1, delay: i * 0.1 })); },
-      die: () => { [64, 63, 62, 55].forEach((n, i) => tone(N(n), 0.5, { type: 'triangle', vol: 0.12, delay: i * 0.4 })); },
-      love: () => { [76, 79, 83, 88].forEach((n, i) => tone(N(n), 0.22, { type: 'sine', vol: 0.12, delay: i * 0.12 })); },
-      tick: () => tone(N(96), 0.03, { type: 'square', vol: 0.04 }),
-    };
-    let lastSfxAt = {};
-    function play(name) {
-      const fn = SFX[name]; if (!fn || !unlocked || !sfxOn()) return;
-      const now = performance.now();
-      // おなじ おとの れんだは 40ms に 1かいまで
-      if (lastSfxAt[name] && now - lastSfxAt[name] < 40) return;
-      lastSfxAt[name] = now;
-      try { fn(); } catch (err) { /* おとが ならなくても ゲームは とめない */ }
-    }
-    // --- BGM: 場面ごとの きょく。数字は MIDI ノート、null は やすみ。
-    //     bass/lead は 16分おんぷ 単位で 1しょうせつ 16こ、ループ ---
-    const TRACKS = {
-      home: { bpm: 96, swing: 0.08, lead: 'triangle', leadVol: 0.12, bassVol: 0.1, hat: 0.05, kick: 0.16,
-        chords: [[60, 64, 67], [57, 60, 64], [65, 69, 72], [67, 71, 74]],
-        bass: [48, null, null, 48, null, null, 55, null, 48, null, null, 48, null, 52, null, 55],
-        lead: [[72, null, 76, null, 79, null, 76, null, 72, null, null, null, 74, null, 76, null], [69, null, 72, null, 76, null, 72, null, 69, null, null, null, 67, null, 69, null], [65, null, 69, null, 72, null, 69, null, 77, null, null, null, 76, null, 74, null], [74, null, 71, null, 67, null, 71, null, 74, null, null, null, 72, null, null, null]] },
-      night: { bpm: 66, swing: 0, lead: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0, kick: 0,
-        chords: [[57, 60, 64], [53, 57, 60], [55, 59, 62], [57, 60, 64]],
-        bass: [45, null, null, null, null, null, null, null, 52, null, null, null, null, null, null, null],
-        lead: [[76, null, null, null, 72, null, null, null, 69, null, null, null, null, null, null, null], [77, null, null, null, 72, null, null, null, 69, null, null, null, null, null, null, null], [74, null, null, null, 71, null, null, null, 67, null, null, null, null, null, null, null], [76, null, null, null, null, null, null, null, 72, null, null, null, null, null, null, null]] },
-      game: { bpm: 138, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.1, hat: 0.06, kick: 0.2,
-        chords: [[60, 64, 67], [60, 64, 67], [65, 69, 72], [67, 71, 74]],
-        bass: [48, 48, null, 48, null, 48, 55, null, 48, 48, null, 48, null, 55, 52, 55],
-        lead: [[79, null, 79, 76, null, 79, null, 81, null, 79, null, 76, null, 72, null, null], [76, null, 76, 72, null, 76, null, 79, null, 76, null, 72, null, 67, null, null], [77, null, 77, 74, null, 77, null, 81, null, 84, null, 81, null, 77, null, null], [79, null, 83, null, 86, null, 83, null, 79, null, 74, null, 71, null, 67, null]] },
-      movie: { bpm: 112, swing: 0, lead: 'sine', leadVol: 0.11, bassVol: 0.09, hat: 0.03, kick: 0.08, waltz: true,
-        chords: [[60, 64, 67, 71], [57, 60, 64, 67], [62, 65, 69, 72], [55, 59, 62, 65]],
-        bass: [48, null, null, null, 52, null, 55, null, null, null, 52, null, 48, null, null, null],
-        lead: [[79, null, null, null, 76, null, 74, null, null, null, 72, null, 76, null, null, null], [76, null, null, null, 72, null, 69, null, null, null, 67, null, 72, null, null, null], [77, null, null, null, 74, null, 72, null, null, null, 69, null, 74, null, null, null], [74, null, null, null, 71, null, 67, null, null, null, 71, null, 74, null, null, null]] },
-      puzzle: { bpm: 100, swing: 0.1, lead: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0.03, kick: 0,
-        chords: [[57, 60, 64, 67], [65, 69, 72, 76], [60, 64, 67, 71], [67, 71, 74, 77]],
-        bass: [45, null, null, null, null, null, 52, null, 45, null, null, null, null, null, 50, null],
-        lead: [[76, null, null, 79, null, null, 81, null, null, null, 79, null, 76, null, null, null], [77, null, null, 81, null, null, 84, null, null, null, 81, null, 77, null, null, null], [79, null, null, 76, null, null, 72, null, null, null, 76, null, 79, null, null, null], [74, null, null, 77, null, null, 79, null, null, null, 83, null, 79, null, null, null]] },
-      race: { bpm: 152, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.11, hat: 0.07, kick: 0.22,
-        chords: [[57, 60, 64], [57, 60, 64], [53, 57, 60], [55, 59, 62]],
-        bass: [45, 45, 57, 45, 45, 57, 45, 45, 45, 45, 57, 45, 52, 52, 55, 55],
-        lead: [[76, null, 76, null, 79, 76, null, 74, null, 76, null, null, 79, null, 81, null], [76, null, 76, null, 79, 76, null, 74, null, 72, null, null, 71, null, 72, null], [77, null, 77, null, 81, 77, null, 76, null, 77, null, null, 81, null, 84, null], [79, null, 79, null, 83, 79, null, 78, null, 79, null, null, 83, null, 86, null]] },
-      sports: { bpm: 124, swing: 0.05, lead: 'triangle', leadVol: 0.11, bassVol: 0.1, hat: 0.06, kick: 0.18,
-        chords: [[65, 69, 72], [67, 71, 74], [69, 72, 76], [67, 71, 74]],
-        bass: [53, null, 53, null, 60, null, 53, null, 55, null, 55, null, 62, null, 55, null],
-        lead: [[81, null, 84, null, 81, null, 77, null, 79, null, null, null, 81, null, null, null], [83, null, 86, null, 83, null, 79, null, 81, null, null, null, 83, null, null, null], [84, null, 88, null, 84, null, 81, null, 79, null, null, null, 81, null, null, null], [83, null, 79, null, 76, null, 79, null, 83, null, null, null, 86, null, null, null]] },
-      farewell: { bpm: 60, swing: 0, lead: 'sine', leadVol: 0.1, bassVol: 0.07, hat: 0, kick: 0,
-        chords: [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62]],
-        bass: [45, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        lead: [[72, null, null, null, null, null, 71, null, 69, null, null, null, null, null, null, null], [69, null, null, null, null, null, 67, null, 65, null, null, null, null, null, null, null], [67, null, null, null, null, null, 69, null, 72, null, null, null, null, null, null, null], [71, null, null, null, null, null, null, null, 69, null, null, null, null, null, null, null]] },
-    };
-    function synthNote(midi, t, dur, type, vol, bus) {
-      const c = ctx; const osc = c.createOscillator(); osc.type = type; osc.frequency.setValueAtTime(N(midi), t);
-      const g = c.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.linearRampToValueAtTime(vol, t + 0.02); g.gain.setValueAtTime(vol, t + Math.max(0.03, dur * 0.6)); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-      osc.connect(g); g.connect(bus); osc.start(t); osc.stop(t + dur + 0.05);
-    }
-    function drum(kind, t, vol, bus) {
-      const c = ctx;
-      if (kind === 'kick') { const o = c.createOscillator(); o.type = 'sine'; o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(45, t + 0.12); const g = c.createGain(); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16); o.connect(g); g.connect(bus); o.start(t); o.stop(t + 0.2); }
-      else { const src = c.createBufferSource(); src.buffer = noiseBuf; const f = c.createBiquadFilter(); f.type = 'highpass'; f.frequency.value = 6000; const g = c.createGain(); g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.04); src.connect(f); f.connect(g); g.connect(bus); src.start(t); src.stop(t + 0.06); }
-    }
-    function scheduleStep(tr, i, t, stepDur) {
-      const bar = Math.floor(i / 16) % 4, s = i % 16;
-      const chord = tr.chords[bar];
-      // コード(パッド): しょうせつの あたま と 3はく目
-      if (s === 0 || (tr.waltz ? (s === 6 || s === 11) : s === 8)) { for (const n of chord) synthNote(n, t, stepDur * (tr.waltz ? 5 : 7), 'triangle', 0.035, sceneGain); }
-      const b = tr.bass[s]; if (b != null) synthNote(b, t, stepDur * 1.8, 'triangle', tr.bassVol, sceneGain);
-      const l = tr.lead[bar][s]; if (l != null) synthNote(l, t, stepDur * 2.2, tr.lead, tr.leadVol, sceneGain);
-      if (tr.kick && (s === 0 || s === 8 || (tr.bpm > 120 && s === 10))) drum('kick', t, tr.kick, sceneGain);
-      if (tr.hat && s % 2 === 0) drum('hat', t, s % 4 === 2 ? tr.hat : tr.hat * 0.5, sceneGain);
-    }
-    function scheduler() {
-      schedTimer = null;
-      if (!ctx || !unlocked) return;
-      const wanted = bgmOn() ? currentScene() : null;
-      if (wanted !== scene) switchScene(wanted);
-      if (track && sceneGain) {
-        const tr = TRACKS[track]; const stepDur = 60 / tr.bpm / 4;
-        while (nextNoteTime < ctx.currentTime + 0.3) {
-          const swing = (step % 2 === 1) ? stepDur * tr.swing : 0;
-          scheduleStep(tr, step, nextNoteTime + swing, stepDur);
-          nextNoteTime += stepDur; step++;
-        }
-      }
-      schedTimer = rawSetTimeout(scheduler, 100);
-    }
-    function startScheduler() { if (!schedTimer && ctx) scheduler(); }
-    function switchScene(next) {
-      const c = ctx; if (!c) return;
-      if (sceneGain) { const old = sceneGain; old.gain.cancelScheduledValues(c.currentTime); old.gain.setValueAtTime(old.gain.value, c.currentTime); old.gain.linearRampToValueAtTime(0.0001, c.currentTime + 0.6); rawSetTimeout(() => { try { old.disconnect(); } catch (err) {} }, 800); }
-      sceneGain = null; scene = next; track = next && TRACKS[next] ? next : null;
-      if (!track) return;
-      sceneGain = c.createGain(); sceneGain.gain.setValueAtTime(0.0001, c.currentTime); sceneGain.gain.linearRampToValueAtTime(1, c.currentTime + 0.8); sceneGain.connect(bgmBus);
-      nextNoteTime = c.currentTime + 0.05; step = 0;
-    }
-    // いま の 場面。render() の じょうたいから きめる
-    function currentScene() {
-      try {
-        if (!state) return 'home';
-        if (state.stage === STAGE.DEAD || state.stage === STAGE.FAREWELL || (el.lifeCardOverlay && !el.lifeCardOverlay.classList.contains('hidden'))) return 'farewell';
-        if (gameActive) {
-          // ジャンルごとに きょくを かえる(3D・のりもの→race、パズル/ボード→puzzle、スポーツ→sports、ほかは game)
-          const genre = activeMinigame && typeof minigameGenreId === 'function' ? minigameGenreId(activeMinigame) : 'action';
-          return genre === 'drive3d' ? 'race' : (genre === 'puzzle' || genre === 'board') ? 'puzzle' : genre === 'sports' ? 'sports' : 'game';
-        }
-        const movie = document.getElementById('dateMovie');
-        if ((movie && !movie.classList.contains('hidden')) || dateOpen) return 'movie';
-        if (state.isSleeping) return 'night';
-        return 'home';
-      } catch (err) { return 'home'; }
-    }
-    function settingsChanged() {
-      if (!ctx) return;
-      if (!bgmOn() && scene) switchScene(null);
-      startScheduler();
-    }
-    // さいしょの そうさで かいじょう。タブが かくれたら いったん とめる
-    const unlockHandler = () => { unlock(); if (unlocked) { document.removeEventListener('pointerdown', unlockHandler, true); document.removeEventListener('keydown', unlockHandler, true); } };
-    document.addEventListener('pointerdown', unlockHandler, true);
-    document.addEventListener('keydown', unlockHandler, true);
-    document.addEventListener('visibilitychange', () => { if (!ctx) return; if (document.hidden) { try { ctx.suspend(); } catch (err) {} } else if (unlocked) { try { ctx.resume(); } catch (err) {} } });
-    return { play, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }) };
-  })();
+  // おと(効果音/BGM)は audio.js。場面を きめる じょうたいは getter で わたす
+  const audio = installNaotocchiAudio({
+    nativeSetTimeout: typeof nativeSetTimeout === 'function' ? nativeSetTimeout : null,
+    getState: () => state,
+    STAGE,
+    el,
+    isGameActive: () => gameActive,
+    getActiveMinigame: () => activeMinigame,
+    minigameGenreId: (game) => minigameGenreId(game),
+    isDateOpen: () => dateOpen,
+  });
   function audioSettingsChanged() { audio.settingsChanged(); }
 
   // ミニゲームの ヒント文(say())の かわりめを 見て、なかみに あわせた
