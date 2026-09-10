@@ -2632,6 +2632,7 @@
   function setMessage(msg) {
     message = compactJapaneseText(msg);
     el.message.textContent = message;
+    el.message.scrollTop = 0;
 
     // A message must stay on screen for a fixed, guaranteed stretch of time -
     // it must NOT be at the mercy of the background tick's own independent
@@ -2683,6 +2684,8 @@
     el.speechText.textContent = compactJapaneseText(text);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
+    // A display:none ancestor has no scroll box; reset after revealing it.
+    el.speechText.scrollTop = 0;
     renderHomeCast();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
@@ -10152,14 +10155,11 @@
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
     if (hasTransformChoice) renderTransformChoices();
 
-    if (message) {
-      el.message.textContent = message;
-    } else if (isDead) {
-      el.message.textContent = '「あたらしいたまご」で、つぎの子をむかえよう';
-    } else if (isEgg) {
-      el.message.textContent = `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%`;
-    } else {
-      el.message.textContent = '';
+    const homeMessage = message || (isDead ? '「あたらしいたまご」で、つぎの子をむかえよう'
+      : isEgg ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+    if (el.message.textContent !== homeMessage) {
+      el.message.textContent = homeMessage;
+      el.message.scrollTop = 0;
     }
 
     const disableCare = isOver || isEgg || hasTransformChoice;
