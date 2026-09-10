@@ -2724,6 +2724,10 @@
     'rain','snow','moon','sunrise','sunset','candy',
     'bubbles','balloon','fireworks','camera','musicbox','surprise',
   ]);
+  const SCENERY_ILLUSTRATION_KEYS = new Set([
+    'cherry_blossom','sunflower','maple_leaf','green_leaf','tree','pine','palm','cactus',
+    'snow_mountain','mountain','house','city','wheat','wave','shell','hibiscus',
+  ]);
   const ITEM_ILLUSTRATIONS = {
     flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
     energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
@@ -2734,7 +2738,7 @@
   };
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
-  for (const [atlas,src] of [['ui','assets/ui/world-items-atlas-v1.png'],['care','assets/ui/care-atlas-v1.png']]) {
+  for (const [atlas,src] of [['ui','assets/ui/world-items-atlas-v1.png'],['care','assets/ui/care-atlas-v2.png'],['scenery','assets/ui/season-region-atlas-v1.png']]) {
     const probe=document.createElement('img');
     probe.hidden=true;probe.alt='';probe.dataset.iconAtlas=atlas;
     probe.addEventListener('error',()=>{document.documentElement.dataset[atlas+'Atlas']='failed';});
@@ -2742,8 +2746,9 @@
     document.body.appendChild(probe);probe.src=src;
   }
   function uiIconHTML(icon, label = '', fallback = '') {
-    if (!UI_ILLUSTRATION_KEYS.has(icon)) return '';
-    return `<i class="care-icon ui-icon" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
+    const scenery = SCENERY_ILLUSTRATION_KEYS.has(icon);
+    if (!scenery && !UI_ILLUSTRATION_KEYS.has(icon)) return '';
+    return `<i class="care-icon ui-icon${scenery ? ' scenery-icon' : ''}" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
   }
   function itemIconHTML(item, labelled = false) {
     const label = labelled ? item.label : '';
@@ -2754,7 +2759,8 @@
   function environmentIconHTML(kind, id, fallback) {
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
       : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
-      : kind === 'season' ? {winter:'snow'} : {};
+      : kind === 'season' ? {spring:'cherry_blossom',summer:'sunflower',autumn:'maple_leaf',winter:'snow'}
+      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',snow:'snow_mountain',desert:'cactus',city:'city'} : {};
     return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || escapeHtml(fallback || '');
   }
   // Reuse only illustrations of the same object. Region/season data and saved
@@ -2762,10 +2768,18 @@
   const SCENERY_ILLUSTRATIONS = {
     '☀️':'sun','🌞':'sun','☁️':'cloud','❄️':'snow','❄':'snow','🌙':'moon',
     '🌼':'flower','🍀':'clover','🎀':'ribbon','🧣':'scarf',
+    '🌸':'cherry_blossom','🌻':'sunflower','🍁':'maple_leaf','🍃':'green_leaf','🌿':'green_leaf',
+    '🌳':'tree','🌲':'pine','🌴':'palm','🌵':'cactus','🏔️':'snow_mountain','⛰️':'mountain',
+    '🏠':'house','🏡':'house','🏙️':'city','🌾':'wheat','🌊':'wave','🐚':'shell','🌺':'hibiscus',
   };
   function sceneryIconHTML(emoji) {
+    if (emoji === '🍂') return careIconHTML('decline', '', emoji);
     const icon = Object.hasOwn(SCENERY_ILLUSTRATIONS,emoji) ? SCENERY_ILLUSTRATIONS[emoji] : '';
     return uiIconHTML(icon, '', emoji) || escapeHtml(emoji || '');
+  }
+  function endingBadgeIconHTML(tierIndex) {
+    const keys = ['fireworks','lantern','tree','book','naoto_crown'];
+    return uiIconHTML(keys[tierIndex], '', ENDING_TIER_ICONS[tierIndex]) || escapeHtml(ENDING_TIER_ICONS[tierIndex] || '');
   }
   function renderCareNotice(observe = false) {
     if (!CARE_STATUS) return;
@@ -10293,8 +10307,8 @@
     el.poopRow.setAttribute('aria-hidden', String(state.poopCount === 0));
 
     const badges = [];
-    if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき')));
-    if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている'));
+    if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき'), '🤒'));
+    if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている', '😴'));
     const badgesHTML = badges.join('');
     if (el.badges.innerHTML !== badgesHTML) el.badges.innerHTML = badgesHTML;
 
@@ -10329,10 +10343,10 @@
     applyTheme();
 
     const region = applyRegion();
-    el.regionLabel.textContent = `${region.emoji} ${region.label}`;
+    el.regionLabel.innerHTML = `${environmentIconHTML('region',region.id,region.emoji)} ${escapeHtml(region.label)}`;
     const effectiveSeason = getEffectiveSeason();
     const seasonInfo = SEASON_INFO[effectiveSeason];
-    el.seasonLabel.textContent = seasonInfo ? `${seasonInfo.emoji} ${seasonInfo.label}` : '';
+    el.seasonLabel.innerHTML = seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '';
     el.partnerLabel.innerHTML = state.partner
       ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}`
       : '';
@@ -10351,7 +10365,7 @@
       .sort((a, b) => a - b)
       .map((tierIndex) => {
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;
-        return `<button type="button" class="ending-badge" data-title="${ENDING_TIER_ICONS[tierIndex]} ${label}をたっせいずみ" title="${label}" aria-label="${label}をたっせいずみ">${ENDING_TIER_ICONS[tierIndex]}</button>`;
+        return `<button type="button" class="ending-badge" data-title="${ENDING_TIER_ICONS[tierIndex]} ${label}をたっせいずみ" title="${label}" aria-label="${label}をたっせいずみ">${endingBadgeIconHTML(tierIndex)}</button>`;
       })
       .join('');
 
@@ -10960,7 +10974,7 @@
   function renderTravelRegionGrid() {
     const swatch = (region) => {
       const isCurrent = region.id === state.regionId;
-      return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${region.emoji}</span><span class="theme-swatch-label">${region.label}</span></button>`;
+      return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="theme-swatch-label">${region.label}</span></button>`;
     };
     el.travelRegionGrid.innerHTML = REGIONS.map(swatch).join('');
     // そだち70「たびだち」に とどいて はじめて、ふつうの 8地域の したに
@@ -12017,7 +12031,7 @@
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
     const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんき ふめい';
     const season = SEASON_INFO[env.season];
-    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${season.label}`, `${region.emoji}${region.label}`];
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${season.label}`, `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
@@ -12225,7 +12239,7 @@
     document.body.dataset.weather = weather || 'unknown';
     applyWeatherFx(weather, time);
     const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : 'てんき 未取得';
-    el.environmentLabel.textContent = `${TIME_CHOICES[time].join(' ')}・${weatherText}`;
+    el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
     const city = snapshot?.municipality?.display;
     const locationLabel = `げんざいち　${city || '未取得'}`;
     el.worldLocationLabel.textContent = locationLabel;

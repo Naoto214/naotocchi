@@ -45,15 +45,42 @@
 #storyFlashEmoji .care-icon {width:32px;height:32px;flex-basis:32px}
 .icon-fallback {display:none;line-height:1}
 .care-icon:has(> .icon-fallback) {text-align:center;line-height:1}
-html[data-ui-atlas="failed"] .ui-icon,
+html[data-ui-atlas="failed"] .ui-icon:not(.scenery-icon),
+html[data-scenery-atlas="failed"] .scenery-icon,
 html[data-care-atlas="failed"] [data-care-icon]:has(> .icon-fallback) {background-image:none}
-html[data-ui-atlas="failed"] .ui-icon > .icon-fallback,
+html[data-ui-atlas="failed"] .ui-icon:not(.scenery-icon) > .icon-fallback,
+html[data-scenery-atlas="failed"] .scenery-icon > .icon-fallback,
 html[data-care-atlas="failed"] [data-care-icon] > .icon-fallback {display:inline}
+html[data-scenery-atlas="failed"] .scenery-icon {clip-path:none}
 /* The existing effect wrapper owns placement, opacity and movement. */
-:is(.region-decor-item,.season-fx-item,.season-burst-item,.wx-cloud,.wx-flake,.wx-moon) > .ui-icon {
+:is(.region-decor-item,.season-fx-item,.season-burst-item,.wx-cloud,.wx-flake,.wx-moon) > .care-icon {
   width:1em;height:1em;flex-basis:1em;vertical-align:top;
   background-color:transparent;border-radius:0;
 }
 @media (prefers-reduced-motion:reduce) {
   .region-decor-item {animation:none;transform:none;will-change:auto}
 }
+
+/* Header hit areas stay unchanged; only the drawing inside each badge changes. */
+.ending-badge .care-icon {width:20px;height:20px;flex-basis:20px}
+#regionLabel .care-icon,#seasonLabel .care-icon,#environmentLabel .care-icon {
+  width:1em;height:1em;flex-basis:1em;vertical-align:-.12em;
+}
+/* Rectangular clipping keeps neighbouring atlas art out of square icon frames. */
+.scenery-icon {background-image:url("assets/ui/season-region-atlas-v1.png");clip-path:var(--scenery-clip)}
+[data-ui-icon="cherry_blossom"] {--ui-x:4.35663627%;--ui-y:5.06585613%;--ui-size:469.66292135%;--scenery-clip:inset(2.99625468% 1.49812734% 2.99625468% 1.49812734%)}
+[data-ui-icon="sunflower"] {--ui-x:33.82352941%;--ui-y:3.67647059%;--ui-size:415.23178808%;--scenery-clip:inset(4.63576159% 1.32450331% 4.63576159% 1.32450331%)}
+[data-ui-icon="maple_leaf"] {--ui-x:66.63190824%;--ui-y:3.85818561%;--ui-size:425.08474576%;--scenery-clip:inset(1.35593220% 6.10169492% 1.35593220% 6.10169492%)}
+[data-ui-icon="green_leaf"] {--ui-x:96.37537239%;--ui-y:6.95134062%;--ui-size:507.69230769%;--scenery-clip:inset(1.61943320% 10.72874494% 1.61943320% 10.72874494%)}
+[data-ui-icon="tree"] {--ui-x:2.95336788%;--ui-y:36.58031088%;--ui-size:433.91003460%;--scenery-clip:inset(1.38408304% 2.59515571% 1.38408304% 2.59515571%)}
+[data-ui-icon="pine"] {--ui-x:34.10283316%;--ui-y:35.78174187%;--ui-size:416.61129568%;--scenery-clip:inset(1.32890365% 9.30232558% 1.32890365% 9.30232558%)}
+[data-ui-icon="palm"] {--ui-x:66.87565308%;--ui-y:36.05015674%;--ui-size:422.22222222%;--scenery-clip:inset(1.34680135% 6.06060606% 1.34680135% 6.06060606%)}
+[data-ui-icon="cactus"] {--ui-x:98.33159541%;--ui-y:36.18352450%;--ui-size:425.08474576%;--scenery-clip:inset(1.35593220% 12.54237288% 1.35593220% 12.54237288%)}
+[data-ui-icon="snow_mountain"] {--ui-x:2.86016949%;--ui-y:67.26694915%;--ui-size:404.51612903%;--scenery-clip:inset(13.87096774% 1.29032258% 13.87096774% 1.29032258%)}
+[data-ui-icon="mountain"] {--ui-x:35.75883576%;--ui-y:67.04781705%;--ui-size:429.45205479%;--scenery-clip:inset(10.61643836% 1.36986301% 10.61643836% 1.36986301%)}
+[data-ui-icon="house"] {--ui-x:66.76986584%;--ui-y:66.66666667%;--ui-size:440.00000000%;--scenery-clip:inset(7.71929825% 1.40350877% 7.71929825% 1.40350877%)}
+[data-ui-icon="city"] {--ui-x:96.63951120%;--ui-y:65.63136456%;--ui-size:461.02941176%;--scenery-clip:inset(3.86029412% 1.47058824% 3.86029412% 1.47058824%)}
+[data-ui-icon="wheat"] {--ui-x:3.48595213%;--ui-y:96.04578564%;--ui-size:427.98634812%;--scenery-clip:inset(1.36518771% 6.99658703% 1.36518771% 6.99658703%)}
+[data-ui-icon="wave"] {--ui-x:34.95346432%;--ui-y:95.86349535%;--ui-size:436.93379791%;--scenery-clip:inset(3.48432056% 1.39372822% 3.48432056% 1.39372822%)}
+[data-ui-icon="shell"] {--ui-x:65.65656566%;--ui-y:94.24242424%;--ui-size:475.00000000%;--scenery-clip:inset(3.40909091% 1.51515152% 3.40909091% 1.51515152%)}
+[data-ui-icon="hibiscus"] {--ui-x:97.70594369%;--ui-y:96.76746611%;--ui-size:425.08474576%;--scenery-clip:inset(6.77966102% 1.35593220% 6.77966102% 1.35593220%)}

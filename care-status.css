@@ -1,9 +1,9 @@
 /* A single sprite atlas. Labels remain real text when an image cannot load. */
 .care-icon {
   display:inline-block;width:26px;height:26px;flex:0 0 26px;
-  vertical-align:middle;background-image:url('assets/ui/care-atlas-v1.png');
+  vertical-align:middle;background-image:url('assets/ui/care-atlas-v2.png');
   background-size:var(--care-size,400%) var(--care-size,400%);background-position:var(--care-x,0%) var(--care-y,0%);
-  background-repeat:no-repeat;background-color:#fff;border-radius:5px;image-rendering:pixelated;font-style:normal;
+  background-repeat:no-repeat;background-color:transparent;border-radius:0;image-rendering:pixelated;font-style:normal;
 }
 [data-care-icon="food"] {--care-x:3.62537764%;--care-y:6.29405841%;--care-size:480.45977011%}
 [data-care-icon="game"] {--care-x:34.81781377%;--care-y:8.19838057%;--care-size:471.42857143%}
@@ -44,8 +44,8 @@
 }
 #message[data-care-icon]:not([data-care-icon=""])::before {
   content:'';float:left;width:24px;height:24px;margin:3px 4px 0 0;
-  background:url('assets/ui/care-atlas-v1.png') var(--care-x,0%) var(--care-y,0%) / var(--care-size,400%) var(--care-size,400%) no-repeat;
-  image-rendering:pixelated;border-radius:4px;
+  background:url('assets/ui/care-atlas-v2.png') var(--care-x,0%) var(--care-y,0%) / var(--care-size,400%) var(--care-size,400%) no-repeat;
+  image-rendering:pixelated;
 }
 #message[data-care-severity="critical"] {background:#fff0df;color:#652b19;box-shadow:inset 3px 0 #a13f27;font-weight:700}
 #message[data-care-severity="warning"] {background:#fff5dc;color:#62441a;box-shadow:inset 3px 0 #a4772d}

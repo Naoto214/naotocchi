@@ -123,3 +123,54 @@ test('reduced motion keeps world labels and illustrated choices without falling 
     assert.match(h.get('worldNowCard').innerHTML,new RegExp(`data-ui-icon="${weather==='cloudy'?'cloud':weather}"`));
   }
 });
+
+test('earned header badges use illustrations in tier order without granting an unearned clear',()=>{
+  const h=harness(), lifetime=h.api.state().lifetime;
+  lifetime.endingTiersReached=[4,0,3,1,2];lifetime.clears=1;h.api.render();
+  const buttons=[...h.get('endingBadges').innerHTML.matchAll(/<button\b[^>]*aria-label="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
+  assert.equal(buttons.length,5);
+  for(const [i,icon] of ['fireworks','lantern','tree','book','naoto_crown'].entries()){
+    assert.match(buttons[i][1],/をたっせいずみ$/);
+    assert.match(buttons[i][2],new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(buttons[i][2],/class="icon-fallback"/);
+  }
+  assert.deepEqual(Array.from(lifetime.endingTiersReached),[4,0,3,1,2]);
+  lifetime.clears=0;h.api.render();
+  assert.doesNotMatch(h.get('endingBadges').innerHTML,/data-ui-icon="fireworks"/);
+  assert.equal((h.get('endingBadges').innerHTML.match(/class="ending-badge"/g)||[]).length,4);
+  assert.equal(lifetime.clears,0);
+});
+
+test('spring summer and autumn labels and regional scenery share art while preserving their choices',()=>{
+  const h=harness();h.api.state().regionId='home';
+  for(const [season,icon,label] of [['spring','cherry_blossom','はる'],['summer','sunflower','なつ'],['autumn','maple_leaf','あき']]){
+    h.api.state().lifetime.seasonMode=season;h.api.render();
+    assert.match(h.get('seasonLabel').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(h.get('seasonLabel').innerHTML,new RegExp(label));
+    assert.match(h.get('regionLabel').innerHTML,/data-ui-icon="house"/);
+    h.api.openExclusiveMenu('world');h.api.renderEnvironment();
+    assert.match(h.get('worldNowCard').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(h.get('seasonModeGrid').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal(h.api.state().lifetime.seasonMode,season);
+    assert.equal(h.api.state().regionId,'home');
+  }
+  h.api.state().regionId='forest';h.api.state().lifetime.seasonMode='autumn';h.api.render();
+  assert.match(h.get('regionDecor').innerHTML,/data-ui-icon="maple_leaf"/);
+  assert.match(h.get('regionDecor').innerHTML,/data-care-icon="decline"/);
+});
+
+test('the scenery atlas can fail independently and keeps a visible fallback for header badges',()=>{
+  const h=harness();h.api.state().lifetime.endingTiersReached=[2];h.api.render();
+  const before=JSON.stringify(h.api.state());
+  const probes=h.document.body.children.filter(e=>e.dataset.iconAtlas);
+  assert.equal(probes.length,3);
+  for(const atlas of ['care','ui','scenery']){
+    probes.find(e=>e.dataset.iconAtlas===atlas).listeners.find(e=>e.type==='load').fn();
+  }
+  probes.find(e=>e.dataset.iconAtlas==='scenery').listeners.find(e=>e.type==='error').fn();
+  assert.equal(h.document.documentElement.dataset.sceneryAtlas,'failed');
+  assert.equal(h.document.documentElement.dataset.careAtlas,'loaded');
+  assert.equal(h.document.documentElement.dataset.uiAtlas,'loaded');
+  assert.match(h.get('endingBadges').innerHTML,/class="icon-fallback"[^>]*>🌳<\/span>/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});

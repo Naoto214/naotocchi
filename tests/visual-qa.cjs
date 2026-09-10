@@ -65,6 +65,16 @@ function createFixtures() {
       illustrated.lifetime.clears=1;illustrated.lifetime.lifeClears=1;illustrated.lifetime.bestLives=1;illustrated.lifetime.dexCleared=true;
       illustrated.lifetime.consumablesUsed=2;
       for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) illustrated.items[id]=2;
+      const allBadges=JSON.parse(JSON.stringify(illustrated));
+      Object.assign(allBadges,{isSick:true,sicknessType:'げんいんふめいのこうねつ',isSleeping:true,energy:35});
+      allBadges.lifetime.endingTiersReached=[0,1,2,3,4];
+      fixtures.badges_transparent=allBadges;
+      for(const [name,season,region] of [
+        ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
+      ]) {
+        const scene=make(name,26,{regionId:region,hunger:80,health:90,energy:80,happiness:80});
+        Object.assign(scene.lifetime,{seasonMode:season,weatherMode:'sunny',timeMode:'day'});
+      }
       for(const [name,season,weather,time] of [
         ['scenery_clouds','winter','cloudy','day'],['scenery_snow','winter','snow','night'],
         ['scenery_moon','summer','sunny','night'],['scenery_rain','spring','rain','day'],
@@ -248,6 +258,8 @@ function visualQaPlugin() {
               careRecommended:[...doc.querySelectorAll('[data-care-recommended="true"]')].map(e=>e.id),
               careButtonBounds:[...doc.querySelectorAll('.buttons button')].map(e=>{const r=e.getBoundingClientRect();return {id:e.id,x:r.x,y:r.y,width:r.width,height:r.height};}),
               iconImages,missingIconsRequested:document.getElementById('failIcons').checked,
+              iconSurfaces:iconNodes.map(e=>{const s=doc.defaultView.getComputedStyle(e);return {icon:e.dataset.uiIcon||e.dataset.careIcon,backgroundColor:s.backgroundColor,clipPath:s.clipPath};}),
+              badgeBounds:[...doc.querySelectorAll('#badges .care-icon,#endingBadges .ending-badge')].map(e=>{const r=e.getBoundingClientRect();return {label:e.getAttribute('aria-label'),x:r.x,y:r.y,width:r.width,height:r.height};}),
               environment:{time:doc.body.dataset.time,weather:doc.body.dataset.weather,
                 reducedMotion:doc.defaultView.matchMedia('(prefers-reduced-motion: reduce)').matches,
                 rainDrops:doc.querySelectorAll('#weatherFx .wx-drop').length,

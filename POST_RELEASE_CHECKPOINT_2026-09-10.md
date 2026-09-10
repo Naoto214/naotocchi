@@ -1,5 +1,22 @@
 # 公開後チェックポイント — 2026-09-10（JST）
 
+## #227公開後：白背景の修正・クリアバッジ・季節地域
+
+#227はマージ・公開済み。main `eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9`、
+Runtime #300・Pages #225成功、公開HTML／本体JS／UI CSSはmainとバイト一致。
+このmainから `feature/badges-transparent-season-art-20260910` で続行。
+ユーザー提供iPhone画像1枚で白い四角を確認し、CSSの白下地と白背景RGB素材を修正。
+透過care v2と季節地域16種を別PNGで追加し、既存309画像はバイト変更0。
+5つのクリアバッジ、世界情報、季節・地域の選択、同じ周囲の小物へ接続。
+ゲームルール・保存・master・会話・キャラ配置・サイズ・粒子の動作は保持。
+
+[引継ぎ](docs/handoff/badges-transparent-2026-09-10.md)／[QA](docs/qa/badges-transparent-2026-09-10.md)／
+[素材](docs/art/badges-transparent-season-region-2026-09-10.md)。142成功、失敗0・skip 0、
+独立レビューの未解決指摘0。20／26／40pxの静的な素材比較を確認。
+提供画像は修正前の実画面で、AI取得の修正後画面は0件。iPhone描画・タッチ・音・FPSは未確認。
+今回分は保存時点で未マージ・未公開。確定HEAD・tree・CI・公開はPR本文と最新GitHubを読む。
+旧#92と既存デート／記念日の判断を維持し、全体開発は継続中。
+
 ## #226公開後：天候と周囲の小物を既存イラストへ接続
 
 #226は2026-09-10 12:48:44 UTCにマージ済み。main
