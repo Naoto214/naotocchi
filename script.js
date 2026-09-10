@@ -11925,7 +11925,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -12979,6 +12979,18 @@
         chords: [[60, 64, 67, 71], [57, 60, 64, 67], [62, 65, 69, 72], [55, 59, 62, 65]],
         bass: [48, null, null, null, 52, null, 55, null, null, null, 52, null, 48, null, null, null],
         lead: [[79, null, null, null, 76, null, 74, null, null, null, 72, null, 76, null, null, null], [76, null, null, null, 72, null, 69, null, null, null, 67, null, 72, null, null, null], [77, null, null, null, 74, null, 72, null, null, null, 69, null, 74, null, null, null], [74, null, null, null, 71, null, 67, null, null, null, 71, null, 74, null, null, null]] },
+      puzzle: { bpm: 100, swing: 0.1, lead: 'sine', leadVol: 0.1, bassVol: 0.08, hat: 0.03, kick: 0,
+        chords: [[57, 60, 64, 67], [65, 69, 72, 76], [60, 64, 67, 71], [67, 71, 74, 77]],
+        bass: [45, null, null, null, null, null, 52, null, 45, null, null, null, null, null, 50, null],
+        lead: [[76, null, null, 79, null, null, 81, null, null, null, 79, null, 76, null, null, null], [77, null, null, 81, null, null, 84, null, null, null, 81, null, 77, null, null, null], [79, null, null, 76, null, null, 72, null, null, null, 76, null, 79, null, null, null], [74, null, null, 77, null, null, 79, null, null, null, 83, null, 79, null, null, null]] },
+      race: { bpm: 152, swing: 0, lead: 'square', leadVol: 0.07, bassVol: 0.11, hat: 0.07, kick: 0.22,
+        chords: [[57, 60, 64], [57, 60, 64], [53, 57, 60], [55, 59, 62]],
+        bass: [45, 45, 57, 45, 45, 57, 45, 45, 45, 45, 57, 45, 52, 52, 55, 55],
+        lead: [[76, null, 76, null, 79, 76, null, 74, null, 76, null, null, 79, null, 81, null], [76, null, 76, null, 79, 76, null, 74, null, 72, null, null, 71, null, 72, null], [77, null, 77, null, 81, 77, null, 76, null, 77, null, null, 81, null, 84, null], [79, null, 79, null, 83, 79, null, 78, null, 79, null, null, 83, null, 86, null]] },
+      sports: { bpm: 124, swing: 0.05, lead: 'triangle', leadVol: 0.11, bassVol: 0.1, hat: 0.06, kick: 0.18,
+        chords: [[65, 69, 72], [67, 71, 74], [69, 72, 76], [67, 71, 74]],
+        bass: [53, null, 53, null, 60, null, 53, null, 55, null, 55, null, 62, null, 55, null],
+        lead: [[81, null, 84, null, 81, null, 77, null, 79, null, null, null, 81, null, null, null], [83, null, 86, null, 83, null, 79, null, 81, null, null, null, 83, null, null, null], [84, null, 88, null, 84, null, 81, null, 79, null, null, null, 81, null, null, null], [83, null, 79, null, 76, null, 79, null, 83, null, null, null, 86, null, null, null]] },
       farewell: { bpm: 60, swing: 0, lead: 'sine', leadVol: 0.1, bassVol: 0.07, hat: 0, kick: 0,
         chords: [[57, 60, 64], [53, 57, 60], [60, 64, 67], [55, 59, 62]],
         bass: [45, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
@@ -13033,7 +13045,11 @@
       try {
         if (!state) return 'home';
         if (state.stage === STAGE.DEAD || state.stage === STAGE.FAREWELL || (el.lifeCardOverlay && !el.lifeCardOverlay.classList.contains('hidden'))) return 'farewell';
-        if (gameActive) return 'game';
+        if (gameActive) {
+          // ジャンルごとに きょくを かえる(3D・のりもの→race、パズル/ボード→puzzle、スポーツ→sports、ほかは game)
+          const genre = activeMinigame && typeof minigameGenreId === 'function' ? minigameGenreId(activeMinigame) : 'action';
+          return genre === 'drive3d' ? 'race' : (genre === 'puzzle' || genre === 'board') ? 'puzzle' : genre === 'sports' ? 'sports' : 'game';
+        }
         const movie = document.getElementById('dateMovie');
         if ((movie && !movie.classList.contains('hidden')) || dateOpen) return 'movie';
         if (state.isSleeping) return 'night';
@@ -13059,7 +13075,7 @@
   (() => {
     if (typeof MutationObserver !== 'function' || !el.minigameOverlay) return;
     let lastText = '', lastAt = 0;
-    const GOOD = /🎉|✨|ゲット|パーフェクト|ストライク|スペア|ホームラン|せいこう|クリア|ボーナス|れんぞく|\+\d|たべた|とった|いい/;
+    const GOOD = /🎉|✨|ゲット|パーフェクト|ストライク|スペア|ホームラン|せいこう|クリア|ボーナス|れんぞく|\+\d|たべた|とった|いい|おいしい|もぐもぐ|のびた|くぐった|まんなか|ふんだ|かった|せいかい/;
     const BAD = /💥|💫|💦|💀|😣|😵|🔥|ガター|ミス|ぶつかった|クラッシュ|こげ|なま|つかまった|おちた|しっぱい|やられた|ざんねん|アウト/;
     const START = /スタート/;
     const obs = new MutationObserver(() => {

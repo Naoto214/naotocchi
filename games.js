@@ -9,6 +9,7 @@
   'use strict';
   const root = typeof globalThis !== 'undefined' ? globalThis : window;
   root.installNaotocchiMinigames = function installNaotocchiMinigames(S) {
+  const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
@@ -119,7 +120,7 @@
               // レーン変更は 0.2〜0.3秒 かかる ので、ぎりぎりの きりかえは まにあわない
               if (Math.abs(playerX - it.offset) < Math.abs(LANES[1] - LANES[0]) * 0.45) {
                 if (it.bad) { bad++; combo = 0; points = Math.max(0, points - 15); flash = 0.5; say('💥ぶつかった!'); }
-                else { good++; combo++; bestCombo = Math.max(bestCombo, combo); points += 8 + Math.min(6, combo * 1.5); sparkle = 1; say(combo >= 3 ? '✨ ' + combo + 'れんぞく!' : 'ゲット!', 600); }
+                else { sfx('coin'); good++; combo++; bestCombo = Math.max(bestCombo, combo); points += 8 + Math.min(6, combo * 1.5); sparkle = 1; say(combo >= 3 ? '✨ ' + combo + 'れんぞく!' : 'ゲット!', 600); }
                 scoreEl.textContent = 'とくてん: ' + Math.round(points);
               }
             }
@@ -209,8 +210,8 @@
           const top = blocks[blocks.length - 1]; const L = Math.max(falling.x, top.x), R = Math.min(falling.x + falling.w, top.x + top.w); const overlap = R - L;
           if (overlap <= 4) { over = true; shake = 12; scraps.push({ x: falling.x, w: falling.w, y: falling.y, vy: 60, vx: falling.x < top.x ? -60 : 60, rot: 0, color: falling.color }); falling = null; say('💥おちた…', 1500); setTimeout(() => { if (running) finish(); }, 1400); return; }
           const off = Math.abs((falling.x + falling.w / 2) - (top.x + top.w / 2));
-          if (off < 5) { perfects++; combo++; const nw = Math.min(BASE_W, top.w + 6); blocks.push({ x: top.x + (top.w - nw) / 2, w: nw, y: top.y - BLOCK_H, color: falling.color, wob: 0, perfect: true }); say(combo > 1 ? `✨パーフェクト×${combo}!` : '✨パーフェクト!', 700); for (let i = 0; i < 10; i++) parts.push({ x: top.x + top.w / 2 + (Math.random() - 0.5) * nw, y: top.y - BLOCK_H, vx: (Math.random() - 0.5) * 120, vy: -40 - Math.random() * 80, life: 0.6, color: '#fff' }); }
-          else { combo = 0; if (falling.x < L) scraps.push({ x: falling.x, w: L - falling.x, y: top.y - BLOCK_H, vy: 20, vx: -40, rot: 0, color: falling.color }); if (falling.x + falling.w > R) scraps.push({ x: R, w: falling.x + falling.w - R, y: top.y - BLOCK_H, vy: 20, vx: 40, rot: 0, color: falling.color }); blocks.push({ x: L, w: overlap, y: top.y - BLOCK_H, color: falling.color, wob: 0 }); if (overlap < 22) say('ほそい…!', 600); }
+          if (off < 5) { sfx('coin'); perfects++; combo++; const nw = Math.min(BASE_W, top.w + 6); blocks.push({ x: top.x + (top.w - nw) / 2, w: nw, y: top.y - BLOCK_H, color: falling.color, wob: 0, perfect: true }); say(combo > 1 ? `✨パーフェクト×${combo}!` : '✨パーフェクト!', 700); for (let i = 0; i < 10; i++) parts.push({ x: top.x + top.w / 2 + (Math.random() - 0.5) * nw, y: top.y - BLOCK_H, vx: (Math.random() - 0.5) * 120, vy: -40 - Math.random() * 80, life: 0.6, color: '#fff' }); }
+          else { sfx('pop'); combo = 0; if (falling.x < L) scraps.push({ x: falling.x, w: L - falling.x, y: top.y - BLOCK_H, vy: 20, vx: -40, rot: 0, color: falling.color }); if (falling.x + falling.w > R) scraps.push({ x: R, w: falling.x + falling.w - R, y: top.y - BLOCK_H, vy: 20, vx: 40, rot: 0, color: falling.color }); blocks.push({ x: L, w: overlap, y: top.y - BLOCK_H, color: falling.color, wob: 0 }); if (overlap < 22) say('ほそい…!', 600); }
           falling = null; hud(); swing.w = blocks[blocks.length - 1].w; swing.speed = lerp(120, 170, difficulty) + blocks.length * 4; bestH = Math.max(bestH, blocks.length - 1);
         }
         function update(dt, now) {
@@ -333,6 +334,7 @@
         };
         canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', release);
         function throwBall(power, aim, hook) {
+          sfx('whoosh');
           thrown = true;
           const speed = 26 * power;
           ball = { x: startX, z: 0, vx: aim * speed * 0.55, vz: speed, hook: hook * 9, spin: 0 };
@@ -640,7 +642,7 @@
               b.x += b.vx * dt * slow / steps; b.y += b.vy * dt * slow / steps;
               if (b.x < BR) { b.x = BR; b.vx = Math.abs(b.vx); } if (b.x > W - BR) { b.x = W - BR; b.vx = -Math.abs(b.vx); } if (b.y < BR) { b.y = BR; b.vy = Math.abs(b.vy); }
               if (b.vy > 0 && b.y + BR >= PY - 4 && b.y + BR <= PY + 8 && Math.abs(b.x - paddle.x) <= paddle.w / 2 + BR) { const rel = (b.x - paddle.x) / (paddle.w / 2); const sp = Math.min(400, Math.hypot(b.vx, b.vy) * 1.02); const a = -Math.PI / 2 + rel * 1.05; b.vx = Math.cos(a) * sp; b.vy = Math.sin(a) * sp; b.y = PY - 4 - BR; hitsTotal++; }
-              for (const k of bricks) { if (k.hp <= 0) continue; if (b.x + BR < k.x || b.x - BR > k.x + BW - 2 || b.y + BR < k.y || b.y - BR > k.y + BH) continue; const ox = Math.min(b.x + BR - k.x, k.x + BW - 2 - (b.x - BR)), oy = Math.min(b.y + BR - k.y, k.y + BH - (b.y - BR)); if (ox < oy) b.vx *= -1; else b.vy *= -1; k.hp--; if (k.hp <= 0) { score += k.hard ? 30 : 10; burst(k.x + BW / 2, k.y + BH / 2, k.color); if (k.item) items.push({ x: k.x + BW / 2, y: k.y + BH, kind: k.item }); } else { k.flash = now; score += 5; } hud(); break; }
+              for (const k of bricks) { if (k.hp <= 0) continue; if (b.x + BR < k.x || b.x - BR > k.x + BW - 2 || b.y + BR < k.y || b.y - BR > k.y + BH) continue; const ox = Math.min(b.x + BR - k.x, k.x + BW - 2 - (b.x - BR)), oy = Math.min(b.y + BR - k.y, k.y + BH - (b.y - BR)); if (ox < oy) b.vx *= -1; else b.vy *= -1; k.hp--; sfx(k.hp <= 0 ? 'hit' : 'tick'); if (k.hp <= 0) { score += k.hard ? 30 : 10; burst(k.x + BW / 2, k.y + BH / 2, k.color); if (k.item) items.push({ x: k.x + BW / 2, y: k.y + BH, kind: k.item }); } else { k.flash = now; score += 5; } hud(); break; }
             }
           }
           balls = balls.filter((b) => b.y < H + 20);
@@ -1664,7 +1666,7 @@
         say(power>0.85?'フルパワー!':'はっしゃ!');
       }
       function resetBall(){bx=95;by=113;vx=0;vy=0;inLane=true;launched=false;charge=0;launchBtn.disabled=false;}
-      function addScore(n,msg){score+=n;if(msg)say(msg);}
+      function addScore(n,msg){score+=n;sfx(n>=100?'coin':'tick');if(msg)say(msg);}
       function collideSegment(w){
         if(w.one==='above'&&by>w.y1)return;
         const dx=w.x2-w.x1,dy=w.y2-w.y1,len2=dx*dx+dy*dy||1;
@@ -3087,7 +3089,7 @@
               const off = (b.x - px) / 0.26, swing = clamp(pvx, -1.5, 1.5);
               const power = 2.8 + Math.min(1.4, Math.abs(swing) * 0.8) + rally * 0.05;
               b.vz = power; b.vx = off * 1.4 + swing * 0.8 - b.x * 0.4; b.vy = 2.55 + Math.max(0, 0.25 - b.y) * 5; b.lastHit = 'me';
-              rally++; bestRally = Math.max(bestRally, rally); rallyEl.textContent = 'ラリー' + rally; hitFlash = 1;
+              sfx('pop'); rally++; bestRally = Math.max(bestRally, rally); rallyEl.textContent = 'ラリー' + rally; hitFlash = 1;
             } else if (b.z < -0.25) { point('ai', 'とれなかった…'); return; }
           }
           // あいての ラケット(AI)
@@ -3211,7 +3213,7 @@
           popping = groups.flat();
           const n = popping.length;
           const mult = chainNow === 1 ? 1 : chainNow === 2 ? 2 : chainNow === 3 ? 4 : chainNow === 4 ? 8 : 16;
-          score += n * 10 * mult; popped += n;
+          sfx('pop'); score += n * 10 * mult; popped += n;
           if (chainNow >= 2) say(chainNow + 'れんさ!×' + mult, 1200); else if (n >= 6) say('おおきくけした!', 800);
           scoreEl.textContent = score + 'pt／さいだい' + Math.max(maxChain, chainNow) + 'れんさ';
           phase = 'pop'; phaseUntil = performance.now() + 340;
@@ -3985,7 +3987,7 @@
         canvas.addEventListener('pointerup', endDrag); canvas.addEventListener('pointercancel', endDrag);
         const stars = Array.from({ length: 50 }, (_, i) => ({ x: Math.random() * W, y: Math.random() * H, s: 0.4 + (i % 3) * 0.4 }));
         function bomb() { if (!running || ship.bombs <= 0 || performance.now() < startTime) return; ship.bombs--; hud(); shake = 10; for (const e of enemies) { e.hp -= 6; if (e.hp <= 0) killEnemy(e); } enemies = enemies.filter((e) => e.hp > 0); eBullets = []; if (boss) { boss.hp -= 12; } say('💣ボム!', 800); }
-        function killEnemy(e) { kills++; score += e.value; for (let i = 0; i < 8; i++) particles.push({ x: e.x, y: e.y, vx: (Math.random() - 0.5) * 140, vy: (Math.random() - 0.5) * 140, born: performance.now(), color: '#ffb347' }); if (Math.random() < 0.18) drops.push({ x: e.x, y: e.y, kind: Math.random() < 0.7 ? 'P' : 'B' }); }
+        function killEnemy(e) { sfx('hit'); kills++; score += e.value; for (let i = 0; i < 8; i++) particles.push({ x: e.x, y: e.y, vx: (Math.random() - 0.5) * 140, vy: (Math.random() - 0.5) * 140, born: performance.now(), color: '#ffb347' }); if (Math.random() < 0.18) drops.push({ x: e.x, y: e.y, kind: Math.random() < 0.7 ? 'P' : 'B' }); }
         function spawnWave(now) {
           wave++;
           const kind = ['sine', 'line', 'dive'][wave % 3];
@@ -4015,7 +4017,7 @@
             const hitB = eBullets.find((b) => Math.hypot(b.x - ship.x, b.y - ship.y) < ship.r), hitE = enemies.find((e) => Math.hypot(e.x - ship.x, e.y - ship.y) < e.r + ship.r * 0.7);
             if (hitB || hitE || (boss && Math.hypot(boss.x - ship.x, boss.y - ship.y) < boss.r + ship.r * 0.6)) { ship.lives--; ship.inv = 2; ship.power = Math.max(1, ship.power - 1); shake = 8; hud(); if (hitB) eBullets.splice(eBullets.indexOf(hitB), 1); say(ship.lives > 0 ? '💥ひがい!のこり❤️' + ship.lives : '💥きたいが…', 1000); if (ship.lives <= 0) { finish(); return; } }
           }
-          for (const d of drops) { d.x -= 50 * dt; if (Math.hypot(d.x - ship.x, d.y - ship.y) < 16) { d.taken = true; if (d.kind === 'P') { ship.power = Math.min(3, ship.power + 1); say('⚡パワーアップ!', 800); } else { ship.bombs++; say('💣ボム+1', 800); } hud(); } }
+          for (const d of drops) { d.x -= 50 * dt; if (Math.hypot(d.x - ship.x, d.y - ship.y) < 16) { d.taken = true; sfx('coin'); if (d.kind === 'P') { ship.power = Math.min(3, ship.power + 1); say('⚡パワーアップ!', 800); } else { ship.bombs++; say('💣ボム+1', 800); } hud(); } }
           drops = drops.filter((d) => !d.taken && d.x > -20);
           particles = particles.filter((p) => now - p.born < 500); for (const p of particles) { p.x += p.vx * dt; p.y += p.vy * dt; }
         }
@@ -4116,7 +4118,7 @@
           const dir = (rightHeld ? 1 : 0) - (leftHeld ? 1 : 0);
           if (dir) { p.vx = clamp(p.vx + dir * accel * dt, -maxV, maxV); p.face = dir; } else p.vx *= Math.pow(0.001, dt);
           if (p.ground) p.coyote = 0.1; else p.coyote -= dt;
-          if (jumpQueued) { jumpQueued = false; if (p.coyote > 0) { p.vy = -330; p.ground = false; p.coyote = 0; p.jumpHold = 0.22; } }
+          if (jumpQueued) { jumpQueued = false; if (p.coyote > 0) { sfx('jump'); p.vy = -330; p.ground = false; p.coyote = 0; p.jumpHold = 0.22; } }
           if (jumpHeld && p.jumpHold > 0 && p.vy < 0) { p.vy -= 520 * dt; p.jumpHold -= dt; } else p.jumpHold = 0;
           p.vy = Math.min(420, p.vy + 900 * dt);
           // よこ
@@ -4131,13 +4133,13 @@
           p.y = ny;
           if (p.y > ROWS * T + 10) { respawn(); return; }
           if (p.inv > 0) p.inv -= dt;
-          for (const c of coins) if (!c.got && Math.abs((c.x + 0.5) * T - (p.x + p.w / 2)) < T * 0.6 && Math.abs((c.y + 0.5) * T - (p.y + p.h / 2)) < T * 0.7) { c.got = true; got++; hud(); }
+          for (const c of coins) if (!c.got && Math.abs((c.x + 0.5) * T - (p.x + p.w / 2)) < T * 0.6 && Math.abs((c.y + 0.5) * T - (p.y + p.h / 2)) < T * 0.7) { c.got = true; got++; sfx('coin'); hud(); }
           for (const s of spikes) if (p.inv <= 0 && Math.abs((s.x + 0.5) * T - (p.x + p.w / 2)) < T * 0.55 && p.y + p.h > s.y * T + T * 0.4 && p.y < (s.y + 1) * T) { say('🔺とげにあたった!', 900); respawn(); return; }
           for (const e of enemies) {
             if (e.dead) continue;
             e.x += e.vx * dt; if (e.x < e.minX || e.x > e.maxX) e.vx *= -1;
             if (Math.abs(e.x + e.w / 2 - (p.x + p.w / 2)) < (e.w + p.w) / 2 - 3 && p.y + p.h > e.y + 2 && p.y < e.y + e.h) {
-              if (p.vy > 60 && p.y + p.h < e.y + e.h * 0.6) { e.dead = true; stomps++; p.vy = -230; say('ふんだ!', 700); shake = 3; }
+              if (p.vy > 60 && p.y + p.h < e.y + e.h * 0.6) { e.dead = true; stomps++; sfx('hit'); p.vy = -230; say('ふんだ!', 700); shake = 3; }
               else if (p.inv <= 0) { say(e.emoji + 'にぶつかった!', 900); respawn(); return; }
             }
           }
@@ -4409,7 +4411,7 @@
           const dx = aiming.sx - aiming.x, dy = aiming.sy - aiming.y; const len = Math.hypot(dx, dy); aiming = null;
           if (len < 12 || !running) return;
           const power = clamp(len / 110, 0.12, 1) * 620;
-          cue.vx = dx / len * power; cue.vy = dy / len * power; moving = true; shots++; lastShotPocketed = 0; hud();
+          sfx('whoosh'); cue.vx = dx / len * power; cue.vy = dy / len * power; moving = true; shots++; lastShotPocketed = 0; hud();
         };
         canvas.addEventListener('pointerup', release); canvas.addEventListener('pointercancel', () => { aiming = null; });
         // ガイド: cue から dir へ のばして さいしょに あたる ボール/かべ
@@ -4990,9 +4992,9 @@
           for (const o of objs) {
             if (o.hit || o.z > 0.05 || o.z < -0.3) continue;
             const d = Math.hypot(o.x - px, o.y - py); o.hit = true;
-            if (o.kind === 'ring') { if (d < o.r) { rings++; streak++; flash = 0.35; say(d < o.r * 0.4 ? `🎯まんなか!×${streak}` : `⭕くぐった!`, 700); } else { missed++; streak = 0; say('はずれ…', 600); } }
+            if (o.kind === 'ring') { if (d < o.r) { rings++; streak++; sfx('coin'); flash = 0.35; say(d < o.r * 0.4 ? `🎯まんなか!×${streak}` : `⭕くぐった!`, 700); } else { missed++; streak = 0; say('はずれ…', 600); } }
             else if (o.kind === 'cloud') { if (d < o.r + 0.12) { speed = Math.max(1.6, speed * 0.7); shake = 10; streak = 0; say('☁くもにつっこんだ!', 800); } }
-            else if (o.kind === 'coin') { if (d < o.r + 0.16) { coins++; say(T.coin, 400); } }
+            else if (o.kind === 'coin') { if (d < o.r + 0.16) { coins++; sfx('coin'); say(T.coin, 400); } }
             hud();
           }
           objs = objs.filter((o) => o.z > -0.4);
@@ -5102,7 +5104,7 @@
           while (stack.length) { const [cr, cc] = stack.pop(); group.push([cr, cc]); for (const [nr, nc] of neighbors(cr, cc)) { const k = nr + ',' + nc; if (!seen.has(k) && grid[nr][nc] === color) { seen.add(k); stack.push([nr, nc]); } } }
           if (group.length >= 3) {
             for (const [gr, gc] of group) { const p = cellPos(gr, gc); burst(p.x, p.y, COLORS[grid[gr][gc]]); grid[gr][gc] = -1; }
-            popped += group.length;
+            sfx('pop'); popped += group.length;
             // うかんだ かたまり
             const anchored = new Set(); const st = [];
             for (let c2 = 0; c2 < rowLen(0); c2++) if (grid[0] && grid[0][c2] >= 0) { anchored.add('0,' + c2); st.push([0, c2]); }
@@ -5928,7 +5930,7 @@
         function resolve() {
           const m = findMatches(grid);
           if (!m.size) { busy = false; if (moves <= 0) { finish(); return; } if (!anyMove(grid)) { say('うごかせるところがないのでまぜます', 1400); setTimeout(() => { if (running) fillNoMatch(); }, 800); } idleAt = performance.now(); return; }
-          combo++; const gained = m.size * 10 * combo + (m.size >= 5 ? 40 : m.size === 4 ? 15 : 0); score += gained; hud();
+          sfx('pop'); combo++; const gained = m.size * 10 * combo + (m.size >= 5 ? 40 : m.size === 4 ? 15 : 0); score += gained; hud();
           say(combo > 1 ? `🔥 ${combo}れんさ!+${gained}` : m.size >= 4 ? `✨ ${m.size}こ!+${gained}` : `+${gained}`, 800);
           const now = performance.now(); for (const k of m) { const [r, c] = k.split(',').map(Number); pops.push({ r, c, v: grid[r][c], born: now }); grid[r][c] = -1; }
           setTimeout(() => { if (!running) return; // おとす
@@ -6086,7 +6088,7 @@
             b.x += b.vx * dt; b.y += b.vy * dt; const cx = Math.floor(b.x), cy = Math.floor(b.y);
             if (cx < 0 || cy < 0 || cx >= N || cy >= N) { b.dead = true; continue; }
             if (map[cy][cx] === 1) { map[cy][cx] = 0; b.dead = true; burst(b.x, b.y, '#c96b3a', 6); continue; } if (map[cy][cx] === 2) { b.dead = true; burst(b.x, b.y, '#bbb', 4); continue; }
-            if (b.mine) { for (const e of enemies) { if (e.alive && Math.hypot(e.x - b.x, e.y - b.y) < 0.45) { b.dead = true; e.hp--; if (e.hp <= 0) { e.alive = false; killed++; burst(e.x, e.y, '#ffb347', 14); say(['💥たおした!', '💥めいちゅう!', '💥ドーン!'][killed % 3], 700); hud(); if (killed >= TOTAL_ENEMIES) { finish(true); return; } } else burst(e.x, e.y, '#fff', 4); break; } } }
+            if (b.mine) { for (const e of enemies) { if (e.alive && Math.hypot(e.x - b.x, e.y - b.y) < 0.45) { b.dead = true; e.hp--; sfx('hit'); if (e.hp <= 0) { e.alive = false; killed++; burst(e.x, e.y, '#ffb347', 14); say(['💥たおした!', '💥めいちゅう!', '💥ドーン!'][killed % 3], 700); hud(); if (killed >= TOTAL_ENEMIES) { finish(true); return; } } else burst(e.x, e.y, '#fff', 4); break; } } }
             else if (player.alive && invuln <= 0 && Math.hypot(player.x - b.x, player.y - b.y) < 0.45) { b.dead = true; lives--; invuln = 1.5; burst(player.x, player.y, '#ff6b6b', 14); say('💫やられた!', 900); hud(); if (lives <= 0) { player.alive = false; finish(false); return; } }
           }
           for (let i = 0; i < bullets.length; i++) for (let j = i + 1; j < bullets.length; j++) { const a = bullets[i], b = bullets[j]; if (!a.dead && !b.dead && a.mine !== b.mine && Math.hypot(a.x - b.x, a.y - b.y) < 0.3) { a.dead = b.dead = true; burst(a.x, a.y, '#fff', 4); } }
@@ -6169,7 +6171,7 @@
           const vy = lob ? -430 : -(250 + Math.random() * 50);
           const target = byMe ? (lob ? lerp(NET_X + 40, W - 60, Math.random()) : lerp(NET_X + 30, W - 24, (1 - h) * lerp(0.6, 1, Math.random()))) : (lob ? lerp(24, NET_X - 40, Math.random()) : lerp(18, NET_X - 30, Math.random() * lerp(0.7, 1, difficulty)));
           const hgt = Math.max(0, GROUND - 5 - ball.y); const T = (-vy + Math.sqrt(vy * vy + 2 * G * hgt)) / G;
-          ball.vx = (target - ball.x) / Math.max(0.3, T); ball.vy = vy;
+          ball.vx = (target - ball.x) / Math.max(0.3, T); ball.vy = vy; sfx('pop');
           if (byMe && ball.vx < 60) ball.vx = 60; if (!byMe && ball.vx > -60) ball.vx = -60;
           bounces = 0; rally++; lastSide = byMe ? -1 : 1; if (byMe) say(lob ? '🎾ロブ!' : rally > 3 ? `🎾 ${rally}ラリー!` : '🎾ナイスショット!', 500);
         }
@@ -6519,6 +6521,7 @@
           const ax = Math.floor(t.x) + 0.5, ay = Math.floor(t.y) + 0.5; if (dx) { const ty2 = t.y + clamp(ay - t.y, -spd * dt, spd * dt); if (canStand(t.x, ty2)) t.y = ty2; } else { const tx2 = t.x + clamp(ax - t.x, -spd * dt, spd * dt); if (canStand(tx2, t.y)) t.x = tx2; } return false; }
         function placeBomb() { if (!running || !player.alive || performance.now() < startTime) return; const cx = Math.floor(player.x), cy = Math.floor(player.y); if (bombs.filter((b) => b.mine).length >= player.maxBombs || bombs.some((b) => b.cx === cx && b.cy === cy)) return; bombs.push({ cx, cy, t: 2.0, range: player.range, mine: true, walk: true }); }
         function explode(b) {
+          sfx('hit');
           const cells = [[b.cx, b.cy]];
           for (const [dx, dy] of DIRV) for (let k = 1; k <= b.range; k++) { const x = b.cx + dx * k, y = b.cy + dy * k; if (map[y][x] === 1) break; cells.push([x, y]); if (map[y][x] === 2) { map[y][x] = 0; if (Math.random() < 0.3) items.push({ x, y, kind: Math.random() < 0.5 ? 'range' : 'speed' }); break; } }
           for (const [x, y] of cells) { fires.push({ x, y, t: 0.5 }); for (const o of bombs) if (o !== b && o.cx === x && o.cy === y && o.t > 0.05) o.t = 0.05; }
@@ -6740,7 +6743,7 @@
         function cut(ax, ay, bx, by, now) {
           for (const o of objs) { if (o.dead || !segCircle(ax, ay, bx, by, o.x, o.y, o.r)) continue; o.dead = true;
             if (o.bomb) { lives--; combo = 0; say('💥ばくだんをきった!', 1000); hud(); for (let i = 0; i < 16; i++) splashes.push({ x: o.x, y: o.y, vx: (Math.random() - 0.5) * 400, vy: (Math.random() - 0.5) * 400, life: 0.6, color: '#333' }); if (lives <= 0) { finish(); return; } continue; }
-            sliced++; combo++; comboAt = now; const gain = 10 * combo; score += gain; const ang = Math.atan2(by - ay, bx - ax);
+            sfx('whoosh'); sliced++; combo++; comboAt = now; const gain = 10 * combo; score += gain; const ang = Math.atan2(by - ay, bx - ax);
             halves.push({ x: o.x, y: o.y, vx: o.vx + Math.cos(ang + Math.PI / 2) * 90, vy: o.vy - 40, emoji: o.emoji, ang, side: 1, rot: 0 }, { x: o.x, y: o.y, vx: o.vx - Math.cos(ang + Math.PI / 2) * 90, vy: o.vy - 40, emoji: o.emoji, ang, side: -1, rot: 0 });
             for (let i = 0; i < 10; i++) splashes.push({ x: o.x, y: o.y, vx: (Math.random() - 0.5) * 300, vy: (Math.random() - 0.7) * 300, life: 0.5, color: o.color });
             if (combo >= 2) say(`✨ ${combo}コンボ!+${gain}`, 700); hud(); }
@@ -7104,7 +7107,7 @@
           ship.x += ship.vx * dt; ship.y += ship.vy * dt; wrap(ship);
           for (const r of rocks) { r.x += r.vx * dt; r.y += r.vy * dt; r.rot += r.rs * dt; wrap(r); }
           for (const b of bullets) { b.x += b.vx * dt; b.y += b.vy * dt; b.life -= dt; wrap(b); }
-          for (const b of bullets) { if (b.life <= 0) continue; for (const r of rocks) { if (r.dead || Math.hypot(r.x - b.x, r.y - b.y) > r.r) continue; b.life = 0; r.dead = true; destroyed++; score += r.size === 3 ? 20 : r.size === 2 ? 50 : 100; burst(r.x, r.y, 8, '#bbb'); if (r.size > 1) { spawnRock(r.size - 1, r.x, r.y); spawnRock(r.size - 1, r.x, r.y); } hud(); break; } }
+          for (const b of bullets) { if (b.life <= 0) continue; for (const r of rocks) { if (r.dead || Math.hypot(r.x - b.x, r.y - b.y) > r.r) continue; b.life = 0; r.dead = true; destroyed++; sfx('hit'); score += r.size === 3 ? 20 : r.size === 2 ? 50 : 100; burst(r.x, r.y, 8, '#bbb'); if (r.size > 1) { spawnRock(r.size - 1, r.x, r.y); spawnRock(r.size - 1, r.x, r.y); } hud(); break; } }
           bullets = bullets.filter((b) => b.life > 0); rocks = rocks.filter((r) => !r.dead);
           if (!rocks.length) { wave++; say(`🌊ウェーブ${wave}!`, 1200); spawnWave(); }
           if (invuln <= 0) for (const r of rocks) { if (Math.hypot(r.x - ship.x, r.y - ship.y) < r.r + 9) { lives--; invuln = 2; burst(ship.x, ship.y, 16, '#ff6b6b'); ship.x = W / 2; ship.y = H / 2; ship.vx = ship.vy = 0; say('💥ぶつかった!', 1000); hud(); if (lives <= 0) { finish(); return; } break; } }
@@ -7304,7 +7307,7 @@
           if (p.x < -10) p.x += W + 20; if (p.x > W + 10) p.x -= W + 20;
           const prevY = p.y; p.vy += G * dt; p.y += p.vy * dt;
           for (const pl of plats) { if (pl.kind === 'move') { pl.x += pl.vx * dt; if (pl.x < 4 || pl.x > W - PW - 4) pl.vx *= -1; } if (pl.broken) { pl.y += 300 * dt; continue; }
-            if (p.vy > 0 && p.x > pl.x - 10 && p.x < pl.x + PW + 10 && prevY + 14 <= pl.y + 4 && p.y + 14 >= pl.y) { if (pl.kind === 'break') { pl.broken = true; p.vy = -420; say('💥こわれた!', 500); } else { p.vy = pl.spring ? -880 : -560; if (pl.spring) say('🔴バネ!びよーん', 600); } p.y = pl.y - 14; }
+            if (p.vy > 0 && p.x > pl.x - 10 && p.x < pl.x + PW + 10 && prevY + 14 <= pl.y + 4 && p.y + 14 >= pl.y) { sfx('jump'); if (pl.kind === 'break') { pl.broken = true; p.vy = -420; say('💥こわれた!', 500); } else { p.vy = pl.spring ? -880 : -560; if (pl.spring) say('🔴バネ!びよーん', 600); } p.y = pl.y - 14; }
             if (pl.coin && Math.hypot(p.x - (pl.x + PW / 2), p.y - (pl.y - 22)) < 20) { pl.coin = false; coins++; say('⭐', 300); hud(); } }
           if (p.y < camY + H * 0.4) camY = p.y - H * 0.4;
           const height = -(camY); if (height > best) { best = height; hud(); }
@@ -7376,7 +7379,7 @@
         canvas.addEventListener('pointermove', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const p = mgPointerPos(canvas, e); aiming.x = p.x; aiming.y = p.y; });
         canvas.addEventListener('pointerup', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const dx = aiming.x - aiming.x0, dy = aiming.y - aiming.y0; const dt = Math.max(60, performance.now() - aiming.t0); aiming = null; if (dy > -20) return; const speed = clamp(Math.hypot(dx, dy) / dt * 1000 * 0.42, 120, 420); const ang = Math.atan2(dy, dx); throwStone(true, Math.cos(ang) * speed, Math.sin(ang) * speed, clamp(dx / 60, -1, 1)); });
         canvas.addEventListener('pointercancel', () => { aiming = null; });
-        function throwStone(mine, vx, vy, curl) { stones.push({ x: START.x, y: START.y, vx, vy, mine, curl, alive: true }); moving = true; sweep = 0; if (mine) myThrown++; else aiThrown++; hud(); say(mine ? '🔴なげた!タップでスイープ' : '🟡あいてのショット', 900); }
+        function throwStone(mine, vx, vy, curl) { sfx('whoosh'); stones.push({ x: START.x, y: START.y, vx, vy, mine, curl, alive: true }); moving = true; sweep = 0; if (mine) myThrown++; else aiThrown++; hud(); say(mine ? '🔴なげた!タップでスイープ' : '🟡あいてのショット', 900); }
         function aiThrow() { const target = bestTarget(); const dx = target.x - START.x, dy = target.y - START.y; const d = Math.hypot(dx, dy); // ひつような はやさ(まさつ 0.45 * 60 ぐらい) を てきとうに
           const spd = Math.sqrt(2 * 38 * d) * lerp(0.93, 1.0, difficulty) * (0.96 + Math.random() * 0.08); const err = (Math.random() - 0.5) * lerp(0.16, 0.06, difficulty); const ang = Math.atan2(dy, dx) + err; throwStone(false, Math.cos(ang) * spd, Math.sin(ang) * spd, (Math.random() - 0.5) * 0.6); }
         function bestTarget() { const mine = stones.filter((s) => s.alive && s.mine); if (mine.length && Math.random() < 0.5) { const c = mine.sort((a, b) => Math.hypot(a.x - BTN.x, a.y - BTN.y) - Math.hypot(b.x - BTN.x, b.y - BTN.y))[0]; return { x: c.x, y: c.y - 6 }; } return { x: BTN.x + (Math.random() - 0.5) * 20, y: BTN.y + (Math.random() - 0.5) * 20 }; }
@@ -8336,7 +8339,7 @@
             if (!m.alive) continue;
             m.x += m.vx * s; m.y += m.vy * s;
             if (m.split && m.y > H * 0.35) { m.split = false; for (const k of [-1, 1]) { const targets = cities.filter((c) => c.alive); const tx = targets.length ? targets[Math.floor(Math.random() * targets.length)].x : m.tx; const dx = tx - m.x, dy = GROUND - m.y, len = Math.hypot(dx, dy) || 1, sp = Math.hypot(m.vx, m.vy); incoming.push({ x: m.x, y: m.y, sx: m.x, sy: m.y, vx: dx / len * sp, vy: dy / len * sp, tx, alive: true, born: now }); void k; } totalIncoming += 2; }
-            for (const b of booms) { if (Math.hypot(m.x - b.x, m.y - b.y) < b.r) { m.alive = false; destroyed++; booms.push({ x: m.x, y: m.y, r: 3, max: 18, born: now, life: 700 }); hud(); break; } }
+            for (const b of booms) { if (Math.hypot(m.x - b.x, m.y - b.y) < b.r) { m.alive = false; destroyed++; sfx('hit'); booms.push({ x: m.x, y: m.y, r: 3, max: 18, born: now, life: 700 }); hud(); break; } }
             if (!m.alive) continue;
             if (m.y >= GROUND) {
               m.alive = false; flash = now;
@@ -9522,7 +9525,7 @@
         const EZ = minigameEase();
         const grade = (d) => (d >= 0.85 - 0.05 * EZ && d <= 1.05 + 0.05 * EZ ? 2 : d >= 0.7 - 0.08 * EZ && d <= 1.2 + 0.08 * EZ ? 1 : 0);
         function tapHole(h, now) {
-          if (h.state === 'side1') { const d = doneness(h); h.side1 = d; h.state = 'side2'; h.t = 0; h.speed = 0.9 + Math.random() * 0.25; pops.push({ x: h.cx, y: h.cy, text: d < 0.7 ? 'なま…' : d > 1.2 ? 'こげ…' : grade(d) === 2 ? 'いいかえし!' : 'かえした', born: now }); }
+          if (h.state === 'side1') { const d = doneness(h); sfx('pop'); h.side1 = d; h.state = 'side2'; h.t = 0; h.speed = 0.9 + Math.random() * 0.25; pops.push({ x: h.cx, y: h.cy, text: d < 0.7 ? 'なま…' : d > 1.2 ? 'こげ…' : grade(d) === 2 ? 'いいかえし!' : 'かえした', born: now }); }
           else if (h.state === 'side2') {
             const d = doneness(h); const g = Math.min(grade(h.side1), grade(d));
             served++; if (g === 2) perfect++; else if (g === 1) good++; else bad++;
