@@ -24231,7 +24231,10 @@
     // Pinch zoom remains a real zoom; do not shrink the app to undo it.
     if (viewport && viewport.scale !== 1) return;
     const height = Math.round(viewport?.height || window.innerHeight);
-    if (height > 0) document.documentElement.style.setProperty('--app-height',height + 'px');
+    if (height > 0) {
+      document.documentElement.style.setProperty('--app-height',height + 'px');
+      el.device.classList.toggle('ui-home-compact', height <= 640);
+    }
     el.castStage.style.minHeight = '';
     renderHomeCast();
   }

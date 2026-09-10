@@ -65,6 +65,20 @@ test('viewport changes follow browser chrome height while pinch zoom remains usa
   assert.equal(fallback.document.documentElement.style['--app-height'],'568px');
 });
 
+test('short visible viewports switch meter arrangement and recover without undoing pinch zoom', () => {
+  const h=harness({viewportHeight:664}), viewport=h.window.visualViewport;
+  const compact=()=>h.get('device').classList.contains('ui-home-compact');
+  assert.equal(compact(),false);
+  viewport.height=548; h.dispatch(viewport,'resize');
+  assert.equal(compact(),true);
+  viewport.scale=2; viewport.height=700; h.dispatch(viewport,'resize');
+  assert.equal(compact(),true,'zoom must not change the chosen arrangement');
+  viewport.scale=1; h.dispatch(viewport,'resize');
+  assert.equal(compact(),false,'recover the regular arrangement when room returns');
+  const fallback=harness(); fallback.window.innerHeight=568; fallback.dispatch(fallback.window,'resize');
+  assert.equal(fallback.get('device').classList.contains('ui-home-compact'),true);
+});
+
 test('speech-driven stage resize lays out before the reaction and does not cancel it on render', () => {
   const h=harness();
   // The DOM double has no initial HTML classes. In index.html this card is
