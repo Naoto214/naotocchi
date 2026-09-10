@@ -60,6 +60,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     };
     Object.defineProperty(el, 'innerHTML', {get: () => html, set(value) {
       html = value;
+      el.textContent = String(value).replace(/<[^>]*>/g,'').replace(/&(amp|lt|gt|quot|#39);/g,(_,key)=>({amp:'&',lt:'<',gt:'>',quot:'"','#39':"'"})[key]);
       el.children.forEach(c => { c.isConnected = false; });
       el.children = []; queries.clear();
       // Cast identity is needed to exercise reactions against the actual speaker.
@@ -124,6 +125,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
+      commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,
