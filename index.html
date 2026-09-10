@@ -163,8 +163,8 @@
             <button class="dex-close-btn" id="dexCloseBtn">✕</button>
           </div>
           <div class="dex-scroll">
-            <div class="profile-hint">であったすがたをタップすると、なまえや成長段階、その子の小さな話を読めます</div>
-            <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしいがめんからそのままそのすがたになれます</div>
+            <div class="profile-hint">出会った姿をタップすると、名前や成長の段階、その子の小さな話を読めます</div>
+            <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしい画面から、その姿になれます</div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
@@ -215,7 +215,7 @@
             <span class="dex-progress" id="themeProgress">0 / 80</span>
             <button class="dex-close-btn" id="themeCloseBtn">✕</button>
           </div>
-          <div class="design-tabs" aria-label="デザインするところ">
+          <div class="design-tabs" aria-label="でざいんするところ">
             <button type="button" id="designScreenTab" aria-pressed="true">がめん</button>
             <button type="button" id="designDeviceTab" aria-pressed="false">ほんたい</button>
           </div>
@@ -223,8 +223,8 @@
             <div id="designScreenPanel">
               <div class="theme-section"><div class="theme-section-title">がめんのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
               <div class="theme-section"><div class="theme-section-title">がめんのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
-              <div class="design-font-row"><label for="fontSelect">文字のテイスト</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
-              <div class="design-font-row"><label for="textSizeSelect">文字の大きさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">大きめ</option></select></div>
+              <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
+              <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
             </div>
             <div id="designDevicePanel" hidden>
               <div class="theme-section"><div class="theme-section-title">ほんたいのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
@@ -237,7 +237,7 @@
           <div class="wipe-box">
             <div class="wipe-title">⚠️ぜんぶさいしょからやりなおす</div>
             <div class="wipe-body" id="wipeSummary"></div>
-            <div class="wipe-warn">ずかん・じっせき・おかね・アイテム・おもいで、ぜんぶきえます。<br>もとにもどせません。</div>
+            <div class="wipe-warn">ずかん・じっせき・おかね・あいてむ・おもいで、ぜんぶきえます。<br>もとにもどせません。</div>
             <div class="wipe-actions">
               <button class="wipe-cancel" id="wipeCancelBtn">やめる</button>
               <button class="wipe-next" id="wipeNextBtn">つぎへ</button>
@@ -265,17 +265,17 @@
           <div class="theme-scroll">
             <div class="theme-section">
               <div class="theme-section-title">ごほうび</div>
-              <div class="profile-hint">ミニゲームなどでたまにもらえます。デートやたびのときに1こ使うと、とくべつなおもいでに。使うかどうかは出かけるときにえらべます</div>
+              <div class="profile-hint">ミニゲームなどで、たまにもらえます。デートや旅のときに1こ使うと、とくべつな思い出に。使うかどうかは、出かけるときに選べます</div>
               <div class="shop-item-grid" id="rewardItemGrid"></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">みにつけるもの</div>
-              <div class="profile-hint">おかねで買ってみにつけます。そうび中のものをもう一度タップするとはずせます</div>
+              <div class="profile-hint">おかねで買って身につけます。身につけているものをもう一度タップすると、はずせます</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">なおとのひみつ</div>
-              <div class="profile-hint">4つのクリア目標を達成するたび、1こずつもらえる、なおとからの贈りもの。もらったあとは、ずっとこうかが続きます</div>
+              <div class="profile-hint">4つのクリア目標を達成するたび、1こずつもらえる、なおとからの贈りもの。もらったあとは、ずっと効果が続きます</div>
               <div class="shop-item-grid" id="naotoItemGrid"></div>
               <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
             </div>
@@ -345,11 +345,11 @@
           <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
           <div class="menu-grid">
             <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・きせつ・てんき</small></button>
-            <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>アイテム</span><small>もちもの・おみせ</small></button>
-            <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームを選ぶ</span><small>きろくからあそぶ</small></button>
+            <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>あいてむ</span><small>もちもの・おみせ</small></button>
+            <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
-            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>デザイン</span><small>がめん・ほんたい</small></button>
+            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>がめん・ほんたい</small></button>
           </div>
         </div>
         <div class="dex-overlay hidden" id="worldOverlay">
@@ -360,9 +360,9 @@
             <section class="profile-section"><h3>じかん</h3><div class="environment-choices" id="timeModeGrid"></div></section>
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
-            <section class="profile-section"><h3>ゲームの むずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">やさしい は ねんれいで あがる むずかしさを おさえて、せいげん時間も ながく なります。</p></section>
+            <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
-            <div class="location-card"><div id="worldLocationLabel">げんざいち　未取得</div><p class="profile-hint" id="environmentStatus" role="status">現在地を取得すると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍現在地・てんきを取得</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気の取得に使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
+            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気を調べるために使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
         </div>
 
@@ -379,7 +379,7 @@
               <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
             <div class="theme-section hidden" id="travelSpecialSection">
-              <div class="profile-hint">とくべつなたびさき-ちずにはのっていないばしょです</div>
+              <div class="profile-hint">とくべつな旅先。地図にはのっていない場所です</div>
               <div class="theme-grid" id="travelSpecialGrid"></div>
             </div>
           </div>
@@ -405,7 +405,7 @@
               <div class="profile-hint hidden" id="profileOrientationHint"></div>
             </div>
             <div class="profile-section">
-              <div class="profile-section-title">せいかく傾向</div>
+              <div class="profile-section-title">せいかくのけいこう</div>
               <div class="profile-traits" id="profileTraits"></div>
             </div>
             <div class="profile-section" id="profilePartnerSection">
@@ -416,7 +416,7 @@
             </div>
             <div class="profile-section" id="profileCompanionSection">
               <div class="profile-section-title">なかま</div>
-              <div class="profile-hint">「じゃれる」できずながもどります。ほうっておくとすこしずつさがり、0になるとはなれていってしまいます</div>
+              <div class="profile-hint">「じゃれる」できずながもどります。ほうっておくと少しずつ下がり、0になると離れていってしまいます</div>
               <div id="profileCompanionList"></div>
             </div>
             <div class="profile-section">
@@ -432,14 +432,14 @@
               <button class="profile-code-btn" id="saveImportBtn">よみこんでおきかえる</button>
               <div class="profile-hint" id="saveImportStatus" role="status"></div>
               <div class="save-snap-title">じどうバックアップ</div>
-              <div class="profile-hint">20分いじょうあいだがあいたセーブを3つまでのこします。まちがえたときはここからもどせます。</div>
+              <div class="profile-hint">20分以上あいだがあいたセーブを、3つまで残します。まちがえたときは、ここからもどせます。</div>
               <div id="saveSnapList"></div>
               <div class="profile-hint" id="saveSnapStatus" role="status"></div>
             </div>
             <div class="profile-section danger-zone">
               <div class="profile-section-title">きけんなそうさ</div>
               <button class="restart-btn" id="softResetBtn">🥚あたらしいたまごをむかえる</button>
-              <div class="danger-note">いまの子だけおわりにして、あたらしいたまごをむかえます。ずかん・じっせき・おかね・アイテムはのこります。</div>
+              <div class="danger-note">いまの子だけおわりにして、あたらしいたまごをむかえます。ずかん・じっせき・おかね・あいてむはのこります。</div>
               <button class="wipe-btn" id="wipeBtn">⚠️ぜんぶさいしょからやりなおす</button>
               <div class="danger-note">セーブデータをぜんぶけします。もとにもどせません。</div>
             </div>
@@ -454,7 +454,7 @@
           <div class="profile-scroll">
             <div class="profile-section">
               <div class="profile-section-title">あいてコード</div>
-              <div class="profile-hint">じぶんのコードをともだちにおくって、ともだちのコードをよみこむと、そのなおとっちにきゅうあいをためせます</div>
+              <div class="profile-hint">自分のコードを友達に送り、友達のコードを読みこむと、そのなおとっちにきゅうあいを試せます</div>
               <button class="profile-code-btn" id="makeCodeBtn">じぶんのコードをつくる</button>
               <textarea class="profile-code-box hidden" id="myCodeBox" readonly rows="2"></textarea>
               <div class="profile-code-actions hidden" id="myCodeActions">
@@ -486,7 +486,7 @@
             <div class="profile-section" id="duelHomeSection">
               <div class="profile-hint">ともだちと2人であそぶしょうぶ。回答Aが5つの質問に答え、推理Bがうそを見ぬきます。コードを送りあって遊ぼう。おかねもかけられます</div>
               <div class="profile-row"><span class="profile-label">せんせき</span><span id="duelRecord"></span></div>
-              <div class="profile-section-title">みえてきた傾向</div>
+              <div class="profile-section-title">みえてきたけいこう</div>
               <div class="profile-traits" id="duelTraitSummary"></div>
               <div class="duel-role-row">
                 <button class="profile-code-btn" id="duelStartChallengeBtn">しょうぶをつくる</button>
@@ -495,7 +495,7 @@
             </div>
 
             <div class="profile-section hidden" id="duelBetSection">
-              <div class="profile-hint">かけきんをきめてください。しょうぶにまけると、このきんがくをうしないます</div>
+              <div class="profile-hint">かけきんを決めてください。しょうぶに負けると、この金額を失います</div>
               <div class="profile-row"><span class="profile-label">いまのおかね</span><span id="duelOwnMoney"></span></div>
               <input type="number" class="profile-code-input" id="duelBetInput" min="1" step="1" placeholder="かけきん(おかね)">
               <div class="profile-code-error hidden" id="duelBetError"></div>
@@ -537,7 +537,7 @@
             </div>
 
             <div class="profile-section hidden" id="duelAnswerReviewSection">
-              <div class="profile-section-title">回答を見直す</div>
+              <div class="profile-section-title">こたえをみなおす</div>
               <div class="profile-hint">5問のこたえがそろいました。タップすると見なおせます。「挑戦コードをつくる」をおすまでは、何度でも変更できます</div>
               <div class="duel-lie-coin-row" id="duelAnswerReviewLieRow">🃏つかったうそコイン: <span id="duelAnswerReviewLieCount"></span></div>
               <div id="duelAnswerReviewList"></div>
@@ -546,7 +546,7 @@
                 <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollQuestionsBtn">🎲しつもんをかえる</button>
               </div>
               <div class="duel-confirm-row hidden" id="duelRerollConfirmRow">
-                <div class="duel-confirm-text">ほんとうに5問ともかえますか?いままでの回答はきえます</div>
+                <div class="duel-confirm-text">ほんとうに5問とも変えますか?いままでの答えは消えます</div>
                 <div class="duel-confirm-buttons">
                   <button type="button" class="profile-code-btn duel-secondary-btn" id="duelRerollCancelBtn">やめる</button>
                   <button type="button" class="profile-code-btn duel-danger-btn" id="duelRerollYesBtn">かえる</button>
@@ -556,14 +556,14 @@
             </div>
 
             <div class="profile-section hidden" id="duelGuessListSection">
-              <div class="profile-hint">あいては5問中さいだい2回までうそをつけます。5問ぜんぶ見くらべてからすいりしてください</div>
+              <div class="profile-hint">あいては5問中、最大2回までうそをつけます。5問すべてを見くらべてから、すいりしてください</div>
               <div id="duelGuessList"></div>
               <div class="profile-code-error hidden" id="duelGuessConfirmError"></div>
-              <button class="profile-code-btn" id="duelGuessConfirmBtn">すいりを決める</button>
+              <button class="profile-code-btn" id="duelGuessConfirmBtn">すいりをきめる</button>
             </div>
 
             <div class="profile-section hidden" id="duelSuspicionSection">
-              <div class="profile-hint">さいごに、5問のなかから「いちばんあやしい」とおもうこたえを1つえらんでください。あたっていればあなたに、はずれていればあいてにボーナス+1点がはいります</div>
+              <div class="profile-hint">さいごに、5問の中から「いちばんあやしい」と思う答えを1つ選んでください。当たっていればあなたに、はずれていればあいてに、ボーナス+1点が入ります</div>
               <div id="duelSuspicionList"></div>
               <div class="profile-code-error hidden" id="duelSuspicionError"></div>
             </div>

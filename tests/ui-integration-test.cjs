@@ -141,7 +141,7 @@ test('late weather does not override manual settings or write a location into a 
   h.api.saveState();
   assert.equal(h.get('screen').dataset.weather,'snow');
   assert.equal(h.get('screen').dataset.time,'evening');
-  assert.equal(h.get('worldLocationLabel').textContent,'げんざいち　はこだてし');
+  assert.equal(h.get('worldLocationLabel').textContent,'げんざいち：はこだてし');
   assert.ok(payloads.every(value=>!value.includes('函館')&&!value.includes('秘密町')&&!value.includes('41.7687')));
 });
 

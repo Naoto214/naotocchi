@@ -1,0 +1,29 @@
+✔ backup write failure does not stop a writable primary save (119.450403ms)
+✔ failed primary migration cannot replace a working backup (31.893845ms)
+✔ a failed save after recovery leaves a usable backup for the next reload (42.146714ms)
+✔ backup advances to the latest successful save and survives the next write failure (69.26864ms)
+✔ a missing primary resumes the backup instead of creating a new life (114.993988ms)
+✔ backup recovery applies legacy migrations once and preserves old characters (34.458082ms)
+✔ invalid top-level payloads fall back without replacing the backup (96.769883ms)
+✔ confirmed full reset cannot later resurrect the removed life from backup (44.535775ms)
+✔ unrecoverable saves remain intact through hidden, unload and repeated saves until explicit reset (82.411877ms)
+✔ unreadable storage still permits boot and gameplay without throwing (13.907887ms)
+✔ import retains a newer primary saved by another tab before replacement (73.088258ms)
+✔ import failure cannot poison a recovered backup with the broken primary (32.764721ms)
+✔ import stops before replacing a save if its safety snapshot cannot be written (31.456625ms)
+✔ import retains the prior life across replacement, reload and undo, including duplicate snapshots (53.409233ms)
+✔ restore retains a newer primary saved by another tab before replacement (82.630724ms)
+✔ restore failure cannot poison a recovered backup with the broken primary (32.615807ms)
+✔ restore stops before replacing a save if its safety snapshot cannot be written (36.304114ms)
+✔ restore retains the prior life across replacement, reload and undo, including duplicate snapshots (73.597115ms)
+✔ export uses the recoverable save when a broken primary cannot be repaired (21.631198ms)
+✔ explicit import can recover unreadable saves while retaining both originals for inspection (27.683201ms)
+✔ import from backup recovery with no primary retains the former life after reload (30.21785ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1363.884728

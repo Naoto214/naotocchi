@@ -4659,7 +4659,7 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   animation: rewardMovieGlow 2.2s ease-in-out infinite alternate;
 }
 .date-movie-scene.special-reward::before {
-  content: 'とくべつな おもいで';
+  content: 'とくべつなおもいで';
   /* タイトルが折り返しても、バッジと同じ行に重ならないようにする。 */
   position: relative;
   display: table;

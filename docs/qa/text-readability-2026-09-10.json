@@ -1,0 +1,2901 @@
+{
+  "date": "2026-09-10",
+  "repository": "Naoto214/naotocchi",
+  "upstream": {
+    "initialMain": "9969a44ec14ef0339294281f857232067a33846d",
+    "baseMain": "1b812864f8e39de9e9117401c15186c4de54d9b9",
+    "baseTree": "c4e5ee76d02d08e164536d10c7342588f9e9dde4",
+    "integratedPullRequest": 231,
+    "matchedBlobCount": 15,
+    "syntheticLocalSnapshot": "5e00dbf406db468acf8d72314e63192a036d4123",
+    "publication": "Create a commit with the verified local tree and the real main parent. Do not publish synthetic local ancestry."
+  },
+  "verifiedLocalCodeCommit": "a7e6c7ec0574b9de7464fc7900340f2aafb1ce15",
+  "fullTests": {
+    "codeCommit": "a7e6c7ec0574b9de7464fc7900340f2aafb1ce15",
+    "command": "env -u npm_config_http_proxy -u NPM_CONFIG_HTTP_PROXY npm test",
+    "exitCode": 0,
+    "nodeTests": 179,
+    "pass": 179,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "warnings": 0,
+    "gates": [
+      "static smoke",
+      "100 game startup",
+      "91 variant collections",
+      "dialogue QA",
+      "visual QA assertions",
+      "Node regressions"
+    ],
+    "log": "text-readability-tests-2026-09-10.txt"
+  },
+  "saveCopyRegression": {
+    "codeCommit": "ada7b10cbd2c8fe42a2a6fefdb6ff3c10296374c",
+    "beforeFixPass": 17,
+    "beforeFixFail": 4,
+    "afterFixPass": 21,
+    "afterFixFail": 0,
+    "log": "text-readability-save-tests-2026-09-10.txt",
+    "paths": [
+      "restore: safety snapshot failure",
+      "restore: primary write failure after successful retention",
+      "import: safety snapshot failure",
+      "import: primary write failure after successful retention"
+    ],
+    "generatedSaveRow": "いぬ・わかもの（22さい）",
+    "rawSavedDataUnchanged": true
+  },
+  "extraction": {
+    "entries": 6988,
+    "japanese": 6881,
+    "unique_japanese": 6021,
+    "by_file": {
+      "care-status.js": 57,
+      "character-world-master.v1.js": 405,
+      "games.js": 1399,
+      "script.js": 4875,
+      "world-environment.js": 15,
+      "index.html": 236,
+      "style.css": 1
+    },
+    "flags": {
+      "term_review": 36,
+      "long_kana": 3,
+      "continuous_hiragana": 2
+    },
+    "unit": "Extracted text-bearing units, including template fragments and attributes; not a sentence count.",
+    "scannedFiles": {
+      "javascript": 9,
+      "html": 1,
+      "css": 6
+    },
+    "remainingJapaneseSpaceCandidates": 0,
+    "remainingOldItemDesignUnplayedTerms": 0,
+    "remainingNumericKigenWithoutGoPrefix": 0,
+    "retainedReadabilityCandidates": [
+      {
+        "file": "games.js",
+        "line": 2324,
+        "reason": "Short space-rhythm theme title."
+      },
+      {
+        "file": "script.js",
+        "line": 5588,
+        "reason": "Natural humorous cleanup dialogue."
+      },
+      {
+        "file": "script.js",
+        "line": 7487,
+        "reason": "Natural hamster introduction."
+      },
+      {
+        "file": "script.js",
+        "line": 11100,
+        "reason": "Communication requirement keeps the actual button and relationship names."
+      },
+      {
+        "file": "index.html",
+        "line": 240,
+        "reason": "Deletion warning enumerates the affected records."
+      }
+    ],
+    "termReview": "All 36 candidates reviewed: common terms such as 幼虫/苗/木陰/年齢, established character voice, or non-rendered design metadata."
+  },
+  "runtimeChecks": {
+    "introCases": [
+      {
+        "id": "tilt-maze-3d",
+        "controls": "盤をドラッグしてかたむける（十字ボタンでもOK）。穴に落ちないようにゴールへ進もう。",
+        "presentInIntro": true
+      },
+      {
+        "id": "pingpong-3d",
+        "controls": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に5点取ろう!",
+        "presentInIntro": true
+      },
+      {
+        "id": "sudoku-mini",
+        "controls": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
+        "presentInIntro": true
+      },
+      {
+        "id": "area-claim",
+        "controls": "十字キーのおしっぱなしでふちを動き、中へ線を引いてかこもう。75%取ればクリア。✨が線にふれると1ミス。",
+        "presentInIntro": true
+      },
+      {
+        "id": "beach-volley",
+        "controls": "◀▶で動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に7点取ろう。",
+        "presentInIntro": true
+      }
+    ],
+    "stageLabels": [
+      {
+        "species": "turtle",
+        "idx": 0,
+        "currentStageLabel": "うまれたてのかめ",
+        "mainName": "かめ",
+        "stageLabel": "うまれたてのかめ"
+      },
+      {
+        "species": "butterfly",
+        "idx": 0,
+        "currentStageLabel": "うまれたてのいもむし",
+        "mainName": "ちょう",
+        "stageLabel": "うまれたてのいもむし"
+      },
+      {
+        "species": "salmon",
+        "idx": 7,
+        "currentStageLabel": "赤く色づくさけ",
+        "mainName": "さけ",
+        "stageLabel": "赤く色づくさけ"
+      },
+      {
+        "species": "mushroom",
+        "idx": 2,
+        "currentStageLabel": "小さなキノコの芽",
+        "mainName": "キノコ",
+        "stageLabel": "小さなキノコの芽"
+      },
+      {
+        "species": "dog",
+        "idx": 4,
+        "currentStageLabel": "若いいぬ",
+        "mainName": "いぬ",
+        "stageLabel": "若いいぬ"
+      }
+    ],
+    "achievementRawSpace": false,
+    "achievementHeaderSpace": false,
+    "unplayedLabelPresent": true,
+    "snowEffectNotice": "雪だるまを作った!ごきげん+8／げんき-3",
+    "gameCount": 100,
+    "controlsCount": 100,
+    "descriptionCount": 100,
+    "stages": 248,
+    "legacySpecies": 11,
+    "legacyStages": 88,
+    "kanjiStages": 189,
+    "duelQuestions": 150,
+    "conversationEvents": 20,
+    "achievements": 87
+  },
+  "coverage": {
+    "games": [
+      {
+        "id": "road-themed",
+        "name": "ロードラン"
+      },
+      {
+        "id": "stack-themed",
+        "name": "つみあげタワー"
+      },
+      {
+        "id": "stack-snowman",
+        "name": "ゆきだるまタワー"
+      },
+      {
+        "id": "falling-block-puzzle",
+        "name": "ブロックパズル"
+      },
+      {
+        "id": "crane-game-3d",
+        "name": "クレーンゲーム"
+      },
+      {
+        "id": "pinball-physics",
+        "name": "ピンボール"
+      },
+      {
+        "id": "haunted-house-3d",
+        "name": "おばけやしき3D"
+      },
+      {
+        "id": "bowling-3d",
+        "name": "ボウリング"
+      },
+      {
+        "id": "archery-3d",
+        "name": "アーチェリー"
+      },
+      {
+        "id": "breakout-classic",
+        "name": "ブロックくずし"
+      },
+      {
+        "id": "dragDecorate-cake",
+        "name": "ケーキデコレーション"
+      },
+      {
+        "id": "dragDecorate-bento",
+        "name": "おべんとうづくり"
+      },
+      {
+        "id": "p3-space",
+        "name": "うちゅうフライト3D"
+      },
+      {
+        "id": "p3-drive",
+        "name": "ハイウェイ3D"
+      },
+      {
+        "id": "fp-dungeon",
+        "name": "ダンジョン3D"
+      },
+      {
+        "id": "race-3d",
+        "name": "カーレース3D"
+      },
+      {
+        "id": "rhythm-highway-3d",
+        "name": "リズムハイウェイ"
+      },
+      {
+        "id": "tilt-maze-3d",
+        "name": "たまころがし迷路"
+      },
+      {
+        "id": "space-gunner-3d",
+        "name": "スペースガンナー"
+      },
+      {
+        "id": "mini-golf-physics",
+        "name": "ミニゴルフ"
+      },
+      {
+        "id": "real-fishing",
+        "name": "ほんかくさかなつり"
+      },
+      {
+        "id": "basketball-3d",
+        "name": "バスケ3D"
+      },
+      {
+        "id": "pingpong-3d",
+        "name": "卓球3D"
+      },
+      {
+        "id": "chain-puzzle",
+        "name": "れんさパズル"
+      },
+      {
+        "id": "street-fight",
+        "name": "かくとうバトル"
+      },
+      {
+        "id": "free-kick-3d",
+        "name": "フリーキック"
+      },
+      {
+        "id": "tower-defense",
+        "name": "タワーディフェンス"
+      },
+      {
+        "id": "roguelike-dungeon",
+        "name": "ローグライク"
+      },
+      {
+        "id": "grand-prix-3d",
+        "name": "グランプリ"
+      },
+      {
+        "id": "sky-shooter",
+        "name": "スカイシューター"
+      },
+      {
+        "id": "jump-quest",
+        "name": "ジャンプクエスト"
+      },
+      {
+        "id": "push-puzzle",
+        "name": "そうこばん"
+      },
+      {
+        "id": "reversi-6",
+        "name": "オセロ"
+      },
+      {
+        "id": "billiards-6",
+        "name": "ビリヤード"
+      },
+      {
+        "id": "animal-shogi",
+        "name": "どうぶつしょうぎ"
+      },
+      {
+        "id": "minesweeper-8",
+        "name": "マインスイーパー"
+      },
+      {
+        "id": "snake-classic",
+        "name": "スネーク"
+      },
+      {
+        "id": "baseball-batting",
+        "name": "やきゅう"
+      },
+      {
+        "id": "ring-flight-3d",
+        "name": "リングフライト3D"
+      },
+      {
+        "id": "bubble-shooter",
+        "name": "バブルシューター"
+      },
+      {
+        "id": "catapult-castle",
+        "name": "カタパルト"
+      },
+      {
+        "id": "connect-four",
+        "name": "コネクトフォー"
+      },
+      {
+        "id": "puzzle-2048",
+        "name": "2048"
+      },
+      {
+        "id": "frogger-road",
+        "name": "かえるのおうちがえり"
+      },
+      {
+        "id": "ski-jump",
+        "name": "スキージャンプ"
+      },
+      {
+        "id": "air-hockey",
+        "name": "エアホッケー"
+      },
+      {
+        "id": "submarine-3d",
+        "name": "サブマリン3D"
+      },
+      {
+        "id": "match-3",
+        "name": "フルーツマッチ3"
+      },
+      {
+        "id": "gomoku-9",
+        "name": "五目ならべ"
+      },
+      {
+        "id": "tank-battle",
+        "name": "タンクバトル"
+      },
+      {
+        "id": "tennis-rally",
+        "name": "テニス"
+      },
+      {
+        "id": "picross-5",
+        "name": "ピクロス"
+      },
+      {
+        "id": "darts-board",
+        "name": "ダーツ"
+      },
+      {
+        "id": "hang-glider-3d",
+        "name": "ハンググライダー3D"
+      },
+      {
+        "id": "bomber-maze",
+        "name": "ボンバー"
+      },
+      {
+        "id": "blackjack-21",
+        "name": "ブラックジャック"
+      },
+      {
+        "id": "pipe-connect",
+        "name": "パイプつなぎ"
+      },
+      {
+        "id": "fruit-slice",
+        "name": "フルーツ斬り"
+      },
+      {
+        "id": "track-field",
+        "name": "りくじょう"
+      },
+      {
+        "id": "voxel-mine",
+        "name": "ボクセルマイニング"
+      },
+      {
+        "id": "sushi-belt",
+        "name": "かいてんずし"
+      },
+      {
+        "id": "asteroids-classic",
+        "name": "アステロイド"
+      },
+      {
+        "id": "yacht-dice",
+        "name": "ヨット"
+      },
+      {
+        "id": "lights-out",
+        "name": "ライツアウト"
+      },
+      {
+        "id": "doodle-jump",
+        "name": "ぴょんぴょんジャンプ"
+      },
+      {
+        "id": "curling-ice",
+        "name": "カーリング"
+      },
+      {
+        "id": "jenga-tower",
+        "name": "ジェンガ"
+      },
+      {
+        "id": "line-trace",
+        "name": "せんなぞり"
+      },
+      {
+        "id": "checkers-6",
+        "name": "チェッカー"
+      },
+      {
+        "id": "memory-cards",
+        "name": "しんけいすいじゃく"
+      },
+      {
+        "id": "halfpipe-skate",
+        "name": "ハーフパイプ"
+      },
+      {
+        "id": "domino-run",
+        "name": "ドミノたおし"
+      },
+      {
+        "id": "sudoku-mini",
+        "name": "ナンプレ"
+      },
+      {
+        "id": "mancala-kalah",
+        "name": "マンカラ"
+      },
+      {
+        "id": "plane-landing",
+        "name": "ひこうき着陸"
+      },
+      {
+        "id": "dot-eater",
+        "name": "ドットイーター"
+      },
+      {
+        "id": "missile-command",
+        "name": "ミサイルコマンド"
+      },
+      {
+        "id": "area-claim",
+        "name": "じんとり"
+      },
+      {
+        "id": "solitaire-klondike",
+        "name": "ソリティア"
+      },
+      {
+        "id": "hit-blow",
+        "name": "ヒット&ブロー"
+      },
+      {
+        "id": "lunar-lander",
+        "name": "ルナランダー"
+      },
+      {
+        "id": "shanghai-tiles",
+        "name": "上海"
+      },
+      {
+        "id": "beach-volley",
+        "name": "ビーチバレー"
+      },
+      {
+        "id": "slide-puzzle",
+        "name": "スライドパズル"
+      },
+      {
+        "id": "sugoroku-race",
+        "name": "すごろく"
+      },
+      {
+        "id": "takoyaki-grill",
+        "name": "たこやきやさん"
+      },
+      {
+        "id": "road-city",
+        "name": "とかいラン"
+      },
+      {
+        "id": "stack-harvest",
+        "name": "しゅうかくタワー"
+      },
+      {
+        "id": "stack-acorn",
+        "name": "きのみタワー"
+      },
+      {
+        "id": "downhill-mountain",
+        "name": "やまのゲレンデ"
+      },
+      {
+        "id": "downhill-snow",
+        "name": "ゆきのゲレンデ"
+      },
+      {
+        "id": "fishing-sea",
+        "name": "うみのさかなつり"
+      },
+      {
+        "id": "fishing-deepsea",
+        "name": "しんかいフィッシング"
+      },
+      {
+        "id": "fishing-river",
+        "name": "かわのさかなつり"
+      },
+      {
+        "id": "road-jungle",
+        "name": "ジャングルラン"
+      },
+      {
+        "id": "road-desert",
+        "name": "さばくラン"
+      },
+      {
+        "id": "stack-sakura",
+        "name": "さくらタワー"
+      },
+      {
+        "id": "ring-flight-summer",
+        "name": "なつのうみフライト"
+      },
+      {
+        "id": "stack-leaves",
+        "name": "おちばタワー"
+      },
+      {
+        "id": "curling-winter",
+        "name": "ふゆのカーリング大会"
+      }
+    ],
+    "currentStages": [
+      {
+        "species": "man",
+        "stage": 1,
+        "name": "あかちゃん",
+        "desc": "にぎる力だけがやたら強い。離さない。"
+      },
+      {
+        "species": "man",
+        "stage": 2,
+        "name": "よちよち",
+        "desc": "立っては転び、転んでは笑う。なぜかずっと機嫌がいい。"
+      },
+      {
+        "species": "man",
+        "stage": 3,
+        "name": "子ども",
+        "desc": "ポケットがいつもいっぱい。中身は石と棒と、なぞの金属。"
+      },
+      {
+        "species": "man",
+        "stage": 4,
+        "name": "少年",
+        "desc": "走るのが速いことだけが取りえだと思っている。（取りえはほかにもある。）"
+      },
+      {
+        "species": "man",
+        "stage": 5,
+        "name": "若者",
+        "desc": "何も起きていないのに不機嫌。本人も理由を探している。"
+      },
+      {
+        "species": "man",
+        "stage": 6,
+        "name": "大人",
+        "desc": "初めて自分で選んだ服を着ている。少しサイズが大きい。"
+      },
+      {
+        "species": "man",
+        "stage": 7,
+        "name": "落ちついた大人",
+        "desc": "だまって物を持ってくれる。お礼を言うと、ちょっと困った顔をする。"
+      },
+      {
+        "species": "man",
+        "stage": 8,
+        "name": "おじいさん",
+        "desc": "同じ話を3回する。3回目がいちばんおもしろい。"
+      },
+      {
+        "species": "woman",
+        "stage": 1,
+        "name": "あかちゃん",
+        "desc": "泣き声の大きさが、体重とつり合っていない。"
+      },
+      {
+        "species": "woman",
+        "stage": 2,
+        "name": "よちよち",
+        "desc": "歩くより走る。走るより踊る。"
+      },
+      {
+        "species": "woman",
+        "stage": 3,
+        "name": "子ども",
+        "desc": "拾った花を全部髪にさす。さしすぎて、ちょっと森になる。"
+      },
+      {
+        "species": "woman",
+        "stage": 4,
+        "name": "少女",
+        "desc": "ノートのすみに秘密のキャラを描いている。毎日少しずつ増えている。"
+      },
+      {
+        "species": "woman",
+        "stage": 5,
+        "name": "若者",
+        "desc": "髪をひと束だけ直した。誰も気づかないけど、本人は満足している。"
+      },
+      {
+        "species": "woman",
+        "stage": 6,
+        "name": "大人",
+        "desc": "ひとりで遠くへ行く電車に乗った。窓の外をずっと見ていた。"
+      },
+      {
+        "species": "woman",
+        "stage": 7,
+        "name": "落ちついた大人",
+        "desc": "困っている人にいちばん先に気づく。気づいたあと、とてもさりげなく助ける。"
+      },
+      {
+        "species": "woman",
+        "stage": 8,
+        "name": "おばあさん",
+        "desc": "手があたたかい。なぜかなんでも知っている。"
+      },
+      {
+        "species": "dog",
+        "stage": 1,
+        "name": "あかちゃんいぬ",
+        "desc": "まだ目が開いていない。においだけで、世界をだいたいわかっているつもりでいる。"
+      },
+      {
+        "species": "dog",
+        "stage": 2,
+        "name": "よちよちこいぬ",
+        "desc": "歩くのが楽しすぎて、行きたい方向と足が合っていない。"
+      },
+      {
+        "species": "dog",
+        "stage": 3,
+        "name": "こいぬ",
+        "desc": "スリッパを必ず片方だけ隠す。もう片方の行方は誰も知らない。"
+      },
+      {
+        "species": "dog",
+        "stage": 4,
+        "name": "わんぱくいぬ",
+        "desc": "どろだらけ。喜んでいるのか怒っているのか、しっぽしかヒントがない。"
+      },
+      {
+        "species": "dog",
+        "stage": 5,
+        "name": "若いいぬ",
+        "desc": "走る前にこちらを見る。ついてくるとわかるまで少し待つ。"
+      },
+      {
+        "species": "dog",
+        "stage": 6,
+        "name": "大人のいぬ",
+        "desc": "散歩の道を覚えた。曲がる角だけは毎回相談したがる。"
+      },
+      {
+        "species": "dog",
+        "stage": 7,
+        "name": "落ちついたいぬ",
+        "desc": "何も言わずに隣に座る。それだけで、だいたいなんとかなる。"
+      },
+      {
+        "species": "dog",
+        "stage": 8,
+        "name": "おとしよりのいぬ",
+        "desc": "歩くのが遅くなったぶん、夕焼けを見る時間が長くなった。"
+      },
+      {
+        "species": "cat",
+        "stage": 1,
+        "name": "あかちゃんねこ",
+        "desc": "小さい。丸い。あたたかい。それ以外の情報をほとんど出さない。"
+      },
+      {
+        "species": "cat",
+        "stage": 2,
+        "name": "よちよちこねこ",
+        "desc": "よちよち歩いては、途中でなぜか寝る。"
+      },
+      {
+        "species": "cat",
+        "stage": 3,
+        "name": "こねこ",
+        "desc": "箱に入る。箱がなければ、箱の形をした空気に入る。"
+      },
+      {
+        "species": "cat",
+        "stage": 4,
+        "name": "おてんばねこ",
+        "desc": "天井から落ちてきた。落ちたあと3秒間、「予定どおり」の顔をする。"
+      },
+      {
+        "species": "cat",
+        "stage": 5,
+        "name": "若いねこ",
+        "desc": "夜じゅうどこかへ出かけている。朝帰ってくると、少し潮のにおいがする。"
+      },
+      {
+        "species": "cat",
+        "stage": 6,
+        "name": "大人のねこ",
+        "desc": "目がきれい。本人もそれを知っている。"
+      },
+      {
+        "species": "cat",
+        "stage": 7,
+        "name": "落ちついたねこ",
+        "desc": "ひざの上の権利を絶対にゆずらない。起きるのは本人の気分しだい。"
+      },
+      {
+        "species": "cat",
+        "stage": 8,
+        "name": "おとしよりのねこ",
+        "desc": "日なたで寝ている。よく見ると、まぶたのすき間からずっとこっちを見ている。"
+      },
+      {
+        "species": "penguin",
+        "stage": 1,
+        "name": "小さなひな",
+        "desc": "小さな声で呼ぶ。返事がくるまで、もう一度呼ぶ。"
+      },
+      {
+        "species": "penguin",
+        "stage": 2,
+        "name": "ふわふわのひな",
+        "desc": "綿毛がふくらんでいる。本人よりひとまわり先に風が当たる。"
+      },
+      {
+        "species": "penguin",
+        "stage": 3,
+        "name": "大きなひな",
+        "desc": "よく食べる。大きくなったことには、まだ気づいていない。"
+      },
+      {
+        "species": "penguin",
+        "stage": 4,
+        "name": "羽の衣替え中",
+        "desc": "羽の衣替え中。ところどころ前のふわふわが残っている。"
+      },
+      {
+        "species": "penguin",
+        "stage": 5,
+        "name": "若いペンギン",
+        "desc": "泳ぐとすばやい。陸に上がると、いつもの歩き方に戻る。"
+      },
+      {
+        "species": "penguin",
+        "stage": 6,
+        "name": "大人のペンギン",
+        "desc": "きちんと並んでいる。何の列かは聞いていない。"
+      },
+      {
+        "species": "penguin",
+        "stage": 7,
+        "name": "ベテランペンギン",
+        "desc": "すべりやすい場所を知っている。近道よりそっちを選ぶ。"
+      },
+      {
+        "species": "penguin",
+        "stage": 8,
+        "name": "おとしよりペンギン",
+        "desc": "急ぐ仲間を見送ってから歩きだす。着く場所はだいたい同じ。"
+      },
+      {
+        "species": "turtle",
+        "stage": 1,
+        "name": "うまれたてのかめ",
+        "desc": "小さなこうらをもう背負っている。荷物はこれで全部。"
+      },
+      {
+        "species": "turtle",
+        "stage": 2,
+        "name": "ちびがめ",
+        "desc": "一歩すすんでひと休み。休む場所も一緒に来てくれる。"
+      },
+      {
+        "species": "turtle",
+        "stage": 3,
+        "name": "子がめ",
+        "desc": "顔を出すまで少し待つ。引っこめるときだけはやい。"
+      },
+      {
+        "species": "turtle",
+        "stage": 4,
+        "name": "若いかめ",
+        "desc": "知らない道にも出てみる。帰る場所は背中にある。"
+      },
+      {
+        "species": "turtle",
+        "stage": 5,
+        "name": "大人のかめ",
+        "desc": "日なたで動かない。用事があるならここで聞いてくれる。"
+      },
+      {
+        "species": "turtle",
+        "stage": 6,
+        "name": "大きなかめ",
+        "desc": "石と間違えられた。しばらく石のふりを続けた。"
+      },
+      {
+        "species": "turtle",
+        "stage": 7,
+        "name": "古いかめ",
+        "desc": "こうらの傷の話をする。ひとつ目だけで日が暮れた。"
+      },
+      {
+        "species": "turtle",
+        "stage": 8,
+        "name": "長生きのかめ",
+        "desc": "待つのが上手。誰かが来るとも来ないとも言わない。"
+      },
+      {
+        "species": "frog",
+        "stage": 1,
+        "name": "ちびおたま",
+        "desc": "しっぽで泳いでいる。曲がるつもりが、一周して戻ってきた。"
+      },
+      {
+        "species": "frog",
+        "stage": 2,
+        "name": "おたまじゃくし",
+        "desc": "仲間とかたまって泳ぐ。先頭はいつのまにか交代している。"
+      },
+      {
+        "species": "frog",
+        "stage": 3,
+        "name": "後ろ足が出たおたま",
+        "desc": "後ろ足が出てきた。泳ぎながら、ときどき振り返って確認する。"
+      },
+      {
+        "species": "frog",
+        "stage": 4,
+        "name": "しっぽつきかえる",
+        "desc": "手も足もしっぽもある。どれを使うか少し迷う。"
+      },
+      {
+        "species": "frog",
+        "stage": 5,
+        "name": "陸に上がったかえる",
+        "desc": "陸に上がった。座ったまま、新しい景色に慣れている。"
+      },
+      {
+        "species": "frog",
+        "stage": 6,
+        "name": "子がえる",
+        "desc": "初めてのジャンプ。着いた場所で少し得意げにしている。"
+      },
+      {
+        "species": "frog",
+        "stage": 7,
+        "name": "大人のかえる",
+        "desc": "鳴くと、どこかから返事がくる。会話の内容はだいたい同じ。"
+      },
+      {
+        "species": "frog",
+        "stage": 8,
+        "name": "おとしよりのかえる",
+        "desc": "大きな葉の上で休む。雨の音だけは最後まで聞いている。"
+      },
+      {
+        "species": "salmon",
+        "stage": 1,
+        "name": "うまれたてのさけ",
+        "desc": "小さな体で水に揺れている。まだ流れに名前はない。"
+      },
+      {
+        "species": "salmon",
+        "stage": 2,
+        "name": "小さなさけ",
+        "desc": "泳ぐ向きを覚えた。石の裏で休むことも覚えた。"
+      },
+      {
+        "species": "salmon",
+        "stage": 3,
+        "name": "しま模様のさけ",
+        "desc": "体の模様がはっきりしてきた。隠れるときだけ役に立つ。"
+      },
+      {
+        "species": "salmon",
+        "stage": 4,
+        "name": "銀色のさけ",
+        "desc": "銀色になってきた。水の向こうが少し気になっている。"
+      },
+      {
+        "species": "salmon",
+        "stage": 5,
+        "name": "海の若いさけ",
+        "desc": "海に出た。広すぎるので、とりあえず前へ泳ぐ。"
+      },
+      {
+        "species": "salmon",
+        "stage": 6,
+        "name": "大人のさけ",
+        "desc": "よく泳ぎ、よく食べる。話しかけるなら休憩のときに。"
+      },
+      {
+        "species": "salmon",
+        "stage": 7,
+        "name": "川をのぼるさけ",
+        "desc": "流れに逆らって進む。知っているにおいを探している。"
+      },
+      {
+        "species": "salmon",
+        "stage": 8,
+        "name": "赤く色づくさけ",
+        "desc": "体の色が深くなった。長い旅の話は、水音に少し混ざる。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 1,
+        "name": "透けたあかちゃん",
+        "desc": "まだ体が透けている。隠れたつもりで、目だけこちらを見ている。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 2,
+        "name": "しまが出た子",
+        "desc": "小さなしまができた。もうなくさないように泳いでいる。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 3,
+        "name": "かくれんぼの子",
+        "desc": "イソギンチャクの間から顔を出す。出すだけでまた戻る。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 4,
+        "name": "若いクマノミ",
+        "desc": "家の周りを少し遠回りする。帰ると毎回ほっとする。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 5,
+        "name": "群れのクマノミ",
+        "desc": "仲間の中で自分の場所を覚えた。空いていてもそこに行く。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 6,
+        "name": "卵を守るオス",
+        "desc": "オスが卵のそばを離れない。見に来た相手にもちょっと真剣な顔。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 7,
+        "name": "メスへ変わる途中",
+        "desc": "オスからメスへ変わる途中。体も暮らしも、今日の調子を確かめている。"
+      },
+      {
+        "species": "clownfish",
+        "stage": 8,
+        "name": "群れのリーダーのメス",
+        "desc": "大人のメスが群れの先頭にいる。後ろがついてくるまで、少し待っている。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 1,
+        "name": "うまれたてのいもむし",
+        "desc": "葉っぱに小さな穴をあけた。今日の仕事はその続き。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 2,
+        "name": "育ちざかりのいもむし",
+        "desc": "食べる道が葉っぱに残る。地図としてはあまり使えない。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 3,
+        "name": "大きないもむし",
+        "desc": "よく食べて大きくなった。葉っぱの道幅が、少し気になりだした。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 4,
+        "name": "さなぎの準備中",
+        "desc": "落ちつく場所を決めた。しばらく留守のような顔をしている。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 5,
+        "name": "さなぎ",
+        "desc": "動かない。中ではいろいろ忙しいらしい。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 6,
+        "name": "羽を広げたちょう",
+        "desc": "羽を広げて待っている。急がせても返事はない。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 7,
+        "name": "花めぐりのちょう",
+        "desc": "花から花へ寄り道する。どこまでが用事なのかは秘密。"
+      },
+      {
+        "species": "butterfly",
+        "stage": 8,
+        "name": "年を重ねたちょう",
+        "desc": "羽の端が少し欠けた。休む花を選ぶのは上手になった。"
+      },
+      {
+        "species": "beetle",
+        "stage": 1,
+        "name": "うまれたての幼虫",
+        "desc": "土の中で真っ白。まだ世界が全部土だと思っている。"
+      },
+      {
+        "species": "beetle",
+        "stage": 2,
+        "name": "育ちざかりの幼虫",
+        "desc": "食べる、寝る、太る。完ぺきな生活。"
+      },
+      {
+        "species": "beetle",
+        "stage": 3,
+        "name": "まるまる幼虫",
+        "desc": "まるまると太った。ちょっと気持ち悪くて、なぜかかわいい。"
+      },
+      {
+        "species": "beetle",
+        "stage": 4,
+        "name": "さなぎ",
+        "desc": "さなぎになった。土の部屋で、次の姿を静かに待っている。"
+      },
+      {
+        "species": "beetle",
+        "stage": 5,
+        "name": "出たてのカブトムシ",
+        "desc": "さなぎから出てきた。体が固まるまで、今日はそっとしておこう。"
+      },
+      {
+        "species": "beetle",
+        "stage": 6,
+        "name": "若いカブトムシ",
+        "desc": "夜の樹液にいちばん乗りする。実は並んで待っていた。"
+      },
+      {
+        "species": "beetle",
+        "stage": 7,
+        "name": "りっぱなカブトムシ",
+        "desc": "つのが黒く光る。戦わなくても強いことがわかる。"
+      },
+      {
+        "species": "beetle",
+        "stage": 8,
+        "name": "長生きカブトムシ",
+        "desc": "つのの先が金色になった。理由はない。森ではそういうことになっている。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 1,
+        "name": "うまれたての幼虫",
+        "desc": "土の中で、カブトムシの幼虫とときどきすれ違う。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 2,
+        "name": "育ちざかりの幼虫",
+        "desc": "太り方が少し違う。本人はけっこう気にしている。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 3,
+        "name": "大きな幼虫",
+        "desc": "頭が固くなってきた。自分でこんこんたたいて確かめる。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 4,
+        "name": "さなぎ",
+        "desc": "さなぎの中であごの形が見える。はさむ練習はまだ先。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 5,
+        "name": "出たてのクワガタ",
+        "desc": "さなぎから出たばかり。強そうなあごも、まだやわらかい。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 6,
+        "name": "若いクワガタ",
+        "desc": "夜になると急にかっこよくなる。昼間はちょっと寝ぼけている。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 7,
+        "name": "りっぱなクワガタ",
+        "desc": "あごの形が1匹ずつ違う。本人もそれを自慢に思っている。"
+      },
+      {
+        "species": "stagbeetle",
+        "stage": 8,
+        "name": "長生きクワガタ",
+        "desc": "誰も倒せなかった。というより、誰も戦いを申しこまなかった。"
+      },
+      {
+        "species": "cicada",
+        "stage": 1,
+        "name": "小さな幼虫",
+        "desc": "土の中を進む。外の天気はまだ聞いていない。"
+      },
+      {
+        "species": "cicada",
+        "stage": 2,
+        "name": "土ぐらしの幼虫",
+        "desc": "根のそばで暮らしている。住所を聞いても土の中。"
+      },
+      {
+        "species": "cicada",
+        "stage": 3,
+        "name": "旅立ち前の幼虫",
+        "desc": "出口のほうが気になる。土を少し動かして、また待つ。"
+      },
+      {
+        "species": "cicada",
+        "stage": 4,
+        "name": "地上に出たセミ",
+        "desc": "地上に出た。登るものを探して、まず周りを見た。"
+      },
+      {
+        "species": "cicada",
+        "stage": 5,
+        "name": "ぬけがらをぬぐセミ",
+        "desc": "背中からゆっくり抜け出す。置いていく服が立派すぎる。"
+      },
+      {
+        "species": "cicada",
+        "stage": 6,
+        "name": "若いセミ",
+        "desc": "声を出してみた。思ったより大きくて、自分でも止まった。"
+      },
+      {
+        "species": "cicada",
+        "stage": 7,
+        "name": "よく鳴くセミ",
+        "desc": "よく鳴く。話の切れ目に入ろうとするとまた始まる。"
+      },
+      {
+        "species": "cicada",
+        "stage": 8,
+        "name": "年を重ねたセミ",
+        "desc": "鳴きやんで枝にいる。静かな声でも、ここにいるとわかる。"
+      },
+      {
+        "species": "antlion",
+        "stage": 1,
+        "name": "ちびアリジゴク",
+        "desc": "砂を少し掘った。住まいにするには、まだ浅い。"
+      },
+      {
+        "species": "antlion",
+        "stage": 2,
+        "name": "巣作りアリジゴク",
+        "desc": "すり鉢の形を整えている。引っ越すより掘り直す派。"
+      },
+      {
+        "species": "antlion",
+        "stage": 3,
+        "name": "大きなアリジゴク",
+        "desc": "穴の底で待っている。待ち時間を聞かれても困る。"
+      },
+      {
+        "species": "antlion",
+        "stage": 4,
+        "name": "砂のまゆ",
+        "desc": "砂の中でまゆを作った。外から見ると、ただの砂。"
+      },
+      {
+        "species": "antlion",
+        "stage": 5,
+        "name": "まゆの中のさなぎ",
+        "desc": "静かに姿を変えている。穴掘りはしばらく休業。"
+      },
+      {
+        "species": "antlion",
+        "stage": 6,
+        "name": "出たてのウスバカゲロウ",
+        "desc": "羽が広がった。地面を見下ろすのは初めて。"
+      },
+      {
+        "species": "antlion",
+        "stage": 7,
+        "name": "飛び回るウスバカゲロウ",
+        "desc": "薄い羽で飛んでいる。昔の穴にはもう入らない。"
+      },
+      {
+        "species": "antlion",
+        "stage": 8,
+        "name": "羽休めのウスバカゲロウ",
+        "desc": "細い枝で羽を休める。砂の上をしばらく眺めていた。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 1,
+        "name": "ちびヤドカリ",
+        "desc": "小さな貝がらを見つけた。ひとまず表札なしで入った。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 2,
+        "name": "小さな貝の家",
+        "desc": "貝がらから顔だけ出している。用事が済むとすぐ戻る。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 3,
+        "name": "引っ越し中",
+        "desc": "新しい貝がらを何度も確かめる。広ければいいわけでもない。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 4,
+        "name": "若いヤドカリ",
+        "desc": "慣れた貝がらで遠出する。荷造りはとくにいらない。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 5,
+        "name": "ゆったり貝の家",
+        "desc": "少し大きな貝がらに引っ越した。角を曲がるとまだぶつかる。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 6,
+        "name": "大きな貝の家",
+        "desc": "立派な貝がらで歩いている。中は意外といつもどおり。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 7,
+        "name": "ごうかな貝の家",
+        "desc": "目立つ貝がらを選んだ。隠れても居場所がよくわかる。"
+      },
+      {
+        "species": "hermit_crab",
+        "stage": 8,
+        "name": "ベテランヤドカリ",
+        "desc": "貝がらを直しながら使っている。気に入った理由は話してくれない。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 1,
+        "name": "岩ぐらしの子",
+        "desc": "岩の上でゆらゆらしている。行き先を聞くと、少し首をかしげた。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 2,
+        "name": "重なった子",
+        "desc": "体が重なった形になった。上と下で相談しているようにも見える。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 3,
+        "name": "星形の子",
+        "desc": "星のような形で泳ぎだした。初めての遠出はふわふわだった。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 4,
+        "name": "小さなかさ",
+        "desc": "小さなかさの形になった。水の中の散歩に少し慣れてきた。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 5,
+        "name": "若いクラゲ",
+        "desc": "かさを動かして進む。急いでいるのかは判断しづらい。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 6,
+        "name": "大人のクラゲ",
+        "desc": "透けた体で漂っている。考えごとだけは見えない。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 7,
+        "name": "大きなクラゲ",
+        "desc": "大きくなった。水の中で占める場所だけ少し増えた。"
+      },
+      {
+        "species": "jellyfish",
+        "stage": 8,
+        "name": "年を重ねたクラゲ",
+        "desc": "ゆっくりかさを閉じる。波と呼吸を合わせているみたい。"
+      },
+      {
+        "species": "starfish",
+        "stage": 1,
+        "name": "丸いあかちゃん",
+        "desc": "小さくてまだ星には見えない。本人も急いでいない。"
+      },
+      {
+        "species": "starfish",
+        "stage": 2,
+        "name": "透けた小さな星",
+        "desc": "透けた星の形で水に揺れる。途中の姿もきちんと自分。"
+      },
+      {
+        "species": "starfish",
+        "stage": 3,
+        "name": "色づく小さな星",
+        "desc": "小さな星が色づいた。ここから先は地面との付き合いになる。"
+      },
+      {
+        "species": "starfish",
+        "stage": 4,
+        "name": "ふっくらした星",
+        "desc": "星の形がふっくらしてきた。向きを決めるのはあとでいい。"
+      },
+      {
+        "species": "starfish",
+        "stage": 5,
+        "name": "金色の子ヒトデ",
+        "desc": "金色の小さな星になった。空には行かず、その場にいる。"
+      },
+      {
+        "species": "starfish",
+        "stage": 6,
+        "name": "ぶつぶつ子ヒトデ",
+        "desc": "少しずつ進む。目を離すと、さっきの場所にはいない。"
+      },
+      {
+        "species": "starfish",
+        "stage": 7,
+        "name": "大人のヒトデ",
+        "desc": "どっちが前か聞いてみた。返事のかわりに動きだした。"
+      },
+      {
+        "species": "starfish",
+        "stage": 8,
+        "name": "大きなヒトデ",
+        "desc": "大きな星が底にいる。踏まれない場所をよく知っている。"
+      },
+      {
+        "species": "coral",
+        "stage": 1,
+        "name": "住みついた子",
+        "desc": "ここに決めたらしい。住まいはこれから自分で作る。"
+      },
+      {
+        "species": "coral",
+        "stage": 2,
+        "name": "ひとつのサンゴ",
+        "desc": "小さく開いた。通りすぎる水にあいさつしているように見える。"
+      },
+      {
+        "species": "coral",
+        "stage": 3,
+        "name": "枝分かれサンゴ",
+        "desc": "隣が増えた。引っ越してきたのではなく、ここで増えた。"
+      },
+      {
+        "species": "coral",
+        "stage": 4,
+        "name": "小さなサンゴの森",
+        "desc": "小さな集まりになった。全員で少しずつ大きくなる。"
+      },
+      {
+        "species": "coral",
+        "stage": 5,
+        "name": "若いサンゴの森",
+        "desc": "枝の間を魚が通る。通行料の相談はしていない。"
+      },
+      {
+        "species": "coral",
+        "stage": 6,
+        "name": "色とりどりのサンゴ",
+        "desc": "にぎやかな形に育った。本人たちはずっと同じ場所にいる。"
+      },
+      {
+        "species": "coral",
+        "stage": 7,
+        "name": "大きなサンゴの森",
+        "desc": "隠れ場所がたくさんある。住人の数までは数えていない。"
+      },
+      {
+        "species": "coral",
+        "stage": 8,
+        "name": "広がるサンゴの海",
+        "desc": "見渡すほどに広がった。最初のひとつは、今もこの中にある。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 1,
+        "name": "芽ぶきのたね",
+        "desc": "目覚めの時間が来た。外が明るいことだけまずわかった。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 2,
+        "name": "ふたば",
+        "desc": "葉っぱがふたつ。どちらもちゃんと光を浴びている。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 3,
+        "name": "地面に広がる葉",
+        "desc": "低く広がっている。背の高さは、いまのところ気にしない。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 4,
+        "name": "葉がしげるタンポポ",
+        "desc": "葉が増えた。足もとを固める時間はまだ続いている。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 5,
+        "name": "つぼみ",
+        "desc": "つぼみを持ち上げた。中の色はもう決まっているらしい。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 6,
+        "name": "花咲くタンポポ",
+        "desc": "黄色い花が咲いた。通り道が少しだけ明るくなった。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 7,
+        "name": "わたげ",
+        "desc": "ふわふわになった。風が来ると少し緊張する。"
+      },
+      {
+        "species": "dandelion",
+        "stage": 8,
+        "name": "旅立つたね",
+        "desc": "たねが風に乗った。行き先は聞かないまま、空を見ている。"
+      },
+      {
+        "species": "sakura",
+        "stage": 1,
+        "name": "芽ぶきのたね",
+        "desc": "小さな芽が出てきた。木陰になる予定はまだ先の話。"
+      },
+      {
+        "species": "sakura",
+        "stage": 2,
+        "name": "ふたばのサクラ",
+        "desc": "風に揺れている。揺れたぶんだけまた戻ってくる。"
+      },
+      {
+        "species": "sakura",
+        "stage": 3,
+        "name": "小さなサクラ",
+        "desc": "枝が増えてきた。鳥が止まるには、もう少し待ってほしい。"
+      },
+      {
+        "species": "sakura",
+        "stage": 4,
+        "name": "育ったサクラ",
+        "desc": "少し木らしくなった。自分の影を初めて長く眺めた。"
+      },
+      {
+        "species": "sakura",
+        "stage": 5,
+        "name": "サクラのつぼみ",
+        "desc": "枝先のつぼみがふくらんだ。中の花とは、まだ内緒話をしている。"
+      },
+      {
+        "species": "sakura",
+        "stage": 6,
+        "name": "サクラの花",
+        "desc": "花が開いた。一輪目の場所をずっと覚えていそう。"
+      },
+      {
+        "species": "sakura",
+        "stage": 7,
+        "name": "サクラの実",
+        "desc": "赤い実がなった。下に集まる人の話を全部聞いている。"
+      },
+      {
+        "species": "sakura",
+        "stage": 8,
+        "name": "年を重ねたサクラ",
+        "desc": "古い枝を広げて休む。待っていた人が今年も来た。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 1,
+        "name": "目覚めるたね",
+        "desc": "まだ小さく丸まっている。目覚めの時間を静かに待っている。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 2,
+        "name": "小さな口の芽",
+        "desc": "小さな口のような葉が出た。開けたまま待っている。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 3,
+        "name": "若葉のハエトリグサ",
+        "desc": "若い葉が増えてきた。急に動く用事はまだない。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 4,
+        "name": "口を広げた葉",
+        "desc": "閉じるのが上手になった。開き直るには少し時間がかかる。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 5,
+        "name": "育ちざかりの葉",
+        "desc": "葉を広げて待つ。動かない時間のほうがずっと長い。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 6,
+        "name": "大きな口の葉",
+        "desc": "立派な葉が並んでいる。話しかける葉を少し迷う。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 7,
+        "name": "口がいっぱい",
+        "desc": "口のような葉がいっぱい。閉じる用事がなければとても静か。"
+      },
+      {
+        "species": "venus_flytrap",
+        "stage": 8,
+        "name": "花咲くハエトリグサ",
+        "desc": "高いところに白い花が咲いた。食事の場所とは分けているらしい。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 1,
+        "name": "キノコの小さな粒",
+        "desc": "小さな粒がふわふわしている。キノコになる場所を探しているらしい。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 2,
+        "name": "広がるキノコの糸",
+        "desc": "細い糸があちこちにつながった。どこまでが自分かは聞かないでおく。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 3,
+        "name": "小さなキノコの芽",
+        "desc": "小さなキノコの芽が顔を出した。まだ小さくても、かさはもう一人前。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 4,
+        "name": "のびる子キノコ",
+        "desc": "背がすっとのびた。雨がなくても、かさは持っている。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 5,
+        "name": "育ちざかりのキノコ",
+        "desc": "背が伸びてきた。昨日と同じ高さで探すと見落とす。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 6,
+        "name": "かさを広げたキノコ",
+        "desc": "かさを広げた。下に入った虫とは、とくに約束していない。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 7,
+        "name": "粉を飛ばすキノコ",
+        "desc": "キノコのもとになる粉を送り出している。引っ越し先は風と相談するらしい。"
+      },
+      {
+        "species": "mushroom",
+        "stage": 8,
+        "name": "年を重ねたキノコ",
+        "desc": "かさの端が少し下がった。土の中では、まだ話が続いている。"
+      },
+      {
+        "species": "dragon",
+        "stage": 1,
+        "name": "ちびりゅう",
+        "desc": "まだトカゲにしか見えない。炎も出ない。でも誇りは高い。"
+      },
+      {
+        "species": "dragon",
+        "stage": 2,
+        "name": "子りゅう",
+        "desc": "うろこが固くなってきた。動くとこつこつ音がする。"
+      },
+      {
+        "species": "dragon",
+        "stage": 3,
+        "name": "つのの生えたりゅう",
+        "desc": "初めて煙をはいた。自分でびっくりしてむせた。"
+      },
+      {
+        "species": "dragon",
+        "stage": 4,
+        "name": "小さなつばさのりゅう",
+        "desc": "宝物を集めはじめた。1個目はペットボトルのふた。"
+      },
+      {
+        "species": "dragon",
+        "stage": 5,
+        "name": "つばさの育ったりゅう",
+        "desc": "つばさが重い。飛ぶより、引きずって歩くほうが速い。"
+      },
+      {
+        "species": "dragon",
+        "stage": 6,
+        "name": "火をふくりゅう",
+        "desc": "ようやく飛んだ。着地で小さなクレーターを作った。"
+      },
+      {
+        "species": "dragon",
+        "stage": 7,
+        "name": "大きなりゅう",
+        "desc": "空にいるときだけ静か。地面に降りるとよくしゃべる。"
+      },
+      {
+        "species": "dragon",
+        "stage": 8,
+        "name": "いにしえのりゅう",
+        "desc": "背中に雲がかかる大きさ。もう誰も大きさを測ろうとしない。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 1,
+        "name": "火のひな",
+        "desc": "あたたかい。あたたかすぎて、持つとちょっと熱い。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 2,
+        "name": "よちよち火の鳥",
+        "desc": "よちよち歩く。歩いたあとが少しこげている。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 3,
+        "name": "若い火の鳥",
+        "desc": "羽の先がゆらゆら燃えている。本人は涼しい顔。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 4,
+        "name": "空を飛ぶ火の鳥",
+        "desc": "飛んだあとに火の粉が舞う。周りはいつも少しあわてている。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 5,
+        "name": "燃えさかる火の鳥",
+        "desc": "つばさを広げると、夜でも朝に見える。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 6,
+        "name": "金色の火の鳥",
+        "desc": "一度燃えつきた。3秒で戻ってきた。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 7,
+        "name": "年を重ねた火の鳥",
+        "desc": "何度も死んで、何度も帰ってくる。もう数えていない。"
+      },
+      {
+        "species": "phoenix",
+        "stage": 8,
+        "name": "灰からよみがえる鳥",
+        "desc": "終わりがない。だから急がない。"
+      },
+      {
+        "species": "god",
+        "stage": 1,
+        "name": "光の粒",
+        "desc": "光の粒がいる。小さいのに、つい目で追ってしまう。"
+      },
+      {
+        "species": "god",
+        "stage": 2,
+        "name": "光の子",
+        "desc": "羽が生えてきた。まだかざり。"
+      },
+      {
+        "species": "god",
+        "stage": 3,
+        "name": "小さな精霊",
+        "desc": "小さな精霊になった。呼ぶと光の向きが少し変わる。"
+      },
+      {
+        "species": "god",
+        "stage": 4,
+        "name": "見習いかみさま",
+        "desc": "小さな奇跡を起こせる。なくした物がすぐ見つかるくらい。"
+      },
+      {
+        "species": "god",
+        "stage": 5,
+        "name": "かみさま",
+        "desc": "周りの人が、なぜか背すじをのばす。"
+      },
+      {
+        "species": "god",
+        "stage": 6,
+        "name": "大いなるかみさま",
+        "desc": "祈りが届くようになった。だいたい全部かなえてしまう。"
+      },
+      {
+        "species": "god",
+        "stage": 7,
+        "name": "神々しい光",
+        "desc": "そこにいるだけで、周りの音が少し遠くなる。"
+      },
+      {
+        "species": "god",
+        "stage": 8,
+        "name": "光そのもの",
+        "desc": "顔がもう太陽になっている。とくに説明はない。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 1,
+        "name": "光る芽",
+        "desc": "小さな芽が光っている。寝るときは少し暗くしてくれる。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 2,
+        "name": "ふしぎな苗",
+        "desc": "葉のそばに不思議な気配がある。呼ぶといったん静かになる。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 3,
+        "name": "小さな木",
+        "desc": "枝が伸びた。木陰には、ときどき知らない足跡がある。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 4,
+        "name": "精霊の木",
+        "desc": "枝の間で声がする。聞き返すと葉っぱの音に戻る。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 5,
+        "name": "大樹",
+        "desc": "大きな木になった。根もとの昼寝場所が人気らしい。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 6,
+        "name": "巨大な木",
+        "desc": "上のほうが見えない。落ちた葉が届くまで少し待つ。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 7,
+        "name": "雲をこえる木",
+        "desc": "雲が枝にかかる。雨宿りの相談は下のほうで受けつける。"
+      },
+      {
+        "species": "world_tree",
+        "stage": 8,
+        "name": "世界樹",
+        "desc": "世界を支えているらしい。それでも新しい葉は小さい。"
+      },
+      {
+        "species": "ghost",
+        "stage": 1,
+        "name": "小さなたましい",
+        "desc": "小さな光がいる。風がなくても少し揺れる。"
+      },
+      {
+        "species": "ghost",
+        "stage": 2,
+        "name": "ちびおばけ",
+        "desc": "呼ぶとこちらを向く。名前はまだ決めていないらしい。"
+      },
+      {
+        "species": "ghost",
+        "stage": 3,
+        "name": "いたずらおばけ",
+        "desc": "驚かせる練習中。出てくる前に、自分から声をかけてしまう。"
+      },
+      {
+        "species": "ghost",
+        "stage": 4,
+        "name": "おばけ",
+        "desc": "壁を通りぬけた。扉の前で待っていたことを思い出した。"
+      },
+      {
+        "species": "ghost",
+        "stage": 5,
+        "name": "大きなおばけ",
+        "desc": "大きくなった。隠れたつもりでも、少しはみ出している。"
+      },
+      {
+        "species": "ghost",
+        "stage": 6,
+        "name": "昔からいるおばけ",
+        "desc": "昔の家の間取りを知っている。今の家具にはよく迷う。"
+      },
+      {
+        "species": "ghost",
+        "stage": 7,
+        "name": "おだやかなおばけ",
+        "desc": "そばにいると落ちつく。怖い話を頼むと少し困った顔をする。"
+      },
+      {
+        "species": "ghost",
+        "stage": 8,
+        "name": "旅立ち前のおばけ",
+        "desc": "薄くなってきた。さよならの前に、もう一度だけこちらを見た。"
+      },
+      {
+        "species": "star",
+        "stage": 1,
+        "name": "星のもとの雲",
+        "desc": "雲のように広がっている。光る予定はまだ内緒。"
+      },
+      {
+        "species": "star",
+        "stage": 2,
+        "name": "集まる星の雲",
+        "desc": "少しずつ集まっている。離れていたものが、ひとつになりかけた。"
+      },
+      {
+        "species": "star",
+        "stage": 3,
+        "name": "うまれかけの星",
+        "desc": "中心が明るくなった。まぶしいかどうかこちらを見ている。"
+      },
+      {
+        "species": "star",
+        "stage": 4,
+        "name": "若い星",
+        "desc": "光りはじめた。消し忘れではないらしい。"
+      },
+      {
+        "species": "star",
+        "stage": 5,
+        "name": "輝く星",
+        "desc": "いつもの場所で光っている。見つけてもらうのを急がない。"
+      },
+      {
+        "species": "star",
+        "stage": 6,
+        "name": "ふくらんだ星",
+        "desc": "大きくふくらんだ。遠くからでも顔がよく見える。"
+      },
+      {
+        "species": "star",
+        "stage": 7,
+        "name": "はじける星",
+        "desc": "ひときわ明るくなった。言いかけたことが、光に混ざった。"
+      },
+      {
+        "species": "star",
+        "stage": 8,
+        "name": "星のなごり",
+        "desc": "光のあとが残っている。ここにいたことを、空が覚えている。"
+      },
+      {
+        "species": "plush",
+        "stage": 1,
+        "name": "新品のぬいぐるみ",
+        "desc": "ふかふかで、まだ誰のにおいも知らない。置かれた場所だけ覚えている。"
+      },
+      {
+        "species": "plush",
+        "stage": 2,
+        "name": "遊び相手",
+        "desc": "連れていかれる場所が増えた。今日はどこまで行くのだろう。"
+      },
+      {
+        "species": "plush",
+        "stage": 3,
+        "name": "お気に入り",
+        "desc": "呼ばれる前に抱えられる。返事の必要がないくらい近い。"
+      },
+      {
+        "species": "plush",
+        "stage": 4,
+        "name": "よごれたぬいぐるみ",
+        "desc": "少し汚れた。どこで遊んだか、その分だけわかる。"
+      },
+      {
+        "species": "plush",
+        "stage": 5,
+        "name": "ほつれたぬいぐるみ",
+        "desc": "糸がほつれた。引っぱらずに見つけてくれるとうれしい。"
+      },
+      {
+        "species": "plush",
+        "stage": 6,
+        "name": "つぎはぎ",
+        "desc": "ぬい目が増えた。直してくれた手のことは忘れていない。"
+      },
+      {
+        "species": "plush",
+        "stage": 7,
+        "name": "くたくた",
+        "desc": "くたくたになった。抱き心地の話ならまだ負けない。"
+      },
+      {
+        "species": "plush",
+        "stage": 8,
+        "name": "大切な宝物",
+        "desc": "古くなったのに捨てられない。いつもの場所が今日も空いている。"
+      },
+      {
+        "species": "unknown",
+        "stage": 1,
+        "name": "点",
+        "desc": "点がある。汚れだと思って拭くと、少しよけた。"
+      },
+      {
+        "species": "unknown",
+        "stage": 2,
+        "name": "ぷる",
+        "desc": "ぷるっとした。形について質問するには、まだ早そう。"
+      },
+      {
+        "species": "unknown",
+        "stage": 3,
+        "name": "足？",
+        "desc": "足のようなものが出た。歩いたかどうかは見逃した。"
+      },
+      {
+        "species": "unknown",
+        "stage": 4,
+        "name": "目？",
+        "desc": "目が合った気がする。こちらを見ていたのかもわからない。"
+      },
+      {
+        "species": "unknown",
+        "stage": 5,
+        "name": "羽？",
+        "desc": "羽らしいものがある。飛ぶつもりか聞くと、じっとしていた。"
+      },
+      {
+        "species": "unknown",
+        "stage": 6,
+        "name": "でっかい？",
+        "desc": "大きくなった。わかったことは、それだけだった。"
+      },
+      {
+        "species": "unknown",
+        "stage": 7,
+        "name": "ちっちゃい？",
+        "desc": "小さくなった。さっきの大きさはどこにしまったのだろう。"
+      },
+      {
+        "species": "unknown",
+        "stage": 8,
+        "name": "点……？",
+        "desc": "また点になった。最初の点とは、少し目の合い方が違う。"
+      },
+      {
+        "species": "ren",
+        "stage": 1,
+        "name": "ちびれん",
+        "desc": "なぜここに人間のあかちゃんがいるのか。誰も質問しない。"
+      },
+      {
+        "species": "ren",
+        "stage": 2,
+        "name": "げんきれん",
+        "desc": "よちよち歩く。ときどき振り向いて、こちらを見て笑う。"
+      },
+      {
+        "species": "ren",
+        "stage": 3,
+        "name": "子どもれん",
+        "desc": "突然現れて、突然仲間になっている。"
+      },
+      {
+        "species": "ren",
+        "stage": 4,
+        "name": "少年れん",
+        "desc": "何を考えているのかわからない。本人もたぶんわかっていない。"
+      },
+      {
+        "species": "ren",
+        "stage": 5,
+        "name": "若者れん",
+        "desc": "いたずらをする。怒られると、なぜかこっちが悪い気になる。"
+      },
+      {
+        "species": "ren",
+        "stage": 6,
+        "name": "大人れん",
+        "desc": "急に大人になった。背はのびたが、中身はそんなに変わっていない。"
+      },
+      {
+        "species": "ren",
+        "stage": 7,
+        "name": "年を重ねたれん",
+        "desc": "この世界のルールから、ひとりだけ少し外れている。"
+      },
+      {
+        "species": "ren",
+        "stage": 8,
+        "name": "おじいちゃんれん",
+        "desc": "最後まで、なんでいたのかはわからなかった。でも、いなかったら寂しかった。"
+      }
+    ],
+    "legacyStages": [
+      {
+        "species": "bird",
+        "stage": 1,
+        "name": "ひな",
+        "desc": "からを割った瞬間、最初に見たものをずっと覚えている。"
+      },
+      {
+        "species": "bird",
+        "stage": 2,
+        "name": "羽が生えたひな",
+        "desc": "羽が生えてきた。うれしくて、まだ飛べないのに高いところに登る。"
+      },
+      {
+        "species": "bird",
+        "stage": 3,
+        "name": "小鳥",
+        "desc": "歌を練習している。同じところで必ず間違える。"
+      },
+      {
+        "species": "bird",
+        "stage": 4,
+        "name": "若い鳥",
+        "desc": "おしゃれな羽の色になった。鏡の前から動かない。"
+      },
+      {
+        "species": "bird",
+        "stage": 5,
+        "name": "飛ぶ練習中の鳥",
+        "desc": "飛び方を練習中。飛び立つことはできる。着地の研究はこれから。"
+      },
+      {
+        "species": "bird",
+        "stage": 6,
+        "name": "はばたく鳥",
+        "desc": "ようやく空に出た。思ったより空は広くて、少し怖かった。"
+      },
+      {
+        "species": "bird",
+        "stage": 7,
+        "name": "空をゆく鳥",
+        "desc": "高いところから町を見下ろす。誰のものでもない景色が好きらしい。"
+      },
+      {
+        "species": "bird",
+        "stage": 8,
+        "name": "おとしよりの鳥",
+        "desc": "色があざやかになった。年を取るほど派手になる種族らしい。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 1,
+        "name": "あかちゃんうさぎ",
+        "desc": "耳が体より大きい。まだ持て余している。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 2,
+        "name": "よちよちこうさぎ",
+        "desc": "はねる。途中でこける。またはねる。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 3,
+        "name": "こうさぎ",
+        "desc": "背中を向けて座ると丸い。丸すぎて、どこが顔かわからない。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 4,
+        "name": "わんぱくうさぎ",
+        "desc": "穴を掘る。掘ったことを忘れて、自分で落ちる。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 5,
+        "name": "ジャンプうさぎ",
+        "desc": "跳びすぎて、自分の耳に追いつかれる。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 6,
+        "name": "若いうさぎ",
+        "desc": "走るのが好きというより、止まるのが苦手。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 7,
+        "name": "大人のうさぎ",
+        "desc": "静かに座って、耳だけずっと動かしている。全部聞こえている。"
+      },
+      {
+        "species": "rabbit",
+        "stage": 8,
+        "name": "おとしよりのうさぎ",
+        "desc": "もうあまりはねない。代わりに、ずっと遠くの音を聞いている。"
+      },
+      {
+        "species": "fish",
+        "stage": 1,
+        "name": "あかちゃんざかな",
+        "desc": "まだほとんど透明。光にかざすと中が見える。"
+      },
+      {
+        "species": "fish",
+        "stage": 2,
+        "name": "ひれを動かす子",
+        "desc": "ひれの使い方を覚えた。まっすぐ進めるとは言っていない。"
+      },
+      {
+        "species": "fish",
+        "stage": 3,
+        "name": "小ざかな",
+        "desc": "壁にぶつかる。ガラスの存在に、まだ納得していない。"
+      },
+      {
+        "species": "fish",
+        "stage": 4,
+        "name": "わんぱくざかな",
+        "desc": "いちばん速く泳げると信じている。実際には3番目くらい。"
+      },
+      {
+        "species": "fish",
+        "stage": 5,
+        "name": "群れで泳ぐさかな",
+        "desc": "群れの真ん中が好き。はしっこになると、そわそわする。"
+      },
+      {
+        "species": "fish",
+        "stage": 6,
+        "name": "若いさかな",
+        "desc": "うろこが光る角度を、自分で研究している。"
+      },
+      {
+        "species": "fish",
+        "stage": 7,
+        "name": "ふくらむさかな",
+        "desc": "ふくらむ。怒っているわけではない。ただのくせ。"
+      },
+      {
+        "species": "fish",
+        "stage": 8,
+        "name": "おとしよりのさかな",
+        "desc": "ふくらんだまま戻らなくなった。本人はあんまり気にしていない。"
+      },
+      {
+        "species": "panda",
+        "stage": 1,
+        "name": "あかちゃんパンダ",
+        "desc": "ピンク色で、まだ白黒になっていない。この期間はとても短い。"
+      },
+      {
+        "species": "panda",
+        "stage": 2,
+        "name": "よちよちパンダ",
+        "desc": "歩くというより、転がって移動している。"
+      },
+      {
+        "species": "panda",
+        "stage": 3,
+        "name": "やんちゃパンダ",
+        "desc": "木に登る。降り方を考えずに登る。"
+      },
+      {
+        "species": "panda",
+        "stage": 4,
+        "name": "ささ食いパンダ",
+        "desc": "1日12時間ささを食べる。残りの時間は寝る。"
+      },
+      {
+        "species": "panda",
+        "stage": 5,
+        "name": "ころがるパンダ",
+        "desc": "坂を見つけると必ず転がる。理由はない。"
+      },
+      {
+        "species": "panda",
+        "stage": 6,
+        "name": "若いパンダ",
+        "desc": "目の周りの模様が少しずれている。それがチャームポイント。"
+      },
+      {
+        "species": "panda",
+        "stage": 7,
+        "name": "どっしりパンダ",
+        "desc": "動かない。動かないのに、みんなが見ている。"
+      },
+      {
+        "species": "panda",
+        "stage": 8,
+        "name": "おとしよりパンダ",
+        "desc": "ささをゆっくりかむ。かむ音だけがずっと聞こえている。"
+      },
+      {
+        "species": "fox",
+        "stage": 1,
+        "name": "あかちゃんきつね",
+        "desc": "しっぽが体と同じ大きさ。バランスが取れていない。"
+      },
+      {
+        "species": "fox",
+        "stage": 2,
+        "name": "よちよちこぎつね",
+        "desc": "泣いているふりをして、おやつをもらおうとする。まだ下手。"
+      },
+      {
+        "species": "fox",
+        "stage": 3,
+        "name": "ふさふさこぎつね",
+        "desc": "しっぽを自分で追いかける。必ず負ける。"
+      },
+      {
+        "species": "fox",
+        "stage": 4,
+        "name": "わんぱくきつね",
+        "desc": "隠れるのがうまい。うますぎて、自分の場所を忘れる。"
+      },
+      {
+        "species": "fox",
+        "stage": 5,
+        "name": "すばやいきつね",
+        "desc": "走るルートを3通り考えてから動く。"
+      },
+      {
+        "species": "fox",
+        "stage": 6,
+        "name": "若いきつね",
+        "desc": "夜の町を歩く。なぜかみんなが道をゆずる。"
+      },
+      {
+        "species": "fox",
+        "stage": 7,
+        "name": "ずるがしこいきつね",
+        "desc": "うそはつかない。ただ、全部は言わない。"
+      },
+      {
+        "species": "fox",
+        "stage": 8,
+        "name": "おしゃれなきつね",
+        "desc": "マフラーが似合う。誰にもらったのかは教えてくれない。"
+      },
+      {
+        "species": "owl",
+        "stage": 1,
+        "name": "あかちゃんふくろう",
+        "desc": "まんまる。まだ目が開いていないのに、こっちを向いている。"
+      },
+      {
+        "species": "owl",
+        "stage": 2,
+        "name": "目を開けたひな",
+        "desc": "目を開けた。ひとみが大きすぎて、見ているだけでちょっと怖い。"
+      },
+      {
+        "species": "owl",
+        "stage": 3,
+        "name": "こふくろう",
+        "desc": "首がよく回る。回しすぎて自分で驚く。"
+      },
+      {
+        "species": "owl",
+        "stage": 4,
+        "name": "夜ふかしふくろう",
+        "desc": "昼間に寝て、夜に大さわぎする。周りは迷惑している。"
+      },
+      {
+        "species": "owl",
+        "stage": 5,
+        "name": "飛ぶ練習のふくろう",
+        "desc": "飛ぶ音がしない。本人はそれが普通だと思っている。"
+      },
+      {
+        "species": "owl",
+        "stage": 6,
+        "name": "若いふくろう",
+        "desc": "質問に答えない。考えているふりがとても上手。"
+      },
+      {
+        "species": "owl",
+        "stage": 7,
+        "name": "知恵あるふくろう",
+        "desc": "なんでも知っているような顔をする。実際、わりと知っている。"
+      },
+      {
+        "species": "owl",
+        "stage": 8,
+        "name": "おとしよりふくろう",
+        "desc": "何も言わない。でも前に座ると、なぜか悩みが片づく。"
+      },
+      {
+        "species": "plant",
+        "stage": 1,
+        "name": "芽ぶきのたね",
+        "desc": "土の中で、外の光をもう知っている。"
+      },
+      {
+        "species": "plant",
+        "stage": 2,
+        "name": "ふたば",
+        "desc": "葉っぱが2枚。世界のすべてが、この2枚にかかっている。"
+      },
+      {
+        "species": "plant",
+        "stage": 3,
+        "name": "のびる苗",
+        "desc": "背のびをする。風が吹くとけっこう怖い。"
+      },
+      {
+        "species": "plant",
+        "stage": 4,
+        "name": "ふくらむつぼみ",
+        "desc": "中に何色が入っているか、本人もまだ知らない。"
+      },
+      {
+        "species": "plant",
+        "stage": 5,
+        "name": "開きかけのつぼみ",
+        "desc": "少しだけ開いた。ここから先は一気にいく。"
+      },
+      {
+        "species": "plant",
+        "stage": 6,
+        "name": "咲きほこる花",
+        "desc": "咲いた。周りの空気の色まで変わった気がする。"
+      },
+      {
+        "species": "plant",
+        "stage": 7,
+        "name": "みごとな花",
+        "desc": "見ているだけで、なぜか少し泣きそうになる。"
+      },
+      {
+        "species": "plant",
+        "stage": 8,
+        "name": "かれはじめた花",
+        "desc": "花びらが落ちる。その下に、もう次のたねが落ちている。"
+      },
+      {
+        "species": "robot",
+        "stage": 1,
+        "name": "組み立て中",
+        "desc": "まだねじが3本足りない。それでも動こうとする。"
+      },
+      {
+        "species": "robot",
+        "stage": 2,
+        "name": "電源オン",
+        "desc": "電源が入った。最初に発した言葉は「…おなかすいた？」。"
+      },
+      {
+        "species": "robot",
+        "stage": 3,
+        "name": "よちよちロボット",
+        "desc": "歩き方を覚えた。ただし横歩きだけ。"
+      },
+      {
+        "species": "robot",
+        "stage": 4,
+        "name": "学習ロボット",
+        "desc": "人間のジョークを学習中。まだ笑うタイミングが0.4秒遅い。"
+      },
+      {
+        "species": "robot",
+        "stage": 5,
+        "name": "力持ちロボット",
+        "desc": "腕が銀色になった。持ち上げられるものが急に増えた。"
+      },
+      {
+        "species": "robot",
+        "stage": 6,
+        "name": "戦うロボット",
+        "desc": "戦うために作られたが、戦ったことは1度もない。"
+      },
+      {
+        "species": "robot",
+        "stage": 7,
+        "name": "最新型ロボット",
+        "desc": "ぴかぴか。鏡の前で自分をみがく機能がついている。"
+      },
+      {
+        "species": "robot",
+        "stage": 8,
+        "name": "旧式ロボット",
+        "desc": "少しさびた。動く音がうるさい。でも、みんなその音が好き。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 1,
+        "name": "うまれたての恐竜",
+        "desc": "卵のからをまだ頭にのせている。取るのを忘れている。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 2,
+        "name": "よちよち恐竜",
+        "desc": "よちよち歩く。しっぽでバランスを取っているつもりだが、取れていない。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 3,
+        "name": "とげの生えた恐竜",
+        "desc": "背中のとげがちくちくする。抱きしめると痛い。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 4,
+        "name": "わんぱく恐竜",
+        "desc": "なんでもかじる。かじったあと、味の感想を述べる。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 5,
+        "name": "するどい歯の恐竜",
+        "desc": "歯がするどい。でも好きな食べ物は、やわらかい緑のやつ。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 6,
+        "name": "若い恐竜",
+        "desc": "ほえる練習をしている。まだ声が裏返る。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 7,
+        "name": "巨大な恐竜",
+        "desc": "歩くと地面が揺れる。本人はそっと歩いているつもり。"
+      },
+      {
+        "species": "dinosaur",
+        "stage": 8,
+        "name": "化石になった恐竜",
+        "desc": "骨になっても動いている。誰もつっこまない。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 1,
+        "name": "あかちゃんの貝がら",
+        "desc": "貝がら。ときどきぷくっと泡が出る。それだけ。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 2,
+        "name": "きらめく子にんぎょ",
+        "desc": "うろこがきらめきだした。光の加減で虹色になる。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 3,
+        "name": "子にんぎょ",
+        "desc": "声がきれい。ただし歌うと必ず泡が出て、途中で切れる。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 4,
+        "name": "わんぱくにんぎょ",
+        "desc": "船のロープを引っぱって遊ぶ。怒られてもまたやる。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 5,
+        "name": "泳ぎ上手のにんぎょ",
+        "desc": "うずしおの真ん中を平気で突っ切る。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 6,
+        "name": "若いにんぎょ",
+        "desc": "髪をとかす時間が長い。海の底には鏡がないのに。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 7,
+        "name": "海のプリンセス",
+        "desc": "水面に座って歌う。聞いたものは、その日のことを覚えていない。"
+      },
+      {
+        "species": "mermaid",
+        "stage": 8,
+        "name": "伝説のにんぎょ",
+        "desc": "海の音が、この子がいるところだけ静かになる。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 1,
+        "name": "小さなつのの子馬",
+        "desc": "つのがぽつんと1つ。まだ、ただのこぶに見える。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 2,
+        "name": "よちよち子馬",
+        "desc": "よちよち歩く。足が長すぎて自分でつまずく。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 3,
+        "name": "つのがのびた子馬",
+        "desc": "つのが光るようになった。夜は枕元の明かりにちょうどいい。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 4,
+        "name": "わんぱくユニコーン",
+        "desc": "つのにいろんな物を引っかけて走り回る。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 5,
+        "name": "光るユニコーン",
+        "desc": "たてがみが、風もないのに揺れる。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 6,
+        "name": "若いユニコーン",
+        "desc": "走ったあとに、光が少し残る。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 7,
+        "name": "伝説のユニコーン",
+        "desc": "近づくと、なぜかうそがつけなくなる。"
+      },
+      {
+        "species": "unicorn",
+        "stage": 8,
+        "name": "大いなるユニコーン",
+        "desc": "つのの先に、小さな星がひとつついている。"
+      }
+    ],
+    "changedCurrentStageNames": 226,
+    "changedCurrentAndLegacyDescriptions": 214,
+    "reviewedStageDescriptions": 336,
+    "partners": 18,
+    "companions": 26,
+    "legendStories": 10,
+    "endings": 5,
+    "dialogueEvents": 20,
+    "communicationQuestions": 150,
+    "achievements": 87,
+    "currentStagePngsVisuallyInspected": 248
+  },
+  "preservationChecks": {
+    "javascriptAndAssets": {
+      "base": "upstream/snapshot-1b812864",
+      "files": [
+        {
+          "file": "audio.js",
+          "sourceSha256": "eeb14a7146f5b7a709ce2501d51d0985bc3208b4a89a57b2d815e3f8cd3576a9",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 1057,
+            "afterCount": 1057
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "care-status.js",
+          "sourceSha256": "7ee4053193d07650f0ddf643f225eb9b3acebd8700b7675af0289ea75acf7489",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 52,
+            "afterCount": 52
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "cast-bounds.js",
+          "sourceSha256": "7f125308544144f3c451e2e930e61cd1cf627d010e4d009ce81e700d9ff1b086",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 14244,
+            "afterCount": 14244
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 891,
+            "afterCount": 891
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 297,
+            "afterCount": 297
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "cast-layout.js",
+          "sourceSha256": "b660a4b162faa8bec7898ba1da90a59a36bbce561cc67690b97b114038e6d5b1",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 293,
+            "afterCount": 293
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "cast-motion.js",
+          "sourceSha256": "0e47435e361c6a6213e443ae8cc0a9cb5a19f7e24952212ae75ff2cd34a85845",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 316,
+            "afterCount": 316
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "character-world-master.v1.js",
+          "sourceSha256": "624200f6adaa91686be1548fdc93dc8036e9e7d0f7c35a73c2ee50c7ea2af5b8",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 9,
+            "afterCount": 9
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 7,
+            "afterCount": 7
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 47,
+            "afterCount": 47
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "games.js",
+          "sourceSha256": "7af7f41e3753dc1a715789a35cea0a241c74318af931182d6472d3fbe9bb7481",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 18726,
+            "afterCount": 18726
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 5,
+            "afterCount": 5
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        },
+        {
+          "file": "script.js",
+          "sourceSha256": "ff39622e1775636842d268563332393cae16e284242eb4a86e66e803f628aae3",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 2747,
+            "afterCount": 2747
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 1145,
+            "afterCount": 1145
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 65,
+            "afterCount": 65
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 29,
+            "afterCount": 29
+          }
+        },
+        {
+          "file": "world-environment.js",
+          "sourceSha256": "5396ba2b2b688671801b0f8a93fb97fa357bcec3b0f17326ed4012eff5831c16",
+          "numericBooleanNullLiterals": {
+            "unchanged": true,
+            "beforeCount": 192,
+            "afterCount": 192
+          },
+          "stringPropertyKeys": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "imageAudioReferences": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          },
+          "inlineDrawingStrings": {
+            "unchanged": true,
+            "beforeCount": 0,
+            "afterCount": 0
+          }
+        }
+      ],
+      "trackedAssets": 318,
+      "changedAssets": []
+    },
+    "rasterImagesUnchanged": 311,
+    "markup": [
+      {
+        "file": "index.html",
+        "structure_unchanged": true,
+        "old_copy_nodes": 279,
+        "new_copy_nodes": 279,
+        "differences": []
+      },
+      {
+        "file": "style.css",
+        "non_content_unchanged": true
+      }
+    ],
+    "reviewedNonLiteralAstChanges": [
+      "Sudoku hint interpolates actual N twice; existing board and number controls unchanged.",
+      "Road race result rearranges the same hits value as ぶつかった回数：N.",
+      "lifeLogTextKey normalizes four exact date-memory suffixes for comparison only; saved text and names remain untouched."
+    ],
+    "limits": "Literal/asset matching is supporting evidence, not a substitute for semantic review. Review and runtime regressions cover the allowed AST changes."
+  },
+  "reviews": {
+    "task1": "approved after mancala wording fix and real sowing regression",
+    "task2": "approved",
+    "task3": "approved after save failure wording and dynamic row spacing fixes",
+    "unresolvedTaskFindings": 0,
+    "wholeBranchReview": {
+      "initial": "0 Critical, 0 Important, 1 Minor (Frogger typo)",
+      "fixCommit": "a7e6c7ec0574b9de7464fc7900340f2aafb1ce15",
+      "rereviewHead": "6c618ed075f02bfaf2b0fcc71fff2f10308ee56f",
+      "addressed": 1,
+      "open": 0,
+      "newIssues": 0,
+      "verdict": "approved",
+      "record": "text-readability-review-2026-09-10.md",
+      "remoteHeadAndCI": "See pull request"
+    }
+  },
+  "concurrentOpenPullRequests": [
+    232,
+    233,
+    92
+  ],
+  "browser": {
+    "gameScreenshots": 0,
+    "iphoneVerified": false,
+    "reason": "Official browser tab discovery timed out twice after bootstrap; earlier local access was blocked.",
+    "unverified": [
+      "narrow and regular viewport text wrapping",
+      "physical touch",
+      "audio",
+      "FPS",
+      "movie rendering",
+      "published site file equality"
+    ]
+  }
+}

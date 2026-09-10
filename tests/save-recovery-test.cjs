@@ -155,6 +155,23 @@ function replaceLife(h,action,raw) {
     h.api.restoreSaveSnapshot(snap);h.api.restoreSaveSnapshot(snap);
   }
 }
+// Prepare the visible controls before injecting storage faults. Restore uses the
+// snapshot row's real confirmation button, including its rerender on first click.
+function prepareReplacementUI(h,storage,action,raw) {
+  if(action==='import') {
+    return () => replaceLife(h,action,raw);
+  }
+  storage.setItem(SNAPS,JSON.stringify([{at:900,raw}]));
+  h.dispatch(h.get('profileBtn'),'click');
+  return () => {
+    for(let i=0;i<2;i++) h.dispatch(h.get('saveSnapList').children[0].children[1],'click');
+  };
+}
+function assertReplacementFailureNotice(h,action) {
+  const notice=h.get(action==='import'?'saveImportStatus':'saveSnapStatus').textContent;
+  assert.match(notice,action==='import'?/セーブをおきかえられませんでした/:/セーブをもどせませんでした/);
+  assert.doesNotMatch(notice,/残せなかった/,'the result must not claim that retaining the old life failed');
+}
 for(const action of ['import','restore']) {
   test(action+' retains a newer primary saved by another tab before replacement', () => {
     const storage=storageWith([[SAVE,savedLife()]]),first=replacementHarness(storage);
@@ -172,9 +189,14 @@ for(const action of ['import','restore']) {
   test(action+' failure cannot poison a recovered backup with the broken primary', () => {
     const good=savedLife(),target=JSON.parse(good);target.lifetime.money=99;
     const storage=storageWith([[SAVE,'{broken'],[BACKUP,good]]),h=replacementHarness(storage);
+    const replaceFromUI=prepareReplacementUI(h,storage,action,JSON.stringify(target));
+    storage.removeItem(BACKUP); // Its reappearance proves backup retention succeeded in this attempt.
     storage.failWrites.add(SAVE);
-    replaceLife(h,action,JSON.stringify(target));
+    replaceFromUI();
+    assert.equal(storage.getItem(SAVE),'{broken','the failed primary write cannot replace its old value');
     assert.equal(storage.getItem(BACKUP),good);
+    assert.ok(JSON.parse(storage.getItem(SNAPS)).some(s=>s.raw===good),'snapshot retention succeeded before the primary failure');
+    assertReplacementFailureNotice(h,action);
     assert.equal(boot(storage).api.state().lifetime.money,4321);
   });
   test(action+' stops before replacing a save if its safety snapshot cannot be written', () => {
@@ -182,9 +204,13 @@ for(const action of ['import','restore']) {
     const storage=storageWith([[SAVE,good]]),h=replacementHarness(storage);
     const before=storage.getItem(SAVE);
     storage.removeItem(SNAPS); // No prior safety copy: boot may have saved one already.
+    const replaceFromUI=prepareReplacementUI(h,storage,action,JSON.stringify(target));
+    const snapshotsBefore=storage.getItem(SNAPS);
     storage.failWrites.add(SNAPS);
-    replaceLife(h,action,JSON.stringify(target));
+    replaceFromUI();
     assert.equal(storage.getItem(SAVE),before);
+    assert.equal(storage.getItem(SNAPS),snapshotsBefore,'failed retention cannot alter the snapshot list');
+    assertReplacementFailureNotice(h,action);
     assert.equal(boot(storage).api.state().lifetime.money,4321);
   });
   test(action+' retains the prior life across replacement, reload and undo, including duplicate snapshots', () => {

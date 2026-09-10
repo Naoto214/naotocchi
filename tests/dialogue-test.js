@@ -105,6 +105,7 @@ const expose = `
   speakEvent = (key, ctx) => { __events.push(key); return realEvent(key, ctx); };
   globalThis.dialogue = {
     speakEvent, pickConversationLine, pickCharacterConversationLine, partnerDailyLine, companionSpeaker,
+    ENV_MOMENTS, showStoryEvent,
     clearConversationTimers, conversationIsBusy, scheduleIdleGreeting, playMarriageMovie, playLegendEncounterMovie,
     maybeLegendEncounter, loop,
     finishDateMovie, celebrateAgeSpeech, finishMinigame, partnerAnniversaryLine,
@@ -171,6 +172,13 @@ function validSpeech() {
     assert.ok(['pet', 'partner', 'companion'].includes(beat.speaker.kind));
   }
 }
+
+// Milestone instructions must lead to the actual date control, and separate effects
+// must remain readable after comment text compaction.
+reset(); api.onSodachiMilestone(50);
+assert.match(getElement('storyFlashText').textContent, /「データ」のこいびと欄/);
+reset(); api.showStoryEvent(api.ENV_MOMENTS.snow[0]);
+assert.match(getElement('storyFlashText').textContent, /ごきげん\+8／げんき-3/);
 
 // All requested event pools, with four real timed beats and a full last beat.
 for (const key of Object.keys(api.CONVERSATION_POOLS)) {
@@ -531,7 +539,7 @@ for (const testCase of [
       advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
     }
     if (ring) assert.match(captions[4], /💍/);
-    else if (special) assert.match(captions[4], /しゃしん/);
+    else if (special) assert.match(captions[4], /写真/);
     assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
     advance(step + 499);
     assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), true, name + ': ending appeared early');
@@ -673,6 +681,19 @@ for (const [text, expected] of memorySamples) {
   }
 }
 
+// New easy-kanji date memories retain specific recall without rewriting saves.
+for (const [text, expected] of [
+  ['デートのおもいで: ロボと雨やどりをした', /雨やどり/],
+  ['デートのおもいで: ロボとふたりで写真をとった', /写真をとった日/],
+  ['デートのおもいで: ロボと流れ星をさがした', /流れ星を探した日/],
+  ['デートのおもいで: ロボと夕やけをふたりでみた', /夕やけを見た日/],
+]) {
+  reset({ lifeLog: [{ text, age: 12 }] });
+  const before = JSON.stringify(api.getState().lifeLog);
+  assert.match(api.pickMemoryGreeting(), expected);
+  assert.equal(JSON.stringify(api.getState().lifeLog), before);
+}
+
 // Every first encounter keeps both captions on screen for their full duration.
 reset({partner:partner('robot_neighbor'),datesThisLife:2,lifeLog:[{
   age:12,icon:'💗',text:'デートの おもいで: となりまちの ロボットと あめやどりを した',
@@ -680,6 +701,24 @@ reset({partner:partner('robot_neighbor'),datesThisLife:2,lifeLog:[{
 api.goOnDate(api.DATE_PLANS.find(plan => plan.id === 'rain')); advance(16000);
 assert.equal(api.getState().lifeLog.filter(entry => /あめやどり/.test(entry.text)).length, 1,
   'compact date copy duplicated an old spaced memory');
+
+// Both old and new date wording deduplicates only the same recorded event.
+for (const [id, oldDetail, newDetail] of [
+  ['rain', 'あめやどりをした', '雨やどりをした'],
+  ['photo', 'ふたりでしゃしんをとった', 'ふたりで写真をとった'],
+  ['star', 'ながれぼしをさがした', '流れ星をさがした'],
+  ['sunset', 'ゆうやけをふたりでみた', '夕やけをふたりでみた'],
+]) for (const detail of [oldDetail, newDetail]) {
+  const text = 'デートの おもいで: となりまちの ロボットと' + detail;
+  reset({ partner: partner(), datesThisLife: 2, lifeLog: [{ age: 12, icon: '💗', text }] });
+  api.goOnDate(api.DATE_PLANS.find(plan => plan.id === id)); advance(16000);
+  assert.equal(api.getState().lifeLog.length, 1, id + ': duplicate ' + detail);
+  assert.equal(api.getState().lifeLog[0].text, text, id + ': saved spelling changed');
+}
+reset({ partner: partner('robot_neighbor', { label: 'あめやどり' }), datesThisLife: 2,
+  lifeLog: [{ age: 12, icon: '💗', text: 'デートのおもいで: 雨やどりと雨やどりをした' }] });
+api.goOnDate(api.DATE_PLANS.find(plan => plan.id === 'rain')); advance(16000);
+assert.equal(api.getState().lifeLog.length, 2, 'date normalization merged different saved names');
 
 reset({partner:partner('robot_neighbor',{label:'となりまちの ロボット'}),
   isSick:true,sicknessType:'げんいんふめいの こうねつ',
