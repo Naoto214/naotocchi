@@ -2888,8 +2888,8 @@
     if (animal) return commentPictureHTML(animal.asset,ach.emoji,animal.label);
     return commentIconHTML(mark,ach.emoji)||escapeHtml(ach.emoji||'');
   }
-  // Food appears only in the two food-decoration games. In particular, the
-  // boiled egg never replaces a hatching egg or an ambiguous egg in dialogue.
+  // Food art is reused only for matching game props. The boiled egg remains
+  // exclusive to the bento game, never a hatching egg or ambiguous dialogue egg.
   const MINIGAME_FOOD = {
     strawberry:['いちご','<path fill="#df7581" d="M3 9c0-5 6-6 9-3 3-3 9-2 9 3 0 6-6 13-9 13S3 15 3 9z"/><path fill="#81a96e" d="m12 2 2 4 5-2-2 5-5-2-5 2-2-5 5 2z"/><path stroke="#fff0b2" d="m7 11 1 1m8-1-1 1m-3 2v1m-3 2 1 1m5-1-1 1"/>'],
     choco:['チョコ','<path fill="#9c6850" d="M5 2h14v20H5z"/><path fill="none" d="M12 2v13M5 8h14M5 14h14"/><path fill="#b6c6d0" d="m3 13 6 3 4-3 8 3v7H3z"/><path fill="#d37e8a" d="M3 18h18v5H3z"/>'],

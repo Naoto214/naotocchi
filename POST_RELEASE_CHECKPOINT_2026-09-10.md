@@ -1,5 +1,18 @@
 # 公開後チェックポイント — 2026-09-10（JST）
 
+## #231統合後：文脈に合う通知・道路・カードの小物
+
+最新main `1b812864f8e39de9e9117401c15186c4de54d9b9`、tree `c4e5ee76d02d08e164536d10c7342588f9e9dde4`。
+#231はマージ済み、Runtime #310／Pages #229成功。公開本体JS・master・3atlasは一致、HTML・games.js・UI CSSは未照合。
+新しい `feature/context-prop-illustrations-20260910` で18小SVGと既存素材を通知・road6登録・神経衰弱へ接続。
+178テスト成功、311画像・12ファイル・19関数・原文と地域定義を保持。ゲーム規則や他road利用者の描画は不変。
+検証コード `170c170a9c33f72ca6a0cba83627ac0ce1251880` / tree `000c43cee0a9a524f4f36d595039f5b7f4593aae`。
+[引継ぎ](docs/handoff/context-prop-illustrations-2026-09-10.md)／[QA](docs/qa/context-prop-illustrations-2026-09-10.md)。
+独立再レビューで未解決のコード指摘0、コード保存HEADのRuntime #314成功（追加8件も成功）。
+最終保存HEAD・tree・CIはPR #233の最新本文／コメントを読む。この追加分は未統合・未公開で保存、実ゲーム画面0件。
+途中でClaudeの#232が追加された。成長／睡眠／経済／中年・日常イベントも含む実差分を確認、今回未取込。
+全文言修正・地域監査・旧#92は別枠。全体開発は継続中。
+
 ## #230統合後：通知・実績とケーキ／お弁当
 
 main `9969a44ec14ef0339294281f857232067a33846d`、tree `d302ba0150a73417c0a3a6d7aea4218a32a58d3f`。
