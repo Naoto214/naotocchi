@@ -28,3 +28,5 @@ jobs:
         run: node --test tests/ui-integration-test.cjs tests/cast-layout-test.cjs tests/cast-motion-test.cjs tests/world-environment-test.cjs tests/viewport-design-test.cjs
       - name: Run egg hatching regression tests
         run: node --test tests/egg-hatching-test.cjs
+      - name: Run audio and post-integration regression tests
+        run: node --test tests/audio-regression-test.cjs tests/post-integration-audit-test.cjs
