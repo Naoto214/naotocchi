@@ -75,6 +75,9 @@ function createFixtures() {
       const notices=make('notice_food_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       notices.achievementsUnlocked=api.ACHIEVEMENTS.filter((a,i)=>i%2===0).map(a=>a.id);
       notices.lifetime.achievementUnlockedAt=Object.fromEntries(notices.achievementsUnlocked.map(id=>[id,Date.now()]));
+      const props=make('context_prop_illustrations',26,{ageTicks:1200,hunger:80,health:90,energy:80,happiness:80});
+      props.lifetime.money=9999;
+      Object.assign(props.lifetime,{timeMode:'morning',weatherMode:'sunny'});
       for(const [name,season,region] of [
         ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
         ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
@@ -175,6 +178,7 @@ function visualQaPlugin() {
           <p>For stack_* scenes, open プロフィール → ゲームを選ぶ, then choose しゅうかくタワー / さくらタワー / おちばタワー. The missing-image option also applies to their Canvas motifs. Layout measurements below cover the home UI, not the Canvas picture.</p>
           <p>For comment_illustrations, the next age tick shows a birthday notice. Use the small items and おせわ to inspect illustrated notices and speech portraits with 26 companions and a partner. The missing-image option covers new comment portraits too; SVG symbols remain readable without an image download.</p>
           <p>For notice_food_illustrations, open じっせき to compare unlocked pictures, locks, recent marks and goals. In ゲームきろく, choose ケーキデコレーション or おべんとうづくり. Check the preview, tray, dropped food, wrong slots and completion text. These fixtures do not establish browser or device verification.</p>
+          <p>For context_prop_illustrations, choose the road, space-flight, highway and memory-card games in ゲームきろく. Check 20 distinct card positions, loading and missing-image fallback. River/desert marks can be checked by travel; morning birds require an environment notice. This does not change region decoration routing or certify real device rendering.</p>
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
@@ -202,7 +206,7 @@ function visualQaPlugin() {
                 style.textContent='.care-icon,#message[data-care-icon]::before{background-image:url("/__qa-missing-icon.png")!important}';
                 frame.contentDocument.head.append(style);
                 frame.contentDocument.querySelectorAll('img[data-icon-atlas]').forEach(img=>{img.src='/__qa-missing-icon.png';});
-                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset,img.comment-asset').forEach(img=>{
+                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset,img.comment-asset,img[data-prop-image]').forEach(img=>{
                   if(img.dataset.qaOriginalSrc)return;
                   img.dataset.qaOriginalSrc=img.getAttribute('src');img.src='/__qa-missing-icon.png';
                 });

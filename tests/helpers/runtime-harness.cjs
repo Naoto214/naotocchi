@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -144,6 +144,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),
+      propArt: typeof PROP_ILLUSTRATIONS === 'undefined' ? undefined : PROP_ILLUSTRATIONS,
       achievements: ACHIEVEMENTS, renderAchievements, checkAchievements,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
@@ -155,6 +156,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   `;
   vm.createContext(sandbox);
   vm.runInContext(master, sandbox);
+  if (propIllustrations && fs.existsSync('prop-illustrations.js')) vm.runInContext(fs.readFileSync('prop-illustrations.js','utf8'), sandbox);
   const runtimeSource = foodIllustrations ? source : source.replace('foodIconHTML: minigameFoodHTML, ', '');
   vm.runInContext(runtimeSource.replace(/\}\)\(\);\s*$/, expose + '\n})();'), sandbox);
   if (!resume) sandbox.lifecycle.reset();
