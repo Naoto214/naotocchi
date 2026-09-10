@@ -7,9 +7,28 @@ const master = new Function(fs.readFileSync('character-world-master.v1.js','utf8
 const friends = [...master.companions.normal,...master.companions.rare].map(c=>c.asset);
 const separated = (a,b,gap) => a.x+a.w+gap<=b.x+.001 || b.x+b.w+gap<=a.x+.001 || a.y+a.h+gap<=b.y+.001 || b.y+b.h+gap<=a.y+.001;
 
+test('height-constrained companions keep curved wings instead of straight columns', () => {
+  for (const width of [294,354]) for (const height of [96,104,120,160,220,300]) {
+    for (const count of [6,9,10,26]) for (const together of [false,true]) {
+      const r=layoutCast({width,height,mainAsset:null,hasPartner:together,partnerAsset:null,hasAccessory:together,
+        companions:Array(count).fill(null),motionRadius:count>18?1:3});
+      assert.ok(r.height<=height,'curves must use the available height');
+      for (const side of [0,1]) {
+        const points=r.companions.filter((_,i)=>i%2===side).map(f=>({x:f.x+f.w/2,y:f.y+f.h/2}));
+        const distinctX=new Set(points.map(p=>p.x.toFixed(1)));
+        assert.ok(distinctX.size>=Math.ceil(points.length/2),`straight columns at ${width}/${height}/${count}`);
+        points.sort((a,b)=>a.y-b.y);
+        const reach=p=>Math.abs(p.x-width/2);
+        const middle=Math.max(...points.slice(1,-1).map(reach));
+        assert.ok(reach(points[0])<middle && reach(points.at(-1))<middle,`both tips curve inward at ${width}/${height}/${count}/${side}`);
+      }
+    }
+  }
+});
+
 test('height-constrained cast keeps all frames, two sides and motion gaps', () => {
-  for (const width of [270,294,314,354,384]) for (const height of [96,120,160,220,300]) {
-    for (const count of [0,6,18,26,28]) for (const known of [false,true]) {
+  for (const width of [270,294,314,354,384]) for (const height of [96,100,104,120,160,220,300]) {
+    for (let count=0;count<=28;count++) for (const known of [false,true]) {
       const radius=count>18?1:3;
       const r=layoutCast({width,height,mainAsset:null,hasPartner:true,partnerAsset:null,hasAccessory:true,
         companions:Array.from({length:count},(_,i)=>known?friends[i]:null),motionRadius:radius});
