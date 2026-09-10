@@ -103,7 +103,7 @@ global.clearTimeout = noop;
 global.location = { href: 'https://naoto214.github.io/naotocchi/' };
 global.crypto = { getRandomValues: a => a };
 
-const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf};\n';
+const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_CONTROLS,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf};\n';
 const instrumented = source.replace(/\}\)\(\);\s*$/, expose + '})();');
 
 try {
@@ -145,6 +145,7 @@ for (const game of uniqueGames) {
   seenIds.add(game.id);
   const info = audit.MINIGAME_INFO[game.id];
   if (!info || !info.name || !info.emoji) idProblems.push('missing MINIGAME_INFO: ' + game.id);
+  if (!audit.MINIGAME_CONTROLS[game.id]) idProblems.push('missing MINIGAME_CONTROLS: ' + game.id);
   const category = audit.minigameCategoryOf.get(game);
   if (!audit.MINIGAME_GENRE_OF_CATEGORY[category]) idProblems.push('missing genre for category ' + category + ' (' + game.id + ')');
 }

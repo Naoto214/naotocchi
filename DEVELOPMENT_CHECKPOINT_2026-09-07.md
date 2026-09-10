@@ -1688,3 +1688,8 @@ Runtime smoke test SUCCESS確認済み。
 - games.js に `S.sfx` を渡し(script.js: `sfx: (name) => audio.play(name)`)、27 か所にゲーム固有の効果音: ピンボール(得点 coin/tick)、ジャンプクエスト(jump/coin/hit)、ぴょんぴょん(jump)、アステロイド/スカイシューター/タンク/ボンバー/ミサイル(hit)、スカイシューターのドロップ・ロードラン・リングフライト・スタックのパーフェクト(coin)、フルーツ斬り/ビリヤード/ボウリング/カーリング(whoosh)、スタックの着地・マッチ3・れんさ・バブル・たっきゅう・テニス・たこやき(pop)、ブロックくずし(hit/tick)。
 - ヒント文の分類(GOOD)に おいしい/もぐもぐ/のびた/くぐった/まんなか/ふんだ/かった/せいかい を追加。
 - 検証: `npm test` 全通過。Playwright: ジャンル別の場面(2048→puzzle、レース→race、テニス→sports、スネーク→game、オセロ→puzzle)、効果音フック(jump/hit/coin/good が発火、ページエラー 0)。全 100 ゲーム スイープ ページエラー 0。
+
+## チェックポイント BE — はじめてのゲームの せつめいカード(2026-09-10)
+- `MINIGAME_CONTROLS`(id → そうさの文、100 件)を games.js の各ゲームのヒント文(`class="mg-hint"` の初期文)から生成して script.js に追加。ケーキ/おべんとうはヒントが動的なので手書き。smoke-test が全 id の存在を検査。
+- `startMinigame(game, { intro })`: `tryStartPlay`(「あそぶ」/ゲームきろく)からの初回プレイ(`isFirstMinigamePlay` = じこベストなし かつ プレイ回数がこの 1 回だけ)だけ `renderMinigameIntro()` でカード(絵文字・名前・ジャンル・説明・そうさ・「▶ はじめる」)を出し、ボタンで `game.start()`。テスト/ハーネスの直接 `startMinigame()` は従来どおり即開始(main の minigame-lifecycle テストを壊さない)。カード中も「ゲームを やめる」が使える。
+- 検証: `npm test` 全通過(78 件)。Playwright: 初回でカード表示 → はじめるでゲーム開始 → 2 回目は即開始、カードからのやめる。全 100 ゲーム スイープ ページエラー 0。
