@@ -86,6 +86,8 @@ for(const [name,season,region] of [
   ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
   ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
   ['scenery_memory_lake','summer','memory_lake'],
+  ['stack_harvest','summer','countryside'],['stack_sakura','spring','home'],
+  ['stack_leaves','autumn','forest'],
 ]){
   const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
   const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
@@ -101,6 +103,14 @@ for(const [name,season,region] of [
   assert.match(scene.get('badges').innerHTML,/data-care-icon="sick"/);
   assert.match(scene.get('badges').innerHTML,/data-care-icon="sleep"/);
   assert.equal(scene.api.state().companions.length,26);
+}
+for(const name of ['stack_harvest','stack_sakura','stack_leaves']){
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  scene.dispatch(scene.get('gamesBtn'),'click');
+  assert.ok(scene.get('gameListGrid').innerHTML.includes('data-game-id="'+name.replace('_','-')+'"'),name+' must be selectable through the actual game list');
+  assert.equal(scene.api.state().isSleeping,false);
+  assert.ok(scene.api.state().energy>=80);
 }
 const discovery=script.slice(script.indexOf('const iconNodes='),script.indexOf('const panelOverflow='));
 const callbacks=[];
