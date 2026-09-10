@@ -1,0 +1,239 @@
+{
+  "at": "2026-09-10T14:39:38.390085+00:00",
+  "base": "0ce7175923ee577c784560229bffb5fbce9ba0dd",
+  "existingImages": 311,
+  "changedImages": [],
+  "unchangedFiles": [
+    "character-world-master.v1.js",
+    "games.js",
+    "style.css",
+    "design.css",
+    "ui.css",
+    "egg-hatching.css",
+    "cast-layout.js",
+    "cast-motion.js",
+    "care-status.js",
+    "care-status.css",
+    "world-environment.js",
+    "audio.js"
+  ],
+  "unchangedFunctions": [
+    "freshState",
+    "loadState",
+    "saveState",
+    "tick",
+    "triggerDeath",
+    "enterFarewell",
+    "onBirthday",
+    "applyGrowth",
+    "applyDecline",
+    "gainSodachi",
+    "applyRegion",
+    "applySeasonRegionVisuals",
+    "renderHomeCast",
+    "homeCastActors",
+    "homeCastMotionRadius",
+    "compactJapaneseText",
+    "pushLifeLog",
+    "currentVisualStage",
+    "currentSprite"
+  ],
+  "scriptSha256": "80f3f02bb381c9778d23d5fb6ea2c0999e3276964f8a7dae26184a2f6b4bdd33",
+  "sourceCommit": "8a67769b5939c0af75395c757c911e2bae5b2865",
+  "sourceTree": "a873f2bdd54c45a2bb825bd4d93c0c376f4a9bb2",
+  "tests": {
+    "command": "npm test",
+    "pass": 161,
+    "fail": 0,
+    "skip": 0,
+    "newTests": 9,
+    "output": "comment-illustrations-test-output-2026-09-10.txt",
+    "method": "production code in Node with substituted DOM/clock; not browser rendering"
+  },
+  "illustrations": {
+    "careKeys": [
+      "🍚",
+      "🎮",
+      "🧹",
+      "🛏",
+      "💤",
+      "💊",
+      "🧸",
+      "❤",
+      "💕",
+      "💞",
+      "💗",
+      "💖",
+      "💰",
+      "🪙",
+      "🎁",
+      "🌱",
+      "🍂",
+      "💩"
+    ],
+    "uiKeys": [
+      "☀",
+      "🌞",
+      "☁",
+      "❄",
+      "🌙",
+      "🌼",
+      "🍀",
+      "🎀",
+      "🧣",
+      "🌸",
+      "🌻",
+      "🍁",
+      "🍃",
+      "🌿",
+      "🌳",
+      "🌲",
+      "🌴",
+      "🌵",
+      "🏔",
+      "⛰",
+      "🏠",
+      "🏡",
+      "🏙",
+      "🌾",
+      "🌊",
+      "🐚",
+      "🌺",
+      "🫧",
+      "🌅",
+      "🎗",
+      "🧻",
+      "🕶",
+      "🎩",
+      "🎒",
+      "⭐",
+      "🐾",
+      "💌",
+      "👑",
+      "💍",
+      "🌍",
+      "🌏",
+      "📖",
+      "📚",
+      "🏅",
+      "🎨",
+      "☔",
+      "🌧",
+      "🌄",
+      "🌇",
+      "🍭",
+      "🎈",
+      "🎇",
+      "🎆",
+      "📸",
+      "📷",
+      "🎵",
+      "🪄"
+    ],
+    "symbolKeys": [
+      "🎂",
+      "🎉",
+      "🎊",
+      "✨",
+      "🌟",
+      "💐",
+      "🗝",
+      "🔑",
+      "🧭",
+      "🌈",
+      "⚡",
+      "🔥",
+      "🙂",
+      "💑",
+      "♾"
+    ],
+    "symbolCount": 12
+  },
+  "publication": {
+    "at": "2026-09-10T14:38:36.438012+00:00",
+    "main": "0ce7175923ee577c784560229bffb5fbce9ba0dd",
+    "files": [
+      {
+        "path": "index.html",
+        "bytes": 45375,
+        "sha256": "8bf371c774e3183383fc5954516dc54363b1ca917df8a0c7902ccca9128c2b07",
+        "matchesMain": true
+      },
+      {
+        "path": "script.js",
+        "bytes": 848286,
+        "sha256": "84550cb9a8aab05616bf131f022fe9abce18f42a8fed22afe1bc0cca074c748c",
+        "matchesMain": true
+      },
+      {
+        "path": "games.js",
+        "bytes": 923882,
+        "sha256": "ffc3a1553d9232fa2a703f49beeda95056e1c040d445950c816c5530eec27735",
+        "matchesMain": true
+      },
+      {
+        "path": "ui-illustrations.css",
+        "bytes": 8507,
+        "sha256": "50310a65dcb23680665e4bb9f1295b2be946976f2c0666679bc31fb10253f5ff",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/care-atlas-v2.png",
+        "bytes": 1031977,
+        "sha256": "1cefd08973207e7c46411335dfa02c7390891da73aebd0c8d77cb3f957039da2",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/season-region-atlas-v1.png",
+        "bytes": 1549146,
+        "sha256": "a50ae6e608fee5b234b076ff597b755a4a1dea7db3a4d68271086413407a708f",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/world-items-atlas-v1.png",
+        "bytes": 1457487,
+        "sha256": "edf8893222b8399d8b1e9bd23dd29e7809d4659bfc8b6ca1d1a31fe4611023d0",
+        "matchesMain": true
+      }
+    ]
+  },
+  "browser": {
+    "screenshots": 0,
+    "result": "CDP operation refresh tabs timed out after 20000ms",
+    "deviceChecks": "iPhone drawing, touch, sound, FPS and jank remain unverified"
+  },
+  "review": {
+    "status": "complete",
+    "localCommit": "e704dfbe9ec1df3889a1c6118857f59e05c08689",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "unresolved": 0,
+    "scope": "read-only independent code review; 9 focused tests, dialogue tests and visual QA fixture tests passed; no browser or device approval"
+  },
+  "remaining": [
+    "Unknown/unillustrated symbols retain original emoji, including some achievement and region notification marks.",
+    "Food onigiri and cooking egg do not use care rice or the faceless hatching egg.",
+    "Physical browser/device matrix remains unverified.",
+    "Region visualBaseId/decor reference issue and older PR #92 remain separate."
+  ],
+  "localReviewedCodeCommit": "e704dfbe9ec1df3889a1c6118857f59e05c08689",
+  "remoteSourceTreeEqualsReviewedTree": true,
+  "branch": "feature/comment-illustrations-20260910",
+  "newRasterImages": 0,
+  "newCodeSvgSymbols": 12,
+  "baseCI": [
+    {
+      "name": "Runtime",
+      "number": 305,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34488734755"
+    },
+    {
+      "name": "Pages",
+      "number": 227,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34488734034"
+    }
+  ]
+}
