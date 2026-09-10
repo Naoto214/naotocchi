@@ -98,6 +98,7 @@ npm test
 - [公開後チェックポイント](POST_RELEASE_CHECKPOINT_2026-09-10.md)：公開版、今回の確認結果、残る作業。
 - [過去の開発チェックポイント](DEVELOPMENT_CHECKPOINT_2026-09-07.md)：BS・BT・BU・BVを含む実装と検証の履歴。
 - [キャラクター／世界マスター](character-world-master.v1.js)：現在の構成と安定ID。
+- [文章ルール](docs/TEXT_STYLE.md)・[会話と文章の監査記録](docs/qa/text-audit-2026-09-10.md)：口調、スペース、旧セーブ表示の扱い。
 - [画像仕様](CHARACTER_ASSET_SPEC_V1.md)・[画像とムービーの検証記録](docs/art/)。
 - [旧README](docs/history/README-before-post-release-guide.md)：旧仕様を含む説明をそのまま保存した履歴。
 

@@ -108,11 +108,13 @@ const expose = `
     PARTNER_IDLE_LINES, COMPANION_IDLE_LINES, ALL_PARTNER_CANDIDATES,
     stageDesc, SPECIES, SPECIES_STAGE_DESCS, DATE_PLANS, DATE_PLAN_VARIATIONS, DEEPSEA_DATE_PLANS,
     PARTNER_ANNIVERSARY_LINES, FUN_ITEMS, PARTNER_FIRST_ENCOUNTERS,
-    datePlanForRegion, goOnDate, playFunScene, useItem, pickMemoryGreeting, playFirstPartnerEncounter,
+    datePlanForRegion, goOnDate, playFunScene, useItem, pickMemoryGreeting, playFirstPartnerEncounter, buildLifeCard,
     hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
-    renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter,
+    renderRareCompanionDex, rareCompanionDexEntries, renderProfile, openCompanionInvite, scheduleCompanionEncounter, renderDuelFinalStage,
+    renderDuelQuestionStep, renderDuelAnswerReviewStep, renderDuelGuessListStep, renderDuelSuspicionStep,
+    revealSavedDuel: (d) => { duelRevealIndex = 0; duelRevealPhase = 'revealed'; renderDuelRevealCard(d); },
     partnerVisualHTML, renderPartnerCompanion, renderPartnerDex,
     isAuthorUnlocked, authorVisualHTML, showAuthorGreeting, renderNaotoItemGrid,
     renderEnding, checkGrandGoals, getEndingTier, ALL_LINES, STAGES_PER_LINE, ACHIEVEMENTS, buildMinigamePool,
@@ -216,7 +218,7 @@ for (const def of master.partners) {
 for (const def of [...master.companions.normal, ...master.companions.rare]) {
   reset({ companions: [{ id: def.id }] });
   assert.equal(api.companionSpeaker().id, def.id);
-  assert.equal(api.COMPANION_CHARACTER_IDLE_LINES[def.id].length, 3);
+  assert.ok(api.COMPANION_CHARACTER_IDLE_LINES[def.id].length >= 3, def.id + ': idle variants reduced');
   for (const key of ['feed', 'play_with', 'travel', 'minigame_great', 'minigame_bad']) {
     const lines = api.COMPANION_DAILY_REACTIONS[def.id][key];
     assert.ok(lines.includes(api.pickCharacterConversationLine(lines, api.CONVERSATION_POOLS[key].companion)));
@@ -349,7 +351,7 @@ for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (
   reset({ partner: partner('robot_neighbor', { married: true }), lifeLog: mismatch ? [{ text: 'なかなおりした' }] : [] });
   random = value; api.playMarriageMovie({ years, icon: '💐', title: '記念日' }); advance(35000);
   assert.ok(captions.length >= 5); assert.ok(!captions.some((x) => /undefined|ワイ|ホンマ|やで/.test(x)));
-  if (value === 0.99) assert.ok(captions.some((x) => mismatch ? x.includes('あのときは ごめんね') : x.includes('おやつが おいしかった')), 'shared memory unreachable');
+  if (value === 0.99) assert.ok(captions.some((x) => mismatch ? x.includes('あのときはごめんね') : x.includes('おやつがおいしかった')), 'shared memory unreachable');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
 }
 console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 legend stories; 16 anniversary cases.');
@@ -431,7 +433,7 @@ for (const accept of [false, true]) {
   click(accept ? 'dateRewardUseBtn' : 'dateRewardSkipBtn'); advance(35000);
   assert.equal(captions.length, accept ? 7 : 4);
   assert.equal(api.getState().items.reward || 0, accept ? 0 : 1);
-  assert.equal(api.getState().lifeLog.filter((r) => r.text.startsWith('とくべつなデートの おもいで:')).length, accept ? 1 : 0);
+  assert.equal(api.getState().lifeLog.filter((r) => r.text.startsWith('とくべつなデートのおもいで:')).length, accept ? 1 : 0);
   api.finishDateMovie(); advance(35000);
   assert.equal(api.getState().items.reward || 0, accept ? 0 : 1, 'reward consumed twice');
 }
@@ -494,7 +496,7 @@ for (const testCase of [
   assert.equal(getElement('dateMoviePlace').textContent.startsWith('🎁'), special);
   assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\/man\/06\.png/);
   assert.ok(getElement('dateMoviePartner').innerHTML.includes('assets/characters/partners/' + (deepsea ? 'anglerfish' : 'robot_neighbor') + '.png'));
-  const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートの おもいで:')).length;
+  const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length;
   assert.equal(specialMemories(), special ? 1 : 0);
   assert.ok(savedWrites.length > 0, name + ': no saved state');
   savedPayload = savedWrites.at(-1);
@@ -503,7 +505,7 @@ for (const testCase of [
   assert.equal(loaded.datesThisLife, 3, name + ': date not persisted');
   assert.equal(loaded.lifetime.money, 123456789);
   assert.equal(loaded.partner.id, deepsea ? 'anglerfish' : 'robot_neighbor');
-  assert.equal(loaded.lifeLog.filter(entry => entry.text.startsWith('とくべつなデートの おもいで:')).length, special ? 1 : 0);
+  assert.equal(loaded.lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length, special ? 1 : 0);
   const cooldown = api.getState().dateCooldownTicks;
   assert.equal(cooldown, 60);
   api.loop();
@@ -591,8 +593,8 @@ for (const plan of api.DATE_PLANS) for (const value of [0, 0.5, 0.999]) {
   if (['walk','sunset','nap','rain','star'].includes(plan.id)) {
     assert.ok(!captions.slice(0,2).some(text => /ゆうやけ|あめやどり|ひなたぼっこ|流れ星/.test(text)), plan.id + ': land activity leaked underwater');
   }
-  const memoryNeedle = {sunset:'光るさかな',rain:'岩かげ',star:'海の中で 小さな光'}[plan.id];
-  if (memoryNeedle) assert.ok(api.getState().lifeLog.some(entry => entry.text.startsWith('デートの おもいで:') && entry.text.includes(memoryNeedle)), plan.id + ': regional memory missing');
+  const memoryNeedle = {sunset:'光るさかな',rain:'岩かげ',star:'海の中で小さな光'}[plan.id];
+  if (memoryNeedle) assert.ok(api.getState().lifeLog.some(entry => entry.text.startsWith('デートのおもいで:') && entry.text.includes(memoryNeedle)), plan.id + ': regional memory missing');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
   click('dateMovieCloseBtn');
   assertDateReturned(age, 60, 'deepsea ' + plan.id);
@@ -632,7 +634,7 @@ for (const stop of [() => click('feedBtn'), () => api.openExclusiveMenu('dex'), 
 }
 
 // Memories must refer to recorded events, with compact copy even for long old logs.
-for (const patch of [{}, { lifeLog: [{ text: 'たまごから うまれた' }] }, { lifeLog: [{ text: 'はじめて くしゃみした' }] }]) {
+for (const patch of [{}, { lifeLog: [{ text: 'たまごからうまれた' }] }, { lifeLog: [{ text: 'はじめて くしゃみした' }] }]) {
   reset(patch); assert.equal(api.pickMemoryGreeting(), null);
 }
 const memorySamples = [
@@ -653,7 +655,45 @@ for (const [text, expected] of memorySamples) for (const age of [undefined, 1, 2
   assert.ok(!/undefined|NaN|まえにの/.test(line));
 }
 
+// Current compact copy and old spaced saves must recall the same real event.
+// Removing spaces from new log copy must not silence recall or change its kind.
+for (const [text, expected] of memorySamples) {
+  for (const savedText of [text.replace(/ /g, ''), text.replace(/ /g, '　 '), '12さい ' + text]) {
+    reset({ lifeLog: [{ text: savedText, age: 12 }] });
+    const before = JSON.stringify(api.getState().lifeLog);
+    assert.match(api.pickMemoryGreeting() || '', expected, savedText);
+    assert.equal(JSON.stringify(api.getState().lifeLog), before, 'recall rewrote the source history');
+  }
+}
+
 // Every first encounter keeps both captions on screen for their full duration.
+reset({partner:partner('robot_neighbor'),datesThisLife:2,lifeLog:[{
+  age:12,icon:'💗',text:'デートの おもいで: となりまちの ロボットと あめやどりを した',
+}]});
+api.goOnDate(api.DATE_PLANS.find(plan => plan.id === 'rain')); advance(16000);
+assert.equal(api.getState().lifeLog.filter(entry => /あめやどり/.test(entry.text)).length, 1,
+  'compact date copy duplicated an old spaced memory');
+
+reset({partner:partner('robot_neighbor',{label:'となりまちの ロボット'}),
+  isSick:true,sicknessType:'げんいんふめいの こうねつ',
+  lifeLog:[{age:12,icon:'💗',text:'でも　 なんとなく 気になる <おもいで>'}]});
+api.renderProfile();
+assert.match(getElement('profilePartnerCard').innerHTML, /となりまちのロボット/);
+assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'display changed the saved partner');
+const oldCard = api.buildLifeCard();
+assert.match(oldCard, /でもなんとなく気になる&lt;おもいで&gt;/);
+assert.equal(api.getState().lifeLog[0].text, 'でも　 なんとなく 気になる <おもいで>', 'display rewrote the saved log');
+api.loop(); assert.match(getElement('badges').textContent, /🥵/, 'old sickness label lost its badge');
+api.getState().isSick = false;
+api.loop();
+assert.match(getElement('worldDateHint').textContent, /となりまちのロボット/);
+api.renderPartnerCompanion();
+assert.match(getElement('partnerCompanion').innerHTML, /title="となりまちのロボット"/);
+api.getState().items.reward = 1;
+api.goOnDate(api.DATE_PLANS[0]);
+assert.match(getElement('dateRewardPlan').textContent, /となりまちのロボット/);
+assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'date prompt rewrote the saved partner');
+
 for (const candidate of api.ALL_PARTNER_CANDIDATES) {
   reset(); api.checkAchievements(); storyCaptions.length = 0;
   assert.equal(api.playFirstPartnerEncounter(candidate), true);
@@ -666,13 +706,53 @@ for (const candidate of api.ALL_PARTNER_CANDIDATES) {
 reset(); api.playFirstPartnerEncounter(partner()); click('cleanBtn');
 const storyCount = storyCaptions.length; advance(10000);
 assert.equal(storyCaptions.length, storyCount, 'encounter continued after a new action');
-reset(); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごから うまれた');
+reset(); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
 // Dream eggs retain access to every current species, including the eight rare lines.
 for (const def of currentSpecies) {
   reset(); api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
   assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
 }
 console.log('WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.');
+
+// The result is relative to this player; a guessing-player win is not an A win.
+for (const [role, winner, expected] of [
+  ['challenger','A',/あなたのかち/], ['challenger','B',/あいてのかち/],
+  ['guesser','B',/あなたのかち/], ['guesser','A',/あいてのかち/],
+]) {
+  reset();
+  api.renderDuelFinalStage({role,matchOutcome:winner,aTotal:winner==='A'?3:2,bTotal:winner==='B'?3:2,breakdown:[],moneyDelta:0});
+  assert.match(getElement('duelResultTitle').textContent, expected, role + ': ' + winner);
+  assert.doesNotMatch(getElement('duelResultDesc').textContent, /ひきわけ/, 'zero payment was called a draw');
+}
+
+// An in-progress old duel keeps its choices and stored question snapshots.
+const oldQuestion = {id:'dq5',emoji:'💭',text:'恋人に　うそを ついたことは?',
+  a:{label:'ある よ'},b:{label:'ない よ'}};
+const oldEntry = {truth:'a',pub:'b',isLie:true};
+reset({duel:{role:'challenger',currentIndex:0,questions:[oldQuestion],entries:[null],lieCoinsMax:2}});
+api.renderDuelQuestionStep();
+assert.equal(getElement('duelQuestionText').textContent, '恋人にうそをついたことは?');
+assert.equal(getElement('duelChoiceABtn').textContent, 'あるよ');
+api.getState().duel.step='review'; api.getState().duel.entries=[oldEntry];
+api.renderDuelAnswerReviewStep();
+assert.match(getElement('duelAnswerReviewList').innerHTML, /恋人にうそをついたことは\?/);
+assert.match(getElement('duelAnswerReviewList').innerHTML, /「ないよ」/);
+const oldDuel={role:'guesser',items:[{qId:'dq5',question:oldQuestion,pub:'b'}],guesses:[]};
+api.getState().duel=oldDuel;
+api.renderDuelGuessListStep(); api.renderDuelSuspicionStep();
+for(const id of ['duelGuessList','duelSuspicionList']) {
+  assert.match(getElement(id).innerHTML, /恋人にうそをついたことは\?/);
+  assert.match(getElement(id).innerHTML, /「ないよ」/);
+}
+const oldBreakdown={text:oldQuestion.text,emoji:'💭',pubLabel:'ない よ',
+  flourishTitle:'よく 見ぬいた!',flourishDesc:'うそを 見ぬいた',pointsLabel:'B +1',aPoints:0,bPoints:1};
+const oldResult={role:'guesser',matchOutcome:'B',aTotal:0,bTotal:1,breakdown:[oldBreakdown]};
+api.revealSavedDuel(oldResult); api.renderDuelFinalStage(oldResult);
+assert.equal(getElement('duelRevealText').textContent,'恋人にうそをついたことは?');
+assert.equal(getElement('duelRevealOutcomeTitle').textContent,'よく見ぬいた!');
+assert.match(getElement('duelResultBreakdown').innerHTML,/うそを見ぬいた/);
+assert.equal(oldQuestion.text,'恋人に　うそを ついたことは?');
+assert.equal(oldBreakdown.pubLabel,'ない よ');
 
 // Cast replacement affects new encounters without rewriting a collected koala.
 assert.equal(api.COMPANIONS.length, 18);
@@ -698,7 +778,7 @@ assert.equal(api.allCompanionsById('koala').emoji, '🐨');
 assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'koala');
 api.renderCompanionRow(); api.renderCompanionDex();
 assert.match(getElement('companionLeft').innerHTML, /🐨/);
-assert.match(getElement('companionDexGrid').innerHTML, /のんびり コアラ/);
+assert.match(getElement('companionDexGrid').innerHTML, /のんびりコアラ/);
 assert.equal(getElement('companionDexProgress').textContent, '2 / 19');
 assert.ok(!api.hasAllCurrentCompanions({ companionsRecruited: [...api.COMPANIONS.filter((c) => c.id !== 'snail').map((c) => c.id), 'koala'] }), 'koala is not a substitute for snail');
 assert.ok(api.hasAllCurrentCompanions({ companionsRecruited: api.COMPANIONS.map((c) => c.id) }));
@@ -785,7 +865,7 @@ for (const c of rareCast) {
   }
   api.openCompanionInvite(c, true);
   assert.ok(getElement('companionInviteEmoji').innerHTML.includes(`src="${c.asset}"`));
-  assert.equal(getElement('companionInviteTitle').textContent, `${c.name}と めが あった`);
+  assert.equal(getElement('companionInviteTitle').textContent, `${c.name}とめがあった`);
   assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
   click('companionInviteLaterBtn');
   assert.equal(api.getState().companions[0].bond, 72, 'rendering changed bond');
@@ -804,7 +884,7 @@ console.log('RARE CAST PNG TEST OK: 8 PNGs x 5 renderer sizes; invite/profile/ro
 // The new clock has its own encounter and dialogue; a collected mushroom stays itself.
 const clockCompanion = api.allCompanionsById('clock');
 assert.ok(clockCompanion);
-assert.equal(clockCompanion.name, 'じかんに ルーズな とけい');
+assert.equal(clockCompanion.name, 'じかんにルーズなとけい');
 assert.ok(api.RARE_COMPANIONS.some((c) => c.id === 'clock'));
 assert.ok(!api.RARE_COMPANIONS.some((c) => c.id === 'kinoko'));
 assert.equal(api.canonicalCompanionId('kinoko'), 'kinoko');
@@ -857,7 +937,7 @@ for (const [key, lines] of Object.entries(api.COMPANION_DAILY_REACTIONS.clock)) 
 // With every other current companion present, the actual scheduler offers the new clock.
 reset({ sodachi: 80, maxSodachi: 80, companions: [...normalCast, ...rareCast.filter((c) => c.id !== 'clock'), { id: 'kinoko' }].map((c) => ({ id: c.id, bond: 80 })) });
 api.scheduleCompanionEncounter(); advance(180000);
-assert.equal(getElement('companionInviteTitle').textContent, 'じかんに ルーズな とけいと めが あった');
+assert.equal(getElement('companionInviteTitle').textContent, 'じかんにルーズなとけいとめがあった');
 assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
 click('companionInviteLaterBtn');
 
@@ -990,7 +1070,7 @@ assert.equal(getElement('gameClearOverlay').dataset.goal, '4');
 assert.match(getElement('gameClearArt').src, /^assets\/clear\/goal-4-naoto-v1\.jpg\?/);
 assert.ok(getElement('gameClearDesc').innerHTML.includes(`${allForms.length} / ${allForms.length}`));
 assert.ok(!getElement('gameClearDesc').innerHTML.includes('168'));
-assert.ok(getElement('gameClearDesc').innerHTML.includes('なおとの かんむり'));
+assert.ok(getElement('gameClearDesc').innerHTML.includes('なおとのかんむり'));
 assert.ok(getElement('gameClearFreePlayBtn').classList.contains('hidden'));
 assert.ok(!getElement('naotoGreetingBtn').classList.contains('hidden'));
 assert.ok(getElement('naotoGreetingBtn').innerHTML.includes(authorAsset));
@@ -1067,7 +1147,7 @@ for (const [sodachi, tier] of [[69, 0], [70, 1], [100, 2]]) {
   reset({ maxSodachi: sodachi, sodachi }); api.enterFarewell(); api.renderEnding();
   assert.equal(api.getEndingTier(), tier);
   assert.equal(getElement('gameClearArt').src, `assets/clear/goal-${tier + 1}.jpg?v=20260908-02`);
-  assert.ok(!getElement('gameClearDesc').innerHTML.includes('みつけた すがた:'));
+  assert.ok(!getElement('gameClearDesc').innerHTML.includes('みつけたすがた:'));
   assert.equal(api.isAuthorUnlocked(), false);
   click('gameClearCloseBtn');
   assert.ok(!storyCaptions.some((caption) => caption.text.startsWith('ナオト「')));
