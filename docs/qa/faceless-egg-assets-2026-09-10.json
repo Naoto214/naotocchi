@@ -1,0 +1,67 @@
+{
+  "base_commit": "a26a7db2e8e9457a1d435d2875db9268bb70095c",
+  "approved_assets_unchanged": 301,
+  "new_egg_assets": [
+    {
+      "path": "assets/characters/egg/cracking.png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_colors": 27,
+      "bounds_exclusive": [
+        22,
+        16,
+        106,
+        120
+      ],
+      "baseline_y": 119,
+      "bytes": 4020,
+      "sha256": "23338d6af6563a9ad60615f6a62ef8e067d73a3fde56d94f9ae81904098a95bb"
+    },
+    {
+      "path": "assets/characters/egg/intact.png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_colors": 24,
+      "bounds_exclusive": [
+        22,
+        16,
+        106,
+        120
+      ],
+      "baseline_y": 119,
+      "bytes": 3131,
+      "sha256": "05e1bc17270f77e46fcc1b3583c934cba773f368fa9172a6048a6321938ec5ba"
+    },
+    {
+      "path": "assets/characters/egg/ready.png",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_colors": 26,
+      "bounds_exclusive": [
+        21,
+        16,
+        106,
+        120
+      ],
+      "baseline_y": 119,
+      "bytes": 4323,
+      "sha256": "7f5317e5b21aee7cc75be5600aa050e1729fe45bd351991e44a2432428682ca9"
+    }
+  ],
+  "visual_inspection": "Each normalized PNG inspected individually; no browser rendering claimed."
+}
