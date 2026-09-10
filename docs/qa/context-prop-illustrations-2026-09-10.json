@@ -1,0 +1,928 @@
+{
+  "at": "2026-09-10T15:43:07.118756+00:00",
+  "baseMain": "1b812864f8e39de9e9117401c15186c4de54d9b9",
+  "branch": "feature/context-prop-illustrations-20260910",
+  "sourceCommit": "170c170a9c33f72ca6a0cba83627ac0ce1251880",
+  "sourceTree": "000c43cee0a9a524f4f36d595039f5b7f4593aae",
+  "tests": {
+    "command": "npm test",
+    "pass": 178,
+    "fail": 0,
+    "skip": 0,
+    "new": 8,
+    "output": "context-prop-test-output-2026-09-10.txt",
+    "method": "Production runtime with substituted DOM, clock, Canvas command recorder and explicit rectangles; not browser rendering"
+  },
+  "publication": {
+    "at": "2026-09-10T15:25:36.886179+00:00",
+    "main": "1b812864f8e39de9e9117401c15186c4de54d9b9",
+    "tree": "c4e5ee76d02d08e164536d10c7342588f9e9dde4",
+    "files": [
+      {
+        "path": "index.html",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "script.js",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "games.js",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "ui-illustrations.css",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "assets/ui/care-atlas-v2.png",
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/care-atlas-v2.png",
+        "bytes": 1031977,
+        "sha256": "1cefd08973207e7c46411335dfa02c7390891da73aebd0c8d77cb3f957039da2",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/world-items-atlas-v1.png",
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/world-items-atlas-v1.png",
+        "bytes": 1457487,
+        "sha256": "edf8893222b8399d8b1e9bd23dd29e7809d4659bfc8b6ca1d1a31fe4611023d0",
+        "matchesMain": true
+      },
+      {
+        "path": "assets/ui/season-region-atlas-v1.png",
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/season-region-atlas-v1.png",
+        "bytes": 1549146,
+        "sha256": "a50ae6e608fee5b234b076ff597b755a4a1dea7db3a4d68271086413407a708f",
+        "matchesMain": true
+      },
+      {
+        "path": "character-world-master.v1.js",
+        "url": "https://naoto214.github.io/naotocchi/character-world-master.v1.js",
+        "bytes": 19322,
+        "sha256": "92447b1b64fc030cd1093276c31da2bc44a99ca48400d4a9ae78d422f91eaac2",
+        "matchesMain": true
+      }
+    ],
+    "initialCurl": {
+      "path": "script.js",
+      "bytes": 864730,
+      "sha256": "e27de97cdce3ad61526b9a991b9cd8bcb89e6844b14174ee4f1ec9b895db86e2",
+      "matchesMain": true
+    },
+    "retry": [
+      {
+        "path": "index.html",
+        "error": "curl: (28) Proxy CONNECT aborted due to timeout"
+      },
+      {
+        "path": "games.js",
+        "error": "curl: (28) Proxy CONNECT aborted due to timeout"
+      },
+      {
+        "path": "ui-illustrations.css",
+        "error": "curl: (28) Proxy CONNECT aborted due to timeout"
+      }
+    ],
+    "retryAt": "2026-09-10T15:30:13.652272+00:00",
+    "interruptedRetry": {
+      "paths": [
+        "index.html",
+        "games.js",
+        "ui-illustrations.css"
+      ],
+      "result": "network approval was cancelled before a decision was returned; no byte equality claimed"
+    }
+  },
+  "invariants": {
+    "base": "1b812864f8e39de9e9117401c15186c4de54d9b9",
+    "existingAssets": 311,
+    "changedAssets": [],
+    "unchangedFiles": {
+      "character-world-master.v1.js": true,
+      "style.css": true,
+      "design.css": true,
+      "ui.css": true,
+      "ui-illustrations.css": true,
+      "egg-hatching.css": true,
+      "cast-layout.js": true,
+      "cast-motion.js": true,
+      "care-status.js": true,
+      "care-status.css": true,
+      "world-environment.js": true,
+      "audio.js": true
+    },
+    "unchangedFunctions": {
+      "freshState": true,
+      "loadState": true,
+      "saveState": true,
+      "tick": true,
+      "triggerDeath": true,
+      "enterFarewell": true,
+      "onBirthday": true,
+      "applyGrowth": true,
+      "applyDecline": true,
+      "gainSodachi": true,
+      "applyRegion": true,
+      "applySeasonRegionVisuals": true,
+      "renderHomeCast": true,
+      "homeCastActors": true,
+      "homeCastMotionRadius": true,
+      "compactJapaneseText": true,
+      "pushLifeLog": true,
+      "currentVisualStage": true,
+      "currentSprite": true
+    },
+    "unchangedDefinitions": {
+      "ACHIEVEMENTS": true,
+      "ENV_MOMENTS": true,
+      "REGION_RUNTIME_META": true,
+      "REGIONS": true,
+      "SPECIAL_REGIONS": true,
+      "SEASON_REGION_OVERRIDES": true,
+      "SEASON_DECOR_OVERRIDES": true
+    },
+    "gamesOutsideDisplayEditsUnchanged": true,
+    "sha256": {
+      "prop-illustrations.js": "bbe3df9b67997ea5da88c6c110d62c067ae4d0cc4835a225034d020ee7be388a",
+      "script.js": "ef7e2d598d66ee881172f56a12a690817d2a0baf4fdeab268893808d6dd2cc01",
+      "games.js": "bc64cdb299c1c02d68edef0ad657449b36d60a5d40391aa7810451e4b1c37ad2",
+      "index.html": "223023ea011612d4bb5d4bb69ce9027d8dc968d63229446fb0a16872f0204725",
+      "ui-illustrations.css": "12fce813075b99c7330fd096997b41bd9ecb25211fd10d9898dacfd17da62824"
+    }
+  },
+  "manifest": {
+    "newArt": [
+      {
+        "key": "river",
+        "label": "かわ・みずうみ"
+      },
+      {
+        "key": "desert",
+        "label": "さばく"
+      },
+      {
+        "key": "bird",
+        "label": "ことり"
+      },
+      {
+        "key": "apple",
+        "label": "りんご"
+      },
+      {
+        "key": "grapes",
+        "label": "ぶどう"
+      },
+      {
+        "key": "wrapped_candy",
+        "label": "キャンディ"
+      },
+      {
+        "key": "rock",
+        "label": "いわ"
+      },
+      {
+        "key": "barrier",
+        "label": "バリケード"
+      },
+      {
+        "key": "barrel",
+        "label": "ドラムかん"
+      },
+      {
+        "key": "warning",
+        "label": "ちゅうい"
+      },
+      {
+        "key": "comet",
+        "label": "いんせき"
+      },
+      {
+        "key": "satellite",
+        "label": "えいせい"
+      },
+      {
+        "key": "alien",
+        "label": "うちゅうのしょうがいぶつ"
+      },
+      {
+        "key": "car",
+        "label": "くるま"
+      },
+      {
+        "key": "truck",
+        "label": "トラック"
+      },
+      {
+        "key": "fuel",
+        "label": "ガソリン"
+      },
+      {
+        "key": "burger",
+        "label": "ハンバーガー"
+      },
+      {
+        "key": "planet",
+        "label": "わくせい"
+      }
+    ],
+    "props": {
+      "🏞": "river",
+      "🏜": "desert",
+      "🐦": "bird",
+      "🍎": "apple",
+      "🍇": "grapes",
+      "🍬": "wrapped_candy",
+      "🪨": "rock",
+      "🚧": "barrier",
+      "🛢": "barrel",
+      "⚠": "warning",
+      "☄": "comet",
+      "🛰": "satellite",
+      "👾": "alien",
+      "🚗": "car",
+      "🚙": "car",
+      "🚚": "truck",
+      "⛽": "fuel",
+      "🍔": "burger",
+      "🪐": "planet"
+    },
+    "inline": [
+      "🏞",
+      "🏜",
+      "🪨",
+      "🚧",
+      "🛢",
+      "⚠",
+      "☄",
+      "🛰",
+      "🚗",
+      "🚙",
+      "🚚",
+      "⛽",
+      "🪐"
+    ],
+    "symbols": {
+      "🌟": "sparkles",
+      "✨": "sparkles",
+      "💫": "sparkles",
+      "⚡": "bolt",
+      "💎": "diamond",
+      "🔥": "fire"
+    },
+    "foods": {
+      "🍙": "rice",
+      "🍓": "strawberry",
+      "🍒": "cherry",
+      "🍰": "slice"
+    },
+    "pictures": {
+      "🐶": "dog/06.png",
+      "🐟": "salmon/06.png",
+      "🐠": "clownfish/05.png",
+      "🦋": "butterfly/07.png"
+    },
+    "atlases": {
+      "⭐": [
+        "ui",
+        [
+          639,
+          226,
+          170
+        ]
+      ],
+      "🍀": [
+        "ui",
+        [
+          223,
+          430,
+          182
+        ]
+      ],
+      "🎈": [
+        "ui",
+        [
+          213,
+          1026,
+          201
+        ]
+      ],
+      "🎵": [
+        "ui",
+        [
+          833,
+          1030,
+          199
+        ]
+      ],
+      "🌙": [
+        "ui",
+        [
+          430,
+          833,
+          200
+        ]
+      ],
+      "🪙": [
+        "care",
+        [
+          977,
+          371,
+          250
+        ]
+      ],
+      "💰": [
+        "care",
+        [
+          977,
+          371,
+          250
+        ]
+      ],
+      "🌸": [
+        "scenery",
+        [
+          43,
+          50,
+          267
+        ],
+        [
+          47,
+          58,
+          306,
+          309
+        ]
+      ],
+      "🌳": [
+        "scenery",
+        [
+          28.5,
+          353,
+          289
+        ],
+        [
+          36,
+          357,
+          310,
+          638
+        ]
+      ],
+      "🌲": [
+        "scenery",
+        [
+          325,
+          341,
+          301
+        ],
+        [
+          353,
+          345,
+          598,
+          638
+        ]
+      ],
+      "🌴": [
+        "scenery",
+        [
+          640,
+          345,
+          297
+        ],
+        [
+          658,
+          349,
+          919,
+          638
+        ]
+      ],
+      "🌵": [
+        "scenery",
+        [
+          943,
+          347,
+          295
+        ],
+        [
+          980,
+          351,
+          1201,
+          638
+        ]
+      ],
+      "🐚": [
+        "scenery",
+        [
+          650,
+          933,
+          264
+        ],
+        [
+          654,
+          942,
+          910,
+          1188
+        ]
+      ],
+      "🌊": [
+        "scenery",
+        [
+          338,
+          927,
+          287
+        ],
+        [
+          342,
+          937,
+          621,
+          1204
+        ]
+      ]
+    }
+  },
+  "remainingSymbols": {
+    "method": "Static candidates include definitions and HUD symbols, not a count of visible unillustrated comments.",
+    "scriptCandidateCount": 355,
+    "scriptCandidates": [
+      "🥵",
+      "🤢",
+      "💫",
+      "🤕",
+      "😰",
+      "😵",
+      "😵‍💫",
+      "😞",
+      "🥶",
+      "😨",
+      "🐶",
+      "🐕",
+      "🐱",
+      "🐈",
+      "🐣",
+      "🐥",
+      "🐤",
+      "🐦",
+      "🦜",
+      "👶",
+      "🧒",
+      "👦",
+      "🧑",
+      "👴",
+      "👧",
+      "👩",
+      "👵",
+      "🐛",
+      "🪲",
+      "🐰",
+      "🐇",
+      "🐟",
+      "🐠",
+      "🐡",
+      "🦎",
+      "🐉",
+      "🐼",
+      "🦊",
+      "🦉",
+      "🌷",
+      "🥀",
+      "🤖",
+      "🦾",
+      "🦕",
+      "🦖",
+      "🦴",
+      "👼",
+      "😇",
+      "🧜",
+      "🧜‍♀️",
+      "🐴",
+      "🦄",
+      "🐦‍🔥",
+      "🚼",
+      "🧔",
+      "🐧",
+      "🐢",
+      "〰️",
+      "🐸",
+      "🟤",
+      "🦋",
+      "🪰",
+      "🦀",
+      "🪼",
+      "🪸",
+      "🌬️",
+      "🪴",
+      "🍄",
+      "🧚",
+      "👻",
+      "💥",
+      "👁️",
+      "🪽",
+      "🏃",
+      "🧓",
+      "❓",
+      "🗂️",
+      "💉",
+      "🧳",
+      "⛄",
+      "🍼",
+      "📗",
+      "🎯",
+      "🤲",
+      "🦁",
+      "💘",
+      "💴",
+      "🌦️",
+      "💀",
+      "🕹️",
+      "🎖️",
+      "📘",
+      "🏵️",
+      "📔",
+      "🕊️",
+      "⚰️",
+      "🏥",
+      "🩹",
+      "📙",
+      "👰",
+      "🧿",
+      "🎰",
+      "💯",
+      "📕",
+      "🛍️",
+      "🎪",
+      "🏮",
+      "⬜",
+      "🔵",
+      "🏁",
+      "🔷",
+      "❌",
+      "➖",
+      "🧱",
+      "🪵",
+      "⭕",
+      "🔴",
+      "🎐",
+      "🧺",
+      "🌤️",
+      "💧",
+      "🎋",
+      "🔮",
+      "💠",
+      "◀",
+      "▶",
+      "🐄",
+      "🐓",
+      "🐿️",
+      "🦔",
+      "🦌",
+      "🦍",
+      "🦂",
+      "🦅",
+      "🐌",
+      "🦇",
+      "📈",
+      "😲",
+      "🔔",
+      "📏",
+      "🤏",
+      "😴",
+      "📉",
+      "🌀",
+      "🕺",
+      "👕",
+      "🪞",
+      "🎭",
+      "😎",
+      "🙈",
+      "🫠",
+      "😋",
+      "🫃",
+      "🚨",
+      "😌",
+      "🚿",
+      "🫡",
+      "🧼",
+      "↔",
+      "💔",
+      "🤫",
+      "📓",
+      "🤥",
+      "😶",
+      "💭",
+      "🌫️",
+      "🚶",
+      "🔍",
+      "🖼️",
+      "🔢",
+      "👀",
+      "📱",
+      "📲",
+      "🔓",
+      "📴",
+      "🗑️",
+      "✉️",
+      "📨",
+      "🚪",
+      "📞",
+      "⚖️",
+      "📵",
+      "😔",
+      "😒",
+      "🔟",
+      "😤",
+      "🤐",
+      "🍷",
+      "🍽️",
+      "😏",
+      "🚫",
+      "🗺️",
+      "⏳",
+      "😊",
+      "⛓️",
+      "🥺",
+      "😅",
+      "💋",
+      "🤔",
+      "💼",
+      "🎓",
+      "🤷",
+      "🎤",
+      "👥",
+      "😉",
+      "🤝",
+      "🛌",
+      "🛁",
+      "😘",
+      "🕯️",
+      "🔐",
+      "💵",
+      "💳",
+      "💸",
+      "💒",
+      "🛒",
+      "📋",
+      "👪",
+      "👨‍👩‍👧",
+      "🧘",
+      "🌠",
+      "😑",
+      "💢",
+      "💨",
+      "⏰",
+      "♟️",
+      "👃",
+      "🧥",
+      "🎲",
+      "😳",
+      "🃏",
+      "😈",
+      "🐈‍⬛",
+      "🐻",
+      "🐐",
+      "☃️",
+      "🐙",
+      "🐊",
+      "🕷️",
+      "🌃",
+      "🚕",
+      "🌆",
+      "💡",
+      "🚦",
+      "🎡",
+      "🚜",
+      "🌰",
+      "🥾",
+      "🏕️",
+      "♨️",
+      "🌨️",
+      "🎿",
+      "⛵",
+      "🐬",
+      "🏖️",
+      "🦑",
+      "⚓",
+      "🦆",
+      "🪷",
+      "🍌",
+      "🐍",
+      "🐫",
+      "⛺",
+      "🚏",
+      "🦝",
+      "🦦",
+      "🐹",
+      "🐒",
+      "🐑",
+      "🦭",
+      "🐨",
+      "🗿",
+      "📦",
+      "🍡",
+      "💝",
+      "🥈",
+      "🥇",
+      "⛩️",
+      "🪜",
+      "🥚",
+      "😢",
+      "🎣",
+      "🏚️",
+      "🎄",
+      "🤒",
+      "↩️",
+      "📒",
+      "🗓️",
+      "🕐",
+      "✏️",
+      "🎴",
+      "✔️",
+      "🔕",
+      "🔇",
+      "📍",
+      "🚀",
+      "⚽",
+      "🧩",
+      "🏰",
+      "🏗️",
+      "🎳",
+      "🏹",
+      "🍱",
+      "🛸",
+      "🛣️",
+      "🟦",
+      "🏎️",
+      "🪀",
+      "🔫",
+      "⛳",
+      "🏀",
+      "🏓",
+      "🥊",
+      "⚔️",
+      "✈️",
+      "⚫",
+      "🎱",
+      "💣",
+      "🍎",
+      "⚾",
+      "🛩️",
+      "🏯",
+      "⛷️",
+      "🏒",
+      "🍓",
+      "⚪",
+      "🪖",
+      "🎾",
+      "🪂",
+      "🔧",
+      "🍉",
+      "🏃‍♀️",
+      "⛏️",
+      "🍣",
+      "🥌",
+      "🔘",
+      "🛹",
+      "🫘",
+      "🛬",
+      "🟪",
+      "🀄",
+      "🏐",
+      "⏬",
+      "🧪",
+      "🚩",
+      "↩",
+      "🟡",
+      "🚰",
+      "⛓",
+      "🌶",
+      "⬛",
+      "➕",
+      "😮‍💨",
+      "💦",
+      "😣"
+    ],
+    "roadStaticCandidatesRemaining": [
+      "🏠",
+      "🪧",
+      "🏢",
+      "🏬",
+      "🏪",
+      "🚏",
+      "🌿",
+      "🌺",
+      "🐪",
+      "☁️",
+      "🪁",
+      "🪸",
+      "⛵",
+      "🛣️",
+      "◀",
+      "▶",
+      "💥",
+      "🦐",
+      "🥫",
+      "🪤",
+      "🕸️",
+      "🦈"
+    ],
+    "inlineNewKeys": [
+      "🏞",
+      "🏜",
+      "🪨",
+      "🚧",
+      "🛢",
+      "⚠",
+      "☄",
+      "🛰",
+      "🚗",
+      "🚙",
+      "🚚",
+      "⛽",
+      "🪐"
+    ],
+    "environmentOnlyNewKey": "🐦",
+    "newSvgCount": 18,
+    "canvasMappedKeys": 47
+  },
+  "browser": {
+    "gameScreenshots": 0,
+    "newTabCreated": true,
+    "result": "CDP operation refresh tabs timed out after 20000ms on tabs.list and navigation",
+    "renderingVerified": false,
+    "iphoneTouchAudioFPSVerified": false
+  },
+  "review": {
+    "status": "complete; explanatory comment fixed and independently rechecked",
+    "sourceCommit": "cfe11b6c457c9b1bab24a34db5a10c718169d7db",
+    "sourceTree": "000c43cee0a9a524f4f36d595039f5b7f4593aae",
+    "critical": 0,
+    "important": 0,
+    "initialMinor": 1,
+    "minorFix": "Food reuse comment now covers matching road/card props and keeps boiled egg bento-only",
+    "independentTests": {
+      "all": 178,
+      "new": 8,
+      "fail": 0,
+      "skip": 0
+    },
+    "independentImageDecode": {
+      "svgKeys": 29,
+      "png": 4,
+      "size": 39,
+      "atlasKeysMatchJSON": 14,
+      "browserRendering": false
+    },
+    "browserRenderingStillUnverified": true,
+    "minor": 0,
+    "unresolvedCodeFindings": 0,
+    "finalCheck": "Reviewer verified comment-only diff and git diff --check; no executable changes and no repeated full test run"
+  },
+  "otherWork": {
+    "openPRs": [
+      92,
+      232
+    ],
+    "pr232Head": "02eb9085e36740f6b776926a2d1fbe3e4a490953",
+    "pr232IncludesGrowthSleepChanges": true,
+    "pr232Imported": false,
+    "textBranch": "feature/text-readability-20260910",
+    "textHead": "ea2c57c87a9ffb93de0cbd1a5b2e1c5654376bb3",
+    "textDirtyPaths": [],
+    "otherUncommittedAssets": "not exhaustively inspected",
+    "pr232PreviouslyReadHead": "44b6122072e1f9e0dc133877a42c4f30623590ae",
+    "pr232LatestDiffIncludes": [
+      "safety",
+      "growth and sleep",
+      "economy",
+      "midlife and everyday story events"
+    ],
+    "pr232Comments": 0,
+    "textPreviouslyDirtyHead": "01aad2d977feca5f9b5d5cd692ecf11903d69028",
+    "textStatus": "Clean at final read; earlier script.js and master edits are now committed. No other-tab changes imported.",
+    "integrationAttention": [
+      "index.html script/cache identifiers",
+      "package.json test command",
+      "tests/helpers/runtime-harness.cjs exports; preserve both sets"
+    ]
+  },
+  "regionRoutingChanged": false,
+  "existingSceneryPNGReachability": {
+    "mapped": 18,
+    "reachable": 11,
+    "unreachable": 7
+  },
+  "candidatePublication": "unmerged and unpublished at save time; consult latest PR status",
+  "localTestCommit": "cfe11b6c457c9b1bab24a34db5a10c718169d7db",
+  "remoteTreeMatchesLocalVerifiedTree": true,
+  "pr": 233,
+  "postTestCodeChange": "Explanatory comment only in script.js; no executable change",
+  "ci": {
+    "codeCommit": "170c170a9c33f72ca6a0cba83627ac0ce1251880",
+    "name": "Runtime smoke test",
+    "runNumber": 314,
+    "runId": 34497014493,
+    "status": "completed",
+    "conclusion": "success",
+    "jobId": 102937940497,
+    "dedicatedPropStep": "success",
+    "url": "https://github.com/Naoto214/naotocchi/actions/runs/34497014493",
+    "finalSavedCommitCI": "Consult latest PR body and final checkpoint comment"
+  }
+}

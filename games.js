@@ -12,6 +12,7 @@
   const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
   const perfLow = typeof S.perfLow === 'function' ? S.perfLow : () => false;
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
+  const drawProp = typeof S.drawProp === 'function' ? S.drawProp : () => false;
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
@@ -81,7 +82,7 @@
           <div class="mg-race-controls"><button class="mg-tap-btn" id="lrLeft" data-hold="step" data-key="left">◀</button><button class="mg-tap-btn" id="lrRight" data-hold="step" data-key="right">▶</button></div>`;
         const canvas = container.querySelector('#lrCanvas');
         const { ctx, W, H } = createMgCanvas(canvas, 215);
-        const road = createPseudoRoad(ctx, W, H, { colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
+        const road = createPseudoRoad(ctx, W, H, { drawEmoji:drawProp, colors: (dark) => (dark ? { grass: th.ground[0], rumble: th.rumble[0], road: th.road[0], lane: scene === 'space' ? 'rgba(160,170,255,.25)' : '#fff8c8' } : { grass: th.ground[1], rumble: th.rumble[1], road: th.road[1] }) });
         const { SEG_LEN, PLAYER_Z, segments } = road;
         const MAX_SPEED = SEG_LEN * lerp(26, 34, difficulty);
         for (let i = 0; i < 14; i++) { const dir = Math.random() < 0.5 ? -1 : 1; road.addRoad(10, 10 + Math.floor(Math.random() * 10), 10, dir * (1 + Math.random() * 2.2), (Math.random() - 0.5) * 30); }
@@ -2018,7 +2019,7 @@
           if (sy > seg.clip + 2) return;
           const px = Math.max(3, scale * ROAD_W * W / 2 * s.size);
           if (s.draw) s.draw(ctx, sx, sy, px, s);
-          else { ctx.font = `${px}px sans-serif`; ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+          else { ctx.font = `${px}px sans-serif`; if (!opts.drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
         };
         for (const s of seg.sprites) drawOne(s);
         for (const s of seg.dynamic) drawOne(s);
@@ -7722,7 +7723,7 @@
           ctx.save(); ctx.translate(x + w / 2, y + h / 2); if (c.shakeAt && now - c.shakeAt < 300) ctx.translate(Math.sin((now - c.shakeAt) / 20) * 3, 0); ctx.scale(Math.max(0.04, sx), 1);
           if (c.done) { const dt = clamp((now - c.doneAt) / 400, 0, 1); ctx.globalAlpha = 1 - dt * 0.45; ctx.scale(1 - dt * 0.08, 1 - dt * 0.08); }
           ctx.fillStyle = 'rgba(0,0,0,.25)'; mgRoundRect(ctx, -w / 2 + 2, -h / 2 + 3, w, h, 8);
-          if (showFace) { ctx.fillStyle = '#fff'; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = c.done ? '#2a9d8f' : '#e0a800'; ctx.lineWidth = 2; ctx.strokeRect(-w / 2 + 1, -h / 2 + 1, w - 2, h - 2); ctx.font = `${Math.round(Math.min(w, h) * 0.6)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(c.e, 0, 2); }
+          if (showFace) { ctx.fillStyle = '#fff'; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = c.done ? '#2a9d8f' : '#e0a800'; ctx.lineWidth = 2; ctx.strokeRect(-w / 2 + 1, -h / 2 + 1, w - 2, h - 2); ctx.font = `${Math.round(Math.min(w, h) * 0.6)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const size=Math.round(Math.min(w,h)*0.6); if (!drawProp(ctx,c.e,-size/2,2-size/2,size)) ctx.fillText(c.e, 0, 2); }
           else { const g = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2); g.addColorStop(0, '#5b8def'); g.addColorStop(1, '#2f5fb5'); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -h / 2, w, h, 8); ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 1.5; ctx.strokeRect(-w / 2 + 5, -h / 2 + 5, w - 10, h - 10); ctx.font = `${Math.round(Math.min(w, h) * 0.4)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.fillText('?', 0, 1); }
           ctx.restore();
         }

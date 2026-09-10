@@ -2763,7 +2763,7 @@
       : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
       : kind === 'season' ? {spring:'cherry_blossom',summer:'sunflower',autumn:'maple_leaf',winter:'snow'}
       : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
-    return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || escapeHtml(fallback || '');
+    return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || PROP_ILLUSTRATIONS?.iconHTML(fallback) || escapeHtml(fallback || '');
   }
   // Reuse only illustrations of the same object. Region/season data and saved
   // emoji remain intact; unillustrated scenery keeps its original symbol.
@@ -2792,7 +2792,7 @@
       return `<span class="scenery-picture" aria-hidden="true"><img class="scenery-asset" src="assets/characters/${SCENERY_PICTURES[emoji]}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(emoji)}</span>`;
     }
     const icon = Object.hasOwn(SCENERY_ILLUSTRATIONS,emoji) ? SCENERY_ILLUSTRATIONS[emoji] : '';
-    return uiIconHTML(icon, '', emoji) || escapeHtml(emoji || '');
+    return uiIconHTML(icon, '', emoji) || PROP_ILLUSTRATIONS?.iconHTML(emoji,'scenery') || escapeHtml(emoji || '');
   }
   function endingBadgeIconHTML(tierIndex) {
     const keys = ['fireworks','lantern','tree','book','naoto_crown'];
@@ -2888,8 +2888,8 @@
     if (animal) return commentPictureHTML(animal.asset,ach.emoji,animal.label);
     return commentIconHTML(mark,ach.emoji)||escapeHtml(ach.emoji||'');
   }
-  // Food appears only in the two food-decoration games. In particular, the
-  // boiled egg never replaces a hatching egg or an ambiguous egg in dialogue.
+  // Food art is reused only for matching game props. The boiled egg remains
+  // exclusive to the bento game, never a hatching egg or ambiguous dialogue egg.
   const MINIGAME_FOOD = {
     strawberry:['いちご','<path fill="#df7581" d="M3 9c0-5 6-6 9-3 3-3 9-2 9 3 0 6-6 13-9 13S3 15 3 9z"/><path fill="#81a96e" d="m12 2 2 4 5-2-2 5-5-2-5 2-2-5 5 2z"/><path stroke="#fff0b2" d="m7 11 1 1m8-1-1 1m-3 2v1m-3 2 1 1m5-1-1 1"/>'],
     choco:['チョコ','<path fill="#9c6850" d="M5 2h14v20H5z"/><path fill="none" d="M12 2v13M5 8h14M5 14h14"/><path fill="#b6c6d0" d="m3 13 6 3 4-3 8 3v7H3z"/><path fill="#d37e8a" d="M3 18h18v5H3z"/>'],
@@ -2907,6 +2907,9 @@
     const [label,art]=MINIGAME_FOOD[key];
     return `<span class="mg-food-picture" data-food-symbol="${key}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(fallback)}</span>`;
   }
+  const PROP_ILLUSTRATIONS = globalThis.NaotocchiPropIllustrations?.create({
+    document, atlases:UI_ATLAS_IMAGES, symbols:COMMENT_SYMBOLS, food:MINIGAME_FOOD,
+  });
   function commentPictureHTML(asset, emoji, label = '') {
     return `<span class="comment-picture" ${label ? `role="img" aria-label="${escapeHtml(label)}"` : 'aria-hidden="true"'}><img class="comment-asset" src="${escapeHtml(asset)}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(emoji)}</span>`;
   }
@@ -2922,13 +2925,14 @@
     if (Object.hasOwn(COMMENT_UI,key)) {
       const icon=COMMENT_UI[key];return uiIconHTML(icon,COMMENT_LABELS[icon],fallback);
     }
-    return '';
+    return PROP_ILLUSTRATIONS?.iconHTML(emoji) || '';
   }
   function commentTextHTML(text, character = null) {
     return escapeHtml(text).replace(COMMENT_EMOJI,emoji=>
       character?.asset && emoji===character.emoji
         ? commentPictureHTML(character.asset,emoji,character.label)
-        : commentIconHTML(emoji)||emoji);
+        : (character?.illustrationContext && emoji===character.emoji
+          ? PROP_ILLUSTRATIONS?.iconHTML(emoji,character.illustrationContext) : '') || commentIconHTML(emoji)||emoji);
   }
   const commentTextCache = new WeakMap();
   function setCommentText(target, text, force = false, character = null) {
@@ -9586,7 +9590,7 @@
   function showStoryEvent(event) {
     audio.play('notify');
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
-      : event.environmentMoment ? commentAnimalVisual(event.emoji) : null;
+      : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
@@ -12688,7 +12692,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
