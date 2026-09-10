@@ -104,6 +104,15 @@ for(const [name,season,region] of [
   assert.match(scene.get('badges').innerHTML,/data-care-icon="sleep"/);
   assert.equal(scene.api.state().companions.length,26);
 }
+{
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures.comment_illustrations)]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  assert.equal(scene.api.state().companions.length,26);
+  assert.equal(scene.api.state().partner.id,'robot_neighbor');
+  scene.api.tick();
+  assert.match(scene.get('birthdayToast').innerHTML,/data-comment-symbol="cake"/);
+  assert.match(scene.get('birthdayToast').textContent,/31さい/);
+}
 for(const name of ['stack_harvest','stack_sakura','stack_leaves']){
   const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
   const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});

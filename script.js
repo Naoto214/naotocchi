@@ -2798,6 +2798,108 @@
     const keys = ['fireworks','lantern','tree','book','naoto_crown'];
     return uiIconHTML(keys[tierIndex], '', ENDING_TIER_ICONS[tierIndex]) || escapeHtml(ENDING_TIER_ICONS[tierIndex] || '');
   }
+  // Text presentation only: keep dialogue, event objects and saved history as
+  // strings. Match a whole emoji sequence so an unknown ZWJ/skin-tone sequence
+  // cannot accidentally become half an illustration and half an emoji.
+  const COMMENT_EMOJI = /\p{Extended_Pictographic}[\uFE0E\uFE0F]?\p{Emoji_Modifier}?(?:\u200D\p{Extended_Pictographic}[\uFE0E\uFE0F]?\p{Emoji_Modifier}?)*/gu;
+  const COMMENT_CARE = {
+    '🍚':'food','🎮':'game','🧹':'clean','🛏':'sleep','💤':'sleep','💊':'medicine',
+    '🧸':'play','❤':'love','💕':'love','💞':'love','💗':'love','💖':'love',
+    '💰':'coin','🪙':'coin','🎁':'gift','🌱':'growth','🍂':'decline','💩':'poop',
+  };
+  const COMMENT_UI = {
+    ...Object.fromEntries(Object.entries(SCENERY_ILLUSTRATIONS).map(([emoji,key])=>[emoji.replace(/[\uFE0E\uFE0F]/g,''),key])),
+    '🎗':'bowtie','🧻':'paper','🕶':'glasses','🎩':'hat','🎒':'backpack','⭐':'star_badge',
+    '🐾':'paw_badge','💌':'letter','👑':'crown','💍':'ring','🌍':'world','🌏':'world',
+    '📖':'book','📚':'book','🏅':'medal','🎨':'palette','☔':'rain','🌧':'rain',
+    '🌄':'sunrise','🌇':'sunset','🍭':'candy','🎈':'balloon','🎇':'fireworks','🎆':'fireworks',
+    '📸':'camera','📷':'camera','🎵':'musicbox','🪄':'surprise',
+  };
+  const COMMENT_LABELS = {
+    food:'ごはん',game:'ゲーム',clean:'そうじ',sleep:'ねむり',medicine:'くすり',play:'おもちゃ',
+    love:'ハート',coin:'コイン',gift:'プレゼント',growth:'めばえ',decline:'おちば',poop:'うんち',
+    flower:'はな',ribbon:'リボン',bowtie:'ちょうネクタイ',paper:'ペーパー',scarf:'マフラー',
+    glasses:'サングラス',hat:'ぼうし',backpack:'リュック',star_badge:'ほし',paw_badge:'あしあと',
+    letter:'てがみ',crown:'かんむり',clover:'クローバー',ring:'ゆびわ',world:'せかい',book:'ほん',
+    medal:'メダル',palette:'パレット',sun:'たいよう',cloud:'くも',rain:'あめ',snow:'ゆき',moon:'つき',
+    sunrise:'あさひ',sunset:'ゆうやけ',candy:'キャンディ',bubbles:'しゃぼんだま',balloon:'ふうせん',
+    fireworks:'はなび',camera:'カメラ',musicbox:'オルゴール',surprise:'びっくりばこ',
+    cherry_blossom:'さくら',sunflower:'ひまわり',maple_leaf:'もみじ',green_leaf:'はっぱ',tree:'き',
+    pine:'まつ',palm:'やし',cactus:'サボテン',snow_mountain:'ゆきやま',mountain:'やま',house:'いえ',
+    city:'まち',wheat:'むぎ',wave:'なみ',shell:'かいがら',hibiscus:'ハイビスカス',
+  };
+  // Small code-native symbols fill gaps in the existing atlases. A cake stays
+  // a cake, a key stays a key; none borrows a food, egg or character picture.
+  const COMMENT_SYMBOL_KEYS = {'🎂':'cake','🎉':'celebration','🎊':'celebration','✨':'sparkles','🌟':'sparkles',
+    '💐':'bouquet','🗝':'key','🔑':'key','🧭':'compass','🌈':'rainbow','⚡':'bolt','🔥':'fire',
+    '🙂':'smile','💑':'couple','♾':'infinity'};
+  const COMMENT_SYMBOLS = {
+    cake:['ケーキ','<path fill="#f7c7a6" d="M4 12h16v9H4z"/><path fill="#fff5df" d="M4 10h16v5l-3-2-3 2-3-2-3 2-4-2z"/><path d="M8 10V6m8 4V6"/><path fill="#efb34f" d="m8 1-2 3 2 2 2-2zm8 0-2 3 2 2 2-2z"/>'],
+    celebration:['おいわい','<path fill="#efb34f" d="m3 21 4-13 9 9z"/><path fill="none" d="m6 12 6 6m0-13 3-3m3 10 4-1m-4-7 2 3"/><path fill="#d56b84" d="M5 2h3v3H5zm14 15h3v3h-3z"/><circle fill="#789daa" cx="15" cy="9" r="1.5"/>'],
+    sparkles:['きらめき','<path fill="#f4c85e" d="m10 2 2.5 6.5L19 11l-6.5 2.5L10 20l-2.5-6.5L1 11l6.5-2.5z"/><path fill="#fff0b2" d="m20 1 1 3 3 1-3 1-1 3-1-3-3-1 3-1zm0 14 1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/>'],
+    bouquet:['はなたば','<path fill="#8eaf72" d="m4 11 8 11 8-11-8 4z"/><path fill="none" d="m6 7 6 11 6-11m-6-4v15"/><path fill="#e998a7" d="m6 3 2 2 2 2-2 2-2 2-2-2-2-2 2-2zm12 0 2 2 2 2-2 2-2 2-2-2-2-2 2-2z"/><path fill="#f4c85e" d="m12 1 2 2 2 2-2 2-2 2-2-2-2-2 2-2z"/><path fill="#d56b84" d="m8 17 4 2 4-2v4l-4-2-4 2z"/>'],
+    key:['かぎ','<circle fill="#e7bc63" cx="7" cy="7" r="5"/><circle fill="#fff5df" cx="7" cy="7" r="1.5"/><path fill="#e7bc63" d="m10 9 12 12-2 2-3-3-2 1-2-2 1-2-6-6z"/>'],
+    compass:['ほういじしゃく','<circle fill="#fff5df" cx="12" cy="12" r="10"/><path fill="#d9797f" d="m16 5-1 10-6-6z"/><path fill="#83a6a5" d="m8 19 1-10 6 6z"/><path d="M12 2v2m10 8h-2M12 22v-2M2 12h2"/>'],
+    rainbow:['にじ','<path fill="none" stroke="#9a687b" stroke-width="4" d="M3 21V12a9 9 0 0 1 18 0v9"/><path fill="none" stroke="#df9875" stroke-width="3" d="M5 21V12a7 7 0 0 1 14 0v9"/><path fill="none" stroke="#eccd79" stroke-width="3" d="M8 21V12a4 4 0 0 1 8 0v9"/><path fill="none" stroke="#7caba3" stroke-width="2" d="M10 21V12a2 2 0 0 1 4 0v9"/>'],
+    bolt:['いなずま','<path fill="#f4c85e" d="M13 1 3 14h7l-1 9 12-14h-8z"/>'],
+    fire:['ほのお','<path fill="#df8457" d="M13 1c1 8 8 9 8 15a9 9 0 0 1-18 0c0-3 2-6 4-8 0 4 2 4 2 4s4-4 4-11z"/><path fill="#f6d47f" d="M12 12c0 4-4 4-4 7a4 4 0 0 0 8 0c0-3-4-3-4-7z"/>'],
+    smile:['えがお','<circle fill="#f4d48d" cx="12" cy="12" r="10"/><path d="M8 8v2m8-2v2"/><path fill="none" d="M7 14q5 7 10 0"/>'],
+    couple:['こいびと','<circle fill="#f2c7a0" cx="6" cy="13" r="3"/><circle fill="#f2c7a0" cx="18" cy="13" r="3"/><path fill="#87a9a3" d="M1 23v-3a5 5 0 0 1 10 0v3z"/><path fill="#c28b9b" d="M13 23v-3a5 5 0 0 1 10 0v3z"/><path fill="#dd8295" d="M12 10 6 5C3 0 10-1 12 3c2-4 9-3 6 2z"/>'],
+    infinity:['むげん','<path fill="none" stroke-width="2.5" d="M12 12C6 1 2 7 2 12s4 11 10 0 10-5 10 0-4 11-10 0z"/>'],
+  };
+  function commentPictureHTML(asset, emoji, label = '') {
+    return `<span class="comment-picture" ${label ? `role="img" aria-label="${escapeHtml(label)}"` : 'aria-hidden="true"'}><img class="comment-asset" src="${escapeHtml(asset)}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(emoji)}</span>`;
+  }
+  function commentIconHTML(emoji) {
+    const key = emoji.replace(/[\uFE0E\uFE0F]/g,'');
+    if (Object.hasOwn(COMMENT_SYMBOL_KEYS,key)) {
+      const symbol=COMMENT_SYMBOL_KEYS[key],[label,art]=COMMENT_SYMBOLS[symbol];
+      return `<span class="comment-drawing" data-comment-symbol="${symbol}" role="img" aria-label="${label}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${art}</svg>${iconFallbackHTML(emoji)}</span>`;
+    }
+    if (Object.hasOwn(COMMENT_CARE,key)) {
+      const icon=COMMENT_CARE[key];return careIconHTML(icon,COMMENT_LABELS[icon],emoji);
+    }
+    if (Object.hasOwn(COMMENT_UI,key)) {
+      const icon=COMMENT_UI[key];return uiIconHTML(icon,COMMENT_LABELS[icon],emoji);
+    }
+    return '';
+  }
+  function commentTextHTML(text, character = null) {
+    return escapeHtml(text).replace(COMMENT_EMOJI,emoji=>
+      character?.asset && emoji===character.emoji
+        ? commentPictureHTML(character.asset,emoji,character.label)
+        : commentIconHTML(emoji)||emoji);
+  }
+  const commentTextCache = new WeakMap();
+  function setCommentText(target, text, force = false, character = null) {
+    if (!target) return false;
+    const value=String(text??'');
+    // Only the notice renderer deduplicates repeated renders. Other surfaces
+    // still announce each new beat, even when its words match the last beat.
+    if (!force && commentTextCache.get(target)===value) return false;
+    commentTextCache.set(target,value);
+    const html=commentTextHTML(value,character),illustrated=html!==escapeHtml(value);
+    const property=illustrated?'innerHTML':'textContent';
+    const rendered=illustrated?html:value;
+    if (!force && target[property]===rendered) return false;
+    target[property]=rendered;
+    return true;
+  }
+  function commentActorVisual(speaker) {
+    let visual;
+    if (speaker.kind==='pet') visual=currentVisualStage();
+    else if (speaker.kind==='companion') visual=allCompanionsById(speaker.id);
+    else if (speaker.kind==='partner') {
+      const id=speaker.id||state.partner?.id;
+      visual=WORLD_MASTER?.partners?.find(p=>p.id===(WORLD_MASTER.compatibility?.partnerAliases?.[id]||id));
+    }
+    return visual?.asset ? {...visual,emoji:speaker.emoji||visual.emoji,label:speaker.label||visual.label||visual.name} : null;
+  }
+  function commentSpeakerHTML(speaker) {
+    const visual=commentActorVisual(speaker),emoji=speaker.emoji||'💬';
+    return visual?.asset ? commentPictureHTML(visual.asset,emoji,compactJapaneseText(speaker.label))
+      : commentIconHTML(emoji)||escapeHtml(emoji);
+  }
   function renderCareNotice(observe = false) {
     if (!CARE_STATUS) return;
     if (careLife !== state) {
@@ -2844,7 +2946,7 @@
     const text = display ? display.text || `${display.title}\n${display.detail}`
       : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
         : state.stage === STAGE.EGG ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
-    if (el.message.textContent !== text) { el.message.textContent = text; el.message.scrollTop = 0; }
+    if (setCommentText(el.message, text)) el.message.scrollTop = 0;
     el.message.dataset.careKind = display?.kind || '';
     el.message.dataset.careSeverity = display?.severity || '';
     el.message.dataset.careIcon = display?.icon || '';
@@ -2861,7 +2963,7 @@
   function setMessage(msg) {
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
-    else { el.message.textContent = message; el.message.scrollTop = 0; }
+    else { setCommentText(el.message, message); el.message.scrollTop = 0; }
 
     // A message must stay on screen for a fixed, guaranteed stretch of time -
     // it must NOT be at the mercy of the background tick's own independent
@@ -2909,9 +3011,9 @@
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
-    el.speechSpeaker.textContent = speaker.emoji || '💬';
+    el.speechSpeaker.innerHTML = commentSpeakerHTML(speaker);
     el.speechSpeaker.title = compactJapaneseText(speaker.label);
-    el.speechText.textContent = compactJapaneseText(text);
+    setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
     // A display:none ancestor has no scroll box; reset after revealing it.
@@ -7934,7 +8036,7 @@
 
     if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
 
-    el.dateMovieCaption.textContent = compactJapaneseText(beats[0]);
+    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
     el.dateMovieCaption.classList.add('beat');
     el.dateMovie.scrollIntoView({ block: 'nearest' });
 
@@ -7944,7 +8046,7 @@
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
         void el.dateMovieCaption.offsetWidth;
-        el.dateMovieCaption.textContent = compactJapaneseText(beats[i]);
+        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
         el.dateMovieCaption.classList.add('beat');
         el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
@@ -8088,7 +8190,7 @@
       ];
     }
 
-    el.dateMovieCaption.textContent = compactJapaneseText(beats[0]);
+    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
     el.dateMovieCaption.classList.add('beat');
     el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 4000;
@@ -8096,7 +8198,7 @@
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
         void el.dateMovieCaption.offsetWidth;
-        el.dateMovieCaption.textContent = compactJapaneseText(beats[i]);
+        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
         el.dateMovieCaption.classList.add('beat');
         el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
@@ -8331,7 +8433,7 @@
     };
     const stories = [beatsById[legend.id], alternateBeatsById[legend.id]].filter(Boolean);
     const beats = (stories.length ? pickMovieLine(stories) : [legend.flash, legend.story]).concat([`💰足もとに${coins}コインがきちんと積まれていた。`]);
-    el.dateMovieCaption.textContent = compactJapaneseText(beats[0]);
+    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
     el.dateMovieCaption.classList.add('beat');
     el.dateMovie.scrollIntoView({ block: 'nearest' });
     const step = 3500;
@@ -8339,7 +8441,7 @@
       dateMovieTimers.push(setTimeout(() => {
         el.dateMovieCaption.classList.remove('beat');
         void el.dateMovieCaption.offsetWidth;
-        el.dateMovieCaption.textContent = compactJapaneseText(beats[i]);
+        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
         el.dateMovieCaption.classList.add('beat');
         el.dateMovie.scrollIntoView({ block: 'nearest' });
       }, step * i));
@@ -8960,7 +9062,7 @@
     emotePet('fun');
     state.lifetime.money += 100;
     pushLifeLog(stage.emoji, `${age}さい${stage.label}になった`);
-    showStoryEvent({ emoji: stage.emoji, message: `${age}さいになった！\n${stage.label}` });
+    showStoryEvent({ emoji: stage.emoji, petReaction:true, message: `${age}さいになった！\n${stage.label}` });
     celebrateAgeSpeech(age, stage.label);
     checkStoryEvents('evolve');
     // すがたが かわった しゅんかんだけ、へんしんの ちゅうせんを おこなう
@@ -9365,7 +9467,7 @@
   let birthdayToastTimer = null;
   function setBirthdayToast(text) {
     if (!el.birthdayToast) return;
-    el.birthdayToast.textContent = text;
+    setCommentText(el.birthdayToast, text, true);
     el.birthdayToast.classList.remove('hidden');
     clearTimeout(birthdayToastTimer);
     birthdayToastTimer = setTimeout(() => {
@@ -9415,7 +9517,7 @@
     const choices = pool.length > 1 ? pool.filter((e) => e.message !== lastStoryEventMessage) : pool;
     const event = choices[Math.floor(Math.random() * choices.length)];
     lastStoryEventMessage = event.message;
-    showStoryEvent(event);
+    showStoryEvent({...event,petReaction:true});
   }
 
   let storyFlashTimer = null;
@@ -9426,8 +9528,10 @@
     if (event.author) el.storyFlashEmoji.innerHTML = authorVisualHTML('thumb');
     else if (event.character) el.storyFlashEmoji.innerHTML = partnerVisualHTML(event.character, 'thumb');
     else if (event.item) el.storyFlashEmoji.innerHTML = itemIconHTML(event.item);
-    else el.storyFlashEmoji.textContent = event.emoji;
-    el.storyFlashText.textContent = compactJapaneseText(event.message);
+    else if (event.petReaction) el.storyFlashEmoji.innerHTML = commentSpeakerHTML(petSpeaker());
+    else setCommentText(el.storyFlashEmoji, event.emoji, true);
+    setCommentText(el.storyFlashText, compactJapaneseText(event.message), true,
+      event.character ? commentActorVisual({...event.character,kind:'partner'}) : null);
     el.storyFlash.classList.remove('hidden');
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
@@ -10017,6 +10121,10 @@
   document.addEventListener('error', (event) => {
     const img = event.target;
     if (!(img instanceof HTMLImageElement)) return;
+    if (img.classList.contains('comment-asset')) {
+      img.closest('.comment-picture')?.classList.add('asset-failed');
+      return;
+    }
     if (img.classList.contains('scenery-asset')) {
       img.closest('.scenery-picture')?.classList.add('asset-failed');
       return;
@@ -10401,8 +10509,7 @@
 
     const homeMessage = message || (isDead ? '「あたらしいたまご」で、つぎの子をむかえよう'
       : isEgg ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
-    if (!CARE_STATUS && el.message.textContent !== homeMessage) {
-      el.message.textContent = homeMessage;
+    if (!CARE_STATUS && setCommentText(el.message, homeMessage)) {
       el.message.scrollTop = 0;
     }
     renderCareNotice(true);
@@ -11164,7 +11271,7 @@
     el.duelLieCoinRow.classList.remove('hidden');
     el.duelLieCoinCount.textContent = `${d.lieCoinsMax - duelLieCoinsUsed(d)} / ${d.lieCoinsMax}`;
     el.duelQuestionEmoji.textContent = q.emoji;
-    el.duelQuestionText.textContent = compactJapaneseText(q.text);
+    setCommentText(el.duelQuestionText, compactJapaneseText(q.text));
     el.duelLieFlash.classList.add('hidden');
     el.duelBackBtn.disabled = idx <= 0 && d.pendingTruth == null;
 
@@ -11320,7 +11427,7 @@
       const row = d.breakdown.find((r) => r.qId === d.suspicionQId);
       el.duelRevealProgress.textContent = '👀いちばんあやしい!';
       el.duelRevealEmoji.textContent = row.emoji;
-      el.duelRevealText.textContent = compactJapaneseText(row.text);
+      setCommentText(el.duelRevealText, compactJapaneseText(row.text));
       el.duelRevealPub.textContent = `こうかいされたこたえ:「${compactJapaneseText(row.pubLabel)}」`;
       if (row.testimony) {
         const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);
@@ -11354,7 +11461,7 @@
     const closeMatch = isLastQuestion && duelRevealPhase === 'pending' && Math.abs(running.a - running.b) <= 2;
     el.duelRevealProgress.textContent = `しつもん${duelRevealIndex + 1} / ${DUEL_MATCH_QUESTION_COUNT}${closeMatch ? '(せっせん!ラストです…)' : ''}`;
     el.duelRevealEmoji.textContent = row.emoji;
-    el.duelRevealText.textContent = compactJapaneseText(row.text);
+    setCommentText(el.duelRevealText, compactJapaneseText(row.text));
     el.duelRevealPub.textContent = `こうかいされたこたえ:「${compactJapaneseText(row.pubLabel)}」`;
     if (row.testimony) {
       const t = DUEL_TESTIMONY_PRESETS.find((tt) => tt.id === row.testimony);

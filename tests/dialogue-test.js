@@ -41,6 +41,7 @@ function element(id = '') {
   let html = '';
   Object.defineProperty(target, 'innerHTML', { get: () => html, set: (value) => {
     html = value; target.children.length = 0;
+    target.textContent = String(value).replace(/<[^>]*>/g,'').replace(/&(amp|lt|gt|quot|#39);/g,(_,key)=>({amp:'&',lt:'<',gt:'>',quot:'"','#39':"'"})[key]);
   } });
   let content = '';
   Object.defineProperty(target, 'textContent', { get: () => content, set: (value) => {
@@ -1025,7 +1026,9 @@ for (const def of master.partners) {
       `${def.id}: own anniversary dialogue at ${years} years`);
     assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'),false);
   }
-  reset();
+  // The existing achievement toast can replace an encounter portrait during
+  // saveState(). Test the portrait after those achievements are already known.
+  reset({ achievementsUnlocked:api.ACHIEVEMENTS.map(a=>a.id) });
   assert.ok(api.playFirstPartnerEncounter(candidate));
   assert.ok(getElement('storyFlashEmoji').innerHTML.includes(`src="${def.asset}"`), def.id + ': first encounter');
   advance(10000);

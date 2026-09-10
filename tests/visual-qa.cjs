@@ -69,6 +69,9 @@ function createFixtures() {
       Object.assign(allBadges,{isSick:true,sicknessType:'げんいんふめいのこうねつ',isSleeping:true,energy:35});
       allBadges.lifetime.endingTiersReached=[0,1,2,3,4];
       fixtures.badges_transparent=allBadges;
+      const comments=make('comment_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
+      comments.lifetime.money=9999;comments.lifetime.consumablesUsed=2;
+      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) comments.items[id]=2;
       for(const [name,season,region] of [
         ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
         ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
@@ -167,6 +170,7 @@ function visualQaPlugin() {
           <h1>PR visual QA — real game in an iframe</h1>
           <p>Development saves only. Load replaces this preview origin's save.</p>
           <p>For stack_* scenes, open プロフィール → ゲームを選ぶ, then choose しゅうかくタワー / さくらタワー / おちばタワー. The missing-image option also applies to their Canvas motifs. Layout measurements below cover the home UI, not the Canvas picture.</p>
+          <p>For comment_illustrations, the next age tick shows a birthday notice. Use the small items and おせわ to inspect illustrated notices and speech portraits with 26 companions and a partner. The missing-image option covers new comment portraits too; SVG symbols remain readable without an image download.</p>
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
@@ -194,7 +198,7 @@ function visualQaPlugin() {
                 style.textContent='.care-icon,#message[data-care-icon]::before{background-image:url("/__qa-missing-icon.png")!important}';
                 frame.contentDocument.head.append(style);
                 frame.contentDocument.querySelectorAll('img[data-icon-atlas]').forEach(img=>{img.src='/__qa-missing-icon.png';});
-                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset').forEach(img=>{
+                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset,img.comment-asset').forEach(img=>{
                   if(img.dataset.qaOriginalSrc)return;
                   img.dataset.qaOriginalSrc=img.getAttribute('src');img.src='/__qa-missing-icon.png';
                 });
