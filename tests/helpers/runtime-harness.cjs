@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these

@@ -88,7 +88,7 @@ const sandbox = {
   location: { href: 'https://naoto214.github.io/naotocchi/' }, crypto: { getRandomValues: (a) => a },
   __spoken: spoken, __events: events, __clock: () => now,
 };
-const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
 sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
