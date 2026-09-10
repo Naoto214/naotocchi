@@ -1,0 +1,188 @@
+{
+  "dateUTC": "2026-09-10",
+  "recordedAtUTC": "2026-09-10T12:58:49.900565+00:00",
+  "baseMain": "37ee430060626dee74a16ed33619bde208f8b62a",
+  "baseTree": "f5dabc9a00a150a963d4acddf011bc5329d1e7ee",
+  "branch": "feature/weather-scenery-illustrations-20260910",
+  "finalCommitTreeCI": "Read the PR for this branch; this record is included in that commit.",
+  "candidatePublication": "unmerged and unpublished when recorded",
+  "priorPR": {
+    "number": 226,
+    "mergedAtUTC": "2026-09-10T12:48:44Z",
+    "merge": "37ee430060626dee74a16ed33619bde208f8b62a",
+    "runtime": {
+      "run": 298,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34478845368"
+    },
+    "pages": {
+      "run": 224,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34478844298"
+    }
+  },
+  "publicFiles": {
+    "checkedAtUTC": "2026-09-10T12:50:27.437921+00:00",
+    "main": "37ee430060626dee74a16ed33619bde208f8b62a",
+    "tree": "f5dabc9a00a150a963d4acddf011bc5329d1e7ee",
+    "files": [
+      {
+        "path": "index.html",
+        "url": "https://naoto214.github.io/naotocchi/index.html",
+        "httpStatus": 200,
+        "bytes": 45356,
+        "sha256": "d8becfacc897a1fa123061b503052fd175d2c05ec35e4f09d703a11adc16ebd3",
+        "matchesTestedTree": true
+      },
+      {
+        "path": "script.js",
+        "url": "https://naoto214.github.io/naotocchi/script.js",
+        "httpStatus": 200,
+        "bytes": 844318,
+        "sha256": "4746913e6188bba19fd85f1b5455573075b6351ba993d32539f73ea2bc9c5cb9",
+        "matchesTestedTree": true
+      },
+      {
+        "path": "care-status.js",
+        "url": "https://naoto214.github.io/naotocchi/care-status.js",
+        "httpStatus": 200,
+        "bytes": 8986,
+        "sha256": "16d32c744bbc2e88a6bb23e7c46f6862e4db6ce72a8854a3e4df966cfe8e837d",
+        "matchesTestedTree": true
+      },
+      {
+        "path": "ui-illustrations.css",
+        "url": "https://naoto214.github.io/naotocchi/ui-illustrations.css",
+        "httpStatus": 200,
+        "bytes": 4395,
+        "sha256": "7266e36d12a58267c4e5b516e5a1045550b940554867f5fae74f6d37fcbd8042",
+        "matchesTestedTree": true
+      },
+      {
+        "path": "assets/ui/world-items-atlas-v1.png",
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/world-items-atlas-v1.png",
+        "httpStatus": 200,
+        "bytes": 1457487,
+        "sha256": "edf8893222b8399d8b1e9bd23dd29e7809d4659bfc8b6ca1d1a31fe4611023d0",
+        "matchesTestedTree": true
+      }
+    ]
+  },
+  "tests": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 139,
+    "pass": 139,
+    "fail": 0,
+    "skip": 0,
+    "baseCount": 135,
+    "newTests": 4,
+    "redGreen": "3 new illustration cases failed before implementation; reduced-motion information case verifies existing behavior",
+    "smoke": {
+      "domIds": 329,
+      "gamesStarted": 100,
+      "variantCollections": 91
+    },
+    "qaFixtures": "four scenery saves reloaded through actual loadState; manual weather/time and 26 companions plus partner retained"
+  },
+  "invariants": {
+    "base": "37ee430060626dee74a16ed33619bde208f8b62a",
+    "coreFunctionsUnchanged": {
+      "loadState": true,
+      "saveState": true,
+      "tick": true,
+      "isImmortal": true,
+      "triggerDeath": true,
+      "updateDyingWarning": true,
+      "raiseDeathMeter": true,
+      "recoverSleepStep": true,
+      "renderHomeCast": true,
+      "render": true,
+      "renderCareNotice": true,
+      "setMessage": true,
+      "playFunScene": true,
+      "useItem": true
+    },
+    "effectWrappersCountsSizesTimingRngUnchanged": {
+      "renderRegionDecor": true,
+      "buildSeasonFxHtml": true,
+      "celebrateSeasonChange": true,
+      "applyWeatherFx": true
+    },
+    "careAndDialogueTailUnchanged": true,
+    "sourceFilesUnchanged": {
+      "character-world-master.v1.js": true,
+      "care-status.js": true,
+      "care-status.css": true,
+      "cast-layout.js": true,
+      "cast-motion.js": true,
+      "games.js": true,
+      "audio.js": true,
+      "world-environment.js": true,
+      "style.css": true,
+      "ui.css": true,
+      "design.css": true,
+      "egg-hatching.css": true
+    },
+    "images": 309,
+    "imageByteDifferences": [],
+    "newImageFiles": 0
+  },
+  "review": {
+    "type": "independent read-only scoped review",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "verdict": "ready to proceed after full tests and invariant checks; both subsequently passed"
+  },
+  "browser": {
+    "attempt": "existing official browser tabs.list",
+    "result": "CDP operation refresh tabs timed out after 20000ms",
+    "newGameScreenshots": 0,
+    "actualRendering": "unverified",
+    "iPhoneTouchAudioFPS": "unverified",
+    "jitterCause": "unresolved"
+  },
+  "reuse": {
+    "atlas": "assets/ui/world-items-atlas-v1.png",
+    "keys": [
+      "sun",
+      "cloud",
+      "snow",
+      "moon",
+      "flower",
+      "clover",
+      "ribbon",
+      "scarf"
+    ],
+    "newImageFiles": 0,
+    "mappingAliases": 10
+  },
+  "pending": [
+    "actual 320px and normal-width rendering",
+    "text enlargement and 26 companions plus partner",
+    "all colors and weather",
+    "notice entry/exit and feedback readability",
+    "scenery transparent edges at 11–56px",
+    "reduced-motion computed style and visual stop",
+    "image failure visual fallback",
+    "iPhone physical input, audio and FPS"
+  ],
+  "coordination": {
+    "mainRecheckedBeforeSave": true,
+    "otherOpenPRs": [
+      92
+    ],
+    "old92Untouched": true,
+    "otherTabsUncommittedAssets": "unverified"
+  },
+  "overallDevelopment": "incomplete",
+  "sourceSha256": {
+    "index.html": "56020770c222952c47bb641ea813568b861aa0a18d9ccb7b74e311705fc4e423",
+    "script.js": "8630576bc8c9e305f0c7aea7bc5f3604cbe9d297330ae796480cc86b909e37a9",
+    "ui-illustrations.css": "9da4370b35be64ca809d318f82e7c402da57b9f8fde656d408a708267f1c4468",
+    "tests/ui-illustrations-test.cjs": "7632c7d989f92848024c93d604debf00a389d56ab9c34980caa05c08c8b14e3f",
+    "tests/visual-qa.cjs": "db86deebdd274f10581e93bcb32c0589e390efaf6e97026fc120217f86d75589",
+    "tests/visual-qa-test.cjs": "4b01f60f1b75540f1e17b58886e81c7d8be6c46d596ea0920c2720753c58eeee"
+  }
+}

@@ -68,6 +68,17 @@ assert.equal(h.api.state().lifetime.ownedShopItems.length,15);
 assert.equal(h.api.state().lifetime.ownedNaotoItems.length,4);
 assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
 assert.equal(Object.keys(h.api.state().items).filter(id=>id.startsWith('fun_')&&h.api.state().items[id]===2).length,7);
+// Reload manual weather fixtures: an invalid mode would silently use live
+// weather/time and invalidate the later visual observation.
+for(const [name,weather,time] of [['scenery_clouds','cloudy','day'],['scenery_snow','snow','night'],['scenery_moon','sunny','night'],['scenery_rain','rain','day']]) {
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  scene.api.renderEnvironment();
+  assert.equal(scene.document.body.dataset.weather,weather);
+  assert.equal(scene.document.body.dataset.time,time);
+  assert.equal(scene.api.state().companions.length,26);
+  assert.equal(scene.api.state().partner.id,'robot_neighbor');
+}
 
 // Execute the actual emitted discovery code with backgrounds already removed
 // by production fallback. Hidden probes must still report the failed atlas.

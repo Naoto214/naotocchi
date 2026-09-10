@@ -72,3 +72,54 @@ test('an atlas error exposes the original inventory emoji without changing count
   assert.match(h.get('petAccessory').innerHTML,/class="icon-fallback"[^>]*>🛏️<\/span>/);
   assert.equal(JSON.stringify(h.api.state()),before);
 });
+
+test('cloud, snow and moon use illustrated scenery while retaining weather particle counts',()=>{
+  const h=harness();
+  for(const [weather,time,icon,particle,count] of [
+    ['cloudy','day','cloud','wx-cloud',5],['snow','day','snow','wx-flake',26],
+    ['sunny','night','moon','wx-star',30],
+  ]){
+    Object.assign(h.api.state().lifetime,{weatherMode:weather,timeMode:time});h.api.renderEnvironment();
+    const html=h.get('weatherFx').innerHTML;
+    assert.match(html,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal((html.match(new RegExp(`class="${particle}"`,'g'))||[]).length,count);
+    assert.match(html,/class="icon-fallback"/);
+  }
+  Object.assign(h.api.state().lifetime,{weatherMode:'rain',timeMode:'day'});h.api.renderEnvironment();
+  assert.equal((h.get('weatherFx').innerHTML.match(/class="wx-drop"/g)||[]).length,42);
+});
+
+test('lightweight weather keeps its smaller particle sets and unchanged choices',()=>{
+  const h=harness();for(let i=0;i<92;i++){h.advance(35);h.api.mgPerfSample();}
+  for(const [weather,icon,particle,count] of [['cloudy','cloud','wx-cloud',3],['snow','snow','wx-flake',12]]){
+    Object.assign(h.api.state().lifetime,{weatherMode:weather,timeMode:'day'});h.api.renderEnvironment();
+    const html=h.get('weatherFx').innerHTML;
+    assert.match(html,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal((html.match(new RegExp(`class="${particle}"`,'g'))||[]).length,count);
+    assert.equal(h.api.state().lifetime.weatherMode,weather);
+  }
+});
+
+test('winter decor and season controls reuse matching art without replacing region identity',()=>{
+  const h=harness();h.api.state().regionId='home';h.api.state().lifetime.seasonMode='winter';
+  h.api.render();h.api.openExclusiveMenu('world');h.api.renderEnvironment();
+  const decor=h.get('regionDecor').innerHTML;
+  for(const icon of ['snow','cloud','ribbon','scarf'])assert.match(decor,new RegExp(`data-ui-icon="${icon}"`));
+  assert.match(decor,/🏠/);
+  assert.match(h.get('seasonBgFx').innerHTML,/data-ui-icon="snow"/);
+  assert.match(h.get('seasonModeGrid').innerHTML,/data-ui-icon="snow"/);
+  assert.match(h.get('worldNowCard').innerHTML,/data-ui-icon="snow"/);
+  assert.match(h.get('worldNowCard').innerHTML,/ふゆ/);
+  assert.equal(h.api.state().regionId,'home');
+  assert.equal(h.api.state().lifetime.seasonMode,'winter');
+});
+
+test('reduced motion keeps world labels and illustrated choices without falling rain or snow',()=>{
+  const h=harness({reducedMotion:true});h.api.openExclusiveMenu('world');
+  for(const [weather,label] of [['rain','あめ'],['snow','ゆき'],['cloudy','くもり']]){
+    h.api.state().lifetime.weatherMode=weather;h.api.renderEnvironment();
+    assert.doesNotMatch(h.get('weatherFx').innerHTML,/class="wx-(drop|flake|cloud)"/);
+    assert.match(h.get('worldNowCard').innerHTML,new RegExp(label));
+    assert.match(h.get('worldNowCard').innerHTML,new RegExp(`data-ui-icon="${weather==='cloudy'?'cloud':weather}"`));
+  }
+});
