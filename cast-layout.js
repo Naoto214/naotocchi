@@ -40,11 +40,19 @@
   const extent = frames => ({left:Math.min(...frames.map(f=>f.x)),right:Math.max(...frames.map(f=>f.x+f.w)),top:Math.min(...frames.map(f=>f.y)),bottom:Math.max(...frames.map(f=>f.y+f.h))});
   const translate = (f,x,y) => f?{...f,x:f.x+x,y:f.y+y}:null;
 
-  // Use the height left after text, meters and buttons. Pack equal-size friends
-  // in two side groups, measuring visible bounds but keeping entire image frames.
+  // Keep the approved half-ellipse wings at every available height. Pack curved
+  // lanes from the core outward; never replace the wings with straight columns.
   function compactCast(args) {
     const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius}=args;
     const gap=4+2*motionRadius, room=width-16, count=companions.length;
+    const boxes=companions.map(a=>shape(a).box), centersY=boxes.map(b=>(b[1]+b[3])/256);
+    const bodyHeight=Math.max(0,...boxes.map(b=>(b[3]-b[1])/128));
+    const frameSpan=1-Math.max(0,...centersY)+Math.min(1,...centersY);
+    // Keep up to four friends on one arc. Five may use 2+3, with a curved
+    // outer lane; choose each side separately when the total is odd.
+    const sideCounts=[Math.ceil(count/2),Math.floor(count/2)];
+    const laneLimits=sideCounts.map(n=>Math.min(4,Math.max(1,Math.floor((n+1)/3))));
+    const maxLanes=Math.max(...laneLimits);
     const maxMain=Math.min(room>=310?112:104,Math.floor(height*.7));
     for(let m=maxMain;m>=40;m-=2) {
       const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
@@ -53,16 +61,41 @@
       const sideWidth=(room-(e.right-e.left))/2-gap;
       for(let size=count?72:48;size>=12;size--) {
         let best=null;
-        for(let columns=1;columns<=Math.min(4,Math.ceil(count/2)||1);columns++) {
-          const bw=Math.max(0,...companions.map(a=>{const b=shape(a).box;return size*(b[2]-b[0])/128;}));
-          const bh=Math.max(0,...companions.map(a=>{const b=shape(a).box;return size*(b[3]-b[1])/128;}));
+        const bh=size*bodyHeight, bow=Math.max(size*.8,Math.min(height*.25,40));
+        for(let lanes=1;lanes<=maxLanes;lanes++) {
+          // Reject impossible vertical spans before allocating candidate lanes.
+          // Account for differently centered PNG frames, not just body height.
+          const maxRows=Math.max(...sideCounts.map((n,side)=>Math.ceil(n/Math.min(lanes,laneLimits[side]))));
+          if(count && (maxRows-1)*(bh+gap)+size*frameSpan>height-8)continue;
           const frames=Array(count), sides=[[],[]];
-          for(let i=0;i<count;i++) {
-            const side=i%2, n=Math.ceil((count-side)/2), index=Math.floor(i/2);
-            const rows=Math.ceil(n/columns), col=Math.floor(index/rows), row=index%rows;
-            const colRows=Math.min(rows,n-col*rows), b=shape(companions[i]).box;
-            const f=rect(col*(bw+gap)-size*(b[0]+b[2])/256,(row-(colRows-1)/2)*(bh+gap)-size*(b[1]+b[3])/256,size);
-            sides[side].push({i,f});
+          for(let side=0;side<2;side++) {
+            const n=sideCounts[side], sideLanes=Math.min(lanes,laneLimits[side]);
+            const rows=Math.floor(n/sideLanes), extra=n%sideLanes;
+            const packed=[];let index=0, previousShift=0;
+            for(let lane=0;lane<sideLanes;lane++) {
+              const laneRows=rows+(lane>=sideLanes-extra?1:0);
+              if(!laneRows)continue;
+              // Equal vertical spacing protects the body gap. The horizontal
+              // coordinate follows an ellipse, with both tips turning inward.
+              const positions=Array.from({length:laneRows},(_,row)=>row-(laneRows-1)/2).sort((a,b)=>Math.abs(a)-Math.abs(b)||a-b);
+              const current=positions.map(row=>{
+                const i=side+2*index++, b=shape(companions[i]).box;
+                const t=laneRows>1?row/((laneRows-1)/2)*.94:0;
+                const f=rect(bow*Math.sqrt(1-t*t)-size*(b[0]+b[2])/256,row*(bh+gap)-size*(b[1]+b[3])/256,size);
+                return {i,f,visible:body(f,companions[i])};
+              });
+              let shift=lane?previousShift+size*.5+gap:0;
+              for(const a of current) for(const b of packed) {
+                if(a.visible.y<b.y+b.h+gap && b.y<a.visible.y+a.visible.h+gap)
+                  shift=Math.max(shift,b.x+b.w+gap-a.visible.x);
+              }
+              previousShift=shift;
+              for(const {i,f,visible} of current) {
+                packed.push(translate(visible,shift,0));
+                const b=shape(companions[i]).box, cx=f.x+shift+size*(b[0]+b[2])/256;
+                sides[side].push({i,f:rect((side?cx:-cx)-size*(b[0]+b[2])/256,f.y,size)});
+              }
+            }
           }
           let fits=true;
           for(let side=0;side<2;side++) {
