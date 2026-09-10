@@ -65,7 +65,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet.emote-happy #petSprite,#pet.emote-fun #petSprite {filter:brightness(1.04)}
 .screen.sleeping #pet,.screen.sick #pet {transform:none;animation:none}
 .speech-slot {display:flex;justify-content:center;align-items:flex-start;min-height:62px;padding-top:8px}
-.speech-slot .speech-bubble {display:flex;width:fit-content;max-width:96%;margin:0;padding:6px 9px;font-size:13px;line-height:1.45;font-weight:500;color:var(--ui-ink);border:2px solid #63735b;background:#fffaf8;box-shadow:0 2px 0 #40503818}
+/* Keep the existing speaker-specific border styles (partner / companion). */
+.speech-slot .speech-bubble {display:flex;width:fit-content;max-width:96%;margin:0;padding:6px 9px;font-size:13px;line-height:1.45;font-weight:500;color:var(--ui-ink);border-width:2px;border-color:#63735b;background:#fffaf8;box-shadow:0 2px 0 #40503818}
 .speech-slot .speech-bubble::before {width:10px;height:10px;top:-6px;background:#fffaf8;border-color:#63735b}
 .speech-slot .speech-bubble.hidden {display:none}
 .speech-speaker {font-size:17px;line-height:1.2}
