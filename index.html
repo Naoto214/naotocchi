@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260910-fit-2">
-  <link rel="stylesheet" href="ui.css?v=20260910-space-1">
+  <link rel="stylesheet" href="ui.css?v=20260910-stable-text-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
   <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
@@ -69,7 +69,7 @@
             </div></div></div>
             <div class="speech-slot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
-              <span class="speech-text" id="speechText"></span>
+              <span class="speech-text" id="speechText" tabindex="0" aria-label="セリフ"></span>
             </div></div>
             <div class="poop-row" id="poopRow"></div>
 
@@ -125,7 +125,7 @@
 
           </div>
 
-          <div class="message" id="message">たまごがやってきた…</div>
+          <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
 
           <div class="items-row" id="itemsRow"></div>
         </div>
@@ -649,6 +649,6 @@
   <script src="cast-layout.js?v=20260910-space-1"></script>
   <script src="world-environment.js?v=20260910-ui-1"></script>
   <script src="games.js?v=20260910-1"></script>
-  <script src="script.js?v=20260910-space-1"></script>
+  <script src="script.js?v=20260910-stable-text-1"></script>
 </body>
 </html>

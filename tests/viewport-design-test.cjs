@@ -177,20 +177,61 @@ test('short visible viewports switch meter arrangement and recover without undoi
   assert.equal(fallback.get('device').classList.contains('ui-home-compact'),true);
 });
 
-test('speech-driven stage resize lays out before the reaction and does not cancel it on render', () => {
+test('a viewport resize lays out before the next reaction and does not cancel it on render', () => {
   const h=harness();
   // The DOM double has no initial HTML classes. In index.html this card is
   // hidden; a visible life card deliberately takes the home out of fit mode.
   h.get('lifeCardOverlay').classList.add('hidden');
-  h.get('castStage').getBoundingClientRect=()=>({width:294,height:h.get('speechText').textContent.length>20?120:240});
+  let height=240;
+  h.get('castStage').getBoundingClientRect=()=>({width:294,height});
   h.api.render();
   const before=parseFloat(h.get('petSprite').style.width);
+  height=120;
   h.api.setSpeechBubble('いっしょにあそべて、とってもうれしいよ。ずっとなかよしだよ！',{kind:'pet',emoji:'🐕',label:'なおとっち'},{event:'play_with'});
   const pet=h.get('petSprite'), animation=pet.animations.at(-1);
   assert.ok(parseFloat(pet.style.width)<before);
   assert.equal(animation.playState,'running');
   h.api.render();
   assert.equal(animation.playState,'running');
+});
+
+test('a new narration starts at the top while normal renders preserve the reading position', () => {
+  const h=harness(), message=h.get('message');
+  const text='きょうのできごとを思い出している。'.repeat(8);
+  message.scrollTop=40;
+  h.api.setMessage(text);
+  assert.equal(message.textContent,text,'retain the full narration');
+  assert.equal(message.scrollTop,0,'a new notice starts from its first line');
+  message.scrollTop=20;
+  h.api.render();
+  assert.equal(message.scrollTop,20,'do not interrupt reading on a game render');
+  h.advance(4200);
+  assert.equal(message.textContent,'','keep the existing notice duration');
+  assert.equal(message.scrollTop,0,'an empty notice resets its old position');
+});
+
+test('a new speech starts at its first line without truncating a long message', () => {
+  const h=harness(), speech=h.get('speechText');
+  const bubble=h.get('speechBubble');
+  let readingPosition=0;
+  // A scroll setter has no effect while display:none removes the CSS box.
+  // Keep the saved position to model an expired bubble being shown again.
+  Object.defineProperty(speech,'scrollTop',{
+    get:()=>bubble.classList.contains('hidden')?0:readingPosition,
+    set:value=>{if(!bubble.classList.contains('hidden'))readingPosition=value;},
+  });
+  const text='いっしょにいると楽しいね。'.repeat(8);
+  h.api.setSpeechBubble(text,{kind:'pet',emoji:'🐢',label:'かめ'});
+  assert.equal(speech.textContent,text);
+  speech.scrollTop=25;
+  h.advance(2500);
+  assert.ok(bubble.classList.contains('hidden'));
+  const next=text+'またあそぼう。';
+  h.api.setSpeechBubble(next,{kind:'pet',emoji:'🐢',label:'かめ'});
+  assert.equal(speech.textContent,next);
+  assert.equal(speech.scrollTop,0);
+  h.advance(2500);
+  assert.ok(h.get('speechBubble').classList.contains('hidden'));
 });
 
 test('locked or invalid saved design IDs show selected classic fallback without changing the save', () => {
