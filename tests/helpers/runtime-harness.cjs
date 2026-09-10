@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false} = {}) {
+function harness({storage, resume = false, geolocation, fetcher} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const noop = () => {};
@@ -42,7 +42,7 @@ function harness({storage, resume = false} = {}) {
       appendChild(child) { child.isConnected = true; el.children.push(child); return child; },
       closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: 300}),
-      getContext: () => null, setAttribute: noop, focus: noop, scrollIntoView: noop,
+      getContext: () => null, setAttribute: noop, focus: () => { document.activeElement = el; }, scrollIntoView: noop,
       setPointerCapture: noop, releasePointerCapture: noop,
       remove() { el.isConnected = false; },
     };
@@ -72,7 +72,7 @@ function harness({storage, resume = false} = {}) {
   }
   document = Object.assign(node('document'), {
     getElementById: get, querySelector: get, querySelectorAll: () => [], createElement: () => node(),
-    body: node('body'), documentElement: node('html'), visibilityState: 'visible',
+    body: node('body'), documentElement: node('html'), visibilityState: 'visible', activeElement: null,
   });
   window = {...node('window')};
   const schedule = (fn, delay = 0, ...args) => {
@@ -82,7 +82,10 @@ function harness({storage, resume = false} = {}) {
   // requestAnimationFrame/setTimeout session wrappers (the boot smoke does not).
   const sandbox = Object.assign(window, {
     console, document, window, Date: class extends Date {static now() {return now;}},
-    navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1},
+    navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
+    fetch: fetcher,
+    NaotocchiCast: require('../../cast-layout.js'),
+    NaotocchiEnvironment: require('../../world-environment.js'),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
     localStorage: storage || {getItem: () => null, setItem: noop, removeItem: noop},
     location: {href: 'https://naoto214.github.io/naotocchi/'},
@@ -96,6 +99,8 @@ function harness({storage, resume = false} = {}) {
   const expose = `
     globalThis.lifecycle = {
       startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe,
+      render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
+      requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,

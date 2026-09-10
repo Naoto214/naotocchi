@@ -62,7 +62,7 @@ const noop = () => {};
 let fakeEl;
 fakeEl = new Proxy({
   classList: { add: noop, remove: noop, toggle: noop, contains: () => false },
-  style: {}, dataset: {}, children: [], innerHTML: '', textContent: '', value: '', disabled: false,
+  style: {setProperty: noop}, dataset: {}, children: [], innerHTML: '', textContent: '', value: '', disabled: false,
   addEventListener: noop, removeEventListener: noop, appendChild: noop, remove: noop,
   querySelector: () => fakeEl, querySelectorAll: () => [], closest: () => null,
   getBoundingClientRect: () => ({ left: 0, top: 0, width: 300, height: 300 }),
@@ -84,6 +84,8 @@ global.document = {
 };
 global.window = { addEventListener: noop, innerWidth: 390, innerHeight: 844 };
 global.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = master;
+global.window.NaotocchiCast = require('../cast-layout.js');
+global.window.NaotocchiEnvironment = require('../world-environment.js');
 global.localStorage = { getItem: () => null, setItem: noop, removeItem: noop };
 global.navigator = { userAgent: 'smoke-test', maxTouchPoints: 1 };
 global.performance = { now: () => 1000 };

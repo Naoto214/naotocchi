@@ -930,6 +930,29 @@
   }
 
   const el = {
+    mainNameLabel: document.getElementById('mainNameLabel'),
+    castStage: document.getElementById('castStage'),
+    castSway: document.getElementById('castSway'),
+    menuBtn: document.getElementById('menuBtn'),
+    menuOverlay: document.getElementById('menuOverlay'),
+    menuCloseBtn: document.getElementById('menuCloseBtn'),
+    worldBtn: document.getElementById('worldBtn'),
+    gamesBtn: document.getElementById('gamesBtn'),
+    timeModeGrid: document.getElementById('timeModeGrid'),
+    weatherModeGrid: document.getElementById('weatherModeGrid'),
+    environmentLabel: document.getElementById('environmentLabel'),
+    worldLocationLabel: document.getElementById('worldLocationLabel'),
+    environmentStatus: document.getElementById('environmentStatus'),
+    locationRefreshBtn: document.getElementById('locationRefreshBtn'),
+    currentLocationBtn: document.getElementById('currentLocationBtn'),
+    travelLocationStatus: document.getElementById('travelLocationStatus'),
+    designScreenTab: document.getElementById('designScreenTab'),
+    designDeviceTab: document.getElementById('designDeviceTab'),
+    designScreenPanel: document.getElementById('designScreenPanel'),
+    designDevicePanel: document.getElementById('designDevicePanel'),
+    fontSelect: document.getElementById('fontSelect'),
+    textSizeSelect: document.getElementById('textSizeSelect'),
+
     pet: document.getElementById('pet'),
     petSprite: document.getElementById('petSprite'),
     petAccessory: document.getElementById('petAccessory'),
@@ -1071,8 +1094,6 @@
     partnerLabel: document.getElementById('partnerLabel'),
     worldOverlay: document.getElementById('worldOverlay'),
     worldCloseBtn: document.getElementById('worldCloseBtn'),
-    worldSeasonMenuBtn: document.getElementById('worldSeasonMenuBtn'),
-    worldTravelBtn: document.getElementById('worldTravelBtn'),
     worldDateBtn: document.getElementById('worldDateBtn'),
     worldDateHint: document.getElementById('worldDateHint'),
     dateOverlay: document.getElementById('dateOverlay'),
@@ -1094,8 +1115,6 @@
     dateMovieCaption: document.getElementById('dateMovieCaption'),
     dateMovieSkipBtn: document.getElementById('dateMovieSkipBtn'),
     dateMovieCloseBtn: document.getElementById('dateMovieCloseBtn'),
-    seasonOverlay: document.getElementById('seasonOverlay'),
-    seasonCloseBtn: document.getElementById('seasonCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
     travelOverlay: document.getElementById('travelOverlay'),
     travelCloseBtn: document.getElementById('travelCloseBtn'),
@@ -1402,6 +1421,11 @@
         // freshState() より あとで 定義される ため、じゅんじょの もんだいを
         // さける ために ここだけ リテラル文字列 'auto' を じかに つかう
         seasonMode: 'auto',
+        timeMode: 'auto',
+        weatherMode: 'auto',
+        currentLocationSelected: false,
+        fontStyle: 'rounded',
+        textSize: 'normal',
         // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
         // どくりつに えらべる、もうひとつの おしゃれ せってい
         devicePatternId: 'none',
@@ -1990,7 +2014,7 @@
   // プレビュー丸に つかう いろ - "default"(はじめから の くみあわせ)だけ
   // ほんたい(もも)と がめん(みどりの LCD)で いろが ちがうので わけてある
   const COLOR_THEMES = [
-    { id: 'default', label: 'クラシック', deviceSwatch: '#ff7ab8', screenSwatch: '#9bd68d' },
+    { id: 'default', label: 'クラシック', deviceSwatch: '#efd4df', screenSwatch: '#e9f0dc' },
     { id: 'sky', label: 'そら', deviceSwatch: '#6fa8ff', screenSwatch: '#8ecbe8' },
     { id: 'mint', label: 'ミント', deviceSwatch: '#5fe0a0', screenSwatch: '#8de8c0' },
     { id: 'lavender', label: 'ラベンダー', deviceSwatch: '#b98aff', screenSwatch: '#c9b3f0' },
@@ -9488,7 +9512,7 @@
   // すでに ひらいている ときにしか 到達しないため、ここには ふくめていない
   // (itemOpen だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
-    return dexOpen || achOpen || themeOpen || profileOpen || commOpen
+    return menuOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen
       || itemOpen || duelOpen || worldOpen || seasonOpen || travelOpen
       || dateOpen || companionInviteOpen
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
@@ -9577,6 +9601,7 @@
   function updateBar(elBar, value, baseClass) {
     elBar.style.width = `${clamp(value, 0, 100)}%`;
     elBar.className = `bar-fill ${baseClass} ${barClass(value)}`.trim();
+    renderMeterValue(elBar, value, baseClass);
   }
 
   function updateMeter(elBar, value, baseClass) {
@@ -9587,6 +9612,18 @@
       ? (value <= 30 ? 'low' : '')
       : (value >= 70 ? 'high' : '');
     elBar.className = `bar-fill ${baseClass} ${flag}`.trim();
+    renderMeterValue(elBar, value, baseClass, true);
+  }
+
+  function renderMeterValue(bar, value, name, progress = false) {
+    const amount = Math.round(clamp(value, 0, 100));
+    const text = document.getElementById(name + 'Value');
+    if (text) text.textContent = progress ? `${amount} / 100` : String(amount);
+    bar.setAttribute('role', name === 'goal' ? 'progressbar' : 'meter');
+    bar.setAttribute('aria-valuemin', '0');
+    bar.setAttribute('aria-valuemax', '100');
+    bar.setAttribute('aria-valuenow', String(amount));
+    bar.setAttribute('aria-label', ({hunger:'おなか',happiness:'ごきげん',energy:'げんき',health:'けんこう',evo:'せいちょう',devo:'おとろえ',death:'いのち',transform:'へんしん',goal:'100さいまで'})[name]);
   }
 
   // いまの すがた。つうじょうは ねんれいから いちいに きまる。♾️ の せかいの
@@ -9621,6 +9658,9 @@
 
   function setStageVisual(target, stage, size = 'medium') {
     if (!target) return;
+    const key = JSON.stringify([stage?.asset, stage?.emoji, size]);
+    if (target === el.petSprite && target.dataset.visualKey === key && target.innerHTML) return;
+    target.dataset.visualKey = key;
     target.innerHTML = stageVisualHTML(stage, size);
   }
 
@@ -9630,6 +9670,11 @@
     if (!(img instanceof HTMLImageElement) || !img.classList.contains('character-asset')) return;
     const wrapper = img.closest('.character-visual');
     if (wrapper) wrapper.classList.add('asset-failed');
+    const asset = img.getAttribute('src');
+    if (asset && !failedCastAssets.has(asset)) {
+      failedCastAssets.add(asset);
+      renderHomeCast();
+    }
   }, true);
 
   function currentVisualStage() {
@@ -9659,6 +9704,7 @@
   function applyTheme() {
     const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t));
     const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t));
+    el.device.style.setProperty('--ui-case', deviceTheme?.deviceSwatch || '#efd4df');
     COLOR_THEMES.forEach((t) => {
       el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
       el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
@@ -9893,6 +9939,7 @@
     el.ageLabel.textContent = state.infinite ? 'ねんれい: ♾️' : `ねんれい: ${currentAge()}さい${crown}`;
     el.sodachiLabel.textContent = state.infinite ? 'そだち: ♾️' : `そだち: ${state.sodachi}`;
     el.moneyLabel.textContent = `💰 ${state.lifetime.money}`;
+    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[state.speciesLine] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -9965,8 +10012,8 @@
     const effectiveSeason = getEffectiveSeason();
     const seasonInfo = SEASON_INFO[effectiveSeason];
     el.seasonLabel.textContent = seasonInfo ? `${seasonInfo.emoji} ${seasonInfo.label}` : '';
-    el.partnerLabel.textContent = state.partner
-      ? `${state.partner.mismatched ? '💔' : state.partner.married ? '💍' : '💑'} ${state.partner.emoji} ${compactJapaneseText(state.partner.label)}${state.partner.mismatched ? '(すれちがい)' : ''}`
+    el.partnerLabel.innerHTML = state.partner
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}`
       : '';
     el.partnerLabel.title = state.partner
       ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
@@ -9983,12 +10030,13 @@
       .sort((a, b) => a - b)
       .map((tierIndex) => {
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;
-        return `<span class="ending-badge" data-title="${ENDING_TIER_ICONS[tierIndex]} ${label}をたっせいずみ" title="${label}">${ENDING_TIER_ICONS[tierIndex]}</span>`;
+        return `<button type="button" class="ending-badge" data-title="${ENDING_TIER_ICONS[tierIndex]} ${label}をたっせいずみ" title="${label}" aria-label="${label}をたっせいずみ">${ENDING_TIER_ICONS[tierIndex]}</button>`;
       })
       .join('');
 
     renderCompanionRow();
     renderPartnerCompanion(isEgg || isOver);
+    renderHomeCast();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -10016,6 +10064,9 @@
     el.playWithBtn.disabled = isOver || hasTransformChoice;
     el.courtBtn.disabled = disableCare;
     el.travelBtn.disabled = disableCare;
+    el.menuBtn.disabled = gameActive || hasTransformChoice;
+    el.profileBtn.disabled = gameActive || hasTransformChoice;
+    el.commBtn.disabled = gameActive || hasTransformChoice;
     el.resetBtn.classList.toggle('hidden', !isOver && !isFarewell);
     // ♾️ の ボタンは 行き と かえり の りょうほうを かねる。パーフェクト
     // クリアずみなら、たまご中でも 人生の とちゅうでも いつでも 行き来できる
@@ -10062,7 +10113,9 @@
 
     el.companionInviteOverlay.classList.toggle('hidden', !companionInviteOpen);
 
+    el.menuOverlay.classList.toggle('hidden', !menuOpen);
     el.worldOverlay.classList.toggle('hidden', !worldOpen);
+    renderEnvironment();
     el.dateOverlay.classList.toggle('hidden', !dateOpen);
     // そだち50「こいの きざし」に とどいて はじめて「デートに さそう」が
     // あらわれる。こいびとが いない/クールダウン中 などの ときは、ボタンは
@@ -10078,8 +10131,6 @@
       ? `いまはさそえません: ${dateBlocked}`
       : compactJapaneseText(`${state.partner ? state.partner.emoji + ' ' + state.partner.label : 'こいびと'}とでかけられます`);
 
-    el.seasonOverlay.classList.toggle('hidden', !seasonOpen);
-    if (seasonOpen) renderSeasonModeGrid();
 
     el.travelOverlay.classList.toggle('hidden', !travelOpen);
     if (travelOpen) renderTravelRegionGrid();
@@ -10092,9 +10143,14 @@
     const suppressFrontFx = gameActive || hasTransformChoice || isAnyMenuOverlayOpen();
     el.seasonFrontFx.classList.toggle('suppressed', suppressFrontFx);
 
+    el.device.classList.toggle('ui-game-active', gameActive);
+    el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
+    el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
+    el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     renderItemsRow(disableCare);
   }
 
+  let menuOpen = false;
   let dexOpen = false;
   let achOpen = false;
   let themeOpen = false;
@@ -10126,6 +10182,8 @@
   // メインメニュー同士は同時に1枚だけ開く。別メニューを押したら、
   // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
   function closeAllMenuOverlays() {
+    menuOpen = false;
+    currentLocationIntent += 1;
     dexOpen = false;
     achOpen = false;
     themeOpen = false;
@@ -10148,12 +10206,15 @@
   }
 
   function openExclusiveMenu(kind) {
+    if (gameActive || state.transformOptions) return;
     clearConversationTimers();
     hideSpeechBubble();
     closeAllMenuOverlays();
-    if (kind === 'dex') dexOpen = true;
+    if (kind === 'menu') menuOpen = true;
+    else if (kind === 'travel') travelOpen = true;
+    else if (kind === 'dex') dexOpen = true;
     else if (kind === 'ach') achOpen = true;
-    else if (kind === 'theme') themeOpen = true;
+    else if (kind === 'theme') { themeOpen = true; selectDesignPanel('screen'); }
     else if (kind === 'profile') profileOpen = true;
     else if (kind === 'comm') commOpen = true;
     else if (kind === 'item') itemOpen = true;
@@ -10297,6 +10358,8 @@
     renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screenSwatch');
     renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId);
     renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId);
+    el.fontSelect.value = state.lifetime.fontStyle || 'rounded';
+    el.textSizeSelect.value = state.lifetime.textSize || 'normal';
   }
 
   // なおとっち本体の しゅぞく・せいちょう段階・せいべつ・れんあいタイプ・
@@ -10444,8 +10507,10 @@
   // ないので、でざいんとちがい ぜんぶ つねに えらべる
   function renderSeasonModeGrid() {
     const currentMode = state.lifetime.seasonMode || SEASON_MODE_AUTO;
+    if (el.seasonModeGrid.dataset.choiceMode === currentMode) return;
+    el.seasonModeGrid.dataset.choiceMode = currentMode;
     el.seasonModeGrid.innerHTML = SEASON_MODE_ORDER.map((mode) => {
-      const info = mode === SEASON_MODE_AUTO ? { emoji: '🕐', label: 'げんじつにあわせる' } : SEASON_INFO[mode];
+      const info = mode === SEASON_MODE_AUTO ? { emoji: '🕐', label: 'げんざい' } : SEASON_INFO[mode];
       const selected = mode === currentMode;
       return `<button type="button" class="theme-swatch ${selected ? 'selected' : ''}" data-id="${mode}"><span class="theme-swatch-circle">${info.emoji}</span><span class="theme-swatch-label">${info.label}</span></button>`;
     }).join('');
@@ -11345,7 +11410,10 @@
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
-    const chip = (c) => `<span class="companion-chip-small" title="${c.name}">${companionVisualHTML(c, 'companion')}</span>`;
+    const chip = (c) => `<span class="companion-chip-small" title="${escapeHtml(c.name)}">${companionVisualHTML(c, 'companion')}</span>`;
+    const key = recruited.map(c => c.id + ':' + (c.asset || c.emoji)).join('|');
+    if (key === companionRenderKey) return;
+    companionRenderKey = key;
     el.companionLeft.innerHTML = left.map(chip).join('');
     el.companionRight.innerHTML = right.map(chip).join('');
   }
@@ -11360,9 +11428,123 @@
       el.partnerCompanion.innerHTML = '';
       return;
     }
+    const key = JSON.stringify([p.id,p.label,p.emoji,p.married]);
+    if (key === el.partnerCompanion.dataset.visualKey && el.partnerCompanion.innerHTML) return;
+    el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
       `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
+  }
+
+  let companionRenderKey = null;
+  let homeCastLayoutKey = '';
+  const failedCastAssets = new Set();
+  let currentLocationIntent = 0;
+  const TIME_CHOICES = {auto:['🕐','げんざい'],morning:['🌅','あさ'],day:['☀️','ひる'],evening:['🌇','ゆう'],night:['🌙','よる']};
+  const WEATHER_CHOICES = {auto:['📍','げんざい'],sunny:['☀️','はれ'],cloudy:['☁️','くもり'],rain:['🌧️','あめ'],snow:['❄️','ゆき']};
+  let environmentRequested = false;
+  let environmentRequestedAt = 0;
+  const environmentTracker = window.NaotocchiEnvironment?.createTracker({
+    geolocation: navigator.geolocation,
+    fetcher: typeof window.fetch === 'function' ? window.fetch.bind(window) : undefined,
+    now: () => Date.now(),
+    onChange: () => renderEnvironment(),
+  });
+
+  function renderHomeCast() {
+    if (!window.NaotocchiCast) return;
+    const width = Math.floor(el.castStage.getBoundingClientRect().width);
+    if (width < 240) return;
+    const main = currentVisualStage();
+    const p = state.partner;
+    const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[p?.id] || p?.id;
+    const partnerAsset = WORLD_MASTER?.partners?.find(def => def.id === partnerId)?.asset;
+    const recruited = state.companions.map(sc => allCompanionsById(sc.id)).filter(Boolean);
+    const asset = path => path && !failedCastAssets.has(path) ? path : null;
+    const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
+    const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
+    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset))};
+    const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
+    if (key === homeCastLayoutKey) return;
+    homeCastLayoutKey = key;
+    const layout = window.NaotocchiCast.layoutCast(args);
+    const place = (node,frame) => {
+      if (!node || !frame) return;
+      node.style.left = frame.x + 'px'; node.style.top = frame.y + 'px';
+      node.style.width = frame.w + 'px'; node.style.height = frame.h + 'px';
+      node.style.fontSize = Math.floor(frame.w * .8) + 'px';
+    };
+    el.castStage.style.height = layout.height + 'px';
+    place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
+    const left=el.companionLeft.children,right=el.companionRight.children;
+    layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
+    if (layout.partner) el.partnerCompanion.querySelectorAll('.partner-heart').forEach((node,i)=>{
+      const frame=layout.hearts[i];
+      place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
+    });
+  }
+
+  function selectDesignPanel(panel) {
+    const screen = panel !== 'device';
+    el.designScreenPanel.hidden = !screen; el.designDevicePanel.hidden = screen;
+    el.designScreenTab.setAttribute('aria-pressed',String(screen));
+    el.designDeviceTab.setAttribute('aria-pressed',String(!screen));
+  }
+
+  function renderEnvironmentChoices(grid,choices,mode) {
+    if (grid.dataset.choiceMode === mode) return;
+    grid.dataset.choiceMode = mode;
+    grid.innerHTML = Object.entries(choices).map(([id,[emoji,label]])=>
+      `<button type="button" class="theme-swatch ${id === mode ? 'selected' : ''}" data-id="${id}" aria-pressed="${id === mode}"><span class="theme-swatch-circle">${emoji}</span><span class="theme-swatch-label">${label}</span></button>`).join('');
+  }
+
+  function renderEnvironment() {
+    const snapshot = environmentTracker?.snapshot();
+    const mode = TIME_CHOICES[state.lifetime.timeMode] ? state.lifetime.timeMode : 'auto';
+    const time = window.NaotocchiEnvironment?.timeOfDay(mode) || 'day';
+    const weatherMode = WEATHER_CHOICES[state.lifetime.weatherMode] ? state.lifetime.weatherMode : 'auto';
+    const observed = snapshot?.weather;
+    const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
+    const weather = weatherMode === 'auto' ? (fresh ? observed.mode : null) : weatherMode;
+    el.screen.dataset.time = time;
+    el.screen.dataset.weather = weather || 'unknown';
+    const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') : 'てんき 未取得';
+    el.environmentLabel.textContent = `${TIME_CHOICES[time].join(' ')}・${weatherText}`;
+    const city = snapshot?.municipality?.display;
+    const locationLabel = `げんざいち　${city || '未取得'}`;
+    el.worldLocationLabel.textContent = locationLabel;
+    el.currentLocationBtn.textContent = `📍${locationLabel}`;
+    if (state.lifetime.currentLocationSelected && state.regionId === 'home') el.regionLabel.textContent = `📍${locationLabel}`;
+    const loading = snapshot?.status === 'loading';
+    el.locationRefreshBtn.disabled = loading;
+    el.currentLocationBtn.disabled = loading;
+    const status = loading ? '現在地とてんきを取得しています…' : snapshot?.error || (city || weather ?
+      `${city ? locationLabel : ''}${city && weather ? '・' : ''}${weather ? weatherText : ''}` : '現在地を取得すると、近くのてんきにあわせられます。');
+    el.environmentStatus.textContent = status;
+    el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで取得できます。');
+    if (worldOpen) {
+      renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode);
+      renderSeasonModeGrid();
+      renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode);
+    }
+    maybeRefreshEnvironment();
+  }
+
+  function requestEnvironment() {
+    environmentRequested = true;
+    environmentRequestedAt = Date.now();
+    if (!environmentTracker) {
+      el.environmentStatus.textContent = '現在地を取得できませんでした。もう一度ページを開いてください。';
+      return Promise.resolve(null);
+    }
+    return environmentTracker.request();
+  }
+
+  function maybeRefreshEnvironment() {
+    if (!environmentRequested || document.visibilityState !== 'visible' || Date.now()-environmentRequestedAt < 15*60*1000) return;
+    const status = environmentTracker?.snapshot().status;
+    if (status !== 'ready' && status !== 'partial') return;
+    if (state.lifetime.weatherMode === 'auto' || state.lifetime.currentLocationSelected) requestEnvironment();
   }
 
   // まだ 1どでも であった ことの ない れんくんは、こうほに まぎれても
@@ -22152,6 +22334,10 @@
 
   function startMinigame(game) {
     gameActive = true;
+    el.device.classList.add('ui-game-active');
+    el.menuBtn.disabled = true;
+    el.profileBtn.disabled = true;
+    el.commBtn.disabled = true;
     // render() も おなじ じょうけんで これを セットしなおすが、つぎの
     // render() が よばれるまでの わずかな あいだも きせつの ぜんけい
     // エフェクトが えきしょうの てまえに のこらないよう、ここで すぐに とめる
@@ -22870,49 +23056,49 @@
     }
   }));
 
-  // まいかい ちがう 地域が でるよう、今の 地域を のぞいて 抽選する
-  // 「🌍 せかい」ボタンは、以前の「🧳 たび」の その場じっこうを やめて、
-  // まず「せかい」がめん(きせつを かえる/たびに でる の いりぐち)を
-  // ひらくだけに する。たびの じっこう ロジックじたいは worldTravelBtn に
-  // そのまま うつした(内容は へんこう なし)
-  el.travelBtn.addEventListener('click', () => openExclusiveMenu('world'));
-
-  el.worldCloseBtn.addEventListener('click', () => {
-    worldOpen = false;
-    render();
-  });
-
-  el.worldSeasonMenuBtn.addEventListener('click', () => {
-    closeAllMenuOverlays();
-    seasonOpen = true;
-    render();
-  });
-
-  el.seasonCloseBtn.addEventListener('click', () => {
-    closeAllMenuOverlays();
-    worldOpen = true;
-    render();
-  });
-
+  el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
+  el.menuCloseBtn.addEventListener('click', () => { menuOpen = false; render(); });
+  el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
+  el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
+  el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
+  el.worldCloseBtn.addEventListener('click', () => { worldOpen = false; render(); });
+  el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
   el.seasonModeGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectSeasonMode(btn.dataset.id);
+    if (btn) selectSeasonMode(btn.dataset.id);
   });
-
-  // 「🧳 たびに でる」は、以前は 押した しゅんかんに ランダムな 地域へ
-  // その場で 移動していたが、いまは いちど「たびに でる」がめん(地域の
-  // いちらん)を ひらき、行きたい 場所を えらんで タップする かたちに した
-  el.worldTravelBtn.addEventListener('click', () => {
-    closeAllMenuOverlays();
-    travelOpen = true;
-    render();
+  el.timeModeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (btn && TIME_CHOICES[btn.dataset.id]) { state.lifetime.timeMode = btn.dataset.id; saveState(); renderEnvironment(); }
   });
-
-  el.travelCloseBtn.addEventListener('click', () => {
-    closeAllMenuOverlays();
-    worldOpen = true;
-    render();
+  el.weatherModeGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.theme-swatch');
+    if (!btn || !WEATHER_CHOICES[btn.dataset.id]) return;
+    state.lifetime.weatherMode = btn.dataset.id; saveState(); renderEnvironment();
+    if (btn.dataset.id === 'auto') requestEnvironment();
+  });
+  el.locationRefreshBtn.addEventListener('click', requestEnvironment);
+  el.currentLocationBtn.addEventListener('click', async () => {
+    const intent = ++currentLocationIntent;
+    const info = await requestEnvironment();
+    if (intent !== currentLocationIntent || !travelOpen || !info?.municipality) return;
+    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
+    if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
+    // The real municipality labels the home region; it is never invented as a
+    // new biome or allowed to unlock special regions/region achievements.
+    if (state.regionId !== 'home') travelToRegion(findRegion('home'));
+    else closeAllMenuOverlays();
+    state.lifetime.currentLocationSelected = true;
+    saveState(); render();
+  });
+  el.designScreenTab.addEventListener('click', () => selectDesignPanel('screen'));
+  el.designDeviceTab.addEventListener('click', () => selectDesignPanel('device'));
+  el.fontSelect.addEventListener('change', () => {
+    if (!['rounded','standard','retro'].includes(el.fontSelect.value)) return;
+    state.lifetime.fontStyle = el.fontSelect.value; saveState(); render();
+  });
+  el.textSizeSelect.addEventListener('change', () => {
+    state.lifetime.textSize = el.textSizeSelect.value === 'large' ? 'large' : 'normal'; saveState(); render();
   });
 
   // えらんだ 地域へ じっさいに たびに でる。げんき/まんぷく/きげんの
@@ -22920,6 +23106,8 @@
   // ランダム移動時と まったく おなじ ロジックで、行き先だけが
   // 「ランダムに えらばれた もの」から「タップで えらんだ もの」に かわった
   function travelToRegion(region) {
+    if (!region) return;
+    currentLocationIntent += 1;
     // たびの けっかは 「せかい」がめんの うえではなく、もとの 基本がめんの
     // メッセージらんに 出す ので、じっこうまえに がめんを とじておく。
     // どちらの ぶんき(ねている/じっさいに たびに でる)でも さいごに
@@ -22941,6 +23129,7 @@
       render();
       return;
     }
+    state.lifetime.currentLocationSelected = false;
     const specialRewardTrip = (state.items.reward || 0) > 0 && window.confirm('🎁ごほうびを1こ使って、とくべつな旅にしますか？');
     if (specialRewardTrip) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
     state.affectionStreak = 0;
@@ -23143,15 +23332,21 @@
     ].map((t) => `<div>${t}</div>`).join('');
     el.wipeOverlay.classList.remove('hidden');
   });
-  el.wipeCancelBtn.addEventListener('click', () => el.wipeOverlay.classList.add('hidden'));
+  function cancelWipePrompt() {
+    el.wipeOverlay.classList.add('hidden');
+    el.wipeBtn.focus({ preventScroll: true });
+  }
+  function cancelWipeConfirmation() {
+    cancelWipeHold();
+    el.wipeConfirmOverlay.classList.add('hidden');
+    el.wipeBtn.focus({ preventScroll: true });
+  }
+  el.wipeCancelBtn.addEventListener('click', cancelWipePrompt);
   el.wipeNextBtn.addEventListener('click', () => {
     el.wipeOverlay.classList.add('hidden');
     el.wipeConfirmOverlay.classList.remove('hidden');
   });
-  el.wipeConfirmCancelBtn.addEventListener('click', () => {
-    cancelWipeHold();
-    el.wipeConfirmOverlay.classList.add('hidden');
-  });
+  el.wipeConfirmCancelBtn.addEventListener('click', cancelWipeConfirmation);
 
   const WIPE_HOLD_MS = 3000;
   let wipeHoldTimer = null;
@@ -23296,7 +23491,7 @@
     render();
   });
 
-  el.achBtn.addEventListener('click', () => openExclusiveMenu('ach'));
+  el.achBtn.addEventListener('click', () => { achTab = 'ach'; openExclusiveMenu('ach'); });
 
   el.achCloseBtn.addEventListener('click', () => {
     achOpen = false;
@@ -23852,7 +24047,7 @@
     // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
     // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
     // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (isAnyMenuOverlayOpen()) return;
+    if (isAnyMenuOverlayOpen()) { renderEnvironment(); return; }
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
@@ -23905,5 +24100,25 @@
   });
   window.addEventListener('beforeunload', () => {
     saveState();
+  });
+  if (typeof ResizeObserver === 'function') new ResizeObserver(renderHomeCast).observe(el.castStage);
+  else window.addEventListener('resize', renderHomeCast);
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!el.wipeConfirmOverlay.classList.contains('hidden')) {
+      e.preventDefault();
+      cancelWipeConfirmation();
+      return;
+    }
+    if (!el.wipeOverlay.classList.contains('hidden')) {
+      e.preventDefault();
+      cancelWipePrompt();
+      return;
+    }
+    if (dateOpen || duelOpen || companionInviteOpen || gameActive || state.transformOptions) return;
+    if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
   });
 })();
