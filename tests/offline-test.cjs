@@ -11,17 +11,24 @@ test('a short absence changes nothing', () => {
   assert.equal(state.hunger, 80);
 });
 
-test('twenty minutes away lowers stats gently, never below the floor, and leaves coins', () => {
+test('ten minutes away lowers stats gently and leaves coins', () => {
   const h = harness(), state = h.api.state();
-  state.stage = 'growing'; state.savedAt = 1000 - 20 * MIN; state.hunger = 90; state.happiness = 90; state.energy = 90; state.isSleeping = false;
+  state.stage = 'growing'; state.savedAt = 1000 - 10 * MIN; state.hunger = 100; state.happiness = 100; state.energy = 100; state.isSleeping = false;
   const money = state.lifetime.money, log = state.lifeLog.length;
   const r = h.api.applyOfflineProgress(1000);
-  assert.equal(r.ticks, 400);
-  assert.ok(Math.abs(state.hunger - (90 - 0.25 * 400)) < 0.01, 'hunger dropped by the tick budget: ' + state.hunger);
-  assert.ok(state.hunger >= 20 && state.happiness >= 20 && state.energy >= 20, 'floors hold');
-  assert.equal(state.lifetime.money, money + 4, 'one coin per five minutes');
+  assert.equal(r.ticks, 200);
+  assert.ok(Math.abs(state.hunger - 50) < 0.01, 'hunger dropped by 0.25 per tick: ' + state.hunger);
+  assert.ok(Math.abs(state.energy - 70) < 0.01, 'energy dropped by 0.15 per tick: ' + state.energy);
+  assert.equal(state.lifetime.money, money + 2, 'one coin per five minutes');
   assert.equal(state.lifeLog.length, log + 1);
   assert.equal(state.ageTicks, 500, 'age does not pass while closed');
+});
+
+test('stats never drop below the floor even when the drift exceeds them', () => {
+  const h = harness(), state = h.api.state();
+  state.stage = 'growing'; state.savedAt = 1000 - 25 * MIN; state.hunger = 90; state.happiness = 30; state.energy = 90;
+  h.api.applyOfflineProgress(1000);
+  assert.equal(state.hunger, 20); assert.equal(state.happiness, 20);
 });
 
 test('a long absence is capped at thirty minutes of drift and cannot endanger a low pet', () => {
