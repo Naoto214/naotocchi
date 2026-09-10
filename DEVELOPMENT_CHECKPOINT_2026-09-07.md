@@ -1766,3 +1766,9 @@ Runtime smoke test SUCCESS確認済み。
 - きょうの チャレンジ: `dailyStreakReward(streak)` = 10 + 5×min(streak−1, 10) + 節目ボーナス(3:30 / 7:100 / 14:200 / 30:500)。
 - テスト: `tests/economy-test.cjs`(価格合計、重複購入の拒否、おかね不足、ラッキーコインの消費、ストリーク報酬)。
 
+## チェックポイント BN — 40〜70さいの できごと と 日常の ストーリーイベント(2026-09-10)
+- `STORY_EVENT_POOLS` に feed / pet / travel / court / wake を追加(計23行)。`checkStoryEvents()` の呼び出しを ごはん(たべすぎ以外)・じゃれる(連打以外)・おきる・たびの到着・きゅうあい成功 に追加(発火率は既存の `STORY_EVENT_CHANCE`)。
+- `MIDLIFE_EVENTS`(44/50/56/62/66さい): `onBirthday()` → `maybeMidlifeEvent(age)` が `state.midlifeSeen` で1回ずつ。こいびとがいれば `pair` 文。効果: きげん/せいちょう/おとろえ/おかね、66さいは たびのおまもり(`travelGuarantee`)。`pushLifeLog` と `showStoryEvent`。
+- でんせつのであい: `maybeLegendEncounter()` の条件を `hasPerk(70)` に(`SODACHI_PERKS` 70/90 の説明も更新)。dialogue-test の「growth below 90」を 70 に。
+- テスト: `tests/midlife-test.cjs`(プールの存在、1回だけ発火・ログ・おまもり、onAgeChanged 経由)。
+

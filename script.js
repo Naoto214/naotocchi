@@ -104,9 +104,9 @@
     40: { emoji: '🐾', name: 'なかまのわ', coins: 150, desc: 'なかまとであいやすくなり、きずながきれにくくなった' },
     50: { emoji: '💐', name: 'こいのきざし', coins: 250, desc: 'きゅうあいがうまくいきやすくなった。「せかい」からデートにもさそえる' },
     60: { emoji: '🗝️', name: 'へんしんのちから', coins: 400, desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
-    70: { emoji: '🧭', name: 'たびだち', coins: 600, desc: 'コインと旅のごきげんがふえやすくなった。とくべつな旅先もひらいた' },
+    70: { emoji: '🧭', name: 'たびだち', coins: 600, desc: 'コインと旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」がおきる' },
     80: { emoji: '🌈', name: 'レアのきざし', coins: 900, desc: 'へんしんのこうほにレアがまざりやすくなり、レアななかまともであえるようになった' },
-    90: { emoji: '✨', name: 'でんせつ', coins: 1400, desc: 'きんいろのオーラをまとった。でんせつのゆめをもらい、いつか「でんせつのであい」がおきる' },
+    90: { emoji: '✨', name: 'でんせつ', coins: 1400, desc: 'きんいろのオーラをまとった。でんせつのゆめをもらい、ステータスの自然減がゆるやかになった' },
     100: { emoji: '👑', name: 'さいこうのそだち', coins: 3000, desc: 'にじのオーラをまとい、さいこうのそだちにたどりついた' },
   };
 
@@ -1320,6 +1320,8 @@
       legendMet: false,
       // この子の 人生の きろく
       lifeLog: [],
+      // 40〜70さいの あいだに 1かいずつ おきる「ちゅうねんの できごと」の ねんれい
+      midlifeSeen: [],
       // ♾️ の せかい(パーフェクトクリア後の 自由モード)
       infinite: false,
       infiniteForm: null,
@@ -5494,6 +5496,39 @@
   // means the game keeps reacting to what's actually going on instead of
   // going quiet after every pool is used up once
   const STORY_EVENT_POOLS = {
+    "feed": [
+      { "emoji": "🍚", "message": "ひとくちめを、いつもよりゆっくり味わっていた" },
+      { "emoji": "🥢", "message": "たべおわって、おさらをそっとよせた" },
+      { "emoji": "😋", "message": "いちばんおいしいところを、さいごまでとっておいた" },
+      { "emoji": "🍽️", "message": "たべながら、まどのそとをぼんやりながめていた" },
+      { "emoji": "🫶", "message": "ごちそうさま、と小さくつぶやいた" }
+    ],
+    "pet": [
+      { "emoji": "🤗", "message": "なでられて、目をほそめた" },
+      { "emoji": "🎈", "message": "はしゃぎすぎて、ちょっとつまずいた" },
+      { "emoji": "🐾", "message": "あそんだあと、そっとよりそってきた" },
+      { "emoji": "😆", "message": "くすぐったそうに、ころんとねころがった" },
+      { "emoji": "💭", "message": "あそびのとちゅうで、ふと何かを思い出したような顔をした" }
+    ],
+    "travel": [
+      { "emoji": "🧳", "message": "たびさきのにおいを、すんすんとかいでいた" },
+      { "emoji": "📷", "message": "きれいなけしきを見て、しばらく立ちどまっていた" },
+      { "emoji": "🗺️", "message": "みちにまよいかけて、でもすぐに見つけた" },
+      { "emoji": "🍡", "message": "たびさきのおやつを、ひとつだけ買ってみた" },
+      { "emoji": "🌄", "message": "たびのおわりに、おうちのことをすこし考えていた" }
+    ],
+    "court": [
+      { "emoji": "💐", "message": "はなをわたしたあと、てれてそっぽを向いた" },
+      { "emoji": "💌", "message": "うまく言えなかったけれど、きもちはつたわったみたいだ" },
+      { "emoji": "🌙", "message": "ふたりでしばらく、おなじ空を見ていた" },
+      { "emoji": "🎶", "message": "かえりみち、小さく鼻歌をうたっていた" }
+    ],
+    "wake": [
+      { "emoji": "🌅", "message": "目をこすって、大きくのびをした" },
+      { "emoji": "☕", "message": "おきぬけに、まどをあけて風をいれた" },
+      { "emoji": "💤", "message": "ゆめのつづきを、しばらく思い出そうとしていた" },
+      { "emoji": "🐦", "message": "ことりのこえで、きげんよく目がさめた" }
+    ],
     "evolve": [
       {
         "emoji": "📈",
@@ -8488,7 +8523,8 @@
   // なにかの がめんを ひらいている あいだは おきない(みのがす のが
   // いちばん もったいない イベントな ため)
   function maybeLegendEncounter() {
-    if (!hasPerk(90) || state.legendMet || state.infinite) return;
+    // そだち70(たびだち)から でんせつに あえる(以前は 90 で、ほとんどの いっしょうで おきなかった)
+    if (!hasPerk(70) || state.legendMet || state.infinite) return;
     if (state.stage !== STAGE.GROWING || gameActive || state.isSleeping) return;
     if (state.transformOptions || pendingCompanionId || isAnyMenuOverlayOpen()) return;
     if (Math.random() >= LEGEND_ENCOUNTER_CHANCE) return;
@@ -9233,10 +9269,38 @@
 
   // 1さいごと: ちいさな トースト。5さいごと: すこし にぎやか。
   // 10さいごと: 「としの おくりもの」(そだち30で 解禁)
+  // 40〜70さいは すがたの かわりめが 18分・30分と あいて、なにも おきない
+  // じかんが ながかった。その あいだを うめる、1かいずつの ちいさな できごと
+  const MIDLIFE_EVENTS = [
+    { age: 44, emoji: '🎣', solo: 'しゅみを見つけた。しずかな時間がすきになった', pair: 'ふたりでしゅみをはじめた。しずかな時間をわけあった', happiness: 10, growth: 6 },
+    { age: 50, emoji: '🎂', solo: '50さいのおいわい。とおくから手紙がとどいた', pair: '50さいのおいわい。なかまとこいびとがあつまった', happiness: 8, money: 150 },
+    { age: 56, emoji: '📚', solo: 'むかしのアルバムをひらいた。わらっている自分がいた', pair: 'むかしのアルバムをふたりでひらいた。わらっている自分たちがいた', happiness: 6, decline: -10 },
+    { age: 62, emoji: '🌻', solo: 'にわに小さな花をうえた。あしたが少したのしみになった', pair: 'ふたりでにわに花をうえた。あしたが少したのしみになった', happiness: 6, growth: 8 },
+    { age: 66, emoji: '🧳', solo: 'ちいさなたびの計画をたてた。つぎのたびはきっといい日になる', pair: 'ふたりでたびの計画をたてた。つぎのたびはきっといい日になる', money: 100, travelCharm: true },
+  ];
+  function maybeMidlifeEvent(age) {
+    const ev = MIDLIFE_EVENTS.find((e) => e.age === age);
+    if (!ev || state.stage !== STAGE.GROWING || state.infinite) return false;
+    const seen = state.midlifeSeen || (state.midlifeSeen = []);
+    if (seen.includes(age)) return false;
+    seen.push(age);
+    const text = state.partner ? ev.pair : ev.solo;
+    if (ev.happiness) state.happiness = clamp(state.happiness + ev.happiness, 0, 100);
+    if (ev.money) state.lifetime.money += ev.money;
+    if (ev.growth) applyGrowth(ev.growth, { silent: true });
+    if (ev.decline) applyDecline(ev.decline);
+    if (ev.travelCharm) state.oneTimeBoosts.travelGuarantee = true;
+    const extra = [ev.money ? `💰+${ev.money}` : '', ev.travelCharm ? '🧭たびのおまもりをもらった' : ''].filter(Boolean).join(' ');
+    pushLifeLog(ev.emoji, `${age}さい ${text}`);
+    showStoryEvent({ emoji: ev.emoji, petReaction: true, message: `${text}${extra ? '\n' + extra : ''}` });
+    return true;
+  }
+
   function onBirthday(age) {
     applyGrowth(2, { silent: true });
     celebrateAgeSpeech(age);
     applyDecline(-5, { silent: true });
+    maybeMidlifeEvent(age);
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
     if (age % 10 === 0 && Math.random() < (isEquipped('itemluck1') ? 0.32 : 0.25)) {
@@ -14086,6 +14150,7 @@
     if (!checkMeters()) {
       setMessage(randomActionMessage('feed'));
       speakEvent('feed');
+      checkStoryEvents('feed');
     }
     emotePet('happy');
   }));
@@ -14224,6 +14289,7 @@
     if (!checkMeters()) {
       setMessage(randomActionMessage('wake'));
       speakEvent('wake');
+      checkStoryEvents('wake');
     }
     emotePet('happy');
   }));
@@ -14319,6 +14385,7 @@
       // 状態変化の事実通知が必要な場面だけ setMessage() を使う。
       setMessage('');
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
+      if (!spammed) checkStoryEvents('pet');
     }
     emotePet(spammed ? 'angry' : 'happy');
   }));
@@ -14444,6 +14511,7 @@
         // 恋人への日常的ないちゃつきは、客観説明を重ねず会話だけで見せる。
         setMessage('');
         speakEvent('court', { petText: reaction, partnerChance: 0.9, companionChance: 0.35 });
+        checkStoryEvents('court');
       }
       emotePet('love');
       return;
@@ -14704,6 +14772,7 @@
     let reaction = pickReaction(region.lines, lastTravelReaction);
     lastTravelReaction = reaction;
     speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
+    checkStoryEvents('travel');
     if (hasNaotoItem('naoto_lantern') && Math.random() < 0.18) reaction += ' 🏮みちのさきにふしぎなあかりがひとつみえた。';
     if (!checkMeters()) {
       if (specialRewardTrip) {
