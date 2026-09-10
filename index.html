@@ -2,9 +2,10 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260910-date-reward-bu-1">
+  <link rel="stylesheet" href="ui.css?v=20260910-ui-1">
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
@@ -15,7 +16,13 @@
       <div class="lamp" id="lamp"></div>
     </div>
 
-    <div class="name-plate">なおとっち</div>
+    <header class="device-header">
+      <div class="name-plate">なおとっち</div>
+      <div class="header-actions">
+        <button type="button" class="header-button hidden" id="profileBtn" title="データ">👤<span>データ</span></button>
+        <button type="button" class="header-button hidden" id="commBtn" title="つうしん">✉️<span>つうしん</span></button>
+      </div>
+    </header>
 
     <div class="screen-frame">
       <div class="screen" id="screen">
@@ -25,7 +32,7 @@
             <span id="sodachiLabel">そだち: 20</span>
             <span id="moneyLabel">💰 0</span>
           </div>
-          <div class="stage-name-row"><span id="stageLabel">たまご</span></div>
+
 
           <div class="birthday-toast hidden" id="birthdayToast"></div>
           <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
@@ -35,14 +42,16 @@
               <span id="seasonLabel"></span>
               <span id="regionLabel"></span>
             </div>
-            <span id="partnerLabel"></span>
+            <span id="environmentLabel"></span>
           </div>
 
+          <div class="cast-heading">
+            <div class="cast-names"><div id="mainNameLabel">たまご</div><div id="partnerLabel"></div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
+            <div class="cast-badges"><div class="badges" id="badges"></div><div class="ending-badges" id="endingBadges"></div></div>
+            <div class="ending-badge-tip hidden" id="endingBadgeTip" role="status"></div>
+          </div>
           <div class="pet-area" id="petArea">
-            <div class="badges" id="badges"></div>
-            <div class="ending-badges" id="endingBadges"></div>
-            <div class="ending-badge-tip hidden" id="endingBadgeTip"></div>
-            <div class="pet" id="pet">
+            <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="pet" id="pet">
               <span class="companion-side left" id="companionLeft"></span>
               <span class="pet-core">
                 <span class="partner-companion hidden" id="partnerCompanion"></span>
@@ -50,31 +59,30 @@
                 <span class="pet-accessory hidden" id="petAccessory"></span>
               </span>
               <span class="companion-side right" id="companionRight"></span>
-            </div>
-            <div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
+            </div></div></div>
+            <div class="speech-slot"><div class="speech-bubble hidden" id="speechBubble" role="status" aria-live="polite">
               <span class="speech-speaker" id="speechSpeaker"></span>
               <span class="speech-text" id="speechText"></span>
-            </div>
+            </div></div>
             <div class="poop-row" id="poopRow"></div>
-            <button class="profile-icon-btn comm-icon-btn hidden" id="commBtn" title="つうしん">✉️</button>
-            <button class="profile-icon-btn hidden" id="profileBtn" title="プロフィール">👤</button>
+
           </div>
 
           <div class="bars">
             <div class="bar-line">
-              <span class="bar-label">おなか</span>
+              <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
               <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">ごきげん</span>
+              <span class="bar-label">ごきげん</span><span class="bar-value" id="happinessValue">0</span>
               <div class="bar"><div class="bar-fill happiness" id="happinessBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">げんき</span>
+              <span class="bar-label">げんき</span><span class="bar-value" id="energyValue">0</span>
               <div class="bar"><div class="bar-fill energy" id="energyBar"></div></div>
             </div>
             <div class="bar-line">
-              <span class="bar-label">けんこう</span>
+              <span class="bar-label">けんこう</span><span class="bar-value" id="healthValue">0</span>
               <div class="bar"><div class="bar-fill health" id="healthBar"></div></div>
             </div>
           </div>
@@ -83,21 +91,25 @@
             <div class="bar-line">
               <span class="bar-label">せいちょう</span>
               <div class="bar"><div class="bar-fill evo" id="evoBar"></div></div>
+              <span class="bar-value" id="evoValue">0 / 100</span>
             </div>
             <div class="bar-line">
               <span class="bar-label">おとろえ</span>
               <div class="bar"><div class="bar-fill devo" id="devoBar"></div></div>
+              <span class="bar-value" id="devoValue">0 / 100</span>
             </div>
             <div class="bar-line">
               <span class="bar-label">いのち</span>
               <div class="bar"><div class="bar-fill death" id="deathBar"></div></div>
+              <span class="bar-value" id="deathValue">0 / 100</span>
             </div>
             <div class="bar-line">
               <span class="bar-label">へんしん</span>
               <div class="bar"><div class="bar-fill transform" id="transformBar"></div></div>
+              <span class="bar-value" id="transformValue">0 / 100</span>
             </div>
             <div class="bar-line">
-              <span class="bar-label">ひゃくさいまで</span>
+              <span class="bar-label">100さいまで</span>
               <div class="bar"><div class="bar-fill goal" id="goalBar"></div></div>
               <span class="bar-value" id="goalValue">0 / 100</span>
             </div>
@@ -190,24 +202,21 @@
             <span class="dex-progress" id="themeProgress">0 / 80</span>
             <button class="dex-close-btn" id="themeCloseBtn">✕</button>
           </div>
+          <div class="design-tabs" aria-label="デザインするところ">
+            <button type="button" id="designScreenTab" aria-pressed="true">がめん</button>
+            <button type="button" id="designDeviceTab" aria-pressed="false">ほんたい</button>
+          </div>
           <div class="theme-scroll">
-            <div class="theme-section">
-              <div class="theme-section-title">ほんたいのいろ</div>
-              <div class="theme-grid" id="deviceThemeGrid"></div>
+            <div id="designScreenPanel">
+              <div class="theme-section"><div class="theme-section-title">がめんのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">がめんのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
+              <div class="design-font-row"><label for="fontSelect">文字のテイスト</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
+              <div class="design-font-row"><label for="textSizeSelect">文字の大きさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">大きめ</option></select></div>
             </div>
-            <div class="theme-section">
-              <div class="theme-section-title">ほんたいのがら</div>
-              <div class="theme-grid" id="devicePatternGrid"></div>
+            <div id="designDevicePanel" hidden>
+              <div class="theme-section"><div class="theme-section-title">ほんたいのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">ほんたいのがら</div><div class="theme-grid" id="devicePatternGrid"></div></div>
             </div>
-            <div class="theme-section">
-              <div class="theme-section-title">がめんのいろ</div>
-              <div class="theme-grid" id="screenThemeGrid"></div>
-            </div>
-            <div class="theme-section">
-              <div class="theme-section-title">がめんのがら</div>
-              <div class="theme-grid" id="screenPatternGrid"></div>
-            </div>
-
           </div>
         </div>
 
@@ -319,32 +328,25 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="worldOverlay">
-          <div class="dex-header">
-            <span class="dex-title">せかい</span>
-            <button class="dex-close-btn" id="worldCloseBtn">✕</button>
-          </div>
-          <div class="profile-scroll">
-            <div class="profile-section">
-              <div class="profile-hint">なおとっちがくらす「せかい」のきせつや、いまいるばしょをここからかえられます</div>
-              <button class="profile-code-btn" id="worldSeasonMenuBtn">🌸きせつをかえる</button>
-              <button class="profile-code-btn" id="worldTravelBtn">🧳たびにでる</button>
-              <button class="profile-code-btn" id="worldDateBtn">💞デートにさそう</button>
-              <div class="world-date-hint hidden" id="worldDateHint"></div>
-            </div>
+        <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー">
+          <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
+          <div class="menu-grid">
+            <button type="button" id="worldBtn">🌍<span>せかい</span><small>じかん・きせつ・てんき</small></button>
+            <button type="button" id="itemBtn">🎁<span>アイテム</span><small>もちもの・おみせ</small></button>
+            <button type="button" id="gamesBtn">🎮<span>ゲームを選ぶ</span><small>きろくからあそぶ</small></button>
+            <button type="button" id="dexBtn">📖<span>ずかん</span><small>であったすがた</small></button>
+            <button type="button" id="achBtn">🏅<span>じっせき</span><small>できたこと・おもいで</small></button>
+            <button type="button" id="themeBtn">🎨<span>デザイン</span><small>がめん・ほんたい</small></button>
           </div>
         </div>
-
-        <div class="dex-overlay hidden" id="seasonOverlay">
-          <div class="dex-header">
-            <span class="dex-title">きせつをかえる</span>
-            <button class="dex-close-btn" id="seasonCloseBtn">✕</button>
-          </div>
-          <div class="theme-scroll">
-            <div class="theme-section">
-              <div class="profile-hint">えらんだきせつは、自分でかえるまで続きます。「げんじつにあわせる」では、いまの月にあわせてきせつがかわります</div>
-              <div class="theme-grid" id="seasonModeGrid"></div>
-            </div>
+        <div class="dex-overlay hidden" id="worldOverlay">
+          <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
+          <div class="profile-scroll">
+            <div class="profile-hint">「げんざい」はスマホのじかん・きせつ・現在地のてんきにあわせます。</div>
+            <section class="profile-section"><h3>じかん</h3><div class="environment-choices" id="timeModeGrid"></div></section>
+            <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
+            <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
+            <div class="location-card"><div id="worldLocationLabel">げんざいち　未取得</div><p class="profile-hint" id="environmentStatus" role="status">現在地を取得すると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍現在地・てんきを取得</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気の取得に使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
         </div>
 
@@ -356,6 +358,8 @@
           <div class="theme-scroll">
             <div class="theme-section">
               <div class="profile-hint">行きたい場所をえらんでタップすると、その地域へたびにでられます</div>
+              <button type="button" class="profile-code-btn" id="currentLocationBtn">📍げんざいち</button>
+              <div class="profile-hint" id="travelLocationStatus" role="status"></div>
               <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
             <div class="theme-section hidden" id="travelSpecialSection">
@@ -367,7 +371,7 @@
 
         <div class="dex-overlay hidden" id="profileOverlay">
           <div class="dex-header">
-            <span class="dex-title">プロフィール</span>
+            <span class="dex-title">データ</span>
             <button class="dex-close-btn" id="profileCloseBtn">✕</button>
           </div>
           <div class="profile-scroll">
@@ -391,6 +395,8 @@
             <div class="profile-section" id="profilePartnerSection">
               <div class="profile-section-title">こいびと</div>
               <div id="profilePartnerCard"></div>
+              <button type="button" class="profile-code-btn date-invite-btn" id="worldDateBtn">💞デートにさそう</button>
+              <div class="world-date-hint hidden" id="worldDateHint"></div>
             </div>
             <div class="profile-section" id="profileCompanionSection">
               <div class="profile-section-title">なかま</div>
@@ -606,27 +612,29 @@
         </div>
       </div>
     </div>
-    <div class="buttons">
-      <button id="feedBtn" title="ごはん">🍚<br><span>ごはん</span></button>
-      <button id="playBtn" title="あそぶ">🎮<br><span>あそぶ</span></button>
-      <button id="cleanBtn" title="そうじ">🧹<br><span>そうじ</span></button>
-      <button id="sleepBtn" title="ねる">💤<br><span>ねる</span></button>
-      <button id="medicineBtn" title="くすり">💊<br><span>くすり</span></button>
-      <button id="playWithBtn" title="じゃれる">🤗<br><span>じゃれる</span></button>
-      <button id="itemBtn" title="あいてむ">🎁<br><span>あいてむ</span></button>
-      <button id="courtBtn" title="きゅうあいする">💘<br><span>きゅうあい</span></button>
-      <button id="travelBtn" title="せかい">🌍<br><span>せかい</span></button>
-      <button id="dexBtn" title="ずかん">📖<br><span>ずかん</span></button>
-      <button id="achBtn" title="じっせき">🏅<br><span>じっせき</span></button>
-      <button id="themeBtn" title="でざいん">🎨<br><span>でざいん</span></button>
-      <button id="resetBtn" title="あたらしいたまご" class="hidden">🥚<br><span>あたらしいたまご</span></button>
-      <button id="infiniteBtn" title="♾️のせかい" class="hidden"><span id="infiniteBtnIcon">♾️</span><br><span id="infiniteBtnLabel">♾️のせかい</span></button>
+    <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
+      <button id="feedBtn" title="ごはん">🍚<span>ごはん</span></button>
+      <button id="playBtn" title="あそぶ">🎮<span>あそぶ</span></button>
+      <button id="cleanBtn" title="そうじ">🧹<span>そうじ</span></button>
+      <button id="sleepBtn" title="ねる">💤<span>ねる</span></button>
+      <button id="medicineBtn" title="くすり">💊<span>くすり</span></button>
+      <button id="playWithBtn" title="じゃれる">🤗<span>じゃれる</span></button>
+      <button id="travelBtn" title="たび">🧭<span>たび</span></button>
+      <button id="courtBtn" title="きゅうあい">💘<span>きゅうあい</span></button>
+      <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
+    </nav>
+    <div class="life-actions">
+      <button id="resetBtn" title="あたらしいたまご" class="hidden">🥚<span>あたらしいたまご</span></button>
+      <button id="infiniteBtn" title="♾️のせかい" class="hidden"><span id="infiniteBtnIcon">♾️</span><span id="infiniteBtnLabel">♾️のせかい</span></button>
     </div>
   </div>
 
   <div class="season-front-fx" id="seasonFrontFx"></div>
 
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
-  <script src="script.js?v=20260910-post-release-bx-1"></script>
+  <script src="cast-bounds.js?v=20260910-ui-1"></script>
+  <script src="cast-layout.js?v=20260910-ui-1"></script>
+  <script src="world-environment.js?v=20260910-ui-1"></script>
+  <script src="script.js?v=20260910-ui-1"></script>
 </body>
 </html>

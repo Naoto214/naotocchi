@@ -89,6 +89,8 @@ const sandbox = {
   __spoken: spoken, __events: events, __clock: () => now,
 };
 const source = fs.readFileSync('script.js', 'utf8');
+sandbox.window.NaotocchiCast = require('../cast-layout.js');
+sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
 const expose = `
   const realSpeech = setSpeechBubble;
   setSpeechBubble = (text, speaker) => {
