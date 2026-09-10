@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -40,7 +40,9 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         if (!queries.has(selector)) queries.set(selector, node(selector));
         return queries.get(selector);
       },
-      querySelectorAll: selector => selector === 'button' ? el.children.filter(c => c.tagName === 'BUTTON') : [],
+      querySelectorAll: selector => selector === 'button' ? el.children.filter(c => c.tagName === 'BUTTON')
+        : /^\.mg-(drop-target|drag-item|bento-preview)$/.test(selector)
+          ? el.children.filter(c => c.isConnected && c.classList.contains(selector.slice(1))) : [],
       appendChild(child) { child.isConnected = true; el.children.push(child); return child; },
       animate(frames, options) {
         const animation = {frames, options, playState: 'running', cancel() {
@@ -73,6 +75,20 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         const btn = node(id); btn.tagName = 'BUTTON'; btn.textContent = label;
         for (const [, key, val] of attrs.matchAll(/\bdata-([\w-]+)="([^"]*)"/g)) btn.dataset[key] = val;
         el.children.push(btn); if (id) queries.set('#' + id, btn);
+      }
+      // These two DOM games need draggable/target metadata, not simulated layout.
+      for (const [, attrs, body] of String(value).matchAll(/<div\b([^>]*class="mg-(?:drop-target|drag-item|bento-preview)[^"]*"[^>]*)>([\s\S]*?)<\/div>/g)) {
+        const child = node(); child.innerHTML = body;
+        child.classList.add(...attrs.match(/class="([^"]*)"/)[1].split(/\s+/));
+        const key = attrs.match(/data-key="([^"]*)"/)?.[1];
+        if (key) child.dataset.key = key;
+        el.children.push(child);
+      }
+      const tray = String(value).match(/<div class="mg-drag-tray([^"]*)" id="mgTray">/);
+      if (tray) {
+        const child = node('mgTray');
+        child.classList.add('mg-drag-tray', ...tray[1].trim().split(/\s+/).filter(Boolean));
+        queries.set('#mgTray', child);
       }
     }});
     return new Proxy(el, {get: (obj, key) => key in obj ? obj[key] : noop});
@@ -126,6 +142,9 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
+      achievementIconHTML: (...args) => achievementIconHTML(...args),
+      minigameFoodHTML: (...args) => minigameFoodHTML(...args),
+      achievements: ACHIEVEMENTS, renderAchievements, checkAchievements,
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,
@@ -136,7 +155,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   `;
   vm.createContext(sandbox);
   vm.runInContext(master, sandbox);
-  vm.runInContext(source.replace(/\}\)\(\);\s*$/, expose + '\n})();'), sandbox);
+  const runtimeSource = foodIllustrations ? source : source.replace('foodIconHTML: minigameFoodHTML, ', '');
+  vm.runInContext(runtimeSource.replace(/\}\)\(\);\s*$/, expose + '\n})();'), sandbox);
   if (!resume) sandbox.lifecycle.reset();
   timers.clear();
   function advance(ms) {
