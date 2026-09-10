@@ -71,9 +71,12 @@ function createFixtures() {
       fixtures.badges_transparent=allBadges;
       for(const [name,season,region] of [
         ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
+        ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
+        ['scenery_memory_lake','summer','memory_lake'],
       ]) {
         const scene=make(name,26,{regionId:region,hunger:80,health:90,energy:80,happiness:80});
         Object.assign(scene.lifetime,{seasonMode:season,weatherMode:'sunny',timeMode:'day'});
+        if(region==='memory_lake')Object.assign(scene,{sodachi:75,maxSodachi:75});
       }
       for(const [name,season,weather,time] of [
         ['scenery_clouds','winter','cloudy','day'],['scenery_snow','winter','snow','night'],
@@ -188,6 +191,13 @@ function visualQaPlugin() {
                 style.textContent='.care-icon,#message[data-care-icon]::before{background-image:url("/__qa-missing-icon.png")!important}';
                 frame.contentDocument.head.append(style);
                 frame.contentDocument.querySelectorAll('img[data-icon-atlas]').forEach(img=>{img.src='/__qa-missing-icon.png';});
+                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset').forEach(img=>{
+                  if(img.dataset.qaOriginalSrc)return;
+                  img.dataset.qaOriginalSrc=img.getAttribute('src');img.src='/__qa-missing-icon.png';
+                });
+                const observer=new MutationObserver(failScenery);
+                observer.observe(frame.contentDocument.body,{childList:true,subtree:true});failScenery();
+                frame.contentWindow.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
               },{once:true});
               frame.width=document.getElementById('width').value;frame.height=document.getElementById('height').value;frame.src='/';mount.append(frame);
               document.getElementById('result').textContent='Loaded '+document.getElementById('scene').value;
@@ -203,6 +213,13 @@ function visualQaPlugin() {
             const chips=[...doc.querySelectorAll('.companion-chip-small')];
             const outside=chips.filter(e=>{const r=e.getBoundingClientRect();return r.width>0&&(r.left<area.left||r.right>area.right||r.top<area.top||r.bottom>area.bottom)});
             const images=[...doc.images].filter(e=>e.getBoundingClientRect().width>0);
+            // Keep failed/hidden PNGs in the report after their emoji appears.
+            const sceneryPictures=[...doc.querySelectorAll('.scenery-picture')].map(wrapper=>{
+              const img=wrapper.querySelector('img'),rect=wrapper.getBoundingClientRect();
+              return {src:img.getAttribute('src'),originalSrc:img.dataset.qaOriginalSrc||null,
+                complete:img.complete,loaded:img.complete&&img.naturalWidth>0,
+                fallback:wrapper.classList.contains('asset-failed'),width:rect.width,height:rect.height};
+            });
             // CSS sprite sheets are not doc.images. Track their actual URLs so
             // a failed atlas cannot be reported as "all images loaded".
             const iconNodes=[...doc.querySelectorAll('.care-icon')].filter(e=>e.getBoundingClientRect().width>0);
@@ -288,10 +305,11 @@ function visualQaPlugin() {
               areaWidth:Math.round(area.width),speechOverlap,actorOverlap,overlapPairs,detached,panelOverflow,storyOutsideViewport,
               animations:[doc.getElementById('pet'),doc.getElementById('petSprite')].map(e=>doc.defaultView.getComputedStyle(e).animationName),
               companions:chips.length,outside:outside.length,
+              sceneryPictures,
               pendingImages:images.filter(e=>!e.complete).length,
               brokenImages:images.filter(e=>e.complete&&!e.naturalWidth).length,
               horizontalOverflow:doc.documentElement.scrollWidth>doc.documentElement.clientWidth,
-              layoutChecksPass,checksPass:layoutChecksPass&&images.every(e=>e.complete&&e.naturalWidth)&&iconImages.every(e=>e.status==='loaded')};
+              layoutChecksPass,checksPass:layoutChecksPass&&images.every(e=>e.complete&&e.naturalWidth)&&iconImages.every(e=>e.status==='loaded')&&sceneryPictures.every(e=>e.loaded)};
             return result;
           }
           document.getElementById('measure').onclick=()=>document.getElementById('result').textContent=JSON.stringify(measure(),null,2);

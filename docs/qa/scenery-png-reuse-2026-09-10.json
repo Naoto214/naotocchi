@@ -1,0 +1,759 @@
+{
+  "recordedAtUTC": "2026-09-10T13:51:32.851806+00:00",
+  "basePRHead": "e2dc59fc759e2b762ea605c2b42e5d89e0b90eb8",
+  "baseMain": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+  "existingImagesCompared": 311,
+  "changedExistingImages": [],
+  "newImages": 0,
+  "unchangedFunctions": [
+    "loadState",
+    "saveState",
+    "tick",
+    "isImmortal",
+    "triggerDeath",
+    "updateDyingWarning",
+    "raiseDeathMeter",
+    "recoverSleepStep",
+    "renderHomeCast",
+    "renderCareNotice",
+    "setMessage",
+    "playFunScene",
+    "useItem",
+    "renderRegionDecor",
+    "buildSeasonFxHtml",
+    "celebrateSeasonChange",
+    "applyWeatherFx",
+    "applyRegion",
+    "render"
+  ],
+  "unchangedFiles": [
+    "character-world-master.v1.js",
+    "games.js",
+    "style.css",
+    "design.css",
+    "ui.css",
+    "cast-layout.js",
+    "cast-motion.js",
+    "care-status.js",
+    "care-status.css"
+  ],
+  "verifiedSourceSha256": {
+    "script.js": "4d6949c9dc31955460a423fc79a25df6eed1fead64644de03b318939c897608a",
+    "ui-illustrations.css": "50310a65dcb23680665e4bb9f1295b2be946976f2c0666679bc31fb10253f5ff",
+    "index.html": "d9f81fdb07c621fcc3cdca7ac5deaeb284bb7398bf9fe979c0932dd3f4d189b8",
+    "tests/visual-qa.cjs": "250f6673a13043167aed1bb0fe3f32f1e37d01f28739a752cb058987c9ffbd12",
+    "tests/visual-qa-test.cjs": "302f29b063b8f4e0b1b3cb3eca8e54221e9abc39c541857b27d9f08759067aed",
+    "tests/ui-illustrations-test.cjs": "13a774ae44982073b27158cb2288b43cf453d70644cdb7316470475af310bb52",
+    "tests/helpers/runtime-harness.cjs": "2c96dbd76de32392b3b84a6dde5fb4e0d562ba885312457a2ef1407f0911a51b"
+  },
+  "branch": "feature/badges-transparent-season-art-20260910",
+  "finalCommitAndCI": "Read the latest PR #228 body/comment; this record is included in that commit.",
+  "tests": {
+    "command": "npm test",
+    "exitCode": 0,
+    "pass": 145,
+    "fail": 0,
+    "skip": 0,
+    "baselinePass": 142,
+    "newRegressions": 3,
+    "redGreen": "The three added illustration regressions failed before the implementation and passed afterward. The travel-view test also opens the real travel menu; the DOM harness supplies HTMLImageElement for image error events.",
+    "output": "scenery-png-reuse-test-output-2026-09-10.txt"
+  },
+  "review": {
+    "independent": true,
+    "scope": "Seven production/test files and 18 existing PNG choices; per-picture fallback, CSS frame sizing, no cast relayout, QA observer and failure measurements",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "browserRenderingVerified": false
+  },
+  "publication": {
+    "checkedAtUTC": "2026-09-10T13:52:13.097730+00:00",
+    "baseUrl": "https://naoto214.github.io/naotocchi/",
+    "main": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+    "files": [
+      {
+        "file": "index.html",
+        "status": 200,
+        "bytes": 45358,
+        "sha256": "56020770c222952c47bb641ea813568b861aa0a18d9ccb7b74e311705fc4e423",
+        "matchesMain": true,
+        "matchesPR228SavedHead": false,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "script.js",
+        "status": 200,
+        "bytes": 845152,
+        "sha256": "8630576bc8c9e305f0c7aea7bc5f3604cbe9d297330ae796480cc86b909e37a9",
+        "matchesMain": true,
+        "matchesPR228SavedHead": false,
+        "matchesWorkingTree": false
+      },
+      {
+        "file": "ui-illustrations.css",
+        "status": 200,
+        "bytes": 4789,
+        "sha256": "9da4370b35be64ca809d318f82e7c402da57b9f8fde656d408a708267f1c4468",
+        "matchesMain": true,
+        "matchesPR228SavedHead": false,
+        "matchesWorkingTree": false
+      }
+    ]
+  },
+  "regionCoverage": {
+    "method": "Node production render with substituted DOM and clock, not browser rendering; all 13 current regions x 4 seasons",
+    "conditions": [
+      {
+        "region": "home",
+        "label": "おうち",
+        "season": "spring",
+        "visualBase": "home",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "home",
+        "label": "おうち",
+        "season": "summer",
+        "visualBase": "home",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "home",
+        "label": "おうち",
+        "season": "autumn",
+        "visualBase": "home",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "home",
+        "label": "おうち",
+        "season": "winter",
+        "visualBase": "home",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "city",
+        "label": "とかい",
+        "season": "spring",
+        "visualBase": "city",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "city",
+        "label": "とかい",
+        "season": "summer",
+        "visualBase": "city",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "city",
+        "label": "とかい",
+        "season": "autumn",
+        "visualBase": "city",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "city",
+        "label": "とかい",
+        "season": "winter",
+        "visualBase": "city",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "countryside",
+        "label": "いなか",
+        "season": "spring",
+        "visualBase": "countryside",
+        "decorCount": 8,
+        "pictures": [
+          "partners/field_cow.png",
+          "butterfly/07.png",
+          "companions/chicken.png"
+        ]
+      },
+      {
+        "region": "countryside",
+        "label": "いなか",
+        "season": "summer",
+        "visualBase": "countryside",
+        "decorCount": 8,
+        "pictures": [
+          "partners/field_cow.png",
+          "butterfly/07.png",
+          "companions/chicken.png"
+        ]
+      },
+      {
+        "region": "countryside",
+        "label": "いなか",
+        "season": "autumn",
+        "visualBase": "countryside",
+        "decorCount": 8,
+        "pictures": [
+          "partners/field_cow.png",
+          "butterfly/07.png",
+          "companions/chicken.png"
+        ]
+      },
+      {
+        "region": "countryside",
+        "label": "いなか",
+        "season": "winter",
+        "visualBase": "countryside",
+        "decorCount": 8,
+        "pictures": [
+          "partners/field_cow.png",
+          "companions/chicken.png"
+        ]
+      },
+      {
+        "region": "forest",
+        "label": "もり",
+        "season": "spring",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "mushroom/06.png",
+          "butterfly/07.png",
+          "companions/squirrel.png",
+          "companions/owl.png"
+        ]
+      },
+      {
+        "region": "forest",
+        "label": "もり",
+        "season": "summer",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "mushroom/06.png",
+          "butterfly/07.png",
+          "companions/squirrel.png",
+          "companions/owl.png"
+        ]
+      },
+      {
+        "region": "forest",
+        "label": "もり",
+        "season": "autumn",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "companions/owl.png",
+          "mushroom/06.png",
+          "companions/squirrel.png",
+          "companions/hedgehog.png"
+        ]
+      },
+      {
+        "region": "forest",
+        "label": "もり",
+        "season": "winter",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "companions/owl.png",
+          "companions/squirrel.png"
+        ]
+      },
+      {
+        "region": "mountain",
+        "label": "やま",
+        "season": "spring",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "mountain",
+        "label": "やま",
+        "season": "summer",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "butterfly/07.png",
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "mountain",
+        "label": "やま",
+        "season": "autumn",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "mountain",
+        "label": "やま",
+        "season": "winter",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/snowman.png",
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "snow",
+        "label": "ゆきぐに",
+        "season": "spring",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "snow",
+        "label": "ゆきぐに",
+        "season": "summer",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "butterfly/07.png",
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "snow",
+        "label": "ゆきぐに",
+        "season": "autumn",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "snow",
+        "label": "ゆきぐに",
+        "season": "winter",
+        "visualBase": "snow",
+        "decorCount": 8,
+        "pictures": [
+          "partners/snowman.png",
+          "partners/grove_deer.png"
+        ]
+      },
+      {
+        "region": "sea",
+        "label": "うみ",
+        "season": "spring",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "sea",
+        "label": "うみ",
+        "season": "summer",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "sea",
+        "label": "うみ",
+        "season": "autumn",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "sea",
+        "label": "うみ",
+        "season": "winter",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "deepsea",
+        "label": "しんかい",
+        "season": "spring",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "deepsea",
+        "label": "しんかい",
+        "season": "summer",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "deepsea",
+        "label": "しんかい",
+        "season": "autumn",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": [
+          "clownfish/05.png"
+        ]
+      },
+      {
+        "region": "deepsea",
+        "label": "しんかい",
+        "season": "winter",
+        "visualBase": "sea",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "river_lake",
+        "label": "かわ・みずうみ",
+        "season": "spring",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "mushroom/06.png",
+          "butterfly/07.png",
+          "companions/squirrel.png",
+          "companions/owl.png"
+        ]
+      },
+      {
+        "region": "river_lake",
+        "label": "かわ・みずうみ",
+        "season": "summer",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "mushroom/06.png",
+          "butterfly/07.png",
+          "companions/squirrel.png",
+          "companions/owl.png"
+        ]
+      },
+      {
+        "region": "river_lake",
+        "label": "かわ・みずうみ",
+        "season": "autumn",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "companions/owl.png",
+          "mushroom/06.png",
+          "companions/squirrel.png",
+          "companions/hedgehog.png"
+        ]
+      },
+      {
+        "region": "river_lake",
+        "label": "かわ・みずうみ",
+        "season": "winter",
+        "visualBase": "forest",
+        "decorCount": 8,
+        "pictures": [
+          "companions/owl.png",
+          "companions/squirrel.png"
+        ]
+      },
+      {
+        "region": "jungle",
+        "label": "ジャングル",
+        "season": "spring",
+        "visualBase": "tropical",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "jungle",
+        "label": "ジャングル",
+        "season": "summer",
+        "visualBase": "tropical",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "jungle",
+        "label": "ジャングル",
+        "season": "autumn",
+        "visualBase": "tropical",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "jungle",
+        "label": "ジャングル",
+        "season": "winter",
+        "visualBase": "tropical",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "desert",
+        "label": "さばく",
+        "season": "spring",
+        "visualBase": "desert",
+        "decorCount": 8,
+        "pictures": [
+          "partners/desert_scorpion.png"
+        ]
+      },
+      {
+        "region": "desert",
+        "label": "さばく",
+        "season": "summer",
+        "visualBase": "desert",
+        "decorCount": 8,
+        "pictures": [
+          "partners/desert_scorpion.png"
+        ]
+      },
+      {
+        "region": "desert",
+        "label": "さばく",
+        "season": "autumn",
+        "visualBase": "desert",
+        "decorCount": 8,
+        "pictures": [
+          "partners/desert_scorpion.png"
+        ]
+      },
+      {
+        "region": "desert",
+        "label": "さばく",
+        "season": "winter",
+        "visualBase": "desert",
+        "decorCount": 8,
+        "pictures": [
+          "partners/desert_scorpion.png"
+        ]
+      },
+      {
+        "region": "star_stop",
+        "label": "ほしぞらのていりゅうじょ",
+        "season": "spring",
+        "visualBase": "star_stop",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "star_stop",
+        "label": "ほしぞらのていりゅうじょ",
+        "season": "summer",
+        "visualBase": "star_stop",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "star_stop",
+        "label": "ほしぞらのていりゅうじょ",
+        "season": "autumn",
+        "visualBase": "star_stop",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "star_stop",
+        "label": "ほしぞらのていりゅうじょ",
+        "season": "winter",
+        "visualBase": "star_stop",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "memory_lake",
+        "label": "きおくのみずうみ",
+        "season": "spring",
+        "visualBase": "memory_lake",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "memory_lake",
+        "label": "きおくのみずうみ",
+        "season": "summer",
+        "visualBase": "memory_lake",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "memory_lake",
+        "label": "きおくのみずうみ",
+        "season": "autumn",
+        "visualBase": "memory_lake",
+        "decorCount": 8,
+        "pictures": []
+      },
+      {
+        "region": "memory_lake",
+        "label": "きおくのみずうみ",
+        "season": "winter",
+        "visualBase": "memory_lake",
+        "decorCount": 8,
+        "pictures": []
+      }
+    ],
+    "preparedMappings": [
+      {
+        "emoji": "🐄",
+        "path": "assets/characters/partners/field_cow.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🦋",
+        "path": "assets/characters/butterfly/07.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🐓",
+        "path": "assets/characters/companions/chicken.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🍄",
+        "path": "assets/characters/mushroom/06.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🐿️",
+        "path": "assets/characters/companions/squirrel.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🦉",
+        "path": "assets/characters/companions/owl.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🦔",
+        "path": "assets/characters/companions/hedgehog.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🦌",
+        "path": "assets/characters/partners/grove_deer.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "⛄",
+        "path": "assets/characters/partners/snowman.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🐠",
+        "path": "assets/characters/clownfish/05.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🐢",
+        "path": "assets/characters/turtle/05.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🐟",
+        "path": "assets/characters/salmon/06.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🪼",
+        "path": "assets/characters/jellyfish/06.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🪸",
+        "path": "assets/characters/coral/06.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🦜",
+        "path": "assets/characters/companions/parrot.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🦍",
+        "path": "assets/characters/partners/gentle_gorilla.png",
+        "reachedByCurrentRegionDecor": false
+      },
+      {
+        "emoji": "🦂",
+        "path": "assets/characters/partners/desert_scorpion.png",
+        "reachedByCurrentRegionDecor": true
+      },
+      {
+        "emoji": "🦅",
+        "path": "assets/characters/partners/high_eagle.png",
+        "reachedByCurrentRegionDecor": false
+      }
+    ]
+  },
+  "browser": {
+    "setup": "succeeded",
+    "tabsList": "CDP refresh tabs timed out after 20000ms",
+    "documentedRecovery": "new tab created; navigation also returned CDP refresh tabs timed out after 20000ms",
+    "newGameScreenshots": 0,
+    "iphoneRendering": false,
+    "touch": false,
+    "audio": false,
+    "fps": false,
+    "jitterCauseConfirmed": false
+  },
+  "githubAtResume": {
+    "main": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+    "openPRs": [
+      228,
+      92
+    ],
+    "pr228": {
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "mergeable": true,
+      "head": "e2dc59fc759e2b762ea605c2b42e5d89e0b90eb8",
+      "runtime": {
+        "run": 301,
+        "conclusion": "success",
+        "url": "https://github.com/Naoto214/naotocchi/actions/runs/34483366366"
+      }
+    },
+    "mainRuntime": {
+      "run": 300,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34480691812"
+    },
+    "mainPages": {
+      "run": 225,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34480690634"
+    },
+    "claudeBranch": "claude/review-existing-code-readme-naq7pv",
+    "claudeHead": "cc7aaa462bca784a18faf91bdade7f7447bae098",
+    "claudeAdditionalPNGComparedWithMain": 0,
+    "otherTabsUncommittedAssets": "unknown"
+  },
+  "remaining": [
+    "Merge/publication verification for PR #228 after integration",
+    "Real browser 320px/normal width/large text/26 companions+partner/themes/notice transitions/image failure/reduced motion and low-performance mode",
+    "Separate preexisting visualBaseId-to-region-decor mismatch; this patch does not change region definitions or scenery selection",
+    "Unillustrated regional details and per-minigame props; see minigame-illustration-inventory-2026-09-10.md",
+    "PR #92 reconciliation is separate; retain existing user date/anniversary acceptance"
+  ]
+}

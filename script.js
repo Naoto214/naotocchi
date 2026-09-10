@@ -2760,7 +2760,7 @@
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
       : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
       : kind === 'season' ? {spring:'cherry_blossom',summer:'sunflower',autumn:'maple_leaf',winter:'snow'}
-      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',snow:'snow_mountain',desert:'cactus',city:'city'} : {};
+      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
     return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || escapeHtml(fallback || '');
   }
   // Reuse only illustrations of the same object. Region/season data and saved
@@ -2771,9 +2771,24 @@
     '🌸':'cherry_blossom','🌻':'sunflower','🍁':'maple_leaf','🍃':'green_leaf','🌿':'green_leaf',
     '🌳':'tree','🌲':'pine','🌴':'palm','🌵':'cactus','🏔️':'snow_mountain','⛰️':'mountain',
     '🏠':'house','🏡':'house','🏙️':'city','🌾':'wheat','🌊':'wave','🐚':'shell','🌺':'hibiscus',
+    '🫧':'bubbles','🌅':'sunrise',
+  };
+  // Reuse complete existing PNGs as decorative pictures. These do not create
+  // cast members, unlock forms or share the cast's image-failure/layout state.
+  const SCENERY_PICTURES = {
+    '🐄':'partners/field_cow.png','🦋':'butterfly/07.png','🐓':'companions/chicken.png',
+    '🍄':'mushroom/06.png','🐿️':'companions/squirrel.png','🦉':'companions/owl.png',
+    '🦔':'companions/hedgehog.png','🦌':'partners/grove_deer.png','⛄':'partners/snowman.png',
+    '🐠':'clownfish/05.png','🐢':'turtle/05.png','🐟':'salmon/06.png',
+    '🪼':'jellyfish/06.png','🪸':'coral/06.png','🦜':'companions/parrot.png',
+    '🦍':'partners/gentle_gorilla.png','🦂':'partners/desert_scorpion.png','🦅':'partners/high_eagle.png',
   };
   function sceneryIconHTML(emoji) {
     if (emoji === '🍂') return careIconHTML('decline', '', emoji);
+    if (emoji === '💕') return careIconHTML('love', '', emoji);
+    if (Object.hasOwn(SCENERY_PICTURES,emoji)) {
+      return `<span class="scenery-picture" aria-hidden="true"><img class="scenery-asset" src="assets/characters/${SCENERY_PICTURES[emoji]}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(emoji)}</span>`;
+    }
     const icon = Object.hasOwn(SCENERY_ILLUSTRATIONS,emoji) ? SCENERY_ILLUSTRATIONS[emoji] : '';
     return uiIconHTML(icon, '', emoji) || escapeHtml(emoji || '');
   }
@@ -9999,7 +10014,12 @@
   // innerHTML で差し込んだimgも含め、404/壊れた画像は自動的にemojiへ戻す。
   document.addEventListener('error', (event) => {
     const img = event.target;
-    if (!(img instanceof HTMLImageElement) || !img.classList.contains('character-asset')) return;
+    if (!(img instanceof HTMLImageElement)) return;
+    if (img.classList.contains('scenery-asset')) {
+      img.closest('.scenery-picture')?.classList.add('asset-failed');
+      return;
+    }
+    if (!img.classList.contains('character-asset')) return;
     const wrapper = img.closest('.character-visual');
     if (wrapper) wrapper.classList.add('asset-failed');
     const asset = img.getAttribute('src');

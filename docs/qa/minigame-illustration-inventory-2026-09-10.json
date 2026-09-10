@@ -1,0 +1,1660 @@
+{
+  "sourceHead": "e2dc59fc759e2b762ea605c2b42e5d89e0b90eb8",
+  "gamesSha256": "4113bbf717e3121c64b8f23b6d34c27be45649fbfbbabf44d49bbbb21eb7ed82",
+  "method": "Temporary VM-only factory wrappers identify all installed game objects; production code untouched. Inspect start function and captured constructor arguments. Symbol candidates include HUD/feedback and may omit external shared constants; not a full asset specification or visual test.",
+  "games": [
+    {
+      "id": "road-themed",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍎",
+        "🍙",
+        "🍬",
+        "🍇",
+        "🪨",
+        "🚧",
+        "🛢️",
+        "⚠️",
+        "⭐",
+        "🌟",
+        "✨",
+        "🍀",
+        "☄️",
+        "⚡",
+        "🛰️",
+        "🐟",
+        "🐠",
+        "🦐",
+        "🐚",
+        "🥫",
+        "🪤",
+        "🕸️",
+        "🦈",
+        "◀",
+        "▶",
+        "💥"
+      ]
+    },
+    {
+      "id": "stack-themed",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🟦",
+        "🥞",
+        "🍰",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "stack-snowman",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "⚪",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "falling-block-puzzle",
+      "factory": "makeFallingBlockPuzzleGame",
+      "source": "games.js",
+      "line": 1424,
+      "renderPath": "DOM",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "⏬",
+        "✨"
+      ]
+    },
+    {
+      "id": "crane-game-3d",
+      "factory": "makeCraneGame",
+      "source": "games.js",
+      "line": 1474,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🧸",
+        "🎁",
+        "👑",
+        "🍬",
+        "🪙",
+        "▶",
+        "💪",
+        "🎉"
+      ]
+    },
+    {
+      "id": "pinball-physics",
+      "factory": "makePinballGame",
+      "source": "games.js",
+      "line": 1615,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "🎉"
+      ]
+    },
+    {
+      "id": "haunted-house-3d",
+      "factory": "makeHauntedHouseGame",
+      "source": "games.js",
+      "line": 1771,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🕸️",
+        "🕯️",
+        "🪦",
+        "🎃",
+        "🔑",
+        "🚪",
+        "👻"
+      ]
+    },
+    {
+      "id": "bowling-3d",
+      "factory": "makeBowlingGame",
+      "source": "games.js",
+      "line": 289,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "💨",
+        "🎳",
+        "✨"
+      ]
+    },
+    {
+      "id": "archery-3d",
+      "factory": "makeArcheryGame",
+      "source": "games.js",
+      "line": 478,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎯"
+      ]
+    },
+    {
+      "id": "breakout-classic",
+      "factory": "makeBreakoutGame",
+      "source": "games.js",
+      "line": 601,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "◀",
+        "▶",
+        "🐢",
+        "💦",
+        "🎉",
+        "🏆",
+        "⏰"
+      ]
+    },
+    {
+      "id": "dragDecorate-cake",
+      "factory": "makeCakeDecorateGame",
+      "source": "games.js",
+      "line": 771,
+      "renderPath": "DOM",
+      "symbolsInStartAndArguments": [
+        "🍓",
+        "🍫",
+        "🍒",
+        "🍰",
+        "🎂"
+      ]
+    },
+    {
+      "id": "dragDecorate-bento",
+      "factory": "makeBentoBoxGame",
+      "source": "games.js",
+      "line": 856,
+      "renderPath": "DOM",
+      "symbolsInStartAndArguments": [
+        "🍙",
+        "🥚",
+        "🍤",
+        "🥦",
+        "🍱"
+      ]
+    },
+    {
+      "id": "p3-space",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "⭐",
+        "🌟",
+        "💫",
+        "🪙",
+        "☄️",
+        "🪨",
+        "🛰️",
+        "👾",
+        "🚀",
+        "◀",
+        "▶",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "p3-drive",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🪙",
+        "💎",
+        "⛽",
+        "🍔",
+        "🚙",
+        "🚚",
+        "🚧",
+        "🛢️",
+        "🏎️",
+        "◀",
+        "▶",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "fp-dungeon",
+      "factory": "makeFirstPersonDungeonGame",
+      "source": "games.js",
+      "line": 1159,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🧰",
+        "🕳️",
+        "🕯️",
+        "🚪",
+        "✨",
+        "🏆"
+      ]
+    },
+    {
+      "id": "race-3d",
+      "factory": "makeRoadRaceGame",
+      "source": "games.js",
+      "line": 2046,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌴",
+        "🌳",
+        "🏢",
+        "🪧",
+        "🌵",
+        "🪨",
+        "🏜️",
+        "🏙️",
+        "🌃",
+        "🗼",
+        "🏬",
+        "◀",
+        "▶",
+        "🏁",
+        "💥"
+      ]
+    },
+    {
+      "id": "rhythm-highway-3d",
+      "factory": "makeRhythmHighwayGame",
+      "source": "games.js",
+      "line": 2182,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🥁",
+        "🎸",
+        "🎹",
+        "🍩",
+        "🍭",
+        "🍪",
+        "🌟",
+        "🪐",
+        "☄️",
+        "◀",
+        "▶"
+      ]
+    },
+    {
+      "id": "tilt-maze-3d",
+      "factory": "makeTiltMazeGame",
+      "source": "games.js",
+      "line": 2300,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "⭐",
+        "🏁",
+        "🍬",
+        "🎁",
+        "❤️",
+        "◀",
+        "▶",
+        "🖤",
+        "🕳️",
+        "🎉"
+      ]
+    },
+    {
+      "id": "space-gunner-3d",
+      "factory": "makeSpaceGunnerGame",
+      "source": "games.js",
+      "line": 2434,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "👾",
+        "🛸",
+        "🤖",
+        "👹",
+        "☄️",
+        "🪨",
+        "🛰️",
+        "🌑",
+        "🛡️",
+        "◀",
+        "▶",
+        "💔",
+        "💥"
+      ]
+    },
+    {
+      "id": "mini-golf-physics",
+      "factory": "makeMiniGolfGame",
+      "source": "games.js",
+      "line": 2589,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🦅",
+        "🐦",
+        "⛳",
+        "💦",
+        "⬆",
+        "⬇",
+        "➡",
+        "⬅",
+        "🏆"
+      ]
+    },
+    {
+      "id": "real-fishing",
+      "factory": "makeRealFishingGame",
+      "source": "games.js",
+      "line": 2723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎣",
+        "🎉",
+        "💥",
+        "🪝",
+        "🔴"
+      ]
+    },
+    {
+      "id": "basketball-3d",
+      "factory": "makeBasketballGame",
+      "source": "games.js",
+      "line": 2923,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏀",
+        "🔥"
+      ]
+    },
+    {
+      "id": "pingpong-3d",
+      "factory": "makePingPongGame",
+      "source": "games.js",
+      "line": 3034,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎉",
+        "🤖",
+        "🏆"
+      ]
+    },
+    {
+      "id": "chain-puzzle",
+      "factory": "makeChainPuzzleGame",
+      "source": "games.js",
+      "line": 3162,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "⏬"
+      ]
+    },
+    {
+      "id": "street-fight",
+      "factory": "makeStreetFightGame",
+      "source": "games.js",
+      "line": 3297,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "👹",
+        "🏮",
+        "⛩️",
+        "🎋",
+        "🤖",
+        "🛰️",
+        "💡",
+        "⚙️",
+        "🔋",
+        "🥷",
+        "🌙",
+        "🏯",
+        "🍃",
+        "◀",
+        "▶",
+        "👊",
+        "🦵",
+        "🛡️",
+        "🔥",
+        "💥",
+        "🏆"
+      ]
+    },
+    {
+      "id": "free-kick-3d",
+      "factory": "makeFreeKickGame",
+      "source": "games.js",
+      "line": 3453,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "⚽",
+        "🧱",
+        "🧤",
+        "🧍",
+        "✖"
+      ]
+    },
+    {
+      "id": "tower-defense",
+      "factory": "makeTowerDefenseGame",
+      "source": "games.js",
+      "line": 3584,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏹",
+        "💣",
+        "❄️",
+        "💰",
+        "❤️",
+        "▶",
+        "⬆️",
+        "🐇",
+        "👾",
+        "🐌",
+        "🐗",
+        "🦂",
+        "🐉",
+        "🚪",
+        "🏰",
+        "🏆"
+      ]
+    },
+    {
+      "id": "roguelike-dungeon",
+      "factory": "makeRoguelikeGame",
+      "source": "games.js",
+      "line": 3723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "⚔️",
+        "💰",
+        "🧪",
+        "🪜",
+        "⏳",
+        "◀",
+        "▶",
+        "👺",
+        "🐗",
+        "🧟",
+        "🦇",
+        "🐀",
+        "🕷️",
+        "🏆"
+      ]
+    },
+    {
+      "id": "grand-prix-3d",
+      "factory": "makeGrandPrixGame",
+      "source": "games.js",
+      "line": 3850,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "🌳",
+        "🏁",
+        "🌲",
+        "📣",
+        "🎪",
+        "🏢",
+        "🚀",
+        "💦",
+        "🔥",
+        "🏆"
+      ]
+    },
+    {
+      "id": "sky-shooter",
+      "factory": "makeSkyShooterGame",
+      "source": "games.js",
+      "line": 3963,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "◀",
+        "💣",
+        "▶",
+        "👾",
+        "🛸",
+        "🐝",
+        "🦇",
+        "⚠️",
+        "🎆",
+        "💥",
+        "⚡",
+        "🐙",
+        "🏆"
+      ]
+    },
+    {
+      "id": "jump-quest",
+      "factory": "makeJumpQuestGame",
+      "source": "games.js",
+      "line": 4071,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐢",
+        "🐌",
+        "👾",
+        "❤️",
+        "🪙",
+        "◀",
+        "▶",
+        "🚩",
+        "🔺"
+      ]
+    },
+    {
+      "id": "push-puzzle",
+      "factory": "makePushPuzzleGame",
+      "source": "games.js",
+      "line": 4208,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "📦",
+        "↩",
+        "◀",
+        "▶",
+        "✅",
+        "🏆"
+      ]
+    },
+    {
+      "id": "reversi-6",
+      "factory": "makeReversiGame",
+      "source": "games.js",
+      "line": 4287,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏆"
+      ]
+    },
+    {
+      "id": "billiards-6",
+      "factory": "makeBilliardsGame",
+      "source": "games.js",
+      "line": 4381,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎱",
+        "💦",
+        "✨",
+        "🏆"
+      ]
+    },
+    {
+      "id": "animal-shogi",
+      "factory": "makeAnimalShogiGame",
+      "source": "games.js",
+      "line": 4510,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🦁",
+        "🦒",
+        "🐘",
+        "🐤",
+        "🐔",
+        "🏆"
+      ]
+    },
+    {
+      "id": "minesweeper-8",
+      "factory": "makeMinesweeperGame",
+      "source": "games.js",
+      "line": 4665,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💣",
+        "🚩",
+        "❌",
+        "💥",
+        "🏆"
+      ]
+    },
+    {
+      "id": "snake-classic",
+      "factory": "makeSnakeGame",
+      "source": "games.js",
+      "line": 4752,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍎",
+        "⭐",
+        "◀",
+        "▶",
+        "💫",
+        "🎉"
+      ]
+    },
+    {
+      "id": "baseball-batting",
+      "factory": "makeBaseballGame",
+      "source": "games.js",
+      "line": 4836,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏟",
+        "◀",
+        "▶",
+        "💥",
+        "⚾",
+        "🤾",
+        "🧍"
+      ]
+    },
+    {
+      "id": "ring-flight-3d",
+      "factory": "makeRingFlightGame",
+      "source": "games.js",
+      "line": 4953,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐚",
+        "🐬",
+        "🪙",
+        "⭕",
+        "◀",
+        "▶",
+        "🎯",
+        "☁",
+        "🛬"
+      ]
+    },
+    {
+      "id": "bubble-shooter",
+      "factory": "makeBubbleShooterGame",
+      "source": "games.js",
+      "line": 5062,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💥",
+        "⬇",
+        "🏆",
+        "💦"
+      ]
+    },
+    {
+      "id": "catapult-castle",
+      "factory": "makeCatapultGame",
+      "source": "games.js",
+      "line": 5193,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "👻",
+        "🎉",
+        "🏆"
+      ]
+    },
+    {
+      "id": "connect-four",
+      "factory": "makeConnectFourGame",
+      "source": "games.js",
+      "line": 5324,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔴",
+        "🟡",
+        "🏆"
+      ]
+    },
+    {
+      "id": "puzzle-2048",
+      "factory": "makeTwentyFortyEightGame",
+      "source": "games.js",
+      "line": 5411,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "✨"
+      ]
+    },
+    {
+      "id": "frogger-road",
+      "factory": "makeFroggerGame",
+      "source": "games.js",
+      "line": 5489,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "🏠",
+        "🪵",
+        "◀",
+        "▶",
+        "🐢",
+        "🚗",
+        "🚚",
+        "🏎️",
+        "🚙",
+        "🚕",
+        "🚌",
+        "💫",
+        "🚪",
+        "🏆"
+      ]
+    },
+    {
+      "id": "ski-jump",
+      "factory": "makeSkiJumpGame",
+      "source": "games.js",
+      "line": 5583,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔥",
+        "💫",
+        "🏅"
+      ]
+    },
+    {
+      "id": "air-hockey",
+      "factory": "makeAirHockeyGame",
+      "source": "games.js",
+      "line": 5694,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔥",
+        "⚽",
+        "💦",
+        "🏆"
+      ]
+    },
+    {
+      "id": "submarine-3d",
+      "factory": "makeSubmarineGame",
+      "source": "games.js",
+      "line": 5779,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💎",
+        "❤️",
+        "🫧",
+        "◀",
+        "▶",
+        "💥",
+        "⚡",
+        "🌊"
+      ]
+    },
+    {
+      "id": "match-3",
+      "factory": "makeMatchThreeGame",
+      "source": "games.js",
+      "line": 5892,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍓",
+        "🍋",
+        "🍇",
+        "🍏",
+        "🫐",
+        "🍊",
+        "🔥",
+        "✨"
+      ]
+    },
+    {
+      "id": "gomoku-9",
+      "factory": "makeGomokuGame",
+      "source": "games.js",
+      "line": 5971,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏆"
+      ]
+    },
+    {
+      "id": "tank-battle",
+      "factory": "makeTankBattleGame",
+      "source": "games.js",
+      "line": 6043,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "💥",
+        "🔥",
+        "◀",
+        "▶",
+        "💫",
+        "🏆"
+      ]
+    },
+    {
+      "id": "tennis-rally",
+      "factory": "makeTennisGame",
+      "source": "games.js",
+      "line": 6143,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "🎾",
+        "⭐",
+        "💦",
+        "🤖",
+        "🧑",
+        "👩",
+        "👦",
+        "👵",
+        "🏆"
+      ]
+    },
+    {
+      "id": "picross-5",
+      "factory": "makePicrossGame",
+      "source": "games.js",
+      "line": 6250,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏆"
+      ]
+    },
+    {
+      "id": "darts-board",
+      "factory": "makeDartsGame",
+      "source": "games.js",
+      "line": 6313,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎯"
+      ]
+    },
+    {
+      "id": "hang-glider-3d",
+      "factory": "makeHangGliderGame",
+      "source": "games.js",
+      "line": 6380,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "📏",
+        "🎈",
+        "◀",
+        "▶",
+        "🌀",
+        "🌳",
+        "🏡",
+        "🛬",
+        "⏰"
+      ]
+    },
+    {
+      "id": "bomber-maze",
+      "factory": "makeBomberGame",
+      "source": "games.js",
+      "line": 6493,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "👾",
+        "💣",
+        "◀",
+        "▶",
+        "💫",
+        "🔥",
+        "👟",
+        "🏆"
+      ]
+    },
+    {
+      "id": "blackjack-21",
+      "factory": "makeBlackjackGame",
+      "source": "games.js",
+      "line": 6585,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🪙",
+        "♠",
+        "♥",
+        "♦",
+        "♣",
+        "🎉",
+        "💦",
+        "🏆"
+      ]
+    },
+    {
+      "id": "pipe-connect",
+      "factory": "makePipeConnectGame",
+      "source": "games.js",
+      "line": 6651,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🚰",
+        "🌻",
+        "💧",
+        "🥀",
+        "🏆"
+      ]
+    },
+    {
+      "id": "fruit-slice",
+      "factory": "makeFruitSliceGame",
+      "source": "games.js",
+      "line": 6723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍎",
+        "🍊",
+        "🍉",
+        "🍌",
+        "🍓",
+        "🥝",
+        "🍍",
+        "❤️",
+        "💣",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "track-field",
+      "factory": "makeTrackFieldGame",
+      "source": "games.js",
+      "line": 6807,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🏃",
+        "◀",
+        "▶",
+        "🧑",
+        "👩",
+        "🧒",
+        "❌",
+        "🔥",
+        "🏁",
+        "🦘",
+        "📏"
+      ]
+    },
+    {
+      "id": "voxel-mine",
+      "factory": "makeVoxelMineGame",
+      "source": "games.js",
+      "line": 6889,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "⚫",
+        "⛓",
+        "🟡",
+        "💎",
+        "🔥",
+        "◀",
+        "▶",
+        "🌳",
+        "⛏️"
+      ]
+    },
+    {
+      "id": "sushi-belt",
+      "factory": "makeSushiBeltGame",
+      "source": "games.js",
+      "line": 6985,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍣",
+        "🍤",
+        "🍙",
+        "🍮",
+        "🥚",
+        "🍵",
+        "🐟",
+        "🦑",
+        "🌶",
+        "⚡",
+        "✅",
+        "❌",
+        "🧑‍🍳"
+      ]
+    },
+    {
+      "id": "asteroids-classic",
+      "factory": "makeAsteroidsGame",
+      "source": "games.js",
+      "line": 7074,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "◀",
+        "▶",
+        "🔥",
+        "🌊",
+        "💥"
+      ]
+    },
+    {
+      "id": "yacht-dice",
+      "factory": "makeYachtDiceGame",
+      "source": "games.js",
+      "line": 7154,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎲",
+        "🔒"
+      ]
+    },
+    {
+      "id": "lights-out",
+      "factory": "makeLightsOutGame",
+      "source": "games.js",
+      "line": 7231,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "✨",
+        "🏆"
+      ]
+    },
+    {
+      "id": "doodle-jump",
+      "factory": "makeDoodleJumpGame",
+      "source": "games.js",
+      "line": 7280,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "📏",
+        "⭐",
+        "◀",
+        "▶",
+        "🔴",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "curling-ice",
+      "factory": "makeCurlingGame",
+      "source": "games.js",
+      "line": 7362,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔴",
+        "🟡",
+        "🧹",
+        "🏆"
+      ]
+    },
+    {
+      "id": "jenga-tower",
+      "factory": "makeJengaGame",
+      "source": "games.js",
+      "line": 7442,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "😱",
+        "💥"
+      ]
+    },
+    {
+      "id": "line-trace",
+      "factory": "makeLineTraceGame",
+      "source": "games.js",
+      "line": 7523,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌟"
+      ]
+    },
+    {
+      "id": "checkers-6",
+      "factory": "makeCheckersGame",
+      "source": "games.js",
+      "line": 7592,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔴",
+        "⚫",
+        "👑",
+        "🏆"
+      ]
+    },
+    {
+      "id": "memory-cards",
+      "factory": "makeMemoryCardsGame",
+      "source": "games.js",
+      "line": 7665,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍎",
+        "🐶",
+        "🚗",
+        "⭐",
+        "🌸",
+        "🎵",
+        "🐟",
+        "🎈",
+        "🍰",
+        "🦋",
+        "⚽",
+        "🌙",
+        "✨",
+        "✅",
+        "🏆"
+      ]
+    },
+    {
+      "id": "halfpipe-skate",
+      "factory": "makeHalfpipeGame",
+      "source": "games.js",
+      "line": 7722,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌀",
+        "✨",
+        "💫",
+        "🛹"
+      ]
+    },
+    {
+      "id": "domino-run",
+      "factory": "makeDominoRunGame",
+      "source": "games.js",
+      "line": 7801,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔔",
+        "👉",
+        "💦",
+        "🔕",
+        "👆",
+        "🏆"
+      ]
+    },
+    {
+      "id": "sudoku-mini",
+      "factory": "makeSudokuGame",
+      "source": "games.js",
+      "line": 7865,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❌",
+        "🎉",
+        "🏆"
+      ]
+    },
+    {
+      "id": "mancala-kalah",
+      "factory": "makeMancalaGame",
+      "source": "games.js",
+      "line": 7933,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🟢",
+        "🟠",
+        "✨",
+        "🏆"
+      ]
+    },
+    {
+      "id": "plane-landing",
+      "factory": "makePlaneLandingGame",
+      "source": "games.js",
+      "line": 7999,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "⬛",
+        "💦",
+        "💥",
+        "🌟",
+        "✨",
+        "⬆",
+        "⬇"
+      ]
+    },
+    {
+      "id": "dot-eater",
+      "factory": "makeDotEaterGame",
+      "source": "games.js",
+      "line": 8117,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "⭐",
+        "◀",
+        "▶",
+        "🎉",
+        "👻",
+        "💫",
+        "💀"
+      ]
+    },
+    {
+      "id": "missile-command",
+      "factory": "makeMissileCommandGame",
+      "source": "games.js",
+      "line": 8287,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💥",
+        "🏙",
+        "🎉"
+      ]
+    },
+    {
+      "id": "area-claim",
+      "factory": "makeAreaClaimGame",
+      "source": "games.js",
+      "line": 8418,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "❤️",
+        "✨",
+        "◀",
+        "▶",
+        "🌸",
+        "🍰",
+        "🐳",
+        "🌈",
+        "🎈",
+        "🦋",
+        "🎉",
+        "💫",
+        "💀"
+      ]
+    },
+    {
+      "id": "solitaire-klondike",
+      "factory": "makeSolitaireGame",
+      "source": "games.js",
+      "line": 8573,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "♠",
+        "♥",
+        "♦",
+        "♣",
+        "🏠",
+        "⤴",
+        "🎉"
+      ]
+    },
+    {
+      "id": "hit-blow",
+      "factory": "makeHitBlowGame",
+      "source": "games.js",
+      "line": 8739,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔴",
+        "🟡",
+        "🟢",
+        "🔵",
+        "🟣",
+        "🟠",
+        "🎯",
+        "💨",
+        "🎉"
+      ]
+    },
+    {
+      "id": "lunar-lander",
+      "factory": "makeLunarLanderGame",
+      "source": "games.js",
+      "line": 8835,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🚀",
+        "⛽",
+        "◀",
+        "▶",
+        "🔥",
+        "🎉",
+        "💥",
+        "↔"
+      ]
+    },
+    {
+      "id": "shanghai-tiles",
+      "factory": "makeShanghaiGame",
+      "source": "games.js",
+      "line": 8980,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌸",
+        "🍀",
+        "🍁",
+        "🌙",
+        "⭐",
+        "🐟",
+        "🐢",
+        "🦋",
+        "🍑",
+        "🍇",
+        "🎐",
+        "🏮",
+        "🐉",
+        "🎋",
+        "🍵",
+        "🪷",
+        "🀄",
+        "💡",
+        "🔀",
+        "🎉",
+        "✨"
+      ]
+    },
+    {
+      "id": "beach-volley",
+      "factory": "makeBeachVolleyGame",
+      "source": "games.js",
+      "line": 9114,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "◀",
+        "▶",
+        "🏐",
+        "🎉",
+        "😣",
+        "⚡",
+        "🐧",
+        "🏆"
+      ]
+    },
+    {
+      "id": "slide-puzzle",
+      "factory": "makeSlidePuzzleGame",
+      "source": "games.js",
+      "line": 9270,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "👀",
+        "🐱",
+        "🌸",
+        "⭐",
+        "🎈",
+        "🍰",
+        "🍓",
+        "🍒",
+        "✨",
+        "🐳",
+        "🐟",
+        "🫧",
+        "🐚",
+        "🦄",
+        "🌈",
+        "💫",
+        "🎉"
+      ]
+    },
+    {
+      "id": "sugoroku-race",
+      "factory": "makeSugorokuGame",
+      "source": "games.js",
+      "line": 9383,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💰",
+        "🎲",
+        "➕",
+        "➖",
+        "⭐",
+        "💤",
+        "🐧",
+        "🦊",
+        "🏁",
+        "🏆"
+      ]
+    },
+    {
+      "id": "takoyaki-grill",
+      "factory": "makeTakoyakiGame",
+      "source": "games.js",
+      "line": 9521,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐙",
+        "✨",
+        "😋",
+        "💦",
+        "🔥"
+      ]
+    },
+    {
+      "id": "road-city",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍩",
+        "☕",
+        "🎫",
+        "💰",
+        "🐦",
+        "🚧",
+        "🗑️",
+        "⚠️",
+        "◀",
+        "▶",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "stack-harvest",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌾",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "stack-acorn",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌰",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "downhill-mountain",
+      "factory": "makeDownhillGame",
+      "source": "games.js",
+      "line": 1272,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🚩",
+        "🪵",
+        "◀",
+        "▶",
+        "🌲",
+        "🪨",
+        "🏁",
+        "💥"
+      ]
+    },
+    {
+      "id": "downhill-snow",
+      "factory": "makeDownhillGame",
+      "source": "games.js",
+      "line": 1272,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🚩",
+        "🪵",
+        "◀",
+        "▶",
+        "🌲",
+        "🪨",
+        "🏁",
+        "💥"
+      ]
+    },
+    {
+      "id": "fishing-sea",
+      "factory": "makeRealFishingGame",
+      "source": "games.js",
+      "line": 2723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🎣",
+        "🎉",
+        "💥",
+        "🪝",
+        "🔴"
+      ]
+    },
+    {
+      "id": "fishing-deepsea",
+      "factory": "makeRealFishingGame",
+      "source": "games.js",
+      "line": 2723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐡",
+        "🦑",
+        "🐙",
+        "🦀",
+        "🦈",
+        "🐋",
+        "🎣",
+        "🎉",
+        "💥",
+        "🪝",
+        "🔴"
+      ]
+    },
+    {
+      "id": "fishing-river",
+      "factory": "makeRealFishingGame",
+      "source": "games.js",
+      "line": 2723,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐟",
+        "🦐",
+        "🐸",
+        "🦞",
+        "🐢",
+        "🐊",
+        "🎣",
+        "🎉",
+        "💥",
+        "🪝",
+        "🔴"
+      ]
+    },
+    {
+      "id": "road-jungle",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍌",
+        "🥭",
+        "🥥",
+        "⭐",
+        "🐍",
+        "🌵",
+        "🕸️",
+        "⚠️",
+        "◀",
+        "▶",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "road-desert",
+      "factory": "makeRoadGame",
+      "source": "games.js",
+      "line": 64,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "💧",
+        "🍈",
+        "⭐",
+        "🧢",
+        "🦂",
+        "🐍",
+        "☠️",
+        "🔥",
+        "◀",
+        "▶",
+        "💥",
+        "✨"
+      ]
+    },
+    {
+      "id": "stack-sakura",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🌸",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "ring-flight-summer",
+      "factory": "makeRingFlightGame",
+      "source": "games.js",
+      "line": 4953,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🐚",
+        "🐬",
+        "🪙",
+        "⭕",
+        "◀",
+        "▶",
+        "🎯",
+        "☁",
+        "🛬"
+      ]
+    },
+    {
+      "id": "stack-leaves",
+      "factory": "makeStackGame",
+      "source": "games.js",
+      "line": 183,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🍁",
+        "✨",
+        "💥",
+        "⏰"
+      ]
+    },
+    {
+      "id": "curling-winter",
+      "factory": "makeCurlingGame",
+      "source": "games.js",
+      "line": 7362,
+      "renderPath": "Canvas",
+      "symbolsInStartAndArguments": [
+        "🔴",
+        "🟡",
+        "🧹",
+        "🏆"
+      ]
+    }
+  ]
+}

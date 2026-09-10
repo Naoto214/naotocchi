@@ -174,3 +174,48 @@ test('the scenery atlas can fail independently and keeps a visible fallback for 
   assert.match(h.get('endingBadges').innerHTML,/class="icon-fallback"[^>]*>🌳<\/span>/);
   assert.equal(JSON.stringify(h.api.state()),before);
 });
+
+test('current mountain jungle and memory-lake IDs reach their existing art in world and travel views',()=>{
+  const h=harness();
+  h.api.state().sodachi=75;h.api.state().maxSodachi=75;
+  for(const [id,icon,label] of [['mountain','mountain','やま'],['jungle','palm','ジャングル'],['memory_lake','bubbles','きおくのみずうみ']]){
+    h.api.state().regionId=id;h.api.render();h.api.openExclusiveMenu('world');h.api.renderEnvironment();
+    for(const html of [h.get('regionLabel').innerHTML,h.get('worldNowCard').innerHTML]){
+      assert.match(html,new RegExp(`data-ui-icon="${icon}"`),id);
+      assert.ok(html.includes(label));
+    }
+    h.api.openExclusiveMenu('travel');
+    const grid=h.get(id==='memory_lake'?'travelSpecialGrid':'travelRegionGrid').innerHTML;
+    const button=grid.match(new RegExp(`<button[^>]*data-id="${id}"[^>]*>[\\s\\S]*?<\\/button>`))?.[0];
+    assert.ok(button,id+' remains a travel choice');
+    assert.match(button,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal(h.api.state().regionId,id);
+  }
+});
+
+test('forest decor reuses whole PNGs without adding companions or changing the scene count',()=>{
+  const h=harness();h.api.state().regionId='forest';h.api.state().lifetime.seasonMode='autumn';
+  h.api.render();const before=JSON.stringify(h.api.state());h.api.render();
+  const html=h.get('regionDecor').innerHTML;
+  assert.equal((html.match(/class="region-decor-item"/g)||[]).length,8);
+  for(const [path,emoji] of [['companions/owl.png','🦉'],['mushroom/06.png','🍄'],['companions/squirrel.png','🐿️'],['companions/hedgehog.png','🦔']]){
+    assert.ok(html.includes(`src="assets/characters/${path}"`),path);
+    assert.ok(html.includes(`>${emoji}</span>`),'keep original fallback '+emoji);
+  }
+  assert.doesNotMatch(html,/data-companion-id|character-asset/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+test('a scenery PNG failure only reveals that decoration fallback without relaying out the cast',()=>{
+  const h=harness();h.api.render();const before=JSON.stringify(h.api.state());
+  const failed=h.get('failedDecoration'),other=h.get('otherDecoration');
+  const img=h.document.createElement('img');img.tagName='IMG';img.classList.add('scenery-asset');
+  img.closest=selector=>selector==='.scenery-picture'?failed:null;
+  Object.defineProperty(h.get('petArea'),'clientWidth',{get(){throw new Error('scenery failure must not relayout the cast');}});
+  const errors=h.document.listeners.filter(e=>e.type==='error');
+  assert.ok(errors.length);
+  for(const listener of errors)listener.fn({target:img});
+  assert.ok(failed.classList.contains('asset-failed'));
+  assert.equal(other.classList.contains('asset-failed'),false);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});

@@ -44,6 +44,11 @@
 .world-now-chip {display:inline-flex;align-items:center;gap:2px}
 #storyFlashEmoji .care-icon {width:32px;height:32px;flex-basis:32px}
 .icon-fallback {display:none;line-height:1}
+/* Whole PNGs stay inside the existing decoration frame, including on failure. */
+.scenery-picture {display:inline-block;width:1em;height:1em;vertical-align:top;line-height:1;text-align:center}
+.scenery-asset {display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;pointer-events:none}
+.scenery-picture.asset-failed > .scenery-asset {display:none}
+.scenery-picture.asset-failed > .icon-fallback {display:inline}
 .care-icon:has(> .icon-fallback) {text-align:center;line-height:1}
 html[data-ui-atlas="failed"] .ui-icon:not(.scenery-icon),
 html[data-scenery-atlas="failed"] .scenery-icon,

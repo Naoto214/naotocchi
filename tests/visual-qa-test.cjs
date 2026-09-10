@@ -82,7 +82,11 @@ for(const [name,weather,time] of [['scenery_clouds','cloudy','day'],['scenery_sn
 
 // Execute the actual emitted discovery code with backgrounds already removed
 // by production fallback. Hidden probes must still report the failed atlas.
-for(const [name,season,region] of [['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea']]){
+for(const [name,season,region] of [
+  ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
+  ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
+  ['scenery_memory_lake','summer','memory_lake'],
+]){
   const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
   const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
   assert.equal(scene.api.state().lifetime.seasonMode,season);
