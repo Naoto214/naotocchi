@@ -38,3 +38,15 @@ test('an S-rank result grants a growth boost that doubles growth and decays per 
   assert.equal(state.boostTicks, ticksBefore - 1, 'the boost runs down one tick at a time');
   assert.equal(h.api.grantGrowthBoost(1000), 200, 'the boost is capped at 10 minutes');
 });
+
+test('the short game-length setting only shortens games of 90 seconds or more', () => {
+  const h = harness(), state = h.api.state();
+  state.lifetime.minigameDifficulty = 'hard';
+  state.lifetime.minigameLength = 'normal';
+  assert.equal(h.api.mgDuration(60000), 60000);
+  assert.equal(h.api.mgDuration(150000), 150000);
+  state.lifetime.minigameLength = 'short';
+  assert.equal(h.api.mgDuration(60000), 60000, 'short games are untouched');
+  assert.equal(h.api.mgDuration(150000), 90000, 'long games run at 60%');
+  assert.ok(Object.keys(h.api.GAME_LENGTH_CHOICES).includes('short'));
+});

@@ -143,6 +143,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
+      mgDuration, GAME_LENGTH_CHOICES,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,

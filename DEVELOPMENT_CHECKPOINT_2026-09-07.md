@@ -1783,3 +1783,8 @@ Runtime smoke test SUCCESS確認済み。
 - たまご: `#careMeters`(おせわの4本)を `isEgg` で隠す。
 - テスト: `tests/screens-test.cjs`。`npm test` 191件通過。スクリーンショットで3画面を確認。
 
+## チェックポイント BQ — ゲームの ながさ せってい と かくとうバトルの れんだ対策(2026-09-10)
+- `GAME_LENGTH_CHOICES`(normal/short)、`state.lifetime.minigameLength`、せかい画面「ゲームの ながさ」(`#gameLengthGrid`)。`mgDuration(ms)` は short かつ ms ≥ 90,000 のとき ×0.6。games.js の直書きだった 90,000(クレーン idle)・150,000(タワーディフェンス)・180,000(ローグライク)も `mgDuration()` 経由に。
+- かくとうバトル: `f.rushed`(前の攻撃終了から 350ms 未満)で威力 0.7・硬直 1.5倍。`target.recentHits` が 3 以上ならスタンなし・威力 0.6、AI は3連続くらうと 600ms ガード。AI は脅威時のガード率を 0.55〜0.85 に、ガード成功後は反撃(`justBlocked`)。乱打プレイの平均スコア 70 → 10〜17。
+- テスト: growth-balance に mgDuration の short 判定。`npm test` 192件通過。全100ゲーム スイープ ページエラー 0。
+

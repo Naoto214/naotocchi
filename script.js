@@ -949,6 +949,7 @@
     gamesBtn: document.getElementById('gamesBtn'),
     timeModeGrid: document.getElementById('timeModeGrid'),
     difficultyModeGrid: document.getElementById('difficultyModeGrid'),
+    gameLengthGrid: document.getElementById('gameLengthGrid'),
     sfxModeGrid: document.getElementById('sfxModeGrid'),
     bgmModeGrid: document.getElementById('bgmModeGrid'),
     weatherModeGrid: document.getElementById('weatherModeGrid'),
@@ -1463,6 +1464,8 @@
         envMoments: 0,
         // ミニゲームの むずかしさ(easy/normal/hard)と おとの せってい
         minigameDifficulty: 'normal',
+        // ながい ゲーム(90びょう いじょう)を みじかく する せってい(normal/short)
+        minigameLength: 'normal',
         soundSfx: true,
         soundBgm: true,
         currentLocationSelected: false,
@@ -2472,6 +2475,7 @@
   // むずかしさの のびを おさえ(やさしい 0.4倍 / ふつう 0.7倍 / むずかしい 1倍)、
   // せいげん時間を ながくする(mgDuration)
   const DIFFICULTY_CHOICES = { easy: ['🌱', 'やさしい'], normal: ['🙂', 'ふつう'], hard: ['🔥', 'むずかしい'] };
+  const GAME_LENGTH_CHOICES = { normal: ['⏱️', 'ふつう'], short: ['⚡', 'みじかめ'] };
   function minigameDifficultyMode() {
     const m = state && state.lifetime && state.lifetime.minigameDifficulty;
     return DIFFICULTY_CHOICES[m] ? m : 'normal';
@@ -2482,8 +2486,13 @@
     return m === 'easy' ? 1 : m === 'hard' ? 0 : 0.5;
   }
   // せいげん時間: やさしい +35% / ふつう +17% / むずかしい そのまま
+  // 「みじかめ」せっていは 90びょう いじょうの ゲームだけ 6わりの ながさに する
+  function minigameLengthMode() {
+    return GAME_LENGTH_CHOICES[state.lifetime.minigameLength] ? state.lifetime.minigameLength : 'normal';
+  }
   function mgDuration(ms) {
-    return Math.round(ms * (1 + 0.35 * minigameEase()));
+    const short = minigameLengthMode() === 'short' && ms >= 90000 ? 0.6 : 1;
+    return Math.round(ms * (1 + 0.35 * minigameEase()) * short);
   }
   function ageDifficulty() {
     const m = minigameDifficultyMode();
@@ -12682,6 +12691,7 @@
       renderSeasonModeGrid();
       renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode,'weather');
       if (el.difficultyModeGrid) renderEnvironmentChoices(el.difficultyModeGrid, DIFFICULTY_CHOICES, minigameDifficultyMode());
+      if (el.gameLengthGrid) renderEnvironmentChoices(el.gameLengthGrid, GAME_LENGTH_CHOICES, minigameLengthMode());
       if (el.sfxModeGrid) renderEnvironmentChoices(el.sfxModeGrid, SFX_CHOICES, state.lifetime.soundSfx === false ? 'off' : 'on');
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
     }
@@ -14689,6 +14699,12 @@
     if (btn && TIME_CHOICES[btn.dataset.id]) { state.lifetime.timeMode = btn.dataset.id; saveState(); renderEnvironment(); }
   });
   if (el.difficultyModeGrid) {
+    if (el.gameLengthGrid) el.gameLengthGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.theme-swatch');
+      if (!btn || !GAME_LENGTH_CHOICES[btn.dataset.id]) return;
+      state.lifetime.minigameLength = btn.dataset.id; saveState(); renderEnvironment();
+      setMessage(btn.dataset.id === 'short' ? '⚡ ながい ゲームを みじかめ に した(90びょう いじょうの ゲームが 6わりの ながさ)' : '⏱️ ゲームの ながさを ふつう に した');
+    });
     el.difficultyModeGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !DIFFICULTY_CHOICES[btn.dataset.id]) return;
