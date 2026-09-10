@@ -1760,3 +1760,9 @@ Runtime smoke test SUCCESS確認済み。
 - お世話の しらせ: 「せいちょう ↑」の刻みを `max(5, cost/4)` に(コストが安い帯でごはん1回ごとに出ない)。
 - テスト: `tests/growth-balance-test.cjs`(コスト合計の範囲、ねむり 0→100 が 30〜90秒、Sランクで boost・2倍・tick で減る・上限)。harness に `finishMinigame/sodachiCost/applyGrowth/recoverSleepStep/grantGrowthBoost` を公開。
 
+## チェックポイント BM — おかねの つかいみち: つかいきりアイテム と れんぞくボーナス(2026-09-10)
+- `CONSUMABLE_ITEMS` に 11 品(合計 2,060 コイン)。すべて既存の受け口 `state.oneTimeBoosts`(doubleCoins/safetyNet/minigameBoost small|big/sicknessShieldCount/courtBoost/breakupShield half|full/travelGuarantee)と `grantGrowthBoost(100)` を使う。`available()` で同じ効果の重複購入を防ぎ、`unavailableMessage` を表示。
+- あいてむ画面: 「つかいきり」セクション(`#onetimeItemGrid` を表示化、`#onetimeActive` に `activeBoostSummary()`)。クリックは `useConsumableItem()`。
+- きょうの チャレンジ: `dailyStreakReward(streak)` = 10 + 5×min(streak−1, 10) + 節目ボーナス(3:30 / 7:100 / 14:200 / 30:500)。
+- テスト: `tests/economy-test.cjs`(価格合計、重複購入の拒否、おかね不足、ラッキーコインの消費、ストリーク報酬)。
+

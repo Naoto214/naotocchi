@@ -1101,6 +1101,7 @@
     naotoItemGrid: document.getElementById('naotoItemGrid'),
     naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
+    onetimeActive: document.getElementById('onetimeActive'),
     rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
     pickerTitle: document.getElementById('pickerTitle'),
@@ -2303,7 +2304,57 @@
   // apply()/apply(value) が {} を かえした ばあいは、なかで すでに
   // setMessage() ずみ(onStageChanged/checkMeters けいゆ)という あいずなので、
   // よびだし側は じぶんの メッセージで 上書きしない
-  const CONSUMABLE_ITEMS = [];
+  // それぞれ「つぎの 1かい」だけ こうかが ある。おなじ こうかを もう もって
+  // いる あいだは かえない(available)。うけとりがわは state.oneTimeBoosts を よむ
+  const CONSUMABLE_ITEMS = [
+    { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙', price: 80, desc: 'つぎのミニゲームでもらえるおかねが2ばい',
+      available: () => !state.oneTimeBoosts.doubleCoins, unavailableMessage: 'もうもっている(つぎのゲームでつかわれる)',
+      apply: () => { state.oneTimeBoosts.doubleCoins = true; return { message: '🪙ラッキーコインをにぎりしめた。つぎのゲームのおかねが2ばい!' }; } },
+    { id: 'c_safety', label: 'スコアほけん', emoji: '🛡️', price: 90, desc: 'つぎのミニゲームでしっぱいしても、おとろえ・いのちがへらない',
+      available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'もうもっている(つぎのゲームでつかわれる)',
+      apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: '🛡️スコアほけんにはいった。つぎのゲームはあんしん' }; } },
+    { id: 'c_mgsmall', label: 'やる気のおまもり', emoji: '🔥', price: 120, desc: 'つぎのミニゲームのとくてん+25',
+      available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ(つぎのゲームでつかわれる)',
+      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: '🔥やる気がわいてきた。つぎのゲームのとくてん+25' }; } },
+    { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫', price: 300, desc: 'つぎのミニゲームがかならず大成功になる',
+      available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ(つぎのゲームでつかわれる)',
+      apply: () => { state.oneTimeBoosts.minigameBoost = 'big'; return { message: '💫大成功のおまもりをにぎった。つぎのゲームはかならず大成功!' }; } },
+    { id: 'c_sickshield', label: 'びょうきよけのおふだ', emoji: '🧧', price: 100, desc: 'びょうきになりそうなとき3かいまでふせぐ',
+      available: () => (state.oneTimeBoosts.sicknessShieldCount || 0) <= 0, unavailableMessage: 'おふだがまだのこっている',
+      apply: () => { state.oneTimeBoosts.sicknessShieldCount = 3; return { message: '🧧びょうきよけのおふだをはった(3かいぶん)' }; } },
+    { id: 'c_growth', label: 'せいちょうドリンク', emoji: '🧃', price: 250, desc: '5ふんのあいだ せいちょうが2ばい(さいだい10ぷんまでかさなる)',
+      available: () => (state.boostTicks || 0) < BOOST_TICKS_MAX && isLiveLife() && !state.infinite, unavailableMessage: 'もう2ばいがめいっぱい',
+      apply: () => { grantGrowthBoost(100); return { message: '🧃せいちょうドリンクをのんだ。5ふんのあいだ せいちょう2ばい!' }; } },
+    { id: 'c_courtsmall', label: 'こいのおまもり', emoji: '💘', price: 150, desc: 'つぎのきゅうあいがすこしうまくいきやすい',
+      available: () => !state.oneTimeBoosts.courtBoost, unavailableMessage: 'おまもりはひとつずつ(つぎのきゅうあいでつかわれる)',
+      apply: () => { state.oneTimeBoosts.courtBoost = 'small'; return { message: '💘こいのおまもりをもった。つぎのきゅうあいがうまくいきやすい' }; } },
+    { id: 'c_courtbig', label: 'こいの大おまもり', emoji: '💝', price: 350, desc: 'つぎのきゅうあいがかなりうまくいきやすい',
+      available: () => !state.oneTimeBoosts.courtBoost, unavailableMessage: 'おまもりはひとつずつ(つぎのきゅうあいでつかわれる)',
+      apply: () => { state.oneTimeBoosts.courtBoost = 'big'; return { message: '💝こいの大おまもりをもった。つぎのきゅうあいはかなりうまくいきやすい' }; } },
+    { id: 'c_breakhalf', label: 'なかなおりのおまもり', emoji: '🩹', price: 200, desc: 'つぎにわかれそうになったとき、なかよし度のへりが半分',
+      available: () => !state.oneTimeBoosts.breakupShield, unavailableMessage: 'おまもりはひとつずつ',
+      apply: () => { state.oneTimeBoosts.breakupShield = 'half'; return { message: '🩹なかなおりのおまもりをもった' }; } },
+    { id: 'c_breakfull', label: 'きずなのおまもり', emoji: '💞', price: 400, desc: 'つぎにわかれそうになったとき、1かいだけなかったことに',
+      available: () => !state.oneTimeBoosts.breakupShield, unavailableMessage: 'おまもりはひとつずつ',
+      apply: () => { state.oneTimeBoosts.breakupShield = 'full'; return { message: '💞きずなのおまもりをもった' }; } },
+    { id: 'c_travel', label: 'たびのおまもり', emoji: '🧭', price: 120, desc: 'つぎのたびは たびづかれなしで かならずよいけっかに',
+      available: () => !state.oneTimeBoosts.travelGuarantee, unavailableMessage: 'もうもっている(つぎのたびでつかわれる)',
+      apply: () => { state.oneTimeBoosts.travelGuarantee = true; return { message: '🧭たびのおまもりをもった。つぎのたびはあんしん' }; } },
+  ];
+  // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
+  function activeBoostSummary() {
+    const b = state.oneTimeBoosts || {};
+    const out = [];
+    if (b.doubleCoins) out.push('🪙おかね2ばい');
+    if (b.safetyNet) out.push('🛡️スコアほけん');
+    if (b.minigameBoost) out.push(b.minigameBoost === 'big' ? '💫大成功' : '🔥やる気');
+    if (b.sicknessShieldCount > 0) out.push(`🧧おふだ×${b.sicknessShieldCount}`);
+    if (b.courtBoost) out.push(b.courtBoost === 'big' ? '💝こいの大おまもり' : '💘こいのおまもり');
+    if (b.breakupShield) out.push(b.breakupShield === 'full' ? '💞きずな' : '🩹なかなおり');
+    if (b.travelGuarantee) out.push('🧭たび');
+    if (state.boostTicks > 0) out.push(`✨せいちょう2ばい あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}ふん`);
+    return out;
+  }
 
 
   function endingProgress() {
@@ -9216,6 +9267,14 @@
   const BOOST_TICKS_S_RANK = 40;
   const BOOST_TICKS_DAILY = 200;
   const BOOST_TICKS_MAX = 200;
+  // きょうの チャレンジの ごほうび: きほん 10 + れんぞく日数に おうじて +5/日(さいだい 60)、
+  // 3・7・14・30にち の ふしめで ボーナス
+  const DAILY_STREAK_MILESTONES = { 3: 30, 7: 100, 14: 200, 30: 500 };
+  function dailyStreakReward(streak) {
+    const base = 10 + 5 * Math.min(Math.max(0, streak - 1), 10);
+    const bonus = DAILY_STREAK_MILESTONES[streak] || 0;
+    return { coins: base + bonus, milestone: bonus ? `${streak}にちれんぞくボーナス 💰+${bonus}` : '' };
+  }
   function grantGrowthBoost(ticks) {
     if (!isLiveLife() || state.infinite) return 0;
     state.boostTicks = Math.min(BOOST_TICKS_MAX, (state.boostTicks || 0) + ticks);
@@ -11755,6 +11814,7 @@
   // ない ため、ねだんの みだけ つねに 出す。available()を みたさない ときは
   // グレー表示にして、おした ときに unavailableMessage を 出す)
   function renderConsumableItemGrid() {
+    if (el.onetimeActive) { const list = activeBoostSummary(); el.onetimeActive.textContent = list.length ? `いまもっているこうか: ${list.join(' / ')}` : 'いまもっているこうかはない'; }
     el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map((item) => {
       const usable = !item.available || item.available();
       // ★ グレーアウトしているのに 理由が どこにも 書いていない、という
@@ -13597,9 +13657,10 @@
       const streak = state.lifetime.dailyLastDate === dailyKey(yesterday) ? (state.lifetime.dailyStreak || 0) + 1 : 1;
       state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
       state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
-      state.lifetime.money += 10;
+      const reward = dailyStreakReward(streak);
+      state.lifetime.money += reward.coins;
       grantGrowthBoost(BOOST_TICKS_DAILY);
-      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+10 ✨せいちょう2ばい(10ぷん)${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}`;
+      resultMessage += ` 🗓️ きょうのチャレンジ クリア! 💰+${reward.coins} ✨せいちょう2ばい(10ぷん)${streak >= 2 ? ` 🔥${streak}にちれんぞく` : ''}${reward.milestone ? ` 🎉${reward.milestone}` : ''}`;
     }
     if (record && record.rank === 'S' && !activeMinigameDaily) {
       grantGrowthBoost(BOOST_TICKS_S_RANK);
@@ -15035,6 +15096,11 @@
     const btn = e.target.closest('.shop-item');
     if (!btn) return;
     buyOrEquipShopItem(btn.dataset.id);
+  });
+  if (el.onetimeItemGrid) el.onetimeItemGrid.addEventListener('click', (e) => {
+    const btn = e.target.closest('.shop-item');
+    if (!btn) return;
+    useConsumableItem(btn.dataset.id);
   });
 
   el.naotoItemGrid.addEventListener('click', () => {
