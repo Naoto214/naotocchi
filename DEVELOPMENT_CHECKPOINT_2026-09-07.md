@@ -1773,7 +1773,7 @@ Runtime smoke test SUCCESS確認済み。
 - テスト: `tests/midlife-test.cjs`(プールの存在、1回だけ発火・ログ・おまもり、onAgeChanged 経由)。
 
 ## チェックポイント BO — るすのあいだ(ひかえめな オフライン進行)(2026-09-10)
-- `state.savedAt` を `saveState()` で更新。起動時(`render()` の前)に `applyOfflineProgress(now)`: 2分未満/たまご/♾️/GROWING 以外は何もしない。経過 tick は最大 600(30分)。満腹・きげん −0.6/tick(ねていれば ×0.4)、げんき −0.32/tick(ねていれば +2.2×min(tick,40))。いずれも 20 を下回らない(すでに低ければそのまま)。年齢・死亡メーターは動かない。100 tick 以上でうんち+1(上限内)。おみやげ: 5分に1コイン(最大12)、30分以上で35%で おたのしみ。
+- `state.savedAt` を `saveState()` で更新。起動時(`render()` の前)に `applyOfflineProgress(now)`: 2分未満/たまご/♾️/GROWING 以外は何もしない。経過 tick は最大 600(30分)。満腹・きげん −0.25/tick(ねていれば ×0.4)、げんき −0.15/tick(ねていれば +2.2×min(tick,40))。起動中の最初の `saveState()` で `savedAt` が更新される前に `bootSavedAt` を取っておく。いずれも 20 を下回らない(すでに低ければそのまま)。年齢・死亡メーターは動かない。100 tick 以上でうんち+1(上限内)。おみやげ: 5分に1コイン(最大12)、30分以上で35%で おたのしみ。
 - 表示: `setMessage` の要約(「おかえり。るすのあいだ(Nふん)…: おなか−x・きげん−y・💰+k」)、`showStoryEvent` バナー、ライフログ「るすばん Nふん」。
 - テスト: `tests/offline-test.cjs`(短時間は無変化、20分の減少と床とコイン、10時間は上限と床、ねむり中の回復)。
 

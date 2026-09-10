@@ -2771,6 +2771,9 @@
   }
 
   let state = loadState();
+  // きどう中の さいしょの saveState() で savedAt が いまに なる まえに、
+  // まえの セーブの じこくを とっておく(るすのあいだの けいさん用)
+  const bootSavedAt = Number(state && state.savedAt) || 0;
   // Presentation only: never saved, and never allowed to follow a replaced life.
   let eggVisualReaction = null;
 
@@ -15776,8 +15779,8 @@
   const OFFLINE_MIN_MS = 2 * 60 * 1000;
   const OFFLINE_CAP_TICKS = 600; // 30ぷんぶん
   const OFFLINE_FLOOR = 20;
-  function applyOfflineProgress(now = Date.now()) {
-    const savedAt = Number(state.savedAt) || 0;
+  function applyOfflineProgress(now = Date.now(), savedAtOverride) {
+    const savedAt = savedAtOverride != null ? Number(savedAtOverride) || 0 : Number(state.savedAt) || 0;
     if (!savedAt || state.stage !== STAGE.GROWING || state.infinite) return null;
     const elapsed = now - savedAt;
     if (elapsed < OFFLINE_MIN_MS) return null;
@@ -15788,10 +15791,11 @@
     const before = { hunger: state.hunger, happiness: state.happiness, energy: state.energy };
     // ぶんだけ さがるが、るすで あぶなく なる ことは ない(20 どまり)
     const drop = (v, per) => Math.max(Math.min(v, OFFLINE_FLOOR), v - per * ticks);
-    state.hunger = clamp(drop(state.hunger, 0.6 * factor), 0, 100);
-    state.happiness = clamp(drop(state.happiness, 0.6 * factor), 0, 100);
+    // ひらいている ときの 半分いか の はやさ(30ぷんで さいだい −150)
+    state.hunger = clamp(drop(state.hunger, 0.25 * factor), 0, 100);
+    state.happiness = clamp(drop(state.happiness, 0.25 * factor), 0, 100);
     if (sleeping) state.energy = clamp(state.energy + 2.2 * Math.min(ticks, 40), 0, 100);
-    else state.energy = clamp(drop(state.energy, 0.32), 0, 100);
+    else state.energy = clamp(drop(state.energy, 0.15), 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
     // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ
@@ -15880,7 +15884,7 @@
   // さいだい 30ぷんぶん ステータスが すこし さがる(20 より したには ならず、
   // としも とらない)。ねていれば げんきが かいふくする。もどってきたら
   // 「おかえり」の おしらせと、るすの ながさに おうじた ちいさな おみやげ
-  applyOfflineProgress();
+  applyOfflineProgress(Date.now(), bootSavedAt);
   render();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();

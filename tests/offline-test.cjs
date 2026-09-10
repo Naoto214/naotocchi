@@ -17,7 +17,7 @@ test('twenty minutes away lowers stats gently, never below the floor, and leaves
   const money = state.lifetime.money, log = state.lifeLog.length;
   const r = h.api.applyOfflineProgress(1000);
   assert.equal(r.ticks, 400);
-  assert.ok(Math.abs(state.hunger - (90 - 0.6 * 400)) < 0.01 || state.hunger === 20, 'hunger dropped by the tick budget: ' + state.hunger);
+  assert.ok(Math.abs(state.hunger - (90 - 0.25 * 400)) < 0.01, 'hunger dropped by the tick budget: ' + state.hunger);
   assert.ok(state.hunger >= 20 && state.happiness >= 20 && state.energy >= 20, 'floors hold');
   assert.equal(state.lifetime.money, money + 4, 'one coin per five minutes');
   assert.equal(state.lifeLog.length, log + 1);
@@ -39,5 +39,5 @@ test('sleeping while away recovers energy instead of draining it', () => {
   const r = h.api.applyOfflineProgress(1000);
   assert.equal(r.sleeping, true);
   assert.ok(state.energy > 60, 'energy recovered: ' + state.energy);
-  assert.ok(state.hunger > 90 - 0.6 * 300, 'hunger drops slower while asleep');
+  assert.ok(state.hunger > 90 - 0.25 * 300, 'hunger drops slower while asleep');
 });
