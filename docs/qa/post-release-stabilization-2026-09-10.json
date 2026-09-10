@@ -1,0 +1,79 @@
+{
+  "checkpoint": "BX",
+  "base_commit": "9a523e46dccfd0b7d32c30ed75afc13d2549ad48",
+  "previous_pr_head": "9c9aefc444f3d1ae2d1f3708326e18e6b5a58292",
+  "integrated_docs_commit": "9595706cd80524844299e9eccfb063ec392b8d84",
+  "pr": 205,
+  "branch": "fix/minigame-input-lifecycle-20260910",
+  "scope": "Node VM input/save lifecycle with substitute DOM, clock and storage; not native input, rendering or FPS.",
+  "reproduction": {
+    "initial_save_suite": {
+      "tests": 8,
+      "passed": 1,
+      "failed": 7
+    },
+    "after_load_fix": {
+      "passed": 5,
+      "failed": 3
+    },
+    "after_write_fix": {
+      "passed": 7,
+      "failed": 1
+    },
+    "after_wipe_fix": {
+      "passed": 8,
+      "failed": 0
+    },
+    "review_regression_before_final_fix": {
+      "tests": 10,
+      "passed": 9,
+      "failed": 1
+    }
+  },
+  "validation": {
+    "npm_test_exit_code": 0,
+    "lifecycle_tests": 8,
+    "save_recovery_tests": 10,
+    "passed": 18,
+    "failed": 0,
+    "approved_asset_byte_comparisons": 301,
+    "approved_asset_differences": 0,
+    "unchanged_css_and_world_master": true,
+    "legacy_readme_body_byte_preserved": true
+  },
+  "independent_review": {
+    "remaining_critical": 0,
+    "remaining_important": 0,
+    "all_candidates_invalid_overwrite_fixed": true,
+    "tests_rerun_passed": 18
+  },
+  "source_sha256": {
+    "script.js": "ec2403d9ee116873da8a0ea944bb7b5fcc8355dfeb5c3efd3a346f5c5fa961c5",
+    "index.html": "925e09ab84efad75aa283b10d0fbfd0d3e3eaa42fb9c9b2dc68c404ca311bbd4",
+    "style.css": "462529cbe1b9f8a6626ab504f98e78f1aafe1ac92de4e3ab3f5d64704edaeb27",
+    "character-world-master.v1.js": "4547553d6cbb41436a75a90aaa23c0296c08f9fe7b1bf5a26b308eb5cf061c53",
+    "package.json": "36bfe01ced975715768359cd65d4c1f62e975a369eef2783192836d2b9257d5b",
+    ".github/workflows/runtime-smoke-test.yml": "0fdfe591d54e5a5d1f4046d97c9aab85634338d00a9cf07adccc49441fa36f63",
+    "tests/save-recovery-test.cjs": "5230d2069b8fb58227948832052b051214a84faa1caf3651da95a7b6d8d371e3",
+    "tests/minigame-lifecycle-test.cjs": "7927b93ee0afbe162fbeb4edd5e962be367c3ea805d3152fd28e3e65f63ff1ed",
+    "tests/helpers/runtime-harness.cjs": "4ef34f5b5de97953580e6efc6208c2bd239907083b5e2055097868aca8474704"
+  },
+  "approved_asset_manifest": {
+    "path": "docs/qa/minigame-input-lifecycle-2026-09-10.json",
+    "sha256": "c918dc63c9cb406fb2865172630f6896b5f16ee77951ec337cdacaf7d2e61f85",
+    "count": 301
+  },
+  "browser": {
+    "attempted_this_checkpoint": false,
+    "previous_connection_timeout_ms": 20000,
+    "recovery_confirmed": false,
+    "new_visual_passes": 0,
+    "jitter_cause": "unresolved",
+    "deferred_by_user": true
+  },
+  "publication": {
+    "main_changed_by_this_checkpoint": false,
+    "candidate_pr": 205,
+    "exact_candidate_head_tree_and_ci": "Recorded in PR #205 body after upload"
+  }
+}

@@ -20,3 +20,7 @@ jobs:
         run: node tests/dialogue-test.js
       - name: Validate development visual QA fixtures
         run: node tests/visual-qa-test.cjs
+      - name: Run minigame input lifecycle regression test
+        run: node --test tests/minigame-lifecycle-test.cjs
+      - name: Run save recovery regression test
+        run: node --test tests/save-recovery-test.cjs
