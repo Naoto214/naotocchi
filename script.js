@@ -3,6 +3,7 @@
 
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
+  const CARE_STATUS = window.NaotocchiCareStatus || null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -2684,10 +2685,96 @@
   // リセットされる いちじてきな 状態なので state には いれない
   let pendingCompanionId = null;
 
+  // Presentation-only state: never written to a save or used by the life clock.
+  let careLife = null, carePrevious = null, carePreviousKind = '';
+  let careFeedback = null, careFeedbackTimer = null, careMilestone = null;
+  function clearCareFeedback() {
+    if (careFeedbackTimer) clearTimeout(careFeedbackTimer);
+    careFeedbackTimer = null;
+    careFeedback = null;
+  }
+  function showCareFeedback(feedback) {
+    if (!feedback || state.stage !== STAGE.GROWING) return;
+    clearCareFeedback();
+    careFeedback = feedback;
+    careFeedbackTimer = setTimeout(() => {
+      careFeedback = null; careFeedbackTimer = null;
+      renderCareNotice();
+    }, 4200);
+  }
+  function recordCareChange(before) {
+    if (!CARE_STATUS || !before || before.stage !== state.stage) return;
+    showCareFeedback(CARE_STATUS.changes(before, CARE_STATUS.snapshot(state)));
+  }
+  function careIconHTML(icon, label = '') {
+    const known = ['food','game','clean','sleep','medicine','play','love','coin','gift','hunger','sick','danger','recovery','growth','decline','poop','egg'];
+    if (!known.includes(icon)) return '';
+    return `<i class="care-icon" data-care-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}></i>`;
+  }
+  function renderCareNotice(observe = false) {
+    if (!CARE_STATUS) return;
+    if (careLife !== state) {
+      clearCareFeedback(); careMilestone = null; careLife = state; carePrevious = null; carePreviousKind = '';
+    }
+    const notice = CARE_STATUS.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
+    const visible = state.stage === STAGE.GROWING && !gameActive && !grandGoalPending
+      && !state.transformOptions && !isAnyMenuOverlayOpen()
+      && el.lifeCardOverlay.classList.contains('hidden');
+    const urgent = visible && notice && notice.severity !== 'info';
+    if (observe) {
+      const next = CARE_STATUS.snapshot(state);
+      const quarter = Math.floor(4 * state.growth / sodachiCost(state.sodachi));
+      // Collect before advancing the snapshot, even while the slot is occupied.
+      // One latest summary coalesces simultaneous milestones instead of replaying
+      // an unbounded queue of old changes on returning home.
+      if (carePrevious?.stage === STAGE.GROWING && state.stage === STAGE.GROWING) {
+        const milestones = [];
+        if (state.sodachi !== carePrevious.sodachi) {
+          const diff = state.sodachi - carePrevious.sodachi;
+          milestones.push({icon:diff > 0 ? 'growth' : 'decline',text:`そだち ${diff > 0 ? '+' : '−'}${Math.abs(diff)}：${diff > 0 ? 'せいちょうした' : 'おとろえでさがった'}`});
+        }
+        if (carePrevious.health <= 25 && state.health > 25) milestones.push({icon:'recovery',text:'けんこうがもどってきた'});
+        if (carePrevious.energy < 100 && state.energy >= 100 && state.isSleeping) milestones.push({icon:'recovery',text:'ねむってげんきがかいふくした'});
+        if (state.decline >= 50 && Math.floor(state.decline / 25) > Math.floor(carePrevious.decline / 25)) milestones.push({icon:'decline',text:'おとろえ ↑ おせわで立てなおそう'});
+        if (!milestones.length && state.sodachi === carePrevious.sodachi && quarter > carePrevious.quarter && quarter > 0) milestones.push({icon:'growth',text:`せいちょう ↑ ${Math.round(state.growth / sodachiCost(state.sodachi) * 100)}%`});
+        if (milestones.length) careMilestone = {icon:milestones[0].icon,text:milestones.slice(0,2).map(m=>m.text).join('\n')};
+      }
+      carePrevious = {...next, quarter};
+      const kind = visible ? notice?.kind || '' : '';
+      if (kind && kind !== carePreviousKind && notice.motion && !mgPerfLow
+        && !speechActive && !conversationIsBusy() && document.visibilityState !== 'hidden') {
+        castMotion?.emote(notice.motion);
+      }
+      carePreviousKind = kind;
+    }
+    if (state.stage !== STAGE.GROWING) { clearCareFeedback(); careMilestone = null; }
+    if (visible && !urgent && !careFeedback && careMilestone) {
+      const pending = careMilestone; careMilestone = null; showCareFeedback(pending);
+    }
+    const display = urgent ? notice : visible && careFeedback
+      ? {kind:'change',severity:'info',icon:careFeedback.icon,text:[message,careFeedback.text].filter(Boolean).join('\n')}
+      : visible && !message ? notice : null;
+    const text = display ? display.text || `${display.title}\n${display.detail}`
+      : message || (state.stage === STAGE.DEAD ? '「あたらしいたまご」で、つぎの子をむかえよう'
+        : state.stage === STAGE.EGG ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
+    if (el.message.textContent !== text) { el.message.textContent = text; el.message.scrollTop = 0; }
+    el.message.dataset.careKind = display?.kind || '';
+    el.message.dataset.careSeverity = display?.severity || '';
+    el.message.dataset.careIcon = display?.icon || '';
+    el.message.dataset.careTone = display?.kind === 'change'
+      ? display.text.includes('−') ? display.text.includes('+') ? 'mixed' : 'loss' : 'gain' : '';
+    el.screen.dataset.careSeverity = visible ? notice?.severity || '' : '';
+    for (const id of ['feedBtn','playBtn','cleanBtn','sleepBtn','medicineBtn','playWithBtn']) {
+      const recommended = visible && notice?.action === id;
+      el[id].dataset.careRecommended = recommended ? 'true' : '';
+      el[id].setAttribute('aria-describedby', recommended ? 'message' : '');
+    }
+  }
+
   function setMessage(msg) {
     message = compactJapaneseText(msg);
-    el.message.textContent = message;
-    el.message.scrollTop = 0;
+    if (CARE_STATUS) renderCareNotice();
+    else { el.message.textContent = message; el.message.scrollTop = 0; }
 
     // A message must stay on screen for a fixed, guaranteed stretch of time -
     // it must NOT be at the mercy of the background tick's own independent
@@ -10111,7 +10198,9 @@
     const crown = state.sodachi >= SODACHI_MAX ? ' 👑' : '';
     el.ageLabel.textContent = state.infinite ? 'ねんれい: ♾️' : `ねんれい: ${currentAge()}さい${crown}`;
     el.sodachiLabel.textContent = state.infinite ? 'そだち: ♾️' : `そだち: ${state.sodachi}`;
-    el.moneyLabel.textContent = `💰 ${state.lifetime.money}`;
+    const moneyHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
+    if (el.moneyLabel.innerHTML !== moneyHTML) el.moneyLabel.innerHTML = moneyHTML;
+    el.moneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
     el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[state.speciesLine] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
@@ -10140,17 +10229,16 @@
     updateMeter(el.goalBar, isDead ? 0 : goalAge, 'goal');
     el.goalValue.textContent = state.infinite ? '♾️' : `${isDead ? 0 : goalAge} / ${GOAL_AGE}`;
 
-    el.poopRow.textContent = '💩'.repeat(state.poopCount);
+    const poopHTML = careIconHTML('poop').repeat(state.poopCount);
+    if (el.poopRow.innerHTML !== poopHTML) el.poopRow.innerHTML = poopHTML;
     el.poopRow.setAttribute('aria-label', `うんち ${state.poopCount}こ`);
     el.poopRow.setAttribute('aria-hidden', String(state.poopCount === 0));
 
     const badges = [];
-    if (state.isSick) {
-      const sickness = SICKNESS_TYPES.find((s) => s.label === compactJapaneseText(state.sicknessType));
-      badges.push(sickness ? sickness.badge : '🤒');
-    }
-    if (state.isSleeping && !isOver) badges.push('💤');
-    el.badges.textContent = badges.join(' ');
+    if (state.isSick && !isEgg && !isOver) badges.push(careIconHTML('sick', compactJapaneseText(state.sicknessType || 'びょうき')));
+    if (state.isSleeping && !isOver) badges.push(careIconHTML('sleep', 'ねむっている'));
+    const badgesHTML = badges.join('');
+    if (el.badges.innerHTML !== badgesHTML) el.badges.innerHTML = badgesHTML;
 
     el.screen.classList.toggle('dead', isDead);
     el.screen.classList.toggle('dying', !!state.dying && !isOver);
@@ -10219,10 +10307,11 @@
 
     const homeMessage = message || (isDead ? '「あたらしいたまご」で、つぎの子をむかえよう'
       : isEgg ? `たまごをタップするか「あたためる」をおしてね${Math.min(100, Math.round((state.growth / HATCH_GROWTH) * 100))}%` : '');
-    if (el.message.textContent !== homeMessage) {
+    if (!CARE_STATUS && el.message.textContent !== homeMessage) {
       el.message.textContent = homeMessage;
       el.message.scrollTop = 0;
     }
+    renderCareNotice(true);
 
     const disableCare = isOver || isEgg || hasTransformChoice;
     // さいごの じかん は お世話が できる(そだち等は とまっている)
@@ -10251,6 +10340,7 @@
     el.sleepBtn.querySelector('span').textContent = state.isSleeping ? 'おきる' : 'ねる';
     el.playWithBtn.querySelector('span').textContent = isEgg ? 'あたためる' : 'じゃれる';
     el.playWithBtn.title = isEgg ? 'たまごをあたためる' : 'じゃれる';
+    el.playWithBtn.querySelector('i').dataset.careIcon = isEgg ? 'egg' : 'play';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
@@ -11233,7 +11323,7 @@
     el.rewardItemGrid.innerHTML = `
       <button type="button" class="shop-item reward-item ${count > 0 ? 'owned' : 'locked'}" data-id="reward">
         <span class="shop-item-badge">💫</span>
-        <span class="shop-item-emoji">🎁</span>
+        <span class="shop-item-emoji">${careIconHTML('gift')}</span>
         <span class="shop-item-label">ごほうび</span>
         <span class="shop-item-desc">デートや旅を特別な思い出にできるよ。使うかどうかは出かけるときに選べます</span>
         <span class="shop-item-status">${count > 0 ? `${count}こもっている` : 'まだもっていない'}</span>
@@ -11242,7 +11332,8 @@
   }
 
   function renderItemOverlay() {
-    el.itemMoneyLabel.textContent = `💰 ${state.lifetime.money}`;
+    el.itemMoneyLabel.innerHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
+    el.itemMoneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
     renderRewardItemGrid();
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
       const owned = state.lifetime.ownedShopItems.includes(item.id);
@@ -13092,6 +13183,7 @@
   }
 
   function finishMinigameInner(game, score, customMessage) {
+    const careBefore = CARE_STATUS?.snapshot(state);
     // じこベスト/ランクは アイテムの ボーナスを のせる まえの てんすうで
     const record = recordMinigameResult(game, score);
     // サングラスを そうびしていると、ミニゲームの とくてんに ボーナスが つく。
@@ -13210,6 +13302,7 @@
     emotePet(recruitedNow ? 'fun' : isGreat ? 'fun' : isBad ? 'sad' : 'happy');
     checkMeters();
     saveState();
+    recordCareChange(careBefore);
     render();
   }
 
@@ -13519,8 +13612,10 @@
     return () => {
       clearConversationTimers();
       hideSpeechBubble();
+      const careBefore = CARE_STATUS?.snapshot(state);
       const result = fn();
       saveState();
+      recordCareChange(careBefore);
       render();
       // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
       if (afterRender) afterRender(result);

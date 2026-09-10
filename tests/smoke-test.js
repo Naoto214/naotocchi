@@ -91,6 +91,7 @@ global.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = master;
 global.window.NaotocchiCast = require('../cast-layout.js');
 global.window.NaotocchiCastMotion = require('../cast-motion.js');
 global.window.NaotocchiEnvironment = require('../world-environment.js');
+global.window.NaotocchiCareStatus = require('../care-status.js');
 global.localStorage = { getItem: () => null, setItem: noop, removeItem: noop };
 global.navigator = { userAgent: 'smoke-test', maxTouchPoints: 1 };
 global.performance = { now: () => 1000 };

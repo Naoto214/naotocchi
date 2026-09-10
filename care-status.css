@@ -1,0 +1,60 @@
+/* A single sprite atlas. Labels remain real text when an image cannot load. */
+.care-icon {
+  display:inline-block;width:26px;height:26px;flex:0 0 26px;
+  vertical-align:middle;background-image:url('assets/ui/care-atlas-v1.png');
+  background-size:var(--care-size,400%) var(--care-size,400%);background-position:var(--care-x,0%) var(--care-y,0%);
+  background-repeat:no-repeat;background-color:#fff;border-radius:5px;image-rendering:pixelated;font-style:normal;
+}
+[data-care-icon="food"] {--care-x:3.62537764%;--care-y:6.29405841%;--care-size:480.45977011%}
+[data-care-icon="game"] {--care-x:34.81781377%;--care-y:8.19838057%;--care-size:471.42857143%}
+[data-care-icon="clean"] {--care-x:64.97409326%;--care-y:4.55958549%;--care-size:433.91003460%}
+[data-care-icon="sleep"] {--care-x:98.95397490%;--care-y:5.75313808%;--care-size:420.80536913%}
+[data-care-icon="medicine"] {--care-x:3.14057827%;--care-y:36.29112662%;--care-size:499.60159363%}
+[data-care-icon="play"] {--care-x:34.71241171%;--care-y:35.92330979%;--care-size:476.80608365%}
+[data-care-icon="love"] {--care-x:67.03629032%;--care-y:37.29838710%;--care-size:478.62595420%}
+[data-care-icon="coin"] {--care-x:97.31075697%;--care-y:36.95219124%;--care-size:501.60000000%}
+[data-care-icon="gift"] {--care-x:3.28358209%;--care-y:65.72139303%;--care-size:503.61445783%}
+[data-care-icon="hunger"] {--care-x:34.43640124%;--care-y:67.21820062%;--care-size:436.93379791%}
+[data-care-icon="sick"] {--care-x:66.46706587%;--care-y:65.66866267%;--care-size:497.61904762%}
+[data-care-icon="danger"] {--care-x:95.15033948%;--care-y:64.88845781%;--care-size:562.33183857%}
+[data-care-icon="recovery"] {--care-x:3.20962889%;--care-y:94.83450351%;--care-size:487.93774319%}
+[data-care-icon="growth"] {--care-x:34.43640124%;--care-y:96.48397104%;--care-size:436.93379791%}
+[data-care-icon="decline"] {--care-x:65.78171091%;--care-y:95.13274336%;--care-size:529.11392405%}
+[data-care-icon="poop"] {--care-x:94.79768786%;--care-y:93.49710983%;--care-size:580.55555556%}
+.care-icon[data-care-icon="egg"] {
+  background-image:url('assets/characters/egg/intact.png');background-color:transparent;background-size:contain;background-position:center;
+}
+.buttons button {position:relative}
+.buttons button[data-care-recommended="true"] {box-shadow:inset 0 0 0 2px #965024,0 2px 0 #a4b9a8}
+.buttons button[data-care-recommended="true"]::after {
+  content:'!';position:absolute;top:1px;right:4px;width:13px;height:13px;
+  border-radius:50%;background:#fff5df;color:#6b3617;font:700 11px/13px sans-serif;
+  pointer-events:none;
+}
+#moneyLabel,#itemMoneyLabel {display:inline-flex;align-items:center;gap:2px}
+#moneyLabel .care-icon,#itemMoneyLabel .care-icon {width:20px;height:20px;flex-basis:20px}
+#poopRow .care-icon {width:18px;height:18px;flex-basis:18px}
+#badges {height:20px;min-width:40px;flex-wrap:nowrap;overflow:hidden}
+#badges .care-icon {width:20px;height:20px;flex-basis:20px}
+/* Reserve badge space even when healthy, just as the speech and notice slots do. */
+.cast-badges:has(.badges:empty):has(.ending-badges:empty) {display:flex}
+.shop-item-emoji > .care-icon {width:40px;height:40px;flex-basis:40px}
+#message[data-care-kind]:not([data-care-kind=""]) {
+  white-space:pre-line;box-sizing:border-box;padding:0 4px;border-radius:5px;
+}
+#message[data-care-icon]:not([data-care-icon=""])::before {
+  content:'';float:left;width:24px;height:24px;margin:3px 4px 0 0;
+  background:url('assets/ui/care-atlas-v1.png') var(--care-x,0%) var(--care-y,0%) / var(--care-size,400%) var(--care-size,400%) no-repeat;
+  image-rendering:pixelated;border-radius:4px;
+}
+#message[data-care-severity="critical"] {background:#fff0df;color:#652b19;box-shadow:inset 3px 0 #a13f27;font-weight:700}
+#message[data-care-severity="warning"] {background:#fff5dc;color:#62441a;box-shadow:inset 3px 0 #a4772d}
+#message[data-care-kind="change"] {background:#eef6e9;color:#345335}
+#message[data-care-tone="loss"],#message[data-care-tone="mixed"] {background:#fff5dc;color:#62441a}
+.screen[data-care-severity="critical"] {box-shadow:inset 0 0 0 3px #a13f27}
+/* Static text, outline, icon and the suggested action carry every warning.
+   No blink, continuous animation or layout displacement is added here. */
+@media (forced-colors:active) {
+  #message[data-care-severity="critical"],#message[data-care-severity="warning"] {outline:2px solid CanvasText;outline-offset:-2px}
+  .buttons button[data-care-recommended="true"] {outline:2px solid ButtonText;outline-offset:-3px}
+}

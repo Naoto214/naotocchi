@@ -30,3 +30,5 @@ jobs:
         run: node --test tests/egg-hatching-test.cjs
       - name: Run audio and post-integration regression tests
         run: node --test tests/audio-regression-test.cjs tests/post-integration-audit-test.cjs
+      - name: Run care status regression tests
+        run: node --test tests/care-status-test.cjs tests/care-status-integration-test.cjs

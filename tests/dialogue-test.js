@@ -92,6 +92,8 @@ const source = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('aud
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
 sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
+// Keep historical dialogue assertions focused on their copy. Dedicated runtime
+// tests load the status presenter and check its priority over these messages.
 const expose = `
   const realSpeech = setSpeechBubble;
   setSpeechBubble = (text, speaker) => {
@@ -687,7 +689,9 @@ assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'd
 const oldCard = api.buildLifeCard();
 assert.match(oldCard, /でもなんとなく気になる&lt;おもいで&gt;/);
 assert.equal(api.getState().lifeLog[0].text, 'でも　 なんとなく 気になる <おもいで>', 'display rewrote the saved log');
-api.loop(); assert.match(getElement('badges').textContent, /🥵/, 'old sickness label lost its badge');
+api.loop();
+assert.match(getElement('badges').innerHTML, /data-care-icon="sick"/, 'old sickness still gets a dedicated badge');
+assert.match(getElement('badges').innerHTML, /aria-label="げんいんふめいのこうねつ"/, 'old sickness label remains readable');
 api.getState().isSick = false;
 api.loop();
 assert.match(getElement('worldDateHint').textContent, /となりまちのロボット/);

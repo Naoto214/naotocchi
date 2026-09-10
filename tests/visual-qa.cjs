@@ -39,6 +39,22 @@ function createFixtures() {
       make('legend',26,{sodachi:95,maxSodachi:95});
       make('sleeping',26,{isSleeping:true,energy:20});
       make('sick',26,{isSick:true,sicknessType:'かぜ'});
+      // Status fixtures use the same production save format and life rules.
+      // Critical scenes have a short real lifetime; load again to observe care.
+      make('care_health_zero',26,{health:0,hunger:0,happiness:0,energy:0,
+        deathMeter:0,lowHealthStreak:0,totalSicknessCount:10,isSick:false,ageTicks:101});
+      make('care_low_health',26,{health:20,hunger:45,happiness:80,energy:80});
+      make('care_life_danger',26,{health:55,hunger:55,happiness:55,energy:55,deathMeter:85,dying:true,dyingTicks:40});
+      make('care_hungry',26,{hunger:15,health:90,happiness:80,energy:80});
+      make('care_tired',26,{energy:15,hunger:80,health:90,happiness:80});
+      make('care_unhappy',26,{happiness:15,hunger:80,health:90,energy:80});
+      make('care_decline',26,{decline:75,hunger:80,happiness:80,health:90,energy:80});
+      make('care_sleep_full',26,{isSleeping:true,energy:100,hunger:80,happiness:80,health:90});
+      make('care_sleep_hungry',26,{isSleeping:true,energy:25,hunger:15,happiness:80,health:90});
+      make('care_sick',26,{isSick:true,sicknessType:'しんぞうがバクバクするびょうき',health:25,hunger:80,happiness:80,energy:80});
+      const careLarge=make('care_large',26,{isSick:true,sicknessType:'げんいんふめいのこうねつ',health:20,hunger:80});
+      careLarge.lifetime.textSize='large';
+      make('care_infinite',26,{infinite:true,health:0,hunger:0,energy:0,deathMeter:95});
       make('mushroom',26,{speciesLine:'mushroom',stageIndex:7});
       make('goal4',26,{discoveredStages:allForms.slice(),achievementsUnlocked:[]});
       make('goal5',26,{discoveredStages:allForms.slice(),achievementsUnlocked:api.ACHIEVEMENTS.map(a=>a.id)});
@@ -186,6 +202,11 @@ function visualQaPlugin() {
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
               gameScript:doc.querySelector('script[src^="script.js"]').getAttribute('src'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
+              careNotice:doc.getElementById('message').textContent,
+              careSeverity:doc.getElementById('message').dataset.careSeverity||'',
+              careNoticeHeight:doc.getElementById('message').getBoundingClientRect().height,
+              careNoticeOverflow:doc.getElementById('message').scrollHeight>doc.getElementById('message').clientHeight,
+              careRecommended:[...doc.querySelectorAll('[data-care-recommended="true"]')].map(e=>e.id),
               storyVisible:story.width>0,storyText:story.width>0?storyText.textContent:null,storyTextOverflow,
               storyAsset:story.width>0?doc.querySelector('#storyFlashEmoji img')?.getAttribute('src')||null:null,
               profileVisible:profile.getBoundingClientRect().width>0,

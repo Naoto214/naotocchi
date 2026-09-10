@@ -90,7 +90,7 @@ test('poop updates preserve every placed actor and do not interrupt a reaction',
   // path does not mutate cast placement or cancel motion on a poop update.
   for (const count of [1,2,4,0]) {
     s.poopCount=count; h.api.render();
-    assert.equal(h.get('poopRow').textContent,'💩'.repeat(count));
+    assert.equal((h.get('poopRow').innerHTML.match(/data-care-icon="poop"/g)||[]).length,count);
     assert.deepEqual(placement(),before);
     assert.equal(response.playState,'running');
   }
