@@ -1,0 +1,320 @@
+{
+  "dateUTC": "2026-09-10",
+  "baseMain": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+  "baseTree": "f5dd51e3be94feba26c3f1845d2de2e68ce4805b",
+  "branch": "feature/badges-transparent-season-art-20260910",
+  "finalCommitTreeCI": "Read the PR for this branch; this record is included in that commit.",
+  "candidatePublication": "unmerged and unpublished when recorded",
+  "priorPR": {
+    "number": 227,
+    "mergedAtUTC": "2026-09-10T13:07:24Z",
+    "merge": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+    "runtime": {
+      "run": 300,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34480691812"
+    },
+    "pages": {
+      "run": 225,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34480690634"
+    },
+    "publicCheck": "https://github.com/Naoto214/naotocchi/pull/227#issuecomment-5619205269",
+    "publicFilesMatchMain": [
+      "index.html",
+      "script.js",
+      "ui-illustrations.css"
+    ]
+  },
+  "tests": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 142,
+    "pass": 142,
+    "fail": 0,
+    "skip": 0,
+    "newTests": 3,
+    "redGreen": "3 new integration cases failed before implementation, then passed; baseline 139 passed",
+    "output": "badges-transparent-test-output-2026-09-10.txt"
+  },
+  "review": {
+    "readOnly": true,
+    "findings": {
+      "critical": 0,
+      "important": 0,
+      "minor": 0
+    },
+    "scope": "32 atlas frames/CSS/metadata, clipping, independent image fallback, badge accessible names/click delegation/order/tier filter, header dimensions, unintended state/layout changes"
+  },
+  "invariants": {
+    "baseMain": "eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9",
+    "careHandlersTailUnchanged": true,
+    "existingImageChanges": [],
+    "existingImagesCompared": 309,
+    "newAssets": [
+      {
+        "bytes": 1031977,
+        "frames": [
+          {
+            "icon": "food",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 33520
+          },
+          {
+            "icon": "game",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 30150
+          },
+          {
+            "icon": "clean",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 21481
+          },
+          {
+            "icon": "sleep",
+            "maximumBorderAlpha": 0,
+            "opaquePixels": 37480
+          },
+          {
+            "icon": "medicine",
+            "maximumBorderAlpha": 0,
+            "opaquePixels": 29452
+          },
+          {
+            "icon": "play",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 24396
+          },
+          {
+            "icon": "love",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 27086
+          },
+          {
+            "icon": "coin",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 35323
+          },
+          {
+            "icon": "gift",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 40099
+          },
+          {
+            "icon": "hunger",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 31278
+          },
+          {
+            "icon": "sick",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 18917
+          },
+          {
+            "icon": "danger",
+            "maximumBorderAlpha": 2,
+            "opaquePixels": 24091
+          },
+          {
+            "icon": "recovery",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 33699
+          },
+          {
+            "icon": "growth",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 21490
+          },
+          {
+            "icon": "decline",
+            "maximumBorderAlpha": 0,
+            "opaquePixels": 21577
+          },
+          {
+            "icon": "poop",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 23653
+          }
+        ],
+        "fullyTransparentPixels": 1034329,
+        "image": "assets/ui/care-atlas-v2.png",
+        "mode": "RGBA",
+        "sha256": "1cefd08973207e7c46411335dfa02c7390891da73aebd0c8d77cb3f957039da2",
+        "size": [
+          1254,
+          1254
+        ]
+      },
+      {
+        "bytes": 1549146,
+        "frames": [
+          {
+            "icon": "cherry_blossom",
+            "maximumBorderAlpha": 2,
+            "opaquePixels": 38599
+          },
+          {
+            "icon": "sunflower",
+            "maximumBorderAlpha": 3,
+            "opaquePixels": 47322
+          },
+          {
+            "icon": "maple_leaf",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 36141
+          },
+          {
+            "icon": "green_leaf",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 24316
+          },
+          {
+            "icon": "tree",
+            "maximumBorderAlpha": 4,
+            "opaquePixels": 46444
+          },
+          {
+            "icon": "pine",
+            "maximumBorderAlpha": 3,
+            "opaquePixels": 31482
+          },
+          {
+            "icon": "palm",
+            "maximumBorderAlpha": 7,
+            "opaquePixels": 33045
+          },
+          {
+            "icon": "cactus",
+            "maximumBorderAlpha": 4,
+            "opaquePixels": 30220
+          },
+          {
+            "icon": "snow_mountain",
+            "maximumBorderAlpha": 3,
+            "opaquePixels": 35945
+          },
+          {
+            "icon": "mountain",
+            "maximumBorderAlpha": 1,
+            "opaquePixels": 35468
+          },
+          {
+            "icon": "house",
+            "maximumBorderAlpha": 2,
+            "opaquePixels": 43416
+          },
+          {
+            "icon": "city",
+            "maximumBorderAlpha": 3,
+            "opaquePixels": 33840
+          },
+          {
+            "icon": "wheat",
+            "maximumBorderAlpha": 3,
+            "opaquePixels": 36625
+          },
+          {
+            "icon": "wave",
+            "maximumBorderAlpha": 5,
+            "opaquePixels": 44676
+          },
+          {
+            "icon": "shell",
+            "maximumBorderAlpha": 4,
+            "opaquePixels": 40758
+          },
+          {
+            "icon": "hibiscus",
+            "maximumBorderAlpha": 2,
+            "opaquePixels": 43996
+          }
+        ],
+        "fullyTransparentPixels": 807025,
+        "image": "assets/ui/season-region-atlas-v1.png",
+        "mode": "RGBA",
+        "sha256": "a50ae6e608fee5b234b076ff597b755a4a1dea7db3a4d68271086413407a708f",
+        "size": [
+          1254,
+          1254
+        ]
+      }
+    ],
+    "recordedAtUTC": "2026-09-10T13:26:19.954802+00:00",
+    "riceOpaqueWhitePixels": 3820,
+    "unchangedFunctions": [
+      "loadState",
+      "saveState",
+      "tick",
+      "isImmortal",
+      "triggerDeath",
+      "updateDyingWarning",
+      "raiseDeathMeter",
+      "recoverSleepStep",
+      "renderHomeCast",
+      "renderCareNotice",
+      "setMessage",
+      "playFunScene",
+      "useItem",
+      "renderRegionDecor",
+      "buildSeasonFxHtml",
+      "celebrateSeasonChange",
+      "applyWeatherFx"
+    ]
+  },
+  "visual": {
+    "userProvidedBeforeScreenshot": "IMG_5205.png",
+    "beforeScreenshotsRead": 1,
+    "aiCapturedAfterScreenshots": 0,
+    "staticAssetCheck": "badges-transparent-art-check-2026-09-10.png",
+    "staticMethod": "ReportLab PDF using original atlases, rendered with pdftoppm; not game or CSS rendering",
+    "staticSizes": [
+      20,
+      26,
+      40
+    ],
+    "staticBackgrounds": [
+      "mint",
+      "pink",
+      "blue",
+      "dark navy"
+    ],
+    "browser": "Previous official browser tabs/navigation timed out after 20 seconds; not retried this turn",
+    "iphoneRenderingVerified": false,
+    "touchVerified": false,
+    "audioVerified": false,
+    "fpsVerified": false,
+    "jitterCauseConfirmed": false,
+    "beforeScreenshotSha256": "9e1cb9e4b8fa197ddb3d56a4300650c3370eb00b2b47b021b08dee280002fcbf"
+  },
+  "qaScenes": [
+    "badges_transparent",
+    "season_spring",
+    "season_autumn",
+    "season_summer_sea"
+  ],
+  "otherWork": {
+    "openPRsAtSave": [
+      92
+    ],
+    "pr92Changed": false,
+    "knownClaudeBranch": "claude/review-existing-code-readme-naq7pv",
+    "claudeHead": "cc7aaa462bca784a18faf91bdade7f7447bae098",
+    "claudeSharedHeadUnchanged": true,
+    "otherTabsUncommittedAssets": "unknown"
+  },
+  "remaining": [
+    "Post-merge Runtime/Pages/public file verification",
+    "Real rendering of new icons and header badges at 320px/normal width, large text, 26 companions+partner, all themes, reduced motion, missing images",
+    "Other regional animals/decorations and individual minigame props; reuse existing PNG/Canvas",
+    "PR #92 reconciliation remains separate; existing date/anniversary decisions retained"
+  ],
+  "verifiedSourceSha256": {
+    "script.js": "cccbc0caa65088a35594d39c54071fa4ae57e991442470bddd687d582e2b2592",
+    "index.html": "c08c8b55ea38e410cd39be4c20a10084029419047ff72b29ca05ff5a7e5f6fb7",
+    "care-status.css": "1b93917f433481f7130323f08112d64387da4116fc5bc873d76fba9bc7b1d4bb",
+    "ui-illustrations.css": "38d93b076a754bf733e91d475df6566abc3ee9e380bf9fc05a9e3a0579e0d807",
+    "tests/ui-illustrations-test.cjs": "b113fa264d532a6f1de155add10b66e19350df46eb11e1fb16ef7d3be6292667",
+    "tests/visual-qa.cjs": "5d6075a1302d472c5055989319c2e73c0b2e057a6016c11d9d119b6633e656ea",
+    "tests/visual-qa-test.cjs": "386dfab4fb8157c15f8ae8b8d874e9c4eb5bf764618c7788bda3f0fff60d591a"
+  }
+}

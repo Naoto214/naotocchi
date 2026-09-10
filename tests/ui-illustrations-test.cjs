@@ -123,3 +123,99 @@ test('reduced motion keeps world labels and illustrated choices without falling 
     assert.match(h.get('worldNowCard').innerHTML,new RegExp(`data-ui-icon="${weather==='cloudy'?'cloud':weather}"`));
   }
 });
+
+test('earned header badges use illustrations in tier order without granting an unearned clear',()=>{
+  const h=harness(), lifetime=h.api.state().lifetime;
+  lifetime.endingTiersReached=[4,0,3,1,2];lifetime.clears=1;h.api.render();
+  const buttons=[...h.get('endingBadges').innerHTML.matchAll(/<button\b[^>]*aria-label="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
+  assert.equal(buttons.length,5);
+  for(const [i,icon] of ['fireworks','lantern','tree','book','naoto_crown'].entries()){
+    assert.match(buttons[i][1],/をたっせいずみ$/);
+    assert.match(buttons[i][2],new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(buttons[i][2],/class="icon-fallback"/);
+  }
+  assert.deepEqual(Array.from(lifetime.endingTiersReached),[4,0,3,1,2]);
+  lifetime.clears=0;h.api.render();
+  assert.doesNotMatch(h.get('endingBadges').innerHTML,/data-ui-icon="fireworks"/);
+  assert.equal((h.get('endingBadges').innerHTML.match(/class="ending-badge"/g)||[]).length,4);
+  assert.equal(lifetime.clears,0);
+});
+
+test('spring summer and autumn labels and regional scenery share art while preserving their choices',()=>{
+  const h=harness();h.api.state().regionId='home';
+  for(const [season,icon,label] of [['spring','cherry_blossom','はる'],['summer','sunflower','なつ'],['autumn','maple_leaf','あき']]){
+    h.api.state().lifetime.seasonMode=season;h.api.render();
+    assert.match(h.get('seasonLabel').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(h.get('seasonLabel').innerHTML,new RegExp(label));
+    assert.match(h.get('regionLabel').innerHTML,/data-ui-icon="house"/);
+    h.api.openExclusiveMenu('world');h.api.renderEnvironment();
+    assert.match(h.get('worldNowCard').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.match(h.get('seasonModeGrid').innerHTML,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal(h.api.state().lifetime.seasonMode,season);
+    assert.equal(h.api.state().regionId,'home');
+  }
+  h.api.state().regionId='forest';h.api.state().lifetime.seasonMode='autumn';h.api.render();
+  assert.match(h.get('regionDecor').innerHTML,/data-ui-icon="maple_leaf"/);
+  assert.match(h.get('regionDecor').innerHTML,/data-care-icon="decline"/);
+});
+
+test('the scenery atlas can fail independently and keeps a visible fallback for header badges',()=>{
+  const h=harness();h.api.state().lifetime.endingTiersReached=[2];h.api.render();
+  const before=JSON.stringify(h.api.state());
+  const probes=h.document.body.children.filter(e=>e.dataset.iconAtlas);
+  assert.equal(probes.length,3);
+  for(const atlas of ['care','ui','scenery']){
+    probes.find(e=>e.dataset.iconAtlas===atlas).listeners.find(e=>e.type==='load').fn();
+  }
+  probes.find(e=>e.dataset.iconAtlas==='scenery').listeners.find(e=>e.type==='error').fn();
+  assert.equal(h.document.documentElement.dataset.sceneryAtlas,'failed');
+  assert.equal(h.document.documentElement.dataset.careAtlas,'loaded');
+  assert.equal(h.document.documentElement.dataset.uiAtlas,'loaded');
+  assert.match(h.get('endingBadges').innerHTML,/class="icon-fallback"[^>]*>🌳<\/span>/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+test('current mountain jungle and memory-lake IDs reach their existing art in world and travel views',()=>{
+  const h=harness();
+  h.api.state().sodachi=75;h.api.state().maxSodachi=75;
+  for(const [id,icon,label] of [['mountain','mountain','やま'],['jungle','palm','ジャングル'],['memory_lake','bubbles','きおくのみずうみ']]){
+    h.api.state().regionId=id;h.api.render();h.api.openExclusiveMenu('world');h.api.renderEnvironment();
+    for(const html of [h.get('regionLabel').innerHTML,h.get('worldNowCard').innerHTML]){
+      assert.match(html,new RegExp(`data-ui-icon="${icon}"`),id);
+      assert.ok(html.includes(label));
+    }
+    h.api.openExclusiveMenu('travel');
+    const grid=h.get(id==='memory_lake'?'travelSpecialGrid':'travelRegionGrid').innerHTML;
+    const button=grid.match(new RegExp(`<button[^>]*data-id="${id}"[^>]*>[\\s\\S]*?<\\/button>`))?.[0];
+    assert.ok(button,id+' remains a travel choice');
+    assert.match(button,new RegExp(`data-ui-icon="${icon}"`));
+    assert.equal(h.api.state().regionId,id);
+  }
+});
+
+test('forest decor reuses whole PNGs without adding companions or changing the scene count',()=>{
+  const h=harness();h.api.state().regionId='forest';h.api.state().lifetime.seasonMode='autumn';
+  h.api.render();const before=JSON.stringify(h.api.state());h.api.render();
+  const html=h.get('regionDecor').innerHTML;
+  assert.equal((html.match(/class="region-decor-item"/g)||[]).length,8);
+  for(const [path,emoji] of [['companions/owl.png','🦉'],['mushroom/06.png','🍄'],['companions/squirrel.png','🐿️'],['companions/hedgehog.png','🦔']]){
+    assert.ok(html.includes(`src="assets/characters/${path}"`),path);
+    assert.ok(html.includes(`>${emoji}</span>`),'keep original fallback '+emoji);
+  }
+  assert.doesNotMatch(html,/data-companion-id|character-asset/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+test('a scenery PNG failure only reveals that decoration fallback without relaying out the cast',()=>{
+  const h=harness();h.api.render();const before=JSON.stringify(h.api.state());
+  const failed=h.get('failedDecoration'),other=h.get('otherDecoration');
+  const img=h.document.createElement('img');img.tagName='IMG';img.classList.add('scenery-asset');
+  img.closest=selector=>selector==='.scenery-picture'?failed:null;
+  Object.defineProperty(h.get('petArea'),'clientWidth',{get(){throw new Error('scenery failure must not relayout the cast');}});
+  const errors=h.document.listeners.filter(e=>e.type==='error');
+  assert.ok(errors.length);
+  for(const listener of errors)listener.fn({target:img});
+  assert.ok(failed.classList.contains('asset-failed'));
+  assert.equal(other.classList.contains('asset-failed'),false);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});

@@ -82,6 +82,26 @@ for(const [name,weather,time] of [['scenery_clouds','cloudy','day'],['scenery_sn
 
 // Execute the actual emitted discovery code with backgrounds already removed
 // by production fallback. Hidden probes must still report the failed atlas.
+for(const [name,season,region] of [
+  ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
+  ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
+  ['scenery_memory_lake','summer','memory_lake'],
+]){
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures[name])]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  assert.equal(scene.api.state().lifetime.seasonMode,season);
+  assert.equal(scene.api.state().regionId,region);
+  assert.equal(scene.api.state().companions.length,26);
+}
+{
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixtures.badges_transparent)]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  scene.api.render();
+  assert.equal((scene.get('endingBadges').innerHTML.match(/class="ending-badge"/g)||[]).length,5);
+  assert.match(scene.get('badges').innerHTML,/data-care-icon="sick"/);
+  assert.match(scene.get('badges').innerHTML,/data-care-icon="sleep"/);
+  assert.equal(scene.api.state().companions.length,26);
+}
 const discovery=script.slice(script.indexOf('const iconNodes='),script.indexOf('const panelOverflow='));
 const callbacks=[];
 const context={iconLoads:new Map(),Image:class{set src(value){callbacks.push(()=>this.onerror());}},doc:{

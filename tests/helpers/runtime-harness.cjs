@@ -116,6 +116,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     setInterval: () => ++serial, clearInterval: noop,
     Event: function(type, init) {Object.assign(this, event(type, init));},
     PointerEvent: function(type, init) {Object.assign(this, event(type, init));},
+    HTMLImageElement: class {static [Symbol.hasInstance](node) {return node?.tagName === 'IMG';}},
   });
   const expose = `
     globalThis.lifecycle = {
