@@ -2632,15 +2632,26 @@
   let speechTimer = null;
   let speechActive = false;
   const SPEECH_DURATION_MS = 2500;
+  const castMotion = window.NaotocchiCastMotion?.createController({
+    getActors: homeCastActors,
+    canAnimate: () => document.visibilityState !== 'hidden' && !gameActive
+      && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
+    isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
+    getMotionRadius: homeCastMotionRadius,
+    env: window,
+  });
 
   function hideSpeechBubble() {
     speechActive = false;
     if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
     if (el.speechBubble) el.speechBubble.classList.add('hidden');
+    castMotion?.clearSpeaker();
   }
 
-  function setSpeechBubble(text, speaker) {
+  function setSpeechBubble(text, speaker, reaction = {}) {
     if (!el.speechBubble || !text || !speaker) return;
+    if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
+    if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
     el.speechSpeaker.textContent = speaker.emoji || '💬';
@@ -2648,10 +2659,12 @@
     el.speechText.textContent = compactJapaneseText(text);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
     el.speechBubble.classList.remove('hidden');
+    castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
       speechActive = false;
       el.speechBubble.classList.add('hidden');
+      castMotion?.clearSpeaker();
     }, SPEECH_DURATION_MS);
   }
 
@@ -2674,7 +2687,7 @@
 
   function partnerSpeaker() {
     const p = state.partner;
-    return p ? { kind: 'partner', emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
+    return p ? { kind: 'partner', id:p.id, emoji: p.emoji || '💕', label: p.label || 'こいびと' } : null;
   }
 
   function companionSpeaker() {
@@ -3369,6 +3382,7 @@
     conversationTimers.forEach((t) => clearTimeout(t));
     conversationTimers = [];
     conversationBusyUntil = 0;
+    castMotion?.clear(false);
   }
   function conversationIsBusy() {
     return Date.now() < conversationBusyUntil;
@@ -4819,17 +4833,21 @@
       const line = pickConversationLine(followUps[eventKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    playConversationBeats(beats);
+    playConversationBeats(beats, eventKey);
   }
 
-  function playConversationBeats(beats) {
+  function playConversationBeats(beats, event = 'idle') {
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
     conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
     visibleBeats.forEach((beat, i) => {
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker), i * SPEECH_DURATION_MS));
+      const listener = beat.speaker.kind === 'pet'
+        ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
+          : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
+        : petSpeaker();
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), i * SPEECH_DURATION_MS));
     });
   }
 
@@ -9402,6 +9420,11 @@
   let petBusyUntil = 0;
 
   function bouncePet() {
+    if (castMotion) {
+      if (!conversationIsBusy()) castMotion.emote('bounce');
+      petBusyUntil = Date.now() + 960;
+      return;
+    }
     el.pet.classList.remove('bounce', ...EMOTE_CLASSES);
     // force reflow to restart animation
     void el.pet.offsetWidth;
@@ -9410,6 +9433,11 @@
   }
 
   function emotePet(kind) {
+    if (castMotion) {
+      if (!conversationIsBusy()) castMotion.emote({happy:'bounce',fun:'bounce',sad:'droop',angry:'shake',love:'love'}[kind] || 'nod');
+      petBusyUntil = Date.now() + 1400;
+      return;
+    }
     const cfg = EMOTE_CONFIG[kind];
     if (!cfg) {
       bouncePet();
@@ -9446,11 +9474,18 @@
       const idleOk = !gameActive
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
+        && !state.isSleeping && !state.isSick && !state.dying
+        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
         && Date.now() >= petBusyUntil;
       if (idleOk) {
+        if (castMotion) {
+          castMotion.idle();
+          petBusyUntil = Date.now() + 1600;
+        } else {
         el.pet.classList.add('idle-perk');
         petBusyUntil = Date.now() + 520;
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
+        }
       }
       scheduleIdlePerk();
     }, delay);
@@ -9489,7 +9524,7 @@
           const greeting = memoryGreeting || pickReaction(greetingPool, lastIdleGreeting);
           if (!memoryGreeting) lastIdleGreeting = greeting;
           setSpeechBubble(greeting, petSpeaker());
-          emotePet('happy');
+          if (!castMotion) emotePet('happy');
         }
       }
       scheduleIdleGreeting();
@@ -10037,6 +10072,7 @@
     renderCompanionRow();
     renderPartnerCompanion(isEgg || isOver);
     renderHomeCast();
+    if (gameActive || isDead || state.transformOptions || isAnyMenuOverlayOpen() || document.visibilityState === 'hidden') castMotion?.clear();
 
     const hasTransformChoice = !!state.transformOptions && !isOver;
     el.transformOverlay.classList.toggle('hidden', !hasTransformChoice);
@@ -11402,7 +11438,7 @@
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼって
   // はなれて いった なかまは ここに いない)を、#pet の こどもとして
-  // 本体キャラの左右の列に表示する。本体だけを動かし、仲間の位置は保つ。
+  // 本体キャラの左右の列に表示する。話者の安定IDで短い反応を結びつける。
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
@@ -11410,7 +11446,7 @@
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
-    const chip = (c) => `<span class="companion-chip-small" title="${escapeHtml(c.name)}">${companionVisualHTML(c, 'companion')}</span>`;
+    const chip = (c) => `<span class="companion-chip-small" data-companion-id="${escapeHtml(c.id)}" title="${escapeHtml(c.name)}">${companionVisualHTML(c, 'companion')}</span>`;
     const key = recruited.map(c => c.id + ':' + (c.asset || c.emoji)).join('|');
     if (key === companionRenderKey) return;
     companionRenderKey = key;
@@ -11451,6 +11487,27 @@
     onChange: () => renderEnvironment(),
   });
 
+  function homeCastMotionRadius() {
+    const count = state.companions.filter(c=>allCompanionsById(c.id)).length;
+    return window.NaotocchiCastMotion?.motionRadiusFor(count) || 0;
+  }
+
+  function homeCastActors() {
+    const actors = [{kind:'pet',id:state.speciesLine,node:el.petSprite,direction:-1}];
+    if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD) return actors;
+    if (state.partner && !el.partnerCompanion.classList.contains('hidden')) {
+      const node = el.partnerCompanion.querySelector('.partner-emoji');
+      if (node) actors.push({kind:'partner',id:state.partner.id,node,size:parseFloat(el.partnerCompanion.style.width) || 52});
+    }
+    if (!el.petAccessory.classList.contains('hidden')) actors.push({kind:'accessory',node:el.petAccessory});
+    for (const [side,direction] of [[el.companionLeft,1],[el.companionRight,-1]]) {
+      for (const node of side.children) if (node.dataset.companionId) {
+        actors.push({kind:'companion',id:node.dataset.companionId,node,direction});
+      }
+    }
+    return actors;
+  }
+
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const width = Math.floor(el.castStage.getBoundingClientRect().width);
@@ -11463,10 +11520,11 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset))};
+    const args = {width,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
     if (key === homeCastLayoutKey) return;
     homeCastLayoutKey = key;
+    castMotion?.clear();
     const layout = window.NaotocchiCast.layoutCast(args);
     const place = (node,frame) => {
       if (!node || !frame) return;
@@ -22334,6 +22392,7 @@
 
   function startMinigame(game) {
     gameActive = true;
+    castMotion?.clear();
     el.device.classList.add('ui-game-active');
     el.menuBtn.disabled = true;
     el.profileBtn.disabled = true;
@@ -24095,6 +24154,7 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       saveState();
     }
   });

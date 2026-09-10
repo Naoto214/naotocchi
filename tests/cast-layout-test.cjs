@@ -34,3 +34,24 @@ test('unknown or failed art retains complete frames without overlapping the core
     assert.ok(a.x+a.w+1<=b.x || b.x+b.w+1<=a.x || a.y+a.h+1<=b.y || b.y+b.h+1<=a.y);
   }
 });
+
+test('independent reactions retain full frames and four-pixel friend gaps throughout the sway', () => {
+  const {layoutCast} = require('../cast-layout.js');
+  const master = new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const friends=[...master.companions.normal,...master.companions.rare].map(c=>c.asset);
+  for (const width of [270,294,314,334,354,384]) for (const count of [0,6,18,26,28]) {
+    const radius=count>18?1:3;
+    const r=layoutCast({width,mainAsset:null,hasPartner:true,partnerAsset:null,hasAccessory:true,
+      companions:Array.from({length:count},(_,i)=>friends[i] || null),motionRadius:radius});
+    const core=[r.main,r.partner,r.accessory];
+    for (const f of [...core,...r.companions]) {
+      assert.ok(f.x-radius-4>=0 && f.x+f.w+radius+4<=width,`full horizontal frame ${width}/${count}`);
+      assert.ok(f.y-radius-1>=0 && f.y+f.h+radius+1<=r.height,`full vertical frame ${width}/${count}`);
+    }
+    const separated=(a,b,gap)=>a.x+a.w+gap<=b.x+.001 || b.x+b.w+gap<=a.x+.001 || a.y+a.h+gap<=b.y+.001 || b.y+b.h+gap<=a.y+.001;
+    for(let i=0;i<core.length;i++) for(let j=0;j<i;j++) assert.ok(separated(core[i],core[j],2+2*radius),'core reserves two reaction envelopes');
+    r.companionBodies.forEach((a,i)=>{
+      for(const b of [...core,...r.companionBodies.slice(0,i)]) assert.ok(separated(a,b,4+2*radius),`friend gap ${width}/${count}/${i}`);
+    });
+  }
+});
