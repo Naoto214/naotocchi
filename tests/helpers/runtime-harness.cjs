@@ -138,6 +138,13 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   const expose = `
     globalThis.lifecycle = {
       startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
+      finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
+      useConsumableItem, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
+      STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
+      applyOfflineProgress, OFFLINE_CAP_TICKS,
+      renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
+      mgDuration, GAME_LENGTH_CHOICES,
+      recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,

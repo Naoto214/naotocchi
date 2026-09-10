@@ -1744,3 +1744,54 @@ Runtime smoke test SUCCESS確認済み。
 承認済み301画像のバイト変更0、安定ID・旧セーブ互換を保持。公式ブラウザーはタイムアウトし
 今回のゲーム実画面取得0件。上のBJ以前の実画面報告を今回の修正後の実測に数えず、
 がたつきの原因未確定・実機未確認を維持。既存ユーザー確認は暫定OKを含め保持し、全体開発を継続する。
+
+## チェックポイント BK — 復帰不能バグの封じ込め と ほぞん容量ぎれの けんち(2026-09-10)
+- `mgRunTagged()` に catch を追加: ゲームのセッション中(start/フレーム/タイマー)で例外が出たら `handleMinigameCrash()` → `reportRuntimeError()` に記録し `retireMinigame()`(ばつ なし)でオーバーレイを閉じ、メッセージで知らせる。ゲーム外の例外はそのまま投げる。
+- `reportRuntimeError(err, where)`: 最近20件を `globalThis.__naotocchiErrors` に保持。`window` の `error` / `unhandledrejection` も記録(がめんは止めない)。
+- `saveState()`: `QuotaExceededError`(name/code 22/1014/メッセージ)を `isQuotaError()` で判定し、じどうバックアップ(`SAVE_SNAP_KEY`)を消して1回だけ再試行。それでも失敗なら `noteStorageWarning(true)`(5分に1回 `setMessage` で警告、`where:'storage'` として記録)。成功したら警告を解除。
+- `render()` の `regionLabel`/`seasonLabel`/`partnerLabel`/`endingBadges` の innerHTML を `setHTMLIfChanged()` で「変わったときだけ」に。
+- テスト: minigame-lifecycle に「フレームで throw するゲームは閉じられ、報酬なし、次のゲームが動く」「start で throw」、save-recovery に「容量ぎれでスナップ削除→再試行で保存」「常に容量ぎれなら記録して警告」。`npm test` 165件通過。全100ゲーム スイープ ページエラー 0。
+
+## チェックポイント BL — そだちのバランス(2026-09-10)
+- `SODACHI_COST_BANDS` を 8/10/14/20/26/32/40 に(20→70: 680、20→100: 1,660。以前 1,000 / 3,300)。
+- せいちょう2ばい `boostTicks` を実際に使う: `grantGrowthBoost(ticks)`(上限 200 tick = 10分)。Sランク(きょうのチャレンジ以外)で +40、きょうのチャレンジ クリアで +200。バッジ `✨2ばい`(残り分数を title に)。
+- ねむり: `recoverSleepStep` を 0.22/100ms(病気 0.14、sleepboost1 +0.06)に。`recoverSleepStep → render → startSleepRecovery → recoverSleepStep` の再帰(「ねる」の瞬間に全回復していた)を `sleepStepBusy` ガードと「タイマーを先に張る」順序で解消。
+- 老い: wellCared の自動回復を 70さい以降 `lerp(0.9, 0.35)` に(老いリスク最大 0.9 が上回りうる)。たべすぎ: おとろえ +4、病気 15%、死亡メーター +2。
+- お世話の しらせ: 「せいちょう ↑」の刻みを `max(5, cost/4)` に(コストが安い帯でごはん1回ごとに出ない)。
+- テスト: `tests/growth-balance-test.cjs`(コスト合計の範囲、ねむり 0→100 が 30〜90秒、Sランクで boost・2倍・tick で減る・上限)。harness に `finishMinigame/sodachiCost/applyGrowth/recoverSleepStep/grantGrowthBoost` を公開。
+
+## チェックポイント BM — おかねの つかいみち: つかいきりアイテム と れんぞくボーナス(2026-09-10)
+- `CONSUMABLE_ITEMS` に 11 品(合計 2,060 コイン)。すべて既存の受け口 `state.oneTimeBoosts`(doubleCoins/safetyNet/minigameBoost small|big/sicknessShieldCount/courtBoost/breakupShield half|full/travelGuarantee)と `grantGrowthBoost(100)` を使う。`available()` で同じ効果の重複購入を防ぎ、`unavailableMessage` を表示。
+- あいてむ画面: 「つかいきり」セクション(`#onetimeItemGrid` を表示化、`#onetimeActive` に `activeBoostSummary()`)。クリックは `useConsumableItem()`。
+- きょうの チャレンジ: `dailyStreakReward(streak)` = 10 + 5×min(streak−1, 10) + 節目ボーナス(3:30 / 7:100 / 14:200 / 30:500)。
+- テスト: `tests/economy-test.cjs`(価格合計、重複購入の拒否、おかね不足、ラッキーコインの消費、ストリーク報酬)。
+
+## チェックポイント BN — 40〜70さいの できごと と 日常の ストーリーイベント(2026-09-10)
+- `STORY_EVENT_POOLS` に feed / pet / travel / court / wake を追加(計23行)。`checkStoryEvents()` の呼び出しを ごはん(たべすぎ以外)・じゃれる(連打以外)・おきる・たびの到着・きゅうあい成功 に追加(発火率は既存の `STORY_EVENT_CHANCE`)。
+- `MIDLIFE_EVENTS`(44/50/56/62/66さい): `onBirthday()` → `maybeMidlifeEvent(age)` が `state.midlifeSeen` で1回ずつ。こいびとがいれば `pair` 文。効果: きげん/せいちょう/おとろえ/おかね、66さいは たびのおまもり(`travelGuarantee`)。`pushLifeLog` と `showStoryEvent`。
+- でんせつのであい: `maybeLegendEncounter()` の条件を `hasPerk(70)` に(`SODACHI_PERKS` 70/90 の説明も更新)。dialogue-test の「growth below 90」を 70 に。
+- テスト: `tests/midlife-test.cjs`(プールの存在、1回だけ発火・ログ・おまもり、onAgeChanged 経由)。
+
+## チェックポイント BO — るすのあいだ(ひかえめな オフライン進行)(2026-09-10)
+- `state.savedAt` を `saveState()` で更新。起動時(`render()` の前)に `applyOfflineProgress(now)`: 2分未満/たまご/♾️/GROWING 以外は何もしない。経過 tick は最大 600(30分)。満腹・きげん −0.25/tick(ねていれば ×0.4)、げんき −0.15/tick(ねていれば +2.2×min(tick,40))。起動中の最初の `saveState()` で `savedAt` が更新される前に `bootSavedAt` を取っておく。いずれも 20 を下回らない(すでに低ければそのまま)。年齢・死亡メーターは動かない。100 tick 以上でうんち+1(上限内)。おみやげ: 5分に1コイン(最大12)、30分以上で35%で おたのしみ。
+- 表示: `setMessage` の要約(「おかえり。るすのあいだ(Nふん)…: おなか−x・きげん−y・💰+k」)、`showStoryEvent` バナー、ライフログ「るすばん Nふん」。
+- テスト: `tests/offline-test.cjs`(短時間は無変化、20分の減少と床とコイン、10時間は上限と床、ねむり中の回復)。
+
+## チェックポイント BP — ずかんの まとめ・たびの地域カード・たまごのメーター(2026-09-10)
+- ずかん: `renderDexSummary()`(`#dexSummary`: ふつう/レアの進捗バー、しゅぞく数、`LIFE_STAGES` から「つぎの すがたは Nさい(あとM年)」)。各 `dex-line-block` に `dex-line-head`(名前は1段階でも見ていれば表示、レアは ✨レア、進捗バー、n/8)。未発見は `unknown` クラス。
+- たび: `renderTravelRegionGrid()` を地域カード(`theme-swatch travel-card`、既存クリック処理と互換)に。`ENV_EFFECTS.region` の文、`ENV_GAME_WEIGHTS.region` の↑ジャンル、`REGION_MINIGAMES` の本数、`candidates` の人数、`regionsVisited/specialRegionsVisited` の ✓、`aria-pressed`。グリッドは2列。
+- たまご: `#careMeters`(おせわの4本)を `isEgg` で隠す。
+- テスト: `tests/screens-test.cjs`。`npm test` 191件通過。スクリーンショットで3画面を確認。
+
+## チェックポイント BQ — ゲームの ながさ せってい と かくとうバトルの れんだ対策(2026-09-10)
+- `GAME_LENGTH_CHOICES`(normal/short)、`state.lifetime.minigameLength`、せかい画面「ゲームの ながさ」(`#gameLengthGrid`)。`mgDuration(ms)` は short かつ ms ≥ 90,000 のとき ×0.6。games.js の直書きだった 90,000(クレーン idle)・150,000(タワーディフェンス)・180,000(ローグライク)も `mgDuration()` 経由に。
+- かくとうバトル: `f.rushed`(前の攻撃終了から 350ms 未満)で威力 0.7・硬直 1.5倍。`target.recentHits` が 3 以上ならスタンなし・威力 0.6、AI は3連続くらうと 600ms ガード。AI は脅威時のガード率を 0.55〜0.85 に、ガード成功後は反撃(`justBlocked`)。乱打プレイの平均スコア 70 → 10〜17。
+- テスト: growth-balance に mgDuration の short 判定。`npm test` 192件通過。全100ゲーム スイープ ページエラー 0。
+
+## チェックポイント BR — そうじ と 開発の どうぐ(2026-09-10)
+- style.css: どのファイルからも参照されないクラスだけを使うルール 395 個(1,771 行、旧 DOM 版ミニゲームの `.mg-*` が中心)を削除(動的に組み立てるクラス `seg-${…}` `accent-${…}` `rank-${…}` `region-${…}` は除外)。5,962 → 4,235 行。
+- script.js: 未使用関数 8 個(flashMistake / lowestBondCompanion / sayReactionPool / recoveryPotency / recoveryWouldHelp / pickWeightedItem / finishOrdinaryDate / buyNaotoItem)、`seasonOpen`、`sandUsed`/`bigSandUsed`、存在しないアイテム id への `isEquipped()` 分岐 7 か所(marriage_fast / breakup_ease / itemluck2・3 / pet_threshold / travel_threshold / questioning_fast)を削除。「地域8つ」「16人」のコメントを実データに合わせて修正。
+- フォーカス: `openExclusiveMenu()` が開いたオーバーレイの ✕ にフォーカスを移し(`OVERLAY_CLOSE_IDS`)、`closeAllMenuOverlays()` はオーバーレイ内にフォーカスがあればメニューボタンへ戻す。
+- どうぐ: `tools/bump-versions.js`(`npm run bump`、index.html の `?v=` を日付+sha1 の 8 桁に。変わったファイルだけ更新)。CI(`runtime-smoke-test.yml`)は `npm test` を 1 ステップで実行(ローカルと同じ内容)。
+- テスト: `tests/scoring-shop-test.cjs`(ランクしきい値・ベスト/直近・クランプ、ショップの購入/装備/解除/二重払い防止、じっせき解放の日時と重複防止)、`tests/asset-versions-test.cjs`(参照先の存在と読み込み順)。`npm test` 197件通過。
+

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-audit-1">
+  <link rel="stylesheet" href="style.css?v=20260910-screens-1">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
@@ -79,7 +79,7 @@
           </div>
 
           <div class="home-meters">
-            <div class="bars care-meters" role="group" aria-label="おせわのようす">
+            <div class="bars care-meters" id="careMeters" role="group" aria-label="おせわのようす">
               <div class="bar-line">
                 <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
                 <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
@@ -165,6 +165,7 @@
           <div class="dex-scroll">
             <div class="profile-hint">であったすがたをタップすると、なまえや成長段階、その子の小さな話を読めます</div>
             <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしいがめんからそのままそのすがたになれます</div>
+            <div id="dexSummary"></div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
@@ -279,7 +280,12 @@
               <div class="shop-item-grid" id="naotoItemGrid"></div>
               <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
             </div>
-            <div id="onetimeItemGrid" class="hidden"></div>
+            <div class="theme-section">
+              <div class="theme-section-title">つかいきり</div>
+              <div class="profile-hint">おかねで買ってすぐにこうかが出ます。「つぎの1かい」だけきくおまもりが多く、同じこうかは1つずつしか持てません。</div>
+              <div class="profile-hint" id="onetimeActive"></div>
+              <div class="shop-item-grid" id="onetimeItemGrid"></div>
+            </div>
           </div>
         </div>
 
@@ -361,6 +367,7 @@
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
             <section class="profile-section"><h3>ゲームの むずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">やさしい は ねんれいで あがる むずかしさを おさえて、せいげん時間も ながく なります。</p></section>
+            <section class="profile-section"><h3>ゲームの ながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">みじかめ にすると、90びょう いじょうの ながい ゲームが 6わりの ながさで おわります。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
             <div class="location-card"><div id="worldLocationLabel">げんざいち　未取得</div><p class="profile-hint" id="environmentStatus" role="status">現在地を取得すると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍現在地・てんきを取得</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気の取得に使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
@@ -671,9 +678,9 @@
   <script src="cast-layout.js?v=20260910-expressive-1"></script>
   <script src="world-environment.js?v=20260910-env-1"></script>
   <script src="prop-illustrations.js?v=20260910-props-1"></script>
-  <script src="games.js?v=20260910-props-1"></script>
+  <script src="games.js?v=20260910-7"></script>
   <script src="audio.js?v=20260910-audit-1"></script>
   <script src="care-status.js?v=20260910-care-2"></script>
-  <script src="script.js?v=20260910-props-1"></script>
+  <script src="script.js?v=20260910-merge-2"></script>
 </body>
 </html>

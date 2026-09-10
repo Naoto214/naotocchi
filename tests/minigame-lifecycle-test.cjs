@@ -107,3 +107,35 @@ test('all 100 registered games can retire without delayed rewards or repopulatin
     assert.equal(h.get('minigameOverlay').innerHTML, '', game.id + ': retired game must leave the screen empty');
   }
 });
+
+// A game whose code throws must not leave the overlay open with gameActive stuck.
+test('a game whose frame loop throws is closed without rewards and the next game works', () => {
+  const h = harness();
+  const before = h.api.state().lifetime.minigamesPlayed;
+  let frames = 0;
+  const bad = {id: 'crash-probe', start(container, done) {
+    container.innerHTML = '<div id="crash">x</div>';
+    const frame = () => { frames++; if (frames >= 2) throw new Error('boom'); h.sandbox.requestAnimationFrame(frame); };
+    h.sandbox.requestAnimationFrame(frame);
+  }};
+  h.api.startMinigame(bad);
+  h.advance(200);
+  assert.equal(frames, 2, 'the loop must stop at the throwing frame');
+  assert.equal(h.get('minigameOverlay').innerHTML, '', 'a crashed game must be closed');
+  assert.ok(h.get('minigameOverlay').classList.contains('hidden'));
+  assert.equal(h.api.state().lifetime.minigamesPlayed, before, 'a crash must not count as a completed play');
+  const next = inputGame(h);
+  h.advance(50);
+  assert.ok(next.frames > 0, 'a new game must run after a crash');
+  assert.ok(h.sandbox.__naotocchiErrors.some(e => e.where === 'minigame' && /boom/.test(e.message)), 'the crash is recorded');
+});
+
+test('a game that throws while starting is closed cleanly', () => {
+  const h = harness();
+  h.api.startMinigame({id: 'start-crash', start() { throw new Error('start boom'); }});
+  assert.equal(h.get('minigameOverlay').innerHTML, '');
+  assert.ok(h.get('minigameOverlay').classList.contains('hidden'));
+  const next = inputGame(h);
+  h.advance(50);
+  assert.ok(next.frames > 0);
+});
