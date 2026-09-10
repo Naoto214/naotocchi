@@ -65,7 +65,7 @@
 .surface-screen.theme-ruby {--surface-color:#e3a0ad}
 .surface-screen.theme-sapphire {--surface-color:#9eb9e2}
 .surface-screen.theme-starlight {--surface-color:#4a3564;--surface-image:linear-gradient(160deg, #4a3564 0%, #1b1035 100%)}
-.surface-screen.theme-aurora {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), linear-gradient(120deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d, #43e97b)}
+.surface-screen.theme-aurora {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff4d,#ffffff4d), linear-gradient(120deg, #43e97b, #38f9d7, #6a82fb, #fc5c7d, #43e97b)}
 .surface-screen.theme-radiance {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), linear-gradient(120deg, #fff6d5, #ffe066, #ffd700, #f5b942, #fff6d5)}
 .surface-screen.theme-prism {--surface-color:#e9f0dc;--surface-image:linear-gradient(#ffffff33,#ffffff33), radial-gradient(circle at 50% 50%, #ff5ea8, #ffd23f, #55e6a5, #4fc3f7, #c77dff, #ff5ea8)}
 .surface-screen.theme-default {--surface-color:#e9f0dc}

@@ -67,6 +67,9 @@ test('viewport changes follow browser chrome height while pinch zoom remains usa
 
 test('speech-driven stage resize lays out before the reaction and does not cancel it on render', () => {
   const h=harness();
+  // The DOM double has no initial HTML classes. In index.html this card is
+  // hidden; a visible life card deliberately takes the home out of fit mode.
+  h.get('lifeCardOverlay').classList.add('hidden');
   h.get('castStage').getBoundingClientRect=()=>({width:294,height:h.get('speechText').textContent.length>20?120:240});
   h.api.render();
   const before=parseFloat(h.get('petSprite').style.width);
@@ -119,12 +122,12 @@ test('screen palette samples retain at least 4.5 contrast with white and colored
   assert.equal(ratio([0,0,0],[255,255,255]),21);
   for(const [,id,props] of css.matchAll(/\.surface-screen\.theme-([\w-]+)\s*\{([^}]+)\}/g)){
     if(!props.includes('--surface-color:'))continue;
-    const wash=props.includes('linear-gradient(#ffffff33');
+    const wash=props.match(/linear-gradient\(#ffffff([0-9a-f]{2})/);
     const ink=rgb(id==='starlight'?'#fffaf3':'#34382f');
     const colors=[...props.matchAll(/#[0-9a-f]{6}(?![0-9a-f])/g)].map(m=>rgb(m[0]));
     for(let i=0;i<colors.length;i++)for(let step=0;step<=16;step++){
       let c=mix(colors[i],colors[(i+1)%colors.length],step/16);
-      if(wash)c=mix(c,[255,255,255],.2);
+      if(wash)c=mix(c,[255,255,255],parseInt(wash[1],16)/255);
       for(const overlay of [[255,255,255,.22],[255,94,168,.077],[255,210,63,.077],[85,230,165,.077],[79,195,247,.077],[199,125,255,.077],[255,255,255,0]]){
         const opacity=id==='starlight'?overlay[3]/.22*.18:overlay[3];
         assert.ok(ratio(ink,mix(c,overlay,opacity))>=4.5,id+' sample contrast');
