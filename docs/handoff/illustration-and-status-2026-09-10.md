@@ -1,5 +1,8 @@
 # なおとっち：監査後のイラスト・状態表示への引継ぎ
 
+> このブランチでは初回実装を追加済み。[実装後の引継ぎ](care-status-2026-09-10.md)を読むこと。
+> 以下は監査時点の記録。mainへの反映・両PRの統合状態は最新GitHubで確認する。
+
 リポジトリ：Naoto214/naotocchi。公開ゲーム：https://naoto214.github.io/naotocchi/
 
 会話の説明だけで再開せず、GitHubの最新main・open PR・PR本文・チェックポイント・

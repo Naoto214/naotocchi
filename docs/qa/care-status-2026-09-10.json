@@ -1,0 +1,103 @@
+{
+  "dateUTC": "2026-09-10",
+  "baseMain": "068864a7ddc44bc6f6e9ab4a6bb41f7e597749a2",
+  "auditParent": "0a099b6bdcc4f376004f8d9155b49c43895dbe33",
+  "branch": "feature/care-illustrations-status-20260910",
+  "finalCommitTreeCI": "Read the pull request for this branch. This record is included in that commit.",
+  "command": "npm test",
+  "exitCode": 0,
+  "tests": 129,
+  "pass": 129,
+  "fail": 0,
+  "skip": 0,
+  "baselineTests": 101,
+  "newPureTests": 16,
+  "newIntegrationTests": 12,
+  "smoke": {
+    "domIds": 329,
+    "gamesStarted": 100,
+    "variantCollections": 91
+  },
+  "invariants": {
+    "approved": {
+      "ref": "9a523e46dccfd0b7d32c30ed75afc13d2549ad48",
+      "images": 301,
+      "byteDifferences": 0,
+      "changed": []
+    },
+    "audit": {
+      "ref": "0a099b6bdcc4f376004f8d9155b49c43895dbe33",
+      "images": 307,
+      "byteDifferences": 0,
+      "changed": []
+    },
+    "tickUnchanged": true,
+    "immortalityUnchanged": true,
+    "saveUnchanged": true,
+    "loadUnchanged": true,
+    "character-world-master.v1.jsUnchanged": true,
+    "games.jsUnchanged": true,
+    "audio.jsUnchanged": true,
+    "cast-motion.jsUnchanged": true,
+    "style.cssUnchanged": true,
+    "ui.cssUnchanged": true,
+    "design.cssUnchanged": true,
+    "atlasSha256": "d544d139c400f20f2720915b8e6e9c8dd07c660de346d647577decd0f9a59d95",
+    "atlasBytes": 1226620
+  },
+  "atlas": {
+    "frames": 16,
+    "cssFrameCoordinatesMatch": true,
+    "staticSizesPx": [
+      20,
+      26,
+      40
+    ],
+    "alpha": false,
+    "browserScreenshot": false
+  },
+  "deathTrace": {
+    "method": "Actual runtime tick with a synthetic save and test-only fixed random; no device timing",
+    "diedAtTick": 6,
+    "deathMeter": 24.9024,
+    "dying": false,
+    "criticalOnAllLivingTicks": true
+  },
+  "review": {
+    "initialFindings": [
+      "result explanation hidden by numeric feedback",
+      "milestones lost while slot occupied"
+    ],
+    "followupFinding": "queued sleep recovery advised waking after already awake",
+    "resolution": "all reproduced in failing tests, fixed, and scoped re-reviewed",
+    "finalVerdict": "approved within reviewed scope"
+  },
+  "browser": {
+    "initialized": true,
+    "tabList": "20 second timeout",
+    "recoveryTabCreated": true,
+    "navigationAndDom": "20 second timeout",
+    "newGameScreenshots": 0,
+    "iphoneRendering": "unverified",
+    "touchAudioFPS": "unverified",
+    "jitterCause": "unresolved"
+  },
+  "sourceSha256": {
+    "index.html": "6dd79942cc4f746c5875ba0e3c6a2c28b647d19a2dd94039a722ab20fe6d6477",
+    "care-status.js": "ab7ffa4615ba32883fdfa863d9de716ee68c048d5fa74ce50aeae799bd6b9536",
+    "care-status.css": "ad75b77c84a5746f3a89dc405b81c6a2c34bb08a562814117316b81780eda5dc",
+    "script.js": "e3ae09ea9532e9ea07d433e97c44667bc16d785d264160519f5b539e427e7192",
+    "package.json": "78fd88b9e37ce1a969400c67a72a078ccb85b8938f796ef1d56d1f7ce6fd360c",
+    ".github/workflows/runtime-smoke-test.yml": "17a68adce8e08eef7fc432b77df647f5e3c43c6eefc76eb5bee200894b5c8cf0",
+    "tests/care-status-test.cjs": "57b3fc1acb360ae63637ffd33b0cebcbae742321ee54722214173a81aff37c01",
+    "tests/care-status-integration-test.cjs": "5d00684689cdfec021cbb91257b47f9fa169d91005f6eb26f20c3cde68117405",
+    "tests/helpers/runtime-harness.cjs": "a7abf4d98fa0e6fb0cbab20dfef5af0bc66d46103ae58ea0699d8c0f634974a6",
+    "tests/smoke-test.js": "9e647242eeae2fb3b4e63d327cf98997e591a693948aee0d1ae7653ca3af1ee2",
+    "tests/dialogue-test.js": "390d6bfe163598b07493744e97d3b2b19386103568f6cc1afa98a7bf910e4179",
+    "tests/cast-motion-test.cjs": "4ffd5c6c8a06bdb7175cd5ea4649a6ed8683016f60fbb3f68ecd939cc0ad2059",
+    "tests/visual-qa.cjs": "80e963871844fb9d49601e041079600a890cb569a95cf8f8bf25fabbdc1f507d",
+    "assets/ui/care-atlas-v1.png": "d544d139c400f20f2720915b8e6e9c8dd07c660de346d647577decd0f9a59d95",
+    "assets/ui/care-atlas-v1.json": "10b5e9b8ec18f2099294d42e216d612556ac49445ed5c73b67beb50d32d46809",
+    "character-world-master.v1.js": "92447b1b64fc030cd1093276c31da2bc44a99ca48400d4a9ae78d422f91eaac2"
+  }
+}

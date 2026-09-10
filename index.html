@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
   <link rel="stylesheet" href="egg-hatching.css?v=20260910-egg-1">
+  <link rel="stylesheet" href="care-status.css?v=20260910-care-1">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
@@ -644,14 +645,14 @@
       </div>
     </div>
     <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
-      <button id="feedBtn" title="ごはん">🍚<span>ごはん</span></button>
-      <button id="playBtn" title="あそぶ">🎮<span>あそぶ</span></button>
-      <button id="cleanBtn" title="そうじ">🧹<span>そうじ</span></button>
-      <button id="sleepBtn" title="ねる">💤<span>ねる</span></button>
-      <button id="medicineBtn" title="くすり">💊<span>くすり</span></button>
-      <button id="playWithBtn" title="じゃれる">🤗<span>じゃれる</span></button>
+      <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
+      <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
+      <button id="cleanBtn" title="そうじ"><i class="care-icon" data-care-icon="clean" aria-hidden="true"></i><span>そうじ</span></button>
+      <button id="sleepBtn" title="ねる"><i class="care-icon" data-care-icon="sleep" aria-hidden="true"></i><span>ねる</span></button>
+      <button id="medicineBtn" title="くすり"><i class="care-icon" data-care-icon="medicine" aria-hidden="true"></i><span>くすり</span></button>
+      <button id="playWithBtn" title="じゃれる"><i class="care-icon" data-care-icon="play" aria-hidden="true"></i><span>じゃれる</span></button>
       <button id="travelBtn" title="たび">🧭<span>たび</span></button>
-      <button id="courtBtn" title="きゅうあい">💘<span>きゅうあい</span></button>
+      <button id="courtBtn" title="きゅうあい"><i class="care-icon" data-care-icon="love" aria-hidden="true"></i><span>きゅうあい</span></button>
       <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
     </nav>
     <div class="life-actions">
@@ -670,6 +671,7 @@
   <script src="world-environment.js?v=20260910-env-1"></script>
   <script src="games.js?v=20260910-audit-1"></script>
   <script src="audio.js?v=20260910-audit-1"></script>
-  <script src="script.js?v=20260910-audit-1"></script>
+  <script src="care-status.js?v=20260910-care-1"></script>
+  <script src="script.js?v=20260910-care-1"></script>
 </body>
 </html>

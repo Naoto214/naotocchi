@@ -104,6 +104,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     NaotocchiCast: require('../../cast-layout.js'),
     NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
     NaotocchiEnvironment: require('../../world-environment.js'),
+    NaotocchiCareStatus: require('../../care-status.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
