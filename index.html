@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-records-1">
+  <link rel="stylesheet" href="style.css?v=20260910-env-1">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
@@ -15,6 +15,7 @@
 </head>
 <body>
   <div class="season-tint" id="seasonTint"></div>
+  <div class="time-tint" id="timeTint"></div>
   <div class="region-decor" id="regionDecor"></div>
   <div class="season-bg-fx" id="seasonBgFx"></div>
   <div class="device surface-device" id="device">
@@ -352,7 +353,8 @@
         <div class="dex-overlay hidden" id="worldOverlay">
           <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
           <div class="profile-scroll">
-            <div class="profile-hint">「げんざい」はスマホのじかん・きせつ・現在地のてんきにあわせます。</div>
+            <div class="profile-hint">「げんざい」はスマホのじかん・きせつ・現在地のてんきにあわせます。てんきが取れないときは、いまいる地域の気候から予想します。</div>
+            <div class="world-now-card" id="worldNowCard"></div>
             <section class="profile-section"><h3>じかん</h3><div class="environment-choices" id="timeModeGrid"></div></section>
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
@@ -659,14 +661,15 @@
   </div>
 
   <div class="season-front-fx" id="seasonFrontFx"></div>
+  <div class="weather-fx" id="weatherFx"></div>
 
   <script src="character-world-master.v1.js?v=20260909-cast-partners-bh-1"></script>
   <script src="cast-bounds.js?v=20260910-egg-1"></script>
   <script src="cast-motion.js?v=20260910-expressive-1"></script>
   <script src="cast-layout.js?v=20260910-expressive-1"></script>
-  <script src="world-environment.js?v=20260910-ui-1"></script>
+  <script src="world-environment.js?v=20260910-env-1"></script>
   <script src="games.js?v=20260910-5"></script>
   <script src="audio.js?v=20260910-1"></script>
-  <script src="script.js?v=20260910-expressive-2"></script>
+  <script src="script.js?v=20260910-env-2"></script>
 </body>
 </html>

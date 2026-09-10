@@ -5821,3 +5821,142 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .game-cell.accent-C { border-color: rgba(46, 139, 87, 0.4); }
 .game-cell.accent-D { border-color: rgba(120, 120, 120, 0.4); background: linear-gradient(135deg, #fbfaf6, #f1efe8); }
 .game-cell-record { min-width: 40px; }
+
+/* じっせき: まとめカード・だんかい・NEW */
+.ach-summary { margin-bottom: 2px; }
+.records-bar-fill.ach-fill { background: linear-gradient(90deg, #ffd54a, #ff9800); }
+.ach-tier-chips { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.ach-tier-chip { font-size: 9px; font-weight: bold; padding: 2px 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(110, 80, 160, 0.2); }
+.ach-tier-chip.done { background: linear-gradient(135deg, #fff6d9, #ffe27a); border-color: #ffc400; }
+.ach-mini-list { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 9px; }
+.ach-mini-title { font-weight: bold; opacity: 0.8; margin-right: 2px; }
+.ach-mini { padding: 1px 6px; border-radius: 999px; background: rgba(255, 196, 0, 0.25); font-weight: bold; }
+.ach-mini.new { background: #ff7043; color: #fff; }
+.ach-mini.goal { background: rgba(0, 0, 0, 0.08); }
+.ach-new { font-size: 7px; font-weight: 900; color: #fff; background: #ff7043; padding: 1px 5px; border-radius: 999px; margin-left: 4px; vertical-align: middle; }
+
+/* じかんたいの いろ(がめん ぜんたいに うすく かかる)。よるは あお、
+   ゆうがたは オレンジ、あさは きいろ。ゲーム中は はずす */
+.time-tint {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: background 1.2s ease, opacity 0.6s ease;
+}
+.time-tint.suppressed { opacity: 0; }
+body[data-time="night"] .time-tint { background: linear-gradient(180deg, rgba(14, 20, 70, 0.3), rgba(18, 24, 72, 0.18)); }
+body[data-time="evening"] .time-tint { background: linear-gradient(180deg, rgba(255, 140, 60, 0.16), rgba(120, 60, 120, 0.12)); }
+body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(255, 240, 170, 0.14), rgba(255, 235, 150, 0.04)); }
+
+/* てんきの えんしゅつ(あめ・ゆき・くも・ひざし・よるの ほし)。
+   season-front-fx と おなじ そう(z=2)で、ゲームや メニュー中は けす */
+.weather-fx {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+.weather-fx.suppressed { display: none; }
+.wx-drop {
+  position: absolute;
+  top: -12%;
+  width: 2px;
+  height: 20px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(160, 200, 255, 0), rgba(110, 165, 255, 0.75));
+  animation: wx-rain linear infinite;
+}
+@keyframes wx-rain {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-28px, 122vh); }
+}
+.wx-flake {
+  position: absolute;
+  top: -8%;
+  line-height: 1;
+  color: #fff;
+  opacity: 0.85;
+  text-shadow: 0 0 5px rgba(140, 170, 255, 0.7);
+  animation: season-fx-fall linear infinite;
+}
+.wx-cloud {
+  position: absolute;
+  line-height: 1;
+  opacity: 0.6;
+  animation: wx-cloud linear infinite;
+}
+@keyframes wx-cloud {
+  0% { transform: translateX(-24vw); }
+  100% { transform: translateX(124vw); }
+}
+.wx-sun {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 232, 130, 0.6), rgba(255, 200, 80, 0.18) 45%, transparent 70%);
+  animation: wx-sun 6s ease-in-out infinite alternate;
+}
+@keyframes wx-sun {
+  0% { transform: scale(0.94); opacity: 0.75; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+.wx-spark {
+  position: absolute;
+  line-height: 1;
+  opacity: 0;
+  animation: wx-spark ease-in-out infinite;
+}
+@keyframes wx-spark {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 0.85; transform: scale(1.1); }
+}
+.wx-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px #fff;
+  animation: wx-star ease-in-out infinite alternate;
+}
+@keyframes wx-star {
+  0% { opacity: 0.15; }
+  100% { opacity: 1; }
+}
+.wx-moon {
+  position: absolute;
+  top: 4%;
+  right: 8%;
+  font-size: 34px;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.7));
+}
+@media (prefers-reduced-motion: reduce) {
+  .wx-drop, .wx-flake, .wx-cloud, .wx-spark, .wx-star, .wx-sun { animation: none; }
+  .wx-drop, .wx-flake { display: none; }
+}
+
+/* せかい がめんの「いまの せかい」カード */
+.world-now-card {
+  border-radius: 12px;
+  padding: 9px 10px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #f4fbff, #eef3ff);
+  border: 1px solid rgba(80, 110, 170, 0.25);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.world-now-head { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 4px; }
+.world-now-chip { background: rgba(255, 255, 255, 0.8); border-radius: 999px; padding: 2px 9px; font-weight: bold; font-size: 12px; }
+.world-now-title { font-weight: 900; font-size: 12px; margin-right: 2px; }
+.world-now-effects { display: flex; flex-direction: column; gap: 2px; font-size: 11px; }
+.world-now-effect { display: flex; gap: 6px; align-items: flex-start; }
+.world-now-effect .icon { flex: none; }
+.world-now-games { margin-top: 4px; font-size: 11px; }
+.world-now-games .up { color: #1d7a3c; font-weight: bold; }
+.world-now-games .down { color: #8a4a1d; }

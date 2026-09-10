@@ -1715,3 +1715,14 @@ Runtime smoke test SUCCESS確認済み。
 - 分割: おとの IIFE を `audio.js` の `installNaotocchiAudio(S)` に移動。S は `nativeSetTimeout`・`getState`・`STAGE`・`el`・`isGameActive`・`getActiveMinigame`・`minigameGenreId`・`isDateOpen`(`let` 変数は getter で渡す)。index.html は games.js → audio.js → script.js の順、テストの読込(smoke/dialogue/runtime-harness)も 3 ファイル連結に変更。
 - 検証: `npm test` 全通過。Playwright: 8曲すべて 2周(256ステップ)をエラーなくスケジュール、場面を強制して各曲の出力(RMS 0.019〜0.032)を確認、既存の audio テスト 10 件通過。きろく画面のスクリーンショット確認。全 100 ゲーム スイープ ページエラー 0。
 
+## チェックポイント BJ — じっせきの カード化 と せかい(てんき・じかん・きせつ・地域)の 効果(2026-09-10)
+- じっせき: 81件すべてに `tier`(easy/easy2/normal/life/hard1〜hard5)を付け `ACHIEVEMENT_TIERS` でセクション分け。`lifetime.achievementUnlockedAt[id]` を `checkAchievements()` で記録し、24時間いないは NEW。まとめカード(かいほうバー・段階チップ・さいきん3件・つぎの もくひょう3件)。
+- 予想天気: `world-environment.js` に `simulatedWeather(regionId, season, date)`(地域ごとの気候 `CLIMATE` を季節で補正し、日付+3時間ブロック+地域の FNV ハッシュで決定的に選ぶ)。`effectiveWeather()` は 手動 → 現在地の観測(2時間いない) → 予想 の順(`source`: manual/observed/sim)。ラベルに「(よそう)」。
+- 効果: `ENV_EFFECTS`(weather/time/season/region × happy/hunger/sleep/play/coin/meet)を `envModifiers()` で掛け合わせ 0.7〜1.5 にクランプ。適用先: `tick()` の満腹/機嫌の自然減、`recoverSleepStep()`、ミニゲーム終了時の げんき消費と おかね、`scheduleCompanionEncounter()` の間隔(÷meet)。
+- ゲームの出やすさ: `ENV_GAME_WEIGHTS`(ジャンル別)+ `ENV_GAME_ID_BOOSTS`(ゆき→snow/ski/curling/downhill ×2、あめ→fishing ×1.3、はれ→beach/summer/ring-flight ×1.3)を `environmentGameWeight()` として `refillMinigameQueue()` の重みに掛ける。`isRegionExclusiveGame()` は 地域 id と minigameBaseId の両方を見るように修正(やま・ジャングル・しんかい・かわ の固有ゲームが優遇されていなかった)。
+- 見た目: `#weatherFx`(あめ42/ゆき26/くも5/ひざし+きらめき/よるの星30+月、けいりょう時は約半分、reduced-motion では静止物だけ)と `#timeTint`(body[data-time] で よる青・ゆう橙・あさ黄)。ゲーム/メニュー中は weatherFx を隠し、timeTint はゲーム中だけ外す。`applyWeatherFx()` は てんき|じかん のキーが変わったときだけ作り直す。
+- できごと: `ENV_MOMENTS`(てんき別・じかん別 17件)を `scheduleEnvironmentMoment()`(150〜300秒ごと、45%、ホームで手が空いているとき)で 1件 → `showStoryEvent` + きげん/げんき/おかねの小さな変化 + `lifetime.envMoments`。
+- せかい画面: `#worldNowCard`(いまの じかん・てんき(よそう/げんざいち)・きせつ・地域 のチップ、各効果の文、ジャンルの ↑↓)。
+- じっせき追加: time-all(easy2)・rain-play・snow-play(easy2)・weather-all・night-play-10・env-moments-10(normal)。`lifetime.weatherSeen/timeSeen`(手動えらび は数えない)、`envPlays`(てんき・じかん別のあそんだ回数)。
+- 検証: `npm test` 全通過(world-environment に 予想天気の決定性・気候/季節の分布テストを追加)。Playwright: 予想天気へのフォールバック、4×4(じかん×てんき)の演出とスクリーンショット、倍率の範囲、ジャンル重み、やま の優遇修正、じっせき解放、いまの せかい カード、メニュー中の演出抑制。全100ゲーム スイープ ページエラー 0。
+

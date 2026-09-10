@@ -19,6 +19,51 @@
     return 'night';
   }
 
+  // 現在地の天気が取れないときに使う「地域の気候からの予想天気」。
+  // 地域ごとの出やすさ(はれ/くもり/あめ/ゆき)を季節で補正し、日付と
+  // 3時間ごとの時間帯と地域からきまるハッシュで決定的に選ぶ(同じ
+  // 時間帯なら何度呼んでも同じ天気、3時間ごとに変わる)
+  var CLIMATE = {
+    home: [45, 30, 20, 5], city: [45, 30, 20, 5], countryside: [45, 30, 20, 5],
+    forest: [35, 35, 28, 2], river_lake: [35, 35, 28, 2], mountain: [35, 30, 15, 20],
+    snow: [22, 30, 8, 40], sea: [50, 25, 25, 0], deepsea: [30, 40, 30, 0],
+    jungle: [25, 25, 50, 0], desert: [78, 15, 7, 0], star_stop: [60, 40, 0, 0], memory_lake: [40, 40, 20, 0]
+  };
+  var WEATHER_MODES = ['sunny', 'cloudy', 'rain', 'snow'];
+  var WEATHER_LABELS = { sunny: 'はれ', cloudy: 'くもり', rain: 'あめ', snow: 'ゆき' };
+
+  function climateFor(regionId, season) {
+    var base = (CLIMATE[regionId] || CLIMATE.home).slice();
+    if (season === 'winter') {
+      // ふゆ: あめの 6わりが ゆきに、ゆきの ふる 地域は さらに ゆきが ふえる
+      var toSnow = Math.round(base[2] * 0.6); base[2] -= toSnow; base[3] += toSnow;
+      if (base[3] > 0) { base[0] = Math.max(10, base[0] - 10); base[3] += 10; }
+    } else if (season === 'summer') {
+      // なつ: ゆきぐに いがいの ゆきは あめに、あめが すこし ふえる
+      if (regionId !== 'snow') { base[2] += base[3]; base[3] = 0; } else { var keep = Math.round(base[3] * 0.4); base[2] += base[3] - keep; base[3] = keep; }
+      base[2] += 5; base[0] = Math.max(10, base[0] - 5);
+    }
+    return base;
+  }
+
+  function hash32(text) {
+    var h = 2166136261;
+    for (var i = 0; i < text.length; i++) { h ^= text.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return h >>> 0;
+  }
+
+  function simulatedWeather(regionId, season, date) {
+    var d = date || new Date();
+    var block = Math.floor(d.getHours() / 3);
+    var key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ':' + block + ':' + (regionId || 'home');
+    var weights = climateFor(regionId, season);
+    var total = weights.reduce(function (a, b) { return a + b; }, 0) || 1;
+    var roll = (hash32(key) % 1000) / 1000 * total;
+    var mode = WEATHER_MODES[0];
+    for (var i = 0; i < weights.length; i++) { roll -= weights[i]; if (roll < 0) { mode = WEATHER_MODES[i]; break; } }
+    return { mode: mode, label: WEATHER_LABELS[mode], simulated: true };
+  }
+
   function weatherDetails(code) {
     if (!Number.isInteger(code)) return null;
     if (code === 0 || code === 1) return { mode: 'sunny', label: 'はれ' };
@@ -186,7 +231,7 @@
     return { request: request, snapshot: snapshot };
   }
 
-  var api = { timeOfDay: timeOfDay, weatherFromResponse: weatherFromResponse,
+  var api = { timeOfDay: timeOfDay, weatherFromResponse: weatherFromResponse, simulatedWeather: simulatedWeather,
     municipalityFromResponse: municipalityFromResponse, createTracker: createTracker };
   if (typeof window !== 'undefined') window.NaotocchiEnvironment = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
