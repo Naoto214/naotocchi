@@ -73,6 +73,8 @@ function createFixtures() {
         ['season_spring','spring','home'],['season_autumn','autumn','forest'],['season_summer_sea','summer','sea'],
         ['scenery_animals_farm','spring','countryside'],['scenery_animals_snow','spring','snow'],
         ['scenery_memory_lake','summer','memory_lake'],
+        ['stack_harvest','summer','countryside'],['stack_sakura','spring','home'],
+        ['stack_leaves','autumn','forest'],
       ]) {
         const scene=make(name,26,{regionId:region,hunger:80,health:90,energy:80,happiness:80});
         Object.assign(scene.lifetime,{seasonMode:season,weatherMode:'sunny',timeMode:'day'});
@@ -164,6 +166,7 @@ function visualQaPlugin() {
           <style>body{margin:16px;font:14px system-ui;background:#e4e8ed;color:#192536}label{margin-right:12px}button,select{font:inherit;padding:6px}iframe{display:block;border:1px solid #8a98a8;margin:14px 0;background:white}output{position:absolute;left:820px;top:110px;white-space:pre-wrap;max-width:500px}h1{font-size:18px}</style>
           <h1>PR visual QA — real game in an iframe</h1>
           <p>Development saves only. Load replaces this preview origin's save.</p>
+          <p>For stack_* scenes, open プロフィール → ゲームを選ぶ, then choose しゅうかくタワー / さくらタワー / おちばタワー. The missing-image option also applies to their Canvas motifs. Layout measurements below cover the home UI, not the Canvas picture.</p>
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
           <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>

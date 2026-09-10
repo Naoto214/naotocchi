@@ -1,5 +1,19 @@
 # 公開後チェックポイント — 2026-09-10（JST）
 
+## #228マージ後：季節・収穫タワーの小物へ既存素材を再利用
+
+#228はマージ済み。main `c36215e110dff32d4d36556ef73cf534b42673a7` の
+Runtime #303・Pages #226成功。公開UI CSSと季節地域atlasはmainと一致。
+HTML／本体JS／care v2は取得タイムアウトで、全対象の配信一致は未確認。
+このmainから `feature/seasonal-minigame-art-20260910` で、収穫・桜・落ち葉タワーへ
+既存の麦／桜／紅葉を接続。311画像の変更0・追加0、Canvas本体・ルール・保存を保持。
+152件成功。最終HEAD／tree・レビュー・PR CI・この追加分の統合状態は最新PRを読む。
+
+[引継ぎ](docs/handoff/seasonal-stack-illustrations-2026-09-10.md)／
+[QA・配信確認の範囲](docs/qa/seasonal-stack-illustrations-2026-09-10.md)。
+ブラウザーは復旧時も20秒タイムアウトで実画面0件。iPhone描画・音・タッチ・FPSは未確認。
+地域参照の残件・旧#92は別枠、既存デート／記念日の判断を保持。全体開発は継続中。
+
 ## #228継続：地域の既存PNG再利用・ミニゲーム小物の棚卸し
 
 最新mainは `eeb4706fcd4fff2287fbd17538a3b68fdf68f2a9` のまま。

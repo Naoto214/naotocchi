@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -54,7 +54,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       },
       closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: 300}),
-      getContext: () => null, setAttribute: noop, focus: () => { document.activeElement = el; }, scrollIntoView: noop,
+      getContext: () => canvasContext || null, setAttribute: noop, focus: () => { document.activeElement = el; }, scrollIntoView: noop,
       setPointerCapture: noop, releasePointerCapture: noop,
       remove() { el.isConnected = false; },
     };

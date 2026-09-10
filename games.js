@@ -177,6 +177,34 @@
     ])),
   ];
 
+  // Only the three matching stack motifs use the existing scenery atlas.
+  // Coordinates follow its JSON frame/clipBounds; tests compare the source crop
+  // and destination box against that metadata. Keep the transparent frame and
+  // clip out neighboring art without stretching the motif.
+  const STACK_BLOCK_ART = {
+    '🌾': { frame: [33.5, 923, 293], clip: [54, 927, 306, 1212] },
+    '🌸': { frame: [43, 50, 267], clip: [47, 58, 306, 309] },
+    '🍁': { frame: [639, 37, 295], clip: [657, 41, 916, 328] },
+  };
+  function drawStackBlockArt(ctx, emoji, size) {
+    const art = STACK_BLOCK_ART[emoji], image = S.sceneryAtlas;
+    if (!art || !image || !image.complete || image.naturalWidth !== 1254 || image.naturalHeight !== 1254) return false;
+    const [fx, fy, side] = art.frame, [left, top, right, bottom] = art.clip;
+    const scale = size / side, width = right - left, height = bottom - top;
+    ctx.save();
+    try {
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(image, left, top, width, height,
+        -size / 2 + (left - fx) * scale, 1 - size / 2 + (top - fy) * scale,
+        width * scale, height * scale);
+      return true;
+    } catch (_) {
+      return false;
+    } finally {
+      ctx.restore();
+    }
+  }
+
   // --- スタックタワー(canvas 作りなおし): ゆれる クレーンから ブロックを おとし、
   //     したの ブロックと かさねる。はみでた ぶぶんは きりおとされて ほそくなる。
   //     ぴったり(パーフェクト)なら はばが すこし もどる。カメラは たかさに あわせて うえへ ---
@@ -223,7 +251,7 @@
           for (const p of parts) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 300 * dt; p.life -= dt; } parts = parts.filter((p) => p.life > 0);
           for (const b of blocks) b.wob *= 0.9; if (shake > 0) shake -= dt * 30;
         }
-        function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(emoji, 0, 1); } ctx.restore(); }
+        function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (!drawStackBlockArt(ctx, emoji, Math.round(BLOCK_H * 0.7))) ctx.fillText(emoji, 0, 1); } ctx.restore(); }
         function render(now) {
           if (!ctx) return;
           ctx.save(); if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);

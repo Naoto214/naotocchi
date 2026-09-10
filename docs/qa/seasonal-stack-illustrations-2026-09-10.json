@@ -1,0 +1,185 @@
+{
+  "at": "2026-09-10T14:13:19.922476+00:00",
+  "baseMain": "c36215e110dff32d4d36556ef73cf534b42673a7",
+  "sourceCommit": "3bd80fcc053f3cfb51f1de973cb4f1a71874780c",
+  "sourceTree": "911b4af5574fdf5b98f0f7b76dd4b072c0aaa7ee",
+  "existingImageCount": 311,
+  "changedImages": [],
+  "newImages": [],
+  "unchangedFiles": [
+    "character-world-master.v1.js",
+    "style.css",
+    "design.css",
+    "ui.css",
+    "cast-layout.js",
+    "cast-motion.js",
+    "care-status.js",
+    "care-status.css",
+    "world-environment.js",
+    "ui-illustrations.css"
+  ],
+  "gamesJsOtherThanMotifChangeByteIdentical": true,
+  "scriptJsOtherThanAtlasHandoffByteIdentical": true,
+  "sourceSha256": {
+    "games.js": "ffc3a1553d9232fa2a703f49beeda95056e1c040d445950c816c5530eec27735",
+    "script.js": "84550cb9a8aab05616bf131f022fe9abce18f42a8fed22afe1bc0cca074c748c",
+    "index.html": "8bf371c774e3183383fc5954516dc54363b1ca917df8a0c7902ccca9128c2b07",
+    "tests/minigame-illustrations-test.cjs": "00549b467315aca3dacbf13b891ab5c69ddd7ad5090e6f133fcb6c8722e33712",
+    "tests/visual-qa.cjs": "adb1bf17754387da0e9ce0c927bea3bf24fd6406f3faf86a390c9603b79453a8",
+    "tests/visual-qa-test.cjs": "4c306387ce3b58a02bb745d6921ff506516c1bbeae49f983dee2fd8c90fe5d3a"
+  },
+  "tests": {
+    "command": "npm test",
+    "pass": 152,
+    "fail": 0,
+    "skip": 0,
+    "baselinePass": 145,
+    "newTests": 7,
+    "redPhase": {
+      "pass": 2,
+      "fail": 5,
+      "reason": "Missing atlas draw calls and late-load recovery before implementation; two preservation tests already passed."
+    },
+    "output": "seasonal-stack-illustrations-test-output-2026-09-10.txt",
+    "method": "Real production game/input/session code, substituted DOM/clock and Canvas command recorder; not browser rendering."
+  },
+  "games": [
+    {
+      "id": "stack-harvest",
+      "frame": "wheat",
+      "fallback": "🌾",
+      "qaScene": "stack_harvest"
+    },
+    {
+      "id": "stack-sakura",
+      "frame": "cherry_blossom",
+      "fallback": "🌸",
+      "qaScene": "stack_sakura"
+    },
+    {
+      "id": "stack-leaves",
+      "frame": "maple_leaf",
+      "fallback": "🍁",
+      "qaScene": "stack_leaves"
+    }
+  ],
+  "previousPR": {
+    "number": 228,
+    "head": "17ebb008c48ff01f791b3229b84b0d4882fc1328",
+    "mergedAtUTC": "2026-09-10T13:59:52Z",
+    "mergeCommit": "c36215e110dff32d4d36556ef73cf534b42673a7",
+    "tree": "7cd6824ba91df36acaec19a25c63d69302819ca0",
+    "runtime": {
+      "number": 303,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34486163019"
+    },
+    "pages": {
+      "number": 226,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/34486161666"
+    },
+    "artifact": {
+      "id": 10155706444,
+      "bytesCompared": false,
+      "downloadResult": "GitHub connector returned a file reference; fetching it returned HTTP 403. No artifact byte equality claimed."
+    }
+  },
+  "publication": {
+    "at": "2026-09-10T14:05:33.705330+00:00",
+    "main": "c36215e110dff32d4d36556ef73cf534b42673a7",
+    "tree": "7cd6824ba91df36acaec19a25c63d69302819ca0",
+    "files": [
+      {
+        "path": "index.html",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "script.js",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "ui-illustrations.css",
+        "bytes": 8507,
+        "sha256": "50310a65dcb23680665e4bb9f1295b2be946976f2c0666679bc31fb10253f5ff",
+        "matches_main_tree": true,
+        "url": "https://naoto214.github.io/naotocchi/ui-illustrations.css"
+      },
+      {
+        "path": "assets/ui/care-atlas-v2.png",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "assets/ui/season-region-atlas-v1.png",
+        "bytes": 1549146,
+        "sha256": "a50ae6e608fee5b234b076ff597b755a4a1dea7db3a4d68271086413407a708f",
+        "matches_main_tree": true,
+        "url": "https://naoto214.github.io/naotocchi/assets/ui/season-region-atlas-v1.png"
+      }
+    ],
+    "retry": [
+      {
+        "path": "index.html",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "script.js",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "assets/ui/care-atlas-v2.png",
+        "error": "<urlopen error timed out>"
+      }
+    ],
+    "exactBrowserURLs": [
+      {
+        "path": "index.html",
+        "url": "https://naoto214.github.io/naotocchi/",
+        "error": "<urlopen error timed out>"
+      },
+      {
+        "path": "script.js",
+        "url": "https://naoto214.github.io/naotocchi/script.js?v=20260910-scenery-png-1",
+        "error": "<urlopen error timed out>"
+      }
+    ]
+  },
+  "browser": {
+    "setup": "succeeded",
+    "tabsList": "CDP operation refresh tabs timed out after 20000ms",
+    "documentedRecovery": "Read bootstrap and interaction troubleshooting, reused selected browser, attempted a new tab; CDP refresh tabs again timed out after 20000ms. No usable game DOM or screenshot.",
+    "newGameScreenshots": 0,
+    "iphoneRendering": false,
+    "touch": false,
+    "audio": false,
+    "fps": false,
+    "jitterCauseConfirmed": false
+  },
+  "otherWork": {
+    "mainAtPreSave": "c36215e110dff32d4d36556ef73cf534b42673a7",
+    "openPRsAtResume": [
+      92
+    ],
+    "claudeBranch": "claude/review-existing-code-readme-naq7pv",
+    "claudeHead": "cc7aaa462bca784a18faf91bdade7f7447bae098",
+    "otherTabsUncommittedAssets": "not inspected or imported",
+    "pr92Changed": false,
+    "regionDecorReferenceIssueChanged": false
+  },
+  "review": {
+    "independent": true,
+    "sourceCommit": "3bd80fcc053f3cfb51f1de973cb4f1a71874780c",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "scope": "Atlas crop/destination, pending/error/recovery, state restoration, shared loader and retirement, unchanged images/gameplay/IDs, QA fixtures",
+    "focusedTests": {
+      "illustrationTestsPassed": 7,
+      "qaRoute": "passed"
+    },
+    "actualVisualApproval": false,
+    "reviewedLocalCommit": "a3d7886a62a1d8f3afa902d5fdf0480df374d670",
+    "identicalRemoteTree": "911b4af5574fdf5b98f0f7b76dd4b072c0aaa7ee"
+  },
+  "finalCommitAndCI": "Read current PR body/comment. This file is part of the later documentation commit."
+}

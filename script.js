@@ -2738,8 +2738,10 @@
   };
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
+  const UI_ATLAS_IMAGES = {};
   for (const [atlas,src] of [['ui','assets/ui/world-items-atlas-v1.png'],['care','assets/ui/care-atlas-v2.png'],['scenery','assets/ui/season-region-atlas-v1.png']]) {
     const probe=document.createElement('img');
+    UI_ATLAS_IMAGES[atlas]=probe;
     probe.hidden=true;probe.alt='';probe.dataset.iconAtlas=atlas;
     probe.addEventListener('error',()=>{document.documentElement.dataset[atlas+'Atlas']='failed';});
     probe.addEventListener('load',()=>{document.documentElement.dataset[atlas+'Atlas']='loaded';});
@@ -12517,7 +12519,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js が よみこまれていません(index.html で script.js より まえに <script src="games.js"> が ひつよう)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
