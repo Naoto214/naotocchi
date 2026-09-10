@@ -5960,3 +5960,38 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .world-now-games { margin-top: 4px; font-size: 11px; }
 .world-now-games .up { color: #1d7a3c; font-weight: bold; }
 .world-now-games .down { color: #8a4a1d; }
+
+/* ずかん: まとめ と しゅぞくごとの 見出し */
+.dex-summary { margin-bottom: 8px; }
+.records-bar-fill.dex-fill { background: linear-gradient(90deg, #8fd694, #2e8b57); }
+.records-bar-fill.dex-fill-rare { background: linear-gradient(90deg, #ffd54a, #ff7b9c); }
+.dex-next { font-size: 10px; font-weight: bold; color: #2e5d3a; }
+.dex-line-block { border-radius: 8px; padding: 3px 4px; background: rgba(255, 255, 255, 0.35); }
+.dex-line-block.unknown { background: rgba(0, 0, 0, 0.04); }
+.dex-line-head { display: flex; align-items: center; gap: 6px; font-size: 9px; font-weight: bold; margin-bottom: 2px; }
+.dex-line-name { flex: none; min-width: 52px; }
+.dex-line-rare { font-size: 8px; color: #b8860b; }
+.dex-line-bar { flex: 1; height: 5px; border-radius: 999px; background: rgba(0, 0, 0, 0.1); overflow: hidden; }
+.dex-line-fill { display: block; height: 100%; background: linear-gradient(90deg, #8fd694, #2e8b57); }
+.dex-line-count { flex: none; font-variant-numeric: tabular-nums; opacity: 0.8; }
+
+/* たび: 地域カード */
+#travelRegionGrid.theme-grid, #travelSpecialGrid.theme-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.theme-swatch.travel-card {
+  align-items: stretch;
+  text-align: left;
+  gap: 4px;
+  padding: 6px 7px;
+  border-radius: 10px;
+  border: 2px solid rgba(22, 51, 15, 0.15);
+  background: rgba(255, 255, 255, 0.55);
+}
+.theme-swatch.travel-card.visited { border-color: rgba(46, 139, 87, 0.45); }
+.theme-swatch.travel-card.selected { background: #dcece1; border-color: #2e8b57; }
+.theme-swatch.travel-card:disabled { cursor: default; }
+.travel-card-head { display: flex; align-items: center; gap: 6px; }
+.travel-card-head .theme-swatch-circle { flex: none; }
+.travel-card-title { font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.travel-card-tag { font-size: 8px; padding: 1px 6px; border-radius: 999px; background: rgba(46, 139, 87, 0.18); color: #2e5d3a; }
+.travel-card-tag.now { background: #2e8b57; color: #fff; }
+.travel-card-lines { display: flex; flex-direction: column; gap: 1px; font-size: 8.5px; line-height: 1.35; opacity: 0.85; }

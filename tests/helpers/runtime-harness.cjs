@@ -142,6 +142,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       useConsumableItem, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
+      renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,

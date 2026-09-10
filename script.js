@@ -1051,6 +1051,8 @@
     minigameOverlay: document.getElementById('minigameOverlay'),
     dexOverlay: document.getElementById('dexOverlay'),
     dexGrid: document.getElementById('dexGrid'),
+    dexSummary: document.getElementById('dexSummary'),
+    careMeters: document.getElementById('careMeters'),
     dexProgress: document.getElementById('dexProgress'),
     dexFreePlayHint: document.getElementById('dexFreePlayHint'),
     dexDetailOverlay: document.getElementById('dexDetailOverlay'),
@@ -10664,6 +10666,7 @@
       ? `${GENDER_LABELS[state.gender]}・${orientationLabel(state.orientationId, state.gender)}`
       : '';
 
+    if (el.careMeters) el.careMeters.classList.toggle('hidden', isEgg);
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
     updateBar(el.happinessBar, isEgg || isOver ? 0 : state.happiness, 'happiness');
     updateBar(el.energyBar, isEgg || isOver ? 0 : state.energy, 'energy');
@@ -11355,8 +11358,18 @@
   // 地域は selected の ハイライトを つけつつ、そこへは「たびに でる」
   // いみが ないので タップできないよう disabled に する
   function renderTravelRegionGrid() {
+    // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
+    const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
       const isCurrent = region.id === state.regionId;
+      const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
+      const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
+      const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
+      const local = (REGION_MINIGAMES[region.id] || REGION_MINIGAMES[region.minigameBaseId] || []).length;
+      const partners = Array.isArray(region.candidates) ? region.candidates.length : 0;
+      const lines = [effect, ups.length ? `ゲーム: ${ups.join('・')}↑` : '', local ? `ごとうちゲーム ${local}本` : '', partners ? `こいびと候補 ${partners}人` : ''].filter(Boolean);
+      return `<button type="button" class="theme-swatch travel-card ${isCurrent ? 'selected' : ''} ${visited.has(region.id) ? 'visited' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''} aria-pressed="${isCurrent}"><span class="travel-card-head"><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="travel-card-title">${escapeHtml(region.label)}${isCurrent ? '<span class="travel-card-tag now">いまここ</span>' : visited.has(region.id) ? '<span class="travel-card-tag">✓</span>' : ''}</span></span><span class="travel-card-lines">${lines.map((t) => `<span>${t}</span>`).join('')}</span></button>`;
+      // (きゅうの swatch 表示は つかわない)
       return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="theme-swatch-label">${region.label}</span></button>`;
     };
     el.travelRegionGrid.innerHTML = REGIONS.map(swatch).join('');
@@ -12154,8 +12167,13 @@
     const combinedTotal = totalCount + companionEntries.length + ALL_PARTNER_CANDIDATES.length;
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexFreePlayHint.classList.toggle('hidden', !state.infinite);
+    renderDexSummary();
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
+      const knownCount = stages.filter((_, i) => state.discoveredStages.includes(`${line}:${i}`)).length;
+      const isRare = RARE_LINES.includes(line) || line === 'ren';
+      const name = knownCount ? (SPECIES_DISPLAY_NAMES[line] || line) : '？？？';
+      const head = `<div class="dex-line-head"><span class="dex-line-name">${escapeHtml(name)}${knownCount && isRare ? ' <span class="dex-line-rare">✨レア</span>' : ''}</span><span class="dex-line-bar"><span class="dex-line-fill" style="width:${(knownCount / stages.length * 100).toFixed(0)}%"></span></span><span class="dex-line-count">${knownCount}/${stages.length}</span></div>`;
       const cells = stages
         .map((stage, i) => {
           const known = state.discoveredStages.includes(`${line}:${i}`);
@@ -12166,11 +12184,33 @@
           return `<div class="dex-cell known tappable" data-line="${line}" data-stage="${i}"><span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span><span class="dex-cell-label">${stage.label}</span></div>`;
         })
         .join('');
-      return `<div class="dex-line-block"><div class="dex-row">${cells}</div></div>`;
+      return `<div class="dex-line-block ${knownCount ? 'has-known' : 'unknown'}">${head}<div class="dex-row">${cells}</div></div>`;
     }).join('');
     renderCompanionDex();
     renderRareCompanionDex();
     renderPartnerDex();
+  }
+
+  // ずかんの あたまの まとめ: ふつう/レアの うまりぐあい と「いまの子の つぎの すがた」
+  function renderDexSummary() {
+    if (!el.dexSummary) return;
+    const known = new Set(state.discoveredStages);
+    const count = (lines) => lines.reduce((a, line) => a + SPECIES[line].stages.filter((_, i) => known.has(`${line}:${i}`)).length, 0);
+    const normal = count(NORMAL_LINES), normalTotal = NORMAL_LINES.length * STAGES_PER_LINE;
+    const rare = count([...RARE_LINES, 'ren']), rareTotal = (RARE_LINES.length + 1) * STAGES_PER_LINE;
+    const linesStarted = ALL_LINES.filter((line) => SPECIES[line].stages.some((_, i) => known.has(`${line}:${i}`))).length;
+    let next = '';
+    if (state.stage === STAGE.GROWING && state.speciesLine && SPECIES[state.speciesLine]) {
+      const stages = SPECIES[state.speciesLine].stages;
+      const idx = stages.findIndex((_, i) => i > (state.stageIndex || 0) && !known.has(`${state.speciesLine}:${i}`));
+      if (idx > 0 && LIFE_STAGES[idx]) next = `いまの子の つぎの すがたは ${LIFE_STAGES[idx].min}さい(あと${Math.max(0, LIFE_STAGES[idx].min - currentAge())}ねん)`;
+      else if (idx < 0) next = 'いまの子の すがたは ぜんぶ 見た';
+    }
+    const bar = (v, t, cls) => `<span class="records-bar"><span class="records-bar-fill ${cls}" style="width:${(t ? v / t * 100 : 0).toFixed(1)}%"></span></span>`;
+    el.dexSummary.innerHTML = `<div class="records-summary dex-summary"><div class="records-head"><span class="records-title">📗 ずかんの まとめ</span><span class="records-headline">${linesStarted}/${ALL_LINES.length}しゅぞく</span></div>`
+      + `<div class="records-row"><span class="records-label">ふつう</span>${bar(normal, normalTotal, 'dex-fill')}<span class="records-num">${normal}/${normalTotal}</span></div>`
+      + `<div class="records-row"><span class="records-label">レア</span>${bar(rare, rareTotal, 'dex-fill-rare')}<span class="records-num">${rare}/${rareTotal}</span></div>`
+      + (next ? `<div class="dex-next">🔎 ${next}</div>` : '') + '</div>';
   }
 
   // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の

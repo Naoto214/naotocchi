@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260910-audit-1">
+  <link rel="stylesheet" href="style.css?v=20260910-screens-1">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260910-expressive-1">
   <link rel="stylesheet" href="design.css?v=20260910-fit-2">
@@ -79,7 +79,7 @@
           </div>
 
           <div class="home-meters">
-            <div class="bars care-meters" role="group" aria-label="おせわのようす">
+            <div class="bars care-meters" id="careMeters" role="group" aria-label="おせわのようす">
               <div class="bar-line">
                 <span class="bar-label">おなか</span><span class="bar-value" id="hungerValue">0</span>
                 <div class="bar"><div class="bar-fill hunger" id="hungerBar"></div></div>
@@ -165,6 +165,7 @@
           <div class="dex-scroll">
             <div class="profile-hint">であったすがたをタップすると、なまえや成長段階、その子の小さな話を読めます</div>
             <div class="profile-hint hidden" id="dexFreePlayHint">♾️のせかいでは、くわしいがめんからそのままそのすがたになれます</div>
+            <div id="dexSummary"></div>
             <div class="dex-grid" id="dexGrid"></div>
             <div class="dex-section-divider">
               <span class="dex-section-title">なかま</span>
@@ -678,6 +679,6 @@
   <script src="games.js?v=20260910-stack-art-1"></script>
   <script src="audio.js?v=20260910-audit-1"></script>
   <script src="care-status.js?v=20260910-care-2"></script>
-  <script src="script.js?v=20260910-offline-1"></script>
+  <script src="script.js?v=20260910-screens-1"></script>
 </body>
 </html>

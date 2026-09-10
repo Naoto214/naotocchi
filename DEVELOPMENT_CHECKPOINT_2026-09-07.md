@@ -1777,3 +1777,9 @@ Runtime smoke test SUCCESS確認済み。
 - 表示: `setMessage` の要約(「おかえり。るすのあいだ(Nふん)…: おなか−x・きげん−y・💰+k」)、`showStoryEvent` バナー、ライフログ「るすばん Nふん」。
 - テスト: `tests/offline-test.cjs`(短時間は無変化、20分の減少と床とコイン、10時間は上限と床、ねむり中の回復)。
 
+## チェックポイント BP — ずかんの まとめ・たびの地域カード・たまごのメーター(2026-09-10)
+- ずかん: `renderDexSummary()`(`#dexSummary`: ふつう/レアの進捗バー、しゅぞく数、`LIFE_STAGES` から「つぎの すがたは Nさい(あとM年)」)。各 `dex-line-block` に `dex-line-head`(名前は1段階でも見ていれば表示、レアは ✨レア、進捗バー、n/8)。未発見は `unknown` クラス。
+- たび: `renderTravelRegionGrid()` を地域カード(`theme-swatch travel-card`、既存クリック処理と互換)に。`ENV_EFFECTS.region` の文、`ENV_GAME_WEIGHTS.region` の↑ジャンル、`REGION_MINIGAMES` の本数、`candidates` の人数、`regionsVisited/specialRegionsVisited` の ✓、`aria-pressed`。グリッドは2列。
+- たまご: `#careMeters`(おせわの4本)を `isEgg` で隠す。
+- テスト: `tests/screens-test.cjs`。`npm test` 191件通過。スクリーンショットで3画面を確認。
+
