@@ -5767,3 +5767,34 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
 .daily-status { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
 .daily-score { font-size: 10px; font-weight: bold; }
 .daily-start { min-height: 34px; padding: 4px 12px; font-size: 11px; }
+
+/* じどうバックアップ(セーブの 3世代) */
+.save-snap-title {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #6b3654;
+}
+.save-snap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 5px 0;
+  border-bottom: 1px dashed rgba(107, 54, 84, 0.25);
+}
+.save-snap-label {
+  flex: 1;
+  min-width: 0;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #4a2b3c;
+}
+.save-snap-btn {
+  flex: none;
+  white-space: nowrap;
+}
+.save-snap-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
