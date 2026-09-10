@@ -40,6 +40,64 @@ test('courtship follows the actual partner, while a failed courtship never celeb
   assert.ok(!h.get('partnerCompanion').querySelector('.partner-emoji').classList.contains('cast-speaking'));
 });
 
+test('play and courtship visibly lift a crowded cast, while negative outcomes settle once', () => {
+  const h = harness(); const s = cast(h);
+  const master = require('node:fs').readFileSync('character-world-master.v1.js','utf8');
+  const world = new Function(master+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  s.companions = [...world.companions.normal,...world.companions.rare].map(c=>({id:c.id,bond:100}));
+  h.api.render();
+  const sizes = [h.get('petSprite'),h.get('petAccessory'),h.get('partnerCompanion'),
+    ...h.get('companionLeft').children,...h.get('companionRight').children].map(n=>n.style.width);
+  for (const [event,text] of [['play_with','くすぐったいよ！'],['court','だいすきだよ！']]) {
+    h.api.speakEvent(event,{petText:text,partnerChance:1,companionChance:1}); h.advance(1);
+    const animation = h.get('castResponse').animations.at(-1);
+    assert.ok(animation, 'an action should visibly move even a full cast');
+    const lifts = animation.frames.map(f=>Number(f.transform.match(/translateY\(([-.\d]+)px\)/)?.[1]));
+    assert.ok(Math.min(...lifts)<=-10, 'the action should be noticeable on a small screen');
+    assert.ok(lifts.every(y=>y>=-16 && y<=0), 'the entire cast stays in the reserved top space');
+    assert.equal(lifts.at(-1),0,'the cast settles back to its exact starting position');
+    assert.deepEqual([h.get('petSprite'),h.get('petAccessory'),h.get('partnerCompanion'),
+      ...h.get('companionLeft').children,...h.get('companionRight').children].map(n=>n.style.width),sizes);
+  }
+  const last = h.get('castResponse').animations.at(-1);
+  h.api.openExclusiveMenu('menu');
+  assert.equal(last.playState,'idle','opening a menu cancels the group response');
+  h.api.closeAllMenuOverlays(); h.api.render();
+  for (const [event,text] of [['court_fail','またおはなししようね'],['play_with_annoyed','ちょっと休ませて']]) {
+    h.api.speakEvent(event,{petText:text,partnerChance:0,companionChance:0}); h.advance(1);
+    const animation=h.get('castResponse').animations.at(-1);
+    assert.equal(animation.playState,'running','negative outcomes also have visible feedback');
+    const lifts=animation.frames.map(f=>Number(f.transform.match(/translateY\(([-.\d]+)px\)/)?.[1]));
+    assert.ok(Math.min(...lifts)<=-6,'a crowded cast can still show disappointment or tiredness');
+    const lowest=lifts.indexOf(Math.min(...lifts));
+    assert.ok(lifts.slice(lowest+1).every((y,i)=>y>=lifts[lowest+i]),'negative feedback settles once without a second happy hop');
+    assert.equal(lifts.at(-1),0);
+  }
+  const quiet = harness({reducedMotion:true}); cast(quiet);
+  quiet.api.speakEvent('play_with',{petText:'くすぐったい！'}); quiet.advance(1);
+  assert.equal(quiet.get('castResponse').animations.length,0);
+});
+
+test('poop updates preserve every placed actor and do not interrupt a reaction', () => {
+  const h=harness(); const s=cast(h);
+  const actors=[h.get('petSprite'),h.get('petAccessory'),h.get('partnerCompanion'),
+    ...h.get('companionLeft').children,...h.get('companionRight').children];
+  const placement=()=>actors.map(n=>[n.style.width,n.style.height,n.style.left,n.style.top]);
+  const before=placement();
+  h.api.speakEvent('play_with',{petText:'くすぐったい！',partnerChance:0,companionChance:1}); h.advance(1);
+  const response=h.get('castResponse').animations.at(-1);
+  // DOM sizing is covered by stylesheet review; this checks the real render
+  // path does not mutate cast placement or cancel motion on a poop update.
+  for (const count of [1,2,4,0]) {
+    s.poopCount=count; h.api.render();
+    assert.equal(h.get('poopRow').textContent,'💩'.repeat(count));
+    assert.deepEqual(placement(),before);
+    assert.equal(response.playState,'running');
+  }
+  h.setReducedMotion(true);
+  assert.equal(response.playState,'idle','the shared response also stops when motion is disabled');
+});
+
 test('care moods follow the line and outcome instead of always bouncing happily', () => {
   const h = harness(); h.api.render();
   for (const [event,text,want] of [

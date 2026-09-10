@@ -5,13 +5,24 @@
   const MOTION_RADIUS = 3;
   const motionRadiusFor = count => count > 18 ? 1 : MOTION_RADIUS;
   const REST = [0, 0, 0, 0];
+  // A shared lift makes taps readable even with 26 friends. Everyone travels
+  // together, so their existing collision gaps and image sizes stay intact.
+  // layoutHomeCast reserves 16px above the entire cast for this response.
+  const GROUP_LIFTS = {
+    bounce:[0,-2,-16,-2,-10,0], wiggle:[0,-4,-13,-3,-11,0],
+    love:[0,-2,-12,-4,-14,0], shy:[0,-1,-10,-2,-6,0],
+    munch:[0,-2,-6,-1,-4,0], stretch:[0,-2,-12,-12,-4,0],
+    // A held recoil and one slow return make disappointment / fatigue visible
+    // without the second, playful hop used by happy responses.
+    droop:[0,-8,-8,-4,0], settle:[0,-7,-7,-3,0],
+  };
   // x/y in CSS px, turn as corner displacement, inward squash in CSS px.
   // A short anticipation, response and settling beat keep movement soft.
   const MOVES = {
     bounce: [REST,[0,.6,0,.45],[0,-2.5,.25,0],[0,.35,0,.3],[0,-1.5,-.25,0],REST],
     wiggle: [REST,[-.9,.2,-1,.3],[.9,-.6,1,0],[-.8,-.3,-1,0],[.6,-.4,.8,0],REST],
     shy: [REST,[0,.5,-1.5,.2],[0,.5,-1.5,.2],[0,-1,1,0],[0,-.5,.4,0],REST],
-    love: [REST,[0,.3,-1,.2],[0,-1.8,-.6,0],[0,.3,1,.2],[0,-1.1,.6,0],REST],
+    love: [REST,[.4,.3,-1,.2],[1,-1.8,-.6,0],[.4,.3,1,.2],[.7,-1.1,.6,0],REST],
     droop: [REST,[0,1.2,-.9,.4],[0,1.2,-.9,.4],[0,.6,-.4,.2],REST],
     settle: [REST,[0,.7,.5,.4],[0,.7,.5,.4],[0,.3,.2,.1],REST],
     shake: [REST,[-1,0,-.8,0],[1,0,.8,0],[-.7,0,-.5,0],[.5,0,.3,0],REST],
@@ -56,7 +67,7 @@
     const move = mood === 'bounce' && ['clock','robot_neighbor'].includes(id) ? 'tick' : mood;
     const poses = (MOVES[move] || MOVES.nod).map(([x,y,turn,squash]) => {
       const strength = energy * (gentle ? .55 : 1);
-      x *= strength; y *= strength; turn *= strength * direction; squash *= strength;
+      x *= strength * direction; y *= strength; turn *= strength * direction; squash *= strength;
       const radius = size / Math.SQRT2;
       let angle = turn / radius, scale = 1 - squash / size;
       // Triangle inequality also bounds interpolated frames, not only the keys.
@@ -72,7 +83,7 @@
     };
   }
 
-  function createController({getActors, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, env = root}) {
+  function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, env = root}) {
     const active = new Map();
     const media = typeof env.matchMedia === 'function' ? env.matchMedia('(prefers-reduced-motion: reduce)') : null;
     let speaking = null, idleTurn = 0;
@@ -115,6 +126,18 @@
         if (accessory) run(accessory.node, motion, mood, delay, from);
       }
     }
+    function playGroup(mood) {
+      const node = getGroup(), lifts = GROUP_LIFTS[mood];
+      if (!node) return;
+      if (!lifts) {
+        // A disappointed or tired reply must not inherit a happy hop.
+        stop(node);
+        return;
+      }
+      const strength = isResting() ? .35 : 1;
+      run(node, {frames:lifts.map(y=>({transform:`translateY(${y*strength}px)`})),
+        duration:DURATION[mood]}, mood);
+    }
     function clear(immediate = true) {
       clearSpeaker();
       for (const node of [...active.keys()]) {
@@ -134,6 +157,7 @@
       speaking.classList.add('cast-speaking');
       const mood = reactionFor(event, text, speaker.kind);
       play(actor, mood);
+      if (event !== 'idle') playGroup(mood);
       // A quiet listening gesture precedes the next character's spoken reply.
       // All motion is bounded, and all responses use the existing speech clock.
       const friend = find(listener);
@@ -149,7 +173,7 @@
           .forEach((a,i)=>play(a,'bounce',{delay:100+Math.min(i,25)*22,gentle:true}));
       }
     }
-    function emote(mood) { if (allowed()) play(find({kind:'pet'}),mood); }
+    function emote(mood) { if (allowed()) { play(find({kind:'pet'}),mood); playGroup(mood); } }
     function idle() {
       if (!allowed() || active.size || speaking) return;
       const actors = getActors().filter(a=>a.kind !== 'accessory');

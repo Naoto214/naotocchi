@@ -2,6 +2,28 @@ const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const fs = require('node:fs');
 
+test('a home cast stays in view during its larger hop and sway and leaves the floor clear', () => {
+  const {layoutHomeCast} = require('../cast-layout.js');
+  const {motionRadiusFor} = require('../cast-motion.js');
+  const master = new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const friends = [...master.companions.normal,...master.companions.rare].map(c=>c.asset);
+  for (const width of [270,294,338,384]) for (const height of [132,156,200,270,320]) {
+    for (const count of [0,6,18,26]) for (const known of [false,true]) {
+      const radius=motionRadiusFor(count);
+      const r=layoutHomeCast({width,height,mainAsset:known?'assets/characters/sakura/04.png':null,
+        hasPartner:true,partnerAsset:known?'assets/characters/partners/forest_bear.png':null,hasAccessory:true,
+        companions:Array.from({length:count},(_,i)=>known?friends[i]:null),motionRadius:radius});
+      assert.equal(r.height,height,'the response and floor fit inside the available stage');
+      assert.equal(r.companions.length,count);
+      for (const f of [r.main,r.partner,r.accessory,...r.hearts,...r.companions]) {
+        assert.ok(f.x-radius-6>=-.001 && f.x+f.w+radius+6<=width+.001,'full frame throughout the wider sway');
+        assert.ok(f.y-radius-1-16>=-.001,'full frame at the highest shared hop');
+        assert.ok(f.y+f.h+radius<=height-20+.001,'the cast never enters the poop floor');
+      }
+    }
+  }
+});
+
 test('whole cast fits with room for sway and four-pixel companion gaps', () => {
   assert.ok(fs.existsSync('cast-layout.js'), 'cast layout module must exist');
   const {layoutCast} = require('../cast-layout.js');
