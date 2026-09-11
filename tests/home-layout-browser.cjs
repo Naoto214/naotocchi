@@ -45,7 +45,8 @@ async function measure(page) {
       pageHeight:document.documentElement.scrollHeight,
       header:rect(document.querySelector('.device-header')),
       frame:rect(frame), frameScroll:frame.scrollTop, frameOverflow:frame.scrollHeight - frame.clientHeight,
-      notice:n, noticeVisible:!!hit && (hit === notice || notice.contains(hit)),
+      notice:n, noticeHasContent:!!(notice.textContent.trim() || notice.querySelector('img,svg')),
+      noticeVisible:!!hit && (hit === notice || notice.contains(hit)),
       buttons:[...document.querySelectorAll('.buttons button')].map(e => ({ id:e.id, ...rect(e) })),
       headerItems:[...document.querySelectorAll('.header-button:not(.hidden),.ending-badge,.name-plate')].map(rect),
       stage:rect(document.getElementById('castStage')),
@@ -61,7 +62,9 @@ function checkLayout(m, label) {
     assert.ok(r.x >= 0 && r.right <= m.width + 1 && r.y >= 0 && r.bottom <= m.header.bottom + 1,
       label + ': title, badge or header button protrudes');
   }
-  assert.ok(m.noticeVisible, label + ': bottom of narration is clipped or covered');
+  // An empty notice deliberately keeps its row but uses visibility:hidden.
+  // Once there is text/art, including the long-text check below, hit-test it.
+  assert.ok(!m.noticeHasContent || m.noticeVisible, label + ': bottom of narration is clipped or covered');
   assert.ok(m.notice.height >= 36 && m.notice.y >= m.header.bottom, label + ': narration needs its own readable space');
   for (const b of m.buttons) {
     assert.ok(b.width >= 44 && b.height >= 44, label + ': small touch target ' + b.id);
