@@ -1822,3 +1822,13 @@ Runtime smoke test SUCCESS確認済み。
 - どうぐ: `tools/perf-measure.js`(Playwright、全ゲームの rAF 間隔を平均/p95/最大で、`--throttle N` で CPU 制限、`--json`)。CPU 4倍遅い条件で重かったのは ロード系(downhill-snow 93.5ms、road-city 84.4、race-3d 78.0、road-jungle 69.0、road-themed 63.6、p3-drive 44.2、road-desert 43.7)。
 - ロード系の高速化: `createPseudoRoad()` の看板・木・アイテムの絵文字を `emojiSprite()`(絵文字×大きさ 2px 刻み×dpr のオフスクリーン canvas、上限 600)で 1 回だけ描いて `drawImage` で貼る。イラスト画像が未読込で文字にフォールバックした分は 2 秒後に描きなおす。本物の `HTMLCanvasElement` があるときだけ有効(他チームの prop-illustrations テストのダミー canvas は従来経路)。同条件で road-themed 63.6→30.4ms、race-3d 78.0→21.9ms、downhill-snow 93.5→22.8ms。
 - テスト: `tests/migration-test.cjs`(v5 往復、v3 の年齢換算、v2 の stage/age/freePlay、壊れた形の修復と有効な値の維持、冪等性、infiniteReturn)、`tests/overlay-test.cjs`(排他・閉じるボタンの対象・全 9 画面・軽量モードの段階の上げ下げ)。`npm test` 254件通過。全100ゲーム スイープ ページエラー 0。
+
+## チェックポイント BW — シールちょう(2026-09-11)
+- データ: `state.lifetime.stickers = { owned(id→まいすう), kakera, pages(pageId→[{id,x,y,r,s,k}]), tasksDone, packsOpened, seen }`。`stickerStore()` が形を保証(旧セーブは schemaVersion 5 の normalize で空の本になる)。
+- カタログ `stickerCatalog()`: `form:<line>:<i>`(ALL_LINES × 8、レアライン・ren は rare、6〜7段階は uncommon)、`companion:<id>`(通常 uncommon / レア rare)、`partner:<id>`(ALL_PARTNER_CANDIDATES、WORLD_MASTER の asset)、`item:<id>`(SHOP_ITEMS)、`scenery:<key>`(SCENERY_ILLUSTRATION_KEYS 16 + 天気/時間 7)。`visual()` は既存の stageVisualHTML / companionVisualHTML / partnerVisualHTML / itemIconHTML / uiIconHTML をそのまま使う(絵は増やしていない)。ren のシールは出会うまで `stickerPackPool()` に入らない。
+- 入手: `grantSticker(id)`(かぶりは `STICKER_RARITY[r].kakera` のかけら)、`grantRandomSticker()`(未所持を優先)。フック: `recordDiscoveryKey`(初めて載ったすがた)、なかま加入(finishMinigame)、こいびと成立、きょうのチャレンジ(1枚)、Sランク(30%)。`openStickerPack()` 💰30 で 3枚(重み ふつう70/めずらしい25/レア5)、`openKakeraPack()` かけら12 で未所持 1枚。
+- ページ: `placeSticker(page, id, at)`(所持枚数 − 貼付枚数 > 0 のときだけ、1ページ `STICKER_PAGE_MAX`=24)、`updateSticker(page, k, {x,y,r,s,front})`(x/y 0.03〜0.97、r −180〜180、s 0.5〜2.2)、`removeSticker`。ボードは pointer capture でドラッグ、pointerup で保存。ツール(↺↻ −＋ ⤴ 🗑)は `stickerToolAction`。
+- おだい `STICKER_TASKS`(10件、`checkStickerTasks()` が 1回だけ報酬・`showStoryEvent`)。じっせき `sticker-10` / `sticker-tasks-5` / `sticker-100`(ACHIEVEMENT_MARKS で既存の絵 🎁📖🏆 を割り当て。他チームの notice-food テストの総数 87→90 を更新)。
+- 画像化 `exportStickerPageImage(page)`: 640×480 canvas にページの背景・シール(asset は Image、なければ絵文字)を描いて PNG data URL。canvas が無い環境は null。
+- 画面: メニュー「シールちょう」(`#stickerBtn`、既存アイコン star_badge)、`#stickerOverlay`(タブ・ボード・ツール・おだい・パック/かけら/がぞう・もっているシール(フィルタ もっている/しゅぞく/なかま/こいびと/あいてむ/けしき、NEW は前回開いてから増えた分))。`activeOverlay` の kind 'sticker'。
+- テスト: `tests/sticker-test.cjs`(カタログ、かぶり→かけら、パック/かけらパック、貼る・動かす・はがす・上限、おだい報酬 1回・じっせき、発見フック・画面、保存/復元・旧セーブ、画像化 null)。Playwright でドラッグ・ツール・パック・トレイ・画像化(PNG 146KB)を確認。
