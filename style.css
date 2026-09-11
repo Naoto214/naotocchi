@@ -138,6 +138,17 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
   opacity: 0.35;
 }
 
+body.region-deepsea .season-fx-item {
+  top: auto;
+  bottom: -10%;
+  animation-name: deepsea-bubble-rise;
+}
+@keyframes deepsea-bubble-rise {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(var(--drift, 12px), -55vh); }
+  100% { transform: translate(0, -115vh); }
+}
+
 /* した(-10%)から したの がめん外(110vh ぶん おりる)まで、ゆっくり
    ながれおちながら すこし よこに ゆれて かいてんする。よこの ゆれは
    ようそごとの --drift カスタムプロパティ(JSで らんすうに せってい)で
@@ -3675,6 +3686,10 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
    ================================================================ */
 .mg-canvas-wrap{position:relative;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 22px rgba(0,0,0,.35);background:#101820;touch-action:none;-webkit-user-select:none;user-select:none;line-height:0}
 .mg-canvas{display:block;width:100%;touch-action:none;-webkit-tap-highlight-color:transparent}
+.mg-climb-meter{position:relative;height:22px;margin:10px 8px 6px;border:2px solid #496557;border-radius:6px;background:#e8eee4;overflow:hidden}
+.mg-climb-target{position:absolute;top:0;bottom:0;background:#76b878;border-inline:2px solid #275e39}
+.mg-climb-marker{position:absolute;top:0;bottom:0;width:4px;transform:translateX(-2px);background:#263b36}
+.mg-climb-choice{text-align:center;font-size:12px;font-weight:700;color:var(--text-color,#304d3a);line-height:1.5}
 .mg-hold-btn.mg-held,.mg-tap-btn.mg-holding{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.15);filter:brightness(.93)}
 .mg-pinball-controls{display:flex;justify-content:center;gap:8px;margin-top:9px}
 .mg-pinball-controls .mg-tap-btn{flex:1 1 0;min-width:0;min-height:52px;padding:10px 4px;white-space:nowrap}

@@ -3,7 +3,7 @@
 (() => {
   'use strict';
   const ART = {
-    river:['かわ・みずうみ','<path fill="#9caf89" d="m1 12 5-8 5 7 5-9 7 12v9H1z"/><path fill="#87bdca" d="M14 8c-9 4 7 5-1 9l-7 6h16l-6-5c8-5-10-5-2-10z"/><path fill="none" stroke="#e7f3df" d="m13 13 3 1m-7 6 5-1"/>'],
+    river:['みずべ','<path fill="#9caf89" d="m1 12 5-8 5 7 5-9 7 12v9H1z"/><path fill="#87bdca" d="M14 8c-9 4 7 5-1 9l-7 6h16l-6-5c8-5-10-5-2-10z"/><path fill="none" stroke="#e7f3df" d="m13 13 3 1m-7 6 5-1"/>'],
     desert:['さばく','<circle fill="#efc368" cx="17" cy="5" r="3"/><path fill="#ecc58a" d="M1 17q6-13 15-3l7 3v6H1z"/><path fill="#d4a979" d="M1 21q10-12 22-5v7H1z"/><path fill="none" stroke="#728e64" stroke-width="2.5" d="M6 16V8m0 5H3v-3m3 1h3V7"/>'],
     bird:['ことり','<path fill="#b7936b" d="m8 13-6-3 2 8c7 7 17 4 17-5V8a5 5 0 0 0-10-1z"/><path fill="#f5dfb9" d="M8 16q5-7 11-2c-1 7-8 9-11 2z"/><path fill="#8fa6af" d="m5 14 9-3c1 5-5 8-9 3z"/><path fill="#ecc36f" d="m21 8 3 2-3 1z"/><circle fill="#694d3b" cx="17" cy="7" r="1"/><path d="M12 21v2m5-3v3"/>'],
     apple:['りんご','<path fill="#d87978" d="M12 6C1 0 0 14 5 20q4 4 7 1 3 3 7-1c5-6 4-20-7-14z"/><path fill="#8eac72" d="M12 5q1-6 7-3-1 5-7 3z"/><path d="M12 7V2"/><path fill="none" stroke="#f9dcb2" stroke-width="2" d="M6 9q-3 3-1 6"/>'],

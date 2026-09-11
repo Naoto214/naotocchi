@@ -26,15 +26,15 @@
   var CLIMATE = {
     home: [45, 30, 20, 5], city: [45, 30, 20, 5], countryside: [45, 30, 20, 5],
     forest: [35, 35, 28, 2], river_lake: [35, 35, 28, 2], mountain: [35, 30, 15, 20],
-    snow: [22, 30, 8, 40], sea: [50, 25, 25, 0], deepsea: [30, 40, 30, 0],
-    jungle: [25, 25, 50, 0], desert: [78, 15, 7, 0], star_stop: [60, 40, 0, 0], memory_lake: [40, 40, 20, 0]
+    snow: [22, 30, 8, 40], sea: [50, 25, 25, 0],
+    jungle: [25, 25, 50, 0], desert: [78, 15, 7, 0], memory_lake: [40, 40, 20, 0]
   };
   var WEATHER_MODES = ['sunny', 'cloudy', 'rain', 'snow'];
   var WEATHER_LABELS = { sunny: 'はれ', cloudy: 'くもり', rain: 'あめ', snow: 'ゆき' };
 
   function climateFor(regionId, season) {
     var base = (CLIMATE[regionId] || CLIMATE.home).slice();
-    if (season === 'winter') {
+    if (season === 'winter' && regionId !== 'jungle' && regionId !== 'desert') {
       // ふゆ: あめの 6わりが ゆきに、ゆきの ふる 地域は さらに ゆきが ふえる
       var toSnow = Math.round(base[2] * 0.6); base[2] -= toSnow; base[3] += toSnow;
       if (base[3] > 0) { base[0] = Math.max(10, base[0] - 10); base[3] += 10; }
@@ -53,6 +53,8 @@
   }
 
   function simulatedWeather(regionId, season, date) {
+    // 水中と星空の旅先には、地上の予想天気を当てはめない。
+    if (regionId === 'deepsea' || regionId === 'star_stop') return null;
     var d = date || new Date();
     var block = Math.floor(d.getHours() / 3);
     var key = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ':' + block + ':' + (regionId || 'home');

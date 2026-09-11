@@ -143,6 +143,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
+      computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
+      scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
       mgDuration, GAME_LENGTH_CHOICES,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
