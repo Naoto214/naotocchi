@@ -163,6 +163,29 @@ test('viewport changes follow browser chrome height while pinch zoom remains usa
   assert.equal(fallback.document.documentElement.style['--app-height'],'568px');
 });
 
+test('transparent buttons are available immediately and survive saving without changing the meter or motif', () => {
+  const saved = new Map();
+  const storage = {getItem:k=>saved.get(k)??null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)};
+  const h=harness({storage});
+  h.api.selectTheme('screen','mint');
+  h.api.selectTheme('devicePattern','grid');
+  h.api.selectTheme('device','transparent');
+  assert.equal(h.api.state().lifetime.deviceThemeId,'transparent');
+  const resumed=harness({storage,resume:true});
+  resumed.api.openExclusiveMenu('theme');
+  assert.equal(resumed.api.state().lifetime.deviceThemeId,'transparent');
+  assert.equal(resumed.api.state().lifetime.screenThemeId,'mint');
+  assert.equal(resumed.api.state().lifetime.devicePatternId,'grid');
+  assert.ok(resumed.get('device').classList.contains('theme-transparent'));
+  assert.ok(resumed.get('deviceThemeGrid').innerHTML.includes('data-id="transparent" aria-pressed="true"'));
+  assert.ok(!resumed.get('screenThemeGrid').innerHTML.includes('data-id="transparent"'));
+  resumed.api.selectTheme('screen','transparent');
+  assert.equal(resumed.api.state().lifetime.screenThemeId,'mint');
+  resumed.api.selectTheme('device','sky');
+  assert.ok(resumed.get('device').classList.contains('theme-sky'));
+  assert.ok(!resumed.get('device').classList.contains('theme-transparent'));
+});
+
 test('short visible viewports switch meter arrangement and recover without undoing pinch zoom', () => {
   const h=harness({viewportHeight:664}), viewport=h.window.visualViewport;
   const compact=()=>h.get('device').classList.contains('ui-home-compact');
@@ -247,10 +270,11 @@ test('locked or invalid saved design IDs show selected classic fallback without 
 
 test('every saved color and pattern has one shared preview definition and independent paint layers', () => {
   const css=fs.readFileSync('design.css','utf8'), js=fs.readFileSync('script.js','utf8');
-  const colors=[...js.match(/const COLOR_THEMES = ([\s\S]*?\n  \]);/)[1].matchAll(/id: '([^']+)'/g)].map(m=>m[1]);
+  const colors=new Function('return '+js.match(/const COLOR_THEMES = ([\s\S]*?\n  \]);/)[1])();
   const patterns=[...js.match(/const PATTERNS = ([\s\S]*?\n  \]);/)[1].matchAll(/id: '([^']+)'/g)].map(m=>m[1]);
-  assert.equal(colors.length,40); assert.equal(patterns.length,40);
-  for(const target of ['screen','device']) for(const id of colors) {
+  assert.equal(colors.length,41); assert.equal(patterns.length,40);
+  for(const target of ['screen','device']) for(const {id,target:onlyTarget} of colors) {
+    if (onlyTarget && onlyTarget !== target) continue;
     const rules=[...css.matchAll(new RegExp('\\.surface-'+target+'\\.theme-'+id+'\\s*\\{([^}]+)\\}','g'))];
     assert.equal(rules.filter(m=>m[1].includes('--surface-color:')).length,1,target+'/'+id+' paints once');
   }

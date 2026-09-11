@@ -2198,6 +2198,7 @@
   // unlockAll をつかう)。実際の色とプレビューは design.css の同じ定義を使う。
   const COLOR_THEMES = [
     { id: 'default', label: 'クラシック' },
+    { id: 'transparent', label: 'とうめい', target: 'device' },
     { id: 'sky', label: 'そら' },
     { id: 'mint', label: 'ミント' },
     { id: 'lavender', label: 'ラベンダー' },
@@ -2254,6 +2255,11 @@
       unlockTier: 4,
     },
   ];
+
+  // ボタン専用の色は、メーターの選択・プレビューには含めない。
+  function colorThemesFor(target) {
+    return COLOR_THEMES.filter(t => !t.target || t.target === target);
+  }
 
   // COLOR_THEMES と おなじ unlockTier/unlockAll の しくみで えらべる、
   // がめんの がら(色とは べつの もうひとつの おしゃれ軸)。emoji は
@@ -10574,8 +10580,8 @@
   // ロックされた/存在しない id が しれっと 残っていても(セーブデータ改変
   // など)、その場合は もも(default)に フォールバックする
   function applyTheme() {
-    const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
+    const deviceTheme = colorThemesFor('device').find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
+    const screenTheme = colorThemesFor('screen').find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
     COLOR_THEMES.forEach((t) => {
       el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
       el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
@@ -11320,14 +11326,15 @@
   }
 
   function designPreview(target, colorId, patternId) {
-    const color = COLOR_THEMES.find(t => t.id === colorId && isThemeUnlocked(t)) || COLOR_THEMES[0];
+    const color = colorThemesFor(target).find(t => t.id === colorId && isThemeUnlocked(t)) || COLOR_THEMES[0];
     const pattern = PATTERNS.find(p => p.id === patternId && isThemeUnlocked(p)) || PATTERNS[0];
     return `<span class="theme-swatch-circle surface-${target} theme-${color.id} pattern-${pattern.id}" aria-hidden="true"></span>`;
   }
 
   function renderThemeSwatchGrid(gridEl, selectedId, target, patternId) {
-    selectedId = COLOR_THEMES.find(t => t.id === selectedId && isThemeUnlocked(t))?.id || 'default';
-    gridEl.innerHTML = COLOR_THEMES.map((t) => {
+    const themes = colorThemesFor(target);
+    selectedId = themes.find(t => t.id === selectedId && isThemeUnlocked(t))?.id || 'default';
+    gridEl.innerHTML = themes.map((t) => {
       const unlocked = isThemeUnlocked(t);
       const selected = unlocked && t.id === selectedId;
       const label = unlocked ? t.label : '？？？';
@@ -11496,7 +11503,7 @@
       render();
       return;
     }
-    const theme = COLOR_THEMES.find((t) => t.id === id);
+    const theme = colorThemesFor(target).find((t) => t.id === id);
     if (!theme || !isThemeUnlocked(theme)) return;
     if (target === 'device') state.lifetime.deviceThemeId = id;
     else state.lifetime.screenThemeId = id;

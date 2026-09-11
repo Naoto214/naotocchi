@@ -75,6 +75,15 @@ body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[
   --world-farewell-glass:rgb(66 36 8 / .32);
   --world-farewell-button-glass:rgb(82 46 8 / .30);
 }
+/* Optional colorless glass belongs to buttons, not the independently themed HUD. */
+.world-mode .device.theme-transparent {
+  --world-button-glass:rgb(255 255 255 / .18);
+  --world-button-pressed:rgb(255 255 255 / .32);
+}
+.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[data-habitat="sky"])) .device.theme-transparent {
+  --world-button-glass:rgb(0 0 0 / .18);
+  --world-button-pressed:rgb(0 0 0 / .32);
+}
 /* A narrow light halo protects small glyphs without whitening the whole pane. */
 .world-mode :is(.name-plate,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.home-meters,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {text-shadow:var(--world-text-halo)}
 body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-decor,body.world-mode .season-bg-fx,body.world-mode .season-front-fx,body.world-mode .weather-fx {display:none!important}
@@ -85,7 +94,7 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device-header {min-height:44px;padding:0;gap:8px;z-index:5}
 .world-mode .header-title,.world-mode .device:not(.theme-default) .header-title {padding:5px 9px;background:var(--world-glass);border:1px solid #ffffff70;border-radius:17px;box-shadow:0 3px 12px #052f3d16}
 .world-mode .name-plate {font-size:18px;color:var(--world-ink);letter-spacing:.07em}
-.world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-glass);border:1px solid #ffffff70;color:var(--world-ink);box-shadow:0 3px 12px #052f3d16}
+.world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-button-glass,var(--world-glass));border:1px solid #ffffff70;color:var(--world-ink);box-shadow:0 3px 12px #052f3d16}
 .world-mode .header-button span {font-size:12px}
 .world-mode .screen-frame {padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;min-width:0}
 .world-mode .screen.surface-screen {padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:var(--world-ink);overflow:visible;isolation:auto}
@@ -159,20 +168,26 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .mg-result-toast .mg-result-sub.new-best {color:var(--world-caution-ink,#61420b)}
 .world-mode .mg-result-toast .mg-retry-btn {background:var(--world-retry-glass,rgb(255 239 175 / .32));color:var(--world-caution-ink,#3e2a09)}
 .world-mode .buttons,.world-mode .device.ui-home-compact .buttons {grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0;padding:0;z-index:5}
-.world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #ffffff80;border-radius:17px;color:var(--world-ink);background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);box-shadow:0 4px 12px #153b4924;gap:5px;isolation:isolate}
+.world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #ffffff80;border-radius:17px;color:var(--world-ink);background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));box-shadow:0 4px 12px #153b4924;gap:5px;isolation:isolate}
 /* The legacy travel/menu ID rules outrank the shared button class above. */
-.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
-.world-mode .life-actions button {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
+.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
+.world-mode .life-actions button {background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
 .world-mode .farewell-bar {position:static;flex-shrink:0;border-radius:13px;background:var(--world-farewell-glass,rgb(255 245 220 / .32));color:var(--world-warning-ink,#453013)}
 .world-mode .farewell-bar button {background:var(--world-farewell-button-glass,rgb(255 225 170 / .30));color:var(--world-warning-ink,#453013);box-shadow:inset 0 0 0 1px #a4772d}
 .world-mode .buttons button::before {content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.025;pointer-events:none}
 .world-mode .buttons button span,.world-mode .device.ui-home-compact .buttons button span {font-size:14px;color:inherit}
-.world-mode .buttons #playBtn {background:var(--world-play-glass,rgb(207 241 250 / .38));color:var(--world-ink);border-color:#a4d9e8;box-shadow:inset 0 0 0 1px #39718470,0 4px 12px #153b4924}
-.world-mode .buttons #courtBtn,.world-mode .buttons #playWithBtn {background:var(--world-social-glass,rgb(255 240 244 / .38));color:var(--world-social-ink,#492439);border-color:#edc5d9}
+.world-mode .buttons #playBtn {background:var(--world-button-glass,var(--world-play-glass,rgb(207 241 250 / .38)));color:var(--world-ink);border-color:#a4d9e8;box-shadow:inset 0 0 0 1px #39718470,0 4px 12px #153b4924}
+.world-mode .buttons #courtBtn,.world-mode .buttons #playWithBtn {background:var(--world-button-glass,var(--world-social-glass,rgb(255 240 244 / .38)));color:var(--world-social-ink,#492439);border-color:#edc5d9}
 .world-mode .buttons button:active {transform:translateY(1px);box-shadow:0 1px 5px #153b4930}
 .world-mode .buttons button:disabled {opacity:1;filter:none;border-style:dashed}
 .world-mode .buttons button:disabled .care-icon {opacity:.65;filter:grayscale(.6)}
 .world-mode .buttons button[data-care-recommended="true"] {box-shadow:inset 0 0 0 2px #b47735,0 3px 12px #17374738}
+/* IDs on the colored action buttons have their own legacy specificity. */
+.world-mode .device.theme-transparent :is(.header-button,.buttons button,.life-actions button):is(:active,:focus-visible),
+.world-mode .device.theme-transparent .buttons :is(#travelBtn,#menuBtn,#playBtn,#courtBtn,#playWithBtn):is(:active,:focus-visible) {
+  background:var(--world-button-pressed);
+  outline:2px solid var(--world-ink);outline-offset:2px;
+}
 .world-mode .screen:not(:has(.screen-normal:not(.hidden))) {background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
 .world-mode .device.ui-game-active {max-width:620px}
 .world-mode .device.ui-game-active .screen {min-height:300px;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
@@ -196,21 +211,21 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
   color:var(--world-caution-ink,#49320b);box-shadow:inset 0 0 0 1px #b88740;
 }
 .world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn) {
-  background:var(--world-detail-glass);color:var(--world-ink);
+  background:var(--world-button-glass,var(--world-detail-glass));color:var(--world-ink);
   text-shadow:var(--world-text-halo);
   box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
 }
 .world-mode .minigame-overlay :is(.mg-intro-start,.mg-launch-btn,.mg-tap-btn.primary) {
-  background:var(--world-play-glass,rgb(207 241 250 / .38));
+  background:var(--world-button-glass,var(--world-play-glass,rgb(207 241 250 / .38)));
   box-shadow:inset 0 0 0 2px #80cde0,0 3px 9px #052e4440;
 }
 .world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):is(:active,.mg-held,.mg-holding) {
-  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  background:var(--world-button-pressed,var(--world-speech-glass,rgb(250 255 255 / .42)));
   box-shadow:inset 0 0 0 2px #80cde0,0 1px 4px #052e4440;
 }
 /* The legacy guard uses an ID selector; cover its resting and held palettes. */
-.world-mode .minigame-overlay #sfGuard {background:var(--world-detail-glass);color:var(--world-ink)}
-.world-mode .minigame-overlay #sfGuard:is(:active,.mg-held,.mg-holding) {background:var(--world-speech-glass,rgb(250 255 255 / .42))}
+.world-mode .minigame-overlay #sfGuard {background:var(--world-button-glass,var(--world-detail-glass));color:var(--world-ink)}
+.world-mode .minigame-overlay #sfGuard:is(:active,.mg-held,.mg-holding) {background:var(--world-button-pressed,var(--world-speech-glass,rgb(250 255 255 / .42)))}
 .world-mode .minigame-overlay .mg-tap-btn.sel {box-shadow:inset 0 0 0 3px #ffd23f,0 3px 9px #052e4440}
 .world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):disabled {
   opacity:1;filter:grayscale(.5);outline:1px dashed #75949d;outline-offset:-2px;
@@ -219,7 +234,7 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 /* Answer feedback remains distinct and readable on its existing light fills. */
 .world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
 .world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
-  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  background:var(--world-button-glass,var(--world-speech-glass,rgb(250 255 255 / .42)));
   color:var(--world-ink);text-shadow:var(--world-text-halo);
   box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
 }
