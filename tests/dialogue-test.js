@@ -802,12 +802,12 @@ assert.match(getElement('duelResultBreakdown').innerHTML,/うそを見ぬいた/
 assert.equal(oldQuestion.text,'恋人に　うそを ついたことは?');
 assert.equal(oldBreakdown.pubLabel,'ない よ');
 
-// Cast replacement affects new encounters without rewriting a collected koala.
+// Retired cast progress transfers to the current companions.
 assert.equal(api.COMPANIONS.length, 18);
 assert.ok(api.COMPANIONS.some((c) => c.id === 'snail'));
 assert.ok(!api.COMPANIONS.some((c) => c.id === 'koala'));
-assert.equal(api.canonicalCompanionId('koala'), 'koala');
-assert.ok(master.compatibility.legacyOnlyCompanions.includes('koala'));
+assert.equal(api.canonicalCompanionId('koala'), 'snail');
+assert.ok(!master.compatibility.legacyOnlyCompanions.includes('koala'));
 reset();
 const oldLife = JSON.parse(JSON.stringify(api.getState()));
 oldLife.companions = [{ id: 'koala', bond: 73 }, { id: 'penguin', bond: 84 }];
@@ -817,18 +817,18 @@ savedPayload = JSON.stringify(oldLife);
 const loadedOldLife = api.loadState();
 assert.equal(savedPayload, JSON.stringify(oldLife), 'source save must remain intact');
 savedPayload = null;
-assert.equal(loadedOldLife.companions[0].id, 'koala');
+assert.equal(loadedOldLife.companions[0].id, 'snail');
 assert.equal(loadedOldLife.companions[0].bond, 73);
-assert.ok(loadedOldLife.lifetime.companionsRecruited.includes('koala'));
+assert.ok(loadedOldLife.lifetime.companionsRecruited.includes('snail'));
 assert.ok(loadedOldLife.achievementsUnlocked.includes('companion-all'), 'earned achievements must remain');
 reset(loadedOldLife);
-assert.equal(api.allCompanionsById('koala').emoji, '🐨');
-assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'koala');
+assert.equal(api.allCompanionsById('koala').emoji, '🐌');
+assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'snail');
 api.renderCompanionRow(); api.renderCompanionDex();
-assert.match(getElement('companionLeft').innerHTML, /🐨/);
-assert.match(getElement('companionDexGrid').innerHTML, /のんびりコアラ/);
-assert.equal(getElement('companionDexProgress').textContent, '2 / 19');
-assert.ok(!api.hasAllCurrentCompanions({ companionsRecruited: [...api.COMPANIONS.filter((c) => c.id !== 'snail').map((c) => c.id), 'koala'] }), 'koala is not a substitute for snail');
+assert.match(getElement('companionLeft').innerHTML, /snail/);
+assert.match(getElement('companionDexGrid').innerHTML, /せっかちなカタツムリ/);
+assert.equal(getElement('companionDexProgress').textContent, '2 / 18');
+assert.ok(api.hasAllCurrentCompanions({ companionsRecruited: [...api.COMPANIONS.filter((c) => c.id !== 'snail').map((c) => c.id), 'koala'] }), 'koala progress transfers to snail');
 assert.ok(api.hasAllCurrentCompanions({ companionsRecruited: api.COMPANIONS.map((c) => c.id) }));
 reset({ companions: [{ id: 'snail', bond: 80 }] });
 api.getState().lifetime.companionsRecruited = ['snail'];
@@ -844,7 +844,7 @@ api.speakEvent('feed', { companionChance: 1 }); advance(10000);
 const snailSpeech = spoken.find((beat) => beat.speaker.kind === 'companion');
 assert.equal(snailSpeech.speaker.id, 'snail');
 assert.ok(api.COMPANION_DAILY_REACTIONS.snail.feed.includes(snailSpeech.text));
-console.log('CAST TEST OK: snail encounters and speech; legacy koala load, bond, row, dex and earned achievements; PNG renderer reference.');
+console.log('CAST TEST OK: snail encounters and speech; retired koala migration, bond, row, dex and earned achievements; PNG renderer reference.');
 
 // Every current normal companion resolves its own PNG in both live rows and the dex.
 const normalCast = [...api.COMPANIONS];
@@ -935,8 +935,8 @@ assert.ok(clockCompanion);
 assert.equal(clockCompanion.name, 'じかんにルーズなとけい');
 assert.ok(api.RARE_COMPANIONS.some((c) => c.id === 'clock'));
 assert.ok(!api.RARE_COMPANIONS.some((c) => c.id === 'kinoko'));
-assert.equal(api.canonicalCompanionId('kinoko'), 'kinoko');
-assert.ok(master.compatibility.legacyOnlyCompanions.includes('kinoko'));
+assert.equal(api.canonicalCompanionId('kinoko'), 'clock');
+assert.ok(!master.compatibility.legacyOnlyCompanions.includes('kinoko'));
 reset();
 const oldRareLife = JSON.parse(JSON.stringify(api.getState()));
 oldRareLife.companions = [{ id: 'kinoko', bond: 73 }];
@@ -946,30 +946,30 @@ savedPayload = JSON.stringify(oldRareLife);
 const loadedOldRareLife = api.loadState();
 assert.equal(savedPayload, JSON.stringify(oldRareLife), 'source save must remain intact');
 savedPayload = null;
-assert.equal(loadedOldRareLife.companions[0].id, 'kinoko');
+assert.equal(loadedOldRareLife.companions[0].id, 'clock');
 assert.equal(loadedOldRareLife.companions[0].bond, 73);
-assert.deepEqual([...loadedOldRareLife.lifetime.rareCompanionsRecruited], ['kinoko']);
+assert.deepEqual([...loadedOldRareLife.lifetime.rareCompanionsRecruited], ['clock']);
 assert.ok(loadedOldRareLife.achievementsUnlocked.includes('companion-all'));
 reset(loadedOldRareLife);
-assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'kinoko');
+assert.equal(api.companionSpeaker(api.getState().companions[0]).id, 'clock');
 api.renderCompanionRow(); api.renderProfile(); api.renderRareCompanionDex(); api.renderCompanionDex();
-assert.equal(getElement('rareCompanionDexProgress').textContent, '1 / 9');
+assert.equal(getElement('rareCompanionDexProgress').textContent, '1 / 8');
 assert.equal(getElement('companionDexProgress').textContent, '0 / 18');
 for (const id of ['companionLeft', 'profileCompanionList', 'rareCompanionDexGrid']) {
-  assert.match(getElement(id).innerHTML, /assets\/characters\/companions\/kinoko\.png/);
-  assert.ok(!getElement(id).innerHTML.includes(clockCompanion.asset), 'old mushroom must not unlock or become the clock');
+  assert.match(getElement(id).innerHTML, /assets\/characters\/companions\/clock\.png/);
+  assert.ok(getElement(id).innerHTML.includes(clockCompanion.asset));
 }
 assert.ok(!getElement('companionDexGrid').innerHTML.includes('kinoko'));
 api.speakEvent('feed', { companionChance: 1 }); advance(10000);
-assert.ok(spoken.some((beat) => beat.speaker.id === 'kinoko' && api.COMPANION_DAILY_REACTIONS.kinoko.feed.includes(beat.text)));
+assert.ok(spoken.some((beat) => beat.speaker.id === 'clock' && api.COMPANION_DAILY_REACTIONS.clock.feed.includes(beat.text)));
 
-// Current entries and an already collected legacy entry count once, including across lives.
+// Current entries and retired aliases count once, including across lives.
 reset();
 api.getState().lifetime.rareCompanionsRecruited = [...rareCast.map((c) => c.id), 'kinoko', 'kinoko', 'unrecognized-old-id'];
 api.renderRareCompanionDex();
-assert.equal(getElement('rareCompanionDexProgress').textContent, '9 / 9');
-assert.equal(getElement('rareCompanionDexGrid').innerHTML.split('src="assets/characters/companions/kinoko.png"').length - 1, 1);
-assert.equal(api.rareCompanionDexEntries().length, 9);
+assert.equal(getElement('rareCompanionDexProgress').textContent, '8 / 8');
+assert.equal(getElement('rareCompanionDexGrid').innerHTML.split('src="assets/characters/companions/clock.png"').length - 1, 1);
+assert.equal(api.rareCompanionDexEntries().length, 8);
 reset();
 assert.equal(api.rareCompanionDexEntries().length, 8, 'unmet legacy character must not add a locked slot');
 api.getState().lifetime.rareCompanionsRecruited = ['unrecognized-old-id'];
@@ -983,7 +983,7 @@ for (const [key, lines] of Object.entries(api.COMPANION_DAILY_REACTIONS.clock)) 
 }
 
 // With every other current companion present, the actual scheduler offers the new clock.
-reset({ sodachi: 80, maxSodachi: 80, companions: [...normalCast, ...rareCast.filter((c) => c.id !== 'clock'), { id: 'kinoko' }].map((c) => ({ id: c.id, bond: 80 })) });
+reset({ sodachi: 80, maxSodachi: 80, companions: [...normalCast, ...rareCast.filter((c) => c.id !== 'clock')].map((c) => ({ id: c.id, bond: 80 })) });
 api.scheduleCompanionEncounter(); advance(180000);
 assert.equal(getElement('companionInviteTitle').textContent, 'じかんにルーズなとけいとめがあった');
 assert.ok(getElement('companionInviteOverlay').classList.contains('rare'));
@@ -1196,7 +1196,7 @@ for (const oldGoal of ['dexCleared', 'perfectCleared']) {
   const loadedAuthorSave = api.loadState(); savedPayload = null;
   assert.equal(loadedAuthorSave.lifetime[oldGoal], true);
   assert.equal(JSON.stringify(loadedAuthorSave.partner), JSON.stringify(oldAuthorSave.partner));
-  assert.equal(JSON.stringify(loadedAuthorSave.companions), JSON.stringify(oldAuthorSave.companions));
+  assert.equal(JSON.stringify(loadedAuthorSave.companions), JSON.stringify([{ id: 'clock', bond: 63 }]));
   reset(loadedAuthorSave); api.checkGrandGoals();
   assert.equal(api.pendingGoal(), null, 'old goal replayed on load');
   if (oldGoal === 'dexCleared') {
