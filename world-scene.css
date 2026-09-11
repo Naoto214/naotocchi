@@ -275,6 +275,11 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 }
 /* Answer feedback remains distinct and readable on its existing light fills. */
 .world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
+/* Help and quit now share this row. Reserve its actual height so a short
+   viewport can reach the confirmation instead of leaving it below the page. */
+.world-mode .device.ui-game-active .mg-quit {height:auto;min-height:44px;margin-top:8px}
+.world-mode .device.ui-game-active .mg-quit-inner {position:static;inset:auto;transform:none;flex-wrap:wrap;gap:6px}
+.world-mode .device.ui-game-active .mg-quit button {min-height:44px}
 .world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
   background:var(--world-button-glass,var(--world-speech-glass,rgb(250 255 255 / .42)));
   color:var(--world-ink);text-shadow:var(--world-text-halo);

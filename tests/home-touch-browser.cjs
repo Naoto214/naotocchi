@@ -13,12 +13,20 @@ module.exports = async function checkHomeTouch(page, engine, label, measure) {
   const policy = await page.evaluate(() => {
     function drag(selector, count=1) {
       const target=document.querySelector(selector);
-      const touches=y=>Array.from({length:count},(_,identifier)=>new Touch({identifier,target,
+      // Desktop WebKit exposes Touch but rejects its constructor. Use real
+      // cancelable DOM events with touch data for this handler-only check;
+      // Chromium's separate CDP swipes below exercise native input delivery.
+      const touches=y=>Array.from({length:count},(_,identifier)=>({identifier,target,
         clientX:100+identifier*40,clientY:y}));
-      target.dispatchEvent(new TouchEvent('touchstart',{bubbles:true,cancelable:true,touches:touches(300)}));
-      const move=new TouchEvent('touchmove',{bubbles:true,cancelable:true,touches:touches(350)});
+      const event=(type,points)=>{
+        const e=new Event(type,{bubbles:true,cancelable:true});
+        Object.defineProperty(e,'touches',{value:points});
+        return e;
+      };
+      target.dispatchEvent(event('touchstart',touches(300)));
+      const move=event('touchmove',touches(350));
       target.dispatchEvent(move);
-      target.dispatchEvent(new TouchEvent('touchend',{bubbles:true,cancelable:true,touches:[]}));
+      target.dispatchEvent(event('touchend',[]));
       return move.defaultPrevented;
     }
     return { age:drag('#ageLabel'), cast:drag('#castStage'), meters:drag('.home-meters'),

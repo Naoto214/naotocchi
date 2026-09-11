@@ -214,6 +214,12 @@ function checkLayout(m, label) {
               await page.locator('#minigameOverlay').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the minigame');
               await page.locator('#mgQuitBtn').click();
+              await page.locator('#mgQuitYesBtn').scrollIntoViewIfNeeded();
+              const quit=await page.locator('#mgQuitYesBtn').boundingBox();
+              assert.ok(quit && quit.x>=0 && quit.y>=0 && quit.x+quit.width<=390 && quit.y+quit.height<=664,
+                label+': minigame quit confirmation leaves the viewport');
+              results.push({label,phase:'quit-confirmation',quit});
+              await page.screenshot({path:path.join(output,label+'-quit-confirmation.png')});
               await page.locator('#mgQuitYesBtn').click();
               await page.locator('#screenNormal').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),true,label+': narration did not return home');
