@@ -149,6 +149,30 @@ function checkLayout(m, label) {
             assert.ok(Math.abs(before.header.y-after.header.y)<1, label+': header moves with central scroll');
             assert.ok(Math.abs(before.buttons[0].y-after.buttons[0].y)<1, label+': controls move with central scroll');
 
+            if (name.includes('badges') || name === 'small-640' || name === 'landscape-safe-area') {
+              await page.locator('.ending-badge').first().click();
+              const tip=await page.locator('#endingBadgeTip').boundingBox();
+              assert.ok(tip && tip.y>=before.header.y && tip.y+tip.height<=height && tip.x>=0 && tip.x+tip.width<=width,
+                label+': badge explanation leaves the viewport');
+            }
+
+            if (name === 'small') {
+              // The long dialogue must fit its own box without shifting home.
+              await page.evaluate(() => {
+                document.getElementById('speechText').textContent='長いセリフも最後まで読めるよ。'.repeat(8);
+                document.getElementById('speechBubble').classList.remove('hidden');
+              });
+              const speaking=await measure(page);
+              assert.equal(speaking.stage.y,before.stage.y,label+': dialogue moves the cast');
+              assert.equal(speaking.notice.y,before.notice.y,label+': dialogue moves care warning');
+              const bubble=await page.locator('#speechBubble').boundingBox();
+              assert.ok(bubble.y>=before.frame.y && bubble.y+bubble.height<=before.stage.y+1,label+': dialogue covers cast or leaves frame');
+              await page.locator('#speechText').evaluate(e=>{e.scrollTop=e.scrollHeight;});
+              assert.ok(await page.locator('#speechText').evaluate(e=>e.scrollTop>0),label+': long dialogue cannot scroll');
+              await page.screenshot({path:path.join(output,label+'-dialogue.png')});
+              await page.locator('#speechBubble').evaluate(e=>e.classList.add('hidden'));
+            }
+
             // Exercise overflow using a long narration, not only its first line.
             await page.locator('#message').evaluate(e => {
               e.textContent = '長いお知らせも、ここで最後まで読めます。'.repeat(15);
@@ -166,6 +190,13 @@ function checkLayout(m, label) {
               const resized = await measure(page);
               results.push({ label, phase:'toolbar-resize', ...resized });
               checkLayout(resized,label+' resized');
+              await page.locator('#menuBtn').click();
+              await page.locator('#themeBtn').click();
+              const detail=await page.locator('#themeOverlay').boundingBox();
+              assert.ok(detail && detail.y>=0 && detail.height>500 && detail.y+detail.height<=664,label+': detail is trapped in the central frame');
+              await page.locator('#themeOverlay .theme-scroll').evaluate(e=>{e.scrollTop=e.scrollHeight;});
+              assert.ok(await page.locator('#themeOverlay .theme-scroll').evaluate(e=>e.scrollTop>0),label+': design details cannot scroll');
+              await page.locator('#themeCloseBtn').click();
               await page.locator('#playBtn').click();
               await page.locator('#minigameOverlay').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the minigame');

@@ -332,8 +332,10 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 /* Let badges use the whole narrow header instead of stacking under the name.
    This keeps the existing badge sizes and every care key on the screen. */
 @media(max-width:460px), (max-height:500px) {
-  .world-mode .device[data-home-fixed="true"] .device-header:has(.ending-badges:not(:empty)) {row-gap:3px}
+  .world-mode .device[data-home-fixed="true"] .device-header:has(.ending-badges:not(:empty)) {row-gap:3px;position:relative}
   .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) {display:contents}
+  .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty))::before {display:none}
+  .world-mode .device[data-home-fixed="true"] .ending-badge-tip {max-width:100%}
   .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) .name-plate {grid-column:1;grid-row:1}
   .world-mode .device[data-home-fixed="true"] .device-header:has(.ending-badges:not(:empty)) .header-actions {grid-column:2;grid-row:1}
   .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) .cast-badges {grid-column:1/-1;grid-row:2;gap:3px}
@@ -351,7 +353,7 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   .world-mode .cast-names {padding-block:0;gap:1px}
   .world-mode .cast-title-line {line-height:1.2}
   .world-mode .world-care-state {display:none}
-  .world-mode #petArea {min-height:132px}
+  .world-mode .device[data-home-fixed="true"] #petArea {min-height:132px}
   .world-mode .speech-slot {position:absolute;bottom:calc(100% + 2px);left:0;right:0;height:44px;padding:0;align-items:center;z-index:6}
   .world-mode .speech-slot .speech-bubble {padding:2px 8px;box-shadow:0 2px 8px #17374626}
   .world-mode .device .home-meters {padding-block:1px;gap:2px}
@@ -365,7 +367,7 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 /* A short landscape viewport has room beside the cast. Put the header and
    controls in that space instead of leaving a shallow strip for the world. */
 @media(max-height:500px) and (min-width:640px) {
-  .world-mode .device.ui-home-active[data-home-fixed="true"] {
+  .world-mode .device.ui-home-active[data-home-fixed="true"]:has(#screenNormal:not(.hidden)) {
     width:100%;max-width:1100px;grid-template-columns:minmax(0,1fr) 250px;
     grid-template-rows:auto minmax(0,1fr) auto auto;gap:6px 12px;
   }
@@ -373,7 +375,7 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   .world-mode .device[data-home-fixed="true"] .device-header {grid-column:2;grid-row:1}
   .world-mode .device[data-home-fixed="true"] #message {grid-column:2;grid-row:2;align-self:end}
   .world-mode .device[data-home-fixed="true"] .buttons {grid-column:2;grid-row:3;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .world-mode .device[data-home-fixed="true"] .buttons button {grid-column:auto;min-height:48px}
+  .world-mode .device.ui-home-active[data-home-fixed="true"] .buttons button {grid-column:auto;min-height:48px}
   .world-mode .device[data-home-fixed="true"] .life-actions {grid-column:2;grid-row:4}
 }
 
