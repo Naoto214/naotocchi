@@ -1866,5 +1866,5 @@ Runtime smoke test SUCCESS確認済み。
 
 ## チェックポイント CB — いのちの回復と へんしんの機会(2026-09-11)
 - いのち: 回復条件を2段に。`calmCared`(病気でなく おなか・きげん・けんこう≥40)で 0.9/tick、`wellCared`(4つ≥60)で 1.8/tick(以前は wellCared のみ 1.4)。70さい以降は 1.1→0.45 に漸減(以前 0.9→0.35)。病気時の `raiseDeathMeter` 6→4。
-- へんしん: `rollTransformChance(reason)`。ふしめ(段階変化)は従来どおりメーター分の確率、加えて毎年の `onBirthday` でメーターが満タンなら `TRANSFORM_BIRTHDAY_CHANCE`=0.55×(1+そだち/200)。「1段階に1回だけ」の `transformStageDone` 制限は撤廃(記録は残す)。メーターの増加 15→20/ゲーム。回数上限なし。
+- へんしん(最終形): 抽選を廃止。`offerTransformIfReady()` がメーター 100 で候補を出す(ミニゲーム終了直後、ふしめ・誕生日の呼び出しも同じ関数)。メーター +25/ゲーム(4回で満タン)。チャンスが開いている間もメーターはたまり続ける。「1段階に1回だけ」の制限は撤廃(記録 `transformStageDone` は残す)。回数上限なし。
 - `npm test` 304件通過。

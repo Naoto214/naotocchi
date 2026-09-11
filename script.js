@@ -9952,28 +9952,22 @@
   // ================================================================
   // へんしん - ライフステージが かわった しゅんかんに だけ ちゅうせん
   // ================================================================
-  // へんしんの チャンスは 2とおり。
-  //  ・すがたの だんかいが かわる ふしめ: メーターの ぶんだけの かくりつ(いままでどおり)
-  //  ・たんじょうび(まいとし): メーターが 満タンなら 55%(そだちが たかいと もっと)
-  // 人生全体の 回数に 上限は ない。ふしめの 1かい だけだった ころは
-  // 「あそんでも へんしんしない」と かんじやすかった
-  const TRANSFORM_BIRTHDAY_CHANCE = 0.55;
-  function rollTransformChance(reason = 'stage') {
-    if (state.stage !== STAGE.GROWING || state.transformOptions) return;
-    let chance;
-    if (reason === 'birthday') {
-      if (state.transformMeter < 100) return;
-      chance = TRANSFORM_BIRTHDAY_CHANCE * (1 + state.sodachi / 200);
-    } else {
-      chance = (state.transformMeter / 100) * (1 + state.sodachi / 200);
-    }
-    state.transformMeter = 0;
-    if (Math.random() >= chance) return;
+  // へんしん: ちゅうせんは しない。へんしんメーターが 満タンに なった その とき
+  // (ミニゲームの おわり、または すがたの ふしめ)に すがたを かえる チャンスが
+  // ひらく。メーターは あそぶほど たまり、回数の 上限は ない。
+  // すでに チャンスが ひらいて いる あいだは メーターを 満タンで とめておく
+  function offerTransformIfReady() {
+    if (state.stage !== STAGE.GROWING || state.transformOptions) return false;
+    if (state.transformMeter < 100) return false;
     const options = pickTransformCandidates();
-    if (!options.length) return;
+    if (!options.length) { state.transformMeter = 0; return false; }
+    state.transformMeter = 0;
     state.transformOptions = options;
-    setMessage('からだがふわっと光った。いまならすがたをかえられそう');
+    setMessage('へんしんメーターがいっぱいになった!からだがふわっと光って、すがたをかえられそう');
+    return true;
   }
+  // ふるい よびだし名(ふしめ・たんじょうび)は そのまま「たまっていれば ひらく」に
+  function rollTransformChance() { return offerTransformIfReady(); }
 
   const STORY_FLASH_DURATION_MS = 4200;
 
@@ -14540,8 +14534,9 @@
     // skill) is what earns a shot at choosing a different growth line。
     // シルクハットを そうびしていると たまりやすさに ボーナスが つく
     const hatBonus = isEquipped('hat') ? 4 : 0;
-    // 1かい あそぶと +20(5かいで 満タン。以前は 15)
-    state.transformMeter = clamp(state.transformMeter + (20 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    // 1かい あそぶと +25(4かいで 満タン)。満タンに なったら その場で へんしんの チャンス
+    state.transformMeter = clamp(state.transformMeter + (25 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    offerTransformIfReady();
 
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the

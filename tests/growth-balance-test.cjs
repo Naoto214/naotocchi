@@ -66,17 +66,18 @@ test('life recovers during ordinary care and faster when everything is above 60'
   assert.ok(state.deathMeter >= before, 'no recovery while sick');
 });
 
-test('a full transform meter opens a transform chance on a birthday, not only at a stage change', () => {
+test('a full transform meter opens the transform choice right after the game, with no lottery', () => {
   const h = harness(), state = h.api.state();
-  require('node:vm').runInContext('Math.random=()=>0', h.sandbox);
-  Object.assign(state, {stage: 'growing', speciesLine: 'dog', ageTicks: 39, transformMeter: 100, transformOptions: null, hunger: 80, happiness: 80, energy: 80, health: 80});
-  h.api.tick(); // 1 -> 2 years old, same life stage
-  assert.ok(Array.isArray(state.transformOptions) && state.transformOptions.length > 0, 'transform offered on the birthday');
+  require('node:vm').runInContext('Math.random=()=>0.999', h.sandbox);
+  Object.assign(state, {stage: 'growing', speciesLine: 'dog', ageTicks: 600, transformMeter: 0, transformOptions: null, hunger: 80, happiness: 80, energy: 80, health: 80});
+  h.api.render();
+  const game = {id: 'transform-probe', start(container, done) { container.innerHTML = '<div></div>'; }};
+  for (let i = 0; i < 3; i++) { h.api.startMinigame(game); h.api.finishMinigame(50); }
+  assert.equal(state.transformMeter, 75, 'three games fill 75');
+  assert.equal(state.transformOptions, null);
+  h.api.startMinigame(game); h.api.finishMinigame(50);
+  assert.ok(Array.isArray(state.transformOptions) && state.transformOptions.length > 0, 'the fourth game fills the meter and offers a transform');
   assert.equal(state.transformMeter, 0);
-  const h2 = harness(), s2 = h2.api.state();
-  require('node:vm').runInContext('Math.random=()=>0', h2.sandbox);
-  Object.assign(s2, {stage: 'growing', speciesLine: 'dog', ageTicks: 39, transformMeter: 60, transformOptions: null, hunger: 80, happiness: 80, energy: 80, health: 80});
-  h2.api.tick();
-  assert.equal(s2.transformOptions, null, 'a partial meter does not roll on a birthday');
-  assert.equal(s2.transformMeter, 60, 'the meter is kept for later');
+  h.api.startMinigame(game); h.api.finishMinigame(50);
+  assert.equal(state.transformMeter, 25, 'the meter keeps filling while the choice is open');
 });
