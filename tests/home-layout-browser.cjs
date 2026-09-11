@@ -177,7 +177,9 @@ function checkLayout(m, label) {
               assert.equal(speaking.stage.y,before.stage.y,label+': dialogue moves the cast');
               assert.equal(speaking.notice.y,before.notice.y,label+': dialogue moves care warning');
               const bubble=await page.locator('#speechBubble').boundingBox();
-              assert.ok(bubble.y>=before.frame.y && bubble.y+bubble.height<=before.stage.y+1,label+': dialogue covers cast or leaves frame');
+              assert.ok(bubble.y>=before.frame.y,label+': dialogue leaves frame');
+              const dialogue=await page.evaluate(require('./dialog-layout-probe.js').measureDialogs);
+              assert.deepEqual(dialogue.errors,[],label+': '+JSON.stringify(dialogue));
               await page.locator('#speechText').evaluate(e=>{e.scrollTop=e.scrollHeight;});
               assert.ok(await page.locator('#speechText').evaluate(e=>e.scrollTop>0),label+': long dialogue cannot scroll');
               await page.screenshot({path:path.join(output,label+'-dialogue.png')});
@@ -238,6 +240,12 @@ function checkLayout(m, label) {
             console.error('FAIL '+label+': '+error.message);
             await page.screenshot({ path:path.join(output,label+'-failure.png') }).catch(() => {});
           } finally { await context.close(); }
+        }
+        try {
+          await require('./dialog-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' dialogs: '+error.message);
+          console.error('FAIL '+engine+' dialogs: '+error.message);
         }
         try {
           await require('./care-attention-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);

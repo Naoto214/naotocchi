@@ -12992,6 +12992,16 @@
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
+    // Compact dialogue belongs beside the painted cast, not at the top of
+    // its elastic stage. Young PNGs can have substantial transparent padding.
+    const inkTop = (frame, path) => frame.y + (frame.artOffsetY || 0)
+      + frame.h * (window.NaotocchiCastBounds?.[path]?.box?.[1] || 0) / 128;
+    const castTops = [inkTop(layout.main,args.mainAsset),
+      ...layout.companions.map((frame,i)=>inkTop(frame,args.companions[i])),
+      ...layout.hearts.map(frame=>frame.y)];
+    if (layout.partner) castTops.push(inkTop(layout.partner,args.partnerAsset));
+    if (layout.accessory) castTops.push(layout.accessory.y);
+    el.petArea.style.setProperty('--cast-ink-top', Math.min(...castTops) + 'px');
     const place = (node,frame) => {
       if (!node || !frame) return;
       node.style.left = frame.x + 'px'; node.style.top = frame.y + 'px';
