@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260911-a8cbec87">
+  <link rel="stylesheet" href="style.css?v=20260911-sticker-1">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260911-0110ed9b">
   <link rel="stylesheet" href="design.css?v=20260911-465df341">
@@ -356,6 +356,7 @@
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
             <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>がめん・ほんたい</small></button>
+            <button type="button" id="stickerBtn"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i><span>シールちょう</span><small>あつめて・はる</small></button>
           </div>
         </div>
         <div class="dex-overlay hidden" id="worldOverlay">
@@ -392,6 +393,40 @@
           </div>
         </div>
 
+        <div class="dex-overlay hidden" id="stickerOverlay" aria-label="シールちょう">
+          <div class="dex-header"><span class="dex-title">シールちょう</span><span class="dex-progress" id="stickerProgress"></span><button type="button" class="dex-close-btn" id="stickerCloseBtn" aria-label="シールちょうをとじる">✕</button></div>
+          <div class="ach-tabs sticker-tabs" id="stickerPageTabs" role="tablist"></div>
+          <div class="profile-scroll sticker-scroll">
+            <div class="sticker-board-wrap">
+              <div class="sticker-board page-home" id="stickerBoard" data-page="home"></div>
+              <div class="sticker-tools hidden" id="stickerTools">
+                <button type="button" data-act="rot-" aria-label="ひだりにまわす">↺</button>
+                <button type="button" data-act="rot+" aria-label="みぎにまわす">↻</button>
+                <button type="button" data-act="size-" aria-label="ちいさく">－</button>
+                <button type="button" data-act="size+" aria-label="おおきく">＋</button>
+                <button type="button" data-act="front" aria-label="いちばんうえにする">⤴</button>
+                <button type="button" data-act="remove" aria-label="はがす">🗑</button>
+              </div>
+              <p class="profile-hint" id="stickerBoardHint">したの シールを タップすると ページの まんなかに はれる。はった シールは ゆびで うごかせて、タップすると まわす・大きさ・はがす が えらべる</p>
+            </div>
+            <section class="profile-section"><h3>おだい</h3><div class="sticker-tasks" id="stickerTasks"></div></section>
+            <section class="profile-section">
+              <div class="sticker-shop-row">
+                <button type="button" class="profile-code-btn" id="stickerPackBtn"></button>
+                <button type="button" class="profile-code-btn" id="stickerKakeraBtn"></button>
+                <button type="button" class="profile-code-btn" id="stickerExportBtn">📷 このページを がぞうにする</button>
+              </div>
+              <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
+              <div class="sticker-export hidden" id="stickerExportView"></div>
+              <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・きょうの チャレンジ クリア・Sランク(ときどき)で もらえる。かぶった シールは かけらに なる</p>
+            </section>
+            <section class="profile-section">
+              <h3>もっている シール <span class="sticker-owned-count" id="stickerOwnedCount"></span></h3>
+              <div class="ach-tabs sticker-filter" id="stickerFilter"></div>
+              <div class="sticker-tray" id="stickerTray"></div>
+            </section>
+          </div>
+        </div>
         <div class="dex-overlay hidden" id="profileOverlay">
           <div class="dex-header">
             <span class="dex-title">データ</span>
@@ -442,6 +477,26 @@
               <div class="profile-hint">20分以上あいだがあいたセーブを、3つまで残します。まちがえたときは、ここからもどせます。</div>
               <div id="saveSnapList"></div>
               <div class="profile-hint" id="saveSnapStatus" role="status"></div>
+            </div>
+            <div class="profile-section">
+              <div class="profile-section-title">いっしょうの ねんぴょう</div>
+              <div class="profile-hint">この子に起きた できごとを、ねんれい順にならべます。おわかれのときは「いっしょうカード」のコードにして、ともだちに見せられます。</div>
+              <div id="profileTimeline"></div>
+              <div class="save-snap-title">これまでの子</div>
+              <div id="profilePastLives"></div>
+              <div class="save-snap-title">いっしょうカードを 見る</div>
+              <input type="text" class="profile-code-input" id="lifeCodeInput" placeholder="いっしょうカードのコードをここに">
+              <button class="profile-code-btn" id="lifeCodeViewBtn">カードを 見る</button>
+              <div class="hidden" id="lifeCodeView"></div>
+            </div>
+            <div class="profile-section">
+              <details class="error-log">
+                <summary class="profile-section-title" id="errorLogSummary">エラーのきろく</summary>
+                <div class="profile-hint">うごきがおかしいときは、これをコピーして そうだんしてください(セーブコードもいっしょに入ります)。</div>
+                <div id="errorLogList"></div>
+                <button class="profile-code-btn" id="errorLogCopyBtn">📋エラーとセーブコードをコピー</button>
+                <div class="profile-hint hidden" id="errorLogCopied">コピーした!</div>
+              </details>
             </div>
             <div class="profile-section danger-zone">
               <div class="profile-section-title">きけんなそうさ</div>
@@ -678,9 +733,9 @@
   <script src="cast-layout.js?v=20260911-4a13a5ab"></script>
   <script src="world-environment.js?v=20260911-ee3a9e6a"></script>
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
-  <script src="games.js?v=20260911-6bfb1137"></script>
+  <script src="games.js?v=20260911-11"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-48979ffc"></script>
+  <script src="script.js?v=20260911-sticker-1"></script>
 </body>
 </html>

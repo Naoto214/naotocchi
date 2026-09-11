@@ -13,13 +13,13 @@ test('sodachi 20 to 100 costs 1,500-1,800 growth and 20 to 70 costs under 800', 
   assert.ok(h.api.SODACHI_COST_BANDS.every((b, i, a) => i === 0 || b.cost >= a[i - 1].cost), 'costs never decrease');
 });
 
-test('sleeping from empty takes at least 30 seconds of recovery steps', () => {
+test('sleeping from empty takes roughly 12-40 seconds of recovery steps', () => {
   const h = harness(), state = h.api.state();
   state.energy = 0; state.isSleeping = true;
   let steps = 0;
   while (state.energy < 100 && steps < 5000) { h.api.recoverSleepStep(); steps++; }
   const seconds = steps * 0.1;
-  assert.ok(seconds >= 30 && seconds <= 90, 'full recovery took ' + seconds + 's');
+  assert.ok(seconds >= 12 && seconds <= 40, 'full recovery took ' + seconds + 's');
 });
 
 test('an S-rank result grants a growth boost that doubles growth and decays per tick', () => {

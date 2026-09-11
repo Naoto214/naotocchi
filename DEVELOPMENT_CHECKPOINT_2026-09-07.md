@@ -1795,3 +1795,40 @@ Runtime smoke test SUCCESS確認済み。
 - どうぐ: `tools/bump-versions.js`(`npm run bump`、index.html の `?v=` を日付+sha1 の 8 桁に。変わったファイルだけ更新)。CI(`runtime-smoke-test.yml`)は `npm test` を 1 ステップで実行(ローカルと同じ内容)。
 - テスト: `tests/scoring-shop-test.cjs`(ランクしきい値・ベスト/直近・クランプ、ショップの購入/装備/解除/二重払い防止、じっせき解放の日時と重複防止)、`tests/asset-versions-test.cjs`(参照先の存在と読み込み順)。`npm test` 197件通過。
 
+## チェックポイント BS — 実機フィードバック 4件(2026-09-11)
+- ねむりの回復: 0.22 → 0.6/100ms(病気 0.38、まくら +0.12)。0→100 が約17秒。「遊びに入れない」対策。
+- るすのあいだ: げんきは下がらず +0.05/tick 回復(ねていれば従来どおり大きく回復)。満腹・きげんの減少は 1回の るすで最大30(床20は維持)。「久しぶりに開くと げんきが激減」の原因は オフライン進行の −0.15/tick × 最大600 tick(=−90)だった。
+- ジェンガ: 20こ ぬいたら 🎉 で終了(それ以上は てんすうが伸びない)。ぬける段が無くなったら「もうぬけるところがない」→1.2秒後に終了(`canPullAny()`)。150秒の制限は維持。
+- つき・たいよう・ほし・くも: `#weatherFx` 内の `.wx-sky` わくに入れ、`positionWeatherSky()` がペットのステージ(`#castStage`)の矩形に合わせて配置(render と resize で更新)。ヘッダーの つうしん ボタンと重ならない。あめ・ゆきは従来どおり全画面。他チームのテスト(weatherFx 内の粒子数・data-ui-icon)は変更なしで通る。
+- テスト: growth-balance/offline の期待値を更新。`npm test` 234件通過。
+
+## チェックポイント BT — いっしょうの ねんぴょう・いっしょうカード・エラーのきろく(2026-09-11)
+- `buildLifeTimelineHTML(log)`(ねんれいごとに見出し)、`lifeSummaryStats()`(いちばん とくいなゲーム = lifetime のベスト最高、こいびと、なかま数…)。おわかれカードは直近8件ではなく全件(スクロール)+「いっしょうカードのコード」ボタン(`NTL1.` + base64url JSON、`encodeLifeCode/decodeLifeCode`)。
+- `archiveLifeAndReset()` は `line/log(直近40)/code` も `pastLives` に残す。データ画面「いっしょうの ねんぴょう」(`#profileTimeline`)、「これまでの子」(`<details>` で ねんぴょう と コードのコピー)、「いっしょうカードを 見る」(コードを貼って `lifeCodeCardHTML` で表示)。
+- 「エラーのきろく」(`<details>`): `runtimeErrors` を新しい順に、`errorReportText()`(UA + エラー + セーブコード)をコピー。
+- 動的に作る `#lifeCardCodeText` などは `el.lifeCardBody.querySelector` で参照(smoke test の id 検査に合わせる)。おわかれカード表示中は そらの わく(.wx-sky)を出さない。
+- テスト: `tests/album-test.cjs`(ねんぴょうの行数と年見出し、コードの往復と拒否、pastLives の log/code、おわかれカードの全件、エラー表示)。harness に TextEncoder/TextDecoder/btoa/atob を追加。`npm test` 239件通過。
+
+## チェックポイント BU — そうさの みがき: もういちど・スワイプ統一・そうさデモ(2026-09-11)
+- 「もういちど」: `showMinigameResultToast()` が `lastMinigame` があれば `#mgRetryBtn` を付け、押すと トーストを閉じて `tryStartPlay(lastMinigame)`(げんき/ねむりの判定は通常どおり)。ボタン付きのトーストは 6 秒表示。`.mg-result-toast` は pointer-events none のままで ボタンだけ auto。
+- スワイプ: script.js の `MG_SWIPE_MIN = 16` を `installMinigames()` に渡し、games.js のスワイプ判定 11 か所(落ちものパズル 18/14・押しパズル 14・迷路系 14・スネーク 18・ドットイーター 18・2048 16・フロッガー 12・ボンバー 14・スライドパズル 22)を置きかえ。陣取りだけ連続ステアリングなので `MG_SWIPE_MIN * 0.6`。おしっぱなしは既存の `MG_HOLD_PROFILES`(step 240/140, fast 80/45)で統一済み。
+- そうさデモ: `minigameDemoKind(game)` が `MINIGAME_CONTROLS` の文から swipe / drag / dpad / hold / tap を決め、はじめてカードの「そうさ」内に `<canvas class="mg-intro-demo" data-demo=…>`(220×90)を置いて `startIntroDemo()` が 2.4 秒周期で指の動きを描く。「はじめる」で停止。ctx が無い環境(smoke test)では何もしない。reduced-motion では 1 フレームだけ。
+- テスト: `tests/input-polish-test.cjs`(全ゲームの demo kind、カードの canvas、games.js に直書きのしきい値が残っていないこと、もういちどで同じゲームが再開、未プレイ時はボタン無し)。`npm test` 244件通過。Playwright で 5 種のデモとトーストの「もういちど」タップを確認。
+
+## チェックポイント BV — オーバーレイの 一本化・schemaVersion 5・軽量モードの 段階化(2026-09-11)
+- オーバーレイ: `menuOpen/dexOpen/achOpen/themeOpen/profileOpen/commOpen/itemOpen/worldOpen/travelOpen` の 9 フラグを `activeOverlay`(null | 'menu' | … | 'travel')に統合。`overlayIs(kind)` / `closeOverlay(kind)`(自分が開いているときだけ閉じる)/ `OVERLAY_KINDS`。`openExclusiveMenu()` は `OVERLAY_KINDS.includes(kind)` で 1 行に。うそつきしょうぶ・デート・なかまの さそい・picker は重なる子画面なので別フラグのまま。`isAnyMenuOverlayOpen()` は `!!activeOverlay || …`。
+- schemaVersion 5: `normalizeStateShape(target, model)`(freshState を手本に、配列/オブジェクト/数値/真偽/文字列の型が違う値だけ手本の値で置きかえ、ネストも再帰)と `normalizeStateValues()`(メーター 0〜100、ageTicks 整数、lifeLog/midlifeSeen/companions/pastLives の中身)。移行コードの先頭(`.map` を呼ぶ前)で shape をそろえ、最後に values をそろえて `schemaVersion = 5`。`infiniteReturn` も同じ扱い。`lifetime` が「あるのにオブジェクトでない」セーブだけは治さず失敗させてバックアップを使う(save-recovery-test の壊れたセーブの例をこれに変更)。
+- 軽量モード: `MG_PERF_TIERS`(0: dpr 2/飾り100%、1: dpr 1.5/65%、2: dpr 1/40%)。90 フレーム平均 22ms 超で tier 1、34ms 超で tier 2、14ms 未満が 3 窓続けば 1 段もどす。`mgPerfLow` は tier 2 の別名(他チームのテストが 35ms×92 で low を期待するので互換)。`createMgCanvas` は `mgPerfDpr()`、てんきの粒は `perfCount(full, low)`(tier 1 は中間)、games.js は `S.perfScale()`(星の数 `46 × scale`)。
+- どうぐ: `tools/perf-measure.js`(Playwright、全ゲームの rAF 間隔を平均/p95/最大で、`--throttle N` で CPU 制限、`--json`)。CPU 4倍遅い条件で重かったのは ロード系(downhill-snow 93.5ms、road-city 84.4、race-3d 78.0、road-jungle 69.0、road-themed 63.6、p3-drive 44.2、road-desert 43.7)。
+- ロード系の高速化: `createPseudoRoad()` の看板・木・アイテムの絵文字を `emojiSprite()`(絵文字×大きさ 2px 刻み×dpr のオフスクリーン canvas、上限 600)で 1 回だけ描いて `drawImage` で貼る。イラスト画像が未読込で文字にフォールバックした分は 2 秒後に描きなおす。本物の `HTMLCanvasElement` があるときだけ有効(他チームの prop-illustrations テストのダミー canvas は従来経路)。同条件で road-themed 63.6→30.4ms、race-3d 78.0→21.9ms、downhill-snow 93.5→22.8ms。
+- テスト: `tests/migration-test.cjs`(v5 往復、v3 の年齢換算、v2 の stage/age/freePlay、壊れた形の修復と有効な値の維持、冪等性、infiniteReturn)、`tests/overlay-test.cjs`(排他・閉じるボタンの対象・全 9 画面・軽量モードの段階の上げ下げ)。`npm test` 254件通過。全100ゲーム スイープ ページエラー 0。
+
+## チェックポイント BW — シールちょう(2026-09-11)
+- データ: `state.lifetime.stickers = { owned(id→まいすう), kakera, pages(pageId→[{id,x,y,r,s,k}]), tasksDone, packsOpened, seen }`。`stickerStore()` が形を保証(旧セーブは schemaVersion 5 の normalize で空の本になる)。
+- カタログ `stickerCatalog()`: `form:<line>:<i>`(ALL_LINES × 8、レアライン・ren は rare、6〜7段階は uncommon)、`companion:<id>`(通常 uncommon / レア rare)、`partner:<id>`(ALL_PARTNER_CANDIDATES、WORLD_MASTER の asset)、`item:<id>`(SHOP_ITEMS)、`scenery:<key>`(SCENERY_ILLUSTRATION_KEYS 16 + 天気/時間 7)。`visual()` は既存の stageVisualHTML / companionVisualHTML / partnerVisualHTML / itemIconHTML / uiIconHTML をそのまま使う(絵は増やしていない)。ren のシールは出会うまで `stickerPackPool()` に入らない。
+- 入手: `grantSticker(id)`(かぶりは `STICKER_RARITY[r].kakera` のかけら)、`grantRandomSticker()`(未所持を優先)。フック: `recordDiscoveryKey`(初めて載ったすがた)、なかま加入(finishMinigame)、こいびと成立、きょうのチャレンジ(1枚)、Sランク(30%)。`openStickerPack()` 💰30 で 3枚(重み ふつう70/めずらしい25/レア5)、`openKakeraPack()` かけら12 で未所持 1枚。
+- ページ: `placeSticker(page, id, at)`(所持枚数 − 貼付枚数 > 0 のときだけ、1ページ `STICKER_PAGE_MAX`=24)、`updateSticker(page, k, {x,y,r,s,front})`(x/y 0.03〜0.97、r −180〜180、s 0.5〜2.2)、`removeSticker`。ボードは pointer capture でドラッグ、pointerup で保存。ツール(↺↻ −＋ ⤴ 🗑)は `stickerToolAction`。
+- おだい `STICKER_TASKS`(10件、`checkStickerTasks()` が 1回だけ報酬・`showStoryEvent`)。じっせき `sticker-10` / `sticker-tasks-5` / `sticker-100`(ACHIEVEMENT_MARKS で既存の絵 🎁📖🏆 を割り当て。他チームの notice-food テストの総数 87→90 を更新)。
+- 画像化 `exportStickerPageImage(page)`: 640×480 canvas にページの背景・シール(asset は Image、なければ絵文字)を描いて PNG data URL。canvas が無い環境は null。
+- 画面: メニュー「シールちょう」(`#stickerBtn`、既存アイコン star_badge)、`#stickerOverlay`(タブ・ボード・ツール・おだい・パック/かけら/がぞう・もっているシール(フィルタ もっている/しゅぞく/なかま/こいびと/あいてむ/けしき、NEW は前回開いてから増えた分))。`activeOverlay` の kind 'sticker'。
+- テスト: `tests/sticker-test.cjs`(カタログ、かぶり→かけら、パック/かけらパック、貼る・動かす・はがす・上限、おだい報酬 1回・じっせき、発見フック・画面、保存/復元・旧セーブ、画像化 null)。Playwright でドラッグ・ツール・パック・トレイ・画像化(PNG 146KB)を確認。

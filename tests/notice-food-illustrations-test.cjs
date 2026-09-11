@@ -5,7 +5,7 @@ const {harness}=require('./helpers/runtime-harness.cjs');
 
 test('every achievement has an illustration without changing its definition or saved state',()=>{
   const h=harness(),before=JSON.stringify(h.api.state());
-  assert.equal(h.api.achievements.length,87);
+  assert.equal(h.api.achievements.length,90);
   for(const ach of h.api.achievements){
     const html=h.api.achievementIconHTML(ach);
     assert.match(html,/data-(?:care-icon|ui-icon|comment-symbol)=|class="comment-asset"/,ach.id);
@@ -23,7 +23,7 @@ test('achievement grid, recent list, goals and unlock flash share artwork and pr
   assert.match(html,/data-comment-symbol="lock"/);
   assert.match(html,/ach-cell known/);assert.match(html,/ach-cell locked/);
   assert.ok(html.includes(h.api.achievementIconHTML(ach)));
-  assert.match(html,/NEW/);assert.equal(h.get('achProgress').textContent,'1 / 87');
+  assert.match(html,/NEW/);assert.equal(h.get('achProgress').textContent,'1 / 90');
   s.achievementsUnlocked=h.api.achievements.filter(a=>a.id!==ach.id).map(a=>a.id);
   s.lifetime.sicknessCured=1;h.api.checkAchievements();
   assert.equal(h.get('storyFlashEmoji').innerHTML,h.api.achievementIconHTML(ach));

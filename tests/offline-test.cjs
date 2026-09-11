@@ -17,8 +17,8 @@ test('ten minutes away lowers stats gently and leaves coins', () => {
   const money = state.lifetime.money, log = state.lifeLog.length;
   const r = h.api.applyOfflineProgress(1000);
   assert.equal(r.ticks, 200);
-  assert.ok(Math.abs(state.hunger - 50) < 0.01, 'hunger dropped by 0.25 per tick: ' + state.hunger);
-  assert.ok(Math.abs(state.energy - 70) < 0.01, 'energy dropped by 0.15 per tick: ' + state.energy);
+  assert.ok(Math.abs(state.hunger - 70) < 0.01, 'hunger drops 0.25 per tick but at most 30 per absence: ' + state.hunger);
+  assert.equal(state.energy, 100, 'energy never drops while away');
   assert.equal(state.lifetime.money, money + 2, 'one coin per five minutes');
   assert.equal(state.lifeLog.length, log + 1);
   assert.equal(state.ageTicks, 500, 'age does not pass while closed');
@@ -28,15 +28,16 @@ test('stats never drop below the floor even when the drift exceeds them', () => 
   const h = harness(), state = h.api.state();
   state.stage = 'growing'; state.savedAt = 1000 - 25 * MIN; state.hunger = 90; state.happiness = 30; state.energy = 90;
   h.api.applyOfflineProgress(1000);
-  assert.equal(state.hunger, 20); assert.equal(state.happiness, 20);
+  assert.equal(state.hunger, 60, 'one absence drops a stat by at most 30'); assert.equal(state.happiness, 20, 'and never below the floor');
 });
 
 test('a long absence is capped at thirty minutes of drift and cannot endanger a low pet', () => {
   const h = harness(), state = h.api.state();
-  state.stage = 'growing'; state.savedAt = 1000 - 10 * 60 * MIN; state.hunger = 25; state.happiness = 100; state.energy = 100;
+  state.stage = 'growing'; state.savedAt = 1000 - 10 * 60 * MIN; state.hunger = 25; state.happiness = 100; state.energy = 40;
   const r = h.api.applyOfflineProgress(1000);
   assert.equal(r.ticks, h.api.OFFLINE_CAP_TICKS);
   assert.equal(state.hunger, 20, 'already low hunger stops at the floor');
+  assert.ok(state.energy > 40, 'energy recovers a little while resting away: ' + state.energy);
   assert.ok(state.deathMeter === 0 || state.deathMeter < 1, 'no death meter from being away');
 });
 

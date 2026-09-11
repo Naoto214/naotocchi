@@ -1047,6 +1047,23 @@
     playWithBtn: document.getElementById('playWithBtn'),
     resetBtn: document.getElementById('resetBtn'),
     dexBtn: document.getElementById('dexBtn'),
+    stickerBtn: document.getElementById('stickerBtn'),
+    stickerOverlay: document.getElementById('stickerOverlay'),
+    stickerCloseBtn: document.getElementById('stickerCloseBtn'),
+    stickerProgress: document.getElementById('stickerProgress'),
+    stickerPageTabs: document.getElementById('stickerPageTabs'),
+    stickerBoard: document.getElementById('stickerBoard'),
+    stickerTools: document.getElementById('stickerTools'),
+    stickerBoardHint: document.getElementById('stickerBoardHint'),
+    stickerTasks: document.getElementById('stickerTasks'),
+    stickerPackBtn: document.getElementById('stickerPackBtn'),
+    stickerKakeraBtn: document.getElementById('stickerKakeraBtn'),
+    stickerExportBtn: document.getElementById('stickerExportBtn'),
+    stickerPackResult: document.getElementById('stickerPackResult'),
+    stickerExportView: document.getElementById('stickerExportView'),
+    stickerOwnedCount: document.getElementById('stickerOwnedCount'),
+    stickerFilter: document.getElementById('stickerFilter'),
+    stickerTray: document.getElementById('stickerTray'),
     achBtn: document.getElementById('achBtn'),
     screenNormal: document.getElementById('screenNormal'),
     minigameOverlay: document.getElementById('minigameOverlay'),
@@ -1075,6 +1092,15 @@
     saveImportBtn: document.getElementById('saveImportBtn'),
     saveImportStatus: document.getElementById('saveImportStatus'),
     saveSnapList: document.getElementById('saveSnapList'),
+    profileTimeline: document.getElementById('profileTimeline'),
+    profilePastLives: document.getElementById('profilePastLives'),
+    lifeCodeInput: document.getElementById('lifeCodeInput'),
+    lifeCodeViewBtn: document.getElementById('lifeCodeViewBtn'),
+    lifeCodeView: document.getElementById('lifeCodeView'),
+    errorLogList: document.getElementById('errorLogList'),
+    errorLogSummary: document.getElementById('errorLogSummary'),
+    errorLogCopyBtn: document.getElementById('errorLogCopyBtn'),
+    errorLogCopied: document.getElementById('errorLogCopied'),
     saveSnapStatus: document.getElementById('saveSnapStatus'),
     achTitle: document.getElementById('achTitle'),
     achTabs: document.getElementById('achTabs'),
@@ -1333,7 +1359,7 @@
       // ふくげんする ので、♾️ は 人生を リセットしない。state の 一部な ので
       // セーブにも のり、ページを ひらきなおしても もどれる
       infiniteReturn: null,
-      schemaVersion: 4,
+      schemaVersion: 5,
       romanceCompatibilityVersion: 2,
       pendingLegacyRelationshipResolution: null,
       poopCount: 0,
@@ -1548,6 +1574,9 @@
         dailyChallenge: null,
         dailyStreak: 0,
         dailyLastDate: null,
+        // シールちょう: もっている シール(id→まいすう)、かけら、ページごとの はりつけ、
+        // たっせいした おだい、あけた パックの かず、いちど 見た シール
+        stickers: { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] },
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -1581,17 +1610,66 @@
 
   let pendingMigrationQuiet = false;
 
+  // schemaVersion 5: かたちの ほしょう。freshState() を おてほんに、配列で
+  // あるべき ところが 文字列に なっている・数字が NaN に なっている ような
+  // セーブを、freshState() の 値で うめなおす(正しい かたの 値は いっさい
+  // さわらない)。ネストした オブジェクト(lifetime / actionCounts /
+  // oneTimeBoosts …)は 中まで おなじ ルールで みる。null が おてほんの
+  // ところ(partner / marriageAge など)は「なんでも よい」ので とばす
+  function normalizeStateShape(target, model) {
+    if (!target || typeof target !== 'object' || Array.isArray(target)) return model;
+    for (const key of Object.keys(model)) {
+      const fresh = model[key];
+      const cur = target[key];
+      if (Array.isArray(fresh)) {
+        if (!Array.isArray(cur)) target[key] = fresh.slice();
+      } else if (fresh && typeof fresh === 'object') {
+        if (!cur || typeof cur !== 'object' || Array.isArray(cur)) target[key] = JSON.parse(JSON.stringify(fresh));
+        else normalizeStateShape(cur, fresh);
+      } else if (typeof fresh === 'number') {
+        if (typeof cur !== 'number' || !Number.isFinite(cur)) target[key] = fresh;
+      } else if (typeof fresh === 'boolean') {
+        if (typeof cur !== 'boolean') target[key] = !!cur;
+      } else if (typeof fresh === 'string') {
+        if (typeof cur !== 'string') target[key] = fresh;
+      }
+    }
+    return target;
+  }
+  // メーターと きろくの 中身も かたを そろえる(normalizeStateShape の
+  // あとに よぶ。ここでも 正しい 値は かえない)
+  function normalizeStateValues(st) {
+    for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
+    st.ageTicks = Math.max(0, Math.floor(st.ageTicks));
+    st.lifeLog = st.lifeLog.filter((e) => e && typeof e === 'object' && typeof e.text === 'string');
+    st.midlifeSeen = st.midlifeSeen.filter((v) => Number.isFinite(v));
+    if (Array.isArray(st.lifetime.pastLives)) {
+      st.lifetime.pastLives = st.lifetime.pastLives.filter((p) => p && typeof p === 'object').map((p) => ({
+        ...p, log: Array.isArray(p.log) ? p.log : [], code: typeof p.code === 'string' ? p.code : null,
+      }));
+    }
+    st.companions = st.companions.filter((c) => c && typeof c === 'object' && typeof c.id === 'string');
+    return st;
+  }
+
   function loadState() {
     // 通常セーブもバックアップも、同じ移行処理を最後まで通してから採用する。
     const migrate = (raw) => {
       const parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('invalid save payload');
+      // lifetime が「ある のに オブジェクトでは ない」セーブは こわれている。
+      // うめなおしても ずかん・じっせき・おかねが ぜんぶ きえる ので、
+      // ここは なおさずに 失敗させ、バックアップの ほうを つかう
+      if (parsed.lifetime != null && (typeof parsed.lifetime !== 'object' || Array.isArray(parsed.lifetime))) throw new Error('invalid lifetime');
       const merged = { ...freshState(), ...parsed };
       // lifetime is a nested object, so the shallow merge above replaces it
       // wholesale with the save's own (possibly older, field-missing)
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
+      // コードは 配列の .map などを ためらいなく よぶ ので)
+      normalizeStateShape(merged, freshState());
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
       const LEGACY_MINIGAME_IDS = {
@@ -1785,7 +1863,20 @@
         }
         pendingMigrationQuiet = true;
       }
-      merged.schemaVersion = 4;
+
+      // ================================================================
+      // schemaVersion 5 への いこう(かたの ほしょう だけ。数字の いみは かわらない)
+      // ================================================================
+      // v4 の セーブは 値を いっさい かえずに そのまま v5 に なる。上の
+      // normalizeStateShape() と ここの normalizeStateValues() が「配列で
+      // あるべき ものは 配列、メーターは 0〜100」を ほしょうする
+      normalizeStateValues(merged);
+      if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
+        normalizeStateShape(merged.infiniteReturn, freshState());
+        normalizeStateValues(merged.infiniteReturn);
+        merged.infiniteReturn.schemaVersion = 5;
+      }
+      merged.schemaVersion = 5;
 
       // 旧版の途中状態などで endingTiersReached に tier0(🎉)だけ残っていても、
       // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
@@ -1866,6 +1957,8 @@
   function recordDiscoveryKey(key) {
     if (!state.discoveredStages.includes(key)) {
       state.discoveredStages.push(key);
+      // はじめて のった すがたは シールにも なる
+      grantSticker(`form:${key}`, 'discover');
     }
   }
 
@@ -1904,6 +1997,7 @@
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
     { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'sticker-10', emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
 
@@ -1942,6 +2036,7 @@
     { id: 'clean-50', emoji: '🧹', label: 'ピカピカ50かい', desc: 'ひとつの人生で、そうじを50回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 50 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
+    { id: 'sticker-tasks-5', emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
     { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
     { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
 
@@ -1965,6 +2060,7 @@
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを30回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
     { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちが合計で100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
@@ -2606,6 +2702,11 @@
   //   (smoke-test の ような ダミーDOMでは ctx が null になるので、描画は
   //   かならず ctx の 有無を みてから おこなう)
   const MG_HOLD_PROFILES = { step: { delay: 240, interval: 140 }, fast: { delay: 80, interval: 45 } };
+  // スワイプと みなす さいしょうの ゆびの うごき(px)。games.js の すべての
+  // スワイプ系ゲームが この ひとつの 値を つかう(ゲームごとに 10〜22 で
+  // ばらばらだったのを そろえた。ゆびの ふるえでは うごかず、みじかい
+  // フリックは ひろえる ちょうどよい ところ)
+  const MG_SWIPE_MIN = 16;
   let mgHoldTimer = null;
   let mgHoldButton = null;
   const mgKeysDown = new Map();
@@ -2677,7 +2778,7 @@
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
     const H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
-    const dpr = Math.min(mgPerfLow ? 1 : 2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
+    const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
     if (!ctx || typeof ctx.setTransform !== 'function') ctx = null;
     if (canvas) {
@@ -2988,7 +3089,9 @@
     ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
     ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
     ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
-    ['💍','married-3'],['🎁','shop-all'],['🎈','consumable-all'],
+    ['💍','married-3'],['🎁','shop-all sticker-10'],['🎈','consumable-all'],
+    // シールちょうの じっせき(絵は きぞんの しるしを つかいまわす)
+    ['📖','sticker-tasks-5'],['🏆','sticker-100'],
   ].flatMap(([mark,ids])=>ids.split(' ').map(id=>[id,mark])));
   function achievementIconHTML(ach) {
     if (ach.id==='naoto-1') return uiIconHTML('naoto_crown','なおとのかんむり',ach.emoji);
@@ -9552,12 +9655,103 @@
       rows.push('<div class="lifecard-line">でんせつにであった</div>');
     }
     rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${state.discoveredStages.length}／${ALL_LINES.length * STAGES_PER_LINE}</div>`);
-    const log = (state.lifeLog || []).slice(-8);
+    const stats = lifeSummaryStats();
+    if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${stats.bestGame.emoji}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
+    const log = state.lifeLog || [];
     if (log.length) {
       rows.push('<div class="lifecard-sep"></div>');
-      rows.push(log.map((e) => `<div class="lifecard-log"><span>${e.age}さい</span> ${escapeHtml(e.icon || '')} ${escapeHtml(compactJapaneseText(e.text))}</div>`).join(''));
+      rows.push(`<div class="lifecard-timeline">${buildLifeTimelineHTML(log)}</div>`);
     }
+    rows.push('<div class="lifecard-code"><button type="button" class="profile-code-btn" id="lifeCardCodeBtn">📋いっしょうカードのコード</button><textarea readonly class="profile-code-input hidden" id="lifeCardCodeText" rows="2"></textarea><div class="profile-hint hidden" id="lifeCardCodeCopied">コピーした!</div></div>');
     return rows.join('');
+  }
+
+  // --- いっしょうの ねんぴょう: lifeLog を ねんれい ごとに ならべる ---
+  function buildLifeTimelineHTML(log, limit = 0) {
+    const entries = (Array.isArray(log) ? log : []).filter((e) => e && typeof e.text === 'string');
+    const shown = limit > 0 ? entries.slice(-limit) : entries;
+    if (!shown.length) return '<div class="life-timeline-empty">まだ できごとは ない</div>';
+    let lastAge = null;
+    return '<div class="life-timeline">' + shown.map((e) => {
+      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${e.age}さい</span>` : '<span class="life-timeline-age"></span>';
+      lastAge = e.age;
+      return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${escapeHtml(e.icon || '')}</span><span class="life-timeline-text">${escapeHtml(compactJapaneseText(e.text))}</span></div>`;
+    }).join('') + '</div>';
+  }
+  function lifeSummaryStats() {
+    const records = state.lifetime.minigameRecords || {};
+    let bestGame = null;
+    for (const game of buildMinigamePool()) {
+      const r = records[game.id];
+      if (r && (!bestGame || r.best > bestGame.best)) { const info = minigameInfo(game); bestGame = { id: game.id, name: info.name, emoji: info.emoji, best: r.best }; }
+    }
+    return {
+      species: SPECIES_DISPLAY_NAMES[state.speciesLine] || '???',
+      age: currentAge(),
+      sodachi: state.maxSodachi,
+      partner: state.partner ? { label: state.partner.label, married: !!state.partner.married } : null,
+      companions: state.companions.length,
+      transforms: state.transformsThisLife || 0,
+      sickness: state.totalSicknessCount || 0,
+      legend: !!state.legendMet,
+      bestGame,
+    };
+  }
+  // いっしょうカードの コード: 'NTL1.' + base64url(JSON)。セーブコードと おなじ かたちで
+  // ともだちに おくれる。よみこんでも セーブは かわらず、カードとして 見るだけ
+  const LIFE_CODE_PREFIX = 'NTL1.';
+  function encodeLifeCode(snapshot) {
+    const s = snapshot || { ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, log: (state.lifeLog || []).slice(-40) };
+    const json = JSON.stringify({ v: 1, ...s });
+    const bytes = new TextEncoder().encode(json);
+    let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return LIFE_CODE_PREFIX + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function decodeLifeCode(code) {
+    const t = (code || '').trim();
+    if (!t.startsWith(LIFE_CODE_PREFIX)) throw new Error('これは いっしょうカードの コードでは ない');
+    let b64 = t.slice(LIFE_CODE_PREFIX.length).replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const parsed = JSON.parse(new TextDecoder().decode(bytes));
+    if (!parsed || parsed.v !== 1 || typeof parsed.species !== 'string' || !Array.isArray(parsed.log)) throw new Error('カードの なかみが ちがう');
+    return parsed;
+  }
+  function lifeCodeCardHTML(card) {
+    const badges = [];
+    if (card.age >= GOAL_AGE) badges.push('★てんじゅ');
+    if (card.age >= GOAL_AGE && card.sodachi >= LIFE_CLEAR_SODACHI) badges.push('★いっしょうクリア');
+    if (card.age >= GOAL_AGE && card.sodachi >= SODACHI_MAX) badges.push('★さいこう');
+    return `<div class="life-code-card"><div class="life-code-head">${escapeHtml(card.emoji || '')} ${escapeHtml(card.species)}・${card.age}さい・そだち${card.sodachi}${badges.length ? ' ' + badges.join(' ') : ''}</div>`
+      + `<div class="life-code-line">${card.partner ? (card.partner.married ? '💍' : '💖') + escapeHtml(card.partner.label) : 'こいびとなし'}／なかま${card.companions}にん／へんしん${card.transforms}かい${card.bestGame ? `／${escapeHtml(card.bestGame.emoji || '')}${escapeHtml(card.bestGame.name)} ${card.bestGame.best}てん` : ''}</div>`
+      + buildLifeTimelineHTML(card.log) + '</div>';
+  }
+  function renderLifeTimeline() {
+    if (!el.profileTimeline) return;
+    const s = lifeSummaryStats();
+    const head = state.stage === STAGE.EGG ? 'たまごを あたためている' : `${escapeHtml(s.species)}・${s.age}さい・そだち${s.sodachi}${s.bestGame ? `・${s.bestGame.emoji}${escapeHtml(s.bestGame.name)} ${s.bestGame.best}てん` : ''}`;
+    el.profileTimeline.innerHTML = `<div class="life-timeline-head">${head}</div>` + buildLifeTimelineHTML(state.lifeLog || []);
+    if (el.profilePastLives) {
+      const past = (state.lifetime.pastLives || []).slice().reverse();
+      el.profilePastLives.innerHTML = past.length
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${escapeHtml(p.emoji || '')} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        : '<div class="profile-hint">まだ おわかれした子は いない</div>';
+    }
+  }
+  // --- エラーのきろく(データ画面): さいきんの エラーと セーブコードを まとめて コピー ---
+  function renderErrorLog() {
+    if (!el.errorLogList) return;
+    const list = runtimeErrors.slice().reverse();
+    el.errorLogList.innerHTML = list.length
+      ? list.map((e) => { const d = new Date(e.at); const t = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; return `<div class="error-log-row"><span class="error-log-time">${t}</span><span class="error-log-where">${escapeHtml(e.where)}</span><span class="error-log-msg">${escapeHtml(e.message)}</span></div>`; }).join('')
+      : '<div class="profile-hint">エラーは きろくされていない</div>';
+    if (el.errorLogSummary) el.errorLogSummary.textContent = list.length ? `エラーのきろく(${list.length}けん)` : 'エラーのきろく(なし)';
+  }
+  function errorReportText() {
+    let save = '';
+    try { save = encodeSaveCode(JSON.stringify(state)); } catch (e) { save = '(セーブコードを つくれなかった)'; }
+    const lines = runtimeErrors.map((e) => `[${new Date(e.at).toISOString()}] ${e.where}: ${e.message}${e.stack ? '\n' + e.stack : ''}`);
+    return `なおとっち エラーレポート ${new Date().toISOString()}\nUA: ${typeof navigator !== 'undefined' ? navigator.userAgent : ''}\n\n${lines.join('\n\n') || '(エラーなし)'}\n\nセーブコード:\n${save}`;
   }
 
   function showLifeCard() {
@@ -9567,6 +9761,7 @@
     el.lifeCardOverlay.classList.remove('hidden');
     el.screenNormal.classList.add('hidden');
     el.farewellBar.classList.add('hidden');
+    positionWeatherSky();
   }
 
   // その子の いっしょうを ようやく 1行に して 歴代に つみ、あたらしい たまごへ
@@ -9581,6 +9776,9 @@
       sodachi: state.maxSodachi,
       companions: state.companions.length,
       married: !!(state.partner && state.partner.married),
+      line: state.speciesLine,
+      log: (state.lifeLog || []).slice(-40),
+      code: encodeLifeCode(),
     });
     if (L.pastLives.length > 100) L.pastLives.shift();
   }
@@ -10113,12 +10311,11 @@
   // ひらいているかどうかを まとめて はんていする、きょうつうの ヘルパー。
   // tick()の じかんていし ガード・なかまイベント抽選ガード・きせつの
   // ぜんけいエフェクト よくせいの 3か所で つかう。pickerOpen は
-  // useConsumableItem()→openPicker() の けいろでしか ひらかれず、itemOpen
+  // useConsumableItem()→openPicker() の けいろでしか ひらかれず、overlayIs('item')
   // すでに ひらいている ときにしか 到達しないため、ここには ふくめていない
-  // (itemOpen だけで じゅうぶん カバーできる)
+  // (overlayIs('item') だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
-    return menuOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen
-      || itemOpen || duelOpen || worldOpen || travelOpen
+    return !!activeOverlay || duelOpen
       || dateOpen || companionInviteOpen
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
@@ -10756,30 +10953,31 @@
     el.playWithBtn.title = isEgg ? 'たまごをあたためる' : 'じゃれる';
     el.playWithBtn.querySelector('i').dataset.careIcon = isEgg ? 'egg' : 'play';
     el.dexBtn.disabled = gameActive || hasTransformChoice;
+    el.stickerBtn.disabled = gameActive || hasTransformChoice;
     el.achBtn.disabled = gameActive || hasTransformChoice;
     el.themeBtn.disabled = gameActive || hasTransformChoice;
     el.itemBtn.disabled = gameActive || hasTransformChoice;
 
-    el.dexOverlay.classList.toggle('hidden', !dexOpen);
-    if (dexOpen) renderDex();
+    el.dexOverlay.classList.toggle('hidden', !overlayIs('dex'));
+    if (overlayIs('dex')) renderDex();
 
     el.dexDetailOverlay.classList.toggle('hidden', !dexDetail);
     if (dexDetail) renderDexDetail();
 
-    el.achOverlay.classList.toggle('hidden', !achOpen);
-    if (achOpen) renderAchievements();
+    el.achOverlay.classList.toggle('hidden', !overlayIs('ach'));
+    if (overlayIs('ach')) renderAchievements();
 
-    el.themeOverlay.classList.toggle('hidden', !themeOpen);
-    if (themeOpen) renderThemeOverlay();
+    el.themeOverlay.classList.toggle('hidden', !overlayIs('theme'));
+    if (overlayIs('theme')) renderThemeOverlay();
 
-    el.profileOverlay.classList.toggle('hidden', !profileOpen);
-    if (profileOpen) renderProfile();
+    el.profileOverlay.classList.toggle('hidden', !overlayIs('profile'));
+    if (overlayIs('profile')) renderProfile();
 
-    el.commOverlay.classList.toggle('hidden', !commOpen);
-    if (commOpen) renderCommOverlay();
+    el.commOverlay.classList.toggle('hidden', !overlayIs('comm'));
+    if (overlayIs('comm')) renderCommOverlay();
 
-    el.itemOverlay.classList.toggle('hidden', !itemOpen);
-    if (itemOpen) renderItemOverlay();
+    el.itemOverlay.classList.toggle('hidden', !overlayIs('item'));
+    if (overlayIs('item')) renderItemOverlay();
 
     el.pickerOverlay.classList.toggle('hidden', !pickerOpen);
     if (pickerOpen) renderPicker();
@@ -10789,8 +10987,8 @@
 
     el.companionInviteOverlay.classList.toggle('hidden', !companionInviteOpen);
 
-    el.menuOverlay.classList.toggle('hidden', !menuOpen);
-    el.worldOverlay.classList.toggle('hidden', !worldOpen);
+    el.menuOverlay.classList.toggle('hidden', !overlayIs('menu'));
+    el.worldOverlay.classList.toggle('hidden', !overlayIs('world'));
     renderEnvironment();
     el.dateOverlay.classList.toggle('hidden', !dateOpen);
     // そだち50「こいの きざし」に とどいて はじめて「デートに さそう」が
@@ -10808,8 +11006,10 @@
       : compactJapaneseText(`${state.partner ? state.partner.emoji + ' ' + state.partner.label : 'こいびと'}とでかけられます`);
 
 
-    el.travelOverlay.classList.toggle('hidden', !travelOpen);
-    if (travelOpen) renderTravelRegionGrid();
+    el.travelOverlay.classList.toggle('hidden', !overlayIs('travel'));
+    if (overlayIs('travel')) renderTravelRegionGrid();
+    el.stickerOverlay.classList.toggle('hidden', !overlayIs('sticker'));
+    if (overlayIs('sticker')) renderStickerOverlay();
 
     // ゲーム機・えきしょうの てまえまで よこぎる ぜんけいの きせつ
     // エフェクトは、しさが だいじな ばめん(ミニゲーム中や、よみもの/
@@ -10828,21 +11028,19 @@
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     renderItemsRow(disableCare);
     renderHomeCast();
+    positionWeatherSky();
   }
 
-  let menuOpen = false;
-  let dexOpen = false;
-  let achOpen = false;
-  let themeOpen = false;
-  let profileOpen = false;
-  let commOpen = false;
-  let itemOpen = false;
+  // メインの オーバーレイ(メニュー/ずかん/じっせき/せってい/データ/つうしん/
+  // アイテム/せかい/たび)は どうじに 1まいしか ひらかない ので、9つの
+  // フラグではなく「いま ひらいている しゅるい」を 1つだけ もつ。
+  // null = なにも ひらいていない。duel(うそつきしょうぶ)・date・
+  // なかまの さそい・picker は この うえに かさなる 子がめん なので べつ
+  const OVERLAY_KINDS = ['menu', 'dex', 'ach', 'theme', 'profile', 'comm', 'item', 'world', 'travel', 'sticker'];
+  let activeOverlay = null;
+  const overlayIs = (kind) => activeOverlay === kind;
+  function closeOverlay(kind) { if (activeOverlay === kind) activeOverlay = null; }
   let duelOpen = false;
-  // 「🌍 せかい」がめん(きせつを かえる/たびに でる の いりぐち)と、
-  // その中の「きせつを かえる」「たびに でる」サブがめん。dexOpen などと
-  // おなじ しくみで render() から ひょうじを きりかえる
-  let worldOpen = false;
-  let travelOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
@@ -10852,7 +11050,7 @@
   // ステップに はいるたびに 0/'pending' から やりなおす
   let duelRevealIndex = 0;
   let duelRevealPhase = 'pending';
-  // れんあいタイプの「？」ボタンで ひらいた せつめいが、profileOpen 中の
+  // れんあいタイプの「？」ボタンで ひらいた せつめいが、データ画面を ひらいている あいだの
   // ほかの 操作(たとえば きゅうあいの けっかで render() が よびなおされる
   // など)で かってに とじてしまわないよう、ひらいている/いないを
   // ここで おぼえておく
@@ -10862,17 +11060,9 @@
   // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
   function closeAllMenuOverlays() {
     restoreFocusToMenu();
-    menuOpen = false;
+    activeOverlay = null;
     currentLocationIntent += 1;
-    dexOpen = false;
-    achOpen = false;
-    themeOpen = false;
-    profileOpen = false;
-    commOpen = false;
-    itemOpen = false;
     duelOpen = false;
-    worldOpen = false;
-    travelOpen = false;
     dateOpen = false;
     pendingDatePlan = null;
     el.dateRewardConfirm.classList.add('hidden');
@@ -10890,21 +11080,15 @@
     clearConversationTimers();
     hideSpeechBubble();
     closeAllMenuOverlays();
-    if (kind === 'menu') menuOpen = true;
-    else if (kind === 'travel') travelOpen = true;
-    else if (kind === 'dex') dexOpen = true;
-    else if (kind === 'ach') achOpen = true;
-    else if (kind === 'theme') { themeOpen = true; selectDesignPanel('screen'); }
-    else if (kind === 'profile') profileOpen = true;
-    else if (kind === 'comm') commOpen = true;
-    else if (kind === 'item') itemOpen = true;
-    else if (kind === 'world') worldOpen = true;
+    if (OVERLAY_KINDS.includes(kind)) activeOverlay = kind;
+    if (kind === 'theme') selectDesignPanel('screen');
+    if (kind === 'sticker') stickerOpened();
     render();
     focusOverlayClose(kind);
   }
   // キーボード/スクリーンリーダー むけ: ひらいた オーバーレイの とじるボタンに
   // フォーカスを うつし、とじたら メニューボタンに もどす
-  const OVERLAY_CLOSE_IDS = { menu: 'menuCloseBtn', travel: 'travelCloseBtn', dex: 'dexCloseBtn', ach: 'achCloseBtn', theme: 'themeCloseBtn', profile: 'profileCloseBtn', comm: 'commCloseBtn', item: 'itemCloseBtn', world: 'worldCloseBtn' };
+  const OVERLAY_CLOSE_IDS = { menu: 'menuCloseBtn', travel: 'travelCloseBtn', dex: 'dexCloseBtn', ach: 'achCloseBtn', theme: 'themeCloseBtn', profile: 'profileCloseBtn', comm: 'commCloseBtn', item: 'itemCloseBtn', world: 'worldCloseBtn', sticker: 'stickerCloseBtn' };
   function focusOverlayClose(kind) {
     const id = OVERLAY_CLOSE_IDS[kind];
     const btn = id && document.getElementById(id);
@@ -11160,6 +11344,8 @@
   // れんあいタイプ・affinityTrait を まとめて 見せる
   function renderProfile() {
     renderSaveSnaps();
+    renderLifeTimeline();
+    renderErrorLog();
     el.profileSpecies.textContent = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     el.profileStage.textContent = currentStageLabel();
     el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
@@ -11913,7 +12099,7 @@
     // しぼう/ゲームクリアに とどく ことも ある。そのばあいは アイテム画面
     // ごしに ならないよう、専用の えんしゅつ画面が 前に 出られる ように とじる
     if (state.stage === STAGE.DEAD) {
-      itemOpen = false;
+      closeOverlay('item');
     }
     saveState();
     render();
@@ -11955,7 +12141,7 @@
     if (result.message) setMessage(result.message);
     emotePet(result.emote || 'happy');
     if (state.stage === STAGE.DEAD) {
-      itemOpen = false;
+      closeOverlay('item');
     }
     saveState();
     render();
@@ -12448,35 +12634,56 @@
   function applyWeatherFx(weather, time, regionId) {
     if (!el.weatherFx) return;
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    const low = mgPerfLow;
-    const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${low}`;
+    const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${mgPerfTier}`;
     if (key === weatherFxKey) return;
     weatherFxKey = key;
     if (regionId === 'deepsea') { el.weatherFx.innerHTML = ''; return; }
     if (regionId === 'star_stop') { weather = null; time = 'night'; }
     const items = [];
+    const sky = [];
     const rnd = (a, b) => a + Math.random() * (b - a);
     if (weather === 'rain') {
-      const n = low ? 18 : 42;
+      const n = perfCount(42, 18);
       for (let i = 0; i < n; i++) items.push(`<span class="wx-drop" style="left:${rnd(0, 100).toFixed(1)}%;animation-duration:${rnd(0.7, 1.2).toFixed(2)}s;animation-delay:${rnd(-1.2, 0).toFixed(2)}s;height:${Math.round(rnd(14, 24))}px;opacity:${rnd(0.4, 0.9).toFixed(2)}"></span>`);
     } else if (weather === 'snow') {
-      const n = low ? 12 : 26;
+      const n = perfCount(26, 12);
       for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">${sceneryIconHTML('❄')}</span>`);
     } else if (weather === 'cloudy') {
-      const n = low ? 3 : 5;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-cloud" style="top:${rnd(2, 22).toFixed(1)}%;font-size:${Math.round(rnd(30, 56))}px;animation-duration:${rnd(60, 110).toFixed(0)}s;animation-delay:${rnd(-100, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
+      const n = perfCount(5, 3);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-cloud" style="top:${rnd(2, 30).toFixed(1)}%;font-size:${Math.round(rnd(18, 32))}px;animation-duration:${rnd(40, 80).toFixed(0)}s;animation-delay:${rnd(-70, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
     } else if (weather === 'sunny' && time !== 'night') {
-      items.push('<span class="wx-sun"></span>');
-      const n = low ? 3 : 7;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
+      sky.push('<span class="wx-sun"></span>');
+      const n = perfCount(7, 3);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
     }
     if (time === 'night' && weather !== 'rain' && weather !== 'snow') {
-      const n = low ? 14 : 30;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 45).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
-      if (weather !== 'cloudy') items.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
+      const n = perfCount(30, 14);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 60).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
+      if (weather !== 'cloudy') sky.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
     }
-    el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)).join('') : items.join('');
+    // あめ・ゆきは がめん ぜんたい。たいよう・つき・ほし・くもは、ペットの
+    // ステージの うえに かさなる わく(.wx-sky)の なかに 入れて、ヘッダーの
+    // ボタンに かさならない ように する(いちは positionWeatherSky() が あわせる)
+    const skyKept = reduced ? sky.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)) : sky;
+    if (skyKept.length) items.push(`<span class="wx-sky">${skyKept.join('')}</span>`);
+    el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sky/.test(h)).join('') : items.join('');
+    positionWeatherSky();
   }
+  // .wx-sky(たいよう・つき・ほし・くも)を、ペットの ステージの いちに あわせる
+  function positionWeatherSky() {
+    if (!el.weatherFx || !el.castStage) return;
+    const sky = el.weatherFx.querySelector('.wx-sky');
+    if (!sky) return;
+    let r = null;
+    try { r = el.castStage.getBoundingClientRect(); } catch (e) { r = null; }
+    // ホームの がめんが かくれている あいだ(おわかれカードなど)は ださない
+    if (!r || !r.width || (el.screenNormal && el.screenNormal.classList.contains('hidden'))) { sky.style.display = 'none'; return; }
+    sky.style.display = '';
+    sky.style.left = `${Math.round(r.left)}px`; sky.style.top = `${Math.round(r.top)}px`;
+    sky.style.width = `${Math.round(r.width)}px`; sky.style.height = `${Math.round(r.height)}px`;
+  }
+  if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', () => positionWeatherSky());
+
   // --- せかいの できごと: てんき・じかんたいに ちなんだ 小さな できごとが ときどき おこる ---
   const ENV_MOMENTS = {
     sunny: [
@@ -12707,7 +12914,7 @@
     const contextNote = eff.source === 'underwater' ? 'ここは水の中。地上の天気は届きません。' : eff.source === 'starry' ? 'ここでは、いつでも星空が見えます。' : '';
     el.environmentStatus.textContent = contextNote ? `${contextNote} 選んだ天気は地上へ戻ると反映されます。` : status;
     el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで調べられます。');
-    if (worldOpen) {
+    if (overlayIs('world')) {
       renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
       renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode,'time');
       renderSeasonModeGrid();
@@ -12953,7 +13160,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13282,6 +13489,417 @@
     return { score, best, prevBest: prev ? prev.best : null, isNewBest, rank: minigameRankOf(score), bestRank: minigameRankOf(best) };
   }
 
+  // ================================================================
+  // シールちょう
+  // ================================================================
+  // いままでの 絵(しゅぞくの すがた・なかま・こいびと・あいてむ・けしき)を
+  // シールに して あつめ、4つの ページに はって あそぶ。あつめた シールと
+  // はった ばしょは lifetime に のこる(「はじめから」でも きえない)。
+  //   ・てにいれかた: ずかんに はじめて のった すがた / なかまに なった /
+  //     こいびとに なった とき その シール、きょうの チャレンジ クリアで 1まい、
+  //     Sランクで 30%、あとは おかねで シールパック(3まい)
+  //   ・かぶった シールは「かけら」に なり、12こで あたらしい 1まいと こうかんできる
+  //   ・ページごとの「おだい」を たっせいすると おかねと かけらが もらえる
+  const STICKER_PAGES = [
+    { id: 'home', label: 'おうち', emoji: '🏠', colors: ['#ffe9f0', '#fff8e8', '#e9f5d8'] },
+    { id: 'travel', label: 'たび', emoji: '🗺️', colors: ['#cfe9ff', '#eaf7ff', '#d9f0c9'] },
+    { id: 'friends', label: 'なかま', emoji: '🐾', colors: ['#fff3cf', '#ffe6c2', '#f7d9b0'] },
+    { id: 'memory', label: 'きねん', emoji: '🎀', colors: ['#ece4ff', '#f8eaff', '#ffe6f2'] },
+  ];
+  const STICKER_RARITY = {
+    common: { label: 'ふつう', kakera: 1, weight: 70 },
+    uncommon: { label: 'めずらしい', kakera: 3, weight: 25 },
+    rare: { label: 'レア', kakera: 8, weight: 5 },
+  };
+  const STICKER_KINDS = { form: 'しゅぞく', companion: 'なかま', partner: 'こいびと', item: 'あいてむ', scenery: 'けしき' };
+  const STICKER_PACK_PRICE = 30;
+  const STICKER_PACK_SIZE = 3;
+  const STICKER_KAKERA_PACK = 12;
+  const STICKER_PAGE_MAX = 24;
+  const STICKER_SCENERY = [
+    ['cherry_blossom', 'さくら', '🌸'], ['sunflower', 'ひまわり', '🌻'], ['maple_leaf', 'もみじ', '🍁'], ['green_leaf', 'わかば', '🌿'],
+    ['tree', 'き', '🌳'], ['pine', 'まつ', '🌲'], ['palm', 'やしのき', '🌴'], ['cactus', 'サボテン', '🌵'],
+    ['snow_mountain', 'ゆきやま', '🏔️'], ['mountain', 'やま', '⛰️'], ['house', 'おうち', '🏠'], ['city', 'まち', '🏙️'],
+    ['wheat', 'むぎばたけ', '🌾'], ['wave', 'なみ', '🌊'], ['shell', 'かいがら', '🐚'], ['hibiscus', 'ハイビスカス', '🌺'],
+    ['sun', 'たいよう', '☀️'], ['cloud', 'くも', '☁️'], ['rain', 'あめ', '🌧️'], ['snow', 'ゆき', '❄️'],
+    ['moon', 'つき', '🌙'], ['sunrise', 'あさひ', '🌅'], ['sunset', 'ゆうやけ', '🌇'],
+  ];
+  let stickerCatalogCache = null;
+  function stickerCatalog() {
+    if (stickerCatalogCache) return stickerCatalogCache;
+    const list = [];
+    for (const line of ALL_LINES) {
+      const stages = (SPECIES[line] && SPECIES[line].stages) || [];
+      stages.forEach((stage, i) => {
+        const rare = RARE_LINES.includes(line) || line === 'ren';
+        list.push({
+          id: `form:${line}:${i}`, kind: 'form', label: stage.label, rarity: rare ? 'rare' : i >= 6 ? 'uncommon' : 'common',
+          secret: line === 'ren', art: { asset: stage.asset || '', emoji: stage.emoji || '❓' },
+          visual: () => stageVisualHTML(stage, 'thumb'),
+        });
+      });
+    }
+    for (const c of COMPANIONS) list.push({ id: `companion:${c.id}`, kind: 'companion', label: c.name, rarity: 'uncommon', art: { asset: c.asset || '', emoji: c.emoji }, visual: () => companionVisualHTML(c, 'thumb') });
+    for (const c of RARE_COMPANIONS) list.push({ id: `companion:${c.id}`, kind: 'companion', label: c.name, rarity: 'rare', art: { asset: c.asset || '', emoji: c.emoji }, visual: () => companionVisualHTML(c, 'thumb') });
+    for (const p of ALL_PARTNER_CANDIDATES) {
+      const aliasId = WORLD_MASTER?.compatibility?.partnerAliases?.[p.id] || p.id;
+      const def = WORLD_MASTER?.partners?.find((x) => x.id === aliasId);
+      list.push({ id: `partner:${p.id}`, kind: 'partner', label: p.label, rarity: 'uncommon', art: { asset: def?.asset || '', emoji: p.emoji || '💞' }, visual: () => partnerVisualHTML(p, 'thumb') });
+    }
+    for (const item of SHOP_ITEMS) list.push({ id: `item:${item.id}`, kind: 'item', label: item.label, rarity: 'common', art: { asset: '', emoji: item.emoji }, visual: () => itemIconHTML(item) });
+    for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
+    stickerCatalogCache = list;
+    return list;
+  }
+  let stickerIndexCache = null;
+  function stickerById(id) {
+    if (!stickerIndexCache) stickerIndexCache = new Map(stickerCatalog().map((s) => [s.id, s]));
+    return stickerIndexCache.get(id) || null;
+  }
+  function stickerSecretUnlocked(s) {
+    if (!s.secret) return true;
+    return state.discoveredStages.some((k) => k.startsWith('ren:'));
+  }
+  // パックから でる・かぞえる たいしょう(ひみつの しゅぞくは であってから)
+  function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s)); }
+  function stickerStore() {
+    const L = state.lifetime;
+    if (!L.stickers || typeof L.stickers !== 'object') L.stickers = { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] };
+    const s = L.stickers;
+    if (!s.owned || typeof s.owned !== 'object') s.owned = {};
+    if (!s.pages || typeof s.pages !== 'object') s.pages = {};
+    if (!Array.isArray(s.tasksDone)) s.tasksDone = [];
+    if (!Array.isArray(s.seen)) s.seen = [];
+    s.kakera = Math.max(0, Math.floor(Number(s.kakera) || 0));
+    s.packsOpened = Math.max(0, Math.floor(Number(s.packsOpened) || 0));
+    return s;
+  }
+  function ownedStickerCount(id) { return stickerStore().owned[id] || 0; }
+  function ownedStickerKinds(lifetime = state.lifetime) {
+    const owned = lifetime && lifetime.stickers && lifetime.stickers.owned;
+    return owned ? Object.keys(owned).filter((k) => owned[k] > 0).length : 0;
+  }
+  // もどり値 { sticker, dup, kakera }。かぶった ぶんは かけらに なる(まいすうも ふえるので、
+  // おなじ シールを もう1まい はる ことも できる)
+  function grantSticker(id, source) {
+    const sticker = stickerById(id);
+    if (!sticker) return null;
+    const store = stickerStore();
+    const dup = ownedStickerCount(id) > 0;
+    store.owned[id] = ownedStickerCount(id) + 1;
+    let kakera = 0;
+    if (dup) { kakera = STICKER_RARITY[sticker.rarity].kakera; store.kakera += kakera; }
+    return { sticker, dup, kakera, source: source || '' };
+  }
+  function drawRandomSticker(pool, onlyNew) {
+    let cand = pool;
+    if (onlyNew) { const fresh = pool.filter((s) => !ownedStickerCount(s.id)); if (fresh.length) cand = fresh; }
+    if (!cand.length) return null;
+    const byRarity = { common: [], uncommon: [], rare: [] };
+    for (const s of cand) byRarity[s.rarity].push(s);
+    const rarities = Object.keys(STICKER_RARITY).filter((r) => byRarity[r].length);
+    const total = rarities.reduce((a, r) => a + STICKER_RARITY[r].weight, 0);
+    let roll = Math.random() * total;
+    let picked = rarities[rarities.length - 1];
+    for (const r of rarities) { roll -= STICKER_RARITY[r].weight; if (roll <= 0) { picked = r; break; } }
+    const arr = byRarity[picked];
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+  // イベントで もらう 1まい(まだ もっていない ものが あれば それを ゆうせん)
+  function grantRandomSticker(source) {
+    const s = drawRandomSticker(stickerPackPool(), true);
+    return s ? grantSticker(s.id, source) : null;
+  }
+  let lastStickerPack = null;
+  function finishStickerPack(count, onlyNew, source) {
+    const store = stickerStore();
+    const pool = stickerPackPool();
+    const results = [];
+    for (let i = 0; i < count; i++) {
+      const s = drawRandomSticker(pool, onlyNew);
+      if (s) results.push(grantSticker(s.id, source));
+    }
+    store.packsOpened += 1;
+    lastStickerPack = results;
+    return results;
+  }
+  function openStickerPack() {
+    if (state.lifetime.money < STICKER_PACK_PRICE) { setMessage('おかねがたりない…'); return null; }
+    state.lifetime.money -= STICKER_PACK_PRICE;
+    const results = finishStickerPack(STICKER_PACK_SIZE, false, 'pack');
+    const fresh = results.filter((r) => !r.dup).length;
+    setMessage(fresh ? `🏷️シールパックをあけた!あたらしいシールが${fresh}まい` : '🏷️シールパックをあけた…ぜんぶ かぶり(かけらになった)');
+    emotePet('happy');
+    return results;
+  }
+  function openKakeraPack() {
+    const store = stickerStore();
+    if (store.kakera < STICKER_KAKERA_PACK) { setMessage('かけらがたりない…'); return null; }
+    store.kakera -= STICKER_KAKERA_PACK;
+    const results = finishStickerPack(1, true, 'kakera');
+    setMessage(results.length ? `✨かけらが「${results[0].sticker.label}」のシールになった!` : 'シールが なかった');
+    emotePet('happy');
+    return results;
+  }
+
+  // ---- ページ(はりつけ) ----
+  let stickerSerial = 0;
+  function stickerPage(pageId) {
+    const store = stickerStore();
+    if (!Array.isArray(store.pages[pageId])) store.pages[pageId] = [];
+    const page = store.pages[pageId];
+    for (const p of page) {
+      if (typeof p.k !== 'number') p.k = ++stickerSerial;
+      else stickerSerial = Math.max(stickerSerial, p.k);
+    }
+    return page;
+  }
+  function stickerPages() {
+    const out = {};
+    for (const pg of STICKER_PAGES) out[pg.id] = stickerPage(pg.id);
+    return out;
+  }
+  function placedStickerCount(id) {
+    return STICKER_PAGES.reduce((a, pg) => a + stickerPage(pg.id).filter((p) => p.id === id).length, 0);
+  }
+  // はる: ページの まんなか。x/y は ページの はば・たかさ に たいする 0〜1
+  function placeSticker(pageId, id, at) {
+    if (!STICKER_PAGES.some((pg) => pg.id === pageId) || !stickerById(id)) return null;
+    if (!ownedStickerCount(id)) { setMessage('そのシールは まだ もっていない'); return null; }
+    const page = stickerPage(pageId);
+    if (page.length >= STICKER_PAGE_MAX) { setMessage(`このページは いっぱい(${STICKER_PAGE_MAX}まいまで)`); return null; }
+    if (placedStickerCount(id) >= ownedStickerCount(id)) { setMessage('そのシールは もう はってある(かぶりが あれば もう1まい はれる)'); return null; }
+    const entry = { id, x: clamp(at && typeof at.x === 'number' ? at.x : 0.5, 0.05, 0.95), y: clamp(at && typeof at.y === 'number' ? at.y : 0.5, 0.05, 0.95), r: 0, s: 1, k: ++stickerSerial };
+    page.push(entry);
+    return entry;
+  }
+  function findPlacedSticker(pageId, key) { return stickerPage(pageId).find((p) => p.k === key) || null; }
+  function updateSticker(pageId, key, patch) {
+    const entry = findPlacedSticker(pageId, key);
+    if (!entry) return null;
+    if (typeof patch.x === 'number') entry.x = clamp(patch.x, 0.03, 0.97);
+    if (typeof patch.y === 'number') entry.y = clamp(patch.y, 0.03, 0.97);
+    if (typeof patch.r === 'number') entry.r = Math.round(((patch.r + 180) % 360 + 360) % 360 - 180);
+    if (typeof patch.s === 'number') entry.s = Math.round(clamp(patch.s, 0.5, 2.2) * 100) / 100;
+    if (patch.front) { const page = stickerPage(pageId); page.splice(page.indexOf(entry), 1); page.push(entry); }
+    return entry;
+  }
+  function removeSticker(pageId, key) {
+    const page = stickerPage(pageId);
+    const i = page.findIndex((p) => p.k === key);
+    if (i < 0) return false;
+    page.splice(i, 1);
+    return true;
+  }
+
+  // ---- おだい ----
+  const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
+  const STICKER_TASKS = [
+    { id: 'home-form-3', page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
+    { id: 'home-item-2', page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
+    { id: 'travel-scenery-3', page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
+    { id: 'travel-8', page: 'travel', label: 'たびの ページに 8まい はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
+    { id: 'friends-companion-3', page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
+    { id: 'friends-partner-1', page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { coins: 25, kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
+    { id: 'memory-elder-1', page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
+    { id: 'memory-rare-1', page: 'memory', label: 'きねんに レアな シールを はる', reward: { coins: 40, kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
+    { id: 'any-12', page: null, label: 'どれかの ページに 12まい はる', reward: { coins: 40, kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
+    { id: 'all-pages', page: null, label: '4つの ページ ぜんぶに はる', reward: { coins: 50, kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
+  ];
+  // たっせいした おだいを かえす(ほうびは ここで わたす。1かいだけ)
+  function checkStickerTasks() {
+    const store = stickerStore();
+    const pages = stickerPages();
+    const done = [];
+    for (const task of STICKER_TASKS) {
+      if (store.tasksDone.includes(task.id)) continue;
+      let ok = false;
+      try { ok = !!task.check(pages); } catch (err) { ok = false; }
+      if (!ok) continue;
+      store.tasksDone.push(task.id);
+      state.lifetime.money += task.reward.coins;
+      store.kakera += task.reward.kakera;
+      done.push(task);
+      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」💰+${task.reward.coins}・かけら+${task.reward.kakera}` });
+    }
+    return done;
+  }
+
+  // ---- がめん ----
+  let stickerCurrentPage = 'home';
+  let stickerSelected = null;
+  let stickerFilterKind = 'owned';
+  let stickerNewIds = new Set();
+  let stickerDrag = null;
+  function setStickerPage(pageId) {
+    if (!STICKER_PAGES.some((pg) => pg.id === pageId)) return;
+    stickerCurrentPage = pageId;
+    stickerSelected = null;
+  }
+  // ひらいた ときに「まえに ひらいてから ふえた シール」を NEW に する
+  function stickerOpened() {
+    const store = stickerStore();
+    const ownedIds = Object.keys(store.owned).filter((k) => store.owned[k] > 0);
+    stickerNewIds = new Set(ownedIds.filter((id) => !store.seen.includes(id)));
+    store.seen = ownedIds;
+    stickerSelected = null;
+    if (el.stickerPackResult) el.stickerPackResult.classList.add('hidden');
+    if (el.stickerExportView) el.stickerExportView.classList.add('hidden');
+  }
+  function stickerPlacedHTML(p, selected) {
+    const s = stickerById(p.id);
+    if (!s) return '';
+    return `<div class="sticker-placed${selected ? ' selected' : ''}" data-key="${p.k}" style="left:${(p.x * 100).toFixed(2)}%;top:${(p.y * 100).toFixed(2)}%;transform:translate(-50%,-50%) rotate(${p.r}deg) scale(${p.s})" title="${escapeHtml(s.label)}">${s.visual()}</div>`;
+  }
+  function renderStickerBoard() {
+    if (!el.stickerBoard) return;
+    const page = stickerPage(stickerCurrentPage);
+    el.stickerBoard.className = `sticker-board page-${stickerCurrentPage}`;
+    el.stickerBoard.dataset.page = stickerCurrentPage;
+    setHTMLIfChanged(el.stickerBoard, page.map((p) => stickerPlacedHTML(p, p.k === stickerSelected)).join('') || '<div class="sticker-board-empty">まだ なにも はっていない</div>');
+    if (el.stickerTools) el.stickerTools.classList.toggle('hidden', stickerSelected == null || !findPlacedSticker(stickerCurrentPage, stickerSelected));
+  }
+  function renderStickerOverlay() {
+    if (!el.stickerOverlay) return;
+    const store = stickerStore();
+    const pool = stickerPackPool();
+    const ownedKinds = pool.filter((s) => ownedStickerCount(s.id) > 0).length;
+    el.stickerProgress.textContent = `${ownedKinds} / ${pool.length}`;
+    setHTMLIfChanged(el.stickerPageTabs, STICKER_PAGES.map((pg) => `<button type="button" class="ach-tab${pg.id === stickerCurrentPage ? ' active' : ''}" data-page="${pg.id}" role="tab" aria-selected="${pg.id === stickerCurrentPage}">${pg.emoji} ${pg.label}<small>${stickerPage(pg.id).length}</small></button>`).join(''));
+    renderStickerBoard();
+    // おだい: いまの ページの ものと、ページを とわない もの
+    const tasks = STICKER_TASKS.filter((t) => t.page === stickerCurrentPage || t.page === null);
+    setHTMLIfChanged(el.stickerTasks, tasks.map((t) => {
+      const done = store.tasksDone.includes(t.id);
+      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">💰${t.reward.coins}・かけら${t.reward.kakera}</span></div>`;
+    }).join(''));
+    el.stickerPackBtn.innerHTML = `🎁 シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
+    el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE;
+    el.stickerKakeraBtn.textContent = `✨ かけらで あたらしい1まい(かけら ${store.kakera}/${STICKER_KAKERA_PACK})`;
+    el.stickerKakeraBtn.disabled = store.kakera < STICKER_KAKERA_PACK;
+    el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・かけら ${store.kakera}`;
+    const filters = [['owned', 'もっている'], ...Object.entries(STICKER_KINDS)];
+    setHTMLIfChanged(el.stickerFilter, filters.map(([k, label]) => `<button type="button" class="ach-tab${k === stickerFilterKind ? ' active' : ''}" data-filter="${k}">${label}</button>`).join(''));
+    const shown = stickerFilterKind === 'owned' ? pool.filter((s) => ownedStickerCount(s.id) > 0) : pool.filter((s) => s.kind === stickerFilterKind);
+    setHTMLIfChanged(el.stickerTray, shown.length ? shown.map((s) => {
+      const owned = ownedStickerCount(s.id);
+      if (!owned) return `<button type="button" class="sticker-cell locked rarity-${s.rarity}" disabled><span class="sticker-cell-art">❓</span><span class="sticker-cell-label">？？？</span></button>`;
+      const placed = placedStickerCount(s.id);
+      const used = placed >= owned;
+      return `<button type="button" class="sticker-cell rarity-${s.rarity}${used ? ' used' : ''}${stickerNewIds.has(s.id) ? ' new' : ''}" data-sticker="${s.id}" aria-label="${escapeHtml(s.label)}を はる">${owned > 1 ? `<span class="sticker-cell-count">×${owned}</span>` : ''}<span class="sticker-cell-art">${s.visual()}</span><span class="sticker-cell-label">${escapeHtml(s.label)}</span>${used ? '<span class="sticker-cell-used">はった</span>' : ''}</button>`;
+    }).join('') : '<div class="profile-hint">まだ シールが ない。パックを あけるか、あそんで あつめよう</div>');
+  }
+  function renderStickerPackResult(results) {
+    if (!el.stickerPackResult) return;
+    if (!results || !results.length) { el.stickerPackResult.classList.add('hidden'); return; }
+    el.stickerPackResult.innerHTML = results.map((r) => `<div class="sticker-pack-card rarity-${r.sticker.rarity}"><span class="sticker-cell-art">${r.sticker.visual()}</span><span>${escapeHtml(r.sticker.label)}</span><span class="${r.dup ? 'badge-dup' : 'badge-new'}">${r.dup ? `かぶり(かけら+${r.kakera})` : 'NEW!'}</span><span class="sticker-pack-rarity">${STICKER_RARITY[r.sticker.rarity].label}</span></div>`).join('');
+    el.stickerPackResult.classList.remove('hidden');
+  }
+  // ページを 1まいの 画像(PNG の data URL)に する。canvas が つかえない ときは null
+  const stickerImageCache = new Map();
+  function loadStickerImage(src) {
+    if (!stickerImageCache.has(src)) {
+      stickerImageCache.set(src, new Promise((resolve) => {
+        if (typeof Image === 'undefined') { resolve(null); return; }
+        const im = new Image();
+        im.onload = () => resolve(im);
+        im.onerror = () => resolve(null);
+        im.src = src;
+      }));
+    }
+    return stickerImageCache.get(src);
+  }
+  async function exportStickerPageImage(pageId) {
+    const pg = STICKER_PAGES.find((p) => p.id === pageId);
+    if (!pg || typeof document === 'undefined') return null;
+    const cv = document.createElement('canvas');
+    const Wc = 640, Hc = 480;
+    cv.width = Wc; cv.height = Hc;
+    const ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx || typeof ctx.fillRect !== 'function' || typeof cv.toDataURL !== 'function') return null;
+    const g = ctx.createLinearGradient(0, 0, 0, Hc);
+    g.addColorStop(0, pg.colors[0]); g.addColorStop(0.5, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, Wc, Hc);
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    for (let y = 8; y < Hc; y += 28) for (let x = 8; x < Wc; x += 28) { ctx.beginPath(); ctx.arc(x, y, 1.5, 0, Math.PI * 2); ctx.fill(); }
+    for (const p of stickerPage(pageId)) {
+      const s = stickerById(p.id);
+      if (!s) continue;
+      const size = 96 * p.s;
+      const img = s.art.asset ? await loadStickerImage(s.art.asset) : null;
+      ctx.save();
+      ctx.translate(p.x * Wc, p.y * Hc);
+      ctx.rotate(p.r * Math.PI / 180);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.shadowColor = 'rgba(0,0,0,0.25)'; ctx.shadowBlur = 6; ctx.shadowOffsetY = 2;
+      ctx.beginPath(); ctx.arc(0, 0, size * 0.54, 0, Math.PI * 2); ctx.fill();
+      ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+      if (img) ctx.drawImage(img, -size / 2, -size / 2, size, size);
+      else { ctx.font = `${Math.round(size * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#222'; ctx.fillText(s.art.emoji || '❓', 0, size * 0.04); }
+      ctx.restore();
+    }
+    ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillStyle = 'rgba(60,40,60,0.75)';
+    ctx.fillText(`${pg.emoji} ${pg.label}`, 14, 30);
+    ctx.font = '12px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText('なおとっち シールちょう', Wc - 12, Hc - 12);
+    try { return cv.toDataURL('image/png'); } catch (err) { return null; }
+  }
+  function stickerBoardPoint(e) {
+    const rect = el.stickerBoard.getBoundingClientRect();
+    const w = rect.width || 1, h = rect.height || 1;
+    return { x: (e.clientX - rect.left) / w, y: (e.clientY - rect.top) / h };
+  }
+  function bindStickerBoard() {
+    if (!el.stickerBoard) return;
+    el.stickerBoard.addEventListener('pointerdown', (e) => {
+      const target = e.target && e.target.closest ? e.target.closest('.sticker-placed') : null;
+      if (!target) {
+        if (stickerSelected != null) { stickerSelected = null; renderStickerBoard(); }
+        return;
+      }
+      if (e.preventDefault) e.preventDefault();
+      const key = Number(target.dataset.key);
+      const entry = findPlacedSticker(stickerCurrentPage, key);
+      if (!entry) return;
+      stickerSelected = key;
+      const p = stickerBoardPoint(e);
+      stickerDrag = { key, entry, pointerId: e.pointerId, dx: entry.x - p.x, dy: entry.y - p.y, node: target, moved: false };
+      try { if (el.stickerBoard.setPointerCapture) el.stickerBoard.setPointerCapture(e.pointerId); } catch (err) {}
+      renderStickerBoard();
+    });
+    el.stickerBoard.addEventListener('pointermove', (e) => {
+      if (!stickerDrag || e.pointerId !== stickerDrag.pointerId) return;
+      const p = stickerBoardPoint(e);
+      updateSticker(stickerCurrentPage, stickerDrag.key, { x: p.x + stickerDrag.dx, y: p.y + stickerDrag.dy });
+      stickerDrag.moved = true;
+      const node = el.stickerBoard.querySelector(`.sticker-placed[data-key="${stickerDrag.key}"]`) || stickerDrag.node;
+      if (node && node.style) { node.style.left = `${(stickerDrag.entry.x * 100).toFixed(2)}%`; node.style.top = `${(stickerDrag.entry.y * 100).toFixed(2)}%`; }
+    });
+    const endDrag = (e) => {
+      if (!stickerDrag || (e && e.pointerId != null && e.pointerId !== stickerDrag.pointerId)) return;
+      const moved = stickerDrag.moved;
+      stickerDrag = null;
+      if (moved) { saveState(); renderStickerBoard(); }
+    };
+    el.stickerBoard.addEventListener('pointerup', endDrag);
+    el.stickerBoard.addEventListener('pointercancel', endDrag);
+  }
+  function stickerToolAction(act) {
+    if (stickerSelected == null) return;
+    const entry = findPlacedSticker(stickerCurrentPage, stickerSelected);
+    if (!entry) return;
+    if (act === 'rot-') updateSticker(stickerCurrentPage, entry.k, { r: entry.r - 15 });
+    else if (act === 'rot+') updateSticker(stickerCurrentPage, entry.k, { r: entry.r + 15 });
+    else if (act === 'size-') updateSticker(stickerCurrentPage, entry.k, { s: entry.s - 0.15 });
+    else if (act === 'size+') updateSticker(stickerCurrentPage, entry.k, { s: entry.s + 0.15 });
+    else if (act === 'front') updateSticker(stickerCurrentPage, entry.k, { front: true });
+    else if (act === 'remove') { removeSticker(stickerCurrentPage, entry.k); stickerSelected = null; }
+    audio.play('tap');
+    checkStickerTasks();
+    saveState();
+    render();
+  }
+
   let mgResultToastTimer = null;
   function showMinigameResultToast(result) {
     if (!el.mgResultToast || !result) return;
@@ -13290,13 +13908,24 @@
     if (result.prevBest == null) sub = 'はじめての記録!';
     else if (result.isNewBest) { sub = `自己ベスト更新!${result.prevBest} → ${result.score}`; subClass += ' new-best'; }
     else sub = `自己ベスト${result.best}点(ランク${result.bestRank})`;
-    el.mgResultToast.innerHTML = `<span class="mg-rank rank-${result.rank}">${result.rank}</span><div class="mg-result-body"><span class="mg-result-score">${result.score}点</span><span class="${subClass}">${sub}</span></div>`;
+    // 「もういちど」= おなじ ゲームを すぐ やりなおす(ランダムに もどらない)。
+    // げんき/ねむり などの じょうけんは tryStartPlay が いつもどおり みる
+    const retry = lastMinigame ? `<button type="button" class="mg-retry-btn" id="mgRetryBtn">🔁 もういちど</button>` : '';
+    el.mgResultToast.innerHTML = `<span class="mg-rank rank-${result.rank}">${result.rank}</span><div class="mg-result-body"><span class="mg-result-score">${result.score}点</span><span class="${subClass}">${sub}</span></div>${retry}`;
+    const retryBtn = el.mgResultToast.querySelector('#mgRetryBtn');
+    if (retryBtn) retryBtn.addEventListener('click', (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      clearTimeout(mgResultToastTimer);
+      el.mgResultToast.classList.add('hidden');
+      if (lastMinigame) tryStartPlay(lastMinigame);
+    });
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
     el.mgResultToast.classList.add('hidden');
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
     clearTimeout(mgResultToastTimer);
-    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), 3600);
+    // ボタンが あるときは おす よゆうを もたせて ながめに 出す
+    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), retry ? 6000 : 3600);
   }
 
   let lastMinigame = null;
@@ -13532,8 +14161,27 @@
   // けいりょうモード: ゲーム中の フレーム間かくを はかり、へいきんが 30ms を
   // こえたら(おおよそ 33fps 未満)、それいこうの canvas を かいぞうど 1 で
   // つくり、星などの かざりを へらす(このセッションの あいだ ゆうこう)
-  let mgPerfLow = false;
-  const mgPerf = { last: 0, samples: [] };
+  // 3だんかい: 0 = ふつう(かいぞうど 2、かざり 100%)、1 = すこし かるく
+  // (かいぞうど 1.5、かざり 65%)、2 = かるく(かいぞうど 1、かざり 40%)。
+  // 90フレームの へいきんが 22ms を こえたら 1、34ms を こえたら 2 に あげる。
+  // 14ms 未満の まどが 3かい つづいたら 1だん もどす(いちど おもかった
+  // だけで ずっと かるい ままに ならない ように)
+  const MG_PERF_TIERS = [
+    { dpr: 2, scale: 1 },
+    { dpr: 1.5, scale: 0.65 },
+    { dpr: 1, scale: 0.4 },
+  ];
+  let mgPerfTier = 0;
+  let mgPerfLow = false; // tier 2 の べつめい(かざりを へらす きゅうしきの フラグ)
+  const mgPerf = { last: 0, samples: [], fastStreak: 0 };
+  function setPerfTier(tier) {
+    mgPerfTier = clamp(tier, 0, MG_PERF_TIERS.length - 1);
+    mgPerfLow = mgPerfTier >= 2;
+  }
+  const mgPerfDpr = () => MG_PERF_TIERS[mgPerfTier].dpr;
+  const mgPerfScale = () => MG_PERF_TIERS[mgPerfTier].scale;
+  // かざりの こすう: full(ふつう)〜 low(いちばん かるい)を tier で わける
+  const perfCount = (full, low) => mgPerfTier >= 2 ? low : mgPerfTier === 1 ? Math.round((full + low) / 2) : full;
   function mgPerfSample() {
     const t = performance.now();
     const dt = t - mgPerf.last; mgPerf.last = t;
@@ -13542,7 +14190,11 @@
     if (mgPerf.samples.length < 90) return;
     const avg = mgPerf.samples.reduce((a, b) => a + b, 0) / mgPerf.samples.length;
     mgPerf.samples = [];
-    if (avg > 30 && !mgPerfLow) mgPerfLow = true;
+    if (avg > 34) { setPerfTier(2); mgPerf.fastStreak = 0; }
+    else if (avg > 22) { setPerfTier(Math.max(mgPerfTier, 1)); mgPerf.fastStreak = 0; }
+    else if (avg < 14 && mgPerfTier > 0) {
+      if (++mgPerf.fastStreak >= 3) { setPerfTier(mgPerfTier - 1); mgPerf.fastStreak = 0; }
+    } else mgPerf.fastStreak = 0;
   }
   let mgSession = 0;        // いま うごいている ゲームの セッション番号(0 = なし)
   let mgSessionSerial = 0;
@@ -13800,11 +14452,16 @@
       const reward = dailyStreakReward(streak);
       state.lifetime.money += reward.coins;
       grantGrowthBoost(BOOST_TICKS_DAILY);
-      resultMessage += `／🗓️今日のチャレンジクリア!／💰+${reward.coins}／✨せいちょう2ばい(10分)${streak >= 2 ? `／🔥${streak}日連続` : ''}${reward.milestone ? `／🎉${reward.milestone}` : ''}`;
+      const dailySticker = grantRandomSticker('daily');
+      resultMessage += `／🗓️今日のチャレンジクリア!／💰+${reward.coins}／✨せいちょう2ばい(10分)${streak >= 2 ? `／🔥${streak}日連続` : ''}${reward.milestone ? `／🎉${reward.milestone}` : ''}${dailySticker ? `／🏷️シール「${dailySticker.sticker.label}」` : ''}`;
     }
     if (record && record.rank === 'S' && !activeMinigameDaily) {
       grantGrowthBoost(BOOST_TICKS_S_RANK);
       resultMessage += '／✨Sランク!せいちょう2ばいを2分追加（合計10分まで）';
+      if (Math.random() < 0.3) {
+        const st = grantRandomSticker('srank');
+        if (st) resultMessage += `／🏷️シール「${st.sticker.label}」をもらった`;
+      }
     }
     if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
@@ -13824,6 +14481,7 @@
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
           if (!record.includes(companion.id)) record.push(companion.id);
+          grantSticker(`companion:${companion.id}`, 'companion');
           if (state.lifetime.companionFriendshipProgress) {
             delete state.lifetime.companionFriendshipProgress[companion.id];
           }
@@ -13897,6 +14555,7 @@
     el.courtBtn.disabled = true;
     el.travelBtn.disabled = true;
     el.dexBtn.disabled = true;
+    el.stickerBtn.disabled = true;
     el.achBtn.disabled = true;
     el.themeBtn.disabled = true;
     el.itemBtn.disabled = true;
@@ -13927,10 +14586,104 @@
     return !!game.id && !minigameRecordOf(game) && minigamePlayCount(game) <= 1;
   }
 
+  // そうさ せつめいの 文から「ゆびを どう うごかす ゲームか」を きめる。
+  // はじめての ゲームの せつめいカードに、その うごきの 小さな アニメを 出す
+  // (文字だけより「なぞる」「はらう」「おしっぱなし」が ひとめで わかる)
+  const MG_DEMO_KINDS = ['swipe', 'drag', 'dpad', 'hold', 'tap'];
+  function minigameDemoKind(game) {
+    const text = (game && MINIGAME_CONTROLS[game.id]) || '';
+    if (/スワイプ|はら[っう]|フリック|なぞって|なぞる/.test(text)) return 'swipe';
+    if (/ドラッグ|引っぱ|ひっぱ|なぞ/.test(text)) return 'drag';
+    if (/◀▶|↶↷|▲|▼|◀|▶/.test(text)) return 'dpad';
+    if (/長おし|おしっぱなし|おさえ|ためて|おしている間|おしている あいだ/.test(text)) return 'hold';
+    return 'tap';
+  }
+
+  // 2.4びょうで ひとまわりする ゆびの アニメ。ctx が ない(smoke-test の
+  // ダミーDOM)ときは なにも しない。もどり値は とめる かんすう
+  function startIntroDemo(canvas, kind) {
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (!ctx) return () => {};
+    const W = canvas.width, H = canvas.height;
+    const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const PERIOD = 2400;
+    let raf = 0, stopped = false;
+    const t0 = performance.now();
+    const ease = (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const finger = (x, y, pressed) => {
+      ctx.save();
+      ctx.beginPath(); ctx.arc(x, y + (pressed ? 0 : -6), pressed ? 11 : 12, 0, Math.PI * 2);
+      ctx.fillStyle = pressed ? 'rgba(255, 200, 150, 0.95)' : 'rgba(255, 220, 190, 0.85)';
+      ctx.fill(); ctx.strokeStyle = 'rgba(120, 70, 40, 0.8)'; ctx.lineWidth = 2; ctx.stroke();
+      if (pressed) { ctx.beginPath(); ctx.arc(x, y, 18, 0, Math.PI * 2); ctx.strokeStyle = 'rgba(80, 120, 200, 0.55)'; ctx.lineWidth = 2; ctx.stroke(); }
+      ctx.restore();
+    };
+    const button = (x, y, label, on) => {
+      ctx.save();
+      ctx.fillStyle = on ? '#7cc0ff' : 'rgba(255, 255, 255, 0.95)';
+      ctx.strokeStyle = 'rgba(60, 80, 120, 0.6)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - 18, y - 14, 36, 28, 8) : ctx.rect(x - 18, y - 14, 36, 28); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#233'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y + 1);
+      ctx.restore();
+    };
+    const arrow = (x1, y1, x2, y2) => {
+      ctx.save(); ctx.strokeStyle = 'rgba(80, 120, 200, 0.7)'; ctx.fillStyle = 'rgba(80, 120, 200, 0.7)'; ctx.lineWidth = 3; ctx.setLineDash([6, 5]);
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]);
+      const a = Math.atan2(y2 - y1, x2 - x1);
+      ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - 10 * Math.cos(a - 0.5), y2 - 10 * Math.sin(a - 0.5)); ctx.lineTo(x2 - 10 * Math.cos(a + 0.5), y2 - 10 * Math.sin(a + 0.5)); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    };
+    const draw = (p) => {
+      ctx.clearRect(0, 0, W, H);
+      const cx = W / 2, cy = H / 2;
+      if (kind === 'tap') {
+        const beat = (p * 2) % 1;
+        const pressed = beat < 0.3;
+        if (pressed) { const r = 14 + beat * 60; ctx.save(); ctx.globalAlpha = Math.max(0, 1 - beat / 0.3); ctx.strokeStyle = '#7cc0ff'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+        finger(cx, cy, pressed);
+      } else if (kind === 'swipe') {
+        const half = p < 0.5;
+        const q = ease((p % 0.5) * 2);
+        if (half) { arrow(cx - 60, cy, cx + 60, cy); finger(cx - 60 + 120 * q, cy, q < 0.85); }
+        else { arrow(cx, cy + 30, cx, cy - 30); finger(cx, cy + 30 - 60 * q, q < 0.85); }
+      } else if (kind === 'drag') {
+        const q = ease(Math.min(1, p / 0.7));
+        const tx = cx + 60, ty = cy + 10;
+        ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = 'rgba(60, 80, 120, 0.6)'; ctx.lineWidth = 2; ctx.strokeRect(tx - 16, ty - 16, 32, 32); ctx.restore();
+        const ox = cx - 60 + (tx - (cx - 60)) * q, oy = cy + 10 + (ty - (cy + 10)) * q;
+        ctx.save(); ctx.fillStyle = '#ffb347'; ctx.strokeStyle = 'rgba(120, 70, 20, 0.7)'; ctx.lineWidth = 2; ctx.fillRect(ox - 14, oy - 14, 28, 28); ctx.strokeRect(ox - 14, oy - 14, 28, 28); ctx.restore();
+        finger(ox + 4, oy + 4, p < 0.72);
+      } else if (kind === 'hold') {
+        const q = Math.min(1, p / 0.7);
+        button(cx, cy + 8, '●', p < 0.75);
+        ctx.save(); ctx.strokeStyle = '#3aa0ff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(cx, cy + 8, 26, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * q); ctx.stroke(); ctx.restore();
+        finger(cx + 6, cy + 12, p < 0.75);
+      } else {
+        const half = p < 0.5;
+        const q = ease((p % 0.5) * 2);
+        button(cx - 60, cy + 14, '◀', half && q < 0.6);
+        button(cx + 60, cy + 14, '▶', !half && q < 0.6);
+        const tokenX = half ? cx + 24 - 48 * Math.min(1, q / 0.6) : cx - 24 + 48 * Math.min(1, q / 0.6);
+        ctx.save(); ctx.font = '22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🐣', tokenX, cy - 18); ctx.restore();
+        finger(half ? cx - 54 : cx + 66, cy + 18, q < 0.6);
+      }
+    };
+    const frame = (now) => {
+      if (stopped) return;
+      draw(((now - t0) % PERIOD) / PERIOD);
+      if (!reduced) raf = requestAnimationFrame(frame);
+    };
+    frame(performance.now());
+    return () => { stopped = true; if (raf) cancelAnimationFrame(raf); };
+  }
+  let stopIntroDemo = null;
+
   function renderMinigameIntro(game, onStart) {
     const info = minigameInfo(game);
     const controls = MINIGAME_CONTROLS[game.id] || '';
     const genre = MINIGAME_GENRES.find((x) => x.id === minigameGenreId(game));
+    const demoKind = minigameDemoKind(game);
     el.minigameOverlay.innerHTML = `
       <div class="mg-intro">
         <div class="mg-intro-badge">✨はじめてのゲーム</div>
@@ -13938,13 +14691,15 @@
         <div class="mg-intro-name">${info.name}</div>
         <div class="mg-intro-genre">${genre ? `${genre.emoji} ${genre.label}` : ''}</div>
         <div class="mg-intro-desc">${info.desc}</div>
-        <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div>${controls}</div>
+        <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div><canvas class="mg-intro-demo" id="mgIntroDemo" width="220" height="90" data-demo="${demoKind}" aria-hidden="true"></canvas>${controls}</div>
         <button type="button" class="mg-tap-btn primary mg-intro-start" id="mgIntroStart" data-key="action">▶ はじめる</button>
         <div class="mg-intro-note">次からはすぐはじまるよ</div>
       </div>`;
+    if (stopIntroDemo) stopIntroDemo();
+    stopIntroDemo = startIntroDemo(el.minigameOverlay.querySelector('#mgIntroDemo'), demoKind);
     const btn = el.minigameOverlay.querySelector('#mgIntroStart');
     let started = false;
-    const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; onStart(); };
+    const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; if (stopIntroDemo) { stopIntroDemo(); stopIntroDemo = null; } onStart(); };
     btn.addEventListener('pointerdown', go);
     btn.addEventListener('click', go);
   }
@@ -13972,10 +14727,10 @@
     try { recoverSleepStepInner(); } finally { sleepStepBusy = false; }
   }
   function recoverSleepStepInner() {
-    // 100ms ごと。0→100 が やく 45びょう(以前は 1.8/100ms で 6びょうたらず、
-    // げんきが リソースとして 意味を なしていなかった)
-    const boost = isEquipped('sleepboost1') ? 0.06 : 0;
-    const step = ((state.isSick ? 0.14 : 0.22) + boost) * envModifiers().sleep;
+    // 100ms ごと。0→100 が やく 17びょう(はやすぎると げんきの 意味が なくなり、
+    // おそすぎると あそびに もどれない。その あいだの はやさ)
+    const boost = isEquipped('sleepboost1') ? 0.12 : 0;
+    const step = ((state.isSick ? 0.38 : 0.6) + boost) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();
@@ -14672,6 +15427,7 @@
       state.happiness = clamp(state.happiness + 8, 0, 100);
       applyGrowth(10); applyDecline(-5);
       pushLifeLog('💑', `${candidate.label}とこいびとになった`);
+      if (candidate.id !== 'guest') grantSticker(`partner:${candidate.id}`, 'partner');
       // おきゃくさんと こいびとに なれたら、その しゅぞく・すがたを
       // 「ずかん」にも きねんに 記録する(じぶんで そだてていなくても)
       if (candidate.id === 'guest' && state.guest) {
@@ -14703,11 +15459,11 @@
   }));
 
   el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
-  el.menuCloseBtn.addEventListener('click', () => { menuOpen = false; render(); });
+  el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
   el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
   el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
-  el.worldCloseBtn.addEventListener('click', () => { worldOpen = false; render(); });
+  el.worldCloseBtn.addEventListener('click', () => { closeOverlay('world'); render(); });
   el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
   el.seasonModeGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
@@ -14757,7 +15513,7 @@
   el.currentLocationBtn.addEventListener('click', async () => {
     const intent = ++currentLocationIntent;
     const info = await requestEnvironment();
-    if (intent !== currentLocationIntent || !travelOpen || !info?.municipality) return;
+    if (intent !== currentLocationIntent || !overlayIs('travel') || !info?.municipality) return;
     if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
@@ -14789,8 +15545,7 @@
     // どちらの ぶんき(ねている/じっさいに たびに でる)でも さいごに
     // かならず saveState()/render() まで とおるよう、はやい return は
     // つかわず if/else で くみたてる
-    travelOpen = false;
-    worldOpen = false;
+    if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     if (state.isSleeping) {
       setMessage(randomBlockedMessage('sleepingTravel'));
       saveState();
@@ -14991,7 +15746,7 @@
   // 「あたらしい たまごを むかえる」: いまの子だけ リセット。ずかん・じっせき・
   // おかね・アイテム・おもいでは のこる(せっていがめんから いつでも おせる)
   el.softResetBtn.addEventListener('click', withFeedback(() => {
-    themeOpen = false;
+    closeOverlay('theme');
     el.resetBtn.click();
   }));
 
@@ -15062,10 +15817,7 @@
     saveWriteBlocked = false;
     state = freshState();
     el.wipeConfirmOverlay.classList.add('hidden');
-    themeOpen = false;
-    dexOpen = false;
-    achOpen = false;
-    itemOpen = false;
+    activeOverlay = null;
     setMessage('ぜんぶきえました。はじめまして!');
     saveState();
     render();
@@ -15130,7 +15882,7 @@
   el.dexBtn.addEventListener('click', () => openExclusiveMenu('dex'));
 
   el.dexCloseBtn.addEventListener('click', () => {
-    dexOpen = false;
+    closeOverlay('dex');
     dexDetail = null;
     render();
   });
@@ -15171,7 +15923,7 @@
   el.achBtn.addEventListener('click', () => { achTab = 'ach'; openExclusiveMenu('ach'); });
 
   el.achCloseBtn.addEventListener('click', () => {
-    achOpen = false;
+    closeOverlay('ach');
     render();
   });
   if (el.achTabs) {
@@ -15203,9 +15955,62 @@
   }
 
   el.themeBtn.addEventListener('click', () => openExclusiveMenu('theme'));
+  // ---- シールちょう ----
+  el.stickerBtn.addEventListener('click', () => openExclusiveMenu('sticker'));
+  el.stickerCloseBtn.addEventListener('click', () => { closeOverlay('sticker'); render(); });
+  el.stickerPageTabs.addEventListener('click', (e) => {
+    const btn = e.target && e.target.closest ? e.target.closest('[data-page]') : null;
+    if (!btn) return;
+    setStickerPage(btn.dataset.page);
+    audio.play('tap');
+    render();
+  });
+  el.stickerFilter.addEventListener('click', (e) => {
+    const btn = e.target && e.target.closest ? e.target.closest('[data-filter]') : null;
+    if (!btn) return;
+    stickerFilterKind = btn.dataset.filter;
+    render();
+  });
+  el.stickerTray.addEventListener('click', (e) => {
+    const btn = e.target && e.target.closest ? e.target.closest('[data-sticker]') : null;
+    if (!btn || btn.disabled) return;
+    // すこし ばらして はる(まんなかに かさならない ように)
+    const n = stickerPage(stickerCurrentPage).length;
+    const entry = placeSticker(stickerCurrentPage, btn.dataset.sticker, { x: 0.3 + (n % 5) * 0.1, y: 0.3 + (Math.floor(n / 5) % 4) * 0.13 });
+    if (entry) { stickerSelected = entry.k; audio.play('good'); checkStickerTasks(); saveState(); }
+    render();
+  });
+  el.stickerTools.addEventListener('click', (e) => {
+    const btn = e.target && e.target.closest ? e.target.closest('[data-act]') : null;
+    if (!btn) return;
+    stickerToolAction(btn.dataset.act);
+  });
+  el.stickerPackBtn.addEventListener('click', () => {
+    const results = openStickerPack();
+    if (results) { audio.play('levelup'); saveState(); }
+    render();
+    renderStickerPackResult(results);
+  });
+  el.stickerKakeraBtn.addEventListener('click', () => {
+    const results = openKakeraPack();
+    if (results) { audio.play('levelup'); saveState(); }
+    render();
+    renderStickerPackResult(results);
+  });
+  el.stickerExportBtn.addEventListener('click', () => {
+    const pg = STICKER_PAGES.find((p) => p.id === stickerCurrentPage);
+    el.stickerExportView.innerHTML = '<p class="profile-hint">がぞうを つくっている…</p>';
+    el.stickerExportView.classList.remove('hidden');
+    exportStickerPageImage(stickerCurrentPage).then((url) => {
+      el.stickerExportView.innerHTML = url
+        ? `<img src="${url}" alt="シールちょう ${pg ? pg.label : ''}"><p class="profile-hint">がぞうを ながおしすると ほぞんできる</p>`
+        : '<p class="profile-hint">この たんまつでは がぞうに できなかった</p>';
+    }).catch(() => { el.stickerExportView.innerHTML = '<p class="profile-hint">この たんまつでは がぞうに できなかった</p>'; });
+  });
+  bindStickerBoard();
 
   el.themeCloseBtn.addEventListener('click', () => {
-    themeOpen = false;
+    closeOverlay('theme');
     render();
   });
 
@@ -15236,7 +16041,7 @@
   el.itemBtn.addEventListener('click', () => openExclusiveMenu('item'));
 
   el.itemCloseBtn.addEventListener('click', () => {
-    itemOpen = false;
+    closeOverlay('item');
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -15326,7 +16131,7 @@
   el.profileBtn.addEventListener('click', () => openExclusiveMenu('profile'));
 
   el.profileCloseBtn.addEventListener('click', () => {
-    profileOpen = false;
+    closeOverlay('profile');
     render();
   });
 
@@ -15336,14 +16141,14 @@
   });
 
   el.commCloseBtn.addEventListener('click', () => {
-    commOpen = false;
+    closeOverlay('comm');
     render();
   });
 
   el.openDuelBtn.addEventListener('click', () => {
-    dexOpen = false; achOpen = false; themeOpen = false; profileOpen = false;
-    itemOpen = false; worldOpen = false; travelOpen = false; dateOpen = false;
-    // うそつきしょうぶだけは「つうしん」の子画面なので、commOpen は残す。
+    if (!overlayIs('comm')) activeOverlay = null;
+    dateOpen = false;
+    // うそつきしょうぶだけは「つうしん」の子画面なので、つうしん画面は残す。
     duelOpen = true;
     goToDuelStep(duelResumeStep());
     render();
@@ -15476,6 +16281,34 @@
     el.saveSnapStatus.textContent = 'もどしました!読みこみ直します…';
     setTimeout(() => location.reload(), 600);
   }
+
+  // いっしょうカード: おわかれ画面の コード生成、データ画面の 歴代の コード、コードを 見る
+  if (el.lifeCardBody) el.lifeCardBody.addEventListener('click', (e) => {
+    const btn = e.target.closest('#lifeCardCodeBtn');
+    if (!btn) return;
+    const box = el.lifeCardBody.querySelector('#lifeCardCodeText');
+    if (!box) return;
+    box.value = encodeLifeCode();
+    box.classList.remove('hidden');
+    copyCodeToClipboard(box.value, box, el.lifeCardBody.querySelector('#lifeCardCodeCopied'));
+  });
+  if (el.profilePastLives) el.profilePastLives.addEventListener('click', (e) => {
+    const btn = e.target.closest('.past-life-code-btn');
+    if (!btn) return;
+    copyCodeToClipboard(btn.dataset.code, null, null);
+    setMessage('📋 いっしょうカードの コードを コピーした');
+  });
+  if (el.lifeCodeViewBtn) el.lifeCodeViewBtn.addEventListener('click', () => {
+    try {
+      const card = decodeLifeCode(el.lifeCodeInput.value);
+      el.lifeCodeView.innerHTML = lifeCodeCardHTML(card);
+      el.lifeCodeView.classList.remove('hidden');
+    } catch (err) {
+      el.lifeCodeView.innerHTML = `<div class="profile-hint">よめない: ${escapeHtml(err.message)}</div>`;
+      el.lifeCodeView.classList.remove('hidden');
+    }
+  });
+  if (el.errorLogCopyBtn) el.errorLogCopyBtn.addEventListener('click', () => copyCodeToClipboard(errorReportText(), null, el.errorLogCopied));
 
   let saveImportArmedAt = 0;
   if (el.saveExportBtn) {
@@ -15866,11 +16699,13 @@
     const before = { hunger: state.hunger, happiness: state.happiness, energy: state.energy };
     // ぶんだけ さがるが、るすで あぶなく なる ことは ない(20 どまり)
     const drop = (v, per) => Math.max(Math.min(v, OFFLINE_FLOOR), v - per * ticks);
-    // ひらいている ときの 半分いか の はやさ(30ぷんで さいだい −150)
-    state.hunger = clamp(drop(state.hunger, 0.25 * factor), 0, 100);
-    state.happiness = clamp(drop(state.happiness, 0.25 * factor), 0, 100);
+    // ひらいている ときより ずっと おだやか。1かいの るすで さがるのは さいだい 30 まで。
+    // げんきは るすの あいだ やすんでいる あつかいで、さがらず すこし かいふくする
+    const cap = (v, per) => Math.max(drop(v, per), v - 30);
+    state.hunger = clamp(cap(state.hunger, 0.25 * factor), 0, 100);
+    state.happiness = clamp(cap(state.happiness, 0.25 * factor), 0, 100);
     if (sleeping) state.energy = clamp(state.energy + 2.2 * Math.min(ticks, 40), 0, 100);
-    else state.energy = clamp(drop(state.energy, 0.15), 0, 100);
+    else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
     // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ

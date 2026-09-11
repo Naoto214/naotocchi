@@ -115,7 +115,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   // window is the VM global, as in a browser. This activates the production
   // requestAnimationFrame/setTimeout session wrappers (the boot smoke does not).
   const sandbox = Object.assign(window, {
-    console, document, window, Date: class extends Date {static now() {return now;}},
+    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: class extends Date {static now() {return now;}},
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
@@ -145,8 +145,10 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
       scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
-      mgDuration, GAME_LENGTH_CHOICES,
+      mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, minigameDemoKind,
+      stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openKakeraPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_PAGES, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_PACK_SIZE, STICKER_KAKERA_PACK, STICKER_PAGE_MAX, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
+      buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
