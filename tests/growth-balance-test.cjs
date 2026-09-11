@@ -50,3 +50,33 @@ test('the short game-length setting only shortens games of 90 seconds or more', 
   assert.equal(h.api.mgDuration(150000), 90000, 'long games run at 60%');
   assert.ok(Object.keys(h.api.GAME_LENGTH_CHOICES).includes('short'));
 });
+
+test('life recovers during ordinary care and faster when everything is above 60', () => {
+  const h = harness(), state = h.api.state();
+  require('node:vm').runInContext('Math.random=()=>0.99', h.sandbox);
+  Object.assign(state, {stage: 'growing', speciesLine: 'dog', ageTicks: 600, deathMeter: 50, hunger: 50, happiness: 50, health: 50, energy: 20, isSick: false, decline: 0});
+  h.api.tick();
+  assert.ok(Math.abs(state.deathMeter - 49.1) < 0.01, 'calm care recovers 0.9: ' + state.deathMeter);
+  Object.assign(state, {hunger: 80, happiness: 80, health: 80, energy: 80});
+  h.api.tick();
+  assert.ok(Math.abs(state.deathMeter - 47.3) < 0.01, 'well cared recovers 1.8: ' + state.deathMeter);
+  Object.assign(state, {isSick: true});
+  const before = state.deathMeter;
+  h.api.tick();
+  assert.ok(state.deathMeter >= before, 'no recovery while sick');
+});
+
+test('a full transform meter opens a transform chance on a birthday, not only at a stage change', () => {
+  const h = harness(), state = h.api.state();
+  require('node:vm').runInContext('Math.random=()=>0', h.sandbox);
+  Object.assign(state, {stage: 'growing', speciesLine: 'dog', ageTicks: 39, transformMeter: 100, transformOptions: null, hunger: 80, happiness: 80, energy: 80, health: 80});
+  h.api.tick(); // 1 -> 2 years old, same life stage
+  assert.ok(Array.isArray(state.transformOptions) && state.transformOptions.length > 0, 'transform offered on the birthday');
+  assert.equal(state.transformMeter, 0);
+  const h2 = harness(), s2 = h2.api.state();
+  require('node:vm').runInContext('Math.random=()=>0', h2.sandbox);
+  Object.assign(s2, {stage: 'growing', speciesLine: 'dog', ageTicks: 39, transformMeter: 60, transformOptions: null, hunger: 80, happiness: 80, energy: 80, health: 80});
+  h2.api.tick();
+  assert.equal(s2.transformOptions, null, 'a partial meter does not roll on a birthday');
+  assert.equal(s2.transformMeter, 60, 'the meter is kept for later');
+});

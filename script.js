@@ -9423,6 +9423,7 @@
   }
 
   function onBirthday(age) {
+    rollTransformChance('birthday');
     applyGrowth(2, { silent: true });
     celebrateAgeSpeech(age);
     applyDecline(-5, { silent: true });
@@ -9951,13 +9952,21 @@
   // ================================================================
   // へんしん - ライフステージが かわった しゅんかんに だけ ちゅうせん
   // ================================================================
-  function rollTransformChance() {
+  // へんしんの チャンスは 2とおり。
+  //  ・すがたの だんかいが かわる ふしめ: メーターの ぶんだけの かくりつ(いままでどおり)
+  //  ・たんじょうび(まいとし): メーターが 満タンなら 55%(そだちが たかいと もっと)
+  // 人生全体の 回数に 上限は ない。ふしめの 1かい だけだった ころは
+  // 「あそんでも へんしんしない」と かんじやすかった
+  const TRANSFORM_BIRTHDAY_CHANCE = 0.55;
+  function rollTransformChance(reason = 'stage') {
     if (state.stage !== STAGE.GROWING || state.transformOptions) return;
-    // 人生全体の変身回数上限は設けない。変身チャンス自体は
-    // ライフステージが変わる節目ごとに1回だけなので、最大回数は自然に制限される。
-    const stageKey = String(state.stageIndex);
-    if (state.transformStageDone.includes(stageKey)) { state.transformMeter = 0; return; }
-    const chance = (state.transformMeter / 100) * (1 + state.sodachi / 200);
+    let chance;
+    if (reason === 'birthday') {
+      if (state.transformMeter < 100) return;
+      chance = TRANSFORM_BIRTHDAY_CHANCE * (1 + state.sodachi / 200);
+    } else {
+      chance = (state.transformMeter / 100) * (1 + state.sodachi / 200);
+    }
     state.transformMeter = 0;
     if (Math.random() >= chance) return;
     const options = pickTransformCandidates();
@@ -10114,7 +10123,7 @@
             state.sicknessType = sickness.label;
             state.totalSicknessCount += 1;
             applyDecline(10);
-            raiseDeathMeter(6);
+            raiseDeathMeter(4);
             setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
           }
         }
@@ -10199,13 +10208,17 @@
         && state.happiness >= 60
         && state.energy >= 60
         && state.health >= 60;
-      if (wellCared && state.deathMeter > 0) {
+      // ふつうに くらしている(びょうきでなく、おなか・きげん・けんこうが 40いじょう)
+      // だけでも いのちは すこしずつ もどる。ぜんぶ 60いじょうなら もっと はやく。
+      // いちど へった いのちが なかなか もどらない きびしさを なくす
+      const calmCared = !state.isSick && state.hunger >= 40 && state.happiness >= 40 && state.health >= 40;
+      if ((wellCared || calmCared) && state.deathMeter > 0) {
         const age = currentAge();
         // 高齢になっても「ちゃんとお世話すれば いのちを戻せる」余地は残す。
-        // 以前は100さい直前に 0.35/tick まで落ち、自然リスクとの差が急に開いていた。
         // 90さいだいは 老いの リスク(さいだい 0.9)が 自動かいふくを うわまわる ことが
         // あり、そだちが ひくいと 老衰も ありうる(以前は かいふくが つねに 上で 老衰が おきなかった)
-        const recovery = age >= 70 ? lerp(0.9, 0.35, (age - 70) / 30) : 1.4;
+        const full = age >= 70 ? lerp(1.1, 0.45, (age - 70) / 30) : 1.8;
+        const recovery = wellCared ? full : full * 0.5;
         state.deathMeter = clamp(state.deathMeter - recovery, 0, 100);
       }
 
@@ -14527,7 +14540,8 @@
     // skill) is what earns a shot at choosing a different growth line。
     // シルクハットを そうびしていると たまりやすさに ボーナスが つく
     const hatBonus = isEquipped('hat') ? 4 : 0;
-    state.transformMeter = clamp(state.transformMeter + (15 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    // 1かい あそぶと +20(5かいで 満タン。以前は 15)
+    state.transformMeter = clamp(state.transformMeter + (20 + hatBonus) * (hasPerk(60) ? 1.2 : 1), 0, 100);
 
     // good play pushes the evolution meter, a real miss pushes both the
     // devolution and death meters - this is the main engine behind the
