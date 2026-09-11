@@ -86,8 +86,8 @@ test('backup recovery applies legacy migrations once and preserves old character
   assert.equal(state.schemaVersion, 4);
   assert.equal(state.ageTicks, 400);
   assert.equal(state.speciesLine, 'rabbit');
-  assert.deepEqual(Array.from(state.lifetime.companionsRecruited), ['koala']);
-  assert.deepEqual(Array.from(state.lifetime.rareCompanionsRecruited), ['kinoko']);
+  assert.deepEqual(Array.from(state.lifetime.companionsRecruited), ['snail']);
+  assert.deepEqual(Array.from(state.lifetime.rareCompanionsRecruited), ['clock']);
   assert.equal(state.lifetime.minigamePlayCounts['road-city'], 3);
   h.api.saveState();
   const reloaded = boot(storage).api.state();
@@ -279,4 +279,18 @@ test('a permanently full storage warns instead of failing silently', () => {
   h.api.state().lifetime.money = 555;
   h.api.saveState();
   assert.ok(h.sandbox.__naotocchiErrors.some(e => e.where === 'storage'), 'the quota failure is recorded and surfaced');
+});
+
+test('retired companions migrate once with the strongest bond and collection intact', () => {
+  const old = JSON.parse(savedLife());
+  old.companions = [{id:'koala',bond:73},{id:'snail',bond:40},{id:'kinoko',bond:62}];
+  old.lifetime.companionsRecruited = ['koala','snail'];
+  old.lifetime.rareCompanionsRecruited = ['kinoko','clock'];
+  const storage = storageWith([[SAVE, JSON.stringify(old)]]);
+  const h = boot(storage), state = h.api.state();
+  assert.deepEqual(Array.from(state.companions, c => [c.id,c.bond]), [['snail',73],['clock',62]]);
+  assert.deepEqual(Array.from(state.lifetime.companionsRecruited), ['snail']);
+  assert.deepEqual(Array.from(state.lifetime.rareCompanionsRecruited), ['clock']);
+  h.api.saveState();
+  assert.deepEqual(JSON.parse(JSON.stringify(boot(storage).api.state().companions)), JSON.parse(JSON.stringify(state.companions)));
 });
