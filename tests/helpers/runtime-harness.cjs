@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, worldScene = false} = {}) {
   let now = 1000, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -56,7 +56,9 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       },
       closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: 300}),
-      getContext: () => canvasContext || null, setAttribute: noop, focus: () => { document.activeElement = el; }, scrollIntoView: noop,
+      getContext: () => canvasContext || null,
+      setAttribute(name, value) { el[name === 'aria-pressed' ? 'ariaPressed' : name] = String(value); },
+      focus: () => { document.activeElement = el; }, scrollIntoView: noop,
       setPointerCapture: noop, releasePointerCapture: noop,
       remove() { el.isConnected = false; },
     };
@@ -108,6 +110,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     body: node('body'), documentElement: node('html'), visibilityState: 'visible', activeElement: null,
   });
   window = {...node('window')};
+  if(worldScene) for(const id of ['storyFlash','lifeCardOverlay']) get(id).classList.add('hidden');
   if (viewportHeight) window.visualViewport=Object.assign(node('viewport'),{height:viewportHeight,scale:1});
   const schedule = (fn, delay = 0, ...args) => {
     const id = ++serial; timers.set(id, {at: now + Math.max(1, delay), fn: () => fn(...args)}); return id;
@@ -121,6 +124,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     NaotocchiCast: require('../../cast-layout.js'),
     NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
     NaotocchiEnvironment: require('../../world-environment.js'),
+    NaotocchiLocalScenery: require('../../local-scenery.js'),
+    NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
@@ -150,8 +155,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
-      requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
-      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
+      requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion, currentEnvironment,
+      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),

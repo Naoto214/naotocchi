@@ -97,6 +97,18 @@ test('municipalityFromResponse selects only the nearest municipality within 25km
   assert.equal(env.municipalityFromResponse({ response: { location: [{ city: '町', distance: '10' }] } }), null);
 });
 
+test('municipalityFromResponse preserves a valid provider prefecture without changing the legacy shape when absent', () => {
+  const withPrefecture = {response: {location: [
+    {city: '函館市', city_kana: 'はこだてし', prefecture: '北海道', distance: 5, x: '140', y: '41'},
+  ]}};
+  assert.deepEqual(env.municipalityFromResponse(withPrefecture), {
+    name: '函館市', kana: 'はこだてし', display: 'はこだてし', prefecture: '北海道'
+  });
+  assert.deepEqual(env.municipalityFromResponse({response: {location: [
+    {city: '函館市', city_kana: 'はこだてし', distance: 5},
+  ]}}), {name: '函館市', kana: 'はこだてし', display: 'はこだてし'});
+});
+
 test('tracker preserves municipality precision, rounds only weather, and exposes no coordinates', async () => {
   const changes = [];
   const urls = [];

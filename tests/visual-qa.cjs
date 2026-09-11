@@ -5,6 +5,8 @@ const vm = require('node:vm');
 // loads the unmodified index, stylesheet and game scripts from this checkout.
 function createFixtures() {
   const harness = fs.readFileSync('tests/dialogue-test.js', 'utf8');
+  // Vite relocates its bundled config; fixture imports still belong to tests/.
+  const fixtureRequire = require('node:module').createRequire(require('node:path').resolve('tests/dialogue-test.js'));
   return vm.runInNewContext(harness + `
     (() => {
       const fixtures = {};
@@ -24,6 +26,58 @@ function createFixtures() {
         fixtures[name] = JSON.parse(JSON.stringify(save));
         return fixtures[name];
       };
+      for (const [name, count, weather, time, season] of [
+        ['world_sea',2,'sunny','day','summer'],
+        ['world_sea_night',2,'cloudy','night','winter'],
+        ['world_sea_rain',2,'rain','morning','spring'],
+        ['world_sea_full',26,'sunny','day','summer'],
+        ['world_sea_snow',2,'snow','evening','winter'],
+      ]) {
+        const save=make(name,count,{regionId:'sea',speciesLine:'clownfish',hunger:80,health:90,energy:90,happiness:80});
+        Object.assign(save.lifetime,{timeMode:time,weatherMode:weather,seasonMode:season,equippedItemId:'ribbon'});
+        save.lifetime.ownedShopItems=['ribbon'];
+      }
+      for (const region of ['home','city','countryside','forest','mountain','snow','deepsea','river_lake','jungle','desert','star_stop','memory_lake']) {
+        const save=make('world_'+region,2,{regionId:region,hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',equippedItemId:'ribbon'});
+        save.lifetime.ownedShopItems=['ribbon'];
+      }
+      for (const [name,region,season,weather,time] of [
+        ['world_forest_autumn','forest','autumn','cloudy','evening'],
+        ['world_forest_winter','forest','winter','snow','morning'],
+        ['world_shore_rain','river_lake','spring','rain','day'],
+        ['world_jungle_snow','jungle','winter','snow','day'],
+      ]) {
+        const save=make(name,2,{regionId:region,hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{seasonMode:season,weatherMode:weather,timeMode:time});
+      }
+      for (const [name,region,season,weather,time] of [
+        ['scenery_city_night','city','autumn','sunny','night'],
+        ['scenery_home_rain','home','autumn','rain','night'],
+        ['scenery_home_snow','home','winter','snow','day'],
+        ['scenery_country_winter','countryside','winter','snow','morning'],
+        ['scenery_forest_night','forest','autumn','cloudy','night'],
+      ]) {
+        const save=make(name,2,{regionId:region,hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{seasonMode:season,weatherMode:weather,timeMode:time});
+      }
+      for(const [name,display,prefecture] of [['函館市','はこだてし','北海道'],['飯田市','いいだし','長野県'],['大阪市','おおさかし','大阪府'],['未登録町','みとうろくまち','北海道']]) {
+        const save=make('scenery_local_'+name,2,{regionId:'home',hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',currentLocationSelected:true,currentLocation:{name,display,prefecture}});
+      }
+      const worldCritical=make('world_sea_critical',26,{regionId:'sea',speciesLine:'clownfish',health:55,hunger:55,happiness:55,energy:55,deathMeter:85,dying:true,dyingTicks:80});
+      Object.assign(worldCritical.lifetime,{timeMode:'night',weatherMode:'rain',seasonMode:'winter'});
+      const worldLarge=make('world_sea_large',26,{regionId:'sea',hunger:85,health:95,energy:95,happiness:90});
+      Object.assign(worldLarge.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',textSize:'large'});
+      const worldCriticalLarge=JSON.parse(JSON.stringify(worldCritical));
+      worldCriticalLarge.lifetime.textSize='large';
+      fixtures.world_sea_critical_large=worldCriticalLarge;
+      const worldFarewell=make('world_farewell',2,{regionId:'sea',stage:'farewell',dying:false});
+      Object.assign(worldFarewell.lifetime,{timeMode:'evening',weatherMode:'sunny',seasonMode:'summer'});
+      for (const theme of ['starlight','rainbow']) {
+        const save=make('world_theme_'+theme,2,{regionId:'sea',hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',screenThemeId:theme,deviceThemeId:theme,screenPatternId:'checker',devicePatternId:'brick',clears:5,perfectCleared:true,endingTiersReached:[0,1,2,3,4]});
+      }
       make('alone',0,{partner:null});
       make('egg',0,{stage:'egg',growth:0,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
       make('egg_cracking',0,{stage:'egg',growth:8,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
@@ -157,7 +211,7 @@ function createFixtures() {
       }
       return fixtures;
     })()
-  `, { require, console:{log() {}} });
+  `, { require:fixtureRequire, console:{log() {}} });
 }
 
 // This route is registered only by Vite's development server. It is not a
@@ -203,10 +257,10 @@ function visualQaPlugin() {
               const frame=document.createElement('iframe');frame.title='Game preview';frame.id='game';
               if(document.getElementById('failIcons').checked) frame.addEventListener('load',()=>{
                 const style=frame.contentDocument.createElement('style');
-                style.textContent='.care-icon,#message[data-care-icon]::before{background-image:url("/__qa-missing-icon.png")!important}';
+                style.textContent='.care-icon,#message[data-care-icon]::before,.world-backdrop{background-image:url("/__qa-missing-icon.png")!important}';
                 frame.contentDocument.head.append(style);
                 frame.contentDocument.querySelectorAll('img[data-icon-atlas]').forEach(img=>{img.src='/__qa-missing-icon.png';});
-                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset,img.comment-asset,img[data-prop-image]').forEach(img=>{
+                const failScenery=()=>frame.contentDocument.querySelectorAll('img.scenery-asset,img.comment-asset,img[data-prop-image],img.world-prop').forEach(img=>{
                   if(img.dataset.qaOriginalSrc)return;
                   img.dataset.qaOriginalSrc=img.getAttribute('src');img.src='/__qa-missing-icon.png';
                 });
@@ -262,8 +316,28 @@ function visualQaPlugin() {
             const profile=doc.getElementById('profilePartnerCard');
             const storyOutsideViewport=story.width>0&&(story.top<0||story.bottom>doc.documentElement.clientHeight);
             const speechOverlap=actors.some(r=>intersects(r,speech));
-            const actorOverlap=actors.some((r,i)=>actors.slice(i+1).some(other=>intersects(r,other)));
-            const overlapPairs=actors.flatMap((r,i)=>actors.slice(i+1).flatMap((other,j)=>intersects(r,other)?[[i,i+j+1]]:[]));
+            // Whole PNG frames include intentional transparent padding. Inspect
+            // their conservative alpha hulls at their actual rendered positions.
+            // Keep the old rectangular result visible as a separate diagnostic.
+            const actorFrameOverlap=actors.some((r,i)=>actors.slice(i+1).some(other=>intersects(r,other)));
+            const actorNodes=[...chips,doc.getElementById('petSprite'),doc.getElementById('partnerCompanion'),doc.getElementById('petAccessory')].filter(e=>e.getBoundingClientRect().width>0);
+            const painted=actorNodes.map(e=>{
+              const image=e.querySelector('img'),loaded=image?.complete&&image.naturalWidth>0;
+              const r=(loaded?image:e).getBoundingClientRect();
+              const hull=loaded&&doc.defaultView.NaotocchiCastBounds?.[image.getAttribute('src')?.split('?')[0]]?.hull;
+              return (hull||[[0,0],[128,0],[128,128],[0,128]]).map(([x,y])=>[r.left+x*r.width/128,r.top+y*r.height/128]);
+            });
+            const polygonsOverlap=(a,b)=>{
+              for(const p of [a,b])for(let i=0;i<p.length;i++){
+                const q=p[(i+1)%p.length],dx=q[0]-p[i][0],dy=q[1]-p[i][1];
+                if(!dx&&!dy)continue;
+                const aa=a.map(v=>-dy*v[0]+dx*v[1]),bb=b.map(v=>-dy*v[0]+dx*v[1]);
+                if(Math.max(...aa)<=Math.min(...bb)||Math.max(...bb)<=Math.min(...aa))return false;
+              }
+              return true;
+            };
+            const overlapPairs=painted.flatMap((p,i)=>painted.slice(i+1).flatMap((other,j)=>polygonsOverlap(p,other)?[[i,i+j+1]]:[]));
+            const actorOverlap=overlapPairs.length>0;
             const movie=doc.getElementById('dateMovieScene');
             const movieBounds=movie.getBoundingClientRect();
             const moviePanel=doc.getElementById('dateMovie').getBoundingClientRect();
@@ -277,12 +351,21 @@ function visualQaPlugin() {
             const movieOverflow=movieBounds.width>0&&movieActorRow.scrollWidth>movieActorRow.clientWidth;
             const movieClipped=movieActors.some(r=>r.left<movieBounds.left||r.right>movieBounds.right||r.top<movieBounds.top||r.bottom>movieBounds.bottom);
             const movieCaptionOverlap=movieActors.some(r=>intersects(r,movieCaption));
-            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&!movieCaptionOverflow&&!movieCaptionOutside&&!movieOutsideViewport&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
+            const farewellBounds=doc.getElementById('farewellBar').getBoundingClientRect();
+            const farewellOverlap=[...doc.querySelectorAll('.home-meters,#message,.buttons')].some(e=>intersects(farewellBounds,e.getBoundingClientRect()));
+            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&!movieCaptionOverflow&&!movieCaptionOutside&&!movieOutsideViewport&&!farewellOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
             const result={scene:document.getElementById('scene').value,width:doc.documentElement.clientWidth,
               height:doc.documentElement.clientHeight,pageHeight:doc.documentElement.scrollHeight,
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
+              worldStylesheet:doc.querySelector('link[href^="world-scene.css"]')?.getAttribute('href')||null,
               gameScript:doc.querySelector('script[src^="script.js"]').getAttribute('src'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
+              actorFrameOverlap,
+              farewellOverlap,
+              world:doc.getElementById('worldScene')?{...doc.getElementById('worldScene').dataset,
+                backdrop:doc.defaultView.getComputedStyle(doc.getElementById('worldBackdrop')).backgroundImage,
+                motion:doc.body.dataset.worldMotion,paused:doc.body.dataset.worldPaused,
+                care:doc.getElementById('device').dataset.worldCare}:null,
               careNotice:doc.getElementById('message').textContent,
               careSeverity:doc.getElementById('message').dataset.careSeverity||'',
               careNoticeHeight:doc.getElementById('message').getBoundingClientRect().height,

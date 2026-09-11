@@ -1,0 +1,676 @@
+{
+  "created_at": "2026-09-11",
+  "generator": "built-in image_gen",
+  "purpose": "Original living-world landscapes and environment props for Naotocchi. No existing character art modified.",
+  "generations": [
+    {
+      "id": "forest",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A lush layered temperate deciduous woodland clearing. Tall broadleaf trees and a thick lush green canopy frame the sides and top; layered trunks and ferns recede into cool emerald forest depth. A broad quiet softly sunlit moss-and-earth clearing spans the middle. Low green plants, small rounded stones, and intricate leaves stay at the sides and lower foreground. Dense rich welcoming woodland, no buildings, no permanent snow."
+    },
+    {
+      "id": "river_lake",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A beautiful freshwater shore beside a broad tranquil river or lake. Reflective blue-green fresh water is visible beyond the shore and along one side, framed by graceful willow branches and reeds. A distinct broad gently textured grassy-and-sandy bank spans the central middle and middle-bottom for the pet cast to stand on. Distant soft green wooded hills and subtle far bank. Small pebbles, willow roots, reeds and freshwater grasses at edges. Distinctly freshwater, absolutely no ocean, coral, seaweed, tropical reef, beach waves or saltwater motifs."
+    },
+    {
+      "id": "home",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A cozy cottage garden clearing with a partial glimpse of a warm wooden house at one side. Welcoming meadow grass and a broad gentle earthen garden clearing in the middle. Small flowering garden beds, low rounded shrubs, warm wooden details and a little rustic garden edge mainly at the sides and bottom. Distant soft trees and a comfortable lived-in miniature countryside atmosphere. The house is peripheral and does not fill or block the central clearing. Warm, gentle, inviting home garden; no people or animals."
+    },
+    {
+      "id": "city",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A walkable charming Japanese small-town canal and stone street. Warm modest shopfronts and cozy buildings frame the left and right edges; a narrow quiet canal with small stone walls and a graceful little bridge recedes into the distance. Broad open gently textured stone paving across the central middle provides ample space for pets. Carefully painted roof tiles, potted plants, timber details, tiny awnings and canal reflections enrich the side areas. Human-scale peaceful town, no skyscrapers, vehicles or crowds. No readable shop signs, no writing of any kind."
+    },
+    {
+      "id": "countryside",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: Broad peaceful green countryside fields, with terraced distant farms on rolling hills and a low garden edge in the foreground. A broad grassy and earthy field clearing lies open across the middle. Lush crops, small low stones, hedges, meadow grasses and delicate rural details mostly at the sides and lower foreground. Atmospheric distant hills and blue-green farm terraces. No buildings dominating the center, no machinery, no people or animals."
+    },
+    {
+      "id": "mountain",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A beautiful rocky mountain trail opening into a broad alpine clearing. Far layered mountain peaks and soft clouds form the depth; craggy stone edges and alpine grasses frame the sides. The central middle is an open calm pale earthen-and-stone trail clearing with sparse low alpine grass, comfortable usable space for pets. Rich rock textures and small hardy vegetation concentrate in lower corners. Majestic yet cozy and inviting. No permanent snow in the foreground, no snow-covered central trail, no buildings or hikers."
+    },
+    {
+      "id": "snow",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A peaceful northern snowy glade that remains snowy all year. Snow-laden pine trees frame the sides and layered distant blue mountains recede behind them. Soft settled snow forms a broad uncluttered clearing across the middle with subtle blue shadows, gentle rounded snowbanks and a few exposed stones or grasses near the lower sides. Richly painted soft winter textures, cool blue and creamy white with subtle evergreen color. No falling snowflakes, no particle effects, no tracks, no characters, no houses."
+    },
+    {
+      "id": "deepsea",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: An abyssal midnight-blue underwater canyon, far below the ocean surface. Absolutely no visible water surface, sunlight or sky. Massive mysterious dark blue rock walls and layered canyon silhouettes frame the sides; subtle small luminous deep-sea organisms appear only as distant indistinct dots or tiny encrusting patches on side rocks. An open broad softly textured blue silt clearing stretches across the central middle, with atmospheric dark cyan depth beyond. Quiet, enchanting, mysterious rather than frightening, readable soft illumination from the environment. No animals or character-like organisms, no faces, no skeletons, no wrecks, no dramatic beams."
+    },
+    {
+      "id": "jungle",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A humid lush tropical forest clearing. Giant lush leaves and large arching tropical ferns frame the sides and foreground; layered dense jungle foliage recedes into misty green depth. A small distant cascade appears toward one background side, never dominating the central clearing. Broad quiet warm earth and mossy ground across the middle, softly illuminated through the canopy without distinct rays. Rich tactile wet leaves, vines, small stones and dense botanical detail around the edges. No house, ruins, statues, characters or animals."
+    },
+    {
+      "id": "desert",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A serene golden desert dune clearing. Soft flowing sand dunes recede through warm atmospheric depth, with textured sandstone rocks framing the lower sides and a sparse small group of oasis palms far to one side. Broad low-detail gently rippled golden sand clearing across the central middle. Refined warm sand, pale apricot and muted blue sky colors, intricate but restrained mineral and dry-plant detail around lower edges. Calm inviting miniature adventure world. No sun disk, no sandstorm, no flying dust particles, no buildings or animals."
+    },
+    {
+      "id": "star_stop",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A dreamlike floating stone terrace resting among the stars. Broad ancient softly rounded pale blue-grey stone paving forms an open terrace across the central middle and lower area, with short broken stone edges and tiny subtle moss-like stellar details at the sides. Beyond and above: deep indigo starry sky and distant delicate violet, teal and rose nebula clouds, richly painterly and serene. A clear open central standing area for pets, cozy magical celestial rest stop. No daylight weather, no day sky, no sun, no moon, no planets with faces, no rain, no snow, no people or animals."
+    },
+    {
+      "id": "memory_lake",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original finished portrait environment background for a Japanese virtual-pet browser game, 1024x1536.\nStyle/medium: exquisitely detailed miniature storybook environment illustration, rich tasteful colors, softly dimensional rounded natural forms, tactile painted surfaces and fine delicate brushwork, immersive layered atmospheric depth, calm enchanting mood. Match the refined painterly quality of a luminous underwater reef storybook world, while depicting ONLY the specified land or sky environment. Finished game environment art, not a UI mockup.\nComposition/framing: full bleed, fill every edge, portrait. View horizontally into an inviting environmental clearing with broad comfortable usable space across central x=25%-75% and y=25%-65% for pets and HUD. Keep that central region low-detail and visually quiet with gently textured readable ground or terrace. Details concentrate at side edges, distant depth, and lower foreground. Frame the world with tactile environmental details but leave the middle genuinely open. Mid-distance ground plane must appear in the middle rather than only at the bottom of the image. Natural perspective, no aerial map.\nLighting: gentle balanced diffuse illumination, no strong directional rays, no sun disk, no moon disk. The app adds time-of-day tints and animated weather separately. No baked falling rain, falling snow, particle effects, or flying leaves.\nGlobal constraints: NO characters, people, animals, pets, faces, eyes, readable text, letters, numbers, labels, UI, logos, watermark, border, frame, or vignette. No generic blank gradient. No ocean subjects or corals in land scenes.\nScene: A serene pale misty freshwater memory lake. Luminous gentle water reflections recede into soft pearl, pale aqua and muted lavender mist. An old graceful lakeside tree with delicate twisting trunk and quiet green foliage frames one side. A broad open pale sand-and-smooth-stone shore spans the center and middle-bottom for pets to stand on. Low reed tufts, delicate grasses and smooth small pebbles stay at the side edges and bottom. Enchanting contemplative atmosphere, layered pale distant lakeside trees, distinct freshwater. No ocean, coral, sea waves, characters or figures in mist."
+    },
+    {
+      "id": "forest_autumn",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one finished 1024x1536 portrait seasonal environment background for a Japanese virtual-pet browser game.\nInput image: the provided summer forest background is the exact composition and painting reference to preserve.\nPrimary request: create the AUTUMN version of this same forest. Change the green deciduous canopy to rich red, amber, copper and golden autumn foliage. Add settled fallen leaves principally around side edges and the lower foreground, leaving the central clearing quiet, open and low-detail. Keep some muted green moss and ferns and atmospheric cool forest depth. No flying or falling leaves; no snow.\nCritical spatial invariants: preserve the same viewpoint and perspective, same principal side tree trunks, same side rocks and lower foreground rock arrangement, same depth and overall size of the broad central clearing, and same open area for pets across x25-75% and y25-65%. Do not redesign the forest layout or add new focal objects. Retain the reference's exquisitely detailed miniature-storybook hand-painted quality, tactile surfaces, delicate brushwork, layered atmospheric depth and calm welcoming mood.\nLighting: gentle balanced diffuse seasonal illumination, no strong directional rays or sun/moon disk. The app handles time tint and animated weather separately.\nConstraints: full bleed with no frame or margins. No characters, people, animals, pets, faces, eyes, text, UI, logos or watermark. No buildings. Keep the central clearing readable and visually quiet.",
+      "references": [
+        "forest-original.png"
+      ]
+    },
+    {
+      "id": "forest_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one finished 1024x1536 portrait seasonal environment background for a Japanese virtual-pet browser game.\nInput image: the provided summer forest background is the exact composition and painting reference to preserve.\nPrimary request: create the WINTER version of this same forest. Change the deciduous canopy to bare intricate branches and quiet grey-brown trunks, with occasional deep-green evergreen pockets in the background. The broad clearing becomes quiet brown-and-grey earth with subtle muted moss and grasses. Add only sparse settled pale frost along the lower edges. Most central ground remains exposed brown and grey, not a snowfield. No thick snow, falling snow, or particles.\nCritical spatial invariants: preserve the same viewpoint and perspective, same principal side tree trunks, same side rocks and lower foreground rock arrangement, same depth and overall size of the broad central clearing, and same open area for pets across x25-75% and y25-65%. Do not redesign the forest layout or add new focal objects. Retain the reference's exquisitely detailed miniature-storybook hand-painted quality, tactile surfaces, delicate brushwork, layered atmospheric depth and calm welcoming mood.\nLighting: gentle balanced diffuse seasonal illumination, no strong directional rays or sun/moon disk. The app handles time tint and animated weather separately.\nConstraints: full bleed with no frame or margins. No characters, people, animals, pets, faces, eyes, text, UI, logos or watermark. No buildings. Keep the central clearing readable and visually quiet.",
+      "references": [
+        "forest-original.png"
+      ]
+    },
+    {
+      "id": "land-environment-atlas",
+      "requested_dimensions": [
+        1536,
+        1024
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "prompt": "Use case: illustration-story.\nAsset type: one original PNG environmental sprite atlas for a Japanese virtual-pet browser game, 1536x1024 landscape, GENUINELY TRANSPARENT BACKGROUND with alpha.\nLayout: exactly THREE equal columns by TWO equal rows, six separate cutouts total, one centered in each 512x512 cell. Keep each object FULLY inside the inner 384x384 part of its cell, with at least 64 pixels of completely transparent padding on EVERY side. Do not let stems, tips or glows enter gutters. No grid lines, no labels, no background tiles.\nTop left: one graceful hanging willow branch with delicate long soft green leaves, gently curved.\nTop center: one large lush tropical fern frond cluster, tactile deep and fresh green leaves, natural small base.\nTop right: one beautiful autumn maple leaf, rich red-orange with golden edges, delicate natural veins and short stem.\nBottom left: one small spring blossom cluster on a short delicate twig, pale pink and creamy white flowers, softly dimensional botanical detail.\nBottom center: one grassy freshwater reed tuft, elegant sage-green blades and a few soft reed heads, small natural base.\nBottom right: one tiny soft firefly cluster, several very small warm golden luminous specks with barely suggested delicate wings, all within the center of the cell. Light bloom must remain compact and fade fully to alpha zero before reaching padding.\nStyle: exquisitely painted miniature storybook environment art, refined color-rich botanical illustration, softly dimensional forms, delicate brushwork and tactile texture, cohesive with a hand-painted aquamarine reef and green forest game world. Gentle diffuse ambient light. Standalone cutouts only, no ground plane behind them.\nCritical transparency: ALL empty canvas, all gutters, space between leaves and branches, and ALL padding must be fully transparent alpha=0. Preserve semi-transparent botanical edges and compact firefly glow. No white/black/colored background, no checkerboard pattern, no environment behind the objects, no shadow blobs, no colored halos across canvas.\nConstraints: six separate environmental cutouts only. No labels, letters, numbers, grid, outlines, frame, UI, main pet, characters, faces, logos or watermark.",
+      "sprites": [
+        {
+          "id": "willow",
+          "crop_xyxy": [
+            49,
+            17,
+            470,
+            520
+          ],
+          "crop_boundary_alpha_max": 3
+        },
+        {
+          "id": "fern",
+          "crop_xyxy": [
+            506,
+            21,
+            1048,
+            511
+          ],
+          "crop_boundary_alpha_max": 1
+        },
+        {
+          "id": "leaf",
+          "crop_xyxy": [
+            1079,
+            38,
+            1501,
+            478
+          ],
+          "crop_boundary_alpha_max": 1
+        },
+        {
+          "id": "blossom",
+          "crop_xyxy": [
+            37,
+            549,
+            487,
+            993
+          ],
+          "crop_boundary_alpha_max": 1
+        },
+        {
+          "id": "reeds",
+          "crop_xyxy": [
+            520,
+            520,
+            1020,
+            1003
+          ],
+          "crop_boundary_alpha_max": 1
+        },
+        {
+          "id": "firefly",
+          "crop_xyxy": [
+            1155,
+            618,
+            1434,
+            923
+          ],
+          "crop_boundary_alpha_max": 3
+        }
+      ]
+    },
+    {
+      "id": "home_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing home environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact wooden cottage, fence, garden furniture, paths, rocks and distant village/lake placement. Change the meadow and garden to dormant winter: muted straw-brown and grey-green ground, dry herbaceous plants, bare deciduous branches and shrubs, empty dormant flower beds, absolutely no blossoms or fresh spring foliage. A few evergreen leaves may remain only on true evergreen plants.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "home-original.png"
+      ]
+    },
+    {
+      "id": "city_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing city environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact Japanese canal street, buildings, shopfronts, bridge, paving, canal and potted plant positions. All deciduous trees including cherry trees become bare winter branches, with no cherry blossoms or fresh green deciduous canopy. Flower planters are dormant with dry stems or subdued evergreen shrubs. Canal water remains open. Preserve any existing warm lantern details as part of the architecture.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "city-original.png"
+      ]
+    },
+    {
+      "id": "countryside_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing countryside environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact rolling terraced fields, distant hills, cottages, low garden walls, rocks, trees and central field clearing. Change grass and agricultural fields to subdued dormant winter straw-brown, muted olive-grey and exposed earth, with bare deciduous trees. Remove flowers and fresh spring growth. Preserve the terraced farm geometry and distant landscape.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "countryside-original.png"
+      ]
+    },
+    {
+      "id": "river_lake_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: precise-object-edit.\nEdit the supplied winter freshwater lakeshore image. Make exactly ONE narrow correction: remove EVERY remaining flower or blossom anywhere in the image and replace those tiny flowers with dormant brown dry grass, subtle bare twigs or natural unflowered ground texture.\nPay particular attention to the small YELLOW daisy-like blossoms along the BOTTOM-LEFT edge and the scattered WHITE flower-shaped blossoms among the lower-left and lower-right foreground plants. Some small petalled flowers also remain beside the left bank. No open petals or recognizable flower heads may remain anywhere.\nCRITICAL invariants: preserve the exact image composition, camera, tree trunks and bare willow branches, open reflective central lake water, distant hills and bridge, shoreline shape, dry winter grasses and reeds, rock positions, sparse remnant snow/frost, color palette, lighting and hand-painted storybook texture. Do not redesign the scene, do not change the season, do not add new objects, do not thicken the snow, do not freeze the water.\nChange only the remaining flowering plant details to inconspicuous dry grass or bare stems. No flowers, no colorful petals, no fresh green growth, no text/UI/characters. Preserve 1024x1536 portrait dimensions and full bleed.",
+      "initial_prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing river_lake environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact freshwater lake/river shore, willow tree, far wooded hills, bridge, pebbles and central standing bank. Replace the willow foliage with fine bare hanging branches. Bank grasses and reeds become subdued dry straw-brown; remove all flowers and new green growth. Keep the broad central lake water fully open and reflective; at most faint ice/frost right at far shore edges, no frozen central water.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "qa_note": "One authorized targeted edit replaced remaining small yellow/white foreground flowers with dry grass. Visually checked open water, bare willow, shoreline, stones, and winter palette retained.",
+      "references": [
+        "river_lake_winter-initial-with-flowers.png"
+      ]
+    },
+    {
+      "id": "memory_lake_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing memory_lake environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact serene pale misty freshwater lake, old tree, distant wooded hills, rocks, shoreline and central shore composition. The old deciduous tree becomes bare with delicate intricate branches; remove all flowering plants and fresh green foliage, and turn grasses/reeds to subdued dry winter stalks. Keep the central lake water open with luminous quiet reflections and pale mist. No thick frozen lake.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "memory_lake-original.png"
+      ]
+    },
+    {
+      "id": "mountain_winter",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing mountain environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the WINTER version of this same location. Keep the exact rocky alpine trail clearing, side cliffs, distant mountain peaks, lakes, pines and rock arrangement. Change alpine grasses and flowers to dormant straw-brown tufts and sparse dry stems; remove all blooms and new green growth. Deciduous shrubs are bare, while true evergreen pines stay subdued green. Preserve snow on distant peaks, but the central foreground trail stays largely exposed stone and earth with only sparse thin remnant snow or frost along edges.\nWinter constraints: no flowers or blossoms anywhere, no new bright green growth, no leafy deciduous branches. Use dormant dry grasses and bare deciduous branches. Keep a restrained temperate winter with only thin patches of remnant snow and sparse settled frost at ground edges; do not turn the scene into the northern region's continuous snowy landscape. Any central water remains open. No falling snow, rain, particles or flying leaves.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "mountain-original.png"
+      ]
+    },
+    {
+      "id": "city_summer",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: lighting-weather.\nAsset type: one original finished 1024x1536 portrait seasonal background for a Japanese virtual-pet browser game.\nInput image: the supplied existing city environment is the exact location, geometry, composition, palette style and painting reference to preserve.\nPrimary request: produce the SUMMER version of this same location. Keep the exact Japanese canal street, buildings, shopfronts, bridge, paving, canal, willow, planters and all object placement. Make this SUMMER: replace every pink flowering cherry-tree canopy with lush mature green leaves and no cherry blossoms. Keep the willow lush green. Retain existing season-appropriate summer garden plants such as hydrangeas, but add no new focal objects or flowers. The central stone promenade remains broad and clear.\nSummer constraints: mature green deciduous tree canopies, no spring cherry blossoms, no frost or snow in the town.\nComposition invariants: retain the exact original camera viewpoint and horizontal perspective, original major object positions, paths and shore lines, depth layers, and broad quiet central standing area. Do not redesign the location. Preserve comfortable pet/HUD space across central x25-75%, y25-65%. Keep details concentrated around edges, lower foreground and depth.\nStyle invariants: preserve exquisitely detailed miniature-storybook hand-painted art, tactile fine brushwork, softly dimensional materials, atmospheric depth and calm welcoming mood.\nLighting: balanced gentle diffuse seasonal illumination. No sun or moon disk and no strong directional rays; the app handles time tint and animated weather.\nGlobal constraints: full bleed, no frame/margins. No characters, people, animals, pets, faces, text, numbers, UI, logos or watermark.",
+      "references": [
+        "city-original.png"
+      ]
+    },
+    {
+      "id": "ocean",
+      "requested_dimensions": [
+        1024,
+        1536
+      ],
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "prompt": "Use case: illustration-story\nAsset type: full-viewport portrait underwater environment background for an enchanting Japanese virtual-pet browser game. Produce one original image, 1024x1536 portrait.\nPrimary request: a beautiful richly detailed storybook/painterly miniature underwater environment, viewed horizontally through a sheltered reef clearing. The entire image is submerged. A rippling water surface is visible high along the top edge, viewed from underneath, with no beach, sky, or land above it. Luminous aquamarine water transitions through teal into cobalt depth. Layered distant reef silhouettes create gentle atmospheric perspective.\nComposition/framing: Fill the entire canvas without margins or a frame. The game will overlay its pet and friends across the middle, so deliberately reserve a broad, very uncluttered pale sandy clearing across x=20%-80% and y=25%-55%; the clearing is visually readable and comfortably open, with soft texture and gentle color variations but no objects or animals in that zone. Layer moss, flowing seaweed, pebbles, rounded rocks, small pink and blue corals mostly along the sides and especially across the lower foreground, creating a miniature inhabited reef atmosphere and immersive depth. Detail-rich corners and foreground, calm open middle. The underwater horizon and sandy clearing should be comfortably high in the frame rather than leaving the middle empty of a ground plane.\nStyle/medium: polished hand-painted storybook illustration, tactile pigment and delicate brush texture, softly dimensional rounded forms, tasteful small intricate reef details, refined colors; charming and cozy, suitable beside cute orange clownfish and pink coral pets. This is finished environment art, not a UI mockup.\nLighting/mood: calm, warm, enchanting and luminous underwater ambient light. Balanced neutral diffuse daytime illumination so the game can apply separate day/night lighting. No strong baked sun disk, dramatic light beams or sun shafts.\nConstraints: no fish, no sea animals, no jellyfish, no characters, no faces, no eyes; no UI, text, logos, numbers, watermark, border, frame, or vignette. No objects obstructing the central sandy clearing."
+    },
+    {
+      "id": "ocean-environment-atlas",
+      "requested_dimensions": [
+        1536,
+        1024
+      ],
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "prompt": "Use case: illustration-story\nAsset type: PNG environmental sprite atlas for an enchanting Japanese virtual-pet underwater browser game.\nPrimary request: one original 1536x1024 landscape image with a GENUINELY TRANSPARENT BACKGROUND and preserved alpha channel. A precise layout of THREE COLUMNS by TWO ROWS of equally sized 512x512 cells; six distinct ocean environmental cutouts, one per cell, each fully separated from every other object by generous fully transparent gutters. Each cutout fits well inside its cell with at least 48px clear transparent padding on all four sides. No grid lines or labels. All six objects stand alone as alpha cutouts, never on colored tiles.\nTop row left: a tall gracefully flowing kelp tuft in muted jade and fresh sea green, several soft curved ribbons, tiny natural holdfast.\nTop row center: a delicate branching pink coral with fine peach and rose branches and a small natural base.\nTop row right: a broad delicate blue-purple sea fan, elegant branching lattice visible through its silhouette, small natural base.\nBottom row left: a tiny pair of silver-blue fish swimming toward the RIGHT, one slightly ahead and larger, natural minimal detail, gentle translucent fins; keep both inside their shared cell with space between them.\nBottom row center: one softly translucent distant jellyfish, milky pale aqua bell and a few graceful thin trailing tentacles; a quiet elegant distant creature, no face.\nBottom row right: a low cluster of rounded softly dimensional reef rocks with a small sprig of seaweed, muted warm gray-teal stone and sage green vegetation.\nStyle/medium: high quality polished hand-painted storybook miniature art with tactile delicate painterly texture and softly dimensional forms, gentle refined underwater colors, matching a luminous aquamarine reef environment. Charming calm cohesive art. All cutouts viewed from a natural side/front view suitable for layering into a horizontally viewed underwater environment. Soft ambient illumination without baked directional shadow rectangles.\nCritical transparency constraints: all empty canvas, gutters, and space around and between objects must be fully transparent alpha=0, including holes between coral and sea fan branches. The jellyfish and fins may retain authentic partial transparency. No white or solid background, no checkerboard pattern, no water scene, no seafloor plane, no colored halo, no background shadow blobs.\nAvoid: no labels, numbers, text, grid, frame, outlines around the atlas, faces, main pet, logos, watermarks. Six distinct separated cutouts only."
+    }
+  ],
+  "outputs": [
+    {
+      "file": "assets/world/blossom-v1.webp",
+      "dimensions": [
+        96,
+        95
+      ],
+      "bytes": 5310,
+      "sha256": "7f0a1041027d74a16e034db366d27a77bd6bf756e8daadadfbe0798c7d698323"
+    },
+    {
+      "file": "assets/world/city-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 421684,
+      "sha256": "1acf657e7de1ca4ce718be1a368d188c9c4785571bb2a480eb1a6998e91d79d1"
+    },
+    {
+      "file": "assets/world/city_summer-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 421254,
+      "sha256": "2e597b76e3c09133cdfb24c99f282044e526253310f489671bfd14de99e037a2"
+    },
+    {
+      "file": "assets/world/city_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 454052,
+      "sha256": "4eb05b035a199901087bf28dfbdd4507f817f0a4d3b4ffe3aafd99568049b0a3"
+    },
+    {
+      "file": "assets/world/coral-v1.webp",
+      "dimensions": [
+        438,
+        453
+      ],
+      "bytes": 97774,
+      "sha256": "850d08e739cc238af7c207f02f7e6d1fc74334d7a04f06f7ed74a1440ead1198"
+    },
+    {
+      "file": "assets/world/countryside-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 455252,
+      "sha256": "c2e456c12833ab74cdf4db798d5263ec8827d49e23579522df641307ea4d595e"
+    },
+    {
+      "file": "assets/world/countryside_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 544328,
+      "sha256": "e7126a222dbc629278aefbf8d93e329a7fb8c61b23ae81292a2e6a823cb726e6"
+    },
+    {
+      "file": "assets/world/deepsea-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 199712,
+      "sha256": "27b4ebae28dc59abccdd69fe5095f7c8f2cdec1127d7cb9bc0d4f744204244d0"
+    },
+    {
+      "file": "assets/world/desert-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 250604,
+      "sha256": "f91edad33ffc54e876cbdea33727208aa96982b939156cc963b1b5d83e55e7c7"
+    },
+    {
+      "file": "assets/world/fan-v1.webp",
+      "dimensions": [
+        478,
+        455
+      ],
+      "bytes": 132938,
+      "sha256": "47ee417a70c8d9a24292e8aa5b8b90e056a4adffb73c2c6e3cc3ded7888be696"
+    },
+    {
+      "file": "assets/world/fern-v1.webp",
+      "dimensions": [
+        542,
+        490
+      ],
+      "bytes": 114536,
+      "sha256": "141a7435252ba05d1a58405cd7a2328230ab9398e7e608b38b697474290376cf"
+    },
+    {
+      "file": "assets/world/fish-v1.webp",
+      "dimensions": [
+        418,
+        254
+      ],
+      "bytes": 27958,
+      "sha256": "d2da3910ae33d329637b3857fd7b582f3b9bcc77e4ec005944087566651bd29f"
+    },
+    {
+      "file": "assets/world/forest-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 547684,
+      "sha256": "1ed6e041295dcd19f5aad7b772f98fea37167f1bdd5afc8d9f478f03715ad1bf"
+    },
+    {
+      "file": "assets/world/forest_autumn-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 511342,
+      "sha256": "b0a51da5db68e51033bbd4b7964a028d4e8af78f145ee8fddd0e42992cbbd164"
+    },
+    {
+      "file": "assets/world/forest_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 566782,
+      "sha256": "6a8be28efec4935ac31c5bbd6367effdf73eab6bf2f566bab122b54e0badcebf"
+    },
+    {
+      "file": "assets/world/home-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 419310,
+      "sha256": "6f837281da1efa7b6080d988287472b0f10bcb8b220347c190f0ed927a3253cf"
+    },
+    {
+      "file": "assets/world/home_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 514250,
+      "sha256": "4366a5c93a537e565df68dd8b499863dea03ac9f26885fedd0c736334f06ab7c"
+    },
+    {
+      "file": "assets/world/jelly-v1.webp",
+      "dimensions": [
+        354,
+        435
+      ],
+      "bytes": 41812,
+      "sha256": "fbdb7e76a2dea0e3a76f29ab330d1d763ef29c0bbb0cd9c9af0f3164946864d3"
+    },
+    {
+      "file": "assets/world/jungle-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 440254,
+      "sha256": "ddce888b214f4bb1b896569ec1b267cfa6cb51fe4611aaa069a3d8ddfb5ceed2"
+    },
+    {
+      "file": "assets/world/kelp-v1.webp",
+      "dimensions": [
+        359,
+        541
+      ],
+      "bytes": 63564,
+      "sha256": "403b7099fb072abfbb8d00644a3e1835d099a6832b75eac756a2a8e71e7cf8d6"
+    },
+    {
+      "file": "assets/world/leaf-v1.webp",
+      "dimensions": [
+        92,
+        96
+      ],
+      "bytes": 4392,
+      "sha256": "6751d424c6e34e30d01135d696a28e2ec587916852a49dd87a1686f40c861eeb"
+    },
+    {
+      "file": "assets/world/memory_lake-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 388912,
+      "sha256": "06e56c713956eb748e1d8f2aeb14c251ae31f02008ec524b4a1f53ebd368e329"
+    },
+    {
+      "file": "assets/world/memory_lake_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 372132,
+      "sha256": "ad5578868308f401c3444736f583e640f8ee98beba1bf4662cb6b3c67804b426"
+    },
+    {
+      "file": "assets/world/mountain-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 435958,
+      "sha256": "6a3698a558d5f4f6e0fbdcd3555598adb36666604f2309dddf283a0778f7bb6b"
+    },
+    {
+      "file": "assets/world/mountain_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 431128,
+      "sha256": "b39d16fb3f182636907ae5e4cb532d321a9c667857c502597531dc2b422ce48f"
+    },
+    {
+      "file": "assets/world/reeds-v1.webp",
+      "dimensions": [
+        500,
+        483
+      ],
+      "bytes": 96300,
+      "sha256": "f2fc259c015808c654919fbfe01f5cd7a95a4894796dd4be224ad608dee76818"
+    },
+    {
+      "file": "assets/world/river_lake-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 468880,
+      "sha256": "ec784bd6d973f76080e10f78687204057b4e080c18b9c8d6d3e1e6ff3a6a3ba8"
+    },
+    {
+      "file": "assets/world/river_lake_winter-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 395910,
+      "sha256": "720db1b714e6b74f6e56a76e71808f624f4f68c52ff41f15bcb2fb4d515e24d4"
+    },
+    {
+      "file": "assets/world/sea-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 437792,
+      "sha256": "7bc4a117c0ec2955d863b89f01ad8b6ebb0e5ee6095d8b70768146a0af507e4d"
+    },
+    {
+      "file": "assets/world/snow-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 241944,
+      "sha256": "7ba5569e0546d5115446de0f76afd1ef278a7cd0a6ce3a660184712ecaf8c566"
+    },
+    {
+      "file": "assets/world/star_stop-v1.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 331246,
+      "sha256": "944a1c2a44da0a972bc34234b31303eae327571e9d8dab09f933348707369b5d"
+    },
+    {
+      "file": "assets/world/willow-v1.webp",
+      "dimensions": [
+        421,
+        503
+      ],
+      "bytes": 93250,
+      "sha256": "d54df9038fc70b78cc66b48fcbb4401c2e73585749cf1ad05c535bffa29cf892"
+    }
+  ]
+}

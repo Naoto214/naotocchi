@@ -4,18 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260911-input-3">
+  <link rel="stylesheet" href="style.css?v=20260911-cebab744">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20260911-0110ed9b">
-  <link rel="stylesheet" href="design.css?v=20260911-465df341">
+  <link rel="stylesheet" href="ui.css?v=20260911-9c71190c">
+  <link rel="stylesheet" href="design.css?v=20260911-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260911-0191a051">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260911-823ec14f">
+  <link rel="stylesheet" href="world-scene.css?v=20260911-daad30a1">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
 </head>
 <body>
+  <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
+    <div class="world-backdrop" id="worldBackdrop"></div>
+    <div class="world-depth" id="worldDepth"></div>
+    <div class="world-light"></div>
+    <div class="world-atmosphere" id="worldAtmosphere"></div>
+    <div class="world-foreground" id="worldForeground"></div>
+  </div>
   <div class="season-tint" id="seasonTint"></div>
   <div class="time-tint" id="timeTint"></div>
   <div class="region-decor" id="regionDecor"></div>
@@ -60,6 +68,8 @@
               <div class="cast-title-line"><div id="mainNameLabel">たまご</div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
               <div id="partnerLabel"></div>
             </div>
+            <div class="world-care-state" id="worldCareState" role="status" aria-live="polite"></div>
+            <p class="world-description" id="worldDescription"></p>
           </div>
           <div class="pet-area" id="petArea">
             <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="cast-response" id="castResponse"><div class="pet" id="pet">
@@ -128,17 +138,10 @@
 
           </div>
 
-          <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
-
           <div class="items-row" id="itemsRow"></div>
         </div>
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
-
-        <div class="farewell-bar hidden" id="farewellBar">
-          <span>さいごのじかん—ゆっくりおわかれをしよう</span>
-          <button id="farewellBtn">この子のいっしょうをきろくする</button>
-        </div>
 
         <div class="life-card-overlay hidden" id="lifeCardOverlay">
           <div class="life-card" id="lifeCardBody"></div>
@@ -213,24 +216,39 @@
         <div class="dex-overlay hidden" id="themeOverlay">
           <div class="dex-header">
             <span class="dex-title">でざいん</span>
-            <span class="dex-progress" id="themeProgress">0 / 80</span>
-            <button class="dex-close-btn" id="themeCloseBtn">✕</button>
-          </div>
-          <div class="design-tabs" aria-label="でざいんするところ">
-            <button type="button" id="designScreenTab" aria-pressed="true">がめん</button>
-            <button type="button" id="designDeviceTab" aria-pressed="false">ほんたい</button>
+            <button class="dex-close-btn" id="themeCloseBtn" aria-label="でざいんをとじる">✕</button>
           </div>
           <div class="theme-scroll">
-            <div id="designScreenPanel">
-              <div class="theme-section"><div class="theme-section-title">がめんのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">がめんのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
-              <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
-              <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
+            <p class="design-help">せかいの すけかたを かえられるよ。<br>ボタンの わくは おせるしるし。</p>
+            <div class="design-preview" aria-label="いまの背景での見本">
+              <div class="design-preview-world" aria-hidden="true"></div>
+              <span class="design-preview-caption">ホームの見本</span>
+              <p class="design-preview-info world-information">ねんれい 25さい　そだち 85</p>
+              <p class="design-preview-narration" id="glassPreviewStatus" role="status">せかいを のんびり ながめている。</p>
+              <button type="button" class="world-glass-button" id="glassPreviewBtn">おしてためす</button>
             </div>
-            <div id="designDevicePanel" hidden>
-              <div class="theme-section"><div class="theme-section-title">ほんたいのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">ほんたいのがら</div><div class="theme-grid" id="devicePatternGrid"></div></div>
+            <div class="design-range-row">
+              <label for="buttonTransparency">ボタンの透明度 <output id="buttonTransparencyValue" for="buttonTransparency">72%</output></label>
+              <input type="range" id="buttonTransparency" min="30" max="80" step="1" value="72" aria-describedby="buttonTransparencyHelp">
+              <div class="design-range-ends"><span>くっきり</span><span>よくすける</span></div>
+              <p id="buttonTransparencyHelp" class="design-help">ボタンの背景だけがかわるよ。もじと わくは くっきり。</p>
             </div>
+            <div class="design-range-row">
+              <label for="infoReadability">情報の読みやすさ <output id="infoReadabilityValue" for="infoReadability">50%</output></label>
+              <input type="range" id="infoReadability" min="0" max="100" step="1" value="50" aria-describedby="infoReadabilityHelp">
+              <div class="design-range-ends"><span>けしきをみせる</span><span>もじをよみやすく</span></div>
+              <p id="infoReadabilityHelp" class="design-help">年齢・名前・メーター・おしらせの うしろを、ふんわり明るく／暗くするよ。</p>
+            </div>
+            <button type="button" id="glassResetBtn" class="glass-reset-btn">おすすめにもどす</button>
+            <p class="design-help">メーターと警告のいろは、からだの状態をあらわすよ。</p>
+            <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
+            <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
+            <details class="design-collection">
+              <summary>あつめたいろ・がら <span class="dex-progress" id="themeProgress">0 / 81</span></summary>
+              <p class="design-help">これまでのコレクションは のこるよ。ホームのいろは、みやすさにあわせて かわるよ。</p>
+              <div class="theme-section-title">いろ</div><div class="theme-grid" id="colorCollectionGrid"></div>
+              <div class="theme-section-title">がら</div><div class="theme-grid" id="patternCollectionGrid"></div>
+            </details>
           </div>
         </div>
 
@@ -355,7 +373,7 @@
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
-            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>がめん・ほんたい</small></button>
+            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>透明度・もじ</small></button>
             <button type="button" id="stickerBtn"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i><span>シールちょう</span><small>あつめて・はる</small></button>
           </div>
         </div>
@@ -370,7 +388,7 @@
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
             <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
-            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気を調べるために使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
+            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報の数値はセーブに残しません。旅先に選んだ市区町村名は、景色を表示するために保存します。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
         </div>
 
@@ -382,7 +400,7 @@
           <div class="theme-scroll">
             <div class="theme-section">
               <div class="profile-hint">行きたい場所をえらんでタップすると、その地域へたびにでられます</div>
-              <button type="button" class="profile-code-btn" id="currentLocationBtn">📍げんざいち</button>
+              <button type="button" class="profile-code-btn" id="currentLocationBtn" aria-pressed="false">📍げんざいち</button>
               <div class="profile-hint" id="travelLocationStatus" role="status"></div>
               <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
@@ -707,6 +725,7 @@
         </div>
       </div>
     </div>
+    <div class="message" id="message" role="status" aria-live="polite" tabindex="0" aria-label="おしらせ">たまごがやってきた…</div>
     <nav class="buttons" id="careActions" aria-label="お世話とメニュー">
       <button id="feedBtn" title="ごはん"><i class="care-icon" data-care-icon="food" aria-hidden="true"></i><span>ごはん</span></button>
       <button id="playBtn" title="あそぶ"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>あそぶ</span></button>
@@ -719,6 +738,10 @@
       <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
     </nav>
     <div class="life-actions">
+      <div class="farewell-bar hidden" id="farewellBar">
+        <span>さいごのじかん—ゆっくりおわかれをしよう</span>
+        <button id="farewellBtn">この子のいっしょうをきろくする</button>
+      </div>
       <button id="resetBtn" title="あたらしいたまご" class="hidden">🥚<span>あたらしいたまご</span></button>
       <button id="infiniteBtn" title="♾️のせかい" class="hidden"><span id="infiniteBtnIcon">♾️</span><span id="infiniteBtnLabel">♾️のせかい</span></button>
     </div>
@@ -731,11 +754,13 @@
   <script src="cast-bounds.js?v=20260911-c9130956"></script>
   <script src="cast-motion.js?v=20260911-c479a13a"></script>
   <script src="cast-layout.js?v=20260911-4a13a5ab"></script>
-  <script src="world-environment.js?v=20260911-ee3a9e6a"></script>
+  <script src="local-scenery.js?v=20260911-0bea5d7b"></script>
+  <script src="world-environment.js?v=20260911-d0a39f28"></script>
+  <script src="world-scene.js?v=20260911-99152e94"></script>
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
-  <script src="games.js?v=20260911-11"></script>
+  <script src="games.js?v=20260911-a3406fc5"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-input-4"></script>
+  <script src="script.js?v=20260911-input-5"></script>
 </body>
 </html>

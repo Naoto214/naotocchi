@@ -4,6 +4,8 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
+  const WORLD_SCENE = window.NaotocchiWorldScene || null;
+  let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -962,10 +964,13 @@
     locationRefreshBtn: document.getElementById('locationRefreshBtn'),
     currentLocationBtn: document.getElementById('currentLocationBtn'),
     travelLocationStatus: document.getElementById('travelLocationStatus'),
-    designScreenTab: document.getElementById('designScreenTab'),
-    designDeviceTab: document.getElementById('designDeviceTab'),
-    designScreenPanel: document.getElementById('designScreenPanel'),
-    designDevicePanel: document.getElementById('designDevicePanel'),
+    buttonTransparency: document.getElementById('buttonTransparency'),
+    buttonTransparencyValue: document.getElementById('buttonTransparencyValue'),
+    infoReadability: document.getElementById('infoReadability'),
+    infoReadabilityValue: document.getElementById('infoReadabilityValue'),
+    glassResetBtn: document.getElementById('glassResetBtn'),
+    glassPreviewBtn: document.getElementById('glassPreviewBtn'),
+    glassPreviewStatus: document.getElementById('glassPreviewStatus'),
     fontSelect: document.getElementById('fontSelect'),
     textSizeSelect: document.getElementById('textSizeSelect'),
 
@@ -1118,10 +1123,8 @@
     themeOverlay: document.getElementById('themeOverlay'),
     themeProgress: document.getElementById('themeProgress'),
     themeCloseBtn: document.getElementById('themeCloseBtn'),
-    deviceThemeGrid: document.getElementById('deviceThemeGrid'),
-    screenThemeGrid: document.getElementById('screenThemeGrid'),
-    devicePatternGrid: document.getElementById('devicePatternGrid'),
-    screenPatternGrid: document.getElementById('screenPatternGrid'),
+    colorCollectionGrid: document.getElementById('colorCollectionGrid'),
+    patternCollectionGrid: document.getElementById('patternCollectionGrid'),
     itemBtn: document.getElementById('itemBtn'),
     itemOverlay: document.getElementById('itemOverlay'),
     itemMoneyLabel: document.getElementById('itemMoneyLabel'),
@@ -1298,6 +1301,12 @@
     duelResultBreakdown: document.getElementById('duelResultBreakdown'),
     duelRematchBtn: document.getElementById('duelRematchBtn'),
     duelResultCloseBtn: document.getElementById('duelResultCloseBtn'),
+  };
+
+  // Background opacity is bounded; ink, icons, borders and semantic fills never fade.
+  const GLASS_SETTINGS = {
+    buttonTransparency: {min:30,max:80,default:72},
+    infoReadability: {min:0,max:100,default:50},
   };
 
   function freshState() {
@@ -1493,8 +1502,11 @@
         soundSfx: true,
         soundBgm: true,
         currentLocationSelected: false,
+        currentLocation: null,
         fontStyle: 'rounded',
         textSize: 'normal',
+        buttonTransparency: GLASS_SETTINGS.buttonTransparency.default,
+        infoReadability: GLASS_SETTINGS.infoReadability.default,
         // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
         // どくりつに えらべる、もうひとつの おしゃれ せってい
         devicePatternId: 'none',
@@ -1640,6 +1652,9 @@
   // あとに よぶ。ここでも 正しい 値は かえない)
   function normalizeStateValues(st) {
     for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
+    for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
+      st.lifetime[key] = Math.round(clamp(st.lifetime[key], bounds.min, bounds.max));
+    }
     st.ageTicks = Math.max(0, Math.floor(st.ageTicks));
     st.lifeLog = st.lifeLog.filter((e) => e && typeof e === 'object' && typeof e.text === 'string');
     st.midlifeSeen = st.midlifeSeen.filter((v) => Number.isFinite(v));
@@ -1649,6 +1664,9 @@
       }));
     }
     st.companions = st.companions.filter((c) => c && typeof c === 'object' && typeof c.id === 'string');
+    const locality = window.NaotocchiLocalScenery?.sanitizeLocality?.(st.lifetime.currentLocation);
+    st.lifetime.currentLocation = locality ? savedLocality(locality) : null;
+    if (!st.lifetime.currentLocation) st.lifetime.currentLocationSelected = false;
     return st;
   }
 
@@ -1667,6 +1685,9 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // Preserve the earlier transparent option only for a save without the new control.
+      if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'buttonTransparency')
+          && parsed.lifetime?.deviceThemeId === 'transparent') merged.lifetime.buttonTransparency = 80;
       // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
       // コードは 配列の .map などを ためらいなく よぶ ので)
       normalizeStateShape(merged, freshState());
@@ -2196,6 +2217,7 @@
   // unlockAll をつかう)。実際の色とプレビューは design.css の同じ定義を使う。
   const COLOR_THEMES = [
     { id: 'default', label: 'クラシック' },
+    { id: 'transparent', label: 'とうめい', target: 'device' },
     { id: 'sky', label: 'そら' },
     { id: 'mint', label: 'ミント' },
     { id: 'lavender', label: 'ラベンダー' },
@@ -2252,6 +2274,9 @@
       unlockTier: 4,
     },
   ];
+
+  // ボタン専用の色は、メーターの選択・プレビューには含めない。
+
 
   // COLOR_THEMES と おなじ unlockTier/unlockAll の しくみで えらべる、
   // がめんの がら(色とは べつの もうひとつの おしゃれ軸)。emoji は
@@ -9938,11 +9963,13 @@
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
+    renderWorldScene(true);
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
+      renderWorldScene();
     }, STORY_FLASH_DURATION_MS);
   }
 
@@ -10566,22 +10593,30 @@
     return stages?.[currentFormStageIndex()]?.label || '';
   }
 
-  // COLOR_THEMES の えらんだ id を .device / .screen の class に反映する。
-  // ロックされた/存在しない id が しれっと 残っていても(セーブデータ改変
-  // など)、その場合は もも(default)に フォールバックする
+  // Old selections and earned IDs remain in saves, but cannot recolor game controls.
+  // Theme classes now belong only to the read-only collection swatches.
   function applyTheme() {
-    const deviceTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    const screenTheme = COLOR_THEMES.find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    COLOR_THEMES.forEach((t) => {
-      el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
-      el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
-    });
-    const devicePattern = PATTERNS.find((p) => p.id === state.lifetime.devicePatternId && isThemeUnlocked(p)) || PATTERNS[0];
-    const screenPattern = PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p)) || PATTERNS[0];
-    PATTERNS.forEach((p) => {
-      el.device.classList.toggle(`pattern-${p.id}`, p === devicePattern);
-      el.screen.classList.toggle(`pattern-${p.id}`, p === screenPattern);
-    });
+    for (const t of COLOR_THEMES) {
+      el.device.classList.toggle(`theme-${t.id}`, t.id === 'default');
+      el.screen.classList.toggle(`theme-${t.id}`, t.id === 'default');
+    }
+    for (const p of PATTERNS) {
+      el.device.classList.toggle(`pattern-${p.id}`, p.id === 'none');
+      el.screen.classList.toggle(`pattern-${p.id}`, p.id === 'none');
+    }
+    applyGlassSettings();
+  }
+
+  function applyGlassSettings() {
+    for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
+      const value = state.lifetime[key];
+      state.lifetime[key] = typeof value === 'number' && Number.isFinite(value)
+        ? Math.round(clamp(value,bounds.min,bounds.max)) : bounds.default;
+      el[key].value = String(state.lifetime[key]);
+      el[key + 'Value'].textContent = `${state.lifetime[key]}%`;
+    }
+    el.device.style.setProperty('--ui-button-alpha',((100-state.lifetime.buttonTransparency)/100).toFixed(2));
+    el.device.style.setProperty('--ui-info-alpha',(.34+.28*state.lifetime.infoReadability/100).toFixed(3));
   }
 
   // ランダムな いち(はし に よせて、まんなかの デバイスと かさならない
@@ -10739,6 +10774,12 @@
   // かざり(region-decor)・はいけい/ぜんけいエフェクト・からだの タイントを
   // まとめて つくりなおす
   function applySeasonRegionVisuals(regionId, season) {
+    if (WORLD_SCENE?.hasRegion(regionId)) {
+      el.regionDecor.innerHTML = '';
+      el.seasonBgFx.innerHTML = '';
+      el.seasonFrontFx.innerHTML = '';
+      return;
+    }
     const { fx, decor, tint } = computeSeasonVisual(regionId, season);
     renderRegionDecor(decor);
     el.seasonBgFx.innerHTML = buildSeasonFxHtml(fx.bg, fx.bgCount);
@@ -10752,6 +10793,7 @@
     const announce = SEASON_CHANGE_ANNOUNCE[season];
     if (!announce) return;
     showStoryEvent({ emoji: announce.emoji, message: announce.text });
+    if (WORLD_SCENE?.hasRegion(regionId)) return;
     // 「うごきを へらす」せっていの ときは、テキストの こくちだけに とどめ、
     // ちる バーストの アニメーションじたいを つくらない(animationend が
     // 発火せず ようそが のこりつづける じこを さける ため)
@@ -10899,7 +10941,7 @@
     const seasonInfo = SEASON_INFO[effectiveSeason];
     setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
     setHTMLIfChanged(el.partnerLabel, state.partner
-      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}`
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
       ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
@@ -11037,6 +11079,7 @@
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
+    renderWorldScene(suppressFrontFx);
     renderItemsRow(disableCare);
     renderHomeCast();
     positionWeatherSky();
@@ -11092,7 +11135,6 @@
     hideSpeechBubble();
     closeAllMenuOverlays();
     if (OVERLAY_KINDS.includes(kind)) activeOverlay = kind;
-    if (kind === 'theme') selectDesignPanel('screen');
     if (kind === 'sticker') stickerOpened();
     render();
     focusOverlayClose(kind);
@@ -11307,45 +11349,26 @@
     el.gameListGrid.innerHTML = html;
   }
 
-  function designPreview(target, colorId, patternId) {
-    const color = COLOR_THEMES.find(t => t.id === colorId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    const pattern = PATTERNS.find(p => p.id === patternId && isThemeUnlocked(p)) || PATTERNS[0];
-    return `<span class="theme-swatch-circle surface-${target} theme-${color.id} pattern-${pattern.id}" aria-hidden="true"></span>`;
-  }
-
-  function renderThemeSwatchGrid(gridEl, selectedId, target, patternId) {
-    selectedId = COLOR_THEMES.find(t => t.id === selectedId && isThemeUnlocked(t))?.id || 'default';
-    gridEl.innerHTML = COLOR_THEMES.map((t) => {
-      const unlocked = isThemeUnlocked(t);
-      const selected = unlocked && t.id === selectedId;
-      const label = unlocked ? t.label : '？？？';
-      const preview = unlocked ? designPreview(target,t.id,patternId) : '<span class="theme-swatch-circle">🔒</span>';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
-    }).join('');
-  }
-
-  // Preview the actual selected color with each motif, using the same CSS.
-  function renderPatternSwatchGrid(gridEl, selectedId, target, colorId) {
-    selectedId = PATTERNS.find(p => p.id === selectedId && isThemeUnlocked(p))?.id || 'none';
-    gridEl.innerHTML = PATTERNS.map((p) => {
-      const unlocked = isThemeUnlocked(p);
-      const selected = unlocked && p.id === selectedId;
-      const label = unlocked ? p.label : '？？？';
-      const preview = unlocked ? designPreview(target,colorId,p.id) : '<span class="theme-swatch-circle">🔒</span>';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${p.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
+  function renderDesignCollection(grid, entries, kind) {
+    const unlockedIds = entries.filter(isThemeUnlocked).map(entry => entry.id).join(',');
+    if (grid.dataset.unlockedIds === unlockedIds) return;
+    grid.dataset.unlockedIds = unlockedIds;
+    grid.innerHTML = entries.map(entry => {
+      const unlocked = isThemeUnlocked(entry);
+      const classes = kind === 'color' ? `theme-${entry.id} pattern-none` : `theme-default pattern-${entry.id}`;
+      const preview = unlocked
+        ? `<span class="theme-swatch-circle surface-device ${classes}" aria-hidden="true"></span>`
+        : '<span class="design-collection-lock" aria-hidden="true">🔒</span>';
+      return `<div class="design-collection-item">${preview}<span>${unlocked ? entry.label : '？？？'}</span></div>`;
     }).join('');
   }
 
   function renderThemeOverlay() {
-    // ヘッダーの ぜんたい数は、いろ(COLOR_THEMES)と がら(PATTERNS)
-    // を あわせた かずで あらわす
-    const unlockedColors = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
-    const unlockedPatterns = PATTERNS.filter((p) => isThemeUnlocked(p)).length;
-    el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + PATTERNS.length}`;
-    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'device', state.lifetime.devicePatternId);
-    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screen', state.lifetime.screenPatternId);
-    renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId, 'device', state.lifetime.deviceThemeId);
-    renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId, 'screen', state.lifetime.screenThemeId);
+    const unlocked = [...COLOR_THEMES,...PATTERNS].filter(isThemeUnlocked).length;
+    el.themeProgress.textContent = `${unlocked} / ${COLOR_THEMES.length + PATTERNS.length}`;
+    renderDesignCollection(el.colorCollectionGrid,COLOR_THEMES,'color');
+    renderDesignCollection(el.patternCollectionGrid,PATTERNS,'pattern');
+    applyGlassSettings();
     el.fontSelect.value = state.lifetime.fontStyle || 'rounded';
     el.textSizeSelect.value = state.lifetime.textSize || 'normal';
   }
@@ -11474,24 +11497,6 @@
     }
   }
 
-  function selectTheme(target, id) {
-    if (target === 'devicePattern' || target === 'screenPattern') {
-      const pattern = PATTERNS.find((p) => p.id === id);
-      if (!pattern || !isThemeUnlocked(pattern)) return;
-      if (target === 'devicePattern') state.lifetime.devicePatternId = id;
-      else state.lifetime.screenPatternId = id;
-      saveState();
-      render();
-      return;
-    }
-    const theme = COLOR_THEMES.find((t) => t.id === id);
-    if (!theme || !isThemeUnlocked(theme)) return;
-    if (target === 'device') state.lifetime.deviceThemeId = id;
-    else state.lifetime.screenThemeId = id;
-    saveState();
-    render();
-  }
-
   // 「せかい」→「きせつを かえる」がめん。でざいんの いろ・がら スウォッチ
   // (.theme-swatch)と おなじ 見た目を りようして、5つの せってい モード
   // (げんじつに あわせる/はる/なつ/あき/ふゆ)を いちらん表示する。ロックは
@@ -11530,7 +11535,7 @@
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
-      const isCurrent = region.id === state.regionId;
+      const isCurrent = region.id === state.regionId && !(region.id === 'home' && state.lifetime.currentLocationSelected);
       const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
       const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
       const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
@@ -12563,9 +12568,32 @@
     const mode = TIME_CHOICES[state.lifetime.timeMode] ? state.lifetime.timeMode : 'auto';
     return window.NaotocchiEnvironment?.timeOfDay(mode) || 'day';
   }
+  function savedLocality(locality) {
+    if (!locality) return null;
+    return {
+      name: locality.name,
+      display: locality.display,
+      prefecture: locality.prefecture,
+      profileId: locality.profileId,
+    };
+  }
+  function selectedLocality() {
+    if (!state.lifetime.currentLocationSelected || state.regionId !== 'home') return null;
+    const resolve = window.NaotocchiLocalScenery?.resolveLocality;
+    if (!resolve) return null;
+    // The saved choice remains authoritative until a location request passes
+    // its intent check and is committed. A malformed or canceled live result
+    // must not hide or transiently replace that choice.
+    const saved = resolve(state.lifetime.currentLocation);
+    const live = resolve(environmentTracker?.snapshot().municipality);
+    return saved || live || null;
+  }
   function currentEnvironment() {
     const w = effectiveWeather();
-    return { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const locality = selectedLocality();
+    if (locality) environment.locality = locality;
+    return environment;
   }
   function hasSurfaceSeasons(regionId) {
     return regionId !== 'deepsea' && regionId !== 'star_stop';
@@ -12623,7 +12651,8 @@
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
     const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : environmentContextLabel(env.weatherSource);
     const season = SEASON_INFO[env.season];
-    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`];
+    const placeChip = env.locality ? `📍${escapeHtml(env.locality.display)}` : `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`;
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, placeChip];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
@@ -12644,6 +12673,7 @@
   }
   function applyWeatherFx(weather, time, regionId) {
     if (!el.weatherFx) return;
+    if (WORLD_SCENE?.hasRegion(regionId)) { el.weatherFx.innerHTML = ''; weatherFxKey = ''; return; }
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${mgPerfTier}`;
     if (key === weatherFxKey) return;
@@ -12883,13 +12913,6 @@
     });
   }
 
-  function selectDesignPanel(panel) {
-    const screen = panel !== 'device';
-    el.designScreenPanel.hidden = !screen; el.designDevicePanel.hidden = screen;
-    el.designScreenTab.setAttribute('aria-pressed',String(screen));
-    el.designDeviceTab.setAttribute('aria-pressed',String(!screen));
-  }
-
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
     if (grid.dataset.choiceMode === mode) return;
     grid.dataset.choiceMode = mode;
@@ -12912,21 +12935,32 @@
     applyWeatherFx(weather, time, state.regionId);
     const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : environmentContextLabel(eff.source);
     el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
-    const city = snapshot?.municipality?.display;
+    const selected = selectedLocality();
+    const observed = window.NaotocchiLocalScenery?.resolveLocality?.(snapshot?.municipality) || null;
+    const locality = selected || observed;
+    const city = locality?.display;
     const locationLabel = `げんざいち：${city || 'まだわからない'}`;
     el.worldLocationLabel.textContent = locationLabel;
     el.currentLocationBtn.textContent = `📍${locationLabel}`;
-    if (state.lifetime.currentLocationSelected && state.regionId === 'home') el.regionLabel.textContent = `📍${locationLabel}`;
+    const currentSelected = !!selected;
+    el.currentLocationBtn.classList.toggle('selected', currentSelected);
+    el.currentLocationBtn.setAttribute('aria-pressed', String(currentSelected));
+    if (currentSelected) el.regionLabel.textContent = `📍${locationLabel}`;
     const loading = snapshot?.status === 'loading';
     el.locationRefreshBtn.disabled = loading;
     el.currentLocationBtn.disabled = loading;
     const status = loading ? '現在地とてんきを調べています…' : snapshot?.error || (city || weather ?
       `${city ? locationLabel : ''}${city && weather ? '・' : ''}${weather ? weatherText : ''}` : '現在地を調べると、近くのてんきにあわせられます。');
+    const sceneryStatus = locality ? `${locality.description}（街のイメージ）` : '';
     const contextNote = eff.source === 'underwater' ? 'ここは水の中。地上の天気は届きません。' : eff.source === 'starry' ? 'ここでは、いつでも星空が見えます。' : '';
     el.environmentStatus.textContent = contextNote ? `${contextNote} 選んだ天気は地上へ戻ると反映されます。` : status;
-    el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで調べられます。');
+    el.travelLocationStatus.textContent = loading
+      ? `${status}${selected ? ` ${sceneryStatus}を表示中。` : ''}`
+      : snapshot?.error
+        ? `${status}${selected ? ` ${sceneryStatus}を表示しています。` : observed ? ` ${sceneryStatus}を選べます。` : ''}`
+        : selected ? sceneryStatus : observed ? `${sceneryStatus}を選べます。` : '市区町村まで調べられます。';
     if (overlayIs('world')) {
-      renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
+      renderWorldNowCard(currentEnvironment());
       renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode,'time');
       renderSeasonModeGrid();
       renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode,'weather');
@@ -12936,6 +12970,23 @@
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
     }
     maybeRefreshEnvironment();
+    renderWorldScene();
+  }
+
+  function renderWorldScene(paused = false) {
+    if (!WORLD_SCENE) return;
+    if (!worldRenderer) worldRenderer = WORLD_SCENE.createRenderer(document, window);
+    const blocked = paused || gameActive || !!state.transformOptions || isAnyMenuOverlayOpen()
+      || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden');
+    worldRenderer?.update(currentEnvironment(), {paused:blocked, tier:mgPerfTier});
+    if (!WORLD_SCENE.hasRegion(state.regionId)) return;
+    const notice = CARE_STATUS?.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
+    const level = WORLD_SCENE.careLevel(state, notice, isImmortal());
+    el.device.dataset.worldCare = level;
+    const label = document.getElementById('worldCareState');
+    const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう',warning:'はやめにおせわ',critical:'いそいでおせわ'};
+    const icon = level === 'normal' ? 'recovery' : 'danger';
+    setHTMLIfChanged(label, titles[level] ? careIconHTML(icon) + `<span>${titles[level]}</span>` : '');
   }
 
   function requestEnvironment() {
@@ -14535,6 +14586,7 @@
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
     gameActive = true;
+    renderWorldScene(true);
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
     el.menuBtn.disabled = true;
@@ -15520,11 +15572,21 @@
     state.lifetime.weatherMode = btn.dataset.id; saveState(); renderEnvironment();
     if (btn.dataset.id === 'auto') requestEnvironment();
   });
-  el.locationRefreshBtn.addEventListener('click', requestEnvironment);
+  el.locationRefreshBtn.addEventListener('click', async () => {
+    const intent = ++currentLocationIntent;
+    const info = await requestEnvironment();
+    const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
+    if (intent !== currentLocationIntent || !overlayIs('world') || !locality ||
+        !state.lifetime.currentLocationSelected || state.regionId !== 'home') return;
+    state.lifetime.currentLocation = savedLocality(locality);
+    saveState();
+    render();
+  });
   el.currentLocationBtn.addEventListener('click', async () => {
     const intent = ++currentLocationIntent;
     const info = await requestEnvironment();
-    if (intent !== currentLocationIntent || !overlayIs('travel') || !info?.municipality) return;
+    const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
+    if (intent !== currentLocationIntent || !overlayIs('travel') || !locality) return;
     if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
@@ -15532,10 +15594,27 @@
     if (state.regionId !== 'home') travelToRegion(findRegion('home'));
     else closeAllMenuOverlays();
     state.lifetime.currentLocationSelected = true;
+    state.lifetime.currentLocation = savedLocality(locality);
     saveState(); render();
   });
-  el.designScreenTab.addEventListener('click', () => selectDesignPanel('screen'));
-  el.designDeviceTab.addEventListener('click', () => selectDesignPanel('device'));
+  for (const [key,bounds] of Object.entries(GLASS_SETTINGS)) {
+    const update = () => {
+      const value = Number(el[key].value);
+      if (!Number.isFinite(value)) return;
+      state.lifetime[key] = Math.round(clamp(value,bounds.min,bounds.max));
+      // No full render while dragging: retain focus, scroll and the live world.
+      applyGlassSettings();
+    };
+    el[key].addEventListener('input',update);
+    el[key].addEventListener('change',() => { update(); saveState(); });
+  }
+  el.glassResetBtn.addEventListener('click',() => {
+    for (const [key,bounds] of Object.entries(GLASS_SETTINGS)) state.lifetime[key] = bounds.default;
+    applyGlassSettings(); saveState();
+  });
+  el.glassPreviewBtn.addEventListener('click',() => {
+    el.glassPreviewStatus.textContent = 'ボタンを おしたよ。';
+  });
   el.fontSelect.addEventListener('change', () => {
     if (!['rounded','standard','retro'].includes(el.fontSelect.value)) return;
     state.lifetime.fontStyle = el.fontSelect.value; saveState(); render();
@@ -15571,7 +15650,17 @@
       render();
       return;
     }
+    // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
+    // 表示だけを戻す操作では、旅の消費や記録を発生させない。
+    if (region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected) {
+      state.lifetime.currentLocationSelected = false;
+      state.lifetime.currentLocation = null;
+      saveState();
+      render();
+      return;
+    }
     state.lifetime.currentLocationSelected = false;
+    state.lifetime.currentLocation = null;
     const specialRewardTrip = (state.items.reward || 0) > 0 && window.confirm('🎁ごほうびを1こ使って、とくべつな旅にしますか？');
     if (specialRewardTrip) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
     state.affectionStreak = 0;
@@ -16023,30 +16112,6 @@
   el.themeCloseBtn.addEventListener('click', () => {
     closeOverlay('theme');
     render();
-  });
-
-  el.deviceThemeGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('device', btn.dataset.id);
-  });
-
-  el.screenThemeGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('screen', btn.dataset.id);
-  });
-
-  el.devicePatternGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('devicePattern', btn.dataset.id);
-  });
-
-  el.screenPatternGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('screenPattern', btn.dataset.id);
   });
 
   el.itemBtn.addEventListener('click', () => openExclusiveMenu('item'));
