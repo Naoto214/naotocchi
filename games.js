@@ -7629,6 +7629,8 @@
           if (rows[r].filter(Boolean).length === 1) { say('その段は1つしか残っていない', 900); return; }
           if (r === rows.length - 1 && topRow.length && topRow.length < 3) { say('一番上の段はぬけない', 900); return; }
           rows[r][i] = false; pulled++; sfx('pop');
+          // 20こ ぬけたら じょうずに おわり(それいじょう ぬいても てんすうは ふえない)
+          if (pulled >= 20) { say('🎉20こぬけた!', 1500); setTimeout(() => { if (running) finish(); }, 900); }
           // うえに のせる(3つ そろったら あたらしい だん)
           if (topRow.length >= 3) { rows.push(topRow); topRow = []; }
           topRow.push(true);
@@ -7655,7 +7657,10 @@
           }
           if (now < msgUntil) { ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 80, 8, 160, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, 21); }
         }
-        function loop(now) { if (!running) return; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(); return; } rafId = requestAnimationFrame(loop); }
+        // ぬける ブロックが もう ない(どの だんも のこり 1つ)なら おわり
+        function canPullAny() { return rows.some((row, r) => row.filter(Boolean).length > 1 && !(r === rows.length - 1 && topRow.length && topRow.length < 3)); }
+        let stuckAt = 0;
+        function loop(now) { if (!running) return; render(now); if (now - startTime > TIME_LIMIT_MS) { finish(); return; } if (!collapsing && !anim && !canPullAny()) { if (!stuckAt) { stuckAt = now; say('もうぬけるところがない。おわり!', 1500); } else if (now - stuckAt > 1200) { finish(); return; } } rafId = requestAnimationFrame(loop); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           const score = clamp(Math.round(10 + pulled * 6 + (collapsing ? 0 : 12)), 10, 100);

@@ -10829,6 +10829,7 @@
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
     renderItemsRow(disableCare);
     renderHomeCast();
+    positionWeatherSky();
   }
 
   let menuOpen = false;
@@ -12456,6 +12457,7 @@
     if (regionId === 'deepsea') { el.weatherFx.innerHTML = ''; return; }
     if (regionId === 'star_stop') { weather = null; time = 'night'; }
     const items = [];
+    const sky = [];
     const rnd = (a, b) => a + Math.random() * (b - a);
     if (weather === 'rain') {
       const n = low ? 18 : 42;
@@ -12465,19 +12467,39 @@
       for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">${sceneryIconHTML('❄')}</span>`);
     } else if (weather === 'cloudy') {
       const n = low ? 3 : 5;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-cloud" style="top:${rnd(2, 22).toFixed(1)}%;font-size:${Math.round(rnd(30, 56))}px;animation-duration:${rnd(60, 110).toFixed(0)}s;animation-delay:${rnd(-100, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-cloud" style="top:${rnd(2, 30).toFixed(1)}%;font-size:${Math.round(rnd(18, 32))}px;animation-duration:${rnd(40, 80).toFixed(0)}s;animation-delay:${rnd(-70, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
     } else if (weather === 'sunny' && time !== 'night') {
-      items.push('<span class="wx-sun"></span>');
+      sky.push('<span class="wx-sun"></span>');
       const n = low ? 3 : 7;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
     }
     if (time === 'night' && weather !== 'rain' && weather !== 'snow') {
       const n = low ? 14 : 30;
-      for (let i = 0; i < n; i++) items.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 45).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
-      if (weather !== 'cloudy') items.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
+      for (let i = 0; i < n; i++) sky.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 60).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
+      if (weather !== 'cloudy') sky.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
     }
-    el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)).join('') : items.join('');
+    // あめ・ゆきは がめん ぜんたい。たいよう・つき・ほし・くもは、ペットの
+    // ステージの うえに かさなる わく(.wx-sky)の なかに 入れて、ヘッダーの
+    // ボタンに かさならない ように する(いちは positionWeatherSky() が あわせる)
+    const skyKept = reduced ? sky.filter((h) => /wx-sun|wx-moon|wx-star/.test(h)) : sky;
+    if (skyKept.length) items.push(`<span class="wx-sky">${skyKept.join('')}</span>`);
+    el.weatherFx.innerHTML = reduced ? items.filter((h) => /wx-sky/.test(h)).join('') : items.join('');
+    positionWeatherSky();
   }
+  // .wx-sky(たいよう・つき・ほし・くも)を、ペットの ステージの いちに あわせる
+  function positionWeatherSky() {
+    if (!el.weatherFx || !el.castStage) return;
+    const sky = el.weatherFx.querySelector('.wx-sky');
+    if (!sky) return;
+    let r = null;
+    try { r = el.castStage.getBoundingClientRect(); } catch (e) { r = null; }
+    if (!r || !r.width) { sky.style.display = 'none'; return; }
+    sky.style.display = '';
+    sky.style.left = `${Math.round(r.left)}px`; sky.style.top = `${Math.round(r.top)}px`;
+    sky.style.width = `${Math.round(r.width)}px`; sky.style.height = `${Math.round(r.height)}px`;
+  }
+  if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', () => positionWeatherSky());
+
   // --- せかいの できごと: てんき・じかんたいに ちなんだ 小さな できごとが ときどき おこる ---
   const ENV_MOMENTS = {
     sunny: [
@@ -13974,10 +13996,10 @@
     try { recoverSleepStepInner(); } finally { sleepStepBusy = false; }
   }
   function recoverSleepStepInner() {
-    // 100ms ごと。0→100 が やく 45びょう(以前は 1.8/100ms で 6びょうたらず、
-    // げんきが リソースとして 意味を なしていなかった)
-    const boost = isEquipped('sleepboost1') ? 0.06 : 0;
-    const step = ((state.isSick ? 0.14 : 0.22) + boost) * envModifiers().sleep;
+    // 100ms ごと。0→100 が やく 17びょう(はやすぎると げんきの 意味が なくなり、
+    // おそすぎると あそびに もどれない。その あいだの はやさ)
+    const boost = isEquipped('sleepboost1') ? 0.12 : 0;
+    const step = ((state.isSick ? 0.38 : 0.6) + boost) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();
@@ -15868,11 +15890,13 @@
     const before = { hunger: state.hunger, happiness: state.happiness, energy: state.energy };
     // ぶんだけ さがるが、るすで あぶなく なる ことは ない(20 どまり)
     const drop = (v, per) => Math.max(Math.min(v, OFFLINE_FLOOR), v - per * ticks);
-    // ひらいている ときの 半分いか の はやさ(30ぷんで さいだい −150)
-    state.hunger = clamp(drop(state.hunger, 0.25 * factor), 0, 100);
-    state.happiness = clamp(drop(state.happiness, 0.25 * factor), 0, 100);
+    // ひらいている ときより ずっと おだやか。1かいの るすで さがるのは さいだい 30 まで。
+    // げんきは るすの あいだ やすんでいる あつかいで、さがらず すこし かいふくする
+    const cap = (v, per) => Math.max(drop(v, per), v - 30);
+    state.hunger = clamp(cap(state.hunger, 0.25 * factor), 0, 100);
+    state.happiness = clamp(cap(state.happiness, 0.25 * factor), 0, 100);
     if (sleeping) state.energy = clamp(state.energy + 2.2 * Math.min(ticks, 40), 0, 100);
-    else state.energy = clamp(drop(state.energy, 0.15), 0, 100);
+    else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
     // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ

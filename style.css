@@ -4146,10 +4146,10 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 }
 .wx-sun {
   position: absolute;
-  top: -90px;
-  right: -90px;
-  width: 280px;
-  height: 280px;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 232, 130, 0.6), rgba(255, 200, 80, 0.18) 45%, transparent 70%);
   animation: wx-sun 6s ease-in-out infinite alternate;
@@ -4183,9 +4183,9 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 }
 .wx-moon {
   position: absolute;
-  top: 4%;
-  right: 8%;
-  font-size: 34px;
+  top: 6%;
+  right: 6%;
+  font-size: 24px;
   line-height: 1;
   filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.7));
 }
@@ -4248,3 +4248,12 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .travel-card-tag { font-size: 8px; padding: 1px 6px; border-radius: 999px; background: rgba(46, 139, 87, 0.18); color: #2e5d3a; }
 .travel-card-tag.now { background: #2e8b57; color: #fff; }
 .travel-card-lines { display: flex; flex-direction: column; gap: 1px; font-size: 8.5px; line-height: 1.35; opacity: 0.85; }
+
+/* たいよう・つき・ほし・くも は、ペットの ステージに かさなる わくの なか */
+.wx-sky {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 14px;
+}
+.wx-sky .wx-star { width: 2px; height: 2px; }
