@@ -154,6 +154,8 @@ function checkLayout(m, label) {
               const tip=await page.locator('#endingBadgeTip').boundingBox();
               assert.ok(tip && tip.y>=before.header.y && tip.y+tip.height<=height && tip.x>=0 && tip.x+tip.width<=width,
                 label+': badge explanation leaves the viewport');
+              results.push({label,phase:'badge-explanation',tip,width,height});
+              await page.screenshot({path:path.join(output,label+'-badge.png')});
             }
 
             if (name === 'small') {
@@ -196,6 +198,8 @@ function checkLayout(m, label) {
               assert.ok(detail && detail.y>=0 && detail.height>500 && detail.y+detail.height<=664,label+': detail is trapped in the central frame');
               await page.locator('#themeOverlay .theme-scroll').evaluate(e=>{e.scrollTop=e.scrollHeight;});
               assert.ok(await page.locator('#themeOverlay .theme-scroll').evaluate(e=>e.scrollTop>0),label+': design details cannot scroll');
+              results.push({label,phase:'design-details',detail,scroll:await page.locator('#themeOverlay .theme-scroll').evaluate(e=>({top:e.scrollTop,height:e.clientHeight,total:e.scrollHeight}))});
+              await page.screenshot({path:path.join(output,label+'-design-details.png')});
               await page.locator('#themeCloseBtn').click();
               await page.locator('#playBtn').click();
               await page.locator('#minigameOverlay').waitFor({state:'visible'});
