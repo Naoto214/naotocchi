@@ -1713,6 +1713,20 @@
         merged.companions = merged.lifetime.companionsRecruited.map((id) => ({ id, bond: 100 }));
       }
 
+      // 入れ替えた仲間は現在のIDへ引き継ぎ、重複時も高いなかよし度を保つ。
+      for (const key of ['companionsRecruited', 'rareCompanionsRecruited']) {
+        merged.lifetime[key] = [...new Set(merged.lifetime[key].map(canonicalCompanionId))];
+      }
+      const migratedCompanions = new Map();
+      for (const companion of merged.companions) {
+        const id = canonicalCompanionId(companion.id);
+        const previous = migratedCompanions.get(id);
+        if (!previous || (companion.bond || 0) > (previous.bond || 0)) {
+          migratedCompanions.set(id, { ...companion, id });
+        }
+      }
+      merged.companions = [...migratedCompanions.values()];
+
       // ================================================================
       // schemaVersion 3 への いこう(ねんれい/そだち の あたらしい しくみ)
       // ================================================================
@@ -7665,30 +7679,17 @@
     return WORLD_MASTER?.compatibility?.companionAliases?.[id] || id;
   }
 
-  // 旧セーブのコアラを別の生物に変えず、同行・会話・図鑑を保持する。
-  // 新しい遭遇候補には加えない。
-  const LEGACY_COMPANIONS = [
-    { id:'koala', name:'のんびりコアラ', preferredRegions:[], ...COMPANION_RUNTIME.koala },
-  ];
-
-  // 既に出会ったきのこは、その姿・会話・なかよし度・レア図鑑を保つ。
-  // 時計へのID変換や新規遭遇は行わない。
-  const LEGACY_RARE_COMPANIONS = [
-    { id:'kinoko', name:'しゃべるきのこ', asset:'assets/characters/companions/kinoko.png', ...RARE_COMPANION_RUNTIME.kinoko },
-  ];
-
   function hasAllCurrentCompanions(lifetime) {
     const known = new Set((lifetime.companionsRecruited || []).map(canonicalCompanionId));
     return COMPANIONS.every((c) => known.has(c.id));
   }
 
   function companionDexEntries() {
-    return COMPANIONS.concat(LEGACY_COMPANIONS.filter((c) => hasRecruitedCompanionId(c.id)));
+    return COMPANIONS;
   }
 
   function rareCompanionDexEntries() {
-    const known = new Set((state.lifetime.rareCompanionsRecruited || []).map(canonicalCompanionId));
-    return RARE_COMPANIONS.concat(LEGACY_RARE_COMPANIONS.filter((c) => known.has(c.id)));
+    return RARE_COMPANIONS;
   }
 
   function companionVisualHTML(companion, size = 'thumb') {
@@ -7740,9 +7741,7 @@
 
   function allCompanionsById(id) {
     const canonical = canonicalCompanionId(id);
-    return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical)
-      || LEGACY_COMPANIONS.find((c) => c.id === canonical)
-      || LEGACY_RARE_COMPANIONS.find((c) => c.id === canonical);
+    return COMPANIONS.find((c) => c.id === canonical) || RARE_COMPANIONS.find((c) => c.id === canonical);
   }
 
 
@@ -13840,8 +13839,7 @@
       const companion = allCompanionsById(pendingCompanionId);
       pendingCompanionId = null;
       if (companion) {
-        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id)
-          || LEGACY_RARE_COMPANIONS.some((c) => c.id === companion.id);
+        const isRare = RARE_COMPANIONS.some((c) => c.id === companion.id);
         const threshold = isRare ? RARE_COMPANION_RECRUIT_THRESHOLD : COMPANION_RECRUIT_THRESHOLD;
         if (clampedScore >= threshold) {
           const record = isRare
