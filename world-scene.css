@@ -6,7 +6,9 @@
 .world-depth,.world-foreground {filter:brightness(max(.55,var(--world-light,1)));transition:filter 1.8s ease}
 .world-light {background:linear-gradient(180deg,color-mix(in srgb,var(--world-tint) 28%,transparent),transparent 55%,#03273522);mix-blend-mode:soft-light}
 .world-light::after {content:"";position:absolute;inset:-10% -20%;background:repeating-conic-gradient(from 155deg at 52% 0%,transparent 0deg 9deg,#cdfafa25 12deg 15deg,transparent 18deg 32deg);opacity:var(--world-light,1);animation:world-rays 16s ease-in-out infinite alternate;transform-origin:50% 0}
-.world-scene[data-time="night"] .world-light {background:linear-gradient(#12224a99,#13376866 60%,#07163366);mix-blend-mode:multiply}
+.world-scene[data-time="night"] .world-light {background:linear-gradient(#12224a4d,#13376826 60%,#07163333);mix-blend-mode:multiply}
+.world-scene[data-authored-light="true"] .world-light {background:none;mix-blend-mode:normal}
+.world-scene[data-habitat="indoor"]::after {background:linear-gradient(#512c1310,transparent 40%,#34221822)}
 .world-scene[data-rays="false"] .world-light::after {display:none}
 .world-scene[data-habitat="abyss"] .world-light,.world-scene[data-habitat="sky"] .world-light {background:none}
 .world-scene[data-mist="true"] .world-atmosphere {background:linear-gradient(transparent,#cbdce029 24%,transparent 65%)}
@@ -312,3 +314,6 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .design-preview-info,.design-preview-narration {position:relative;isolation:isolate;margin:0;font-size:13px;line-height:1.4;text-align:center;text-shadow:var(--world-text-halo);color:var(--world-ink)}
 .world-glass-button {min-height:44px;min-width:150px;padding:8px 18px;border:1px solid #f4ffffd9;border-radius:15px;background:var(--world-button-glass);box-shadow:0 0 0 1px #143b4b80,0 4px 12px #153b4924;color:var(--world-ink);text-shadow:var(--world-text-halo)}
 @media(prefers-reduced-motion:reduce){body.world-mode{--world-press-transform:none}.world-mode .buttons button{transition:none}}
+
+/* Current location is a separate visible choice from the indoor home. */
+#currentLocationBtn.selected {border:2px solid var(--accent,#437765);box-shadow:0 0 0 2px #47756833;font-weight:700}

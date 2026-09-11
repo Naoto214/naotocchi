@@ -77,7 +77,7 @@ test('every actual region has its own landscape and climate-correct weather acro
   assert.notEqual(scene.resolveScene({region:'forest',season:'autumn'}).image,scene.resolveScene({region:'forest',season:'winter'}).image);
   assert.notEqual(scene.resolveScene({region:'city',season:'summer'}).warmth,scene.resolveScene({region:'city',season:'autumn'}).warmth);
   assert.equal(scene.sceneMarkup(scene.resolveScene({region:'home',season:'winter'})).foreground,'');
-  for(const file of require('../assets/world/provenance.json').outputs) {
+  for(const file of [...require('../assets/world/provenance.json').outputs,...require('../assets/world/scenery-v2-provenance.json').outputs]) {
     assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync(file.file)).digest('hex'),file.sha256,`${file.file} matches the inspected artwork`);
   }
 });
@@ -163,4 +163,68 @@ test('games pause the world immediately and story expiry cannot resume it behind
   h.api.loop();assert.equal(h.document.body.dataset.worldPaused,'true');
   h.api.showStoryEvent({emoji:'🌱',message:'おはなし'});h.advance(10000);
   assert.equal(h.document.body.dataset.worldPaused,'true');
+});
+
+test('home stays indoors in every season and weather, with warm light at night', () => {
+  for(const season of ['spring','summer','autumn','winter']) for(const weather of ['sunny','cloudy','rain','snow']) {
+    const m=scene.resolveScene({region:'home',season,weather,time:'night'});
+    assert.equal(m.habitat,'indoor');
+    assert.equal(m.precipitation,'none');
+    assert.equal(m.particle,'none');
+    assert.equal(m.frost,false);assert.equal(m.mist,false);assert.equal(m.rays,false);
+    assert.ok(m.light>=.8,'lamps keep the interior visible');
+    assert.match(m.image,/home-interior-v2/);
+    assert.deepEqual(scene.sceneMarkup(m),{depth:'',atmosphere:'',foreground:''});
+  }
+});
+
+test('city switches to actual neon artwork at night without returning to old seasonal streets', () => {
+  for(const season of ['spring','summer','autumn','winter']) {
+    const day=scene.resolveScene({region:'city',season,time:'day'});
+    const night=scene.resolveScene({region:'city',season,time:'night'});
+    assert.match(day.image,/city-day-v2/);
+    assert.match(night.image,/city-night-v2/);
+    assert.equal(night.authoredLight,true);
+    assert.ok(night.light>=.8,'authored night is not dimmed as daylight again');
+  }
+});
+
+test('current location has outdoor municipal profiles without adding gameplay regions', () => {
+  const images=new Set();
+  for(const profileId of ['metropolis','harbor','basin','town']) {
+    const m=scene.resolveScene({region:'home',locality:{profileId,display:'ためしのまち'},weather:'rain'});
+    images.add(m.image);assert.notEqual(m.habitat,'indoor');assert.equal(m.region,'home');
+    assert.equal(m.precipitation,'rain');assert.match(m.description,/ためしのまち/);
+    assert.ok(fs.existsSync(m.image));
+  }
+  assert.equal(images.size,4);
+  const base=scene.resolveScene({region:'forest'});
+  assert.equal(scene.resolveScene({region:'forest',locality:{profileId:'harbor'}}).image,base.image);
+  assert.equal(scene.resolveScene({region:'home',locality:{profileId:'../../bad'}}).habitat,'indoor');
+});
+
+test('shared temperate branches do not turn a jungle or farm back into the same clearing', () => {
+  for(const region of ['forest','jungle','countryside','river_lake']) {
+    assert.doesNotMatch(scene.sceneMarkup(scene.resolveScene({region,season:'summer'})).foreground,/willow/);
+  }
+  assert.match(scene.resolveScene({region:'countryside',season:'winter'}).image,/countryside-winter-v2/);
+});
+
+
+test('renderer updates the scenery when the municipality changes on the same gameplay region', () => {
+  const h=harness({worldScene:true}),s=h.api.state();
+  s.regionId='home';
+  Object.assign(s.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer',currentLocationSelected:true,currentLocation:{name:'大阪市',display:'おおさかし',prefecture:'大阪府'}});
+  h.api.render();
+  assert.equal(h.get('worldScene').dataset.scene,'local-metropolis');
+  assert.equal(h.get('worldScene').dataset.authoredLight,'true');
+  assert.match(h.get('worldBackdrop').style.backgroundImage,/city-night-v2/);
+  s.lifetime.currentLocation={name:'飯田市',display:'いいだし',prefecture:'長野県'};
+  h.api.render();
+  assert.equal(h.get('worldScene').dataset.scene,'local-basin');
+  assert.match(h.get('worldBackdrop').style.backgroundImage,/local-basin-v2/);
+  assert.match(h.get('worldDescription').textContent,/いいだし/);
+  s.lifetime.currentLocationSelected=false;h.api.render();
+  assert.equal(h.get('worldScene').dataset.habitat,'indoor');
+  assert.match(h.get('worldBackdrop').style.backgroundImage,/home-interior-v2/);
 });

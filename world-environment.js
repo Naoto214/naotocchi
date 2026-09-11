@@ -107,7 +107,10 @@
     var name = closest.city.trim();
     var reading = hiragana(closest.city_kana === undefined ? closest['city-kana'] : closest.city_kana);
     var kana = /^[ぁ-ゖー・\s]+$/.test(reading) && reading.length <= 120 ? reading : null;
-    return { name: name, kana: kana, display: kana || name };
+    var municipality = { name: name, kana: kana, display: kana || name };
+    var prefecture = typeof closest.prefecture === 'string' ? closest.prefecture.normalize('NFKC').trim() : '';
+    if (prefecture && prefecture.length <= 40 && !/[<>\u0000-\u001f\u007f]/.test(prefecture)) municipality.prefecture = prefecture;
+    return municipality;
   }
 
   function validCoordinates(coords) {

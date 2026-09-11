@@ -1,0 +1,162 @@
+{
+  "created_at": "2026-09-11",
+  "generator": "built-in image_gen",
+  "purpose": "Distinct world scenery and municipal image profiles",
+  "conversion": "PNG to WebP quality 90, no resampling or retouching",
+  "generations": [
+    {
+      "id": "city-day-v2",
+      "prompt": "Use case: illustration-story. Create ONE finished full-bleed portrait 1024x1536 game background, no UI. Exquisite hand-painted Japanese storybook environment, fine delicate brushwork, believable dimensional objects, rich restrained color, beautiful layered depth and clean silhouettes. This is for an immersive full-screen virtual pet world. Do not put everything around a generic grassy clearing. The entire composition must immediately communicate the specified place. Camera near ground height looking into the scene. Ground/floor available for a small character around central x=35-65%, y=45-60%, but no huge empty foreground. Details at different depths. No characters, people, animals, faces, symbols, labels, readable letters, numbers, logos, watermark or border. No baked rain, falling snow or floating particles. Scene: unmistakably a vast modern Japanese metropolis in daytime. Dramatic towering glass and steel skyscrapers rising along both sides all the way above the frame, stacked luminous blank billboard panels and multilevel shop fronts, a distant elevated rail bridge and deep urban canyon, wide paved pedestrian plaza intersected by crisp zebra crossing stripes. Strong vertical skyline, horizontal elevated structures, silver-blue glass with teal reflections, few planted street trees only. The central plaza reaches the middle of the image; skyscrapers remain huge and prominent even when cropped to a narrow phone screen. Diffuse soft daylight, blue sky between towers. Contemporary Tokyo/Osaka energy, no old village, no canal, no stone cottage, no forest. Billboard panels are clean abstract colored rectangles without text."
+    },
+    {
+      "id": "city-night-v2",
+      "prompt": "Use case: lighting-weather. Edit this single metropolis background into a gorgeous genuinely urban night scene while preserving ALL geometry, exact camera, skyscraper/rail/pavement positions and size, portrait 1024x1536 framing. Deep blue night sky; windows of the huge towers glow warm gold, cyan and soft violet. Bright cyan and pink neon strips outline shop facades. Large existing billboard panels glow luminous colorful abstract gradients (no text), reflecting onto the smooth plaza/crosswalk. Sense of sophisticated bustling metropolitan nightlife without adding any people or cars. Rich inky blue/cyan/magenta/gold palette with beautiful controlled glowing highlights, keep ground visible. No daylight, no sun, no readable lettering or signage, no added interface. Retain painterly detail and architecture of reference exactly.",
+      "references": [
+        "city-day-v2"
+      ]
+    },
+    {
+      "id": "home-interior-v2",
+      "prompt": "Use case: illustration-story. Create ONE finished full-bleed portrait 1024x1536 game background, no UI. Exquisite hand-painted Japanese storybook environment, fine delicate brushwork, believable dimensional objects, rich restrained color, beautiful layered depth and clean silhouettes. This is for an immersive full-screen virtual pet world. Do not put everything around a generic grassy clearing. The entire composition must immediately communicate the specified place. Camera near ground height looking into the scene. Ground/floor available for a small character around central x=35-65%, y=45-60%, but no huge empty foreground. Details at different depths. No characters, people, animals, faces, symbols, labels, readable letters, numbers, logos, watermark or border. No baked rain, falling snow or floating particles. Scene: inside a warm, beautifully furnished little Japanese living room. Entire viewpoint is unequivocally indoors: ceiling beams visible at top, cream plaster walls, oak floor, soft round woven rug across middle, comfortable oatmeal sofa partly along one side, low wooden bookcase with closed unlettered books, potted plant, cushions, small side table and amber shaded floor lamp. The back wall/floor line is at about 38% height so the rug/wood floor can occupy character area around 50% height. A modest window has drawn translucent cream curtains so there is no identifiable outdoor season/time. Warm soft ambient lamplight and diffused daylight together, serene home colors honey/oat/soft terracotta/sage. Not a dollhouse cutaway. No garden, no outdoor grass, no open sky overhead. Lived-in intimate cozy room, not mansion or hotel."
+    },
+    {
+      "id": "countryside-v2",
+      "prompt": "Use case: illustration-story. Create ONE finished full-bleed portrait 1024x1536 game background, no UI. Exquisite hand-painted Japanese storybook environment, fine delicate brushwork, believable dimensional objects, rich restrained color, beautiful layered depth and clean silhouettes. This is for an immersive full-screen virtual pet world. Do not put everything around a generic grassy clearing. The entire composition must immediately communicate the specified place. Camera near ground height looking into the scene. Ground/floor available for a small character around central x=35-65%, y=45-60%, but no huge empty foreground. Details at different depths. No characters, people, animals, faces, symbols, labels, readable letters, numbers, logos, watermark or border. No baked rain, falling snow or floating particles. Scene: a wide open Japanese farming countryside with distinctive neatly organized rice paddies and crop rows stretching across an expansive valley. Golden-green patchwork fields, irrigation channels, low farmhouses and a little red-roofed barn in the distance, layered low mountains under a broad open sky. A narrow ochre farm track curves diagonally between fields, with a modest level stone-and-earth patch near middle for the pet. Close rice stalks along one lower edge; open vista across the other. Main subject is cultivated geometric agricultural fields, absolutely no enclosing forest canopy, no lawn clearing, no towering buildings, no garden-frame composition. Tranquil diffuse daylight, fresh ochre/green/blue palette, no seasonal flower display or snowfall."
+    },
+    {
+      "id": "countryside-winter-v2",
+      "prompt": "Use case: lighting-weather. Transform this exact agricultural landscape into WINTER while preserving all perspective, fields, farm path, buildings, canals, mountains and framing. The rice is harvested: replace every tall green/golden rice plant with very short brown cut stubble, empty resting paddies, pale frost or thin patchy snow at field edges and stone walls. Mountain ridges have a dusting of snow, leafless deciduous trees and evergreen patches. Main dirt path still visible with a light dusting at edges, irrigation water muted dark blue. Winter diffuse daylight and clear cool atmosphere, delicate high-quality storybook environmental painting. No people, animals, text, UI, falling snow, heavy blizzard or new geometry. Keep the same recognizable field patterns and same path.",
+      "references": [
+        "countryside-v2"
+      ]
+    },
+    {
+      "id": "jungle-v2",
+      "prompt": "Use case: illustration-story. ONE finished portrait 1024x1536 full-bleed game environment background, no UI. Exquisitely detailed Japanese storybook environmental painting, tactile delicate brushwork, dimensional natural materials, lush layered atmosphere with distinct silhouettes. Keep clear gently textured ground for a tiny pet near central x=35-65%, y=48-60%, but scene-defining content fills the image. No characters, animals, faces, text, numbers, logos, watermark, border, baked falling weather or particles. Scene: towering tropical rainforest ravine, giant buttress-root trees, looping thick lianas, massive banana and monstera leaves, palms and bright bromeliads. A tall turquoise waterfall pours into an emerald pool on the RIGHT CENTER around 35-55% height; a rustic narrow wooden footbridge recedes across its stream in the midground. Humid layers of far palms form vertical depth. A worn broad rock shelf spans the central 50-65% height for the pet, close massive leaf silhouettes at lower edges. Distinct tropical expedition atmosphere, deep jade/turquoise with tiny warm coral blossoms, diffuse humid daylight. Absolutely NO temperate willow foliage, NO grassy lawn, NO autumn leaves, NO deciduous forest clearing, NO snow."
+    },
+    {
+      "id": "river-lake-v2",
+      "prompt": "Use case: illustration-story. ONE finished portrait 1024x1536 full-bleed game environment background, no UI. Exquisitely detailed Japanese storybook environmental painting, tactile delicate brushwork, dimensional natural materials, lush layered atmosphere with distinct silhouettes. Keep clear gently textured ground for a tiny pet near central x=35-65%, y=48-60%, but scene-defining content fills the image. No characters, animals, faces, text, numbers, logos, watermark, border, baked falling weather or particles. Scene: a freshwater lakeside dock at a broad BLUE lake. The lake itself occupies most upper and middle canvas, water begins already around 30% height, with visible ripples and transparent shallows. A weathered pale wooden jetty extends from the broad bottom foreground toward the center around 45% height, its platform is wide enough for the tiny pet. Few tall reeds and smooth river pebbles on a sandy bank only at lower left edge, a small unoccupied rowboat tied along right side. Far blue hills and faint tree line on opposite shore, no surrounding canopy. Airy lake-blue, pale driftwood, reed-green, silvery reflections. Water must remain prominent after narrow phone cropping. NO huge grassy clearing, NO ocean surf, NO coral, NO tropical plants, NO buildings."
+    },
+    {
+      "id": "local-harbor-winter-v2",
+      "prompt": "Use case: illustration-story. ONE beautiful finished full-bleed portrait 1024x1536 background for a Japanese virtual-pet world. Exquisite Japanese storybook environmental painting, delicate tactile brushwork, believable scale, cinematic depth, restrained rich color. Eye-level view with a usable ground or terrace spanning central area at about 48-60% height, detailed environment around it. No people, animals, faces, text, labels, symbols, logos, border, watermark or UI. No baked falling rain or snow. Scene: a distinctive northern Japanese harbor town with a calm deep blue sea, red-brick waterfront warehouses with arched windows, a sloping town hill and small European-influenced buildings in the background. Open harbor water and distant breakwater clearly visible in the middle-right. A broad cobbled waterfront promenade fills central and lower area, with black iron mooring bollards at the side, one small fishing boat tied beside warehouses. Big open cloudy-blue sky, nostalgic maritime architecture, sea-blue and muted terracotta brick colors. Harbor town inspired by Hakodate, symbolic image not an exact documentary view or landmark. No skyscrapers, no forest clearing, no text/signs, no summer flowers."
+    },
+    {
+      "id": "local-basin-v2",
+      "prompt": "Use case: illustration-story. ONE beautiful finished full-bleed portrait 1024x1536 background for a Japanese virtual-pet world. Exquisite Japanese storybook environmental painting, delicate tactile brushwork, believable scale, cinematic depth, restrained rich color. Eye-level view with a usable ground or terrace spanning central area at about 48-60% height, detailed environment around it. No people, animals, faces, text, labels, symbols, logos, border, watermark or UI. No baked falling rain or snow. Scene: a Japanese inland city embraced by dramatic layered mountain ranges, inspired by Iida in the Ina valley. View from a modest elevated stone-paved public terrace across a long inhabited basin: a patchwork of low tile-roof houses, small modern civic buildings, distant neat orchards, a glimmering river tracing the valley, and tall blue mountain ridges enclosing BOTH sides. Several small evergreen trees along the terrace edge. Terrace begins around 45% height; a low stone parapet at edges leaves a broad middle to see across the town. Dominant character is a town among mountains, not an uninhabited alpine peak and not a rice field. Muted blue-green/slate/cream/russet roofs, soft balanced daylight and atmospheric depth. Symbolic landscape, no real landmark reconstruction."
+    },
+    {
+      "id": "local-town-v2",
+      "prompt": "Use case: illustration-story. ONE beautiful finished full-bleed portrait 1024x1536 background for a Japanese virtual-pet world. Exquisite Japanese storybook environmental painting, delicate tactile brushwork, believable scale, cinematic depth, restrained rich color. Eye-level view with a usable ground or terrace spanning central area at about 48-60% height, detailed environment around it. No people, animals, faces, text, labels, symbols, logos, border, watermark or UI. No baked falling rain or snow. Scene: a pleasant everyday Japanese residential town, two- and three-storey tile-roof homes and small modern neighborhood shops, quiet paved lane opening into a little plaza, modest utility poles and neat cables against a soft blue sky, low concrete garden walls, few tidy shrubs, one street bench and a parked bicycle at side. Buildings fill upper/middle sides; central paved plaza around 50-65% height comfortably empty. Normal human-scale neighborhood, neither metropolis nor rural farmland nor historical tourist village. Warm cream plaster, grey roof tiles, muted sage plants and blue sky. No prominent landmark or sea or surrounding mountains, generic town background that won't pretend to be a particular municipality."
+    },
+    {
+      "id": "local-harbor-v2",
+      "prompt": "Use case: lighting-weather. Edit this exact northern Japanese harbor town scene into the warmer seasons. Preserve camera, architecture, boat, cobbled promenade, water, mountain silhouette and all geometry. Remove ALL white snow patches from the low hillside and replace them with muted rich green broadleaf and evergreen vegetation; remove snow from building roofs and distant ridges. NO autumn or winter features. Keep the red brick warehouses, blue harbor and pale sky. Correct the tiny boat hull text to a plain unlettered white hull and any small signs to blank surfaces. Make the artwork feel like a refined detailed storybook painting with delicate visible brushwork rather than photography. No new subjects, people, animals, letters or UI. Portrait 1024x1536.",
+      "references": [
+        "local-harbor-winter-v2"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "file": "assets/world/city-day-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 497652,
+      "sha256": "6f0f08590c14e54b2b12b9e0fcaf972a0cbf76864d01d5d974231cb02c563f14"
+    },
+    {
+      "file": "assets/world/city-night-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 580538,
+      "sha256": "f47d32407df48e424250d57bdc8464c7e287ff30cf42a220f78091911e5c9a96"
+    },
+    {
+      "file": "assets/world/home-interior-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 338728,
+      "sha256": "dd6340f9ec1f9dc9a9a168464f22056a120e619ba99b3ed82f5b1bd893daaac1"
+    },
+    {
+      "file": "assets/world/countryside-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 577868,
+      "sha256": "3d084d874094e1035b2452426aa7a67f06c3233b0bdb65d77107e0e3d22a751a"
+    },
+    {
+      "file": "assets/world/countryside-winter-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 645436,
+      "sha256": "89f50cf514b893d3b4c56ef14f8e3c90ff912598cc3e74261f53aece4e154c5c"
+    },
+    {
+      "file": "assets/world/jungle-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 636430,
+      "sha256": "3809e0fe4d06fe0c30ab19203ebee6c66c6945be3208bd0ecbd76a094041436f"
+    },
+    {
+      "file": "assets/world/river-lake-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 469052,
+      "sha256": "040e22a881c77c0f7456a8f124cc450976add6ec6d2252aba978b223927fd6e7"
+    },
+    {
+      "file": "assets/world/local-harbor-winter-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 475818,
+      "sha256": "c007275971538930dcc4b0cf217b9588aff42e64b77b4068eadbf3884e9e53d8"
+    },
+    {
+      "file": "assets/world/local-basin-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 562442,
+      "sha256": "da87cb072481270b74f0a43a55f1bb6071966d89976e1be5aac8bed33a58f7a1"
+    },
+    {
+      "file": "assets/world/local-town-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 533902,
+      "sha256": "4c13b207c13a63287d1542c32aa90b4e21477b8c23ab18a81a486e22badf8192"
+    },
+    {
+      "file": "assets/world/local-harbor-v2.webp",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "bytes": 488896,
+      "sha256": "d649a4da0aab1cc2f00fc3c1c74162084498b2370be6ef23410690beae044927"
+    }
+  ]
+}

@@ -51,6 +51,20 @@ function createFixtures() {
         const save=make(name,2,{regionId:region,hunger:85,health:95,energy:95,happiness:90});
         Object.assign(save.lifetime,{seasonMode:season,weatherMode:weather,timeMode:time});
       }
+      for (const [name,region,season,weather,time] of [
+        ['scenery_city_night','city','autumn','sunny','night'],
+        ['scenery_home_rain','home','autumn','rain','night'],
+        ['scenery_home_snow','home','winter','snow','day'],
+        ['scenery_country_winter','countryside','winter','snow','morning'],
+        ['scenery_forest_night','forest','autumn','cloudy','night'],
+      ]) {
+        const save=make(name,2,{regionId:region,hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{seasonMode:season,weatherMode:weather,timeMode:time});
+      }
+      for(const [name,display,prefecture] of [['函館市','はこだてし','北海道'],['飯田市','いいだし','長野県'],['大阪市','おおさかし','大阪府'],['未登録町','みとうろくまち','北海道']]) {
+        const save=make('scenery_local_'+name,2,{regionId:'home',hunger:85,health:95,energy:95,happiness:90});
+        Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',currentLocationSelected:true,currentLocation:{name,display,prefecture}});
+      }
       const worldCritical=make('world_sea_critical',26,{regionId:'sea',speciesLine:'clownfish',health:55,hunger:55,happiness:55,energy:55,deathMeter:85,dying:true,dyingTicks:80});
       Object.assign(worldCritical.lifetime,{timeMode:'night',weatherMode:'rain',seasonMode:'winter'});
       const worldLarge=make('world_sea_large',26,{regionId:'sea',hunger:85,health:95,energy:95,happiness:90});

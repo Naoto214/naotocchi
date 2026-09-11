@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260911-0191a051">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260911-823ec14f">
-  <link rel="stylesheet" href="world-scene.css?v=20260911-577c7f30">
+  <link rel="stylesheet" href="world-scene.css?v=20260911-b49850e6">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
@@ -390,7 +390,7 @@
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
             <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
-            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報は住所と天気を調べるために使い、セーブには残しません。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
+            <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報の数値はセーブに残しません。旅先に選んだ市区町村名は、景色を表示するために保存します。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
         </div>
 
@@ -402,7 +402,7 @@
           <div class="theme-scroll">
             <div class="theme-section">
               <div class="profile-hint">行きたい場所をえらんでタップすると、その地域へたびにでられます</div>
-              <button type="button" class="profile-code-btn" id="currentLocationBtn">📍げんざいち</button>
+              <button type="button" class="profile-code-btn" id="currentLocationBtn" aria-pressed="false">📍げんざいち</button>
               <div class="profile-hint" id="travelLocationStatus" role="status"></div>
               <div class="theme-grid" id="travelRegionGrid"></div>
             </div>
@@ -755,12 +755,13 @@
   <script src="cast-bounds.js?v=20260911-c9130956"></script>
   <script src="cast-motion.js?v=20260911-c479a13a"></script>
   <script src="cast-layout.js?v=20260911-4a13a5ab"></script>
-  <script src="world-environment.js?v=20260911-ee3a9e6a"></script>
-  <script src="world-scene.js?v=20260911-836ab336"></script>
+  <script src="local-scenery.js?v=20260911-0bea5d7b"></script>
+  <script src="world-environment.js?v=20260911-d0a39f28"></script>
+  <script src="world-scene.js?v=20260911-99152e94"></script>
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
   <script src="games.js?v=20260911-a3406fc5"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-e81c3603"></script>
+  <script src="script.js?v=20260911-9c5e625b"></script>
 </body>
 </html>
