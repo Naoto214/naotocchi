@@ -1502,6 +1502,7 @@
         soundSfx: true,
         soundBgm: true,
         currentLocationSelected: false,
+        currentLocation: null,
         fontStyle: 'rounded',
         textSize: 'normal',
         buttonTransparency: GLASS_SETTINGS.buttonTransparency.default,
@@ -1663,6 +1664,9 @@
       }));
     }
     st.companions = st.companions.filter((c) => c && typeof c === 'object' && typeof c.id === 'string');
+    const locality = window.NaotocchiLocalScenery?.sanitizeLocality?.(st.lifetime.currentLocation);
+    st.lifetime.currentLocation = locality ? savedLocality(locality) : null;
+    if (!st.lifetime.currentLocation) st.lifetime.currentLocationSelected = false;
     return st;
   }
 
@@ -11531,7 +11535,7 @@
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
-      const isCurrent = region.id === state.regionId;
+      const isCurrent = region.id === state.regionId && !(region.id === 'home' && state.lifetime.currentLocationSelected);
       const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
       const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
       const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
@@ -12564,9 +12568,32 @@
     const mode = TIME_CHOICES[state.lifetime.timeMode] ? state.lifetime.timeMode : 'auto';
     return window.NaotocchiEnvironment?.timeOfDay(mode) || 'day';
   }
+  function savedLocality(locality) {
+    if (!locality) return null;
+    return {
+      name: locality.name,
+      display: locality.display,
+      prefecture: locality.prefecture,
+      profileId: locality.profileId,
+    };
+  }
+  function selectedLocality() {
+    if (!state.lifetime.currentLocationSelected || state.regionId !== 'home') return null;
+    const resolve = window.NaotocchiLocalScenery?.resolveLocality;
+    if (!resolve) return null;
+    // The saved choice remains authoritative until a location request passes
+    // its intent check and is committed. A malformed or canceled live result
+    // must not hide or transiently replace that choice.
+    const saved = resolve(state.lifetime.currentLocation);
+    const live = resolve(environmentTracker?.snapshot().municipality);
+    return saved || live || null;
+  }
   function currentEnvironment() {
     const w = effectiveWeather();
-    return { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const locality = selectedLocality();
+    if (locality) environment.locality = locality;
+    return environment;
   }
   function hasSurfaceSeasons(regionId) {
     return regionId !== 'deepsea' && regionId !== 'star_stop';
@@ -12624,7 +12651,8 @@
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
     const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : environmentContextLabel(env.weatherSource);
     const season = SEASON_INFO[env.season];
-    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`];
+    const placeChip = env.locality ? `📍${escapeHtml(env.locality.display)}` : `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`;
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, placeChip];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
@@ -12907,21 +12935,32 @@
     applyWeatherFx(weather, time, state.regionId);
     const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : environmentContextLabel(eff.source);
     el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
-    const city = snapshot?.municipality?.display;
+    const selected = selectedLocality();
+    const observed = window.NaotocchiLocalScenery?.resolveLocality?.(snapshot?.municipality) || null;
+    const locality = selected || observed;
+    const city = locality?.display;
     const locationLabel = `げんざいち：${city || 'まだわからない'}`;
     el.worldLocationLabel.textContent = locationLabel;
     el.currentLocationBtn.textContent = `📍${locationLabel}`;
-    if (state.lifetime.currentLocationSelected && state.regionId === 'home') el.regionLabel.textContent = `📍${locationLabel}`;
+    const currentSelected = !!selected;
+    el.currentLocationBtn.classList.toggle('selected', currentSelected);
+    el.currentLocationBtn.setAttribute('aria-pressed', String(currentSelected));
+    if (currentSelected) el.regionLabel.textContent = `📍${locationLabel}`;
     const loading = snapshot?.status === 'loading';
     el.locationRefreshBtn.disabled = loading;
     el.currentLocationBtn.disabled = loading;
     const status = loading ? '現在地とてんきを調べています…' : snapshot?.error || (city || weather ?
       `${city ? locationLabel : ''}${city && weather ? '・' : ''}${weather ? weatherText : ''}` : '現在地を調べると、近くのてんきにあわせられます。');
+    const sceneryStatus = locality ? `${locality.description}（街のイメージ）` : '';
     const contextNote = eff.source === 'underwater' ? 'ここは水の中。地上の天気は届きません。' : eff.source === 'starry' ? 'ここでは、いつでも星空が見えます。' : '';
     el.environmentStatus.textContent = contextNote ? `${contextNote} 選んだ天気は地上へ戻ると反映されます。` : status;
-    el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで調べられます。');
+    el.travelLocationStatus.textContent = loading
+      ? `${status}${selected ? ` ${sceneryStatus}を表示中。` : ''}`
+      : snapshot?.error
+        ? `${status}${selected ? ` ${sceneryStatus}を表示しています。` : observed ? ` ${sceneryStatus}を選べます。` : ''}`
+        : selected ? sceneryStatus : observed ? `${sceneryStatus}を選べます。` : '市区町村まで調べられます。';
     if (overlayIs('world')) {
-      renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
+      renderWorldNowCard(currentEnvironment());
       renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode,'time');
       renderSeasonModeGrid();
       renderEnvironmentChoices(el.weatherModeGrid,WEATHER_CHOICES,weatherMode,'weather');
@@ -15533,11 +15572,21 @@
     state.lifetime.weatherMode = btn.dataset.id; saveState(); renderEnvironment();
     if (btn.dataset.id === 'auto') requestEnvironment();
   });
-  el.locationRefreshBtn.addEventListener('click', requestEnvironment);
+  el.locationRefreshBtn.addEventListener('click', async () => {
+    const intent = ++currentLocationIntent;
+    const info = await requestEnvironment();
+    const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
+    if (intent !== currentLocationIntent || !overlayIs('world') || !locality ||
+        !state.lifetime.currentLocationSelected || state.regionId !== 'home') return;
+    state.lifetime.currentLocation = savedLocality(locality);
+    saveState();
+    render();
+  });
   el.currentLocationBtn.addEventListener('click', async () => {
     const intent = ++currentLocationIntent;
     const info = await requestEnvironment();
-    if (intent !== currentLocationIntent || !overlayIs('travel') || !info?.municipality) return;
+    const locality = window.NaotocchiLocalScenery?.resolveLocality?.(info?.municipality);
+    if (intent !== currentLocationIntent || !overlayIs('travel') || !locality) return;
     if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
@@ -15545,6 +15594,7 @@
     if (state.regionId !== 'home') travelToRegion(findRegion('home'));
     else closeAllMenuOverlays();
     state.lifetime.currentLocationSelected = true;
+    state.lifetime.currentLocation = savedLocality(locality);
     saveState(); render();
   });
   for (const [key,bounds] of Object.entries(GLASS_SETTINGS)) {
@@ -15600,7 +15650,17 @@
       render();
       return;
     }
+    // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
+    // 表示だけを戻す操作では、旅の消費や記録を発生させない。
+    if (region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected) {
+      state.lifetime.currentLocationSelected = false;
+      state.lifetime.currentLocation = null;
+      saveState();
+      render();
+      return;
+    }
     state.lifetime.currentLocationSelected = false;
+    state.lifetime.currentLocation = null;
     const specialRewardTrip = (state.items.reward || 0) > 0 && window.confirm('🎁ごほうびを1こ使って、とくべつな旅にしますか？');
     if (specialRewardTrip) { state.items.reward -= 1; if (state.items.reward <= 0) delete state.items.reward; }
     state.affectionStreak = 0;
