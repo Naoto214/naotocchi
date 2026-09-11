@@ -30,6 +30,7 @@ test('speech shows the current actor illustration and leaves conversation and sa
   const before=JSON.stringify(h.api.state());
   h.api.setSpeechBubble('💕いっしょにいよう',{kind:'pet',emoji:'🐕',label:'いぬ'});
   assert.match(h.get('speechSpeaker').innerHTML,/assets\/characters\/dog\/\d+\.png/);
+  assert.equal(h.get('speechSpeaker').dataset.label,'いぬ','the mobile bubble has a visible speaker name');
   assert.match(h.get('speechText').innerHTML,/data-care-icon="love"/);
   assert.match(h.get('speechText').innerHTML,/いっしょにいよう/);
   assert.equal(JSON.stringify(h.api.state()),before);

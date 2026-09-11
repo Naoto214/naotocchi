@@ -1019,6 +1019,7 @@
     transformSkipBtn: document.getElementById('transformSkipBtn'),
     message: document.getElementById('message'),
     speechBubble: document.getElementById('speechBubble'),
+    speechSlot: document.getElementById('speechSlot'),
     speechSpeaker: document.getElementById('speechSpeaker'),
     speechText: document.getElementById('speechText'),
     itemsRow: document.getElementById('itemsRow'),
@@ -3406,8 +3407,10 @@
     speechActive = true;
     el.speechSpeaker.innerHTML = commentSpeakerHTML(speaker);
     el.speechSpeaker.title = compactJapaneseText(speaker.label);
+    el.speechSpeaker.dataset.label = compactJapaneseText(speaker.label);
     setCommentText(el.speechText, compactJapaneseText(text), true);
     el.speechBubble.dataset.kind = speaker.kind || 'pet';
+    el.speechBubble.dataset.speakerId = speaker.id || '';
     el.speechBubble.classList.remove('hidden');
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
@@ -12970,6 +12973,17 @@
     return actors;
   }
 
+  let homeSpeechAnchors = null;
+  function pointHomeSpeech() {
+    if (!homeSpeechAnchors || !el.speechBubble) return;
+    const {area,pet,actors} = homeSpeechAnchors;
+    const {kind,speakerId} = el.speechBubble.dataset;
+    const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
+    const x = clamp(point.x-area.x,12,area.w-12);
+    el.speechBubble.style.setProperty('--speech-tail-x',x+'px');
+    el.speechBubble.style.setProperty('--speech-tail-tip',point.x<area.x+area.w/2-16?'0%':point.x>area.x+area.w/2+16?'100%':'50%');
+  }
+
   function renderHomeCast() {
     if (!window.NaotocchiCast) return;
     const main = currentVisualStage();
@@ -12982,27 +12996,34 @@
     el.device.dataset.castCrowded = String(recruited.length > 0);
     const stageRect = el.castStage.getBoundingClientRect();
     const width = Math.floor(stageRect.width);
-    const height = el.device.classList.contains('ui-home-active') ? Math.max(132,Math.floor(stageRect.height)) : undefined;
+    const conversationHeight = el.speechSlot.getBoundingClientRect().height || 44;
+    const height = el.device.classList.contains('ui-home-active') ? Math.max(108+conversationHeight,Math.floor(stageRect.height)) : undefined;
     if (width < 240) return;
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) return;
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
-    // Compact dialogue belongs beside the painted cast, not at the top of
-    // its elastic stage. Young PNGs can have substantial transparent padding.
-    const inkTop = (frame, path) => frame.y + (frame.artOffsetY || 0)
-      + frame.h * (window.NaotocchiCastBounds?.[path]?.box?.[1] || 0) / 128;
-    const castTops = [inkTop(layout.main,args.mainAsset),
-      ...layout.companions.map((frame,i)=>inkTop(frame,args.companions[i])),
-      ...layout.hearts.map(frame=>frame.y)];
-    if (layout.partner) castTops.push(inkTop(layout.partner,args.partnerAsset));
-    if (layout.accessory) castTops.push(layout.accessory.y);
-    el.petArea.style.setProperty('--cast-ink-top', Math.min(...castTops) + 'px');
+    const area=layout.conversation;
+    el.petArea.style.setProperty('--home-speech-x',area.x+'px');
+    el.petArea.style.setProperty('--home-speech-y',area.y+'px');
+    el.petArea.style.setProperty('--home-speech-width',area.w+'px');
+    el.petArea.style.setProperty('--home-poop-right',layout.poops[0].x+'px');
+    el.petArea.style.setProperty('--home-poop-left',layout.poops[1].x+'px');
+    el.petArea.style.setProperty('--home-poop-top',layout.poops[0].y+'px');
+    const anchor=(frame,path)=>{
+      const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
+      return {x:frame.x+frame.w*(b[0]+b[2])/256};
+    };
+    homeSpeechAnchors={area,pet:anchor(layout.main,args.mainAsset),actors:[
+      ...(layout.partner?[{kind:'partner',id:p.id,...anchor(layout.partner,args.partnerAsset)}]:[]),
+      ...layout.companions.map((f,i)=>({kind:'companion',id:recruited[i].id,...anchor(f,args.companions[i])})),
+    ]};
+    pointHomeSpeech();
     const place = (node,frame) => {
       if (!node || !frame) return;
       node.style.left = frame.x + 'px'; node.style.top = frame.y + 'px';

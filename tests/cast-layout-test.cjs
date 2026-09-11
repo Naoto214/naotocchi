@@ -2,6 +2,38 @@ const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const fs = require('node:fs');
 
+test('home conversation stays below the main body with stable side floor slots, even with a full cast', () => {
+  const {layoutHomeCast} = require('../cast-layout.js');
+  const bounds = require('../cast-bounds.js');
+  const master = new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const friends = [...master.companions.normal,...master.companions.rare].map(c=>c.asset);
+  const body=(f,asset)=>{
+    const b=bounds[asset]?.box || [0,0,128,128];
+    return {x:f.x+f.w*b[0]/128,y:f.y+(f.artOffsetY||0)+f.h*b[1]/128,
+      w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};
+  };
+  const separate=(a,b,gap=0)=>a.x+a.w+gap<=b.x+.01 || b.x+b.w+gap<=a.x+.01 || a.y+a.h+gap<=b.y+.01 || b.y+b.h+gap<=a.y+.01;
+  for(const width of [270,302,358,500]) for(const height of [152,180,260]) {
+    for(const count of [0,1,6,26,32]) for(const mainAsset of ['assets/characters/dog/01.png','assets/characters/sakura/04.png',null]) {
+      const args={width,height,mainAsset,hasPartner:true,partnerAsset:'assets/characters/partners/forest_bear.png',hasAccessory:true,
+        companions:Array.from({length:count},(_,i)=>friends[i%friends.length]),motionRadius:count>18?1:3,conversationHeight:44};
+      const r=layoutHomeCast(args), main=body(r.main,mainAsset);
+      assert.ok(r.height<=height+.01,'a crowded cast must not fall back to a taller stage');
+      assert.ok(r.conversation,'a home reserves its shared conversation area');
+      assert.ok(r.conversation.y-main.y-main.h>=6 && r.conversation.y-main.y-main.h<=24,'conversation stays close below the main body');
+      assert.ok(r.conversation.x<=main.x+main.w/2 && r.conversation.x+r.conversation.w>=main.x+main.w/2,'conversation stays with the main character');
+      const actors=[main,body(r.partner,args.partnerAsset),r.accessory,...r.hearts,...r.companionBodies];
+      const floor=[r.conversation,...r.poops];
+      for(const f of floor) {
+        assert.ok(f.x>=0 && f.x+f.w<=width+.01 && f.y+f.h<=r.height+.01,'floor stays inside the stage');
+        for(const a of actors) assert.ok(separate(a,f,args.motionRadius),JSON.stringify({width,height,count,mainAsset,actor:a,floor:f,layoutHeight:r.height}));
+      }
+      for(let i=0;i<floor.length;i++) for(let j=0;j<i;j++) assert.ok(separate(floor[i],floor[j],2),'dialogue and floor items never overlap');
+      assert.deepEqual(layoutHomeCast({...args,poopCount:0,speaker:'pet'}),layoutHomeCast({...args,poopCount:4,speaker:'companion'}),'speech and poop presence never reflow the cast');
+    }
+  }
+});
+
 test('a home cast stays in view during its larger hop and sway and leaves the floor clear', () => {
   const {layoutHomeCast} = require('../cast-layout.js');
   const {motionRadiusFor} = require('../cast-motion.js');

@@ -65,7 +65,7 @@
     const maxLanes=Math.max(...laneLimits);
     const mainLimit=count===0?Math.min(256,room*.78):room>=310?112:104;
     const maxMain=Math.floor(Math.min(mainLimit,count===0?height-8:height*.7));
-    for(let m=maxMain;m>=40;m-=2) {
+    for(let m=maxMain;m>=(height<96?32:40);m-=2) {
       const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
       const e=extent(c.coreFrames), coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
       if(e.bottom-e.top>height-8 || e.right-e.left>room)continue;
@@ -131,7 +131,7 @@
   function layoutCast({width,height,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[],motionRadius=0}) {
     width=Math.max(240,Math.floor(width));
     motionRadius=Math.max(0,Number(motionRadius)||0);
-    if(Number.isFinite(height) && height>=96) {
+    if(Number.isFinite(height) && height>=80) {
       const compact=compactCast({width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius});
       if(compact)return compact;
     }
@@ -182,16 +182,24 @@
     return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
   }
   function layoutHomeCast(args) {
-    // These spaces are constant, whether the floor is empty or has four poops.
-    // Extra side room supports the wider 6px idle sway; 16px above the cast
-    // supports the shared tap response without enlarging every actor's gap.
-    const side=2, top=16, floor=20;
-    const height=Number.isFinite(args.height) ? Math.max(96,args.height-top-floor) : undefined;
+    // Reserve the same compact floor when silent, speaking or being cleaned.
+    // The side wings keep every friend above it; dialogue never follows the
+    // highest friend/item, and the poops flank it rather than moving below it.
+    const conversationHeight=Math.max(0,Number(args.conversationHeight)||0);
+    const side=2, top=16, floor=conversationHeight?conversationHeight+12:20;
+    const height=Number.isFinite(args.height) ? Math.max(conversationHeight?80:96,args.height-top-floor) : undefined;
     const r=layoutCast({...args,width:args.width-2*side,height});
     const move=f=>translate(f,side,top);
-    return {...r,width:r.width+2*side,height:r.height+top+floor,
+    const result={...r,width:r.width+2*side,height:r.height+top+floor,
       main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),
       hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
+    if(conversationHeight) {
+      const main=body(result.main,args.mainAsset), width=Math.min(260,result.width-80);
+      const x=Math.max(32,Math.min(result.width-width-32,main.x+main.w/2-width/2));
+      result.conversation=rect(x,main.y+main.h+10,width,conversationHeight);
+      result.poops=[0,1,2,3].map(i=>rect(i%2?x-24:x+width+8,result.conversation.y+4+Math.floor(i/2)*20,16));
+    }
+    return result;
   }
   const api={layoutCast,layoutHomeCast};
   if(typeof module==='object' && module.exports)module.exports=api;else root.NaotocchiCast=api;
