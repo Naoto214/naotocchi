@@ -5,6 +5,7 @@ function harness(options) {
   const h=runtimeHarness(options);
   // The lightweight DOM does not parse index.html's initial hidden class.
   h.get('lifeCardOverlay').classList.add('hidden');
+  h.get('storyFlash').classList.add('hidden');
   return h;
 }
 
@@ -25,6 +26,71 @@ test('health danger is visible before dying and survives unrelated messages and 
   h.advance(12000);
   assert.equal(h.get('message').dataset.careSeverity,'critical');
   assert.match(h.get('message').textContent,/けんこう/);
+});
+
+test('illness remains recognizable alongside low life, and medicine clears only the illness effects', () => {
+  const h=harness({worldScene:true});
+  Object.assign(h.api.state(), {health:90,hunger:80,happiness:80,energy:80,deathMeter:65,isSick:true,sicknessType:'かぜ'});
+  h.api.render();
+  assert.equal(h.get('careAlertFx').dataset.level,'warning');
+  assert.equal(h.get('device').dataset.careIllness,'true');
+  assert.match(h.get('worldCareState').textContent,/いのち/);
+  assert.equal(h.get('medicineBtn').dataset.careRecommended,'true');
+  h.dispatch(h.get('medicineBtn'),'click');
+  assert.equal(h.get('device').dataset.careIllness,'');
+  // A cure may trigger the real story flash; attention resumes after it ends.
+  h.advance(10000);
+  assert.equal(h.get('careAlertFx').dataset.level,'warning');
+  assert.notEqual(h.get('medicineBtn').dataset.careRecommended,'true');
+  h.api.state().deathMeter=10;h.api.render();
+  assert.equal(h.get('careAlertFx').dataset.level,'');
+});
+
+test('illness names the condition above the character instead of generic care wording', () => {
+  const h=harness({worldScene:true});
+  Object.assign(h.api.state(),{health:90,hunger:80,happiness:80,energy:80,isSick:true});h.api.render();
+  assert.match(h.get('worldCareState').textContent,/びょうき/);
+  assert.match(h.get('worldCareState').innerHTML,/data-care-icon="sick"/);
+});
+
+test('attention effects stop for menus, games, stories and hidden tabs, then reconstruct at home', () => {
+  const h=harness({worldScene:true});critical(h);
+  const level=()=>h.get('careAlertFx').dataset.level;
+  assert.equal(level(),'critical');
+  h.api.openExclusiveMenu('profile');h.api.render();assert.equal(level(),'');
+  h.api.closeAllMenuOverlays();h.api.render();assert.equal(level(),'critical');
+  h.api.showStoryEvent({emoji:'🌱',message:'おはなし'});assert.equal(level(),'');
+  h.advance(10000);assert.equal(level(),'critical');
+  h.api.startMinigame(h.api.games[0]);assert.equal(level(),'');
+  h.api.retireMinigame();h.api.render();assert.equal(level(),'critical');
+  h.document.visibilityState='hidden';h.dispatch(h.document,'visibilitychange');assert.equal(level(),'');
+  h.document.visibilityState='visible';h.dispatch(h.document,'visibilitychange');h.advance(10000);
+  assert.equal(level(),'critical');
+  for(const stage of ['egg','farewell','dead']) {
+    h.api.state().stage=stage;h.api.render();assert.equal(level(),'');
+    assert.equal(h.get('device').dataset.careIllness,'');
+  }
+});
+
+test('lightweight mode retains the alert but requests still effects', () => {
+  const h=harness({worldScene:true});critical(h);
+  h.api.setPerfTier(2);h.api.render();
+  assert.equal(h.get('careAlertFx').dataset.level,'critical');
+  assert.equal(h.get('careAlertFx').dataset.motion,'still');
+  assert.equal(h.get('device').dataset.careMotion,'still');
+});
+
+test('sweat stays beside the painted young fish instead of its transparent upper frame', () => {
+  const h=harness({worldScene:true});
+  Object.assign(h.api.state(),{speciesLine:'clownfish',ageTicks:101,isSick:true,health:90});h.api.render();
+  const style=h.get('petSprite').style, height=parseFloat(style.height), width=parseFloat(style.width);
+  // The young fish body occupies roughly the bottom 29% after floor alignment.
+  const top=parseFloat(style['--care-sweat-top']);
+  assert.ok(top>height*.60 && top<height*.90, 'sweat belongs near the fish body');
+  assert.ok(parseFloat(style['--care-sweat-left'])>width*.10, 'left drop follows the narrow body');
+  assert.ok(parseFloat(style['--care-sweat-right'])>width*.10, 'right drop follows the narrow body');
+  assert.ok(top+Math.min(16,Math.max(9,height*.15))+parseFloat(style['--care-sweat-travel'])<=height,
+    'droplets stay inside the existing sprite frame throughout their movement');
 });
 
 test('critical care advice follows the real sequence without medicine for a healthy pet', () => {
