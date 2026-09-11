@@ -3401,6 +3401,7 @@
     if (!el.speechBubble || !text || !speaker) return;
     if (speaker.kind === 'partner' && (!state.partner || (speaker.id && speaker.id !== state.partner.id))) return;
     if (speaker.kind === 'companion' && !state.companions.some(c => canonicalCompanionId(c.id) === speaker.id)) return;
+    hideMinigameResultToast();
     if (speechTimer) clearTimeout(speechTimer);
     speechActive = true;
     el.speechSpeaker.innerHTML = commentSpeakerHTML(speaker);
@@ -5578,21 +5579,21 @@
       const line = pickConversationLine(followUps[eventKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    playConversationBeats(beats, eventKey);
+    playConversationBeats(beats, eventKey, ctx.delayMs || 0);
   }
 
-  function playConversationBeats(beats, event = 'idle') {
+  function playConversationBeats(beats, event = 'idle', delayMs = 0) {
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
     // 掛け合いが終わるまでは放置会話などに上書きさせない。
-    conversationBusyUntil = Date.now() + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
+    conversationBusyUntil = Date.now() + delayMs + Math.max(SPEECH_DURATION_MS, ((visibleBeats.length - 1) * SPEECH_DURATION_MS) + SPEECH_DURATION_MS);
     visibleBeats.forEach((beat, i) => {
       const listener = beat.speaker.kind === 'pet'
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -12992,6 +12993,16 @@
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
+    // Compact dialogue belongs beside the painted cast, not at the top of
+    // its elastic stage. Young PNGs can have substantial transparent padding.
+    const inkTop = (frame, path) => frame.y + (frame.artOffsetY || 0)
+      + frame.h * (window.NaotocchiCastBounds?.[path]?.box?.[1] || 0) / 128;
+    const castTops = [inkTop(layout.main,args.mainAsset),
+      ...layout.companions.map((frame,i)=>inkTop(frame,args.companions[i])),
+      ...layout.hearts.map(frame=>frame.y)];
+    if (layout.partner) castTops.push(inkTop(layout.partner,args.partnerAsset));
+    if (layout.accessory) castTops.push(layout.accessory.y);
+    el.petArea.style.setProperty('--cast-ink-top', Math.min(...castTops) + 'px');
     const place = (node,frame) => {
       if (!node || !frame) return;
       node.style.left = frame.x + 'px'; node.style.top = frame.y + 'px';
@@ -14068,6 +14079,11 @@
   }
 
   let mgResultToastTimer = null;
+  function hideMinigameResultToast() {
+    clearTimeout(mgResultToastTimer);
+    mgResultToastTimer = null;
+    el.mgResultToast?.classList.add('hidden');
+  }
   function showMinigameResultToast(result) {
     if (!el.mgResultToast || !result) return;
     let sub;
@@ -14082,17 +14098,20 @@
     const retryBtn = el.mgResultToast.querySelector('#mgRetryBtn');
     if (retryBtn) retryBtn.addEventListener('click', (e) => {
       if (e && e.preventDefault) e.preventDefault();
-      clearTimeout(mgResultToastTimer);
-      el.mgResultToast.classList.add('hidden');
+      hideMinigameResultToast();
       if (lastMinigame) tryStartPlay(lastMinigame);
     });
+    // 見た目と再プレイの受付時間を揃え、透明なボタンを残さない。
+    const duration = retry ? 6000 : 3600;
+    el.mgResultToast.style.animationDuration = `${duration}ms`;
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
-    el.mgResultToast.classList.add('hidden');
+    hideMinigameResultToast();
+    hideSpeechBubble();
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
-    clearTimeout(mgResultToastTimer);
     // ボタンが あるときは おす よゆうを もたせて ながめに 出す
-    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), retry ? 6000 : 3600);
+    mgResultToastTimer = setTimeout(hideMinigameResultToast, duration);
+    return duration;
   }
 
   let lastMinigame = null;
@@ -14639,8 +14658,6 @@
         if (st) resultMessage += `／🏷️シール「${st.sticker.label}」をもらった`;
       }
     }
-    if (isGreat) speakEvent('minigame_great', { partnerChance: 0.5, companionChance: 0.6 });
-    else if (isBad) speakEvent('minigame_bad', { partnerChance: 0.45, companionChance: 0.5 });
     let recruitedNow = false;
 
     // なかまイベントの さいちゅうだった プレイなら、つうじょうの けっか
@@ -14680,7 +14697,10 @@
     setMessage(resultMessage);
 
     closeMinigameScreen();
-    showMinigameResultToast(record);
+    const resultDuration = showMinigameResultToast(record) || 0;
+    // 成績を読んでから感想を出す。別のお世話や再プレイで会話は取り消せる。
+    if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
+    else if (isBad) speakEvent('minigame_bad', { delayMs: resultDuration, partnerChance: 0.45, companionChance: 0.5 });
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 
     // checkStoryEvents() no-ops while gameActive, so this must run after
@@ -14699,6 +14719,9 @@
   // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
+    clearConversationTimers();
+    hideSpeechBubble();
+    hideMinigameResultToast();
     gameActive = true;
     renderWorldScene(true);
     castMotion?.clear();

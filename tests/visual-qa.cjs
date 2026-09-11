@@ -79,6 +79,11 @@ function createFixtures() {
         Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',screenThemeId:theme,deviceThemeId:theme,screenPatternId:'checker',devicePatternId:'brick',clears:5,perfectCleared:true,endingTiersReached:[0,1,2,3,4]});
       }
       make('alone',0,{partner:null});
+      const phoneDog=make('phone_dog',0,{partner:null,speciesLine:'dog',stageIndex:0,
+        ageTicks:2*api.AGE_TICKS_PER_YEAR,sodachi:22,maxSodachi:22,growth:0,
+        hunger:80,health:100,energy:90,happiness:85,transformMeter:0});
+      Object.assign(phoneDog.lifetime,{timeMode:'morning',weatherMode:'cloudy',seasonMode:'autumn',
+        endingTiersReached:[0,1,2],clears:3,lifeClears:3,money:25080});
       make('egg',0,{stage:'egg',growth:0,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
       make('egg_cracking',0,{stage:'egg',growth:8,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
       make('egg_ready',0,{stage:'egg',growth:16,ageTicks:0,sodachi:0,maxSodachi:0,partner:null});
@@ -247,14 +252,18 @@ function visualQaPlugin() {
           <p>For context_prop_illustrations, choose the road, space-flight, highway and memory-card games in ゲームきろく. Check 20 distinct card positions, loading and missing-image fallback. River/desert marks can be checked by travel; morning birds require an environment notice. This does not change region decoration routing or certify real device rendering.</p>
           <label>Scene <select id="scene">${Object.keys(fixtures).map(k=>'<option>'+k+'</option>').join('')}</select></label>
           <label>Width <select id="width"><option>320</option><option selected>390</option><option>768</option></select></label>
-          <label>Height <select id="height"><option>640</option><option selected>844</option><option>1000</option></select></label>
+          <label>Height <select id="height"><option>568</option><option>640</option><option>760</option><option selected>844</option><option>1000</option></select></label>
           <label><input type="checkbox" id="failIcons">Simulate missing icon image</label>
           <button id="load">Load scene</button> <button id="measure">Measure layout</button>
           <button id="loadMovie">Load and observe next movie</button>
           <button id="observe">Observe motion (4s)</button>
           <button id="observeStory">Observe story (9s)</button>
           <button id="observeMovie">Observe movie (32s)</button>
+          <button id="dialogMeasure">Measure dialogs</button>
+          <button id="dialogResult">Show result specimen</button>
+          <button id="dialogLong">Show long dialogue</button>
           <output id="result"></output><div id="mount"></div>
+          <script src="/tests/dialog-layout-probe.js"></script>
           <script>
           const fixtures=${JSON.stringify(fixtures).replace(/</g,'\\u003c')};
           const mount=document.getElementById('mount');

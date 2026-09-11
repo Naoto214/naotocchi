@@ -197,8 +197,12 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 .world-mode .device #message[data-care-icon]::before {margin-right:4px}
 .world-mode :is(.ending-badge-tip,.birthday-toast,.mg-result-toast) {isolation:isolate;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink)}
 .world-mode :is(.birthday-toast,.mg-result-toast) {max-width:calc(100% - 16px);white-space:normal;overflow-wrap:anywhere}
+.world-mode .birthday-toast {width:max-content}
+.world-mode .mg-result-toast {width:min(360px,calc(100% - 16px));display:grid;grid-template-columns:auto minmax(0,1fr) auto}
+.world-mode .mg-result-toast.hidden {display:none}
 .world-mode .mg-result-body {min-width:0}
-.world-mode .mg-result-toast .mg-retry-btn {flex-shrink:0}
+.world-mode .mg-result-toast .mg-result-score {white-space:nowrap}
+.world-mode .mg-result-toast .mg-retry-btn {flex-shrink:0;min-height:44px;white-space:nowrap}
 .world-mode .mg-result-toast .mg-result-sub {opacity:1}
 .world-mode .mg-result-toast .mg-result-sub.new-best {color:var(--world-caution-ink,#61420b)}
 .world-mode .mg-result-toast .mg-retry-btn {background:var(--world-button-glass);color:var(--world-ink);border:1px solid #f4ffffd9;box-shadow:0 0 0 1px #143b4b80}
@@ -231,8 +235,10 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 }
 .world-mode :is(.header-button,.ending-badge,.buttons button,.life-actions button,.world-glass-button,.farewell-bar button,.mg-retry-btn):focus-visible {outline:3px solid var(--world-ink);outline-offset:3px}
 .world-mode .screen:not(:has(.screen-normal:not(.hidden))) {background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
-.world-mode .device.ui-game-active {max-width:620px}
-.world-mode .device.ui-game-active .screen {min-height:300px;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
+.world-mode .device.ui-game-active {max-width:620px;height:var(--app-height);min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:6px}
+.world-mode .device.ui-game-active .screen-frame {min-height:0;overflow:auto;overscroll-behavior:contain;display:block}
+.world-mode .device.ui-game-active .screen {min-height:100%;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
+.world-mode .device.ui-game-active .life-actions {display:none}
 /* Keep the world visible through the game shell. Board/Canvas palettes retain
    their own ink and opaque pieces; only shared HUD and controls use world ink.
    Inset outlines preserve the existing button sizes and pointer coordinates. */
@@ -275,11 +281,15 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 }
 /* Answer feedback remains distinct and readable on its existing light fills. */
 .world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
-/* Help and quit now share this row. Reserve its actual height so a short
-   viewport can reach the confirmation instead of leaving it below the page. */
-.world-mode .device.ui-game-active .mg-quit {height:auto;min-height:44px;margin-top:8px}
-.world-mode .device.ui-game-active .mg-quit-inner {position:static;inset:auto;transform:none;flex-wrap:wrap;gap:6px}
-.world-mode .device.ui-game-active .mg-quit button {min-height:44px}
+/* The shared footer keeps its height when confirmation replaces the controls.
+   Only the game content scrolls; opening confirmation never shifts a Canvas. */
+.world-mode .device.ui-game-active .mg-quit {height:50px;min-height:50px;margin-top:0}
+.world-mode .device.ui-game-active .mg-quit-inner {position:relative;inset:auto;transform:none;height:50px;align-items:center;gap:8px}
+.world-mode .device.ui-game-active .mg-quit button {min-height:44px;min-width:44px;white-space:nowrap}
+.world-mode .device.ui-game-active .mg-help-btn {margin:0}
+.world-mode .device.ui-game-active .mg-quit-confirm:not(.hidden) {position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) auto auto;max-width:100%;padding:3px 6px;white-space:normal}
+.world-mode .device.ui-game-active .mg-quit-ask {min-width:0;line-height:1.3}
+.world-mode .device.ui-game-active .mg-quit-inner:has(.mg-quit-confirm:not(.hidden)) .mg-help-btn {visibility:hidden}
 .world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
   background:var(--world-button-glass,var(--world-speech-glass,rgb(250 255 255 / .42)));
   color:var(--world-ink);text-shadow:var(--world-text-halo);
@@ -363,8 +373,9 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   .world-mode .cast-title-line {line-height:1.2}
   .world-mode .world-care-state {display:none}
   .world-mode .device[data-home-fixed="true"] #petArea {min-height:132px}
-  .world-mode .speech-slot {position:absolute;bottom:calc(100% + 2px);left:0;right:0;height:44px;padding:0;align-items:center;z-index:6}
+  .world-mode .speech-slot {position:absolute;bottom:calc(100% - var(--cast-ink-top,0px) + 12px);left:0;right:0;height:44px;padding:0;align-items:flex-end;z-index:6}
   .world-mode .speech-slot .speech-bubble {padding:2px 8px;box-shadow:0 2px 8px #17374626}
+  .world-mode .speech-slot .speech-bubble::before {top:auto;bottom:-8px;clip-path:polygon(0 0,100% 0,50% 100%)}
   .world-mode .device .home-meters {padding-block:1px;gap:2px}
   .world-mode .device .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
   .world-mode .device .home-meters .bars.meters {grid-template-columns:repeat(6,minmax(0,1fr));padding-top:2px;gap:2px 7px}
