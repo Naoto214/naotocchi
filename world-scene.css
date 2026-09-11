@@ -1,5 +1,5 @@
 /* The world reaches the viewport edge. The retained IDs are game anchors,
-   not a device frame. Only home presentation is changed here. */
+   not a device frame. Home and shared minigame chrome use the same scenery. */
 .world-scene {position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;isolation:isolate;background:var(--world-base,#087c9c)}
 .world-scene > div {position:absolute;inset:0;pointer-events:none}
 .world-backdrop {background-size:cover;background-position:center 50%;transform:scale(var(--world-art-scale,1));transform-origin:center bottom;filter:brightness(var(--world-light,1)) hue-rotate(var(--world-temperature,0deg)) saturate(var(--world-saturation,1)) sepia(var(--world-warmth,0));transition:filter 1.8s ease}
@@ -175,7 +175,63 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .buttons button[data-care-recommended="true"] {box-shadow:inset 0 0 0 2px #b47735,0 3px 12px #17374738}
 .world-mode .screen:not(:has(.screen-normal:not(.hidden))) {background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
 .world-mode .device.ui-game-active {max-width:620px}
-.world-mode .device.ui-game-active .screen {min-height:300px;background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
+.world-mode .device.ui-game-active .screen {min-height:300px;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
+/* Keep the world visible through the game shell. Board/Canvas palettes retain
+   their own ink and opaque pieces; only shared HUD and controls use world ink.
+   Inset outlines preserve the existing button sizes and pointer coordinates. */
+.world-mode .minigame-overlay {background:transparent}
+.world-mode .minigame-overlay :is(.mg-header,.mg-title,.mg-hint,.mg-climb-choice) {
+  background:var(--world-detail-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);border-radius:10px;opacity:1;
+}
+.world-mode .minigame-overlay .mg-intro {
+  background:var(--world-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);box-shadow:inset 0 0 0 1px #ffffff70;
+}
+.world-mode .minigame-overlay .mg-intro-controls {background:var(--world-detail-glass)}
+.world-mode .minigame-overlay .mg-intro-demo {background:rgb(245 253 255 / .70)}
+.world-mode .minigame-overlay :is(.mg-intro-genre,.mg-intro-note) {opacity:1}
+.world-mode .minigame-overlay .mg-intro-badge {
+  background:var(--world-caution-glass,rgb(255 248 217 / .42));
+  color:var(--world-caution-ink,#49320b);box-shadow:inset 0 0 0 1px #b88740;
+}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn) {
+  background:var(--world-detail-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
+}
+.world-mode .minigame-overlay :is(.mg-intro-start,.mg-launch-btn,.mg-tap-btn.primary) {
+  background:var(--world-play-glass,rgb(207 241 250 / .38));
+  box-shadow:inset 0 0 0 2px #80cde0,0 3px 9px #052e4440;
+}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):is(:active,.mg-held,.mg-holding) {
+  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  box-shadow:inset 0 0 0 2px #80cde0,0 1px 4px #052e4440;
+}
+/* The legacy guard uses an ID selector; cover its resting and held palettes. */
+.world-mode .minigame-overlay #sfGuard {background:var(--world-detail-glass);color:var(--world-ink)}
+.world-mode .minigame-overlay #sfGuard:is(:active,.mg-held,.mg-holding) {background:var(--world-speech-glass,rgb(250 255 255 / .42))}
+.world-mode .minigame-overlay .mg-tap-btn.sel {box-shadow:inset 0 0 0 3px #ffd23f,0 3px 9px #052e4440}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):disabled {
+  opacity:1;filter:grayscale(.5);outline:1px dashed #75949d;outline-offset:-2px;
+  box-shadow:inset 0 0 0 1px #75949d70;
+}
+/* Answer feedback remains distinct and readable on its existing light fills. */
+.world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
+.world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
+  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  color:var(--world-ink);text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
+}
+.world-mode .mg-quit .mg-quit-yes {
+  background:var(--world-critical-glass,rgb(255 240 233 / .52));
+  color:var(--world-critical-ink,#582024);text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #b24949;
+}
+.world-mode .minigame-overlay :is(.mg-header,.mg-title,.mg-hint,.mg-climb-choice,.mg-intro-controls,.mg-tap-btn,.mg-choice-btn,.mg-hold-btn),
+.world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm) {
+  backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur));
+}
 .world-mode .device[data-text-size="large"] .home-meters .bar-label,.world-mode .device[data-text-size="large"] .home-meters .bar-value {font-size:14px}
 .world-mode .device[data-text-size="large"] .care-meters {grid-template-columns:repeat(2,minmax(0,1fr))}
 .world-mode .device[data-text-size="large"] .meters .bar-line {grid-column:span 3;grid-template-columns:1fr auto}
