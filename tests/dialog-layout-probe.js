@@ -32,6 +32,10 @@
       };
       result.result={...rect(toast),scoreLines:rows(score),noteLines:rows(sub)};
       if(!inside(rect(toast))) errors.push('result leaves the viewport');
+      if(visible(bubble)) {
+        const a=rect(toast), b=rect(bubble);
+        if(a.x<b.right && a.right>b.x && a.y<b.bottom && a.bottom>b.y) errors.push('result overlaps dialogue');
+      }
       if(rows(score)!==1 || rows(sub)>2) errors.push('result text collapses into vertical strips');
       const button=toast.querySelector('button');
       if(button && (rect(button).width<44 || rect(button).height<44)) errors.push('retry target is smaller than 44px');

@@ -12,6 +12,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
   ]) {
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
     const page=await context.newPage();
+    if(name==='small') await page.clock.install();
     const save=JSON.parse(JSON.stringify(fixtures[fixture]));
     Object.assign(save,{health:100,energy:100,hunger:85,happiness:90,isSick:false,isSleeping:false,transformMeter:0});
     await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),save);
@@ -43,7 +44,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.locator('.mg-result-sub').evaluate(e=>e.textContent='自己ベスト更新!99 → 100');
       await check('result-best');
       await page.screenshot({path:path.join(output,label+'-result.png')});
-      await page.locator('#mgResultToast').evaluate(e=>e.classList.add('hidden'));
+      await page.locator('#mgResultToast').evaluate(e=>{e.classList.add('hidden');e.style.removeProperty('animation');});
       await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
       await page.locator('[data-game-id="takoyaki-grill"]').click();
       await page.locator('#mgIntroStart').waitFor();
@@ -63,6 +64,30 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.locator('#mgHelpCloseBtn').click();
       await page.locator('#mgQuitBtn').click();await page.locator('#mgQuitYesBtn').click();
       await page.locator('#screenNormal').waitFor({state:'visible'});
+      if(name==='small') {
+        // Complete the real game through its timer, then inspect the production
+        // result/reaction lifecycle. No injected completion callback or score.
+        await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
+        await page.locator('[data-game-id="takoyaki-grill"]').click();
+        await page.locator('#mgIntroStart').click();
+        await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1));
+        await page.clock.fastForward(90000);
+        await page.clock.runFor(1300);
+        await page.locator('#mgResultToast').waitFor({state:'visible'});
+        assert.equal(await page.locator('#speechBubble').isVisible(),false,label+': reaction covers results');
+        const animation=await page.locator('#mgResultToast').evaluate(e=>{
+          const a=e.getAnimations()[0];a.pause();a.currentTime=4500;
+          return {duration:a.effect.getTiming().duration,opacity:Number(getComputedStyle(e).opacity)};
+        });
+        assert.equal(animation.duration,6000,label+': retry animation expires too soon');
+        assert.ok(animation.opacity>0.9,label+': retry becomes invisible while still clickable');
+        await check('completed-result');
+        await page.screenshot({path:path.join(output,label+'-completed.png')});
+        await page.clock.runFor(6001);
+        assert.equal(await page.locator('#mgResultToast').isVisible(),false,label+': expired result remains clickable');
+        assert.equal(await page.locator('#speechBubble').isVisible(),true,label+': game reaction is missing');
+        await check('completed-reaction');
+      }
       console.log('PASS '+label);
     } catch(error) {
       await page.screenshot({path:path.join(output,label+'-failure.png')}).catch(()=>{});

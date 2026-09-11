@@ -2,6 +2,49 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
+function finishResultGame(h,score) {
+  let complete;
+  const game={id:'result-probe',start(_container,done){complete=done;}};
+  const s=h.api.state();
+  Object.assign(s,{stage:'growing',isSleeping:false,isSick:false,energy:100,health:100,hunger:80,transformMeter:0});
+  s.lifetime.minigamePlayCounts[game.id]=10;
+  h.api.render();
+  assert.equal(h.api.tryStartPlay(game),true);
+  complete(score);
+  return game;
+}
+
+for(const score of [10,90]) test(`score ${score} keeps results readable before the reaction begins`,()=>{
+  const h=harness();finishResultGame(h,score);h.advance(1);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),false);
+  assert.equal(h.get('speechBubble').classList.contains('hidden'),true,'reaction must wait for results');
+  assert.equal(h.get('mgResultToast').style.animationDuration,'6000ms','animation must last as long as retry');
+  h.advance(4500);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),false);
+  assert.equal(h.get('speechBubble').classList.contains('hidden'),true);
+  h.advance(1500);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),true);
+  assert.equal(h.get('speechBubble').classList.contains('hidden'),false,'reaction follows results');
+});
+
+test('a new care conversation replaces results and cancels the delayed game reaction',()=>{
+  const h=harness();finishResultGame(h,90);h.advance(1000);
+  h.api.speakEvent('feed',{petText:'いまはごはん!',partnerChance:0,companionChance:0});h.advance(1);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),true);
+  assert.equal(h.get('speechText').textContent,'いまはごはん!');
+  h.advance(6500);
+  assert.equal(h.get('speechBubble').classList.contains('hidden'),true,'old game reaction must not return');
+});
+
+test('replaying cancels the delayed reaction and old result controls',()=>{
+  const h=harness(),game=finishResultGame(h,90);h.advance(1000);
+  assert.equal(h.api.tryStartPlay(game),true);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),true);
+  h.advance(6500);
+  assert.equal(h.get('mgResultToast').classList.contains('hidden'),true);
+  assert.equal(h.get('speechBubble').classList.contains('hidden'),true);
+});
+
 // A minimal game exercises the production common controls and callbacks without
 // making this test depend on any particular game's scoring/level layout.
 function inputGame(h, {continuous = false} = {}) {
