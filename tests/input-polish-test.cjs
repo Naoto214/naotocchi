@@ -48,7 +48,7 @@ test('the result toast offers a retry button that restarts the same game', () =>
   state.stage = 'growing'; state.energy = 100; state.isSleeping = false;
   const game = h.api.games.find((g) => g.id === 'falling-block-puzzle');
   h.api.render(); // the play button is enabled by render()
-  state.lifetime.minigameRecords[game.id] = {best: 10, last: 10}; // not a first play: skip the intro card
+  state.lifetime.minigamePlayCounts[game.id] = 5; // past the intro plays: skip the intro card
   const played = [];
   const origStart = game.start;
   game.start = (container, done) => { played.push(game.id); container.innerHTML = '<button id="fin">x</button>'; };
@@ -71,4 +71,27 @@ test('the result toast has no retry button before any game was played', () => {
   const h = harness();
   h.api.showMinigameResultToast({score: 40, best: 40, prevBest: null, isNewBest: true, rank: 'C', bestRank: 'C'});
   assert.doesNotMatch(h.get('mgResultToast').innerHTML, /mg-retry-btn/);
+});
+
+test('the intro card shows for the first three plays and the help overlay works any time', () => {
+  const h = harness(), state = h.api.state();
+  state.stage = 'growing'; state.energy = 100; h.api.render();
+  const game = h.api.games.find((g) => g.id === 'race-3d');
+  for (let play = 1; play <= 4; play++) {
+    state.lifetime.minigamePlayCounts[game.id] = play;
+    assert.equal(h.api.isFirstMinigamePlay(game), play <= 3, 'play ' + play);
+  }
+  state.lifetime.minigamePlayCounts[game.id] = 9;
+  h.api.startMinigame(game);
+  h.api.closeMinigameHelp();
+  assert.equal(h.get('mgHelpOverlay').classList.contains('hidden'), true);
+  h.dispatch(h.get('mgHelpBtn'), 'click');
+  assert.equal(h.get('mgHelpOverlay').classList.contains('hidden'), false);
+  assert.match(h.get('mgHelpText').textContent, /アクセル/);
+  assert.match(h.get('mgHelpTitle').textContent, /レース|3D/);
+  h.dispatch(h.get('mgHelpCloseBtn'), 'click');
+  assert.equal(h.get('mgHelpOverlay').classList.contains('hidden'), true);
+  h.dispatch(h.get('mgHelpBtn'), 'click');
+  h.api.retireMinigame();
+  assert.equal(h.get('mgHelpOverlay').classList.contains('hidden'), true, 'ending the game closes the help');
 });

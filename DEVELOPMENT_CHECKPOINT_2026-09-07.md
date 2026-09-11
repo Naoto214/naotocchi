@@ -1849,3 +1849,10 @@ Runtime smoke test SUCCESS確認済み。
 - 既存ゲーム、保存v5、シール、キャラ配置/動作/装備/うんち、語りのロジックを保持。環境描画はゲーム/物語開始にも即座に停止し、設定中も更新。
 - `npm test` 272件。13×4×4×4の環境モデル、全13地域のブラウザー配置、狭幅/拡大文字/危険/旧テーマと主要操作を確認。実機Safariと実機FPSは未確認。詳細は [QA記録](docs/qa/immersive-world-2026-09-11.md)。
 - この追加は未統合・未公開。最終コミットとCIはPRを参照。
+
+## チェックポイント BZ — 両手そうさの配置・そうさの説明を見つけやすく(2026-09-11)
+- 症状: レースで「◀ アクセル ▶」の並びだと、アクセルを押しながら ◀▶ を押し分けられない。同じ形(両わきがおしっぱなしの ◀▶、まんなかがメインボタン)が 11 ゲームにあった。
+- `arrangeMinigameControls(root)`(`startMinigame` の `game.start()` 直後): `.mg-race-controls` が「◀(hold) メイン(primary) ▶(hold)」なら メインを末尾へ移して `mg-split`(grid "l r p"、メインは 1.7fr・64px)。`.mg-gunner-controls` が「◀ ▲ メイン ▼ ▶」なら `mg-split-dpad`(左に十字 ". u . p / l d r p"、右に大きな うつ ボタン)。games.js の DOM はそのまま(id・data-key 不変)。
+- 2本指の確認: Chromium の touch emulation で アクセル→◀ の順に押し、片方を離しても もう片方は押されたまま(pointerId ごとに解除)。
+- そうさの説明: はじめてカードを「そのゲームを 3 回あそぶまで」毎回出す(`MINIGAME_INTRO_PLAYS`、カードの下に「あとNかいはこのせつめいが出るよ」)。ゲーム中は下の「？そうさ」で いつでも説明+うごきのデモ(`#mgHelpOverlay`、ゲームは止まらない。終了時に自動で閉じる)。
+- テスト: input-polish に 3回ルールと ？そうさ の開閉。`npm test` 298件通過。

@@ -1113,6 +1113,12 @@
     mgResultToast: document.getElementById('mgResultToast'),
     mgQuit: document.getElementById('mgQuit'),
     mgQuitBtn: document.getElementById('mgQuitBtn'),
+    mgHelpBtn: document.getElementById('mgHelpBtn'),
+    mgHelpOverlay: document.getElementById('mgHelpOverlay'),
+    mgHelpTitle: document.getElementById('mgHelpTitle'),
+    mgHelpText: document.getElementById('mgHelpText'),
+    mgHelpDemo: document.getElementById('mgHelpDemo'),
+    mgHelpCloseBtn: document.getElementById('mgHelpCloseBtn'),
     mgQuitConfirm: document.getElementById('mgQuitConfirm'),
     mgQuitYesBtn: document.getElementById('mgQuitYesBtn'),
     mgQuitNoBtn: document.getElementById('mgQuitNoBtn'),
@@ -14365,6 +14371,7 @@
     mgRunTagged(endedSession, resetMinigameInput, null, []);
     activeMinigame = null;
     hideMinigameQuit();
+    closeMinigameHelp();
     el.minigameOverlay.classList.add('hidden');
     el.minigameOverlay.innerHTML = '';
     el.screenNormal.classList.remove('hidden');
@@ -14424,6 +14431,11 @@
     clearTimeout(mgQuitConfirmTimer);
     // おしまちがい むけ: なにも しなければ 4びょうで もとの ボタンに もどる
     if (open) mgQuitConfirmTimer = setTimeout(() => setMinigameQuitConfirm(false), 4000);
+  }
+  if (el.mgHelpBtn) {
+    el.mgHelpBtn.addEventListener('click', () => { if (gameActive) openMinigameHelp(); });
+    el.mgHelpCloseBtn.addEventListener('click', closeMinigameHelp);
+    el.mgHelpOverlay.addEventListener('click', (e) => { if (e.target === el.mgHelpOverlay) closeMinigameHelp(); });
   }
   if (el.mgQuitBtn) {
     el.mgQuitBtn.addEventListener('click', () => { if (gameActive) setMinigameQuitConfirm(true); });
@@ -14638,15 +14650,65 @@
       if (session !== mgSession || !gameActive) return;
       el.minigameOverlay.innerHTML = '';
       mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
+      arrangeMinigameControls(el.minigameOverlay);
     };
     // はじめて あそぶ ゲームは、うごきだす まえに そうさの せつめいを 1まい 出す
     if (opts.intro) renderMinigameIntro(game, launch);
     else launch();
   }
 
-  // 「はじめて」= じこベストが なく、あそんだ かいすうが この1かい だけ
+  // そうさの せつめいカードは、その ゲームを あそんだ かいすうが
+  // MINIGAME_INTRO_PLAYS かいに なるまで まいかい 出す(1かいでは おぼえられない
+  // という こえが おおかった)。それ いこうは「？そうさ」ボタンで いつでも 見られる
+  const MINIGAME_INTRO_PLAYS = 3;
   function isFirstMinigamePlay(game) {
-    return !!game.id && !minigameRecordOf(game) && minigamePlayCount(game) <= 1;
+    return !!game.id && minigamePlayCount(game) <= MINIGAME_INTRO_PLAYS;
+  }
+
+  // そうさブロックの ならべかえ。「◀ アクセル ▶」のように まんなかが
+  // おしっぱなしの メインボタンで 両わきが ハンドルだと、かたほうの おやゆびで
+  // アクセルを おしながら もう かたほうで ◀▶ を おしわけ られない。
+  // ハンドル(◀▶)を ひだりに よせ、メインボタンを みぎに 大きく おく。
+  // ガンナー系(◀ ▲ うつ ▼ ▶)も ひだりに 十字、みぎに うつ ボタン
+  function arrangeMinigameControls(root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    for (const row of root.querySelectorAll('.mg-race-controls')) {
+      const b = [...row.querySelectorAll('button')];
+      if (b.length !== 3 || !b[1].classList.contains('primary')) continue;
+      if (!b[0].classList.contains('mg-hold-btn') || !b[2].classList.contains('mg-hold-btn')) continue;
+      b[0].dataset.pos = 'l'; b[2].dataset.pos = 'r'; b[1].dataset.pos = 'p';
+      row.appendChild(b[1]);
+      row.classList.add('mg-split');
+    }
+    for (const row of root.querySelectorAll('.mg-gunner-controls')) {
+      const b = [...row.querySelectorAll('button')];
+      if (b.length !== 5 || !b[2].classList.contains('primary')) continue;
+      const pos = ['l', 'u', 'p', 'd', 'r'];
+      b.forEach((btn, i) => { btn.dataset.pos = pos[i]; });
+      row.appendChild(b[2]);
+      row.classList.add('mg-split-dpad');
+    }
+  }
+
+  // 「？そうさ」: ゲーム中に いつでも そうさの せつめいと うごきの デモを 見る
+  // (ゲームは とまらない ので、みじかく 読んで とじる)
+  let stopHelpDemo = null;
+  function openMinigameHelp() {
+    const game = activeMinigame;
+    if (!el.mgHelpOverlay || !game) return;
+    const info = minigameInfo(game);
+    const kind = minigameDemoKind(game);
+    el.mgHelpTitle.textContent = `${info.emoji} ${info.name}`;
+    el.mgHelpText.textContent = MINIGAME_CONTROLS[game.id] || info.desc || '';
+    el.mgHelpOverlay.classList.remove('hidden');
+    if (stopHelpDemo) stopHelpDemo();
+    stopHelpDemo = startIntroDemo(el.mgHelpDemo, kind);
+    audio.play('open');
+  }
+  function closeMinigameHelp() {
+    if (!el.mgHelpOverlay) return;
+    if (stopHelpDemo) { stopHelpDemo(); stopHelpDemo = null; }
+    el.mgHelpOverlay.classList.add('hidden');
   }
 
   // そうさ せつめいの 文から「ゆびを どう うごかす ゲームか」を きめる。
@@ -14756,7 +14818,7 @@
         <div class="mg-intro-desc">${info.desc}</div>
         <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div><canvas class="mg-intro-demo" id="mgIntroDemo" width="220" height="90" data-demo="${demoKind}" aria-hidden="true"></canvas>${controls}</div>
         <button type="button" class="mg-tap-btn primary mg-intro-start" id="mgIntroStart" data-key="action">▶ はじめる</button>
-        <div class="mg-intro-note">次からはすぐはじまるよ</div>
+        <div class="mg-intro-note">${minigamePlayCount(game) >= MINIGAME_INTRO_PLAYS ? '次からはすぐはじまるよ(「？そうさ」でいつでも見られる)' : `あと${MINIGAME_INTRO_PLAYS - minigamePlayCount(game)}かいはこのせつめいが出るよ`}</div>
       </div>`;
     if (stopIntroDemo) stopIntroDemo();
     stopIntroDemo = startIntroDemo(el.minigameOverlay.querySelector('#mgIntroDemo'), demoKind);

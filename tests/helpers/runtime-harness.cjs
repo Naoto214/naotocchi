@@ -150,7 +150,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
       scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
-      mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, minigameDemoKind,
+      mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, minigameDemoKind, isFirstMinigamePlay, arrangeMinigameControls, openMinigameHelp, closeMinigameHelp, MINIGAME_INTRO_PLAYS,
       stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openKakeraPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_PAGES, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_PACK_SIZE, STICKER_KAKERA_PACK, STICKER_PAGE_MAX, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
