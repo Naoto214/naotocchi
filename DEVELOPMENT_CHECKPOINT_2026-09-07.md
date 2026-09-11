@@ -1832,3 +1832,11 @@ Runtime smoke test SUCCESS確認済み。
 - 画像化 `exportStickerPageImage(page)`: 640×480 canvas にページの背景・シール(asset は Image、なければ絵文字)を描いて PNG data URL。canvas が無い環境は null。
 - 画面: メニュー「シールちょう」(`#stickerBtn`、既存アイコン star_badge)、`#stickerOverlay`(タブ・ボード・ツール・おだい・パック/かけら/がぞう・もっているシール(フィルタ もっている/しゅぞく/なかま/こいびと/あいてむ/けしき、NEW は前回開いてから増えた分))。`activeOverlay` の kind 'sticker'。
 - テスト: `tests/sticker-test.cjs`(カタログ、かぶり→かけら、パック/かけらパック、貼る・動かす・はがす・上限、おだい報酬 1回・じっせき、発見フック・画面、保存/復元・旧セーブ、画像化 null)。Playwright でドラッグ・ツール・パック・トレイ・画像化(PNG 146KB)を確認。
+
+## チェックポイント BX — 実機フィードバック: ボタンの配置と おしっぱなしの反応(2026-09-11)
+- 症状: ボクセルマイニングで十字キーが効かない、ボタンが画面の上寄りで押しまちがえる、反応の悪いゲームがある。
+- 原因(おしっぱなし): `.mg-tap-btn` が `touch-action: manipulation` で、iOS では押している指のわずかな動きをスクロール(パン)と判定して `pointercancel` が飛び、`bindHeldButton` の押下がすぐ解除されていた。十字キーで掘るボクセルマイニングは押しっぱなし前提なので「動けない」に見える。
+- 対策1: ミニゲームのボタン(`.mg-tap-btn` / `.mg-hold-btn` / `button[data-key]` / `button[data-hold]`)と操作ブロック(`.mg-race-controls` `.mg-tilt-dpad` `.mg-gunner-controls` `.mg-fp-controls` `.mg-falling-controls` `.mg-td-controls` `.mg-rhythm-controls` `.mg-pinball-controls` `.mg-fight-controls`)を `touch-action: none` に。
+- 対策2: `bindHeldButton()` は押した直後 120ms 以内の `lostpointercapture`(iOS が capture 直後に投げることがある)を無視し、本当の離しは document 側の pointerup/pointercancel(同じ pointerId)でも拾う(指がボタンの外へずれても押しっぱなしにならない)。
+- 配置: `.mg-hint` の直後に来る操作ブロックを `margin-top: auto` で画面の下(親指の位置)へ。`:has()` が使えるブラウザでは説明文もボタンと一緒に下へ(ゲーム画面 → あき → 説明 → ボタン)。十字キー 46→54px、レース系 54→58px、FP 系 52→56px。全ゲームで操作ブロックの下端が 819px(やめるバーの直上)に揃うことを Playwright で確認。
+- テスト: `npm test` 262件通過。
