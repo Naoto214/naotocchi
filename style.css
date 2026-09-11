@@ -2502,7 +2502,10 @@ body.region-deepsea .season-fx-item {
 }
 
 .mg-tap-btn {
-  touch-action: manipulation;
+  /* おしっぱなし中に 指が すこし うごいても、ブラウザが スクロールと
+     みなして pointercancel を なげない ように(manipulation だと パンが
+     ゆるされ、iOS で おしっぱなしが とぎれる) */
+  touch-action: none;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   background: linear-gradient(160deg, #fff0f7, #ffd3ea);
@@ -4436,3 +4439,35 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .sticker-cell.rarity-uncommon { box-shadow: inset 0 0 0 1px #9ec5ff; }
 .sticker-cell.new::after { content: 'NEW'; position: absolute; top: 1px; left: 3px; font-size: 7px; color: #e0457b; font-weight: 900; }
 .menu-grid #stickerBtn { background: #fff4d6; color: #8a6a1e; }
+
+/* ================= ミニゲームの そうさ配置(親指の とどく したがわに) =================
+   ゲーム画面の すぐ したに ボタンが あると、がめんの まんなかを おす ことに
+   なって おしまちがえる。せつめい(mg-hint)の つぎに くる そうさブロックを
+   がめんの したに よせ、ボタンも すこし 大きく する */
+.minigame-overlay > .mg-hint + .mg-race-controls,
+.minigame-overlay > .mg-hint + .mg-tilt-dpad,
+.minigame-overlay > .mg-hint + .mg-gunner-controls,
+.minigame-overlay > .mg-hint + .mg-fp-controls,
+.minigame-overlay > .mg-hint + .mg-falling-controls,
+.minigame-overlay > .mg-hint + .mg-td-controls,
+.minigame-overlay > .mg-hint + .mg-rhythm-controls,
+.minigame-overlay > .mg-hint + .mg-pinball-controls,
+.minigame-overlay > .mg-hint + .mg-fight-controls {
+  margin-top: auto;
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
+/* :has が つかえる ブラウザでは、せつめいも ボタンと いっしょに したへ
+   (ゲーム画面 → あき → せつめい → ボタン の ならび)。つかえない ときは
+   うえの ルールで ボタンだけ したに いく */
+.minigame-overlay > .mg-hint:has(+ .mg-race-controls, + .mg-tilt-dpad, + .mg-gunner-controls, + .mg-fp-controls, + .mg-falling-controls, + .mg-td-controls, + .mg-rhythm-controls, + .mg-pinball-controls, + .mg-fight-controls) {
+  margin-top: auto;
+  padding-top: 6px;
+}
+.mg-race-controls, .mg-tilt-dpad, .mg-gunner-controls, .mg-fp-controls, .mg-falling-controls,
+.mg-td-controls, .mg-rhythm-controls, .mg-pinball-controls, .mg-fight-controls, .mg-hold-btn, button[data-key], button[data-hold] {
+  touch-action: none;
+}
+.mg-tilt-dpad .mg-tap-btn { min-height: 54px; font-size: 18px; }
+.mg-race-controls .mg-tap-btn, .mg-gunner-controls .mg-tap-btn { min-height: 58px; }
+.mg-fp-controls .mg-tap-btn { min-height: 56px; }

@@ -2740,6 +2740,8 @@
   function bindHeldButton(btn, onChange) {
     if (!btn || typeof btn.addEventListener !== 'function') return () => false;
     let held = false;
+    let activePointer = null;
+    let downAt = 0;
     const set = (v) => {
       if (held === v) return;
       held = v;
@@ -2750,13 +2752,22 @@
     btn.addEventListener('pointerdown', (e) => {
       if (e.preventDefault) e.preventDefault();
       if (btn.disabled) return;
+      activePointer = e.pointerId != null ? e.pointerId : null;
+      downAt = performance.now();
       try { if (e.pointerId != null && btn.setPointerCapture) btn.setPointerCapture(e.pointerId); } catch (err) {}
       set(true);
     });
-    const release = () => set(false);
+    const release = () => { activePointer = null; set(false); };
     btn.addEventListener('pointerup', release);
     btn.addEventListener('pointercancel', release);
-    btn.addEventListener('lostpointercapture', release);
+    // iOS Safari は タッチの pointer capture を とった 直後に lostpointercapture を
+    // なげる ことが ある(その あと 指は まだ ボタンの うえ)。おした 直後の
+    // ロストは むしして、ほんとうの はなしは document がわの pointerup/
+    // pointercancel(おなじ pointerId)で ひろう
+    btn.addEventListener('lostpointercapture', () => { if (performance.now() - downAt > 120) release(); });
+    const docRelease = (e) => { if (held && activePointer != null && e.pointerId === activePointer) release(); };
+    document.addEventListener('pointerup', docRelease, true);
+    document.addEventListener('pointercancel', docRelease, true);
     return () => held;
   }
   // keyup/pointerup が別のタブ・アプリへ届いても、入力を押したままにしない。
