@@ -5,6 +5,8 @@
 **基準コミット**: `794e6f2`（`origin/main`, PR #90 マージ後）
 **対象ファイル**: `script.js` (15,121行) / `index.html` (570行) / `style.css` (5,058行)
 
+I章とJ-1／J-2は2026-09-11の地域改善に合わせて更新済みです。その他の過去の棚卸しは冒頭の注意に従ってください。
+
 ## この文書について
 
 これは**設計書ではなく、コードの棚卸し**です。以下のルールで作成しています。
@@ -650,31 +652,37 @@ COMPANION_PLAYWITH_BOND_BOOST = 30
 
 ## I. 地域・季節・旅
 
-### I-1. 通常地域（`REGIONS`）— 8 地域
+### I-1. 地域（2026-09-11更新）— おうち＋通常の旅先10か所
 
-| id | 表示 | こいびと候補 2 人 |
+`REGIONS` はおうちを含む11件。こいびと候補は18人で、おうちには候補を置かない。
+
+| id | 表示 | こいびと候補 |
 |---|---|---|
-| `home` | 🏠 おうち | となりの ねこ (female/bi/gentle), こうえんの わんこ (male/straight/wild) |
-| `sea` | 🌊 うみ | うみの にんぎょ (female/pan/romantic), なみのり カメくん (male/gay/calm) |
-| `snow` | 🏔️ ゆきやま | ゆきの せいれい (nonbinary/pan/calm), やまごやの クマさん (male/bi/brave) |
-| `city` | 🏙️ とかい | となりまちの ロボット (nonbinary/bi/calm), ビルの ねこ社長 (female/gay/brave) |
-| `countryside` | 🌾 いなか | はたけの ひまわりさん (female/straight/romantic), のはらの うしさん (male/pan/gentle) |
-| `forest` | 🌲 もり | もりの きつね (male/gay/wild), こだちの リス (female/bi/wild) |
-| `desert` | 🏜️ さばく | さばくの さそりさん (nonbinary/bi/brave), オアシスの らくださん (male/straight/calm) |
-| `tropical` | 🌴 なんごく | なんごくの インコ (female/pan/romantic), やしの きの リザードさん (male/gay/wild) |
+| `home` | おうち | なし（拠点） |
+| `city` | とかい | ビルのねこ社長、となりまちのロボット |
+| `countryside` | いなか | のはらのうしさん、はたけのひまわりさん |
+| `forest` | もり | もりのクマさん、こだちのシカ |
+| `mountain` | やま | がけのヤギさん、たかねのワシ |
+| `snow` | ゆきぐに | ゆきのせいれい、とけないゆきだるま |
+| `sea` | うみ | いわばのタコさん、うみのにんぎょ |
+| `deepsea` | しんかい | ひかるチョウチンアンコウ |
+| `river_lake` | みずべ | ぬまのワニさん |
+| `jungle` | ジャングル | やさしいゴリラ、あみものがすきなクモさん |
+| `desert` | さばく | さばくのサソリさん、オアシスのサボテンさん |
 
-`ALL_PARTNER_CANDIDATES = REGIONS.flatMap(r => r.candidates)` → **16 人**
+「かわ・みずうみ」は「みずべ」へ表示名を変更。保存用id `river_lake`、訪問歴、既存の人生記録は移行せず引き継ぐ。
 
-### I-2. とくべつな たびさき（`SPECIAL_REGIONS`）— 2 か所
+### I-2. とくべつな旅先 — 2か所
 
-| id | 表示 | candidates |
+| id | 表示 | 滞在中の楽しみ |
 |---|---|---|
-| `star_stop` | 🌌 ほしぞらの ていりゅうじょ | `[]` |
-| `memory_lake` | 🫧 きおくの みずうみ | `[]` |
+| `star_stop` | ほしぞらのていりゅうじょ | いつも星空。星を見送り、ときどき星のかけらを拾う |
+| `memory_lake` | きおくのみずうみ | 保存済みの人生記録が水面にうつる。記録がなければ今の自分をながめる |
 
-- `REGIONS` には**含まれません**。`findRegion(id)` が両方を横断
-- `renderTravelRegionGrid()` は `hasPerk(70)` のときだけ `#travelSpecialSection` を表示
-- 記録先は `lifetime.specialRegionsVisited`（`regionsVisited` は増えない）
+- そだち70の特典で開く。候補は0人。`findRegion(id)` は通常・特別の両方を検索する。
+- 訪問歴は `lifetime.specialRegionsVisited` に記録し、通常地域の周遊実績へ混ぜない。
+- 両方とも機嫌の自然減×0.85。星空は遊ぶ疲れ×0.9、湖は睡眠回復×1.15。
+- 地域の小さな出来事は既存の150〜300秒ごとの抽選（45%）を使う。育成中・起きている・病気や会話やゲームやメニュー等がないときに限り、少量の機嫌・元気・おかねを得る。移動のたびに報酬を配る仕組みではない。
 
 ### I-3. たび（`travelToRegion(region)`）
 
@@ -684,46 +692,54 @@ COMPANION_PLAYWITH_BOND_BOOST = 30
 - `travelSpamThreshold()`（基本 `TRAVEL_SPAM_THRESHOLD = 3`、`travel_threshold` 装備で増加）を超えると「たびづかれ」: `happiness -3`, `applyDecline(5)`
 - `oneTimeBoosts.travelGuarantee` があれば 1 回だけ「たびづかれ」を回避
 - 通常時: `applyGrowth(初訪問 ? (special ? 12 : 6) : (special ? 4 : 2))`, `applyDecline(-2)`, `happiness += (5 + travelBonus) × (hasPerk(70) ? 2 : 1)`
-- `travelBonus`: `travel3` 7 / `travel2` 4 / `travel1` 2 / なし 0
+- `travelBonus`: `travel1` 装備で2、なしは0。ごほうびを持つ場合、既存の確認で1個使う特別な旅も選べる。
 - 常に `energy -6`, `hunger -4`
 
-### I-4. 季節
+### I-4. 季節と天気（2026-09-11更新）
 
-- `SEASON_MODE_ORDER = ['auto','spring','summer','autumn','winter']`（`lifetime.seasonMode`）
-- `auto` は現在の月から自動判定
-- `SEASON_INFO`: 🌸はる / 🌻なつ / 🍁あき / ❄️ふゆ
-- `computeSeasonVisual(regionId, season)` が `{fx, decor, tint}` を返す。`SEASON_DECOR_OVERRIDES` に地域×季節の個別上書き 9 件
-- 季節が実際に変わった瞬間だけ `celebrateSeasonChange()` の演出
-- `body` に `region-<id>` クラスが付き、`style.css` の `body.region-*` で背景が変わります
+- 季節は自動（月から判定）か春・夏・秋・冬を選ぶ。
+- 装飾とキャッシュは実際の地域idで切り替える。山は山、深海は水中、みずべは水辺、ジャングルは熱帯の装飾を使用する。
+- 深海は上昇する泡と光、星空の停留所は星空、記憶の湖は水面の光。ジャングルと砂漠は冬も雪の季節飾りにしない。
+- 地上の手動天気を優先する。自動の場合、おうちでは2時間以内の現在地の観測を使い、それ以外は旅先の気候と季節から3時間単位で予想する。ジャングルと砂漠の予想では冬の雨を雪へ変換しない。
+- 深海と星空の停留所では地上の天気と季節の補正を使わない。時間帯による生活リズムは保つ。選んだ天気・季節は保存したまま、地上へ戻ると反映される。「せかい」では水中／いつも星空と表示し、季節は「地上は…」と区別する。
+- 天気・時間帯に加え、山・みずべ・ジャングル・砂漠にも地域の出来事がある。深海と特別な旅先には専用の出来事を使い、水中の雪だるまや蝶などを出さない。
+
+### I-5. 滞在効果と伝説（2026-09-11更新）
+
+地域カードには効果・出やすいゲーム・地域の楽しみ・候補人数を表示する。倍率は天気／時間／季節／地域を合わせて各0.7〜1.5に収めるため、他の効果と重なると差が上限で小さくなる。
+
+| 地域 | 今回の地域単独の効果 |
+|---|---|
+| ゆきぐに | 満腹の自然減×1.05、睡眠回復×1.2、遊ぶ疲れ×0.9 |
+| ジャングル | 出会い×1.4、満腹の自然減×1.05 |
+| さばく | ゲームのおかね×1.2、満腹の自然減×1.1 |
+
+伝説は未遭遇を優先した候補内で、マスターの `affinityRegions` に滞在していれば重み2、他は1。全ての地域に全ての伝説の可能性を残す。鳥居は田舎・星空、階段は砂漠、イカは海・深海、あかりは森・田舎、鏡はみずべ・記憶の湖。既存のそだち70の解禁条件、1人生1回の制限、遭遇率と報酬を維持する。
 
 ---
 
 ## J. ミニゲーム
 
-### J-1. 現在の総数（コードから再計測）
+### J-1. 現在の構成（2026-09-11再計測）
 
 | 指標 | 値 |
 |---|---|
-| `MINIGAMES`（基本プール） | **124** |
-| `MINIGAME_CATEGORY_GROUPS`（カテゴリ数） | **56** |
-| `REGION_MINIGAMES`（地域限定） | 8 地域 / 計 34 件 |
-| `SEASONAL_MINIGAMES`（季節限定） | 4 季節 / 計 11 件 |
-| `buildMinigamePool()` の実プール（おうち・現在季節） | **117** |
+| 基本プール | 86本、82カテゴリ |
+| 地域のゲーム | 通常の旅先10か所に各1本 |
+| 季節のゲーム | 4季節に各1本 |
+| 重複を除いた全体 | **100本** |
 
-**カテゴリ別の変種数**:
-`catch 6, whack 4, timing 7, quiz 7, memory 2, math 5, reaction 3, stroop 3, janken 1, concentration 1, mash 3, balance 1, oddOneOut 2, numberOrder 1, compare 2, shapeMatch 1, silhouette 3, pattern 2, beat 3, maze 3, sort 5, highLow 1, tileSwap 2, bubblePop 2, spell 2, sumPair 2, jump 3, colorMix 1, findSelf 1, pose 1, road 3, stack 2, fight 4, rpg 3, chase 2, runner 2, shooter 2, comboInput 1, boxPick 1, matchupQuiz 1, steppingStones 1, targetAim 2, race 3, swipeThrow 2, powerMeter 3, pushContest 1, chop 1, stealth 1, comedyStealth 1, cuteHorror 1, roulette 1, breakout 1, sportsSwing 1, dragDecorate 2, miniPoker 1, miniEscape 1`
+山は「岩場のぼり」、雪国はスキー／スノーボード。岩場のぼりは、岩を選び、針が緑の範囲に入った瞬間につかんで12段の山頂を目指す。3段ごとに休憩点を記録し、3回つかみ損ねると最後の休憩点へ戻る。標準30秒、ゲーム時間設定が適用される。
 
-**地域限定の置換カテゴリ**:
-`home`: mash, catch, concentration, maze ／ `sea`: catch, whack, maze, concentration, fishing ／ `snow`: jump, mash, whack, catch, downhill ／ `city`: whack, timing, road, mash ／ `countryside`: catch, mash, whack, concentration ／ `forest`: whack, bubblePop, maze, stack ／ `desert`: catch, jump, whack, road ／ `tropical`: catch, mash, whack, bubblePop
+保存用id `downhill-mountain` は互換性のため継続。ゲーム名・遊び方・カテゴリを更新し、過去の回数と自己ベストを保持する。
 
-地域限定版が存在するカテゴリは、その地域にいる間**通常の変種が一切出ません**（プールから除外）。
+### J-2. 抽選ロジック（2026-09-11更新）
 
-### J-2. 抽選ロジック（`pickRandomMinigame()`）
-
-- `minigameQueue` にプール全体をシャッフルして積み、pop で消費（**一巡するまで同じゲームが出ない**）
-- `lifetime.minigamePlayCounts`（永続）で未プレイ優遇の重み付け
-- 地域到着・季節変化の直後は `regionArrivalBoostLeft` / `seasonArrivalBoostLeft` により、その地域/季節限定ゲームを前方に引き寄せる
-- 同一カテゴリが 3 連続しそうなら、近傍の別カテゴリと入れ替える（`recentMinigameCategories`）
+- **全100本をどの地域・季節でも遊べる**。地域や季節は出やすさを変え、他のゲームを除外しない。
+- 未プレイと回数の少ないゲームを優先。滞在地域のゲームは重み×1.45、地上の現在季節のゲームは×1.25と追加チケットで優遇する。
+- 同じ見た目の旧ベース地域を優遇へ混ぜない（山に雪国、深海に海、みずべに森の優遇を付けない）。
+- 天気・時間・地域・地上の季節のジャンル補正も適用する。雪の名前補正から山の岩場のぼりを外す。
+- 到着後2回、季節切り替え後1回はキューの近傍から該当ゲームを前へ寄せる。直前と同じゲームや同カテゴリ3連続を可能な範囲で避ける。追加チケットがあるため、全100本の一巡前に同じゲームが出ることはある。
 
 ### J-3. 結果処理（`finishMinigame(score, customMessage)`）
 

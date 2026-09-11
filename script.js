@@ -7328,8 +7328,8 @@
     },
     "mountain": {
       "emoji": "⛰️",
-      "visualBaseId": "snow",
-      "minigameBaseId": "snow",
+      "visualBaseId": "mountain",
+      "minigameBaseId": "mountain",
       "decor": [
         "⛰️",
         "🪨",
@@ -7393,13 +7393,13 @@
       ]
     },
     "deepsea": {
-      "emoji": "🌌",
-      "visualBaseId": "sea",
-      "minigameBaseId": "sea",
+      "emoji": "🫧",
+      "visualBaseId": "deepsea",
+      "minigameBaseId": "deepsea",
       "decor": [
-        "🌌",
+        "🫧",
         "💡",
-        "🐟",
+        "✨",
         "🦑",
         "🪼",
         "⚓",
@@ -7416,8 +7416,8 @@
     },
     "river_lake": {
       "emoji": "🏞️",
-      "visualBaseId": "forest",
-      "minigameBaseId": "forest",
+      "visualBaseId": "river_lake",
+      "minigameBaseId": "river_lake",
       "decor": [
         "🏞️",
         "💧",
@@ -7438,8 +7438,8 @@
     },
     "jungle": {
       "emoji": "🌴",
-      "visualBaseId": "tropical",
-      "minigameBaseId": "tropical",
+      "visualBaseId": "jungle",
+      "minigameBaseId": "jungle",
       "decor": [
         "🌴",
         "🌺",
@@ -8634,7 +8634,11 @@
     const seen = state.lifetime.legendsMet || [];
     const unseen = LEGEND_ENCOUNTERS.filter((e) => !seen.includes(e.id));
     const pool = unseen.length ? unseen : LEGEND_ENCOUNTERS;
-    const legend = pool[Math.floor(Math.random() * pool.length)];
+    // 未遭遇を優先したまま、ゆかりのある地域では重みを2倍にする。
+    // 全員に最低1票を残すので、どの旅先でも全ての伝説に出会える。
+    const weights = pool.map((entry) => WORLD_MASTER?.legends?.find((def) => def.id === entry.id)?.affinityRegions?.includes(state.regionId) ? 2 : 1);
+    let roll = Math.random() * weights.reduce((sum, weight) => sum + weight, 0);
+    const legend = pool.find((entry, index) => (roll -= weights[index]) < 0) || pool[pool.length - 1];
     state.legendMet = true;
     if (!seen.includes(legend.id)) state.lifetime.legendsMet = seen.concat(legend.id);
     const coins = Math.round(LEGEND_COIN_GIFT * coinMultiplier());
@@ -10411,6 +10415,15 @@
     winter: { bg: ['❄️'], bgCount: 5, front: ['❄️'], frontCount: 2, tint: 'winter' },
   };
 
+  // 地上の四季をそのまま使わない旅先。地域の空気を一年中保つ。
+  const REGION_BASE_FX = {
+    deepsea: { bg: ['🫧', '✨'], bgCount: 5, front: ['🫧'], frontCount: 2, tint: 'deepsea' },
+    star_stop: { bg: ['✨', '⭐'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'starry' },
+    memory_lake: { bg: ['💧', '✨'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'memory' },
+    jungle: { bg: ['🌿', '🌺'], bgCount: 4, front: ['🍃'], frontCount: 1, tint: 'tropicalMild' },
+    desert: { bg: ['💨', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'desertMild' },
+  };
+
   // `${regionId}:${season}` の くみあわせだけ、きほんから 上書きする
   // (front を からの はいれつに すると、その くみあわせは ぜんけい
   // エフェクトなし = なんごく/さばくの ふゆ などで つかう)
@@ -10428,10 +10441,12 @@
     'city:winter': { bg: ['❄️'], bgCount: 3, front: [], frontCount: 0, tint: 'winterCity' },
     'sea:winter': { bg: ['💨', '❄️'], bgCount: 3, front: [], frontCount: 0, tint: 'seaWinter' },
     // なんごく・さばくは ゆきを ふらせず、いろあい・かぜだけで きせつさを だす
-    'tropical:winter': { bg: ['🌺', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'tropicalMild' },
+    'jungle:winter': { bg: ['🌺', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'tropicalMild' },
     'desert:winter': { bg: ['💨', '✨'], bgCount: 3, front: [], frontCount: 0, tint: 'desertMild' },
     'desert:summer': { bg: ['☀️', '💨'], bgCount: 3, front: [], frontCount: 0, tint: 'desertSummer' },
-    'tropical:summer': { bg: ['🌺', '✨', '🦋'], bgCount: 5, front: ['✨'], frontCount: 1, tint: 'tropicalSummer' },
+    'jungle:summer': { bg: ['🌺', '✨', '🦋'], bgCount: 5, front: ['✨'], frontCount: 1, tint: 'tropicalSummer' },
+    'mountain:summer': { bg: ['🍃', '✨'], bgCount: 4, front: ['🍃'], frontCount: 1, tint: 'summer' },
+    'river_lake:summer': { bg: ['💧', '✨'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'seaSummer' },
     'sea:summer': { bg: ['✨', '💧'], bgCount: 4, front: ['✨'], frontCount: 1, tint: 'seaSummer' },
   };
 
@@ -10453,6 +10468,9 @@
   // タイント名 → じっさいの グラデーション(からだ ぜんたいを うっすら
   // そめる、地域の けしきの さらに うえの いろ・くうきかん レイヤー)
   const SEASON_TINTS = {
+    deepsea: 'radial-gradient(circle at 50% 75%, rgba(50,190,210,0.18), rgba(5,15,60,0.3) 70%, transparent)',
+    starry: 'radial-gradient(circle at 50% 15%, rgba(130,100,210,0.25), rgba(15,20,65,0.2) 70%, transparent)',
+    memory: 'radial-gradient(circle at 50% 65%, rgba(200,230,245,0.25), rgba(145,170,220,0.12) 70%, transparent)',
     spring: 'radial-gradient(circle at 50% 12%, rgba(255,214,230,0.35), rgba(200,240,180,0.12) 60%, transparent 100%)',
     summer: 'radial-gradient(circle at 50% 8%, rgba(255,250,200,0.32), rgba(255,255,255,0.05) 70%, transparent 100%)',
     autumn: 'radial-gradient(circle at 50% 15%, rgba(255,196,140,0.32), rgba(150,90,50,0.14) 65%, transparent 100%)',
@@ -10485,7 +10503,7 @@
   // きせつ」を しりたい ときも、この かんすうだけ みれば よい
   function computeSeasonVisual(regionId, season) {
     const key = `${regionId}:${season}`;
-    const base = SEASON_BASE_FX[season] || SEASON_BASE_FX.spring;
+    const base = REGION_BASE_FX[regionId] || SEASON_BASE_FX[season] || SEASON_BASE_FX.spring;
     const fx = { ...base, ...(SEASON_REGION_OVERRIDES[key] || {}) };
     const decor = SEASON_DECOR_OVERRIDES[key] || findRegion(regionId).decor;
     const tint = SEASON_TINTS[fx.tint] || SEASON_TINTS[season] || SEASON_TINTS.spring;
@@ -10567,14 +10585,13 @@
 
   function applyRegion() {
     const region = findRegion(state.regionId);
-    const visualBaseId = region.visualBaseId || region.id;
     REGIONS.concat(SPECIAL_REGIONS).forEach((r) => {
       document.body.classList.toggle(`region-${r.id}`, r.id === region.id);
     });
     const season = getEffectiveSeason();
-    const visualKey = `${visualBaseId}|${season}`;
+    const visualKey = `${region.id}|${season}`;
     if (visualKey !== lastVisualKey) {
-      applySeasonRegionVisuals(visualBaseId, season);
+      applySeasonRegionVisuals(region.id, season);
       lastVisualKey = visualKey;
     }
     return region;
@@ -11321,12 +11338,11 @@
       const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
       const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
       const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
-      const local = (REGION_MINIGAMES[region.id] || REGION_MINIGAMES[region.minigameBaseId] || []).length;
+      const local = (REGION_MINIGAMES[region.id] || []).length;
       const partners = Array.isArray(region.candidates) ? region.candidates.length : 0;
-      const lines = [effect, ups.length ? `ゲーム：${ups.join('・')}↑` : '', local ? `ごとうちゲーム：${local}本` : '', partners ? `こいびと候補：${partners}人` : ''].filter(Boolean);
+      const activity = REGION_MOMENT_HINTS[region.id] || '';
+      const lines = [effect, ups.length ? `ゲーム：${ups.join('・')}↑` : '', local ? `ごとうちゲーム：${local}本` : '', activity, partners ? `こいびと候補：${partners}人` : ''].filter(Boolean);
       return `<button type="button" class="theme-swatch travel-card ${isCurrent ? 'selected' : ''} ${visited.has(region.id) ? 'visited' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''} aria-pressed="${isCurrent}"><span class="travel-card-head"><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="travel-card-title">${escapeHtml(region.label)}${isCurrent ? '<span class="travel-card-tag now">いまここ</span>' : visited.has(region.id) ? '<span class="travel-card-tag">✓</span>' : ''}</span></span><span class="travel-card-lines">${lines.map((t) => `<span>${t}</span>`).join('')}</span></button>`;
-      // (きゅうの swatch 表示は つかわない)
-      return `<button type="button" class="theme-swatch ${isCurrent ? 'selected' : ''}" data-id="${region.id}" ${isCurrent ? 'disabled' : ''}><span class="theme-swatch-circle">${environmentIconHTML('region',region.id,region.emoji)}</span><span class="theme-swatch-label">${region.label}</span></button>`;
     };
     el.travelRegionGrid.innerHTML = REGIONS.map(swatch).join('');
     // そだち70「たびだち」に とどいて はじめて、ふつうの 地域の したに
@@ -12294,14 +12310,14 @@
       countryside: { hunger: 0.9, text: 'おなかがすきにくい' },
       forest: { meet: 1.3, text: 'なかまに出会いやすい' },
       mountain: { sleep: 1.1, play: 1.1, text: 'ねるとよく回復する・あそぶと疲れやすい' },
-      snow: { hunger: 1.1, text: 'おなかがすきやすい' },
+      snow: { hunger: 1.05, sleep: 1.2, play: 0.9, text: 'ねるとよく回復する・あそぶ疲れがへる・少しおなかがすきやすい' },
       sea: { meet: 1.2, happy: 0.95, text: 'なかまに出会いやすい' },
       deepsea: { happy: 0.9, meet: 0.8, text: 'ごきげんが下がりにくい・出会いがへる' },
       river_lake: { happy: 0.9, text: 'ごきげんが下がりにくい' },
-      jungle: { meet: 1.2, hunger: 1.1, text: 'なかまに出会いやすい・おなかがすきやすい' },
-      desert: { hunger: 1.15, coin: 1.1, text: 'おなかがすきやすい・ゲームのおかね+10%' },
-      star_stop: { happy: 0.85, text: 'ごきげんが下がりにくい' },
-      memory_lake: { happy: 0.85, text: 'ごきげんが下がりにくい' },
+      jungle: { meet: 1.4, hunger: 1.05, text: 'なかまにとても出会いやすい・少しおなかがすきやすい' },
+      desert: { hunger: 1.1, coin: 1.2, text: 'ゲームのおかね+20%・おなかがすきやすい' },
+      star_stop: { happy: 0.85, play: 0.9, text: 'ごきげんが下がりにくい・あそぶ疲れがへる' },
+      memory_lake: { happy: 0.85, sleep: 1.15, text: 'ごきげんが下がりにくい・ねるとよく回復する' },
     },
   };
   // ジャンルごとの 出やすさ(ミニゲームの ちゅうせん)。1 より 大きいと 出やすい
@@ -12325,23 +12341,25 @@
       winter: { board: 1.2 },
     },
     region: {
-      city: { action: 1.2 }, countryside: { board: 1.2 }, forest: { puzzle: 1.2 }, mountain: { strategy: 1.1 },
+      city: { action: 1.2 }, countryside: { board: 1.2 }, forest: { puzzle: 1.2 }, mountain: { sports: 1.2 },
       snow: { strategy: 1.1 }, sea: { sports: 1.3, drive3d: 1.1 }, deepsea: { puzzle: 1.3 }, river_lake: { puzzle: 1.1 },
       jungle: { action: 1.2 }, desert: { drive3d: 1.4 },
     },
   };
   // てんきに ちなんだ ゲーム(id の パターン)は さらに 出やすく
-  const ENV_GAME_ID_BOOSTS = { snow: [/snow|ski|curling|downhill/i, 2], rain: [/fishing/i, 1.3], sunny: [/beach|summer|ring-flight/i, 1.3] };
+  const ENV_GAME_ID_BOOSTS = { snow: [/snow|ski|curling/i, 2], rain: [/fishing/i, 1.3], sunny: [/beach|summer|ring-flight/i, 1.3] };
 
   // いまの てんき。じゅんばんに: 手で えらんだ もの → 現在地の 観測(2時間いない)
   // → 地域の 気候からの 予想(simulatedWeather)。source で どれかを かえす
   function effectiveWeather() {
+    if (state.regionId === 'deepsea') return { weather: null, source: 'underwater' };
+    if (state.regionId === 'star_stop') return { weather: null, source: 'starry' };
     const weatherMode = WEATHER_CHOICES[state.lifetime.weatherMode] ? state.lifetime.weatherMode : 'auto';
     if (weatherMode !== 'auto') return { weather: weatherMode, source: 'manual' };
     const snapshot = environmentTracker?.snapshot();
     const observed = snapshot?.weather;
     const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
-    if (fresh) return { weather: observed.mode, source: 'observed' };
+    if (fresh && state.regionId === 'home') return { weather: observed.mode, source: 'observed' };
     const sim = window.NaotocchiEnvironment?.simulatedWeather?.(state.regionId, getEffectiveSeason());
     return sim ? { weather: sim.mode, source: 'sim' } : { weather: null, source: 'none' };
   }
@@ -12353,10 +12371,13 @@
     const w = effectiveWeather();
     return { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
   }
+  function hasSurfaceSeasons(regionId) {
+    return regionId !== 'deepsea' && regionId !== 'star_stop';
+  }
   // 4つの こうかを かけあわせた ばいりつ(0.7〜1.5 に おさめる)
   function envModifiers() {
     const env = currentEnvironment();
-    const parts = [ENV_EFFECTS.weather[env.weather], ENV_EFFECTS.time[env.time], ENV_EFFECTS.season[env.season], ENV_EFFECTS.region[env.region]];
+    const parts = [ENV_EFFECTS.weather[env.weather], ENV_EFFECTS.time[env.time], hasSurfaceSeasons(env.region) && ENV_EFFECTS.season[env.season], ENV_EFFECTS.region[env.region]];
     const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
     for (const part of parts) { if (!part) continue; for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k]; }
     for (const k of Object.keys(out)) out[k] = clamp(out[k], 0.7, 1.5);
@@ -12367,6 +12388,7 @@
     const genre = minigameGenreId(game);
     let w = 1;
     for (const [kind, key] of [['weather', env.weather], ['time', env.time], ['season', env.season], ['region', env.region]]) {
+      if (kind === 'season' && !hasSurfaceSeasons(env.region)) continue;
       const table = ENV_GAME_WEIGHTS[kind][key];
       if (table && table[genre] != null) w *= table[genre];
     }
@@ -12379,6 +12401,7 @@
     const env = currentEnvironment();
     const totals = {};
     for (const [kind, key] of [['weather', env.weather], ['time', env.time], ['season', env.season], ['region', env.region]]) {
+      if (kind === 'season' && !hasSurfaceSeasons(env.region)) continue;
       const table = ENV_GAME_WEIGHTS[kind][key]; if (!table) continue;
       for (const [genre, v] of Object.entries(table)) totals[genre] = (totals[genre] || 1) * v;
     }
@@ -12402,13 +12425,13 @@
   function renderWorldNowCard(env) {
     if (!el.worldNowCard) return;
     const region = findRegion(env.region) || { emoji: '🏠', label: 'おうち' };
-    const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : '🌫️てんきがわからない';
+    const weatherChip = env.weather ? `${environmentIconHTML('weather',env.weather,WEATHER_CHOICES[env.weather][0])}${WEATHER_CHOICES[env.weather][1]}${env.weatherSource === 'sim' ? '(よそう)' : env.weatherSource === 'observed' ? '(げんざいち)' : ''}` : environmentContextLabel(env.weatherSource);
     const season = SEASON_INFO[env.season];
-    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${season.label}`, `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`];
+    const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`];
     const effects = [
       ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
-      ['season', env.season, season.emoji],
+      ['season', hasSurfaceSeasons(env.region) ? env.season : null, season.emoji],
       ['region', env.region, region.emoji],
     ].map(([kind, key, icon]) => { const e = key && ENV_EFFECTS[kind][key]; return e && e.text ? `<div class="world-now-effect"><span class="icon">${environmentIconHTML(kind,key,icon)}</span><span>${e.text}</span></div>` : ''; }).join('');
     const g = environmentGenreSummary();
@@ -12420,13 +12443,18 @@
   // てんきの えんしゅつ(あめ・ゆき・くも・ひざし・よるの ほし)を つくりなおす。
   // てんき・じかんたい・動きを減らす設定・軽量モードの 変更時だけ つくりなおす
   let weatherFxKey = '';
-  function applyWeatherFx(weather, time) {
+  function environmentContextLabel(source) {
+    return source === 'underwater' ? '🫧水の中' : source === 'starry' ? '✨いつも星空' : '🌫️てんきがわからない';
+  }
+  function applyWeatherFx(weather, time, regionId) {
     if (!el.weatherFx) return;
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const low = mgPerfLow;
-    const key = `${weather || 'none'}|${time}|${reduced}|${low}`;
+    const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${low}`;
     if (key === weatherFxKey) return;
     weatherFxKey = key;
+    if (regionId === 'deepsea') { el.weatherFx.innerHTML = ''; return; }
+    if (regionId === 'star_stop') { weather = null; time = 'night'; }
     const items = [];
     const rnd = (a, b) => a + Math.random() * (b - a);
     if (weather === 'rain') {
@@ -12486,6 +12514,56 @@
       { emoji: '🌙', message: '月がきれいだね。ごきげん+5', happiness: 5 },
     ],
   };
+  const REGION_MOMENT_HINTS = {
+    mountain: '岩場のぼりと、山びこのひと休み',
+    deepsea: '光るくらげや深海の音に出会える',
+    river_lake: '水切りや、水面の輪をながめる時間',
+    jungle: '葉のかげで、生きものの声を聞こう',
+    desert: 'オアシスや、砂にかくれたものを探そう',
+    star_stop: '星を見送り、ときどき星のかけらを拾える',
+    memory_lake: '水面に、これまでの思い出がうつる',
+  };
+  const REGION_MOMENTS = {
+    mountain: [
+      { emoji: '⛰️', message: '山びこが少し遅れて返事をした。ごきげん+5', happiness: 5 },
+      { emoji: '🪨', message: '平らな岩でひと休み。げんき+5', energy: 5 },
+    ],
+    river_lake: [
+      { emoji: '💧', message: '水切りの石が、今度は3回はねた。ごきげん+6', happiness: 6 },
+      { emoji: '🪷', message: '水面の輪が静かに広がった。げんき+4', energy: 4 },
+    ],
+    jungle: [
+      { emoji: '🦜', message: '葉のかげから、聞いたことのない声。ごきげん+6', happiness: 6 },
+      { emoji: '🌿', message: '大きな葉の下で休んだ。げんき+5', energy: 5 },
+    ],
+    desert: [
+      { emoji: '💧', message: 'オアシスのそばでひと休み。げんき+6', energy: 6 },
+      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。💰+8', money: 8 },
+    ],
+    deepsea: [
+      { emoji: '🪼', message: '光るくらげが、ゆっくり道を横切った。ごきげん+6', happiness: 6 },
+      { emoji: '🫧', message: '深海で泡の音に耳をすませた。げんき+5', energy: 5 },
+    ],
+    star_stop: [
+      { emoji: '⭐', message: '星をひとつ見送った。次はどこへ行くのだろう。ごきげん+6', happiness: 6 },
+      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。💰+8', money: 8 },
+      { emoji: '🌌', message: '遠くの星の明かりを数えて休んだ。げんき+5', energy: 5 },
+    ],
+    memory_lake: [
+      { emoji: '🪞', memory: true, happiness: 6 },
+      { emoji: '💧', message: '湖の波が静まるまで、思い出をたどった。げんき+6', energy: 6 },
+    ],
+  };
+  function environmentMomentPool(env) {
+    const local = REGION_MOMENTS[env.region] || [];
+    if (env.region === 'deepsea' || env.region === 'star_stop' || env.region === 'memory_lake') return local;
+    const generic = [...(ENV_MOMENTS[env.weather] || []), ...(ENV_MOMENTS[env.time] || [])];
+    return [...local, ...generic.filter((moment) => {
+      if (moment.emoji === '🦋' && (env.season === 'winter' || env.weather === 'snow' || ['snow','desert'].includes(env.region))) return false;
+      if (['🐌','🐸'].includes(moment.emoji) && env.region === 'desert') return false;
+      return true;
+    })];
+  }
   function scheduleEnvironmentMoment() {
     const delay = 150000 + Math.random() * 150000;
     setTimeout(() => {
@@ -12497,14 +12575,17 @@
           && !message && !pendingCompanionId;
         if (idleOk && Math.random() < 0.45) {
           const env = currentEnvironment();
-          const pool = [...(ENV_MOMENTS[env.weather] || []), ...(ENV_MOMENTS[env.time] || [])];
+          const pool = environmentMomentPool(env);
           if (pool.length) {
             const m = pool[Math.floor(Math.random() * pool.length)];
             if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             if (m.money) state.lifetime.money += m.money;
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
-            showStoryEvent({ emoji: m.emoji, message: m.message, environmentMoment: true });
+            const memories = m.memory ? (state.lifeLog || []).filter((entry) => typeof entry.text === 'string' && entry.text.trim()) : [];
+            const memory = memories.length ? memories[Math.floor(Math.random() * memories.length)] : null;
+            const caption = m.memory ? (memory ? `水面に思い出がうつった。「${Array.from(memory.text).slice(0, 60).join('')}」ごきげん+6` : '水面に今の自分がうつった。ここから思い出が増えていく。ごきげん+6') : m.message;
+            showStoryEvent({ emoji: m.emoji, message: caption, environmentMoment: true });
             emotePet(m.happiness < 0 ? 'sad' : 'happy');
             saveState();
             render();
@@ -12606,12 +12687,13 @@
     const weatherMode = WEATHER_CHOICES[state.lifetime.weatherMode] ? state.lifetime.weatherMode : 'auto';
     const eff = effectiveWeather();
     const weather = eff.weather;
-    el.screen.dataset.time = time;
+    const visualTime = eff.source === 'underwater' ? 'underwater' : eff.source === 'starry' ? 'night' : time;
+    el.screen.dataset.time = visualTime;
     el.screen.dataset.weather = weather || 'unknown';
-    document.body.dataset.time = time;
+    document.body.dataset.time = visualTime;
     document.body.dataset.weather = weather || 'unknown';
-    applyWeatherFx(weather, time);
-    const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : 'てんきはまだわからない';
+    applyWeatherFx(weather, time, state.regionId);
+    const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : environmentContextLabel(eff.source);
     el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
     const city = snapshot?.municipality?.display;
     const locationLabel = `げんざいち：${city || 'まだわからない'}`;
@@ -12623,7 +12705,8 @@
     el.currentLocationBtn.disabled = loading;
     const status = loading ? '現在地とてんきを調べています…' : snapshot?.error || (city || weather ?
       `${city ? locationLabel : ''}${city && weather ? '・' : ''}${weather ? weatherText : ''}` : '現在地を調べると、近くのてんきにあわせられます。');
-    el.environmentStatus.textContent = status;
+    const contextNote = eff.source === 'underwater' ? 'ここは水の中。地上の天気は届きません。' : eff.source === 'starry' ? 'ここでは、いつでも星空が見えます。' : '';
+    el.environmentStatus.textContent = contextNote ? `${contextNote} 選んだ天気は地上へ戻ると反映されます。` : status;
     el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで調べられます。');
     if (worldOpen) {
       renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
@@ -12931,7 +13014,7 @@
     hangGlider: 'drive3d', planeLanding: 'drive3d', voxelMine: 'drive3d', lunarLander: 'drive3d',
     swipeThrow: 'sports', miniGolf: 'sports', realFishing: 'sports', fishing: 'sports', basketball: 'sports', pingPong: 'sports',
     freeKick: 'sports', baseball: 'sports', skiJump: 'sports', airHockey: 'sports', tennis: 'sports', darts: 'sports',
-    trackField: 'sports', curling: 'sports', downhill: 'sports', beachVolley: 'sports',
+    trackField: 'sports', curling: 'sports', downhill: 'sports', climbing: 'sports', beachVolley: 'sports',
     fallingBlock: 'puzzle', chainPuzzle: 'puzzle', pushPuzzle: 'puzzle', minesweeper: 'puzzle', bubbleShooter: 'puzzle',
     twenty48: 'puzzle', matchThree: 'puzzle', picross: 'puzzle', pipeConnect: 'puzzle', lightsOut: 'puzzle', lineTrace: 'puzzle',
     memoryCards: 'puzzle', sudoku: 'puzzle', dragDecorate: 'puzzle', hitBlow: 'puzzle', slidePuzzle: 'puzzle',
@@ -13018,11 +13101,11 @@
     'road-city': { name: 'とかいラン', emoji: '🏙️', desc: 'ラッキーなあいてむはキャッチ。障害物はよけて。' },
     'stack-harvest': { name: 'しゅうかくタワー', emoji: '🌾', desc: 'いなかの実りを、くずさずつもう。' },
     'stack-acorn': { name: 'きのみタワー', emoji: '🌰', desc: '森の木の実を、高くつみ上げよう。' },
-    'downhill-mountain': { name: 'やまのゲレンデ', emoji: '🏔️', desc: 'スキーやボードですべり降りよう。' },
+    'downhill-mountain': { name: 'やまの岩場のぼり', emoji: '⛰️', desc: '岩をえらび、タイミングよくつかんで山頂へ。' },
     'downhill-snow': { name: 'ゆきのゲレンデ', emoji: '🎿', desc: 'スキーやボードですべり降りよう。' },
     'fishing-sea': { name: 'うみのさかなつり', emoji: '🐟', desc: '合わせて、巻いて、つり上げろ。' },
     'fishing-deepsea': { name: 'しんかいフィッシング', emoji: '🦑', desc: '何がかかるかわからない。' },
-    'fishing-river': { name: 'かわのさかなつり', emoji: '🐠', desc: '流れを読もう。' },
+    'fishing-river': { name: 'みずべのさかなつり', emoji: '🐠', desc: '川や湖の流れを読もう。' },
     'road-jungle': { name: 'ジャングルラン', emoji: '🌴', desc: 'くだものは取って、とげとヘビはよけて。' },
     'road-desert': { name: 'さばくラン', emoji: '🏜️', desc: 'オアシスのめぐみは取って、とげはよけて。' },
     'stack-sakura': { name: 'さくらタワー', emoji: '🌸', desc: '花びらをそっと重ねよう。' },
@@ -13134,7 +13217,7 @@
     "road-city": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-harvest": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-acorn": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "downhill-mountain": "◀▶のおしっぱなしか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
+    "downhill-mountain": "◀▶か画面のタップで岩をえらぼう。針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとの休憩で、にぎる力がもどる。12段の山頂をめざそう。",
     "downhill-snow": "◀▶のおしっぱなしか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
     "fishing-sea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
     "fishing-deepsea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
@@ -13255,13 +13338,11 @@
   // そのまま りようするので、タイトル文字列などに たよらない)
   function isRegionExclusiveGame(game) {
     const activeRegion = findRegion(state.regionId);
-    // 地域じしんの id と、見た目の ベース地域(minigameBaseId)の りょうほうを 見る
-    // (やま→ゆきぐに の ように ベースだけ 見ると、やま こゆうの ゲームが 優遇されない)
-    const keys = [activeRegion.id, activeRegion.minigameBaseId].filter(Boolean);
-    return keys.some((key) => (REGION_MINIGAMES[key] || []).some((entry) => entry.game === game));
+    return (REGION_MINIGAMES[activeRegion.id] || []).some((entry) => entry.game === game);
   }
 
   function isSeasonExclusiveGame(game) {
+    if (!hasSurfaceSeasons(state.regionId)) return false;
     const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()];
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }

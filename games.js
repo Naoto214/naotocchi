@@ -1446,6 +1446,120 @@
       },
     };
   }
+  // 岩の選択と、つかむタイミングで登る。雪国の滑走とは別の遊び。
+  function makeRockClimbGame() {
+    return { start(container, onComplete) {
+      const STEPS = 12, duration = mgDuration(30000);
+      const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
+      const difficulty = ageDifficulty();
+      let row = 0, lane = 1, selected = 1, grip = 3, checkpoint = 0, checkpointLane = 1;
+      let misses = 0, running = true, nextAttempt = startTime, rafId = null;
+      let routeLane = 1;
+      const holds = Array.from({ length: STEPS }, () => {
+        routeLane = clamp(routeLane + Math.floor(Math.random() * 3) - 1, 0, 2);
+        return routeLane;
+      });
+      container.innerHTML = `
+        <div class="mg-header"><span id="climbTimer"></span><span id="climbScore"></span></div>
+        <div class="mg-title">岩場のぼり!つかむ岩をえらんで山頂へ</div>
+        <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="climbCanvas" aria-label="岩場の道と、いまいる高さ"></canvas></div>
+        <div class="mg-climb-meter" aria-hidden="true"><span class="mg-climb-target" id="climbTarget"></span><span class="mg-climb-marker" id="climbMarker"></span></div>
+        <div class="mg-climb-choice" id="climbChoice"></div>
+        <div class="mg-hint" id="climbHint">◀▶で岩をえらび、針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとに休憩できるよ。</div>
+        <div class="mg-race-controls"><button class="mg-tap-btn" id="climbLeft" data-key="left">◀岩をえらぶ</button><button class="mg-tap-btn primary" id="climbGo" data-key="action">つかむ!</button><button class="mg-tap-btn" id="climbRight" data-key="right">岩をえらぶ▶</button></div>`;
+      const canvas = container.querySelector('#climbCanvas');
+      const { ctx, W, H } = createMgCanvas(canvas, 205);
+      const timer = container.querySelector('#climbTimer'), score = container.querySelector('#climbScore');
+      const hint = container.querySelector('#climbHint'), choice = container.querySelector('#climbChoice');
+      const target = container.querySelector('#climbTarget'), marker = container.querySelector('#climbMarker');
+      const left = container.querySelector('#climbLeft'), right = container.querySelector('#climbRight');
+      const band = () => {
+        const width = selected === holds[row] ? lerp(0.34, 0.26, difficulty) : lerp(0.22, 0.16, difficulty);
+        return { left: 0.3 + selected * 0.2 - width / 2, width };
+      };
+      const needle = now => {
+        const phase = Math.max(0, now - startTime) % 1800 / 900;
+        return phase <= 1 ? phase : 2 - phase;
+      };
+      function hud() {
+        score.textContent = `高さ${row}/${STEPS}／にぎる力${grip}`;
+        const b = band(); target.style.left = `${b.left * 100}%`; target.style.width = `${b.width * 100}%`;
+        choice.textContent = `${['左','真ん中','右'][selected]}の岩：${selected === holds[row] ? '明るい岩・つかみやすい' : '小さな岩・タイミングが大事'}`;
+        left.disabled = !running || selected <= Math.max(0, lane - 1);
+        right.disabled = !running || selected >= Math.min(2, lane + 1);
+      }
+      function choose(delta) {
+        if (!running) return;
+        selected = clamp(selected + delta, Math.max(0, lane - 1), Math.min(2, lane + 1)); hud();
+      }
+      left.addEventListener('pointerdown', e => { e.preventDefault(); choose(-1); });
+      right.addEventListener('pointerdown', e => { e.preventDefault(); choose(1); });
+      canvas.addEventListener('pointerdown', e => {
+        e.preventDefault(); if (!running) return;
+        selected = clamp(Math.floor(mgPointerPos(canvas, e).nx * 3), Math.max(0, lane - 1), Math.min(2, lane + 1)); hud();
+      });
+      container.querySelector('#climbGo').addEventListener('pointerdown', e => {
+        e.preventDefault(); const now = performance.now();
+        if (!running || now < nextAttempt || now - startTime >= duration) return;
+        nextAttempt = now + 500;
+        const b = band(), p = needle(now);
+        if (p >= b.left && p <= b.left + b.width) {
+          row++; lane = selected; sfx('tick');
+          if (row % 3 === 0) {
+            checkpoint = row; checkpointLane = lane; grip = 3;
+            hint.textContent = '休憩の岩に着いた。にぎる力がもどった!';
+          } else hint.textContent = 'つかめた!次の岩をえらぼう。';
+          if (row >= STEPS) { finish(true); return; }
+        } else {
+          misses++; grip--; sfx('hit');
+          hint.textContent = 'つかみそこねた。針が緑のわくに入るまで待とう。';
+          if (grip <= 0) {
+            row = checkpoint; lane = checkpointLane; selected = lane; grip = 3;
+            hint.textContent = 'ロープで休憩の岩へもどった。落ちついて、もう一度!';
+          }
+        }
+        hud();
+      });
+      function draw() {
+        if (!ctx) return;
+        ctx.fillStyle = '#cfdfde'; ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = '#968b72'; ctx.beginPath(); ctx.moveTo(0, H); ctx.lineTo(W * .2, 0);
+        ctx.lineTo(W * .8, 0); ctx.lineTo(W, H); ctx.closePath(); ctx.fill();
+        const x = n => W * (n + 1) / 4;
+        // 上の3段と現在地を表示。明るい岩には白い印も付ける。
+        for (let offset = 0; offset < 4 && row + offset < STEPS; offset++) {
+          const y = H - 68 - offset * 43, step = row + offset;
+          for (let col = 0; col < 3; col++) {
+            ctx.fillStyle = holds[step] === col ? '#cae2b4' : '#554e43';
+            ctx.beginPath(); ctx.ellipse(x(col), y, 19, 9, -.15, 0, Math.PI * 2); ctx.fill();
+            if (holds[step] === col) { ctx.fillStyle = '#fff'; ctx.fillRect(x(col) - 4, y - 2, 8, 3); }
+            if (offset === 0 && selected === col) { ctx.strokeStyle = '#ffef9e'; ctx.lineWidth = 3; ctx.strokeRect(x(col) - 24, y - 15, 48, 30); }
+          }
+        }
+        ctx.strokeStyle = '#f7d58d'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x(lane), H - 38); ctx.lineTo(W / 2, H + 5); ctx.stroke();
+        ctx.font = '30px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(currentSprite(), x(lane), H - 15);
+        ctx.font = 'bold 12px sans-serif'; ctx.fillStyle = '#233b36';
+        ctx.fillText(row >= STEPS ? '山頂!' : `山頂まで${STEPS - row}段`, W / 2, 17);
+      }
+      function finish(win) {
+        if (!running) return; running = false; cancelAnimationFrame(rafId);
+        hud(); container.querySelectorAll('button').forEach(button => { button.disabled = true; });
+        hint.textContent = win ? '山頂に着いた!岩の道をのぼりきった。' : `今日は${row}段まで。次はもっと上へ!`;
+        const result = win ? clamp(100 - misses * 4, 60, 100) : clamp(10 + row / STEPS * 65 - misses * 2, 10, 70);
+        draw(); setTimeout(() => onComplete(Math.round(result)), 800);
+      }
+      function frame(now) {
+        if (!running) return;
+        const remaining = Math.max(0, duration - Math.max(0, now - startTime));
+        timer.textContent = `残り：${Math.ceil(remaining / 1000)}秒`;
+        marker.style.left = `${needle(now) * 100}%`; draw();
+        if (remaining <= 0) { finish(false); return; }
+        rafId = requestAnimationFrame(frame);
+      }
+      hud(); rafId = requestAnimationFrame(frame);
+    } };
+  }
+
   const DOWNHILL_THEMES = [
     { title: 'スキーでゲレンデをすべり降りよう!', rider: { kind: 'ski', board: '#ff5a5a', jacket: '#2f6fed', helmet: '#f1f1f1' } },
     { title: 'スノーボードでゲレンデをすべり降りよう!', rider: { kind: 'board', board: '#ffb703', jacket: '#e63946', helmet: '#222' } },
@@ -9859,7 +9973,8 @@
       })) },
     ],
     mountain: [
-      { category: 'downhill', game: mg('downhill-mountain', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
+      // 過去のプレイ記録を保つため、保存用idは変更しない。
+      { category: 'climbing', game: mg('downhill-mountain', makeRockClimbGame()) },
     ],
     snow: [
       { category: 'downhill', game: mg('downhill-snow', randomThemeGame(makeDownhillGame, DOWNHILL_THEMES)) },
@@ -9871,7 +9986,7 @@
       { category: 'fishing', game: mg('fishing-deepsea', makeRealFishingGame({ title: 'しんかいフィッシング!何がかかるかわからない', species: DEEPSEA_FISH, waterTop: '#1d5a8a', waterBottom: '#03122a' })) },
     ],
     river_lake: [
-      { category: 'fishing', game: mg('fishing-river', makeRealFishingGame({ title: '川や湖で魚つり!流れを読もう', species: RIVER_FISH, waterTop: '#5fc0b0', waterBottom: '#1c5a5a' })) },
+      { category: 'fishing', game: mg('fishing-river', makeRealFishingGame({ title: 'みずべで魚つり!流れを読もう', species: RIVER_FISH, waterTop: '#5fc0b0', waterBottom: '#1c5a5a' })) },
     ],
     jungle: [
       { category: 'road', game: mg('road-jungle', makeRoadGame({

@@ -102,7 +102,7 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
       { id: 'snow', label: 'ゆきぐに' },
       { id: 'sea', label: 'うみ' },
       { id: 'deepsea', label: 'しんかい' },
-      { id: 'river_lake', label: 'かわ・みずうみ' },
+      { id: 'river_lake', label: 'みずべ' },
       { id: 'jungle', label: 'ジャングル' },
       { id: 'desert', label: 'さばく' },
     ],
@@ -136,9 +136,9 @@ const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
   ],
 
   legends: [
-    { id: 'gate', label: 'そらにうかぶとりい', keepCurrent: true, affinityRegions: ['countryside'] },
+    { id: 'gate', label: 'そらにうかぶとりい', keepCurrent: true, affinityRegions: ['countryside','star_stop'] },
     { id: 'stairs', label: 'どこにもつながらないかいだん', keepCurrent: true, affinityRegions: ['desert'] },
-    { id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea'] },
+    { id: 'boss', label: 'あやまりにきただいおういか', keepCurrent: true, affinityRegions: ['sea','deepsea'] },
     { id: 'lamp', label: 'よなかのあかり', keepCurrent: true, affinityRegions: ['forest','countryside'] },
     { id: 'mirror', label: 'としをとったじぶん', keepCurrent: true, affinityRegions: ['river_lake','memory_lake'] },
   ],
