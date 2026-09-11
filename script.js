@@ -1075,6 +1075,15 @@
     saveImportBtn: document.getElementById('saveImportBtn'),
     saveImportStatus: document.getElementById('saveImportStatus'),
     saveSnapList: document.getElementById('saveSnapList'),
+    profileTimeline: document.getElementById('profileTimeline'),
+    profilePastLives: document.getElementById('profilePastLives'),
+    lifeCodeInput: document.getElementById('lifeCodeInput'),
+    lifeCodeViewBtn: document.getElementById('lifeCodeViewBtn'),
+    lifeCodeView: document.getElementById('lifeCodeView'),
+    errorLogList: document.getElementById('errorLogList'),
+    errorLogSummary: document.getElementById('errorLogSummary'),
+    errorLogCopyBtn: document.getElementById('errorLogCopyBtn'),
+    errorLogCopied: document.getElementById('errorLogCopied'),
     saveSnapStatus: document.getElementById('saveSnapStatus'),
     achTitle: document.getElementById('achTitle'),
     achTabs: document.getElementById('achTabs'),
@@ -9552,12 +9561,103 @@
       rows.push('<div class="lifecard-line">でんせつにであった</div>');
     }
     rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${state.discoveredStages.length}／${ALL_LINES.length * STAGES_PER_LINE}</div>`);
-    const log = (state.lifeLog || []).slice(-8);
+    const stats = lifeSummaryStats();
+    if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${stats.bestGame.emoji}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
+    const log = state.lifeLog || [];
     if (log.length) {
       rows.push('<div class="lifecard-sep"></div>');
-      rows.push(log.map((e) => `<div class="lifecard-log"><span>${e.age}さい</span> ${escapeHtml(e.icon || '')} ${escapeHtml(compactJapaneseText(e.text))}</div>`).join(''));
+      rows.push(`<div class="lifecard-timeline">${buildLifeTimelineHTML(log)}</div>`);
     }
+    rows.push('<div class="lifecard-code"><button type="button" class="profile-code-btn" id="lifeCardCodeBtn">📋いっしょうカードのコード</button><textarea readonly class="profile-code-input hidden" id="lifeCardCodeText" rows="2"></textarea><div class="profile-hint hidden" id="lifeCardCodeCopied">コピーした!</div></div>');
     return rows.join('');
+  }
+
+  // --- いっしょうの ねんぴょう: lifeLog を ねんれい ごとに ならべる ---
+  function buildLifeTimelineHTML(log, limit = 0) {
+    const entries = (Array.isArray(log) ? log : []).filter((e) => e && typeof e.text === 'string');
+    const shown = limit > 0 ? entries.slice(-limit) : entries;
+    if (!shown.length) return '<div class="life-timeline-empty">まだ できごとは ない</div>';
+    let lastAge = null;
+    return '<div class="life-timeline">' + shown.map((e) => {
+      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${e.age}さい</span>` : '<span class="life-timeline-age"></span>';
+      lastAge = e.age;
+      return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${escapeHtml(e.icon || '')}</span><span class="life-timeline-text">${escapeHtml(compactJapaneseText(e.text))}</span></div>`;
+    }).join('') + '</div>';
+  }
+  function lifeSummaryStats() {
+    const records = state.lifetime.minigameRecords || {};
+    let bestGame = null;
+    for (const game of buildMinigamePool()) {
+      const r = records[game.id];
+      if (r && (!bestGame || r.best > bestGame.best)) { const info = minigameInfo(game); bestGame = { id: game.id, name: info.name, emoji: info.emoji, best: r.best }; }
+    }
+    return {
+      species: SPECIES_DISPLAY_NAMES[state.speciesLine] || '???',
+      age: currentAge(),
+      sodachi: state.maxSodachi,
+      partner: state.partner ? { label: state.partner.label, married: !!state.partner.married } : null,
+      companions: state.companions.length,
+      transforms: state.transformsThisLife || 0,
+      sickness: state.totalSicknessCount || 0,
+      legend: !!state.legendMet,
+      bestGame,
+    };
+  }
+  // いっしょうカードの コード: 'NTL1.' + base64url(JSON)。セーブコードと おなじ かたちで
+  // ともだちに おくれる。よみこんでも セーブは かわらず、カードとして 見るだけ
+  const LIFE_CODE_PREFIX = 'NTL1.';
+  function encodeLifeCode(snapshot) {
+    const s = snapshot || { ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, log: (state.lifeLog || []).slice(-40) };
+    const json = JSON.stringify({ v: 1, ...s });
+    const bytes = new TextEncoder().encode(json);
+    let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return LIFE_CODE_PREFIX + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function decodeLifeCode(code) {
+    const t = (code || '').trim();
+    if (!t.startsWith(LIFE_CODE_PREFIX)) throw new Error('これは いっしょうカードの コードでは ない');
+    let b64 = t.slice(LIFE_CODE_PREFIX.length).replace(/-/g, '+').replace(/_/g, '/');
+    while (b64.length % 4) b64 += '=';
+    const bin = atob(b64); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    const parsed = JSON.parse(new TextDecoder().decode(bytes));
+    if (!parsed || parsed.v !== 1 || typeof parsed.species !== 'string' || !Array.isArray(parsed.log)) throw new Error('カードの なかみが ちがう');
+    return parsed;
+  }
+  function lifeCodeCardHTML(card) {
+    const badges = [];
+    if (card.age >= GOAL_AGE) badges.push('★てんじゅ');
+    if (card.age >= GOAL_AGE && card.sodachi >= LIFE_CLEAR_SODACHI) badges.push('★いっしょうクリア');
+    if (card.age >= GOAL_AGE && card.sodachi >= SODACHI_MAX) badges.push('★さいこう');
+    return `<div class="life-code-card"><div class="life-code-head">${escapeHtml(card.emoji || '')} ${escapeHtml(card.species)}・${card.age}さい・そだち${card.sodachi}${badges.length ? ' ' + badges.join(' ') : ''}</div>`
+      + `<div class="life-code-line">${card.partner ? (card.partner.married ? '💍' : '💖') + escapeHtml(card.partner.label) : 'こいびとなし'}／なかま${card.companions}にん／へんしん${card.transforms}かい${card.bestGame ? `／${escapeHtml(card.bestGame.emoji || '')}${escapeHtml(card.bestGame.name)} ${card.bestGame.best}てん` : ''}</div>`
+      + buildLifeTimelineHTML(card.log) + '</div>';
+  }
+  function renderLifeTimeline() {
+    if (!el.profileTimeline) return;
+    const s = lifeSummaryStats();
+    const head = state.stage === STAGE.EGG ? 'たまごを あたためている' : `${escapeHtml(s.species)}・${s.age}さい・そだち${s.sodachi}${s.bestGame ? `・${s.bestGame.emoji}${escapeHtml(s.bestGame.name)} ${s.bestGame.best}てん` : ''}`;
+    el.profileTimeline.innerHTML = `<div class="life-timeline-head">${head}</div>` + buildLifeTimelineHTML(state.lifeLog || []);
+    if (el.profilePastLives) {
+      const past = (state.lifetime.pastLives || []).slice().reverse();
+      el.profilePastLives.innerHTML = past.length
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${escapeHtml(p.emoji || '')} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        : '<div class="profile-hint">まだ おわかれした子は いない</div>';
+    }
+  }
+  // --- エラーのきろく(データ画面): さいきんの エラーと セーブコードを まとめて コピー ---
+  function renderErrorLog() {
+    if (!el.errorLogList) return;
+    const list = runtimeErrors.slice().reverse();
+    el.errorLogList.innerHTML = list.length
+      ? list.map((e) => { const d = new Date(e.at); const t = `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; return `<div class="error-log-row"><span class="error-log-time">${t}</span><span class="error-log-where">${escapeHtml(e.where)}</span><span class="error-log-msg">${escapeHtml(e.message)}</span></div>`; }).join('')
+      : '<div class="profile-hint">エラーは きろくされていない</div>';
+    if (el.errorLogSummary) el.errorLogSummary.textContent = list.length ? `エラーのきろく(${list.length}けん)` : 'エラーのきろく(なし)';
+  }
+  function errorReportText() {
+    let save = '';
+    try { save = encodeSaveCode(JSON.stringify(state)); } catch (e) { save = '(セーブコードを つくれなかった)'; }
+    const lines = runtimeErrors.map((e) => `[${new Date(e.at).toISOString()}] ${e.where}: ${e.message}${e.stack ? '\n' + e.stack : ''}`);
+    return `なおとっち エラーレポート ${new Date().toISOString()}\nUA: ${typeof navigator !== 'undefined' ? navigator.userAgent : ''}\n\n${lines.join('\n\n') || '(エラーなし)'}\n\nセーブコード:\n${save}`;
   }
 
   function showLifeCard() {
@@ -9567,6 +9667,7 @@
     el.lifeCardOverlay.classList.remove('hidden');
     el.screenNormal.classList.add('hidden');
     el.farewellBar.classList.add('hidden');
+    positionWeatherSky();
   }
 
   // その子の いっしょうを ようやく 1行に して 歴代に つみ、あたらしい たまごへ
@@ -9581,6 +9682,9 @@
       sodachi: state.maxSodachi,
       companions: state.companions.length,
       married: !!(state.partner && state.partner.married),
+      line: state.speciesLine,
+      log: (state.lifeLog || []).slice(-40),
+      code: encodeLifeCode(),
     });
     if (L.pastLives.length > 100) L.pastLives.shift();
   }
@@ -11161,6 +11265,8 @@
   // れんあいタイプ・affinityTrait を まとめて 見せる
   function renderProfile() {
     renderSaveSnaps();
+    renderLifeTimeline();
+    renderErrorLog();
     el.profileSpecies.textContent = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     el.profileStage.textContent = currentStageLabel();
     el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
@@ -12492,7 +12598,8 @@
     if (!sky) return;
     let r = null;
     try { r = el.castStage.getBoundingClientRect(); } catch (e) { r = null; }
-    if (!r || !r.width) { sky.style.display = 'none'; return; }
+    // ホームの がめんが かくれている あいだ(おわかれカードなど)は ださない
+    if (!r || !r.width || (el.screenNormal && el.screenNormal.classList.contains('hidden'))) { sky.style.display = 'none'; return; }
     sky.style.display = '';
     sky.style.left = `${Math.round(r.left)}px`; sky.style.top = `${Math.round(r.top)}px`;
     sky.style.width = `${Math.round(r.width)}px`; sky.style.height = `${Math.round(r.height)}px`;
@@ -15498,6 +15605,34 @@
     el.saveSnapStatus.textContent = 'もどしました!読みこみ直します…';
     setTimeout(() => location.reload(), 600);
   }
+
+  // いっしょうカード: おわかれ画面の コード生成、データ画面の 歴代の コード、コードを 見る
+  if (el.lifeCardBody) el.lifeCardBody.addEventListener('click', (e) => {
+    const btn = e.target.closest('#lifeCardCodeBtn');
+    if (!btn) return;
+    const box = el.lifeCardBody.querySelector('#lifeCardCodeText');
+    if (!box) return;
+    box.value = encodeLifeCode();
+    box.classList.remove('hidden');
+    copyCodeToClipboard(box.value, box, el.lifeCardBody.querySelector('#lifeCardCodeCopied'));
+  });
+  if (el.profilePastLives) el.profilePastLives.addEventListener('click', (e) => {
+    const btn = e.target.closest('.past-life-code-btn');
+    if (!btn) return;
+    copyCodeToClipboard(btn.dataset.code, null, null);
+    setMessage('📋 いっしょうカードの コードを コピーした');
+  });
+  if (el.lifeCodeViewBtn) el.lifeCodeViewBtn.addEventListener('click', () => {
+    try {
+      const card = decodeLifeCode(el.lifeCodeInput.value);
+      el.lifeCodeView.innerHTML = lifeCodeCardHTML(card);
+      el.lifeCodeView.classList.remove('hidden');
+    } catch (err) {
+      el.lifeCodeView.innerHTML = `<div class="profile-hint">よめない: ${escapeHtml(err.message)}</div>`;
+      el.lifeCodeView.classList.remove('hidden');
+    }
+  });
+  if (el.errorLogCopyBtn) el.errorLogCopyBtn.addEventListener('click', () => copyCodeToClipboard(errorReportText(), null, el.errorLogCopied));
 
   let saveImportArmedAt = 0;
   if (el.saveExportBtn) {

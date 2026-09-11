@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260911-sky-1">
+  <link rel="stylesheet" href="style.css?v=20260911-album-1">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260911-0110ed9b">
   <link rel="stylesheet" href="design.css?v=20260911-465df341">
@@ -443,6 +443,26 @@
               <div id="saveSnapList"></div>
               <div class="profile-hint" id="saveSnapStatus" role="status"></div>
             </div>
+            <div class="profile-section">
+              <div class="profile-section-title">いっしょうの ねんぴょう</div>
+              <div class="profile-hint">この子に起きた できごとを、ねんれい順にならべます。おわかれのときは「いっしょうカード」のコードにして、ともだちに見せられます。</div>
+              <div id="profileTimeline"></div>
+              <div class="save-snap-title">これまでの子</div>
+              <div id="profilePastLives"></div>
+              <div class="save-snap-title">いっしょうカードを 見る</div>
+              <input type="text" class="profile-code-input" id="lifeCodeInput" placeholder="いっしょうカードのコードをここに">
+              <button class="profile-code-btn" id="lifeCodeViewBtn">カードを 見る</button>
+              <div class="hidden" id="lifeCodeView"></div>
+            </div>
+            <div class="profile-section">
+              <details class="error-log">
+                <summary class="profile-section-title" id="errorLogSummary">エラーのきろく</summary>
+                <div class="profile-hint">うごきがおかしいときは、これをコピーして そうだんしてください(セーブコードもいっしょに入ります)。</div>
+                <div id="errorLogList"></div>
+                <button class="profile-code-btn" id="errorLogCopyBtn">📋エラーとセーブコードをコピー</button>
+                <div class="profile-hint hidden" id="errorLogCopied">コピーした!</div>
+              </details>
+            </div>
             <div class="profile-section danger-zone">
               <div class="profile-section-title">きけんなそうさ</div>
               <button class="restart-btn" id="softResetBtn">🥚あたらしいたまごをむかえる</button>
@@ -681,6 +701,6 @@
   <script src="games.js?v=20260911-8"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-fix-2"></script>
+  <script src="script.js?v=20260911-album-1"></script>
 </body>
 </html>

@@ -115,7 +115,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   // window is the VM global, as in a browser. This activates the production
   // requestAnimationFrame/setTimeout session wrappers (the boot smoke does not).
   const sandbox = Object.assign(window, {
-    console, document, window, Date: class extends Date {static now() {return now;}},
+    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: class extends Date {static now() {return now;}},
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
@@ -147,6 +147,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
       mgDuration, GAME_LENGTH_CHOICES,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
+      buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
       speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,

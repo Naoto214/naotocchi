@@ -1802,3 +1802,10 @@ Runtime smoke test SUCCESS確認済み。
 - つき・たいよう・ほし・くも: `#weatherFx` 内の `.wx-sky` わくに入れ、`positionWeatherSky()` がペットのステージ(`#castStage`)の矩形に合わせて配置(render と resize で更新)。ヘッダーの つうしん ボタンと重ならない。あめ・ゆきは従来どおり全画面。他チームのテスト(weatherFx 内の粒子数・data-ui-icon)は変更なしで通る。
 - テスト: growth-balance/offline の期待値を更新。`npm test` 234件通過。
 
+## チェックポイント BT — いっしょうの ねんぴょう・いっしょうカード・エラーのきろく(2026-09-11)
+- `buildLifeTimelineHTML(log)`(ねんれいごとに見出し)、`lifeSummaryStats()`(いちばん とくいなゲーム = lifetime のベスト最高、こいびと、なかま数…)。おわかれカードは直近8件ではなく全件(スクロール)+「いっしょうカードのコード」ボタン(`NTL1.` + base64url JSON、`encodeLifeCode/decodeLifeCode`)。
+- `archiveLifeAndReset()` は `line/log(直近40)/code` も `pastLives` に残す。データ画面「いっしょうの ねんぴょう」(`#profileTimeline`)、「これまでの子」(`<details>` で ねんぴょう と コードのコピー)、「いっしょうカードを 見る」(コードを貼って `lifeCodeCardHTML` で表示)。
+- 「エラーのきろく」(`<details>`): `runtimeErrors` を新しい順に、`errorReportText()`(UA + エラー + セーブコード)をコピー。
+- 動的に作る `#lifeCardCodeText` などは `el.lifeCardBody.querySelector` で参照(smoke test の id 検査に合わせる)。おわかれカード表示中は そらの わく(.wx-sky)を出さない。
+- テスト: `tests/album-test.cjs`(ねんぴょうの行数と年見出し、コードの往復と拒否、pastLives の log/code、おわかれカードの全件、エラー表示)。harness に TextEncoder/TextDecoder/btoa/atob を追加。`npm test` 239件通過。
+
