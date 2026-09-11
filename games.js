@@ -14,6 +14,9 @@
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
   const drawProp = typeof S.drawProp === 'function' ? S.drawProp : () => false;
   const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
+  // スワイプと 判定する さいしょうの ゆびの うごき(px)。以前は ゲームごとに
+  // 10〜22 で ばらばらだったので、script.js がわの MG_SWIPE_MIN に そろえる
+  const MG_SWIPE_MIN = typeof S.MG_SWIPE_MIN === 'number' ? S.MG_SWIPE_MIN : 16;
   // いくつかの ミニゲームの「しゅるい(category)」は、そうさ・かちはい判定が
   // まったく おなじで テーマ(絵文字・タイトル)だけが ちがう バリエーションが
   // たくさん あった(例:キャッチゲームの「おやつ/くだもの/やさい/おかし」)。
@@ -1603,7 +1606,7 @@
       container.querySelector('#fbSoft').onpointerdown=e=>{e.preventDefault();softDrop();};
       let swipeStart=null;
       boardEl.onpointerdown=e=>{e.preventDefault();swipeStart={x:e.clientX,y:e.clientY};try{boardEl.setPointerCapture(e.pointerId);}catch(err){}};
-      boardEl.onpointerup=e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.max(Math.abs(dx),Math.abs(dy))<18){rotate();return;}if(Math.abs(dx)>Math.abs(dy))move(dx<0?-1:1);else if(dy>0)hardDrop();};
+      boardEl.onpointerup=e=>{if(!swipeStart)return;const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;if(Math.max(Math.abs(dx),Math.abs(dy))<MG_SWIPE_MIN){rotate();return;}if(Math.abs(dx)>Math.abs(dy))move(dx<0?-1:1);else if(dy>0)hardDrop();};
       boardEl.onpointercancel=()=>{swipeStart=null;};
       function frame(now){if(done)return;if(now<startTime){rafId=requestAnimationFrame(frame);return;}const rem=Math.max(0,DURATION_MS-(now-startTime));timer.textContent='残り：'+Math.ceil(rem/1000)+'秒';const interval=Math.max(240,620-lines*18);if(now-lastDrop>interval){lastDrop=now;softDrop();}if(rem<=0){finish();return;}rafId=requestAnimationFrame(frame);}
       function finish(){if(done)return;done=true;cancelAnimationFrame(rafId);hint.textContent='おわり!'+lines+'ライン消した';const result=clamp(35+lines*10+Math.min(25,score/80),30,100);setTimeout(()=>onComplete(Math.round(result)),650);}
@@ -3372,7 +3375,7 @@
         bindHeldButton(container.querySelector('#fbSoft'), (v) => { softHeld = v; });
         let swipe = null;
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 14) { rotate(); return; } if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1); else if (dy > 0) hardDrop(); });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < MG_SWIPE_MIN) { rotate(); return; } if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1); else if (dy > 0) hardDrop(); });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         function drawBlob(px, py, col, size, alpha = 1, glow = false) {
           const [c1, c2] = PALETTE[col]; ctx.globalAlpha = alpha;
@@ -3957,7 +3960,7 @@
         potionBtn.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running || dead || potions <= 0) return; potions--; hp = Math.min(maxHp, hp + 10); sfx('good'); hud(); say('🧪 HPが10回復', 900); });
         let swipe = null;
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 14) { const p = mgPointerPos(canvas, e); const cx = Math.floor(p.x / CELL), cy = Math.floor(p.y / CELL); const ddx = cx - px, ddy = cy - py; if (Math.abs(ddx) + Math.abs(ddy) === 1) tryMove(ddx, ddy); return; } if (Math.abs(dx) > Math.abs(dy)) tryMove(dx < 0 ? -1 : 1, 0); else tryMove(0, dy < 0 ? -1 : 1); });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < MG_SWIPE_MIN) { const p = mgPointerPos(canvas, e); const cx = Math.floor(p.x / CELL), cy = Math.floor(p.y / CELL); const ddx = cx - px, ddy = cy - py; if (Math.abs(ddx) + Math.abs(ddy) === 1) tryMove(ddx, ddy); return; } if (Math.abs(dx) > Math.abs(dy)) tryMove(dx < 0 ? -1 : 1, 0); else tryMove(0, dy < 0 ? -1 : 1); });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         function render(now) {
           if (!ctx) return;
@@ -4409,7 +4412,7 @@
         container.querySelector('#pzReset').addEventListener('pointerdown', (e) => { e.preventDefault(); load(); say('やりなおし', 600); });
         let swipe = null;
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < 14) return; if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1, 0); else move(0, dy < 0 ? -1 : 1); });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.max(Math.abs(dx), Math.abs(dy)) < MG_SWIPE_MIN) return; if (Math.abs(dx) > Math.abs(dy)) move(dx < 0 ? -1 : 1, 0); else move(0, dy < 0 ? -1 : 1); });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         function render(now) {
           if (!ctx) return;
@@ -4930,7 +4933,7 @@
         const bind = (id, dx, dy) => container.querySelector(id).addEventListener('pointerdown', (e) => { e.preventDefault(); turnTo(dx, dy); });
         bind('#snUp', 0, -1); bind('#snDown', 0, 1); bind('#snLeft', -1, 0); bind('#snRight', 1, 0);
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 18) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
         const endSwipe = () => { swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
         function freeCell() { for (let k = 0; k < 200; k++) { const x = Math.floor(Math.random() * N), y = Math.floor(Math.random() * N); if (!snake.some(([sx, sy]) => sx === x && sy === y) && !(food && food[0] === x && food[1] === y)) return [x, y]; } return null; }
         food = freeCell();
@@ -5610,7 +5613,7 @@
         const bind = (id, dr, dc) => container.querySelector(id).addEventListener('pointerdown', (e) => { e.preventDefault(); if (running && !over) slide(dr, dc); });
         bind('#tfUp', -1, 0); bind('#tfDown', 1, 0); bind('#tfLeft', 0, -1); bind('#tfRight', 0, 1);
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.hypot(dx, dy) < 16 || !running || over) return; if (Math.abs(dx) > Math.abs(dy)) slide(0, Math.sign(dx)); else slide(Math.sign(dy), 0); });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.hypot(dx, dy) < MG_SWIPE_MIN || !running || over) return; if (Math.abs(dx) > Math.abs(dy)) slide(0, Math.sign(dx)); else slide(Math.sign(dy), 0); });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         const COLORS = { 2: '#eee4da', 4: '#ede0c8', 8: '#f2b179', 16: '#f59563', 32: '#f67c5f', 64: '#f65e3b', 128: '#edcf72', 256: '#edcc61', 512: '#edc850', 1024: '#edc53f', 2048: '#edc22e' };
         function tile(x, y, v, s = 1) { const cx = x + CELL / 2, cy = y + CELL / 2; const sz = CELL * s; ctx.fillStyle = COLORS[v] || '#3c3a32'; mgRoundRect(ctx, cx - sz / 2, cy - sz / 2, sz, sz, 6); ctx.fillStyle = v <= 4 ? '#776e65' : '#fff'; ctx.font = `bold ${v >= 1024 ? 16 : v >= 128 ? 20 : 24}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(String(v), cx, cy + 1); }
@@ -5681,7 +5684,7 @@
         const bind = (id, dx, dy) => container.querySelector(id).addEventListener('pointerdown', (e) => { e.preventDefault(); hop(dx, dy); });
         bind('#frUp', 0, -1); bind('#frDown', 0, 1); bind('#frLeft', -1, 0); bind('#frRight', 1, 0);
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.hypot(dx, dy) < 12) { hop(0, -1); return; } if (Math.abs(dx) > Math.abs(dy)) hop(Math.sign(dx), 0); else hop(0, Math.sign(dy)); });
+        canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; swipe = null; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) { hop(0, -1); return; } if (Math.abs(dx) > Math.abs(dy)) hop(Math.sign(dx), 0); else hop(0, Math.sign(dy)); });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         function update(dt, now) {
           for (const row in lanes) { const l = lanes[row]; for (const it of l.items) { it.x += l.speed * dt; if (l.speed > 0 && it.x > COLS + 1) it.x -= COLS + 2 + it.w; if (l.speed < 0 && it.x + it.w < -1) it.x += COLS + 2 + it.w; } }
@@ -7068,7 +7071,7 @@
         for (let y = 0; y < ROWS; y++) { map.push([]); for (let x = 0; x < COLS; x++) { let v; if (y === 0) v = 0; else { const d = y / ROWS; const r = Math.random(); if (r < 0.04 + d * 0.06 && y > 6) v = 7; else if (r < 0.06 + d * 0.1 && y > 14) v = 6; else if (r < 0.1 + d * 0.16 && y > 8) v = 5; else if (r < 0.18 + d * 0.15 && y > 3) v = 4; else if (r < 0.3) v = 3; else if (r < 0.3 + d * 0.5) v = 2; else v = 1; } map[y].push(v); } }
         map[1][4] = 1; map[0][4] = 0;
         for (const k of ['Up', 'Down', 'Left', 'Right']) bindHeldButton(container.querySelector('#vm' + k), (v) => { held[k.toLowerCase()] = v; });
-        let swipe = null; canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; }); canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 14) return; held = { up: false, down: false, left: false, right: false }; if (Math.abs(dx) > Math.abs(dy)) held[dx > 0 ? 'right' : 'left'] = true; else held[dy > 0 ? 'down' : 'up'] = true; swipe.tap = true; setTimeout(() => { held = { up: false, down: false, left: false, right: false }; }, 450); swipe = null; }); canvas.addEventListener('pointerup', () => { swipe = null; });
+        let swipe = null; canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; }); canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; held = { up: false, down: false, left: false, right: false }; if (Math.abs(dx) > Math.abs(dy)) held[dx > 0 ? 'right' : 'left'] = true; else held[dy > 0 ? 'down' : 'up'] = true; swipe.tap = true; setTimeout(() => { held = { up: false, down: false, left: false, right: false }; }, 450); swipe = null; }); canvas.addEventListener('pointerup', () => { swipe = null; });
         function update(dt, now) {
           if (invuln > 0) invuln -= dt;
           const dir = held.down ? [0, 1] : held.up ? [0, -1] : held.left ? [-1, 0] : held.right ? [1, 0] : null;
@@ -8318,7 +8321,7 @@
         const bind = (id, dx, dy) => container.querySelector(id).addEventListener('pointerdown', (e) => { e.preventDefault(); turnTo(dx, dy); });
         bind('#deUp', 0, -1); bind('#deDown', 0, 1); bind('#deLeft', -1, 0); bind('#deRight', 1, 0);
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 18) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
         const endSwipe = () => { swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
         // マスの まん中に ついた ときだけ まがれる(ぎゃくむきは いつでも)。
         // すすむ さきが かべなら まん中で とまる。1フレームで まん中を
@@ -8614,7 +8617,7 @@
         bindHeldButton(container.querySelector('#acUp'), (v) => { held.u = v; });
         bindHeldButton(container.querySelector('#acDown'), (v) => { held.d = v; });
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 10) return; held = { l: dx < -Math.abs(dy), r: dx > Math.abs(dy), u: dy < -Math.abs(dx), d: dy > Math.abs(dx) }; swipe.x = e.clientX; swipe.y = e.clientY; swipe.moved = true; });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN * 0.6) return; held = { l: dx < -Math.abs(dy), r: dx > Math.abs(dy), u: dy < -Math.abs(dx), d: dy > Math.abs(dx) }; swipe.x = e.clientX; swipe.y = e.clientY; swipe.moved = true; });
         const endSwipe = () => { if (swipe && swipe.moved) held = { l: false, r: false, u: false, d: false }; swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
         const inside = (x, y) => x >= 0 && y >= 0 && x < G && y < G;
         function tryStep() {
@@ -9486,7 +9489,7 @@
           if (isSolved()) { solved = true; say('🎉完成!', 3000); finish(); }
         }
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); const p = mgPointerPos(canvas, e); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId, idx: Math.floor(p.y / CELL) * N + Math.floor(p.x / CELL) }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
-        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < 22) return; const bx = blank % N, by = Math.floor(blank / N); const src = Math.abs(dx) > Math.abs(dy) ? (by * N + (bx - Math.sign(dx))) : ((by - Math.sign(dy)) * N + bx); const sx = src % N, sy = Math.floor(src / N); if (Math.abs(dx) > Math.abs(dy) ? (bx - Math.sign(dx) >= 0 && bx - Math.sign(dx) < N) : (by - Math.sign(dy) >= 0 && by - Math.sign(dy) < N)) tryMove(src); void sx; void sy; swipe = null; });
+        canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; const bx = blank % N, by = Math.floor(blank / N); const src = Math.abs(dx) > Math.abs(dy) ? (by * N + (bx - Math.sign(dx))) : ((by - Math.sign(dy)) * N + bx); const sx = src % N, sy = Math.floor(src / N); if (Math.abs(dx) > Math.abs(dy) ? (bx - Math.sign(dx) >= 0 && bx - Math.sign(dx) < N) : (by - Math.sign(dy) >= 0 && by - Math.sign(dy) < N)) tryMove(src); void sx; void sy; swipe = null; });
         canvas.addEventListener('pointerup', (e) => { if (!swipe || e.pointerId !== swipe.id) return; if (showPreview) { showPreview = false; swipe = null; return; } tryMove(swipe.idx); swipe = null; });
         canvas.addEventListener('pointercancel', () => { swipe = null; });
         container.querySelector('#spPeek').addEventListener('pointerdown', (e) => { e.preventDefault(); showPreview = true; say('お手本（2秒）', 2000); setTimeout(() => { showPreview = false; }, 2000); });

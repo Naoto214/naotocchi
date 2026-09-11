@@ -1809,3 +1809,8 @@ Runtime smoke test SUCCESS確認済み。
 - 動的に作る `#lifeCardCodeText` などは `el.lifeCardBody.querySelector` で参照(smoke test の id 検査に合わせる)。おわかれカード表示中は そらの わく(.wx-sky)を出さない。
 - テスト: `tests/album-test.cjs`(ねんぴょうの行数と年見出し、コードの往復と拒否、pastLives の log/code、おわかれカードの全件、エラー表示)。harness に TextEncoder/TextDecoder/btoa/atob を追加。`npm test` 239件通過。
 
+## チェックポイント BU — そうさの みがき: もういちど・スワイプ統一・そうさデモ(2026-09-11)
+- 「もういちど」: `showMinigameResultToast()` が `lastMinigame` があれば `#mgRetryBtn` を付け、押すと トーストを閉じて `tryStartPlay(lastMinigame)`(げんき/ねむりの判定は通常どおり)。ボタン付きのトーストは 6 秒表示。`.mg-result-toast` は pointer-events none のままで ボタンだけ auto。
+- スワイプ: script.js の `MG_SWIPE_MIN = 16` を `installMinigames()` に渡し、games.js のスワイプ判定 11 か所(落ちものパズル 18/14・押しパズル 14・迷路系 14・スネーク 18・ドットイーター 18・2048 16・フロッガー 12・ボンバー 14・スライドパズル 22)を置きかえ。陣取りだけ連続ステアリングなので `MG_SWIPE_MIN * 0.6`。おしっぱなしは既存の `MG_HOLD_PROFILES`(step 240/140, fast 80/45)で統一済み。
+- そうさデモ: `minigameDemoKind(game)` が `MINIGAME_CONTROLS` の文から swipe / drag / dpad / hold / tap を決め、はじめてカードの「そうさ」内に `<canvas class="mg-intro-demo" data-demo=…>`(220×90)を置いて `startIntroDemo()` が 2.4 秒周期で指の動きを描く。「はじめる」で停止。ctx が無い環境(smoke test)では何もしない。reduced-motion では 1 フレームだけ。
+- テスト: `tests/input-polish-test.cjs`(全ゲームの demo kind、カードの canvas、games.js に直書きのしきい値が残っていないこと、もういちどで同じゲームが再開、未プレイ時はボタン無し)。`npm test` 244件通過。Playwright で 5 種のデモとトーストの「もういちど」タップを確認。

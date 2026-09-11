@@ -3786,6 +3786,21 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   animation: mg-result-pop 3.6s ease-out forwards;
 }
 .mg-result-toast.hidden { display: none; }
+.mg-result-toast .mg-retry-btn {
+  pointer-events: auto;
+  margin-left: 4px;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 10px;
+  min-height: 32px;
+  font-size: 11px;
+  font-weight: 900;
+  color: #1d2b1d;
+  background: linear-gradient(180deg, #fff6b0, #ffd76a);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.mg-result-toast .mg-retry-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25); }
 .mg-result-toast .mg-result-body { display: flex; flex-direction: column; gap: 1px; }
 .mg-result-toast .mg-result-score { font-size: 12px; font-weight: 900; }
 .mg-result-toast .mg-result-sub { font-size: 9px; opacity: 0.9; }
@@ -3986,6 +4001,16 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   max-width: 280px;
 }
 .mg-intro-controls-title { font-weight: 900; margin-bottom: 2px; }
+.mg-intro-demo {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: 90px;
+  margin: 2px auto 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
 .mg-intro-start { min-width: 160px; min-height: 48px; font-size: 15px; margin-top: 6px; }
 .mg-intro-note { font-size: 9px; opacity: 0.7; }
 

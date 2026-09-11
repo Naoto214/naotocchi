@@ -2615,6 +2615,11 @@
   //   (smoke-test の ような ダミーDOMでは ctx が null になるので、描画は
   //   かならず ctx の 有無を みてから おこなう)
   const MG_HOLD_PROFILES = { step: { delay: 240, interval: 140 }, fast: { delay: 80, interval: 45 } };
+  // スワイプと みなす さいしょうの ゆびの うごき(px)。games.js の すべての
+  // スワイプ系ゲームが この ひとつの 値を つかう(ゲームごとに 10〜22 で
+  // ばらばらだったのを そろえた。ゆびの ふるえでは うごかず、みじかい
+  // フリックは ひろえる ちょうどよい ところ)
+  const MG_SWIPE_MIN = 16;
   let mgHoldTimer = null;
   let mgHoldButton = null;
   const mgKeysDown = new Map();
@@ -13082,7 +13087,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13419,13 +13424,24 @@
     if (result.prevBest == null) sub = 'はじめての記録!';
     else if (result.isNewBest) { sub = `自己ベスト更新!${result.prevBest} → ${result.score}`; subClass += ' new-best'; }
     else sub = `自己ベスト${result.best}点(ランク${result.bestRank})`;
-    el.mgResultToast.innerHTML = `<span class="mg-rank rank-${result.rank}">${result.rank}</span><div class="mg-result-body"><span class="mg-result-score">${result.score}点</span><span class="${subClass}">${sub}</span></div>`;
+    // 「もういちど」= おなじ ゲームを すぐ やりなおす(ランダムに もどらない)。
+    // げんき/ねむり などの じょうけんは tryStartPlay が いつもどおり みる
+    const retry = lastMinigame ? `<button type="button" class="mg-retry-btn" id="mgRetryBtn">🔁 もういちど</button>` : '';
+    el.mgResultToast.innerHTML = `<span class="mg-rank rank-${result.rank}">${result.rank}</span><div class="mg-result-body"><span class="mg-result-score">${result.score}点</span><span class="${subClass}">${sub}</span></div>${retry}`;
+    const retryBtn = el.mgResultToast.querySelector('#mgRetryBtn');
+    if (retryBtn) retryBtn.addEventListener('click', (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      clearTimeout(mgResultToastTimer);
+      el.mgResultToast.classList.add('hidden');
+      if (lastMinigame) tryStartPlay(lastMinigame);
+    });
     // アニメーションを あたまから やりなおす ために いちど けして つけなおす
     el.mgResultToast.classList.add('hidden');
     void el.mgResultToast.offsetWidth;
     el.mgResultToast.classList.remove('hidden');
     clearTimeout(mgResultToastTimer);
-    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), 3600);
+    // ボタンが あるときは おす よゆうを もたせて ながめに 出す
+    mgResultToastTimer = setTimeout(() => el.mgResultToast.classList.add('hidden'), retry ? 6000 : 3600);
   }
 
   let lastMinigame = null;
@@ -14056,10 +14072,104 @@
     return !!game.id && !minigameRecordOf(game) && minigamePlayCount(game) <= 1;
   }
 
+  // そうさ せつめいの 文から「ゆびを どう うごかす ゲームか」を きめる。
+  // はじめての ゲームの せつめいカードに、その うごきの 小さな アニメを 出す
+  // (文字だけより「なぞる」「はらう」「おしっぱなし」が ひとめで わかる)
+  const MG_DEMO_KINDS = ['swipe', 'drag', 'dpad', 'hold', 'tap'];
+  function minigameDemoKind(game) {
+    const text = (game && MINIGAME_CONTROLS[game.id]) || '';
+    if (/スワイプ|はら[っう]|フリック|なぞって|なぞる/.test(text)) return 'swipe';
+    if (/ドラッグ|引っぱ|ひっぱ|なぞ/.test(text)) return 'drag';
+    if (/◀▶|↶↷|▲|▼|◀|▶/.test(text)) return 'dpad';
+    if (/長おし|おしっぱなし|おさえ|ためて|おしている間|おしている あいだ/.test(text)) return 'hold';
+    return 'tap';
+  }
+
+  // 2.4びょうで ひとまわりする ゆびの アニメ。ctx が ない(smoke-test の
+  // ダミーDOM)ときは なにも しない。もどり値は とめる かんすう
+  function startIntroDemo(canvas, kind) {
+    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    if (!ctx) return () => {};
+    const W = canvas.width, H = canvas.height;
+    const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const PERIOD = 2400;
+    let raf = 0, stopped = false;
+    const t0 = performance.now();
+    const ease = (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const finger = (x, y, pressed) => {
+      ctx.save();
+      ctx.beginPath(); ctx.arc(x, y + (pressed ? 0 : -6), pressed ? 11 : 12, 0, Math.PI * 2);
+      ctx.fillStyle = pressed ? 'rgba(255, 200, 150, 0.95)' : 'rgba(255, 220, 190, 0.85)';
+      ctx.fill(); ctx.strokeStyle = 'rgba(120, 70, 40, 0.8)'; ctx.lineWidth = 2; ctx.stroke();
+      if (pressed) { ctx.beginPath(); ctx.arc(x, y, 18, 0, Math.PI * 2); ctx.strokeStyle = 'rgba(80, 120, 200, 0.55)'; ctx.lineWidth = 2; ctx.stroke(); }
+      ctx.restore();
+    };
+    const button = (x, y, label, on) => {
+      ctx.save();
+      ctx.fillStyle = on ? '#7cc0ff' : 'rgba(255, 255, 255, 0.95)';
+      ctx.strokeStyle = 'rgba(60, 80, 120, 0.6)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x - 18, y - 14, 36, 28, 8) : ctx.rect(x - 18, y - 14, 36, 28); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#233'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y + 1);
+      ctx.restore();
+    };
+    const arrow = (x1, y1, x2, y2) => {
+      ctx.save(); ctx.strokeStyle = 'rgba(80, 120, 200, 0.7)'; ctx.fillStyle = 'rgba(80, 120, 200, 0.7)'; ctx.lineWidth = 3; ctx.setLineDash([6, 5]);
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.setLineDash([]);
+      const a = Math.atan2(y2 - y1, x2 - x1);
+      ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - 10 * Math.cos(a - 0.5), y2 - 10 * Math.sin(a - 0.5)); ctx.lineTo(x2 - 10 * Math.cos(a + 0.5), y2 - 10 * Math.sin(a + 0.5)); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    };
+    const draw = (p) => {
+      ctx.clearRect(0, 0, W, H);
+      const cx = W / 2, cy = H / 2;
+      if (kind === 'tap') {
+        const beat = (p * 2) % 1;
+        const pressed = beat < 0.3;
+        if (pressed) { const r = 14 + beat * 60; ctx.save(); ctx.globalAlpha = Math.max(0, 1 - beat / 0.3); ctx.strokeStyle = '#7cc0ff'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+        finger(cx, cy, pressed);
+      } else if (kind === 'swipe') {
+        const half = p < 0.5;
+        const q = ease((p % 0.5) * 2);
+        if (half) { arrow(cx - 60, cy, cx + 60, cy); finger(cx - 60 + 120 * q, cy, q < 0.85); }
+        else { arrow(cx, cy + 30, cx, cy - 30); finger(cx, cy + 30 - 60 * q, q < 0.85); }
+      } else if (kind === 'drag') {
+        const q = ease(Math.min(1, p / 0.7));
+        const tx = cx + 60, ty = cy + 10;
+        ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = 'rgba(60, 80, 120, 0.6)'; ctx.lineWidth = 2; ctx.strokeRect(tx - 16, ty - 16, 32, 32); ctx.restore();
+        const ox = cx - 60 + (tx - (cx - 60)) * q, oy = cy + 10 + (ty - (cy + 10)) * q;
+        ctx.save(); ctx.fillStyle = '#ffb347'; ctx.strokeStyle = 'rgba(120, 70, 20, 0.7)'; ctx.lineWidth = 2; ctx.fillRect(ox - 14, oy - 14, 28, 28); ctx.strokeRect(ox - 14, oy - 14, 28, 28); ctx.restore();
+        finger(ox + 4, oy + 4, p < 0.72);
+      } else if (kind === 'hold') {
+        const q = Math.min(1, p / 0.7);
+        button(cx, cy + 8, '●', p < 0.75);
+        ctx.save(); ctx.strokeStyle = '#3aa0ff'; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(cx, cy + 8, 26, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * q); ctx.stroke(); ctx.restore();
+        finger(cx + 6, cy + 12, p < 0.75);
+      } else {
+        const half = p < 0.5;
+        const q = ease((p % 0.5) * 2);
+        button(cx - 60, cy + 14, '◀', half && q < 0.6);
+        button(cx + 60, cy + 14, '▶', !half && q < 0.6);
+        const tokenX = half ? cx + 24 - 48 * Math.min(1, q / 0.6) : cx - 24 + 48 * Math.min(1, q / 0.6);
+        ctx.save(); ctx.font = '22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🐣', tokenX, cy - 18); ctx.restore();
+        finger(half ? cx - 54 : cx + 66, cy + 18, q < 0.6);
+      }
+    };
+    const frame = (now) => {
+      if (stopped) return;
+      draw(((now - t0) % PERIOD) / PERIOD);
+      if (!reduced) raf = requestAnimationFrame(frame);
+    };
+    frame(performance.now());
+    return () => { stopped = true; if (raf) cancelAnimationFrame(raf); };
+  }
+  let stopIntroDemo = null;
+
   function renderMinigameIntro(game, onStart) {
     const info = minigameInfo(game);
     const controls = MINIGAME_CONTROLS[game.id] || '';
     const genre = MINIGAME_GENRES.find((x) => x.id === minigameGenreId(game));
+    const demoKind = minigameDemoKind(game);
     el.minigameOverlay.innerHTML = `
       <div class="mg-intro">
         <div class="mg-intro-badge">✨はじめてのゲーム</div>
@@ -14067,13 +14177,15 @@
         <div class="mg-intro-name">${info.name}</div>
         <div class="mg-intro-genre">${genre ? `${genre.emoji} ${genre.label}` : ''}</div>
         <div class="mg-intro-desc">${info.desc}</div>
-        <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div>${controls}</div>
+        <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div><canvas class="mg-intro-demo" id="mgIntroDemo" width="220" height="90" data-demo="${demoKind}" aria-hidden="true"></canvas>${controls}</div>
         <button type="button" class="mg-tap-btn primary mg-intro-start" id="mgIntroStart" data-key="action">▶ はじめる</button>
         <div class="mg-intro-note">次からはすぐはじまるよ</div>
       </div>`;
+    if (stopIntroDemo) stopIntroDemo();
+    stopIntroDemo = startIntroDemo(el.minigameOverlay.querySelector('#mgIntroDemo'), demoKind);
     const btn = el.minigameOverlay.querySelector('#mgIntroStart');
     let started = false;
-    const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; onStart(); };
+    const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; if (stopIntroDemo) { stopIntroDemo(); stopIntroDemo = null; } onStart(); };
     btn.addEventListener('pointerdown', go);
     btn.addEventListener('click', go);
   }

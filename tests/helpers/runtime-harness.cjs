@@ -145,7 +145,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
       scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
-      mgDuration, GAME_LENGTH_CHOICES,
+      mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, minigameDemoKind, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
