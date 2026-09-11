@@ -2067,8 +2067,43 @@
   // セグメントごとの カーブ/おかを カメラから とうえいして、手前から
   // おくへ ならぶ 台形で 道を 描く。スプライトは 道はば きじゅんの
   // offset(0=まん中, ±1=道はし)と size(道はば に たいする わりあい)で おく
+  // 絵文字を いちど オフスクリーンの canvas に えがいて、あとは drawImage で
+  // はる(カラー絵文字の fillText は 1つ 1つが おもく、ロード系ゲームは
+  // 1フレームに 30〜60こ えがく)。大きさは 2px きざみに まるめて キャッシュ。
+  // dpr ぶん 大きく えがいて ぼやけない ように する
+  const emojiSpriteCache = new Map();
+  function emojiSprite(emoji, px, dpr, drawEmoji) {
+    // ほんものの ブラウザの canvas だけ キャッシュする(テストの ダミー canvas
+    // では もとの えがきかたを そのまま とおす)
+    if (typeof HTMLCanvasElement === 'undefined' || typeof CanvasRenderingContext2D === 'undefined') return null;
+    const size = Math.max(3, Math.round(px / 2) * 2);
+    const key = `${emoji}|${size}|${dpr}`;
+    let entry = emojiSpriteCache.get(key);
+    // イラストの 画像が まだ よみこまれて いなくて 文字で えがいた ぶんは、
+    // 2びょう たったら えがきなおす(あとから 画像に さしかわる)
+    if (entry && entry.fallbackAt && performance.now() - entry.fallbackAt > 2000) { emojiSpriteCache.delete(key); entry = undefined; }
+    if (entry !== undefined) return entry;
+    const cv = document.createElement('canvas');
+    const pad = Math.ceil(size * 0.25);
+    cv.width = Math.round((size + pad * 2) * dpr); cv.height = Math.round((size + pad * 2) * dpr);
+    const octx = cv instanceof HTMLCanvasElement ? cv.getContext('2d') : null;
+    if (!(octx instanceof CanvasRenderingContext2D)) { emojiSpriteCache.set(key, null); return null; }
+    octx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    let fallbackAt = 0;
+    if (!drawEmoji?.(octx, emoji, pad, pad, size)) {
+      octx.font = `${size}px sans-serif`; octx.textAlign = 'center'; octx.textBaseline = 'bottom';
+      octx.fillText(emoji, pad + size / 2, pad + size + size * 0.08);
+      if (drawEmoji) fallbackAt = performance.now();
+    }
+    if (emojiSpriteCache.size > 600) emojiSpriteCache.clear();
+    entry = { canvas: cv, size, pad, fallbackAt };
+    emojiSpriteCache.set(key, entry);
+    return entry;
+  }
   function createPseudoRoad(ctx, W, H, opts) {
     const SEG_LEN = 200, ROAD_W = opts.roadWidth || 1100, RUMBLE = 3, CAM_H = 1000, DRAW_DIST = opts.drawDistance || 70;
+    // canvas の じっさいの かいぞうど(createMgCanvas が dpr で setTransform している)
+    const DPR = ctx && ctx.canvas && W ? Math.max(1, ctx.canvas.width / W) : 1;
     const CAM_DEPTH = 1 / Math.tan((100 / 2) * Math.PI / 180);
     const PLAYER_Z = CAM_H * CAM_DEPTH;
     const segments = [];
@@ -2138,7 +2173,11 @@
           if (sy > seg.clip + 2) return;
           const px = Math.max(3, scale * ROAD_W * W / 2 * s.size);
           if (s.draw) s.draw(ctx, sx, sy, px, s);
-          else { ctx.font = `${px}px sans-serif`; if (!opts.drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+          else {
+            const sp = emojiSprite(s.emoji, px, DPR, opts.drawEmoji);
+            if (sp) { const d = sp.size + sp.pad * 2; ctx.drawImage(sp.canvas, sx - d / 2, sy - sp.pad - sp.size + px * 0.08 - (sp.size - px) / 2, d, d); }
+            else { ctx.font = `${px}px sans-serif`; if (!opts.drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+          }
         };
         for (const s of seg.sprites) drawOne(s);
         for (const s of seg.dynamic) drawOne(s);
