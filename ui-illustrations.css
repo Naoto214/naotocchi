@@ -44,6 +44,15 @@
 .world-now-chip {display:inline-flex;align-items:center;gap:2px}
 #storyFlashEmoji .care-icon {width:32px;height:32px;flex-basis:32px}
 .icon-fallback {display:none;line-height:1}
+/* UI-wide replacements inherit the original glyph box and never intercept a
+   drag/tap. Hidden source characters retain the existing text-only contracts. */
+.display-icon,.catalog-icon {display:inline-block;width:1em;height:1em;line-height:1;vertical-align:-.12em;flex:0 0 1em;pointer-events:none}
+.display-source {display:none!important}
+.display-icon > :not(.display-source),.catalog-icon > :not(.icon-fallback),
+.display-icon .care-icon,.catalog-icon .care-icon {width:1em;height:1em;vertical-align:0}
+.catalog-icon > img {display:block;object-fit:contain;image-rendering:pixelated}
+.catalog-icon > svg {display:block}
+.lifecard-title .comment-picture {width:1.65em;height:1.65em;vertical-align:middle;margin-right:.15em}
 /* Inline drawings share the surrounding text size and never grow a line box.
    Existing speech/narration slots, scrolling and actor frames own their layout. */
 :is(#speechText,#message,#storyFlashText,#birthdayToast,#dateMovieCaption,#duelQuestionText,#duelRevealText) .care-icon {

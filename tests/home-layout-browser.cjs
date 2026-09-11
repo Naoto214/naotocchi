@@ -245,6 +245,12 @@ function checkLayout(m, label) {
           failures.push(engine+' care attention: '+error.message);
           console.error('FAIL '+engine+' care attention: '+error.message);
         }
+        try {
+          await require('./all-display-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' illustrations: '+error.message);
+          console.error('FAIL '+engine+' illustrations: '+error.message);
+        }
       } finally { await browser.close(); }
     }
   } finally {
