@@ -118,7 +118,8 @@ test('six-tick health death remains unchanged while every living tick has a noti
   }
   assert.equal(h.api.state().stage,'dead');
   assert.equal(h.api.state().lowHealthStreak,6);
-  assert.ok(Math.abs(h.api.state().deathMeter-24.9024)<0.00001);
+  // 6 ticks x (4 from zero health + neglect-decline risk); childhood age risk no longer exists
+  assert.ok(Math.abs(h.api.state().deathMeter-24.18)<0.00001);
   assert.notEqual(h.get('message').dataset.careSeverity,'critical');
 });
 

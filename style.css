@@ -4471,3 +4471,44 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .mg-tilt-dpad .mg-tap-btn { min-height: 54px; font-size: 18px; }
 .mg-race-controls .mg-tap-btn, .mg-gunner-controls .mg-tap-btn { min-height: 58px; }
 .mg-fp-controls .mg-tap-btn { min-height: 56px; }
+
+/* ================= そうさブロックの ならべかえ(ハンドル ひだり・メイン みぎ) ================= */
+.mg-race-controls.mg-split { display: grid; grid-template-columns: 1fr 1fr 1.7fr; grid-template-areas: "l r p"; gap: 8px; }
+.mg-race-controls.mg-split [data-pos="l"] { grid-area: l; }
+.mg-race-controls.mg-split [data-pos="r"] { grid-area: r; }
+.mg-race-controls.mg-split [data-pos="p"] { grid-area: p; min-height: 64px; font-size: 16px; }
+.mg-gunner-controls.mg-split-dpad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: ". u . p" "l d r p";
+  gap: 6px;
+}
+.mg-gunner-controls.mg-split-dpad .mg-tap-btn { min-height: 48px; }
+.mg-gunner-controls.mg-split-dpad [data-pos="u"] { grid-area: u; }
+.mg-gunner-controls.mg-split-dpad [data-pos="l"] { grid-area: l; }
+.mg-gunner-controls.mg-split-dpad [data-pos="d"] { grid-area: d; }
+.mg-gunner-controls.mg-split-dpad [data-pos="r"] { grid-area: r; }
+.mg-gunner-controls.mg-split-dpad [data-pos="p"] { grid-area: p; min-height: 100px; font-size: 16px; }
+
+/* ================= ？そうさ(ゲーム中の せつめい) ================= */
+.mg-help-btn {
+  border: none; border-radius: 999px; font-size: 10px; font-weight: bold; padding: 4px 10px; cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18); font-family: inherit; margin-right: 6px;
+  background: rgba(255, 255, 255, 0.92); color: #4a2a3d;
+}
+.mg-help-btn:active { transform: translateY(1px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.18); }
+.mg-help {
+  position: absolute; inset: 0; z-index: 8; display: flex; align-items: center; justify-content: center;
+  padding: 16px; background: rgba(20, 10, 20, 0.45); border-radius: 10px;
+}
+.mg-help.hidden { display: none; }
+.mg-help-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; max-width: 300px;
+  padding: 14px 12px 12px; border-radius: 16px; background: #fffaf2; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+.mg-help-title { font-size: 15px; font-weight: 900; }
+.mg-help-text { font-size: 11px; line-height: 1.6; font-weight: bold; }
+.mg-help-note { font-size: 9px; opacity: 0.7; }
+.mg-help-close { min-width: 140px; min-height: 44px; }

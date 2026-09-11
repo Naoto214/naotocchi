@@ -1114,6 +1114,12 @@
     mgResultToast: document.getElementById('mgResultToast'),
     mgQuit: document.getElementById('mgQuit'),
     mgQuitBtn: document.getElementById('mgQuitBtn'),
+    mgHelpBtn: document.getElementById('mgHelpBtn'),
+    mgHelpOverlay: document.getElementById('mgHelpOverlay'),
+    mgHelpTitle: document.getElementById('mgHelpTitle'),
+    mgHelpText: document.getElementById('mgHelpText'),
+    mgHelpDemo: document.getElementById('mgHelpDemo'),
+    mgHelpCloseBtn: document.getElementById('mgHelpCloseBtn'),
     mgQuitConfirm: document.getElementById('mgQuitConfirm'),
     mgQuitYesBtn: document.getElementById('mgQuitYesBtn'),
     mgQuitNoBtn: document.getElementById('mgQuitNoBtn'),
@@ -2624,7 +2630,8 @@
   }
   function ageDifficulty() {
     const m = minigameDifficultyMode();
-    const scale = m === 'easy' ? 0.4 : m === 'hard' ? 1 : 0.7;
+    // ふつう 0.55(以前 0.7)、やさしい 0.3(以前 0.4): がんばっても とどかない を へらす
+    const scale = m === 'easy' ? 0.3 : m === 'hard' ? 1 : 0.55;
     const base = clamp(currentAge() / MAX_DIFFICULTY_AGE, 0, 1) * scale;
     // そだち40(なかまの わ)に とうたつしていると、なかまイベントの
     // ミニゲームだけ すこし やさしく なる
@@ -10052,8 +10059,10 @@
       // てんき・じかんたい・きせつ・地域の こうか(envModifiers)
       const envMod = envModifiers();
       { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
-      state.hunger = clamp(state.hunger - 0.6 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
-      state.happiness = clamp(state.happiness - 0.6 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
+      // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、
+      // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)
+      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
@@ -10073,7 +10082,8 @@
       // poop accumulates over time(そうじけいの アイテムを そうびしていると たまりにくい。
       // なおとの ランタンを もっていると そもそも 二度と たまらなくなる)
       const poopFactor = isEquipped('poop1') ? 0.7 : 1;
-      if (Math.random() < 0.08 * poopFactor && state.poopCount < MAX_POOP) {
+      // 3.5%/tick = やく 1.5分に 1こ(以前 8% = 40秒に 1こ で そうじが おいつかなかった)
+      if (Math.random() < 0.035 * poopFactor && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
       if (state.poopCount >= MAX_POOP) {
@@ -10082,12 +10092,17 @@
 
       // sickness risk - neglect (dirt, hunger, unhappiness, low health) raises
       // the odds of falling ill; well cared-for pets almost never trigger this
-      const neglected = state.poopCount >= 2 || state.health < 50 || state.hunger < 30 || state.happiness < 30;
+      // 「おこたり」= うんちが 3こ いじょう / けんこう 40未満 / おなか・きげん 20未満。
+      // 以前は うんち2こ・30未満で 9%/tick だったので、そうじを 2分 わすれる
+      // だけで びょうきに なっていた。3さいまでは うんちが いっぱいの とき いがい
+      // びょうきに ならない(うまれて すぐ びょうきに なる かなしさを なくす)
+      const neglected = state.poopCount >= 3 || state.health < 40 || state.hunger < 20 || state.happiness < 20;
+      const infantGrace = currentAge() < 3 && state.poopCount < MAX_POOP;
       // なおとの おまもりを もっていると、びょうきに ぜったいに ならない
-      if (!state.isSick && neglected) {
+      if (!state.isSick && neglected && !infantGrace) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.09 * (isEquipped('scarf') ? 0.65 : 1);
+        const sicknessChance = 0.03 * (isEquipped('scarf') ? 0.65 : 1);
         if (Math.random() < sicknessChance) {
           // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
           // ここで 1かいぶん つかって びょうきを ふせぐ
@@ -10109,11 +10124,12 @@
       // frailer overall: sickness hits its health harder, and it doesn't take
       // as long a losing streak to be fatal
       let healthDelta = 0;
-      if (state.hunger <= 0) healthDelta -= 3;
-      if (state.happiness <= 0) healthDelta -= 2;
-      if (!state.isSleeping && state.energy <= 0) healthDelta -= 2;
-      if (state.isSick) healthDelta -= 2 + Math.min(3, Math.floor(state.totalSicknessCount / 3));
-      if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += 1;
+      if (state.hunger <= 0) healthDelta -= 2;
+      if (state.happiness <= 0) healthDelta -= 1;
+      if (!state.isSleeping && state.energy <= 0) healthDelta -= 1;
+      if (state.isSick) healthDelta -= 1 + Math.min(2, Math.floor(state.totalSicknessCount / 4));
+      // よく お世話できていれば けんこうは じぶんで もどる(70いじょうなら はやく)
+      if (healthDelta === 0 && state.hunger > 50 && state.happiness > 50) healthDelta += (state.hunger > 70 && state.happiness > 70) ? 2 : 1;
       state.health = clamp(state.health + healthDelta, 0, 100);
 
 
@@ -10160,11 +10176,11 @@
       // 高齢期は 70さいから 100さいへ向けてなだらかに上がるが、
       // 90代に入った瞬間に「しっかりお世話していても急に赤くなる」感触を避けるため
       // 100さい直前の上限を以前の 1.15/tick から 0.90/tick へ緩和する。
-      const baseAgeRisk = age < 10
-        ? lerp(0.28, 0.04, age / 10)
-        : age >= 70
-          ? lerp(0.06, 0.90, (age - 70) / 30)
-          : 0;
+      // 幼少期の 自然リスクは なくした(「うまれて すぐ 死ぬ」「小さい ときだけ
+      // すぐ 赤くなる」の 原因だった)。老いの ぶんだけ のこす
+      const baseAgeRisk = age >= 70
+        ? lerp(0.06, 0.90, (age - 70) / 30)
+        : 0;
       // ①クリア報酬「なおとの おまもり」は、人生の両端を守る。
       // 幼少期だけでなく、70さい以降の老いによる自然リスクにも同じ軽減をかける。
       const charmProtectsAge = age < 10 || age >= 70;
@@ -10189,7 +10205,7 @@
         // 以前は100さい直前に 0.35/tick まで落ち、自然リスクとの差が急に開いていた。
         // 90さいだいは 老いの リスク(さいだい 0.9)が 自動かいふくを うわまわる ことが
         // あり、そだちが ひくいと 老衰も ありうる(以前は かいふくが つねに 上で 老衰が おきなかった)
-        const recovery = age < 10 ? 0.7 : age >= 70 ? lerp(0.9, 0.35, (age - 70) / 30) : 1.4;
+        const recovery = age >= 70 ? lerp(0.9, 0.35, (age - 70) / 30) : 1.4;
         state.deathMeter = clamp(state.deathMeter - recovery, 0, 100);
       }
 
@@ -14402,6 +14418,7 @@
     mgRunTagged(endedSession, resetMinigameInput, null, []);
     activeMinigame = null;
     hideMinigameQuit();
+    closeMinigameHelp();
     el.minigameOverlay.classList.add('hidden');
     el.minigameOverlay.innerHTML = '';
     el.screenNormal.classList.remove('hidden');
@@ -14462,6 +14479,11 @@
     // おしまちがい むけ: なにも しなければ 4びょうで もとの ボタンに もどる
     if (open) mgQuitConfirmTimer = setTimeout(() => setMinigameQuitConfirm(false), 4000);
   }
+  if (el.mgHelpBtn) {
+    el.mgHelpBtn.addEventListener('click', () => { if (gameActive) openMinigameHelp(); });
+    el.mgHelpCloseBtn.addEventListener('click', closeMinigameHelp);
+    el.mgHelpOverlay.addEventListener('click', (e) => { if (e.target === el.mgHelpOverlay) closeMinigameHelp(); });
+  }
   if (el.mgQuitBtn) {
     el.mgQuitBtn.addEventListener('click', () => { if (gameActive) setMinigameQuitConfirm(true); });
     el.mgQuitNoBtn.addEventListener('click', () => setMinigameQuitConfirm(false));
@@ -14512,7 +14534,8 @@
     // fast-paced transform/regress/die loop, not just the passive clock
     let itemMessage = '';
     const isGreat = clampedScore >= 70;
-    const isBad = clampedScore < 40;
+    // 30点未満だけ「しっぱい」。ペナルティも ひかえめ(以前 40点未満で おとろえ16・いのち5)
+    const isBad = clampedScore < 30;
     if (isGreat) {
       applyGrowth(14); applyDecline(-8);
       const fun = randomFunItem();
@@ -14528,15 +14551,15 @@
       const coins = Math.round((5 + Math.random() * 6) * starFactor * coinBoost * envModifiers().coin);
       state.lifetime.money += coins;
       itemMessage = gotReward ? `おたのしみに${fun.emoji}${fun.label}、さらに🎁と💰${coins}をもらった!` : `おたのしみに${fun.emoji}${fun.label}と💰${coins}をもらった!`;
-    } else if (clampedScore >= 40) {
+    } else if (clampedScore >= 30) {
       applyGrowth(7); applyDecline(-3);
     } else if (state.oneTimeBoosts.safetyNet) {
       // つかいきりアイテムの「スコアほけん」は、この ミニゲーム 1かいだけ
       // しっぱい時の たいか/しぼうメーター上昇を まるごと なかった ことにする
       state.oneTimeBoosts.safetyNet = false;
     } else {
-      applyDecline(16);
-      raiseDeathMeter(5);
+      applyDecline(8);
+      raiseDeathMeter(2);
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
@@ -14675,15 +14698,65 @@
       if (session !== mgSession || !gameActive) return;
       el.minigameOverlay.innerHTML = '';
       mgRunTagged(session, () => game.start(el.minigameOverlay, onComplete), null, []);
+      arrangeMinigameControls(el.minigameOverlay);
     };
     // はじめて あそぶ ゲームは、うごきだす まえに そうさの せつめいを 1まい 出す
     if (opts.intro) renderMinigameIntro(game, launch);
     else launch();
   }
 
-  // 「はじめて」= じこベストが なく、あそんだ かいすうが この1かい だけ
+  // そうさの せつめいカードは、その ゲームを あそんだ かいすうが
+  // MINIGAME_INTRO_PLAYS かいに なるまで まいかい 出す(1かいでは おぼえられない
+  // という こえが おおかった)。それ いこうは「？そうさ」ボタンで いつでも 見られる
+  const MINIGAME_INTRO_PLAYS = 3;
   function isFirstMinigamePlay(game) {
-    return !!game.id && !minigameRecordOf(game) && minigamePlayCount(game) <= 1;
+    return !!game.id && minigamePlayCount(game) <= MINIGAME_INTRO_PLAYS;
+  }
+
+  // そうさブロックの ならべかえ。「◀ アクセル ▶」のように まんなかが
+  // おしっぱなしの メインボタンで 両わきが ハンドルだと、かたほうの おやゆびで
+  // アクセルを おしながら もう かたほうで ◀▶ を おしわけ られない。
+  // ハンドル(◀▶)を ひだりに よせ、メインボタンを みぎに 大きく おく。
+  // ガンナー系(◀ ▲ うつ ▼ ▶)も ひだりに 十字、みぎに うつ ボタン
+  function arrangeMinigameControls(root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    for (const row of root.querySelectorAll('.mg-race-controls')) {
+      const b = [...row.querySelectorAll('button')];
+      if (b.length !== 3 || !b[1].classList.contains('primary')) continue;
+      if (!b[0].classList.contains('mg-hold-btn') || !b[2].classList.contains('mg-hold-btn')) continue;
+      b[0].dataset.pos = 'l'; b[2].dataset.pos = 'r'; b[1].dataset.pos = 'p';
+      row.appendChild(b[1]);
+      row.classList.add('mg-split');
+    }
+    for (const row of root.querySelectorAll('.mg-gunner-controls')) {
+      const b = [...row.querySelectorAll('button')];
+      if (b.length !== 5 || !b[2].classList.contains('primary')) continue;
+      const pos = ['l', 'u', 'p', 'd', 'r'];
+      b.forEach((btn, i) => { btn.dataset.pos = pos[i]; });
+      row.appendChild(b[2]);
+      row.classList.add('mg-split-dpad');
+    }
+  }
+
+  // 「？そうさ」: ゲーム中に いつでも そうさの せつめいと うごきの デモを 見る
+  // (ゲームは とまらない ので、みじかく 読んで とじる)
+  let stopHelpDemo = null;
+  function openMinigameHelp() {
+    const game = activeMinigame;
+    if (!el.mgHelpOverlay || !game) return;
+    const info = minigameInfo(game);
+    const kind = minigameDemoKind(game);
+    el.mgHelpTitle.textContent = `${info.emoji} ${info.name}`;
+    el.mgHelpText.textContent = MINIGAME_CONTROLS[game.id] || info.desc || '';
+    el.mgHelpOverlay.classList.remove('hidden');
+    if (stopHelpDemo) stopHelpDemo();
+    stopHelpDemo = startIntroDemo(el.mgHelpDemo, kind);
+    audio.play('open');
+  }
+  function closeMinigameHelp() {
+    if (!el.mgHelpOverlay) return;
+    if (stopHelpDemo) { stopHelpDemo(); stopHelpDemo = null; }
+    el.mgHelpOverlay.classList.add('hidden');
   }
 
   // そうさ せつめいの 文から「ゆびを どう うごかす ゲームか」を きめる。
@@ -14793,7 +14866,7 @@
         <div class="mg-intro-desc">${info.desc}</div>
         <div class="mg-intro-controls"><div class="mg-intro-controls-title">🕹️ そうさ</div><canvas class="mg-intro-demo" id="mgIntroDemo" width="220" height="90" data-demo="${demoKind}" aria-hidden="true"></canvas>${controls}</div>
         <button type="button" class="mg-tap-btn primary mg-intro-start" id="mgIntroStart" data-key="action">▶ はじめる</button>
-        <div class="mg-intro-note">次からはすぐはじまるよ</div>
+        <div class="mg-intro-note">${minigamePlayCount(game) >= MINIGAME_INTRO_PLAYS ? '次からはすぐはじまるよ(「？そうさ」でいつでも見られる)' : `あと${MINIGAME_INTRO_PLAYS - minigamePlayCount(game)}かいはこのせつめいが出るよ`}</div>
       </div>`;
     if (stopIntroDemo) stopIntroDemo();
     stopIntroDemo = startIntroDemo(el.minigameOverlay.querySelector('#mgIntroDemo'), demoKind);

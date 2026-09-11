@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260911-cebab744">
+  <link rel="stylesheet" href="style.css?v=20260911-input-6">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260911-9c71190c">
   <link rel="stylesheet" href="design.css?v=20260911-ae1c4ad1">
@@ -144,6 +144,15 @@
         </div>
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
+        <div class="mg-help hidden" id="mgHelpOverlay" role="dialog" aria-label="そうさのせつめい">
+          <div class="mg-help-card">
+            <div class="mg-help-title" id="mgHelpTitle"></div>
+            <canvas class="mg-intro-demo" id="mgHelpDemo" width="220" height="90" aria-hidden="true"></canvas>
+            <div class="mg-help-text" id="mgHelpText"></div>
+            <div class="mg-help-note">ゲームは うごいたまま。読んだら とじよう</div>
+            <button type="button" class="mg-tap-btn primary mg-help-close" id="mgHelpCloseBtn">とじる</button>
+          </div>
+        </div>
 
         <div class="life-card-overlay hidden" id="lifeCardOverlay">
           <div class="life-card" id="lifeCardBody"></div>
@@ -719,6 +728,7 @@
 
     <div class="mg-quit hidden" id="mgQuit">
       <div class="mg-quit-inner">
+        <button type="button" class="mg-help-btn" id="mgHelpBtn" aria-label="そうさのせつめい">？そうさ</button>
         <button type="button" class="mg-quit-btn" id="mgQuitBtn">✕ゲームをやめる</button>
         <div class="mg-quit-confirm hidden" id="mgQuitConfirm">
           <span class="mg-quit-ask">とちゅうでやめる?</span>
@@ -762,7 +772,7 @@
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
   <script src="games.js?v=20260911-a3406fc5"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
-  <script src="care-status.js?v=20260911-3d4dd0f4"></script>
-  <script src="script.js?v=20260911-3dd19582"></script>
+  <script src="care-status.js?v=20260911-input-7"></script>
+  <script src="script.js?v=20260911-pace-1"></script>
 </body>
 </html>
