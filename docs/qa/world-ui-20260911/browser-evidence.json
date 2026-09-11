@@ -1,0 +1,4676 @@
+{
+  "date": "2026-09-11",
+  "method": "Managed Chromium browser, actual production index inside /__qa mobile-size iframes; real UI interactions and DOM computed styles.",
+  "note": "Background samples retain the asset tokens observed while tuning. final-layout marks recaptures after the final footer change. Some off-DOM QA icon probes remained pending; rendered atlas image loading was separately checked. No physical iPhone/Safari run.",
+  "scenes": [
+    {
+      "scene": "world_sea",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-577c7f30",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/clownfish/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "world_sea-390-844-default.jpg",
+      "phase": "final-layout"
+    },
+    {
+      "scene": "world_snow",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-199696a4",
+      "gameScript": "script.js?v=20260911-15ff8e6b",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "true",
+        "region": "snow",
+        "habitat": "land",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/snow-v1.webp\")",
+        "motion": "breeze",
+        "care": "normal"
+      },
+      "careNotice": "🍚たべすぎた\nおなか +15.7 / ごきげん −4",
+      "careSeverity": "info",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "snow_mountain",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(13.871% 1.29032%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": true,
+      "storyText": "おなかがパンパン…しばらく動けない…",
+      "storyTextOverflow": false,
+      "storyAsset": "assets/characters/man/06.png",
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_snow-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_forest",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-1d15b1e0",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "forest",
+        "habitat": "land",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "summer",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/forest-v1.webp\")",
+        "motion": "breeze",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "tree",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.38408% 2.59516%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_forest-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_sea_night",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-199696a4",
+      "gameScript": "script.js?v=20260911-15ff8e6b",
+      "heroAsset": "assets/characters/clownfish/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "night",
+        "season": "winter",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "normal"
+      },
+      "careNotice": "🍚おなかがみたされた\nおなか +20.7 / ごきげん +3",
+      "careSeverity": "info",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "snow",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "moon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "cloud",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "night",
+        "weather": "cloudy",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_sea_night-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_deepsea",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-199696a4",
+      "gameScript": "script.js?v=20260911-15ff8e6b",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "deepsea",
+        "habitat": "abyss",
+        "time": "night",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/deepsea-v1.webp\")",
+        "motion": "float",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "underwater",
+        "weather": "unknown",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_deepsea-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_sea_critical",
+      "width": 320,
+      "height": 640,
+      "pageHeight": 640,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-1d15b1e0",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/clownfish/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "night",
+        "season": "winter",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "critical"
+      },
+      "careNotice": "いのちがあぶない\nおなかを60以上にしよう",
+      "careSeverity": "critical",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [
+        "feedBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 9,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playBtn",
+          "x": 70.59375,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "cleanBtn",
+          "x": 132.1875,
+          "y": 524,
+          "width": 55.609375,
+          "height": 48.5
+        },
+        {
+          "id": "sleepBtn",
+          "x": 193.796875,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "medicineBtn",
+          "x": 255.390625,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playWithBtn",
+          "x": 9,
+          "y": 578.5,
+          "width": 70.984375,
+          "height": 48.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 85.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "courtBtn",
+          "x": 162.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "menuBtn",
+          "x": 239.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "pending"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "pending"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "pending"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "snow",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "moon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "rain",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "danger",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "night",
+        "weather": "rain",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 302,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": false,
+      "glass": "default",
+      "screenshot": "world_sea_critical-320-640-default.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_sea_critical_large",
+      "width": 320,
+      "height": 640,
+      "pageHeight": 640,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-577c7f30",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/clownfish/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "night",
+        "season": "winter",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "critical"
+      },
+      "careNotice": "いのちがあぶない\nおなかを60以上にしよう",
+      "careSeverity": "critical",
+      "careNoticeHeight": 43.1875,
+      "careNoticeOverflow": false,
+      "careRecommended": [
+        "feedBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 9,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playBtn",
+          "x": 70.59375,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "cleanBtn",
+          "x": 132.1875,
+          "y": 524,
+          "width": 55.609375,
+          "height": 48.5
+        },
+        {
+          "id": "sleepBtn",
+          "x": 193.796875,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "medicineBtn",
+          "x": 255.390625,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playWithBtn",
+          "x": 9,
+          "y": 578.5,
+          "width": 70.984375,
+          "height": 48.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 85.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "courtBtn",
+          "x": 162.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "menuBtn",
+          "x": 239.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "snow",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "moon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "rain",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "danger",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "night",
+        "weather": "rain",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 292,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "world_sea_critical_large-320-640-default.jpg",
+      "phase": "final-layout"
+    },
+    {
+      "scene": "world_desert",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-1d15b1e0",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "desert",
+        "habitat": "land",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/desert-v1.webp\")",
+        "motion": "breeze",
+        "care": "normal"
+      },
+      "careNotice": "うんちがたまっている\nそうじしてきれいにしよう",
+      "careSeverity": "info",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [
+        "cleanBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "cactus",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.35593% 12.5424%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "poop",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "poop",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "solid",
+      "screenshot": "world_desert-390-844-solid.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_star_stop",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-1d15b1e0",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "star_stop",
+        "habitat": "sky",
+        "time": "night",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/star_stop-v1.webp\")",
+        "motion": "still",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "night",
+        "weather": "unknown",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_star_stop-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_sea_critical_large",
+      "width": 320,
+      "height": 640,
+      "pageHeight": 640,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-577c7f30",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/clownfish/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "night",
+        "season": "winter",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "false",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "critical"
+      },
+      "careNotice": "いのちがあぶない\nおなかを60以上にしよう",
+      "careSeverity": "critical",
+      "careNoticeHeight": 43.1875,
+      "careNoticeOverflow": false,
+      "careRecommended": [
+        "feedBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 9,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playBtn",
+          "x": 70.59375,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "cleanBtn",
+          "x": 132.1875,
+          "y": 524,
+          "width": 55.609375,
+          "height": 48.5
+        },
+        {
+          "id": "sleepBtn",
+          "x": 193.796875,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "medicineBtn",
+          "x": 255.390625,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playWithBtn",
+          "x": 9,
+          "y": 578.5,
+          "width": 70.984375,
+          "height": 48.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 85.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "courtBtn",
+          "x": 162.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "menuBtn",
+          "x": 239.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "snow",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "moon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "rain",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "danger",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "night",
+        "weather": "rain",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 292,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "world-critical-large-scrolled.jpg",
+      "phase": "final-layout"
+    },
+    {
+      "scene": "world_shore_rain",
+      "width": 768,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-ca86bdba",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "river_lake",
+        "habitat": "shore",
+        "time": "day",
+        "season": "spring",
+        "precipitation": "rain",
+        "foliageSeason": "spring",
+        "rays": "false",
+        "mist": "true",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/river_lake-v1.webp\")",
+        "motion": "breeze",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 90,
+          "y": 664,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 288.328125,
+          "y": 664,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 486.65625,
+          "y": 664,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 90,
+          "y": 721,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 288.328125,
+          "y": 721,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 486.65625,
+          "y": 721,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 90,
+          "y": 778,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 288.328125,
+          "y": 778,
+          "width": 191.328125,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 486.65625,
+          "y": 778,
+          "width": 191.328125,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "cherry_blossom",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(2.99625% 1.49813%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "rain",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "day",
+        "weather": "rain",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 588,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "world_shore_rain-768-844-default.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_forest_autumn",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-ca86bdba",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "forest",
+        "habitat": "land",
+        "time": "evening",
+        "season": "autumn",
+        "precipitation": "none",
+        "foliageSeason": "autumn",
+        "rays": "false",
+        "mist": "true",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/forest_autumn-v1.webp\")",
+        "motion": "breeze",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 664,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 664,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 721,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 721,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 778,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 778,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "maple_leaf",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.35593% 6.1017%)"
+        },
+        {
+          "icon": "tree",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.38408% 2.59516%)"
+        },
+        {
+          "icon": "sunset",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "cloud",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "evening",
+        "weather": "cloudy",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "clear",
+      "screenshot": "world_forest_autumn-390-844-clear.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "badges_transparent",
+      "width": 320,
+      "height": 640,
+      "pageHeight": 640,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-ca86bdba",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "home",
+        "habitat": "land",
+        "time": "evening",
+        "season": "autumn",
+        "precipitation": "none",
+        "foliageSeason": "autumn",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/home-v1.webp\")",
+        "motion": "breeze",
+        "care": "warning"
+      },
+      "careNotice": "びょうき。くすりでなおそう\nげんいんふめいのこうねつ（ねていても使えるよ）",
+      "careSeverity": "warning",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": true,
+      "careRecommended": [
+        "medicineBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 9,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playBtn",
+          "x": 70.59375,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "cleanBtn",
+          "x": 132.1875,
+          "y": 524,
+          "width": 55.609375,
+          "height": 48.5
+        },
+        {
+          "id": "sleepBtn",
+          "x": 193.796875,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "medicineBtn",
+          "x": 255.390625,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playWithBtn",
+          "x": 9,
+          "y": 578.5,
+          "width": 70.984375,
+          "height": 48.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 85.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "courtBtn",
+          "x": 162.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "menuBtn",
+          "x": 239.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "sick",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "fireworks",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "lantern",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "tree",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.38408% 2.59516%)"
+        },
+        {
+          "icon": "book",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "naoto_crown",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "maple_leaf",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.35593% 6.1017%)"
+        },
+        {
+          "icon": "house",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(7.7193% 1.40351%)"
+        },
+        {
+          "icon": "sunset",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "danger",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "ribbon",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [
+        {
+          "label": "げんいんふめいのこうねつ",
+          "x": 16,
+          "y": 30.59375,
+          "width": 20,
+          "height": 20
+        },
+        {
+          "label": "ねむっている",
+          "x": 38,
+          "y": 30.59375,
+          "width": 20,
+          "height": 20
+        },
+        {
+          "label": "てんじゅをまっとうをたっせいずみ",
+          "x": 16,
+          "y": 53.59375,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "いっしょうクリアをたっせいずみ",
+          "x": 52,
+          "y": 53.59375,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "さいこうのいっしょうをたっせいずみ",
+          "x": 88,
+          "y": 53.59375,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "ずかんクリアをたっせいずみ",
+          "x": 124,
+          "y": 53.59375,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "PERFECT CLEARをたっせいずみ",
+          "x": 16,
+          "y": 89.59375,
+          "width": 32,
+          "height": 32
+        }
+      ],
+      "environment": {
+        "time": "evening",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 292,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "badges_transparent-320-640-default.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_theme_starlight",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-7acf77ec",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 620,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 620,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 620,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 677,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 677,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 677,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 734,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 734,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 734,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "pending"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "pending"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "pending"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "fireworks",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "lantern",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "tree",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.38408% 2.59516%)"
+        },
+        {
+          "icon": "book",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "naoto_crown",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [
+        {
+          "label": "てんじゅをまっとうをたっせいずみ",
+          "x": 25,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "いっしょうクリアをたっせいずみ",
+          "x": 61,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "さいこうのいっしょうをたっせいずみ",
+          "x": 97,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "ずかんクリアをたっせいずみ",
+          "x": 133,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "PERFECT CLEARをたっせいずみ",
+          "x": 169,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        }
+      ],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": false,
+      "glass": "default",
+      "screenshot": "world_theme_starlight-390-844-default.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_theme_rainbow",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-7acf77ec",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "day",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "normal"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 620,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 620,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 620,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 677,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 677,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 677,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 734,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 734,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 734,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "fireworks",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "lantern",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "tree",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.38408% 2.59516%)"
+        },
+        {
+          "icon": "book",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "naoto_crown",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "recovery",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [
+        {
+          "label": "てんじゅをまっとうをたっせいずみ",
+          "x": 25,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "いっしょうクリアをたっせいずみ",
+          "x": 61,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "さいこうのいっしょうをたっせいずみ",
+          "x": 97,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "ずかんクリアをたっせいずみ",
+          "x": 133,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        },
+        {
+          "label": "PERFECT CLEARをたっせいずみ",
+          "x": 169,
+          "y": 45.53125,
+          "width": 32,
+          "height": 32
+        }
+      ],
+      "environment": {
+        "time": "day",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 358,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "screenshot": "world_theme_rainbow-390-844-default.jpg",
+      "glass": "default",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "care_low_health",
+      "width": 320,
+      "height": 640,
+      "pageHeight": 640,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-7acf77ec",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "home",
+        "habitat": "land",
+        "time": "evening",
+        "season": "autumn",
+        "precipitation": "none",
+        "foliageSeason": "autumn",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/home-v1.webp\")",
+        "motion": "breeze",
+        "care": "warning"
+      },
+      "careNotice": "けんこうがひくい\nごはんをあげよう",
+      "careSeverity": "warning",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [
+        "feedBtn"
+      ],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 9,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playBtn",
+          "x": 70.59375,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "cleanBtn",
+          "x": 132.1875,
+          "y": 524,
+          "width": 55.609375,
+          "height": 48.5
+        },
+        {
+          "id": "sleepBtn",
+          "x": 193.796875,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "medicineBtn",
+          "x": 255.390625,
+          "y": 524,
+          "width": 55.59375,
+          "height": 48.5
+        },
+        {
+          "id": "playWithBtn",
+          "x": 9,
+          "y": 578.5,
+          "width": 70.984375,
+          "height": 48.5
+        },
+        {
+          "id": "travelBtn",
+          "x": 85.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "courtBtn",
+          "x": 162.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        },
+        {
+          "id": "menuBtn",
+          "x": 239.984375,
+          "y": 578.5,
+          "width": 71,
+          "height": 48.5
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "maple_leaf",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(1.35593% 6.1017%)"
+        },
+        {
+          "icon": "house",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(7.7193% 1.40351%)"
+        },
+        {
+          "icon": "sunset",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "danger",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "evening",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 292,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 26,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "care_low_health-320-640-default.jpg",
+      "phase": "background-or-palette-sample"
+    },
+    {
+      "scene": "world_farewell",
+      "width": 390,
+      "height": 844,
+      "pageHeight": 844,
+      "stylesheet": "style.css?v=20260911-cebab744",
+      "worldStylesheet": "world-scene.css?v=20260911-577c7f30",
+      "gameScript": "script.js?v=20260911-e81c3603",
+      "heroAsset": "assets/characters/man/06.png",
+      "actorFrameOverlap": true,
+      "farewellOverlap": false,
+      "world": {
+        "paused": "false",
+        "region": "sea",
+        "habitat": "underwater",
+        "time": "evening",
+        "season": "summer",
+        "precipitation": "none",
+        "foliageSeason": "evergreen",
+        "rays": "true",
+        "mist": "false",
+        "frost": "false",
+        "backdrop": "url(\"http://terminal.local:4173/assets/world/sea-v1.webp\")",
+        "motion": "float",
+        "care": "none"
+      },
+      "careNotice": "",
+      "careSeverity": "",
+      "careNoticeHeight": 40.390625,
+      "careNoticeOverflow": false,
+      "careRecommended": [],
+      "careButtonBounds": [
+        {
+          "id": "feedBtn",
+          "x": 16,
+          "y": 534,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "playBtn",
+          "x": 137.65625,
+          "y": 534,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "cleanBtn",
+          "x": 259.328125,
+          "y": 534,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "sleepBtn",
+          "x": 16,
+          "y": 591,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "medicineBtn",
+          "x": 137.65625,
+          "y": 591,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "playWithBtn",
+          "x": 259.328125,
+          "y": 591,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "travelBtn",
+          "x": 16,
+          "y": 648,
+          "width": 114.65625,
+          "height": 50
+        },
+        {
+          "id": "courtBtn",
+          "x": 137.65625,
+          "y": 648,
+          "width": 114.671875,
+          "height": 50
+        },
+        {
+          "id": "menuBtn",
+          "x": 259.328125,
+          "y": 648,
+          "width": 114.65625,
+          "height": 50
+        }
+      ],
+      "iconImages": [
+        {
+          "src": "http://terminal.local:4173/assets/ui/care-atlas-v2.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/season-region-atlas-v1.png",
+          "status": "loaded"
+        },
+        {
+          "src": "http://terminal.local:4173/assets/ui/world-items-atlas-v1.png",
+          "status": "loaded"
+        }
+      ],
+      "missingIconsRequested": false,
+      "iconSurfaces": [
+        {
+          "icon": "coin",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sunflower",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(4.63576% 1.3245%)"
+        },
+        {
+          "icon": "wave",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "inset(3.48432% 1.39373%)"
+        },
+        {
+          "icon": "sunset",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sun",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "food",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "game",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "clean",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "sleep",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "medicine",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "play",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        },
+        {
+          "icon": "love",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "clipPath": "none"
+        }
+      ],
+      "badgeBounds": [],
+      "environment": {
+        "time": "evening",
+        "weather": "sunny",
+        "reducedMotion": false,
+        "rainDrops": 0,
+        "snowflakes": 0,
+        "clouds": 0,
+        "sceneryIcons": [],
+        "decorAnimations": []
+      },
+      "storyVisible": false,
+      "storyText": null,
+      "storyTextOverflow": false,
+      "storyAsset": null,
+      "profileVisible": false,
+      "profilePartnerAsset": null,
+      "profilePartnerText": null,
+      "partnerAsset": "assets/characters/partners/robot_neighbor.png",
+      "moviePetAsset": null,
+      "moviePartnerAsset": null,
+      "movieVisible": false,
+      "movieOverflow": false,
+      "movieClipped": false,
+      "movieCaptionOverlap": false,
+      "movieOutsideViewport": false,
+      "moviePanelBounds": {
+        "top": 0,
+        "bottom": 0,
+        "height": 0
+      },
+      "movieCaptionOverflow": false,
+      "movieCaptionOutside": false,
+      "movieText": null,
+      "movieTitle": null,
+      "movieComplete": false,
+      "movieRowWidth": 0,
+      "movieRowContentWidth": 0,
+      "moviePetDisplay": "block",
+      "movieAnimation": "date-actor-walk",
+      "petDisplay": "block",
+      "areaWidth": 348,
+      "speechOverlap": false,
+      "actorOverlap": false,
+      "overlapPairs": [],
+      "detached": 0,
+      "panelOverflow": [],
+      "storyOutsideViewport": false,
+      "animations": [
+        "none",
+        "none"
+      ],
+      "companions": 2,
+      "outside": 0,
+      "sceneryPictures": [],
+      "pendingImages": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": false,
+      "layoutChecksPass": true,
+      "checksPass": true,
+      "glass": "default",
+      "screenshot": "world_farewell-390-844-default.jpg",
+      "phase": "final-layout"
+    }
+  ],
+  "palette": {
+    "sameStatePaletteEqual": true,
+    "samples": [
+      {
+        "scene": "world_theme_starlight",
+        "bars": [
+          {
+            "classes": "bar-fill hunger",
+            "fill": "rgb(55, 131, 107)",
+            "id": "hungerBar"
+          },
+          {
+            "classes": "bar-fill happiness",
+            "fill": "rgb(166, 94, 130)",
+            "id": "happinessBar"
+          },
+          {
+            "classes": "bar-fill energy",
+            "fill": "rgb(70, 125, 157)",
+            "id": "energyBar"
+          },
+          {
+            "classes": "bar-fill health",
+            "fill": "rgb(55, 131, 107)",
+            "id": "healthBar"
+          },
+          {
+            "classes": "bar-fill evo",
+            "fill": "rgb(55, 131, 107)",
+            "id": "evoBar"
+          },
+          {
+            "classes": "bar-fill devo",
+            "fill": "rgb(167, 126, 63)",
+            "id": "devoBar"
+          },
+          {
+            "classes": "bar-fill death",
+            "fill": "rgb(55, 131, 107)",
+            "id": "deathBar"
+          },
+          {
+            "classes": "bar-fill transform",
+            "fill": "rgb(123, 104, 161)",
+            "id": "transformBar"
+          },
+          {
+            "classes": "bar-fill goal",
+            "fill": "rgb(123, 104, 161)",
+            "id": "goalBar"
+          }
+        ],
+        "information": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".sub-status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".cast-names",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(23, 56, 37)",
+            "selector": ".world-care-state",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".home-meters",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": "#message",
+            "shadow": "none"
+          }
+        ],
+        "narration": {
+          "scrollWidth": 358,
+          "width": 358
+        }
+      },
+      {
+        "scene": "world_theme_rainbow",
+        "bars": [
+          {
+            "classes": "bar-fill hunger",
+            "fill": "rgb(55, 131, 107)",
+            "id": "hungerBar"
+          },
+          {
+            "classes": "bar-fill happiness",
+            "fill": "rgb(166, 94, 130)",
+            "id": "happinessBar"
+          },
+          {
+            "classes": "bar-fill energy",
+            "fill": "rgb(70, 125, 157)",
+            "id": "energyBar"
+          },
+          {
+            "classes": "bar-fill health",
+            "fill": "rgb(55, 131, 107)",
+            "id": "healthBar"
+          },
+          {
+            "classes": "bar-fill evo",
+            "fill": "rgb(55, 131, 107)",
+            "id": "evoBar"
+          },
+          {
+            "classes": "bar-fill devo",
+            "fill": "rgb(167, 126, 63)",
+            "id": "devoBar"
+          },
+          {
+            "classes": "bar-fill death",
+            "fill": "rgb(55, 131, 107)",
+            "id": "deathBar"
+          },
+          {
+            "classes": "bar-fill transform",
+            "fill": "rgb(123, 104, 161)",
+            "id": "transformBar"
+          },
+          {
+            "classes": "bar-fill goal",
+            "fill": "rgb(123, 104, 161)",
+            "id": "goalBar"
+          }
+        ],
+        "information": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".sub-status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".cast-names",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(23, 56, 37)",
+            "selector": ".world-care-state",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".home-meters",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": "#message",
+            "shadow": "none"
+          }
+        ],
+        "narration": {
+          "scrollWidth": 358,
+          "width": 358
+        }
+      },
+      {
+        "scene": "care_low_health",
+        "bars": [
+          {
+            "classes": "bar-fill hunger low",
+            "fill": "rgb(179, 84, 21)",
+            "id": "hungerBar"
+          },
+          {
+            "classes": "bar-fill happiness",
+            "fill": "rgb(166, 94, 130)",
+            "id": "happinessBar"
+          },
+          {
+            "classes": "bar-fill energy",
+            "fill": "rgb(70, 125, 157)",
+            "id": "energyBar"
+          },
+          {
+            "classes": "bar-fill health critical",
+            "fill": "rgb(190, 41, 57)",
+            "id": "healthBar"
+          },
+          {
+            "classes": "bar-fill evo",
+            "fill": "rgb(55, 131, 107)",
+            "id": "evoBar"
+          },
+          {
+            "classes": "bar-fill devo",
+            "fill": "rgb(167, 126, 63)",
+            "id": "devoBar"
+          },
+          {
+            "classes": "bar-fill death",
+            "fill": "rgb(55, 131, 107)",
+            "id": "deathBar"
+          },
+          {
+            "classes": "bar-fill transform",
+            "fill": "rgb(123, 104, 161)",
+            "id": "transformBar"
+          },
+          {
+            "classes": "bar-fill goal",
+            "fill": "rgb(123, 104, 161)",
+            "id": "goalBar"
+          }
+        ],
+        "information": [
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".sub-status-row",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".cast-names",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(120, 53, 12)",
+            "selector": ".world-care-state",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(11, 32, 40)",
+            "selector": ".home-meters",
+            "shadow": "none"
+          },
+          {
+            "background": "rgba(0, 0, 0, 0)",
+            "border": "0px",
+            "color": "rgb(120, 53, 12)",
+            "selector": "#message",
+            "shadow": "none"
+          }
+        ],
+        "narration": {
+          "scrollWidth": 292,
+          "width": 292
+        }
+      }
+    ]
+  },
+  "interactions": {
+    "previewButton": "Click changed preview narration to ボタンを おしたよ。",
+    "settings": "input/change, reload retained 80/0; reset and saved legacy IDs covered in runtime tests.",
+    "farewell": "Actual record button click displayed life card.",
+    "shortLarge": "Focused narration and End revealed lower gauges and critical advice; controls bottom 627 within height 640.",
+    "minigame": "Play, intro and live rhythm game controls rendered; not all games exercised."
+  }
+}

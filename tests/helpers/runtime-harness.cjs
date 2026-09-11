@@ -153,7 +153,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion,
-      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, selectTheme, renderHomeCast,
+      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),

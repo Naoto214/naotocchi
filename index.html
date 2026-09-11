@@ -6,12 +6,12 @@
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260911-cebab744">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20260911-0110ed9b">
-  <link rel="stylesheet" href="design.css?v=20260911-465df341">
+  <link rel="stylesheet" href="ui.css?v=20260911-f74e14d7">
+  <link rel="stylesheet" href="design.css?v=20260911-915a5ee8">
   <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260911-0191a051">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260911-823ec14f">
-  <link rel="stylesheet" href="world-scene.css?v=20260911-a0676afe">
+  <link rel="stylesheet" href="world-scene.css?v=20260911-577c7f30">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
@@ -145,11 +145,6 @@
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
 
-        <div class="farewell-bar hidden" id="farewellBar">
-          <span>さいごのじかん—ゆっくりおわかれをしよう</span>
-          <button id="farewellBtn">この子のいっしょうをきろくする</button>
-        </div>
-
         <div class="life-card-overlay hidden" id="lifeCardOverlay">
           <div class="life-card" id="lifeCardBody"></div>
           <button class="life-card-next" id="lifeCardNextBtn">あたらしいたまごをむかえる</button>
@@ -223,24 +218,39 @@
         <div class="dex-overlay hidden" id="themeOverlay">
           <div class="dex-header">
             <span class="dex-title">でざいん</span>
-            <span class="dex-progress" id="themeProgress">0 / 80</span>
-            <button class="dex-close-btn" id="themeCloseBtn">✕</button>
-          </div>
-          <div class="design-tabs" aria-label="でざいんするところ">
-            <button type="button" id="designScreenTab" aria-pressed="true">メーター</button>
-            <button type="button" id="designDeviceTab" aria-pressed="false">ボタン</button>
+            <button class="dex-close-btn" id="themeCloseBtn" aria-label="でざいんをとじる">✕</button>
           </div>
           <div class="theme-scroll">
-            <div id="designScreenPanel">
-              <div class="theme-section"><div class="theme-section-title">メーターのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">メーターのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
-              <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
-              <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
+            <p class="design-help">せかいの すけかたを かえられるよ。<br>ボタンの わくは おせるしるし。</p>
+            <div class="design-preview" aria-label="いまの背景での見本">
+              <div class="design-preview-world" aria-hidden="true"></div>
+              <span class="design-preview-caption">ホームの見本</span>
+              <p class="design-preview-info world-information">ねんれい 25さい　そだち 85</p>
+              <p class="design-preview-narration" id="glassPreviewStatus" role="status">せかいを のんびり ながめている。</p>
+              <button type="button" class="world-glass-button" id="glassPreviewBtn">おしてためす</button>
             </div>
-            <div id="designDevicePanel" hidden>
-              <div class="theme-section"><div class="theme-section-title">ボタンのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">ボタンのがら</div><div class="theme-grid" id="devicePatternGrid"></div></div>
+            <div class="design-range-row">
+              <label for="buttonTransparency">ボタンの透明度 <output id="buttonTransparencyValue" for="buttonTransparency">72%</output></label>
+              <input type="range" id="buttonTransparency" min="30" max="80" step="1" value="72" aria-describedby="buttonTransparencyHelp">
+              <div class="design-range-ends"><span>くっきり</span><span>よくすける</span></div>
+              <p id="buttonTransparencyHelp" class="design-help">ボタンの背景だけがかわるよ。もじと わくは くっきり。</p>
             </div>
+            <div class="design-range-row">
+              <label for="infoReadability">情報の読みやすさ <output id="infoReadabilityValue" for="infoReadability">50%</output></label>
+              <input type="range" id="infoReadability" min="0" max="100" step="1" value="50" aria-describedby="infoReadabilityHelp">
+              <div class="design-range-ends"><span>けしきをみせる</span><span>もじをよみやすく</span></div>
+              <p id="infoReadabilityHelp" class="design-help">年齢・名前・メーター・おしらせの うしろを、ふんわり明るく／暗くするよ。</p>
+            </div>
+            <button type="button" id="glassResetBtn" class="glass-reset-btn">おすすめにもどす</button>
+            <p class="design-help">メーターと警告のいろは、からだの状態をあらわすよ。</p>
+            <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
+            <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
+            <details class="design-collection">
+              <summary>あつめたいろ・がら <span class="dex-progress" id="themeProgress">0 / 81</span></summary>
+              <p class="design-help">これまでのコレクションは のこるよ。ホームのいろは、みやすさにあわせて かわるよ。</p>
+              <div class="theme-section-title">いろ</div><div class="theme-grid" id="colorCollectionGrid"></div>
+              <div class="theme-section-title">がら</div><div class="theme-grid" id="patternCollectionGrid"></div>
+            </details>
           </div>
         </div>
 
@@ -365,7 +375,7 @@
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
-            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>メーター・ボタン</small></button>
+            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>透明度・もじ</small></button>
             <button type="button" id="stickerBtn"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i><span>シールちょう</span><small>あつめて・はる</small></button>
           </div>
         </div>
@@ -729,6 +739,10 @@
       <button id="menuBtn" title="メニュー">☰<span>メニュー</span></button>
     </nav>
     <div class="life-actions">
+      <div class="farewell-bar hidden" id="farewellBar">
+        <span>さいごのじかん—ゆっくりおわかれをしよう</span>
+        <button id="farewellBtn">この子のいっしょうをきろくする</button>
+      </div>
       <button id="resetBtn" title="あたらしいたまご" class="hidden">🥚<span>あたらしいたまご</span></button>
       <button id="infiniteBtn" title="♾️のせかい" class="hidden"><span id="infiniteBtnIcon">♾️</span><span id="infiniteBtnLabel">♾️のせかい</span></button>
     </div>
@@ -742,11 +756,11 @@
   <script src="cast-motion.js?v=20260911-c479a13a"></script>
   <script src="cast-layout.js?v=20260911-4a13a5ab"></script>
   <script src="world-environment.js?v=20260911-ee3a9e6a"></script>
-  <script src="world-scene.js?v=20260911-134f8a20"></script>
+  <script src="world-scene.js?v=20260911-836ab336"></script>
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
   <script src="games.js?v=20260911-a3406fc5"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-9796ca17"></script>
+  <script src="script.js?v=20260911-e81c3603"></script>
 </body>
 </html>
