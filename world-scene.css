@@ -127,16 +127,24 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .screen.surface-screen .home-meters .bar-fill.death:not(.low):not(.critical) {background:#b46779}
 .world-mode .screen.surface-screen .home-meters .bar-fill.devo:not(.high):not(.critical) {background:#a77e3f}
 .world-mode .screen.surface-screen .home-meters .bar-fill.transform:not(.high),.world-mode .screen.surface-screen .home-meters .bar-fill.goal:not(.high) {background:#7b68a1}
-.world-mode .screen #message {height:3em;min-height:3em;font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border-radius:10px;background:var(--world-glass);color:var(--world-ink);z-index:4}
-.world-mode .screen #message[data-care-severity="critical"] {color:#4c2112;background:rgb(255 240 223 / .74);font-weight:700}
+/* Reserve two complete lines plus padding, including the large-text setting. */
+.world-mode .screen #message {height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border-radius:10px;background:var(--world-glass);color:var(--world-ink);z-index:4}
+.world-mode .device[data-text-size="large"] .screen #message {font-size:14px}
+.world-mode .screen #message[data-care-kind="change"] {background:rgb(238 246 233 / .64);color:#183319}
 .world-mode .screen #message[data-care-severity="warning"],.world-mode .screen #message[data-care-tone="loss"],.world-mode .screen #message[data-care-tone="mixed"] {color:#453013;background:rgb(255 245 220 / .70)}
-.world-mode .screen #message[data-care-kind="change"]:not([data-care-tone="loss"]):not([data-care-tone="mixed"]) {background:rgb(238 246 233 / .64);color:#183319}
+/* Severity wins over a simultaneous change/tone without increasing specificity. */
+.world-mode .screen #message[data-care-severity="critical"] {color:#4c2112;background:rgb(255 240 223 / .74);font-weight:700}
 .world-mode .ending-badge-tip,.world-mode .birthday-toast,.world-mode .mg-result-toast {background:rgb(245 253 255 / .68);color:var(--world-ink);border:1px solid #ffffffad;box-shadow:0 3px 12px #052f3d30}
 .world-mode .mg-result-toast .mg-result-sub {opacity:1}
 .world-mode .mg-result-toast .mg-result-sub.new-best {color:#61420b}
 .world-mode .mg-result-toast .mg-retry-btn {background:rgb(255 239 175 / .60);color:#3e2a09}
 .world-mode .buttons,.world-mode .device.ui-home-compact .buttons {grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0;padding:0;z-index:5}
 .world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #ffffffcf;border-radius:17px;color:var(--world-ink);background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 96%,var(--surface-color) 4%);box-shadow:0 4px 12px #153b4924;gap:5px;isolation:isolate}
+/* The legacy travel/menu ID rules outrank the shared button class above. */
+.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 96%,var(--surface-color) 4%);color:var(--world-ink);border-color:#ffffffcf;box-shadow:0 4px 12px #153b4924}
+.world-mode .life-actions button {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 96%,var(--surface-color) 4%);color:var(--world-ink);border-color:#ffffffcf;box-shadow:0 4px 12px #153b4924}
+.world-mode .farewell-bar {position:static;flex-shrink:0;border-radius:13px;background:rgb(255 245 220 / .60);color:#453013}
+.world-mode .farewell-bar button {background:rgb(255 225 170 / .30);color:#453013;box-shadow:inset 0 0 0 1px #a4772d}
 .world-mode .buttons button::before {content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.04;pointer-events:none}
 .world-mode .buttons button span,.world-mode .device.ui-home-compact .buttons button span {font-size:14px;color:inherit}
 .world-mode .buttons #playBtn {background:rgb(207 241 250 / .64);color:var(--world-ink);border-color:#a4d9e8;box-shadow:inset 0 0 0 1px #39718470,0 4px 12px #153b4924}
@@ -158,7 +166,7 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device .home-meters .bar-label {grid-column:1/-1;grid-row:1;white-space:nowrap}
 .world-mode .device .home-meters .bar {grid-column:1;grid-row:2}
 .world-mode .device .home-meters .bar-value {grid-column:2;grid-row:2}
-.world-mode :is(.home-meters,.header-title,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast),.world-mode .buttons button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
+.world-mode :is(.home-meters,.header-title,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
 @media(min-width:800px){.world-mode .device.surface-device{padding-inline:26px}.world-mode .world-kelp{left:calc(50% - 400px)}.world-mode .world-fan{right:calc(50% - 390px)}}
 @media(max-width:360px){.world-mode .device.surface-device{padding-inline:9px}.world-mode .home-meters{padding:8px}.world-mode .home-meters .care-meters{gap:6px}.world-mode .care-meters .bar-value{font-size:11px}.world-mode .home-meters .bars.meters{column-gap:7px}.world-mode .buttons button{gap:3px}.world-mode .buttons .care-icon{width:23px;height:23px;flex-basis:23px}}
 @media(max-height:700px){
@@ -169,6 +177,8 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
   .world-mode .header-title{padding:3px 7px}
   .world-mode .device .device-header{padding-bottom:0}
   .world-mode .sub-status-row{padding-block:2px}
+  /* Pay for the new name border without pushing short-screen controls down. */
+  .world-mode .cast-names{padding-block:3px}
   .world-mode [data-world-care="normal"] .world-care-state,.world-mode [data-world-care="none"] .world-care-state{display:none}
   .world-mode .home-meters{padding-block:7px;gap:4px}
   .world-mode .device .home-meters .bars.meters{padding-top:4px;gap:4px 7px}

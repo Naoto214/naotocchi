@@ -20,5 +20,5 @@
 - [x] Integrate ocean raster backdrop and transparent atlas. Verify ocean prototype in browser with existing `/__qa` synthetic fixtures; fix source issues and record infrastructure limits.
 - [x] Extend the registered scenes to remaining regions after the prototype gate; verify distinct assets and climate rules. Never represent unfinished artwork as completed.
 - [x] Run existing full suite plus new tests; inspect display and transitions, reduced-motion, narrow/short viewport, old theme selections, crowded cast, warning/recovery. Keep Vite QA fixes required by actual preview errors.
-- [ ] Finish the user's added glass request across all home surfaces; fix remaining opaque travel/menu styles, verify contrast and refresh screenshots. See `docs/qa/immersive-world-handoff-2026-09-11.md`.
-- [ ] Finalize QA/checkpoint, asset tokens, diff/test checks and current-main integration; review the latest PR checks and readiness. The current Draft saves work in progress.
+- [x] Finish the user's added glass request across all home surfaces; fix remaining opaque travel/menu styles, verify contrast and refresh screenshots. See `docs/qa/immersive-world-handoff-2026-09-11.md`.
+- [x] Finalize QA/checkpoint, asset tokens, diff/test checks and current-main integration. Review complete; the final HEAD/tree/CI are recorded in PR #239. Keep the Draft for user review; no merge or publication.

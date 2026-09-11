@@ -55,6 +55,11 @@ function createFixtures() {
       Object.assign(worldCritical.lifetime,{timeMode:'night',weatherMode:'rain',seasonMode:'winter'});
       const worldLarge=make('world_sea_large',26,{regionId:'sea',hunger:85,health:95,energy:95,happiness:90});
       Object.assign(worldLarge.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',textSize:'large'});
+      const worldCriticalLarge=JSON.parse(JSON.stringify(worldCritical));
+      worldCriticalLarge.lifetime.textSize='large';
+      fixtures.world_sea_critical_large=worldCriticalLarge;
+      const worldFarewell=make('world_farewell',2,{regionId:'sea',stage:'farewell',dying:false});
+      Object.assign(worldFarewell.lifetime,{timeMode:'evening',weatherMode:'sunny',seasonMode:'summer'});
       for (const theme of ['starlight','rainbow']) {
         const save=make('world_theme_'+theme,2,{regionId:'sea',hunger:85,health:95,energy:95,happiness:90});
         Object.assign(save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer',screenThemeId:theme,deviceThemeId:theme,screenPatternId:'checker',devicePatternId:'brick',clears:5,perfectCleared:true,endingTiersReached:[0,1,2,3,4]});
@@ -332,13 +337,17 @@ function visualQaPlugin() {
             const movieOverflow=movieBounds.width>0&&movieActorRow.scrollWidth>movieActorRow.clientWidth;
             const movieClipped=movieActors.some(r=>r.left<movieBounds.left||r.right>movieBounds.right||r.top<movieBounds.top||r.bottom>movieBounds.bottom);
             const movieCaptionOverlap=movieActors.some(r=>intersects(r,movieCaption));
-            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&!movieCaptionOverflow&&!movieCaptionOutside&&!movieOutsideViewport&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
+            const farewellBounds=doc.getElementById('farewellBar').getBoundingClientRect();
+            const farewellOverlap=[...doc.querySelectorAll('.home-meters,#message,.buttons')].some(e=>intersects(farewellBounds,e.getBoundingClientRect()));
+            const layoutChecksPass=outside.length===0&&!speechOverlap&&!actorOverlap&&!detached&&!panelOverflow.length&&!storyOutsideViewport&&!storyTextOverflow&&!movieOverflow&&!movieClipped&&!movieCaptionOverlap&&!movieCaptionOverflow&&!movieCaptionOutside&&!movieOutsideViewport&&!farewellOverlap&&doc.documentElement.scrollWidth<=doc.documentElement.clientWidth;
             const result={scene:document.getElementById('scene').value,width:doc.documentElement.clientWidth,
               height:doc.documentElement.clientHeight,pageHeight:doc.documentElement.scrollHeight,
               stylesheet:doc.querySelector('link[rel="stylesheet"]').getAttribute('href'),
+              worldStylesheet:doc.querySelector('link[href^="world-scene.css"]')?.getAttribute('href')||null,
               gameScript:doc.querySelector('script[src^="script.js"]').getAttribute('src'),
               heroAsset:doc.querySelector('#petSprite img')?.getAttribute('src')||null,
               actorFrameOverlap,
+              farewellOverlap,
               world:doc.getElementById('worldScene')?{...doc.getElementById('worldScene').dataset,
                 backdrop:doc.defaultView.getComputedStyle(doc.getElementById('worldBackdrop')).backgroundImage,
                 motion:doc.body.dataset.worldMotion,paused:doc.body.dataset.worldPaused,
