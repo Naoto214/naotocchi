@@ -4,18 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260911-input-3">
+  <link rel="stylesheet" href="style.css?v=20260911-cebab744">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260911-0110ed9b">
   <link rel="stylesheet" href="design.css?v=20260911-465df341">
   <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260911-0191a051">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260911-823ec14f">
+  <link rel="stylesheet" href="world-scene.css?v=20260911-a0676afe">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
 </head>
 <body>
+  <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
+    <div class="world-backdrop" id="worldBackdrop"></div>
+    <div class="world-depth" id="worldDepth"></div>
+    <div class="world-light"></div>
+    <div class="world-atmosphere" id="worldAtmosphere"></div>
+    <div class="world-foreground" id="worldForeground"></div>
+  </div>
   <div class="season-tint" id="seasonTint"></div>
   <div class="time-tint" id="timeTint"></div>
   <div class="region-decor" id="regionDecor"></div>
@@ -60,6 +68,8 @@
               <div class="cast-title-line"><div id="mainNameLabel">たまご</div><div class="stage-name-row"><span id="stageLabel">たまご</span></div></div>
               <div id="partnerLabel"></div>
             </div>
+            <div class="world-care-state" id="worldCareState" role="status" aria-live="polite"></div>
+            <p class="world-description" id="worldDescription"></p>
           </div>
           <div class="pet-area" id="petArea">
             <div class="cast-stage" id="castStage"><div class="cast-sway" id="castSway"><div class="cast-response" id="castResponse"><div class="pet" id="pet">
@@ -217,19 +227,19 @@
             <button class="dex-close-btn" id="themeCloseBtn">✕</button>
           </div>
           <div class="design-tabs" aria-label="でざいんするところ">
-            <button type="button" id="designScreenTab" aria-pressed="true">がめん</button>
-            <button type="button" id="designDeviceTab" aria-pressed="false">ほんたい</button>
+            <button type="button" id="designScreenTab" aria-pressed="true">メーター</button>
+            <button type="button" id="designDeviceTab" aria-pressed="false">ボタン</button>
           </div>
           <div class="theme-scroll">
             <div id="designScreenPanel">
-              <div class="theme-section"><div class="theme-section-title">がめんのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">がめんのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">メーターのいろ</div><div class="theme-grid" id="screenThemeGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">メーターのがら</div><div class="theme-grid" id="screenPatternGrid"></div></div>
               <div class="design-font-row"><label for="fontSelect">もじのふんいき</label><select id="fontSelect"><option value="rounded">やわらか</option><option value="standard">すっきり</option><option value="retro">レトロ</option></select></div>
               <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
             </div>
             <div id="designDevicePanel" hidden>
-              <div class="theme-section"><div class="theme-section-title">ほんたいのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
-              <div class="theme-section"><div class="theme-section-title">ほんたいのがら</div><div class="theme-grid" id="devicePatternGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">ボタンのいろ</div><div class="theme-grid" id="deviceThemeGrid"></div></div>
+              <div class="theme-section"><div class="theme-section-title">ボタンのがら</div><div class="theme-grid" id="devicePatternGrid"></div></div>
             </div>
           </div>
         </div>
@@ -355,7 +365,7 @@
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
             <button type="button" id="achBtn"><i class="care-icon ui-icon" data-ui-icon="medal" aria-hidden="true"></i><span>じっせき</span><small>できたこと・おもいで</small></button>
-            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>がめん・ほんたい</small></button>
+            <button type="button" id="themeBtn"><i class="care-icon ui-icon" data-ui-icon="palette" aria-hidden="true"></i><span>でざいん</span><small>メーター・ボタン</small></button>
             <button type="button" id="stickerBtn"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i><span>シールちょう</span><small>あつめて・はる</small></button>
           </div>
         </div>
@@ -732,10 +742,11 @@
   <script src="cast-motion.js?v=20260911-c479a13a"></script>
   <script src="cast-layout.js?v=20260911-4a13a5ab"></script>
   <script src="world-environment.js?v=20260911-ee3a9e6a"></script>
+  <script src="world-scene.js?v=20260911-134f8a20"></script>
   <script src="prop-illustrations.js?v=20260911-12071d0c"></script>
-  <script src="games.js?v=20260911-11"></script>
+  <script src="games.js?v=20260911-a3406fc5"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-7d4603e7"></script>
-  <script src="script.js?v=20260911-input-3"></script>
+  <script src="script.js?v=20260911-9796ca17"></script>
 </body>
 </html>

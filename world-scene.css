@@ -1,0 +1,272 @@
+/* The world reaches the viewport edge. The retained IDs are game anchors,
+   not a device frame. Home and shared minigame chrome use the same scenery. */
+.world-scene {position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;isolation:isolate;background:var(--world-base,#087c9c)}
+.world-scene > div {position:absolute;inset:0;pointer-events:none}
+.world-backdrop {background-size:cover;background-position:center 50%;transform:scale(var(--world-art-scale,1));transform-origin:center bottom;filter:brightness(var(--world-light,1)) hue-rotate(var(--world-temperature,0deg)) saturate(var(--world-saturation,1)) sepia(var(--world-warmth,0));transition:filter 1.8s ease}
+.world-depth,.world-foreground {filter:brightness(max(.55,var(--world-light,1)));transition:filter 1.8s ease}
+.world-light {background:linear-gradient(180deg,color-mix(in srgb,var(--world-tint) 28%,transparent),transparent 55%,#03273522);mix-blend-mode:soft-light}
+.world-light::after {content:"";position:absolute;inset:-10% -20%;background:repeating-conic-gradient(from 155deg at 52% 0%,transparent 0deg 9deg,#cdfafa25 12deg 15deg,transparent 18deg 32deg);opacity:var(--world-light,1);animation:world-rays 16s ease-in-out infinite alternate;transform-origin:50% 0}
+.world-scene[data-time="night"] .world-light {background:linear-gradient(#12224a99,#13376866 60%,#07163366);mix-blend-mode:multiply}
+.world-scene[data-rays="false"] .world-light::after {display:none}
+.world-scene[data-habitat="abyss"] .world-light,.world-scene[data-habitat="sky"] .world-light {background:none}
+.world-scene[data-mist="true"] .world-atmosphere {background:linear-gradient(transparent,#cbdce029 24%,transparent 65%)}
+.world-scene[data-frost="true"] .world-foreground::after {content:"";position:absolute;inset:60% 0 0;box-shadow:inset 0 -28px 50px #edf6ff4a;pointer-events:none}
+.world-branch {width:clamp(140px,32vw,380px);left:-30px;top:-30px;transform-origin:0 0;animation:world-branch 8s ease-in-out infinite}
+.world-fern {width:clamp(140px,31vw,330px);left:-55px;bottom:-35px;transform-origin:50% 100%;animation:world-kelp 8s ease-in-out infinite}
+.world-reeds {width:clamp(80px,19vw,200px);right:-20px;bottom:6%;transform-origin:50% 100%;animation:world-kelp 8s ease-in-out infinite}
+.world-scene[data-foliage-season="autumn"] .world-branch,.world-scene[data-foliage-season="autumn"] .world-fern {filter:sepia(.55) saturate(1.5) hue-rotate(-28deg)}
+.world-scene[data-foliage-season="winter"] .world-reeds {filter:saturate(.2) brightness(1.2)}
+.world-bioluminescent {opacity:.8;filter:drop-shadow(0 0 12px #5bebfc88)}
+.world-particle {position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);animation-duration:var(--duration);animation-delay:var(--delay);animation-timing-function:linear;animation-iteration-count:infinite}
+.world-mote,.world-plankton,.world-firefly,.world-spark,.world-dust {border-radius:50%;background:#fffed773;animation-name:world-drift}
+.world-firefly,.world-spark,.world-plankton {background:#deffe8;box-shadow:0 0 6px 2px #b4f8ec7d;animation-name:world-twinkle}
+.world-spark {width:2px;height:2px}
+.world-dust {opacity:.3;background:#fce5bf}
+.world-rain {width:1px;height:14px;background:linear-gradient(transparent,#dcf4ffa0);animation-name:world-rain}
+.world-snow {border-radius:50%;background:#f7fcff;box-shadow:0 0 2px #fff;animation-name:world-fall}
+.world-leaf,.world-petal {width:14px;height:14px;background:center/contain no-repeat;animation-name:world-fall}
+.world-leaf {background-image:url('assets/world/leaf-v1.webp')}
+.world-petal {background-image:url('assets/world/blossom-v1.webp')}
+.world-water {position:absolute;width:22%;height:3%;border:1px solid #e6ffff5e;border-radius:50%;box-shadow:0 0 0 5px #e6ffff18;animation:world-ripple 7s ease-out infinite;transform:translate(-50%,-50%)}
+.world-scene[data-frost="true"] .world-water {animation:none;opacity:.25}
+@keyframes world-branch {0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
+@keyframes world-breeze {0%,100%{transform:translateX(-3px)}50%{transform:translateX(3px)}}
+@keyframes world-drift {0%,100%{transform:translate(-8px,0);opacity:.1}50%{transform:translate(12px,-14px);opacity:.5}}
+@keyframes world-twinkle {0%,100%{transform:translate(0,0);opacity:.15}50%{transform:translate(9px,-8px);opacity:.7}}
+@keyframes world-rain {from{transform:translate(-25px,-40vh);opacity:0}25%,80%{opacity:.55}to{transform:translate(25px,40vh);opacity:0}}
+@keyframes world-fall {from{transform:translate(-12px,-40vh) rotate(0deg);opacity:0}20%,75%{opacity:.7}to{transform:translate(20px,45vh) rotate(150deg);opacity:0}}
+@keyframes world-ripple {0%{transform:translate(-50%,-50%) scale(.5);opacity:0}25%{opacity:.5}100%{transform:translate(-50%,-50%) scale(1.5);opacity:0}}
+.world-prop {position:absolute;object-fit:contain;user-select:none}
+.world-kelp {height:clamp(130px,25vh,330px);width:auto;left:-28px;top:calc(var(--world-stage-bottom,52vh) - 180px);transform-origin:50% 100%;animation:world-kelp 6s ease-in-out infinite}
+.world-fan {height:clamp(110px,18vh,220px);width:auto;right:-34px;top:calc(var(--world-stage-bottom,52vh) - 130px);transform-origin:50% 100%;animation:world-kelp 7s ease-in-out infinite reverse;opacity:.84}
+.world-coral {width:clamp(100px,20vw,240px);right:-20px;bottom:-24px}
+.world-fish {width:74px;top:22%;left:0;opacity:.64;animation:world-swim 48s linear infinite}
+.world-jelly {width:45px;top:35%;right:14%;opacity:.5;animation:world-jelly 12s ease-in-out infinite}
+.world-bubble {border:1px solid #e3fcff85;border-radius:50%;box-shadow:inset 1px 1px #fff7;animation-name:world-rise}
+.world-atmosphere {opacity:.7}
+.world-scene::after {content:"";position:absolute;inset:0;background:linear-gradient(#042d491f,transparent 22% 55%,#04233736);pointer-events:none}
+@keyframes world-rays {to{transform:translateX(3%) rotate(4deg);opacity:calc(var(--world-light,1)*.6)}}
+@keyframes world-kelp {0%,100%{transform:skewX(-3deg)}50%{transform:skewX(3deg)}}
+@keyframes world-rise {from{transform:translate(0,25vh);opacity:0}20%,75%{opacity:.7}to{transform:translate(18px,-60vh);opacity:0}}
+@keyframes world-swim {from{transform:translateX(-100px)}to{transform:translateX(calc(100vw + 100px))}}
+@keyframes world-jelly {0%,100%{transform:translate(0,0)}50%{transform:translate(-12px,-18px)}}
+/* The existing cast solver reserves 16px for reactions. Keep idle vertical
+   travel within its original 1px budget, including during a shared jump. */
+@keyframes world-float {0%,100%{transform:translate(-5px,0)}25%,75%{transform:translate(0,-.6px)}50%{transform:translate(5px,-1px)}}
+@keyframes world-care-pulse {0%,100%{opacity:.45;transform:scale(.98)}50%{opacity:.8;transform:scale(1.015)}}
+
+/* Tint only the glass surfaces; text, icons and meter fills stay fully opaque. */
+body.world-mode {--world-glass:rgb(245 253 255 / .24);--world-detail-glass:rgb(245 253 255 / .28);--world-ink:#0b2028;--world-glass-blur:2px;--world-text-halo:0 1px 1px #ffffffed,0 0 2px #ffffffd9;padding:0;display:flex;align-items:flex-start;justify-content:center;background:var(--world-base);color:var(--world-ink)}
+/* Match the ink and glass to the rendered light, including always-dark habitats.
+   Only presentation tokens change; saved themes, time and climate stay intact. */
+body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[data-habitat="sky"])) {
+  --world-glass:rgb(4 20 31 / .24);--world-detail-glass:rgb(4 20 31 / .28);--world-ink:#f3fbff;
+  --world-text-halo:0 1px 2px #00101ffa,0 0 2px #00101fe6;
+  --world-speech-glass:rgb(4 20 31 / .40);
+  --world-good-glass:rgb(18 54 38 / .38);--world-good-ink:#e5f9df;
+  --world-caution-glass:rgb(63 49 7 / .42);--world-caution-ink:#fff3c4;
+  --world-warning-glass:rgb(66 36 8 / .46);--world-warning-ink:#ffe7ba;
+  --world-critical-glass:rgb(73 21 29 / .52);--world-critical-ink:#ffebdf;
+  --world-social-glass:rgb(61 25 49 / .38);--world-social-ink:#ffe7f3;
+  --world-affection-glass:rgb(96 37 66 / .18);
+  --world-play-glass:rgb(9 47 62 / .38);
+  --world-toast-glass:rgb(4 20 31 / .42);
+  --world-retry-glass:rgb(63 49 7 / .32);
+  --world-farewell-glass:rgb(66 36 8 / .32);
+  --world-farewell-button-glass:rgb(82 46 8 / .30);
+}
+/* A narrow light halo protects small glyphs without whitening the whole pane. */
+.world-mode :is(.name-plate,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.home-meters,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {text-shadow:var(--world-text-halo)}
+body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-decor,body.world-mode .season-bg-fx,body.world-mode .season-front-fx,body.world-mode .weather-fx {display:none!important}
+.world-mode .device.surface-device {width:min(100%,620px);min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) 16px max(10px,env(safe-area-inset-bottom));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
+.world-mode .device.surface-device::before,.world-mode .screen.surface-screen::before,.world-mode .screen-frame::before,.world-mode .device::after {display:none}
+.world-mode .device.ui-home-active {height:var(--app-height);min-height:min-content;grid-template-rows:auto minmax(min-content,1fr) auto auto;gap:6px}
+.world-mode .device-top {display:none}
+.world-mode .device-header {min-height:44px;padding:0;gap:8px;z-index:5}
+.world-mode .header-title,.world-mode .device:not(.theme-default) .header-title {padding:5px 9px;background:var(--world-glass);border:1px solid #ffffff70;border-radius:17px;box-shadow:0 3px 12px #052f3d16}
+.world-mode .name-plate {font-size:18px;color:var(--world-ink);letter-spacing:.07em}
+.world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-glass);border:1px solid #ffffff70;color:var(--world-ink);box-shadow:0 3px 12px #052f3d16}
+.world-mode .header-button span {font-size:12px}
+.world-mode .screen-frame {padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;min-width:0}
+.world-mode .screen.surface-screen {padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:var(--world-ink);overflow:visible;isolation:auto}
+.world-mode .screen-normal {gap:5px}
+.world-mode .status-row {align-items:center;font-size:14px;line-height:1.35;gap:4px;padding:5px 10px;background:var(--world-glass);border:1px solid #ffffff66;border-radius:13px;color:var(--world-ink)}
+.world-mode #ageLabel,.world-mode #sodachiLabel,.world-mode #moneyLabel {font-size:13px;color:var(--world-ink)}
+.world-mode .sub-status-row {padding:4px 9px;margin:0;background:var(--world-glass);border:1px solid #ffffff66;border-radius:13px;font-size:12px;line-height:1.4;color:var(--world-ink);opacity:1}
+.world-mode .cast-heading {padding:4px 0 0;gap:5px;flex-direction:column;z-index:3}
+.world-mode .cast-names {flex:initial;padding:4px 10px;border:1px solid #ffffff66;border-radius:13px;background:var(--world-detail-glass);color:var(--world-ink)}
+.world-mode .device.ui-home-compact .cast-names {flex-direction:column;flex-wrap:nowrap;gap:2px}
+.world-mode #mainNameLabel {font-size:15px}
+.world-mode #partnerLabel {font-size:13px}
+.world-mode .partner-affection {display:inline-block;white-space:nowrap;margin-left:5px;padding:0 4px;border-radius:7px;background:var(--world-affection-glass,rgb(255 225 239 / .18));color:var(--world-social-ink,#492439);font-size:12px;font-weight:600}
+.world-mode .stage-name-row {font-size:12px;opacity:1}
+.world-description {display:none}
+.world-mode .world-description {display:block;margin:0;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.world-care-state {display:none}
+.world-mode .world-care-state {display:flex;align-items:center;justify-content:center;gap:4px;min-height:23px;padding:2px 8px;border:1px solid #ffffff66;border-radius:20px;background:var(--world-good-glass,rgb(237 249 240 / .38));color:var(--world-good-ink,#173825);font-size:12px;font-weight:600;line-height:1.3}
+.world-mode .world-care-state .care-icon {width:19px;height:19px;flex-basis:19px}
+.world-mode [data-world-care="none"] .world-care-state {visibility:hidden}
+.world-mode [data-world-care="caution"] .world-care-state {color:var(--world-caution-ink,#49320b);background:var(--world-caution-glass,rgb(255 248 217 / .42))}
+.world-mode [data-world-care="warning"] .world-care-state {color:var(--world-warning-ink,#4c2810);background:var(--world-warning-glass,rgb(255 240 201 / .46));outline:1px solid #a97130}
+.world-mode [data-world-care="critical"] .world-care-state {color:var(--world-critical-ink,#582024);background:var(--world-critical-glass,rgb(255 240 233 / .52));outline:2px solid #b24949}
+.world-mode #petArea {flex:1;gap:0;min-height:200px;position:relative}
+.world-mode .cast-stage {min-height:146px;background:none!important}
+.world-mode .cast-stage::before {display:none!important}
+.world-mode .cast-stage::after {content:"";position:absolute;inset:30% 18% 22px;z-index:-1;border-radius:50%;opacity:0;pointer-events:none}
+.world-mode [data-world-care="warning"] .cast-stage::after {opacity:.5;box-shadow:0 0 28px 10px #fff0b099}
+.world-mode [data-world-care="critical"] .cast-stage::after {background:radial-gradient(ellipse,transparent 42%,#ffe2c68c 68%,transparent 74%);box-shadow:0 0 25px 8px #fff0c65e;animation:world-care-pulse 2.8s ease-in-out infinite}
+.world-mode .cast-sway {animation:world-float 6s ease-in-out infinite}
+.world-mode[data-world-motion="breeze"] .cast-sway {animation:world-breeze 8s ease-in-out infinite}
+.world-mode[data-world-motion="still"] .cast-sway {animation:none}
+.world-mode .screen.sleeping .cast-sway {animation-duration:10s}
+.world-mode .screen.dying>.screen-normal {filter:none}
+.world-mode .speech-slot {height:calc(2.8em + 17px);font-size:14px;padding:4px 0 1px;z-index:4}
+.world-mode .speech-slot .speech-bubble {font-size:14px;border-width:1px;border-color:#75949d;background:var(--world-speech-glass,rgb(250 255 255 / .42));box-shadow:0 3px 12px #133d4e25;padding:4px 10px;color:var(--world-ink);border-radius:15px}
+.world-mode .speech-slot .speech-bubble::before {background:var(--world-speech-glass,rgb(250 255 255 / .42));border-color:#75949d}
+.world-mode .home-meters {position:relative;isolation:isolate;padding:9px 11px;margin:0;border:1px solid #ffffff7a;border-radius:19px;gap:7px;background:var(--world-detail-glass);background:color-mix(in srgb,var(--world-detail-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);box-shadow:0 6px 22px #052e441e;z-index:4}
+.world-mode .home-meters::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.025}
+.world-mode .home-meters::after,.world-mode .buttons button>span::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background-image:var(--surface-image);background-size:cover;opacity:.03}
+.world-mode .buttons button>span::before {border-radius:17px}
+.world-mode .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.world-mode .home-meters .care-meters .bar-line {grid-template-columns:1fr auto;grid-template-rows:auto 7px;gap:4px 3px}
+.world-mode .home-meters .bar-label {font-size:13px;color:var(--world-ink);font-weight:500}
+.world-mode .home-meters .bar-value {font-size:12px;color:var(--world-ink);font-weight:600}
+.world-mode .care-meters .bar-label {grid-column:1;grid-row:1}
+.world-mode .care-meters .bar-value {grid-column:2;grid-row:1}
+.world-mode .care-meters .bar {grid-column:1/-1;grid-row:2}
+.world-mode .home-meters .bars.meters {grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 12px;border-color:#52758230;margin:0;padding-top:7px}
+.world-mode .home-meters .meters .bar-line {grid-column:span 2;grid-template-columns:1fr auto;grid-template-rows:auto 6px;gap:3px}
+.world-mode .home-meters .meters .bar-line:nth-child(n+4) {grid-column:span 3}
+.world-mode .home-meters .meters .bar-label {grid-column:1;grid-row:1;font-size:12px}
+.world-mode .home-meters .meters .bar-value {grid-column:2;grid-row:1;font-size:11px}
+.world-mode .home-meters .meters .bar {grid-column:1/-1;grid-row:2}
+.world-mode .home-meters .bar {height:7px;background:#e9f4f5c2!important;box-shadow:inset 0 0 0 1px #33566266;border-radius:10px}
+.world-mode .screen.surface-screen .home-meters .bar-fill:not(.low):not(.critical):not(.high) {background:#37836b}
+.world-mode .screen.surface-screen .home-meters .bar-fill.happiness:not(.low):not(.critical) {background:#a65e82}
+.world-mode .screen.surface-screen .home-meters .bar-fill.energy:not(.low):not(.critical) {background:#467d9d}
+.world-mode .screen.surface-screen .home-meters .bar-fill.death:not(.low):not(.critical) {background:#b46779}
+.world-mode .screen.surface-screen .home-meters .bar-fill.devo:not(.high):not(.critical) {background:#a77e3f}
+.world-mode .screen.surface-screen .home-meters .bar-fill.transform:not(.high),.world-mode .screen.surface-screen .home-meters .bar-fill.goal:not(.high) {background:#7b68a1}
+/* Reserve two complete lines plus padding, including the large-text setting. */
+.world-mode .screen #message {height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border-radius:10px;background:var(--world-glass);color:var(--world-ink);z-index:4}
+.world-mode .device[data-text-size="large"] .screen #message {font-size:14px}
+.world-mode .screen #message[data-care-kind="change"] {background:var(--world-good-glass,rgb(238 246 233 / .38));color:var(--world-good-ink,#183319)}
+.world-mode .screen #message[data-care-severity="warning"],.world-mode .screen #message[data-care-tone="loss"],.world-mode .screen #message[data-care-tone="mixed"] {color:var(--world-warning-ink,#453013);background:var(--world-warning-glass,rgb(255 245 220 / .46))}
+/* Severity wins over a simultaneous change/tone without increasing specificity. */
+.world-mode .screen #message[data-care-severity="critical"] {color:var(--world-critical-ink,#4c2112);background:var(--world-critical-glass,rgb(255 240 223 / .52));font-weight:700}
+.world-mode .ending-badge-tip,.world-mode .birthday-toast,.world-mode .mg-result-toast {background:var(--world-toast-glass,rgb(245 253 255 / .42));color:var(--world-ink);border:1px solid #ffffffad;box-shadow:0 3px 12px #052f3d30}
+.world-mode .mg-result-toast .mg-result-sub {opacity:1}
+.world-mode .mg-result-toast .mg-result-sub.new-best {color:var(--world-caution-ink,#61420b)}
+.world-mode .mg-result-toast .mg-retry-btn {background:var(--world-retry-glass,rgb(255 239 175 / .32));color:var(--world-caution-ink,#3e2a09)}
+.world-mode .buttons,.world-mode .device.ui-home-compact .buttons {grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0;padding:0;z-index:5}
+.world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #ffffff80;border-radius:17px;color:var(--world-ink);background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);box-shadow:0 4px 12px #153b4924;gap:5px;isolation:isolate}
+/* The legacy travel/menu ID rules outrank the shared button class above. */
+.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
+.world-mode .life-actions button {background:var(--world-glass);background:color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
+.world-mode .farewell-bar {position:static;flex-shrink:0;border-radius:13px;background:var(--world-farewell-glass,rgb(255 245 220 / .32));color:var(--world-warning-ink,#453013)}
+.world-mode .farewell-bar button {background:var(--world-farewell-button-glass,rgb(255 225 170 / .30));color:var(--world-warning-ink,#453013);box-shadow:inset 0 0 0 1px #a4772d}
+.world-mode .buttons button::before {content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.025;pointer-events:none}
+.world-mode .buttons button span,.world-mode .device.ui-home-compact .buttons button span {font-size:14px;color:inherit}
+.world-mode .buttons #playBtn {background:var(--world-play-glass,rgb(207 241 250 / .38));color:var(--world-ink);border-color:#a4d9e8;box-shadow:inset 0 0 0 1px #39718470,0 4px 12px #153b4924}
+.world-mode .buttons #courtBtn,.world-mode .buttons #playWithBtn {background:var(--world-social-glass,rgb(255 240 244 / .38));color:var(--world-social-ink,#492439);border-color:#edc5d9}
+.world-mode .buttons button:active {transform:translateY(1px);box-shadow:0 1px 5px #153b4930}
+.world-mode .buttons button:disabled {opacity:1;filter:none;border-style:dashed}
+.world-mode .buttons button:disabled .care-icon {opacity:.65;filter:grayscale(.6)}
+.world-mode .buttons button[data-care-recommended="true"] {box-shadow:inset 0 0 0 2px #b47735,0 3px 12px #17374738}
+.world-mode .screen:not(:has(.screen-normal:not(.hidden))) {background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
+.world-mode .device.ui-game-active {max-width:620px}
+.world-mode .device.ui-game-active .screen {min-height:300px;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
+/* Keep the world visible through the game shell. Board/Canvas palettes retain
+   their own ink and opaque pieces; only shared HUD and controls use world ink.
+   Inset outlines preserve the existing button sizes and pointer coordinates. */
+.world-mode .minigame-overlay {background:transparent}
+.world-mode .minigame-overlay :is(.mg-header,.mg-title,.mg-hint,.mg-climb-choice) {
+  background:var(--world-detail-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);border-radius:10px;opacity:1;
+}
+.world-mode .minigame-overlay .mg-intro {
+  background:var(--world-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);box-shadow:inset 0 0 0 1px #ffffff70;
+}
+.world-mode .minigame-overlay .mg-intro-controls {background:var(--world-detail-glass)}
+.world-mode .minigame-overlay .mg-intro-demo {background:rgb(245 253 255 / .70)}
+.world-mode .minigame-overlay :is(.mg-intro-genre,.mg-intro-note) {opacity:1}
+.world-mode .minigame-overlay .mg-intro-badge {
+  background:var(--world-caution-glass,rgb(255 248 217 / .42));
+  color:var(--world-caution-ink,#49320b);box-shadow:inset 0 0 0 1px #b88740;
+}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn) {
+  background:var(--world-detail-glass);color:var(--world-ink);
+  text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
+}
+.world-mode .minigame-overlay :is(.mg-intro-start,.mg-launch-btn,.mg-tap-btn.primary) {
+  background:var(--world-play-glass,rgb(207 241 250 / .38));
+  box-shadow:inset 0 0 0 2px #80cde0,0 3px 9px #052e4440;
+}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):is(:active,.mg-held,.mg-holding) {
+  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  box-shadow:inset 0 0 0 2px #80cde0,0 1px 4px #052e4440;
+}
+/* The legacy guard uses an ID selector; cover its resting and held palettes. */
+.world-mode .minigame-overlay #sfGuard {background:var(--world-detail-glass);color:var(--world-ink)}
+.world-mode .minigame-overlay #sfGuard:is(:active,.mg-held,.mg-holding) {background:var(--world-speech-glass,rgb(250 255 255 / .42))}
+.world-mode .minigame-overlay .mg-tap-btn.sel {box-shadow:inset 0 0 0 3px #ffd23f,0 3px 9px #052e4440}
+.world-mode .minigame-overlay :is(.mg-tap-btn,.mg-choice-btn,.mg-hold-btn):disabled {
+  opacity:1;filter:grayscale(.5);outline:1px dashed #75949d;outline-offset:-2px;
+  box-shadow:inset 0 0 0 1px #75949d70;
+}
+/* Answer feedback remains distinct and readable on its existing light fills. */
+.world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
+.world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
+  background:var(--world-speech-glass,rgb(250 255 255 / .42));
+  color:var(--world-ink);text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #ffffffad,0 3px 9px #052e4440;
+}
+.world-mode .mg-quit .mg-quit-yes {
+  background:var(--world-critical-glass,rgb(255 240 233 / .52));
+  color:var(--world-critical-ink,#582024);text-shadow:var(--world-text-halo);
+  box-shadow:inset 0 0 0 1px #b24949;
+}
+.world-mode .minigame-overlay :is(.mg-header,.mg-title,.mg-hint,.mg-climb-choice,.mg-intro-controls,.mg-tap-btn,.mg-choice-btn,.mg-hold-btn),
+.world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm) {
+  backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur));
+}
+.world-mode .device[data-text-size="large"] .home-meters .bar-label,.world-mode .device[data-text-size="large"] .home-meters .bar-value {font-size:14px}
+.world-mode .device[data-text-size="large"] .care-meters {grid-template-columns:repeat(2,minmax(0,1fr))}
+.world-mode .device[data-text-size="large"] .meters .bar-line {grid-column:span 3;grid-template-columns:1fr auto}
+/* Explicitly replace both the regular and the pre-existing compact meter grid.
+   Labels keep their own row, so Japanese text cannot collide with a value. */
+.world-mode .device .home-meters {margin-top:0}
+.world-mode .device .home-meters .care-meters .bar-line,.world-mode .device .home-meters .meters .bar-line {grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:2px 4px}
+.world-mode .device .home-meters .bar-label {grid-column:1/-1;grid-row:1;white-space:nowrap}
+.world-mode .device .home-meters .bar {grid-column:1;grid-row:2}
+.world-mode .device .home-meters .bar-value {grid-column:2;grid-row:2}
+.world-mode :is(.home-meters,.header-title,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
+@media(min-width:800px){.world-mode .device.surface-device{padding-inline:26px}.world-mode .world-kelp{left:calc(50% - 400px)}.world-mode .world-fan{right:calc(50% - 390px)}}
+@media(max-width:360px){.world-mode .device.surface-device{padding-inline:9px}.world-mode .home-meters{padding:8px}.world-mode .home-meters .care-meters{gap:6px}.world-mode .care-meters .bar-value{font-size:11px}.world-mode .home-meters .bars.meters{column-gap:7px}.world-mode .buttons button{gap:3px}.world-mode .buttons .care-icon{width:23px;height:23px;flex-basis:23px}}
+@media(max-height:700px){
+  .world-mode .device.surface-device{padding-top:max(6px,env(safe-area-inset-top));gap:4px}
+  .world-mode .screen-normal{gap:3px}
+  .world-mode .cast-stage{min-height:132px}
+  .world-mode #petArea{min-height:186px}
+  .world-mode .header-title{padding:3px 7px}
+  .world-mode .device .device-header{padding-bottom:0}
+  .world-mode .sub-status-row{padding-block:2px}
+  /* Pay for the new name border without pushing short-screen controls down. */
+  .world-mode .cast-names{padding-block:3px}
+  .world-mode [data-world-care="normal"] .world-care-state,.world-mode [data-world-care="none"] .world-care-state{display:none}
+  .world-mode .home-meters{padding-block:7px;gap:4px}
+  .world-mode .device .home-meters .bars.meters{padding-top:4px;gap:4px 7px}
+  .world-mode .buttons,.world-mode .device.ui-home-compact .buttons{grid-template-columns:repeat(20,minmax(0,1fr));gap:6px}
+  .world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button{grid-column:span 4;flex-direction:column;min-height:48px;padding:3px 1px;gap:1px;border-radius:13px}
+  .world-mode .buttons button:nth-child(n+6),.world-mode .device.ui-home-compact .buttons button:nth-child(n+6){grid-column:span 5}
+  .world-mode .buttons .care-icon{width:22px;height:22px;flex-basis:22px}
+  .world-mode .buttons button span{white-space:nowrap;line-height:1.25}
+}
+.world-mode[data-world-paused="true"] .world-scene *,.world-mode[data-world-paused="true"] .world-scene *::after,.world-mode[data-world-paused="true"] .cast-sway,.world-mode[data-world-paused="true"] .cast-stage::after {animation-play-state:paused!important}
+.world-mode[data-world-tier="2"] .world-light::after {display:none}
+.world-mode[data-world-tier="2"] {--world-glass-blur:0px}
+.world-mode[data-world-reduced="true"] .world-scene *,.world-mode[data-world-reduced="true"] .world-scene *::after,.world-mode[data-world-reduced="true"] .cast-sway,.world-mode[data-world-reduced="true"] .cast-stage::after {animation:none!important;transition:none!important;will-change:auto}
+@media(prefers-reduced-motion:reduce){.world-mode .world-scene *,.world-mode .world-scene *::after,.world-mode .cast-sway,.world-mode .cast-stage::after{animation:none!important;transition:none!important;will-change:auto}.world-mode [data-world-care="critical"] .cast-stage::after{opacity:.65}}
+@media(forced-colors:active){.world-mode .home-meters,.world-mode .buttons button,.world-mode .world-care-state{background:Canvas;border:1px solid CanvasText;color:CanvasText}.world-mode .world-scene{display:none}.world-mode .home-meters .bar{border:1px solid CanvasText}.world-mode .screen.surface-screen .home-meters .bar-fill{background:Highlight!important}}
