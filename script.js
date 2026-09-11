@@ -4,6 +4,8 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
+  const WORLD_SCENE = window.NaotocchiWorldScene || null;
+  let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
   // じどうバックアップ: 20分いじょう あいだが あいた セーブを 3つまで
   // のこし、プロフィールの「もどす」で その時点に もどせる
@@ -9938,11 +9940,13 @@
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
+    renderWorldScene(true);
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
     clearTimeout(storyFlashTimer);
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
+      renderWorldScene();
     }, STORY_FLASH_DURATION_MS);
   }
 
@@ -10739,6 +10743,12 @@
   // かざり(region-decor)・はいけい/ぜんけいエフェクト・からだの タイントを
   // まとめて つくりなおす
   function applySeasonRegionVisuals(regionId, season) {
+    if (WORLD_SCENE?.hasRegion(regionId)) {
+      el.regionDecor.innerHTML = '';
+      el.seasonBgFx.innerHTML = '';
+      el.seasonFrontFx.innerHTML = '';
+      return;
+    }
     const { fx, decor, tint } = computeSeasonVisual(regionId, season);
     renderRegionDecor(decor);
     el.seasonBgFx.innerHTML = buildSeasonFxHtml(fx.bg, fx.bgCount);
@@ -10752,6 +10762,7 @@
     const announce = SEASON_CHANGE_ANNOUNCE[season];
     if (!announce) return;
     showStoryEvent({ emoji: announce.emoji, message: announce.text });
+    if (WORLD_SCENE?.hasRegion(regionId)) return;
     // 「うごきを へらす」せっていの ときは、テキストの こくちだけに とどめ、
     // ちる バーストの アニメーションじたいを つくらない(animationend が
     // 発火せず ようそが のこりつづける じこを さける ため)
@@ -10899,7 +10910,7 @@
     const seasonInfo = SEASON_INFO[effectiveSeason];
     setHTMLIfChanged(el.seasonLabel, seasonInfo ? `${environmentIconHTML('season',effectiveSeason,seasonInfo.emoji)} ${escapeHtml(seasonInfo.label)}` : '');
     setHTMLIfChanged(el.partnerLabel, state.partner
-      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}`
+      ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
       ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
@@ -11037,6 +11048,7 @@
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
+    renderWorldScene(suppressFrontFx);
     renderItemsRow(disableCare);
     renderHomeCast();
     positionWeatherSky();
@@ -12644,6 +12656,7 @@
   }
   function applyWeatherFx(weather, time, regionId) {
     if (!el.weatherFx) return;
+    if (WORLD_SCENE?.hasRegion(regionId)) { el.weatherFx.innerHTML = ''; weatherFxKey = ''; return; }
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${mgPerfTier}`;
     if (key === weatherFxKey) return;
@@ -12936,6 +12949,23 @@
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
     }
     maybeRefreshEnvironment();
+    renderWorldScene();
+  }
+
+  function renderWorldScene(paused = false) {
+    if (!WORLD_SCENE) return;
+    if (!worldRenderer) worldRenderer = WORLD_SCENE.createRenderer(document, window);
+    const blocked = paused || gameActive || !!state.transformOptions || isAnyMenuOverlayOpen()
+      || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden');
+    worldRenderer?.update(currentEnvironment(), {paused:blocked, tier:mgPerfTier});
+    if (!WORLD_SCENE.hasRegion(state.regionId)) return;
+    const notice = CARE_STATUS?.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
+    const level = WORLD_SCENE.careLevel(state, notice, isImmortal());
+    el.device.dataset.worldCare = level;
+    const label = document.getElementById('worldCareState');
+    const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう',warning:'はやめにおせわ',critical:'いそいでおせわ'};
+    const icon = level === 'normal' ? 'recovery' : 'danger';
+    setHTMLIfChanged(label, titles[level] ? careIconHTML(icon) + `<span>${titles[level]}</span>` : '');
   }
 
   function requestEnvironment() {
@@ -14535,6 +14565,7 @@
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
     gameActive = true;
+    renderWorldScene(true);
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
     el.menuBtn.disabled = true;
