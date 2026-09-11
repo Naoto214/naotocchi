@@ -50,6 +50,8 @@ async function measure(page) {
       buttons:[...document.querySelectorAll('.buttons button')].map(e => ({ id:e.id, ...rect(e) })),
       headerItems:[...document.querySelectorAll('.header-button:not(.hidden),.ending-badge,.name-plate')].map(rect),
       stage:rect(document.getElementById('castStage')),
+      content:[...document.querySelectorAll('#screenNormal > *, .cast-heading > *, #petArea > *')]
+        .filter(e => e.getClientRects().length).map(e => ({name:e.id || e.className,...rect(e)})),
     };
   });
 }
@@ -86,6 +88,7 @@ function checkLayout(m, label) {
           ['phone',390,786,'alone'],
           ['phone-tall',390,844,'world_sea_full'],
           ['phone-safe-area',390,844,'alone',{top:59,bottom:34}],
+          ['phone-badges-safe-area',390,844,'badges_transparent',{top:59,bottom:34}],
           ['small',320,568,'care_large'],
           ['small-640',320,640,'badges_transparent'],
           ['farewell',320,568,'world_farewell'],
@@ -116,24 +119,61 @@ function checkLayout(m, label) {
             const before = await measure(page);
             results.push({ label, phase:'loaded', ...before });
             checkLayout(before,label);
-            if (['phone','phone-tall','desktop'].includes(name)) {
-              assert.ok(before.frameOverflow <= 1,label+': decorative haze adds unnecessary central scrolling');
-            }
             if (insets) {
               assert.ok(before.header.y >= (insets.top || 0),label+': top safe area');
               assert.ok(before.buttons.every(b => b.bottom <= height-(insets.bottom||0)+1),label+': bottom safe area');
               assert.ok(before.header.x >= (insets.left||0) && before.header.right <= width-(insets.right||0)+1,label+': side safe areas');
             }
 
-            // The reported bug: scrolling central information must never drag
-            // narration under the fixed care buttons or move the top controls.
+            // Home stays still, including the central age/cast/meter region.
             await page.locator('.screen-frame').evaluate(e => { e.scrollTop = e.scrollHeight; });
             const after = await measure(page);
             results.push({ label, phase:'scrolled', ...after });
             checkLayout(after,label+' scrolled');
+            // Farewell is a record/detail flow, outside the fixed living home.
+            if (name !== 'farewell') {
+              assert.equal(after.frameScroll,0,label+': central home can still scroll');
+              for (const r of before.content) {
+                assert.ok(r.y >= before.frame.y-1 && r.bottom <= before.frame.bottom+1,
+                  label+': central content is clipped: '+r.name+' '+JSON.stringify({r,frame:before.frame}));
+              }
+              await page.mouse.move(before.stage.x+before.stage.width/2,before.stage.y+before.stage.height/2);
+              await page.mouse.wheel(0,400);
+              await page.waitForTimeout(100);
+              const wheeled=await measure(page);
+              assert.equal(wheeled.frameScroll,0,label+': wheel moves central home');
+              assert.equal(await page.evaluate(()=>scrollY),0,label+': wheel moves the page');
+              assert.equal(wheeled.content[0].y,before.content[0].y,label+': age moves after wheel');
+            }
             assert.ok(Math.abs(before.notice.y-after.notice.y)<1, label+': narration moves with central scroll');
             assert.ok(Math.abs(before.header.y-after.header.y)<1, label+': header moves with central scroll');
             assert.ok(Math.abs(before.buttons[0].y-after.buttons[0].y)<1, label+': controls move with central scroll');
+
+            if (name.includes('badges') || name === 'small-640' || name === 'landscape-safe-area') {
+              await page.locator('.ending-badge').first().click();
+              const tip=await page.locator('#endingBadgeTip').boundingBox();
+              assert.ok(tip && tip.y>=before.header.y && tip.y+tip.height<=height && tip.x>=0 && tip.x+tip.width<=width,
+                label+': badge explanation leaves the viewport');
+              results.push({label,phase:'badge-explanation',tip,width,height});
+              await page.screenshot({path:path.join(output,label+'-badge.png')});
+            }
+
+            if (name === 'small') {
+              // The long dialogue must fit its own box without shifting home.
+              await page.evaluate(() => {
+                document.getElementById('speechText').textContent='長いセリフも最後まで読めるよ。'.repeat(8);
+                document.getElementById('speechBubble').classList.remove('hidden');
+              });
+              const speaking=await measure(page);
+              assert.equal(speaking.stage.y,before.stage.y,label+': dialogue moves the cast');
+              assert.equal(speaking.notice.y,before.notice.y,label+': dialogue moves care warning');
+              const bubble=await page.locator('#speechBubble').boundingBox();
+              assert.ok(bubble.y>=before.frame.y && bubble.y+bubble.height<=before.stage.y+1,label+': dialogue covers cast or leaves frame');
+              await page.locator('#speechText').evaluate(e=>{e.scrollTop=e.scrollHeight;});
+              assert.ok(await page.locator('#speechText').evaluate(e=>e.scrollTop>0),label+': long dialogue cannot scroll');
+              await page.screenshot({path:path.join(output,label+'-dialogue.png')});
+              await page.locator('#speechBubble').evaluate(e=>e.classList.add('hidden'));
+            }
 
             // Exercise overflow using a long narration, not only its first line.
             await page.locator('#message').evaluate(e => {
@@ -152,6 +192,15 @@ function checkLayout(m, label) {
               const resized = await measure(page);
               results.push({ label, phase:'toolbar-resize', ...resized });
               checkLayout(resized,label+' resized');
+              await page.locator('#menuBtn').click();
+              await page.locator('#themeBtn').click();
+              const detail=await page.locator('#themeOverlay').boundingBox();
+              assert.ok(detail && detail.y>=0 && detail.height>500 && detail.y+detail.height<=664,label+': detail is trapped in the central frame');
+              await page.locator('#themeOverlay .theme-scroll').evaluate(e=>{e.scrollTop=e.scrollHeight;});
+              assert.ok(await page.locator('#themeOverlay .theme-scroll').evaluate(e=>e.scrollTop>0),label+': design details cannot scroll');
+              results.push({label,phase:'design-details',detail,scroll:await page.locator('#themeOverlay .theme-scroll').evaluate(e=>({top:e.scrollTop,height:e.clientHeight,total:e.scrollHeight}))});
+              await page.screenshot({path:path.join(output,label+'-design-details.png')});
+              await page.locator('#themeCloseBtn').click();
               await page.locator('#playBtn').click();
               await page.locator('#minigameOverlay').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the minigame');
@@ -174,6 +223,12 @@ function checkLayout(m, label) {
             console.error('FAIL '+label+': '+error.message);
             await page.screenshot({ path:path.join(output,label+'-failure.png') }).catch(() => {});
           } finally { await context.close(); }
+        }
+        try {
+          await require('./care-attention-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' care attention: '+error.message);
+          console.error('FAIL '+engine+' care attention: '+error.message);
         }
       } finally { await browser.close(); }
     }

@@ -122,6 +122,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
+    NaotocchiCastBounds: require('../../cast-bounds.js'),
     NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
     NaotocchiEnvironment: require('../../world-environment.js'),
     NaotocchiLocalScenery: require('../../local-scenery.js'),

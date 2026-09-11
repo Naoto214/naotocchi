@@ -1,0 +1,91 @@
+/* Attention stays outside layout and below controls. The center of the world
+   remains clear; only the edges breathe, never the entire screen or text. */
+.care-alert-fx {
+  display:none;position:fixed;inset:0;z-index:1;pointer-events:none;
+  --care-edge:204 109 30;
+  background:radial-gradient(ellipse at center,transparent 48%,rgb(var(--care-edge) / .26) 100%);
+  box-shadow:inset 0 0 32px 5px rgb(var(--care-edge) / .48);
+}
+.care-alert-fx[data-level="warning"] {display:block;opacity:.65}
+.care-alert-fx[data-kind="sick"] {--care-edge:124 85 163}
+.care-alert-fx[data-level="critical"] {
+  display:block;--care-edge:206 38 60;opacity:.85;
+  box-shadow:inset 0 0 46px 9px rgb(var(--care-edge) / .64);
+  animation:care-edge-breathe 2.8s ease-in-out infinite;
+}
+@keyframes care-edge-breathe {0%,100%{opacity:.55}50%{opacity:.95}}
+
+/* Name the problem beside the cast when the viewport has room for it. */
+.world-mode .device[data-care-alert] .world-care-state {font-weight:700}
+.world-mode #device[data-care-alert="warning"] .world-care-state,
+.world-mode #device[data-care-alert="critical"] .world-care-state {
+  color:var(--world-warning-ink,#78350c);gap:5px;
+}
+.world-mode #device[data-care-alert="critical"] .world-care-state {color:var(--world-critical-ink,#871e25)}
+.world-mode #device[data-care-alert="warning"] .world-care-state::before,
+.world-mode #device[data-care-alert="critical"] .world-care-state::before {
+  background:linear-gradient(90deg,transparent,var(--world-warning-glass,#fff0dac9) 24% 76%,transparent);
+}
+.world-mode #device[data-care-alert="critical"] .world-care-state::before {
+  background:linear-gradient(90deg,transparent,var(--world-critical-glass,#ffe6e0db) 24% 76%,transparent);
+}
+.world-mode #device[data-care-alert="warning"] .world-care-state .care-icon,
+.world-mode #device[data-care-alert="critical"] .world-care-state .care-icon {filter:drop-shadow(0 0 3px #fff3);transform:scale(1.18)}
+
+/* Sweat is attached to the protagonist, without moving or resizing any cast
+   member, accessory or sprite. Text + the illness icon carry the same signal. */
+.device[data-care-illness="true"] #pet #petSprite::before,
+.device[data-care-illness="true"] #pet #petSprite::after {
+  content:"";position:absolute;box-sizing:border-box;z-index:3;top:var(--care-sweat-top,14%);right:var(--care-sweat-right,8%);
+  width:clamp(6px,10%,11px);height:clamp(9px,15%,16px);
+  border-radius:65% 35% 60% 40%;background:#69c8e5;border:1px solid #f2fcff;
+  box-shadow:0 1px 4px #184766b3;pointer-events:none;opacity:.85;
+  animation:care-sweat 2.6s ease-in-out infinite;
+}
+.device[data-care-illness="true"] #pet #petSprite::before {left:var(--care-sweat-left,6%);right:auto;animation-delay:-1.3s}
+@keyframes care-sweat {0%,100%{transform:translateY(0) rotate(18deg);opacity:.65}65%{transform:translateY(var(--care-sweat-travel,7px)) rotate(18deg);opacity:1}}
+
+/* Keep urgent narration distinct even at maximum UI transparency. A feathered
+   background supports the existing fixed row without adding a card or a button. */
+.world-mode .device #message[data-care-severity="warning"]::after {
+  background:linear-gradient(90deg,transparent,var(--world-warning-glass,#fff0daf0) 10% 90%,transparent);
+}
+.world-mode .device #message[data-care-severity="critical"]::after {
+  background:linear-gradient(90deg,transparent,var(--world-critical-glass,#ffe6e0f0) 10% 90%,transparent);
+}
+.world-mode .device #message[data-care-severity="warning"],
+.world-mode .device #message[data-care-severity="critical"] {font-weight:700}
+
+/* Emphasize only the recommended enabled action. A slow glow changes neither
+   its position nor the contrast of its label, and ends as soon as care changes. */
+#device[data-care-alert="warning"],#device[data-care-alert="critical"] {--care-action:#b66a21;--care-action-glow:#e8a74499}
+#device[data-care-alert="critical"] {--care-action:#b32d46;--care-action-glow:#ec627b99}
+#device[data-care-alert="warning"] .buttons button[data-care-recommended="true"]:not(:disabled),
+#device[data-care-alert="critical"] .buttons button[data-care-recommended="true"]:not(:disabled) {
+  box-shadow:inset 0 0 0 2px var(--care-action),0 0 0 1px #fff8,0 0 9px var(--care-action-glow);
+  animation:care-action-breathe 2.8s ease-in-out infinite;
+}
+#device[data-care-alert="warning"] .buttons button[data-care-recommended="true"]::after,
+#device[data-care-alert="critical"] .buttons button[data-care-recommended="true"]::after {
+  width:16px;height:16px;top:2px;right:3px;background:var(--care-action);color:#fff;
+  font:bold 12px/16px sans-serif;box-shadow:0 0 0 1px #fff;
+}
+@keyframes care-action-breathe {
+  0%,100% {box-shadow:inset 0 0 0 2px var(--care-action),0 0 0 1px #fff8,0 0 5px var(--care-action-glow)}
+  50% {box-shadow:inset 0 0 0 2px var(--care-action),0 0 0 1px #fff8,0 0 13px var(--care-action-glow)}
+}
+.care-alert-fx[data-motion="still"],
+.device[data-care-motion="still"] #pet #petSprite::before,
+.device[data-care-motion="still"] #pet #petSprite::after,
+.device[data-care-motion="still"] .buttons button[data-care-recommended="true"] {animation:none!important}
+@media(prefers-reduced-motion:reduce) {
+  .care-alert-fx,.device[data-care-illness="true"] #pet #petSprite::before,
+  .device[data-care-illness="true"] #pet #petSprite::after,
+  .device .buttons button[data-care-recommended="true"] {animation:none!important}
+}
+@media(forced-colors:active) {
+  .care-alert-fx {display:none!important}
+  .device[data-care-illness="true"] #pet #petSprite::before,
+  .device[data-care-illness="true"] #pet #petSprite::after {background:CanvasText;border-color:Canvas;animation:none}
+  .device .buttons button[data-care-recommended="true"] {outline:3px solid Highlight;outline-offset:-3px;animation:none!important}
+}

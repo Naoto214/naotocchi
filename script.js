@@ -1043,6 +1043,7 @@
     badges: document.getElementById('badges'),
     poopRow: document.getElementById('poopRow'),
     screen: document.getElementById('screen'),
+    careAlertFx: document.getElementById('careAlertFx'),
     lamp: document.getElementById('lamp'),
     feedBtn: document.getElementById('feedBtn'),
     playBtn: document.getElementById('playBtn'),
@@ -3218,15 +3219,43 @@
     return visual?.asset ? commentPictureHTML(visual.asset,emoji,compactJapaneseText(speaker.label))
       : commentIconHTML(emoji)||escapeHtml(emoji);
   }
+  function careNoticeVisible() {
+    return state.stage === STAGE.GROWING && !gameActive && !grandGoalPending
+      && !state.transformOptions && !isAnyMenuOverlayOpen()
+      && el.lifeCardOverlay.classList.contains('hidden')
+      && document.visibilityState !== 'hidden';
+  }
+
+  function renderCareAttention(notice, visible) {
+    const effectVisible = visible && el.storyFlash.classList.contains('hidden');
+    const severity = effectVisible && notice?.severity !== 'info' ? notice?.severity || '' : '';
+    const sick = effectVisible && state.isSick;
+    const motion = mgPerfLow ? 'still' : '';
+    el.device.dataset.careAlert = severity;
+    el.device.dataset.careIllness = sick ? 'true' : '';
+    el.device.dataset.careMotion = motion;
+    if (el.careAlertFx) {
+      el.careAlertFx.dataset.level = severity;
+      el.careAlertFx.dataset.kind = visible ? notice?.kind || '' : '';
+      el.careAlertFx.dataset.motion = motion;
+    }
+    const level = !visible ? 'none' : severity || WORLD_SCENE?.careLevel(state, notice, isImmortal()) || 'normal';
+    el.device.dataset.worldCare = level;
+    const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう'};
+    const title = severity ? notice.title : titles[level] || '';
+    const icon = sick ? 'sick' : level === 'normal' ? 'recovery' : 'danger';
+    setHTMLIfChanged(document.getElementById('worldCareState'), title
+      ? careIconHTML(icon) + `<span>${escapeHtml(title)}</span>` : '');
+  }
+
   function renderCareNotice(observe = false) {
     if (!CARE_STATUS) return;
     if (careLife !== state) {
       clearCareFeedback(); careMilestone = null; careLife = state; carePrevious = null; carePreviousKind = '';
     }
     const notice = CARE_STATUS.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
-    const visible = state.stage === STAGE.GROWING && !gameActive && !grandGoalPending
-      && !state.transformOptions && !isAnyMenuOverlayOpen()
-      && el.lifeCardOverlay.classList.contains('hidden');
+    const visible = careNoticeVisible();
+    renderCareAttention(notice, visible);
     const urgent = visible && notice && notice.severity !== 'info';
     if (observe) {
       const next = CARE_STATUS.snapshot(state);
@@ -11085,6 +11114,8 @@
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
+    el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
+      && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
     renderWorldScene(suppressFrontFx);
     renderItemsRow(disableCare);
     renderHomeCast();
@@ -12911,6 +12942,18 @@
     el.castStage.style.minHeight = height && layout.height > height ? layout.height + 'px' : '';
     place(el.petSprite,layout.main);place(el.partnerCompanion,layout.partner);place(el.petAccessory,layout.accessory);
     el.petSprite.style.setProperty('--cast-art-offset-y',(layout.main.artOffsetY || 0) + 'px');
+    // Attach illness marks to painted pixels, not the often-empty upper PNG
+    // frame. Use the same alpha bounds and floor offset as the cast solver.
+    const box = window.NaotocchiCastBounds?.[args.mainAsset]?.box || [0,0,128,128];
+    const frame = layout.main, bodyHeight = frame.h * (box[3]-box[1]) / 128;
+    const dropWidth = clamp(frame.w * .1,6,11), dropHeight = clamp(frame.h * .15,9,16);
+    const travel = Math.min(7,bodyHeight * .18);
+    const top = clamp(frame.h * box[1] / 128 + (frame.artOffsetY || 0) + bodyHeight * .16,
+      1,frame.h-dropHeight-travel-3);
+    el.petSprite.style.setProperty('--care-sweat-top',top + 'px');
+    el.petSprite.style.setProperty('--care-sweat-left',Math.max(1,frame.w * box[0] / 128-dropWidth * .7) + 'px');
+    el.petSprite.style.setProperty('--care-sweat-right',Math.max(1,frame.w * (128-box[2]) / 128-dropWidth * .7) + 'px');
+    el.petSprite.style.setProperty('--care-sweat-travel',travel + 'px');
     const left=el.companionLeft.children,right=el.companionRight.children;
     layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
     if (layout.partner) el.partnerCompanion.querySelectorAll('.partner-heart').forEach((node,i)=>{
@@ -12980,19 +13023,13 @@
   }
 
   function renderWorldScene(paused = false) {
+    const notice = CARE_STATUS?.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
+    renderCareAttention(notice, !paused && careNoticeVisible());
     if (!WORLD_SCENE) return;
     if (!worldRenderer) worldRenderer = WORLD_SCENE.createRenderer(document, window);
     const blocked = paused || gameActive || !!state.transformOptions || isAnyMenuOverlayOpen()
       || !el.lifeCardOverlay.classList.contains('hidden') || !el.storyFlash.classList.contains('hidden');
     worldRenderer?.update(currentEnvironment(), {paused:blocked, tier:mgPerfTier});
-    if (!WORLD_SCENE.hasRegion(state.regionId)) return;
-    const notice = CARE_STATUS?.assess(state, {immortal:isImmortal(), petAvailable:state.affectionStreak < affectionSpamThreshold()});
-    const level = WORLD_SCENE.careLevel(state, notice, isImmortal());
-    el.device.dataset.worldCare = level;
-    const label = document.getElementById('worldCareState');
-    const titles = {none:'',normal:'いのち おだやか',caution:'すこし気をつけよう',warning:'はやめにおせわ',critical:'いそいでおせわ'};
-    const icon = level === 'normal' ? 'recovery' : 'danger';
-    setHTMLIfChanged(label, titles[level] ? careIconHTML(icon) + `<span>${titles[level]}</span>` : '');
   }
 
   function requestEnvironment() {
@@ -16944,6 +16981,7 @@
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
+      renderCareAttention(null, false);
       saveState();
     }
   });

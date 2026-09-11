@@ -141,9 +141,10 @@ test('health danger, explicit care changes, partner affinity and recovery remain
   h.get('lifeCardOverlay').classList.add('hidden');
   Object.assign(s,{health:0,hunger:0,energy:0,happiness:0,deathMeter:0,lowHealthStreak:0});h.api.render();
   assert.equal(h.get('device').dataset.worldCare,'critical');
-  assert.match(h.get('worldCareState').textContent,/いそいで/);
+  assert.match(h.get('worldCareState').textContent,/けんこうがげんかい/);
   assert.equal(h.get('feedBtn').dataset.careRecommended,'true');
   h.dispatch(h.get('feedBtn'),'click');assert.equal(s.hunger,25);
+  h.advance(10000); // The real feeding story pauses attention until it ends.
   Object.assign(s,{health:90,hunger:70,energy:90,happiness:90});h.api.render();
   assert.equal(h.get('device').dataset.worldCare,'normal');
   h.dispatch(h.get('feedBtn'),'click');assert.match(h.get('message').textContent,/おなか.*[+＋]25/);

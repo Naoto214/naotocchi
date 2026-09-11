@@ -107,6 +107,18 @@ function createFixtures() {
       make('care_sleep_hungry',26,{isSleeping:true,energy:25,hunger:15,happiness:80,health:90});
       make('care_sick',26,{isSick:true,sicknessType:'しんぞうがバクバクするびょうき',health:25,hunger:80,happiness:80,energy:80});
       make('care_sick_only',26,{isSick:true,sicknessType:'しんぞうがバクバクする、とてもながいなまえのびょうき',health:90,hunger:80,happiness:80,energy:80});
+      for (const [name, region, deathMeter, isSick, time] of [
+        ['care_attention_sick','sea',0,true,'day'],
+        ['care_attention_low_life','sea',65,false,'night'],
+        ['care_attention_critical','snow',85,true,'day'],
+      ]) {
+        const save=make(name,26,{regionId:region,speciesLine:'clownfish',deathMeter,isSick,
+          sicknessType:isSick?'かぜ':null,health:90,hunger:55,happiness:80,energy:80,
+          growth:0,decline:0,totalSicknessCount:10,ageTicks:101});
+        Object.assign(save.lifetime,{timeMode:time,weatherMode:'sunny',seasonMode:'summer',
+          buttonTransparency:80,infoReadability:0,equippedItemId:'ribbon'});
+        save.lifetime.ownedShopItems=['ribbon'];
+      }
       const careLarge=make('care_large',26,{isSick:true,sicknessType:'げんいんふめいのこうねつ',health:20,hunger:80});
       careLarge.lifetime.textSize='large';
       make('care_infinite',26,{infinite:true,health:0,hunger:0,energy:0,deathMeter:95});
