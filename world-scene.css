@@ -86,13 +86,21 @@ body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[
 /* A narrow light halo protects small glyphs without whitening the whole pane. */
 .world-mode :is(.name-plate,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.home-meters,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {text-shadow:var(--world-text-halo)}
 body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-decor,body.world-mode .season-bg-fx,body.world-mode .season-front-fx,body.world-mode .weather-fx {display:none!important}
-.world-mode .device.surface-device {width:min(100%,620px);min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) 16px max(10px,env(safe-area-inset-bottom));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
+.world-mode .device.surface-device {width:min(100%,620px);min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
 .world-mode .device.surface-device::before,.world-mode .screen.surface-screen::before,.world-mode .screen-frame::before,.world-mode .device::after {display:none}
 .world-mode .device.ui-home-active {height:var(--app-height);min-height:0;grid-template-rows:auto minmax(0,1fr) auto auto;gap:6px}
+.world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) {grid-template-rows:auto minmax(0,1fr) auto auto auto}
 /* Keep controls visible when large text, warnings or badges need extra room. */
 .world-mode .device.ui-home-active .screen-frame {min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin}
+/* Definite heights let the cast give back spare space. Clear the legacy
+   min-content flex minimums; any genuinely excessive content scrolls here. */
+.world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) .screen-frame {display:block}
+.world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screen {height:100%;min-height:0}
+.world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screenNormal {min-height:0}
 .world-mode .device-top {display:none}
-.world-mode .device-header {min-height:44px;padding:0;gap:8px;z-index:5}
+.world-mode .device-header {display:grid;grid-template-columns:minmax(0,1fr) auto;min-height:44px;padding:0;gap:8px;z-index:5}
+.world-mode .header-title,.world-mode .cast-badges,.world-mode .cast-badges > div {min-width:0;max-width:100%}
+.world-mode .name-plate {overflow-wrap:anywhere}
 .world-mode .header-title,.world-mode .device:not(.theme-default) .header-title {padding:5px 9px;background:none;border:0;border-radius:0;box-shadow:none}
 .world-mode .name-plate {font-size:18px;color:var(--world-ink);letter-spacing:.07em}
 .world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-button-glass);border:1px solid #f4ffffd9;color:var(--world-ink);box-shadow:0 0 0 1px #143b4b80,0 3px 10px #052f3d26}
@@ -139,15 +147,17 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode :is(.header-title,.status-row,.sub-status-row,.cast-names,.world-care-state,.world-information) {position:relative;isolation:isolate}
 .world-mode :is(.header-title,.status-row,.sub-status-row,.cast-names,.world-care-state,.home-meters,.world-information)::before,
 .world-mode :is(.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar)::before,
-.world-mode .screen #message::after,.world-mode .design-preview-narration::after {
+.world-mode .device #message::after,.world-mode .design-preview-narration::after {
   content:"";position:absolute;inset:-8px -8px;z-index:-1;pointer-events:none;
   background:linear-gradient(90deg,transparent,var(--world-info-haze) 12% 88%,transparent);
   mask-image:linear-gradient(transparent,#000 28% 72%,transparent);
   -webkit-mask-image:linear-gradient(transparent,#000 28% 72%,transparent);
 }
 .world-mode .home-meters::after,.world-mode .buttons button>span::before {display:none}
+/* The meters end the central panel; their haze must not add scroll height. */
+.world-mode .home-meters::before {bottom:0}
 /* Narration scrolls for long text: its support must stay inside the scroll box. */
-.world-mode .screen #message::after {inset:0;mask-image:linear-gradient(transparent,#000 15% 85%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 15% 85%,transparent)}
+.world-mode .device #message::after {inset:0;mask-image:linear-gradient(transparent,#000 15% 85%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 15% 85%,transparent)}
 .world-mode .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
 .world-mode .home-meters .care-meters .bar-line {grid-template-columns:1fr auto;grid-template-rows:auto 7px;gap:4px 3px}
 .world-mode .home-meters .bar-label {font-size:13px;color:var(--world-ink);font-weight:500}
@@ -169,13 +179,16 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .screen.surface-screen .home-meters .bar-fill.devo:not(.high):not(.critical) {background:#a77e3f}
 .world-mode .screen.surface-screen .home-meters .bar-fill.transform:not(.high):not(.low):not(.critical),.world-mode .screen.surface-screen .home-meters .bar-fill.goal:not(.high):not(.low):not(.critical) {background:#7b68a1}
 /* Narration is text on the world; icon and wording retain the urgency signal. */
-.world-mode .screen #message {position:relative;isolation:isolate;height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink);z-index:4}
-.world-mode .device[data-text-size="large"] .screen #message {font-size:14px}
-.world-mode .screen #message[data-care-kind="change"] {color:var(--world-good-ink,#183319)}
-.world-mode .screen #message[data-care-severity="warning"],.world-mode .screen #message[data-care-tone="loss"],.world-mode .screen #message[data-care-tone="mixed"] {color:var(--world-warning-ink,#78350c)}
-.world-mode .screen #message[data-care-severity="critical"] {color:var(--world-critical-ink,#871e25);font-weight:700}
-.world-mode .screen #message[data-care-icon]::before {margin-right:4px}
+.world-mode .device #message {position:relative;isolation:isolate;height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink);z-index:4}
+.world-mode .device[data-text-size="large"] #message {font-size:14px}
+.world-mode .device #message[data-care-kind="change"] {color:var(--world-good-ink,#183319)}
+.world-mode .device #message[data-care-severity="warning"],.world-mode .device #message[data-care-tone="loss"],.world-mode .device #message[data-care-tone="mixed"] {color:var(--world-warning-ink,#78350c)}
+.world-mode .device #message[data-care-severity="critical"] {color:var(--world-critical-ink,#871e25);font-weight:700}
+.world-mode .device #message[data-care-icon]::before {margin-right:4px}
 .world-mode :is(.ending-badge-tip,.birthday-toast,.mg-result-toast) {isolation:isolate;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink)}
+.world-mode :is(.birthday-toast,.mg-result-toast) {max-width:calc(100% - 16px);white-space:normal;overflow-wrap:anywhere}
+.world-mode .mg-result-body {min-width:0}
+.world-mode .mg-result-toast .mg-retry-btn {flex-shrink:0}
 .world-mode .mg-result-toast .mg-result-sub {opacity:1}
 .world-mode .mg-result-toast .mg-result-sub.new-best {color:var(--world-caution-ink,#61420b)}
 .world-mode .mg-result-toast .mg-retry-btn {background:var(--world-button-glass);color:var(--world-ink);border:1px solid #f4ffffd9;box-shadow:0 0 0 1px #143b4b80}
@@ -277,8 +290,8 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device .home-meters .bar {grid-column:1;grid-row:2}
 .world-mode .device .home-meters .bar-value {grid-column:2;grid-row:2}
 .world-mode :is(.header-button,.ending-badge,.speech-bubble,.world-glass-button),.world-mode :is(.buttons,.life-actions) button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
-@media(min-width:800px){.world-mode .device.surface-device{padding-inline:26px}.world-mode .world-kelp{left:calc(50% - 400px)}.world-mode .world-fan{right:calc(50% - 390px)}}
-@media(max-width:360px){.world-mode .device.surface-device{padding-inline:9px}.world-mode .home-meters{padding:8px}.world-mode .home-meters .care-meters{gap:6px}.world-mode .care-meters .bar-value{font-size:11px}.world-mode .home-meters .bars.meters{column-gap:7px}.world-mode .buttons button{gap:3px}.world-mode .buttons .care-icon{width:23px;height:23px;flex-basis:23px}}
+@media(min-width:800px){.world-mode .device.surface-device{padding-left:max(26px,env(safe-area-inset-left));padding-right:max(26px,env(safe-area-inset-right))}.world-mode .world-kelp{left:calc(50% - 400px)}.world-mode .world-fan{right:calc(50% - 390px)}}
+@media(max-width:360px){.world-mode .device.surface-device{padding-left:max(9px,env(safe-area-inset-left));padding-right:max(9px,env(safe-area-inset-right))}.world-mode .home-meters{padding:8px}.world-mode .home-meters .care-meters{gap:6px}.world-mode .care-meters .bar-value{font-size:11px}.world-mode .home-meters .bars.meters{column-gap:7px}.world-mode .buttons button{gap:3px}.world-mode .buttons .care-icon{width:23px;height:23px;flex-basis:23px}}
 @media(max-height:700px){
   .world-mode .device.surface-device{padding-top:max(6px,env(safe-area-inset-top));gap:3px}
   .world-mode .screen-normal{gap:2px}

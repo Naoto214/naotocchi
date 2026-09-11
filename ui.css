@@ -24,6 +24,10 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .device {--home-action-height:clamp(44px,calc((var(--app-height) - 552px)/3),64px);width:min(100%,420px);border-radius:36px 36px 30px 30px;padding:10px 10px 8px;box-shadow:0 8px 24px #45313e18,inset 0 2px 0 #fff7fb;background-color:var(--ui-case);font-family:var(--ui-font)}
 .device[data-cast-crowded="true"] {--home-action-height:clamp(44px,calc((var(--app-height) - 650px)/3),56px)}
 .device.ui-home-active {height:calc(var(--app-height) - var(--home-top) - var(--home-bottom));min-height:min-content;display:grid;grid-template-rows:auto minmax(min-content,1fr) auto auto}
+/* Narration owns a row outside the central scroll area. The home class can
+   remain set during a minigame, so follow the actual screen's visibility. */
+.device.ui-home-active:has(#screenNormal:not(.hidden)) {grid-template-rows:auto minmax(0,1fr) auto auto auto}
+.device:not(:has(#screenNormal:not(.hidden))) > #message {display:none}
 .device-top {position:absolute;top:4px;left:calc(50% - 3px);margin:0}
 .device-top .lamp {width:6px;height:6px}
 .header-title {position:relative;min-width:0;color:var(--ui-ink);border-radius:12px;padding:0 5px}
