@@ -116,6 +116,9 @@ function checkLayout(m, label) {
             const before = await measure(page);
             results.push({ label, phase:'loaded', ...before });
             checkLayout(before,label);
+            if (['phone','phone-tall','desktop'].includes(name)) {
+              assert.ok(before.frameOverflow <= 1,label+': decorative haze adds unnecessary central scrolling');
+            }
             if (insets) {
               assert.ok(before.header.y >= (insets.top || 0),label+': top safe area');
               assert.ok(before.buttons.every(b => b.bottom <= height-(insets.bottom||0)+1),label+': bottom safe area');

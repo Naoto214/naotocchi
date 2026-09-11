@@ -154,6 +154,8 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
   -webkit-mask-image:linear-gradient(transparent,#000 28% 72%,transparent);
 }
 .world-mode .home-meters::after,.world-mode .buttons button>span::before {display:none}
+/* The meters end the central panel; their haze must not add scroll height. */
+.world-mode .home-meters::before {bottom:0}
 /* Narration scrolls for long text: its support must stay inside the scroll box. */
 .world-mode .device #message::after {inset:0;mask-image:linear-gradient(transparent,#000 15% 85%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 15% 85%,transparent)}
 .world-mode .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
