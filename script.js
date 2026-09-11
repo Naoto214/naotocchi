@@ -2598,8 +2598,11 @@
   }
   // innerHTML の かきかえは、なかみが かわった ときだけ(3秒ごとの render で
   // おなじ HTML を くみなおさない)
+  const sourceHTMLCache = new WeakMap();
   function setHTMLIfChanged(node, html) {
-    if (node && node.innerHTML !== html) node.innerHTML = html;
+    if (!node || sourceHTMLCache.get(node) === html) return;
+    sourceHTMLCache.set(node,html);
+    if (node.innerHTML !== html) node.innerHTML = html;
   }
 
   // 0 (freshly hatched) -> 1 (elder age) - every minigame scales its own
@@ -2831,7 +2834,7 @@
       if (canvas.style) { canvas.style.width = '100%'; canvas.style.height = H + 'px'; }
     }
     if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    return { ctx, W, H, dpr };
+    return { ctx: CANVAS_ILLUSTRATIONS?.canvas(ctx) || ctx, W, H, dpr };
   }
   // canvas の 上での ゆびの いち(canvasピクセル座標)を とる
   function mgPointerPos(canvas, e) {
@@ -3219,6 +3222,45 @@
     const visual=commentActorVisual(speaker),emoji=speaker.emoji||'💬';
     return visual?.asset ? commentPictureHTML(visual.asset,emoji,compactJapaneseText(speaker.label))
       : commentIconHTML(emoji)||escapeHtml(emoji);
+  }
+  const DISPLAY_CATALOG = globalThis.NaotocchiIllustrationCatalog?.create({
+    knownHTML:commentIconHTML, symbolKeys:COMMENT_SYMBOL_KEYS, symbols:COMMENT_SYMBOLS,
+    careKeys:COMMENT_CARE, uiKeys:COMMENT_UI, food:MINIGAME_FOOD,
+    props:globalThis.NaotocchiPropIllustrations?.definitions, species:SPECIES,
+    atlases:UI_ATLAS_IMAGES, currentActor:currentVisualStage,
+  });
+  const CANVAS_ILLUSTRATIONS = DISPLAY_CATALOG && globalThis.NaotocchiCanvasIllustrations?.create({document,resolve:DISPLAY_CATALOG.resolve});
+  function displayIconHTML(emoji) {
+    return DISPLAY_CATALOG?.html(emoji) || commentIconHTML(emoji) || escapeHtml(emoji || '');
+  }
+  function lifeRecordVisual(record) {
+    const line = record.line || Object.keys(SPECIES_DISPLAY_NAMES).find(key => SPECIES_DISPLAY_NAMES[key] === record.species);
+    const stages = SPECIES[line]?.stages || [];
+    const normalize=mark => String(mark || '').replace(/[\uFE0E\uFE0F]/g,'');
+    const byAge = stages[stageForAge(Number(record.age) || 0)];
+    const stage = Number.isInteger(record.visualStage) && record.visualStage >= 0 && record.visualStage < stages.length
+      ? stages[record.visualStage]
+      : !record.emoji || normalize(byAge?.emoji)===normalize(record.emoji) ? byAge
+        : stages.find(s => normalize(s.emoji)===normalize(record.emoji));
+    return stage?.asset ? commentPictureHTML(stage.asset,record.emoji || stage.emoji,stage.label) : displayIconHTML(record.emoji || '');
+  }
+  function lifeLogIconHTML(entry, line) {
+    const icon=entry.icon || '', text=compactJapaneseText(entry.text);
+    if(icon==='🥚') return commentPictureHTML('assets/characters/egg/intact.png',icon,'たまご');
+    const normalize=mark => String(mark).replace(/[\uFE0E\uFE0F]/g,'');
+    const stages = [...(SPECIES[line]?.stages || []), ...Object.values(SPECIES).flatMap(s => s.stages || [])];
+    // Old records can predate the master's newer glyphs. An explicit growth
+    // label is stronger evidence than a reused baby/adult emoji.
+    const isGrowth=/になった|にへんしんした/.test(text);
+    const candidates=stages.filter(s => s.asset && (isGrowth || normalize(s.emoji)===normalize(icon)));
+    const named=candidates.filter(s => text.includes(compactJapaneseText(s.label)))
+      .sort((a,b) => compactJapaneseText(b.label).length - compactJapaneseText(a.label).length)[0];
+    const final=/てんごく|おわかれ/.test(text) ? SPECIES[line]?.stages[stageForAge(Number(entry.age)||0)] : null;
+    const character=named || (final && normalize(final.emoji)===normalize(icon) ? final : null);
+    if(character) return commentPictureHTML(character.asset,icon,character.label);
+    const actor=[...COMPANIONS,...RARE_COMPANIONS,...ALL_PARTNER_CANDIDATES].find(c => text.includes(c.name || c.label) && normalize(c.emoji)===normalize(icon));
+    const asset=actor?.asset || WORLD_MASTER?.partners?.find(p => p.id===actor?.id)?.asset;
+    return asset ? commentPictureHTML(asset,icon,actor.name || actor.label) : displayIconHTML(icon);
   }
   function careNoticeVisible() {
     return state.stage === STAGE.GROWING && !gameActive && !grandGoalPending
@@ -9699,7 +9741,7 @@
     const age = currentAge();
     const species = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     const rows = [];
-    rows.push(`<div class="lifecard-title">${currentSprite()} ${species}</div>`);
+    rows.push(`<div class="lifecard-title">${(currentVisualStage().asset ? commentPictureHTML(currentVisualStage().asset, currentSprite(), species) : displayIconHTML(currentSprite()))} ${species}</div>`);
     rows.push(`<div class="lifecard-age">${age}さいまでいきた</div>`);
     // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
     // 削らずに小さな専用回想を添える。別Renderer/別エンディングにはせず、
@@ -9729,7 +9771,7 @@
     }
     rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${state.discoveredStages.length}／${ALL_LINES.length * STAGES_PER_LINE}</div>`);
     const stats = lifeSummaryStats();
-    if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${stats.bestGame.emoji}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
+    if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${displayIconHTML(stats.bestGame.emoji)}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
     const log = state.lifeLog || [];
     if (log.length) {
       rows.push('<div class="lifecard-sep"></div>');
@@ -9740,7 +9782,7 @@
   }
 
   // --- いっしょうの ねんぴょう: lifeLog を ねんれい ごとに ならべる ---
-  function buildLifeTimelineHTML(log, limit = 0) {
+  function buildLifeTimelineHTML(log, limit = 0, line = state.speciesLine) {
     const entries = (Array.isArray(log) ? log : []).filter((e) => e && typeof e.text === 'string');
     const shown = limit > 0 ? entries.slice(-limit) : entries;
     if (!shown.length) return '<div class="life-timeline-empty">まだ できごとは ない</div>';
@@ -9748,7 +9790,7 @@
     return '<div class="life-timeline">' + shown.map((e) => {
       const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${e.age}さい</span>` : '<span class="life-timeline-age"></span>';
       lastAge = e.age;
-      return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${escapeHtml(e.icon || '')}</span><span class="life-timeline-text">${escapeHtml(compactJapaneseText(e.text))}</span></div>`;
+      return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${lifeLogIconHTML(e,line)}</span><span class="life-timeline-text">${commentTextHTML(compactJapaneseText(e.text))}</span></div>`;
     }).join('') + '</div>';
   }
   function lifeSummaryStats() {
@@ -9774,7 +9816,7 @@
   // ともだちに おくれる。よみこんでも セーブは かわらず、カードとして 見るだけ
   const LIFE_CODE_PREFIX = 'NTL1.';
   function encodeLifeCode(snapshot) {
-    const s = snapshot || { ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, log: (state.lifeLog || []).slice(-40) };
+    const s = snapshot || { ...lifeSummaryStats(), emoji: currentSprite(), line: state.speciesLine, visualStage:currentFormStageIndex(), log: (state.lifeLog || []).slice(-40) };
     const json = JSON.stringify({ v: 1, ...s });
     const bytes = new TextEncoder().encode(json);
     let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
@@ -9795,19 +9837,19 @@
     if (card.age >= GOAL_AGE) badges.push('★てんじゅ');
     if (card.age >= GOAL_AGE && card.sodachi >= LIFE_CLEAR_SODACHI) badges.push('★いっしょうクリア');
     if (card.age >= GOAL_AGE && card.sodachi >= SODACHI_MAX) badges.push('★さいこう');
-    return `<div class="life-code-card"><div class="life-code-head">${escapeHtml(card.emoji || '')} ${escapeHtml(card.species)}・${card.age}さい・そだち${card.sodachi}${badges.length ? ' ' + badges.join(' ') : ''}</div>`
+    return `<div class="life-code-card"><div class="life-code-head">${lifeRecordVisual(card)} ${escapeHtml(card.species)}・${card.age}さい・そだち${card.sodachi}${badges.length ? ' ' + badges.join(' ') : ''}</div>`
       + `<div class="life-code-line">${card.partner ? (card.partner.married ? '💍' : '💖') + escapeHtml(card.partner.label) : 'こいびとなし'}／なかま${card.companions}にん／へんしん${card.transforms}かい${card.bestGame ? `／${escapeHtml(card.bestGame.emoji || '')}${escapeHtml(card.bestGame.name)} ${card.bestGame.best}てん` : ''}</div>`
-      + buildLifeTimelineHTML(card.log) + '</div>';
+      + buildLifeTimelineHTML(card.log,0,card.line) + '</div>';
   }
   function renderLifeTimeline() {
     if (!el.profileTimeline) return;
     const s = lifeSummaryStats();
-    const head = state.stage === STAGE.EGG ? 'たまごを あたためている' : `${escapeHtml(s.species)}・${s.age}さい・そだち${s.sodachi}${s.bestGame ? `・${s.bestGame.emoji}${escapeHtml(s.bestGame.name)} ${s.bestGame.best}てん` : ''}`;
+    const head = state.stage === STAGE.EGG ? 'たまごを あたためている' : `${escapeHtml(s.species)}・${s.age}さい・そだち${s.sodachi}${s.bestGame ? `・${displayIconHTML(s.bestGame.emoji)}${escapeHtml(s.bestGame.name)} ${s.bestGame.best}てん` : ''}`;
     el.profileTimeline.innerHTML = `<div class="life-timeline-head">${head}</div>` + buildLifeTimelineHTML(state.lifeLog || []);
     if (el.profilePastLives) {
       const past = (state.lifetime.pastLives || []).slice().reverse();
       el.profilePastLives.innerHTML = past.length
-        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${escapeHtml(p.emoji || '')} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
         : '<div class="profile-hint">まだ おわかれした子は いない</div>';
     }
   }
@@ -9850,6 +9892,7 @@
       companions: state.companions.length,
       married: !!(state.partner && state.partner.married),
       line: state.speciesLine,
+      visualStage: currentFormStageIndex(),
       log: (state.lifeLog || []).slice(-40),
       code: encodeLifeCode(),
     });
@@ -10541,7 +10584,7 @@
     const asset = stage?.asset || '';
     const safeEmoji = escapeHtml(emoji);
     if (!asset) {
-      return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${safeEmoji}</span></span>`;
+      return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${displayIconHTML(emoji)}</span></span>`;
     }
     return `<span class="character-visual character-${size} has-asset">
       <img class="character-asset" src="${escapeHtml(asset)}" alt="" draggable="false">
@@ -13011,7 +13054,7 @@
     const currentSelected = !!selected;
     el.currentLocationBtn.classList.toggle('selected', currentSelected);
     el.currentLocationBtn.setAttribute('aria-pressed', String(currentSelected));
-    if (currentSelected) el.regionLabel.textContent = `📍${locationLabel}`;
+    if (currentSelected) setHTMLIfChanged(el.regionLabel, `${displayIconHTML('📍')}${escapeHtml(locationLabel)}`);
     const loading = snapshot?.status === 'loading';
     el.locationRefreshBtn.disabled = loading;
     el.currentLocationBtn.disabled = loading;
@@ -13282,7 +13325,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13937,7 +13980,9 @@
     const cv = document.createElement('canvas');
     const Wc = 640, Hc = 480;
     cv.width = Wc; cv.height = Hc;
-    const ctx = cv.getContext && cv.getContext('2d');
+    const rawContext = cv.getContext && cv.getContext('2d');
+    const ctx = CANVAS_ILLUSTRATIONS?.canvas(rawContext) || rawContext;
+    if(CANVAS_ILLUSTRATIONS) await CANVAS_ILLUSTRATIONS.prepare([pg.emoji,...stickerPage(pageId).map(p => stickerById(p.id)?.art?.emoji).filter(Boolean)]);
     if (!ctx || typeof ctx.fillRect !== 'function' || typeof cv.toDataURL !== 'function') return null;
     const g = ctx.createLinearGradient(0, 0, 0, Hc);
     g.addColorStop(0, pg.colors[0]); g.addColorStop(0.5, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
@@ -14784,7 +14829,8 @@
   // 2.4びょうで ひとまわりする ゆびの アニメ。ctx が ない(smoke-test の
   // ダミーDOM)ときは なにも しない。もどり値は とめる かんすう
   function startIntroDemo(canvas, kind) {
-    const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    const rawContext = canvas && canvas.getContext ? canvas.getContext('2d') : null;
+    const ctx = CANVAS_ILLUSTRATIONS?.canvas(rawContext) || rawContext;
     if (!ctx) return () => {};
     const W = canvas.width, H = canvas.height;
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
@@ -14857,6 +14903,7 @@
       if (!reduced) raf = requestAnimationFrame(frame);
     };
     frame(performance.now());
+    if (reduced && CANVAS_ILLUSTRATIONS) CANVAS_ILLUSTRATIONS.prepare('🐣◀▶').then(() => { if (!stopped) draw(0); });
     return () => { stopped = true; if (raf) cancelAnimationFrame(raf); };
   }
   let stopIntroDemo = null;
@@ -17043,4 +17090,5 @@
     if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
   });
   window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change', renderEnvironment);
+  globalThis.NaotocchiDisplayIllustrations?.create({document,iconHTML:displayIconHTML}).install(el.device);
 })();

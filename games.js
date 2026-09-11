@@ -14,8 +14,16 @@
   // かざりの こすうの ばいりつ(1 / 0.65 / 0.4)。perfLow() は いちばん かるい だんかい だけ true
   const perfScale = typeof S.perfScale === 'function' ? S.perfScale : () => (perfLow() ? 0.4 : 1);
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
-  const drawProp = typeof S.drawProp === 'function' ? S.drawProp : () => false;
-  const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
+  const canvasArt = S.canvasIllustrations;
+  const drawProp = canvasArt?.drawSymbol || (typeof S.drawProp === 'function' ? S.drawProp : () => false);
+  const { MG_ACTION_START_GRACE_MS, SEASON, ageDifficulty, bindHeldButton, clamp, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase } = S;
+  // The actor marker distinguishes a star-shaped pet from a bonus star. Only
+  // display fields use currentSprite here; game comparisons keep their keys.
+  const currentSprite = canvasArt ? () => '\uE000' : S.currentSprite;
+  const createMgCanvas = (...args) => {
+    const result=S.createMgCanvas(...args);
+    return canvasArt ? {...result,ctx:canvasArt.canvas(result.ctx)} : result;
+  };
   // スワイプと 判定する さいしょうの ゆびの うごき(px)。以前は ゲームごとに
   // 10〜22 で ばらばらだったので、script.js がわの MG_SWIPE_MIN に そろえる
   const MG_SWIPE_MIN = typeof S.MG_SWIPE_MIN === 'number' ? S.MG_SWIPE_MIN : 16;
@@ -2079,6 +2087,7 @@
     const size = Math.max(3, Math.round(px / 2) * 2);
     const key = `${emoji}|${size}|${dpr}`;
     let entry = emojiSpriteCache.get(key);
+    if (entry && canvasArt && entry.artVersion !== canvasArt.version) { emojiSpriteCache.delete(key); entry = undefined; }
     // イラストの 画像が まだ よみこまれて いなくて 文字で えがいた ぶんは、
     // 2びょう たったら えがきなおす(あとから 画像に さしかわる)
     if (entry && entry.fallbackAt && performance.now() - entry.fallbackAt > 2000) { emojiSpriteCache.delete(key); entry = undefined; }
@@ -2086,8 +2095,9 @@
     const cv = document.createElement('canvas');
     const pad = Math.ceil(size * 0.25);
     cv.width = Math.round((size + pad * 2) * dpr); cv.height = Math.round((size + pad * 2) * dpr);
-    const octx = cv instanceof HTMLCanvasElement ? cv.getContext('2d') : null;
+    let octx = cv instanceof HTMLCanvasElement ? cv.getContext('2d') : null;
     if (!(octx instanceof CanvasRenderingContext2D)) { emojiSpriteCache.set(key, null); return null; }
+    if (canvasArt) octx=canvasArt.canvas(octx);
     octx.setTransform(dpr, 0, 0, dpr, 0, 0);
     let fallbackAt = 0;
     if (!drawEmoji?.(octx, emoji, pad, pad, size)) {
@@ -2096,11 +2106,12 @@
       if (drawEmoji) fallbackAt = performance.now();
     }
     if (emojiSpriteCache.size > 600) emojiSpriteCache.clear();
-    entry = { canvas: cv, size, pad, fallbackAt };
+    entry = { canvas: cv, size, pad, fallbackAt, artVersion:canvasArt?.version };
     emojiSpriteCache.set(key, entry);
     return entry;
   }
   function createPseudoRoad(ctx, W, H, opts) {
+    const drawEmoji=opts.drawEmoji || canvasArt?.drawSymbol;
     const SEG_LEN = 200, ROAD_W = opts.roadWidth || 1100, RUMBLE = 3, CAM_H = 1000, DRAW_DIST = opts.drawDistance || 70;
     // canvas の じっさいの かいぞうど(createMgCanvas が dpr で setTransform している)
     const DPR = ctx && ctx.canvas && W ? Math.max(1, ctx.canvas.width / W) : 1;
@@ -2174,9 +2185,9 @@
           const px = Math.max(3, scale * ROAD_W * W / 2 * s.size);
           if (s.draw) s.draw(ctx, sx, sy, px, s);
           else {
-            const sp = emojiSprite(s.emoji, px, DPR, opts.drawEmoji);
+            const sp = emojiSprite(s.emoji, px, DPR, drawEmoji);
             if (sp) { const d = sp.size + sp.pad * 2; ctx.drawImage(sp.canvas, sx - d / 2, sy - sp.pad - sp.size + px * 0.08 - (sp.size - px) / 2, d, d); }
-            else { ctx.font = `${px}px sans-serif`; if (!opts.drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
+            else { ctx.font = `${px}px sans-serif`; if (!drawEmoji?.(ctx,s.emoji,sx-px/2,sy-px*0.92,px)) ctx.fillText(s.emoji, sx, sy + px * 0.08); }
           }
         };
         for (const s of seg.sprites) drawOne(s);
@@ -9499,8 +9510,10 @@
         const off = typeof document !== 'undefined' && document.createElement ? document.createElement('canvas') : null;
         let octx = null;
         if (off) { off.width = W * 2; off.height = W * 2; octx = off.getContext && off.getContext('2d'); }
-        if (octx) {
-          octx.scale(2, 2);
+        if (octx) { if (canvasArt) octx=canvasArt.canvas(octx); octx.scale(2, 2); }
+        let pictureVersion=-1;
+        function paintPicture() {
+          if (!octx) return;
           const g = octx.createLinearGradient(0, 0, W, W); g.addColorStop(0, pic.bg[0]); g.addColorStop(1, pic.bg[1]); octx.fillStyle = g; octx.fillRect(0, 0, W, W);
           octx.font = `${Math.round(W * 0.55)}px sans-serif`; octx.textAlign = 'center'; octx.textBaseline = 'middle'; octx.fillText(pic.big, W / 2, W / 2 + 6);
           octx.font = `${Math.round(W * 0.16)}px sans-serif`;
@@ -9508,7 +9521,9 @@
           spots.forEach(([nx, ny], i) => octx.fillText(pic.small[i % pic.small.length], nx * W, ny * W));
           // ますの ばんごう(ちいさく)
           for (let i = 0; i < N * N - 1; i++) { const cx = (i % N) * CELL, cy = Math.floor(i / N) * CELL; octx.fillStyle = 'rgba(0,0,0,.45)'; octx.beginPath(); octx.arc(cx + 11, cy + 11, 8, 0, Math.PI * 2); octx.fill(); octx.fillStyle = '#fff'; octx.font = 'bold 10px sans-serif'; octx.fillText(String(i + 1), cx + 11, cy + 11.5); octx.font = `${Math.round(W * 0.16)}px sans-serif`; }
+          pictureVersion=canvasArt?.version ?? 0;
         }
+        paintPicture();
         board = Array.from({ length: N * N }, (_, i) => i); blank = N * N - 1;
         // ただしい てじゅんで シャッフル(かならず とける)
         let prev = -1;
@@ -9544,6 +9559,9 @@
         }
         function render(now) {
           if (!ctx) return;
+          // Image completion changes only a version. This existing game frame
+          // refreshes its cached picture; retired games schedule no image work.
+          if (canvasArt && pictureVersion!==canvasArt.version) paintPicture();
           ctx.fillStyle = '#2b2b3a'; ctx.fillRect(0, 0, W, H);
           if (showPreview && octx && !solved) { ctx.globalAlpha = 0.9; ctx.drawImage(off, 0, 0, W, W); ctx.globalAlpha = 1; ctx.fillStyle = 'rgba(0,0,0,.5)'; ctx.fillRect(0, H / 2 - 14, W, 28); ctx.fillStyle = '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('👀お手本—タップではじめる', W / 2, H / 2); return; }
           for (let i = 0; i < N * N; i++) {

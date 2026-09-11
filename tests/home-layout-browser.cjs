@@ -88,6 +88,7 @@ function checkLayout(m, label) {
           ['phone',390,786,'alone'],
           ['phone-tall',390,844,'world_sea_full'],
           ['phone-safe-area',390,844,'alone',{top:59,bottom:34}],
+          ['phone-touch',393,852,'alone',{top:59,bottom:34}],
           ['phone-badges-safe-area',390,844,'badges_transparent',{top:59,bottom:34}],
           ['small',320,568,'care_large'],
           ['small-640',320,640,'badges_transparent'],
@@ -96,7 +97,8 @@ function checkLayout(m, label) {
           ['desktop',768,844,'badges_transparent'],
         ]) {
           const label = engine + '-' + name;
-          const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1 });
+          const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1,
+            ...(name === 'phone-touch' ? {isMobile:true,hasTouch:true} : {}) });
           if (insets) {
             // Desktop CI has no physical notch. Substitute only CSS env inputs;
             // the shipped padding rules still calculate and lay out the page.
@@ -119,6 +121,11 @@ function checkLayout(m, label) {
             const before = await measure(page);
             results.push({ label, phase:'loaded', ...before });
             checkLayout(before,label);
+            if (name === 'phone-touch') {
+              const touch=await require('./home-touch-browser.cjs')(page,engine,label,measure);
+              results.push({label,phase:'touch',...touch});
+              await page.screenshot({path:path.join(output,label+'-after-touch.png')});
+            }
             if (insets) {
               assert.ok(before.header.y >= (insets.top || 0),label+': top safe area');
               assert.ok(before.buttons.every(b => b.bottom <= height-(insets.bottom||0)+1),label+': bottom safe area');
@@ -137,8 +144,10 @@ function checkLayout(m, label) {
                 assert.ok(r.y >= before.frame.y-1 && r.bottom <= before.frame.bottom+1,
                   label+': central content is clipped: '+r.name+' '+JSON.stringify({r,frame:before.frame}));
               }
-              await page.mouse.move(before.stage.x+before.stage.width/2,before.stage.y+before.stage.height/2);
-              await page.mouse.wheel(0,400);
+              if (name !== 'phone-touch') {
+                await page.mouse.move(before.stage.x+before.stage.width/2,before.stage.y+before.stage.height/2);
+                await page.mouse.wheel(0,400);
+              }
               await page.waitForTimeout(100);
               const wheeled=await measure(page);
               assert.equal(wheeled.frameScroll,0,label+': wheel moves central home');
@@ -205,6 +214,12 @@ function checkLayout(m, label) {
               await page.locator('#minigameOverlay').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the minigame');
               await page.locator('#mgQuitBtn').click();
+              await page.locator('#mgQuitYesBtn').scrollIntoViewIfNeeded();
+              const quit=await page.locator('#mgQuitYesBtn').boundingBox();
+              assert.ok(quit && quit.x>=0 && quit.y>=0 && quit.x+quit.width<=390 && quit.y+quit.height<=664,
+                label+': minigame quit confirmation leaves the viewport');
+              results.push({label,phase:'quit-confirmation',quit});
+              await page.screenshot({path:path.join(output,label+'-quit-confirmation.png')});
               await page.locator('#mgQuitYesBtn').click();
               await page.locator('#screenNormal').waitFor({state:'visible'});
               assert.equal(await page.locator('#message').isVisible(),true,label+': narration did not return home');
@@ -229,6 +244,12 @@ function checkLayout(m, label) {
         } catch(error) {
           failures.push(engine+' care attention: '+error.message);
           console.error('FAIL '+engine+' care attention: '+error.message);
+        }
+        try {
+          await require('./all-display-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' illustrations: '+error.message);
+          console.error('FAIL '+engine+' illustrations: '+error.message);
         }
       } finally { await browser.close(); }
     }

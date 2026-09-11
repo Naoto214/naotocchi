@@ -100,5 +100,5 @@
     return {iconHTML,draw};
   }
   const root=typeof globalThis!=='undefined'?globalThis:window;
-  root.NaotocchiPropIllustrations={create};
+  root.NaotocchiPropIllustrations={create, definitions:{art:ART,props:PROPS,symbols:SYMBOLS,food:FOODS,pictures:PICTURES}};
 })();

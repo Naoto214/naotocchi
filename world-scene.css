@@ -98,7 +98,8 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screen {height:100%;min-height:0}
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screenNormal {min-height:0}
 /* The living home is a fixed viewport. Detail/record screens retain their own
-   scrolling, as do long narration and dialogue text. No touch-event trap. */
+   scrolling, as do long narration and dialogue text. home-touch.js blocks
+   one-finger overscroll only here and leaves enlarged views usable. */
 html:has(.world-mode .device[data-home-fixed="true"]) {overflow:hidden;overscroll-behavior:none}
 body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);overflow:hidden;overscroll-behavior:none}
 .world-mode .device.ui-home-active[data-home-fixed="true"] {position:fixed;inset:0;margin-inline:auto}
@@ -274,6 +275,11 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 }
 /* Answer feedback remains distinct and readable on its existing light fills. */
 .world-mode .minigame-overlay :is(.mg-reveal-correct,.mg-reveal-incorrect,.mg-mistake-flash) {color:#0b2028;text-shadow:none}
+/* Help and quit now share this row. Reserve its actual height so a short
+   viewport can reach the confirmation instead of leaving it below the page. */
+.world-mode .device.ui-game-active .mg-quit {height:auto;min-height:44px;margin-top:8px}
+.world-mode .device.ui-game-active .mg-quit-inner {position:static;inset:auto;transform:none;flex-wrap:wrap;gap:6px}
+.world-mode .device.ui-game-active .mg-quit button {min-height:44px}
 .world-mode .mg-quit :is(.mg-quit-btn,.mg-quit-confirm,.mg-quit-no) {
   background:var(--world-button-glass,var(--world-speech-glass,rgb(250 255 255 / .42)));
   color:var(--world-ink);text-shadow:var(--world-text-halo);
