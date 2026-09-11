@@ -351,6 +351,9 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   .world-mode .sub-status-row {padding-block:0}
   .world-mode .cast-heading {min-height:44px;padding:0;gap:0}
   .world-mode .cast-names {padding-block:0;gap:1px}
+  /* Dialogue temporarily occupies this row. Keep its layout space, without
+     showing the underlying names through the translucent speech bubble. */
+  .world-mode .screen-normal:has(#speechBubble:not(.hidden)) .cast-names {visibility:hidden}
   .world-mode .cast-title-line {line-height:1.2}
   .world-mode .world-care-state {display:none}
   .world-mode .device[data-home-fixed="true"] #petArea {min-height:132px}
