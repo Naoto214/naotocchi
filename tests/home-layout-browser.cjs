@@ -50,6 +50,8 @@ async function measure(page) {
       buttons:[...document.querySelectorAll('.buttons button')].map(e => ({ id:e.id, ...rect(e) })),
       headerItems:[...document.querySelectorAll('.header-button:not(.hidden),.ending-badge,.name-plate')].map(rect),
       stage:rect(document.getElementById('castStage')),
+      content:[...document.querySelectorAll('#screenNormal > *, .cast-heading > *, #petArea > *')]
+        .filter(e => e.getClientRects().length).map(e => ({name:e.id || e.className,...rect(e)})),
     };
   });
 }
@@ -116,21 +118,22 @@ function checkLayout(m, label) {
             const before = await measure(page);
             results.push({ label, phase:'loaded', ...before });
             checkLayout(before,label);
-            if (['phone','phone-tall','desktop'].includes(name)) {
-              assert.ok(before.frameOverflow <= 1,label+': decorative haze adds unnecessary central scrolling');
-            }
             if (insets) {
               assert.ok(before.header.y >= (insets.top || 0),label+': top safe area');
               assert.ok(before.buttons.every(b => b.bottom <= height-(insets.bottom||0)+1),label+': bottom safe area');
               assert.ok(before.header.x >= (insets.left||0) && before.header.right <= width-(insets.right||0)+1,label+': side safe areas');
             }
 
-            // The reported bug: scrolling central information must never drag
-            // narration under the fixed care buttons or move the top controls.
+            // Home stays still, including the central age/cast/meter region.
             await page.locator('.screen-frame').evaluate(e => { e.scrollTop = e.scrollHeight; });
             const after = await measure(page);
             results.push({ label, phase:'scrolled', ...after });
             checkLayout(after,label+' scrolled');
+            assert.equal(after.frameScroll,0,label+': central home can still scroll');
+            for (const r of before.content) {
+              assert.ok(r.y >= before.frame.y-1 && r.bottom <= before.frame.bottom+1,
+                label+': central content is clipped: '+r.name+' '+JSON.stringify({r,frame:before.frame}));
+            }
             assert.ok(Math.abs(before.notice.y-after.notice.y)<1, label+': narration moves with central scroll');
             assert.ok(Math.abs(before.header.y-after.header.y)<1, label+': header moves with central scroll');
             assert.ok(Math.abs(before.buttons[0].y-after.buttons[0].y)<1, label+': controls move with central scroll');
@@ -174,6 +177,12 @@ function checkLayout(m, label) {
             console.error('FAIL '+label+': '+error.message);
             await page.screenshot({ path:path.join(output,label+'-failure.png') }).catch(() => {});
           } finally { await context.close(); }
+        }
+        try {
+          await require('./care-attention-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' care attention: '+error.message);
+          console.error('FAIL '+engine+' care attention: '+error.message);
         }
       } finally { await browser.close(); }
     }

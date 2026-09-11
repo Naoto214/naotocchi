@@ -93,6 +93,13 @@
       return notice('life', 'critical', title, care.detail, 'danger', care.action, 'droop');
     }
 
+    // Match the world's warning band (remaining life <= 40). Start useful
+    // recovery advice before the critical band, using the real 60+ care rule.
+    if (!immortal && deathMeter >= 60) {
+      const care = nextHealthCare(state, petAvailable, true);
+      return notice('life', 'warning', 'いのちがすくない', care.detail, 'danger', care.action, 'droop');
+    }
+
     if (health <= 25) {
       const care = nextHealthCare(state, petAvailable, false);
       return notice('health', 'warning', 'けんこうがひくい', care.detail, 'danger', care.action, 'droop');

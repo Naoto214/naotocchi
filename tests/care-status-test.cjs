@@ -65,6 +65,21 @@ test('assess treats each real mortal life-risk signal as critical', () => {
   }
 });
 
+test('low life gives recovery advice before the critical threshold and clears after recovery', () => {
+  for (const deathMeter of [60, 79.9]) {
+    const notice = careStatus.assess(growing({ deathMeter, hunger:55 }));
+    assert.equal(notice?.kind, 'life');
+    assert.equal(notice.severity, 'warning');
+    assert.match(notice.title, /いのち/);
+    assert.equal(notice.action, 'feedBtn');
+    assert.match(notice.detail, /60以上/);
+  }
+  assert.equal(careStatus.assess(growing({ deathMeter:59.9 })), null);
+  assert.equal(careStatus.assess(growing({ deathMeter:80 })).severity, 'critical');
+  assert.equal(careStatus.assess(growing({ deathMeter:70, infinite:true })), null);
+  assert.equal(careStatus.assess(growing({ deathMeter:70, isSick:true })).action, 'medicineBtn');
+});
+
 test('life and health notices choose one useful action from the actual cause', () => {
   const cases = [
     ['illness can be treated even asleep', { isSick: true, sicknessType: 'ねつ', isSleeping: true }, 'medicineBtn', /くすり.*ねつ/],
