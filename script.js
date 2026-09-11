@@ -14738,10 +14738,10 @@
     try { recoverSleepStepInner(); } finally { sleepStepBusy = false; }
   }
   function recoverSleepStepInner() {
-    // 100ms ごと。0→100 が やく 17びょう(はやすぎると げんきの 意味が なくなり、
-    // おそすぎると あそびに もどれない。その あいだの はやさ)
-    const boost = isEquipped('sleepboost1') ? 0.12 : 0;
-    const step = ((state.isSick ? 0.38 : 0.6) + boost) * envModifiers().sleep;
+    // 100ms ごと。0→100 が やく 5びょう(まつ じかんが そうさの じゃまに
+    // ならない はやさ。げんきは「あそぶ まえに ねる」の ひとてま だけに する)
+    const boost = isEquipped('sleepboost1') ? 0.4 : 0;
+    const step = ((state.isSick ? 1.3 : 2.0) + boost) * envModifiers().sleep;
     const before = state.energy;
     state.energy = clamp(state.energy + step, 0, 100);
     if (state.energy !== before) render();

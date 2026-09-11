@@ -1840,3 +1840,4 @@ Runtime smoke test SUCCESS確認済み。
 - 対策2: `bindHeldButton()` は押した直後 120ms 以内の `lostpointercapture`(iOS が capture 直後に投げることがある)を無視し、本当の離しは document 側の pointerup/pointercancel(同じ pointerId)でも拾う(指がボタンの外へずれても押しっぱなしにならない)。
 - 配置: `.mg-hint` の直後に来る操作ブロックを `margin-top: auto` で画面の下(親指の位置)へ。`:has()` が使えるブラウザでは説明文もボタンと一緒に下へ(ゲーム画面 → あき → 説明 → ボタン)。十字キー 46→54px、レース系 54→58px、FP 系 52→56px。全ゲームで操作ブロックの下端が 819px(やめるバーの直上)に揃うことを Playwright で確認。
 - テスト: `npm test` 262件通過。
+- ねるの回復(追記): 0.6 → 2.0/100ms(病気 1.3、まくら +0.4)。0→100 が約5秒。「回復を待つ時間が操作のじゃま」への対応。growth-balance の期待範囲を 3〜12秒に。
