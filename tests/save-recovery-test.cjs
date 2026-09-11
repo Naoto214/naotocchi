@@ -35,7 +35,8 @@ test('backup write failure does not stop a writable primary save', () => {
 test('failed primary migration cannot replace a working backup', () => {
   const good = savedLife(), broken = JSON.parse(good);
   broken.lifetime.money = 1;
-  broken.lifetime.endingTiersReached = null;
+  // schemaVersion 5 heals a null array, so corrupt lifetime itself (never healed)
+  broken.lifetime = 'corrupt';
   const raw = JSON.stringify(broken), storage = storageWith([[SAVE, raw], [BACKUP, good]]);
   const h = boot(storage);
   assert.equal(h.api.state().lifetime.money, 4321);
@@ -83,7 +84,7 @@ test('backup recovery applies legacy migrations once and preserves old character
   legacy.lifetime.minigamePlayCounts = {'region:city:road:0': 3};
   const storage = storageWith([[SAVE, '{broken'], [BACKUP, JSON.stringify(legacy)]]);
   const h = boot(storage), state = h.api.state();
-  assert.equal(state.schemaVersion, 4);
+  assert.equal(state.schemaVersion, 5);
   assert.equal(state.ageTicks, 400);
   assert.equal(state.speciesLine, 'rabbit');
   assert.deepEqual(Array.from(state.lifetime.companionsRecruited), ['snail']);
@@ -115,7 +116,8 @@ test('confirmed full reset cannot later resurrect the removed life from backup',
 
 test('unrecoverable saves remain intact through hidden, unload and repeated saves until explicit reset', () => {
   const invalid = JSON.parse(savedLife());
-  invalid.lifetime.endingTiersReached = null;
+  // schemaVersion 5 heals a null array, so corrupt lifetime itself (never healed)
+  invalid.lifetime = 'corrupt';
   for (const raw of [JSON.stringify(invalid), '{broken']) {
     const storage = storageWith([[SAVE, raw]]), h = boot(storage);
     h.document.visibilityState = 'hidden';

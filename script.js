@@ -1342,7 +1342,7 @@
       // ふくげんする ので、♾️ は 人生を リセットしない。state の 一部な ので
       // セーブにも のり、ページを ひらきなおしても もどれる
       infiniteReturn: null,
-      schemaVersion: 4,
+      schemaVersion: 5,
       romanceCompatibilityVersion: 2,
       pendingLegacyRelationshipResolution: null,
       poopCount: 0,
@@ -1590,17 +1590,66 @@
 
   let pendingMigrationQuiet = false;
 
+  // schemaVersion 5: かたちの ほしょう。freshState() を おてほんに、配列で
+  // あるべき ところが 文字列に なっている・数字が NaN に なっている ような
+  // セーブを、freshState() の 値で うめなおす(正しい かたの 値は いっさい
+  // さわらない)。ネストした オブジェクト(lifetime / actionCounts /
+  // oneTimeBoosts …)は 中まで おなじ ルールで みる。null が おてほんの
+  // ところ(partner / marriageAge など)は「なんでも よい」ので とばす
+  function normalizeStateShape(target, model) {
+    if (!target || typeof target !== 'object' || Array.isArray(target)) return model;
+    for (const key of Object.keys(model)) {
+      const fresh = model[key];
+      const cur = target[key];
+      if (Array.isArray(fresh)) {
+        if (!Array.isArray(cur)) target[key] = fresh.slice();
+      } else if (fresh && typeof fresh === 'object') {
+        if (!cur || typeof cur !== 'object' || Array.isArray(cur)) target[key] = JSON.parse(JSON.stringify(fresh));
+        else normalizeStateShape(cur, fresh);
+      } else if (typeof fresh === 'number') {
+        if (typeof cur !== 'number' || !Number.isFinite(cur)) target[key] = fresh;
+      } else if (typeof fresh === 'boolean') {
+        if (typeof cur !== 'boolean') target[key] = !!cur;
+      } else if (typeof fresh === 'string') {
+        if (typeof cur !== 'string') target[key] = fresh;
+      }
+    }
+    return target;
+  }
+  // メーターと きろくの 中身も かたを そろえる(normalizeStateShape の
+  // あとに よぶ。ここでも 正しい 値は かえない)
+  function normalizeStateValues(st) {
+    for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
+    st.ageTicks = Math.max(0, Math.floor(st.ageTicks));
+    st.lifeLog = st.lifeLog.filter((e) => e && typeof e === 'object' && typeof e.text === 'string');
+    st.midlifeSeen = st.midlifeSeen.filter((v) => Number.isFinite(v));
+    if (Array.isArray(st.lifetime.pastLives)) {
+      st.lifetime.pastLives = st.lifetime.pastLives.filter((p) => p && typeof p === 'object').map((p) => ({
+        ...p, log: Array.isArray(p.log) ? p.log : [], code: typeof p.code === 'string' ? p.code : null,
+      }));
+    }
+    st.companions = st.companions.filter((c) => c && typeof c === 'object' && typeof c.id === 'string');
+    return st;
+  }
+
   function loadState() {
     // 通常セーブもバックアップも、同じ移行処理を最後まで通してから採用する。
     const migrate = (raw) => {
       const parsed = JSON.parse(raw);
       if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('invalid save payload');
+      // lifetime が「ある のに オブジェクトでは ない」セーブは こわれている。
+      // うめなおしても ずかん・じっせき・おかねが ぜんぶ きえる ので、
+      // ここは なおさずに 失敗させ、バックアップの ほうを つかう
+      if (parsed.lifetime != null && (typeof parsed.lifetime !== 'object' || Array.isArray(parsed.lifetime))) throw new Error('invalid lifetime');
       const merged = { ...freshState(), ...parsed };
       // lifetime is a nested object, so the shallow merge above replaces it
       // wholesale with the save's own (possibly older, field-missing)
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
+      // コードは 配列の .map などを ためらいなく よぶ ので)
+      normalizeStateShape(merged, freshState());
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
       const LEGACY_MINIGAME_IDS = {
@@ -1794,7 +1843,20 @@
         }
         pendingMigrationQuiet = true;
       }
-      merged.schemaVersion = 4;
+
+      // ================================================================
+      // schemaVersion 5 への いこう(かたの ほしょう だけ。数字の いみは かわらない)
+      // ================================================================
+      // v4 の セーブは 値を いっさい かえずに そのまま v5 に なる。上の
+      // normalizeStateShape() と ここの normalizeStateValues() が「配列で
+      // あるべき ものは 配列、メーターは 0〜100」を ほしょうする
+      normalizeStateValues(merged);
+      if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
+        normalizeStateShape(merged.infiniteReturn, freshState());
+        normalizeStateValues(merged.infiniteReturn);
+        merged.infiniteReturn.schemaVersion = 5;
+      }
+      merged.schemaVersion = 5;
 
       // 旧版の途中状態などで endingTiersReached に tier0(🎉)だけ残っていても、
       // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
@@ -2691,7 +2753,7 @@
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
     const H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
-    const dpr = Math.min(mgPerfLow ? 1 : 2, num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
+    const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
     if (!ctx || typeof ctx.setTransform !== 'function') ctx = null;
     if (canvas) {
@@ -10222,12 +10284,11 @@
   // ひらいているかどうかを まとめて はんていする、きょうつうの ヘルパー。
   // tick()の じかんていし ガード・なかまイベント抽選ガード・きせつの
   // ぜんけいエフェクト よくせいの 3か所で つかう。pickerOpen は
-  // useConsumableItem()→openPicker() の けいろでしか ひらかれず、itemOpen
+  // useConsumableItem()→openPicker() の けいろでしか ひらかれず、overlayIs('item')
   // すでに ひらいている ときにしか 到達しないため、ここには ふくめていない
-  // (itemOpen だけで じゅうぶん カバーできる)
+  // (overlayIs('item') だけで じゅうぶん カバーできる)
   function isAnyMenuOverlayOpen() {
-    return menuOpen || dexOpen || achOpen || themeOpen || profileOpen || commOpen
-      || itemOpen || duelOpen || worldOpen || travelOpen
+    return !!activeOverlay || duelOpen
       || dateOpen || companionInviteOpen
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
@@ -10869,26 +10930,26 @@
     el.themeBtn.disabled = gameActive || hasTransformChoice;
     el.itemBtn.disabled = gameActive || hasTransformChoice;
 
-    el.dexOverlay.classList.toggle('hidden', !dexOpen);
-    if (dexOpen) renderDex();
+    el.dexOverlay.classList.toggle('hidden', !overlayIs('dex'));
+    if (overlayIs('dex')) renderDex();
 
     el.dexDetailOverlay.classList.toggle('hidden', !dexDetail);
     if (dexDetail) renderDexDetail();
 
-    el.achOverlay.classList.toggle('hidden', !achOpen);
-    if (achOpen) renderAchievements();
+    el.achOverlay.classList.toggle('hidden', !overlayIs('ach'));
+    if (overlayIs('ach')) renderAchievements();
 
-    el.themeOverlay.classList.toggle('hidden', !themeOpen);
-    if (themeOpen) renderThemeOverlay();
+    el.themeOverlay.classList.toggle('hidden', !overlayIs('theme'));
+    if (overlayIs('theme')) renderThemeOverlay();
 
-    el.profileOverlay.classList.toggle('hidden', !profileOpen);
-    if (profileOpen) renderProfile();
+    el.profileOverlay.classList.toggle('hidden', !overlayIs('profile'));
+    if (overlayIs('profile')) renderProfile();
 
-    el.commOverlay.classList.toggle('hidden', !commOpen);
-    if (commOpen) renderCommOverlay();
+    el.commOverlay.classList.toggle('hidden', !overlayIs('comm'));
+    if (overlayIs('comm')) renderCommOverlay();
 
-    el.itemOverlay.classList.toggle('hidden', !itemOpen);
-    if (itemOpen) renderItemOverlay();
+    el.itemOverlay.classList.toggle('hidden', !overlayIs('item'));
+    if (overlayIs('item')) renderItemOverlay();
 
     el.pickerOverlay.classList.toggle('hidden', !pickerOpen);
     if (pickerOpen) renderPicker();
@@ -10898,8 +10959,8 @@
 
     el.companionInviteOverlay.classList.toggle('hidden', !companionInviteOpen);
 
-    el.menuOverlay.classList.toggle('hidden', !menuOpen);
-    el.worldOverlay.classList.toggle('hidden', !worldOpen);
+    el.menuOverlay.classList.toggle('hidden', !overlayIs('menu'));
+    el.worldOverlay.classList.toggle('hidden', !overlayIs('world'));
     renderEnvironment();
     el.dateOverlay.classList.toggle('hidden', !dateOpen);
     // そだち50「こいの きざし」に とどいて はじめて「デートに さそう」が
@@ -10917,8 +10978,8 @@
       : compactJapaneseText(`${state.partner ? state.partner.emoji + ' ' + state.partner.label : 'こいびと'}とでかけられます`);
 
 
-    el.travelOverlay.classList.toggle('hidden', !travelOpen);
-    if (travelOpen) renderTravelRegionGrid();
+    el.travelOverlay.classList.toggle('hidden', !overlayIs('travel'));
+    if (overlayIs('travel')) renderTravelRegionGrid();
 
     // ゲーム機・えきしょうの てまえまで よこぎる ぜんけいの きせつ
     // エフェクトは、しさが だいじな ばめん(ミニゲーム中や、よみもの/
@@ -10940,19 +11001,16 @@
     positionWeatherSky();
   }
 
-  let menuOpen = false;
-  let dexOpen = false;
-  let achOpen = false;
-  let themeOpen = false;
-  let profileOpen = false;
-  let commOpen = false;
-  let itemOpen = false;
+  // メインの オーバーレイ(メニュー/ずかん/じっせき/せってい/データ/つうしん/
+  // アイテム/せかい/たび)は どうじに 1まいしか ひらかない ので、9つの
+  // フラグではなく「いま ひらいている しゅるい」を 1つだけ もつ。
+  // null = なにも ひらいていない。duel(うそつきしょうぶ)・date・
+  // なかまの さそい・picker は この うえに かさなる 子がめん なので べつ
+  const OVERLAY_KINDS = ['menu', 'dex', 'ach', 'theme', 'profile', 'comm', 'item', 'world', 'travel'];
+  let activeOverlay = null;
+  const overlayIs = (kind) => activeOverlay === kind;
+  function closeOverlay(kind) { if (activeOverlay === kind) activeOverlay = null; }
   let duelOpen = false;
-  // 「🌍 せかい」がめん(きせつを かえる/たびに でる の いりぐち)と、
-  // その中の「きせつを かえる」「たびに でる」サブがめん。dexOpen などと
-  // おなじ しくみで render() から ひょうじを きりかえる
-  let worldOpen = false;
-  let travelOpen = false;
   // うそつきしょうぶ画面の どこを 見せているかを おぼえておく
   // 表示じょうたい じたいは state.duel(セーブに のこる 進行データ)とは
   // べつに もつ ことで、画面を とじて また ひらいても つづきから
@@ -10962,7 +11020,7 @@
   // ステップに はいるたびに 0/'pending' から やりなおす
   let duelRevealIndex = 0;
   let duelRevealPhase = 'pending';
-  // れんあいタイプの「？」ボタンで ひらいた せつめいが、profileOpen 中の
+  // れんあいタイプの「？」ボタンで ひらいた せつめいが、データ画面を ひらいている あいだの
   // ほかの 操作(たとえば きゅうあいの けっかで render() が よびなおされる
   // など)で かってに とじてしまわないよう、ひらいている/いないを
   // ここで おぼえておく
@@ -10972,17 +11030,9 @@
   // いま開いているものを先に閉じて、そのまま新しい画面へ切り替える。
   function closeAllMenuOverlays() {
     restoreFocusToMenu();
-    menuOpen = false;
+    activeOverlay = null;
     currentLocationIntent += 1;
-    dexOpen = false;
-    achOpen = false;
-    themeOpen = false;
-    profileOpen = false;
-    commOpen = false;
-    itemOpen = false;
     duelOpen = false;
-    worldOpen = false;
-    travelOpen = false;
     dateOpen = false;
     pendingDatePlan = null;
     el.dateRewardConfirm.classList.add('hidden');
@@ -11000,15 +11050,8 @@
     clearConversationTimers();
     hideSpeechBubble();
     closeAllMenuOverlays();
-    if (kind === 'menu') menuOpen = true;
-    else if (kind === 'travel') travelOpen = true;
-    else if (kind === 'dex') dexOpen = true;
-    else if (kind === 'ach') achOpen = true;
-    else if (kind === 'theme') { themeOpen = true; selectDesignPanel('screen'); }
-    else if (kind === 'profile') profileOpen = true;
-    else if (kind === 'comm') commOpen = true;
-    else if (kind === 'item') itemOpen = true;
-    else if (kind === 'world') worldOpen = true;
+    if (OVERLAY_KINDS.includes(kind)) activeOverlay = kind;
+    if (kind === 'theme') selectDesignPanel('screen');
     render();
     focusOverlayClose(kind);
   }
@@ -12025,7 +12068,7 @@
     // しぼう/ゲームクリアに とどく ことも ある。そのばあいは アイテム画面
     // ごしに ならないよう、専用の えんしゅつ画面が 前に 出られる ように とじる
     if (state.stage === STAGE.DEAD) {
-      itemOpen = false;
+      closeOverlay('item');
     }
     saveState();
     render();
@@ -12067,7 +12110,7 @@
     if (result.message) setMessage(result.message);
     emotePet(result.emote || 'happy');
     if (state.stage === STAGE.DEAD) {
-      itemOpen = false;
+      closeOverlay('item');
     }
     saveState();
     render();
@@ -12560,8 +12603,7 @@
   function applyWeatherFx(weather, time, regionId) {
     if (!el.weatherFx) return;
     const reduced = !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    const low = mgPerfLow;
-    const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${low}`;
+    const key = `${regionId}|${weather || 'none'}|${time}|${reduced}|${mgPerfTier}`;
     if (key === weatherFxKey) return;
     weatherFxKey = key;
     if (regionId === 'deepsea') { el.weatherFx.innerHTML = ''; return; }
@@ -12570,21 +12612,21 @@
     const sky = [];
     const rnd = (a, b) => a + Math.random() * (b - a);
     if (weather === 'rain') {
-      const n = low ? 18 : 42;
+      const n = perfCount(42, 18);
       for (let i = 0; i < n; i++) items.push(`<span class="wx-drop" style="left:${rnd(0, 100).toFixed(1)}%;animation-duration:${rnd(0.7, 1.2).toFixed(2)}s;animation-delay:${rnd(-1.2, 0).toFixed(2)}s;height:${Math.round(rnd(14, 24))}px;opacity:${rnd(0.4, 0.9).toFixed(2)}"></span>`);
     } else if (weather === 'snow') {
-      const n = low ? 12 : 26;
+      const n = perfCount(26, 12);
       for (let i = 0; i < n; i++) items.push(`<span class="wx-flake" style="left:${rnd(0, 100).toFixed(1)}%;font-size:${Math.round(rnd(11, 24))}px;--drift:${Math.round(rnd(-30, 30))}px;animation-duration:${rnd(7, 13).toFixed(1)}s;animation-delay:${rnd(-12, 0).toFixed(1)}s">${sceneryIconHTML('❄')}</span>`);
     } else if (weather === 'cloudy') {
-      const n = low ? 3 : 5;
+      const n = perfCount(5, 3);
       for (let i = 0; i < n; i++) sky.push(`<span class="wx-cloud" style="top:${rnd(2, 30).toFixed(1)}%;font-size:${Math.round(rnd(18, 32))}px;animation-duration:${rnd(40, 80).toFixed(0)}s;animation-delay:${rnd(-70, 0).toFixed(0)}s">${sceneryIconHTML('☁️')}</span>`);
     } else if (weather === 'sunny' && time !== 'night') {
       sky.push('<span class="wx-sun"></span>');
-      const n = low ? 3 : 7;
+      const n = perfCount(7, 3);
       for (let i = 0; i < n; i++) sky.push(`<span class="wx-spark" style="left:${rnd(55, 96).toFixed(1)}%;top:${rnd(2, 26).toFixed(1)}%;font-size:${Math.round(rnd(9, 16))}px;animation-duration:${rnd(2.4, 4.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s">✦</span>`);
     }
     if (time === 'night' && weather !== 'rain' && weather !== 'snow') {
-      const n = low ? 14 : 30;
+      const n = perfCount(30, 14);
       for (let i = 0; i < n; i++) sky.push(`<span class="wx-star" style="left:${rnd(0, 100).toFixed(1)}%;top:${rnd(0, 60).toFixed(1)}%;animation-duration:${rnd(1.2, 3.2).toFixed(1)}s;animation-delay:${rnd(0, 3).toFixed(1)}s"></span>`);
       if (weather !== 'cloudy') sky.push(`<span class="wx-moon">${sceneryIconHTML('🌙')}</span>`);
     }
@@ -12841,7 +12883,7 @@
     const contextNote = eff.source === 'underwater' ? 'ここは水の中。地上の天気は届きません。' : eff.source === 'starry' ? 'ここでは、いつでも星空が見えます。' : '';
     el.environmentStatus.textContent = contextNote ? `${contextNote} 選んだ天気は地上へ戻ると反映されます。` : status;
     el.travelLocationStatus.textContent = loading || snapshot?.error ? status : (city ? 'この市区町村を、いつものばしょとして表示します。' : '市区町村まで調べられます。');
-    if (worldOpen) {
+    if (overlayIs('world')) {
       renderWorldNowCard({ time, weather, weatherSource: eff.source, season: getEffectiveSeason(), region: state.regionId });
       renderEnvironmentChoices(el.timeModeGrid,TIME_CHOICES,mode,'time');
       renderSeasonModeGrid();
@@ -13087,7 +13129,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13677,8 +13719,27 @@
   // けいりょうモード: ゲーム中の フレーム間かくを はかり、へいきんが 30ms を
   // こえたら(おおよそ 33fps 未満)、それいこうの canvas を かいぞうど 1 で
   // つくり、星などの かざりを へらす(このセッションの あいだ ゆうこう)
-  let mgPerfLow = false;
-  const mgPerf = { last: 0, samples: [] };
+  // 3だんかい: 0 = ふつう(かいぞうど 2、かざり 100%)、1 = すこし かるく
+  // (かいぞうど 1.5、かざり 65%)、2 = かるく(かいぞうど 1、かざり 40%)。
+  // 90フレームの へいきんが 22ms を こえたら 1、34ms を こえたら 2 に あげる。
+  // 14ms 未満の まどが 3かい つづいたら 1だん もどす(いちど おもかった
+  // だけで ずっと かるい ままに ならない ように)
+  const MG_PERF_TIERS = [
+    { dpr: 2, scale: 1 },
+    { dpr: 1.5, scale: 0.65 },
+    { dpr: 1, scale: 0.4 },
+  ];
+  let mgPerfTier = 0;
+  let mgPerfLow = false; // tier 2 の べつめい(かざりを へらす きゅうしきの フラグ)
+  const mgPerf = { last: 0, samples: [], fastStreak: 0 };
+  function setPerfTier(tier) {
+    mgPerfTier = clamp(tier, 0, MG_PERF_TIERS.length - 1);
+    mgPerfLow = mgPerfTier >= 2;
+  }
+  const mgPerfDpr = () => MG_PERF_TIERS[mgPerfTier].dpr;
+  const mgPerfScale = () => MG_PERF_TIERS[mgPerfTier].scale;
+  // かざりの こすう: full(ふつう)〜 low(いちばん かるい)を tier で わける
+  const perfCount = (full, low) => mgPerfTier >= 2 ? low : mgPerfTier === 1 ? Math.round((full + low) / 2) : full;
   function mgPerfSample() {
     const t = performance.now();
     const dt = t - mgPerf.last; mgPerf.last = t;
@@ -13687,7 +13748,11 @@
     if (mgPerf.samples.length < 90) return;
     const avg = mgPerf.samples.reduce((a, b) => a + b, 0) / mgPerf.samples.length;
     mgPerf.samples = [];
-    if (avg > 30 && !mgPerfLow) mgPerfLow = true;
+    if (avg > 34) { setPerfTier(2); mgPerf.fastStreak = 0; }
+    else if (avg > 22) { setPerfTier(Math.max(mgPerfTier, 1)); mgPerf.fastStreak = 0; }
+    else if (avg < 14 && mgPerfTier > 0) {
+      if (++mgPerf.fastStreak >= 3) { setPerfTier(mgPerfTier - 1); mgPerf.fastStreak = 0; }
+    } else mgPerf.fastStreak = 0;
   }
   let mgSession = 0;        // いま うごいている ゲームの セッション番号(0 = なし)
   let mgSessionSerial = 0;
@@ -14944,11 +15009,11 @@
   }));
 
   el.menuBtn.addEventListener('click', () => openExclusiveMenu('menu'));
-  el.menuCloseBtn.addEventListener('click', () => { menuOpen = false; render(); });
+  el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
   el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
   el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
-  el.worldCloseBtn.addEventListener('click', () => { worldOpen = false; render(); });
+  el.worldCloseBtn.addEventListener('click', () => { closeOverlay('world'); render(); });
   el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
   el.seasonModeGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
@@ -14998,7 +15063,7 @@
   el.currentLocationBtn.addEventListener('click', async () => {
     const intent = ++currentLocationIntent;
     const info = await requestEnvironment();
-    if (intent !== currentLocationIntent || !travelOpen || !info?.municipality) return;
+    if (intent !== currentLocationIntent || !overlayIs('travel') || !info?.municipality) return;
     if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); render(); return; }
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD || state.transformOptions || gameActive) return;
     // The real municipality labels the home region; it is never invented as a
@@ -15030,8 +15095,7 @@
     // どちらの ぶんき(ねている/じっさいに たびに でる)でも さいごに
     // かならず saveState()/render() まで とおるよう、はやい return は
     // つかわず if/else で くみたてる
-    travelOpen = false;
-    worldOpen = false;
+    if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     if (state.isSleeping) {
       setMessage(randomBlockedMessage('sleepingTravel'));
       saveState();
@@ -15232,7 +15296,7 @@
   // 「あたらしい たまごを むかえる」: いまの子だけ リセット。ずかん・じっせき・
   // おかね・アイテム・おもいでは のこる(せっていがめんから いつでも おせる)
   el.softResetBtn.addEventListener('click', withFeedback(() => {
-    themeOpen = false;
+    closeOverlay('theme');
     el.resetBtn.click();
   }));
 
@@ -15303,10 +15367,7 @@
     saveWriteBlocked = false;
     state = freshState();
     el.wipeConfirmOverlay.classList.add('hidden');
-    themeOpen = false;
-    dexOpen = false;
-    achOpen = false;
-    itemOpen = false;
+    activeOverlay = null;
     setMessage('ぜんぶきえました。はじめまして!');
     saveState();
     render();
@@ -15371,7 +15432,7 @@
   el.dexBtn.addEventListener('click', () => openExclusiveMenu('dex'));
 
   el.dexCloseBtn.addEventListener('click', () => {
-    dexOpen = false;
+    closeOverlay('dex');
     dexDetail = null;
     render();
   });
@@ -15412,7 +15473,7 @@
   el.achBtn.addEventListener('click', () => { achTab = 'ach'; openExclusiveMenu('ach'); });
 
   el.achCloseBtn.addEventListener('click', () => {
-    achOpen = false;
+    closeOverlay('ach');
     render();
   });
   if (el.achTabs) {
@@ -15446,7 +15507,7 @@
   el.themeBtn.addEventListener('click', () => openExclusiveMenu('theme'));
 
   el.themeCloseBtn.addEventListener('click', () => {
-    themeOpen = false;
+    closeOverlay('theme');
     render();
   });
 
@@ -15477,7 +15538,7 @@
   el.itemBtn.addEventListener('click', () => openExclusiveMenu('item'));
 
   el.itemCloseBtn.addEventListener('click', () => {
-    itemOpen = false;
+    closeOverlay('item');
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -15567,7 +15628,7 @@
   el.profileBtn.addEventListener('click', () => openExclusiveMenu('profile'));
 
   el.profileCloseBtn.addEventListener('click', () => {
-    profileOpen = false;
+    closeOverlay('profile');
     render();
   });
 
@@ -15577,14 +15638,14 @@
   });
 
   el.commCloseBtn.addEventListener('click', () => {
-    commOpen = false;
+    closeOverlay('comm');
     render();
   });
 
   el.openDuelBtn.addEventListener('click', () => {
-    dexOpen = false; achOpen = false; themeOpen = false; profileOpen = false;
-    itemOpen = false; worldOpen = false; travelOpen = false; dateOpen = false;
-    // うそつきしょうぶだけは「つうしん」の子画面なので、commOpen は残す。
+    if (!overlayIs('comm')) activeOverlay = null;
+    dateOpen = false;
+    // うそつきしょうぶだけは「つうしん」の子画面なので、つうしん画面は残す。
     duelOpen = true;
     goToDuelStep(duelResumeStep());
     render();
