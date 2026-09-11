@@ -56,12 +56,12 @@
 @keyframes world-care-pulse {0%,100%{opacity:.45;transform:scale(.98)}50%{opacity:.8;transform:scale(1.015)}}
 
 /* Tint only the glass surfaces; text, icons and meter fills stay fully opaque. */
-body.world-mode {--world-glass:rgb(245 253 255 / .24);--world-detail-glass:rgb(245 253 255 / .28);--world-ink:#0b2028;--world-glass-blur:2px;--world-text-halo:0 1px 1px #ffffffed,0 0 2px #ffffffd9;padding:0;display:flex;align-items:flex-start;justify-content:center;background:var(--world-base);color:var(--world-ink)}
+body.world-mode {--world-press-transform:translateY(1px) scale(.98);--world-glass-rgb:245 253 255;--world-glass:rgb(245 253 255 / .24);--world-detail-glass:rgb(245 253 255 / .28);--world-ink:#0b2028;--world-glass-blur:2px;--world-text-halo:0 1px 2px #ffffffdd,0 0 5px #ffffffaa;padding:0;display:flex;align-items:flex-start;justify-content:center;background:var(--world-base);color:var(--world-ink)}
 /* Match the ink and glass to the rendered light, including always-dark habitats.
    Only presentation tokens change; saved themes, time and climate stay intact. */
 body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[data-habitat="sky"])) {
-  --world-glass:rgb(4 20 31 / .24);--world-detail-glass:rgb(4 20 31 / .28);--world-ink:#f3fbff;
-  --world-text-halo:0 1px 2px #00101ffa,0 0 2px #00101fe6;
+  --world-glass-rgb:4 20 31;--world-glass:rgb(4 20 31 / .24);--world-detail-glass:rgb(4 20 31 / .28);--world-ink:#f3fbff;
+  --world-text-halo:0 1px 2px #00101fee,0 0 5px #00101fbb;
   --world-speech-glass:rgb(4 20 31 / .40);
   --world-good-glass:rgb(18 54 38 / .38);--world-good-ink:#e5f9df;
   --world-caution-glass:rgb(63 49 7 / .42);--world-caution-ink:#fff3c4;
@@ -75,49 +75,49 @@ body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[
   --world-farewell-glass:rgb(66 36 8 / .32);
   --world-farewell-button-glass:rgb(82 46 8 / .30);
 }
-/* Optional colorless glass belongs to buttons, not the independently themed HUD. */
-.world-mode .device.theme-transparent {
-  --world-button-glass:rgb(255 255 255 / .18);
-  --world-button-pressed:rgb(255 255 255 / .32);
-}
-.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[data-habitat="sky"])) .device.theme-transparent {
-  --world-button-glass:rgb(0 0 0 / .18);
-  --world-button-pressed:rgb(0 0 0 / .32);
+/* Game-managed neutral glass. Only surface alpha is customizable, never ink or borders. */
+.world-mode .device {
+  --world-button-glass:rgb(var(--world-glass-rgb,245 253 255) / var(--ui-button-alpha,.28));
+  --world-button-pressed:rgb(var(--world-glass-rgb,245 253 255) / calc(var(--ui-button-alpha,.28) + .16));
+  --world-info-haze:rgb(var(--world-glass-rgb,245 253 255) / var(--ui-info-alpha,.48));
 }
 /* A narrow light halo protects small glyphs without whitening the whole pane. */
 .world-mode :is(.name-plate,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.home-meters,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {text-shadow:var(--world-text-halo)}
 body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-decor,body.world-mode .season-bg-fx,body.world-mode .season-front-fx,body.world-mode .weather-fx {display:none!important}
 .world-mode .device.surface-device {width:min(100%,620px);min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) 16px max(10px,env(safe-area-inset-bottom));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
 .world-mode .device.surface-device::before,.world-mode .screen.surface-screen::before,.world-mode .screen-frame::before,.world-mode .device::after {display:none}
-.world-mode .device.ui-home-active {height:var(--app-height);min-height:min-content;grid-template-rows:auto minmax(min-content,1fr) auto auto;gap:6px}
+.world-mode .device.ui-home-active {height:var(--app-height);min-height:0;grid-template-rows:auto minmax(0,1fr) auto auto;gap:6px}
+/* Keep controls visible when large text, warnings or badges need extra room. */
+.world-mode .device.ui-home-active .screen-frame {min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin}
 .world-mode .device-top {display:none}
 .world-mode .device-header {min-height:44px;padding:0;gap:8px;z-index:5}
-.world-mode .header-title,.world-mode .device:not(.theme-default) .header-title {padding:5px 9px;background:var(--world-glass);border:1px solid #ffffff70;border-radius:17px;box-shadow:0 3px 12px #052f3d16}
+.world-mode .header-title,.world-mode .device:not(.theme-default) .header-title {padding:5px 9px;background:none;border:0;border-radius:0;box-shadow:none}
 .world-mode .name-plate {font-size:18px;color:var(--world-ink);letter-spacing:.07em}
-.world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-button-glass,var(--world-glass));border:1px solid #ffffff70;color:var(--world-ink);box-shadow:0 3px 12px #052f3d16}
-.world-mode .header-button span {font-size:12px}
+.world-mode .header-button {min-width:52px;min-height:48px;background:var(--world-button-glass);border:1px solid #f4ffffd9;color:var(--world-ink);box-shadow:0 0 0 1px #143b4b80,0 3px 10px #052f3d26}
+.world-mode .header-actions {flex-shrink:0}
+.world-mode .header-button span {font-size:12px;white-space:nowrap}
 .world-mode .screen-frame {padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;min-width:0}
 .world-mode .screen.surface-screen {padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:var(--world-ink);overflow:visible;isolation:auto}
 .world-mode .screen-normal {gap:5px}
-.world-mode .status-row {align-items:center;font-size:14px;line-height:1.35;gap:4px;padding:5px 10px;background:var(--world-glass);border:1px solid #ffffff66;border-radius:13px;color:var(--world-ink)}
+.world-mode .status-row {align-items:center;font-size:14px;line-height:1.35;gap:4px;padding:5px 10px;background:none;border:0;border-radius:0;color:var(--world-ink)}
 .world-mode #ageLabel,.world-mode #sodachiLabel,.world-mode #moneyLabel {font-size:13px;color:var(--world-ink)}
-.world-mode .sub-status-row {padding:4px 9px;margin:0;background:var(--world-glass);border:1px solid #ffffff66;border-radius:13px;font-size:12px;line-height:1.4;color:var(--world-ink);opacity:1}
+.world-mode .sub-status-row {padding:4px 9px;margin:0;background:none;border:0;border-radius:0;font-size:12px;line-height:1.4;color:var(--world-ink);opacity:1}
 .world-mode .cast-heading {padding:4px 0 0;gap:5px;flex-direction:column;z-index:3}
-.world-mode .cast-names {flex:initial;padding:4px 10px;border:1px solid #ffffff66;border-radius:13px;background:var(--world-detail-glass);color:var(--world-ink)}
+.world-mode .cast-names {flex:initial;padding:4px 10px;border:0;border-radius:0;background:none;color:var(--world-ink)}
 .world-mode .device.ui-home-compact .cast-names {flex-direction:column;flex-wrap:nowrap;gap:2px}
 .world-mode #mainNameLabel {font-size:15px}
 .world-mode #partnerLabel {font-size:13px}
-.world-mode .partner-affection {display:inline-block;white-space:nowrap;margin-left:5px;padding:0 4px;border-radius:7px;background:var(--world-affection-glass,rgb(255 225 239 / .18));color:var(--world-social-ink,#492439);font-size:12px;font-weight:600}
+.world-mode .partner-affection {display:inline-block;white-space:nowrap;margin-left:5px;padding:0 4px;background:none;color:var(--world-social-ink,#702747);font-size:12px;font-weight:600}
 .world-mode .stage-name-row {font-size:12px;opacity:1}
 .world-description {display:none}
 .world-mode .world-description {display:block;margin:0;position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 .world-care-state {display:none}
-.world-mode .world-care-state {display:flex;align-items:center;justify-content:center;gap:4px;min-height:23px;padding:2px 8px;border:1px solid #ffffff66;border-radius:20px;background:var(--world-good-glass,rgb(237 249 240 / .38));color:var(--world-good-ink,#173825);font-size:12px;font-weight:600;line-height:1.3}
+.world-mode .world-care-state {display:flex;align-items:center;justify-content:center;gap:4px;min-height:23px;padding:2px 8px;border:0;border-radius:0;background:none;color:var(--world-good-ink,#173825);font-size:12px;font-weight:600;line-height:1.3}
 .world-mode .world-care-state .care-icon {width:19px;height:19px;flex-basis:19px}
 .world-mode [data-world-care="none"] .world-care-state {visibility:hidden}
-.world-mode [data-world-care="caution"] .world-care-state {color:var(--world-caution-ink,#49320b);background:var(--world-caution-glass,rgb(255 248 217 / .42))}
-.world-mode [data-world-care="warning"] .world-care-state {color:var(--world-warning-ink,#4c2810);background:var(--world-warning-glass,rgb(255 240 201 / .46));outline:1px solid #a97130}
-.world-mode [data-world-care="critical"] .world-care-state {color:var(--world-critical-ink,#582024);background:var(--world-critical-glass,rgb(255 240 233 / .52));outline:2px solid #b24949}
+.world-mode [data-world-care="caution"] .world-care-state {color:var(--world-caution-ink,#684308)}
+.world-mode [data-world-care="warning"] .world-care-state {color:var(--world-warning-ink,#78350c)}
+.world-mode [data-world-care="critical"] .world-care-state {color:var(--world-critical-ink,#871e25);font-weight:700}
 .world-mode #petArea {flex:1;gap:0;min-height:200px;position:relative}
 .world-mode .cast-stage {min-height:146px;background:none!important}
 .world-mode .cast-stage::before {display:none!important}
@@ -130,12 +130,22 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .screen.sleeping .cast-sway {animation-duration:10s}
 .world-mode .screen.dying>.screen-normal {filter:none}
 .world-mode .speech-slot {height:calc(2.8em + 17px);font-size:14px;padding:4px 0 1px;z-index:4}
-.world-mode .speech-slot .speech-bubble {font-size:14px;border-width:1px;border-color:#75949d;background:var(--world-speech-glass,rgb(250 255 255 / .42));box-shadow:0 3px 12px #133d4e25;padding:4px 10px;color:var(--world-ink);border-radius:15px}
-.world-mode .speech-slot .speech-bubble::before {background:var(--world-speech-glass,rgb(250 255 255 / .42));border-color:#75949d}
-.world-mode .home-meters {position:relative;isolation:isolate;padding:9px 11px;margin:0;border:1px solid #ffffff7a;border-radius:19px;gap:7px;background:var(--world-detail-glass);background:color-mix(in srgb,var(--world-detail-glass) 98%,var(--surface-color) 2%);color:var(--world-ink);box-shadow:0 6px 22px #052e441e;z-index:4}
-.world-mode .home-meters::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.025}
-.world-mode .home-meters::after,.world-mode .buttons button>span::before {content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background-image:var(--surface-image);background-size:cover;opacity:.03}
-.world-mode .buttons button>span::before {border-radius:17px}
+.world-mode .speech-slot .speech-bubble {font-size:14px;border:0;background:rgb(250 253 250 / .82);box-shadow:0 3px 10px #133d4e18;padding:5px 10px;color:#142e36;text-shadow:none;border-radius:15px;cursor:default}
+.world-mode .speech-slot .speech-bubble::before {width:14px;height:9px;top:-8px;background:rgb(250 253 250 / .82);border:0;transform:translateX(-50%);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.world-mode .home-meters {position:relative;isolation:isolate;padding:9px 11px;margin:0;border:0;border-radius:0;gap:7px;background:none;color:var(--world-ink);box-shadow:none;z-index:4}
+/* Local information support feathers away without a card-shaped edge. */
+.world-mode :is(.header-title,.status-row,.sub-status-row,.cast-names,.world-care-state,.world-information) {position:relative;isolation:isolate}
+.world-mode :is(.header-title,.status-row,.sub-status-row,.cast-names,.world-care-state,.home-meters,.world-information)::before,
+.world-mode :is(.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar)::before,
+.world-mode .screen #message::after,.world-mode .design-preview-narration::after {
+  content:"";position:absolute;inset:-8px -8px;z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--world-info-haze) 12% 88%,transparent);
+  mask-image:linear-gradient(transparent,#000 28% 72%,transparent);
+  -webkit-mask-image:linear-gradient(transparent,#000 28% 72%,transparent);
+}
+.world-mode .home-meters::after,.world-mode .buttons button>span::before {display:none}
+/* Narration scrolls for long text: its support must stay inside the scroll box. */
+.world-mode .screen #message::after {inset:0;mask-image:linear-gradient(transparent,#000 15% 85%,transparent);-webkit-mask-image:linear-gradient(transparent,#000 15% 85%,transparent)}
 .world-mode .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
 .world-mode .home-meters .care-meters .bar-line {grid-template-columns:1fr auto;grid-template-rows:auto 7px;gap:4px 3px}
 .world-mode .home-meters .bar-label {font-size:13px;color:var(--world-ink);font-weight:500}
@@ -143,7 +153,7 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .care-meters .bar-label {grid-column:1;grid-row:1}
 .world-mode .care-meters .bar-value {grid-column:2;grid-row:1}
 .world-mode .care-meters .bar {grid-column:1/-1;grid-row:2}
-.world-mode .home-meters .bars.meters {grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 12px;border-color:#52758230;margin:0;padding-top:7px}
+.world-mode .home-meters .bars.meters {grid-template-columns:repeat(6,minmax(0,1fr));gap:6px 12px;border:0;margin:0;padding-top:7px}
 .world-mode .home-meters .meters .bar-line {grid-column:span 2;grid-template-columns:1fr auto;grid-template-rows:auto 6px;gap:3px}
 .world-mode .home-meters .meters .bar-line:nth-child(n+4) {grid-column:span 3}
 .world-mode .home-meters .meters .bar-label {grid-column:1;grid-row:1;font-size:12px}
@@ -153,41 +163,48 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .screen.surface-screen .home-meters .bar-fill:not(.low):not(.critical):not(.high) {background:#37836b}
 .world-mode .screen.surface-screen .home-meters .bar-fill.happiness:not(.low):not(.critical) {background:#a65e82}
 .world-mode .screen.surface-screen .home-meters .bar-fill.energy:not(.low):not(.critical) {background:#467d9d}
-.world-mode .screen.surface-screen .home-meters .bar-fill.death:not(.low):not(.critical) {background:#b46779}
+.world-mode .screen.surface-screen .home-meters .bar-fill.death:not(.low):not(.critical) {background:#37836b}
 .world-mode .screen.surface-screen .home-meters .bar-fill.devo:not(.high):not(.critical) {background:#a77e3f}
-.world-mode .screen.surface-screen .home-meters .bar-fill.transform:not(.high),.world-mode .screen.surface-screen .home-meters .bar-fill.goal:not(.high) {background:#7b68a1}
-/* Reserve two complete lines plus padding, including the large-text setting. */
-.world-mode .screen #message {height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border-radius:10px;background:var(--world-glass);color:var(--world-ink);z-index:4}
+.world-mode .screen.surface-screen .home-meters .bar-fill.transform:not(.high):not(.low):not(.critical),.world-mode .screen.surface-screen .home-meters .bar-fill.goal:not(.high):not(.low):not(.critical) {background:#7b68a1}
+/* Narration is text on the world; icon and wording retain the urgency signal. */
+.world-mode .screen #message {position:relative;isolation:isolate;height:calc(2.8em + 4px);min-height:calc(2.8em + 4px);font-size:13px;line-height:1.4;padding:2px 8px;margin:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink);z-index:4}
 .world-mode .device[data-text-size="large"] .screen #message {font-size:14px}
-.world-mode .screen #message[data-care-kind="change"] {background:var(--world-good-glass,rgb(238 246 233 / .38));color:var(--world-good-ink,#183319)}
-.world-mode .screen #message[data-care-severity="warning"],.world-mode .screen #message[data-care-tone="loss"],.world-mode .screen #message[data-care-tone="mixed"] {color:var(--world-warning-ink,#453013);background:var(--world-warning-glass,rgb(255 245 220 / .46))}
-/* Severity wins over a simultaneous change/tone without increasing specificity. */
-.world-mode .screen #message[data-care-severity="critical"] {color:var(--world-critical-ink,#4c2112);background:var(--world-critical-glass,rgb(255 240 223 / .52));font-weight:700}
-.world-mode .ending-badge-tip,.world-mode .birthday-toast,.world-mode .mg-result-toast {background:var(--world-toast-glass,rgb(245 253 255 / .42));color:var(--world-ink);border:1px solid #ffffffad;box-shadow:0 3px 12px #052f3d30}
+.world-mode .screen #message[data-care-kind="change"] {color:var(--world-good-ink,#183319)}
+.world-mode .screen #message[data-care-severity="warning"],.world-mode .screen #message[data-care-tone="loss"],.world-mode .screen #message[data-care-tone="mixed"] {color:var(--world-warning-ink,#78350c)}
+.world-mode .screen #message[data-care-severity="critical"] {color:var(--world-critical-ink,#871e25);font-weight:700}
+.world-mode .screen #message[data-care-icon]::before {margin-right:4px}
+.world-mode :is(.ending-badge-tip,.birthday-toast,.mg-result-toast) {isolation:isolate;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-ink)}
 .world-mode .mg-result-toast .mg-result-sub {opacity:1}
 .world-mode .mg-result-toast .mg-result-sub.new-best {color:var(--world-caution-ink,#61420b)}
-.world-mode .mg-result-toast .mg-retry-btn {background:var(--world-retry-glass,rgb(255 239 175 / .32));color:var(--world-caution-ink,#3e2a09)}
+.world-mode .mg-result-toast .mg-retry-btn {background:var(--world-button-glass);color:var(--world-ink);border:1px solid #f4ffffd9;box-shadow:0 0 0 1px #143b4b80}
+/* These fills encode state, independently of the design collection palette. */
+.world-mode .screen.surface-screen .home-meters .bar-fill.low {background:#b35415}
+.world-mode .screen.surface-screen .home-meters .bar-fill.critical,
+.world-mode .screen.surface-screen .home-meters .bar-fill.death.low {background:#be2939}
+.world-mode .screen.surface-screen .home-meters .bar-fill.devo.high {background:#b35415;box-shadow:0 0 6px #b3541580}
 .world-mode .buttons,.world-mode .device.ui-home-compact .buttons {grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0;padding:0;z-index:5}
-.world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #ffffff80;border-radius:17px;color:var(--world-ink);background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));box-shadow:0 4px 12px #153b4924;gap:5px;isolation:isolate}
+.world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button {grid-column:auto;min-height:50px;padding:6px 3px;border:1px solid #f4ffffd9;border-radius:17px;color:var(--world-ink);background:var(--world-button-glass);box-shadow:0 0 0 1px #143b4b80,0 4px 12px #153b4924;gap:5px;isolation:isolate;transition:transform .12s,background .12s,box-shadow .12s}
 /* The legacy travel/menu ID rules outrank the shared button class above. */
-.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
-.world-mode .life-actions button {background:var(--world-button-glass,var(--world-glass));background:var(--world-button-glass,color-mix(in srgb,var(--world-glass) 98%,var(--surface-color) 2%));color:var(--world-ink);border-color:#ffffff80;box-shadow:0 4px 12px #153b4924}
-.world-mode .farewell-bar {position:static;flex-shrink:0;border-radius:13px;background:var(--world-farewell-glass,rgb(255 245 220 / .32));color:var(--world-warning-ink,#453013)}
-.world-mode .farewell-bar button {background:var(--world-farewell-button-glass,rgb(255 225 170 / .30));color:var(--world-warning-ink,#453013);box-shadow:inset 0 0 0 1px #a4772d}
-.world-mode .buttons button::before {content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background-image:var(--pattern-image);background-size:var(--pattern-size);background-position:var(--pattern-position);opacity:.025;pointer-events:none}
+.world-mode .buttons :is(#travelBtn,#menuBtn) {background:var(--world-button-glass);color:var(--world-ink);border-color:#f4ffffd9;box-shadow:0 0 0 1px #143b4b80,0 4px 12px #153b4924}
+.world-mode .life-actions button {background:var(--world-button-glass);color:var(--world-ink);border-color:#f4ffffd9;box-shadow:0 0 0 1px #143b4b80,0 4px 12px #153b4924}
+.world-mode .farewell-bar {position:relative;isolation:isolate;font-size:13px;flex-shrink:0;border:0;border-radius:0;background:none;box-shadow:none;color:var(--world-warning-ink,#78350c)}
+.world-mode .farewell-bar button {min-height:44px;padding:8px 12px;font-size:13px;background:linear-gradient(#ffd88433,#ffd88433),var(--world-button-glass);color:var(--world-warning-ink,#78350c);border:1px solid #fff0c9;box-shadow:0 0 0 1px #a4772d}
+.world-mode .buttons button::before {display:none}
 .world-mode .buttons button span,.world-mode .device.ui-home-compact .buttons button span {font-size:14px;color:inherit}
-.world-mode .buttons #playBtn {background:var(--world-button-glass,var(--world-play-glass,rgb(207 241 250 / .38)));color:var(--world-ink);border-color:#a4d9e8;box-shadow:inset 0 0 0 1px #39718470,0 4px 12px #153b4924}
-.world-mode .buttons #courtBtn,.world-mode .buttons #playWithBtn {background:var(--world-button-glass,var(--world-social-glass,rgb(255 240 244 / .38)));color:var(--world-social-ink,#492439);border-color:#edc5d9}
-.world-mode .buttons button:active {transform:translateY(1px);box-shadow:0 1px 5px #153b4930}
+.world-mode .buttons #playBtn {background:linear-gradient(#43acd221,#43acd221),var(--world-button-glass);color:var(--world-ink);border-color:#c6f1ff;box-shadow:0 0 0 1px #22607ecc,0 4px 12px #153b4924}
+.world-mode .buttons #courtBtn,.world-mode .buttons #playWithBtn {background:linear-gradient(#ef91b529,#ef91b529),var(--world-button-glass);color:var(--world-social-ink,#702747);border-color:#ffdfec;box-shadow:0 0 0 1px #a44c7a99,0 4px 12px #153b4924}
 .world-mode .buttons button:disabled {opacity:1;filter:none;border-style:dashed}
 .world-mode .buttons button:disabled .care-icon {opacity:.65;filter:grayscale(.6)}
 .world-mode .buttons button[data-care-recommended="true"] {box-shadow:inset 0 0 0 2px #b47735,0 3px 12px #17374738}
-/* IDs on the colored action buttons have their own legacy specificity. */
-.world-mode .device.theme-transparent :is(.header-button,.buttons button,.life-actions button):is(:active,:focus-visible),
-.world-mode .device.theme-transparent .buttons :is(#travelBtn,#menuBtn,#playBtn,#courtBtn,#playWithBtn):is(:active,:focus-visible) {
-  background:var(--world-button-pressed);
-  outline:2px solid var(--world-ink);outline-offset:2px;
+/* A double light/dark edge remains recognizable on both snow and night. */
+.world-mode .ending-badge {min-width:32px;min-height:32px;border:1px solid #f4ffffd9;border-radius:10px;background:var(--world-button-glass);box-shadow:0 0 0 1px #143b4b80}
+.world-mode .ending-badges {flex-wrap:wrap;gap:4px}
+.world-mode :is(.header-button,.ending-badge,.life-actions button,.world-glass-button,.farewell-bar button,.mg-retry-btn):active:not(:disabled),
+.world-mode .device .buttons button:active:not(:disabled),
+.world-mode .buttons :is(#travelBtn,#menuBtn,#playBtn,#courtBtn,#playWithBtn):active:not(:disabled) {
+  background:var(--world-button-pressed);transform:var(--world-press-transform);box-shadow:inset 0 0 0 1px #ffffffb3,0 0 0 1px #143b4b80;
 }
+.world-mode :is(.header-button,.ending-badge,.buttons button,.life-actions button,.world-glass-button,.farewell-bar button,.mg-retry-btn):focus-visible {outline:3px solid var(--world-ink);outline-offset:3px}
 .world-mode .screen:not(:has(.screen-normal:not(.hidden))) {background:#f4faf7f5;color:#0b2028;border-radius:20px;padding:10px}
 .world-mode .device.ui-game-active {max-width:620px}
 .world-mode .device.ui-game-active .screen {min-height:300px;background:transparent;color:#0b2028;border-radius:20px;padding:10px}
@@ -257,21 +274,23 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device .home-meters .bar-label {grid-column:1/-1;grid-row:1;white-space:nowrap}
 .world-mode .device .home-meters .bar {grid-column:1;grid-row:2}
 .world-mode .device .home-meters .bar-value {grid-column:2;grid-row:2}
-.world-mode :is(.home-meters,.header-title,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
+.world-mode :is(.header-button,.ending-badge,.speech-bubble,.world-glass-button),.world-mode :is(.buttons,.life-actions) button {backdrop-filter:blur(var(--world-glass-blur));-webkit-backdrop-filter:blur(var(--world-glass-blur))}
 @media(min-width:800px){.world-mode .device.surface-device{padding-inline:26px}.world-mode .world-kelp{left:calc(50% - 400px)}.world-mode .world-fan{right:calc(50% - 390px)}}
 @media(max-width:360px){.world-mode .device.surface-device{padding-inline:9px}.world-mode .home-meters{padding:8px}.world-mode .home-meters .care-meters{gap:6px}.world-mode .care-meters .bar-value{font-size:11px}.world-mode .home-meters .bars.meters{column-gap:7px}.world-mode .buttons button{gap:3px}.world-mode .buttons .care-icon{width:23px;height:23px;flex-basis:23px}}
 @media(max-height:700px){
-  .world-mode .device.surface-device{padding-top:max(6px,env(safe-area-inset-top));gap:4px}
-  .world-mode .screen-normal{gap:3px}
+  .world-mode .device.surface-device{padding-top:max(6px,env(safe-area-inset-top));gap:3px}
+  .world-mode .screen-normal{gap:2px}
   .world-mode .cast-stage{min-height:132px}
   .world-mode #petArea{min-height:186px}
   .world-mode .header-title{padding:3px 7px}
   .world-mode .device .device-header{padding-bottom:0}
-  .world-mode .sub-status-row{padding-block:2px}
-  /* Pay for the new name border without pushing short-screen controls down. */
-  .world-mode .cast-names{padding-block:3px}
+  .world-mode .status-row{padding-block:1px}
+  .world-mode .sub-status-row{padding-block:1px}
+  /* Reserve room for warnings and the complete care row on short screens. */
+  .world-mode .cast-names{padding-block:1px}
+  .world-mode .world-care-state{min-height:19px;padding-block:0}
   .world-mode [data-world-care="normal"] .world-care-state,.world-mode [data-world-care="none"] .world-care-state{display:none}
-  .world-mode .home-meters{padding-block:7px;gap:4px}
+  .world-mode .home-meters{padding-block:3px;gap:4px}
   .world-mode .device .home-meters .bars.meters{padding-top:4px;gap:4px 7px}
   .world-mode .buttons,.world-mode .device.ui-home-compact .buttons{grid-template-columns:repeat(20,minmax(0,1fr));gap:6px}
   .world-mode .buttons button,.world-mode .device.ui-home-compact .buttons button{grid-column:span 4;flex-direction:column;min-height:48px;padding:3px 1px;gap:1px;border-radius:13px}
@@ -285,3 +304,11 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode[data-world-reduced="true"] .world-scene *,.world-mode[data-world-reduced="true"] .world-scene *::after,.world-mode[data-world-reduced="true"] .cast-sway,.world-mode[data-world-reduced="true"] .cast-stage::after {animation:none!important;transition:none!important;will-change:auto}
 @media(prefers-reduced-motion:reduce){.world-mode .world-scene *,.world-mode .world-scene *::after,.world-mode .cast-sway,.world-mode .cast-stage::after{animation:none!important;transition:none!important;will-change:auto}.world-mode [data-world-care="critical"] .cast-stage::after{opacity:.65}}
 @media(forced-colors:active){.world-mode .home-meters,.world-mode .buttons button,.world-mode .world-care-state{background:Canvas;border:1px solid CanvasText;color:CanvasText}.world-mode .world-scene{display:none}.world-mode .home-meters .bar{border:1px solid CanvasText}.world-mode .screen.surface-screen .home-meters .bar-fill{background:Highlight!important}}
+
+/* Preview uses the same controls and information tokens against today's scenery. */
+.design-preview {position:relative;isolation:isolate;overflow:hidden;display:grid;justify-items:center;gap:10px;padding:12px 18px 16px;min-height:175px;margin-bottom:16px;color:var(--world-ink);background:#b5d9d6}
+.design-preview-world {position:absolute;inset:0;z-index:-2;background:var(--world-preview-image) center 65%/cover;filter:var(--world-preview-filter)}
+.design-preview-caption {justify-self:start;color:#fff;font-size:11px;text-shadow:0 1px 3px #00101f,0 0 5px #00101f}
+.design-preview-info,.design-preview-narration {position:relative;isolation:isolate;margin:0;font-size:13px;line-height:1.4;text-align:center;text-shadow:var(--world-text-halo);color:var(--world-ink)}
+.world-glass-button {min-height:44px;min-width:150px;padding:8px 18px;border:1px solid #f4ffffd9;border-radius:15px;background:var(--world-button-glass);box-shadow:0 0 0 1px #143b4b80,0 4px 12px #153b4924;color:var(--world-ink);text-shadow:var(--world-text-halo)}
+@media(prefers-reduced-motion:reduce){body.world-mode{--world-press-transform:none}.world-mode .buttons button{transition:none}}

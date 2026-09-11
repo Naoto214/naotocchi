@@ -150,6 +150,9 @@
       world.dataset.frost=String(model.frost);
       body.style.setProperty('--world-accent',model.accent);
       body.style.setProperty('--world-base',model.base);
+      // The design preview uses the current scenery and the same light treatment.
+      body.style.setProperty('--world-preview-image',`url("${model.image}")`);
+      body.style.setProperty('--world-preview-filter',`brightness(${model.light}) hue-rotate(${model.temperature}deg) saturate(${model.saturation}) sepia(${model.warmth})`);
       world.style.setProperty('--world-light',String(model.light));
       world.style.setProperty('--world-temperature',model.temperature+'deg');
       world.style.setProperty('--world-saturation',String(model.saturation));

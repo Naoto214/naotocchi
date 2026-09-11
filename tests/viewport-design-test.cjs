@@ -135,21 +135,50 @@ test('more vertical room grows the cast instead of leaving a fixed small scene',
   assert.ok(tall.main.w>short.main.w);
 });
 
-test('design choices keep independent selections and show the selected pattern on the selected color', () => {
-  const h=harness(), s=h.api.state();
-  s.lifetime.endingTiersReached=[0,1,2,3,4];
-  h.api.selectTheme('screen','aurora'); h.api.selectTheme('screenPattern','dots');
-  h.api.selectTheme('device','starlight'); h.api.selectTheme('devicePattern','rings');
-  h.api.openExclusiveMenu('theme');
-  assert.equal(s.lifetime.screenThemeId,'aurora');
-  assert.equal(s.lifetime.deviceThemeId,'starlight');
-  assert.equal(s.lifetime.screenPatternId,'dots');
-  assert.equal(s.lifetime.devicePatternId,'rings');
-  assert.ok(h.get('screenPatternGrid').innerHTML.includes('surface-screen theme-aurora pattern-dots'));
-  assert.ok(h.get('devicePatternGrid').innerHTML.includes('surface-device theme-starlight pattern-rings'));
-  assert.ok(h.get('screenPatternGrid').innerHTML.includes('aria-pressed="true"'));
-  h.api.selectTheme('screenPattern','none');
-  assert.equal(s.lifetime.screenThemeId,'aurora');
+// These settings change presentation only and must survive old saves / restarts.
+const savedStorage = () => {
+  const values = new Map();
+  return {getItem:k=>values.get(k)??null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};
+};
+
+test('legacy colors and earned designs survive as a noninteractive collection', () => {
+  const storage=savedStorage(), old=harness({storage}), lifetime=old.api.state().lifetime;
+  Object.assign(lifetime,{screenThemeId:'aurora',deviceThemeId:'starlight',screenPatternId:'dots',devicePatternId:'rings',
+    endingTiersReached:[0,1,2,3,4],bonusUnlockedThemeIds:['ruby']});
+  delete lifetime.buttonTransparency; delete lifetime.infoReadability;
+  old.api.saveState();
+  const h=harness({storage,resume:true}); h.api.openExclusiveMenu('theme');
+  const s=h.api.state().lifetime;
+  assert.equal(s.screenThemeId,'aurora'); assert.equal(s.deviceThemeId,'starlight');
+  assert.equal(s.screenPatternId,'dots'); assert.equal(s.devicePatternId,'rings');
+  assert.equal(s.bonusUnlockedThemeIds[0],'ruby');
+  assert.equal(s.buttonTransparency,72); assert.equal(s.infoReadability,50);
+  assert.ok(h.get('colorCollectionGrid').innerHTML.includes('theme-ruby'));
+  assert.ok(h.get('patternCollectionGrid').innerHTML.includes('pattern-rings'));
+  assert.ok(!h.get('colorCollectionGrid').innerHTML.includes('<button'));
+  assert.ok(!h.get('patternCollectionGrid').innerHTML.includes('aria-pressed'));
+  assert.ok(!h.get('device').classList.contains('theme-starlight'));
+});
+
+test('glass inputs preview immediately, save on change, and reset only readability settings', () => {
+  const storage=savedStorage(), h=harness({storage}), s=h.api.state();
+  s.lifetime.bonusUnlockedThemeIds=['ruby']; s.lifetime.fontStyle='retro';
+  const before=JSON.stringify([s.hunger,s.happiness,s.energy,s.health,s.deathMeter]);
+  const button=h.get('buttonTransparency'), info=h.get('infoReadability');
+  const initial=h.get('device').style['--ui-button-alpha'];
+  button.value='80'; h.dispatch(button,'input');
+  assert.notEqual(h.get('device').style['--ui-button-alpha'],initial,'input previews without closing the design screen');
+  assert.equal(h.get('buttonTransparencyValue').textContent,'80%');
+  h.dispatch(button,'change');
+  info.value='100'; h.dispatch(info,'input'); h.dispatch(info,'change');
+  const resumed=harness({storage,resume:true});
+  assert.equal(resumed.api.state().lifetime.buttonTransparency,80);
+  assert.equal(resumed.api.state().lifetime.infoReadability,100);
+  assert.equal(JSON.stringify([s.hunger,s.happiness,s.energy,s.health,s.deathMeter]),before);
+  resumed.dispatch(resumed.get('glassResetBtn'),'click');
+  const reset=harness({storage,resume:true}).api.state().lifetime;
+  assert.equal(reset.buttonTransparency,72); assert.equal(reset.infoReadability,50);
+  assert.equal(reset.fontStyle,'retro'); assert.equal(reset.bonusUnlockedThemeIds[0],'ruby');
 });
 
 test('viewport changes follow browser chrome height while pinch zoom remains usable', () => {
@@ -163,27 +192,16 @@ test('viewport changes follow browser chrome height while pinch zoom remains usa
   assert.equal(fallback.document.documentElement.style['--app-height'],'568px');
 });
 
-test('transparent buttons are available immediately and survive saving without changing the meter or motif', () => {
-  const saved = new Map();
-  const storage = {getItem:k=>saved.get(k)??null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)};
-  const h=harness({storage});
-  h.api.selectTheme('screen','mint');
-  h.api.selectTheme('devicePattern','grid');
-  h.api.selectTheme('device','transparent');
-  assert.equal(h.api.state().lifetime.deviceThemeId,'transparent');
-  const resumed=harness({storage,resume:true});
-  resumed.api.openExclusiveMenu('theme');
-  assert.equal(resumed.api.state().lifetime.deviceThemeId,'transparent');
-  assert.equal(resumed.api.state().lifetime.screenThemeId,'mint');
-  assert.equal(resumed.api.state().lifetime.devicePatternId,'grid');
-  assert.ok(resumed.get('device').classList.contains('theme-transparent'));
-  assert.ok(resumed.get('deviceThemeGrid').innerHTML.includes('data-id="transparent" aria-pressed="true"'));
-  assert.ok(!resumed.get('screenThemeGrid').innerHTML.includes('data-id="transparent"'));
-  resumed.api.selectTheme('screen','transparent');
-  assert.equal(resumed.api.state().lifetime.screenThemeId,'mint');
-  resumed.api.selectTheme('device','sky');
-  assert.ok(resumed.get('device').classList.contains('theme-sky'));
-  assert.ok(!resumed.get('device').classList.contains('theme-transparent'));
+test('glass migration clamps unsafe values and respects an explicit transparency choice', () => {
+  for (const [button,info,expectedButton,expectedInfo] of [
+    [undefined,undefined,80,50], [30,0,30,0], [-100,999,30,100], [999,-1,80,0], ['bad',null,72,50],
+  ]) {
+    const storage=savedStorage(), old=harness({storage});
+    Object.assign(old.api.state().lifetime,{deviceThemeId:'transparent',buttonTransparency:button,infoReadability:info});
+    old.api.saveState();
+    const s=harness({storage,resume:true}).api.state().lifetime;
+    assert.equal(s.buttonTransparency,expectedButton); assert.equal(s.infoReadability,expectedInfo);
+  }
 });
 
 test('short visible viewports switch meter arrangement and recover without undoing pinch zoom', () => {
@@ -257,14 +275,14 @@ test('a new speech starts at its first line without truncating a long message', 
   assert.ok(h.get('speechBubble').classList.contains('hidden'));
 });
 
-test('locked or invalid saved design IDs show selected classic fallback without changing the save', () => {
+test('locked or invalid legacy designs cannot override the game palette', () => {
   const h=harness(), s=h.api.state();
   s.lifetime.screenThemeId='starlight'; s.lifetime.devicePatternId='missing';
   h.api.openExclusiveMenu('theme');
   assert.ok(h.get('screen').classList.contains('theme-default'));
   assert.ok(h.get('device').classList.contains('pattern-none'));
-  assert.ok(h.get('screenThemeGrid').innerHTML.includes('data-id="default" aria-pressed="true"'));
-  assert.ok(h.get('devicePatternGrid').innerHTML.includes('data-id="none" aria-pressed="true"'));
+  assert.ok(!h.get('colorCollectionGrid').innerHTML.includes('theme-starlight'));
+  assert.ok(!h.get('patternCollectionGrid').innerHTML.includes('pattern-missing'));
   assert.equal(s.lifetime.screenThemeId,'starlight');
 });
 

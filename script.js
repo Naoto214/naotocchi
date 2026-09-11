@@ -964,10 +964,13 @@
     locationRefreshBtn: document.getElementById('locationRefreshBtn'),
     currentLocationBtn: document.getElementById('currentLocationBtn'),
     travelLocationStatus: document.getElementById('travelLocationStatus'),
-    designScreenTab: document.getElementById('designScreenTab'),
-    designDeviceTab: document.getElementById('designDeviceTab'),
-    designScreenPanel: document.getElementById('designScreenPanel'),
-    designDevicePanel: document.getElementById('designDevicePanel'),
+    buttonTransparency: document.getElementById('buttonTransparency'),
+    buttonTransparencyValue: document.getElementById('buttonTransparencyValue'),
+    infoReadability: document.getElementById('infoReadability'),
+    infoReadabilityValue: document.getElementById('infoReadabilityValue'),
+    glassResetBtn: document.getElementById('glassResetBtn'),
+    glassPreviewBtn: document.getElementById('glassPreviewBtn'),
+    glassPreviewStatus: document.getElementById('glassPreviewStatus'),
     fontSelect: document.getElementById('fontSelect'),
     textSizeSelect: document.getElementById('textSizeSelect'),
 
@@ -1120,10 +1123,8 @@
     themeOverlay: document.getElementById('themeOverlay'),
     themeProgress: document.getElementById('themeProgress'),
     themeCloseBtn: document.getElementById('themeCloseBtn'),
-    deviceThemeGrid: document.getElementById('deviceThemeGrid'),
-    screenThemeGrid: document.getElementById('screenThemeGrid'),
-    devicePatternGrid: document.getElementById('devicePatternGrid'),
-    screenPatternGrid: document.getElementById('screenPatternGrid'),
+    colorCollectionGrid: document.getElementById('colorCollectionGrid'),
+    patternCollectionGrid: document.getElementById('patternCollectionGrid'),
     itemBtn: document.getElementById('itemBtn'),
     itemOverlay: document.getElementById('itemOverlay'),
     itemMoneyLabel: document.getElementById('itemMoneyLabel'),
@@ -1300,6 +1301,12 @@
     duelResultBreakdown: document.getElementById('duelResultBreakdown'),
     duelRematchBtn: document.getElementById('duelRematchBtn'),
     duelResultCloseBtn: document.getElementById('duelResultCloseBtn'),
+  };
+
+  // Background opacity is bounded; ink, icons, borders and semantic fills never fade.
+  const GLASS_SETTINGS = {
+    buttonTransparency: {min:30,max:80,default:72},
+    infoReadability: {min:0,max:100,default:50},
   };
 
   function freshState() {
@@ -1497,6 +1504,8 @@
         currentLocationSelected: false,
         fontStyle: 'rounded',
         textSize: 'normal',
+        buttonTransparency: GLASS_SETTINGS.buttonTransparency.default,
+        infoReadability: GLASS_SETTINGS.infoReadability.default,
         // えらんだ ほんたい・がめんの がら(PATTERNS の id) - いろとは
         // どくりつに えらべる、もうひとつの おしゃれ せってい
         devicePatternId: 'none',
@@ -1642,6 +1651,9 @@
   // あとに よぶ。ここでも 正しい 値は かえない)
   function normalizeStateValues(st) {
     for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
+    for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
+      st.lifetime[key] = Math.round(clamp(st.lifetime[key], bounds.min, bounds.max));
+    }
     st.ageTicks = Math.max(0, Math.floor(st.ageTicks));
     st.lifeLog = st.lifeLog.filter((e) => e && typeof e === 'object' && typeof e.text === 'string');
     st.midlifeSeen = st.midlifeSeen.filter((v) => Number.isFinite(v));
@@ -1669,6 +1681,9 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      // Preserve the earlier transparent option only for a save without the new control.
+      if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'buttonTransparency')
+          && parsed.lifetime?.deviceThemeId === 'transparent') merged.lifetime.buttonTransparency = 80;
       // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
       // コードは 配列の .map などを ためらいなく よぶ ので)
       normalizeStateShape(merged, freshState());
@@ -2257,9 +2272,7 @@
   ];
 
   // ボタン専用の色は、メーターの選択・プレビューには含めない。
-  function colorThemesFor(target) {
-    return COLOR_THEMES.filter(t => !t.target || t.target === target);
-  }
+
 
   // COLOR_THEMES と おなじ unlockTier/unlockAll の しくみで えらべる、
   // がめんの がら(色とは べつの もうひとつの おしゃれ軸)。emoji は
@@ -10576,22 +10589,30 @@
     return stages?.[currentFormStageIndex()]?.label || '';
   }
 
-  // COLOR_THEMES の えらんだ id を .device / .screen の class に反映する。
-  // ロックされた/存在しない id が しれっと 残っていても(セーブデータ改変
-  // など)、その場合は もも(default)に フォールバックする
+  // Old selections and earned IDs remain in saves, but cannot recolor game controls.
+  // Theme classes now belong only to the read-only collection swatches.
   function applyTheme() {
-    const deviceTheme = colorThemesFor('device').find((t) => t.id === state.lifetime.deviceThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    const screenTheme = colorThemesFor('screen').find((t) => t.id === state.lifetime.screenThemeId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    COLOR_THEMES.forEach((t) => {
-      el.device.classList.toggle(`theme-${t.id}`, t === deviceTheme);
-      el.screen.classList.toggle(`theme-${t.id}`, t === screenTheme);
-    });
-    const devicePattern = PATTERNS.find((p) => p.id === state.lifetime.devicePatternId && isThemeUnlocked(p)) || PATTERNS[0];
-    const screenPattern = PATTERNS.find((p) => p.id === state.lifetime.screenPatternId && isThemeUnlocked(p)) || PATTERNS[0];
-    PATTERNS.forEach((p) => {
-      el.device.classList.toggle(`pattern-${p.id}`, p === devicePattern);
-      el.screen.classList.toggle(`pattern-${p.id}`, p === screenPattern);
-    });
+    for (const t of COLOR_THEMES) {
+      el.device.classList.toggle(`theme-${t.id}`, t.id === 'default');
+      el.screen.classList.toggle(`theme-${t.id}`, t.id === 'default');
+    }
+    for (const p of PATTERNS) {
+      el.device.classList.toggle(`pattern-${p.id}`, p.id === 'none');
+      el.screen.classList.toggle(`pattern-${p.id}`, p.id === 'none');
+    }
+    applyGlassSettings();
+  }
+
+  function applyGlassSettings() {
+    for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
+      const value = state.lifetime[key];
+      state.lifetime[key] = typeof value === 'number' && Number.isFinite(value)
+        ? Math.round(clamp(value,bounds.min,bounds.max)) : bounds.default;
+      el[key].value = String(state.lifetime[key]);
+      el[key + 'Value'].textContent = `${state.lifetime[key]}%`;
+    }
+    el.device.style.setProperty('--ui-button-alpha',((100-state.lifetime.buttonTransparency)/100).toFixed(2));
+    el.device.style.setProperty('--ui-info-alpha',(.34+.28*state.lifetime.infoReadability/100).toFixed(3));
   }
 
   // ランダムな いち(はし に よせて、まんなかの デバイスと かさならない
@@ -11110,7 +11131,6 @@
     hideSpeechBubble();
     closeAllMenuOverlays();
     if (OVERLAY_KINDS.includes(kind)) activeOverlay = kind;
-    if (kind === 'theme') selectDesignPanel('screen');
     if (kind === 'sticker') stickerOpened();
     render();
     focusOverlayClose(kind);
@@ -11325,46 +11345,26 @@
     el.gameListGrid.innerHTML = html;
   }
 
-  function designPreview(target, colorId, patternId) {
-    const color = colorThemesFor(target).find(t => t.id === colorId && isThemeUnlocked(t)) || COLOR_THEMES[0];
-    const pattern = PATTERNS.find(p => p.id === patternId && isThemeUnlocked(p)) || PATTERNS[0];
-    return `<span class="theme-swatch-circle surface-${target} theme-${color.id} pattern-${pattern.id}" aria-hidden="true"></span>`;
-  }
-
-  function renderThemeSwatchGrid(gridEl, selectedId, target, patternId) {
-    const themes = colorThemesFor(target);
-    selectedId = themes.find(t => t.id === selectedId && isThemeUnlocked(t))?.id || 'default';
-    gridEl.innerHTML = themes.map((t) => {
-      const unlocked = isThemeUnlocked(t);
-      const selected = unlocked && t.id === selectedId;
-      const label = unlocked ? t.label : '？？？';
-      const preview = unlocked ? designPreview(target,t.id,patternId) : '<span class="theme-swatch-circle">🔒</span>';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${t.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
-    }).join('');
-  }
-
-  // Preview the actual selected color with each motif, using the same CSS.
-  function renderPatternSwatchGrid(gridEl, selectedId, target, colorId) {
-    selectedId = PATTERNS.find(p => p.id === selectedId && isThemeUnlocked(p))?.id || 'none';
-    gridEl.innerHTML = PATTERNS.map((p) => {
-      const unlocked = isThemeUnlocked(p);
-      const selected = unlocked && p.id === selectedId;
-      const label = unlocked ? p.label : '？？？';
-      const preview = unlocked ? designPreview(target,colorId,p.id) : '<span class="theme-swatch-circle">🔒</span>';
-      return `<button type="button" class="theme-swatch ${unlocked ? '' : 'locked'} ${selected ? 'selected' : ''}" data-id="${p.id}" aria-pressed="${selected}" ${unlocked ? '' : 'disabled'}>${preview}<span class="theme-swatch-label">${label}</span></button>`;
+  function renderDesignCollection(grid, entries, kind) {
+    const unlockedIds = entries.filter(isThemeUnlocked).map(entry => entry.id).join(',');
+    if (grid.dataset.unlockedIds === unlockedIds) return;
+    grid.dataset.unlockedIds = unlockedIds;
+    grid.innerHTML = entries.map(entry => {
+      const unlocked = isThemeUnlocked(entry);
+      const classes = kind === 'color' ? `theme-${entry.id} pattern-none` : `theme-default pattern-${entry.id}`;
+      const preview = unlocked
+        ? `<span class="theme-swatch-circle surface-device ${classes}" aria-hidden="true"></span>`
+        : '<span class="design-collection-lock" aria-hidden="true">🔒</span>';
+      return `<div class="design-collection-item">${preview}<span>${unlocked ? entry.label : '？？？'}</span></div>`;
     }).join('');
   }
 
   function renderThemeOverlay() {
-    // ヘッダーの ぜんたい数は、いろ(COLOR_THEMES)と がら(PATTERNS)
-    // を あわせた かずで あらわす
-    const unlockedColors = COLOR_THEMES.filter((t) => isThemeUnlocked(t)).length;
-    const unlockedPatterns = PATTERNS.filter((p) => isThemeUnlocked(p)).length;
-    el.themeProgress.textContent = `${unlockedColors + unlockedPatterns} / ${COLOR_THEMES.length + PATTERNS.length}`;
-    renderThemeSwatchGrid(el.deviceThemeGrid, state.lifetime.deviceThemeId, 'device', state.lifetime.devicePatternId);
-    renderThemeSwatchGrid(el.screenThemeGrid, state.lifetime.screenThemeId, 'screen', state.lifetime.screenPatternId);
-    renderPatternSwatchGrid(el.devicePatternGrid, state.lifetime.devicePatternId, 'device', state.lifetime.deviceThemeId);
-    renderPatternSwatchGrid(el.screenPatternGrid, state.lifetime.screenPatternId, 'screen', state.lifetime.screenThemeId);
+    const unlocked = [...COLOR_THEMES,...PATTERNS].filter(isThemeUnlocked).length;
+    el.themeProgress.textContent = `${unlocked} / ${COLOR_THEMES.length + PATTERNS.length}`;
+    renderDesignCollection(el.colorCollectionGrid,COLOR_THEMES,'color');
+    renderDesignCollection(el.patternCollectionGrid,PATTERNS,'pattern');
+    applyGlassSettings();
     el.fontSelect.value = state.lifetime.fontStyle || 'rounded';
     el.textSizeSelect.value = state.lifetime.textSize || 'normal';
   }
@@ -11491,24 +11491,6 @@
     } else {
       el.guestStatus.innerHTML = '<div class="profile-empty">まだおきゃくさんはいません</div>';
     }
-  }
-
-  function selectTheme(target, id) {
-    if (target === 'devicePattern' || target === 'screenPattern') {
-      const pattern = PATTERNS.find((p) => p.id === id);
-      if (!pattern || !isThemeUnlocked(pattern)) return;
-      if (target === 'devicePattern') state.lifetime.devicePatternId = id;
-      else state.lifetime.screenPatternId = id;
-      saveState();
-      render();
-      return;
-    }
-    const theme = colorThemesFor(target).find((t) => t.id === id);
-    if (!theme || !isThemeUnlocked(theme)) return;
-    if (target === 'device') state.lifetime.deviceThemeId = id;
-    else state.lifetime.screenThemeId = id;
-    saveState();
-    render();
   }
 
   // 「せかい」→「きせつを かえる」がめん。でざいんの いろ・がら スウォッチ
@@ -12901,13 +12883,6 @@
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
-  }
-
-  function selectDesignPanel(panel) {
-    const screen = panel !== 'device';
-    el.designScreenPanel.hidden = !screen; el.designDevicePanel.hidden = screen;
-    el.designScreenTab.setAttribute('aria-pressed',String(screen));
-    el.designDeviceTab.setAttribute('aria-pressed',String(!screen));
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -15572,8 +15547,24 @@
     state.lifetime.currentLocationSelected = true;
     saveState(); render();
   });
-  el.designScreenTab.addEventListener('click', () => selectDesignPanel('screen'));
-  el.designDeviceTab.addEventListener('click', () => selectDesignPanel('device'));
+  for (const [key,bounds] of Object.entries(GLASS_SETTINGS)) {
+    const update = () => {
+      const value = Number(el[key].value);
+      if (!Number.isFinite(value)) return;
+      state.lifetime[key] = Math.round(clamp(value,bounds.min,bounds.max));
+      // No full render while dragging: retain focus, scroll and the live world.
+      applyGlassSettings();
+    };
+    el[key].addEventListener('input',update);
+    el[key].addEventListener('change',() => { update(); saveState(); });
+  }
+  el.glassResetBtn.addEventListener('click',() => {
+    for (const [key,bounds] of Object.entries(GLASS_SETTINGS)) state.lifetime[key] = bounds.default;
+    applyGlassSettings(); saveState();
+  });
+  el.glassPreviewBtn.addEventListener('click',() => {
+    el.glassPreviewStatus.textContent = 'ボタンを おしたよ。';
+  });
   el.fontSelect.addEventListener('change', () => {
     if (!['rounded','standard','retro'].includes(el.fontSelect.value)) return;
     state.lifetime.fontStyle = el.fontSelect.value; saveState(); render();
@@ -16061,30 +16052,6 @@
   el.themeCloseBtn.addEventListener('click', () => {
     closeOverlay('theme');
     render();
-  });
-
-  el.deviceThemeGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('device', btn.dataset.id);
-  });
-
-  el.screenThemeGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('screen', btn.dataset.id);
-  });
-
-  el.devicePatternGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('devicePattern', btn.dataset.id);
-  });
-
-  el.screenPatternGrid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.theme-swatch');
-    if (!btn) return;
-    selectTheme('screenPattern', btn.dataset.id);
   });
 
   el.itemBtn.addEventListener('click', () => openExclusiveMenu('item'));
