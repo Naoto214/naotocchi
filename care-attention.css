@@ -15,7 +15,7 @@
 }
 @keyframes care-edge-breathe {0%,100%{opacity:.55}50%{opacity:.95}}
 
-/* A readable mark names the problem even when the meter is scrolled away. */
+/* Name the problem beside the cast when the viewport has room for it. */
 .world-mode .device[data-care-alert] .world-care-state {font-weight:700}
 .world-mode #device[data-care-alert="warning"] .world-care-state,
 .world-mode #device[data-care-alert="critical"] .world-care-state {

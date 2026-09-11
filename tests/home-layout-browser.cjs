@@ -88,6 +88,7 @@ function checkLayout(m, label) {
           ['phone',390,786,'alone'],
           ['phone-tall',390,844,'world_sea_full'],
           ['phone-safe-area',390,844,'alone',{top:59,bottom:34}],
+          ['phone-badges-safe-area',390,844,'badges_transparent',{top:59,bottom:34}],
           ['small',320,568,'care_large'],
           ['small-640',320,640,'badges_transparent'],
           ['farewell',320,568,'world_farewell'],
@@ -129,10 +130,20 @@ function checkLayout(m, label) {
             const after = await measure(page);
             results.push({ label, phase:'scrolled', ...after });
             checkLayout(after,label+' scrolled');
-            assert.equal(after.frameScroll,0,label+': central home can still scroll');
-            for (const r of before.content) {
-              assert.ok(r.y >= before.frame.y-1 && r.bottom <= before.frame.bottom+1,
-                label+': central content is clipped: '+r.name+' '+JSON.stringify({r,frame:before.frame}));
+            // Farewell is a record/detail flow, outside the fixed living home.
+            if (name !== 'farewell') {
+              assert.equal(after.frameScroll,0,label+': central home can still scroll');
+              for (const r of before.content) {
+                assert.ok(r.y >= before.frame.y-1 && r.bottom <= before.frame.bottom+1,
+                  label+': central content is clipped: '+r.name+' '+JSON.stringify({r,frame:before.frame}));
+              }
+              await page.mouse.move(before.stage.x+before.stage.width/2,before.stage.y+before.stage.height/2);
+              await page.mouse.wheel(0,400);
+              await page.waitForTimeout(100);
+              const wheeled=await measure(page);
+              assert.equal(wheeled.frameScroll,0,label+': wheel moves central home');
+              assert.equal(await page.evaluate(()=>scrollY),0,label+': wheel moves the page');
+              assert.equal(wheeled.content[0].y,before.content[0].y,label+': age moves after wheel');
             }
             assert.ok(Math.abs(before.notice.y-after.notice.y)<1, label+': narration moves with central scroll');
             assert.ok(Math.abs(before.header.y-after.header.y)<1, label+': header moves with central scroll');

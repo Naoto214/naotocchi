@@ -97,6 +97,15 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) .screen-frame {display:block}
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screen {height:100%;min-height:0}
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) #screenNormal {min-height:0}
+/* The living home is a fixed viewport. Detail/record screens retain their own
+   scrolling, as do long narration and dialogue text. No touch-event trap. */
+html:has(.world-mode .device[data-home-fixed="true"]) {overflow:hidden;overscroll-behavior:none}
+body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);overflow:hidden;overscroll-behavior:none}
+.world-mode .device.ui-home-active[data-home-fixed="true"] {position:fixed;inset:0;margin-inline:auto}
+.world-mode .device.ui-home-active[data-home-fixed="true"] .screen-frame {overflow:clip;overscroll-behavior:none}
+.world-mode .device[data-home-fixed="true"] #screenNormal {container:home-content / size}
+.world-mode .device[data-home-fixed="true"] #petArea {min-height:0}
+.world-mode .device[data-home-fixed="true"] .cast-stage {min-height:132px}
 .world-mode .device-top {display:none}
 .world-mode .device-header {display:grid;grid-template-columns:minmax(0,1fr) auto;min-height:44px;padding:0;gap:8px;z-index:5}
 .world-mode .header-title,.world-mode .cast-badges,.world-mode .cast-badges > div {min-width:0;max-width:100%}
@@ -319,6 +328,54 @@ body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-
 .world-mode[data-world-reduced="true"] .world-scene *,.world-mode[data-world-reduced="true"] .world-scene *::after,.world-mode[data-world-reduced="true"] .cast-sway,.world-mode[data-world-reduced="true"] .cast-stage::after {animation:none!important;transition:none!important;will-change:auto}
 @media(prefers-reduced-motion:reduce){.world-mode .world-scene *,.world-mode .world-scene *::after,.world-mode .cast-sway,.world-mode .cast-stage::after{animation:none!important;transition:none!important;will-change:auto}.world-mode [data-world-care="critical"] .cast-stage::after{opacity:.65}}
 @media(forced-colors:active){.world-mode .home-meters,.world-mode .buttons button,.world-mode .world-care-state{background:Canvas;border:1px solid CanvasText;color:CanvasText}.world-mode .world-scene{display:none}.world-mode .home-meters .bar{border:1px solid CanvasText}.world-mode .screen.surface-screen .home-meters .bar-fill{background:Highlight!important}}
+
+/* Let badges use the whole narrow header instead of stacking under the name.
+   This keeps the existing badge sizes and every care key on the screen. */
+@media(max-width:460px), (max-height:500px) {
+  .world-mode .device[data-home-fixed="true"] .device-header:has(.ending-badges:not(:empty)) {row-gap:3px}
+  .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) {display:contents}
+  .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) .name-plate {grid-column:1;grid-row:1}
+  .world-mode .device[data-home-fixed="true"] .device-header:has(.ending-badges:not(:empty)) .header-actions {grid-column:2;grid-row:1}
+  .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) .cast-badges {grid-column:1/-1;grid-row:2;gap:3px}
+  .world-mode .device[data-home-fixed="true"] .header-title:has(.ending-badges:not(:empty)) :is(.badges,.ending-badges) {display:contents}
+}
+
+/* Adapt to the actual space below Safari's bars and the header, rather than
+   the nominal device height. Font sizes and the 132px cast floor stay intact.
+   On compact homes, dialogue temporarily covers the name row; it never pushes
+   the cast/meters. The fixed narration keeps the full care warning visible. */
+@container home-content (max-height:460px) {
+  .world-mode .status-row {padding-block:0}
+  .world-mode .sub-status-row {padding-block:0}
+  .world-mode .cast-heading {min-height:44px;padding:0;gap:0}
+  .world-mode .cast-names {padding-block:0;gap:1px}
+  .world-mode .cast-title-line {line-height:1.2}
+  .world-mode .world-care-state {display:none}
+  .world-mode #petArea {min-height:132px}
+  .world-mode .speech-slot {position:absolute;bottom:calc(100% + 2px);left:0;right:0;height:44px;padding:0;align-items:center;z-index:6}
+  .world-mode .speech-slot .speech-bubble {padding:2px 8px;box-shadow:0 2px 8px #17374626}
+  .world-mode .device .home-meters {padding-block:1px;gap:2px}
+  .world-mode .device .home-meters .care-meters {grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .world-mode .device .home-meters .bars.meters {grid-template-columns:repeat(6,minmax(0,1fr));padding-top:2px;gap:2px 7px}
+  .world-mode .device .home-meters .meters .bar-line {grid-column:span 2}
+  .world-mode .device .home-meters .meters .bar-line:nth-child(n+4) {grid-column:span 3}
+  .world-mode .device .home-meters :is(.bar-label,.bar-value) {line-height:1.15}
+}
+
+/* A short landscape viewport has room beside the cast. Put the header and
+   controls in that space instead of leaving a shallow strip for the world. */
+@media(max-height:500px) and (min-width:640px) {
+  .world-mode .device.ui-home-active[data-home-fixed="true"] {
+    width:100%;max-width:1100px;grid-template-columns:minmax(0,1fr) 250px;
+    grid-template-rows:auto minmax(0,1fr) auto auto;gap:6px 12px;
+  }
+  .world-mode .device[data-home-fixed="true"] .screen-frame {grid-column:1;grid-row:1/-1}
+  .world-mode .device[data-home-fixed="true"] .device-header {grid-column:2;grid-row:1}
+  .world-mode .device[data-home-fixed="true"] #message {grid-column:2;grid-row:2;align-self:end}
+  .world-mode .device[data-home-fixed="true"] .buttons {grid-column:2;grid-row:3;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .world-mode .device[data-home-fixed="true"] .buttons button {grid-column:auto;min-height:48px}
+  .world-mode .device[data-home-fixed="true"] .life-actions {grid-column:2;grid-row:4}
+}
 
 /* Preview uses the same controls and information tokens against today's scenery. */
 .design-preview {position:relative;isolation:isolate;overflow:hidden;display:grid;justify-items:center;gap:10px;padding:12px 18px 16px;min-height:175px;margin-bottom:16px;color:var(--world-ink);background:#b5d9d6}

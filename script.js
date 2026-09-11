@@ -11108,6 +11108,8 @@
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
     el.device.classList.toggle('ui-home-active', !el.screenNormal.classList.contains('hidden'));
+    el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
+      && !el.screenNormal.classList.contains('hidden'));
     renderWorldScene(suppressFrontFx);
     renderItemsRow(disableCare);
     renderHomeCast();
