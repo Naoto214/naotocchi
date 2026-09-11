@@ -18,7 +18,7 @@
 }
 .screen.surface-screen {color:var(--surface-ink)}
 .screen.surface-screen .sub-status-row {opacity:1}
-.screen.surface-screen .message {color:inherit}
+.device > .message {color:inherit}
 .surface-screen.theme-starlight {--surface-ink:#fffaf3;--pattern-opacity:.18}
 .screen.surface-screen.theme-starlight .bar {background:#fffaf34d}
 .screen.surface-screen.theme-starlight .bar-fill:not(.low):not(.critical):not(.high) {background:#bee6c6}

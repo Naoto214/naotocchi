@@ -21,6 +21,12 @@ function savedScene(name) {
   Object.assign(save, { health:90, hunger:80, energy:90, happiness:80,
     isSick:true, sicknessType:'しんぞうがバクバクする、とてもながいなまえのびょうき' });
   Object.assign(save.lifetime, { timeMode:'night', weatherMode:'sunny', seasonMode:'autumn' });
+  if (name === 'world_farewell') {
+    save.lifetime.textSize = 'large';
+    save.lifetime.endingTiersReached = [0,1,2,3,4];
+    save.lifetime.clears = 5;
+    save.lifetime.dexCleared = true;
+  }
   return save;
 }
 
@@ -73,15 +79,28 @@ function checkLayout(m, label) {
     for (const [engine, type] of Object.entries({ chromium, webkit })) {
       const browser = await type.launch();
       try {
-        for (const [name, width, height, fixture] of [
+        for (const [name, width, height, fixture, insets] of [
           ['phone',390,786,'alone'],
           ['phone-tall',390,844,'world_sea_full'],
+          ['phone-safe-area',390,844,'alone',{top:59,bottom:34}],
           ['small',320,568,'care_large'],
           ['small-640',320,640,'badges_transparent'],
+          ['farewell',320,568,'world_farewell'],
+          ['landscape-safe-area',844,390,'badges_transparent',{left:59,right:59,bottom:21}],
           ['desktop',768,844,'badges_transparent'],
         ]) {
           const label = engine + '-' + name;
           const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1 });
+          if (insets) {
+            // Desktop CI has no physical notch. Substitute only CSS env inputs;
+            // the shipped padding rules still calculate and lay out the page.
+            await context.route('**/*.css?*', async route => {
+              const response = await route.fetch();
+              const css = (await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,
+                (_match,edge) => (insets[edge] || 0) + 'px');
+              await route.fulfill({response,body:css});
+            });
+          }
           const page = await context.newPage();
           const errors = [];
           page.on('pageerror', e => errors.push(e.message));
@@ -94,6 +113,11 @@ function checkLayout(m, label) {
             const before = await measure(page);
             results.push({ label, phase:'loaded', ...before });
             checkLayout(before,label);
+            if (insets) {
+              assert.ok(before.header.y >= (insets.top || 0),label+': top safe area');
+              assert.ok(before.buttons.every(b => b.bottom <= height-(insets.bottom||0)+1),label+': bottom safe area');
+              assert.ok(before.header.x >= (insets.left||0) && before.header.right <= width-(insets.right||0)+1,label+': side safe areas');
+            }
 
             // The reported bug: scrolling central information must never drag
             // narration under the fixed care buttons or move the top controls.
@@ -105,6 +129,16 @@ function checkLayout(m, label) {
             assert.ok(Math.abs(before.header.y-after.header.y)<1, label+': header moves with central scroll');
             assert.ok(Math.abs(before.buttons[0].y-after.buttons[0].y)<1, label+': controls move with central scroll');
 
+            // Exercise overflow using a long narration, not only its first line.
+            await page.locator('#message').evaluate(e => {
+              e.textContent = '長いお知らせも、ここで最後まで読めます。'.repeat(15);
+              e.scrollTop = 0;
+            });
+            await page.locator('#message').focus();
+            await page.keyboard.press('End');
+            await page.waitForFunction(() => document.getElementById('message').scrollTop > 0);
+            checkLayout(await measure(page),label+' long narration');
+
             // A browser toolbar changing height must reflow the real viewport.
             if (name === 'phone') {
               await page.setViewportSize({width,height:664});
@@ -112,6 +146,20 @@ function checkLayout(m, label) {
               const resized = await measure(page);
               results.push({ label, phase:'toolbar-resize', ...resized });
               checkLayout(resized,label+' resized');
+              await page.locator('#playBtn').click();
+              await page.locator('#minigameOverlay').waitFor({state:'visible'});
+              assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the minigame');
+              await page.locator('#mgQuitBtn').click();
+              await page.locator('#mgQuitYesBtn').click();
+              await page.locator('#screenNormal').waitFor({state:'visible'});
+              assert.equal(await page.locator('#message').isVisible(),true,label+': narration did not return home');
+            }
+            if (name === 'farewell') {
+              const farewell = await page.locator('#farewellBtn').boundingBox();
+              assert.ok(farewell && farewell.y+farewell.height<=height+1,label+': farewell action is offscreen');
+              await page.locator('#farewellBtn').click();
+              await page.locator('#lifeCardOverlay').waitFor({state:'visible'});
+              assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the life record');
             }
             assert.deepEqual(errors, [], label+': browser runtime errors');
             console.log('PASS '+label);
