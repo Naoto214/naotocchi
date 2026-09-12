@@ -2,6 +2,24 @@ const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const fs = require('node:fs');
 
+test('poop follows the applied field scale rather than the companion count, with a readable floor', () => {
+  const {layoutHomeCast}=require('../cast-layout.js');
+  const master=new Function(fs.readFileSync('character-world-master.v1.js','utf8')+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  const friends=[...master.companions.normal,...master.companions.rare].map(c=>c.asset);
+  const layout=(width,height,count)=>layoutHomeCast({width,height,mainAsset:'assets/characters/dog/06.png',
+    hasPartner:true,partnerAsset:master.partners[0].asset,hasAccessory:true,companions:friends.slice(0,count),
+    motionRadius:count>18?1:3,conversationHeight:44});
+  const roomy=layout(358,260,26),compact=layout(302,164,26);
+  assert.ok(compact.main.w<roomy.main.w,'the same party really uses a smaller field scale');
+  assert.ok(compact.poops[0].w<roomy.poops[0].w,'the smaller field also makes poop smaller');
+  assert.equal(roomy.poops[0].w,12,'normal size is 100%');
+  assert.equal(compact.poops[0].w,8,'recognizable minimum prevents proportional shrinking into a dot');
+  const one=layout(302,164,1),six=layout(302,164,6);
+  assert.equal(one.main.w,six.main.w,'different party sizes can use the same field scale');
+  assert.equal(one.poops[0].w,six.poops[0].w,'equal applied scales give equal poop sizes');
+  assert.ok(compact.poops[1].x-compact.poops[0].x<roomy.poops[1].x-roomy.poops[0].x,'the pile spacing also shrinks');
+});
+
 test('failed companion images still fit the smallest home with the complete cast and right poop pocket', () => {
   const {layoutHomeCast}=require('../cast-layout.js');
   const bounds=require('../cast-bounds.js');
@@ -63,7 +81,7 @@ test('home conversation stays close and centered with a compact poop pocket abov
       }
       for(let i=0;i<floor.length;i++) for(let j=0;j<i;j++) assert.ok(separate(floor[i],floor[j],2),'dialogue and floor items never overlap');
       assert.equal(r.poops.length,4,'reserve the full pile even before poop appears');
-      assert.ok(r.poops.every(p=>p.w===12 && p.h===12),'poop keeps the same small size across party sizes, growth stages and screens');
+      assert.ok(r.poops.every(p=>p.w>=8 && p.w<=12 && p.h===p.w),'poop stays recognizable without exceeding its normal size');
       assert.ok(Math.max(...r.poops.map(p=>p.x+p.w))-Math.min(...r.poops.map(p=>p.x))<=28,'multiple poops do not stretch into a long row');
       assert.ok(Math.max(...r.poops.map(p=>p.y+p.h))-Math.min(...r.poops.map(p=>p.y))<=28,'multiple poops stay in a compact pocket');
       for(const p of r.poops) {

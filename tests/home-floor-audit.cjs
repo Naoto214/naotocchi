@@ -40,7 +40,7 @@ function check(args) {
     report.minRightMargin=Math.min(report.minRightMargin,margin);
     report.maxPoopDistanceFromBody=Math.max(report.maxPoopDistanceFromBody,distance);
     report.poopSize=[Math.min(report.poopSize[0],p.w,p.h),Math.max(report.poopSize[1],p.w,p.h)];
-    if(p.w!==12 || p.h!==12) errors.push('poop size changes');
+    if(p.w<8 || p.w>12 || p.h!==p.w) errors.push('poop size outside readable range');
     if(p.x<main.x+main.w+args.motionRadius || p.y<bottom-24-.01 || p.y+p.h>r.conversation.y-2+.01 || margin<24 || distance>72) errors.push('poop position');
     for(const sway of [-5,5]) for(const lift of [0,-17]) if(actors.some(a=>!separate({...a,x:a.x+sway,y:a.y+lift},p,args.motionRadius+1))) errors.push('sway/reaction/pocket collision');
   }

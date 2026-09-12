@@ -13014,6 +13014,8 @@
     el.petArea.style.setProperty('--home-speech-width',area.w+'px');
     el.petArea.style.setProperty('--home-poop-x',layout.poops[0].x+'px');
     el.petArea.style.setProperty('--home-poop-top',layout.poops[0].y+'px');
+    el.petArea.style.setProperty('--home-poop-size',layout.poops[0].w+'px');
+    el.petArea.style.setProperty('--home-poop-step',(layout.poops[1].x-layout.poops[0].x)+'px');
     const anchor=(frame,path)=>{
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
       return {x:frame.x+frame.w*(b[0]+b[2])/256};

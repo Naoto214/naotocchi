@@ -3,6 +3,7 @@
   const bounds = typeof module === 'object' && module.exports ? require('./cast-bounds.js') : root.NaotocchiCastBounds;
   const full = {box:[0,0,128,128],hull:[[0,0],[128,0],[128,128],[0,128]]};
   const rect = (x,y,w,h=w) => ({x,y,w,h});
+  const fieldScale = mainSize => mainSize/104;
   const shape = asset => bounds?.[asset] || full;
   const body = (frame,asset) => {
     const b=shape(asset).box;
@@ -25,7 +26,7 @@
     return a.x<b.x+b.w+gap-.001 && b.x<a.x+a.w+gap-.001 && a.y<b.y+b.h+gap-.001 && b.y<a.y+a.h+gap-.001;
   }
   function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap,homePocket=false) {
-    const p=m/2, scale=m/104;
+    const p=m/2, scale=fieldScale(m);
     const main=rect(-m/2,-m*.26+8,m);
     // Move only transparent bottom padding outside this logical frame. Every
     // painted pixel stays inside it; the source PNG and its proportions stay.
@@ -217,7 +218,7 @@
     const height=Number.isFinite(args.height) ? Math.max(conversationHeight?80:96,args.height-top-floor) : undefined;
     const r=layoutCast({...args,homePocket:!!conversationHeight,width:args.width-2*side,height});
     const move=f=>translate(f,side,top);
-    const result={...r,width:r.width+2*side,height:r.height+top+floor,
+    const result={...r,width:r.width+2*side,height:r.height+top+floor,fieldScale:fieldScale(r.main.w),
       main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),pocket:move(r.pocket),
       hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
     if(conversationHeight) {
@@ -228,9 +229,11 @@
       result.conversation=rect(center-width/2,main.y+main.h+6,width,conversationHeight);
       // Fill the near row first, then the row behind it: at most two columns,
       // entirely above the bubble and outside the central conversation axis.
-      // A constant 12px icon keeps even a full pile quiet beside a crowded cast.
-      // Anchor the smaller 28px pile to the same near corner of the safe pocket.
-      const poopSize=12,poopStep=16;
+      // Use the applied main/equipment scale, not party size or animation scale.
+      // Keep a readable 8px floor and a 12px normal-size ceiling; the spacing
+      // shrinks too. The existing safe pocket keeps the cast and speech stable.
+      const scale=Math.min(1,result.fieldScale);
+      const poopSize=Math.max(8,Math.round(12*scale)),poopStep=poopSize+Math.max(2,Math.round(4*scale));
       result.poops=[0,1,2,3].map(i=>rect(result.pocket.x+5+(i%2)*poopStep,result.pocket.y+result.pocket.h-poopSize-Math.floor(i/2)*poopStep,poopSize));
     }
     return result;

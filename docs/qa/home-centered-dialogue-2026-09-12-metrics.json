@@ -21,7 +21,7 @@
     "minMainFrame": 32,
     "minFriendFrame": 12,
     "poopSize": [
-      12,
+      8,
       12
     ],
     "maxPileWidth": 28.00000000000003,
@@ -44,7 +44,7 @@
     ]
   },
   "npm_test": {
-    "passed": 344,
+    "passed": 345,
     "failed": 0,
     "skipped": 0
   },
@@ -59,20 +59,84 @@
     "status": "resolved",
     "local_visual_font": "Noto Color Emoji"
   },
-  "fixed_poop_size": {
-    "css_px": 12,
-    "max_pile_css_px": [
-      28,
-      28
+  "scaled_poop_size": {
+    "normal_css_px": 12,
+    "minimum_css_px": 8,
+    "basis": "applied main frame width / 104, shared with field equipment",
+    "browser_sizes": [
+      8,
+      10,
+      11,
+      12
     ],
-    "browser_poops_sizes": [
-      [
-        12,
-        12
-      ]
-    ],
-    "static_states_identical_to_16px": 217,
     "static_layout_changes": [],
-    "animated_actor_max_difference_px": 0.03111124038696289
+    "examples": [
+      {
+        "scenario": "adult-single",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 12,
+        "pile_width": 12.0,
+        "pile_height": 12.0
+      },
+      {
+        "scenario": "adult-dog",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9230769230769231,
+        "poop_size": 11,
+        "pile_width": 26.0,
+        "pile_height": 26.0
+      },
+      {
+        "scenario": "full",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9615384615384616,
+        "poop_size": 12,
+        "pile_width": 28.0,
+        "pile_height": 28.0
+      },
+      {
+        "scenario": "small-full",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.6153846153846154,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      },
+      {
+        "scenario": "small-adult",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.4807692307692308,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      },
+      {
+        "scenario": "missing-all-min",
+        "viewport": [
+          288,
+          568
+        ],
+        "field_scale": 0.36538461538461536,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      }
+    ]
   }
 }

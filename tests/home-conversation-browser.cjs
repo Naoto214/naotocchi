@@ -21,6 +21,7 @@ function measureConversation() {
   if(shown(accessory)) actors.push({id:'item',...rect(accessory)});
   const bubble=document.getElementById('speechBubble'), speaker=document.getElementById('speechSpeaker');
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
+    fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
@@ -135,7 +136,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         }
       }
       for(const p of m.poops) {
-        assert.ok(Math.abs(p.w-12)<.01 && Math.abs(p.h-12)<.01,label+': poop does not keep its fixed 12px size');
+        const expectedSize=Math.max(8,Math.min(12,Math.round(12*m.fieldScale)));
+        assert.ok(Math.abs(p.w-expectedSize)<.01 && Math.abs(p.h-expectedSize)<.01,label+': poop does not follow the rendered field scale');
         for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
         assert.ok(p.x>=m.main.x+m.main.w+.5,label+': poop crosses the main body / central axis');
         assert.ok(p.y+p.h<=m.slot.y-1.5,label+': poop is below the top of the dialogue');

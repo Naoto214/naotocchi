@@ -157,7 +157,7 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 .world-mode #speechSpeaker {display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:center;width:52px;flex:0 0 52px;gap:1px;font-size:18px}
 .world-mode #speechSpeaker::after {content:attr(data-label);display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:1.2;font-weight:600}
 .world-mode #poopRow {inset:0;height:auto;text-align:left}
-.world-mode #poopRow > .care-icon {position:absolute;left:calc(var(--home-poop-x) + var(--poop-column,0)*16px);top:calc(var(--home-poop-top) - var(--poop-row,0)*16px);width:12px;height:12px;margin:0;font-size:12px;line-height:1}
+.world-mode #poopRow > .care-icon {position:absolute;left:calc(var(--home-poop-x) + var(--poop-column,0)*var(--home-poop-step,16px));top:calc(var(--home-poop-top) - var(--poop-row,0)*var(--home-poop-step,16px));width:var(--home-poop-size,12px);height:var(--home-poop-size,12px);margin:0;font-size:var(--home-poop-size,12px);line-height:1}
 .world-mode #poopRow > .care-icon:nth-child(2) {--poop-column:1}
 .world-mode #poopRow > .care-icon:nth-child(3) {--poop-row:1}
 .world-mode #poopRow > .care-icon:nth-child(4) {--poop-column:1;--poop-row:1}
