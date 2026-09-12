@@ -97,7 +97,7 @@
     }
     if(frames.length) {
       const wing=extent(frames),dy=height-4-wing.bottom;
-      if(wing.left<8 || wing.right>width-8 || wing.bottom-wing.top>height-8)return null;
+      if(wing.left<8 || wing.right>width-8 || wing.bottom-wing.top>height-4-Math.max(2,motionRadius+1))return null;
       for(const f of frames)f.y+=dy;
     }
     const move=f=>translate(f,width/2-cx,height-4-e.bottom);
@@ -111,6 +111,10 @@
   function compactCast(args) {
     const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,balanced,wingBowScale}=args;
     const gap=4+2*motionRadius, room=width-16, count=companions.length;
+    // The home already reserves the 16px rise outside this region. A crowded
+    // party sways by only 1px, so 2px above and 4px below cover its remaining
+    // motion and let four rows fit without shrinking failed-art frames further.
+    const verticalRoom=height-4-(balanced?Math.max(2,motionRadius+1):4);
     const boxes=companions.map(a=>shape(a).box), centersY=boxes.map(b=>(b[1]+b[3])/256);
     const bodyHeight=Math.max(0,...boxes.map(b=>(b[3]-b[1])/128));
     const frameSpan=1-Math.max(0,...centersY)+Math.min(1,...centersY);
@@ -125,7 +129,7 @@
       const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
       const e=extent(c.coreFrames);
       const coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
-      if(e.bottom-e.top>height-8 || e.right-e.left>room)continue;
+      if(e.bottom-e.top>verticalRoom || e.right-e.left>room)continue;
       const sideWidth=(room-(e.right-e.left))/2-gap;
       for(let size=count?72:48;size>=12;size--) {
         let best=null;
@@ -133,7 +137,7 @@
         for(let lanes=1;lanes<=maxLanes;lanes++) {
           // Reject impossible spans before allocating either style of wing.
           const maxRows=balanced?Math.ceil(sideCounts[0]/lanes):Math.max(...sideCounts.map((n,side)=>Math.ceil(n/Math.min(lanes,laneLimits[side]))));
-          if(count && (maxRows-1)*(bh+gap)+size*frameSpan>height-8)continue;
+          if(count && (maxRows-1)*(bh+gap)+size*frameSpan>verticalRoom)continue;
           if(balanced) {
             const result=balancedWings(c,args,size,lanes,bow);
             if(result)return result;
@@ -203,7 +207,8 @@
       // actor and the existing motion gaps before positioning floor objects.
       const compact=compactCast(constraints) || (balanced?
         compactCast({...constraints,wingBowScale:.8}) || compactCast({...constraints,wingBowScale:.4}) ||
-        compactCast({...constraints,wingBowScale:.4,extraLanes:true}):null);
+        compactCast({...constraints,wingBowScale:.4,extraLanes:true}) ||
+        compactCast({...constraints,wingBowScale:.2,extraLanes:true}):null);
       if(compact)return compact;
     }
     const motionGap=2*motionRadius;
@@ -252,42 +257,19 @@
     const move=f=>f?{...f,x:f.x+width/2,y:f.y-result.top}:null;
     return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
   }
-  function placeHomePoop(result,args) {
-    const main=body(result.main,args.mainAsset),area=result.conversation;
-    const {size,step,span}=poopMetrics(result.fieldScale),clearance=(args.motionRadius||0)+1;
-    const actors=[main,...(result.partner?[body(result.partner,args.partnerAsset)]:[]),
-      ...(result.accessory?[result.accessory]:[]),...result.hearts,...result.companionBodies];
-    // Cover the real shared sway and the individual upward reaction. The row
-    // moves around this completed cast, never the other way around.
-    const obstacles=actors.map(a=>rect(a.x-5-clearance,a.y-17-clearance,a.w+10+2*clearance,a.h+17+2*clearance));
-    obstacles.push(rect(area.x-2,area.y-2,area.w+4,area.h+4),
-      rect(area.x+area.w/2-9,area.y-7,18,10));
-    const target=rect(main.x+main.w+5+clearance,main.y+main.h+4-size,span,size);
-    const minX=12,maxX=result.width-12-span,minY=target.y,maxY=result.height-4-size;
-    const ys=[minY,maxY,area.y+area.h+3,...obstacles.flatMap(a=>[a.y-size,a.y+a.h])];
-    let best=null,score=Infinity;
-    for(const y of ys) {
-      if(y<minY-.001 || y>maxY+.001)continue;
-      const blocked=obstacles.filter(a=>y<a.y+a.h-.001 && a.y<y+size-.001);
-      const xs=[Math.max(minX,Math.min(maxX,target.x)),minX,maxX,...blocked.flatMap(a=>[a.x-span,a.x+a.w])];
-      for(const x of xs) {
-        if(x<minX-.001 || x>maxX+.001)continue;
-        const row=rect(x,y,span,size);
-        if(blocked.some(a=>overlaps(row,a,0)))continue;
-        const bodyDistance=Math.hypot(Math.max(main.x-x-size,x-main.x-main.w,0),Math.max(0,y-main.y-main.h));
-        if(bodyDistance>72)continue;
-        const distance=(x-target.x)**2+(y-target.y)**2;
-        if(distance<score){best=row;score=distance;}
-      }
-    }
-    if(!best)return null;
-    return {pocket:rect(best.x-5,best.y,best.w+10,size),poops:[0,1,2,3].map(i=>rect(best.x+i*step,best.y,size))};
+  function placeHomePoop(result) {
+    const {size,step,span}=poopMetrics(result.fieldScale);
+    // One permanent anchor: to the right of the main axis, immediately above
+    // speech. Keep the first slot and baseline fixed while icons scale inward.
+    // Neither crowding, PNG padding, nor the number of visible poops moves it.
+    const x=result.width/2+12,y=result.conversation.y-2-size;
+    return {pocket:rect(x-5,y,span+10,size),poops:[0,1,2,3].map(i=>rect(x+i*step,y,size))};
   }
 
   function layoutHomeCast(args) {
-    // First compose the centered cast. Then find room for the entire poop row,
-    // including while it is empty. If the foot/side space is crowded, a short
-    // strip below the conversation preserves both wings and the 6px speech gap.
+    // A permanent floor strip separates the whole balanced cast from speech.
+    // It is reserved even when empty, so no individual wing needs to dodge it.
+    // Speech and the poop baseline stay fixed above the existing bottom UI.
     const conversationHeight=Math.max(0,Number(args.conversationHeight)||0);
     const side=2, top=16, floor=conversationHeight?conversationHeight+12:20;
     const available=Number.isFinite(args.height)?args.height:(args.companions?.length>18?340:260);
@@ -302,20 +284,21 @@
         const main=body(result.main,args.mainAsset), center=main.x+main.w/2;
         const width=Math.min(224,2*(Math.min(center,result.width-center)-12));
         // Use painted pixels, not the transparent PNG frame, as the shared axis.
-        // A short tail meets the feet without the bubble covering the character.
-        result.conversation=rect(center-width/2,main.y+main.h+6,width,conversationHeight);
+        result.conversation=rect(center-width/2,result.height-conversationHeight-10,width,conversationHeight);
       }
       return result;
     };
-    let result=make(0);
-    if(!conversationHeight)return result;
-    let placement=placeHomePoop(result,args);
-    if(!placement) {
-      const extra=Math.max(0,result.conversation.y+result.conversation.h+poopMetrics(result.fieldScale).size+7-result.height);
-      result=make(extra);
-      placement=placeHomePoop(result,args);
+    if(!conversationHeight)return make(0);
+    let reserve=8,result;
+    while(true) {
+      result=make(reserve);
+      const required=poopMetrics(result.fieldScale).size;
+      if(required<=reserve)break;
+      // Only grow the reservation (bounded by 24px). This avoids oscillating
+      // between rounded scales and gives both wings the same available height.
+      reserve=required;
     }
-    return {...result,...placement};
+    return {...result,...placeHomePoop(result)};
   }
   const api={layoutCast,layoutHomeCast};
   if(typeof module==='object' && module.exports)module.exports=api;else root.NaotocchiCast=api;

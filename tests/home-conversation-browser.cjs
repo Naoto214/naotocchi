@@ -160,9 +160,11 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       assert.ok(m.narration.y+m.narration.h<=m.stage.y,label+': narration must stay above the cast');
       assert.ok(m.nameVisible,label+': dialogue hides character names');
       assert.ok(Math.abs(m.slot.x+m.slot.w/2-m.main.x-m.main.w/2)<.6,label+': conversation is not centered on the main character');
+      assert.ok(Math.abs(m.slot.y-m.stage.y-Math.floor(m.stage.h)+m.slot.h+10)<.6,label+': conversation moved from its fixed position above the meters');
       if(m.bubble) {
         const gap=m.bubble.y-m.main.y-m.main.h;
-        assert.ok(gap>=5.5 && gap<=8,label+': dialogue detached from main, gap='+gap);
+        const rowHeight=Math.max(8,Math.min(24,Math.round(12*m.fieldScale)));
+        assert.ok(gap>=rowHeight+5.5 && gap<=30.6,label+': permanent floor strip is too small or detached, gap='+gap);
         assert.ok(Math.abs(m.bubble.x+m.bubble.w/2-m.main.x-m.main.w/2)<.6,label+': bubble is not centered on the main character');
         assert.ok(m.speakerLabel && m.nameContent.includes(m.speakerLabel),label+': speaker name missing');
         assert.ok(m.bubble.y+m.bubble.h<=m.meters.y+1,label+': dialogue covers meters');
@@ -182,6 +184,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       }
       if(m.poops.length) {
         const first=m.poops[0];
+        assert.ok(Math.abs(first.x-m.stage.x-Math.floor(m.stage.w)/2-12)<.6,label+': poop moved from its fixed lower-right anchor');
+        assert.ok(Math.abs(first.y+first.h-m.slot.y+2)<.02,label+': poop moved away from its fixed baseline above speech');
         const last=m.poops[m.poops.length-1],dx=Math.max(m.main.x-last.x-last.w,first.x-m.main.x-m.main.w,0);
         assert.ok(Math.hypot(dx,Math.max(0,first.y-m.main.y-m.main.h))<=72,label+': poop row is too far from main/conversation');
         m.poops.forEach((p,i)=>{
