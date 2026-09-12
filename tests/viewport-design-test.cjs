@@ -35,7 +35,8 @@ test('bottom transparency cannot leave a fish far above its speech', () => {
   const offset=parseFloat(pet.style['--cast-art-offset-y'])||0;
   const bottom=top+size*79/128+offset;
   const speechTop=parseFloat(h.get('petArea').style['--home-speech-y']);
-  assert.ok(speechTop-bottom>=6 && speechTop-bottom<=24,'the fish stays close above its shared conversation area');
+  const rowSize=parseFloat(h.get('petArea').style['--home-poop-size']);
+  assert.ok(speechTop-bottom>=rowSize+6 && speechTop-bottom<=30,'only the permanent poop strip separates the fish from its shared conversation area');
   assert.ok(speechTop+44<=270,'the conversation still fits above the meters');
   h.api.setSpeechBubble('いっしょに泳ごう。',{kind:'pet',emoji:'🐠',label:'クマノミ'},{event:'play_with'});
   const animation=pet.animations.at(-1);

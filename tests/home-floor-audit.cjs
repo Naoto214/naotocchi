@@ -1,4 +1,4 @@
-// Exhaustive painted-asset audit for dialogue / the right pocket above it.
+// Exhaustive painted-asset audit for balanced wings, dialogue and the poop row.
 // Run from the repository root: node tests/home-floor-audit.cjs [report.json]
 const fs=require('node:fs');
 const assert=require('node:assert/strict');
@@ -15,8 +15,8 @@ const body=(f,asset)=>{
 };
 const separate=(a,b,g=0)=>a.x+a.w+g<=b.x+.01 || b.x+b.w+g<=a.x+.01 || a.y+a.h+g<=b.y+.01 || b.y+b.h+g<=a.y+.01;
 const report={assets:assets.length,partners:partners.length,scenarios:0,failures:[],
-  gap:[Infinity,-Infinity],centerError:0,minRightMargin:Infinity,maxPoopDistanceFromBody:0,minMainFrame:Infinity,minFriendFrame:Infinity,
-  poopSize:[Infinity,-Infinity],maxPileWidth:0,maxPileHeight:0,maxPoopAnchorDistanceFromBody:0};
+  gap:[Infinity,-Infinity],centerError:0,mainCenterError:0,wingGapError:0,minRightMargin:Infinity,maxPoopDistanceFromBody:0,minMainFrame:Infinity,minFriendFrame:Infinity,
+  poopSize:[Infinity,-Infinity],maxPileWidth:0,maxPileHeight:0,maxPoopAnchorDistanceFromBody:0,fixedAnchorError:0};
 function check(args) {
   const r=layoutHomeCast(args),main=body(r.main,args.mainAsset),cx=main.x+main.w/2,bottom=main.y+main.h;
   const gap=r.conversation.y-bottom,centerError=Math.abs(r.conversation.x+r.conversation.w/2-cx);
@@ -28,8 +28,16 @@ function check(args) {
   report.minMainFrame=Math.min(report.minMainFrame,r.main.w);
   if(args.companions.length) report.minFriendFrame=Math.min(report.minFriendFrame,r.size);
   const errors=[];
+  report.mainCenterError=Math.max(report.mainCenterError,Math.abs(cx-args.width/2));
+  if(Math.abs(cx-args.width/2)>.01)errors.push('main is off center');
+  for(let i=0;i+1<r.companionBodies.length;i+=2) {
+    const a=r.companionBodies[i],b=r.companionBodies[i+1];
+    const error=Math.abs((main.x-a.x-a.w)-(b.x-main.x-main.w));
+    report.wingGapError=Math.max(report.wingGapError,error);
+    if(error>.01 || Math.abs(a.y+a.h/2-b.y-b.h/2)>.01)errors.push('unbalanced painted wings');
+  }
   if(r.height>args.height+.01) errors.push('stage height');
-  if(centerError>.01 || gap<5.99 || gap>8) errors.push('conversation axis/gap');
+  if(centerError>.01 || gap<r.poops[0].h+5.99 || gap>30.01) errors.push('conversation axis/floor strip');
   for(const f of floor) {
     if(f.x<0 || f.x+f.w>args.width+.01 || f.y+f.h>r.height+.01) errors.push('floor bounds');
     if(actors.some(a=>!separate(a,f,args.motionRadius))) errors.push('actor/floor collision');
@@ -42,13 +50,18 @@ function check(args) {
     report.poopSize=[Math.min(report.poopSize[0],p.w,p.h),Math.max(report.poopSize[1],p.w,p.h)];
     if(p.w<8 || p.w>24 || p.h!==p.w) errors.push('poop size outside readable range');
     if(p.x<r.pocket.x+5-.01 || p.x+p.w>r.pocket.x+r.pocket.w-5+.01 || p.y<r.pocket.y-.01 || p.y+p.h>r.pocket.y+r.pocket.h+.01) errors.push('poop outside reserved pocket');
-    if(p.x<main.x+main.w+args.motionRadius || Math.abs(p.y+p.h-bottom-4)>.01 || p.y+p.h>r.conversation.y-2+.01 || margin<24) errors.push('poop position');
+    if(p.y+p.h<bottom+4-.01 || margin<12-.01 || p.x<12-.01) errors.push('poop position');
     for(const sway of [-5,5]) for(const lift of [0,-17]) if(actors.some(a=>!separate({...a,x:a.x+sway,y:a.y+lift},p,args.motionRadius+1))) errors.push('sway/reaction/pocket collision');
   }
   const pileWidth=Math.max(...r.poops.map(p=>p.x+p.w))-Math.min(...r.poops.map(p=>p.x));
   const pileHeight=Math.max(...r.poops.map(p=>p.y+p.h))-Math.min(...r.poops.map(p=>p.y));
   report.maxPileWidth=Math.max(report.maxPileWidth,pileWidth);report.maxPileHeight=Math.max(report.maxPileHeight,pileHeight);
-  const first=r.poops[0],anchorDistance=Math.hypot(first.x+first.w/2-main.x-main.w,first.y+first.h/2-bottom);
+  const first=r.poops[0],last=r.poops[3],dx=Math.max(main.x-last.x-last.w,first.x-main.x-main.w,0);
+  const anchorError=Math.max(Math.abs(first.x-args.width/2-12),Math.abs(first.y+first.h-r.conversation.y+2),
+    Math.abs(r.conversation.y-args.height+args.conversationHeight+10));
+  report.fixedAnchorError=Math.max(report.fixedAnchorError,anchorError);
+  if(anchorError>.01) errors.push('poop or speech moved from its fixed anchor');
+  const anchorDistance=Math.hypot(dx,Math.max(0,first.y-bottom));
   report.maxPoopAnchorDistanceFromBody=Math.max(report.maxPoopAnchorDistanceFromBody,anchorDistance);
   if(anchorDistance>72) errors.push('poop row detached from main');
   if(pileWidth>102.01 || pileHeight>24.01) errors.push('row spread');
@@ -59,13 +72,12 @@ function check(args) {
 }
 // Every published species/stage, sparse and crowded, minimum and normal sizes.
 for(const mainAsset of [...assets,null]) for(const [width,height] of [[270,152],[302,152],[358,260],[500,260]]) {
-  for(const count of [0,1,6,26,32]) for(const equipped of [false,true]) check({width,height,mainAsset,
+  for(const count of [0,1,2,3,6,17,18,25,26,32]) for(const equipped of [false,true]) check({width,height,mainAsset,
     hasPartner:equipped,partnerAsset:partners[0],hasAccessory:equipped,
     companions:Array.from({length:count},(_,i)=>friends[i%friends.length]),motionRadius:count>18?1:3,conversationHeight:44});
 }
-// Check normal sizes with every partner too: a short pet at a real 240px
-// stage can bring the right pocket level with its item. Taller phones also
-// exercise growth beyond 1x; the original minimum-stage matrix misses both.
+// Every partner and main shape shares the same fixed floor strip. Taller
+// phones also exercise growth beyond 1x and the largest reserved poop row.
 for(const mainAsset of [...assets,null]) for(const partnerAsset of [...partners,null]) for(const height of [240,260,340]) check({width:358,height,
   mainAsset,partnerAsset,hasPartner:true,hasAccessory:true,
   companions:[],motionRadius:3,conversationHeight:44});

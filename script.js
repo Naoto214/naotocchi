@@ -12976,13 +12976,19 @@
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
-    const {area,pet,actors,poopStartX} = homeSpeechAnchors;
+    const {area,pet,actors,poop} = homeSpeechAnchors;
     const {kind,speakerId} = el.speechBubble.dataset;
     const point = actors.find(a=>a.kind===kind && a.id===speakerId) || pet;
-    // The 14px tail may rise beside the poop row. Keep its base 2px clear
-    // of that reserved area; the tip still turns toward the actual speaker.
-    const right = Math.min(area.w-12,poopStartX-area.x-9);
-    const x = clamp(point.x-area.x,12,right);
+    // Only constrain the tail when the completed poop row is at its height.
+    // A row below the bubble must not pull even the main speaker's tail aside.
+    let x = clamp(point.x-area.x,12,area.w-12);
+    if (poop.y<area.y+1 && poop.y+poop.h>area.y-5) {
+      const left=poop.x-area.x-9,right=poop.x+poop.w-area.x+9;
+      if(x>left && x<right) {
+        const safe=[left,right].filter(v=>v>=12 && v<=area.w-12);
+        if(safe.length)x=safe.reduce((a,b)=>Math.abs(a-x)<=Math.abs(b-x)?a:b);
+      }
+    }
     el.speechBubble.style.setProperty('--speech-tail-x',x+'px');
     el.speechBubble.style.setProperty('--speech-tail-tip',point.x<area.x+area.w/2-16?'0%':point.x>area.x+area.w/2+16?'100%':'50%');
   }
@@ -13023,7 +13029,7 @@
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];
       return {x:frame.x+frame.w*(b[0]+b[2])/256};
     };
-    homeSpeechAnchors={area,poopStartX:layout.poops[0].x,pet:anchor(layout.main,args.mainAsset),actors:[
+    homeSpeechAnchors={area,poop:{...layout.poops[0],w:layout.poops[3].x+layout.poops[3].w-layout.poops[0].x},pet:anchor(layout.main,args.mainAsset),actors:[
       ...(layout.partner?[{kind:'partner',id:p.id,...anchor(layout.partner,args.partnerAsset)}]:[]),
       ...layout.companions.map((f,i)=>({kind:'companion',id:recruited[i].id,...anchor(f,args.companions[i])})),
     ]};
