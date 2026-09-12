@@ -13012,8 +13012,7 @@
     el.petArea.style.setProperty('--home-speech-x',area.x+'px');
     el.petArea.style.setProperty('--home-speech-y',area.y+'px');
     el.petArea.style.setProperty('--home-speech-width',area.w+'px');
-    el.petArea.style.setProperty('--home-poop-right',layout.poops[0].x+'px');
-    el.petArea.style.setProperty('--home-poop-left',layout.poops[1].x+'px');
+    el.petArea.style.setProperty('--home-poop-x',layout.poops[0].x+'px');
     el.petArea.style.setProperty('--home-poop-top',layout.poops[0].y+'px');
     const anchor=(frame,path)=>{
       const b=window.NaotocchiCastBounds?.[path]?.box || [0,0,128,128];

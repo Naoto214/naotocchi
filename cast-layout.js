@@ -24,7 +24,7 @@
   function overlaps(a,b,gap=4) {
     return a.x<b.x+b.w+gap-.001 && b.x<a.x+a.w+gap-.001 && a.y<b.y+b.h+gap-.001 && b.y<a.y+a.h+gap-.001;
   }
-  function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap) {
+  function coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap,homePocket=false) {
     const p=m/2, scale=m/104;
     const main=rect(-m/2,-m*.26+8,m);
     // Move only transparent bottom padding outside this logical frame. Every
@@ -44,8 +44,20 @@
     if(accessory)while(!separated(mainPoly,polygon(accessory,null),2+motionGap) || (partner && !separated(polygon(partner,partnerAsset),polygon(accessory,null),2+motionGap)))accessory.y-=1;
     const hearts=partner?[rect(partner.x+5*scale,partner.y-24*scale,26*scale),rect(partner.x+p-17*scale,partner.y-12*scale,18*scale)]:[];
     const core=[body(main,mainAsset),...(partner?[body(partner,partnerAsset)]:[]),...(accessory?[accessory]:[]),...hearts];
-    const coreFrames=[main,...(partner?[partner]:[]),...(accessory?[accessory]:[]),...hearts];
-    return {main,partner,accessory,hearts,core,coreFrames};
+    // The lower right is also used by the companion wings. Reserve a small
+    // pocket beside the feet before packing them, even when there is no poop.
+    // Very short bodies can put their equipment here: use its nearest safe
+    // right edge without moving the item or increasing the dialogue gap.
+    // Keep this footprint independent of the displayed icon size so a visual
+    // size adjustment never reflows the cast. Both sides reserve 5px for the
+    // shared idle sway; individual motion is reserved by motionGap.
+    const pocket=homePocket?rect(visible.x+visible.w+motionGap/2+2,main.y+main.h-32,46,36):null;
+    if(pocket) {
+      while(core.some(other=>overlaps(pocket,other,motionGap/2+2)))pocket.x+=1;
+      core.push(pocket);
+    }
+    const coreFrames=[main,...(partner?[partner]:[]),...(accessory?[accessory]:[]),...hearts,...(pocket?[pocket]:[])];
+    return {main,partner,accessory,hearts,core,coreFrames,pocket};
   }
   const extent = frames => ({left:Math.min(...frames.map(f=>f.x)),right:Math.max(...frames.map(f=>f.x+f.w)),top:Math.min(...frames.map(f=>f.y)),bottom:Math.max(...frames.map(f=>f.y+f.h))});
   const translate = (f,x,y) => f?{...f,x:f.x+x,y:f.y+y}:null;
@@ -53,7 +65,7 @@
   // Keep the approved half-ellipse wings at every available height. Pack curved
   // lanes from the core outward; never replace the wings with straight columns.
   function compactCast(args) {
-    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius}=args;
+    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,homePocket,tightWings=false}=args;
     const gap=4+2*motionRadius, room=width-16, count=companions.length;
     const boxes=companions.map(a=>shape(a).box), centersY=boxes.map(b=>(b[1]+b[3])/256);
     const bodyHeight=Math.max(0,...boxes.map(b=>(b[3]-b[1])/128));
@@ -66,13 +78,17 @@
     const mainLimit=count===0?Math.min(256,room*.78):room>=310?112:104;
     const maxMain=Math.floor(Math.min(mainLimit,count===0?height-8:height*.7));
     for(let m=maxMain;m>=(height<96?32:40);m-=2) {
-      const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius);
-      const e=extent(c.coreFrames), coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
+      const c=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,2*motionRadius,homePocket);
+      const base=extent(c.coreFrames.filter(f=>f!==c.pocket));
+      // The pocket extends 4px below the feet, into existing floor padding.
+      // It reserves horizontal room without raising the pet above its friends.
+      const e={...extent(c.coreFrames),bottom:base.bottom};
+      const coreX=-(e.left+e.right)/2, coreY=height-4-e.bottom;
       if(e.bottom-e.top>height-8 || e.right-e.left>room)continue;
       const sideWidth=(room-(e.right-e.left))/2-gap;
       for(let size=count?72:48;size>=12;size--) {
         let best=null;
-        const bh=size*bodyHeight, bow=Math.max(size*.8,Math.min(height*.25,40));
+        const bh=size*bodyHeight, bow=tightWings?size*.8:Math.max(size*.8,Math.min(height*.25,40));
         for(let lanes=1;lanes<=maxLanes;lanes++) {
           // Reject impossible vertical spans before allocating candidate lanes.
           // Account for differently centered PNG frames, not just body height.
@@ -120,24 +136,34 @@
           if(fits){best=frames;break;}
         }
         if(best) {
-          const frames=best.map(f=>translate(f,width/2,0));
-          return {width,height,size,main:translate(c.main,coreX+width/2,coreY),partner:translate(c.partner,coreX+width/2,coreY),accessory:translate(c.accessory,coreX+width/2,coreY),hearts:c.hearts.map(f=>translate(f,coreX+width/2,coreY)),companions:frames,companionBodies:frames.map((f,i)=>body(f,companions[i]))};
+          // Keep the original core centered wherever the complete wings fit.
+          // In a crowded scene, use only the horizontal shift actually needed
+          // to keep the reserved pocket and both wings inside the stage.
+          const all=extent([...c.coreFrames.map(f=>translate(f,coreX,coreY)),...best]);
+          const shift=c.pocket?Math.max(-room/2-all.left,Math.min(room/2-all.right,-(base.left+base.right)/2-coreX)):0;
+          const frames=best.map(f=>translate(f,width/2+shift,0));
+          const move=f=>translate(f,coreX+width/2+shift,coreY);
+          return {width,height,size,main:move(c.main),partner:move(c.partner),accessory:move(c.accessory),hearts:c.hearts.map(move),pocket:move(c.pocket),companions:frames,companionBodies:frames.map((f,i)=>body(f,companions[i]))};
         }
       }
     }
     return null;
   }
 
-  function layoutCast({width,height,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[],motionRadius=0}) {
+  function layoutCast({width,height,mainAsset,hasPartner=false,partnerAsset,hasAccessory=false,companions=[],motionRadius=0,homePocket=false}) {
     width=Math.max(240,Math.floor(width));
     motionRadius=Math.max(0,Number(motionRadius)||0);
     if(Number.isFinite(height) && height>=80) {
-      const compact=compactCast({width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius});
+      const constraints={width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,homePocket};
+      // Failed PNGs occupy their complete frames. Before using the unbounded
+      // layout, try shallower curved wings at the same height and size limits.
+      // This leaves the floor pocket and all actor/motion gaps unchanged.
+      const compact=compactCast(constraints) || (homePocket?compactCast({...constraints,tightWings:true}):null);
       if(compact)return compact;
     }
     const motionGap=2*motionRadius;
     const room=width-16, count=companions.length, m=room>=310?112:104;
-    const {main,partner,accessory,hearts,core,coreFrames}=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap);
+    const {main,partner,accessory,hearts,core,coreFrames,pocket}=coreCast(m,mainAsset,hasPartner,partnerAsset,hasAccessory,motionGap,homePocket);
     const heightLimit=count<=6?220:count<=18?Math.min(320,room*.85):count<=26?Math.min(400,room*1.05):Math.max(400,room*1.2);
     let fallback=null, answer=null;
     const presets=[[12.5,40,74,.82,.84],[12.5,40,74,.9,.9],[13,37,65,.82,.84],[13,40,72,.9,.9],[14,42,74,.86,.86],[12,38,70,.78,.84],[13,40,70,1,1]];
@@ -179,27 +205,33 @@
     }
     const result=answer || fallback;
     const move=f=>f?{...f,x:f.x+width/2,y:f.y-result.top}:null;
-    return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
+    return {width,height:result.height,size:result.size,main:move(main),partner:move(partner),accessory:move(accessory),hearts:hearts.map(move),pocket:move(pocket),companions:result.frames.map(move),companionBodies:result.bodies.map(move)};
   }
   function layoutHomeCast(args) {
     // Reserve the same compact floor when silent, speaking or being cleaned.
     // The side wings keep every friend above it; dialogue never follows the
-    // highest friend/item, and the poops flank it rather than moving below it.
+    // highest friend/item. Poop occupies the reserved right side of the cast,
+    // above the dialogue, so it needs no extra row below the bubble.
     const conversationHeight=Math.max(0,Number(args.conversationHeight)||0);
     const side=2, top=16, floor=conversationHeight?conversationHeight+12:20;
     const height=Number.isFinite(args.height) ? Math.max(conversationHeight?80:96,args.height-top-floor) : undefined;
-    const r=layoutCast({...args,width:args.width-2*side,height});
+    const r=layoutCast({...args,homePocket:!!conversationHeight,width:args.width-2*side,height});
     const move=f=>translate(f,side,top);
     const result={...r,width:r.width+2*side,height:r.height+top+floor,
-      main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),
+      main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),pocket:move(r.pocket),
       hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
     if(conversationHeight) {
-      const main=body(result.main,args.mainAsset), width=Math.min(224,result.width-104);
-      // Bias the shared bubble slightly right of the feet. A compact 2x2
-      // floor patch on its left keeps poop near even a small painted body.
-      const x=Math.max(56,Math.min(result.width-width-12,main.x+main.w/2-48));
-      result.conversation=rect(x,main.y+main.h+10,width,conversationHeight);
-      result.poops=[0,1,2,3].map(i=>rect(x-24-(i%2)*20,result.conversation.y+4+Math.floor(i/2)*20,16));
+      const main=body(result.main,args.mainAsset), center=main.x+main.w/2;
+      const width=Math.min(224,2*(Math.min(center,result.width-center)-12));
+      // Use painted pixels, not the transparent PNG frame, as the shared axis.
+      // A short tail meets the feet without the bubble covering the character.
+      result.conversation=rect(center-width/2,main.y+main.h+6,width,conversationHeight);
+      // Fill the near row first, then the row behind it: at most two columns,
+      // entirely above the bubble and outside the central conversation axis.
+      // A constant 12px icon keeps even a full pile quiet beside a crowded cast.
+      // Anchor the smaller 28px pile to the same near corner of the safe pocket.
+      const poopSize=12,poopStep=16;
+      result.poops=[0,1,2,3].map(i=>rect(result.pocket.x+5+(i%2)*poopStep,result.pocket.y+result.pocket.h-poopSize-Math.floor(i/2)*poopStep,poopSize));
     }
     return result;
   }

@@ -153,13 +153,14 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 .world-mode .screen.dying>.screen-normal {filter:none}
 .world-mode .speech-slot {position:absolute;left:var(--home-speech-x,32px);top:var(--home-speech-y,100%);width:var(--home-speech-width,calc(100% - 64px));height:44px;font-size:14px;padding:0;align-items:flex-start;z-index:4}
 .world-mode .speech-slot .speech-bubble {width:100%;max-width:100%;font-size:14px;border:0;background:rgb(250 253 250 / .82);box-shadow:0 3px 10px #133d4e18;padding:2px 8px;color:#142e36;text-shadow:none;border-radius:13px;cursor:default}
-.world-mode .speech-slot .speech-bubble::before {left:var(--speech-tail-x,50%);width:14px;height:9px;top:-8px;background:rgb(250 253 250 / .82);border:0;transform:translateX(-50%);clip-path:polygon(var(--speech-tail-tip,50%) 0,100% 100%,0 100%)}
+.world-mode .speech-slot .speech-bubble::before {left:var(--speech-tail-x,50%);width:14px;height:6px;top:-5px;background:rgb(250 253 250 / .82);border:0;transform:translateX(-50%);clip-path:polygon(var(--speech-tail-tip,50%) 0,100% 100%,0 100%)}
 .world-mode #speechSpeaker {display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:center;width:52px;flex:0 0 52px;gap:1px;font-size:18px}
 .world-mode #speechSpeaker::after {content:attr(data-label);display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:1.2;font-weight:600}
 .world-mode #poopRow {inset:0;height:auto;text-align:left}
-.world-mode #poopRow > .care-icon {position:absolute;left:var(--home-poop-right);top:var(--home-poop-top);width:16px;height:16px;margin:0;font-size:16px;line-height:1}
-.world-mode #poopRow > .care-icon:nth-child(2n) {left:var(--home-poop-left)}
-.world-mode #poopRow > .care-icon:nth-child(n+3) {top:calc(var(--home-poop-top) + 20px)}
+.world-mode #poopRow > .care-icon {position:absolute;left:calc(var(--home-poop-x) + var(--poop-column,0)*16px);top:calc(var(--home-poop-top) - var(--poop-row,0)*16px);width:12px;height:12px;margin:0;font-size:12px;line-height:1}
+.world-mode #poopRow > .care-icon:nth-child(2) {--poop-column:1}
+.world-mode #poopRow > .care-icon:nth-child(3) {--poop-row:1}
+.world-mode #poopRow > .care-icon:nth-child(4) {--poop-column:1;--poop-row:1}
 .world-mode .home-meters {position:relative;isolation:isolate;padding:9px 11px;margin:0;border:0;border-radius:0;gap:7px;background:none;color:var(--world-ink);box-shadow:none;z-index:4}
 /* Local information support feathers away without a card-shaped edge. */
 .world-mode :is(.header-title,.status-row,.sub-status-row,.cast-names,.world-care-state,.world-information) {position:relative;isolation:isolate}
@@ -387,12 +388,24 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 
 /* At SE height, two name rows can consume the last meter row. Share one
    line while retaining both names and the full speaker label in dialogue. */
-@container home-content (max-height:330px) {
+@container home-content (max-height:360px) {
+  /* Keep every meter visible with large text and short visual viewports. */
+  .world-mode .device .home-meters {gap:0}
+  .world-mode .device .home-meters :is(.care-meters,.meters) .bar-line {row-gap:0}
   .world-mode .device.ui-home-compact .cast-names:has(#partnerLabel:not(:empty)) {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:8px}
   .world-mode .cast-names:has(#partnerLabel:not(:empty)) .cast-title-line {min-width:0;flex-wrap:nowrap}
   .world-mode .cast-names:has(#partnerLabel:not(:empty)) #mainNameLabel {flex-shrink:0;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .world-mode .cast-names:has(#partnerLabel:not(:empty)) .stage-name-row,
   .world-mode .cast-names #partnerLabel {min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+
+/* Keep large labels readable on an SE-size viewport. Reclaim padding around
+   the controls, retaining at least a 44px touch target and every badge. */
+@media(max-width:360px) {
+  .world-mode .device.ui-home-compact[data-home-fixed="true"][data-text-size="large"] {gap:2px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+  .world-mode .device.ui-home-compact[data-home-fixed="true"][data-text-size="large"] .header-button {min-height:44px;padding-block:2px;gap:1px}
+  .world-mode .device.ui-home-compact[data-home-fixed="true"][data-text-size="large"] .device-header:has(.ending-badges:not(:empty)) {row-gap:1px}
+  .world-mode .device.ui-home-compact[data-home-fixed="true"][data-text-size="large"] .buttons button {min-height:44px;padding-block:1px}
 }
 
 /* A short landscape viewport has room beside the cast. Put the header and

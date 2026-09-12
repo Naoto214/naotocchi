@@ -1,0 +1,78 @@
+{
+  "baseline_main": "7b25abf11b56241fb768ca317a668be8baa8a358",
+  "baseline_scenarios": 7968,
+  "baseline_36px_candidate": {
+    "fixedCollisions": 4038,
+    "noSafePosition": 2898,
+    "maxDistance": 101.71805395307167
+  },
+  "geometry": {
+    "assets": 248,
+    "partners": 18,
+    "scenarios": 24153,
+    "failures": [],
+    "gap": [
+      6,
+      6
+    ],
+    "centerError": 0,
+    "minRightMargin": 51,
+    "maxPoopDistanceFromBody": 57.87054518492115,
+    "minMainFrame": 32,
+    "minFriendFrame": 12,
+    "poopSize": [
+      12,
+      12
+    ],
+    "maxPileWidth": 28.00000000000003,
+    "maxPileHeight": 28
+  },
+  "chromium": {
+    "home_failures": [],
+    "conversation_scenarios": 34,
+    "conversation_states": 221,
+    "conversation_failures": [],
+    "gap_min": 6.0,
+    "gap_max": 6.0,
+    "center_error_max": 0.0078125,
+    "min_control_height": 44.5,
+    "animated_states": 4,
+    "missing_image_scenarios": [
+      "chromium-conversation-missing-all-min",
+      "chromium-conversation-missing-all-small",
+      "chromium-conversation-missing-friends-min"
+    ]
+  },
+  "npm_test": {
+    "passed": 344,
+    "failed": 0,
+    "skipped": 0
+  },
+  "webkit": "not_run_locally",
+  "github": "see_pull_request_checks",
+  "fallback_minimum_region": {
+    "width": 270,
+    "height": 152,
+    "companions": 26,
+    "all_character_images_failed": true,
+    "vertical_overflow": false,
+    "status": "resolved",
+    "local_visual_font": "Noto Color Emoji"
+  },
+  "fixed_poop_size": {
+    "css_px": 12,
+    "max_pile_css_px": [
+      28,
+      28
+    ],
+    "browser_poops_sizes": [
+      [
+        12,
+        12
+      ]
+    ],
+    "static_states_identical_to_16px": 217,
+    "static_layout_changes": [],
+    "animated_actor_max_difference_px": 0.03111124038696289
+  }
+}
