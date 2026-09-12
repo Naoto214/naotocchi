@@ -242,6 +242,12 @@ function checkLayout(m, label) {
           } finally { await context.close(); }
         }
         try {
+          await require('./home-conversation-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' conversation: '+error.message);
+          console.error('FAIL '+engine+' conversation: '+error.message);
+        }
+        try {
           await require('./dialog-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
         } catch(error) {
           failures.push(engine+' dialogs: '+error.message);

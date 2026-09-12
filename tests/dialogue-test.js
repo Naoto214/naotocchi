@@ -34,7 +34,7 @@ function element(id = '') {
     addEventListener: (type, fn) => { if (!listeners.has(type)) listeners.set(type, []); listeners.get(type).push(fn); },
     removeEventListener: noop, appendChild: (child) => { target.children.push(child); return child; }, remove: noop,
     querySelector: (selector) => getElement(selector), querySelectorAll: () => [], closest: () => null,
-    getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: 844 }),
+    getBoundingClientRect: () => ({ left: 0, top: 0, width: 390, height: id === 'speechSlot' ? 44 : 844 }),
     setAttribute: noop, focus: noop,
     scrollIntoView: (options) => scrollRequests.push({id, ...options}),
   };

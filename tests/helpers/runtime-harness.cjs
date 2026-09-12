@@ -55,7 +55,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         return animation;
       },
       closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
-      getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: 300}),
+      getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: id === 'speechSlot' ? 44 : 300}),
       getContext: () => canvasContext || null,
       setAttribute(name, value) { el[name === 'aria-pressed' ? 'ariaPressed' : name] = String(value); },
       focus: () => { document.activeElement = el; }, scrollIntoView: noop,
