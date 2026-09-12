@@ -1,0 +1,430 @@
+{
+  "base": "3dc322f400da4cd711cc384fa12a5aefb09be2a4",
+  "formula": "max(8,min(24,round(12*fieldScale)))",
+  "layout": "1 row, up to 4 icons",
+  "gap_px": 2,
+  "ring": {
+    "css": "clamp(13px,.4em,20px)",
+    "basis": "placed partner font size",
+    "min_px": 13,
+    "max_px": 20
+  },
+  "floor": {
+    "assets": 248,
+    "partners": 18,
+    "scenarios": 38346,
+    "failures": [],
+    "gap": [
+      6,
+      6
+    ],
+    "centerError": 0,
+    "minRightMargin": 25,
+    "maxPoopDistanceFromBody": 100.31948963187563,
+    "minMainFrame": 32,
+    "minFriendFrame": 12,
+    "poopSize": [
+      8,
+      24
+    ],
+    "maxPileWidth": 102,
+    "maxPileHeight": 24,
+    "maxPoopAnchorDistanceFromBody": 39.57903485432661
+  },
+  "chromium": {
+    "scenarios": 38,
+    "states": 242,
+    "failures": [],
+    "examples": [
+      {
+        "scenario": "partner",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.4615384615384615,
+        "poop_size": null,
+        "pile": [],
+        "ring_size": 20,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "poop",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          21.0,
+          21
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "full",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9615384615384616,
+        "poop_size": 12,
+        "pile": [
+          54.0,
+          12
+        ],
+        "ring_size": 16,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.8076923076923077,
+        "poop_size": 10,
+        "pile": [
+          46.0,
+          10
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small-full",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.6153846153846154,
+        "poop_size": 8,
+        "pile": [
+          38.0,
+          8
+        ],
+        "ring_size": 13,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-dog",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9230769230769231,
+        "poop_size": 11,
+        "pile": [
+          50.0,
+          11
+        ],
+        "ring_size": 15.2,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small-adult",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.4807692307692308,
+        "poop_size": 8,
+        "pile": [
+          38.0,
+          8
+        ],
+        "ring_size": 13,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-single",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          21,
+          21
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "normal-poop-four",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          90.0,
+          21
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-single-four",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          90,
+          21
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "normal-tall-four",
+        "viewport": [
+          393,
+          852
+        ],
+        "field_scale": 1.6057692307692308,
+        "poop_size": 19,
+        "pile": [
+          82.0,
+          19
+        ],
+        "ring_size": null,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "short-fish-item",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.5384615384615385,
+        "poop_size": 18,
+        "pile": [
+          78.0,
+          18
+        ],
+        "ring_size": 20,
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "missing-all-min",
+        "viewport": [
+          288,
+          568
+        ],
+        "field_scale": 0.3269230769230769,
+        "poop_size": 8,
+        "pile": [
+          38.0,
+          8
+        ],
+        "ring_size": 13,
+        "conversation_gap": 6.0,
+        "center_error": 0.0078125
+      }
+    ],
+    "changed_main_from_251": [
+      {
+        "scenario": "friends",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -17.781,
+        "gap": 6.0
+      },
+      {
+        "scenario": "family",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -26.938,
+        "gap": 6.0
+      },
+      {
+        "scenario": "item-poop",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -26.938,
+        "gap": 6.0
+      },
+      {
+        "scenario": "full",
+        "scale_before": 0.9615384615384616,
+        "scale_after": 0.9615384615384616,
+        "center_shift": 0.688,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-full",
+        "scale_before": 0.6153846153846154,
+        "scale_after": 0.6153846153846154,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "large-text",
+        "scale_before": 0.9423076923076923,
+        "scale_after": 0.9423076923076923,
+        "center_shift": -20.359,
+        "gap": 6.0
+      },
+      {
+        "scenario": "safe-area",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -21.469,
+        "gap": 6.0
+      },
+      {
+        "scenario": "adult-dog",
+        "scale_before": 0.9230769230769231,
+        "scale_after": 0.9230769230769231,
+        "center_shift": -22.469,
+        "gap": 6.0
+      },
+      {
+        "scenario": "fish",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -28.359,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-sprout",
+        "scale_before": 0.5,
+        "scale_after": 0.5,
+        "center_shift": 10.828,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-old-tree",
+        "scale_before": 0.5576923076923077,
+        "scale_after": 0.5576923076923077,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "world-tree",
+        "scale_before": 1.0384615384615385,
+        "scale_after": 1.0384615384615385,
+        "center_shift": -26.188,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-large-text",
+        "scale_before": 0.6346153846153846,
+        "scale_after": 0.6346153846153846,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-toolbar",
+        "scale_before": 0.6346153846153846,
+        "scale_after": 0.6346153846153846,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "poop-two",
+        "scale_before": 0.9230769230769231,
+        "scale_after": 0.9230769230769231,
+        "center_shift": -22.469,
+        "gap": 6.0
+      },
+      {
+        "scenario": "poop-three",
+        "scale_before": 0.9230769230769231,
+        "scale_after": 0.9230769230769231,
+        "center_shift": -22.469,
+        "gap": 6.0
+      },
+      {
+        "scenario": "small-adult",
+        "scale_before": 0.4807692307692308,
+        "scale_after": 0.4807692307692308,
+        "center_shift": 10.828,
+        "gap": 6.0
+      },
+      {
+        "scenario": "full-friends-only",
+        "scale_before": 0.6153846153846154,
+        "scale_after": 0.6153846153846154,
+        "center_shift": 10.828,
+        "gap": 6.0
+      },
+      {
+        "scenario": "full-partner-only",
+        "scale_before": 0.6153846153846154,
+        "scale_after": 0.6153846153846154,
+        "center_shift": 10.828,
+        "gap": 6.0
+      },
+      {
+        "scenario": "full-item-only",
+        "scale_before": 0.6153846153846154,
+        "scale_after": 0.6153846153846154,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "item-crown",
+        "scale_before": 0.6153846153846154,
+        "scale_after": 0.6153846153846154,
+        "center_shift": -12.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "right-speaker",
+        "scale_before": 0.9230769230769231,
+        "scale_after": 0.9230769230769231,
+        "center_shift": -22.469,
+        "gap": 6.0
+      },
+      {
+        "scenario": "adult-single",
+        "scale_before": 1.7115384615384615,
+        "scale_after": 1.7115384615384615,
+        "center_shift": -12.75,
+        "gap": 6.0
+      },
+      {
+        "scenario": "missing-friends-min",
+        "scale_before": 0.3076923076923077,
+        "scale_after": 0.3269230769230769,
+        "center_shift": -5.656,
+        "gap": 6.0
+      },
+      {
+        "scenario": "missing-all-min",
+        "scale_before": 0.36538461538461536,
+        "scale_after": 0.3269230769230769,
+        "center_shift": -6.844,
+        "gap": 6.0
+      },
+      {
+        "scenario": "missing-all-small",
+        "scale_before": 0.4423076923076923,
+        "scale_after": 0.4423076923076923,
+        "center_shift": -12.0,
+        "gap": 6.0
+      }
+    ]
+  }
+}

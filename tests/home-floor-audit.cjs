@@ -16,7 +16,7 @@ const body=(f,asset)=>{
 const separate=(a,b,g=0)=>a.x+a.w+g<=b.x+.01 || b.x+b.w+g<=a.x+.01 || a.y+a.h+g<=b.y+.01 || b.y+b.h+g<=a.y+.01;
 const report={assets:assets.length,partners:partners.length,scenarios:0,failures:[],
   gap:[Infinity,-Infinity],centerError:0,minRightMargin:Infinity,maxPoopDistanceFromBody:0,minMainFrame:Infinity,minFriendFrame:Infinity,
-  poopSize:[Infinity,-Infinity],maxPileWidth:0,maxPileHeight:0};
+  poopSize:[Infinity,-Infinity],maxPileWidth:0,maxPileHeight:0,maxPoopAnchorDistanceFromBody:0};
 function check(args) {
   const r=layoutHomeCast(args),main=body(r.main,args.mainAsset),cx=main.x+main.w/2,bottom=main.y+main.h;
   const gap=r.conversation.y-bottom,centerError=Math.abs(r.conversation.x+r.conversation.w/2-cx);
@@ -40,14 +40,21 @@ function check(args) {
     report.minRightMargin=Math.min(report.minRightMargin,margin);
     report.maxPoopDistanceFromBody=Math.max(report.maxPoopDistanceFromBody,distance);
     report.poopSize=[Math.min(report.poopSize[0],p.w,p.h),Math.max(report.poopSize[1],p.w,p.h)];
-    if(p.w<8 || p.w>12 || p.h!==p.w) errors.push('poop size outside readable range');
-    if(p.x<main.x+main.w+args.motionRadius || p.y<bottom-24-.01 || p.y+p.h>r.conversation.y-2+.01 || margin<24 || distance>72) errors.push('poop position');
+    if(p.w<8 || p.w>24 || p.h!==p.w) errors.push('poop size outside readable range');
+    if(p.x<r.pocket.x+5-.01 || p.x+p.w>r.pocket.x+r.pocket.w-5+.01 || p.y<r.pocket.y-.01 || p.y+p.h>r.pocket.y+r.pocket.h+.01) errors.push('poop outside reserved pocket');
+    if(p.x<main.x+main.w+args.motionRadius || Math.abs(p.y+p.h-bottom-4)>.01 || p.y+p.h>r.conversation.y-2+.01 || margin<24) errors.push('poop position');
     for(const sway of [-5,5]) for(const lift of [0,-17]) if(actors.some(a=>!separate({...a,x:a.x+sway,y:a.y+lift},p,args.motionRadius+1))) errors.push('sway/reaction/pocket collision');
   }
   const pileWidth=Math.max(...r.poops.map(p=>p.x+p.w))-Math.min(...r.poops.map(p=>p.x));
   const pileHeight=Math.max(...r.poops.map(p=>p.y+p.h))-Math.min(...r.poops.map(p=>p.y));
   report.maxPileWidth=Math.max(report.maxPileWidth,pileWidth);report.maxPileHeight=Math.max(report.maxPileHeight,pileHeight);
-  if(pileWidth>28.01 || pileHeight>28.01) errors.push('pile spread');
+  const first=r.poops[0],anchorDistance=Math.hypot(first.x+first.w/2-main.x-main.w,first.y+first.h/2-bottom);
+  report.maxPoopAnchorDistanceFromBody=Math.max(report.maxPoopAnchorDistanceFromBody,anchorDistance);
+  if(anchorDistance>72) errors.push('poop row detached from main');
+  if(pileWidth>102.01 || pileHeight>24.01) errors.push('row spread');
+  r.poops.forEach((p,i)=>{
+    if(p.y!==first.y || (i && Math.abs(p.x-r.poops[i-1].x-r.poops[i-1].w-2)>.01)) errors.push('not one compact horizontal row');
+  });
   if(errors.length) report.failures.push({args,errors:[...new Set(errors)]});
 }
 // Every published species/stage, sparse and crowded, minimum and normal sizes.
@@ -56,6 +63,12 @@ for(const mainAsset of [...assets,null]) for(const [width,height] of [[270,152],
     hasPartner:equipped,partnerAsset:partners[0],hasAccessory:equipped,
     companions:Array.from({length:count},(_,i)=>friends[i%friends.length]),motionRadius:count>18?1:3,conversationHeight:44});
 }
+// Check normal sizes with every partner too: a short pet at a real 240px
+// stage can bring the right pocket level with its item. Taller phones also
+// exercise growth beyond 1x; the original minimum-stage matrix misses both.
+for(const mainAsset of [...assets,null]) for(const partnerAsset of [...partners,null]) for(const height of [240,260,340]) check({width:358,height,
+  mainAsset,partnerAsset,hasPartner:true,hasAccessory:true,
+  companions:[],motionRadius:3,conversationHeight:44});
 // Every main/partner combination including failed/unknown PNGs at the minimum.
 for(const mainAsset of [...assets,null]) for(const partnerAsset of [...partners,null]) check({width:270,height:152,
   mainAsset,hasPartner:true,partnerAsset,hasAccessory:true,companions:friends,motionRadius:1,conversationHeight:44});

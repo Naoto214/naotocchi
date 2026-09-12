@@ -19,9 +19,11 @@ function measureConversation() {
   });
   const accessory=document.getElementById('petAccessory');
   if(shown(accessory)) actors.push({id:'item',...rect(accessory)});
+  const ring=document.querySelector('#pet .partner-ring');
   const bubble=document.getElementById('speechBubble'), speaker=document.getElementById('speechSpeaker');
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
+    ring:ring && shown(ring)?{...rect(ring),fontSize:parseFloat(getComputedStyle(ring).fontSize)}:null,
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
@@ -64,6 +66,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['item-crown',320,568,26,true,true,4],
     ['right-speaker',390,760,6,true,true,4,'normal','dog',5],
     ['adult-single',390,760,0,false,false,1,'normal','dog',5],
+    ['normal-poop-four',390,760,0,false,false,4],
+    ['adult-single-four',390,760,0,false,false,4,'normal','dog',5],
+    ['normal-tall-four',393,852,0,false,false,4],
+    ['short-fish-item',390,760,0,true,true,4,'normal','clownfish',0],
     ['missing-friends-min',288,568,26,true,true,4],
     ['missing-all-min',288,568,26,true,true,4],
     ['missing-all-small',320,568,26,true,true,4,'large'],
@@ -136,17 +142,24 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         }
       }
       for(const p of m.poops) {
-        const expectedSize=Math.max(8,Math.min(12,Math.round(12*m.fieldScale)));
+        const expectedSize=Math.max(8,Math.min(24,Math.round(12*m.fieldScale)));
         assert.ok(Math.abs(p.w-expectedSize)<.01 && Math.abs(p.h-expectedSize)<.01,label+': poop does not follow the rendered field scale');
         for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
         assert.ok(p.x>=m.main.x+m.main.w+.5,label+': poop crosses the main body / central axis');
         assert.ok(p.y+p.h<=m.slot.y-1.5,label+': poop is below the top of the dialogue');
-        assert.ok(p.y>=m.main.y+m.main.h-24.5,label+': poop is too high above the feet');
+        assert.ok(Math.abs(p.y+p.h-m.main.y-m.main.h-4)<.6,label+': poop is not beside the feet');
         assert.ok(p.x+p.w<=m.stage.x+m.stage.w-24,label+': poop is too close to the right edge');
         assert.ok(p.y+p.h<=m.stage.y+m.stage.h+.6 && p.y+p.h<=m.meters.y,label+': poop leaves the stage or covers meters');
-        assert.ok(Math.hypot(p.x+p.w/2-m.main.x-m.main.w,p.y+p.h/2-m.main.y-m.main.h)<=72,label+': poop detached from main');
       }
-      if(m.poops.length) assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-Math.min(...m.poops.map(p=>p.x))<=28.6 && Math.max(...m.poops.map(p=>p.y+p.h))-Math.min(...m.poops.map(p=>p.y))<=28.6,label+': multiple poops stretch outside their compact pocket');
+      if(m.poops.length) {
+        const first=m.poops[0];
+        assert.ok(Math.hypot(first.x+first.w/2-m.main.x-m.main.w,first.y+first.h/2-m.main.y-m.main.h)<=72,label+': poop row starts too far from main');
+        m.poops.forEach((p,i)=>{
+          assert.ok(Math.abs(p.y-first.y)<.01,label+': poop wraps into another row');
+          if(i) assert.ok(Math.abs(p.x-m.poops[i-1].x-m.poops[i-1].w-2)<.02,label+': poop row has uneven gaps');
+        });
+        assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-first.x<=102.6,label+': poop row exceeds its compact bounds');
+      }
       assert.deepEqual(errors,[],label+': browser errors');
       return m;
     };
@@ -161,7 +174,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         if(i) await page.clock.runFor(2500);
         const m=await check('speaker-'+expected[i]);
         assert.equal(m.kind,expected[i],label+': expected the real speaker');
-        if(name==='right-speaker' && m.kind==='companion') assert.ok(m.actors.find(a=>a.id===m.speakerId).x>m.main.x+m.main.w/2,label+': expected a companion on the right');
+        if(name==='right-speaker' && m.kind==='companion') {
+          assert.ok(m.actors.find(a=>a.id===m.speakerId).x>m.main.x+m.main.w/2,label+': expected a companion on the right');
+          assert.match(m.tailTip,/^polygon\(100% /,label+': the safe tail still points toward the right speaker');
+        }
         if(m.kind==='pet') assert.ok(Math.abs(parseFloat(m.tail)-m.bubble.w/2)<.6,label+': main speech tail is not centered');
         assert.ok(samePosition(m.main,before.main) && samePosition(m.slot,before.slot),label+': speaker change moves cast/conversation');
         assert.deepEqual(m.poops,before.poops,label+': speaking moves poop');

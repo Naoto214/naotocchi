@@ -84,7 +84,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet .partner-companion {width:52px;height:52px;top:0;left:calc(50% - 90px);font-size:40px}
 #pet .partner-emoji {width:100%;height:100%;font-size:inherit;filter:none;display:flex;align-items:center;justify-content:center}
 #pet .partner-heart {position:absolute;font-size:24px;line-height:1;z-index:1;filter:none;display:flex;align-items:center;justify-content:center}
-#pet .partner-ring {font-size:13px;right:0;bottom:-2px}
+/* Inherit the placed partner's scale; retain the readable crowded-size floor. */
+#pet .partner-ring {font-size:clamp(13px,.4em,20px);right:0;bottom:-2px}
 #pet .pet-accessory {width:36px;height:36px;top:0;left:calc(50% + 24px);font-size:32px}
 #pet .hidden {display:none}
 /* Local gestures keep their safe gaps. A separate shared lift adds 10–16px of
