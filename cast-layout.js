@@ -8,10 +8,9 @@
     // Preserve the established proportion at 104px and below, but let large
     // normal pets grow their poop too. Keep a readable 8px floor and 24px cap.
     const size=Math.max(8,Math.min(24,Math.round(12*scale)));
-    // Keep both rows tight: extra spacing can push a short pet's pile toward
-    // equipment, even though each individual icon has a natural size.
+    // Keep one neat row with a small gap, including all four possible icons.
     const step=size+2;
-    return {size,step,span:size+step};
+    return {size,step,span:size+3*step};
   };
   const shape = asset => bounds?.[asset] || full;
   const body = (frame,asset) => {
@@ -58,11 +57,10 @@
     // pocket beside the feet before packing them, even when there is no poop.
     // Very short bodies can put their equipment here: use its nearest safe
     // right edge without moving the item or increasing the dialogue gap.
-    // Retain the established compact pocket for small fields. Larger normal
-    // pets need room for their larger 2x2 pile, including the shared sway
-    // and extra outer space so it stays at least 24px from the screen edge.
+    // Reserve one horizontal row, including the shared sway and extra outer
+    // space so it stays at least 24px from the screen edge.
     // Reserve all four slots even when there is no poop.
-    const pile=poopMetrics(scale),pocketHeight=Math.max(36,pile.span);
+    const pile=poopMetrics(scale),pocketHeight=36;
     const pocket=homePocket?rect(visible.x+visible.w+motionGap/2+2,main.y+main.h+4-pocketHeight,Math.max(46,pile.span+20),pocketHeight):null;
     if(pocket) {
       while(core.some(other=>overlaps(pocket,other,motionGap/2+2)))pocket.x+=1;
@@ -77,7 +75,7 @@
   // Keep the approved half-ellipse wings at every available height. Pack curved
   // lanes from the core outward; never replace the wings with straight columns.
   function compactCast(args) {
-    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,homePocket,tightWings=false}=args;
+    const {width,height,mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,homePocket,wingBowScale}=args;
     const gap=4+2*motionRadius, room=width-16, count=companions.length;
     const boxes=companions.map(a=>shape(a).box), centersY=boxes.map(b=>(b[1]+b[3])/256);
     const bodyHeight=Math.max(0,...boxes.map(b=>(b[3]-b[1])/128));
@@ -100,7 +98,7 @@
       const sideWidth=(room-(e.right-e.left))/2-gap;
       for(let size=count?72:48;size>=12;size--) {
         let best=null;
-        const bh=size*bodyHeight, bow=tightWings?size*.8:Math.max(size*.8,Math.min(height*.25,40));
+        const bh=size*bodyHeight, bow=wingBowScale?size*wingBowScale:Math.max(size*.8,Math.min(height*.25,40));
         for(let lanes=1;lanes<=maxLanes;lanes++) {
           // Reject impossible vertical spans before allocating candidate lanes.
           // Account for differently centered PNG frames, not just body height.
@@ -168,9 +166,11 @@
     if(Number.isFinite(height) && height>=80) {
       const constraints={width,height:Math.floor(height),mainAsset,hasPartner,partnerAsset,hasAccessory,companions,motionRadius,homePocket};
       // Failed PNGs occupy their complete frames. Before using the unbounded
-      // layout, try shallower curved wings at the same height and size limits.
-      // This leaves the floor pocket and all actor/motion gaps unchanged.
-      const compact=compactCast(constraints) || (homePocket?compactCast({...constraints,tightWings:true}):null);
+      // layout, try progressively shallower curves at the same size limits.
+      // The final curve fits full fallback frames beside the four-icon row
+      // even at 270x152, retaining every actor and the existing motion gaps.
+      const compact=compactCast(constraints) || (homePocket?
+        compactCast({...constraints,wingBowScale:.8}) || compactCast({...constraints,wingBowScale:.4}):null);
       if(compact)return compact;
     }
     const motionGap=2*motionRadius;
@@ -238,13 +238,13 @@
       // Use painted pixels, not the transparent PNG frame, as the shared axis.
       // A short tail meets the feet without the bubble covering the character.
       result.conversation=rect(center-width/2,main.y+main.h+6,width,conversationHeight);
-      // Fill the near row first, then the row behind it: at most two columns,
-      // entirely above the bubble and outside the central conversation axis.
+      // Keep every icon on one baseline, entirely above the bubble and
+      // outside the central conversation axis. Reserve all four positions.
       // Use the applied main/equipment scale, not party size or animation scale.
       // Keep the same proportions above 1x too: large normal pets must not
       // be stuck with tiny poop. The reserved footprint uses these metrics.
       const {size:poopSize,step:poopStep}=poopMetrics(result.fieldScale);
-      result.poops=[0,1,2,3].map(i=>rect(result.pocket.x+5+(i%2)*poopStep,result.pocket.y+result.pocket.h-poopSize-Math.floor(i/2)*poopStep,poopSize));
+      result.poops=[0,1,2,3].map(i=>rect(result.pocket.x+5+i*poopStep,result.pocket.y+result.pocket.h-poopSize,poopSize));
     }
     return result;
   }

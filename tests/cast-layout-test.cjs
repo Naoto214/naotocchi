@@ -87,15 +87,19 @@ test('home conversation stays close and centered with a compact poop pocket abov
       for(let i=0;i<floor.length;i++) for(let j=0;j<i;j++) assert.ok(separate(floor[i],floor[j],2),'dialogue and floor items never overlap');
       assert.equal(r.poops.length,4,'reserve the full pile even before poop appears');
       assert.ok(r.poops.every(p=>p.w>=8 && p.w<=24 && p.h===p.w),'poop stays recognizable without exceeding its normal size');
-      assert.ok(Math.max(...r.poops.map(p=>p.x+p.w))-Math.min(...r.poops.map(p=>p.x))<=50,'multiple poops do not stretch into a long row');
-      assert.ok(Math.max(...r.poops.map(p=>p.y+p.h))-Math.min(...r.poops.map(p=>p.y))<=50,'multiple poops stay in a compact pocket');
+      assert.ok(Math.max(...r.poops.map(p=>p.x+p.w))-Math.min(...r.poops.map(p=>p.x))<=102,'the whole row stays compact');
+      r.poops.forEach((p,i)=>{
+        assert.equal(p.y,r.poops[0].y,'every poop stays on one horizontal baseline');
+        if(i) assert.ok(Math.abs(p.x-r.poops[i-1].x-r.poops[i-1].w-2)<.01,'adjacent poops retain a compact 2px gap');
+      });
+      const first=r.poops[0];
+      assert.ok(Math.hypot(first.x+first.w/2-main.x-main.w,first.y+first.h/2-main.y-main.h)<=72,'the row starts close to the main body');
       for(const p of r.poops) {
         assert.ok(p.x>=r.pocket.x+5-.01 && p.x+p.w<=r.pocket.x+r.pocket.w-5+.01 && p.y>=r.pocket.y-.01 && p.y+p.h<=r.pocket.y+r.pocket.h+.01,'the whole pile fits its reserved pocket with sway clearance');
         assert.ok(p.x>=main.x+main.w+args.motionRadius,'poop stays beside the painted main body');
         assert.ok(p.y+p.h<=r.conversation.y-2+.01,'poop stays above the dialogue, not below it');
-        assert.ok(p.y>=main.y+main.h-2*p.h-.01,'two compact rows stay beside the feet');
+        assert.ok(Math.abs(p.y+p.h-main.y-main.h-4)<.01,'the row stays beside the feet');
         assert.ok(p.x+p.w<=width-24,'poop leaves room at the right screen edge');
-        assert.ok(Math.hypot(p.x+p.w/2-main.x-main.w,p.y+p.h/2-main.y-main.h)<=72,'poop stays close to the main body');
         for(const a of actors) for(const lift of [0,-17]) for(const sway of [-5,5]) assert.ok(separate({...a,x:a.x+sway,y:a.y+lift},p,args.motionRadius+1),'shared sway plus individual reactions do not cross the poop pocket');
       }
       assert.deepEqual(layoutHomeCast({...args,poopCount:0,speaker:'pet'}),layoutHomeCast({...args,poopCount:4,speaker:'companion'}),'speech and poop presence never reflow the cast');
