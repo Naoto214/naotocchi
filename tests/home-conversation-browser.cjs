@@ -64,6 +64,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['item-crown',320,568,26,true,true,4],
     ['right-speaker',390,760,6,true,true,4,'normal','dog',5],
     ['adult-single',390,760,0,false,false,1,'normal','dog',5],
+    ['normal-poop-four',390,760,0,false,false,4],
+    ['adult-single-four',390,760,0,false,false,4,'normal','dog',5],
+    ['normal-tall-four',393,852,0,false,false,4],
+    ['short-fish-item',390,760,0,true,true,4,'normal','clownfish',0],
     ['missing-friends-min',288,568,26,true,true,4],
     ['missing-all-min',288,568,26,true,true,4],
     ['missing-all-small',320,568,26,true,true,4,'large'],
@@ -136,17 +140,17 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         }
       }
       for(const p of m.poops) {
-        const expectedSize=Math.max(8,Math.min(12,Math.round(12*m.fieldScale)));
+        const expectedSize=Math.max(8,Math.min(24,Math.round(12*m.fieldScale)));
         assert.ok(Math.abs(p.w-expectedSize)<.01 && Math.abs(p.h-expectedSize)<.01,label+': poop does not follow the rendered field scale');
         for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
         assert.ok(p.x>=m.main.x+m.main.w+.5,label+': poop crosses the main body / central axis');
         assert.ok(p.y+p.h<=m.slot.y-1.5,label+': poop is below the top of the dialogue');
-        assert.ok(p.y>=m.main.y+m.main.h-24.5,label+': poop is too high above the feet');
+        assert.ok(p.y>=m.main.y+m.main.h-2*p.h-.5,label+': poop is too high above the feet');
         assert.ok(p.x+p.w<=m.stage.x+m.stage.w-24,label+': poop is too close to the right edge');
         assert.ok(p.y+p.h<=m.stage.y+m.stage.h+.6 && p.y+p.h<=m.meters.y,label+': poop leaves the stage or covers meters');
         assert.ok(Math.hypot(p.x+p.w/2-m.main.x-m.main.w,p.y+p.h/2-m.main.y-m.main.h)<=72,label+': poop detached from main');
       }
-      if(m.poops.length) assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-Math.min(...m.poops.map(p=>p.x))<=28.6 && Math.max(...m.poops.map(p=>p.y+p.h))-Math.min(...m.poops.map(p=>p.y))<=28.6,label+': multiple poops stretch outside their compact pocket');
+      if(m.poops.length) assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-Math.min(...m.poops.map(p=>p.x))<=50.6 && Math.max(...m.poops.map(p=>p.y+p.h))-Math.min(...m.poops.map(p=>p.y))<=50.6,label+': multiple poops stretch outside their compact pocket');
       assert.deepEqual(errors,[],label+': browser errors');
       return m;
     };

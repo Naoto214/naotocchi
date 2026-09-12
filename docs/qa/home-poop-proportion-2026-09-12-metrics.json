@@ -1,0 +1,243 @@
+{
+  "base": "3dc322f400da4cd711cc384fa12a5aefb09be2a4",
+  "formula": "max(8,min(24,round(12*fieldScale)))",
+  "gap_px": 2,
+  "floor": {
+    "assets": 248,
+    "partners": 18,
+    "scenarios": 38346,
+    "failures": [],
+    "gap": [
+      6,
+      6
+    ],
+    "centerError": 0,
+    "minRightMargin": 25,
+    "maxPoopDistanceFromBody": 58.82176467941099,
+    "minMainFrame": 32,
+    "minFriendFrame": 12,
+    "poopSize": [
+      8,
+      24
+    ],
+    "maxPileWidth": 50,
+    "maxPileHeight": 50
+  },
+  "chromium": {
+    "scenarios": 38,
+    "states": 242,
+    "failures": [],
+    "examples": [
+      {
+        "scenario": "poop",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          21.0,
+          21.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "full",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9615384615384616,
+        "poop_size": 12,
+        "pile": [
+          26.0,
+          26.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.8076923076923077,
+        "poop_size": 10,
+        "pile": [
+          22.0,
+          22.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small-full",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.6153846153846154,
+        "poop_size": 8,
+        "pile": [
+          18.0,
+          18.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-dog",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9230769230769231,
+        "poop_size": 11,
+        "pile": [
+          24.0,
+          24.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "small-adult",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.4807692307692308,
+        "poop_size": 8,
+        "pile": [
+          18.0,
+          18.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-single",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          21.0,
+          21.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "normal-poop-four",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          44.0,
+          44.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "adult-single-four",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 21,
+        "pile": [
+          44.0,
+          44.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "normal-tall-four",
+        "viewport": [
+          393,
+          852
+        ],
+        "field_scale": 1.6057692307692308,
+        "poop_size": 19,
+        "pile": [
+          40.0,
+          40.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "short-fish-item",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.5384615384615385,
+        "poop_size": 18,
+        "pile": [
+          38.0,
+          38.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      },
+      {
+        "scenario": "missing-all-min",
+        "viewport": [
+          288,
+          568
+        ],
+        "field_scale": 0.36538461538461536,
+        "poop_size": 8,
+        "pile": [
+          18.0,
+          18.0
+        ],
+        "conversation_gap": 6.0,
+        "center_error": 0.0
+      }
+    ],
+    "changed_main_from_251": [
+      {
+        "scenario": "friends",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -2.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "family",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -2.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "item-poop",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -2.0,
+        "gap": 6.0
+      },
+      {
+        "scenario": "fish",
+        "scale_before": 1.0769230769230769,
+        "scale_after": 1.0769230769230769,
+        "center_shift": -2.0,
+        "gap": 6.0
+      }
+    ]
+  }
+}

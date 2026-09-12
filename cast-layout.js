@@ -4,6 +4,15 @@
   const full = {box:[0,0,128,128],hull:[[0,0],[128,0],[128,128],[0,128]]};
   const rect = (x,y,w,h=w) => ({x,y,w,h});
   const fieldScale = mainSize => mainSize/104;
+  const poopMetrics = scale => {
+    // Preserve the established proportion at 104px and below, but let large
+    // normal pets grow their poop too. Keep a readable 8px floor and 24px cap.
+    const size=Math.max(8,Math.min(24,Math.round(12*scale)));
+    // Keep both rows tight: extra spacing can push a short pet's pile toward
+    // equipment, even though each individual icon has a natural size.
+    const step=size+2;
+    return {size,step,span:size+step};
+  };
   const shape = asset => bounds?.[asset] || full;
   const body = (frame,asset) => {
     const b=shape(asset).box;
@@ -49,10 +58,12 @@
     // pocket beside the feet before packing them, even when there is no poop.
     // Very short bodies can put their equipment here: use its nearest safe
     // right edge without moving the item or increasing the dialogue gap.
-    // Keep this footprint independent of the displayed icon size so a visual
-    // size adjustment never reflows the cast. Both sides reserve 5px for the
-    // shared idle sway; individual motion is reserved by motionGap.
-    const pocket=homePocket?rect(visible.x+visible.w+motionGap/2+2,main.y+main.h-32,46,36):null;
+    // Retain the established compact pocket for small fields. Larger normal
+    // pets need room for their larger 2x2 pile, including the shared sway
+    // and extra outer space so it stays at least 24px from the screen edge.
+    // Reserve all four slots even when there is no poop.
+    const pile=poopMetrics(scale),pocketHeight=Math.max(36,pile.span);
+    const pocket=homePocket?rect(visible.x+visible.w+motionGap/2+2,main.y+main.h+4-pocketHeight,Math.max(46,pile.span+20),pocketHeight):null;
     if(pocket) {
       while(core.some(other=>overlaps(pocket,other,motionGap/2+2)))pocket.x+=1;
       core.push(pocket);
@@ -230,10 +241,9 @@
       // Fill the near row first, then the row behind it: at most two columns,
       // entirely above the bubble and outside the central conversation axis.
       // Use the applied main/equipment scale, not party size or animation scale.
-      // Keep a readable 8px floor and a 12px normal-size ceiling; the spacing
-      // shrinks too. The existing safe pocket keeps the cast and speech stable.
-      const scale=Math.min(1,result.fieldScale);
-      const poopSize=Math.max(8,Math.round(12*scale)),poopStep=poopSize+Math.max(2,Math.round(4*scale));
+      // Keep the same proportions above 1x too: large normal pets must not
+      // be stuck with tiny poop. The reserved footprint uses these metrics.
+      const {size:poopSize,step:poopStep}=poopMetrics(result.fieldScale);
       result.poops=[0,1,2,3].map(i=>rect(result.pocket.x+5+(i%2)*poopStep,result.pocket.y+result.pocket.h-poopSize-Math.floor(i/2)*poopStep,poopSize));
     }
     return result;
