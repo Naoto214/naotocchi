@@ -17,7 +17,7 @@ function measureConversation() {
   const bubble=document.getElementById('speechBubble'), speaker=document.getElementById('speechSpeaker');
   return {width:innerWidth,height:innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
-    kind:bubble.dataset.kind,label:speaker.dataset.label,
+    kind:bubble.dataset.kind,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
     nameVisible:shown(document.querySelector('.cast-names')),
     tail:getComputedStyle(bubble,'::before').left,
@@ -69,12 +69,15 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       if(m.bubble) {
         const gap=m.bubble.y-m.main.y-m.main.h;
         assert.ok(gap>=6 && gap<=24,label+': dialogue detached from main, gap='+gap);
-        assert.ok(m.label && m.nameContent.includes(m.label),label+': speaker name missing');
+        assert.ok(m.speakerLabel && m.nameContent.includes(m.speakerLabel),label+': speaker name missing');
         assert.ok(m.bubble.y+m.bubble.h<=m.meters.y+1,label+': dialogue covers meters');
         for(const a of m.actors) assert.ok(separated(a,m.bubble,2),label+': dialogue covers '+a.id);
         for(const p of m.poops) assert.ok(separated(p,m.bubble,2),label+': poop covers dialogue');
       }
-      for(const p of m.poops) for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
+      for(const p of m.poops) {
+        for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
+        assert.ok(Math.hypot(p.x+p.w/2-m.main.x-m.main.w/2,p.y+p.h/2-m.main.y-m.main.h)<=112,label+': poop detached from main');
+      }
       assert.deepEqual(errors,[],label+': browser errors');
       return m;
     };

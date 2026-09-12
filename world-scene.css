@@ -385,6 +385,16 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
   .world-mode .device .home-meters :is(.bar-label,.bar-value) {line-height:1.15}
 }
 
+/* At SE height, two name rows can consume the last meter row. Share one
+   line while retaining both names and the full speaker label in dialogue. */
+@container home-content (max-height:330px) {
+  .world-mode .device.ui-home-compact .cast-names:has(#partnerLabel:not(:empty)) {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:8px}
+  .world-mode .cast-names:has(#partnerLabel:not(:empty)) .cast-title-line {min-width:0;flex-wrap:nowrap}
+  .world-mode .cast-names:has(#partnerLabel:not(:empty)) #mainNameLabel {flex-shrink:0;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .world-mode .cast-names:has(#partnerLabel:not(:empty)) .stage-name-row,
+  .world-mode .cast-names #partnerLabel {min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+
 /* A short landscape viewport has room beside the cast. Put the header and
    controls in that space instead of leaving a shallow strip for the world. */
 @media(max-height:500px) and (min-width:640px) {

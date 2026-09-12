@@ -194,10 +194,12 @@
       main:move(r.main),partner:move(r.partner),accessory:move(r.accessory),
       hearts:r.hearts.map(move),companions:r.companions.map(move),companionBodies:r.companionBodies.map(move)};
     if(conversationHeight) {
-      const main=body(result.main,args.mainAsset), width=Math.min(260,result.width-80);
-      const x=Math.max(32,Math.min(result.width-width-32,main.x+main.w/2-width/2));
+      const main=body(result.main,args.mainAsset), width=Math.min(224,result.width-104);
+      // Bias the shared bubble slightly right of the feet. A compact 2x2
+      // floor patch on its left keeps poop near even a small painted body.
+      const x=Math.max(56,Math.min(result.width-width-12,main.x+main.w/2-48));
       result.conversation=rect(x,main.y+main.h+10,width,conversationHeight);
-      result.poops=[0,1,2,3].map(i=>rect(i%2?x-24:x+width+8,result.conversation.y+4+Math.floor(i/2)*20,16));
+      result.poops=[0,1,2,3].map(i=>rect(x-24-(i%2)*20,result.conversation.y+4+Math.floor(i/2)*20,16));
     }
     return result;
   }

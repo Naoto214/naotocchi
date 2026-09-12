@@ -29,6 +29,7 @@ test('home conversation stays below the main body with stable side floor slots, 
         for(const a of actors) assert.ok(separate(a,f,args.motionRadius),JSON.stringify({width,height,count,mainAsset,actor:a,floor:f,layoutHeight:r.height}));
       }
       for(let i=0;i<floor.length;i++) for(let j=0;j<i;j++) assert.ok(separate(floor[i],floor[j],2),'dialogue and floor items never overlap');
+      for(const p of r.poops) assert.ok(Math.hypot(p.x+p.w/2-main.x-main.w/2,p.y+p.h/2-main.y-main.h)<=112,'poop stays near the main feet instead of at the screen edges');
       assert.deepEqual(layoutHomeCast({...args,poopCount:0,speaker:'pet'}),layoutHomeCast({...args,poopCount:4,speaker:'companion'}),'speech and poop presence never reflow the cast');
     }
   }
