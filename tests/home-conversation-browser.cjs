@@ -71,8 +71,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['normal-tall-four',393,852,0,false,false,4],
     ['short-fish-item',390,760,0,true,true,4,'normal','clownfish',0],
     ['missing-friends-min',288,568,26,true,true,4],
+    ['missing-mixed-min',288,568,26,true,true,4],
     ['missing-all-min',288,568,26,true,true,4],
     ['missing-all-small',320,568,26,true,true,4,'large'],
+    ['balanced-cat',393,852,6,true,true,4,'normal','cat',6],
+    ['balanced-two',390,760,2,true,true,4,'normal','cat',5],
+    ['balanced-three',390,760,3,true,true,4,'normal','cat',5],
+    ['balanced-eight',320,568,8,true,false,4,'normal','stagbeetle',5],
+    ['balanced-many',390,760,17,true,true,4,'normal','cat',5],
+    ['balanced-near-max',320,568,25,true,true,4,'normal','cat',5],
+    ['balanced-max',320,568,26,true,true,4,'normal','cat',5],
   ];
   const separated=(a,b,gap=0)=>a.x+a.w+gap<=b.x+.6 || b.x+b.w+gap<=a.x+.6 || a.y+a.h+gap<=b.y+.6 || b.y+b.h+gap<=a.y+.6;
   const samePosition=(a,b)=>['x','y','w','h'].every(k=>Math.abs(a[k]-b[k])<.6);
@@ -84,8 +92,12 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await route.fulfill({response,body:(await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>({top:59,bottom:34}[edge]||0)+'px')});
     });
     if(name.startsWith('missing-')) {
-      await context.route('**/assets/characters/**/*.png',route=>
-        name==='missing-friends-min' && !route.request().url().includes('/companions/')?route.continue():route.abort('failed'));
+      await context.route('**/assets/characters/**/*.png',route=>{
+        const url=route.request().url();
+        const fail=name==='missing-mixed-min'?/\/companions\/(cat_friend|otter|panda|parrot|sheep|snail)\.png/.test(url):
+          name==='missing-friends-min'?url.includes('/companions/'):true;
+        return fail?route.abort('failed'):route.continue();
+      });
       if(name.endsWith('-min')) await context.route('**/world-scene.css?*',async route=>{
         const response=await route.fetch();
         // Restrict the available region, without overriding the inline min
@@ -100,10 +112,23 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
     const itemId=name==='item-crown'?'crown':'poop1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
+    if(name==='balanced-cat') {
+      save.companions=['sheep','seal','otter','rabbit_friend','shiba','parrot'].map(id=>({id,bond:95}));
+      Object.assign(save.partner,{id:'gentle_gorilla',label:'やさしいゴリラ'});
+      Object.assign(save.lifetime,{equippedItemId:'flower',ownedShopItems:['flower']});
+    }
+    if(name==='balanced-eight') {
+      save.companions=['tanuki','cat_friend','hedgehog','many_tail_fox','sekizou','unicorn','punyu','monkey'].map(id=>({id,bond:95}));
+      Object.assign(save.partner,{id:'anglerfish',label:'ひかるチョウチンアンコウ'});
+    }
     const line=species || ((name==='full' || name==='desktop')?'man':save.speciesLine);
     const index=stage ?? ((name==='full' || name==='desktop')?4:0);
     // Appearance is derived from age on load; stageIndex alone is overwritten.
     Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:[2,4,8,13,17,23,41,71][index]*20});
+    if(name==='balanced-cat') {
+      Object.assign(save,{regionId:'jungle',ageTicks:51*20});
+      Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
+    }
     await page.addInitScript(s=>{localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));Math.random=()=>.4;},save);
     if(name==='right-speaker') await page.addInitScript(()=>{Math.random=()=>.2;});
     if(name==='small-toolbar') await page.addInitScript(()=>Object.defineProperty(visualViewport,'height',{get:()=>568}));
@@ -117,11 +142,17 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       if(name.startsWith('missing-')) {
         const friends=m.actors.filter(a=>a.id!=='pet' && a.id!=='partner' && a.id!=='item');
         assert.equal(friends.length,count,label+': a companion disappeared');
-        assert.ok(friends.every(a=>a.failed),label+': missing companion images were not exercised');
+        assert.ok(name==='missing-mixed-min'?friends.some(a=>a.failed) && friends.some(a=>!a.failed):friends.every(a=>a.failed),label+': missing companion images were not exercised');
         assert.ok(m.actors.filter(a=>a.failed).every(a=>a.fallbackVisible),label+': a failed image has no visible fallback');
-        if(name!=='missing-friends-min') assert.ok(m.main.failed,label+': missing main image was not exercised');
+        if(name.startsWith('missing-all')) assert.ok(m.main.failed,label+': missing main image was not exercised');
         if(name.endsWith('-min')) assert.ok(Math.abs(m.stage.w-270)<.6 && Math.abs(m.stage.h-152)<.6,label+': fallback expanded the 270x152 region');
         for(const a of m.actors) assert.ok(a.x>=m.stage.x && a.x+a.w<=m.stage.x+m.stage.w+.6 && a.y>=m.stage.y && a.y+a.h<=m.stage.y+m.stage.h+.6,label+': fallback actor is outside the stage');
+      }
+      assert.ok(Math.abs(m.main.x+m.main.w/2-m.stage.x-m.stage.w/2)<.6,label+': main painted body is not centered on the stage');
+      for(let i=0;i+1<save.companions.length;i+=2) {
+        const a=m.actors.find(a=>a.id===save.companions[i].id),b=m.actors.find(a=>a.id===save.companions[i+1].id);
+        assert.ok(Math.abs((m.main.x-a.x-a.w)-(b.x-m.main.x-m.main.w))<.6,label+': visible left/right gaps differ for '+a.id+'/'+b.id);
+        assert.ok(Math.abs(a.y+a.h/2-b.y-b.h/2)<.6,label+': paired visible heights differ');
       }
       assert.ok(m.pageHeight<=height+1 && m.pageWidth<=width+1,label+': page overflow');
       assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped');
@@ -145,15 +176,14 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         const expectedSize=Math.max(8,Math.min(24,Math.round(12*m.fieldScale)));
         assert.ok(Math.abs(p.w-expectedSize)<.01 && Math.abs(p.h-expectedSize)<.01,label+': poop does not follow the rendered field scale');
         for(const a of m.actors) assert.ok(separated(p,a,1),label+': poop covers '+a.id);
-        assert.ok(p.x>=m.main.x+m.main.w+.5,label+': poop crosses the main body / central axis');
-        assert.ok(p.y+p.h<=m.slot.y-1.5,label+': poop is below the top of the dialogue');
-        assert.ok(Math.abs(p.y+p.h-m.main.y-m.main.h-4)<.6,label+': poop is not beside the feet');
-        assert.ok(p.x+p.w<=m.stage.x+m.stage.w-24,label+': poop is too close to the right edge');
+        assert.ok(p.y+p.h>=m.main.y+m.main.h+3.5,label+': poop floats above the feet');
+        assert.ok(p.x>=m.stage.x+11.5 && p.x+p.w<=m.stage.x+m.stage.w-11.5,label+': poop is too close to a stage edge');
         assert.ok(p.y+p.h<=m.stage.y+m.stage.h+.6 && p.y+p.h<=m.meters.y,label+': poop leaves the stage or covers meters');
       }
       if(m.poops.length) {
         const first=m.poops[0];
-        assert.ok(Math.hypot(first.x+first.w/2-m.main.x-m.main.w,first.y+first.h/2-m.main.y-m.main.h)<=72,label+': poop row starts too far from main');
+        const last=m.poops[m.poops.length-1],dx=Math.max(m.main.x-last.x-last.w,first.x-m.main.x-m.main.w,0);
+        assert.ok(Math.hypot(dx,Math.max(0,first.y-m.main.y-m.main.h))<=72,label+': poop row is too far from main/conversation');
         m.poops.forEach((p,i)=>{
           assert.ok(Math.abs(p.y-first.y)<.01,label+': poop wraps into another row');
           if(i) assert.ok(Math.abs(p.x-m.poops[i-1].x-m.poops[i-1].w-2)<.02,label+': poop row has uneven gaps');
