@@ -1,0 +1,142 @@
+{
+  "baseline_main": "7b25abf11b56241fb768ca317a668be8baa8a358",
+  "baseline_scenarios": 7968,
+  "baseline_36px_candidate": {
+    "fixedCollisions": 4038,
+    "noSafePosition": 2898,
+    "maxDistance": 101.71805395307167
+  },
+  "geometry": {
+    "assets": 248,
+    "partners": 18,
+    "scenarios": 24153,
+    "failures": [],
+    "gap": [
+      6,
+      6
+    ],
+    "centerError": 0,
+    "minRightMargin": 51,
+    "maxPoopDistanceFromBody": 57.87054518492115,
+    "minMainFrame": 32,
+    "minFriendFrame": 12,
+    "poopSize": [
+      8,
+      12
+    ],
+    "maxPileWidth": 28.00000000000003,
+    "maxPileHeight": 28
+  },
+  "chromium": {
+    "home_failures": [],
+    "conversation_scenarios": 34,
+    "conversation_states": 221,
+    "conversation_failures": [],
+    "gap_min": 6.0,
+    "gap_max": 6.0,
+    "center_error_max": 0.0078125,
+    "min_control_height": 44.5,
+    "animated_states": 4,
+    "missing_image_scenarios": [
+      "chromium-conversation-missing-all-min",
+      "chromium-conversation-missing-all-small",
+      "chromium-conversation-missing-friends-min"
+    ]
+  },
+  "npm_test": {
+    "passed": 345,
+    "failed": 0,
+    "skipped": 0
+  },
+  "webkit": "not_run_locally",
+  "github": "see_pull_request_checks",
+  "fallback_minimum_region": {
+    "width": 270,
+    "height": 152,
+    "companions": 26,
+    "all_character_images_failed": true,
+    "vertical_overflow": false,
+    "status": "resolved",
+    "local_visual_font": "Noto Color Emoji"
+  },
+  "scaled_poop_size": {
+    "normal_css_px": 12,
+    "minimum_css_px": 8,
+    "basis": "applied main frame width / 104, shared with field equipment",
+    "browser_sizes": [
+      8,
+      10,
+      11,
+      12
+    ],
+    "static_layout_changes": [],
+    "examples": [
+      {
+        "scenario": "adult-single",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 1.7115384615384615,
+        "poop_size": 12,
+        "pile_width": 12.0,
+        "pile_height": 12.0
+      },
+      {
+        "scenario": "adult-dog",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9230769230769231,
+        "poop_size": 11,
+        "pile_width": 26.0,
+        "pile_height": 26.0
+      },
+      {
+        "scenario": "full",
+        "viewport": [
+          390,
+          760
+        ],
+        "field_scale": 0.9615384615384616,
+        "poop_size": 12,
+        "pile_width": 28.0,
+        "pile_height": 28.0
+      },
+      {
+        "scenario": "small-full",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.6153846153846154,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      },
+      {
+        "scenario": "small-adult",
+        "viewport": [
+          320,
+          568
+        ],
+        "field_scale": 0.4807692307692308,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      },
+      {
+        "scenario": "missing-all-min",
+        "viewport": [
+          288,
+          568
+        ],
+        "field_scale": 0.36538461538461536,
+        "poop_size": 8,
+        "pile_width": 18.0,
+        "pile_height": 18.0
+      }
+    ]
+  }
+}
