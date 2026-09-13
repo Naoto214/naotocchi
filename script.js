@@ -1429,6 +1429,9 @@
       gender: null,
       orientationId: null,
       attractedTo: [],
+      // からだの性とジェンダーは別。NBは保ち、自然成長ではメスから戻さない。
+      clownfishFemaleReached: false,
+      pendingClownfishTransition: null,
       // クエスチョニングの あいだだけ つかう、けいけんの カウンター
       questioningEncounters: 0,
       // ともだちの「あいてコード」を よみこんで あらわれる おきゃくさん。
@@ -1687,6 +1690,8 @@
       // うめなおしても ずかん・じっせき・おかねが ぜんぶ きえる ので、
       // ここは なおさずに 失敗させ、バックアップの ほうを つかう
       if (parsed.lifetime != null && (typeof parsed.lifetime !== 'object' || Array.isArray(parsed.lifetime))) throw new Error('invalid lifetime');
+      // 入れ子の正規化は元オブジェクトも補完するため、欠落していた版数を先に残す。
+      const savedReturnCompatibilityVersion = parsed.infiniteReturn?.romanceCompatibilityVersion || 0;
       const merged = { ...freshState(), ...parsed };
       // lifetime is a nested object, so the shallow merge above replaces it
       // wholesale with the save's own (possibly older, field-missing)
@@ -1761,8 +1766,7 @@
         merged.orientationId = identity.orientationId;
         merged.attractedTo = identity.attractedTo;
       }
-      // 恋愛対象は identity の一部。straight/gay/pan/aro/questioning は
-      // gender + orientationId から再構築し、bi は個体ごとの対象範囲を保存して維持する。
+      // 保存済みの恋愛対象を優先する。対象がない旧セーブだけ、旧ラベルから補う。
       if (merged.stage === STAGE.GROWING && merged.gender && merged.orientationId) {
         const savedSelfTargets = parsed.attractedTo;
         const legacyBiWithoutTargets = merged.orientationId === 'bi'
@@ -1787,6 +1791,9 @@
           ? [...GENDERS]
           : normalizeAttractedTo(merged.partner.gender, merged.partner.orientationId, savedPartnerTargets);
       }
+      normalizeRomanticIdentity(merged);
+      normalizeRomanticIdentity(merged.partner);
+      normalizeRomanticIdentity(merged.guest);
 
       // 恋愛互換ルールv2への一回限りの移行。
       // 旧実装の不整合で「表示上は対象外なのに夫婦/恋人」になっていた場合だけ、
@@ -1802,7 +1809,7 @@
             merged.partner.attractedTo
           );
           const compatible = selfTargets.includes(merged.partner.gender) && partnerTargets.includes(merged.gender);
-          if (!compatible) {
+          if (!compatible && merged.speciesLine !== 'clownfish') {
             merged.pendingLegacyRelationshipResolution = {
               label: merged.partner.label,
               emoji: merged.partner.emoji,
@@ -1904,8 +1911,15 @@
         normalizeStateShape(merged.infiniteReturn, freshState());
         normalizeStateValues(merged.infiniteReturn);
         merged.infiniteReturn.schemaVersion = 5;
+        normalizeRomanticIdentity(merged.infiniteReturn);
+        normalizeRomanticIdentity(merged.infiniteReturn.partner);
+        normalizeRomanticIdentity(merged.infiniteReturn.guest);
+        migrateClownfishLife(merged.infiniteReturn, savedReturnCompatibilityVersion);
       }
       merged.schemaVersion = 5;
+      // 年齢の旧形式変換を終えてから、生きている個体の現在の姿と合わせる。
+      // 終了済みの人生・過去カードは書き換えない。
+      migrateClownfishLife(merged, parsed.romanceCompatibilityVersion || 0);
 
       // 旧版の途中状態などで endingTiersReached に tier0(🎉)だけ残っていても、
       // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
@@ -6164,7 +6178,14 @@
   // ここで あらためて 計算しなおしても 表示が ぶれない)を そのまま
   // 中立的に せつめいする 表記にする。gay いがいは これまでどおり
   // ORIENTATION_LABELS を そのまま つかう
-  function orientationLabel(orientationId, gender) {
+  function orientationLabel(orientationId, gender, targets) {
+    orientationId = orientationIdFor(gender, orientationId, targets);
+    if ((orientationId === 'straight' || orientationId === 'gay') && Array.isArray(targets) && targets.length) {
+      const typical = attractedToFor(gender, orientationId);
+      if (targets.length !== typical.length || targets.some((g) => !typical.includes(g))) {
+        return `恋愛対象：${targets.map((g) => GENDER_LABELS[g]).filter(Boolean).join('・')}`;
+      }
+    }
     if (orientationId === 'gay') {
       if (gender === 'male') return 'ゲイ';
       if (gender === 'female') return 'レズビアン';
@@ -6217,32 +6238,137 @@
     return [gender]; // gay(同性を対象とする タイプ)
   }
 
-  // attractedTo は本来 identity の一部で、特に bi は個体ごとの対象範囲を
-  // いちど決めたら、その人生のあいだ勝手に変わってはいけない。
-  // そのためロード時は、bi だけ有効な保存値を優先し、それ以外は現在の定義から再構築する。
+  // ラベルを変えても恋愛対象を再抽選しない。生成は attractedToFor、
+  // 保存・判定はこの正規化を使う。旧biの対象不明時は既存関係を保つ広い範囲で補う。
   function normalizeAttractedTo(gender, orientationId, savedTargets) {
+    const valid = Array.isArray(savedTargets)
+      ? [...new Set(savedTargets)].filter((g) => GENDERS.includes(g)).sort()
+      : [];
     if (orientationId === 'bi') {
-      const valid = Array.isArray(savedTargets)
-        ? [...new Set(savedTargets)].filter((g) => GENDERS.includes(g)).sort()
-        : [];
-      if (valid.length >= 2) return valid.slice(0, 3);
+      return valid.length >= 2 ? valid : [...GENDERS];
+    }
+    if (orientationId === 'straight' || orientationId === 'gay') {
+      if (valid.length === 1) return valid;
+      if (gender === 'nonbinary' && orientationId === 'straight' && valid.length === 2
+          && valid.includes('male') && valid.includes('female')) return valid;
     }
     return attractedToFor(gender, orientationId);
+  }
+
+  // straight/gay は現在のジェンダーと保存対象から導く表示用の互換ID。
+  // bi/pan/aro/questioning とNBの中立的な既存表記はそのまま保つ。
+  function orientationIdFor(gender, orientationId, targets) {
+    if (!['straight', 'gay'].includes(orientationId) || gender === 'nonbinary') return orientationId;
+    if (Array.isArray(targets) && targets.length === 1 && ['male','female'].includes(targets[0])) {
+      return targets[0] === gender ? 'gay' : 'straight';
+    }
+    return orientationId;
+  }
+
+  function normalizeRomanticIdentity(person) {
+    if (!person || !GENDERS.includes(person.gender) || !ORIENTATION_ROLL_POOL.includes(person.orientationId)) return;
+    person.attractedTo = normalizeAttractedTo(person.gender, person.orientationId, person.attractedTo);
+    person.orientationId = orientationIdFor(person.gender, person.orientationId, person.attractedTo);
+  }
+
+  function mutualRomanticMatch(a, b) {
+    if (!a || !b || !GENDERS.includes(a.gender) || !GENDERS.includes(b.gender)) return false;
+    const aTargets = Array.isArray(a.attractedTo) ? a.attractedTo : normalizeAttractedTo(a.gender, a.orientationId);
+    const bTargets = Array.isArray(b.attractedTo) ? b.attractedTo : normalizeAttractedTo(b.gender, b.orientationId);
+    return aTargets.includes(b.gender) && bTargets.includes(a.gender);
+  }
+
+  // ロード中にも使うため、グローバルstateや表示の初期化に依存しない。
+  function recordIdentityLifeLog(subject, icon, text) {
+    if (!Array.isArray(subject.lifeLog)) subject.lifeLog = [];
+    subject.lifeLog.push({age:Math.min(GOAL_AGE, Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR)), icon, text});
+    if (subject.lifeLog.length > 60) subject.lifeLog.shift();
+  }
+
+  // 個性が変わった瞬間だけ判定する。仲直り済みの関係を毎tick/ロードで再びすれちがわせない。
+  function recheckRelationship(subject) {
+    const p = subject.partner;
+    if (!p) return '';
+    normalizeRomanticIdentity(p);
+    const compatible = mutualRomanticMatch(subject, p);
+    if (compatible && p.mismatched) {
+      p.mismatched = false;
+      p.repair = 0;
+      recordIdentityLifeLog(subject, '💞', `${p.label}とまたきもちがかさなった`);
+      return `${p.label}とは、また気持ちがかさなった`;
+    }
+    if (!compatible && !p.mismatched) {
+      p.mismatched = true;
+      p.repair = 0;
+      recordIdentityLifeLog(subject, '💔', `${p.label}とすれちがいはじめた`);
+      return `${p.label}とは少しすれちがいはじめた。きゅうあいで、ゆっくり話そう`;
+    }
+    return '';
+  }
+
+  function updateClownfishSex(subject, stageIndex) {
+    if (subject.speciesLine !== 'clownfish' || stageIndex < 7 || subject.clownfishFemaleReached
+        || !GENDERS.includes(subject.gender)) return null;
+    // 生態の社会的な条件を、既存8段階の「群れのリーダー」への成長で簡略表現する。
+    normalizeRomanticIdentity(subject);
+    const before = subject.gender;
+    subject.clownfishFemaleReached = true;
+    if (before === 'female') return null;
+    if (before === 'male') subject.gender = 'female';
+    normalizeRomanticIdentity(subject);
+    recordIdentityLifeLog(subject, '🐠', before === 'nonbinary'
+      ? 'からだがオスからメスになった。ジェンダーと好きになる相手はそのまま'
+      : 'オスからメスになった。好きになる相手はそのまま');
+    const relationshipNote = before === 'male' ? recheckRelationship(subject) : '';
+    return `からだがメスになった。好きになる相手は、そのまま。${relationshipNote ? '\n' + relationshipNote : ''}`;
+  }
+
+  function migrateClownfishLife(subject, savedCompatibilityVersion) {
+    if (subject.speciesLine !== 'clownfish' || subject.stage !== STAGE.GROWING) return;
+    // 以前のランダム決定ですでにメスだった個体を、オスへ巻き戻さない。
+    if (subject.gender === 'female') subject.clownfishFemaleReached = true;
+    const index = subject.infinite && subject.infiniteForm
+      ? subject.infiniteForm.stageIndex : stageForAge(Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR));
+    const notice = updateClownfishSex(subject, index);
+    if (notice) subject.pendingClownfishTransition = notice;
+    if (savedCompatibilityVersion < 2) {
+      // 本体と♾️から戻る人生の両方を、新しい性転換の適用後に判断する。
+      recheckRelationship(subject);
+      subject.romanceCompatibilityVersion = 2;
+    }
+  }
+
+  function showPendingClownfishTransition() {
+    const notice = state.pendingClownfishTransition;
+    if (!notice || gameActive || state.transformOptions || mgResultToastTimer
+        || isAnyMenuOverlayOpen() || document.visibilityState === 'hidden') return;
+    state.pendingClownfishTransition = null;
+    // 保存時の実績通知を先に処理し、このお知らせが同じtickで消えないようにする。
+    if (!stateLoadRecovered) saveState();
+    if (isAnyMenuOverlayOpen()) {
+      state.pendingClownfishTransition = notice;
+      if (!stateLoadRecovered) saveState();
+      return;
+    }
+    showStoryEvent({emoji:'🐠', petReaction:true, message:notice});
+    setMessage(notice);
   }
 
   // たまごが かえる ときに、なおとっち じしんの せいべつ/れんあいタイプも
   // いっしょに きまる。man/woman ラインは 既存の せりふ(あかちゃんの
   // おんなのこ、など)に あわせて せいべつを こていし、それ以外の
-  // ラインは GENDER_WEIGHTS に したがった 重みつき ランダム。れんあい
+  // ラインは GENDER_WEIGHTS に したがった 重みつき ランダム。
+  // カクレクマノミはNBの抽選を保ち、それ以外を現在の成長段階に合わせる。れんあい
   // タイプも おなじく せいべつに かんけいなく ORIENTATION_WEIGHTS で
   // ロールする(げんじつ社会を ざっくり さんこうに した ひりつだが、
   // 少数派の タイプが ゲームの なかで 不自然に 出にくく ならないよう
   // ある程度 高めに たもってある)
-  function rollIdentity(speciesLine) {
+  function rollIdentity(speciesLine, stageIndex = 0) {
     let gender;
     if (speciesLine === 'man') gender = 'male';
     else if (speciesLine === 'woman') gender = 'female';
     else gender = weightedPick(GENDERS, GENDER_WEIGHTS);
+    if (speciesLine === 'clownfish' && gender !== 'nonbinary') gender = stageIndex >= 7 ? 'female' : 'male';
     const orientationId = weightedPick(ORIENTATION_ROLL_POOL, ORIENTATION_WEIGHTS);
     return { gender, orientationId, attractedTo: attractedToFor(gender, orientationId) };
   }
@@ -6278,24 +6404,7 @@
     // 恋愛タイプが確定した瞬間、既存の恋人との双方向相性も必ず再判定する。
     // 以前はここが抜けていて、questioning→gay/straight 等に変わったあとも
     // 対象外の恋人が通常カップル表示のまま残ることがあった。
-    if (state.partner) {
-      const partnerTargets = normalizeAttractedTo(
-        state.partner.gender,
-        state.partner.orientationId,
-        state.partner.attractedTo
-      );
-      const compatible = state.attractedTo.includes(state.partner.gender)
-        && partnerTargets.includes(state.gender);
-      if (!compatible && !state.partner.mismatched) {
-        state.partner.mismatched = true;
-        state.partner.repair = 0;
-        pushLifeLog('💔', `${state.partner.label}とすれちがいはじめた`);
-      } else if (compatible && state.partner.mismatched) {
-        state.partner.mismatched = false;
-        state.partner.repair = 0;
-        pushLifeLog('💞', `${state.partner.label}とまたきもちがかさなった`);
-      }
-    }
+    recheckRelationship(state);
     return resolved;
   }
 
@@ -6319,7 +6428,8 @@
       s: state.speciesLine,
       i: state.stageIndex,
       g: state.gender,
-      o: state.orientationId,
+      o: orientationIdFor(state.gender, state.orientationId, state.attractedTo),
+      a: normalizeAttractedTo(state.gender, state.orientationId, state.attractedTo),
       t: state.traitCounts,
     };
     return GUEST_CODE_PREFIX + btoa(encodeURIComponent(JSON.stringify(payload)));
@@ -6339,17 +6449,19 @@
       if (!Number.isInteger(payload.i) || payload.i < 0 || payload.i >= STAGES_PER_LINE) return null;
       if (!GENDERS.includes(payload.g)) return null;
       if (!ORIENTATION_ROLL_POOL.includes(payload.o)) return null;
+      if (payload.a !== undefined && (!Array.isArray(payload.a) || payload.a.length > 3
+          || payload.a.some((g) => !GENDERS.includes(g)))) return null;
       const traitCounts = {};
       Object.keys(TRAIT_LABELS).forEach((key) => {
         const v = payload.t && payload.t[key];
         traitCounts[key] = Number.isFinite(v) ? v : 0;
       });
+      const identity = {gender:payload.g, orientationId:payload.o, attractedTo:payload.a};
+      normalizeRomanticIdentity(identity);
       return {
         speciesLine: payload.s,
         stageIndex: payload.i,
-        gender: payload.g,
-        orientationId: payload.o,
-        attractedTo: attractedToFor(payload.g, payload.o),
+        ...identity,
         traitCounts,
       };
     } catch (e) {
@@ -6369,7 +6481,7 @@
   }
 
   function guestCandidate(guest) {
-    const stage = SPECIES[guest.speciesLine].stages[guest.stageIndex];
+    const stage = personalVisualStage(guest, guest.stageIndex);
     return {
       id: 'guest',
       label: `ともだちの${stage.label}`,
@@ -9421,13 +9533,17 @@
     const after = stageForAge(age);
     state.stageIndex = after;
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, age);
-    if (suppressLifeEvents) return;
-    if (after !== before) onStageChanged(before, after, age);
+    const sexChange = updateClownfishSex(state, after);
+    if (suppressLifeEvents) {
+      if (sexChange) state.pendingClownfishTransition = sexChange;
+      return;
+    }
+    if (after !== before) onStageChanged(before, after, age, sexChange);
     else onBirthday(age);
   }
 
-  function onStageChanged(before, after, age) {
-    const stage = SPECIES[state.speciesLine].stages[after];
+  function onStageChanged(before, after, age, sexChange = null) {
+    const stage = currentVisualStage();
     setMessage(stage.message || `${stage.label}になった!`);
     emotePet('fun');
     state.lifetime.money += 100;
@@ -9437,6 +9553,15 @@
     checkStoryEvents('evolve');
     // すがたが かわった しゅんかんだけ、へんしんの ちゅうせんを おこなう
     rollTransformChance();
+    const starting = state.speciesLine === 'clownfish' && before < 6 && after === 6
+      && !state.clownfishFemaleReached && state.gender !== 'female';
+    if (starting) pushLifeLog('🐠', 'からだがメスへ変わりはじめた');
+    const notice = sexChange || (starting ? 'からだがメスへ変わる途中。ゆっくり、新しい自分へ。' : null);
+    if (notice) {
+      // 通常の成長イベントが上書きしないよう、性転換のお知らせを最後に出す。
+      state.pendingClownfishTransition = notice;
+      setMessage(notice);
+    }
   }
 
   // 1さいごと: ちいさな トースト。5さいごと: すこし にぎやか。
@@ -9737,6 +9862,7 @@
     });
     setMessage('♾️のせかいから、この子のいっしょうにもどってきた');
     emotePet('happy');
+    showPendingClownfishTransition();
   }
 
   // 人生の きろくカード。死亡時・100さい到達時に 見せる
@@ -10673,8 +10799,18 @@
 
   function currentVisualStage() {
     if (state.stage === STAGE.EGG) return eggVisualStage();
-    const stages = state.speciesLine && SPECIES[state.speciesLine]?.stages;
-    return stages?.[currentFormStageIndex()] || { emoji:'❓', label:'???' };
+    return personalVisualStage(state, currentFormStageIndex());
+  }
+
+  function personalVisualStage(person, index) {
+    const stages = person.speciesLine && SPECIES[person.speciesLine]?.stages;
+    const stage = stages?.[index] || { emoji:'❓', label:'???' };
+    // 旧セーブで早くからメスだった個体も、そのまま暮らせる個体別の呼び名。
+    if (person.speciesLine === 'clownfish' && (person.clownfishFemaleReached || person.gender === 'female')) {
+      if (index === 5) return {...stage, label:'卵を見守るメス', message:'卵のそばで、今日も見守っている。'};
+      if (index === 6) return {...stage, label:'群れを見守るメス', message:'群れの様子を、ゆっくり見渡している。'};
+    }
+    return stage;
   }
 
   function currentSprite() {
@@ -10688,8 +10824,7 @@
   function currentStageLabel() {
     if (state.stage === STAGE.EGG) return 'たまご';
     if (state.stage === STAGE.DEAD) return 'おわり';
-    const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
-    return stages?.[currentFormStageIndex()]?.label || '';
+    return currentVisualStage().label || '';
   }
 
   // Old selections and earned IDs remain in saves, but cannot recolor game controls.
@@ -10968,7 +11103,7 @@
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
     el.stageLabel.title = state.gender
-      ? `${GENDER_LABELS[state.gender]}・${orientationLabel(state.orientationId, state.gender)}`
+      ? `${GENDER_LABELS[state.gender]}・${orientationLabel(state.orientationId, state.gender, state.attractedTo)}`
       : '';
 
     if (el.careMeters) el.careMeters.classList.toggle('hidden', isEgg);
@@ -11043,7 +11178,7 @@
       ? `<span class="name-heart" aria-hidden="true">${state.partner.mismatched ? '💔' : '💖'}</span> ${escapeHtml(compactJapaneseText(state.partner.label))}${state.partner.married ? ' 💍' : ''}${state.partner.mismatched ? '(すれちがい)' : ''}<span class="partner-affection" aria-label="なかよし度 ${Math.round(clamp(state.partner.affection || 0,0,100))}">♡ ${Math.round(clamp(state.partner.affection || 0,0,100))}</span>`
       : '');
     el.partnerLabel.title = state.partner
-      ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender)}・${state.partner.married ? '夫婦' : 'こいびと'}`
+      ? `${GENDER_LABELS[state.partner.gender]}・${orientationLabel(state.partner.orientationId, state.partner.gender, state.partner.attractedTo)}・${state.partner.married ? '夫婦' : 'こいびと'}`
       : '';
     el.subStatusRow.classList.toggle('hidden', isEgg || isOver);
     el.profileBtn.classList.toggle('hidden', isEgg || isOver);
@@ -11484,8 +11619,13 @@
     el.profileSpecies.textContent = SPECIES_DISPLAY_NAMES[state.speciesLine] || '???';
     el.profileStage.textContent = currentStageLabel();
     el.profileGender.textContent = state.gender ? GENDER_LABELS[state.gender] : '???';
+    if (state.speciesLine === 'clownfish' && state.gender) {
+      const body = state.clownfishFemaleReached || state.gender === 'female' ? 'メス'
+        : currentFormStageIndex() >= 6 ? 'メスへ変化中' : 'オス';
+      el.profileGender.textContent += `（からだ：${body}）`;
+    }
 
-    let orientationText = state.orientationId ? orientationLabel(state.orientationId, state.gender) : '???';
+    let orientationText = state.orientationId ? orientationLabel(state.orientationId, state.gender, state.attractedTo) : '???';
     if (state.orientationId === 'questioning') {
       orientationText += ` —さがしちゅう${state.questioningEncounters || 0}/${questioningResolveThreshold()}`;
     }
@@ -11538,7 +11678,7 @@
           <span class="profile-partner-emoji">${partnerVisualHTML(p)}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">${escapeHtml(compactJapaneseText(p.label))}(${p.married ? '夫婦💍' : 'こいびと💑'})</span>
-            <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender)}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[p.gender]}・${orientationLabel(p.orientationId, p.gender, p.attractedTo)}</span>
             <span class="profile-partner-detail">すきなところ: ${TRAIT_LABELS[p.affinityTrait] || 'とくになし'}</span>
             ${bondHint}
           </div>
@@ -11574,7 +11714,7 @@
   function renderCommOverlay() {
     if (state.guest) {
       const g = state.guest;
-      const stage = SPECIES[g.speciesLine].stages[g.stageIndex];
+      const stage = personalVisualStage(g, g.stageIndex);
       // すでに べつの あいてと こいびと/夫婦の ときは、「きゅうあいする」が
       // いまの あいてと いちゃつく だけに なってしまい、この おきゃくさんが
       // ぜったいに こうほに あがらない - なぜ なにも おきないのか わからず
@@ -11587,7 +11727,7 @@
           <span class="profile-partner-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <div class="profile-partner-text">
             <span class="profile-partner-name">ともだちの${stage.label}</span>
-            <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${orientationLabel(g.orientationId, g.gender)}</span>
+            <span class="profile-partner-detail">${GENDER_LABELS[g.gender]}・${orientationLabel(g.orientationId, g.gender, g.attractedTo)}</span>
           </div>
         </div>
         ${blockedHint}
@@ -13187,14 +13327,17 @@
   // ときと おなじ ロジック)。クエスチョニングの けいけんカウンターも
   // まっさらに もどす。れんあいタイプが かわった けっか、いまの こいびと/
   // 夫婦と もう おたがいの れんあい対象で なくなる ことも ある(表示文字列
-  // では なく attractedTo の 双方向いっちで はんてい する) - その ばあいは
-  // なかよし度0で ふられる ときと おなじ ペナルティ・えんしゅつで 自然に
-  // わかれさせ、その せつめいメッセージ(なければ 空文字)を かえす
+  // では なく attractedTo の 双方向いっちで はんてい する)。その ばあいは
+  // 関係を保ったまま「すれちがい」にし、話し合う機会を残す。
+  // その せつめいメッセージ(なければ 空文字)を かえす。
   function rerollIdentityAndBreakupIfNeeded(line) {
-    const identity = rollIdentity(line);
+    const index = currentFormStageIndex();
+    const identity = rollIdentity(line, index);
     state.gender = identity.gender;
     state.orientationId = identity.orientationId;
     state.attractedTo = identity.attractedTo;
+    state.clownfishFemaleReached = line === 'clownfish' && index >= 7;
+    state.pendingClownfishTransition = null;
     state.questioningEncounters = 0;
     // せいかく傾向は ゼロに もどさず 半分に する - レア種族の 解禁条件の
     // おおくが traitCounts に よるので、ゼロに すると「へんしんするほど
@@ -13203,30 +13346,7 @@
       state.traitCounts[k] = Math.floor((state.traitCounts[k] || 0) / 2);
     });
 
-    if (!state.partner) return '';
-    const partnerAttractedTo = normalizeAttractedTo(state.partner.gender, state.partner.orientationId, state.partner.attractedTo);
-    const stillMatches = partnerAttractedTo.includes(state.gender) && state.attractedTo.includes(state.partner.gender);
-    const label = state.partner.label;
-    if (stillMatches) {
-      // すれちがっていた あいてと、また あいしょうが あう ように なったら
-      // その場で もとどおりに なる
-      if (state.partner.mismatched) {
-        state.partner.mismatched = false;
-        state.partner.repair = 0;
-        pushLifeLog('💞', `${label}とまたきもちがかさなった`);
-        return `そして、${label}とはまたきもちがぴったりかさなった!`;
-      }
-      return '';
-    }
-
-    // ★ ここで いきなり 別れさせない(§14)。「すれちがい」の じょうたいに
-    //    はいって、なかよし度の へりが はやく なり、けっこんにも すすめなく
-    //    なる。でも きゅうあいを つづければ もういちど つながれる
-    if (state.partner.mismatched) return '';
-    state.partner.mismatched = true;
-    state.partner.repair = 0;
-    pushLifeLog('💔', `${label}とすれちがいはじめた`);
-    return `恋愛タイプが変わって、${label}とは少しすれちがいはじめた…きゅうあいを続ければ、またつながれる`;
+    return recheckRelationship(state);
   }
 
   function chooseTransform(line) {
@@ -14560,6 +14680,7 @@
     checkMeters();
     saveState();
     render();
+    showPendingClownfishTransition();
   }
 
   let mgQuitConfirmTimer = null;
@@ -15670,7 +15791,7 @@
     // たしかめる。せいべつ/しゅぞくを こえた 恋愛は なんでも ありだが、
     // れんあいタイプが あわない ときだけは、しっぱい あつかいでは なく
     // 「友達なら いいよ」くらいの かるい リアクションに とどめる
-    const mutualMatch = candidate.attractedTo.includes(state.gender) && state.attractedTo.includes(candidate.gender);
+    const mutualMatch = mutualRomanticMatch(state, candidate);
     if (!mutualMatch) {
       state.happiness = clamp(state.happiness + 2, 0, 100);
       const reaction = pickReaction(COURT_FRIEND_REACTIONS, lastCourtReaction);
@@ -15700,7 +15821,7 @@
         label: candidate.label,
         emoji: candidate.emoji,
         gender: candidate.gender,
-        orientationId: candidate.orientationId,
+        orientationId: orientationIdFor(candidate.gender, candidate.orientationId, candidate.attractedTo),
         attractedTo: [...candidate.attractedTo],
         affinityTrait: candidate.affinityTrait,
         affection: 100,
@@ -17054,6 +17175,7 @@
     tick();
     saveState();
     render();
+    showPendingClownfishTransition();
   }
 
   // boot: resume exactly where the last save left off. Time never passes
@@ -17092,6 +17214,7 @@
   // 「おかえり」の おしらせと、るすの ながさに おうじた ちいさな おみやげ
   applyOfflineProgress(Date.now(), bootSavedAt);
   render();
+  showPendingClownfishTransition();
   setInterval(loop, TICK_MS);
   scheduleIdlePerk();
   scheduleEnvironmentMoment();
