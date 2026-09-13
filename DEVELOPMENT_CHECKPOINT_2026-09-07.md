@@ -1868,3 +1868,12 @@ Runtime smoke test SUCCESS確認済み。
 - いのち: 回復条件を2段に。`calmCared`(病気でなく おなか・きげん・けんこう≥40)で 0.9/tick、`wellCared`(4つ≥60)で 1.8/tick(以前は wellCared のみ 1.4)。70さい以降は 1.1→0.45 に漸減(以前 0.9→0.35)。病気時の `raiseDeathMeter` 6→4。
 - へんしん(最終形): 抽選を廃止。`offerTransformIfReady()` がメーター 100 で候補を出す(ミニゲーム終了直後、ふしめ・誕生日の呼び出しも同じ関数)。メーター +25/ゲーム(4回で満タン)。チャンスが開いている間もメーターはたまり続ける。「1段階に1回だけ」の制限は撤廃(記録 `transformStageDone` は残す)。回数上限なし。
 - `npm test` 304件通過。
+
+## チェックポイント CC — スマホ向け操作体系の見直し(タッチパッド・大きなゲーム画面・短いプレイ時間)(2026-09-13)
+- 監査: `scratchpad/inventory.js`(静的)と Playwright(`structure.js`/`padcheck.js`)で全100ゲームの操作ブロック・ボタン・canvas高さ・時間・終了待ちを一覧化。方向ボタンがあったのは 41 ゲーム(tilt-dpad 13、race-controls の ◀▶ 15、gunner 6、fp 2、falling 2、lane 6)。
+- 共通部品(script.js): `createTouchPad(host, opts)` — 相対入力のトラックパッド。`mode: 'steps'`(stepPx ごとに1歩、短いフリックも1歩、`onStep(dx,dy)`)、`'vector'`(なぞった向き `onVector(x,y)`、`sticky` で指を離すまで保持、そうでなければ holdMs 後に (0,0))、`'delta'`(`onDelta(dx,dy)` px)。`onTap`。端に着いても離して置き直せば続けられる(置き直しでは何も起きない)。中に見えない `data-key` ボタンを持ち、PCの矢印キー(合成 pointerdown)からも同じ入力になる。`touch-action: none`・pointer capture・document 側の pointerup でページは動かない。`createPadRow(container, buttonsHTML)` でパッド(左)+アクションボタン(右)。`createMgCanvas(canvas, h, { grow: true, maxGrow })` は overlay の残り高さまで canvas を伸ばす(呼ぶ前にパッドを DOM に置く)。`MG_ACTION_START_GRACE_MS` 900→600。
+- games.js: `mgPad(container, opts, buttonsHTML)`。変換 37 ゲーム: 1マス系(steps): スネーク・フロッガー(タップで前)・2048・倉庫番・ローグライク・ドットイーター。押しっぱなし系(vector sticky): 陣取り・ボンバー(💣)・戦車(🔥長おし)・ボクセル・かたむき迷路・ジャンプクエスト(ジャンプ)・ビーチバレー(アタック)・かくとう(パンチ/キック/ガード)。なぞった分(delta): いんせきガンナー(うつ)・スカイシューター(ボム)・リングフライト×2・潜水艦・ハンググライダー・ブレイクアウト・ドゥードルジャンプ。ハンドル(vector 非sticky): ボウリング・3Dレース(アクセル)・グランプリ(アクセル)・ダウンヒル(ジャンプ)・野球(スイング)・テニス(スイング)・月面着陸(ふんしゃ)・着陸(たて)。アステロイド(左右で回転・上で推進・🔥)。FP 2本は `bindFirstPersonControls(…, pad)`(横=回転、縦=前後)。落ちものパズル2本(steps 横、下で落とす、タップ回転、↻・⏬)。レーン6本(steps 横、画面タップも継続)。games.js の DOM id・キー割り当ては維持。
+- canvas 拡大: 固定高さだったゲームに `grow`(例: ロード系 215→387px、リングフライト 240→432、ボクセル 250→450、かくとう 230→368)。正方形/比率固定のゲームはそのまま。
+- 時間: 63 か所を短縮(20〜50秒中心。対戦・パズルは 60〜150秒の上限)。`setTimeout(onComplete)` の 800〜1600ms を 650ms に(72 か所)。スカイシューターのボスは 24秒。
+- テキスト: 変換したゲームの `mg-hint` と `MINIGAME_CONTROLS` を「したのパッドを…」に書き換え(41件)。はじめてカードのデモに `pad` 種(パッドの上を指がなぞるとキャラが同じ向きに動く)。
+- 検証: 全100ゲーム起動+パッドドラッグでページエラー0・スクロール0。スネーク(上へ)・2048(スライドで得点)・3Dダンジョン(回転)・ボクセル(下を押さえて掘る)・落ちもの(移動/回転)を動作確認。`npm test` 402件通過。

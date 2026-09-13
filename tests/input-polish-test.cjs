@@ -15,7 +15,8 @@ test('every minigame maps to one of the intro demo kinds, and the kinds are vari
   assert.ok(Object.keys(counts).length >= 4, `demo kinds should cover most input styles: ${JSON.stringify(counts)}`);
   assert.equal(h.api.minigameDemoKind({id: 'bowling-3d'}), 'swipe');
   assert.equal(h.api.minigameDemoKind({id: 'dragDecorate-cake'}), 'drag');
-  assert.equal(h.api.minigameDemoKind({id: 'falling-block-puzzle'}), 'dpad');
+  assert.equal(h.api.minigameDemoKind({id: 'falling-block-puzzle'}), 'pad');
+  assert.equal(h.api.minigameDemoKind({id: 'snake-classic'}), 'pad');
   assert.equal(h.api.minigameDemoKind({id: 'pinball-physics'}), 'hold');
   assert.equal(h.api.minigameDemoKind({id: 'no-such-game'}), 'tap');
 });
@@ -27,7 +28,7 @@ test('the intro card carries a demo canvas tagged with the demo kind', () => {
   h.api.startMinigame(game, {intro: true});
   const html = h.get('minigameOverlay').innerHTML;
   assert.match(html, /mg-intro-demo/);
-  assert.match(html, /data-demo="dpad"/);
+  assert.match(html, /data-demo="pad"/);
   h.dispatch(h.get('minigameOverlay').querySelector('#mgIntroStart'), 'click');
   assert.doesNotMatch(h.get('minigameOverlay').innerHTML, /mg-intro-demo/, 'the demo card is replaced by the game');
 });

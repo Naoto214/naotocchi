@@ -2710,7 +2710,8 @@
   // うごきはじめる/タイマーが へりはじめるまでの ゆうよ。みじかすぎると
   // タイトルを 読みきれず、長すぎると テンポが わるくなる ため、
   // 実際に 文字を 読める さいたん値として 900msを えらんだ
-  const MG_ACTION_START_GRACE_MS = 900;
+  // 900 → 600ms: タイトルは 読めて、まちが 気に ならない ながさ
+  const MG_ACTION_START_GRACE_MS = 600;
 
   // せんたく式の ミニゲームで つかう、きょうつうの せいかい/ふせいかい
   // ひょうじヘルパー。タップした ようそに ⭕/❌ の マークと いろを つけ、
@@ -2788,6 +2789,142 @@
     };
     mgHoldTimer = setTimeout(tick, profile.delay);
   }
+  // ================================================================
+  // タッチパッド(トラックパッド型の そうさ)
+  // ================================================================
+  // 「パッドの どこを さわったか」ではなく「ゆびを どれだけ うごかしたか」を
+  // 入力に する。パッドの はしに ついても、ゆびを はなして おきなおせば
+  // おなじ むきに すすみつづけられる(おきなおしでは なにも うごかない)。
+  //  mode 'vector': うごかしている あいだ その むきに うごく(はなすと とまる)。
+  //                 sticky なら ゆびが とまっても はなすまで むきを たもつ
+  //  mode 'steps' : stepPx うごくごとに 1マス。みじかい フリックも 1マス
+  //  mode 'delta' : うごいた px を そのまま わたす(ゲームがわで ばいりつを かける)
+  // どの mode でも onTap(みじかく さわって はなす)が つかえる。
+  // パッドの なかに 見えない data-key ボタンを おき、PCの やじるしキー
+  // (mgFindKeyButton → 合成 pointerdown)からも おなじ 入力が はいる
+  function createTouchPad(host, opts = {}) {
+    const mode = opts.mode || 'vector';
+    const stepPx = opts.stepPx || 26;
+    const axis = opts.axis || 'xy';
+    const sticky = !!opts.sticky;
+    const holdMs = opts.holdMs || 110;
+    const ZERO = { x: 0, y: 0 };
+    const pad = document.createElement('div');
+    pad.className = 'mg-pad mg-pad-' + mode + (opts.className ? ' ' + opts.className : '');
+    const keys = axis === 'x' ? ['left', 'right'] : axis === 'y' ? ['up', 'down'] : ['left', 'right', 'up', 'down'];
+    const hold = mode === 'steps' ? ' data-hold="step"' : '';
+    pad.innerHTML = `<span class="mg-pad-label">${escapeHtml(opts.label || (mode === 'steps' ? 'ここを なぞって うごかす(1マスずつ)' : 'ここを なぞって うごかす'))}</span><span class="mg-pad-dot" aria-hidden="true"></span>`
+      + keys.map((k) => `<button type="button" class="mg-pad-key" data-key="${k}"${hold} tabindex="-1" aria-hidden="true">${({ left: '◀', right: '▶', up: '▲', down: '▼' })[k]}</button>`).join('');
+    if (opts.height) pad.style.minHeight = opts.height + 'px';
+    if (opts.before && typeof host.insertBefore === 'function') host.insertBefore(pad, opts.before); else host.appendChild(pad);
+    const dot = pad.querySelector('.mg-pad-dot');
+    let ptr = null;
+    let vec = ZERO, vecUntil = 0, stopTimer = null;
+    const keyHeld = { left: false, right: false, up: false, down: false };
+    const DIRS = { left: [-1, 0], right: [1, 0], up: [0, -1], down: [0, 1] };
+    // ゆびが とまったら(sticky でない とき)むきを 0 に もどして しらせる
+    const notifyStop = () => { if (typeof opts.onVector === 'function') opts.onVector(0, 0, 0); };
+    const setVec = (x, y) => {
+      vec = { x, y }; vecUntil = performance.now() + holdMs;
+      if (!sticky) { clearTimeout(stopTimer); stopTimer = setTimeout(() => { if (ptr) notifyStop(); }, holdMs); }
+    };
+    function keyVector() {
+      const x = (keyHeld.right ? 1 : 0) - (keyHeld.left ? 1 : 0), y = (keyHeld.down ? 1 : 0) - (keyHeld.up ? 1 : 0);
+      if (!x && !y) return null;
+      const n = Math.hypot(x, y); return { x: x / n, y: y / n };
+    }
+    function vector() {
+      const kv = keyVector();
+      if (kv) return kv;
+      if (ptr && sticky) return vec;
+      return vecUntil > performance.now() ? vec : ZERO;
+    }
+    const held = {
+      get left() { return vector().x < -0.4; }, get right() { return vector().x > 0.4; },
+      get up() { return vector().y < -0.4; }, get down() { return vector().y > 0.4; },
+    };
+    const emitStep = (dx, dy) => { if (typeof opts.onStep === 'function') opts.onStep(dx, dy); };
+    function moveDot(ox, oy) {
+      if (!dot || !dot.style) return;
+      const r = 22, n = Math.hypot(ox, oy) || 1, k = n > r ? r / n : 1;
+      dot.style.transform = `translate(${(ox * k).toFixed(1)}px, ${(oy * k).toFixed(1)}px)`;
+    }
+    pad.addEventListener('pointerdown', (e) => {
+      if (e.mgSynthetic) return;
+      if (e.preventDefault) e.preventDefault();
+      if (ptr) return;
+      ptr = { id: e.pointerId, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, t0: performance.now(), accX: 0, accY: 0, stepped: false, moved: 0 };
+      try { if (e.pointerId != null && pad.setPointerCapture) pad.setPointerCapture(e.pointerId); } catch (err) {}
+      pad.classList.add('active');
+      moveDot(0, 0);
+      if (typeof opts.onPress === 'function') opts.onPress();
+    });
+    pad.addEventListener('pointermove', (e) => {
+      if (!ptr || e.pointerId !== ptr.id) return;
+      if (e.preventDefault) e.preventDefault();
+      let dx = e.clientX - ptr.x, dy = e.clientY - ptr.y;
+      ptr.x = e.clientX; ptr.y = e.clientY;
+      if (axis === 'x') dy = 0; else if (axis === 'y') dx = 0;
+      const d = Math.hypot(dx, dy);
+      ptr.moved += d;
+      moveDot(e.clientX - ptr.sx, e.clientY - ptr.sy);
+      if (d < 0.5) return;
+      if (typeof opts.onDelta === 'function') opts.onDelta(dx, dy);
+      if (mode !== 'steps') { setVec(dx / d, dy / d); if (typeof opts.onVector === 'function') opts.onVector(vec.x, vec.y, d); }
+      if (mode === 'steps') {
+        ptr.accX += dx; ptr.accY += dy;
+        const ax = Math.abs(ptr.accX), ay = Math.abs(ptr.accY);
+        if (ax >= stepPx || ay >= stepPx) {
+          if (ax >= ay) { const s = Math.sign(ptr.accX); emitStep(s, 0); ptr.accX -= s * stepPx; ptr.accY = 0; }
+          else { const s = Math.sign(ptr.accY); emitStep(0, s); ptr.accY -= s * stepPx; ptr.accX = 0; }
+          ptr.stepped = true;
+        }
+      }
+    });
+    const release = (e) => {
+      if (!ptr || (e && e.pointerId != null && e.pointerId !== ptr.id)) return;
+      const p = ptr; ptr = null;
+      pad.classList.remove('active');
+      moveDot(0, 0);
+      const dur = performance.now() - p.t0;
+      const fx = p.x - p.sx, fy = p.y - p.sy;
+      if (mode === 'steps' && !p.stepped && Math.hypot(fx, fy) >= MG_SWIPE_MIN) {
+        if (Math.abs(fx) >= Math.abs(fy) && axis !== 'y') emitStep(Math.sign(fx), 0); else if (axis !== 'x') emitStep(0, Math.sign(fy));
+      } else if (p.moved < 8 && dur < 320 && typeof opts.onTap === 'function') opts.onTap();
+      vec = ZERO; vecUntil = 0; clearTimeout(stopTimer);
+      notifyStop();
+      if (typeof opts.onRelease === 'function') opts.onRelease();
+    };
+    pad.addEventListener('pointerup', release);
+    pad.addEventListener('pointercancel', release);
+    document.addEventListener('pointerup', release, true);
+    document.addEventListener('pointercancel', release, true);
+    // PC の キーボード(合成 pointerdown/up が data-key ボタンに とどく)
+    for (const btn of pad.querySelectorAll('.mg-pad-key')) {
+      const k = btn.dataset.key;
+      btn.addEventListener('pointerdown', (e) => {
+        if (e.preventDefault) e.preventDefault();
+        if (mode === 'steps') emitStep(DIRS[k][0], DIRS[k][1]);
+        else { keyHeld[k] = true; if (typeof opts.onVector === 'function') { const v = keyVector(); if (v) opts.onVector(v.x, v.y, stepPx); } if (mode === 'delta' && typeof opts.onDelta === 'function') opts.onDelta(DIRS[k][0] * stepPx, DIRS[k][1] * stepPx); }
+      });
+      const up = () => { keyHeld[k] = false; if (typeof opts.onVector === 'function') { const v = keyVector(); opts.onVector(v ? v.x : 0, v ? v.y : 0, 0); } };
+      btn.addEventListener('pointerup', up); btn.addEventListener('pointercancel', up);
+    }
+    return {
+      el: pad, vector, held,
+      get active() { return !!ptr; },
+      destroy() { document.removeEventListener('pointerup', release, true); document.removeEventListener('pointercancel', release, true); if (pad.remove) pad.remove(); },
+    };
+  }
+  // タッチパッドと アクションボタンを よこに ならべる いれもの
+  function createPadRow(container, buttonsHTML) {
+    const row = document.createElement('div');
+    row.className = 'mg-pad-row';
+    if (buttonsHTML) row.innerHTML = `<div class="mg-pad-actions">${buttonsHTML}</div>`;
+    container.appendChild(row);
+    return row;
+  }
+
   function bindHeldButton(btn, onChange) {
     if (!btn || typeof btn.addEventListener !== 'function') return () => false;
     let held = false;
@@ -2835,10 +2972,24 @@
   });
   // canvas を おおもとの CSS幅(=ミニゲームがめんの はば)に あわせて
   // 用意する。height は かず、または はば→たかさ の かんすう
-  function createMgCanvas(canvas, height) {
+  // opts.grow: がめんに あきが あれば、たかさを ふやして ゲーム画面を 大きく する
+  // (さいだい maxGrow ばい)。ゲームがわは H を つかって はいちする ので
+  // そのまま ひろがる。よび出す まえに パッドや ボタンを DOM に おいておくこと
+  function createMgCanvas(canvas, height, opts) {
     const num = (v, d) => (typeof v === 'number' && v > 0 && isFinite(v) ? v : d);
     const W = Math.round(num(canvas && canvas.clientWidth, 244));
-    const H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
+    let H = Math.round(typeof height === 'function' ? height(W) : num(height, 240));
+    if (opts && opts.grow && canvas && typeof canvas.closest === 'function') {
+      const wrap = canvas.closest('.mg-canvas-wrap');
+      const overlay = wrap && wrap.parentElement;
+      if (overlay && overlay.clientHeight > 0) {
+        let used = 0;
+        for (const ch of overlay.children) { if (ch === wrap) continue; used += (ch.offsetHeight || 0) + 6; }
+        const avail = overlay.clientHeight - used - 14;
+        const maxH = Math.round(H * (opts.maxGrow || 1.9));
+        if (avail > H) H = Math.min(avail, maxH);
+      }
+    }
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
     const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
@@ -13487,7 +13638,7 @@
   // わたすと、とうろくデータ(MINIGAMES など)が かえってくる
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
-  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, createTouchPad, createPadRow, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13661,71 +13812,71 @@
   // ヒント文(class="mg-hint" の さいしょの 文)から 生成した 表(id → 文)。
   // ゲームを 足したら ここにも 1行 足す(smoke-test が もれを 検査する)
   const MINIGAME_CONTROLS = {
-    "road-themed": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-themed": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-themed": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-snowman": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "bowling-3d": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。◀▶で立ち位置を変えよう。",
+    "bowling-3d": "ボールから上へスワイプ!速くはらうほど強く、ななめにはらうとねらいが変わる。したのパッドを左右になぞって立ち位置を変えよう。",
     "archery-3d": "画面をおさえて後ろへ引っぱり、はなすと発射。風の分だけずらしてねらおう。",
-    "breakout-classic": "画面を横になぞるか、◀▶でパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
+    "breakout-classic": "画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。",
     "dragDecorate-cake": "下のトッピングを指でドラッグして、点線の場所に置く。ヒントに合ったトッピングを選ぼう。",
     "dragDecorate-bento": "見本を覚えてね!見本が消えたら、同じ場所に具をドラッグしてもどそう。",
-    "p3-space": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "p3-drive": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "fp-dungeon": "↶↷で向きを変え、↑で進む（おしっぱなしOK）。画面をドラッグしても見まわせる。",
-    "falling-block-puzzle": "◀▶で移動（おしっぱなしOK）。↻で回転、▼をおしっぱなしで速く下げる。⏬で一気に落とそう。",
+    "p3-space": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "p3-drive": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "fp-dungeon": "したのパッドを左右になぞって向きを変え、上になぞって進む（下でさがる）。画面をドラッグしても見まわせる。",
+    "falling-block-puzzle": "したのパッドを左右になぞって移動、下になぞると速く下がる。タップで回転。⏬で一気に落とそう。",
     "crane-game-3d": "ボタンをおしている間、アームが動く。景品の真ん中ではなそう。落ちても、左手前の落とし口に入ればゲット!",
     "pinball-physics": "「はっしゃ」を長おしでためて、はなす。フリッパーはおしっぱなしで上がる。",
-    "haunted-house-3d": "↶↷で向きを変え、▲で進む（おしっぱなしOK）。かぎを取ると、ゆうれいが追いかけてくる!",
-    "race-3d": "アクセルをおしっぱなしで加速。カーブでは外にふられるので、◀▶でおさえよう。",
+    "haunted-house-3d": "したのパッドを左右になぞって向きを変え、上になぞって進む。かぎを取ると、ゆうれいが追いかけてくる!",
+    "race-3d": "アクセルをおしっぱなしで加速。カーブでは外にふられるので、したのパッドを左右になぞっておさえよう。",
     "rhythm-highway-3d": "ノーツが手前のラインに重なった瞬間に、そのレーンのボタンをタップ!",
-    "tilt-maze-3d": "盤をドラッグしてかたむける（十字ボタンでもOK）。穴に落ちないようにゴールへ進もう。",
-    "space-gunner-3d": "ドラッグでねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
+    "tilt-maze-3d": "盤か したのパッドをなぞってかたむける。穴に落ちないようにゴールへ進もう。",
+    "space-gunner-3d": "したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!",
     "mini-golf-physics": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
     "real-fishing": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
     "basketball-3d": "ボールを上へはらってシュート。はらう長さと速さで、飛ぶ距離が変わる。バックボードに当ててもOK。",
     "pingpong-3d": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に5点取ろう!",
-    "chain-puzzle": "同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
-    "street-fight": "パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
+    "chain-puzzle": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
+    "street-fight": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
     "free-kick-3d": "ボールから上へはらってシュート。速くはらうほど強く、ななめにはらうとねらいが変わる。途中で曲げるとカーブ!",
     "tower-defense": "茶色い道の外にタワーを建てよう。タワーを選び、もう一度タップすると強化。敵が来る前にそなえて!",
-    "roguelike-dungeon": "1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
-    "grand-prix-3d": "アクセルを長おし、◀▶でハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
-    "sky-shooter": "画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
-    "jump-quest": "◀▶で走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
-    "push-puzzle": "箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
+    "roguelike-dungeon": "したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。",
+    "grand-prix-3d": "アクセルを長おし、したのパッドを左右になぞってハンドル操作。青いパッドでブースト、オイルはすべる。ライバルをぬいて1位をめざせ!",
+    "sky-shooter": "したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!",
+    "jump-quest": "したのパッドを左右になぞって走り、ジャンプは長おしで高く。敵は上からふみ、とげは飛びこえて、🚩まで!",
+    "push-puzzle": "したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。",
     "reversi-6": "光っているマスをタップ。相手の石をはさむと、全部自分の色に変わる。角を取ると強い!",
     "billiards-6": "白いボールから後ろへ引っぱって、はなすとショット。引っぱる長さで強さが変わる。ガイド線を見てねらおう!",
     "animal-shogi": "こまをタップして、光ったマスへ。🦁を取るか、自分の🦁が一番奥まで行けば勝ち。取ったこまは、下の手持ちから打てる。",
     "minesweeper-8": "マスをタップで開く。数字は、まわり8マスにあるばくだんの数。あやしいマスは🚩モードか長おしで、旗を立てよう。",
-    "snake-classic": "十字キーか画面のスワイプで向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。",
-    "baseball-batting": "◀▶か画面のドラッグで、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
-    "ring-flight-3d": "画面をなぞって飛行機を動かす（十字キーでもOK）。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+    "snake-classic": "したのパッドか画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。",
+    "baseball-batting": "したのパッドか画面を横になぞって、バットを球のコースへ。球がホームベースに来る瞬間にスイング!真ん中で当てるとホームラン。",
+    "ring-flight-3d": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
     "bubble-shooter": "画面をおさえてねらいを決め、はなすと発射。同じ色が3こつながると消える。かべではね返して、裏からねらうのもアリ。",
     "catapult-castle": "ボールをおさえて後ろへ引っぱり、はなすと発射。ブロックをくずして👻をたおそう。高い場所から落としてもOK。",
     "connect-four": "落としたい列をタップ。たて・横・ななめに4つならべたら勝ち。相手（🟡）の3つならびはふさごう。",
-    "puzzle-2048": "スワイプか十字キーで、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
-    "frogger-road": "十字キーかスワイプで1マス飛ぶ。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
+    "puzzle-2048": "したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
+    "frogger-road": "したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
     "ski-jump": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
     "air-hockey": "下半分で指を動かすとマレットがついてくる。パックをはじいて上のゴールへ!自分のゴールも守ろう。先に5点取ったら勝ち。",
-    "submarine-3d": "画面をなぞるか、十字キーで潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
+    "submarine-3d": "したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
     "match-3": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
     "gomoku-9": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
-    "tank-battle": "十字キーの長おしで動き、真ん中の🔥で発射。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
-    "tennis-rally": "◀▶で動いて、ボールが近づいたらスイング!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。4ポイント先取り。",
+    "tank-battle": "したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。",
+    "tennis-rally": "したのパッドを左右になぞって動き、ボールが近づいたらスイング（画面タップでもOK）!低い場所で打つと速いドライブ、高い場所で打つとロブ。相手のコートに落とそう。4ポイント先取り。",
     "picross-5": "数字は、その列で続けてぬるマスの数。「2 1」なら2つぬって、間を空けて1つぬる。タップでぬる。✕モードか長おしで、ぬらない印をつけよう。",
     "darts-board": "画面をおさえてねらいを動かし、はなすと投げる。おさえている間は手がゆれるので、早めにはなすのがコツ。真ん中のブルは50点!",
-    "hang-glider-3d": "画面をなぞるか◀▶で左右に動き、▲▼で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと着陸。",
-    "bomber-maze": "十字キーの長おしで動き、💣でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
+    "hang-glider-3d": "したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。",
+    "bomber-maze": "したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。",
     "blackjack-21": "カードの合計を21に近づける。21をこえたら負け。Aは1か11、絵札は10。ヒットで1枚引き、スタンドで勝負。ディーラーは17以上で止まる。",
     "pipe-connect": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
     "fruit-slice": "指で素早くなぞってフルーツを切る!1回のスワイプで何こも切るとコンボ。💣を切るとライフが減る。落としすぎにも注意。",
     "track-field": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
-    "voxel-mine": "十字キーを長おしで、その向きにほる。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+    "voxel-mine": "したのパッドをなぞった向きにほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
     "sushi-belt": "上の「注文」と同じネタのお皿を、レーンからタップして取る。ちがうお皿や🌶わさびはペナルティ。早くそろえるとボーナス。",
-    "asteroids-classic": "◀▶で回り、▲の長おしで進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
+    "asteroids-classic": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
     "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
     "lights-out": "タップしたマスと、上下左右のライトが反転する。全部消せばクリア。「さいてい」の手数をめざそう。",
-    "doodle-jump": "◀▶か横のドラッグで動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている。",
+    "doodle-jump": "したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている。",
     "curling-ice": "🔴を上へスワイプ。速いほど強く、ななめなら曲がる。投げたあとは連打でのばそう。真ん中に一番近い石のチームが得点。",
     "jenga-tower": "タップしたブロックをぬいて、上につみ直すよ。真ん中を残すと安定し、はしだけだとくずれやすい。安定度（%）を見ながら選ぼう。",
     "line-trace": "●から灰色の線をひと筆でなぞろう。線に近いと緑、はなれると赤。指をはなすと判定するよ。",
@@ -13735,30 +13886,30 @@
     "domino-run": "道の途中でドミノが欠けている（点線）。手持ちのドミノを、欠けた場所にタップして置こう。全部つながったら「おす!」。余った手持ちはボーナス。",
     "sudoku-mini": "難易度により4×4（1〜4）か6×6（1〜6）。たて・横・太いわくの中に、それぞれの数字を1つずつ入れる。マスをタップで選び、下の数字ボタンで入れよう。まちがうと赤く光る。",
     "mancala-kalah": "下にある自分の穴をタップ。たねを1つずつ、自分のストアの方向へまく。最後のたねが右の自分のストアに入ると、もう1回。空の自分の穴に落ちると、向かいのたねももらえる。",
-    "plane-landing": "▲▼かたてのドラッグで機首を上げ下げ。緑の線を目安に、滑走路の⬛へふわっと降りよう。風で浮きしずみするよ。",
-    "dot-eater": "十字キーか画面のスワイプで進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
+    "plane-landing": "したのパッドか画面をたてになぞって機首を上げ下げ。緑の線を目安に、滑走路の⬛へふわっと降りよう。風で浮きしずみするよ。",
+    "dot-eater": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
     "missile-command": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
-    "area-claim": "十字キーのおしっぱなしでふちを動き、中へ線を引いてかこもう。75%取ればクリア。✨が線にふれると1ミス。",
+    "area-claim": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。75%取ればクリア。✨が線にふれると1ミス。",
     "solitaire-klondike": "カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。",
     "hit-blow": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
-    "lunar-lander": "◀▶でかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
+    "lunar-lander": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
     "shanghai-tiles": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
-    "beach-volley": "◀▶で動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に7点取ろう。",
+    "beach-volley": "したのパッドを左右になぞって動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に7点取ろう。",
     "slide-puzzle": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
     "sugoroku-race": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
     "takoyaki-grill": "きつね色（緑のゾーン）になったら、タップでひっくり返す。裏もきつね色になったら、タップで取り出す。早いと生、おそいとこげ!",
-    "road-city": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-city": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-harvest": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-acorn": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "downhill-mountain": "◀▶か画面のタップで岩をえらぼう。針が緑のわくに入ったら「つかむ」!明るい岩はつかみやすい。3段ごとの休憩で、にぎる力がもどる。12段の山頂をめざそう。",
-    "downhill-snow": "◀▶のおしっぱなしか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
+    "downhill-snow": "したのパッドを左右になぞるか、画面のドラッグでハンドル操作。🚩🚩の間を通り、🪵はジャンプでこえよう。",
     "fishing-sea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
     "fishing-deepsea": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
     "fishing-river": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
-    "road-jungle": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
-    "road-desert": "◀▶（おしっぱなしOK）か、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-jungle": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
+    "road-desert": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-sakura": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
-    "ring-flight-summer": "画面をなぞって飛行機を動かす（十字キーでもOK）。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
+    "ring-flight-summer": "したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。",
     "stack-leaves": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "curling-winter": "🔴を上へスワイプ。速いほど強く、ななめなら曲がる。投げたあとは連打でのばそう。真ん中に一番近い石のチームが得点。",
   };
@@ -14991,9 +15142,11 @@
   // そうさ せつめいの 文から「ゆびを どう うごかす ゲームか」を きめる。
   // はじめての ゲームの せつめいカードに、その うごきの 小さな アニメを 出す
   // (文字だけより「なぞる」「はらう」「おしっぱなし」が ひとめで わかる)
-  const MG_DEMO_KINDS = ['swipe', 'drag', 'dpad', 'hold', 'tap'];
+  const MG_DEMO_KINDS = ['pad', 'swipe', 'drag', 'dpad', 'hold', 'tap'];
   function minigameDemoKind(game) {
     const text = (game && MINIGAME_CONTROLS[game.id]) || '';
+    // 「したのパッド」で はじまる せつめいは タッチパッドが 主役
+    if (/^したのパッド/.test(text)) return 'pad';
     if (/スワイプ|はら[っう]|フリック|なぞって|なぞる/.test(text)) return 'swipe';
     if (/ドラッグ|引っぱ|ひっぱ|なぞ/.test(text)) return 'drag';
     if (/◀▶|↶↷|▲|▼|◀|▶/.test(text)) return 'dpad';
@@ -15040,7 +15193,18 @@
     const draw = (p) => {
       ctx.clearRect(0, 0, W, H);
       const cx = W / 2, cy = H / 2;
-      if (kind === 'tap') {
+      if (kind === 'pad') {
+        // したに パッド、うえに キャラ。ゆびが パッドの うえを なぞると キャラが おなじ むきに うごく
+        const padY = H - 22, padH = 26;
+        ctx.save(); ctx.fillStyle = 'rgba(120, 150, 210, 0.22)'; ctx.strokeStyle = 'rgba(80, 110, 180, 0.6)'; ctx.lineWidth = 1.5;
+        if (ctx.roundRect) { ctx.beginPath(); ctx.roundRect(cx - 70, padY - padH / 2, 140, padH, 8); ctx.fill(); ctx.stroke(); } else { ctx.fillRect(cx - 70, padY - padH / 2, 140, padH); }
+        ctx.restore();
+        const q = ease(p < 0.5 ? p * 2 : 1 - (p - 0.5) * 2);
+        const fx = cx - 45 + 90 * q;
+        ctx.save(); ctx.font = '22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🐣', cx - 40 + 80 * q, cy - 16); ctx.restore();
+        arrow(cx - 50, padY - padH / 2 - 6, cx + 50, padY - padH / 2 - 6);
+        finger(fx, padY, true);
+      } else if (kind === 'tap') {
         const beat = (p * 2) % 1;
         const pressed = beat < 0.3;
         if (pressed) { const r = 14 + beat * 60; ctx.save(); ctx.globalAlpha = Math.max(0, 1 - beat / 0.3); ctx.strokeStyle = '#7cc0ff'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
