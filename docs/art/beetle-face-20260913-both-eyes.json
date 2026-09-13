@@ -1,0 +1,58 @@
+{
+  "reason": "User requires both eyes visible while keeping the head naturally aligned with the body. Final adult stages use the same whole-animal three-quarter direction, with a slightly narrower far eye.",
+  "mode": "built-in image_gen",
+  "supersedes": "beetle-face-20260913-alignment.json",
+  "jobs": [
+    {
+      "key": "beetleBothEyes7",
+      "prompt": "Use case: precise-object-edit. Correct this Naotocchi mature Japanese rhinoceros beetle. The user wants BOTH EYES visible but rejects a head twisted toward the viewer while body faces sideways. Therefore ROTATE THE ENTIRE BEETLE TOWARD A NEAR-FRONTAL THREE-QUARTER VIEW, not just the head. This requires redrawing its whole pose, not painting another eye onto the side profile.\nComposition: body recedes directly behind head, slightly to upper LEFT, whole animal points diagonally toward lower RIGHT and viewer. The head, pronotum, and abdomen share ONE straight continuous longitudinal axis and exactly the SAME yaw angle. Front-facing three-quarter view ~20 degrees to viewer's right (not near-side-profile). BOTH EYES must be fully visible on the actual HEAD, the farther eye a little narrower due to perspective. A small friendly mouth centered below the eyes, cheek accents, head a modest natural size closely attached to front of blank thorax, no long neck and no sideways bend. The HEAD is at the front of thorax, NOT a face on the thorax or shell. Make the thorax and pair of wing covers match the head's near-frontal view, with roughly balanced left/right visible shell and leg perspective. No sideways oval body plus forward-facing mask.\nJapanese rhinoceros beetle identity: warm mature chestnut brown glossy paired wing covers, separate plain pronotum behind head, ONE long fork-tipped head horn originating from the FRONT FOREHEAD between/in front of the eyes and sweeping forward/up in same direction as the WHOLE beetle, small secondary pronotal horn behind. Six short jointed insect legs, THREE ON EACH SIDE visible in natural planted stance, two short antennae from head. Cute compact nonhumanoid beetle, no human arms, no upright stance. Keep head integrated and aligned. Both eyes visible is mandatory, no one-eyed profile.\nCrisp stepped low-resolution pixel art, limited color clusters for 128px game sprite, minimal shading, dark-brown outline, no blur. ONE complete full-body sprite, square, centered with generous blank borders, perfectly flat vivid magenta RGB(255,0,255) background for extraction. No checkerboard, text, shadow, ground or props. No magenta inside the beetle."
+    },
+    {
+      "change": "Make STAGE 5: freshly emerged young adult. Pale ivory/cream wing covers, light honey-gold head and pronotum, slimmer and smaller than mature stage. Thin careful planted legs, slightly timid curious expression with both eyes open and a tiny surprised round mouth. Keep the same whole-body direction and both eyes visible.",
+      "key": "beetleBothEyes5",
+      "prompt": "Edit the reference as one Naotocchi Japanese rhinoceros beetle game sprite. Keep the reference's EXACT whole-animal near-frontal three-quarter direction: head, plain pronotum and abdomen have the SAME yaw and one straight shared axis, body receding upper left from head at lower right. BOTH amber eyes fully visible on the actual small front head, far eye slightly narrower. Do not turn or tilt the head independently of body. Keep a small friendly centered mouth under eyes, no face on thorax. Keep one long forked head horn growing from front forehead and one short pronotal horn. Compact horizontal insect body, two paired wing covers, six jointed legs, three on each side, two short antennae on head, no human arms. Preserve silhouette clarity and anatomy.\nCrisp low resolution pixel art with limited flat color clusters suited to a 128px sprite. Hard stepped outlines, no blur. One complete full body sprite centered in a square with generous margins, all horn and feet inside frame. Completely flat vivid magenta RGB(255,0,255) background for extraction, no magenta in beetle, no checkerboard, no ground, no text or props.\nMake STAGE 5: freshly emerged young adult. Pale ivory/cream wing covers, light honey-gold head and pronotum, slimmer and smaller than mature stage. Thin careful planted legs, slightly timid curious expression with both eyes open and a tiny surprised round mouth. Keep the same whole-body direction and both eyes visible.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-65c11a86-eebb-4011-9cfb-465c38e8312c.png",
+      "stage": 5
+    },
+    {
+      "change": "Make STAGE 6: eager young active adult. Distinct vivid red-copper wing covers and copper-orange head and pronotum, slightly slimmer abdomen than mature stage. Energetic stance with viewer-right foreleg gently raised and bent, remaining legs naturally planted; still six insect legs total. Both eyes wide awake and small happy open mouth. Keep head aligned with body and both eyes visible; motion only in legs.",
+      "key": "beetleBothEyes6",
+      "prompt": "Edit the reference as one Naotocchi Japanese rhinoceros beetle game sprite. Keep the reference's EXACT whole-animal near-frontal three-quarter direction: head, plain pronotum and abdomen have the SAME yaw and one straight shared axis, body receding upper left from head at lower right. BOTH amber eyes fully visible on the actual small front head, far eye slightly narrower. Do not turn or tilt the head independently of body. Keep a small friendly centered mouth under eyes, no face on thorax. Keep one long forked head horn growing from front forehead and one short pronotal horn. Compact horizontal insect body, two paired wing covers, six jointed legs, three on each side, two short antennae on head, no human arms. Preserve silhouette clarity and anatomy.\nCrisp low resolution pixel art with limited flat color clusters suited to a 128px sprite. Hard stepped outlines, no blur. One complete full body sprite centered in a square with generous margins, all horn and feet inside frame. Completely flat vivid magenta RGB(255,0,255) background for extraction, no magenta in beetle, no checkerboard, no ground, no text or props.\nMake STAGE 6: eager young active adult. Distinct vivid red-copper wing covers and copper-orange head and pronotum, slightly slimmer abdomen than mature stage. Energetic stance with viewer-right foreleg gently raised and bent, remaining legs naturally planted; still six insect legs total. Both eyes wide awake and small happy open mouth. Keep head aligned with body and both eyes visible; motion only in legs.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-65c11a86-eebb-4011-9cfb-465c38e8312c.png",
+      "stage": 6
+    },
+    {
+      "change": "Make STAGE 8: elder beetle. Muted walnut and gray-brown shell with restrained matte highlights and a few small shallow scuff marks, calm lower planted stance with legs bent a little more. Both amber eyes visible and softly half-lidded, small peaceful closed smile. Horn intact with subtly worn edges, no injuries. Same whole-body angle and shared head-body axis, no head-only tilt.",
+      "key": "beetleBothEyes8",
+      "prompt": "Edit the reference as one Naotocchi Japanese rhinoceros beetle game sprite. Keep the reference's EXACT whole-animal near-frontal three-quarter direction: head, plain pronotum and abdomen have the SAME yaw and one straight shared axis, body receding upper left from head at lower right. BOTH amber eyes fully visible on the actual small front head, far eye slightly narrower. Do not turn or tilt the head independently of body. Keep a small friendly centered mouth under eyes, no face on thorax. Keep one long forked head horn growing from front forehead and one short pronotal horn. Compact horizontal insect body, two paired wing covers, six jointed legs, three on each side, two short antennae on head, no human arms. Preserve silhouette clarity and anatomy.\nCrisp low resolution pixel art with limited flat color clusters suited to a 128px sprite. Hard stepped outlines, no blur. One complete full body sprite centered in a square with generous margins, all horn and feet inside frame. Completely flat vivid magenta RGB(255,0,255) background for extraction, no magenta in beetle, no checkerboard, no ground, no text or props.\nMake STAGE 8: elder beetle. Muted walnut and gray-brown shell with restrained matte highlights and a few small shallow scuff marks, calm lower planted stance with legs bent a little more. Both amber eyes visible and softly half-lidded, small peaceful closed smile. Horn intact with subtly worn edges, no injuries. Same whole-body angle and shared head-body axis, no head-only tilt.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-65c11a86-eebb-4011-9cfb-465c38e8312c.png",
+      "stage": 8
+    }
+  ],
+  "exports": [
+    {
+      "key": "beetleBothEyes5",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-81153a66-3e91-42e9-bf81-216dbf069116.png",
+      "asset": "assets/characters/beetle/05.png",
+      "maxSize": 100
+    },
+    {
+      "key": "beetleBothEyes6",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-2a867e81-8e31-4190-b389-7360deb2673a.png",
+      "asset": "assets/characters/beetle/06.png",
+      "maxSize": 108
+    },
+    {
+      "key": "beetleBothEyes7",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-65c11a86-eebb-4011-9cfb-465c38e8312c.png",
+      "asset": "assets/characters/beetle/07.png",
+      "maxSize": 112
+    },
+    {
+      "key": "beetleBothEyes8",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-65c062f5-6683-478f-9c37-05efd1a3e086.png",
+      "asset": "assets/characters/beetle/08.png",
+      "maxSize": 108
+    }
+  ]
+}

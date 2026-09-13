@@ -1,0 +1,48 @@
+{
+  "reason": "Intermediate correction of rhinoceros beetle head turning toward viewer independently of body. This near-side view was superseded by beetle-face-20260913-both-eyes.json after the user requested both eyes remain visible.",
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "key": "beetleAligned7",
+      "prompt": "Use case: precise-object-edit. Correct the POSE/HEAD ALIGNMENT of this Naotocchi mature rhinoceros beetle sprite. The user rejects this version because the head twists sideways toward the camera while the body points elsewhere. Redraw the head and connecting thorax naturally, preserving the same cute chestnut beetle and pixel style.\nCRITICAL: the beetle's oval abdomen, thorax, head and gaze all point together toward the RIGHT in ONE unbroken body axis. It is a right-facing three-quarter SIDE view, only 15-20 degrees toward viewer from pure profile. The head does NOT turn toward camera, and it does NOT sit below or aside the body like a hanging human face mask. Small wedge/oval head, attached closely and flush to the FRONT OF THE THORAX with no long neck, no tilt/bend at the joint. Keep the top line flowing naturally from back through thorax to head. Reduce head relative to body by about 20%, show a modest side facial surface, not a huge round frontal face. One near-side friendly amber eye is clearly visible on the SIDE of the actual head; far eye can be mostly occluded or a tiny sliver. A tiny subtle smile sits at the front-lower snout, also pointing RIGHT. No direct eye contact with viewer. No symmetric front-facing pair of big eyes. Eyes must still NOT be on the pronotum or back.\nThe main long fork-tipped head horn must originate from the FRONT of this aligned head and sweep forward and upward towards RIGHT, following its direction instead of pointing straight upward as a separate upright face. Short pronotal horn sits naturally behind it above thorax. Rounded paired chestnut wing covers, blank thorax, sturdy naturally posed SIX insect legs attaching to thorax, short paired head antennae with far ones occluded as perspective requires. Natural cute beetle, not a humanoid, no arms. Mature stable grounded stance.\nCrisp limited-color pixel art at 128px-game scale, warm deep chestnut and gold highlights, defined stepped outlines, minimal shading, no blur. One isolated full-body sprite with ample blank margins, square image, exactly flat vivid magenta RGB(255,0,255) background for technical extraction. No checkerboard, text, shadow, ground or props. Do not use magenta within the character."
+    },
+    {
+      "key": "beetleAligned5",
+      "prompt": "Use case: identity-preserve. Make exactly ONE Naotocchi rhinoceros beetle life-stage sprite from this corrected right-facing reference. CRITICAL keep its head, thorax, abdomen and gaze aligned along ONE forward body axis to the RIGHT. Keep the SAME near-side three-quarter profile perspective, small oval/wedge head closely attached to front of thorax without bent neck, just ONE clear near-side eye with far eye occluded, a tiny mouth at right-facing front of snout. Never turn head toward viewer, never add a symmetric front-facing pair of eyes, never hang a round face mask below the thorax. Keep the long forked head horn sweeping forward/up to RIGHT from the front of the aligned head, short secondary horn on blank pronotum behind head, paired oval wing covers. Six insect legs from thorax, natural cute squat beetle proportions, no human arms. Same crisp pixel-art clusters and limited palette, whole body in frame with margins. Perfect flat vivid magenta RGB(255,0,255) background for extraction, no checkerboard, no shadow, ground, text or props. This is stage5 JUST EMERGED: delicate narrower body, soft ivory-cream wing covers, honey-tan head and pronotum, pale peach-honey fully forked horn. Cautious gently bent slender legs close to body, bright curious eye, tiny surprised mouth pointed right. Soft pale shell and shy compact stance differ from the mature brown reference, but head alignment must stay EXACTLY straight and natural."
+    },
+    {
+      "key": "beetleAligned6",
+      "prompt": "Use case: identity-preserve. Make exactly ONE Naotocchi rhinoceros beetle life-stage sprite from this corrected right-facing reference. CRITICAL keep its head, thorax, abdomen and gaze aligned along ONE forward body axis to the RIGHT. Keep the SAME near-side three-quarter profile perspective, small oval/wedge head closely attached to front of thorax without bent neck, just ONE clear near-side eye with far eye occluded, a tiny mouth at right-facing front of snout. Never turn head toward viewer, never add a symmetric front-facing pair of eyes, never hang a round face mask below the thorax. Keep the long forked head horn sweeping forward/up to RIGHT from the front of the aligned head, short secondary horn on blank pronotum behind head, paired oval wing covers. Six insect legs from thorax, natural cute squat beetle proportions, no human arms. Same crisp pixel-art clusters and limited palette, whole body in frame with margins. Perfect flat vivid magenta RGB(255,0,255) background for extraction, no checkerboard, no shadow, ground, text or props. This is stage6 YOUNG: distinctly vivid red-copper/russet-RED wing covers and thorax, orange-red highlights, slimmer youthful abdomen. Rightmost front leg lifted forward in an energetic step (still a segmented insect leg), curious wide near-side eye, tiny open O smile at front of right-facing snout. Preserve correct body-axis alignment while making the pose lively through LEGS, never by twisting/tilting the head toward camera. Clearly redder than mature chestnut reference."
+    },
+    {
+      "key": "beetleAligned8",
+      "prompt": "Use case: identity-preserve. Make exactly ONE Naotocchi rhinoceros beetle life-stage sprite from this corrected right-facing reference. CRITICAL keep its head, thorax, abdomen and gaze aligned along ONE forward body axis to the RIGHT. Keep the SAME near-side three-quarter profile perspective, small oval/wedge head closely attached to front of thorax without bent neck, just ONE clear near-side eye with far eye occluded, a tiny mouth at right-facing front of snout. Never turn head toward viewer, never add a symmetric front-facing pair of eyes, never hang a round face mask below the thorax. Keep the long forked head horn sweeping forward/up to RIGHT from the front of the aligned head, short secondary horn on blank pronotum behind head, paired oval wing covers. Six insect legs from thorax, natural cute squat beetle proportions, no human arms. Same crisp pixel-art clusters and limited palette, whole body in frame with margins. Perfect flat vivid magenta RGB(255,0,255) background for extraction, no checkerboard, no shadow, ground, text or props. This is stage8 LONG-LIVED ELDER: muted walnut-brown shell with reduced shine and a few subtle ochre scuff marks, gently worn full forked horn, slightly bent legs in lower restful stance. Calm half-lidded near-side amber eye still visible, tiny kind closed smile at the front of the right-facing snout. Head stays aligned naturally with body, not separately bowed/turned. Age through matte patina, rested legs, expression and subtle wear, not oversized or dead, no beard/cane."
+    }
+  ],
+  "exports": [
+    {
+      "key": "beetleAligned5",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-83d78b7d-26dd-4185-9ed2-27af8083b003.png",
+      "asset": "assets/characters/beetle/05.png",
+      "maxSize": 100
+    },
+    {
+      "key": "beetleAligned6",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-4d0a1123-ee17-48c2-8b52-0ef4c56aa698.png",
+      "asset": "assets/characters/beetle/06.png",
+      "maxSize": 108
+    },
+    {
+      "key": "beetleAligned7",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-16883f75-311c-415c-b4c4-953087702010.png",
+      "asset": "assets/characters/beetle/07.png",
+      "maxSize": 112
+    },
+    {
+      "key": "beetleAligned8",
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-0d9d7fda-4ff3-4a10-8cc8-57996cbbb101.png",
+      "asset": "assets/characters/beetle/08.png",
+      "maxSize": 108
+    }
+  ]
+}
