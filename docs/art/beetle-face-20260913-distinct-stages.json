@@ -1,0 +1,109 @@
+{
+  "reason": "User asked to display every life stage and make similar stages clearly distinguishable. Stage 2 uses an unfurled crawling silhouette, stage 6 is slimmer and walking, and stage 8 has tucked resting legs. Both species retain distinct head, horn/mandible and body designs.",
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "key": "beetleDistinct2",
+      "prompt": "Use case: precise-object-edit. Edit the referenced Naotocchi STAGE 2 beetle larva game sprite to be clearly distinguishable in SILHOUETTE from the curled C-shaped tiny stage 1 and the giant curled stage 3. Keep the same cute pixel-art family and natural grub identity. The change must be a NEW BODY POSE, not simply recoloring or enlarging the reference. Maintain cream segmented grub body, only three pairs of short true legs clustered near the head (not legs along entire body), smooth plump tail, actual hard head bearing two visible friendly eyes, tiny mouth and cheeks. No adult horn, no wings, no butterfly-caterpillar green, no objects.\nCrisp stepped low-resolution game pixel art intended for 128x128, limited palette, clear dark brown outline and large simple shading clusters. ONE entire character centered with ample blank margins, square canvas. Transparent background, no ground, shadow, texture, checkerboard, labels or props.\nRHINOCEROS BEETLE design: medium-size, short and CHUNKY broad cream body with pronounced round fat segments. Uncurl into a broad upward ARCH, stretching from a rounded tail on lower LEFT to a lifted honey-gold head at RIGHT, as if proudly inching forward. Body is a low curved horizontal arch, not an upright C, not coiled. Head is small round golden amber, cheerful two-eyed open little smile; front pair of tiny feet reaching forward. The overall silhouette should be about 1.45 times wider than tall, visibly arched and rounded.",
+      "species": "beetle",
+      "stage": 2
+    },
+    {
+      "key": "stagDistinct2",
+      "prompt": "Use case: precise-object-edit. Edit the referenced Naotocchi STAGE 2 beetle larva game sprite to be clearly distinguishable in SILHOUETTE from the curled C-shaped tiny stage 1 and the giant curled stage 3. Keep the same cute pixel-art family and natural grub identity. The change must be a NEW BODY POSE, not simply recoloring or enlarging the reference. Maintain cream segmented grub body, only three pairs of short true legs clustered near the head (not legs along entire body), smooth plump tail, actual hard head bearing two visible friendly eyes, tiny mouth and cheeks. No adult horn, no wings, no butterfly-caterpillar green, no objects.\nCrisp stepped low-resolution game pixel art intended for 128x128, limited palette, clear dark brown outline and large simple shading clusters. ONE entire character centered with ample blank margins, square canvas. Transparent background, no ground, shadow, texture, checkerboard, labels or props.\nSTAG BEETLE design: medium-size but SLENDER elongated cream body, low gently sinuous horizontal crawling pose from tail at LEFT to a large reddish mahogany flattened oval HEAD at RIGHT. Body almost outstretched, subtle shallow S through segments, NOT arched high, NOT curled C. Head proportionally broader than rhinoceros larva, distinct short paired dark mandibles below the smile, dark reddish head with two eager visible eyes and tiny peach cheeks. Three pairs short feet just behind head, actively crawling. The overall silhouette is about 2.1 times wider than tall: long, low and smooth rather than chunky or upright.",
+      "species": "stagbeetle",
+      "stage": 2
+    },
+    {
+      "key": "beetleDistinct2",
+      "prompt": "Use case: precise-object-edit. Change ONLY the BACKGROUND of this grub sprite. Replace every part of the white-gray checkerboard outside the character with perfectly uniform vivid magenta RGB(255,0,255), flat solid #FF00FF all the way to canvas borders. Keep the complete larva, all ivory/gray body pixels, hard brown outline, shape, face, feet and current pose EXACTLY as shown. Do not draw a checkerboard. No text, ground or shadow. One full-body game sprite on completely flat magenta. Magenta only outside the creature, never inside its body.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-62fabb8b-9894-4448-85d2-8bb09c254d0b.png"
+    },
+    {
+      "key": "stagDistinct2",
+      "prompt": "Use case: precise-object-edit. Change ONLY the BACKGROUND of this grub sprite. Replace every part of the white-gray checkerboard outside the character with perfectly uniform vivid magenta RGB(255,0,255), flat solid #FF00FF all the way to canvas borders. Keep the complete larva, all ivory/gray body pixels, hard brown outline, shape, face, feet and current pose EXACTLY as shown. Do not draw a checkerboard. No text, ground or shadow. One full-body game sprite on completely flat magenta. Magenta only outside the creature, never inside its body.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-5d116362-f65c-4b5c-b709-00bccd4acdb6.png"
+    },
+    {
+      "key": "beetleDistinct6",
+      "prompt": "Use case: precise-object-edit. Redesign this Naotocchi STAGE 6 young beetle sprite so its SILHOUETTE and pose are clearly different from a plump motionless mature stage 7. Redraw the entire body and legs into an energetic purposeful WALK, not a recolor and not merely lifting a single foot. A noticeably SLIMMER elongated teardrop abdomen with a narrower waist; long alternating leg strides, one foreleg reaching and the opposite foreleg planted, hind legs extended back, clear insect leg joints. Exactly six insect legs from thorax, with natural perspective occlusion, no human arms. Cute happy alert face.\nCRITICAL preserve BOTH EYES visibly on the actual head, mouth below. The HEAD, PLAIN PRONOTUM and ABDOMEN share ONE same diagonal three-quarter direction and straight body axis. Head stays attached naturally and points with body, no head-only turn or twisted neck, no face on thorax or shell. Animal points toward lower RIGHT, body recedes upper LEFT. Horns/mandibles retain correct attachments.\nCrisp low resolution pixel art, limited discrete color clusters for 128px sprite, firm dark outline, no blur. One entire creature centered on a square with ample space around all feet and appendages. Perfectly flat vivid magenta #FF00FF background for technical extraction, no checkerboard, ground, shadow, labels, accessories or extra objects.\nRHINOCEROS BEETLE: vivid RED-copper wing covers, orange-copper head and thorax, two bright amber eyes and little open happy smile. Keep one long forward/up forked HEAD horn from forehead in front of eyes and one short pronotal horn. Slim body in a buoyant stepping pose, forebody elevated a little on a long planted foreleg; whole-body axis and near-frontal three-quarter view stay aligned. Flatten and narrow abdomen silhouette by about 20% relative to reference, make the stride much more pronounced. No open wings.",
+      "species": "beetle",
+      "stage": 6
+    },
+    {
+      "key": "stagDistinct6",
+      "prompt": "Use case: precise-object-edit. Redesign this Naotocchi STAGE 6 young beetle sprite so its SILHOUETTE and pose are clearly different from a plump motionless mature stage 7. Redraw the entire body and legs into an energetic purposeful WALK, not a recolor and not merely lifting a single foot. A noticeably SLIMMER elongated teardrop abdomen with a narrower waist; long alternating leg strides, one foreleg reaching and the opposite foreleg planted, hind legs extended back, clear insect leg joints. Exactly six insect legs from thorax, with natural perspective occlusion, no human arms. Cute happy alert face.\nCRITICAL preserve BOTH EYES visibly on the actual head, mouth below. The HEAD, PLAIN PRONOTUM and ABDOMEN share ONE same diagonal three-quarter direction and straight body axis. Head stays attached naturally and points with body, no head-only turn or twisted neck, no face on thorax or shell. Animal points toward lower RIGHT, body recedes upper LEFT. Horns/mandibles retain correct attachments.\nCrisp low resolution pixel art, limited discrete color clusters for 128px sprite, firm dark outline, no blur. One entire creature centered on a square with ample space around all feet and appendages. Perfectly flat vivid magenta #FF00FF background for technical extraction, no checkerboard, ground, shadow, labels, accessories or extra objects.\nSTAG BEETLE: warm reddish mahogany/russet covers, red-brown broad angular head and low flat pronotum. Make a LONG LOW forward-scuttling silhouette, abdomen slender and long, legs in a wide running stride. Head with both amber eyes above the TWO visibly separate curved mandibles that arise from front lower jaw and open widely forward, exposing an excited small mouth between their bases. Antennae separate and short; no horn on forehead or pronotum. Keep flat stag shape distinct from tall domed rhinoceros beetle.",
+      "species": "stagbeetle",
+      "stage": 6
+    },
+    {
+      "key": "beetleDistinct8",
+      "prompt": "Use case: precise-object-edit. Redesign this Naotocchi STAGE 8 elder beetle game sprite into a DISTINCT COMPACT RESTING pose. It must not reuse the long spread-legged mature stage 7 silhouette or merely recolor the reference. Bring all SIX segmented insect legs inward, bent and tucked closer below the thorax, feet softly planted. Body is visibly LOWER and resting; no flying or jumping. Calm contented expression, BOTH amber eyes remain visible and half-lidded, just ONE tiny peaceful closed mouth on the actual head. Small wear marks and matte restrained highlights signal age, no wounds, scars, missing limbs, cane or clothing.\nCRITICAL head, blank pronotum and abdomen remain naturally connected along ONE straight shared axis and same near-frontal three-quarter orientation, pointing to lower RIGHT with body receding upper LEFT. Do not twist, droop or rotate the head independently toward viewer. Do not place eyes or mouth on thorax/back. Both eyes are visible on the small head, far eye slightly narrower. Two short antennae and SIX anatomically jointed legs, three pairs attached to thorax, with some perspective occlusion allowed.\nCrisp low resolution pixel art, dark stepped outline, limited large color clusters for 128px sprites. ONE complete creature, square composition, ample margins, no clipping. Perfectly flat vivid magenta RGB(255,0,255) backdrop for extraction, no texture, checkerboard, shadow, ground, writing, props or extra creatures.\nRHINOCEROS BEETLE: muted walnut-brown and taupe shell, shorter round DOMED abdomen, a compact oval lump above tucked bent legs, near-side legs forming little angular zigzags close to the belly instead of long extensions. Preserve ONE long fork-tipped head horn naturally growing from FRONT of forehead between/in front of eyes, short pronotal horn behind. Maintain natural youthful-family identity but clearly resting elder, tiny kind smile. Total side-to-side foot spread noticeably narrower than original, approximately shell width plus one short foot on each side. Keep body head and horn direction aligned.",
+      "species": "beetle",
+      "stage": 8
+    },
+    {
+      "key": "stagDistinct8",
+      "prompt": "Use case: precise-object-edit. Redesign this Naotocchi STAGE 8 elder beetle game sprite into a DISTINCT COMPACT RESTING pose. It must not reuse the long spread-legged mature stage 7 silhouette or merely recolor the reference. Bring all SIX segmented insect legs inward, bent and tucked closer below the thorax, feet softly planted. Body is visibly LOWER and resting; no flying or jumping. Calm contented expression, BOTH amber eyes remain visible and half-lidded, just ONE tiny peaceful closed mouth on the actual head. Small wear marks and matte restrained highlights signal age, no wounds, scars, missing limbs, cane or clothing.\nCRITICAL head, blank pronotum and abdomen remain naturally connected along ONE straight shared axis and same near-frontal three-quarter orientation, pointing to lower RIGHT with body receding upper LEFT. Do not twist, droop or rotate the head independently toward viewer. Do not place eyes or mouth on thorax/back. Both eyes are visible on the small head, far eye slightly narrower. Two short antennae and SIX anatomically jointed legs, three pairs attached to thorax, with some perspective occlusion allowed.\nCrisp low resolution pixel art, dark stepped outline, limited large color clusters for 128px sprites. ONE complete creature, square composition, ample margins, no clipping. Perfectly flat vivid magenta RGB(255,0,255) backdrop for extraction, no texture, checkerboard, shadow, ground, writing, props or extra creatures.\nSTAG BEETLE: muted dark charcoal-NAVY shell with quiet ochre scuff marks, long LOW FLAT oval abdomen close to the ground, limbs tucked beside and under thorax. Broad angular head, TWO curved jaw mandibles attached at front lower head, now resting ALMOST CLOSED with tips close together and only a narrow opening, much less splayed than mature stage7. The two distinct mandibles remain clearly readable, not fused and not a single trunk. No forehead horn. Two calm half-lidded eyes, one small subtle closed smile between mandible bases; no second mouth line. Quiet relaxed flattened posture.",
+      "species": "stagbeetle",
+      "stage": 8
+    },
+    {
+      "key": "beetleDistinct6Final",
+      "prompt": "Use case: precise-object-edit. Make ONE LOCAL ANATOMY REPAIR only to this red young rhinoceros beetle pixel sprite: add TWO SHORT CLUB-TIPPED ANTENNAE clearly extending outward from the left and right lateral edges of its actual small head, beside the cheeks/eyes. Near antenna projects to viewer-left, far one to viewer-right, angled slightly upward; each short, thin, 2 segments with a small rounded amber club. They must not be mistaken for legs, horns or extra eyes. Keep BOTH eyes fully visible. Everything else stays the same: slim elongated red abdomen, energetic long stride, all six legs, straight aligned head/pronotum/body axis, one open happy mouth, one forked head horn and short pronotal horn. Keep crisp pixel style and full silhouette. Perfectly flat vivid magenta #FF00FF background throughout, no ground, shadow, checkerboard, labels or props.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-8b74dfaf-52f4-48d8-b3b4-abdbdb78c2f6.png",
+      "species": "beetle",
+      "stage": 6
+    },
+    {
+      "key": "stagDistinct6Final",
+      "prompt": "Use case: precise-object-edit. Repair ONLY the doubled-mouth problem on this young stag beetle sprite. The small dark U-shaped smile directly BELOW the eyes is the ONE AND ONLY mouth: KEEP this small smile. REMOVE the separate lower hanging OPEN MOUTH with black outline and pink/red tongue underneath that smile. Also remove the pale beige lip band associated with that second mouth. Fill those removed lower mouth pixels with simple reddish-brown head/jaw-base chitin shading; no teeth, no tongue, no other mouth, no second smile. This yields ONE clear friendly closed U smile ON THE HEAD above and between the origins of the two large mandibles. Preserve both mandibles exactly, do not fill their open space. Preserve both amber eyes, short antennae, slim elongated rust-red body, walking legs and shared naturally aligned head-body direction. Do NOT add extra legs just to show occluded legs. No other design change. Same hard pixel style, entire sprite, perfectly flat vivid magenta #FF00FF background. No checkerboard, ground, shadow, labels or props.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-c2575167-3c44-4f43-88b0-61aa81252743.png",
+      "species": "stagbeetle",
+      "stage": 6
+    },
+    {
+      "key": "stagDistinct2Final",
+      "prompt": "Use case: precise-object-edit. Correct the proportions of this STAGE 2 stag beetle larva so it reads as a growing GRUB, not a thin long worm. Keep its stretched low crawling pose, cream segmented body, gray cream tail, reddish mahogany broad hard head with both friendly eyes, cheeks and small paired mandibles. But make the BODY SEGMENTS about 60% THICKER vertically, SHORTEN the trunk by about 25%, and make the HEAD about 25% larger. Overall full-body silhouette MUST be only about 2.2 times wider than tall, including the legs. A robust horizontal banana-like grub, gently curving, not an upright C, not a long thin S worm. Plump enough to look bigger than a tiny newborn larva, still less massive than the giant mature grub. Three pairs of short true legs cluster immediately behind the head, no legs on rear segments. Keep the actual face on the head. Same crisp stepped low-resolution pixel art, large simple color clusters, dark brown outline. ONE complete character with generous margins in a SQUARE canvas. Preserve an exactly flat vivid magenta #FF00FF background, no checkerboard, ground, shadows, text, props or extra creature.",
+      "reference": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-5955ba63-6554-465a-a3b8-0a290a7a265e.png"
+    }
+  ],
+  "exports": [
+    {
+      "asset": "assets/characters/beetle/02.png",
+      "key": "beetleDistinct2Export",
+      "maxSize": 104,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-e5860163-3693-4bd5-9ec1-97c5c31d2c46.png"
+    },
+    {
+      "asset": "assets/characters/stagbeetle/02.png",
+      "key": "stagDistinct2Final",
+      "maxSize": 106,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-efd2cf51-2494-407e-8b52-8176e17af0fa.png"
+    },
+    {
+      "asset": "assets/characters/beetle/06.png",
+      "key": "beetleDistinct6Final",
+      "maxSize": 108,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-999a39f2-47dc-4fac-b942-48bfcb9f8db3.png"
+    },
+    {
+      "asset": "assets/characters/stagbeetle/06.png",
+      "key": "stagDistinct6Final",
+      "maxSize": 108,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-26ffbe79-496d-49e9-837e-635763ec6098.png"
+    },
+    {
+      "asset": "assets/characters/beetle/08.png",
+      "key": "beetleDistinct8",
+      "maxSize": 108,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-06911b97-b77d-40b7-b59a-1c8e2c0eb2c0.png"
+    },
+    {
+      "asset": "assets/characters/stagbeetle/08.png",
+      "key": "stagDistinct8",
+      "maxSize": 108,
+      "source": "/workspace/scratch/a12e1b2ea2a9/generated_images/exec-2251fbfe-9841-4fb3-a4c1-cce0001fb29b.png"
+    }
+  ]
+}

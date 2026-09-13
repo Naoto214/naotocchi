@@ -1,8 +1,8 @@
 {
   "base": "dac247a518059f189d1360f3766bdd834fc8afff",
   "checkedStages": 16,
-  "replacedImages": 13,
-  "otherCharacterImagesUnchanged": 284,
+  "replacedImages": 14,
+  "otherCharacterImagesUnchanged": 283,
   "browserVerified": false,
   "images": [
     {
@@ -19,6 +19,7 @@
         120
       ],
       "opaqueColors": 60,
+      "opaquePixels": 3179,
       "alphaValues": [
         0,
         255
@@ -28,18 +29,19 @@
     },
     {
       "path": "assets/characters/beetle/02.png",
-      "sha256": "850f7cccaac3d988d3f09e800e0979f67cea256f8313214b82540a75d89142c2",
+      "sha256": "179f5d6eba2400ded0bf9da875819cc3b6b4857de53acf40e427236891ecd05f",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
-        18,
-        34,
-        110,
+        12,
+        65,
+        116,
         120
       ],
-      "opaqueColors": 61,
+      "opaqueColors": 60,
+      "opaquePixels": 3580,
       "alphaValues": [
         0,
         255
@@ -61,6 +63,7 @@
         120
       ],
       "opaqueColors": 62,
+      "opaquePixels": 7807,
       "alphaValues": [
         0,
         255
@@ -82,6 +85,7 @@
         120
       ],
       "opaqueColors": 57,
+      "opaquePixels": 4433,
       "alphaValues": [
         0,
         255
@@ -103,6 +107,7 @@
         120
       ],
       "opaqueColors": 61,
+      "opaquePixels": 3479,
       "alphaValues": [
         0,
         255
@@ -112,18 +117,19 @@
     },
     {
       "path": "assets/characters/beetle/06.png",
-      "sha256": "c31785bdabb10a4a55a2ec2894ec60d22df57227baab4c7817a897a2edef1ebe",
+      "sha256": "44a6cb80fd614fb1ae817c1f8d05ab4af11fff90ae9a0787c38f43ae4a043d7f",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
         10,
-        32,
+        41,
         118,
         120
       ],
       "opaqueColors": 62,
+      "opaquePixels": 3652,
       "alphaValues": [
         0,
         255
@@ -145,6 +151,7 @@
         120
       ],
       "opaqueColors": 59,
+      "opaquePixels": 4484,
       "alphaValues": [
         0,
         255
@@ -154,18 +161,19 @@
     },
     {
       "path": "assets/characters/beetle/08.png",
-      "sha256": "105c09103d56bf9b1681ff40a30cf675af1f1ea6faee760b63e8509e00d6ac19",
+      "sha256": "91bb7c3003a14557c6c6587ef8e9c24fdecc6567da078abaa000336ae897c47b",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
         10,
-        40,
+        43,
         118,
         120
       ],
-      "opaqueColors": 60,
+      "opaqueColors": 61,
+      "opaquePixels": 5455,
       "alphaValues": [
         0,
         255
@@ -187,6 +195,7 @@
         120
       ],
       "opaqueColors": 62,
+      "opaquePixels": 2452,
       "alphaValues": [
         0,
         255
@@ -196,24 +205,25 @@
     },
     {
       "path": "assets/characters/stagbeetle/02.png",
-      "sha256": "4940b74ad2d677136dc996fd4dba62874814a0340c360efaea58043f75b02e82",
+      "sha256": "a19551194090c3442a69d9aa8311c3a9b3b3277ded55fa4903956f5bb6705d15",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
-        25,
-        32,
-        103,
+        11,
+        76,
+        117,
         120
       ],
-      "opaqueColors": 63,
+      "opaqueColors": 60,
+      "opaquePixels": 3528,
       "alphaValues": [
         0,
         255
       ],
-      "crcChunks": 4,
-      "changed": false
+      "crcChunks": 3,
+      "changed": true
     },
     {
       "path": "assets/characters/stagbeetle/03.png",
@@ -229,6 +239,7 @@
         120
       ],
       "opaqueColors": 63,
+      "opaquePixels": 6263,
       "alphaValues": [
         0,
         255
@@ -250,6 +261,7 @@
         120
       ],
       "opaqueColors": 60,
+      "opaquePixels": 5225,
       "alphaValues": [
         0,
         255
@@ -271,6 +283,7 @@
         120
       ],
       "opaqueColors": 62,
+      "opaquePixels": 4308,
       "alphaValues": [
         0,
         255
@@ -280,18 +293,19 @@
     },
     {
       "path": "assets/characters/stagbeetle/06.png",
-      "sha256": "172ef9ed0704aa561745625126ff03c1f7a20bf5ae99d951b9ce5d931933a1b0",
+      "sha256": "4a90fcdc68e99f2a3056de262399d7692be66ebb8968a9ce200fd463290132b9",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
         10,
-        45,
+        52,
         118,
         120
       ],
-      "opaqueColors": 62,
+      "opaqueColors": 61,
+      "opaquePixels": 2562,
       "alphaValues": [
         0,
         255
@@ -313,6 +327,7 @@
         120
       ],
       "opaqueColors": 62,
+      "opaquePixels": 3775,
       "alphaValues": [
         0,
         255
@@ -322,18 +337,19 @@
     },
     {
       "path": "assets/characters/stagbeetle/08.png",
-      "sha256": "19477d51977f5cb8b3271cf61696968d1c6579f9b30698ded8a9eabfcccd2147",
+      "sha256": "453c6bd38f1a08375a5ac571e6311349d7c83603c7ccdc10743b0ef889915eb1",
       "width": 128,
       "height": 128,
       "mode": "RGBA",
       "bitDepth": 8,
       "bbox": [
         10,
-        54,
+        53,
         118,
         120
       ],
-      "opaqueColors": 62,
+      "opaqueColors": 61,
+      "opaquePixels": 4845,
       "alphaValues": [
         0,
         255
