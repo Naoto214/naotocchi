@@ -18,7 +18,11 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       gender,orientationId,attractedTo:targets,clownfishFemaleReached:false,pendingClownfishTransition:null,
       partner:null,health:100,hunger:100,energy:100,happiness:100,poopCount:0,transformMeter:0});
     if (name==='gay') save.partner={...fixtures.equipped.partner,gender:'male',orientationId:'gay',attractedTo:['male'],mismatched:false};
-    await page.addInitScript(s=>{localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));Math.random=()=>.4;},save);
+    await page.addInitScript(s=>{
+      // Seed only the new context; a reload must read the game's actual save.
+      if (!localStorage.getItem('naotocchi-save-v1')) localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));
+      Math.random=()=>.4;
+    },save);
     await page.clock.install({time:new Date('2026-09-13T12:00:00Z')});
     await page.clock.pauseAt(new Date('2026-09-13T12:01:00Z'));
     try {
