@@ -664,7 +664,7 @@
           <div class="mg-hint" id="bkHint">画面かしたのパッドを横になぞってパドルを動かす。パドルのはしで打つと、ボールがななめに飛ぶ。落ちてくるあいてむ：⬌ワイドはパドルが広がる／●マルチボールはボールが増える／🐢スローはボールがゆっくりになる。</div>
           `;
         const canvas = container.querySelector('#bkCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', axis: 'x', onDelta: (dx) => { paddle.x = clamp(paddle.x + dx * 1.15, paddle.w / 2, W - paddle.w / 2); } }, '');
+        const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 240 }, onDelta: (dx) => { paddle.x = clamp(paddle.x + dx * 1.15, paddle.w / 2, W - paddle.w / 2); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.25));
         const BW = (W - 12) / COLS, BH = 14, PY = H - 22, BR = 5;
         const stageEl = container.querySelector('#bkStage'), scoreEl = container.querySelector('#bkScore'), hint = container.querySelector('#bkHint');
@@ -2656,7 +2656,7 @@
           <div class="mg-hint" id="sgHint">したのパッドか画面をなぞってねらいを合わせ、画面をタップするか「うつ!」で発射。赤くなった敵は攻撃直前!</div>
           `;
         const canvas = container.querySelector('#sgCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', onDelta: (dx, dy) => { cx = clamp(cx + dx * 1.15, 10, W - 10); cy = clamp(cy + dy * 1.15, 10, H - 10); } }, `<button class="mg-tap-btn primary" id="sgFire" data-key="action">うつ!</button>`);
+        const { pad } = mgPad(container, { mode: 'delta', glide: { speed: 200 }, onDelta: (dx, dy) => { cx = clamp(cx + dx * 1.15, 10, W - 10); cy = clamp(cy + dy * 1.15, 10, H - 10); } }, `<button class="mg-tap-btn primary" id="sgFire" data-key="action">うつ!</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, 225, { grow: true, maxGrow: 1.7 });
         const timerEl = container.querySelector('#sgTimer'), scoreEl = container.querySelector('#sgScore'), hint = container.querySelector('#sgHint');
         const F = W * 0.55;
@@ -3953,7 +3953,7 @@
           <div class="mg-hint" id="rgHint">したのパッドをなぞって1マス動くと敵も動く。敵にぶつかって攻撃。🧪は回復、⚔️は攻撃力アップ、🪜で次の階へ。</div>
           `;
         const canvas = container.querySelector('#rgCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => tryMove(dx, dy) }, `<button class="mg-tap-btn" id="rgPotion" data-key="action2">🧪 0</button><button class="mg-tap-btn" id="rgWait" data-key="action">⏳まつ</button>`);
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 34, repeatMs: 160, onStep: (dx, dy) => tryMove(dx, dy) }, `<button class="mg-tap-btn" id="rgPotion" data-key="action2">🧪 0</button><button class="mg-tap-btn" id="rgWait" data-key="action">⏳まつ</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / COLS;
         const floorEl = container.querySelector('#rgFloor'), statEl = container.querySelector('#rgStat'), hint = container.querySelector('#rgHint'), potionBtn = container.querySelector('#rgPotion');
@@ -4190,7 +4190,7 @@
           <div class="mg-hint" id="ssHint">したのパッドか画面をなぞって機体を動かそう。弾は自動で出るよ。Pを取るとパワーアップ。ピンチではボム!</div>
           `;
         const canvas = container.querySelector('#ssCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', onDelta: (dx, dy) => { ship.x = clamp(ship.x + dx * 1.1, 10, W - 10); ship.y = clamp(ship.y + dy * 1.1, 10, H - 10); } }, `<button class="mg-tap-btn primary" id="ssBomb" data-key="action">💣×2</button>`);
+        const { pad } = mgPad(container, { mode: 'delta', glide: { speed: 200 }, onDelta: (dx, dy) => { ship.x = clamp(ship.x + dx * 1.1, 10, W - 10); ship.y = clamp(ship.y + dy * 1.1, 10, H - 10); } }, `<button class="mg-tap-btn primary" id="ssBomb" data-key="action">💣×2</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, 220, { grow: true, maxGrow: 1.7 });
         const timerEl = container.querySelector('#ssTimer'), scoreEl = container.querySelector('#ssScore'), hint = container.querySelector('#ssHint'), bombBtn = container.querySelector('#ssBomb');
         const say = (t, ms = 1100) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
@@ -4434,7 +4434,7 @@
           <div class="mg-hint" id="pzHint">したのパッドをなぞって1マスずつ動く。箱（📦）をおして★のマスへ。引っぱれないので、おす向きを考えよう。↩で1手もどせる。</div>
           `;
         const canvas = container.querySelector('#pzCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => move(dx, dy) }, `<button class="mg-tap-btn" id="pzUndo" data-key="action2">↩もどす</button><button class="mg-tap-btn" id="pzReset" data-key="action">↻やりなおし</button>`);
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 34, repeatMs: 160, onStep: (dx, dy) => move(dx, dy) }, `<button class="mg-tap-btn" id="pzUndo" data-key="action2">↩もどす</button><button class="mg-tap-btn" id="pzReset" data-key="action">↻やりなおし</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const N = 7, CELL = W / N;
         const levelEl = container.querySelector('#pzLevel'), movesEl = container.querySelector('#pzMoves'), hint = container.querySelector('#pzHint');
@@ -4974,13 +4974,13 @@
           <div class="mg-hint" id="snHint">したのパッドか画面をスワイプして向きを変える。🍎でのびてスピードアップ。⭐は3こ分!かべと体にぶつからないで。</div>
           `;
         const canvas = container.querySelector('#snCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => turnTo(dx, dy) }, '');
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => turnTo(dx, dy) }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
         const timerEl = container.querySelector('#snTimer'), scoreEl = container.querySelector('#snScore'), hint = container.querySelector('#snHint');
         const say = (t, ms = 1000) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
         const hud = () => { scoreEl.textContent = `🍎 ${ate}／長さ${snake.length}`; };
-        function turnTo(dx, dy) { const cur = queued || nextDir; if (cur[0] === -dx && cur[1] === -dy) return; if (cur[0] === dx && cur[1] === dy) return; if (queued) return; queued = [dx, dy]; }
+        function turnTo(dx, dy) { if (nextDir[0] === -dx && nextDir[1] === -dy) return; if (nextDir[0] === dx && nextDir[1] === dy && !queued) return; queued = [dx, dy]; }
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
         canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; if (Math.abs(dx) > Math.abs(dy)) turnTo(Math.sign(dx), 0); else turnTo(0, Math.sign(dy)); swipe = null; });
         const endSwipe = () => { swipe = null; }; canvas.addEventListener('pointerup', endSwipe); canvas.addEventListener('pointercancel', endSwipe);
@@ -5174,7 +5174,7 @@
           <div class="mg-hint" id="rfHint">したのパッドか画面をなぞって飛行機を動かす。リングの真ん中をくぐると○。雲に当たるとスピードダウン。</div>
           `;
         const canvas = container.querySelector('#rfCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); ty = clamp(ty - dy / (H * 0.3), -1, 1); } }, '');
+        const { pad } = mgPad(container, { mode: 'delta', gainY: 1.2, glide: { speed: 260 }, onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); ty = clamp(ty - dy / (H * 0.3), -1, 1); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, 240, { grow: true, maxGrow: 1.8 });
         const timerEl = container.querySelector('#rfTimer'), scoreEl = container.querySelector('#rfScore'), hint = container.querySelector('#rfHint');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
@@ -5630,7 +5630,7 @@
           <div class="mg-hint" id="tfHint">したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。</div>
           `;
         const canvas = container.querySelector('#tfCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => { if (running && !over) slide(dy, dx); } }, '');
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 14, repeatPx: 40, repeatMs: 220, onStep: (dx, dy) => { if (running && !over) slide(dy, dx); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const PAD = 8, GAP = 6, CELL = (W - PAD * 2 - GAP * (N - 1)) / N;
         const timerEl = container.querySelector('#tfTimer'), scoreEl = container.querySelector('#tfScore'), hint = container.querySelector('#tfHint');
@@ -5708,7 +5708,7 @@
           <div class="mg-hint" id="frHint">したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!</div>
           `;
         const canvas = container.querySelector('#frCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => hop(dx, dy), onTap: () => hop(0, -1) }, '');
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => hop(dx, dy), onTap: () => hop(0, -1) }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * ROWS / COLS));
         const CELL = W / COLS;
         const timerEl = container.querySelector('#frTimer'), scoreEl = container.querySelector('#frScore'), hint = container.querySelector('#frHint');
@@ -5997,7 +5997,7 @@
           <div class="mg-hint" id="smHint">したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。</div>
           `;
         const canvas = container.querySelector('#smCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); ty = clamp(ty - dy / (H * 0.3), -1, 1); } }, '');
+        const { pad } = mgPad(container, { mode: 'delta', gainY: 1.2, glide: { speed: 260 }, onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); ty = clamp(ty - dy / (H * 0.3), -1, 1); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, 240, { grow: true, maxGrow: 1.8 });
         const timerEl = container.querySelector('#smTimer'), scoreEl = container.querySelector('#smScore'), hint = container.querySelector('#smHint');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
@@ -6597,7 +6597,7 @@
           <div class="mg-hint" id="hgHint">したのパッドか画面をなぞって左右に動き、上下で機首を上げ下げ。下げると速く進むけど、高さが減る。🌀の上昇気流で高さをかせぎ、🎈を集めよう。地面につくと終わり。</div>
           `;
         const canvas = container.querySelector('#hgCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); pitch = clamp(pitch + dy / (H * 0.3), -1, 1); } }, '');
+        const { pad } = mgPad(container, { mode: 'delta', gainY: 1.2, glide: { speed: 260 }, onDelta: (dx, dy) => { tx = clamp(tx + dx / (W * 0.3), -1, 1); pitch = clamp(pitch + dy / (H * 0.3), -1, 1); } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, 240, { grow: true, maxGrow: 1.8 });
         const timerEl = container.querySelector('#hgTimer'), scoreEl = container.querySelector('#hgScore'), hint = container.querySelector('#hgHint');
         const say = (t, ms = 900) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
@@ -7495,7 +7495,7 @@
           <div class="mg-hint" id="djHint">したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている。</div>
           `;
         const canvas = container.querySelector('#djCanvas');
-        const { pad } = mgPad(container, { mode: 'delta', axis: 'x', onDelta: (dx) => { p.x += dx * 1.4; } }, '');
+        const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 220 }, onDelta: (dx) => { p.x += dx * 1.4; } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => Math.round(w * 1.3));
         const timerEl = container.querySelector('#djTimer'), scoreEl = container.querySelector('#djScore'), hint = container.querySelector('#djHint');
         const say = (t, ms = 800) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
@@ -8338,7 +8338,7 @@
           <div class="mg-hint" id="deHint">したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!</div>
           `;
         const canvas = container.querySelector('#deCanvas');
-        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', onStep: (dx, dy) => turnTo(dx, dy) }, '');
+        const { pad } = mgPad(container, { mode: 'steps', axis: 'xy', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => turnTo(dx, dy) }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
         const timerEl = container.querySelector('#deTimer'), scoreEl = container.querySelector('#deScore'), hint = container.querySelector('#deHint');
