@@ -201,6 +201,14 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.goto(baseURL);await page.locator('.device.ui-home-active').waitFor();
       await page.evaluate(()=>Promise.all([document.fonts.ready,...[...document.querySelectorAll('#pet img')].map(img=>img.decode().catch(()=>{}))]));
       await page.clock.runFor(100);
+      // Font/image layout can resize the stage after the paused game clock
+      // advances. Wait for the real ResizeObserver before the initial sample;
+      // a persistent placement error still times out and fails this scenario.
+      await page.waitForFunction(()=>{
+        const stage=document.getElementById('castStage').getBoundingClientRect();
+        const slot=document.getElementById('speechSlot').getBoundingClientRect();
+        return Math.abs(slot.y-stage.y-Math.floor(stage.height)+slot.height+10)<.6;
+      },null,{timeout:4500});
       const before=await check('silent');
       await page.locator('#feedBtn').click();await page.clock.runFor(1);
       const expected=['pet',...(partner?['partner']:[]),...(count?['companion']:[])];
