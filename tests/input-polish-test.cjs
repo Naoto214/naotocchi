@@ -96,3 +96,110 @@ test('the intro card shows for the first three plays and the help overlay works 
   h.api.retireMinigame();
   assert.equal(h.get('mgHelpOverlay').classList.contains('hidden'), true, 'ending the game closes the help');
 });
+
+// パッドを ゆびで なぞる うごきを 再現する(pointerId 1、1回の move ごとに clock を すすめる)
+function padDrag(h, pad, moves, { id = 1, start = [150, 150], gapMs = 16, release = true } = {}) {
+  let [x, y] = start;
+  h.dispatch(pad.el, 'pointerdown', { pointerId: id, clientX: x, clientY: y });
+  for (const [dx, dy, ms] of moves) {
+    h.advance(ms ?? gapMs);
+    x += dx; y += dy;
+    h.dispatch(pad.el, 'pointermove', { pointerId: id, clientX: x, clientY: y });
+  }
+  if (release) { h.advance(gapMs); h.dispatch(pad.el, 'pointerup', { pointerId: id, clientX: x, clientY: y }); }
+  return [x, y];
+}
+
+test('steps pad fires the moment a direction is clear, once per flick, without waiting for release', () => {
+  const h = harness();
+  const host = h.document.createElement('div');
+  const steps = [];
+  const pad = h.api.createTouchPad(host, { mode: 'steps', triggerPx: 9, repeatPx: 26, onStep: (dx, dy) => steps.push([dx, dy]) });
+  // 12px の みじかい フリック: はなす まえに 1マス、はなしても 2マスめは 出ない
+  padDrag(h, pad, [[4, 1], [4, 0], [4, 1]], { release: false });
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'step fires before the finger lifts');
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 162, clientY: 152 });
+  assert.equal(steps.length, 1, 'release adds nothing after an immediate step');
+  // 60px の はやい フリックでも 1マスだけ
+  steps.length = 0;
+  padDrag(h, pad, [[15, 0, 8], [15, 0, 8], [15, 0, 8], [15, 0, 8]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'a fast 60px flick is one input');
+  // 右へ なぞって そのまま 上へ: ゆびを はなさずに 2つの 入力
+  steps.length = 0;
+  padDrag(h, pad, [[6, 0], [6, 0], [0, -6], [0, -6]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0], [0, -1]], 'right then up without lifting');
+  // 7px の ごく みじかい フリックは はなした ときに ひろう
+  steps.length = 0;
+  padDrag(h, pad, [[7, 0]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'a tiny flick still counts on release');
+  // ななめ 45° ちかくは まよい、しゅじくが はっきりしたら 出る
+  steps.length = 0;
+  padDrag(h, pad, [[5, 5], [5, 4], [0, -0]], { release: false });
+  assert.equal(steps.length, 0, 'ambiguous diagonal waits');
+  h.advance(16); h.dispatch(pad.el, 'pointermove', { pointerId: 1, clientX: 168, clientY: 159 });
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'resolves to the dominant axis once clear');
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 168, clientY: 159 });
+  // とまってから おなじ むきへ もう 1かい なぞると 2かいめの 入力
+  steps.length = 0;
+  padDrag(h, pad, [[10, 0], [10, 0, 200]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0], [1, 0]], 'a pause separates two flicks in the same direction');
+  // pointerup が きえても つぎの ゆびで うごく
+  steps.length = 0;
+  h.dispatch(pad.el, 'pointerdown', { pointerId: 7, clientX: 100, clientY: 100 });
+  padDrag(h, pad, [[10, 0]], { id: 8 });
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'a new finger takes over a stale pointer');
+  assert.equal(pad.active, false);
+});
+
+test('turn-based steps pad needs a longer drag for the second cell in the same direction', () => {
+  const h = harness();
+  const host = h.document.createElement('div');
+  const steps = [];
+  const pad = h.api.createTouchPad(host, { mode: 'steps', triggerPx: 14, repeatPx: 40, repeatMs: 220, onStep: (dx, dy) => steps.push([dx, dy]) });
+  padDrag(h, pad, [[10, 0], [10, 0], [10, 0], [10, 0], [10, 0]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0]], 'a 50px flick moves one cell');
+  steps.length = 0;
+  padDrag(h, pad, [[10, 0, 60], [10, 0, 60], [10, 0, 60], [10, 0, 60], [10, 0, 60], [10, 0, 60]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(steps)), [[1, 0], [1, 0]], 'a long deliberate drag repeats');
+});
+
+test('delta pad glides at the pad edge while pushing outward and stops when the finger comes back', () => {
+  const h = harness();
+  const host = h.document.createElement('div');
+  let x = 0, y = 0;
+  const pad = h.api.createTouchPad(host, { mode: 'delta', gainY: 1.5, glide: { speed: 260, ramp: 350 }, onDelta: (dx, dy) => { x += dx; y += dy; } });
+  // まんなかで うごかしても グライドは しない(そのままの px、たては gainY ばい)
+  padDrag(h, pad, [[10, 4]], { release: false, start: [150, 150] });
+  assert.equal(x, 10); assert.equal(y, 6);
+  assert.equal(pad.gliding, false);
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 160, clientY: 154 });
+  // みぎはし(300px はば の 290)へ おしつけて とめる → うごきつづける
+  x = 0; y = 0;
+  padDrag(h, pad, [[5, 0]], { release: false, start: [287, 150] });
+  assert.equal(pad.gliding, true, 'glide starts at the edge while pushing outward');
+  const before = x;
+  h.advance(200);
+  const early = x - before;
+  assert.ok(early > 5 && early < 40, `ramps up slowly at first: ${early}`);
+  h.advance(1000);
+  const late = x - before - early;
+  assert.ok(late > 180, `reaches full speed: ${late}`);
+  assert.equal(y, 0, 'no vertical glide when only the right edge is touched');
+  // すこし もどすと とまる
+  h.dispatch(pad.el, 'pointermove', { pointerId: 1, clientX: 284, clientY: 150 });
+  assert.equal(pad.gliding, false, 'moving back cancels');
+  const stopped = x; h.advance(300);
+  assert.equal(x, stopped, 'nothing moves after cancel');
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 284, clientY: 150 });
+  // はなすと とまる
+  padDrag(h, pad, [[0, 5]], { release: false, start: [150, 287] });
+  assert.equal(pad.gliding, true);
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 150, clientY: 292 });
+  assert.equal(pad.gliding, false);
+  const y0 = y; h.advance(500);
+  assert.equal(y, y0, 'release stops the glide');
+  // glide:false なら はしでも うごかない
+  const plain = h.api.createTouchPad(host, { mode: 'delta', glide: false, onDelta: () => {} });
+  padDrag(h, plain, [[5, 0]], { release: false, start: [287, 150] });
+  assert.equal(plain.gliding, false);
+});
