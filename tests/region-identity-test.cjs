@@ -167,7 +167,7 @@ test('mountain climbing responds to grip timing, reaches the summit and awards o
   const area=h.get('minigameOverlay');
   assert.match(area.innerHTML,/岩場のぼり/);
   const score=area.querySelector('#climbScore'),action=area.querySelector('#climbGo');
-  h.dispatch(action,'pointerdown');assert.match(score.textContent,/0\/12/,'opening input must not climb');
+  h.dispatch(action,'pointerdown');assert.match(score.textContent,/0\/10/,'opening input must not climb');
   // Play from the visible timing meter, independent of the private phase formula.
   for(let frame=0;frame<2400 && s.lifetime.minigamesPlayed===before;frame++) {
     h.advance(16);
@@ -176,7 +176,7 @@ test('mountain climbing responds to grip timing, reaches the summit and awards o
     if(marker>left+width*.35 && marker<left+width*.65) h.dispatch(action,'pointerdown');
   }
   assert.equal(s.lifetime.minigamesPlayed,before+1);
-  assert.match(score.textContent,/12\/12/);
+  assert.match(score.textContent,/10\/10/);
   const record=s.lifetime.minigameRecords['downhill-mountain'];
   assert.ok(record.best>=75,JSON.stringify(record));
   const money=s.lifetime.money;h.dispatch(action,'pointerdown');h.advance(5000);
@@ -194,7 +194,7 @@ test('climbing misses and retirement do not award a completed game',()=>{
     h.advance(16);
     if(parseFloat(area.querySelector('#climbMarker').style.left)<5)h.dispatch(area.querySelector('#climbGo'),'pointerdown');
   }
-  assert.match(area.querySelector('#climbScore').textContent,/0\/12/);
+  assert.match(area.querySelector('#climbScore').textContent,/0\/10/);
   assert.match(area.querySelector('#climbHint').textContent,/休憩|つかみ/);
   h.api.retireMinigame();h.advance(60000);
   assert.equal(s.lifetime.minigamesPlayed,before);

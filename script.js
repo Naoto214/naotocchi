@@ -2637,14 +2637,17 @@
     const m = minigameDifficultyMode();
     return m === 'easy' ? 1 : m === 'hard' ? 0 : 0.5;
   }
-  // せいげん時間: やさしい +35% / ふつう +17% / むずかしい そのまま
-  // 「みじかめ」せっていは 90びょう いじょうの ゲームだけ 6わりの ながさに する
+  // せいげん時間: やさしい +20% / ふつう・むずかしい そのまま(mgDuration)
+  // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する
   function minigameLengthMode() {
     return GAME_LENGTH_CHOICES[state.lifetime.minigameLength] ? state.lifetime.minigameLength : 'normal';
   }
   function mgDuration(ms) {
-    const short = minigameLengthMode() === 'short' && ms >= 90000 ? 0.6 : 1;
-    return Math.round(ms * (1 + 0.35 * minigameEase()) * short);
+    // サクッと あそべる ながさに: ふつう/むずかしい は そのまま、やさしい だけ +20%。
+    // 「みじかめ」せっていは 20びょう いじょうの ゲームを 7わりの ながさに する
+    const short = minigameLengthMode() === 'short' && ms >= 20000 ? 0.7 : 1;
+    const ease = minigameDifficultyMode() === 'easy' ? 1.2 : 1;
+    return Math.round(ms * ease * short);
   }
   function ageDifficulty() {
     const m = minigameDifficultyMode();
@@ -2796,7 +2799,9 @@
   // 入力に する。パッドの はしに ついても、ゆびを はなして おきなおせば
   // おなじ むきに すすみつづけられる(おきなおしでは なにも うごかない)。
   //  mode 'vector': うごかしている あいだ その むきに うごく(はなすと とまる)。
-  //                 sticky なら ゆびが とまっても はなすまで むきを たもつ
+  //                 sticky なら ゆびが とまっても はなすまで むきを たもつ。
+  //                 むきは net で 8px うごいた ぶんから きめる(とめる ときの ぶれで かわらない)。
+  //                 dominant で 4ほうこう スナップ
   //  mode 'steps' : うごきの むきが きまった しゅんかんに 1マス(はなすのを またない)。
   //                 みじかい フリックも 1マス、なぞりつづければ むきを すぐ かえられる
   //  mode 'delta' : うごいた px を そのまま わたす(ゲームがわで ばいりつを かける)。
@@ -2826,6 +2831,12 @@
     // そちらへ おしつづけている あいだだけ、ゆっくり はじまり ramp ms で speed px/s
     // まで はやくなる うごきを たす。もどす・はなすと すぐ とまる。glide:false で なし
     const glide = mode === 'delta' && opts.glide !== false ? Object.assign({ margin: 14, speed: 260, ramp: 350, backPx: 6 }, opts.glide || {}) : null;
+    // vector: むきは「さいごの 1イベントの むき」ではなく、まえの きめてから net で
+    // DIR_PX うごいた ぶんの むき。ゆびを とめる ときの 1〜2px の ぶれでは むきが
+    // かわらない(ぶれは うちけしあって net が たまらない)。dominant なら 4ほうこうに
+    // スナップし、いまの じくを ゆうせん(もう いっぽうの じくが 1.3ばい つよいときだけ かわる)
+    const snap4 = !!opts.dominant;
+    const DIR_PX_FIRST = 4, DIR_PX = 8, VEC_PAUSE_MS = 120;
     const ZERO = { x: 0, y: 0 };
     const pad = document.createElement('div');
     pad.className = 'mg-pad mg-pad-' + mode + (opts.className ? ' ' + opts.className : '');
@@ -2960,7 +2971,7 @@
       let rect = null;
       try { rect = pad.getBoundingClientRect(); } catch (err) { rect = null; }
       const now = performance.now();
-      ptr = { id: e.pointerId, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, t0: now, accX: 0, accY: 0, stepped: false, moved: 0, recent: [], lastDir: null, lastStepAt: 0, lastMoveAt: now, rect };
+      ptr = { id: e.pointerId, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, t0: now, accX: 0, accY: 0, stepped: false, moved: 0, recent: [], lastDir: null, lastStepAt: 0, lastMoveAt: now, segX: 0, segY: 0, rect };
       try { if (e.pointerId != null && pad.setPointerCapture) pad.setPointerCapture(e.pointerId); } catch (err) {}
       pad.classList.add('active');
       moveDot(0, 0);
@@ -2978,8 +2989,24 @@
       if (mode === 'delta') updateGlide(e, dx, dy);
       if (d < 0.5) return;
       emitDelta(dx, dy);
-      if (mode !== 'steps') { setVec(dx / d, dy / d); if (typeof opts.onVector === 'function') opts.onVector(vec.x, vec.y, d); }
-      else judgeStep(dx, dy, performance.now());
+      if (mode === 'steps') { judgeStep(dx, dy, performance.now()); return; }
+      const now = performance.now();
+      if (now - ptr.lastMoveAt > VEC_PAUSE_MS) { ptr.segX = 0; ptr.segY = 0; }
+      ptr.lastMoveAt = now;
+      ptr.segX += dx; ptr.segY += dy;
+      const sd = Math.hypot(ptr.segX, ptr.segY);
+      const has = vec.x !== 0 || vec.y !== 0;
+      if (sd >= (has ? DIR_PX : DIR_PX_FIRST)) {
+        let nx = ptr.segX / sd, ny = ptr.segY / sd;
+        if (snap4) {
+          const ax = Math.abs(nx), ay = Math.abs(ny);
+          let useX = ax >= ay;
+          if (vec.x && !vec.y && ay < ax * 1.3) useX = true; else if (vec.y && !vec.x && ax < ay * 1.3) useX = false;
+          nx = useX ? Math.sign(nx) : 0; ny = useX ? 0 : Math.sign(ny);
+        }
+        setVec(nx, ny); ptr.segX = 0; ptr.segY = 0;
+      } else if (has && dx * vec.x + dy * vec.y > 0) setVec(vec.x, vec.y); // おなじ むきへ うごきつづけている あいだは いきている
+      if (typeof opts.onVector === 'function') opts.onVector(vec.x, vec.y, d);
     });
     const release = (e) => {
       if (!ptr || (e && e.pointerId != null && e.pointerId !== ptr.id)) return;
@@ -13836,9 +13863,9 @@
     'chain-puzzle': { name: 'れんさパズル', emoji: '🔮', desc: '色玉を4こつなげて消そう。' },
     'street-fight': { name: 'かくとうバトル', emoji: '🥊', desc: 'パンチ・キック・ガードでライバルをたおせ。' },
     'free-kick-3d': { name: 'フリーキック', emoji: '⚽', desc: 'かべとキーパーをこえて、ゴールへ。' },
-    'tower-defense': { name: 'タワーディフェンス', emoji: '🏰', desc: 'お城を6ウェーブ守りきれ。' },
-    'roguelike-dungeon': { name: 'ローグライク', emoji: '⚔️', desc: 'ダンジョンを3階降りて脱出。' },
-    'grand-prix-3d': { name: 'グランプリ', emoji: '🏁', desc: 'ライバル5台と3周レース。' },
+    'tower-defense': { name: 'タワーディフェンス', emoji: '🏰', desc: 'お城を4ウェーブ守りきれ。' },
+    'roguelike-dungeon': { name: 'ローグライク', emoji: '⚔️', desc: 'ダンジョンを2階降りて脱出。' },
+    'grand-prix-3d': { name: 'グランプリ', emoji: '🏁', desc: 'ライバル5台と2周レース。' },
     'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'たくさんの弾をかわして、ボスをたおせ。' },
     'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: '走って飛んで、旗まで。' },
     'push-puzzle': { name: 'そうこばん', emoji: '📦', desc: '箱をおして★へ。' },
@@ -13855,7 +13882,7 @@
     'puzzle-2048': { name: '2048', emoji: '🔢', desc: '同じ数を合わせて、大きくしよう。' },
     'frogger-road': { name: 'かえるのおうちがえり', emoji: '🐸', desc: '道路と川をわたって、おうちへ。' },
     'ski-jump': { name: 'スキージャンプ', emoji: '⛷️', desc: '飛び出しと前かがみで、遠くへ。' },
-    'air-hockey': { name: 'エアホッケー', emoji: '🏒', desc: 'パックをはじいて、先に5点。' },
+    'air-hockey': { name: 'エアホッケー', emoji: '🏒', desc: 'パックをはじいて、先に4点。' },
     'submarine-3d': { name: 'サブマリン3D', emoji: '🐙', desc: '深い海でお宝をさがせ。' },
     'match-3': { name: 'フルーツマッチ3', emoji: '🍓', desc: '入れかえて、そろえて消す。' },
     'gomoku-9': { name: '五目ならべ', emoji: '⚪', desc: '5つならべて、相手に勝とう。' },
@@ -13898,15 +13925,15 @@
     'stack-sakura': { name: 'さくらタワー', emoji: '🌸', desc: '花びらをそっと重ねよう。' },
     'ring-flight-summer': { name: 'なつのうみフライト', emoji: '🌅', desc: '夕焼けのリングをくぐれ。' },
     'stack-leaves': { name: 'おちばタワー', emoji: '🍂', desc: '落ち葉の山を高くつもう。' },
-    'curling-winter': { name: 'ふゆのカーリング大会', emoji: '🥌', desc: '5こずつで勝負。' },
+    'curling-winter': { name: 'ふゆのカーリング大会', emoji: '🥌', desc: '4こずつで勝負。' },
     'dot-eater': { name: 'ドットイーター', emoji: '👻', desc: 'ドットを全部食べて、おばけからにげろ。' },
     'missile-command': { name: 'ミサイルコマンド', emoji: '🚀', desc: 'タップで迎え打って、町を守れ。' },
-    'area-claim': { name: 'じんとり', emoji: '🟪', desc: '線を引いてかこんで、75%取れ。' },
+    'area-claim': { name: 'じんとり', emoji: '🟪', desc: '線を引いてかこんで、60%取れ。' },
     'solitaire-klondike': { name: 'ソリティア', emoji: '🃏', desc: '4つの台にAからKまでそろえよう。' },
     'hit-blow': { name: 'ヒット&ブロー', emoji: '🎯', desc: 'かくれた4色のならびを当てろ。' },
     'lunar-lander': { name: 'ルナランダー', emoji: '🌙', desc: '逆噴射でやさしく着陸。' },
     'shanghai-tiles': { name: '上海', emoji: '🀄', desc: '同じ絵の牌を2枚ずつ取ってくずせ。' },
-    'beach-volley': { name: 'ビーチバレー', emoji: '🏐', desc: 'うけて上げてスパイク。先に7点。' },
+    'beach-volley': { name: 'ビーチバレー', emoji: '🏐', desc: 'うけて上げてスパイク。先に5点。' },
     'slide-puzzle': { name: 'スライドパズル', emoji: '🧩', desc: 'ピースをすべらせて、絵を完成させよう。' },
     'sugoroku-race': { name: 'すごろく', emoji: '🎲', desc: 'サイコロをねらって止めて、先にゴール。' },
     'takoyaki-grill': { name: 'たこやきやさん', emoji: '🐙', desc: 'ちょうどいい焼き具合で、返して取れ。' },
@@ -13937,7 +13964,7 @@
     "mini-golf-physics": "ボールから後ろへ引っぱって、はなすとパット。引っぱる長さで強さが決まる。",
     "real-fishing": "ボタンを長おしでためて、はなすとキャスト。うきがしずんだら「あわせる」!",
     "basketball-3d": "ボールを上へはらってシュート。はらう長さと速さで、飛ぶ距離が変わる。バックボードに当ててもOK。",
-    "pingpong-3d": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に5点取ろう!",
+    "pingpong-3d": "画面をなぞってラケットを動かす。ボールが来た場所にラケットを置くと返せる。先に4点取ろう!",
     "chain-puzzle": "したのパッドを左右になぞって動かし、タップで回転、下になぞると速く落ちる。同じ色を4こつなげると消える。消えたあとに落ちてつながれば、れんさ!",
     "street-fight": "したのパッドを左右になぞって動く。パンチは速い。キックは強くて、相手をふき飛ばす。相手が光ったらガード（長おし）!",
     "free-kick-3d": "ボールから上へはらってシュート。速くはらうほど強く、ななめにはらうとねらいが変わる。途中で曲げるとカーブ!",
@@ -13960,7 +13987,7 @@
     "puzzle-2048": "したのパッドか画面をスワイプすると、全部のタイルがすべる。同じ数がぶつかると、足されて1つに。大きい数を角にためるのがコツ。",
     "frogger-road": "したのパッドか画面をスワイプして1マス飛ぶ（パッドのタップで前へ）。車に当たらないように道路をわたろう。川は🪵の上だけ安全。空いている🏠へ!",
     "ski-jump": "ボタンでスタート。台のはし（赤い線）でタップして飛び出す!空中では長おしで前かがみになり、風の目印（▽）に重ねよう。着地直前にタップでテレマーク。",
-    "air-hockey": "下半分で指を動かすとマレットがついてくる。パックをはじいて上のゴールへ!自分のゴールも守ろう。先に5点取ったら勝ち。",
+    "air-hockey": "下半分で指を動かすとマレットがついてくる。パックをはじいて上のゴールへ!自分のゴールも守ろう。先に4点取ったら勝ち。",
     "submarine-3d": "したのパッドか画面をなぞって潜水艦を動かす。💎を取り、岩やクラゲはよける。酸素メーターが減ったら🫧を取ろう。",
     "match-3": "となり合うフルーツを、スワイプか2回のタップで入れかえる。たて・横に3つ以上そろうと消える。4つ・5つや、れんさで大きくかせごう。",
     "gomoku-9": "マスをタップすると仮置き。同じ場所をもう一度タップで決定。たて・横・ななめに5つならべたら勝ち。相手の3つ・4つならびはふさごう。",
@@ -13974,7 +14001,7 @@
     "pipe-connect": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
     "fruit-slice": "指で素早くなぞってフルーツを切る!1回のスワイプで何こも切るとコンボ。💣を切るとライフが減る。落としすぎにも注意。",
     "track-field": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
-    "voxel-mine": "したのパッドをなぞった向きにほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+    "voxel-mine": "したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
     "sushi-belt": "上の「注文」と同じネタのお皿を、レーンからタップして取る。ちがうお皿や🌶わさびはペナルティ。早くそろえるとボーナス。",
     "asteroids-classic": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
     "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",
@@ -13992,12 +14019,12 @@
     "plane-landing": "したのパッドか画面をたてになぞって機首を上げ下げ。緑の線を目安に、滑走路の⬛へふわっと降りよう。風で浮きしずみするよ。",
     "dot-eater": "したのパッドか画面をスワイプして進む。ドットを全部食べよう。⭐を食べると、6秒間はおばけを食べ返せる!",
     "missile-command": "空をタップすると、一番近い基地から迎撃ミサイルが飛ぶ。爆発の輪に敵のミサイルをまきこんで、町を守れ!基地の弾はウェーブごとに補給される。",
-    "area-claim": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。75%取ればクリア。✨が線にふれると1ミス。",
+    "area-claim": "したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。60%取ればクリア。✨が線にふれると1ミス。",
     "solitaire-klondike": "カードをタップで選び、置きたい列か右上の台をタップ。選んだカードをもう1回タップすると台へ。山札はタップでめくる。",
     "hit-blow": "答えは6色のうち4色（同じ色は2つない）。色を4つ選んで「けってい」。🎯ヒット＝色も場所も当たり。💨ブロー＝色はあるけど場所がちがう。",
     "lunar-lander": "したのパッドを左右になぞってかたむけ、🔥で逆噴射。平らなパッド（×2/×3）に、まっすぐ、ゆっくり降りよう。速すぎたり、ななめだとクラッシュ。",
     "shanghai-tiles": "上に牌がなく、左か右が空いている牌だけ取れる。同じ絵の2枚をタップして消そう。必ず解ききれるならびになっている。",
-    "beach-volley": "したのパッドを左右になぞって動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に7点取ろう。",
+    "beach-volley": "したのパッドを左右になぞって動いてボールの下へ。ふれると高く上がる（うけ）。🏐アタックをおしながらふれると、相手のコートへスパイク!先に5点取ろう。",
     "slide-puzzle": "空いたマスのとなりのピースを、タップかスワイプですべらせる。左上から順番にならべて、絵を完成させよう。",
     "sugoroku-race": "「🎲とめる」をおすと、回っているサイコロが止まる。ねらって止めよう!➕は進む、➖はもどる、⭐はコイン、💤は1回休み。先にゴールへ!",
     "takoyaki-grill": "きつね色（緑のゾーン）になったら、タップでひっくり返す。裏もきつね色になったら、タップで取り出す。早いと生、おそいとこげ!",
