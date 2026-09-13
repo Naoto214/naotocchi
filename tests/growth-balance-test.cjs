@@ -39,15 +39,20 @@ test('an S-rank result grants a growth boost that doubles growth and decays per 
   assert.equal(h.api.grantGrowthBoost(1000), 200, 'the boost is capped at 10 minutes');
 });
 
-test('the short game-length setting only shortens games of 90 seconds or more', () => {
+test('game length: normal difficulty runs at face value, easy adds 20%, short mode trims games of 20s or more', () => {
   const h = harness(), state = h.api.state();
-  state.lifetime.minigameDifficulty = 'hard';
   state.lifetime.minigameLength = 'normal';
-  assert.equal(h.api.mgDuration(60000), 60000);
-  assert.equal(h.api.mgDuration(150000), 150000);
+  state.lifetime.minigameDifficulty = 'normal';
+  assert.equal(h.api.mgDuration(30000), 30000, 'normal no longer inflates the limit');
+  state.lifetime.minigameDifficulty = 'hard';
+  assert.equal(h.api.mgDuration(30000), 30000);
+  state.lifetime.minigameDifficulty = 'easy';
+  assert.equal(h.api.mgDuration(30000), 36000, 'easy is 20% longer');
+  state.lifetime.minigameDifficulty = 'normal';
   state.lifetime.minigameLength = 'short';
-  assert.equal(h.api.mgDuration(60000), 60000, 'short games are untouched');
-  assert.equal(h.api.mgDuration(150000), 90000, 'long games run at 60%');
+  assert.equal(h.api.mgDuration(16000), 16000, 'very short games are untouched');
+  assert.equal(h.api.mgDuration(30000), 21000, 'short mode runs at 70%');
+  assert.equal(h.api.mgDuration(90000), 63000);
   assert.ok(Object.keys(h.api.GAME_LENGTH_CHOICES).includes('short'));
 });
 

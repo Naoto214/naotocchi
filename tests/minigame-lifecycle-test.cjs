@@ -160,10 +160,10 @@ function initialBodyHint(view) {
 test('first-play instructions include each dynamic goal needed to finish the game', async (t) => {
   const cases = [
     ['tilt-maze-3d', /ゴールへ/],
-    ['pingpong-3d', /先に5点/],
+    ['pingpong-3d', /先に4点/],
     ['sudoku-mini', /4×4.*6×6/, /4×4.*1〜4/],
-    ['area-claim', /75%/],
-    ['beach-volley', /先に7点/],
+    ['area-claim', /60%/],
+    ['beach-volley', /先に5点/],
   ];
   const h = harness();
   for (const [id, goal, bodyGoal = goal] of cases) await t.test(id, () => {

@@ -98,8 +98,8 @@ test('illustrated roads keep input, timing, score and saved rewards identical in
 test('all memory-card faces stay distinct and full completion keeps the same pairs, score and rewards',()=>{
   function play(propIllustrations,hard){
     const r=start('memory-cards',{propIllustrations,constantRandom:true,ageTicks:hard?1200:500}),h=r.h;
-    const c=h.get('minigameOverlay'),canvas=c.querySelector('#mcCanvas'),pairs=hard?10:8;
-    canvas.getBoundingClientRect=()=>({left:0,top:0,width:300,height:hard?375:300});
+    const c=h.get('minigameOverlay'),canvas=c.querySelector('#mcCanvas'),pairs=8;
+    canvas.getBoundingClientRect=()=>({left:0,top:0,width:300,height:300});
     const tap=(i)=>h.dispatch(canvas,'pointerdown',{clientX:(i%4+.5)*75,clientY:(Math.floor(i/4)+.5)*75});
     h.advance(300);
     for(let i=0;i<pairs;i++){tap(i);h.advance(280);tap(i+pairs);h.advance(380);}
