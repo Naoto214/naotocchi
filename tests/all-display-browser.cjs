@@ -275,7 +275,7 @@ module.exports = async function checkAllDisplay(browser, engine, fixtures, baseU
       await page.locator('#displayCatalogAudit').evaluate(section => section.remove());
 
       for (const [id, canvas, control] of [
-        ['road-themed','lrCanvas','lrLeft'], ['slide-puzzle','spCanvas','spPeek'],
+        ['road-themed','lrCanvas','lrCanvas'], ['slide-puzzle','spCanvas','spPeek'],
         ['race-3d','rcCanvas','rcAccel'], ['jump-quest','jqCanvas','jqJump'],
       ]) {
         await page.evaluate(id => { globalThis.__displayCanvasAudit.phase = id; }, id);
@@ -287,8 +287,10 @@ module.exports = async function checkAllDisplay(browser, engine, fixtures, baseU
           await audit(page, id + '-intro'); await page.locator('#mgIntroStart').click();
         }
         await page.locator('#' + canvas).waitFor({state:'visible'});
-        // Held controls remain down across the app's brief action-start grace.
-        await page.locator('#' + control).click({delay:800});
+        // Road now selects a lane by tapping the canvas. Other games keep
+        // their held controls down across the app's action-start grace.
+        await page.locator('#' + control).click({delay:800,
+          ...(control === canvas ? {position:{x:10,y:10}} : {})});
         await page.waitForFunction(canvas => globalThis.__displayCanvasAudit.draws[canvas] > 0, canvas);
         await audit(page, id, '#device', id === 'slide-puzzle' || id === 'race-3d');
         await page.locator('#mgHelpBtn').click(); await audit(page, id + '-help');

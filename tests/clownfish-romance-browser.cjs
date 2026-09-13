@@ -40,7 +40,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.screenshot({path:path.join(output,label+'-profile.png')});
       const stored=await page.evaluate(()=>JSON.parse(localStorage.getItem('naotocchi-save-v1')));
       assert.equal(stored.gender,afterGender);
-      assert.deepEqual(stored.attractedTo,targets);
+      // Saving normalizes target order; the identities must remain unchanged.
+      assert.deepEqual([...stored.attractedTo].sort(),[...targets].sort(),label+': saved attraction targets changed');
       if (name==='gay') {
         assert.equal(stored.partner.id,save.partner.id);
         assert.equal(stored.partner.married,true);

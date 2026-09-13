@@ -1,0 +1,361 @@
+{
+  "base": "dac247a518059f189d1360f3766bdd834fc8afff",
+  "checkedStages": 16,
+  "replacedImages": 14,
+  "otherCharacterImagesUnchanged": 283,
+  "browserVerified": false,
+  "images": [
+    {
+      "path": "assets/characters/beetle/01.png",
+      "sha256": "5a6a4417d0d9de0f777bcf823ede9624aca9e619c9b6cbe9569fa275de394c36",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        28,
+        51,
+        100,
+        120
+      ],
+      "opaqueColors": 60,
+      "opaquePixels": 3179,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/02.png",
+      "sha256": "179f5d6eba2400ded0bf9da875819cc3b6b4857de53acf40e427236891ecd05f",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        12,
+        65,
+        116,
+        120
+      ],
+      "opaqueColors": 60,
+      "opaquePixels": 3580,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/03.png",
+      "sha256": "ef7fd39c3e1bbe09db4289caf0395fc48f2fb8e1cf7866ead31e2b1b9b1e3014",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        9,
+        10,
+        118,
+        120
+      ],
+      "opaqueColors": 62,
+      "opaquePixels": 7807,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/04.png",
+      "sha256": "bfd43c935eea738755e827c43b5ca9947f9cce83a81571a56c9569c9cfdb056c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        30,
+        14,
+        98,
+        120
+      ],
+      "opaqueColors": 57,
+      "opaquePixels": 4433,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/05.png",
+      "sha256": "854279f1249fa1a6730f9fbc4a18e71340af608980d06c9ab21a74e698a8e605",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        14,
+        43,
+        114,
+        120
+      ],
+      "opaqueColors": 61,
+      "opaquePixels": 3479,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/06.png",
+      "sha256": "44a6cb80fd614fb1ae817c1f8d05ab4af11fff90ae9a0787c38f43ae4a043d7f",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        10,
+        41,
+        118,
+        120
+      ],
+      "opaqueColors": 62,
+      "opaquePixels": 3652,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/07.png",
+      "sha256": "314f73a2d7bceaf1f1fbe7c28b5245250b4b830a4eaee62326cca95c104cf8b3",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        8,
+        35,
+        120,
+        120
+      ],
+      "opaqueColors": 59,
+      "opaquePixels": 4484,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/beetle/08.png",
+      "sha256": "91bb7c3003a14557c6c6587ef8e9c24fdecc6567da078abaa000336ae897c47b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        10,
+        43,
+        118,
+        120
+      ],
+      "opaqueColors": 61,
+      "opaquePixels": 5455,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/01.png",
+      "sha256": "dc7b2c02c015f46d96ac666f1f9fe4656432fc891c4db9eaee259abb3d4289cd",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        35,
+        52,
+        92,
+        120
+      ],
+      "opaqueColors": 62,
+      "opaquePixels": 2452,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 4,
+      "changed": false
+    },
+    {
+      "path": "assets/characters/stagbeetle/02.png",
+      "sha256": "a19551194090c3442a69d9aa8311c3a9b3b3277ded55fa4903956f5bb6705d15",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        11,
+        76,
+        117,
+        120
+      ],
+      "opaqueColors": 60,
+      "opaquePixels": 3528,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/03.png",
+      "sha256": "d6a91f216bdca35bcf252819995760106865725093de0b826e833f7b9cbd13db",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        18,
+        12,
+        110,
+        120
+      ],
+      "opaqueColors": 63,
+      "opaquePixels": 6263,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 4,
+      "changed": false
+    },
+    {
+      "path": "assets/characters/stagbeetle/04.png",
+      "sha256": "f16f819505567e5293625639a4ae0ac1a684089a0f9864b8aff5e265cf75b7f2",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        28,
+        14,
+        99,
+        120
+      ],
+      "opaqueColors": 60,
+      "opaquePixels": 5225,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/05.png",
+      "sha256": "9570f348ca138e3724ed8bb7d0b8d2406aadfd937572d230eabd273680cd3c87",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        14,
+        36,
+        114,
+        120
+      ],
+      "opaqueColors": 62,
+      "opaquePixels": 4308,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/06.png",
+      "sha256": "4a90fcdc68e99f2a3056de262399d7692be66ebb8968a9ce200fd463290132b9",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        10,
+        52,
+        118,
+        120
+      ],
+      "opaqueColors": 61,
+      "opaquePixels": 2562,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/07.png",
+      "sha256": "c31a4eed6e1cc942248c4f0a00eff2e626b0b89a92c7656ef7a244719f973251",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        8,
+        47,
+        120,
+        120
+      ],
+      "opaqueColors": 62,
+      "opaquePixels": 3775,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    },
+    {
+      "path": "assets/characters/stagbeetle/08.png",
+      "sha256": "453c6bd38f1a08375a5ac571e6311349d7c83603c7ccdc10743b0ef889915eb1",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA",
+      "bitDepth": 8,
+      "bbox": [
+        10,
+        53,
+        118,
+        120
+      ],
+      "opaqueColors": 61,
+      "opaquePixels": 4845,
+      "alphaValues": [
+        0,
+        255
+      ],
+      "crcChunks": 3,
+      "changed": true
+    }
+  ]
+}

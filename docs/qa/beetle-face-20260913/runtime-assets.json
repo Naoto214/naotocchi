@@ -1,0 +1,134 @@
+{
+  "kind": "Existing runtime harness; substituted DOM, not browser rendering",
+  "checked": 16,
+  "results": [
+    {
+      "species": "beetle",
+      "stage": 1,
+      "age": 0,
+      "asset": "assets/characters/beetle/01.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 2,
+      "age": 3,
+      "asset": "assets/characters/beetle/02.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 3,
+      "age": 7,
+      "asset": "assets/characters/beetle/03.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 4,
+      "age": 12,
+      "asset": "assets/characters/beetle/04.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 5,
+      "age": 16,
+      "asset": "assets/characters/beetle/05.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 6,
+      "age": 22,
+      "asset": "assets/characters/beetle/06.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 7,
+      "age": 40,
+      "asset": "assets/characters/beetle/07.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "beetle",
+      "stage": 8,
+      "age": 70,
+      "asset": "assets/characters/beetle/08.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 1,
+      "age": 0,
+      "asset": "assets/characters/stagbeetle/01.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 2,
+      "age": 3,
+      "asset": "assets/characters/stagbeetle/02.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 3,
+      "age": 7,
+      "asset": "assets/characters/stagbeetle/03.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 4,
+      "age": 12,
+      "asset": "assets/characters/stagbeetle/04.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 5,
+      "age": 16,
+      "asset": "assets/characters/stagbeetle/05.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 6,
+      "age": 22,
+      "asset": "assets/characters/stagbeetle/06.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 7,
+      "age": 40,
+      "asset": "assets/characters/stagbeetle/07.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    },
+    {
+      "species": "stagbeetle",
+      "stage": 8,
+      "age": 70,
+      "asset": "assets/characters/stagbeetle/08.png",
+      "homeRendered": true,
+      "dexDetailRendered": true
+    }
+  ]
+}
