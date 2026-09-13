@@ -6261,7 +6261,7 @@
           <div class="mg-hint" id="tkHint">したのパッドをなぞった向きに動き、🔥で発射（画面タップでもOK）。向いている方へ弾が飛ぶ。レンガのかべは、こわして道を作れる。</div>
           `;
         const canvas = container.querySelector('#tkCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="tkFire" data-key="action">🔥</button>`);
+        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn mg-hold-btn primary" id="tkFire" data-key="action">🔥</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
         const timerEl = container.querySelector('#tkTimer'), scoreEl = container.querySelector('#tkScore'), hint = container.querySelector('#tkHint');
@@ -6710,7 +6710,7 @@
           <div class="mg-hint" id="bmHint">したのパッドをなぞった向きに動き、💣（画面タップでもOK）でばくだんを置く。2秒で十字に爆発!自分もまきこまれるので、はなれよう。レンガからあいてむが出る。</div>
           `;
         const canvas = container.querySelector('#bmCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn primary" id="bmBomb" data-key="action">💣</button>`);
+        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, `<button class="mg-tap-btn primary" id="bmBomb" data-key="action">💣</button>`);
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / N;
         const timerEl = container.querySelector('#bmTimer'), scoreEl = container.querySelector('#bmScore'), hint = container.querySelector('#bmHint');
@@ -7103,10 +7103,10 @@
           <div class="mg-header"><span id="vmTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="vmScore">❤️❤️❤️／0点</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="vmCanvas"></canvas></div>
-          <div class="mg-hint" id="vmHint">したのパッドをなぞった向きにほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!</div>
+          <div class="mg-hint" id="vmHint">したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!</div>
           `;
         const canvas = container.querySelector('#vmCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, '');
+        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held.left = x < -0.4; held.right = x > 0.4; held.up = y < -0.4; held.down = y > 0.4; } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, 250, { grow: true, maxGrow: 1.8 });
         const CELL = W / COLS, VIEW_ROWS = Math.ceil(H / CELL) + 2;
         const timerEl = container.querySelector('#vmTimer'), scoreEl = container.querySelector('#vmScore'), hint = container.querySelector('#vmHint');
@@ -7119,13 +7119,15 @@
         let swipe = null; canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); swipe = { x: e.clientX, y: e.clientY, id: e.pointerId }; }); canvas.addEventListener('pointermove', (e) => { if (!swipe || e.pointerId !== swipe.id) return; const dx = e.clientX - swipe.x, dy = e.clientY - swipe.y; if (Math.hypot(dx, dy) < MG_SWIPE_MIN) return; held = { up: false, down: false, left: false, right: false }; if (Math.abs(dx) > Math.abs(dy)) held[dx > 0 ? 'right' : 'left'] = true; else held[dy > 0 ? 'down' : 'up'] = true; swipe.tap = true; setTimeout(() => { held = { up: false, down: false, left: false, right: false }; }, 450); swipe = null; }); canvas.addEventListener('pointerup', () => { swipe = null; });
         function update(dt, now) {
           if (invuln > 0) invuln -= dt;
-          const dir = held.down ? [0, 1] : held.up ? [0, -1] : held.left ? [-1, 0] : held.right ? [1, 0] : null;
+          // ゆびを はなしても、ほりかけ・うつりかけの 1マスは さいごまで つづける(フリック 1かい = 1マス)
+          const dir = held.down ? [0, 1] : held.up ? [0, -1] : held.left ? [-1, 0] : held.right ? [1, 0] : (dig ? [dig.tx - px, dig.ty - py] : null);
           if (!dir) { dig = null; }
           else {
             const tx = px + dir[0], ty = py + dir[1];
             if (tx < 0 || tx >= COLS || ty < 0 || ty >= ROWS) { dig = null; }
             else if (map[ty][tx] === 0 || map[ty][tx] === 7) { // うつる
-              if (!dig || dig.tx !== tx || dig.ty !== ty || dig.move) { dig = { tx, ty, move: true, t: 0 }; }
+              // (まえは || dig.move で まいフレーム つくりなおしていて、あいている マスへ いちども うつれなかった)
+              if (!dig || dig.tx !== tx || dig.ty !== ty || !dig.move) { dig = { tx, ty, move: true, t: 0 }; }
               dig.t += dt * 6; if (dig.t >= 1) { px = tx; py = ty; dig = null; if (map[py][px] === 7) hurt(); }
             } else {
               if (!dig || dig.tx !== tx || dig.ty !== ty || dig.move) dig = { tx, ty, move: false, t: 0 };
@@ -8637,7 +8639,7 @@
           <div class="mg-hint" id="acHint">したのパッドをなぞった向きにふちを動き、中へ線を引いてかこもう。${GOAL}%取ればクリア。✨が線にふれると1ミス。</div>
           `;
         const canvas = container.querySelector('#acCanvas');
-        const { pad } = mgPad(container, { mode: 'vector', sticky: true, onVector: (x, y) => { held = { l: x < -0.4, r: x > 0.4, u: y < -0.4, d: y > 0.4 }; } }, '');
+        const { pad } = mgPad(container, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => { held = { l: x < -0.4, r: x > 0.4, u: y < -0.4, d: y > 0.4 }; } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, (w) => w);
         const CELL = W / G;
         const timerEl = container.querySelector('#acTimer'), scoreEl = container.querySelector('#acScore'), hint = container.querySelector('#acHint');

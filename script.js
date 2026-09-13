@@ -2796,7 +2796,9 @@
   // 入力に する。パッドの はしに ついても、ゆびを はなして おきなおせば
   // おなじ むきに すすみつづけられる(おきなおしでは なにも うごかない)。
   //  mode 'vector': うごかしている あいだ その むきに うごく(はなすと とまる)。
-  //                 sticky なら ゆびが とまっても はなすまで むきを たもつ
+  //                 sticky なら ゆびが とまっても はなすまで むきを たもつ。
+  //                 むきは net で 8px うごいた ぶんから きめる(とめる ときの ぶれで かわらない)。
+  //                 dominant で 4ほうこう スナップ
   //  mode 'steps' : うごきの むきが きまった しゅんかんに 1マス(はなすのを またない)。
   //                 みじかい フリックも 1マス、なぞりつづければ むきを すぐ かえられる
   //  mode 'delta' : うごいた px を そのまま わたす(ゲームがわで ばいりつを かける)。
@@ -2826,6 +2828,12 @@
     // そちらへ おしつづけている あいだだけ、ゆっくり はじまり ramp ms で speed px/s
     // まで はやくなる うごきを たす。もどす・はなすと すぐ とまる。glide:false で なし
     const glide = mode === 'delta' && opts.glide !== false ? Object.assign({ margin: 14, speed: 260, ramp: 350, backPx: 6 }, opts.glide || {}) : null;
+    // vector: むきは「さいごの 1イベントの むき」ではなく、まえの きめてから net で
+    // DIR_PX うごいた ぶんの むき。ゆびを とめる ときの 1〜2px の ぶれでは むきが
+    // かわらない(ぶれは うちけしあって net が たまらない)。dominant なら 4ほうこうに
+    // スナップし、いまの じくを ゆうせん(もう いっぽうの じくが 1.3ばい つよいときだけ かわる)
+    const snap4 = !!opts.dominant;
+    const DIR_PX_FIRST = 4, DIR_PX = 8, VEC_PAUSE_MS = 120;
     const ZERO = { x: 0, y: 0 };
     const pad = document.createElement('div');
     pad.className = 'mg-pad mg-pad-' + mode + (opts.className ? ' ' + opts.className : '');
@@ -2960,7 +2968,7 @@
       let rect = null;
       try { rect = pad.getBoundingClientRect(); } catch (err) { rect = null; }
       const now = performance.now();
-      ptr = { id: e.pointerId, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, t0: now, accX: 0, accY: 0, stepped: false, moved: 0, recent: [], lastDir: null, lastStepAt: 0, lastMoveAt: now, rect };
+      ptr = { id: e.pointerId, x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, t0: now, accX: 0, accY: 0, stepped: false, moved: 0, recent: [], lastDir: null, lastStepAt: 0, lastMoveAt: now, segX: 0, segY: 0, rect };
       try { if (e.pointerId != null && pad.setPointerCapture) pad.setPointerCapture(e.pointerId); } catch (err) {}
       pad.classList.add('active');
       moveDot(0, 0);
@@ -2978,8 +2986,24 @@
       if (mode === 'delta') updateGlide(e, dx, dy);
       if (d < 0.5) return;
       emitDelta(dx, dy);
-      if (mode !== 'steps') { setVec(dx / d, dy / d); if (typeof opts.onVector === 'function') opts.onVector(vec.x, vec.y, d); }
-      else judgeStep(dx, dy, performance.now());
+      if (mode === 'steps') { judgeStep(dx, dy, performance.now()); return; }
+      const now = performance.now();
+      if (now - ptr.lastMoveAt > VEC_PAUSE_MS) { ptr.segX = 0; ptr.segY = 0; }
+      ptr.lastMoveAt = now;
+      ptr.segX += dx; ptr.segY += dy;
+      const sd = Math.hypot(ptr.segX, ptr.segY);
+      const has = vec.x !== 0 || vec.y !== 0;
+      if (sd >= (has ? DIR_PX : DIR_PX_FIRST)) {
+        let nx = ptr.segX / sd, ny = ptr.segY / sd;
+        if (snap4) {
+          const ax = Math.abs(nx), ay = Math.abs(ny);
+          let useX = ax >= ay;
+          if (vec.x && !vec.y && ay < ax * 1.3) useX = true; else if (vec.y && !vec.x && ax < ay * 1.3) useX = false;
+          nx = useX ? Math.sign(nx) : 0; ny = useX ? 0 : Math.sign(ny);
+        }
+        setVec(nx, ny); ptr.segX = 0; ptr.segY = 0;
+      } else if (has && dx * vec.x + dy * vec.y > 0) setVec(vec.x, vec.y); // おなじ むきへ うごきつづけている あいだは いきている
+      if (typeof opts.onVector === 'function') opts.onVector(vec.x, vec.y, d);
     });
     const release = (e) => {
       if (!ptr || (e && e.pointerId != null && e.pointerId !== ptr.id)) return;
@@ -13974,7 +13998,7 @@
     "pipe-connect": "パイプをタップすると90°回る。左の🚰から右の🌻まで、水が通る道を作ろう。少ないタップでつなぐと高得点。",
     "fruit-slice": "指で素早くなぞってフルーツを切る!1回のスワイプで何こも切るとコンボ。💣を切るとライフが減る。落としすぎにも注意。",
     "track-field": "◀と▶を交互に素早くタップして走る!100mのあとは幅とび。白いラインの手前でジャンプボタンをおして、はなすと飛ぶ。長くおすと高く飛べる。",
-    "voxel-mine": "したのパッドをなぞった向きにほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
+    "voxel-mine": "したのパッドをなぞった向きに1マスほる（ゆびをおさえたままだとほり続ける）。石は時間がかかる。⚫石炭→⛓鉄→🟡金→💎ダイヤは、深いほど多い。🔥マグマにさわるとダメージ!",
     "sushi-belt": "上の「注文」と同じネタのお皿を、レーンからタップして取る。ちがうお皿や🌶わさびはペナルティ。早くそろえるとボーナス。",
     "asteroids-classic": "したのパッドを左右になぞって回り、上になぞると進む。🔥か画面のタップで打つ。岩をわると、小さく速くなる。画面のはしはつながっている。",
     "yacht-dice": "「ふる」は1ターンに全部で3回。サイコロをタップでキープし、残りだけふり直す。役をタップして記録。同じ役は1回だけ。",

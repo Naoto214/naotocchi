@@ -203,3 +203,36 @@ test('delta pad glides at the pad edge while pushing outward and stops when the 
   padDrag(h, plain, [[5, 0]], { release: false, start: [287, 150] });
   assert.equal(plain.gliding, false);
 });
+
+test('vector pad keeps the direction of the real movement, not the wobble when the finger stops', () => {
+  const h = harness();
+  const host = h.document.createElement('div');
+  const vecs = [];
+  const pad = h.api.createTouchPad(host, { mode: 'vector', sticky: true, onVector: (x, y) => vecs.push([+x.toFixed(2), +y.toFixed(2)]) });
+  // 左へ 42px なぞって、とめる ときに 1px ほどの ぶれ(下・右・下)
+  padDrag(h, pad, [[-7, 0.4], [-7, 0.4], [-7, 0.4], [-7, 0.4], [-7, 0.4], [-7, 0.4], [-1.2, 0.9], [-0.4, 1.1], [0.3, 0.8], [0, 0.7]], { release: false });
+  const last = vecs[vecs.length - 1];
+  assert.ok(last[0] < -0.9 && Math.abs(last[1]) < 0.2, `still pointing left after the wobble: ${JSON.stringify(last)}`);
+  assert.equal(pad.held.left, true); assert.equal(pad.held.down, false);
+  // はなさずに 上へ 10px なぞると 上に かわる
+  h.advance(16); h.dispatch(pad.el, 'pointermove', { pointerId: 1, clientX: 108, clientY: 145 });
+  h.advance(16); h.dispatch(pad.el, 'pointermove', { pointerId: 1, clientX: 108, clientY: 140 });
+  assert.equal(pad.held.up, true); assert.equal(pad.held.left, false);
+  h.dispatch(pad.el, 'pointerup', { pointerId: 1, clientX: 108, clientY: 140 });
+  assert.deepEqual(JSON.parse(JSON.stringify(pad.vector())), { x: 0, y: 0 });
+  // dominant: 4ほうこうに スナップし、ななめは いまの じくを ゆうせん
+  const held = [];
+  const four = h.api.createTouchPad(host, { mode: 'vector', sticky: true, dominant: true, onVector: (x, y) => held.push([x, y]) });
+  padDrag(h, four, [[-7, 3], [-7, 3], [-7, 3], [-0.5, 1], [0.3, 0.9]], { release: false });
+  assert.deepEqual(JSON.parse(JSON.stringify(held[held.length - 1])), [-1, 0], 'snaps to left and ignores the wobble');
+  h.advance(16); h.dispatch(four.el, 'pointermove', { pointerId: 1, clientX: 128.8, clientY: 168.9 + 12 });
+  assert.deepEqual(JSON.parse(JSON.stringify(held[held.length - 1])), [0, 1], 'a clear 12px move down switches axis');
+  h.dispatch(four.el, 'pointerup', { pointerId: 1, clientX: 128.8, clientY: 180.9 });
+  // steering(非sticky): おなじ むきへ ゆっくり なぞりつづける あいだは いきていて、とめると holdMs で きえる
+  const steer = h.api.createTouchPad(host, { mode: 'vector', axis: 'x', holdMs: 150, onVector: () => {} });
+  padDrag(h, steer, [[-5, 0], [-2, 0, 60], [-2, 0, 60], [-2, 0, 60], [-2, 0, 60]], { release: false });
+  assert.equal(steer.held.left, true, 'slow continued drag keeps steering');
+  h.advance(200);
+  assert.equal(steer.held.left, false, 'stops after holdMs when the finger rests');
+  h.dispatch(steer.el, 'pointerup', { pointerId: 1, clientX: 137, clientY: 150 });
+});
