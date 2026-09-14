@@ -58,11 +58,11 @@
           <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
 
           <div class="sub-status-row hidden" id="subStatusRow">
+            <span id="environmentLabel"></span>
             <div class="world-status" id="worldStatus">
               <span id="seasonLabel"></span>
               <span id="regionLabel"></span>
             </div>
-            <span id="environmentLabel"></span>
           </div>
 
           <div class="cast-heading">
@@ -379,7 +379,7 @@
         <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー">
           <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
           <div class="menu-grid">
-            <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・きせつ・てんき</small></button>
+            <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・てんき・きせつ</small></button>
             <button type="button" id="itemBtn"><i class="care-icon" data-care-icon="gift" aria-hidden="true"></i><span>あいてむ</span><small>もちもの・おみせ</small></button>
             <button type="button" id="gamesBtn"><i class="care-icon" data-care-icon="game" aria-hidden="true"></i><span>ゲームをえらぶ</span><small>きろくからあそぶ</small></button>
             <button type="button" id="dexBtn"><i class="care-icon ui-icon" data-ui-icon="book" aria-hidden="true"></i><span>ずかん</span><small>であったすがた</small></button>
@@ -391,11 +391,11 @@
         <div class="dex-overlay hidden" id="worldOverlay">
           <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
           <div class="profile-scroll">
-            <div class="profile-hint">「げんざい」はスマホのじかん・きせつ・現在地のてんきにあわせます。てんきが取れないときは、いまいる地域の気候から予想します。</div>
+            <div class="profile-hint">「げんざい」は、じかんをスマホの時計、てんきを現在地、きせつをスマホの日付にあわせます。てんきが取れないときは、いまいる地域の気候から予想します。</div>
             <div class="world-now-card" id="worldNowCard"></div>
             <section class="profile-section"><h3>じかん</h3><div class="environment-choices" id="timeModeGrid"></div></section>
-            <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>てんき</h3><div class="environment-choices" id="weatherModeGrid"></div></section>
+            <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
             <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
             <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div></section>
@@ -778,7 +778,7 @@
   <script src="games.js?v=20260913-short-1"></script>
   <script src="audio.js?v=20260911-bca193a8"></script>
   <script src="care-status.js?v=20260911-3d4dd0f4"></script>
-  <script src="script.js?v=20260913-short-1"></script>
+  <script src="script.js?v=20260914-ae8a2de5"></script>
   <script src="home-touch.js?v=20260911-ddc153e1"></script>
 </body>
 </html>

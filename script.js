@@ -13176,8 +13176,8 @@
     const placeChip = env.locality ? `📍${escapeHtml(env.locality.display)}` : `${environmentIconHTML('region',env.region,region.emoji)}${region.label}`;
     const chips = [`${environmentIconHTML('time',env.time,TIME_CHOICES[env.time][0])}${TIME_CHOICES[env.time][1]}`, weatherChip, `${environmentIconHTML('season',env.season,season.emoji)}${hasSurfaceSeasons(env.region) ? '' : '地上は'}${season.label}`, placeChip];
     const effects = [
-      ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['time', env.time, TIME_CHOICES[env.time][0]],
+      ['weather', env.weather, env.weather ? WEATHER_CHOICES[env.weather][0] : ''],
       ['season', hasSurfaceSeasons(env.region) ? env.season : null, season.emoji],
       ['region', env.region, region.emoji],
     ].map(([kind, key, icon]) => { const e = key && ENV_EFFECTS[kind][key]; return e && e.text ? `<div class="world-now-effect"><span class="icon">${environmentIconHTML(kind,key,icon)}</span><span>${e.text}</span></div>` : ''; }).join('');
