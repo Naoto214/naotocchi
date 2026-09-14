@@ -316,3 +316,15 @@ controllerはTask2の製品コード`53b3651bc0b626bc827f335f48b9accf6183802e`�
 Task1のPR268統合、Task2の31種類中27種類と描画枠修正、Task3のPR269統合と追加4種類を、それぞれ独立した仕様・品質レビューで確認した。描画枠の指摘は修正後の限定再レビューを通過し、重大・重要な未解決指摘はない。Task3も承認済み。対話的な競合解消の操作そのものは最終diffだけでは判定できないが、実装報告と両側のcheckpoint・loader・testを保持した成果物を確認しており、内容の欠落という未確認事項は残っていない。
 
 小さな改善候補として、上流で追加されたresizeコールバックの引渡し・リスナーとタイマーの後始末を直接確認するテスト、および既存の故障注入テストの診断ログ整理が残る。レビューでは実装は整合しており、今回の統合挙動を妨げる問題ではないと判定している。既存の540件の実行後に、これらの任意の拡張を加えていない。
+
+## Task4: 会話fixtureとペーパーの通常cooldown（2026-09-14）
+
+公開済み `eeb8746390b454f4905bc24bfbfbcafd1739be00` のRuntime smokeは540/540で成功し、Home layoutはChromium・WebKitとも690 glyphのall-displayを通過した。一方、Home layoutの会話scenarioでは、paper装備かつうんち3個以上のものだけが `speaking moves poop` で失敗した。最初の差分は残りの矩形座標ではなく最後の1個の消失であり、`item-poop`、`full`、`small-full`、`large-text` などで同じ症状だった。これは会話clockが通常のactivity tickを進め、装備中のpaperが3個以上から1個を自動で片付けたためである。失敗ログの原文とjob URLは `.superpowers/sdd/2026-09-14-items-pr267-merge-ready/task-4-ci-evidence.md` に保持している。
+
+fixtureだけを修正した `b08208a0326dcf04ce4fc0098dbd3d3cfa0b6f95` は、すべての装備overrideの後、最終的に `poop1` を装備しているsaveに公開 `itemSystem.cooldown(save, 'paper', 60)` を入れる。これは永久無効化ではなく保存される通常の60 activity tick待ちである。scenario、viewport、clock、うんちと装備の実数、geometry/speaker/animation/manual-clean assertionsを変更していない。productionの効果・価格・供給、他のtest、workflow、assetも変更していない。
+
+focused verificationは `node --check tests/home-conversation-browser.cjs && node --test tests/item-inventory-test.cjs tests/item-care-game-test.cjs` でexit 0、39/39 passだった。さらに実runtime harnessで、予約なしの4個paper specimenが最初のtickで3個・`readyAt.paper=61` になることを確認した。公開APIで60 tickを予約した同一specimenはreload後も`readyAt.paper=60`を保ち、11 tickの会話相当windowで4個のまま、tick59までは待ち、tick60で3個かつ次のdeadline120になった。`actionCounts.clean`は0のまま、expiry前後でgrowthは6のままであり、paperの再開は手動careの報酬を与えない。既存の `paper removes only one at three with no care reward and sixty tick cooldown` と `saved reservations and care cooldowns survive reload and life limits reset` もこの確認に含まれる。
+
+このTaskではbrowser/Playwright/CDP、host/tunnel、CI image routeを実行していない。狭幅の実表示、PNG外観、実音の試聴は確認していない。新しいcommitを公開した後に既存CIが自然に走る確認はcontrollerの担当であり、ここで`npm test`全体、収支simulation、CI rerunは重複実行していない。
+
+Task4の修正差分（4989b34..eafbc6d）は、別担当の仕様・品質レビューで承認され、未解決指摘はありません。ブラウザテストの全シナリオ・時計の進め方・装備と個数・会話と配置と手動掃除の期待値を保持した5行追加です。製品側のアイテム効果・価格・供給に変更はありません。これから同じPRブランチへ通常更新し、そのコミットで自然実行されるRuntime smokeとHome layoutの両方を確認します。最終のCIリンク、Draft解除とマージ可否は[PR267](https://github.com/Naoto214/naotocchi/pull/267)へ記録します。この文書の時点では修正後のブラウザCI成功を主張しません。
