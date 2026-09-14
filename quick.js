@@ -691,7 +691,7 @@
       } });
 
     // 38. かさ! — あめが ふりはじめたら うえへ スワイプ(はやすぎても ×)
-    def({ id: 'umbrella', cue: 'あめがきたら かさ！', say: 'あめがきたらかさ', dur: 4200, uses: ['swipe'], motif: 'てんき',
+    def({ id: 'umbrella', cue: 'あめがきたらかさ！', say: 'あめがきたらかさ', dur: 4200, uses: ['swipe'], motif: 'てんき',
       create(g) {
         const W = g.W, H = g.H;
         const rainAt = rnd(0.9, 2.2); let t = 0, done = false; const drops = [];
@@ -953,7 +953,7 @@
             const perfect = cleared >= TOTAL;
             show(finalEl, `<div class="qk-final-title">${perfect ? '👑パーフェクト!' : lives <= 0 ? '💦ここまで!' : '🏁おしまい!'}</div><div class="qk-final-big">✔ ${cleared}<small>／${TOTAL}</small></div><div class="qk-final-sub">さいだい${maxCombo}れんぞく／Lv${level}まで</div>`);
             sfx(perfect ? 'fanfare' : cleared >= TOTAL / 2 ? 'clear' : 'fail');
-            setTimeout(() => onComplete(score, `⚡${only ? only.cue.replace(/[！!]/g, '') + ' ' : 'クイック '}${cleared}こクリア（さいだい${maxCombo}れんぞく）`), RULES.FINAL_MS);
+            setTimeout(() => onComplete(score, `${only ? only.cue.replace(/[！!]/g, '') : 'クイック'}${cleared}こクリア（さいだい${maxCombo}れんぞく）`), RULES.FINAL_MS);
           }
           // ---- そうさ(タップ・なぞる・スワイプ・おす/はなす を ここで 1かい だけ 判定) ----
           let ptr = null;

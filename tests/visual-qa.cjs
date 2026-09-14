@@ -24,6 +24,7 @@ function createFixtures() {
         save.lifetime.partnersRecorded = api.ALL_PARTNER_CANDIDATES.map(c => c.id);
         save.lifetime.partnersMarried = ['robot_neighbor'];
         fixtures[name] = JSON.parse(JSON.stringify(save));
+        fixtures[name].items = fixtures[name].lifetime.itemInventory;
         return fixtures[name];
       };
       for (const [name, count, weather, time, season] of [

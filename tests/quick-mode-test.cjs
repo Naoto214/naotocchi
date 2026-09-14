@@ -1,6 +1,12 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
+const vm = require('node:vm');
 const { harness } = require('./helpers/runtime-harness.cjs');
+
+function memoryStorage() {
+  const data = new Map();
+  return {getItem: key => data.get(key) ?? null, setItem: (key, value) => data.set(key, value), removeItem: key => data.delete(key)};
+}
 
 // いまの ゲームを「せいかい」の そうさで とく(ゲームの target() が かえす 手がかりを つかう)
 function solve(h, run, cur) {
@@ -124,9 +130,15 @@ test('three misses end the run, the score feeds the normal result flow, and diff
 });
 
 test('every game can be played on its own: a solo run repeats one game 10 times and keeps a per-game best', () => {
-  const h = harness(), s = h.api.state();
+  const storage = memoryStorage();
+  const h = harness({storage}), s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, transformMeter: 0 });
+  s.regionId = 'home';
+  Object.assign(s.lifetime, {weatherMode:'cloudy', timeMode:'night', seasonMode:'autumn'});
+  s.lifetime.equippedItemId = 'energy1';
+  s.lifetime.money = 0; s.growth = 0; s.sodachi = 55; s.maxSodachi = 55;
   h.api.render();
+  vm.runInContext('Math.random=()=>0.99', h.sandbox);
   const R = h.api.QUICK_RULES;
   const ids = h.api.QUICK_GAMES.map((g) => g.id);
   assert.equal(h.api.quickSoloRun('nope'), null);
@@ -136,6 +148,7 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
   }
   // 1本を えらんで あそぶ: ぜんぶ おなじ ゲーム、10かい、2かいごとに レベル
   assert.equal(h.api.startQuickRun('knock'), true);
+  s.lifetime.equippedItemId = null;
   h.advance(40);
   const run = h.api.quickSoloRun('knock')._run;
   let levels = [];
@@ -152,11 +165,117 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
   assert.equal(s.lifetime.quick.runs, 0, 'solo runs do not count as mixed runs');
   h.advance(R.FINAL_MS + 100);
   assert.equal(s.lifetime.minigameRecords['quick-solo'].last, 100, '10 clears of 10 points');
+  assert.equal(s.lifetime.minigamesPlayed, 1, 'one completed solo run settles as one game');
+  assert.equal(s.minigameCount, 1, 'one completed solo run applies one result');
+  assert.equal(s.energy, 91, 'the start equipment applies one energy cost after a swap');
+  assert.equal(s.lifetime.money, 13, 'the completed run receives one great-game coin reward');
+  assert.equal(s.sodachi, 56, 'the completed run applies one ordinary great-game growth reward');
+  const restored = harness({resume:true, storage}).api.state();
+  assert.deepEqual(JSON.parse(JSON.stringify(restored.lifetime.quick.single.knock)), {runs:1, best:10});
+  assert.deepEqual(JSON.parse(JSON.stringify(restored.lifetime.minigameRecords['quick-solo'])), {best:100, last:100});
   assert.equal(h.get('minigameOverlay').classList.contains('hidden'), true);
 });
 
-test('the quick voice setting has three modes and the character voice speaks kana without the speech API', () => {
+test('Quick list toggle uses its dedicated control and a selected solo starts', () => {
   const h = harness(), s = h.api.state();
+  Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
+  const grid = h.get('gameListGrid');
+  const toggle = {dataset: {}};
+  grid.closest = selector => selector === '.quick-list-toggle' ? toggle : null;
+  h.dispatch(grid, 'click');
+  assert.match(grid.innerHTML, /quick-solo-list/, 'the actual delegated toggle expands the solo list');
+  const solo = {dataset: {quickId: 'knock'}};
+  grid.closest = selector => selector === '.quick-solo-start' ? solo : null;
+  h.dispatch(grid, 'click');
+  h.advance(40);
+  assert.equal(h.api.quickSoloRun('knock')._run.current.def.id, 'knock');
+  h.api.retireMinigame();
+});
+
+test('both Quick entries share quick-run as the Star stamp type', () => {
+  const h = harness(), s = h.api.state();
+  Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
+  s.lifetime.equippedItemId = 'star';
+  h.api.render();
+  for (const id of [null, 'knock', 'tickle']) {
+    assert.equal(h.api.startQuickRun(id), true);
+    h.advance(40);
+    h.api.finishMinigame(30);
+  }
+  assert.deepEqual([...s.lifetime.itemProgress.starGames], ['quick-run']);
+});
+
+test('both Quick entries retain their game-start equipment snapshot', () => {
+  for (const id of [null, 'knock']) {
+    const h = harness(), s = h.api.state();
+    Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
+    s.regionId = 'home';
+    Object.assign(s.lifetime, {weatherMode:'cloudy', timeMode:'night', seasonMode:'autumn'});
+    s.lifetime.equippedItemId = 'energy1';
+    h.api.render();
+    assert.equal(h.api.startQuickRun(id), true);
+    s.lifetime.equippedItemId = null;
+    h.advance(40);
+    h.api.finishMinigame(50);
+    assert.equal(s.energy, 91, `${id || 'mixed'} Quick run keeps the band selected at start`);
+  }
+});
+
+test('the production Quick voice control saves every selected mode for the audio router', () => {
+  const storage = memoryStorage();
+  const h = harness({storage}), s = h.api.state();
   assert.equal(s.lifetime.quickVoice, 'tts');
   assert.ok(h.api.QUICK_VOICE_CHOICES.pico && h.api.QUICK_VOICE_CHOICES.tts && h.api.QUICK_VOICE_CHOICES.off);
+  const grid = h.get('quickVoiceGrid');
+  const voiceCalls = [];
+  h.api.audio.voice = text => { voiceCalls.push({text, mode:s.lifetime.quickVoice}); return true; };
+  for (const mode of ['pico', 'tts', 'off']) {
+    const button = {dataset: {id: mode}};
+    grid.closest = selector => selector === '.theme-swatch' ? button : null;
+    h.dispatch(grid, 'click');
+    const saved = JSON.parse(storage.getItem('naotocchi-save-v1')).lifetime;
+    assert.equal(s.lifetime.quickVoice, mode);
+    assert.equal(saved.quickVoice, mode);
+    assert.equal(saved.quickVoiceChosen, true);
+    assert.equal(harness({resume:true, storage}).api.state().lifetime.quickVoice, mode);
+  }
+  assert.deepEqual(voiceCalls, [
+    {text:'よけろ', mode:'pico'},
+    {text:'よけろ', mode:'tts'},
+    {text:'よけろ', mode:'off'},
+  ]);
+});
+
+test('an unchosen legacy pico setting migrates to reading while chosen pico remains selected', () => {
+  const legacy = memoryStorage();
+  legacy.setItem('naotocchi-save-v1', JSON.stringify({lifetime: {quickVoice:'pico'}}));
+  assert.equal(harness({resume:true, storage:legacy}).api.state().lifetime.quickVoice, 'tts');
+
+  const chosen = memoryStorage();
+  chosen.setItem('naotocchi-save-v1', JSON.stringify({lifetime: {quickVoice:'pico', quickVoiceChosen:true}}));
+  assert.equal(harness({resume:true, storage:chosen}).api.state().lifetime.quickVoice, 'pico');
+});
+
+test('umbrella solo shows a compact cue and waits for rain before a successful swipe', () => {
+  const h = harness(), s = h.api.state();
+  Object.assign(s, {stage:'growing',isSleeping:false,isSick:false,energy:100,health:100,hunger:80,transformMeter:0});
+  vm.runInContext('Math.random=()=>0.5', h.sandbox);
+  h.api.render();
+  assert.equal(h.api.startQuickRun('umbrella'), true);
+  h.advance(40);
+  const run = h.api.quickSoloRun('umbrella')._run;
+  const cur = run.current;
+  const overlay = h.get('minigameOverlay');
+  const cue = overlay.querySelector('#qkCue').textContent;
+  assert.ok(cue.length >= 2 && cue.length <= 9, `cue is a short instruction: ${cue}`);
+  assert.doesNotMatch(cue, /\s/);
+  assert.equal(cur.game.target().ready, false, 'wait for the rain');
+
+  solve(h, run, cur);
+  h.advance(16);
+  assert.equal(overlay.querySelector('#qkCount').textContent, '✔ 1／10');
+  assert.equal(overlay.querySelector('#qkFlash').classList.contains('hidden'), false);
+  h.advance(h.api.QUICK_RULES.RESULT_MS + 40);
+  assert.notEqual(run.current, cur);
+  assert.equal(run.current.def.id, 'umbrella');
 });

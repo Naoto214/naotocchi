@@ -22,7 +22,7 @@ test('shop items are bought once, equipped, and toggled off', () => {
   state.lifetime.money = 50;
   h.api.buyOrEquipShopItem('flower');
   assert.equal(state.lifetime.ownedShopItems.includes('flower'), false, 'not enough money');
-  state.lifetime.money = 100;
+  state.lifetime.money = 160;
   h.api.buyOrEquipShopItem('flower');
   assert.equal(state.lifetime.money, 40);
   assert.equal(state.lifetime.equippedItemId, 'flower');
