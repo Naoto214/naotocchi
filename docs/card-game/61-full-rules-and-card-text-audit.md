@@ -10,6 +10,8 @@
 
 ## 1. 確認した版と範囲
 
+**72・73追記:** なかま26候補も全件本文へ進んだ（能力25＋能力なし1）。次はこいびと18。満員時の通常交代で去るなかまの行き先が初期01にも明記されていないため、[73 V01](73-companion-26-text-audit.md)に未記載事項と具体化候補を保存した。旧A/Bや全体のループを、この未指定を埋めたうえで再実行済みとは扱わない。
+
 - 最新main: `3ea8adac59281cbd10d5f5ff48a94cd9913c36a5`。
 - 監査開始時の作業HEAD: `cc5c7e8fcdfe20acd4c813336e7d80eda5d09945`。ブランチは `design/card-pool-master-20260914`。
 - [Draft PR #259](https://github.com/Naoto214/naotocchi/pull/259)のhead・base・本文を実際に確認。mainは作業ブランチの祖先。

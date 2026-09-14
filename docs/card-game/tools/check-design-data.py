@@ -230,6 +230,54 @@ for n, key in ((2, "M-dog-02"), (3, "M-frog-03"), (4, "M-clownfish-04"),
 duplicate_bodies = [ids for ids in ability_texts.values() if len(ids) > 1]
 check(not duplicate_bodies, f"Identical ability bodies: {duplicate_bodies}")
 
+# 72 is the canonical companion draft; 35 and 08 retain the six A/B mirrors.
+companion_records = {}
+companion_vanilla = []
+companion_source = {s["id"]: (rarity, s) for rarity in ("normal", "rare")
+                    for s in master["companions"][rarity]}
+companion_text = doc(72)
+companion_matches = list(re.finditer(r"^### C-([\w_]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", companion_text, re.M | re.S))
+for match in companion_matches:
+    source_id, name, block = match.groups()
+    key = "C-" + source_id
+    check(key not in companion_records, f"Duplicate companion body ID: {key}")
+    check(source_id in companion_source, f"Unknown companion source ID: {key}")
+    if source_id not in companion_source:
+        continue
+    rarity, definition = companion_source[source_id]
+    check(name == definition["label"], f"Companion display name: {key}")
+    check(f"`companions.{rarity} / id={source_id}`" in block, f"Companion source path: {key}")
+    bodies = re.findall(r"^> (.+)$", block, re.M)
+    check(len(bodies) == 1 and bool(bodies[0]), f"Expected one companion body: {key}")
+    value = bodies[0] if bodies else ""
+    if value == "能力なし。":
+        companion_vanilla.append(key)
+    companion_records[key] = {"id": key, "source_id": source_id, "name": name,
+                              "type": "なかま", "normal_time": 0, "rarity": rarity,
+                              "text": value, "path": str(next(DOCS.glob("72-*.md")).relative_to(ROOT))}
+check(set(companion_records) == {"C-" + s for s in companion_source}, "26 companion body coverage mismatch")
+check(companion_vanilla == ["C-box"], "Expected explicit companion vanilla: C-box")
+companion_rows = [r for r in rows(companion_text) if r[0].startswith("C-")]
+check(len(companion_rows) == len({r[0] for r in companion_rows}) == 26, "72 companion source table coverage")
+for r in companion_rows:
+    rec = companion_records.get(r[0], {})
+    check(r[1] == rec.get("name") and r[2] == {"normal": "通常", "rare": "レア"}.get(rec.get("rarity")), f"72 companion table name/rarity: {r[0]}")
+for key, short in (("otter", "カワウソ"), ("monkey", "サル"), ("owl", "ふくろう"),
+                   ("hedgehog", "ハリネズミ"), ("snail", "カタツムリ"), ("tanuki", "たぬき")):
+    role_block = re.search(rf"^### C-{key} — [^\n]+\n(.*?)(?=^### |^## |\Z)", doc(35), re.M | re.S)
+    role_body = re.search(r"`([^`]+)`", role_block[1]) if role_block else None
+    deck_line = re.search(rf"^- (?:\*\*)?{short}「[^\n]+", doc(8), re.M)
+    deck_body = re.search(r"`([^`]+)`", deck_line[0]) if deck_line else None
+    value = companion_records.get("C-" + key, {}).get("text")
+    check(bool(role_body) and role_body[1] == value, f"35 companion mirror: C-{key}")
+    check(bool(deck_body) and deck_body[1] == value, f"08 companion mirror: C-{key}")
+combined_texts = collections.defaultdict(list, {k: list(v) for k, v in ability_texts.items()})
+for rec in companion_records.values():
+    if rec["text"] and rec["text"] != "能力なし。":
+        combined_texts[rec["text"]].append(rec["id"])
+combined_duplicates = [ids for ids in combined_texts.values() if len(ids) > 1]
+check(not combined_duplicates, f"Identical main/companion ability bodies: {combined_duplicates}")
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -245,9 +293,14 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "indexed_main_body_entries": indexed_count,
                   "legacy_main_body_entries": len(body_records) - indexed_count,
                   "total_main_body_entries": len(body_records), "vanilla_entries": vanilla,
-                  "identical_ability_groups": duplicate_bodies, "errors": errors,
+                  "identical_ability_groups": duplicate_bodies,
+                  "companion_body_entries": len(companion_records),
+                  "companion_rarity_counts": dict(collections.Counter(r["rarity"] for r in companion_records.values())),
+                  "companion_vanilla_entries": companion_vanilla,
+                  "main_companion_identical_ability_groups": combined_duplicates, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
+    result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
 print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
