@@ -46,7 +46,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.screenshot({path:path.join(output,label+'-result.png')});
       await page.locator('#mgResultToast').evaluate(e=>{e.classList.add('hidden');e.style.removeProperty('animation');});
       await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
-      await page.locator('[data-game-id="takoyaki-grill"]').click();
+      // Today's challenge can use the same game ID; choose the normal list entry.
+      await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
       await page.locator('#mgIntroStart').waitFor();
       await check('intro');
       const before=await page.locator('#minigameOverlay').boundingBox();
@@ -68,7 +69,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         // Complete the real game through its timer, then inspect the production
         // result/reaction lifecycle. No injected completion callback or score.
         await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
-        await page.locator('[data-game-id="takoyaki-grill"]').click();
+        await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
         await page.locator('#mgIntroStart').click();
         await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1));
         await page.clock.fastForward(90000);
