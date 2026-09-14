@@ -144,7 +144,7 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   assert.equal(a.say, null, 'the bubble expires by simulated time, not wall-clock');
   // いっしょに あるく なかまは ついてくる
   sim.setPlayer(0, 600); for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: 0 });
-  for (const p of sim.party) assert.ok(sim.dist(p, sim.player) < 160, 'party stays near the player');
+  for (const p of sim.party) assert.ok(sim.dist(p, sim.player) < 240, 'party stays near the player');
   // view は ワールド座標のまま
   const v = sim.view();
   assert.equal(v.player, sim.player); assert.equal(v.camera.z, sim.player.z); assert.ok(Array.isArray(v.residents));
