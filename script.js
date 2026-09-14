@@ -14325,6 +14325,8 @@
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
+    // オフスクリーンの canvas でも 絵文字 → イラストの おきかえが きくように
+    wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS && c ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c),
     isAuthorUnlocked: () => isAuthorUnlocked(),
     authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
     perfTier: () => mgPerfTier,
