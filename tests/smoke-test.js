@@ -3,7 +3,7 @@ const fs = require('fs');
 // ミニゲーム本体(games.js)は script.js より さきに よみこまれる。テストでは
 // 2つを つなげて 1つの ソースとして あつかう(script.js の おわりの })(); が
 // ぜんたいの おわりに なる)
-const gamesSource = fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8');
+const gamesSource = fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8');
 const source = gamesSource + '\n' + fs.readFileSync('script.js', 'utf8');
 const html = fs.readFileSync('index.html', 'utf8');
 
@@ -104,7 +104,7 @@ global.clearTimeout = noop;
 global.location = { href: 'https://naoto214.github.io/naotocchi/' };
 global.crypto = { getRandomValues: a => a };
 
-const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_CONTROLS,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf};\n';
+const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_CONTROLS,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf,QUICK_RUN};\n';
 const instrumented = source.replace(/\}\)\(\);\s*$/, expose + '})();');
 
 try {
@@ -125,8 +125,11 @@ for (const entries of Object.values(audit.SEASONAL_MINIGAMES)) {
 }
 
 const uniqueGames = [...new Set(games)];
+// クイックモード(quick.js)は ふつうの ゲームの いちらんには 入らないが、おなじ しくみで
+// はじまる 1本として、はじまることと INFO/CONTROLS が あることを たしかめる
+const extraGames = audit.QUICK_RUN ? [audit.QUICK_RUN] : [];
 const failures = [];
-for (const game of uniqueGames) {
+for (const game of [...uniqueGames, ...extraGames]) {
   try {
     game.start(fakeEl, noop);
   } catch (e) {
@@ -149,6 +152,11 @@ for (const game of uniqueGames) {
   if (!audit.MINIGAME_CONTROLS[game.id]) idProblems.push('missing MINIGAME_CONTROLS: ' + game.id);
   const category = audit.minigameCategoryOf.get(game);
   if (!audit.MINIGAME_GENRE_OF_CATEGORY[category]) idProblems.push('missing genre for category ' + category + ' (' + game.id + ')');
+}
+for (const game of extraGames) {
+  seenIds.add(game.id);
+  if (!audit.MINIGAME_INFO[game.id]) idProblems.push('missing MINIGAME_INFO: ' + game.id);
+  if (!audit.MINIGAME_CONTROLS[game.id]) idProblems.push('missing MINIGAME_CONTROLS: ' + game.id);
 }
 for (const id of Object.keys(audit.MINIGAME_INFO)) {
   if (!seenIds.has(id)) idProblems.push('MINIGAME_INFO entry without game: ' + id);
