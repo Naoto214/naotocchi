@@ -6,7 +6,9 @@ const {harness}=require('./helpers/runtime-harness.cjs');
 test('every shipped UI/game emoji has an illustrated display definition',()=>{
   const h=harness({fullDisplay:true});
   const tokens=h.sandbox.NaotocchiDisplayIllustrations.tokens;
-  const sources=['index.html','script.js','games.js'];
+  const sources=fs.readdirSync('.',{withFileTypes:true})
+    .filter(entry=>entry.isFile() && /\.(?:js|css|html)$/.test(entry.name))
+    .map(entry=>entry.name).sort();
   const all=[...new Set(sources.flatMap(file=>tokens(fs.readFileSync(file,'utf8'))))];
   const missing=all.filter(key=>!h.api.displayCatalog.resolve(key));
   assert.deepEqual(missing,[],'unmapped symbols: '+missing.join(' '));

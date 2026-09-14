@@ -957,6 +957,8 @@
     sfxModeGrid: document.getElementById('sfxModeGrid'),
     bgmModeGrid: document.getElementById('bgmModeGrid'),
     quickVoiceGrid: document.getElementById('quickVoiceGrid'),
+    meguruOverlay: document.getElementById('meguruOverlay'),
+    meguruEntry: document.getElementById('meguruEntry'),
     weatherModeGrid: document.getElementById('weatherModeGrid'),
     weatherFx: document.getElementById('weatherFx'),
     timeTint: document.getElementById('timeTint'),
@@ -1609,6 +1611,8 @@
         minigameRecords: {},
         // クイックモードの きろく(ラン数・さいこうクリア数・さいだいれんぞく・ゲームごとの かいすう)
         quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} },
+        // めぐる: はいった かいすう・はなした かいすう・であった/はなした じゅうみん(key→1/かいすう)
+        meguru: { visits: 0, talkCount: 0, met: {}, talks: {} },
         // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
         dailyChallenge: null,
         dailyStreak: 0,
@@ -1742,6 +1746,7 @@
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
       if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} };
       if (!merged.lifetime.quick.single || typeof merged.lifetime.quick.single !== 'object') merged.lifetime.quick.single = {};
+      if (!merged.lifetime.meguru || typeof merged.lifetime.meguru !== 'object') merged.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} };
       // いぜんの 初期値 'pico'(ことばが きこえない)は よみあげに もどす。じぶんで えらんだ ときは quickVoiceChosen が たつ
       if (merged.lifetime.quickVoice === 'pico' && !merged.lifetime.quickVoiceChosen) merged.lifetime.quickVoice = 'tts';
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
@@ -3240,6 +3245,9 @@
   }
   let message = '';
   let gameActive = false;
+  // 「めぐる」(meguru.js)を あるいている あいだ true。ミニゲームとは べつの がめん
+  let meguruActive = false;
+  let meguruRun = null;
   let messageTimer = null;
   // なかまイベントが とちゅうの あいだだけ セットされる、いま くどいて
   // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
@@ -11568,7 +11576,7 @@
     // こうすると なかみの たかさに あわせて がめんが のびるので、
     // スマホで したが 見きれたり、おわかれバーと かさなったり しない
     const lifeCardVisible = !el.lifeCardOverlay.classList.contains('hidden');
-    el.screenNormal.classList.toggle('hidden', gameActive || !!grandGoalPending || lifeCardVisible);
+    el.screenNormal.classList.toggle('hidden', gameActive || meguruActive || !!grandGoalPending || lifeCardVisible);
     el.farewellBar.classList.toggle('hidden', state.stage !== STAGE.FAREWELL || !!grandGoalPending || lifeCardVisible);
     applyTheme();
 
@@ -11711,7 +11719,7 @@
     if (el.weatherFx) el.weatherFx.classList.toggle('suppressed', suppressFrontFx);
     if (el.timeTint) el.timeTint.classList.toggle('suppressed', gameActive);
 
-    el.device.classList.toggle('ui-game-active', gameActive);
+    el.device.classList.toggle('ui-game-active', gameActive || meguruActive);
     el.device.classList.toggle('ui-menu-open', isAnyMenuOverlayOpen());
     el.device.dataset.font = ['rounded','standard','retro'].includes(state.lifetime.fontStyle) ? state.lifetime.fontStyle : 'rounded';
     el.device.dataset.textSize = state.lifetime.textSize === 'large' ? 'large' : 'normal';
@@ -12189,6 +12197,14 @@
   // 地域は selected の ハイライトを つけつつ、そこへは「たびに でる」
   // いみが ないので タップできないよう disabled に する
   function renderTravelRegionGrid() {
+    // いちばん うえ: いまいる 地域の なかへ はいる「○○をめぐる」(地域えらびは その した に そのまま)
+    if (el.meguruEntry) {
+      const r = findRegion(state.regionId);
+      const loc = selectedLocality();
+      const name = loc ? `げんざいち（${escapeHtml(loc.display || loc.name || '')}）` : escapeHtml(r.label);
+      const icon = loc ? '📍' : environmentIconHTML('region', r.id, r.emoji);
+      el.meguruEntry.innerHTML = meguruMod ? `<button type="button" class="meguru-enter-btn" id="meguruEnterBtn"><span class="meguru-enter-icon">${icon}</span><span class="meguru-enter-text"><span class="meguru-enter-title">${name}をめぐる</span><span class="meguru-enter-sub">いまいる ばしょの なかを あるいて、であった みんなに あいにいく</span></span></button>` : '';
+    }
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
@@ -12808,7 +12824,14 @@
     const expiresAt = Date.now() + 15000;
     const deliver = () => {
       itemContextTimer = null;
-      if (state !== life || Date.now() > expiresAt || !careNoticeVisible() || state.isSleeping) return;
+      if (state !== life || !careNoticeVisible() || state.isSleeping) return;
+      // めぐるがホームを使っているあいだは、道具の短い通知を後ろの
+      // 通知欄へ出さない。戻ったあとの同じ人生でだけ続けて待つ。
+      if (meguruActive) {
+        itemContextTimer = setTimeout(deliver, 250);
+        return;
+      }
+      if (Date.now() > expiresAt) return;
       const notice = CARE_STATUS?.assess(state, {immortal:isImmortal()});
       if (notice && notice.severity !== 'info') return;
       if (message || careFeedback || speechActive || conversationIsBusy() || !el.storyFlash.classList.contains('hidden')) {
@@ -14420,6 +14443,70 @@
     onRunEnd: (stats) => recordQuickRun(stats),
   }) : null;
   const QUICK_RUN = quickMod ? quickMod.makeQuickRun() : null;
+  // ================================================================
+  // めぐる(meguru.js): いまいる 地域の なかを あるき、ずかんに のった みんなに あう
+  // ================================================================
+  // 「たび」の 地域えらび(travelToRegion)は そのまま。ここは その うえの べつの がめん。
+  // 地域を かえる ときは かならず 本体の travelToRegion() を とおる(めぐる の なかの
+  // 「たび」ボタンも ふつうの たび がめんを ひらくだけ)
+  const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru({
+    clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
+    getState: () => state,
+    currentEnvironment: () => currentEnvironment(),
+    findRegion,
+    regionLabel: (id, local) => { const r = findRegion(id); const loc = local ? selectedLocality() : null; return loc ? `📍${escapeHtml(loc.display || loc.name || '')}` : environmentIconHTML('region', r.id, r.emoji) + escapeHtml(r.label); },
+    regionPlainLabel: (id, local) => { const loc = local ? selectedLocality() : null; return loc ? (loc.display || loc.name || findRegion(id).label) : findRegion(id).label; },
+    selectedLocality: () => selectedLocality(),
+    dailyKey: () => dailyKey(),
+    SPECIES,
+    speciesStageDesc: (line, i) => stageDesc(line, i),
+    allCompanionsById, canonicalCompanionId,
+    partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
+    partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
+    currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
+    playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
+    isAuthorUnlocked: () => isAuthorUnlocked(),
+    authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
+    perfTier: () => mgPerfTier,
+    onExit: () => stopMeguru(),
+    openTravel: () => openExclusiveMenu('travel'),
+    recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveState(); } },
+    recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveState(); },
+  }) : null;
+  function meguruStats() {
+    const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
+    if (!m.met || typeof m.met !== 'object') m.met = {};
+    if (!m.talks || typeof m.talks !== 'object') m.talks = {};
+    return m;
+  }
+  function startMeguru() {
+    if (!meguruMod || gameActive || meguruActive || !el.meguruOverlay) return false;
+    if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel')); saveState(); render(); return false; }
+    closeAllMenuOverlays();
+    clearConversationTimers();
+    hideSpeechBubble();
+    meguruActive = true;
+    renderWorldScene(true);
+    el.screenNormal.classList.add('hidden');
+    el.meguruOverlay.classList.remove('hidden');
+    el.meguruOverlay.innerHTML = '';
+    meguruStats().visits += 1;
+    meguruRun = meguruMod.start(el.meguruOverlay);
+    audio.play('open');
+    render();
+    return true;
+  }
+  function stopMeguru() {
+    if (!meguruActive) return;
+    meguruActive = false;
+    const run = meguruRun; meguruRun = null;
+    if (run && run.running) run.stop();
+    el.meguruOverlay.classList.add('hidden');
+    el.meguruOverlay.innerHTML = '';
+    el.screenNormal.classList.remove('hidden');
+    saveState();
+    render();
+  }
   // 「1本ずつ」: えらんだ 1本を 10かい あそぶ(id 'quick-solo')。おなじ id で 1つ つくって つかいまわす
   const quickSoloRuns = {};
   function quickSoloRun(gameId) {
@@ -16913,6 +17000,7 @@
   el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
   if (el.quickBtn) el.quickBtn.addEventListener('click', () => { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(); });
   el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
+  if (el.meguruEntry) el.meguruEntry.addEventListener('click', (e) => { const btn = e.target && e.target.closest ? e.target.closest('#meguruEnterBtn') : null; if (btn) startMeguru(); });
   el.worldCloseBtn.addEventListener('click', () => { closeOverlay('world'); render(); });
   el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
   el.seasonModeGrid.addEventListener('click', (e) => {

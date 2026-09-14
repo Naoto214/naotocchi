@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260914-880a3139">
+  <link rel="stylesheet" href="style.css?v=20260914-26ce6e0a">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260914-cd9083e1">
   <link rel="stylesheet" href="design.css?v=20260911-ae1c4ad1">
@@ -146,6 +146,7 @@
         </div>
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
+        <div class="minigame-overlay hidden" id="meguruOverlay" aria-label="めぐる"></div>
         <div class="mg-help hidden" id="mgHelpOverlay" role="dialog" aria-label="そうさのせつめい">
           <div class="mg-help-card">
             <div class="mg-help-title" id="mgHelpTitle"></div>
@@ -443,6 +444,7 @@
             <button class="dex-close-btn" id="travelCloseBtn">✕</button>
           </div>
           <div class="theme-scroll">
+            <div class="theme-section meguru-section"><div class="meguru-entry" id="meguruEntry"></div></div>
             <div class="theme-section">
               <div class="profile-hint">行きたい場所をえらんでタップすると、その地域へたびにでられます</div>
               <button type="button" class="profile-code-btn" id="currentLocationBtn" aria-pressed="false">📍げんざいち</button>
@@ -810,17 +812,18 @@
   <script src="world-scene.js?v=20260911-99152e94"></script>
   <script src="prop-illustrations.js?v=20260911-26ae95a3"></script>
   <script src="game-symbol-art.js?v=20260911-0f1dd37d"></script>
-  <script src="ui-symbol-art.js?v=20260911-53309e2e"></script>
+  <script src="ui-symbol-art.js?v=20260914-0f1c55e4"></script>
   <script src="illustration-catalog.js?v=20260911-f072008f"></script>
   <script src="display-illustrations.js?v=20260911-0eb0da4a"></script>
   <script src="canvas-illustrations.js?v=20260911-a5b6c471"></script>
+  <script src="meguru.js?v=20260914-93b8d4f8"></script>
   <script src="quick.js?v=20260914-0cb8cb43"></script>
   <script src="games.js?v=20260913-short-1"></script>
   <script src="audio.js?v=20260914-56e972a2"></script>
   <script src="care-status.js?v=20260911-3d4dd0f4"></script>
   <script src="item-memories.js?v=20260914-5132b179"></script>
   <script src="item-system.js?v=20260914-e68ca078"></script>
-  <script src="script.js?v=20260914-b8eddc25"></script>
+  <script src="script.js?v=20260914-428a41ac"></script>
   <script src="home-touch.js?v=20260911-ddc153e1"></script>
 </body>
 </html>

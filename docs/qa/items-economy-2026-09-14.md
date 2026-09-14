@@ -218,3 +218,101 @@ controllerは`68e0f75578e7e070958cd90d85476bd9be3701e8`（本体・テストは�
 9例とも100歳のお別れで終了し、そだち100には到達していない。これは固定方針・購入なしの所持金比較であり、実際の利用者の収入分布、上限収入、実時間の必要量、複数人生での達成期間を示すものではない。ムービー・指輪の統合による、この比較条件での経済変化はなかった。
 
 Task9の独立した差分レビューは仕様適合・品質承認。通知とstory/movieの優先順位を追加の限定実行で確認し、リングとごほうびの1回消費・1記録・再読込、読込順と6つのキャッシュハッシュ、テスト一覧を確認した。重要な未解決指摘はない。故障注入テストの意図した診断スタックは、ログを読みやすくする余地として残っている。実画面・PNGの外観・試聴の未確認は継続する。この確認後の変更は、QA結果とPR本文案の文書更新だけである。
+
+## PR267 current-main integration（2026-09-14、Task1）
+
+`3780497b8a9fc7e72a651ba6206543e47314f89d` を item economy feature へ統合した。`index.html` は `meguru.js` を `script.js` より前、既存の `item-memories.js` と `item-system.js` を元の順で読み込む。`package.json` は既存の全item/movie/ring/Quick suiteを残して `tests/meguru-test.cjs` を追加した。runtime harness と dialogue/smoke loader も同じ順で読み込み、既存exportsを保ったまま Meguru の entry/talk/exit、状態、解放判定、段階、旅行表示を公開する。実際に内容が変わった `style.css`、combined `script.js`、新規 `meguru.js` のキャッシュtokenだけを更新した。
+
+統合後の最初の focused 実行では、Meguru の renderer-independent simulation の「party stays near」assertionが失敗した。pinned upstream `3780497` を一時archiveで同じ `node --test tests/meguru-test.cjs` として実行しても同じ失敗（6件中5件成功）を再現した。`setPlayer` は production caller がなく、fixture が遠方へ即時位置指定した後に通常の追従速度で2秒以内に追いつくことを期待していた。productionの追従挙動は変更せず、通常入力で歩くときに各follow slotから90未満のlagを確認する実測のassertionへ置き換えた。
+
+追加したcross-feature regressionは、Meguru中のitem context通知がホームへ戻るまで待つこと、entry/talk/exitがコイン、minigame record、Star categoryを変えないことを確認する。REDではMeguru中に通知が表示された。GREENでは`scheduleItemContextMessage`がscene中だけ再試行し、同じ人生・通常の優先条件を保ったまま帰宅後に表示する。既存の旅行/GPS選択、日付・旅行の消費/保存、ふたりの合言葉と指輪の単一memory、Quickのhome/cloudy/night/autumnと元気91・報酬13のassertionを残した。
+
+Focused command（source freeze直前）:
+
+```sh
+node tests/smoke-test.js && node tests/dialogue-test.js && node --test tests/meguru-test.cjs tests/item-relations-travel-test.cjs tests/item-care-game-test.cjs tests/item-experiences-test.cjs tests/quick-mode-test.cjs tests/movie-test.cjs tests/audio-regression-test.cjs tests/asset-versions-test.cjs
+```
+
+結果は102/102 pass。main3780497のHome layout CIにはMeguru由来の27 glyph source-art欠落という別の既知blockerがある。controllerのTask2がこの修正後に唯一の`npm test` full gateを行うため、Task1ではfull gateを重複実行していない。runtime testsはブラウザ実画面、PNGの見た目、実際の試聴を確認しない。
+
+## PR267 illustration catalog repair（2026-09-14、Task2）
+
+main `3780497b8a9fc7e72a651ba6206543e47314f89d` の Home layout CI job `104050374351` は、package install/browser setup の後、全root JS/CSS/HTML を読むdisplay corpusでMeguru由来27 glyphの表示定義を数えられず失敗していた。Node側のcatalog testが `index.html`、`script.js`、`games.js` だけを読む差が原因である。`tests/illustration-catalog-test.cjs` を同じroot inventoryへ広げ、既存のasset/safe SVG/frame検査とunknown joined-glyph保持検査は変更していない。
+
+このREDを最初に実行した。
+
+```sh
+node --test tests/illustration-catalog-test.cjs
+```
+
+結果は2件中1 pass/1 fail（202.171619ms）で、実際の欠落は `🛝 🪑 🛖 🚉 ⛲ 🛷 🧊 🌉 🪺 🏛️ 🚲 🍜 🧦 🐷 🐯 🐮 🥕 🖐️ 🤤 🔪 🙌 🐺 🍅 🌛 🤚 ❗ 🪶` の27件だけだった。最初の失敗出力はTask2 reportに保持した。
+
+`ui-symbol-art.js` へ、既存の24-unit warm outline paletteとshared `add`/path/shape helperを使う意味のあるvector定義を追加した。定義は順に、すべりだい、いす、こや、えき、ふんすい、そり、こおり、はし、す、しんでん、じてんしゃ、らーめん、くつした、ぶた、とら、うし、にんじん、ひらいたて、よだれのかお、ほうちょう、あげたて、おおかみ、トマト、かおのあるみかづき、あげたひら、びっくりマーク、はねである。aliasやunknown-symbolのgeneric fallbackは追加していない。source glyphと保存IDはそのままで、価格・効果・供給・ゲーム/Star記録・Quick・経済値には変更がない。`index.html` は実際に変更した `ui-symbol-art.js` のtokenだけを `20260914-7436e5ef` に更新した。
+
+Focused GREEN:
+
+```sh
+node --test tests/illustration-catalog-test.cjs tests/ui-illustrations-test.cjs tests/display-illustrations-test.cjs tests/canvas-illustrations-test.cjs tests/asset-versions-test.cjs
+```
+
+結果は41/41 pass、fail 0（1592.479638ms）。catalog/UI/display/Canvas/cacheを同時に通し、27定義がすべて存在し、text/script/event attributeを含まないことも検査した。production/test/cacheのcommitは `53b3651bc0b626bc827f335f48b9accf6183802e`（`fix: catalog Meguru illustration symbols`）で凍結し、`git diff --check` はexit 0だった。
+
+その凍結commitで一度だけ次を実行した。
+
+```sh
+env -u npm_config_http_proxy -u NPM_CONFIG_HTTP_PROXY npm test
+```
+
+結果はexit 0、540/540 pass、fail 0（13477.538502ms）。complete outputは `analysis/items-merge-ready-npm-test-53b3651.txt` に保存した。album probe とstorage quotaの診断は既存の故障注入回復testの想定出力として残り、test failureではない。controllerがこの完了コード上で未変更の9-policy economy comparisonを一度実行し、feature更新後に既存CIの実display box監査を観測する。
+
+ブラウザ、Playwright/CDP、local HTTP/shared file、tunnel、画像検査、実音の試聴は行っていない。Node testは実レイアウトや聴感を保証しないため、CIの自然実行結果以外を視覚・聴覚の証拠として主張しない。mainへのmerge、公開、push、PR操作は行っていない。
+
+### Task2 review follow-up: shared-art viewBox bounds（2026-09-14）
+
+Task2のscoped reviewは、shared art groupの既定 `stroke-width="1.2"` を含めると、初版の `🛝` がy25、`🖐️` がy-1、`🔪` がx24（strokeで約24.6）へ出ると指摘した。これは実表示の主張ではなく、24-unit SVG座標とstroke半幅の静的確認であり、browser確認を行わずに修正した。
+
+`d9d00a6d22a981114ec0dd85e4bd5bfc965e99a7` では、すべりだいを最大y22、いすの脚を最大y22、橋の水線をy22、にんじんの2.3幅の葉を最小y2、開いた手を最小y1/最大y21、上げた手を最小y2/最大y21へ内側に移した。ほうちょうはbladeのquadratic/smooth controlを最大x23以下にして実曲線もstroke込みx24未満にし、みかづきはarcの不明確な外側extremaを避ける内側のcubic outlineへ置換した。見分けられるobject/gestureの形、source glyph、label、normalizationは維持した。
+
+全27件を同じ基準で再読した。既定1.2幅のstrokeは端点から0.6、明示幅は各半幅を加えた。最小余白が必要な場所は、ふんすい（y1、2幅でちょうどy0）、にんじん（y2、2.3幅で0.85）、新しい開いた手（y1、1.2幅で0.4）、既存のanimal/トマト/はねのy1（0.4）である。slide/chair/bridgeと他のobjectは最大23以下またはy22、stroke込み最大23.75以下である。手、knife、crescentはcontrol点だけでなくquadratic/cubicのextremaも確認し、0..24に収めた。generic fallbackやaliasは追加していない。
+
+変更した `ui-symbol-art.js` のcache tokenだけを `20260914-e7f8e1de` に更新した。次を実行してexit0、41/41 pass、fail0（1577.244426ms）を確認した。
+
+```sh
+node --test tests/illustration-catalog-test.cjs tests/ui-illustrations-test.cjs tests/display-illustrations-test.cjs tests/canvas-illustrations-test.cjs tests/asset-versions-test.cjs
+```
+
+`git diff --check` もexit0だった。このfollow-upでは`npm test`を実行していない。前回の540/540は`53b3651`の事実として保持し、final full gateはTask3でmain `14e0b2a`の必要なsource変更後に一度だけ行う。browser/image/audio確認は引き続き行っていない。
+
+### Task3: PR269 latest Meguru integration（2026-09-14）
+
+Task2後にmainが `14e0b2ae7045fca651d8fd1ac5b1c2d78f9fef4b`（PR269）へ進んだため、item economy featureへこの正確なcommitをmergeした。6つの上流変更（checkpoint、README、index、`meguru.js`、`style.css`、Meguru test）を保持し、競合したcheckpointには両方の節を残した。`index.html`はitem/Quick/movie/ringのloaderを残し、内容が変わったcombined `style.css`、`meguru.js`、`ui-symbol-art.js`だけを内容ハッシュへ更新した。
+
+PR269の同行者配置（こいびとはプレイヤーの向きと反対側、なかまは左右交互に後方へ並ぶ）をproductionのまま保持した。既存の追従testは即時移動を使わない通常入力のままとし、新slot式と90-unit未満のboundを維持した。150 frameでは実測lagが103.1/131.5でboundを満たさなかったため、4秒（240 frame）の通常前進で位置がsettleするまで準備するfixtureへ最小変更した。240 frameでは82.6/84.4で、Meguru focused 7/7が成功した。boundを緩めず、teleport/2秒fixtureへ戻していない。
+
+root JS/CSS/HTMLのcatalog REDは新しく追加された `🔭 ⛱️ 🏄 🏺` の4件だけを示した。`ui-symbol-art.js`へ既存の24-unit shared helper/paletteで望遠鏡、日傘、サーフィン、つぼのvector定義を追加し、strokeを含めて端を避けた。fallback、source glyph filter、browser assertion、workflowは変更していない。catalog/cacheはGREENになり、Quickのhome/cloudy/night/autumn・元気91・報酬13、item travel/experienceも既存assertionのまま成功した。
+
+source/test/cacheを凍結したmerge commitは `fbd30684887dfb7ad0663e3f998925f807c5b38b`。このcommitで一度だけ `env -u npm_config_http_proxy -u NPM_CONFIG_HTTP_PROXY npm test` を実行し、exit 0、**540/540 pass、fail 0**（13664.800609ms）を確認した。完全な出力は `/workspace/scratch/990ffa94bbe3/analysis/items-merge-ready-latest-npm-test-fbd3068.txt` に保存した。以前の`53b3651`の540/540は旧revisionの証跡として維持し、この結果へ移し替えていない。
+
+この上流deltaにはitem/economy/scriptの変更がないため、Task2後にcontrollerが一度実行してTask9と完全一致した9-policy economy comparisonは再実行していない。ブラウザ、Playwright/CDP、local HTTP/shared file、tunnel、PNG検査、実音の試聴、push、PR/main/deploy操作は行っていない。
+
+### PR267: controllerによる収支証跡の確認
+
+controllerはTask2の製品コード`53b3651bc0b626bc827f335f48b9accf6183802e`で、元の`harness-economy-sim-implemented.cjs`を変更せず、リポジトリを作業ディレクトリとして1回実行した。exit0、標準エラー出力なし。出力`/workspace/scratch/990ffa94bbe3/analysis/harness-economy-results-merge-ready.json`は、前回Task9のJSONと全9件が完全一致した。runnerのSHA256は`b262cfe4fa35426d08993b273651cb90beb5911bcd5cdb2fa963bf383e5707bd`。
+
+| 遊び方 | 100歳時の所持金 | 到達したそだち | ゲーム回数 |
+|---|---:|---:|---:|
+| 軽め | 1,910〜1,954 | 65〜68 | 10 |
+| 標準 | 2,671〜2,723 | 76〜77 | 25 |
+| 遊び込み | 3,816〜3,871 | 94〜95 | 50 |
+
+全9例が新規セーブからの独立した人生で、seed11/29/47、ホーム・夕方・曇り・春、購入・装備なし、固定のお世話と点数を用いる。全例100歳のお別れで終了し、そだち100には到達していない。これは利用者の実測、上限収入、実時間や連続する複数人生の達成期間の推定ではない。
+
+この比較後に行った変更は、描画枠の修正とPR269のMeguru画面・配置・追従・表示用データ、その統合テストおよび文書である。controllerは`53b3651..56c910f`で`script.js`、`item-system.js`、`item-memories.js`、`quick.js`、`games.js`、`audio.js`、共通runtime harness、承認済みcatalogに差分がないことを`git diff --exit-code`（exit0）で確認した。比較方針はMeguruを起動せず、これらの変更は経済の実行経路を変えないため、9方針の再実行は重複していない。PR269取り込み後に再実行したと読み替えず、上記の実行版を保持する。
+
+最新の製品コードは`fbd30684887dfb7ad0663e3f998925f807c5b38b`で全npm540/540成功。以降の追記は検証記録とPR本文案だけである。GitHub上で自然に実行される既存CIの結果とDraft/マージ可否はPR267の本文へ反映する。実際の狭い画面の目視、PNG外観、音声の試聴は未確認のままで、NodeのCanvas代替環境やCIを本人による目視・試聴の証拠にはしない。
+
+### PR267: 統合差分レビューの完了
+
+Task1のPR268統合、Task2の31種類中27種類と描画枠修正、Task3のPR269統合と追加4種類を、それぞれ独立した仕様・品質レビューで確認した。描画枠の指摘は修正後の限定再レビューを通過し、重大・重要な未解決指摘はない。Task3も承認済み。対話的な競合解消の操作そのものは最終diffだけでは判定できないが、実装報告と両側のcheckpoint・loader・testを保持した成果物を確認しており、内容の欠落という未確認事項は残っていない。
+
+小さな改善候補として、上流で追加されたresizeコールバックの引渡し・リスナーとタイマーの後始末を直接確認するテスト、および既存の故障注入テストの診断ログ整理が残る。レビューでは実装は整合しており、今回の統合挙動を妨げる問題ではないと判定している。既存の540件の実行後に、これらの任意の拡張を加えていない。
