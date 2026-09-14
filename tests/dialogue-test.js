@@ -77,7 +77,7 @@ const sandbox = {
     getElementById: getElement, querySelector: getElement, querySelectorAll: () => [], createElement: () => element(),
     addEventListener: noop, body: element('body'), documentElement: element('html'), visibilityState: 'visible',
   },
-  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844,
+  window: { addEventListener: noop, innerWidth: 390, innerHeight: 844, getComputedStyle: () => ({fontFamily:'sans-serif'}),
     confirm: (prompt) => { confirmPrompts.push(prompt); return confirmResult; }, NAOTOCCHI_CHARACTER_WORLD_MASTER_V1: master },
   localStorage: { getItem: () => savedPayload,
     setItem: (key, value) => { if (key === 'naotocchi-save-v1') savedWrites.push(value); }, removeItem: noop },
@@ -288,8 +288,8 @@ for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value 
   api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' }, 17);
   assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'),
     id + ': legend movie must show the current player PNG');
-  assert.ok(scrollRequests.some(r=>r.id==='dateMovie'&&r.block==='nearest'),
-    id + ': bring the movie into view after a scrolled care action');
+  assert.ok(getElement('dateOverlay').classList.contains('movie-fullscreen'),
+    id + ': cover the viewport even after a scrolled care action');
   assert.equal(getElement('speechBubble').classList.contains('hidden'), true);
   const speechCount = spoken.length; advance(35000);
   assert.equal(spoken.length, speechCount, 'conversation leaked into movie');
@@ -508,7 +508,7 @@ for (const testCase of [
   const special = beats === 7;
   assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), special);
   assert.equal(getElement('dateMovieScene').dataset.plan, special ? 'special' : selected.dataset.plan);
-  assert.equal(getElement('dateMoviePlace').textContent.startsWith('🎁'), special);
+  assert.equal(getElement('dateMoviePlace').textContent.startsWith('とくべつなデート'), special);
   assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\/man\/06\.png/);
   assert.ok(getElement('dateMoviePartner').innerHTML.includes('assets/characters/partners/' + (deepsea ? 'anglerfish' : 'robot_neighbor') + '.png'));
   const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length;
@@ -538,7 +538,7 @@ for (const testCase of [
       advance(step - 1); assert.equal(captions.length, beat, name + ': caption arrived early');
       advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
     }
-    if (ring) assert.match(captions[4], /合言葉/);
+    if (ring) assert.match(captions[4], /ふたりの合言葉/);
     else if (special) assert.match(captions[4], /写真/);
     assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
     advance(step + 499);

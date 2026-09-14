@@ -8653,6 +8653,57 @@
   let pendingDatePlan = null;
   let pendingDateContext = null;
   let dateMovieTimers = [];
+  // Move the movie above the home frame: transformed/scrolling ancestors must
+  // not clip a fixed cinema on iPhone. Choosers return to their original parent.
+  const dateOverlayParent = el.dateOverlay.parentNode;
+  let moviePresentation = null;
+
+  function releaseMoviePresentation() {
+    if (!moviePresentation) return;
+    document.body.classList.remove('movie-active');
+    el.dateOverlay.classList.remove('movie-fullscreen');
+    el.device.inert = moviePresentation.inert;
+    dateOverlayParent?.appendChild?.(el.dateOverlay);
+    moviePresentation = null;
+  }
+
+  function movieText(text) {
+    return compactJapaneseText(String(text || '').replace(COMMENT_EMOJI, '').trim());
+  }
+
+  function playMovieBeats(beats, {step = 3500, endingDelay = 500, kind = 'date', theme = 'walk', legend = '', actions = []} = {}) {
+    releaseMoviePresentation();
+    moviePresentation = {inert: el.device.inert, ownStage: SPECIES[state.speciesLine]?.stages[state.stageIndex]};
+    el.dateMovie.style.fontFamily = window.getComputedStyle(el.device).fontFamily;
+    document.body.appendChild(el.dateOverlay);
+    document.body.classList.add('movie-active');
+    el.device.inert = true;
+    el.dateOverlay.classList.add('movie-fullscreen');
+    el.dateRewardConfirm.classList.add('hidden');
+    const scene = el.dateMovieScene;
+    Object.assign(scene.dataset, {kind, theme, legend, complete:'false', motion:mgPerfTier >= 2 ? 'low' : 'full'});
+    scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
+    el.dateMoviePlace.textContent = movieText(el.dateMoviePlace.textContent);
+    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : kind === 'special' ? 'とくべつなおもいで' : 'ふたりのじかん';
+    document.getElementById('dateMovieAtmosphere').innerHTML = Array.from({length:perfCount(16, 5)}, (_, i) =>
+      `<i style="--x:${(i * 37 + 11) % 100}%;--y:${(i * 23 + 9) % 91}%;--delay:${-i * .73}s;--speed:${5 + i % 5}s"></i>`).join('');
+    const progress = document.getElementById('dateMovieProgress');
+    progress.innerHTML = beats.map(() => '<i></i>').join('');
+    function showBeat(index) {
+      const action = actions[index] || (index === 0 ? 'arrive' : index === beats.length - 1 ? 'together' : 'talk');
+      Object.assign(scene.dataset, {beat:String(index), shot:index === 0 ? 'wide' : index === beats.length - 1 ? 'wide' : index % 2 ? 'close' : 'detail', action});
+      if (legend === 'mirror' && action === 'return') setStageVisual(el.dateMoviePartner, moviePresentation?.ownStage, 'medium');
+      el.dateMovieCaption.classList.remove('beat');
+      void el.dateMovieCaption.offsetWidth;
+      setCommentText(el.dateMovieCaption, movieText(beats[index]), true);
+      el.dateMovieCaption.classList.add('beat');
+      Array.from(progress.children).forEach((dot, i) => dot.classList.toggle('seen', i <= index));
+    }
+    showBeat(0);
+    el.dateMovieSkipBtn.focus({preventScroll:true});
+    for (let i = 1; i < beats.length; i += 1) dateMovieTimers.push(setTimeout(() => showBeat(i), step * i));
+    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + endingDelay));
+  }
 
   function clearDateMovieTimers() {
     dateMovieTimers.forEach((t) => clearTimeout(t));
@@ -8749,6 +8800,7 @@
     el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
+    releaseMoviePresentation();
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
     el.dateMovieScene.classList.remove('special-reward');
@@ -8761,6 +8813,7 @@
 
   function closeDateOverlay() {
     clearDateMovieTimers();
+    releaseMoviePresentation();
     pendingDatePlan = null;
     el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
@@ -8768,6 +8821,7 @@
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
     render();
+    el.menuBtn.focus({preventScroll:true});
   }
 
   function rememberSpecialDate(plan, partner) {
@@ -8779,10 +8833,11 @@
 
   function finishDateMovie() {
     clearDateMovieTimers();
+    el.dateMovieScene.dataset.complete = 'true';
     el.dateMovieCaption.classList.remove('beat');
     el.dateMovieCloseBtn.classList.remove('hidden');
     el.dateMovieSkipBtn.classList.add('hidden');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
+    el.dateMovieCloseBtn.focus({preventScroll:true});
   }
 
 
@@ -8845,22 +8900,11 @@
 
     if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
 
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-
-    // 文章を読んで余韻も残せる速度。通常は3.5秒/文、特別デートは4秒/文。
-    const step = special ? 4000 : 3500;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
+    const mood = state.regionId === 'deepsea' ? 'deepsea' : special ? 'special' : plan.id;
+    const action = {walk:'walk', lost:'walk', shop:'walk', nap:'rest', rain:'shelter', star:'gaze', sunset:'gaze', photo:'pose', eat:'share'}[plan.id] || 'talk';
+    el.dateMovieScene.classList.remove('anniversary-major');
+    playMovieBeats(beats, {step:special ? 4000 : 3500, kind:special ? 'special' : 'date', theme:mood,
+      actions:beats.map((_, i) => i === 0 ? 'arrive' : i === beats.length - 1 ? 'together' : action)});
     saveState();
   }
 
@@ -8999,20 +9043,8 @@
       ];
     }
 
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-    const step = 4000;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 800));
+    playMovieBeats(beats, {step:4000, endingDelay:800, kind:'anniversary',
+      theme:state.regionId === 'deepsea' ? 'deepsea' : milestone.years >= 50 ? 'star' : 'special'});
   }
 
   function checkMarriageMilestones(prevAge, age) {
@@ -9169,10 +9201,19 @@
     el.dateMovieSkipBtn.classList.remove('hidden');
     el.dateMovieScene.classList.remove('special-reward', 'anniversary-major');
     el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
-    el.dateMoviePlace.textContent = `${legend.emoji}でんせつのであい`;
+    el.dateMoviePlace.textContent = legend.name || LEGEND_ENCOUNTERS.find(entry => entry.id === legend.id)?.name || 'でんせつのであい';
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
-    el.dateMoviePartner.textContent = legend.emoji;
+    if (legend.id === 'mirror') {
+      // Same individual, later in its own life. Never change the saved stage,
+      // species, gender or romance data to draw this imagined future.
+      const elder = SPECIES[state.speciesLine]?.stages[7] || ownStage;
+      setStageVisual(el.dateMoviePartner, elder || {emoji:'✨'}, 'medium');
+    } else if (legend.id === 'stairs') {
+      el.dateMoviePartner.innerHTML = '<svg class="movie-stairs" viewBox="0 0 128 128" role="img" aria-label="3段の階段"><path fill="#a4a89d" stroke="#566773" stroke-width="3" stroke-linejoin="round" d="M14 100V78h28V55h28V32h28l16 12v68H30Z"/><path fill="#e0dbc7" d="M14 78h28V55h28V32h28l16 12H86v23H58v23H30Z"/><path fill="none" stroke="#778782" stroke-width="2" d="m14 78 16 12v22m12-57 16 12v23m12-58 16 12v23M30 90h28m0-23h28m0-23h28"/></svg>';
+    } else {
+      el.dateMoviePartner.innerHTML = displayIconHTML(legend.emoji);
+    }
 
     const beatsById = {
       gate: [
@@ -9256,21 +9297,19 @@
       ]
     };
     const stories = [beatsById[legend.id], alternateBeatsById[legend.id]].filter(Boolean);
-    const beats = (stories.length ? pickMovieLine(stories) : [legend.flash, legend.story]).concat([`💰足もとに${coins}コインがきちんと積まれていた。`]);
-    setCommentText(el.dateMovieCaption, compactJapaneseText(beats[0]), true);
-    el.dateMovieCaption.classList.add('beat');
-    el.dateMovie.scrollIntoView({ block: 'nearest' });
-    const step = 3500;
-    for (let i = 1; i < beats.length; i += 1) {
-      dateMovieTimers.push(setTimeout(() => {
-        el.dateMovieCaption.classList.remove('beat');
-        void el.dateMovieCaption.offsetWidth;
-        setCommentText(el.dateMovieCaption, compactJapaneseText(beats[i]), true);
-        el.dateMovieCaption.classList.add('beat');
-        el.dateMovie.scrollIntoView({ block: 'nearest' });
-      }, step * i));
-    }
-    dateMovieTimers.push(setTimeout(finishDateMovie, step * beats.length + 500));
+    const story = stories.length ? pickMovieLine(stories) : [legend.flash, legend.story];
+    const variant = stories.indexOf(story) === 1 ? 1 : 0;
+    const choreography = {
+      mirror:[['look','reveal','look','smile','ripple','fade'], ['wave','wave','look','look','ripple','return']],
+      gate:[['look','appear','hover','tilt','look'], ['appear','bow','hover','look','depart']],
+      stairs:[['appear','look','climb','return','reveal','look'], ['sit','rise','look','sit','return']],
+      boss:[['appear','bow','bow','look','bow','look','depart'], ['bow','bow','bow','look','bow','depart']],
+      lamp:[['appear','approach','glow','look','glow'], ['appear','hover','approach','look','glow']],
+    };
+    const beats = story.concat([`足もとに${coins}コインがきちんと積まれていた。`]);
+    playMovieBeats(beats, {kind:'legend', legend:legend.id,
+      theme:({mirror:'water', gate:'sky', stairs:'meadow', boss:'shore', lamp:'lantern'})[legend.id] || 'walk',
+      actions:[...(choreography[legend.id]?.[variant] || []), 'reward']});
   }
 
   // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
@@ -11728,6 +11767,7 @@
     dexDetail = null;
     orientationHintOpen = false;
     clearDateMovieTimers();
+    releaseMoviePresentation();
   }
 
   function openExclusiveMenu(kind) {
@@ -13360,7 +13400,7 @@
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}</span>${ring}<span class="partner-heart">💕</span>`;
   }
 
   let companionRenderKey = null;
@@ -13807,7 +13847,7 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
     if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
     homeCastLayoutKey = key;
@@ -13858,6 +13898,12 @@
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
+    const ring=el.partnerCompanion.querySelector('.partner-ring');
+    if(ring && layout.ring) {
+      const frame=layout.ring;
+      place(ring,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
+      ring.style.fontSize=frame.w+'px';
+    }
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -17146,6 +17192,18 @@
 
   el.dateMovieCloseBtn.addEventListener('click', () => {
     closeDateOverlay();
+  });
+
+  el.dateMovie.addEventListener('keydown', (event) => {
+    if (!moviePresentation) return;
+    const finished = el.dateMovieScene.dataset.complete === 'true';
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      if (finished) closeDateOverlay(); else finishDateMovie();
+    } else if (event.key === 'Tab') {
+      event.preventDefault();
+      (finished ? el.dateMovieCloseBtn : el.dateMovieSkipBtn).focus({preventScroll:true});
+    }
   });
 
   // なかまからの さそい: 「あそぶ!」で ミニゲームへ、「また こんど」で

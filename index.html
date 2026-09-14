@@ -6,13 +6,14 @@
 <title>なおとっち</title>
   <link rel="stylesheet" href="style.css?v=20260914-880a3139">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20260912-b83512cd">
+  <link rel="stylesheet" href="ui.css?v=20260914-cd9083e1">
   <link rel="stylesheet" href="design.css?v=20260911-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260911-6a3b29a4">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260911-924451ff">
   <link rel="stylesheet" href="world-scene.css?v=20260912-c72db122">
   <link rel="stylesheet" href="care-attention.css?v=20260911-44106b8f">
+  <link rel="stylesheet" href="movie.css?v=20260914-12f69103">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
@@ -382,16 +383,24 @@
             </div>
             <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">いきさきにもどる</button>
           </div>
-          <div class="date-movie hidden" id="dateMovie">
+          <div class="date-movie hidden" id="dateMovie" role="dialog" aria-modal="true" aria-labelledby="dateMoviePlace" aria-describedby="dateMovieCaption" tabindex="-1">
             <div class="date-movie-scene" id="dateMovieScene">
-              <div class="date-movie-sparkles" aria-hidden="true">✦　·　✧　·　✦</div>
+              <div class="movie-backdrop" aria-hidden="true"></div>
+              <div class="movie-light" aria-hidden="true"></div>
+              <div class="movie-atmosphere" id="dateMovieAtmosphere" aria-hidden="true"></div>
+              <div class="movie-vignette" aria-hidden="true"></div>
+              <div class="movie-kicker" id="dateMovieKicker"></div>
               <div class="date-movie-place" id="dateMoviePlace"></div>
               <div class="date-movie-actors">
                 <span class="date-movie-actor pet" id="dateMoviePet"></span>
                 <span class="date-movie-heart" aria-hidden="true">♥</span>
-                <span class="date-movie-actor partner" id="dateMoviePartner"></span>
+                <span class="movie-partner-anchor">
+                  <span class="movie-water" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <span class="date-movie-actor partner" id="dateMoviePartner"></span>
+                </span>
               </div>
-              <div class="date-movie-caption" id="dateMovieCaption"></div>
+              <div class="date-movie-caption" id="dateMovieCaption" aria-live="polite" aria-atomic="true"></div>
+              <div class="movie-progress" id="dateMovieProgress" aria-hidden="true"></div>
             </div>
             <div class="date-movie-actions">
               <button type="button" class="date-movie-skip" id="dateMovieSkipBtn">スキップ</button>
@@ -795,7 +804,7 @@
   <script src="character-world-master.v1.js?v=20260911-d24939fa"></script>
   <script src="cast-bounds.js?v=20260913-19da126a"></script>
   <script src="cast-motion.js?v=20260911-c479a13a"></script>
-  <script src="cast-layout.js?v=20260912-37c23098"></script>
+  <script src="cast-layout.js?v=20260914-f833e6ed"></script>
   <script src="local-scenery.js?v=20260911-0bea5d7b"></script>
   <script src="world-environment.js?v=20260911-d0a39f28"></script>
   <script src="world-scene.js?v=20260911-99152e94"></script>
@@ -811,7 +820,7 @@
   <script src="care-status.js?v=20260911-3d4dd0f4"></script>
   <script src="item-memories.js?v=20260914-5132b179"></script>
   <script src="item-system.js?v=20260914-e68ca078"></script>
-  <script src="script.js?v=20260914-bc47d02f"></script>
+  <script src="script.js?v=20260914-b8eddc25"></script>
   <script src="home-touch.js?v=20260911-ddc153e1"></script>
 </body>
 </html>
