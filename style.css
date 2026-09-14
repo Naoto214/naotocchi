@@ -4557,7 +4557,7 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
   text-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 0, 0, 0.35);
   background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0) 70%);
 }
-.qk-cue.pop { animation: qkPop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.qk-cue.pop { animation: qkPop 0.32s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
 @keyframes qkPop { from { transform: scale(0.4); opacity: 0; } 60% { transform: scale(1.12); opacity: 1; } to { transform: scale(1); opacity: 1; } }
 .qk-flash {
   position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;

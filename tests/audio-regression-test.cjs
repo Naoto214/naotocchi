@@ -56,3 +56,19 @@ test('all eight BGM scenes request valid waveforms and schedule two complete loo
     if (scene==='game') assert.equal(h.oscillators.find(o=>Math.abs(o.frequency.value-783.991)<.01).type,'square');
   }
 });
+
+test('quick cues are shaped into short, punchy shouts: crisp stop, rising question, faster rate for longer words', () => {
+  const h=audioHarness('game');
+  const cue=h.api._shapeCue;
+  assert.equal(JSON.stringify(cue('たべろ')),JSON.stringify({text:'たべろっ!',rate:1.22,pitch:1.12,morae:3}));
+  assert.equal(cue('つかまえろ').rate,1.28);
+  assert.equal(cue('とべ').rate,1.22,'very short words are not rushed');
+  assert.equal(cue('あめがきたらかさ').rate,1.36,'long words speed up so the whole cue stays under a second');
+  assert.equal(cue('こいびとは',{question:true}).text,'こいびとは?');
+  assert.equal(cue('こいびとは',{question:true}).pitch,1.15);
+  assert.equal(cue('じゅんばんに').text,'じゅんばんにっ!');
+  assert.equal(cue('ためて、はなせ').text,'ためて、はなせっ!','the deliberate pause inside stays');
+  assert.equal(cue('スワイプ！').text,'スワイプっ!','existing punctuation is replaced, not doubled');
+  assert.equal(cue('れんだ').morae,3);
+  assert.equal(cue('じゅんばんに').morae,5,'small kana do not count as morae');
+});

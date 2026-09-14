@@ -28,7 +28,7 @@
     const RULES = {
       LIVES: 3,          // しっぱいできる かいすう(3かい しっぱいで おわり)
       TOTAL: 20,         // 1ランで あそぶ ゲームの かず(ぜんぶ できたら 100てん)
-      CUE_MS: 650,       // 指示の 文字が 大きく 出ている じかん(この あいだも そうさは うけつける)
+      CUE_MS: 600,       // 指示の 文字が 大きく 出ている じかん(この あいだも そうさは うけつける)
       RESULT_MS: 520,    // ○/× を 見せる じかん
       FINAL_MS: 2200,    // さいごの けっかを 見せる じかん
       LEVEL_EVERY: 4,    // なんゲームごとに レベルが あがるか
@@ -930,7 +930,7 @@
             cueEl.classList.remove('pop'); void (cueEl.offsetWidth); cueEl.classList.add('pop');
             hintEl.textContent = (game.cue || def.cue) + '（' + def.motif + '）';
             // こえが 出る ときは チャイムを かさねない(ことばの あたまが きこえなくなる)
-            if (!voice(String(game.say || def.say).replace(/[！!？?。、]/g, ''))) sfx('notify');
+            if (!voice(String(game.say || def.say), { question: /[？?]$/.test(String(game.cue || def.cue)) })) sfx('notify');
           }
           function judge(ok) {
             if (phase !== 'play' || pending != null) return;
