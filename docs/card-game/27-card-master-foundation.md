@@ -17,6 +17,8 @@
 ## こいびと18
 cat_ceo, robot_neighbor, field_cow, sunflower_partner, forest_bear, grove_deer, cliff_goat, high_eagle, snow_spirit, snowman, rock_octopus, sea_mermaid, anglerfish, swamp_croc, gentle_gorilla, knitting_spider, desert_scorpion, oasis_cactus。firstRegionとhookを能力設計の根拠にする。旧互換IDは独立候補にしない。
 
+**74の個別割当・第1稿:** カード側のこいびとは全18体とも通常・各同名3枚とする。本編partnersの単一配列自体を構築区分の指定とは扱わず、今回の個別設計として明記する。全18体の本文は[74](74-partner-18-card-text-draft.md)、根拠・接続・40局面は[75](75-partner-18-text-audit.md)。収録弾・販売上の希少度・強度は未確定。
+
 ## セカイ13
 home, city, countryside, forest, mountain, snow, sea, deepsea, river_lake, jungle, desert, star_stop, memory_lake。季節・時間・天気は独立軸なので役割監査までHOLD。
 

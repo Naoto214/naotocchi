@@ -278,6 +278,56 @@ for rec in companion_records.values():
 combined_duplicates = [ids for ids in combined_texts.values() if len(ids) > 1]
 check(not combined_duplicates, f"Identical main/companion ability bodies: {combined_duplicates}")
 
+# 74 holds the partner bodies; 36 and 08 mirror the four existing A/B cards.
+partner_records = {}
+partner_vanilla = []
+partner_source = {p["id"]: p for p in master["partners"]}
+partner_text = doc(74)
+for match in re.finditer(r"^### P-([\w_]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", partner_text, re.M | re.S):
+    source_id, name, block = match.groups()
+    key = "P-" + source_id
+    check(key not in partner_records, f"Duplicate partner body ID: {key}")
+    check(source_id in partner_source, f"Unknown partner source ID: {key}")
+    if source_id not in partner_source:
+        continue
+    definition = partner_source[source_id]
+    check(name == definition["label"], f"Partner display name: {key}")
+    check(f"`partners / id={source_id}`" in block, f"Partner source path: {key}")
+    check(f"firstRegion: `{definition['firstRegion']}`" in block, f"Partner source region: {key}")
+    check(f"hook: {definition['hook']}。" in block, f"Partner source hook: {key}")
+    bodies = re.findall(r"^> (.+)$", block, re.M)
+    check(len(bodies) == 1 and bool(bodies[0]), f"Expected one partner body: {key}")
+    value = bodies[0] if bodies else ""
+    if value == "能力なし。":
+        partner_vanilla.append(key)
+    partner_records[key] = {"id": key, "source_id": source_id, "name": name,
+                            "type": "こいびと", "normal_time": 0, "rarity": "normal",
+                            "first_region": definition["firstRegion"], "text": value,
+                            "path": str(next(DOCS.glob("74-*.md")).relative_to(ROOT))}
+check(len(partner_records) == 18 and set(partner_records) == {"P-" + p for p in partner_source}, "18 partner body coverage mismatch")
+check(not partner_vanilla, "74 partner draft expects 18 ability bodies")
+check("全18体とも通常・各同名3枚" in doc(27), "27 explicit partner deck classification missing")
+partner_rows = [r for r in rows(partner_text) if r[0].startswith("P-")]
+check(len(partner_rows) == len({r[0] for r in partner_rows}) == 18, "74 partner source table coverage")
+for r in partner_rows:
+    rec = partner_records.get(r[0], {})
+    check(r[1] == rec.get("name") and r[2] == rec.get("first_region") and r[3] == "通常", f"74 partner table name/region/rarity: {r[0]}")
+for key in ("cat_ceo", "knitting_spider", "sea_mermaid", "snowman"):
+    role_block = re.search(rf"^### P-{key} — [^\n]+\n(.*?)(?=^### |^## |\Z)", doc(36), re.M | re.S)
+    role_body = re.search(r"`([^`]+)`", role_block[1]) if role_block else None
+    name = partner_source[key]["label"]
+    deck_line = re.search(rf"^- {re.escape(name)}[^\n]+", doc(8), re.M)
+    deck_body = re.search(r"`([^`]+)`", deck_line[0]) if deck_line else None
+    value = partner_records.get("P-" + key, {}).get("text")
+    check(bool(role_body) and role_body[1] == value, f"36 partner mirror: P-{key}")
+    check(bool(deck_body) and deck_body[1] == value, f"08 partner mirror: P-{key}")
+all_character_texts = collections.defaultdict(list, {k: list(v) for k, v in combined_texts.items()})
+for rec in partner_records.values():
+    if rec["text"] and rec["text"] != "能力なし。":
+        all_character_texts[rec["text"]].append(rec["id"])
+all_character_duplicates = [ids for ids in all_character_texts.values() if len(ids) > 1]
+check(not all_character_duplicates, f"Identical character ability bodies: {all_character_duplicates}")
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -297,10 +347,15 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "companion_body_entries": len(companion_records),
                   "companion_rarity_counts": dict(collections.Counter(r["rarity"] for r in companion_records.values())),
                   "companion_vanilla_entries": companion_vanilla,
-                  "main_companion_identical_ability_groups": combined_duplicates, "errors": errors,
+                  "main_companion_identical_ability_groups": combined_duplicates,
+                  "partner_body_entries": len(partner_records),
+                  "partner_rarity_counts": dict(collections.Counter(r["rarity"] for r in partner_records.values())),
+                  "partner_vanilla_entries": partner_vanilla,
+                  "all_character_identical_ability_groups": all_character_duplicates, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
+    result["partners"] = sorted(partner_records.values(), key=lambda r: r["id"])
 print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
