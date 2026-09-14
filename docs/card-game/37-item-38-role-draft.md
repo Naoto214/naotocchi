@@ -127,7 +127,7 @@
 
 ## B. NAOTO_ITEMS 4 — 達成報酬らしい特殊役割
 
-本編では4つのENDING_TIERS達成に紐づく。単純にSHOP15の上位版にはしない。
+本編の `ENDING_TIERS` は5達成段階で、そのうち `unlockTier: 0〜3` にこの4報酬が紐づく。現行の `achievedGoalTiers()`／`syncNaotoRewardItems()` を根拠にし、旧コメントの「全4段階」と混同しない。単純にSHOP15の上位版にはしない。
 
 ### I-naoto_charm — なおとのおまもり
 - 本編核: 幼い時と年を取ってからいのちが減りにくい

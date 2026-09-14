@@ -102,7 +102,7 @@ source value:
 
 ### 特殊2
 - W-star_stop — ほしぞらのていりゅうじょ
-- W-memory_lake — きおくのみずう
+- W-memory_lake — きおくのみずうみ
 
 場所13はCARD候補として477集計へ既に含まれている。
 
