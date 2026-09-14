@@ -8680,7 +8680,48 @@
     return compactJapaneseText(String(text || '').replace(COMMENT_EMOJI, '').trim());
   }
 
-  function playMovieBeats(beats, {step = 3500, endingDelay = 500, kind = 'date', theme = 'walk', legend = '', actions = []} = {}) {
+  // A bag per scene keeps each short story intact and avoids repeats until a
+  // full rotation. This presentation history never changes the saved life.
+  const movieStoryBags = new Map();
+  function pickMovieStory(key, stories) {
+    if (!stories?.length) return [];
+    let bag = movieStoryBags.get(key);
+    if (!bag || bag.size !== stories.length) bag = {size:stories.length, remaining:[], last:-1};
+    if (!bag.remaining.length) bag.remaining = stories.map((_, index) => index);
+    const choices = bag.remaining.filter(index => stories.length === 1 || index !== bag.last);
+    const pool = choices.length ? choices : bag.remaining;
+    const index = pool[Math.floor(Math.random() * pool.length)];
+    bag.remaining = bag.remaining.filter(candidate => candidate !== index);
+    bag.last = index;
+    movieStoryBags.set(key, bag);
+    return stories[index];
+  }
+
+  function renderMovieCaption(beat, speakers) {
+    const entry = typeof beat === 'string' ? {text:beat} : beat;
+    const speaker = speakers[entry.speaker];
+    const caption = el.dateMovieCaption;
+    caption.dataset.speaker = speaker ? entry.speaker : '';
+    caption.dataset.speakerId = speaker?.id || '';
+    const text = movieText(entry.text);
+    if (!speaker) {
+      setCommentText(caption, text, true);
+      return;
+    }
+    // Reuse the regular comment portrait, with an empty emoji fallback.
+    // A missing image must leave the name readable instead of changing actors.
+    const visual = commentActorVisual(speaker);
+    const art = speaker.art || (visual?.asset ? commentPictureHTML(visual.asset, '', '')
+      : DISPLAY_CATALOG?.html(speaker.emoji) || commentIconHTML(speaker.emoji || '', '')
+        || '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 22v-3a8 8 0 0 1 16 0v3" fill="currentColor"/></svg>');
+    const label = movieText(speaker.label);
+    caption.innerHTML = '<span class="movie-speaker"><span class="movie-speaker-art" aria-hidden="true">'
+      + art.replace(COMMENT_EMOJI, '') + '</span><span class="movie-speaker-name">'
+      + escapeHtml(label) + '</span><span class="movie-speaker-colon">：</span></span>'
+      + '<span class="movie-caption-text">' + commentTextHTML(text) + '</span>';
+  }
+
+  function playMovieBeats(beats, {step = 3500, endingDelay = 500, kind = 'date', theme = 'walk', legend = '', actions = [], speakers = {pet:petSpeaker(), partner:partnerSpeaker()}} = {}) {
     releaseMoviePresentation();
     moviePresentation = {inert: el.device.inert, ownStage: SPECIES[state.speciesLine]?.stages[state.stageIndex]};
     el.dateMovie.style.fontFamily = window.getComputedStyle(el.device).fontFamily;
@@ -8690,7 +8731,7 @@
     el.dateOverlay.classList.add('movie-fullscreen');
     el.dateRewardConfirm.classList.add('hidden');
     const scene = el.dateMovieScene;
-    Object.assign(scene.dataset, {kind, theme, legend, complete:'false', motion:mgPerfTier >= 2 ? 'low' : 'full'});
+    Object.assign(scene.dataset, {kind, theme, legend, complete:'false', totalBeats:String(beats.length), motion:mgPerfTier >= 2 ? 'low' : 'full'});
     scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
     el.dateMoviePlace.textContent = movieText(el.dateMoviePlace.textContent);
     document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : kind === 'special' ? 'とくべつなおもいで' : 'ふたりのじかん';
@@ -8699,12 +8740,12 @@
     const progress = document.getElementById('dateMovieProgress');
     progress.innerHTML = beats.map(() => '<i></i>').join('');
     function showBeat(index) {
-      const action = actions[index] || (index === 0 ? 'arrive' : index === beats.length - 1 ? 'together' : 'talk');
+      const action = beats[index].action || actions[index] || (index === 0 ? 'arrive' : index === beats.length - 1 ? 'together' : 'talk');
       Object.assign(scene.dataset, {beat:String(index), shot:index === 0 ? 'wide' : index === beats.length - 1 ? 'wide' : index % 2 ? 'close' : 'detail', action});
       if (legend === 'mirror' && action === 'return') setStageVisual(el.dateMoviePartner, moviePresentation?.ownStage, 'medium');
       el.dateMovieCaption.classList.remove('beat');
       void el.dateMovieCaption.offsetWidth;
-      setCommentText(el.dateMovieCaption, movieText(beats[index]), true);
+      renderMovieCaption(beats[index], speakers);
       el.dateMovieCaption.classList.add('beat');
       Array.from(progress.children).forEach((dot, i) => dot.classList.toggle('seen', i <= index));
     }
@@ -8851,6 +8892,7 @@
 
 
   function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
+    plan = datePlanForRegion(plan);
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -8874,38 +8916,23 @@
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
     el.dateMoviePartner.innerHTML = partnerVisualHTML(partner, 'medium');
 
-    const specialMiddleLines = [
-      '「おしゃれした?」「いつもの服」「そっか。似合ってる」',
-      'ふたりともすこしだけよそいきの顔をしていた。',
-      '「帰ったら、今日のこと自慢しよう」「誰に?」',
-      '先に笑いだしたほうが、何がおかしいのか説明できなかった。',
+    const book = globalThis.NaotocchiMovieDialogue;
+    const local = state.regionId === 'deepsea' && book.deepsea[plan.id];
+    const scenes = local || book.dates[plan.id];
+    const story = pickMovieStory(`date:${local ? 'deepsea' : 'land'}:${plan.id}`, scenes);
+    const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
+    const aside = pickMovieStory(`partner:${partnerId}`, book.partners[partnerId]);
+    const extra = hasNaotoItem('naoto_ring')
+      ? pickMovieStory('special:ring', book.ring).map(beat => beat.signature ? {...beat, text:ringSecretPhrase(partner)} : beat)
+      : special ? pickMovieStory('special:day', book.special) : [];
+    const beats = [
+      `${partner.label}と、${plan.label}。`,
+      ...story,
+      ...(aside.length ? aside : [{speaker:'pet',text:'今のこと、あとでまた話そう。'}, {speaker:'partner',text:'うん。続きも一緒にね。'}]),
+      ...extra,
+      special ? 'この日のことが、ひとつ思い出に残った。'
+        : state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
     ];
-    const specialClosingLines = [
-      '「帰ったら何しよう」「今日の話を、もう一回」',
-      '「次の予定は?」「まだない」「じゃあ、今はここにいよう」',
-      '帰りぎわ、どちらもすぐには歩きださなかった。',
-      '帰り道で、今日撮った写真をまた見せあった。さっきも見た。',
-    ];
-    const planLine = pickConversationLine([plan.line, ...(plan.variations || DATE_PLAN_VARIATIONS[plan.id] || [])].filter(Boolean));
-    const beats = special
-      ? [
-          `🎁 ${partner.label}と、${plan.label}。`,
-          planLine,
-          specialMiddleLines[Math.floor(Math.random() * specialMiddleLines.length)],
-          traitLine,
-          hasNaotoItem('naoto_ring')
-            ? ringSecretLine(partner)
-            : '「写真とろう」って言ったのに、なぜか何枚もとった。',
-          specialClosingLines[Math.floor(Math.random() * specialClosingLines.length)],
-          '🎁この日のことが、ひとつ思い出に残った。',
-        ]
-      : [
-          `${partner.label}と、${plan.label}。`,
-          planLine,
-          traitLine,
-          closing,
-          ...(hasNaotoItem('naoto_ring') ? [ringSecretLine(partner)] : []),
-        ];
 
     if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
 
@@ -8924,13 +8951,10 @@
     { years: 50, icon: '🥇', title: 'きんこんしき' },
   ];
 
-  function pickMovieLine(lines) {
-    return lines[Math.floor(Math.random() * lines.length)];
-  }
-
   function partnerAnniversaryLine(partner, years) {
     // 年数と名前は最初の字幕にあるので、ここは相手固有の短い一言にする。
-    const lines = PARTNER_ANNIVERSARY_LINES[partner.id] || PARTNER_SIGNATURE_LINES[partner.id];
+    const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
+    const lines = PARTNER_ANNIVERSARY_LINES[id] || PARTNER_SIGNATURE_LINES[id];
     return lines?.length ? pickConversationLine(lines) : null;
   }
 
@@ -8957,100 +8981,15 @@
     const signatureAnniversary = partnerAnniversaryLine(state.partner, milestone.years);
 
 
-    const sharedMemory = hadMismatch
-      ? [
-          '「いろいろあったね」「ほんとにね。でもまだとなりにいる」',
-          'すれちがった日の話も、いまはふたりでできる話になっていた。',
-          '「あのときちゃんとはなしてよかったね」',
-          '「あのときの話、する?」「お茶いれてからにしよ」',
-          '「仲直りの一言、何回も練習した」「聞こえてたよ」',
-          '「あのときはごめんね」「うん。今日はとなりで飲もう」',
-        ]
-      : [
-          '「思い出せない日もいっぱいあるね」「たぶんそれでいいんだよ」',
-          '何でもない日のほうが、あとからたくさん思い出せた。',
-          '「結局、ふつうの日がいちばん多かったね」',
-          '「静かだね」「ふたりとも話すこと忘れたね」',
-          '「予定ないね」「じゃあ、いつもの席にしよ」',
-          '「今日の話は?」「おやつがおいしかった」「それで十分」',
-        ];
-
-    let beats;
-    if (milestone.years >= 50) {
-      beats = [
-        `${name}と結婚して50年。`,
-        pickMovieLine([
-          '「50ねんだって」「今日のお茶はいつもどおりね」',
-          '「50ねんたったらしいよ」「ほんと?まだしゃべることあるね」',
-          '「急がなくなったね」「待つのも上手になった」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '昔の写真を見た。笑うときのくせは、今も同じだった。',
-          '「昔のふたり、信じるかな」「まず座ってもらおう」',
-          '手をつながなくても、曲がる角はいつも同じだった。',
-        ]),
-        pickMovieLine([
-          '「まだいっしょにいるね」「うん。まだいるね」',
-          '「ここまで来たね」「じゃあ、もう少し行こっか」',
-          '「これからもよろしく、でいい?」「うん。こちらこそ」',
-        ]),
-        'ふたりはまた、いつもの速さで歩きだした。',
-      ];
-    } else if (milestone.years >= 25) {
-      beats = [
-        `${name}と結婚して25年。銀婚式。`,
-        pickMovieLine([
-          '「銀婚式だって」「銀って何かもらえるの?」「知らない笑」',
-          '「25ねん。長かった?」「短かったって言ったらうそになるね」',
-          '「昔のしゃしん見る?」「それはちょっとこわい」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '古い写真をひらいた。ふたりとも、同じ一枚で笑った。',
-          '「このころ若いね」「今もまあまあいけるでしょ」',
-          '忘れた日もある。となりにいたことは、思い出せた。',
-        ]),
-        pickMovieLine([
-          '「ここまできたね」「うん。意外ときたね」',
-          '「また25ねん後もこれやる?」「そのとき考えよ」',
-          '「これからもよろしく」「それ、何回目?」',
-        ]),
-        '帰り道は、いつもとほとんどおなじだった。',
-      ];
-    } else if (milestone.years === 10) {
-      beats = [
-        `${name}と結婚して10年。`,
-        pickMovieLine([
-          '「10ねんだって」「そんなにたった?」',
-          '「10周年らしいよ」「じゃあ今日はちょっといいもの食べよ」',
-          '「あの日から10ねん」「あの日ってどの日?」「そこから!?」',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        pickMovieLine([
-          '「変わった?」「変わった。でも変わってないとこもある」',
-          '「10年前より近い?」「席の話ならそうだね」',
-          'ふたりで10年前の話をして、半分くらい記憶がちがっていた。',
-        ]),
-        '「まあ、これからもよろしく」',
-      ];
-    } else {
-      beats = [
-        `${name}と初めての結婚記念日。`,
-        pickMovieLine([
-          '「1ねんたったね」「まだ1ねんなんだね」',
-          '「きょう記念日だよ」「忘れてないよ。たぶん」',
-          '「結婚して1ねん」「なんかもっと長い気がする笑」',
-        ]),
-        pickMovieLine([
-          '「まだ新婚っていっていい?」「いいんじゃない?」',
-          '「1年目、どう?」「面接みたいに聞かないで笑」',
-          'ふたりとも少しだけ照れながら、最初の一年を思い返した。',
-        ]),
-        signatureAnniversary && Math.random() < 0.5 ? signatureAnniversary : pickMovieLine(sharedMemory),
-        '「来年もやろうね。忘れてたら呼んで」',
-      ];
-    }
+    const book = globalThis.NaotocchiMovieDialogue;
+    const years = milestone.years >= 50 ? 50 : milestone.years >= 25 ? 25 : milestone.years === 10 ? 10 : 1;
+    const memoryKey = hadMismatch ? 'reconciled' : 'everyday';
+    const beats = [
+      `${name}と${years === 1 ? '初めての結婚記念日' : `結婚して${years}年`}。`,
+      ...pickMovieStory(`anniversary:${years}`, book.anniversaries[years]),
+      ...(signatureAnniversary ? [{speaker:'partner',text:signatureAnniversary.replace(/^「|」$/g, '')}] : []),
+      ...pickMovieStory(`memory:${memoryKey}`, book.shared[memoryKey]),
+    ];
 
     playMovieBeats(beats, {step:4000, endingDelay:800, kind:'anniversary',
       theme:state.regionId === 'deepsea' ? 'deepsea' : milestone.years >= 50 ? 'star' : 'special'});
@@ -9224,101 +9163,17 @@
       el.dateMoviePartner.innerHTML = displayIconHTML(legend.emoji);
     }
 
-    const beatsById = {
-      gate: [
-        '空を見上げた。',
-        '⛩️雲より下に、とりいがひとつ浮かんでいる。',
-        '風はない。',
-        'それなのに、とりいが少しだけこちらへかたむいた。',
-        '「……いま、動いたよね?」',
-      ],
-      stairs: [
-        '野原のまんなかに、階段だけが立っていた。',
-        '「……どこ行くの、これ」',
-        'のぼってものぼっても、何段目かわからない。',
-        'いったんおりて振り返る。',
-        '階段は、3段しかなかった。',
-        '「もうのぼらない」',
-      ],
-      boss: [
-        '🦑とてつもなく大きなイカがあらわれた。',
-        'ダイオウイカは、ものすごく丁寧におじぎをした。',
-        '🦑「このたびは、まことに申し訳ございませんでした」',
-        '「……なにが?」',
-        '🦑もう一度、深々とおじぎをした。',
-        '「まあ……いいよ」',
-        '🦑ダイオウイカは帰っていった。',
-      ],
-      lamp: [
-        'まっくらな道の先に、小さなあかりがひとつ。',
-        '近づくと、暗がりから声がした。',
-        '「おかえり」',
-        '「……ただいま?」',
-        '振り返ると、あかりだけがまだそこにあった。',
-      ],
-      mirror: [
-        '水たまりをのぞきこんだ。',
-        'そこには、ずっと年をとった自分がいた。',
-        '「……これ、自分?」',
-        '水の中の自分だけが、先にわらった。',
-        '何かを言いかけた瞬間、水面がゆれた。',
-        '消える直前の顔は、おだやかだった。',
-      ],
+    const story = pickMovieStory(`legend:${legend.id}`, globalThis.NaotocchiMovieDialogue.legends[legend.id]);
+    const beats = (story.length ? story : [legend.flash, legend.story])
+      .concat([{text:`足もとに${coins}コインがきちんと積まれていた。`, action:'reward'}]);
+    const speakers = {
+      pet:petSpeaker(),
+      legend:{kind:'legend', id:legend.id, label:legend.id === 'boss' ? 'ダイオウイカ' : legend.id === 'lamp' ? 'あかりのむこうの声' : legend.name,
+        art:el.dateMoviePartner.innerHTML},
     };
-    // 文ごとに混ぜず、一つの短い物語を丸ごと選ぶ。
-    const alternateBeatsById = {
-      "gate": [
-        "空にとりいが浮かんでいた。",
-        "少しだけおじぎをしてみた。",
-        "とりいの向こうに、同じ空が見えた。",
-        "「……通ってないのに、通った気がする」",
-        "振り返ると、とりいはまた遠くにいた。"
-      ],
-      "stairs": [
-        "行き先のない階段に座ってみた。",
-        "ひと休みしただけなのに、景色がひとつ上がっていた。",
-        "「……今、のぼった?」",
-        "足はずっと同じ段にあった。",
-        "もう少し座るのはやめておいた。"
-      ],
-      "boss": [
-        "🦑大きなイカが、遠くからおじぎをしている。",
-        "近づいてみたら、まだおじぎをしていた。",
-        "🦑「お時間をとらせてしまい……」",
-        "「話す前からあやまってない?」",
-        "🦑イカは少し考えて、もう一度おじぎをした。",
-        "何の用だったのかは、最後までわからなかった。"
-      ],
-      "lamp": [
-        "遠くに小さなあかりが見えた。",
-        "足を止めると、あかりも止まった。",
-        "一歩進むと、少しだけ近づいた。",
-        "「……待ち合わせ?」",
-        "返事はなく、あかりはしばらくとなりにいた。"
-      ],
-      "mirror": [
-        "水たまりの中で、年をとった自分が手をふった。",
-        "こちらも手をふってみる。",
-        "水の中の自分は、まだこちらを見ていた。",
-        "「……そっちも元気?」",
-        "返事のかわりに、小さな波がひとつ広がった。",
-        "もう一度見ると、いつもの顔に戻っていた。"
-      ]
-    };
-    const stories = [beatsById[legend.id], alternateBeatsById[legend.id]].filter(Boolean);
-    const story = stories.length ? pickMovieLine(stories) : [legend.flash, legend.story];
-    const variant = stories.indexOf(story) === 1 ? 1 : 0;
-    const choreography = {
-      mirror:[['look','reveal','look','smile','ripple','fade'], ['wave','wave','look','look','ripple','return']],
-      gate:[['look','appear','hover','tilt','look'], ['appear','bow','hover','look','depart']],
-      stairs:[['appear','look','climb','return','reveal','look'], ['sit','rise','look','sit','return']],
-      boss:[['appear','bow','bow','look','bow','look','depart'], ['bow','bow','bow','look','bow','depart']],
-      lamp:[['appear','approach','glow','look','glow'], ['appear','hover','approach','look','glow']],
-    };
-    const beats = story.concat([`足もとに${coins}コインがきちんと積まれていた。`]);
-    playMovieBeats(beats, {kind:'legend', legend:legend.id,
-      theme:({mirror:'water', gate:'sky', stairs:'meadow', boss:'shore', lamp:'lantern'})[legend.id] || 'walk',
-      actions:[...(choreography[legend.id]?.[variant] || []), 'reward']});
+    playMovieBeats(beats, {kind:'legend', legend:legend.id, speakers,
+      theme:({mirror:'water', gate:'sky', stairs:'meadow', boss:'shore', lamp:'lantern'})[legend.id] || 'walk'});
+
   }
 
   // まだ みた ことの ない パターンを ゆうせんして えらぶ ので、いっしょうを
@@ -12811,9 +12666,13 @@
     itemContextReaction('partner1', '手紙をそっとひらいて、もう一度読んだ。');
   }
 
-  function ringSecretLine(partner) {
+  function ringSecretPhrase(partner) {
     const phrase = PARTNER_SIGNATURE_LINES[WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id]?.[0] || `${partner.label}、またとなりで`;
-    return `${partner.label}とふたりの合言葉。「${phrase.replace(/^[「『]|[」』]$/g,'')}」`;
+    return phrase.replace(/^[「『]|[」』]$/g,'');
+  }
+
+  function ringSecretLine(partner) {
+    return `${partner.label}とふたりの合言葉。「${ringSecretPhrase(partner)}」`;
   }
 
   // One short, presentation-only follow-up; newer equipment events replace older ones.

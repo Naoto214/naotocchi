@@ -64,6 +64,14 @@ body.movie-active {overflow:hidden;overscroll-behavior:none}
   text-wrap:pretty;overflow-wrap:anywhere;text-shadow:0 1px 3px #000;
 }
 .movie-fullscreen .date-movie-caption.beat {animation:movie-caption .55s ease-out}
+.movie-speaker {display:inline-flex;align-items:center;gap:5px;max-width:100%;margin-right:5px;vertical-align:middle;color:#f7dda6;font-size:.78em;line-height:1.45}
+.movie-speaker-name {overflow-wrap:anywhere;text-align:left;font-weight:800}
+.movie-speaker-colon {margin-left:-4px}
+.movie-speaker-art {display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#e8f1ff16;vertical-align:middle}
+.movie-speaker-art :is(.comment-picture,.comment-drawing,.display-icon,.catalog-icon,.care-icon,.ui-icon,.character-visual) {display:inline-flex;width:28px;height:28px;font-size:28px;line-height:1;max-width:100%;max-height:100%}
+.movie-speaker-art :is(img,svg) {width:100%;height:100%;object-fit:contain}
+.movie-speaker-art .icon-fallback {display:none}
+.movie-caption-text {vertical-align:middle}
 .movie-progress {position:absolute;bottom:calc(var(--movie-bottom) + 67px);left:20%;right:20%;display:flex;justify-content:center;gap:5px}
 .movie-progress i {height:2px;max-width:48px;flex:1;background:#ffffff38;transition:background .5s}
 .movie-progress i.seen {background:#f6dea5;box-shadow:0 0 8px #ffeab380}

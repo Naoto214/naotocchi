@@ -22,6 +22,11 @@ function measure() {
     bodyInert:document.getElementById('device').inert,
     opacity:Number(getComputedStyle(document.getElementById('dateOverlay')).opacity),
     captionOpacity:Number(getComputedStyle(document.getElementById('dateMovieCaption')).opacity),
+    speaker:document.getElementById('dateMovieCaption').dataset.speaker,
+    speakerName:document.querySelector('.movie-speaker-name')?.textContent || '',
+    speakerArt:document.querySelector('.movie-speaker-art') ? box(document.querySelector('.movie-speaker-art')) : null,
+    speakerLabel:document.querySelector('.movie-speaker-name') ? box(document.querySelector('.movie-speaker-name')) : null,
+    portrait:document.querySelector('.movie-speaker-art img')?.getAttribute('src') || '',
     captionOverflow:document.getElementById('dateMovieCaption').scrollHeight > document.getElementById('dateMovieCaption').clientHeight,
     failedImages:[...scene.querySelectorAll('img')].filter(img => !img.complete || !img.naturalWidth).map(img=>img.src),
     background:getComputedStyle(scene.querySelector('.movie-backdrop')).transform,
@@ -43,6 +48,13 @@ function check(m, label) {
   assert.equal(m.opacity,1,label+': film fully opaque after entrance');
   assert.equal(m.captionOpacity,1,label+': subtitle visible after transition');
   assert.deepEqual(m.failedImages,[],label+': actor art loads');
+  if(m.speaker) {
+    assert.ok(m.speakerName.length>0,label+': visible speaker name');
+    assert.ok(m.speakerArt.w>=24 && m.speakerArt.h>=24,label+': small readable portrait');
+    const r=m.speakerLabel;
+    assert.ok(r.x>=m.caption.x && r.x+r.w<=m.caption.x+m.caption.w+1,label+': full name stays inside caption');
+    if(m.speaker==='pet' || m.speaker==='partner') assert.ok(m.portrait,label+': character PNG in speech label');
+  } else assert.equal(m.speakerName,'',label+': narration clears the previous speaker');
 }
 
 (async()=>{
@@ -57,9 +69,15 @@ function check(m, label) {
       ['special',393,852,'no-preference',0],['anniversary',393,852,'no-preference',0],
       ['deepsea',393,852,'no-preference',0],['mirror',844,390,'no-preference',0],
       ['mirror',1280,800,'no-preference',0],['mirror',320,568,'reduce',0],
+      ['date:photo',320,568,'no-preference',0,'knitting_spider'],
+      ['date:talk',844,390,'no-preference',0,'oasis_cactus'],
+      ['anniversary',320,568,'reduce',0,'anglerfish'],
+      ['date:talk',320,568,'no-preference',0,'guest'],
+      ['ring',320,568,'no-preference',0],
+      ['ring-special',393,852,'no-preference',0,'anglerfish'],
     ];
-    for (const [name,width,height,motion,variant] of cases) {
-      const label=`${name.replace(':','-')}-${width}x${height}-${motion}-${variant}`;
+    for (const [name,width,height,motion,variant,partnerId='robot_neighbor'] of cases.filter(row=>!process.env.MOVIE_TEST_FILTER || new RegExp(process.env.MOVIE_TEST_FILTER).test(row.join(':')))) {
+      const label=`${name.replace(':','-')}-${width}x${height}-${motion}-${variant}-${partnerId}`;
       const context=await browser.newContext({viewport:{width,height},isMobile:width<900,hasTouch:true,reducedMotion:motion});
       const page=await context.newPage();
       const errors=[];
@@ -75,17 +93,19 @@ function check(m, label) {
       await page.goto(base,{waitUntil:'networkidle'});
       await page.clock.install();
       await page.clock.pauseAt(new Date(Date.now()+100));
-      await page.evaluate(({name,variant})=>{
+      await page.evaluate(({name,variant,partnerId})=>{
         const q=window.__movieQA,s=q.state();
         Math.random=()=>variant ? .99 : 0;
-        const partner={...q.ALL_PARTNER_CANDIDATES.find(p=>p.id==='robot_neighbor'),married:true};
-        if(name.startsWith('date:') || ['special','deepsea'].includes(name)) {
+        const partner=partnerId==='guest' ? {id:'guest',label:'ともだちのねこ',emoji:'🐈',married:true}
+          : {...q.ALL_PARTNER_CANDIDATES.find(p=>p.id===partnerId),married:true};
+        if(name.startsWith('date:') || ['special','deepsea','ring','ring-special'].includes(name)) {
           s.partner=partner;s.items.reward=1;s.regionId=name==='deepsea'?'deepsea':'forest';
-          q.playOrdinaryDateMovie(q.DATE_PLANS.find(p=>p.id===(name==='deepsea'?'rain':name.split(':')[1] || 'photo')),partner,'同じ景色を、ふたりで見ていた。','また、ここに来よう。',name==='special');
+          if(name.startsWith('ring')) s.lifetime.ownedNaotoItems=['naoto_ring'];
+          q.playOrdinaryDateMovie(q.DATE_PLANS.find(p=>p.id===(name==='deepsea'?'rain':name.split(':')[1] || 'photo')),partner,'同じ景色を、ふたりで見ていた。','また、ここに来よう。',name==='special' || name==='ring-special');
         } else if(name==='anniversary') {
           s.partner=partner;q.playMarriageMovie({years:50,icon:'🥇',title:'きんこんしき'});
         } else q.playLegendEncounterMovie(q.LEGEND_ENCOUNTERS.find(l=>l.id===name),200);
-      },{name,variant});
+      },{name,variant,partnerId});
       await page.clock.runFor(4300);
       // The ordered JS clock advances the story; CSS animations use real time.
       await new Promise(resolve=>setTimeout(resolve,700));
@@ -98,14 +118,29 @@ function check(m, label) {
       const second=await page.evaluate(measure);
       if(motion==='reduce') assert.equal(second.running,0,label+': no animations with reduced motion');
       else assert.notEqual(first.background,second.background,label+': camera actually moves');
-      await page.clock.runFor(9200);
+      const replyDelta=['boss','lamp'].includes(name) ? 1900 : 5700;
+      await page.clock.runFor(replyDelta);
+      await new Promise(resolve=>setTimeout(resolve,700));
+      const reply=await page.evaluate(measure);check(reply,label+'-reply');
+      await page.screenshot({path:path.join(output,label+'-reply.png')});
+      await page.clock.runFor(9200-replyDelta);
       await new Promise(resolve=>setTimeout(resolve,700));
       const middle=await page.evaluate(measure);check(middle,label+'-middle');
+      await page.screenshot({path:path.join(output,label+'-dialogue.png')});
       if(name==='mirror') {
         assert.equal(middle.action,'ripple');
         await page.screenshot({path:path.join(output,label+'-ripple.png')});
       }
-      await page.clock.runFor(24000);
+      let ring=null;
+      const ringDelta=name==='ring' ? 11300 : 14600;
+      if(name.startsWith('ring')) {
+        await page.clock.runFor(ringDelta);
+        await new Promise(resolve=>setTimeout(resolve,700));
+        ring=await page.evaluate(measure);check(ring,label+'-phrase');
+        assert.equal(ring.speaker,'partner',label+': partner says the ring phrase');
+        await page.screenshot({path:path.join(output,label+'-phrase.png')});
+      }
+      await page.clock.runFor(ring ? 24000-ringDelta : 24000);
       await new Promise(resolve=>setTimeout(resolve,700));
       assert.equal(await page.locator('#dateMovieCloseBtn').isVisible(),true,label+': finishes');
       check(await page.evaluate(measure),label+'-finished');
@@ -113,7 +148,7 @@ function check(m, label) {
       assert.equal(await page.locator('#dateOverlay').isVisible(),false,label+': closes');
       assert.equal(await page.evaluate(()=>document.getElementById('device').inert),false,label+': releases home input');
       assert.deepEqual(errors,[],label+': no runtime errors');
-      results.push({label,first,middle,errors});
+      results.push({label,first,reply,middle,...(ring ? {ring} : {}),errors});
       console.log('PASS '+label);
       await context.close();
     }
