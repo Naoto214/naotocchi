@@ -4,7 +4,7 @@ const fs = require('fs');
 // 2つを つなげて 1つの ソースとして あつかう(script.js の おわりの })(); が
 // ぜんたいの おわりに なる)
 const gamesSource = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8');
-const source = gamesSource + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = gamesSource + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const html = fs.readFileSync('index.html', 'utf8');
 
 const masterSource = fs.readFileSync('character-world-master.v1.js', 'utf8');

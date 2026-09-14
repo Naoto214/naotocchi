@@ -1,0 +1,4670 @@
+[
+  {
+    "label": "mirror-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 106.80863952636719,
+          "y": 241.1745147705078,
+          "w": 115.98579406738281,
+          "h": 115.98579406738281,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999841, -0.0178577, 0.0178577, 0.999841, -0.0109634, -0.613836)"
+        },
+        {
+          "x": 137.5546875,
+          "y": 383.234375,
+          "w": 117.890625,
+          "h": 117.890625,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "そこには、ずっと年をとった自分がいた。",
+      "action": "reveal",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00018, 0, 0, 1.00018, -0.00831845, -0.0180339)",
+      "running": 24
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 103.31773376464844,
+          "y": 235.80502319335938,
+          "w": 122.56524658203125,
+          "h": 122.56524658203125,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996913, -0.0785156, 0.0785156, 0.996913, -0.212145, -2.69361)"
+        },
+        {
+          "x": 132.6466064453125,
+          "y": 382.3219909667969,
+          "w": 127.706787109375,
+          "h": 127.70675659179688,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996203, 0.0870619, -0.0870619, 0.996203, 0, 3.99568)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "水の中の自分だけが、先に笑った。",
+      "action": "smile",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00112, 0, 0, 1.00112, -0.0526516, -0.114146)",
+      "running": 24
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 103.14825439453125,
+          "y": 235.55172729492188,
+          "w": 122.8719482421875,
+          "h": 122.8719482421875,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996678, -0.0814416, 0.0814416, 0.996678, -0.228269, -2.79355)"
+        },
+        {
+          "x": 137.5546875,
+          "y": 383.234375,
+          "w": 117.890625,
+          "h": 117.890625,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何かを言いかけた瞬間、水面がゆれた。",
+      "action": "ripple",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00259, 0, 0, 1.00259, -0.122631, -0.265857)",
+      "running": 26
+    },
+    "errors": []
+  },
+  {
+    "label": "mirror-320x568-no-preference-1-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 87.11032104492188,
+          "y": 158.95693969726562,
+          "w": 94.17031860351562,
+          "h": 94.17031860351562,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999889, -0.0149117, 0.0149117, 0.999889, -0.0076444, -0.512588)"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：今のことも、覚えてるのかな。",
+      "action": "look",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 38.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 71.5,
+        "y": 424.171875,
+        "w": 72,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00015, 0, 0, 1.00015, -0.00566317, -0.0100523)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 84.60783386230469,
+          "y": 154.79054260253906,
+          "w": 98.87434387207031,
+          "h": 98.87434387207031,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.997699, -0.0677928, 0.0677928, 0.997699, -0.158115, -2.32697)"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：じゃあ、こっちも覚えておくね。",
+      "action": "look",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 38.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 71.5,
+        "y": 424.171875,
+        "w": 72,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00083, 0, 0, 1.00083, -0.031796, -0.0564386)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 83.6762466430664,
+          "y": 153.3009033203125,
+          "w": 100.5309066772461,
+          "h": 100.53091430664062,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996195, -0.0871484, 0.0871484, 0.996195, -0.261423, -2.98833)"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "水面に、小さな波がひとつ広がった。",
+      "action": "ripple",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00182, 0, 0, 1.00182, -0.0701879, -0.124585)",
+      "running": 26
+    },
+    "errors": []
+  },
+  {
+    "label": "gate-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 324.88897705078125,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.53292)"
+        },
+        {
+          "x": 203.98583984375,
+          "y": 246.70382690429688,
+          "w": 114.7158203125,
+          "h": 114.7158203125,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.838796, 0, 0, 0.838796, 0, -16.1204)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "雲より下に、とりいがひとつ浮かんでいる。",
+      "action": "appear",
+      "theme": "sky",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00019, 0, 0, 1.00019, -0.00904686, -0.0196131)",
+      "running": 22
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 320.6632385253906,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.75864)"
+        },
+        {
+          "x": 191.96580505371094,
+          "y": 254.02830505371094,
+          "w": 138.75587463378906,
+          "h": 138.75587463378906,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999892, -0.0146833, 0.0146833, 0.999892, 0, 0)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "それなのに、とりいが少しだけこちらへかたむいた。",
+      "action": "tilt",
+      "theme": "sky",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00118, 0, 0, 1.00118, -0.0555899, -0.120516)",
+      "running": 22
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 321.5458679199219,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -4.876)"
+        },
+        {
+          "x": 192.96249389648438,
+          "y": 253.3563232421875,
+          "w": 136.76251220703125,
+          "h": 136.76251220703125,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.39056)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：……今、動いたよね?",
+      "action": "look",
+      "theme": "sky",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 58,
+        "y": 694.84375,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 91,
+        "y": 699.953125,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00275, 0, 0, 1.00275, -0.129844, -0.281494)",
+      "running": 22
+    },
+    "errors": []
+  },
+  {
+    "label": "boss-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 324.888916015625,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.53294)"
+        },
+        {
+          "x": 173.47994995117188,
+          "y": 303.3645324707031,
+          "w": 161.27816772460938,
+          "h": 150.453857421875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.987191, -0.159543, 0.144896, 0.896563, 0, 0)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ダイオウイカは、ものすごく丁寧におじぎをした。",
+      "action": "bow",
+      "theme": "shore",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00011, 0, 0, 1.00011, -0.00506985, -0.0109911)",
+      "running": 22
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 320.72503662109375,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.69684)"
+        },
+        {
+          "x": 161.27633666992188,
+          "y": 307.90179443359375,
+          "w": 172.84909057617188,
+          "h": 155.82012939453125,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.939693, -0.34202, 0.273616, 0.751754, 0, 0)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ダイオウイカ：このたびは、まことに申し訳ございませんでした。",
+      "action": "bow",
+      "theme": "shore",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "legend",
+      "speakerName": "ダイオウイカ",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00063, 0, 0, 1.00063, -0.0297822, -0.0645661)",
+      "running": 22
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 321.3634033203125,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.05846)"
+        },
+        {
+          "x": 173.4809112548828,
+          "y": 303.3643798828125,
+          "w": 161.2771453857422,
+          "h": 150.45339965820312,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.987193, -0.159532, 0.144887, 0.896571, 0, 0)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "もう一度、深々とおじぎをした。",
+      "action": "bow",
+      "theme": "shore",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00147, 0, 0, 1.00147, -0.0692782, -0.150191)",
+      "running": 22
+    },
+    "errors": []
+  },
+  {
+    "label": "lamp-393x852-no-preference-1-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 324.9605712890625,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.46129)"
+        },
+        {
+          "x": 201.7686309814453,
+          "y": 321.739501953125,
+          "w": 118.95408630371094,
+          "h": 118.95404052734375,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.998998, -0.0447444, 0.0447444, 0.998998, -0.0980766, -2.18974)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：もう、ついてこないの?",
+      "action": "look",
+      "theme": "lantern",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 50,
+        "y": 694.84375,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 83,
+        "y": 699.953125,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00018, 0, 0, 1.00018, -0.00861944, -0.0186865)",
+      "running": 22
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 320.6630859375,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.75877)"
+        },
+        {
+          "x": 204.359375,
+          "y": 326.421875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "あかりのむこうの声：ここにいるよ。",
+      "action": "glow",
+      "theme": "lantern",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "legend",
+      "speakerName": "あかりのむこうの声",
+      "speakerArt": {
+        "x": 61,
+        "y": 694.84375,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 94,
+        "y": 699.953125,
+        "w": 108,
+        "h": 17.78125
+      },
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00118, 0, 0, 1.00118, -0.055595, -0.120527)",
+      "running": 22
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 74.671875,
+          "y": 321.5457763671875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -4.87611)"
+        },
+        {
+          "x": 204.359375,
+          "y": 326.421875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "少し進んでから、もう一度だけ振り返った。",
+      "action": "glow",
+      "theme": "lantern",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00275, 0, 0, 1.00275, -0.129841, -0.281488)",
+      "running": 22
+    },
+    "errors": []
+  },
+  {
+    "label": "stairs-320x568-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 60.8046875,
+          "y": 207.59722900390625,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.6059)"
+        },
+        {
+          "x": 166.3984375,
+          "y": 207.81271362304688,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.39041)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：……どこ行くの、これ。",
+      "action": "look",
+      "theme": "meadow",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 38.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 71.5,
+        "y": 424.171875,
+        "w": 72,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00015, 0, 0, 1.00015, -0.00566138, -0.0100491)",
+      "running": 22
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 423,
+        "w": 276,
+        "h": 58
+      },
+      "actors": [
+        {
+          "x": 60.8046875,
+          "y": 207.81228637695312,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.39084)"
+        },
+        {
+          "x": 166.3984375,
+          "y": 203.69305419921875,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.51006)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "いったんおりて振り返る。",
+      "action": "return",
+      "theme": "meadow",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00079, 0, 0, 1.00079, -0.0305304, -0.0541921)",
+      "running": 22
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 423,
+        "w": 276,
+        "h": 58
+      },
+      "actors": [
+        {
+          "x": 60.8046875,
+          "y": 204.0877685546875,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.11535)"
+        },
+        {
+          "x": 166.3984375,
+          "y": 203.69285583496094,
+          "w": 92.796875,
+          "h": 92.79689025878906,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.51027)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "階段は、3段しかなかった。",
+      "action": "reveal",
+      "theme": "meadow",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00177, 0, 0, 1.00177, -0.0682753, -0.12119)",
+      "running": 22
+    },
+    "errors": []
+  },
+  {
+    "label": "date-star-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 54.540592193603516,
+          "y": 325.1912536621094,
+          "w": 115.49998474121094,
+          "h": 115.49996948242188,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999909, -0.0135271, 0.0135271, 0.999909, -0.00629064, -0.464998)"
+        },
+        {
+          "x": 222.94683837890625,
+          "y": 325.1912536621094,
+          "w": 115.5,
+          "h": 115.5,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999909, -0.0135271, 0.0135271, 0.999909, -0.00629064, -0.464998)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "流れ星を見つけたのは、結局あいてのほうだった。",
+      "action": "gaze",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.00663126, -0.0143762)",
+      "running": 24
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 51.42256546020508,
+          "y": 320.36322021484375,
+          "w": 121.43241882324219,
+          "h": 121.43240356445312,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.9977, -0.0677891, 0.0677891, 0.9977, -0.158098, -2.32684)"
+        },
+        {
+          "x": 219.8288116455078,
+          "y": 320.36322021484375,
+          "w": 121.43241882324219,
+          "h": 121.43240356445312,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.9977, -0.0677891, 0.0677891, 0.9977, -0.158098, -2.32684)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：そっちの顔を見てた。",
+      "action": "gaze",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 55,
+        "y": 694.84375,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 88,
+        "y": 699.953125,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00084, 0, 0, 1.00084, -0.0398352, -0.0863605)",
+      "running": 24
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 50.30304718017578,
+          "y": 318.6861267089844,
+          "w": 123.4650650024414,
+          "h": 123.46505737304688,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996197, -0.0871266, 0.0871266, 0.996197, -0.261292, -2.98759)"
+        },
+        {
+          "x": 218.7093048095703,
+          "y": 318.6861267089844,
+          "w": 123.46507263183594,
+          "h": 123.46505737304688,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996197, -0.0871266, 0.0871266, 0.996197, -0.261292, -2.98759)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：この時間は保存してもいいですか?",
+      "action": "gaze",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 120,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00193, 0, 0, 1.00193, -0.0909914, -0.197264)",
+      "running": 24
+    },
+    "errors": []
+  },
+  {
+    "label": "date-rain-320x568-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 48.33738708496094,
+          "y": 207.59710693359375,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.60603)"
+        },
+        {
+          "x": 178.85011291503906,
+          "y": 207.59710693359375,
+          "w": 92.79685974121094,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.60603)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "急な雨で、同じひさしの下に並んだ。",
+      "action": "shelter",
+      "theme": "rain",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00015, 0, 0, 1.00015, -0.00566184, -0.0100499)",
+      "running": 25
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 50.8797721862793,
+          "y": 203.5062255859375,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.6969)"
+        },
+        {
+          "x": 176.30772399902344,
+          "y": 203.5062255859375,
+          "w": 92.79689025878906,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.6969)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：今、入ったね。",
+      "action": "shelter",
+      "theme": "rain",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 44.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 77.5,
+        "y": 424.171875,
+        "w": 120,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00083, 0, 0, 1.00083, -0.0317953, -0.0564375)",
+      "running": 25
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 50.8984375,
+          "y": 203.97789001464844,
+          "w": 92.796875,
+          "h": 92.79689025878906,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.22523)"
+        },
+        {
+          "x": 176.2890625,
+          "y": 203.97789001464844,
+          "w": 92.796875,
+          "h": 92.79689025878906,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.22523)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：この時間は保存してもいいですか?",
+      "action": "shelter",
+      "theme": "rain",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 37,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 70,
+        "y": 424.171875,
+        "w": 120,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00185, 0, 0, 1.00185, -0.0711548, -0.126302)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "special-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 49.098541259765625,
+          "y": 321.4080810546875,
+          "w": 119.17088317871094,
+          "h": 119.1708984375,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.998907, -0.0467381, 0.0467381, 0.998907, -0.11289, -2.41272)"
+        },
+        {
+          "x": 224.50479125976562,
+          "y": 321.4080810546875,
+          "w": 119.1708984375,
+          "h": 119.1708984375,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.998907, -0.0467381, 0.0467381, 0.998907, -0.11289, -2.41272)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何枚とっても、どちらかが目をつぶっていた。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00006, 0, 0, 1.00006, -0.00305912, -0.006632)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 47.772159576416016,
+          "y": 313.73046875,
+          "w": 123.43696594238281,
+          "h": 123.43695068359375,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996221, 0.0868564, -0.0868564, 0.996221, 0.693764, -7.95729)"
+        },
+        {
+          "x": 223.17840576171875,
+          "y": 313.73046875,
+          "w": 123.43695068359375,
+          "h": 123.43695068359375,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996221, 0.0868564, -0.0868564, 0.996221, 0.693764, -7.95729)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：ふたりで交代してるみたい。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 55,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 88,
+        "y": 680.515625,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.0004, 0, 0, 1.0004, -0.0190005, -0.041192)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 51.76085662841797,
+          "y": 322.04534912109375,
+          "w": 114.06473541259766,
+          "h": 114.06475830078125,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, -0.000842634, 0.000842634, 1, -0.00364736, -4.32852)"
+        },
+        {
+          "x": 227.16709899902344,
+          "y": 322.04534912109375,
+          "w": 114.06474304199219,
+          "h": 114.06475830078125,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, -0.000842634, 0.000842634, 1, -0.00364736, -4.32852)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：次は両方あける番にしよう。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 120,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00093, 0, 0, 1.00093, -0.0437755, -0.0949028)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "anniversary-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 52.8125,
+          "y": 325.03125,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.39064)"
+        },
+        {
+          "x": 225.96681213378906,
+          "y": 326.373046875,
+          "w": 114.47264099121094,
+          "h": 114.47262573242188,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.99999, 0.00443109, -0.00443109, 0.99999, 0, 0.203107)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "50年たった日の、お茶もいつもどおりだった。",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00011, 0, 0, 1.00011, -0.00531543, -0.0115235)",
+      "running": 24
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 52.8125,
+          "y": 320.75885009765625,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.663)"
+        },
+        {
+          "x": 221.57957458496094,
+          "y": 325.68505859375,
+          "w": 123.24711608886719,
+          "h": 123.24710083007812,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996378, 0.0850334, -0.0850334, 0.996378, 0, 3.90236)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：特別なお茶にしなくてよかった?",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00066, 0, 0, 1.00066, -0.030987, -0.0671781)",
+      "running": 24
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 52.8125,
+          "y": 321.30609130859375,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.11576)"
+        },
+        {
+          "x": 226.1797332763672,
+          "y": 326.41424560546875,
+          "w": 114.04676818847656,
+          "h": 114.04678344726562,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0.000684962, -0.000684962, 1, 0, 0.0313963)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：いつもの味だと、話が続けやすい。",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 120,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00151, 0, 0, 1.00151, -0.0711394, -0.154226)",
+      "running": 24
+    },
+    "errors": []
+  },
+  {
+    "label": "deepsea-393x852-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 678,
+        "w": 349,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 60.53167724609375,
+          "y": 324.96112060546875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.46075)"
+        },
+        {
+          "x": 218.49957275390625,
+          "y": 324.96112060546875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.46075)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "流れをよけて、同じ岩のかげに並んだ。",
+      "action": "shelter",
+      "theme": "deepsea",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.00663104, -0.0143757)",
+      "running": 25
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 63.298858642578125,
+          "y": 320.6932067871094,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.72867)"
+        },
+        {
+          "x": 215.73239135742188,
+          "y": 320.6932067871094,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.72867)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：外の流れが、遠くの話みたい。",
+      "action": "shelter",
+      "theme": "deepsea",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 120,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00086, 0, 0, 1.00086, -0.0406334, -0.0880909)",
+      "running": 25
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 63.3125,
+          "y": 321.48309326171875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -4.93879)"
+        },
+        {
+          "x": 215.71875,
+          "y": 321.48309326171875,
+          "w": 113.96875,
+          "h": 113.96875,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0, 0, 1, 0, -4.93879)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：この時間は保存してもいいですか?",
+      "action": "shelter",
+      "theme": "deepsea",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 47,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 80,
+        "y": 680.515625,
+        "w": 120,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.002, 0, 0, 1.002, -0.0946769, -0.205254)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "mirror-844x390-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 271,
+        "w": 641.46875,
+        "h": 44
+      },
+      "actors": [
+        {
+          "x": 294.9078674316406,
+          "y": 80.55057525634766,
+          "w": 73.03103637695312,
+          "h": 73.0310287475586,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999908, -0.0135317, 0.0135317, 0.999908, -0.00629496, -0.465158)"
+        },
+        {
+          "x": 463.5390625,
+          "y": 137.1875,
+          "w": 68.796875,
+          "h": 68.796875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "そこには、ずっと年をとった自分がいた。",
+      "action": "reveal",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00013, 0, 0, 1.00013, -0.0135713, -0.00627105)",
+      "running": 24
+    },
+    "reply": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 271,
+        "w": 641.46875,
+        "h": 44
+      },
+      "actors": [
+        {
+          "x": 292.8208312988281,
+          "y": 76.70751953125,
+          "w": 76.88674926757812,
+          "h": 76.88674926757812,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.997592, -0.0693531, 0.0693531, 0.997592, -0.165484, -2.38036)"
+        },
+        {
+          "x": 460.69903564453125,
+          "y": 138.30776977539062,
+          "w": 74.4769287109375,
+          "h": 74.47694396972656,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.99627, 0.086293, -0.086293, 0.99627, 0, 3.96031)"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "水の中の自分だけが、先に笑った。",
+      "action": "smile",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00086, 0, 0, 1.00086, -0.0872676, -0.0403248)",
+      "running": 24
+    },
+    "middle": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 271,
+        "w": 641.46875,
+        "h": 44
+      },
+      "actors": [
+        {
+          "x": 292.1441345214844,
+          "y": 75.52609252929688,
+          "w": 78.05136108398438,
+          "h": 78.05137634277344,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996218, -0.0868886, 0.0868886, 0.996218, -0.259865, -2.97947)"
+        },
+        {
+          "x": 463.5390625,
+          "y": 137.1875,
+          "w": 68.796875,
+          "h": 68.796875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何かを言いかけた瞬間、水面がゆれた。",
+      "action": "ripple",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.002, 0, 0, 1.002, -0.203338, -0.093959)",
+      "running": 26
+    },
+    "errors": []
+  },
+  {
+    "label": "mirror-1280x800-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 1280,
+        "h": 800
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 1240,
+        "h": 39
+      },
+      "caption": {
+        "x": 300,
+        "y": 626,
+        "w": 680,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 456.4691162109375,
+          "y": 226.3937225341797,
+          "w": 160.6259765625,
+          "h": 160.62599182128906,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999899, -0.0142139, 0.0142139, 0.999899, -0.00694566, -0.488604)"
+        },
+        {
+          "x": 564.40625,
+          "y": 339.59375,
+          "w": 151.1875,
+          "h": 151.1875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 582,
+        "y": 738,
+        "w": 116,
+        "h": 44
+      },
+      "text": "そこには、ずっと年をとった自分がいた。",
+      "action": "reveal",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.0216051, -0.0135035)",
+      "running": 24
+    },
+    "reply": {
+      "viewport": {
+        "w": 1280,
+        "h": 800
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 1240,
+        "h": 39
+      },
+      "caption": {
+        "x": 300,
+        "y": 626,
+        "w": 680,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 451.21380615234375,
+          "y": 219.0675811767578,
+          "w": 170.698974609375,
+          "h": 170.69895935058594,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996715, -0.080994, 0.080994, 0.996715, -0.225765, -2.77827)"
+        },
+        {
+          "x": 558.1316528320312,
+          "y": 337.30169677734375,
+          "w": 163.7366943359375,
+          "h": 163.7366943359375,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996228, 0.0867764, -0.0867764, 0.996228, 0, 3.98255)"
+        }
+      ],
+      "button": {
+        "x": 582,
+        "y": 738,
+        "w": 116,
+        "h": 44
+      },
+      "text": "水の中の自分だけが、先に笑った。",
+      "action": "smile",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00121, 0, 0, 1.00121, -0.186736, -0.116712)",
+      "running": 24
+    },
+    "middle": {
+      "viewport": {
+        "w": 1280,
+        "h": 800
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 800
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 1240,
+        "h": 39
+      },
+      "caption": {
+        "x": 300,
+        "y": 626,
+        "w": 680,
+        "h": 70
+      },
+      "actors": [
+        {
+          "x": 451.787353515625,
+          "y": 219.8521728515625,
+          "w": 169.6298828125,
+          "h": 169.62982177734375,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.997282, -0.0736766, 0.0736766, 0.997282, -0.186779, -2.52822)"
+        },
+        {
+          "x": 564.40625,
+          "y": 339.59375,
+          "w": 151.1875,
+          "h": 151.1875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 582,
+        "y": 738,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何かを言いかけた瞬間、水面がゆれた。",
+      "action": "ripple",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00303, 0, 0, 1.00303, -0.466934, -0.291839)",
+      "running": 26
+    },
+    "errors": []
+  },
+  {
+    "label": "mirror-320x568-reduce-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 87.8046875,
+          "y": 160.15625,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "そこには、ずっと年をとった自分がいた。",
+      "action": "reveal",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 423,
+        "w": 276,
+        "h": 58
+      },
+      "actors": [
+        {
+          "x": 87.8046875,
+          "y": 160.15625,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "水の中の自分だけが、先に笑った。",
+      "action": "smile",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 87.8046875,
+          "y": 160.15625,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 111.9921875,
+          "y": 236.21875,
+          "w": 96,
+          "h": 96,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何かを言いかけた瞬間、水面がゆれた。",
+      "action": "ripple",
+      "theme": "water",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "errors": []
+  },
+  {
+    "label": "date-photo-320x568-no-preference-0-knitting_spider",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 40.79603958129883,
+          "y": 204.67971801757812,
+          "w": 96.77925109863281,
+          "h": 96.77923583984375,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999037, -0.0438779, 0.0438779, 0.999037, -0.111216, -2.53223)"
+        },
+        {
+          "x": 182.18666076660156,
+          "y": 204.67971801757812,
+          "w": 96.77925109863281,
+          "h": 96.77923583984375,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999037, -0.0438779, 0.0438779, 0.999037, -0.111216, -2.53223)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何枚とっても、どちらかが目をつぶっていた。",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.00540118, -0.00958722)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 39.79521179199219,
+          "y": 197.5469970703125,
+          "w": 100.34771728515625,
+          "h": 100.34771728515625,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996382, 0.0849876, -0.0849876, 0.996382, 0.672194, -7.8807)"
+        },
+        {
+          "x": 181.1858367919922,
+          "y": 197.5469970703125,
+          "w": 100.34773254394531,
+          "h": 100.34771728515625,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996382, 0.0849876, -0.0849876, 0.996382, 0.672194, -7.8807)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "あみものがすきなクモさん：次は両方あける番にしよう。",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "あみものがすきなクモさん",
+      "speakerArt": {
+        "x": 40,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 73,
+        "y": 424.171875,
+        "w": 144,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/knitting_spider.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00078, 0, 0, 1.00078, -0.0299082, -0.0530878)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 41.83206558227539,
+          "y": 202.5282440185547,
+          "w": 95.21875,
+          "h": 95.21873474121094,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.99965, 0.0264484, -0.0264484, 0.99965, 0.144563, -5.46395)"
+        },
+        {
+          "x": 183.22268676757812,
+          "y": 202.5282440185547,
+          "w": 95.21875,
+          "h": 95.21873474121094,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.99965, 0.0264484, -0.0264484, 0.99965, 0.144563, -5.46395)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "あみものがすきなクモさん：じっとして。今、おそろいを作ってる。",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "あみものがすきなクモさん",
+      "speakerArt": {
+        "x": 40,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 73,
+        "y": 424.171875,
+        "w": 144,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/knitting_spider.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00178, 0, 0, 1.00178, -0.0682793, -0.121197)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "date-talk-844x390-no-preference-0-oasis_cactus",
+    "first": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 271,
+        "w": 641.46875,
+        "h": 44
+      },
+      "actors": [
+        {
+          "x": 298.1796875,
+          "y": 134.24118041992188,
+          "w": 72.0625,
+          "h": 72.0625,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.32131)"
+        },
+        {
+          "x": 473.6139831542969,
+          "y": 135.59768676757812,
+          "w": 72.31887817382812,
+          "h": 72.31890869140625,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999994, 0.00356453, -0.00356453, 0.999994, 0, 0.163386)"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何を話したか忘れた。笑ったところだけ覚えてる。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.0142391, -0.00657964)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 269,
+        "w": 641.46875,
+        "h": 46
+      },
+      "actors": [
+        {
+          "x": 298.1796875,
+          "y": 129.8656768798828,
+          "w": 72.0625,
+          "h": 72.0625,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.69682)"
+        },
+        {
+          "x": 470.8309020996094,
+          "y": 136.52276611328125,
+          "w": 77.88504028320312,
+          "h": 77.88504028320312,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996435, 0.0843635, -0.0843635, 0.996435, 0, 3.87154)"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "オアシスのサボテンさん：思い出そうとする顔が、またおかしい。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "オアシスのサボテンさん",
+      "speakerArt": {
+        "x": 210.5,
+        "y": 278,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 243.5,
+        "y": 284.078125,
+        "w": 121,
+        "h": 15.828125
+      },
+      "portrait": "assets/characters/partners/oasis_cactus.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00088, 0, 0, 1.00088, -0.0889916, -0.0411214)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 844,
+        "h": 390
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 844,
+        "h": 390
+      },
+      "title": {
+        "x": 20,
+        "y": 31,
+        "w": 804,
+        "h": 24
+      },
+      "caption": {
+        "x": 101.265625,
+        "y": 269,
+        "w": 641.46875,
+        "h": 46
+      },
+      "actors": [
+        {
+          "x": 298.1796875,
+          "y": 130.56289672851562,
+          "w": 72.0625,
+          "h": 72.0625,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -4.99961)"
+        },
+        {
+          "x": 473.7360534667969,
+          "y": 135.56417846679688,
+          "w": 72.07473754882812,
+          "h": 72.07476806640625,
+          "id": "dateMoviePartner",
+          "transform": "matrix(1, 0.000170297, -0.000170297, 1, 0, 0.00780583)"
+        }
+      ],
+      "button": {
+        "x": 364,
+        "y": 336,
+        "w": 116,
+        "h": 44
+      },
+      "text": "オアシスのサボテンさん：近くにいていいよ。触らなければ。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "オアシスのサボテンさん",
+      "speakerArt": {
+        "x": 224.5,
+        "y": 278,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 257.5,
+        "y": 284.078125,
+        "w": 121,
+        "h": 15.828125
+      },
+      "portrait": "assets/characters/partners/oasis_cactus.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00203, 0, 0, 1.00203, -0.205999, -0.0951882)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "anniversary-320x568-reduce-0-anglerfish",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 40.3984375,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 186.7890625,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "50年たった日の、お茶もいつもどおりだった。",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 40.3984375,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 186.7890625,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：特別なお茶にしなくてよかった?",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 38.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 71.5,
+        "y": 424.171875,
+        "w": 72,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 40.3984375,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "none"
+        },
+        {
+          "x": 186.7890625,
+          "y": 209.203125,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePartner",
+          "transform": "none"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ひかるチョウチンアンコウ：いつもの味だと、話が続けやすい。",
+      "action": "talk",
+      "theme": "star",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "ひかるチョウチンアンコウ",
+      "speakerArt": {
+        "x": 40,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 73,
+        "y": 424.171875,
+        "w": 144,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/anglerfish.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "none",
+      "running": 0
+    },
+    "errors": []
+  },
+  {
+    "label": "date-talk-320x568-no-preference-0-guest",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 42.8984375,
+          "y": 207.74179077148438,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -1.46133)"
+        },
+        {
+          "x": 184.0394744873047,
+          "y": 209.20077514648438,
+          "w": 93.29603576660156,
+          "h": 93.29605102539062,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999985, 0.00539366, -0.00539366, 0.999985, 0, 0.247229)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何を話したか忘れた。笑ったところだけ覚えてる。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00014, 0, 0, 1.00014, -0.00540136, -0.00958755)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 42.8984375,
+          "y": 203.65194702148438,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.55118)"
+        },
+        {
+          "x": 180.4506072998047,
+          "y": 209.33331298828125,
+          "w": 100.47380065917969,
+          "h": 100.47378540039062,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996254, 0.0864742, -0.0864742, 0.996254, 0, 3.96864)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ともだちのねこ：思い出そうとする顔が、またおかしい。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "ともだちのねこ",
+      "speakerArt": {
+        "x": 40,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 73,
+        "y": 424.171875,
+        "w": 84,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/cat/08.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00078, 0, 0, 1.00078, -0.0299085, -0.0530883)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 42.8984375,
+          "y": 203.78048706054688,
+          "w": 92.796875,
+          "h": 92.796875,
+          "id": "dateMoviePet",
+          "transform": "matrix(1, 0, 0, 1, 0, -5.42265)"
+        },
+        {
+          "x": 184.0836639404297,
+          "y": 209.20108032226562,
+          "w": 93.20765686035156,
+          "h": 93.20767211914062,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.99999, 0.00443672, -0.00443672, 0.99999, 0, 0.203365)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：今のこと、あとでまた話そう。",
+      "action": "talk",
+      "theme": "talk",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 38.5,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 71.5,
+        "y": 424.171875,
+        "w": 72,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00177, 0, 0, 1.00177, -0.0682748, -0.121189)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "ring-320x568-no-preference-0-robot_neighbor",
+    "first": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 414,
+        "w": 276,
+        "h": 67
+      },
+      "actors": [
+        {
+          "x": 40.66765594482422,
+          "y": 204.6725311279297,
+          "w": 97.03266143798828,
+          "h": 97.03266906738281,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.998907, -0.0467386, 0.0467386, 0.998907, -0.11289, -2.4127)"
+        },
+        {
+          "x": 182.0582733154297,
+          "y": 204.6725311279297,
+          "w": 97.03266906738281,
+          "h": 97.03266906738281,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.998907, -0.0467386, 0.0467386, 0.998907, -0.11289, -2.4127)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何枚とっても、どちらかが目をつぶっていた。",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00009, 0, 0, 1.00009, -0.0034152, -0.00606206)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 39.77936553955078,
+          "y": 197.50428771972656,
+          "w": 100.39116668701172,
+          "h": 100.39115905761719,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996338, 0.0854995, -0.0854995, 0.996338, 0.678074, -7.90169)"
+        },
+        {
+          "x": 181.1699981689453,
+          "y": 197.50430297851562,
+          "w": 100.39115905761719,
+          "h": 100.39114379882812,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996338, 0.0854995, -0.0854995, 0.996338, 0.678074, -7.90169)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：次は両方あける番にしよう。",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 37,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 70,
+        "y": 424.171875,
+        "w": 120,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.0005, 0, 0, 1.0005, -0.0191022, -0.0339069)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 42.05900192260742,
+          "y": 203.0338592529297,
+          "w": 94.69120788574219,
+          "h": 94.69123840332031,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999787, 0.0206267, -0.0206267, 0.999787, 0.107737, -5.22209)"
+        },
+        {
+          "x": 183.4496307373047,
+          "y": 203.0338592529297,
+          "w": 94.69120788574219,
+          "h": 94.69123840332031,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999787, 0.0206267, -0.0206267, 0.999787, 0.107737, -5.22209)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：この時間は保存してもいいですか?",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 37,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 70,
+        "y": 424.171875,
+        "w": 120,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00112, 0, 0, 1.00112, -0.0432002, -0.0766815)",
+      "running": 23
+    },
+    "ring": {
+      "viewport": {
+        "w": 320,
+        "h": 568
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 568
+      },
+      "title": {
+        "x": 20,
+        "y": 37,
+        "w": 280,
+        "h": 27
+      },
+      "caption": {
+        "x": 22,
+        "y": 407.65625,
+        "w": 276,
+        "h": 73.34375
+      },
+      "actors": [
+        {
+          "x": 38.521488189697266,
+          "y": 204.60720825195312,
+          "w": 101.5025634765625,
+          "h": 101.5025634765625,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.995118, -0.0986969, 0.0986969, 0.995118, -0.0241082, -0.243073)"
+        },
+        {
+          "x": 179.912109375,
+          "y": 204.60720825195312,
+          "w": 101.5025634765625,
+          "h": 101.5025634765625,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.995118, -0.0986969, 0.0986969, 0.995118, -0.0241082, -0.243073)"
+        }
+      ],
+      "button": {
+        "x": 102,
+        "y": 514,
+        "w": 116,
+        "h": 44
+      },
+      "text": "となりまちのロボット：たのしい、をいま学習中",
+      "action": "pose",
+      "theme": "photo",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "となりまちのロボット",
+      "speakerArt": {
+        "x": 37,
+        "y": 418.65625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 70,
+        "y": 424.171875,
+        "w": 120,
+        "h": 16.96875
+      },
+      "portrait": "assets/characters/partners/robot_neighbor.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00199, 0, 0, 1.00199, -0.0766477, -0.136052)",
+      "running": 23
+    },
+    "errors": []
+  },
+  {
+    "label": "ring-special-393x852-no-preference-0-anglerfish",
+    "first": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 661,
+        "w": 349,
+        "h": 87
+      },
+      "actors": [
+        {
+          "x": 49.09834671020508,
+          "y": 321.40802001953125,
+          "w": 119.17127990722656,
+          "h": 119.17129516601562,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.998907, -0.0467417, 0.0467417, 0.998907, -0.112891, -2.41258)"
+        },
+        {
+          "x": 224.5045928955078,
+          "y": 321.40802001953125,
+          "w": 119.17127990722656,
+          "h": 119.17129516601562,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.998907, -0.0467417, 0.0467417, 0.998907, -0.112891, -2.41258)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "何枚とっても、どちらかが目をつぶっていた。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "",
+      "speakerName": "",
+      "speakerArt": null,
+      "speakerLabel": null,
+      "portrait": "",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00007, 0, 0, 1.00007, -0.00320701, -0.0069526)",
+      "running": 23
+    },
+    "reply": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 47.77216720581055,
+          "y": 313.7304992675781,
+          "w": 123.43693542480469,
+          "h": 123.43692016601562,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.996221, 0.0868562, -0.0868562, 0.996221, 0.693761, -7.95728)"
+        },
+        {
+          "x": 223.1784210205078,
+          "y": 313.7304992675781,
+          "w": 123.43693542480469,
+          "h": 123.43692016601562,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.996221, 0.0868562, -0.0868562, 0.996221, 0.693761, -7.95728)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "おとこのひと：ふたりで交代してるみたい。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "pet",
+      "speakerName": "おとこのひと",
+      "speakerArt": {
+        "x": 55,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 88,
+        "y": 680.515625,
+        "w": 72,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/man/06.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00041, 0, 0, 1.00041, -0.0193712, -0.0419956)",
+      "running": 23
+    },
+    "middle": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 51.5700798034668,
+          "y": 321.9979248046875,
+          "w": 114.42025756835938,
+          "h": 114.42025756835938,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.999992, -0.00396959, 0.00396959, 0.999992, -0.0166652, -4.19819)"
+        },
+        {
+          "x": 226.97633361816406,
+          "y": 321.9979248046875,
+          "w": 114.42027282714844,
+          "h": 114.42025756835938,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.999992, -0.00396959, 0.00396959, 0.999992, -0.0166652, -4.19819)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ひかるチョウチンアンコウ：次は両方あける番にしよう。",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "ひかるチョウチンアンコウ",
+      "speakerArt": {
+        "x": 43,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 76,
+        "y": 680.515625,
+        "w": 144,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/anglerfish.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00095, 0, 0, 1.00095, -0.0449132, -0.0973693)",
+      "running": 23
+    },
+    "ring": {
+      "viewport": {
+        "w": 393,
+        "h": 852
+      },
+      "scene": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "movie": {
+        "x": 0,
+        "y": 0,
+        "w": 393,
+        "h": 852
+      },
+      "title": {
+        "x": 20,
+        "y": 49,
+        "w": 353,
+        "h": 27.109375
+      },
+      "caption": {
+        "x": 22,
+        "y": 658.5625,
+        "w": 349,
+        "h": 89.4375
+      },
+      "actors": [
+        {
+          "x": 46.16968536376953,
+          "y": 320.77783203125,
+          "w": 125.25409698486328,
+          "h": 125.25411987304688,
+          "id": "dateMoviePet",
+          "transform": "matrix(0.994525, -0.104496, 0.104496, 0.994525, -0.000141665, -0.00134827)"
+        },
+        {
+          "x": 221.575927734375,
+          "y": 320.77783203125,
+          "w": 125.25408935546875,
+          "h": 125.25411987304688,
+          "id": "dateMoviePartner",
+          "transform": "matrix(0.994525, -0.104496, 0.104496, 0.994525, -0.000141665, -0.00134827)"
+        }
+      ],
+      "button": {
+        "x": 138.5,
+        "y": 790,
+        "w": 116,
+        "h": 44
+      },
+      "text": "ひかるチョウチンアンコウ：暗いほうが顔、よく見えるよ",
+      "action": "pose",
+      "theme": "special",
+      "bodyInert": true,
+      "opacity": 1,
+      "captionOpacity": 1,
+      "speaker": "partner",
+      "speakerName": "ひかるチョウチンアンコウ",
+      "speakerArt": {
+        "x": 43,
+        "y": 675.40625,
+        "w": 28,
+        "h": 28
+      },
+      "speakerLabel": {
+        "x": 76,
+        "y": 680.515625,
+        "w": 144,
+        "h": 17.78125
+      },
+      "portrait": "assets/characters/partners/anglerfish.png",
+      "captionOverflow": false,
+      "failedImages": [],
+      "background": "matrix(1.00174, 0, 0, 1.00174, -0.0822732, -0.178364)",
+      "running": 23
+    },
+    "errors": []
+  }
+]
