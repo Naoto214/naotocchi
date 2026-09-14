@@ -151,7 +151,7 @@ for r in rows(doc(50)):
 heads = []
 ability_texts = collections.defaultdict(list)
 vanilla = []
-for number in (51, 52, 53, 54, 55, 57, 59):
+for number in (51, 52, 53, 54, 55, 57, 59, 68):
     text = doc(number)
     matches = list(re.finditer(r"^#{1,2} M-([\w_]+)-(\d{2}) ([①-⑧]) (\d+)/(\d+)", text, re.M))
     for index, match in enumerate(matches):
@@ -166,7 +166,7 @@ for number in (51, 52, 53, 54, 55, 57, 59):
             ability_texts[body[1] or body[2]].append(f"M-{s}-{stage}")
         else:
             check(False, f"Missing body: M-{s}-{stage}")
-check(len(heads) == len(set(heads)) == 160, "51..59: expected 160 unique main body entries")
+check(len(heads) == len(set(heads)) == 176, "51..68: expected 176 unique main body entries")
 duplicate_bodies = [ids for ids in ability_texts.values() if len(ids) > 1]
 check(not duplicate_bodies, f"Identical ability bodies: {duplicate_bodies}")
 
