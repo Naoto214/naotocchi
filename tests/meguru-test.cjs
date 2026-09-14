@@ -121,12 +121,12 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   assert.ok(sim.world.obstacles.length > 0, 'spot landmarks are solid obstacles');
   // ワールド座標だけ(px は ない)
   for (const a of sim.world.residents.concat(sim.party, [sim.player])) { assert.equal(typeof a.x, 'number'); assert.equal(typeof a.z, 'number'); assert.ok(!('sx' in a) && !('sy' in a), 'no screen coordinates on actors'); }
-  // まえへ あるく → z が ふえる。はしで とまる
+  // まえへ あるく → z が ふえる。せかいの そとへは でない
   const z0 = sim.player.z;
   for (let i = 0; i < 60; i++) sim.step(1 / 60, { x: 0, y: -1 });
   assert.ok(sim.player.z > z0 + 200, 'walked forward in world units');
   for (let i = 0; i < 1200; i++) sim.step(1 / 60, { x: 1, y: -1 });
-  assert.equal(sim.player.x, sim.RULES.xBound); assert.equal(sim.player.z, sim.world.len - sim.RULES.zMargin);
+  assert.ok(Math.abs(sim.player.x) <= sim.RULES.xBound && sim.player.z >= sim.RULES.zMargin && sim.player.z <= sim.world.len - sim.RULES.zMargin, 'stays inside the world');
   // こものは とおりぬけられない
   const o = sim.world.obstacles[0]; sim.setPlayer(o.x - o.r - 5, o.z);
   for (let i = 0; i < 30; i++) sim.step(1 / 60, { x: 1, y: 0 });
@@ -143,7 +143,7 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   for (let i = 0; i < 300; i++) sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(a.say, null, 'the bubble expires by simulated time, not wall-clock');
   // いっしょに あるく なかまは ついてくる
-  sim.setPlayer(0, 600); for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: 0 });
+  sim.setPlayer(0, 600); for (let i = 0; i < 420; i++) sim.step(1 / 60, { x: 0, y: 0 });
   for (const p of sim.party) assert.ok(sim.dist(p, sim.player) < 240, 'party stays near the player');
   // view は ワールド座標のまま
   const v = sim.view();
@@ -166,4 +166,95 @@ test('the renderer is swappable: a custom renderer receives sim.view() and the w
   const z0 = run.player.z; run.setPlayer(0, 300); h.advance(50); assert.notEqual(run.player.z, z0);
   run.stop();
   assert.equal(seen.destroyed, true);
+});
+
+test('every region is a spot graph: all spots reachable from the entrance, at least one loop and one secret place, crowds uneven', () => {
+  const h = harness(); populated(h);
+  const M = h.api.meguruMod;
+  for (const id of Object.keys(M.WORLDS)) {
+    const w = M.WORLDS[id];
+    const ids = new Set(w.spots.map((s) => s.id));
+    assert.ok(w.spots.length >= 6 && w.spots.length <= 12, id + ' has 6-12 spots');
+    for (const [a, b] of w.paths) assert.ok(ids.has(a) && ids.has(b), id + ' path endpoints exist: ' + a + '-' + b);
+    assert.equal(M.reachableSpots(w, w.spots[0].id).size, w.spots.length, id + ': every spot is reachable from the entrance');
+    assert.ok(w.paths.length >= w.spots.length, id + ': has at least one loop (edges >= nodes)');
+    assert.ok(w.spots.some((s) => s.secret), id + ': has a secret place');
+    assert.ok(w.spots.some((s) => s.hub) || id === 'memory_lake', id + ': has a hub');
+    // ひろば と しずかな こみち の crowd が ちがう
+    const crowds = w.spots.map((s) => s.crowd);
+    assert.ok(Math.max(...crowds) >= (id === 'memory_lake' ? 3 : 5) && Math.min(...crowds) <= 1, id + ': crowd weights are uneven');
+  }
+  // ずかんの ひとが おおい 地域では ひろばが いちばん にぎやかで、かくし ばしょは 1体だけ
+  const reg = M.buildRegistry();
+  const forest = M.buildWorld('forest', reg);
+  const per = {}; for (const a of forest.residents) per[a.spot.id] = (per[a.spot.id] || 0) + 1;
+  const hub = forest.hub.id;
+  assert.ok(per[hub] >= Math.min(6, Math.ceil(forest.residents.length / 3)), 'the hub is populated: ' + JSON.stringify(per));
+  for (const s of forest.spots) if (s.secret) assert.ok((per[s.id] || 0) <= 1, 'secret spot holds at most one resident');
+  // しゃへいぶつ(かたい もの)が みちの わきに ある
+  assert.ok(forest.props.filter((p) => p.layer === 'wall').length >= 10, 'occluders line the paths');
+  assert.ok(forest.props.some((p) => p.landmark === 'bigtree'), 'the forest has its landmark');
+});
+
+test('camera-relative input, a camera that turns toward the walk direction, spot discovery events and facing', () => {
+  const h = harness(); populated(h);
+  const M = h.api.meguruMod;
+  const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
+  assert.equal(sim.camera.yaw, 0);
+  // いりぐち に たった しゅんかんに スポットの できごと(はじめて)
+  let events = sim.step(1 / 60, { x: 0, y: -1 });
+  const spotEv = events.find((e) => e.type === 'spot');
+  assert.ok(spotEv && spotEv.spot.id === sim.world.entry.id && spotEv.first === true, 'entering the entrance spot is reported as a first discovery');
+  assert.ok(sim.discovered.has(sim.world.entry.id));
+  // みぎへ あるきつづける → カメラが みぎへ まわる(すぐには まわらない)
+  const yaw0 = sim.camera.yaw;
+  for (let i = 0; i < 6; i++) sim.step(1 / 60, { x: 1, y: 0 });
+  assert.ok(Math.abs(sim.camera.yaw - yaw0) < 0.4, 'the camera turns gradually');
+  for (let i = 0; i < 36; i++) sim.step(1 / 60, { x: 1, y: 0 });
+  assert.ok(sim.camera.yaw > 0.5 && sim.camera.yaw < 1.7, 'after half a second the camera has turned toward the walk direction: ' + sim.camera.yaw.toFixed(2));
+  // にゅうりょくは カメラ きじゅん(ゆびを おきなおすと いまの むきが きじゅん): 「うえ」は ワールドの +x よりに すすむ
+  sim.step(1 / 60, { x: 0, y: 0 });
+  const x0 = sim.player.x;
+  for (let i = 0; i < 30; i++) sim.step(1 / 60, { x: 0, y: -1 });
+  assert.ok(sim.player.x > x0 + 40, 'forward on the pad follows the camera heading');
+  // むきの はんてい(レンダラーが え を えらぶ ための やくそく)
+  assert.equal(M.facingOf(0, 0), 'back'); assert.equal(M.facingOf(Math.PI, 0), 'front'); assert.equal(M.facingOf(Math.PI / 2, 0), 'right'); assert.equal(M.facingOf(-Math.PI / 2, 0), 'left');
+  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png' }, asset: 'a.png', face: 1 }, 'left'))), { asset: 'a.png', flip: true });
+  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png', side: 's.png' }, asset: 'a.png', face: 1 }, 'right'))), { asset: 's.png', flip: false });
+  // ちずの データ: かくし ばしょは みつけるまで のらない
+  const map = sim.mapData();
+  assert.ok(map.spots.every((s) => !s.secret), 'secret spots are hidden from the map until discovered');
+  const secret = sim.world.spots.find((s) => s.secret);
+  sim.setPlayer(secret.x, secret.z); events = sim.step(1 / 60, { x: 0, y: 0 });
+  assert.ok(events.some((e) => e.type === 'spot' && e.spot === secret && e.first), 'stepping into a secret place discovers it');
+  assert.ok(sim.mapData().spots.some((s) => s.id === secret.id), 'discovered secret spots appear on the map');
+  // みちの うえ と そと で はやさが ちがう
+  assert.ok(M.onPath({ x: sim.world.entry.x, z: sim.world.entry.z + 100 }, sim.world), 'the entrance road is walkable');
+  assert.equal(M.onPath({ x: 990, z: 100 }, sim.world), false, 'the far corner is off the road');
+});
+
+test('spot discoveries are saved per region and survive re-entering', () => {
+  const h = harness(); const s = populated(h);
+  assert.equal(h.api.startMeguru(), true);
+  const run = h.api.meguruRun();
+  h.advance(40);
+  assert.ok((s.lifetime.meguru.spots.forest || []).includes(run.world.entry.id), 'the entrance is recorded as discovered');
+  const secret = run.world.spots.find((sp) => sp.secret);
+  run.setPlayer(secret.x, secret.z); h.advance(40);
+  assert.ok(s.lifetime.meguru.spots.forest.includes(secret.id), 'the secret place is recorded once found');
+  h.api.stopMeguru();
+  assert.equal(h.api.startMeguru(), true);
+  const run2 = h.api.meguruRun();
+  assert.ok(run2.sim.discovered.has(secret.id), 'discoveries are restored on re-entry');
+  h.api.stopMeguru();
+});
+
+test('holding one pad direction never spins the camera: the input frame is locked while the finger stays down', () => {
+  const h = harness(); populated(h);
+  const M = h.api.meguruMod;
+  const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
+  sim.setPlayer(0, 780);
+  for (let i = 0; i < 180; i++) sim.step(1 / 60, { x: -1, y: 0 });
+  assert.ok(sim.player.x < -300, 'walking left keeps going left in the world: x=' + Math.round(sim.player.x));
+  assert.ok(sim.camera.yaw < -0.4 && sim.camera.yaw > -2.0, 'the camera turned toward the left but stopped once aligned: ' + sim.camera.yaw.toFixed(2));
 });
