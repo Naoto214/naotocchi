@@ -1923,3 +1923,16 @@ Runtime smoke test SUCCESS確認済み。
 - `audio.js` `shapeCue(text, { question })`: 命令形は「たべろっ!」(つまる音 + ! で語尾を伸ばさない)、疑問形は「こいびとは?」(語尾上げ)。話速はモーラ数で 1.22(≤3)/1.28(4〜6)/1.36(≥7、上限 1.4)、pitch 1.12(疑問 1.15)。音声全体の早回しではなく合成時の rate/pitch。ダッキングは 450ms〜150ms×モーラ。指示バナー 650→600ms、ポップ 0.45→0.32s。
 - 目安の発声時間(Kyoko 系 6.5 モーラ/秒基準): 「とべ」0.25s、「たべろ」0.36s、「つかまえろ」0.6s、「あめがきたらかさ」0.9s(以前は 0.3/0.45/0.75/1.2s)。ゲームは指示の表示と同時に始まっているので、声が終わる前に操作できる。
 - テスト: `tests/audio-regression-test.cjs` に shapeCue の形(語尾・rate・pitch・モーラ数)を追加。
+
+## チェックポイント CJ — めぐる(いまいる地域を歩いて、ずかんの全員に会いにいく)の骨組み(2026-09-14)
+- 新ファイル `meguru.js`(`installNaotocchiMeguru(S)`)。本体の機能は S 経由で受け取る(地域ラベル・環境・ずかん/なかま/こいびとの一覧・ナオト解禁判定・canvas/タッチパッド生成・たび画面を開く・きろく)。本体側は `startMeguru()/stopMeguru()` と `meguruActive` フラグ(`ui-game-active`・`#screenNormal` の hidden にも参加)だけ。
+- 入口: たび画面(`#travelOverlay`)の一番上に「○○をめぐる」(`#meguruEnterBtn`、`renderTravelRegionGrid()` が描画)。げんざいち選択中は「げんざいち(まち)をめぐる」と表示し、地域 id は増やさない(ホームの世界に街/港/盆地/町の小物を足すだけ)。ホーム 3×3 ボタンは不変、地域選択(下の一覧)も不変。
+- 画面: `#meguruOverlay`(minigame-overlay と同じ全画面)。見出し(場所・じかん/てんき・であった n/m)、canvas(`createMgCanvas` grow 1.9)、バナー、ヒント、`はなす/たび/もどる` + sticky ベクタータッチパッド。擬似 3D は `project(x,z)`(カメラは自分の 420 後ろ、地面は奥ほど少し下がる)で、そら→地面の帯 34 本→こみち→みずべ→立て看板(奥から順、tier で 60/44/30 まで)→雨雪→夜の順に描く。tier≥2 は描画を 2 フレームに 1 回。かんきょうは 30 フレームに 1 回だけ読み直す。
+- 世界の単位: `WORLDS[regionId] = { len, ground, path, props, spots }`(home + 通常 10 + star_stop + memory_lake = 13)。memory_lake には `deep`(みずうみのおく、z 2450)がある。
+- 住民の台帳 `buildRegistry()`: ずかん(`state.discoveredStages` の line:stage、いまの子の `line:currentFormStageIndex()` を除く)+ なかま/レアなかま(`lifetime.companionsRecruited/rareCompanionsRecruited`、`allCompanionsById` で重複排除)+ こいびと候補(`lifetime.partnersRecorded`)。すがた 8 段階はそれぞれ別の住民(key `form:line:stage`)。居場所は `HABITAT[line][stage % n]`、なかまは日替わりの決定的ハッシュで通常地域のどこか、こいびとは `firstRegion`。いま連れているなかま(`state.companions`)・いまのこいびと(`state.partner.id`)は `withPlayer` として世界には置かず、自分の後ろをついてくる(二重出現なし)。数を間引かない(存在の cull はしない。描画・更新だけ近い順)。
+- 配置と行動: `buildWorld(regionId, registry, {locality})` が地域ごとの住民をスポットへ(水棲は みずべ、植物は 木かげ/ひろば、雨は屋根の下、夜は休む…)。`chooseState/updateActor`: walk/idle/sit/look/play/fish/watch/sleep/rest/swim/sway/chat(90 以内でペア)。近い住民は毎フレーム、遠い住民は 12 フレームに 1 回。
+- はなす: `talkLine(a)` は層構造(連れているなかま/こいびと → こいびとの hook → なかまの flavor → すがたの説明 → てんき → きせつ → 地域 → あいさつ)。`lifetime.meguru = { visits, talkCount, met{}, talks{} }`(normalize で補完、既存セーブ互換)。
+- ナオト: `S.isAuthorUnlocked()`(= `achievedGoalTiers().some(t => t >= 3)`、ホーム表示と同じ条件、変更なし)が真のときだけ台帳の `naoto` に入り、`memory_lake` の `deep` に固定配置。住民配列には入らない(通常住民へ混ぜない)。`NAOTO_LINES` は base/dex/perfect/clears/travel で達成状況により変わる。未解禁なら台帳に存在しない。
+- 地域移動: 画面内の「たび」は `openExclusiveMenu('travel')` でいつものたび画面を開くだけ。地域選択→`travelToRegion()` がそのまま走り、フレームループが `state.regionId` の変化を見て世界を作り直す(迂回なし)。
+- テスト `tests/meguru-test.cjs`(台帳の重複なし/除外/13 世界の配置、ナオトの解禁と配置、入場→行動→はなす→地域変更→もどる、げんざいち表示と睡眠中の入場ブロック)。ハーネス/smoke/dialogue の読み込みに meguru.js を追加。Playwright(`scratchpad/meguru_walk.js`): 全登録 291 住民、もり 39 体で 60fps、うみ 45 体で 39fps(headless のソフトウェア描画。CPU プロファイルでは JS は 1 フレームの 14% ほど)、パッドで歩いて 15 体と遭遇、はなす、たびで うみ へ移動(げんき 100→94)、もどる でホーム復帰、ページエラー 0。
+

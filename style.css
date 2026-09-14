@@ -4589,3 +4589,27 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .quick-solo-cue { font-size: 12px; font-weight: 900; }
 .quick-solo-motif { font-size: 9px; opacity: 0.7; }
 .quick-solo-best { font-size: 10px; font-weight: bold; color: #e0457b; }
+
+/* ================= めぐる ================= */
+.meguru-section { padding-bottom: 0; }
+.meguru-enter-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 12px; border: none; border-radius: 14px;
+  background: linear-gradient(135deg, #fff2c8, #ffd9a3); color: #4a3418; font-family: inherit; text-align: left; cursor: pointer;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
+}
+.meguru-enter-btn:active { transform: translateY(1px); box-shadow: 0 2px 0 rgba(0, 0, 0, 0.16); }
+.meguru-enter-icon { font-size: 28px; line-height: 1; flex: 0 0 auto; }
+.meguru-enter-icon .care-icon, .meguru-enter-icon .ui-icon { width: 30px; height: 30px; }
+.meguru-enter-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.meguru-enter-title { font-size: 15px; font-weight: 900; }
+.meguru-enter-sub { font-size: 10px; opacity: 0.8; }
+.mg-meguru-header { align-items: center; }
+.mg-meguru-header .care-icon, .mg-meguru-header .ui-icon { width: 16px; height: 16px; vertical-align: -3px; }
+.mgr-wrap { position: relative; }
+.mgr-banner {
+  position: absolute; left: 0; right: 0; top: 14%; display: flex; justify-content: center; pointer-events: none;
+  font-size: 22px; font-weight: 900; color: #fff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 14px rgba(0, 0, 0, 0.35);
+  animation: qkPop 0.4s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.mgr-banner.hidden { display: none; }
+.mgr-hint { min-height: 2.4em; }
