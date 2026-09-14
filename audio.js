@@ -350,17 +350,31 @@
       const ss = synth(); if (!ss || voiceReady) return;
       try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ja-JP'; ss.speak(u); voiceReady = true; } catch (err) {}
     }
+    // クイックの かけごえ用に ことばを ととのえる: みじかく・パッと・まを つくらない。
+    //  ・めいれい(たべろ)は「たべろっ!」— つまる おと + ! で 語尾を のばさず きる
+    //  ・しつもん(こいびとは)は「こいびとは?」— 語尾を あげる
+    //  ・話速は もじ数で かえる(みじかい ことばは 1.22、ながい ことばほど はやく、上限 1.4)。
+    //    ぜんたいを はやまわしする のではなく、合成時の rate/pitch で いきおいを つける
+    function shapeCue(text, o = {}) {
+      let t = String(text).replace(/[！!？?。 　]/g, '').replace(/…/g, '、');
+      const morae = t.replace(/[ゃゅょぁぃぅぇぉャュョァィゥェォ、]/g, '').length;
+      const rate = o.rate || Math.min(1.4, morae <= 3 ? 1.22 : morae <= 6 ? 1.28 : 1.36);
+      if (o.question) t += '?';
+      else if (!/[っッんンー]$/.test(t)) t += 'っ!'; else t += '!';
+      return { text: t, rate, pitch: o.pitch || (o.question ? 1.15 : 1.12), morae };
+    }
     function tts(text, o = {}) {
       const ss = synth(); if (!ss) return false;
       try {
         if (ss.paused) ss.resume();
         ss.cancel();
-        const u = new SpeechSynthesisUtterance(String(text));
-        u.lang = 'ja-JP'; u.rate = o.rate || 1.05; u.pitch = o.pitch || 1.0; u.volume = 1;
+        const c = shapeCue(text, o);
+        const u = new SpeechSynthesisUtterance(c.text);
+        u.lang = 'ja-JP'; u.rate = c.rate; u.pitch = c.pitch; u.volume = 1;
         const v = pickVoice(ss); if (v) u.voice = v;
         currentUtter = u;
         u.onend = () => { if (currentUtter === u) currentUtter = null; };
-        duck(Math.max(700, 260 * String(text).length));
+        duck(Math.max(450, 150 * c.morae));
         ss.speak(u);
         return true;
       } catch (err) { return false; }
@@ -372,6 +386,6 @@
       if (mode === 'tts') return tts(text, o);
       return pico(text);
     }
-    return { play, voice, voiceMode, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    return { play, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
   };
 })();
