@@ -148,25 +148,85 @@ for r in rows(doc(50)):
     if expected:
         check(r[1:] == expected, f"50 rounding/value mismatch: {r[0]} {r[1:]} -> {expected}")
 
-heads = []
+body_records = {}
 ability_texts = collections.defaultdict(list)
 vanilla = []
-for number in (51, 52, 53, 54, 55, 57, 59, 68):
-    text = doc(number)
+species_map = {s["id"]: s for s in species}
+
+
+def add_body(s, stage, label, power, wisdom, block, path):
+    stage = int(stage)
+    key = f"M-{s}-{stage:02}"
+    check(s in curves and 1 <= stage <= 8, f"Unknown main ID: {key}")
+    if s not in curves or not 1 <= stage <= 8:
+        return
+    check(curves[s][stage-1] == (int(power), int(wisdom)) and label == "①②③④⑤⑥⑦⑧"[stage-1], f"Body heading value/stage: {key}")
+    check(key not in body_records, f"Duplicate canonical body ID: {key}")
+    body = re.search(r"^`(.+)`$|^> (.+)$", block, re.M)
+    is_vanilla = ("能力なし" in block.splitlines()[0]
+                  or bool(re.search(r"^能力なし。?$", block, re.M))
+                  or "- Bでは能力なしで試す。ちから10自体を個性とする。" in block.splitlines())
+    value = "能力なし。" if is_vanilla else (body[1] or body[2]) if body else ""
+    check(bool(value), f"Missing body: {key}")
+    if is_vanilla:
+        vanilla.append(key)
+    elif value:
+        ability_texts[value].append(key)
+    body_records[key] = {"id": key, "species": s, "stage": stage,
+                         "name": species_map[s]["label"] + label,
+                         "form": species_map[s]["stages"][stage-1],
+                         "power": int(power), "wisdom": int(wisdom),
+                         "normal_time": stage, "text": value, "path": str(path.relative_to(ROOT))}
+
+
+indexed_files = [next(DOCS.glob(f"{n:02}-*.md")) for n in (51, 52, 53, 54, 55, 57, 59, 68)]
+representative_files = [DOCS / "representatives" / name for name in (
+    "02-beast-dog.md", "03-waterside-frog.md", "04-ocean-clownfish.md",
+    "06-plant-sakura.md", "07-fantasy-phoenix.md", "08-mystery-plush.md")]
+for path in indexed_files + representative_files:
+    text = path.read_text()
     matches = list(re.finditer(r"^#{1,2} M-([\w_]+)-(\d{2}) ([①-⑧]) (\d+)/(\d+)", text, re.M))
     for index, match in enumerate(matches):
-        s, stage, label, power, wisdom = match.groups()
-        check(curves[s][int(stage)-1] == (int(power), int(wisdom)) and label == "①②③④⑤⑥⑦⑧"[int(stage)-1], f"Body heading value/stage: {s}-{stage}")
-        heads.append((s, stage))
         block = text[match.start():matches[index+1].start() if index+1 < len(matches) else len(text)]
-        body = re.search(r"^`(.+)`$|^> (.+)$", block, re.M)
-        if "能力なし" in block.splitlines()[0]:
-            vanilla.append(f"M-{s}-{stage}")
-        elif body:
-            ability_texts[body[1] or body[2]].append(f"M-{s}-{stage}")
-        else:
-            check(False, f"Missing body: M-{s}-{stage}")
-check(len(heads) == len(set(heads)) == 176, "51..68: expected 176 unique main body entries")
+        add_body(*match.groups(), block, path)
+    # New source tables must keep the real form name distinct from display name.
+    if path in representative_files or path.name.startswith("68-"):
+        mapped_forms = [r for r in rows(text) if re.fullmatch(r"M-[\w_]+-\d{2}", r[0])]
+        check(len(mapped_forms) == len(matches), f"Form table coverage: {path.name}")
+        for r in mapped_forms:
+            rec = body_records.get(r[0], {})
+            check(r[1] == rec.get("name") and r[2] == rec.get("form"), f"Form name/source mismatch: {r[0]}")
+indexed_count = len(body_records)
+check(indexed_count == 224, "Expected 224 M-ID body headings including the six existing A cards")
+
+# 15 v2 + later individual revisions, and 23 v3 are the authoritative old 24.
+for s, number, start, end in (
+        ("man", 15, "# おとこのひと①〜⑧", "# カブトムシ①〜⑧"),
+        ("beetle", 15, "# カブトムシ①〜⑧", "# 第2稿横断監査"),
+        ("stagbeetle", 23, "# 8段階 第3稿", "# 第3稿 短期模擬")):
+    text = doc(number).split(start, 1)[1].split(end, 1)[0]
+    matches = list(re.finditer(r"^## ([①-⑧]) (\d+)/(\d+)", text, re.M))
+    check(len(matches) == 8, f"Legacy main coverage: {s}")
+    for index, match in enumerate(matches):
+        label, power, wisdom = match.groups()
+        block = text[match.start():matches[index+1].start() if index+1 < len(matches) else len(text)]
+        add_body(s, "①②③④⑤⑥⑦⑧".index(label)+1, label, power, wisdom, block, next(DOCS.glob(f"{number:02}-*.md")))
+expected_ids = {f"M-{s['id']}-{stage:02}" for s in species for stage in range(1, 9)}
+check(set(body_records) == expected_ids, "248 canonical main ID coverage mismatch")
+check(len(vanilla) == 6, "Expected six explicitly ability-free cards")
+
+# 31 is a migration mirror, never a second set of 16 cards.
+migrated = list(re.finditer(r"^## (M-(?:beetle|stagbeetle)-\d{2})\n(.*?)(?=^## M-|\Z)", doc(31), re.M | re.S))
+check(len(migrated) == 16, "31 migration coverage")
+for m in migrated:
+    line = re.search(r"^- 本文：(.+)$", m[2], re.M)
+    value = line[1].strip("`*") if line else ""
+    check(value == body_records[m[1]]["text"], f"31 body mirror mismatch: {m[1]}")
+for n, key in ((2, "M-dog-02"), (3, "M-frog-03"), (4, "M-clownfish-04"),
+               (6, "M-phoenix-05"), (7, "M-sakura-06"), (8, "M-plush-07")):
+    line = re.search(rf"^{n}\. .+$", doc(8), re.M)
+    quoted = re.search(r"`(.+)`", line[0]) if line else None
+    check(bool(quoted) and quoted[1] == body_records[key]["text"], f"08 representative mirror: {key}")
 duplicate_bodies = [ids for ids in ability_texts.values() if len(ids) > 1]
 check(not duplicate_bodies, f"Identical ability bodies: {duplicate_bodies}")
 
@@ -178,11 +238,16 @@ for file in DOCS.rglob("*.md"):
             broken_links.append(f"{file.relative_to(ROOT)} -> {target}")
 check(not broken_links, f"Broken local links: {broken_links}")
 
-print(json.dumps({"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
+result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
                   "games": dict(collections.Counter(g["source"] for g in games)), "main_curves": len(curves),
                   "value_10_cards": sum(10 in pair for c in curves.values() for pair in c),
                   "stage_7_to_8": dict(collections.Counter("up" if sum(c[7]) > sum(c[6]) else "down" if sum(c[7]) < sum(c[6]) else "same" for c in curves.values())),
-                  "new_main_body_entries": len(heads), "vanilla_entries": vanilla,
+                  "indexed_main_body_entries": indexed_count,
+                  "legacy_main_body_entries": len(body_records) - indexed_count,
+                  "total_main_body_entries": len(body_records), "vanilla_entries": vanilla,
                   "identical_ability_groups": duplicate_bodies, "errors": errors,
-                  "scope": "Source, ID, arithmetic and local links only; unresolved gameplay findings are in document 61."}, ensure_ascii=False, indent=2))
+                  "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
+if "--catalog" in sys.argv:
+    result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
+print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
