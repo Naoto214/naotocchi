@@ -112,3 +112,58 @@ test('げんざいち keeps the home world and only changes its flavour; sleepin
   s.isSleeping = true;
   assert.equal(h.api.startMeguru(), false, 'no exploring while asleep');
 });
+
+test('the simulation runs with no renderer or DOM: world coordinates, movement, obstacles, meeting and talking', () => {
+  const h = harness(); populated(h);
+  const M = h.api.meguruMod;
+  const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
+  assert.equal(sim.world.regionId, 'forest');
+  assert.ok(sim.world.obstacles.length > 0, 'spot landmarks are solid obstacles');
+  // ワールド座標だけ(px は ない)
+  for (const a of sim.world.residents.concat(sim.party, [sim.player])) { assert.equal(typeof a.x, 'number'); assert.equal(typeof a.z, 'number'); assert.ok(!('sx' in a) && !('sy' in a), 'no screen coordinates on actors'); }
+  // まえへ あるく → z が ふえる。はしで とまる
+  const z0 = sim.player.z;
+  for (let i = 0; i < 60; i++) sim.step(1 / 60, { x: 0, y: -1 });
+  assert.ok(sim.player.z > z0 + 200, 'walked forward in world units');
+  for (let i = 0; i < 1200; i++) sim.step(1 / 60, { x: 1, y: -1 });
+  assert.equal(sim.player.x, sim.RULES.xBound); assert.equal(sim.player.z, sim.world.len - sim.RULES.zMargin);
+  // こものは とおりぬけられない
+  const o = sim.world.obstacles[0]; sim.setPlayer(o.x - o.r - 5, o.z);
+  for (let i = 0; i < 30; i++) sim.step(1 / 60, { x: 1, y: 0 });
+  assert.ok(sim.dist(sim.player, o) >= o.r - 0.01, 'pushed out of the obstacle');
+  // ちかづくと であう → イベント。はなす → ふきだし(びょう で かんり)
+  const a = sim.world.residents.find((r) => !r.fixed);
+  sim.setPlayer(a.x, a.z - 20);
+  const events = sim.step(1 / 60, { x: 0, y: 0 });
+  assert.ok(events.some((ev) => ev.type === 'met' && ev.actor === a), 'met event');
+  assert.equal(sim.nearest, a);
+  const said = sim.talk();
+  assert.ok(said && said.actor === a && said.line.length > 0);
+  assert.ok(a.sayFor > 0);
+  for (let i = 0; i < 300; i++) sim.step(1 / 60, { x: 0, y: 0 });
+  assert.equal(a.say, null, 'the bubble expires by simulated time, not wall-clock');
+  // いっしょに あるく なかまは ついてくる
+  sim.setPlayer(0, 600); for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: 0 });
+  for (const p of sim.party) assert.ok(sim.dist(p, sim.player) < 160, 'party stays near the player');
+  // view は ワールド座標のまま
+  const v = sim.view();
+  assert.equal(v.player, sim.player); assert.equal(v.camera.z, sim.player.z); assert.ok(Array.isArray(v.residents));
+});
+
+test('the renderer is swappable: a custom renderer receives sim.view() and the world is never given screen coordinates', () => {
+  const h = harness(); const s = populated(h);
+  const M = h.api.meguruMod;
+  const seen = [];
+  const fakeRenderer = (o) => { assert.ok('W' in o && 'H' in o && 'tier' in o); return { draw(view, now) { seen.push({ view, now }); assert.ok(view.world && view.player && view.camera && view.env); }, destroy() { seen.destroyed = true; } }; };
+  const container = h.document.getElementById('meguruOverlay');
+  const run = M.start(container, { renderer: fakeRenderer });
+  h.advance(200);
+  assert.ok(seen.length >= 5, 'the custom renderer is called every frame: ' + seen.length);
+  const v = seen[seen.length - 1].view;
+  assert.equal(v.regionId, s.regionId);
+  for (const a of v.residents.concat(v.party)) assert.ok(!('sx' in a) && !('sy' in a) && !('px' in a), 'renderer never writes screen coordinates back into the world');
+  // せかいは レンダラーに よらず うごく
+  const z0 = run.player.z; run.setPlayer(0, 300); h.advance(50); assert.notEqual(run.player.z, z0);
+  run.stop();
+  assert.equal(seen.destroyed, true);
+});

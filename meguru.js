@@ -9,6 +9,13 @@
 //   いまの じぶん(そだてている 1体)は プレイヤー、いまの なかま・こいびとは
 //   おなじ 1体を「いっしょに あるく」あつかい(二重に 出さない)
 // ・ナオトは かいきん(isAuthorUnlocked)ずみの セーブだけ、きおくのみずうみの おくに いる
+// ・つくり(2そう): 「せかい/シミュレーション」と「え(レンダラー)」を わけている。
+//     せかい: WORLDS / buildRegistry / buildWorld / chooseState / updateActor / talkLine /
+//             createSimulation(いどう・あたりはんてい・じゅうみんの こうどう・であう・はなす)。
+//             ぜんぶ ワールド座標(x: よこ, z: おく, ともに せかい たんい)。がめんの px は しらない
+//     え:     createCanvasRenderer(canvas ぎじ 3D)。sim.view() を うけとって えがくだけ。
+//             view の なかみは かきかえない。おなじ view を うけとる three.js などの
+//             レンダラーに さしかえられる(start(container, { renderer }) で さしこめる)
 // S: clamp, lerp, escapeHtml, sfx, createMgCanvas, createTouchPad, createPadRow,
 //    getState, currentEnvironment, findRegion, regionLabelHTML, selectedLocality, dailyKey,
 //    SPECIES, ALL_LINES, speciesStageDesc, COMPANIONS, RARE_COMPANIONS, allCompanionsById,
@@ -183,7 +190,7 @@
 
     function makeActor(res, pos) {
       return Object.assign({}, res, { x: pos.x, z: pos.z, spot: pos.spot || null, fixed: !!pos.fixed, follow: !!pos.follow, slot: pos.slot || 0,
-        state: 'idle', until: rnd(0.5, 2.5), tx: pos.x, tz: pos.z, face: 1, bob: rnd(0, 6), say: null, sayUntil: 0, chatWith: null, met: false });
+        state: 'idle', until: rnd(0.5, 2.5), tx: pos.x, tz: pos.z, face: 1, bob: rnd(0, 6), say: null, sayFor: 0, chatWith: null, met: false });
     }
 
     // ================= せいかつ(かんたんな じょうたい せんい) =================
@@ -208,6 +215,7 @@
     function updateActor(a, dt, e, world, others) {
       a.bob += dt * (a.state === 'swim' ? 3 : 2);
       a.until -= dt;
+      if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
       if (a.chatWith) { if (a.until <= 0) { a.chatWith.chatWith = null; a.chatWith = null; a.state = 'idle'; a.until = rnd(1, 3); } return; }
       if (a.state === 'walk' || a.state === 'swim' || a.state === 'play') {
         const dx = a.tx - a.x, dz = a.tz - a.z, d = Math.hypot(dx, dz);
@@ -265,7 +273,114 @@
       return g;
     }
 
-    // ================= え(ぎじ 3D) =================
+    // ================= シミュレーション(せかい たんい。え には いぞんしない) =================
+    // ここが あそびの ほんたい。プレイヤー・じゅうみん・いっしょに あるく なかまの いち、
+    // いどう、あたりはんてい、であう、はなす、を ワールド座標(x: よこ, z: おく)だけで すすめる。
+    // がめんの px 座標や canvas は いっさい でてこない(レンダラーは view() を よむだけ)。
+    const RULES = {
+      playerSpeed: 260,      // せかい たんい / びょう
+      xBound: 900,           // よこの はし(±)
+      zMargin: 60,           // おく・てまえの はし
+      metRadius: 150,        // この きょりに はいると「であった」
+      talkRadius: 130,       // この きょりなら「はなす」が おせる
+      nearX: 1300, nearZ: 1500, // この はんいの じゅうみんは まいフレーム うごく
+      farStride: 12,         // とおい じゅうみんは 12 フレームに 1かい(そんざいは けさない)
+      bubbleSec: 3.6,        // ふきだしの ながさ
+      follow: { gap: 70, back: 40, spacing: 30, snap: 30, maxSpeed: 300 },
+      obstacleRadius: 46,    // こものの あたりはんてい(えん)
+      cameraFollow: 0.75,    // カメラの よこ おいかけ(プレイヤー x の わりあい)
+    };
+    const dist = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
+    // えん どうしの あたりはんてい
+    const hitTest = (a, b, r) => dist(a, b) < r;
+    // じめんの はんい に おさめる
+    function clampToWorld(pt, world) { pt.x = clamp(pt.x, -RULES.xBound, RULES.xBound); pt.z = clamp(pt.z, RULES.zMargin, world.len - RULES.zMargin); return pt; }
+    // こもの(かたい もの)から おしだす
+    function resolveObstacles(pt, world) {
+      for (const o of world.obstacles) { const dx = pt.x - o.x, dz = pt.z - o.z, d = Math.hypot(dx, dz); if (d > 0 && d < o.r) { pt.x = o.x + dx / d * o.r; pt.z = o.z + dz / d * o.r; } }
+      return pt;
+    }
+
+    function createSimulation(init = {}) {
+      let registry = init.registry || buildRegistry();
+      let world = null, party = [], player = null, nearest = null, frame = 0;
+      const camera = { x: 0, z: 0 };
+      let envNow = init.env || env();
+      function enterRegion(regionId, opts = {}) {
+        if (opts.registry) registry = opts.registry;
+        world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
+        // かたい こもの = スポットの めじるし(いえ・き など)
+        world.obstacles = world.props.filter((pr) => pr.spot).map((pr) => ({ x: pr.x, z: pr.z, r: RULES.obstacleRadius }));
+        party = companionsOf(registry);
+        player = { x: 0, z: 140, face: 1, bob: 0, moving: false };
+        camera.x = 0; camera.z = player.z; nearest = null;
+        return world;
+      }
+      enterRegion(init.regionId || 'home');
+      // いっしょに あるく なかま・こいびと: すこし うしろを ついてくる
+      function followParty(dt) {
+        const F = RULES.follow;
+        party.forEach((a, i) => {
+          const side = a.kind === 'partner' ? 1 : -1 - i;
+          const tx = player.x + side * F.gap * (a.kind === 'partner' ? -player.face : 1), tz = player.z - F.back - i * F.spacing;
+          const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
+          if (d > F.snap) { const sp = Math.min(F.maxSpeed, d * 3); a.x += dx / d * sp * dt; a.z += dz / d * sp * dt; a.state = 'walk'; a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          else if (a.state !== 'idle') a.state = 'idle';
+          if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
+        });
+      }
+      // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) }。もどりち: おきた できごと
+      function step(dt, input) {
+        frame++;
+        const events = [];
+        const v = input || { x: 0, y: 0 };
+        player.moving = !!(v.x || v.y);
+        if (player.moving) {
+          player.x += v.x * RULES.playerSpeed * dt; player.z -= v.y * RULES.playerSpeed * dt;
+          clampToWorld(player, world); resolveObstacles(player, world);
+          if (v.x) player.face = v.x < 0 ? -1 : 1; player.bob += dt;
+        }
+        camera.x += (player.x * RULES.cameraFollow - camera.x) * Math.min(1, dt * 4); camera.z = player.z;
+        followParty(dt);
+        for (let i = 0; i < world.residents.length; i++) {
+          const a = world.residents[i];
+          const near = Math.abs(a.z - player.z) < RULES.nearZ && Math.abs(a.x - player.x) < RULES.nearX;
+          if (near) updateActor(a, dt, envNow, world, world.residents);
+          else if ((i + frame) % RULES.farStride === 0) updateActor(a, dt * RULES.farStride, envNow, world, world.residents);
+          if (!a.met && hitTest(a, player, RULES.metRadius)) { a.met = true; events.push({ type: 'met', actor: a }); }
+        }
+        let best = null, bd = Infinity;
+        const consider = (a) => { const d = dist(a, player); if (d < bd) { bd = d; best = a; } };
+        for (const a of world.residents) consider(a); for (const a of party) consider(a);
+        const next = bd < RULES.talkRadius ? best : null;
+        if (next !== nearest) { nearest = next; events.push({ type: 'nearest', actor: nearest }); }
+        return events;
+      }
+      // いちばん ちかい ひとに はなしかける。もどりち: { actor, line } か null
+      function talk() {
+        if (!nearest) return null;
+        const a = nearest; a.say = talkLine(a); a.sayFor = RULES.bubbleSec; a.face = player.x < a.x ? -1 : 1;
+        if (a.chatWith) { a.chatWith.chatWith = null; a.chatWith = null; }
+        a.state = 'idle'; a.until = 3.5;
+        return { actor: a, line: a.say };
+      }
+      const metCount = () => world.residents.filter((r) => r.met).length;
+      // レンダラーに わたす「いまの せかい」。ぜんぶ ワールド座標。かきかえない やくそく
+      const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera, nearest, env: envNow, frame });
+      return {
+        RULES, enterRegion, step, talk, view, hitTest, dist,
+        setEnv(e) { envNow = e; }, get env() { return envNow; },
+        setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); camera.x = player.x * RULES.cameraFollow; camera.z = player.z; },
+        get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; },
+        metCount,
+      };
+    }
+
+    // ================= え(canvas ぎじ 3D レンダラー) =================
+    // レンダラーの やくそく(canvas / 将来の three.js など、どれでも おなじ):
+    //   createXxxRenderer({ canvas, W, H, tier, ... }) → { draw(view, now), destroy() }
+    //   ・draw は sim.view() を うけとる。せかい たんい(x, z)だけ。がめんの px は ここの なかだけ
+    //   ・view の なかみ(actor など)は かきかえない。じぶんの じょうたい(キャッシュ)は じぶんで もつ
     const imgCache = {};
     function imageFor(asset) {
       if (!asset || typeof Image === 'undefined') return null;
@@ -279,49 +394,20 @@
     const TIME_LIGHT = { morning: { light: 0.92, tint: '#f8d4a6', amt: 0.18, sky: ['#ffd9a8', '#cfe6ff'] }, day: { light: 1, tint: '#ffffff', amt: 0, sky: ['#7fbfff', '#dff0ff'] }, evening: { light: 0.84, tint: '#eeac98', amt: 0.28, sky: ['#ff9a6a', '#ffd9c0'] }, night: { light: 0.55, tint: '#253f73', amt: 0.45, sky: ['#0d1638', '#2b3d78'] } };
     const WEATHER_LIGHT = { sunny: 1, cloudy: 0.86, rain: 0.72, snow: 0.8 };
     const SKY_OVERRIDE = { deepsea: ['#0b1d3a', '#163a66'], star_stop: ['#090a1f', '#2a2452'], memory_lake: ['#2a2d4d', '#5b6190'] };
+    const ACTOR_SIZE = 96; // キャラの おおきさ(せかい たんい)
 
-    function start(container, opts = {}) {
-      const state = getState();
-      const registry = buildRegistry();
-      const locality = typeof S.selectedLocality === 'function' ? S.selectedLocality() : null;
-      let world = buildWorld(state.regionId || 'home', registry, { locality });
-      let party = companionsOf(registry);
-      let running = true, rafId = null, last = null, frame = 0;
-      let player = { x: 0, z: 140, face: 1, bob: 0, moving: false };
-      let camX = 0, banner = null, bannerUntil = 0, nearest = null, talkEl = null;
-      const regionLabel = () => (typeof S.regionLabel === 'function' ? S.regionLabel(world.regionId, world.local) : world.regionId);
-      container.innerHTML = `
-        <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrEnv"></span><span id="mgrFound"></span></div>
-        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div></div>
-        <div class="mg-hint mgr-hint" id="mgrHint">したのパッドをなぞって あるく。だれかに ちかづくと「はなす」</div>
-      `;
-      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
-      const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
-      const canvas = container.querySelector('#mgrCanvas');
-      const { ctx, W, H } = S.createMgCanvas(canvas, 300, { grow: true, maxGrow: 1.9 });
-      const placeEl = container.querySelector('#mgrPlace'), envEl = container.querySelector('#mgrEnv'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner');
-      const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
+    function createCanvasRenderer(o) {
+      const { ctx, W, H } = o; const tier = o.tier || 0;
+      const playerGlyph = typeof o.playerGlyph === 'function' ? o.playerGlyph : () => '🐣';
+      // とうえい: カメラは プレイヤーの CAM_BACK うしろ。おくほど ちいさく、じめんは すこし したへ まがる
       const F = W * 1.1, HOR = H * 0.4, CAM_Y = 250, CAM_BACK = 420, CURVE = 1 / 9000;
-      const ENV_ICON = { sunny: '☀️', cloudy: '☁️', rain: '🌧️', snow: '🌨️' }; const TIME_ICON = { morning: '🌅', day: '🌞', evening: '🌇', night: '🌙' };
-      const HINT_DEFAULT = 'したのパッドをなぞって あるく。だれかに ちかづくと「はなす」';
-      const tier = typeof S.perfTier === 'function' ? S.perfTier() : 0;
-      let envNow = env(), lastHint = null;
-      const hud = () => {
-        const e = envNow;
-        placeEl.innerHTML = regionLabel();
-        envEl.textContent = `${TIME_ICON[e.time] || ''}${ENV_ICON[e.weather] || ''}`;
-        const met = world.residents.filter((r) => r.met).length;
-        foundEl.textContent = `であった ${met}／${world.residents.length}`;
-      };
-      const showBanner = (text, ms) => { banner = text; bannerUntil = performance.now() + ms; bannerEl.textContent = text; bannerEl.classList.remove('hidden'); };
-      showBanner(`${(typeof S.regionPlainLabel === 'function' ? S.regionPlainLabel(world.regionId, world.local) : world.regionId)}を めぐる`, 1600);
-      hud();
-
-      function project(x, z) { const dz = z - (player.z - CAM_BACK); if (dz < 40) return null; const s = F / dz; const drop = dz * dz * CURVE; return { sx: W / 2 + (x - camX) * s, sy: HOR + (CAM_Y + drop) * s, s, dz }; }
+      const cap = tier >= 2 ? 30 : tier === 1 ? 44 : 60; // 同時に えがく かず(とおい ものから けずる。せかいから きえる わけではない)
+      let skyCache = null;
+      let cam = { x: 0, z: 0 };
+      function project(x, z) { const dz = z - (cam.z - CAM_BACK); if (dz < 40) return null; const s = F / dz; const drop = dz * dz * CURVE; return { sx: W / 2 + (x - cam.x) * s, sy: HOR + (CAM_Y + drop) * s, s, dz }; }
       function drawSprite(a, p, size, alpha) {
         const px = size * p.s; if (px < 3) return;
         const im = imageFor(a.asset);
-        if (!ctx) return;
         ctx.save();
         if (alpha != null) ctx.globalAlpha = alpha;
         // かげ
@@ -334,13 +420,11 @@
           else ctx.drawImage(im, p.sx - px / 2, y - px, px, px);
         } else { ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(a.emoji || '❓', p.sx, y); }
         ctx.restore();
-        if (!ctx) return;
         // じょうたいの しるし
         const mark = a.state === 'sleep' ? '💤' : a.state === 'chat' ? '💬' : a.state === 'fish' ? '🎣' : a.state === 'play' ? '✨' : a.state === 'watch' ? '👀' : null;
         if (mark && px > 18) { ctx.font = `${Math.round(px * 0.35)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(mark, p.sx + px * 0.4, y - px * 0.85 + Math.sin(a.bob) * 2); }
       }
-      function drawBubble(text, sx, sy, s) {
-        if (!ctx) return;
+      function drawBubble(text, sx, sy) {
         const fontPx = 12; ctx.font = `bold ${fontPx}px sans-serif`;
         const lines = []; let cur = '';
         for (const ch of String(text)) { cur += ch; if (cur.length >= 13) { lines.push(cur); cur = ''; } } if (cur) lines.push(cur);
@@ -351,17 +435,22 @@
         ctx.fillStyle = '#223'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
         lines.forEach((l, i) => ctx.fillText(l, x + 8, y + 5 + i * (fontPx + 3)));
       }
-      let skyCache = null;
-      function render(now) {
+      function drawLabel(text, sx, sy) {
+        ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.strokeStyle = 'rgba(0,0,0,.45)'; ctx.lineWidth = 3;
+        ctx.strokeText(text, sx, sy); ctx.fillText(text, sx, sy);
+      }
+      function draw(view, now) {
         if (!ctx) return;
-        const e = envNow; const tl = TIME_LIGHT[e.time] || TIME_LIGHT.day; const wl = WEATHER_LIGHT[e.weather] || 0.9; const light = tl.light * wl;
+        const { world, player, residents, party, nearest } = view; const e = view.env;
+        cam = view.camera;
+        const tl = TIME_LIGHT[e.time] || TIME_LIGHT.day; const wl = WEATHER_LIGHT[e.weather] || 0.9; const light = tl.light * wl;
         const sky = SKY_OVERRIDE[world.regionId] || tl.sky;
         // そら
         const skyKey = `${sky[0]}|${sky[1]}|${wl}`;
         if (!skyCache || skyCache.key !== skyKey) { const g = ctx.createLinearGradient(0, 0, 0, H); g.addColorStop(0, shade(sky[0], wl, '#ffffff', 0)); g.addColorStop(1, shade(sky[1], wl, '#ffffff', 0)); skyCache = { key: skyKey, g }; }
         ctx.fillStyle = skyCache.g; ctx.fillRect(0, 0, W, H);
         // じめん(おくから てまえへ おびで ぬる。おくほど かすんで、すこし したへ まがる)
-        const near = player.z - CAM_BACK + 40, far = Math.min(world.len + 300, near + 2600);
+        const near = cam.z - CAM_BACK + 40, far = Math.min(world.len + 300, near + 2600);
         const N = 34; let prev = project(0, far);
         for (let i = N - 1; i >= 0; i--) {
           const t = i / N; const z = near + (far - near) * t * t; const p = project(0, z); if (!p || !prev) { prev = p; continue; }
@@ -381,86 +470,109 @@
         // 立て看板(こもの・じゅうみん・いっしょの なかま・じぶん)を おくから じゅんに
         const items = [];
         for (const pr of world.props) { const p = project(pr.x, pr.z); if (p && p.s * pr.size >= 3 && p.sx > -80 && p.sx < W + 80) items.push({ kind: 'prop', o: pr, p }); }
-        for (const a of world.residents) { const p = project(a.x, a.z); if (p && p.s * 96 >= 4 && p.sx > -60 && p.sx < W + 60) items.push({ kind: 'actor', o: a, p }); }
+        for (const a of residents) { const p = project(a.x, a.z); if (p && p.s * ACTOR_SIZE >= 4 && p.sx > -60 && p.sx < W + 60) items.push({ kind: 'actor', o: a, p }); }
         for (const a of party) { const p = project(a.x, a.z); if (p) items.push({ kind: 'actor', o: a, p }); }
         const pp = project(player.x, player.z); if (pp) items.push({ kind: 'player', p: pp });
         items.sort((u, v) => v.p.dz - u.p.dz);
-        // 同時に えがく かず(とおい ものから けずる。せかいから きえる わけではない)
-        const cap = tier >= 2 ? 30 : tier === 1 ? 44 : 60;
         const drawList = items.length > cap ? items.slice(items.length - cap) : items;
         for (const it of drawList) {
           if (it.kind === 'prop') { const px = it.o.size * it.p.s; ctx.font = `${Math.round(px)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.globalAlpha = clamp(1.4 - it.p.dz / 2600, 0.35, 1); ctx.fillText(it.o.emoji, it.p.sx, it.p.sy); ctx.globalAlpha = 1; }
-          else if (it.kind === 'player') { const px = 96 * it.p.s; ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(it.p.sx, it.p.sy, px * 0.32, px * 0.09, 0, 0, Math.PI * 2); ctx.fill(); const lift = player.moving ? Math.abs(Math.sin(player.bob * 5)) * px * 0.08 : 0; ctx.save(); if (player.face < 0) { ctx.translate(it.p.sx, 0); ctx.scale(-1, 1); } ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(typeof S.playerGlyph === 'function' ? S.playerGlyph() : '🐣', player.face < 0 ? 0 : it.p.sx, it.p.sy - lift); ctx.restore(); }
-          else { const a = it.o; drawSprite(a, it.p, 96, clamp(1.5 - it.p.dz / 2600, 0.3, 1)); if (a.say && now < a.sayUntil) drawBubble(a.say, it.p.sx, it.p.sy - 96 * it.p.s, it.p.s); else if (a === nearest && it.p.s > 0.45) { ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.strokeStyle = 'rgba(0,0,0,.45)'; ctx.lineWidth = 3; const label = a.label + (a.state && VERBS[a.state] ? '・' + VERBS[a.state] : ''); ctx.strokeText(label, it.p.sx, it.p.sy - 96 * it.p.s - 4); ctx.fillText(label, it.p.sx, it.p.sy - 96 * it.p.s - 4); } }
+          else if (it.kind === 'player') { const px = ACTOR_SIZE * it.p.s; ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(it.p.sx, it.p.sy, px * 0.32, px * 0.09, 0, 0, Math.PI * 2); ctx.fill(); const lift = player.moving ? Math.abs(Math.sin(player.bob * 5)) * px * 0.08 : 0; ctx.save(); if (player.face < 0) { ctx.translate(it.p.sx, 0); ctx.scale(-1, 1); } ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(playerGlyph(), player.face < 0 ? 0 : it.p.sx, it.p.sy - lift); ctx.restore(); }
+          else {
+            const a = it.o; drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / 2600, 0.3, 1));
+            const top = it.p.sy - ACTOR_SIZE * it.p.s;
+            if (a.say && a.sayFor > 0) drawBubble(a.say, it.p.sx, top);
+            else if (a === nearest && it.p.s > 0.45) drawLabel(a.label + (a.state && VERBS[a.state] ? '・' + VERBS[a.state] : ''), it.p.sx, top - 4);
+          }
         }
         // てんき
         if (e.weather === 'rain' || e.weather === 'snow') { ctx.fillStyle = e.weather === 'rain' ? 'rgba(180,210,255,.55)' : 'rgba(255,255,255,.85)'; const n = tier >= 2 ? 14 : 30; for (let i = 0; i < n; i++) { const x = (i * 97 + (now * (e.weather === 'rain' ? 0.02 : 0.005) * (i % 3 + 1))) % (W + 20) - 10; const y = (i * 61 + now * (e.weather === 'rain' ? 0.5 : 0.08) * (1 + (i % 4) * 0.3)) % (H + 20) - 10; if (e.weather === 'rain') ctx.fillRect(x, y, 1.5, 9); else { ctx.beginPath(); ctx.arc(x, y, 2 + (i % 3), 0, Math.PI * 2); ctx.fill(); } } }
         if (e.time === 'night') { ctx.fillStyle = 'rgba(10,15,45,.22)'; ctx.fillRect(0, 0, W, H); }
-        if (banner && now < bannerUntil) { /* DOM バナー */ } else if (banner) { banner = null; bannerEl.classList.add('hidden'); }
       }
+      return { draw, project, destroy() { skyCache = null; } };
+    }
+
+    // ================= がめん(DOM + にゅうりょく + フレームループ) =================
+    // ここは「せかい」と「え」を つなぐだけ。opts.renderer で レンダラーを さしかえられる:
+    //   opts.renderer = ({ canvas, ctx, W, H, tier, playerGlyph }) => ({ draw(view, now), destroy() })
+    function start(container, opts = {}) {
+      const state = getState();
+      const locality = typeof S.selectedLocality === 'function' ? S.selectedLocality() : null;
+      const tier = typeof S.perfTier === 'function' ? S.perfTier() : 0;
+      const sim = createSimulation({ regionId: state.regionId || 'home', locality });
+      let running = true, rafId = null, last = null, frame = 0, banner = null, bannerUntil = 0, lastHint = null;
+      const regionLabel = () => (typeof S.regionLabel === 'function' ? S.regionLabel(sim.world.regionId, sim.world.local) : sim.world.regionId);
+      const HINT_DEFAULT = 'したのパッドをなぞって あるく。だれかに ちかづくと「はなす」';
+      container.innerHTML = `
+        <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrEnv"></span><span id="mgrFound"></span></div>
+        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div></div>
+        <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
+      `;
+      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
+      const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
+      const canvas = container.querySelector('#mgrCanvas');
+      const { ctx, W, H } = S.createMgCanvas(canvas, 300, { grow: true, maxGrow: 1.9 });
+      const placeEl = container.querySelector('#mgrPlace'), envEl = container.querySelector('#mgrEnv'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner');
+      const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
+      const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
+      const renderer = rendererFactory({ canvas, ctx, W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣' });
+      const ENV_ICON = { sunny: '☀️', cloudy: '☁️', rain: '🌧️', snow: '🌨️' }; const TIME_ICON = { morning: '🌅', day: '🌞', evening: '🌇', night: '🌙' };
+      const hud = () => {
+        const e = sim.env;
+        placeEl.innerHTML = regionLabel();
+        envEl.textContent = `${TIME_ICON[e.time] || ''}${ENV_ICON[e.weather] || ''}`;
+        foundEl.textContent = `であった ${sim.metCount()}／${sim.world.residents.length}`;
+      };
+      const showBanner = (text, ms) => { banner = text; bannerUntil = performance.now() + ms; bannerEl.textContent = text; bannerEl.classList.remove('hidden'); };
+      const plainLabel = (id) => (typeof S.regionPlainLabel === 'function' ? S.regionPlainLabel(id, sim.world.local) : id);
+      showBanner(`${plainLabel(sim.world.regionId)}を めぐる`, 1600);
+      hud();
       function enterWorld(regionId) {
-        const reg = buildRegistry();
-        world = buildWorld(regionId, reg, { locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null });
-        party = companionsOf(reg);
-        envNow = env();
-        player = { x: 0, z: 140, face: 1, bob: 0, moving: false }; camX = 0; nearest = null; talkBtn.disabled = true;
-        showBanner(`${(typeof S.regionPlainLabel === 'function' ? S.regionPlainLabel(regionId, world.local) : regionId)}に ついた`, 1600);
+        sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null });
+        sim.setEnv(env());
+        talkBtn.disabled = true;
+        showBanner(`${plainLabel(regionId)}に ついた`, 1600);
         hud();
       }
       function frameFn(now) {
         if (!running) return;
         if (last === null) last = now; const dt = Math.min(0.05, (now - last) / 1000); last = now; frame++;
         const st = getState();
-        if (st.regionId !== world.regionId) enterWorld(st.regionId || 'home');
+        if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
         // かんきょうは 30フレームに 1かい よみなおす(てんき・じかんの けいさんは まいフレーム いらない)
-        if (!envNow || frame % 30 === 0) { const nx = env(); if (!envNow || nx.time !== envNow.time || nx.weather !== envNow.weather) { envNow = nx; hud(); } else envNow = nx; }
-        const e = envNow;
-        // じぶん
-        const v = pad.vector(); player.moving = !!(v.x || v.y);
-        if (player.moving) { const sp = 260; player.x = clamp(player.x + v.x * sp * dt, -900, 900); player.z = clamp(player.z - v.y * sp * dt, 60, world.len - 60); if (v.x) player.face = v.x < 0 ? -1 : 1; player.bob += dt; }
-        camX += (player.x * 0.75 - camX) * Math.min(1, dt * 4);
-        // いっしょに あるく なかま・こいびと: すこし うしろを ついてくる
-        party.forEach((a, i) => { const side = a.kind === 'partner' ? 1 : -1 - i; const tx = player.x + side * 70 * (a.kind === 'partner' ? -player.face : 1), tz = player.z - 40 - i * 30; const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz); if (d > 30) { const sp = Math.min(300, d * 3); a.x += dx / d * sp * dt; a.z += dz / d * sp * dt; a.state = 'walk'; a.face = dx < 0 ? -1 : 1; a.bob += dt; } else if (a.state !== 'idle') { a.state = 'idle'; } });
-        // じゅうみん: ちかくは まいフレーム、とおくは 12フレームに 1かい
-        for (let i = 0; i < world.residents.length; i++) {
-          const a = world.residents[i];
-          const nearby = Math.abs(a.z - player.z) < 1500 && Math.abs(a.x - player.x) < 1300;
-          if (nearby) updateActor(a, dt, e, world, world.residents);
-          else if ((i + frame) % 12 === 0) updateActor(a, dt * 12, e, world, world.residents);
-          if (!a.met && Math.hypot(a.x - player.x, a.z - player.z) < 150) { a.met = true; if (typeof S.recordMet === 'function') S.recordMet(a.key); hud(); }
+        if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
+        // せかいを すすめる(にゅうりょくは パッドの ベクトルだけ)
+        const events = sim.step(dt, pad.vector());
+        for (const ev of events) {
+          if (ev.type === 'met') { if (typeof S.recordMet === 'function') S.recordMet(ev.actor.key); hud(); }
+          else if (ev.type === 'nearest') talkBtn.disabled = !ev.actor;
         }
-        // いちばん ちかい ひと
-        let best = null, bd = 1e9;
-        const consider = (a) => { const d = Math.hypot(a.x - player.x, a.z - player.z); if (d < bd) { bd = d; best = a; } };
-        for (const a of world.residents) consider(a); for (const a of party) consider(a);
-        nearest = bd < 130 ? best : null;
-        if (talkBtn.disabled !== !nearest) talkBtn.disabled = !nearest;
+        const nearest = sim.nearest;
         const hint = nearest ? `${nearest.label}が ${VERBS[nearest.state] || 'いる'}` : HINT_DEFAULT;
         if (hint !== lastHint) { lastHint = hint; hintEl.textContent = hint; }
-        // よわい たんまつでは えがくのを 2フレームに 1かい(うごきの けいさんは まいフレーム)
-        if (!(tier >= 2 && frame % 2 === 1)) render(now);
+        if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }
+        // え: よわい たんまつでは 2フレームに 1かい(せかいの けいさんは まいフレーム)
+        if (!(tier >= 2 && frame % 2 === 1)) renderer.draw(sim.view(), now);
         rafId = requestAnimationFrame(frameFn);
       }
       function talk() {
-        if (!nearest) return;
-        const a = nearest; a.say = talkLine(a); a.sayUntil = performance.now() + 3600; a.face = player.x < a.x ? -1 : 1;
-        if (a.chatWith) { a.chatWith.chatWith = null; a.chatWith = null; }
-        a.state = 'idle'; a.until = 3.5;
+        const r = sim.talk();
+        if (!r) return;
         sfx('pop');
-        if (typeof S.recordTalk === 'function') S.recordTalk(a.key);
+        if (typeof S.recordTalk === 'function') S.recordTalk(r.actor.key);
       }
       talkBtn.addEventListener('click', talk);
       travelBtn.addEventListener('click', () => { if (typeof S.openTravel === 'function') S.openTravel(); });
       homeBtn.addEventListener('click', () => stop());
       function stop() {
         if (!running) return; running = false; if (rafId) cancelAnimationFrame(rafId);
-        pad.destroy();
+        pad.destroy(); renderer.destroy && renderer.destroy();
         if (typeof S.onExit === 'function') S.onExit();
       }
       rafId = requestAnimationFrame(frameFn);
-      return { stop, get running() { return running; }, get world() { return world; }, get party() { return party; }, get player() { return player; }, talk, enterWorld, get nearest() { return nearest; }, setPlayer(x, z) { player.x = x; player.z = z; } };
+      return { stop, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); } };
     }
 
-    return { WORLDS, HABITAT, NORMAL_REGIONS, buildRegistry, buildWorld, companionsOf, talkLine, start, chooseState, updateActor };
+    return { WORLDS, HABITAT, NORMAL_REGIONS, RULES, buildRegistry, buildWorld, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start };
   };
 })();
