@@ -101,6 +101,32 @@ test('entering めぐる from the travel screen switches to the field, inhabitan
   assert.equal(s.lifetime.meguru.visits, 1);
 });
 
+test('Meguru defers item notices and leaves game rewards and Star categories unchanged', () => {
+  const h = harness(); const s = populated(h);
+  h.get('lifeCardOverlay').classList.add('hidden');
+  h.get('storyFlash').classList.add('hidden');
+  s.lifetime.equippedItemId = 'star';
+  s.lifetime.itemProgress.starGames = ['quick-run'];
+  const before = { money: s.lifetime.money, records: JSON.stringify(s.lifetime.minigameRecords), stars: JSON.stringify(s.lifetime.itemProgress.starGames) };
+
+  h.api.renderTravelRegionGrid();
+  assert.equal(h.api.startMeguru(), true);
+  h.api.scheduleItemContextMessage('アイテムの通知はホームに戻ってから');
+  h.advance(1);
+  assert.equal(h.api.getMessage(), '', 'an item notice waits while Meguru owns the home scene');
+
+  const run = h.api.meguruRun(); const actor = run.world.residents[0];
+  run.setPlayer(actor.x, actor.z - 30); h.advance(40); run.talk();
+  h.api.stopMeguru();
+  assert.equal(h.api.meguruActive(), false);
+  h.get('storyFlash').classList.add('hidden');
+  h.advance(300);
+  assert.equal(h.api.getMessage(), 'アイテムの通知はホームに戻ってから');
+  assert.equal(s.lifetime.money, before.money, 'walking and talking grant no game reward');
+  assert.equal(JSON.stringify(s.lifetime.minigameRecords), before.records, 'Meguru writes no minigame record');
+  assert.equal(JSON.stringify(s.lifetime.itemProgress.starGames), before.stars, 'Meguru is not a Star game category');
+});
+
 test('げんざいち keeps the home world and only changes its flavour; sleeping blocks entry', () => {
   const h = harness(); const s = populated(h);
   const M = h.api.meguruMod;
@@ -142,9 +168,17 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   assert.ok(a.sayFor > 0);
   for (let i = 0; i < 300; i++) sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(a.say, null, 'the bubble expires by simulated time, not wall-clock');
-  // いっしょに あるく なかまは ついてくる
-  sim.setPlayer(0, 600); for (let i = 0; i < 120; i++) sim.step(1 / 60, { x: 0, y: 0 });
-  for (const p of sim.party) assert.ok(sim.dist(p, sim.player) < 240, 'party stays near the player');
+  // いっしょに あるく なかまは、通常の歩行中に追いつく。
+  // setPlayer はテスト用の即時位置指定なので、直前の別地点から2秒で
+  // 歩かせるのではなく、実際の入力移動で追従を確認する。
+  const followSim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
+  for (let i = 0; i < 240; i++) followSim.step(1 / 60, { x: 0, y: -1 });
+  for (const [i, p] of followSim.party.entries()) {
+    const side = p.kind === 'partner' ? -followSim.player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * .9);
+    const target = { x: followSim.player.x + side * followSim.RULES.follow.gap, z: followSim.player.z + followSim.RULES.follow.back + i * followSim.RULES.follow.spacing };
+    const lag = Math.hypot(p.x - target.x, p.z - target.z);
+    assert.ok(lag < 90, `party follows its ordinary walking position (lag=${lag.toFixed(1)}, slot=${i})`);
+  }
   // view は ワールド座標のまま
   const v = sim.view();
   assert.equal(v.player, sim.player); assert.equal(v.camera.z, sim.player.z); assert.ok(Array.isArray(v.residents));

@@ -249,5 +249,39 @@
   add('✔', 'チェック', path('m3 12 6 7L21 4', 'none', ' stroke="#85a67d" stroke-width="3.5"'));
   add('#\u20e3', 'シャープキー', rect(2, 2, 20, 20, '#a6b7c5', 4) + path('M9 5 7 19M17 5l-2 14M5 9h14M4 15h14', 'none', ' stroke="#fff5df" stroke-width="2"'));
 
+  // Shared scenery, minigame props and gestures used by Meguru and Quick.
+  add('🛝', 'すべりだい', path('M4 22h16M6 22V4h8l-2 3H8v10l10 3-2 2-11-4V7', '#8eb5c1') + path('M14 4h5l-4 13H9', '#d9a19f') + path('M6 9h2m8-5 3 0', 'none', ' stroke="#fff5df" stroke-width="1.5"'));
+  add('🪑', 'いす', rect(5, 3, 13, 8, '#c9a77a', 1) + rect(4, 11, 16, 5, '#d8b78a', 1) + path('M6 16 4 22m13-6 2 6M8 11V3m8 8V3'));
+  add('🛖', 'こや', path('M2 12 12 2l10 10v10H2z', '#d3aa78') + path('M4 12h16L12 2z', '#9caf7c') + path('M9 22v-7h6v7M6 13h3m6 0h3'));
+  add('🚉', 'えき', rect(2, 7, 20, 15, '#a6bcc6', 1) + path('M1 7h22L12 2z', '#d6b37f') + rect(8, 12, 8, 10, '#fff5df', 1) + path('M5 11h3m8 0h3M10 16h4M1 23h22'));
+  add('⛲', 'ふんすい', path('M3 20q9-5 18 0v3H3z', '#8eb5c1') + path('M12 17V5M12 8C4 5 5 1 8 2m4 6c8-3 7-7 4-6m-4 8c-5-2-5-6-2-7', 'none', ' stroke="#8eb5c1" stroke-width="2"') + circle(12, 18, 2.2, '#f4d48d'));
+  add('🛷', 'そり', path('M3 17h16q3 0 2 3-1 3-5 2H7q-5 0-5-3 0-2 1-2z', '#d9a19f') + path('M5 17 9 5h6l4 12M7 10h10', 'none', ' stroke="#8b9dab" stroke-width="1.8"'));
+  add('🧊', 'こおり', path('m5 6 7-4 7 4v12l-7 4-7-4z', '#b8d8df') + path('m5 6 7 4 7-4M12 10v12M8 8l7 4', 'none', ' stroke="#fff5df" stroke-width="1.3"'));
+  add('🌉', 'はし', path('M1 19q11-17 22 0v3H1z', '#b89579') + path('M3 19h18M7 15v7m10-7v7', 'none', ' stroke="#fff5df" stroke-width="1.4"') + path('M2 22q4-2 8 0t8 0 5 0', 'none', ' stroke="#8eb5c1" stroke-width="1.5"'));
+  add('🪺', 'す', path('M3 14q9 8 18 0l-2 6q-7 5-14 0z', '#caa471') + path('M3 14q5-5 9 0 4-5 9 0M5 10l5 5m1-6 4 6m2-5-5 5', 'none', ' stroke="#9d7c5d" stroke-width="1.6"') + circle(9, 15, 2, '#d9e4c9') + circle(14, 15, 2, '#d9e4c9'));
+  add('🏛️', 'しんでん', path('M2 8 12 2l10 6z', '#d9bd86') + path('M4 9h16v12H4z', '#e7d7b8') + path('M6 9v12m4-12v12m4-12v12m4-12v12M2 22h20', 'none', ' stroke="#9a846d" stroke-width="1.5"'));
+  add('🚲', 'じてんしゃ', circle(6, 18, 4, '#8eb5c1') + circle(18, 18, 4, '#8eb5c1') + path('M6 18 10 9h5l3 9m-8-9 4 9m-4-9 7 0m-7 0-2-2m8 2 3-3M14 9l2-2', 'none', ' stroke="#8b725e" stroke-width="1.7"'));
+  add('🍜', 'らーめん', path('M3 11h18l-2 8q-7 5-14 0z', '#d89b78') + path('M4 12q8 5 16 0M7 8q1-5 2 0m3 0q1-5 2 0m3 0q1-5 2 0', 'none', ' stroke="#f4d48d" stroke-width="1.6"') + path('M4 4 10 9m10-5-6 5', 'none', ' stroke="#8b725e" stroke-width="1.5"'));
+  add('🧦', 'くつした', path('M8 2h8v11l5 3q3 4-2 6H7q-5 0-4-4l5-5z', '#91ad7c') + path('M8 2h8v5H8zM5 18h15', 'none', ' stroke="#fff5df" stroke-width="1.4"'));
+  add('🐷', 'ぶた', path('M5 7 3 1l7 4m4 0 7-4-2 6', '#d99dab') + circle(12, 13, 8.5, '#e6b2bb') + circle(8, 11, .8, ink) + circle(16, 11, .8, ink) + '<ellipse cx="12" cy="16" rx="5" ry="3.5" fill="#d98f9d"/>' + circle(10, 16, .7, ink) + circle(14, 16, .7, ink));
+  add('🐯', 'とら', path('M4 7 3 1l6 4m6 0 6-4-1 6', '#e0a957') + circle(12, 13, 8.5, '#e5b464') + path('M8 5 10 9m6-4-2 4M4 12h4m8 0h4M7 19l3-2m4 0 3 2', 'none', ' stroke="#7c5a3c" stroke-width="1.5"') + circle(9, 12, .8, ink) + circle(15, 12, .8, ink) + path('m10 15 2 2 2-2'));
+  add('🐮', 'うし', path('M5 7 1 4l2-3 5 5m8 0 5-5 2 3-4 3', '#c5aa8d') + circle(12, 13, 8.5, '#f3e9d2') + path('M4 10q4-4 6 1m4-1q4-5 6-1', '#8b725e') + circle(9, 12, .8, ink) + circle(15, 12, .8, ink) + '<ellipse cx="12" cy="16" rx="4" ry="3" fill="#dba6a0"/>' + circle(10.5, 16, .6, ink) + circle(13.5, 16, .6, ink));
+  add('🥕', 'にんじん', path('M12 7 19 12 14 23H8L5 12z', '#e49a58') + path('M10 7 5 3m7 4V2m2 5 4-4', 'none', ' stroke="#7f9c72" stroke-width="2.3"') + path('M9 14h6m-7 4h6', 'none', ' stroke="#fff0d0" stroke-width="1.2"'));
+  add('🖐️', 'ひらいたて', path('M4 21V10q0-2 2-2t2 2V5q0-2 2-2t2 2v5V3q0-2 2-2t2 2v7V5q0-2 2-2t2 2v9q0 5-6 7z', skin) + path('M8 12v4m4-6v6m4-6v5', 'none', ' stroke="#c58e73" stroke-width="1.1"'));
+  add('🤤', 'よだれのかお', face(closedEyes + path('M8 15q4 3 8 0') + path('M16 16q4 1 2 5', 'none', ' stroke="#8eb5c1" stroke-width="1.5"') + drop(18, 20, .55)));
+  add('🔪', 'ほうちょう', path('M3 20 10 13 19 4q2-2 3 0t0 3L14 17z', '#c4d2d4') + path('M3 20 7 16l4 4-4 2q-2 1-3-1t-1-1z', '#b99272') + path('M10 13 14 17', 'none', ' stroke="#fff5df" stroke-width="1.2"'));
+  add('🙌', 'あげたて', path('M2 22V10q1-3 3-1l3 5V4q1-3 3 0v7l2-6q2-2 3 1v8l3-5q2-2 3 1v12H14v-5l-2 3-2-3v5z', skin) + path('M6 14h3m9 0h-3', 'none', ' stroke="#c58e73" stroke-width="1.1"'));
+  add('🐺', 'おおかみ', path('M4 9 2 1l7 4 3-3 3 3 7-4-2 8', '#8797a1') + circle(12, 14, 8, '#9aa8ad') + path('M7 11 10 9m4 0 3 2', 'none', ' stroke="#4d5960" stroke-width="1.3"') + circle(9, 12, .8, ink) + circle(15, 12, .8, ink) + path('m10 15 2 2 2-2') + path('M8 18q4 3 8 0', 'none', ' stroke="#fff5df" stroke-width="1.2"'));
+  add('🍅', 'トマト', circle(12, 14, 8, '#d98577') + path('m12 7-3-4 3 1 3-1zM12 5V1m0 5 5-2m-5 1-5-2', '#7e9d70') + path('M7 15q1 5 4 6', 'none', ' stroke="#f5d3ba" stroke-width="1.3"'));
+  add('🌛', 'かおのあるみかづき', path('M15 3C8 4 5 11 8 17c3 5 9 6 13 2-6 1-10-4-9-9 1-3 4-5 7-7z', '#e9d486') + path('M14 9q2-1 3 0m-3 5q2 2 4 0', 'none', ' stroke="#8b725e" stroke-width="1.2"'));
+  add('🤚', 'あげたひら', path('M5 21V12q0-2 2-2t2 2V6q0-2 2-2t2 2v5V4q0-2 2-2t2 2v6V6q0-2 2-2t2 2v9q0 5-7 6z', skin) + path('M9 13v4m4-6v6m4-6v5', 'none', ' stroke="#c58e73" stroke-width="1.1"'));
+  add('❗', 'びっくりマーク', path('M10 2h4l1 13h-6z', '#d98577') + circle(12, 20, 2.2, '#d98577'));
+  add('🪶', 'はね', path('M4 22C3 9 10 1 21 2c0 11-8 17-17 20z', '#d9d4c3') + path('M5 22 18 5M8 17l-1-5m5 1-1-5m5 1-1-4', 'none', ' stroke="#a79a85" stroke-width="1.3"'));
+
+  add('🔭', 'ぼうえんきょう', path('M5 8h13l3 4-3 3H5z', '#8eb5c1') + path('M7 8 9 5h8l1 3') + circle(17.5, 11.5, 2.2, '#dce9e3') + path('M12 14v5m-5 2 5-7 5 7M9 21h6', 'none', ' stroke="#8b725e" stroke-width="1.5"'));
+  add('⛱️', 'ひがさ', path('M3 12Q6 4 12 4t9 8z', '#d98598') + path('M3 12q3-3 6 0 3-3 6 0 3-3 6 0', 'none', ' stroke="#fff5df" stroke-width="1.3"') + path('M12 12v8q0 2 3 2h2', 'none', ' stroke="#8b725e" stroke-width="1.6"') + path('M8 5v7m8-7v7', 'none', ' stroke="#f4d48d" stroke-width="1.1"'));
+  add('🏄', 'サーフィン', path('M3 20q4-2 8 0t10 0', 'none', ' stroke="#8eb5c1" stroke-width="2"') + path('M4 17q3-2 6 0t6 0 4-2', 'none', ' stroke="#b6d5d8" stroke-width="1.4"') + path('M5 19q7 3 14 0 2 0 2 1-7 3-16 1-2-1 0-2z', '#f4d48d') + circle(12, 5, 2.3, skin) + path('M10 8 14 9l3 4-2 1-3-3-2 4-4 1-1-2 4-2z', '#91ad7c') + path('M14 9 18 7', 'none', ' stroke="#8b725e" stroke-width="1.3"'));
+  add('🏺', 'つぼ', path('M8 4h8M9 4v4q0 2-3 4v4q0 4 6 4t6-4v-4q-3-2-3-4V4', '#c99067') + path('M7 13q5 3 10 0M8 18q4-2 8 0', 'none', ' stroke="#f4d48d" stroke-width="1.3"') + path('M10 4v3m4-3v3', 'none', ' stroke="#8b725e" stroke-width="1.1"'));
+
   globalThis.NaotocchiUISymbolArt = Object.freeze(art);
 })();

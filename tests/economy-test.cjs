@@ -2,25 +2,22 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
-test('consumables are priced, buyable once per effect, and set the boost they promise', () => {
-  const h = harness(), state = h.api.state();
-  assert.ok(h.api.CONSUMABLE_ITEMS.length >= 10);
-  const total = h.api.CONSUMABLE_ITEMS.reduce((a, it) => a + it.price, 0) + h.api.SHOP_ITEMS.reduce((a, it) => a + it.price, 0);
-  assert.ok(total >= 3500, 'enough to spend on: ' + total);
-  state.lifetime.money = 1000;
+test('consumables are bought into stock and arm one effect at a time', () => {
+  const h=harness(),state=h.api.state();state.lifetime.money=1000;
+  assert.equal(h.api.buyConsumableItem('c_coin2'),false,'Lucky is a daily gift');
+  state.items.c_coin2=2;
   h.api.useConsumableItem('c_coin2');
-  assert.equal(state.oneTimeBoosts.doubleCoins, true);
-  assert.equal(state.lifetime.money, 920);
-  h.api.useConsumableItem('c_coin2');
-  assert.equal(state.lifetime.money, 920, 'an active effect cannot be bought twice');
-  h.api.useConsumableItem('c_mgbig');
-  assert.equal(state.oneTimeBoosts.minigameBoost, 'big');
-  h.api.useConsumableItem('c_mgsmall');
-  assert.equal(state.oneTimeBoosts.minigameBoost, 'big', 'only one minigame charm at a time');
-  assert.ok(h.api.activeBoostSummary().length >= 2);
-  state.lifetime.money = 5;
-  h.api.useConsumableItem('c_sickshield');
-  assert.equal(state.oneTimeBoosts.sicknessShieldCount, 0, 'no money, no charm');
+  assert.equal(state.oneTimeBoosts.doubleCoins,true);assert.equal(state.lifetime.money,1000);
+  h.api.useConsumableItem('c_coin2');assert.equal(h.api.itemStock('c_coin2'),1,'one reservation at a time');
+  h.api.buyConsumableItem('c_mgbig');assert.equal(state.lifetime.money,880);
+  h.api.useConsumableItem('c_mgbig');assert.equal(state.oneTimeBoosts.greatReward,true);
+  h.api.buyConsumableItem('c_mgsmall');h.api.useConsumableItem('c_mgsmall');
+  assert.equal(state.oneTimeBoosts.greatReward,true);assert.equal(state.oneTimeBoosts.minigameBoost,'small');assert.equal(h.api.itemStock('c_mgsmall'),0);
+  h.api.buyConsumableItem('c_mgbig');h.api.useConsumableItem('c_mgbig');
+  assert.equal(h.api.itemStock('c_mgbig'),1,'only one great reward reservation');
+  assert.ok(h.api.activeBoostSummary().length>=2);
+  state.lifetime.money=5;assert.equal(h.api.buyConsumableItem('c_sickshield'),false);
+  h.api.useConsumableItem('c_sickshield');assert.equal(state.oneTimeBoosts.sicknessShieldCount,0);
 });
 
 test('a lucky coin doubles the coins of the next great minigame and is consumed', () => {

@@ -3,6 +3,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const itemSystem=require('../item-system.js');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
@@ -150,6 +151,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
       Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
     }
+    // Conversation measurements advance the real activity clock. Start paper
+    // fixtures in its ordinary saved cooldown so their configured poop row stays
+    // available while speaker and layout assertions run.
+    if(save.lifetime.equippedItemId==='poop1') itemSystem.cooldown(save,'paper',60);
     await page.addInitScript(s=>{localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));Math.random=()=>.4;},save);
     if(name==='right-speaker') await page.addInitScript(()=>{Math.random=()=>.2;});
     if(name==='small-toolbar') await page.addInitScript(()=>Object.defineProperty(visualViewport,'height',{get:()=>568}));

@@ -23,7 +23,8 @@ test('each midlife event fires once at its age and records a life-log line', () 
   assert.equal(state.lifeLog.length, logBefore + 1);
   assert.equal(h.api.maybeMidlifeEvent(45), false, 'no event at other ages');
   assert.equal(h.api.maybeMidlifeEvent(66), true);
-  assert.equal(state.oneTimeBoosts.travelGuarantee, true, 'age 66 hands over a travel charm');
+  assert.equal(state.items.c_travel, 1, 'age 66 hands over a travel charm');
+  assert.equal(state.oneTimeBoosts.travelGuarantee, false, 'gift stays unused until selected');
 });
 
 test('a birthday at a midlife age triggers the event through onAgeChanged', () => {
