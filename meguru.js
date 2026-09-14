@@ -498,7 +498,7 @@
         }
       }
       // ---- えんけい(地平線の おくの シルエット) ----
-      function drawBackdrop(world, light, tl) {
+      function drawBackdrop(world, e, light, tl) {
         const kind = world.backdrop; const cols = BACKDROP_COLORS[kind] || BACKDROP_COLORS.hills;
         const bh = Math.round(H * 0.17), base = HOR + 2, px = -cam.x * 0.04;
         const far = shadeRgb(mixRgb(cols[0], (SKY_OVERRIDE[world.regionId] || tl.sky)[1], 0.35), light, tl.tint, tl.amt), nearC = shade(cols[1], light, tl.tint, tl.amt);
@@ -508,7 +508,9 @@
         if (kind === 'hills') { wave(far, bh * 0.7, 0.012, bh * 0.15, 1); wave(nearC, bh * 0.5, 0.02, 0, 2.5); }
         else if (kind === 'lakehills') { wave(far, bh * 0.7, 0.012, bh * 0.25, 1); ctx.fillStyle = shade('#6aa0da', light, tl.tint, tl.amt); ctx.fillRect(0, base - bh * 0.22, W, bh * 0.22 + 4); wave(nearC, bh * 0.3, 0.025, bh * 0.05, 2.5); }
         else if (kind === 'treeline') { spikes(far, 22, bh * 0.35, bh * 0.85, 0.5, bh * 0.12, 1); spikes(nearC, 16, bh * 0.4, bh * 0.95, 0.5, 0, 2); }
-        else if (kind === 'peaks' || kind === 'snowpeaks') { spikes(far, 7, bh * 0.6, bh * 1.3, 0.5, bh * 0.1, 1); spikes(nearC, 5, bh * 0.5, bh * 1.0, 0.5, 0, 2); if (kind === 'snowpeaks' || true) { ctx.fillStyle = 'rgba(255,255,255,.55)'; const step = (W + 40) / 7; for (let i = 0; i <= 7; i++) { const x = -20 + i * step + px * 0.8, hh = bh * 0.6 + (hash(kind + 1 + i) % 1000) / 1000 * bh * 0.7; ctx.beginPath(); ctx.moveTo(x, base - bh * 0.1 - hh); ctx.lineTo(x + step * 0.12, base - bh * 0.1 - hh * 0.75); ctx.lineTo(x - step * 0.12, base - bh * 0.1 - hh * 0.75); ctx.closePath(); ctx.fill(); } } }
+        else if (kind === 'peaks' || kind === 'snowpeaks') { spikes(far, 7, bh * 0.6, bh * 1.3, 0.5, bh * 0.1, 1); spikes(nearC, 5, bh * 0.5, bh * 1.0, 0.5, 0, 2);
+          // 雪の頂: ゆきぐには いつも。ふつうの 山なみは ふゆ か ゆきの ときだけ(きせつ・てんきと あわせる)
+          if (kind === 'snowpeaks' || e.season === 'winter' || e.weather === 'snow') { ctx.fillStyle = 'rgba(255,255,255,.55)'; const step = (W + 40) / 7; for (let i = 0; i <= 7; i++) { const x = -20 + i * step + px * 0.8, hh = bh * 0.6 + (hash(kind + 1 + i) % 1000) / 1000 * bh * 0.7; ctx.beginPath(); ctx.moveTo(x, base - bh * 0.1 - hh); ctx.lineTo(x + step * 0.12, base - bh * 0.1 - hh * 0.75); ctx.lineTo(x - step * 0.12, base - bh * 0.1 - hh * 0.75); ctx.closePath(); ctx.fill(); } } }
         else if (kind === 'skyline') { blocks(far, 12, bh * 0.4, bh * 1.1, bh * 0.1, 1); blocks(nearC, 9, bh * 0.3, bh * 0.8, 0, 2); ctx.fillStyle = 'rgba(255,240,180,.55)'; for (let i = 0; i < 40; i++) { const x = ((i * 53 + px * 0.6) % (W + 20) + W + 20) % (W + 20) - 10, y = base - 6 - (i * 37) % Math.round(bh * 0.7); ctx.fillRect(x, y, 2, 2); } }
         else if (kind === 'seahorizon') { ctx.fillStyle = shade(cols[0], light, tl.tint, tl.amt); ctx.fillRect(0, base - bh * 0.35, W, bh * 0.35 + 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; for (let i = 0; i < 12; i++) ctx.fillRect(((i * 91 + px * 0.5) % W + W) % W, base - bh * 0.35 + 4 + (i * 13) % Math.round(bh * 0.3), 18 + (i % 3) * 8, 1.5); wave(nearC, bh * 0.35, 0.03, bh * 0.05, 5); ctx.fillStyle = 'rgba(255,255,255,.8)'; const bx = ((px * 0.4 + W * 0.7) % W + W) % W; ctx.beginPath(); ctx.moveTo(bx, base - bh * 0.5); ctx.lineTo(bx + 9, base - bh * 0.3); ctx.lineTo(bx - 6, base - bh * 0.3); ctx.closePath(); ctx.fill(); }
         else if (kind === 'abyss') { ctx.fillStyle = shade(cols[0], light, tl.tint, tl.amt); ctx.fillRect(0, base - bh * 0.5, W, bh * 0.5 + 4); spikes(nearC, 14, bh * 0.2, bh * 0.6, 0.5, 0, 3); }
@@ -606,7 +608,7 @@
         cam = view.camera;
         const tl = TIME_LIGHT[e.time] || TIME_LIGHT.day; const wl = WEATHER_LIGHT[e.weather] || 0.9; const light = tl.light * wl;
         drawSky(world, e, tl, wl, now);
-        drawBackdrop(world, light, tl);
+        drawBackdrop(world, e, light, tl);
         drawGround(world, e, tl, wl, light);
         // 立て看板(こもの・じゅうみん・いっしょの なかま・じぶん)を おくから じゅんに
         const items = [];
