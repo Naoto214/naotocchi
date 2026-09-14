@@ -1,0 +1,213 @@
+/* Viewport cinema, shared by dates, anniversaries and legendary encounters.
+   Only scenery and actors move; captions and controls stay in safe areas. */
+body.movie-active {overflow:hidden;overscroll-behavior:none}
+.date-overlay.movie-fullscreen {
+  position:fixed;inset:0;z-index:1000;width:100%;height:100%;height:100dvh;
+  padding:0;overflow:hidden;background:#091722;animation:movie-open .5s ease-out;
+  color:#fff;isolation:isolate;touch-action:manipulation;
+}
+.movie-fullscreen .date-movie {
+  position:relative;width:100%;height:100%;max-width:none;margin:0;scroll-margin:0;
+  --movie-top:max(26px,calc(env(safe-area-inset-top) + 12px));
+  --movie-bottom:max(18px,calc(env(safe-area-inset-bottom) + 8px));
+}
+.movie-fullscreen .date-movie-scene {
+  position:absolute;inset:0;min-height:0;padding:0;border:0;border-radius:0;
+  background:#172c33;box-shadow:none;animation:none;overflow:hidden;
+}
+.movie-fullscreen .date-movie-scene::before {display:none}
+.movie-backdrop,.movie-light,.movie-atmosphere,.movie-vignette {position:absolute;inset:0;pointer-events:none}
+.movie-backdrop {
+  inset:-4%;background:center 55% / cover no-repeat url('assets/world/forest-v1.webp');
+  animation:movie-camera var(--movie-duration,24s) ease-in-out both;
+  transition:filter 2s ease,background-position 3s ease;will-change:transform;
+}
+.movie-light {
+  inset:-12%;background:radial-gradient(ellipse at 70% 10%,#fff4c990,transparent 53%),
+    repeating-conic-gradient(from 140deg at 70% 0%,transparent 0deg 12deg,#fff8d215 14deg 19deg,transparent 21deg 33deg);
+  mix-blend-mode:screen;animation:movie-light 9s ease-in-out infinite alternate;
+}
+.movie-vignette {background:linear-gradient(#071321aa,transparent 26%,transparent 52%,#06101cdd 100%),radial-gradient(ellipse,transparent 42%,#07101c65)}
+.movie-kicker {
+  position:absolute;z-index:2;top:var(--movie-top);left:8%;right:8%;
+  font-size:11px;font-weight:700;letter-spacing:.18em;color:#f6e4ba;text-shadow:0 1px 6px #000;
+}
+.movie-fullscreen .date-movie-place {
+  position:absolute;top:calc(var(--movie-top) + 23px);left:max(20px,env(safe-area-inset-left));right:max(20px,env(safe-area-inset-right));
+  font-size:clamp(17px,4.6vw,26px);line-height:1.5;font-weight:800;text-wrap:balance;text-shadow:0 2px 14px #020910;
+}
+.movie-fullscreen .date-movie-actors {
+  position:absolute;top:22%;bottom:32%;left:50%;width:min(94%,760px);min-height:0;margin:0;
+  transform:translateX(-50%);display:flex;align-items:center;gap:clamp(12px,4vw,40px);
+  container-type:size;
+  --movie-actor-size:min(29vw,44cqh,200px);
+}
+.movie-fullscreen .date-movie-actor {
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  width:var(--movie-actor-size);height:var(--movie-actor-size);font-size:var(--movie-actor-size);
+  filter:drop-shadow(0 12px 8px #03121e65);animation:movie-breathe 4s ease-in-out infinite;
+  transition:translate 1.8s ease,opacity 1.8s ease,scale 2.5s ease;
+}
+.movie-fullscreen .date-movie-actor .character-visual {width:100%;height:100%;font-size:inherit}
+.movie-fullscreen .date-movie-actor .character-asset {object-fit:contain;image-rendering:auto}
+.movie-fullscreen .date-movie-actor > .display-icon {width:100%;height:100%;font-size:inherit}
+.movie-fullscreen .movie-stairs {width:100%;height:100%}
+.movie-fullscreen .date-movie-actor :is(.care-icon,.comment-drawing,.comment-picture,.display-icon-visual) {width:1em;height:1em;max-width:100%;max-height:100%;font-size:inherit}
+.movie-partner-anchor {position:relative;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.movie-fullscreen .date-movie-heart {font-size:clamp(23px,5vw,36px);filter:drop-shadow(0 0 14px #ffbacc);animation:movie-heart 3s ease-in-out infinite}
+.movie-fullscreen .date-movie-caption {
+  position:absolute;z-index:3;left:max(22px,env(safe-area-inset-left));right:max(22px,env(safe-area-inset-right));
+  bottom:calc(var(--movie-bottom) + 86px);width:auto;max-width:680px;margin:0 auto;
+  min-height:70px;padding:15px 18px;border:1px solid #dcecff38;border-radius:16px;
+  background:linear-gradient(135deg,#0c1d30e8,#10283cdc);box-shadow:0 8px 30px #030a1644;
+  font-size:clamp(15px,4vw,20px);line-height:1.75;font-weight:600;
+  text-wrap:pretty;overflow-wrap:anywhere;text-shadow:0 1px 3px #000;
+}
+.movie-fullscreen .date-movie-caption.beat {animation:movie-caption .55s ease-out}
+.movie-progress {position:absolute;bottom:calc(var(--movie-bottom) + 67px);left:20%;right:20%;display:flex;justify-content:center;gap:5px}
+.movie-progress i {height:2px;max-width:48px;flex:1;background:#ffffff38;transition:background .5s}
+.movie-progress i.seen {background:#f6dea5;box-shadow:0 0 8px #ffeab380}
+.movie-fullscreen .date-movie-actions {position:absolute;z-index:4;bottom:var(--movie-bottom);left:0;right:0;min-height:44px;margin:0}
+.movie-fullscreen :is(.date-movie-skip,.date-movie-close) {
+  min-height:44px;min-width:116px;padding:10px 24px;font-size:14px;
+  border:1px solid #ffffff4d;background:#142735b8;box-shadow:0 4px 20px #0003;color:#fff;
+}
+.movie-fullscreen .date-movie-close {background:linear-gradient(135deg,#e7c58d,#dcb174);color:#322b28;border-color:#fff0ce;font-weight:800}
+.movie-fullscreen button:focus-visible {outline:2px solid #fff0c9;outline-offset:4px}
+.movie-water {display:none}
+
+/* Places keep their own atmosphere, including underwater date variants. */
+[data-theme='eat'] .movie-backdrop {background-image:url('assets/world/home-interior-v2.webp')}
+[data-theme='shop'] .movie-backdrop {background-image:url('assets/world/city-day-v2.webp')}
+[data-theme='photo'] .movie-backdrop,[data-theme='talk'] .movie-backdrop {background-image:url('assets/world/river-lake-v2.webp')}
+[data-theme='nap'] .movie-backdrop,[data-theme='meadow'] .movie-backdrop {background-image:url('assets/world/countryside-v2.webp')}
+[data-theme='sunset'] .movie-backdrop {background-image:url('assets/world/river_lake-v1.webp');filter:sepia(.4) saturate(1.25) brightness(.75)}
+[data-theme='sunset'] .movie-light {background:radial-gradient(ellipse at 65% 28%,#ffd995a8,transparent 50%),linear-gradient(#aa557277,#ffb35055,transparent);mix-blend-mode:screen}
+[data-theme='rain'] .movie-backdrop {background-image:url('assets/world/river-lake-v2.webp');filter:brightness(.56) saturate(.5)}
+[data-theme='rain'] .movie-light {opacity:.16}
+[data-theme='star'] .movie-backdrop,[data-theme='sky'] .movie-backdrop {background-image:url('assets/world/star_stop-v1.webp')}
+[data-theme='star'] .movie-light,[data-theme='sky'] .movie-light {background:radial-gradient(ellipse at 50% 20%,#aea8f84a,transparent 65%)}
+[data-theme='special'] .movie-backdrop {background-image:url('assets/world/memory_lake-v1.webp');filter:brightness(.62) sepia(.25)}
+[data-theme='special'] .movie-light {background:radial-gradient(ellipse at 50% 45%,#fddca34d,transparent 60%),linear-gradient(140deg,#dd9adb33,transparent,#ffe6ae33)}
+[data-theme='deepsea'] .movie-backdrop {background-image:url('assets/world/deepsea-v1.webp')}
+[data-theme='deepsea'] .movie-light {background:repeating-conic-gradient(from 145deg at 55% 0%,transparent 0deg 10deg,#a4f8ff2b 12deg 18deg,transparent 22deg 35deg)}
+[data-theme='water'] .movie-backdrop {background-image:url('assets/world/forest-v1.webp');filter:brightness(.58) saturate(.55)}
+[data-theme='water'] .movie-light {background:radial-gradient(ellipse at 55% 55%,#b7dfff48,transparent 55%)}
+[data-theme='shore'] .movie-backdrop {background-image:url('assets/world/river_lake-v1.webp');filter:brightness(.84)}
+[data-theme='lantern'] .movie-backdrop {background-image:url('assets/world/forest-v1.webp');filter:brightness(.18) saturate(.5)}
+[data-theme='lantern'] .movie-light {background:radial-gradient(ellipse at 65% 48%,#ffb948b3,transparent 45%);mix-blend-mode:screen}
+[data-shot='detail'] .movie-backdrop {background-position:53% 58%}
+[data-shot='close'] .movie-backdrop {background-position:48% 52%}
+[data-kind='legend'] .date-movie-heart {display:none}
+
+/* Sixteen bounded particles instead of a per-frame JavaScript renderer. */
+.movie-atmosphere i {
+  position:absolute;left:var(--x);top:var(--y);width:4px;height:4px;border-radius:50%;
+  background:#fff5cf;box-shadow:0 0 10px 2px #fff0bd66;opacity:.5;
+  animation:movie-mote var(--speed) var(--delay) ease-in-out infinite;
+}
+[data-theme='rain'] .movie-atmosphere i {width:1px;height:40px;border-radius:0;box-shadow:none;background:linear-gradient(transparent,#c8e6ffb3);animation:movie-rain 1.1s var(--delay) linear infinite}
+[data-theme='deepsea'] .movie-atmosphere i {width:10px;height:10px;border:1px solid #c9f8ff8c;background:#a8e8ff14;box-shadow:0 0 8px #adf2ff44;animation:movie-bubble var(--speed) var(--delay) linear infinite}
+[data-theme='star'] .movie-atmosphere i,[data-theme='sky'] .movie-atmosphere i {animation:movie-twinkle var(--speed) var(--delay) ease-in-out infinite}
+[data-theme='star'] .movie-atmosphere::after {content:'';position:absolute;top:22%;left:72%;width:90px;height:2px;background:linear-gradient(90deg,transparent,#fff5cb);transform:rotate(-28deg);animation:movie-shooting-star 7s 2s ease-in infinite;opacity:0}
+[data-theme='special'] .movie-atmosphere i {width:5px;height:8px;border-radius:80% 0;background:#fbe0b7;animation:movie-confetti var(--speed) var(--delay) ease-in-out infinite}
+
+/* Choreography follows each caption, never a different random story. */
+[data-action='arrive'] .date-movie-actor {animation:movie-arrive 2.8s ease-out both}
+[data-action='walk'] .date-movie-actor {animation:movie-walk 1.4s ease-in-out infinite}
+[data-action='talk'] .date-movie-actor.partner {animation:movie-nod 3s .5s ease-in-out infinite}
+[data-action='rest'] .date-movie-actor {animation:movie-rest 4s ease-in-out infinite;translate:0 12px}
+[data-action='gaze'] .date-movie-actor {animation:movie-gaze 5s ease-in-out infinite}
+[data-action='pose'] .date-movie-actor {animation:movie-pose 3.5s ease-in-out infinite}
+[data-action='share'] .date-movie-actor.pet,[data-action='shelter'] .date-movie-actor.pet,[data-action='together'] .date-movie-actor.pet {translate:8px 0}
+[data-action='share'] .date-movie-actor.partner,[data-action='shelter'] .date-movie-actor.partner,[data-action='together'] .date-movie-actor.partner {translate:-8px 0}
+[data-action='bow'] .date-movie-actor.partner {transform-origin:50% 85%;animation:movie-bow 3.5s ease-in-out infinite}
+[data-action='appear'] .date-movie-actor.partner {animation:movie-appear 3s ease-out both}
+[data-action='depart'] .date-movie-actor.partner {opacity:0;translate:50px -18px}
+[data-action='tilt'] .date-movie-actor.partner {animation:movie-tilt 3.5s ease-in-out both}
+[data-action='approach'] .date-movie-actor.partner {scale:1.16;translate:-12px 0}
+[data-action='climb'] .date-movie-actor.pet,[data-action='rise'] .date-movie-actor.pet {animation:movie-climb 3.5s ease-in-out both}
+[data-legend='gate'] .movie-partner-anchor {translate:0 -60px}
+[data-legend='gate'] .date-movie-actor.partner {filter:drop-shadow(0 0 18px #ffd8979c);scale:1.2}
+[data-legend='boss'] .date-movie-actor.partner {scale:1.25}
+[data-legend='lamp'] .date-movie-actor.partner {filter:drop-shadow(0 0 20px #ffb138);animation:movie-lantern 4s ease-in-out infinite}
+[data-legend='lamp'][data-action='glow'] .date-movie-actor.partner {animation:movie-glow 3s ease-in-out infinite}
+
+/* The future self is a reflection in a horizontal puddle, with no mirror prop. */
+[data-legend='mirror'] .date-movie-actors {top:24%;bottom:31%}
+[data-legend='mirror'] .date-movie-actor.pet {position:absolute;top:10%;left:26%;animation:movie-gaze 5s ease-in-out infinite}
+[data-legend='mirror'] .movie-partner-anchor {position:absolute;top:40%;left:50%;transform:translateX(-50%);width:80%;height:44%;max-width:420px}
+[data-legend='mirror'] .movie-water {
+  display:block;position:absolute;inset:4% 0;border-radius:48% 52% 46% 54% / 46% 43% 57% 54%;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 30%,#b8d6eb9c,#476a859e 58%,#1a344ce6 86%);
+  box-shadow:0 0 0 2px #d5efff6b,0 0 0 7px #c4def214,0 13px 22px #020c174a,inset 0 0 28px #c5e6ff50;
+}
+[data-legend='mirror'] .movie-water::after {content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 15px,#daeeff47 16px,transparent 17px 27px);animation:movie-water-shimmer 5s linear infinite}
+[data-legend='mirror'] .date-movie-actor.partner {width:min(30vw,42cqh,180px);height:min(30vw,42cqh,180px);filter:drop-shadow(0 0 10px #c8e9ff9c);animation:none}
+[data-legend='mirror'] .date-movie-actor.partner .character-visual {transform:scaleY(-.82);opacity:.85;filter:saturate(.55) sepia(.12);transition:opacity 1.5s;animation:movie-reflection 5s ease-in-out infinite}
+[data-legend='mirror'][data-beat='0'][data-action='look'] .date-movie-actor.partner .character-visual {opacity:0}
+[data-legend='mirror'][data-action='smile'] .date-movie-actor.partner {animation:movie-nod 2s ease-in-out infinite}
+[data-legend='mirror'][data-action='wave'] .date-movie-actor.partner {animation:movie-wave 2s ease-in-out infinite}
+[data-legend='mirror'][data-action='ripple'] .date-movie-actor.partner .character-visual {animation:movie-reflection-ripple .8s ease-in-out infinite}
+[data-legend='mirror'][data-action='fade'] .date-movie-actor.partner .character-visual,
+[data-legend='mirror'][data-action='reward'] .date-movie-actor.partner .character-visual {opacity:0}
+.movie-water i {position:absolute;inset:16% 12%;border:2px solid #e2f4ffb3;border-radius:50%;opacity:0}
+[data-action='ripple'] .movie-water i {animation:movie-ripple 2.4s ease-out infinite}
+[data-action='ripple'] .movie-water i:nth-child(2) {animation-delay:.8s}
+[data-action='ripple'] .movie-water i:nth-child(3) {animation-delay:1.6s}
+
+@keyframes movie-open {from{opacity:0}to{opacity:1}}
+@keyframes movie-camera {from{transform:scale(1)}to{transform:scale(1.09) translate(-1%,-1%)}}
+@keyframes movie-light {from{transform:translate(-1%,0);opacity:.5}to{transform:translate(2%,1%);opacity:.9}}
+@keyframes movie-breathe {0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes movie-heart {0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.12);opacity:1}}
+@keyframes movie-caption {from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes movie-mote {0%,100%{transform:translate(0,0);opacity:.1}50%{transform:translate(20px,-35px);opacity:.7}}
+@keyframes movie-rain {from{transform:translate(-20px,-90px);opacity:0}20%,80%{opacity:.6}to{transform:translate(15px,130px);opacity:0}}
+@keyframes movie-bubble {from{transform:translate(-8px,35vh);opacity:0}20%,80%{opacity:.55}to{transform:translate(16px,-40vh);opacity:0}}
+@keyframes movie-twinkle {0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.9;transform:scale(1.3)}}
+@keyframes movie-shooting-star {0%,70%{opacity:0;translate:0 0}74%{opacity:.9}90%,100%{opacity:0;translate:-240px 130px}}
+@keyframes movie-confetti {0%{transform:translate(-15px,-20vh) rotate(0);opacity:0}20%,80%{opacity:.7}100%{transform:translate(25px,35vh) rotate(220deg);opacity:0}}
+@keyframes movie-arrive {from{opacity:0;transform:translateY(20px) scale(.85)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes movie-walk {0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes movie-nod {0%,70%,100%{transform:rotate(0)}35%{transform:translateY(4px) rotate(5deg)}}
+@keyframes movie-rest {0%,100%{transform:rotate(-8deg) scaleY(.95)}50%{transform:rotate(-8deg) scaleY(1)}}
+@keyframes movie-gaze {0%,100%{transform:rotate(0)}50%{transform:rotate(-5deg) translateY(-3px)}}
+@keyframes movie-pose {0%,100%{transform:rotate(-6deg)}50%{transform:rotate(5deg) translateY(-8px)}}
+@keyframes movie-bow {0%,85%,100%{transform:rotate(0) scaleY(1)}40%,60%{transform:rotate(-20deg) scaleY(.8)}}
+@keyframes movie-appear {from{opacity:0;transform:translateY(-25px) scale(.75)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes movie-tilt {from{transform:rotate(0)}to{transform:rotate(-12deg)}}
+@keyframes movie-climb {0%{transform:translate(0,0)}30%{transform:translate(10px,-12px)}65%{transform:translate(20px,-24px)}100%{transform:translate(30px,-36px)}}
+@keyframes movie-lantern {0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-9px)}}
+@keyframes movie-glow {0%,100%{filter:drop-shadow(0 0 16px #ffb138)}50%{filter:drop-shadow(0 0 35px #ffd37e)}}
+@keyframes movie-water-shimmer {to{transform:translateY(27px)}}
+@keyframes movie-reflection {0%,100%{transform:scaleY(-.82) skewX(-1deg)}50%{transform:scaleY(-.84) skewX(1deg)}}
+@keyframes movie-reflection-ripple {0%,100%{transform:scaleY(-.82) skewX(-5deg)}50%{transform:scaleY(-.76) skewX(5deg)}}
+@keyframes movie-wave {0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes movie-ripple {0%{transform:scale(.25);opacity:0}20%{opacity:.85}100%{transform:scale(1.4);opacity:0}}
+
+/* Wide phones and small viewports reserve separate regions for title, art,
+   captions and the 44px close button. Scenery always fills the viewport. */
+@media (max-height:600px) {
+  .movie-fullscreen .date-movie {--movie-top:max(14px,calc(env(safe-area-inset-top) + 5px));--movie-bottom:max(10px,env(safe-area-inset-bottom))}
+  .movie-fullscreen .date-movie-caption {font-size:15px;line-height:1.5;min-height:58px;padding:10px 14px;bottom:calc(var(--movie-bottom) + 77px)}
+  .movie-fullscreen .date-movie-place {font-size:18px}
+  .movie-fullscreen .date-movie-actors {top:24%;bottom:34%}
+  [data-legend='gate'] .movie-partner-anchor {translate:0 -24px}
+}
+@media (orientation:landscape) and (max-height:500px) {
+  .movie-fullscreen .date-movie-actors {top:23%;bottom:35%;width:60%}
+  .movie-fullscreen .date-movie-place {top:calc(var(--movie-top) + 17px);font-size:16px}
+  .movie-fullscreen .movie-kicker {font-size:9px}
+  .movie-fullscreen .date-movie-caption {left:12%;right:12%;bottom:calc(var(--movie-bottom) + 65px);min-height:44px;font-size:14px;padding:8px 14px}
+  .movie-fullscreen .movie-progress {bottom:calc(var(--movie-bottom) + 55px)}
+  [data-legend='mirror'] .date-movie-actor.pet {left:25%;top:-5%}
+  [data-legend='mirror'] .movie-partner-anchor {left:65%;top:5%;height:90%;width:45%}
+}
+[data-complete='true'] :is(.movie-backdrop,.movie-light,.movie-atmosphere i,.date-movie-actor,.date-movie-heart,.character-visual,.movie-water i),
+[data-complete='true'] .movie-water::after,[data-complete='true'] .movie-atmosphere::after {animation-play-state:paused!important}
+[data-motion='low'] :is(.movie-backdrop,.movie-light,.movie-atmosphere i) {animation:none;will-change:auto}
+@media (prefers-reduced-motion:reduce) {
+  .date-overlay.movie-fullscreen,.movie-fullscreen *,.movie-fullscreen *::before,.movie-fullscreen *::after {animation:none!important;transition:none!important;will-change:auto!important}
+  [data-legend='mirror'][data-action='ripple'] .movie-water i {opacity:.65}
+}
