@@ -289,7 +289,16 @@
     // --- こえ(クイックモードの 指示「よけろ!」など) ---
     // モード(state.lifetime.quickVoice): 'pico' = キャラボイス(音の つぶで しゃべる、初期値)、
     // 'tts' = ブラウザの よみあげ、'off' = こえなし。こうかおん OFF なら どれも 鳴らない。
-    const voiceMode = () => { const state = getState(); const m = state && state.lifetime && state.lifetime.quickVoice; return m === 'tts' || m === 'off' ? m : 'pico'; };
+    const voiceMode = () => { const state = getState(); const m = state && state.lifetime && state.lifetime.quickVoice; return m === 'pico' || m === 'off' ? m : 'tts'; };
+    // よみあげの あいだ BGM と こうかおんを さげて、ことばが うもれない ように する
+    let duckTimer = null;
+    function duck(ms) {
+      const c = ensure(); if (!c || !bgmBus || !sfxBus) return;
+      const t = c.currentTime;
+      try { bgmBus.gain.cancelScheduledValues(t); bgmBus.gain.setValueAtTime(bgmBus.gain.value, t); bgmBus.gain.linearRampToValueAtTime(0.04, t + 0.05); sfxBus.gain.cancelScheduledValues(t); sfxBus.gain.setValueAtTime(sfxBus.gain.value, t); sfxBus.gain.linearRampToValueAtTime(0.45, t + 0.05); } catch (err) {}
+      clearTimeout(duckTimer);
+      duckTimer = setTimeout(() => { const c2 = ensure(); if (!c2) return; const t2 = c2.currentTime; try { bgmBus.gain.cancelScheduledValues(t2); bgmBus.gain.setValueAtTime(bgmBus.gain.value, t2); bgmBus.gain.linearRampToValueAtTime(0.28, t2 + 0.25); sfxBus.gain.cancelScheduledValues(t2); sfxBus.gain.setValueAtTime(sfxBus.gain.value, t2); sfxBus.gain.linearRampToValueAtTime(0.9, t2 + 0.2); } catch (err) {} }, ms);
+    }
     // [キャラボイス] かなを 1文字ずつ「ぴこ」と ならす。ぼいんで たかさ、しいんで 出だしの
     // 音色を かえ、「！」で さいごを あげる。ロボットの よみあげより ゲームらしく、みじかい
     const KANA_VOWEL = { a: 0, i: 1, u: 2, e: 3, o: 4 };
@@ -347,10 +356,11 @@
         if (ss.paused) ss.resume();
         ss.cancel();
         const u = new SpeechSynthesisUtterance(String(text));
-        u.lang = 'ja-JP'; u.rate = o.rate || 1.15; u.pitch = o.pitch || 1.05; u.volume = o.volume == null ? 1 : o.volume;
+        u.lang = 'ja-JP'; u.rate = o.rate || 1.05; u.pitch = o.pitch || 1.0; u.volume = 1;
         const v = pickVoice(ss); if (v) u.voice = v;
         currentUtter = u;
         u.onend = () => { if (currentUtter === u) currentUtter = null; };
+        duck(Math.max(700, 260 * String(text).length));
         ss.speak(u);
         return true;
       } catch (err) { return false; }

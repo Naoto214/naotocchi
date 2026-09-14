@@ -20,14 +20,14 @@ function solve(h, run, cur) {
     }
     return;
   }
-  if (t.kind === 'swipe') { for (let i = 0; i < 400 && !judged(); i++) { const k = g.target(); if (k.ready === false) { h.advance(16); continue; } g.onSwipe(k.dir); break; } for (let i = 0; i < 100 && !judged(); i++) h.advance(16); return; }
+  if (t.kind === 'swipe') { for (let i = 0; i < 400 && !judged(); i++) { const k = g.target(); if (k.ready === false) { h.advance(16); continue; } g.onSwipe(k.dir); if (!k.repeat) break; h.advance(48); } for (let i = 0; i < 100 && !judged(); i++) h.advance(16); return; }
   if (t.kind === 'spin') { g.onPress(t.x + t.r, t.y); for (let i = 1; i <= 80 && !judged(); i++) { const a = i / 16 * Math.PI * 2; g.onDrag(t.x + Math.cos(a) * t.r, t.y + Math.sin(a) * t.r, 0, 0); if (i % 4 === 0) h.advance(16); } g.onRelease(); return; }
   if (t.kind === 'drag') {
     for (let pass = 0; pass < 260 && !judged(); pass++) {
       const k = g.target(); if (!k) return;
       if (g.onPress) g.onPress(k.x, k.y);
-      let x = k.x, y = k.y; const steps = 6;
-      for (let i = 1; i <= steps; i++) { const nx = k.x + (k.to.x - k.x) * i / steps, ny = k.y + (k.to.y - k.y) * i / steps; g.onDrag(nx, ny, nx - x, ny - y); x = nx; y = ny; }
+      let x = k.x, y = k.y; const steps = k.slow ? 24 : 6;
+      for (let i = 1; i <= steps; i++) { const nx = k.x + (k.to.x - k.x) * i / steps, ny = k.y + (k.to.y - k.y) * i / steps; if (k.slow) h.advance(16); g.onDrag(nx, ny, nx - x, ny - y); x = nx; y = ny; }
       if (g.onRelease) g.onRelease(x, y);
       h.advance(16);
     }
@@ -88,7 +88,7 @@ test('every quick game can be solved from its own target hint and each kind of i
   assert.equal(q.runs, 1, 'a full run of 20 finished');
   // よける 系(ランダムに ふってくる)は かんたんな 自動そうさでは たまに あたるので、2つまで ゆるす
   assert.ok(q.bestCleared >= R.TOTAL - 2, `nearly perfect from the hints: ${q.bestCleared}/${R.TOTAL}`);
-  assert.ok(h.api.QUICK_GAMES.length >= 30, 'the set has 30 games');
+  assert.equal(h.api.QUICK_GAMES.length, 50, 'the set is fixed at 50 games');
   const uses = new Set(h.api.QUICK_GAMES.flatMap((d) => d.uses || []));
   for (const k of ['tap', 'drag', 'swipe', 'hold', 'none']) assert.ok(uses.has(k), `input kind ${k} exists in the set`);
   assert.ok(kinds.size >= 3, 'several input kinds appeared in one run');
@@ -157,6 +157,6 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
 
 test('the quick voice setting has three modes and the character voice speaks kana without the speech API', () => {
   const h = harness(), s = h.api.state();
-  assert.equal(s.lifetime.quickVoice, 'pico');
+  assert.equal(s.lifetime.quickVoice, 'tts');
   assert.ok(h.api.QUICK_VOICE_CHOICES.pico && h.api.QUICK_VOICE_CHOICES.tts && h.api.QUICK_VOICE_CHOICES.off);
 });

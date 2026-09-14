@@ -1514,8 +1514,8 @@
         minigameLength: 'normal',
         soundSfx: true,
         soundBgm: true,
-        // クイックモードの こえ: 'pico'(キャラボイス) / 'tts'(よみあげ) / 'off'
-        quickVoice: 'pico',
+        // クイックモードの こえ: 'tts'(よみあげ、初期値) / 'pico'(ぴこぴこ、ことばなし) / 'off'
+        quickVoice: 'tts',
         currentLocationSelected: false,
         currentLocation: null,
         fontStyle: 'rounded',
@@ -1728,6 +1728,8 @@
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
       if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} };
       if (!merged.lifetime.quick.single || typeof merged.lifetime.quick.single !== 'object') merged.lifetime.quick.single = {};
+      // いぜんの 初期値 'pico'(ことばが きこえない)は よみあげに もどす。じぶんで えらんだ ときは quickVoiceChosen が たつ
+      if (merged.lifetime.quickVoice === 'pico' && !merged.lifetime.quickVoiceChosen) merged.lifetime.quickVoice = 'tts';
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
       const OLD_ITEM_BASE = {
         flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
@@ -11840,7 +11842,7 @@
       const q = quickStats();
       const qRec = minigameRecordOf(QUICK_RUN);
       const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
-      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="game-list-sort quick-list-toggle">${quickListOpen ? '1本ずつをとじる' : '1本ずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? '1本ずつをとじる' : '1本ずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
         + (quickListOpen ? `<div class="quick-solo-list">${quickMod.QUICK_GAMES.map((g) => { const r = q.single[g.id]; return `<button type="button" class="quick-solo-start" data-quick-id="${g.id}"><span class="quick-solo-cue">${escapeHtml(g.cue)}</span><span class="quick-solo-motif">${escapeHtml(g.motif)}</span><span class="quick-solo-best">${r ? `✔${r.best}／${quickMod.QUICK_RULES.SOLO_TOTAL}` : '—'}</span></button>`; }).join('')}</div>` : '')
         + '</div>';
     }
@@ -13021,7 +13023,7 @@
   let currentLocationIntent = 0;
   const SFX_CHOICES = { on: ['🔔', 'こうかおん ON'], off: ['🔕', 'OFF'] };
   const BGM_CHOICES = { on: ['🎵', 'BGM ON'], off: ['🔇', 'OFF'] };
-  const QUICK_VOICE_CHOICES = { pico: ['🎤', 'キャラボイス'], tts: ['📣', 'よみあげ'], off: ['🔕', 'こえなし'] };
+  const QUICK_VOICE_CHOICES = { tts: ['📣', 'よみあげ'], pico: ['🎤', 'ぴこぴこ（ことばなし）'], off: ['🔕', 'こえなし'] };
   const TIME_CHOICES = {auto:['🕐','げんざい'],morning:['🌅','あさ'],day:['☀️','ひる'],evening:['🌇','ゆう'],night:['🌙','よる']};
   const WEATHER_CHOICES = {auto:['📍','げんざい'],sunny:['☀️','はれ'],cloudy:['☁️','くもり'],rain:['🌧️','あめ'],snow:['❄️','ゆき']};
 
@@ -13561,7 +13563,7 @@
       if (el.gameLengthGrid) renderEnvironmentChoices(el.gameLengthGrid, GAME_LENGTH_CHOICES, minigameLengthMode());
       if (el.sfxModeGrid) renderEnvironmentChoices(el.sfxModeGrid, SFX_CHOICES, state.lifetime.soundSfx === false ? 'off' : 'on');
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
-      if (el.quickVoiceGrid) renderEnvironmentChoices(el.quickVoiceGrid, QUICK_VOICE_CHOICES, QUICK_VOICE_CHOICES[state.lifetime.quickVoice] ? state.lifetime.quickVoice : 'pico');
+      if (el.quickVoiceGrid) renderEnvironmentChoices(el.quickVoiceGrid, QUICK_VOICE_CHOICES, QUICK_VOICE_CHOICES[state.lifetime.quickVoice] ? state.lifetime.quickVoice : 'tts');
     }
     maybeRefreshEnvironment();
     renderWorldScene();
@@ -16279,8 +16281,8 @@
     el.quickVoiceGrid.addEventListener('click', (e) => {
       const btn = e.target.closest('.theme-swatch');
       if (!btn || !QUICK_VOICE_CHOICES[btn.dataset.id]) return;
-      state.lifetime.quickVoice = btn.dataset.id; saveState(); renderEnvironment();
-      audio.voice('よけろ！'); // ためしに ひとこと
+      state.lifetime.quickVoice = btn.dataset.id; state.lifetime.quickVoiceChosen = true; saveState(); renderEnvironment();
+      audio.voice('よけろ'); // ためしに ひとこと
     });
   }
   el.weatherModeGrid.addEventListener('click', (e) => {
