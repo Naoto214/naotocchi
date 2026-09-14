@@ -8,24 +8,24 @@
 
 現在は **全カードプールの棚卸し・既存設計との接続（Phase A）**。基本ルール、8属性代表テスト、A/B模擬、カブト／クワガタ近縁差別化を捨てずに全体へ広げる。カード専用の最終イラストとゲーム実装はまだ行わない。
 
-開発方針は[25 全カードプール開発方針](25-full-card-pool-development-plan.md)。**最新の棚卸し・集計・次の作業は[30 できごと候補棚卸し2](30-event-pool-inventory-2.md)**を読む。
+開発方針は[25 全カードプール開発方針](25-full-card-pool-development-plan.md)。できごとの最新棚卸し・集計は[30 できごと候補棚卸し2](30-event-pool-inventory-2.md)、カブト／クワガタ16枚のカードマスター接続は[31](31-beetle-stagbeetle-card-master-migration.md)を読む。
 
-30時点の登録済み母集団は **477候補 = CARD 463 + HOLD 14**。できごとは34候補（21/13）。これは完成カード数・発売枚数ではない。29の454は環境HOLD 8件を除く旧小計で、30に集計の訂正を記録した。未展開のじかん・てんき・きせつ等はまだ総数に含めない。
+登録済み母集団は **477候補 = CARD 463 + HOLD 14**。できごとは34候補（21/13）。これは完成カード数・発売枚数ではない。未展開のじかん・てんき・きせつ等はまだ総数に含めない。31の16枚はメイン248候補の内数なので総数は増えない。
 
-次は **既存カブトムシ／クワガタムシ16枚のM-仮IDへの移植**。その後、残る本編sourceとの対応と全種類の役割地図を整理する。16枚は既にメイン248候補の内数であり、追加加算しない。
+次は **あそび100候補の現行表示名・ゲーム性・生成元・既存試作との対応を埋める**。並行して、セカイを本編共通概念の **じかん → てんき → きせつ → ばしょ** の順で整理し、未展開軸をカード候補としてどう切るか監査する。その後、全種類の役割地図へ進む。
 
 ## 読む順番と優先順位
 
-1. このREADMEと[25](25-full-card-pool-development-plan.md)、[30](30-event-pool-inventory-2.md)で作業の現在地を確認する。
+1. このREADMEと[25](25-full-card-pool-development-plan.md)、[30](30-event-pool-inventory-2.md)、[31](31-beetle-stagbeetle-card-master-migration.md)で現在地を確認する。
 2. [01 基本ルール](01-core-rules.md)、[02 メインシステム](02-main-system.md)、[06 アクション／連鎖](06-action-chain-checkpoint.md)、[07 高度ルール](07-advanced-rules-checkpoint.md)で確定ルールを確認する。必要な詳細が過去コミット参照の場合は、その履歴まで読む。
 3. [03 設計原則](03-design-principles.md)、[04 代表テスト](04-representative-tests.md)、[representatives索引](representatives/README.md)、[05 横断監査](05-horizontal-audit.md)でテーマと既存試行を確認する。
 4. 08〜19でテストデッキA/Bと模擬履歴、[20](20-set-zero-pool-sizing.md)で第0弾規模、21〜24でアート／生態基準と近縁差別化を確認する。
-5. [26](26-full-card-pool-inventory-1.md)、[27](27-card-master-foundation.md)、[28](28-play-and-item-inventory.md)、[29](29-event-pool-inventory-1.md)、[30](30-event-pool-inventory-2.md)で全体プールへの登録状況を確認する。
+5. [26](26-full-card-pool-inventory-1.md)、[27](27-card-master-foundation.md)、[28](28-play-and-item-inventory.md)、[29](29-event-pool-inventory-1.md)、[30](30-event-pool-inventory-2.md)、[31](31-beetle-stagbeetle-card-master-migration.md)で全体プールへの登録状況を確認する。
 6. その論点に関わる本編の最新マスター・実装・アート仕様を読む。古いコメント・削除済みIDだけを根拠に現行仕様を推測しない。
 
 **ファイル番号の大小だけで優先稿を決めない。** 基本ルールは01・02、アクション／連鎖は06・07、個別カードは改稿状態と根拠を確認する。
 
-特にカブトは[15 第2稿](15-test-deck-b-main-16-draft.md)、クワガタは[23 第3稿](23-stagbeetle-first-pass.md)が現行の移植元。[24](24-beetle-vs-stagbeetle-simulation-1.md)はクワガタ第2稿から問題を検出した記録で、第3稿より新しいカード本文ではない。
+特にカブトは[15 第2稿](15-test-deck-b-main-16-draft.md)、クワガタは[23 第3稿](23-stagbeetle-first-pass.md)が現行の移植元。[24](24-beetle-vs-stagbeetle-simulation-1.md)はクワガタ第2稿から問題を検出した記録で、第3稿より新しいカード本文ではない。31はこの2稿をM-IDへ接続した管理文書で、能力を再設計したものではない。
 
 ## 維持する基準
 
@@ -41,6 +41,6 @@ A/Bは[19](19-test-decks-a-b-cross-audit.md)の比較基準として保持する
 
 8属性の代表第一周は完了済み。ひと＝おとこのひと、けもの＝いぬ、みずべ＝かえる、うみ＝カクレクマノミ、むし＝カブトムシ、くさ＝サクラ、げんそう＝フェニックス、ふしぎ＝ぬいぐるみ。今後も代表テストは1属性1ファイルを維持する。
 
-01〜24と25〜29の試行錯誤・旧チェックポイントを消さない。ただし、その末尾の「次の作業」は当時の記録であり、現在の再開地点としては上記30を優先する。これは既存の確定ルールや個別カード本文を30で上書きするという意味ではない。
+01〜24と25〜30の試行錯誤・旧チェックポイントを消さない。ただし、その末尾の「次の作業」は当時の記録であり、現在の再開地点としては上記31完了後のあそびsource対応を優先する。これは既存の確定ルールや個別カード本文を31で上書きするという意味ではない。
 
 区切りごとに正本へ保存し、次の論点へ入る前に保存後の最新版を読み直す。
