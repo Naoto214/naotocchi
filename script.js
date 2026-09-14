@@ -13054,7 +13054,7 @@
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}${ring}</span><span class="partner-heart">💕</span>`;
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}</span>${ring}<span class="partner-heart">💕</span>`;
   }
 
   let companionRenderKey = null;
@@ -13495,7 +13495,7 @@
     const asset = path => path && !failedCastAssets.has(path) ? path : null;
     const hasPartner = !!p && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
-    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
+    const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
     if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
     homeCastLayoutKey = key;
@@ -13546,6 +13546,12 @@
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
+    const ring=el.partnerCompanion.querySelector('.partner-ring');
+    if(ring && layout.ring) {
+      const frame=layout.ring;
+      place(ring,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
+      ring.style.fontSize=frame.w+'px';
+    }
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {

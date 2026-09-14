@@ -24,6 +24,7 @@ function measureConversation() {
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
     ring:ring && shown(ring)?{...rect(ring),fontSize:parseFloat(getComputedStyle(ring).fontSize)}:null,
+    hearts:[...document.querySelectorAll('#pet .partner-heart')].filter(shown).map(rect),
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
@@ -73,6 +74,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['missing-friends-min',288,568,26,true,true,4],
     ['missing-mixed-min',288,568,26,true,true,4],
     ['missing-all-min',288,568,26,true,true,4],
+    ['missing-all-pair-min',288,568,0,true,true,4],
+    ['missing-all-three-min',288,568,3,true,true,4],
+    ['missing-all-thirteen-min',288,568,13,true,true,4],
+    ['missing-alternating-min',288,568,26,true,true,4],
     ['missing-all-small',320,568,26,true,true,4,'large'],
     ['balanced-cat',393,852,6,true,true,4,'normal','cat',6],
     ['balanced-two',390,760,2,true,true,4,'normal','cat',5],
@@ -81,9 +86,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['balanced-many',390,760,17,true,true,4,'normal','cat',5],
     ['balanced-near-max',320,568,25,true,true,4,'normal','cat',5],
     ['balanced-max',320,568,26,true,true,4,'normal','cat',5],
+    ['married-snow',390,844,3,true,true,0,'normal','woman',5],
+    ['unmarried-snow',390,844,3,true,true,0,'normal','woman',5],
   ];
   const separated=(a,b,gap=0)=>a.x+a.w+gap<=b.x+.6 || b.x+b.w+gap<=a.x+.6 || a.y+a.h+gap<=b.y+.6 || b.y+b.h+gap<=a.y+.6;
   const samePosition=(a,b)=>['x','y','w','h'].every(k=>Math.abs(a[k]-b[k])<.6);
+  const ringBetween=m=>{
+    const partner=m.actors.find(a=>a.id==='partner'),cx=m.ring.x+m.ring.w/2,cy=m.ring.y+m.ring.h/2;
+    return partner && cx>=partner.x+partner.w/2-.6 && cx<=m.main.x+m.main.w/2+.6 &&
+      cy>=partner.y+partner.h/2-.6 && cy<=m.main.y+m.main.h/2+.6;
+  };
   for(const [name,width,height,count,partner,item,poops,textSize,species,stage] of scenarios) {
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
@@ -94,7 +106,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     if(name.startsWith('missing-')) {
       await context.route('**/assets/characters/**/*.png',route=>{
         const url=route.request().url();
-        const fail=name==='missing-mixed-min'?/\/companions\/(cat_friend|otter|panda|parrot|sheep|snail)\.png/.test(url):
+        const friend=url.match(/\/companions\/([^/?]+)\.png/)?.[1];
+        const fail=name==='missing-alternating-min'?!friend || fixtures.equipped.companions.findIndex(c=>c.id===friend)%2===0:
+          name==='missing-mixed-min'?/\/companions\/(cat_friend|otter|panda|parrot|sheep|snail)\.png/.test(url):
           name==='missing-friends-min'?url.includes('/companions/'):true;
         return fail?route.abort('failed'):route.continue();
       });
@@ -108,10 +122,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const page=await context.newPage(),errors=[];
     page.on('pageerror',e=>errors.push(e.message));
     const save=JSON.parse(JSON.stringify(fixtures.phone_dog));
-    Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?fixtures.equipped.partner:null,
+    Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?{...fixtures.equipped.partner}:null,
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
     const itemId=name==='item-crown'?'crown':'poop1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
+    if(name.endsWith('-snow')) {
+      save.companions=['owl','hamster','shiba'].map(id=>({id,bond:95}));
+      Object.assign(save.partner,{id:'snow_spirit',label:'ゆきのせいれい',married:name==='married-snow'});
+      save.regionId='snow';
+      Object.assign(save.lifetime,{timeMode:'night',weatherMode:'cloudy',seasonMode:'autumn'});
+    }
     if(name==='balanced-cat') {
       save.companions=['sheep','seal','otter','rabbit_friend','shiba','parrot'].map(id=>({id,bond:95}));
       Object.assign(save.partner,{id:'gentle_gorilla',label:'やさしいゴリラ'});
@@ -125,6 +145,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const index=stage ?? ((name==='full' || name==='desktop')?4:0);
     // Appearance is derived from age on load; stageIndex alone is overwritten.
     Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:[2,4,8,13,17,23,41,71][index]*20});
+    if(name.endsWith('-snow'))save.ageTicks=38*20;
     if(name==='balanced-cat') {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
       Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
@@ -142,9 +163,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       if(name.startsWith('missing-')) {
         const friends=m.actors.filter(a=>a.id!=='pet' && a.id!=='partner' && a.id!=='item');
         assert.equal(friends.length,count,label+': a companion disappeared');
-        assert.ok(name==='missing-mixed-min'?friends.some(a=>a.failed) && friends.some(a=>!a.failed):friends.every(a=>a.failed),label+': missing companion images were not exercised');
+        assert.ok(name==='missing-mixed-min' || name==='missing-alternating-min'?friends.some(a=>a.failed) && friends.some(a=>!a.failed):friends.every(a=>a.failed),label+': missing companion images were not exercised');
         assert.ok(m.actors.filter(a=>a.failed).every(a=>a.fallbackVisible),label+': a failed image has no visible fallback');
-        if(name.startsWith('missing-all')) assert.ok(m.main.failed,label+': missing main image was not exercised');
+        if(name.startsWith('missing-all') || name==='missing-alternating-min') assert.ok(m.main.failed,label+': missing main image was not exercised');
         if(name.endsWith('-min')) assert.ok(Math.abs(m.stage.w-270)<.6 && Math.abs(m.stage.h-152)<.6,label+': fallback expanded the 270x152 region');
         for(const a of m.actors) assert.ok(a.x>=m.stage.x && a.x+a.w<=m.stage.x+m.stage.w+.6 && a.y>=m.stage.y && a.y+a.h<=m.stage.y+m.stage.h+.6,label+': fallback actor is outside the stage');
       }
@@ -195,6 +216,13 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-first.x<=102.6,label+': poop row exceeds its compact bounds');
       }
       assert.deepEqual(errors,[],label+': browser errors');
+      assert.equal(!!m.ring,!!save.partner?.married,label+': marriage ring visibility');
+      if(m.ring) {
+        assert.ok(m.ring.w>=15 && m.ring.w<=23 && Math.abs(m.ring.h-m.ring.w)<.1,label+': ring size');
+        assert.ok(ringBetween(m),label+': ring leaves the space between the couple');
+        for(const a of [...m.actors,...m.hearts,...m.poops,m.slot]) assert.ok(separated(m.ring,a,2),label+': ring covers '+(a.id||'heart or floor'));
+        assert.ok(m.ring.x>=m.stage.x && m.ring.x+m.ring.w<=m.stage.x+m.stage.w && m.ring.y>=m.stage.y,label+': ring leaves the stage');
+      }
       return m;
     };
     try {
@@ -233,7 +261,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await page.locator('#speechText').evaluate(e=>e.scrollTop=e.scrollHeight);
       assert.ok(await page.locator('#speechText').evaluate(e=>e.scrollTop>0),label+': long text cannot scroll');
       await page.screenshot({path:path.join(output,label+'-long.png')});
-      if(name==='right-speaker') {
+      if(name==='right-speaker' || name==='married-snow') {
         // Exercise the real CSS sway and individual speaking reactions as well
         // as the reduced-motion layout above. Poop stays outside both layers.
         await page.emulateMedia({reducedMotion:'no-preference'});
@@ -253,6 +281,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
           assert.ok(samePosition(m.slot,before.slot),label+': animation moves dialogue');
           assert.deepEqual(m.poops,before.poops,label+': animation moves poop');
           for(const p of m.poops) for(const a of m.actors) assert.ok(separated(p,a,1),label+': moving '+a.id+' covers poop');
+          if(m.ring) {
+            assert.ok(ringBetween(m),label+': animated ring leaves the space between the couple');
+            for(const a of [...m.actors,...m.hearts,...m.poops,m.slot]) assert.ok(separated(m.ring,a,2),label+': animated ring covers '+(a.id||'heart or floor'));
+          }
         }
         assert.ok(Math.max(...positions)-Math.min(...positions)>4,label+': cast did not actually sway');
         await page.screenshot({path:path.join(output,label+'-animated.png')});
