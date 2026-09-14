@@ -949,6 +949,7 @@
     menuCloseBtn: document.getElementById('menuCloseBtn'),
     worldBtn: document.getElementById('worldBtn'),
     gamesBtn: document.getElementById('gamesBtn'),
+    quickBtn: document.getElementById('quickBtn'),
     timeModeGrid: document.getElementById('timeModeGrid'),
     difficultyModeGrid: document.getElementById('difficultyModeGrid'),
     gameLengthGrid: document.getElementById('gameLengthGrid'),
@@ -1593,6 +1594,8 @@
         // ランク(S/A/B/C/D)も ここから ひく。minigamePlayCounts と おなじく
         // 「はじめから」しても きえない
         minigameRecords: {},
+        // クイックモードの きろく(ラン数・さいこうクリア数・さいだいれんぞく・ゲームごとの かいすう)
+        quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} },
         // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
         dailyChallenge: null,
         dailyStreak: 0,
@@ -1720,6 +1723,7 @@
         }
       }
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
+      if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} };
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
       const OLD_ITEM_BASE = {
         flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
@@ -2071,6 +2075,8 @@
     { id: 'env-moments-10', emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
     { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '5かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 5 },
     { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを300かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'quick-10', emoji: '⚡', label: 'クイックのたつじん', desc: 'クイックモードで1ランに10こクリアした', tier: 'normal', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 10 },
+    { id: 'quick-perfect', emoji: '👑', label: 'クイックパーフェクト', desc: 'クイックモードで20こ全部クリアした', tier: 'hard1', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 20 },
     { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
     { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
@@ -11824,6 +11830,13 @@
         : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
       html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}日連続</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。クリアで💰10〜60＋連続ボーナス／せいちょう2ばい（10分）'}</span></div><div class="daily-status">${status}</div></div></div>`;
     }
+    // クイックモード カード(ふつうの ゲームとは べつの あそび)
+    if (QUICK_RUN) {
+      const q = quickStats();
+      const qRec = minigameRecordOf(QUICK_RUN);
+      const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div></div>`;
+    }
     html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
     html += `<div class="game-list-hint">タップでゲームをはじめるよ（げんきを使う）。むずかしさ：${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}（せかい画面で変えられる）</div>`;
     const bestOf = (game) => { const r = minigameRecordOf(game); return r ? r.best : -1; };
@@ -13769,6 +13782,39 @@
   const installMinigames = (typeof globalThis !== 'undefined' && globalThis.installNaotocchiMinigames) || (typeof window !== 'undefined' && window.installNaotocchiMinigames);
   if (typeof installMinigames !== 'function') throw new Error('games.js を読みこめませんでした(index.html で script.js より前に <script src="games.js"> が必要です)');
   const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, createTouchPad, createPadRow, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
+  // クイックモード(quick.js): 1つ 3〜6びょうの ゲームを 指示(文字+こえ)つきで つぎつぎ
+  // あそぶ。本体からは 1本の ゲーム 'quick-run' として startMinigame/finishMinigame を とおる
+  // (げんき・ごほうび・じこベスト・やめるバーは ふつうの ミニゲームと おなじ)
+  const QUICK_FOOD_EMOJI = ['🍙', '🍎', '🍰', '🍓', '🍩', '🍇'];
+  const quickMod = typeof installNaotocchiQuick === 'function' ? installNaotocchiQuick({
+    sfx: (name) => audio.play(name),
+    voice: (text) => audio.voice(text),
+    clamp, lerp, escapeHtml, createMgCanvas,
+    currentSprite: () => currentSprite(),
+    partnerEmoji: () => (state.partner && state.partner.emoji) || null,
+    companionEmojis: () => (state.companions || []).map((c) => { const d = allCompanionsById(c.id); return d && d.emoji; }).filter(Boolean),
+    foodEmojis: () => QUICK_FOOD_EMOJI,
+    seasonId: () => getEffectiveSeason(),
+    onRunEnd: (stats) => recordQuickRun(stats),
+  }) : null;
+  const QUICK_RUN = quickMod ? quickMod.makeQuickRun() : null;
+  function quickStats() {
+    const q = state.lifetime.quick || (state.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} });
+    return q;
+  }
+  function recordQuickRun(stats) {
+    const q = quickStats();
+    q.runs += 1;
+    q.bestCleared = Math.max(q.bestCleared, stats.cleared);
+    q.bestCombo = Math.max(q.bestCombo, stats.maxCombo);
+    q.totalCleared += stats.cleared;
+    for (const [id, n] of Object.entries(stats.plays || {})) q.plays[id] = (q.plays[id] || 0) + n;
+    for (const [id, n] of Object.entries(stats.clears || {})) q.clears[id] = (q.clears[id] || 0) + n;
+  }
+  function startQuickRun() {
+    if (!QUICK_RUN) return false;
+    return tryStartPlay(QUICK_RUN);
+  }
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
   // GROUPS には ふくまれない(一般プールを 汚さない ため、上の 説明を
@@ -13837,6 +13883,7 @@
     towerDefense: 'strategy', roguelike: 'strategy',
   };
   const MINIGAME_INFO = {
+    'quick-run': { name: 'クイックモード', emoji: '⚡', desc: 'みじかい指示のとおりに、つぎつぎそうさ。' },
     'road-themed': { name: 'ロードラン', emoji: '🏃', desc: 'よいものをキャッチ。わるいものはよけよう。' },
     'stack-themed': { name: 'つみあげタワー', emoji: '🏗️', desc: 'ゆれるクレーンから落として、高くつもう。' },
     'stack-snowman': { name: 'ゆきだるまタワー', emoji: '⛄', desc: '丸く重ねよう。' },
@@ -13942,6 +13989,7 @@
   // ヒント文(class="mg-hint" の さいしょの 文)から 生成した 表(id → 文)。
   // ゲームを 足したら ここにも 1行 足す(smoke-test が もれを 検査する)
   const MINIGAME_CONTROLS = {
+    "quick-run": "「たべろ!」「よけろ!」などの指示が出たら、すぐそのとおりにタップ・れんだ・なぞる。1つ3〜5秒で○か✕。3回しっぱいでおわり、20こできたらパーフェクト!",
     "road-themed": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-themed": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-snowman": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
@@ -15768,7 +15816,7 @@
     } else {
       game = pickRandomMinigame();
     }
-    startMinigame(game, { intro: isFirstMinigamePlay(game) });
+    startMinigame(game, { intro: !game.noIntro && isFirstMinigamePlay(game) });
     return true;
   }
 
@@ -16160,6 +16208,7 @@
   el.menuCloseBtn.addEventListener('click', () => { closeOverlay('menu'); render(); });
   el.worldBtn.addEventListener('click', () => openExclusiveMenu('world'));
   el.gamesBtn.addEventListener('click', () => { achTab = 'games'; openExclusiveMenu('ach'); });
+  if (el.quickBtn) el.quickBtn.addEventListener('click', () => { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(); });
   el.travelBtn.addEventListener('click', () => openExclusiveMenu('travel'));
   el.worldCloseBtn.addEventListener('click', () => { closeOverlay('world'); render(); });
   el.travelCloseBtn.addEventListener('click', () => { closeAllMenuOverlays(); render(); });
@@ -16673,6 +16722,8 @@
     el.gameListGrid.addEventListener('click', (e) => {
       const sortBtn = e.target && e.target.closest ? e.target.closest('.game-list-sort') : null;
       if (sortBtn) { gameListSort = sortBtn.dataset.sort; renderGameList(); return; }
+      const quickStart = e.target && e.target.closest ? e.target.closest('.quick-start') : null;
+      if (quickStart) { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(); return; }
       const dailyBtn = e.target && e.target.closest ? e.target.closest('.daily-start') : null;
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
       if (!cell && !dailyBtn) return;

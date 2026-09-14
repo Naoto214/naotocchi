@@ -28,6 +28,7 @@
       if (c.state === 'suspended') { try { c.resume(); } catch (err) {} }
       unlocked = true;
       startScheduler();
+      voiceUnlock();
     }
     // --- こうかおん の 部品 ---
     function tone(freq, dur, o = {}) {
@@ -285,6 +286,34 @@
     document.addEventListener('pointerdown', unlockHandler, true);
     document.addEventListener('keydown', unlockHandler, true);
     document.addEventListener('visibilitychange', () => { if (!ctx) return; if (document.hidden) { try { ctx.suspend(); } catch (err) {} } else if (unlocked) { try { ctx.resume(); } catch (err) {} } });
-    return { play, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    // --- こえ(クイックモードの 指示「よけろ!」など) ---
+    // ブラウザの よみあげ(speechSynthesis)を つかう。iPhone/Safari では さいしょの
+    // タップの なかで 1かい しゃべらせておくと、そのあとは タイマーからでも こえが 出る。
+    // こうかおんが OFF なら しゃべらない。つかえない かんきょうでは なにも しない(文字は 出る)
+    let voiceReady = false, jaVoice = null;
+    function synth() { try { return typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined' ? speechSynthesis : null; } catch (err) { return null; } }
+    function pickVoice(ss) {
+      if (jaVoice) return jaVoice;
+      let list = []; try { list = ss.getVoices() || []; } catch (err) { list = []; }
+      const ja = list.filter((v) => /^ja/i.test(v.lang || ''));
+      jaVoice = ja.find((v) => /kyoko|o-ren|otoya|hattori|google 日本語|japanese/i.test(v.name || '')) || ja[0] || null;
+      return jaVoice;
+    }
+    function voiceUnlock() {
+      const ss = synth(); if (!ss || voiceReady) return;
+      try { const u = new SpeechSynthesisUtterance(''); u.volume = 0; ss.speak(u); voiceReady = true; } catch (err) {}
+    }
+    function voice(text, o = {}) {
+      const ss = synth(); if (!ss || !text || !sfxOn()) return false;
+      try {
+        ss.cancel();
+        const u = new SpeechSynthesisUtterance(String(text));
+        u.lang = 'ja-JP'; u.rate = o.rate || 1.35; u.pitch = o.pitch || 1.15; u.volume = o.volume == null ? 1 : o.volume;
+        const v = pickVoice(ss); if (v) u.voice = v;
+        ss.speak(u);
+        return true;
+      } catch (err) { return false; }
+    }
+    return { play, voice, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
   };
 })();
