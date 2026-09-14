@@ -89,7 +89,7 @@ const sandbox = {
   location: { href: 'https://naoto214.github.io/naotocchi/' }, crypto: { getRandomValues: (a) => a },
   __spoken: spoken, __events: events, __clock: () => now,
 };
-const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 sandbox.window.NaotocchiCast = require('../cast-layout.js');
 sandbox.window.NaotocchiCastMotion = require('../cast-motion.js');
 sandbox.window.NaotocchiEnvironment = require('../world-environment.js');
@@ -108,7 +108,7 @@ const expose = `
     ENV_MOMENTS, showStoryEvent,
     clearConversationTimers, conversationIsBusy, scheduleIdleGreeting, playMarriageMovie, playLegendEncounterMovie,
     maybeLegendEncounter, loop,
-    finishDateMovie, celebrateAgeSpeech, finishMinigame, partnerAnniversaryLine,
+    finishDateMovie, celebrateAgeSpeech, startMinigame, finishMinigame, partnerAnniversaryLine,
     gainSodachi, onSodachiMilestone, travelToRegion, findRegion, chooseTransform,
     CONVERSATION_POOLS, PARTNER_DAILY_REACTIONS, PARTNER_CHARACTER_IDLE_LINES,
     COMPANION_DAILY_REACTIONS, COMPANION_CHARACTER_IDLE_LINES, PARTNER_RELATIONSHIP_LINES,
@@ -252,7 +252,7 @@ for (const [key, id, patch] of actions) {
   reset(patch); click(id); advance(0); assert.ok(events.includes(key), key + ' handler unreachable'); validSpeech();
 }
 for (const [score, key] of [[90, 'minigame_great'], [10, 'minigame_bad']]) {
-  reset(); api.finishMinigame(score); advance(0); assert.ok(events.includes(key)); validSpeech();
+  reset(); api.startMinigame({id:"dialogue-probe",start(){}}); api.finishMinigame(score); advance(0); assert.ok(events.includes(key)); validSpeech();
 }
 reset(); api.celebrateAgeSpeech(37); advance(0); assert.ok(events.includes('age')); validSpeech();
 for (const [key, fire] of [
@@ -538,7 +538,7 @@ for (const testCase of [
       advance(step - 1); assert.equal(captions.length, beat, name + ': caption arrived early');
       advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
     }
-    if (ring) assert.match(captions[4], /ふたりだけ/);
+    if (ring) assert.match(captions[4], /ふたりの合言葉/);
     else if (special) assert.match(captions[4], /写真/);
     assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
     advance(step + 499);
@@ -633,11 +633,15 @@ for (const item of api.FUN_ITEMS) {
   advance(7500); validSpeech();
   assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet', 'partner', 'companion']);
   for (const beat of spoken) assert.ok(item[beat.speaker.kind + 'Lines'].includes(beat.text));
-  assert.equal(api.getState().items[item.id] || 0, 0);
-  assert.equal(api.getState().lifetime.consumablesUsed, 1);
+  const reservedBalloon = item.id === 'fun_balloon';
+  assert.equal(api.getState().items[item.id] || 0, reservedBalloon ? 1 : 0);
+  if (reservedBalloon) assert.equal(api.getState().itemLife.balloon.readyAt, api.getState().lifetime.itemProgress.ticks + 10);
+  const permanent = ['fun_camera','fun_musicbox','fun_surprise'].includes(item.id);
+  assert.equal(api.getState().lifetime.consumablesUsed, permanent || reservedBalloon ? 0 : 1);
   assert.equal(api.conversationIsBusy(), false);
   const before = spoken.length; api.useItem(item.id); advance(10000);
-  assert.equal(spoken.length, before, 'empty item replayed');
+  if (permanent) assert.ok(spoken.length > before, 'owned tool can be reused');
+  else assert.equal(spoken.length, before, 'empty item replayed');
   reset(); api.playFunScene(item); advance(10000);
   assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet']);
 }
@@ -754,10 +758,11 @@ for (const candidate of api.ALL_PARTNER_CANDIDATES) {
 reset(); api.playFirstPartnerEncounter(partner()); click('cleanBtn');
 const storyCount = storyCaptions.length; advance(10000);
 assert.equal(storyCaptions.length, storyCount, 'encounter continued after a new action');
-reset(); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
-// Dream eggs retain access to every current species, including the eight rare lines.
-for (const def of currentSpecies) {
-  reset(); api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
+reset({stage:'egg'}); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
+// Funded dream eggs select the 22 normal or eight rare lines; ren keeps its original gate.
+for (const def of [...master.playerSpecies.normal, ...master.playerSpecies.rare]) {
+  reset({stage:'egg'}); api.getState().lifetime.dreamEggs={normal:1,rare:1};
+  api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
   assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
 }
 console.log('WHOLE-TEXT TEST OK: 248 descriptions; 30 ordinary dates; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.');
@@ -773,7 +778,7 @@ for (const [role, winner, expected] of [
   assert.doesNotMatch(getElement('duelResultDesc').textContent, /ひきわけ/, 'zero payment was called a draw');
 }
 
-// An in-progress old duel keeps its choices and stored question snapshots.
+// Historical question/result renderers retain stored snapshots verbatim; load migration now terminates unfunded old progress.
 const oldQuestion = {id:'dq5',emoji:'💭',text:'恋人に　うそを ついたことは?',
   a:{label:'ある よ'},b:{label:'ない よ'}};
 const oldEntry = {truth:'a',pub:'b',isLie:true};
@@ -993,6 +998,7 @@ click('companionInviteLaterBtn');
 for (const score of [69, 70]) {
   reset({ sodachi: 80, maxSodachi: 80 });
   api.openCompanionInvite(clockCompanion, true);
+  api.startMinigame({id:"clock-probe",start(){}});
   api.finishMinigame(score);
   assert.equal(api.getState().lifetime.rareCompanionsRecruited.includes('clock'), score >= 70);
   assert.equal(api.getState().companions.some((c) => c.id === 'clock'), score >= 70);

@@ -67,7 +67,9 @@ assert.equal(h.api.state().partner.id,'robot_neighbor');
 assert.equal(h.api.state().lifetime.ownedShopItems.length,15);
 assert.equal(h.api.state().lifetime.ownedNaotoItems.length,4);
 assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
-assert.equal(Object.keys(h.api.state().items).filter(id=>id.startsWith('fun_')&&h.api.state().items[id]===2).length,7);
+assert.equal(Object.keys(h.api.state().items).filter(id=>id.startsWith('fun_')&&h.api.state().items[id]===2).length,4);
+assert.deepEqual(Array.from(h.api.state().lifetime.ownedTools).sort(),['fun_camera','fun_musicbox','fun_surprise']);
+for(const id of ['fun_camera','fun_musicbox','fun_surprise']) assert.equal(h.api.state().lifetime.itemExtraScenes[id],1);
 // Reload manual weather fixtures: an invalid mode would silently use live
 // weather/time and invalidate the later visual observation.
 for(const [name,weather,time] of [['scenery_clouds','cloudy','day'],['scenery_snow','snow','night'],['scenery_moon','sunny','night'],['scenery_rain','rain','day']]) {

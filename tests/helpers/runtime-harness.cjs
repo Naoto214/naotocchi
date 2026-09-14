@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 
-const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
+const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
@@ -143,12 +143,17 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   });
   const expose = `
     globalThis.lifecycle = {
-      startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
+      getMessage: () => message,
+      hatchEgg, pickDreamLine, startDuelChallenge, chooseDuelTruth, chooseDuelHonesty, finalizeDuelChallenge, abandonDuelChallenge,
+      startDuelGuess, setDuelGuess, confirmDuelGuesses, chooseDuelSuspicion, encodeDuelChallenge, encodeDuelGuess, encodeDuelReveal,
+      resolveDuelWithGuessCode, resolveDuelWithRevealCode, settleDuelForSelf,
+      openDreamPicker, openThemedStickerPack, chooseKakeraSticker, cancelKakeraChoice,
+      audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
-      useConsumableItem, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
+      useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, useItem, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
-      renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES,
+      renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES, decayRelationship, decayCompanionBonds, reinforceRelationship, goOnDate, closeDateOverlay, renderItemOverlay, renderItemMemories, renderNaotoItemGrid,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
       scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
       playLegendEncounterMovie, playOrdinaryDateMovie, playMarriageMovie, closeDateOverlay, finishDateMovie, DATE_PLANS,
@@ -162,7 +167,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       enterInfinite, exitInfinite, openDexDetail, currentStageLabel,
       showPendingClownfishTransition, renderCommOverlay,
       requestEnvironment, maybeRefreshEnvironment, renderEnvironment, travelToRegion, currentEnvironment,
-      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, renderHomeCast,
+      speakEvent, setMessage, setSpeechBubble, clearConversationTimers, scheduleIdlePerk, scheduleItemContextMessage, renderHomeCast,
       commentTextHTML, setCommentText, showStoryEvent, setBirthdayToast,
       achievementIconHTML: (...args) => achievementIconHTML(...args),
       minigameFoodHTML: (...args) => minigameFoodHTML(...args),

@@ -4,19 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260914-meguru-3">
+  <link rel="stylesheet" href="style.css?v=20260914-a13bcea3">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260914-cd9083e1">
-  <link rel="stylesheet" href="design.css?v=20260911-ae1c4ad1">
-  <link rel="stylesheet" href="egg-hatching.css?v=20260911-8449f9f9">
-  <link rel="stylesheet" href="care-status.css?v=20260911-6a3b29a4">
-  <link rel="stylesheet" href="ui-illustrations.css?v=20260911-924451ff">
-  <link rel="stylesheet" href="world-scene.css?v=20260912-c72db122">
-  <link rel="stylesheet" href="care-attention.css?v=20260911-44106b8f">
+  <link rel="stylesheet" href="design.css?v=20260914-ae1c4ad1">
+  <link rel="stylesheet" href="egg-hatching.css?v=20260914-8449f9f9">
+  <link rel="stylesheet" href="care-status.css?v=20260914-6a3b29a4">
+  <link rel="stylesheet" href="ui-illustrations.css?v=20260914-924451ff">
+  <link rel="stylesheet" href="world-scene.css?v=20260914-c72db122">
+  <link rel="stylesheet" href="care-attention.css?v=20260914-44106b8f">
   <link rel="stylesheet" href="movie.css?v=20260914-12f69103">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
+  <link rel="stylesheet" href="item-experience.css?v=20260914-fa869e65">
 </head>
 <body>
   <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
@@ -258,7 +259,7 @@
             <div class="design-font-row"><label for="textSizeSelect">もじのおおきさ</label><select id="textSizeSelect"><option value="normal">ふつう</option><option value="large">おおきめ</option></select></div>
             <details class="design-collection">
               <summary>あつめたいろ・がら <span class="dex-progress" id="themeProgress">0 / 81</span></summary>
-              <p class="design-help">これまでのコレクションは のこるよ。ホームのいろは、みやすさにあわせて かわるよ。</p>
+              <p class="design-help">達成でもらえる、無料の色と柄の見本だよ。からだの着せ替えではありません。</p>
               <div class="theme-section-title">いろ</div><div class="theme-grid" id="colorCollectionGrid"></div>
               <div class="theme-section-title">がら</div><div class="theme-grid" id="patternCollectionGrid"></div>
             </details>
@@ -302,18 +303,28 @@
             </div>
             <div class="theme-section">
               <div class="theme-section-title">みにつけるもの</div>
-              <div class="profile-hint">おかねで買って身につけます。身につけているものをもう一度タップすると、はずせます</div>
+              <div class="profile-hint">買ったものはずっと残ります。身につけられるのは1つ。もう一度タップすると、はずせます。</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
+              <section class="profile-section">
+                <h3>つぎのたまごのゆめ</h3>
+                <p class="profile-hint" id="dreamStatus"></p>
+                <button type="button" class="profile-code-btn" id="dreamNormalBtn">たまごのゆめ</button>
+                <button type="button" class="profile-code-btn" id="dreamRareBtn">でんせつのゆめ</button>
+                <button type="button" class="profile-code-btn" id="dreamCancelBtn">よやくをとりけす</button>
+              </section>
+              <div id="itemRelationActions"></div>
+              <button type="button" id="itemMemoriesBtn">おもいで</button>
+              <div id="itemMemoriesPanel" class="hidden"><p id="itemMemoryStatus" role="status"></p><div id="itemMemoryExport"></div><div id="itemMemoriesList"></div></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">なおとのひみつ</div>
-              <div class="profile-hint">4つのクリア目標を達成するたび、1こずつもらえる、なおとからの贈りもの。もらったあとは、ずっと効果が続きます</div>
+              <div class="profile-hint">4つのクリア目標を達成するたび、1こずつもらえる、なおとからの贈りもの。もらったものはずっと残り、それぞれの場面で役立ちます</div>
               <div class="shop-item-grid" id="naotoItemGrid"></div>
               <button type="button" class="profile-code-btn naoto-greeting-btn hidden" id="naotoGreetingBtn"></button>
             </div>
             <div class="theme-section">
-              <div class="theme-section-title">つかいきり</div>
-              <div class="profile-hint">買うとすぐに使えます。多くは「つぎの1回」に効果があり、同じおまもりは1つずつ持てます。回数や時間は、それぞれの説明で確認してください。</div>
+              <div class="theme-section-title">ふくろとどうぐ</div>
+              <div class="profile-hint">買うとふくろに入り、使うときに選べます。未使用の品は次の一生にも残ります。発動待ちの効果はひとつずつで、その一生の間だけです。待ち時間は育成が進む間に減ります。</div>
               <div class="profile-hint" id="onetimeActive"></div>
               <div class="shop-item-grid" id="onetimeItemGrid"></div>
             </div>
@@ -343,6 +354,19 @@
           </div>
         </div>
 
+        <div class="date-overlay hidden" id="itemSceneOverlay">
+          <div class="date-card date-reward-confirm" style="max-height:100%;overflow-y:auto" role="group" aria-labelledby="itemSceneTitle">
+            <h2 class="date-title" id="itemSceneTitle"></h2>
+            <div class="date-movie-actors hidden" id="itemSceneActors"></div>
+            <p class="date-reward-count" id="itemSceneText"></p>
+            <div class="date-choice-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))" id="itemSceneChoiceGrid"></div>
+            <div class="date-reward-actions" id="itemSceneRewardActions">
+              <button type="button" class="date-reward-btn" id="itemSceneRewardUseBtn">ごほうびを1こつかう</button>
+              <button type="button" class="date-reward-btn secondary" id="itemSceneRewardSkipBtn">つかわずにでかける</button>
+            </div>
+            <button type="button" class="date-cancel-btn" id="itemSceneCancelBtn">またこんど</button>
+          </div>
+        </div>
         <div class="date-overlay hidden" id="dateOverlay">
           <div class="date-card" id="dateChooser">
             <div class="date-kicker">💞きょうはどこへいく?</div>
@@ -355,10 +379,10 @@
             <h2 class="date-title" id="dateRewardTitle" tabindex="-1">🎁ごほうびを1こ使って、<br>とくべつなデートにする？</h2>
             <p class="date-reward-count" id="dateRewardCount"></p>
             <div class="date-reward-actions">
-              <button type="button" class="date-reward-btn" id="dateRewardUseBtn">ごほうびを1こ使う</button>
-              <button type="button" class="date-reward-btn secondary" id="dateRewardSkipBtn">使わずにデートする</button>
+              <button type="button" class="date-reward-btn" id="dateRewardUseBtn">ごほうびを1こつかう</button>
+              <button type="button" class="date-reward-btn secondary" id="dateRewardSkipBtn">つかわずにでーとする</button>
             </div>
-            <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">行き先にもどる</button>
+            <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">いきさきにもどる</button>
           </div>
           <div class="date-movie hidden" id="dateMovie" role="dialog" aria-modal="true" aria-labelledby="dateMoviePlace" aria-describedby="dateMovieCaption" tabindex="-1">
             <div class="date-movie-scene" id="dateMovieScene">
@@ -409,7 +433,7 @@
             <section class="profile-section"><h3>きせつ</h3><div class="environment-choices" id="seasonModeGrid"></div></section>
             <section class="profile-section"><h3>ゲームのむずかしさ</h3><div class="environment-choices" id="difficultyModeGrid"></div><p class="profile-hint">「やさしい」は、年齢によって上がるむずかしさをおさえ、制限時間も長くなります。</p></section>
             <section class="profile-section"><h3>ゲームのながさ</h3><div class="environment-choices" id="gameLengthGrid"></div><p class="profile-hint">「みじかめ」は、90秒以上の制限時間を60%の長さにします。</p></section>
-            <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div><p class="profile-hint">クイックモードの こえ</p><div class="environment-choices" id="quickVoiceGrid"></div></section>
+            <section class="profile-section"><h3>おと</h3><div class="environment-choices" id="sfxModeGrid"></div><div class="environment-choices" id="bgmModeGrid"></div><p class="profile-hint">クイックモードのこえ</p><div class="environment-choices" id="quickVoiceGrid"></div></section>
             <div class="location-card"><div id="worldLocationLabel">げんざいち：まだわからない</div><p class="profile-hint" id="environmentStatus" role="status">現在地を調べると、近くのてんきにあわせられます。</p><button type="button" class="profile-code-btn" id="locationRefreshBtn">📍げんざいち・てんきをしらべる</button><p class="profile-hint">表示は市区町村まで。位置情報の数値はセーブに残しません。旅先に選んだ市区町村名は、景色を表示するために保存します。</p><div class="environment-credit">住所：<a href="https://geoapi.heartrails.com/" target="_blank" rel="noopener noreferrer">HeartRails Geo API</a> ／ 天気：<a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></div></div>
           </div>
         </div>
@@ -457,6 +481,11 @@
                 <button type="button" class="profile-code-btn" id="stickerKakeraBtn"></button>
                 <button type="button" class="profile-code-btn" id="stickerExportBtn">📷 このページを がぞうにする</button>
               </div>
+              <label for="stickerThemeKind">えらぶぶんるい</label>
+              <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">けしき</option></select>
+              <button type="button" class="profile-code-btn" id="stickerThemePackBtn">ぶんるいでひく（60コイン・3まい）</button>
+              <p class="profile-hint">シールは飾りです。本編の発見やなかまの加入にはなりません。</p>
+              <div class="sticker-pack-result hidden" id="stickerChoicePanel"></div>
               <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
               <div class="sticker-export hidden" id="stickerExportView"></div>
               <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・きょうの チャレンジ クリア・Sランク(ときどき)で もらえる。かぶった シールは かけらに なる</p>
@@ -586,6 +615,8 @@
             <button class="dex-close-btn" id="duelCloseBtn">✕</button>
           </div>
           <div class="profile-scroll">
+            <p class="profile-hint" id="duelStakeHint"></p>
+            <button type="button" class="duel-abandon-btn hidden" id="duelCancelMatchBtn">しょうぶをやめる</button>
             <div class="profile-section" id="duelHomeSection">
               <div class="profile-hint">ともだちと2人であそぶしょうぶ。回答Aが5つの質問に答え、推理Bがうそを見ぬきます。コードを送りあって遊ぼう。おかねもかけられます</div>
               <div class="profile-row"><span class="profile-label">せんせき</span><span id="duelRecord"></span></div>
@@ -679,7 +710,6 @@
                 <span class="profile-code-copy-msg hidden" id="duelCodeOutCopyMsg">コピーしました!</span>
               </div>
               <button class="profile-code-btn" id="duelCodeOutDoneBtn">とじる</button>
-              <button type="button" class="duel-abandon-btn hidden" id="duelAbandonBtn">このしょうぶをやめてやりなおす</button>
             </div>
 
             <div class="profile-section hidden" id="duelCodeInSection">
@@ -690,7 +720,6 @@
               </div>
               <div class="profile-code-error hidden" id="duelCodeInError"></div>
               <button class="profile-code-btn" id="duelCodeInBtn">よみこむ</button>
-              <button type="button" class="duel-abandon-btn hidden" id="duelCodeInAbandonBtn">このしょうぶをやめてやりなおす</button>
             </div>
 
             <div class="profile-section hidden" id="duelResultSection">
@@ -774,25 +803,27 @@
   <div class="season-front-fx" id="seasonFrontFx"></div>
   <div class="weather-fx" id="weatherFx"></div>
 
-  <script src="character-world-master.v1.js?v=20260911-d24939fa"></script>
-  <script src="cast-bounds.js?v=20260913-19da126a"></script>
-  <script src="cast-motion.js?v=20260911-c479a13a"></script>
+  <script src="character-world-master.v1.js?v=20260914-d24939fa"></script>
+  <script src="cast-bounds.js?v=20260914-19da126a"></script>
+  <script src="cast-motion.js?v=20260914-c479a13a"></script>
   <script src="cast-layout.js?v=20260914-f833e6ed"></script>
-  <script src="local-scenery.js?v=20260911-0bea5d7b"></script>
-  <script src="world-environment.js?v=20260911-d0a39f28"></script>
-  <script src="world-scene.js?v=20260911-99152e94"></script>
-  <script src="prop-illustrations.js?v=20260911-26ae95a3"></script>
-  <script src="game-symbol-art.js?v=20260911-0f1dd37d"></script>
-  <script src="ui-symbol-art.js?v=20260911-53309e2e"></script>
-  <script src="illustration-catalog.js?v=20260911-f072008f"></script>
-  <script src="display-illustrations.js?v=20260911-0eb0da4a"></script>
-  <script src="canvas-illustrations.js?v=20260911-a5b6c471"></script>
-  <script src="meguru.js?v=20260914-meguru-5"></script>
-  <script src="quick.js?v=20260914-quick-4"></script>
-  <script src="games.js?v=20260913-short-1"></script>
-  <script src="audio.js?v=20260914-quick-4"></script>
-  <script src="care-status.js?v=20260911-3d4dd0f4"></script>
-  <script src="script.js?v=20260914-meguru-2"></script>
-  <script src="home-touch.js?v=20260911-ddc153e1"></script>
+  <script src="local-scenery.js?v=20260914-0bea5d7b"></script>
+  <script src="world-environment.js?v=20260914-d0a39f28"></script>
+  <script src="world-scene.js?v=20260914-99152e94"></script>
+  <script src="prop-illustrations.js?v=20260914-26ae95a3"></script>
+  <script src="game-symbol-art.js?v=20260914-0f1dd37d"></script>
+  <script src="ui-symbol-art.js?v=20260914-0f1c55e4"></script>
+  <script src="illustration-catalog.js?v=20260914-f072008f"></script>
+  <script src="display-illustrations.js?v=20260914-0eb0da4a"></script>
+  <script src="canvas-illustrations.js?v=20260914-a5b6c471"></script>
+  <script src="meguru.js?v=20260914-86f4ec02"></script>
+  <script src="quick.js?v=20260914-0cb8cb43"></script>
+  <script src="games.js?v=20260914-2252b555"></script>
+  <script src="audio.js?v=20260914-56e972a2"></script>
+  <script src="care-status.js?v=20260914-3d4dd0f4"></script>
+  <script src="item-memories.js?v=20260914-5132b179"></script>
+  <script src="item-system.js?v=20260914-e68ca078"></script>
+  <script src="script.js?v=20260914-805580ba"></script>
+  <script src="home-touch.js?v=20260914-ddc153e1"></script>
 </body>
 </html>

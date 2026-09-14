@@ -460,7 +460,7 @@
       nearRadius: 1500,      // この はんいの じゅうみんは まいフレーム うごく
       farStride: 12,         // とおい じゅうみんは 12 フレームに 1かい(そんざいは けさない)
       bubbleSec: 3.6,        // ふきだしの ながさ
-      follow: { gap: 100, back: 50, spacing: 30, snap: 30, maxSpeed: 300 },
+      follow: { gap: 100, back: 50, spacing: 30, snap: 30, maxSpeed: 340 },
       cam: { turnRate: 1.9, deadZone: 0.5, pathAssist: 0.55, ease: 1.6 }, // カメラの むきは あるく むきに ゆっくり。みちの むきにも すこし あわせる
     };
     const dist = (a, b) => Math.hypot(a.x - b.x, a.z - b.z);
@@ -500,7 +500,7 @@
           const back = F.back + i * F.spacing;
           const tx = player.x + rx * side * F.gap + fx * back, tz = player.z + rz * side * F.gap + fz * back;
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.state = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3.5); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.state = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.state !== 'idle') { a.state = 'idle'; a.heading = player.heading; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });

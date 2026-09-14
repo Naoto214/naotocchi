@@ -46,8 +46,10 @@ test('packs cost coins, hand out three stickers, and the kakera pack guarantees 
   assert.equal(h.api.openKakeraPack(), null, 'no kakera yet');
   store.kakera = h.api.STICKER_KAKERA_PACK;
   const fresh = h.api.openKakeraPack();
-  assert.equal(fresh.length, 1);
-  assert.equal(fresh[0].dup, false, 'a kakera pack picks an unowned sticker while any remain');
+  assert.equal(fresh.length, 3);
+  assert.equal(store.kakera, 12, 'opening choices does not spend');
+  const chosen = h.api.chooseKakeraSticker(fresh[0].id);
+  assert.equal(chosen.dup, false, 'a kakera choice prioritizes unowned stickers while any remain');
   assert.equal(store.kakera, 0);
 });
 

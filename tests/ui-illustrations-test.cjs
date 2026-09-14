@@ -14,8 +14,8 @@ test('the shop connects each current item to its illustration and keeps its labe
     assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expected[id]}"`),id);
     assert.match(body,/<span class="shop-item-label">[^<]+<\/span>/,id);
   }
-  assert.match(buttons.find(b=>b[1]==='crown')[2],/220/);
-  assert.match(buttons.find(b=>b[1]==='flower')[2],/60/);
+  assert.match(buttons.find(b=>b[1]==='crown')[2],/900/);
+  assert.match(buttons.find(b=>b[1]==='flower')[2],/120/);
 });
 
 test('equipment uses the matching illustration without modifying the saved item or actor frame',()=>{

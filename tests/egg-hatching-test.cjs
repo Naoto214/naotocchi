@@ -23,6 +23,7 @@ test('five warming taps show progressive egg art and hatch once at the existing 
   const h=boot(storage()); h.api.render();
   assert.match(h.get('petSprite').innerHTML,/egg\/intact.png/);
   h.api.state().lifetime.nextEggLine='dog';
+  h.api.state().lifetime.dreamEggs.normal=1;
   for(const [i,asset] of ['intact','cracking','cracking','ready'].entries()) {
     warm(h);
     assert.equal(h.api.state().stage,'egg');
@@ -94,13 +95,14 @@ test('the egg itself can be warmed and newborn care remains available immediatel
   assert.equal(births(h).length,1);
 });
 
-test('all 31 next-egg species keep their stable identity and first-form artwork', () => {
+test('all 30 legal dream species keep their stable identity and first-form artwork', () => {
   const master=boot(storage()).sandbox.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;
-  const species=Object.values(master.playerSpecies).filter(Array.isArray).flat();
-  assert.equal(species.length,31);
+  const species=[...master.playerSpecies.normal,...master.playerSpecies.rare];
+  assert.equal(species.length,30);
   for(const {id} of species) {
     const h=boot(storage());
     h.api.state().lifetime.nextEggLine=id;
+    h.api.state().lifetime.dreamEggs={normal:1,rare:1};
     for(let i=0;i<5;i++) warm(h);
     assert.equal(h.api.state().speciesLine,id);
     assert.match(h.get('petSprite').innerHTML,new RegExp(`characters/${id}/01.png`));

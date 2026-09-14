@@ -298,7 +298,7 @@ if (renReady && Math.random() < (renEased ? 0.3 : 0.18)) { /* 候補1枠を ren 
 主な条件の分類:
 - `lifetime` の累計を見るもの（`evolutions`, `transforms`, `clears`, `deaths`, `minigamesPlayed`, `money`, `resets` など）
 - `state` の 1 人生分を見るもの（`actionCounts.*`, `traitCounts.*`, `companions.length`）
-- コレクション系（`regionsVisited.length >= REGIONS.length(8)`, `companionsRecruited.length >= COMPANIONS.length(10)`, `partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length(16)`, `ownedShopItems.length >= 50`, `ownedConsumableItems.length >= 50`）
+- コレクション系（`regionsVisited.length >= REGIONS.length(8)`, `companionsRecruited.length >= COMPANIONS.length(10)`, `partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length(16)`, 装備15品の所有とFUN7品の初使用（K節））
 
 **`rareCompanionsRecruited` / `specialRegionsVisited` / `datesEnjoyed` / `legendsMet` を条件にする実績は存在しません。**
 
@@ -451,16 +451,16 @@ SODACHI_COST_BANDS = [
 
 | 節目 | 名前 | コイン | コード上の実効果 |
 |---|---|---|---|
-| 30 | 🪙 はじめての ごほうび | 100 | `coinMultiplier() ×1.25` / 誕生日ボーナス増 / `pickWeightedItem()` の rankBonus 1.0 / 10さいごとの「としの おくりもの」 |
-| 40 | 🐾 なかまの わ | 150 | 出会い抽選 `30〜80秒`（通常 `45〜120秒`） / bond 減衰 ×0.5 / なかまミニゲームの `ageDifficulty()` ×0.7 / じゃれるの bond 回復に `+sodachi/5` |
-| 50 | 💐 こいの きざし | 250 | きゅうあい成功率 `+0.1 + min(0.2, sodachi/500)` / `marriageBondThreshold()` `-2` / **デート解禁** / わかれ時 `applyDecline` ×0.5 |
-| 60 | 🗝️ へんしんの ちから | 400 | 候補 2→3 / `transformLimit()` 3→4 / `transformMeter` 獲得 ×1.2 / **レア条件が 1 段緩和** |
-| 70 | 🧭 たびだち | 600 | `coinMultiplier()` さらに ×1.4（累計 ×1.75） / たびの `happiness` ボーナス ×2 / **とくべつな たびさき解禁** |
-| 80 | 🌈 レアの きざし | 900 | レア混入率 0.5→0.65 / `pickWeightedItem()` rankBonus 2.5 / `recoveryPotency()` に `+sodachi/400` / **レアなかま解禁** / **れんくんの条件緩和** |
-| 90 | ✨ でんせつ | 1400 | `fromAge` の死亡メーター上昇が 0 / 全ステータス自然減 ×0.85 / **`dreamEggs.rare += 1`** / きんいろオーラ（`.legend-aura`） / **でんせつの であい解禁** |
-| 100 | 👑 さいこうの そだち | 3000 | **＋即時 5,000 コイン** / `dreamEggs.normal += 1` / `deathMeter = 0` ＋ 以後不死 / にじオーラ（`.rainbow-aura`） |
+| 30 | はじめてのごほうび | 60 | 誕生日などの倍率・お祝いの条件は維持 |
+| 40 | なかまのわ | 80 | 仲間の出会い・きずなの補助 |
+| 50 | こいのきざし | 100 | 求愛の補助・デート解禁 |
+| 60 | へんしんのちから | 150 | 候補・回数・メーターの既存特典 |
+| 70 | たびだち | 220 | 特別な旅先と伝説の出会い解禁 |
+| 80 | レアのきざし | 300 | レア候補・仲間の既存条件 |
+| 90 | でんせつ | 450 | rareの夢1個・自然減軽減・金色オーラ |
+| 100 | さいこうのそだち | 800 | normalの夢1個・虹色オーラ。命回復や不死化はしない |
 
-`coinMultiplier()` = `(hasPerk(30) ? 1.25 : 1) × (hasPerk(70) ? 1.4 : 1)`
+固定合計2160。節目自体へ倍率は掛けず、別枠5000はない。既存の`coinMultiplier()`は誕生日などの対象収入に残る（K-5）。
 
 ### F-4. オーラ
 
@@ -631,7 +631,7 @@ PARTNER_AFFECTION_DECAY_PER_TICK = 100 / (RELATION_DECAY_YEARS(28) × AGE_TICKS_
 
 ### H-4. 加入（`finishMinigame()` 内）
 
-- `clampedScore >= COMPANION_RECRUIT_THRESHOLD (50)` で加入
+- `rawScore >= COMPANION_RECRUIT_THRESHOLD (50)` で加入
 - レアかどうかで記録先を分岐: `lifetime.rareCompanionsRecruited` / `lifetime.companionsRecruited`
 - `state.companions` に `{ id, bond: 100 }` を push
 - メッセージはレアなら `companion.joined`、通常なら `○○が なかまに なった!`
@@ -751,23 +751,28 @@ COMPANION_PLAYWITH_BOND_BOOST = 30
 ### J-3. 結果処理（`finishMinigame(score, customMessage)`）
 
 ```
-glassesBonus      = glasses3 22 / glasses2 14 / glasses 8 / なし 0
-minigameBoostBonus = oneTimeBoosts.minigameBoost === 'big' ? 100 : 'small' ? 25 : 0
-clampedScore = clamp(score + glassesBonus + minigameBoostBonus, 0, 100)
-happiness += round(5 + clampedScore/100 × 20)
-energy -= 12
-transformMeter += (15 + hatBonus) × (hasPerk(60) ? 1.2 : 1)
+rawScore = clamp(round(score), 0, 100) // 記録・ランク・勧誘に使う実点
+// 現行ショップ品の報酬・失敗判定。装備はゲーム開始時の1枠。
+glassesBonus = startEquipment === 'glasses' ? 10 : 0
+smallCharmBonus = oneTimeBoosts.minigameBoost === 'small' ? 25 : 0
+rewardFailureScore = clamp(rawScore + glassesBonus + smallCharmBonus, 0, 100)
+greatCharmActivates = oneTimeBoosts.greatReward && rawScore >= 70
+// 大成功のおまもりは得点を増やさず、ごほうび1個と追加せいちょう14。
+// 実点70未満なら発動を待つ。
+happiness += round(5 + rewardFailureScore/100 × 20)
+energy -= roundedEnvironmentCost // 通常12。バンドは25%減、失敗保険は0
+transformMeter += (hat ? 34 : 25) * (hasPerk(60) ? 1.2 : 1)
 ```
 
-| 区分 | 条件 | 効果 |
+旧セーブ互換のみ: 以前に支払い・発動予約済みだった`minigameBoost === 'big'`は、次の有効なゲーム完了で旧来の報酬判定+100を一度だけ適用して解除する。現行の大成功のおまもりはこの経路へ入らず、実点・記録・ランク・勧誘には旧予約の補正も加えない。
+
+| 報酬判定 | 条件 | 結果 |
 |---|---|---|
-| 大成功 | `>= 70` | `applyGrowth(14)`, `applyDecline(-8)`, かいふくアイテム 1 個, コイン `round((5 + rand×6) × starFactor × coinBoost)`, `checkStoryEvents('minigame-great')` |
-| ふつう | `40〜69` | `applyGrowth(7)`, `applyDecline(-3)` |
-| 失敗 | `< 40` | `applyDecline(16)`, `raiseDeathMeter(5)`, `checkStoryEvents('minigame-bad')` |
+| 大成功 | 70以上 | せいちょう14、おとろえ-8、お楽しみ1個、基本5〜11コイン、12%でごほうび |
+| ふつう | 30〜69 | せいちょう7、おとろえ-3、2コイン |
+| 失敗 | 30未満 | おとろえ+8、命ダメージ2。スコアほけんはこの減少と元気消費を防ぐ |
 
-`starFactor`: `star3` 2.6 / `star2` 1.8 / `star` 1.4 / なし 1
-
-**失敗許容**: `oneTimeBoosts.safetyNet` があると失敗時のおとろえ・死亡メーター上昇をまるごと無効化（1 回消費）。
+実点の記録・ランク・勧誘は補正前。ラッキー・星・クローバー・大成功のおまもりはK節を参照。中断では報酬・スタンプ・予約効果を精算しない。
 
 ### J-4. 難易度（`ageDifficulty()`）
 
@@ -810,132 +815,86 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 
 ---
 
-## K. アイテム・ショップ・経済
+## K. アイテム・ショップ・経済（2026-09-14更新）
 
-### K-1. 件数と分類
+承認済み[設計](docs/superpowers/specs/2026-09-14-items-economy-design.md)と[カタログ](docs/superpowers/specs/2026-09-14-items-economy-catalog.json)のproposal/new_price/guardを正本とする。本節は他節に残る旧装備系列・即時購入効果・回復品の記述に優先する。全品の入口・実行処理・制限・保存テストは[QA対応表](docs/qa/items-economy-2026-09-14.md)。過去の監査資料は当時の記録のまま残す。
 
-| 配列 | 件数 | 性質 |
-|---|---|---|
-| `SHOP_ITEMS` | **50** | 購入して**装備**（同時に 1 つ）。`lifetime.ownedShopItems` / `lifetime.equippedItemId` |
-| `NAOTO_ITEMS` | **4** | 購入すると**永続効果**（装備切替なし）。`lifetime.ownedNaotoItems` |
-| `CONSUMABLE_ITEMS` | **50** | 購入した瞬間に 1 回だけ効果発動（所有物にならない）。`lifetime.ownedConsumableItems` / `lifetime.consumablesUsed` |
-| `RECOVERY_ITEMS` | **9** | ミニゲーム大成功・誕生日で入手。`state.items`（**一人生データ**） |
+### K-1. 所有と購入と使用
 
-### K-2. SHOP_ITEMS（50 件・全 ID / 価格）
+通常装備15品は永久所有、購入時に装備し、同時に1枠。達成品4品は該当ゴールで自動取得し通常装備枠を使わない。使い切りと未使用ごほうびは`lifetime.itemInventory`へ保存し、`state.items`は同じ在庫への互換参照。新人生・旧セーブ・再読み込み・無限モード往復でも残る。購入は入庫だけで、使用・対象確認時に1個消費する。予約・発動済みの効果はその人生限り。関係・旅の予約は発動まで在庫を減らさず、無効・取消なら不消費。
 
-3 段階（無印 → 2 → 3）の系列 13 本 ＋ 単発 5 本。
+`CONSUMABLE_ITEMS`は12品（ラッキー1品・既存販売9品・新規救命と鏡2品）。旧`c_courtbig`は販売終了・履歴互換用。旧big求愛予約は350を一度だけ返金して解除する。旧セーブの他の支払い済み予約・所持・貯金・実績は没収しない。
 
-| 系列 | 無印 | 2 | 3 |
-|---|---|---|---|
-| おはな（きゅうあい成功率） | `flower` 15 | `flower2` 220 | `flower3` 5500 |
-| リボン（ごきげん減衰） | `ribbon` 20 | `ribbon2` 180 | `ribbon3` 6000 |
-| ちょうネクタイ（おなか減衰） | `bowtie` 20 | `bowtie2` 180 | `bowtie3` 6000 |
-| トイレットペーパー（うんち） | `poop1` 20 | `poop2` 260 | `poop3` 8000 |
-| マフラー（病気） | `scarf` 25 | `scarf2` 240 | `scarf3` 6500 |
-| サングラス（ミニゲーム得点） | `glasses` 30 | `glasses2` 260 | `glasses3` 7000 |
-| げんきドリンク（げんき減衰） | `energy1` 35 | `energy2` 300 | `energy3` 10000 |
-| シルクハット（へんしん率） | `hat` 40 | `hat2` 320 | `hat3` 8000 |
-| リュックサック（たびボーナス） | `travel1` 40 | `travel2` 300 | `travel3` 15000 |
-| ふかふかまくら（睡眠回復） | `sleepboost1` 45 | `sleepboost2` 340 | `sleepboost3` 12000 |
-| スターバッジ（コイン） | `star` 50 | `star2` 380 | `star3` 9000 |
-| おともだちバッジ（bond 減衰） | `bond1` 60 | `bond2` 400 | `bond3` 20000 |
-| らぶれたー（affection 減衰） | `partner1` 70 | `partner2` 420 | `partner3` 20000 |
-| かんむり（いのち減衰） | `crown` 80 | `crown2` 450 | `crown3` 15000 |
-| よつばのクローバー（ごほうび効果） | `itemluck1` 90 | `itemluck2` 380 | `itemluck3` 18000 |
+### K-2. 通常装備15品（合計6540コイン）
 
-単発: `pet_threshold` 850（じゃれる連打耐性） / `travel_threshold` 900（たびづかれ耐性） / `breakup_ease` 1400（わかれダメージ半減） / `questioning_fast` 1600（クエスチョニング半減） / `marriage_fast` 2200（けっこん回数半減）
+| ID | 名前 | 価格 | 効果 |
+|---|---|---:|---|
+| `flower` | おはな | 120 | 成功率+10ポイントは維持。求愛時に花を差し出す演出と、効果が適用された表示を追加。 |
+| `ribbon` | リボン | 120 | 22%軽減を維持。ご機嫌な歩き方と、いつもより機嫌が続いていることを時々短く伝える。 |
+| `bowtie` | ちょうネクタイ | 180 | 満腹の自然減22%軽減を維持し、適量の食事に専用の「いただきます／ごちそうさま」の所作を追加。 |
+| `poop1` | トイレットペーパー | 240 | 発生抑制を置き換え、うんちが3個に達したとき1個だけ自動で片づける。再使用まで育成3分。 |
+| `scarf` | マフラー | 300 | 発病35%軽減を維持し、雪・冬が生む追加の空腹負担を半分にする。通常の空腹は残る。 |
+| `glasses` | サングラス | 360 | 報酬・失敗判定を+10。実点、ランク、自己ベスト、仲間勧誘の条件は別に維持。 |
+| `energy1` | げんきバンド | 360 | 自然減18%軽減を維持し、ゲーム終了時の元気消費を25%軽減（基準12→9）。 |
+| `hat` | シルクハット | 540 | ゲームごとの変身メーターを+9（25→34）に変更。標準状態で4回→3回を明示。 |
+| `travel1` | リュックサック | 480 | 機嫌の小加算を置き換え、旅の元気消費6→3、満腹消費4→2。旅先で荷物を広げる反応を追加。 |
+| `sleepboost1` | ふかふかまくら | 360 | 回復速度の加算を置き換え、30秒眠って起きた後、3分だけ元気の自然減を半分にする。 |
+| `star` | スターバッジ | 360 | 装備して実点30以上で終えた異なるゲーム3種類をスタンプにし、そろうと追加15コイン。受取は育成5分に1回。旧1.25倍は置換。 |
+| `bond1` | おともだちバッジ | 600 | 自然減の軽減を置き換え、その人生で離れた既知の仲間1人と「再会のゲーム」を始められる。育成10分に1回。 |
+| `partner1` | らぶれたー | 720 | 25%軽減を維持。交際・仲直り・結婚などの節目で、相手から届く専用の短い手紙を読み返せる。 |
+| `crown` | かんむり | 900 | 命ダメージ15%軽減を維持。身につけている時、けんこう0が続いて倒れる直前に、一生1回だけけんこうを30へ戻す。 |
+| `itemluck1` | よつばのクローバー | 900 | 確率の上乗せを置き換え、装備した大成功で5回続けてごほうびが出なければ、次の大成功で1個確定。 |
 
-**合計 178,220 コイン**
+### K-3. 使い切り・道具・達成品
 
-### K-3. NAOTO_ITEMS（4 件）
+| ID | 名前 | 価格 | 効果・取得 |
+|---|---|---:|---|
+| `c_coin2` | ラッキーコイン | 非売品 | ショップ販売を廃止。日次チャレンジの追加おみやげとして1日1個もらい、効果は次の大成功2倍を維持。 |
+| `c_safety` | スコアほけん | 20 | 次の失敗1回で、おとろえ・命のペナルティと、そのゲームの元気消費を防ぐ。 |
+| `c_mgsmall` | やる気のおまもり | 40 | 次のゲームの報酬・失敗判定に+25を維持し、価格を下げる。勧誘は実点で判定。 |
+| `c_mgbig` | 大成功のおまもり | 120 | 次に実点70以上で完了したゲームで、ごほうび1個を確定し、通常のせいちょう14に追加14（合計28）を得る。2倍中は合計56。 |
+| `c_sickshield` | びょうきよけのおふだ | 60 | 3回の予防を維持して60へ。発病を防いだ瞬間と残り枚数を明示。 |
+| `c_growth` | せいちょうドリンク | 90 | 5分追加・最大10分・倍率2倍を維持して90へ。5分ぶん入る時に使い、入らなければ消費しない。 |
+| `c_courtsmall` | こいのおまもり | 50 | 相互の恋愛対象が合う初回求愛の成功率に1回だけ+20ポイント。合計上限85%。 |
+| `c_courtbig` | こいの大おまもり | 非売品 | 新規販売を終了し、こいのおまもりへ統合。旧bigが発動待ちのセーブは現行価格350を一度だけ返金して旧予約を解除。所有・使用履歴は残す。 |
+| `c_breakhalf` | なかなおりのおまもり | 60 | すれちがい中の次の「向き合う」会話の進行を+1し、通常3回の修復を2回にする。 |
+| `c_breakfull` | きずなのおまもり | 100 | なかよし度が0になった時、1回だけ度数を10へ戻し、60秒の話し合いの猶予を作る。 |
+| `c_travel` | たびのおまもり | 70 | 次の旅の疲れを無効化し、その土地・環境に合う小イベントを2候補から1つ選んで体験する。 |
+| `fun_candy` | キャンディ | 10 | おやつとして機嫌+8。1分だけ味を楽しむ固有の反応。ショップにも10で並べる。 |
+| `fun_bubbles` | しゃぼんだま | 25 | 泡を追って遊び、機嫌+10、そばの仲間のきずな+10。1回1分以内の小演出。ショップ25。 |
+| `fun_balloon` | ふうせん | 35 | 30秒の準備後、次にホームで落ち着いた時に通常のなかま1人を招く。1回消費。加入にはいつものゲームが必要。ショップにも35で並べる。 |
+| `fun_fireworks` | はなび | 60 | 機嫌+15、恋人がいればなかよし度+15。時間・季節・場所で演出が変わる小さな花火会。ショップ60。 |
+| `fun_camera` | カメラ | 900 | 繰り返し使える道具へ。現在の姿・年齢・同席者・じかん→てんき→きせつ→ばしょを添えた写真風の思い出を保存。新品は900で購入。 |
+| `fun_musicbox` | オルゴール | 1200 | 繰り返し使える道具へ。訪れた季節・場所に応じた小さな曲を集めて聴く。5分に1回だけおとろえ-10。新品は1200。 |
+| `fun_surprise` | びっくりばこ | 600 | 繰り返し使える道具へ。育成5分に1回、50%で機嫌+5、30%で機嫌+10、20%で元気+10。どの結果にも違う飛び出し演出。新品600。 |
+| `reward` | ごほうび | 非売品 | 非売品の「特別な思い出」を維持。デート・旅の専用小場面と、その相手・場所の記念カードを確定で残す。特別な旅は今回の旅疲れを防ぐ。 |
+| `naoto_charm` | なおとのおまもり | 非売品 | 70歳以降の年齢由来リスク28%軽減を維持。説明を実効に合わせ、働いている時だけ小さな光を出す。 |
+| `naoto_lantern` | なおとのランタン | 非売品 | 各訪問済み地域にランタン専用の短い寄り道を用意。育成10分に1回選べ、その地域のあかりの思い出を残せる。 |
+| `naoto_ring` | なおとのリング | 非売品 | 相手ごとの合言葉や、ふたりだけの短い会話を通常のデートにも追加。最初の合言葉を思い出として残す。 |
+| `naoto_crown` | なおとのかんむり | 非売品 | 7つの遊び道具ごとに異なる特別な反応を解放。年齢・同席者で変化し、見た反応をコレクションに残す。 |
+| `new_life_patch` | いのちのばんそうこう | 160 | 命が40以下のとき、命30・けんこう20を戻す。一生に1回。 |
+| `new_transform_mirror` | へんしんのこかがみ | 80 | 変身候補が出たとき、1候補だけを合法な同じ候補プールから引き直す。1回の候補提示につき1個まで。 |
+| `new_themed_pack` | テーマシールパック | 60 | 「けしき／なかま／あいてむ」など選んだ分類から3枚。重複救済は通常パックと同じ。 |
 
-| id | 表示 | 価格 | 解禁 | 効果 |
-|---|---|---|---|---|
-| `naoto_charm` | 🧿 なおとの おまもり | 30,000 | tier0 | 病気に絶対にならない |
-| `naoto_lantern` | 🏮 なおとの ランタン | 35,000 | tier1 | うんちが二度と溜まらない |
-| `naoto_ring` | 💍 なおとの リング | 50,000 | tier2 | 死亡メーターが二度と上がらない |
-| `naoto_crown` | 👑 なおとの かんむり | 80,000 | tier3 | 4 ステータスが常に満タン |
+一般のお楽しみ配布はキャンディ55%・泡25%・風船15%・花火5%。既存の配布時期は維持する。カメラ・オルゴール・箱は一般配布から外し、永久道具へ移行。旧未使用在庫または使用済み履歴から1つを付与し、余剰分を数値効果のない演出券にする。道具3品の合計は2700。
 
-**合計 195,000 コイン**。`endingTiersReached` に該当 tier がないとロック表示（`🔒 ？？？`）。
+待ち時間は活動tickで進み（1tick=育成3秒）、画面開閉・再読み込み・装備交換でリセットしない。星・クローバー・道具の進行は次の人生へ持ち越す。かんむり・ばんそうこう・同じ相手へのきずな保護は一生1回。90歳の既存の奇跡がかんむりより先。命20以下の猶予・自然回復・100歳のお別れを変更しない。
 
-### K-4. CONSUMABLE_ITEMS（50 件・全 ID / 価格 / `available` 条件）
+### K-4. 記録・夢・コレクション
 
-**ゲートなし（22 件）**:
-`ot_hunger` 40 / `ot_happy` 40 / `ot_energy` 40 / `ot_health` 60 / `ot_petstreakreset` 80 / `ot_travelstreakreset` 80 / `ot_hungerhappy` 90 / `ot_energyhealth` 90 / `ot_hungerhealth` 90 / `ot_happyenergy` 90 / `ot_sickshield` 90 / `ot_allstat` 150 / `ot_minigamewinsmall` 300 / `ot_sickcurebig` 240 / `ot_travelguarantee` 400 / `ot_megapack` 400 / `ot_safetynet` 450 / `ot_coinboost` 500 / `ot_minigamewinbig` 800 / `ot_perfectcare` 1200 / `ot_regionvisit` 5000 / `ot_dexpick` 8000
+写真・手紙・灯り・反応・曲・特別な思い出は軽い構造化記録として永久保存する。写真の画像は閲覧・書出時に生成し、過去の姿を保つ。容量のために写真を自動削除しない。曲は訪問済み季節・地域から選び、既存BGM設定は無料。選んだ灯りや寄り道を自然観測実績へ数えない。
 
-**ゲートあり（28 件）**:
+夢はそだち90でrare、100でnormalを1個。次の卵でnormal22種・rare8種を予約し、孵化成功時だけ消費する。隠しrenは選択対象外。シール330・色41・柄40、合計411の収集対象を維持する。色・柄は無料鑑賞。普通パック30で3枚、テーマパック60で分類指定3枚、かけら12で未所持優先3候補から1枚。取消は無料、全所持なら重複と表示する。旧装備シールの枚数・貼付位置は正規IDへ移し、旧キャラクターの履歴は変更しない。本編図鑑・加入・隠し条件をシールで飛ばせない。
 
-| id | 価格 | `available` が false のときのメッセージ |
-|---|---|---|
-| `ot_poop` | 50 | うんちは たまっていない |
-| `ot_companionpartial1` | 90 | いま そばに いる なかまが いない |
-| `ot_partnerhalf` | 120 | いま こいびとが いない |
-| `ot_evochip` | 150 | いまは つかえない |
-| `ot_transformchip` | 180 | いまは つかえない |
-| `ot_devoreset` | 200 | いまは つかえない |
-| `ot_companionfull1` | 200 | いま そばに いる なかまが いない |
-| `ot_partnerfull` | 250 | いま こいびとが いない |
-| `ot_courtboostsmall` | 250 | いまは つかえない |
-| `ot_evodown` | 250 | いまは とりもどす ぶんが ない |
-| `ot_evoup` | 300 | いまは つかえない |
-| `ot_breakupshieldhalf` | 400 | いま こいびとが いない |
-| `ot_transform` | 400 | いまは つかえない |
-| `ot_companionfullall` | 500 | いま そばに いる なかまが いない |
-| `ot_partnerbigcombo` | 600 | いまは つかえない |
-| `ot_devomega` | 700 | いまは とりもどす ぶんが ない |
-| `ot_courtboostbig` | 700 | いまは つかえない |
-| `ot_breakupshieldfull` | 900 | いま こいびとが いない |
-| `ot_bigevo` | 900 | いまは つかえない |
-| `ot_agejump` | 1200 | この 人生では もう つかえない（`sandUsed < 3`） |
-| `ot_marriageprep` | 1800 | いまは つかえない |
-| `ot_evomega` | 2500 | いまは つかえない |
-| `ot_marriage` | 3000 | いまは つかえない |
-| `ot_bigagejump` | 3000 | この 人生では もう つかえない（`bigSandUsed < 1`） |
-| `ot_dreamegg` | 5000 | いっしょうクリアするか、そだち100まで そだてると つかえる |
-| `ot_colorpick` | 8000 | もう ぜんぶの いろが 解放ずみ |
-| `ot_patternpick` | 8000 | もう ぜんぶの がらが 解放ずみ |
-| `ot_achpick` | 60000 | もう ぜんぶの じっせきを たっせいずみ |
+### K-5. 収入とPERFECTへの費用
 
-**合計 117,870 コイン**。`picker` を持つ 6 件（`region` / `color` / `pattern` / `dex` / `dreamline` / `achievement`）は `#pickerOverlay` で対象を選んでから支払います。
+そだち30/40/50/60/70/80/90/100の固定支給は60/80/100/150/220/300/450/800、合計2160。倍率と100到達別枠5000は廃止。誕生日・段階変化・中年・日次・伝説・不在・シールお題の既存収入と条件は維持する。
 
-`available()` が false の項目は `.locked` クラスとなり、`shop-item-status` に「つかえません: 〈理由〉」が赤字で表示されます。
+ゲームの実点・自己ベスト・ランク・勧誘・日次スコアと報酬補正を分離。報酬判定30〜69で2コイン、70以上は従来の基本報酬5〜11（環境等で変化）、失敗・中断0。サングラス+10、やる気+25は報酬・失敗判定だけ。大成功のおまもりは実点70以上で発動する。ごほうびの12%抽選・クローバー確定・大成功のおまもりが重なっても合計1個。
 
-### K-5. RECOVERY_ITEMS（9 件・2 段階）
+旧装備15品とFUN7初使用が全品実績の対象。全品を買う場合は6540+2700+10+25+35+60=9370コイン。使い切り4品の無料配布を使う場合、永久品の購入合計は9240。この価格合計はPERFECTの固定入場料や必要人生数ではない。使用30回は実消費を数え、無制限の撮影では増えない。新規3品・新しい思い出の全収集は既存PERFECT条件へ追加しない。達成品に購入費は不要、万華鏡4000は保留で販売しない。
 
-**設計原則:** 日常4ステータス（おなか / ごきげん / げんき / けんこう）は通常のお世話で戻せるため、ごほうびとは役割を分離する。**ごほうびは「一生で蓄積するダメージ」を癒すアイテム**とし、全9件がおとろえに効き、上位3件はさらにいのちにも効く。
-
-| tier | id | 表示 | rank | weight | effects |
-|---|---|---|---|---|---|
-| normal | `candy` | 🍬 あめ | 1 | 8 | `decline -8` |
-| normal | `dogfood` | 🦴 ドッグフード | 2 | 6 | `decline -12` |
-| normal | `catfood` | 🐟 キャットフード | 2 | 6 | `decline -12` |
-| normal | `udon` | 🍜 うどん | 3 | 5 | `decline -18` |
-| normal | `curry` | 🍛 カレー | 3 | 5 | `decline -20` |
-| normal | `hotpot` | 🍲 なべ | 4 | 4 | `decline -28` |
-| **special** | `shoulder` | 💆 かたたたき | 5 | 3 | `decline -35, life +10` |
-| **special** | `hug` | 🤗 ハグ | 6 | 2 | `decline -45, life +25` |
-| **special** | `kiss` | 💋 キス | 7 | 1 | `decline -65, life +45` |
-
-- `normal` 6件も通常ステータス回復ではなく **おとろえ回復**。通常のお世話との差別化を優先
-- `special` 3件は **おとろえ + いのち** を同時に立て直す
-- rank / weight は維持し、上位ほど強く希少
-- `pickWeightedItem()`: `weight × (1 + rankBonus × rank/7)`、`rankBonus = hasPerk(80) ? 2.5 : hasPerk(30) ? 1.0 : 0`
-- `recoveryPotency()` = `1 + (itemluck3 0.4 / itemluck2 0.22 / itemluck1 0.1 / なし 0) + (hasPerk(80) ? sodachi/400 : 0)`（最大 ×1.65）
-- `recoveryWouldHelp(item)` が false なら消費しない
-- ♾️ 中は `decline` / `life` が停止しているため、これらのごほうびは原則「変わるところがない」となる
-- 使用後メッセージは実際に動いた分だけ列挙する
-- あいてむ画面の「ごほうび」セクションに9件を説明つきで表示し、所持中ならタップ使用できる
-
-### K-6. 経済の総額
-
-| 項目 | 額 |
-|---|---|
-| SHOP_ITEMS 50 件 | 178,220 |
-| CONSUMABLE_ITEMS 50 件 | 117,870 |
-| `item-all` 実績に必要な合計 | **296,090** |
-| NAOTO_ITEMS 4 件 | 195,000（`naoto-1` 実績は最安 30,000 で成立） |
-
-コイン獲得経路: ミニゲーム大成功 / 誕生日（毎年・5さい・10さい）/ そだち節目 / でんせつの であい（`LEGEND_COIN_GIFT = 200 × coinMultiplier()`）/ そだち100 の即時 5,000。
+クイックは全50本、通常ランも1本ずつも1ラン1ゲーム・1精算。記録区分を保持し、星は共通quick-run種。音声初期値はよみあげ、選択済み設定と読み上げ中の音量調整を保持する。
 
 ---
 
@@ -943,6 +902,7 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 
 ### L-1. あいてコード（`GUEST_CODE_PREFIX = 'NAOTOCCHI1:'`）
 
+- 新コードは任意の一生ごとのoriginIdを含み、旧コードも読み込める。旧コードの同じ姿の別個体・姿が変わった同一個体には識別の限界がある。オフラインコードの本人性を認証する機能ではない。
 - `encodeGuestCode()`: `btoa(encodeURIComponent(JSON.stringify(payload)))` にプレフィックスを付与
 - `decodeGuestCode(raw)` で `state.guest` に読み込み
 - `state.guest` がいると、きゅうあい時に **60% の確率で優先的に**相手候補になります
@@ -963,9 +923,9 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 | `DUEL_TOTAL_REVEAL_STEPS` | 6（5問 + いちばんあやしいボーナス） |
 
 コード形式（3 種）:
-- `DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC1:'`（挑戦コード）
-- `DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG1:'`（推理コード）
-- `DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR1:'`（開示コード）
+- `DUEL_CHALLENGE_PREFIX = 'NAOTOCCHIDUELC2:'`（挑戦コード）
+- `DUEL_GUESS_PREFIX = 'NAOTOCCHIDUELG2:'`（推理コード）
+- `DUEL_REVEAL_PREFIX = 'NAOTOCCHIDUELR2:'`（開示コード）
 
 `DUEL_TRAIT_LABELS`（8 種）: 慎重派 / 行動派 / 嫉妬深い / ロマンチスト / 秘密主義 / 甘えん坊 / マイペース / 現実派
 
@@ -974,7 +934,7 @@ return (pendingCompanionId && hasPerk(40)) ? base * 0.7 : base
 **永続統計（`lifetime` に 13 フィールド）**:
 `duelTraits`（8 特性のカウント。正直に答えたラウンドのみ加算） / `duelMatchesPlayed` / `duelWins` / `duelLosses` / `duelDraws` / `duelLiesUsed` / `duelLiesSucceeded` / `duelLiesFacedAsGuesser` / `duelLiesDetected` / `duelHonestAnswersGiven` / `duelHonestMisread` / `duelLongestLieStreak` / `duelRecentQuestionIds`
 
-`state.duel` は進行中の対戦状態で、**一人生データ**（周回で消える）。
+`state.duel`は進行中の対戦状態。開始・参加時にlifetime.duelStakesへ賭け金を予約し、買い物で使えないようにする。再読み込み・新人生でも予約を保持し、一度だけ精算する。主催者のコード表示前の取消のみ返金、表示後の中断は放棄。現行コードは対戦IDを含み、旧C1/G1/R1コードとは互換性がない。旧未予約の進行中対戦はお金を動かさず終了する。過去に完了した対戦記録と貯金は保持する。
 
 ---
 
@@ -1179,8 +1139,9 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 | 通常なかま / レアなかま | 10 / 5 |
 | ミニゲーム（基本プール / カテゴリ） | 124 / 56 |
 | 実績 | 75 |
-| SHOP / NAOTO / CONSUMABLE / RECOVERY | 50 / 4 / 50 / 9 |
-| いろ / がら | 40 / 40（各: 常時 21・tier0〜3 各 5/5/5/4・にじ 1） |
+| SHOP / NAOTO / CONSUMABLE / FUN / reward | 15 / 4 / 12 / 7 / 1（テーマパックはシール画面） |
+| いろ | 41（常時21・tier0〜4は5/5/4/1/4・全達成のにじ1） |
+| がら | 40（常時20・tier0〜4は5/5/4/1/4・全達成のにじ1） |
 
 **でざいん実装ルール:** 本体の40柄と画面の40柄は、どの色テーマと組み合わせても視認できること。`.device.theme-*` の `background` shorthand は `background-image` を消すため、**本体柄の `background-image / background-size / background-position` は色テーマ定義より後で適用する**。
 | 病気 | 10 |
@@ -1219,16 +1180,13 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 
 いずれもレイアウト用のラッパーで、動作への影響は確認できません（**意図未確認**）。
 
-### P-3. 書き込まれるが一度も読まれないフィールド
+### P-3. 夢カウンター（2026-09-14解消）
 
-| フィールド | 状況 |
-|---|---|
-| `lifetime.dreamEggs.normal` | そだち100 で `+1` される。読み取りは `ot_dreamegg` の `available()` の OR 条件 1 か所のみ。**デクリメントは存在しない**（＝「1 個」ではなく永続フラグとして機能） |
-| `lifetime.dreamEggs.rare` | そだち90 で `+1`。読み取りは `renderPicker()` の `rare > 0` 1 か所のみ。**デクリメントは存在しない** |
+normal/rareは次の卵で選択する入口へ接続済み。孵化成功時だけ1個消費する（K-4）。
 
-### P-4. `RECOVERY_ITEMS` の重複
+### P-4. 旧回復品（更新）
 
-`dogfood`（🦴 ドッグフード）と `catfood`（🐟 キャットフード）は同ランク・同効果のフレーバー違いとして意図的に残す。種族らしいごほうびの見た目の多様性を優先する。
+旧9回復品の表は現行の使用品一覧ではない。ごほうびはデート・旅の記念用、日常のお世話は無料。現行の全品はK節を参照。
 
 ### P-5. `STAGE.CLEAR` の完全撤去
 
@@ -1303,10 +1261,10 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 | オーバーレイ | 19 | M-1 に全 19 件を z-index 付きで列挙 | ✅ 19/19 |
 | `state` フィールド | 62 + 2 恒久 | B-7 に全件列挙 | ✅ 64/64 |
 | `lifetime` フィールド | 53 | B-7 に全件列挙 | ✅ 53/53 |
-| `SHOP_ITEMS` | 50 | K-2（系列 15×3 = 45 ＋ 単発 5） | ✅ 50/50 |
+| `SHOP_ITEMS` | 15 | K-2、最終QA対応表 | 2026-09-14更新 |
 | `NAOTO_ITEMS` | 4 | K-3 に全件 | ✅ 4/4 |
-| `CONSUMABLE_ITEMS` | 50 | K-4 に全 ID（ゲートなし 22 ＋ ゲートあり 28） | ✅ 50/50 |
-| `RECOVERY_ITEMS` | 9 | K-5 に全件（effects 込み） | ✅ 9/9 |
+| `CONSUMABLE_ITEMS` | 12 | K-3（テーマパックは別入口） | 2026-09-14更新 |
+| ごほうび・FUN | 1・7 | K-3、最終QA対応表 | 2026-09-14更新 |
 | 実績 | 75 | D-2 に件数と条件の分類（個別 ID は `ACHIEVEMENTS` 配列を参照） | ⚠️ 分類のみ |
 | 種族 | 21 | C-1 に全 ID と表示名 | ✅ 21/21 |
 | 形態 | 168 | C-1 / C-2（21 × 8 の構造） | ✅ |
@@ -1320,7 +1278,7 @@ pendingMigrationQuiet = true   // 移行時は演出を抑止
 | ストーリーイベント | 8 プール 36 件 | M-3 / O-6 | ✅ |
 | でんせつの であい | 5 | （C 章外・F-3 の 90 / O-6） | ✅ 5/5 |
 | 病気 | 10 | E-3 / O-6 | ✅ |
-| いろ / がら | 40 / 40 | D-3 / O-6（tier 分布込み） | ✅ |
+| いろ / がら | 41 / 40 | D-3 / O-6（tier 分布込み） | ✅ |
 | `ENDING_TIERS` | 4 | D-3 に全件 | ✅ 4/4 |
 | ジェンダー × 恋愛タイプ | 3 × 6 | G-1 / G-2 に全 18 通りの `attractedTo` | ✅ 18/18 |
 | 主要定数 | 40+ | O 章に名前・値・用途 | ✅ |
