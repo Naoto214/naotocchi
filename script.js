@@ -1612,7 +1612,7 @@
         // クイックモードの きろく(ラン数・さいこうクリア数・さいだいれんぞく・ゲームごとの かいすう)
         quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} },
         // めぐる: はいった かいすう・はなした かいすう・であった/はなした じゅうみん(key→1/かいすう)
-        meguru: { visits: 0, talkCount: 0, met: {}, talks: {} },
+        meguru: { visits: 0, talkCount: 0, met: {}, talks: {}, spots: {} },
         // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
         dailyChallenge: null,
         dailyStreak: 0,
@@ -1746,7 +1746,8 @@
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
       if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} };
       if (!merged.lifetime.quick.single || typeof merged.lifetime.quick.single !== 'object') merged.lifetime.quick.single = {};
-      if (!merged.lifetime.meguru || typeof merged.lifetime.meguru !== 'object') merged.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} };
+      if (!merged.lifetime.meguru || typeof merged.lifetime.meguru !== 'object') merged.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {}, spots: {} };
+      if (!merged.lifetime.meguru.spots || typeof merged.lifetime.meguru.spots !== 'object') merged.lifetime.meguru.spots = {};
       // いぜんの 初期値 'pico'(ことばが きこえない)は よみあげに もどす。じぶんで えらんだ ときは quickVoiceChosen が たつ
       if (merged.lifetime.quickVoice === 'pico' && !merged.lifetime.quickVoiceChosen) merged.lifetime.quickVoice = 'tts';
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
@@ -14472,11 +14473,15 @@
     openTravel: () => openExclusiveMenu('travel'),
     recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveState(); } },
     recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveState(); },
+    // スポットの はっけん(地域ごと)。ずかん・じっせきとは べつの きろく
+    recordSpot: (regionId, spotId) => { const m = meguruStats(); const list = m.spots[regionId] || (m.spots[regionId] = []); if (!list.includes(spotId)) { list.push(spotId); saveState(); } },
+    discoveredSpots: (regionId) => { const m = meguruStats(); return (m.spots[regionId] || []).slice(); },
   }) : null;
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
     if (!m.met || typeof m.met !== 'object') m.met = {};
     if (!m.talks || typeof m.talks !== 'object') m.talks = {};
+    if (!m.spots || typeof m.spots !== 'object') m.spots = {};
     return m;
   }
   function startMeguru() {

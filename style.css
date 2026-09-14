@@ -4624,6 +4624,10 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .meguru-overlay .mg-pad-actions { min-width: 88px; gap: 5px; }
 .meguru-overlay .mg-pad-actions .mg-tap-btn { min-width: 88px; min-height: 34px; padding: 4px 4px; font-size: 13px; }
 .mgr-wrap .mg-canvas { border-radius: 16px; }
+.mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mgr-spot.hidden { display: none; }
+.mgr-env { opacity: 0.85; margin-left: 2px; }
+.meguru-overlay .mg-meguru-header > span:nth-child(2) { opacity: 0.8; }
 @media (max-height: 700px) {
   .meguru-overlay .mg-pad { min-height: 96px; }
   .meguru-overlay .mg-pad-actions .mg-tap-btn { min-height: 30px; font-size: 12px; }
