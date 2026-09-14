@@ -287,33 +287,81 @@
     document.addEventListener('keydown', unlockHandler, true);
     document.addEventListener('visibilitychange', () => { if (!ctx) return; if (document.hidden) { try { ctx.suspend(); } catch (err) {} } else if (unlocked) { try { ctx.resume(); } catch (err) {} } });
     // --- こえ(クイックモードの 指示「よけろ!」など) ---
-    // ブラウザの よみあげ(speechSynthesis)を つかう。iPhone/Safari では さいしょの
-    // タップの なかで 1かい しゃべらせておくと、そのあとは タイマーからでも こえが 出る。
-    // こうかおんが OFF なら しゃべらない。つかえない かんきょうでは なにも しない(文字は 出る)
-    let voiceReady = false, jaVoice = null;
+    // モード(state.lifetime.quickVoice): 'pico' = キャラボイス(音の つぶで しゃべる、初期値)、
+    // 'tts' = ブラウザの よみあげ、'off' = こえなし。こうかおん OFF なら どれも 鳴らない。
+    const voiceMode = () => { const state = getState(); const m = state && state.lifetime && state.lifetime.quickVoice; return m === 'tts' || m === 'off' ? m : 'pico'; };
+    // [キャラボイス] かなを 1文字ずつ「ぴこ」と ならす。ぼいんで たかさ、しいんで 出だしの
+    // 音色を かえ、「！」で さいごを あげる。ロボットの よみあげより ゲームらしく、みじかい
+    const KANA_VOWEL = { a: 0, i: 1, u: 2, e: 3, o: 4 };
+    const KANA = {};
+    (() => {
+      const rows = [['あいうえお', ''], ['かきくけこ', 'k'], ['さしすせそ', 's'], ['たちつてと', 't'], ['なにぬねの', 'n'], ['はひふへほ', 'h'], ['まみむめも', 'm'], ['やゆよ', 'y'], ['らりるれろ', 'r'], ['わを', 'w'], ['がぎぐげご', 'g'], ['ざじずぜぞ', 'z'], ['だぢづでど', 'd'], ['ばびぶべぼ', 'b'], ['ぱぴぷぺぽ', 'p']];
+      for (const [row, c] of rows) { const vs = row.length === 3 ? ['a', 'u', 'o'] : row.length === 2 ? ['a', 'o'] : ['a', 'i', 'u', 'e', 'o']; [...row].forEach((ch, k) => { KANA[ch] = { c, v: vs[k] }; }); }
+      for (const [s, t] of [['ゃ', 'や'], ['ゅ', 'ゆ'], ['ょ', 'よ'], ['ぁ', 'あ'], ['ぃ', 'い'], ['ぅ', 'う'], ['ぇ', 'え'], ['ぉ', 'お']]) KANA[s] = KANA[t];
+      KANA['ん'] = { c: 'n', v: 'u' }; KANA['っ'] = null; KANA['ー'] = 'long';
+    })();
+    function pico(text) {
+      const c = ensure(); if (!c || !unlocked || !sfxOn()) return false;
+      let t0 = c.currentTime + 0.02;
+      const chars = [...String(text).replace(/[！!?？。、 　]/g, (m) => (m === '！' || m === '!' ? '!' : ''))];
+      const base = 520 + Math.random() * 60;
+      let n = 0;
+      for (let i = 0; i < chars.length; i++) {
+        const ch = chars[i]; const k = KANA[ch];
+        if (ch === '!') { continue; }
+        if (k === undefined || k === null) { if (k === null) t0 += 0.04; continue; }
+        const isLast = !chars.slice(i + 1).some((x) => KANA[x] && KANA[x] !== 'long');
+        const rising = chars.includes('!') && isLast;
+        const vowel = k === 'long' ? 2 : KANA_VOWEL[k.v];
+        const freq = base * Math.pow(2, ([0, 5, 2, 3, -1][vowel] + (rising ? 5 : 0) - (i % 2) * 0.5) / 12);
+        const dur = k === 'long' ? 0.14 : 0.09;
+        const cons = k === 'long' ? '' : k.c;
+        // しいん: k/t/p は はじける 出だし、s/h は いき、n/m/r/y/w は やわらかい
+        if (cons === 'k' || cons === 't' || cons === 'p' || cons === 'g' || cons === 'd' || cons === 'b') noise(0.03, { vol: 0.05, freq: 2200, freqEnd: 900, delay: t0 - c.currentTime });
+        else if (cons === 's' || cons === 'z' || cons === 'h') noise(0.05, { vol: 0.03, filter: 'highpass', freq: 3000, delay: t0 - c.currentTime });
+        tone(freq, dur, { type: 'triangle', vol: 0.11, attack: 0.012, slide: rising ? 80 : -25, delay: t0 - c.currentTime });
+        tone(freq * 2.01, dur * 0.7, { type: 'sine', vol: 0.035, attack: 0.01, delay: t0 - c.currentTime + 0.01 });
+        t0 += dur + 0.025; n++;
+      }
+      return n > 0;
+    }
+    // [よみあげ] iPhone/Safari の くせ: さいしょの タップの なかで 1かい しゃべらせて 解錠、
+    // utterance は 変数に もっておく(もっていないと とちゅうで 切れる)、pause 状態なら resume
+    let voiceReady = false, jaVoice = null, currentUtter = null;
     function synth() { try { return typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined' ? speechSynthesis : null; } catch (err) { return null; } }
     function pickVoice(ss) {
       if (jaVoice) return jaVoice;
       let list = []; try { list = ss.getVoices() || []; } catch (err) { list = []; }
       const ja = list.filter((v) => /^ja/i.test(v.lang || ''));
-      jaVoice = ja.find((v) => /kyoko|o-ren|otoya|hattori|google 日本語|japanese/i.test(v.name || '')) || ja[0] || null;
+      // 「(Enhanced)/プレミアム/Google」など しつの たかい こえを ゆうせん
+      jaVoice = ja.find((v) => /enhanced|premium|siri|拡張|プレミアム/i.test(v.name || '')) || ja.find((v) => /google|kyoko|o-ren|otoya/i.test(v.name || '')) || ja[0] || null;
       return jaVoice;
     }
     function voiceUnlock() {
       const ss = synth(); if (!ss || voiceReady) return;
-      try { const u = new SpeechSynthesisUtterance(''); u.volume = 0; ss.speak(u); voiceReady = true; } catch (err) {}
+      try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ja-JP'; ss.speak(u); voiceReady = true; } catch (err) {}
     }
-    function voice(text, o = {}) {
-      const ss = synth(); if (!ss || !text || !sfxOn()) return false;
+    function tts(text, o = {}) {
+      const ss = synth(); if (!ss) return false;
       try {
+        if (ss.paused) ss.resume();
         ss.cancel();
         const u = new SpeechSynthesisUtterance(String(text));
-        u.lang = 'ja-JP'; u.rate = o.rate || 1.35; u.pitch = o.pitch || 1.15; u.volume = o.volume == null ? 1 : o.volume;
+        u.lang = 'ja-JP'; u.rate = o.rate || 1.15; u.pitch = o.pitch || 1.05; u.volume = o.volume == null ? 1 : o.volume;
         const v = pickVoice(ss); if (v) u.voice = v;
+        currentUtter = u;
+        u.onend = () => { if (currentUtter === u) currentUtter = null; };
         ss.speak(u);
         return true;
       } catch (err) { return false; }
     }
-    return { play, voice, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    function voice(text, o = {}) {
+      if (!text || !sfxOn()) return false;
+      const mode = o.mode || voiceMode();
+      if (mode === 'off') return false;
+      if (mode === 'tts') return tts(text, o);
+      return pico(text);
+    }
+    return { play, voice, voiceMode, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
   };
 })();

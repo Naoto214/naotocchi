@@ -955,6 +955,7 @@
     gameLengthGrid: document.getElementById('gameLengthGrid'),
     sfxModeGrid: document.getElementById('sfxModeGrid'),
     bgmModeGrid: document.getElementById('bgmModeGrid'),
+    quickVoiceGrid: document.getElementById('quickVoiceGrid'),
     weatherModeGrid: document.getElementById('weatherModeGrid'),
     weatherFx: document.getElementById('weatherFx'),
     timeTint: document.getElementById('timeTint'),
@@ -1513,6 +1514,8 @@
         minigameLength: 'normal',
         soundSfx: true,
         soundBgm: true,
+        // クイックモードの こえ: 'pico'(キャラボイス) / 'tts'(よみあげ) / 'off'
+        quickVoice: 'pico',
         currentLocationSelected: false,
         currentLocation: null,
         fontStyle: 'rounded',
@@ -1595,7 +1598,7 @@
         // 「はじめから」しても きえない
         minigameRecords: {},
         // クイックモードの きろく(ラン数・さいこうクリア数・さいだいれんぞく・ゲームごとの かいすう)
-        quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} },
+        quick: { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} },
         // きょうの チャレンジ(ひづけで きまる 1本を 1日1かい)。{ date, gameId, score, rank }
         dailyChallenge: null,
         dailyStreak: 0,
@@ -1723,7 +1726,8 @@
         }
       }
       if (!merged.lifetime.minigameRecords || typeof merged.lifetime.minigameRecords !== 'object') merged.lifetime.minigameRecords = {};
-      if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} };
+      if (!merged.lifetime.quick || typeof merged.lifetime.quick !== 'object') merged.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} };
+      if (!merged.lifetime.quick.single || typeof merged.lifetime.quick.single !== 'object') merged.lifetime.quick.single = {};
       // 旧ショップの上位互換を、同じ役割の新しい1種類へまとめて引き継ぐ。
       const OLD_ITEM_BASE = {
         flower2:'flower', flower3:'flower', ribbon2:'ribbon', ribbon3:'ribbon', bowtie2:'bowtie', bowtie3:'bowtie',
@@ -11790,6 +11794,7 @@
   let gameListSort = 'genre'; // genre / unplayed / low / high
   const GAME_LIST_SORTS = [['genre', 'ジャンル'], ['unplayed', 'まだあそんでない'], ['low', 'ランクの低い順'], ['high', 'ベストの高い順']];
 
+  let quickListOpen = false;
   function renderGameList() {
     if (!el.gameListGrid) return;
     const pool = buildMinigamePool();
@@ -11835,7 +11840,9 @@
       const q = quickStats();
       const qRec = minigameRecordOf(QUICK_RUN);
       const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
-      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div></div>`;
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="game-list-sort quick-list-toggle">${quickListOpen ? '1本ずつをとじる' : '1本ずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
+        + (quickListOpen ? `<div class="quick-solo-list">${quickMod.QUICK_GAMES.map((g) => { const r = q.single[g.id]; return `<button type="button" class="quick-solo-start" data-quick-id="${g.id}"><span class="quick-solo-cue">${escapeHtml(g.cue)}</span><span class="quick-solo-motif">${escapeHtml(g.motif)}</span><span class="quick-solo-best">${r ? `✔${r.best}／${quickMod.QUICK_RULES.SOLO_TOTAL}` : '—'}</span></button>`; }).join('')}</div>` : '')
+        + '</div>';
     }
     html += `<div class="game-list-sorts">${GAME_LIST_SORTS.map(([id, label]) => `<button type="button" class="game-list-sort ${gameListSort === id ? 'active' : ''}" data-sort="${id}">${label}</button>`).join('')}</div>`;
     html += `<div class="game-list-hint">タップでゲームをはじめるよ（げんきを使う）。むずかしさ：${DIFFICULTY_CHOICES[minigameDifficultyMode()][1]}（せかい画面で変えられる）</div>`;
@@ -13014,6 +13021,7 @@
   let currentLocationIntent = 0;
   const SFX_CHOICES = { on: ['🔔', 'こうかおん ON'], off: ['🔕', 'OFF'] };
   const BGM_CHOICES = { on: ['🎵', 'BGM ON'], off: ['🔇', 'OFF'] };
+  const QUICK_VOICE_CHOICES = { pico: ['🎤', 'キャラボイス'], tts: ['📣', 'よみあげ'], off: ['🔕', 'こえなし'] };
   const TIME_CHOICES = {auto:['🕐','げんざい'],morning:['🌅','あさ'],day:['☀️','ひる'],evening:['🌇','ゆう'],night:['🌙','よる']};
   const WEATHER_CHOICES = {auto:['📍','げんざい'],sunny:['☀️','はれ'],cloudy:['☁️','くもり'],rain:['🌧️','あめ'],snow:['❄️','ゆき']};
 
@@ -13553,6 +13561,7 @@
       if (el.gameLengthGrid) renderEnvironmentChoices(el.gameLengthGrid, GAME_LENGTH_CHOICES, minigameLengthMode());
       if (el.sfxModeGrid) renderEnvironmentChoices(el.sfxModeGrid, SFX_CHOICES, state.lifetime.soundSfx === false ? 'off' : 'on');
       if (el.bgmModeGrid) renderEnvironmentChoices(el.bgmModeGrid, BGM_CHOICES, state.lifetime.soundBgm === false ? 'off' : 'on');
+      if (el.quickVoiceGrid) renderEnvironmentChoices(el.quickVoiceGrid, QUICK_VOICE_CHOICES, QUICK_VOICE_CHOICES[state.lifetime.quickVoice] ? state.lifetime.quickVoice : 'pico');
     }
     maybeRefreshEnvironment();
     renderWorldScene();
@@ -13798,22 +13807,36 @@
     onRunEnd: (stats) => recordQuickRun(stats),
   }) : null;
   const QUICK_RUN = quickMod ? quickMod.makeQuickRun() : null;
+  // 「1本ずつ」: えらんだ 1本を 10かい あそぶ(id 'quick-solo')。おなじ id で 1つ つくって つかいまわす
+  const quickSoloRuns = {};
+  function quickSoloRun(gameId) {
+    if (!quickMod || !quickMod.QUICK_GAMES.some((g) => g.id === gameId)) return null;
+    return quickSoloRuns[gameId] || (quickSoloRuns[gameId] = quickMod.makeQuickRun({ only: gameId }));
+  }
   function quickStats() {
-    const q = state.lifetime.quick || (state.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {} });
+    const q = state.lifetime.quick || (state.lifetime.quick = { runs: 0, bestCleared: 0, bestCombo: 0, totalCleared: 0, plays: {}, clears: {}, single: {} });
+    if (!q.single || typeof q.single !== 'object') q.single = {};
     return q;
   }
   function recordQuickRun(stats) {
     const q = quickStats();
-    q.runs += 1;
-    q.bestCleared = Math.max(q.bestCleared, stats.cleared);
-    q.bestCombo = Math.max(q.bestCombo, stats.maxCombo);
+    if (stats.solo) {
+      const r = q.single[stats.solo] || (q.single[stats.solo] = { runs: 0, best: 0 });
+      r.runs += 1; r.best = Math.max(r.best, stats.cleared);
+    } else {
+      q.runs += 1;
+      q.bestCleared = Math.max(q.bestCleared, stats.cleared);
+      q.bestCombo = Math.max(q.bestCombo, stats.maxCombo);
+    }
     q.totalCleared += stats.cleared;
     for (const [id, n] of Object.entries(stats.plays || {})) q.plays[id] = (q.plays[id] || 0) + n;
     for (const [id, n] of Object.entries(stats.clears || {})) q.clears[id] = (q.clears[id] || 0) + n;
   }
-  function startQuickRun() {
-    if (!QUICK_RUN) return false;
-    return tryStartPlay(QUICK_RUN);
+  // gameId を わたすと その 1本だけの ラン、なしなら ぜんぶ まぜた ラン
+  function startQuickRun(gameId) {
+    const run = gameId ? quickSoloRun(gameId) : QUICK_RUN;
+    if (!run) return false;
+    return tryStartPlay(run);
   }
 
   // REGION_MINIGAMES/SEASONAL_MINIGAMES  // REGION_MINIGAMES/SEASONAL_MINIGAMES の ゲームは MINIGAME_CATEGORY_
@@ -13884,6 +13907,7 @@
   };
   const MINIGAME_INFO = {
     'quick-run': { name: 'クイックモード', emoji: '⚡', desc: 'みじかい指示のとおりに、つぎつぎそうさ。' },
+    'quick-solo': { name: 'クイック（1本ずつ）', emoji: '⚡', desc: 'えらんだ1本を10回。' },
     'road-themed': { name: 'ロードラン', emoji: '🏃', desc: 'よいものをキャッチ。わるいものはよけよう。' },
     'stack-themed': { name: 'つみあげタワー', emoji: '🏗️', desc: 'ゆれるクレーンから落として、高くつもう。' },
     'stack-snowman': { name: 'ゆきだるまタワー', emoji: '⛄', desc: '丸く重ねよう。' },
@@ -13990,6 +14014,7 @@
   // ゲームを 足したら ここにも 1行 足す(smoke-test が もれを 検査する)
   const MINIGAME_CONTROLS = {
     "quick-run": "「たべろ!」「よけろ!」などの指示が出たら、すぐそのとおりにタップ・れんだ・なぞる。1つ3〜5秒で○か✕。3回しっぱいでおわり、20こできたらパーフェクト!",
+    "quick-solo": "えらんだ1本だけを10回くりかえす。2回ごとにレベルが上がる。3回しっぱいでおわり、10こできたらパーフェクト!",
     "road-themed": "したのパッドを左右になぞるか、画面の左・中・右をタップしてレーンを移動。よいものは取って、わるいものはよけよう。",
     "stack-themed": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
     "stack-snowman": "上でゆれるブロックを、下のブロックに重なるタイミングでタップして落とす。はみ出た部分は切り落とされて、だんだん細くなる。ぴったり重ねると✨パーフェクトで幅がもどる!",
@@ -16250,6 +16275,14 @@
       audioSettingsChanged();
     });
   }
+  if (el.quickVoiceGrid) {
+    el.quickVoiceGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.theme-swatch');
+      if (!btn || !QUICK_VOICE_CHOICES[btn.dataset.id]) return;
+      state.lifetime.quickVoice = btn.dataset.id; saveState(); renderEnvironment();
+      audio.voice('よけろ！'); // ためしに ひとこと
+    });
+  }
   el.weatherModeGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
     if (!btn || !WEATHER_CHOICES[btn.dataset.id]) return;
@@ -16722,8 +16755,11 @@
     el.gameListGrid.addEventListener('click', (e) => {
       const sortBtn = e.target && e.target.closest ? e.target.closest('.game-list-sort') : null;
       if (sortBtn) { gameListSort = sortBtn.dataset.sort; renderGameList(); return; }
+      const quickToggle = e.target && e.target.closest ? e.target.closest('.quick-list-toggle') : null;
+      if (quickToggle) { quickListOpen = !quickListOpen; renderGameList(); return; }
+      const quickSolo = e.target && e.target.closest ? e.target.closest('.quick-solo-start') : null;
       const quickStart = e.target && e.target.closest ? e.target.closest('.quick-start') : null;
-      if (quickStart) { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(); return; }
+      if (quickStart || quickSolo) { closeAllMenuOverlays(); clearConversationTimers(); hideSpeechBubble(); render(); startQuickRun(quickSolo ? quickSolo.dataset.quickId : null); return; }
       const dailyBtn = e.target && e.target.closest ? e.target.closest('.daily-start') : null;
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
       if (!cell && !dailyBtn) return;

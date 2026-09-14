@@ -104,7 +104,7 @@ global.clearTimeout = noop;
 global.location = { href: 'https://naoto214.github.io/naotocchi/' };
 global.crypto = { getRandomValues: a => a };
 
-const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_CONTROLS,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf,QUICK_RUN};\n';
+const expose = '\n;globalThis.__NAOTO_SMOKE__={MINIGAMES,REGION_MINIGAMES,SEASONAL_MINIGAMES,MINIGAME_INFO,MINIGAME_CONTROLS,MINIGAME_GENRE_OF_CATEGORY,minigameCategoryOf,QUICK_RUN,quickSoloRun};\n';
 const instrumented = source.replace(/\}\)\(\);\s*$/, expose + '})();');
 
 try {
@@ -127,7 +127,7 @@ for (const entries of Object.values(audit.SEASONAL_MINIGAMES)) {
 const uniqueGames = [...new Set(games)];
 // クイックモード(quick.js)は ふつうの ゲームの いちらんには 入らないが、おなじ しくみで
 // はじまる 1本として、はじまることと INFO/CONTROLS が あることを たしかめる
-const extraGames = audit.QUICK_RUN ? [audit.QUICK_RUN] : [];
+const extraGames = audit.QUICK_RUN ? [audit.QUICK_RUN, audit.quickSoloRun('eat')] : [];
 const failures = [];
 for (const game of [...uniqueGames, ...extraGames]) {
   try {

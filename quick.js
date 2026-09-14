@@ -36,6 +36,8 @@
       TIME_SHRINK: 0.07, // レベルが 1 あがるごとに せいげん時間が へる わりあい
       SPEED_UP: 0.14,    // レベルが 1 あがるごとに うごきが はやくなる わりあい
       SCORE_PER_CLEAR: 5,
+      SOLO_TOTAL: 10,        // 「1本ずつ」は 10かい(1つ 10てん)
+      SOLO_LEVEL_EVERY: 2,   // 「1本ずつ」は 2かいごとに レベルが あがる
     };
 
     // ---- キャラ・ものの え(ぜんぶ 絵文字の fillText) ----
@@ -112,7 +114,7 @@
         const W = g.W, H = g.H;
         const ch = pick(companions());
         const m = { x: W / 2, y: H / 2, vx: 0, vy: 0, r: 26, turnAt: 0 };
-        const sp = (150 + 25 * g.extra) * g.speed; let t = 0;
+        const sp = (125 + 20 * g.extra) * g.speed; let t = 0;
         const decoys = g.feint ? [{ x: rnd(40, W - 40), y: rnd(60, H - 60), ch: pick(['🍂', '🪨', '🧸']) }] : [];
         return {
           update(dt) {
@@ -123,7 +125,7 @@
             if (m.y < 34 || m.y > H - 34) { m.vy = -m.vy; m.y = clamp(m.y, 34, H - 34); }
           },
           draw(ctx) { bg(ctx, W, H, '#eaffdf', '#c9efb6'); for (const d of decoys) glyph(ctx, d.ch, d.x, d.y, 38); glyph(ctx, ch, m.x, m.y, 46); glyph(ctx, sprite(), 36, H - 36, 36); },
-          onTap(x, y) { if (hit(x, y, m.x, m.y, m.r + 10)) { sfx('pop'); g.win(); } else { sfx('tap'); } },
+          onTap(x, y) { if (hit(x, y, m.x, m.y, m.r + 16)) { sfx('pop'); g.win(); } else { sfx('tap'); } },
           target() { return { kind: 'tap', x: m.x, y: m.y }; },
         };
       } });
@@ -157,13 +159,14 @@
         return {
           update(dt) { for (const p of trail) p.life -= dt; while (trail.length && trail[0].life <= 0) trail.shift(); },
           draw(ctx) { bg(ctx, W, H, '#fff3d6', '#f3dcae'); for (const p of trail) glyph(ctx, '✨', p.x, p.y, 16, clamp(p.life * 2, 0, 1)); for (const p of poops) if (!p.gone) glyph(ctx, '💩', p.x, p.y, 42, p.hp >= 2 ? 1 : 0.55); glyph(ctx, sprite(), W - 36, H - 36, 36); },
-          onDrag(x, y) {
+          // うんちの うえを なぞった きょり(px)で けす(その場で こすっても、おうふくしても OK)
+          onDrag(x, y, dx, dy) {
             trail.push({ x, y, life: 0.4 });
-            for (const p of poops) if (!p.gone && hit(x, y, p.x, p.y, 30)) { if (!p.touching) { p.touching = true; p.hp--; sfx('whoosh'); if (p.hp <= 0) { p.gone = true; sfx('pop'); } } } else p.touching = false;
+            const d = Math.hypot(dx, dy);
+            for (const p of poops) if (!p.gone && hit(x, y, p.x, p.y, 36)) { p.hp -= d / 45; if (!p.rubbed) { p.rubbed = true; sfx('whoosh'); } if (p.hp <= 0) { p.gone = true; sfx('pop'); } }
             if (poops.every((p) => p.gone)) g.win();
           },
-          onRelease() { for (const p of poops) p.touching = false; },
-          target() { const p = poops.find((q) => !q.gone); return p ? { kind: 'drag', x: p.x - 34, y: p.y, to: { x: p.x + 34, y: p.y } } : null; },
+          target() { const p = poops.find((q) => !q.gone); return p ? { kind: 'drag', x: p.x - 34, y: p.y, to: { x: p.x + 34, y: p.y }, repeat: true } : null; },
         };
       } });
 
@@ -215,7 +218,8 @@
         return {
           update(dt) { pet.x += pet.vx * dt; if (pet.x < 50 || pet.x > W - 50) pet.vx = -pet.vx; },
           draw(ctx) { bg(ctx, W, H, '#eef3ff', '#dbe4f7'); glyph(ctx, sprite(), pet.x, pet.y, 52); glyph(ctx, '🤒', pet.x + 24, pet.y - 22, 22); ring(ctx, pet.x, pet.y, 44, 'rgba(120,150,255,.6)', 3); glyph(ctx, '💊', pill.x, pill.y, pill.held ? 48 : 42); },
-          onPress(x, y) { if (hit(x, y, pill.x, pill.y, 44)) pill.held = true; },
+          // どこを おしても 💊が ゆびに つく(ちいさな 💊を ねらわなくて いい)
+          onPress(x, y) { pill.held = true; pill.x = x; pill.y = y; },
           onDrag(x, y) { if (pill.held) { pill.x = x; pill.y = y; if (!done && hit(x, y, pet.x, pet.y, 46)) { done = true; sfx('good'); g.win(); } } },
           onRelease() { pill.held = false; },
           target() { return { kind: 'drag', x: pill.x, y: pill.y, to: { x: pet.x, y: pet.y } }; },
@@ -338,41 +342,275 @@
         const W = g.W, H = g.H;
         const me = { x: W / 2, y: H * 0.55 };
         const need = 4 + g.extra + (g.level >= 3 ? 1 : 0);
-        let strokes = 0, lastDir = 0, over = false, done = false; const hearts = [];
+        let rubbed = 0, done = false; const hearts = []; const needPx = need * 55;
         return {
           update(dt) { for (const h of hearts) { h.y -= 40 * dt; h.life -= dt; } while (hearts.length && hearts[0].life <= 0) hearts.shift(); },
-          draw(ctx) { bg(ctx, W, H, '#fff0f5', '#ffe0ea'); glyph(ctx, sprite(), me.x, me.y, 64); glyph(ctx, '🖐️', me.x + 50, me.y - 40, 26, 0.8); for (const h of hearts) glyph(ctx, '💗', h.x, h.y, 22, clamp(h.life, 0, 1)); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6, 14); ctx.fillStyle = '#ff7eb6'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6 * clamp(strokes / need, 0, 1), 14); } },
-          onDrag(x, y, dx) { if (done) return; const on = hit(x, y, me.x, me.y, 60); if (on && Math.abs(dx) > 0.5) { const d = Math.sign(dx); if (d !== lastDir) { lastDir = d; strokes++; hearts.push({ x: x, y: y - 20, life: 0.8 }); sfx('tap'); if (strokes >= need) { done = true; sfx('love'); g.win(); } } } over = on; },
-          // ゆびを はなして また なぞれば、おなじ むきでも 1かいに かぞえる
-          onRelease() { lastDir = 0; },
+          draw(ctx) { bg(ctx, W, H, '#fff0f5', '#ffe0ea'); glyph(ctx, sprite(), me.x, me.y, 64); glyph(ctx, '🖐️', me.x + 50, me.y - 40, 26, 0.8); for (const h of hearts) glyph(ctx, '💗', h.x, h.y, 22, clamp(h.life, 0, 1)); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6, 14); ctx.fillStyle = '#ff7eb6'; ctx.fillRect(W * 0.2, H * 0.12, W * 0.6 * clamp(rubbed / needPx, 0, 1), 14); } },
+          // キャラの うえを なぞった きょり(px)で すすむ。むきは とわない
+          onDrag(x, y, dx, dy) { if (done) return; if (!hit(x, y, me.x, me.y, 66)) return; const before = Math.floor(rubbed / 55); rubbed += Math.hypot(dx, dy); if (Math.floor(rubbed / 55) > before) { hearts.push({ x, y: y - 20, life: 0.8 }); sfx('tap'); } if (rubbed >= needPx) { done = true; sfx('love'); g.win(); } },
           target() { return { kind: 'drag', x: me.x - 55, y: me.y, to: { x: me.x + 55, y: me.y }, repeat: true }; },
         };
       } });
 
+    // 16. おせ! — ボタンが みどりに なったら おす(あかで おすと ×)
+    def({ id: 'button', cue: 'みどりでおせ！', say: 'みどりでおせ', dur: 3800, uses: ['tap'], motif: 'ボタン',
+      create(g) {
+        const W = g.W, H = g.H;
+        const goAt = rnd(0.8, 2.0) / g.speed; let t = 0, done = false, flick = 0;
+        const flickers = g.feint ? [goAt - rnd(0.35, 0.6)] : [];
+        const state = () => (t >= goAt ? 'go' : flickers.some((f) => t >= f && t < f + 0.12) ? 'fake' : 'wait');
+        return {
+          update(dt) { t += dt; },
+          draw(ctx) { const s = state(); bg(ctx, W, H, '#f3f3f3', '#dcdcdc'); if (ctx) { ctx.fillStyle = s === 'go' ? '#3ec96b' : s === 'fake' ? '#ffd23f' : '#e5484d'; ctx.beginPath(); ctx.arc(W / 2, H * 0.48, 78, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = 'bold 26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(s === 'go' ? 'GO!' : 'まて', W / 2, H * 0.48); } glyph(ctx, sprite(), W / 2, H * 0.86, 40); },
+          onTap() { if (done) return; done = true; if (state() === 'go') { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } },
+          target() { return { kind: 'tap', x: W / 2, y: H * 0.48, ready: state() === 'go' }; },
+        };
+      } });
+
+    // 17. けせ! — ろうそくの ひを ぜんぶ タップ
+    def({ id: 'flames', cue: 'けせ！', say: 'けせ', dur: 3800, uses: ['tap'], motif: 'たんじょうび',
+      create(g) {
+        const W = g.W, H = g.H;
+        const n = 3 + Math.min(2, g.extra + (g.level >= 3 ? 1 : 0));
+        const cands = []; for (let i = 0; i < n; i++) cands.push({ x: W * ((i + 0.5) / n), y: H * (0.42 + (i % 2) * 0.08), lit: true, relit: g.feint && i === 0 ? rnd(1.2, 1.8) : 0 });
+        let t = 0;
+        return {
+          update(dt) { t += dt; for (const c of cands) if (c.relit && !c.lit && t >= c.relit) { c.lit = true; c.relit = 0; sfx('notify'); } },
+          draw(ctx) { bg(ctx, W, H, '#fff0f5', '#ffe0ea'); glyph(ctx, '🎂', W / 2, H * 0.72, 96); for (const c of cands) { glyph(ctx, '🕯️', c.x, c.y + 18, 30); if (c.lit) glyph(ctx, '🔥', c.x, c.y - 14, 30); } glyph(ctx, sprite(), W * 0.85, H * 0.9, 36); },
+          onTap(x, y) { for (const c of cands) if (c.lit && hit(x, y, c.x, c.y - 14, 30)) { c.lit = false; sfx('whoosh'); } if (cands.every((c) => !c.lit && !c.relit)) { sfx('good'); g.win(); } },
+          target() { const c = cands.find((k) => k.lit); return c ? { kind: 'tap', x: c.x, y: c.y - 14, repeat: true } : { kind: 'tap', x: W / 2, y: H / 2, ready: false }; },
+        };
+      } });
+
+    // 18. あつめろ! — かごを うごかして コインを うけとめる(need こ)
+    def({ id: 'coins', cue: 'あつめろ！', say: 'あつめろ', dur: 4200, uses: ['drag'], motif: 'コイン',
+      create(g) {
+        const W = g.W, H = g.H;
+        const need = 3; const basket = { x: W / 2, y: H * 0.84, w: 70 };
+        const coins = []; let t = 0, spawnAt = 0.2, got = 0, spawned = 0;
+        const gap = lerp(0.55, 0.36, (g.level - 1) / (RULES.MAX_LEVEL - 1));
+        return {
+          update(dt) {
+            t += dt;
+            // いい コインは need+3 こ かならず おちてくる。💩は それに まぜて おとす(レベル 3 から)
+            if (t >= spawnAt && spawned < need + 3) { spawnAt = t + gap; const bad = g.feint && spawned >= 2 && Math.random() < 0.3; if (!bad) spawned++; coins.push({ x: rnd(36, W - 36), y: -16, vy: (220 + 30 * g.extra) * g.speed, bad }); }
+            for (const c of coins) c.y += c.vy * dt;
+            for (const c of coins) if (!c.done && Math.abs(c.x - basket.x) < basket.w / 2 + 10 && Math.abs(c.y - basket.y) < 18) { c.done = true; if (c.bad) { sfx('bad'); g.lose(); return; } got++; sfx('coin'); if (got >= need) { g.win(); return; } }
+            while (coins.length && coins[0].y > H + 30) coins.shift();
+          },
+          draw(ctx) { bg(ctx, W, H, '#fff9dd', '#ffeeb0'); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6, 12); ctx.fillStyle = '#ffb703'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6 * clamp(got / need, 0, 1), 12); } for (const c of coins) if (!c.done) glyph(ctx, c.bad ? '💩' : '🪙', c.x, c.y, 30); glyph(ctx, '🧺', basket.x, basket.y + 8, 52); glyph(ctx, sprite(), basket.x, basket.y - 34, 34); },
+          onPress(x) { basket.x = clamp(x, 30, W - 30); },
+          onDrag(x, y, dx) { basket.x = clamp(basket.x + dx * 1.3, 30, W - 30); },
+          target() { const c = coins.filter((k) => !k.done && !k.bad && k.y < basket.y).sort((a, b) => b.y - a.y)[0]; let x = c ? c.x : basket.x; for (const b of coins) if (b.bad && !b.done && b.y > basket.y - 140 && b.y < basket.y + 10 && Math.abs(b.x - x) < 50) x = b.x < W / 2 ? b.x + 70 : b.x - 70; return { kind: 'follow', x: clamp(x, 30, W - 30), y: basket.y }; },
+        };
+      } });
+
+    // 19. とまれ! — がけの てまえ(みどり)で タップして とまる
+    def({ id: 'cliff', cue: 'とまれ！', say: 'とまれ', dur: 3600, uses: ['tap'], motif: 'ダウンヒル',
+      create(g) {
+        const W = g.W, H = g.H;
+        const edge = W * 0.78, zone = lerp(70, 44, (g.level - 1) / (RULES.MAX_LEVEL - 1));
+        const me = { x: 30, v: (150 + 30 * g.extra) * g.speed }; let done = false, fell = false;
+        return {
+          update(dt) { if (done) { if (fell) me.y = (me.y || 0) + 300 * dt; return; } me.x += me.v * dt; if (me.x >= edge) { done = true; fell = true; sfx('bad'); g.lose(); } },
+          draw(ctx) { bg(ctx, W, H, '#e6f7ff', '#ffffff'); if (ctx) { ctx.fillStyle = '#9ad48a'; ctx.fillRect(0, H * 0.62, edge, H * 0.38); ctx.fillStyle = '#6fd37a'; ctx.fillRect(edge - zone, H * 0.62, zone, 8); ctx.fillStyle = '#7a4f2a'; ctx.fillRect(0, H * 0.62 + 8, edge, 6); } glyph(ctx, '⛰️', W * 0.9, H * 0.55, 40); glyph(ctx, sprite(), me.x, H * 0.62 - 22 + (me.y || 0), 44); },
+          onTap() { if (done) return; done = true; if (me.x >= edge - zone) { sfx('good'); g.win(); } else { sfx('bad'); g.lose(); } },
+          target() { return { kind: 'tap', x: W / 2, y: H / 2, ready: !done && me.x >= edge - zone + 6 }; },
+        };
+      } });
+
+    // 20. なげろ! — うごく かごが まうえに きたら、うえへ スワイプ
+    def({ id: 'throw', cue: 'なげろ！', say: 'なげろ', dur: 4000, uses: ['swipe'], motif: 'バスケ',
+      create(g) {
+        const W = g.W, H = g.H;
+        const hoop = { x: W * 0.2, y: H * 0.22, v: (120 + 30 * g.extra) * g.speed, dir: 1 };
+        const me = { x: W / 2, y: H * 0.82 }; let ball = null, done = false;
+        return {
+          // なげた しゅんかんの ずれで きめる(ボールが とどくまでに かごは うごくので、その あいだは とわない)
+          update(dt) { hoop.x += hoop.v * hoop.dir * dt; if (hoop.x > W - 40) { hoop.x = W - 40; hoop.dir = -1; } if (hoop.x < 40) { hoop.x = 40; hoop.dir = 1; } if (ball) { ball.y -= 700 * dt; ball.x += (hoop.x - ball.x) * Math.min(1, dt * 6); if (ball.y <= hoop.y) { done = true; if (ball.ok) { sfx('coin'); g.win(); } else { sfx('bad'); g.lose(); } ball = null; } } },
+          draw(ctx) { bg(ctx, W, H, '#fff4e0', '#ffe1b8'); glyph(ctx, '🧺', hoop.x, hoop.y, 46); if (ball) glyph(ctx, '🏀', ball.x, ball.y, 30); glyph(ctx, sprite(), me.x, me.y, 44); if (ctx) { ctx.strokeStyle = 'rgba(0,0,0,.15)'; ctx.setLineDash([4, 6]); ctx.beginPath(); ctx.moveTo(me.x, me.y - 30); ctx.lineTo(me.x, hoop.y + 20); ctx.stroke(); ctx.setLineDash([]); } },
+          onSwipe(dir) { if (done || ball) return; if (dir !== 'up') { done = true; sfx('bad'); g.lose(); return; } ball = { x: me.x, y: me.y - 30, ok: Math.abs(hoop.x - me.x) <= 34 }; sfx('whoosh'); },
+          target() { return { kind: 'swipe', dir: 'up', ready: !ball && Math.abs(hoop.x - me.x) <= 22 }; },
+        };
+      } });
+
+    // 21. n かい たたけ! — ちょうど n かい タップして、それいじょう おさない
+    def({ id: 'knock', cue: 'たたけ！', say: 'たたけ', dur: 3600, uses: ['tap'], survive: true, motif: 'ノック',
+      create(g) {
+        const W = g.W, H = g.H;
+        const n = 2 + Math.floor(Math.random() * (2 + Math.min(2, g.extra))); let taps = 0, over = false;
+        return {
+          cue: `${n}かい たたけ！`, say: `${n}かい たたけ`,
+          draw(ctx) { bg(ctx, W, H, '#f6efe4', '#e6d3b8'); glyph(ctx, '🚪', W / 2, H * 0.5, 120); if (ctx) { ctx.fillStyle = over ? '#e5484d' : '#333'; ctx.font = 'bold 30px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${taps}／${n}`, W / 2, H * 0.14); } glyph(ctx, sprite(), W * 0.82, H * 0.86, 40); },
+          onTap() { taps++; sfx(taps > n ? 'bad' : 'hit'); if (taps > n) { over = true; g.lose(); } },
+          onTimeout() { return taps === n; },
+          target() { return { kind: 'tap', x: W / 2, y: H / 2, times: n }; },
+        };
+      } });
+
+    // 22. まて! — なにも さわらない(さわったら ×)
+    def({ id: 'wait', cue: 'まて！', say: 'まて', dur: 3400, uses: ['none'], survive: true, motif: 'おあずけ',
+      create(g) {
+        const W = g.W, H = g.H;
+        const food = pick(foods()); let t = 0;
+        const tease = g.feint ? rnd(0.9, 1.6) : 99;
+        return {
+          update(dt) { t += dt; },
+          draw(ctx) { bg(ctx, W, H, '#f1f5ff', '#dde6ff'); glyph(ctx, food, W / 2, H * 0.4 + (t > tease ? Math.sin(t * 12) * 6 : 0), 56); if (ctx && t > tease) { ctx.fillStyle = '#e5484d'; ctx.font = 'bold 22px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('いまだ…?', W / 2, H * 0.2); } glyph(ctx, sprite(), W / 2, H * 0.78, 48); glyph(ctx, '🤤', W / 2 + 30, H * 0.78 - 26, 22); },
+          onPress() { sfx('bad'); g.lose(); },
+          target() { return { kind: 'none' }; },
+        };
+      } });
+
+    // 23. にげろ! — おばけが きた ほうこうと はんたいへ スワイプ
+    def({ id: 'flee', cue: 'にげろ！', say: 'にげろ', dur: 3400, uses: ['swipe'], motif: 'おばけ屋敷',
+      create(g) {
+        const W = g.W, H = g.H;
+        const from = pick(['left', 'right', 'up', 'down']);
+        const OPP = { left: 'right', right: 'left', up: 'down', down: 'up' };
+        const gp = { left: [30, H / 2], right: [W - 30, H / 2], up: [W / 2, 40], down: [W / 2, H - 40] }[from];
+        let done = false, t = 0;
+        return {
+          update(dt) { t += dt; },
+          draw(ctx) { bg(ctx, W, H, '#2b2540', '#4a3f6b'); glyph(ctx, '👻', gp[0] + Math.sin(t * 6) * 4, gp[1], 52); glyph(ctx, sprite(), W / 2, H / 2, 48); glyph(ctx, '💦', W / 2 + 30, H / 2 - 28, 22); },
+          onSwipe(dir) { if (done) return; done = true; if (dir === OPP[from]) { sfx('whoosh'); g.win(); } else { sfx('bad'); g.lose(); } },
+          target() { return { kind: 'swipe', dir: OPP[from] }; },
+        };
+      } });
+
+    // 24. たたけ! — あなから 出てくる うんちを タップ(need かい)
+    def({ id: 'mole', cue: 'でたらたたけ！', say: 'でたらたたけ', dur: 4200, uses: ['tap'], motif: 'もぐらたたき',
+      create(g) {
+        const W = g.W, H = g.H;
+        const holes = [[0.2, 0.4], [0.5, 0.4], [0.8, 0.4], [0.35, 0.68], [0.65, 0.68]].map(([nx, ny]) => ({ x: nx * W, y: ny * H }));
+        const need = 2 + Math.min(1, g.extra); let hits = 0, t = 0, mole = null, nextAt = 0.3, lastBad = false;
+        const up = lerp(0.9, 0.55, (g.level - 1) / (RULES.MAX_LEVEL - 1));
+        return {
+          // 🌷(おとり)は 2かい つづけて 出さない(たたく チャンスが へりすぎないように)
+          update(dt) { t += dt; if (!mole && t >= nextAt) { const bad = g.feint && !lastBad && Math.random() < 0.2; lastBad = bad; mole = { h: pick(holes), until: t + up, bad }; } if (mole && t >= mole.until) { mole = null; nextAt = t + 0.2; } },
+          draw(ctx) { bg(ctx, W, H, '#e8f5d8', '#c9e5b0'); for (const h of holes) glyph(ctx, '🕳️', h.x, h.y + 8, 44); if (mole) glyph(ctx, mole.bad ? '🌷' : '💩', mole.h.x, mole.h.y - 8, 40); if (ctx) { ctx.fillStyle = '#333'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${hits}／${need}`, W / 2, H * 0.12); } glyph(ctx, sprite(), W * 0.85, H * 0.9, 34); },
+          onTap(x, y) { if (mole && hit(x, y, mole.h.x, mole.h.y - 8, 34)) { if (mole.bad) { sfx('bad'); g.lose(); return; } hits++; sfx('hit'); mole = null; nextAt = t + 0.2; if (hits >= need) { sfx('good'); g.win(); } } },
+          target() { return mole && !mole.bad ? { kind: 'tap', x: mole.h.x, y: mole.h.y - 8, repeat: true } : { kind: 'tap', x: W / 2, y: H / 2, ready: false }; },
+        };
+      } });
+
+    // 25. きれ! — とんでくる くだものを、ゆびで なぞって きる
+    def({ id: 'slice', cue: 'きれ！', say: 'きれ', dur: 4000, uses: ['drag'], motif: 'フルーツ',
+      create(q) {
+        const W = q.W, H = q.H;
+        const fruits = []; let t = 0, cut = 0; const need = 1 + Math.min(2, q.extra + (q.level >= 3 ? 1 : 0));
+        const times = []; for (let i = 0; i < need; i++) times.push(0.5 + i * 0.9);
+        return {
+          update(dt) { t += dt; while (times.length && t >= times[0]) { times.shift(); fruits.push({ x: rnd(60, W - 60), y: H + 20, vy: -(360 + 20 * q.extra), vx: rnd(-30, 30), ch: pick(['🍉', '🍎', '🍊', '🍌']), cut: false }); } for (const f of fruits) { f.vy += 420 * dt; f.y += f.vy * dt; f.x += f.vx * dt; } },
+          draw(ctx) { bg(ctx, W, H, '#fff5ee', '#ffe3d0'); for (const f of fruits) glyph(ctx, f.cut ? '💥' : f.ch, f.x, f.y, 46, f.cut ? 0.6 : 1); glyph(ctx, sprite(), W * 0.15, H * 0.9, 36); glyph(ctx, '🔪', W * 0.15 + 26, H * 0.9 - 20, 22); },
+          onDrag(x, y, dx, dy) { if (Math.hypot(dx, dy) < 2) return; for (const f of fruits) if (!f.cut && hit(x, y, f.x, f.y, 36)) { f.cut = true; cut++; sfx('whoosh'); if (cut >= need) { sfx('good'); q.win(); } } },
+          target() { const f = fruits.find((k) => !k.cut && k.y < H); return f ? { kind: 'drag', x: f.x - 40, y: f.y, to: { x: f.x + 40, y: f.y }, repeat: true } : { kind: 'drag', x: W / 2, y: H / 2, to: { x: W / 2 + 10, y: H / 2 }, repeat: true }; },
+        };
+      } });
+
+    // 26. まもれ! — とんでくる うんちを、とどく まえに タップ(時間切れ = せいこう)
+    def({ id: 'guard', cue: 'まもれ！', say: 'まもれ', dur: 4200, uses: ['tap'], survive: true, motif: 'ミサイル',
+      create(g) {
+        const W = g.W, H = g.H;
+        const me = { x: W * 0.2, y: H * 0.6 }; const shots = []; let t = 0, nextAt = 0.4;
+        const gap = lerp(1.0, 0.6, (g.level - 1) / (RULES.MAX_LEVEL - 1)); const sp = (110 + 20 * g.extra) * g.speed;
+        return {
+          update(dt) { t += dt; if (t >= nextAt) { nextAt = t + gap; shots.push({ x: W + 20, y: me.y + rnd(-60, 60), vx: -sp }); } for (const s of shots) s.x += s.vx * dt; for (const s of shots) if (!s.hit && hit(s.x, s.y, me.x, me.y, 34)) { sfx('hit'); g.lose(); return; } while (shots.length && (shots[0].hit || shots[0].x < -30)) shots.shift(); },
+          draw(ctx) { bg(ctx, W, H, '#ffeaea', '#ffd0d0'); for (const s of shots) if (!s.hit) glyph(ctx, '💩', s.x, s.y, 34); glyph(ctx, sprite(), me.x, me.y, 48); glyph(ctx, '🛡️', me.x + 34, me.y, 26); },
+          onTap(x, y) { for (const s of shots) if (!s.hit && hit(x, y, s.x, s.y, 34)) { s.hit = true; sfx('pop'); return; } },
+          target() { const s = shots.find((k) => !k.hit); return s ? { kind: 'tap', x: s.x, y: s.y, repeat: true } : { kind: 'tap', x: W / 2, y: H / 2, ready: false }; },
+        };
+      } });
+
+    // 27. つめろ! — ごはんを おべんとうばこへ ドラッグ(ぜんぶ)
+    def({ id: 'bento', cue: 'つめろ！', say: 'つめろ', dur: 4200, uses: ['drag'], motif: 'おべんとう',
+      create(g) {
+        const W = g.W, H = g.H;
+        const box = { x: W / 2, y: H * 0.26 };
+        const n = 2 + Math.min(2, g.extra); const list = shuffle(foods()).slice(0, n);
+        const items = list.map((ch, i) => ({ ch, x: W * ((i + 0.5) / n), y: H * 0.78, held: false, done: false }));
+        if (g.feint) items.push({ ch: '💩', x: W * 0.5, y: H * 0.56, held: false, done: false, bad: true });
+        let held = null;
+        return {
+          draw(ctx) { bg(ctx, W, H, '#fff8e6', '#f7e6c4'); glyph(ctx, '🍱', box.x, box.y, 70); ring(ctx, box.x, box.y, 48, 'rgba(0,0,0,.25)', 2); for (const it of items) if (!it.done) glyph(ctx, it.ch, it.x, it.y, it.held ? 46 : 40); glyph(ctx, sprite(), W * 0.85, H * 0.9, 34); },
+          onPress(x, y) { held = items.filter((it) => !it.done).sort((a, b) => Math.hypot(a.x - x, a.y - y) - Math.hypot(b.x - x, b.y - y))[0] || null; if (held && Math.hypot(held.x - x, held.y - y) > 70) held = null; if (held) held.held = true; },
+          onDrag(x, y) { if (!held) return; held.x = x; held.y = y; if (hit(x, y, box.x, box.y, 46)) { if (held.bad) { sfx('bad'); g.lose(); return; } held.done = true; held.held = false; held = null; sfx('pop'); if (items.every((it) => it.done || it.bad)) { sfx('good'); g.win(); } } },
+          onRelease() { if (held) held.held = false; held = null; },
+          target() { const it = items.find((k) => !k.done && !k.bad); return it ? { kind: 'drag', x: it.x, y: it.y, to: { x: box.x, y: box.y }, repeat: true } : null; },
+        };
+      } });
+
+    // 28. まわせ! — ゆびで まるを かく(1しゅう)
+    def({ id: 'spin', cue: 'まわせ！', say: 'まわせ', dur: 4000, uses: ['drag'], motif: 'へんしん',
+      create(g) {
+        const W = g.W, H = g.H;
+        const c = { x: W / 2, y: H * 0.5 }; const need = Math.PI * 2 * (1 + 0.5 * Math.min(2, g.extra));
+        let ang = 0, last = null, done = false;
+        return {
+          draw(ctx) { bg(ctx, W, H, '#eefaff', '#d3f0ff'); ring(ctx, c.x, c.y, 90, 'rgba(0,0,0,.12)', 10); if (ctx) { ctx.save(); ctx.strokeStyle = '#3aa0ff'; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(c.x, c.y, 90, -Math.PI / 2, -Math.PI / 2 + Math.min(Math.PI * 2, Math.abs(ang) / need * Math.PI * 2)); ctx.stroke(); ctx.restore(); } glyph(ctx, sprite(), c.x, c.y, 52 + Math.abs(ang) * 3); glyph(ctx, '🔄', c.x + 60, c.y - 60, 24); },
+          onPress(x, y) { last = Math.atan2(y - c.y, x - c.x); },
+          onDrag(x, y) { if (done) return; const a = Math.atan2(y - c.y, x - c.x); if (last != null) { let d = a - last; if (d > Math.PI) d -= Math.PI * 2; if (d < -Math.PI) d += Math.PI * 2; if (Math.abs(d) < 1) ang += d; } last = a; if (Math.abs(ang) >= need) { done = true; sfx('levelup'); g.win(); } },
+          onRelease() { last = null; },
+          target() { return { kind: 'spin', x: c.x, y: c.y, r: 70 }; },
+        };
+      } });
+
+    // 29. もちあげろ! — うえへ なぞって だっこ
+    def({ id: 'lift', cue: 'もちあげろ！', say: 'もちあげろ', dur: 3600, uses: ['drag'], motif: 'だっこ',
+      create(g) {
+        const W = g.W, H = g.H;
+        const need = 200 + 50 * g.extra + 30 * (g.level - 1); let lifted = 0, done = false;
+        return {
+          draw(ctx) { bg(ctx, W, H, '#fff3f8', '#ffe2ef'); const k = clamp(lifted / need, 0, 1); glyph(ctx, '🙌', W / 2, H * 0.86 - k * H * 0.3, 44); glyph(ctx, sprite(), W / 2, H * 0.72 - k * H * 0.38, 56); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6, 12); ctx.fillStyle = '#ff8fb8'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6 * k, 12); } },
+          onDrag(x, y, dx, dy) { if (done) return; if (dy < 0) lifted -= dy; if (lifted >= need) { done = true; sfx('love'); g.win(); } },
+          target() { return { kind: 'drag', x: W / 2, y: H * 0.9, to: { x: W / 2, y: H * 0.15 }, repeat: true }; },
+        };
+      } });
+
+    // 30. くすぐれ! — おなかを 5かい タップ(はずすと かぞえない)
+    def({ id: 'tickle', cue: 'くすぐれ！', say: 'くすぐれ', dur: 3600, uses: ['tap'], motif: 'じゃれる',
+      create(g) {
+        const W = g.W, H = g.H;
+        const need = 5 + 2 * g.extra; const me = { x: W / 2, y: H * 0.55, vx: g.level >= 4 ? 70 * g.speed : 0 };
+        let taps = 0, wig = 0;
+        return {
+          update(dt) { me.x += me.vx * dt; if (me.x < 70 || me.x > W - 70) me.vx = -me.vx; wig = Math.max(0, wig - dt * 6); },
+          draw(ctx) { bg(ctx, W, H, '#fffbe6', '#fff0b3'); glyph(ctx, sprite(), me.x + Math.sin(wig * 40) * wig * 6, me.y, 76); ring(ctx, me.x, me.y + 18, 30, 'rgba(255,140,180,.7)', 3); if (ctx) { ctx.fillStyle = '#333'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(`${taps}／${need}`, W / 2, H * 0.12); } if (wig > 0.5) glyph(ctx, '😆', me.x + 40, me.y - 40, 26); },
+          onTap(x, y) { if (hit(x, y, me.x, me.y + 18, 40)) { taps++; wig = 1; sfx('pop'); if (taps >= need) { sfx('love'); g.win(); } } },
+          target() { return { kind: 'tap', x: me.x, y: me.y + 18, repeat: true }; },
+        };
+      } });
+
     // ---- ランナー(1ラン = RULES.TOTAL ゲーム or ライフ 0 まで) ----
-    function makeQuickRun() {
+    // opts.only: その 1本だけを くりかえす「1本ずつ」モード(id 'quick-solo'、10かい、2かいごとに レベル)
+    function makeQuickRun(opts = {}) {
+      const only = opts.only ? GAMES.find((g) => g.id === opts.only) : null;
+      const TOTAL = opts.total || (only ? RULES.SOLO_TOTAL : RULES.TOTAL);
+      const LEVEL_EVERY = opts.levelEvery || (only ? RULES.SOLO_LEVEL_EVERY : RULES.LEVEL_EVERY);
+      const PER_CLEAR = 100 / TOTAL;
       return {
-        id: 'quick-run', noIntro: true,
+        id: only ? 'quick-solo' : 'quick-run', noIntro: true, quickGameId: only ? only.id : null,
         start(container, onComplete) {
           let running = true, rafId = null, last = null;
           let lives = RULES.LIVES, cleared = 0, index = 0, combo = 0, maxCombo = 0, level = 1;
           let phase = 'idle', phaseUntil = 0, cur = null, game = null, def = null, limit = 0, startedAt = 0, pending = null;
           const recent = []; const plays = {}; const clears = {};
           container.innerHTML = `
-            <div class="mg-header qk-header"><span id="qkLives">${'❤️'.repeat(lives)}</span><span id="qkCount">✔ 0／${RULES.TOTAL}</span><span id="qkLevel">Lv1</span></div>
+            <div class="mg-header qk-header"><span id="qkLives">${'❤️'.repeat(lives)}</span><span id="qkCount">✔ 0／${TOTAL}</span><span id="qkLevel">Lv1</span></div>
             <div class="qk-timebar"><span class="qk-timefill" id="qkTime"></span></div>
             <div class="mg-canvas-wrap qk-wrap"><canvas class="mg-canvas" id="qkCanvas"></canvas><div class="qk-cue hidden" id="qkCue"></div><div class="qk-flash hidden" id="qkFlash"></div><div class="qk-final hidden" id="qkFinal"></div></div>
-            <div class="mg-hint qk-hint" id="qkHint">みじかい指示のとおりに、すぐそうさ!3回しっぱいでおわり</div>
+            <div class="mg-hint qk-hint" id="qkHint">${only ? escapeHtml(only.cue) + '（' + escapeHtml(only.motif) + '）を' + TOTAL + 'かい。' : 'みじかい指示のとおりに、すぐそうさ!'}3回しっぱいでおわり</div>
           `;
           const canvas = container.querySelector('#qkCanvas');
           const { ctx, W, H } = S.createMgCanvas(canvas, 300, { grow: true, maxGrow: 1.7 });
           const livesEl = container.querySelector('#qkLives'), countEl = container.querySelector('#qkCount'), levelEl = container.querySelector('#qkLevel');
           const timeEl = container.querySelector('#qkTime'), cueEl = container.querySelector('#qkCue'), flashEl = container.querySelector('#qkFlash'), finalEl = container.querySelector('#qkFinal'), hintEl = container.querySelector('#qkHint');
-          const hud = () => { livesEl.textContent = '❤️'.repeat(Math.max(0, lives)) + '🖤'.repeat(RULES.LIVES - Math.max(0, lives)); countEl.textContent = `✔ ${cleared}／${RULES.TOTAL}`; levelEl.textContent = `Lv${level}`; };
+          const hud = () => { livesEl.textContent = '❤️'.repeat(Math.max(0, lives)) + '🖤'.repeat(RULES.LIVES - Math.max(0, lives)); countEl.textContent = `✔ ${cleared}／${TOTAL}`; levelEl.textContent = `Lv${level}`; };
           const show = (el, html) => { if (!el) return; if (html != null) el.innerHTML = html; el.classList.remove('hidden'); };
           const hide = (el) => { if (el) el.classList.add('hidden'); };
 
           function pickNext() {
+            if (only) return only;
             const pool = GAMES.filter((g) => !recent.includes(g.id));
             const g = pick(pool.length ? pool : GAMES);
             recent.push(g.id); if (recent.length > Math.min(3, GAMES.length - 1)) recent.shift();
@@ -380,7 +618,7 @@
           }
           function beginGame() {
             def = pickNext();
-            level = Math.min(RULES.MAX_LEVEL, 1 + Math.floor(index / RULES.LEVEL_EVERY));
+            level = Math.min(RULES.MAX_LEVEL, 1 + Math.floor(index / LEVEL_EVERY));
             const k = level - 1;
             limit = Math.round(def.dur * Math.max(0.6, 1 - RULES.TIME_SHRINK * k));
             pending = null;
@@ -412,13 +650,13 @@
           function finishRun() {
             phase = 'final'; running = false; if (rafId) cancelAnimationFrame(rafId);
             hide(cueEl); hide(flashEl);
-            const score = clamp(cleared * RULES.SCORE_PER_CLEAR, 0, 100);
-            const stats = { cleared, total: RULES.TOTAL, maxCombo, level, lives, plays, clears, score };
+            const score = clamp(Math.round(cleared * PER_CLEAR), 0, 100);
+            const stats = { cleared, total: TOTAL, maxCombo, level, lives, plays, clears, score, solo: only ? only.id : null };
             if (typeof S.onRunEnd === 'function') S.onRunEnd(stats);
-            const perfect = cleared >= RULES.TOTAL;
-            show(finalEl, `<div class="qk-final-title">${perfect ? '👑パーフェクト!' : lives <= 0 ? '💦ここまで!' : '🏁おしまい!'}</div><div class="qk-final-big">✔ ${cleared}<small>／${RULES.TOTAL}</small></div><div class="qk-final-sub">さいだい${maxCombo}れんぞく／Lv${level}まで</div>`);
-            sfx(perfect ? 'fanfare' : cleared >= 10 ? 'clear' : 'fail');
-            setTimeout(() => onComplete(score, `⚡クイック ${cleared}こクリア（さいだい${maxCombo}れんぞく）`), RULES.FINAL_MS);
+            const perfect = cleared >= TOTAL;
+            show(finalEl, `<div class="qk-final-title">${perfect ? '👑パーフェクト!' : lives <= 0 ? '💦ここまで!' : '🏁おしまい!'}</div><div class="qk-final-big">✔ ${cleared}<small>／${TOTAL}</small></div><div class="qk-final-sub">さいだい${maxCombo}れんぞく／Lv${level}まで</div>`);
+            sfx(perfect ? 'fanfare' : cleared >= TOTAL / 2 ? 'clear' : 'fail');
+            setTimeout(() => onComplete(score, `⚡${only ? only.cue.replace(/[！!]/g, '') + ' ' : 'クイック '}${cleared}こクリア（さいだい${maxCombo}れんぞく）`), RULES.FINAL_MS);
           }
           // ---- そうさ(タップ・なぞる・スワイプ・おす/はなす を ここで 1かい だけ 判定) ----
           let ptr = null;
@@ -463,11 +701,11 @@
               const el = now - startedAt;
               if (timeEl) timeEl.style.width = `${clamp(100 - el / limit * 100, 0, 100)}%`;
               if (game.update) game.update(dt, now);
-              if (pending == null && el >= limit) judge(!!def.survive);
+              if (pending == null && el >= limit) judge(game.onTimeout ? !!game.onTimeout() : !!def.survive);
             } else if (phase === 'result') {
               if (now >= phaseUntil) {
                 hide(flashEl);
-                if (lives <= 0 || index >= RULES.TOTAL) { finishRun(); return; }
+                if (lives <= 0 || index >= TOTAL) { finishRun(); return; }
                 beginGame();
               }
             }
