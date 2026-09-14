@@ -43,6 +43,12 @@
 | `lift` | もちあげろ！ |
 | `tickle` | くすぐれ！ |
 
+**66確定反映時の追加確認:** main `16a053397bf4ceb516e2e8bab20ee7ed43ca0698`（PR #263）ではquick内部が30→50種へ拡張。実際の `quick.js` で50 IDと重複なしを確認した。上表は前回の30種の履歴として保持し、今回増えた20内部IDを下記へ記録する。
+
+`balance / color / count / bigger / odd / order / holdlid / umbrella / shutter / sort / rhythm / trace / pushbox / fish / stack / pair / doors / sneak / feather / weather`
+
+読み上げの初期値・単独一覧の修正も差分で確認。`quick-run`・`quick-solo` と内部IDの区別は維持され、`games.js` の既存100 stable IDは変更されていない。本編の差分を作業ブランチへマージした意味ではない。
+
 これは**未棚卸しの追加source**で、CARD／HOLDへの候補登録ではない。内部IDを既存の `games.js` のstable IDと混ぜず、1ランの連続判断を1枚へ翻訳するか、内部要素を既存100の役割へ接続・別候補化するかを後続のあそび設計で整理する。モード数や内部ゲーム数から追加カード数を自動確定せず、登録済み477候補とその内数100は比較基準として保持する。現在の本編に存在する全あそびがこの100だけ、という説明にはしない。
 
 ## 目的
