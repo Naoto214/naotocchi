@@ -7,7 +7,8 @@ function solve(h, run, cur) {
   const g = cur.game; const t = g.target ? g.target() : null;
   if (!t) return;
   // はんてい(○/×)が 出たら そこで やめる(つぎの ゲームまで すすめない)
-  const judged = () => run.current !== cur || !h.get('minigameOverlay').querySelector('#qkFlash').classList.contains('hidden');
+  const ov = h.get('minigameOverlay');
+  const judged = () => run.current !== cur || !ov.querySelector('#qkFlash').classList.contains('hidden') || !ov.querySelector('#qkFinal').classList.contains('hidden');
   if (t.kind === 'none') { for (let i = 0; i < 400 && !judged(); i++) h.advance(16); return; }
   if (t.kind === 'tap') {
     if (t.times) { for (let i = 0; i < t.times; i++) { g.onTap(t.x, t.y); h.advance(16); } for (let i = 0; i < 400 && !judged(); i++) h.advance(16); return; }
@@ -102,8 +103,10 @@ test('three misses end the run, the score feeds the normal result flow, and diff
     const cur = run.current; games++;
     limits.push([cur.level, cur.limit, cur.def.dur]);
     if (cur.def.survive) { solve(h, run, cur); } // よける 系は うけとおす(時間切れ = せいこう)
-    else { h.advance(cur.limit + 40); }             // ほかは 時間切れ = しっぱい
+    else { for (let k = 0; k < 400 && run.current === cur && ov.querySelector('#qkFlash').classList.contains('hidden'); k++) h.advance(16); } // ほかは さわらず、はんてい(時間切れ か じばく)まで まつ
+    if (s.lifetime.quick.runs) break;
     h.advance(R.RESULT_MS + 40);
+    if (s.lifetime.quick.runs) break; // 3かいめの しっぱいで ラン おわり(さいごの がめんの あいだに しらべる)
   }
   const q = s.lifetime.quick;
   assert.equal(q.runs, 1, 'the run ended');
