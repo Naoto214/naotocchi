@@ -5,7 +5,9 @@
 仮ID：メイン M-<species>-<01..08> / なかま C-<id> / こいびと P-<id> / セカイ W-<id> / あそび G-<id> / あいてむ I-<id> / できごと E-<id>。
 
 ## メイン248
-通常22種＋レア8種＋ren 1種の各8段階。カブト／クワガタ16枚は01〜24の既存案を移植し作り直さない。author naotoはplayable=falseなのでメインへ入れない。
+本編sourceは通常22種＋レア8種＋シークレットren 1種の各8段階。カブト／クワガタ16枚は01〜24の既存案を移植し作り直さない。author naotoはplayable=falseなのでメインへ入れない。
+
+**71の個別割当・第1稿:** カード側のれんくん①〜⑧は通常とし、01の通常同名3枚を各段階へ適用する。他の通常22種と合わせて通常184枚、レア8種64枚。sourceのシークレットという入手区分は残し、カード独自のシークレット構築制限は新設しない。これは61の未指定部分を今回明示した設計案で、以前から割当済みだったという記録ではない。収録弾・販売上の希少度の確定でもない。[51](51-human-woman-ren-card-text-draft.md)・[71](71-main-248-card-text-cross-audit.md)参照。
 
 ## なかま26
 通常：cat_friend, rabbit_friend, tanuki, squirrel, owl, otter, hamster, panda, monkey, parrot, sheep, seal, bat, chicken, penguin_friend, hedgehog, shiba, snail。
