@@ -103,3 +103,11 @@ test('sleeping uses three rising Z marks without a font or animation dependency'
   assert.equal((markup.match(/class="accent-sleep-z"/g) || []).length,3);
   assert.doesNotMatch(markup, /accent-breath|<text\b|<animate\b/);
 });
+
+test('line-only state marks have a separate outline beneath their colored strokes', () => {
+  for (const state of ['strained','sick','weak','critical','wantsPlay','sleeping']) {
+    const markup=expression.accentFor('assets/characters/cat/06.png',state);
+    assert.match(markup,/class="[^"]+ accent-outline"/,state);
+    assert.doesNotMatch(markup,/<filter|<animate/,state);
+  }
+});
