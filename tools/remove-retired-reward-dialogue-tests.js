@@ -53,8 +53,8 @@ rewrite('script.js', (text) => {
 });
 
 rewrite('item-system.js', (text) => text.replace(
-  ", partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'",
-  ", partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown'"
+  /,?\s*itemluck2\s*:\s*'itemluck1'\s*,\s*itemluck3\s*:\s*'itemluck1'\s*/,
+  ''
 ));
 
 const production = {
