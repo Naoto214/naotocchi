@@ -108,7 +108,9 @@ test('retired dedicated reward inventory has no production UI or runtime path', 
   const html = fs.readFileSync('index.html', 'utf8');
   const script = fs.readFileSync('script.js', 'utf8');
   const dialogue = fs.readFileSync('movie-dialogue.js', 'utf8');
+  const movieCss = fs.readFileSync('movie.css', 'utf8');
   assert.doesNotMatch(html, /rewardItemGrid|ミニゲームなどで、たまにもらえます。デートや旅/);
   assert.doesNotMatch(script, /rewardItemGrid|renderRewardItemGrid|state\.items\.reward|useReward|special:ring|book\.special|ringSecretPhrase|ringSecretLine/);
   assert.doesNotMatch(dialogue, /const special =|const ringPhrase =|const ring =/);
+  assert.doesNotMatch(movieCss, /data-theme=['"]special['"]|special-reward/);
 });
