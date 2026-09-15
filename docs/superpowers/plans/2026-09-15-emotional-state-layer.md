@@ -158,7 +158,7 @@ life critical -> weak/critical, motion:null,      suppressPetIdle:true
 life warning  -> weak/mild,     motion:droop,    9000..14000, gentle
 sick          -> sick/strong,   motion:shake,    5000..8000,  gentle
 health strong -> weak/strong,   motion:droop,    8000..12000, gentle
-energy strong -> tired/strong,  motion:doze,     6000..9000,  gentle
+energy strong -> tired/strong,  motion:doze,     12000..16000, gentle
 energy mild   -> tired/mild,    motion:doze,     8000..12000, gentle
 hunger strong -> hungry/strong, motion:hungry,   4500..7500
 hunger mild   -> hungry/mild,   motion:hungry,   7000..11000, gentle
@@ -167,6 +167,8 @@ happiness mild && petAvailable -> wantsPlay/mild, motion:curious, 6000..10000, g
 happiness mild && !petAvailable -> unhappy/mild, motion:sulk, 8000..12000, gentle
 otherwise -> normal
 ```
+
+注: 当初の `energy strong` の `6000..9000` は、疲労が悪化するほど動作量を増やさないという明示要件と矛盾していたため、ユーザー指定どおり `12000..16000` に訂正した。`energy mild` と他のprofileは変更しない。
 
 Priority is exactly `life > sick > health > energy > hunger > happiness > wantsPlay > normal`。`wantsPlay` は独立した保存値ではなく、mild happiness低下かつ今はじゃれてよい状態から導出する。
 

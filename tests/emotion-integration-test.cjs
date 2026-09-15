@@ -31,6 +31,16 @@ function avoidRoutineAchievementStory(h) {
   h.api.state().achievementsUnlocked.push('age-10','age-25','sick-cured-1');
 }
 
+function companionAnimationCount(h) {
+  return [...h.get('companionLeft').children,...h.get('companionRight').children]
+    .reduce((sum,node)=>sum+node.animations.length,0);
+}
+
+function allCompanionIds(h) {
+  const companions=h.sandbox.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1.companions;
+  return [...companions.normal,...companions.rare].map(companion=>companion.id);
+}
+
 test('home derives emotion without adding saved emotion fields', () => {
   const h=harness();
   const emotion=renderEmotion(h,{hunger:40});
@@ -42,6 +52,16 @@ test('home derives emotion without adding saved emotion fields', () => {
   const serialized=JSON.parse(JSON.stringify(h.api.state()));
   assert.equal(Object.hasOwn(serialized,'emotion'),false);
   assert.equal(Object.hasOwn(serialized,'homeEmotion'),false);
+});
+
+test('rendering and running an emotion cue leave the serialized save unchanged', () => {
+  const h=harness();
+  renderNormal(h);
+  h.api.state().hunger=40;
+  const before=JSON.stringify(h.api.state());
+  h.api.render();
+  h.advance(350);
+  assert.equal(JSON.stringify(h.api.state()),before);
 });
 
 test('home emotion follows canonical priority and pet availability', () => {
@@ -74,6 +94,23 @@ test('persistent cue moves only the main pet and its accessory', () => {
     .reduce((sum,node)=>sum+node.animations.length,0),0);
 });
 
+for (const [name,values,reaction] of [
+  ['hungry',{hunger:20},'hungry'],
+  ['sulk',{happiness:40,affectionStreak:3},'sulk'],
+]) test(`26 companions stay still during the main pet ${name} cue`, () => {
+  const h=harness(),s=h.api.state();
+  const ids=allCompanionIds(h);
+  assert.equal(ids.length,26);
+  s.companions=ids.map(id=>({id,bond:100}));
+  renderEmotion(h,values);
+  assert.equal(h.get('companionLeft').children.length+h.get('companionRight').children.length,26);
+  const groupCount=h.get('castResponse').animations.length;
+  h.advance(350);
+  assert.equal(h.get('petSprite').dataset.reaction,reaction);
+  assert.equal(h.get('castResponse').animations.length,groupCount);
+  assert.equal(companionAnimationCount(h),0);
+});
+
 test('critical life cancels a running persistent cue and stays still', () => {
   const h=harness();
   renderEmotion(h,{hunger:40});
@@ -87,6 +124,20 @@ test('critical life cancels a running persistent cue and stays still', () => {
   const count=h.get('petSprite').animations.length;
   h.advance(20000);
   assert.equal(h.get('petSprite').animations.length,count);
+});
+
+test('critical life suppresses both ordinary idle sources while keeping critical UI', () => {
+  const h=harness({worldScene:true});
+  vm.runInContext('Math.random=()=>0',h.sandbox);
+  renderEmotion(h,{health:0,hunger:0,happiness:0,energy:0,deathMeter:80});
+  assert.equal(h.get('message').dataset.careSeverity,'critical');
+  assert.match(h.get('worldCareState').innerHTML,/data-care-icon="danger"/);
+  h.api.scheduleIdlePerk();
+  h.api.scheduleIdleGreeting();
+  h.advance(5200);
+  assert.equal(h.get('petSprite').animations.length,0);
+  assert.ok(h.get('speechBubble').classList.contains('hidden'));
+  assert.equal(h.get('message').dataset.careSeverity,'critical');
 });
 
 test('ordinary render does not interrupt a real care reaction', () => {
@@ -376,6 +427,30 @@ test('story opening immediately cancels an active persistent cue', () => {
   assert.equal(cue.playState,'idle');
 });
 
+for (const [name,enter,leave,restartDelay] of [
+  ['menu',h=>h.api.openExclusiveMenu('profile'),h=>{h.api.closeAllMenuOverlays();h.api.render();},350],
+  ['story',h=>h.api.showStoryEvent({emoji:'🌱',message:'おはなし'}),h=>{h.get('storyFlash').classList.add('hidden');h.api.render();},350],
+  ['minigame',h=>h.api.startMinigame(h.api.games[0]),h=>{h.api.retireMinigame();h.api.render();},2400],
+  ['hidden tab',h=>{h.document.visibilityState='hidden';h.dispatch(h.document,'visibilitychange');},h=>{h.document.visibilityState='visible';h.dispatch(h.document,'visibilitychange');},350],
+]) test(`${name} cancels an active persistent cue and the current state restarts after return`, () => {
+  const h=harness({worldScene:true});
+  renderEmotion(h,{hunger:40});
+  h.advance(350);
+  const cue=h.get('petSprite').animations.at(-1);
+  assert.equal(cue.playState,'running');
+  enter(h);
+  assert.equal(cue.playState,'idle');
+  const count=h.get('petSprite').animations.length;
+  h.advance(4000);
+  assert.equal(h.get('petSprite').animations.length,count);
+  leave(h);
+  h.get('storyFlash').classList.add('hidden');
+  h.api.render();
+  h.advance(restartDelay);
+  assert.equal(h.get('petSprite').dataset.reaction,'hungry');
+  assert.equal(motionDurations(h).filter(duration=>duration===1250).length,2);
+});
+
 test('returning from a hidden tab schedules the current profile again', () => {
   const h=harness();
   renderEmotion(h,{hunger:40});
@@ -399,3 +474,92 @@ test('reduced motion retains the derived state without starting a cue', () => {
   assert.equal(h.get('petSprite').dataset.emotionState,'hungry');
   assert.equal(h.get('petSprite').animations.length,0);
 });
+
+test('switching to reduced motion stops a running persistent cue', () => {
+  const h=harness();
+  renderEmotion(h,{hunger:40});
+  h.advance(350);
+  const cue=h.get('petSprite').animations.at(-1);
+  assert.equal(cue.playState,'running');
+  h.setReducedMotion(true);
+  assert.equal(cue.playState,'idle');
+  const count=h.get('petSprite').animations.length;
+  h.advance(20000);
+  assert.equal(h.get('petSprite').animations.length,count);
+});
+
+test('reduced motion suppresses persistent and afterglow movement but retains the warning icon', () => {
+  const warning=harness({worldScene:true,reducedMotion:true});
+  renderEmotion(warning,{hunger:20});
+  warning.advance(20000);
+  assert.equal(warning.get('petSprite').animations.length,0);
+  assert.equal(warning.get('message').dataset.careSeverity,'warning');
+  assert.match(warning.get('worldCareState').innerHTML,/data-care-icon="danger"/);
+
+  const afterglow=harness({reducedMotion:true});
+  vm.runInContext('Math.random=()=>0.55',afterglow.sandbox);
+  renderEmotion(afterglow,{hunger:60});
+  avoidRoutineAchievementStory(afterglow);
+  afterglow.dispatch(afterglow.get('feedBtn'),'click');
+  const count=afterglow.get('petSprite').animations.length;
+  afterglow.advance(5000);
+  assert.equal(afterglow.get('petSprite').animations.length,count);
+});
+
+for (const source of ['perk','greeting']) {
+  test(`normal idle ${source} callback does not preempt a pending care afterglow`, () => {
+    const h=harness();
+    vm.runInContext('Math.random=()=>0',h.sandbox);
+    h.api.state().companions=[{id:'snail',bond:100}];
+    renderEmotion(h,{hunger:60});
+    avoidRoutineAchievementStory(h);
+    if(source==='perk') {
+      h.api.scheduleIdlePerk();
+      h.advance(1498);
+      vm.runInContext('Math.random=()=>0.55',h.sandbox);
+      h.dispatch(h.get('feedBtn'),'click');
+      vm.runInContext('Math.random=()=>0',h.sandbox);
+      h.advance(2502);
+    } else {
+      h.api.scheduleIdleGreeting();
+      h.advance(2698);
+      vm.runInContext('Math.random=()=>0.55',h.sandbox);
+      h.dispatch(h.get('feedBtn'),'click');
+      vm.runInContext('Math.random=()=>0',h.sandbox);
+      h.advance(2501);
+      h.api.setMessage('');
+      h.advance(1);
+    }
+    assert.deepEqual(motionDurations(h),[1000]);
+    assert.equal(companionAnimationCount(h),1);
+    if(source==='greeting') assert.equal(h.get('speechBubble').dataset.kind,'companion');
+  });
+
+  test(`normal idle ${source} callback does not preempt an active care afterglow`, () => {
+    const h=harness();
+    vm.runInContext('Math.random=()=>0',h.sandbox);
+    renderEmotion(h,{hunger:60});
+    avoidRoutineAchievementStory(h);
+    if(source==='perk') {
+      h.api.scheduleIdlePerk();
+      h.advance(1200);
+      vm.runInContext('Math.random=()=>0.55',h.sandbox);
+      h.dispatch(h.get('feedBtn'),'click');
+      vm.runInContext('Math.random=()=>0',h.sandbox);
+      h.advance(2800);
+    } else {
+      h.api.scheduleIdleGreeting();
+      h.advance(2400);
+      vm.runInContext('Math.random=()=>0.55',h.sandbox);
+      h.dispatch(h.get('feedBtn'),'click');
+      vm.runInContext('Math.random=()=>0',h.sandbox);
+      h.advance(2799);
+      h.api.setMessage('');
+      h.advance(1);
+    }
+    const bounce=h.get('petSprite').animations.find(animation=>animation.options.duration===960);
+    assert.equal(h.get('petSprite').dataset.reaction,'bounce');
+    assert.equal(bounce?.playState,'running');
+    assert.deepEqual(motionDurations(h),[1000,960]);
+  });
+}

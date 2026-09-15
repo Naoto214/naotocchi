@@ -10905,14 +10905,14 @@
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
         && !state.isSleeping && !state.isSick && !state.dying
-        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
-        && Date.now() >= petBusyUntil;
+        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen();
       if (idleOk) {
         if (castMotion) {
-          const excludePet = homeEmotion.state !== 'normal' || homeEmotion.suppressPetIdle;
+          const excludePet = homeEmotion.state !== 'normal' || homeEmotion.suppressPetIdle
+            || !!careAfterglowTimer || Date.now() < petBusyUntil || castMotion.isActive({kind:'pet'});
           const duration = castMotion.idle({excludePet});
           if (duration && !excludePet) petBusyUntil = Date.now() + duration;
-        } else {
+        } else if (!careAfterglowTimer && Date.now() >= petBusyUntil) {
         el.pet.classList.add('idle-perk');
         petBusyUntil = Date.now() + 520;
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
@@ -10939,7 +10939,9 @@
       if (canGreet) {
         const currentEmotion = deriveHomeEmotion();
         const excludePet = currentEmotion.state !== 'normal' || currentEmotion.suppressPetIdle;
-        const choices = excludePet ? [] : [{ kind: 'pet', weight: 4 }];
+        const petIdleBlocked = excludePet || !!careAfterglowTimer
+          || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'});
+        const choices = petIdleBlocked ? [] : [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
         if (state.partner) choices.push({ kind: 'partner', weight: 4 });
         if (state.companions.length) choices.push({ kind: 'companion', weight: 4 });
