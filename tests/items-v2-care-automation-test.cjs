@@ -4,8 +4,8 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
-// RED contract for the care-automation slice. The temporary workflow proves
-// these expectations fail against the pre-V2 equipment implementation.
+// V2 care-automation contract. These semantics were proved red against the
+// retired pre-V2 equipment implementation during migration.
 function setup(equip) {
   const h = harness(), s = h.api.state();
   Object.assign(s.lifetime, {
