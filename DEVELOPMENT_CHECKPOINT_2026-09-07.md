@@ -1982,3 +1982,12 @@ Runtime smoke test SUCCESS確認済み。
 - 立て看板キャッシュ(`glyphSprite`)は、絵が読み込まれる前に描くと placeholder のまま固定されていた。`S.illustrationVersion()`(両 canvas ラッパーの version の和)が変わったらキャッシュを捨てて描き直す。世界に入ったとき `S.prepareIllustrations(景色の絵文字, 住民の絵文字)` で先読み。
 - テスト `tests/meguru-audit-test.cjs`(必須 10 項目 + 監査の各 issue 種別 + canvas 経路の spy テスト: 🐈/🍄/17 種が生の ctx で native fillText され、キャラ asset の drawImage も placeholder の fillRect も呼ばれない。🌳🌲🌴🌵🐚 は景色ラッパー経由で raw text にならない。全地域の景色絵文字が art か native のどちらか)。ハーネスに `SPECIES` / `canonicalCompanionId` / `sceneryResolve` / `sceneryCtx` / `wrapCanvasCtx` を追加。`npm test` に登録。
 
+## チェックポイント CO — 「めぐる」中に時間が進んで死ぬ問題と、画面を開いているあいだの時間停止の総点検(2026-09-15)
+- 症状: めぐるで地域を歩いているあいだも `loop()` が `tick()` を呼びつづけ、おなか・ごきげん・げんきが減って年齢も進み、長く歩くと本編の子が死ぬことがあった。原因は `isAnyMenuOverlayOpen()`(tick の停止ガード)に `meguruActive` が入っていなかったこと。
+- 総点検(時間が進む画面がほかにないか): ホーム以外で画面を占有するものを全部あらった。
+  - すでに止まっていた: メニュー系オーバーレイ(`OVERLAY_KINDS` の menu/dex/ach/theme/profile/comm/item/world/travel/sticker)、うそつきしょうぶ(`duelOpen`)、デート(`dateOpen`)、なかまのさそい(`companionInviteOpen`)、あいてむの演出(`pendingItemScene`/`itemSceneRecord`)、ゴールのおいわい(`grandGoalPending`)、ずかんの詳細(`dexDetail`)。「ぜんぶやりなおす」の確認・エラー記録・クイック一覧・道具の思い出パネルはプロフィール/じっせきの中の部品なので親の停止で足りる。ライフカード・おわかれは人生が終わっているので tick 自体が何もしない。ストーリーの短いお知らせ(storyFlash)は 4.2 秒で消え操作もふさがないので対象外。
+  - 止まっていなかった(修正): ① めぐる(`meguruActive`)。② ミニゲーム・クイックモード(`gameActive`。従来は「裏で時間を進める」設計だったが、遊んでいるあいだは世話ができないので同じ扱いに変更。10 回続きのクイック 1 本ずつや長めのボードゲーム中に死ぬのを防ぐ)。③ へんしんの候補を選ぶ画面(`state.transformOptions`。選ぶまでホームの操作が `blocked` なのに tick は進んでいた)。
+- 実装: `isTimePaused()` = `gameActive || !!state.transformOptions || isAnyMenuOverlayOpen()` を新設し、`loop()` はこれが真なら `tick()`/`saveState()`/`render()` をすべてスキップ(ゲーム・めぐる中は DOM にも触らない。それ以外の停止中は従来どおり `renderEnvironment()` だけ)。`isAnyMenuOverlayOpen()` に `meguruActive` を追加したので、なかまのさそい・でんせつとの出会い・ひとりごと・おせわの通知・castMotion・前景エフェクト・クマノミの通知の各ガードもめぐる中に効くようになった(道具の短い通知の遅延は `careNoticeVisible()` の前に `meguruActive` を見るよう順序を入れ替え、従来どおりホームへ戻ってから出す)。`openExclusiveMenu` はめぐる中は開かない。Esc でめぐるを閉じられる。
+- 互換: セーブ形式は変更なし。るすばん(`applyOfflineProgress`)の扱いも変更なし。
+- テスト `tests/time-pause-test.cjs`(7 件): ホームでは進む/めぐる中は 40 tick 進めても年齢・ステータスが不変で戻ると再開、瀕死の子がめぐる中 200 tick で死なない、ミニゲームとクイック中は止まり終了後に再開、へんしん選択中は止まり「そのまま」で再開、10 種のメニュー全部で停止と再開、めぐる中はさそいが出ず・メニューが開かず・Esc で閉じる、デート中の停止。既存の `clownfish-romance-test`「stage-7 notice waits …」はゲーム中に tick が進む前提だったので、直接 `tick()` を呼ぶ形に直した(お知らせがゲーム結果のあとまで待つ、という本来の検証は維持)。ハーネスに `isTimePaused` を追加。`npm test` に登録。
+
