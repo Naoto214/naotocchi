@@ -10,7 +10,7 @@ const ROOT = path.join(__dirname, '..');
 const PNG_SIGNATURE = Buffer.from([137,80,78,71,13,10,26,10]);
 const EXPECTED = Object.freeze({
   'assets/characters/cat/06.png': '8f6beedbfd82135cfc17c24d3aa5ea1869c9344f65b0a21e3950995c5768c6da',
-  'assets/characters/expressions/cat/06-happy-v2.png': 'e60898a43446d9f4f1dbff2fa6d49c9c1cdf203e1a8bcdb59eb0210de3b8c675',
+  'assets/characters/expressions/cat/06-happy-v3.png': '475379397e9ab0e89281ce7276e018bf765ca23506223e8ea0058ebf708f3d54',
   'assets/characters/expressions/cat/06-strained.png': '66c8e780bd8365b45676d60c6d4be762a025976694b58963be649b293509c7aa',
   'assets/characters/expressions/cat/06-sulky.png': '72ff579e670c081fe888c26dfee5181fb16d04aab3508ef9c2ad0f2b4a07e0ba',
   'assets/characters/expressions/cat/06-hungry.png': '85eb48deb349bf9c374ad75900694a1f35afb9e3c6d88748320a60c5f1e8105f',
@@ -19,7 +19,7 @@ const EXPECTED = Object.freeze({
   'assets/characters/expressions/cat/06-weak.png': 'b1f1d0f9bf0ccbb3a54b0982f2999f5750039c7384255afc1fecd5111cc76388',
   'assets/characters/expressions/cat/06-critical.png': '10a4d9a61fd8b898f7a41ab9d7f36681c85656d688cc85584cc0d907f36b0c3d',
   'assets/characters/expressions/cat/06-wantsPlay.png': 'fb36a5a16d7b6ae74857c6f9b7353b416a11566d788b9919a73f1d652800fa21',
-  'assets/characters/expressions/cat/06-sleeping-v2.png': 'd6d7d6e412a47007727dded002d4709ae98f0306662a4c8dc4d6a6d59791ef24',
+  'assets/characters/expressions/cat/06-sleeping-v3.png': '9111630bfa7bed35b9e1f943ecfac450964eba00c4974b725390759f47977303',
 });
 
 function inspectPng(relativePath) {
@@ -108,7 +108,7 @@ test('all ten expression assets are distinct approved transparent RGBA PNGs on t
 test('every runtime-allowlisted adult-cat expression path exists', () => {
   const base='assets/characters/cat/06.png';
   const expected={
-    happy:'assets/characters/expressions/cat/06-happy-v2.png',
+    happy:'assets/characters/expressions/cat/06-happy-v3.png',
     strained:'assets/characters/expressions/cat/06-strained.png',
     sulky:'assets/characters/expressions/cat/06-sulky.png',
     hungry:'assets/characters/expressions/cat/06-hungry.png',
@@ -117,7 +117,7 @@ test('every runtime-allowlisted adult-cat expression path exists', () => {
     weak:'assets/characters/expressions/cat/06-weak.png',
     critical:'assets/characters/expressions/cat/06-critical.png',
     wantsPlay:'assets/characters/expressions/cat/06-wantsPlay.png',
-    sleeping:'assets/characters/expressions/cat/06-sleeping-v2.png',
+    sleeping:'assets/characters/expressions/cat/06-sleeping-v3.png',
   };
   for (const [face,relativePath] of Object.entries(expected)) {
     assert.equal(expression.assetFor(base,face),relativePath);

@@ -22,3 +22,9 @@ User requested both faces be improved: happy eyes open, sleeping face less smile
 
 - `assets/characters/expressions/cat/06-happy-v2.png`: SHA-256 `e60898a43446d9f4f1dbff2fa6d49c9c1cdf203e1a8bcdb59eb0210de3b8c675`
 - `assets/characters/expressions/cat/06-sleeping-v2.png`: SHA-256 `d6d7d6e412a47007727dded002d4709ae98f0306662a4c8dc4d6a6d59791ef24`
+
+### Superseding user correction: narrowed joyful eyes, faint sleeping smile
+
+Before v2 deployment, user asked for happy narrowed eyes (normal already has open eyes) and a very faint sleeping smile. Built-in image_gen edited old happy and v2 sleep separately. Final happy prompt: upward-arched narrow smiling eyes, raised cheeks and open joyful mouth. Final sleep prompt: downward relaxed closed eyelids, tiny closed mouth with barely raised corners, relaxed cheeks. Both keep seated body/palette/framing as closely as possible; no symbols. Same normalization, old variants retained. Runtime now uses v3 only. iPhone acceptance pending.
+- `assets/characters/expressions/cat/06-happy-v3.png`: `475379397e9ab0e89281ce7276e018bf765ca23506223e8ea0058ebf708f3d54`
+- `assets/characters/expressions/cat/06-sleeping-v3.png`: `9111630bfa7bed35b9e1f943ecfac450964eba00c4974b725390759f47977303`

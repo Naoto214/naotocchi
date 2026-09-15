@@ -8,7 +8,7 @@
     'normal','happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping',
   ]);
   const VARIANT_ASSETS = Object.freeze({
-    happy: 'assets/characters/expressions/cat/06-happy-v2.png',
+    happy: 'assets/characters/expressions/cat/06-happy-v3.png',
     strained: 'assets/characters/expressions/cat/06-strained.png',
     sulky: 'assets/characters/expressions/cat/06-sulky.png',
     hungry: 'assets/characters/expressions/cat/06-hungry.png',
@@ -17,7 +17,7 @@
     weak: 'assets/characters/expressions/cat/06-weak.png',
     critical: 'assets/characters/expressions/cat/06-critical.png',
     wantsPlay: 'assets/characters/expressions/cat/06-wantsPlay.png',
-    sleeping: 'assets/characters/expressions/cat/06-sleeping-v2.png',
+    sleeping: 'assets/characters/expressions/cat/06-sleeping-v3.png',
   });
   const PERSISTENT = Object.freeze({
     hungry:'hungry', sick:'sick', tired:'tired', weak:'weak', unhappy:'sulky', wantsPlay:'wantsPlay', normal:'normal',
