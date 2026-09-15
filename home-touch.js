@@ -3,6 +3,24 @@
 (() => {
   const device = document.getElementById('device');
   if (!device) return;
+
+  // The fixed iPhone home no longer scrolls. The fun-item row used to sit at
+  // the end of the normal flow, so it could fall below the clipped home even
+  // though renderItemsRow() had populated it. Pin it to the visible screen and
+  // reserve its height instead of re-enabling page/home scrolling.
+  const itemsRow = document.getElementById('itemsRow');
+  const screenNormal = document.getElementById('screenNormal');
+  if (itemsRow && screenNormal) {
+    Object.assign(itemsRow.style, {
+      position: 'absolute',
+      left: '8px',
+      right: '8px',
+      bottom: '6px',
+      zIndex: '8',
+    });
+    screenNormal.style.paddingBottom = '38px';
+  }
+
   let gesture = null;
   const locked = () => device.dataset.homeFixed === 'true'
     && !(window.visualViewport?.scale > 1);
