@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
+const fs = require('node:fs');
 const vm = require('node:vm');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
@@ -101,4 +102,11 @@ test('V2 automation equipment no longer keeps the old passive percentage reducti
   tick(baseCold.h); tick(scarf.h);
   assert.equal(scarf.s.hunger, baseCold.s.hunger);
   assert.equal(scarf.s.energy, baseCold.s.energy);
+});
+
+test('retired dedicated reward inventory has no production UI or runtime path', () => {
+  const html = fs.readFileSync('index.html', 'utf8');
+  const script = fs.readFileSync('script.js', 'utf8');
+  assert.doesNotMatch(html, /rewardItemGrid|ミニゲームなどで、たまにもらえます。デートや旅/);
+  assert.doesNotMatch(script, /rewardItemGrid|renderRewardItemGrid|state\.items\.reward/);
 });
