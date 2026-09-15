@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add script.js index.html movie-dialogue.js item-system.js tests/item-care-game-test.cjs tests/items-v2-care-automation-test.cjs
+          git add script.js index.html movie-dialogue.js item-system.js tests/item-care-game-test.cjs tests/item-relations-travel-test.cjs tests/items-v2-care-automation-test.cjs
           git diff --cached --quiet && exit 0
           git commit -m "feat: apply Items V2 care automation [skip-v2-care-red] [skip-v2-care-apply]"
           git push origin HEAD:chatgpt/items-v2-home-strip-20260915
