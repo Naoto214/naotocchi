@@ -1,0 +1,31 @@
+name: Apply Items V2 ease once
+
+on:
+  push:
+    branches: [chatgpt/items-v2-home-strip-20260915]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[skip-v2-ease-apply]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/items-v2-home-strip-20260915
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply bounded V2 patch
+        run: node tools/apply-items-v2-ease.js
+      - name: Verify focused tests
+        run: node --test tests/items-v2-ease-automation-test.cjs tests/items-v2-care-automation-test.cjs tests/item-care-game-test.cjs tests/item-relations-travel-test.cjs
+      - name: Commit production changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js item-system.js tests/item-care-game-test.cjs tests/item-relations-travel-test.cjs
+          git commit -m "feat: apply Items V2 ease automation [skip-v2-ease-apply] [skip-v2-ease-red]"
+          git push
