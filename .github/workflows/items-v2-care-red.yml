@@ -1,0 +1,31 @@
+name: Items V2 care RED check
+
+on:
+  push:
+    branches: [chatgpt/items-v2-home-strip-20260915]
+
+jobs:
+  red-check:
+    if: ${{ !contains(github.event.head_commit.message, '[skip-v2-care-red]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify new V2 care tests are red against the old implementation
+        run: |
+          set +e
+          node --test tests/items-v2-care-automation-test.cjs > /tmp/red.log 2>&1
+          code=$?
+          cat /tmp/red.log
+          if [ "$code" -eq 0 ]; then
+            echo "Expected V2 care tests to fail before implementation, but they passed."
+            exit 1
+          fi
+          grep -q "V2 paper clears every poop" /tmp/red.log
+          grep -q "V2 pillow makes sleep" /tmp/red.log
+          grep -q "V2 bowtie automatically fills hunger" /tmp/red.log
+          grep -q "V2 ribbon automatically fills happiness" /tmp/red.log
+          grep -q "V2 disease equipment automatically cures sickness" /tmp/red.log
+          echo "RED confirmed: the old implementation does not satisfy the V2 care automation contract."
