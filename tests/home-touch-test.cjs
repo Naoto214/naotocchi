@@ -85,3 +85,15 @@ test('menus, minigames and life records keep their gestures and returning home r
   touch(e,'touchstart',300);
   assert.equal(touch(e,'touchmove',350),false);
 });
+
+test('home fun-item strip is pinned inside the visible screen instead of falling below the fixed home', () => {
+  const { h } = home();
+  const row = h.get('itemsRow');
+  const normal = h.get('screenNormal');
+  assert.equal(row.style.position, 'absolute');
+  assert.equal(row.style.left, '8px');
+  assert.equal(row.style.right, '8px');
+  assert.equal(row.style.bottom, '6px');
+  assert.equal(row.style.zIndex, '8');
+  assert.equal(normal.style.paddingBottom, '38px');
+});
