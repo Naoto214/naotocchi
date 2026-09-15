@@ -52,6 +52,11 @@ rewrite('script.js', (text) => {
   return text;
 });
 
+rewrite('item-system.js', (text) => text.replace(
+  ", partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'",
+  ", partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown'"
+));
+
 const production = {
   'item-system.js': fs.readFileSync('item-system.js', 'utf8'),
   'script.js': fs.readFileSync('script.js', 'utf8'),
@@ -63,7 +68,7 @@ const forbidden = [
   'itemSceneRewardActions', 'itemSceneRewardUseBtn', 'itemSceneRewardSkipBtn',
   "CATALOG.reward", "ITEM_SYSTEM.grant(state, 'reward')", "ITEM_SYSTEM.take(state, 'reward')",
   "ITEM_SYSTEM.stock(state,'reward')", "ITEM_SYSTEM.stock(state, 'reward')",
-  'itemluck1', 'cloverMisses', 'firstRingPhrase', 'specialRewardTrip', 'gotReward'
+  'itemluck1', 'itemluck2', 'itemluck3', 'cloverMisses', 'firstRingPhrase', 'specialRewardTrip', 'gotReward'
 ];
 for (const [path, text] of Object.entries(production)) {
   for (const needle of forbidden) {
