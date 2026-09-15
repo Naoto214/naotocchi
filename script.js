@@ -11143,6 +11143,30 @@
     return '';
   }
 
+  // Presentation only: care-status owns every care threshold.
+  function renderHomeCareColors() {
+    const signals = CARE_STATUS?.signals(state, {petAvailable:state.affectionStreak < affectionSpamThreshold()}) || {};
+    const mood = EMOTION_STATE?.resolve({playable:signals.playable, happiness:signals.happiness, petAvailable:signals.petAvailable});
+    const moodColor = mood?.state === 'unhappy' ? '#76d9ef' : '#f58a19';
+    const energyColor = signals.energy && signals.energy !== 'none' ? '#8c56ce' : '#347de3';
+    for (const [bar,color] of [[el.hungerBar,'#ffe03b'],[el.happinessBar,moodColor],[el.energyBar,energyColor],[el.healthBar,'#a5d934'],[el.deathBar,'#e53950']]) {
+      bar.style.setProperty('--home-meter-color',color);
+    }
+    for (const [button,color] of [[el.feedBtn,'#ffe03b'],[el.playBtn,'#f58a19'],[el.cleanBtn,'#a77545'],[el.sleepBtn,energyColor],[el.medicineBtn,'#a5d934'],[el.playWithBtn,moodColor],[el.courtBtn,'#ed65aa']]) {
+      button.style.setProperty('--home-action-color',color);
+    }
+  }
+
+  function progressMeterColor(value, decline) {
+    const stops = decline
+      ? [[176,181,190],[255,224,59],[245,138,25],[229,57,80]]
+      : [[52,125,227],[140,86,206],[240,190,45]];
+    const position = clamp(value,0,100) / 100 * (stops.length-1);
+    const index = Math.min(Math.floor(position),stops.length-2);
+    const fraction = position-index;
+    return `rgb(${stops[index].map((channel,i)=>Math.round(channel+(stops[index+1][i]-channel)*fraction)).join(', ')})`;
+  }
+
   function updateBar(elBar, value, baseClass) {
     elBar.style.width = `${clamp(value, 0, 100)}%`;
     elBar.className = `bar-fill ${baseClass} ${barClass(value)}`.trim();
@@ -11157,6 +11181,7 @@
       ? (value <= 30 ? 'low' : '')
       : (value >= 70 ? 'high' : '');
     elBar.className = `bar-fill ${baseClass} ${flag}`.trim();
+    if (baseClass !== 'death') elBar.style.setProperty('--home-meter-color',progressMeterColor(value,baseClass === 'devo'));
     renderMeterValue(elBar, value, baseClass, true);
   }
 
@@ -11612,6 +11637,7 @@
       : '';
 
     if (el.careMeters) el.careMeters.classList.toggle('hidden', isEgg);
+    renderHomeCareColors();
     updateBar(el.hungerBar, isEgg || isOver ? 0 : state.hunger, 'hunger');
     updateBar(el.happinessBar, isEgg || isOver ? 0 : state.happiness, 'happiness');
     updateBar(el.energyBar, isEgg || isOver ? 0 : state.energy, 'energy');

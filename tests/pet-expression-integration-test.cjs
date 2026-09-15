@@ -261,3 +261,31 @@ test('a failed expression portrait retries the original before the emoji fallbac
   h.dispatch(img,'error',{bubbles:false});
   assert.equal(wrapper.classList.contains('asset-failed'),true);
 });
+
+test('home care colors follow existing mood and fatigue boundaries and reset after sleep/recovery', () => {
+  const h=harness();adultCat(h);
+  const check=(values,mood,energy)=>{
+    Object.assign(h.api.state(),values);h.api.render();
+    assert.equal(h.get('happinessBar').style['--home-meter-color'],mood);
+    assert.equal(h.get('playWithBtn').style['--home-action-color'],mood);
+    assert.equal(h.get('energyBar').style['--home-meter-color'],energy);
+    assert.equal(h.get('sleepBtn').style['--home-action-color'],energy);
+  };
+  check({happiness:26,energy:51},'#f58a19','#347de3');
+  check({happiness:25,energy:50},'#76d9ef','#8c56ce');
+  check({isSleeping:true},'#76d9ef','#347de3');
+  check({isSleeping:false,happiness:80,energy:80},'#f58a19','#347de3');
+  check({happiness:40,affectionStreak:3},'#76d9ef','#347de3');
+});
+
+test('progress meter colors vary with fill without altering game state or life direction', () => {
+  const h=harness();adultCat(h,{transformMeter:0,decline:0});
+  const before=h.get('transformBar').style['--home-meter-color'];
+  Object.assign(h.api.state(),{transformMeter:100,decline:100,deathMeter:80});
+  h.api.render();
+  assert.notEqual(h.get('transformBar').style['--home-meter-color'],before);
+  assert.equal(h.get('transformBar').style['--home-meter-color'],'rgb(240, 190, 45)');
+  assert.equal(h.get('devoBar').style['--home-meter-color'],'rgb(229, 57, 80)');
+  assert.equal(h.get('deathBar').style.width,'20%');
+  assert.equal(h.api.state().transformMeter,100);
+});
