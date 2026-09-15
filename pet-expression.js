@@ -36,7 +36,7 @@
 
   function assetFor(baseAsset, expression) {
     if (baseAsset !== BASE_ASSET) return baseAsset;
-    return VARIANT_ASSETS[expression] || baseAsset;
+    return Object.hasOwn(VARIANT_ASSETS, expression) ? VARIANT_ASSETS[expression] : baseAsset;
   }
 
   function reactionFor(event) {

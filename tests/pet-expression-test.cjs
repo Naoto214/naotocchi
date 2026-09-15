@@ -44,6 +44,9 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'strained'),'assets/characters/expressions/cat/06-strained.png');
   assert.equal(expression.assetFor(base,'sulky'),'assets/characters/expressions/cat/06-sulky.png');
   assert.equal(expression.assetFor(base,'startled'),base);
+  assert.equal(expression.assetFor(base,'toString'),base);
+  assert.equal(expression.assetFor(base,'constructor'),base);
+  assert.equal(expression.assetFor(base,'__proto__'),base);
   assert.equal(expression.assetFor('assets/characters/cat/05.png','happy'),'assets/characters/cat/05.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
