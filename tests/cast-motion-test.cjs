@@ -262,7 +262,11 @@ test('pet care semantics win over randomized line tone without changing social t
   const {reactionFor}=require('../cast-motion.js');
   assert.equal(reactionFor('feed','食べ終わったら休もう','pet'),'munch');
   assert.equal(reactionFor('wake','おはよ。まだねむい','pet'),'stretch');
-  assert.equal(reactionFor('play_with','休む予定をもう少し延ばす','pet'),'bounce');
+  assert.equal(reactionFor('play_with','くすぐったいって笑','pet'),'wiggle');
+  assert.equal(reactionFor('play_with','なんかねむくなってきた','pet'),'bounce');
+  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','pet'),'bounce');
   assert.equal(reactionFor('feed','食べ終わったら休もう','partner'),'settle');
   assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
+  assert.equal(reactionFor('play_with','なんかねむくなってきた','partner'),'settle');
+  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','companion'),'settle');
 });

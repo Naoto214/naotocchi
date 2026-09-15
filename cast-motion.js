@@ -50,6 +50,7 @@
     // still controls partner/companion delivery below.
     if (kind === 'pet') {
       if (event === 'feed') return 'munch';
+      if (event === 'play_with') return /くすぐ|笑いすぎ|わらいすぎ/.test(text) ? 'wiggle' : 'bounce';
       if (event === 'play_with_annoyed') return 'settle';
       if (event === 'medicine_cure') return /まず|苦|にが/.test(text) ? 'shake' : 'settle';
       if (event === 'medicine_wrong') return 'shake';
