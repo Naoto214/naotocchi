@@ -3720,6 +3720,41 @@
   let emotionCueTimer = null;
   let emotionCueKey = '';
   let emotionCueActiveUntil = 0;
+  let careReactionSerial = 0;
+  let careAfterglowTimer = null;
+
+  function invalidateCareAfterglow() {
+    careReactionSerial += 1;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    careAfterglowTimer = null;
+    return careReactionSerial;
+  }
+
+  function currentCareSignals() {
+    return CARE_STATUS?.signals?.(state, {
+      immortal:isImmortal(),
+      petAvailable:state.affectionStreak < affectionSpamThreshold(),
+    });
+  }
+
+  function scheduleCareAfterglow(serial, delayMs, motion, shouldRun = () => true) {
+    if (serial !== careReactionSerial || !emotionCueContextVisible()) return;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    const tryRun = () => {
+      careAfterglowTimer = null;
+      const signals = currentCareSignals();
+      if (serial !== careReactionSerial || !signals?.playable || signals.sleeping
+        || signals.life === 'critical' || !emotionCueContextVisible() || !careNoticeVisible()
+        || !shouldRun(signals)) return;
+      if (speechActive || conversationIsBusy() || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'})) {
+        careAfterglowTimer = setTimeout(tryRun,120);
+        return;
+      }
+      const duration = castMotion?.pet(motion,{gentle:true}) || 0;
+      if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
+    };
+    careAfterglowTimer = setTimeout(tryRun,delayMs);
+  }
 
   function deriveHomeEmotion() {
     if (!CARE_STATUS?.signals || !EMOTION_STATE?.resolve) return homeEmotion;
@@ -3740,7 +3775,7 @@
 
   function canShowEmotionCue() {
     return emotionCueContextVisible() && !speechActive && !conversationIsBusy()
-      && Date.now() >= petBusyUntil && !castMotion?.isActive({kind:'pet'});
+      && !careAfterglowTimer && Date.now() >= petBusyUntil && !castMotion?.isActive({kind:'pet'});
   }
 
   function stopActiveEmotionCue() {
@@ -3781,6 +3816,7 @@
     emotionCueKey = key;
     el.petSprite.dataset.emotionState = next.state;
     el.petSprite.dataset.emotionSeverity = next.severity;
+    if (!emotionCueContextVisible() && careAfterglowTimer) invalidateCareAfterglow();
     if (!next.motion || !emotionCueContextVisible()) {
       cancelEmotionCue(true);
       return;
@@ -5794,6 +5830,7 @@
   function speakEvent(eventKey, ctx = {}) {
     const pool = CONVERSATION_POOLS[eventKey];
     if (!pool) return;
+    if (careAfterglowTimer) invalidateCareAfterglow();
     clearConversationTimers();
     const beats = [];
     const petLine = ctx.petText || pickConversationLine(pool.pet, ctx);
@@ -10085,6 +10122,7 @@
   }
 
   function triggerDeath() {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.DEAD;
@@ -10100,6 +10138,7 @@
   // ここでは そだち・ずかん・じっせき・コインが すべて とまるので、
   // 「もうひとつの freePlay」には ならない(§12)
   function enterFarewell() {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.FAREWELL;
@@ -10504,6 +10543,7 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    invalidateCareAfterglow();
     audio.play('notify');
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
       : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
@@ -15934,6 +15974,7 @@
   // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     hideMinigameResultToast();
@@ -16428,6 +16469,7 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      const reactionSerial = invalidateCareAfterglow();
       clearConversationTimers();
       hideSpeechBubble();
       const careBefore = CARE_STATUS?.snapshot(state);
@@ -16436,7 +16478,7 @@
       recordCareChange(careBefore);
       render();
       // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
-      if (afterRender) afterRender(result);
+      if (afterRender) afterRender(result,reactionSerial);
     };
   }
 
@@ -16469,7 +16511,6 @@
       }
       checkStoryEvents('overfeed');
       checkMeters();
-      emotePet('angry');
       return;
     }
     if (isEquipped('bowtie')) itemContextReaction('bowtie','ちょうネクタイを直して、いただきます。食べ終えたら小さくおじぎ。');
@@ -16479,8 +16520,11 @@
       setMessage(randomActionMessage('feed'));
       speakEvent('feed');
       checkStoryEvents('feed');
+      return {fed:true,reacted:true};
     }
-    emotePet('happy');
+    return {fed:true,reacted:false};
+  }, (result,reactionSerial) => {
+    if (result?.fed && result.reacted) scheduleCareAfterglow(reactionSerial,1000,'bounce',signals => signals.hunger === 'none');
   }));
 
 
@@ -16624,7 +16668,6 @@
       speakEvent('wake');
       checkStoryEvents('wake');
     }
-    emotePet('happy');
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
@@ -16642,8 +16685,9 @@
       if (!checkMeters()) {
         setMessage(randomActionMessage('cure'));
         speakEvent('medicine_cure');
+        return {cured:true,reacted:true};
       }
-      emotePet('happy');
+      return {cured:true,reacted:false};
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
@@ -16652,8 +16696,10 @@
         setMessage('💊びょうきではないのに、くすりを飲ませた');
         speakEvent('medicine_wrong');
       }
-      emotePet('angry');
+      return {cured:false};
     }
+  }, (result,reactionSerial) => {
+    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1200,'bounce',signals => !signals.sick);
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
@@ -16720,7 +16766,6 @@
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
       if (!spammed) checkStoryEvents('pet');
     }
-    emotePet(spammed ? 'angry' : 'happy');
   }));
 
   const PARTNER_FIRST_ENCOUNTERS = {
@@ -18380,6 +18425,7 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      invalidateCareAfterglow();
       cancelEmotionCue(true);
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       renderCareAttention(null, false);

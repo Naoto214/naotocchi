@@ -46,6 +46,16 @@
   function reactionFor(event, text = '', kind = 'pet') {
     // Outcome wins over happy words in a consolation or an exhausted reply.
     if (['court_fail','breakup','devolve','minigame_bad'].includes(event)) return kind === 'pet' ? 'droop' : 'nod';
+    // The pet's explicit care action is the first beat. Random dialogue tone
+    // still controls partner/companion delivery below.
+    if (kind === 'pet') {
+      if (event === 'feed') return 'munch';
+      if (event === 'play_with_annoyed') return 'settle';
+      if (event === 'medicine_cure') return /まず|苦|にが/.test(text) ? 'shake' : 'settle';
+      if (event === 'medicine_wrong') return 'shake';
+      if (event === 'sleep') return 'doze';
+      if (event === 'wake') return 'stretch';
+    }
     if (event === 'play_with_annoyed') return 'settle';
     if (event === 'medicine_wrong') return kind === 'pet' ? 'shake' : 'curious';
     if (event === 'overfeed') return kind === 'pet' ? 'settle' : 'nod';

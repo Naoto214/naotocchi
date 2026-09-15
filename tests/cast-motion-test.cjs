@@ -257,3 +257,12 @@ test('medicine cure settles first unless the text describes rejection', () => {
   assert.equal(reactionFor('medicine_cure','げんきになったよ'),'settle');
   assert.equal(reactionFor('medicine_cure','にがい！'),'shake');
 });
+
+test('pet care semantics win over randomized line tone without changing social tone', () => {
+  const {reactionFor}=require('../cast-motion.js');
+  assert.equal(reactionFor('feed','食べ終わったら休もう','pet'),'munch');
+  assert.equal(reactionFor('wake','おはよ。まだねむい','pet'),'stretch');
+  assert.equal(reactionFor('play_with','休む予定をもう少し延ばす','pet'),'bounce');
+  assert.equal(reactionFor('feed','食べ終わったら休もう','partner'),'settle');
+  assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
+});

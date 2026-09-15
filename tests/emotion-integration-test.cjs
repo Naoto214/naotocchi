@@ -23,6 +23,14 @@ function renderEmotion(h, values) {
   return h.api.homeEmotion();
 }
 
+function motionDurations(h) {
+  return h.get('petSprite').animations.map(animation => animation.options.duration);
+}
+
+function avoidRoutineAchievementStory(h) {
+  h.api.state().achievementsUnlocked.push('age-10','age-25','sick-cured-1');
+}
+
 test('home derives emotion without adding saved emotion fields', () => {
   const h=harness();
   const emotion=renderEmotion(h,{hunger:40});
@@ -89,6 +97,215 @@ test('ordinary render does not interrupt a real care reaction', () => {
   assert.equal(reaction.playState,'running');
   h.api.render();
   assert.equal(reaction.playState,'running');
+});
+
+test('real feed starts with munch', () => {
+  const h=harness();
+  renderEmotion(h,{hunger:60});
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'munch');
+});
+
+test('real wake keeps stretch for a sleepy randomized line', () => {
+  const h=harness();
+  renderEmotion(h,{isSleeping:true,sleptTicks:20,energy:80});
+  vm.runInContext('Math.random=()=>0',h.sandbox);
+  h.dispatch(h.get('sleepBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'stretch');
+});
+
+test('real wrong medicine starts with shake', () => {
+  const h=harness();
+  renderNormal(h);
+  h.dispatch(h.get('medicineBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'shake');
+});
+
+test('real annoyed play starts with settle', () => {
+  const h=harness();
+  renderEmotion(h,{affectionStreak:3});
+  h.dispatch(h.get('playWithBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'settle');
+});
+
+test('feed adds one pet-only gentle bounce after munch when hunger is cleared', () => {
+  const h=harness();
+  h.api.state().lifetime.equippedItemId='ribbon';
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{hunger:60});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'munch');
+  const groupCount=h.get('castResponse').animations.length;
+  h.advance(2700);
+  assert.equal(h.get('petSprite').dataset.reaction,'bounce');
+  assert.deepEqual(motionDurations(h),[1000,960]);
+  assert.deepEqual(h.get('petAccessory').animations.at(-1)?.frames,h.get('petSprite').animations.at(-1)?.frames);
+  assert.equal(h.get('castResponse').animations.length,groupCount);
+});
+
+test('feed returns to the latest hungry profile without a happy afterglow', () => {
+  const h=harness();
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{hunger:10});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(3500);
+  assert.equal(h.get('petSprite').dataset.reaction,'hungry');
+  assert.deepEqual(motionDurations(h),[1000,1250]);
+});
+
+test('feed afterglow rechecks raw hunger at callback time', () => {
+  const h=harness();
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{hunger:60});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.api.state().hunger=40;
+  h.advance(3000);
+  assert.deepEqual(motionDurations(h),[1000]);
+});
+
+test('feed afterglow rechecks raw pet availability at callback time', () => {
+  for (const [name,change] of [
+    ['sleeping',s=>{s.isSleeping=true;}],
+    ['not playable',s=>{s.stage='farewell';}],
+  ]) {
+    const h=harness();
+    vm.runInContext('Math.random=()=>0.55',h.sandbox);
+    renderEmotion(h,{hunger:60});
+    avoidRoutineAchievementStory(h);
+    h.dispatch(h.get('feedBtn'),'click');
+    change(h.api.state());
+    h.advance(3000);
+    assert.equal(motionDurations(h).filter(duration=>duration===960).length,0,name);
+  }
+});
+
+test('cured medicine settles first and then adds one pet-only bounce', () => {
+  const h=harness();
+  renderEmotion(h,{isSick:true,health:70,energy:80});
+  avoidRoutineAchievementStory(h);
+  vm.runInContext('Math.random=(()=>{const values=[0.55,0.1,0.2];let i=0;return()=>values[i++]??0.55})()',h.sandbox);
+  h.dispatch(h.get('medicineBtn'),'click');
+  h.advance(1);
+  assert.equal(h.get('petSprite').dataset.reaction,'settle');
+  const groupCount=h.get('castResponse').animations.length;
+  h.advance(2700);
+  assert.equal(h.get('petSprite').dataset.reaction,'bounce');
+  assert.deepEqual(motionDurations(h),[1200,960]);
+  assert.equal(h.get('castResponse').animations.length,groupCount);
+});
+
+test('a newer care action invalidates the old feed afterglow', () => {
+  const h=harness();
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{hunger:60});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(200);
+  h.dispatch(h.get('medicineBtn'),'click');
+  h.advance(3000);
+  assert.deepEqual(motionDurations(h),[1000,740]);
+});
+
+test('a newer semantic event invalidates the old feed afterglow', () => {
+  const h=harness();
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{hunger:60});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(200);
+  h.api.speakEvent('wake',{petText:'おきたよ',partnerChance:0,companionChance:0});
+  h.advance(3000);
+  assert.equal(motionDurations(h).filter(duration=>duration===960).length,0);
+});
+
+test('leaving home invalidates a feed afterglow even after returning', () => {
+  const cases=[
+    ['menu',h=>{h.api.openExclusiveMenu('profile');h.api.closeAllMenuOverlays();h.api.render();}],
+    ['story',h=>{h.api.showStoryEvent({emoji:'🌱',message:'おはなし'});h.get('storyFlash').classList.add('hidden');h.api.render();}],
+    ['minigame',h=>{h.api.startMinigame(h.api.games[0]);h.api.retireMinigame();h.api.render();}],
+    ['hidden tab',h=>{h.document.visibilityState='hidden';h.dispatch(h.document,'visibilitychange');h.document.visibilityState='visible';h.dispatch(h.document,'visibilitychange');}],
+  ];
+  for (const [name,leave] of cases) {
+    const h=harness({worldScene:true});
+    vm.runInContext('Math.random=()=>0.55',h.sandbox);
+    renderEmotion(h,{hunger:60});
+    avoidRoutineAchievementStory(h);
+    h.dispatch(h.get('feedBtn'),'click');
+    h.advance(100);
+    leave(h);
+    const bounceCountAfterReturn=motionDurations(h).filter(duration=>duration===960).length;
+    h.advance(3000);
+    assert.equal(motionDurations(h).filter(duration=>duration===960).length,bounceCountAfterReturn,name);
+  }
+});
+
+test('feed afterglow waits for existing companion conversation beats', () => {
+  const h=harness();
+  const s=h.api.state();
+  s.companions=[{id:'snail',bond:100}];
+  renderEmotion(h,{hunger:60});
+  avoidRoutineAchievementStory(h);
+  vm.runInContext('Math.random=(()=>{let i=0;return()=>i++===8?0.55:0.2})()',h.sandbox);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(2600);
+  assert.equal(h.get('speechBubble').dataset.kind,'companion');
+  assert.equal(motionDurations(h).filter(duration=>duration===960).length,0);
+  h.advance(5200);
+  assert.equal(motionDurations(h).filter(duration=>duration===960).length,1);
+});
+
+test('critical life and reduced motion suppress care afterglow movement', () => {
+  for (const [name,options,values] of [
+    ['critical',{}, {hunger:60,deathMeter:80}],
+    ['reduced motion',{reducedMotion:true},{hunger:60}],
+  ]) {
+    const h=harness(options);
+    vm.runInContext('Math.random=()=>0.55',h.sandbox);
+    renderEmotion(h,values);
+    avoidRoutineAchievementStory(h);
+    h.dispatch(h.get('feedBtn'),'click');
+    h.advance(3000);
+    assert.equal(motionDurations(h).filter(duration=>duration===960).length,0,name);
+  }
+});
+
+test('critical life suppresses cured medicine afterglow', () => {
+  const h=harness();
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  renderEmotion(h,{isSick:true,health:70,energy:80,deathMeter:80});
+  avoidRoutineAchievementStory(h);
+  h.dispatch(h.get('medicineBtn'),'click');
+  h.advance(3000);
+  assert.equal(motionDurations(h).filter(duration=>duration===960).length,0);
+});
+
+test('other semantic care reactions finish without an added happy afterglow', () => {
+  const cases=[
+    ['play',{},'playWithBtn'],
+    ['annoyed play',{affectionStreak:3},'playWithBtn'],
+    ['wrong medicine',{},'medicineBtn'],
+    ['sleep',{},'sleepBtn'],
+    ['wake',{isSleeping:true,sleptTicks:20},'sleepBtn'],
+  ];
+  for (const [name,values,button] of cases) {
+    const h=harness();
+    vm.runInContext('Math.random=()=>0.55',h.sandbox);
+    renderEmotion(h,values);
+    avoidRoutineAchievementStory(h);
+    h.dispatch(h.get(button),'click');
+    h.advance(1);
+    const bounceCount=motionDurations(h).filter(duration=>duration===960).length;
+    h.advance(3000);
+    assert.equal(motionDurations(h).filter(duration=>duration===960).length,bounceCount,name);
+  }
 });
 
 test('normal state cancels the old profile timer before it can fire', () => {
