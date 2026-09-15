@@ -13,19 +13,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify new V2 care tests are red against the old implementation
+      - name: Verify retired special-date CSS is caught by the V2 audit
         run: |
           set +e
           node --test tests/items-v2-care-automation-test.cjs > /tmp/red.log 2>&1
           code=$?
           cat /tmp/red.log
           if [ "$code" -eq 0 ]; then
-            echo "Expected V2 care tests to fail before implementation, but they passed."
+            echo "Expected the retired special-date CSS audit to fail before cleanup, but it passed."
             exit 1
           fi
-          grep -q "V2 paper clears every poop" /tmp/red.log
-          grep -q "V2 pillow makes sleep" /tmp/red.log
-          grep -q "V2 bowtie automatically fills hunger" /tmp/red.log
-          grep -q "V2 ribbon automatically fills happiness" /tmp/red.log
-          grep -q "V2 disease equipment automatically cures sickness" /tmp/red.log
-          echo "RED confirmed: the old implementation does not satisfy the V2 care automation contract."
+          grep -q "retired dedicated reward inventory has no production UI or runtime path" /tmp/red.log
+          grep -q "data-theme" /tmp/red.log
+          echo "RED confirmed: the retired special-date CSS is still present and is caught by the V2 audit."
