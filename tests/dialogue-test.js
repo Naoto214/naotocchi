@@ -598,7 +598,7 @@ for (const def of [...master.playerSpecies.normal, ...master.playerSpecies.rare]
   api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
   assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
 }
-console.log('WHOLE-TEXT TEST OK: 248 descriptions; 40 ordinary stories; 10 deep-sea plans; special rewards and skip; 36 anniversary lines; 7 items; event memories; 18 first encounters.');
+console.log('WHOLE-TEXT TEST OK: 248 descriptions; 40 ordinary stories; 10 deep-sea plans; ordinary date skip/close; 36 anniversary lines; event memories; 18 first encounters.');
 
 // The result is relative to this player; a guessing-player win is not an A win.
 for (const [role, winner, expected] of [

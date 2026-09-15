@@ -289,8 +289,7 @@
     poop2:'poop1', poop3:'poop1', scarf2:'scarf', scarf3:'scarf', glasses2:'glasses', glasses3:'glasses',
     energy2:'energy1', energy3:'energy1', hat2:'hat', hat3:'hat', travel2:'travel1', travel3:'travel1',
     sleepboost2:'sleepboost1', sleepboost3:'sleepboost1', star2:'star', star3:'star', bond2:'bond1', bond3:'bond1',
-    partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'
-  };
+    partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown'};
   function normalizeStickers(l) {
     const stickers = l.stickers;
     if (!object(stickers)) return;
@@ -389,7 +388,7 @@
     }
     if (!object(l.itemProgress)) l.itemProgress = {};
     const p = l.itemProgress;
-    p.ticks = count(p.ticks); p.cloverMisses = count(p.cloverMisses);
+    p.ticks = count(p.ticks); delete p.cloverMisses;
     if (!object(p.readyAt)) p.readyAt = {};
     for (const key of Object.keys(p.readyAt)) p.readyAt[key] = count(p.readyAt[key]);
     if (!Array.isArray(p.starGames)) p.starGames = [];

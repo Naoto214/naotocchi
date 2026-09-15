@@ -2464,7 +2464,7 @@
       apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームの失敗の判定に25点を加える' }; } },
     { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫',
       available: () => !state.oneTimeBoosts.greatReward && state.oneTimeBoosts.minigameBoost !== 'big', unavailableMessage: '大成功のおまもりはひとつずつ',
-      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、ごほうび1個とせいちょう28' }; } },
+      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、せいちょう28' }; } },
     { id: 'c_sickshield', label: 'びょうきよけのおふだ', emoji: '🧧',
       available: () => (state.oneTimeBoosts.sicknessShieldCount || 0) <= 0, unavailableMessage: 'おふだがまだのこっている',
       apply: () => { state.oneTimeBoosts.sicknessShieldCount = 3; return { message: 'びょうきよけのおふだをはった（3回分）' }; } },
@@ -9036,14 +9036,10 @@
     } else {
       rememberSpecialDate(plan, partner);
     }
-    const special = false;
-    if (firstRingPhrase) {
-      addItemMemory('specials', itemMemorySnapshot(ringKey, firstRingPhrase, {event:'ring'}));
-    }
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing, special);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing, false);
     render();
   }
 
@@ -15667,7 +15663,7 @@
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * coinBoost * envModifiers().coin);
       state.lifetime.money += coins;
-      itemMessage += gotReward ? `／${fun.label}とごほうび1こ、${coins}コインをもらった!` : `／${fun.label}と${coins}コインをもらった!`;
+      itemMessage += `／${fun.label}と${coins}コインをもらった!`;
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
       state.lifetime.money += 2;
@@ -16950,7 +16946,7 @@
     // アイテムの「たびの おまもり」を もっていれば、この たび 1かいだけ
     // かならず「たびづかれ」なしの よい けっかに なる
     const travelGuaranteed = !!choice?.scene && commitPendingItem('c_travel');
-    const spammedTravel = !specialRewardTrip && !travelGuaranteed && state.travelStreak > travelSpamThreshold();
+    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
     // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
     // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
     // (ぜんぶの地域(REGIONS の 11))」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
@@ -16987,12 +16983,9 @@
     speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
     checkStoryEvents('travel');
     if (travelGuaranteed) reaction = choice.scene.text;
-    const travelMemory = specialRewardTrip || travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:specialRewardTrip ? 'special-travel' : 'travel-detour',choiceId:choice?.scene?.id || null})) : null;
+    const travelMemory = travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:'travel-detour',choiceId:choice?.scene?.id || null})) : null;
     if (!checkMeters()) {
-      if (specialRewardTrip) {
-        pushLifeLog('🎁', `とくべつな旅のおもいで: ${region.label}`);
-        setMessage(`🎁 ${region.emoji} ${region.label}で、いつもよりゆっくりすごした。${reaction}`);
-      } else {
+      {
         setMessage(spammedTravel
           ? `${region.emoji} ${region.label}にやってきた!でも、旅の疲れでちょっとぐったり…${reaction}`
           : `${region.emoji} ${region.label}にやってきた!${reaction}`);
