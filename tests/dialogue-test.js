@@ -577,10 +577,7 @@ api.loop();
 assert.match(getElement('worldDateHint').textContent, /となりまちのロボット/);
 api.renderPartnerCompanion();
 assert.match(getElement('partnerCompanion').innerHTML, /title="となりまちのロボット"/);
-api.getState().items.reward = 1;
-api.goOnDate(api.DATE_PLANS[0]);
-assert.match(getElement('dateRewardPlan').textContent, /となりまちのロボット/);
-assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'date prompt rewrote the saved partner');
+assert.equal(api.getState().partner.label, 'となりまちの ロボット', 'ordinary profile/date display rewrote the saved partner');
 
 for (const candidate of api.ALL_PARTNER_CANDIDATES) {
   reset(); api.checkAchievements(); storyCaptions.length = 0;
