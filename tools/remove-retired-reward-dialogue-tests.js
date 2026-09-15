@@ -36,7 +36,8 @@ rewrite('item-memories.js', (text) => text.replace(
   ''
 ));
 
-rewrite('script.js', (text) => {
+rewrite('script.js', (input) => {
+  let text = input;
   text = text.replace(
     /\n    const special = false;\n    if \(firstRingPhrase\) \{\n      addItemMemory\('specials', itemMemorySnapshot\(ringKey, firstRingPhrase, \{event:'ring'\}\)\);\n    \}\n/,
     '\n'
@@ -48,6 +49,18 @@ rewrite('script.js', (text) => {
   text = text.replace(
     "      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、ごほうび1個とせいちょう28' }; } },",
     "      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、せいちょう28' }; } },"
+  );
+  text = text.replace(
+    '    const spammedTravel = !specialRewardTrip && !travelGuaranteed && state.travelStreak > travelSpamThreshold();',
+    '    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();'
+  );
+  text = text.replace(
+    /    const travelMemory = specialRewardTrip \|\| travelGuaranteed \? addItemMemory\('specials',itemMemorySnapshot\(`travel:\$\{\+\+state\.lifetime\.itemProgress\.sceneSerial\}`, `\$\{region\.label\}で、いつもよりゆっくりすごした。\$\{reaction\}`, \{event:specialRewardTrip \? 'special-travel' : 'travel-detour',choiceId:choice\?\.scene\?\.id \|\| null\}\)\) : null;/,
+    "    const travelMemory = travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:'travel-detour',choiceId:choice?.scene?.id || null})) : null;"
+  );
+  text = text.replace(
+    /      if \(specialRewardTrip\) \{\n        pushLifeLog\('🎁', `とくべつな旅のおもいで: \$\{region\.label\}`\);\n        setMessage\(`🎁 \$\{region\.emoji\} \$\{region\.label\}で、いつもよりゆっくりすごした。\$\{reaction\}`\);\n      \} else \{\n        setMessage\(spammedTravel/,
+    '      {\n        setMessage(spammedTravel'
   );
   return text;
 });
