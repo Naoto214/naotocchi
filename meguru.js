@@ -731,8 +731,12 @@
 
     // 絵文字/イラストの 立て看板を オフスクリーンに いちど えがいて つかいまわす(fillText は とても おもい)
     const glyphCache = new Map();
+    let glyphVersion = -1;
     function glyphSprite(emoji, px, wrap, ns) {
       if (typeof document === 'undefined' || !document.createElement) return null;
+      // え(イラスト/アトラス)が あとから よみこまれたら、placeholder の まま キャッシュ しない ように つくりなおす
+      const ver = typeof S.illustrationVersion === 'function' ? S.illustrationVersion() : 0;
+      if (ver !== glyphVersion) { glyphVersion = ver; glyphCache.clear(); }
       const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12));
       const key = (ns || 'c') + ':' + emoji + '@' + bucket;
       let c = glyphCache.get(key);
@@ -1099,8 +1103,11 @@
       const plainLabel = (id) => (typeof S.regionPlainLabel === 'function' ? S.regionPlainLabel(id, sim.world.local) : id);
       showBanner(`${plainLabel(sim.world.regionId)}を めぐる`, 1600);
       hud();
+      const preload = () => { if (typeof S.prepareIllustrations !== 'function') return; const w = sim.world; const scenery = [...new Set(w.props.map((p) => p.emoji).filter(Boolean))]; const actors = [...new Set(w.residents.concat(sim.party).map((a) => a.emoji).filter(Boolean))]; S.prepareIllustrations(scenery, actors); };
+      preload();
       function enterWorld(regionId) {
         sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [] });
+        preload();
         sim.setEnv(env());
         talkBtn.disabled = true; showSpot(null);
         showBanner(`${plainLabel(regionId)}に ついた`, 1600);

@@ -14341,6 +14341,9 @@
     // けしき(こもの・しゃへいぶつ・めじるし)よう: キャラの え には ぜったいに ならない
     sceneryCtx: (c) => (SCENERY_CANVAS && c ? SCENERY_CANVAS.canvas(c) || c : c),
     resolveScenery: (emoji) => (SCENERY_RESOLVE ? SCENERY_RESOLVE(emoji) : null),
+    // え の よみこみが すすむと かわる ばんごう(めぐる の 立て看板キャッシュを つくりなおす きっかけ)と、まえもって よみこむ
+    illustrationVersion: () => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.version : 0) + (SCENERY_CANVAS ? SCENERY_CANVAS.version : 0),
+    prepareIllustrations: (sceneryList, actorList) => { try { if (SCENERY_CANVAS) SCENERY_CANVAS.prepare(sceneryList || []); if (CANVAS_ILLUSTRATIONS) CANVAS_ILLUSTRATIONS.prepare(actorList || []); } catch (_) { /* よみこみの しっぱいは えがきを とめない */ } },
     resolveDisplay: (emoji) => (DISPLAY_CATALOG ? DISPLAY_CATALOG.resolve(emoji) : null),
     ALL_LINES, currentPetLine: () => state.speciesLine || null,
     isAuthorUnlocked: () => isAuthorUnlocked(),
