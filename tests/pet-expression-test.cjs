@@ -123,3 +123,11 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.accentFor(base,'constructor'),'');
   assert.equal(expression.assetFor('assets/characters/cat/02.png','happy'),'assets/characters/cat/02.png');
 });
+
+test('kitten calling mark follows its smaller head while adult and other marks keep placement', () => {
+  const kitten=expression.accentFor('assets/characters/cat/03.png','wantsPlay');
+  assert.match(kitten,/<g transform="translate\(-14 12\)">/);
+  assert.equal((kitten.match(/accent-call/g)||[]).length,2);
+  assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','wantsPlay'),/<g transform/);
+  assert.doesNotMatch(expression.accentFor('assets/characters/cat/03.png','hungry'),/<g transform/);
+});

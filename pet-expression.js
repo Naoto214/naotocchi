@@ -71,7 +71,11 @@
 
   function accentFor(baseAsset, expression) {
     if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
-    return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${ACCENTS[expression]}</span>`;
+    // The kitten's head sits lower and farther left within the shared sprite canvas.
+    const accent = baseAsset === 'assets/characters/cat/03.png' && expression === 'wantsPlay'
+      ? ACCENTS[expression].replace('<path', '<g transform="translate(-14 12)"><path').replace('</svg>', '</g></svg>')
+      : ACCENTS[expression];
+    return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${accent}</span>`;
   }
 
   function reactionFor(event) {
