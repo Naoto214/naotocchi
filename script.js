@@ -5,6 +5,7 @@
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
+  const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
@@ -3647,7 +3648,7 @@
       }
       carePrevious = {...next, quarter};
       const kind = visible ? notice?.kind || '' : '';
-      if (kind && kind !== carePreviousKind && notice.motion && !mgPerfLow
+      if ((!EMOTION_STATE || !EMOTION_STATE.resolve) && kind && kind !== carePreviousKind && notice.motion && !mgPerfLow
         && !speechActive && !conversationIsBusy() && document.visibilityState !== 'hidden') {
         castMotion?.emote(notice.motion);
       }
@@ -3715,6 +3716,119 @@
     env: window,
   });
 
+  let homeEmotion = {state:'normal',severity:'none',motion:null,cueMinMs:0,cueMaxMs:0,gentle:true,suppressPetIdle:false};
+  let emotionCueTimer = null;
+  let emotionCueKey = '';
+  let emotionCueActiveUntil = 0;
+  let careReactionSerial = 0;
+  let careAfterglowTimer = null;
+
+  function invalidateCareAfterglow() {
+    careReactionSerial += 1;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    careAfterglowTimer = null;
+    return careReactionSerial;
+  }
+
+  function currentCareSignals() {
+    return CARE_STATUS?.signals?.(state, {
+      immortal:isImmortal(),
+      petAvailable:state.affectionStreak < affectionSpamThreshold(),
+    });
+  }
+
+  function scheduleCareAfterglow(serial, delayMs, motion, shouldRun = () => true) {
+    if (serial !== careReactionSerial || !emotionCueContextVisible()) return;
+    if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
+    const tryRun = () => {
+      careAfterglowTimer = null;
+      const signals = currentCareSignals();
+      if (serial !== careReactionSerial || !signals?.playable || signals.sleeping
+        || signals.life === 'critical' || !emotionCueContextVisible() || !careNoticeVisible()
+        || !shouldRun(signals)) return;
+      if (speechActive || conversationIsBusy() || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'})) {
+        careAfterglowTimer = setTimeout(tryRun,120);
+        return;
+      }
+      const duration = castMotion?.pet(motion,{gentle:true}) || 0;
+      if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
+    };
+    careAfterglowTimer = setTimeout(tryRun,delayMs);
+  }
+
+  function deriveHomeEmotion() {
+    if (!CARE_STATUS?.signals || !EMOTION_STATE?.resolve) return homeEmotion;
+    return EMOTION_STATE.resolve(CARE_STATUS.signals(state, {
+      immortal:isImmortal(),
+      petAvailable:state.affectionStreak < affectionSpamThreshold(),
+    }));
+  }
+
+  function emotionCueContextVisible() {
+    return state.stage === STAGE.GROWING && !state.isSleeping
+      && document.visibilityState !== 'hidden' && !gameActive && !meguruActive
+      && !state.transformOptions && !isAnyMenuOverlayOpen()
+      && el.storyFlash.classList.contains('hidden')
+      && el.lifeCardOverlay.classList.contains('hidden')
+      && !el.screenNormal.classList.contains('hidden');
+  }
+
+  function canShowEmotionCue() {
+    return emotionCueContextVisible() && !speechActive && !conversationIsBusy()
+      && !careAfterglowTimer && Date.now() >= petBusyUntil && !castMotion?.isActive({kind:'pet'});
+  }
+
+  function stopActiveEmotionCue() {
+    if (Date.now() < emotionCueActiveUntil && castMotion?.isActive({kind:'pet'})) castMotion.clear();
+    emotionCueActiveUntil = 0;
+  }
+
+  function cancelEmotionCue(stopActive = false) {
+    if (emotionCueTimer) clearTimeout(emotionCueTimer);
+    emotionCueTimer = null;
+    if (stopActive) stopActiveEmotionCue();
+  }
+
+  const randomCueDelay = profile => profile.cueMinMs + Math.random() * (profile.cueMaxMs - profile.cueMinMs);
+
+  function scheduleEmotionCue(delayMs) {
+    cancelEmotionCue();
+    if (!homeEmotion.motion) return;
+    const key = emotionCueKey;
+    emotionCueTimer = setTimeout(() => {
+      emotionCueTimer = null;
+      if (key !== emotionCueKey || !homeEmotion.motion) return;
+      if (!canShowEmotionCue()) { scheduleEmotionCue(1000); return; }
+      const duration = castMotion?.pet(homeEmotion.motion,{gentle:homeEmotion.gentle}) || 0;
+      if (duration) {
+        emotionCueActiveUntil = Date.now() + duration;
+        petBusyUntil = Math.max(petBusyUntil,emotionCueActiveUntil);
+      }
+      scheduleEmotionCue(randomCueDelay(homeEmotion));
+    },Math.max(1,delayMs));
+  }
+
+  function syncHomeEmotion() {
+    const next = deriveHomeEmotion();
+    const key = [next.state,next.severity,next.motion || ''].join('|');
+    const changed = key !== emotionCueKey;
+    homeEmotion = next;
+    emotionCueKey = key;
+    el.petSprite.dataset.emotionState = next.state;
+    el.petSprite.dataset.emotionSeverity = next.severity;
+    if (!emotionCueContextVisible() && careAfterglowTimer) invalidateCareAfterglow();
+    if (!next.motion || !emotionCueContextVisible()) {
+      cancelEmotionCue(true);
+      return;
+    }
+    if (changed) {
+      cancelEmotionCue(true);
+      scheduleEmotionCue(350);
+    } else if (!emotionCueTimer && Date.now() >= emotionCueActiveUntil) {
+      scheduleEmotionCue(350);
+    }
+  }
+
   function hideSpeechBubble() {
     speechActive = false;
     if (speechTimer) { clearTimeout(speechTimer); speechTimer = null; }
@@ -3739,6 +3853,7 @@
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
     renderHomeCast();
+    stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
     speechTimer = setTimeout(() => {
       speechTimer = null;
@@ -5715,6 +5830,7 @@
   function speakEvent(eventKey, ctx = {}) {
     const pool = CONVERSATION_POOLS[eventKey];
     if (!pool) return;
+    if (careAfterglowTimer) invalidateCareAfterglow();
     clearConversationTimers();
     const beats = [];
     const petLine = ctx.petText || pickConversationLine(pool.pet, ctx);
@@ -10006,6 +10122,7 @@
   }
 
   function triggerDeath() {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.DEAD;
@@ -10021,6 +10138,7 @@
   // ここでは そだち・ずかん・じっせき・コインが すべて とまるので、
   // 「もうひとつの freePlay」には ならない(§12)
   function enterFarewell() {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.FAREWELL;
@@ -10425,6 +10543,7 @@
   let endingBadgeTipTimer = null;
 
   function showStoryEvent(event) {
+    invalidateCareAfterglow();
     audio.play('notify');
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
       : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
@@ -10436,6 +10555,7 @@
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
+    cancelEmotionCue(true);
     renderWorldScene(true);
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
     if (event.author || event.character) el.storyFlash.scrollIntoView({ block: 'nearest' });
@@ -10443,6 +10563,7 @@
     storyFlashTimer = setTimeout(() => {
       el.storyFlash.classList.add('hidden');
       renderWorldScene();
+      syncHomeEmotion();
     }, STORY_FLASH_DURATION_MS);
   }
 
@@ -10727,6 +10848,7 @@
 
   function bouncePet() {
     if (castMotion) {
+      stopActiveEmotionCue();
       if (!conversationIsBusy()) castMotion.emote('bounce');
       petBusyUntil = Date.now() + 960;
       return;
@@ -10741,6 +10863,7 @@
   function emotePet(kind) {
     if (kind === 'sad') audio.play('sad'); else if (kind === 'fun') audio.play('chirp');
     if (castMotion) {
+      stopActiveEmotionCue();
       if (!conversationIsBusy()) castMotion.emote({happy:'bounce',fun:'bounce',sad:'droop',angry:'shake',love:'love'}[kind] || 'nod');
       petBusyUntil = Date.now() + 1400;
       return;
@@ -10782,13 +10905,14 @@
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
         && !state.isSleeping && !state.isSick && !state.dying
-        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
-        && Date.now() >= petBusyUntil;
+        && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen();
       if (idleOk) {
         if (castMotion) {
-          castMotion.idle();
-          petBusyUntil = Date.now() + 1600;
-        } else {
+          const excludePet = homeEmotion.state !== 'normal' || homeEmotion.suppressPetIdle
+            || !!careAfterglowTimer || Date.now() < petBusyUntil || castMotion.isActive({kind:'pet'});
+          const duration = castMotion.idle({excludePet});
+          if (duration && !excludePet) petBusyUntil = Date.now() + duration;
+        } else if (!careAfterglowTimer && Date.now() >= petBusyUntil) {
         el.pet.classList.add('idle-perk');
         petBusyUntil = Date.now() + 520;
         setTimeout(() => el.pet.classList.remove('idle-perk'), 520);
@@ -10813,7 +10937,11 @@
         && !conversationIsBusy()
         && !isAnyMenuOverlayOpen();
       if (canGreet) {
-        const choices = [{ kind: 'pet', weight: 4 }];
+        const currentEmotion = deriveHomeEmotion();
+        const excludePet = currentEmotion.state !== 'normal' || currentEmotion.suppressPetIdle;
+        const petIdleBlocked = excludePet || !!careAfterglowTimer
+          || Date.now() < petBusyUntil || castMotion?.isActive({kind:'pet'});
+        const choices = petIdleBlocked ? [] : [{ kind: 'pet', weight: 4 }];
         // 恋人・仲間がいる人生では本人だけが独占せず、周囲もかなりよく割り込む。
         if (state.partner) choices.push({ kind: 'partner', weight: 4 });
         if (state.companions.length) choices.push({ kind: 'companion', weight: 4 });
@@ -10824,7 +10952,7 @@
         } else if (kind === 'companion') {
           const speaker = companionSpeaker();
           setSpeechBubble(pickCharacterConversationLine(COMPANION_CHARACTER_IDLE_LINES[speaker?.id], COMPANION_IDLE_LINES), speaker);
-        } else {
+        } else if (kind === 'pet') {
           const memoryGreeting = Math.random() < 0.3 ? pickMemoryGreeting() : null;
           // 方言は本人の短い遊びとして時々。通常の独り言の大半を占めさせない。
           const greetingPool = Math.random() < 0.08 ? IDLE_GREETINGS_DIALECT : IDLE_GREETINGS;
@@ -11500,6 +11628,7 @@
       el.message.scrollTop = 0;
     }
     renderCareNotice(true);
+    syncHomeEmotion();
 
     const disableCare = isOver || isEgg || hasTransformChoice;
     // さいごの じかん は お世話が できる(そだち等は とまっている)
@@ -15861,10 +15990,12 @@
   // ゲームきろく からの みちすじ = tryStartPlay だけ。テストや ハーネスからの
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
+    invalidateCareAfterglow();
     clearConversationTimers();
     hideSpeechBubble();
     hideMinigameResultToast();
     gameActive = true;
+    cancelEmotionCue(true);
     renderWorldScene(true);
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
@@ -16354,6 +16485,7 @@
 
   function withFeedback(fn, afterRender) {
     return () => {
+      const reactionSerial = invalidateCareAfterglow();
       clearConversationTimers();
       hideSpeechBubble();
       const careBefore = CARE_STATUS?.snapshot(state);
@@ -16362,7 +16494,7 @@
       recordCareChange(careBefore);
       render();
       // クリア後の挨拶は、保存時の実績通知で消えないよう最後に表示する。
-      if (afterRender) afterRender(result);
+      if (afterRender) afterRender(result,reactionSerial);
     };
   }
 
@@ -16395,7 +16527,6 @@
       }
       checkStoryEvents('overfeed');
       checkMeters();
-      emotePet('angry');
       return;
     }
     if (isEquipped('bowtie')) itemContextReaction('bowtie','ちょうネクタイを直して、いただきます。食べ終えたら小さくおじぎ。');
@@ -16405,8 +16536,11 @@
       setMessage(randomActionMessage('feed'));
       speakEvent('feed');
       checkStoryEvents('feed');
+      return {fed:true,reacted:true};
     }
-    emotePet('happy');
+    return {fed:true,reacted:false};
+  }, (result,reactionSerial) => {
+    if (result?.fed && result.reacted) scheduleCareAfterglow(reactionSerial,1000,'bounce',signals => signals.hunger === 'none');
   }));
 
 
@@ -16550,7 +16684,6 @@
       speakEvent('wake');
       checkStoryEvents('wake');
     }
-    emotePet('happy');
   }));
 
   el.medicineBtn.addEventListener('click', withFeedback(() => {
@@ -16568,8 +16701,9 @@
       if (!checkMeters()) {
         setMessage(randomActionMessage('cure'));
         speakEvent('medicine_cure');
+        return {cured:true,reacted:true};
       }
-      emotePet('happy');
+      return {cured:true,reacted:false};
     } else {
       state.happiness = clamp(state.happiness - 10, 0, 100);
       state.health = clamp(state.health - 5, 0, 100);
@@ -16578,8 +16712,10 @@
         setMessage('💊びょうきではないのに、くすりを飲ませた');
         speakEvent('medicine_wrong');
       }
-      emotePet('angry');
+      return {cured:false};
     }
+  }, (result,reactionSerial) => {
+    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1200,'bounce',signals => !signals.sick);
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
@@ -16646,7 +16782,6 @@
       speakEvent(spammed ? 'play_with_annoyed' : 'play_with', { petText: reaction, partnerChance: 0.45, companionChance: 0.8 });
       if (!spammed) checkStoryEvents('pet');
     }
-    emotePet(spammed ? 'angry' : 'happy');
   }));
 
   const PARTNER_FIRST_ENCOUNTERS = {
@@ -18306,6 +18441,8 @@
   // save immediately whenever the tab is hidden/closed so nothing is lost
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
+      invalidateCareAfterglow();
+      cancelEmotionCue(true);
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       renderCareAttention(null, false);
       saveState();
@@ -18347,7 +18484,7 @@
     if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
   });
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
+    if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); syncHomeEmotion(); }
   });
   window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change', renderEnvironment);
   globalThis.NaotocchiDisplayIllustrations?.create({document,iconHTML:displayIconHTML}).install(el.device);
