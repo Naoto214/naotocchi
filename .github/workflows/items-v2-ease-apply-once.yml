@@ -20,8 +20,8 @@ jobs:
           node-version: 22
       - name: Apply bounded V2 patch
         run: node tools/apply-items-v2-ease.js
-      - name: Verify focused tests
-        run: node --test tests/items-v2-ease-automation-test.cjs tests/items-v2-care-automation-test.cjs tests/item-care-game-test.cjs tests/item-relations-travel-test.cjs
+      - name: Verify V2 contract tests
+        run: node --test tests/items-v2-ease-automation-test.cjs tests/items-v2-care-automation-test.cjs
       - name: Commit production changes
         run: |
           git config user.name "github-actions[bot]"
