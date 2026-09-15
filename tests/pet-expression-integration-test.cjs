@@ -4,10 +4,10 @@ const vm = require('node:vm');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
 const BASE = 'assets/characters/cat/06.png';
-const HAPPY = 'assets/characters/expressions/cat/06-happy.png';
+const HAPPY = 'assets/characters/expressions/cat/06-happy-v2.png';
 const STRAINED = 'assets/characters/expressions/cat/06-strained.png';
 const SULKY = 'assets/characters/expressions/cat/06-sulky.png';
-const variant = name => `assets/characters/expressions/cat/06-${name}.png`;
+const variant = name => `assets/characters/expressions/cat/06-${name}${name === 'sleeping' ? '-v2' : ''}.png`;
 
 function adultCat(h, values = {}) {
   h.get('storyFlash').classList.add('hidden');

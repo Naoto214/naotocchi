@@ -42,11 +42,11 @@ test('resolve safely ignores unknown and malformed values', () => {
 test('assetFor allowlists adult-cat expression portraits only', () => {
   const base = 'assets/characters/cat/06.png';
   assert.equal(expression.assetFor(base,'normal'),base);
-  assert.equal(expression.assetFor(base,'happy'),'assets/characters/expressions/cat/06-happy.png');
+  assert.equal(expression.assetFor(base,'happy'),'assets/characters/expressions/cat/06-happy-v2.png');
   assert.equal(expression.assetFor(base,'strained'),'assets/characters/expressions/cat/06-strained.png');
   assert.equal(expression.assetFor(base,'sulky'),'assets/characters/expressions/cat/06-sulky.png');
   for (const name of ['hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
-    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/06-${name}.png`);
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/06-${name}${name === 'sleeping' ? '-v2' : ''}.png`);
   }
   assert.equal(expression.assetFor(base,'startled'),base);
   assert.equal(expression.assetFor(base,'toString'),base);

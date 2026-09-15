@@ -15,3 +15,10 @@ Shared prompt: edit only the face; preserve seated full body, gray fur, ears, ta
 |`assets/characters/expressions/cat/06-sleeping.png`|Fully closed relaxed curved eyes, content tiny smile and soft cheeks; peaceful, no pupils.|`b67ffaee0b25d2e9da68f0001934589802e836c1e228350fe283884c9a0eab63`|
 
 Normalization: ImageMagick alpha threshold50%, trim transparent margins, nearest-neighbor resize to96×112, centered transparent128×128 canvas, quantize to64 colors including transparency, PNG32. All final images are RGBA128×128, alpha0/255, opaque bounds[16,8,112,120] matching the original. Root inspected original-resolution outputs and normalized sprites. iPhone clarity of this expanded set remains user acceptance pending.
+
+## Joy and sleep differentiation follow-up
+
+User requested both faces be improved: happy eyes open, sleeping face less smiley. Built-in image_gen precise-object-edit used separately on each prior portrait. Shared prompt: change only the face, preserve seated body/gray palette/ears/tail/paws/framing, transparent pixel art, no baked-in marks. Happy: wide open sparkling eyes, raised cheeks, small open smile. Sleeping: fully closed relaxed eyelids, neutral mouth without lifted corners, relaxed cheeks. Same ImageMagick normalization as above. New filenames avoid stale image caches; old assets retained. Generated body pixels are not byte-identical. Both normalized sprites visually inspected; iPhone acceptance pending.
+
+- `assets/characters/expressions/cat/06-happy-v2.png`: SHA-256 `e60898a43446d9f4f1dbff2fa6d49c9c1cdf203e1a8bcdb59eb0210de3b8c675`
+- `assets/characters/expressions/cat/06-sleeping-v2.png`: SHA-256 `d6d7d6e412a47007727dded002d4709ae98f0306662a4c8dc4d6a6d59791ef24`
