@@ -15,17 +15,18 @@
   overflow: visible;
 }
 
-.pet-expression-accent .accent-warm { fill: #f3b648; stroke: #6c4529; stroke-width: 1.5; stroke-linejoin: round; }
-.pet-expression-accent .accent-warm-line,
-.pet-expression-accent .accent-call { fill: none; stroke: #d77a38; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.pet-expression-accent .accent-cloud { fill: #a99fa1; stroke: #5b5155; stroke-width: 2; }
-.pet-expression-accent .accent-cloud-line { fill: none; stroke: #61565a; stroke-width: 2; stroke-linecap: round; }
-.pet-expression-accent .accent-thought { fill: #fff1d0; stroke: #73533a; stroke-width: 1.5; }
-.pet-expression-accent .accent-food { fill: #e6a85c; stroke: #63452f; stroke-width: 2; stroke-linejoin: round; }
-.pet-expression-accent .accent-food-eye { fill: #433126; }
-.pet-expression-accent .accent-cool { fill: #88bdd0; opacity: .75; }
-.pet-expression-accent .accent-cool-line { fill: none; stroke: #5792ac; stroke-width: 2; stroke-linecap: round; }
-.pet-expression-accent .accent-sleepy { fill: #dbe8ea; stroke: #718b91; stroke-width: 1.5; }
-.pet-expression-accent .accent-weak { fill: none; stroke: #8e8580; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; opacity: .7; }
-.pet-expression-accent .accent-critical { fill: none; stroke: #68444a; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
-.pet-expression-accent .accent-breath { fill: none; stroke: #819da4; stroke-width: 2.5; stroke-linecap: round; opacity: .85; }
+/* Saturated state colors supplement the distinct shapes, even without motion. */
+.pet-expression-accent .accent-warm { fill: #ffd632; stroke: #995500; stroke-width: 1.5; stroke-linejoin: round; }
+.pet-expression-accent .accent-warm-line { fill: none; stroke: #e75d22; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-call { fill: none; stroke: #ed368d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-cloud { fill: #b36de0; stroke: #612692; stroke-width: 2; }
+.pet-expression-accent .accent-cloud-line { fill: none; stroke: #51217b; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-thought { fill: #ffe4a3; stroke: #c4610a; stroke-width: 1.5; }
+.pet-expression-accent .accent-food { fill: #ff9924; stroke: #a84a08; stroke-width: 2; stroke-linejoin: round; }
+.pet-expression-accent .accent-food-eye { fill: #542b13; }
+.pet-expression-accent .accent-cool { fill: #20bedc; }
+.pet-expression-accent .accent-cool-line { fill: none; stroke: #0789b3; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-sleepy { fill: #d0b5fa; stroke: #8c56ce; stroke-width: 1.5; }
+.pet-expression-accent .accent-weak { fill: none; stroke: #6861cf; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-critical { fill: none; stroke: #e53950; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-sleep-z { fill: none; stroke: #347de3; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }

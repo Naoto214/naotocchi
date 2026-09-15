@@ -32,7 +32,7 @@
     weak: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-weak" d="M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5"/></svg>',
     critical: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-critical" d="M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7"/></svg>',
     wantsPlay: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-call" d="M72 18l-6-7M82 16V7M91 20l7-6"/></svg>',
-    sleeping: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-breath" d="M68 28c5-6 10 6 16 0s10 5 15-1"/></svg>',
+    sleeping: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-sleep-z" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z" d="M88 8h11L88 19h11"/></svg>',
   });
   const REACTIONS = Object.freeze({
     play_with: 'happy',

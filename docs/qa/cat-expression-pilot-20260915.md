@@ -78,3 +78,16 @@ TDDでは拡張前の実装に対し、resolver・runtime・accent・previewの2
 最終レビューでは、喜びプリセットの読み込み時に「じゃれる」を自動実行すると、`checkStoryEvents('pet')` の乱数結果によって通常顔とストーリー表示になる場合があることを再現した。回帰テストを先に変更し、喜びプリセットが拒否されることと自動お世話操作が0件であることについて8件中2件が失敗するREDを確認した。自動操作とプリセットを削除した後は8件成功、0件失敗。
 
 最新main `3f4bfda0b8c0d30098ebb68c4313abd370a8576a` のめぐる・生物表示更新を取り込み、全テスト登録を保持。統合後の `npm test` は前段チェックおよび681件成功、0失敗、0skip。以前の表情切り替えはユーザー実機で動作確認済み。今回追加した7表情・アクセントは実機再確認待ち。
+
+## State accent color follow-up (2026-09-15)
+
+User requested brighter, recognizable state colors and a sleeping mark like 💤.
+Sleep now uses three rising SVG Z paths (no font, image download, or animation).
+Hungry is orange; sick cyan; tired lavender; weak indigo; critical red; wants-play pink;
+sulky purple; happy gold; sleeping blue. Shapes still distinguish states independently of color.
+Adult-cat hunger retains its fish. When additional species gain expression support, choose
+food appropriate to that species from its established data; do not assume all birds eat seeds
+or extend the current adult-cat-only renderer without matching portraits and validation.
+
+TDD: sleep-mark test failed (0 Z paths vs 3), then passed. Focused resolver/runtime: 22/22.
+New colors and sleep glyph require iPhone acceptance; no device visibility claim is made.

@@ -97,3 +97,9 @@ test('the frozen API leaves caller-owned values unchanged', () => {
   assert.equal(JSON.stringify({emotion,options}),before);
   assert.equal(Object.isFrozen(expression),true);
 });
+
+test('sleeping uses three rising Z marks without a font or animation dependency', () => {
+  const markup = expression.accentFor('assets/characters/cat/06.png','sleeping');
+  assert.equal((markup.match(/class="accent-sleep-z"/g) || []).length,3);
+  assert.doesNotMatch(markup, /accent-breath|<text\b|<animate\b/);
+});
