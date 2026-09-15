@@ -1171,13 +1171,6 @@
     dateChooser: document.getElementById('dateChooser'),
     dateChoiceGrid: document.getElementById('dateChoiceGrid'),
     dateCancelBtn: document.getElementById('dateCancelBtn'),
-    dateRewardConfirm: document.getElementById('dateRewardConfirm'),
-    dateRewardPlan: document.getElementById('dateRewardPlan'),
-    dateRewardTitle: document.getElementById('dateRewardTitle'),
-    dateRewardCount: document.getElementById('dateRewardCount'),
-    dateRewardUseBtn: document.getElementById('dateRewardUseBtn'),
-    dateRewardSkipBtn: document.getElementById('dateRewardSkipBtn'),
-    dateRewardBackBtn: document.getElementById('dateRewardBackBtn'),
     dateMovie: document.getElementById('dateMovie'),
     dateMovieScene: document.getElementById('dateMovieScene'),
     dateMoviePlace: document.getElementById('dateMoviePlace'),
@@ -1193,9 +1186,6 @@
     itemSceneText: document.getElementById('itemSceneText'),
     itemSceneActors: document.getElementById('itemSceneActors'),
     itemSceneChoiceGrid: document.getElementById('itemSceneChoiceGrid'),
-    itemSceneRewardActions: document.getElementById('itemSceneRewardActions'),
-    itemSceneRewardUseBtn: document.getElementById('itemSceneRewardUseBtn'),
-    itemSceneRewardSkipBtn: document.getElementById('itemSceneRewardSkipBtn'),
     itemSceneCancelBtn: document.getElementById('itemSceneCancelBtn'),
     travelOverlay: document.getElementById('travelOverlay'),
     travelCloseBtn: document.getElementById('travelCloseBtn'),
@@ -1756,12 +1746,8 @@
       merged.lifetime.ownedShopItems = [...new Set(oldOwned.map((id) => OLD_ITEM_BASE[id] || id).filter((id) => SHOP_ITEMS.some((it) => it.id === id)))];
       merged.lifetime.equippedItemId = OLD_ITEM_BASE[merged.lifetime.equippedItemId] || merged.lifetime.equippedItemId;
       if (!SHOP_ITEMS.some((it) => it.id === merged.lifetime.equippedItemId)) merged.lifetime.equippedItemId = null;
-      // 旧回復ごほうびは在庫をそのまま大量変換せず、まとめて最大2個の新ごほうびへ。
-      const oldRewardIds = ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss'];
-      let oldRewardCount = 0;
       if (!merged.items || typeof merged.items !== 'object') merged.items = {};
-      oldRewardIds.forEach((id) => { oldRewardCount += Number(merged.items[id]) || 0; delete merged.items[id]; });
-      if (oldRewardCount > 0) merged.items.reward = (Number(merged.items.reward) || 0) + Math.min(2, Math.ceil(oldRewardCount / 5));
+      ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss','reward'].forEach((id) => { delete merged.items[id]; });
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -2396,7 +2382,6 @@
     { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌' },
     { id: 'crown', label: 'かんむり', emoji: '👑' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀' },
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -2476,7 +2461,7 @@
       apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに入った。つぎのミニゲーム失敗で、おとろえ・いのち・げんきを守る' }; } },
     { id: 'c_mgsmall', label: 'やる気のおまもり', emoji: '🔥',
       available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ（つぎのゲームで使う）',
-      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームのごほうびと失敗の判定に25点を加える' }; } },
+      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームの失敗の判定に25点を加える' }; } },
     { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫',
       available: () => !state.oneTimeBoosts.greatReward && state.oneTimeBoosts.minigameBoost !== 'big', unavailableMessage: '大成功のおまもりはひとつずつ',
       apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、ごほうび1個とせいちょう28' }; } },
@@ -3302,7 +3287,7 @@
   const ITEM_ILLUSTRATIONS = {
     flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
     energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
-    partner1:'letter',crown:'crown',itemluck1:'clover',
+    partner1:'letter',crown:'crown',
     naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
     fun_candy:'candy',fun_bubbles:'bubbles',fun_balloon:'balloon',fun_fireworks:'fireworks',
     fun_camera:'camera',fun_musicbox:'musicbox',fun_surprise:'surprise',
@@ -8740,7 +8725,6 @@
     document.body.classList.add('movie-active');
     el.device.inert = true;
     el.dateOverlay.classList.add('movie-fullscreen');
-    el.dateRewardConfirm.classList.add('hidden');
     const scene = el.dateMovieScene;
     Object.assign(scene.dataset, {kind, theme, legend, complete:'false', totalBeats:String(beats.length), motion:mgPerfTier >= 2 ? 'low' : 'full'});
     scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
@@ -8858,7 +8842,6 @@
     hideSpeechBubble();
     dateChoiceOptions = pickDateChoices();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
     releaseMoviePresentation();
@@ -8876,7 +8859,6 @@
     clearDateMovieTimers();
     releaseMoviePresentation();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
@@ -9032,27 +9014,7 @@
       render();
       return;
     }
-    // Native dialogs may be suppressed by an embedded browser. Keep this
-    // decision in the game, and commit no date effects until a choice is made.
-    if ((state.items.reward || 0) > 0 && typeof useReward !== 'boolean') {
-      pendingDatePlan = plan;
-      pendingDateContext = {partner:itemPartnerIdentity(state.partner),region:state.regionId};
-      dateOpen = true;
-      clearDateMovieTimers();
-      clearConversationTimers();
-      hideSpeechBubble();
-      el.dateChooser.classList.add('hidden');
-      el.dateMovie.classList.add('hidden');
-      el.dateRewardPlan.textContent = compactJapaneseText(`${state.partner.label}と、${plan.label}`);
-      el.dateRewardCount.textContent = `ごほうびを${state.items.reward}こ持っている`;
-      el.dateRewardConfirm.classList.remove('hidden');
-      render();
-      el.dateRewardTitle.focus({ preventScroll: true });
-      el.dateRewardConfirm.scrollIntoView({ block: 'nearest' });
-      return;
-    }
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
@@ -9074,17 +9036,8 @@
     } else {
       rememberSpecialDate(plan, partner);
     }
-
-    const special = useReward === true && ITEM_SYSTEM.take(state, 'reward');
-    const ringKey = hasNaotoItem('naoto_ring') ? `ring:${itemRelationshipKey(partner)}` : null;
-    const firstRingPhrase = ringKey && !state.lifetime.itemMemories.specials.some(memory => memory.key === ringKey || memory.ringKey === ringKey)
-      ? ringSecretLine(partner) : null;
-    if (special) {
-      recordItemUse('reward');
-      // The first ring phrase belongs to this outing's one card. Later dates
-      // recognize either this marker or an existing ordinary ring card.
-      addItemMemory('specials', itemMemorySnapshot(`special-date:${++state.lifetime.itemProgress.sceneSerial}`, `${partner.label}と、${plan.label}。${plan.line}${firstRingPhrase || ''}`, {event:'date', planId:plan.id, ...(firstRingPhrase ? {ringKey, ringPhrase:firstRingPhrase} : {})}));
-    } else if (firstRingPhrase) {
+    const special = false;
+    if (firstRingPhrase) {
       addItemMemory('specials', itemMemorySnapshot(ringKey, firstRingPhrase, {event:'ring'}));
     }
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
@@ -9468,15 +9421,6 @@
   // items still tends to be mostly low-tier
   // ================================================================
   // ごほうび(かいふくアイテム)
-  // ================================================================
-  // 日常ステータスは「たべる・あそぶ・ねる・くすり」で戻せるため、
-  // ごほうびの主役にはしない。ごほうびは一生の中でたまる「おとろえ」を
-  // ほどくもの、上位はさらに「いのち」を立て直すものとして役割を分ける。
-  // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
-  const RECOVERY_ITEMS = [
-    { id: 'reward', label: 'ごほうび', emoji: '🎁', tier: 'special', rank: 1, weight: 1,
-      effects: {}, desc: 'デートやたびをとくべつなおもいでにできる' },
-  ];
 
   const FUN_ITEMS = [
     {
@@ -9833,11 +9777,7 @@
     maybeMidlifeEvent(age);
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    if (age % 10 === 0 && Math.random() < 0.25) {
-      ITEM_SYSTEM.grant(state, 'reward');
-      setMessage(`🎁 ${age}さい。どこからかごほうびが1ことどいた!`);
-      emotePet('love');
-    } else if (age % 5 === 0) {
+    if (age % 5 === 0) {
       const fun = randomFunItem();
       ITEM_SYSTEM.grant(state, fun.id);
       setMessage(`🎂 ${age}さい。${fun.emoji}${fun.label}をもらって、さっそくしまいこんだ`);
@@ -11634,7 +11574,6 @@
     closeItemScene();
     dateOpen = false;
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     companionInviteOpen = false;
     pickerOpen = false;
     pickerItem = null;
@@ -12527,7 +12466,6 @@
           const missing = Math.max(0, 3 - progress.starGames.length);
           statusText += `／星${progress.starGames.length}/3${missing ? `／あと${missing}種類` : '／星がそろった'}${remaining('star') ? `／受取まで${remaining('star') * 3}秒` : missing ? '' : equipped ? '／次の活動で受取' : '／身につけると受取'}`;
         }
-        if (item.id === 'itemluck1') statusText += `／あと${Math.max(1, 6 - progress.cloverMisses)}回の大成功で確定`;
         if (item.id === 'crown' && state.itemLife.crownUsed) statusText += '／この一生のお守りは使った';
       }
       const badge = equipped ? '⭐' : (owned ? '✔️' : '');
@@ -12811,7 +12749,6 @@
     el.itemSceneActors.innerHTML = `${pet ? stageVisualHTML(pet,'medium') : ''}${record.partner ? partnerVisualHTML(record.partner,'medium') : ''}`;
     el.itemSceneActors.classList.remove('hidden');
     el.itemSceneChoiceGrid.innerHTML = '';
-    el.itemSceneRewardActions.classList.add('hidden');
     el.itemSceneCancelBtn.textContent = 'おうちにもどる';
     el.itemSceneOverlay.classList.remove('hidden');
     render();
@@ -12834,24 +12771,19 @@
     for (const scene of pendingItemScene.choices) {
       const btn = document.createElement('button');btn.type='button';btn.className='date-choice-btn';btn.dataset.scene=scene.id;btn.textContent=scene.text;el.itemSceneChoiceGrid.appendChild(btn);
     }
-    const reward = ITEM_SYSTEM.stock(state,'reward');
-    el.itemSceneRewardActions.classList.toggle('hidden',!reward);
-    el.itemSceneRewardUseBtn.textContent = `ごほうびを1こつかう（${reward}こ）`;
-    el.itemSceneRewardSkipBtn.textContent = 'つかわずにでかける';
-    if (!reward) pendingItemScene.reward = false;
     el.itemSceneOverlay.classList.remove('hidden');
     render();
   }
 
   function commitItemTravelScene() {
     const pending = pendingItemScene;
-    if (!pending || pending.reward === null || (pending.choices.length && pending.choice === null)) return false;
+    if (!pending || (pending.choices.length && pending.choice === null)) return false;
     const region = [...REGIONS,...SPECIAL_REGIONS].find(r => r.id === pending.regionId);
-    if (!travelStartAllowed(region) || state.regionId !== pending.from || itemPartnerIdentity(state.partner) !== pending.partner || (pending.reward && !ITEM_SYSTEM.stock(state,'reward'))) { closeItemScene();render();return false; }
+    if (!travelStartAllowed(region) || state.regionId !== pending.from || itemPartnerIdentity(state.partner) !== pending.partner) { closeItemScene();render();return false; }
     const scene = pending.choices.find(c => c.id === pending.choice);
     if (pending.choices.length && (!scene || (!state.oneTimeBoosts.travelGuarantee && !(state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel'))))) { closeItemScene();render();return false; }
     closeItemScene();
-    return travelToRegion(region,{reward:pending.reward,scene});
+    return travelToRegion(region,{scene});
   }
 
 
@@ -15730,13 +15662,6 @@
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
       const fun = randomFunItem();
       ITEM_SYSTEM.grant(state, fun.id);
-      const cloverGreat = equipped('itemluck1') && rawScore >= 70;
-      const randomReward = Math.random() < 0.12;
-      const gotReward = special || (cloverGreat && progress.cloverMisses >= 5) || randomReward;
-      if (gotReward) {
-        ITEM_SYSTEM.grant(state, 'reward');
-        progress.cloverMisses = 0;
-      } else if (cloverGreat) progress.cloverMisses += 1;
       if (special) state.oneTimeBoosts.greatReward = false;
       const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
       state.oneTimeBoosts.doubleCoins = false;
@@ -17001,7 +16926,7 @@
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
     if (region.id === state.regionId && !sameLocalHome) return false;
-    if (!sameLocalHome && !choice && (ITEM_SYSTEM.stock(state,'reward') || state.oneTimeBoosts.travelGuarantee || (state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel')))) {
+    if (!sameLocalHome && !choice && (state.oneTimeBoosts.travelGuarantee || (state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel')))) {
       openItemTravelScene(region);
       return false;
     }
@@ -17018,8 +16943,6 @@
     }
     state.lifetime.currentLocationSelected = false;
     state.lifetime.currentLocation = null;
-    const specialRewardTrip = choice?.reward === true && ITEM_SYSTEM.take(state,'reward');
-    if (specialRewardTrip) recordItemUse('reward');
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
@@ -17089,8 +17012,6 @@
     for (const child of el.itemSceneChoiceGrid.children) child.setAttribute('aria-pressed', String(child.dataset.scene === btn.dataset.scene));
     commitItemTravelScene();
   });
-  el.itemSceneRewardUseBtn.addEventListener('click', () => { if (pendingItemScene) { pendingItemScene.reward=true;commitItemTravelScene(); } });
-  el.itemSceneRewardSkipBtn.addEventListener('click', () => { if (pendingItemScene) { pendingItemScene.reward=false;commitItemTravelScene(); } });
   el.itemSceneCancelBtn.addEventListener('click', () => { closeItemScene();render(); });
   el.itemRelationActions.addEventListener('click', e => {
     const btn = e.target.closest('button[data-item-relation]');
@@ -17128,35 +17049,6 @@
 
   el.dateCancelBtn.addEventListener('click', () => {
     closeDateOverlay();
-  });
-
-  function confirmDateReward(useReward) {
-    const plan = pendingDatePlan;
-    if (!dateOpen || !plan) return;
-    if (!pendingDateContext || pendingDateContext.partner !== itemPartnerIdentity(state.partner) || pendingDateContext.region !== state.regionId) { closeDateOverlay();return; }
-    pendingDateContext = null;
-    pendingDatePlan = null;
-    goOnDate(plan, useReward);
-  }
-
-  function returnToDateChoices() {
-    if (!dateOpen || !pendingDatePlan) return;
-    pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
-    el.dateChooser.classList.remove('hidden');
-    render();
-    el.dateCancelBtn.focus({ preventScroll: true });
-    el.dateChooser.scrollIntoView({ block: 'nearest' });
-  }
-
-  el.dateRewardUseBtn.addEventListener('click', () => confirmDateReward(true));
-  el.dateRewardSkipBtn.addEventListener('click', () => confirmDateReward(false));
-  el.dateRewardBackBtn.addEventListener('click', returnToDateChoices);
-  el.dateRewardConfirm.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      returnToDateChoices();
-    }
   });
 
   el.dateMovieSkipBtn.addEventListener('click', () => {
