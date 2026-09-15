@@ -7,6 +7,7 @@ const BASE = 'assets/characters/cat/06.png';
 const HAPPY = 'assets/characters/expressions/cat/06-happy.png';
 const STRAINED = 'assets/characters/expressions/cat/06-strained.png';
 const SULKY = 'assets/characters/expressions/cat/06-sulky.png';
+const variant = name => `assets/characters/expressions/cat/06-${name}.png`;
 
 function adultCat(h, values = {}) {
   h.get('storyFlash').classList.add('hidden');
@@ -32,6 +33,10 @@ function face(h) {
   return [h.get('petSprite').dataset.expression,portrait(h)];
 }
 
+function accent(h) {
+  return h.get('petSprite').innerHTML.match(/pet-expression-accent--([A-Za-z]+)/)?.[1] || null;
+}
+
 function avoidRoutineStories(h) {
   h.api.state().achievementsUnlocked.push('age-10','age-25','sick-cured-1');
 }
@@ -44,20 +49,40 @@ function allCompanionIds(h) {
 test('real home emotion profiles select only the adult cat portrait', () => {
   const cases = [
     [{},['normal',BASE]],
-    [{hunger:40},['strained',STRAINED]],
-    [{energy:40},['strained',STRAINED]],
-    [{isSick:true},['strained',STRAINED]],
+    [{hunger:40},['hungry',variant('hungry')]],
+    [{energy:40},['tired',variant('tired')]],
+    [{isSick:true},['sick',variant('sick')]],
     [{happiness:40,affectionStreak:3},['sulky',SULKY]],
-    [{deathMeter:80},['strained',STRAINED]],
+    [{health:25},['weak',variant('weak')]],
+    [{deathMeter:60},['weak',variant('weak')]],
+    [{deathMeter:80},['critical',variant('critical')]],
+    [{happiness:40},['wantsPlay',variant('wantsPlay')]],
   ];
   for (const [values,want] of cases) {
     const h=harness(); adultCat(h,values);
     assert.deepEqual(face(h),want);
   }
 
-  const other=harness(); adultCat(other,{speciesLine:'dog'});
-  assert.equal(other.get('petSprite').dataset.expression,'normal');
+  const other=harness(); adultCat(other,{speciesLine:'dog',hunger:40});
   assert.match(portrait(other),/assets\/characters\/dog\/06\.png/);
+  assert.equal(accent(other),null);
+});
+
+test('adult-cat expressions append unique static accents inside the existing visual', () => {
+  const cases = [
+    [{hunger:40},'hungry'],[{isSick:true},'sick'],[{energy:40},'tired'],
+    [{happiness:40,affectionStreak:3},'sulky'],[{health:25},'weak'],
+    [{deathMeter:80},'critical'],[{happiness:40},'wantsPlay'],[{isSleeping:true},'sleeping'],
+  ];
+  for (const [values,name] of cases) {
+    const h=harness(); adultCat(h,values);
+    assert.equal(accent(h),name);
+    assert.match(h.get('petSprite').innerHTML,/aria-hidden="true"/);
+    assert.doesNotMatch(h.get('petSprite').innerHTML,/<animate\b/);
+  }
+  const happy=harness(); adultCat(happy);
+  happy.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.equal(accent(happy),'happy');
 });
 
 test('real play and medicine outcomes use semantic temporary faces', () => {
@@ -83,9 +108,9 @@ test('real play and medicine outcomes use semantic temporary faces', () => {
   overfed.dispatch(overfed.get('feedBtn'),'click'); overfed.advance(1);
   assert.deepEqual(face(overfed),['strained',STRAINED]);
 
-  const blocked=harness(); adultCat(blocked,{isSleeping:true});
+  const blocked=harness(); adultCat(blocked,{isSleeping:true}); avoidRoutineStories(blocked);
   blocked.dispatch(blocked.get('feedBtn'),'click'); blocked.advance(1);
-  assert.deepEqual(face(blocked),['normal',BASE]);
+  assert.deepEqual(face(blocked),['sleeping',variant('sleeping')]);
 });
 
 test('feed afterglow starts happy only after the validated result and expires to latest state', () => {
@@ -102,7 +127,7 @@ test('feed afterglow starts happy only after the validated result and expires to
   h.advance(800);
   assert.deepEqual(face(h),['happy',HAPPY]);
   h.advance(200);
-  assert.deepEqual(face(h),['strained',STRAINED]);
+  assert.deepEqual(face(h),['hungry',variant('hungry')]);
 });
 
 test('a real cure receives the same validated happy afterglow', () => {
@@ -148,9 +173,9 @@ test('critical state interrupts happy immediately and expiry cannot restore stal
   h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
   assert.deepEqual(face(h),['happy',HAPPY]);
   h.api.state().deathMeter=80; h.api.render();
-  assert.deepEqual(face(h),['strained',STRAINED]);
+  assert.deepEqual(face(h),['critical',variant('critical')]);
   h.advance(3000);
-  assert.deepEqual(face(h),['strained',STRAINED]);
+  assert.deepEqual(face(h),['critical',variant('critical')]);
 });
 
 test('a new life cancels the old face timer', () => {
@@ -165,9 +190,23 @@ test('a new life cancels the old face timer', () => {
   assert.deepEqual(face(h),['normal',BASE]);
 });
 
-test('sleep, form changes, and blocked screens clear a temporary face', () => {
+test('sleep uses its own face, and waking shows normal before latest-state reevaluation', () => {
+  const h=harness(); adultCat(h,{isSleeping:true}); avoidRoutineStories(h); h.get('storyFlash').classList.add('hidden');
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  assert.deepEqual(face(h),['sleeping',variant('sleeping')]);
+  assert.equal(accent(h),'sleeping');
+  h.dispatch(h.get('sleepBtn'),'click'); h.advance(1);
+  assert.deepEqual(face(h),['normal',BASE]);
+  assert.equal(accent(h),null);
+  h.api.state().hunger=40; h.api.render();
+  assert.deepEqual(face(h),['normal',BASE]);
+  h.advance(2500);
+  assert.deepEqual(face(h),['hungry',variant('hungry')]);
+  assert.equal(accent(h),'hungry');
+});
+
+test('form changes and blocked screens clear the temporary face and accent', () => {
   const cases = [
-    ['sleep',h=>{h.api.state().isSleeping=true;h.api.render();},BASE],
     ['form',h=>{h.api.state().speciesLine='dog';h.api.render();},'assets/characters/dog/06.png'],
     ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
     ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
@@ -182,6 +221,7 @@ test('sleep, form changes, and blocked screens clear a temporary face', () => {
     interrupt(h);
     assert.equal(portrait(h),want,name);
     assert.notEqual(h.get('petSprite').dataset.expression,'happy',name);
+    assert.equal(accent(h),null,name);
   }
 });
 

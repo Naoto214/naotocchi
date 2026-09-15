@@ -8,18 +8,18 @@ const expression = require('../pet-expression.js');
 test('static script exposes the frozen resolver on window', () => {
   const context = {window:{}};
   vm.runInNewContext(fs.readFileSync(require.resolve('../pet-expression.js'),'utf8'),context);
-  assert.equal(context.window.NaotocchiPetExpression.resolve({state:'hungry'}),'strained');
+  assert.equal(context.window.NaotocchiPetExpression.resolve({state:'hungry'}),'hungry');
   assert.equal(Object.isFrozen(context.window.NaotocchiPetExpression),true);
 });
 
 test('resolve maps every persistent home emotion to its approved face', () => {
   const cases = [
     [{state:'normal',severity:'none'},'normal'],
-    [{state:'wantsPlay',severity:'mild'},'normal'],
-    [{state:'hungry',severity:'mild'},'strained'],
-    [{state:'tired',severity:'strong'},'strained'],
-    [{state:'sick',severity:'strong'},'strained'],
-    [{state:'weak',severity:'mild'},'strained'],
+    [{state:'wantsPlay',severity:'mild'},'wantsPlay'],
+    [{state:'hungry',severity:'mild'},'hungry'],
+    [{state:'tired',severity:'strong'},'tired'],
+    [{state:'sick',severity:'strong'},'sick'],
+    [{state:'weak',severity:'mild'},'weak'],
     [{state:'unhappy',severity:'strong'},'sulky'],
   ];
   for (const [emotion,want] of cases) assert.equal(expression.resolve(emotion),want);
@@ -27,8 +27,10 @@ test('resolve maps every persistent home emotion to its approved face', () => {
 
 test('resolve applies temporary, critical, and sleeping precedence', () => {
   assert.equal(expression.resolve({state:'unhappy'},{reaction:'happy'}),'happy');
-  assert.equal(expression.resolve({state:'weak',severity:'critical'},{reaction:'happy'}),'strained');
-  assert.equal(expression.resolve({state:'unhappy'},{sleeping:true,reaction:'happy'}),'normal');
+  assert.equal(expression.resolve({state:'weak',severity:'critical'},{reaction:'happy'}),'critical');
+  assert.equal(expression.resolve({state:'unhappy'},{sleeping:true,reaction:'happy'}),'sleeping');
+  assert.equal(expression.resolve({state:'unhappy'},{blocked:true,reaction:'happy'}),'normal');
+  assert.equal(expression.resolve({state:'unhappy'},{blocked:true,sleeping:true}),'normal');
 });
 
 test('resolve safely ignores unknown and malformed values', () => {
@@ -43,12 +45,32 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'happy'),'assets/characters/expressions/cat/06-happy.png');
   assert.equal(expression.assetFor(base,'strained'),'assets/characters/expressions/cat/06-strained.png');
   assert.equal(expression.assetFor(base,'sulky'),'assets/characters/expressions/cat/06-sulky.png');
+  for (const name of ['hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/06-${name}.png`);
+  }
   assert.equal(expression.assetFor(base,'startled'),base);
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
   assert.equal(expression.assetFor('assets/characters/cat/05.png','happy'),'assets/characters/cat/05.png');
   assert.equal(expression.assetFor(null,'happy'),null);
+});
+
+test('accentFor returns one static accessible-hidden SVG accent per non-normal adult-cat expression', () => {
+  const base = 'assets/characters/cat/06.png';
+  const names = ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping'];
+  const accents = names.map(name => expression.accentFor(base,name));
+  for (const [index,markup] of accents.entries()) {
+    const name=names[index];
+    assert.match(markup,new RegExp(`class="pet-expression-accent pet-expression-accent--${name}"`),name);
+    assert.match(markup,/aria-hidden="true"/,name);
+    assert.match(markup,/<svg\b/,name);
+    assert.doesNotMatch(markup,/<(?:animate|text)\b/,name);
+  }
+  assert.equal(new Set(accents).size,names.length);
+  assert.equal(expression.accentFor(base,'normal'),'');
+  assert.equal(expression.accentFor(base,'unknown'),'');
+  assert.equal(expression.accentFor('assets/characters/dog/06.png','happy'),'');
 });
 
 test('reactionFor maps every approved semantic event and rejects unknown events', () => {

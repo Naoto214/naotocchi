@@ -10,7 +10,10 @@ const PRESETS = Object.freeze({
   sick: Object.freeze({isSick:true,sicknessType:'かぜ'}),
   tired: Object.freeze({energy:40}),
   sulky: Object.freeze({happiness:40,affectionStreak:3}),
+  weak: Object.freeze({deathMeter:60}),
   critical: Object.freeze({deathMeter:80}),
+  wantsPlay: Object.freeze({happiness:40}),
+  sleeping: Object.freeze({isSleeping:true}),
 });
 
 function runtimeFreshAdultCat() {
@@ -81,7 +84,8 @@ function buildPreview({preset='hungry'}={}) {
   if (!Object.hasOwn(PRESETS,preset)) throw new TypeError(`Unknown preview preset: ${preset}`);
   const links=Object.keys(PRESETS).map(key=>
     `<a href="?preset=${key}">${({
-      normal:'通常',hungry:'空腹',sick:'病気',tired:'疲労',sulky:'不機嫌',critical:'危険',
+      normal:'通常',hungry:'空腹',sick:'病気',tired:'疲労',sulky:'不機嫌',weak:'いのち低下',
+      critical:'危険',wantsPlay:'かまって',sleeping:'睡眠',
     })[key]}</a>`).join('');
   const child=attribute(gameDocument(preset));
   return `<!doctype html>

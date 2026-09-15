@@ -38,10 +38,15 @@ function runBootstrap(html,search='',sentinelValue='real-save') {
     get length() {calls.push(['length']);return externalData.size;},
   };
   const parent={location:{search},localStorage:externalStorage};
-  const sandbox={console,Map,URLSearchParams,parent,localStorage:externalStorage};
+  const load=[];
+  const clicked=[];
+  const sandbox={console,Map,URLSearchParams,parent,localStorage:externalStorage,
+    addEventListener(type,fn) { if(type==='load') load.push(fn); },
+    document:{getElementById(id){return {click(){clicked.push(id);}};}},
+  };
   sandbox.window=sandbox;
   vm.runInNewContext(bootstrap,sandbox);
-  return {storage:sandbox.localStorage,externalData,calls};
+  return {storage:sandbox.localStorage,externalData,calls,load,clicked};
 }
 
 function seededState(html,search='') {
@@ -115,7 +120,10 @@ test('URL presets use a strict allowlist and reset every care fixture independen
     sick:{hunger:80,happiness:80,energy:80,isSick:true,sicknessType:'かぜ',deathMeter:0,affectionStreak:0},
     tired:{hunger:80,happiness:80,energy:40,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0},
     sulky:{hunger:80,happiness:40,energy:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:3},
+    weak:{hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,deathMeter:60,affectionStreak:0,isSleeping:false},
     critical:{hunger:80,happiness:80,energy:80,isSick:false,sicknessType:null,deathMeter:80,affectionStreak:0},
+    wantsPlay:{hunger:80,happiness:40,energy:80,health:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0,isSleeping:false},
+    sleeping:{hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,deathMeter:0,affectionStreak:0,isSleeping:true},
   };
   for (const [preset,want] of Object.entries(cases)) {
     const {state}=seededState(html,`?preset=${preset}`);
@@ -125,6 +133,15 @@ test('URL presets use a strict allowlist and reset every care fixture independen
     'unknown URL values fall back to the selected safe default');
   assert.throws(()=>buildPreview({preset:'other'}),/Unknown preview preset/);
   for (const preset of Object.keys(cases)) assert.match(html,new RegExp(`href="\\?preset=${preset}"`));
+});
+
+test('temporary happy stays on ordinary care controls and never runs automatically', () => {
+  const html=buildPreview();
+  const run=runBootstrap(html);
+  assert.throws(()=>buildPreview({preset:'happy'}),/Unknown preview preset/);
+  assert.doesNotMatch(html,/href="\?preset=happy"/);
+  assert.deepEqual(run.load,[]);
+  assert.deepEqual(run.clicked,[]);
 });
 
 test('CLI writes the same self-contained preview for the requested safe preset', () => {
@@ -151,7 +168,7 @@ test('preview startup save does not unlock old age achievements and hide the fac
   h.api.saveState();
   h.api.render();
   assert.equal(h.get('storyFlash').classList.contains('hidden'),true);
-  assert.equal(h.get('petSprite').dataset.expression,'strained');
+  assert.equal(h.get('petSprite').dataset.expression,'hungry');
 });
 
 test('preset clicks reset only the child session and bootstrap uses that selected preset', () => {
@@ -163,7 +180,7 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
   const nav={addEventListener(type,fn){assert.equal(type,'click');handler=fn;},contains:()=>true};
   const document={querySelector:selector=>selector==='iframe'?frame:nav};
   vm.runInNewContext(code,{document,URLSearchParams});
-  for(const preset of ['normal','hungry','sick','tired','sulky','critical']) {
+  for(const preset of ['normal','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping']) {
     let prevented=false;
     handler({target:{closest:()=>({getAttribute:()=>'?preset='+preset})},preventDefault(){prevented=true;}});
     assert.equal(prevented,true);
@@ -174,8 +191,13 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
     const state=JSON.parse(ctx.localStorage.getItem(SAVE_KEY));
     assert.equal(state.hunger,preset==='hungry'?40:80);
     assert.equal(state.energy,preset==='tired'?40:80);
-    assert.equal(state.happiness,preset==='sulky'?40:80);
+    assert.equal(state.happiness,['sulky','wantsPlay'].includes(preset)?40:80);
     assert.equal(state.isSick,preset==='sick');
-    assert.equal(state.deathMeter,preset==='critical'?80:0);
+    assert.equal(state.deathMeter,preset==='critical'?80:preset==='weak'?60:0);
+    assert.equal(state.isSleeping,preset==='sleeping');
   }
+  let prevented=false;
+  handler({target:{closest:()=>({getAttribute:()=>'?preset=happy'})},preventDefault(){prevented=true;}});
+  assert.equal(prevented,false,'unsupported happy is not handled as a preset');
+  assert.equal(frame.dataset.preset,'sleeping');
 });

@@ -3810,12 +3810,16 @@
     }));
   }
 
-  function emotionCueContextVisible() {
-    return state.stage === STAGE.GROWING && !state.isSleeping
+  function petExpressionContextVisible() {
+    return state.stage === STAGE.GROWING
       && document.visibilityState !== 'hidden' && !gameActive && !meguruActive
       && !state.transformOptions && !isAnyMenuOverlayOpen()
       && el.storyFlash.classList.contains('hidden')
       && el.lifeCardOverlay.classList.contains('hidden');
+  }
+
+  function emotionCueContextVisible() {
+    return !state.isSleeping && petExpressionContextVisible();
   }
 
   function canShowEmotionCue() {
@@ -11193,15 +11197,17 @@
     }
     const fallback = stage?.fallbackAsset
       ? ` data-fallback-asset="${escapeHtml(stage.fallbackAsset)}"` : '';
+    const accent = stage?.accent || '';
     return `<span class="character-visual character-${size} has-asset">
       <img class="character-asset" src="${escapeHtml(asset)}"${fallback} alt="" draggable="false">
       <span class="character-emoji-fallback">${safeEmoji}</span>
+      ${accent}
     </span>`;
   }
 
   function setStageVisual(target, stage, size = 'medium') {
     if (!target) return;
-    const key = JSON.stringify([stage?.asset, stage?.fallbackAsset, stage?.emoji, size]);
+    const key = JSON.stringify([stage?.asset, stage?.fallbackAsset, stage?.emoji, stage?.accent, size]);
     if (target === el.petSprite && target.dataset.visualKey === key && target.innerHTML) return;
     target.dataset.visualKey = key;
     target.innerHTML = stageVisualHTML(stage, size);
@@ -11221,15 +11227,17 @@
     if (reaction) el.petSprite.dataset.visualKey = '';
     const baseStage = currentVisualStage();
     const emotion = deriveHomeEmotion();
-    const contextVisible = emotionCueContextVisible();
+    const contextVisible = petExpressionContextVisible();
     const expression = PET_EXPRESSION?.resolve(emotion, {
-      sleeping:state.isSleeping || !contextVisible,
+      sleeping:state.isSleeping,
+      blocked:!contextVisible,
       reaction:currentPetExpressionReaction(emotion),
     }) || 'normal';
     const candidate = PET_EXPRESSION?.assetFor(baseStage.asset,expression) || baseStage.asset;
     const asset = candidate && failedCastAssets.has(candidate) ? baseStage.asset : candidate;
+    const accent = PET_EXPRESSION?.accentFor?.(baseStage.asset,expression) || '';
     const visualStage = asset !== baseStage.asset
-      ? {...baseStage,asset,fallbackAsset:baseStage.asset} : baseStage;
+      ? {...baseStage,asset,fallbackAsset:baseStage.asset,accent} : {...baseStage,accent};
     el.petSprite.dataset.expression = expression;
     setStageVisual(el.petSprite, visualStage, 'hero');
     if (!reaction || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
@@ -14555,6 +14563,8 @@
     SPECIES,
     speciesStageDesc: (line, i) => stageDesc(line, i),
     allCompanionsById, canonicalCompanionId,
+    // けしきの かんさ よう: なかま・レアなかま ぜんいんの emoji を しる ため
+    allCompanions: () => [...COMPANIONS, ...RARE_COMPANIONS],
     partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),

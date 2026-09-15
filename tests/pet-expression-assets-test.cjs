@@ -13,6 +13,13 @@ const EXPECTED = Object.freeze({
   'assets/characters/expressions/cat/06-happy.png': '98c1b745b65ce17aaace98cc210de623f238563f4bbcab59bd0afebfb60074f8',
   'assets/characters/expressions/cat/06-strained.png': '66c8e780bd8365b45676d60c6d4be762a025976694b58963be649b293509c7aa',
   'assets/characters/expressions/cat/06-sulky.png': '72ff579e670c081fe888c26dfee5181fb16d04aab3508ef9c2ad0f2b4a07e0ba',
+  'assets/characters/expressions/cat/06-hungry.png': '85eb48deb349bf9c374ad75900694a1f35afb9e3c6d88748320a60c5f1e8105f',
+  'assets/characters/expressions/cat/06-sick.png': 'aab6c564c6aa2f235d2209d3c6edba234815cc9494b45f11f03fb9a2a0abd3ff',
+  'assets/characters/expressions/cat/06-tired.png': '7748f94642c1c1ddacd5189f3e522e5f095199a77d6dabb6c6ba45a6bec4a36d',
+  'assets/characters/expressions/cat/06-weak.png': 'b1f1d0f9bf0ccbb3a54b0982f2999f5750039c7384255afc1fecd5111cc76388',
+  'assets/characters/expressions/cat/06-critical.png': '10a4d9a61fd8b898f7a41ab9d7f36681c85656d688cc85584cc0d907f36b0c3d',
+  'assets/characters/expressions/cat/06-wantsPlay.png': 'fb36a5a16d7b6ae74857c6f9b7353b416a11566d788b9919a73f1d652800fa21',
+  'assets/characters/expressions/cat/06-sleeping.png': 'b67ffaee0b25d2e9da68f0001934589802e836c1e228350fe283884c9a0eab63',
 });
 
 function inspectPng(relativePath) {
@@ -67,8 +74,13 @@ function inspectPng(relativePath) {
     }
   }
   const alpha = new Set();
+  let left=width,top=height,right=0,bottom=0;
   for (let i=3;i<decoded.length;i+=4) alpha.add(decoded[i]);
-  return {data,alpha:[...alpha].sort((a,b)=>a-b)};
+  for (let y=0;y<height;y+=1) for (let x=0;x<width;x+=1) {
+    if (decoded[y*stride+x*4+3] === 0) continue;
+    left=Math.min(left,x); top=Math.min(top,y); right=Math.max(right,x+1); bottom=Math.max(bottom,y+1);
+  }
+  return {data,alpha:[...alpha].sort((a,b)=>a-b),bounds:[left,top,right,bottom]};
 }
 
 test('the original adult cat stays byte-identical to the approved master', () => {
@@ -77,17 +89,18 @@ test('the original adult cat stays byte-identical to the approved master', () =>
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),EXPECTED[relativePath]);
 });
 
-test('all three expression assets are distinct approved transparent RGBA PNGs', () => {
+test('all ten expression assets are distinct approved transparent RGBA PNGs on the original bounds', () => {
   const variants=Object.keys(EXPECTED).filter(file=>file.includes('/expressions/'));
   const hashes=[];
   for (const relativePath of variants) {
-    const {data,alpha}=inspectPng(relativePath);
+    const {data,alpha,bounds}=inspectPng(relativePath);
     const hash=crypto.createHash('sha256').update(data).digest('hex');
     assert.equal(hash,EXPECTED[relativePath],`${relativePath} matches its approved normalized output`);
     assert.deepEqual(alpha,[0,255],`${relativePath} has transparent and opaque pixels only`);
+    assert.deepEqual(bounds,[16,8,112,120],`${relativePath} keeps the adult-cat master bounds`);
     hashes.push(hash);
   }
-  assert.equal(new Set(hashes).size,3,'the three expressions are different files');
+  assert.equal(new Set(hashes).size,10,'the ten expressions are different files');
   assert.ok(hashes.every(hash=>hash!==EXPECTED['assets/characters/cat/06.png']),
     'no expression is a copy of the original portrait');
 });
@@ -98,6 +111,13 @@ test('every runtime-allowlisted adult-cat expression path exists', () => {
     happy:'assets/characters/expressions/cat/06-happy.png',
     strained:'assets/characters/expressions/cat/06-strained.png',
     sulky:'assets/characters/expressions/cat/06-sulky.png',
+    hungry:'assets/characters/expressions/cat/06-hungry.png',
+    sick:'assets/characters/expressions/cat/06-sick.png',
+    tired:'assets/characters/expressions/cat/06-tired.png',
+    weak:'assets/characters/expressions/cat/06-weak.png',
+    critical:'assets/characters/expressions/cat/06-critical.png',
+    wantsPlay:'assets/characters/expressions/cat/06-wantsPlay.png',
+    sleeping:'assets/characters/expressions/cat/06-sleeping.png',
   };
   for (const [face,relativePath] of Object.entries(expected)) {
     assert.equal(expression.assetFor(base,face),relativePath);

@@ -1991,3 +1991,26 @@ Runtime smoke test SUCCESS確認済み。
 - 互換: セーブ形式は変更なし。るすばん(`applyOfflineProgress`)の扱いも変更なし。
 - テスト `tests/time-pause-test.cjs`(7 件): ホームでは進む/めぐる中は 40 tick 進めても年齢・ステータスが不変で戻ると再開、瀕死の子がめぐる中 200 tick で死なない、ミニゲームとクイック中は止まり終了後に再開、へんしん選択中は止まり「そのまま」で再開、10 種のメニュー全部で停止と再開、めぐる中はさそいが出ず・メニューが開かず・Esc で閉じる、デート中の停止。既存の `clownfish-romance-test`「stage-7 notice waits …」はゲーム中に tick が進む前提だったので、直接 `tick()` を呼ぶ形に直した(お知らせがゲーム結果のあとまで待つ、という本来の検証は維持)。ハーネスに `isTimePaused` を追加。`npm test` に登録。
 
+## チェックポイント CP — めぐるの景色から動物を外す(「生きている生き物」= 住民台帳だけ)(2026-09-15)
+- 症状: ジャングルで同じ 🦜 が 5 羽前後見える。住民の重複ではなく `WORLDS.jungle.props` / `WORLD_STYLE.jungle.lane` / `hint` に 🦜 が入っていて、ランダム景色生成がそれを何度も置いていた(PR #273 で画像化は止まったが、ネイティブ絵文字でも「同じキャラが大量にいる」ように見える)。
+- 方針(meguru.js 冒頭のコメントに明記): めぐるで「生きているキャラクター」は住民台帳(ずかんの すがた・なかま・レアなかま・こいびと・ナオト)だけ。ランダムに何度も置かれる景色プール(props / lane / wall / hint / zone の lane / LOCAL_FLAVOR)には鳥・魚・哺乳類・爬虫類・虫の絵文字を入れない。草木・花・きのこは図鑑に似た姿があっても景色として自然なので別扱い(🪸 サンゴ・🐚 貝がら・🐾 足あとも景色)。場所を表すために 1 つだけ置く場合は生き物本人に見えない看板/痕跡にする。
+- 全地域の横断監査と置き換え(プールの長さは変えず密度を維持):
+  - home: props 🕊️→🌼
+  - city: ろじうら lane 🐈→🚲、スポット「ねこのばしょ」の目印 🐈→🐾
+  - countryside: props 🐄→🪵 / 🦋→🌼 / 🐓→🏚️、lane 🐓→🌱、hint 🦋→🌻、スポット「ぼくじょう」🐄→🪧
+  - forest: props 🦉→🍂
+  - mountain: props 🦅→🪧
+  - snow: props 🦌→🧊
+  - sea: props 🦀→⛱️ / 🐬→🌊、lane 🦀→🏖️、いわば lane 🦀→🌊
+  - deepsea: props 🐙→🌿 / 🦑→🪨 / 🪼→🫧、lane 🪼→🪨
+  - river_lake: props 🦆→🎣 / 🐟→🌾、lane 🦆→🌳 / 🐟→💧、hint 🦆→🌿
+  - jungle: props 🦜→🪵 / 🐍→🌱、lane 🦜→🌴、hint 🦜→🌿
+  - desert: props 🐫→🏺 / 🦎→🏜️(+🌴)、lane 🦎→🌴 / 🐫→☀️、hint 🦎→🏺、スポット「ラクダのみずば」🐫→🪧
+  - star_stop / memory_lake / LOCAL_FLAVOR: もともと動物なし。
+- API: `isFaunaEmoji(emoji)`(Unicode の動物ブロック U+1F400..1F43D / U+1F980..1F9AE / U+1FAB0..1FAB3 / クラゲ・ガチョウ・ヘラジカ・ロバ・ハト・クモ。🐚 🐾 🦠 は除外)、`SCENERY_FAUNA`(その一覧)、`sceneryPools()` → `[{ region, pool, emojis }]`(props/lane/wall/hint/zone:*/spot/LOCAL_FLAVOR/landmark fallback)、`auditSceneryFauna()` → `[{ region, pool, emoji }]`。`auditScenery()` の戻り値に `fauna` を追加。`sceneryEmojis()` は `sceneryPools()` から作る。
+- 確認: 全 13 地域で `buildWorld` の生成 prop 数・層ごとの内訳・住民数が変更前後で完全に同じ(home 142 / city 242 / countryside 223 / forest 351 / mountain 253 / snow 227 / sea 200 / deepsea 226 / river_lake 210 / jungle 274 / desert 247 / star_stop 242 / memory_lake 225)。
+- テスト `tests/meguru-fauna-test.cjs`(6 件): 分類器(動物は true、植物・貝・足あと・サンゴ・看板は false)、ジャングルの props/lane/hint に 🦜🐍 がなくプール長 8/6/3 のまま、全地域の全プール(スポットの目印・LOCAL_FLAVOR 含む)に動物なし、生成後の世界の prop にも動物がなく住民は全員台帳由来、台帳の内容と地域ごとの住民数は変わらない、プール長と生成 prop 数の下限で密度維持。`meguru-audit-test` の 10 番は 🐈 が景色から消えたので 🍄 だけを見る形に変更。`npm test` に登録。
+- 追記(PR #277 レビュー対応): 雪国の props / lane と「ゆきはら」「ゆきだるまのおか」の目印に残っていた ⛄(illustration-catalog では partners/snowman.png = こいびと「とけないゆきだるま」)も同じ問題。props ⛄→🪵、lane ⛄→🌨️、ゆきはら ⛄→🛷、ゆきだるまのおか ⛄→🧣(マフラーだけ残った跡)に置き換え(プール長・生成 prop 数 227 は不変)。
+- 横断監査(動物以外): なかま・レアなかま・こいびとの emoji(script.js の実行時テーブル。S ブリッジに `allCompanions()` を追加)と、表示用 resolver がキャラ画像にする絵文字(植物ライン plant/dandelion/sakura/venus_flytrap/world_tree/mushroom/coral は除く)を全プールと突き合わせる `auditSceneryCharacters(displayResolve)` → `{ characters, issues, allowed }` を追加(`characterEmojiMap`、☃️/⛄ などカタログと同じ別名を正規化)。残った一致は 🌻(ひまわりの こいびと)・🌵(オアシスのサボテン)・❄️(ゆきのせいれい)= 植物・天気として許容(`SCENERY_CHARACTER_ALLOW`)と、ジャングル遺跡の 🗿(レアなかま「せきぞう」)= 1 スポットに 1 体だけの石像として許容(`SPOT_STATUE_ALLOW`。ランダムのプールには入れない・1 世界に 2 か所目は issue)。`auditScenery()` の戻り値に `characters` を追加。
+- テスト追加(meguru-fauna-test に 4 件): 雪国に ⛄ がなく 🧣/🛷 に置き換わり密度不変、なかま・こいびとの emoji と ☃️/⛄ 別名が監査に載る、全ランダムプールにキャラ絵文字なし(許容は plant/weather/statue のみで 🗿 は jungle の spot 1 つ)、⛄ や 🦜 をプールに戻す・2 か所目の 🗿 を置くと issue になる。`npm test` 585 pass。
+
