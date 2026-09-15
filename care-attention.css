@@ -38,8 +38,8 @@
 .device[data-care-illness="true"] #pet #petSprite::after {
   content:"";position:absolute;box-sizing:border-box;z-index:3;top:var(--care-sweat-top,14%);right:var(--care-sweat-right,8%);
   width:clamp(6px,10%,11px);height:clamp(9px,15%,16px);
-  border-radius:65% 35% 60% 40%;background:#69c8e5;border:1px solid #f2fcff;
-  box-shadow:0 1px 4px #184766b3;pointer-events:none;opacity:.85;
+  border-radius:65% 35% 60% 40%;background:#a5d934;border:1px solid #f3ffd6;
+  box-shadow:0 1px 4px #466819b3;pointer-events:none;opacity:.85;
   animation:care-sweat 2.6s ease-in-out infinite;
 }
 .device[data-care-illness="true"] #pet #petSprite::before {left:var(--care-sweat-left,6%);right:auto;animation-delay:-1.3s}
