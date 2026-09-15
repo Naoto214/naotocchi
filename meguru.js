@@ -181,9 +181,14 @@
       const list = [];
       const petKey = typeof S.currentPetKey === 'function' ? S.currentPetKey() : null;
       const day = typeof S.dailyKey === 'function' ? S.dailyKey() : '';
+      // いまの せいしきな ずかん(ALL_LINES)に ある しゅぞく だけ。ふるい セーブに のこった legacy の すがた(bird など)は
+      // ほぞんは そのまま のこし、じゅうみん には しない(いまの じぶんが legacy でも、じぶんは プレイヤーとして そのまま)
+      const currentLines = Array.isArray(S.ALL_LINES) && S.ALL_LINES.length ? new Set(S.ALL_LINES) : null;
       for (const key of state.discoveredStages || []) {
         if (key === petKey) continue;
         const [line, stStr] = String(key).split(':'); const stage = Number(stStr);
+        if (currentLines && !currentLines.has(line)) continue;
+        if (!Number.isInteger(stage) || stage < 0) continue;
         const spc = S.SPECIES && S.SPECIES[line]; const st = spc && spc.stages && spc.stages[stage];
         if (!st) continue;
         const hab = HABITAT[line] || ['home'];
@@ -216,7 +221,66 @@
           region: withPlayer ? (state.regionId || 'home') : (p.firstRegion || 'home'), withPlayer, hook: p.hook || '' });
       }
       const naoto = typeof S.isAuthorUnlocked === 'function' && S.isAuthorUnlocked() ? { key: 'naoto', kind: 'naoto', id: 'naoto', label: 'ナオト', emoji: '🧑', asset: S.authorAsset || null, sprites: { front: S.authorAsset || null }, region: 'memory_lake', spot: 'deep', secret: true } : null;
-      return { residents: list, naoto, byRegion: (regionId) => list.filter((r) => r.region === regionId) };
+      // さいごに key で いちい に(ふるい セーブ・いこう・じゅうふくした はいれつが あっても、おなじ じゅうみんは せかいに 1体だけ)
+      const byKey = new Map();
+      for (const r of list) { const prev = byKey.get(r.key); if (!prev) byKey.set(r.key, r); else if (r.withPlayer && !prev.withPlayer) byKey.set(r.key, r); }
+      const unique = [...byKey.values()];
+      return { residents: unique, naoto, byRegion: (regionId) => unique.filter((r) => r.region === regionId) };
+    }
+
+    // ================= かんさ(かいはつ・テスト よう) =================
+    // だいちょうを しらべて、おかしな ところを issues に ならべる。rows は ぜんいんの いちらん
+    function auditRegistry(registry, opts = {}) {
+      const state = getState();
+      const petKey = typeof S.currentPetKey === 'function' ? S.currentPetKey() : null;
+      const currentLines = Array.isArray(S.ALL_LINES) && S.ALL_LINES.length ? new Set(S.ALL_LINES) : null;
+      const discovered = new Set(state.discoveredStages || []);
+      const canon = typeof S.canonicalCompanionId === 'function' ? S.canonicalCompanionId : (id) => id;
+      const withCompanions = new Set((state.companions || []).map((c) => canon(c.id)));
+      const curPartner = state.partner ? String(state.partner.id) : null;
+      const all = registry.residents.concat(registry.naoto ? [registry.naoto] : []);
+      const rows = all.map((r) => ({ key: r.key, kind: r.kind, label: r.label, line: r.line || null, stage: r.stage != null ? r.stage : null, id: r.id || null, asset: r.asset || null, region: r.region, withPlayer: !!r.withPlayer }));
+      const issues = [];
+      const seenKey = new Map(), seenId = new Map(), byAsset = new Map();
+      for (const r of all) {
+        if (seenKey.has(r.key)) issues.push({ code: 'duplicate-key', key: r.key, detail: 'the same resident key appears twice' }); seenKey.set(r.key, true);
+        const uid = r.kind === 'form' ? `form:${r.line}:${r.stage}` : r.kind === 'companion' ? 'companion:' + canon(r.id) : r.kind === 'partner' ? 'partner:' + r.id : r.kind;
+        if (seenId.has(uid)) issues.push({ code: 'duplicate-id', key: r.key, detail: 'the same unique id appears twice: ' + uid }); seenId.set(uid, true);
+        if (r.kind === 'form') {
+          if (currentLines && !currentLines.has(r.line)) issues.push({ code: 'legacy-form', key: r.key, detail: `${r.line} is not in the current dex` });
+          if (!discovered.has(`${r.line}:${r.stage}`)) issues.push({ code: 'undiscovered-form', key: r.key, detail: 'this form is not in discoveredStages' });
+          if (petKey && `${r.line}:${r.stage}` === petKey) issues.push({ code: 'current-pet-duplicate', key: r.key, detail: 'the current pet appears as a resident' });
+        }
+        if (r.kind === 'companion' && withCompanions.has(canon(r.id)) && !r.withPlayer) issues.push({ code: 'follower-duplicate', key: r.key, detail: 'a companion walking with the player is also a region resident' });
+        if (r.kind === 'partner' && curPartner === r.id && !r.withPlayer) issues.push({ code: 'follower-duplicate', key: r.key, detail: 'the current partner is also a region resident' });
+        if (r.asset) { const prev = byAsset.get(r.asset); if (prev && prev !== r.key) issues.push({ code: 'shared-asset', key: r.key, detail: `same asset as ${prev}: ${r.asset}` }); else byAsset.set(r.asset, r.key); }
+      }
+      // いっしょに あるく こが せかいの どこかにも おかれていないか(byRegion は withPlayer を ふくむので buildWorld が のぞく)
+      if (opts.worlds !== false) {
+        for (const id of Object.keys(WORLDS)) { for (const a of buildWorld(id, registry).residents) { if (a.withPlayer) issues.push({ code: 'follower-duplicate', key: a.key, detail: 'placed in ' + id + ' although walking with the player' }); if (petKey && a.kind === 'form' && `${a.line}:${a.stage}` === petKey) issues.push({ code: 'current-pet-duplicate', key: a.key, detail: 'placed in ' + id }); } }
+      }
+      return { rows, issues };
+    }
+    // けしきの 絵文字を ぜんぶ あつめて、けしき よう の resolver が キャラの え を かえさないか しらべる
+    function sceneryEmojis() {
+      const out = new Set();
+      const add = (v) => { if (typeof v === 'string' && v) out.add(v); };
+      for (const w of Object.values(WORLDS)) { (w.props || []).forEach(add); (w.lane || []).forEach(add); (w.wall || []).forEach(add); (w.hint || []).forEach(add); for (const sp0 of w.spots) add(sp0.prop); for (const z of w.zones || []) (z.mood && z.mood.lane || []).forEach(add); }
+      for (const f of Object.values(LOCAL_FLAVOR)) { (f.props || []).forEach(add); (f.wall || []).forEach(add); }
+      ['🌳', '⛰️', '🏔️', '🪧'].forEach(add); // ランドマークの fallback と ひょうしき
+      return [...out];
+    }
+    const isCharacterAsset = (d) => !!(d && d.asset && /assets\/characters\//.test(String(d.asset)));
+    function auditScenery(sceneryResolve, displayResolve) {
+      const emojis = sceneryEmojis();
+      const sr = typeof sceneryResolve === 'function' ? sceneryResolve : (typeof S.resolveScenery === 'function' ? S.resolveScenery : () => null);
+      const dr = typeof displayResolve === 'function' ? displayResolve : (typeof S.resolveDisplay === 'function' ? S.resolveDisplay : () => null);
+      const characterUnderScenery = [], characterUnderDisplay = [];
+      for (const emoji of emojis) {
+        const d = dr(emoji); if (isCharacterAsset(d)) characterUnderDisplay.push({ emoji, asset: d.asset });
+        const sd = sr(emoji); if (isCharacterAsset(sd)) characterUnderScenery.push({ emoji, asset: sd.asset });
+      }
+      return { emojis, characterUnderDisplay, characterUnderScenery };
     }
 
     // ================= グラフ(スポットと みち) =================
@@ -667,10 +731,10 @@
 
     // 絵文字/イラストの 立て看板を オフスクリーンに いちど えがいて つかいまわす(fillText は とても おもい)
     const glyphCache = new Map();
-    function glyphSprite(emoji, px, wrap) {
+    function glyphSprite(emoji, px, wrap, ns) {
       if (typeof document === 'undefined' || !document.createElement) return null;
       const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12));
-      const key = emoji + '@' + bucket;
+      const key = (ns || 'c') + ':' + emoji + '@' + bucket;
       let c = glyphCache.get(key);
       if (c === undefined) {
         c = null;
@@ -684,13 +748,18 @@
     }
     function createCanvasRenderer(o) {
       let ctx = o.ctx, W = o.W, H = o.H; const tier = o.tier || 0;
-      const wrapCtx = typeof o.wrapCtx === 'function' ? o.wrapCtx : null;
-      // 立て看板を えがく: キャッシュした えが あれば drawImage、なければ fillText
-      function drawGlyph(emoji, sx, sy, px) {
-        const c = px >= 12 ? glyphSprite(emoji, px, wrapCtx) : null;
+      const wrapCtx = typeof o.wrapCtx === 'function' ? o.wrapCtx : null;          // キャラ(じゅうみん)よう
+      const wrapScenery = typeof o.wrapScenery === 'function' ? o.wrapScenery : null; // けしき よう(キャラの え には ならない)
+      // けしき を えがく ための メインの ctx: なまの ctx を けしき よう に つつむ(なければ なまの ctx = ふつうの 絵文字)
+      let sceneryMain = o.rawCtx ? (wrapScenery ? wrapScenery(o.rawCtx) || o.rawCtx : o.rawCtx) : null;
+      // 立て看板を えがく: キャッシュした えが あれば drawImage、なければ fillText。
+      // scenery=true の ものは けしき せんよう の みちすじ(なかま・こいびと・しゅぞくの え に ぜったい ならない)
+      function drawGlyph(emoji, sx, sy, px, scenery) {
+        const c = px >= 12 ? glyphSprite(emoji, px, scenery ? wrapScenery : wrapCtx, scenery ? 's' : 'c') : null;
         if (c) { const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12)); const k = px / bucket; ctx.drawImage(c, sx - c.width * k / 2, sy - (c.height - 2) * k, c.width * k, c.height * k); }
-        else { ctx.font = `${Math.round(px)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(emoji, sx, sy); }
+        else { const g = scenery && sceneryMain ? sceneryMain : ctx; g.globalAlpha = ctx.globalAlpha; g.font = `${Math.round(px)}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillText(emoji, sx, sy); if (g !== ctx) g.globalAlpha = 1; }
       }
+      const drawScenery = (emoji, sx, sy, px) => drawGlyph(emoji, sx, sy, px, true);
       const playerGlyph = typeof o.playerGlyph === 'function' ? o.playerGlyph : () => '🐣';
       // とうえい: カメラは じぶんの camera.dist うしろ(むき yaw)、たかさは じぶんの あしもとが FEET_FRAC に くる ように ぎゃくさん。地平線 HOR
       const HOR_BASE = 0.30, FEET_FRAC = 0.80, NEAR = 30;
@@ -834,10 +903,10 @@
         else if (kind === 'windmill') { ctx.fillStyle = shade('#e8dcc0', light, '#000', 0); ctx.beginPath(); ctx.moveTo(x - px * 0.16, y); ctx.lineTo(x + px * 0.16, y); ctx.lineTo(x + px * 0.1, y - px * 0.7); ctx.lineTo(x - px * 0.1, y - px * 0.7); ctx.closePath(); ctx.fill(); ctx.fillStyle = shade('#b5473a', light, '#000', 0); ctx.beginPath(); ctx.moveTo(x - px * 0.14, y - px * 0.7); ctx.lineTo(x, y - px * 0.85); ctx.lineTo(x + px * 0.14, y - px * 0.7); ctx.closePath(); ctx.fill(); ctx.strokeStyle = shade('#6b4a2a', light, '#000', 0); ctx.lineWidth = Math.max(1, px * 0.025); const rot = performance.now() * 0.0006; for (let k = 0; k < 4; k++) { const a = rot + k * Math.PI / 2; ctx.beginPath(); ctx.moveTo(x, y - px * 0.72); ctx.lineTo(x + Math.cos(a) * px * 0.36, y - px * 0.72 + Math.sin(a) * px * 0.36); ctx.stroke(); } }
         else if (kind === 'lodge') { ctx.fillStyle = shade('#8a5a3a', light, '#000', 0); ctx.fillRect(x - px * 0.35, y - px * 0.4, px * 0.7, px * 0.4); ctx.fillStyle = shade('#f4f7fb', light, '#000', 0); ctx.beginPath(); ctx.moveTo(x - px * 0.42, y - px * 0.4); ctx.lineTo(x, y - px * 0.75); ctx.lineTo(x + px * 0.42, y - px * 0.4); ctx.closePath(); ctx.fill(); ctx.fillStyle = 'rgba(255,220,130,.95)'; ctx.fillRect(x - px * 0.22, y - px * 0.3, px * 0.12, px * 0.12); ctx.fillRect(x + px * 0.1, y - px * 0.3, px * 0.12, px * 0.12); }
         else if (kind === 'palms') { for (let k = -1; k <= 1; k++) { const bx = x + k * px * 0.3; ctx.fillStyle = shade('#8a6a3a', light, '#000', 0); ctx.fillRect(bx - px * 0.03, y - px * (0.6 + Math.abs(k) * 0.1), px * 0.06, px * (0.6 + Math.abs(k) * 0.1)); ctx.fillStyle = shade('#3f9a4a', light, '#000', 0); for (let f = 0; f < 5; f++) { const a = -Math.PI * 0.1 + f * (Math.PI * 1.2 / 4); ctx.beginPath(); ctx.ellipse(bx + Math.cos(a) * px * 0.16, y - px * (0.62 + Math.abs(k) * 0.1) + Math.sin(a) * px * 0.06, px * 0.18, px * 0.05, a, 0, TAU); ctx.fill(); } } }
-        else if (kind === 'peak') { ctx.font = `${Math.round(px)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(world.regionId === 'snow' ? '🏔️' : '⛰️', x, y); }
+        else if (kind === 'peak') drawScenery(world.regionId === 'snow' ? '🏔️' : '⛰️', x, y, px);
         else if (kind === 'temple') { ctx.fillStyle = shade('#cdb98a', light, '#000', 0); for (let k = 0; k < 4; k++) { const w = px * (0.7 - k * 0.15), h = px * 0.16; ctx.fillRect(x - w / 2, y - h * (k + 1), w, h); } ctx.fillStyle = shade('#8a7a5a', light, '#000', 0); ctx.fillRect(x - px * 0.06, y - px * 0.16, px * 0.12, px * 0.16); }
         else if (kind === 'bridge') { ctx.strokeStyle = shade('#8a6a3a', light, '#000', 0); ctx.lineWidth = Math.max(2, px * 0.05); ctx.beginPath(); ctx.moveTo(x - px * 0.5, y); ctx.quadraticCurveTo(x, y - px * 0.5, x + px * 0.5, y); ctx.stroke(); for (let k = -2; k <= 2; k++) { const bx = x + k * px * 0.2; ctx.beginPath(); ctx.moveTo(bx, y - px * 0.02); ctx.lineTo(bx, y - px * (0.45 - Math.abs(k) * 0.08)); ctx.stroke(); } }
-        else { ctx.font = `${Math.round(px)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText('🌳', x, y); }
+        else drawScenery('🌳', x, y, px);
         ctx.restore();
       }
       // ---- キャラ(むき・しせいで ちがいを だす) ----
@@ -927,7 +996,7 @@
             const fade = clamp(1.4 - it.p.dz / farCull, 0.2, 1) * (it.alpha != null ? it.alpha : 1);
             if (it.o.layer === 'glow') { const px = it.o.size * it.p.s; ctx.fillStyle = 'rgba(255,250,210,.28)'; ctx.globalAlpha = fade; ctx.beginPath(); ctx.ellipse(it.p.sx, it.p.sy, px * 0.6, px * 0.18, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; continue; }
             if (it.o.landmark) { ctx.globalAlpha = it.alpha != null ? it.alpha : 1; drawLandmark(it.o.landmark, it.p, it.o.size, light, world); ctx.globalAlpha = 1; continue; }
-            const px = it.o.size * it.p.s; if (px < 5) continue; ctx.globalAlpha = fade; drawGlyph(it.o.emoji, it.p.sx, it.p.sy, px); ctx.globalAlpha = 1;
+            const px = it.o.size * it.p.s; if (px < 5) continue; ctx.globalAlpha = fade; drawScenery(it.o.emoji, it.p.sx, it.p.sy, px); ctx.globalAlpha = 1;
           }
           else if (it.kind === 'player') {
             const px = ACTOR_SIZE * it.p.s; const facing = facingOf(player.heading, cam.yaw);
@@ -949,7 +1018,7 @@
         if (e.weather === 'rain' || e.weather === 'snow') { ctx.fillStyle = e.weather === 'rain' ? 'rgba(180,210,255,.55)' : 'rgba(255,255,255,.85)'; const n = tier >= 2 ? 16 : 34; for (let i = 0; i < n; i++) { const x = (i * 97 + (now * (e.weather === 'rain' ? 0.02 : 0.005) * (i % 3 + 1))) % (W + 20) - 10; const y = (i * 61 + now * (e.weather === 'rain' ? 0.5 : 0.08) * (1 + (i % 4) * 0.3)) % (H + 20) - 10; if (e.weather === 'rain') ctx.fillRect(x, y, 1.5, 9); else { ctx.beginPath(); ctx.arc(x, y, 2 + (i % 3), 0, TAU); ctx.fill(); } } }
         if (e.time === 'night' && world.sky !== 'stars') { ctx.fillStyle = 'rgba(10,15,45,.20)'; ctx.fillRect(0, 0, W, H); }
       }
-      return { draw, project, facingOf, resize(n) { ctx = n.ctx; W = n.W; H = n.H; setup(); }, destroy() { skyCache = null; nebula = null; } };
+      return { draw, project, facingOf, resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; setup(); }, destroy() { skyCache = null; nebula = null; } };
     }
 
     // ================= がめん(DOM + にゅうりょく + フレームループ) =================
@@ -986,12 +1055,13 @@
         return clamp(Math.floor(oh - used - 18), 240, 760);
       }
       let { ctx, W, H } = S.createMgCanvas(canvas, () => availHeight(), {});
+      const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
       const placeEl = container.querySelector('#mgrPlace'), countEl = container.querySelector('#mgrCount'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner'), spotEl = container.querySelector('#mgrSpot');
       const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
       const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
-      const renderer = rendererFactory({ canvas, ctx, W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null });
+      const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null });
       let resizeTimer = null;
-      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (typeof renderer.resize === 'function') renderer.resize({ ctx, W, H }); }, 150); };
+      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (typeof renderer.resize === 'function') renderer.resize({ ctx, W, H, rawCtx: rawCtxOf() }); }, 150); };
       if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', onResize);
       const ENV_ICON = { sunny: '☀️', cloudy: '☁️', rain: '🌧️', snow: '🌨️' }; const TIME_ICON = { morning: '🌅', day: '🌞', evening: '🌇', night: '🌙' };
       // HUD: ばしょ / この 地域に すんでいる かず / こんかい ちかくで あった かず
@@ -1057,6 +1127,6 @@
       return { stop, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, moodAt, buildRegistry, buildWorld, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
+    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
   };
 })();
