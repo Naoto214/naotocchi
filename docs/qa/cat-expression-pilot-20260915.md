@@ -83,8 +83,8 @@ TDDでは拡張前の実装に対し、resolver・runtime・accent・previewの2
 
 User requested brighter, recognizable state colors and a sleeping mark like 💤.
 Sleep now uses three rising SVG Z paths (no font, image download, or animation).
-Hungry is orange; sick cyan; tired lavender; weak indigo; critical red; wants-play pink;
-sulky purple; happy gold; sleeping blue. Shapes still distinguish states independently of color.
+User-selected palette: hungry yellow; sick yellow-green; tired purple; weak pink;
+critical red; wants-play orange; sulky light blue; happy gold; sleeping blue. Shapes still distinguish states independently of color.
 Adult-cat hunger retains its fish. When additional species gain expression support, choose
 food appropriate to that species from its established data; do not assume all birds eat seeds
 or extend the current adult-cat-only renderer without matching portraits and validation.

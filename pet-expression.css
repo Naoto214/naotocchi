@@ -18,15 +18,15 @@
 /* Saturated state colors supplement the distinct shapes, even without motion. */
 .pet-expression-accent .accent-warm { fill: #ffd632; stroke: #995500; stroke-width: 1.5; stroke-linejoin: round; }
 .pet-expression-accent .accent-warm-line { fill: none; stroke: #e75d22; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.pet-expression-accent .accent-call { fill: none; stroke: #ed368d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.pet-expression-accent .accent-cloud { fill: #b36de0; stroke: #612692; stroke-width: 2; }
-.pet-expression-accent .accent-cloud-line { fill: none; stroke: #51217b; stroke-width: 2; stroke-linecap: round; }
-.pet-expression-accent .accent-thought { fill: #ffe4a3; stroke: #c4610a; stroke-width: 1.5; }
-.pet-expression-accent .accent-food { fill: #ff9924; stroke: #a84a08; stroke-width: 2; stroke-linejoin: round; }
-.pet-expression-accent .accent-food-eye { fill: #542b13; }
-.pet-expression-accent .accent-cool { fill: #20bedc; }
-.pet-expression-accent .accent-cool-line { fill: none; stroke: #0789b3; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-call { fill: none; stroke: #f58a19; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-cloud { fill: #76d9ef; stroke: #178caf; stroke-width: 2; }
+.pet-expression-accent .accent-cloud-line { fill: none; stroke: #126a8e; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-thought { fill: #fff3a3; stroke: #b18b09; stroke-width: 1.5; }
+.pet-expression-accent .accent-food { fill: #ffe03b; stroke: #a58008; stroke-width: 2; stroke-linejoin: round; }
+.pet-expression-accent .accent-food-eye { fill: #625014; }
+.pet-expression-accent .accent-cool { fill: #a5d934; }
+.pet-expression-accent .accent-cool-line { fill: none; stroke: #689d15; stroke-width: 2; stroke-linecap: round; }
 .pet-expression-accent .accent-sleepy { fill: #d0b5fa; stroke: #8c56ce; stroke-width: 1.5; }
-.pet-expression-accent .accent-weak { fill: none; stroke: #6861cf; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-weak { fill: none; stroke: #ed65aa; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .pet-expression-accent .accent-critical { fill: none; stroke: #e53950; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
 .pet-expression-accent .accent-sleep-z { fill: none; stroke: #347de3; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
