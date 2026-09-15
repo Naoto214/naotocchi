@@ -10987,7 +10987,19 @@
       // ④⑤の おいわい がめん(grandGoalPending)と ずかんの くわしい がめんも
       // 「ひらいている がめん」。ここを いれないと、おいわいの うえに
       // なかまの さそいが かぶさって、クリアの ボタンが おせなく なる
-      || !!grandGoalPending || !!dexDetail;
+      || !!grandGoalPending || !!dexDetail
+      // 「めぐる」も ホームを まるごと おきかえる がめん。ここに いれる ことで
+      // じかんの ていし・なかまの さそい/でんせつとの であい/ひとりごとの
+      // よくせい・せわの おしらせの ひょうじ よくせい が ぜんぶ そろう
+      || meguruActive;
+  }
+
+  // 「じかんが すすまない がめん」を 1か所で きめる。ひらいている あいだは
+  // せわが できない がめん(メニュー系・めぐる・ミニゲーム・へんしんの えらび)
+  // では tick() を まるごと とめる。とめておかないと、めぐっている あいだや
+  // ゲームの さいちゅうに おなかが へりつづけて、しんでしまう ことが あった
+  function isTimePaused() {
+    return gameActive || !!state.transformOptions || isAnyMenuOverlayOpen();
   }
 
   function pickCompanionByRegion(pool) {
@@ -11775,7 +11787,7 @@
   }
 
   function openExclusiveMenu(kind) {
-    if (gameActive || state.transformOptions) return;
+    if (gameActive || meguruActive || state.transformOptions) return;
     audio.play('open');
     clearConversationTimers();
     hideSpeechBubble();
@@ -12824,13 +12836,15 @@
     const expiresAt = Date.now() + 15000;
     const deliver = () => {
       itemContextTimer = null;
-      if (state !== life || !careNoticeVisible() || state.isSleeping) return;
+      if (state !== life) return;
       // めぐるがホームを使っているあいだは、道具の短い通知を後ろの
       // 通知欄へ出さない。戻ったあとの同じ人生でだけ続けて待つ。
+      // (careNoticeVisible() は めぐるちゅう false に なるので、その まえに みる)
       if (meguruActive) {
         itemContextTimer = setTimeout(deliver, 250);
         return;
       }
+      if (!careNoticeVisible() || state.isSleeping) return;
       if (Date.now() > expiresAt) return;
       const notice = CARE_STATUS?.assess(state, {immortal:isImmortal()});
       if (notice && notice.severity !== 'info') return;
@@ -18348,30 +18362,30 @@
   }
 
   function loop() {
-    if (gameActive) {
-      // still age/decay stats in the background, but don't touch the DOM
-      // while a minigame owns the screen
-      tick();
-      saveState();
-      return;
-    }
-    // うそつきしょうぶは しつもんを かんがえたり、あいてからの コードを
+    // せわが できない がめんが ひらいている あいだは、じかんを とめる
+    // (isTimePaused: メニュー系オーバーレイ・うそつきしょうぶ・デート・
+    // なかまの さそい・おいわい・めぐる・ミニゲーム・へんしんの えらび)。
+    // うそつきしょうぶは しつもんを かんがえたり あいてからの コードを
     // まったりと、ほかの がめんより ずっと 長く 同じ がめんに とどまる
     // ことが 想定される(あいては べつの端末で べつの タイミングに あそぶ
     // 非同期な しくみなので、なおさら)。あいてむ・ずかん・じっせき・
     // でざいんも、なにを こうにゅうするか/どの すがたか/どの いろ・がら
     // にするか などを じっくり ながめて えらぶ がめんな ので、おなじく
-    // 時間の すすみを とめる。ここで とめておかないと、えらんでいる
+    // 時間の すすみを とめる。めぐるは 地域を あるきまわる あいだ ホームが
+    // まるごと かくれる ので、とめないと めぐっている あいだに おなかが
+    // へりつづけて しんでしまう ことが あった。ミニゲームも 以前は うらで
+    // ステータスが へりつづけて いたが、あそんでいる あいだは せわが
+    // できない ので おなじく とめる。とめておかないと、えらんでいる
     // あいだに 死亡メーターが すすんで しんでしまう、といった ことが
     // おきてしまうため、これらの がめんが ひらいている あいだは tick()
     // じたいを まるごと スキップする(とじれば また ふつうに じかんが
-    // すすみだす)。プロフィールも、せいかく傾向や こいびと・なかまの
-    // ようすを じっくり 見返す がめんな ので おなじく とめる。つうしん
-    // はぶ(あいてコード・しょうぶの いりぐち一覧)も、コードを つくったり
-    // 読みこんだり する あいだ とどまりやすい がめんな ので おなじ あつかい
-    // にする。基本がめん(なにも ひらいていない とき)は、ながめて いる
-    // だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
-    if (isAnyMenuOverlayOpen()) { renderEnvironment(); return; }
+    // すすみだす)。基本がめん(なにも ひらいていない とき)は、ながめて
+    // いる だけでも 時間が すすみつづける、いつもどおりの プレイに もどる
+    if (isTimePaused()) {
+      // ゲーム/めぐるが がめんを もっている あいだは DOM にも さわらない
+      if (!gameActive && !meguruActive) renderEnvironment();
+      return;
+    }
     // messages clear themselves on their own timer (see setMessage) rather
     // than being wiped here, so a message's visible duration never depends
     // on how this tick's 3-second phase happens to line up with it
@@ -18466,6 +18480,7 @@
       return;
     }
     if (dateOpen || duelOpen || companionInviteOpen || gameActive || state.transformOptions) return;
+    if (meguruActive) { e.preventDefault(); stopMeguru(); el.menuBtn.focus(); return; }
     if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
   });
   document.addEventListener('visibilitychange', () => {

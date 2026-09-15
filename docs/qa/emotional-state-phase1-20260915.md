@@ -37,3 +37,7 @@ full regressionには、既存のalbum error probe、storage quota fixtureの診
 結果は `未確認 / OK / 要調整` の三値で記録する。自動テスト結果から実機項目をOKへ変更しない。
 
 critical lifeでも、既存の `world-breeze`（約±3px）または `world-float`（約±5px）の共有environmental swayは残る。Phase 1の自動試験が止める対象は新しいpet idle / cueであり、実機での「ほぼ静止」の見え方は未確認とする。
+
+## 2026-09-15 main追従
+
+最新main `3a86fe8e52c449681e02f203fc815d069c6b8a1c` の時間停止・めぐる修正を取り込み、感情リアクションと両立させた。両方のテスト登録とハーネスAPIを保持し、cache tokenを再計算した。統合後の `npm test` は前段チェックおよびNode 639件成功、0件失敗。競合解消レビューは指摘なし。iPhone実機の各結果は上表のままで、自動的にOKへ変更していない。

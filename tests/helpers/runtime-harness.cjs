@@ -162,7 +162,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openKakeraPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_PAGES, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_PACK_SIZE, STICKER_KAKERA_PACK, STICKER_PAGE_MAX, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
-      render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen,
+      render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen, isTimePaused,
       homeEmotion: () => homeEmotion,
       rollIdentity, orientationLabel, normalizeAttractedTo, checkQuestioningResolution,
       encodeGuestCode, decodeGuestCode, guestCandidate, chooseTransform,
