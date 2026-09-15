@@ -245,7 +245,7 @@ test('life patch works at exactly forty life and cannot postpone age one hundred
   assert.equal(s.items.new_life_patch,1);
 });
 
-test('completed star set pays on the eligible activity tick without a fourth game',()=>{
+test('star pays ordinary success immediately and never adds a delayed set reward',()=>{
   const {h,s}=setup();
   s.lifetime.money=360;
   h.api.buyOrEquipShopItem('star');
@@ -254,9 +254,9 @@ test('completed star set pays on the eligible activity tick without a fourth gam
   play(h,30,'c');
   s.lifetime.itemProgress.ticks=99;
   h.api.tick();
-  assert.equal(s.lifetime.money,21);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-  assert.equal(s.lifetime.itemProgress.readyAt.star,200);
+  assert.equal(s.lifetime.money,12);
+  assert.equal(s.lifetime.itemProgress.starGames,undefined);
+  assert.equal(s.lifetime.itemProgress.readyAt.star,undefined);
 });
 
 test('disease shield shows the prevented illness and remaining two uses',()=>{
@@ -271,33 +271,19 @@ test('disease shield shows the prevented illness and remaining two uses',()=>{
   assert.match(h.api.getMessage(),/ふせいだ.*2/);
 });
 
-test('star menu distinguishes missing stamps from cooldown and actual payout', () => {
+test('star menu describes immediate ordinary-success coins without stamp or waiting UI', () => {
   const {h,s} = setup();
   s.lifetime.money = 400;
   h.api.buyOrEquipShopItem('star');
   h.api.openExclusiveMenu('item');
   const status = () => h.get('shopItemGrid').children.find(b => b.dataset.id === 'star').textContent;
-  assert.match(status(), /星0\/3/);
-  assert.match(status(), /あと3種類/);
-  assert.match(status(), /受取まで300秒/);
-
-  s.lifetime.itemProgress.ticks = 100;
-  h.api.render();
-  assert.match(status(), /あと3種類/);
-  assert.doesNotMatch(status(), /受取できる/);
-  h.api.closeAllMenuOverlays();
-  play(h,40,'star-first');
-  play(h,40,'star-second');
-  h.api.openExclusiveMenu('item');
-  assert.match(status(), /星2\/3/);
-  assert.match(status(), /あと1種類/);
-  assert.doesNotMatch(status(), /受取できる/);
-
+  assert.match(status(), /通常.*成功.*コイン.*2倍/);
+  assert.doesNotMatch(status(), /星[0-3]\/3|あと.*種類|受取|300秒/);
   h.api.closeAllMenuOverlays();
   const cash = s.lifetime.money;
-  play(h,40,'star-third');
-  assert.equal(s.lifetime.money, cash + 17);
+  play(h,40,'star-first');
+  assert.equal(s.lifetime.money, cash + 4);
   h.api.openExclusiveMenu('item');
-  assert.match(status(), /星0\/3/);
-  assert.match(status(), /受取まで300秒/);
+  assert.match(status(), /みにつけている/);
+  assert.doesNotMatch(status(), /星[0-3]\/3|受取/);
 });

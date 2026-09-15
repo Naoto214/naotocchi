@@ -3,7 +3,6 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
-const itemSystem=require('../item-system.js');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
@@ -47,6 +46,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['alone',390,760,0,false,false,0],['partner',390,760,0,true,false,0],
     ['one-friend',390,760,1,false,false,0],['friends',390,760,6,false,false,0],
     ['family',390,760,6,true,false,0],['item',390,760,0,false,true,0],
+    ['paper-auto-clean',390,760,6,true,true,4],
     ['poop',390,760,0,false,false,1],['item-poop',390,760,6,true,true,4],
     ['full',390,760,26,true,true,4],['small',320,568,0,false,true,4],
     ['small-full',320,568,26,true,true,4],['large-text',320,640,26,true,true,4,'large'],
@@ -125,7 +125,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const save=JSON.parse(JSON.stringify(fixtures.phone_dog));
     Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?{...fixtures.equipped.partner}:null,
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
-    const itemId=name==='item-crown'?'crown':'poop1';
+    // Keep floor-layout specimens stable while the real activity clock runs.
+    const itemId=name==='paper-auto-clean'?'poop1':name==='item-crown'?'crown':'travel1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
     if(name.endsWith('-snow')) {
       save.companions=['owl','hamster','shiba'].map(id=>({id,bond:95}));
@@ -151,10 +152,6 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
       Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
     }
-    // Conversation measurements advance the real activity clock. Start paper
-    // fixtures in its ordinary saved cooldown so their configured poop row stays
-    // available while speaker and layout assertions run.
-    if(save.lifetime.equippedItemId==='poop1') itemSystem.cooldown(save,'paper',60);
     await page.addInitScript(s=>{localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));Math.random=()=>.4;},save);
     if(name==='right-speaker') await page.addInitScript(()=>{Math.random=()=>.2;});
     if(name==='small-toolbar') await page.addInitScript(()=>Object.defineProperty(visualViewport,'height',{get:()=>568}));
@@ -242,7 +239,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         const slot=document.getElementById('speechSlot').getBoundingClientRect();
         return Math.abs(slot.y-stage.y-Math.floor(stage.height)+slot.height+10)<.6;
       },null,{timeout:4500});
+      if(name==='paper-auto-clean') {
+        const dirty=await check('before-auto-clean');
+        assert.equal(dirty.poops.length,4,label+': dirty fixture must render before the first tick');
+        await page.clock.runFor(3001);
+        const cleaned=await check('auto-cleaned');
+        assert.equal(cleaned.poops.length,0,label+': V2 paper must clear all poop without a cooldown');
+        assert.ok(samePosition(cleaned.main,dirty.main) && samePosition(cleaned.slot,dirty.slot),label+': automatic cleaning moves cast/conversation');
+      }
       const before=await check('silent');
+      assert.equal(before.poops.length,name==='paper-auto-clean'?0:poops,label+': layout specimen must retain its configured floor row');
       await page.locator('#feedBtn').click();await page.clock.runFor(1);
       const expected=['pet',...(partner?['partner']:[]),...(count?['companion']:[])];
       for(let i=0;i<expected.length;i++) {
@@ -296,7 +302,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         await page.emulateMedia({reducedMotion:'reduce'});
         await page.clock.runFor(1);
       }
-      if(poops) {
+      if(poops && name!=='paper-auto-clean') {
         await page.locator('#cleanBtn').click();await page.clock.runFor(1);
         const cleaned=await check('cleaned');
         assert.equal(cleaned.poops.length,0,label+': cleaning failed');

@@ -391,9 +391,10 @@
     p.ticks = count(p.ticks); delete p.cloverMisses;
     if (!object(p.readyAt)) p.readyAt = {};
     for (const key of Object.keys(p.readyAt)) p.readyAt[key] = count(p.readyAt[key]);
-    if (!Array.isArray(p.starGames)) p.starGames = [];
-    p.starGames = [...new Set(p.starGames.filter(id => typeof id === 'string' && id))].slice(0, 3);
-    if (p.readyAt.star === undefined && (l.ownedShopItems?.includes('star') || l.equippedItemId === 'star')) p.readyAt.star = p.ticks + 100;
+    // Retired equipment state has no V2 payout or reunion action.
+    delete p.starGames;
+    delete p.readyAt.star;
+    delete p.readyAt.reunion;
     if (!object(l.itemMemories)) l.itemMemories = {};
     MEMORY_KINDS.forEach(kind => { if (!Array.isArray(l.itemMemories[kind])) l.itemMemories[kind] = []; });
     if (!object(state.itemLife)) state.itemLife = {};
@@ -401,7 +402,7 @@
     if (typeof state.itemLife.lifePatchUsed !== 'boolean') state.itemLife.lifePatchUsed = false;
     if (!object(state.itemLife.relationshipShields)) state.itemLife.relationshipShields = {};
     if (!object(state.itemLife.pendingItems)) state.itemLife.pendingItems = {};
-    if (!Array.isArray(state.itemLife.departedCompanions)) state.itemLife.departedCompanions = [];
+    delete state.itemLife.departedCompanions;
     p.relationshipSerial = count(p.relationshipSerial);
     p.sceneSerial = count(p.sceneSerial);
     p.guestSerial = count(p.guestSerial);

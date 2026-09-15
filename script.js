@@ -3239,7 +3239,6 @@
   // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
   // リセットされる いちじてきな 状態なので state には いれない
   let pendingCompanionId = null;
-  let pendingReunionId = null;
 
   // Presentation-only state: never written to a save or used by the life clock.
   let careLife = null, carePrevious = null, carePreviousKind = '';
@@ -7762,7 +7761,6 @@
       }
       if (c.bond > 0) return true;
       left.push(c.id);
-      if (!state.itemLife.departedCompanions.includes(c.id)) state.itemLife.departedCompanions.push(c.id);
       return false;
     });
     if (left.length) {
@@ -10387,7 +10385,6 @@
     // ステータスの げんしょうも ねんれいも すすめない
     if (state.stage === STAGE.EGG) return;
     ITEM_SYSTEM.advance(state);
-    updateItemEffectTick();
     updateFunItemTick();
 
     if (!state.infinite) {
@@ -10855,7 +10852,6 @@
   let companionInviteOpen = false;
 
   function openCompanionInvite(companion, isRare) {
-    pendingReunionId = null;
     pendingCompanionId = companion.id;
     companionInviteOpen = true;
     el.companionInviteEmoji.innerHTML = companionVisualHTML(companion, 'hero');
@@ -12518,7 +12514,6 @@
       }
       state.lifetime.money -= item.price;
       state.lifetime.ownedShopItems.push(id);
-      if (id === 'star' && state.lifetime.itemProgress.readyAt.star === undefined) ITEM_SYSTEM.cooldown(state, 'star', 100);
       state.lifetime.equippedItemId = id;
       setMessage(`${item.label}を買って身につけた!`);
       emotePet('happy');
@@ -12646,23 +12641,6 @@
     scheduleItemContextMessage(text);
   }
 
-  function availableReunionCompanions() {
-    return state.itemLife.departedCompanions.map(allCompanionsById).filter(c => c && hasRecruitedCompanionId(c.id) && !hasActiveCompanionId(c.id)
-      && (!RARE_COMPANIONS.some(r => r.id === c.id) || hasPerk(80)));
-  }
-
-  function startItemReunion(id) {
-    if (!itemUseAllowed('bond1') || !isEquipped('bond1') || state.isSleeping || gameActive || pendingCompanionId || state.transformOptions || !ITEM_SYSTEM.ready(state,'reunion')) return false;
-    const companion = availableReunionCompanions().find(c => c.id === id);
-    if (!companion) return false;
-    closeAllMenuOverlays();
-    openCompanionInvite(companion, RARE_COMPANIONS.some(c => c.id === id));
-    pendingReunionId = id;
-    el.companionInviteTitle.textContent = `${companion.name}とさいかい`;
-    el.companionInviteFlavor.textContent = 'もう一度ゲームに挑戦しよう。加入の点数は同じ。シールは増えない。';
-    return true;
-  }
-
   const ITEM_REGION_SCENES = {
     home:['庭の小さな影をたどる','窓辺で風の音を聞く'],
     city:['路地の看板を見て歩く','広場の時計を見上げる'],
@@ -12701,10 +12679,8 @@
 
   function renderItemRelationActions() {
     const remaining = key => Math.max(0,(state.lifetime.itemProgress.readyAt[key] || 0)-state.lifetime.itemProgress.ticks);
-    const reunion = availableReunionCompanions();
-    const reunionButtons = isEquipped('bond1') ? reunion.map(c => `<button type="button" class="date-choice-btn" data-item-relation="reunion" data-companion="${escapeHtml(c.id)}" ${remaining('reunion') || !itemUseAllowed('bond1') || state.isSleeping ? 'disabled' : ''}>${escapeHtml(c.name)}とさいかい</button>`).join('') : '';
     const lanternButtons = hasNaotoItem('naoto_lantern') ? [...REGIONS,...SPECIAL_REGIONS].filter(r => [...state.lifetime.regionsVisited,...state.lifetime.specialRegionsVisited].includes(r.id) && (!r.special || hasPerk(70))).map(r => `<button type="button" class="date-choice-btn" data-item-relation="lantern" data-region="${r.id}" ${remaining('lantern') || !itemUseAllowed('naoto_lantern') || state.isSleeping ? 'disabled' : ''}>${escapeHtml(r.label)}のあかり</button>`).join('') : '';
-    el.itemRelationActions.innerHTML = `<p>${isEquipped('bond1') ? `再会のゲームは10分に1回。${remaining('reunion') ? `あと${remaining('reunion')*3}秒。` : ''}${reunion.length ? '' : 'この一生で離れたなかまは、まだいない。'}` : '再会のゲームは、おともだちバッジを身につけると選べる。'}</p>${reunionButtons}${hasNaotoItem('naoto_lantern') ? `<p>あかり探しは10分に1回。${remaining('lantern') ? `あと${remaining('lantern')*3}秒。` : ''}</p>` : ''}${lanternButtons}`;
+    el.itemRelationActions.innerHTML = `${hasNaotoItem('naoto_lantern') ? `<p>あかり探しは10分に1回。${remaining('lantern') ? `あと${remaining('lantern')*3}秒。` : ''}</p>` : ''}${lanternButtons}`;
   }
 
   let pendingItemScene = null;
@@ -15685,8 +15661,7 @@
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
           if (!record.includes(companion.id)) record.push(companion.id);
-          if (pendingReunionId !== companion.id) grantSticker(`companion:${companion.id}`, 'companion');
-          pendingReunionId = null;
+          grantSticker(`companion:${companion.id}`, 'companion');
           if (state.lifetime.companionFriendshipProgress) {
             delete state.lifetime.companionFriendshipProgress[companion.id];
           }
@@ -15980,19 +15955,6 @@
     const go = (e) => { if (e && e.preventDefault) e.preventDefault(); if (started) return; started = true; if (stopIntroDemo) { stopIntroDemo(); stopIntroDemo = null; } onStart(); };
     btn.addEventListener('pointerdown', go);
     btn.addEventListener('click', go);
-  }
-
-  function claimStarReward() {
-    const progress = state.lifetime.itemProgress;
-    if (progress.starGames.length < 3 || !ITEM_SYSTEM.ready(state, 'star')) return false;
-    state.lifetime.money += 15;
-    progress.starGames = [];
-    ITEM_SYSTEM.cooldown(state, 'star', 100);
-    return true;
-  }
-
-  function updateItemEffectTick() {
-    // V2 equipment effects are action- or danger-triggered; no timed star payout.
   }
 
   let sleepRecoveryTimer = null;
@@ -16969,8 +16931,7 @@
   el.itemRelationActions.addEventListener('click', e => {
     const btn = e.target.closest('button[data-item-relation]');
     if (!btn || btn.disabled) return;
-    if (btn.dataset.itemRelation === 'reunion') startItemReunion(btn.dataset.companion);
-    else if (btn.dataset.itemRelation === 'lantern') useItemLantern(btn.dataset.region);
+    if (btn.dataset.itemRelation === 'lantern') useItemLantern(btn.dataset.region);
   });
 
   el.travelRegionGrid.addEventListener('click', (e) => {
@@ -17030,18 +16991,13 @@
     const companion = allCompanionsById(pendingCompanionId);
     closeCompanionInvite();
     if (!companion) { pendingCompanionId = null; render(); return; }
-    const reunionOk = pendingReunionId !== companion.id || (isEquipped('bond1') && itemUseAllowed('bond1') && ITEM_SYSTEM.ready(state,'reunion') && availableReunionCompanions().some(c => c.id === companion.id));
-    const stillOk = reunionOk && !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
+    const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
     if (!stillOk) {
       pendingCompanionId = null;
       setMessage('いまはあそべなかった…またこんどさそってもらおう');
       saveState();
       render();
       return;
-    }
-    if (pendingReunionId === companion.id) {
-      ITEM_SYSTEM.cooldown(state, 'reunion', 200);
-      saveState();
     }
     startMinigame(pickRandomMinigame());
   });

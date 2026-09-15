@@ -1,5 +1,22 @@
 # Item System V2 Implementation Plan
 
+## 2026-09-15 最新決定（旧案より優先）
+
+この文書の以下の旧案は検討履歴であり、そのまま実装しない。特に専用「ごほうび」・クローバー・旧再会ゲーム・旧スターバッジ集計は廃止済みで、復活させない。
+
+- 装備は1枠。15品に揃える必要はない。
+- poop1: うんち3個以上で全掃除。待ち時間なし、手動掃除・成長・実績を増やさない。
+- sleepboost1: 「ねる」で即げんき100。通常の睡眠状態は維持。
+- bowtie / ribbon: おなか / ごきげんが25以下になると100へ。自然減軽減なし。
+- scarf: 病気を通常の薬と同じ効果で自動治療。手動medicine回数を増やさず、発病・冬雪補正なし。
+- travel1: 旅のげんき・おなか消費0。連続旅行の疲れ、ごきげん、訪問記録、特別地域条件は維持。
+- star: 通常成功の2コインだけ4コインへ。大成功・日次・その他のコインは変えない。旧3ゲーム集計・5分待ち・15コイン支給は撤去。
+- partner1 / bond1: なかよし度 / なかまのbondが25以下になると100へ。通常の自然減は維持。交際・仲直り・結婚、手動操作や加入・シール・実績は自動化しない。手紙の思い出は維持。
+- flower / glasses / energy1 / hat / crown は未確定。現在の効果を維持し、再設計は次の判断を待つ。変身装備は良い効果がなければ削除も可。
+- 使い切り候補: ラッキーコイン、へんしんチケット、ときのチケット・まえ／あと、ずかんチケット、おともだちチケット、レア遭遇チケット、おみあいチケット、いのちのおまもり、ふしぎなたまご、レアなたまご、でんせつチケット。探検チケットは削除方針。今回の安定化では未実装。
+- 旧専用ごほうび在庫を増やす案は不採用。通常コインとFUN ITEMSは別系統として維持。
+
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Restore the home fun-item shortcut row and replace weak/opaque item effects with clear, strong effects that cannot be trivially replicated by free care actions.

@@ -58,7 +58,7 @@ test('V2 star badge doubles only the ordinary minigame success coin payout', () 
   play(star.h, 50, 'ordinary-star');
   assert.equal(base.s.lifetime.money - baseMoney, 2);
   assert.equal(star.s.lifetime.money - starMoney, 4);
-  assert.equal(star.s.lifetime.itemProgress.starGames.length, 0);
+  assert.equal(star.s.lifetime.itemProgress.starGames, undefined);
 });
 
 test('V2 love letter restores partner affection to max at the danger threshold', () => {
@@ -76,4 +76,58 @@ test('V2 friend badge restores companion bond to max at the danger threshold', (
   h.api.decayCompanionBonds();
   assert.equal(s.companions.length, 1);
   assert.equal(s.companions[0].bond, 100);
+});
+
+
+test('retired star and reunion state is discarded without changing other cooldowns or records', () => {
+  const { h, s } = setup('star');
+  s.lifetime.itemProgress.starGames = ['a', 'b', 'c'];
+  Object.assign(s.lifetime.itemProgress.readyAt, { star: 100, reunion: 200, lantern: 300 });
+  s.itemLife.departedCompanions = ['shiba'];
+  s.lifetime.companionsRecruited = ['shiba'];
+  h.api.ITEM_SYSTEM.normalize(s);
+  assert.equal(s.lifetime.itemProgress.starGames, undefined);
+  assert.equal(s.lifetime.itemProgress.readyAt.star, undefined);
+  assert.equal(s.lifetime.itemProgress.readyAt.reunion, undefined);
+  assert.equal(s.lifetime.itemProgress.readyAt.lantern, 300);
+  assert.equal(s.itemLife.departedCompanions, undefined);
+  assert.deepEqual(Array.from(s.lifetime.companionsRecruited), ['shiba']);
+});
+
+test('friend badge no longer offers a reunion game while lantern actions remain', () => {
+  const { h, s } = setup('bond1');
+  s.lifetime.ownedNaotoItems = ['naoto_lantern'];
+  s.lifetime.regionsVisited = ['home'];
+  h.api.renderItemOverlay();
+  assert.doesNotMatch(h.get('itemRelationActions').innerHTML, /再会|さいかい|reunion/);
+  assert.match(h.get('itemRelationActions').innerHTML, /lantern/);
+});
+
+test('social equipment preserves ordinary decay and does not automate relationship decisions or award records', () => {
+  for (const id of ['partner1', 'bond1']) {
+    const base = setup(); const equipped = setup(id);
+    for (const { h, s } of [base, equipped]) {
+      partner(h, s).affection = 80;
+      s.partner.mismatched = true; s.partner.repair = 1;
+      s.companions = [{ id: h.api.normalCompanions[0].id, bond: 80 }];
+      h.api.decayRelationship(); h.api.decayCompanionBonds();
+    }
+    assert.equal(equipped.s.partner.affection, base.s.partner.affection);
+    assert.equal(equipped.s.companions[0].bond, base.s.companions[0].bond);
+    const records = JSON.stringify({ actions: equipped.s.actionCounts, recruited: equipped.s.lifetime.companionsRecruited, achievements: equipped.s.achievementsUnlocked, letters: equipped.s.lifetime.itemMemories.letters });
+    equipped.s.partner.affection = 25; equipped.s.companions[0].bond = 25;
+    equipped.h.api.decayRelationship(); equipped.h.api.decayCompanionBonds();
+    assert.equal(equipped.s.partner.mismatched, true);
+    assert.equal(equipped.s.partner.repair, 1);
+    assert.equal(equipped.s.partner.married, false);
+    assert.equal(JSON.stringify({ actions: equipped.s.actionCounts, recruited: equipped.s.lifetime.companionsRecruited, achievements: equipped.s.achievementsUnlocked, letters: equipped.s.lifetime.itemMemories.letters }), records);
+  }
+});
+
+test('star badge leaves great-result and failed-result coin awards unchanged', () => {
+  for (const score of [0, 90]) {
+    const base = setup(); const star = setup('star');
+    play(base.h, score); play(star.h, score);
+    assert.equal(star.s.lifetime.money, base.s.lifetime.money);
+  }
 });
