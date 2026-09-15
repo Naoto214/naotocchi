@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 22
       - name: Apply guarded V2 patch
-        run: node tools/apply-items-v2-care.js
+        run: node tools/run-items-v2-care-patch.js
       - name: Verify focused V2 contract
         run: node --test tests/items-v2-care-automation-test.cjs
       - name: Verify full suite
