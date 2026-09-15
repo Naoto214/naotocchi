@@ -3544,6 +3544,17 @@
     atlases:UI_ATLAS_IMAGES, currentActor:currentVisualStage,
   });
   const CANVAS_ILLUSTRATIONS = DISPLAY_CATALOG && globalThis.NaotocchiCanvasIllustrations?.create({document,resolve:DISPLAY_CATALOG.resolve});
+  // けしき せんよう の resolver: なかま・こいびと・しゅぞくの え(assets/characters/…)や いまの じぶん(U+E000)には ぜったいに ならない。
+  // めぐる の こもの(🍄 や 🐈 など)は「ずかんの じゅうみん」では なく けしき なので、こちらを とおす(キャラの え に ばけない)
+  const SCENERY_RESOLVE = DISPLAY_CATALOG ? (emoji) => {
+    if (emoji === '\uE000') return null;
+    const d = DISPLAY_CATALOG.resolve(emoji);
+    if (!d) return null;
+    if (d.asset && /assets\/characters\//.test(String(d.asset))) return null;
+    if (d.emoji != null && d.asset) return null; // しゅぞくの すがた(stage)の ていぎ
+    return d;
+  } : null;
+  const SCENERY_CANVAS = SCENERY_RESOLVE && globalThis.NaotocchiCanvasIllustrations?.create({document,resolve:SCENERY_RESOLVE});
   function displayIconHTML(emoji) {
     return DISPLAY_CATALOG?.html(emoji) || commentIconHTML(emoji) || escapeHtml(emoji || '');
   }
@@ -14325,8 +14336,16 @@
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
-    // オフスクリーンの canvas でも 絵文字 → イラストの おきかえが きくように
+    // キャラ(じゅうみん)よう: 絵文字 → イラスト/キャラの え。オフスクリーンでも きく
     wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS && c ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c),
+    // けしき(こもの・しゃへいぶつ・めじるし)よう: キャラの え には ぜったいに ならない
+    sceneryCtx: (c) => (SCENERY_CANVAS && c ? SCENERY_CANVAS.canvas(c) || c : c),
+    resolveScenery: (emoji) => (SCENERY_RESOLVE ? SCENERY_RESOLVE(emoji) : null),
+    // え の よみこみが すすむと かわる ばんごう(めぐる の 立て看板キャッシュを つくりなおす きっかけ)と、まえもって よみこむ
+    illustrationVersion: () => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.version : 0) + (SCENERY_CANVAS ? SCENERY_CANVAS.version : 0),
+    prepareIllustrations: (sceneryList, actorList) => { try { if (SCENERY_CANVAS) SCENERY_CANVAS.prepare(sceneryList || []); if (CANVAS_ILLUSTRATIONS) CANVAS_ILLUSTRATIONS.prepare(actorList || []); } catch (_) { /* よみこみの しっぱいは えがきを とめない */ } },
+    resolveDisplay: (emoji) => (DISPLAY_CATALOG ? DISPLAY_CATALOG.resolve(emoji) : null),
+    ALL_LINES, currentPetLine: () => state.speciesLine || null,
     isAuthorUnlocked: () => isAuthorUnlocked(),
     authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
     perfTier: () => mgPerfTier,
