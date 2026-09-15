@@ -51,6 +51,10 @@ rewrite('script.js', (input) => {
     "      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、せいちょう28' }; } },"
   );
   text = text.replace(
+    "      itemMessage += gotReward ? `／${fun.label}とごほうび1こ、${coins}コインをもらった!` : `／${fun.label}と${coins}コインをもらった!`;",
+    "      itemMessage += `／${fun.label}と${coins}コインをもらった!`;"
+  );
+  text = text.replace(
     '    const spammedTravel = !specialRewardTrip && !travelGuaranteed && state.travelStreak > travelSpamThreshold();',
     '    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();'
   );
