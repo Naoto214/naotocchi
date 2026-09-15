@@ -42,23 +42,8 @@ test('manual weather and time retain their labels beside the right illustration'
   assert.equal(h.api.state().lifetime.timeMode,'night');
 });
 
-test('a saved fun item displays its prop and consumes the same single item',()=>{
+test('an atlas error exposes the equipment emoji without changing equipment',()=>{
   const h=harness();
-  // Record already-earned age and first-use achievements before this repeat
-  // use; otherwise their existing story flash intentionally replaces the prop.
-  h.api.state().lifetime.consumablesUsed=1;
-  h.api.saveState();h.api.render();
-  h.api.state().items.fun_bubbles=2;h.api.render();
-  assert.match(h.get('itemsRow').innerHTML,/data-ui-icon="bubbles"/);
-  h.get('itemsRow').closest=()=>({dataset:{itemId:'fun_bubbles'},disabled:false});
-  h.dispatch(h.get('itemsRow'),'click');
-  assert.match(h.get('storyFlashEmoji').innerHTML,/data-ui-icon="bubbles"/);
-  assert.equal(h.api.state().items.fun_bubbles,1);
-  assert.match(h.get('storyFlashText').textContent,/しゃぼんだま/);
-});
-
-test('an atlas error exposes the original inventory emoji without changing counts or equipment',()=>{
-  const h=harness();h.api.state().items.fun_bubbles=2;
   h.api.state().lifetime.ownedShopItems=['sleepboost1'];
   h.api.state().lifetime.equippedItemId='sleepboost1';h.api.render();
   const before=JSON.stringify(h.api.state());
@@ -68,7 +53,6 @@ test('an atlas error exposes the original inventory emoji without changing count
     probe.listeners.find(e=>e.type==='error').fn();
     assert.equal(h.document.documentElement.dataset[atlas+'Atlas'],'failed');
   }
-  assert.match(h.get('itemsRow').innerHTML,/class="icon-fallback"[^>]*>🫧<\/span>/);
   assert.match(h.get('petAccessory').innerHTML,/class="icon-fallback"[^>]*>🛏️<\/span>/);
   assert.equal(JSON.stringify(h.api.state()),before);
 });

@@ -119,15 +119,6 @@ test('the actual TTS controller ducks both buses and replaces the scheduled reco
   assert.deepEqual(sfx.events.slice(sfxBefore).filter(([kind]) => kind === 'ramp'), [['ramp',0.9,1.4]]);
 });
 
-test('item tunes schedule different melodies through existing unlock and SFX mute bus',()=>{
- const h=audioHarness('home');assert.equal(h.api.playItemTune('season:spring'),false);
- h.handlers.get('pointerdown')();const start=h.oscillators.length;
- assert.equal(h.api.playItemTune('season:spring'),true);const spring=h.oscillators.slice(start).map(o=>o.frequency.value);
- const next=h.oscillators.length;assert.equal(h.api.playItemTune('season:winter'),true);const winter=h.oscillators.slice(next).map(o=>o.frequency.value);
- assert.ok(spring.length>=6);assert.notDeepEqual(spring,winter);assert.equal(h.api.playItemTune('bogus'),false);
- assert.equal(h.api.playItemTune('place:forest'),true);assert.equal(h.invalidTypes.length,0);
-});
-
 test('quick cues are shaped into short, punchy shouts: crisp stop, rising question, faster rate for longer words', () => {
   const h=audioHarness('game');
   const cue=h.api._shapeCue;

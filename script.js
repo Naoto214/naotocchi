@@ -1028,7 +1028,6 @@
     speechSlot: document.getElementById('speechSlot'),
     speechSpeaker: document.getElementById('speechSpeaker'),
     speechText: document.getElementById('speechText'),
-    itemsRow: document.getElementById('itemsRow'),
     companionInviteOverlay: document.getElementById('companionInviteOverlay'),
     companionInviteEmoji: document.getElementById('companionInviteEmoji'),
     companionInviteTitle: document.getElementById('companionInviteTitle'),
@@ -1711,6 +1710,7 @@
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
       // Inspect the saved version before fresh defaults can mark it migrated.
       merged.lifetime.itemSystemVersion = parsed.lifetime?.itemSystemVersion || 0;
+      merged.lifetime.funItemsRetiredVersion = parsed.lifetime?.funItemsRetiredVersion || 0;
       merged.lifetime.itemInventory = parsed.lifetime?.itemInventory || parsed.items || {};
       // Preserve the earlier transparent option only for a save without the new control.
       if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'buttonTransparency')
@@ -2049,7 +2049,7 @@
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
     { id: 'sticker-10', emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
@@ -2114,7 +2114,7 @@
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを30回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
     { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
@@ -2145,8 +2145,7 @@
     { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 25 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
     { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみコンプリート', desc: 'おたのしみをぜんぶつかってみた', tier: 'hard5', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集め、おたのしみもぜんぶ使った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
   ];
   // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
   const ACHIEVEMENT_TIERS = [
@@ -2366,7 +2365,7 @@
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
   // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
   //
-  // 装備は15種類。価格と説明は item-system.js の承認済みカタログを使う。
+  // 装備は14種類。価格と説明は item-system.js の承認済みカタログを使う。
   const SHOP_ITEMS = [
     { id: 'flower', label: 'おはな', emoji: '🌼' },
     { id: 'ribbon', label: 'リボン', emoji: '🎀' },
@@ -3288,8 +3287,6 @@
     energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
     partner1:'letter',crown:'crown',
     naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
-    fun_candy:'candy',fun_bubbles:'bubbles',fun_balloon:'balloon',fun_fireworks:'fireworks',
-    fun_camera:'camera',fun_musicbox:'musicbox',fun_surprise:'surprise',
   };
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
@@ -3434,7 +3431,7 @@
     ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
     ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
     ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
-    ['💍','married-3'],['🎁','shop-all sticker-10'],['🎈','consumable-all'],
+    ['💍','married-3'],['🎁','shop-all sticker-10'],
     // シールちょうの じっせき(絵は きぞんの しるしを つかいまわす)
     ['📖','sticker-tasks-5'],['🏆','sticker-100'],
   ].flatMap(([mark,ids])=>ids.split(' ').map(id=>[id,mark])));
@@ -9403,236 +9400,6 @@
     return pickConversationLine(lines);
   }
 
-  // rewards for a great minigame result: each heals the death meter by a
-  // different amount. weight controls drop rarity - the strongest healers
-  // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
-  // items still tends to be mostly low-tier
-  // ================================================================
-  // ごほうび(かいふくアイテム)
-
-  const FUN_ITEMS = [
-    {
-      "id": "fun_candy",
-      "label": "キャンディ",
-      "emoji": "🍭",
-      "narration": "🍭キャンディをぺろぺろ。ちいさなおやつタイム!",
-      "emote": "happy",
-      "petLines": [
-        "あまーい!",
-        "もうひとくち!",
-        "これすき!",
-        "ちいさくなった。どこへ消えたんだろ",
-        "最後だけずっとなめてたい"
-      ],
-      "partnerLines": [
-        "おいしそうだね",
-        "ひとくちちょうだい?",
-        "うれしそうでかわいい",
-        "半分は難しいね。感想だけちょうだい",
-        "ほっぺのふくらみで場所がわかる"
-      ],
-      "companionLines": [
-        "ぼくもたべたい!",
-        "あまいにおい!",
-        "いいなー!",
-        "包み紙の音で来ちゃった!",
-        "その色、何の味?"
-      ]
-    },
-    {
-      "id": "fun_bubbles",
-      "label": "しゃぼんだま",
-      "emoji": "🫧",
-      "narration": "🫧しゃぼんだまがふわふわひろがった",
-      "emote": "fun",
-      "petLines": [
-        "まてまて〜!",
-        "こっちにもきた!",
-        "われるまえにつかまえる!",
-        "ふれたらいなくなるの、ずるい",
-        "大きいのほど慎重に見送る"
-      ],
-      "partnerLines": [
-        "ふふ、たのしそう",
-        "きれいだね",
-        "そっちにもとんでるよ",
-        "消える前に同じの見られたね",
-        "近づいたら顔が映ってた"
-      ],
-      "companionLines": [
-        "こっちこっち!",
-        "おおきいのきた!",
-        "つかまえた!…われた!",
-        "三つ数えたら二つになった!",
-        "あっちの大きいの、追いかけよう!"
-      ]
-    },
-    {
-      "id": "fun_balloon",
-      "label": "ふうせん",
-      "emoji": "🎈",
-      "narration": "🎈ふうせんがふわり。つられて見あげた",
-      "emote": "fun",
-      "petLines": [
-        "どこまでいくの?",
-        "おちてこーい!",
-        "ふわふわ〜",
-        "持ってるほうが引っぱられてる",
-        "軽そうなのに目が離せない"
-      ],
-      "partnerLines": [
-        "にげないようにみてよう",
-        "なんかいいね",
-        "ずっとみてられる",
-        "ひも、ここで持ってるね",
-        "そっちに行きたいみたい。ついていく?"
-      ],
-      "companionLines": [
-        "つかまえる!",
-        "たかい!",
-        "ぼくのところにも!",
-        "天井まで行ったら呼んで!",
-        "まるいのにころがらない!"
-      ]
-    },
-    {
-      "id": "fun_fireworks",
-      "label": "はなび",
-      "emoji": "🎇",
-      "narration": "🎇よぞらにはなびがひらいた",
-      "emote": "fun",
-      "petLines": [
-        "わあっ!",
-        "もういっかい!",
-        "おおきい!",
-        "光ったあとに音が来た!",
-        "次を待ってたら、もう終わりそう!"
-      ],
-      "partnerLines": [
-        "きれい…",
-        "いっしょにみれてよかった",
-        "このままみてたいね",
-        "同じところでびっくりしたね",
-        "今の声、はなびより近かった"
-      ],
-      "companionLines": [
-        "どーん!",
-        "びっくりした!",
-        "つぎくるかな?",
-        "大きいの来た!拍手が遅れた!",
-        "音のほうにも名前つけたい!"
-      ]
-    },
-    {
-      "id": "fun_camera",
-      "label": "カメラ",
-      "emoji": "📸",
-      "narration": "📸カメラにむかって、ちょっといい顔をした",
-      "emote": "happy",
-      "petLines": [
-        "はい、チーズ!",
-        "どう?うつってる?",
-        "もう1まい!",
-        "まじめな顔がいちばんへん",
-        "自分の顔にまだ慣れてない"
-      ],
-      "partnerLines": [
-        "このしゃしん、とっておこうね",
-        "もうすこしこっち",
-        "いいかおしてる",
-        "その顔も残しとこう",
-        "さっきの一枚、消さないでね"
-      ],
-      "companionLines": [
-        "ぼくもはいる!",
-        "へんなかおする!",
-        "みせてみせて!",
-        "全員入った?はしっこ見せて!",
-        "撮る前に笑っちゃった!"
-      ]
-    },
-    {
-      "id": "fun_musicbox",
-      "label": "オルゴール",
-      "emoji": "🎵",
-      "narration": "🎵小さな箱から、やわらかい音が広がった",
-      "emote": "happy",
-      "petLines": [
-        "ゆらゆら〜",
-        "このおとすき",
-        "なんかねむくなる…",
-        "ふたを閉じてもまだ頭で鳴ってる",
-        "次の音を待つのがたのしい"
-      ],
-      "partnerLines": [
-        "おちつくね",
-        "このままゆっくりしよう",
-        "いいきょくだね",
-        "話の続きはこの曲のあとにしよ",
-        "黙って聴く時間もいいね"
-      ],
-      "companionLines": [
-        "おどろう!",
-        "ふしぎなおと!",
-        "もういっかいききたい!",
-        "小さな箱なのに音が広い!",
-        "静かに聴く練習ならできる!"
-      ]
-    },
-    {
-      "id": "fun_surprise",
-      "label": "びっくりばこ",
-      "emoji": "🪄",
-      "narration": "🪄びっくりばこがびよーん!",
-      "emote": "fun",
-      "petLines": [
-        "うわっ!",
-        "びっくりしたー!",
-        "もうこわくないぞ!",
-        "知っててもびっくりする!",
-        "ふたに勝った顔をしておこう"
-      ],
-      "partnerLines": [
-        "ふふ、いいかおした",
-        "びっくりしたね",
-        "次はこっちが開けてみるね",
-        "驚くタイミングまで一緒だったね",
-        "次はそっちが開けてみる?"
-      ],
-      "companionLines": [
-        "わああ!",
-        "もう1かい!",
-        "いまのみた!?",
-        "箱のほうが元気だった!",
-        "閉めたらまた待ってるの?"
-      ]
-    }
-  ];
-
-  function randomFunItem() {
-    const roll = Math.random();
-    const id = roll < 0.55 ? 'fun_candy' : roll < 0.8 ? 'fun_bubbles' : roll < 0.95 ? 'fun_balloon' : 'fun_fireworks';
-    return FUN_ITEMS.find(item => item.id === id);
-  }
-
-  function playFunScene(item) {
-    clearConversationTimers();
-    hideSpeechBubble();
-    setMessage(item.narration || `${item.emoji} ${item.label}であそんだ`);
-    showStoryEvent({ emoji: item.emoji, item, message: item.label });
-    emotePet(item.emote || 'fun');
-
-    const ageBand = funAgeBand();
-    const beats = [{ speaker: petSpeaker(), text: ageBand === 'elder' ? item.petLines[4] : ageBand === 'young' ? item.petLines[0] : pickConversationLine(item.petLines) }];
-    if (state.partner && Math.random() < 0.85) beats.push({ speaker: partnerSpeaker(), text: pickConversationLine(item.partnerLines) });
-    if (state.companions.length && Math.random() < 0.85) beats.push({ speaker: companionSpeaker(), text: pickConversationLine(item.companionLines) });
-
-    const crownLine = rememberCrownReaction(item);
-    if (crownLine) beats.push({ speaker: petSpeaker(), text: crownLine });
-
-    playConversationBeats(beats);
-  }
-
   const RECOVERY_EFFECT_LABELS = {
     hunger: 'おなか', happiness: 'ごきげん', energy: 'げんき',
     health: 'けんこう', decline: 'おとろえ', life: 'いのち',
@@ -9765,14 +9532,7 @@
     maybeMidlifeEvent(age);
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    if (age % 5 === 0) {
-      const fun = randomFunItem();
-      ITEM_SYSTEM.grant(state, fun.id);
-      setMessage(`🎂 ${age}さい。${fun.emoji}${fun.label}をもらって、さっそくしまいこんだ`);
-      emotePet('happy');
-    } else {
-      setBirthdayToast(`🎂 ${age}さいになった`);
-    }
+    setBirthdayToast(`🎂 ${age}さいになった`);
     if (age === 90) {
       state.miracleGuard = true;
       setMessage('🌅 90さい。いつもの場所で、しばらくゆっくりしていた');
@@ -10385,7 +10145,6 @@
     // ステータスの げんしょうも ねんれいも すすめない
     if (state.stage === STAGE.EGG) return;
     ITEM_SYSTEM.advance(state);
-    updateFunItemTick();
 
     if (!state.infinite) {
       const prevAge = currentAge();
@@ -10845,7 +10604,6 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !state.itemLife.balloon
         && !isAnyMenuOverlayOpen()
         && (remaining.length > 0 || rareRemaining.length > 0);
       if (canEncounter && Math.random() < 0.9) {
@@ -11546,7 +11304,6 @@
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
     renderWorldScene(suppressFrontFx);
-    renderItemsRow(disableCare);
     renderHomeCast();
     positionWeatherSky();
   }
@@ -12766,10 +12523,9 @@
   }
 
   function buyConsumableItem(id) {
-    const item = CONSUMABLE_ITEMS.find(it => it.id === id) || FUN_ITEMS.find(it => it.id === id);
+    const item = CONSUMABLE_ITEMS.find(it => it.id === id);
     const meta = ITEM_SYSTEM.CATALOG[id];
     if (!item || !meta || meta.price == null || !Number.isFinite(state.lifetime.money) || state.lifetime.money < meta.price) return false;
-    if (meta.kind === 'tool' && ITEM_SYSTEM.ownsTool(state, id)) return false;
     if (!ITEM_SYSTEM.grant(state, id)) return false;
     state.lifetime.money -= meta.price;
     state.lifetime.itemPurchases[id] = (state.lifetime.itemPurchases[id] || 0) + 1;
@@ -12779,27 +12535,20 @@
 
   function renderConsumableItemGrid() {
     if (el.onetimeActive) { const list = activeBoostSummary(); el.onetimeActive.textContent = list.length ? `いまのこうか：${list.join('／')}` : 'いまのこうかはない'; }
-    el.onetimeItemGrid.innerHTML = [...CONSUMABLE_ITEMS, ...FUN_ITEMS].map(item => {
+    el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map(item => {
       const meta = ITEM_SYSTEM.CATALOG[item.id];
-      const owned = meta.kind === 'tool' && ITEM_SYSTEM.ownsTool(state, item.id);
       const stock = ITEM_SYSTEM.stock(state, item.id);
-      const funReason = item.id.startsWith('fun_') ? funUnavailableReason(item.id) : '';
-      const usable = itemUseAllowed(item.id) && !funReason && (!item.available || item.available());
+      const usable = itemUseAllowed(item.id) && (!item.available || item.available());
       const pending = item.deferred && state.itemLife.pendingItems[item.id];
-      const status = pending ? `${stock}こ／予約中。発動までは減らない${pending.partner && !pendingForPartner(item.id) ? '／今の相手には使えない。取り消して予約し直せる' : ''}` : owned ? 'ずっと使える' : `${stock}こ／${item.id === 'c_sickshield' ? '1こで3回' : '1回に1こ'}`;
-      const reason = funReason || (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
-      const cooldownKey = item.id === 'fun_musicbox' ? 'musicbox' : item.id === 'fun_surprise' ? 'surprise' : null;
-      const remaining = cooldownKey ? Math.max(0,(state.lifetime.itemProgress.readyAt[cooldownKey] || 0)-state.lifetime.itemProgress.ticks) : 0;
-      const extra = state.lifetime.itemExtraScenes[item.id] || 0;
-      const duration = item.id === 'fun_candy' ? '／味を楽しむ1分間は重ねて使えない' : item.id === 'fun_balloon' ? '／招待が開いたときに1こ使う' : item.id === 'fun_surprise' ? '／半分はごきげん+5、30%で+10、20%でげんき+10' : '';
+      const status = pending ? `${stock}こ／予約中。発動までは減らない${pending.partner && !pendingForPartner(item.id) ? '／今の相手には使えない。取り消して予約し直せる' : ''}` : `${stock}こ／${item.id === 'c_sickshield' ? '1こで3回' : '1回に1こ'}`;
+      const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
       return `<div class="shop-item">
         <span class="shop-item-emoji">${item.emoji}</span>
         <span class="shop-item-label">${item.label}</span>
         <span class="shop-item-desc">${meta.desc}</span>
-        <span class="shop-item-status">${status}${duration}${remaining ? `／数値の効果まで${remaining*3}秒。眺めるのはいつでも` : ''}${reason ? `／${reason}` : ''}</span>
-        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${owned || state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
-        <button type="button" data-item-action="use" data-id="${item.id}" ${!usable || (!stock && !owned) ? 'disabled' : ''}>${item.deferred ? 'よやく' : 'つかう'}</button>
-        ${extra ? `<button type="button" data-item-action="scene" data-id="${item.id}" ${!usable ? 'disabled' : ''}>えんしゅつけん（${extra}こ・数値の効果なし）</button>` : ''}
+        <span class="shop-item-status">${status}${reason ? `／${reason}` : ''}</span>
+        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
+        <button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.deferred ? 'よやく' : 'つかう'}</button>
         ${pending ? `<button type="button" data-item-action="cancel" data-id="${item.id}">とりけす</button>` : ''}
       </div>`;
     }).join('');
@@ -13907,82 +13656,8 @@
 
   el.transformSkipBtn.addEventListener('click', skipTransform);
 
-  // ホームの道具列。未使用の在庫数と永久道具を表示する。
-  function renderItemsRow(disableUse) {
-    const entries = FUN_ITEMS.filter((item) => ITEM_SYSTEM.stock(state, item.id) > 0 || ITEM_SYSTEM.ownsTool(state, item.id));
-    if (!entries.length) { el.itemsRow.innerHTML = ''; return; }
-    el.itemsRow.innerHTML = entries.map((item) => `
-      <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse || funUnavailableReason(item.id) ? 'disabled' : ''} aria-label="${escapeHtml(item.label+'。'+ITEM_SYSTEM.CATALOG[item.id].desc+'。'+funUnavailableReason(item.id))}">
-        <span class="item-emoji">${itemIconHTML(item,true)}</span><span class="item-count">${ITEM_SYSTEM.ownsTool(state, item.id) ? 'ずっと' : ITEM_SYSTEM.stock(state, item.id)}</span>
-      </button>
-    `).join('');
-  }
-
-  function funUnavailableReason(id) {
-    if (!itemUseAllowed(id) || state.isSleeping || gameActive || pendingCompanionId || state.transformOptions || (isAnyMenuOverlayOpen() && !overlayIs('item'))) return '今は使えない';
-    if (id === 'fun_candy' && (state.itemLife.candyUntil || 0) > state.lifetime.itemProgress.ticks) return `味を楽しんでいる。あと${(state.itemLife.candyUntil-state.lifetime.itemProgress.ticks)*3}秒`;
-    if (id === 'fun_balloon' && state.itemLife.balloon) { const left=Math.max(0,state.itemLife.balloon.readyAt-state.lifetime.itemProgress.ticks);return left ? `ふうせんの準備中。あと${left*3}秒` : 'ふうせんの準備ができた。おうちで待とう'; }
-    if (id === 'fun_balloon' && !availableBalloonCompanions().length) return '今、呼べるなかまはいない';
-    return '';
-  }
-
-  function availableBalloonCompanions() { return COMPANIONS.filter(c => !hasActiveCompanionId(c.id)); }
-  function updateFunItemTick() {
-    const life = state.itemLife, ticks = state.lifetime.itemProgress.ticks;
-    const season = currentEnvironment().season;
-    const seasons = state.lifetime.itemProgress.visitedSeasons || (state.lifetime.itemProgress.visitedSeasons = []);
-    if (season && !seasons.includes(season)) seasons.push(season);
-    if (life.candyUntil && life.candyUntil-ticks===10 && !message && !isAnyMenuOverlayOpen()) setMessage('キャンディ、最初と少しちがう味がする。');
-    if (life.candyUntil && ticks >= life.candyUntil) { life.candyUntil = 0; setMessage('キャンディの味が、まだ少しなつかしい。'); }
-    if (!life.balloon || ticks < life.balloon.readyAt || !itemUseAllowed('fun_balloon')) return;
-    if (gameActive || state.isSleeping || pendingCompanionId || state.transformOptions || isAnyMenuOverlayOpen() || message) return;
-    const candidates = availableBalloonCompanions();
-    life.balloon = null;
-    if (!candidates.length) { setMessage('今はみんなそばにいる。ふうせんはふくろに残した。'); saveState(); return; }
-    if (!ITEM_SYSTEM.take(state,'fun_balloon')) { saveState(); return; }
-    recordItemUse('fun_balloon');
-    openCompanionInvite(pickCompanionByRegion(candidates), false);
-    saveState();
-  }
-
   function itemEnvironmentLabels(env = {}) {
     return {time:TIME_CHOICES[env.time]?.[1],weather:WEATHER_CHOICES[env.weather]?.[1] || environmentContextLabel(env.weatherSource),season:SEASON_INFO[env.season]?.label,region:env.locality?.display || [...REGIONS,...SPECIAL_REGIONS].find(r=>r.id===env.region)?.label};
-  }
-
-  function photoSnapshot() {
-    const env = currentEnvironment(), main = currentVisualStage();
-    const visualActor = (kind,id,visual,label) => ({kind,id,asset:visual?.asset || null,emoji:visual?.emoji || '？',label:label || visual?.label || visual?.name || ''});
-    const actors = [visualActor('pet',state.speciesLine,main)];
-    if (state.partner) {
-      const p = state.partner, id = WORLD_MASTER?.compatibility?.partnerAliases?.[p.id] || p.id;
-      const def = WORLD_MASTER?.partners?.find(p => p.id === id);
-      // Guest rendering uses the saved guest emoji; never substitute an NPC or current pet.
-      actors.push(visualActor('partner',p.id,{asset:def?.asset,emoji:p.emoji || def?.emoji},p.label));
-    }
-    for (const c of state.companions) { const def = allCompanionsById(c.id); if (def) actors.push(visualActor('companion',c.id,def)); }
-    const serial = state.lifetime.itemProgress.sceneSerial = (state.lifetime.itemProgress.sceneSerial || 0) + 1;
-    return itemMemorySnapshot(`photo:${serial}`,`${main.label}の、きょうの一枚。`,{actors,capturedAt:new Date().toISOString().slice(0,10),environmentLabels:itemEnvironmentLabels(env)});
-  }
-
-  function collectItemTunes() {
-    const env = currentEnvironment(), p = state.lifetime.itemProgress;
-    p.visitedSeasons = [...new Set([...(p.visitedSeasons || []),env.season])];
-    const choices = [
-      ...p.visitedSeasons.filter(id=>SEASON_INFO[id]).map(id=>({tuneId:`season:${id}`,label:`${SEASON_INFO[id].label}の小さな曲`})),
-      ...[...new Set([...(state.lifetime.regionsVisited || []),...(state.lifetime.specialRegionsVisited || []),env.region])].map(id=>[...REGIONS,...SPECIAL_REGIONS].find(r=>r.id===id)).filter(Boolean).map(r=>({tuneId:`place:${r.id}`,label:`${r.label}の小さな曲`})),
-    ];
-    for (const tune of choices) addItemMemory('tunes',itemMemorySnapshot(`tune:${tune.tuneId}`,tune.label,tune));
-    return `season:${env.season}`;
-  }
-
-  function playSavedItemTune(tuneId) {
-    const status = document.getElementById('itemMemoryStatus');
-    if (!ITEM_SYSTEM.ownsTool(state,'fun_musicbox')) { status.textContent = 'オルゴールを手に入れると聴けます'; return false; }
-    const tune = state.lifetime.itemMemories.tunes.find(t=>t.tuneId===tuneId);
-    if (!tune) return false;
-    const played = audio.playItemTune(tuneId);
-    status.textContent = played ? `${tune.label}を聴いている` : '音が出せません。音の設定を確かめて、もう一度きいてね';
-    return played;
   }
 
   let itemMemoriesOpen = false;
@@ -13991,150 +13666,6 @@
     if (itemMemoriesOpen) document.getElementById('itemMemoriesList').innerHTML = window.NaotocchiItemMemories.render(Object.fromEntries(Object.entries(state.lifetime.itemMemories).map(([kind,records])=>[kind,records.map(r=>({...r,environmentLabels:r.environmentLabels || itemEnvironmentLabels(r.environment)}))])));
   }
   document.getElementById('itemMemoriesBtn').addEventListener('click',()=>{itemMemoriesOpen=!itemMemoriesOpen;renderItemMemories();});
-  document.getElementById('itemMemoriesList').addEventListener('click',async e=>{
-    const btn = e.target.closest('button[data-memory-action]'); if (!btn) return;
-    const {kind,key,memoryAction} = btn.dataset;
-    const record = state.lifetime.itemMemories[kind]?.find(r=>r.key===key); if (!record) return;
-    if (memoryAction==='play' && kind==='tunes') { playSavedItemTune(record.tuneId); return; }
-    if (memoryAction!=='export' || kind!=='photos') return;
-    const status = document.getElementById('itemMemoryStatus'); status.textContent = '画像を作っています';
-    const url = await window.NaotocchiItemMemories.exportPhoto(record,{document,loadImage:loadStickerImage});
-    const target = document.getElementById('itemMemoryExport');target.innerHTML='';
-    if (!url) { status.textContent='この環境では画像を作れません。思い出は残っています'; return; }
-    const img = document.createElement('img'); img.src=url; img.alt=`${record.age}さいのしゃしん`;target.appendChild(img);
-    const link = document.createElement('a');link.href=url;link.download='naotocchi-photo.png';link.textContent='しゃしんをほぞん';target.appendChild(link);
-    status.textContent='画像ができました';
-  });
-
-  // Use the same age bands as the existing fun dialogue, including age 13
-  // within a visual stage and age 70 even when an infinite-mode form is fixed.
-  function funAgeBand() {
-    const age = currentAge();
-    return age >= 70 ? 'elder' : age < 13 ? 'young' : 'adult';
-  }
-  const FUN_CROWN_LINES = {
-    fun_candy: {
-      young:'かんむりみたいな包み紙、あまいにおいもする！',
-      adult:'かんむりより、この一粒を大事に味わおう。',
-      elder:'かんむりを置いて、ゆっくり溶ける甘さを楽しもう。',
-      solo:'最後のひと口は、ひとりじめ。', partner:'きみにも、この甘さを伝えたい。',
-      companions:'包み紙の音で、なかまが集まってきた。', 'partner-companions':'ふたりで味を言い合ったら、なかまも混ざってきた。',
-    },
-    fun_bubbles: {
-      young:'泡のかんむり、追いかけたらかぶれるかな！',
-      adult:'泡の中のかんむりは、割れるまでの王さま。',
-      elder:'泡のかんむりが消えるまで、ここでゆっくり見送ろう。',
-      solo:'ひとつだけ、最後まで目で追った。', partner:'同じ泡に、ふたりの顔が映ったね。',
-      companions:'あっちの泡は、なかまにまかせよう。', 'partner-companions':'ふたりで見送った泡を、なかまが追いかけた。',
-    },
-    fun_balloon: {
-      young:'ふうせんの目印、かんむりより高く上げるぞ！',
-      adult:'かんむりより高い目印。だれかが見つけてくれるかな。',
-      elder:'かんむりより高く揺れる目印を、のんびり眺めて待とう。',
-      solo:'足音がしたら、まっさきに振り向こう。', partner:'きみとひもを持って、訪ねてくる子を待とう。',
-      companions:'なかまも目印のそばに集まって、入り口を見ている。', 'partner-companions':'ふたりとなかまの輪に、もうひとり来てくれるかな。',
-    },
-    fun_fireworks: {
-      young:'光のかんむり、次はもっと大きいのが見たい！',
-      adult:'今日のかんむりは、ここで見つけた光だね。',
-      elder:'消えた光のかんむりが、目を閉じてもまだ浮かぶ。',
-      solo:'最後の光まで、ひとりで数えていた。', partner:'きみが驚いた顔も、光といっしょに覚えておこう。',
-      companions:'なかまの歓声が、光を追いかけて広がった。', 'partner-companions':'ふたりで顔を見合わせたら、なかまからも拍手が来た。',
-    },
-    fun_camera: {
-      young:'かんむりも入った？とびきりの顔で写るぞ！',
-      adult:'かんむりも入った？今日の顔ごと、とっておいて。',
-      elder:'かんむりと、この年まで育った顔を、もう一枚残そう。',
-      solo:'ひとりの顔も、ちゃんと見返したい。', partner:'きみと並んだ一枚は、ふたりで見返そう。',
-      companions:'なかまの顔が、はしっこまで入っているかな。', 'partner-companions':'ふたりもなかまも、誰も切れずに写ったかな。',
-    },
-    fun_musicbox: {
-      young:'かんむりが揺れるくらい、この音に合わせて踊ろう！',
-      adult:'かんむりを置いて、この音の続きを聴こう。',
-      elder:'かんむりを置いたら、昔に聴いた音まで思い出した。',
-      solo:'次の音を、ひとりでそっと口ずさんだ。', partner:'きみと黙って聴く時間も、いいね。',
-      companions:'なかまがそれぞれの速さで揺れている。', 'partner-companions':'ふたりの小さな歌に、なかまの足音が重なった。',
-    },
-    fun_surprise: {
-      young:'かんむりが跳ねた！箱とどっちが高く跳べるかな！',
-      adult:'かんむりが跳ねた！箱には、まだかなわないな。',
-      elder:'何度見ても、かんむりが跳ねるほど驚いてしまうね。',
-      solo:'見られていなくても、ちょっと照れた。', partner:'きみまで同じ顔で驚いていて、笑っちゃった。',
-      companions:'箱より大きいなかまの声に、もう一度びっくり。', 'partner-companions':'ふたりとなかまがいっぺんに跳ねて、箱だけ静かだね。',
-    },
-  };
-  function rememberCrownReaction(item) {
-    if (!hasNaotoItem('naoto_crown')) return null;
-    const env = currentEnvironment(), ageBand = funAgeBand();
-    const partnerIdentity = itemPartnerIdentity(state.partner);
-    // Actor order and changing bond values are not a new cast identity.
-    const companionIds = [...new Set(state.companions.map(c => c.id))].sort();
-    const castKind = companionIds.length ? (partnerIdentity ? 'partner-companions' : 'companions') : (partnerIdentity ? 'partner' : 'solo');
-    const contextKey = JSON.stringify([state.speciesLine,currentFormStageIndex(),ageBand,castKind,partnerIdentity,companionIds,env.time,env.season,env.region]);
-    const variantId = `crown:${item.id}:${ageBand}:${castKind}`;
-    const lines = FUN_CROWN_LINES[item.id], text = lines[ageBand] + lines[castKind];
-    // Version only the new key; older saved crown records stay intact.
-    addItemMemory('reactions', itemMemorySnapshot(`crown:v2:${item.id}:${contextKey}`, text, {
-      itemId:item.id,contextKey,variantId,ageBand,castKind,partnerIdentity,companionIds,
-    }));
-    return text;
-  }
-
-  function showFunItemEffect(item,outcome) {
-    const env=currentEnvironment(),effect=item.id.slice(4),area=document.createElement('div');
-    area.className='item-experience';area.dataset.effect=effect;
-    area.dataset.setting=env.region==='deepsea'?'water':env.time==='night'?'sky':'hand';
-    area.dataset.outcome=outcome || '';area.dataset.season=env.season;area.setAttribute('aria-hidden','true');
-    area.style.setProperty('--item-season-color',({spring:'#e699c9',summer:'#efa953',autumn:'#d47442',winter:'#80bada'})[env.season]);
-    const localIcon = ({forest:'tree',sea:'wave',deepsea:'bubbles',snow:'snow_mountain',desert:'cactus',city:'city',mountain:'mountain'})[env.region] || 'flower';
-    const icon = outcome==='energy'?'star':outcome==='big'?localIcon:effect==='fireworks'&&env.region==='deepsea'?'bubbles':effect==='surprise'?'surprise':effect;
-    area.innerHTML=Array.from({length:['bubbles','fireworks'].includes(effect)?5:1},(_,i)=>`<span class="item-experience-piece" style="--i:${i}">${uiIconHTML(icon,item.label,item.emoji)}</span>`).join('');
-    el.petArea.appendChild(area);setTimeout(()=>area.remove(),3000);
-  }
-
-  function useLegacyItemScene(id) {
-    const item=FUN_ITEMS.find(i=>i.id===id);
-    if(!item || !ITEM_SYSTEM.ownsTool(state,id) || funUnavailableReason(id) || !(state.lifetime.itemExtraScenes[id]>0))return false;
-    state.lifetime.itemExtraScenes[id]-=1;
-    closeOverlay('item');playFunScene(item);showFunItemEffect(item);saveState();render();return true;
-  }
-
-  function useItem(itemId) {
-    const item = FUN_ITEMS.find(it => it.id === itemId);
-    if (!item) return false;
-    const reason=funUnavailableReason(itemId);
-    if (reason) { setMessage(reason);return false; }
-    const tool = ITEM_SYSTEM.ownsTool(state, itemId);
-    if (!tool && !ITEM_SYSTEM.stock(state,itemId)) return false;
-    // Balloon stock remains reserved until the eligible invitation opens.
-    if (itemId==='fun_balloon') state.itemLife.balloon={readyAt:state.lifetime.itemProgress.ticks+10};
-    else if (!tool && !ITEM_SYSTEM.take(state, itemId)) return false;
-    recordItemUse(itemId, !tool && itemId!=='fun_balloon');
-    let outcome;
-    if (itemId==='fun_candy') { state.happiness=clamp(state.happiness+8,0,100);state.itemLife.candyUntil=state.lifetime.itemProgress.ticks+20; }
-    if (itemId==='fun_bubbles') { state.happiness=clamp(state.happiness+10,0,100);for(const c of state.companions)c.bond=clamp((c.bond??100)+10,0,100); }
-    if (itemId==='fun_fireworks') {
-      state.happiness=clamp(state.happiness+15,0,100);if(state.partner)state.partner.affection=clamp((state.partner.affection??100)+15,0,100);
-      const p=state.lifetime.itemProgress;p.sceneSerial=(p.sceneSerial||0)+1;
-      addItemMemory('specials',itemMemorySnapshot(`fireworks:${p.sceneSerial}`,'みんなで、光の行方を見送った。',{itemId,event:'fireworks'}));
-    }
-    if (itemId==='fun_camera') addItemMemory('photos',photoSnapshot());
-    if (itemId==='fun_musicbox') { const tuneId=collectItemTunes();playSavedItemTune(tuneId);if(ITEM_SYSTEM.ready(state,'musicbox')){applyDecline(-10);ITEM_SYSTEM.cooldown(state,'musicbox',100);} }
-    if (itemId==='fun_surprise' && ITEM_SYSTEM.ready(state,'surprise')) {
-      const roll=Math.random();outcome=roll<.5?'small':roll<.8?'big':'energy';
-      if(outcome==='energy')state.energy=clamp(state.energy+10,0,100);else state.happiness=clamp(state.happiness+(outcome==='big'?10:5),0,100);
-      ITEM_SYSTEM.cooldown(state,'surprise',100);
-    }
-    closeOverlay('item');
-    playFunScene(item);showFunItemEffect(item,outcome);
-    saveState(); render(); return true;
-  }
-
-  el.itemsRow.addEventListener('click', (e) => {
-    const btn = e.target.closest('.item-btn');
-    if (btn && !btn.disabled) useItem(btn.dataset.itemId);
-  });
-
   // --- minigames (triggered by the play button) ---
 
   const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
@@ -15615,14 +15146,12 @@
     let itemMessage = glassesBonus || minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
-      const fun = randomFunItem();
-      ITEM_SYSTEM.grant(state, fun.id);
       if (special) state.oneTimeBoosts.greatReward = false;
       const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * coinBoost * envModifiers().coin);
       state.lifetime.money += coins;
-      itemMessage += `／${fun.label}と${coins}コインをもらった!`;
+      itemMessage += `／${coins}コインをもらった!`;
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
       const ordinaryCoins = equipped('star') ? 4 : 2;
@@ -17358,8 +16887,6 @@
     if (!btn || btn.disabled) return;
     if (btn.dataset.itemAction === 'cancel') { delete state.itemLife.pendingItems[btn.dataset.id]; saveState();render(); }
     else if (btn.dataset.itemAction === 'buy') buyConsumableItem(btn.dataset.id);
-    else if (btn.dataset.itemAction === 'scene') useLegacyItemScene(btn.dataset.id);
-    else if (btn.dataset.id.startsWith('fun_')) useItem(btn.dataset.id);
     else useConsumableItem(btn.dataset.id);
   });
 
@@ -18010,23 +17537,20 @@
     else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
-    // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ
+    // おみやげ: 5ふんに 1コイン(さいだい 12)
     const coins = Math.min(12, Math.floor(elapsed / (5 * 60 * 1000)));
-    let gift = null;
     if (coins > 0) state.lifetime.money += coins;
-    if (elapsed >= 30 * 60 * 1000 && Math.random() < 0.35) { gift = randomFunItem(); ITEM_SYSTEM.grant(state, gift.id); }
     const parts = [];
     const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
     d('hunger', 'おなか'); d('happiness', 'ごきげん'); d('energy', 'げんき');
     if (poop) parts.push('うんち+1');
     if (coins) parts.push(`💰+${coins}`);
-    if (gift) parts.push(`${gift.emoji}${gift.label}`);
     const span = minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
     const summary = `🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`;
     pushLifeLog('🏠', `るすばん：${span}`);
     setMessage(summary);
-    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${gift ? `\n${gift.emoji}${gift.label}を見つけて、とっておいた` : coins ? `\n💰${coins}を拾っておいた` : ''}` });
-    return { ticks, minutes, coins, gift, poop, sleeping };
+    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${coins ? `\n💰${coins}を拾っておいた` : ''}` });
+    return { ticks, minutes, coins, poop, sleeping };
   }
 
   function loop() {

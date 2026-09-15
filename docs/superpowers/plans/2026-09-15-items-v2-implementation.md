@@ -14,12 +14,13 @@
 - partner1 / bond1: なかよし度 / なかまのbondが25以下になると100へ。通常の自然減は維持。交際・仲直り・結婚、手動操作や加入・シール・実績は自動化しない。手紙の思い出は維持。
 - flower / glasses / energy1 / hat / crown は未確定。現在の効果を維持し、再設計は次の判断を待つ。変身装備は良い効果がなければ削除も可。
 - 使い切り候補: ラッキーコイン、へんしんチケット、ときのチケット・まえ／あと、ずかんチケット、おともだちチケット、レア遭遇チケット、おみあいチケット、いのちのおまもり、ふしぎなたまご、レアなたまご、でんせつチケット。探検チケットは削除方針。今回の安定化では未実装。
-- 旧専用ごほうび在庫を増やす案は不採用。通常コインとFUN ITEMSは別系統として維持。
+- お楽しみ7品の入手・使用・ホーム列・専用演出と実績を撤去し、旧在庫・所有道具を一度だけ返金する。詳細は [お楽しみ廃止仕様](../specs/2026-09-15-fun-items-retirement.md) を優先する。
+- 旧専用ごほうび在庫を増やす案は不採用。通常コインは維持。FUN ITEMS（お楽しみ7品）は最新の承認により全廃する。
 
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Restore the home fun-item shortcut row and replace weak/opaque item effects with clear, strong effects that cannot be trivially replicated by free care actions.
+**Goal:** Retire all fun items and their home shortcut row, and replace weak/opaque item effects with clear, strong effects that cannot be trivially replicated by free care actions.
 
 **Architecture:** Keep `item-system.js` as the static catalog/inventory/migration module and keep gameplay hooks in `script.js`. Make each behavior change through the existing item IDs where practical; retired IDs remain migration-only. `meguru.js` receives lantern exploration hooks only after the base item migrations and equipment changes are stable.
 
@@ -39,31 +40,9 @@
 
 ---
 
-### Task 1: Keep the home fun-item strip visible
+### Task 1: Home strip restoration superseded by retirement
 
-**Files:**
-- Modify: `tests/home-touch-test.cjs`
-- Modify: `home-touch.js`
-
-**Interfaces:**
-- Consumes: existing `#itemsRow`, `#screenNormal`, `device.dataset.homeFixed`.
-- Produces: a shortcut row pinned inside the visible fixed home while retaining the existing `renderItemsRow()` inventory logic.
-
-- [x] **Step 1: Write a failing regression test**
-
-Assert that running `home-touch.js` pins `#itemsRow` to the bottom of the visible screen and reserves bottom space on `#screenNormal`.
-
-- [x] **Step 2: Verify RED**
-
-PR CI on commit `c521f65` must fail because the old `home-touch.js` does not set these layout properties.
-
-- [x] **Step 3: Implement the minimal layout fix**
-
-Set `itemsRow.style.position = 'absolute'`, left/right `8px`, bottom `6px`, z-index `8`, and reserve `38px` bottom padding in `screenNormal`.
-
-- [ ] **Step 4: Verify GREEN**
-
-Run the scoped home-touch test and full runtime/home-layout CI. Confirm the row remains empty when there are no fun items or tools because `renderItemsRow()` still owns content visibility.
+The earlier visibility fix was verified and is historical. The approved retirement now removes the strip and its reserved space. Follow [the retirement plan](2026-09-15-remove-fun-items.md); do not restore the strip.
 
 ---
 
@@ -208,28 +187,9 @@ Social/survival/luck:
 
 ---
 
-### Task 6: Remove stat-heal identity from fun items and reusable tools
+### Task 6: Retire all seven fun items and reusable tools
 
-**Files:**
-- Modify: `tests/item-experiences-test.cjs`
-- Modify: `item-system.js`
-- Modify: `script.js`
-- Modify: `audio.js` only if home-BGM selection requires an exposed controller entry point
-
-**Interfaces:**
-- `fun_candy`: no stats; character-specific taste scene/memory.
-- `fun_bubbles`: no stats; group scene based on active companions.
-- `fun_balloon`: retain invitation behavior.
-- `fun_fireworks`: no stats; environment/cast-dependent special memory.
-- `fun_camera`: retain photo behavior.
-- `fun_musicbox`: no decline heal; collected tunes can be selected as home music without restricting existing free BGM settings.
-- `fun_surprise`: no stats/cash/growth; choose from a larger pool of visual/dialogue events on cooldown.
-
-- [ ] **Step 1: Rewrite experience tests to assert no stat changes**
-- [ ] **Step 2: Add diversity tests for scene outputs**
-- [ ] **Step 3: Verify RED**
-- [ ] **Step 4: Implement**
-- [ ] **Step 5: Verify GREEN**
+The previous reaction redesign is cancelled. Follow [the retirement plan](2026-09-15-remove-fun-items.md) for runtime/UI removal, once-only refunds, removal of exclusive achievements and preservation of shared memories. No replacement fun-item subsystem is introduced.
 
 ---
 
@@ -289,7 +249,7 @@ Social/survival/luck:
 **Interfaces:**
 - Run the existing fixed play profiles with V2 effects/prices.
 - Permanent shop should require meaningful multi-life saving; it must not be completable in one ordinary 100-year life.
-- Cheap fun items remain usable regularly without crowding out all permanent purchase goals.
+- Fun items are retired; their once-only legacy refunds must not repeat across reloads or lives.
 
 - [ ] **Step 1: Encode expected price table in tests**
 - [ ] **Step 2: Run fixed economy simulations and capture balances**

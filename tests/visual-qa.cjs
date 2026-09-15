@@ -95,7 +95,6 @@ function createFixtures() {
       const equipped = make('equipped',26);
       equipped.lifetime.ownedShopItems = ['crown'];
       equipped.lifetime.equippedItemId = 'crown';
-      equipped.items.fun_bubbles = 1;
       make('legend',26,{sodachi:95,maxSodachi:95});
       make('sleeping',26,{isSleeping:true,energy:20});
       make('sick',26,{isSick:true,sicknessType:'かぜ'});
@@ -136,14 +135,12 @@ function createFixtures() {
       illustrated.lifetime.ownedNaotoItems=['naoto_charm','naoto_lantern','naoto_ring','naoto_crown'];
       illustrated.lifetime.clears=1;illustrated.lifetime.lifeClears=1;illustrated.lifetime.bestLives=1;illustrated.lifetime.dexCleared=true;
       illustrated.lifetime.consumablesUsed=2;
-      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) illustrated.items[id]=2;
       const allBadges=JSON.parse(JSON.stringify(illustrated));
       Object.assign(allBadges,{isSick:true,sicknessType:'げんいんふめいのこうねつ',isSleeping:true,energy:35});
       allBadges.lifetime.endingTiersReached=[0,1,2,3,4];
       fixtures.badges_transparent=allBadges;
       const comments=make('comment_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       comments.lifetime.money=9999;comments.lifetime.consumablesUsed=2;
-      for(const id of ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_camera','fun_musicbox','fun_surprise']) comments.items[id]=2;
       const notices=make('notice_food_illustrations',26,{ageTicks:619,hunger:80,health:90,energy:80,happiness:80});
       notices.achievementsUnlocked=api.ACHIEVEMENTS.filter((a,i)=>i%2===0).map(a=>a.id);
       notices.lifetime.achievementUnlockedAt=Object.fromEntries(notices.achievementsUnlocked.map(id=>[id,Date.now()]));

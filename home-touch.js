@@ -4,32 +4,6 @@
   const device = document.getElementById('device');
   if (!device) return;
 
-  // The fixed iPhone home no longer scrolls. The fun-item row used to sit at
-  // the end of the normal flow, so it could fall below the clipped home even
-  // though renderItemsRow() had populated it. Pin it to the visible screen and
-  // reserve its height instead of re-enabling page/home scrolling.
-  const itemsRow = document.getElementById('itemsRow');
-  const screenNormal = document.getElementById('screenNormal');
-  if (itemsRow && screenNormal) {
-    Object.assign(itemsRow.style, {
-      display: 'flex',
-      position: 'absolute',
-      left: '8px',
-      right: '8px',
-      bottom: '6px',
-      zIndex: '8',
-    });
-    screenNormal.style.paddingBottom = '38px';
-
-    // script.js has already performed its first cast layout when this file is
-    // loaded. Reserving the footer space changes the usable home height by
-    // 38px. Chromium's ResizeObserver notices that immediately, but WebKit can
-    // keep the pre-footer actor sizes until the next game action. Trigger the
-    // existing viewport synchronizer explicitly so every engine starts from
-    // the same final home geometry.
-    window.dispatchEvent(new Event('resize'));
-  }
-
   let gesture = null;
   const locked = () => device.dataset.homeFixed === 'true'
     && !(window.visualViewport?.scale > 1);

@@ -3,7 +3,7 @@
   else root.NaotocchiItems = factory();
 })(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  // Approved 2026-09-14 catalog. Effects live in the game runtime.
+  // Current catalog; retired fun items exist only in the migration below.
   const CATALOG = Object.freeze(Object.fromEntries(Object.entries({
   "flower": {
     "label": "おはな",
@@ -180,55 +180,6 @@
     "desc": "次の旅は疲れ知らず。その土地の寄り道も選べる。",
     "guard": "解放済みの場所のみ。元気・満腹は消費。イベントの重複報酬・実績の自然観測条件を壊さない。"
   },
-  "fun_candy": {
-    "label": "キャンディ",
-    "price": 10,
-    "kind": "fun",
-    "desc": "ごきげん+8。しばらく、口の中に小さなお楽しみ。",
-    "guard": "満腹・命は回復しない。1分の反応中に重ねて使わせない。"
-  },
-  "fun_bubbles": {
-    "label": "しゃぼんだま",
-    "price": 25,
-    "kind": "fun",
-    "desc": "ごきげん+10。そばにいるなかまのきずなも+10。",
-    "guard": "ミニゲームの得点・成長・クリア回数には加算しない。演出を閉じても損失なし。"
-  },
-  "fun_balloon": {
-    "label": "ふうせん",
-    "price": 35,
-    "kind": "fun",
-    "desc": "30秒準備して、おうちで通常のなかまを1人招く。加入にはいつものゲームが必要。",
-    "guard": "呼べる未加入の通常なかまがいない時は使用不可。ゲーム・睡眠・他の招待中には割り込まず、その人生の次の有効なホーム場面へ保留。通常の遭遇予約と二重に招かず、対象資格を再確認。重ねて使用不可。"
-  },
-  "fun_fireworks": {
-    "label": "はなび",
-    "price": 60,
-    "kind": "fun",
-    "desc": "ごきげん+15。こいびとのなかよし度も+15。",
-    "guard": "新規の恋人は作らない。自然の時間・天気の実績条件を満たしたことにはしない。"
-  },
-  "fun_camera": {
-    "label": "カメラ",
-    "price": 900,
-    "kind": "tool",
-    "desc": "今の姿と、いっしょにいるみんなを思い出に残せる。何度でも。",
-    "guard": "撮影でコイン・シール・成長を無制限に生成しない。既存の無料の人生カード・保存機能は維持。一般ドロップから外す。"
-  },
-  "fun_musicbox": {
-    "label": "オルゴール",
-    "price": 1200,
-    "kind": "tool",
-    "desc": "旅で集めた小さな曲を聴こう。5分に1回、おとろえ-10。",
-    "guard": "既存BGM設定は無料のまま。おとろえ軽減は育成5分ごと。再使用・画面開閉・再読込で待ち時間を戻さない。一般ドロップから外す。"
-  },
-  "fun_surprise": {
-    "label": "びっくりばこ",
-    "price": 600,
-    "kind": "tool",
-    "desc": "5分に1回、何が飛び出すかお楽しみ。なくならない箱。",
-    "guard": "待ち時間は保存し、開閉・持ち替え・再読込でリセットしない。コイン・ごほうび・成長は抽選に入れない。一般ドロップから外す。"
-  },
   "naoto_charm": {
     "label": "なおとのおまもり",
     "price": null,
@@ -254,7 +205,7 @@
     "label": "なおとのかんむり",
     "price": null,
     "kind": "goal",
-    "desc": "いつものお楽しみに、見たことのない反応が加わる。",
+    "desc": "一生をやりきった記録を示す、記念のかんむり。",
     "guard": "4ステータス固定・無制限のコイン生成は付けない。新コレクションを既存PERFECT条件へ追加しない。"
   },
   "new_life_patch": {
@@ -279,8 +230,10 @@
     "guard": "れんくんの隠し条件は共通。シールから本編加入・成長・図鑑発見は起こさない。"
   }
 }).map(([id, item]) => [id, Object.freeze(item)])));
-  const TOOL_IDS = ['fun_camera', 'fun_musicbox', 'fun_surprise'];
-  const MEMORY_KINDS = ['photos', 'letters', 'lights', 'reactions', 'tunes', 'specials'];
+  const RETIRED_FUN_PRICES = Object.freeze({fun_candy:10,fun_bubbles:25,fun_balloon:35,fun_fireworks:60,fun_camera:900,fun_musicbox:1200,fun_surprise:600});
+  const RETIRED_TOOLS = ['fun_camera','fun_musicbox','fun_surprise'];
+  const retired = id => Object.prototype.hasOwnProperty.call(RETIRED_FUN_PRICES, id);
+  const MEMORY_KINDS = ['letters', 'lights', 'specials'];
   const object = value => value && typeof value === 'object' && !Array.isArray(value);
   const count = value => typeof value === 'number' && Number.isSafeInteger(value) && value > 0 ? value : 0;
   const known = id => Object.prototype.hasOwnProperty.call(CATALOG, id);
@@ -350,6 +303,51 @@
     s.duel = null;
     return true;
   }
+  function retireFunItems(state, l, bag, legacy) {
+    if (!l.funItemsRetiredVersion) {
+      let refund = 0;
+      for (const [id, price] of Object.entries(RETIRED_FUN_PRICES)) {
+        const owned = RETIRED_TOOLS.includes(id)
+          ? count(bag[id]) > 0 || (Array.isArray(l.ownedTools) && l.ownedTools.includes(id))
+            || (legacy && Array.isArray(l.ownedConsumableItems) && l.ownedConsumableItems.includes(id))
+          : count(bag[id]);
+        refund += Number(owned) * price;
+      }
+      l.money = (Number.isFinite(l.money) && l.money >= 0 ? l.money : 0) + refund;
+      l.funItemsRetiredVersion = 1;
+    }
+    // Reservations never held separate stock. Clear them without a second credit,
+    // including the life restored when leaving infinite mode.
+    for (const life of [state.itemLife, state.infiniteReturn?.itemLife]) {
+      if (!object(life)) continue;
+      delete life.balloon; delete life.candyUntil;
+      if (object(life.pendingItems)) for (const id of Object.keys(life.pendingItems)) if (retired(id)) delete life.pendingItems[id];
+    }
+    delete l.ownedTools; delete l.itemExtraScenes;
+    if (Array.isArray(l.ownedConsumableItems)) l.ownedConsumableItems = l.ownedConsumableItems.filter(id => !retired(id));
+    if (object(l.itemProgress)) {
+      delete l.itemProgress.visitedSeasons;
+      if (object(l.itemProgress.readyAt)) for (const key of ['camera','musicbox','surprise']) delete l.itemProgress.readyAt[key];
+    }
+    if (object(l.itemMemories)) {
+      for (const kind of ['photos','tunes','reactions']) delete l.itemMemories[kind];
+      if (Array.isArray(l.itemMemories.specials)) l.itemMemories.specials = l.itemMemories.specials.filter(record =>
+        !retired(record?.itemId) && record?.event !== 'fireworks' && !/^fireworks:/.test(record?.key || ''));
+    }
+    const retiredSticker = id => typeof id === 'string' && id.startsWith('item:') && retired(id.slice(5));
+    const stickers = l.stickers;
+    if (object(stickers)) {
+      if (object(stickers.owned)) for (const id of Object.keys(stickers.owned)) if (retiredSticker(id)) delete stickers.owned[id];
+      if (Array.isArray(stickers.seen)) stickers.seen = stickers.seen.filter(id => !retiredSticker(id));
+      if (object(stickers.pages)) for (const key of Object.keys(stickers.pages)) if (Array.isArray(stickers.pages[key])) stickers.pages[key] = stickers.pages[key].filter(p => !retiredSticker(p?.id));
+    }
+    for (const snapshot of [state, state.infiniteReturn]) {
+      if (!object(snapshot)) continue;
+      if (Array.isArray(snapshot.achievementsUnlocked)) snapshot.achievementsUnlocked = snapshot.achievementsUnlocked.filter(id => id !== 'consumable-all');
+      if (snapshot !== state && object(snapshot.items)) for (const id of Object.keys(snapshot.items)) if (retired(id)) delete snapshot.items[id];
+    }
+    if (object(l.achievementUnlockedAt)) delete l.achievementUnlockedAt['consumable-all'];
+  }
   function normalize(state) {
     if (!object(state.lifetime)) state.lifetime = {};
     const l = state.lifetime;
@@ -358,20 +356,9 @@
     const legacy = !l.itemSystemVersion;
     if (!object(l.itemInventory)) l.itemInventory = object(state.items) ? state.items : {};
     const bag = l.itemInventory;
+    retireFunItems(state, l, bag, legacy);
     for (const id of Object.keys(bag)) {
       if (!known(id) || !count(bag[id])) delete bag[id];
-    }
-    l.ownedTools = Array.isArray(l.ownedTools) ? [...new Set(l.ownedTools.filter(id => TOOL_IDS.includes(id)))] : [];
-    if (!object(l.itemExtraScenes)) l.itemExtraScenes = {};
-    for (const id of TOOL_IDS) {
-      l.itemExtraScenes[id] = count(l.itemExtraScenes[id]);
-      const legacyHistory = legacy && l.ownedConsumableItems?.includes(id);
-      if (count(bag[id]) || legacyHistory) {
-        const alreadyOwned = l.ownedTools.includes(id) || legacyHistory;
-        if (!l.ownedTools.includes(id)) l.ownedTools.push(id);
-        l.itemExtraScenes[id] += Math.max(0, count(bag[id]) - (alreadyOwned ? 0 : 1));
-        delete bag[id];
-      }
     }
     if (legacy) {
       // An infinite-mode snapshot can hold the reservation that will be restored.
@@ -414,14 +401,9 @@
   }
   function inventory(s) { normalize(s); return s.lifetime.itemInventory; }
   function stock(s, id) { return known(id) ? count(inventory(s)[id]) : 0; }
-  function ownsTool(s, id) { normalize(s); return s.lifetime.ownedTools.includes(id); }
   function grant(s, id, amount = 1) {
     if (!known(id) || !count(amount)) return false;
     const bag = inventory(s);
-    if (CATALOG[id].kind === 'tool') {
-      if (!s.lifetime.ownedTools.includes(id)) s.lifetime.ownedTools.push(id);
-      return true;
-    }
     if (!Number.isSafeInteger(stock(s,id) + amount)) return false;
     bag[id] = stock(s,id) + amount; return true;
   }
@@ -438,5 +420,5 @@
     const saved = JSON.parse(JSON.stringify(record, (key,value) => typeof value === 'string' && /^data:image\//i.test(value) ? undefined : value));
     s.lifetime.itemMemories[kind].push(saved); return saved;
   }
-  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, ownsTool, advance, ready, cooldown, remember};
+  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, advance, ready, cooldown, remember};
 });

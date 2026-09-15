@@ -53,9 +53,6 @@ assert.equal(h.api.state().partner.id,'robot_neighbor');
 assert.equal(h.api.state().lifetime.ownedShopItems.length,14);
 assert.equal(h.api.state().lifetime.ownedNaotoItems.length,4);
 assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
-assert.equal(Object.keys(h.api.state().items).filter(id=>id.startsWith('fun_')&&h.api.state().items[id]===2).length,4);
-assert.deepEqual(Array.from(h.api.state().lifetime.ownedTools).sort(),['fun_camera','fun_musicbox','fun_surprise']);
-for(const id of ['fun_camera','fun_musicbox','fun_surprise']) assert.equal(h.api.state().lifetime.itemExtraScenes[id],1);
 // Reload manual weather fixtures: an invalid mode would silently use live
 // weather/time and invalidate the later visual observation.
 for(const [name,weather,time] of [['scenery_clouds','cloudy','day'],['scenery_snow','snow','night'],['scenery_moon','sunny','night'],['scenery_rain','rain','day']]) {
@@ -123,4 +120,4 @@ callbacks[0]();
 assert.equal(context.first[0].status,'pending','later load/error mutated an earlier measurement');
 vm.runInContext('second=sample();',context);
 assert.equal(context.second[0].status,'failed');
-console.log('VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and ordinary date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 14 shop items and 7 fun props. No browser rendering claimed.');
+console.log('VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and ordinary date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 14 shop items. No browser rendering claimed.');

@@ -114,8 +114,8 @@ const expose = `
     COMPANION_DAILY_REACTIONS, COMPANION_CHARACTER_IDLE_LINES, PARTNER_RELATIONSHIP_LINES,
     PARTNER_IDLE_LINES, COMPANION_IDLE_LINES, ALL_PARTNER_CANDIDATES,
     stageDesc, SPECIES, SPECIES_STAGE_DESCS, DATE_PLANS, DATE_PLAN_VARIATIONS, DEEPSEA_DATE_PLANS,
-    PARTNER_ANNIVERSARY_LINES, FUN_ITEMS, PARTNER_FIRST_ENCOUNTERS,
-    datePlanForRegion, goOnDate, playFunScene, useItem, pickMemoryGreeting, playFirstPartnerEncounter, buildLifeCard,
+    PARTNER_ANNIVERSARY_LINES, PARTNER_FIRST_ENCOUNTERS,
+    datePlanForRegion, goOnDate, pickMemoryGreeting, playFirstPartnerEncounter, buildLifeCard,
     hatchEgg, triggerDeath, enterFarewell, openExclusiveMenu, openDateChooser, closeDateOverlay, checkAchievements,
     loadState, COMPANIONS, RARE_COMPANIONS, allCompanionsById, canonicalCompanionId,
     hasAllCurrentCompanions, companionDexEntries, companionVisualHTML, renderCompanionRow, renderCompanionDex,
@@ -459,33 +459,6 @@ for (const def of master.partners) {
   const first = api.partnerAnniversaryLine(api.getState().partner, 10);
   assert.ok(lines.includes(first));
   assert.notEqual(first, api.partnerAnniversaryLine(api.getState().partner, 10));
-}
-
-// Items use the same clock, recency and speaker ownership as everyday dialogue.
-for (const item of api.FUN_ITEMS) {
-  reset({ partner: partner(), companions: [{ id: 'otter' }], items: { [item.id]: 1 } });
-  api.useItem(item.id); advance(0);
-  assert.equal(api.conversationIsBusy(), true);
-  advance(7500); validSpeech();
-  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet', 'partner', 'companion']);
-  for (const beat of spoken) assert.ok(item[beat.speaker.kind + 'Lines'].includes(beat.text));
-  const reservedBalloon = item.id === 'fun_balloon';
-  assert.equal(api.getState().items[item.id] || 0, reservedBalloon ? 1 : 0);
-  if (reservedBalloon) assert.equal(api.getState().itemLife.balloon.readyAt, api.getState().lifetime.itemProgress.ticks + 10);
-  const permanent = ['fun_camera','fun_musicbox','fun_surprise'].includes(item.id);
-  assert.equal(api.getState().lifetime.consumablesUsed, permanent || reservedBalloon ? 0 : 1);
-  assert.equal(api.conversationIsBusy(), false);
-  const before = spoken.length; api.useItem(item.id); advance(10000);
-  if (permanent) assert.ok(spoken.length > before, 'owned tool can be reused');
-  else assert.equal(spoken.length, before, 'empty item replayed');
-  reset(); api.playFunScene(item); advance(10000);
-  assert.deepEqual(spoken.map((b) => b.speaker.kind), ['pet']);
-}
-for (const stop of [() => click('feedBtn'), () => api.openExclusiveMenu('dex'), () => api.openDateChooser(), () => api.triggerDeath(), () => api.enterFarewell()]) {
-  reset({ partner: partner(), companions: [{ id: 'otter' }] });
-  api.playFunScene(api.FUN_ITEMS[0]); advance(0);
-  stop(); advance(10000);
-  assert.ok(!spoken.slice(1).some((b) => api.FUN_ITEMS[0][b.speaker.kind + 'Lines'].includes(b.text)), 'item line leaked after transition');
 }
 
 // Memories must refer to recorded events, with compact copy even for long old logs.
