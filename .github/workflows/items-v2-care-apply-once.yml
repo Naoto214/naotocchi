@@ -1,0 +1,34 @@
+name: Apply Items V2 care once
+
+on:
+  push:
+    branches: [chatgpt/items-v2-home-strip-20260915]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[skip-v2-care-apply]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chatgpt/items-v2-home-strip-20260915
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply guarded V2 patch
+        run: node tools/apply-items-v2-care.js
+      - name: Verify focused V2 contract
+        run: node --test tests/items-v2-care-automation-test.cjs
+      - name: Verify full suite
+        run: npm test
+      - name: Commit verified V2 care slice
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add script.js index.html movie-dialogue.js item-system.js tests/item-care-game-test.cjs tests/items-v2-care-automation-test.cjs
+          git diff --cached --quiet && exit 0
+          git commit -m "feat: apply Items V2 care automation [skip-v2-care-red] [skip-v2-care-apply]"
+          git push origin HEAD:chatgpt/items-v2-home-strip-20260915
