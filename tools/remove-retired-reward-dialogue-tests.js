@@ -52,10 +52,17 @@ rewrite('script.js', (text) => {
   return text;
 });
 
-rewrite('item-system.js', (text) => text.replace(
-  /,?\s*itemluck2\s*:\s*'itemluck1'\s*,\s*itemluck3\s*:\s*'itemluck1'\s*/,
-  ''
-));
+rewrite('item-system.js', (input) => {
+  let text = input.replace(
+    /,?\s*itemluck2\s*:\s*'itemluck1'\s*,\s*itemluck3\s*:\s*'itemluck1'\s*/,
+    ''
+  );
+  text = text.replace(
+    'p.ticks = count(p.ticks); p.cloverMisses = count(p.cloverMisses);',
+    "p.ticks = count(p.ticks); delete p.cloverMisses;"
+  );
+  return text;
+});
 
 const production = {
   'item-system.js': fs.readFileSync('item-system.js', 'utf8'),
@@ -68,7 +75,7 @@ const forbidden = [
   'itemSceneRewardActions', 'itemSceneRewardUseBtn', 'itemSceneRewardSkipBtn',
   "CATALOG.reward", "ITEM_SYSTEM.grant(state, 'reward')", "ITEM_SYSTEM.take(state, 'reward')",
   "ITEM_SYSTEM.stock(state,'reward')", "ITEM_SYSTEM.stock(state, 'reward')",
-  'itemluck1', 'itemluck2', 'itemluck3', 'cloverMisses', 'firstRingPhrase', 'specialRewardTrip', 'gotReward'
+  'itemluck1', 'itemluck2', 'itemluck3', 'firstRingPhrase', 'specialRewardTrip', 'gotReward'
 ];
 for (const [path, text] of Object.entries(production)) {
   for (const needle of forbidden) {
