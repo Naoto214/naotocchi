@@ -6,6 +6,15 @@ function rewrite(path, fn) {
   if (after !== before) fs.writeFileSync(path, after);
 }
 
+function removeWholeTest(text, name) {
+  const marker = `test('${name}'`;
+  const start = text.indexOf(marker);
+  if (start < 0) return text;
+  const next = text.indexOf('\ntest(', start + marker.length);
+  if (next < 0) return text.slice(0, start).trimEnd() + '\n';
+  return text.slice(0, start) + text.slice(next + 1);
+}
+
 rewrite('tests/dialogue-test.js', (input) => {
   let text = input;
   const start = '// A browser may suppress native confirm and return false. The reward decision';
@@ -81,6 +90,53 @@ rewrite('item-system.js', (input) => {
   return text;
 });
 
+rewrite('tests/item-care-game-test.cjs', (input) => {
+  let text = input.replace(
+    "test('great charm waits for real seventy and awards growth 28 or 56 and one gift'",
+    "test('great charm waits for real seventy and awards growth 28 or 56'"
+  );
+  const greatStart = text.indexOf("test('great charm waits for real seventy and awards growth 28 or 56'");
+  const greatEnd = greatStart >= 0 ? text.indexOf('\ntest(', greatStart + 5) : -1;
+  if (greatStart >= 0) {
+    const end = greatEnd >= 0 ? greatEnd : text.length;
+    const block = text.slice(greatStart, end)
+      .replace(/\n\s*assert\.equal\(h\.api\.itemStock\('reward'\),0\);/g, '')
+      .replace(/\n\s*assert\.equal\(h\.api\.itemStock\('reward'\),1\);/g, '');
+    text = text.slice(0, greatStart) + block + text.slice(end);
+  }
+  text = removeWholeTest(text, 'clover five misses survive reload and swapping; sixth combines with charm into one gift');
+  text = removeWholeTest(text, 'all three gift sources collide as exactly one reward');
+  return text;
+});
+
+rewrite('tests/item-relations-travel-test.cjs', (input) => {
+  let text = input;
+  for (const name of [
+    'special travel has game confirmation, no fatigue, one durable snapshot, and no native confirm',
+    'special date cancel or blocked confirmation keeps gift; committed date saves exactly once',
+    'ring adds partner-specific ordinary-date secret and letter marriage records deduplicate',
+    'special date confirmation stays bound to the displayed partner and place',
+    'committed special travel presents its captured actors and scene before returning home',
+    'reward dates with a ring commit one outing and preserve the first phrase through later dates and reload',
+  ]) text = removeWholeTest(text, name);
+  return text;
+});
+
+rewrite('tests/movie-test.cjs', (text) => removeWholeTest(
+  text,
+  'ordinary and reward dates speak the saved ring phrase under the partner name'
+));
+
+rewrite('tests/ui-illustrations-test.cjs', (input) => input
+  .replace(",partner1:'letter',crown:'crown',itemluck1:'clover'};", ",partner1:'letter',crown:'crown'};")
+  .replace('assert.equal(buttons.length,15);', 'assert.equal(buttons.length,14);')
+);
+
+rewrite('tests/item-collections-economy-test.cjs', (input) => input.replace(
+  "assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,330);",
+  "assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,329); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);"
+));
+
 const production = {
   'item-system.js': fs.readFileSync('item-system.js', 'utf8'),
   'script.js': fs.readFileSync('script.js', 'utf8'),
@@ -98,4 +154,14 @@ for (const [path, text] of Object.entries(production)) {
   for (const needle of forbidden) {
     if (text.includes(needle)) throw new Error(`retired reward production reference remains in ${path}: ${needle}`);
   }
+}
+
+const retiredTestText = [
+  'tests/item-care-game-test.cjs',
+  'tests/item-relations-travel-test.cjs',
+  'tests/movie-test.cjs',
+  'tests/ui-illustrations-test.cjs',
+].map(path => fs.readFileSync(path, 'utf8')).join('\n');
+for (const needle of ['itemluck1', 'dateRewardUseBtn', 'itemSceneRewardUseBtn']) {
+  if (retiredTestText.includes(needle)) throw new Error(`retired reward test reference remains: ${needle}`);
 }
