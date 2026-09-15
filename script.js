@@ -11152,7 +11152,7 @@
     for (const [bar,color] of [[el.hungerBar,'#ffe03b'],[el.happinessBar,moodColor],[el.energyBar,energyColor],[el.healthBar,'#a5d934'],[el.deathBar,'#e53950']]) {
       bar.style.setProperty('--home-meter-color',color);
     }
-    for (const [button,color] of [[el.feedBtn,'#ffe03b'],[el.playBtn,'#f58a19'],[el.cleanBtn,'#a77545'],[el.sleepBtn,energyColor],[el.medicineBtn,'#a5d934'],[el.playWithBtn,moodColor],[el.courtBtn,'#ed65aa']]) {
+    for (const [button,color] of [[el.feedBtn,'#ffe03b'],[el.playBtn,'#222222'],[el.cleanBtn,'#a77545'],[el.sleepBtn,energyColor],[el.medicineBtn,'#a5d934'],[el.playWithBtn,moodColor],[el.courtBtn,'#ed65aa']]) {
       button.style.setProperty('--home-action-color',color);
     }
   }
