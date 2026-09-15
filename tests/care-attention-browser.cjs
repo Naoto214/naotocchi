@@ -15,7 +15,6 @@ async function attentionState(page) {
     const recommended=document.querySelector('.buttons button[data-care-recommended="true"]');
     const button=el('medicineBtn'), r=rect(button);
     const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);
-    const screenNormal=el('screenNormal'),petArea=el('petArea'),castStage=el('castStage'),speechSlot=el('speechSlot'),itemsRow=el('itemsRow');
     return {
       level:fx?.dataset.level,kind:notice.dataset.careKind,sick:device.dataset.careIllness,
       title:el('worldCareState').textContent,notice:notice.textContent,
@@ -34,12 +33,6 @@ async function attentionState(page) {
         // The existing cure speech can bounce/rotate actors. Compare layout
         // sizes rather than the transient transformed bounding rectangles.
         .filter(e=>e.getBoundingClientRect().width>0).map(e=>({width:getComputedStyle(e).width,height:getComputedStyle(e).height})),
-      layout:{
-        screenNormal:rect(screenNormal),screenNormalPaddingBottom:getComputedStyle(screenNormal).paddingBottom,
-        petArea:rect(petArea),castStage:rect(castStage),speechSlot:rect(speechSlot),message:rect(notice),
-        itemsRow:rect(itemsRow),itemsRowDisplay:getComputedStyle(itemsRow).display,itemsRowPosition:getComputedStyle(itemsRow).position,
-        deviceCastCrowded:device.dataset.castCrowded,
-      },
       pageWidth:document.documentElement.scrollWidth,width:innerWidth,height:innerHeight,
     };
   });
@@ -67,7 +60,6 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
         await page.locator('.device.ui-home-active').waitFor();
         await page.evaluate(()=>document.fonts.ready);
         const before=await attentionState(page);
-        if(name==='sick') console.log('CARE LAYOUT '+engine+' before '+JSON.stringify(before.layout));
         results.push({name,phase:'initial',...before});
         assert.equal(before.level,level,name+': attention level');
         assert.equal(before.fxDisplay,'block',name+': visible edge effect');
@@ -100,7 +92,6 @@ module.exports = async function checkCareAttention(browser, engine, fixtures, ba
           // A real cure story can temporarily occupy the home stage.
           await page.locator('#storyFlash').waitFor({state:'hidden'});
           const after=await attentionState(page);
-          console.log('CARE LAYOUT '+engine+' after '+JSON.stringify(after.layout));
           results.push({name,phase:'cured',...after});
           assert.equal(after.level,'');
           assert.equal(after.fxDisplay,'none');
