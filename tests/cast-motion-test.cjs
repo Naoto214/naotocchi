@@ -171,7 +171,7 @@ test('enabling reduced motion mid-speech stops movement but preserves the curren
 test('every motion and its interpolation stay inside the reserved one- or three-pixel envelope', () => {
   const {motionFrames} = require('../cast-motion.js');
   for (const limit of [1,3]) for (const size of [24,32,48,52,84,104,112]) for (const id of ['', 'snail','clock','sekizou','koala','forest_bear']) {
-    for (const mood of ['bounce','wiggle','shy','love','droop','settle','shake','munch','doze','stretch','nod','curious','tick']) {
+    for (const mood of ['bounce','wiggle','shy','love','droop','settle','shake','munch','doze','stretch','nod','curious','tick','hungry','sulk']) {
       const {poses} = motionFrames(mood,size,{id,maxDisplacement:limit});
       assert.deepEqual(poses.at(-1),{x:0,y:0,angle:0,scale:1});
       for (let i=1;i<poses.length;i++) for (let t=0;t<=1;t+=.05) {
@@ -184,4 +184,75 @@ test('every motion and its interpolation stay inside the reserved one- or three-
       }
     }
   }
+});
+
+function motionNode({connected=true, animate=true}={}) {
+  const node={isConnected:connected,dataset:{},style:{width:'104px'},animations:[]};
+  if (animate) node.animate=(frames,options)=>{
+    const animation={frames,options,playState:'running',cancel(){ this.playState='idle'; }};
+    node.animations.push(animation);
+    return animation;
+  };
+  return node;
+}
+
+function motionController({reducedMotion=false,canAnimate=true,petOptions,omitPet=false}={}) {
+  const {createController}=require('../cast-motion.js');
+  const pet=motionNode(petOptions),accessory=motionNode(),partner=motionNode(),companion=motionNode(),group=motionNode();
+  const actors=[
+    {kind:'pet',id:'pet',node:pet,size:104},
+    {kind:'accessory',id:'ribbon',node:accessory,size:104},
+    {kind:'partner',id:'forest_bear',node:partner,size:52},
+    {kind:'companion',id:'snail',node:companion,size:32},
+  ].filter(actor=>!omitPet || actor.kind!=='pet');
+  const media={matches:reducedMotion,addEventListener(){}};
+  const controller=createController({getActors:()=>actors,getGroup:()=>group,canAnimate:()=>canAnimate,
+    env:{matchMedia:()=>media,getComputedStyle:()=>({transform:'none'})}});
+  return {controller,pet,accessory,partner,companion,group};
+}
+
+test('pet-only cues animate the pet and accessory with identical frames', () => {
+  const {controller,pet,accessory,partner,companion,group}=motionController();
+  for (const [mood,duration] of [['hungry',1250],['sulk',1500]]) {
+    const ms=controller.pet(mood,{gentle:true});
+    assert.equal(ms,duration);
+    assert.equal(pet.dataset.reaction,mood);
+    assert.deepEqual(accessory.animations.at(-1)?.frames,pet.animations.at(-1)?.frames);
+  }
+  assert.equal(group.animations.length,0);
+  assert.equal(partner.animations.length,0);
+  assert.equal(companion.animations.length,0);
+});
+
+test('pet reports zero when its animation cannot start', () => {
+  for (const options of [
+    {canAnimate:false},
+    {reducedMotion:true},
+    {omitPet:true},
+    {petOptions:{connected:false}},
+    {petOptions:{animate:false}},
+  ]) {
+    const {controller,pet,accessory}=motionController(options);
+    assert.equal(controller.pet('hungry'),0);
+    assert.equal(pet.animations.length+accessory.animations.length,0);
+  }
+});
+
+test('isActive tracks pet motion and idle can exclude the pet', () => {
+  const {controller,pet,accessory,partner,companion}=motionController();
+  assert.equal(controller.isActive(),false);
+  controller.pet('hungry');
+  assert.equal(controller.isActive(),true);
+  pet.animations.at(-1).onfinish();
+  assert.equal(controller.isActive(),false);
+  accessory.animations.at(-1).onfinish();
+  assert.ok(controller.idle({excludePet:true})>0);
+  assert.equal(pet.animations.length,1);
+  assert.equal(partner.animations.length+companion.animations.length,1);
+});
+
+test('medicine cure settles first unless the text describes rejection', () => {
+  const {reactionFor}=require('../cast-motion.js');
+  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'settle');
+  assert.equal(reactionFor('medicine_cure','にがい！'),'shake');
 });
