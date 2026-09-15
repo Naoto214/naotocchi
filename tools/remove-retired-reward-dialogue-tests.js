@@ -119,6 +119,14 @@ rewrite('tests/item-relations-travel-test.cjs', (input) => {
     'committed special travel presents its captured actors and scene before returning home',
     'reward dates with a ring commit one outing and preserve the first phrase through later dates and reload',
   ]) text = removeWholeTest(text, name);
+  if (!text.includes('function feedbackSetup(')) {
+    const marker = "test('eligible ribbon ticks deliver readable feedback in both motion modes'";
+    const at = text.indexOf(marker);
+    if (at >= 0) {
+      const helper = `// Match the initial home markup: these overlays are hidden until explicitly opened.\nfunction feedbackSetup(equipped, options) {\n  const result = setup(equipped, options);\n  for (const id of ['lifeCardOverlay','storyFlash']) result.h.get(id).classList.add('hidden');\n  result.h.api.render();\n  return result;\n}\n\n`;
+      text = text.slice(0, at) + helper + text.slice(at);
+    }
+  }
   return text;
 });
 
