@@ -339,7 +339,12 @@ test('a same-tick elder achievement cannot replace the completed sex-change noti
 test('stage-7 notice waits until finished minigame results have been readable',()=>{
   const {h,s}=setup({ageTicks:799});
   h.api.startMinigame({id:'stage7-probe',start(){}});
+  // the clock is paused while a minigame owns the screen, so loop() alone
+  // never reaches age 40 here; drive the one tick directly (the notice
+  // still has to wait until the game is over and its result was readable)
   h.api.loop();
+  assert.equal(s.ageTicks,799,'time does not pass during a minigame');
+  h.api.tick();
   assert.equal(s.gender,'male');
   assert.match(s.pendingClownfishTransition,/変わる途中/);
   h.api.finishMinigame(50);
