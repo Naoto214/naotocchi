@@ -90,6 +90,7 @@ test('home fun-item strip is pinned inside the visible screen instead of falling
   const { h } = home();
   const row = h.get('itemsRow');
   const normal = h.get('screenNormal');
+  assert.equal(row.style.display, 'flex');
   assert.equal(row.style.position, 'absolute');
   assert.equal(row.style.left, '8px');
   assert.equal(row.style.right, '8px');
