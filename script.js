@@ -7710,12 +7710,15 @@
     if (!state.partner || !isLiveLife()) return;
     const p = state.partner;
     if ((p.itemGraceUntil || 0) > state.lifetime.itemProgress.ticks) return;
-    // らぶれたーけいの アイテムを そうびしていると、なかよし度が へりにくい
-    const affectionDecayFactor = isEquipped('partner1') ? 0.75 : 1;
     // すれちがい中は きもちが はなれるのが はやい。ほうっておくと
     // ふつうより ずっと はやく わかれに ちかづく
     const mismatchFactor = p.mismatched ? 2.5 : 1;
-    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * affectionDecayFactor * mismatchFactor, 0, 100);
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);
+    if (isEquipped('partner1') && p.affection <= ITEM_AUTO_CARE_DANGER) {
+      p.affection = 100;
+      itemContextReaction('partner1', 'なかよし度が危なくなる前に、らぶれたーを読み返して100にもどった。');
+      return;
+    }
     if (p.affection > 0) return;
     const identity = itemPartnerIdentity(p);
     if (!state.itemLife.relationshipShields[identity] && commitPendingItem('c_breakfull', p)) {
@@ -7749,10 +7752,14 @@
   function decayCompanionBonds() {
     if (!state.companions.length || !isLiveLife()) return;
     const left = [];
-    // バッジは再会のゲームを開く。自然減は既存のそだち特典だけ。
     const bondDecayFactor = hasPerk(40) ? 0.5 : 1;
     state.companions = state.companions.filter((c) => {
       c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
+      if (isEquipped('bond1') && c.bond <= ITEM_AUTO_CARE_DANGER) {
+        c.bond = 100;
+        itemContextReaction('bond1', 'きずなが危なくなる前に、おともだちバッジが合図して100にもどった。');
+        return true;
+      }
       if (c.bond > 0) return true;
       left.push(c.id);
       if (!state.itemLife.departedCompanions.includes(c.id)) state.itemLife.departedCompanions.push(c.id);
@@ -12443,10 +12450,6 @@
       if (owned) {
         const progress = state.lifetime.itemProgress;
         const remaining = key => Math.max(0, (progress.readyAt[key] || 0) - progress.ticks);
-        if (item.id === 'star') {
-          const missing = Math.max(0, 3 - progress.starGames.length);
-          statusText += `／星${progress.starGames.length}/3${missing ? `／あと${missing}種類` : '／星がそろった'}${remaining('star') ? `／受取まで${remaining('star') * 3}秒` : missing ? '' : equipped ? '／次の活動で受取' : '／身につけると受取'}`;
-        }
         if (item.id === 'crown' && state.itemLife.crownUsed) statusText += '／この一生のお守りは使った';
       }
       const badge = equipped ? '⭐' : (owned ? '✔️' : '');
@@ -15618,7 +15621,6 @@
     offerTransformIfReady();
 
     let itemMessage = glassesBonus || minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
-    const progress = state.lifetime.itemProgress;
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
       const fun = randomFunItem();
@@ -15631,19 +15633,15 @@
       itemMessage += `／${fun.label}と${coins}コインをもらった!`;
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-      state.lifetime.money += 2;
-      itemMessage += '／2コインをもらった';
+      const ordinaryCoins = equipped('star') ? 4 : 2;
+      state.lifetime.money += ordinaryCoins;
+      itemMessage += `／${ordinaryCoins}コインをもらった`;
     } else if (protectedFailure) {
       state.oneTimeBoosts.safetyNet = false;
       itemMessage += '／スコアほけんが、げんき・おとろえ・いのちを守った';
     } else {
       applyDecline(8);
       raiseDeathMeter(2, activeMinigameEquipment);
-    }
-    if (equipped('star') && rawScore >= 30 && game?.id) {
-      const starGameId = game.id === 'quick-solo' ? 'quick-run' : game.id;
-      if (!progress.starGames.includes(starGameId) && progress.starGames.length < 3) progress.starGames.push(starGameId);
-      if (claimStarReward()) itemMessage += '／星が3つそろった。15コイン!';
     }
     if (equipped('energy1') && !protectedFailure) itemMessage += `／げんきバンドで消費${energyCost}`;
 
@@ -15994,7 +15992,7 @@
   }
 
   function updateItemEffectTick() {
-    if (isEquipped('star') && claimStarReward()) setMessage('星が3つそろった。15コイン!');
+    // V2 equipment effects are action- or danger-triggered; no timed star payout.
   }
 
   let sleepRecoveryTimer = null;
@@ -16925,9 +16923,12 @@
     }
     // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
     // ごはんの タイミングも のがす)
-    state.energy = clamp(state.energy - (isEquipped('travel1') ? 3 : 6), 0, 100);
-    state.hunger = clamp(state.hunger - (isEquipped('travel1') ? 2 : 4), 0, 100);
-    if (isEquipped('travel1')) itemContextReaction('travel1', `${region.label}で荷物を広げた。げんきとおなかの消費が半分になった。`);
+    if (isEquipped('travel1')) {
+      itemContextReaction('travel1', `${region.label}へ身軽に出発。げんきとおなかを消費しなかった。`);
+    } else {
+      state.energy = clamp(state.energy - 6, 0, 100);
+      state.hunger = clamp(state.hunger - 4, 0, 100);
+    }
     if (spammedTravel) {
       state.happiness = clamp(state.happiness - 3, 0, 100);
       applyDecline(5);

@@ -41,8 +41,8 @@ test('shield is once per partner per life and grants exactly twenty activity tic
  partner(h,s);assert.equal(h.api.useConsumableItem('c_breakfull'),false);
  s.partner={...s.partner,id:'another-partner'};assert.equal(h.api.useConsumableItem('c_breakfull'),true);
 });
-test('backpack halves travel costs but does not prevent fatigue',()=>{
- const {h,s}=setup('travel1');s.travelStreak=100;const e=s.energy,f=s.hunger,m=s.happiness;travel(h,'forest');assert.equal(s.energy,e-3);assert.equal(s.hunger,f-2);assert.equal(s.happiness,m-3);
+test('backpack removes travel hunger and energy costs but does not prevent fatigue',()=>{
+ const {h,s}=setup('travel1');s.travelStreak=100;const e=s.energy,f=s.hunger,m=s.happiness;travel(h,'forest');assert.equal(s.energy,e);assert.equal(s.hunger,f);assert.equal(s.happiness,m-3);
 });
 test('travel charm shows two choices; cancel, invalid choice and blocked departure keep stock',()=>{
  const {h,s}=setup();s.items.c_travel=1;h.api.useConsumableItem('c_travel');travel(h,'forest');
@@ -60,11 +60,6 @@ test('lantern requires ownership and visited region, cooldown 200, gives no cash
  choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,1);s.lifetime.itemProgress.ticks+=200;choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,2);assert.equal(observations(),before);
  h.api.renderNaotoItemGrid();assert.match(h.get('naotoItemGrid').innerHTML,/なおとのランタン/);
 });
-test('badge retries a departed known companion without another joining sticker and cools down 200 ticks',()=>{
- const {h,s}=setup('bond1'),c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.companions=[{id:c.id,bond:0}];h.api.decayCompanionBonds();assert.equal(s.companions.length,0);
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});click(h,'companionInvitePlayBtn');h.api.finishMinigame(50);assert.equal(s.companions.length,1);assert.equal(s.lifetime.itemProgress.readyAt.reunion,200);assert.equal(h.api.stickerStore().owned[`companion:${c.id}`]||0,0);
-});
-
 test('deferred partner reservations do not follow a changed partner and stock survives new life',()=>{
  let {h,s}=setup();const original=partner(h,s);original.mismatched=true;s.items.c_breakhalf=1;s.items.c_breakfull=1;s.items.c_travel=1;
  h.api.useConsumableItem('c_breakhalf');h.api.useConsumableItem('c_breakfull');h.api.useConsumableItem('c_travel');assert.equal(h.api.useConsumableItem('c_travel'),false);
@@ -86,14 +81,6 @@ test('equipment reactions only occur for actual eligible care and active protect
  s.lifetime.equippedItemId=null;s.lifetime.ownedNaotoItems=['naoto_charm'];s.ageTicks=69*20;s.lifetime.itemProgress.ticks=199;delete h.get('petSprite').dataset.itemReaction;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
  s.ageTicks=70*20;s.lifetime.itemProgress.ticks=299;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'naoto_charm');
 });
-test('reunion cancel has no cooldown, failure keeps raw threshold, reload cannot bypass cooldown',()=>{
- let {h,s}=setup('bond1');const c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.itemLife.departedCompanions=[c.id];
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});click(h,'companionInviteLaterBtn');assert.equal(s.lifetime.itemProgress.readyAt.reunion,undefined);
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});s.oneTimeBoosts.minigameBoost='small';click(h,'companionInvitePlayBtn');h.api.finishMinigame(40);assert.equal(s.companions.length,0);assert.equal(s.lifetime.itemProgress.readyAt.reunion,200);
- h=reload(s);s=h.api.state();choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});assert.equal(h.get('companionInviteOverlay').classList.contains('hidden'),true);
- s.lifetime.itemProgress.ticks=200;choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});assert.equal(h.get('companionInviteOverlay').classList.contains('hidden'),false);
-});
-
 test('guest origin persists across appearance, reload and codes but differs for a new life',()=>{
  let {h,s}=setup();const first=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(typeof first.originId,'string');
  s.speciesLine='cat';s.stageIndex=6;s.traitCounts.gentle=10;const changed=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(changed.originId,first.originId);
@@ -112,10 +99,6 @@ test('guest shield follows origin through changed snapshots and legacy same-code
   s.partner=make();assert.equal(h.api.useConsumableItem('c_breakfull'),false);
   if(origin){guest.originId='different_origin_123';s.partner=make();assert.equal(h.api.useConsumableItem('c_breakfull'),true);}
  }
-});
-
-test('reunion rechecks equipment and available target before committing cooldown',()=>{
- const {h,s}=setup('bond1'),c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.itemLife.departedCompanions=[c.id];choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});s.lifetime.equippedItemId=null;click(h,'companionInvitePlayBtn');assert.equal(s.lifetime.itemProgress.readyAt.reunion,undefined);
 });
 
 test('first meeting and real mismatched candidate never debit an initial-court reservation',()=>{

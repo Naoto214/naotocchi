@@ -78,38 +78,6 @@ test('great charm waits for real seventy and awards growth 28 or 56',()=>{
   }
 });
 
-test('star three distinct real scores waits first hundred ticks and pays fixed fifteen',()=>{
-  const {h,s}=setup();
-  s.lifetime.money=360;
-  h.api.buyOrEquipShopItem('star');
-  play(h,30,'a');
-  play(h,30,'b');
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,6);
-  assert.equal(s.lifetime.itemProgress.starGames.length,3);
-  s.lifetime.itemProgress.ticks=99;
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,8);
-  s.lifetime.itemProgress.ticks=100;
-  s.oneTimeBoosts.doubleCoins=true;
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,25);
-  assert.equal(s.oneTimeBoosts.doubleCoins,true);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-});
-
-test('star excludes assisted low scores and interruption; quick run counts as one kind',()=>{
-  const {h,s}=setup('star');
-  s.oneTimeBoosts.minigameBoost='small';
-  play(h,20);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-  for (let i=0; i<3; i++)play(h,30,'quick-run');
-  assert.equal(s.lifetime.itemProgress.starGames.length,1);
-  h.api.startMinigame(game('retired'));
-  h.api.retireMinigame();
-  assert.equal(s.lifetime.itemProgress.starGames.length,1);
-});
-
 test('crown rescues sustained zero health once, after existing miracle, without restoring life',()=>{
   const {h,s}=setup('crown');
   s.isSick=true;
