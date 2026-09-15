@@ -1,7 +1,8 @@
-// Legacy reward-only result/travel branches in script.js are permanently disabled.
-// The dedicated reward inventory, UI, grants and consumption paths are removed.
+// Retired legacy-only branches in script.js are permanently disabled.
+// Dedicated reward inventory/UI/grants/consumption and the old ring phrase path are removed from behavior.
 var gotReward = false;
 var specialRewardTrip = false;
+var firstRingPhrase = false;
 
 // Saved memories render only their snapshot: no live pet resolver or bitmap in saves.
 (function (root, factory) {
