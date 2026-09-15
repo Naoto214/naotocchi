@@ -24,6 +24,9 @@
     'assets/characters/cat/03.png': Object.freeze(Object.fromEntries(
       Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/cat/03-${name}.png`])
     )),
+    'assets/characters/cat/04.png': Object.freeze(Object.fromEntries(
+      Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/cat/04-${name}.png`])
+    )),
   });
   const PERSISTENT = Object.freeze({
     hungry:'hungry', sick:'sick', tired:'tired', weak:'weak', unhappy:'sulky', wantsPlay:'wantsPlay', normal:'normal',
@@ -71,9 +74,14 @@
 
   function accentFor(baseAsset, expression) {
     if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
-    // The kitten's head sits lower and farther left within the shared sprite canvas.
-    const accent = baseAsset === 'assets/characters/cat/03.png' && expression === 'wantsPlay'
-      ? ACCENTS[expression].replace('<path', '<g transform="translate(-14 12)"><path').replace('</svg>', '</g></svg>')
+    // Stage-specific anchors follow the head within the transparent sprite canvas.
+    let offset = null;
+    if (baseAsset === 'assets/characters/cat/03.png' && expression === 'wantsPlay') offset = '-14 12';
+    if (baseAsset === 'assets/characters/cat/04.png') {
+      offset = expression === 'strained' ? '0 5' : expression === 'wantsPlay' ? '-32 18' : '-22 8';
+    }
+    const accent = offset
+      ? ACCENTS[expression].replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')
       : ACCENTS[expression];
     return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${accent}</span>`;
   }

@@ -216,3 +216,10 @@ test('kitten preview seeds the real third stage in isolated storage and rejects 
   assert.match(html,/data-preview-form/);
   assert.throws(()=>buildPreview({form:'unknown'}),/Unknown preview form/);
 });
+
+test('otemba preview seeds the fourth stage in disposable storage', () => {
+  const {state}=seededState(buildPreview({form:'otemba',preset:'wantsPlay'}));
+  assert.equal(state.stageIndex,3);
+  assert.equal(state.ageTicks,12*20);
+  assert.equal(state.happiness,40);
+});

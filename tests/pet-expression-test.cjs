@@ -131,3 +131,15 @@ test('kitten calling mark follows its smaller head while adult and other marks k
   assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','wantsPlay'),/<g transform/);
   assert.doesNotMatch(expression.accentFor('assets/characters/cat/03.png','hungry'),/<g transform/);
 });
+
+test('otemba stage has ten faces and marks anchored near its left-hand head', () => {
+  const base='assets/characters/cat/04.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/04-${name}.png`);
+    const mark=expression.accentFor(base,name);
+    assert.match(mark,/<g transform=/);
+    assert.match(mark,/aria-hidden="true"/);
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
+});

@@ -139,3 +139,18 @@ test('kitten expression assets retain the original small stage bounds and transp
   assert.equal(new Set(hashes).size,10);
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
+
+test('otemba expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/04.png');
+  assert.deepEqual(original.bounds,[8,38,120,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/04.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
