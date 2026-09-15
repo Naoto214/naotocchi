@@ -7,9 +7,9 @@ test('the shop connects each current item to its illustration and keeps its labe
   const html=h.get('shopItemGrid').innerHTML;
   const expected={flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',
     glasses:'glasses',energy1:'band',hat:'hat',travel1:'backpack',sleepboost1:'sleep',
-    star:'star_badge',bond1:'paw_badge',partner1:'letter',crown:'crown',itemluck1:'clover'};
+    star:'star_badge',bond1:'paw_badge',partner1:'letter',crown:'crown'};
   const buttons=[...html.matchAll(/<button\b[^>]*data-id="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
-  assert.equal(buttons.length,15);
+  assert.equal(buttons.length,14);
   for(const [,id,body] of buttons){
     assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expected[id]}"`),id);
     assert.match(body,/<span class="shop-item-label">[^<]+<\/span>/,id);

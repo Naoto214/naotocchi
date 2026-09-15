@@ -211,27 +211,3 @@ test('underwater dates keep both character asides and the closing consistent wit
     }
   }
 });
-
-test('ordinary and reward dates speak the saved ring phrase under the partner name', () => {
-  for (const special of [false, true]) {
-    const h = movieHarness(), s = h.api.state();
-    s.partner = {...h.api.REGIONS.flatMap(r => r.candidates).find(p => p.id === 'robot_neighbor')};
-    s.lifetime.ownedNaotoItems = ['naoto_ring'];
-    s.items.reward = special ? 1 : 0;
-    h.api.goOnDate(h.api.DATE_PLANS[0], special);
-    const memory = s.lifetime.itemMemories.specials[0];
-    const phrase = (memory.ringPhrase || memory.text).match(/「(.*)」/)[1];
-    let found = false;
-    for (let beat = 0; beat < 10; beat++) {
-      const caption = h.get('dateMovieCaption');
-      if (caption.textContent.includes(phrase)) {
-        found = true;
-        assert.equal(caption.dataset.speaker, 'partner');
-        assert.equal(caption.dataset.speakerId, s.partner.id);
-        assert.match(caption.innerHTML, /partners\/robot_neighbor.png/);
-      }
-      h.advance(special ? 4000 : 3500);
-    }
-    assert.equal(found, true, `saved ring phrase appears in the ${special ? 'reward' : 'ordinary'} date`);
-  }
-});

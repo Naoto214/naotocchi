@@ -68,7 +68,7 @@ test('legacy sticker counts and positions merge idempotently without replacing c
   s.lifetime.pastLives=[{partner:{id:'old'}}]; h.api.ITEM_SYSTEM.normalize(s);h.api.ITEM_SYSTEM.normalize(s);
   const st=h.api.stickerStore();assert.equal(st.owned['item:flower'],3);assert.equal(st.owned['item:flower2'],undefined);
   assert.deepEqual(JSON.parse(JSON.stringify(st.pages.home)),[{k:1,id:'item:flower',x:.2,y:.7,r:42,s:1.2},{k:2,id:'item:flower',x:.8,y:.1}]);
-  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,330);
+  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,329); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);
 });
 for(const [name,answers,wantA,wantB] of [
  ['host win',['lie','lie','lie','lie','lie'],140,60],

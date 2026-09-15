@@ -51,23 +51,6 @@ test('travel charm shows two choices; cancel, invalid choice and blocked departu
  travel(h,'forest');const b=h.get('itemSceneChoiceGrid').children[0];s.isSleeping=true;childClick(h,'itemSceneChoiceGrid',b);assert.equal(h.api.itemStock('c_travel'),1);
  s.isSleeping=false;travel(h,'forest');const c=h.get('itemSceneChoiceGrid').children[1];childClick(h,'itemSceneChoiceGrid',c);assert.equal(s.regionId,'forest');assert.equal(h.api.itemStock('c_travel'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);
 });
-test('special travel has game confirmation, no fatigue, one durable snapshot, and no native confirm',()=>{
- const {h,s}=setup();s.items.reward=1;s.travelStreak=100;h.window.confirm=()=>{throw Error('native confirm');};travel(h,'forest');assert.equal(s.regionId,'home');assert.equal(s.items.reward,1);
- click(h,'itemSceneRewardUseBtn');assert.equal(s.regionId,'forest');assert.equal(h.api.itemStock('reward'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);assert.ok(s.happiness>=80);
- click(h,'itemSceneRewardUseBtn');assert.equal(s.lifetime.itemMemories.specials.length,1);const saved=JSON.stringify(s.lifetime.itemMemories.specials);s.speciesLine='cat';assert.equal(JSON.stringify(s.lifetime.itemMemories.specials),saved);assert.equal(reload(s).api.state().lifetime.itemMemories.specials.length,1);
-});
-test('special date cancel or blocked confirmation keeps gift; committed date saves exactly once',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;const plan={id:'walk',label:'ならんであるく',line:'ならんで歩いた。'};
- h.api.goOnDate(plan);click(h,'dateRewardBackBtn');assert.equal(s.items.reward,1);
- h.api.goOnDate(plan);s.isSleeping=true;click(h,'dateRewardUseBtn');assert.equal(s.items.reward,1);assert.equal(s.lifetime.itemMemories.specials.length,0);
- s.isSleeping=false;h.api.goOnDate(plan);click(h,'dateRewardUseBtn');assert.equal(h.api.itemStock('reward'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);click(h,'dateRewardUseBtn');assert.equal(s.lifetime.itemMemories.specials.length,1);
- assert.equal(reload(s).api.itemStock('reward'),0);
-});
-test('ring adds partner-specific ordinary-date secret and letter marriage records deduplicate',()=>{
- const {h,s}=setup('partner1');const p=partner(h,s);s.lifetime.ownedNaotoItems=['naoto_ring'];p.bondCount=7;click(h,'courtBtn');assert.equal(s.lifetime.itemMemories.letters.length,1);
- click(h,'courtBtn');assert.equal(s.lifetime.itemMemories.letters.length,1);h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'},false);const m=s.lifetime.itemMemories.specials[0];assert.equal(m.partner.id,p.id);assert.ok(m.text.includes('合言葉'));assert.equal(m.stage,s.stageIndex);
- h.api.closeDateOverlay();s.dateCooldownTicks=0;h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'},false);assert.equal(s.lifetime.itemMemories.specials.length,1);
-});
 test('lantern requires ownership and visited region, cooldown 200, gives no cash or natural observations',()=>{
  const {h,s}=setup();s.lifetime.regionsVisited=['home','forest'];h.api.renderItemOverlay();choose(h,'itemRelationActions',{itemRelation:'lantern',region:'forest'});assert.equal(s.lifetime.itemMemories.lights.length,0);
  s.lifetime.ownedNaotoItems=['naoto_lantern'];s.lifetime.timeMode='auto';s.lifetime.weatherMode='auto';s.lifetime.envMoments=9;h.api.saveState();
@@ -92,9 +75,6 @@ test('prepaid legacy relation/travel reservations apply without a second stock d
  const {h,s}=setup();partner(h,s).mismatched=true;s.partner.repair=0;s.oneTimeBoosts.breakupShield='half';click(h,'courtBtn');assert.equal(s.partner.repair,2);assert.equal(s.oneTimeBoosts.breakupShield,null);
  s.oneTimeBoosts.breakupShield='full';s.partner.affection=0;h.api.decayRelationship();assert.equal(s.partner.affection,10);assert.equal(s.oneTimeBoosts.breakupShield,null);
  s.oneTimeBoosts.travelGuarantee=true;travel(h,'forest');childClick(h,'itemSceneChoiceGrid',h.get('itemSceneChoiceGrid').children[0]);assert.equal(s.regionId,'forest');assert.equal(s.oneTimeBoosts.travelGuarantee,false);
-});
-test('special date confirmation stays bound to the displayed partner and place',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'});s.partner={...s.partner,id:'changed'};click(h,'dateRewardUseBtn');assert.equal(h.api.itemStock('reward'),1);assert.equal(s.datesThisLife,0);
 });
 test('equipment reactions only occur for actual eligible care and active protection',()=>{
  const {h,s}=setup('bowtie');s.hunger=50;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,'bowtie');
@@ -132,9 +112,6 @@ test('guest shield follows origin through changed snapshots and legacy same-code
  }
 });
 
-test('committed special travel presents its captured actors and scene before returning home',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;travel(h,'forest');click(h,'itemSceneRewardUseBtn');assert.equal(h.get('itemSceneOverlay').classList.contains('hidden'),false);assert.match(h.get('itemSceneActors').innerHTML,/assets\/characters/);assert.match(h.get('itemSceneText').textContent,/もり|森/);click(h,'itemSceneCancelBtn');assert.equal(h.get('itemSceneOverlay').classList.contains('hidden'),true);
-});
 test('reunion rechecks equipment and available target before committing cooldown',()=>{
  const {h,s}=setup('bond1'),c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.itemLife.departedCompanions=[c.id];choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});s.lifetime.equippedItemId=null;click(h,'companionInvitePlayBtn');assert.equal(s.lifetime.itemProgress.readyAt.reunion,undefined);
 });
@@ -153,34 +130,6 @@ test('a different partner cannot silently replace a pending reservation; cancell
  const {h,s}=setup();partner(h,s);s.items.c_breakfull=1;h.api.useConsumableItem('c_breakfull');s.partner.id='other';assert.equal(h.api.useConsumableItem('c_breakfull'),false);h.api.renderItemOverlay();assert.match(h.get('onetimeItemGrid').innerHTML,/とりけす/);choose(h,'onetimeItemGrid',{itemAction:'cancel',id:'c_breakfull'});assert.equal(h.api.itemStock('c_breakfull'),1);assert.equal(h.api.useConsumableItem('c_breakfull'),true);
 });
 
-
-test('reward dates with a ring commit one outing and preserve the first phrase through later dates and reload',()=>{
- for(const ordinaryFirst of [false,true]){
-  let {h,s}=setup();const p=partner(h,s);s.lifetime.ownedNaotoItems=['naoto_ring'];
-  const plan={id:'walk',label:'ならんであるく',line:'ならんで歩いた。'};
-  if(ordinaryFirst){h.api.goOnDate(plan,false);h.api.closeDateOverlay();s.dateCooldownTicks=0;}
-  const count=s.lifetime.itemMemories.specials.length;s.items.reward=2;
-  h.api.goOnDate(plan);click(h,'dateRewardUseBtn');
-  assert.equal(s.lifetime.itemMemories.specials.length,count+1);assert.equal(h.api.itemStock('reward'),1);
-  const ringKey=`ring:${p.itemRelationshipId}`;
-  const phrases=()=>s.lifetime.itemMemories.specials.filter(m=>m.key===ringKey||m.ringKey===ringKey);
-  assert.equal(phrases().length,1);assert.match(phrases()[0].text,/合言葉/);assert.equal(phrases()[0].partner.id,p.id);
-  const firstPhrase=JSON.stringify(phrases()[0]);
-  h=reload(s);s=h.api.state();s.dateCooldownTicks=0;
-  h.api.goOnDate(plan,false);h.api.closeDateOverlay();assert.equal(s.lifetime.itemMemories.specials.length,count+1);
-  s.dateCooldownTicks=0;h.api.goOnDate(plan);click(h,'dateRewardUseBtn');click(h,'dateRewardUseBtn');
-  assert.equal(s.lifetime.itemMemories.specials.length,count+2);assert.equal(h.api.itemStock('reward'),0);assert.equal(phrases().length,1);assert.equal(JSON.stringify(phrases()[0]),firstPhrase);
- }
-});
-
-
-// Match the initial home markup: these overlays are hidden until explicitly opened.
-function feedbackSetup(equipped, options) {
-  const result = setup(equipped, options);
-  for (const id of ['lifeCardOverlay','storyFlash']) result.h.get(id).classList.add('hidden');
-  result.h.api.render();
-  return result;
-}
 
 test('eligible ribbon ticks deliver readable feedback in both motion modes', () => {
   for (const reducedMotion of [false, true]) {

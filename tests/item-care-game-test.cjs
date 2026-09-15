@@ -61,13 +61,12 @@ test('protected failure has no game energy, decline or life damage, ordinary pre
   assert.equal(s.oneTimeBoosts.safetyNet,true);
 });
 
-test('great charm waits for real seventy and awards growth 28 or 56 and one gift',()=>{
+test('great charm waits for real seventy and awards growth 28 or 56',()=>{
   for(const boost of [0,100]){const {h,s}=setup('glasses');
     s.items.c_mgbig=1;
     h.api.useConsumableItem('c_mgbig');
     play(h,60);
     assert.equal(s.oneTimeBoosts.greatReward,true);
-    assert.equal(h.api.itemStock('reward'),0);
     s.sodachi=80;
     s.maxSodachi=80;
     s.growth=0;
@@ -75,29 +74,8 @@ test('great charm waits for real seventy and awards growth 28 or 56 and one gift
     play(h,70);
     assert.equal(s.sodachi,boost?81:80);
     assert.equal(s.growth,boost?24:28);
-    assert.equal(h.api.itemStock('reward'),1);
     assert.equal(s.oneTimeBoosts.greatReward,false);
   }
-});
-
-test('clover five misses survive reload and swapping; sixth combines with charm into one gift',()=>{
-  let {h,s}=setup('itemluck1');
-  for (let i=0; i<5; i++)play(h,70);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,5);
-  h=reload(s);
-  s=h.api.state();
-  vm.runInContext('Math.random=()=>0.99',h.sandbox);
-  s.lifetime.equippedItemId='ribbon';
-  play(h,70);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,5);
-  s.lifetime.equippedItemId='itemluck1';
-  s.items.c_mgbig=1;
-  h.api.useConsumableItem('c_mgbig');
-  h.api.startMinigame(game('sixth'));
-  s.lifetime.equippedItemId=null;
-  h.api.finishMinigame(70);
-  assert.equal(h.api.itemStock('reward'),1);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,0);
 });
 
 test('star three distinct real scores waits first hundred ticks and pays fixed fifteen',()=>{
@@ -321,17 +299,6 @@ test('failed and invalid completion retain great charm and interrupted games do 
   assert.equal(s.oneTimeBoosts.greatReward,true);
   assert.equal(s.lifetime.minigameRecords.abort,undefined);
   assert.equal(s.items.reward,undefined);
-});
-
-test('all three gift sources collide as exactly one reward',()=>{
-  const {h,s}=setup('itemluck1');
-  s.lifetime.itemProgress.cloverMisses=5;
-  s.oneTimeBoosts.greatReward=true;
-  h.api.startMinigame(game('gift'));
-  vm.runInContext('Math.random=()=>0',h.sandbox);
-  h.api.finishMinigame(70);
-  assert.equal(s.items.reward,1);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,0);
 });
 
 test('saved reservations and care cooldowns survive reload and life limits reset',()=>{
