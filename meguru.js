@@ -750,14 +750,36 @@
       let ctx = o.ctx, W = o.W, H = o.H; const tier = o.tier || 0;
       const wrapCtx = typeof o.wrapCtx === 'function' ? o.wrapCtx : null;          // キャラ(じゅうみん)よう
       const wrapScenery = typeof o.wrapScenery === 'function' ? o.wrapScenery : null; // けしき よう(キャラの え には ならない)
-      // けしき を えがく ための メインの ctx: なまの ctx を けしき よう に つつむ(なければ なまの ctx = ふつうの 絵文字)
-      let sceneryMain = o.rawCtx ? (wrapScenery ? wrapScenery(o.rawCtx) || o.rawCtx : o.rawCtx) : null;
+      const resolveScenery = typeof o.resolveScenery === 'function' ? o.resolveScenery : null;
+      // けしき よう の ctx: なまの ctx(= ふつうの 絵文字を そのまま えがく)と、けしき よう に つつんだ ctx(けしきの え が ある もの)
+      let rawMain = o.rawCtx || null;
+      let sceneryMain = rawMain ? (wrapScenery ? wrapScenery(rawMain) || rawMain : rawMain) : null;
+      // けしきの 絵文字を どう えがくか: 'art' = けしき よう の え(SVG / アトラス)が ある → けしき よう の つつみで えがく
+      //   'native' = けしきの え が ない、または キャラの え に あたった → つつみを とおさず なまの ctx で ふつうの 絵文字を えがく
+      //   (つつみに null を かえさせると 四角い placeholder に なる ので、つつみ じたいを とおさない)。'skip' = いまの子の しるし(U+E000)は けしきには えがかない
+      const modeCache = new Map();
+      function sceneryMode(emoji) {
+        if (emoji === '\uE000') return 'skip';
+        let m = modeCache.get(emoji);
+        if (m) return m;
+        let d = null; try { d = resolveScenery ? resolveScenery(emoji) : null; } catch (_) { d = null; }
+        m = d && (d.svg || d.image || (d.asset && !/assets\/characters\//.test(String(d.asset)))) ? 'art' : 'native';
+        modeCache.set(emoji, m);
+        return m;
+      }
       // 立て看板を えがく: キャッシュした えが あれば drawImage、なければ fillText。
-      // scenery=true の ものは けしき せんよう の みちすじ(なかま・こいびと・しゅぞくの え に ぜったい ならない)
+      // scenery=true の ものは けしき せんよう の みちすじ(なかま・こいびと・しゅぞくの え に ぜったい ならず、placeholder にも ならない)
       function drawGlyph(emoji, sx, sy, px, scenery) {
-        const c = px >= 12 ? glyphSprite(emoji, px, scenery ? wrapScenery : wrapCtx, scenery ? 's' : 'c') : null;
+        let wrap = wrapCtx, ns = 'c', fallback = ctx;
+        if (scenery) {
+          const mode = sceneryMode(emoji);
+          if (mode === 'skip') return;
+          if (mode === 'art') { wrap = wrapScenery; ns = 's'; fallback = sceneryMain || rawMain || ctx; }
+          else { wrap = null; ns = 'n'; fallback = rawMain || ctx; }
+        }
+        const c = px >= 12 ? glyphSprite(emoji, px, wrap, ns) : null;
         if (c) { const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12)); const k = px / bucket; ctx.drawImage(c, sx - c.width * k / 2, sy - (c.height - 2) * k, c.width * k, c.height * k); }
-        else { const g = scenery && sceneryMain ? sceneryMain : ctx; g.globalAlpha = ctx.globalAlpha; g.font = `${Math.round(px)}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillText(emoji, sx, sy); if (g !== ctx) g.globalAlpha = 1; }
+        else { const g = fallback; if (g !== ctx) g.globalAlpha = ctx.globalAlpha; g.font = `${Math.round(px)}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillText(emoji, sx, sy); if (g !== ctx) g.globalAlpha = 1; }
       }
       const drawScenery = (emoji, sx, sy, px) => drawGlyph(emoji, sx, sy, px, true);
       const playerGlyph = typeof o.playerGlyph === 'function' ? o.playerGlyph : () => '🐣';
@@ -1018,7 +1040,7 @@
         if (e.weather === 'rain' || e.weather === 'snow') { ctx.fillStyle = e.weather === 'rain' ? 'rgba(180,210,255,.55)' : 'rgba(255,255,255,.85)'; const n = tier >= 2 ? 16 : 34; for (let i = 0; i < n; i++) { const x = (i * 97 + (now * (e.weather === 'rain' ? 0.02 : 0.005) * (i % 3 + 1))) % (W + 20) - 10; const y = (i * 61 + now * (e.weather === 'rain' ? 0.5 : 0.08) * (1 + (i % 4) * 0.3)) % (H + 20) - 10; if (e.weather === 'rain') ctx.fillRect(x, y, 1.5, 9); else { ctx.beginPath(); ctx.arc(x, y, 2 + (i % 3), 0, TAU); ctx.fill(); } } }
         if (e.time === 'night' && world.sky !== 'stars') { ctx.fillStyle = 'rgba(10,15,45,.20)'; ctx.fillRect(0, 0, W, H); }
       }
-      return { draw, project, facingOf, resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; setup(); }, destroy() { skyCache = null; nebula = null; } };
+      return { draw, project, facingOf, drawScenery, sceneryMode, resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; } };
     }
 
     // ================= がめん(DOM + にゅうりょく + フレームループ) =================
@@ -1059,7 +1081,7 @@
       const placeEl = container.querySelector('#mgrPlace'), countEl = container.querySelector('#mgrCount'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner'), spotEl = container.querySelector('#mgrSpot');
       const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
       const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
-      const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null });
+      const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null, resolveScenery: typeof S.resolveScenery === 'function' ? S.resolveScenery : null });
       let resizeTimer = null;
       const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (typeof renderer.resize === 'function') renderer.resize({ ctx, W, H, rawCtx: rawCtxOf() }); }, 150); };
       if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', onResize);

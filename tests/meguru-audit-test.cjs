@@ -152,3 +152,96 @@ test('registry audit reports rows and every issue class (duplicate, legacy, undi
   const codes = new Set(M.auditRegistry(broken).issues.map((i) => i.code));
   for (const c of ['duplicate-key', 'duplicate-id', 'legacy-form', 'undiscovered-form', 'current-pet-duplicate', 'follower-duplicate', 'shared-asset']) assert.ok(codes.has(c), 'reports ' + c + ': ' + [...codes].join(','));
 });
+
+// ---- じっさいの canvas の みちすじ: けしきは キャラの え にも placeholder にも ならない ----
+const CHARACTER_SCENERY = ['🐈', '🍄', '🐄', '🦋', '🐓', '🦉', '🦅', '⛄', '🦌', '🪸', '🐙', '🪼', '🐟', '🦜', '🗿', '🦎', '🪴'];
+function spyContext() {
+  const calls = [];
+  const ctx = { canvas: { dir: 'ltr' }, font: '20px sans-serif', textAlign: 'left', textBaseline: 'alphabetic', direction: 'inherit', globalAlpha: 1, fillStyle: '#000', strokeStyle: '#000', lineWidth: 1, imageSmoothingEnabled: true };
+  for (const m of ['save', 'restore', 'translate', 'scale', 'rotate', 'beginPath', 'closePath', 'fill', 'stroke', 'moveTo', 'lineTo', 'arc', 'ellipse', 'setTransform', 'clip', 'rect', 'roundRect', 'setLineDash']) ctx[m] = () => {};
+  ctx.measureText = (t) => ({ width: 20 * [...String(t)].length, actualBoundingBoxAscent: 16, actualBoundingBoxDescent: 4 });
+  ctx.fillText = (text, x, y) => calls.push({ op: 'fillText', text, x, y });
+  ctx.drawImage = (img, ...rest) => calls.push({ op: 'drawImage', src: img && (img.src || img.currentSrc || ''), rest });
+  ctx.fillRect = (x, y, w, h) => calls.push({ op: 'fillRect', x, y, w, h, fillStyle: ctx.fillStyle });
+  ctx.strokeText = () => {};
+  ctx.createLinearGradient = () => ({ addColorStop() {} });
+  return { ctx, calls };
+}
+const PLACEHOLDER_COLORS = new Set(['#eedbb6', '#ad9477']);
+const isPlaceholder = (calls) => calls.some((c) => c.op === 'fillRect' && PLACEHOLDER_COLORS.has(String(c.fillStyle)));
+const drewCharacter = (calls) => calls.some((c) => c.op === 'drawImage' && /assets\/characters\//.test(c.src));
+function makeRenderer(h, spy, raw) {
+  const M = h.api.meguruMod;
+  return M.createCanvasRenderer({ canvas: {}, ctx: h.api.wrapCanvasCtx(spy.ctx), rawCtx: raw.ctx, W: 300, H: 500, tier: 0, playerGlyph: () => '🐣', wrapCtx: h.api.wrapCanvasCtx, wrapScenery: h.api.sceneryCtx, resolveScenery: h.api.sceneryResolve });
+}
+
+test('canvas path: 🐈 scenery is drawn as a native emoji, not the cat picture and not a placeholder tile', () => {
+  const { h } = setup();
+  const spy = spyContext(), raw = spyContext();
+  const r = makeRenderer(h, spy, raw);
+  assert.equal(r.sceneryMode('🐈'), 'native');
+  r.drawScenery('🐈', 100, 200, 40);
+  assert.ok(raw.calls.some((c) => c.op === 'fillText' && c.text === '🐈'), 'native fillText on the raw context: ' + JSON.stringify(raw.calls));
+  assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls), 'no character asset drawn');
+  assert.ok(!isPlaceholder(raw.calls) && !isPlaceholder(spy.calls), 'no placeholder tile drawn');
+});
+
+test('canvas path: 🍄 scenery is a native emoji too', () => {
+  const { h } = setup();
+  const spy = spyContext(), raw = spyContext();
+  const r = makeRenderer(h, spy, raw);
+  r.drawScenery('🍄', 100, 200, 40);
+  assert.ok(raw.calls.some((c) => c.op === 'fillText' && c.text === '🍄'));
+  assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls));
+  assert.ok(!isPlaceholder(raw.calls) && !isPlaceholder(spy.calls));
+});
+
+test('canvas path: all 17 character-colliding scenery emoji become native emoji (no character asset, no placeholder), U+E000 is never scenery', () => {
+  const { h } = setup();
+  const spy = spyContext(), raw = spyContext();
+  const r = makeRenderer(h, spy, raw);
+  for (const emoji of CHARACTER_SCENERY) {
+    const before = raw.calls.length;
+    assert.equal(r.sceneryMode(emoji), 'native', emoji + ' has no dedicated scenery art, so it stays a native emoji');
+    r.drawScenery(emoji, 100, 200, 40);
+    assert.ok(raw.calls.slice(before).some((c) => c.op === 'fillText' && c.text === emoji), 'native fillText for ' + emoji);
+  }
+  assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls), 'no character asset for any scenery emoji');
+  assert.ok(!isPlaceholder(raw.calls) && !isPlaceholder(spy.calls), 'no placeholder for any scenery emoji');
+  assert.equal(r.sceneryMode(''), 'skip');
+  const n = raw.calls.length + spy.calls.length; r.drawScenery('', 100, 200, 40);
+  assert.equal(raw.calls.length + spy.calls.length, n, 'the current-actor marker draws nothing as scenery');
+});
+
+test('canvas path: scenery with dedicated art (🌳 🌲 🌴 🌵 🐚) goes through the scenery wrapper, never native text and never a character', () => {
+  const { h } = setup();
+  const spy = spyContext(), raw = spyContext();
+  const r = makeRenderer(h, spy, raw);
+  for (const emoji of ['🌳', '🌲', '🌴', '🌵', '🐚']) {
+    const d = h.api.sceneryResolve(emoji);
+    assert.ok(d && (d.svg || d.image || d.asset), emoji + ' has scenery art');
+    assert.equal(r.sceneryMode(emoji), 'art', emoji);
+    r.drawScenery(emoji, 100, 200, 40);
+    assert.ok(!raw.calls.some((c) => c.op === 'fillText' && c.text === emoji), emoji + ' is not drawn as raw text');
+  }
+  assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls), 'no character asset');
+});
+
+test('canvas path: every scenery emoji of every region either has scenery art or falls back to a native emoji, never a character or a placeholder', () => {
+  const { h, M } = setup();
+  const spy = spyContext(), raw = spyContext();
+  const r = makeRenderer(h, spy, raw);
+  const emojis = M.sceneryEmojis();
+  let native = 0, art = 0;
+  for (const emoji of emojis) {
+    const mode = r.sceneryMode(emoji);
+    assert.ok(mode === 'native' || mode === 'art', emoji + ': ' + mode);
+    const before = raw.calls.length;
+    r.drawScenery(emoji, 100, 200, 40);
+    const slice = raw.calls.slice(before);
+    if (mode === 'native') { native++; assert.ok(slice.some((c) => c.op === 'fillText' && c.text === emoji), 'native emoji for ' + emoji); assert.ok(!isPlaceholder(slice), 'no placeholder for the native emoji ' + emoji); }
+    else art++; // え が よみこまれるまでは placeholder が でる ことが ある(ハーネスでは がぞうが よみこまれない)
+  }
+  assert.ok(native > 0 && art > 0, `both paths are exercised (native ${native}, art ${art})`);
+  assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls), 'no character asset');
+});
