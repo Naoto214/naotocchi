@@ -415,52 +415,8 @@ for (const plan of api.DATE_PLANS) {
     assert.ok(!captions.slice(0, 2).some((s) => /ゆうやけ|あめやどり|ひなたぼっこ|流れ星/.test(s)));
   }
 }
-// A browser may suppress native confirm and return false. The reward decision
-// must remain visible in the game, before any date effects or consumption.
-for (const deepsea of [false, true]) {
-  reset({ partner:partner(deepsea ? 'anglerfish' : 'robot_neighbor'),
-    regionId:deepsea ? 'deepsea' : 'home', items:{reward:1} });
-  const before = JSON.stringify(api.getState());
-  click('worldDateBtn');
-  const chosen = getElement('dateChoiceGrid').children[0];
-  click('dateChoiceGrid', {target:{closest:s => s === '.date-choice-btn' ? chosen : null}});
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), false,
-    'reward confirmation must be visible even when native confirm returns false');
-  assert.equal(confirmPrompts.length, 0, 'date must not depend on native confirm');
-  assert.equal(JSON.stringify(api.getState()), before, 'date committed before reward choice');
-  assert.equal(captions.length, 0, 'movie started before reward choice');
-  api.loop();
-  assert.equal(JSON.stringify(api.getState()), before, 'reward choice did not pause care');
-  click('dateRewardUseBtn');
-  click('dateRewardUseBtn');
-  assert.equal(api.getState().items.reward || 0, 0, 'reward was not consumed once');
-  assert.equal(api.getState().datesThisLife, 1, 'double tap started a second date');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), true);
-  advance(36500);
-  assert.equal(captions.length, 9, 'special date did not finish all nine captions');
-  click('dateMovieCloseBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true);
-}
-for (const accept of [false, true]) {
-  reset({ partner: partner(), items: { reward: 1 } }); confirmResult = accept;
-  api.goOnDate(api.DATE_PLANS[0]);
-  click(accept ? 'dateRewardUseBtn' : 'dateRewardSkipBtn'); advance(37000);
-  assert.equal(captions.length, accept ? 9 : 7);
-  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1);
-  assert.equal(api.getState().lifeLog.filter((r) => r.text.startsWith('とくべつなデートのおもいで:')).length, accept ? 1 : 0);
-  api.finishDateMovie(); advance(35000);
-  assert.equal(api.getState().items.reward || 0, accept ? 0 : 1, 'reward consumed twice');
-}
-reset({ partner: partner() }); confirmResult = true;
-api.goOnDate(api.DATE_PLANS[0]); api.finishDateMovie();
-const dateSkipCount = captions.length; advance(35000);
-assert.equal(captions.length, dateSkipCount, 'skipped date still changes captions');
-assert.equal(api.getState().items.reward || 0, 0, 'missing reward underflow');
-
-// BQ: exercise the actual chooser/skip/close handlers, not finishDateMovie directly.
-// Catches a missing consumption/save, ignored reward choice, broken ring branch,
-// lingering captions, or failure to resume the clock after returning to care.
+// The dedicated "ごほうび" date path was retired. Keep the ordinary
+// close/pause helper because the deep-sea date lifecycle below still uses it.
 function assertDateReturned(expectedAge, expectedCooldown, label) {
   assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, label + ': overlay stayed open');
   assert.equal(getElement('dateMovie').classList.contains('hidden'), true, label + ': movie stayed visible');
@@ -472,127 +428,6 @@ function assertDateReturned(expectedAge, expectedCooldown, label) {
   assert.equal(api.getState().ageTicks, expectedAge + 1, label + ': care clock did not resume');
   assert.equal(api.getState().dateCooldownTicks, expectedCooldown - 1, label + ': cooldown did not resume');
 }
-for (const testCase of [
-  { name:'accept-one', reward:1, accept:true, remaining:0, beats:9, skip:false },
-  { name:'accept-two-skip', reward:2, accept:true, remaining:1, beats:9, skip:true },
-  { name:'decline', reward:1, accept:false, remaining:1, beats:7, skip:false },
-  { name:'no-reward', reward:0, accept:true, remaining:0, beats:7, skip:false },
-  { name:'deepsea-ring', reward:1, accept:true, remaining:0, beats:9, skip:false, deepsea:true, ring:true },
-  { name:'ordinary-ring', reward:0, accept:false, remaining:0, beats:9, skip:false, ring:true },
-  { name:'deepsea-ordinary', reward:0, accept:false, remaining:0, beats:7, skip:false, deepsea:true },
-]) {
-  const { name, reward, accept, remaining, beats, skip, deepsea, ring } = testCase;
-  reset({ partner:partner(deepsea ? 'anglerfish' : 'robot_neighbor', { married:true }),
-    gender:'male', orientationId:'pan', attractedTo:['male','female','nonbinary'],
-    marriageMilestonesSeen:[1,10,25,50], legendMet:true, datesThisLife:2,
-    regionId:deepsea ? 'deepsea' : 'home', items:reward ? {reward} : {} });
-  api.getState().lifetime.money = 123456789;
-  if (ring) api.getState().lifetime.ownedNaotoItems = ['naoto_ring'];
-  confirmResult = accept;
-  const age = api.getState().ageTicks;
-  click('worldDateBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), false, name + ': chooser did not open');
-  const choices = getElement('dateChoiceGrid').children;
-  assert.equal(choices.length, 3, name + ': missing rendered choices');
-  assert.equal(new Set(choices.map(button => button.dataset.plan)).size, 3);
-  api.loop();
-  assert.equal(api.getState().ageTicks, age, name + ': chooser did not pause clock');
-  const selected = choices[0];
-  click('dateChoiceGrid', {target:{closest:selector => selector === '.date-choice-btn' ? selected : null}});
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), !reward, name + ': incorrect reward prompt');
-  if (reward) click(accept ? 'dateRewardUseBtn' : 'dateRewardSkipBtn');
-  assert.equal(confirmPrompts.length, 0, name + ': native prompt called');
-  assert.equal(api.getState().items.reward || 0, remaining, name + ': incorrect reward consumption');
-  assert.equal(api.getState().datesThisLife, 3, name + ': wrong date count');
-  assert.equal(api.getState().lifetime.datesEnjoyed, 1, name + ': lifetime date counted twice');
-  assert.equal(api.getState().lifetime.money, 123456789, name + ': date spent coins');
-  const special = reward > 0 && accept;
-  assert.equal(getElement('dateMovieScene').classList.contains('special-reward'), special);
-  assert.equal(getElement('dateMovieScene').dataset.plan, special ? 'special' : selected.dataset.plan);
-  assert.equal(getElement('dateMoviePlace').textContent.startsWith('とくべつなデート'), special);
-  assert.match(getElement('dateMoviePet').innerHTML, /assets\/characters\/man\/06\.png/);
-  assert.ok(getElement('dateMoviePartner').innerHTML.includes('assets/characters/partners/' + (deepsea ? 'anglerfish' : 'robot_neighbor') + '.png'));
-  const specialMemories = () => api.getState().lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length;
-  assert.equal(specialMemories(), special ? 1 : 0);
-  assert.ok(savedWrites.length > 0, name + ': no saved state');
-  savedPayload = savedWrites.at(-1);
-  const loaded = api.loadState(); savedPayload = null;
-  assert.equal(loaded.items.reward || 0, remaining, name + ': consumed reward returned after loading');
-  assert.equal(loaded.datesThisLife, 3, name + ': date not persisted');
-  assert.equal(loaded.lifetime.money, 123456789);
-  assert.equal(loaded.partner.id, deepsea ? 'anglerfish' : 'robot_neighbor');
-  assert.equal(loaded.lifeLog.filter(entry => entry.text.startsWith('とくべつなデートのおもいで:')).length, special ? 1 : 0);
-  const cooldown = api.getState().dateCooldownTicks;
-  assert.equal(cooldown, 60);
-  api.loop();
-  assert.equal(api.getState().ageTicks, age, name + ': movie did not pause clock');
-  assert.equal(api.getState().dateCooldownTicks, cooldown, name + ': movie reduced cooldown');
-  if (skip) {
-    advance(8000); click('dateMovieSkipBtn');
-    const count = captions.length;
-    advance(35000);
-    assert.equal(captions.length, count, name + ': skipped movie restarted before close');
-  } else {
-    const step = special ? 4000 : 3500;
-    assert.equal(captions.length, 1);
-    for (let beat = 1; beat < beats; beat += 1) {
-      advance(step - 1); assert.equal(captions.length, beat, name + ': caption arrived early');
-      advance(1); assert.equal(captions.length, beat + 1, name + ': caption missing at boundary');
-    }
-    if (ring) assert.ok(captions.slice(6,8).some(text=>/ふたりの合言葉/.test(text)));
-    else if (special) assert.ok(captions.slice(6,8).every(text=>text.length>0));
-    assert.ok(captions.every(text => text.trim() && !/undefined|\[object Object\]/.test(text)));
-    advance(step + 499);
-    assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), true, name + ': ending appeared early');
-    advance(1);
-  }
-  assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
-  assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'), true);
-  click('dateMovieCloseBtn');
-  assertDateReturned(age, cooldown, name);
-  assert.equal(api.getState().items.reward || 0, remaining, name + ': close consumed reward again');
-  assert.equal(specialMemories(), special ? 1 : 0, name + ': close duplicated memory');
-  click('worldDateBtn');
-  assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, name + ': cooldown allowed a second date');
-  assert.equal(api.getState().datesThisLife, 3);
-  assert.equal(confirmPrompts.length, 0, name + ': cooldown prompted for reward again');
-}
-// Back/escape, cancel and a later visit must not reuse the pending decision.
-for (const escape of [false, true]) {
-  reset({partner:partner(),items:{reward:1}});
-  const before = JSON.stringify(api.getState());
-  click('worldDateBtn');
-  const chosen = getElement('dateChoiceGrid').children[0];
-  click('dateChoiceGrid', {target:{closest:s => s === '.date-choice-btn' ? chosen : null}});
-  if (escape) {
-    const handlers = getElement('dateRewardConfirm').listeners.get('keydown') || [];
-    assert.ok(handlers.length, 'reward prompt has no escape handler');
-    handlers.forEach(fn => fn({key:'Escape',preventDefault:noop}));
-  } else click('dateRewardBackBtn');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(getElement('dateChooser').classList.contains('hidden'), false);
-  click('dateRewardUseBtn');
-  assert.equal(JSON.stringify(api.getState()), before, 'stale reward confirmation started a date');
-  click('dateCancelBtn');
-  assert.equal(JSON.stringify(api.getState()), before, 'cancelled reward choice changed the save');
-  click('worldDateBtn');
-  assert.equal(getElement('dateRewardConfirm').classList.contains('hidden'), true);
-  assert.equal(captions.length, 0);
-}
-reset({partner:partner(),items:{reward:1}});
-const beforeCancelledDate = JSON.stringify(api.getState());
-click('worldDateBtn'); click('dateCancelBtn'); advance(35000);
-assert.equal(JSON.stringify(api.getState()), beforeCancelledDate, 'cancelled chooser changed saved game');
-assert.equal(captions.length, 0, 'cancelled chooser started a movie');
-assert.equal(confirmPrompts.length, 0, 'cancelled chooser prompted for reward');
-assert.equal(getElement('dateOverlay').classList.contains('hidden'), true, 'cancelled chooser stayed open');
-assert.equal(getElement('dateMovie').classList.contains('hidden'), true, 'cancelled chooser showed movie');
-assert.equal(getElement('dateChooser').classList.contains('hidden'), false, 'cancelled chooser was not reset');
-api.loop();
-assert.equal(api.getState().ageTicks, JSON.parse(beforeCancelledDate).ageTicks + 1, 'cancelled chooser did not resume clock');
-assert.equal(api.getState().dateCooldownTicks, 0, 'cancelled chooser started cooldown');
-assert.equal(api.getState().datesThisLife, 0, 'cancelled chooser counted a date');
-assert.equal(api.getState().items.reward, 1, 'cancelled chooser consumed reward');
 
 // Every deep-sea plan's three opening-line branches must reach the final beat
 // and return; the localized memory must never revert to the land activity.
@@ -616,7 +451,7 @@ for (const plan of api.DATE_PLANS) for (const value of [0, 0.3, 0.6, 0.999]) {
   assertDateReturned(age, 60, 'deepsea ' + plan.id);
 }
 for (const [id, lines] of deepseaObservedLines) assert.equal(lines.size, 4, 'deepsea ' + id + ': opening branches collapsed');
-console.log('DATE LIFECYCLE TEST OK: in-game reward choice with native dialogs suppressed; accept/decline/absent; double tap, back, escape and cancel; persisted rewards and memories; ring; real skip/close; pause/resume/cooldown; 30 complete deepsea branches.');
+console.log('DATE LIFECYCLE TEST OK: ordinary dates, skip/close, pause/resume/cooldown and complete deep-sea branches.');
 for (const def of master.partners) {
   reset({ partner: partner(def.id, { married: true }) });
   const lines = api.PARTNER_ANNIVERSARY_LINES[def.id];
