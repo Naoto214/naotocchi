@@ -118,7 +118,7 @@
       return true;
     }
     function play(actor, mood, {delay = 0, gentle = false} = {}) {
-      if (!actor) return 0;
+      if (!actor?.node) return 0;
       const size = parseFloat(actor.node.style.width) || actor.size || 104;
       const motion = motionFrames(mood, size, {id:actor.id, direction:actor.direction || 1,
         gentle:gentle || isResting(), maxDisplacement:getMotionRadius()});

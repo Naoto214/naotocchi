@@ -196,11 +196,11 @@ function motionNode({connected=true, animate=true}={}) {
   return node;
 }
 
-function motionController({reducedMotion=false,canAnimate=true,petOptions,omitPet=false}={}) {
+function motionController({reducedMotion=false,canAnimate=true,petOptions,omitPet=false,petNodeMissing=false}={}) {
   const {createController}=require('../cast-motion.js');
   const pet=motionNode(petOptions),accessory=motionNode(),partner=motionNode(),companion=motionNode(),group=motionNode();
   const actors=[
-    {kind:'pet',id:'pet',node:pet,size:104},
+    {kind:'pet',id:'pet',node:petNodeMissing?undefined:pet,size:104},
     {kind:'accessory',id:'ribbon',node:accessory,size:104},
     {kind:'partner',id:'forest_bear',node:partner,size:52},
     {kind:'companion',id:'snail',node:companion,size:32},
@@ -229,6 +229,7 @@ test('pet reports zero when its animation cannot start', () => {
     {canAnimate:false},
     {reducedMotion:true},
     {omitPet:true},
+    {petNodeMissing:true},
     {petOptions:{connected:false}},
     {petOptions:{animate:false}},
   ]) {
