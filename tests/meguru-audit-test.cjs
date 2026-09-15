@@ -135,7 +135,10 @@ test('10. every scenery emoji in every region (prop/lane/wall/hint/spot.prop/fla
   const audit = M.auditScenery(h.api.sceneryResolve, h.api.displayCatalog.resolve);
   assert.ok(audit.emojis.length >= 60, 'the audit covers the whole world: ' + audit.emojis.length);
   // ひょうじ よう の resolver では キャラに なる けしきが ある(= バグの げんいん)…
-  assert.ok(audit.characterUnderDisplay.some((e) => e.emoji === '🐈') && audit.characterUnderDisplay.some((e) => e.emoji === '🍄'), 'the display resolver would turn these into characters: ' + JSON.stringify(audit.characterUnderDisplay.map((e) => e.emoji)));
+  // (どうぶつは けしきの プールから なくなった ので、のこるのは 🍄 などの しょくぶつ だけ)
+  assert.ok(audit.characterUnderDisplay.some((e) => e.emoji === '🍄'), 'the display resolver would turn these into characters: ' + JSON.stringify(audit.characterUnderDisplay.map((e) => e.emoji)));
+  assert.ok(!audit.characterUnderDisplay.some((e) => M.isFaunaEmoji(e.emoji)), 'no animal is left in the scenery pools');
+  assert.equal(audit.fauna.length, 0);
   // …が、けしき よう の resolver では ひとつも キャラに ならない
   assert.equal(audit.characterUnderScenery.length, 0, 'scenery must never become a character: ' + JSON.stringify(audit.characterUnderScenery));
 });
