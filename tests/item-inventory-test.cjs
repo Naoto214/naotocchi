@@ -14,10 +14,17 @@ test('buy stores a drink without arming; only the whole five minutes can be used
   assert.equal(s.boostTicks,200);assert.equal(h.api.itemStock('c_growth'),0);
 });
 test('new life preserves unused stock and drops active effects', () => {
-  const h=harness(),s=h.api.state();s.items.fun_candy=3;s.items.reward=2;s.items.c_safety=1;s.oneTimeBoosts.doubleCoins=true;
+  const h=harness(),s=h.api.state();s.items.fun_candy=3;s.items.c_safety=1;s.oneTimeBoosts.doubleCoins=true;
   h.dispatch(h.get('resetBtn'),'click'); const n=h.api.state();
-  assert.equal(n.items.fun_candy,3);assert.equal(n.items.reward,2);assert.equal(n.items.c_safety,1);
+  assert.equal(n.items.fun_candy,3);assert.equal(n.items.c_safety,1);
   assert.equal(n.oneTimeBoosts.doubleCoins,false);assert.equal(n.items,n.lifetime.itemInventory);
+});
+test('dedicated reward inventory is retired and legacy reward stock is discarded', () => {
+  const h=harness(),m=h.sandbox.NaotocchiItems;
+  assert.equal(m.CATALOG.reward,undefined);
+  const s=JSON.parse(JSON.stringify(h.api.state()));s.items.reward=3;s.lifetime.itemInventory=s.items;
+  const n=reload(s).api.state();
+  assert.equal(n.items.reward,undefined);
 });
 test('legacy tools migrate stock and used history with spare scenes', () => {
   const s=JSON.parse(JSON.stringify(harness().api.state()));s.items.fun_camera=3;s.lifetime.ownedConsumableItems=['fun_musicbox'];
