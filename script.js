@@ -3723,6 +3723,7 @@
   let emotionCueActiveUntil = 0;
   let careReactionSerial = 0;
   let careAfterglowTimer = null;
+  let careStoryTimer = null;
   let petExpressionTransient = null;
   let petExpressionTimer = null;
 
@@ -3768,6 +3769,8 @@
   }
 
   function invalidateCareAfterglow() {
+    if (careStoryTimer) clearTimeout(careStoryTimer);
+    careStoryTimer = null;
     careReactionSerial += 1;
     if (careAfterglowTimer) clearTimeout(careAfterglowTimer);
     careAfterglowTimer = null;
@@ -10585,7 +10588,7 @@
   let lastStoryEventMessage = null;
   let deathCardShown = false;
 
-  function checkStoryEvents(context) {
+  function checkStoryEvents(context, delayMs = 0) {
     if (state.stage === STAGE.DEAD || gameActive) return;
     const pool = STORY_EVENT_POOLS[context];
     if (!pool || pool.length === 0) return;
@@ -10595,7 +10598,18 @@
     const choices = pool.length > 1 ? pool.filter((e) => e.message !== lastStoryEventMessage) : pool;
     const event = choices[Math.floor(Math.random() * choices.length)];
     lastStoryEventMessage = event.message;
-    showStoryEvent({...event,petReaction:true});
+    if (delayMs > 0) {
+      const serial = careReactionSerial;
+      const life = state;
+      if (careStoryTimer) clearTimeout(careStoryTimer);
+      careStoryTimer = setTimeout(() => {
+        careStoryTimer = null;
+        if (state !== life || careReactionSerial !== serial || !emotionCueContextVisible()) return;
+        showStoryEvent({...event,petReaction:true});
+      },delayMs);
+    } else {
+      showStoryEvent({...event,petReaction:true});
+    }
   }
 
   let storyFlashTimer = null;
@@ -10625,6 +10639,7 @@
       el.storyFlash.classList.add('hidden');
       renderWorldScene();
       syncHomeEmotion();
+      renderPetVisual();
     }, STORY_FLASH_DURATION_MS);
   }
 
@@ -16644,7 +16659,7 @@
         setMessage('🍚たべすぎた');
         speakEvent('overfeed');
       }
-      checkStoryEvents('overfeed');
+      checkStoryEvents('overfeed',SPEECH_DURATION_MS+120);
       checkMeters();
       return;
     }

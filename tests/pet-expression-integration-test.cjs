@@ -289,3 +289,25 @@ test('progress meter colors vary with fill without altering game state or life d
   assert.equal(h.get('deathBar').style.width,'20%');
   assert.equal(h.api.state().transformMeter,100);
 });
+
+test('overfeeding shows discomfort before a random story can replace it', () => {
+  const h=harness();adultCat(h,{hunger:85,isSick:true});avoidRoutineStories(h);
+  vm.runInContext('Math.random=()=>0',h.sandbox);
+  h.dispatch(h.get('feedBtn'),'click');h.advance(1);
+  assert.equal(h.get('petSprite').dataset.expression,'strained');
+  assert.equal(h.get('storyFlash').classList.contains('hidden'),true);
+  h.advance(2700);
+  assert.equal(h.get('storyFlash').classList.contains('hidden'),false);
+  h.advance(4300);
+  assert.equal(h.get('petSprite').dataset.expression,'sick');
+});
+
+test('a newer care action cancels an older delayed overfeeding story', () => {
+  const h=harness();adultCat(h,{hunger:85,isSick:true});avoidRoutineStories(h);
+  vm.runInContext('Math.random=()=>0',h.sandbox);
+  h.dispatch(h.get('feedBtn'),'click');h.advance(1);
+  vm.runInContext('Math.random=()=>0.99',h.sandbox);
+  h.dispatch(h.get('sleepBtn'),'click');h.advance(2500);
+  assert.equal(h.get('storyFlash').classList.contains('hidden'),true);
+  assert.equal(h.get('petSprite').dataset.expression,'sleeping');
+});
