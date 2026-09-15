@@ -25,6 +25,7 @@ function runtimeFreshAdultCat() {
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
+      achievementsUnlocked:['age-10','age-25'],
     });
     return state;
   } finally {
@@ -47,7 +48,8 @@ function buildBootstrap(defaultPreset) {
 (() => {
   'use strict';
   const allowedPresets=${scriptJson(Object.keys(PRESETS))};
-  const requestedPreset=new URLSearchParams(window.parent.location.search).get('preset');
+  const requestedPreset=window.frameElement?.dataset.preset
+    || new URLSearchParams(window.parent.location.search).get('preset');
   const preset=allowedPresets.includes(requestedPreset) ? requestedPreset : ${scriptJson(defaultPreset)};
   const state=Object.assign(${scriptJson(base)},${scriptJson(PRESETS)}[preset]);
   const values=new Map([[${scriptJson(SAVE_KEY)},JSON.stringify(state)]]);
@@ -109,6 +111,23 @@ function buildPreview({preset='hungry'}={}) {
     <nav aria-label="猫の状態">${links}</nav>
   </header>
   <iframe title="なおとっち 猫の表情プレビュー" srcdoc="${child}"></iframe>
+  <script id="cat-expression-preview-controls">
+  (() => {
+    const frame=document.querySelector('iframe');
+    const nav=document.querySelector('nav');
+    const game=frame.srcdoc;
+    const allowed=${scriptJson(Object.keys(PRESETS))};
+    nav.addEventListener('click',event => {
+      const link=event.target.closest('a');
+      if (!link || !nav.contains(link)) return;
+      const preset=new URLSearchParams(link.getAttribute('href')).get('preset');
+      if (!allowed.includes(preset)) return;
+      event.preventDefault();
+      frame.dataset.preset=preset;
+      frame.srcdoc=game;
+    });
+  })();
+  </script>
 </body>
 </html>
 `;

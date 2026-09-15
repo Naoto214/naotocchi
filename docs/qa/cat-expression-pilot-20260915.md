@@ -23,7 +23,7 @@
 node tools/cat-expression-preview.cjs cat-expression-check.html hungry
 ```
 
-`buildPreview({preset='hungry'}={})` は現在の `index.html` と `tests/helpers/runtime-harness.cjs` の `freshState()` を使い、25歳・`cat`・stage index 5 の個体を作る。`normal`、`hungry`、`sick`、`tired`、`sulky`、`critical` のリンクはページを再読込し、URL値はこの6種類だけを受け付ける。既定は、食事後の回復と最新状態への復帰を確認しやすい `hungry`。
+`buildPreview({preset='hungry'}={})` は現在の `index.html` と `tests/helpers/runtime-harness.cjs` の `freshState()` を使い、25歳・`cat`・stage index 5 の個体を作る。`normal`、`hungry`、`sick`、`tired`、`sulky`、`critical` のリンクはページ内で子ゲームだけを再初期化し、URL値と選択値はこの6種類だけを受け付ける。既定は、食事後の回復と最新状態への復帰を確認しやすい `hungry`。
 
 ゲームは操作欄の下の全幅 iframe で動き、子文書の利用可能な高さを使う。子文書内で最初のゲームスクリプトより前に、新しい `Map` ベースの `localStorage` を設置する。初期値はメモリ上の `naotocchi-save-v1` だけで、通常保存領域を読み書きしない。VM検査では、生成した実物の bootstrap を外部ストレージ sentinel とともに実行し、外部の読取・書込が0件で、sentinel内容も不変であることを確認した。通常の `index.html` はこのツールを読み込まない。
 
@@ -54,3 +54,9 @@ node tools/cat-expression-preview.cjs cat-expression-check.html hungry
 |視差効果を減らす設定で静止した表情切替が残ること|未確認|
 |なかま26体で元の配置を保つこと|未確認|
 |使い捨てプレビューの操作欄が年齢表示・ケアボタンを覆わず、通常保存へ影響しないこと|未確認|
+
+## 実機動画からの修正：切り替え待ちと実績通知
+
+ユーザー動画では、状態リンクごとにホスト画面全体の読み込み待ちが発生し、表示後に25歳の実績通知が表情を通常顔へ戻していた。確認ページのリンク操作をページ内で処理し、使い捨ての子ゲームだけを再初期化するよう変更。成猫の初期データでは10歳・25歳の既到達実績を取得済みにして、起動時の通知を防ぐ。通常ゲームの実績判定や保存形式は変更していない。
+
+回帰テストは、実際の起動時saveStateで通知が顔を隠す失敗（RED）と、リンク操作で上位ページへ遷移せず選択状態を子ゲームへ渡す失敗（RED）を確認し、修正後は7件成功。`npm test` は前段チェックおよび667件成功、0件失敗。修正後のiPhone表示は再確認待ち。

@@ -82,6 +82,7 @@ test('default preview seeds an exact fresh-state adult hungry cat in memory only
     hunger:40,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
     isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
     transformOptions:null,companions:[],partner:null,
+    achievementsUnlocked:['age-10','age-25'],
   });
   assert.deepEqual(state,expected);
   assert.equal(run.storage.length,1,'only the preview save is initially seeded');
@@ -137,5 +138,44 @@ test('CLI writes the same self-contained preview for the requested safe preset',
     assert.equal(fs.readFileSync(output,'utf8'),buildPreview({preset:'sulky'}));
   } finally {
     fs.rmSync(directory,{recursive:true,force:true});
+  }
+});
+
+test('preview startup save does not unlock old age achievements and hide the face', () => {
+  const {state}=seededState(buildPreview());
+  const h=harness();
+  Object.assign(h.api.state(),state);
+  h.get('storyFlash').classList.add('hidden');
+  h.get('lifeCardOverlay').classList.add('hidden');
+  h.api.render();
+  h.api.saveState();
+  h.api.render();
+  assert.equal(h.get('storyFlash').classList.contains('hidden'),true);
+  assert.equal(h.get('petSprite').dataset.expression,'strained');
+});
+
+test('preset clicks reset only the child session and bootstrap uses that selected preset', () => {
+  const html=buildPreview();
+  const code=html.match(/<script id="cat-expression-preview-controls">([\s\S]*?)<\/script>/)?.[1];
+  assert.ok(code,'preview handles switches without top-level navigation');
+  const frame={dataset:{},srcdoc:previewParts(html).gameHtml};
+  let handler;
+  const nav={addEventListener(type,fn){assert.equal(type,'click');handler=fn;},contains:()=>true};
+  const document={querySelector:selector=>selector==='iframe'?frame:nav};
+  vm.runInNewContext(code,{document,URLSearchParams});
+  for(const preset of ['normal','hungry','sick','tired','sulky','critical']) {
+    let prevented=false;
+    handler({target:{closest:()=>({getAttribute:()=>'?preset='+preset})},preventDefault(){prevented=true;}});
+    assert.equal(prevented,true);
+    assert.equal(frame.dataset.preset,preset);
+    const boot=frame.srcdoc.match(/id="cat-expression-preview-bootstrap"[^>]*>([\s\S]*?)<\/script>/)[1];
+    const ctx={Map,URLSearchParams,frameElement:frame,parent:{location:{search:'?preset=hungry'}}};ctx.window=ctx;
+    vm.runInNewContext(boot,ctx);
+    const state=JSON.parse(ctx.localStorage.getItem(SAVE_KEY));
+    assert.equal(state.hunger,preset==='hungry'?40:80);
+    assert.equal(state.energy,preset==='tired'?40:80);
+    assert.equal(state.happiness,preset==='sulky'?40:80);
+    assert.equal(state.isSick,preset==='sick');
+    assert.equal(state.deathMeter,preset==='critical'?80:0);
   }
 });
