@@ -1,0 +1,17 @@
+name: Items V2 ease RED once
+
+on:
+  push:
+    branches: [chatgpt/items-v2-home-strip-20260915]
+
+jobs:
+  red:
+    if: ${{ !contains(github.event.head_commit.message, '[skip-v2-ease-red]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run next V2 contract tests
+        run: node --test tests/items-v2-ease-automation-test.cjs
