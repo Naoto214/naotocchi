@@ -2,6 +2,16 @@ const fs = require('node:fs');
 
 const path = 'tools/apply-items-v2-care.js';
 let text = fs.readFileSync(path, 'utf8');
+
+// The first version removed only the `.classList.remove(...)` suffix and left
+// a bare `el.dateMovieScene` token beside the following statement. Replace
+// that source line before the guarded patch runs so the entire obsolete line
+// is removed instead.
+const badSpecialCleanup = "script = script.replace(/\\.classList\\.remove\\('special-reward'\\);\\n/g, '');";
+const goodSpecialCleanup = "script = script.replace(/^.*\\.classList\\.remove\\('special-reward'\\);\\n/gm, '');";
+if (!text.includes(badSpecialCleanup)) throw new Error('could not locate special-reward cleanup in patcher');
+text = text.replace(badSpecialCleanup, goodSpecialCleanup);
+
 const start = "let html = read('index.html');\n";
 const end = "if (/rewardItemGrid|ミニゲームなどで、たまにもらえます。デートや旅/.test(html)) throw new Error('retired reward UI remains in index.html');\n";
 const a = text.indexOf(start);
