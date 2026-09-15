@@ -12,6 +12,7 @@
   const screenNormal = document.getElementById('screenNormal');
   if (itemsRow && screenNormal) {
     Object.assign(itemsRow.style, {
+      display: 'flex',
       position: 'absolute',
       left: '8px',
       right: '8px',
@@ -19,6 +20,14 @@
       zIndex: '8',
     });
     screenNormal.style.paddingBottom = '38px';
+
+    // script.js has already performed its first cast layout when this file is
+    // loaded. Reserving the footer space changes the usable home height by
+    // 38px. Chromium's ResizeObserver notices that immediately, but WebKit can
+    // keep the pre-footer actor sizes until the next game action. Trigger the
+    // existing viewport synchronizer explicitly so every engine starts from
+    // the same final home geometry.
+    window.dispatchEvent(new Event('resize'));
   }
 
   let gesture = null;
