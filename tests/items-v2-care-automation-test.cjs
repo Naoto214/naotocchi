@@ -3,6 +3,8 @@ const {test} = require('node:test');
 const vm = require('node:vm');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
+// RED contract for the care-automation slice. The temporary workflow proves
+// these expectations fail against the pre-V2 equipment implementation.
 function setup(equip) {
   const h = harness(), s = h.api.state();
   Object.assign(s.lifetime, {
