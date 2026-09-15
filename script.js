@@ -18,6 +18,7 @@
   let saveWriteBlocked = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
+  const ITEM_AUTO_CARE_DANGER = 25;
 
   const SICKNESS_TYPES = [
     { label: 'げんいんふめいのこうねつ', badge: '🥵' },
@@ -1147,7 +1148,6 @@
     naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
     onetimeActive: document.getElementById('onetimeActive'),
-    rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
     pickerTitle: document.getElementById('pickerTitle'),
     pickerHint: document.getElementById('pickerHint'),
@@ -8729,7 +8729,7 @@
     Object.assign(scene.dataset, {kind, theme, legend, complete:'false', totalBeats:String(beats.length), motion:mgPerfTier >= 2 ? 'low' : 'full'});
     scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
     el.dateMoviePlace.textContent = movieText(el.dateMoviePlace.textContent);
-    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : kind === 'special' ? 'とくべつなおもいで' : 'ふたりのじかん';
+    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : 'ふたりのじかん';
     document.getElementById('dateMovieAtmosphere').innerHTML = Array.from({length:perfCount(16, 5)}, (_, i) =>
       `<i style="--x:${(i * 37 + 11) % 100}%;--y:${(i * 23 + 9) % 91}%;--delay:${-i * .73}s;--speed:${5 + i % 5}s"></i>`).join('');
     const progress = document.getElementById('dateMovieProgress');
@@ -8847,7 +8847,6 @@
     releaseMoviePresentation();
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
@@ -8884,7 +8883,7 @@
   }
 
 
-  function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
     plan = datePlanForRegion(plan);
     clearDateMovieTimers();
     clearConversationTimers();
@@ -8896,14 +8895,8 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
 
-    const special = useReward === true;
-
-    // ごほうび使用時は見た目も明確に別物にする。
-    el.dateMovieScene.dataset.plan = special ? 'special' : plan.id;
-    el.dateMovieScene.classList.toggle('special-reward', special);
-    el.dateMoviePlace.textContent = special
-      ? `🎁とくべつなデート・${plan.label}`
-      : `${plan.emoji || '💞'} ${plan.label}`;
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}`;
 
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
@@ -8915,24 +8908,19 @@
     const story = pickMovieStory(`date:${local ? 'deepsea' : 'land'}:${plan.id}`, scenes);
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
     const aside = pickMovieStory(`partner:${partnerId}`, book.partners[partnerId]);
-    const extra = hasNaotoItem('naoto_ring')
-      ? pickMovieStory('special:ring', book.ring).map(beat => beat.signature ? {...beat, text:ringSecretPhrase(partner)} : beat)
-      : special ? pickMovieStory('special:day', book.special) : [];
+    const extra = [];
     const beats = [
       `${partner.label}と、${plan.label}。`,
       ...story,
       ...(aside.length ? aside : [{speaker:'pet',text:'今のこと、あとでまた話そう。'}, {speaker:'partner',text:'うん。続きも一緒にね。'}]),
       ...extra,
-      special ? 'この日のことが、ひとつ思い出に残った。'
-        : state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
+      state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
     ];
 
-    if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
-
-    const mood = state.regionId === 'deepsea' ? 'deepsea' : special ? 'special' : plan.id;
+    const mood = state.regionId === 'deepsea' ? 'deepsea' : plan.id;
     const action = {walk:'walk', lost:'walk', shop:'walk', nap:'rest', rain:'shelter', star:'gaze', sunset:'gaze', photo:'pose', eat:'share'}[plan.id] || 'talk';
     el.dateMovieScene.classList.remove('anniversary-major');
-    playMovieBeats(beats, {step:special ? 4000 : 3500, kind:special ? 'special' : 'date', theme:mood,
+    playMovieBeats(beats, {step:3500, kind:'date', theme:mood,
       actions:beats.map((_, i) => i === 0 ? 'arrive' : i === beats.length - 1 ? 'together' : action)});
     saveState();
   }
@@ -8962,7 +8950,6 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.toggle('anniversary-major', milestone.years >= 25);
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
@@ -9003,7 +8990,7 @@
     }
   }
 
-  function goOnDate(plan, useReward) {
+  function goOnDate(plan) {
     if (!plan || !DATE_PLANS.some(p => p.id === plan.id)) return false;
     plan = datePlanForRegion(plan);
     const blocked = dateBlockReason();
@@ -9039,7 +9026,7 @@
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing, false);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing);
     render();
   }
 
@@ -9107,7 +9094,7 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward', 'anniversary-major');
+    el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = legend.name || LEGEND_ENCOUNTERS.find(entry => entry.id === legend.id)?.name || 'でんせつのであい';
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
@@ -10426,22 +10413,25 @@
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
-      const hungerFactor = isEquipped('bowtie') ? 0.78 : 1;
-      const happinessFactor = isEquipped('ribbon') ? 0.78 : 1;
       // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
       // ほどで お世話ぎれの 状態に なってしまっていた)
       // てんき・じかんたい・きせつ・地域の こうか(envModifiers)
       const envMod = envModifiers();
-      if (!state.isSleeping && isEquipped('ribbon') && state.happiness > 60 && state.lifetime.itemProgress.ticks % 100 === 0) itemContextReaction('ribbon','リボンを揺らして、ごきげんな足どりが続いている。');
-      const itemEnv = currentEnvironment();
-      if (isEquipped('scarf') && (itemEnv.weather === 'snow' || (hasSurfaceSeasons(itemEnv.region) && itemEnv.season === 'winter')) && state.lifetime.itemProgress.ticks % 20 === 0) itemContextReaction('scarf','マフラーにくるまった。寒さで増えるおなかの負担が少し楽になる。');
       { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
       // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、
       // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)
-      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
-      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
+      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * legendFactor * envMod.happy, 0, 100);
+      if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {
+        state.hunger = 100;
+        itemContextReaction('bowtie', 'おなかが危なくなる前に、自動でごはんを食べてまんたんになった。');
+      }
+      if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {
+        state.happiness = 100;
+        itemContextReaction('ribbon', 'リボンを揺らして気分転換。ごきげんがまんたんになった。');
+      }
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
@@ -10452,7 +10442,7 @@
         // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        const energyFactor = isEquipped('energy1') ? 0.82 : isEquipped('sleepboost1') && state.itemLife.pillowUntil >= state.lifetime.itemProgress.ticks ? 0.5 : 1;
+        const energyFactor = isEquipped('energy1') ? 0.82 : 1;
         state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
       }
 
@@ -10463,10 +10453,9 @@
       if (Math.random() < 0.035 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
-      if (isEquipped('poop1') && state.poopCount >= 3 && ITEM_SYSTEM.ready(state, 'paper')) {
-        state.poopCount -= 1;
-        ITEM_SYSTEM.cooldown(state, 'paper', 60);
-        setMessage('紙がころころ転がって、1個だけお片づけ。次のお手伝いは3分後');
+      if (isEquipped('poop1') && state.poopCount >= 3) {
+        state.poopCount = 0;
+        itemContextReaction('poop1', 'たまったうんちを、まとめて全部おそうじした。');
       }
       if (state.poopCount >= MAX_POOP) {
         state.happiness = clamp(state.happiness - 2, 0, 100);
@@ -10484,7 +10473,7 @@
       if (!state.isSick && neglected && !infantGrace) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.03 * (isEquipped('scarf') ? 0.65 : 1);
+        const sicknessChance = 0.03;
         if (Math.random() < sicknessChance) {
           // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
           // ここで 1かいぶん つかって びょうきを ふせぐ
@@ -10505,6 +10494,18 @@
 
       // health responds to neglect - a pet with a long history of illness is
       // frailer overall: sickness hits its health harder, and it doesn't take
+      if (isEquipped('scarf') && state.isSick) {
+        state.isSick = false;
+        state.sicknessType = null;
+        state.health = clamp(state.health + 20, 0, 100);
+        state.energy = clamp(state.energy - 10, 0, 100);
+        applyGrowth(8);
+        applyDecline(-12);
+        recordSicknessCure();
+        checkStoryEvents('medicine-cure');
+        itemContextReaction('scarf', '病気に気づいて、自動でくすりを使って治した。');
+      }
+
       // as long a losing streak to be fatal
       let healthDelta = 0;
       if (state.hunger <= 0) healthDelta -= 2;
@@ -12431,24 +12432,9 @@
     }).join('') + susLine;
   }
 
-  // 未使用のごほうびは永久在庫。デートや旅の出発時に使う。
-  function renderRewardItemGrid() {
-    const count = state.items.reward || 0;
-    el.rewardItemGrid.innerHTML = `
-      <button type="button" class="shop-item reward-item ${count > 0 ? 'owned' : 'locked'}" data-id="reward">
-        <span class="shop-item-badge">💫</span>
-        <span class="shop-item-emoji">${careIconHTML('gift')}</span>
-        <span class="shop-item-label">ごほうび</span>
-        <span class="shop-item-desc">デートや旅を特別な思い出にできるよ。使うかどうかは出かけるときに選べます</span>
-        <span class="shop-item-status">${count > 0 ? `${count}こもっている` : 'まだもっていない'}</span>
-      </button>
-    `;
-  }
-
   function renderItemOverlay() {
     el.itemMoneyLabel.innerHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     el.itemMoneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    renderRewardItemGrid();
     renderDreamActions();
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
       const owned = state.lifetime.ownedShopItems.includes(item.id);
@@ -12457,7 +12443,6 @@
       if (owned) {
         const progress = state.lifetime.itemProgress;
         const remaining = key => Math.max(0, (progress.readyAt[key] || 0) - progress.ticks);
-        if (item.id === 'poop1' && remaining('paper')) statusText += `／次のお手伝いまで${remaining('paper') * 3}秒`;
         if (item.id === 'star') {
           const missing = Math.max(0, 3 - progress.starGames.length);
           statusText += `／星${progress.starGames.length}/3${missing ? `／あと${missing}種類` : '／星がそろった'}${remaining('star') ? `／受取まで${remaining('star') * 3}秒` : missing ? '' : equipped ? '／次の活動で受取' : '／身につけると受取'}`;
@@ -12542,7 +12527,6 @@
       setMessage(`${item.label}を身につけた!`);
       emotePet('happy');
     }
-    if (!isEquipped('sleepboost1')) { state.itemLife.pillowUntil = 0; state.itemLife.pillowSleepTicks = 0; }
     saveState();
     render();
   }
@@ -12611,14 +12595,6 @@
     itemContextReaction('partner1', '手紙をそっとひらいて、もう一度読んだ。');
   }
 
-  function ringSecretPhrase(partner) {
-    const phrase = PARTNER_SIGNATURE_LINES[WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id]?.[0] || `${partner.label}、またとなりで`;
-    return phrase.replace(/^[「『]|[」』]$/g,'');
-  }
-
-  function ringSecretLine(partner) {
-    return `${partner.label}とふたりの合言葉。「${ringSecretPhrase(partner)}」`;
-  }
 
   // One short, presentation-only follow-up; newer equipment events replace older ones.
   // Let the triggering action finish its notice and conversation before using the same slot.
@@ -13358,10 +13334,7 @@
     const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
     for (let i = 0; i < parts.length; i += 1) {
       const part = parts[i]; if (!part) continue;
-      for (const k of Object.keys(out)) if (part[k] != null) {
-        const coldHunger = k === 'hunger' && isEquipped('scarf') && ((i === 0 && env.weather === 'snow') || (i === 2 && env.season === 'winter'));
-        out[k] *= coldHunger && part[k] > 1 ? 1 + (part[k] - 1) / 2 : part[k];
-      }
+      for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k];
     }
     for (const k of Object.keys(out)) out[k] = clamp(out[k], 0.7, 1.5);
     return out;
@@ -14167,14 +14140,6 @@
   el.itemsRow.addEventListener('click', (e) => {
     const btn = e.target.closest('.item-btn');
     if (btn && !btn.disabled) useItem(btn.dataset.itemId);
-  });
-
-  el.rewardItemGrid.addEventListener('click', () => {
-    const count = state.items.reward || 0;
-    setMessage(count > 0
-      ? `🎁ごほうびを${count}こもっている。デートやたびをとくべつな思い出にできるよ`
-      : '🎁ごほうびはとてもレア。デートやたびのとくべつな思い出につかえるよ');
-    render();
   });
 
   // --- minigames (triggered by the play button) ---
@@ -16030,9 +15995,6 @@
 
   function updateItemEffectTick() {
     if (isEquipped('star') && claimStarReward()) setMessage('星が3つそろった。15コイン!');
-    const life = state.itemLife;
-    if (!isEquipped('sleepboost1')) { life.pillowUntil = 0; life.pillowSleepTicks = 0; return; }
-    if (state.isSleeping) life.pillowSleepTicks = (life.pillowSleepTicks || 0) + 1;
   }
 
   let sleepRecoveryTimer = null;
@@ -16070,11 +16032,13 @@
   function startSleepRecovery() {
     stopSleepRecovery();
     if (!state.isSleeping) return;
-    // 「ねる」を押したその場で最初の回復を1回入れ、その後100msごとに
-    // なめらかに回復し続ける。最初の100ms待ちをなくして反応を即時にする。
-    if (state.isSleeping && state.energy < 100) {
-      sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
+    if (isEquipped('sleepboost1')) {
+      const changed = state.energy < 100;
+      state.energy = 100;
+      if (changed) itemContextReaction('sleepboost1', 'ふかふかのまくらで、すぐにげんきまんたん。');
+      return;
     }
+    if (state.energy < 100) sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
     recoverSleepStep();
   }
 
@@ -16434,7 +16398,6 @@
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       state.sleptTicks = 0;
-      state.itemLife.pillowSleepTicks = 0;
       // 回復は専用タイマーで連続して行う。最初の1ステップも押した瞬間に
       // 入るので見た目の待ち時間はない。成長ボーナスは十分な睡眠時間を
       // とった場合だけなので、寝る/起きる連打で得をすることはない
@@ -16446,10 +16409,6 @@
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
     // (ねる→おきるの 連打で かせげてしまう ぬけみちを ふさぐ)
     stopSleepRecovery();
-    if (isEquipped('sleepboost1') && state.itemLife.pillowSleepTicks >= 10 && !(state.itemLife.pillowUntil > state.lifetime.itemProgress.ticks)) {
-      state.itemLife.pillowUntil = state.lifetime.itemProgress.ticks + 60;
-    }
-    state.itemLife.pillowSleepTicks = 0;
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {

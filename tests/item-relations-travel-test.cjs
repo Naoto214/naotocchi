@@ -79,8 +79,10 @@ test('prepaid legacy relation/travel reservations apply without a second stock d
 test('equipment reactions only occur for actual eligible care and active protection',()=>{
  const {h,s}=setup('bowtie');s.hunger=50;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,'bowtie');
  delete h.get('petSprite').dataset.itemReaction;s.hunger=90;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
- s.isSick=false;s.lifetime.equippedItemId='ribbon';s.lifetime.itemProgress.ticks=99;s.happiness=80;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'ribbon');
- s.lifetime.equippedItemId='scarf';s.lifetime.weatherMode='snow';s.lifetime.itemProgress.ticks=119;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'scarf');
+ s.isSick=false;s.lifetime.equippedItemId='ribbon';s.happiness=80;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
+ s.happiness=25;h.api.tick();assert.equal(s.happiness,100);assert.equal(h.get('petSprite').dataset.itemReaction,'ribbon');
+ delete h.get('petSprite').dataset.itemReaction;s.lifetime.equippedItemId='scarf';s.lifetime.weatherMode='snow';h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
+ s.isSick=true;s.sicknessType='テストのびょうき';h.api.tick();assert.equal(s.isSick,false);assert.equal(h.get('petSprite').dataset.itemReaction,'scarf');
  s.lifetime.equippedItemId=null;s.lifetime.ownedNaotoItems=['naoto_charm'];s.ageTicks=69*20;s.lifetime.itemProgress.ticks=199;delete h.get('petSprite').dataset.itemReaction;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
  s.ageTicks=70*20;s.lifetime.itemProgress.ticks=299;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'naoto_charm');
 });
@@ -139,22 +141,18 @@ function feedbackSetup(equipped, options) {
   return result;
 }
 
-test('eligible ribbon ticks deliver readable feedback in both motion modes', () => {
+test('danger-triggered ribbon recovery delivers readable feedback in both motion modes', () => {
   for (const reducedMotion of [false, true]) {
     const {h,s} = feedbackSetup('ribbon', {reducedMotion});
-    s.lifetime.itemProgress.ticks = 99;
-    s.happiness = 80;
-
+    s.happiness = 25;
     h.api.tick();
     h.advance(1);
-
-    assert.match(h.get('message').textContent, /リボン.*ごきげん.*続いている/);
-    h.advance(3000);
-    h.api.tick();
-    assert.match(h.get('message').textContent, /リボン/, 'the next ordinary tick does not erase the line');
+    assert.equal(s.happiness, 100);
+    assert.match(h.get('message').textContent, /リボン.*ごきげん.*まんたん/);
+    h.api.render();
+    assert.match(h.get('message').textContent, /リボン/, 'ordinary render keeps the automatic recovery readable');
   }
 });
-
 test('applied flowers deliver their bonus after court dialogue and ordinary care feedback', () => {
   for (const reducedMotion of [false, true]) {
     for (const success of [false, true]) {
@@ -204,29 +202,31 @@ test('ineligible ribbon ticks and mismatched court do not claim equipment effect
   assert.doesNotMatch(h.get('message').textContent, /成功率\+10|花を差し出した/);
 });
 
-test('equipment waits for an existing conversation and never replaces critical care', () => {
+test('V2 equipment feedback waits for an existing conversation and never replaces critical care', () => {
   const {h,s} = feedbackSetup('ribbon');
-  s.lifetime.itemProgress.ticks = 99;
   h.api.speakEvent('feed', {petText:'まだお話の途中だよ', partnerChance:0, companionChance:0, delayMs:5000});
+  s.happiness = 25;
   h.api.tick();
+  assert.equal(s.happiness, 100);
   h.advance(6000);
   assert.equal(h.get('speechText').textContent, 'まだお話の途中だよ');
   assert.doesNotMatch(h.get('message').textContent, /リボン/);
   h.advance(1750);
   assert.match(h.get('message').textContent, /リボン/);
 
-  // A second eligible event loses priority when health becomes critical before delivery.
+  // A second danger-triggered recovery loses priority when health becomes
+  // critical before its queued feedback can be delivered.
   h.api.setMessage('');
-  s.lifetime.itemProgress.ticks = 199;
+  h.api.speakEvent('feed', {petText:'もうひとこと', partnerChance:0, companionChance:0, delayMs:5000});
+  s.happiness = 25;
   h.api.tick();
   s.health = 0;
   h.api.render();
-  h.advance(6000);
+  h.advance(7000);
   assert.equal(h.get('message').dataset.careSeverity, 'critical');
   assert.match(h.get('message').textContent, /けんこうがげんかい/);
   assert.doesNotMatch(h.get('message').textContent, /リボン/);
 });
-
 test('a pending equipment line does not follow a reset into another life', () => {
   const {h,s} = feedbackSetup('ribbon');
   s.lifetime.itemProgress.ticks = 99;

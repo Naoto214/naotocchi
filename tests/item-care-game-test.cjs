@@ -110,60 +110,6 @@ test('star excludes assisted low scores and interruption; quick run counts as on
   assert.equal(s.lifetime.itemProgress.starGames.length,1);
 });
 
-test('paper removes only one at three with no care reward and sixty tick cooldown',()=>{
-  const {h,s}=setup('poop1');
-  s.poopCount=3;
-  const clean=s.actionCounts.clean;
-  h.api.tick();
-  assert.equal(s.poopCount,2);
-  assert.equal(s.actionCounts.clean,clean);
-  assert.equal(s.growth,0);
-  s.poopCount=3;
-  ticks(h,59);
-  assert.equal(s.poopCount,3);
-  h.api.tick();
-  assert.equal(s.poopCount,2);
-  assert.equal(s.actionCounts.clean,clean);
-});
-
-test('scarf halves only winter and snow added hunger burden',()=>{
-  for(const [season,weather,expected] of [['spring','sunny',0.35],['winter','sunny',0.37625],['spring','snow',0.3675],['winter','snow',0.3950625]]){const {h,s}=setup('scarf');
-    s.lifetime.seasonMode=season;
-    s.lifetime.weatherMode=weather;
-    h.api.tick();
-    assert.ok(Math.abs(50-s.hunger-expected)<1e-9,`${season}/${weather}: ${50-s.hunger}`);
-  }
-});
-
-test('pillow takes thirty seconds sleeping, lasts sixty ticks, ends on unequip',()=>{
-  const {h,s}=setup('sleepboost1');
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  let before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,10);
-  h.dispatch(h.get('sleepBtn'),'click');
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.16)<1e-9);
-  ticks(h,59);
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,10);
-  h.dispatch(h.get('sleepBtn'),'click');
-  s.lifetime.ownedShopItems=['sleepboost1'];
-  h.api.buyOrEquipShopItem('sleepboost1');
-  h.api.buyOrEquipShopItem('sleepboost1');
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
-});
-
 test('crown rescues sustained zero health once, after existing miracle, without restoring life',()=>{
   const {h,s}=setup('crown');
   s.isSick=true;
@@ -301,37 +247,19 @@ test('failed and invalid completion retain great charm and interrupted games do 
   assert.equal(s.items.reward,undefined);
 });
 
-test('saved reservations and care cooldowns survive reload and life limits reset',()=>{
-  const {h,s}=setup('poop1');
-  s.poopCount=3;
-  h.api.tick();
+test('saved reservations survive reload and life limits reset',()=>{
+  const {h,s}=setup();
   s.items.c_mgbig=1;
   h.api.useConsumableItem('c_mgbig');
   s.itemLife.crownUsed=true;
   s.itemLife.lifePatchUsed=true;
   const n=reload(s),r=n.api.state();
   assert.equal(r.oneTimeBoosts.greatReward,true);
-  assert.equal(r.lifetime.itemProgress.readyAt.paper,61);
   assert.equal(r.itemLife.crownUsed,true);
   n.dispatch(n.get('resetBtn'),'click');
   assert.equal(n.api.state().itemLife.crownUsed,false);
   assert.equal(n.api.state().itemLife.lifePatchUsed,false);
   assert.equal(n.api.state().oneTimeBoosts.greatReward,false);
-  assert.equal(n.api.state().lifetime.itemProgress.readyAt.paper,61);
-});
-
-test('ribbon and bowtie reduce only ordinary decay and free care remains available',()=>{
-  for(const equip of ['ribbon','bowtie']){const {h,s}=setup(equip);
-    h.api.tick();
-    const value=equip==='ribbon'?s.happiness:s.hunger;
-    assert.ok(Math.abs(value-(equip==='ribbon'?79.791155:49.727))<1e-9);
-    s.lifetime.money=0;
-    s.poopCount=3;
-    h.dispatch(h.get('cleanBtn'),'click');
-    assert.equal(s.poopCount,0);
-    assert.equal(s.lifetime.money,0);
-    assert.equal(s.actionCounts.clean,1);
-  }
 });
 
 test('life patch works at exactly forty life and cannot postpone age one hundred',()=>{
