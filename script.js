@@ -6,6 +6,7 @@
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
+  const PET_EXPRESSION = window.NaotocchiPetExpression || null;
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
@@ -3722,6 +3723,49 @@
   let emotionCueActiveUntil = 0;
   let careReactionSerial = 0;
   let careAfterglowTimer = null;
+  let petExpressionTransient = null;
+  let petExpressionTimer = null;
+
+  function clearPetExpression(renderNow = false) {
+    if (petExpressionTimer) clearTimeout(petExpressionTimer);
+    petExpressionTimer = null;
+    petExpressionTransient = null;
+    if (renderNow) renderPetVisual();
+  }
+
+  function startPetExpression(expression, durationMs) {
+    if (!PET_EXPRESSION || !durationMs || !emotionCueContextVisible()) return;
+    clearPetExpression();
+    const transient = {
+      life:state,
+      line:state.speciesLine,
+      stageIndex:currentFormStageIndex(),
+      expression,
+      until:Date.now()+durationMs,
+    };
+    petExpressionTransient = transient;
+    petExpressionTimer = setTimeout(() => {
+      if (petExpressionTransient !== transient) return;
+      petExpressionTimer = null;
+      petExpressionTransient = null;
+      renderPetVisual();
+    },durationMs);
+    renderPetVisual();
+  }
+
+  function currentPetExpressionReaction(emotion) {
+    const transient = petExpressionTransient;
+    if (!transient) return null;
+    const stale = transient.life !== state || transient.line !== state.speciesLine
+      || transient.stageIndex !== currentFormStageIndex() || Date.now() >= transient.until
+      || !emotionCueContextVisible() || state.isSleeping
+      || (emotion.state === 'weak' && emotion.severity === 'critical');
+    if (stale) {
+      clearPetExpression();
+      return null;
+    }
+    return transient.expression;
+  }
 
   function invalidateCareAfterglow() {
     careReactionSerial += 1;
@@ -3752,6 +3796,8 @@
       }
       const duration = castMotion?.pet(motion,{gentle:true}) || 0;
       if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
+      const expressionDuration = duration || (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
+      if (expressionDuration) startPetExpression('happy',expressionDuration);
     };
     careAfterglowTimer = setTimeout(tryRun,delayMs);
   }
@@ -3769,8 +3815,7 @@
       && document.visibilityState !== 'hidden' && !gameActive && !meguruActive
       && !state.transformOptions && !isAnyMenuOverlayOpen()
       && el.storyFlash.classList.contains('hidden')
-      && el.lifeCardOverlay.classList.contains('hidden')
-      && !el.screenNormal.classList.contains('hidden');
+      && el.lifeCardOverlay.classList.contains('hidden');
   }
 
   function canShowEmotionCue() {
@@ -3852,6 +3897,10 @@
     el.speechBubble.classList.remove('hidden');
     // A display:none ancestor has no scroll box; reset after revealing it.
     el.speechText.scrollTop = 0;
+    if (speaker.kind === 'pet') {
+      const expression = PET_EXPRESSION?.reactionFor(reaction.event);
+      if (expression) startPetExpression(expression,SPEECH_DURATION_MS);
+    }
     renderHomeCast();
     stopActiveEmotionCue();
     castMotion?.speak({...reaction, text:compactJapaneseText(text), speaker});
@@ -5831,6 +5880,7 @@
     const pool = CONVERSATION_POOLS[eventKey];
     if (!pool) return;
     if (careAfterglowTimer) invalidateCareAfterglow();
+    clearPetExpression(true);
     clearConversationTimers();
     const beats = [];
     const petLine = ctx.petText || pickConversationLine(pool.pet, ctx);
@@ -9857,6 +9907,7 @@
 
   function hatchEgg() {
     if (state.stage !== STAGE.EGG) return;
+    clearPetExpression();
     audio.play('hatch');
     state.speciesLine = pickDreamLine() || pickRandomLine();
     state.stage = STAGE.GROWING;
@@ -10123,6 +10174,7 @@
 
   function triggerDeath() {
     invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.DEAD;
@@ -10139,6 +10191,7 @@
   // 「もうひとつの freePlay」には ならない(§12)
   function enterFarewell() {
     invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.FAREWELL;
@@ -10164,6 +10217,7 @@
   // そのまま かえってくる(§27「♾️ ⇄ 通常の人生を いつでも 行き来できる」)
   function enterInfinite() {
     if (state.infinite) return;
+    clearPetExpression();
     // ずかん・じっせき・lifetime は 人生を またぐ きろく な ので しまわない。
     // = ♾️ の あいだに ふえた おかね・ずかん・じっせきは もどっても のこる
     const snapshot = JSON.parse(JSON.stringify(state));
@@ -10186,6 +10240,7 @@
   // でいりした こと じたいは、なにも きろくに のこさない
   function exitInfinite() {
     if (!state.infinite) return;
+    clearPetExpression();
     const snapshot = state.infiniteReturn;
     // 人生を またぐ きろくは そのまま ひきつぐ(♾️ で えた ぶんも のこす)
     const lifetime = state.lifetime;
@@ -10544,6 +10599,7 @@
 
   function showStoryEvent(event) {
     invalidateCareAfterglow();
+    clearPetExpression();
     audio.play('notify');
     const inlineVisual = event.character ? commentActorVisual({...event.character,kind:'partner'})
       : event.environmentMoment ? commentAnimalVisual(event.emoji) || {emoji:event.emoji,illustrationContext:'environment'} : null;
@@ -10555,6 +10611,7 @@
     else setCommentText(el.storyFlashEmoji, event.emoji, true, inlineVisual);
     setCommentText(el.storyFlashText, compactJapaneseText(event.message), true, inlineVisual);
     el.storyFlash.classList.remove('hidden');
+    renderPetVisual();
     cancelEmotionCue(true);
     renderWorldScene(true);
     // 下のボタンから会話を開いても、作者・初遭遇の顔と台詞を見失わない。
@@ -11134,15 +11191,17 @@
     if (!asset) {
       return `<span class="character-visual character-${size} emoji-only"><span class="character-emoji-fallback">${displayIconHTML(emoji)}</span></span>`;
     }
+    const fallback = stage?.fallbackAsset
+      ? ` data-fallback-asset="${escapeHtml(stage.fallbackAsset)}"` : '';
     return `<span class="character-visual character-${size} has-asset">
-      <img class="character-asset" src="${escapeHtml(asset)}" alt="" draggable="false">
+      <img class="character-asset" src="${escapeHtml(asset)}"${fallback} alt="" draggable="false">
       <span class="character-emoji-fallback">${safeEmoji}</span>
     </span>`;
   }
 
   function setStageVisual(target, stage, size = 'medium') {
     if (!target) return;
-    const key = JSON.stringify([stage?.asset, stage?.emoji, size]);
+    const key = JSON.stringify([stage?.asset, stage?.fallbackAsset, stage?.emoji, size]);
     if (target === el.petSprite && target.dataset.visualKey === key && target.innerHTML) return;
     target.dataset.visualKey = key;
     target.innerHTML = stageVisualHTML(stage, size);
@@ -11160,7 +11219,19 @@
     // A new inner visual restarts a finite reaction without forcing layout or
     // replacing the shared cast-sway / petSprite motion layers.
     if (reaction) el.petSprite.dataset.visualKey = '';
-    setStageVisual(el.petSprite, currentVisualStage(), 'hero');
+    const baseStage = currentVisualStage();
+    const emotion = deriveHomeEmotion();
+    const contextVisible = emotionCueContextVisible();
+    const expression = PET_EXPRESSION?.resolve(emotion, {
+      sleeping:state.isSleeping || !contextVisible,
+      reaction:currentPetExpressionReaction(emotion),
+    }) || 'normal';
+    const candidate = PET_EXPRESSION?.assetFor(baseStage.asset,expression) || baseStage.asset;
+    const asset = candidate && failedCastAssets.has(candidate) ? baseStage.asset : candidate;
+    const visualStage = asset !== baseStage.asset
+      ? {...baseStage,asset,fallbackAsset:baseStage.asset} : baseStage;
+    el.petSprite.dataset.expression = expression;
+    setStageVisual(el.petSprite, visualStage, 'hero');
     if (!reaction || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return;
     const visual = el.petSprite.querySelector('.character-visual');
     if (!visual) return;
@@ -11207,6 +11278,14 @@
     }
     if (!img.classList.contains('character-asset')) return;
     const wrapper = img.closest('.character-visual');
+    const fallbackAsset = img.getAttribute('data-fallback-asset');
+    const failedAsset = img.getAttribute('src');
+    if (fallbackAsset && failedAsset !== fallbackAsset) {
+      if (failedAsset) failedCastAssets.add(failedAsset);
+      img.setAttribute('src',fallbackAsset);
+      img.removeAttribute('data-fallback-asset');
+      return;
+    }
     if (wrapper) wrapper.classList.add('asset-failed');
     const asset = img.getAttribute('src');
     if (asset && !failedCastAssets.has(asset)) {
@@ -14106,6 +14185,7 @@
 
   function chooseTransform(line) {
     if (!state.transformOptions || !state.transformOptions.includes(line)) return;
+    clearPetExpression();
     // ★ ねんれいは ぜったいに かえない。すがたは stageForAge() から きまるので
     // ここで かえるのは しゅぞくの ラインだけ(35さいのいぬ → 35さいのねこ)
     state.speciesLine = line;
@@ -15991,10 +16071,12 @@
   // ちょくせつの startMinigame() は すぐ はじまる)
   function startMinigame(game, opts = {}) {
     invalidateCareAfterglow();
+    clearPetExpression();
     clearConversationTimers();
     hideSpeechBubble();
     hideMinigameResultToast();
     gameActive = true;
+    renderPetVisual();
     cancelEmotionCue(true);
     renderWorldScene(true);
     castMotion?.clear();
@@ -16486,6 +16568,7 @@
   function withFeedback(fn, afterRender) {
     return () => {
       const reactionSerial = invalidateCareAfterglow();
+      clearPetExpression();
       clearConversationTimers();
       hideSpeechBubble();
       const careBefore = CARE_STATUS?.snapshot(state);
@@ -18442,6 +18525,7 @@
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       invalidateCareAfterglow();
+      clearPetExpression(true);
       cancelEmotionCue(true);
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       renderCareAttention(null, false);

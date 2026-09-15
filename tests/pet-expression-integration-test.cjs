@@ -1,0 +1,223 @@
+const assert = require('node:assert/strict');
+const {test} = require('node:test');
+const vm = require('node:vm');
+const {harness} = require('./helpers/runtime-harness.cjs');
+
+const BASE = 'assets/characters/cat/06.png';
+const HAPPY = 'assets/characters/expressions/cat/06-happy.png';
+const STRAINED = 'assets/characters/expressions/cat/06-strained.png';
+const SULKY = 'assets/characters/expressions/cat/06-sulky.png';
+
+function adultCat(h, values = {}) {
+  h.get('storyFlash').classList.add('hidden');
+  h.get('lifeCardOverlay').classList.add('hidden');
+  h.get('speechBubble').classList.add('hidden');
+  const stageIndex = h.api.stageForAge(25);
+  assert.equal(stageIndex,5);
+  Object.assign(h.api.state(), {
+    stage:'growing', speciesLine:'cat', ageTicks:25*20, stageIndex,
+    hunger:80, happiness:80, energy:80, health:80, isSick:false,
+    isSleeping:false, deathMeter:0, dying:false, transformOptions:null,
+    affectionStreak:0, companions:[], partner:null,
+  }, values);
+  h.api.render();
+  return h.api.state();
+}
+
+function portrait(h) {
+  return h.get('petSprite').innerHTML.match(/class="character-asset" src="([^"]+)"/)?.[1] || null;
+}
+
+function face(h) {
+  return [h.get('petSprite').dataset.expression,portrait(h)];
+}
+
+function avoidRoutineStories(h) {
+  h.api.state().achievementsUnlocked.push('age-10','age-25','sick-cured-1');
+}
+
+function allCompanionIds(h) {
+  const companions=h.sandbox.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1.companions;
+  return [...companions.normal,...companions.rare].map(companion=>companion.id);
+}
+
+test('real home emotion profiles select only the adult cat portrait', () => {
+  const cases = [
+    [{},['normal',BASE]],
+    [{hunger:40},['strained',STRAINED]],
+    [{energy:40},['strained',STRAINED]],
+    [{isSick:true},['strained',STRAINED]],
+    [{happiness:40,affectionStreak:3},['sulky',SULKY]],
+    [{deathMeter:80},['strained',STRAINED]],
+  ];
+  for (const [values,want] of cases) {
+    const h=harness(); adultCat(h,values);
+    assert.deepEqual(face(h),want);
+  }
+
+  const other=harness(); adultCat(other,{speciesLine:'dog'});
+  assert.equal(other.get('petSprite').dataset.expression,'normal');
+  assert.match(portrait(other),/assets\/characters\/dog\/06\.png/);
+});
+
+test('real play and medicine outcomes use semantic temporary faces', () => {
+  const playful=harness(); adultCat(playful);
+  avoidRoutineStories(playful); playful.get('storyFlash').classList.add('hidden');
+  vm.runInContext('Math.random=()=>0.55',playful.sandbox);
+  playful.dispatch(playful.get('playWithBtn'),'click'); playful.advance(1);
+  assert.deepEqual(face(playful),['happy',HAPPY]);
+
+  const spam=harness(); adultCat(spam,{affectionStreak:3});
+  avoidRoutineStories(spam); spam.get('storyFlash').classList.add('hidden');
+  spam.dispatch(spam.get('playWithBtn'),'click'); spam.advance(1);
+  assert.deepEqual(face(spam),['sulky',SULKY]);
+
+  const wrong=harness(); adultCat(wrong);
+  avoidRoutineStories(wrong); wrong.get('storyFlash').classList.add('hidden');
+  wrong.dispatch(wrong.get('medicineBtn'),'click'); wrong.advance(1);
+  assert.deepEqual(face(wrong),['strained',STRAINED]);
+
+  const overfed=harness(); adultCat(overfed);
+  avoidRoutineStories(overfed); overfed.get('storyFlash').classList.add('hidden');
+  vm.runInContext('Math.random=()=>0.55',overfed.sandbox);
+  overfed.dispatch(overfed.get('feedBtn'),'click'); overfed.advance(1);
+  assert.deepEqual(face(overfed),['strained',STRAINED]);
+
+  const blocked=harness(); adultCat(blocked,{isSleeping:true});
+  blocked.dispatch(blocked.get('feedBtn'),'click'); blocked.advance(1);
+  assert.deepEqual(face(blocked),['normal',BASE]);
+});
+
+test('feed afterglow starts happy only after the validated result and expires to latest state', () => {
+  const h=harness(); adultCat(h,{hunger:60}); avoidRoutineStories(h);
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  h.dispatch(h.get('feedBtn'),'click'); h.advance(1);
+  assert.deepEqual(face(h),['normal',BASE]);
+  h.advance(2699);
+  assert.deepEqual(face(h),['happy',HAPPY]);
+
+  h.api.state().hunger=40;
+  h.api.render();
+  assert.deepEqual(face(h),['happy',HAPPY],'an ordinary render must not extend or replace the transient face');
+  h.advance(800);
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  h.advance(200);
+  assert.deepEqual(face(h),['strained',STRAINED]);
+});
+
+test('a real cure receives the same validated happy afterglow', () => {
+  const h=harness(); adultCat(h,{isSick:true,health:70,energy:80}); avoidRoutineStories(h);
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  h.dispatch(h.get('medicineBtn'),'click'); h.advance(1);
+  assert.deepEqual(face(h),['normal',BASE]);
+  h.advance(2699);
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  h.advance(1200);
+  assert.deepEqual(face(h),['normal',BASE]);
+});
+
+test('reduced motion keeps the static happy afterglow for one second without animation', () => {
+  const h=harness({reducedMotion:true}); adultCat(h,{hunger:60}); avoidRoutineStories(h);
+  vm.runInContext('Math.random=()=>0.55',h.sandbox);
+  h.dispatch(h.get('feedBtn'),'click');
+  h.advance(2600);
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  assert.equal(h.get('petSprite').animations.length,0);
+  h.advance(900);
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  h.advance(101);
+  assert.deepEqual(face(h),['normal',BASE]);
+  assert.equal(h.get('petSprite').animations.length,0);
+});
+
+test('only pet semantic speech starts a temporary face', () => {
+  const h=harness(); const s=adultCat(h,{happiness:40,affectionStreak:3});
+  s.partner={id:'cat_ceo',label:'しゃちょうねこ',emoji:'🐈‍⬛',affection:20,married:false};
+  s.companions=[{id:'snail',bond:100}]; h.api.render();
+  h.api.setSpeechBubble('いっしょにあそぼう',{kind:'partner',id:'cat_ceo',label:'しゃちょうねこ'},{event:'play_with'});
+  assert.deepEqual(face(h),['sulky',SULKY]);
+  h.api.setSpeechBubble('いっしょにあそぼう',{kind:'companion',id:'snail',label:'かたつむり'},{event:'play_with'});
+  assert.deepEqual(face(h),['sulky',SULKY]);
+  h.api.setSpeechBubble('いっしょにあそぼう',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  assert.doesNotMatch(h.get('speechSpeaker').innerHTML,/expressions\/cat/);
+});
+
+test('critical state interrupts happy immediately and expiry cannot restore stale state', () => {
+  const h=harness(); adultCat(h);
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  h.api.state().deathMeter=80; h.api.render();
+  assert.deepEqual(face(h),['strained',STRAINED]);
+  h.advance(3000);
+  assert.deepEqual(face(h),['strained',STRAINED]);
+});
+
+test('a new life cancels the old face timer', () => {
+  const h=harness(); adultCat(h);
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  h.dispatch(h.get('resetBtn'),'click');
+  assert.equal(h.api.state().stage,'egg');
+  assert.match(portrait(h),/assets\/characters\/egg\/intact\.png/);
+  adultCat(h);
+  h.advance(3000);
+  assert.deepEqual(face(h),['normal',BASE]);
+});
+
+test('sleep, form changes, and blocked screens clear a temporary face', () => {
+  const cases = [
+    ['sleep',h=>{h.api.state().isSleeping=true;h.api.render();},BASE],
+    ['form',h=>{h.api.state().speciesLine='dog';h.api.render();},'assets/characters/dog/06.png'],
+    ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
+    ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
+    ['menu',h=>h.api.openExclusiveMenu('profile'),BASE],
+    ['story',h=>h.api.showStoryEvent({emoji:'🌱',message:'おはなし'}),BASE],
+    ['minigame',h=>h.api.startMinigame(h.api.games[0]),BASE],
+    ['hidden tab',h=>{h.document.visibilityState='hidden';h.dispatch(h.document,'visibilitychange');},BASE],
+  ];
+  for (const [name,interrupt,want] of cases) {
+    const h=harness({worldScene:true}); adultCat(h,{hunger:40});
+    h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+    interrupt(h);
+    assert.equal(portrait(h),want,name);
+    assert.notEqual(h.get('petSprite').dataset.expression,'happy',name);
+  }
+});
+
+test('expression rendering does not alter saves, cast geometry, or 26 companions', () => {
+  const h=harness(); const s=adultCat(h);
+  const ids=allCompanionIds(h); assert.equal(ids.length,26);
+  s.companions=ids.map(id=>({id,bond:100})); h.api.render();
+  const beforeSave=JSON.stringify(s);
+  const pet=h.get('petSprite');
+  const beforeGeometry={left:pet.style.left,top:pet.style.top,width:pet.style.width,height:pet.style.height};
+  const beforeCompanions=[...h.get('companionLeft').children,...h.get('companionRight').children];
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  h.api.render();
+  assert.deepEqual(face(h),['happy',HAPPY]);
+  assert.deepEqual({left:pet.style.left,top:pet.style.top,width:pet.style.width,height:pet.style.height},beforeGeometry);
+  assert.deepEqual([...h.get('companionLeft').children,...h.get('companionRight').children],beforeCompanions);
+  assert.equal(JSON.stringify(s),beforeSave);
+  h.advance(2600);
+  assert.equal(JSON.stringify(s),beforeSave);
+});
+
+test('a failed expression portrait retries the original before the emoji fallback', () => {
+  const h=harness(); adultCat(h);
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  const wrapper=h.get('expression-wrapper');
+  h.sandbox.HTMLImageElement=class {};
+  const img=Object.assign(new h.sandbox.HTMLImageElement(),h.get('expression-image'));
+  let src=HAPPY;
+  img.classList.add('character-asset');
+  img.closest=selector=>selector==='.character-visual'?wrapper:null;
+  img.getAttribute=name=>name==='src'?src:name==='data-fallback-asset'?BASE:null;
+  img.setAttribute=(name,value)=>{if(name==='src')src=value;};
+  img.removeAttribute=()=>{};
+  h.dispatch(img,'error',{bubbles:false});
+  assert.equal(src,BASE);
+  assert.equal(wrapper.classList.contains('asset-failed'),false);
+  h.dispatch(img,'error',{bubbles:false});
+  assert.equal(wrapper.classList.contains('asset-failed'),true);
+});
