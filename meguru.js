@@ -81,9 +81,9 @@
         spots: [sp('foot', 'ふもと', 0, 250, 200, 'plaza', 1, { zone: 'foot' }), sp('trailhead', 'とざんぐち', 0, 800, 240, 'plaza', 4, { hub: true, prop: '🪧', zone: 'foot' }), sp('sw1', 'おりかえし', -800, 1300, 150, 'path', 1, { zone: 'lower' }), sp('sw2', 'おりかえし', 800, 1800, 150, 'path', 1, { zone: 'lower' }), sp('spring', 'おんせん', -900, 2100, 200, 'water', 4, { prop: '♨️', zone: 'lower' }), sp('camp', 'キャンプ', 0, 2400, 240, 'shelter', 5, { prop: '🏕️', zone: 'middle' }), sp('cliff', 'がけのうえ', 900, 2700, 170, 'edge', 2, { prop: '🪨', zone: 'middle' }), sp('cave', 'かくれたどうくつ', 1000, 3200, 150, 'shelter', 1, { secret: true, prop: '🕳️', zone: 'middle' }), sp('sw3', 'おりかえし', -800, 3000, 150, 'path', 1, { zone: 'upper' }), sp('lake', 'やまのみずうみ', -500, 3500, 180, 'water', 2, { zone: 'upper' }), sp('ridge', 'おね', 300, 3600, 220, 'plaza', 3, { prop: '🪨', zone: 'upper' }), sp('hut', 'やまごや', 700, 4000, 160, 'rest', 3, { prop: '🛖', zone: 'upper' }), sp('summit', 'ちょうじょう', 0, 4500, 220, 'edge', 3, { landmark: 'peak', cam: 'wide', zone: 'summit' }), sp('shrine', 'いしのほこら', -900, 4200, 140, 'rest', 1, { secret: true, zone: 'summit' })],
         paths: [['foot', 'trailhead', 'wide'], ['trailhead', 'sw1'], ['sw1', 'sw2'], ['sw2', 'camp'], ['sw1', 'spring', 'narrow'], ['spring', 'camp', 'narrow'], ['camp', 'cliff'], ['cliff', 'cave', 'secret'], ['camp', 'sw3'], ['sw3', 'lake'], ['lake', 'ridge', 'narrow'], ['sw3', 'ridge'], ['ridge', 'hut'], ['hut', 'summit'], ['ridge', 'summit', 'narrow'], ['lake', 'shrine', 'secret'], ['cliff', 'ridge', 'narrow']] },
       // ゆきぐに: せつげん型。ひろい ゆきはら + はやし + ロッジ + こおった みずうみ。あしあとの みち
-      snow: { len: 3800, halfW: 1500, ground: ['#eef4fb', '#d3e0ee'], path: '#dfe7f0', props: ['❄️', '⛄', '🌲', '🏔️', '🧣', '🧊', '🛷', '🌨️'],
+      snow: { len: 3800, halfW: 1500, ground: ['#eef4fb', '#d3e0ee'], path: '#dfe7f0', props: ['❄️', '🪵', '🌲', '🏔️', '🧣', '🧊', '🛷', '🌨️'],
         zones: [Z('gate', 'ゆきのいりぐち'), Z('field', 'ゆきはら', { light: 1.05, walls: 0.35 }), Z('woods', 'まつばやし', { light: 0.9, fog: 0.12, walls: 1.4 }), Z('lake', 'こおりのみずうみ', { tint: '#dbe9f5', walls: 0.4, fog: 0.08 }), Z('peak', 'ゆきやまのふもと', { fog: 0.2, light: 1.02, walls: 0.6 })],
-        spots: [sp('gate', 'ゆきのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'gate' }), sp('field', 'ゆきはら', 0, 850, 300, 'plaza', 7, { hub: true, prop: '⛄', zone: 'field' }), sp('lodge', 'ロッジ', -900, 1100, 200, 'rest', 5, { landmark: 'lodge', zone: 'field' }), sp('snowman', 'ゆきだるまのおか', 900, 1200, 220, 'plaza', 3, { prop: '⛄', zone: 'field' }), sp('pines', 'まつばやし', 1300, 1900, 200, 'grove', 3, { prop: '🌲', zone: 'woods' }), sp('cave', 'ゆきのどうくつ', 1400, 2600, 150, 'shelter', 1, { secret: true, prop: '🕳️', zone: 'woods' }), sp('tracks', 'あしあとのみち', -500, 1700, 150, 'path', 1, { zone: 'field' }), sp('icelake', 'こおりのみずうみ', -1100, 2200, 240, 'water', 3, { prop: '🧊', zone: 'lake' }), sp('fishing', 'こおりのつりば', -1400, 2900, 160, 'water', 2, { prop: '🎣', zone: 'lake' }), sp('igloo', 'かまくら', -400, 2700, 160, 'shelter', 2, { prop: '🛖', zone: 'lake' }), sp('slope', 'げれんで', 500, 2400, 200, 'path', 2, { prop: '🎿', zone: 'peak' }), sp('lift', 'リフトのりば', 900, 3100, 160, 'rest', 2, { prop: '🎿', zone: 'peak' }), sp('peak', 'ゆきやま', 0, 3450, 220, 'edge', 2, { landmark: 'peak', cam: 'wide', zone: 'peak' }), sp('sled', 'そりのさか', 300, 1500, 150, 'path', 1, { prop: '🛷', zone: 'field' })],
+        spots: [sp('gate', 'ゆきのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'gate' }), sp('field', 'ゆきはら', 0, 850, 300, 'plaza', 7, { hub: true, prop: '🛷', zone: 'field' }), sp('lodge', 'ロッジ', -900, 1100, 200, 'rest', 5, { landmark: 'lodge', zone: 'field' }), sp('snowman', 'ゆきだるまのおか', 900, 1200, 220, 'plaza', 3, { prop: '🧣', zone: 'field' }), sp('pines', 'まつばやし', 1300, 1900, 200, 'grove', 3, { prop: '🌲', zone: 'woods' }), sp('cave', 'ゆきのどうくつ', 1400, 2600, 150, 'shelter', 1, { secret: true, prop: '🕳️', zone: 'woods' }), sp('tracks', 'あしあとのみち', -500, 1700, 150, 'path', 1, { zone: 'field' }), sp('icelake', 'こおりのみずうみ', -1100, 2200, 240, 'water', 3, { prop: '🧊', zone: 'lake' }), sp('fishing', 'こおりのつりば', -1400, 2900, 160, 'water', 2, { prop: '🎣', zone: 'lake' }), sp('igloo', 'かまくら', -400, 2700, 160, 'shelter', 2, { prop: '🛖', zone: 'lake' }), sp('slope', 'げれんで', 500, 2400, 200, 'path', 2, { prop: '🎿', zone: 'peak' }), sp('lift', 'リフトのりば', 900, 3100, 160, 'rest', 2, { prop: '🎿', zone: 'peak' }), sp('peak', 'ゆきやま', 0, 3450, 220, 'edge', 2, { landmark: 'peak', cam: 'wide', zone: 'peak' }), sp('sled', 'そりのさか', 300, 1500, 150, 'path', 1, { prop: '🛷', zone: 'field' })],
         paths: [['gate', 'field', 'wide'], ['field', 'lodge'], ['lodge', 'icelake'], ['icelake', 'fishing', 'narrow'], ['icelake', 'igloo'], ['igloo', 'peak', 'narrow'], ['field', 'tracks', 'narrow'], ['tracks', 'igloo', 'narrow'], ['field', 'snowman'], ['snowman', 'pines'], ['pines', 'cave', 'secret'], ['pines', 'slope', 'narrow'], ['field', 'sled'], ['sled', 'slope'], ['slope', 'lift'], ['lift', 'peak'], ['slope', 'peak', 'narrow'], ['snowman', 'sled', 'narrow']] },
       // うみ: かいがんせん型。みぎへ ひだりへ わんきょくして すすみ、みさき・いりえ・さんばし・いわばへ
       sea: { len: 4000, halfW: 1500, ground: ['#f2e2b6', '#e2cf9a'], path: '#f7ecc9', props: ['🐚', '⛵', '🌴', '🏖️', '⛱️', '☀️', '🌊', '🪸'],
@@ -131,7 +131,7 @@
       countryside: { backdrop: 'hills', lane: ['🌾', '🌻', '🪨', '🌱', '🪵', '🪧'], wall: ['🌳', '🌾', '🌳'], marks: { color: '#86b85a', kind: 'tuft' }, ambience: 'meadow', hint: ['🌼', '🌼', '🌻'], edge: '#b9a06a' },
       forest: { backdrop: 'treeline', lane: ['🍄', '🌿', '🪵', '🌰', '🪨', '🌱'], wall: ['🌲', '🌳', '🌲'], marks: { color: '#4f8a45', kind: 'tuft' }, ambience: 'forest', hint: ['🌼', '✨', '🍄'], edge: '#5f4a2a' },
       mountain: { backdrop: 'peaks', lane: ['🪨', '🌲', '🪧', '🥾', '🏕️', '🌼'], wall: ['🪨', '🌲', '🪨'], marks: { color: '#8a8d78', kind: 'stone' }, ambience: 'wind', hint: ['🌼', '🪨', '✨'], edge: '#6f6a58' },
-      snow: { backdrop: 'snowpeaks', lane: ['❄️', '⛄', '🧊', '🪵', '🌲', '🛷'], wall: ['🌲', '🌲', '🪨'], marks: { color: '#ffffff', kind: 'sparkle' }, ambience: 'snowwind', hint: ['🐾', '🐾', '✨'], edge: '#b8c8d8' },
+      snow: { backdrop: 'snowpeaks', lane: ['❄️', '🌨️', '🧊', '🪵', '🌲', '🛷'], wall: ['🌲', '🌲', '🪨'], marks: { color: '#ffffff', kind: 'sparkle' }, ambience: 'snowwind', hint: ['🐾', '🐾', '✨'], edge: '#b8c8d8' },
       sea: { backdrop: 'seahorizon', lane: ['🐚', '🏖️', '⛱️', '🪸', '🌴', '🏄'], wall: ['🌴', '🪨', '🌴'], marks: { color: '#f8efd0', kind: 'stone' }, ambience: 'waves', hint: ['🐚', '🐚', '✨'], edge: '#d8c898' },
       deepsea: { backdrop: 'abyss', sky: 'bubbles', lane: ['🪸', '🫧', '🐚', '🪨', '💡', '⚓'], wall: ['🪸', '🪨', '🪸'], marks: { color: '#5aa5d8', kind: 'sparkle' }, ambience: 'underwater', hint: ['🫧', '🫧', '✨'], edge: '#3f6f9f' },
       river_lake: { backdrop: 'lakehills', lane: ['🪷', '🌿', '🪨', '🌳', '💧', '🎣'], wall: ['🌳', '🌾', '🌳'], marks: { color: '#7fbf6a', kind: 'tuft' }, ambience: 'stream', hint: ['🪷', '🌿', '✨'], edge: '#a08a5a' },
@@ -298,6 +298,46 @@
       push('*', 'landmark', ['🌳', '⛰️', '🏔️', '🪧']); // ランドマークの fallback と ひょうしき
       return out;
     }
+    // なかま・レアなかま・こいびと・ずかんの すがた と おなじ 絵文字も、ランダムの
+    // プールには いれない(⛄ は こいびと「とけないゆきだるま」、🗿 は レアなかま
+    // 「せきぞう」…)。れいがい: しょくぶつ・てんき の 絵文字(🌻 ひまわり・🌵 サボテン・
+    // ❄️ ゆき)は けしきとして しぜん なので ゆるす。1つの スポットに 1つだけ おく
+    // せきぞう(🗿 いせきの 石像)も、あきらかに 石像と わかる ので ゆるす
+    const SCENERY_CHARACTER_ALLOW = { '🌻': 'plant', '🌵': 'plant', '❄️': 'weather' };
+    const SPOT_STATUE_ALLOW = ['🗿'];
+    const SCENERY_LINES = ['plant', 'dandelion', 'sakura', 'venus_flytrap', 'world_tree', 'mushroom', 'coral'];
+    // 絵文字の ゆれを そろえる(異体字セレクタを のぞき、カタログと おなじ 別名を まとめる)
+    const EMOJI_ALIAS = { '☃': '⛄', '🐪': '🐫', '🐳': '🐋', '🐔': '🐓' };
+    const plainEmoji = (e) => { const k = String(e || '').replace(/\uFE0F/gu, ''); return EMOJI_ALIAS[k] || k; };
+    // キャラクターの 絵文字 → [key]: なかま・レアなかま・こいびと(S から)+ ひょうじ よう の
+    // resolver が キャラの え に する もの(しょくぶつ の ライン は のぞく)
+    function characterEmojiMap(displayResolve) {
+      const map = new Map(); const add = (e, key) => { if (!e) return; const k = plainEmoji(e); if (!map.has(k)) map.set(k, []); map.get(k).push(key); };
+      const comps = typeof S.allCompanions === 'function' ? S.allCompanions() : [];
+      for (const c of comps) add(c.emoji, 'companion:' + c.id);
+      for (const p of S.partners || []) add(p.emoji, 'partner:' + p.id);
+      const dr = typeof displayResolve === 'function' ? displayResolve : (typeof S.resolveDisplay === 'function' ? S.resolveDisplay : null);
+      if (dr) for (const p of sceneryPools()) for (const e of p.emojis) { const d = dr(e); if (!isCharacterAsset(d)) continue; const m = /assets\/characters\/([^/]+)\/([^/.]+)/.exec(String(d.asset)); const group = m ? m[1] : '', name = m ? m[2] : ''; if (SCENERY_LINES.includes(group)) continue; add(e, (group === 'companions' ? 'companion:' : group === 'partners' ? 'partner:' : 'form:' + group + ':') + name); }
+      return map;
+    }
+    // キャラと おなじに みえる 絵文字が けしきに まぎれて いないか:
+    // { characters: [{ emoji, keys }], issues: [{ region, pool, emoji, keys }], allowed: [{ region, pool, emoji, reason }] }
+    function auditSceneryCharacters(displayResolve) {
+      const map = characterEmojiMap(displayResolve);
+      const issues = [], allowed = [];
+      const statueCount = {};
+      for (const p of sceneryPools()) for (const e of p.emojis) {
+        const keys = map.get(plainEmoji(e)); if (!keys) continue;
+        if (SCENERY_CHARACTER_ALLOW[e]) { allowed.push({ region: p.region, pool: p.pool, emoji: e, reason: SCENERY_CHARACTER_ALLOW[e] }); continue; }
+        if (p.pool === 'spot' && SPOT_STATUE_ALLOW.includes(e)) {
+          const n = (statueCount[p.region + e] = (statueCount[p.region + e] || 0) + 1);
+          if (n === 1) { allowed.push({ region: p.region, pool: p.pool, emoji: e, reason: 'statue' }); continue; }
+          issues.push({ region: p.region, pool: p.pool, emoji: e, keys, detail: 'a statue may stand at only one spot per world' }); continue;
+        }
+        issues.push({ region: p.region, pool: p.pool, emoji: e, keys });
+      }
+      return { characters: [...map].map(([emoji, keys]) => ({ emoji, keys })), issues, allowed };
+    }
     // どうぶつの 絵文字が けしきの プールに まぎれて いないか: [{ region, pool, emoji }]
     function auditSceneryFauna() {
       const issues = [];
@@ -320,7 +360,7 @@
         const d = dr(emoji); if (isCharacterAsset(d)) characterUnderDisplay.push({ emoji, asset: d.asset });
         const sd = sr(emoji); if (isCharacterAsset(sd)) characterUnderScenery.push({ emoji, asset: sd.asset });
       }
-      return { emojis, characterUnderDisplay, characterUnderScenery, fauna: auditSceneryFauna() };
+      return { emojis, characterUnderDisplay, characterUnderScenery, fauna: auditSceneryFauna(), characters: auditSceneryCharacters(dr).issues };
     }
 
     // ================= グラフ(スポットと みち) =================
@@ -1196,6 +1236,6 @@
       return { stop, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
+    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
   };
 })();
