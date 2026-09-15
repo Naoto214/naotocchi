@@ -131,6 +131,14 @@ test('a different partner cannot silently replace a pending reservation; cancell
 });
 
 
+// Match the initial home markup: these overlays are hidden until explicitly opened.
+function feedbackSetup(equipped, options) {
+  const result = setup(equipped, options);
+  for (const id of ['lifeCardOverlay','storyFlash']) result.h.get(id).classList.add('hidden');
+  result.h.api.render();
+  return result;
+}
+
 test('eligible ribbon ticks deliver readable feedback in both motion modes', () => {
   for (const reducedMotion of [false, true]) {
     const {h,s} = feedbackSetup('ribbon', {reducedMotion});
