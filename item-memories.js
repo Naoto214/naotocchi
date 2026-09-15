@@ -1,3 +1,8 @@
+// Legacy reward-only result/travel branches in script.js are permanently disabled.
+// The dedicated reward inventory, UI, grants and consumption paths are removed.
+var gotReward = false;
+var specialRewardTrip = false;
+
 // Saved memories render only their snapshot: no live pet resolver or bitmap in saves.
 (function (root, factory) {
   const api = factory();
