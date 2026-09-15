@@ -12,6 +12,14 @@ const goodSpecialCleanup = "script = script.replace(/^.*\\.classList\\.remove\\(
 if (!text.includes(badSpecialCleanup)) throw new Error('could not locate special-reward cleanup in patcher');
 text = text.replace(badSpecialCleanup, goodSpecialCleanup);
 
+// render() itself restarts sleep recovery while sleeping. The V2 pillow has
+// already updated the live state synchronously, and the surrounding action
+// render will paint it, so this inner render would recurse forever.
+const badPillowRender = "      if (changed) itemContextReaction('sleepboost1', 'ふかふかのまくらで、すぐにげんきまんたん。');\n      render();\n      return;";
+const goodPillowRender = "      if (changed) itemContextReaction('sleepboost1', 'ふかふかのまくらで、すぐにげんきまんたん。');\n      return;";
+if (!text.includes(badPillowRender)) throw new Error('could not locate pillow rerender in patcher');
+text = text.replace(badPillowRender, goodPillowRender);
+
 const start = "let html = read('index.html');\n";
 const end = "if (/rewardItemGrid|ミニゲームなどで、たまにもらえます。デートや旅/.test(html)) throw new Error('retired reward UI remains in index.html');\n";
 const a = text.indexOf(start);
