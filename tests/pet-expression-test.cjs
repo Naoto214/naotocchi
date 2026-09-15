@@ -111,3 +111,15 @@ test('line-only state marks have a separate outline beneath their colored stroke
     assert.doesNotMatch(markup,/<filter|<animate/,state);
   }
 });
+
+test('kitten stage supports all ten expressions while other cat stages keep their base art', () => {
+  const base='assets/characters/cat/03.png';
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/03-${name}.png`);
+    assert.match(expression.accentFor(base,name),/pet-expression-accent/);
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.assetFor(base,'__proto__'),base);
+  assert.equal(expression.accentFor(base,'constructor'),'');
+  assert.equal(expression.assetFor('assets/characters/cat/02.png','happy'),'assets/characters/cat/02.png');
+});

@@ -19,6 +19,12 @@
     wantsPlay: 'assets/characters/expressions/cat/06-wantsPlay.png',
     sleeping: 'assets/characters/expressions/cat/06-sleeping-v3.png',
   });
+  const STAGE_ASSETS = Object.freeze({
+    [BASE_ASSET]: VARIANT_ASSETS,
+    'assets/characters/cat/03.png': Object.freeze(Object.fromEntries(
+      Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/cat/03-${name}.png`])
+    )),
+  });
   const PERSISTENT = Object.freeze({
     hungry:'hungry', sick:'sick', tired:'tired', weak:'weak', unhappy:'sulky', wantsPlay:'wantsPlay', normal:'normal',
   });
@@ -58,12 +64,13 @@
   }
 
   function assetFor(baseAsset, expression) {
-    if (baseAsset !== BASE_ASSET) return baseAsset;
-    return Object.hasOwn(VARIANT_ASSETS, expression) ? VARIANT_ASSETS[expression] : baseAsset;
+    if (!Object.hasOwn(STAGE_ASSETS,baseAsset)) return baseAsset;
+    const variants=STAGE_ASSETS[baseAsset];
+    return Object.hasOwn(variants,expression) ? variants[expression] : baseAsset;
   }
 
   function accentFor(baseAsset, expression) {
-    if (baseAsset !== BASE_ASSET || !Object.hasOwn(ACCENTS,expression)) return '';
+    if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
     return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${ACCENTS[expression]}</span>`;
   }
 

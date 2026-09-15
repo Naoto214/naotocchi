@@ -178,8 +178,12 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
   const frame={dataset:{},srcdoc:previewParts(html).gameHtml};
   let handler;
   const nav={addEventListener(type,fn){assert.equal(type,'click');handler=fn;},contains:()=>true};
-  const document={querySelector:selector=>selector==='iframe'?frame:nav};
+  let formHandler;
+  const formSelect={addEventListener(type,fn){assert.equal(type,'change');formHandler=fn;}};
+  const document={querySelector:selector=>selector==='iframe'?frame:selector==='nav'?nav:formSelect};
   vm.runInNewContext(code,{document,URLSearchParams});
+  formHandler({target:{value:'kitten'}});
+  assert.equal(frame.dataset.form,'kitten');
   for(const preset of ['normal','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping']) {
     let prevented=false;
     handler({target:{closest:()=>({getAttribute:()=>'?preset='+preset})},preventDefault(){prevented=true;}});
@@ -189,6 +193,7 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
     const ctx={Map,URLSearchParams,frameElement:frame,parent:{location:{search:'?preset=hungry'}}};ctx.window=ctx;
     vm.runInNewContext(boot,ctx);
     const state=JSON.parse(ctx.localStorage.getItem(SAVE_KEY));
+    assert.equal(state.ageTicks,140);
     assert.equal(state.hunger,preset==='hungry'?40:80);
     assert.equal(state.energy,preset==='tired'?40:80);
     assert.equal(state.happiness,['sulky','wantsPlay'].includes(preset)?40:80);
@@ -200,4 +205,14 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
   handler({target:{closest:()=>({getAttribute:()=>'?preset=happy'})},preventDefault(){prevented=true;}});
   assert.equal(prevented,false,'unsupported happy is not handled as a preset');
   assert.equal(frame.dataset.preset,'sleeping');
+});
+
+test('kitten preview seeds the real third stage in isolated storage and rejects unknown forms', () => {
+  const html=buildPreview({form:'kitten',preset:'hungry'});
+  const {state}=seededState(html);
+  assert.equal(state.ageTicks,7*20);
+  assert.equal(state.stageIndex,2);
+  assert.equal(state.hunger,40);
+  assert.match(html,/data-preview-form/);
+  assert.throws(()=>buildPreview({form:'unknown'}),/Unknown preview form/);
 });

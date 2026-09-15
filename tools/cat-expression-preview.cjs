@@ -16,7 +16,9 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-function runtimeFreshAdultCat() {
+const FORMS = Object.freeze({adult:25,kitten:7});
+
+function runtimeFreshCat(form='adult') {
   const previousDirectory=process.cwd();
   try {
     process.chdir(ROOT);
@@ -24,7 +26,7 @@ function runtimeFreshAdultCat() {
     const runtime=harness();
     const state=runtime.api.freshState();
     Object.assign(state,{
-      stage:'growing',speciesLine:'cat',stageIndex:runtime.api.stageForAge(25),ageTicks:25*20,
+      stage:'growing',speciesLine:'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
@@ -45,8 +47,8 @@ function attribute(value) {
     .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
-function buildBootstrap(defaultPreset) {
-  const base=runtimeFreshAdultCat();
+function buildBootstrap(defaultPreset,defaultForm) {
+  const bases=Object.fromEntries(Object.keys(FORMS).map(form=>[form,runtimeFreshCat(form)]));
   return `<script id="cat-expression-preview-bootstrap">
 (() => {
   'use strict';
@@ -54,7 +56,10 @@ function buildBootstrap(defaultPreset) {
   const requestedPreset=window.frameElement?.dataset.preset
     || new URLSearchParams(window.parent.location.search).get('preset');
   const preset=allowedPresets.includes(requestedPreset) ? requestedPreset : ${scriptJson(defaultPreset)};
-  const state=Object.assign(${scriptJson(base)},${scriptJson(PRESETS)}[preset]);
+  const forms=${scriptJson(bases)};
+  const requestedForm=window.frameElement?.dataset.form || new URLSearchParams(window.parent.location.search).get('form');
+  const form=Object.hasOwn(forms,requestedForm) ? requestedForm : ${scriptJson(defaultForm)};
+  const state=Object.assign(forms[form],${scriptJson(PRESETS)}[preset]);
   const values=new Map([[${scriptJson(SAVE_KEY)},JSON.stringify(state)]]);
   const memoryStorage={
     getItem(key) { key=String(key); return values.has(key) ? values.get(key) : null; },
@@ -71,23 +76,24 @@ function buildBootstrap(defaultPreset) {
 </script>`;
 }
 
-function gameDocument(defaultPreset) {
+function gameDocument(defaultPreset,defaultForm) {
   let html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
   html=html.replace(/<head>/i,'<head>\n  <base href="./">');
-  const bootstrap=buildBootstrap(defaultPreset);
+  const bootstrap=buildBootstrap(defaultPreset,defaultForm);
   const firstScript=html.search(/<script\b/i);
   if (firstScript < 0) throw new Error('index.html has no game scripts');
   return html.slice(0,firstScript)+bootstrap+'\n  '+html.slice(firstScript);
 }
 
-function buildPreview({preset='hungry'}={}) {
+function buildPreview({preset='hungry',form='adult'}={}) {
+  if (!Object.hasOwn(FORMS,form)) throw new TypeError(`Unknown preview form: ${form}`);
   if (!Object.hasOwn(PRESETS,preset)) throw new TypeError(`Unknown preview preset: ${preset}`);
   const links=Object.keys(PRESETS).map(key=>
     `<a href="?preset=${key}">${({
       normal:'通常',hungry:'空腹',sick:'病気',tired:'疲労',sulky:'不機嫌',weak:'いのち低下',
       critical:'危険',wantsPlay:'かまって',sleeping:'睡眠',
     })[key]}</a>`).join('');
-  const child=attribute(gameDocument(preset));
+  const child=attribute(gameDocument(preset,form));
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -103,8 +109,9 @@ function buildPreview({preset='hungry'}={}) {
     h1{font-size:1rem;line-height:1.2;margin:0;white-space:nowrap}
     p{font-size:.75rem;line-height:1.2;margin:0;color:#725f4e;white-space:nowrap}
     nav{display:flex;gap:.35rem;margin-top:.4rem;overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:.1rem}
+    select{flex:0 0 auto;font:inherit;border:1px solid #9b7a58;border-radius:999px;background:#fff;color:#4b3625;font-size:16px;padding:.2rem}
     a{flex:0 0 auto;padding:.3rem .62rem;border:1px solid #9b7a58;border-radius:999px;background:#fff;color:#4b3625;font-size:.78rem;font-weight:700;text-decoration:none}
-    a:focus-visible{outline:3px solid #e49942;outline-offset:1px}
+    a:focus-visible,select:focus-visible{outline:3px solid #e49942;outline-offset:1px}
     iframe{display:block;width:100%;height:100%;min-height:0;border:0;background:#fff}
     @media(max-width:390px){header{padding-bottom:.35rem}.banner{justify-content:space-between;gap:.25rem}h1{font-size:.9rem}p{font-size:.67rem}nav{margin-top:.3rem}a{padding:.25rem .52rem;font-size:.72rem}}
   </style>
@@ -112,7 +119,7 @@ function buildPreview({preset='hungry'}={}) {
 <body>
   <header data-preview-controls>
     <div class="banner"><h1>猫の表情テスト</h1><p>このページでは保存しません</p></div>
-    <nav aria-label="猫の状態">${links}</nav>
+    <nav aria-label="猫の状態"><select data-preview-form aria-label="ねこの姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option></select>${links}</nav>
   </header>
   <iframe title="なおとっち 猫の表情プレビュー" srcdoc="${child}"></iframe>
   <script id="cat-expression-preview-controls">
@@ -121,6 +128,12 @@ function buildPreview({preset='hungry'}={}) {
     const nav=document.querySelector('nav');
     const game=frame.srcdoc;
     const allowed=${scriptJson(Object.keys(PRESETS))};
+    document.querySelector('[data-preview-form]')?.addEventListener('change',event=>{
+      const form=event.target.value;
+      if (!['adult','kitten'].includes(form)) return;
+      frame.dataset.form=form;
+      frame.srcdoc=game;
+    });
     nav.addEventListener('click',event => {
       const link=event.target.closest('a');
       if (!link || !nav.contains(link)) return;
@@ -138,12 +151,12 @@ function buildPreview({preset='hungry'}={}) {
 }
 
 if (require.main === module) {
-  const [outputPath,preset='hungry']=process.argv.slice(2);
+  const [outputPath,preset='hungry',form='adult']=process.argv.slice(2);
   if (!outputPath) {
-    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset]\n');
+    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten]\n');
     process.exitCode=1;
   } else {
-    fs.writeFileSync(path.resolve(outputPath),buildPreview({preset}));
+    fs.writeFileSync(path.resolve(outputPath),buildPreview({preset,form}));
     process.stdout.write(`${path.resolve(outputPath)}\n`);
   }
 }

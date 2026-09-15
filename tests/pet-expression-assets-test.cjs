@@ -124,3 +124,18 @@ test('every runtime-allowlisted adult-cat expression path exists', () => {
     assert.equal(fs.existsSync(path.join(ROOT,relativePath)),true,`${relativePath} exists`);
   }
 });
+
+test('kitten expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/03.png');
+  assert.deepEqual(original.bounds,[21,28,107,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/03.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
