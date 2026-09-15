@@ -128,6 +128,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     NaotocchiLocalScenery: require('../../local-scenery.js'),
     NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
+    NaotocchiEmotionState: require('../../emotion-state.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
