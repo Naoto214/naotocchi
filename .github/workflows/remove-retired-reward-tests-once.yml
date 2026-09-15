@@ -18,15 +18,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Remove retired reward tests
+      - name: Remove retired reward remnants
         run: node tools/remove-retired-reward-dialogue-tests.js
       - name: Commit cleanup
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add tests/dialogue-test.js
+          git add tests/dialogue-test.js script.js item-memories.js
           git diff --cached --quiet && exit 0
-          git commit -m "test: remove retired reward date coverage [skip reward-test-cleanup]"
+          git commit -m "fix: remove retired reward remnants [skip reward-test-cleanup]"
           git push origin HEAD:chatgpt/items-v2-home-strip-20260915
       - name: Verify full test suite
         run: npm test
