@@ -61,3 +61,5 @@ ImageMagickでalpha50%閾値、trim、nearest-neighbor112×82、128×128の[8,38
   - Asset: assets/characters/expressions/cat/04-weak.png
 
 最終検証: npm test 696 passed / 0 failed。128×128・RGBA・透明境界・10枚の別画像性を検証し、正規化した10表情も目視確認。iPhone確認は未実施。
+
+2026-09-16: ユーザー指摘に合わせ、銀色の拒否マークを(0,5)から(0,9)へ4 SVG単位だけ下げ、頭に近づけた。他の姿・マークは保持。

@@ -143,3 +143,8 @@ test('otemba stage has ten faces and marks anchored near its left-hand head', ()
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.accentFor(base,'normal'),'');
 });
+
+test('otemba discomfort mark sits slightly closer to its head', () => {
+  assert.match(expression.accentFor('assets/characters/cat/04.png','strained'),/translate\(0 9\)/);
+  assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','strained'),/transform=/);
+});
