@@ -1,6 +1,6 @@
 # Normal Equipment Art Integration Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** PR #274で確定・保存済みの通常装具4画像を、安全に通常装具表示へ接続する。`bowtie/ribbon/scarf` は既存IDを維持したまま新しい商品名・PNGへ切り替え、ゲームパス画像は旧 `glasses` に流用せず、新ゲームパスID用として接続可能な状態にする。
 
@@ -323,7 +323,7 @@ git commit -m "test: reserve game pass art for its new item id"
 **Files:**
 - Verify only
 
-- [ ] **Step 1: アイテム周辺の回帰テストを実行する**
+- [x] **Step 1: アイテム周辺の回帰テストを実行する**
 
 ```bash
 node --test \
@@ -337,7 +337,7 @@ node --test \
 
 Expected: PASS。
 
-- [ ] **Step 2: 全テストを実行する**
+- [x] **Step 2: 全テストを実行する**
 
 ```bash
 npm test
@@ -345,7 +345,7 @@ npm test
 
 既知のベースラインとして `tests/quick-mode-test.cjs` の `mole (Lv4)` はランダムなおとり配置により不安定な失敗歴がある。もし同一失敗だけが再現した場合、今回の画像変更と混同せず、ログを保存して別修正とする。それ以外の新規FAILはこの変更内で解消する。
 
-- [ ] **Step 3: ブラウザでショップ表示を確認する**
+- [x] **Step 3: ブラウザでショップ表示を確認する**
 
 確認項目:
 
@@ -357,9 +357,9 @@ npm test
 - 画像が読めない場合はフォールバックが出る
 - サングラスにゲームパス画像が表示されていない
 
-- [ ] **Step 4: PR #274がDraft・未マージであることを再確認する**
+- [x] **Step 4: PR #274がDraft・未マージであることを再確認する**
 
-- [ ] **Step 5: 最終コミット前に差分を確認する**
+- [x] **Step 5: 最終コミット前に差分を確認する**
 
 ```bash
 git diff --check
@@ -380,3 +380,15 @@ git log -5 --oneline
 - 既存の3種オートケア効果は変わらない。
 - focused testsが全てPASSする。
 - PR #274はDraft、main未マージのまま。
+
+## Execution verification (2026-09-16)
+
+- Starting PR HEAD: `e13a185471074d9aefd71c11f8609cd5d24ae7f1`.
+- Test-first RED: 16 UI tests, 12 pass / 4 expected failures (new shop PNGs, equipped PNG, image-error fallback, reserved mapping).
+- Focused regression: 65/65 pass across the six Task 5 test files.
+- Full `npm test`: baseline 571/571 and integrated 574/574 pass; no Quick failure reproduced. Smoke, dialogue and visual-QA checks also passed.
+- Chromium: 320px and 390px widths; all three shop/equipped PNGs load, labels match, original owned IDs persist, actor frame sizes equal baseline, and failed image requests expose fallback without changing equipped ID. No browser runtime errors. Screenshots visually inspected.
+- `gamepass1` remains image-only and unavailable for purchase. `glasses` remains the legacy sunglasses item; refund migration is a separate V2 task.
+- All four PNG Git blob hashes match the approved source assets; no asset files modified.
+- Independent review: no Critical/Important findings.
+- PR #274 verified Draft and unmerged before publication; main remains untouched.
