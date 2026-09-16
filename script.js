@@ -2368,10 +2368,10 @@
   // 装備は14種類。価格と説明は item-system.js の承認済みカタログを使う。
   const SHOP_ITEMS = [
     { id: 'flower', label: 'おはな', emoji: '🌼' },
-    { id: 'ribbon', label: 'リボン', emoji: '🎀' },
-    { id: 'bowtie', label: 'ちょうネクタイ', emoji: '🎗️' },
+    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
+    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },
     { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻' },
-    { id: 'scarf', label: 'マフラー', emoji: '🧣' },
+    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },
     { id: 'glasses', label: 'サングラス', emoji: '🕶️' },
     { id: 'energy1', label: 'げんきバンド', emoji: '⚡' },
     { id: 'hat', label: 'シルクハット', emoji: '🎩' },
