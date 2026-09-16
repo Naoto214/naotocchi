@@ -126,3 +126,15 @@ for(const [id,price] of Object.entries(normalEquipmentPrices)){
     assert.ok(button.includes(`<span class="shop-item-desc">${desc}</span>`),`${id} displayed description`);
   });
 }
+
+test('normal equipment V2 retains all nine continuing IDs with no price difference charged', () => {
+  const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','star'];
+  for(const equippedItemId of ids){
+    const state=reload({schemaVersion:5,stage:'egg',lifetime:{money:41,ownedShopItems:ids,equippedItemId}}).api.state();
+    assert.deepEqual([...state.lifetime.ownedShopItems],ids);
+    assert.equal(state.lifetime.equippedItemId,equippedItemId);
+    assert.equal(state.lifetime.money,41);
+    assert.equal(state.lifetime.itemMigrations.normalEquipmentV2,true);
+    assert.equal(state.lifetime.ownedShopItems.includes('gamepass1'),false);
+  }
+});

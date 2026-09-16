@@ -1553,6 +1553,7 @@
         money: 0,
         ownedShopItems: [],
         equippedItemId: null,
+        itemMigrations: {},
         // 「なおとの〜」でんせつアイテム(NAOTO_ITEMS)の うち、こうにゅう
         // ずみの id 一覧。そうび/かいじょの きがえは なく、こうにゅうすれば
         // それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS とは
@@ -1668,6 +1669,27 @@
     }
     return target;
   }
+  // 所有している旧装具だけを返金する。購入履歴や無限モードの別状態からは足さない。
+  // normalizeStateShape のあと、SHOP_ITEMS で旧IDを落とすまえに実行する。
+  function migrateNormalEquipmentV2(s) {
+    const lifetime = s.lifetime;
+    const refunds = { flower: 120, energy1: 360, hat: 540, crown: 900, glasses: 360 };
+    const canonical = (id) => typeof id === 'string' && Object.hasOwn(ITEM_SYSTEM.LEGACY_EQUIPMENT_IDS, id)
+      ? ITEM_SYSTEM.LEGACY_EQUIPMENT_IDS[id] : id;
+    const migrated = lifetime.itemMigrations.normalEquipmentV2 === true;
+    let total = 0;
+    lifetime.ownedShopItems = [...new Set(lifetime.ownedShopItems.map(canonical))].filter((id) => {
+      if (typeof id !== 'string' || !Object.hasOwn(refunds, id)) return true;
+      if (!migrated) total += refunds[id];
+      return false;
+    });
+    lifetime.equippedItemId = canonical(lifetime.equippedItemId);
+    if (typeof lifetime.equippedItemId === 'string' && Object.hasOwn(refunds, lifetime.equippedItemId)) lifetime.equippedItemId = null;
+    lifetime.money += total;
+    lifetime.itemMigrations.normalEquipmentV2 = true;
+    return total;
+  }
+
   // メーターと きろくの 中身も かたを そろえる(normalizeStateShape の
   // あとに よぶ。ここでも 正しい 値は かえない)
   function normalizeStateValues(st) {
@@ -1718,6 +1740,7 @@
       // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
       // コードは 配列の .map などを ためらいなく よぶ ので)
       normalizeStateShape(merged, freshState());
+      migrateNormalEquipmentV2(merged);
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
       const LEGACY_MINIGAME_IDS = {
@@ -1919,6 +1942,7 @@
       normalizeStateValues(merged);
       if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
         normalizeStateShape(merged.infiniteReturn, freshState());
+        migrateNormalEquipmentV2(merged.infiniteReturn);
         normalizeStateValues(merged.infiniteReturn);
         merged.infiniteReturn.schemaVersion = 5;
         normalizeRomanticIdentity(merged.infiniteReturn);
