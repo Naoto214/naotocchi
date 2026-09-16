@@ -93,7 +93,8 @@ assert.equal(h.api.itemStock('c_egg_rare'),beforeRareEggs+1);
 - [x] Run all affected focused tests -> `npm test` -> actual localChromium modules -> inspect screenshots. Diagnose failures before fixes, separate baseline Quick random solver instability. No optional repeated green suites.
 - [x] Verify authoritative spec§1–10 coverage matrix (including existing inventory migration/idempotence and gamepass exclusions), approvedPNG4 hashes unchanged; classify Naoto-series as separate achievements outside 판매22 and do not invent unapproved new effects. Fix concrete gaps via RED and scoped review.
 - [x] Update master/current docs to final implemented scope, remove current-page stale reward descriptions; historical specs stay historical. Record counts, commands, changed files, baseline/commitSHAs and decisions. Task3 individual review PASS/Approved; durable handoff complete.
-- [ ] Full whole-change review after task reviews, one bounded final fix wave if needed.
-- [ ] Save reviewed code to requested PR branch fast-forward, update PR body with complete scope, latest Runtime/HomeCI links; keepDraft/unmerged. After docs-only verification record commit, check latestHEAD CI too. Confirm main unchanged and recovery checkpoint is accessible. Final report must distinguish any actual unresolved item from out-of-scope new design.
+- [x] Full whole-change review after task reviews, one bounded final fix wave if needed. PASS; final comment-only correction and scoped re-review PASS, no open findings.
+- [x] Save reviewed code to requested PR branch fast-forward, update PR body with complete scope; keepDraft/unmerged. Code HEAD `919a49d067e40094d2ec805f4654b133d0c854cb`: Runtime830/830 and Home Chromium83/WebKit83 successful. Main unchanged and identical recovery checkpoint confirmed. Naoto4 remains explicitly unapproved design.
+- After this docs-only verification record commit, check latestHEAD CI too and record its SHA/results/links in the PR body. This avoids a self-referential document SHA; it does not waive the final CI gate.
 
-Tasks1／2／3は個別レビューPASS。ローカル実装・監査・文書更新・判断台帳・再現コマンドは[検証記録](2026-09-16-items-v2-economy-verification.md)を参照。残るチェックはrootによる全体レビュー・PR反映・最新HEAD CI確認であり、個別タスクの再実装を意味しない。
+Tasks1／2／3と全変更レビューはPASS。ローカル実装・監査・文書更新・判断台帳・再現コマンド・コードHEADのCIは[検証記録](2026-09-16-items-v2-economy-verification.md)を参照。文書保存後の最終HEADと両CIはPR本文で確認する。完成済みの個別タスクを再実装しない。

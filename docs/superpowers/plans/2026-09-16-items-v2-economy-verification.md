@@ -2,7 +2,7 @@
 
 2026-09-16。対象は通常装具10＋使い切り12と、正本の承認済み経済・日次・伝説。なおとシリーズ4達成品の新しい効果は別の未承認設計であり、完成範囲に含めない。[未確定事項と提案](../specs/2026-09-16-naoto-series-v2-open-decisions.md)を参照。幼少期の自然年齢リスクは現在0で、旧U字型リスク前提は未解決の設計判断。
 
-PR #274はDraft・未マージを維持する。この記録は作業ブランチの実装とローカル検証であり、mainへの反映や最新GitHub CI成功を意味しない。公開・全体レビュー・最新HEADのCIは別の最終工程。
+PR #274はDraft・未マージを維持する。実装・ローカル検証・全変更レビューと、コード保存HEADの両CIは成功した（末尾の最終確認）。mainへは反映していない。この検証記録を追記した文書保存HEADの最終CI結果は、PR本文へ別途記録する。
 
 ## 基準と継続位置
 
@@ -26,7 +26,7 @@ PR #274はDraft・未マージを維持する。この記録は作業ブラン�
 | 7 伝説 | 購入不可、条件付きランダム1人生1回、未体験優先、地域重み、全5種の映画／発見／人生記録維持、育成・コイン報酬なし | `triggerLegendEncounter`/movie builder；`item-economy-sources-v2-test.cjs`、`movie-test.cjs`、`dialogue-test.js`の6 blocked states・7 paused menus・5 unseen legends |
 | 8 撤去 | お楽しみ7、専用ごほうび、伝説／探検ticket、旧装具、旧Star集計・再会UIを戻さない | `retireFunItems`/normalization、ショップ・使用handlers；`item-experiences-test.cjs`、`item-inventory-test.cjs`、`consumables-v2-life-test.cjs`、`items-v2-ease-automation-test.cjs`、`ui-illustrations-test.cjs` |
 | 9 仕様優先順位 | 正本へのリンクと現在のREADMEを更新し、旧設計は履歴として保持 | `README.md`、`NAOTOCCHI_MASTER_SPEC.md`冒頭、本記録、復旧引継ぎ冒頭。人向け文書をソース文字列テストに置換しない |
-| 10 実装状態／公開 | 検証結果を記録しDraft維持。ここで公開・mergeの完了を主張しない | 下記ローカル実測結果、Task3 report；最新HEAD CI・全体レビュー・main不変確認はrootの最終記録待ち |
+| 10 実装状態／公開 | 検証結果を記録しDraft維持、mainへは未マージ | 下記ローカル実測結果と末尾の全変更レビュー・コードHEAD両CI・main不変確認。文書保存HEADの最終CIはPR本文 |
 
 Gamepassの除外は、実プレイ回数・記録・自己ベスト・高得点実績・日次・なかま加入・消耗品予約／Lucky在庫を変えないことを`item-care-game-test.cjs`と`item-relations-travel-test.cjs`で確認。`quick-mode-test.cjs`は普通Gamepass待ち時間中もQuickを実ゲームで開始できることを確認する。5秒ちょうどとreload後の残り待ち時間は装具browserで実測。
 
@@ -51,7 +51,7 @@ Gamepassの除外は、実プレイ回数・記録・自己ベスト・高得点
 - 初回local Chromium **153.0.8010.0**: 装具／使い切り／新経済×320/390の**6/6 pass**。視覚欠陥を見落とした初回assertionのみを完成根拠にしない。
 - 視覚回帰RED後: asset／viewport／screens／Quick／daily focused **67/67 pass**、修正した経済browser **2/2 pass**、続く`npm test` **830/830 pass**＋先行script成功、最後に全3モジュールのChromium **6/6 pass**。変更のあるCSSの検証のために再実行し、緑の任意再実行はしていない。
 - 320/390の未達成・達成済みカードをフルサイズで確認し、Lucky1と20/20完走100コインの全文、開始ボタン、スクロールが収まることを確認。全14枚の成功PNGも一覧で視覚確認した。`git diff --check`、両browserの`node --check`成功。
-- 最新HEAD GitHub Runtime/Home CI、WebKit実行、全体レビュー、PR反映はrootの最終工程。Home runnerには新モジュールを既存と同じengine loop内へ追加し、Chromium/WebKit両方で実行する。
+- ローカル検証時点ではGitHub CI／WebKit／全体レビュー／PR反映は未実施だった。その後の完了結果は末尾へ追記。Home runnerの同じengine loopから新モジュールをChromium/WebKit両方で実行した。
 
 出力は`test-results/consumables-local/`の各JSONと14枚の今回の成功PNG（装具2、使い切り6、経済6）。同ディレクトリに残る古い`*-failure.png`は成功証拠に数えない。既存Homeレイアウト網羅は削除しない。CI全体の時間は未測定のため、この時点では10分timeoutを変更しない。
 
@@ -66,12 +66,12 @@ Gamepassの除外は、実プレイ回数・記録・自己ベスト・高得点
 | `toy-box.png` | `fc601ae0292158e401239231fc9c319eaeb1ce1d` |
 | `game-pass.png` | `903c482ce593e7869bc6f39b5c1d72b2e4da9642` |
 
-タスクのcommit・実行command・変更ファイル・判断は以下に保存する。無視対象のローカルreport／logsは追加の出典であり、継続に必要な情報の唯一の保存先にはしない。公開時の最終HEAD／CIはrootが追記する。
+タスクのcommit・実行command・変更ファイル・判断は以下に保存する。無視対象のローカルreport／logsは追加の出典であり、継続に必要な情報の唯一の保存先にはしない。公開したコードHEAD／CIは末尾に追記済み。
 
 
 ## レビュー済み保存地点と再現コマンド
 
-Tasks1／2／3の個別レビューはPASS／Approved。最終の全変更レビュー、PR反映、最新HEAD CIはrootの次工程であり、この個別レビューの完了とは区別する。
+Tasks1／2／3の個別レビューはPASS／Approved。以下は個別レビュー時点の保存地点。後続の全変更レビュー、PR反映、コードHEAD CIは末尾に区別して記録する。
 
 | 地点 | Commit | Tree／確認範囲 |
 |---|---|---|
@@ -184,3 +184,18 @@ tests/quick-mode-test.cjs
 tests/region-identity-test.cjs
 tests/sticker-test.cjs
 ```
+
+## 最終レビュー・コード保存HEADのCI確認
+
+- 全変更レビュー：比較元 `30df0ae707fb05aa945b7aee38546ea53c026d15` → `fb6979970d5997813bb9e2f630edb88584e30237`、PASS。Critical／Importantなし。唯一のMinorはシールのお題の旧「おかねと」内部コメント。
+- 最終修正：ローカル `b07de18fd7a860d78a30667b72e24a077cf7d61f`。そのコメントとscript cache tokenだけを修正し、syntax／asset2件／diff確認成功。実行処理は変更なし。限定再レビューもPASS、指摘はすべて解消。
+- GitHubコード保存HEAD：`919a49d067e40094d2ec805f4654b133d0c854cb`。tree `990b2b65645ba5a1b2762d67b340c310d7c06026` は最終ローカル内容と完全一致。
+- 本来の作業ブランチと復旧ブランチへ同じコードHEADを保存。通常のfast-forward、force pushなし。PR本文を現在の確定仕様へ更新した。
+- [Runtime smoke test #748](https://github.com/Naoto214/naotocchi/actions/runs/35163252366)：**success、830 pass／0 fail／0 skipped**。job `105018547398` の完了ログで確認。
+- [Home layout #277](https://github.com/Naoto214/naotocchi/actions/runs/35163252378)：**success、Chromium83／WebKit83、計166 PASS、FAIL0**。job `105018547245` の完了ログで集計。新しい日次／Quickの320・390も両engineでPASS。実行9分、既存10分timeout内で完了。
+- CI検証用の合成commit `da71d4a159b4c1389e5c7eddd1de2499c92dc1cf` のtreeも上記保存HEADと一致。この合成commitはmainへのマージを意味しない。
+- 両CI後にGitHubを再読込し、PR HEADが `919a49d…`、Draft=true、merged=false、main=`bcdd6a6811ce8255ef16895ffff26f53b89d1478` 不変を確認。
+
+この追記は文書2ファイルだけ。ゲームコード・テスト・PNGに追加変更はない。文書を保存した後の最終HEADでもRuntime／Homeを確認し、結果と実行URLは[PR #274本文](https://github.com/Naoto214/naotocchi/pull/274)へ保存する。最後の文書commit自身のSHAを追記して無限に新commitを作ることはしない。
+
+なおと4達成品の新効果は未承認設計として残る。販売22品と承認済み経済の実装漏れとは分けて明示し、数値・方式を勝手に確定しない。
