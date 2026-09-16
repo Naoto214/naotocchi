@@ -229,3 +229,19 @@ test('baby expression assets retain the original small stage bounds and transpar
   assert.equal(new Set(hashes).size,10);
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
+
+
+test('adult dog expressions are distinct transparent assets with original sprite bounds', () => {
+  const original=inspectPng('assets/characters/dog/06.png');
+  const hashes=[];
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=`assets/characters/expressions/dog/06-${name}.png`;
+    assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});

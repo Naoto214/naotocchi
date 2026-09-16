@@ -58,10 +58,10 @@ test('buildPreview wraps the current game with a compact isolated phone-safe con
   const source=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
   const html=buildPreview();
   assert.match(html,/^<!doctype html>/i);
-  assert.match(html,/>猫の表情テスト</);
+  assert.match(html,/>猫と犬の表情テスト</);
   assert.match(html,/>このページでは保存しません</);
   assert.match(html,/<header\b[^>]*data-preview-controls/);
-  assert.match(html,/<iframe\b[^>]*title="なおとっち 猫の表情プレビュー"/);
+  assert.match(html,/<iframe\b[^>]*title="なおとっち 表情プレビュー"/);
   assert.ok(html.indexOf('data-preview-controls') < html.indexOf('<iframe'),
     'preview controls remain outside and above the game viewport');
   const {gameHtml}=previewParts(html);
@@ -159,7 +159,7 @@ test('CLI writes the same self-contained preview for the requested safe preset',
 });
 
 test('all preview forms keep selected faces visible across startup saves without achievement flashes', () => {
-  for (const form of ['adult','kitten','otemba','young','calm','elder','toddler','baby']) {
+  for (const form of ['adult','kitten','otemba','young','calm','elder','toddler','baby','dogAdult']) {
     for (const preset of ['hungry','tired','sleeping']) {
       const {state}=seededState(buildPreview({form,preset}));
       const h=harness();
@@ -185,7 +185,7 @@ test('preset clicks reset only the child session and bootstrap uses that selecte
   let formHandler;
   const formSelect={addEventListener(type,fn){assert.equal(type,'change');formHandler=fn;}};
   const document={querySelector:selector=>selector==='iframe'?frame:selector==='nav'?nav:formSelect};
-  vm.runInNewContext(code,{document,URLSearchParams});
+  vm.runInNewContext(code,{document,URLSearchParams,window:{location:{search:''}}});
   formHandler({target:{value:'kitten'}});
   assert.equal(frame.dataset.form,'kitten');
   for(const preset of ['normal','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping']) {
@@ -261,4 +261,34 @@ test('baby preview seeds the first stage in disposable storage', () => {
   assert.equal(state.stageIndex,0);
   assert.equal(state.ageTicks,1*20);
   assert.equal(state.happiness,40);
+});
+
+
+test('adult dog preview uses isolated storage and the real sixth stage', () => {
+  const {state}=seededState(buildPreview({form:'dogAdult',preset:'hungry'}));
+  assert.equal(state.speciesLine,'dog');
+  assert.equal(state.stageIndex,5);
+  assert.equal(state.ageTicks,25*20);
+  assert.equal(state.hunger,40);
+});
+
+test('query-selected dog matches the dropdown and can switch back to adult cat', () => {
+  const html=buildPreview();
+  const code=html.match(/<script id="cat-expression-preview-controls">([\s\S]*?)<\/script>/)[1];
+  const frame={dataset:{},srcdoc:previewParts(html).gameHtml};
+  let change;
+  const select={value:'adult',addEventListener(type,fn){change=fn;}};
+  const nav={addEventListener(){}};
+  const document={querySelector:s=>s==='iframe'?frame:s==='nav'?nav:select};
+  vm.runInNewContext(code,{document,URLSearchParams,window:{location:{search:'?form=dogAdult'}}});
+  assert.equal(select.value,'dogAdult');
+  change({target:{value:'adult'}});
+  assert.equal(frame.dataset.form,'adult');
+  const boot=previewParts(html).bootstrap;
+  const ctx={Map,URLSearchParams,frameElement:frame,parent:{location:{search:'?form=dogAdult'}}};ctx.window=ctx;
+  vm.runInNewContext(boot,ctx);
+  assert.equal(JSON.parse(ctx.localStorage.getItem(SAVE_KEY)).speciesLine,'cat');
+  change({target:{value:'dogAdult'}});
+  vm.runInNewContext(boot,ctx);
+  assert.equal(JSON.parse(ctx.localStorage.getItem(SAVE_KEY)).speciesLine,'dog');
 });

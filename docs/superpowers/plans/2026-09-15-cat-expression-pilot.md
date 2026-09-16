@@ -42,3 +42,15 @@ assert.equal(expression.assetFor('assets/characters/cat/05.png','happy'),'assets
 - [ ] Run node --test tests/pet-expression-assets-test.cjs tests/cat-expression-preview-test.cjs and the Task1 focused suite; npm run bump; npm test; git diff --check.
 - [ ] Write QA document with automatic results, source/variant hashes and image normalization notes provided by root, unsupported-form fallback, and iPhone rows all 未確認: normal vs three expressions; hunger feed sequence; play/spam; correct/wrong medicine; latest-state return; critical; reduce; 26-companion layout; disposable preview isolation.
 - [ ] Commit owned files and supplied image files after GREEN. Report result. Root performs reviews, publishes separate Draft PR and regenerates/deploys confirmation Site including tool output.
+
+## Approved continuation — adult dog, 2026-09-16
+
+Starting PR HEAD: 4587266d2906f27a9b70249fec8997af7442ee70. Main: 3f4bfda0b8c0d30098ebb68c4313abd370a8576a. Existing worktree has the same tree as the PR HEAD. Baseline: 718 tests passed.
+
+- [x] Verify latest GitHub PR/main/CI and preserve all cat changes.
+- [x] Write failing tests for dog-only routing, ten runtime states/reactions, asset constraints, disposable preview and achievement interruption.
+- [x] Add only dog/06 allowlist, head-relative outlined accents and species-appropriate yellow food bowl; reuse existing resolver and reactions.
+- [x] Generate and inspect ten independent transparent dog portraits; normalize to original 128×128 canvas and bounds.
+- [x] Add adult dog to disposable preview and synchronize URL-selected form with dropdown (review regression).
+- [x] Run complete test suite, asset checks and diff check; document QA.
+- [ ] Push verified changes to existing Draft PR #278 and update existing private confirmation page. No main merge. User performs iPhone visual review.

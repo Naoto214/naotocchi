@@ -16,9 +16,9 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1});
+const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25});
 
-function runtimeFreshCat(form='adult') {
+function runtimeFreshPet(form='adult') {
   const previousDirectory=process.cwd();
   try {
     process.chdir(ROOT);
@@ -26,7 +26,7 @@ function runtimeFreshCat(form='adult') {
     const runtime=harness();
     const state=runtime.api.freshState();
     Object.assign(state,{
-      stage:'growing',speciesLine:'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
+      stage:'growing',speciesLine:form==='dogAdult'?'dog':'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
@@ -49,7 +49,7 @@ function attribute(value) {
 }
 
 function buildBootstrap(defaultPreset,defaultForm) {
-  const bases=Object.fromEntries(Object.keys(FORMS).map(form=>[form,runtimeFreshCat(form)]));
+  const bases=Object.fromEntries(Object.keys(FORMS).map(form=>[form,runtimeFreshPet(form)]));
   return `<script id="cat-expression-preview-bootstrap">
 (() => {
   'use strict';
@@ -100,7 +100,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>猫の表情テスト</title>
+  <title>猫と犬の表情テスト</title>
   <style>
     *{box-sizing:border-box}
     html,body{width:100%;height:100%;height:100dvh;margin:0;overflow:hidden}
@@ -119,19 +119,23 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 </head>
 <body>
   <header data-preview-controls>
-    <div class="banner"><h1>猫の表情テスト</h1><p>このページでは保存しません</p></div>
-    <nav aria-label="猫の状態"><select data-preview-form aria-label="ねこの姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option></select>${links}</nav>
+    <div class="banner"><h1>猫と犬の表情テスト</h1><p>このページでは保存しません</p></div>
+    <nav aria-label="状態"><select data-preview-form aria-label="姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option><option value="dogAdult" ${form==='dogAdult'?'selected':''}>大人のいぬ</option></select>${links}</nav>
   </header>
-  <iframe title="なおとっち 猫の表情プレビュー" srcdoc="${child}"></iframe>
+  <iframe title="なおとっち 表情プレビュー" srcdoc="${child}"></iframe>
   <script id="cat-expression-preview-controls">
   (() => {
     const frame=document.querySelector('iframe');
     const nav=document.querySelector('nav');
     const game=frame.srcdoc;
     const allowed=${scriptJson(Object.keys(PRESETS))};
-    document.querySelector('[data-preview-form]')?.addEventListener('change',event=>{
+    const forms=${scriptJson(Object.keys(FORMS))};
+    const formSelect=document.querySelector('[data-preview-form]');
+    const requestedForm=new URLSearchParams(window.location.search).get('form');
+    if (formSelect) formSelect.value=forms.includes(requestedForm) ? requestedForm : ${scriptJson(form)};
+    formSelect?.addEventListener('change',event=>{
       const form=event.target.value;
-      if (!['adult','kitten','otemba','young','calm','elder','toddler','baby'].includes(form)) return;
+      if (!forms.includes(form)) return;
       frame.dataset.form=form;
       frame.srcdoc=game;
     });
@@ -154,7 +158,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 if (require.main === module) {
   const [outputPath,preset='hungry',form='adult']=process.argv.slice(2);
   if (!outputPath) {
-    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm|elder|toddler|baby]\n');
+    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm|elder|toddler|baby|dogAdult]\n');
     process.exitCode=1;
   } else {
     fs.writeFileSync(path.resolve(outputPath),buildPreview({preset,form}));
