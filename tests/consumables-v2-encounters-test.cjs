@@ -121,3 +121,19 @@ test('a called match survives save reload in the same region', () => {
   const resumed=harness({storage,resume:true});
   assert.equal(JSON.stringify(resumed.api.state().calledMatch),JSON.stringify({id:'snow_spirit',regionId:'forest'}));
 });
+
+test('confirming either companion ticket leaves the shop so its invitation is reachable', () => {
+  for (const item of ['c_friend','c_rare_friend']) {
+    const h=harness(),s=growing(h);s.items[item]=2;
+    h.dispatch(h.get('menuBtn'),'click');h.dispatch(h.get('itemBtn'),'click');
+    assert.equal(h.api.overlayState(),'item');
+    h.api.useConsumableItem(item);h.api.closePicker();
+    assert.equal(h.api.overlayState(),'item','cancelling keeps the shop');
+    assert.equal(s.items[item],2);
+    h.api.useConsumableItem(item);h.api.resolvePickerSelection(h.api.pickerValues()[0]);
+    assert.equal(h.api.overlayState(),null,'confirmed call leaves the covering shop');
+    assert.equal(h.get('itemOverlay').classList.contains('hidden'),true);
+    assert.equal(h.get('companionInviteOverlay').classList.contains('hidden'),false);
+    assert.equal(s.items[item],1);assert.equal(s.companions.length,0);
+  }
+});

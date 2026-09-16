@@ -344,7 +344,11 @@
       if (merged !== null && merged > 0) bag.c_life = merged;
 
       const hasBigMinigame = boosts.some(b => b.greatReward === true || b.minigameBoost === 'big');
-      const hasSmallMinigame = !hasBigMinigame && boosts.some(b => b.minigameBoost === 'small');
+      // The old shop allowed buying both effects in one life. A same-save
+      // pair proves separate payment; differing tiers in separate snapshots
+      // still describe one reservation, and big/greatReward are aliases.
+      const hasSmallMinigame = boosts.some(b => b.minigameBoost === 'small'
+        && (!hasBigMinigame || b.greatReward === true));
       const reservationRefunds = [
         ['c_safety',20, boosts.some(b => b.safetyNet === true)],
         ['c_mgsmall',40, hasSmallMinigame],

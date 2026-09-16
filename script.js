@@ -12699,6 +12699,7 @@
       if (!valid) { closePicker(); return; }
       ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
       pickerOpen=false; pickerItem=null; ticketEncounterOptions=null;
+      closeOverlay('item');
       openCompanionInvite(companion,item.companionKind === 'rare');
       saveState(); return;
     }

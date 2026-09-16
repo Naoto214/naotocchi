@@ -51,9 +51,28 @@ test('invalid counts and unsafe sums cannot create unsafe money or stock', () =>
 test('deduplicates prepaid reservations across live and infinite snapshots', () => {
   const b={safetyNet:true,minigameBoost:'small',greatReward:true,courtBoost:'small',breakupShield:'half',travelGuarantee:true};
   const s={lifetime:{money:0,itemInventory:{}},oneTimeBoosts:clone(b),itemLife:{},infiniteReturn:{oneTimeBoosts:{...clone(b),minigameBoost:'big',breakupShield:'full'},itemLife:{}}};
-  I.normalize(s);assert.equal(s.lifetime.money,20+120+50+60+70);
+  I.normalize(s);assert.equal(s.lifetime.money,20+40+120+50+60+70);
   for(const snapshot of [s,s.infiniteReturn]) assert.deepEqual(snapshot.oneTimeBoosts,{});
-  I.normalize(s);assert.equal(s.lifetime.money,320);
+  I.normalize(s);assert.equal(s.lifetime.money,360);
+});
+
+test('separately paid small and great minigame reservations refund both once', () => {
+  // f94 runtime: buy/use c_mgsmall then c_mgbig debits 40+120 and
+  // consumes both stocks, leaving these two independent unused effects.
+  const paidPair={minigameBoost:'small',greatReward:true};
+  for (const [live,returned] of [
+    [paidPair,{}], [paidPair,paidPair], [{},paidPair],
+    [paidPair,{minigameBoost:'big',greatReward:true}],
+    [{minigameBoost:'big',greatReward:true},paidPair],
+  ]) {
+    const s={lifetime:{money:840,itemInventory:{}},oneTimeBoosts:clone(live),itemLife:{},
+      infiniteReturn:{oneTimeBoosts:clone(returned),itemLife:{}}};
+    I.normalize(s);assert.equal(s.lifetime.money,1000,JSON.stringify([live,returned]));
+    assert.deepEqual(s.oneTimeBoosts,{});assert.deepEqual(s.infiniteReturn.oneTimeBoosts,{});
+    assert.equal(I.stock(s,'c_mgsmall'),0);assert.equal(I.stock(s,'c_mgbig'),0);
+    I.normalize(s);assert.equal(s.lifetime.money,1000);
+    const reloaded=clone(s);I.normalize(reloaded);assert.equal(reloaded.lifetime.money,1000);
+  }
 });
 
 test('one logical minigame reservation refunds only its highest evidenced tier', () => {
