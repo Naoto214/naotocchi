@@ -70,3 +70,7 @@ Start PR HEAD 9210c2150c734fc53ad35eb8c26fb5c64b40e5f6. Prior 731 tests and both
 ## Calm dog continuation — 2026-09-16
 
 Baseline PR HEAD107dc0f26d210dadba2a601b11a8ab277be616cc, young dog orange position approved. Dog07 only: failing routing/runtime/PNG/preview coverage → ten original-referenced individual expressions → allowlist/anchors/preview → focused/full verification/review → existing Draft PR and private preview. Root owns art/docs/publication, bounded worker connection/tests. No other-stage expansion, gameplay/save-schema change or main merge.
+
+## Remaining dog batch — 2026-09-16
+
+Baseline bfcb09d582619c6e513f55e61683baebd58c92fb;743 tests previously passed. User approved batching01/02/08. Follow tests-first routing/runtime/PNG/preview and startup-achievement coverage;30 individual original-referenced images; stage anchors; full suite/review; update same Draft PR and private preview. Replace unsupported dog fallback fixtures with genuinely unsupported beetle stage. Root owns art/docs/publication, bounded worker connections/tests. Review all three together after completion. No main merge.

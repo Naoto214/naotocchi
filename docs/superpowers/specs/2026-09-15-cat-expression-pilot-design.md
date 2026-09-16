@@ -37,3 +37,7 @@ User approved dog/04 and asked for the next stage. Add only dog/05 (若いいぬ
 ## Approved continuation — calm dog, 2026-09-16
 
 User approved young dog05 including final orange anchor(-33,7), then requested continuation. Add dog07 落ちついたいぬ (ages40–69) only, ten expressions. Preserve rounded seated posture, one upright and one floppy ear, low curling tail. Shared palette, outlined marks, dog food bowl and care reactions remain. Initial anchors strained(-7,5), wantsPlay(-28,10), general(-17,4). Existing cat/dog portraits and anchors unchanged. Extend isolated preview calmDog age40. Keep Draft PR #278, no main merge; user reviews iPhone appearance.
+
+## Approved batch — remaining dog stages, 2026-09-16
+
+User approved calm dog07 and explicitly accepted batching the remaining three dog stages to reduce repeated review. Add dog01 あかちゃんいぬ (0–2), dog02 よちよちこいぬ (3–6), dog08 おとしよりのいぬ (70+) with ten expressions each. Preserve original newborn prone pose, toddler seated proportions, elderly hunched pose/cream age markings respectively. Inherit state colors/outlined marks/dog food bowl/care reactions. Preserve all confirmed prior dog/cat art and anchors. Initial anchors strained/wantsPlay/general:01(2,46)/(-30,50)/(-16,45);02(-2,23)/(-27,28)/(-13,23);08(-10,14)/(-31,18)/(-20,12). Isolated preview adds babyDog/toddlerDog/elderDog. One combined user review after all three, no intermediate approval gates. No other species expansion or gameplay/save changes. Keep PR278 Draft and do not merge main.

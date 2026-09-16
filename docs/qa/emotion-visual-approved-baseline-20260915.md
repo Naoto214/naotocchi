@@ -61,3 +61,5 @@ PR #278はDraftのまま。mainへマージしない。
 2026-09-16: User approved わんぱくいぬ dog/04 (“いいです 次お願いします”). Retain all its portraits and anchors. Continue one stage with 若いいぬ dog/05; visual approval for that stage remains pending. Previous dog04 HEAD 9210c215 passed Runtime smoke and Home layout CI.
 
 2026-09-16: User approved young dog05 final orange wantsPlay(-33,7) (“これでお願いします”), then requested continuation. Preserve young dog05 and proceed only to calm dog07; new stage iPhone appearance remains pending.
+
+2026-09-16: User approved calm dog07 (“良いです 続きを！”), then approved batching remaining dog01/02/08 (“それでお願いします”) to reduce review burden. Preserve all earlier confirmed portraits/anchors. Remaining three receive one combined preview review; not yet visually accepted.

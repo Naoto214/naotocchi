@@ -63,8 +63,8 @@ test('real home emotion profiles select only the adult cat portrait', () => {
     assert.deepEqual(face(h),want);
   }
 
-  const other=harness(); adultCat(other,{speciesLine:'dog',ageTicks:3*20,stageIndex:1,hunger:40});
-  assert.match(portrait(other),/assets\/characters\/dog\/02\.png/);
+  const other=harness(); adultCat(other,{speciesLine:'beetle',ageTicks:3*20,stageIndex:1,hunger:40});
+  assert.match(portrait(other),/assets\/characters\/beetle\/02\.png/);
   assert.equal(accent(other),null);
 });
 
@@ -207,7 +207,7 @@ test('sleep uses its own face, and waking shows normal before latest-state reeva
 
 test('form changes and blocked screens clear the temporary face and accent', () => {
   const cases = [
-    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'dog',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/dog/02.png'],
+    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'beetle',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/beetle/02.png'],
     ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
     ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
     ['menu',h=>h.api.openExclusiveMenu('profile'),BASE],
@@ -502,10 +502,77 @@ test('calm dog shows all ten state and reaction faces without changing saved sta
 
 
 test('calm dog routing is limited to ages forty through sixty-nine', () => {
-  for (const [age,expected] of [[39,'assets/characters/expressions/dog/06-hungry.png'],[40,'assets/characters/expressions/dog/07-hungry.png'],[69,'assets/characters/expressions/dog/07-hungry.png'],[70,'assets/characters/dog/08.png']]) {
+  for (const [age,expected] of [[39,'assets/characters/expressions/dog/06-hungry.png'],[40,'assets/characters/expressions/dog/07-hungry.png'],[69,'assets/characters/expressions/dog/07-hungry.png'],[70,'assets/characters/expressions/dog/08-hungry.png']]) {
     const h=harness();
     adultCat(h,{speciesLine:'dog',ageTicks:age*20,stageIndex:h.api.stageForAge(age),hunger:40});
     assert.equal(portrait(h),expected,String(age));
-    if (age===70) assert.equal(accent(h),null);
+    assert.equal(accent(h),'hungry');
+  }
+});
+
+
+test('baby dog shows all ten state and reaction faces without changing saved state', () => {
+  const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
+    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
+    ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
+  for (const [name,values,event] of cases) {
+    const h=harness();adultCat(h,{speciesLine:'dog',ageTicks:1*20,stageIndex:0,...values});
+    if (event) h.api.setSpeechBubble('反応',{kind:'pet',label:'いぬ'},{event});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/01-${name}.png`,name);
+    assert.equal(accent(h),name);
+    const before=JSON.stringify(h.api.state());h.api.render();
+    assert.equal(JSON.stringify(h.api.state()),before);
+    if (name==='happy') {
+      h.api.state().deathMeter=80;h.api.render();
+      assert.equal(portrait(h),'assets/characters/expressions/dog/01-critical.png');
+    }
+  }
+});
+
+test('toddler dog shows all ten state and reaction faces without changing saved state', () => {
+  const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
+    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
+    ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
+  for (const [name,values,event] of cases) {
+    const h=harness();adultCat(h,{speciesLine:'dog',ageTicks:3*20,stageIndex:1,...values});
+    if (event) h.api.setSpeechBubble('反応',{kind:'pet',label:'いぬ'},{event});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/02-${name}.png`,name);
+    assert.equal(accent(h),name);
+    const before=JSON.stringify(h.api.state());h.api.render();
+    assert.equal(JSON.stringify(h.api.state()),before);
+    if (name==='happy') {
+      h.api.state().deathMeter=80;h.api.render();
+      assert.equal(portrait(h),'assets/characters/expressions/dog/02-critical.png');
+    }
+  }
+});
+
+test('elder dog shows all ten state and reaction faces without changing saved state', () => {
+  const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
+    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
+    ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
+  for (const [name,values,event] of cases) {
+    const h=harness();adultCat(h,{speciesLine:'dog',ageTicks:70*20,stageIndex:7,...values});
+    if (event) h.api.setSpeechBubble('反応',{kind:'pet',label:'いぬ'},{event});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/08-${name}.png`,name);
+    assert.equal(accent(h),name);
+    const before=JSON.stringify(h.api.state());h.api.render();
+    assert.equal(JSON.stringify(h.api.state()),before);
+    if (name==='happy') {
+      h.api.state().deathMeter=80;h.api.render();
+      assert.equal(portrait(h),'assets/characters/expressions/dog/08-critical.png');
+    }
+  }
+});
+
+test('remaining dog stage boundaries select their own portraits', () => {
+  for (const [age,stage] of [[0,'01'],[2,'01'],[3,'02'],[6,'02'],[7,'03'],[69,'07'],[70,'08'],[99,'08']]) {
+    const h=harness();
+    adultCat(h,{speciesLine:'dog',ageTicks:age*20,stageIndex:h.api.stageForAge(age),hunger:40});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/${stage}-hungry.png`,String(age));
+    assert.equal(accent(h),'hungry');
   }
 });
