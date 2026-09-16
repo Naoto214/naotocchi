@@ -78,18 +78,21 @@ test('the fauna cleanup does not change the resident registry or the resident pl
   assert.equal(M.auditRegistry(reg).issues.length, 0);
 });
 
-test('scenery density is kept: pool sizes and generated prop counts per region stay at their previous level', () => {
+test('scenery is kept rich, but as space rather than scattered trinkets: pools, ground areas and framing all stay in place', () => {
   const h = harness(); populated(h); const M = h.api.meguruMod;
   const reg = M.buildRegistry();
-  // どうぶつを ぬいた ぶんは しょくぶつ・ちけい・ものに おきかえて、かずは へらさない
+  // プールの ながさ は かえない(どの 地域も 見た目の たねが そろっている)
   const SIZES = { home: [6, 6, 3, 3], city: [8, 6, 3, 4], countryside: [8, 6, 3, 3], forest: [8, 6, 3, 3], mountain: [8, 6, 3, 3], snow: [8, 6, 3, 3], sea: [8, 6, 3, 3], deepsea: [8, 6, 3, 3], river_lake: [8, 6, 3, 3], jungle: [8, 6, 3, 3], desert: [8, 6, 3, 3], star_stop: [7, 6, 3, 3], memory_lake: [6, 6, 3, 3] };
-  const MIN_PROPS = { home: 140, city: 240, countryside: 220, forest: 350, mountain: 250, snow: 225, sea: 200, deepsea: 225, river_lake: 210, jungle: 270, desert: 245, star_stop: 240, memory_lake: 225 };
   for (const [id, [props, lane, hint, wall]] of Object.entries(SIZES)) {
     const w = M.WORLDS[id];
     assert.equal(w.props.length, props, id + ' props'); assert.equal(w.lane.length, lane, id + ' lane'); assert.equal(w.hint.length, hint, id + ' hint'); assert.equal(w.wall.length, wall, id + ' wall');
     const built = M.buildWorld(id, reg);
-    assert.ok(built.props.length >= MIN_PROPS[id], `${id}: ${built.props.length} props >= ${MIN_PROPS[id]}`);
-    for (const layer of ['side', 'wall', 'lane', 'hint', 'landmark']) assert.ok(built.props.some((p) => p.layer === layer), `${id} has ${layer} props`);
+    // 「こものを まく」では なく「ばしょを つくる」: じめんの くぎり と かこむ ものが かならず ある
+    assert.ok(built.areas.length >= 10, `${id}: ${built.areas.length} ground areas`);
+    assert.ok(built.props.filter((p) => p.layer === 'frame').length >= 14, `${id}: framing pieces`);
+    assert.ok(built.props.filter((p) => p.layer === 'fore').length >= 5, `${id}: foreground pieces`);
+    assert.ok(built.props.length >= 140, `${id} is never bare: ${built.props.length}`);
+    for (const layer of ['side', 'wall', 'lane', 'frame', 'fore', 'landmark']) assert.ok(built.props.some((p) => p.layer === layer), `${id} has ${layer} props`);
   }
 });
 
