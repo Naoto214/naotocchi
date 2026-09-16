@@ -3,6 +3,34 @@ const {test} = require('node:test');
 const vm = require('node:vm');
 const {harness} = require('./helpers/runtime-harness.cjs');
 
+const finalEquipmentIds = ['poop1', 'sleepboost1', 'bowtie', 'ribbon', 'scarf', 'travel1', 'partner1', 'bond1', 'gamepass1', 'star'];
+for (const achievementId of ['shop-all', 'item-all']) {
+  test(`${achievementId} unlocks with exactly the final ten equipment items`, () => {
+    const h=harness(), s=h.api.state();
+    s.lifetime.ownedShopItems=[...finalEquipmentIds];
+    h.api.checkAchievements();
+    assert.ok(s.achievementsUnlocked.includes(achievementId));
+  });
+  for (const replacement of ['flower', 'energy1', 'hat', 'crown', 'glasses', 'poop1']) {
+    test(`${achievementId} rejects ${replacement} replacing gamepass1 despite ten entries`, () => {
+      const h=harness(), s=h.api.state();
+      s.lifetime.ownedShopItems=finalEquipmentIds.map(id=>id==='gamepass1'?replacement:id);
+      h.api.checkAchievements();
+      assert.equal(s.achievementsUnlocked.includes(achievementId),false);
+    });
+  }
+  test(`${achievementId} requires each current item even alongside all retired items`, () => {
+    const h=harness(), s=h.api.state();
+    const achievement=h.api.achievements.find(ach=>ach.id===achievementId);
+    for (const missing of finalEquipmentIds) {
+      s.lifetime.ownedShopItems=[...finalEquipmentIds.filter(id=>id!==missing), 'flower', 'energy1', 'hat', 'crown', 'glasses'];
+      assert.equal(achievement.condition(s.lifetime,s),false,`missing ${missing}`);
+    }
+    s.lifetime.ownedShopItems=[];
+    assert.equal(achievement.condition(s.lifetime,s),false);
+  });
+}
+
 test('a correct Sudoku cell keeps the incomplete board; only the last cell advances once', () => {
   const h=harness();vm.runInContext('Math.random=()=>0.5',h.sandbox);
   h.api.state().ageTicks=0;
