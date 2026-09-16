@@ -12567,8 +12567,8 @@
     }
     if (item.picker) {
       if (item.picker === 'transform-ticket') {
-        state.transformOptions = pickTicketTransformCandidates();
-        if (!state.transformOptions.length) { state.transformOptions = null; return false; }
+        ticketTransformOptions = pickTicketTransformCandidates();
+        if (!ticketTransformOptions.length) return false;
       }
       openPicker(item); return false;
     }
@@ -12583,6 +12583,7 @@
 
   let pickerOpen = false;
   let pickerItem = null;
+  let ticketTransformOptions = null;
 
   function openPicker(item) {
     pickerItem = item;
@@ -12591,7 +12592,7 @@
   }
 
   function closePicker() {
-    if (pickerItem?.picker === 'transform-ticket') state.transformOptions = null;
+    if (pickerItem?.picker === 'transform-ticket') ticketTransformOptions = null;
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -12622,10 +12623,13 @@
     }
     if (item.picker === 'transform-ticket') {
       const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
-        && Array.isArray(state.transformOptions) && state.transformOptions.includes(value);
+        && Array.isArray(ticketTransformOptions) && ticketTransformOptions.includes(value)
+        && !state.transformOptions;
       if (!valid) { closePicker(); return; }
       ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
       pickerOpen=false; pickerItem=null;
+      state.transformOptions=ticketTransformOptions;
+      ticketTransformOptions=null;
       chooseTransform(value);
       return;
     }
@@ -12673,7 +12677,8 @@
     if (item.picker === 'transform' || item.picker === 'transform-ticket') {
       el.pickerHint.textContent = '引き直す候補を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
-      html = (state.transformOptions || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
+      const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
+      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
     } else if (item.picker === 'dreamline') {
       el.pickerHint.textContent = '選んで予約。孵化したときに1個使います。取り消しは無料です。';
       const lines = dreamLines(item.dreamKind);

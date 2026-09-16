@@ -68,12 +68,12 @@ test('transform tickets fund three legal candidates and favor species never rais
   const beforeMeter=s.transformMeter=37, beforeAge=s.ageTicks, beforeLine=s.speciesLine;
   assert.equal(h.api.useConsumableItem('c_transform'),false);
   assert.equal(h.api.itemStock('c_transform'),1); assert.equal(s.transformMeter,beforeMeter);
-  const offered=[...s.transformOptions]; assert.equal(offered.length,3);
+  const offered=h.api.pickerValues(); assert.equal(offered.length,3);
   assert.equal(offered.includes(beforeLine),false);
   assert.equal(offered.every(line=>!s.lifetime.raisedSpecies.includes(line)),true);
   h.api.closePicker(); assert.equal(h.api.itemStock('c_transform'),1);
   assert.equal(h.api.useConsumableItem('c_transform'),false);
-  const chosen=s.transformOptions[0]; h.api.resolvePickerSelection(chosen);
+  const chosen=h.api.pickerValues()[0]; h.api.resolvePickerSelection(chosen);
   assert.equal(s.speciesLine,chosen); assert.equal(s.ageTicks,beforeAge); assert.equal(s.transformMeter,beforeMeter);
   assert.equal(h.api.itemStock('c_transform'),0); assert.equal(s.lifetime.raisedSpecies.includes(chosen),true);
   assert.equal(s.transformOptions,null);
@@ -83,8 +83,8 @@ test('transform tickets supplement experienced candidates and reject stale or un
   const h=harness(),s=h.api.state(); s.items.c_transform=2;
   s.lifetime.raisedSpecies=[...h.api.normalLines];
   assert.equal(h.api.useConsumableItem('c_transform'),false);
-  assert.equal(s.transformOptions.length,3);
-  const stale=h.api.normalLines.find(line=>!s.transformOptions.includes(line)&&line!==s.speciesLine);
+  const offered=h.api.pickerValues(); assert.equal(offered.length,3);
+  const stale=h.api.normalLines.find(line=>!offered.includes(line)&&line!==s.speciesLine);
   h.api.resolvePickerSelection(stale);
   assert.equal(h.api.itemStock('c_transform'),2); assert.equal(s.speciesLine,'dog');
   s.transformOptions=null; s.stage='egg';
@@ -110,4 +110,26 @@ test('an actual transformation clears a temporary appearance', () => {
   assert.equal(s.itemLife.temporaryForm,undefined);
   assert.equal(h.api.currentVisualForm().line,'cat');
   assert.equal(s.lifetime.raisedSpecies.includes('cat'),true);
+});
+
+test('ticket candidates cannot transform through the ordinary overlay without spending stock', () => {
+  const h=harness(),s=h.api.state(); s.items.c_transform=1;
+  assert.equal(h.api.useConsumableItem('c_transform'),false);
+  const ordinaryOverlayHidden=h.get('transformOverlay').classList.contains('hidden');
+  const ordinaryButton=h.get('transformChoices').children[0];
+  if (ordinaryButton) h.dispatch(ordinaryButton,'click');
+  assert.equal(s.speciesLine,'dog');
+  assert.equal(h.api.itemStock('c_transform'),1);
+  assert.equal(s.lifetime.transforms,0);
+  assert.equal(ordinaryOverlayHidden,true,'ticket choices belong only to the funded picker');
+});
+
+test('reloading an open transform ticket keeps stock and restores no ordinary offer', () => {
+  const storage=memoryStorage(),h=harness({storage}),s=h.api.state(); s.items.c_transform=1;
+  assert.equal(h.api.useConsumableItem('c_transform'),false);
+  h.api.saveState();
+  const reloaded=harness({storage,resume:true}),next=reloaded.api.state();
+  assert.equal(next.transformOptions,null);
+  assert.equal(reloaded.api.itemStock('c_transform'),1);
+  assert.equal(reloaded.get('transformOverlay').classList.contains('hidden'),true);
 });

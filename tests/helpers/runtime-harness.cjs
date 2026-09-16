@@ -54,7 +54,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         el.animations.push(animation);
         return animation;
       },
-      closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
+      closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el
+        : selector === '.transform-choice-btn' && el.dataset.line ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: id === 'speechSlot' ? 44 : 300}),
       getContext: () => canvasContext || null,
       setAttribute(name, value) { el[name === 'aria-pressed' ? 'ariaPressed' : name] = String(value); },
@@ -153,7 +154,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
       currentVisualForm, experiencedSpecies, normalLines:NORMAL_LINES, rareLines:RARE_LINES,
       pickerValues: () => pickerItem?.picker === 'dex-form' ? temporaryDexKeys()
-        : pickerItem?.picker === 'transform-ticket' ? [...(state.transformOptions || [])] : [],
+        : pickerItem?.picker === 'transform-ticket' ? [...(ticketTransformOptions || [])] : [],
       now: () => Date.now(),
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
