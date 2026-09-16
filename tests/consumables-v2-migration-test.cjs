@@ -5,13 +5,15 @@ const clone = value => JSON.parse(JSON.stringify(value));
 
 test('final consumable catalog publishes exactly the twelve approved products', () => {
   const expected = {
-    c_coin2:['ラッキーコイン',300], c_life:['いのちのくすり',300], c_time_back:['ときのチケット・まえ',300],
-    c_time_forward:['ときのチケット・あと',300], c_life_charm:['いのちのおまもり',1000], c_friend:['おともだちチケット',3000],
-    c_match:['おみあいチケット',3000], c_transform:['へんしんチケット',6000], c_rare_friend:['レアなかまチケット',8000],
-    c_egg_normal:['ふしぎなたまご',8000], c_egg_rare:['レアなたまご',10000], c_dex:['ずかんチケット',10000],
+    c_coin2:['ラッキーコイン',300,'ルーレットでコインがもらえる。'], c_life:['いのちのくすり',300,'いのちを満タンにする。'],
+    c_time_back:['ときのチケット・まえ',300,'ひとつ前の姿に5分だけ変わる。'], c_time_forward:['ときのチケット・あと',300,'ひとつ後の姿に5分だけ変わる。'],
+    c_life_charm:['いのちのおまもり',1000,'死んでしまうとき、1回だけ助かる。'], c_friend:['おともだちチケット',3000,'好きな未加入のなかまを呼べる。'],
+    c_match:['おみあいチケット',3000,'恋愛できる相手を1人選んで呼べる。'], c_transform:['へんしんチケット',6000,'3つの候補から、好きな姿にへんしんできる。'],
+    c_rare_friend:['レアなかまチケット',8000,'好きな未加入のレアなかまを呼べる。'], c_egg_normal:['ふしぎなたまご',8000,'次の人生が、まだ育てていない通常種族になる。'],
+    c_egg_rare:['レアなたまご',10000,'次の人生が、まだ育てていないレア種族になる。'], c_dex:['ずかんチケット',10000,'好きな姿を選んで、5分だけへんしんできる。'],
   };
   const actual = Object.fromEntries(Object.entries(I.CATALOG).filter(([id,v]) => id !== 'new_themed_pack' && v.kind === 'consumable' && v.price !== null)
-    .map(([id,v]) => [id,[v.label,v.price]]));
+    .map(([id,v]) => [id,[v.label,v.price,v.desc]]));
   assert.deepEqual(actual,expected);
   assert.equal(I.CATALOG.new_themed_pack?.label,'テーマシールパック');
 });
@@ -48,9 +50,21 @@ test('invalid counts and unsafe sums cannot create unsafe money or stock', () =>
 test('deduplicates prepaid reservations across live and infinite snapshots', () => {
   const b={safetyNet:true,minigameBoost:'small',greatReward:true,courtBoost:'small',breakupShield:'half',travelGuarantee:true};
   const s={lifetime:{money:0,itemInventory:{}},oneTimeBoosts:clone(b),itemLife:{},infiniteReturn:{oneTimeBoosts:{...clone(b),minigameBoost:'big',breakupShield:'full'},itemLife:{}}};
-  I.normalize(s);assert.equal(s.lifetime.money,20+40+120+50+60+70);
+  I.normalize(s);assert.equal(s.lifetime.money,20+120+50+60+70);
   for(const snapshot of [s,s.infiniteReturn]) assert.deepEqual(snapshot.oneTimeBoosts,{});
-  I.normalize(s);assert.equal(s.lifetime.money,360);
+  I.normalize(s);assert.equal(s.lifetime.money,320);
+});
+
+test('one logical minigame reservation refunds only its highest evidenced tier', () => {
+  for(const [live,returned,want] of [
+    [{minigameBoost:'small'},{},40],
+    [{minigameBoost:'small'},{minigameBoost:'big'},120],
+    [{minigameBoost:'small'},{greatReward:true},120],
+    [{minigameBoost:'big',greatReward:true},{minigameBoost:'small'},120],
+  ]){
+    const s={lifetime:{money:0,itemInventory:{}},oneTimeBoosts:live,itemLife:{},infiniteReturn:{oneTimeBoosts:returned,itemLife:{}}};
+    I.normalize(s);assert.equal(s.lifetime.money,want,JSON.stringify([live,returned]));
+  }
 });
 
 test('pending funded reservations add no refund beyond their bag stock', () => {
@@ -65,6 +79,13 @@ test('active and partly used effects end without refund while a fully unused sic
     I.normalize(s);assert.equal(s.lifetime.money,want,`remaining ${remaining}`);assert.equal(s.oneTimeBoosts.sicknessShieldCount,undefined);assert.equal(s.infiniteReturn.oneTimeBoosts.sicknessShieldCount,undefined);
     assert.equal(s.itemLife.relationshipShields,undefined);assert.equal(s.infiniteReturn.itemLife.relationshipShields,undefined);assert.equal(s.partner.itemGraceUntil,undefined);assert.equal(s.infiniteReturn.partner.itemGraceUntil,undefined);assert.equal(s.boostTicks,0);assert.equal(s.infiniteReturn.boostTicks,0);
     s.boostTicks=55;I.normalize(s);assert.equal(s.boostTicks,55);
+  }
+});
+
+test('a partially used sickness snapshot overrides a duplicate fully unused snapshot', () => {
+  for(const [live,returned] of [[3,2],[2,3],[3,1],[1,3]]){
+    const s={lifetime:{money:0,itemInventory:{}},oneTimeBoosts:{sicknessShieldCount:live},itemLife:{},infiniteReturn:{oneTimeBoosts:{sicknessShieldCount:returned},itemLife:{}}};
+    I.normalize(s);assert.equal(s.lifetime.money,0,`${live} vs ${returned}`);
   }
 });
 

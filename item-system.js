@@ -343,10 +343,12 @@
       const merged = safeSum(medicine, patches);
       if (merged !== null && merged > 0) bag.c_life = merged;
 
+      const hasBigMinigame = boosts.some(b => b.greatReward === true || b.minigameBoost === 'big');
+      const hasSmallMinigame = !hasBigMinigame && boosts.some(b => b.minigameBoost === 'small');
       const reservationRefunds = [
         ['c_safety',20, boosts.some(b => b.safetyNet === true)],
-        ['c_mgsmall',40, boosts.some(b => b.minigameBoost === 'small')],
-        ['c_mgbig',120, boosts.some(b => b.greatReward === true || b.minigameBoost === 'big')],
+        ['c_mgsmall',40, hasSmallMinigame],
+        ['c_mgbig',120, hasBigMinigame],
         ['c_courtsmall',50, boosts.some(b => b.courtBoost === 'small')],
         ['c_breakhalf',60, (boosts.find(b => b.breakupShield)?.breakupShield || null) === 'half'],
         ['c_breakfull',100, (boosts.find(b => b.breakupShield)?.breakupShield || null) === 'full'],
@@ -355,7 +357,8 @@
       for (const [id, price, reserved] of reservationRefunds) {
         if (reserved && !pending(id)) refund = safeSum(refund, price) ?? refund;
       }
-      if (boosts.some(b => b.sicknessShieldCount === 3) && !pending('c_sickshield')) refund = safeSum(refund, 60) ?? refund;
+      const sicknessCounts = boosts.map(b => b.sicknessShieldCount).filter(n => Number.isSafeInteger(n) && n > 0);
+      if (sicknessCounts.length && sicknessCounts.every(n => n === 3) && !pending('c_sickshield')) refund = safeSum(refund, 60) ?? refund;
       if (legacy && boosts.some(b => b.courtBoost === 'big')) refund = safeSum(refund, 350) ?? refund;
       addRefund(l, refund);
       for (const id of [...Object.keys(RETIRED_CONSUMABLE_PRICES),'new_life_patch']) delete bag[id];
