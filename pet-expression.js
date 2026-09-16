@@ -115,7 +115,7 @@
       offset = expression === 'strained' ? '12 40' : expression === 'wantsPlay' ? '-28 43' : '-13 38';
     }
     if (baseAsset === 'assets/characters/dog/06.png') {
-      offset = expression === 'strained' ? '-8 8' : expression === 'wantsPlay' ? '-31 8' : '-22 0';
+      offset = expression === 'strained' ? '-12 4' : expression === 'wantsPlay' ? '-31 8' : '-22 0';
     }
     // Dogs think of a food bowl; keep the shared yellow palette and thought bubbles.
     const artwork = baseAsset === 'assets/characters/dog/06.png' && expression === 'hungry'

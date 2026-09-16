@@ -64,3 +64,7 @@ Built-in image_gen、precise-object-edit。1表情ずつ元のdog/06.pngを参�
 - `git diff --check`: success。
 - 猫の元画像・表情画像・pet-expression.css・script.js・care-status.jsは開始HEADから差分なし。
 - 独立コードレビューの指摘（URLと選択欄の不一致）は修正済み。実機確認は未実施。
+
+## 実機確認後の微調整
+
+ユーザー指示により成犬の銀色マークだけを(-8,8)から(-12,4)へ移動。顔から左上へ4単位離す。他のマーク・猫・表情画像は変更しない。
