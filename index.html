@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260915-a13bcea3">
+  <link rel="stylesheet" href="style.css?v=20260915-d01ec9d7">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
-  <link rel="stylesheet" href="ui.css?v=20260915-cd9083e1">
+  <link rel="stylesheet" href="ui.css?v=20260915-0d3533b6">
   <link rel="stylesheet" href="design.css?v=20260915-ae1c4ad1">
   <link rel="stylesheet" href="egg-hatching.css?v=20260915-8449f9f9">
   <link rel="stylesheet" href="care-status.css?v=20260915-6a3b29a4">
   <link rel="stylesheet" href="ui-illustrations.css?v=20260915-924451ff">
   <link rel="stylesheet" href="world-scene.css?v=20260915-c72db122">
   <link rel="stylesheet" href="care-attention.css?v=20260915-44106b8f">
-  <link rel="stylesheet" href="movie.css?v=20260915-201df227">
+  <link rel="stylesheet" href="movie.css?v=20260915-8fb81468">
   <link rel="preload" as="image" href="assets/characters/egg/intact.png">
   <link rel="preload" as="image" href="assets/characters/egg/cracking.png">
   <link rel="preload" as="image" href="assets/characters/egg/ready.png">
-  <link rel="stylesheet" href="item-experience.css?v=20260915-fa869e65">
+  <link rel="stylesheet" href="item-memories.css?v=20260915-fb95bab5">
 </head>
 <body>
   <div class="world-scene" id="worldScene" aria-hidden="true" hidden>
@@ -142,7 +142,6 @@
 
           </div>
 
-          <div class="items-row" id="itemsRow"></div>
         </div>
 
         <div class="minigame-overlay hidden" id="minigameOverlay"></div>
@@ -297,11 +296,6 @@
           </div>
           <div class="theme-scroll">
             <div class="theme-section">
-              <div class="theme-section-title">ごほうび</div>
-              <div class="profile-hint">ミニゲームなどで、たまにもらえます。デートや旅のときに1こ使うと、とくべつな思い出に。使うかどうかは、出かけるときに選べます</div>
-              <div class="shop-item-grid" id="rewardItemGrid"></div>
-            </div>
-            <div class="theme-section">
               <div class="theme-section-title">みにつけるもの</div>
               <div class="profile-hint">買ったものはずっと残ります。身につけられるのは1つ。もう一度タップすると、はずせます。</div>
               <div class="shop-item-grid" id="shopItemGrid"></div>
@@ -314,7 +308,7 @@
               </section>
               <div id="itemRelationActions"></div>
               <button type="button" id="itemMemoriesBtn">おもいで</button>
-              <div id="itemMemoriesPanel" class="hidden"><p id="itemMemoryStatus" role="status"></p><div id="itemMemoryExport"></div><div id="itemMemoriesList"></div></div>
+              <div id="itemMemoriesPanel" class="hidden"><div id="itemMemoriesList"></div></div>
             </div>
             <div class="theme-section">
               <div class="theme-section-title">なおとのひみつ</div>
@@ -360,10 +354,6 @@
             <div class="date-movie-actors hidden" id="itemSceneActors"></div>
             <p class="date-reward-count" id="itemSceneText"></p>
             <div class="date-choice-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))" id="itemSceneChoiceGrid"></div>
-            <div class="date-reward-actions" id="itemSceneRewardActions">
-              <button type="button" class="date-reward-btn" id="itemSceneRewardUseBtn">ごほうびを1こつかう</button>
-              <button type="button" class="date-reward-btn secondary" id="itemSceneRewardSkipBtn">つかわずにでかける</button>
-            </div>
             <button type="button" class="date-cancel-btn" id="itemSceneCancelBtn">またこんど</button>
           </div>
         </div>
@@ -374,16 +364,7 @@
             <div class="date-choice-grid" id="dateChoiceGrid"></div>
             <button type="button" class="date-cancel-btn" id="dateCancelBtn">またこんど</button>
           </div>
-          <div class="date-card date-reward-confirm hidden" id="dateRewardConfirm" role="group" aria-labelledby="dateRewardTitle">
-            <p class="date-kicker" id="dateRewardPlan"></p>
-            <h2 class="date-title" id="dateRewardTitle" tabindex="-1">🎁ごほうびを1こ使って、<br>とくべつなデートにする？</h2>
-            <p class="date-reward-count" id="dateRewardCount"></p>
-            <div class="date-reward-actions">
-              <button type="button" class="date-reward-btn" id="dateRewardUseBtn">ごほうびを1こつかう</button>
-              <button type="button" class="date-reward-btn secondary" id="dateRewardSkipBtn">つかわずにでーとする</button>
-            </div>
-            <button type="button" class="date-cancel-btn" id="dateRewardBackBtn">いきさきにもどる</button>
-          </div>
+
           <div class="date-movie hidden" id="dateMovie" role="dialog" aria-modal="true" aria-labelledby="dateMoviePlace" aria-describedby="dateMovieCaption" tabindex="-1">
             <div class="date-movie-scene" id="dateMovieScene">
               <div class="movie-backdrop" aria-hidden="true"></div>
@@ -819,12 +800,12 @@
   <script src="meguru.js?v=20260915-85cac680"></script>
   <script src="quick.js?v=20260915-0cb8cb43"></script>
   <script src="games.js?v=20260915-2252b555"></script>
-  <script src="audio.js?v=20260915-56e972a2"></script>
+  <script src="audio.js?v=20260915-f12be965"></script>
   <script src="care-status.js?v=20260915-3d4dd0f4"></script>
-  <script src="item-memories.js?v=20260915-5132b179"></script>
-  <script src="item-system.js?v=20260915-e68ca078"></script>
-  <script src="movie-dialogue.js?v=20260915-bf9b7669"></script>
-  <script src="script.js?v=20260915-758cd15c"></script>
-  <script src="home-touch.js?v=20260915-ddc153e1"></script>
+  <script src="item-memories.js?v=20260915-92970fab"></script>
+  <script src="item-system.js?v=20260915-bc8e8fbf"></script>
+  <script src="movie-dialogue.js?v=20260915-9944220b"></script>
+  <script src="script.js?v=20260915-3f4d046d"></script>
+  <script src="home-touch.js?v=20260915-36be057a"></script>
 </body>
 </html>

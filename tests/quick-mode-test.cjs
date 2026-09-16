@@ -192,7 +192,7 @@ test('Quick list toggle uses its dedicated control and a selected solo starts', 
   h.api.retireMinigame();
 });
 
-test('both Quick entries share quick-run as the Star stamp type', () => {
+test('both Quick entries receive the ordinary-success Star payout without stamps', () => {
   const h = harness(), s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
   s.lifetime.equippedItemId = 'star';
@@ -200,9 +200,11 @@ test('both Quick entries share quick-run as the Star stamp type', () => {
   for (const id of [null, 'knock', 'tickle']) {
     assert.equal(h.api.startQuickRun(id), true);
     h.advance(40);
+    const money = s.lifetime.money;
     h.api.finishMinigame(30);
+    assert.equal(s.lifetime.money, money + 4);
   }
-  assert.deepEqual([...s.lifetime.itemProgress.starGames], ['quick-run']);
+  assert.equal(s.lifetime.itemProgress.starGames, undefined);
 });
 
 test('both Quick entries retain their game-start equipment snapshot', () => {

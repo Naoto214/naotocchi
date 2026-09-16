@@ -18,6 +18,7 @@
   let saveWriteBlocked = false;
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
+  const ITEM_AUTO_CARE_DANGER = 25;
 
   const SICKNESS_TYPES = [
     { label: 'げんいんふめいのこうねつ', badge: '🥵' },
@@ -1027,7 +1028,6 @@
     speechSlot: document.getElementById('speechSlot'),
     speechSpeaker: document.getElementById('speechSpeaker'),
     speechText: document.getElementById('speechText'),
-    itemsRow: document.getElementById('itemsRow'),
     companionInviteOverlay: document.getElementById('companionInviteOverlay'),
     companionInviteEmoji: document.getElementById('companionInviteEmoji'),
     companionInviteTitle: document.getElementById('companionInviteTitle'),
@@ -1147,7 +1147,6 @@
     naotoGreetingBtn: document.getElementById('naotoGreetingBtn'),
     onetimeItemGrid: document.getElementById('onetimeItemGrid'),
     onetimeActive: document.getElementById('onetimeActive'),
-    rewardItemGrid: document.getElementById('rewardItemGrid'),
     pickerOverlay: document.getElementById('pickerOverlay'),
     pickerTitle: document.getElementById('pickerTitle'),
     pickerHint: document.getElementById('pickerHint'),
@@ -1171,13 +1170,6 @@
     dateChooser: document.getElementById('dateChooser'),
     dateChoiceGrid: document.getElementById('dateChoiceGrid'),
     dateCancelBtn: document.getElementById('dateCancelBtn'),
-    dateRewardConfirm: document.getElementById('dateRewardConfirm'),
-    dateRewardPlan: document.getElementById('dateRewardPlan'),
-    dateRewardTitle: document.getElementById('dateRewardTitle'),
-    dateRewardCount: document.getElementById('dateRewardCount'),
-    dateRewardUseBtn: document.getElementById('dateRewardUseBtn'),
-    dateRewardSkipBtn: document.getElementById('dateRewardSkipBtn'),
-    dateRewardBackBtn: document.getElementById('dateRewardBackBtn'),
     dateMovie: document.getElementById('dateMovie'),
     dateMovieScene: document.getElementById('dateMovieScene'),
     dateMoviePlace: document.getElementById('dateMoviePlace'),
@@ -1193,9 +1185,6 @@
     itemSceneText: document.getElementById('itemSceneText'),
     itemSceneActors: document.getElementById('itemSceneActors'),
     itemSceneChoiceGrid: document.getElementById('itemSceneChoiceGrid'),
-    itemSceneRewardActions: document.getElementById('itemSceneRewardActions'),
-    itemSceneRewardUseBtn: document.getElementById('itemSceneRewardUseBtn'),
-    itemSceneRewardSkipBtn: document.getElementById('itemSceneRewardSkipBtn'),
     itemSceneCancelBtn: document.getElementById('itemSceneCancelBtn'),
     travelOverlay: document.getElementById('travelOverlay'),
     travelCloseBtn: document.getElementById('travelCloseBtn'),
@@ -1721,6 +1710,7 @@
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
       // Inspect the saved version before fresh defaults can mark it migrated.
       merged.lifetime.itemSystemVersion = parsed.lifetime?.itemSystemVersion || 0;
+      merged.lifetime.funItemsRetiredVersion = parsed.lifetime?.funItemsRetiredVersion || 0;
       merged.lifetime.itemInventory = parsed.lifetime?.itemInventory || parsed.items || {};
       // Preserve the earlier transparent option only for a save without the new control.
       if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'buttonTransparency')
@@ -1756,12 +1746,8 @@
       merged.lifetime.ownedShopItems = [...new Set(oldOwned.map((id) => OLD_ITEM_BASE[id] || id).filter((id) => SHOP_ITEMS.some((it) => it.id === id)))];
       merged.lifetime.equippedItemId = OLD_ITEM_BASE[merged.lifetime.equippedItemId] || merged.lifetime.equippedItemId;
       if (!SHOP_ITEMS.some((it) => it.id === merged.lifetime.equippedItemId)) merged.lifetime.equippedItemId = null;
-      // 旧回復ごほうびは在庫をそのまま大量変換せず、まとめて最大2個の新ごほうびへ。
-      const oldRewardIds = ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss'];
-      let oldRewardCount = 0;
       if (!merged.items || typeof merged.items !== 'object') merged.items = {};
-      oldRewardIds.forEach((id) => { oldRewardCount += Number(merged.items[id]) || 0; delete merged.items[id]; });
-      if (oldRewardCount > 0) merged.items.reward = (Number(merged.items.reward) || 0) + Math.min(2, Math.ceil(oldRewardCount / 5));
+      ['candy','dogfood','catfood','udon','curry','hotpot','shoulder','hug','kiss','reward'].forEach((id) => { delete merged.items[id]; });
       // migrate saves from before growth lines existed - old stage values
       // were egg/baby/child/teen/adult/elder/dead/clear (plus a legacy
       // adult_good/adult_bad from even earlier), with one shared species
@@ -2063,7 +2049,7 @@
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
-    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのおたのしみ', desc: 'おたのしみをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
+    { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
     { id: 'sticker-10', emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
@@ -2128,7 +2114,7 @@
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを30回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'おたのしみいっぱい', desc: 'おたのしみを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
     { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
@@ -2159,8 +2145,7 @@
     { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 25 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
     { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length },
-    { id: 'consumable-all', emoji: '🎪', label: 'おたのしみコンプリート', desc: 'おたのしみをぜんぶつかってみた', tier: 'hard5', condition: (l) => FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集め、おたのしみもぜんぶ使った', tier: 'hard5', condition: (l) => l.ownedShopItems.length >= SHOP_ITEMS.length && FUN_ITEMS.every((it) => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
   ];
   // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
   const ACHIEVEMENT_TIERS = [
@@ -2380,7 +2365,7 @@
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
   // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
   //
-  // 装備は15種類。価格と説明は item-system.js の承認済みカタログを使う。
+  // 装備は14種類。価格と説明は item-system.js の承認済みカタログを使う。
   const SHOP_ITEMS = [
     { id: 'flower', label: 'おはな', emoji: '🌼' },
     { id: 'ribbon', label: 'リボン', emoji: '🎀' },
@@ -2396,7 +2381,6 @@
     { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌' },
     { id: 'crown', label: 'かんむり', emoji: '👑' },
-    { id: 'itemluck1', label: 'よつばのクローバー', emoji: '🍀' },
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -2476,10 +2460,10 @@
       apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに入った。つぎのミニゲーム失敗で、おとろえ・いのち・げんきを守る' }; } },
     { id: 'c_mgsmall', label: 'やる気のおまもり', emoji: '🔥',
       available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ（つぎのゲームで使う）',
-      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームのごほうびと失敗の判定に25点を加える' }; } },
+      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームの失敗の判定に25点を加える' }; } },
     { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫',
       available: () => !state.oneTimeBoosts.greatReward && state.oneTimeBoosts.minigameBoost !== 'big', unavailableMessage: '大成功のおまもりはひとつずつ',
-      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、ごほうび1個とせいちょう28' }; } },
+      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、せいちょう28' }; } },
     { id: 'c_sickshield', label: 'びょうきよけのおふだ', emoji: '🧧',
       available: () => (state.oneTimeBoosts.sicknessShieldCount || 0) <= 0, unavailableMessage: 'おふだがまだのこっている',
       apply: () => { state.oneTimeBoosts.sicknessShieldCount = 3; return { message: 'びょうきよけのおふだをはった（3回分）' }; } },
@@ -3254,7 +3238,6 @@
   // いる COMPANIONS の id。gameActive などと おなじく プレイのたびに
   // リセットされる いちじてきな 状態なので state には いれない
   let pendingCompanionId = null;
-  let pendingReunionId = null;
 
   // Presentation-only state: never written to a save or used by the life clock.
   let careLife = null, carePrevious = null, carePreviousKind = '';
@@ -3302,10 +3285,8 @@
   const ITEM_ILLUSTRATIONS = {
     flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
     energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
-    partner1:'letter',crown:'crown',itemluck1:'clover',
+    partner1:'letter',crown:'crown',
     naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
-    fun_candy:'candy',fun_bubbles:'bubbles',fun_balloon:'balloon',fun_fireworks:'fireworks',
-    fun_camera:'camera',fun_musicbox:'musicbox',fun_surprise:'surprise',
   };
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
@@ -3450,7 +3431,7 @@
     ['🧸','play-100'],['💕','pet-100 romantic-10'],['🏅','brave-10 record-rank-a-20 clear-25'],
     ['💰','money-500'],['🌈','weather-all'],['🐾','companion-5'],['✨','sodachi-90 transform-25'],
     ['🏆','lifeclear-10 perfect-life games-complete-100 item-all'],['🌳','nodecline'],
-    ['💍','married-3'],['🎁','shop-all sticker-10'],['🎈','consumable-all'],
+    ['💍','married-3'],['🎁','shop-all sticker-10'],
     // シールちょうの じっせき(絵は きぞんの しるしを つかいまわす)
     ['📖','sticker-tasks-5'],['🏆','sticker-100'],
   ].flatMap(([mark,ids])=>ids.split(' ').map(id=>[id,mark])));
@@ -7725,12 +7706,15 @@
     if (!state.partner || !isLiveLife()) return;
     const p = state.partner;
     if ((p.itemGraceUntil || 0) > state.lifetime.itemProgress.ticks) return;
-    // らぶれたーけいの アイテムを そうびしていると、なかよし度が へりにくい
-    const affectionDecayFactor = isEquipped('partner1') ? 0.75 : 1;
     // すれちがい中は きもちが はなれるのが はやい。ほうっておくと
     // ふつうより ずっと はやく わかれに ちかづく
     const mismatchFactor = p.mismatched ? 2.5 : 1;
-    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * affectionDecayFactor * mismatchFactor, 0, 100);
+    p.affection = clamp((p.affection ?? 100) - PARTNER_AFFECTION_DECAY_PER_TICK * mismatchFactor, 0, 100);
+    if (isEquipped('partner1') && p.affection <= ITEM_AUTO_CARE_DANGER) {
+      p.affection = 100;
+      itemContextReaction('partner1', 'なかよし度が危なくなる前に、らぶれたーを読み返して100にもどった。');
+      return;
+    }
     if (p.affection > 0) return;
     const identity = itemPartnerIdentity(p);
     if (!state.itemLife.relationshipShields[identity] && commitPendingItem('c_breakfull', p)) {
@@ -7764,13 +7748,16 @@
   function decayCompanionBonds() {
     if (!state.companions.length || !isLiveLife()) return;
     const left = [];
-    // バッジは再会のゲームを開く。自然減は既存のそだち特典だけ。
     const bondDecayFactor = hasPerk(40) ? 0.5 : 1;
     state.companions = state.companions.filter((c) => {
       c.bond = clamp((c.bond ?? 100) - COMPANION_BOND_DECAY_PER_TICK * bondDecayFactor, 0, 100);
+      if (isEquipped('bond1') && c.bond <= ITEM_AUTO_CARE_DANGER) {
+        c.bond = 100;
+        itemContextReaction('bond1', 'きずなが危なくなる前に、おともだちバッジが合図して100にもどった。');
+        return true;
+      }
       if (c.bond > 0) return true;
       left.push(c.id);
-      if (!state.itemLife.departedCompanions.includes(c.id)) state.itemLife.departedCompanions.push(c.id);
       return false;
     });
     if (left.length) {
@@ -8740,12 +8727,11 @@
     document.body.classList.add('movie-active');
     el.device.inert = true;
     el.dateOverlay.classList.add('movie-fullscreen');
-    el.dateRewardConfirm.classList.add('hidden');
     const scene = el.dateMovieScene;
     Object.assign(scene.dataset, {kind, theme, legend, complete:'false', totalBeats:String(beats.length), motion:mgPerfTier >= 2 ? 'low' : 'full'});
     scene.style.setProperty('--movie-duration', `${step * beats.length}ms`);
     el.dateMoviePlace.textContent = movieText(el.dateMoviePlace.textContent);
-    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : kind === 'special' ? 'とくべつなおもいで' : 'ふたりのじかん';
+    document.getElementById('dateMovieKicker').textContent = kind === 'legend' ? 'でんせつのであい' : kind === 'anniversary' ? 'ふたりのきねんび' : 'ふたりのじかん';
     document.getElementById('dateMovieAtmosphere').innerHTML = Array.from({length:perfCount(16, 5)}, (_, i) =>
       `<i style="--x:${(i * 37 + 11) % 100}%;--y:${(i * 23 + 9) % 91}%;--delay:${-i * .73}s;--speed:${5 + i % 5}s"></i>`).join('');
     const progress = document.getElementById('dateMovieProgress');
@@ -8858,13 +8844,11 @@
     hideSpeechBubble();
     dateChoiceOptions = pickDateChoices();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = true;
     clearDateMovieTimers();
     releaseMoviePresentation();
     el.dateChooser.classList.remove('hidden');
     el.dateMovie.classList.add('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
@@ -8876,7 +8860,6 @@
     clearDateMovieTimers();
     releaseMoviePresentation();
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     dateOpen = false;
     el.dateOverlay.classList.add('hidden');
     el.dateChooser.classList.remove('hidden');
@@ -8902,7 +8885,7 @@
   }
 
 
-  function playOrdinaryDateMovie(plan, partner, traitLine, closing, useReward) {
+  function playOrdinaryDateMovie(plan, partner, traitLine, closing) {
     plan = datePlanForRegion(plan);
     clearDateMovieTimers();
     clearConversationTimers();
@@ -8914,14 +8897,8 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
 
-    const special = useReward === true;
-
-    // ごほうび使用時は見た目も明確に別物にする。
-    el.dateMovieScene.dataset.plan = special ? 'special' : plan.id;
-    el.dateMovieScene.classList.toggle('special-reward', special);
-    el.dateMoviePlace.textContent = special
-      ? `🎁とくべつなデート・${plan.label}`
-      : `${plan.emoji || '💞'} ${plan.label}`;
+    el.dateMovieScene.dataset.plan = plan.id;
+    el.dateMoviePlace.textContent = `${plan.emoji || '💞'} ${plan.label}`;
 
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
@@ -8933,24 +8910,19 @@
     const story = pickMovieStory(`date:${local ? 'deepsea' : 'land'}:${plan.id}`, scenes);
     const partnerId = WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id;
     const aside = pickMovieStory(`partner:${partnerId}`, book.partners[partnerId]);
-    const extra = hasNaotoItem('naoto_ring')
-      ? pickMovieStory('special:ring', book.ring).map(beat => beat.signature ? {...beat, text:ringSecretPhrase(partner)} : beat)
-      : special ? pickMovieStory('special:day', book.special) : [];
+    const extra = [];
     const beats = [
       `${partner.label}と、${plan.label}。`,
       ...story,
       ...(aside.length ? aside : [{speaker:'pet',text:'今のこと、あとでまた話そう。'}, {speaker:'partner',text:'うん。続きも一緒にね。'}]),
       ...extra,
-      special ? 'この日のことが、ひとつ思い出に残った。'
-        : state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
+      state.regionId === 'deepsea' ? pickConversationLine(book.deepseaClosings) : closing,
     ];
 
-    if (special) pushLifeLog('💝', `とくべつなデートのおもいで: ${partner.label}と${plan.label}`);
-
-    const mood = state.regionId === 'deepsea' ? 'deepsea' : special ? 'special' : plan.id;
+    const mood = state.regionId === 'deepsea' ? 'deepsea' : plan.id;
     const action = {walk:'walk', lost:'walk', shop:'walk', nap:'rest', rain:'shelter', star:'gaze', sunset:'gaze', photo:'pose', eat:'share'}[plan.id] || 'talk';
     el.dateMovieScene.classList.remove('anniversary-major');
-    playMovieBeats(beats, {step:special ? 4000 : 3500, kind:special ? 'special' : 'date', theme:mood,
+    playMovieBeats(beats, {step:3500, kind:'date', theme:mood,
       actions:beats.map((_, i) => i === 0 ? 'arrive' : i === beats.length - 1 ? 'together' : action)});
     saveState();
   }
@@ -8980,7 +8952,6 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward');
     el.dateMovieScene.classList.toggle('anniversary-major', milestone.years >= 25);
     el.dateMovieScene.dataset.plan = milestone.years >= 50 ? 'star' : milestone.years >= 25 ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = `${milestone.icon} ${milestone.title}`;
@@ -9021,7 +8992,7 @@
     }
   }
 
-  function goOnDate(plan, useReward) {
+  function goOnDate(plan) {
     if (!plan || !DATE_PLANS.some(p => p.id === plan.id)) return false;
     plan = datePlanForRegion(plan);
     const blocked = dateBlockReason();
@@ -9032,27 +9003,7 @@
       render();
       return;
     }
-    // Native dialogs may be suppressed by an embedded browser. Keep this
-    // decision in the game, and commit no date effects until a choice is made.
-    if ((state.items.reward || 0) > 0 && typeof useReward !== 'boolean') {
-      pendingDatePlan = plan;
-      pendingDateContext = {partner:itemPartnerIdentity(state.partner),region:state.regionId};
-      dateOpen = true;
-      clearDateMovieTimers();
-      clearConversationTimers();
-      hideSpeechBubble();
-      el.dateChooser.classList.add('hidden');
-      el.dateMovie.classList.add('hidden');
-      el.dateRewardPlan.textContent = compactJapaneseText(`${state.partner.label}と、${plan.label}`);
-      el.dateRewardCount.textContent = `ごほうびを${state.items.reward}こ持っている`;
-      el.dateRewardConfirm.classList.remove('hidden');
-      render();
-      el.dateRewardTitle.focus({ preventScroll: true });
-      el.dateRewardConfirm.scrollIntoView({ block: 'nearest' });
-      return;
-    }
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     const partner = state.partner;
     const region = findRegion(state.regionId);
     lastDatePlanId = plan.id;
@@ -9074,23 +9025,10 @@
     } else {
       rememberSpecialDate(plan, partner);
     }
-
-    const special = useReward === true && ITEM_SYSTEM.take(state, 'reward');
-    const ringKey = hasNaotoItem('naoto_ring') ? `ring:${itemRelationshipKey(partner)}` : null;
-    const firstRingPhrase = ringKey && !state.lifetime.itemMemories.specials.some(memory => memory.key === ringKey || memory.ringKey === ringKey)
-      ? ringSecretLine(partner) : null;
-    if (special) {
-      recordItemUse('reward');
-      // The first ring phrase belongs to this outing's one card. Later dates
-      // recognize either this marker or an existing ordinary ring card.
-      addItemMemory('specials', itemMemorySnapshot(`special-date:${++state.lifetime.itemProgress.sceneSerial}`, `${partner.label}と、${plan.label}。${plan.line}${firstRingPhrase || ''}`, {event:'date', planId:plan.id, ...(firstRingPhrase ? {ringKey, ringPhrase:firstRingPhrase} : {})}));
-    } else if (firstRingPhrase) {
-      addItemMemory('specials', itemMemorySnapshot(ringKey, firstRingPhrase, {event:'ring'}));
-    }
     setMessage(`💞 ${partner.label}と、${plan.label}。話の続きはまた今度`);
     emotePet('love');
     saveState();
-    playOrdinaryDateMovie(plan, partner, traitLine, closing, special);
+    playOrdinaryDateMovie(plan, partner, traitLine, closing);
     render();
   }
 
@@ -9158,7 +9096,7 @@
     el.dateMovie.classList.remove('hidden');
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
-    el.dateMovieScene.classList.remove('special-reward', 'anniversary-major');
+    el.dateMovieScene.classList.remove('anniversary-major');
     el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
     el.dateMoviePlace.textContent = legend.name || LEGEND_ENCOUNTERS.find(entry => entry.id === legend.id)?.name || 'でんせつのであい';
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
@@ -9462,245 +9400,6 @@
     return pickConversationLine(lines);
   }
 
-  // rewards for a great minigame result: each heals the death meter by a
-  // different amount. weight controls drop rarity - the strongest healers
-  // (kiss, hug) are the rarest, weaker ones are common, so a big stock of
-  // items still tends to be mostly low-tier
-  // ================================================================
-  // ごほうび(かいふくアイテム)
-  // ================================================================
-  // 日常ステータスは「たべる・あそぶ・ねる・くすり」で戻せるため、
-  // ごほうびの主役にはしない。ごほうびは一生の中でたまる「おとろえ」を
-  // ほどくもの、上位はさらに「いのち」を立て直すものとして役割を分ける。
-  // rank が上がるほど希少で、人生ダメージへの回復力も大きくなる。
-  const RECOVERY_ITEMS = [
-    { id: 'reward', label: 'ごほうび', emoji: '🎁', tier: 'special', rank: 1, weight: 1,
-      effects: {}, desc: 'デートやたびをとくべつなおもいでにできる' },
-  ];
-
-  const FUN_ITEMS = [
-    {
-      "id": "fun_candy",
-      "label": "キャンディ",
-      "emoji": "🍭",
-      "narration": "🍭キャンディをぺろぺろ。ちいさなおやつタイム!",
-      "emote": "happy",
-      "petLines": [
-        "あまーい!",
-        "もうひとくち!",
-        "これすき!",
-        "ちいさくなった。どこへ消えたんだろ",
-        "最後だけずっとなめてたい"
-      ],
-      "partnerLines": [
-        "おいしそうだね",
-        "ひとくちちょうだい?",
-        "うれしそうでかわいい",
-        "半分は難しいね。感想だけちょうだい",
-        "ほっぺのふくらみで場所がわかる"
-      ],
-      "companionLines": [
-        "ぼくもたべたい!",
-        "あまいにおい!",
-        "いいなー!",
-        "包み紙の音で来ちゃった!",
-        "その色、何の味?"
-      ]
-    },
-    {
-      "id": "fun_bubbles",
-      "label": "しゃぼんだま",
-      "emoji": "🫧",
-      "narration": "🫧しゃぼんだまがふわふわひろがった",
-      "emote": "fun",
-      "petLines": [
-        "まてまて〜!",
-        "こっちにもきた!",
-        "われるまえにつかまえる!",
-        "ふれたらいなくなるの、ずるい",
-        "大きいのほど慎重に見送る"
-      ],
-      "partnerLines": [
-        "ふふ、たのしそう",
-        "きれいだね",
-        "そっちにもとんでるよ",
-        "消える前に同じの見られたね",
-        "近づいたら顔が映ってた"
-      ],
-      "companionLines": [
-        "こっちこっち!",
-        "おおきいのきた!",
-        "つかまえた!…われた!",
-        "三つ数えたら二つになった!",
-        "あっちの大きいの、追いかけよう!"
-      ]
-    },
-    {
-      "id": "fun_balloon",
-      "label": "ふうせん",
-      "emoji": "🎈",
-      "narration": "🎈ふうせんがふわり。つられて見あげた",
-      "emote": "fun",
-      "petLines": [
-        "どこまでいくの?",
-        "おちてこーい!",
-        "ふわふわ〜",
-        "持ってるほうが引っぱられてる",
-        "軽そうなのに目が離せない"
-      ],
-      "partnerLines": [
-        "にげないようにみてよう",
-        "なんかいいね",
-        "ずっとみてられる",
-        "ひも、ここで持ってるね",
-        "そっちに行きたいみたい。ついていく?"
-      ],
-      "companionLines": [
-        "つかまえる!",
-        "たかい!",
-        "ぼくのところにも!",
-        "天井まで行ったら呼んで!",
-        "まるいのにころがらない!"
-      ]
-    },
-    {
-      "id": "fun_fireworks",
-      "label": "はなび",
-      "emoji": "🎇",
-      "narration": "🎇よぞらにはなびがひらいた",
-      "emote": "fun",
-      "petLines": [
-        "わあっ!",
-        "もういっかい!",
-        "おおきい!",
-        "光ったあとに音が来た!",
-        "次を待ってたら、もう終わりそう!"
-      ],
-      "partnerLines": [
-        "きれい…",
-        "いっしょにみれてよかった",
-        "このままみてたいね",
-        "同じところでびっくりしたね",
-        "今の声、はなびより近かった"
-      ],
-      "companionLines": [
-        "どーん!",
-        "びっくりした!",
-        "つぎくるかな?",
-        "大きいの来た!拍手が遅れた!",
-        "音のほうにも名前つけたい!"
-      ]
-    },
-    {
-      "id": "fun_camera",
-      "label": "カメラ",
-      "emoji": "📸",
-      "narration": "📸カメラにむかって、ちょっといい顔をした",
-      "emote": "happy",
-      "petLines": [
-        "はい、チーズ!",
-        "どう?うつってる?",
-        "もう1まい!",
-        "まじめな顔がいちばんへん",
-        "自分の顔にまだ慣れてない"
-      ],
-      "partnerLines": [
-        "このしゃしん、とっておこうね",
-        "もうすこしこっち",
-        "いいかおしてる",
-        "その顔も残しとこう",
-        "さっきの一枚、消さないでね"
-      ],
-      "companionLines": [
-        "ぼくもはいる!",
-        "へんなかおする!",
-        "みせてみせて!",
-        "全員入った?はしっこ見せて!",
-        "撮る前に笑っちゃった!"
-      ]
-    },
-    {
-      "id": "fun_musicbox",
-      "label": "オルゴール",
-      "emoji": "🎵",
-      "narration": "🎵小さな箱から、やわらかい音が広がった",
-      "emote": "happy",
-      "petLines": [
-        "ゆらゆら〜",
-        "このおとすき",
-        "なんかねむくなる…",
-        "ふたを閉じてもまだ頭で鳴ってる",
-        "次の音を待つのがたのしい"
-      ],
-      "partnerLines": [
-        "おちつくね",
-        "このままゆっくりしよう",
-        "いいきょくだね",
-        "話の続きはこの曲のあとにしよ",
-        "黙って聴く時間もいいね"
-      ],
-      "companionLines": [
-        "おどろう!",
-        "ふしぎなおと!",
-        "もういっかいききたい!",
-        "小さな箱なのに音が広い!",
-        "静かに聴く練習ならできる!"
-      ]
-    },
-    {
-      "id": "fun_surprise",
-      "label": "びっくりばこ",
-      "emoji": "🪄",
-      "narration": "🪄びっくりばこがびよーん!",
-      "emote": "fun",
-      "petLines": [
-        "うわっ!",
-        "びっくりしたー!",
-        "もうこわくないぞ!",
-        "知っててもびっくりする!",
-        "ふたに勝った顔をしておこう"
-      ],
-      "partnerLines": [
-        "ふふ、いいかおした",
-        "びっくりしたね",
-        "次はこっちが開けてみるね",
-        "驚くタイミングまで一緒だったね",
-        "次はそっちが開けてみる?"
-      ],
-      "companionLines": [
-        "わああ!",
-        "もう1かい!",
-        "いまのみた!?",
-        "箱のほうが元気だった!",
-        "閉めたらまた待ってるの?"
-      ]
-    }
-  ];
-
-  function randomFunItem() {
-    const roll = Math.random();
-    const id = roll < 0.55 ? 'fun_candy' : roll < 0.8 ? 'fun_bubbles' : roll < 0.95 ? 'fun_balloon' : 'fun_fireworks';
-    return FUN_ITEMS.find(item => item.id === id);
-  }
-
-  function playFunScene(item) {
-    clearConversationTimers();
-    hideSpeechBubble();
-    setMessage(item.narration || `${item.emoji} ${item.label}であそんだ`);
-    showStoryEvent({ emoji: item.emoji, item, message: item.label });
-    emotePet(item.emote || 'fun');
-
-    const ageBand = funAgeBand();
-    const beats = [{ speaker: petSpeaker(), text: ageBand === 'elder' ? item.petLines[4] : ageBand === 'young' ? item.petLines[0] : pickConversationLine(item.petLines) }];
-    if (state.partner && Math.random() < 0.85) beats.push({ speaker: partnerSpeaker(), text: pickConversationLine(item.partnerLines) });
-    if (state.companions.length && Math.random() < 0.85) beats.push({ speaker: companionSpeaker(), text: pickConversationLine(item.companionLines) });
-
-    const crownLine = rememberCrownReaction(item);
-    if (crownLine) beats.push({ speaker: petSpeaker(), text: crownLine });
-
-    playConversationBeats(beats);
-  }
-
   const RECOVERY_EFFECT_LABELS = {
     hunger: 'おなか', happiness: 'ごきげん', energy: 'げんき',
     health: 'けんこう', decline: 'おとろえ', life: 'いのち',
@@ -9833,18 +9532,7 @@
     maybeMidlifeEvent(age);
     const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
     state.lifetime.money += bonus;
-    if (age % 10 === 0 && Math.random() < 0.25) {
-      ITEM_SYSTEM.grant(state, 'reward');
-      setMessage(`🎁 ${age}さい。どこからかごほうびが1ことどいた!`);
-      emotePet('love');
-    } else if (age % 5 === 0) {
-      const fun = randomFunItem();
-      ITEM_SYSTEM.grant(state, fun.id);
-      setMessage(`🎂 ${age}さい。${fun.emoji}${fun.label}をもらって、さっそくしまいこんだ`);
-      emotePet('happy');
-    } else {
-      setBirthdayToast(`🎂 ${age}さいになった`);
-    }
+    setBirthdayToast(`🎂 ${age}さいになった`);
     if (age === 90) {
       state.miracleGuard = true;
       setMessage('🌅 90さい。いつもの場所で、しばらくゆっくりしていた');
@@ -10457,8 +10145,6 @@
     // ステータスの げんしょうも ねんれいも すすめない
     if (state.stage === STAGE.EGG) return;
     ITEM_SYSTEM.advance(state);
-    updateItemEffectTick();
-    updateFunItemTick();
 
     if (!state.infinite) {
       const prevAge = currentAge();
@@ -10490,22 +10176,25 @@
       // ちょうネクタイ/リボンけいを そうびしていると、それぞれ 満腹/機嫌の
       // 時間経過による げんしょうが ゆるやかに なる(上位アイテムほど
       // さらに ゆるやかに)
-      const hungerFactor = isEquipped('bowtie') ? 0.78 : 1;
-      const happinessFactor = isEquipped('ribbon') ? 0.78 : 1;
       // 満腹・機嫌の 基本の げんしょうスピード(0.6/tick)は、なにも せずに
       // 基本がめんで しばらく ながめていても あわてなくて いい よう、
       // 余裕を もたせた 大きさに おさえてある(以前は 1/tick で、放置3分
       // ほどで お世話ぎれの 状態に なってしまっていた)
       // てんき・じかんたい・きせつ・地域の こうか(envModifiers)
       const envMod = envModifiers();
-      if (!state.isSleeping && isEquipped('ribbon') && state.happiness > 60 && state.lifetime.itemProgress.ticks % 100 === 0) itemContextReaction('ribbon','リボンを揺らして、ごきげんな足どりが続いている。');
-      const itemEnv = currentEnvironment();
-      if (isEquipped('scarf') && (itemEnv.weather === 'snow' || (hasSurfaceSeasons(itemEnv.region) && itemEnv.season === 'winter')) && state.lifetime.itemProgress.ticks % 20 === 0) itemContextReaction('scarf','マフラーにくるまった。寒さで増えるおなかの負担が少し楽になる。');
       { const envNow = currentEnvironment(); noteEnvironmentSeen(envNow.time, envNow.weather, envNow.weatherSource); }
       // 0.35/tick: 100→30 が やく 10分。「つねに お世話しないと」に ならず、
       // ほのぼの ながめて いられる はやさ(以前 0.6 = やく 6分)
-      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * hungerFactor * legendFactor * envMod.hunger, 0, 100);
-      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * happinessFactor * legendFactor * envMod.happy, 0, 100);
+      state.hunger = clamp(state.hunger - 0.35 * sleepFactor * legendFactor * envMod.hunger, 0, 100);
+      state.happiness = clamp(state.happiness - 0.35 * sleepFactor * legendFactor * envMod.happy, 0, 100);
+      if (isEquipped('bowtie') && state.hunger <= ITEM_AUTO_CARE_DANGER) {
+        state.hunger = 100;
+        itemContextReaction('bowtie', 'おなかが危なくなる前に、自動でごはんを食べてまんたんになった。');
+      }
+      if (isEquipped('ribbon') && state.happiness <= ITEM_AUTO_CARE_DANGER) {
+        state.happiness = 100;
+        itemContextReaction('ribbon', 'リボンを揺らして気分転換。ごきげんがまんたんになった。');
+      }
 
       if (state.isSleeping) {
         state.sleptTicks += 1;
@@ -10516,7 +10205,7 @@
         // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        const energyFactor = isEquipped('energy1') ? 0.82 : isEquipped('sleepboost1') && state.itemLife.pillowUntil >= state.lifetime.itemProgress.ticks ? 0.5 : 1;
+        const energyFactor = isEquipped('energy1') ? 0.82 : 1;
         state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
       }
 
@@ -10527,10 +10216,9 @@
       if (Math.random() < 0.035 && state.poopCount < MAX_POOP) {
         state.poopCount += 1;
       }
-      if (isEquipped('poop1') && state.poopCount >= 3 && ITEM_SYSTEM.ready(state, 'paper')) {
-        state.poopCount -= 1;
-        ITEM_SYSTEM.cooldown(state, 'paper', 60);
-        setMessage('紙がころころ転がって、1個だけお片づけ。次のお手伝いは3分後');
+      if (isEquipped('poop1') && state.poopCount >= 3) {
+        state.poopCount = 0;
+        itemContextReaction('poop1', 'たまったうんちを、まとめて全部おそうじした。');
       }
       if (state.poopCount >= MAX_POOP) {
         state.happiness = clamp(state.happiness - 2, 0, 100);
@@ -10548,7 +10236,7 @@
       if (!state.isSick && neglected && !infantGrace) {
         // マフラーけいを そうびしていると、びょうきに なる かくりつが へる
         // (上位アイテムほど さらに)
-        const sicknessChance = 0.03 * (isEquipped('scarf') ? 0.65 : 1);
+        const sicknessChance = 0.03;
         if (Math.random() < sicknessChance) {
           // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
           // ここで 1かいぶん つかって びょうきを ふせぐ
@@ -10569,6 +10257,18 @@
 
       // health responds to neglect - a pet with a long history of illness is
       // frailer overall: sickness hits its health harder, and it doesn't take
+      if (isEquipped('scarf') && state.isSick) {
+        state.isSick = false;
+        state.sicknessType = null;
+        state.health = clamp(state.health + 20, 0, 100);
+        state.energy = clamp(state.energy - 10, 0, 100);
+        applyGrowth(8);
+        applyDecline(-12);
+        recordSicknessCure();
+        checkStoryEvents('medicine-cure');
+        itemContextReaction('scarf', '病気に気づいて、自動でくすりを使って治した。');
+      }
+
       // as long a losing streak to be fatal
       let healthDelta = 0;
       if (state.hunger <= 0) healthDelta -= 2;
@@ -10904,7 +10604,6 @@
         && !state.transformOptions
         && !message
         && !pendingCompanionId
-        && !state.itemLife.balloon
         && !isAnyMenuOverlayOpen()
         && (remaining.length > 0 || rareRemaining.length > 0);
       if (canEncounter && Math.random() < 0.9) {
@@ -10923,7 +10622,6 @@
   let companionInviteOpen = false;
 
   function openCompanionInvite(companion, isRare) {
-    pendingReunionId = null;
     pendingCompanionId = companion.id;
     companionInviteOpen = true;
     el.companionInviteEmoji.innerHTML = companionVisualHTML(companion, 'hero');
@@ -11606,7 +11304,6 @@
     el.device.dataset.homeFixed = String((state.stage === STAGE.GROWING || state.stage === STAGE.EGG)
       && !el.screenNormal.classList.contains('hidden') && !suppressFrontFx);
     renderWorldScene(suppressFrontFx);
-    renderItemsRow(disableCare);
     renderHomeCast();
     positionWeatherSky();
   }
@@ -11646,7 +11343,6 @@
     closeItemScene();
     dateOpen = false;
     pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
     companionInviteOpen = false;
     pickerOpen = false;
     pickerItem = null;
@@ -12508,24 +12204,9 @@
     }).join('') + susLine;
   }
 
-  // 未使用のごほうびは永久在庫。デートや旅の出発時に使う。
-  function renderRewardItemGrid() {
-    const count = state.items.reward || 0;
-    el.rewardItemGrid.innerHTML = `
-      <button type="button" class="shop-item reward-item ${count > 0 ? 'owned' : 'locked'}" data-id="reward">
-        <span class="shop-item-badge">💫</span>
-        <span class="shop-item-emoji">${careIconHTML('gift')}</span>
-        <span class="shop-item-label">ごほうび</span>
-        <span class="shop-item-desc">デートや旅を特別な思い出にできるよ。使うかどうかは出かけるときに選べます</span>
-        <span class="shop-item-status">${count > 0 ? `${count}こもっている` : 'まだもっていない'}</span>
-      </button>
-    `;
-  }
-
   function renderItemOverlay() {
     el.itemMoneyLabel.innerHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     el.itemMoneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    renderRewardItemGrid();
     renderDreamActions();
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
       const owned = state.lifetime.ownedShopItems.includes(item.id);
@@ -12534,12 +12215,6 @@
       if (owned) {
         const progress = state.lifetime.itemProgress;
         const remaining = key => Math.max(0, (progress.readyAt[key] || 0) - progress.ticks);
-        if (item.id === 'poop1' && remaining('paper')) statusText += `／次のお手伝いまで${remaining('paper') * 3}秒`;
-        if (item.id === 'star') {
-          const missing = Math.max(0, 3 - progress.starGames.length);
-          statusText += `／星${progress.starGames.length}/3${missing ? `／あと${missing}種類` : '／星がそろった'}${remaining('star') ? `／受取まで${remaining('star') * 3}秒` : missing ? '' : equipped ? '／次の活動で受取' : '／身につけると受取'}`;
-        }
-        if (item.id === 'itemluck1') statusText += `／あと${Math.max(1, 6 - progress.cloverMisses)}回の大成功で確定`;
         if (item.id === 'crown' && state.itemLife.crownUsed) statusText += '／この一生のお守りは使った';
       }
       const badge = equipped ? '⭐' : (owned ? '✔️' : '');
@@ -12608,7 +12283,6 @@
       }
       state.lifetime.money -= item.price;
       state.lifetime.ownedShopItems.push(id);
-      if (id === 'star' && state.lifetime.itemProgress.readyAt.star === undefined) ITEM_SYSTEM.cooldown(state, 'star', 100);
       state.lifetime.equippedItemId = id;
       setMessage(`${item.label}を買って身につけた!`);
       emotePet('happy');
@@ -12620,7 +12294,6 @@
       setMessage(`${item.label}を身につけた!`);
       emotePet('happy');
     }
-    if (!isEquipped('sleepboost1')) { state.itemLife.pillowUntil = 0; state.itemLife.pillowSleepTicks = 0; }
     saveState();
     render();
   }
@@ -12689,14 +12362,6 @@
     itemContextReaction('partner1', '手紙をそっとひらいて、もう一度読んだ。');
   }
 
-  function ringSecretPhrase(partner) {
-    const phrase = PARTNER_SIGNATURE_LINES[WORLD_MASTER?.compatibility?.partnerAliases?.[partner.id] || partner.id]?.[0] || `${partner.label}、またとなりで`;
-    return phrase.replace(/^[「『]|[」』]$/g,'');
-  }
-
-  function ringSecretLine(partner) {
-    return `${partner.label}とふたりの合言葉。「${ringSecretPhrase(partner)}」`;
-  }
 
   // One short, presentation-only follow-up; newer equipment events replace older ones.
   // Let the triggering action finish its notice and conversation before using the same slot.
@@ -12747,23 +12412,6 @@
     scheduleItemContextMessage(text);
   }
 
-  function availableReunionCompanions() {
-    return state.itemLife.departedCompanions.map(allCompanionsById).filter(c => c && hasRecruitedCompanionId(c.id) && !hasActiveCompanionId(c.id)
-      && (!RARE_COMPANIONS.some(r => r.id === c.id) || hasPerk(80)));
-  }
-
-  function startItemReunion(id) {
-    if (!itemUseAllowed('bond1') || !isEquipped('bond1') || state.isSleeping || gameActive || pendingCompanionId || state.transformOptions || !ITEM_SYSTEM.ready(state,'reunion')) return false;
-    const companion = availableReunionCompanions().find(c => c.id === id);
-    if (!companion) return false;
-    closeAllMenuOverlays();
-    openCompanionInvite(companion, RARE_COMPANIONS.some(c => c.id === id));
-    pendingReunionId = id;
-    el.companionInviteTitle.textContent = `${companion.name}とさいかい`;
-    el.companionInviteFlavor.textContent = 'もう一度ゲームに挑戦しよう。加入の点数は同じ。シールは増えない。';
-    return true;
-  }
-
   const ITEM_REGION_SCENES = {
     home:['庭の小さな影をたどる','窓辺で風の音を聞く'],
     city:['路地の看板を見て歩く','広場の時計を見上げる'],
@@ -12802,10 +12450,8 @@
 
   function renderItemRelationActions() {
     const remaining = key => Math.max(0,(state.lifetime.itemProgress.readyAt[key] || 0)-state.lifetime.itemProgress.ticks);
-    const reunion = availableReunionCompanions();
-    const reunionButtons = isEquipped('bond1') ? reunion.map(c => `<button type="button" class="date-choice-btn" data-item-relation="reunion" data-companion="${escapeHtml(c.id)}" ${remaining('reunion') || !itemUseAllowed('bond1') || state.isSleeping ? 'disabled' : ''}>${escapeHtml(c.name)}とさいかい</button>`).join('') : '';
     const lanternButtons = hasNaotoItem('naoto_lantern') ? [...REGIONS,...SPECIAL_REGIONS].filter(r => [...state.lifetime.regionsVisited,...state.lifetime.specialRegionsVisited].includes(r.id) && (!r.special || hasPerk(70))).map(r => `<button type="button" class="date-choice-btn" data-item-relation="lantern" data-region="${r.id}" ${remaining('lantern') || !itemUseAllowed('naoto_lantern') || state.isSleeping ? 'disabled' : ''}>${escapeHtml(r.label)}のあかり</button>`).join('') : '';
-    el.itemRelationActions.innerHTML = `<p>${isEquipped('bond1') ? `再会のゲームは10分に1回。${remaining('reunion') ? `あと${remaining('reunion')*3}秒。` : ''}${reunion.length ? '' : 'この一生で離れたなかまは、まだいない。'}` : '再会のゲームは、おともだちバッジを身につけると選べる。'}</p>${reunionButtons}${hasNaotoItem('naoto_lantern') ? `<p>あかり探しは10分に1回。${remaining('lantern') ? `あと${remaining('lantern')*3}秒。` : ''}</p>` : ''}${lanternButtons}`;
+    el.itemRelationActions.innerHTML = `${hasNaotoItem('naoto_lantern') ? `<p>あかり探しは10分に1回。${remaining('lantern') ? `あと${remaining('lantern')*3}秒。` : ''}</p>` : ''}${lanternButtons}`;
   }
 
   let pendingItemScene = null;
@@ -12825,7 +12471,6 @@
     el.itemSceneActors.innerHTML = `${pet ? stageVisualHTML(pet,'medium') : ''}${record.partner ? partnerVisualHTML(record.partner,'medium') : ''}`;
     el.itemSceneActors.classList.remove('hidden');
     el.itemSceneChoiceGrid.innerHTML = '';
-    el.itemSceneRewardActions.classList.add('hidden');
     el.itemSceneCancelBtn.textContent = 'おうちにもどる';
     el.itemSceneOverlay.classList.remove('hidden');
     render();
@@ -12848,24 +12493,19 @@
     for (const scene of pendingItemScene.choices) {
       const btn = document.createElement('button');btn.type='button';btn.className='date-choice-btn';btn.dataset.scene=scene.id;btn.textContent=scene.text;el.itemSceneChoiceGrid.appendChild(btn);
     }
-    const reward = ITEM_SYSTEM.stock(state,'reward');
-    el.itemSceneRewardActions.classList.toggle('hidden',!reward);
-    el.itemSceneRewardUseBtn.textContent = `ごほうびを1こつかう（${reward}こ）`;
-    el.itemSceneRewardSkipBtn.textContent = 'つかわずにでかける';
-    if (!reward) pendingItemScene.reward = false;
     el.itemSceneOverlay.classList.remove('hidden');
     render();
   }
 
   function commitItemTravelScene() {
     const pending = pendingItemScene;
-    if (!pending || pending.reward === null || (pending.choices.length && pending.choice === null)) return false;
+    if (!pending || (pending.choices.length && pending.choice === null)) return false;
     const region = [...REGIONS,...SPECIAL_REGIONS].find(r => r.id === pending.regionId);
-    if (!travelStartAllowed(region) || state.regionId !== pending.from || itemPartnerIdentity(state.partner) !== pending.partner || (pending.reward && !ITEM_SYSTEM.stock(state,'reward'))) { closeItemScene();render();return false; }
+    if (!travelStartAllowed(region) || state.regionId !== pending.from || itemPartnerIdentity(state.partner) !== pending.partner) { closeItemScene();render();return false; }
     const scene = pending.choices.find(c => c.id === pending.choice);
     if (pending.choices.length && (!scene || (!state.oneTimeBoosts.travelGuarantee && !(state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel'))))) { closeItemScene();render();return false; }
     closeItemScene();
-    return travelToRegion(region,{reward:pending.reward,scene});
+    return travelToRegion(region,{scene});
   }
 
 
@@ -12883,10 +12523,9 @@
   }
 
   function buyConsumableItem(id) {
-    const item = CONSUMABLE_ITEMS.find(it => it.id === id) || FUN_ITEMS.find(it => it.id === id);
+    const item = CONSUMABLE_ITEMS.find(it => it.id === id);
     const meta = ITEM_SYSTEM.CATALOG[id];
     if (!item || !meta || meta.price == null || !Number.isFinite(state.lifetime.money) || state.lifetime.money < meta.price) return false;
-    if (meta.kind === 'tool' && ITEM_SYSTEM.ownsTool(state, id)) return false;
     if (!ITEM_SYSTEM.grant(state, id)) return false;
     state.lifetime.money -= meta.price;
     state.lifetime.itemPurchases[id] = (state.lifetime.itemPurchases[id] || 0) + 1;
@@ -12896,27 +12535,20 @@
 
   function renderConsumableItemGrid() {
     if (el.onetimeActive) { const list = activeBoostSummary(); el.onetimeActive.textContent = list.length ? `いまのこうか：${list.join('／')}` : 'いまのこうかはない'; }
-    el.onetimeItemGrid.innerHTML = [...CONSUMABLE_ITEMS, ...FUN_ITEMS].map(item => {
+    el.onetimeItemGrid.innerHTML = CONSUMABLE_ITEMS.map(item => {
       const meta = ITEM_SYSTEM.CATALOG[item.id];
-      const owned = meta.kind === 'tool' && ITEM_SYSTEM.ownsTool(state, item.id);
       const stock = ITEM_SYSTEM.stock(state, item.id);
-      const funReason = item.id.startsWith('fun_') ? funUnavailableReason(item.id) : '';
-      const usable = itemUseAllowed(item.id) && !funReason && (!item.available || item.available());
+      const usable = itemUseAllowed(item.id) && (!item.available || item.available());
       const pending = item.deferred && state.itemLife.pendingItems[item.id];
-      const status = pending ? `${stock}こ／予約中。発動までは減らない${pending.partner && !pendingForPartner(item.id) ? '／今の相手には使えない。取り消して予約し直せる' : ''}` : owned ? 'ずっと使える' : `${stock}こ／${item.id === 'c_sickshield' ? '1こで3回' : '1回に1こ'}`;
-      const reason = funReason || (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
-      const cooldownKey = item.id === 'fun_musicbox' ? 'musicbox' : item.id === 'fun_surprise' ? 'surprise' : null;
-      const remaining = cooldownKey ? Math.max(0,(state.lifetime.itemProgress.readyAt[cooldownKey] || 0)-state.lifetime.itemProgress.ticks) : 0;
-      const extra = state.lifetime.itemExtraScenes[item.id] || 0;
-      const duration = item.id === 'fun_candy' ? '／味を楽しむ1分間は重ねて使えない' : item.id === 'fun_balloon' ? '／招待が開いたときに1こ使う' : item.id === 'fun_surprise' ? '／半分はごきげん+5、30%で+10、20%でげんき+10' : '';
+      const status = pending ? `${stock}こ／予約中。発動までは減らない${pending.partner && !pendingForPartner(item.id) ? '／今の相手には使えない。取り消して予約し直せる' : ''}` : `${stock}こ／${item.id === 'c_sickshield' ? '1こで3回' : '1回に1こ'}`;
+      const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
       return `<div class="shop-item">
         <span class="shop-item-emoji">${item.emoji}</span>
         <span class="shop-item-label">${item.label}</span>
         <span class="shop-item-desc">${meta.desc}</span>
-        <span class="shop-item-status">${status}${duration}${remaining ? `／数値の効果まで${remaining*3}秒。眺めるのはいつでも` : ''}${reason ? `／${reason}` : ''}</span>
-        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${owned || state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
-        <button type="button" data-item-action="use" data-id="${item.id}" ${!usable || (!stock && !owned) ? 'disabled' : ''}>${item.deferred ? 'よやく' : 'つかう'}</button>
-        ${extra ? `<button type="button" data-item-action="scene" data-id="${item.id}" ${!usable ? 'disabled' : ''}>えんしゅつけん（${extra}こ・数値の効果なし）</button>` : ''}
+        <span class="shop-item-status">${status}${reason ? `／${reason}` : ''}</span>
+        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
+        <button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.deferred ? 'よやく' : 'つかう'}</button>
         ${pending ? `<button type="button" data-item-action="cancel" data-id="${item.id}">とりけす</button>` : ''}
       </div>`;
     }).join('');
@@ -13444,10 +13076,7 @@
     const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
     for (let i = 0; i < parts.length; i += 1) {
       const part = parts[i]; if (!part) continue;
-      for (const k of Object.keys(out)) if (part[k] != null) {
-        const coldHunger = k === 'hunger' && isEquipped('scarf') && ((i === 0 && env.weather === 'snow') || (i === 2 && env.season === 'winter'));
-        out[k] *= coldHunger && part[k] > 1 ? 1 + (part[k] - 1) / 2 : part[k];
-      }
+      for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k];
     }
     for (const k of Object.keys(out)) out[k] = clamp(out[k], 0.7, 1.5);
     return out;
@@ -14027,82 +13656,8 @@
 
   el.transformSkipBtn.addEventListener('click', skipTransform);
 
-  // ホームの道具列。未使用の在庫数と永久道具を表示する。
-  function renderItemsRow(disableUse) {
-    const entries = FUN_ITEMS.filter((item) => ITEM_SYSTEM.stock(state, item.id) > 0 || ITEM_SYSTEM.ownsTool(state, item.id));
-    if (!entries.length) { el.itemsRow.innerHTML = ''; return; }
-    el.itemsRow.innerHTML = entries.map((item) => `
-      <button class="item-btn" data-item-id="${item.id}" title="${item.label}" ${disableUse || funUnavailableReason(item.id) ? 'disabled' : ''} aria-label="${escapeHtml(item.label+'。'+ITEM_SYSTEM.CATALOG[item.id].desc+'。'+funUnavailableReason(item.id))}">
-        <span class="item-emoji">${itemIconHTML(item,true)}</span><span class="item-count">${ITEM_SYSTEM.ownsTool(state, item.id) ? 'ずっと' : ITEM_SYSTEM.stock(state, item.id)}</span>
-      </button>
-    `).join('');
-  }
-
-  function funUnavailableReason(id) {
-    if (!itemUseAllowed(id) || state.isSleeping || gameActive || pendingCompanionId || state.transformOptions || (isAnyMenuOverlayOpen() && !overlayIs('item'))) return '今は使えない';
-    if (id === 'fun_candy' && (state.itemLife.candyUntil || 0) > state.lifetime.itemProgress.ticks) return `味を楽しんでいる。あと${(state.itemLife.candyUntil-state.lifetime.itemProgress.ticks)*3}秒`;
-    if (id === 'fun_balloon' && state.itemLife.balloon) { const left=Math.max(0,state.itemLife.balloon.readyAt-state.lifetime.itemProgress.ticks);return left ? `ふうせんの準備中。あと${left*3}秒` : 'ふうせんの準備ができた。おうちで待とう'; }
-    if (id === 'fun_balloon' && !availableBalloonCompanions().length) return '今、呼べるなかまはいない';
-    return '';
-  }
-
-  function availableBalloonCompanions() { return COMPANIONS.filter(c => !hasActiveCompanionId(c.id)); }
-  function updateFunItemTick() {
-    const life = state.itemLife, ticks = state.lifetime.itemProgress.ticks;
-    const season = currentEnvironment().season;
-    const seasons = state.lifetime.itemProgress.visitedSeasons || (state.lifetime.itemProgress.visitedSeasons = []);
-    if (season && !seasons.includes(season)) seasons.push(season);
-    if (life.candyUntil && life.candyUntil-ticks===10 && !message && !isAnyMenuOverlayOpen()) setMessage('キャンディ、最初と少しちがう味がする。');
-    if (life.candyUntil && ticks >= life.candyUntil) { life.candyUntil = 0; setMessage('キャンディの味が、まだ少しなつかしい。'); }
-    if (!life.balloon || ticks < life.balloon.readyAt || !itemUseAllowed('fun_balloon')) return;
-    if (gameActive || state.isSleeping || pendingCompanionId || state.transformOptions || isAnyMenuOverlayOpen() || message) return;
-    const candidates = availableBalloonCompanions();
-    life.balloon = null;
-    if (!candidates.length) { setMessage('今はみんなそばにいる。ふうせんはふくろに残した。'); saveState(); return; }
-    if (!ITEM_SYSTEM.take(state,'fun_balloon')) { saveState(); return; }
-    recordItemUse('fun_balloon');
-    openCompanionInvite(pickCompanionByRegion(candidates), false);
-    saveState();
-  }
-
   function itemEnvironmentLabels(env = {}) {
     return {time:TIME_CHOICES[env.time]?.[1],weather:WEATHER_CHOICES[env.weather]?.[1] || environmentContextLabel(env.weatherSource),season:SEASON_INFO[env.season]?.label,region:env.locality?.display || [...REGIONS,...SPECIAL_REGIONS].find(r=>r.id===env.region)?.label};
-  }
-
-  function photoSnapshot() {
-    const env = currentEnvironment(), main = currentVisualStage();
-    const visualActor = (kind,id,visual,label) => ({kind,id,asset:visual?.asset || null,emoji:visual?.emoji || '？',label:label || visual?.label || visual?.name || ''});
-    const actors = [visualActor('pet',state.speciesLine,main)];
-    if (state.partner) {
-      const p = state.partner, id = WORLD_MASTER?.compatibility?.partnerAliases?.[p.id] || p.id;
-      const def = WORLD_MASTER?.partners?.find(p => p.id === id);
-      // Guest rendering uses the saved guest emoji; never substitute an NPC or current pet.
-      actors.push(visualActor('partner',p.id,{asset:def?.asset,emoji:p.emoji || def?.emoji},p.label));
-    }
-    for (const c of state.companions) { const def = allCompanionsById(c.id); if (def) actors.push(visualActor('companion',c.id,def)); }
-    const serial = state.lifetime.itemProgress.sceneSerial = (state.lifetime.itemProgress.sceneSerial || 0) + 1;
-    return itemMemorySnapshot(`photo:${serial}`,`${main.label}の、きょうの一枚。`,{actors,capturedAt:new Date().toISOString().slice(0,10),environmentLabels:itemEnvironmentLabels(env)});
-  }
-
-  function collectItemTunes() {
-    const env = currentEnvironment(), p = state.lifetime.itemProgress;
-    p.visitedSeasons = [...new Set([...(p.visitedSeasons || []),env.season])];
-    const choices = [
-      ...p.visitedSeasons.filter(id=>SEASON_INFO[id]).map(id=>({tuneId:`season:${id}`,label:`${SEASON_INFO[id].label}の小さな曲`})),
-      ...[...new Set([...(state.lifetime.regionsVisited || []),...(state.lifetime.specialRegionsVisited || []),env.region])].map(id=>[...REGIONS,...SPECIAL_REGIONS].find(r=>r.id===id)).filter(Boolean).map(r=>({tuneId:`place:${r.id}`,label:`${r.label}の小さな曲`})),
-    ];
-    for (const tune of choices) addItemMemory('tunes',itemMemorySnapshot(`tune:${tune.tuneId}`,tune.label,tune));
-    return `season:${env.season}`;
-  }
-
-  function playSavedItemTune(tuneId) {
-    const status = document.getElementById('itemMemoryStatus');
-    if (!ITEM_SYSTEM.ownsTool(state,'fun_musicbox')) { status.textContent = 'オルゴールを手に入れると聴けます'; return false; }
-    const tune = state.lifetime.itemMemories.tunes.find(t=>t.tuneId===tuneId);
-    if (!tune) return false;
-    const played = audio.playItemTune(tuneId);
-    status.textContent = played ? `${tune.label}を聴いている` : '音が出せません。音の設定を確かめて、もう一度きいてね';
-    return played;
   }
 
   let itemMemoriesOpen = false;
@@ -14111,158 +13666,6 @@
     if (itemMemoriesOpen) document.getElementById('itemMemoriesList').innerHTML = window.NaotocchiItemMemories.render(Object.fromEntries(Object.entries(state.lifetime.itemMemories).map(([kind,records])=>[kind,records.map(r=>({...r,environmentLabels:r.environmentLabels || itemEnvironmentLabels(r.environment)}))])));
   }
   document.getElementById('itemMemoriesBtn').addEventListener('click',()=>{itemMemoriesOpen=!itemMemoriesOpen;renderItemMemories();});
-  document.getElementById('itemMemoriesList').addEventListener('click',async e=>{
-    const btn = e.target.closest('button[data-memory-action]'); if (!btn) return;
-    const {kind,key,memoryAction} = btn.dataset;
-    const record = state.lifetime.itemMemories[kind]?.find(r=>r.key===key); if (!record) return;
-    if (memoryAction==='play' && kind==='tunes') { playSavedItemTune(record.tuneId); return; }
-    if (memoryAction!=='export' || kind!=='photos') return;
-    const status = document.getElementById('itemMemoryStatus'); status.textContent = '画像を作っています';
-    const url = await window.NaotocchiItemMemories.exportPhoto(record,{document,loadImage:loadStickerImage});
-    const target = document.getElementById('itemMemoryExport');target.innerHTML='';
-    if (!url) { status.textContent='この環境では画像を作れません。思い出は残っています'; return; }
-    const img = document.createElement('img'); img.src=url; img.alt=`${record.age}さいのしゃしん`;target.appendChild(img);
-    const link = document.createElement('a');link.href=url;link.download='naotocchi-photo.png';link.textContent='しゃしんをほぞん';target.appendChild(link);
-    status.textContent='画像ができました';
-  });
-
-  // Use the same age bands as the existing fun dialogue, including age 13
-  // within a visual stage and age 70 even when an infinite-mode form is fixed.
-  function funAgeBand() {
-    const age = currentAge();
-    return age >= 70 ? 'elder' : age < 13 ? 'young' : 'adult';
-  }
-  const FUN_CROWN_LINES = {
-    fun_candy: {
-      young:'かんむりみたいな包み紙、あまいにおいもする！',
-      adult:'かんむりより、この一粒を大事に味わおう。',
-      elder:'かんむりを置いて、ゆっくり溶ける甘さを楽しもう。',
-      solo:'最後のひと口は、ひとりじめ。', partner:'きみにも、この甘さを伝えたい。',
-      companions:'包み紙の音で、なかまが集まってきた。', 'partner-companions':'ふたりで味を言い合ったら、なかまも混ざってきた。',
-    },
-    fun_bubbles: {
-      young:'泡のかんむり、追いかけたらかぶれるかな！',
-      adult:'泡の中のかんむりは、割れるまでの王さま。',
-      elder:'泡のかんむりが消えるまで、ここでゆっくり見送ろう。',
-      solo:'ひとつだけ、最後まで目で追った。', partner:'同じ泡に、ふたりの顔が映ったね。',
-      companions:'あっちの泡は、なかまにまかせよう。', 'partner-companions':'ふたりで見送った泡を、なかまが追いかけた。',
-    },
-    fun_balloon: {
-      young:'ふうせんの目印、かんむりより高く上げるぞ！',
-      adult:'かんむりより高い目印。だれかが見つけてくれるかな。',
-      elder:'かんむりより高く揺れる目印を、のんびり眺めて待とう。',
-      solo:'足音がしたら、まっさきに振り向こう。', partner:'きみとひもを持って、訪ねてくる子を待とう。',
-      companions:'なかまも目印のそばに集まって、入り口を見ている。', 'partner-companions':'ふたりとなかまの輪に、もうひとり来てくれるかな。',
-    },
-    fun_fireworks: {
-      young:'光のかんむり、次はもっと大きいのが見たい！',
-      adult:'今日のかんむりは、ここで見つけた光だね。',
-      elder:'消えた光のかんむりが、目を閉じてもまだ浮かぶ。',
-      solo:'最後の光まで、ひとりで数えていた。', partner:'きみが驚いた顔も、光といっしょに覚えておこう。',
-      companions:'なかまの歓声が、光を追いかけて広がった。', 'partner-companions':'ふたりで顔を見合わせたら、なかまからも拍手が来た。',
-    },
-    fun_camera: {
-      young:'かんむりも入った？とびきりの顔で写るぞ！',
-      adult:'かんむりも入った？今日の顔ごと、とっておいて。',
-      elder:'かんむりと、この年まで育った顔を、もう一枚残そう。',
-      solo:'ひとりの顔も、ちゃんと見返したい。', partner:'きみと並んだ一枚は、ふたりで見返そう。',
-      companions:'なかまの顔が、はしっこまで入っているかな。', 'partner-companions':'ふたりもなかまも、誰も切れずに写ったかな。',
-    },
-    fun_musicbox: {
-      young:'かんむりが揺れるくらい、この音に合わせて踊ろう！',
-      adult:'かんむりを置いて、この音の続きを聴こう。',
-      elder:'かんむりを置いたら、昔に聴いた音まで思い出した。',
-      solo:'次の音を、ひとりでそっと口ずさんだ。', partner:'きみと黙って聴く時間も、いいね。',
-      companions:'なかまがそれぞれの速さで揺れている。', 'partner-companions':'ふたりの小さな歌に、なかまの足音が重なった。',
-    },
-    fun_surprise: {
-      young:'かんむりが跳ねた！箱とどっちが高く跳べるかな！',
-      adult:'かんむりが跳ねた！箱には、まだかなわないな。',
-      elder:'何度見ても、かんむりが跳ねるほど驚いてしまうね。',
-      solo:'見られていなくても、ちょっと照れた。', partner:'きみまで同じ顔で驚いていて、笑っちゃった。',
-      companions:'箱より大きいなかまの声に、もう一度びっくり。', 'partner-companions':'ふたりとなかまがいっぺんに跳ねて、箱だけ静かだね。',
-    },
-  };
-  function rememberCrownReaction(item) {
-    if (!hasNaotoItem('naoto_crown')) return null;
-    const env = currentEnvironment(), ageBand = funAgeBand();
-    const partnerIdentity = itemPartnerIdentity(state.partner);
-    // Actor order and changing bond values are not a new cast identity.
-    const companionIds = [...new Set(state.companions.map(c => c.id))].sort();
-    const castKind = companionIds.length ? (partnerIdentity ? 'partner-companions' : 'companions') : (partnerIdentity ? 'partner' : 'solo');
-    const contextKey = JSON.stringify([state.speciesLine,currentFormStageIndex(),ageBand,castKind,partnerIdentity,companionIds,env.time,env.season,env.region]);
-    const variantId = `crown:${item.id}:${ageBand}:${castKind}`;
-    const lines = FUN_CROWN_LINES[item.id], text = lines[ageBand] + lines[castKind];
-    // Version only the new key; older saved crown records stay intact.
-    addItemMemory('reactions', itemMemorySnapshot(`crown:v2:${item.id}:${contextKey}`, text, {
-      itemId:item.id,contextKey,variantId,ageBand,castKind,partnerIdentity,companionIds,
-    }));
-    return text;
-  }
-
-  function showFunItemEffect(item,outcome) {
-    const env=currentEnvironment(),effect=item.id.slice(4),area=document.createElement('div');
-    area.className='item-experience';area.dataset.effect=effect;
-    area.dataset.setting=env.region==='deepsea'?'water':env.time==='night'?'sky':'hand';
-    area.dataset.outcome=outcome || '';area.dataset.season=env.season;area.setAttribute('aria-hidden','true');
-    area.style.setProperty('--item-season-color',({spring:'#e699c9',summer:'#efa953',autumn:'#d47442',winter:'#80bada'})[env.season]);
-    const localIcon = ({forest:'tree',sea:'wave',deepsea:'bubbles',snow:'snow_mountain',desert:'cactus',city:'city',mountain:'mountain'})[env.region] || 'flower';
-    const icon = outcome==='energy'?'star':outcome==='big'?localIcon:effect==='fireworks'&&env.region==='deepsea'?'bubbles':effect==='surprise'?'surprise':effect;
-    area.innerHTML=Array.from({length:['bubbles','fireworks'].includes(effect)?5:1},(_,i)=>`<span class="item-experience-piece" style="--i:${i}">${uiIconHTML(icon,item.label,item.emoji)}</span>`).join('');
-    el.petArea.appendChild(area);setTimeout(()=>area.remove(),3000);
-  }
-
-  function useLegacyItemScene(id) {
-    const item=FUN_ITEMS.find(i=>i.id===id);
-    if(!item || !ITEM_SYSTEM.ownsTool(state,id) || funUnavailableReason(id) || !(state.lifetime.itemExtraScenes[id]>0))return false;
-    state.lifetime.itemExtraScenes[id]-=1;
-    closeOverlay('item');playFunScene(item);showFunItemEffect(item);saveState();render();return true;
-  }
-
-  function useItem(itemId) {
-    const item = FUN_ITEMS.find(it => it.id === itemId);
-    if (!item) return false;
-    const reason=funUnavailableReason(itemId);
-    if (reason) { setMessage(reason);return false; }
-    const tool = ITEM_SYSTEM.ownsTool(state, itemId);
-    if (!tool && !ITEM_SYSTEM.stock(state,itemId)) return false;
-    // Balloon stock remains reserved until the eligible invitation opens.
-    if (itemId==='fun_balloon') state.itemLife.balloon={readyAt:state.lifetime.itemProgress.ticks+10};
-    else if (!tool && !ITEM_SYSTEM.take(state, itemId)) return false;
-    recordItemUse(itemId, !tool && itemId!=='fun_balloon');
-    let outcome;
-    if (itemId==='fun_candy') { state.happiness=clamp(state.happiness+8,0,100);state.itemLife.candyUntil=state.lifetime.itemProgress.ticks+20; }
-    if (itemId==='fun_bubbles') { state.happiness=clamp(state.happiness+10,0,100);for(const c of state.companions)c.bond=clamp((c.bond??100)+10,0,100); }
-    if (itemId==='fun_fireworks') {
-      state.happiness=clamp(state.happiness+15,0,100);if(state.partner)state.partner.affection=clamp((state.partner.affection??100)+15,0,100);
-      const p=state.lifetime.itemProgress;p.sceneSerial=(p.sceneSerial||0)+1;
-      addItemMemory('specials',itemMemorySnapshot(`fireworks:${p.sceneSerial}`,'みんなで、光の行方を見送った。',{itemId,event:'fireworks'}));
-    }
-    if (itemId==='fun_camera') addItemMemory('photos',photoSnapshot());
-    if (itemId==='fun_musicbox') { const tuneId=collectItemTunes();playSavedItemTune(tuneId);if(ITEM_SYSTEM.ready(state,'musicbox')){applyDecline(-10);ITEM_SYSTEM.cooldown(state,'musicbox',100);} }
-    if (itemId==='fun_surprise' && ITEM_SYSTEM.ready(state,'surprise')) {
-      const roll=Math.random();outcome=roll<.5?'small':roll<.8?'big':'energy';
-      if(outcome==='energy')state.energy=clamp(state.energy+10,0,100);else state.happiness=clamp(state.happiness+(outcome==='big'?10:5),0,100);
-      ITEM_SYSTEM.cooldown(state,'surprise',100);
-    }
-    closeOverlay('item');
-    playFunScene(item);showFunItemEffect(item,outcome);
-    saveState(); render(); return true;
-  }
-
-  el.itemsRow.addEventListener('click', (e) => {
-    const btn = e.target.closest('.item-btn');
-    if (btn && !btn.disabled) useItem(btn.dataset.itemId);
-  });
-
-  el.rewardItemGrid.addEventListener('click', () => {
-    const count = state.items.reward || 0;
-    setMessage(count > 0
-      ? `🎁ごほうびを${count}こもっている。デートやたびをとくべつな思い出にできるよ`
-      : '🎁ごほうびはとてもレア。デートやたびのとくべつな思い出につかえるよ');
-    render();
-  });
-
   // --- minigames (triggered by the play button) ---
 
   const SEASON = { SPRING: 'spring', SUMMER: 'summer', AUTUMN: 'autumn', WINTER: 'winter' };
@@ -15741,39 +15144,25 @@
     offerTransformIfReady();
 
     let itemMessage = glassesBonus || minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
-    const progress = state.lifetime.itemProgress;
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
-      const fun = randomFunItem();
-      ITEM_SYSTEM.grant(state, fun.id);
-      const cloverGreat = equipped('itemluck1') && rawScore >= 70;
-      const randomReward = Math.random() < 0.12;
-      const gotReward = special || (cloverGreat && progress.cloverMisses >= 5) || randomReward;
-      if (gotReward) {
-        ITEM_SYSTEM.grant(state, 'reward');
-        progress.cloverMisses = 0;
-      } else if (cloverGreat) progress.cloverMisses += 1;
       if (special) state.oneTimeBoosts.greatReward = false;
       const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
       state.oneTimeBoosts.doubleCoins = false;
       const coins = Math.round((5 + Math.random() * 6) * coinBoost * envModifiers().coin);
       state.lifetime.money += coins;
-      itemMessage += gotReward ? `／${fun.label}とごほうび1こ、${coins}コインをもらった!` : `／${fun.label}と${coins}コインをもらった!`;
+      itemMessage += `／${coins}コインをもらった!`;
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-      state.lifetime.money += 2;
-      itemMessage += '／2コインをもらった';
+      const ordinaryCoins = equipped('star') ? 4 : 2;
+      state.lifetime.money += ordinaryCoins;
+      itemMessage += `／${ordinaryCoins}コインをもらった`;
     } else if (protectedFailure) {
       state.oneTimeBoosts.safetyNet = false;
       itemMessage += '／スコアほけんが、げんき・おとろえ・いのちを守った';
     } else {
       applyDecline(8);
       raiseDeathMeter(2, activeMinigameEquipment);
-    }
-    if (equipped('star') && rawScore >= 30 && game?.id) {
-      const starGameId = game.id === 'quick-solo' ? 'quick-run' : game.id;
-      if (!progress.starGames.includes(starGameId) && progress.starGames.length < 3) progress.starGames.push(starGameId);
-      if (claimStarReward()) itemMessage += '／星が3つそろった。15コイン!';
     }
     if (equipped('energy1') && !protectedFailure) itemMessage += `／げんきバンドで消費${energyCost}`;
 
@@ -15817,8 +15206,7 @@
             ? state.lifetime.rareCompanionsRecruited
             : state.lifetime.companionsRecruited;
           if (!record.includes(companion.id)) record.push(companion.id);
-          if (pendingReunionId !== companion.id) grantSticker(`companion:${companion.id}`, 'companion');
-          pendingReunionId = null;
+          grantSticker(`companion:${companion.id}`, 'companion');
           if (state.lifetime.companionFriendshipProgress) {
             delete state.lifetime.companionFriendshipProgress[companion.id];
           }
@@ -16114,22 +15502,6 @@
     btn.addEventListener('click', go);
   }
 
-  function claimStarReward() {
-    const progress = state.lifetime.itemProgress;
-    if (progress.starGames.length < 3 || !ITEM_SYSTEM.ready(state, 'star')) return false;
-    state.lifetime.money += 15;
-    progress.starGames = [];
-    ITEM_SYSTEM.cooldown(state, 'star', 100);
-    return true;
-  }
-
-  function updateItemEffectTick() {
-    if (isEquipped('star') && claimStarReward()) setMessage('星が3つそろった。15コイン!');
-    const life = state.itemLife;
-    if (!isEquipped('sleepboost1')) { life.pillowUntil = 0; life.pillowSleepTicks = 0; return; }
-    if (state.isSleeping) life.pillowSleepTicks = (life.pillowSleepTicks || 0) + 1;
-  }
-
   let sleepRecoveryTimer = null;
 
   function stopSleepRecovery() {
@@ -16165,11 +15537,13 @@
   function startSleepRecovery() {
     stopSleepRecovery();
     if (!state.isSleeping) return;
-    // 「ねる」を押したその場で最初の回復を1回入れ、その後100msごとに
-    // なめらかに回復し続ける。最初の100ms待ちをなくして反応を即時にする。
-    if (state.isSleeping && state.energy < 100) {
-      sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
+    if (isEquipped('sleepboost1')) {
+      const changed = state.energy < 100;
+      state.energy = 100;
+      if (changed) itemContextReaction('sleepboost1', 'ふかふかのまくらで、すぐにげんきまんたん。');
+      return;
     }
+    if (state.energy < 100) sleepRecoveryTimer = setInterval(recoverSleepStep, 100);
     recoverSleepStep();
   }
 
@@ -16529,7 +15903,6 @@
     if (state.isSleeping) {
       state.actionCounts.sleep += 1;
       state.sleptTicks = 0;
-      state.itemLife.pillowSleepTicks = 0;
       // 回復は専用タイマーで連続して行う。最初の1ステップも押した瞬間に
       // 入るので見た目の待ち時間はない。成長ボーナスは十分な睡眠時間を
       // とった場合だけなので、寝る/起きる連打で得をすることはない
@@ -16541,10 +15914,6 @@
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
     // (ねる→おきるの 連打で かせげてしまう ぬけみちを ふさぐ)
     stopSleepRecovery();
-    if (isEquipped('sleepboost1') && state.itemLife.pillowSleepTicks >= 10 && !(state.itemLife.pillowUntil > state.lifetime.itemProgress.ticks)) {
-      state.itemLife.pillowUntil = state.lifetime.itemProgress.ticks + 60;
-    }
-    state.itemLife.pillowSleepTicks = 0;
     if (state.sleptTicks >= 20) { applyGrowth(3); applyDecline(-3); }
     state.sleptTicks = 0;
     if (!checkMeters()) {
@@ -17017,7 +16386,7 @@
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
     if (region.id === state.regionId && !sameLocalHome) return false;
-    if (!sameLocalHome && !choice && (ITEM_SYSTEM.stock(state,'reward') || state.oneTimeBoosts.travelGuarantee || (state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel')))) {
+    if (!sameLocalHome && !choice && (state.oneTimeBoosts.travelGuarantee || (state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel')))) {
       openItemTravelScene(region);
       return false;
     }
@@ -17034,8 +16403,6 @@
     }
     state.lifetime.currentLocationSelected = false;
     state.lifetime.currentLocation = null;
-    const specialRewardTrip = choice?.reward === true && ITEM_SYSTEM.take(state,'reward');
-    if (specialRewardTrip) recordItemUse('reward');
     state.affectionStreak = 0;
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
@@ -17043,7 +16410,7 @@
     // アイテムの「たびの おまもり」を もっていれば、この たび 1かいだけ
     // かならず「たびづかれ」なしの よい けっかに なる
     const travelGuaranteed = !!choice?.scene && commitPendingItem('c_travel');
-    const spammedTravel = !specialRewardTrip && !travelGuaranteed && state.travelStreak > travelSpamThreshold();
+    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
     // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
     // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
     // (ぜんぶの地域(REGIONS の 11))」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
@@ -17063,9 +16430,12 @@
     }
     // たびは からだを つかう ので、元気/満腹が すこし へる(移動で つかれ、
     // ごはんの タイミングも のがす)
-    state.energy = clamp(state.energy - (isEquipped('travel1') ? 3 : 6), 0, 100);
-    state.hunger = clamp(state.hunger - (isEquipped('travel1') ? 2 : 4), 0, 100);
-    if (isEquipped('travel1')) itemContextReaction('travel1', `${region.label}で荷物を広げた。げんきとおなかの消費が半分になった。`);
+    if (isEquipped('travel1')) {
+      itemContextReaction('travel1', `${region.label}へ身軽に出発。げんきとおなかを消費しなかった。`);
+    } else {
+      state.energy = clamp(state.energy - 6, 0, 100);
+      state.hunger = clamp(state.hunger - 4, 0, 100);
+    }
     if (spammedTravel) {
       state.happiness = clamp(state.happiness - 3, 0, 100);
       applyDecline(5);
@@ -17080,12 +16450,9 @@
     speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
     checkStoryEvents('travel');
     if (travelGuaranteed) reaction = choice.scene.text;
-    const travelMemory = specialRewardTrip || travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:specialRewardTrip ? 'special-travel' : 'travel-detour',choiceId:choice?.scene?.id || null})) : null;
+    const travelMemory = travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:'travel-detour',choiceId:choice?.scene?.id || null})) : null;
     if (!checkMeters()) {
-      if (specialRewardTrip) {
-        pushLifeLog('🎁', `とくべつな旅のおもいで: ${region.label}`);
-        setMessage(`🎁 ${region.emoji} ${region.label}で、いつもよりゆっくりすごした。${reaction}`);
-      } else {
+      {
         setMessage(spammedTravel
           ? `${region.emoji} ${region.label}にやってきた!でも、旅の疲れでちょっとぐったり…${reaction}`
           : `${region.emoji} ${region.label}にやってきた!${reaction}`);
@@ -17105,14 +16472,11 @@
     for (const child of el.itemSceneChoiceGrid.children) child.setAttribute('aria-pressed', String(child.dataset.scene === btn.dataset.scene));
     commitItemTravelScene();
   });
-  el.itemSceneRewardUseBtn.addEventListener('click', () => { if (pendingItemScene) { pendingItemScene.reward=true;commitItemTravelScene(); } });
-  el.itemSceneRewardSkipBtn.addEventListener('click', () => { if (pendingItemScene) { pendingItemScene.reward=false;commitItemTravelScene(); } });
   el.itemSceneCancelBtn.addEventListener('click', () => { closeItemScene();render(); });
   el.itemRelationActions.addEventListener('click', e => {
     const btn = e.target.closest('button[data-item-relation]');
     if (!btn || btn.disabled) return;
-    if (btn.dataset.itemRelation === 'reunion') startItemReunion(btn.dataset.companion);
-    else if (btn.dataset.itemRelation === 'lantern') useItemLantern(btn.dataset.region);
+    if (btn.dataset.itemRelation === 'lantern') useItemLantern(btn.dataset.region);
   });
 
   el.travelRegionGrid.addEventListener('click', (e) => {
@@ -17146,35 +16510,6 @@
     closeDateOverlay();
   });
 
-  function confirmDateReward(useReward) {
-    const plan = pendingDatePlan;
-    if (!dateOpen || !plan) return;
-    if (!pendingDateContext || pendingDateContext.partner !== itemPartnerIdentity(state.partner) || pendingDateContext.region !== state.regionId) { closeDateOverlay();return; }
-    pendingDateContext = null;
-    pendingDatePlan = null;
-    goOnDate(plan, useReward);
-  }
-
-  function returnToDateChoices() {
-    if (!dateOpen || !pendingDatePlan) return;
-    pendingDatePlan = null;
-    el.dateRewardConfirm.classList.add('hidden');
-    el.dateChooser.classList.remove('hidden');
-    render();
-    el.dateCancelBtn.focus({ preventScroll: true });
-    el.dateChooser.scrollIntoView({ block: 'nearest' });
-  }
-
-  el.dateRewardUseBtn.addEventListener('click', () => confirmDateReward(true));
-  el.dateRewardSkipBtn.addEventListener('click', () => confirmDateReward(false));
-  el.dateRewardBackBtn.addEventListener('click', returnToDateChoices);
-  el.dateRewardConfirm.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      returnToDateChoices();
-    }
-  });
-
   el.dateMovieSkipBtn.addEventListener('click', () => {
     finishDateMovie();
   });
@@ -17201,18 +16536,13 @@
     const companion = allCompanionsById(pendingCompanionId);
     closeCompanionInvite();
     if (!companion) { pendingCompanionId = null; render(); return; }
-    const reunionOk = pendingReunionId !== companion.id || (isEquipped('bond1') && itemUseAllowed('bond1') && ITEM_SYSTEM.ready(state,'reunion') && availableReunionCompanions().some(c => c.id === companion.id));
-    const stillOk = reunionOk && !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
+    const stillOk = !gameActive && state.stage === STAGE.GROWING && !state.isSleeping && !state.transformOptions;
     if (!stillOk) {
       pendingCompanionId = null;
       setMessage('いまはあそべなかった…またこんどさそってもらおう');
       saveState();
       render();
       return;
-    }
-    if (pendingReunionId === companion.id) {
-      ITEM_SYSTEM.cooldown(state, 'reunion', 200);
-      saveState();
     }
     startMinigame(pickRandomMinigame());
   });
@@ -17557,8 +16887,6 @@
     if (!btn || btn.disabled) return;
     if (btn.dataset.itemAction === 'cancel') { delete state.itemLife.pendingItems[btn.dataset.id]; saveState();render(); }
     else if (btn.dataset.itemAction === 'buy') buyConsumableItem(btn.dataset.id);
-    else if (btn.dataset.itemAction === 'scene') useLegacyItemScene(btn.dataset.id);
-    else if (btn.dataset.id.startsWith('fun_')) useItem(btn.dataset.id);
     else useConsumableItem(btn.dataset.id);
   });
 
@@ -18209,23 +17537,20 @@
     else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
-    // おみやげ: 5ふんに 1コイン(さいだい 12)、30ぷんいじょうなら ときどき おたのしみ
+    // おみやげ: 5ふんに 1コイン(さいだい 12)
     const coins = Math.min(12, Math.floor(elapsed / (5 * 60 * 1000)));
-    let gift = null;
     if (coins > 0) state.lifetime.money += coins;
-    if (elapsed >= 30 * 60 * 1000 && Math.random() < 0.35) { gift = randomFunItem(); ITEM_SYSTEM.grant(state, gift.id); }
     const parts = [];
     const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
     d('hunger', 'おなか'); d('happiness', 'ごきげん'); d('energy', 'げんき');
     if (poop) parts.push('うんち+1');
     if (coins) parts.push(`💰+${coins}`);
-    if (gift) parts.push(`${gift.emoji}${gift.label}`);
     const span = minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
     const summary = `🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`;
     pushLifeLog('🏠', `るすばん：${span}`);
     setMessage(summary);
-    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${gift ? `\n${gift.emoji}${gift.label}を見つけて、とっておいた` : coins ? `\n💰${coins}を拾っておいた` : ''}` });
-    return { ticks, minutes, coins, gift, poop, sleeping };
+    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${coins ? `\n💰${coins}を拾っておいた` : ''}` });
+    return { ticks, minutes, coins, poop, sleeping };
   }
 
   function loop() {

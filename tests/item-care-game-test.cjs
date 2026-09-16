@@ -61,13 +61,12 @@ test('protected failure has no game energy, decline or life damage, ordinary pre
   assert.equal(s.oneTimeBoosts.safetyNet,true);
 });
 
-test('great charm waits for real seventy and awards growth 28 or 56 and one gift',()=>{
+test('great charm waits for real seventy and awards growth 28 or 56',()=>{
   for(const boost of [0,100]){const {h,s}=setup('glasses');
     s.items.c_mgbig=1;
     h.api.useConsumableItem('c_mgbig');
     play(h,60);
     assert.equal(s.oneTimeBoosts.greatReward,true);
-    assert.equal(h.api.itemStock('reward'),0);
     s.sodachi=80;
     s.maxSodachi=80;
     s.growth=0;
@@ -75,115 +74,8 @@ test('great charm waits for real seventy and awards growth 28 or 56 and one gift
     play(h,70);
     assert.equal(s.sodachi,boost?81:80);
     assert.equal(s.growth,boost?24:28);
-    assert.equal(h.api.itemStock('reward'),1);
     assert.equal(s.oneTimeBoosts.greatReward,false);
   }
-});
-
-test('clover five misses survive reload and swapping; sixth combines with charm into one gift',()=>{
-  let {h,s}=setup('itemluck1');
-  for (let i=0; i<5; i++)play(h,70);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,5);
-  h=reload(s);
-  s=h.api.state();
-  vm.runInContext('Math.random=()=>0.99',h.sandbox);
-  s.lifetime.equippedItemId='ribbon';
-  play(h,70);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,5);
-  s.lifetime.equippedItemId='itemluck1';
-  s.items.c_mgbig=1;
-  h.api.useConsumableItem('c_mgbig');
-  h.api.startMinigame(game('sixth'));
-  s.lifetime.equippedItemId=null;
-  h.api.finishMinigame(70);
-  assert.equal(h.api.itemStock('reward'),1);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,0);
-});
-
-test('star three distinct real scores waits first hundred ticks and pays fixed fifteen',()=>{
-  const {h,s}=setup();
-  s.lifetime.money=360;
-  h.api.buyOrEquipShopItem('star');
-  play(h,30,'a');
-  play(h,30,'b');
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,6);
-  assert.equal(s.lifetime.itemProgress.starGames.length,3);
-  s.lifetime.itemProgress.ticks=99;
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,8);
-  s.lifetime.itemProgress.ticks=100;
-  s.oneTimeBoosts.doubleCoins=true;
-  play(h,30,'c');
-  assert.equal(s.lifetime.money,25);
-  assert.equal(s.oneTimeBoosts.doubleCoins,true);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-});
-
-test('star excludes assisted low scores and interruption; quick run counts as one kind',()=>{
-  const {h,s}=setup('star');
-  s.oneTimeBoosts.minigameBoost='small';
-  play(h,20);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-  for (let i=0; i<3; i++)play(h,30,'quick-run');
-  assert.equal(s.lifetime.itemProgress.starGames.length,1);
-  h.api.startMinigame(game('retired'));
-  h.api.retireMinigame();
-  assert.equal(s.lifetime.itemProgress.starGames.length,1);
-});
-
-test('paper removes only one at three with no care reward and sixty tick cooldown',()=>{
-  const {h,s}=setup('poop1');
-  s.poopCount=3;
-  const clean=s.actionCounts.clean;
-  h.api.tick();
-  assert.equal(s.poopCount,2);
-  assert.equal(s.actionCounts.clean,clean);
-  assert.equal(s.growth,0);
-  s.poopCount=3;
-  ticks(h,59);
-  assert.equal(s.poopCount,3);
-  h.api.tick();
-  assert.equal(s.poopCount,2);
-  assert.equal(s.actionCounts.clean,clean);
-});
-
-test('scarf halves only winter and snow added hunger burden',()=>{
-  for(const [season,weather,expected] of [['spring','sunny',0.35],['winter','sunny',0.37625],['spring','snow',0.3675],['winter','snow',0.3950625]]){const {h,s}=setup('scarf');
-    s.lifetime.seasonMode=season;
-    s.lifetime.weatherMode=weather;
-    h.api.tick();
-    assert.ok(Math.abs(50-s.hunger-expected)<1e-9,`${season}/${weather}: ${50-s.hunger}`);
-  }
-});
-
-test('pillow takes thirty seconds sleeping, lasts sixty ticks, ends on unequip',()=>{
-  const {h,s}=setup('sleepboost1');
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  let before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,10);
-  h.dispatch(h.get('sleepBtn'),'click');
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.16)<1e-9);
-  ticks(h,59);
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
-  h.dispatch(h.get('sleepBtn'),'click');
-  ticks(h,10);
-  h.dispatch(h.get('sleepBtn'),'click');
-  s.lifetime.ownedShopItems=['sleepboost1'];
-  h.api.buyOrEquipShopItem('sleepboost1');
-  h.api.buyOrEquipShopItem('sleepboost1');
-  before=s.energy;
-  h.api.tick();
-  assert.ok(Math.abs(before-s.energy-0.32)<1e-9);
 });
 
 test('crown rescues sustained zero health once, after existing miracle, without restoring life',()=>{
@@ -323,48 +215,19 @@ test('failed and invalid completion retain great charm and interrupted games do 
   assert.equal(s.items.reward,undefined);
 });
 
-test('all three gift sources collide as exactly one reward',()=>{
-  const {h,s}=setup('itemluck1');
-  s.lifetime.itemProgress.cloverMisses=5;
-  s.oneTimeBoosts.greatReward=true;
-  h.api.startMinigame(game('gift'));
-  vm.runInContext('Math.random=()=>0',h.sandbox);
-  h.api.finishMinigame(70);
-  assert.equal(s.items.reward,1);
-  assert.equal(s.lifetime.itemProgress.cloverMisses,0);
-});
-
-test('saved reservations and care cooldowns survive reload and life limits reset',()=>{
-  const {h,s}=setup('poop1');
-  s.poopCount=3;
-  h.api.tick();
+test('saved reservations survive reload and life limits reset',()=>{
+  const {h,s}=setup();
   s.items.c_mgbig=1;
   h.api.useConsumableItem('c_mgbig');
   s.itemLife.crownUsed=true;
   s.itemLife.lifePatchUsed=true;
   const n=reload(s),r=n.api.state();
   assert.equal(r.oneTimeBoosts.greatReward,true);
-  assert.equal(r.lifetime.itemProgress.readyAt.paper,61);
   assert.equal(r.itemLife.crownUsed,true);
   n.dispatch(n.get('resetBtn'),'click');
   assert.equal(n.api.state().itemLife.crownUsed,false);
   assert.equal(n.api.state().itemLife.lifePatchUsed,false);
   assert.equal(n.api.state().oneTimeBoosts.greatReward,false);
-  assert.equal(n.api.state().lifetime.itemProgress.readyAt.paper,61);
-});
-
-test('ribbon and bowtie reduce only ordinary decay and free care remains available',()=>{
-  for(const equip of ['ribbon','bowtie']){const {h,s}=setup(equip);
-    h.api.tick();
-    const value=equip==='ribbon'?s.happiness:s.hunger;
-    assert.ok(Math.abs(value-(equip==='ribbon'?79.791155:49.727))<1e-9);
-    s.lifetime.money=0;
-    s.poopCount=3;
-    h.dispatch(h.get('cleanBtn'),'click');
-    assert.equal(s.poopCount,0);
-    assert.equal(s.lifetime.money,0);
-    assert.equal(s.actionCounts.clean,1);
-  }
 });
 
 test('life patch works at exactly forty life and cannot postpone age one hundred',()=>{
@@ -382,7 +245,7 @@ test('life patch works at exactly forty life and cannot postpone age one hundred
   assert.equal(s.items.new_life_patch,1);
 });
 
-test('completed star set pays on the eligible activity tick without a fourth game',()=>{
+test('star pays ordinary success immediately and never adds a delayed set reward',()=>{
   const {h,s}=setup();
   s.lifetime.money=360;
   h.api.buyOrEquipShopItem('star');
@@ -391,9 +254,9 @@ test('completed star set pays on the eligible activity tick without a fourth gam
   play(h,30,'c');
   s.lifetime.itemProgress.ticks=99;
   h.api.tick();
-  assert.equal(s.lifetime.money,21);
-  assert.equal(s.lifetime.itemProgress.starGames.length,0);
-  assert.equal(s.lifetime.itemProgress.readyAt.star,200);
+  assert.equal(s.lifetime.money,12);
+  assert.equal(s.lifetime.itemProgress.starGames,undefined);
+  assert.equal(s.lifetime.itemProgress.readyAt.star,undefined);
 });
 
 test('disease shield shows the prevented illness and remaining two uses',()=>{
@@ -408,33 +271,19 @@ test('disease shield shows the prevented illness and remaining two uses',()=>{
   assert.match(h.api.getMessage(),/ふせいだ.*2/);
 });
 
-test('star menu distinguishes missing stamps from cooldown and actual payout', () => {
+test('star menu describes immediate ordinary-success coins without stamp or waiting UI', () => {
   const {h,s} = setup();
   s.lifetime.money = 400;
   h.api.buyOrEquipShopItem('star');
   h.api.openExclusiveMenu('item');
   const status = () => h.get('shopItemGrid').children.find(b => b.dataset.id === 'star').textContent;
-  assert.match(status(), /星0\/3/);
-  assert.match(status(), /あと3種類/);
-  assert.match(status(), /受取まで300秒/);
-
-  s.lifetime.itemProgress.ticks = 100;
-  h.api.render();
-  assert.match(status(), /あと3種類/);
-  assert.doesNotMatch(status(), /受取できる/);
-  h.api.closeAllMenuOverlays();
-  play(h,40,'star-first');
-  play(h,40,'star-second');
-  h.api.openExclusiveMenu('item');
-  assert.match(status(), /星2\/3/);
-  assert.match(status(), /あと1種類/);
-  assert.doesNotMatch(status(), /受取できる/);
-
+  assert.match(status(), /通常.*成功.*コイン.*2倍/);
+  assert.doesNotMatch(status(), /星[0-3]\/3|あと.*種類|受取|300秒/);
   h.api.closeAllMenuOverlays();
   const cash = s.lifetime.money;
-  play(h,40,'star-third');
-  assert.equal(s.lifetime.money, cash + 17);
+  play(h,40,'star-first');
+  assert.equal(s.lifetime.money, cash + 4);
   h.api.openExclusiveMenu('item');
-  assert.match(status(), /星0\/3/);
-  assert.match(status(), /受取まで300秒/);
+  assert.match(status(), /みにつけている/);
+  assert.doesNotMatch(status(), /星[0-3]\/3|受取/);
 });

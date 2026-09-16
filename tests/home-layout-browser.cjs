@@ -41,6 +41,8 @@ async function measure(page) {
     const hit = document.elementFromPoint(n.x + n.width / 2, n.bottom - 4);
     const frame = document.querySelector('.screen-frame');
     return {
+      retiredItemsRow:!!document.getElementById('itemsRow'),
+      retiredFooterSpace:document.getElementById('screenNormal').style.paddingBottom === '38px',
       width:innerWidth, height:innerHeight, pageWidth:document.documentElement.scrollWidth,
       pageHeight:document.documentElement.scrollHeight,
       header:rect(document.querySelector('.device-header')),
@@ -57,6 +59,8 @@ async function measure(page) {
 }
 
 function checkLayout(m, label) {
+  assert.equal(m.retiredItemsRow, false, label + ': retired fun strip must not occupy the home');
+  assert.equal(m.retiredFooterSpace, false, label + ': retired strip must not reserve home space');
   assert.ok(m.pageWidth <= m.width + 1, label + ': page overflows horizontally');
   assert.ok(m.pageHeight <= m.height + 1, label + ': home exceeds the visible viewport');
   assert.ok(m.header.y >= 0, label + ': header leaves the viewport');

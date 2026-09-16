@@ -41,8 +41,8 @@ test('shield is once per partner per life and grants exactly twenty activity tic
  partner(h,s);assert.equal(h.api.useConsumableItem('c_breakfull'),false);
  s.partner={...s.partner,id:'another-partner'};assert.equal(h.api.useConsumableItem('c_breakfull'),true);
 });
-test('backpack halves travel costs but does not prevent fatigue',()=>{
- const {h,s}=setup('travel1');s.travelStreak=100;const e=s.energy,f=s.hunger,m=s.happiness;travel(h,'forest');assert.equal(s.energy,e-3);assert.equal(s.hunger,f-2);assert.equal(s.happiness,m-3);
+test('backpack removes travel hunger and energy costs but does not prevent fatigue',()=>{
+ const {h,s}=setup('travel1');s.travelStreak=100;const e=s.energy,f=s.hunger,m=s.happiness;travel(h,'forest');assert.equal(s.energy,e);assert.equal(s.hunger,f);assert.equal(s.happiness,m-3);
 });
 test('travel charm shows two choices; cancel, invalid choice and blocked departure keep stock',()=>{
  const {h,s}=setup();s.items.c_travel=1;h.api.useConsumableItem('c_travel');travel(h,'forest');
@@ -50,23 +50,6 @@ test('travel charm shows two choices; cancel, invalid choice and blocked departu
  choose(h,'itemSceneChoiceGrid',{scene:'invalid'});assert.equal(h.api.itemStock('c_travel'),1);click(h,'itemSceneCancelBtn');assert.equal(h.api.itemStock('c_travel'),1);
  travel(h,'forest');const b=h.get('itemSceneChoiceGrid').children[0];s.isSleeping=true;childClick(h,'itemSceneChoiceGrid',b);assert.equal(h.api.itemStock('c_travel'),1);
  s.isSleeping=false;travel(h,'forest');const c=h.get('itemSceneChoiceGrid').children[1];childClick(h,'itemSceneChoiceGrid',c);assert.equal(s.regionId,'forest');assert.equal(h.api.itemStock('c_travel'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);
-});
-test('special travel has game confirmation, no fatigue, one durable snapshot, and no native confirm',()=>{
- const {h,s}=setup();s.items.reward=1;s.travelStreak=100;h.window.confirm=()=>{throw Error('native confirm');};travel(h,'forest');assert.equal(s.regionId,'home');assert.equal(s.items.reward,1);
- click(h,'itemSceneRewardUseBtn');assert.equal(s.regionId,'forest');assert.equal(h.api.itemStock('reward'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);assert.ok(s.happiness>=80);
- click(h,'itemSceneRewardUseBtn');assert.equal(s.lifetime.itemMemories.specials.length,1);const saved=JSON.stringify(s.lifetime.itemMemories.specials);s.speciesLine='cat';assert.equal(JSON.stringify(s.lifetime.itemMemories.specials),saved);assert.equal(reload(s).api.state().lifetime.itemMemories.specials.length,1);
-});
-test('special date cancel or blocked confirmation keeps gift; committed date saves exactly once',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;const plan={id:'walk',label:'ならんであるく',line:'ならんで歩いた。'};
- h.api.goOnDate(plan);click(h,'dateRewardBackBtn');assert.equal(s.items.reward,1);
- h.api.goOnDate(plan);s.isSleeping=true;click(h,'dateRewardUseBtn');assert.equal(s.items.reward,1);assert.equal(s.lifetime.itemMemories.specials.length,0);
- s.isSleeping=false;h.api.goOnDate(plan);click(h,'dateRewardUseBtn');assert.equal(h.api.itemStock('reward'),0);assert.equal(s.lifetime.itemMemories.specials.length,1);click(h,'dateRewardUseBtn');assert.equal(s.lifetime.itemMemories.specials.length,1);
- assert.equal(reload(s).api.itemStock('reward'),0);
-});
-test('ring adds partner-specific ordinary-date secret and letter marriage records deduplicate',()=>{
- const {h,s}=setup('partner1');const p=partner(h,s);s.lifetime.ownedNaotoItems=['naoto_ring'];p.bondCount=7;click(h,'courtBtn');assert.equal(s.lifetime.itemMemories.letters.length,1);
- click(h,'courtBtn');assert.equal(s.lifetime.itemMemories.letters.length,1);h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'},false);const m=s.lifetime.itemMemories.specials[0];assert.equal(m.partner.id,p.id);assert.ok(m.text.includes('合言葉'));assert.equal(m.stage,s.stageIndex);
- h.api.closeDateOverlay();s.dateCooldownTicks=0;h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'},false);assert.equal(s.lifetime.itemMemories.specials.length,1);
 });
 test('lantern requires ownership and visited region, cooldown 200, gives no cash or natural observations',()=>{
  const {h,s}=setup();s.lifetime.regionsVisited=['home','forest'];h.api.renderItemOverlay();choose(h,'itemRelationActions',{itemRelation:'lantern',region:'forest'});assert.equal(s.lifetime.itemMemories.lights.length,0);
@@ -77,11 +60,6 @@ test('lantern requires ownership and visited region, cooldown 200, gives no cash
  choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,1);s.lifetime.itemProgress.ticks+=200;choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,2);assert.equal(observations(),before);
  h.api.renderNaotoItemGrid();assert.match(h.get('naotoItemGrid').innerHTML,/なおとのランタン/);
 });
-test('badge retries a departed known companion without another joining sticker and cools down 200 ticks',()=>{
- const {h,s}=setup('bond1'),c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.companions=[{id:c.id,bond:0}];h.api.decayCompanionBonds();assert.equal(s.companions.length,0);
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});click(h,'companionInvitePlayBtn');h.api.finishMinigame(50);assert.equal(s.companions.length,1);assert.equal(s.lifetime.itemProgress.readyAt.reunion,200);assert.equal(h.api.stickerStore().owned[`companion:${c.id}`]||0,0);
-});
-
 test('deferred partner reservations do not follow a changed partner and stock survives new life',()=>{
  let {h,s}=setup();const original=partner(h,s);original.mismatched=true;s.items.c_breakhalf=1;s.items.c_breakfull=1;s.items.c_travel=1;
  h.api.useConsumableItem('c_breakhalf');h.api.useConsumableItem('c_breakfull');h.api.useConsumableItem('c_travel');assert.equal(h.api.useConsumableItem('c_travel'),false);
@@ -93,25 +71,16 @@ test('prepaid legacy relation/travel reservations apply without a second stock d
  s.oneTimeBoosts.breakupShield='full';s.partner.affection=0;h.api.decayRelationship();assert.equal(s.partner.affection,10);assert.equal(s.oneTimeBoosts.breakupShield,null);
  s.oneTimeBoosts.travelGuarantee=true;travel(h,'forest');childClick(h,'itemSceneChoiceGrid',h.get('itemSceneChoiceGrid').children[0]);assert.equal(s.regionId,'forest');assert.equal(s.oneTimeBoosts.travelGuarantee,false);
 });
-test('special date confirmation stays bound to the displayed partner and place',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;h.api.goOnDate({id:'walk',label:'あるく',line:'歩いた。'});s.partner={...s.partner,id:'changed'};click(h,'dateRewardUseBtn');assert.equal(h.api.itemStock('reward'),1);assert.equal(s.datesThisLife,0);
-});
 test('equipment reactions only occur for actual eligible care and active protection',()=>{
  const {h,s}=setup('bowtie');s.hunger=50;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,'bowtie');
  delete h.get('petSprite').dataset.itemReaction;s.hunger=90;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
- s.isSick=false;s.lifetime.equippedItemId='ribbon';s.lifetime.itemProgress.ticks=99;s.happiness=80;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'ribbon');
- s.lifetime.equippedItemId='scarf';s.lifetime.weatherMode='snow';s.lifetime.itemProgress.ticks=119;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'scarf');
+ s.isSick=false;s.lifetime.equippedItemId='ribbon';s.happiness=80;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
+ s.happiness=25;h.api.tick();assert.equal(s.happiness,100);assert.equal(h.get('petSprite').dataset.itemReaction,'ribbon');
+ delete h.get('petSprite').dataset.itemReaction;s.lifetime.equippedItemId='scarf';s.lifetime.weatherMode='snow';h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
+ s.isSick=true;s.sicknessType='テストのびょうき';h.api.tick();assert.equal(s.isSick,false);assert.equal(h.get('petSprite').dataset.itemReaction,'scarf');
  s.lifetime.equippedItemId=null;s.lifetime.ownedNaotoItems=['naoto_charm'];s.ageTicks=69*20;s.lifetime.itemProgress.ticks=199;delete h.get('petSprite').dataset.itemReaction;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,undefined);
  s.ageTicks=70*20;s.lifetime.itemProgress.ticks=299;h.api.tick();assert.equal(h.get('petSprite').dataset.itemReaction,'naoto_charm');
 });
-test('reunion cancel has no cooldown, failure keeps raw threshold, reload cannot bypass cooldown',()=>{
- let {h,s}=setup('bond1');const c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.itemLife.departedCompanions=[c.id];
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});click(h,'companionInviteLaterBtn');assert.equal(s.lifetime.itemProgress.readyAt.reunion,undefined);
- choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});s.oneTimeBoosts.minigameBoost='small';click(h,'companionInvitePlayBtn');h.api.finishMinigame(40);assert.equal(s.companions.length,0);assert.equal(s.lifetime.itemProgress.readyAt.reunion,200);
- h=reload(s);s=h.api.state();choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});assert.equal(h.get('companionInviteOverlay').classList.contains('hidden'),true);
- s.lifetime.itemProgress.ticks=200;choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});assert.equal(h.get('companionInviteOverlay').classList.contains('hidden'),false);
-});
-
 test('guest origin persists across appearance, reload and codes but differs for a new life',()=>{
  let {h,s}=setup();const first=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(typeof first.originId,'string');
  s.speciesLine='cat';s.stageIndex=6;s.traitCounts.gentle=10;const changed=h.api.decodeGuestCode(h.api.encodeGuestCode());assert.equal(changed.originId,first.originId);
@@ -132,13 +101,6 @@ test('guest shield follows origin through changed snapshots and legacy same-code
  }
 });
 
-test('committed special travel presents its captured actors and scene before returning home',()=>{
- const {h,s}=setup();partner(h,s);s.items.reward=1;travel(h,'forest');click(h,'itemSceneRewardUseBtn');assert.equal(h.get('itemSceneOverlay').classList.contains('hidden'),false);assert.match(h.get('itemSceneActors').innerHTML,/assets\/characters/);assert.match(h.get('itemSceneText').textContent,/もり|森/);click(h,'itemSceneCancelBtn');assert.equal(h.get('itemSceneOverlay').classList.contains('hidden'),true);
-});
-test('reunion rechecks equipment and available target before committing cooldown',()=>{
- const {h,s}=setup('bond1'),c=h.api.normalCompanions[0];s.lifetime.companionsRecruited=[c.id];s.itemLife.departedCompanions=[c.id];choose(h,'itemRelationActions',{itemRelation:'reunion',companion:c.id});s.lifetime.equippedItemId=null;click(h,'companionInvitePlayBtn');assert.equal(s.lifetime.itemProgress.readyAt.reunion,undefined);
-});
-
 test('first meeting and real mismatched candidate never debit an initial-court reservation',()=>{
  const {h,s}=setup('flower');s.regionId='city';s.items.c_courtsmall=1;h.api.useConsumableItem('c_courtsmall');vm.runInContext('Math.random=()=>0',h.sandbox);s.orientationId='aro';s.attractedTo=[];
  const before=JSON.stringify({gender:s.gender,attractedTo:s.attractedTo});click(h,'courtBtn');assert.equal(s.lifetime.partnerEncounters.length,1);assert.equal(h.api.itemStock('c_courtsmall'),1);click(h,'courtBtn');assert.equal(s.partner,null);assert.equal(h.api.itemStock('c_courtsmall'),1);assert.equal(JSON.stringify({gender:s.gender,attractedTo:s.attractedTo}),before);
@@ -154,26 +116,6 @@ test('a different partner cannot silently replace a pending reservation; cancell
 });
 
 
-test('reward dates with a ring commit one outing and preserve the first phrase through later dates and reload',()=>{
- for(const ordinaryFirst of [false,true]){
-  let {h,s}=setup();const p=partner(h,s);s.lifetime.ownedNaotoItems=['naoto_ring'];
-  const plan={id:'walk',label:'ならんであるく',line:'ならんで歩いた。'};
-  if(ordinaryFirst){h.api.goOnDate(plan,false);h.api.closeDateOverlay();s.dateCooldownTicks=0;}
-  const count=s.lifetime.itemMemories.specials.length;s.items.reward=2;
-  h.api.goOnDate(plan);click(h,'dateRewardUseBtn');
-  assert.equal(s.lifetime.itemMemories.specials.length,count+1);assert.equal(h.api.itemStock('reward'),1);
-  const ringKey=`ring:${p.itemRelationshipId}`;
-  const phrases=()=>s.lifetime.itemMemories.specials.filter(m=>m.key===ringKey||m.ringKey===ringKey);
-  assert.equal(phrases().length,1);assert.match(phrases()[0].text,/合言葉/);assert.equal(phrases()[0].partner.id,p.id);
-  const firstPhrase=JSON.stringify(phrases()[0]);
-  h=reload(s);s=h.api.state();s.dateCooldownTicks=0;
-  h.api.goOnDate(plan,false);h.api.closeDateOverlay();assert.equal(s.lifetime.itemMemories.specials.length,count+1);
-  s.dateCooldownTicks=0;h.api.goOnDate(plan);click(h,'dateRewardUseBtn');click(h,'dateRewardUseBtn');
-  assert.equal(s.lifetime.itemMemories.specials.length,count+2);assert.equal(h.api.itemStock('reward'),0);assert.equal(phrases().length,1);assert.equal(JSON.stringify(phrases()[0]),firstPhrase);
- }
-});
-
-
 // Match the initial home markup: these overlays are hidden until explicitly opened.
 function feedbackSetup(equipped, options) {
   const result = setup(equipped, options);
@@ -182,22 +124,18 @@ function feedbackSetup(equipped, options) {
   return result;
 }
 
-test('eligible ribbon ticks deliver readable feedback in both motion modes', () => {
+test('danger-triggered ribbon recovery delivers readable feedback in both motion modes', () => {
   for (const reducedMotion of [false, true]) {
     const {h,s} = feedbackSetup('ribbon', {reducedMotion});
-    s.lifetime.itemProgress.ticks = 99;
-    s.happiness = 80;
-
+    s.happiness = 25;
     h.api.tick();
     h.advance(1);
-
-    assert.match(h.get('message').textContent, /リボン.*ごきげん.*続いている/);
-    h.advance(3000);
-    h.api.tick();
-    assert.match(h.get('message').textContent, /リボン/, 'the next ordinary tick does not erase the line');
+    assert.equal(s.happiness, 100);
+    assert.match(h.get('message').textContent, /リボン.*ごきげん.*まんたん/);
+    h.api.render();
+    assert.match(h.get('message').textContent, /リボン/, 'ordinary render keeps the automatic recovery readable');
   }
 });
-
 test('applied flowers deliver their bonus after court dialogue and ordinary care feedback', () => {
   for (const reducedMotion of [false, true]) {
     for (const success of [false, true]) {
@@ -247,29 +185,31 @@ test('ineligible ribbon ticks and mismatched court do not claim equipment effect
   assert.doesNotMatch(h.get('message').textContent, /成功率\+10|花を差し出した/);
 });
 
-test('equipment waits for an existing conversation and never replaces critical care', () => {
+test('V2 equipment feedback waits for an existing conversation and never replaces critical care', () => {
   const {h,s} = feedbackSetup('ribbon');
-  s.lifetime.itemProgress.ticks = 99;
   h.api.speakEvent('feed', {petText:'まだお話の途中だよ', partnerChance:0, companionChance:0, delayMs:5000});
+  s.happiness = 25;
   h.api.tick();
+  assert.equal(s.happiness, 100);
   h.advance(6000);
   assert.equal(h.get('speechText').textContent, 'まだお話の途中だよ');
   assert.doesNotMatch(h.get('message').textContent, /リボン/);
   h.advance(1750);
   assert.match(h.get('message').textContent, /リボン/);
 
-  // A second eligible event loses priority when health becomes critical before delivery.
+  // A second danger-triggered recovery loses priority when health becomes
+  // critical before its queued feedback can be delivered.
   h.api.setMessage('');
-  s.lifetime.itemProgress.ticks = 199;
+  h.api.speakEvent('feed', {petText:'もうひとこと', partnerChance:0, companionChance:0, delayMs:5000});
+  s.happiness = 25;
   h.api.tick();
   s.health = 0;
   h.api.render();
-  h.advance(6000);
+  h.advance(7000);
   assert.equal(h.get('message').dataset.careSeverity, 'critical');
   assert.match(h.get('message').textContent, /けんこうがげんかい/);
   assert.doesNotMatch(h.get('message').textContent, /リボン/);
 });
-
 test('a pending equipment line does not follow a reset into another life', () => {
   const {h,s} = feedbackSetup('ribbon');
   s.lifetime.itemProgress.ticks = 99;
