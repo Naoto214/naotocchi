@@ -93,8 +93,8 @@ function createFixtures() {
       make('all26',26);
       make('legacy28',26).companions.push({id:'koala',bond:95},{id:'kinoko',bond:95});
       const equipped = make('equipped',26);
-      equipped.lifetime.ownedShopItems = ['crown'];
-      equipped.lifetime.equippedItemId = 'crown';
+      equipped.lifetime.ownedShopItems = ['gamepass1'];
+      equipped.lifetime.equippedItemId = 'gamepass1';
       make('legend',26,{sodachi:95,maxSodachi:95});
       make('sleeping',26,{isSleeping:true,energy:20});
       make('sick',26,{isSick:true,sicknessType:'かぜ'});
@@ -129,7 +129,7 @@ function createFixtures() {
       make('care_infinite',26,{infinite:true,health:0,hunger:0,energy:0,deathMeter:95});
       const illustrated=make('ui_illustrations',26,{hunger:80,health:90,energy:80,happiness:80});
       illustrated.lifetime.money=9999;
-      illustrated.lifetime.ownedShopItems=['flower','ribbon','bowtie','poop1','scarf','glasses','energy1','hat','travel1','sleepboost1','star','bond1','partner1','crown','itemluck1'];
+      illustrated.lifetime.ownedShopItems=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
       illustrated.lifetime.equippedItemId='ribbon';
       illustrated.lifetime.endingTiersReached=[0,1,2,3];
       illustrated.lifetime.ownedNaotoItems=['naoto_charm','naoto_lantern','naoto_ring','naoto_crown'];

@@ -7690,9 +7690,6 @@
     return Math.max(2, base - (hasPerk(50) ? 2 : 0));
   }
 
-  // きずぐすり を そうびしていると、わかれ/りこんの 死亡メーターダメージが
-  // 半分に おさえられる(raiseDeathMeter() の こいびと/夫婦・かんむり
-  // けいの けいげんとは べつに、breakup 専用の けいげん)
   function breakupPenalty(wasMarried) {
     const base = BREAKUP_DEATH_PENALTY[wasMarried ? 'married' : 'dating'];
     const eased = base;

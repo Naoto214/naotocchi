@@ -246,3 +246,13 @@ test('blocked sleeping travel preserves the active current-city selection', () =
   assert.equal(state.regionId, 'home');
   assert.equal(state.lifetime.currentLocationSelected, true);
 });
+
+// A running app can advance Date.now between evaluate and pauseAt transport.
+// Require the clock to be paused at a fixed origin before app timers exist.
+test('dialog browser clock pauses before navigation instead of racing live timers', () => {
+  const source=fs.readFileSync('tests/dialog-layout-browser.cjs','utf8');
+  const pause=source.indexOf('await page.clock.pauseAt(');
+  assert.ok(pause>=0 && pause<source.indexOf('await page.goto('));
+  assert.doesNotMatch(source,/pauseAt\(await page\.evaluate/);
+  assert.match(source,/clock\.install\(\{time:new Date\(/);
+});

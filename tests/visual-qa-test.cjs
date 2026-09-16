@@ -50,7 +50,10 @@ const saved = new Map([['naotocchi-save-v1',JSON.stringify(fixtures.ui_illustrat
 const h = harness({resume:true,storage:{getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)}});
 assert.equal(h.api.state().companions.length,26);
 assert.equal(h.api.state().partner.id,'robot_neighbor');
-assert.equal(h.api.state().lifetime.ownedShopItems.length,14);
+const finalEquipment=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
+assert.deepEqual(Array.from(h.api.state().lifetime.ownedShopItems).sort(),finalEquipment.slice().sort());
+assert.equal(fixtures.equipped.lifetime.equippedItemId,'gamepass1');
+assert.deepEqual(Array.from(fixtures.equipped.lifetime.ownedShopItems),['gamepass1']);
 assert.equal(h.api.state().lifetime.ownedNaotoItems.length,4);
 assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
 // Reload manual weather fixtures: an invalid mode would silently use live
@@ -120,4 +123,4 @@ callbacks[0]();
 assert.equal(context.first[0].status,'pending','later load/error mutated an earlier measurement');
 vm.runInContext('second=sample();',context);
 assert.equal(context.second[0].status,'failed');
-console.log('VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and ordinary date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 14 shop items. No browser rendering claimed.');
+console.log('VISUAL QA ROUTE TEST OK: generated script compiles; egg, anniversary, legend and ordinary date saves; long disease selects medicine; illustrated save reloads 26 companions, partner, 10 shop items. No browser rendering claimed.');

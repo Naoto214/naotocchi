@@ -258,6 +258,12 @@ function checkLayout(m, label) {
           console.error('FAIL '+engine+' conversation: '+error.message);
         }
         try {
+          await require('./normal-equipment-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' normal equipment: '+error.message);
+          console.error('FAIL '+engine+' normal equipment: '+error.message);
+        }
+        try {
           await require('./dialog-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
         } catch(error) {
           failures.push(engine+' dialogs: '+error.message);

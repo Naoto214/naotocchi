@@ -65,7 +65,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['full-friends-only',320,568,26,false,false,4],
     ['full-partner-only',320,568,26,true,false,4],
     ['full-item-only',320,568,26,false,true,4],
-    ['item-crown',320,568,26,true,true,4],
+    ['item-gamepass',320,568,26,true,true,4],
     ['right-speaker',390,760,6,true,true,4,'normal','dog',5],
     ['adult-single',390,760,0,false,false,1,'normal','dog',5],
     ['normal-poop-four',390,760,0,false,false,4],
@@ -126,7 +126,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?{...fixtures.equipped.partner}:null,
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
     // Keep floor-layout specimens stable while the real activity clock runs.
-    const itemId=name==='paper-auto-clean'?'poop1':name==='item-crown'?'crown':'travel1';
+    const itemId=name==='paper-auto-clean'?'poop1':name==='item-gamepass'?'gamepass1':'travel1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
     if(name.endsWith('-snow')) {
       save.companions=['owl','hamster','shiba'].map(id=>({id,bond:95}));
@@ -137,7 +137,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     if(name==='balanced-cat') {
       save.companions=['sheep','seal','otter','rabbit_friend','shiba','parrot'].map(id=>({id,bond:95}));
       Object.assign(save.partner,{id:'gentle_gorilla',label:'やさしいゴリラ'});
-      Object.assign(save.lifetime,{equippedItemId:'flower',ownedShopItems:['flower']});
+      Object.assign(save.lifetime,{equippedItemId:'bowtie',ownedShopItems:['bowtie']});
     }
     if(name==='balanced-eight') {
       save.companions=['tanuki','cat_friend','hedgehog','many_tail_fox','sekizou','unicorn','punyu','monkey'].map(id=>({id,bond:95}));

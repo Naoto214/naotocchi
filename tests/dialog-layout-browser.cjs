@@ -12,7 +12,11 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
   ]) {
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
     const page=await context.newPage();
-    if(name==='small') await page.clock.install();
+    if(name==='small') {
+      // Pause before app timers start: a live Date.now()+1 races transport.
+      await page.clock.install({time:new Date('2026-09-12T12:00:00Z')});
+      await page.clock.pauseAt(new Date('2026-09-12T12:01:00Z'));
+    }
     const save=JSON.parse(JSON.stringify(fixtures[fixture]));
     Object.assign(save,{health:100,energy:100,hunger:85,happiness:90,isSick:false,isSleeping:false,transformMeter:0});
     await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),save);
@@ -71,7 +75,6 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         await page.locator('#menuBtn').click();await page.locator('#gamesBtn').click();
         await page.locator('#gameListGrid .game-cell[data-game-id="takoyaki-grill"]').click();
         await page.locator('#mgIntroStart').click();
-        await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1));
         await page.clock.fastForward(90000);
         await page.clock.runFor(1300);
         await page.locator('#mgResultToast').waitFor({state:'visible'});
