@@ -12,10 +12,11 @@ test('dedicated reward inventory is retired and legacy reward stock is discarded
   const n=reload(s).api.state();
   assert.equal(n.items.reward,undefined);
 });
-test('milestones are fixed and paid once even after spending', () => {
-  const h=harness(),s=h.api.state();s.lifetime.money=0;s.maxSodachi=100;
-  h.api.onSodachiMilestone(100);assert.equal(s.lifetime.money,800);
-  s.lifetime.money=0;h.api.onSodachiMilestone(100);assert.equal(s.lifetime.money,0);
+test('milestone eggs are granted once even after spending, without coins', () => {
+  const h=harness(),s=h.api.state();s.lifetime.money=37;s.maxSodachi=100;
+  h.api.onSodachiMilestone(100);assert.equal(s.lifetime.money,37);assert.equal(h.api.itemStock('c_egg_normal'),1);
+  h.api.ITEM_SYSTEM.take(s,'c_egg_normal');h.api.onSodachiMilestone(100);
+  assert.equal(s.lifetime.money,37);assert.equal(h.api.itemStock('c_egg_normal'),0);
 });
 test('ordinary completion pays thirty coins', () => {
   const h=harness(),s=h.api.state();s.lifetime.money=0;

@@ -53,12 +53,12 @@ test('refund survives reload, new lives and infinite return without reviving old
   h.dispatch(h.get('resetBtn'),'click');assert.equal(h.api.state().lifetime.money,939);
   items.normalize(h.api.state());assert.equal(h.api.state().lifetime.money,939);
 });
-test('great games and offline visits retain ordinary rewards without granting retired items', () => {
+test('great games retain coins and offline visits retain recovery without granting retired items', () => {
   const h=harness(),s=h.api.state();vm.runInContext('Math.random=()=>0',h.sandbox);s.lifetime.money=0;
   h.api.startMinigame({id:'retirement-test',start(){}},{intro:false});h.api.finishMinigame(80);
   assert.ok(s.lifetime.money>0);assert.ok(retired.every(id=>!s.items[id]));
   s.savedAt=1000-60*60*1000;const before=s.lifetime.money;
-  const result=h.api.applyOfflineProgress(1000);assert.equal(result.coins,12);assert.equal(s.lifetime.money,before+12);assert.ok(retired.every(id=>!s.items[id]));
+  const result=h.api.applyOfflineProgress(1000);assert.equal(result.ticks,600);assert.equal(result.coins,undefined);assert.equal(s.lifetime.money,before);assert.ok(retired.every(id=>!s.items[id]));
 });
 
 test('infinite snapshots and retired achievement metadata are cleared without extra compensation', () => {

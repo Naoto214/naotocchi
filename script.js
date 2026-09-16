@@ -104,14 +104,14 @@
   // そだちの 10きざみの 節目に 解禁される 特典。maxSodachi で 解禁され、
   // おとろえで そだちが さがっても うしなわれない(hasPerk() さんしょう)
   const SODACHI_PERKS = {
-    30: { emoji: '🪙', name: 'はじめてのごほうび', coins: 60, desc: 'コインがふえやすくなった。少しずつためてみよう' },
-    40: { emoji: '🐾', name: 'なかまのわ', coins: 80, desc: 'なかまと出会いやすくなり、きずなが切れにくくなった' },
-    50: { emoji: '💐', name: 'こいのきざし', coins: 100, desc: 'きゅうあいがうまくいきやすくなった。「データ」のこいびと欄から、デートにもさそえる' },
-    60: { emoji: '🗝️', name: 'へんしんのちから', coins: 150, desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
-    70: { emoji: '🧭', name: 'たびだち', coins: 220, desc: 'コインと旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」が起きる' },
-    80: { emoji: '🌈', name: 'レアのきざし', coins: 300, desc: 'へんしんの候補にレアな姿がまざりやすくなり、レアななかまとも出会えるようになった' },
-    90: { emoji: '✨', name: 'でんせつ', coins: 450, desc: '金色のオーラをまとった。レアなたまごをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
-    100: { emoji: '👑', name: 'さいこうのそだち', coins: 800, desc: '虹のオーラをまとい、最高のそだちにたどりついた' },
+    30: { emoji: '🌱', name: 'はじめのせいちょう', desc: 'そだち30にとどいた。少しずつ成長している' },
+    40: { emoji: '🐾', name: 'なかまのわ', desc: 'なかまと出会いやすくなり、きずなが切れにくくなった' },
+    50: { emoji: '💐', name: 'こいのきざし', desc: 'きゅうあいがうまくいきやすくなった。「データ」のこいびと欄から、デートにもさそえる' },
+    60: { emoji: '🗝️', name: 'へんしんのちから', desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
+    70: { emoji: '🧭', name: 'たびだち', desc: '旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」が起きる' },
+    80: { emoji: '🌈', name: 'レアのきざし', desc: 'へんしんの候補にレアな姿がまざりやすくなり、レアななかまとも出会えるようになった' },
+    90: { emoji: '✨', name: 'でんせつ', desc: '金色のオーラをまとった。レアなたまごをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
+    100: { emoji: '👑', name: 'さいこうのそだち', desc: '虹のオーラをまとい、最高のそだちにたどりついた' },
   };
 
   // 関係の 減衰は「なおとっちの 何年ぶん ほうっておいたら おわるか」で きめる。
@@ -9056,14 +9056,13 @@
   }
 
   // ================================================================
-  // そだち90「でんせつ」で おきる「でんせつの であい」
+  // そだち70「たびだち」から おきる「でんせつの であい」
   // ================================================================
   // 1つの 人生で 1かいだけ、しかも「いつ おきるか わからない」ように
-  // tick ごとの ていかくりつで しのばせてある(そだち90に とどいた しゅんかんに
+  // tick ごとの ていかくりつで しのばせてある(そだち70に とどいた しゅんかんに
   // おきるのでは なく、そのあとの ふつうの じかんに とつぜん おきる)。
-  // もらえる ものは わざと ちいさい - でんせつの ゆめ(レア種族)や
-  // そだち100・ずかんクリア・パーフェクトクリアの やくわりを とらない ように、
-  // ここは「みた ことが ある か どうか」だけが のこる イベントに している。
+  // ゲーム上の ごほうびは なく、「みた ことが ある か どうか」と
+  // 人生の おもいでだけが のこる イベントに している。
   // 5つの パターンは ほうこうせいを わざと バラバラに して ある
   const LEGEND_ENCOUNTER_CHANCE = 0.012;
 
@@ -9095,8 +9094,6 @@
     },
   ];
 
-  const LEGEND_COIN_GIFT = 200;
-
   // でんせつの であいが おきる じょうけん。ミニゲーム中・すいみん中・
   // なにかの がめんを ひらいている あいだは おきない(みのがす のが
   // いちばん もったいない イベントな ため)
@@ -9109,7 +9106,7 @@
     triggerLegendEncounter();
   }
 
-  function playLegendEncounterMovie(legend, coins) {
+  function playLegendEncounterMovie(legend) {
     clearDateMovieTimers();
     clearConversationTimers();
     hideSpeechBubble();
@@ -9136,8 +9133,7 @@
     }
 
     const story = pickMovieStory(`legend:${legend.id}`, globalThis.NaotocchiMovieDialogue.legends[legend.id]);
-    const beats = (story.length ? story : [legend.flash, legend.story])
-      .concat([{text:`足もとに${coins}コインがきちんと積まれていた。`, action:'reward'}]);
+    const beats = story.length ? story : [legend.flash, legend.story];
     const speakers = {
       pet:petSpeaker(),
       legend:{kind:'legend', id:legend.id, label:legend.id === 'boss' ? 'ダイオウイカ' : legend.id === 'lamp' ? 'あかりのむこうの声' : legend.name,
@@ -9152,6 +9148,7 @@
   // かさねる ほど あたらしい でんせつに であえる(ぜんぶ みた あとは
   // どれかが もういちど でる - コンプリートは じっせきに ならない)
   function triggerLegendEncounter() {
+    if (state.legendMet) return;
     const seen = state.lifetime.legendsMet || [];
     const unseen = LEGEND_ENCOUNTERS.filter((e) => !seen.includes(e.id));
     const pool = unseen.length ? unseen : LEGEND_ENCOUNTERS;
@@ -9162,16 +9159,11 @@
     const legend = pool.find((entry, index) => (roll -= weights[index]) < 0) || pool[pool.length - 1];
     state.legendMet = true;
     if (!seen.includes(legend.id)) state.lifetime.legendsMet = seen.concat(legend.id);
-    const coins = Math.round(LEGEND_COIN_GIFT * coinMultiplier());
-    state.lifetime.money += coins;
-    state.happiness = 100;
-    applyGrowth(8);
-    applyDecline(-25);
     pushLifeLog(legend.emoji, `${legend.name}にであった`);
     // 一生に一度の特別イベントなので、通常通知へ長文を流さず専用ムービーで見せる。
     setMessage('');
     emotePet('love');
-    playLegendEncounterMovie(legend, coins);
+    playLegendEncounterMovie(legend);
     saveState();
     render();
   }
@@ -9509,7 +9501,6 @@
     const stage = currentVisualStage();
     setMessage(stage.message || `${stage.label}になった!`);
     emotePet('fun');
-    state.lifetime.money += 100;
     pushLifeLog(stage.emoji, `${age}さい${stage.label}になった`);
     showStoryEvent({ emoji: stage.emoji, petReaction:true, message: `${age}さいになった！\n${stage.label}` });
     celebrateAgeSpeech(age, stage.label);
@@ -9528,15 +9519,14 @@
   }
 
   // 1さいごと: ちいさな トースト。5さいごと: すこし にぎやか。
-  // 10さいごと: 「としの おくりもの」(そだち30で 解禁)
   // 40〜70さいは すがたの かわりめが 18分・30分と あいて、なにも おきない
   // じかんが ながかった。その あいだを うめる、1かいずつの ちいさな できごと
   const MIDLIFE_EVENTS = [
     { age: 44, emoji: '🎣', solo: '趣味を見つけた。静かな時間が好きになった', pair: 'ふたりで趣味をはじめた。静かな時間を分けあった', happiness: 10, growth: 6 },
-    { age: 50, emoji: '🎂', solo: '50さいのお祝い。遠くから手紙が届いた', pair: '50さいのお祝い。こいびととお祝いの時間を過ごした', happiness: 8, money: 150 },
+    { age: 50, emoji: '🎂', solo: '50さいのお祝い。遠くから手紙が届いた', pair: '50さいのお祝い。こいびととお祝いの時間を過ごした', happiness: 8 },
     { age: 56, emoji: '📚', solo: '昔のアルバムを開いた。笑っている自分がいた', pair: '昔のアルバムをふたりで開いた。笑っている自分たちがいた', happiness: 6, decline: -10 },
     { age: 62, emoji: '🌻', solo: '庭に小さな花を植えた。明日が少し楽しみになった', pair: 'ふたりで庭に花を植えた。明日が少し楽しみになった', happiness: 6, growth: 8 },
-    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる', money: 100 },
+    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる' },
   ];
   function maybeMidlifeEvent(age) {
     const ev = MIDLIFE_EVENTS.find((e) => e.age === age);
@@ -9546,12 +9536,10 @@
     seen.push(age);
     const text = state.partner ? ev.pair : ev.solo;
     if (ev.happiness) state.happiness = clamp(state.happiness + ev.happiness, 0, 100);
-    if (ev.money) state.lifetime.money += ev.money;
     if (ev.growth) applyGrowth(ev.growth, { silent: true });
     if (ev.decline) applyDecline(ev.decline);
-    const extra = ev.money ? `💰+${ev.money}` : '';
     pushLifeLog(ev.emoji, `${age}さい：${text}`);
-    showStoryEvent({ emoji: ev.emoji, petReaction: true, message: `${text}${extra ? '\n' + extra : ''}` });
+    showStoryEvent({ emoji: ev.emoji, petReaction: true, message: text });
     return true;
   }
 
@@ -9561,8 +9549,6 @@
     celebrateAgeSpeech(age);
     applyDecline(-5, { silent: true });
     maybeMidlifeEvent(age);
-    const bonus = Math.round((3 + state.maxSodachi / 25) * coinMultiplier());
-    state.lifetime.money += bonus;
     setBirthdayToast(`🎂 ${age}さいになった`);
     if (age === 90) {
       state.miracleGuard = true;
@@ -9655,15 +9641,12 @@
     const paid = state.itemLife.milestonesPaid || (state.itemLife.milestonesPaid = []);
     if (paid.includes(value)) return;
     paid.push(value);
-    const reward = perk.coins;
-    state.lifetime.money += reward;
-    speakEvent('money', { coins: reward, partnerChance: 0.4, companionChance: 0.4 });
     pushLifeLog(perk.emoji, `そだちが${value}にとどいた— ${perk.name}`);
     showStoryEvent({ emoji: perk.emoji, message: `そだち${value}！ ${perk.name}\n${perk.desc}` });
     if (value === 90) ITEM_SYSTEM.grant(state, 'c_egg_rare');
     if (value === 100) {
       ITEM_SYSTEM.grant(state, 'c_egg_normal');
-      setMessage('そだち100。800コインとふしぎなたまごをもらった');
+      setMessage('そだち100。ふしぎなたまごをもらった');
     } else {
       setMessage(`${perk.emoji}そだち${value}! ${perk.name}`);
     }
@@ -9699,15 +9682,6 @@
       // 同時成立なら PERFECT を最終表示として優先する。
       grandGoalPending = 'perfect';
     }
-  }
-
-  // そだち30で +25%、70で さらに +50%(累計 ×1.75)。そだち100の
-  // その人生では さらに うわのせ しない。節目の固定支給は倍率の対象外。
-  function coinMultiplier() {
-    let m = 1;
-    if (hasPerk(30)) m *= 1.25;
-    if (hasPerk(70)) m *= 1.4;
-    return m;
   }
 
   // いま「いきている 人生」を そうさ できる じょうたいか
@@ -13051,30 +13025,30 @@
 
   // --- せかいの こうか: てんき・じかんたい・きせつ・地域 ごとの ステータス補正 ---
   // happy/hunger: 自然減の ばいりつ(小さいほど さがりにくい)、sleep: ねむりの
-  // かいふく、play: ミニゲームの げんき消費、coin: ミニゲームの おかね、
+  // かいふく、play: ミニゲームの げんき消費、
   // meet: なかまとの であいやすさ。text は せかい画面の せつめい
   const ENV_EFFECTS = {
     weather: {
-      sunny: { happy: 0.85, coin: 1.1, text: 'ごきげんが下がりにくい・ゲームのおかね+10%' },
+      sunny: { happy: 0.85, text: 'ごきげんが下がりにくい' },
       cloudy: { meet: 1.15, text: 'なかまに出会いやすい' },
-      rain: { happy: 1.15, meet: 0.7, coin: 1.15, text: 'ごきげんが下がりやすい・出会いがへる・ゲームのおかね+15%' },
+      rain: { happy: 1.15, meet: 0.7, text: 'ごきげんが下がりやすい・出会いがへる' },
       snow: { hunger: 1.1, play: 1.2, sleep: 1.15, text: 'おなかがすきやすい・あそぶと疲れやすい・ねるとよく回復する' },
     },
     time: {
       morning: { sleep: 1.2, hunger: 1.1, text: 'ねむると回復が早い・おなかがすきやすい' },
-      day: { coin: 1.1, text: 'ゲームのおかね+10%' },
+      day: { text: '' },
       evening: { happy: 0.9, text: 'ごきげんが下がりにくい' },
       night: { happy: 1.1, meet: 0.6, sleep: 1.3, text: '夜ふかしはごきげんが下がりやすい・出会いがへる・ねるとよく回復する' },
     },
     season: {
       spring: { happy: 0.9, meet: 1.2, text: 'ごきげんが下がりにくい・出会いがふえる' },
-      summer: { play: 1.15, hunger: 1.1, coin: 1.05, text: 'あそぶと疲れやすい・おなかがすきやすい' },
-      autumn: { coin: 1.15, happy: 0.95, text: 'ゲームのおかね+15%' },
+      summer: { play: 1.15, hunger: 1.1, text: 'あそぶと疲れやすい・おなかがすきやすい' },
+      autumn: { happy: 0.95, text: 'ごきげんが下がりにくい' },
       winter: { hunger: 1.15, sleep: 1.1, text: 'おなかがすきやすい・ねるとよく回復する' },
     },
     region: {
       home: { text: 'おちつく' },
-      city: { coin: 1.1, text: 'ゲームのおかね+10%' },
+      city: { text: '' },
       countryside: { hunger: 0.9, text: 'おなかがすきにくい' },
       forest: { meet: 1.3, text: 'なかまに出会いやすい' },
       mountain: { sleep: 1.1, play: 1.1, text: 'ねるとよく回復する・あそぶと疲れやすい' },
@@ -13083,7 +13057,7 @@
       deepsea: { happy: 0.9, meet: 0.8, text: 'ごきげんが下がりにくい・出会いがへる' },
       river_lake: { happy: 0.9, text: 'ごきげんが下がりにくい' },
       jungle: { meet: 1.4, hunger: 1.05, text: 'なかまにとても出会いやすい・少しおなかがすきやすい' },
-      desert: { hunger: 1.1, coin: 1.2, text: 'ゲームのおかね+20%・おなかがすきやすい' },
+      desert: { hunger: 1.1, text: 'おなかがすきやすい' },
       star_stop: { happy: 0.85, play: 0.9, text: 'ごきげんが下がりにくい・あそぶ疲れがへる' },
       memory_lake: { happy: 0.85, sleep: 1.15, text: 'ごきげんが下がりにくい・ねるとよく回復する' },
     },
@@ -13169,7 +13143,7 @@
   function envModifiers() {
     const env = currentEnvironment();
     const parts = [ENV_EFFECTS.weather[env.weather], ENV_EFFECTS.time[env.time], hasSurfaceSeasons(env.region) && ENV_EFFECTS.season[env.season], ENV_EFFECTS.region[env.region]];
-    const out = { happy: 1, hunger: 1, sleep: 1, play: 1, coin: 1, meet: 1 };
+    const out = { happy: 1, hunger: 1, sleep: 1, play: 1, meet: 1 };
     for (let i = 0; i < parts.length; i += 1) {
       const part = parts[i]; if (!part) continue;
       for (const k of Object.keys(out)) if (part[k] != null) out[k] *= part[k];
@@ -13326,7 +13300,7 @@
       { emoji: '🦇', message: 'こうもりが飛んでいった。ちょっとびっくり', happiness: 1 },
     ],
     night: [
-      { emoji: '⭐', message: '流れ星にお願い。💰+8', money: 8 },
+      { emoji: '⭐', message: '流れ星にお願い。' },
       { emoji: '🦉', message: 'ふくろうの声…ちょっとこわい。ごきげん-2', happiness: -2 },
       { emoji: '🌙', message: '月がきれいだね。ごきげん+5', happiness: 5 },
     ],
@@ -13355,7 +13329,7 @@
     ],
     desert: [
       { emoji: '💧', message: 'オアシスのそばでひと休み。げんき+6', energy: 6 },
-      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。💰+8', money: 8 },
+      { emoji: '✨', message: '砂の中に、小さなかざりを見つけた。' },
     ],
     deepsea: [
       { emoji: '🪼', message: '光るくらげが、ゆっくり道を横切った。ごきげん+6', happiness: 6 },
@@ -13363,7 +13337,7 @@
     ],
     star_stop: [
       { emoji: '⭐', message: '星をひとつ見送った。次はどこへ行くのだろう。ごきげん+6', happiness: 6 },
-      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。💰+8', money: 8 },
+      { emoji: '✨', message: 'ベンチの下に星のかけらが落ちていた。' },
       { emoji: '🌌', message: '遠くの星の明かりを数えて休んだ。げんき+5', energy: 5 },
     ],
     memory_lake: [
@@ -13397,7 +13371,6 @@
             const m = pool[Math.floor(Math.random() * pool.length)];
             if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
-            if (m.money) state.lifetime.money += m.money;
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
             const memories = m.memory ? (state.lifeLog || []).filter((entry) => typeof entry.text === 'string' && entry.text.trim()) : [];
             const memory = memories.length ? memories[Math.floor(Math.random() * memories.length)] : null;
@@ -14492,16 +14465,16 @@
   // ---- おだい ----
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'home-form-3', page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
-    { id: 'home-item-2', page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { coins: 20, kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
-    { id: 'travel-scenery-3', page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
-    { id: 'travel-8', page: 'travel', label: 'たびの ページに 8まい はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
-    { id: 'friends-companion-3', page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { coins: 25, kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
-    { id: 'friends-partner-1', page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { coins: 25, kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
-    { id: 'memory-elder-1', page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { coins: 30, kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
-    { id: 'memory-rare-1', page: 'memory', label: 'きねんに レアな シールを はる', reward: { coins: 40, kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
-    { id: 'any-12', page: null, label: 'どれかの ページに 12まい はる', reward: { coins: 40, kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
-    { id: 'all-pages', page: null, label: '4つの ページ ぜんぶに はる', reward: { coins: 50, kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
+    { id: 'home-form-3', page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
+    { id: 'home-item-2', page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
+    { id: 'travel-scenery-3', page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
+    { id: 'travel-8', page: 'travel', label: 'たびの ページに 8まい はる', reward: { kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
+    { id: 'friends-companion-3', page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
+    { id: 'friends-partner-1', page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
+    { id: 'memory-elder-1', page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
+    { id: 'memory-rare-1', page: 'memory', label: 'きねんに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
+    { id: 'any-12', page: null, label: 'どれかの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
+    { id: 'all-pages', page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
   ];
   // たっせいした おだいを かえす(ほうびは ここで わたす。1かいだけ)
   function checkStickerTasks() {
@@ -14514,10 +14487,9 @@
       try { ok = !!task.check(pages); } catch (err) { ok = false; }
       if (!ok) continue;
       store.tasksDone.push(task.id);
-      state.lifetime.money += task.reward.coins;
       store.kakera += task.reward.kakera;
       done.push(task);
-      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」💰+${task.reward.coins}・かけら+${task.reward.kakera}` });
+      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」かけら+${task.reward.kakera}` });
     }
     return done;
   }
@@ -14568,7 +14540,7 @@
     const tasks = STICKER_TASKS.filter((t) => t.page === stickerCurrentPage || t.page === null);
     setHTMLIfChanged(el.stickerTasks, tasks.map((t) => {
       const done = store.tasksDone.includes(t.id);
-      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">💰${t.reward.coins}・かけら${t.reward.kakera}</span></div>`;
+      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">かけら${t.reward.kakera}</span></div>`;
     }).join(''));
     el.stickerPackBtn.innerHTML = `🎁 シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
     el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE;
@@ -17637,20 +17609,16 @@
     else state.energy = clamp(state.energy + 0.05 * ticks, 0, 100);
     let poop = 0;
     if (!sleeping && ticks >= 100 && state.poopCount < MAX_POOP) { state.poopCount += 1; poop = 1; }
-    // おみやげ: 5ふんに 1コイン(さいだい 12)
-    const coins = Math.min(12, Math.floor(elapsed / (5 * 60 * 1000)));
-    if (coins > 0) state.lifetime.money += coins;
     const parts = [];
     const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
     d('hunger', 'おなか'); d('happiness', 'ごきげん'); d('energy', 'げんき');
     if (poop) parts.push('うんち+1');
-    if (coins) parts.push(`💰+${coins}`);
     const span = minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
     const summary = `🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`;
     pushLifeLog('🏠', `るすばん：${span}`);
     setMessage(summary);
-    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ${coins ? `\n💰${coins}を拾っておいた` : ''}` });
-    return { ticks, minutes, coins, poop, sleeping };
+    showStoryEvent({ emoji: sleeping ? '😴' : '🏠', message: `おかえり!${span}、お留守番していたよ` });
+    return { ticks, minutes, poop, sleeping };
   }
 
   function loop() {

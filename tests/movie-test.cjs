@@ -14,7 +14,7 @@ test('the water encounter shows the same species as an elder, without aging the 
   const h = movieHarness();
   for (const species of ['dog', 'sakura', 'clownfish']) {
     Object.assign(h.api.state(), {speciesLine:species, stageIndex:2});
-    h.api.playLegendEncounterMovie(mirror, 17);
+    h.api.playLegendEncounterMovie(mirror);
     h.advance(3500);
     assert.match(h.get('dateMoviePartner').innerHTML, new RegExp(`assets/characters/${species}/08.png`));
     assert.ok(!h.get('dateMoviePartner').textContent.includes('🪞'));
@@ -28,7 +28,7 @@ test('both water stories synchronize ripples and the last face with their captio
   for (const random of [0, .99]) {
     const h = movieHarness();
     h.sandbox.Math.random = () => random;
-    h.api.playLegendEncounterMovie(mirror, 17);
+    h.api.playLegendEncounterMovie(mirror);
     h.advance(14000);
     assert.match(h.get('dateMovieCaption').textContent, /水面|波/);
     assert.equal(h.get('dateMovieScene').dataset.action, 'ripple');
@@ -36,13 +36,15 @@ test('both water stories synchronize ripples and the last face with their captio
     assert.equal(h.get('dateMovieScene').dataset.action, random === 0 ? 'fade' : 'return');
     if (random > 0) assert.match(h.get('dateMoviePartner').innerHTML, /dog\/06.png/);
     h.advance(3500);
-    assert.match(h.get('dateMovieCaption').textContent, /17コイン/);
+    assert.doesNotMatch(h.get('dateMovieCaption').textContent, /コイン|💰/);
+    h.advance(500);
+    assert.equal(h.get('dateMovieCloseBtn').classList.contains('hidden'), false);
   }
 });
 
 test('skipping then closing releases the movie and cancels all later scene changes', () => {
   const h = movieHarness();
-  h.api.playLegendEncounterMovie(mirror, 17);
+  h.api.playLegendEncounterMovie(mirror);
   assert.equal(h.document.body.classList.contains('movie-active'), true);
   h.advance(4000);
   h.dispatch(h.get('dateMovieSkipBtn'), 'click');
@@ -57,7 +59,7 @@ test('skipping then closing releases the movie and cancels all later scene chang
 
 test('opening a different overlay cleans up cinema mode and a following date resets legend choreography', () => {
   const h = movieHarness();
-  h.api.playLegendEncounterMovie(mirror, 17);
+  h.api.playLegendEncounterMovie(mirror);
   h.api.openExclusiveMenu('profile');
   assert.equal(h.document.body.classList.contains('movie-active'), false);
   const partner = {id:'robot_neighbor',label:'ロボット',affinityTrait:'gentle',married:true};
@@ -70,9 +72,9 @@ test('opening a different overlay cleans up cinema mode and a following date res
   assert.equal(h.get('dateMovieCloseBtn').classList.contains('hidden'), false);
 });
 
-test('cinematic subtitles and titles contain no emoji, including rewards and the ring line', () => {
+test('cinematic legend subtitles and titles contain no emoji', () => {
   const h = movieHarness();
-  h.api.playLegendEncounterMovie(mirror, 17);
+  h.api.playLegendEncounterMovie(mirror);
   h.advance(22000);
   for (const id of ['dateMovieCaption', 'dateMoviePlace']) {
     assert.doesNotMatch(h.get(id).textContent, /\p{Extended_Pictographic}/u);
@@ -119,7 +121,7 @@ test('repeated dates rotate whole small stories before replaying one, even with 
 
 test('the squid speaks under its own name and portrait; the player reply is not attributed to it', () => {
   const h=movieHarness();
-  h.api.playLegendEncounterMovie({id:'boss',name:'あやまりにきただいおういか',emoji:'🦑'},17);
+  h.api.playLegendEncounterMovie({id:'boss',name:'あやまりにきただいおういか',emoji:'🦑'});
   h.advance(7000);
   assert.equal(h.get('dateMovieCaption').dataset.speaker,'legend');
   assert.match(h.get('dateMovieCaption').textContent,/ダイオウイカ/);
@@ -157,21 +159,25 @@ test('all 18 partners keep their own speech identity across complete dates and a
   }
 });
 
-test('four coherent stories per legend finish with the reward and keep water ripples synchronized', () => {
+test('four coherent stories per legend finish without rewards and keep water ripples synchronized', () => {
+  const closingSpeakers={gate:['pet','','','pet'],stairs:['pet','','pet','pet'],boss:['','','','pet'],lamp:['','','pet',''],mirror:['','','','']};
   for(const id of ['gate','stairs','boss','lamp','mirror']) {
     const h=movieHarness(), openings=new Set();
     for(let variant=0;variant<4;variant++) {
-      h.api.playLegendEncounterMovie({id,name:id,emoji:{boss:'🦑',lamp:'🏮'}[id] || ''},17);
+      h.api.playLegendEncounterMovie({id,name:id,emoji:{boss:'🦑',lamp:'🏮'}[id] || ''});
       openings.add(h.get('dateMovieCaption').textContent);
       for(let beat=0;beat<9;beat++) {
+        assert.doesNotMatch(h.get('dateMovieCaption').textContent,/コイン|💰/);
+        assert.notEqual(h.get('dateMovieScene').dataset.action,'reward');
         if(id==='mirror' && h.get('dateMovieScene').dataset.action==='ripple') {
           assert.match(h.get('dateMovieCaption').textContent,/水面|波/);
           assert.equal(h.get('dateMovieCaption').dataset.speaker,'');
         }
         h.advance(3500);
       }
-      assert.match(h.get('dateMovieCaption').textContent,/17コイン/);
-      assert.equal(h.get('dateMovieCaption').dataset.speaker,'');
+      assert.doesNotMatch(h.get('dateMovieCaption').textContent,/コイン|💰/);
+      assert.ok(h.get('dateMovieCaption').textContent.length>0);
+      assert.equal(h.get('dateMovieCaption').dataset.speaker,closingSpeakers[id][variant]);
       assert.equal(h.get('dateMovieCloseBtn').classList.contains('hidden'),false);
       h.api.closeDateOverlay();
     }

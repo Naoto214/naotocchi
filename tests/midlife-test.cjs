@@ -19,12 +19,12 @@ test('each midlife event fires once at its age and records a life-log line', () 
   const money = state.lifetime.money, logBefore = state.lifeLog.length;
   assert.equal(h.api.maybeMidlifeEvent(50), true);
   assert.equal(h.api.maybeMidlifeEvent(50), false, 'the same age does not fire twice');
-  assert.ok(state.lifetime.money > money, 'the 50th birthday pays coins');
+  assert.equal(state.lifetime.money, money, 'the 50th birthday does not pay coins');
   assert.equal(state.lifeLog.length, logBefore + 1);
   assert.equal(h.api.maybeMidlifeEvent(45), false, 'no event at other ages');
   const beforeTripPlan = state.lifetime.money;
   assert.equal(h.api.maybeMidlifeEvent(66), true);
-  assert.equal(state.lifetime.money, beforeTripPlan + 100, 'age 66 keeps its ordinary coin reward');
+  assert.equal(state.lifetime.money, beforeTripPlan, 'age 66 does not pay coins');
   assert.equal(state.items.c_travel, undefined, 'age 66 no longer creates retired stock');
 });
 
