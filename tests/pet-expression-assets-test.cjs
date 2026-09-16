@@ -199,3 +199,18 @@ test('elder expression assets retain the original small stage bounds and transpa
   assert.equal(new Set(hashes).size,10);
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
+
+test('toddler expression assets retain the original small stage bounds and transparent canvas', () => {
+  const original=inspectPng('assets/characters/cat/02.png');
+  assert.deepEqual(original.bounds,[29,40,99,120]);
+  const hashes=[];
+  for(const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    const file=expression.assetFor('assets/characters/cat/02.png',name);
+    const {data,bounds,alpha}=inspectPng(file);
+    assert.deepEqual(bounds,original.bounds,name);
+    assert.deepEqual(alpha,[0,255],name);
+    hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10);
+  assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+});
