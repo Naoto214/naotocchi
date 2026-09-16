@@ -567,7 +567,7 @@ assert.equal(storyCaptions.length, storyCount, 'encounter continued after a new 
 reset({stage:'egg'}); api.hatchEgg(); assert.equal(api.getState().lifeLog.at(-1).text, 'たまごからうまれた');
 // Funded dream eggs select the 22 normal or eight rare lines; ren keeps its original gate.
 for (const def of [...master.playerSpecies.normal, ...master.playerSpecies.rare]) {
-  reset({stage:'egg'}); api.getState().lifetime.dreamEggs={normal:1,rare:1};
+  reset({stage:'egg'}); Object.assign(api.getState().items,{c_egg_normal:1,c_egg_rare:1});
   api.getState().lifetime.nextEggLine = def.id; api.hatchEgg();
   assert.equal(api.getState().speciesLine, def.id); assert.ok(api.stageDesc(def.id, 0));
 }

@@ -110,7 +110,7 @@
     60: { emoji: '🗝️', name: 'へんしんのちから', coins: 150, desc: 'へんしんの候補が増えた。レアな姿もえらびやすくなる' },
     70: { emoji: '🧭', name: 'たびだち', coins: 220, desc: 'コインと旅のごきげんがふえやすくなった。とくべつな旅先もひらき、いつか「でんせつのであい」が起きる' },
     80: { emoji: '🌈', name: 'レアのきざし', coins: 300, desc: 'へんしんの候補にレアな姿がまざりやすくなり、レアななかまとも出会えるようになった' },
-    90: { emoji: '✨', name: 'でんせつ', coins: 450, desc: '金色のオーラをまとった。でんせつのゆめをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
+    90: { emoji: '✨', name: 'でんせつ', coins: 450, desc: '金色のオーラをまとった。レアなたまごをもらい、おなか・ごきげん・げんきがゆっくり減るようになった' },
     100: { emoji: '👑', name: 'さいこうのそだち', coins: 800, desc: '虹のオーラをまとい、最高のそだちにたどりついた' },
   };
 
@@ -1486,10 +1486,10 @@
         perfectCleared: false,
         // 歴代の なおとっちの ようやく(「はじめから」の たびに 1行 つみあがる)
         pastLives: [],
-        // 「たまごの ゆめ」「でんせつの ゆめ」の 在庫と、つぎの たまごに
-        // していする しゅぞく
-        dreamEggs: { normal: 0, rare: 0 },
+        // 旧ゆめ欄は移行後空にする。予約分は永久在庫に含み、孵化時に使う。
+        dreamEggs: {},
         nextEggLine: null,
+        nextEggKind: null,
         // which of the 4 getEndingTier() endings have ever been reached
         // (across any playthrough) - drives the permanent badge row on the
         // normal screen and the rainbow screen once all 4 are collected
@@ -1743,6 +1743,7 @@
           .map(key => String(key).split(':')[0]).filter(line => ALL_LINES.includes(line)))];
       }
       // Inspect the saved version before fresh defaults can mark it migrated.
+      merged.lifetime.itemMigrations = parsed.lifetime?.itemMigrations || {};
       merged.lifetime.itemSystemVersion = parsed.lifetime?.itemSystemVersion || 0;
       merged.lifetime.funItemsRetiredVersion = parsed.lifetime?.funItemsRetiredVersion || 0;
       merged.lifetime.itemInventory = parsed.lifetime?.itemInventory || parsed.items || {};
@@ -2489,10 +2490,6 @@
     { below: 0.92, coins: 500 }, { below: 0.99, coins: 1000 },
     { below: 1, coins: 10000 },
   ].map(Object.freeze));
-  const FUTURE_CONSUMABLE_IDS = [
-    'c_time_back','c_time_forward','c_friend','c_match','c_transform',
-    'c_rare_friend','c_egg_normal','c_egg_rare','c_dex',
-  ];
   const CONSUMABLE_ITEMS = [
     { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙',
       apply: () => {
@@ -2525,8 +2522,9 @@
     { id:'c_match', emoji:'🎟️', picker:'match-ticket',
       available:() => !state.partner && ticketMatchCandidates().length > 0,
       unavailableMessage:'いま呼べるおみあい相手がいない' },
-    ...FUTURE_CONSUMABLE_IDS.filter(id => !['c_time_back','c_time_forward','c_transform','c_dex','c_friend','c_rare_friend','c_match'].includes(id)).map(id => ({ id, emoji:'🎟️',
-      available: () => false, unavailableMessage:'このアイテムは準備中' })),
+    ...['normal','rare'].map(kind => ({ id:`c_egg_${kind}`, emoji:'🥚', eggKind:kind,
+      available:() => !state.lifetime.nextEggLine && !state.lifetime.nextEggKind && unraisedEggLines(kind).length > 0,
+      unavailableMessage:'予約中、またはまだ育てていない種族がいない' })),
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
   function activeBoostSummary() {
@@ -9463,9 +9461,10 @@
   let suppressLifeEvents = false;
 
   function hatchEgg() {
-    if (state.stage !== STAGE.EGG) return;
+    if (state.stage !== STAGE.EGG || state.infinite) return;
     audio.play('hatch');
-    state.speciesLine = pickDreamLine() || pickRandomLine();
+    const reservedLine = pickDreamLine();
+    state.speciesLine = reservedLine || pickRandomLine();
     state.stage = STAGE.GROWING;
     state.ageTicks = 0;
     state.stageIndex = 0;
@@ -9474,6 +9473,12 @@
     state.gender = identity.gender;
     state.orientationId = identity.orientationId;
     state.attractedTo = identity.attractedTo;
+    if (reservedLine) {
+      const id = `c_egg_${NORMAL_LINES.includes(reservedLine) ? 'normal' : 'rare'}`;
+      ITEM_SYSTEM.take(state, id);
+      recordItemUse(id);
+      state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
+    }
     setMessage('たまごがぱかり。ちいさななおとっちと、目があった。');
     emotePet('happy');
     pushLifeLog('🥚', 'たまごからうまれた');
@@ -9663,10 +9668,10 @@
     speakEvent('money', { coins: reward, partnerChance: 0.4, companionChance: 0.4 });
     pushLifeLog(perk.emoji, `そだちが${value}にとどいた— ${perk.name}`);
     showStoryEvent({ emoji: perk.emoji, message: `そだち${value}！ ${perk.name}\n${perk.desc}` });
-    if (value === 90) state.lifetime.dreamEggs.rare += 1;
+    if (value === 90) ITEM_SYSTEM.grant(state, 'c_egg_rare');
     if (value === 100) {
-      state.lifetime.dreamEggs.normal += 1;
-      setMessage('そだち100。800コインとたまごのゆめをもらった');
+      ITEM_SYSTEM.grant(state, 'c_egg_normal');
+      setMessage('そだち100。800コインとふしぎなたまごをもらった');
     } else {
       setMessage(`${perk.emoji}そだち${value}! ${perk.name}`);
     }
@@ -10079,36 +10084,48 @@
     }, 1200);
   }
 
-  // 「たまごの ゆめ」「でんせつの ゆめ」で 次の たまごの しゅぞくを えらんで
-  // いた ばあいは それを つかう。つかったら 在庫から へらす
+  // New reservations draw from unraised species. A funded legacy choice stays
+  // valid even if already raised; only a successful hatch spends its stock.
   function dreamLines(kind) {
-    return kind === 'normal' ? NORMAL_LINES : kind === 'rare' ? RARE_LINES : [];
+    return (kind === 'normal' ? NORMAL_LINES : kind === 'rare' ? RARE_LINES : []).filter(line => line !== 'ren');
+  }
+  function unraisedEggLines(kind) {
+    const raised = new Set(experiencedSpecies());
+    return dreamLines(kind).filter(line => !raised.has(line));
   }
   function openDreamPicker(kind) {
-    if (state.stage !== STAGE.EGG || state.infinite || !(state.lifetime.dreamEggs?.[kind] > 0) || !dreamLines(kind).length) return false;
-    openPicker({picker:'dreamline', dreamKind:kind, label:kind === 'rare' ? 'でんせつのゆめ' : 'たまごのゆめ'});
-    return true;
+    return ['normal','rare'].includes(kind) && useConsumableItem(`c_egg_${kind}`);
+  }
+  function reserveNextEgg(kind) {
+    const id = `c_egg_${kind}`, L = state.lifetime;
+    if (!itemUseAllowed(id) || !ITEM_SYSTEM.stock(state,id) || L.nextEggLine || L.nextEggKind) return false;
+    const pool = unraisedEggLines(kind);
+    if (!pool.length) return false;
+    L.nextEggLine = pool[Math.floor(Math.random() * pool.length)];
+    L.nextEggKind = kind;
+    setMessage(`${SPECIES_DISPLAY_NAMES[L.nextEggLine]}を予約したよ。孵化したときに1個使います。`);
+    saveState(); render(); return true;
   }
   function renderDreamActions() {
     const L = state.lifetime;
     for (const [kind,id] of [['normal','dreamNormalBtn'],['rare','dreamRareBtn']]) {
-      const btn = document.getElementById(id), count = L.dreamEggs?.[kind] || 0;
-      btn.textContent = `${kind === 'rare' ? 'でんせつのゆめ' : 'たまごのゆめ'}（${count}こ）`;
-      btn.disabled = state.stage !== STAGE.EGG || state.infinite || count < 1;
+      const itemId = `c_egg_${kind}`, btn = document.getElementById(id), count = ITEM_SYSTEM.stock(state,itemId);
+      btn.textContent = `${ITEM_SYSTEM.CATALOG[itemId].label}（${count}こ）`;
+      btn.disabled = !itemUseAllowed(itemId) || count < 1 || !!L.nextEggLine || !!L.nextEggKind || !unraisedEggLines(kind).length;
     }
     document.getElementById('dreamStatus').textContent = L.nextEggLine
-      ? `予約：${SPECIES_DISPLAY_NAMES[L.nextEggLine] || '選び直してね'}。孵化したときに1個使います。`
-      : '卵のときに、通常22種かレア8種から選べます。孵化までは使いません。';
-    document.getElementById('dreamCancelBtn').disabled = !L.nextEggLine;
+      ? `予約：${SPECIES_DISPLAY_NAMES[L.nextEggLine] || '取り消して予約し直してね'}。孵化したときに1個使います。`
+      : 'まだ育てていない通常種族・レア種族からランダムに次の人生を予約します。孵化までは使いません。';
+    document.getElementById('dreamCancelBtn').disabled = !L.nextEggLine && !L.nextEggKind;
   }
   function pickDreamLine() {
+    if (state.stage !== STAGE.EGG || state.infinite) return null;
     const L = state.lifetime, line = L.nextEggLine;
-    // Legacy reservations did not store a kind. Infer only a legal, funded pool.
-    const kind = L.nextEggKind || (NORMAL_LINES.includes(line) ? 'normal' : RARE_LINES.includes(line) ? 'rare' : null);
+    // Old saves may omit the kind. Explicit invalid values never infer a pool.
+    const kind = L.nextEggKind == null ? (NORMAL_LINES.includes(line) ? 'normal' : RARE_LINES.includes(line) ? 'rare' : null) : L.nextEggKind;
+    if (dreamLines(kind).includes(line) && ITEM_SYSTEM.stock(state,`c_egg_${kind}`) > 0) return line;
     L.nextEggLine = null; L.nextEggKind = null;
-    if (state.stage !== STAGE.EGG || !dreamLines(kind).includes(line) || !(L.dreamEggs?.[kind] > 0)) return null;
-    L.dreamEggs[kind] -= 1;
-    return line;
+    return null;
   }
 
   // ================================================================
@@ -12365,6 +12382,7 @@
   }
 
   function itemUseAllowed(id) {
+    if (id === 'c_egg_normal' || id === 'c_egg_rare') return !state.infinite && [STAGE.EGG,STAGE.GROWING].includes(state.stage);
     return state.stage === STAGE.GROWING && (!state.dying || id === 'c_life');
   }
 
@@ -12576,6 +12594,7 @@
     if (item.available && !item.available()) {
       setMessage(item.unavailableMessage || '今は使えない'); render(); return false;
     }
+    if (item.eggKind) return reserveNextEgg(item.eggKind);
     if (item.picker) {
       if (item.picker === 'transform-ticket') {
         ticketTransformOptions = pickTicketTransformCandidates();
@@ -12640,14 +12659,6 @@
   function resolvePickerSelection(value) {
     const item = pickerItem;
     if (!item) return;
-    if (item.picker === 'dreamline') {
-      if (state.stage === STAGE.EGG && !state.infinite && dreamLines(item.dreamKind).includes(value) && state.lifetime.dreamEggs?.[item.dreamKind] > 0) {
-        state.lifetime.nextEggLine = value; state.lifetime.nextEggKind = item.dreamKind;
-        setMessage('夢を予約したよ。孵化したときに1個使います。');
-        saveState();
-      }
-      closePicker(); return;
-    }
     if (item.picker === 'transform') {
       if (!itemUseAllowed(item.id) || !ITEM_SYSTEM.stock(state, item.id) || !item.available()) { closePicker(); return; }
       const result = item.apply(value);
@@ -12737,16 +12748,6 @@
       el.pickerGrid.className = 'theme-grid';
       const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
       html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
-    } else if (item.picker === 'dreamline') {
-      el.pickerHint.textContent = '選んで予約。孵化したときに1個使います。取り消しは無料です。';
-      const lines = dreamLines(item.dreamKind);
-      el.pickerGrid.className = 'theme-grid';
-      html = lines.map((line) => `
-        <div class="dex-cell known tappable" data-picker-value="${line}">
-          <span class="dex-cell-emoji">${stageVisualHTML(SPECIES[line].stages[0], 'thumb')}</span>
-          <span class="dex-cell-label">${SPECIES_DISPLAY_NAMES[line] || line}</span>
-        </div>
-      `).join('');
     } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
       const lines = item.picker === 'dex-form' ? [...NORMAL_LINES,...RARE_LINES] : ALL_LINES;

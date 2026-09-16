@@ -14,25 +14,23 @@ function guess(h,code,answers) {
   h.api.confirmDuelGuesses(); h.api.chooseDuelSuspicion(d.items[0].qId);
   return h.api.encodeDuelGuess();
 }
-test('egg menu reserves only legal dream pools and hatch consumes exactly once across reload',()=>{
-  const store=storage(); let h=boot(store), s=h.api.state(); s.lifetime.dreamEggs={normal:1,rare:1};
+test('egg menu reserves random new stock, displays the species and consumes once across reload',()=>{
+  const store=storage(); let h=boot(store), s=h.api.state(); s.items.c_egg_normal=1;s.items.c_egg_rare=1;
   h.dispatch(h.get('itemBtn'),'click'); h.dispatch(h.get('dreamNormalBtn'),'click');
-  assert.equal((h.get('pickerGrid').innerHTML.match(/data-picker-value=/g)||[]).length,22);
-  h.api.resolvePickerSelection('dog'); assert.equal(s.lifetime.dreamEggs.normal,1); assert.equal(s.lifetime.nextEggLine,'dog');
-  h.dispatch(h.get('dreamCancelBtn'),'click'); assert.equal(s.lifetime.nextEggLine,null); assert.equal(s.lifetime.dreamEggs.normal,1);
-  h.dispatch(h.get('dreamRareBtn'),'click'); assert.equal((h.get('pickerGrid').innerHTML.match(/data-picker-value=/g)||[]).length,8);
-  assert.doesNotMatch(h.get('pickerGrid').innerHTML,/data-picker-value="ren"/);
-  h.api.resolvePickerSelection('ren'); assert.equal(s.lifetime.nextEggLine,null);
-  h.api.openDreamPicker('normal'); h.api.resolvePickerSelection('dog'); h.api.saveState();
-  h=boot(store); h.api.hatchEgg(); assert.equal(h.api.state().speciesLine,'dog'); assert.equal(h.api.state().lifetime.dreamEggs.normal,0);
-  h.api.saveState(); h=boot(store); assert.equal(h.api.pickDreamLine(),null); assert.equal(h.api.state().lifetime.dreamEggs.normal,0);
+  const line=s.lifetime.nextEggLine;assert.ok(h.api.normalLines.includes(line));assert.equal(h.api.itemStock('c_egg_normal'),1);
+  assert.match(h.get('dreamStatus').textContent,/予約/);assert.equal(h.get('dreamRareBtn').disabled,true);
+  h.dispatch(h.get('dreamCancelBtn'),'click');assert.equal(s.lifetime.nextEggLine,null);assert.equal(h.api.itemStock('c_egg_normal'),1);
+  h.dispatch(h.get('dreamRareBtn'),'click');assert.ok(h.api.rareLines.includes(s.lifetime.nextEggLine));assert.notEqual(s.lifetime.nextEggLine,'ren');
+  h.dispatch(h.get('dreamCancelBtn'),'click');h.api.openDreamPicker('normal');const chosen=s.lifetime.nextEggLine;h.api.saveState();
+  h=boot(store);h.api.hatchEgg();assert.equal(h.api.state().speciesLine,chosen);assert.equal(h.api.itemStock('c_egg_normal'),0);
+  h.api.saveState();h=boot(store);assert.equal(h.api.pickDreamLine(),null);assert.equal(h.api.itemStock('c_egg_normal'),0);
 });
-test('invalid or unavailable hatch reservation clears without spending; growing pets cannot reserve',()=>{
-  const h=harness(),s=h.api.state(); s.lifetime.dreamEggs={normal:1,rare:1};
-  for(const line of ['ren','nope','dog']) {s.lifetime.nextEggLine=line;s.lifetime.nextEggKind='rare'; assert.equal(h.api.pickDreamLine(),null);}
-  s.lifetime.nextEggLine='dog';s.lifetime.nextEggKind='normal';s.lifetime.dreamEggs.normal=0;
-  assert.equal(h.api.pickDreamLine(),null); assert.equal(s.lifetime.nextEggLine,null);
-  s.stage='growing'; assert.equal(h.api.openDreamPicker('rare'),false);
+test('invalid or unavailable hatch reservation clears without spending; growing pets can reserve',()=>{
+  const h=harness(),s=h.api.state();s.stage='egg';s.items.c_egg_normal=1;s.items.c_egg_rare=1;
+  for(const line of ['ren','nope','dog']){s.lifetime.nextEggLine=line;s.lifetime.nextEggKind='rare';assert.equal(h.api.pickDreamLine(),null);}
+  s.lifetime.nextEggLine='dog';s.lifetime.nextEggKind='normal';delete s.items.c_egg_normal;
+  assert.equal(h.api.pickDreamLine(),null);assert.equal(s.lifetime.nextEggLine,null);
+  s.stage='growing';assert.equal(h.api.openDreamPicker('rare'),true);assert.equal(h.api.itemStock('c_egg_rare'),1);
 });
 test('kakera choice presents three distinct new-priority options, cancel is free, commit spends once',()=>{
   const h=harness(),s=h.api.stickerStore(); s.kakera=12;
@@ -112,9 +110,9 @@ test('old unfunded progress terminates without minting while completed old match
   h.api.ITEM_SYSTEM.normalize(s);assert.equal(s.duel.step,'done');assert.equal(s.lifetime.money,3);assert.equal(s.lifetime.duelWins,7);
 });
 test('repeated hatch callback does not change an already committed newborn',()=>{
-  const h=harness(),s=h.api.state();s.stage='egg';s.lifetime.dreamEggs.normal=2;s.lifetime.nextEggLine='dog';
+  const h=harness(),s=h.api.state();s.stage='egg';s.items.c_egg_normal=2;s.lifetime.nextEggLine='dog';
   h.api.hatchEgg();const first=JSON.stringify({species:s.speciesLine,gender:s.gender,logs:s.lifeLog});
-  h.api.hatchEgg();assert.equal(JSON.stringify({species:s.speciesLine,gender:s.gender,logs:s.lifeLog}),first);assert.equal(s.lifetime.dreamEggs.normal,1);
+  h.api.hatchEgg();assert.equal(JSON.stringify({species:s.speciesLine,gender:s.gender,logs:s.lifeLog}),first);assert.equal(h.api.itemStock('c_egg_normal'),1);
 });
 test('result-only close and rematch handlers cannot discard a reserved match',()=>{
   const h=harness();h.api.state().lifetime.money=100;host(h);const id=h.api.state().duel.matchId;

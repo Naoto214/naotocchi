@@ -23,7 +23,7 @@ test('five warming taps show progressive egg art and hatch once at the existing 
   const h=boot(storage()); h.api.render();
   assert.match(h.get('petSprite').innerHTML,/egg\/intact.png/);
   h.api.state().lifetime.nextEggLine='dog';
-  h.api.state().lifetime.dreamEggs.normal=1;
+  h.api.state().items.c_egg_normal=1;
   for(const [i,asset] of ['intact','cracking','cracking','ready'].entries()) {
     warm(h);
     assert.equal(h.api.state().stage,'egg');
@@ -102,7 +102,7 @@ test('all 30 legal dream species keep their stable identity and first-form artwo
   for(const {id} of species) {
     const h=boot(storage());
     h.api.state().lifetime.nextEggLine=id;
-    h.api.state().lifetime.dreamEggs={normal:1,rare:1};
+    Object.assign(h.api.state().items,{c_egg_normal:1,c_egg_rare:1});
     for(let i=0;i<5;i++) warm(h);
     assert.equal(h.api.state().speciesLine,id);
     assert.match(h.get('petSprite').innerHTML,new RegExp(`characters/${id}/01.png`));
