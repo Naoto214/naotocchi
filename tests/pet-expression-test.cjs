@@ -52,7 +52,7 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
-  assert.equal(expression.assetFor('assets/characters/cat/01.png','happy'),'assets/characters/cat/01.png');
+  assert.equal(expression.assetFor('assets/characters/dog/01.png','happy'),'assets/characters/dog/01.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
 
@@ -121,7 +121,7 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
   assert.equal(expression.accentFor(base,'constructor'),'');
-  assert.equal(expression.assetFor('assets/characters/cat/01.png','happy'),'assets/characters/cat/01.png');
+  assert.equal(expression.assetFor('assets/characters/dog/01.png','happy'),'assets/characters/dog/01.png');
 });
 
 test('kitten and adult calling marks follow their respective heads', () => {
@@ -197,6 +197,18 @@ test('toddler stage has ten faces and marks anchored near its left-hand head', (
   const base='assets/characters/cat/02.png';
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/02-${name}.png`);
+    const mark=expression.accentFor(base,name);
+    assert.match(mark,/<g transform=/);
+    assert.match(mark,/aria-hidden="true"/);
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
+});
+
+test('baby stage has ten faces and marks anchored near its left-hand head', () => {
+  const base='assets/characters/cat/01.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/01-${name}.png`);
     const mark=expression.accentFor(base,name);
     assert.match(mark,/<g transform=/);
     assert.match(mark,/aria-hidden="true"/);
