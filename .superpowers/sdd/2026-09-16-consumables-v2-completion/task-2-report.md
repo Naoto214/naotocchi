@@ -32,3 +32,16 @@ Result: 149 tests, 149 pass, 0 fail; syntax check passed.
 - `rg` over `script.js` finds none of the retired IDs or retired effect field names.
 - Confirmed the four approved PNG assets were untouched.
 - Full suite is intentionally deferred to Task 6. A broader exploratory run including Task 3–5 suites exposed expected failures in unimplemented egg handlers and pre-existing migration expectation updates; these are outside Task 2 focused GREEN and are not represented as Task 2 regressions.
+
+## Review follow-up: real tick boundaries
+
+Added two runtime-level tests that call `tick()` rather than `checkMeters()` directly:
+
+- A real dying tick at `deathMeter=100`, `dyingTicks=0` consumes exactly one charm, records one consumable use, clears the death warning, and leaves the pet growing without a death.
+- The tick that advances age 99 to 100 enters farewell first and preserves the charm, with one clear and no death.
+
+Mutation evidence:
+
+- Temporarily disabling the charm take branch made the real dying tick test fail (`dead !== growing`).
+- Temporarily consuming a charm before the 100-year branch made the farewell test fail (stock `0 !== 1`).
+- `script.js` was restored byte-for-byte after both mutations.

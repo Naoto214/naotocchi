@@ -50,6 +50,33 @@ test('life charm automatically prevents actual death without changing its causes
   assert.equal(s.stage, 'dead'); assert.equal(s.lifetime.deaths, 1);
 });
 
+test('a real dying tick spends one charm at the death boundary', () => {
+  const { h, s } = living();
+  Object.assign(s, {deathMeter:100,dying:true,dyingTicks:0,health:50,hunger:50,
+    happiness:20,energy:50,isSick:false,poopCount:0});
+  s.items.c_life_charm=2;
+  h.api.tick();
+  assert.equal(s.stage,'growing');
+  assert.equal(s.deathMeter,0);
+  assert.equal(s.dying,false);
+  assert.equal(s.dyingTicks,0);
+  assert.equal(s.lifetime.deaths,0);
+  assert.equal(h.api.itemStock('c_life_charm'),1);
+  assert.equal(s.lifetime.consumablesUsed,1);
+});
+
+test('the tick reaching age one hundred enters farewell before charm consumption', () => {
+  const { h, s } = living();
+  Object.assign(s,{ageTicks:1999,deathMeter:100,dying:true,dyingTicks:0});
+  s.items.c_life_charm=1;
+  h.api.tick();
+  assert.equal(s.stage,'farewell');
+  assert.equal(s.lifetime.clears,1);
+  assert.equal(s.lifetime.deaths,0);
+  assert.equal(h.api.itemStock('c_life_charm'),1);
+  assert.equal(s.lifetime.consumablesUsed,0);
+});
+
 test('life charm waits through grace and is never spent for farewell or infinity', () => {
   const { h, s } = living(); s.items.c_life_charm = 3;
   Object.assign(s, {deathMeter:100,dying:true,dyingTicks:4});
