@@ -335,6 +335,16 @@ test('sweat follows the face sides instead of the whole body', () => {
 const faceAnchors=require('../tools/expression-face-anchors.json');
 const castBounds=require('../cast-bounds.js');
 const markCenters={happy:[81,28],strained:[26,22.5],hungry:[83,27],sick:[80.5,25.7],tired:[81,26.5],sulky:[77.5,30],weak:[77.5,24.5],critical:[76.5,24],wantsPlay:[82,13.5],sleeping:[83.5,22.5]};
+
+test('every observed face center lies within its normal sprite bounds',()=>{
+ for(const [line,heads] of Object.entries(faceAnchors))for(let index=0;index<heads.length;index++){
+  const base=`assets/characters/${line}/${String(index+1).padStart(2,'0')}.png`;
+  const [left,top,right,bottom]=castBounds[base].box,[x,y]=heads[index];
+  assert.ok(x>=left&&x<=right&&y>=top&&y<=bottom,
+    `${line}/${index+1} face center (${x},${y}) is outside [${left},${top},${right},${bottom}]`);
+ }
+});
+
 for(const [line,heads] of Object.entries(faceAnchors))for(let index=0;index<8;index++) {
  test(`${line}/${index+1} marks follow the approved face-relative directions`,()=>{
   const base=`assets/characters/${line}/${String(index+1).padStart(2,'0')}.png`;
@@ -374,9 +384,17 @@ test('reviewed side marks read diagonally above the face, not alongside it',()=>
  }
 });
 
-for(const line of ['penguin','turtle'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
+for(const line of ['penguin','turtle','frog','clownfish'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
  const stage=String(i).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`;
  const states=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
  assert.equal(expression.assetFor(base,'normal'),base);
  for(const state of states){assert.equal(expression.assetFor(base,state),`assets/characters/expressions/${line}/${stage}-${state}.png`);assert.ok(expression.accentFor(base,state).includes('<svg'));}
+});
+
+test('frog and clownfish use distinct species-appropriate hunger marks',()=>{
+ const frog=expression.accentFor('assets/characters/frog/06.png','hungry');
+ const clownfish=expression.accentFor('assets/characters/clownfish/06.png','hungry');
+ assert.match(frog,/<ellipse class="accent-food"/,'frog thinks of an insect');
+ assert.match(clownfish,/<circle class="accent-food"/,'clownfish thinks of food pellets');
+ assert.notEqual(frog,clownfish);
 });

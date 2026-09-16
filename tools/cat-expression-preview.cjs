@@ -16,7 +16,7 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle'].flatMap(line =>
+const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle','frog','clownfish'].flatMap(line =>
   [1,3,7,12,16,25,40,70].map((age,index) => [line+String(index+1).padStart(2,'0'),age])
 )));
 
@@ -165,7 +165,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 if (require.main === module) {
   const [outputPath,preset='hungry',form='adult']=process.argv.slice(2);
   if (!outputPath) {
-    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [form: cat/dog names or man01..08/woman01..08]\n');
+    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [form: cat/dog names or species01..08]\n');
     process.exitCode=1;
   } else {
     fs.writeFileSync(path.resolve(outputPath),buildPreview({preset,form}));
