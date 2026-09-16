@@ -256,12 +256,22 @@ for (const [score, key] of [[90, 'minigame_great'], [10, 'minigame_bad']]) {
 }
 reset(); api.celebrateAgeSpeech(37); advance(0); assert.ok(events.includes('age')); validSpeech();
 for (const [key, fire] of [
-  ['sodachi', () => api.gainSodachi(1)], ['money', () => api.onSodachiMilestone(40)],
+  ['sodachi', () => api.gainSodachi(1)],
   ['travel', () => api.travelToRegion(api.findRegion('forest'))],
   ['transform', () => { const target = master.playerSpecies.normal[1].id; api.getState().transformOptions = [target]; api.chooseTransform(target); }],
 ]) {
   reset(); fire(); advance(0); assert.ok(events.includes(key), key + ' event path'); validSpeech();
 }
+// Milestones keep their notice and record without announcing retired money rewards.
+reset(); api.getState().lifetime.money = 437;
+const milestoneLogs = api.getState().lifeLog.length;
+api.onSodachiMilestone(40); advance(0);
+assert.equal(events.includes('money'), false, 'milestone announced retired money reward');
+assert.equal(api.getState().lifetime.money, 437);
+assert.equal(api.getState().lifeLog.length, milestoneLogs + 1);
+assert.match(getElement('storyFlashText').textContent, /そだち40.*なかまのわ/);
+assert.doesNotMatch(getElement('storyFlashText').textContent, /コイン|💰/);
+validSpeech();
 for (const [value, key] of [[0, 'partner_new'], [0.99, 'court_fail']]) {
   reset({ regionId: 'city', gender: 'female', attractedTo: ['female', 'male', 'nonbinary'] });
   api.getState().lifetime.partnerEncounters = api.ALL_PARTNER_CANDIDATES.map((p) => p.id);
@@ -280,12 +290,13 @@ for (const [bondCount, key] of [[0, 'court'], [100, 'marriage']]) {
 }
 
 // Legend movies used to throw ReferenceError before the first caption.
-// Both complete stories per legend must finish, keep the reward beat and support skip.
+// Sample both ends of each legend's story selection; keep its ending and support skip.
+const legendStoryLengths = {gate:[5,5], stairs:[6,5], boss:[7,6], lamp:[5,5], mirror:[6,6]};
 for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value of [0, 0.99]) {
   reset(); random = value;
   api.speakEvent('feed'); advance(0);
   getElement('dateMoviePet').innerHTML = '';
-  api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' }, 17);
+  api.playLegendEncounterMovie({ id, emoji: '⭐', flash: '発見', story: '出会い' });
   assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/man/06.png"'),
     id + ': legend movie must show the current player PNG');
   assert.ok(getElement('dateOverlay').classList.contains('movie-fullscreen'),
@@ -293,18 +304,22 @@ for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value 
   assert.equal(getElement('speechBubble').classList.contains('hidden'), true);
   const speechCount = spoken.length; advance(35000);
   assert.equal(spoken.length, speechCount, 'conversation leaked into movie');
-  assert.ok(captions.length >= 6); assert.ok(captions.at(-1).includes('17'));
+  const storyLength = legendStoryLengths[id][value === 0 ? 0 : 1];
+  assert.equal(captions.length, storyLength, id + ': missing story beat or extra reward beat');
+  assert.ok(captions.every(text => text.trim() && !/コイン|💰|undefined/.test(text)));
+  assert.equal(getElement('dateMovieScene').dataset.complete, 'true');
+  assert.notEqual(getElement('dateMovieScene').dataset.action, 'reward');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
   assert.equal(getElement('dateMovieSkipBtn').classList.contains('hidden'), true);
 }
-reset(); api.playLegendEncounterMovie({ id: 'boss', emoji: '🦑' }, 17); api.finishDateMovie();
+reset(); api.playLegendEncounterMovie({ id: 'boss', emoji: '🦑' }); api.finishDateMovie();
 const skippedAt = captions.length; advance(35000); assert.equal(captions.length, skippedAt, 'skip left captions queued');
 // Use the selected species/stage, while keeping old saves without art playable.
 reset({speciesLine:'sakura',stageIndex:0});
-api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'},17);
+api.playLegendEncounterMovie({id:'mirror',emoji:'🪞'});
 assert.ok(getElement('dateMoviePet').innerHTML.includes('src="assets/characters/sakura/01.png"'));
 reset({speciesLine:'rabbit',stageIndex:4});
-api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'},17);
+api.playLegendEncounterMovie({id:'gate',emoji:'⛩️'});
 assert.match(getElement('dateMoviePet').innerHTML, /emoji-only/);
 assert.ok(!getElement('dateMoviePet').innerHTML.includes('<img'));
 assert.equal(api.getState().speciesLine, 'rabbit');
@@ -338,12 +353,12 @@ assert.equal(captions.length,0,'non-winning roll triggered legend');
 for (const id of ['gate','stairs','boss','lamp','mirror']) {
   reset(legendReady);
   api.getState().lifetime.legendsMet=['gate','stairs','boss','lamp','mirror'].filter(x=>x!==id);
+  api.getState().lifetime.money=437;
   const initialMoney=api.getState().lifetime.money;
   random=0;api.maybeLegendEncounter();
   assert.ok(api.getState().legendMet);
   assert.equal(api.getState().lifetime.legendsMet.at(-1),id,'unseen legend not selected');
-  const awardedMoney=api.getState().lifetime.money;
-  assert.ok(awardedMoney>initialMoney,'legend coins missing');
+  assert.equal(api.getState().lifetime.money,initialMoney,'legend granted retired coins');
   const pausedAge=api.getState().ageTicks;
   api.loop();
   assert.equal(api.getState().ageTicks,pausedAge,'movie must pause the life clock');
@@ -357,10 +372,10 @@ for (const id of ['gate','stairs','boss','lamp','mirror']) {
   const captionCount=captions.length;
   api.maybeLegendEncounter();advance(35000);
   assert.equal(captions.length,captionCount,'skipped legend left captions or replayed');
-  assert.equal(api.getState().lifetime.money,awardedMoney,'legend paid twice');
+  assert.equal(api.getState().lifetime.money,initialMoney,'legend replay changed money');
   assert.equal(getElement('dateOverlay').classList.contains('hidden'),true);
 }
-console.log('LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and single reward.');
+console.log('LEGEND SCHEDULER TEST OK: 6 blocked states; 7 paused menus; non-winning roll; 5 unseen legends; pause, skip, close and one reward-free encounter.');
 
 for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (const value of [0, 0.99]) {
   reset({ partner: partner('robot_neighbor', { married: true }), lifeLog: mismatch ? [{ text: 'なかなおりした' }] : [] });
@@ -369,7 +384,7 @@ for (const years of [1, 10, 25, 50]) for (const mismatch of [false, true]) for (
   if (value === 0.99) assert.ok(captions.some((x) => mismatch ? x.includes('あのときはごめんね') : x.includes('おやつがおいしかった')), 'shared memory unreachable');
   assert.equal(getElement('dateMovieCloseBtn').classList.contains('hidden'), false);
 }
-console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 20 legend stories; 16 anniversary cases.');
+console.log('DIALOGUE TEST OK: 20 events; 18 partners; 26 companions; action handlers; 2500ms timing; cancellation; recency; 10 sampled legend stories; 16 anniversary cases.');
 
 // Every current form has its own description, including new master species.
 const currentSpecies = [...master.playerSpecies.normal, ...master.playerSpecies.rare, ...master.playerSpecies.secret];
