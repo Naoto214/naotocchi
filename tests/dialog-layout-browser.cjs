@@ -12,12 +12,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
   ]) {
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
     const page=await context.newPage();
-    if(name==='small') {
-      // Pause before app timers start: a live Date.now()+1 races transport.
-      await page.clock.install({time:new Date('2026-09-12T12:00:00Z')});
-      await page.clock.pauseAt(new Date('2026-09-12T12:01:00Z'));
-    }
+    // Keep layout specimens stable across slow screenshots: quit confirmation
+    // auto-dismisses after four seconds. Advance time explicitly for lifecycle QA.
+    await page.clock.install({time:new Date('2026-09-12T12:00:00Z')});
+    await page.clock.pauseAt(new Date('2026-09-12T12:01:00Z'));
     const save=JSON.parse(JSON.stringify(fixtures[fixture]));
+    if(name==='crowded') {
+      // This QA exercises the real intro/game dialogs, not the Game Pass shortcut.
+      save.lifetime.ownedShopItems=[...save.lifetime.ownedShopItems,'ribbon'];
+      save.lifetime.equippedItemId='ribbon';
+    }
     Object.assign(save,{health:100,energy:100,hunger:85,happiness:90,isSick:false,isSleeping:false,transformMeter:0});
     await page.addInitScript(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),save);
     const label=engine+'-dialogs-'+name;
