@@ -53,7 +53,8 @@ test('density follows the plan: the jungle and forest are dense, the desert and 
   assert.ok(props.forest > props.countryside, `forest ${props.forest} > countryside ${props.countryside}`);
   assert.ok(props.city > props.countryside, 'the city is dense with buildings');
   assert.ok(props.jungle > props.desert * 2, `jungle ${props.jungle} is far denser than the desert ${props.desert}`);
-  for (const id of REGIONS) assert.ok(props[id] >= 150, `${id} is never bare: ${props[id]}`);
+  // 「こものの かず」では なく「ばしょが ある こと」で みる: じめんの くぎり + かこむ もの + こもの
+  for (const id of REGIONS) { const w = M.buildWorld(id, reg); const mass = w.props.length + w.areas.length * 6; assert.ok(mass >= 240, `${id} is never bare: props ${w.props.length} + areas ${w.areas.length}`); }
   // みとおし: ジャングル/しんかいは せまく、さばく/いなかは とおくまで
   assert.ok(M.WORLDS.jungle.view < 0.75 && M.WORLDS.deepsea.view < 0.75);
   assert.ok(M.WORLDS.desert.view > 1.5 && M.WORLDS.countryside.view > 1.3);

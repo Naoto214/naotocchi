@@ -56,7 +56,7 @@
     const Z = (id, label, mood) => ({ id, label, mood: mood || {} });
     const WORLDS = {
       // おうち: コンパクトで おちついた ばしょ
-      home: { len: 2600, halfW: 1000, ground: ['#a9d98a', '#8fc574'], path: '#e5d5b0', props: ['🌸', '🪴', '🌼', '🌳', '🌷', '🪵'],
+      home: { len: 2600, halfW: 1000, ground: ['#a9d98a', '#8fc574'], path: '#e5d5b0', props: ['🌸', '🪴', '🌼', '🏠', '🌷', '🪵'],
         zones: [Z('front', 'いえのまえ'), Z('back', 'うらにわ', { tint: '#9fd48a' }), Z('far', 'おおきなきのまわり', { light: 0.95, fog: 0.08 })],
         spots: [sp('gate', 'いえのまえ', 0, 250, 200, 'plaza', 1, { zone: 'front' }), sp('yard', 'にわ', 0, 780, 260, 'plaza', 7, { hub: true, prop: '🪴', zone: 'front' }), sp('house', 'おうちのよこ', -620, 1050, 170, 'rest', 3, { prop: '🏠', zone: 'front' }), sp('garden', 'はなばたけ', -700, 1600, 200, 'grove', 3, { prop: '🌷', zone: 'back' }), sp('lane', 'こみち', 0, 1300, 170, 'path', 1, { zone: 'back' }), sp('park', 'こうえん', 0, 1850, 260, 'plaza', 6, { prop: '🛝', zone: 'back' }), sp('shed', 'のきした', 620, 1050, 150, 'shelter', 3, { prop: '🛖', zone: 'front' }), sp('bench', 'ベンチ', 700, 1550, 150, 'rest', 3, { prop: '🪑', zone: 'back' }), sp('pond', 'ひみつのいけ', -420, 2150, 140, 'water', 1, { secret: true, prop: '💧', zone: 'far' }), sp('bigtree', 'おおきなき', 0, 2380, 200, 'edge', 2, { landmark: 'bigtree', cam: 'wide', zone: 'far' })],
         paths: [['gate', 'yard', 'wide'], ['yard', 'house'], ['house', 'garden'], ['yard', 'lane'], ['lane', 'park'], ['yard', 'shed'], ['shed', 'bench'], ['bench', 'park'], ['garden', 'park', 'narrow'], ['garden', 'pond', 'secret'], ['park', 'bigtree']] },
@@ -91,7 +91,7 @@
         spots: [sp('beach', 'すなはま', 340, 250, 240, 'plaza', 2, { zone: 'beach' }), sp('shore', 'なみうちぎわ', 340, 800, 300, 'plaza', 7, { hub: true, prop: '🌊', zone: 'beach' }), sp('tidepool', 'しおだまり', -20, 1000, 220, 'water', 4, { prop: '🪸', zone: 'tidepools' }), sp('cove', 'かくれたいりえ', -290, 1500, 140, 'water', 1, { secret: true, zone: 'tidepools' }), sp('shells', 'かいがらのはま', 25, 1600, 200, 'plaza', 2, { prop: '🐚', zone: 'tidepools' }), sp('pier', 'さんばし', 565, 1300, 200, 'path', 2, { prop: '⛵', zone: 'pier' }), sp('hut', 'うみのいえ', 475, 1900, 200, 'shelter', 4, { prop: '🏚️', zone: 'pier' }), sp('boats', 'ふねのふとう', 835, 1700, 170, 'rest', 2, { prop: '⛵', zone: 'pier' }), sp('rocks', 'いわば', 205, 2400, 220, 'grove', 2, { prop: '🪨', zone: 'rocks' }), sp('rockpool', 'いわばのしおだまり', -65, 2700, 180, 'water', 2, { zone: 'rocks' }), sp('cape', 'みさき', 520, 2900, 200, 'edge', 2, { zone: 'cape' }), sp('lighthouse', 'とうだい', 745, 3500, 220, 'edge', 2, { landmark: 'lighthouse', cam: 'wide', zone: 'cape' }), sp('cliffcave', 'がけのどうくつ', 160, 3400, 140, 'rest', 1, { secret: true, zone: 'cape' }), sp('dunes', 'すなおか', 880, 2400, 170, 'path', 1, { zone: 'cape' })],
         paths: [['beach', 'shore', 'wide'], ['shore', 'tidepool'], ['tidepool', 'cove', 'secret'], ['tidepool', 'shells'], ['shells', 'rocks', 'narrow'], ['shore', 'pier'], ['pier', 'hut'], ['pier', 'boats'], ['hut', 'rocks'], ['rocks', 'rockpool', 'narrow'], ['rocks', 'cape'], ['cape', 'lighthouse'], ['boats', 'dunes', 'narrow'], ['dunes', 'lighthouse', 'narrow'], ['rockpool', 'cliffcave', 'secret'], ['hut', 'cape', 'narrow']] },
       // しんかい: めいきゅう型。サンゴ・いわ・かいそうで しかいが せまく、どうくつ や かいこうへ えだわかれ
-      deepsea: { len: 4000, halfW: 1300, ground: ['#153353', '#0b1c35'], path: '#1c3c5e', props: ['🪸', '🫧', '🌿', '🪸', '⚓', '🫧', '🐚', '🌿'],
+      deepsea: { len: 4000, halfW: 1300, ground: ['#1c4166', '#102743'], path: '#1c3c5e', props: ['🪸', '🫧', '🌿', '🪸', '⚓', '🫧', '🐚', '🌿'],
         zones: [Z('reef', 'サンゴのまち', { light: 1.05 }), Z('kelp', 'こんぶのもり', { light: 0.8, fog: 0.25, walls: 1.5, tint: '#1e4a4a' }), Z('wreck', 'ちんぼつせんのあたり', { light: 0.85, walls: 1.2, tint: '#2c3f58' }), Z('glow', 'ひかるふかば', { light: 0.9, tint: '#274f7a', marks: { color: '#9fe8ff', kind: 'sparkle' } }), Z('trench', 'かいこう', { light: 0.6, fog: 0.4, tint: '#0d1c33', walls: 1.3 })],
         spots: [sp('reef', 'サンゴのいりぐち', 0, 250, 240, 'water', 2, { zone: 'reef' }), sp('coralcity', 'サンゴのまち', 0, 800, 300, 'plaza', 7, { hub: true, landmark: 'coral', zone: 'reef' }), sp('kelp1', 'こんぶのもり', -900, 1100, 240, 'grove', 3, { prop: '🌿', zone: 'kelp' }), sp('kelp2', 'こんぶのおく', -1200, 1800, 200, 'grove', 2, { prop: '🌿', zone: 'kelp' }), sp('vent', 'あたたかいあな', -700, 2400, 200, 'rest', 3, { prop: '🫧', zone: 'kelp' }), sp('wreck', 'ちんぼつせん', 900, 1200, 220, 'shelter', 4, { prop: '⚓', zone: 'wreck' }), sp('cabin', 'せんちょうしつ', 1200, 1900, 170, 'rest', 2, { zone: 'wreck' }), sp('cavern', 'ふねのうらのどうくつ', 1300, 2600, 140, 'rest', 1, { secret: true, zone: 'wreck' }), sp('glow1', 'ひかるふかば', 0, 1500, 220, 'water', 3, { prop: '💡', zone: 'glow' }), sp('glow2', 'ひかりのにわ', 300, 2200, 220, 'water', 3, { prop: '💡', zone: 'glow' }), sp('anglers', 'ちょうちんのみち', -200, 2900, 170, 'path', 1, { zone: 'trench' }), sp('trench', 'かいこうのふち', 0, 3400, 220, 'water', 2, { zone: 'trench' }), sp('abyss', 'いちばんふかいところ', 0, 3900, 200, 'deep', 1, { zone: 'trench' }), sp('hotspring', 'かいていのおんせん', 800, 3200, 150, 'rest', 2, { secret: true, zone: 'trench' })],
         paths: [['reef', 'coralcity', 'wide'], ['coralcity', 'kelp1'], ['kelp1', 'kelp2', 'narrow'], ['kelp2', 'vent', 'narrow'], ['vent', 'anglers', 'narrow'], ['coralcity', 'wreck'], ['wreck', 'cabin'], ['cabin', 'cavern', 'secret'], ['cabin', 'glow2', 'narrow'], ['coralcity', 'glow1'], ['glow1', 'glow2'], ['glow2', 'anglers'], ['anglers', 'trench'], ['trench', 'abyss', 'narrow'], ['glow2', 'hotspring', 'secret'], ['kelp1', 'glow1', 'narrow']] },
@@ -175,7 +175,7 @@
       forest: { density: 1.5, view: 0.8, canopy: 'shafts',
         detail: [['moss', '#3f7a3a', 2.8, 34, 88], ['leaf', '#8a6a3a', 3, 14, 30], ['root', '#6b4a2a', 0.9, 40, 90], ['tuft', '#4f8a45', 2.6, 20, 44]],
         field: { pool: ['🍄', '🌿', '🌰', '🪵', '🌱'], clusters: 20, per: [2, 6], spread: 150, size: [34, 96] },
-        structs: [['stump', 11, 'field', 110], ['log', 9, 'field', 160], ['fern', 18, 'path', 86], ['bigrock', 16, 'field', 140], ['mushroomcluster', 14, 'field', 120]] },
+        structs: [['stump', 11, 'field', 110], ['log', 7, 'field', 130], ['fern', 18, 'path', 86], ['bigrock', 16, 'field', 140], ['mushroomcluster', 14, 'field', 120]] },
       // やま: のぼるほど たかく なる。がれ場・ケルン・がけ・つりばし
       mountain: { density: 0.85, view: 1.3, canopy: 'clouds',
         detail: [['gravel', '#8a8d78', 3.4, 14, 34], ['rockface', '#6f6a58', 1.1, 40, 110], ['tuft', '#7a9a5a', 1.4, 16, 32]],
@@ -223,6 +223,58 @@
         structs: [['lantern', 11, 'path', 86], ['oldpost', 9, 'path', 110], ['bluetree', 9, 'field', 260], ['stonestack', 14, 'field', 120]] },
     };
     for (const id in WORLD_THEME) Object.assign(WORLDS[id], WORLD_THEME[id]);
+
+    // ================= 地域の くうかん こうせい =================
+    // 「その ばしょが せいりつ している」ように するには、こものを ふやす のでは なく
+    // 「じぶんは なにの うえ/あいだを あるいているのか」を 地域ごとに かえる。
+    //   ground : じめん そのもの(おおきな くぎり。田んぼ・車道・雪原・砂浜…)
+    //   frame  : みちの りょうがわを かこむ おおきな もの(ビル・岩壁・大木…)。じぶんより ずっと おおきい
+    //   fore   : てまえを よこぎる もの(えだ・葉・柵・岩)。おくゆきを だす
+    //   clutter: ちいさな こものを どれだけ へらすか(1 = これまで、0.4 = はんぶん いか)
+    // ぜんぶ「せかい」の データ。canvas は これを よんで えがくだけ なので、
+    // Three.js では おなじ くぎりを 3D の 地面・かべ・みずめん に おきかえられる
+    const WORLD_SPACE = {
+      // おうち: 人が くらしている 庭。木は わき やくに して、しばふ・敷石・テラスを 主役に
+      home: { clutter: 0.34, frame: ['hedge', 330, 260, 0.7], fore: ['fencerail', 2.0, 200],
+        ground: [['lawn', 8, [560, 460]], ['terrace', 4, [340, 260]], ['flowerbed', 6, [260, 170]]] },
+      // とかい: 車道と 歩道の あいだを あるく。左右は ビルの かべ
+      city: { clutter: 0.45, frame: ['building', 470, 580, 0.58], fore: ['guardpost', 2.6, 230],
+        ground: [['road', 9, [640, 520]], ['sidewalk', 8, [300, 420]], ['crossing', 4, [300, 210]], ['block', 6, [520, 420]]] },
+      // いなか: 田んぼと 畑の あいだの あぜみち
+      countryside: { clutter: 0.3, frame: ['woodfence', 420, 270, 0.52], fore: ['ricestalk', 2.2, 200],
+        ground: [['paddy', 7, [760, 600]], ['cropfield', 7, [600, 460]]] },
+      // もり: 木の あいだの ほそい みち。幹が 視界を せまくする
+      forest: { clutter: 0.5, frame: ['bigtrunk', 520, 420, 0.46], fore: ['branch', 2.6, 240],
+        ground: [['undergrowth', 12, [520, 420]], ['mossbed', 8, [380, 300]]] },
+      // やま: しゃめんの とざんどう。がけが 画面の はしを ふさぐ
+      mountain: { clutter: 0.42, frame: ['cliffwall', 560, 450, 0.54], fore: ['ledgerock', 2.2, 220],
+        ground: [['scree', 12, [560, 460]], ['ridge', 6, [700, 380]]] },
+      // ゆきぐに: ひろい 雪原。木は ふやさず、雪の おうとつ と 凍った湖で
+      snow: { clutter: 0.26, frame: ['snowbank', 460, 360, 0.54], fore: ['snowdrift', 1.6, 280],
+        ground: [['snowfield', 14, [880, 700]], ['frozen', 3, [660, 500]], ['snowwood', 5, [520, 400]]] },
+      // うみ: 波打ちぎわに そって あるく。ひだりは うみ、みぎは 砂丘と ヤシ
+      sea: { clutter: 0.3, frame: ['duneridge', 480, 420, 0.58], fore: ['palmfrond', 1.8, 220],
+        ground: [['wetsand', 8, [420, 640]], ['dunefield', 7, [560, 460]], ['seagrass', 5, [380, 300]]] },
+      // しんかい: かいこうの ふちを すすむ。りょうがわは 岩壁と サンゴの かべ
+      deepsea: { clutter: 0.45, frame: ['reefwall', 520, 470, 0.64], fore: ['coralarm', 2.4, 230],
+        ground: [['seabed', 10, [560, 460]], ['fissure', 7, [480, 320]], ['reefflat', 6, [420, 340]]] },
+      // かわ: かわぞいの みち。かわが 画面を よこぎる
+      river_lake: { clutter: 0.36, frame: ['riverwood', 480, 300, 0.56], fore: ['reedclump', 2.4, 220],
+        ground: [['gravelbar', 9, [520, 420]], ['wetgrass', 8, [460, 380]], ['shallow', 5, [420, 300]]] },
+      // ジャングル: しょくぶつの なかに はいりこむ。道は 埋もれている
+      jungle: { clutter: 0.5, frame: ['bigtrunk', 480, 440, 0.6], fore: ['hugeleaf', 3.2, 200],
+        ground: [['undergrowth', 14, [460, 380]], ['mudflat', 7, [380, 300]], ['rootmat', 8, [420, 340]]] },
+      // さばく: きょだいな すなおかを こえる。こものは ふやさない
+      desert: { clutter: 0.18, frame: ['dunewall', 620, 680, 0.5], fore: ['sandcrest', 1.6, 380],
+        ground: [['sandflat', 10, [900, 720]], ['rockflat', 5, [620, 460]]] },
+      // ほしぞら: うきしまと うきしまの あいだ。あしもとが うかんで いる
+      star_stop: { clutter: 0.3, frame: ['islandedge', 440, 400, 0.44], fore: ['cloudwisp', 1.6, 320],
+        ground: [['stonedeck', 9, [520, 420]], ['voidgap', 6, [620, 520]]] },
+      // きおくのみずうみ: しずかな こはん。よはくを のこす
+      memory_lake: { clutter: 0.22, frame: ['mistwood', 460, 350, 0.62], fore: ['lanternpost', 1.4, 240],
+        ground: [['wetstone', 8, [460, 380]], ['shallow', 6, [520, 420]], ['oldroad', 5, [300, 460]]] },
+    };
+    for (const id in WORLD_SPACE) Object.assign(WORLDS[id], WORLD_SPACE[id]);
     // げんざいち(おうちに 市区町村を かさねる)は 地域 id を ふやさず、おうちの せかいの「まちの かんじ」だけを かえる
     const LOCAL_FLAVOR = {
       metropolis: { props: ['🏢', '🚦', '💡', '🌳', '🚕'], label: '都会のまち', backdrop: 'skyline', wall: ['🏢', '🌳', '🏬'] },
@@ -503,6 +555,8 @@
       const world = { regionId, len: base.len, halfW: base.halfW || 1000, ground: base.ground, path: base.path, spots: base.spots, paths: base.paths, props: [], marks: [], residents: [], local,
         // 地域の こせい(え が よむ): じめんの もよう・くうき・みつど・みとおし・おおきな ちけい
         detail: base.detail || [], canopy: base.canopy || null, density: base.density != null ? base.density : 1, view: base.view != null ? base.view : 1, terrain: null,
+        // くうかん こうせい: じめんの おおきな くぎり / みちを かこむ もの / てまえを よこぎる もの
+        areas: [], clutter: base.clutter != null ? base.clutter : 1, frame: base.frame || null, fore: base.fore || null,
         backdrop: (local && local.backdrop) || base.backdrop || 'hills', lane: base.lane || [], wall: (local && local.wall) || base.wall || ['🌳'], hint: base.hint || ['✨'], edge: base.edge || '#8a7a5a', sky: base.sky || null, floor: base.floor || null, glowPath: !!base.glowPath,
         markStyle: base.marks || { color: '#88aa66', kind: 'tuft' }, ambience: base.ambience || null, entry: base.spots[0], hub: base.spots.find((s) => s.hub) || base.spots[1] || base.spots[0] };
       world.segments = pathSegments(base);
@@ -540,14 +594,16 @@
       const nearSpot = (x, z, pad) => base.spots.some((s) => Math.hypot(s.x - x, s.z - z) < s.r + (pad || 0));
       const propPool = local ? local.props.concat(base.props.slice(0, 3)) : base.props;
       // えんけい〜ちゅうけい: りょうはしの おおきな もの(き・たてもの など)
-      const nProps = 18 + Math.floor(base.len / 130);
+      const cl = world.clutter;
+      // りょうはしの こものは へらして 1つ1つを おおきく(「素材置き場」に 見えない ように)
+      const nProps = Math.round((10 + Math.floor(base.len / 420)) * (0.5 + cl));
       for (let i = 0; i < nProps; i++) {
         const seed = regionId + ':prop:' + i;
         const z = 120 + hrand(seed + 'z') * (base.len - 200);
         const side = i % 2 === 0 ? -1 : 1;
         const x = side * (halfW * 0.82 + hrand(seed + 'x') * halfW * 0.18);
         if (nearSpot(x, z, 20)) continue;
-        world.props.push({ emoji: propPool[hash(seed) % propPool.length], x, z, size: 100 + hrand(seed + 'k') * 56, layer: 'side' });
+        world.props.push({ emoji: propPool[hash(seed) % propPool.length], x, z, size: 150 + hrand(seed + 'k') * 110, layer: 'side' });
       }
       // しゃへいぶつ: みちの りょうわきに ならぶ おおきな もの。あいだが あいていて、さきは みえたり みえなかったり
       const wallPool = world.wall;
@@ -560,7 +616,7 @@
             const seed = regionId + ':wall:' + s.a.id + s.b.id + i + side;
             const t = (i + 0.5 * hrand(seed + 't')) / (n + 0.5);
             if (secret && t < 0.3) continue; // かくし みちの いりぐちは あけておく(きの すきまから さきが みえる)
-            if (hrand(seed + 'p') > Math.min(0.96, (secret ? 0.9 : 0.72) * dens)) continue;
+            if (hrand(seed + 'p') > Math.min(0.96, (secret ? 0.9 : 0.72) * dens * (0.45 + cl * 0.6))) continue;
             const off = s.half + 70 + hrand(seed + 'o') * 50;
             const x = s.a.x + (s.b.x - s.a.x) * t + nx * off * side, z = s.a.z + (s.b.z - s.a.z) * t + nz * off * side;
             if (Math.abs(x) > halfW || z < 80 || z > base.len - 60 || nearSpot(x, z, 30)) continue;
@@ -585,21 +641,26 @@
         for (let k = 0; k < 4; k++) { const ang = ang0 + Math.PI * 0.5 + k * (Math.PI / 3); const x = s.x + Math.sin(ang) * (s.r + 60), z = s.z + Math.cos(ang) * (s.r + 60); if (Math.abs(x) > halfW || z < 80 || z > base.len - 60) continue; world.props.push({ emoji: wallPool[hash(s.id + k) % wallPool.length], x, z, size: 150, layer: 'wall', solid: true }); }
       }
       // てまえ: こみちの わきの ちいさな もの(あるいている ばしょが わかる)
+      // みちばたの こものは「いみの ある ところ」に まとめる: スポットの てまえ・ぶんき・地区の さかいめ。
+      // まんべんなく まく のを やめる ことで「アイコンを しきつめた」感じが きえる
       for (const s of world.segments) {
-        const n = Math.max(1, Math.round(s.len / 150)); const dx = (s.b.x - s.a.x) / s.len, dz = (s.b.z - s.a.z) / s.len; const nx = -dz, nz = dx;
+        const n = Math.max(1, Math.round(s.len / 150 * cl)); const dx = (s.b.x - s.a.x) / s.len, dz = (s.b.z - s.a.z) / s.len; const nx = -dz, nz = dx;
         const zn = zoneAt((s.a.x + s.b.x) / 2, (s.a.z + s.b.z) / 2); const lanePool = (zn && zn.mood.lane) || (world.lane.length ? world.lane : propPool);
+        const branchy = degree(s.a) >= 3 || degree(s.b) >= 3;
         for (let i = 0; i < n; i++) {
           const seed = regionId + ':lane:' + s.a.id + s.b.id + i; const side = (i + Math.floor(hrand(seed + 's') * 2)) % 2 === 0 ? -1 : 1;
-          const t = (i + 0.3 + hrand(seed + 't') * 0.4) / n; const off = s.half + 18 + hrand(seed + 'o') * 24;
+          // みちの りょうはし(スポットの てまえ)に よせる。ぶんきの ある みちは いりぐち がわを こくする
+          const bias = hrand(seed + 'b'), t = bias < (branchy ? 0.62 : 0.5) ? 0.06 + hrand(seed + 't') * 0.2 : 0.74 + hrand(seed + 't') * 0.2;
+          const off = s.half + 18 + hrand(seed + 'o') * 24;
           const x = s.a.x + (s.b.x - s.a.x) * t + nx * off * side, z = s.a.z + (s.b.z - s.a.z) * t + nz * off * side;
           if (Math.abs(x) > halfW || z < 60) continue;
-          world.props.push({ emoji: lanePool[(i + hash(seed)) % lanePool.length], x, z, size: 52 + hrand(seed + 'k') * 30, layer: 'lane' });
+          world.props.push({ emoji: lanePool[(i + hash(seed)) % lanePool.length], x, z, size: 58 + hrand(seed + 'k') * 44, layer: 'lane' });
         }
       }
       // ランドマーク・スポットの めじるし(おおきめ。あたりはんてい あり)
       for (const s of base.spots) {
-        if (s.landmark) world.props.push({ landmark: s.landmark, emoji: s.prop || '🌳', x: s.x, z: s.z + s.r * 0.8, size: 300, spot: true, solid: true, layer: 'landmark', label: s.label });
-        else if (s.prop) world.props.push({ emoji: s.prop, x: s.x + (s.x < 0 ? -s.r - 30 : s.r + 30) * (s.kind === 'deep' ? 0 : 1), z: s.z + 30, size: 150, spot: true, solid: true, layer: 'landmark' });
+        if (s.landmark) world.props.push({ landmark: s.landmark, emoji: s.prop || '🌳', x: s.x, z: s.z + s.r * 0.9, size: 560, spot: true, solid: true, layer: 'landmark', label: s.label });
+        else if (s.prop) world.props.push({ emoji: s.prop, x: s.x + (s.x < 0 ? -s.r - 30 : s.r + 30) * (s.kind === 'deep' ? 0 : 1), z: s.z + 30, size: 230, spot: true, solid: true, layer: 'landmark' });
       }
       // じめんの もよう(くさ・こいし・きらめき)
       const nMarks = 60 + Math.floor(base.len / 30);
@@ -609,7 +670,12 @@
       }
       // ---- 地域の こせい: みちの そとの 群生・ぞうけいぶつ・じめんの もよう ----
       const dens = world.density;
-      const onLand = (x, z) => x > world.minX + 20 && x < world.maxX - 20 && z > 70 && z < base.len - 60;
+      const onLand = (x, z) => {
+        if (z <= 70 || z >= base.len - 60) return false;
+        const sx = shoreX(world, z);
+        if (sx != null) { if (world.terrain.side < 0 ? x < sx + 40 : x > sx - 40) return false; }
+        return x > world.minX + 20 && x < world.maxX - 20;
+      };
       const offPath = (x, z, pad) => { const n = nearestPath({ x, z }, world); return !n || n.dist > n.half + (pad || 50); };
       // スポットの まんなか(みんなが あつまる ところ)だけ あけて、ふちには かざれる
       const inSpotCore = (x, z) => base.spots.some((sp0) => Math.hypot(sp0.x - x, sp0.z - z) < sp0.r * 0.62);
@@ -625,7 +691,7 @@
       // (おなじ キノコが ならんで みえる コピーかんを なくす)
       const fieldSpec = base.field;
       if (fieldSpec && fieldSpec.pool && fieldSpec.pool.length) {
-        const nCl = Math.max(2, Math.round(fieldSpec.clusters * dens));
+        const nCl = Math.max(2, Math.round(fieldSpec.clusters * dens * (0.45 + cl * 0.75)));
         // おく ばしょが なければ つぎの たねを ためす(せまい 地域でも かずが そろう)
         for (let c = 0, tries = 0; c < nCl && tries < nCl * 6; tries++) {
           const seed = regionId + ':cl:' + tries;
@@ -664,6 +730,80 @@
         }
       }
       world.seed = hash(regionId);
+      // ---- じめんの おおきな くぎり(その 地域で「なにの うえを あるいているか」) ----
+      // みちに そう もの(車道・歩道・かわら・古い道)と、みちの そとを うめる もの(田んぼ・畑・雪原・砂地)、
+      // みずぎわに そう もの(濡れ砂・あさせ)で おきかたを かえる
+      const ALONG_PATH = new Set(['road', 'sidewalk', 'crossing', 'oldroad', 'gravelbar', 'stonedeck', 'ridge', 'terrace']);
+      const ALONG_SHORE = new Set(['wetsand', 'shallow', 'seagrass']);
+      for (const [kind, count, [aw, ah]] of base.ground || []) {
+        const n = Math.max(1, Math.round(count));
+        if (ALONG_PATH.has(kind)) {
+          const segs = world.segments.filter((g) => g.kind !== 'secret');
+          for (let i = 0; i < n && segs.length; i++) {
+            const seed = regionId + ':ga:' + kind + i, sg = segs[hash(seed + 's') % segs.length];
+            const t = 0.1 + hrand(seed + 't') * 0.8, dx = (sg.b.x - sg.a.x) / sg.len, dz = (sg.b.z - sg.a.z) / sg.len;
+            const ang = Math.atan2(dx, dz);
+            const off = kind === 'road' || kind === 'oldroad' ? 0 : (hrand(seed + 'p') < 0.5 ? -1 : 1) * (sg.half + aw * 0.45);
+            const x = sg.a.x + (sg.b.x - sg.a.x) * t - dz * off, z = sg.a.z + (sg.b.z - sg.a.z) * t + dx * off;
+            if (!onLand(x, z)) continue;
+            world.areas.push({ kind, x, z, w: aw * (0.8 + hrand(seed + 'w') * 0.5), h: ah * (0.8 + hrand(seed + 'h') * 0.6), ang });
+          }
+        } else if (ALONG_SHORE.has(kind) && world.terrain && world.terrain.kind === 'coast') {
+          const sd = world.terrain.side;
+          for (let i = 0; i < n; i++) {
+            const seed = regionId + ':gs:' + kind + i, z = 100 + hrand(seed + 'z') * (base.len - 200);
+            const sx = shoreX(world, z); if (sx == null) continue;
+            world.areas.push({ kind, x: sx - sd * aw * 0.35, z, w: aw * (0.8 + hrand(seed + 'w') * 0.5), h: ah * (0.8 + hrand(seed + 'h') * 0.6), ang: 0 });
+          }
+        } else {
+          for (let i = 0, tries = 0; i < n && tries < n * 8; tries++) {
+            const seed = regionId + ':gg:' + kind + tries;
+            const x = (hrand(seed + 'x') - 0.5) * (world.maxX - world.minX) * 0.98 + (world.maxX + world.minX) / 2;
+            const z = 60 + hrand(seed + 'z') * (base.len - 120);
+            if (!onLand(x, z) || !offPath(x, z, aw * 0.3) || inSpotCore(x, z)) continue;
+            i++;
+            world.areas.push({ kind, x, z, w: aw * (0.8 + hrand(seed + 'w') * 0.6), h: ah * (0.8 + hrand(seed + 'h') * 0.6), ang: (hrand(seed + 'a') - 0.5) * 0.5 });
+          }
+        }
+      }
+      // ---- みちを かこむ おおきな もの(ビル・岩壁・大木…)。じぶんより ずっと おおきい ----
+      if (base.frame) {
+        const [fkind0, foff0, fsize, fprob] = base.frame, fkind = fkind0;
+        // せまい 地域では そとに おしやりすぎない(せかいの はばの はんぶんまで)
+        const foff = Math.min(foff0, world.halfW * 0.5);
+        for (const sg of world.segments) {
+          if (sg.kind === 'secret') continue;
+          const n = Math.max(1, Math.round(sg.len / 380));
+          const dx = (sg.b.x - sg.a.x) / sg.len, dz = (sg.b.z - sg.a.z) / sg.len, nx = -dz, nz = dx;
+          const zn = zoneAt((sg.a.x + sg.b.x) / 2, (sg.a.z + sg.b.z) / 2), dens = zn && zn.mood.walls != null ? zn.mood.walls : 1;
+          for (let i = 0; i <= n; i++) for (const side of [-1, 1]) {
+            const seed = regionId + ':fr:' + sg.a.id + sg.b.id + i + side;
+            if (hrand(seed + 'p') > Math.min(0.95, (fprob != null ? fprob : 0.66) * dens)) continue;
+            const t = (i + 0.4 * hrand(seed + 't')) / (n + 0.4);
+            const off = sg.half + foff + hrand(seed + 'o') * foff * 0.4;
+            const x = sg.a.x + (sg.b.x - sg.a.x) * t + nx * off * side, z = sg.a.z + (sg.b.z - sg.a.z) * t + nz * off * side;
+            if (!onLand(x, z) || inSpotCore(x, z)) continue;
+            // おなじ かたちが ならばない よう、おおきさと むきを ばらす
+            world.props.push({ struct: fkind, x, z, size: fsize * (0.7 + hrand(seed + 'k') * 0.75), ang: Math.atan2(dx, dz), side, region: regionId, layer: 'frame', solid: true });
+          }
+        }
+      }
+      // ---- てまえを よこぎる もの(えだ・葉・柵・岩)。おくゆきが でる ----
+      if (base.fore) {
+        const [okind, per, osize] = base.fore;
+        for (const sg of world.segments) {
+          if (sg.kind === 'secret') continue;
+          const n = Math.max(1, Math.round(sg.len / 1000 * per));
+          const dx = (sg.b.x - sg.a.x) / sg.len, dz = (sg.b.z - sg.a.z) / sg.len, nx = -dz, nz = dx;
+          for (let i = 0; i < n; i++) {
+            const seed = regionId + ':fo:' + sg.a.id + sg.b.id + i, side = hrand(seed + 's') < 0.5 ? -1 : 1;
+            const t = (i + 0.2 + hrand(seed + 't') * 0.6) / n, off = sg.half + 20 + hrand(seed + 'o') * 46;
+            const x = sg.a.x + (sg.b.x - sg.a.x) * t + nx * off * side, z = sg.a.z + (sg.b.z - sg.a.z) * t + nz * off * side;
+            if (!onLand(x, z)) continue;
+            world.props.push({ struct: okind, x, z, size: osize * (0.75 + hrand(seed + 'k') * 0.6), ang: Math.atan2(dx, dz), side, region: regionId, layer: 'fore' });
+          }
+        }
+      }
       // じゅうみんの ふりわけ(むらの ある はいち: にぎやかな ばしょ と しずかな ばしょ)
       const all = registry.byRegion(regionId).filter((r) => !r.withPlayer);
       const assign = new Map();
@@ -1235,8 +1375,9 @@
             ctx.beginPath(); ctx.moveTo(l0.sx, y0); ctx.lineTo(r0.sx, y0); ctx.lineTo(r1.sx, y1 + 1); ctx.lineTo(l1.sx, y1 + 1); ctx.closePath(); ctx.fill();
           } else ctx.fillRect(0, y0, W, y1 - y0 + 1);
         }
-        // おおきな ちけい(うみ・かわ・かいこう)は じめんの うえ、みちの した
+        // おおきな ちけい(うみ・かわ・かいこう)と じめんの おおきな くぎり は じめんの うえ、みちの した
         drawTerrain(world, tl);
+        drawAreas(world, tl);
         // みち(スポットを つなぐ ポリゴン。みじかく くぎって とうえい)
         const pathColor = shade(world.path, light, tl.tint, tl.amt);
         for (const s of world.segments) {
@@ -1391,6 +1532,56 @@
           ctx.globalAlpha = 1;
         }
       }
+      // ---- じめんの おおきな くぎり(その 地域で あるいている ばしょ そのもの) ----
+      // style: flat=ぬるだけ / rows=うねの すじ / water=みずめん / stripes=しろい しま /
+      //        speckle=つぶつぶ / hole=そこが ぬけている
+      const AREA_STYLE = {
+        lawn: ['#7fc25f', 0.42, 'flat'], terrace: ['#d9c9a8', 0.6, 'tile'], flowerbed: ['#8a6a4a', 0.55, 'speckle'],
+        road: ['#3e4350', 0.85, 'road'], sidewalk: ['#9aa0ab', 0.6, 'tile'], crossing: ['#f2f4f8', 0.75, 'stripes'], block: ['#2f3442', 0.5, 'flat'],
+        paddy: ['#86bda6', 0.5, 'water'], cropfield: ['#8aa83f', 0.6, 'rows'], meadow: ['#9ecf6a', 0.4, 'flat'],
+        undergrowth: ['#2f6a34', 0.45, 'speckle'], mossbed: ['#4f9a4a', 0.4, 'flat'],
+        scree: ['#8a8878', 0.5, 'speckle'], ridge: ['#a8a291', 0.4, 'flat'],
+        snowfield: ['#ffffff', 0.5, 'flat'], frozen: ['#cfe4f4', 0.5, 'water'], snowwood: ['#eef5fc', 0.32, 'speckle'],
+        wetsand: ['#c8b184', 0.45, 'flat'], dunefield: ['#f0d9a4', 0.45, 'rows'], seagrass: ['#b8b884', 0.2, 'speckle'],
+        seabed: ['#35628f', 0.4, 'flat'], fissure: ['#081426', 0.75, 'flat'], reefflat: ['#4a5f96', 0.4, 'speckle'],
+        gravelbar: ['#a8998a', 0.5, 'speckle'], wetgrass: ['#7fb85f', 0.4, 'flat'], shallow: ['#7fc0dc', 0.55, 'water'],
+        mudflat: ['#6a5638', 0.5, 'flat'], rootmat: ['#4a3a24', 0.45, 'speckle'],
+        sandflat: ['#f0d9a0', 0.4, 'rows'], rockflat: ['#b06a48', 0.4, 'flat'],
+        stonedeck: ['#6f6a98', 0.6, 'tile'], voidgap: [null, 1, 'hole'],
+        wetstone: ['#5f6486', 0.55, 'tile'], oldroad: ['#8b90b0', 0.5, 'tile'],
+      };
+      function drawAreas(world, tl) {
+        const list = world.areas; if (!list || !list.length) return;
+        const skyBottom = (SKY_OVERRIDE[world.regionId] || tl.sky)[1];
+        for (const a of list) {
+          const st = AREA_STYLE[a.kind]; if (!st) continue;
+          const c = toCam(a.x, a.z); if (c.cz > farCull + a.h || c.cz < -a.h - 900) continue;
+          const ca = Math.cos(a.ang), sa = Math.sin(a.ang), hw2 = a.w / 2, hh = a.h / 2;
+          const corner = (u, v) => [a.x + u * hw2 * ca + v * hh * sa, a.z - u * hw2 * sa + v * hh * ca];
+          const quad = [corner(-1, -1), corner(1, -1), corner(1, 1), corner(-1, 1)];
+          const [col, alpha, style] = st;
+          const fade = clamp(1.4 - c.cz / (farCull + 600), 0.25, 1);
+          if (style === 'hole') { ctx.fillStyle = shade(skyBottom, 0.5, '#000000', 0.35); ctx.globalAlpha = fade; fillWorldPoly(quad); ctx.globalAlpha = fade * 0.5; ctx.fillStyle = 'rgba(200,180,255,.5)'; fillWorldPoly([corner(-1, -1), corner(1, -1), corner(1, -0.86), corner(-1, -0.86)]); ctx.globalAlpha = 1; continue; }
+          ctx.fillStyle = sh(col); ctx.globalAlpha = fade * alpha; fillWorldPoly(quad);
+          if (style === 'rows' || style === 'road' || style === 'tile') {
+            ctx.globalAlpha = fade * alpha * (style === 'road' ? 0.5 : 0.45);
+            ctx.fillStyle = style === 'road' ? '#e8e4d0' : style === 'tile' ? 'rgba(255,255,255,.55)' : sh('#6a8a2f');
+            const rows = style === 'road' ? 5 : 6;
+            for (let i = 1; i < rows; i++) { const v = -1 + (i / rows) * 2, thin = style === 'road' ? 0.012 : 0.03; fillWorldPoly([corner(-0.96, v - thin), corner(0.96, v - thin), corner(0.96, v + thin), corner(-0.96, v + thin)]); }
+          } else if (style === 'stripes') {
+            ctx.globalAlpha = fade * alpha; ctx.fillStyle = '#f4f7fb';
+            for (let i = 0; i < 5; i++) { const u = -0.86 + i * 0.43; fillWorldPoly([corner(u - 0.12, -0.92), corner(u + 0.12, -0.92), corner(u + 0.12, 0.92), corner(u - 0.12, 0.92)]); }
+          } else if (style === 'water') {
+            ctx.globalAlpha = fade * 0.35; ctx.fillStyle = 'rgba(255,255,255,.9)';
+            for (let i = 0; i < 3; i++) { const v = -0.6 + i * 0.6 + Math.sin(curNow * 0.0009 + a.x * 0.01 + i) * 0.06; fillWorldPoly([corner(-0.8, v - 0.035), corner(0.8, v - 0.035), corner(0.8, v + 0.035), corner(-0.8, v + 0.035)]); }
+          } else if (style === 'speckle') {
+            ctx.globalAlpha = fade * alpha * 0.7; ctx.fillStyle = sh(col);
+            for (let i = 0; i < 7; i++) { const u = ((i * 37) % 17) / 17 * 1.6 - 0.8, v = ((i * 53) % 13) / 13 * 1.6 - 0.8; fillWorldPoly([corner(u - 0.16, v - 0.14), corner(u + 0.16, v - 0.14), corner(u + 0.16, v + 0.14), corner(u - 0.16, v + 0.14)]); }
+          }
+          ctx.globalAlpha = 1;
+        }
+        ctx.globalAlpha = 1;
+      }
       // ---- じめんの もよう(そう ごとに かたちが ちがう。おおきな くうはくを つくらない) ----
       const detailBuf = [];
       function drawDetails(world, player) {
@@ -1419,7 +1610,7 @@
             if (k === 'puddle' && isNight()) { ctx.fillStyle = 'rgba(120,220,255,.5)'; ctx.fillRect(p.sx - px * 0.2, p.sy - px * 0.08, px * 0.4, px * 0.06); }
             if (k === 'glowedge') { ctx.globalAlpha = fade * 0.3; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.9, px * 0.3, 0, 0, TAU); ctx.fill(); }
           }
-          else if (k === 'ice' || k === 'rockface') { ctx.globalAlpha = fade * 0.55; ctx.beginPath(); ctx.moveTo(p.sx - px * 0.5, p.sy); ctx.lineTo(p.sx - px * 0.18, p.sy - px * 0.28); ctx.lineTo(p.sx + px * 0.34, p.sy - px * 0.16); ctx.lineTo(p.sx + px * 0.52, p.sy); ctx.closePath(); ctx.fill(); }
+          else if (k === 'ice' || k === 'rockface') { ctx.globalAlpha = fade * (k === 'ice' ? 0.22 : 0.45); ctx.beginPath(); ctx.moveTo(p.sx - px * 0.5, p.sy); ctx.lineTo(p.sx - px * 0.18, p.sy - px * 0.28); ctx.lineTo(p.sx + px * 0.34, p.sy - px * 0.16); ctx.lineTo(p.sx + px * 0.52, p.sy); ctx.closePath(); ctx.fill(); }
           else if (k === 'ripple' || k === 'furrow' || k === 'root' || k === 'crack' || k === 'tile') { ctx.globalAlpha = fade * (k === 'crack' ? 0.6 : 0.34); ctx.strokeStyle = d.color; ctx.lineWidth = Math.max(1, px * (k === 'root' ? 0.09 : 0.045)); ctx.beginPath(); const a = k === 'tile' ? 0 : d.rot * 0.3; ctx.moveTo(p.sx - px * 0.5, p.sy); ctx.quadraticCurveTo(p.sx, p.sy - px * (k === 'ripple' ? 0.12 : 0.06) + a * 6, p.sx + px * 0.5, p.sy); ctx.stroke(); }
           else if (k === 'footprint') { ctx.globalAlpha = fade * 0.5; for (const o of [-0.3, 0.3]) { ctx.beginPath(); ctx.ellipse(p.sx + px * o, p.sy + px * o * 0.3, px * 0.2, px * 0.12, 0, 0, TAU); ctx.fill(); } }
           else if (k === 'manhole') { ctx.globalAlpha = fade * 0.7; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.5, px * 0.2, 0, 0, TAU); ctx.fill(); ctx.strokeStyle = 'rgba(255,255,255,.18)'; ctx.lineWidth = 1; ctx.stroke(); }
@@ -1436,7 +1627,7 @@
         const rect = (c, dx, dy, w, h) => { ctx.fillStyle = c; ctx.fillRect(x + px * dx, y + px * dy, px * w, px * h); };
         const tri = (c, pts) => { ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(x + px * pts[0], y + px * pts[1]); for (let i = 2; i < pts.length; i += 2) ctx.lineTo(x + px * pts[i], y + px * pts[i + 1]); ctx.closePath(); ctx.fill(); };
         const oval = (c, dx, dy, rx, ry) => { ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(x + px * dx, y + px * dy, px * rx, px * ry, 0, 0, TAU); ctx.fill(); };
-        const glow = (c, dx, dy, r, a) => { ctx.globalAlpha = a; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + px * dx, y + px * dy, px * r, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; };
+        const glow = (c, dx, dy, r, a) => { ctx.globalAlpha = a; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + px * dx, y + px * dy, Math.min(px * r, H * 0.09), 0, TAU); ctx.fill(); ctx.globalAlpha = 1; };
         const lines = (c, w, pts) => { ctx.strokeStyle = c; ctx.lineWidth = Math.max(1, px * w); ctx.beginPath(); for (let i = 0; i < pts.length; i += 4) { ctx.moveTo(x + px * pts[i], y + px * pts[i + 1]); ctx.lineTo(x + px * pts[i + 2], y + px * pts[i + 3]); } ctx.stroke(); };
         switch (kind) {
           // --- おうち ---
@@ -1470,7 +1661,7 @@
           case 'crop': { ctx.fillStyle = sh('#6aa83f'); for (let k = -2; k <= 2; k++) { const bx = x + px * k * 0.2; ctx.fillRect(bx - px * 0.03, y - px * 0.26, px * 0.06, px * 0.26); ctx.beginPath(); ctx.ellipse(bx, y - px * 0.28, px * 0.08, px * 0.06, 0, 0, TAU); ctx.fill(); } break; }
           // --- もり ---
           case 'stump': oval(sh('#6b4a2a'), 0, -0.24, 0.26, 0.1); rect(sh('#5a3f24'), -0.26, -0.24, 0.52, 0.24); oval(sh('#c8a070'), 0, -0.25, 0.22, 0.08); ctx.strokeStyle = sh('#8a6a3a'); ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(x, y - px * 0.25, px * 0.12, px * 0.045, 0, 0, TAU); ctx.stroke(); break;
-          case 'log': oval(sh('#6b4a2a'), 0, -0.1, 0.5, 0.12); oval(sh('#8a6a44'), -0.46, -0.1, 0.08, 0.11); oval(sh('#3f7a3a'), 0.1, -0.2, 0.18, 0.05); break;
+          case 'log': oval(sh('#54381f'), 0, -0.1, 0.5, 0.11); oval(sh('#6d4b2c'), -0.46, -0.1, 0.075, 0.1); oval(sh('#3f7a3a'), 0.1, -0.19, 0.18, 0.05); break;
           case 'fern': { ctx.strokeStyle = sh('#3f8a4a'); ctx.lineWidth = Math.max(1, px * 0.035); for (let k = -2; k <= 2; k++) { ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + px * k * 0.12, y - px * 0.4, x + px * k * 0.26, y - px * 0.52); ctx.stroke(); } break; }
           case 'bigrock': tri(sh('#7a7a70'), [-0.42, 0, -0.3, -0.36, 0.05, -0.5, 0.36, -0.3, 0.44, 0]); tri('rgba(255,255,255,.12)', [-0.3, -0.36, 0.05, -0.5, -0.05, -0.28]); if (o.mossy !== false) oval(sh('#4f8a45'), -0.1, -0.44, 0.14, 0.05); break;
           case 'mushroomcluster': { const caps = 3 + (seed % 3);
@@ -1535,6 +1726,86 @@
           case 'oldpost': rect(sh('#6a6a80'), -0.04, -0.6, 0.08, 0.6); rect(sh('#7a7a94'), -0.2, -0.58, 0.4, 0.12); ctx.fillStyle = 'rgba(255,255,255,.22)'; ctx.fillRect(x - px * 0.16, y - px * 0.54, px * 0.32, px * 0.02); break;
           case 'bluetree': { rect(sh('#4a5578'), -0.05, -0.55, 0.1, 0.55); const c = sh('#8ab6e8'); ctx.fillStyle = c; for (const [dx, dy, r] of [[0, -0.75, 0.3], [-0.22, -0.58, 0.2], [0.22, -0.6, 0.21]]) { ctx.beginPath(); ctx.arc(x + px * dx, y + px * dy, px * r, 0, TAU); ctx.fill(); } glow('#bcd8ff', 0, -0.7, 0.5, 0.12); break; }
           case 'stonestack': { let yy = 0; for (let k = 0; k < 3; k++) { const w = 0.26 - k * 0.06; oval(sh(k % 2 ? '#6f7490' : '#585d78'), 0, yy - w * 0.4, w, w * 0.42); yy -= w * 0.8; } break; }
+          // ===== みちを かこむ おおきな もの(frame): じぶんより ずっと おおきい =====
+          case 'hedge': { oval(sh('#3f7a3a'), 0, -0.3, 0.55, 0.32); oval(sh('#4f9a45'), -0.2, -0.42, 0.3, 0.18); oval(sh('#4f9a45'), 0.22, -0.4, 0.26, 0.16); if (seed % 3 === 0) oval(sh('#ff9ec4'), 0.1, -0.5, 0.06, 0.05); break; }
+          case 'building': { const w = 0.34 + ((seed % 5) / 5) * 0.3, hgt = 1.1 + ((seed % 7) / 7) * 1.5, bx = o.side < 0 ? -w : 0;
+            rect(sh(isNight() ? ['#2b3040', '#353b4c', '#23283a'][seed % 3] : ['#6a7183', '#7b8296', '#5d6476'][seed % 3]), bx, -hgt, w, hgt);
+            rect(sh('#262b38'), bx, -hgt - 0.05, w, 0.06);
+            const night = isNight(), lit = night ? 0.95 : curEnv.time === 'evening' ? 0.6 : 0.3;
+            ctx.globalAlpha = lit;
+            const cols = Math.max(2, Math.round(w / 0.1)), rows = Math.max(3, Math.round(hgt / 0.13));
+            for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) { if ((seed + r * 7 + c * 5) % 3 === 0) continue;
+              ctx.fillStyle = night ? ((seed + r + c) % 7 === 0 ? NEON[(seed + r) % NEON.length] : '#ffe9b0') : '#b8c6d8';
+              ctx.fillRect(x + px * (bx + 0.03 + c * (w - 0.04) / cols), y + px * (-hgt + 0.06 + r * (hgt - 0.1) / rows), px * ((w - 0.06) / cols) * 0.62, px * ((hgt - 0.1) / rows) * 0.5); }
+            ctx.globalAlpha = 1;
+            if (night && seed % 2 === 0) { ctx.globalAlpha = 0.85; rect(NEON[seed % NEON.length], bx + w * 0.1, -hgt * 0.55, w * 0.1, hgt * 0.3); ctx.globalAlpha = 0.16; rect(NEON[seed % NEON.length], bx, -hgt * 0.6, w, hgt * 0.4); ctx.globalAlpha = 1; }
+            rect(sh('#20242f'), bx + w * 0.2, -0.24, w * 0.32, 0.24); rect(night ? 'rgba(255,230,170,.9)' : sh('#7e8798'), bx + w * 0.24, -0.2, w * 0.24, 0.2);
+            break; }
+          case 'woodfence': { ctx.strokeStyle = sh('#a98a5a'); ctx.lineWidth = Math.max(1.5, px * 0.035);
+            ctx.beginPath(); for (let k = -3; k <= 3; k++) { ctx.moveTo(x + px * k * 0.16, y); ctx.lineTo(x + px * k * 0.16, y - px * (0.42 + ((seed + k) % 3) * 0.04)); }
+            ctx.moveTo(x - px * 0.52, y - px * 0.16); ctx.lineTo(x + px * 0.52, y - px * 0.2); ctx.moveTo(x - px * 0.52, y - px * 0.34); ctx.lineTo(x + px * 0.52, y - px * 0.38); ctx.stroke(); break; }
+          case 'bigtrunk': { const w = 0.1 + ((seed % 5) / 5) * 0.08, lean = ((seed % 7) - 3) * 0.012;
+            tri(sh('#4a3a26'), [-w * 2.4, 0, -w, -0.3, -w * 0.8, -0.1, w * 0.8, -0.1, w, -0.3, w * 2.4, 0]);
+            ctx.fillStyle = sh(o.region === 'jungle' ? '#4a3f2a' : '#5a4530');
+            const tilt = px * lean * 6; // みきの かたむき(ごくわずか。まえは 100ばい ずれて ながい ぼうに なっていた)
+            ctx.beginPath(); ctx.moveTo(x - px * w, y); ctx.lineTo(x - px * w * 0.7 + tilt, y - px * 1.5); ctx.lineTo(x + px * w * 0.7 + tilt, y - px * 1.5); ctx.lineTo(x + px * w, y); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.moveTo(x + px * w * 0.2, y); ctx.lineTo(x + px * w * 0.2 + tilt, y - px * 1.5); ctx.lineTo(x + px * w * 0.7 + tilt, y - px * 1.5); ctx.lineTo(x + px * w * 0.7, y); ctx.closePath(); ctx.fill();
+            if (o.region === 'forest') { oval(sh('#4f9a45'), -w * 1.3, -0.14, 0.1, 0.05); }
+            break; }
+          case 'cliffwall': { const w = 0.5 + ((seed % 5) / 5) * 0.35, hgt = 1.1 + ((seed % 6) / 6) * 0.9, sd = o.side < 0 ? -1 : 1;
+            tri(sh(['#7d7768', '#6f6a58', '#8a8474'][seed % 3]), [sd * w * 1.3, 0, sd * w * 1.15, -hgt * 0.7, sd * w * 0.55, -hgt, -sd * w * 0.1, -hgt * 0.8, -sd * w * 0.35, 0]);
+            for (let k = 0; k < 3; k++) { ctx.globalAlpha = 0.16; tri(k % 2 ? '#ffffff' : '#000000', [sd * w * (1.1 - k * 0.2), -hgt * (0.2 + k * 0.22), sd * w * (0.4 - k * 0.1), -hgt * (0.3 + k * 0.22), sd * w * (0.45 - k * 0.1), -hgt * (0.24 + k * 0.22)]); ctx.globalAlpha = 1; }
+            oval(sh('#6a8a4a'), sd * w * 0.5, -hgt * 0.72, w * 0.16, 0.05);
+            tri('rgba(255,255,255,.12)', [sd * w * 0.55, -hgt, -sd * w * 0.1, -hgt * 0.8, sd * w * 0.2, -hgt * 0.45]);
+            tri('rgba(0,0,0,.22)', [sd * w * 1.3, 0, sd * w * 1.15, -hgt * 0.7, sd * w * 0.7, -hgt * 0.3]);
+            break; }
+          case 'snowbank': { ctx.fillStyle = sh('#f4f8fd'); ctx.beginPath(); ctx.moveTo(x - px * 0.8, y); ctx.quadraticCurveTo(x - px * 0.3, y - px * 0.5, x + px * 0.2, y - px * 0.34); ctx.quadraticCurveTo(x + px * 0.6, y - px * 0.22, x + px * 0.9, y); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = 'rgba(180,205,230,.4)'; ctx.beginPath(); ctx.moveTo(x - px * 0.8, y); ctx.quadraticCurveTo(x - px * 0.4, y - px * 0.18, x + px * 0.9, y); ctx.closePath(); ctx.fill(); break; }
+          case 'duneridge': { ctx.fillStyle = sh('#e8cf98'); ctx.beginPath(); ctx.moveTo(x - px * 0.95, y); ctx.quadraticCurveTo(x - px * 0.2, y - px * 0.62, x + px * 0.95, y); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = 'rgba(160,120,70,.2)'; ctx.beginPath(); ctx.moveTo(x + px * 0.1, y - px * 0.4); ctx.quadraticCurveTo(x + px * 0.5, y - px * 0.16, x + px * 0.95, y); ctx.lineTo(x + px * 0.2, y); ctx.closePath(); ctx.fill();
+            ctx.strokeStyle = sh('#9aa86a'); ctx.lineWidth = Math.max(1, px * 0.012); ctx.beginPath(); for (let k = -2; k <= 2; k++) { const bx = x + px * k * 0.22; ctx.moveTo(bx, y - px * 0.3); ctx.lineTo(bx + px * 0.04, y - px * 0.46); } ctx.stroke(); break; }
+          case 'reefwall': { const hgt = 1 + ((seed % 5) / 5) * 0.9, sd = o.side < 0 ? -1 : 1;
+            tri(sh('#16304e'), [sd * 0.7, 0, sd * 0.6, -hgt * 0.75, sd * 0.1, -hgt, -sd * 0.25, -hgt * 0.6, -sd * 0.4, 0]);
+            for (let k = 0; k < 4; k++) { const gy = -hgt * (0.2 + k * 0.2); glow(['#5ad8e8', '#c86ad8', '#6ad8a0'][(seed + k) % 3], sd * (0.1 + (k % 2) * 0.22), gy, 0.07, 0.22); }
+            break; }
+          case 'riverwood': { rect(sh('#5a4530'), -0.06, -0.55, 0.12, 0.55); const c = sh(curEnv.season === 'autumn' ? '#c8843a' : '#4f9a45');
+            for (const [dx2, dy2, r] of [[0, -0.75, 0.33], [-0.26, -0.6, 0.22], [0.26, -0.62, 0.24]]) { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + px * dx2, y + px * dy2, px * r, 0, TAU); ctx.fill(); } break; }
+          case 'dunewall': { ctx.fillStyle = sh('#e6c98a'); ctx.beginPath(); ctx.moveTo(x - px * 1.2, y); ctx.quadraticCurveTo(x - px * 0.35, y - px * 0.85, x + px * 0.5, y - px * 0.42); ctx.quadraticCurveTo(x + px * 0.95, y - px * 0.2, x + px * 1.3, y); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = 'rgba(150,110,60,.22)'; ctx.beginPath(); ctx.moveTo(x - px * 0.35, y - px * 0.82); ctx.quadraticCurveTo(x + px * 0.2, y - px * 0.3, x + px * 1.3, y); ctx.lineTo(x - px * 0.1, y); ctx.closePath(); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,245,215,.35)'; ctx.lineWidth = Math.max(1, px * 0.01); ctx.beginPath(); ctx.moveTo(x - px * 1.2, y); ctx.quadraticCurveTo(x - px * 0.35, y - px * 0.85, x + px * 0.5, y - px * 0.42); ctx.stroke(); break; }
+          case 'islandedge': { ctx.fillStyle = sh('#4a4470'); ctx.beginPath(); ctx.moveTo(x - px * 0.7, y - px * 0.06); ctx.lineTo(x + px * 0.7, y - px * 0.06); ctx.lineTo(x + px * 0.3, y + px * 0.6); ctx.lineTo(x - px * 0.25, y + px * 0.55); ctx.closePath(); ctx.fill();
+            rect(sh('#6f6a98'), -0.72, -0.14, 1.44, 0.1); glow('#c9b8ff', 0, 0.1, 0.5, 0.14); break; }
+          case 'mistwood': { rect(sh('#4a5578'), -0.05, -0.62, 0.1, 0.62); ctx.globalAlpha = 0.8;
+            for (const [dx2, dy2, r] of [[0, -0.8, 0.3], [-0.24, -0.62, 0.2], [0.24, -0.64, 0.21]]) { ctx.fillStyle = sh('#8ab6e8'); ctx.beginPath(); ctx.arc(x + px * dx2, y + px * dy2, px * r, 0, TAU); ctx.fill(); }
+            ctx.globalAlpha = 1; break; }
+          // ===== てまえを よこぎる もの(fore): おくゆきを だす =====
+          case 'fencerail': lines(sh('#a98a5a'), 0.035, [-0.6, -0.2, 0.6, -0.26, -0.6, -0.44, 0.6, -0.5, -0.4, 0, -0.4, -0.5, 0.4, 0, 0.4, -0.56]); break;
+          case 'guardpost': rect(sh('#5a5f6c'), -0.05, -0.55, 0.1, 0.55); rect(sh('#d8c14a'), -0.05, -0.4, 0.1, 0.08); rect(sh('#d8c14a'), -0.05, -0.22, 0.1, 0.08); break;
+          case 'ricestalk': { ctx.strokeStyle = sh('#c8b04a'); ctx.lineWidth = Math.max(1.5, px * 0.02); const sway = Math.sin(curNow * 0.0015 + seed) * px * 0.03;
+            for (let k = -3; k <= 3; k++) { ctx.beginPath(); ctx.moveTo(x + px * k * 0.1, y); ctx.quadraticCurveTo(x + px * k * 0.11 + sway, y - px * 0.3, x + px * k * 0.13 + sway * 1.6, y - px * 0.56); ctx.stroke(); }
+            ctx.fillStyle = sh('#e0c878'); for (let k = -2; k <= 2; k++) { ctx.beginPath(); ctx.ellipse(x + px * (k * 0.12) + sway * 1.6, y - px * 0.58, px * 0.03, px * 0.08, 0.2, 0, TAU); ctx.fill(); } break; }
+          case 'branch': { const sd = o.side < 0 ? -1 : 1; ctx.strokeStyle = sh('#5a4530'); ctx.lineWidth = Math.max(2, px * 0.045);
+            ctx.beginPath(); ctx.moveTo(x + sd * px * 0.75, y - px * 0.9); ctx.quadraticCurveTo(x + sd * px * 0.15, y - px * 0.78, x - sd * px * 0.4, y - px * 0.6); ctx.stroke();
+            ctx.fillStyle = sh(curEnv.season === 'autumn' ? '#c8843a' : '#3f8a3a');
+            for (let k = 0; k < 6; k++) { const t = k / 6, bx = x + sd * px * (0.75 - t * 1.15), by = y - px * (0.9 - t * 0.3); ctx.beginPath(); ctx.ellipse(bx, by + px * 0.05, px * 0.11, px * 0.05, k % 2 ? 0.5 : -0.5, 0, TAU); ctx.fill(); } break; }
+          case 'ledgerock': tri(sh('#7a7568'), [-0.55, 0, -0.4, -0.3, 0.1, -0.42, 0.45, -0.24, 0.6, 0]); tri('rgba(255,255,255,.12)', [-0.4, -0.3, 0.1, -0.42, -0.1, -0.2]); break;
+          case 'snowdrift': { ctx.fillStyle = 'rgba(255,255,255,.92)'; ctx.beginPath(); ctx.moveTo(x - px * 0.7, y); ctx.quadraticCurveTo(x - px * 0.1, y - px * 0.3, x + px * 0.7, y); ctx.closePath(); ctx.fill(); ctx.fillStyle = 'rgba(190,212,236,.5)'; ctx.beginPath(); ctx.moveTo(x - px * 0.7, y); ctx.quadraticCurveTo(x - px * 0.2, y - px * 0.1, x + px * 0.7, y); ctx.closePath(); ctx.fill(); break; }
+          case 'palmfrond': { const sd = o.side < 0 ? -1 : 1; ctx.fillStyle = sh('#3f8a4a');
+            for (let k = 0; k < 4; k++) { const a = -0.5 + k * 0.32; ctx.beginPath(); ctx.ellipse(x + sd * px * (0.5 - k * 0.16), y - px * (0.75 - k * 0.1), px * 0.38, px * 0.08, a * sd, 0, TAU); ctx.fill(); }
+            ctx.strokeStyle = sh('#2f6a34'); ctx.lineWidth = Math.max(1, px * 0.02); ctx.beginPath(); ctx.moveTo(x + sd * px * 0.8, y - px * 0.85); ctx.lineTo(x - sd * px * 0.2, y - px * 0.5); ctx.stroke(); break; }
+          case 'coralarm': { const cols2 = ['#ff7a9a', '#c78bff', '#6ad8c0']; ctx.strokeStyle = sh(cols2[seed % 3]); ctx.lineWidth = Math.max(2, px * 0.07); ctx.lineCap = 'round';
+            for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.moveTo(x + px * k * 0.14, y); ctx.quadraticCurveTo(x + px * k * 0.3, y - px * 0.35, x + px * k * 0.45, y - px * 0.62); ctx.stroke(); } ctx.lineCap = 'butt';
+            glow(cols2[seed % 3], 0, -0.4, 0.4, 0.12); break; }
+          case 'reedclump': { ctx.strokeStyle = sh('#6a9a4a'); ctx.lineWidth = Math.max(1.5, px * 0.026); const sway = Math.sin(curNow * 0.0016 + seed) * px * 0.05;
+            for (let k = -3; k <= 3; k++) { ctx.beginPath(); ctx.moveTo(x + px * k * 0.09, y); ctx.quadraticCurveTo(x + px * k * 0.11 + sway, y - px * 0.36, x + px * k * 0.12 + sway, y - px * 0.68); ctx.stroke(); } break; }
+          case 'hugeleaf': { const sd = o.side < 0 ? -1 : 1; const g2 = ['#1f4a22', '#2f6a2f', '#3f8a3a'][seed % 3];
+            ctx.fillStyle = sh(g2); ctx.beginPath(); ctx.ellipse(x + sd * px * 0.18, y - px * 0.45, px * 0.62, px * 0.26, sd * (0.5 + (seed % 5) * 0.1), 0, TAU); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,.18)'; ctx.lineWidth = Math.max(1, px * 0.014); ctx.beginPath(); ctx.moveTo(x + sd * px * 0.75, y - px * 0.72); ctx.lineTo(x - sd * px * 0.35, y - px * 0.2); ctx.stroke();
+            ctx.fillStyle = sh(g2); ctx.beginPath(); ctx.ellipse(x - sd * px * 0.3, y - px * 0.2, px * 0.34, px * 0.14, -sd * 0.4, 0, TAU); ctx.fill(); break; }
+          case 'sandcrest': { ctx.fillStyle = sh('#eed9a8'); ctx.beginPath(); ctx.moveTo(x - px * 1.1, y); ctx.quadraticCurveTo(x, y - px * 0.26, x + px * 1.1, y); ctx.closePath(); ctx.fill();
+            ctx.strokeStyle = 'rgba(255,250,230,.45)'; ctx.lineWidth = Math.max(1, px * 0.012); ctx.beginPath(); ctx.moveTo(x - px * 1.1, y); ctx.quadraticCurveTo(x, y - px * 0.26, x + px * 1.1, y); ctx.stroke(); break; }
+          case 'cloudwisp': { ctx.globalAlpha = 0.5; ctx.fillStyle = '#e8eaff'; for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.ellipse(x + px * k * 0.34, y - px * 0.1 - Math.abs(k) * px * 0.04, px * 0.32, px * 0.1, 0, 0, TAU); ctx.fill(); } ctx.globalAlpha = 1; break; }
+          case 'lanternpost': { rect(sh('#5a5a74'), -0.035, -0.75, 0.07, 0.75); rect(sh('#d8c088'), -0.13, -0.98, 0.26, 0.24); rect('rgba(255,228,160,.95)', -0.1, -0.95, 0.2, 0.18); glow('#ffd88a', 0, -0.86, 0.6, 0.26); break; }
           default: oval(sh('#8a8a80'), 0, -0.1, 0.3, 0.14);
         }
         ctx.globalAlpha = 1;
@@ -1633,7 +1904,13 @@
         // ランドマークは きりの むこうでも うっすら みえる(めじるし)。ほかは farCull まで
         // とおくの しゃへいぶつは 2つに 1つ(きりで うすい ので めだたない)。ちいさすぎる ものは えがかない
         let pi = 0;
-        for (const pr of world.props) { pi++; const p = project(pr.x, pr.z); if (!p || p.s * pr.size < 6 || p.sx < -100 || p.sx > W + 100) continue; if (p.dz > (pr.landmark ? 5200 : farCull)) continue; if (pr.layer === 'wall' && p.dz > farCull * 0.62 && (pi & 1)) continue; items.push({ kind: 'prop', o: pr, p, must: !!pr.landmark }); }
+        for (const pr of world.props) { pi++; const p = project(pr.x, pr.z); if (!p || p.s * pr.size < 6) continue;
+          // おおきな ものは がめんから はみ出してよい(じぶんより ずっと おおきい せかいを かんじる)
+          const big = pr.layer === 'frame' || pr.layer === 'fore' || pr.landmark, margin = big ? pr.size * p.s * 0.8 + 60 : 100;
+          if (p.sx < -margin || p.sx > W + margin) continue;
+          if (p.dz > (pr.landmark ? 5200 : big ? farCull * 1.15 : farCull)) continue;
+          if (pr.layer === 'wall' && p.dz > farCull * 0.62 && (pi & 1)) continue;
+          items.push({ kind: 'prop', o: pr, p, must: !!pr.landmark || (big && p.dz < farCull * 0.7) }); }
         const talkR = 130;
         for (const a of residents) { const p = project(a.x, a.z); if (p && p.dz < farCull && p.s * ACTOR_SIZE >= 4 && p.sx > -60 && p.sx < W + 60) { const d = Math.hypot(a.x - player.x, a.z - player.z); items.push({ kind: 'actor', o: a, p, d, must: a === nearest || d < talkR * 1.5 }); } }
         for (const a of party) { const p = project(a.x, a.z); if (p) items.push({ kind: 'actor', o: a, p, d: Math.hypot(a.x - player.x, a.z - player.z), must: true }); }
@@ -1641,7 +1918,7 @@
         items.sort((u, v) => v.p.dz - u.p.dz);
         // カメラと じぶんの あいだに はいる おおきな もの(き・たてもの)は はんとうめいに: かくれても じぶんが わかる
         let occluded = false;
-        if (pp) { const ppx = ACTOR_SIZE * pp.s; const pl = pp.sx - ppx * 0.35, pr2 = pp.sx + ppx * 0.35, pt = pp.sy - ppx, pb = pp.sy; for (const it of items) { if (it.kind !== 'prop' || it.p.dz >= pp.dz || !(it.o.layer === 'wall' || it.o.layer === 'landmark' || it.o.layer === 'side' || (it.o.layer === 'struct' && it.o.size > 140))) continue; const w = it.o.size * it.p.s; const l = it.p.sx - w * 0.45, r = it.p.sx + w * 0.45, t = it.p.sy - w, b = it.p.sy; if (r > pl && l < pr2 && b > pt && t < pb) { it.alpha = 0.32; occluded = true; } } }
+        if (pp) { const ppx = ACTOR_SIZE * pp.s; const pl = pp.sx - ppx * 0.35, pr2 = pp.sx + ppx * 0.35, pt = pp.sy - ppx, pb = pp.sy; for (const it of items) { if (it.kind !== 'prop' || it.p.dz >= pp.dz || !(it.o.layer === 'wall' || it.o.layer === 'landmark' || it.o.layer === 'side' || it.o.layer === 'frame' || it.o.layer === 'fore' || (it.o.layer === 'struct' && it.o.size > 140))) continue; const w = it.o.size * it.p.s; const l = it.p.sx - w * 0.45, r = it.p.sx + w * 0.45, t = it.p.sy - w, b = it.p.sy; if (r > pl && l < pr2 && b > pt && t < pb) { it.alpha = 0.32; occluded = true; } } }
         // 同時に えがく かず の せいげん: じぶん・なかま・はなせる きょりの じゅうみん・ランドマークは かならず。けずるのは とおい こもの から
         let drawList = items;
         if (items.length > cap) {
@@ -1653,7 +1930,13 @@
         const named = new Set(items.filter((it) => it.kind === 'actor' && !it.o.follow && it.o !== nearest && it.d < 300 && ACTOR_SIZE * it.p.s > 30).sort((u, v) => u.d - v.d).slice(0, 3).map((it) => it.o));
         for (const it of drawList) {
           if (it.kind === 'prop') {
-            const fade = clamp(1.4 - it.p.dz / farCull, 0.2, 1) * (it.alpha != null ? it.alpha : 1);
+            // レンズの すぐ まえに きた おおきな ものは、がめんを ふさがない。
+            // うっすら のこると もやの かたまりに 見える ので、ある おおきさを こえたら えがかない
+            const huge = it.o.layer === 'frame' || it.o.layer === 'fore' || it.o.layer === 'struct';
+            if (huge && it.o.size * it.p.s > H * (it.o.layer === 'fore' ? 0.8 : 1.15)) continue;
+            const nearFade = huge ? clamp((it.p.dz - 190) / 260, 0, 1) : 1;
+            const fade = clamp(1.4 - it.p.dz / farCull, 0.2, 1) * (it.alpha != null ? it.alpha : 1) * nearFade;
+            if (fade <= 0.04) continue;
             if (it.o.layer === 'glow') { const px = it.o.size * it.p.s; ctx.fillStyle = 'rgba(255,250,210,.28)'; ctx.globalAlpha = fade; ctx.beginPath(); ctx.ellipse(it.p.sx, it.p.sy, px * 0.6, px * 0.18, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; continue; }
             if (it.o.landmark) { ctx.globalAlpha = it.alpha != null ? it.alpha : 1; drawLandmark(it.o.landmark, it.p, it.o.size, light, world); ctx.globalAlpha = 1; continue; }
             if (it.o.struct) { ctx.globalAlpha = fade; drawStructure(it.o.struct, it.p, it.o.size, it.o); ctx.globalAlpha = 1; continue; }
