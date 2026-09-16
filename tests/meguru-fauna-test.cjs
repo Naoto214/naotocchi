@@ -102,7 +102,9 @@ test('the snow world no longer scatters the snowman partner: no ⛄ in props, la
   assert.equal(w.spots.find((s) => s.id === 'snowman').prop, '🧣', 'the snowman hill keeps a scarf as its trace');
   assert.equal(w.spots.find((s) => s.id === 'field').prop, '🛷');
   assert.equal(w.props.length, 8); assert.equal(w.lane.length, 6); assert.equal(w.hint.length, 3);
-  assert.ok(w.props.includes('❄️') && w.props.includes('🌲') && w.props.includes('🧊') && w.lane.includes('🌨️'));
+  assert.ok(w.props.includes('❄️') && w.props.includes('🌲') && w.props.includes('🛷') && w.lane.includes('🌨️'));
+  // こおりは 絵文字の くりかえしでは なく canvas の 氷柱で えがく
+  assert.ok(w.structs.some(([kind]) => kind === 'icepillar'));
 });
 
 test('companion, rare companion and partner emoji are known to the audit, including the ☃️/⛄ alias of the snowman', () => {
