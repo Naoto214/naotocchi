@@ -230,3 +230,10 @@ test('young preview seeds the fifth stage in disposable storage', () => {
   assert.equal(state.ageTicks,16*20);
   assert.equal(state.happiness,40);
 });
+
+test('calm preview seeds the seventh stage in disposable storage', () => {
+  const {state}=seededState(buildPreview({form:'calm',preset:'wantsPlay'}));
+  assert.equal(state.stageIndex,6);
+  assert.equal(state.ageTicks,40*20);
+  assert.equal(state.happiness,40);
+});
