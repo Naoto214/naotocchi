@@ -79,12 +79,13 @@
     if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
     // Stage-specific anchors follow the head within the transparent sprite canvas.
     let offset = null;
+    if (baseAsset === BASE_ASSET && expression === 'wantsPlay') offset = '-12 7';
     if (baseAsset === 'assets/characters/cat/03.png' && expression === 'wantsPlay') offset = '-14 12';
     if (baseAsset === 'assets/characters/cat/04.png') {
       offset = expression === 'strained' ? '0 9' : expression === 'wantsPlay' ? '-32 18' : '-22 8';
     }
     if (baseAsset === 'assets/characters/cat/05.png') {
-      offset = expression === 'strained' ? '10 -13' : expression === 'wantsPlay' ? '-26 2' : '-12 -4';
+      offset = expression === 'strained' ? '10 -7' : expression === 'wantsPlay' ? '-26 2' : '-12 -4';
     }
     const accent = offset
       ? ACCENTS[expression].replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')

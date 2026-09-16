@@ -124,11 +124,11 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.assetFor('assets/characters/cat/02.png','happy'),'assets/characters/cat/02.png');
 });
 
-test('kitten calling mark follows its smaller head while adult and other marks keep placement', () => {
+test('kitten and adult calling marks follow their respective heads', () => {
   const kitten=expression.accentFor('assets/characters/cat/03.png','wantsPlay');
   assert.match(kitten,/<g transform="translate\(-14 12\)">/);
   assert.equal((kitten.match(/accent-call/g)||[]).length,2);
-  assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','wantsPlay'),/<g transform/);
+  assert.match(expression.accentFor('assets/characters/cat/06.png','wantsPlay'),/translate\(-12 7\)/);
   assert.doesNotMatch(expression.accentFor('assets/characters/cat/03.png','hungry'),/<g transform/);
 });
 
@@ -162,7 +162,7 @@ test('young stage has ten faces and marks anchored near its left-hand head', () 
 });
 
 test('young cat silver and orange marks sit closer to the head without moving other stages', () => {
-  assert.match(expression.accentFor('assets/characters/cat/05.png','strained'),/translate\(10 -13\)/);
+  assert.match(expression.accentFor('assets/characters/cat/05.png','strained'),/translate\(10 -7\)/);
   assert.match(expression.accentFor('assets/characters/cat/05.png','wantsPlay'),/translate\(-26 2\)/);
   assert.match(expression.accentFor('assets/characters/cat/05.png','hungry'),/translate\(-12 -4\)/);
   assert.match(expression.accentFor('assets/characters/cat/03.png','wantsPlay'),/translate\(-14 12\)/);
