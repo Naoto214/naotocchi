@@ -71,9 +71,9 @@ test('stickers can be placed only when owned, moved within the page, and removed
   assert.equal(h.api.removeSticker('home', entry.k), true);
   assert.equal(h.api.removeSticker('home', entry.k), false);
   assert.equal(store.pages.home.length, 0);
-  for (let i = 0; i < h.api.STICKER_PAGE_MAX + 2; i++) h.api.grantSticker('item:flower');
-  for (let i = 0; i < h.api.STICKER_PAGE_MAX; i++) assert.ok(h.api.placeSticker('memory', 'item:flower'));
-  assert.equal(h.api.placeSticker('memory', 'item:flower'), null, 'a page holds at most ' + h.api.STICKER_PAGE_MAX);
+  for (let i = 0; i < h.api.STICKER_PAGE_MAX + 2; i++) h.api.grantSticker('item:bowtie');
+  for (let i = 0; i < h.api.STICKER_PAGE_MAX; i++) assert.ok(h.api.placeSticker('memory', 'item:bowtie'));
+  assert.equal(h.api.placeSticker('memory', 'item:bowtie'), null, 'a page holds at most ' + h.api.STICKER_PAGE_MAX);
 });
 
 test('page tasks pay out once and count toward the sticker achievements', () => {
