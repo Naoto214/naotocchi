@@ -1,6 +1,6 @@
 # Consumables V2 Completion Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 完了済みのラッキーコインに残り11種を加え、使い切り12種を確定仕様へ統一し、旧在庫・予約を安全に移行する。
 
@@ -62,7 +62,7 @@
 
 **Interfaces:** Consumes old `items/itemInventory/oneTimeBoosts/itemLife/dreamEggs`; produces final CATALOG, stable new IDs and migration flags; existing normalize/stock/grant/take signatures stay unchanged.
 
-- [ ] **Step 1: RED tests**
+- [x] **Step 1: RED tests**
 
 Use the real module, not a replacement migration mock:
 
@@ -79,7 +79,7 @@ I.normalize(s); assert.equal(s.lifetime.money,150);
 
 Add each old price, bad count/overflow, authoritative bag, live/snapshot duplicate reservations, no-refund active boosts, partial sickness shield, old tier court compatibility, flags, reloaded/new-life/infinite-return fixtures, and final catalog exact names/prices. Run `node --test tests/consumables-v2-migration-test.cjs`, record expected RED.
 
-- [ ] **Step 2: implement migration before unknown-ID filtering**
+- [x] **Step 2: implement migration before unknown-ID filtering**
 
 ```js
 const RETIRED_CONSUMABLE_PRICES = Object.freeze({
@@ -90,7 +90,7 @@ const RETIRED_CONSUMABLE_PRICES = Object.freeze({
 
 Validate positive safe integer counts and sums. Merge old patch stock into new life stock without charging; deduplicate live/infinite snapshots through authoritative lifetime. Refund prepaid safetyNet, minigameBoost, greatReward, courtBoost, breakupShield, travelGuarantee only once per corresponding reservation. GreatReward and old big minigameBoost are one logical reservation. PendingItems still funded in bag add no extra refund. Fully unused three-charge sickness protection may recover one price; one/two remaining charges are active and end without refund. Clear obsolete fields in both live and return snapshots even when already marked, but clear shared boostTicks only during initial migration; subsequent legitimate daily boost is not wiped. Preserve prior legacy court-big350 compensation without double credit. Remove legacy catalog entries; retain theme pack and goals. New catalog can precede runtime handlers within this unpublished task sequence.
 
-- [ ] **Step 3: GREEN and commit**
+- [x] **Step 3: GREEN and commit**
 
 Run new migration test and existing migration/save-recovery tests; adjust only outdated fixture expectations affected by the new migration. Add the new test to npm test. Commit `feat: migrate final consumable inventory and catalog`.
 
@@ -100,7 +100,7 @@ Run new migration test and existing migration/save-recovery tests; adjust only o
 
 **Interfaces:** Consumes Task1 catalog and normalized inventories; produces `useConsumableItem('c_life')`, automatic `c_life_charm` use inside `triggerDeath()`; remaining new IDs are bound by Tasks3–5.
 
-- [ ] **Step 1: RED**
+- [x] **Step 1: RED**
 
 ```js
 const h=harness(),s=h.api.state();
@@ -112,7 +112,7 @@ assert.equal(s.hunger,7); assert.equal(s.isSick,true);
 
 Test repeated medicine use across refill, full-life/egg/dead/farewell no consumption; auto charm via actual dying tick at death boundary (no death counter/log), two rescues in one life, depleted charm permits death,100-year farewell and infinite never consume. Snapshot causes (health/hunger/energy/sickness) unchanged. Add old-effect removal regression for game score/care/relationships/travel and no old sale/use/UI entries.
 
-- [ ] **Step 2: minimal implementation**
+- [x] **Step 2: minimal implementation**
 
 ```js
 // At actual death entry, before death side effects:
@@ -125,7 +125,7 @@ if (state.stage === STAGE.GROWING && currentAge() < GOAL_AGE &&
 
 Follow the existing successful-use saving/rendering/message paths; medicine only sets deathMeter0 and clears dying warning. Auto item has no manual destructive-use button. Replace old CONSUMABLE_ITEMS entries; remove safetyNet/score bonus/greatReward/care protection/relationship charm/travel charm application and pending/cancel UI, mirror reroll control, old per-life patch limits. Keep normal repair conversations, recruitment, care, travel scenes and growth-boost machinery required by unchanged daily flow. Fresh saves need no obsolete boosts. Update old-behavior tests to final expectations, preserving their unrelated assertions.
 
-- [ ] **Step 3: GREEN and commit**
+- [x] **Step 3: GREEN and commit**
 
 Run life/migration plus item-care-game, item-inventory, relations/economy and Lucky tests touched. Commit `feat: replace legacy consumable effects with life items`.
 
@@ -135,7 +135,7 @@ Run life/migration plus item-care-game, item-inventory, relations/economy and Lu
 
 **Interfaces:** Consumes IDs/time-form state contract; uses `pickTransformCandidates`, `chooseTransform`, `openPicker/resolvePickerSelection`, `currentVisualStage`, stage-change/load/render/timer paths.
 
-- [ ] **Step 1: RED**
+- [x] **Step 1: RED**
 
 ```js
 const h=harness(),s=h.api.state();
@@ -148,11 +148,11 @@ assert.equal(s.itemLife.temporaryForm.expiresAt-Date.now(),300000);
 
 Use harness clock-compatible now rather than host Date in the actual test. Test 1st/8th boundary guards, registration of target, expiry/reload remaining time, natural stage transition and actual transformation cancellation, no gameplay identity/age mutation, dex all ordinary+8 rare excludes ren and legends, picker cancel/stale choices do not spend. For transform: eligible3 choices favor unexperienced lines, supplement experienced when fewer3, preserve rare/unlock/age eligibility, choice consumes once, no-candidate/cancel no spend.
 
-- [ ] **Step 2: implementation**
+- [x] **Step 2: implementation**
 
 Add small helpers in script for valid temporary visual selection, expiry cleanup and candidate enumeration, and `experiencedSpecies()` backed by raisedSpecies. Keep actual `currentFormStageIndex` for gameplay; integrate temporary picture/name at presentation interfaces only. Register chosen visual in discoveredStages through existing discovery machinery without marking it raised; normal transform/stage changes clear temporary override. Existing picker handles dex/transform options. Transform ticket opens a funded selection using existing legal candidate pool, then existing chooseTransform path without old mirror reroll; no free meter refill or extra arbitrary growth. Revalidate before taking stock.
 
-- [ ] **Step 3: GREEN and commit**
+- [x] **Step 3: GREEN and commit**
 
 Run forms, minigame-lifecycle, growth-balance, clownfish-romance and UI illustration tests covering changes. Commit `feat: add temporary forms and transformation tickets`.
 
@@ -162,7 +162,7 @@ Run forms, minigame-lifecycle, growth-balance, clownfish-romance and UI illustra
 
 **Interfaces:** Consumes c_friend/c_rare_friend/c_match; produces picker options integrated with existing companion invitation and normal partner encounter/court flow.
 
-- [ ] **Step 1: RED**
+- [x] **Step 1: RED**
 
 ```js
 const h=harness(),s=h.api.state();s.items.c_friend=1;
@@ -174,11 +174,11 @@ assert.equal(s.items.c_friend,1); // picker not confirmed
 
 Test full eligibility lists: seen and unseen but unjoined, normal/rare separate, joined excluded, no-candidate/cancel no spend. Confirm selection creates encounter not direct join. Existing joining game/conditions still required. Match picker: only no-current-partner, mutual attraction for male/female/NB, seen allowed, called candidate temporary in current region without editing region tables/state region, normal courtship required. Revalidate stale joins/partner/stock on confirm.
 
-- [ ] **Step 2: implementation**
+- [x] **Step 2: implementation**
 
 Add three picker types to existing renderer/selection. Filter real companion/partner master records, excluding recruited IDs and invalid attraction. Use existing encounter screen and active partner candidate representation; do not add a parallel instant-join path. Consume on successful call exactly once. Cancel leaves stock. Represent temporary partner call using existing life-level encounter state, with normal encounter lifetime and no global world edits.
 
-- [ ] **Step 3: GREEN and commit**
+- [x] **Step 3: GREEN and commit**
 
 Run encounter tests and relevant item-relations/clownfish/dialogue tests. Commit `feat: add selectable companion and matchmaking tickets`.
 
@@ -188,7 +188,7 @@ Run encounter tests and relevant item-relations/clownfish/dialogue tests. Commit
 
 **Interfaces:** Consumes Task1 egg stock migration and nextEggLine/Kind; integrates `pickDreamLine/hatchEgg`, reset/infinite return and existing dream controls.
 
-- [ ] **Step 1: RED**
+- [x] **Step 1: RED**
 
 ```js
 const h=harness(),s=h.api.state();s.items.c_egg_normal=2;
@@ -200,11 +200,11 @@ assert.equal(s.items.c_egg_normal,2); // reserved, consumed only on hatch
 
 Test unexperienced pool defined by existing experienced/discovered species records, normal/rare split, ren excluded, no remaining pool blocks, one reservation, cancel no duplication, save/reload/new-life/infinite continuity, successful hatch consumes exactly1 and second hatch not again. Preserve funded legacy chosen species even already experienced. Invalid unfunded/malformed reservations never grant species or negative stock. Any existing milestone egg grants must target new stock so retired dream fields do not reappear.
 
-- [ ] **Step 2: implementation**
+- [x] **Step 2: implementation**
 
 Replace old unrestricted manual dream picker for NEW uses with eligible random reservation. Keep validated legacy selected line until hatch. Route visible egg controls and consumable use through the same helpers; cancel only clears fields. Update old names/help to final names and random-pool rule, show reserved species. Consume after validating actual hatch through existing hatch path. Do not change rare natural hatch probability or unlock ren.
 
-- [ ] **Step 3: GREEN and commit**
+- [x] **Step 3: GREEN and commit**
 
 Run eggs/migration/egg-hatching/item-collections tests covering edited paths. Commit `feat: add final next-life egg reservations`.
 
@@ -214,7 +214,7 @@ Run eggs/migration/egg-hatching/item-collections tests covering edited paths. Co
 
 **Interfaces:** Consumes all12 completed runtime handlers, stable migration, actual public save/UI. Produces reviewed branch and verifiable results.
 
-- [ ] **Step 1: RED browser and regression expectations**
+- [x] **Step 1: RED browser and regression expectations**
 
 ```js
 const expected=['c_coin2','c_life','c_time_back','c_time_forward','c_life_charm','c_friend','c_match','c_transform','c_rare_friend','c_egg_normal','c_egg_rare','c_dex'];
@@ -223,14 +223,32 @@ assert.deepEqual(await page.locator('#onetimeItemGrid .shop-item').evaluateAll(x
 
 Use existing browser module signature and fixed clock before navigation. At320/390 verify prices/copy, scrolling/picker controls, purchase and consume, cancel, life charm automatic display, no obsolete products, migration/refund reload idempotence, temporary-form reload/expiry, egg reservation/cancel and one real encounter. Seed legacy saves before next document after beforeunload; retain all existing layout assertions. Update stale old inventory/boost fixtures to final items without deleting unrelated coverage.
 
-- [ ] **Step 2: focused then full then browser**
+- [x] **Step 2: focused then full then browser**
 
 Run all six new runtime test files plus changed existing focused files. Run `npm test` once sufficiently integrated. Diagnose every failure; known Quick moleLv4 must be compared with baseline if it recurs. Run real Chromium browser modules locally and both engines in Home layout CI. Fix actual bugs with RED tests and scoped review.
 
-- [ ] **Step 3: whole-change review and publish**
+- [x] **Step 3: whole-change review and publish**
 
 Review diff from f94fced to final code HEAD. Verify `git diff --check`, clean status and PNG hashes. Publish only reviewed commits to requested branch (fast-forward, no force). Confirm latest Runtime smoke and Home layout success and Draft/unmerged. Update outdated PR body with final3x/12-item status, completed scope and deferred Quick/daily/economy scope; never mark ready or merge.
 
-- [ ] **Step 4: record results**
+- [x] **Step 4: record results**
 
 Append measured test counts, CI links, browser widths, migration and exclusion evidence, changed files and published SHAs to this plan; commit `docs: record consumables v2 verification`. Final response reports results and any remaining material limitation explicitly.
+
+## 実行記録（2026-09-16 復旧後）
+
+Tasks1–4はGitHubの復旧コードと個別レビュー記録を保持。Task5は失われたコミットがGitHub404のためTDDで再実装し、Task6を統合。
+
+- Task5: RED95件中14失敗→focused136/136→個別レビューPASS。GitHub保存b13b4b57a0cf8143f5ca3c0eed88e34f939a89c2。
+- Task6: focused113/113、全体760/760、smoke/dialogue/visual QA成功。実Chromium153の通常装具・使い切り各320px／390px、4ケース成功。
+- 全差分レビューの唯一の返金不足をRED2件→修正→再検証し、限定再レビューPASS。
+- 最終コード保存8df98b402dfbbd32c4e7344405bd695d8328ce1c。復旧・本来のPR両ブランチへforce=falseで保存済み。main bcdd6a6を取り込み、PRはDraft・未マージ。
+- 旧在庫／予約の一度だけ返金、旧小・大の独立予約160返金、再読込／次人生／無限復帰の冪等性、卵の成功孵化時だけの消費を検証。ゲームパスの実プレイ・日次チャレンジ・自己ベスト・点数実績・勧誘・人生記録の除外を維持。確定PNG4枚はblob一致。
+- Quick既知のchain不安定性は、基準f94と今回に同一seed45を与えてdodgeの同じ失敗を再現。Quickのコード・テストは変更せず、最終全体は成功。
+- Task6の「新runtime6ファイル」は実在するTask1–5の5ファイルを全実行し、関連回帰も含めた。
+
+詳細なコマンド、保存SHA、変更ファイル一覧、PNGハッシュ、ブラウザ内容は[復旧・検証記録](2026-09-16-consumables-v2-verification.md)を参照。コードSHA 8df98b4のCI結果:
+- [Runtime smoke test](https://github.com/Naoto214/naotocchi/actions/runs/35155466748): 成功、760/760、失敗0、skip0。
+- [Home layout](https://github.com/Naoto214/naotocchi/actions/runs/35155466625): 成功、Chromium81／WebKit81、計162ケース。通常装具・使い切り320px／390pxも両engineで成功。
+
+この結果記録の文書コミット後も最新HEADのCIを確認し、最終SHAとリンクをPR本文に記録する。
