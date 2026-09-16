@@ -19,16 +19,16 @@ test('minigame ranks follow the S90/A75/B55/C35 thresholds and records keep best
 
 test('shop items are bought once, equipped, and toggled off', () => {
   const h = harness(), state = h.api.state();
-  state.lifetime.money = 50;
-  h.api.buyOrEquipShopItem('flower');
-  assert.equal(state.lifetime.ownedShopItems.includes('flower'), false, 'not enough money');
-  state.lifetime.money = 160;
-  h.api.buyOrEquipShopItem('flower');
+  state.lifetime.money = 999;
+  h.api.buyOrEquipShopItem('poop1');
+  assert.equal(state.lifetime.ownedShopItems.includes('poop1'), false, 'not enough money');
+  state.lifetime.money = 1040;
+  h.api.buyOrEquipShopItem('poop1');
   assert.equal(state.lifetime.money, 40);
-  assert.equal(state.lifetime.equippedItemId, 'flower');
-  h.api.buyOrEquipShopItem('flower');
+  assert.equal(state.lifetime.equippedItemId, 'poop1');
+  h.api.buyOrEquipShopItem('poop1');
   assert.equal(state.lifetime.equippedItemId, null, 'tapping the equipped item unequips it');
-  h.api.buyOrEquipShopItem('flower');
+  h.api.buyOrEquipShopItem('poop1');
   assert.equal(state.lifetime.money, 40, 'owned items are not paid for again');
 });
 
@@ -42,4 +42,21 @@ test('achievement unlocks record their time and do not repeat', () => {
   h.api.checkAchievements();
   assert.equal(state.achievementsUnlocked.filter((id) => id === 'minigame-50').length, 1);
   assert.equal(state.lifetime.achievementUnlockedAt['minigame-50'], at);
+});
+
+test('game pass must be purchased separately from sunglasses and occupies one equipment slot',()=>{
+  const h=harness(),state=h.api.state();
+  state.lifetime.ownedShopItems=['glasses','star'];
+  state.lifetime.equippedItemId='star';state.lifetime.money=7999;
+  h.api.buyOrEquipShopItem('gamepass1');
+  assert.equal(state.lifetime.ownedShopItems.includes('gamepass1'),false);
+  assert.equal(state.lifetime.equippedItemId,'star');
+  assert.equal(state.lifetime.money,7999);
+  state.lifetime.money=8000;h.api.buyOrEquipShopItem('gamepass1');
+  assert.equal(state.lifetime.money,0);
+  assert.equal(state.lifetime.ownedShopItems.includes('gamepass1'),true);
+  assert.equal(state.lifetime.equippedItemId,'gamepass1');
+  h.api.buyOrEquipShopItem('star');
+  assert.equal(state.lifetime.equippedItemId,'star');
+  assert.equal(state.lifetime.money,0,'switching owned equipment has no extra cost');
 });

@@ -84,3 +84,45 @@ test('infinite return shares live inventory and activity time', () => {
   s.items.c_growth=3;h.api.enterInfinite();h.api.tick();s.items.c_growth=2;h.api.exitInfinite();
   const n=h.api.state();assert.equal(n.items.c_growth,2);assert.equal(n.items,n.lifetime.itemInventory);assert.equal(n.lifetime.itemProgress.ticks,1);
 });
+
+test('normal equipment catalog contains only the final ten products', () => {
+  const catalog=harness().sandbox.NaotocchiItems.CATALOG;
+  const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
+  assert.deepEqual(Object.keys(catalog).filter(id=>catalog[id].kind==='equipment').sort(),[...ids].sort());
+});
+
+const normalEquipmentPrices={
+  poop1:1000,sleepboost1:3000,bowtie:3000,ribbon:3000,scarf:3000,
+  travel1:3000,partner1:5000,bond1:5000,gamepass1:8000,star:10000,
+};
+const normalEquipmentDescriptions={
+  poop1:'うんちが3個たまると、自動できれいにする。',
+  sleepboost1:'ねると、すぐに元気が満タンになる。',
+  bowtie:'おなかがへると、自動で満タンにする。',
+  ribbon:'ごきげんが下がると、自動で満タンにする。',
+  scarf:'病気になると、自動で治してくれる。',
+  travel1:'たびで、おなかと元気が減らなくなる。',
+  partner1:'こいびとの仲良し度が下がると、自動で満タンにする。',
+  bond1:'なかまの仲良し度が下がると、自動で満タンにする。',
+  gamepass1:'ミニゲームを遊ばず、通常成功にできる。',
+  star:'通常ミニゲームでもらえるコインが3倍になる。',
+};
+for(const [id,price] of Object.entries(normalEquipmentPrices)){
+  test(`normal equipment ${id} has its final catalog price and shop price`,()=>{
+    const h=harness();
+    assert.equal(h.sandbox.NaotocchiItems.CATALOG[id]?.price,price,`${id} catalog price`);
+    h.api.openExclusiveMenu('item');h.api.render();
+    const button=h.get('shopItemGrid').innerHTML.match(new RegExp(`<button\\b[^>]*data-id="${id}"[^>]*>[\\s\\S]*?<\\/button>`))?.[0];
+    assert.ok(button,`${id} is for sale`);
+    const status=button.match(/<span class="shop-item-status">([^<]+)<\/span>/)?.[1];
+    assert.equal(status?.replaceAll(',',''),`💰${price}`,`${id} displayed price`);
+  });
+  test(`normal equipment ${id} has its final catalog and shop description`,()=>{
+    const h=harness(),desc=normalEquipmentDescriptions[id];
+    assert.equal(h.sandbox.NaotocchiItems.CATALOG[id]?.desc,desc,`${id} catalog description`);
+    h.api.openExclusiveMenu('item');h.api.render();
+    const button=h.get('shopItemGrid').innerHTML.match(new RegExp(`<button\\b[^>]*data-id="${id}"[^>]*>[\\s\\S]*?<\\/button>`))?.[0];
+    assert.ok(button,`${id} is for sale`);
+    assert.ok(button.includes(`<span class="shop-item-desc">${desc}</span>`),`${id} displayed description`);
+  });
+}
