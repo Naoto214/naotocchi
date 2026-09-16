@@ -7,8 +7,8 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false} = {}) {
-  let now = 1000, serial = 0;
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
+  let now = clockNow, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
   const motionPreference = {matches:reducedMotion,addEventListener:(type,fn)=>{if(type==='change')motionListeners.push(fn);}};
@@ -151,6 +151,10 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
       useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
+      currentVisualForm, experiencedSpecies, normalLines:NORMAL_LINES, rareLines:RARE_LINES,
+      pickerValues: () => pickerItem?.picker === 'dex-form' ? temporaryDexKeys()
+        : pickerItem?.picker === 'transform-ticket' ? [...(state.transformOptions || [])] : [],
+      now: () => Date.now(),
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES, decayRelationship, decayCompanionBonds, reinforceRelationship, goOnDate, closeDateOverlay, renderItemOverlay, renderItemMemories, renderNaotoItemGrid,

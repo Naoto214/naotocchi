@@ -941,6 +941,20 @@
     return candidates;
   }
 
+  function experiencedSpecies() {
+    const raised = state.lifetime.raisedSpecies;
+    return Array.isArray(raised) ? [...new Set(raised.filter(line => ALL_LINES.includes(line)))] : [];
+  }
+
+  function pickTicketTransformCandidates() {
+    const legal = pickTransformCandidates([], Math.max(3, NORMAL_LINES.length))
+      .filter((line, index, list) => line !== state.speciesLine && list.indexOf(line) === index);
+    const raised = new Set(experiencedSpecies());
+    const novel = legal.filter(line => !raised.has(line));
+    const familiar = legal.filter(line => raised.has(line));
+    return [...novel, ...familiar].slice(0, 3);
+  }
+
   const el = {
     mainNameLabel: document.getElementById('mainNameLabel'),
     castStage: document.getElementById('castStage'),
@@ -1545,6 +1559,7 @@
         ownedShopItems: [],
         equippedItemId: null,
         itemMigrations: {},
+        raisedSpecies: [],
         // 「なおとの〜」でんせつアイテム(NAOTO_ITEMS)の うち、こうにゅう
         // ずみの id 一覧。そうび/かいじょの きがえは なく、こうにゅうすれば
         // それいこう ずっと こうかを はっきしつづける(SHOP_ITEMS とは
@@ -1721,6 +1736,10 @@
       // lifetime rather than filling gaps - patch those gaps in explicitly
       // so a field added in a later version doesn't come back undefined
       merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
+      if (!Object.prototype.hasOwnProperty.call(parsed.lifetime || {}, 'raisedSpecies')) {
+        merged.lifetime.raisedSpecies = [...new Set((Array.isArray(parsed.discoveredStages) ? parsed.discoveredStages : [])
+          .map(key => String(key).split(':')[0]).filter(line => ALL_LINES.includes(line)))];
+      }
       // Inspect the saved version before fresh defaults can mark it migrated.
       merged.lifetime.itemSystemVersion = parsed.lifetime?.itemSystemVersion || 0;
       merged.lifetime.funItemsRetiredVersion = parsed.lifetime?.funItemsRetiredVersion || 0;
@@ -2486,7 +2505,16 @@
       apply: () => { state.deathMeter=0; state.dying=false; state.dyingTicks=0; return {message:'いのちが満タンになった'}; } },
     { id: 'c_life_charm', emoji: '🧿', automatic: true,
       available: () => false, unavailableMessage: '死んでしまうときに自動で使う' },
-    ...FUTURE_CONSUMABLE_IDS.map(id => ({ id, emoji:'🎟️',
+    { id:'c_time_back', emoji:'⏪', available:() => !state.infinite && currentFormStageIndex() > 0,
+      unavailableMessage:'これより前のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()-1) },
+    { id:'c_time_forward', emoji:'⏩', available:() => !state.infinite && currentFormStageIndex() < STAGES_PER_LINE-1,
+      unavailableMessage:'これより後のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()+1) },
+    { id:'c_transform', emoji:'🎟️', picker:'transform-ticket',
+      available:() => !state.infinite && !state.transformOptions && pickTicketTransformCandidates().length > 0,
+      unavailableMessage:'いま選べるへんしん先がない' },
+    { id:'c_dex', emoji:'📖', picker:'dex-form', available:() => !state.infinite && temporaryDexKeys().length > 0,
+      unavailableMessage:'いま選べるすがたがない' },
+    ...FUTURE_CONSUMABLE_IDS.filter(id => !['c_time_back','c_time_forward','c_transform','c_dex'].includes(id)).map(id => ({ id, emoji:'🎟️',
       available: () => false, unavailableMessage:'このアイテムは準備中' })),
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
@@ -9430,6 +9458,7 @@
     state.stage = STAGE.GROWING;
     state.ageTicks = 0;
     state.stageIndex = 0;
+    if (!state.lifetime.raisedSpecies.includes(state.speciesLine)) state.lifetime.raisedSpecies.push(state.speciesLine);
     const identity = rollIdentity(state.speciesLine);
     state.gender = identity.gender;
     state.orientationId = identity.orientationId;
@@ -9447,6 +9476,7 @@
     if (age === prevAge) return;
     const before = stageForAge(prevAge);
     const after = stageForAge(age);
+    if (after !== before) clearTemporaryForm();
     state.stageIndex = after;
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, age);
     const sexChange = updateClownfishSex(state, after);
@@ -10673,6 +10703,36 @@
     return stageForAge(currentAge());
   }
 
+  const TEMPORARY_FORM_MS = 5 * 60 * 1000;
+  function clearTemporaryForm() {
+    if (state.itemLife?.temporaryForm) delete state.itemLife.temporaryForm;
+  }
+
+  function currentVisualForm() {
+    const actual = {line:state.speciesLine,index:currentFormStageIndex()};
+    const form = state.itemLife?.temporaryForm;
+    if (!form) return actual;
+    const valid = state.stage === STAGE.GROWING && !state.infinite
+      && ALL_LINES.includes(form.line) && Number.isInteger(form.index)
+      && form.index >= 0 && form.index < STAGES_PER_LINE
+      && form.originLine === state.speciesLine && form.originIndex === currentFormStageIndex()
+      && Number.isFinite(form.expiresAt) && form.expiresAt > Date.now();
+    if (!valid) { clearTemporaryForm(); return actual; }
+    return {line:form.line,index:form.index};
+  }
+
+  function applyTemporaryForm(line, index) {
+    if (!ALL_LINES.includes(line) || !Number.isInteger(index) || index < 0 || index >= STAGES_PER_LINE) return false;
+    const originLine = state.speciesLine, originIndex = currentFormStageIndex();
+    state.itemLife.temporaryForm = {line,index,expiresAt:Date.now()+TEMPORARY_FORM_MS,originLine,originIndex};
+    recordDiscoveryKey(`${line}:${index}`);
+    return {message:`${SPECIES[line].stages[index].label}のすがたになった`};
+  }
+
+  function temporaryDexKeys() {
+    return [...NORMAL_LINES,...RARE_LINES].flatMap(line => SPECIES[line].stages.map((_,index) => `${line}:${index}`));
+  }
+
   function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, (ch) => ({
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;',
@@ -10776,7 +10836,8 @@
 
   function currentVisualStage() {
     if (state.stage === STAGE.EGG) return eggVisualStage();
-    return personalVisualStage(state, currentFormStageIndex());
+    const form = currentVisualForm();
+    return personalVisualStage(form.line === state.speciesLine ? state : {...state,speciesLine:form.line}, form.index);
   }
 
   function personalVisualStage(person, index) {
@@ -10794,8 +10855,8 @@
     if (state.stage === STAGE.EGG) return '🥚';
     // 亡くなったあとも、おばけに置きかえず「そのときの すがた」を残す。
     // 人生記録カードやメイン画面でも、最後に育っていた姿をそのまま見せる。
-    const stages = state.speciesLine && SPECIES[state.speciesLine].stages;
-    return stages?.[currentFormStageIndex()]?.emoji || '❓';
+    const form = currentVisualForm();
+    return SPECIES[form.line]?.stages[form.index]?.emoji || '❓';
   }
 
   function currentStageLabel() {
@@ -11062,6 +11123,10 @@
     clearTimeout(gamePassCooldownTimer);
     const passRemaining = (state.gamePassReadyAt || 0) - Date.now();
     gamePassCooldownTimer = passRemaining > 0 ? setTimeout(() => render(), passRemaining) : null;
+    clearTimeout(temporaryFormTimer);
+    const temporaryRemaining = (state.itemLife?.temporaryForm?.expiresAt || 0) - Date.now();
+    temporaryFormTimer = temporaryRemaining > 0 ? setTimeout(() => render(), temporaryRemaining) : null;
+    if (temporaryRemaining <= 0) clearTemporaryForm();
 
     if (state.isSleeping && !sleepRecoveryTimer) startSleepRecovery();
     const isDead = state.stage === STAGE.DEAD;
@@ -11080,7 +11145,8 @@
     const moneyHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     if (el.moneyLabel.innerHTML !== moneyHTML) el.moneyLabel.innerHTML = moneyHTML;
     el.moneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[state.speciesLine] || currentStageLabel());
+    const visualForm = currentVisualForm();
+    el.mainNameLabel.textContent = isEgg ? 'たまご' : (SPECIES_DISPLAY_NAMES[visualForm.line] || currentStageLabel());
     el.stageLabel.textContent = currentStageLabel();
     // せいべつ/れんあいタイプは 前面に 出しすぎず、ここに そっと 添える
     // だけ(長押し/ホバーで わかる)
@@ -12499,7 +12565,13 @@
     if (item.available && !item.available()) {
       setMessage(item.unavailableMessage || '今は使えない'); render(); return false;
     }
-    if (item.picker) { openPicker(item); return false; }
+    if (item.picker) {
+      if (item.picker === 'transform-ticket') {
+        state.transformOptions = pickTicketTransformCandidates();
+        if (!state.transformOptions.length) { state.transformOptions = null; return false; }
+      }
+      openPicker(item); return false;
+    }
     const result = item.apply();
     if (result === false) return false;
     if (!ITEM_SYSTEM.take(state, id)) return false;
@@ -12519,6 +12591,7 @@
   }
 
   function closePicker() {
+    if (pickerItem?.picker === 'transform-ticket') state.transformOptions = null;
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -12545,6 +12618,25 @@
       ITEM_SYSTEM.take(state, item.id);
       recordItemUse(item.id);
       pickerOpen = false; pickerItem = null;
+      setMessage(result.message); saveState(); render(); return;
+    }
+    if (item.picker === 'transform-ticket') {
+      const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
+        && Array.isArray(state.transformOptions) && state.transformOptions.includes(value);
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null;
+      chooseTransform(value);
+      return;
+    }
+    if (item.picker === 'dex-form') {
+      const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
+        && temporaryDexKeys().includes(value);
+      const [line,indexText] = String(value).split(':');
+      const result = valid ? applyTemporaryForm(line,Number(indexText)) : false;
+      if (!result) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null;
       setMessage(result.message); saveState(); render(); return;
     }
     if (state.lifetime.money < item.price) {
@@ -12578,7 +12670,7 @@
     el.pickerTitle.textContent = item.label;
     el.pickerHint.textContent = `${item.desc}(💰${item.price})`;
     let html = '';
-    if (item.picker === 'transform') {
+    if (item.picker === 'transform' || item.picker === 'transform-ticket') {
       el.pickerHint.textContent = '引き直す候補を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
       html = (state.transformOptions || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
@@ -12592,9 +12684,10 @@
           <span class="dex-cell-label">${SPECIES_DISPLAY_NAMES[line] || line}</span>
         </div>
       `).join('');
-    } else if (item.picker === 'dex') {
+    } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
-      html = ALL_LINES.map((line) => SPECIES[line].stages.map((stage, i) => `
+      const lines = item.picker === 'dex-form' ? [...NORMAL_LINES,...RARE_LINES] : ALL_LINES;
+      html = lines.map((line) => SPECIES[line].stages.map((stage, i) => `
         <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
           <span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span>
           <span class="dex-cell-label">${stage.label}</span>
@@ -13531,9 +13624,11 @@
     // ★ ねんれいは ぜったいに かえない。すがたは stageForAge() から きまるので
     // ここで かえるのは しゅぞくの ラインだけ(35さいのいぬ → 35さいのねこ)
     state.speciesLine = line;
+    clearTemporaryForm();
     state.transformOptions = null;
     state.lifetime.transforms += 1;
     state.transformsThisLife += 1;
+    if (!state.lifetime.raisedSpecies.includes(line)) state.lifetime.raisedSpecies.push(line);
     if (!state.transformStageDone.includes(String(state.stageIndex))) {
       state.transformStageDone.push(String(state.stageIndex));
     }
@@ -14850,6 +14945,7 @@
   let activeMinigame = null;
   let activeMinigameEquipment = null;
   let gamePassCooldownTimer = null;
+  let temporaryFormTimer = null;
   let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
   let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
   function mgRunTagged(session, fn, thisArg, args) {

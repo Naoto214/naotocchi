@@ -357,11 +357,13 @@ test('stage-7 notice waits until finished minigame results have been readable',(
 });
 
 test('newborn clownfish hatch male for a binary roll and save that identity',()=>{
-  const {h,s,storage}=setup({stage:'egg',speciesLine:null,gender:null,orientationId:null,attractedTo:[],growth:0});
+  const {h,s,storage}=setup({stage:'egg',speciesLine:null,gender:null,orientationId:null,attractedTo:[],growth:16});
   s.lifetime.nextEggLine='clownfish';
+  s.lifetime.nextEggKind='normal';
   s.lifetime.dreamEggs.normal=1;
+  s.items.c_egg_normal=1;
   h.sandbox.Math.random=()=>0.6;
-  for(let i=0;i<5;i++) h.dispatch(h.get('playWithBtn'),'click');
+  h.dispatch(h.get('playWithBtn'),'click');
   assert.equal(s.stage,'growing');
   assert.equal(s.gender,'male');
   assert.equal(s.ageTicks,0);
