@@ -158,17 +158,21 @@ test('CLI writes the same self-contained preview for the requested safe preset',
   }
 });
 
-test('preview startup save does not unlock old age achievements and hide the face', () => {
-  const {state}=seededState(buildPreview());
-  const h=harness();
-  Object.assign(h.api.state(),state);
-  h.get('storyFlash').classList.add('hidden');
-  h.get('lifeCardOverlay').classList.add('hidden');
-  h.api.render();
-  h.api.saveState();
-  h.api.render();
-  assert.equal(h.get('storyFlash').classList.contains('hidden'),true);
-  assert.equal(h.get('petSprite').dataset.expression,'hungry');
+test('all preview forms keep selected faces visible across startup saves without achievement flashes', () => {
+  for (const form of ['adult','kitten','otemba','young','calm','elder']) {
+    for (const preset of ['hungry','tired','sleeping']) {
+      const {state}=seededState(buildPreview({form,preset}));
+      const h=harness();
+      Object.assign(h.api.state(),state);
+      h.get('storyFlash').classList.add('hidden');
+      h.get('lifeCardOverlay').classList.add('hidden');
+      h.api.render();
+      h.api.saveState();
+      h.api.render();
+      assert.equal(h.get('storyFlash').classList.contains('hidden'),true,`${form}/${preset} has no achievement overlay`);
+      assert.equal(h.get('petSprite').dataset.expression,preset,`${form}/${preset} keeps its face`);
+    }
+  }
 });
 
 test('preset clicks reset only the child session and bootstrap uses that selected preset', () => {

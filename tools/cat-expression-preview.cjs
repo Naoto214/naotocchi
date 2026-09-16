@@ -30,7 +30,8 @@ function runtimeFreshCat(form='adult') {
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
-      achievementsUnlocked:['age-10','age-25'],
+      // The disposable elder fixture has already passed its 50th birthday.
+      achievementsUnlocked:['age-10','age-25',...(FORMS[form]>=50 ? ['age-50'] : [])],
     });
     return state;
   } finally {

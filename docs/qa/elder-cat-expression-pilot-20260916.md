@@ -95,3 +95,9 @@ Asset: assets/characters/expressions/cat/08-weak.png
 ## 最終検証
 
 npm test: 710 passed / 0 failed、終了コード0。git diff --check成功。iPhoneの最終視認性はユーザー確認待ち。
+
+## 実績演出によるプレビュー遮蔽の修正
+
+70歳の確認用データにage-50が未登録で、saveState→checkAchievements→showStoryEventにより達成演出が表示されていた。全6段階×空腹・疲労・睡眠の起動／保存／再描画テストへ拡張し、elder/hungryで演出が非表示にならないREDを再現。確認用データだけに50歳以上ではage-50を登録し、13件のプレビューテストがGREEN。本編の実績判定やユーザーのセーブは変更しない。
+
+修正後npm test: 710 passed / 0 failed、終了コード0。
