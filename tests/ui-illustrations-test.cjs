@@ -242,3 +242,16 @@ test('game pass art is reserved for gamepass1 and never replaces legacy sunglass
   assert.doesNotMatch(h.get('petAccessory').innerHTML,/game-pass\.png/);
   assert.equal(h.api.state().lifetime.equippedItemId,'glasses');
 });
+
+
+test('reserved game pass art does not make a product available or inherit sunglasses ownership',()=>{
+  const items=require('../item-system.js');
+  assert.equal(Object.hasOwn(items.CATALOG,'gamepass1'),false);
+  const h=harness();
+  h.api.state().lifetime.ownedShopItems=['glasses'];
+  h.api.state().lifetime.equippedItemId='glasses';
+  h.api.openExclusiveMenu('item');h.api.render();
+  assert.doesNotMatch(h.get('shopItemGrid').innerHTML,/data-id="gamepass1"|game-pass\.png/);
+  assert.deepEqual(Array.from(h.api.state().lifetime.ownedShopItems),['glasses']);
+  assert.equal(h.api.state().lifetime.equippedItemId,'glasses');
+});

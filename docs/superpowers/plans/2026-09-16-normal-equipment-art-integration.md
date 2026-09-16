@@ -1,6 +1,6 @@
 # Normal Equipment Art Integration Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** PR #274で確定・保存済みの通常装具4画像を、安全に通常装具表示へ接続する。`bowtie/ribbon/scarf` は既存IDを維持したまま新しい商品名・PNGへ切り替え、ゲームパス画像は旧 `glasses` に流用せず、新ゲームパスID用として接続可能な状態にする。
 
@@ -34,7 +34,7 @@
 - Reference: `script.js`
 - Reference: `assets/items/normal-equipment/*.png`
 
-- [ ] **Step 1: 既存テストを新3装具の期待値へ変更し、失敗することを確認する**
+- [x] **Step 1: 既存テストを新3装具の期待値へ変更し、失敗することを確認する**
 
 `tests/ui-illustrations-test.cjs` のショップ表示テストで、旧 `ribbon/bowtie/scarf` のアトラスキーではなく専用PNGを期待する。商品名もV2名を期待する。
 
@@ -65,7 +65,7 @@ const expectedLabels = {
 };
 ```
 
-- [ ] **Step 2: 装備中表示のテストを新画像へ変更する**
+- [x] **Step 2: 装備中表示のテストを新画像へ変更する**
 
 現在の `ribbon` 装備テストを、保存IDは `ribbon` のまま、表示が `toy-box.png`・ラベルが `おもちゃばこ` になる期待へ変更する。
 
@@ -80,15 +80,15 @@ assert.match(node.innerHTML,/aria-label="おもちゃばこ"/);
 assert.equal(h.api.state().lifetime.equippedItemId,'ribbon');
 ```
 
-- [ ] **Step 3: 画像失敗時のフォールバック契約を追加する**
+- [x] **Step 3: 画像失敗時のフォールバック契約を追加する**
 
 `item-asset` のエラーを擬似発火し、対応する `.item-picture` に `asset-failed` が付くこと、セーブ状態が変わらないことを確認する。
 
-- [ ] **Step 4: ゲームパスがサングラスへ誤接続されない回帰テストを追加する**
+- [x] **Step 4: ゲームパスがサングラスへ誤接続されない回帰テストを追加する**
 
 コード上で `glasses` が `game-pass.png` に結びついていないことを固定する。`gamepass1` のみがゲームパス画像パスを持つ設計にする。
 
-- [ ] **Step 5: focused testを実行してREDを確認する**
+- [x] **Step 5: focused testを実行してREDを確認する**
 
 Run:
 
@@ -98,7 +98,7 @@ node --test tests/ui-illustrations-test.cjs
 
 Expected: 新PNG・新ラベル・画像失敗処理が未実装なので対象テストがFAILする。
 
-- [ ] **Step 6: テストだけをコミットする**
+- [x] **Step 6: テストだけをコミットする**
 
 ```bash
 git add tests/ui-illustrations-test.cjs
@@ -114,7 +114,7 @@ git commit -m "test: define normal equipment png display contract"
 - Modify: `script.js`
 - Test: `tests/ui-illustrations-test.cjs`
 
-- [ ] **Step 1: `item-system.js` の3商品をV2名・V2価格・V2ショップ文へ変更する**
+- [x] **Step 1: `item-system.js` の3商品をV2名・V2価格・V2ショップ文へ変更する**
 
 既存IDは変えない。
 
@@ -142,7 +142,7 @@ git commit -m "test: define normal equipment png display contract"
 },
 ```
 
-- [ ] **Step 2: `script.js::SHOP_ITEMS` の3ラベルだけ同じV2名へ合わせる**
+- [x] **Step 2: `script.js::SHOP_ITEMS` の3ラベルだけ同じV2名へ合わせる**
 
 ```js
 { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
@@ -152,7 +152,7 @@ git commit -m "test: define normal equipment png display contract"
 
 この段階ではemojiはフォールバック用途だけなので、保存互換のため不用意に別IDへしない。
 
-- [ ] **Step 3: focused testを実行する**
+- [x] **Step 3: focused testを実行する**
 
 ```bash
 node --test tests/ui-illustrations-test.cjs tests/items-v2-care-automation-test.cjs
@@ -160,7 +160,7 @@ node --test tests/ui-illustrations-test.cjs tests/items-v2-care-automation-test.
 
 Expected: 名前・価格・既存オートケア挙動が矛盾しない。PNG表示テストはTask 3実装前なのでまだ該当部分がFAILしてよい。
 
-- [ ] **Step 4: コミットする**
+- [x] **Step 4: コミットする**
 
 ```bash
 git add item-system.js script.js
@@ -176,7 +176,7 @@ git commit -m "feat: align care equipment names with items v2"
 - Modify: `ui-illustrations.css`
 - Test: `tests/ui-illustrations-test.cjs`
 
-- [ ] **Step 1: `script.js` に専用PNGパスマップを追加する**
+- [x] **Step 1: `script.js` に専用PNGパスマップを追加する**
 
 `ITEM_ILLUSTRATIONS` の近くに、アトラスとは別の明示的なマップを置く。
 
@@ -191,7 +191,7 @@ const NORMAL_EQUIPMENT_PICTURES = Object.freeze({
 
 `ITEM_ILLUSTRATIONS` から `bowtie/ribbon/scarf` の旧アトラス割当は削除する。`glasses:'glasses'` は、この画像統合作業だけでは触らない。ゲームパスへ変更してはいけない。
 
-- [ ] **Step 2: 専用PNG用HTMLヘルパーを追加する**
+- [x] **Step 2: 専用PNG用HTMLヘルパーを追加する**
 
 既存 `sceneryIconHTML()` と同じ失敗時フォールバック思想を使う。
 
@@ -206,7 +206,7 @@ function equipmentPictureHTML(item, label = '') {
 }
 ```
 
-- [ ] **Step 3: `itemIconHTML()` でPNGを最優先する**
+- [x] **Step 3: `itemIconHTML()` でPNGを最優先する**
 
 ```js
 function itemIconHTML(item, labelled = false) {
@@ -219,7 +219,7 @@ function itemIconHTML(item, labelled = false) {
 }
 ```
 
-- [ ] **Step 4: 画像エラー処理を既存のdocument-level error handlerへ追加する**
+- [x] **Step 4: 画像エラー処理を既存のdocument-level error handlerへ追加する**
 
 `comment-asset` / `scenery-asset` と同じ位置で処理する。
 
@@ -230,7 +230,7 @@ if (img.classList.contains('item-asset')) {
 }
 ```
 
-- [ ] **Step 5: `ui-illustrations.css` にサイズ・フォールバック規則を追加する**
+- [x] **Step 5: `ui-illustrations.css` にサイズ・フォールバック規則を追加する**
 
 ```css
 .item-picture {
@@ -258,7 +258,7 @@ if (img.classList.contains('item-asset')) {
 
 確定PNGは滑らかな2Dイラストなので、ここでは `image-rendering: pixelated` を付けない。
 
-- [ ] **Step 6: focused testを実行してGREENを確認する**
+- [x] **Step 6: focused testを実行してGREENを確認する**
 
 ```bash
 node --test tests/ui-illustrations-test.cjs tests/items-v2-care-automation-test.cjs
@@ -266,7 +266,7 @@ node --test tests/ui-illustrations-test.cjs tests/items-v2-care-automation-test.
 
 Expected: PASS。
 
-- [ ] **Step 7: コミットする**
+- [x] **Step 7: コミットする**
 
 ```bash
 git add script.js ui-illustrations.css tests/ui-illustrations-test.cjs
@@ -282,15 +282,15 @@ git commit -m "feat: wire approved normal equipment png art"
 - Verify: `item-system.js`
 - Modify: `tests/ui-illustrations-test.cjs`
 
-- [ ] **Step 1: `gamepass1` の画像マッピングだけ存在することをテストする**
+- [x] **Step 1: `gamepass1` の画像マッピングだけ存在することをテストする**
 
 `gamepass1` は `game-pass.png` を指す。一方、`glasses` はそのパスを指してはいけない。
 
-- [ ] **Step 2: `gamepass1` をショップ商品として追加しないことを確認する**
+- [x] **Step 2: `gamepass1` をショップ商品として追加しないことを確認する**
 
 この計画の完了時点では、ゲームパスの効果・5秒待ち・実プレイ扱い除外がまだ未実装なので、未完成の商品を購入可能にしない。
 
-- [ ] **Step 3: 後続の通常装具V2実装計画に引き継ぐ条件を明記する**
+- [x] **Step 3: 後続の通常装具V2実装計画に引き継ぐ条件を明記する**
 
 後続タスクで `gamepass1` を商品化する時は必ず以下を同時実装する。
 
@@ -301,7 +301,7 @@ git commit -m "feat: wire approved normal equipment png art"
 5. 今日のチャレンジ・実プレイ実績・自己ベスト・高得点・点数条件加入・大成功・レア報酬には数えない
 6. `glasses` 所有を継承しない
 
-- [ ] **Step 4: focused testを再実行する**
+- [x] **Step 4: focused testを再実行する**
 
 ```bash
 node --test tests/ui-illustrations-test.cjs
@@ -309,7 +309,7 @@ node --test tests/ui-illustrations-test.cjs
 
 Expected: PASS。
 
-- [ ] **Step 5: コミットする**
+- [x] **Step 5: コミットする**
 
 ```bash
 git add tests/ui-illustrations-test.cjs
