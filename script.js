@@ -2365,22 +2365,18 @@
   // state.lifetime.equippedItemId と つきあわされ、そうびちゅうだけ
   // こうかを はっきする(いちどに そうびできるのは 1つだけ)。
   //
-  // 装備は14種類。価格と説明は item-system.js の承認済みカタログを使う。
+  // 装備は10種類。価格と説明は item-system.js の承認済みカタログを使う。
   const SHOP_ITEMS = [
-    { id: 'flower', label: 'おはな', emoji: '🌼' },
-    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
-    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },
     { id: 'poop1', label: 'トイレットペーパー', emoji: '🧻' },
-    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },
-    { id: 'glasses', label: 'サングラス', emoji: '🕶️' },
-    { id: 'energy1', label: 'げんきバンド', emoji: '⚡' },
-    { id: 'hat', label: 'シルクハット', emoji: '🎩' },
-    { id: 'travel1', label: 'リュックサック', emoji: '🎒' },
     { id: 'sleepboost1', label: 'ふかふかまくら', emoji: '🛏️' },
-    { id: 'star', label: 'スターバッジ', emoji: '⭐' },
-    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
+    { id: 'bowtie', label: 'おべんとうばこ', emoji: '🎗️' },
+    { id: 'ribbon', label: 'おもちゃばこ', emoji: '🎀' },
+    { id: 'scarf', label: 'きゅうきゅうばこ', emoji: '🧣' },
+    { id: 'travel1', label: 'リュックサック', emoji: '🎒' },
     { id: 'partner1', label: 'らぶれたー', emoji: '💌' },
-    { id: 'crown', label: 'かんむり', emoji: '👑' },
+    { id: 'bond1', label: 'おともだちバッジ', emoji: '🐾' },
+    { id: 'gamepass1', label: 'ゲームパス', emoji: '🎮' },
+    { id: 'star', label: 'スターバッジ', emoji: '⭐' },
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
 
   // いま そうびちゅうの SHOP_ITEMS が id と いっちするか(いちどに
@@ -3289,9 +3285,7 @@
     gamepass1: 'assets/items/normal-equipment/game-pass.png',
   });
   const ITEM_ILLUSTRATIONS = {
-    flower:'flower',poop1:'paper',glasses:'glasses',
-    energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
-    partner1:'letter',crown:'crown',
+    poop1:'paper',travel1:'backpack',star:'star_badge',bond1:'paw_badge',partner1:'letter',
     naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
   };
   // CSS background failures do not emit element error events. A single hidden
