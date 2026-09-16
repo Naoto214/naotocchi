@@ -49,15 +49,15 @@ test('V2 backpack makes ordinary travel cost zero hunger and zero energy while f
   assert.equal(s.happiness, before.happiness - 3);
 });
 
-test('V2 star badge doubles only the ordinary minigame success coin payout', () => {
+test('V2 star badge triples only the ordinary minigame success coin payout', () => {
   const base = setup();
   const star = setup('star');
   const baseMoney = base.s.lifetime.money;
   const starMoney = star.s.lifetime.money;
   play(base.h, 50, 'ordinary-base');
   play(star.h, 50, 'ordinary-star');
-  assert.equal(base.s.lifetime.money - baseMoney, 2);
-  assert.equal(star.s.lifetime.money - starMoney, 4);
+  assert.equal(base.s.lifetime.money - baseMoney, 30);
+  assert.equal(star.s.lifetime.money - starMoney, 90);
   assert.equal(star.s.lifetime.itemProgress.starGames, undefined);
 });
 
@@ -124,10 +124,13 @@ test('social equipment preserves ordinary decay and does not automate relationsh
   }
 });
 
-test('star badge leaves great-result and failed-result coin awards unchanged', () => {
-  for (const score of [0, 90]) {
+test('star badge triples great-result coins and leaves failed-result at zero', () => {
+  for (const [score, baseCoins, starCoins] of [[0,0,0], [90,60,180]]) {
     const base = setup(); const star = setup('star');
+    for (const {s} of [base,star]) Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});
+    const beforeBase=base.s.lifetime.money, beforeStar=star.s.lifetime.money;
     play(base.h, score); play(star.h, score);
-    assert.equal(star.s.lifetime.money, base.s.lifetime.money);
+    assert.equal(base.s.lifetime.money-beforeBase,baseCoins);
+    assert.equal(star.s.lifetime.money-beforeStar,starCoins);
   }
 });

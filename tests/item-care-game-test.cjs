@@ -247,14 +247,14 @@ test('life patch works at exactly forty life and cannot postpone age one hundred
 
 test('star pays ordinary success immediately and never adds a delayed set reward',()=>{
   const {h,s}=setup();
-  s.lifetime.money=360;
+  s.lifetime.money=10000;
   h.api.buyOrEquipShopItem('star');
   play(h,30,'a');
   play(h,30,'b');
   play(h,30,'c');
   s.lifetime.itemProgress.ticks=99;
   h.api.tick();
-  assert.equal(s.lifetime.money,12);
+  assert.equal(s.lifetime.money,270);
   assert.equal(s.lifetime.itemProgress.starGames,undefined);
   assert.equal(s.lifetime.itemProgress.readyAt.star,undefined);
 });
@@ -273,17 +273,43 @@ test('disease shield shows the prevented illness and remaining two uses',()=>{
 
 test('star menu describes immediate ordinary-success coins without stamp or waiting UI', () => {
   const {h,s} = setup();
-  s.lifetime.money = 400;
+  s.lifetime.money = 10000;
   h.api.buyOrEquipShopItem('star');
   h.api.openExclusiveMenu('item');
   const status = () => h.get('shopItemGrid').children.find(b => b.dataset.id === 'star').textContent;
-  assert.match(status(), /通常.*成功.*コイン.*2倍/);
+  assert.match(status(), /通常.*コイン.*3倍/);
   assert.doesNotMatch(status(), /星[0-3]\/3|あと.*種類|受取|300秒/);
   h.api.closeAllMenuOverlays();
   const cash = s.lifetime.money;
   play(h,40,'star-first');
-  assert.equal(s.lifetime.money, cash + 4);
+  assert.equal(s.lifetime.money, cash + 90);
   h.api.openExclusiveMenu('item');
   assert.match(status(), /みにつけている/);
   assert.doesNotMatch(status(), /星[0-3]\/3|受取/);
 });
+
+// Isolate game coins from growth milestones and daily bonuses.
+for (const [score, coins] of [[0,0],[29,0],[30,30],[69,30],[70,60],[100,60]]) {
+  for (const [atStart, atFinish, multiplier] of [[null,null,1],['star',null,3],[null,'star',1]]) {
+    test(`ordinary score ${score}, equipment ${atStart} -> ${atFinish} pays ${coins * multiplier}`, () => {
+      const {h,s}=setup(atStart);
+      Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});
+      const before=s.lifetime.money;
+      h.api.startMinigame(game('ordinary-snapshot'),{intro:false});
+      s.lifetime.equippedItemId=atFinish;
+      h.api.finishMinigame(score);
+      assert.equal(s.lifetime.money-before,coins * multiplier);
+    });
+  }
+}
+for (const id of ['quick-run','quick-solo']) {
+  for (const [score,coins] of [[0,0],[50,2],[70,13]]) {
+    for (const equipment of [null,'star']) test(`${id} score ${score} retains base ${coins} with ${equipment}`,()=>{
+      const {h,s}=setup(equipment);
+      Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});
+      const before=s.lifetime.money;
+      play(h,score,id);
+      assert.equal(s.lifetime.money-before,coins);
+    });
+  }
+}

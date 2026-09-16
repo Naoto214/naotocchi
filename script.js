@@ -15164,6 +15164,11 @@
     }
   }
 
+  function ordinaryMinigameCoins(result, equipmentId) {
+    const base = result === 'great' ? 60 : result === 'success' ? 30 : 0;
+    return equipmentId === 'star' ? base * 3 : base;
+  }
+
   function finishMinigameInner(game, score, customMessage) {
     const careBefore = CARE_STATUS?.snapshot(state);
     // じこベスト/ランクは アイテムの ボーナスを のせる まえの てんすうで
@@ -15178,6 +15183,7 @@
     const clampedScore = clamp(rawScore + glassesBonus + minigameBoostBonus, 0, 100);
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
+    const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
     const protectedFailure = isBad && state.oneTimeBoosts.safetyNet;
     const special = rawScore >= 70 && state.oneTimeBoosts.greatReward;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
@@ -15193,20 +15199,23 @@
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
       if (special) state.oneTimeBoosts.greatReward = false;
-      const coins = Math.round((5 + Math.random() * 6) * envModifiers().coin);
-      state.lifetime.money += coins;
-      itemMessage += `／${coins}コインをもらった!`;
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-      const ordinaryCoins = equipped('star') ? 4 : 2;
-      state.lifetime.money += ordinaryCoins;
-      itemMessage += `／${ordinaryCoins}コインをもらった`;
     } else if (protectedFailure) {
       state.oneTimeBoosts.safetyNet = false;
       itemMessage += '／スコアほけんが、げんき・おとろえ・いのちを守った';
     } else {
       applyDecline(8);
       raiseDeathMeter(2, activeMinigameEquipment);
+    }
+    // Quick keeps its existing base payouts; only ordinary games use Star.
+    const result = isGreat ? 'great' : isBad ? 'failure' : 'success';
+    const coins = isQuick
+      ? (isGreat ? Math.round((5 + Math.random() * 6) * envModifiers().coin) : isBad ? 0 : 2)
+      : ordinaryMinigameCoins(result, activeMinigameEquipment);
+    if (coins > 0) {
+      state.lifetime.money += coins;
+      itemMessage += `／${coins}コインをもらった${isGreat ? '!' : ''}`;
     }
     if (equipped('energy1') && !protectedFailure) itemMessage += `／げんきバンドで消費${energyCost}`;
 
