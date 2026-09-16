@@ -373,3 +373,10 @@ test('reviewed side marks read diagonally above the face, not alongside it',()=>
   }
  }
 });
+
+for(const line of ['penguin','turtle'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
+ const stage=String(i).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`;
+ const states=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
+ assert.equal(expression.assetFor(base,'normal'),base);
+ for(const state of states){assert.equal(expression.assetFor(base,state),`assets/characters/expressions/${line}/${stage}-${state}.png`);assert.ok(expression.accentFor(base,state).includes('<svg'));}
+});

@@ -16,11 +16,11 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const HUMAN_FORMS = Object.freeze(Object.fromEntries(['man','woman'].flatMap(line =>
+const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle'].flatMap(line =>
   [1,3,7,12,16,25,40,70].map((age,index) => [line+String(index+1).padStart(2,'0'),age])
 )));
 
-const FORMS = Object.freeze({...HUMAN_FORMS,adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25,puppy:7,wanpaku:12,youngDog:16,calmDog:40,babyDog:1,toddlerDog:3,elderDog:70});
+const FORMS = Object.freeze({...STAGED_FORMS,adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25,puppy:7,wanpaku:12,youngDog:16,calmDog:40,babyDog:1,toddlerDog:3,elderDog:70});
 
 function runtimeFreshPet(form='adult') {
   const previousDirectory=process.cwd();
@@ -30,7 +30,7 @@ function runtimeFreshPet(form='adult') {
     const runtime=harness();
     const state=runtime.api.freshState();
     Object.assign(state,{
-      stage:'growing',speciesLine:['dogAdult','puppy','wanpaku','youngDog','calmDog','babyDog','toddlerDog','elderDog'].includes(form)?'dog':Object.hasOwn(HUMAN_FORMS,form)?form.slice(0,-2):'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
+      stage:'growing',speciesLine:['dogAdult','puppy','wanpaku','youngDog','calmDog','babyDog','toddlerDog','elderDog'].includes(form)?'dog':Object.hasOwn(STAGED_FORMS,form)?form.slice(0,-2):'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
@@ -98,8 +98,9 @@ function buildPreview({preset='hungry',form='adult'}={}) {
       normal:'通常',hungry:'空腹',sick:'病気',tired:'疲労',sulky:'不機嫌',weak:'いのち低下',
       critical:'危険',wantsPlay:'かまって',sleeping:'睡眠',
     })[key]}</a>`).join('');
-  const humanLabels={man:['あかちゃん（男）','よちよち（男）','子ども（男）','少年','若者（男）','大人（男）','落ちついた大人（男）','おじいさん'],woman:['あかちゃん（女）','よちよち（女）','子ども（女）','少女','若者（女）','大人（女）','落ちついた大人（女）','おばあさん']};
-  const humanOptions=Object.keys(HUMAN_FORMS).map(key => `<option value="${key}" ${form===key?'selected':''}>${humanLabels[key.slice(0,-2)][Number(key.slice(-2))-1]}</option>`).join('');
+  const stageLabels={man:['あかちゃん（男）','よちよち（男）','子ども（男）','少年','若者（男）','大人（男）','落ちついた大人（男）','おじいさん'],woman:['あかちゃん（女）','よちよち（女）','子ども（女）','少女','若者（女）','大人（女）','落ちついた大人（女）','おばあさん']};
+  Object.assign(stageLabels,require('./expression-stage-names.json'));
+  const stageOptions=Object.keys(STAGED_FORMS).map(key => `<option value="${key}" ${form===key?'selected':''}>${stageLabels[key.slice(0,-2)][Number(key.slice(-2))-1]}</option>`).join('');
   const child=attribute(gameDocument(preset,form));
   return `<!doctype html>
 <html lang="ja">
@@ -126,7 +127,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 <body>
   <header data-preview-controls>
     <div class="banner"><h1>表情とマークの確認</h1><p>このページでは保存しません</p></div>
-    <nav aria-label="状態"><select data-preview-form aria-label="姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option><option value="dogAdult" ${form==='dogAdult'?'selected':''}>大人のいぬ</option><option value="puppy" ${form==='puppy'?'selected':''}>こいぬ</option><option value="wanpaku" ${form==='wanpaku'?'selected':''}>わんぱくいぬ</option><option value="youngDog" ${form==='youngDog'?'selected':''}>若いいぬ</option><option value="calmDog" ${form==='calmDog'?'selected':''}>落ちついたいぬ</option><option value="babyDog" ${form==='babyDog'?'selected':''}>あかちゃんいぬ</option><option value="toddlerDog" ${form==='toddlerDog'?'selected':''}>よちよちこいぬ</option><option value="elderDog" ${form==='elderDog'?'selected':''}>おとしよりのいぬ</option>${humanOptions}</select>${links}</nav>
+    <nav aria-label="状態"><select data-preview-form aria-label="姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option><option value="dogAdult" ${form==='dogAdult'?'selected':''}>大人のいぬ</option><option value="puppy" ${form==='puppy'?'selected':''}>こいぬ</option><option value="wanpaku" ${form==='wanpaku'?'selected':''}>わんぱくいぬ</option><option value="youngDog" ${form==='youngDog'?'selected':''}>若いいぬ</option><option value="calmDog" ${form==='calmDog'?'selected':''}>落ちついたいぬ</option><option value="babyDog" ${form==='babyDog'?'selected':''}>あかちゃんいぬ</option><option value="toddlerDog" ${form==='toddlerDog'?'selected':''}>よちよちこいぬ</option><option value="elderDog" ${form==='elderDog'?'selected':''}>おとしよりのいぬ</option>${stageOptions}</select>${links}</nav>
   </header>
   <iframe title="なおとっち 表情プレビュー" srcdoc="${child}"></iframe>
   <script id="cat-expression-preview-controls">

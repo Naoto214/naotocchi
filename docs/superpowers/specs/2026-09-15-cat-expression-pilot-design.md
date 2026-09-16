@@ -72,3 +72,7 @@ Use observed per-stage face anchors, outlined mark silhouettes and the union of 
 ## User-selected marker revision — 2026-09-16
 
 The user identified 81 specific placements in image version 959afaea. The exact selection is stored in tools/expression-placement-review.json. Reopen these positions: side marks must look diagonally above the face rather than merely pass a positive horizontal/vertical offset check. Keep other marks and all facial PNGs unchanged. Center selected orange rays against the perceived head center; allow selected sick lines a steeper upper-right angle to stay near the head rather than the raised tail. Maintain collision clearance. Refresh the touch-selectable review page with the new image version and distinguish the prior requested set from new selections. Draft PR278 remains unmerged.
+
+## Approved production-first continuation — 2026-09-16
+
+The user asked to stop endless placement tuning and make as much of the remaining expression set as practical. Continue in complete multi-stage batches without per-stage approval. The next delivery batch covers penguin and turtle, eight stages and ten expressions each (160 independent original-referenced PNG edits). Preserve existing four lines and the latest 81 placement adjustments. Keep the common color/outline/reaction semantics, non-overlapping face-relative marks, original normal sprites, gameplay and saves. Agent performs composite review and updates the touch-selectable gallery; do not hold production for tiny placement differences. No main merge; PR278 stays Draft.

@@ -4,15 +4,17 @@
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const ROOT=path.resolve(__dirname,'..'),expression=require('../pet-expression.js');
 const anchors=require('./expression-face-anchors.json'),bounds=require('../cast-bounds.js');
-const review=require('./expression-placement-review.json').selected;
 const sourceCode=fs.readFileSync(path.join(ROOT,'pet-expression.js'),'utf8');
 const previous=JSON.parse(sourceCode.match(/const MARK_PLACEMENT = (\{[\s\S]*?\n  \});/)[1]);
 const names=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
 const css=fs.readFileSync(path.join(ROOT,'pet-expression.css'),'utf8');
-const W=440,P=100,S=2;const table={};
+const W=440,P=100,S=2;const table={...previous};
+const only=process.argv[2];
+if(only&&!Object.hasOwn(anchors,only))throw Error('Unknown species: '+only);
 async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208,208,{kernel:'nearest'}).ensureAlpha().raw().toBuffer({resolveWithObject:true})).data;}
 (async()=>{
  for(const [line,heads] of Object.entries(anchors))for(let i=0;i<8;i++){
+  if(only&&line!==only)continue;
   const stage=String(i+1).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`,key=`${line}/${stage}`;
   const head=heads[i],floor=104*(128-bounds[base].box[3])/128,fy=Math.round(floor*S);
   const occupied=new Uint8Array(W*W),dilated=new Uint8Array(W*W);
@@ -48,7 +50,7 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
   }
   delete sweat.score;
   // Keep approved drop placement while correcting the selected green mark.
-  sweat=previous[key].sweat;
+  sweat=previous[key]?.sweat || sweat;
   const withSweat=dilated.slice();
   for(const [x0,x1] of [[sweat.leftInner-2-rw,sweat.leftInner-2],[sweat.rightInner+2,sweat.rightInner+2+rw]]) {
    const y0=sweat.centerY+floor-halfHeight,y1=sweat.centerY+floor+halfHeight;
@@ -61,7 +63,7 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
    const pts=[];let x1=208,y1=208,x2=0,y2=0;
    for(let y=0;y<208;y++)for(let x=0;x<208;x++)if(data[(y*208+x)*4+3]>16){pts.push([x,y]);x1=Math.min(x1,x);x2=Math.max(x2,x);y1=Math.min(y1,y);y2=Math.max(y2,y);}
    const cx=(x1+x2)/2,cy=(y1+y2)/2,target=name==='strained'?135:name==='wantsPlay'?90:45;
-   const isReviewed=review[key]?.includes(name);
+   const isReviewed=!previous[key];
    if(!isReviewed){marks[name]=previous[key].marks[name];continue;}
    const angles=target===90?[90]:key==='woman/01'&&name==='critical'?[55,60]:name==='sick'?[60,65,70,75]:Array.from({length:5},(_,j)=>(target===45?40:120)+j*5);
    let best=null;
@@ -86,5 +88,5 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
  const block=`  // BEGIN GENERATED FACE PLACEMENT\n  const MARK_PLACEMENT = ${output};\n  // END GENERATED FACE PLACEMENT`;
  if(code.includes('// BEGIN GENERATED FACE PLACEMENT'))code=code.replace(/  \/\/ BEGIN GENERATED FACE PLACEMENT[\s\S]*?  \/\/ END GENERATED FACE PLACEMENT/,block);
  else code=code.replace('  const HUMAN_LINES',block+'\n  const HUMAN_LINES');
- fs.writeFileSync(target,code);console.log('Repositioned 81 selected marks with 2px clearance; retained other placements');
+ fs.writeFileSync(target,code);console.log('Placed new supported stages with 2px clearance; retained existing placements');
 })();

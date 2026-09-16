@@ -351,7 +351,7 @@ test('elderDog preview uses isolated storage and the correct age stage', () => {
   assert.equal(state.hunger,40);
 });
 
-for (const species of ['man','woman']) {
+for (const species of ['man','woman','penguin','turtle']) {
   test(`${species} preview exposes every stage and never accesses real saves`, () => {
     const html=buildPreview({preset:'sick'});
     for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
