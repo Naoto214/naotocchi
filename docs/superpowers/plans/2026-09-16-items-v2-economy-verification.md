@@ -66,4 +66,121 @@ Gamepassの除外は、実プレイ回数・記録・自己ベスト・高得点
 | `toy-box.png` | `fc601ae0292158e401239231fc9c319eaeb1ce1d` |
 | `game-pass.png` | `903c482ce593e7869bc6f39b5c1d72b2e4da9642` |
 
-タスクの正確な最終commit・検証command・ログ・自己レビューは`.superpowers/sdd/2026-09-16-items-v2-economy-completion/task-3-report.md`へ記録する。公開時の最終HEAD/CIはrootが追記する。
+タスクのcommit・実行command・変更ファイル・判断は以下に保存する。無視対象のローカルreport／logsは追加の出典であり、継続に必要な情報の唯一の保存先にはしない。公開時の最終HEAD／CIはrootが追記する。
+
+
+## レビュー済み保存地点と再現コマンド
+
+Tasks1／2／3の個別レビューはPASS／Approved。最終の全変更レビュー、PR反映、最新HEAD CIはrootの次工程であり、この個別レビューの完了とは区別する。
+
+| 地点 | Commit | Tree／確認範囲 |
+|---|---|---|
+| 経済作業の比較元 | `30df0ae707fb05aa945b7aee38546ea53c026d15` | 承認済み通常装具・使い切り完成後、今回の経済完成作業前 |
+| Task3最終ローカル実装 | `dfc284218f4fcda51cf4a2dda79db02273424047` | `6c50a3f10a6f98557e41a68aa27c1ae7ed8ed68b`、個別レビューPASS |
+| 同等内容のリモート保存（root報告） | `bf8df2eb778055044ab4ab2cf609e5daa730fc67` | 同一tree `6c50a3f10a6f98557e41a68aa27c1ae7ed8ed68b`。本記録の担当agentはリモート操作していない |
+
+以下は実際に使ったコマンド。作業ディレクトリは `/workspace/scratch/949941642af1/items-v2-work`。ローカルrunnerはその外の一時補助ファイルだが、呼び出す3モジュールはリポジトリ内の同じ本番browser testsで、Home CIからも利用される。ローカルログの共通場所は `.superpowers/sdd/2026-09-16-items-v2-economy-completion/task-3-logs/`。
+
+1. 初回focused — **326 pass／0 fail／0 skipped**、`focused.txt`。
+
+```sh
+node --test tests/quick-mode-test.cjs tests/quick-daily-economy-v2-test.cjs tests/item-economy-sources-v2-test.cjs tests/economy-test.cjs tests/lucky-coin-test.cjs tests/item-inventory-test.cjs tests/item-care-game-test.cjs tests/items-v2-care-automation-test.cjs tests/items-v2-ease-automation-test.cjs tests/item-relations-travel-test.cjs tests/item-collections-economy-test.cjs tests/consumables-v2-*-test.cjs tests/movie-test.cjs tests/offline-test.cjs tests/sticker-test.cjs
+```
+
+2. 初回全体 — **830 pass／0 fail／0 skipped**と先行smoke／dialogue／visual-QA script成功、`full.txt`。
+
+```sh
+npm test
+```
+
+3. 初回browser — Chromium153.0.8010.0、**6/6 pass**、`browser-first.txt`。この後の画像レビューでカードの省略を発見した。
+
+```sh
+node /workspace/scratch/949941642af1/run-item-browser.cjs "$PWD" normal-equipment-browser.cjs consumables-v2-browser.cjs item-economy-v2-browser.cjs
+```
+
+4. 視覚回帰テスト追加、CSS修正前 — **RED**、`layout-red.txt`。`.quick-card squeezes copy into 2px at 320`。CSS修正後も同じコマンドを実行し **2/2 pass**、`layout-green.txt`。
+
+```sh
+node /workspace/scratch/949941642af1/run-item-browser.cjs "$PWD" item-economy-v2-browser.cjs
+```
+
+5. CSS修正時のcache更新とfocused — style.css参照1件更新、**67 pass／0 fail／0 skipped**、`layout-focused.txt`。実行順はcache更新→focused→上の回帰GREEN。
+
+```sh
+node tools/bump-versions.js
+node --test tests/asset-versions-test.cjs tests/viewport-design-test.cjs tests/screens-test.cjs tests/quick-mode-test.cjs tests/quick-daily-economy-v2-test.cjs
+```
+
+6. CSS修正後の最終全体→実browser — **830 pass／0 fail／0 skipped**と先行scripts成功、`full-after-layout.txt`。続いてChromiumの**6/6 pass**、`browser-final.txt`。CSSに具体的な変更が入ったため必要な再検証であり、任意の緑再実行ではない。
+
+```sh
+npm test
+node /workspace/scratch/949941642af1/run-item-browser.cjs "$PWD" normal-equipment-browser.cjs consumables-v2-browser.cjs item-economy-v2-browser.cjs
+```
+
+7. Syntax／差分検査 — すべて成功。今回の追補は文書だけで、suiteは再実行しない。
+
+```sh
+node --check tests/item-economy-v2-browser.cjs
+node --check tests/home-layout-browser.cjs
+git diff --check
+git diff --cached --check
+```
+
+### 全体ログの既知・意図的な診断出力
+
+`full-after-layout.txt`は診断なしのログではない。下記は失敗処理そのものを確かめるテストから意図的に出力され、実測の集計は**830 pass／0 fail／0 skipped**。警告・例外文言だけでテスト失敗扱いにも、逆に無視して「pristine」扱いにもしない。
+
+| ログの位置 | 出力と発生元 | 意図して確かめること |
+|---|---|---|
+| 1行 | npm `Unknown env config "http-proxy"` | 実行環境のnpm設定警告。アプリのassertion失敗ではない |
+| 22行から | `[naotocchi] test Error: probe failure`、`tests/album-test.cjs`の`recorded runtime errors appear in the data screen` | 記録した例外がデータ画面に表示される |
+| 580行から | `[naotocchi] minigame Error: boom`、`tests/minigame-lifecycle-test.cjs`のframe-loop crash test | 2フレーム目の例外でゲームを閉じ、報酬を与えず、次のゲームを開始できる |
+| 591行から | `[naotocchi] minigame Error: start boom`、同ファイルのstart crash test | 開始処理の例外からoverlayとセッションを安全に閉じる |
+| 758〜800行付近 | `localStorage quota exceeded`計4出力、`tests/save-recovery-test.cjs`のsave呼出し52／63行、export handler240行、permanently-full-storage282行 | 復旧後の保存失敗でもbackup保持、直近成功backup維持、修復不能primaryからのrecoverable export、恒常的な容量不足の可視化 |
+
+既知Quick solver flakeは今回の実行で発生せず、baseline比較やassertion緩和はしていない。
+
+## 判断台帳：レビューで採用した3件
+
+正本を現在の既存モードと保存形式に適用するための解釈を明示する。新しい報酬や強さの追加ではない。
+
+| 判断 | 根拠／守る境界 | 判断が誤っていた場合のコスト |
+|---|---|---|
+| Solo Quickは100点でも0コイン | 正本の100コイン条件は混合20/20完走。Soloは10問で、100点という表示だけでは20/20を満たさない。記録・実績は維持する | Soloへの支払いが意図されていた場合、Solo成功者の期待報酬を欠く。逆に点数だけで100を払うと未承認の10問金策経路を増やすため、独断で拡張しない |
+| 日次は開始入口によらず、精算日の指定ゲームを実プレイして成功すれば達成 | 正本は日付ごとの指定ゲームと実成功を条件にし、専用ボタン限定とはしていない。game-list入口も対象、Gamepass／Quick／失敗／別ゲームは除外。同日重複は防ぐ | 専用ボタン限定が意図されていた場合、通常入口からの指定ゲーム成功にもLuckyが付く。一方入口で限定すると同じ指定ゲームを正しく遊んだ成功を取りこぼす。経済影響は1日1個の枠内 |
+| 移行完了後の有効な共有`boostTicks`は保存して維持 | 日次から今後のboost付与は停止するが、移行後の共有残量は通常Sランク由来と旧日次由来を確実に区別できない。既存一度限り移行は維持し、毎loadで再削除しない | 古い日次由来が残る場合は、その残り時間だけ利益が続く。逆に一律削除すると正当に獲得済みのSランクboostを没収する。由来不明の有効値への遡及削除はしない |
+
+## 今回の経済完成作業の累積変更26ファイル
+
+抽出コマンドは `git diff --name-only 30df0ae HEAD`、抽出時HEADは`dfc284218f4fcda51cf4a2dda79db02273424047`。この文書追補も既存2文書の更新だけなので累積ファイル集合は変わらない。これ以前の使い切り完成作業全体のファイル一覧とは区別する。
+
+```text
+NAOTOCCHI_MASTER_SPEC.md
+README.md
+docs/superpowers/plans/2026-09-16-consumables-v2-recovery-handoff.md
+docs/superpowers/plans/2026-09-16-items-v2-economy-completion.md
+docs/superpowers/plans/2026-09-16-items-v2-economy-verification.md
+docs/superpowers/specs/2026-09-16-naoto-series-v2-open-decisions.md
+index.html
+package.json
+script.js
+style.css
+tests/dialogue-test.js
+tests/economy-test.cjs
+tests/helpers/runtime-harness.cjs
+tests/home-layout-browser.cjs
+tests/item-care-game-test.cjs
+tests/item-economy-sources-v2-test.cjs
+tests/item-economy-v2-browser.cjs
+tests/item-experiences-test.cjs
+tests/item-inventory-test.cjs
+tests/midlife-test.cjs
+tests/movie-test.cjs
+tests/offline-test.cjs
+tests/quick-daily-economy-v2-test.cjs
+tests/quick-mode-test.cjs
+tests/region-identity-test.cjs
+tests/sticker-test.cjs
+```
