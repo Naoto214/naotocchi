@@ -16507,7 +16507,6 @@
     const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
     if (region.id === state.regionId && !sameLocalHome) return false;
     currentLocationIntent += 1;
-    state.calledMatch = null;
     if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
     // 表示だけを戻す操作では、旅の消費や記録を発生させない。
@@ -16518,6 +16517,7 @@
       render();
       return;
     }
+    state.calledMatch = null;
     state.lifetime.currentLocationSelected = false;
     state.lifetime.currentLocation = null;
     state.affectionStreak = 0;

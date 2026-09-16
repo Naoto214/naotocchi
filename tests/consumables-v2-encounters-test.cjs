@@ -49,17 +49,28 @@ test('cancel and no candidate leave friend stock untouched', () => {
   assert.equal(s.items.c_friend, 1);
 });
 
-test('match ticket lists mutually attracted candidates for male female and nonbinary pets, including seen candidates', () => {
+test('match ticket lists exactly the mutually attracted candidates for male female and nonbinary pets, including seen candidates', () => {
   const h = harness(), s = growing(h);
+  const partners=h.api.partnerCandidates;
+  const expectedByGender={
+    male:['cat_ceo','robot_neighbor','field_cow','sunflower_partner','forest_bear','grove_deer'],
+    female:['cliff_goat','high_eagle','snow_spirit','snowman','rock_octopus','sea_mermaid'],
+    nonbinary:['anglerfish','swamp_croc','gentle_gorilla','knitting_spider','desert_scorpion','oasis_cactus'],
+  };
+  for (const [gender,ids] of Object.entries(expectedByGender)) {
+    ids.forEach(id => { partners.find(candidate => candidate.id === id).attractedTo=[gender]; });
+  }
   const cases = [
-    ['male',['field_cow','sunflower_partner','snow_spirit']],
-    ['female',['cat_ceo','field_cow','snow_spirit']],
-    ['nonbinary',['field_cow','snow_spirit','snowman']],
+    ['male',expectedByGender.male],
+    ['female',expectedByGender.female],
+    ['nonbinary',expectedByGender.nonbinary],
   ];
-  for (const [gender,required] of cases) {
+  for (const [gender,expected] of cases) {
     s.gender=gender; s.orientationId='pan'; s.attractedTo=['female','male','nonbinary']; s.items.c_match=1;
-    s.lifetime.partnerEncounters=[required[0]]; h.api.useConsumableItem('c_match');
-    const values=h.api.pickerValues(); required.forEach(id => assert.ok(values.includes(id), `${gender} includes ${id}`));
+    s.lifetime.partnerEncounters=[expected[0]]; h.api.useConsumableItem('c_match');
+    const values=h.api.pickerValues();
+    assert.equal(JSON.stringify(values),JSON.stringify(expected),`${gender} gets only mutual matches`);
+    if (gender==='female') assert.equal(values.includes('cat_ceo'),false,'one-way attraction is excluded');
     h.api.closePicker();
   }
   s.orientationId='aro'; s.attractedTo=[]; s.items.c_match=1;
@@ -89,6 +100,18 @@ test('match confirmation revalidates partner while calls survive introductions a
   s.partner=null; s.items.c_match=1; h.api.useConsumableItem('c_match'); h.api.resolvePickerSelection('snow_spirit');
   h.api.travelToRegion(h.api.REGIONS.find(r => r.id !== s.regionId));
   assert.equal(s.calledMatch,null);
+});
+
+test('match confirmation revalidates stock and a local-home display transition keeps the paid call', () => {
+  const h=harness(),s=growing(h); s.regionId='home'; s.items.c_match=1;
+  h.api.useConsumableItem('c_match'); const id=h.api.pickerValues()[0]; delete s.items.c_match;
+  h.api.resolvePickerSelection(id);
+  assert.equal(s.calledMatch,null,'stale stock cannot create a call');
+  s.items.c_match=1; h.api.useConsumableItem('c_match'); h.api.resolvePickerSelection(id);
+  s.lifetime.currentLocationSelected=true; s.lifetime.currentLocation={label:'local scene'};
+  assert.equal(h.api.travelToRegion(h.api.REGIONS.find(r=>r.id==='home')),undefined);
+  assert.equal(s.regionId,'home');
+  assert.equal(s.calledMatch.id,id,'changing only the home display does not count as region travel');
 });
 
 test('a called match survives save reload in the same region', () => {
