@@ -59,7 +59,7 @@ test('schemaVersion 5 heals wrong shapes without touching valid values', () => {
   assert.equal(state.happiness, 40, 'valid values stay');
   assert.deepEqual([...state.midlifeSeen], []);
   assert.equal(typeof state.oneTimeBoosts, 'object');
-  assert.equal(state.oneTimeBoosts.sicknessShieldCount, 0);
+  assert.equal(state.oneTimeBoosts.sicknessShieldCount, undefined, 'retired active effects are cleared');
   assert.equal(state.lifeLog.length, 1);
   assert.deepEqual([...state.companions], []);
   assert.equal(state.actionCounts.feed, 2);
