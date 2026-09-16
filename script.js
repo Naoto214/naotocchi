@@ -2504,28 +2504,29 @@
       apply: () => { state.deathMeter=0; state.dying=false; state.dyingTicks=0; return {message:'いのちが満タンになった'}; } },
     { id: 'c_life_charm', emoji: '🧿', automatic: true,
       available: () => false, unavailableMessage: '死んでしまうときに自動で使う' },
-    { id:'c_time_back', emoji:'⏪', available:() => !state.infinite && currentFormStageIndex() > 0,
+    { id:'c_time_back', emoji:'🕰️', available:() => !state.infinite && currentFormStageIndex() > 0,
       unavailableMessage:'これより前のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()-1) },
-    { id:'c_time_forward', emoji:'⏩', available:() => !state.infinite && currentFormStageIndex() < STAGES_PER_LINE-1,
+    { id:'c_time_forward', emoji:'🕰️', available:() => !state.infinite && currentFormStageIndex() < STAGES_PER_LINE-1,
       unavailableMessage:'これより後のすがたはない', apply:() => applyTemporaryForm(state.speciesLine,currentFormStageIndex()+1) },
-    { id:'c_transform', emoji:'🎟️', picker:'transform-ticket',
+    { id:'c_transform', emoji:'🔄', picker:'transform-ticket',
       available:() => !state.infinite && !state.transformOptions && pickTicketTransformCandidates().length > 0,
       unavailableMessage:'いま選べるへんしん先がない' },
     { id:'c_dex', emoji:'📖', picker:'dex-form', available:() => !state.infinite && temporaryDexKeys().length > 0,
       unavailableMessage:'いま選べるすがたがない' },
-    { id:'c_friend', emoji:'🎟️', picker:'companion-ticket', companionKind:'normal',
+    { id:'c_friend', emoji:'🐾', picker:'companion-ticket', companionKind:'normal',
       available:() => !pendingCompanionId && ticketCompanionCandidates('normal').length > 0,
       unavailableMessage:'いま呼べるなかまがいない' },
-    { id:'c_rare_friend', emoji:'🎟️', picker:'companion-ticket', companionKind:'rare',
+    { id:'c_rare_friend', emoji:'✨', picker:'companion-ticket', companionKind:'rare',
       available:() => !pendingCompanionId && ticketCompanionCandidates('rare').length > 0,
       unavailableMessage:'いま呼べるレアなかまがいない' },
-    { id:'c_match', emoji:'🎟️', picker:'match-ticket',
+    { id:'c_match', emoji:'💑', picker:'match-ticket',
       available:() => !state.partner && ticketMatchCandidates().length > 0,
       unavailableMessage:'いま呼べるおみあい相手がいない' },
     ...['normal','rare'].map(kind => ({ id:`c_egg_${kind}`, emoji:'🥚', eggKind:kind,
       available:() => !state.lifetime.nextEggLine && !state.lifetime.nextEggKind && unraisedEggLines(kind).length > 0,
       unavailableMessage:'予約中、またはまだ育てていない種族がいない' })),
-  ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
+  ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}))
+    .sort((a,b) => Object.keys(ITEM_SYSTEM.CATALOG).indexOf(a.id) - Object.keys(ITEM_SYSTEM.CATALOG).indexOf(b.id));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
   function activeBoostSummary() {
     const out = [];
@@ -12744,7 +12745,7 @@
     el.pickerHint.textContent = `${item.desc}(💰${item.price})`;
     let html = '';
     if (item.picker === 'transform' || item.picker === 'transform-ticket') {
-      el.pickerHint.textContent = '引き直す候補を1つ選んでね。決めるまで使わない';
+      el.pickerHint.textContent = 'へんしんする姿を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
       const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
       html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');

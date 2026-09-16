@@ -68,6 +68,7 @@ test('transform tickets fund three legal candidates and favor species never rais
   const beforeMeter=s.transformMeter=37, beforeAge=s.ageTicks, beforeLine=s.speciesLine;
   assert.equal(h.api.useConsumableItem('c_transform'),false);
   assert.equal(h.api.itemStock('c_transform'),1); assert.equal(s.transformMeter,beforeMeter);
+  assert.equal(h.get('pickerHint').textContent,'へんしんする姿を1つ選んでね。決めるまで使わない');
   const offered=h.api.pickerValues(); assert.equal(offered.length,3);
   assert.equal(offered.includes(beforeLine),false);
   assert.equal(offered.every(line=>!s.lifetime.raisedSpecies.includes(line)),true);

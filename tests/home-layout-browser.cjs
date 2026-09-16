@@ -264,6 +264,12 @@ function checkLayout(m, label) {
           console.error('FAIL '+engine+' normal equipment: '+error.message);
         }
         try {
+          await require('./consumables-v2-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' consumables v2: '+error.message);
+          console.error('FAIL '+engine+' consumables v2: '+error.message);
+        }
+        try {
           await require('./dialog-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
         } catch(error) {
           failures.push(engine+' dialogs: '+error.message);

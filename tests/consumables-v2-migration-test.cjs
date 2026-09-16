@@ -16,6 +16,7 @@ test('final consumable catalog publishes exactly the twelve approved products', 
     .map(([id,v]) => [id,[v.label,v.price,v.desc]]));
   assert.deepEqual(actual,expected);
   assert.equal(I.CATALOG.new_themed_pack?.label,'テーマシールパック');
+  assert.equal(I.CATALOG.c_dex.guard,'未発見を含む通常種族と8種のレア種族の姿から選び、実種族の判定は変えない。');
 });
 
 test('legacy stock converts or refunds once before retired IDs are filtered', () => {

@@ -117,3 +117,9 @@ test('retired consumables have no sale, use, or active-effect behavior', () => {
   h.api.renderItemOverlay();
   for(const id of retired) assert.doesNotMatch(h.get('onetimeItemGrid').innerHTML,new RegExp(`data-id="${id}"`));
 });
+
+test('shop orders all twelve consumables by the approved catalog', () => {
+  const h=harness(); h.api.renderItemOverlay();
+  const ids=[...h.get('onetimeItemGrid').innerHTML.matchAll(/data-item-action="buy" data-id="([^"]+)"/g)].map(m=>m[1]);
+  assert.deepEqual(ids,['c_coin2','c_life','c_time_back','c_time_forward','c_life_charm','c_friend','c_match','c_transform','c_rare_friend','c_egg_normal','c_egg_rare','c_dex']);
+});

@@ -7,16 +7,16 @@ const retired = ['fun_candy','fun_bubbles','fun_balloon','fun_fireworks','fun_ca
 test('retirement refunds stock and tool ownership exactly once, never history or duplicate reservations', () => {
   const s = {items:{fun_candy:2,fun_bubbles:3,fun_balloon:4,fun_fireworks:5,fun_camera:9,c_safety:2},itemLife:{balloon:{readyAt:10},candyUntil:20},lifetime:{money:17,itemSystemVersion:1,ownedTools:['fun_camera','fun_camera','fun_musicbox','fun_surprise'],ownedConsumableItems:['fun_candy'],itemPurchases:{fun_candy:100,c_safety:2}}};
   items.normalize(s);
-  assert.equal(s.lifetime.money,3252); // 17 + 20 + 75 + 140 + 300 + 900 + 1200 + 600
-  assert.equal(s.items.c_safety,2);
+  assert.equal(s.lifetime.money,3292); // 17 + 20 + 75 + 140 + 300 + 900 + 1200 + 600 + 40 retired safety stock
+  assert.equal(s.items.c_safety,undefined);
   assert.ok(retired.every(id => !Object.hasOwn(s.items,id)));
   assert.equal(s.itemLife.balloon,undefined);
   assert.equal(s.itemLife.candyUntil,undefined);
-  assert.equal(s.lifetime.itemPurchases.c_safety,2);
+  assert.equal(s.lifetime.itemPurchases.c_safety,undefined);
   assert.equal(s.lifetime.itemPurchases.fun_candy,undefined);
   assert.equal(s.lifetime.funItemsRetiredVersion,1);
-  items.normalize(s);const again=JSON.parse(JSON.stringify(s));items.normalize(again);assert.equal(again.lifetime.money,3252);
-  assert.equal(s.lifetime.money,3252);
+  items.normalize(s);const again=JSON.parse(JSON.stringify(s));items.normalize(again);assert.equal(again.lifetime.money,3292);
+  assert.equal(s.lifetime.money,3292);
 });
 test('legacy tool use counts as ownership only before the original item migration', () => {
   for (const [version,want] of [[undefined,2705],[1,5]]) {
@@ -65,7 +65,7 @@ test('infinite snapshots and retired achievement metadata are cleared without ex
   const s={items:{fun_balloon:2},lifetime:{money:0,achievementUnlockedAt:{'consumable-all':123,'shop-1':234}},infiniteReturn:{items:{fun_balloon:2,c_safety:1},itemLife:{balloon:{readyAt:10}},achievementsUnlocked:['consumable-all','shop-1']}};
   items.normalize(s);
   assert.equal(s.lifetime.money,70);
-  assert.deepEqual(s.infiniteReturn.items,{c_safety:1});
+  assert.deepEqual(s.infiniteReturn.items,{});
   assert.equal(s.infiniteReturn.itemLife.balloon,undefined);
   assert.deepEqual(s.infiniteReturn.achievementsUnlocked,['shop-1']);
   assert.deepEqual(s.lifetime.achievementUnlockedAt,{'shop-1':234});
