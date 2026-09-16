@@ -151,13 +151,13 @@
       offset = expression === 'strained' ? '-7 5' : expression === 'wantsPlay' ? '-28 10' : '-17 4';
     }
     if (baseAsset === 'assets/characters/dog/01.png') {
-      offset = expression === 'strained' ? '2 46' : expression === 'wantsPlay' ? '-30 50' : '-16 45';
+      offset = expression === 'strained' ? '6 49' : expression === 'wantsPlay' ? '-30 50' : '-16 45';
     }
     if (baseAsset === 'assets/characters/dog/02.png') {
-      offset = expression === 'strained' ? '-2 23' : expression === 'wantsPlay' ? '-27 28' : '-13 23';
+      offset = expression === 'strained' ? '-2 23' : expression === 'wantsPlay' ? '-27 24' : '-10 19';
     }
     if (baseAsset === 'assets/characters/dog/08.png') {
-      offset = expression === 'strained' ? '-10 14' : expression === 'wantsPlay' ? '-31 18' : '-20 12';
+      offset = expression === 'strained' ? '-10 14' : expression === 'wantsPlay' ? '-31 14' : '-17 8';
     }
     // Dogs think of a food bowl; keep the shared yellow palette and thought bubbles.
     const artwork = ['assets/characters/dog/01.png','assets/characters/dog/02.png','assets/characters/dog/03.png','assets/characters/dog/04.png','assets/characters/dog/05.png','assets/characters/dog/06.png','assets/characters/dog/07.png','assets/characters/dog/08.png'].includes(baseAsset) && expression === 'hungry'

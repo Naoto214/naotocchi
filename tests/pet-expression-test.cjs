@@ -312,7 +312,7 @@ test('calm dog accents follow its head and hunger uses a food bowl', () => {
 });
 
 for (const [stage,strained,wantsPlay,general] of [
-  ['01','2 46','-30 50','-16 45'],['02','-2 23','-27 28','-13 23'],['08','-10 14','-31 18','-20 12'],
+  ['01','6 49','-30 50','-16 45'],['02','-2 23','-27 24','-10 19'],['08','-10 14','-31 14','-17 8'],
 ]) {
   test(`dog ${stage} routes ten expressions with head-relative accents and food bowl`, () => {
     const base=`assets/characters/dog/${stage}.png`;
