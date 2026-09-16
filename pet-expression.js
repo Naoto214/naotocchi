@@ -82,6 +82,24 @@
     wantsPlay: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-call accent-outline" d="M72 18l-6-7M82 16V7M91 20l7-6"/><path class="accent-call" d="M72 18l-6-7M82 16V7M91 20l7-6"/></svg>',
     sleeping: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-sleep-z accent-outline" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z accent-outline" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z accent-outline" d="M88 8h11L88 19h11"/><path class="accent-sleep-z" d="M88 8h11L88 19h11"/></svg>',
   });
+  // Per-mark clearance from the approved stage anchors, in the 104px SVG space.
+  // Large clouds/arrows/Zzz need more room than the silver and calling marks.
+  const ACCENT_CLEARANCE = {
+    'cat/01': {sulky:[4,-8], critical:[0,-4], sleeping:[4,-5]},
+    'cat/02': {happy:[2,-4], hungry:[2,-3], sick:[2,-4], tired:[2,-2], weak:[2,-3], critical:[3,-5], sulky:[5,-9], sleeping:[5,-7]},
+    'cat/04': {sulky:[3,-3], sleeping:[3,-3]},
+    'cat/05': {sulky:[2,-3], critical:[2,-3]},
+    'cat/07': {sulky:[3,-3], critical:[2,-2]},
+    'cat/08': {happy:[3,-5], hungry:[3,-5], sick:[3,-5], tired:[3,-5], weak:[3,-5], critical:[3,-7], sulky:[5,-10], sleeping:[5,-9]},
+    'dog/01': {happy:[2,-2], hungry:[4,-4], sick:[2,-5], tired:[3,-4], weak:[0,-2], critical:[2,-5], sulky:[4,-12], sleeping:[5,-9]},
+    'dog/02': {happy:[2,-6], hungry:[4,-5], sick:[3,-9], tired:[3,-5], weak:[2,-7], critical:[3,-10], sulky:[5,-15], sleeping:[5,-13]},
+    'dog/03': {happy:[2,-5], hungry:[3,-4], sick:[3,-8], tired:[3,-4], weak:[2,-6], critical:[3,-9], sulky:[5,-12], sleeping:[6,-11]},
+    'dog/04': {happy:[3,-10], hungry:[5,-8], sick:[4,-12], tired:[4,-9], weak:[3,-10], critical:[4,-13], sulky:[6,-17], sleeping:[7,-13]},
+    'dog/05': {happy:[1,-3], hungry:[2,-2], sick:[2,-4], weak:[2,-4], critical:[3,-8], sulky:[5,-12], sleeping:[5,-9]},
+    'dog/06': {happy:[2,-5], hungry:[3,-4], sick:[3,-8], tired:[3,-4], weak:[2,-6], critical:[3,-9], sulky:[5,-12], sleeping:[6,-11]},
+    'dog/07': {hungry:[3,-2], sick:[3,-4], critical:[3,-6], sulky:[5,-12], sleeping:[5,-10]},
+    'dog/08': {hungry:[3,-3], sick:[2,-3], tired:[2,-2], critical:[2,-4], sulky:[5,-12], sleeping:[5,-10]},
+  };
   const REACTIONS = Object.freeze({
     play_with: 'happy',
     play_with_annoyed: 'sulky',
@@ -163,9 +181,13 @@
     const artwork = ['assets/characters/dog/01.png','assets/characters/dog/02.png','assets/characters/dog/03.png','assets/characters/dog/04.png','assets/characters/dog/05.png','assets/characters/dog/06.png','assets/characters/dog/07.png','assets/characters/dog/08.png'].includes(baseAsset) && expression === 'hungry'
       ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-food" d="M79 18h18l-3 7H82z"/><circle class="accent-food" cx="84" cy="16" r="2"/><circle class="accent-food" cx="91" cy="16" r="2"/></svg>'
       : ACCENTS[expression];
-    const accent = offset
-      ? artwork.replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')
+    const clearance = ACCENT_CLEARANCE[baseAsset.slice(18,-4)]?.[expression];
+    const spacedArtwork = clearance
+      ? artwork.replace(/(<svg[^>]*>)/, `$1<g class="accent-clearance" transform="translate(${clearance.join(' ')})">`).replace('</svg>', '</g></svg>')
       : artwork;
+    const accent = offset
+      ? spacedArtwork.replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')
+      : spacedArtwork;
     return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${accent}</span>`;
   }
 

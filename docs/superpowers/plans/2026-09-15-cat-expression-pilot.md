@@ -74,3 +74,13 @@ Baseline PR HEAD107dc0f26d210dadba2a601b11a8ab277be616cc, young dog orange posit
 ## Remaining dog batch — 2026-09-16
 
 Baseline bfcb09d582619c6e513f55e61683baebd58c92fb;743 tests previously passed. User approved batching01/02/08. Follow tests-first routing/runtime/PNG/preview and startup-achievement coverage;30 individual original-referenced images; stage anchors; full suite/review; update same Draft PR and private preview. Replace unsupported dog fallback fixtures with genuinely unsupported beetle stage. Root owns art/docs/publication, bounded worker connections/tests. Review all three together after completion. No main merge.
+
+## Cat/dog visual review — 2026-09-16
+
+Baseline d4dc384f01c0e2b4f25c0681b07425252bffe2e4, both CI checks successful; main remains3f4bfda0b8c0d30098ebb68c4313abd370a8576a. User authorized agent-side adjustment across all160 portraits.
+- [x] Render and visually inspect every stage/state with production PNG/SVG/CSS and painted-floor offset.
+- [x] Adjust crowded marks per state, preserve all32 silver/orange anchors and all portraits, then inspect all160 again.
+- [x] Prepare16 stage sheets and four cross-stage overviews, labeled with static-render limitations.
+- [x] Complete regression checks:756 passed, no failures.
+- [x] Save four overviews and ZIP of all stage sheets.
+- [ ] Save to existing Draft PR and update private confirmation page.
