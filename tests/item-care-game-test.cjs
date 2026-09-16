@@ -313,3 +313,39 @@ for (const id of ['quick-run','quick-solo']) {
     });
   }
 }
+
+function passSetup(){
+  const {h,s}=setup('gamepass1');
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0,happiness:40,decline:10,transformMeter:0});
+  h.api.render();
+  return {h,s};
+}
+test('game pass applies exactly ordinary score-50 care and 30 coins without starting a game',()=>{
+  const {h,s}=passSetup();
+  const before=s.lifetime.money;
+  let started=false;
+  assert.equal(h.api.tryStartPlay({id:'pass-probe',noIntro:true,start(){started=true;}}),true);
+  assert.equal(started,false);
+  assert.equal(s.energy,78);
+  assert.equal(s.happiness,55);
+  assert.equal(s.growth,7);
+  assert.equal(s.decline,7);
+  assert.equal(s.transformMeter,30);
+  assert.equal(s.lifetime.money-before,30);
+});
+test('game pass preserves all real-play records, consumable reservations and Lucky stock',()=>{
+  const {h,s}=passSetup();
+  s.items.c_coin2=3;
+  Object.assign(s.oneTimeBoosts,{minigameBoost:'big',greatReward:true,safetyNet:true});
+  s.boostTicks=100;
+  const snapshot=()=>JSON.stringify([s.actionCounts,s.lifetime.minigameRecords,s.lifetime.minigamePlayCounts,s.lifetime.envPlays,s.minigameScoreSum,s.minigameCount,s.lifetime.minigamesPlayed,s.lifeLog,s.lifetime.achievements,s.lifetime.dailyChallenge,s.lifetime.stickers,s.oneTimeBoosts,s.items]);
+  h.api.checkMeters();
+  h.api.saveState();
+  const before=snapshot(),cash=s.lifetime.money;
+  h.dispatch(h.get('playBtn'),'click');
+  assert.equal(s.lifetime.money-cash,30);
+  assert.equal(snapshot(),before);
+  assert.equal(s.growth,14,'existing growth multiplier still applies');
+  assert.equal(s.boostTicks,100);
+  assert.equal(s.oneTimeBoosts.doubleCoins,undefined);
+});

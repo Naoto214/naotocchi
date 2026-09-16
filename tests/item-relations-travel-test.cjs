@@ -219,3 +219,24 @@ test('a pending equipment line does not follow a reset into another life', () =>
   assert.equal(h.api.state().stage, 'egg');
   assert.doesNotMatch(h.get('message').textContent, /リボン/);
 });
+
+test('game pass clears daily and companion context without completing either, including the next real game',()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0,transformMeter:0});
+  const companion=h.api.normalCompanions[0].id;
+  h.api.setPendingCompanion(companion);
+  h.api.render();
+  const daily={dataset:{gameId:h.api.games[0].id}};
+  const before=JSON.stringify([s.lifetime.dailyChallenge,s.lifetime.dailyStreak,s.lifetime.companionsRecruited,s.companions]);
+  h.get('gameListGrid').closest=selector=>selector==='.daily-start'?daily:null;
+  h.dispatch(h.get('gameListGrid'),'click');
+  assert.equal(JSON.stringify([s.lifetime.dailyChallenge,s.lifetime.dailyStreak,s.lifetime.companionsRecruited,s.companions]),before);
+  s.lifetime.equippedItemId=null;
+  h.api.render();
+  assert.equal(h.api.tryStartPlay({id:'next',noIntro:true,start(){}}),false,'swapping equipment cannot bypass cooldown');
+  h.advance(5000);
+  assert.equal(h.api.tryStartPlay({id:'next',noIntro:true,start(){}}),true);
+  h.api.finishMinigame(100);
+  assert.equal(JSON.stringify([s.lifetime.dailyChallenge,s.lifetime.dailyStreak,s.lifetime.companionsRecruited,s.companions]),before);
+});

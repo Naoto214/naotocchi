@@ -11115,6 +11115,11 @@
   }
 
   function render() {
+    // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
+    clearTimeout(gamePassCooldownTimer);
+    const passRemaining = (state.gamePassReadyAt || 0) - Date.now();
+    gamePassCooldownTimer = passRemaining > 0 ? setTimeout(() => render(), passRemaining) : null;
+
     if (state.isSleeping && !sleepRecoveryTimer) startSleepRecovery();
     const isDead = state.stage === STAGE.DEAD;
     const isEgg = state.stage === STAGE.EGG;
@@ -11248,7 +11253,7 @@
     const disableCare = isOver || isEgg || hasTransformChoice;
     // さいごの じかん は お世話が できる(そだち等は とまっている)
     el.feedBtn.disabled = disableCare;
-    el.playBtn.disabled = disableCare || state.isSleeping;
+    el.playBtn.disabled = disableCare || state.isSleeping || Date.now() < (state.gamePassReadyAt || 0);
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
@@ -14973,6 +14978,7 @@
   let mgCodeSession = 0;    // その コードが どの セッションに ぞくするか
   let activeMinigame = null;
   let activeMinigameEquipment = null;
+  let gamePassCooldownTimer = null;
   let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
   let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
   function mgRunTagged(session, fn, thisArg, args) {
@@ -15890,6 +15896,34 @@
     mgStopHold(btn);
   });
 
+  function applyGamePassSuccess() {
+    const careBefore = CARE_STATUS?.snapshot(state);
+    // 通常成功の育成だけ。点数、記録、日次、勧誘、予約アイテムには触れない。
+    dailyPending = false;
+    activeMinigameDaily = false;
+    pendingCompanionId = null;
+    clearConversationTimers();
+    hideSpeechBubble();
+    hideMinigameResultToast();
+    state.affectionStreak = 0;
+    state.travelStreak = 0;
+    state.happiness = clamp(state.happiness + 15, 0, 100);
+    state.energy = clamp(state.energy - Math.max(1, Math.round(12 * envModifiers().play)), 0, 100);
+    state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    offerTransformIfReady();
+    applyGrowth(7);
+    applyDecline(-3);
+    state.lifetime.money += 30;
+    state.gamePassReadyAt = Date.now() + 5000;
+    setMessage('ゲームパスで通常成功!／30コインをもらった');
+    audio.play('clear');
+    emotePet('happy');
+    checkMeters();
+    saveState();
+    recordCareChange(careBefore);
+    render();
+  }
+
   // 「あそぶ」ボタン(ランダム)と「ゲームきろく」からの えらんで あそぶ の
   // 共通いりぐち。chosenGame が あれば その ゲームを、なければ 抽選する。
   // えらんで あそんだ ときも プレイ回数・直前ゲーム・ジャンルの きろくは
@@ -15902,12 +15936,18 @@
       render();
       return false;
     }
-    if (el.playBtn.disabled) return false;
+    const isQuick = chosenGame?.id === 'quick-run' || chosenGame?.id === 'quick-solo';
+    if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
+    if (!isQuick && Date.now() < (state.gamePassReadyAt || 0)) return false;
     if (state.energy < 10) {
       setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
       return false;
+    }
+    if (!isQuick && state.lifetime.equippedItemId === 'gamepass1') {
+      applyGamePassSuccess();
+      return true;
     }
     state.actionCounts.play += 1;
     state.affectionStreak = 0;

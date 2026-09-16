@@ -241,3 +241,41 @@ test('a game that throws while starting is closed cleanly', () => {
   h.advance(50);
   assert.ok(next.frames > 0);
 });
+
+for(const blocker of [null,'sleep','dead','transform']) test(`game pass five-second timer refreshes UI and respects ${blocker}`,()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0});
+  h.api.render();
+  h.dispatch(h.get('playBtn'),'click');
+  assert.equal(h.get('playBtn').disabled,true);
+  assert.equal(h.get('device').classList.contains('ui-game-active'),false);
+  h.advance(4999);
+  h.api.render();
+  assert.equal(h.get('playBtn').disabled,true);
+  assert.equal(h.api.tryStartPlay(null),false);
+  if(blocker==='sleep')s.isSleeping=true;
+  if(blocker==='dead')s.stage='dead';
+  if(blocker==='transform')s.transformOptions=['cat','bird'];
+  h.advance(1);
+  assert.equal(h.get('playBtn').disabled,!!blocker);
+  if(!blocker)assert.equal(h.api.tryStartPlay(null),true);
+});
+
+test('game pass reload retains only the unexpired part of its five-second deadline',()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0});
+  h.api.render();
+  h.dispatch(h.get('playBtn'),'click');
+  const saved=JSON.stringify(s);
+  const n=harness({resume:true,storage:{getItem:k=>k==='naotocchi-save-v1'?saved:null,setItem(){},removeItem(){}}});
+  n.advance(2000);
+  n.api.render();
+  assert.equal(n.get('playBtn').disabled,true);
+  n.advance(2999);
+  assert.equal(n.api.tryStartPlay(null),false);
+  n.advance(1);
+  assert.equal(n.get('playBtn').disabled,false);
+  assert.equal(n.api.tryStartPlay(null),true);
+});

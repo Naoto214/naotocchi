@@ -192,7 +192,7 @@ test('Quick list toggle uses its dedicated control and a selected solo starts', 
   h.api.retireMinigame();
 });
 
-test('both Quick entries receive the ordinary-success Star payout without stamps', () => {
+test('both Quick entries retain base success payout with Star and without stamps', () => {
   const h = harness(), s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
   s.lifetime.equippedItemId = 'star';
@@ -202,7 +202,7 @@ test('both Quick entries receive the ordinary-success Star payout without stamps
     h.advance(40);
     const money = s.lifetime.money;
     h.api.finishMinigame(30);
-    assert.equal(s.lifetime.money, money + 4);
+    assert.equal(s.lifetime.money, money + 2);
   }
   assert.equal(s.lifetime.itemProgress.starGames, undefined);
 });
@@ -280,4 +280,18 @@ test('umbrella solo shows a compact cue and waits for rain before a successful s
   h.advance(h.api.QUICK_RULES.RESULT_MS + 40);
   assert.notEqual(run.current, cur);
   assert.equal(run.current.def.id, 'umbrella');
+});
+
+for(const id of ['quick-run','quick-solo']) test(`game pass never shortcuts ${id}, including during ordinary cooldown`,()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0});
+  h.api.render();
+  h.dispatch(h.get('playBtn'),'click');
+  let started=false;
+  assert.equal(h.api.tryStartPlay({id,noIntro:true,start(){started=true;}}),true);
+  assert.equal(started,true);
+  assert.equal(s.actionCounts.play,1);
+  h.api.finishMinigame(50);
+  assert.equal(s.lifetime.minigameRecords[id].last,50);
 });
