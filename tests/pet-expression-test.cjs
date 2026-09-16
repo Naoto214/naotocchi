@@ -357,3 +357,19 @@ for(const [line,heads] of Object.entries(faceAnchors))for(let index=0;index<8;in
   }
  });
 }
+
+test('reviewed side marks read diagonally above the face, not alongside it',()=>{
+ const reviewed=require('../tools/expression-placement-review.json').selected;
+ for(const [key,states] of Object.entries(reviewed)){
+  const [line,stage]=key.split('/'),head=faceAnchors[line][Number(stage)-1],base=`assets/characters/${key}.png`;
+  const fx=head[0]*104/128,fy=head[1]*104/128+104*(128-castBounds[base].box[3])/128;
+  for(const state of states){
+   if(state==='wantsPlay')continue;
+   const m=expression.accentFor(base,state).match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+   const c=markCenters[state],dx=Number(m[1])+c[0]-fx,up=fy-Number(m[2])-c[1];
+   const angle=Math.atan2(up,dx)*180/Math.PI;
+   const range=state==='strained'?[115,145]:state==='sick'?[55,80]:[35,65];
+   assert.ok(angle>=range[0]&&angle<=range[1],`${key}/${state}: angle ${angle}`);
+  }
+ }
+});

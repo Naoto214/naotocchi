@@ -4,6 +4,9 @@
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const ROOT=path.resolve(__dirname,'..'),expression=require('../pet-expression.js');
 const anchors=require('./expression-face-anchors.json'),bounds=require('../cast-bounds.js');
+const review=require('./expression-placement-review.json').selected;
+const sourceCode=fs.readFileSync(path.join(ROOT,'pet-expression.js'),'utf8');
+const previous=JSON.parse(sourceCode.match(/const MARK_PLACEMENT = (\{[\s\S]*?\n  \});/)[1]);
 const names=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
 const css=fs.readFileSync(path.join(ROOT,'pet-expression.css'),'utf8');
 const W=440,P=100,S=2;const table={};
@@ -44,6 +47,8 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
    if(!sweat||score<sweat.score)sweat={leftInner:contacts[0],rightInner:contacts[1],centerY:center-floor,score};
   }
   delete sweat.score;
+  // Keep approved drop placement while correcting the selected green mark.
+  sweat=previous[key].sweat;
   const withSweat=dilated.slice();
   for(const [x0,x1] of [[sweat.leftInner-2-rw,sweat.leftInner-2],[sweat.rightInner+2,sweat.rightInner+2+rw]]) {
    const y0=sweat.centerY+floor-halfHeight,y1=sweat.centerY+floor+halfHeight;
@@ -56,7 +61,9 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
    const pts=[];let x1=208,y1=208,x2=0,y2=0;
    for(let y=0;y<208;y++)for(let x=0;x<208;x++)if(data[(y*208+x)*4+3]>16){pts.push([x,y]);x1=Math.min(x1,x);x2=Math.max(x2,x);y1=Math.min(y1,y);y2=Math.max(y2,y);}
    const cx=(x1+x2)/2,cy=(y1+y2)/2,target=name==='strained'?135:name==='wantsPlay'?90:45;
-   const angles=target===90?[90]:Array.from({length:13},(_,j)=>(target===45?20:100)+j*5);
+   const isReviewed=review[key]?.includes(name);
+   if(!isReviewed){marks[name]=previous[key].marks[name];continue;}
+   const angles=target===90?[90]:key==='woman/01'&&name==='critical'?[55,60]:name==='sick'?[60,65,70,75]:Array.from({length:5},(_,j)=>(target===45?40:120)+j*5);
    let best=null;
    for(const angle of angles){const a=angle*Math.PI/180;for(let r=1;r<110;r+=.5){
     const dx=Math.round((face[0]+r*Math.cos(a))*S-cx),dy=Math.round((face[1]-r*Math.sin(a))*S-cy);
@@ -64,7 +71,8 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
     const blocked=name==='sick'?withSweat:dilated;
     if(pts.some(([x,y])=>blocked[(y+dy+P)*W+x+dx+P]))continue;
     if(target!==90 && Math.abs(dx/S+cx/S-face[0])<Math.max(8,(head[3]-head[2])*104/128*.3))continue;
-    const score=r+.001*(angle-target)**2;
+    if(name==='sick' && dx/S+cx/S>head[3]*104/128+8)continue;
+    const score=r+.02*(angle-(name==='sick'?65:target))**2;
     if(!best||score<best.score)best={dx,dy,score};break;
    }}
    if(!best)throw Error(`No placement ${key} ${name}`);
@@ -78,5 +86,5 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
  const block=`  // BEGIN GENERATED FACE PLACEMENT\n  const MARK_PLACEMENT = ${output};\n  // END GENERATED FACE PLACEMENT`;
  if(code.includes('// BEGIN GENERATED FACE PLACEMENT'))code=code.replace(/  \/\/ BEGIN GENERATED FACE PLACEMENT[\s\S]*?  \/\/ END GENERATED FACE PLACEMENT/,block);
  else code=code.replace('  const HUMAN_LINES',block+'\n  const HUMAN_LINES');
- fs.writeFileSync(target,code);console.log('Placed 320 marks against all expression silhouettes with 2px clearance');
+ fs.writeFileSync(target,code);console.log('Repositioned 81 selected marks with 2px clearance; retained other placements');
 })();

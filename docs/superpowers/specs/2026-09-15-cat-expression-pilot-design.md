@@ -68,3 +68,7 @@ The user explicitly reopened marker placement for all eight stages of cat, dog, 
 | sleeping | blue Zzz | upper right |
 
 Use observed per-stage face anchors, outlined mark silhouettes and the union of normal/expression character silhouettes. Allow angular adjustment within the designated quadrant to avoid ears, hair, bodies and tails. Maintain a two-logical-pixel clearance in the placement generator. Include sweat rotation and falling motion in collision checks. Preserve colors, outlines, reactions, PNG expressions, gameplay and saves. Review all composites autonomously and provide combined sheets; no stage-by-stage approval gate. Actual device appearance remains a separate user check. Keep PR #278 Draft; never merge main.
+
+## User-selected marker revision — 2026-09-16
+
+The user identified 81 specific placements in image version 959afaea. The exact selection is stored in tools/expression-placement-review.json. Reopen these positions: side marks must look diagonally above the face rather than merely pass a positive horizontal/vertical offset check. Keep other marks and all facial PNGs unchanged. Center selected orange rays against the perceived head center; allow selected sick lines a steeper upper-right angle to stay near the head rather than the raised tail. Maintain collision clearance. Refresh the touch-selectable review page with the new image version and distinguish the prior requested set from new selections. Draft PR278 remains unmerged.
