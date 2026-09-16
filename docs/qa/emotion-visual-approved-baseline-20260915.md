@@ -59,3 +59,5 @@ PR #278はDraftのまま。mainへマージしない。
 2026-09-16: こいぬdog/03の10表情をユーザーが「OKです」と承認。続行依頼に基づきdog/04（わんぱくいぬ、12〜15歳）1段階へ進む。確定済みの猫8段階・成犬・子犬を保持し、残りの犬段階は一括追加しない。
 
 2026-09-16: User approved わんぱくいぬ dog/04 (“いいです 次お願いします”). Retain all its portraits and anchors. Continue one stage with 若いいぬ dog/05; visual approval for that stage remains pending. Previous dog04 HEAD 9210c215 passed Runtime smoke and Home layout CI.
+
+2026-09-16: User approved young dog05 final orange wantsPlay(-33,7) (“これでお願いします”), then requested continuation. Preserve young dog05 and proceed only to calm dog07; new stage iPhone appearance remains pending.

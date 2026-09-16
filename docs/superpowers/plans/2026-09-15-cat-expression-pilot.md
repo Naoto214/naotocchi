@@ -66,3 +66,7 @@ Start PR HEAD 436cc627a2c4b589de1cab0d1de7f213bd77765f. Add only dog/04 after pu
 ## Young dog continuation — 2026-09-16
 
 Start PR HEAD 9210c2150c734fc53ad35eb8c26fb5c64b40e5f6. Prior 731 tests and both GitHub Actions checks pass, including repaired painted-bounds probes. User approved dog04 and requested next stage. Scope dog05 only: failing connection/PNG/preview tests → ten original-referenced individual expressions → routing and anchors → youngDog preview → full tests/review → existing Draft PR/private preview. Root supplies images/docs/publication; bounded worker supplies connection/tests. No other stage expansion or main merge.
+
+## Calm dog continuation — 2026-09-16
+
+Baseline PR HEAD107dc0f26d210dadba2a601b11a8ab277be616cc, young dog orange position approved. Dog07 only: failing routing/runtime/PNG/preview coverage → ten original-referenced individual expressions → allowlist/anchors/preview → focused/full verification/review → existing Draft PR and private preview. Root owns art/docs/publication, bounded worker connection/tests. No other-stage expansion, gameplay/save-schema change or main merge.
