@@ -102,7 +102,14 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       delete legacy.lifetime.itemMigrations.normalEquipmentV2;
       legacy.items.c_coin2=4;legacy.lifetime.itemInventory.c_coin2=4;
       legacy.oneTimeBoosts.doubleCoins=true;
-      await page.evaluate(s=>localStorage.setItem('naotocchi-save-v1',JSON.stringify(s)),legacy);
+      // beforeunload saves the live app state. Seed on the next document,
+      // after that save and before production boot, exactly once.
+      await page.addInitScript(s=>{
+        if(!sessionStorage.getItem('legacy-equipment-seeded')){
+          localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));
+          sessionStorage.setItem('legacy-equipment-seeded','1');
+        }
+      },legacy);
       await page.reload();await home(page);await openShop(page);
       assert.match(await page.locator('#itemMoneyLabel').getAttribute('aria-label'),/2380/);
       assert.equal(await page.locator('#shopItemGrid .equipped').count(),0);
