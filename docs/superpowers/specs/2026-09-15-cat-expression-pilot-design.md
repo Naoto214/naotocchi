@@ -25,3 +25,7 @@ The user reports all eight cat stages complete and explicitly approves only the 
 ## Approved continuation — puppy, 2026-09-16
 
 Following the user's approval of adult-dog visuals and request to continue, add only `dog/03.png` (こいぬ, 7–11 years). Keep the original small stepping pose with one raised front paw, ten-expression semantics, outlined palette, yellow food bowl and disposable-preview isolation. Adapt anchors to the smaller puppy head. Preserve the confirmed adult-dog silver anchor (-12,1), all other adult-dog assets/anchors and all cat stages. Further dog stages are not part of this iteration. Keep PR #278 Draft, no merge; user reviews the puppy on iPhone.
+
+## Approved continuation — playful young dog, 2026-09-16
+
+User approved puppy dog/03 and asked to continue. Add only dog/04 (わんぱくいぬ, 12–15 years), ten expressions. Preserve the original forward-leaning stepping pose and golden tan palette. Keep all confirmed cat/adult dog/puppy portraits and anchors. Reuse state/reaction logic and outlined colors, yellow dog food bowl, and isolated preview. Adapt marks to this head position. Keep Draft PR #278, no main merge. User reviews iPhone appearance.

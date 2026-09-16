@@ -9,7 +9,7 @@ function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
   const shown=e=>e.getClientRects().length && getComputedStyle(e).visibility!=='hidden';
   const actors=[...document.querySelectorAll('#pet .character-visual')].filter(shown).map(visual=>{
-    const img=visual.querySelector('.character-asset'),asset=img?.getAttribute('src').split('?')[0];
+    const img=visual.querySelector('.character-asset'),asset=(img?.getAttribute('data-fallback-asset') || img?.getAttribute('src'))?.split('?')[0];
     const failed=visual.classList.contains('asset-failed'),r=rect(failed?visual:img);
     const b=failed?[0,0,128,128]:window.NaotocchiCastBounds[asset]?.box || [0,0,128,128];
     const fallback=visual.querySelector('.character-emoji-fallback');

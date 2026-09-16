@@ -58,3 +58,7 @@ Starting PR HEAD: 4587266d2906f27a9b70249fec8997af7442ee70. Main: 3f4bfda0b8c0d3
 ## Puppy continuation — 2026-09-16
 
 Adult dog approved by user. Baseline PR HEAD bef2655c40eb06948ece22af5a5f83208cb35146. Same staged workflow for dog/03 only: failing connection/asset/preview tests → ten individual image edits → dog/03 allowlist and anchors → disposable puppy selector → full validation → existing Draft PR and private preview update. No other dog stage, gameplay or saved-state change. iPhone acceptance remains with user.
+
+## Playful young dog continuation — 2026-09-16
+
+Start PR HEAD 436cc627a2c4b589de1cab0d1de7f213bd77765f. Add only dog/04 after puppy approval: failing routing/runtime/PNG/preview tests → ten individual original-referenced image edits → allowlist and head anchors → preview selector → full regression → Draft PR and existing private preview. No game values or saved-state changes. Keep other stages' confirmed visuals.
