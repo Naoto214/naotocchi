@@ -16,7 +16,7 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25});
+const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25,puppy:7});
 
 function runtimeFreshPet(form='adult') {
   const previousDirectory=process.cwd();
@@ -26,7 +26,7 @@ function runtimeFreshPet(form='adult') {
     const runtime=harness();
     const state=runtime.api.freshState();
     Object.assign(state,{
-      stage:'growing',speciesLine:form==='dogAdult'?'dog':'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
+      stage:'growing',speciesLine:['dogAdult','puppy'].includes(form)?'dog':'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
       hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
@@ -120,7 +120,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 <body>
   <header data-preview-controls>
     <div class="banner"><h1>猫と犬の表情テスト</h1><p>このページでは保存しません</p></div>
-    <nav aria-label="状態"><select data-preview-form aria-label="姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option><option value="dogAdult" ${form==='dogAdult'?'selected':''}>大人のいぬ</option></select>${links}</nav>
+    <nav aria-label="状態"><select data-preview-form aria-label="姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option><option value="toddler" ${form==='toddler'?'selected':''}>よちよちこねこ</option><option value="baby" ${form==='baby'?'selected':''}>あかちゃんねこ</option><option value="dogAdult" ${form==='dogAdult'?'selected':''}>大人のいぬ</option><option value="puppy" ${form==='puppy'?'selected':''}>こいぬ</option></select>${links}</nav>
   </header>
   <iframe title="なおとっち 表情プレビュー" srcdoc="${child}"></iframe>
   <script id="cat-expression-preview-controls">
@@ -158,7 +158,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 if (require.main === module) {
   const [outputPath,preset='hungry',form='adult']=process.argv.slice(2);
   if (!outputPath) {
-    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm|elder|toddler|baby|dogAdult]\n');
+    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm|elder|toddler|baby|dogAdult|puppy]\n');
     process.exitCode=1;
   } else {
     fs.writeFileSync(path.resolve(outputPath),buildPreview({preset,form}));

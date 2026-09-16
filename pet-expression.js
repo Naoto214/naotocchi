@@ -20,6 +20,9 @@
     sleeping: 'assets/characters/expressions/cat/06-sleeping-v3.png',
   });
   const STAGE_ASSETS = Object.freeze({
+    'assets/characters/dog/03.png': Object.freeze(Object.fromEntries(
+      Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/dog/03-${name}.png`])
+    )),
     'assets/characters/dog/06.png': Object.freeze(Object.fromEntries(
       Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/dog/06-${name}.png`])
     )),
@@ -117,8 +120,11 @@
     if (baseAsset === 'assets/characters/dog/06.png') {
       offset = expression === 'strained' ? '-12 1' : expression === 'wantsPlay' ? '-31 8' : '-22 0';
     }
+    if (baseAsset === 'assets/characters/dog/03.png') {
+      offset = expression === 'strained' ? '-8 16' : expression === 'wantsPlay' ? '-24 22' : '-12 16';
+    }
     // Dogs think of a food bowl; keep the shared yellow palette and thought bubbles.
-    const artwork = baseAsset === 'assets/characters/dog/06.png' && expression === 'hungry'
+    const artwork = ['assets/characters/dog/06.png','assets/characters/dog/03.png'].includes(baseAsset) && expression === 'hungry'
       ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-food" d="M79 18h18l-3 7H82z"/><circle class="accent-food" cx="84" cy="16" r="2"/><circle class="accent-food" cx="91" cy="16" r="2"/></svg>'
       : ACCENTS[expression];
     const accent = offset

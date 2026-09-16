@@ -223,7 +223,22 @@ test('adult dog supports ten expressions while other dog stages retain base port
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/06-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
-    for (const stage of ['01','02','03','04','05','07','08']) {
+    for (const stage of ['01','02','04','05','07','08']) {
+      const other=`assets/characters/dog/${stage}.png`;
+      assert.equal(expression.assetFor(other,name),other);
+      assert.equal(expression.accentFor(other,name),'');
+    }
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
+});
+
+test('puppy supports ten expressions while other dog stages retain base portraits', () => {
+  const base='assets/characters/dog/03.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/03-${name}.png`);
+    assert.match(expression.accentFor(base,name),/pet-expression-accent/);
+    for (const stage of ['01','02','04','05','07','08']) {
       const other=`assets/characters/dog/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');

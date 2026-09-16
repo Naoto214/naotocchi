@@ -54,3 +54,7 @@ Starting PR HEAD: 4587266d2906f27a9b70249fec8997af7442ee70. Main: 3f4bfda0b8c0d3
 - [x] Add adult dog to disposable preview and synchronize URL-selected form with dropdown (review regression).
 - [x] Run complete test suite, asset checks and diff check; document QA.
 - [ ] Push verified changes to existing Draft PR #278 and update existing private confirmation page. No main merge. User performs iPhone visual review.
+
+## Puppy continuation — 2026-09-16
+
+Adult dog approved by user. Baseline PR HEAD bef2655c40eb06948ece22af5a5f83208cb35146. Same staged workflow for dog/03 only: failing connection/asset/preview tests → ten individual image edits → dog/03 allowlist and anchors → disposable puppy selector → full validation → existing Draft PR and private preview update. No other dog stage, gameplay or saved-state change. iPhone acceptance remains with user.

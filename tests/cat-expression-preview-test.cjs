@@ -159,7 +159,7 @@ test('CLI writes the same self-contained preview for the requested safe preset',
 });
 
 test('all preview forms keep selected faces visible across startup saves without achievement flashes', () => {
-  for (const form of ['adult','kitten','otemba','young','calm','elder','toddler','baby','dogAdult']) {
+  for (const form of ['adult','kitten','otemba','young','calm','elder','toddler','baby','dogAdult','puppy']) {
     for (const preset of ['hungry','tired','sleeping']) {
       const {state}=seededState(buildPreview({form,preset}));
       const h=harness();
@@ -291,4 +291,13 @@ test('query-selected dog matches the dropdown and can switch back to adult cat',
   change({target:{value:'dogAdult'}});
   vm.runInNewContext(boot,ctx);
   assert.equal(JSON.parse(ctx.localStorage.getItem(SAVE_KEY)).speciesLine,'dog');
+});
+
+
+test('puppy preview uses isolated storage and the real third stage', () => {
+  const {state}=seededState(buildPreview({form:'puppy',preset:'hungry'}));
+  assert.equal(state.speciesLine,'dog');
+  assert.equal(state.stageIndex,2);
+  assert.equal(state.ageTicks,7*20);
+  assert.equal(state.hunger,40);
 });
