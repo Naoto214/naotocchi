@@ -1414,15 +1414,7 @@
       // こうかを はっきする タイプの ものが つかう、いちじてきな フラグ
       // ちゅう(state ぜんたいと おなじく「はじめから」で リセットされる -
       // いま そだてている 1たいぶんの ちからな ため)
-      oneTimeBoosts: {
-        sicknessShieldCount: 0,
-        breakupShield: null, // null | 'half' | 'full'
-        courtBoost: null, // null | 'small' | 'big'
-        minigameBoost: null, // null | 'small' | 'big'
-        safetyNet: false,
-        greatReward: false,
-        travelGuarantee: false,
-      },
+      oneTimeBoosts: {},
       // きゅうあい・たび は「はじめから」で ほかの おせわの きろくと
       // いっしょに リセットされる、今の いっしょうぶんの じょうたい。
       // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
@@ -2476,6 +2468,10 @@
     { below: 0.92, coins: 500 }, { below: 0.99, coins: 1000 },
     { below: 1, coins: 10000 },
   ].map(Object.freeze));
+  const FUTURE_CONSUMABLE_IDS = [
+    'c_time_back','c_time_forward','c_friend','c_match','c_transform',
+    'c_rare_friend','c_egg_normal','c_egg_rare','c_dex',
+  ];
   const CONSUMABLE_ITEMS = [
     { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙',
       apply: () => {
@@ -2484,57 +2480,19 @@
         state.lifetime.money += coins;
         return { message: `ラッキーコインのルーレットで${coins}コインをもらった!` };
       } },
-    { id: 'c_safety', label: 'スコアほけん', emoji: '🛡️',
-      available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'すでに発動待ち（つぎのミニゲーム失敗で使う）',
-      apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに入った。つぎのミニゲーム失敗で、おとろえ・いのち・げんきを守る' }; } },
-    { id: 'c_mgsmall', label: 'やる気のおまもり', emoji: '🔥',
-      available: () => !state.oneTimeBoosts.minigameBoost, unavailableMessage: 'おまもりはひとつずつ（つぎのゲームで使う）',
-      apply: () => { state.oneTimeBoosts.minigameBoost = 'small'; return { message: 'やる気がわいてきた。つぎのゲームの失敗の判定に25点を加える' }; } },
-    { id: 'c_mgbig', label: '大成功のおまもり', emoji: '💫',
-      available: () => !state.oneTimeBoosts.greatReward && state.oneTimeBoosts.minigameBoost !== 'big', unavailableMessage: '大成功のおまもりはひとつずつ',
-      apply: () => { state.oneTimeBoosts.greatReward = true; return { message: '大成功のおまもりをにぎった。実点70以上で、せいちょう28' }; } },
-    { id: 'c_sickshield', label: 'びょうきよけのおふだ', emoji: '🧧',
-      available: () => (state.oneTimeBoosts.sicknessShieldCount || 0) <= 0, unavailableMessage: 'おふだがまだのこっている',
-      apply: () => { state.oneTimeBoosts.sicknessShieldCount = 3; return { message: 'びょうきよけのおふだをはった（3回分）' }; } },
-    { id: 'c_growth', label: 'せいちょうドリンク', emoji: '🧃',
-      available: () => (state.boostTicks || 0) <= BOOST_TICKS_MAX - 100 && state.sodachi < 100 && isLiveLife() && !state.infinite, unavailableMessage: 'そだち100やむげんでは使えない。2ばいの残り時間が5分以下のときに使える',
-      apply: () => { grantGrowthBoost(100); return { message: 'せいちょうドリンクを飲んだ。せいちょう2ばいの時間を5分追加（合計10分まで）' }; } },
-    { id: 'c_courtsmall', label: 'こいのおまもり', emoji: '💘', deferred: true,
-      available: () => !state.partner && !state.oneTimeBoosts.courtBoost && !state.itemLife.pendingItems.c_courtsmall,
-      unavailableMessage: 'こいびとがいないとき、ひとつずつ予約できる',
-      apply: () => reserveRelationItem('c_courtsmall') },
-    { id: 'c_breakhalf', label: 'なかなおりのおまもり', emoji: '🩹', deferred: true,
-      available: () => !!state.partner?.mismatched && (state.partner.repair || 0) < MISMATCH_REPAIR_NEEDED - 1 && !state.oneTimeBoosts.breakupShield && !state.itemLife.pendingItems.c_breakhalf,
-      unavailableMessage: 'すれちがいの話し合いが、あと2回以上あるときに予約できる',
-      apply: () => reserveRelationItem('c_breakhalf') },
-    { id: 'c_breakfull', label: 'きずなのおまもり', emoji: '💞', deferred: true,
-      available: () => !!state.partner && !state.oneTimeBoosts.breakupShield && !state.itemLife.pendingItems.c_breakfull && !state.itemLife.relationshipShields[itemPartnerIdentity(state.partner)],
-      unavailableMessage: 'こいびとがいるとき、同じ相手には一生に1回予約できる',
-      apply: () => reserveRelationItem('c_breakfull') },
-    { id: 'new_life_patch', emoji: '🩹',
-      available: () => state.stage === STAGE.GROWING && !state.infinite && currentAge() < GOAL_AGE && state.deathMeter >= 60 && !state.itemLife.lifePatchUsed,
-      unavailableMessage: 'いのち40以下で、一生に1回使える',
-      apply: () => { state.deathMeter = clamp(state.deathMeter - 30, 0, 100); state.health = clamp(state.health + 20, 0, 100); state.itemLife.lifePatchUsed = true; updateDyingWarning(); return {message:'いのちが30、けんこうが20もどった'}; } },
-    { id: 'new_transform_mirror', emoji: '🪞', picker: 'transform',
-      available: () => !!state.transformOptions?.length && !state.itemLife.transformMirrorUsed, unavailableMessage: '変身候補が出たとき、1回だけ使える',
-      apply: line => rerollTransformCandidate(line) },
-    { id: 'c_travel', label: 'たびのおまもり', emoji: '🧭', deferred: true,
-      available: () => !state.oneTimeBoosts.travelGuarantee && !state.itemLife.pendingItems.c_travel,
-      unavailableMessage: 'つぎの旅に予約している。出発までは減らない',
-      apply: () => reserveRelationItem('c_travel') },
+    { id: 'c_life', emoji: '💊',
+      available: () => !state.infinite && currentAge() < GOAL_AGE && state.deathMeter > 0,
+      unavailableMessage: 'いのちが満タンのときは使えない',
+      apply: () => { state.deathMeter=0; state.dying=false; state.dyingTicks=0; return {message:'いのちが満タンになった'}; } },
+    { id: 'c_life_charm', emoji: '🧿', automatic: true,
+      available: () => false, unavailableMessage: '死んでしまうときに自動で使う' },
+    ...FUTURE_CONSUMABLE_IDS.map(id => ({ id, emoji:'🎟️',
+      available: () => false, unavailableMessage:'このアイテムは準備中' })),
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
   function activeBoostSummary() {
-    const b = state.oneTimeBoosts || {};
     const out = [];
-    if (b.safetyNet) out.push('スコアほけん');
-    if (b.greatReward) out.push('大成功のおまもり（実点70以上で発動）');
     if (isEquipped('sleepboost1') && state.itemLife.pillowUntil > state.lifetime.itemProgress.ticks) out.push(`すっきり、あと${Math.ceil((state.itemLife.pillowUntil - state.lifetime.itemProgress.ticks) * 3 / 60)}分`);
-    if (b.minigameBoost) out.push(b.minigameBoost === 'big' ? '大成功のおまもり' : 'やる気のおまもり');
-    if (b.sicknessShieldCount > 0) out.push(`びょうきよけのおふだ×${b.sicknessShieldCount}`);
-    if (b.courtBoost) out.push(b.courtBoost === 'big' ? 'こいの大おまもり' : 'こいのおまもり');
-    if (b.breakupShield) out.push(b.breakupShield === 'full' ? 'きずなのおまもり' : 'なかなおりのおまもり');
-    if (b.travelGuarantee) out.push('たびのおまもり');
     if (state.boostTicks > 0) out.push(`せいちょう2ばい（あと${Math.ceil(state.boostTicks * TICK_MS / 60000)}分）`);
     return out;
   }
@@ -7753,16 +7711,6 @@
       return;
     }
     if (p.affection > 0) return;
-    const identity = itemPartnerIdentity(p);
-    if (!state.itemLife.relationshipShields[identity] && commitPendingItem('c_breakfull', p)) {
-      state.itemLife.relationshipShields[identity] = true;
-      p.affection = 10;
-      p.itemGraceUntil = state.lifetime.itemProgress.ticks + 20;
-      setMessage(`${p.label}が足を止めた。あと60秒、向きあって話せる`);
-      emotePet('love');
-      saveState();
-      return;
-    }
     const wasMarried = !!p.married;
     const label = p.label;
     state.partner = null;
@@ -9541,7 +9489,7 @@
     { age: 50, emoji: '🎂', solo: '50さいのお祝い。遠くから手紙が届いた', pair: '50さいのお祝い。こいびととお祝いの時間を過ごした', happiness: 8, money: 150 },
     { age: 56, emoji: '📚', solo: '昔のアルバムを開いた。笑っている自分がいた', pair: '昔のアルバムをふたりで開いた。笑っている自分たちがいた', happiness: 6, decline: -10 },
     { age: 62, emoji: '🌻', solo: '庭に小さな花を植えた。明日が少し楽しみになった', pair: 'ふたりで庭に花を植えた。明日が少し楽しみになった', happiness: 6, growth: 8 },
-    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる', money: 100, travelCharm: true },
+    { age: 66, emoji: '🧳', solo: '小さな旅の計画を立てた。つぎの旅はきっといい日になる', pair: 'ふたりで旅の計画を立てた。つぎの旅はきっといい日になる', money: 100 },
   ];
   function maybeMidlifeEvent(age) {
     const ev = MIDLIFE_EVENTS.find((e) => e.age === age);
@@ -9554,8 +9502,7 @@
     if (ev.money) state.lifetime.money += ev.money;
     if (ev.growth) applyGrowth(ev.growth, { silent: true });
     if (ev.decline) applyDecline(ev.decline);
-    if (ev.travelCharm) ITEM_SYSTEM.grant(state, 'c_travel');
-    const extra = [ev.money ? `💰+${ev.money}` : '', ev.travelCharm ? '🧭たびのおまもりが手元にある' : ''].filter(Boolean).join('／');
+    const extra = ev.money ? `💰+${ev.money}` : '';
     pushLifeLog(ev.emoji, `${age}さい：${text}`);
     showStoryEvent({ emoji: ev.emoji, petReaction: true, message: `${text}${extra ? '\n' + extra : ''}` });
     return true;
@@ -9731,6 +9678,18 @@
   }
 
   function triggerDeath() {
+    if (state.stage === STAGE.GROWING && currentAge() < GOAL_AGE && !isImmortal()
+        && ITEM_SYSTEM.take(state, 'c_life_charm')) {
+      state.deathMeter = 0;
+      state.dying = false;
+      state.dyingTicks = 0;
+      recordItemUse('c_life_charm');
+      setMessage('いのちのおまもりが、なおとっちを助けた');
+      emotePet('happy');
+      saveState();
+      render();
+      return;
+    }
     clearConversationTimers();
     hideSpeechBubble();
     state.stage = STAGE.DEAD;
@@ -10125,7 +10084,6 @@
     if (!options.length) { state.transformMeter = 0; return false; }
     state.transformMeter = 0;
     state.transformOptions = options;
-    state.itemLife.transformMirrorUsed = false;
     setMessage('へんしんメーターがいっぱいになった!からだがふわっと光って、すがたをかえられそう');
     return true;
   }
@@ -10277,20 +10235,13 @@
         // (上位アイテムほど さらに)
         const sicknessChance = 0.03;
         if (Math.random() < sicknessChance) {
-          // びょうきよけの おふだ(つかいきりアイテム)を もっていれば、
-          // ここで 1かいぶん つかって びょうきを ふせぐ
-          if (state.oneTimeBoosts.sicknessShieldCount > 0) {
-            state.oneTimeBoosts.sicknessShieldCount -= 1;
-            setMessage(`おふだが病気をふせいだ。あと${state.oneTimeBoosts.sicknessShieldCount}回`);
-          } else {
-            const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
-            state.isSick = true;
-            state.sicknessType = sickness.label;
-            state.totalSicknessCount += 1;
-            applyDecline(10);
-            raiseDeathMeter(4);
-            setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
-          }
+          const sickness = SICKNESS_TYPES[Math.floor(Math.random() * SICKNESS_TYPES.length)];
+          state.isSick = true;
+          state.sicknessType = sickness.label;
+          state.totalSicknessCount += 1;
+          applyDecline(10);
+          raiseDeathMeter(4);
+          setMessage(`${sickness.label}になってしまった…くすりをあげよう`);
         }
       }
 
@@ -12337,7 +12288,7 @@
   }
 
   function itemUseAllowed(id) {
-    return state.stage === STAGE.GROWING && (!state.dying || id === 'new_life_patch');
+    return state.stage === STAGE.GROWING && (!state.dying || id === 'c_life');
   }
 
   // Identity and relationship IDs are separate: a new relationship gets new
@@ -12356,29 +12307,6 @@
     return partner.itemRelationshipId;
   }
 
-  function pendingForPartner(id) {
-    return !!state.partner && state.itemLife.pendingItems[id]?.partner === itemPartnerIdentity(state.partner);
-  }
-
-  function reserveRelationItem(id) {
-    state.itemLife.pendingItems[id] = {partner: id === 'c_breakhalf' || id === 'c_breakfull' ? itemPartnerIdentity(state.partner) : null};
-    return {message:'予約した。効果が始まるまでは、ふくろの数は減らない'};
-  }
-
-  function commitPendingItem(id, partner = null) {
-    const pending = state.itemLife.pendingItems[id];
-    if (pending && (!partner || pending.partner === itemPartnerIdentity(partner)) && ITEM_SYSTEM.take(state, id)) {
-      delete state.itemLife.pendingItems[id];
-      recordItemUse(id);
-      return true;
-    }
-    // Old saves already paid for these boosts. Never debit that stock again.
-    const b = state.oneTimeBoosts;
-    if (id === 'c_courtsmall' && b.courtBoost === 'small') { b.courtBoost = null; return true; }
-    if (id === 'c_travel' && b.travelGuarantee) { b.travelGuarantee = false; return true; }
-    if ((id === 'c_breakhalf' && b.breakupShield === 'half') || (id === 'c_breakfull' && b.breakupShield === 'full')) { b.breakupShield = null; return true; }
-    return false;
-  }
 
   function itemMemorySnapshot(key, text, extra = {}) {
     return {
@@ -12515,35 +12443,10 @@
   }
 
   function travelStartAllowed(region) {
-    return !!region && [...REGIONS,...SPECIAL_REGIONS].includes(region) && itemUseAllowed('c_travel') && !state.isSleeping && !gameActive && !state.transformOptions && (!region.special || hasPerk(70));
-  }
-
-  function openItemTravelScene(region) {
-    closeAllMenuOverlays();
-    el.itemSceneActors.classList.add('hidden');
-    el.itemSceneCancelBtn.textContent = 'またこんど';
-    pendingItemScene = {regionId:region.id, from:state.regionId, partner:itemPartnerIdentity(state.partner), environment:currentEnvironment(), reward:null, choice:null};
-    const charm = !!state.oneTimeBoosts.travelGuarantee || (!!state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel') > 0);
-    pendingItemScene.choices = charm ? itemRegionScenes(region) : [];
-    el.itemSceneTitle.textContent = `${region.label}へでかけよう`;
-    el.itemSceneText.textContent = charm ? '寄り道をふたつからひとつ選ぼう。おまもりは出発したときに1こ使う。' : `${region.label}で過ごす特別な旅。今の姿と、いっしょにいる相手を思い出に残せる。`;
-    el.itemSceneChoiceGrid.innerHTML = '';
-    for (const scene of pendingItemScene.choices) {
-      const btn = document.createElement('button');btn.type='button';btn.className='date-choice-btn';btn.dataset.scene=scene.id;btn.textContent=scene.text;el.itemSceneChoiceGrid.appendChild(btn);
-    }
-    el.itemSceneOverlay.classList.remove('hidden');
-    render();
-  }
-
-  function commitItemTravelScene() {
-    const pending = pendingItemScene;
-    if (!pending || (pending.choices.length && pending.choice === null)) return false;
-    const region = [...REGIONS,...SPECIAL_REGIONS].find(r => r.id === pending.regionId);
-    if (!travelStartAllowed(region) || state.regionId !== pending.from || itemPartnerIdentity(state.partner) !== pending.partner) { closeItemScene();render();return false; }
-    const scene = pending.choices.find(c => c.id === pending.choice);
-    if (pending.choices.length && (!scene || (!state.oneTimeBoosts.travelGuarantee && !(state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel'))))) { closeItemScene();render();return false; }
-    closeItemScene();
-    return travelToRegion(region,{scene});
+    return !!region && [...REGIONS,...SPECIAL_REGIONS].includes(region)
+      && state.stage === STAGE.GROWING && !state.dying
+      && !state.isSleeping && !gameActive && !state.transformOptions
+      && (!region.special || hasPerk(70));
   }
 
 
@@ -12577,8 +12480,7 @@
       const meta = ITEM_SYSTEM.CATALOG[item.id];
       const stock = ITEM_SYSTEM.stock(state, item.id);
       const usable = itemUseAllowed(item.id) && (!item.available || item.available());
-      const pending = item.deferred && state.itemLife.pendingItems[item.id];
-      const status = pending ? `${stock}こ／予約中。発動までは減らない${pending.partner && !pendingForPartner(item.id) ? '／今の相手には使えない。取り消して予約し直せる' : ''}` : `${stock}こ／${item.id === 'c_sickshield' ? '1こで3回' : '1回に1こ'}`;
+      const status = `${stock}こ／1回に1こ`;
       const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
       return `<div class="shop-item">
         <span class="shop-item-emoji">${item.emoji}</span>
@@ -12586,8 +12488,7 @@
         <span class="shop-item-desc">${meta.desc}</span>
         <span class="shop-item-status">${status}${reason ? `／${reason}` : ''}</span>
         ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
-        <button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.deferred ? 'よやく' : 'つかう'}</button>
-        ${pending ? `<button type="button" data-item-action="cancel" data-id="${item.id}">とりけす</button>` : ''}
+        ${item.automatic ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>つかう</button>`}
       </div>`;
     }).join('');
   }
@@ -12601,10 +12502,8 @@
     if (item.picker) { openPicker(item); return false; }
     const result = item.apply();
     if (result === false) return false;
-    if (!item.deferred) {
-      if (!ITEM_SYSTEM.take(state, id)) return false;
-      recordItemUse(id);
-    }
+    if (!ITEM_SYSTEM.take(state, id)) return false;
+    recordItemUse(id);
     if (result?.message) setMessage(result.message);
     emotePet(result?.emote || 'happy');
     saveState(); render(); return true;
@@ -13597,21 +13496,6 @@
         `;
       })
       .join('');
-    if (options.length && ITEM_SYSTEM.stock(state, 'new_transform_mirror') && !state.itemLife.transformMirrorUsed) {
-      const button = document.createElement('button');
-      button.type = 'button'; button.textContent = 'こかがみをつかう';
-      button.addEventListener('click', () => useConsumableItem('new_transform_mirror'));
-      el.transformChoices.appendChild(button);
-    }
-  }
-
-  function rerollTransformCandidate(line) {
-    if (!state.transformOptions?.includes(line) || state.itemLife.transformMirrorUsed) return false;
-    const candidates = pickTransformCandidates(state.transformOptions, 1);
-    if (!candidates.length) return false;
-    state.transformOptions[state.transformOptions.indexOf(line)] = candidates[0];
-    state.itemLife.transformMirrorUsed = true;
-    return {message:'こかがみに、新しい候補がうつった'};
   }
 
   // 種族ラインが かわる とき(通常の 変身メーターからの 変身・「ずかん」
@@ -15168,33 +15052,24 @@
     const record = recordMinigameResult(game, score);
     // 記録・ランク・勧誘は実点。装備は開始時の1枠で判定する。
     const rawScore = record?.score ?? clamp(Math.round(score), 0, 100);
-    // 旧セーブで予約済みの大おまもりは一度だけ旧効果を保つ。
-    const minigameBoostBonus = state.oneTimeBoosts.minigameBoost === 'big' ? 100 : state.oneTimeBoosts.minigameBoost === 'small' ? 25 : 0;
-    state.oneTimeBoosts.minigameBoost = null;
-    const clampedScore = clamp(rawScore + minigameBoostBonus, 0, 100);
+    const clampedScore = rawScore;
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
-    const protectedFailure = isBad && state.oneTimeBoosts.safetyNet;
-    const special = rawScore >= 70 && state.oneTimeBoosts.greatReward;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
     const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
-    if (!protectedFailure) state.energy = clamp(state.energy - energyCost, 0, 100);
+    state.energy = clamp(state.energy - energyCost, 0, 100);
     state.minigameScoreSum += rawScore;
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
     state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
 
-    let itemMessage = minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
+    let itemMessage = '';
     if (isGreat) {
-      applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
-      if (special) state.oneTimeBoosts.greatReward = false;
+      applyGrowth(14); applyDecline(-8);
     } else if (!isBad) {
       applyGrowth(7); applyDecline(-3);
-    } else if (protectedFailure) {
-      state.oneTimeBoosts.safetyNet = false;
-      itemMessage += '／スコアほけんが、げんき・おとろえ・いのちを守った';
     } else {
       applyDecline(8);
       raiseDeathMeter(2);
@@ -16173,8 +16048,7 @@
       // かさねれば、れんあいタイプが ちがっても いっしょに いる ことに きめられる
       const p = state.partner;
       p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
-      const repairBoost = (p.repair || 0) < MISMATCH_REPAIR_NEEDED - 1 && commitPendingItem('c_breakhalf', p) ? 1 : 0;
-      p.repair = (p.repair || 0) + 1 + repairBoost;
+      p.repair = (p.repair || 0) + 1;
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (p.repair >= MISMATCH_REPAIR_NEEDED) {
         p.mismatched = false;
@@ -16286,8 +16160,7 @@
     const happinessBonus = (state.happiness / 100) * 0.15;
     // そだち50の「こいの きざし」で +10%、さらに いまの そだちに おうじて 最大+20%
     const sodachiBonus = (hasPerk(50) ? 0.1 : 0) + (hasPerk(50) ? Math.min(0.2, state.sodachi / 500) : 0);
-    const courtBonus = commitPendingItem('c_courtsmall') ? 0.2 : 0;
-    const successChance = clamp(0.35 + traitBonus + happinessBonus + sodachiBonus + courtBonus, 0.15, 0.85);
+    const successChance = clamp(0.35 + traitBonus + happinessBonus + sodachiBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
       state.partner = {
@@ -16460,10 +16333,6 @@
     if (!travelStartAllowed(region)) return false;
     const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
     if (region.id === state.regionId && !sameLocalHome) return false;
-    if (!sameLocalHome && !choice && (state.oneTimeBoosts.travelGuarantee || (state.itemLife.pendingItems.c_travel && ITEM_SYSTEM.stock(state,'c_travel')))) {
-      openItemTravelScene(region);
-      return false;
-    }
     currentLocationIntent += 1;
     if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
@@ -16481,10 +16350,7 @@
     state.travelStreak += 1;
     // TRAVEL_SPAM_THRESHOLD を こえて 連続で たびに でると「たびづかれ」で
     // 機嫌の ボーナスが なくなり、逆に すこし へってしまう。つかいきり
-    // アイテムの「たびの おまもり」を もっていれば、この たび 1かいだけ
-    // かならず「たびづかれ」なしの よい けっかに なる
-    const travelGuaranteed = !!choice?.scene && commitPendingItem('c_travel');
-    const spammedTravel = !travelGuaranteed && state.travelStreak > travelSpamThreshold();
+    const spammedTravel = state.travelStreak > travelSpamThreshold();
     // とくべつな たびさきは、regionsVisited では なく specialRegionsVisited に
     // つむ。regionsVisited に いれて しまうと、じっせきの「せかい いっしゅう
     // (ぜんぶの地域(REGIONS の 11))」が「ふつうの地域7つ + とくべつ1つ」でも 成立して
@@ -16523,8 +16389,7 @@
     lastTravelReaction = reaction;
     speakEvent('travel', { partnerChance: 0.7, companionChance: 0.75 });
     checkStoryEvents('travel');
-    if (travelGuaranteed) reaction = choice.scene.text;
-    const travelMemory = travelGuaranteed ? addItemMemory('specials',itemMemorySnapshot(`travel:${++state.lifetime.itemProgress.sceneSerial}`, `${region.label}で、いつもよりゆっくりすごした。${reaction}`, {event:'travel-detour',choiceId:choice?.scene?.id || null})) : null;
+    const travelMemory = null;
     if (!checkMeters()) {
       {
         setMessage(spammedTravel
@@ -16539,13 +16404,6 @@
     return true;
   }
 
-  el.itemSceneChoiceGrid.addEventListener('click', e => {
-    const btn = e.target.closest('button[data-scene]');
-    if (!btn || !pendingItemScene?.choices.some(c => c.id === btn.dataset.scene)) return;
-    pendingItemScene.choice = btn.dataset.scene;
-    for (const child of el.itemSceneChoiceGrid.children) child.setAttribute('aria-pressed', String(child.dataset.scene === btn.dataset.scene));
-    commitItemTravelScene();
-  });
   el.itemSceneCancelBtn.addEventListener('click', () => { closeItemScene();render(); });
   el.itemRelationActions.addEventListener('click', e => {
     const btn = e.target.closest('button[data-item-relation]');
@@ -16959,7 +16817,6 @@
   if (el.onetimeItemGrid) el.onetimeItemGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-item-action]');
     if (!btn || btn.disabled) return;
-    if (btn.dataset.itemAction === 'cancel') { delete state.itemLife.pendingItems[btn.dataset.id]; saveState();render(); }
     else if (btn.dataset.itemAction === 'buy') buyConsumableItem(btn.dataset.id);
     else useConsumableItem(btn.dataset.id);
   });

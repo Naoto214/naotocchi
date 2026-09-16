@@ -89,7 +89,7 @@ for(const [name,answers,wantA,wantB] of [
   const as=storage(),bs=storage();let a=boot(as),b=boot(bs);a.api.state().lifetime.money=100;b.api.state().lifetime.money=100;
   const c=host(a);assert.equal(a.api.state().lifetime.money,60);
   const g=guess(b,c,answers);assert.equal(b.api.state().lifetime.money,60);
-  assert.equal(b.api.buyConsumableItem('c_growth'),false);assert.equal(b.api.state().lifetime.money,60);
+  assert.equal(b.api.buyConsumableItem('c_life'),false);assert.equal(b.api.state().lifetime.money,60);
   a.api.saveState();a=boot(as);assert.ok(!a.api.resolveDuelWithGuessCode(g).error);const r=a.api.encodeDuelReveal();
   b.api.saveState();b=boot(bs);assert.ok(!b.api.resolveDuelWithRevealCode(r).error);
   assert.equal(a.api.state().lifetime.money,wantA);assert.equal(b.api.state().lifetime.money,wantB);
@@ -128,9 +128,9 @@ test('infinite snapshot reload and return preserve live duel rather than resurre
   h.api.enterInfinite();h.api.abandonDuelChallenge();h.api.exitInfinite();assert.equal(h.api.state().duel,null);assert.equal(h.api.state().lifetime.money,60);
 });
 test('duel spends available coins normally and still settles backed stakes',()=>{
-  const a=harness(),b=harness();a.api.state().lifetime.money=100;b.api.state().lifetime.money=100;
+  const a=harness(),b=harness();a.api.state().lifetime.money=340;b.api.state().lifetime.money=100;
   const c=host(a),g=guess(b,c,['honest','honest','honest','honest','honest']);
-  assert.equal(a.api.buyConsumableItem('c_sickshield'),true);assert.equal(a.api.state().lifetime.money,0);
+  assert.equal(a.api.buyConsumableItem('c_life'),true);assert.equal(a.api.state().lifetime.money,0);
   a.api.resolveDuelWithGuessCode(g);b.api.resolveDuelWithRevealCode(a.api.encodeDuelReveal());
   assert.equal(a.api.state().lifetime.money,0);assert.equal(a.api.state().duel.moneyDelta,-40);assert.equal(b.api.state().lifetime.money,140);
 });

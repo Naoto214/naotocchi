@@ -42,39 +42,6 @@ for(const id of ['hat','energy1','glasses','crown','flower']) {
   });
 }
 
-test('protected failure has no game energy, decline or life damage, ordinary preserves insurance',()=>{
-  const {h,s}=setup();
-  s.items.c_safety=1;
-  h.api.useConsumableItem('c_safety');
-  const life=s.deathMeter;
-  play(h,0);
-  assert.equal(s.energy,90);
-  assert.equal(s.decline,0);
-  assert.equal(s.deathMeter,life);
-  assert.equal(s.oneTimeBoosts.safetyNet,false);
-  s.oneTimeBoosts.safetyNet=true;
-  play(h,50);
-  assert.equal(s.energy,78);
-  assert.equal(s.oneTimeBoosts.safetyNet,true);
-});
-
-test('great charm waits for real seventy and awards growth 28 or 56',()=>{
-  for(const boost of [0,100]){const {h,s}=setup('glasses');
-    s.items.c_mgbig=1;
-    h.api.useConsumableItem('c_mgbig');
-    play(h,60);
-    assert.equal(s.oneTimeBoosts.greatReward,true);
-    s.sodachi=80;
-    s.maxSodachi=80;
-    s.growth=0;
-    s.boostTicks=boost;
-    play(h,70);
-    assert.equal(s.sodachi,boost?81:80);
-    assert.equal(s.growth,boost?24:28);
-    assert.equal(s.oneTimeBoosts.greatReward,false);
-  }
-});
-
 test('retired crown cannot rescue zero health but the existing miracle still works',()=>{
   const {h,s}=setup('crown');
   assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
@@ -107,68 +74,6 @@ test('crown does not bypass normal two minute life warning or rescue life death'
   assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
 });
 
-test('life patch bought into bag, allowed at life forty and during warning, only once per life',()=>{
-  const {h,s}=setup();
-  s.lifetime.money=320;
-  assert.equal(h.api.buyConsumableItem('new_life_patch'),true);
-  s.deathMeter=59;
-  assert.equal(h.api.useConsumableItem('new_life_patch'),false);
-  s.deathMeter=90;
-  s.health=95;
-  s.dying=true;
-  s.dyingTicks=30;
-  assert.equal(h.api.useConsumableItem('new_life_patch'),true);
-  assert.equal(s.deathMeter,60);
-  assert.equal(s.health,100);
-  assert.equal(s.dying,false);
-  h.api.buyConsumableItem('new_life_patch');
-  assert.equal(h.api.useConsumableItem('new_life_patch'),false);
-  assert.equal(h.api.itemStock('new_life_patch'),1);
-});
-
-test('life patch rejects egg dead farewell and infinite',()=>{
-  for(const stage of ['egg','dead','farewell','growing']){const {h,s}=setup();
-    s.stage=stage;
-    s.infinite=stage==='growing';
-    s.deathMeter=80;
-    s.items.new_life_patch=1;
-    assert.equal(h.api.useConsumableItem('new_life_patch'),false);
-    assert.equal(h.api.itemStock('new_life_patch'),1);
-  }
-});
-
-test('mirror bag and transform controls reroll one excluding every shown candidate; cancellation is free',()=>{
-  const {h,s}=setup();
-  s.lifetime.money=160;
-  h.api.buyConsumableItem('new_transform_mirror');
-  s.transformOptions=['cat','bird'];
-  h.api.useConsumableItem('new_transform_mirror');
-  h.api.closePicker();
-  assert.equal(h.api.itemStock('new_transform_mirror'),1);
-  h.api.useConsumableItem('new_transform_mirror');
-  h.api.resolvePickerSelection('cat');
-  assert.equal(h.api.itemStock('new_transform_mirror'),0);
-  assert.equal(s.transformOptions[1],'bird');
-  assert.ok(!['dog','cat','bird','ren'].includes(s.transformOptions[0]));
-  h.api.buyConsumableItem('new_transform_mirror');
-  assert.equal(h.api.useConsumableItem('new_transform_mirror'),false);
-  assert.equal(h.api.itemStock('new_transform_mirror'),1);
-});
-
-test('mirror cannot spend if no legal alternative or selected candidate has disappeared',()=>{
-  const {h,s}=setup();
-  s.items.new_transform_mirror=1;
-  s.transformOptions=[...h.api.normalLines];
-  h.api.useConsumableItem('new_transform_mirror');
-  h.api.resolvePickerSelection('cat');
-  assert.equal(h.api.itemStock('new_transform_mirror'),1);
-  s.transformOptions=['cat','bird'];
-  h.api.useConsumableItem('new_transform_mirror');
-  s.transformOptions=null;
-  h.api.resolvePickerSelection('cat');
-  assert.equal(h.api.itemStock('new_transform_mirror'),1);
-});
-
 test('retired crown snapshot cannot reduce failed-game life damage',()=>{
   const {h,s}=setup('crown');
   s.deathMeter=0;
@@ -176,64 +81,6 @@ test('retired crown snapshot cannot reduce failed-game life damage',()=>{
   s.lifetime.equippedItemId=null;
   h.api.finishMinigame(0);
   assert.equal(s.deathMeter,2);
-});
-
-test('mirror actual transform button opens cancellable candidate picker',()=>{
-  const {h,s}=setup();
-  s.items.new_transform_mirror=1;
-  s.transformOptions=['cat','bird'];
-  h.api.render();
-  const b=h.get('transformChoices').children.find(x=>x.textContent==='こかがみをつかう');
-  assert.ok(b);
-  h.dispatch(b,'click');
-  assert.match(h.get('pickerGrid').innerHTML,/data-picker-value="cat"/);
-  h.api.closePicker();
-  assert.equal(s.items.new_transform_mirror,1);
-});
-
-test('failed and invalid completion retain great charm and interrupted games do not arm scores',()=>{
-  const {h,s}=setup();
-  s.items.c_mgbig=1;
-  h.api.useConsumableItem('c_mgbig');
-  play(h,0);
-  assert.equal(s.oneTimeBoosts.greatReward,true);
-  assert.equal(s.decline,8);
-  h.api.startMinigame(game('abort'));
-  h.api.finishMinigame(NaN);
-  h.api.retireMinigame();
-  assert.equal(s.oneTimeBoosts.greatReward,true);
-  assert.equal(s.lifetime.minigameRecords.abort,undefined);
-  assert.equal(s.items.reward,undefined);
-});
-
-test('saved reservations survive reload and life limits reset',()=>{
-  const {h,s}=setup();
-  s.items.c_mgbig=1;
-  h.api.useConsumableItem('c_mgbig');
-  s.itemLife.crownUsed=true;
-  s.itemLife.lifePatchUsed=true;
-  const n=reload(s),r=n.api.state();
-  assert.equal(r.oneTimeBoosts.greatReward,true);
-  assert.equal(r.itemLife.crownUsed,true);
-  n.dispatch(n.get('resetBtn'),'click');
-  assert.equal(Object.hasOwn(n.api.state().itemLife,'crownUsed'),false);
-  assert.equal(n.api.state().itemLife.lifePatchUsed,false);
-  assert.equal(n.api.state().oneTimeBoosts.greatReward,false);
-});
-
-test('life patch works at exactly forty life and cannot postpone age one hundred',()=>{
-  const {h,s}=setup();
-  s.items.new_life_patch=2;
-  s.deathMeter=60;
-  s.health=20;
-  assert.equal(h.api.useConsumableItem('new_life_patch'),true);
-  assert.equal(s.deathMeter,30);
-  assert.equal(s.health,40);
-  s.itemLife.lifePatchUsed=false;
-  s.ageTicks=2000;
-  s.deathMeter=80;
-  assert.equal(h.api.useConsumableItem('new_life_patch'),false);
-  assert.equal(s.items.new_life_patch,1);
 });
 
 test('star pays ordinary success immediately and never adds a delayed set reward',()=>{
@@ -248,18 +95,6 @@ test('star pays ordinary success immediately and never adds a delayed set reward
   assert.equal(s.lifetime.money,270);
   assert.equal(s.lifetime.itemProgress.starGames,undefined);
   assert.equal(s.lifetime.itemProgress.readyAt.star,undefined);
-});
-
-test('disease shield shows the prevented illness and remaining two uses',()=>{
-  const {h,s}=setup();
-  s.items.c_sickshield=1;
-  h.api.useConsumableItem('c_sickshield');
-  s.hunger=10;
-  vm.runInContext('Math.random=()=>0',h.sandbox);
-  h.api.tick();
-  assert.equal(s.isSick,false);
-  assert.equal(s.oneTimeBoosts.sicknessShieldCount,2);
-  assert.match(h.api.getMessage(),/ふせいだ.*2/);
 });
 
 test('star menu describes immediate ordinary-success coins without stamp or waiting UI', () => {
