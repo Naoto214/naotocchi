@@ -62,3 +62,7 @@ Adult dog approved by user. Baseline PR HEAD bef2655c40eb06948ece22af5a5f83208cb
 ## Playful young dog continuation — 2026-09-16
 
 Start PR HEAD 436cc627a2c4b589de1cab0d1de7f213bd77765f. Add only dog/04 after puppy approval: failing routing/runtime/PNG/preview tests → ten individual original-referenced image edits → allowlist and head anchors → preview selector → full regression → Draft PR and existing private preview. No game values or saved-state changes. Keep other stages' confirmed visuals.
+
+## Young dog continuation — 2026-09-16
+
+Start PR HEAD 9210c2150c734fc53ad35eb8c26fb5c64b40e5f6. Prior 731 tests and both GitHub Actions checks pass, including repaired painted-bounds probes. User approved dog04 and requested next stage. Scope dog05 only: failing connection/PNG/preview tests → ten original-referenced individual expressions → routing and anchors → youngDog preview → full tests/review → existing Draft PR/private preview. Root supplies images/docs/publication; bounded worker supplies connection/tests. No other stage expansion or main merge.

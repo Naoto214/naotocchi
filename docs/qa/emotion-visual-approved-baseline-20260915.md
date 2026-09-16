@@ -57,3 +57,5 @@ PR #278はDraftのまま。mainへマージしない。
 2026-09-16: 猫全8段階に続き、成犬dog/06の10表情をユーザーが「良いです」と承認。銀色マーク最終位置は(-12,1)。色・縁・リアクションは猫の確定仕様を継承、空腹は黄色のフード皿。続行依頼に基づきdog/03（こいぬ、7〜11歳）1段階の10表情へ進む。一括展開せず実機確認後に次へ進む。成犬の確定位置を維持する。
 
 2026-09-16: こいぬdog/03の10表情をユーザーが「OKです」と承認。続行依頼に基づきdog/04（わんぱくいぬ、12〜15歳）1段階へ進む。確定済みの猫8段階・成犬・子犬を保持し、残りの犬段階は一括追加しない。
+
+2026-09-16: User approved わんぱくいぬ dog/04 (“いいです 次お願いします”). Retain all its portraits and anchors. Continue one stage with 若いいぬ dog/05; visual approval for that stage remains pending. Previous dog04 HEAD 9210c215 passed Runtime smoke and Home layout CI.

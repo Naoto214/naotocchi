@@ -70,7 +70,7 @@ test('accentFor returns one static accessible-hidden SVG accent per non-normal a
   assert.equal(new Set(accents).size,names.length);
   assert.equal(expression.accentFor(base,'normal'),'');
   assert.equal(expression.accentFor(base,'unknown'),'');
-  assert.equal(expression.accentFor('assets/characters/dog/05.png','happy'),'');
+  assert.equal(expression.accentFor('assets/characters/dog/02.png','happy'),'');
 });
 
 test('reactionFor maps every approved semantic event and rejects unknown events', () => {
@@ -223,7 +223,7 @@ test('adult dog supports ten expressions while other dog stages retain base port
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/06-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
-    for (const stage of ['01','02','05','07','08']) {
+    for (const stage of ['01','02','07','08']) {
       const other=`assets/characters/dog/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
@@ -238,7 +238,7 @@ test('puppy supports ten expressions while other dog stages retain base portrait
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/03-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
-    for (const stage of ['01','02','05','07','08']) {
+    for (const stage of ['01','02','07','08']) {
       const other=`assets/characters/dog/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
@@ -253,7 +253,7 @@ test('wanpaku supports ten expressions while other dog stages retain base portra
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/04-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
-    for (const stage of ['01','02','05','07','08']) {
+    for (const stage of ['01','02','07','08']) {
       const other=`assets/characters/dog/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
@@ -261,4 +261,28 @@ test('wanpaku supports ten expressions while other dog stages retain base portra
   }
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.accentFor(base,'normal'),'');
+});
+
+test('young dog supports ten expressions while other dog stages retain base portraits', () => {
+  const base='assets/characters/dog/05.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/05-${name}.png`);
+    assert.match(expression.accentFor(base,name),/pet-expression-accent/);
+    for (const stage of ['01','02','07','08']) {
+      const other=`assets/characters/dog/${stage}.png`;
+      assert.equal(expression.assetFor(other,name),other);
+      assert.equal(expression.accentFor(other,name),'');
+    }
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
+});
+
+test('young dog accents follow its upright head and hunger uses a food bowl', () => {
+  const base='assets/characters/dog/05.png';
+  assert.match(expression.accentFor(base,'strained'),/translate\(-12 3\)/);
+  assert.match(expression.accentFor(base,'wantsPlay'),/translate\(-29 7\)/);
+  assert.match(expression.accentFor(base,'hungry'),/translate\(-20 1\)/);
+  assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
+  assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
 });

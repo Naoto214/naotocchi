@@ -63,8 +63,8 @@ test('real home emotion profiles select only the adult cat portrait', () => {
     assert.deepEqual(face(h),want);
   }
 
-  const other=harness(); adultCat(other,{speciesLine:'dog',ageTicks:16*20,stageIndex:4,hunger:40});
-  assert.match(portrait(other),/assets\/characters\/dog\/05\.png/);
+  const other=harness(); adultCat(other,{speciesLine:'dog',ageTicks:3*20,stageIndex:1,hunger:40});
+  assert.match(portrait(other),/assets\/characters\/dog\/02\.png/);
   assert.equal(accent(other),null);
 });
 
@@ -207,7 +207,7 @@ test('sleep uses its own face, and waking shows normal before latest-state reeva
 
 test('form changes and blocked screens clear the temporary face and accent', () => {
   const cases = [
-    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'dog',ageTicks:16*20,stageIndex:4});h.api.render();},'assets/characters/dog/05.png'],
+    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'dog',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/dog/02.png'],
     ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
     ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
     ['menu',h=>h.api.openExclusiveMenu('profile'),BASE],
@@ -451,5 +451,32 @@ test('wanpaku shows all ten state and reaction faces without changing saved stat
       h.api.state().deathMeter=80;h.api.render();
       assert.equal(portrait(h),'assets/characters/expressions/dog/04-critical.png');
     }
+  }
+});
+
+test('young dog shows all ten state and reaction faces without changing saved state', () => {
+  const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
+    ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+    ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
+    ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
+  for (const [name,values,event] of cases) {
+    const h=harness();adultCat(h,{speciesLine:'dog',ageTicks:16*20,stageIndex:4,...values});
+    if (event) h.api.setSpeechBubble('反応',{kind:'pet',label:'いぬ'},{event});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/05-${name}.png`,name);
+    assert.equal(accent(h),name);
+    const before=JSON.stringify(h.api.state());h.api.render();
+    assert.equal(JSON.stringify(h.api.state()),before);
+    if (name==='happy') {
+      h.api.state().deathMeter=80;h.api.render();
+      assert.equal(portrait(h),'assets/characters/expressions/dog/05-critical.png');
+    }
+  }
+});
+
+test('young dog routing is limited to ages sixteen through twenty-one', () => {
+  for (const [age,stage] of [[15,'04'],[16,'05'],[21,'05'],[22,'06']]) {
+    const h=harness();
+    adultCat(h,{speciesLine:'dog',ageTicks:age*20,stageIndex:h.api.stageForAge(age),hunger:40});
+    assert.equal(portrait(h),`assets/characters/expressions/dog/${stage}-hungry.png`,String(age));
   }
 });

@@ -29,3 +29,7 @@ Following the user's approval of adult-dog visuals and request to continue, add 
 ## Approved continuation — playful young dog, 2026-09-16
 
 User approved puppy dog/03 and asked to continue. Add only dog/04 (わんぱくいぬ, 12–15 years), ten expressions. Preserve the original forward-leaning stepping pose and golden tan palette. Keep all confirmed cat/adult dog/puppy portraits and anchors. Reuse state/reaction logic and outlined colors, yellow dog food bowl, and isolated preview. Adapt marks to this head position. Keep Draft PR #278, no main merge. User reviews iPhone appearance.
+
+## Approved continuation — young dog, 2026-09-16
+
+User approved dog/04 and asked for the next stage. Add only dog/05 (若いいぬ, 16–21 years), ten expressions with the original slim upright standing pose. Preserve all confirmed cat/dog assets and anchors; inherit palette, outlined marks, yellow food bowl and care reactions. Initial dog05 anchors: strained (-12,3), wantsPlay (-29,7), general (-20,1). Extend isolated preview with youngDog. No gameplay/schema changes; keep PR #278 Draft without merging main. User performs iPhone visual acceptance.
