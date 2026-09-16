@@ -576,3 +576,27 @@ test('remaining dog stage boundaries select their own portraits', () => {
     assert.equal(accent(h),'hungry');
   }
 });
+
+for (const species of ['man','woman']) {
+  for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
+    const stage=String(index+1).padStart(2,'0');
+    test(`${species}/${stage} renders all ten states and reactions without mutating saved state`, () => {
+      const cases=[['hungry',{hunger:40}],['sick',{isSick:true}],['tired',{energy:40}],
+        ['sulky',{happiness:40,affectionStreak:3}],['weak',{deathMeter:60}],
+        ['critical',{deathMeter:80}],['wantsPlay',{happiness:40}],['sleeping',{isSleeping:true}],
+        ['happy',{},'play_with'],['strained',{},'medicine_wrong']];
+      for (const [name,values,event] of cases) {
+        const h=harness();adultCat(h,{speciesLine:species,ageTicks:age*20,stageIndex:index,...values});
+        if (event) h.api.setSpeechBubble('反応',{kind:'pet',label:'じぶん'},{event});
+        assert.equal(portrait(h),`assets/characters/expressions/${species}/${stage}-${name}.png`,name);
+        assert.equal(accent(h),name);
+        const before=JSON.stringify(h.api.state());h.api.render();
+        assert.equal(JSON.stringify(h.api.state()),before);
+        if (name==='happy') {
+          h.api.state().deathMeter=80;h.api.render();
+          assert.equal(portrait(h),`assets/characters/expressions/${species}/${stage}-critical.png`);
+        }
+      }
+    });
+  }
+}

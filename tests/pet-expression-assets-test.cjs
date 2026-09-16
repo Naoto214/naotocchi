@@ -350,3 +350,21 @@ test('elder dog expressions are distinct transparent assets with original sprite
   assert.equal(new Set(hashes).size,10);
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
+
+for (const species of ['man','woman']) for(let index=1;index<=8;index++) {
+  const stage=String(index).padStart(2,'0');
+  test(`${species}/${stage} has ten distinct transparent expressions with original bounds`, () => {
+    const original=inspectPng(`assets/characters/${species}/${stage}.png`),hashes=[];
+    for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+      const file=`assets/characters/expressions/${species}/${stage}-${name}.png`;
+      assert.equal(expression.assetFor(`assets/characters/${species}/${stage}.png`,name),file);
+      assert.ok(fs.existsSync(path.join(ROOT,file)),name+' asset exists');
+      const {data,bounds,alpha}=inspectPng(file);
+      assert.deepEqual(bounds,original.bounds,name);
+      assert.deepEqual(alpha,[0,255],name);
+      hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+    }
+    assert.equal(new Set(hashes).size,10);
+    assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
+  });
+}

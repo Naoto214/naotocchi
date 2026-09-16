@@ -58,7 +58,7 @@ test('buildPreview wraps the current game with a compact isolated phone-safe con
   const source=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
   const html=buildPreview();
   assert.match(html,/^<!doctype html>/i);
-  assert.match(html,/>猫と犬の表情テスト</);
+  assert.match(html,/>表情とマークの確認</);
   assert.match(html,/>このページでは保存しません</);
   assert.match(html,/<header\b[^>]*data-preview-controls/);
   assert.match(html,/<iframe\b[^>]*title="なおとっち 表情プレビュー"/);
@@ -350,3 +350,25 @@ test('elderDog preview uses isolated storage and the correct age stage', () => {
   assert.equal(state.ageTicks,70*20);
   assert.equal(state.hunger,40);
 });
+
+for (const species of ['man','woman']) {
+  test(`${species} preview exposes every stage and never accesses real saves`, () => {
+    const html=buildPreview({preset:'sick'});
+    for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
+      const form=species+String(index+1).padStart(2,'0');
+      assert.match(html,new RegExp(`value="${form}"`));
+      const {run,state}=seededState(html,`?form=${form}`);
+      assert.equal(state.speciesLine,species);
+      assert.equal(state.stageIndex,index);
+      assert.equal(state.ageTicks,age*20);
+      assert.equal(state.isSick,true);
+      assert.deepEqual(run.calls,[]);
+      const h=harness();Object.assign(h.api.state(),state);
+      h.get('storyFlash').classList.add('hidden');h.get('lifeCardOverlay').classList.add('hidden');
+      h.api.render();h.api.saveState();h.api.render();
+      assert.equal(h.api.state().stage,'growing');
+      assert.match(h.get('petSprite').innerHTML,new RegExp(`expressions/${species}/${String(index+1).padStart(2,'0')}-sick.png`));
+      assert.ok(h.get('storyFlash').classList.contains('hidden'));
+    }
+  });
+}

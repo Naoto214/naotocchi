@@ -19,7 +19,19 @@
     wantsPlay: 'assets/characters/expressions/cat/06-wantsPlay.png',
     sleeping: 'assets/characters/expressions/cat/06-sleeping-v3.png',
   });
+  const HUMAN_LINES = ['man','woman'];
+  const HUMAN_MARK_Y = {man:[30,7,4,-6,-7,-8,-6,1],woman:[29,9,1,1,-3,-3,-4,1]};
+  const HUMAN_MARK_CLEARANCE = {
+    happy:[3,-2],hungry:[6,0],sick:[6,-2],tired:[5,0],weak:[6,0],
+    critical:[6,-5],sulky:[10,-10],sleeping:[2,2],
+  };
   const STAGE_ASSETS = Object.freeze({
+    ...Object.fromEntries(HUMAN_LINES.flatMap(line => Array.from({length:8},(_,index) => {
+      const stage=String(index+1).padStart(2,'0');
+      return [`assets/characters/${line}/${stage}.png`,Object.freeze(Object.fromEntries(
+        Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/${line}/${stage}-${name}.png`])
+      ))];
+    }))),
     'assets/characters/dog/01.png': Object.freeze(Object.fromEntries(
       Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/dog/01-${name}.png`])
     )),
@@ -177,11 +189,18 @@
     if (baseAsset === 'assets/characters/dog/08.png') {
       offset = expression === 'strained' ? '-10 14' : expression === 'wantsPlay' ? '-31 14' : '-17 8';
     }
+    const human = /^assets\/characters\/(man|woman)\/(0[1-8])\.png$/.exec(baseAsset);
+    if (human) {
+      const y=HUMAN_MARK_Y[human[1]][Number(human[2])-1];
+      offset=expression==='strained' ? `8 ${y-2}` : expression==='wantsPlay' ? `-28 ${y+3}` : `0 ${y}`;
+    }
     // Dogs think of a food bowl; keep the shared yellow palette and thought bubbles.
     const artwork = ['assets/characters/dog/01.png','assets/characters/dog/02.png','assets/characters/dog/03.png','assets/characters/dog/04.png','assets/characters/dog/05.png','assets/characters/dog/06.png','assets/characters/dog/07.png','assets/characters/dog/08.png'].includes(baseAsset) && expression === 'hungry'
       ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-food" d="M79 18h18l-3 7H82z"/><circle class="accent-food" cx="84" cy="16" r="2"/><circle class="accent-food" cx="91" cy="16" r="2"/></svg>'
-      : ACCENTS[expression];
-    const clearance = ACCENT_CLEARANCE[baseAsset.slice(18,-4)]?.[expression];
+      : human && expression === 'hungry'
+        ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-thought accent-rice" d="M80 19c0-4 4-7 8-7s8 3 8 7z"/><path class="accent-food" d="M79 19h18l-3 8H82z"/></svg>'
+        : ACCENTS[expression];
+    const clearance = human ? HUMAN_MARK_CLEARANCE[expression] : ACCENT_CLEARANCE[baseAsset.slice(18,-4)]?.[expression];
     const spacedArtwork = clearance
       ? artwork.replace(/(<svg[^>]*>)/, `$1<g class="accent-clearance" transform="translate(${clearance.join(' ')})">`).replace('</svg>', '</g></svg>')
       : artwork;

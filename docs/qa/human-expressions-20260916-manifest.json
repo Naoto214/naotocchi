@@ -1,0 +1,1291 @@
+{
+  "generator": "built-in image_gen, independent original-referenced edits",
+  "normalization": "binary alpha, nearest-neighbor, exact original alpha bounds, 128x128 RGBA8",
+  "review_notes": [
+    "man01 weak and critical sources reassigned after visual severity review",
+    "woman05 tired and critical sources reassigned after visual review",
+    "First ten late-male recovery mappings were found to contain wrong-stage sprites; each was replaced using individually inspected raw files matched to the correct original, then all40 late-male composites were independently reviewed."
+  ],
+  "assets": [
+    {
+      "asset": "assets/characters/expressions/man/01-critical.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "3d585ea1502ab9d50530eb08924d7089e50fc8f96dcf95c610cfe7058981872a",
+      "asset_sha256": "4f36dcdb46b4414a2a89d042b935ab189c18db6f435b24513d4754b49a6aa446",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-happy.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "10b4fb3752412eb29de6af3615d55a9426c8b26bb18384f81e5b105133e9fc76",
+      "asset_sha256": "e78eb97010ae3b52ff23d071c07f892a351c5d5580745785628514bc832fd4f2",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show narrowed smiling eyes and an open joyful grin. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-hungry.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "00565ab012ba2990428daebc9327d4ed65097ef3a06627b12b800978d01f9b40",
+      "asset_sha256": "79a6b1b0b8318cae9c96ed0800ea4aa56c8b8e067d2c048e6db3a02ddc9c3c7f",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show wide pleading eyes and a small round mouth. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-sick.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "131a58ac6cc0bfb5636ca63600bdc2941cb09a5ee7edea0b3bbb6cd097fb9a72",
+      "asset_sha256": "283be0f24cd5a221a0b95c281b287f4123e678a01eb2cb0972f0c141031fc6c8",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show squeezed tense eyes and a tense mouth without painted sweat. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-sleeping.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "0520231e586841b96cc3fb538399906cb949734012467b664075e829e42faf02",
+      "asset_sha256": "dbae4d5dba3dd8ca7480736502132d6a9384363120c5898a31062fb95ca1802b",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-strained.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "dce4f4e06318c8833e2842efe42947fbaa56e4e850ef5b6df125e7fb70a9ba5c",
+      "asset_sha256": "252b46622213a90a2592c7eb9ca4f7761227ee460e021417b56030ece9fd6154",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show raised worried inner brows and a tiny downturned mouth. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-sulky.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "99c7b51b8e349f843b4c274ab65970d40bc086608e3c6998341647cb5d39c7ed",
+      "asset_sha256": "1d0c535a04defdf7e758cf4cb86afeacc1589beaa2a397733d4d3bf096964741",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show narrowed annoyed eyes and a pout. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-tired.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "6318e6c22e711da8931ed1aa798312d35ce92d6e6aa8eee2c79aa31e3b09f00f",
+      "asset_sha256": "08fc104ce52ec8cd7d9b406beccaa8d61caac89c05ef113964f31a56483a9651",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-wantsPlay.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "2d624cdbaa5cb4697011f85d4fce476269176c03a722ed75506f2eec18837b45",
+      "asset_sha256": "a1d22a87d5a8285e77e4b2b85980ee9f771622441595c3eb31e4d48cf90317d9",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/01-weak.png",
+      "original": "assets/characters/man/01.png",
+      "original_sha256": "d5ebeb0a5037b0bc74782711fbf90a1d14c5c535aa2f5004cd7055e025ec9605",
+      "generated_sha256": "3a25683682b563072fae47d1210301fb8a20af0dcb9c4cd4d350a9841240ab53",
+      "asset_sha256": "f56eedbf3f18277102e2a4a7670dcf5b77eb2cee902b64874f8f25bab9ce95d5",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art sprite. Edit only facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-critical.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "5969a3eaafe42f8c1d848481e7699146cad048415fe2b61f2938e221406bf24d",
+      "asset_sha256": "39615049283c11d8063c0c5ef16e1632964abbcf1c12f3fa065b73f46182156a",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-happy.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "47ea3d13e40eae5130dc929243a9b1a3de1edb093494c7cbb64525f94f5ba9c0",
+      "asset_sha256": "7a261f697d935ec34aecf7549c6fc573c6b8dd33d8c644d68a826151d288191a",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed smiling eyes and an open joyful grin. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-hungry.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "01f7c352ab159ab9c726ad123f1a3ec239131abe62796057d7270274630179d8",
+      "asset_sha256": "420aa31fb9cdbe337bd2159798f958355bc4dc4899eb1f90d94a4ef22bc8340f",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show wide pleading eyes and a small round mouth. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-sick.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "13a6168789d0870b506a94f45df43d0b52388ba01478dedaa6aca3d997949fe2",
+      "asset_sha256": "e743243ae3559381b094b4bde82ce8acbe17da641d2591b3f4ca6bb8d0185fc2",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-sleeping.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "50263fe250570f321964f87930c24f7ed03ede7d8644233b0988414570171e4d",
+      "asset_sha256": "37611ddbb8c4b59ca26004f3f8c0b7864ef6c9ca9a8da525bb10ed3f9df99146",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-strained.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "59bdf24bc710fadfb174438a52a275a37ce95d4b76a98f28af83c984559545b7",
+      "asset_sha256": "39a52ce49031262894c82fbfe71b99fabc319c58b6830961797d6933abf963fa",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show raised worried inner brows and a tiny downturned mouth. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-sulky.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "896be71eae877ba37bd80a6f1c41a19301199c6461f110bdfa0af9eab9a3c2c7",
+      "asset_sha256": "c66424c922e04bce32c996ac81d86086ffe58dec48e1fd9379402ca9105a5363",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed annoyed eyes and a pout. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-tired.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "b78cf3d7b31283b002529686fff82e1903c20bf1af0f96d245e63c50d1f0f3aa",
+      "asset_sha256": "f603ad030654db01b25501e8382d6d90abadc2752eb02c753f036a4b44cac137",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-wantsPlay.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "d1ee0d9f01b2ea774fa912efceabab48865975089511b9b9e53de13da76b42ef",
+      "asset_sha256": "aee07143f631d473438b88e75a43140c914cc0ca2c9979735f83beeeb9485ba9",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/02-weak.png",
+      "original": "assets/characters/man/02.png",
+      "original_sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
+      "generated_sha256": "63dce4d15c45846d9d5f64191e1a1fd0fb0017ba2c32cdddfe0232be182a8f36",
+      "asset_sha256": "3c88b91fb51cdc7aa5e77fdc03e5cb6e02e173aadc3f811455ac0dbd790afc0a",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve exactly the original hair, skin, clothes, pose, proportions, full-body silhouette, colors, pixel-art style, transparency, and the tiny train prop with every train detail unchanged. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-critical.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "22f687ab3431e1c33dc9bd36fab5b90e511b39af2a4516d5d1bad1cb77ff6f73",
+      "asset_sha256": "89b002fd1e2974f1fb99aa07d8368f2619a1e6329a7641f6cb79c0328a8775a1",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-happy.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "d5c7eea9857239d2f0850dc4122938c2c2e758b7ea7b78c2dce8d6d0785629d3",
+      "asset_sha256": "37580fa4bfd7c39390077ba7a13783e8af1d18d1d16c99b8a0539689e7db3b15",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed smiling eyes and an open joyful grin. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-hungry.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "3217cc8bab38fd0a04dac6c9965a78f73edb42f2e13dc7038fafe90ae711d342",
+      "asset_sha256": "22348caf143ef51f21449eda80bbc32dd5d297532d798fdcbf60359396fc6c34",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show wide pleading eyes and a small round mouth. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-sick.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "028b7b3622db62dafa21779b6211d569e4099cf4030bbb80b40ccafd205d2194",
+      "asset_sha256": "d4121a5605442ee74c5052c110eaa1d6e6eab590ffe2956b3286148a3ee0c8fd",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-sleeping.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "0732abaca25fb94c8838fc7ea7ec68c84fd912e4c6202eedf4bf0feaf9e0a714",
+      "asset_sha256": "fff33a8770d060fa3e8dbde619bdac7d5a535d8d3b9d58f1b196062875fe9daa",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-strained.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "a67c42fbb2affe48a007c0abe1bfa4abbfeaa5aa3e0392561c02100a3c2c176a",
+      "asset_sha256": "b64a18757e91e6bb1e297e7d3da1c3c919aa056abe50e5415fd3f7619cb7fa9a",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show raised worried inner brows and a tiny downturned mouth. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-sulky.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "199f375c1bd2cee0176127367f7c382b2dead5bfbceb32b49e380fe4fb85df4a",
+      "asset_sha256": "1aa85ed67b87cadf6248dfdcdcc97a2e89df3308388e8d4501f87d22e9c74dd4",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed annoyed eyes and a pout. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-tired.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "53bce4942e8bc0086525ac3f0049267dd39d72b0d4efd66a0894521fd83677c8",
+      "asset_sha256": "5583c606fb77fda6f0668c479d42a58ffd9996dcbc808e5cbbfa9da303315745",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-wantsPlay.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "fc95a4c235cad5d09ad1d6db0d3527e140006757862df2b0a40c805610b876c1",
+      "asset_sha256": "a49bae37f84544df192f1cfc951b9b0af447352ddaabe3fe9bcbc44da1ddbec0",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/03-weak.png",
+      "original": "assets/characters/man/03.png",
+      "original_sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
+      "generated_sha256": "513e5e1990a501f6bf24ab87c325da8ad9e464e5b2503e87dc3cd043ea048734",
+      "asset_sha256": "1b7aadbf48412deaf49c0516969f434197cfdf93742a652cbb7a9cce95da2381",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve exactly the original hair, skin, clothes, yellow hat, backpack, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-critical.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "3408a207d384616ca0a431a7579bfd845459a4d71cd38e65bae45dc2769031cc",
+      "asset_sha256": "c6fcd81ea33226f5e6608a3490172931128c9a6fe22029691607d5bf4ed96b69",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-happy.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "82aa6c2ef024badd459cc8533fd42bc55c0177d85b29bbaf27e18407edc1e1e4",
+      "asset_sha256": "504fd602bb0dc44c96529bc8569c2eab46af650176d580008d16b80508c0b5a4",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed smiling eyes and an open joyful grin. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-hungry.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "371bcf879ccbd4817280075f784f1e938c7f28d78feaaea0a65e4492d350bd71",
+      "asset_sha256": "43c6036cb90e1ac8de05fe29fcf6e3237bf1b3f75da0bd271c981e2e8645886b",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show wide pleading eyes and a small round mouth. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-sick.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "bd92d6b7af8fb8570a13f617d6acb793a2e684f0bc87344a766c97e703101744",
+      "asset_sha256": "187a614907c046d2d8328e9931ac7d6f1f48c331430bbeb338cfe6a67fe78f9d",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-sleeping.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "1c908569ba233a3e39ee5c4e39bad2fdc863faa986e29d045704bac6e3d56819",
+      "asset_sha256": "9b834cb965a24e11c88a71fded98a7b5cd9da95310b5ba0924302744ae25dbc4",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-strained.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "728dcd639ba3d3c0bd725b155b4585379eee88733cd6a36c9e736ad5fc8d684d",
+      "asset_sha256": "a75de6a7b21a47779dc6db708af541d2696a97256d6a25cd0a61eac21707cabe",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show raised worried inner brows and a tiny downturned mouth. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-sulky.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "508b5bca9d51db2ba668f41a39688228e9d2d6cdd144cfb61f30a1c0f3c9bed8",
+      "asset_sha256": "ea6b7f257213d4b42dd85fbfecedd9eec332258d79ae4a0fda20f50f63b29a77",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show narrowed annoyed eyes and a pout. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-tired.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "d9b9208f6493fd0a005437c0b9424583c5b5124bf640c95461af123aa23c7fad",
+      "asset_sha256": "c09bdd19336c981051089f1782f1bfef0419ab4ffa84fd2d9e46eec036a3b9c0",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-wantsPlay.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "49ec46fa0219ca741e53d139ca18c07b6671372a5f47b0b40e92f2ccf1f2e730",
+      "asset_sha256": "9b17394eabda334d5da3f497a3db0539d9f7afd7c854a85f637d33a61a5daa80",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/04-weak.png",
+      "original": "assets/characters/man/04.png",
+      "original_sha256": "7dd7257b23eb23799976e92dbb0cd03aa24edabd056255b21527742deae666b0",
+      "generated_sha256": "822f2900f09cba8a6f5fe1d51f203dad6cde3c4682b94fa4463c63fb003b9aac",
+      "asset_sha256": "9f2b2a16351c73aeb5d0cf81d4147bd706631cd41f65bd063de8fb1328eed3c7",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve exactly the original hair, skin, clothes, suit, shoulder bag, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-critical.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "05c5c2e57852b96e47504a0a8803932b67466da5bd8629b9edd35c5834268a09",
+      "asset_sha256": "0248db7c56723dfbc8316f2b58bf851338c238d887a35c6bf4474f717833fb92",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to critical almost-closed exhausted eyes and a weary mouth; this must look clearly more exhausted and depleted than the weak expression. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-happy.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "19fffca8fc644e05500c059428b6912236c62802f3dde69a4da2647f29717da0",
+      "asset_sha256": "8a12acc94f267ff4e292e55449cf7691fc372f6178b88678c3810694e31f41be",
+      "prompt": "happy narrowed smiling eyes and open joyful grin; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-hungry.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "477714b1c61a55cefddde77b2e3669bee43f06ffa2d23a2600bb254097bea6bc",
+      "asset_sha256": "e7ffa96d16a1ffb6f2e0246b7ee5b24c3fe7ce7cdec830ede00f016371a0c21b",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to hungry wide pleading eyes and a small round mouth. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-sick.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "d2dbcb7acf71daf70ed22b5c61d2643e2165231f98d2effe433b7e36ffcfbd28",
+      "asset_sha256": "dd044a74aa09b94aa88ea581770f12517afec90ffd21d6c5a7a1e516a66c1fbd",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to sick squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-sleeping.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "dcfabdca27afbf5fe4fa216ecb328187f4c26f4886c98a514fb67bcfffcbd3d0",
+      "asset_sha256": "465b0503181b0232cbe29d06c3356b791d439c5806f713a47cd393b44579a0c1",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to sleeping fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-strained.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "3ba135ead401c46e2ed0be590009999b0d5d0daa5a991651b17164d303c218f0",
+      "asset_sha256": "17fac9128be1f0e1ce33ad2ae8981a984f62d4cfc3e8a735edca513a90112641",
+      "prompt": "strained raised worried inner brows and tiny downturned mouth; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-sulky.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "42166968a5856a898ae4f89550b2f0a7425fd39e91591eb02f75f7c064353560",
+      "asset_sha256": "ceb0f96654e88a512c188316c49775f68da8c6e410d41346200bdecbcf716c0e",
+      "prompt": "sulky narrowed annoyed eyes and pout; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-tired.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "cc6eb13bbe4d6dd927fa383ca010776b61f842376f54740b0768b92150a9ee78",
+      "asset_sha256": "741a909b523e2982698add6c90b18d47cae1e22efc2870360e3039be5e5e941d",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to tired drooping eyelids and a visible yawn. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-wantsPlay.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "bec540443567a72f50afa486eb81e720a995ab06ef56708cf74aed2c06ecfb58",
+      "asset_sha256": "56eb7774ad5747f986a56c5cb4e89dc68ed6cb587ae6b4b6f937e7b2f6016e14",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to wants-to-play bright eager eyes and a small friendly closed smile. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/05-weak.png",
+      "original": "assets/characters/man/05.png",
+      "original_sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
+      "generated_sha256": "10d11c88aed0ff9909d6f6c811c55767b81887a8fc4b930b384a2b2ba4f0433b",
+      "asset_sha256": "b5291148e3e0d28e63112d2177270ddfeec9e3a82267e3b8375bae4cf4667f77",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 05. Primary request: change facial expression only to weak fragile worried half-open eyes and a weak closed mouth; the eyes must remain half-open and worried, not almost closed. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-critical.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "b0a1ab5ee0aee590442360cbde9187fe4dbff05edec3b28d144b94b79fb7abb1",
+      "asset_sha256": "04b402c3e1294e976f8ab90ba6bf08ba3778888c51f7d6eee0a1dd9b051bc34f",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to critical almost-closed exhausted eyes and a weary mouth; this must look clearly more exhausted and depleted than the weak expression. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-happy.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "dc8de24263d92272e8400d016597119a6026d0e371ff4c9047dd54fc3dead976",
+      "asset_sha256": "d3e97845eba3397c7e40508fd8a1e9c059739036a9dc6d1cfd455462d65f9732",
+      "prompt": "happy narrowed smiling eyes and open joyful grin; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-hungry.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "a64ca5dc612dadfd947a42dd5f88e76ec1c327c582f1e1aeb1a5809325fb33c8",
+      "asset_sha256": "a2f8dc26271e07ca004bb8c1a311e9acc561c87c68ee4f9213c3f04d36109cad",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to hungry wide pleading eyes and a small round mouth. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-sick.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "3f4dfad8fe36c84c16424d61fe05c43fbcac1b9c45d2faf001629c41762467f8",
+      "asset_sha256": "dacddfe545817bd67ccbf1ff34f58a8f16dabed11c177ff95109ecddb6169f66",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to sick squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-sleeping.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "69f50adc4a4fded0fe19a82be1efa4736e201685bd144b03b86d53705c161db7",
+      "asset_sha256": "bf930c29366ad3aa0575a9b56257bda01d2910dce39d28c34af9d5a51cca0ea7",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to sleeping fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-strained.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "c153789c9f430efa14e34b0a52394e60a89e1e313af605be39ca7579178c6f75",
+      "asset_sha256": "fd66d83f43781017dda84fa1740d18f3035023d1af5bf17d624f62a8be38ba0a",
+      "prompt": "strained raised worried inner brows and tiny downturned mouth; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-sulky.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "0fc514b6d20dc823646a053f1dea79547f097448fe66e5fbb93396a52a5ddc47",
+      "asset_sha256": "6de67c6d89406bb5ea146fe751127fcfe037a0313810f8774c07ecd340b30c93",
+      "prompt": "sulky narrowed annoyed eyes and pout; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-tired.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "5bea0f567d6da5457a19e4060a7b7a8918de0a0666599b0c1ea20713245184c1",
+      "asset_sha256": "4e07bf4e5c56f7a1c048c08317acd7f85c16676c91e07137b12c1f0580dbc35d",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to tired drooping eyelids and a visible yawn. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-wantsPlay.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "a546b4283ed315113181a99eb16666b66ff667f56a513e336b3cd14a1c1fe246",
+      "asset_sha256": "d417503ca87b26b9627be2eca9e28a3707824fef69377a7133460fd8a26ec365",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to wants-to-play bright eager eyes and a small friendly closed smile. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/06-weak.png",
+      "original": "assets/characters/man/06.png",
+      "original_sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
+      "generated_sha256": "f2371bd22daa9d0cf2c212ade0d0645e019b262f626e9acaab89821e8e85d2fb",
+      "asset_sha256": "48c9996340c83daef3fe2546841e0b0ec761dc147255532cfdaf7db59ca1e924",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 06. Primary request: change facial expression only to weak fragile worried half-open eyes and a weak closed mouth; the eyes must remain half-open and worried, not almost closed. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-critical.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "86ba317a3388a0280d133a712608e63e45e676dfea2d19d2d1630b77d581296d",
+      "asset_sha256": "28e0f3484dc40a3cf2f2a8ec8849ccedcf9e4bbc892cdfe83096c0639333c7a8",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve exactly the original hair, skin, clothes, backpack and all clothing details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-happy.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "f9d3afedbbc7568ad910db38c1cd4dce6564848421563f61e7548d065816049c",
+      "asset_sha256": "0475c6fcc9fb66048838cc6ec0d4ff8e733be7faaf7c013f330c0a7c1797ae14",
+      "prompt": "happy narrowed smiling eyes and open joyful grin; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-hungry.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "2c128577cb05fc2f338e815f9ba35c74ad7300db8187641b33ee107e38282391",
+      "asset_sha256": "c18cfdac73d30eb5d94514c3f5abe4d83e62015620328f04cbfa23a4970d4ce5",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 07. Primary request: change facial expression only to hungry wide pleading eyes and a small round mouth. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-sick.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "ca491108877558a4c034bd6ff47bd5d74cbf812b2bb59a39c32ec50df870587a",
+      "asset_sha256": "b4737c451998bdccf046056747707f1b294f546c703c15ab0c2b84e917f8ebdb",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 07. Primary request: change facial expression only to sick squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-sleeping.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "67823a168dcd1557741bf5ee5f585de9edda6f7ec52ed319d8804b5f55b6dc75",
+      "asset_sha256": "a6f705d9f063c27d0f92618721f032db6240f725e7f9fe67ca188d099347836c",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original hair, skin, clothes, backpack and all clothing details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-strained.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "07dd356a9ee906de617353b786c6a64169f62fd9146af10897ab24eaae563557",
+      "asset_sha256": "d6d628425599e41dfdb9253b0526018eb36602ac98361147ee2e67d9bd2ff154",
+      "prompt": "strained raised worried inner brows and tiny downturned mouth; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-sulky.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "5e5214b7761e18c40e73441604a503289fa995611fe0083bb2027a2c410e09d9",
+      "asset_sha256": "7d0d56e8272c8ad801232bf6084a8ab22a7a9bbc1ffbed6204d77ac1230d52cc",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 07. Primary request: change facial expression only to sulky narrowed annoyed eyes and a clear pout. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-tired.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "ce78f30a7511f62e92812986457086e073914532a74d27698311235cf6193203",
+      "asset_sha256": "9542a1b13be07819e1a71f21671eaff0e02d03d1480cb80ad6acadf2cca7207d",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve exactly the original hair, skin, clothes, backpack and all clothing details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-wantsPlay.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "fb9c5a19cae277f4e2406054afe723850f3f9f16538a7e28be64b902b56820cb",
+      "asset_sha256": "794441e5c435d54bb0d9cf083cc35521096167fe119c6970e118585726b8e321",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve exactly the original hair, skin, clothes, backpack and all clothing details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/07-weak.png",
+      "original": "assets/characters/man/07.png",
+      "original_sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
+      "generated_sha256": "832c4c2b2263a6eb8a43da2144687aa2a0c32cc20a3e4e9cd4e708c64a01ac76",
+      "asset_sha256": "cf3b9c4f345ce2bf5d3a44e76317725e9bf27cfc943f1c19b395e24fe98be6c2",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve exactly the original hair, skin, clothes, backpack and all clothing details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-critical.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "df562e80583af1e8e258f0a55375588c0822fc5ab02084fad60d38c35c2d1606",
+      "asset_sha256": "32084bacd30ef6957d9af1a496ec60a38b9a1a91360c6a3ed133e11237cbdcdd",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show almost-closed exhausted eyes and a weary mouth. Preserve exactly the original hair, skin, clothes, cane and all elderly age details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-happy.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "947dd513ecfff1b8cdb531ba9129532a307ed20d0f6d8873f80e10df7e0ff57f",
+      "asset_sha256": "0f2be26a2baf29143d79886ba077d5b07035533d3ebc4b534f1f45a419899aa7",
+      "prompt": "happy narrowed smiling eyes and open joyful grin; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-hungry.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "a63c698bbb7158f676621fdeb74fe7d8fb2d039ff15fc62cbb9f7bc7528e2392",
+      "asset_sha256": "55409dc6cb31ac29271881f53c38772a477bff243ecf1980e0719002ad531483",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 08. Primary request: change facial expression only to hungry wide pleading eyes and a small round mouth. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-sick.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "5d97560be5fb545553252895bd271550efde5ed8e6acfb0f64277610257e51e1",
+      "asset_sha256": "012588a9f68e18a217dcff582e83baefa69c97c8a69f6e55852b80f40d07cf40",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 08. Primary request: change facial expression only to sick squeezed tense eyes and a tense mouth without painted sweat. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-sleeping.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "ff87d4791d5f0d8dd347dafa7b51057a0e060518b1d86cb8ce9626f2756c347c",
+      "asset_sha256": "13dbb6903d78bcde14897330ef3c59f53cb39fad36ea09b66826a9153dd54190",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fully closed relaxed eyes and a faint closed-mouth smile. Preserve exactly the original hair, skin, clothes, cane and all elderly age details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-strained.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "5abd9273ebc0b0e210a23dc4689f31a26037535e0ece2dd9889948d667d3cb17",
+      "asset_sha256": "9464610d59cc8dadca829fe2001063ab5eb7dddc4b269bf9d83b48ba59ba40ea",
+      "prompt": "strained raised worried inner brows and tiny downturned mouth; facial eyes brows mouth only; preserve all else"
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-sulky.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "710b850f421e54193648cc2d4b8d1b77cc1648d51ff3f0acddf797b3101c2a01",
+      "asset_sha256": "22624ff3c70956f3176bd9eca5a23f1ed0719d5e71bdc7bf495661e4f977d92c",
+      "prompt": "Use case: precise-object-edit. Asset type: 128x128 transparent pixel-art game character expression sprite. Input image: edit target, man stage 08. Primary request: change facial expression only to sulky narrowed annoyed eyes and a clear pout. Preserve exactly the original character's identity, hair, skin, clothes, full-body pose, proportions, accessories and silhouette. Edit only facial eyes, eyebrows, and mouth. Preserve the original pixel-art style, palette, crisp pixel edges, framing, and transparent background. Keep the expression visibly readable at 128x128. Constraints: no text, no symbols, no shadows, no new props, no background, no sweat marks; do not change hands, body, clothing, hair, accessory, or pose. Return one isolated full-body RGBA character sprite."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-tired.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "8788eacf7c20988b30733be530e4e7e9d736a6392144091a8b89834b16d255f9",
+      "asset_sha256": "9ede606e66bc5fc74d529b8b230e570249f1fb9f81d08bee154ed62f0d6695ee",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show drooping eyelids and a yawn. Preserve exactly the original hair, skin, clothes, cane and all elderly age details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-wantsPlay.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "9f481022df5ddf5f822eb1b74b1529dbd9610b63fe296d5a96a3f8b379b432e3",
+      "asset_sha256": "47472ab31035d1211ad59001cc2414d48fe3ae6cb48f31d60333f3b59e65370e",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show bright eager eyes and a small friendly closed smile. Preserve exactly the original hair, skin, clothes, cane and all elderly age details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/man/08-weak.png",
+      "original": "assets/characters/man/08.png",
+      "original_sha256": "40d23ea51de66274d386f965c6d05e29998684abcbcf95608dbce4352d530672",
+      "generated_sha256": "aa2b656be8fe78906e7ed45d6783b74d423a02cb2c5f1c9042c50bb04ddc3485",
+      "asset_sha256": "b7b2621dd1bfe9e550c5df8490cd50a77bb19530b86bd65ea1c5a842c01ff717",
+      "prompt": "Use case: precise-object-edit. Asset: 128x128 transparent pixel-art game sprite. Edit only the human character's facial eyes, eyebrows, and mouth to show fragile worried half-open eyes and a weak closed downturned mouth. Preserve exactly the original hair, skin, clothes, cane and all elderly age details, pose, proportions, full-body silhouette, colors, pixel-art style, and transparency. No text, symbols, shadows, sweat, or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-critical.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "cb5afd8a0130da020849f309bd98f8ad9e8df5ebdbbcc6d5d1a8186f7519cd64",
+      "asset_sha256": "ee488c7caaa935f6c6a00b502d12dead05f3c58c6a08edc1a0a59549736488b3",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show CRITICAL: almost-closed exhausted eyes and a deeply weary mouth; this must look visibly more exhausted and severe than WEAK, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-happy.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "4e20fdf4e803d4a0dce1715d55ece62b4f48309f245d3d49ba2b5dfc8e18aff8",
+      "asset_sha256": "0a72dcee291057e736696f573a3f2d7f18a017541c93eb0dd55d9905ea0e773b",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show HAPPY: narrowed smiling eyes and an open joyful grin, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-hungry.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "fdcfdb4e18edc4b02417032cd68ef7d4ea0072b3a9dd4eda324b4e173e5c7f2b",
+      "asset_sha256": "1157d1ca8964296a855bffc6de63b9bb6f6423d13176a3daf79e8e0057032487",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show HUNGRY: wide pleading eyes and a small round mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-sick.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "6fc74574b25bd2bd72e0b35315850a5963e7fe8aff50b3b786435a28ad66bd2f",
+      "asset_sha256": "30d17c1f16418b6e31afaab83dcea76442266399774cb1df39883e53f1e470fe",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SICK: squeezed tense eyes and a tense mouth, with no painted sweat, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-sleeping.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "13cd513b369d338a757476933f2571becdbbceda83a93cea70560a7c21fc597f",
+      "asset_sha256": "fcac0d981663a01295bfd24d325bed5f2bc7f5c5c0a7e75f468d960f76e30f47",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SLEEPING: fully closed relaxed eyes and a faint closed-mouth smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-strained.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "1839b5650a976955ce248cc8844f2eb73906616d64c8fdf420319d7baa10c704",
+      "asset_sha256": "19193df7bc9021b097c864fdc1d4e565809858292b5f44f1306bf0b4f5017708",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show STRAINED: raised worried inner brows and a tiny downturned mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-sulky.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "915621a1e8770c94b4cf59e9c3bd8a2945bd5c437171ee8bdb6feb4200af83f1",
+      "asset_sha256": "a2a7cd989ad3c613061ea4bc721f9eca97f935fa3a27a3ed3646be1804bd845c",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SULKY: narrowed annoyed eyes and a clear pout, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-tired.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "5c1ecafa92b335ea6b8e43b9ee76af137ec0d7e4dd5fdb8750ea2ad5b14bb452",
+      "asset_sha256": "01d96fc46f179758755cf2f8c7535861a8640138c64998dcb86364d681125ad8",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show TIRED: drooping eyelids and an open yawn, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-wantsPlay.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "20b4d2d2bb28a0ff746e4cb64e7f553ae9afab984ccdbf863dd2a9f196b70fdc",
+      "asset_sha256": "f7f5046d6c84398ecd7f95e204a404619291372240af328d6f01c40091b15d1a",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show WANTSPLAY: bright eager eyes and a small friendly closed smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/01-weak.png",
+      "original": "assets/characters/woman/01.png",
+      "original_sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
+      "generated_sha256": "92c83a661a187139c461d1b33d8b6eaec3119cd9545900116b01c5b76131c67d",
+      "asset_sha256": "05ef18a4916bebbd8d9700c389e6dc0fb77fde442a61d6d0a43a94d1f325ed12",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show WEAK: fragile half-open worried eyes and a weak closed mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/01.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, clothes, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-critical.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "ae444d5076a7dcd47de2d74c72958bc30abec9d29db84176f9c3675332d05a04",
+      "asset_sha256": "7c50ae8e255c7c613b179a9be3d801a5d677f81a07a2a42c380f0be3f079f075",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show CRITICAL: almost-closed exhausted eyes and a deeply weary mouth; this must look visibly more exhausted and severe than WEAK, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-happy.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "70a952f182130f9670e3abd71f61f0df8fc63d3d216967b09e02aca008173fad",
+      "asset_sha256": "f6a193750e7bcd8e91a5fa74034a3f6aedd5351f14d4507c5869b5bfdc29579f",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show HAPPY: narrowed smiling eyes and an open joyful grin, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-hungry.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "217d7b3a43fced6f55be141dc49dd0f8b0694a176fcecc86997ceecace8a929b",
+      "asset_sha256": "19919aa93a0b85b71762bfe8880d71f81ef1ac40256b909ca5422d8922ee49e4",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show HUNGRY: wide pleading eyes and a small round mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-sick.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "974afdac643888aa21c803c78367a1c23be429d11ec1e3143543fc7b82eb4ad7",
+      "asset_sha256": "cd757032ecc9b0b03073528c8856367c2a4276029c511ad043c7a77832d6e8ee",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show SICK: squeezed tense eyes and a tense mouth, with no painted sweat, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-sleeping.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "cb0ecf3861e8e4dc0ab30c1ae68a6d2682557a70788f8830605311695e5b38b8",
+      "asset_sha256": "0020d6a0dc68ff5a70491a592846d15dce6a6826037b3a2fe45ef746c617c028",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show SLEEPING: fully closed relaxed eyes and a faint closed-mouth smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-strained.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "ad60e98647d8e135ef579882993677956af4445a53a0b650cad56af39c50fdee",
+      "asset_sha256": "e46b252c513784c28b692ae6235d77d4fa254ada6a5820cbce30e5dc25d19c3b",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show STRAINED: raised worried inner brows and a tiny downturned mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-sulky.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "ef8db6e7c8cd6f2ab7624a9c9099b56239ce9ab23ad2cf661f88ec3960d64f3a",
+      "asset_sha256": "2e1c23efccefe341a491eb50822f073065091c45566a91528411693d85e2d483",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show SULKY: narrowed annoyed eyes and a clear pout, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-tired.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "124f4dda4a75c92fc9f4bbf9df0d91503dba1c4f4f47fa30712d168ba301c61f",
+      "asset_sha256": "1d06a75e799343f7d5b591aca20604a1cfa01bc686f72f5450d019730f28c972",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show TIRED: drooping eyelids and an open yawn, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-wantsPlay.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "aad5a094874fcefbe34e01a4235b738cd7b46b6b0fa76e4a350c4d1cec566fe2",
+      "asset_sha256": "ddce8b50d0e840cb81c316068da520d90115d40cc83882fcaeee53896e259731",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show WANTSPLAY: bright eager eyes and a small friendly closed smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/02-weak.png",
+      "original": "assets/characters/woman/02.png",
+      "original_sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
+      "generated_sha256": "e2d8daeab500327bc10b9ef302da5941135991599ef200286698ee1e733db8e6",
+      "asset_sha256": "d4126b2043311884de78d82c991d8aa95b4293da5a26357f6b23733570cd2055",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the toddler girl's facial eyes, eyebrows, and mouth to show WEAK: fragile half-open worried eyes and a weak closed mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/02.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep the girl's hair, skin, pink dress, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Preserve the stuffed rabbit exactly, including its neutral face, eyes, mouth, ears, limbs, colors, placement, and silhouette; do not edit the rabbit at all. Change only the toddler girl's facial eyes, eyebrows, and mouth. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-critical.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "e25a140723aed326751302d73ed5304dad0dc888a735ad23f3fa5110047f56c9",
+      "asset_sha256": "7a2715df4f36e82c14ad3ce69397619d26291581d1bf485e629b691429fc80fa",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show CRITICAL: almost-closed exhausted eyes and a deeply weary mouth; this must look visibly more exhausted and severe than WEAK, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-happy.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "ac5b54fb5a65093c778c66665c424edbd95dae1ce52f80a5a44f0a586abc9cf9",
+      "asset_sha256": "c244ea7c6100591a4182e0ed9f2e5804c189e6f6f6474d66ebf8aa93dafcd5e3",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show HAPPY: narrowed smiling eyes and an open joyful grin, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-hungry.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "b5ef299e077154be2920c8a4b58e06eeb26298ac239762cbf90cdf7ac8741bc3",
+      "asset_sha256": "e77c1fa0137343a8dfc422d3ef5167ebc86598bfd76b2e777c86731425cb9293",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show HUNGRY: wide pleading eyes and a small round mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-sick.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "5740617489abe0ed9ad5ef3f8f4acc9c06d7082792efe2fcd2565db51e386837",
+      "asset_sha256": "49e7148a6a2b6f6f3ab45dc93076bd72abe33e9a467794d01eebcd88403be102",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SICK: squeezed tense eyes and a tense mouth, with no painted sweat, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-sleeping.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "4e108f49d65403053feace88e757fb267e0d408863a42c38e0442f3371c32e55",
+      "asset_sha256": "be55669f4c6f6585b143907bbc6778c5f72c6e392b6b1821c64b5d6bc1b5ac66",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SLEEPING: fully closed relaxed eyes and a faint closed-mouth smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-strained.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "ef5a3132625da9f2762e6a46528fd60f10161972f5e461f4d2be069aea62ee55",
+      "asset_sha256": "30df35c608c71f22d3fc464f08dfc5b51f87ac75bf3448590318c489aa655fd3",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show STRAINED: raised worried inner brows and a tiny downturned mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-sulky.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "b5f2b541db60b6b160125511bab3de5377fd9f3bd3bd892df5b01712bf198ac5",
+      "asset_sha256": "8fa58b3af77f74fd4565bd7f34ad9140eeb307d734f706d46c61133a7dc5c18b",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show SULKY: narrowed annoyed eyes and a clear pout, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-tired.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "960cb4e677b15b9e5e22b832026ce0676f8ebef376f210b7019987af35bcc8c9",
+      "asset_sha256": "46bd696c6a68df5675f1ced25e5942a40e9521f0e685e4b430ea5c9670a41baf",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show TIRED: drooping eyelids and an open yawn, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-wantsPlay.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "5b329dc97d43d49b87cf087b419931a34809b3aee7dcbac4d600f1d7b882bab2",
+      "asset_sha256": "c9e55955c77b931acef5144180ad69bd2af416c670a7f302252a795fed0f88ce",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show WANTSPLAY: bright eager eyes and a small friendly closed smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/03-weak.png",
+      "original": "assets/characters/woman/03.png",
+      "original_sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
+      "generated_sha256": "f061255916066ef639aac24ced09c224bdcddb88f95e88c5491d912da8055229",
+      "asset_sha256": "a8c0bb7207625098da02c44b1aae21518713f8b72cdf9479e6c338da833123e5",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the girl's facial eyes, eyebrows, and mouth to show WEAK: fragile half-open worried eyes and a weak closed mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/03.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, yellow hat, red clothes, limbs, pose, body proportions, accessories, held item, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-critical.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "716168b9155019e4a334094c97cdb1c3e020c9e5e91fec03324aae4a0a2c5d75",
+      "asset_sha256": "a3558dd71743e82ce79f380603a615e10d237f265e5a7611c06fa2475388a7a9",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show CRITICAL: almost-closed exhausted eyes and a deeply weary mouth; this must look visibly more exhausted and severe than WEAK, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-happy.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "cef0cd227a83783c52008f69efbffcaa93b9cb5fb042afea8cfb814eb204c1ff",
+      "asset_sha256": "c7a4a28e0fbf6e3ace83ca70e955fc04f550f37a79e9620e91db2c3e06c32472",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show HAPPY: narrowed smiling eyes and an open joyful grin, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-hungry.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "f53691236510a47ee258f759356981e577b0da4cb242c3f81a14753ae1711464",
+      "asset_sha256": "c79b02932f463ebd7f614760210a3e39fef9b79c6c15a52f6136de27109317e2",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show HUNGRY: wide pleading eyes and a small round mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-sick.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "f4350499931b57808862783c050298337cbcfd6d9ef3f43e4c7bc82899775d16",
+      "asset_sha256": "bf5e1f40adcad678d75cfbc05dfa66c749948ee5f9c8b3c69f92dd72f2054411",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show SICK: squeezed tense eyes and a tense mouth, with no painted sweat, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-sleeping.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "cabf393792e9f9e432b20efb02d3709b6c9c305d298dce4eb3e00c00dd3db5ca",
+      "asset_sha256": "80e5bc64daa7bad0cb49dfd2a5cc91781da6425dbca4c52f6f16f3c0c520e099",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show SLEEPING: fully closed relaxed eyes and a faint closed-mouth smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-strained.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "ea186c6ec6f250f14dd4e4c3f117c383ea4382b9b4e31c56c69e22e62cc9f2f6",
+      "asset_sha256": "318ea1d570fadac37518e1514341508b7f3c1b5e866976708bac59e739e67da2",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show STRAINED: raised worried inner brows and a tiny downturned mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-sulky.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "33776d2e43184e8f55635b30db3ad10caa2e916192fb5ccb3e79ee8f4582c763",
+      "asset_sha256": "efe4163846fa628e7a86120c5b1bad8531cad5b1b44bb514487e572ccc07435f",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show SULKY: narrowed annoyed eyes and a clear pout, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-tired.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "b4a448634b3e49a6b588cab18d3077bfa289cf26f64423a22aa194d21c83b698",
+      "asset_sha256": "599440d046954cb9ccb6b1b2d0be727efcf0add0dfd1f2ab2e72ab9e99db0552",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show TIRED: drooping eyelids and an open yawn, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-wantsPlay.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "b395ce1e1f6091228fcea074e08800bf5b02e598a2094c8cb32efe375b80cd8c",
+      "asset_sha256": "1d42b9970c7d297c0af2c63ff6e7f3d0e656ecab28799a7c085e350e3fbfe979",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show WANTSPLAY: bright eager eyes and a small friendly closed smile, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/04-weak.png",
+      "original": "assets/characters/woman/04.png",
+      "original_sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
+      "generated_sha256": "0c49a134f743d5d865814bf114be59e2cfcdd22dda39a67f8950eb57651c3054",
+      "asset_sha256": "5159848488d81a264a1a3cb3c400aef20b7ba6281eb8fd472c3f930b5eca3122",
+      "prompt": "Use case: identity-preserve\nAsset type: transparent 128x128 pixel-art game character expression sprite\nPrimary request: Edit ONLY the young woman's facial eyes, eyebrows, and mouth to show WEAK: fragile half-open worried eyes and a weak closed mouth, clearly readable at 128px.\nInput image: edit target is /workspace/scratch/orange-code/assets/characters/woman/04.png.\nStyle/medium: preserve the exact original polished chibi pixel-art rendering and palette.\nComposition/framing: preserve the exact full-body pose, scale, proportions, placement, and transparent canvas.\nConstraints: Keep hair, skin, school uniform, red bow, blue bag, limbs, pose, body proportions, accessories, silhouette, and all non-face pixels visually unchanged. Change facial eyes, eyebrows, and mouth only. Preserve genuine transparency. No symbols, text, shadows, sweat, new props, background, or watermark. One character only."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-critical.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "a0e8b1a3299b5ab34589672b773d5ff71d111d6c9192f90cf5be2eecc09081e9",
+      "asset_sha256": "0e3f844a76503e71d9f5469f12567c4a7a84f17cfde47a48c1de0a0dc5d9e2d7",
+      "prompt": "CRITICAL: almost-closed exhausted eyes, deeply weary brows, and a weary slack mouth; substantially more exhausted than weak. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-happy.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "567b06ee1018a1ad497d8d08484bab266d9b3026f33fa30e8d48e111ee7d3b3a",
+      "asset_sha256": "cff9409faa316c1303282dfb5693e43de00cd44fb42dd411be34c45b3698915d",
+      "prompt": "HAPPY: narrowed smiling eyes and an open joyful grin; edit only facial eyes, eyebrows, and mouth; preserve exact full-body silhouette, identity, hair, skin, clothing, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-hungry.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "524a6359a8be78b49a44f614e67fb6cbdea92f673df952aa20b2eb621e2deedf",
+      "asset_sha256": "277574f0178aa74f0e962862fc14e0d266607f30a11af7b5b6f9bbfe1d3000fb",
+      "prompt": "HUNGRY: wide pleading eyes, gently raised brows, and a small round mouth. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-sick.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "781ad2fc9938734b65e6744e3c32fd382c6ac9b172d2faec16dcc73ca63f93b4",
+      "asset_sha256": "99bb7e7ff40c3ec2f8f328072fd40c30ac32debdc07ca5d5b3b8d720d52df4d0",
+      "prompt": "SICK: squeezed tense eyes, pinched worried brows, and a tense mouth, without painted sweat. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-sleeping.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "d02c3057a6a75b4cf553b41159f9da7f3dac7d603838aa450f5a5565019cd45c",
+      "asset_sha256": "5e9e2465ff63fee5ac37fbc6de36cc1c4b7b86a8966d4abcc95196d2bb6c1530",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SLEEPING: fully closed relaxed eyes, calm relaxed brows, and a faint closed-mouth smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman05 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-strained.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "0fdbe84f727c0be26df6d912972783dd578d2d236acaf93386e9bc63076b5115",
+      "asset_sha256": "480cbe02d614070d747fc8aa2f8e954a6ed2a75b3abfbbacc6052db5d063b1f8",
+      "prompt": "STRAINED: raised worried inner eyebrows and a tiny downturned mouth. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-sulky.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "252736d223c99698de8e1eae804ae2adf09ce19ce3a66132bf9239f6c201a46c",
+      "asset_sha256": "5f3b0ec5e9bf7d12192fc1a9868b94569509abdd48dc7ad5012dd1ad86399adc",
+      "prompt": "SULKY: narrowed annoyed eyes, lowered irritated brows, and a clear pout. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-tired.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "968a7c89eb3f8415c4c3ea1ebf0507c64b7fc903b0ffa9908c3f68bc286d35ed",
+      "asset_sha256": "d4d2b66b61d7336293a5caca3512b30e5d3dda90be793287ecedb59904765652",
+      "prompt": "TIRED: drooping eyelids, heavy brows, and an open yawn. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-wantsPlay.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "dc318e5def445be35b0b131ff91f9b8f11937426ed0a42115fe648df615f30d2",
+      "asset_sha256": "b364318385ec7ddd41c0f2171fb14ef4b5a95106a14d233c396ef0e83f2e8abe",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WANTS PLAY: bright eager eyes, lively raised brows, and a small friendly closed smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman05 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/05-weak.png",
+      "original": "assets/characters/woman/05.png",
+      "original_sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
+      "generated_sha256": "3f9c91fa88742b4c1595487d7cdfa237ada3bb78c34422003671d680fced32aa",
+      "asset_sha256": "a7052e294381b3fbed651f111d8855f526f2d9fabf5e690271a9f314cb1eb5da",
+      "prompt": "WEAK: fragile half-open worried eyes, weak raised brows, and a small weak closed mouth. Edit only the woman's facial eyes, eyebrows, and mouth; preserve exact identity, hair, skin, clothes, pose, proportions and accessories; transparent; no text, symbols, shadows, background or new props."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-critical.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "2d129fff44c23c53bdf4b2f8080b47b9aebf3746a445c3a3a2da0110ad59d1df",
+      "asset_sha256": "a89590cd3441b7c4ae6f35f114e250a120d3be725f89275a4cdb5b34df7fa234",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to CRITICAL: almost-closed exhausted eyes, deeply weary brows, and a weary slack mouth. This must look substantially more exhausted and severe than weak, while remaining readable at 128px. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-happy.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "441ce4fee634cd68375569208efda99adbb596bda2d3abec36cdf01101eaa586",
+      "asset_sha256": "d163238113eee6aca9fa5f6a2e78cb32975c601686da94fb1a2010d747654d87",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HAPPY: narrowed smiling eyes and an open joyful grin. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-hungry.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "4652342e72c13a3404a2b8371be2178edfd0c3e56d1e1098115544b433004eb3",
+      "asset_sha256": "d194c8bdfa03d1f1b0db67f17cf2b6b58f5de37e741605eb6ed3d87e11a8f901",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HUNGRY: wide pleading eyes, gently raised brows, and a small round mouth. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-sick.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "fcd65a24ef0c54d05053e33e563bb2a55f5df5eb8c0bc7e3101c0c2289dbe29f",
+      "asset_sha256": "12cc33a2921617a7c5fb8e8f6d9e96d7dcabf4819ff80ed44cd529997dcd1b30",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SICK: squeezed tense eyes, pinched worried brows, and a tense mouth, with no painted sweat or illness symbols. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-sleeping.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "190825e21876fcfe180f73df640433e063f0a39b34283fc89490014ff1e32894",
+      "asset_sha256": "09f29be246d392282df5898d06ea0fa381ecda62c0a2a0e9448a95fe23700ce1",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SLEEPING: fully closed relaxed eyes, calm relaxed brows, and a faint closed-mouth smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-strained.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "2903f510993db2217d1e4fce67b4ebdc07e2d1cb41844e1fa1caa93798f0f53c",
+      "asset_sha256": "3616bac6e6c0d08fd8365e8fea1495e163512ce369dedd95e6913f2636abd275",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to STRAINED: raised worried inner eyebrows and a tiny downturned mouth; eyes show visible anxious tension. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-sulky.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "db4a3cc5ffbf85ec98f8dadf0fc19d87a442c9adea36a3c48f3f02a6ed500ef1",
+      "asset_sha256": "696384f86eadc759e234952f2363a8f0a7e72d13a59732ddaa4385a632f7f0c1",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SULKY: narrowed annoyed eyes, lowered irritated brows, and a clear pout. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-tired.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "9bebefa2b91680386b1f5c44be2b36af282a0e36ac275a384ea9c4235e614469",
+      "asset_sha256": "9c0749c0b74100b068af70551f62a3c802dbe1de6974d1ec552577108e9857ff",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to TIRED: visibly drooping eyelids, heavy brows, and an open yawn. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-wantsPlay.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "07323d8c4a00ae65e545c6db18d01b8233f0ab0f8163dd5a0cf32e523836b33b",
+      "asset_sha256": "cd0cbc8676bf0bee3ef033fc8cf0a0b6dd4a0ff77dcd55b51851bfef23f2df83",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WANTS PLAY: bright eager eyes, lively raised brows, and a small friendly closed smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/06-weak.png",
+      "original": "assets/characters/woman/06.png",
+      "original_sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
+      "generated_sha256": "96a18656478af42ba5329814b03d602ef665c89834a34df29260ddb477fbc37e",
+      "asset_sha256": "20b16b9b6be4c419aea2072dbf4c52edd382b0172db09e165856d527e62e98b1",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WEAK: fragile half-open worried eyes, weak raised brows, and a small weak closed mouth. The eyes must remain half-open and worried; do not make them nearly closed or as exhausted as critical. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman06 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-critical.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "866bd81b246bca02fd2950b36346b5200a13b26fd18fde6253d836e2961b2aea",
+      "asset_sha256": "3193be67f011a489d13a7c22184140a33f80ff602872265884887f1a93089af5",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to CRITICAL: almost-closed exhausted eyes, deeply weary brows, and a weary slack mouth. This must look substantially more exhausted and severe than weak, while remaining readable at 128px. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-happy.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "f7804400bde605e3a6468302d74fad95f3e50613e21545c774168bcdbfa29fd1",
+      "asset_sha256": "912ff1f06228264add038cefb5921be59218301e52b7071cccb88a85bcc655e5",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HAPPY: narrowed smiling eyes and an open joyful grin. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-hungry.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "cbca028bf00b7862176307aa1d494fcc0ca62355c98fe4f3511a23e30e8f72fd",
+      "asset_sha256": "e2ecd529873d843cdddc5fed6199ada7a76d169783cacc87917347e8140de986",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HUNGRY: wide pleading eyes, gently raised brows, and a small round mouth. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-sick.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "db3c3e90ab7f6b973a7e3b9f38a359460a21451b70bd807bb3d32e63a4acb207",
+      "asset_sha256": "7f4fbabdb8231cc7278d428f76c124f2052774fae30f3492c405b9033a7d0d43",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SICK: squeezed tense eyes, pinched worried brows, and a tense mouth, with no painted sweat or illness symbols. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-sleeping.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "d225e74f409aaf2b168cc1e5592b84fc557a5515d4b13766a03273d27d3d2d5a",
+      "asset_sha256": "ac6bf74fb61a57f838ff6da36e5543393e9f13de1eac9eef1dc479fb1cb0f3bc",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SLEEPING: fully closed relaxed eyes, calm relaxed brows, and a faint closed-mouth smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-strained.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "06c02dbc1fb5aeaad34d4f0ccde63e3f196a58f7ceec46ac1784a1374396c6c8",
+      "asset_sha256": "fb0d97ce7889a4adc57e092bbc69c02c8c9b8a6b918254db3a2e6266f35215ad",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to STRAINED: raised worried inner eyebrows and a tiny downturned mouth; eyes show visible anxious tension. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-sulky.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "1b982b4e9e0785dbced1cc75fd92eb9f73db9e1d34494e5558d31706b07a5550",
+      "asset_sha256": "9194f783d7c33e9815fea4f0b28693f111234a8f7e591309be5457689950532a",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SULKY: narrowed annoyed eyes, lowered irritated brows, and a clear pout. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-tired.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "7afb49cd8beb6189475562de465f5ca4393a6706b25bcdf695f34390cd41645b",
+      "asset_sha256": "ad98c357448004a7dc4337c87deb6c619cabb42f111e83b37dba21f4fc43d9dd",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to TIRED: visibly drooping eyelids, heavy brows, and an open yawn. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-wantsPlay.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "d0b136cff40a8570fd269d2eb3e11f922458e4662ee2f3887faf7f3ef5d723bc",
+      "asset_sha256": "72af9fbcb0e550ed6c2ca6adc3b6e7bad79c2eb0baf27d64fe50f5d36c43b02d",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WANTS PLAY: bright eager eyes, lively raised brows, and a small friendly closed smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/07-weak.png",
+      "original": "assets/characters/woman/07.png",
+      "original_sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
+      "generated_sha256": "6f7160e5bc225053f4a1aa715c04edd5af13c39da8a69c63b6792f8efa98aaee",
+      "asset_sha256": "5a90f03080c75a5ee1d3bce272036d37edf8a676ae85aafe87feeb31d89f3b33",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WEAK: fragile half-open worried eyes, weak raised brows, and a small weak closed mouth. The eyes must remain half-open and worried; do not make them nearly closed or as exhausted as critical. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman07 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-critical.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "1cceffdec5e3cb16b98be6d04c701277b94234b381aa170708ddd4d9358011ef",
+      "asset_sha256": "20556d7da82915ee2c16d32d271919bafd24f23c2198c18d10275114d4f07ed8",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to CRITICAL: almost-closed exhausted eyes, deeply weary brows, and a weary slack mouth. This must look substantially more exhausted and severe than weak, while remaining readable at 128px. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-happy.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "d4a1ef9401767ed5069f465313f5476ef271170c5c0d3e8f9b07373cdbd3d1a2",
+      "asset_sha256": "d7420ff6c9a7022767afc36875a6c4ff98e33a03645aaf92d595cbcaa88cdbd0",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HAPPY: narrowed smiling eyes and an open joyful grin. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-hungry.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "ed0d93e9371ea4d512b582e005e8c119c7ae9c8d3fd8f224fb59d4c60dbef73b",
+      "asset_sha256": "4f607ab74f8bc4243f01556ae8acdd2091d2874579e6816810f6592fbbdbea90",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to HUNGRY: wide pleading eyes, gently raised brows, and a small round mouth. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-sick.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "86d2561d906b9ddeb47d2e35d5f623a860d50add1f0e180b3e73835a1fcb86ff",
+      "asset_sha256": "8e12b8c059b76feadc608d4c111c0f763f97d4e8de8d38529905c24161478807",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SICK: squeezed tense eyes, pinched worried brows, and a tense mouth, with no painted sweat or illness symbols. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-sleeping.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "d373035af7f805aedbd7d5ec87e425adec4073bd194ec626a0147efd6603a7b1",
+      "asset_sha256": "c6dee4fe8dedecb861fa273b4ec9ea35cd39e5b0723e7e14f672252db9d96120",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SLEEPING: fully closed relaxed eyes, calm relaxed brows, and a faint closed-mouth smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-strained.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "748ffa60006dfe80d0ed3207e6c6baabfa5657ade77b37abf1a03ba0690a0f85",
+      "asset_sha256": "33b9a10ed9a80ccedf3a95b88fde21a32eaaf3207a87a1d7aa119d84e7a465b0",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to STRAINED: raised worried inner eyebrows and a tiny downturned mouth; eyes show visible anxious tension. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-sulky.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "f9ab269a21299da8ccd9bb12f1084a2a5848aedae310e70e9fc31a8d2f81af9e",
+      "asset_sha256": "0f9ca54c6fc70e2140de5b4ba487f4a416a835fb237c1c02af9b39abe4bf13dc",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to SULKY: narrowed annoyed eyes, lowered irritated brows, and a clear pout. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-tired.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "b3779e20874720831d9d5f3d3c98da310d08d565d2f4fe4f16549c78b03a3e58",
+      "asset_sha256": "5bf54f257b7e3b722bc796db40bca3036eca779a203561201509b0c2b25d4e63",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to TIRED: visibly drooping eyelids, heavy brows, and an open yawn. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-wantsPlay.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "9a6d7cd5d107dadab93933e6d4c6a3b758e603ecb4f8497ab6bed258921c6cca",
+      "asset_sha256": "46e649042b61e5b5eaf5bffc34fe9230fd9d63118ea7a74511c6a67889bbe8dd",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WANTS PLAY: bright eager eyes, lively raised brows, and a small friendly closed smile. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    },
+    {
+      "asset": "assets/characters/expressions/woman/08-weak.png",
+      "original": "assets/characters/woman/08.png",
+      "original_sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
+      "generated_sha256": "b75d2cd3007ff041c9b5aa967cb31674e3c20417f07ddbe03e934ae2ac4f42d8",
+      "asset_sha256": "6eb000eb77bb0f3c9d00a53c5893d13a0eb68237857280bf339df71bcc4a7cd3",
+      "prompt": "Use case: identity-preserve\nAsset type: 128x128 transparent game character expression sprite\nPrimary request: Edit the woman character's facial expression to WEAK: fragile half-open worried eyes, weak raised brows, and a small weak closed mouth. The eyes must remain half-open and worried; do not make them nearly closed or as exhausted as critical. Keep the expression high-contrast and clearly readable at 128px.\nInput image: the provided woman08 sprite is the edit target and sole design reference.\nComposition: preserve the exact full-body pose, framing, silhouette, proportions, and placement.\nStyle: preserve the original polished chibi game sprite rendering, colors, linework, shading, and transparent background.\nConstraints: change only the woman's facial eyes, eyebrows, and mouth. The cat in her lap must retain its exact original neutral face and expression; do not edit the cat's eyes, brows, or mouth. Preserve exactly her identity, hair, skin, clothing, shoes, bag/accessories, hands, body pose, proportions, cat/props, and every non-face pixel as closely as possible. No text, symbols, shadows, background, or new props. Maintain genuine transparency. Output one isolated full-body character, not a sheet."
+    }
+  ]
+}

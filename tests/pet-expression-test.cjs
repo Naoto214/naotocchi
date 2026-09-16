@@ -327,3 +327,20 @@ for (const [stage,strained,wantsPlay,general] of [
     assert.equal(expression.accentFor(base,'normal'),'');
   });
 }
+
+for (const species of ['man','woman']) {
+  test(`${species} supports all eight stages with ten faces and a rice-bowl hunger mark`, () => {
+    for (let stage=1;stage<=8;stage++) {
+      const id=String(stage).padStart(2,'0'),base=`assets/characters/${species}/${id}.png`;
+      for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+        assert.equal(expression.assetFor(base,name),`assets/characters/expressions/${species}/${id}-${name}.png`);
+        assert.match(expression.accentFor(base,name),new RegExp(`pet-expression-accent--${name}`));
+      }
+      assert.equal(expression.assetFor(base,'normal'),base);
+      assert.equal(expression.assetFor(base,'unknown'),base);
+      assert.equal(expression.accentFor(base,'normal'),'');
+      assert.match(expression.accentFor(base,'hungry'),/accent-rice/);
+      assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
+    }
+  });
+}
