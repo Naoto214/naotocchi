@@ -38,3 +38,5 @@ weak: Fragile worried eyes and a small weak downturned closed mouth.
 TDD RED: 81 passed / 7 expected failures (new routing, anchors, runtime states, age boundaries, preview, achievement regression, missing assets). Focused GREEN: 171/171 passed. Unsupported-form fixtures moved from newly supported dog05 to dog02, preserving fallback coverage. Independent code review: no actionable findings. Full suite runs after all image assets exist.
 
 Final npm test:737 passed /0 failed /0 skipped, exit0. PNG suite14/14 passed. All ten expressions visually inspected; transparent bounds match original. git diff --check passed. Existing-stage art/anchors and painted-bounds probe correction unchanged. Preview packages the same runtime and ten PNGs. User iPhone approval remains pending.
+
+User requested orange mark slightly toward center: dog05 wantsPlay x -29 → -33, y7 unchanged. Other anchors unchanged.

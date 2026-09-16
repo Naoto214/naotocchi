@@ -281,7 +281,7 @@ test('young dog supports ten expressions while other dog stages retain base port
 test('young dog accents follow its upright head and hunger uses a food bowl', () => {
   const base='assets/characters/dog/05.png';
   assert.match(expression.accentFor(base,'strained'),/translate\(-12 3\)/);
-  assert.match(expression.accentFor(base,'wantsPlay'),/translate\(-29 7\)/);
+  assert.match(expression.accentFor(base,'wantsPlay'),/translate\(-33 7\)/);
   assert.match(expression.accentFor(base,'hungry'),/translate\(-20 1\)/);
   assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
   assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
