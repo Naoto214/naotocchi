@@ -149,12 +149,13 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       startDuelGuess, setDuelGuess, confirmDuelGuesses, chooseDuelSuspicion, encodeDuelChallenge, encodeDuelGuess, encodeDuelReveal,
       resolveDuelWithGuessCode, resolveDuelWithRevealCode, settleDuelForSelf,
       openDreamPicker, openThemedStickerPack, chooseKakeraSticker, cancelKakeraChoice,
-      audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
+      audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, rareCompanions: RARE_COMPANIONS, partnerCandidates: ALL_PARTNER_CANDIDATES, pendingCompanion: () => pendingCompanionId, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
       useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
       currentVisualForm, experiencedSpecies, normalLines:NORMAL_LINES, rareLines:RARE_LINES,
       pickerValues: () => pickerItem?.picker === 'dex-form' ? temporaryDexKeys()
-        : pickerItem?.picker === 'transform-ticket' ? [...(ticketTransformOptions || [])] : [],
+        : pickerItem?.picker === 'transform-ticket' ? [...(ticketTransformOptions || [])]
+        : typeof ticketEncounterOptions !== 'undefined' && Array.isArray(ticketEncounterOptions) ? [...ticketEncounterOptions] : [],
       now: () => Date.now(),
       STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
@@ -182,6 +183,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,
+      setRandom: fn => { Math.random = fn; },
       reset: () => {state = Object.assign(freshState(), {stage:STAGE.GROWING,
         speciesLine:'dog', stageIndex:5, ageTicks:500, sodachi:55, maxSodachi:55,
         hunger:50, happiness:80, energy:90, health:100});},

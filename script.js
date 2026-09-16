@@ -1434,6 +1434,8 @@
       // gender/orientationId/attractedTo は 卵が かえった しゅんかんに
       // rollIdentity() で きまる(hatchEgg() 参照)
       partner: null,
+      // おみあいチケットで現在地に呼んだ相手。紹介だけでは消えず、移動・交際・次人生で消える。
+      calledMatch: null,
       gender: null,
       orientationId: null,
       attractedTo: [],
@@ -2514,7 +2516,16 @@
       unavailableMessage:'いま選べるへんしん先がない' },
     { id:'c_dex', emoji:'📖', picker:'dex-form', available:() => !state.infinite && temporaryDexKeys().length > 0,
       unavailableMessage:'いま選べるすがたがない' },
-    ...FUTURE_CONSUMABLE_IDS.filter(id => !['c_time_back','c_time_forward','c_transform','c_dex'].includes(id)).map(id => ({ id, emoji:'🎟️',
+    { id:'c_friend', emoji:'🎟️', picker:'companion-ticket', companionKind:'normal',
+      available:() => !pendingCompanionId && ticketCompanionCandidates('normal').length > 0,
+      unavailableMessage:'いま呼べるなかまがいない' },
+    { id:'c_rare_friend', emoji:'🎟️', picker:'companion-ticket', companionKind:'rare',
+      available:() => !pendingCompanionId && ticketCompanionCandidates('rare').length > 0,
+      unavailableMessage:'いま呼べるレアなかまがいない' },
+    { id:'c_match', emoji:'🎟️', picker:'match-ticket',
+      available:() => !state.partner && ticketMatchCandidates().length > 0,
+      unavailableMessage:'いま呼べるおみあい相手がいない' },
+    ...FUTURE_CONSUMABLE_IDS.filter(id => !['c_time_back','c_time_forward','c_transform','c_dex','c_friend','c_rare_friend','c_match'].includes(id)).map(id => ({ id, emoji:'🎟️',
       available: () => false, unavailableMessage:'このアイテムは準備中' })),
   ].map(item => ({...item, ...ITEM_SYSTEM.CATALOG[item.id]}));
   // いま もっている つかいきりの こうかを、あいてむ画面に みじかく 出す
@@ -12569,6 +12580,12 @@
       if (item.picker === 'transform-ticket') {
         ticketTransformOptions = pickTicketTransformCandidates();
         if (!ticketTransformOptions.length) return false;
+      } else if (item.picker === 'companion-ticket') {
+        ticketEncounterOptions=ticketCompanionCandidates(item.companionKind).map(c => c.id);
+        if (!ticketEncounterOptions.length) return false;
+      } else if (item.picker === 'match-ticket') {
+        ticketEncounterOptions=ticketMatchCandidates().map(c => c.id);
+        if (!ticketEncounterOptions.length) return false;
       }
       openPicker(item); return false;
     }
@@ -12584,6 +12601,24 @@
   let pickerOpen = false;
   let pickerItem = null;
   let ticketTransformOptions = null;
+  let ticketEncounterOptions = null;
+
+  function ticketCompanionCandidates(kind) {
+    const pool = kind === 'rare' ? RARE_COMPANIONS : COMPANIONS;
+    return pool.filter(c => !hasActiveCompanionId(c.id));
+  }
+
+  function ticketMatchCandidates() {
+    if (state.partner) return [];
+    return ALL_PARTNER_CANDIDATES.filter(candidate => mutualRomanticMatch(state,candidate));
+  }
+
+  function calledMatchCandidate() {
+    const call = state.calledMatch;
+    if (!call || call.regionId !== state.regionId || state.partner) return null;
+    const candidate = ALL_PARTNER_CANDIDATES.find(c => c.id === call.id);
+    return candidate && mutualRomanticMatch(state,candidate) ? candidate : null;
+  }
 
   function openPicker(item) {
     pickerItem = item;
@@ -12593,6 +12628,7 @@
 
   function closePicker() {
     if (pickerItem?.picker === 'transform-ticket') ticketTransformOptions = null;
+    if (pickerItem?.picker === 'companion-ticket' || pickerItem?.picker === 'match-ticket') ticketEncounterOptions = null;
     pickerOpen = false;
     pickerItem = null;
     render();
@@ -12642,6 +12678,28 @@
       ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
       pickerOpen=false; pickerItem=null;
       setMessage(result.message); saveState(); render(); return;
+    }
+    if (item.picker === 'companion-ticket') {
+      const candidates=ticketCompanionCandidates(item.companionKind);
+      const companion=candidates.find(c => c.id === value);
+      const valid=itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id) && !pendingCompanionId
+        && Array.isArray(ticketEncounterOptions) && ticketEncounterOptions.includes(value) && !!companion;
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      pickerOpen=false; pickerItem=null; ticketEncounterOptions=null;
+      openCompanionInvite(companion,item.companionKind === 'rare');
+      saveState(); return;
+    }
+    if (item.picker === 'match-ticket') {
+      const candidate=ticketMatchCandidates().find(c => c.id === value);
+      const valid=itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id) && !state.partner
+        && Array.isArray(ticketEncounterOptions) && ticketEncounterOptions.includes(value) && !!candidate;
+      if (!valid) { closePicker(); return; }
+      ITEM_SYSTEM.take(state,item.id); recordItemUse(item.id);
+      state.calledMatch={id:candidate.id,regionId:state.regionId};
+      pickerOpen=false; pickerItem=null; ticketEncounterOptions=null;
+      setMessage(`${candidate.emoji} ${candidate.label}が会いにきた`);
+      saveState(); render(); return;
     }
     if (state.lifetime.money < item.price) {
       setMessage('おかねがたりない…');
@@ -12698,6 +12756,16 @@
           <span class="dex-cell-label">${stage.label}</span>
         </div>
       `).join('')).join('');
+    } else if (item.picker === 'companion-ticket') {
+      el.pickerHint.textContent='呼ぶなかまを選んでね。決めるまで使わない';
+      el.pickerGrid.className='theme-grid';
+      const candidates=(ticketEncounterOptions || []).map(allCompanionsById).filter(Boolean);
+      html=candidates.map(c => `<div class="dex-cell known tappable" data-picker-value="${c.id}"><span class="dex-cell-emoji">${companionVisualHTML(c,'thumb')}</span><span class="dex-cell-label">${escapeHtml(c.name)}</span></div>`).join('');
+    } else if (item.picker === 'match-ticket') {
+      el.pickerHint.textContent='会いたい相手を選んでね。決めるまで使わない';
+      el.pickerGrid.className='theme-grid';
+      const candidates=(ticketEncounterOptions || []).map(id => ALL_PARTNER_CANDIDATES.find(c => c.id === id)).filter(Boolean);
+      html=candidates.map(c => `<div class="dex-cell known tappable" data-picker-value="${c.id}"><span class="dex-cell-emoji">${partnerVisualHTML(c,'thumb')}</span><span class="dex-cell-label">${escapeHtml(c.label)}</span></div>`).join('');
     } else if (item.picker === 'achievement') {
       el.pickerGrid.className = 'ach-grid';
       html = ACHIEVEMENTS.filter((ach) => !state.achievementsUnlocked.includes(ach.id)).map((ach) => `
@@ -16211,9 +16279,12 @@
     // とくべつな たびさき(SPECIAL_REGIONS)には こいびとこうほが いない ので、
     // candidates が からの ことが ある。あいてが いない ときは しっぱいでは なく
     // 「ひとりの じかん」として かるく かえす(ここを まもらないと undefined に なる)
+    const calledCandidate = calledMatchCandidate();
     const regionCandidates = findRegion(state.regionId).candidates || [];
     let candidate;
-    if (state.guest && Math.random() < 0.6) {
+    if (calledCandidate) {
+      candidate = calledCandidate;
+    } else if (state.guest && Math.random() < 0.6) {
       candidate = guestCandidate(state.guest);
     } else if (regionCandidates.length) {
       candidate = regionCandidates[Math.floor(Math.random() * regionCandidates.length)];
@@ -16277,6 +16348,7 @@
         married: false,
         bondCount: 0,
       };
+      state.calledMatch = null;
       rememberPartnerLetter('court');
       state.happiness = clamp(state.happiness + 8, 0, 100);
       applyGrowth(10); applyDecline(-5);
@@ -16435,6 +16507,7 @@
     const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
     if (region.id === state.regionId && !sameLocalHome) return false;
     currentLocationIntent += 1;
+    state.calledMatch = null;
     if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
     // 表示だけを戻す操作では、旅の消費や記録を発生させない。
