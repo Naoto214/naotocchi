@@ -11,7 +11,7 @@
     const bubble=doc.getElementById('speechBubble');
     if(visible(bubble)) {
       const frames=[...doc.querySelectorAll('#petSprite .character-asset,.partner-emoji .character-asset,.companion-chip-small .character-asset')].filter(visible).map(img=>{
-        const r=rect(img), asset=img.getAttribute('src').split('?')[0];
+        const r=rect(img), asset=(img.getAttribute('data-fallback-asset') || img.getAttribute('src')).split('?')[0];
         const b=win.NaotocchiCastBounds?.[asset]?.box || [0,0,128,128];
         return {x:r.x+r.width*b[0]/128,y:r.y+r.height*b[1]/128,right:r.x+r.width*b[2]/128,bottom:r.y+r.height*b[3]/128};
       });

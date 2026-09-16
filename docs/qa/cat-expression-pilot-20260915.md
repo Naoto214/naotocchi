@@ -1,0 +1,93 @@
+# 猫の表情パイロット QA（2026-09-15）
+
+対象は成長段階 `assets/characters/cat/06.png` のホーム画面メイン個体だけ。通常顔は元画像を使い、喜び・つらい・すねるに加えて、空腹・病気・疲労・弱り・危険・かまって・睡眠の専用画像を追加した。通常ゲームのセーブ、ゲームルール、ケア判定、ほかの姿、なかま・こいびとの画像は変更していない。
+
+## 画像の検証
+
+|用途|ファイル|SHA-256|寸法・形式|アルファ|不透明色数|
+|---|---|---|---|---|---:|
+|元画像|`assets/characters/cat/06.png`|`8f6beedbfd82135cfc17c24d3aa5ea1869c9344f65b0a21e3950995c5768c6da`|128×128 RGBA|0 / 255|63|
+|喜び|`assets/characters/expressions/cat/06-happy.png`|`98c1b745b65ce17aaace98cc210de623f238563f4bbcab59bd0afebfb60074f8`|128×128 RGBA|0 / 255|52|
+|つらい|`assets/characters/expressions/cat/06-strained.png`|`66c8e780bd8365b45676d60c6d4be762a025976694b58963be649b293509c7aa`|128×128 RGBA|0 / 255|52|
+|すねる|`assets/characters/expressions/cat/06-sulky.png`|`72ff579e670c081fe888c26dfee5181fb16d04aab3508ef9c2ad0f2b4a07e0ba`|128×128 RGBA|0 / 255|53|
+
+ルート提供の正規化記録によると、3画像は元の成猫画像から個別生成され、シート切り出しは行っていない。各出力は ImageMagick でアルファ50%しきい値、透明余白の trim、元画像と同じ96×112の不透明範囲への最近傍リサイズ、128×128透明キャンバス中央配置、透明色を含む64色量子化、PNG32エンコードを行った。全画像の不透明範囲は `[16, 8, 112, 120]`。元画像は上記ハッシュのまま変更されていない。生成画像はルートが姿と表情を目視確認済みだが、胴体のピクセルは元画像と完全一致しない。
+
+自動テストは PNG signature、IHDR（128×128、8-bit RGBA、非インターレース）、展開後のアルファ値、個別ハッシュ、3ファイルの相違、元画像ハッシュ、ランタイム allowlist の全パス実在を確認した。
+
+## 使い捨てプレビュー
+
+生成コマンド:
+
+```sh
+node tools/cat-expression-preview.cjs cat-expression-check.html hungry
+```
+
+`buildPreview({preset='hungry'}={})` は現在の `index.html` と `tests/helpers/runtime-harness.cjs` の `freshState()` を使い、25歳・`cat`・stage index 5 の個体を作る。`normal`、`hungry`、`sick`、`tired`、`sulky`、`critical` のリンクはページ内で子ゲームだけを再初期化し、URL値と選択値はこの6種類だけを受け付ける。既定は、食事後の回復と最新状態への復帰を確認しやすい `hungry`。
+
+ゲームは操作欄の下の全幅 iframe で動き、子文書の利用可能な高さを使う。子文書内で最初のゲームスクリプトより前に、新しい `Map` ベースの `localStorage` を設置する。初期値はメモリ上の `naotocchi-save-v1` だけで、通常保存領域を読み書きしない。VM検査では、生成した実物の bootstrap を外部ストレージ sentinel とともに実行し、外部の読取・書込が0件で、sentinel内容も不変であることを確認した。通常の `index.html` はこのツールを読み込まない。
+
+未対応の姿や不明な表情は `assetFor` が元画像を返す。表情画像の読込失敗時は成猫の元画像へ戻り、その元画像も失敗した場合だけ既存の絵文字フォールバックへ進む。
+
+## 自動結果
+
+|コマンド|結果|
+|---|---|
+|`node --test tests/pet-expression-assets-test.cjs tests/cat-expression-preview-test.cjs`|8成功、0失敗|
+|`node --test tests/pet-expression-test.cjs tests/pet-expression-integration-test.cjs tests/emotion-state-test.cjs tests/emotion-integration-test.cjs tests/care-status-integration-test.cjs tests/cast-motion-test.cjs tests/time-pause-test.cjs`|115成功、0失敗|
+|`npm run bump`|成功、`index.html` の2トークン更新|
+|`npm test`|smoke / dialogue / visual QA 成功、Node 665成功、0失敗、0 skip|
+|`git diff --check`|成功、出力なし|
+
+## iPhone 実機確認
+
+この作業ではブラウザ・実機を操作していないため、次の全項目はユーザー確認待ち。
+
+|項目|状態|
+|---|---|
+|通常顔と3表情（喜び・つらい・すねる）の見分けやすさ|未確認|
+|空腹 → ごはん → 喜び → 最新状態への復帰|未確認|
+|じゃれる成功と連打時のすねる表情|未確認|
+|病気への正しい薬と、健康時のまちがった薬|未確認|
+|一時表情終了時に古い状態でなく最新状態へ戻ること|未確認|
+|危険状態が喜びより優先されること|未確認|
+|視差効果を減らす設定で静止した表情切替が残ること|未確認|
+|なかま26体で元の配置を保つこと|未確認|
+|使い捨てプレビューの操作欄が年齢表示・ケアボタンを覆わず、通常保存へ影響しないこと|未確認|
+
+## 実機動画からの修正：切り替え待ちと実績通知
+
+ユーザー動画では、状態リンクごとにホスト画面全体の読み込み待ちが発生し、表示後に25歳の実績通知が表情を通常顔へ戻していた。確認ページのリンク操作をページ内で処理し、使い捨ての子ゲームだけを再初期化するよう変更。成猫の初期データでは10歳・25歳の既到達実績を取得済みにして、起動時の通知を防ぐ。通常ゲームの実績判定や保存形式は変更していない。
+
+回帰テストは、実際の起動時saveStateで通知が顔を隠す失敗（RED）と、リンク操作で上位ページへ遷移せず選択状態を子ゲームへ渡す失敗（RED）を確認し、修正後は7件成功。`npm test` は前段チェックおよび667件成功、0件失敗。修正後のiPhone表示は再確認待ち。
+
+## 承認済みの状態別拡張
+
+ユーザーが会話内で承認した「顔・既存モーション・小さな専用アクセント」の組み合わせを成猫だけへ実装した。永続状態は `hungry`、`sick`、`tired`、`weak`、`critical`、`sulky`、`wantsPlay` をそれぞれ別の画像へ対応させる。ホームで睡眠中なら `sleeping`、一時的な成功反応なら `happy` を使う。危険は一時的な喜びより優先し、メニュー・ストーリー・ミニゲーム・非表示タブ・死亡・卵・お別れでは元画像へ戻す。起床直後は既存の `normal` 一時反応を出し、その終了後に最新のケア状態を再評価する。`strained` は食べすぎ・薬の間違い用として残した。
+
+各表情は画像と同じ `character-visual` 内に、文字や絵文字を使わない静的インラインSVGを1個だけ追加する。空腹は魚の思考記号、病気は青い熱線、疲労は眠気の泡、すねるは灰色の絡まった雲、弱りと危険は濃さの異なる下降線、かまっては暖色の呼びかけ線、喜びは短時間のきらめき、睡眠は穏やかな呼吸線で区別する。アクセントは `aria-hidden="true"`、`pointer-events:none` で、アニメーションを持たない。既存の病気の汗、care alert、危険表示とキャラクター外側の動きはそのまま残る。
+
+新しい7画像のプロンプト、生成経路、SHA-256は [状態別アート記録](cat-expression-distinct-art-20260915.md) に記録した。元画像と先行3画像のハッシュは変更していない。10表情画像はすべて128×128 RGBA、アルファ0/255、不透明範囲 `[16, 8, 112, 120]` で、相互に異なることを自動検査する。
+
+使い捨てプレビューは `weak`（いのち低下）、`wantsPlay`（かまって）、`sleeping`（睡眠）を追加した。`happy` は保存状態ではないためプリセットを作らず、プレビュー内の通常の「じゃれる」など実際のお世話操作で確認する。読み込み時にお世話ボタンを自動実行しない。ナビゲーションは横スクロールを維持し、状態切替は子ゲームだけを再初期化する。
+
+TDDでは拡張前の実装に対し、resolver・runtime・accent・previewの29件中14件が期待どおり失敗するREDを確認した。実装後は表情・画像・プレビュー集中テスト32件、emotion・care・motion・time-pause・asset-versionを含む集中テスト131件がすべて成功した。`npm run bump` は `index.html` の3トークンを更新。`npm test` は smoke・dialogue・visual QAとNode 671件が成功し、失敗0件、skip0件。`git diff --check` も成功した。
+
+ユーザーは先行3表情の切替を実機動画で確認済み。今回追加した7表情、各アクセント、弱りと危険の判別、睡眠と起床、横に増えたプレビュー操作のiPhone表示は未確認。
+
+最終レビューでは、喜びプリセットの読み込み時に「じゃれる」を自動実行すると、`checkStoryEvents('pet')` の乱数結果によって通常顔とストーリー表示になる場合があることを再現した。回帰テストを先に変更し、喜びプリセットが拒否されることと自動お世話操作が0件であることについて8件中2件が失敗するREDを確認した。自動操作とプリセットを削除した後は8件成功、0件失敗。
+
+最新main `3f4bfda0b8c0d30098ebb68c4313abd370a8576a` のめぐる・生物表示更新を取り込み、全テスト登録を保持。統合後の `npm test` は前段チェックおよび681件成功、0失敗、0skip。以前の表情切り替えはユーザー実機で動作確認済み。今回追加した7表情・アクセントは実機再確認待ち。
+
+## State accent color follow-up (2026-09-15)
+
+User requested brighter, recognizable state colors and a sleeping mark like 💤.
+Sleep now uses three rising SVG Z paths (no font, image download, or animation).
+User-selected palette: hungry yellow; sick yellow-green; tired purple; weak pink;
+critical red; wants-play orange; sulky light blue; happy gold; sleeping blue. Shapes still distinguish states independently of color.
+Adult-cat hunger retains its fish. When additional species gain expression support, choose
+food appropriate to that species from its established data; do not assume all birds eat seeds
+or extend the current adult-cat-only renderer without matching portraits and validation.
+
+TDD: sleep-mark test failed (0 Z paths vs 3), then passed. Focused resolver/runtime: 22/22.
+New colors and sleep glyph require iPhone acceptance; no device visibility claim is made.

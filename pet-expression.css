@@ -1,0 +1,40 @@
+.pet-expression-accent {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pet-expression-accent > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Saturated state colors supplement the distinct shapes, even without motion. */
+.pet-expression-accent .accent-warm { fill: #e8bf45; stroke: #916514; stroke-width: 1.5; stroke-linejoin: round; }
+.pet-expression-accent .accent-warm-line { fill: none; stroke: #cbd1d8; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-call { fill: none; stroke: #f58a19; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-cloud { fill: #76d9ef; stroke: #178caf; stroke-width: 2; }
+.pet-expression-accent .accent-cloud-line { fill: none; stroke: #126a8e; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-thought { fill: #fff3a3; stroke: #b18b09; stroke-width: 1.5; }
+.pet-expression-accent .accent-food { fill: #ffe03b; stroke: #a58008; stroke-width: 2; stroke-linejoin: round; }
+.pet-expression-accent .accent-food-eye { fill: #625014; }
+.pet-expression-accent .accent-cool { fill: #a5d934; stroke: #689d15; stroke-width: 1.2; stroke-linejoin: round; }
+.pet-expression-accent .accent-cool-line { fill: none; stroke: #a5d934; stroke-width: 2; stroke-linecap: round; }
+.pet-expression-accent .accent-sleepy { fill: #d0b5fa; stroke: #8c56ce; stroke-width: 1.5; }
+.pet-expression-accent .accent-weak { fill: none; stroke: #ed65aa; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-critical { fill: none; stroke: #e53950; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.pet-expression-accent .accent-sleep-z { fill: none; stroke: #347de3; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Wider, darker under-strokes give line marks the same edged finish as filled marks. */
+.pet-expression-accent .accent-warm-line.accent-outline { stroke: #535c68; stroke-width: 5; }
+.pet-expression-accent .accent-call.accent-outline { stroke: #ab5109; stroke-width: 5; }
+.pet-expression-accent .accent-cool-line.accent-outline { stroke: #689d15; stroke-width: 4; }
+.pet-expression-accent .accent-weak.accent-outline { stroke: #aa3371; stroke-width: 4; }
+.pet-expression-accent .accent-critical.accent-outline { stroke: #a01e34; stroke-width: 5.5; }
+.pet-expression-accent .accent-sleep-z.accent-outline { stroke: #1c4fa1; stroke-width: 4.5; }
