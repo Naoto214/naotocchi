@@ -52,7 +52,7 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
-  assert.equal(expression.assetFor('assets/characters/cat/05.png','happy'),'assets/characters/cat/05.png');
+  assert.equal(expression.assetFor('assets/characters/cat/07.png','happy'),'assets/characters/cat/07.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
 
@@ -147,4 +147,16 @@ test('otemba stage has ten faces and marks anchored near its left-hand head', ()
 test('otemba discomfort mark sits slightly closer to its head', () => {
   assert.match(expression.accentFor('assets/characters/cat/04.png','strained'),/translate\(0 9\)/);
   assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','strained'),/transform=/);
+});
+
+test('young stage has ten faces and marks anchored near its left-hand head', () => {
+  const base='assets/characters/cat/05.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/05-${name}.png`);
+    const mark=expression.accentFor(base,name);
+    assert.match(mark,/<g transform=/);
+    assert.match(mark,/aria-hidden="true"/);
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
 });

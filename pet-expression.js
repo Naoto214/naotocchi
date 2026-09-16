@@ -27,6 +27,9 @@
     'assets/characters/cat/04.png': Object.freeze(Object.fromEntries(
       Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/cat/04-${name}.png`])
     )),
+    'assets/characters/cat/05.png': Object.freeze(Object.fromEntries(
+      Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/cat/05-${name}.png`])
+    )),
   });
   const PERSISTENT = Object.freeze({
     hungry:'hungry', sick:'sick', tired:'tired', weak:'weak', unhappy:'sulky', wantsPlay:'wantsPlay', normal:'normal',
@@ -79,6 +82,9 @@
     if (baseAsset === 'assets/characters/cat/03.png' && expression === 'wantsPlay') offset = '-14 12';
     if (baseAsset === 'assets/characters/cat/04.png') {
       offset = expression === 'strained' ? '0 9' : expression === 'wantsPlay' ? '-32 18' : '-22 8';
+    }
+    if (baseAsset === 'assets/characters/cat/05.png') {
+      offset = expression === 'strained' ? '10 -17' : expression === 'wantsPlay' ? '-24 -2' : '-12 -4';
     }
     const accent = offset
       ? ACCENTS[expression].replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')

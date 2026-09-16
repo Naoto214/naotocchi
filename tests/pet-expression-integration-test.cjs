@@ -335,3 +335,15 @@ test('otemba home uses its own portraits, care reactions and sleeping face witho
   Object.assign(h.api.state(),{isSleeping:false,ageTicks:25*20,stageIndex:5});h.api.render();
   assert.equal(portrait(h),'assets/characters/expressions/cat/06-hungry.png');
 });
+
+test('young home uses its own portraits, care reactions and sleeping face without save changes', () => {
+  const h=harness();adultCat(h,{ageTicks:16*20,stageIndex:4,hunger:40});
+  assert.equal(portrait(h),'assets/characters/expressions/cat/05-hungry.png');
+  const before=JSON.stringify(h.api.state());h.api.render();assert.equal(JSON.stringify(h.api.state()),before);
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.equal(portrait(h),'assets/characters/expressions/cat/05-happy.png');
+  Object.assign(h.api.state(),{isSleeping:true});h.api.render();
+  assert.equal(portrait(h),'assets/characters/expressions/cat/05-sleeping.png');
+  Object.assign(h.api.state(),{isSleeping:false,ageTicks:25*20,stageIndex:5});h.api.render();
+  assert.equal(portrait(h),'assets/characters/expressions/cat/06-hungry.png');
+});

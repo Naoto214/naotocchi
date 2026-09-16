@@ -223,3 +223,10 @@ test('otemba preview seeds the fourth stage in disposable storage', () => {
   assert.equal(state.ageTicks,12*20);
   assert.equal(state.happiness,40);
 });
+
+test('young preview seeds the fifth stage in disposable storage', () => {
+  const {state}=seededState(buildPreview({form:'young',preset:'wantsPlay'}));
+  assert.equal(state.stageIndex,4);
+  assert.equal(state.ageTicks,16*20);
+  assert.equal(state.happiness,40);
+});
