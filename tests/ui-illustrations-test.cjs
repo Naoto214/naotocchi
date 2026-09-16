@@ -1,17 +1,25 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
+const fs=require('node:fs');
 const {harness}=require('./helpers/runtime-harness.cjs');
 
 test('the shop connects each current item to its illustration and keeps its label',()=>{
   const h=harness();h.api.openExclusiveMenu('item');h.api.render();
   const html=h.get('shopItemGrid').innerHTML;
-  const expected={flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',
+  const approvedPictures={bowtie:'bento-box.png',ribbon:'toy-box.png',scarf:'first-aid-box.png'};
+  const expectedLabels={bowtie:'おべんとうばこ',ribbon:'おもちゃばこ',scarf:'きゅうきゅうばこ'};
+  const expected={flower:'flower',poop1:'paper',
     glasses:'glasses',energy1:'band',hat:'hat',travel1:'backpack',sleepboost1:'sleep',
     star:'star_badge',bond1:'paw_badge',partner1:'letter',crown:'crown'};
   const buttons=[...html.matchAll(/<button\b[^>]*data-id="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
   assert.equal(buttons.length,14);
   for(const [,id,body] of buttons){
-    assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expected[id]}"`),id);
+    if(approvedPictures[id]){
+      assert.match(body,/class="item-picture"/,id);
+      assert.ok(body.includes(`src="assets/items/normal-equipment/${approvedPictures[id]}"`),id);
+      assert.ok(body.includes(`<span class="shop-item-label">${expectedLabels[id]}</span>`),id);
+      assert.match(body,/3,?000/,id);
+    }else assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expected[id]}"`),id);
     assert.match(body,/<span class="shop-item-label">[^<]+<\/span>/,id);
   }
   assert.match(buttons.find(b=>b[1]==='crown')[2],/900/);
@@ -22,8 +30,9 @@ test('equipment uses the matching illustration without modifying the saved item 
   const h=harness();h.api.state().lifetime.equippedItemId='ribbon';
   h.api.state().lifetime.ownedShopItems=['ribbon'];h.api.render();
   const node=h.get('petAccessory');
-  assert.match(node.innerHTML,/data-ui-icon="ribbon"/);
-  assert.match(node.innerHTML,/aria-label="リボン"/);
+  assert.match(node.innerHTML,/class="item-picture"/);
+  assert.match(node.innerHTML,/assets\/items\/normal-equipment\/toy-box\.png/);
+  assert.match(node.innerHTML,/aria-label="おもちゃばこ"/);
   const size={width:node.style.width,height:node.style.height};
   h.api.state().poopCount=3;h.api.render();
   assert.deepEqual({width:node.style.width,height:node.style.height},size);
@@ -202,4 +211,34 @@ test('a scenery PNG failure only reveals that decoration fallback without relayi
   assert.ok(failed.classList.contains('asset-failed'));
   assert.equal(other.classList.contains('asset-failed'),false);
   assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+
+test('an equipment PNG failure reveals only its fallback and preserves saved state',()=>{
+  const h=harness();
+  h.api.state().lifetime.ownedShopItems=['ribbon'];
+  h.api.state().lifetime.equippedItemId='ribbon';h.api.render();
+  const before=JSON.stringify(h.api.state());
+  const failed=h.get('failedEquipment'),other=h.get('otherEquipment');
+  const img=h.document.createElement('img');img.tagName='IMG';img.classList.add('item-asset');
+  img.closest=selector=>selector==='.item-picture'?failed:null;
+  Object.defineProperty(h.get('petArea'),'clientWidth',{get(){throw new Error('equipment failure must not relayout the cast');}});
+  for(const listener of h.document.listeners.filter(e=>e.type==='error'))listener.fn({target:img});
+  assert.ok(failed.classList.contains('asset-failed'));
+  assert.equal(other.classList.contains('asset-failed'),false);
+  assert.match(h.get('petAccessory').innerHTML,/class="icon-fallback"[^>]*>🎀<\/span>/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+test('game pass art is reserved for gamepass1 and never replaces legacy sunglasses',()=>{
+  const source=fs.readFileSync('script.js','utf8');
+  const mapping=source.match(/const NORMAL_EQUIPMENT_PICTURES = Object\.freeze\(\{([\s\S]*?)\}\)/);
+  assert.ok(mapping,'normal equipment must have an explicit PNG mapping');
+  assert.match(mapping[1],/gamepass1:\s*'assets\/items\/normal-equipment\/game-pass\.png'/);
+  assert.doesNotMatch(mapping[1],/glasses\s*:/);
+  const h=harness();h.api.state().lifetime.ownedShopItems=['glasses'];
+  h.api.state().lifetime.equippedItemId='glasses';h.api.render();
+  assert.match(h.get('petAccessory').innerHTML,/data-ui-icon="glasses"/);
+  assert.doesNotMatch(h.get('petAccessory').innerHTML,/game-pass\.png/);
+  assert.equal(h.api.state().lifetime.equippedItemId,'glasses');
 });
