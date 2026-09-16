@@ -3282,8 +3282,14 @@
     'cherry_blossom','sunflower','maple_leaf','green_leaf','tree','pine','palm','cactus',
     'snow_mountain','mountain','house','city','wheat','wave','shell','hibiscus',
   ]);
+  const NORMAL_EQUIPMENT_PICTURES = Object.freeze({
+    bowtie: 'assets/items/normal-equipment/bento-box.png',
+    ribbon: 'assets/items/normal-equipment/toy-box.png',
+    scarf: 'assets/items/normal-equipment/first-aid-box.png',
+    gamepass1: 'assets/items/normal-equipment/game-pass.png',
+  });
   const ITEM_ILLUSTRATIONS = {
-    flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',glasses:'glasses',
+    flower:'flower',poop1:'paper',glasses:'glasses',
     energy1:'band',hat:'hat',travel1:'backpack',star:'star_badge',bond1:'paw_badge',
     partner1:'letter',crown:'crown',
     naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
@@ -3304,8 +3310,18 @@
     if (!scenery && !UI_ILLUSTRATION_KEYS.has(icon)) return '';
     return `<i class="care-icon ui-icon${scenery ? ' scenery-icon' : ''}" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
   }
+  function equipmentPictureHTML(item, label = '') {
+    const src = NORMAL_EQUIPMENT_PICTURES[item.id];
+    if (!src) return '';
+    const accessible = label
+      ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"`
+      : 'aria-hidden="true"';
+    return `<span class="item-picture" ${accessible}><img class="item-asset" src="${src}" alt="" width="128" height="128" decoding="async" draggable="false">${iconFallbackHTML(item.emoji)}</span>`;
+  }
   function itemIconHTML(item, labelled = false) {
     const label = labelled ? item.label : '';
+    const picture = equipmentPictureHTML(item, label);
+    if (picture) return picture;
     if (item.id === 'sleepboost1') return careIconHTML('sleep', label, item.emoji);
     const key = Object.hasOwn(ITEM_ILLUSTRATIONS, item.id) ? ITEM_ILLUSTRATIONS[item.id] : '';
     return uiIconHTML(key, label, item.emoji) || escapeHtml(item.emoji || '');
@@ -10769,6 +10785,10 @@
     if (!(img instanceof HTMLImageElement)) return;
     if (img.classList.contains('comment-asset')) {
       img.closest('.comment-picture')?.classList.add('asset-failed');
+      return;
+    }
+    if (img.classList.contains('item-asset')) {
+      img.closest('.item-picture')?.classList.add('asset-failed');
       return;
     }
     if (img.classList.contains('scenery-asset')) {
