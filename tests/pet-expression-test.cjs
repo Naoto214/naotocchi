@@ -52,7 +52,7 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
-  assert.equal(expression.assetFor('assets/characters/cat/08.png','happy'),'assets/characters/cat/08.png');
+  assert.equal(expression.assetFor('assets/characters/cat/02.png','happy'),'assets/characters/cat/02.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
 
@@ -173,6 +173,18 @@ test('calm stage has ten faces and marks anchored near its left-hand head', () =
   const base='assets/characters/cat/07.png';
   for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/07-${name}.png`);
+    const mark=expression.accentFor(base,name);
+    assert.match(mark,/<g transform=/);
+    assert.match(mark,/aria-hidden="true"/);
+  }
+  assert.equal(expression.assetFor(base,'normal'),base);
+  assert.equal(expression.accentFor(base,'normal'),'');
+});
+
+test('elder stage has ten faces and marks anchored near its left-hand head', () => {
+  const base='assets/characters/cat/08.png';
+  for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
+    assert.equal(expression.assetFor(base,name),`assets/characters/expressions/cat/08-${name}.png`);
     const mark=expression.accentFor(base,name);
     assert.match(mark,/<g transform=/);
     assert.match(mark,/aria-hidden="true"/);

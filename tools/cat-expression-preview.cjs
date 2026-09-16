@@ -16,7 +16,7 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40});
+const FORMS = Object.freeze({adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70});
 
 function runtimeFreshCat(form='adult') {
   const previousDirectory=process.cwd();
@@ -119,7 +119,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 <body>
   <header data-preview-controls>
     <div class="banner"><h1>猫の表情テスト</h1><p>このページでは保存しません</p></div>
-    <nav aria-label="猫の状態"><select data-preview-form aria-label="ねこの姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option></select>${links}</nav>
+    <nav aria-label="猫の状態"><select data-preview-form aria-label="ねこの姿"><option value="adult" ${form==='adult'?'selected':''}>大人のねこ</option><option value="kitten" ${form==='kitten'?'selected':''}>こねこ</option><option value="otemba" ${form==='otemba'?'selected':''}>おてんばねこ</option><option value="young" ${form==='young'?'selected':''}>若いねこ</option><option value="calm" ${form==='calm'?'selected':''}>落ちついたねこ</option><option value="elder" ${form==='elder'?'selected':''}>おとしよりのねこ</option></select>${links}</nav>
   </header>
   <iframe title="なおとっち 猫の表情プレビュー" srcdoc="${child}"></iframe>
   <script id="cat-expression-preview-controls">
@@ -130,7 +130,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
     const allowed=${scriptJson(Object.keys(PRESETS))};
     document.querySelector('[data-preview-form]')?.addEventListener('change',event=>{
       const form=event.target.value;
-      if (!['adult','kitten','otemba','young','calm'].includes(form)) return;
+      if (!['adult','kitten','otemba','young','calm','elder'].includes(form)) return;
       frame.dataset.form=form;
       frame.srcdoc=game;
     });
@@ -153,7 +153,7 @@ function buildPreview({preset='hungry',form='adult'}={}) {
 if (require.main === module) {
   const [outputPath,preset='hungry',form='adult']=process.argv.slice(2);
   if (!outputPath) {
-    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm]\n');
+    process.stderr.write('Usage: node tools/cat-expression-preview.cjs <output.html> [preset] [adult|kitten|otemba|young|calm|elder]\n');
     process.exitCode=1;
   } else {
     fs.writeFileSync(path.resolve(outputPath),buildPreview({preset,form}));
