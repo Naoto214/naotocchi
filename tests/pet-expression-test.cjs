@@ -124,12 +124,10 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.assetFor('assets/characters/beetle/01.png','happy'),'assets/characters/beetle/01.png');
 });
 
-test('kitten and adult calling marks follow their respective heads', () => {
+test('calling marks retain the two outlined strokes', () => {
   const kitten=expression.accentFor('assets/characters/cat/03.png','wantsPlay');
-  assert.match(kitten,/<g transform="translate\(-14 12\)">/);
   assert.equal((kitten.match(/accent-call/g)||[]).length,2);
-  assert.match(expression.accentFor('assets/characters/cat/06.png','wantsPlay'),/translate\(-12 7\)/);
-  assert.doesNotMatch(expression.accentFor('assets/characters/cat/03.png','hungry'),/<g transform/);
+  assert.equal((expression.accentFor('assets/characters/cat/06.png','wantsPlay').match(/accent-call/g)||[]).length,2);
 });
 
 test('otemba stage has ten faces and marks anchored near its left-hand head', () => {
@@ -144,10 +142,6 @@ test('otemba stage has ten faces and marks anchored near its left-hand head', ()
   assert.equal(expression.accentFor(base,'normal'),'');
 });
 
-test('otemba discomfort mark sits slightly closer to its head', () => {
-  assert.match(expression.accentFor('assets/characters/cat/04.png','strained'),/translate\(0 9\)/);
-  assert.doesNotMatch(expression.accentFor('assets/characters/cat/06.png','strained'),/transform=/);
-});
 
 test('young stage has ten faces and marks anchored near its left-hand head', () => {
   const base='assets/characters/cat/05.png';
@@ -161,13 +155,6 @@ test('young stage has ten faces and marks anchored near its left-hand head', () 
   assert.equal(expression.accentFor(base,'normal'),'');
 });
 
-test('young cat silver and orange marks sit closer to the head without moving other stages', () => {
-  assert.match(expression.accentFor('assets/characters/cat/05.png','strained'),/translate\(10 -7\)/);
-  assert.match(expression.accentFor('assets/characters/cat/05.png','wantsPlay'),/translate\(-26 2\)/);
-  assert.match(expression.accentFor('assets/characters/cat/05.png','hungry'),/translate\(-12 -4\)/);
-  assert.match(expression.accentFor('assets/characters/cat/03.png','wantsPlay'),/translate\(-14 12\)/);
-  assert.match(expression.accentFor('assets/characters/cat/04.png','strained'),/translate\(0 9\)/);
-});
 
 test('calm stage has ten faces and marks anchored near its left-hand head', () => {
   const base='assets/characters/cat/07.png';
@@ -280,9 +267,6 @@ test('young dog supports ten expressions while unsupported species retain base p
 
 test('young dog accents follow its upright head and hunger uses a food bowl', () => {
   const base='assets/characters/dog/05.png';
-  assert.match(expression.accentFor(base,'strained'),/translate\(-12 3\)/);
-  assert.match(expression.accentFor(base,'wantsPlay'),/translate\(-33 7\)/);
-  assert.match(expression.accentFor(base,'hungry'),/translate\(-20 1\)/);
   assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
   assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
 });
@@ -304,22 +288,15 @@ test('calm dog supports ten expressions while unsupported species retain base po
 
 test('calm dog accents follow its head and hunger uses a food bowl', () => {
   const base='assets/characters/dog/07.png';
-  assert.match(expression.accentFor(base,'strained'),/translate\(-7 5\)/);
-  assert.match(expression.accentFor(base,'wantsPlay'),/translate\(-28 10\)/);
-  assert.match(expression.accentFor(base,'hungry'),/translate\(-17 4\)/);
   assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
   assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
 });
 
-for (const [stage,strained,wantsPlay,general] of [
-  ['01','6 49','-30 50','-16 45'],['02','-2 23','-27 24','-10 19'],['08','-10 14','-31 14','-17 8'],
-]) {
+for (const stage of ['01','02','08']) {
   test(`dog ${stage} routes ten expressions with head-relative accents and food bowl`, () => {
     const base=`assets/characters/dog/${stage}.png`;
     for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
       assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/${stage}-${name}.png`);
-      const offset=name==='strained'?strained:name==='wantsPlay'?wantsPlay:general;
-      assert.ok(expression.accentFor(base,name).includes(`translate(${offset})`),name);
     }
     assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
     assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
@@ -343,4 +320,40 @@ for (const species of ['man','woman']) {
       assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
     }
   });
+}
+
+test('sweat follows the face sides instead of the whole body', () => {
+  const base='assets/characters/cat/04.png';
+  assert.equal(typeof expression.sweatFor,'function');
+  const sweat=expression.sweatFor(base,104,104,0);
+  assert.ok(sweat.left < 20);
+  assert.ok(sweat.right > 25,'right sweat stays near the left-hand head, not the tail');
+  assert.ok(sweat.top > 15 && sweat.top < 75);
+  assert.equal(expression.sweatFor('assets/characters/beetle/01.png',104,104,0),null);
+});
+
+const faceAnchors=require('../tools/expression-face-anchors.json');
+const castBounds=require('../cast-bounds.js');
+const markCenters={happy:[81,28],strained:[26,22.5],hungry:[83,27],sick:[80.5,25.7],tired:[81,26.5],sulky:[77.5,30],weak:[77.5,24.5],critical:[76.5,24],wantsPlay:[82,13.5],sleeping:[83.5,22.5]};
+for(const [line,heads] of Object.entries(faceAnchors))for(let index=0;index<8;index++) {
+ test(`${line}/${index+1} marks follow the approved face-relative directions`,()=>{
+  const base=`assets/characters/${line}/${String(index+1).padStart(2,'0')}.png`;
+  const face=[heads[index][0]*104/128,heads[index][1]*104/128+104*(128-castBounds[base].box[3])/128];
+  for(const [name,center] of Object.entries(markCenters)){
+   const svg=expression.accentFor(base,name);
+   const match=svg.match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+   assert.ok(match,name);
+   const x=Number(match[1])+center[0],y=Number(match[2])+center[1];
+   assert.ok(y<face[1]-5,name+' is above face');
+   if(name==='wantsPlay')assert.ok(Math.abs(x-face[0])<1,name+' is centered above face');
+   else if(name==='strained')assert.ok(x<face[0]-5,name+' is upper left');
+   else assert.ok(x>face[0]+5,name+' is upper right');
+  }
+  for(const size of [64,80,104]){
+   const sweat=expression.sweatFor(base,size,size,0);
+   assert.ok(Object.values(sweat).every(Number.isFinite));
+   assert.ok(sweat.left<size*heads[index][0]/128);
+   assert.ok(size-sweat.right>size*heads[index][0]/128);
+  }
+ });
 }

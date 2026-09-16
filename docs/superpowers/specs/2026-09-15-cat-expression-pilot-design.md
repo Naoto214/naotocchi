@@ -49,3 +49,22 @@ After approving the last dog01/02/08 spacing, the user requested ten-expression 
 ## Approved batch — human man/woman lines, 2026-09-16
 
 After approving the cat/dog contact-sheet review, the user requested continuation for both human lines, all8 stages each. Add10 facial variants per stage using the original hair/clothes/pose/accessories, and a yellow rice-bowl hunger symbol. Keep all existing cat/dog assets and numeric anchors unchanged, share state colors/outlines/reactions. Review and tune all160 human composites before presenting four-stage overviews and individual-stage sheets. No stage-by-stage approval; real-device visual acceptance remains with user. Draft PR278, no main merge.
+
+## Approved face-relative marker policy — 2026-09-16
+
+The user explicitly reopened marker placement for all eight stages of cat, dog, man and woman (320 expressions). This policy supersedes every earlier frozen silver/orange/general numeric anchor; facial PNGs remain approved and unchanged. Marks must avoid the entire character silhouette while staying as close as practical, with directions measured from the face.
+
+| State | Mark | Position |
+| --- | --- | --- |
+| happy | gold sparkles | upper right |
+| strained | silver bent line | upper left |
+| hungry | yellow food and thought bubbles | upper right |
+| sick | yellow-green lines and sweat | lines upper right; sweat brackets head left/right |
+| tired | purple circles | upper right |
+| sulky | cyan cloud | upper right |
+| weak | pink down arrows | upper right |
+| critical | red down arrows | upper right |
+| wantsPlay | orange rays | directly above face center |
+| sleeping | blue Zzz | upper right |
+
+Use observed per-stage face anchors, outlined mark silhouettes and the union of normal/expression character silhouettes. Allow angular adjustment within the designated quadrant to avoid ears, hair, bodies and tails. Maintain a two-logical-pixel clearance in the placement generator. Include sweat rotation and falling motion in collision checks. Preserve colors, outlines, reactions, PNG expressions, gameplay and saves. Review all composites autonomously and provide combined sheets; no stage-by-stage approval gate. Actual device appearance remains a separate user check. Keep PR #278 Draft; never merge main.

@@ -14057,6 +14057,10 @@
     el.petSprite.style.setProperty('--care-sweat-left',Math.max(1,frame.w * box[0] / 128-dropWidth * .7) + 'px');
     el.petSprite.style.setProperty('--care-sweat-right',Math.max(1,frame.w * (128-box[2]) / 128-dropWidth * .7) + 'px');
     el.petSprite.style.setProperty('--care-sweat-travel',travel + 'px');
+    const faceSweat=PET_EXPRESSION?.sweatFor?.(args.mainAsset,frame.w,frame.h,frame.artOffsetY || 0);
+    if(faceSweat) for(const key of ['top','left','right','travel']) {
+      el.petSprite.style.setProperty('--care-sweat-'+key,faceSweat[key]+'px');
+    }
     const left=el.companionLeft.children,right=el.companionRight.children;
     layout.companions.forEach((frame,i)=>place((i%2?right:left)[Math.floor(i/2)],frame));
     if (layout.partner) el.partnerCompanion.querySelectorAll('.partner-heart').forEach((node,i)=>{
