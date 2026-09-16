@@ -14,36 +14,33 @@ function play(h,score=50,id='probe'){h.api.startMinigame(game(id),{intro:false})
 function reload(s){return harness({resume:true,storage:{getItem:k=>k==='naotocchi-save-v1'?JSON.stringify(s):null,setItem(){},removeItem(){}}});}
 function ticks(h,n){for(let i=0;i<n;i++)h.api.tick();}
 
-test('hat opens the legal transform offer in three ordinary games',()=>{
+test('retired hat uses the ordinary transform rate and needs four games',()=>{
   const {h,s}=setup('hat');
-  for (let i=0; i<3; i++)play(h);
+  for (let i=0;i<3;i++)play(h);
+  assert.equal(s.transformMeter,75);
+  assert.ok(!s.transformOptions);
+  play(h);
   assert.ok(s.transformOptions);
   assert.equal(s.lifetime.transforms,0);
 });
 
-test('all game equipment is fixed at start: hat, band and glasses',()=>{
-  for(const [equipped,score] of [['hat',50],['energy1',50],['glasses',60]]){const {h,s}=setup(equipped);
-    h.api.startMinigame(game('snapshot'));
-    s.lifetime.equippedItemId=null;
-    h.api.finishMinigame(score);
-    if(equipped==='hat')assert.equal(s.transformMeter,34);
-    if(equipped==='energy1')assert.equal(s.energy,81);
-    if(equipped==='glasses'){assert.equal(s.sodachi,56);
-      assert.equal(s.growth,0);
-      assert.equal(s.lifetime.minigameRecords.snapshot.last,60);
-      assert.equal(s.minigameScoreSum,60);
-  }}
-});
-
-test('glasses gives plus ten reward score, never rank or recruitment',()=>{
-  const {h,s}=setup('glasses');
-  h.api.setPendingCompanion(h.api.normalCompanions[0].id);
-  play(h,40);
-  assert.equal(s.companions.length,0);
-  assert.equal(s.growth,7);
-  assert.equal(s.boostTicks,0);
-  assert.equal(s.lifetime.minigameRecords.probe.best,40);
-});
+for(const id of ['hat','energy1','glasses','crown','flower']) {
+  test(`retired ${id} has no game effect in a start snapshot`,()=>{
+    for(const score of [20,60]) {
+      const base=setup(),retired=setup(id);
+      for(const {h,s} of [base,retired]) {
+        h.api.startMinigame(game('snapshot'));
+        s.lifetime.equippedItemId=null;
+        h.api.finishMinigame(score);
+      }
+      for(const key of ['energy','growth','sodachi','happiness','transformMeter','deathMeter','minigameScoreSum'])
+        assert.equal(retired.s[key],base.s[key],`${key} at score ${score}`);
+      assert.equal(retired.s.lifetime.money,base.s.lifetime.money);
+      assert.equal(retired.s.lifetime.minigameRecords.snapshot.last,score);
+      assert.doesNotMatch(retired.h.api.getMessage(),/げんきバンド|ごほうび判定/);
+    }
+  });
+}
 
 test('protected failure has no game energy, decline or life damage, ordinary preserves insurance',()=>{
   const {h,s}=setup();
@@ -78,27 +75,21 @@ test('great charm waits for real seventy and awards growth 28 or 56',()=>{
   }
 });
 
-test('crown rescues sustained zero health once, after existing miracle, without restoring life',()=>{
+test('retired crown cannot rescue zero health but the existing miracle still works',()=>{
   const {h,s}=setup('crown');
-  s.isSick=true;
-  s.health=0;
-  s.lowHealthStreak=14;
-  s.deathMeter=0;
-  s.miracleGuard=true;
+  assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
+  Object.assign(s,{isSick:true,health:0,lowHealthStreak:14,deathMeter:0,miracleGuard:true});
   h.api.tick();
   assert.equal(s.health,40);
-  assert.equal(s.itemLife.crownUsed,false);
-  s.health=0;
-  s.lowHealthStreak=14;
-  h.api.tick();
-  assert.equal(s.health,30);
+  assert.equal(s.miracleGuard,false);
   assert.equal(s.lowHealthStreak,0);
-  assert.equal(s.itemLife.crownUsed,true);
-  assert.ok(s.deathMeter>0);
-  s.health=0;
-  s.lowHealthStreak=14;
+  assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
+  // A loaded legacy field is inert even when it says rescue was unused.
+  s.itemLife.crownUsed=false;
+  s.health=0;s.lowHealthStreak=14;
   h.api.tick();
   assert.equal(s.stage,'dead');
+  assert.equal(s.itemLife.crownUsed,false);
 });
 
 test('crown does not bypass normal two minute life warning or rescue life death',()=>{
@@ -113,7 +104,7 @@ test('crown does not bypass normal two minute life warning or rescue life death'
   s.dyingTicks=0;
   h.api.checkMeters();
   assert.equal(s.stage,'dead');
-  assert.equal(s.itemLife.crownUsed,false);
+  assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
 });
 
 test('life patch bought into bag, allowed at life forty and during warning, only once per life',()=>{
@@ -178,13 +169,13 @@ test('mirror cannot spend if no legal alternative or selected candidate has disa
   assert.equal(h.api.itemStock('new_transform_mirror'),1);
 });
 
-test('crown game damage reduction uses start equipment even after swapping',()=>{
+test('retired crown snapshot cannot reduce failed-game life damage',()=>{
   const {h,s}=setup('crown');
   s.deathMeter=0;
   h.api.startMinigame(game('crown-snapshot'));
   s.lifetime.equippedItemId=null;
   h.api.finishMinigame(0);
-  assert.equal(s.deathMeter,1.7);
+  assert.equal(s.deathMeter,2);
 });
 
 test('mirror actual transform button opens cancellable candidate picker',()=>{
@@ -225,7 +216,7 @@ test('saved reservations survive reload and life limits reset',()=>{
   assert.equal(r.oneTimeBoosts.greatReward,true);
   assert.equal(r.itemLife.crownUsed,true);
   n.dispatch(n.get('resetBtn'),'click');
-  assert.equal(n.api.state().itemLife.crownUsed,false);
+  assert.equal(Object.hasOwn(n.api.state().itemLife,'crownUsed'),false);
   assert.equal(n.api.state().itemLife.lifePatchUsed,false);
   assert.equal(n.api.state().oneTimeBoosts.greatReward,false);
 });

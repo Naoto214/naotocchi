@@ -364,7 +364,6 @@
     if (!object(l.itemMemories)) l.itemMemories = {};
     MEMORY_KINDS.forEach(kind => { if (!Array.isArray(l.itemMemories[kind])) l.itemMemories[kind] = []; });
     if (!object(state.itemLife)) state.itemLife = {};
-    if (typeof state.itemLife.crownUsed !== 'boolean') state.itemLife.crownUsed = false;
     if (typeof state.itemLife.lifePatchUsed !== 'boolean') state.itemLife.lifePatchUsed = false;
     if (!object(state.itemLife.relationshipShields)) state.itemLife.relationshipShields = {};
     if (!object(state.itemLife.pendingItems)) state.itemLife.pendingItems = {};

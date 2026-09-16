@@ -15,8 +15,8 @@ test('initial court charm reserves stock and excludes mismatch, first meeting an
  s.attractedTo=[];click(h,'courtBtn');assert.equal(h.api.itemStock('c_courtsmall'),1);assert.equal(s.partner,null);
  partner(h,s);h.api.reinforceRelationship();assert.equal(s.partner.bondCount,1);assert.equal(h.api.itemStock('c_courtsmall'),1);
 });
-test('valid initial court adds twenty points, flower ten and final cap stays eighty five',()=>{
- for(const [equip,charm,roll,success] of [[null,false,.7,false],[null,true,.7,true],['flower',false,.7,true],['flower',true,.86,false]]){
+test('initial court charm keeps twenty points and cap while retired flower adds nothing',()=>{
+ for(const [equip,charm,roll,success] of [[null,false,.7,false],[null,true,.7,true],['flower',false,.7,false],['flower',true,.86,false]]){
   const {h,s}=setup(equip);s.regionId='city';const candidate=h.api.REGIONS.find(r=>r.id==='city').candidates[0];
   s.gender=candidate.attractedTo[0];s.attractedTo=[candidate.gender];s.orientationId='custom';s.lifetime.partnerEncounters=[candidate.id];
   // Actual first encounter flow uses this lifetime discovery list.
@@ -136,7 +136,7 @@ test('danger-triggered ribbon recovery delivers readable feedback in both motion
     assert.match(h.get('message').textContent, /リボン/, 'ordinary render keeps the automatic recovery readable');
   }
 });
-test('applied flowers deliver their bonus after court dialogue and ordinary care feedback', () => {
+test('retired flowers leave court dialogue and care feedback without bonus reactions', () => {
   for (const reducedMotion of [false, true]) {
     for (const success of [false, true]) {
       const {h,s} = feedbackSetup('flower', {reducedMotion});
@@ -146,7 +146,7 @@ test('applied flowers deliver their bonus after court dialogue and ordinary care
       s.attractedTo = [candidate.gender];
       s.orientationId = 'custom';
       s.lifetime.partnerEncounters = [candidate.id];
-      vm.runInContext(`{let n=0;Math.random=()=>++n===1?0:${success ? 0.7 : 0.99};}`, h.sandbox);
+      vm.runInContext(`{let n=0;Math.random=()=>++n===1?0:${success ? 0.5 : 0.99};}`, h.sandbox);
 
       click(h, 'courtBtn');
       h.advance(1);
@@ -160,9 +160,10 @@ test('applied flowers deliver their bonus after court dialogue and ordinary care
       // A successful court also shows the queued growth milestone after care changes.
       h.advance(success ? 8000 : 4500);
 
-      assert.match(h.get('message').textContent, /花を差し出した.*成功率\+10ポイント/);
+      assert.doesNotMatch(h.get('message').textContent, /花を差し出した|成功率\+10ポイント/);
+      assert.notEqual(h.get('petSprite').dataset.itemReaction,'flower');
       h.api.render();
-      assert.match(h.get('message').textContent, /成功率\+10ポイント/, 'ordinary render keeps the applied bonus readable');
+      assert.doesNotMatch(h.get('message').textContent, /成功率\+10ポイント/, 'ordinary render cannot revive the retired bonus');
     }
   }
 });

@@ -74,3 +74,15 @@ test('life records suppress weather and seasonal foreground effects until return
   assert.equal(h.get('weatherFx').classList.contains('suppressed'),true);
   assert.equal(h.get('seasonFrontFx').classList.contains('suppressed'),true);
 });
+
+test('normalization creates no retired crown life state and retains the distinct Naoto crown',()=>{
+  const h=harness(),s=h.api.state();
+  assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
+  s.itemLife={};
+  h.api.ITEM_SYSTEM.normalize(s);
+  assert.equal(Object.hasOwn(s.itemLife,'crownUsed'),false);
+  assert.ok(h.api.ITEM_SYSTEM.CATALOG.naoto_crown);
+  s.lifetime.ownedNaotoItems=['naoto_crown'];
+  h.api.renderNaotoItemGrid();
+  assert.match(h.get('naotoItemGrid').innerHTML,/なおとのかんむり/);
+});

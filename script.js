@@ -7702,13 +7702,11 @@
   // 「死亡」メーターの じょうしょう(かいふくアイテムなどの げんしょうは
   // ふくまない)は、こいびとが いると すこし、夫婦だと もっと ゆるやかに
   // なる - すべての 死亡メーター上昇の げんいん(びょうき・ていけんこう・
-  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。かんむりを
-  // そうびしていると、そこからさらに15%おさえられる
-  function raiseDeathMeter(amount, equipmentId = state.lifetime.equippedItemId) {
-    // 無限モードだけ命の上昇を止める。ゲームでは開始時の装備を渡す。
+  // ミニゲーム大失敗・たべすぎ など)に 共通で かける。
+  function raiseDeathMeter(amount) {
+    // 無限モードだけ命の上昇を止める。
     if (amount > 0 && isImmortal()) return;
-    const crownFactor = amount > 0 && equipmentId === 'crown' ? 0.85 : 1;
-    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()] * crownFactor, 0, 100);
+    state.deathMeter = clamp(state.deathMeter + amount * DEATH_METER_MULTIPLIER[relationshipStage()], 0, 100);
   }
 
   // いま そばに いる なかま(state.companions - じゃれるを おさぼると
@@ -10243,12 +10241,10 @@
         // 元気回復は startSleepRecovery() の100msタイマーで滑らかに行う。
         // tick側では回復しないので、起こした後に遅れて回復することもない。
       } else {
-        // 元気けいの アイテムを そうびしていると、おきている あいだの
-        // げんしょうも ゆるやかに なる。基本の げんしょうスピード(0.32/tick)
+        // おきている あいだの 基本の げんしょうスピード(0.32/tick)
         // は、「あそぶ」でミニゲームを たくさん あそべる ように、満腹・機嫌
         // よりも すこし ゆっくりめに おさえてある
-        const energyFactor = isEquipped('energy1') ? 0.82 : 1;
-        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * energyFactor * legendFactor, 0, 100);
+        state.energy = clamp(state.energy - 0.32 * energyDecayMultiplier() * legendFactor, 0, 100);
       }
 
       // なおとの ひみつは日常のお世話そのものを無効化しない。
@@ -10341,11 +10337,6 @@
           state.lowHealthStreak = 0;
           state.health = 40;
           setMessage('きせきのふんばり!もうすこしがんばる…!');
-        } else if (isEquipped('crown') && !state.itemLife.crownUsed) {
-          state.itemLife.crownUsed = true;
-          state.lowHealthStreak = 0;
-          state.health = 30;
-          setMessage('かんむりが支えてくれた。けんこう30。この一生のお守りは使った');
         } else {
           triggerDeath();
         }
@@ -10354,7 +10345,7 @@
       // 「死亡」メーターは びょうき・ていけんこう・ミニゲーム大失敗・
       // たべすぎ など「なにか やらかした とき」に くわえて、としを とるほど
       // わずかに 自然にも あがる(raiseDeathMeter() を通すので、こいびと/
-      // 夫婦や かんむりの けいげん効果は ここにも かかる)。
+      // 夫婦の けいげん効果は ここにも かかる)。
       // 「死亡メーターの 上昇が はやすぎて むずかしい」という フィードバックを
       // うけて、上限を すぐ したの wellCared による -2/tick の 自動かいふくより
       // ひかえめな 大きさに おさえてある(以前は 上限が -2を うわまわり、
@@ -12263,11 +12254,6 @@
       const owned = state.lifetime.ownedShopItems.includes(item.id);
       const equipped = state.lifetime.equippedItemId === item.id;
       let statusText = !owned ? `💰${item.price}` : (equipped ? 'みにつけている' : 'タップでみにつける');
-      if (owned) {
-        const progress = state.lifetime.itemProgress;
-        const remaining = key => Math.max(0, (progress.readyAt[key] || 0) - progress.ticks);
-        if (item.id === 'crown' && state.itemLife.crownUsed) statusText += '／この一生のお守りは使った';
-      }
       const badge = equipped ? '⭐' : (owned ? '✔️' : '');
       return `
         <button type="button" class="shop-item ${equipped ? 'equipped owned' : (owned ? 'owned' : '')}" data-id="${item.id}">
@@ -15181,27 +15167,25 @@
     const record = recordMinigameResult(game, score);
     // 記録・ランク・勧誘は実点。装備は開始時の1枠で判定する。
     const rawScore = record?.score ?? clamp(Math.round(score), 0, 100);
-    const equipped = id => activeMinigameEquipment === id;
-    const glassesBonus = equipped('glasses') ? 10 : 0;
     // 旧セーブで予約済みの大おまもりは一度だけ旧効果を保つ。
     const minigameBoostBonus = state.oneTimeBoosts.minigameBoost === 'big' ? 100 : state.oneTimeBoosts.minigameBoost === 'small' ? 25 : 0;
     state.oneTimeBoosts.minigameBoost = null;
-    const clampedScore = clamp(rawScore + glassesBonus + minigameBoostBonus, 0, 100);
+    const clampedScore = clamp(rawScore + minigameBoostBonus, 0, 100);
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
     const protectedFailure = isBad && state.oneTimeBoosts.safetyNet;
     const special = rawScore >= 70 && state.oneTimeBoosts.greatReward;
     state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
-    const energyCost = Math.max(1, Math.round(12 * envModifiers().play * (equipped('energy1') ? 0.75 : 1)));
+    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
     if (!protectedFailure) state.energy = clamp(state.energy - energyCost, 0, 100);
     state.minigameScoreSum += rawScore;
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
-    state.transformMeter = clamp(state.transformMeter + (equipped('hat') ? 34 : 25) * (hasPerk(60) ? 1.2 : 1), 0, 100);
+    state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
 
-    let itemMessage = glassesBonus || minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
+    let itemMessage = minigameBoostBonus ? `／記録${rawScore}／ごほうび判定${clampedScore}` : '';
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
       if (special) state.oneTimeBoosts.greatReward = false;
@@ -15212,7 +15196,7 @@
       itemMessage += '／スコアほけんが、げんき・おとろえ・いのちを守った';
     } else {
       applyDecline(8);
-      raiseDeathMeter(2, activeMinigameEquipment);
+      raiseDeathMeter(2);
     }
     // Quick keeps its existing base payouts; only ordinary games use Star.
     const result = isGreat ? 'great' : isBad ? 'failure' : 'success';
@@ -15223,7 +15207,6 @@
       state.lifetime.money += coins;
       itemMessage += `／${coins}コインをもらった${isGreat ? '!' : ''}`;
     }
-    if (equipped('energy1') && !protectedFailure) itemMessage += `／げんきバンドで消費${energyCost}`;
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
     // きょうの チャレンジ: きょうの スコアを きろくし、💰+10 と れんぞく日数
@@ -16300,13 +16283,10 @@
     // がんばっているほど とおりやすくは なる
     const traitBonus = candidate.affinityTrait ? Math.min(0.3, state.traitCounts[candidate.affinityTrait] * 0.03) : 0.1;
     const happinessBonus = (state.happiness / 100) * 0.15;
-    // おはなを そうびしていると、きゅうあいの せいこうりつに ボーナスが つく
-    const flowerBonus = isEquipped('flower') ? 0.1 : 0;
     // そだち50の「こいの きざし」で +10%、さらに いまの そだちに おうじて 最大+20%
     const sodachiBonus = (hasPerk(50) ? 0.1 : 0) + (hasPerk(50) ? Math.min(0.2, state.sodachi / 500) : 0);
     const courtBonus = commitPendingItem('c_courtsmall') ? 0.2 : 0;
-    const successChance = clamp(0.35 + traitBonus + happinessBonus + flowerBonus + sodachiBonus + courtBonus, 0.15, 0.85);
-    if (flowerBonus) itemContextReaction('flower', '花を差し出した。気持ちを伝える勇気が少し増えた（成功率+10ポイント）');
+    const successChance = clamp(0.35 + traitBonus + happinessBonus + sodachiBonus + courtBonus, 0.15, 0.85);
 
     if (Math.random() < successChance) {
       state.partner = {

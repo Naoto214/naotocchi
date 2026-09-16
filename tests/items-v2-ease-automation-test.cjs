@@ -134,3 +134,13 @@ test('star badge triples great-result coins and leaves failed-result at zero', (
     assert.equal(star.s.lifetime.money-beforeStar,starCoins);
   }
 });
+
+for(const id of ['energy1','crown']) test(`retired ${id} does not soften ordinary care decay`,()=>{
+  const base=setup(),retired=setup(id);
+  for(const {h,s} of [base,retired]) {
+    Object.assign(s,{isSick:true,health:20,hunger:20,happiness:20,deathMeter:10});
+    h.api.tick();
+  }
+  assert.equal(retired.s.energy,base.s.energy);
+  assert.equal(retired.s.deathMeter,base.s.deathMeter);
+});

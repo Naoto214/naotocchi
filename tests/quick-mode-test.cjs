@@ -167,7 +167,7 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
   assert.equal(s.lifetime.minigameRecords['quick-solo'].last, 100, '10 clears of 10 points');
   assert.equal(s.lifetime.minigamesPlayed, 1, 'one completed solo run settles as one game');
   assert.equal(s.minigameCount, 1, 'one completed solo run applies one result');
-  assert.equal(s.energy, 91, 'the start equipment applies one energy cost after a swap');
+  assert.equal(s.energy, 88, 'retired start equipment leaves the ordinary energy cost after a swap');
   assert.equal(s.lifetime.money, 13, 'the completed run receives one great-game coin reward');
   assert.equal(s.sodachi, 56, 'the completed run applies one ordinary great-game growth reward');
   const restored = harness({resume:true, storage}).api.state();
@@ -207,7 +207,7 @@ test('both Quick entries retain base success payout with Star and without stamps
   assert.equal(s.lifetime.itemProgress.starGames, undefined);
 });
 
-test('both Quick entries retain their game-start equipment snapshot', () => {
+test('both Quick entries ignore retired energy-band snapshots', () => {
   for (const id of [null, 'knock']) {
     const h = harness(), s = h.api.state();
     Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
@@ -219,7 +219,7 @@ test('both Quick entries retain their game-start equipment snapshot', () => {
     s.lifetime.equippedItemId = null;
     h.advance(40);
     h.api.finishMinigame(50);
-    assert.equal(s.energy, 91, `${id || 'mixed'} Quick run keeps the band selected at start`);
+    assert.equal(s.energy, 88, `${id || 'mixed'} Quick run pays baseline energy despite a retired band snapshot`);
   }
 });
 
