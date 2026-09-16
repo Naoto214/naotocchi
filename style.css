@@ -3981,10 +3981,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   box-shadow: 0 2px 6px rgba(255, 179, 0, 0.35);
 }
 .daily-card.done { border-color: #9ccc65; background: linear-gradient(135deg, #f1f8e9, #dcedc8); box-shadow: none; }
-.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px; }
 .daily-streak { font-size: 9px; background: #ff7043; color: #fff; padding: 1px 7px; border-radius: 999px; }
-.daily-body { display: flex; align-items: center; gap: 8px; }
-.daily-status { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+/* Reward copy needs its own width; controls must not squeeze it at 320px. */
+.daily-body { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 6px 8px; }
+.daily-card .game-cell-desc { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.daily-status { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px; }
 .daily-score { font-size: 10px; font-weight: bold; }
 .daily-start { min-height: 34px; padding: 4px 12px; font-size: 11px; }
 
