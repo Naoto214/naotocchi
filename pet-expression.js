@@ -84,7 +84,7 @@
       offset = expression === 'strained' ? '0 9' : expression === 'wantsPlay' ? '-32 18' : '-22 8';
     }
     if (baseAsset === 'assets/characters/cat/05.png') {
-      offset = expression === 'strained' ? '10 -17' : expression === 'wantsPlay' ? '-24 -2' : '-12 -4';
+      offset = expression === 'strained' ? '10 -13' : expression === 'wantsPlay' ? '-26 2' : '-12 -4';
     }
     const accent = offset
       ? ACCENTS[expression].replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>')

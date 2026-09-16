@@ -160,3 +160,11 @@ test('young stage has ten faces and marks anchored near its left-hand head', () 
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.accentFor(base,'normal'),'');
 });
+
+test('young cat silver and orange marks sit closer to the head without moving other stages', () => {
+  assert.match(expression.accentFor('assets/characters/cat/05.png','strained'),/translate\(10 -13\)/);
+  assert.match(expression.accentFor('assets/characters/cat/05.png','wantsPlay'),/translate\(-26 2\)/);
+  assert.match(expression.accentFor('assets/characters/cat/05.png','hungry'),/translate\(-12 -4\)/);
+  assert.match(expression.accentFor('assets/characters/cat/03.png','wantsPlay'),/translate\(-14 12\)/);
+  assert.match(expression.accentFor('assets/characters/cat/04.png','strained'),/translate\(0 9\)/);
+});

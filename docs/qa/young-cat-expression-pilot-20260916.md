@@ -63,3 +63,5 @@ ImageMagickでalpha50%閾値、trim、nearest-neighbor94×105、128×128の[17,1
   - Asset: assets/characters/expressions/cat/05-weak.png
 
 最終 npm test: 701 passed / 0 failed。128×128 RGBA、透明境界、10枚の別画像性も検証。正規化画像を目視確認済み。iPhoneの視認性判定は未実施。
+
+ユーザーの実機フィードバックに合わせ、若いねこの銀色マークを4 SVG単位下へ、オレンジを2単位左・4単位下へ寄せた。色・縁・サイズと他状態／他段階の位置は保持。
