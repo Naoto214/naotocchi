@@ -23,6 +23,9 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
     await page.clock.install({time:new Date('2026-09-12T12:00:00Z')});
     await page.clock.pauseAt(new Date('2026-09-12T12:01:00Z'));
     await page.addInitScript(s=>{
+      // Keep unrelated world events stable while advancing the real timers.
+      // Roulette distribution boundaries are covered by lucky-coin-test.cjs.
+      Math.random=()=>0.4;
       if(!sessionStorage.getItem('equipment-seeded')){
         localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));
         sessionStorage.setItem('equipment-seeded','1');
@@ -87,8 +90,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       assert.equal(await use.textContent(),'つかう');
       await use.click();
       const used=await readSave(page),payout=used.lifetime.money-purchased.lifetime.money;
-      assert.ok([10,20,50,100,500,1000,10000].includes(payout));
-      assert.equal(used.items.c_coin2,stock);
+      assert.equal(payout,50);
+      assert.equal(used.items.c_coin2||0,stock);
       assert.match(await page.locator('#message').textContent(),new RegExp(`${payout}コイン`));
       assert.equal(await page.locator('[data-item-action="cancel"][data-id="c_coin2"]').count(),0);
       assert.doesNotMatch(await page.locator('#onetimeActive').textContent(),/ラッキー/);

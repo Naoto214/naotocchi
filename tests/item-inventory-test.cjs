@@ -37,9 +37,9 @@ test('milestones are fixed and paid once even after spending', () => {
   h.api.onSodachiMilestone(100);assert.equal(s.lifetime.money,800);
   s.lifetime.money=0;h.api.onSodachiMilestone(100);assert.equal(s.lifetime.money,0);
 });
-test('ordinary completion pays two coins', () => {
+test('ordinary completion pays thirty coins', () => {
   const h=harness(),s=h.api.state();s.lifetime.money=0;
-  h.api.startMinigame(game,{intro:false});h.api.finishMinigame(50);assert.equal(s.lifetime.money,2);
+  h.api.startMinigame(game,{intro:false});h.api.finishMinigame(50);assert.equal(s.lifetime.money,30);
 });
 test('daily completion adds one Lucky inventory without a reservation', () => {
   const h=harness(),s=h.api.state();s.items.c_coin2=2;
