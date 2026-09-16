@@ -279,3 +279,60 @@ test('game pass reload retains only the unexpired part of its five-second deadli
   assert.equal(n.get('playBtn').disabled,false);
   assert.equal(n.api.tryStartPlay(null),true);
 });
+
+for (const reload of [false,true]) test(`game pass infinite return preserves its remaining cooldown${reload?' after reload':''}`,()=>{
+  let h=harness();
+  const s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0});
+  // A previously expired normal-life deadline must not replace the new one.
+  s.gamePassReadyAt=500;
+  h.api.enterInfinite();
+  h.api.render();
+  assert.equal(h.api.tryStartPlay(null),true);
+  const deadline=s.gamePassReadyAt;
+  if(reload){
+    const saved=JSON.stringify(s);
+    h=harness({resume:true,storage:{getItem:k=>k==='naotocchi-save-v1'?saved:null,setItem(){},removeItem(){}}});
+  }
+  h.advance(2000);
+  h.api.exitInfinite();
+  h.api.render();
+  assert.equal(h.api.state().gamePassReadyAt,deadline,'return must preserve the original deadline, without restarting five seconds');
+  assert.equal(h.get('playBtn').disabled,true);
+  assert.equal(h.api.tryStartPlay(null),false);
+  for(const id of ['quick-run','quick-solo']){
+    let started=false;
+    assert.equal(h.api.tryStartPlay({id,noIntro:true,start(){started=true;}}),true);
+    assert.equal(started,true,'Quick remains playable across the mode boundary');
+    h.api.retireMinigame();
+  }
+  h.advance(2999);
+  assert.equal(h.api.tryStartPlay(null),false);
+  h.advance(1);
+  assert.equal(h.get('playBtn').disabled,false);
+  assert.equal(h.api.tryStartPlay(null),true);
+});
+
+test('game pass infinite return without an old-life snapshot retains its deadline',()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  s.infinite=true;
+  s.infiniteReturn=null;
+  h.api.render();
+  assert.equal(h.api.tryStartPlay(null),true);
+  const deadline=s.gamePassReadyAt;
+  h.advance(2000);
+  h.api.exitInfinite();
+  assert.equal(h.api.state().stage,'egg');
+  assert.equal(h.api.state().gamePassReadyAt,deadline);
+});
+
+test('game pass infinite return never shortens a later saved normal-life deadline',()=>{
+  const h=harness(),s=h.api.state();
+  s.gamePassReadyAt=6000;
+  h.api.enterInfinite();
+  s.gamePassReadyAt=5000;
+  h.api.exitInfinite();
+  assert.equal(h.api.state().gamePassReadyAt,6000);
+});

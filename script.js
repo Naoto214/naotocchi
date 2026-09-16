@@ -9794,6 +9794,8 @@
   function exitInfinite() {
     if (!state.infinite) return;
     const snapshot = state.infiniteReturn;
+    // モード切替でも使用後5秒の実時間は保持し、待ち時間を延長しない。
+    const gamePassReadyAt = Math.max(state.gamePassReadyAt || 0, snapshot?.gamePassReadyAt || 0);
     // 人生を またぐ きろくは そのまま ひきつぐ(♾️ で えた ぶんも のこす)
     const lifetime = state.lifetime;
     const duel = state.duel;
@@ -9803,6 +9805,7 @@
       // ふるい セーブ(旧 freePlay からの ひきつぎ など)には しまってある
       // 人生が ない。その ばあいだけ あたらしい たまごから はじめる
       state = freshState();
+      state.gamePassReadyAt = gamePassReadyAt;
       state.lifetime = lifetime;
       state.duel = duel;
       state.discoveredStages = discoveredStages;
@@ -9813,6 +9816,7 @@
       return;
     }
     state = Object.assign({}, snapshot, {
+      gamePassReadyAt,
       lifetime,
       duel,
       discoveredStages,
