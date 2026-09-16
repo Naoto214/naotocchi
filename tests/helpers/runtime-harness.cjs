@@ -151,7 +151,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       openDreamPicker, openThemedStickerPack, chooseKakeraSticker, cancelKakeraChoice,
       audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, rareCompanions: RARE_COMPANIONS, partnerCandidates: ALL_PARTNER_CANDIDATES, pendingCompanion: () => pendingCompanionId, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
-      useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
+      useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, CONSUMABLE_ITEMS, dailyChallengeGame, dailyChallengeToday, renderGameList, activeBoostSummary, SHOP_ITEMS,
       currentVisualForm, experiencedSpecies, normalLines:NORMAL_LINES, rareLines:RARE_LINES,
       pickerValues: () => pickerItem?.picker === 'dex-form' ? temporaryDexKeys()
         : pickerItem?.picker === 'transform-ticket' ? [...(ticketTransformOptions || [])]

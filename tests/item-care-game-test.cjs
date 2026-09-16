@@ -129,7 +129,7 @@ for (const [score, coins] of [[0,0],[29,0],[30,30],[69,30],[70,60],[100,60]]) {
   }
 }
 for (const id of ['quick-run','quick-solo']) {
-  for (const [score,coins] of [[0,0],[50,2],[70,13]]) {
+  for (const [score,coins] of [[0,0],[50,0],[70,0]]) {
     for (const equipment of [null,'star']) test(`${id} score ${score} retains base ${coins} with ${equipment}`,()=>{
       const {h,s}=setup(equipment);
       Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});

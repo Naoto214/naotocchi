@@ -23,7 +23,7 @@ test('ordinary completion pays thirty coins', () => {
 });
 test('daily completion adds one Lucky inventory without a reservation', () => {
   const h=harness(),s=h.api.state();s.items.c_coin2=2;
-  h.api.startDaily(game);h.api.finishMinigame(50);
+  h.api.startMinigame(h.api.dailyChallengeGame(),{intro:false});h.api.finishMinigame(50);
   assert.equal(s.items.c_coin2,3);assert.equal(s.oneTimeBoosts.doubleCoins,undefined);
 });
 test('invalid stock cannot be spent and normalization does not create wealth', () => {

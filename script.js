@@ -9576,18 +9576,9 @@
   function growthMultiplier() {
     return state.boostTicks > 0 ? 2 : 1;
   }
-  // せいちょう2ばい: ミニゲームの Sランクで 2ふん、きょうの チャレンジで 10ぷん(かさなる、さいだい 10ぷん)
+  // 通常ミニゲームの Sランクで2分追加（最大10分）。日次報酬は含めない。
   const BOOST_TICKS_S_RANK = 40;
-  const BOOST_TICKS_DAILY = 200;
   const BOOST_TICKS_MAX = 200;
-  // きょうの チャレンジの ごほうび: きほん 10 + れんぞく日数に おうじて +5/日(さいだい 60)、
-  // 3・7・14・30にち の ふしめで ボーナス
-  const DAILY_STREAK_MILESTONES = { 3: 30, 7: 100, 14: 200, 30: 500 };
-  function dailyStreakReward(streak) {
-    const base = 10 + 5 * Math.min(Math.max(0, streak - 1), 10);
-    const bonus = DAILY_STREAK_MILESTONES[streak] || 0;
-    return { coins: base + bonus, milestone: bonus ? `${streak}日連続ボーナス💰${bonus}を含む` : '' };
-  }
   function grantGrowthBoost(ticks) {
     if (!isLiveLife() || state.infinite) return 0;
     state.boostTicks = Math.min(BOOST_TICKS_MAX, (state.boostTicks || 0) + ticks);
@@ -11616,18 +11607,17 @@
     if (daily) {
       const dInfo = minigameInfo(daily);
       const done = dailyChallengeToday();
-      const streak = state.lifetime.dailyStreak || 0;
       const status = done && done.score != null
         ? `<span class="mg-rank rank-${done.rank}">${done.rank}</span><span class="daily-score">${done.score}点</span>`
         : `<button type="button" class="mg-tap-btn primary daily-start" data-game-id="${daily.id}">ちょうせん</button>`;
-      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ${streak > 0 ? `<span class="daily-streak">🔥${streak}日連続</span>` : ''}</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。クリアで💰10〜60＋連続ボーナス／せいちょう2ばい（10分）'}</span></div><div class="daily-status">${status}</div></div></div>`;
+      html += `<div class="daily-card ${done ? 'done' : ''}"><div class="daily-head">🗓️ きょうのチャレンジ</div><div class="daily-body"><span class="game-cell-emoji">${dInfo.emoji}</span><div class="game-cell-text"><span class="game-cell-label">${dInfo.name}</span><span class="game-cell-desc">${done ? '今日はクリア済み。また明日!' : '1日1回。成功でラッキーコイン1個'}</span></div><div class="daily-status">${status}</div></div></div>`;
     }
     // クイックモード カード(ふつうの ゲームとは べつの あそび)
     if (QUICK_RUN) {
       const q = quickStats();
       const qRec = minigameRecordOf(QUICK_RUN);
       const qStatus = q.runs ? `<span class="daily-score">さいこう ✔${q.bestCleared}／${quickMod.QUICK_RULES.TOTAL}${qRec ? `<span class="mg-rank rank-${minigameRankOf(qRec.best)}">${minigameRankOf(qRec.best)}</span>` : ''}</span>` : `<span class="daily-score">まだあそんでいない</span>`;
-      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? 'いちらんをとじる' : 'ひとつずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">数秒のゲームをつぎつぎ。3回しっぱいでおわり</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
+      html += `<div class="daily-card quick-card"><div class="daily-head">⚡ クイックモード${q.runs ? `<span class="daily-streak">${q.runs}ラン</span>` : ''}<button type="button" class="quick-list-toggle">${quickListOpen ? 'いちらんをとじる' : 'ひとつずつえらぶ'}</button></div><div class="daily-body"><span class="game-cell-emoji">⚡</span><div class="game-cell-text"><span class="game-cell-label">指示どおりに、すぐそうさ</span><span class="game-cell-desc">げんき消費なし。20/20完走で100コイン</span></div><div class="daily-status">${qStatus}<button type="button" class="mg-tap-btn primary quick-start">はじめる</button></div></div>`
         + (quickListOpen ? `<div class="quick-solo-list">${quickMod.QUICK_GAMES.map((g) => { const r = q.single[g.id]; return `<button type="button" class="quick-solo-start" data-quick-id="${g.id}"><span class="quick-solo-cue">${escapeHtml(g.cue)}</span><span class="quick-solo-motif">${escapeHtml(g.motif)}</span><span class="quick-solo-best">${r ? `✔${r.best}／${quickMod.QUICK_RULES.SOLO_TOTAL}` : '—'}</span></button>`; }).join('')}</div>` : '')
         + '</div>';
     }
@@ -13810,7 +13800,7 @@
   const { MINIGAMES, MINIGAME_CATEGORY_GROUPS, REGION_MINIGAMES, SEASONAL_MINIGAMES, mg, minigameCategoryOf } = installMinigames({ sfx: (name) => audio.play(name), perfLow: () => mgPerfLow, perfScale: () => mgPerfScale(), sceneryAtlas: UI_ATLAS_IMAGES.scenery, foodIconHTML: minigameFoodHTML, canvasIllustrations:CANVAS_ILLUSTRATIONS, drawProp: PROP_ILLUSTRATIONS?.draw, MG_ACTION_START_GRACE_MS, MG_SWIPE_MIN, SEASON, ageDifficulty, bindHeldButton, createTouchPad, createPadRow, clamp, createMgCanvas, currentSprite, generateMaze, lerp, mazeBfs, mgDuration, mgPointerPos, minigameEase });
   // クイックモード(quick.js): 1つ 3〜6びょうの ゲームを 指示(文字+こえ)つきで つぎつぎ
   // あそぶ。本体からは 1本の ゲーム 'quick-run' として startMinigame/finishMinigame を とおる
-  // (げんき・ごほうび・じこベスト・やめるバーは ふつうの ミニゲームと おなじ)
+  // 記録とセッションは共通。育成には影響せず、混合20/20完走だけ100コイン。
   const QUICK_FOOD_EMOJI = ['🍙', '🍎', '🍰', '🍓', '🍩', '🍇'];
   const quickMod = typeof installNaotocchiQuick === 'function' ? installNaotocchiQuick({
     sfx: (name) => audio.play(name),
@@ -14274,7 +14264,7 @@
   // シールに して あつめ、4つの ページに はって あそぶ。あつめた シールと
   // はった ばしょは lifetime に のこる(「はじめから」でも きえない)。
   //   ・てにいれかた: ずかんに はじめて のった すがた / なかまに なった /
-  //     こいびとに なった とき その シール、きょうの チャレンジ クリアで 1まい、
+  //     こいびとに なった とき その シール、
   //     Sランクで 30%、あとは おかねで シールパック(3まい)
   //   ・かぶった シールは「かけら」に なり、12こで あたらしい 1まいと こうかんできる
   //   ・ページごとの「おだい」を たっせいすると おかねと かけらが もらえる
@@ -15022,8 +15012,6 @@
   let activeMinigameEquipment = null;
   let gamePassCooldownTimer = null;
   let temporaryFormTimer = null;
-  let dailyPending = false;       // つぎに はじまる ゲームが「きょうの チャレンジ」か
-  let activeMinigameDaily = false; // いま うごいている ゲームが きょうの チャレンジか
   function mgRunTagged(session, fn, thisArg, args) {
     const prevDepth = mgCodeDepth;
     const prevSession = mgCodeSession;
@@ -15147,11 +15135,13 @@
 
   function retireMinigameInner() {
     const game = activeMinigame;
-    activeMinigameDaily = false;
+    const isQuick = game?.id === 'quick-run' || game?.id === 'quick-solo';
     closeMinigameScreen();
     audio.play('close');
-    state.energy = clamp(state.energy - 6, 0, 100);
-    state.happiness = clamp(state.happiness + 2, 0, 100);
+    if (!isQuick) {
+      state.energy = clamp(state.energy - 6, 0, 100);
+      state.happiness = clamp(state.happiness + 2, 0, 100);
+    }
     let message = 'むりせず途中でやめた。また今度ちょうせん!';
     if (pendingCompanionId) {
       const companion = allCompanionsById(pendingCompanionId);
@@ -15161,10 +15151,10 @@
     if (game && minigameInfo(game).name) message = `${minigameInfo(game).emoji} ${message}`;
     setMessage(message);
     emotePet('happy');
-    checkMeters();
+    if (!isQuick) checkMeters();
     saveState();
     render();
-    showPendingClownfishTransition();
+    if (!isQuick) showPendingClownfishTransition();
   }
 
   let mgQuitConfirmTimer = null;
@@ -15228,12 +15218,25 @@
     const isGreat = clampedScore >= 70;
     const isBad = clampedScore < 30;
     const isQuick = game.id === 'quick-run' || game.id === 'quick-solo';
-    state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
-    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
-    state.energy = clamp(state.energy - energyCost, 0, 100);
     state.minigameScoreSum += rawScore;
     state.minigameCount += 1;
     state.lifetime.minigamesPlayed += 1;
+    if (isQuick) {
+      // 混合の実点100は20/20。ソロ・未完走には支払わず、装備や環境も掛けない。
+      const coins = game.id === 'quick-run' && score === 100 ? 100 : 0;
+      state.lifetime.money += coins;
+      pendingCompanionId = null;
+      setMessage((customMessage || resultMessageForScore(score)) + (coins ? '／100コインをもらった!' : ''));
+      closeMinigameScreen();
+      showMinigameResultToast(record);
+      audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
+      saveState(); // 実績・記録は残し、育成・勧誘・ストーリーの結果処理を通さない。
+      render();
+      return;
+    }
+    state.happiness = clamp(state.happiness + Math.round(5 + (clampedScore / 100) * 20), 0, 100);
+    const energyCost = Math.max(1, Math.round(12 * envModifiers().play));
+    state.energy = clamp(state.energy - energyCost, 0, 100);
     state.transformMeter = clamp(state.transformMeter + 25 * (hasPerk(60) ? 1.2 : 1), 0, 100);
     offerTransformIfReady();
 
@@ -15246,33 +15249,23 @@
       applyDecline(8);
       raiseDeathMeter(2);
     }
-    // Quick keeps its existing base payouts; only ordinary games use Star.
     const result = isGreat ? 'great' : isBad ? 'failure' : 'success';
-    const coins = isQuick
-      ? (isGreat ? Math.round((5 + Math.random() * 6) * envModifiers().coin) : isBad ? 0 : 2)
-      : ordinaryMinigameCoins(result, activeMinigameEquipment);
+    const coins = ordinaryMinigameCoins(result, activeMinigameEquipment);
     if (coins > 0) {
       state.lifetime.money += coins;
       itemMessage += `／${coins}コインをもらった${isGreat ? '!' : ''}`;
     }
 
     let resultMessage = (customMessage || resultMessageForScore(score)) + itemMessage;
-    // きょうの チャレンジ: きょうの スコアを きろくし、💰+10 と れんぞく日数
-    if (activeMinigameDaily && record) {
-      activeMinigameDaily = false;
-      const key = dailyKey();
-      const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
-      const streak = state.lifetime.dailyLastDate === dailyKey(yesterday) ? (state.lifetime.dailyStreak || 0) + 1 : 1;
-      state.lifetime.dailyChallenge = { date: key, gameId: game ? game.id : null, score: record.score, rank: record.rank };
-      state.lifetime.dailyStreak = streak; state.lifetime.dailyLastDate = key;
-      const reward = dailyStreakReward(streak);
-      state.lifetime.money += reward.coins;
+    // 入口ではなく、完了した日の指定ゲーム・実点・未受領の日付で判定する。
+    const dailyCompleted = record && score >= 30 && !dailyChallengeToday()
+      && game.id === dailyChallengeGame()?.id;
+    if (dailyCompleted) {
+      state.lifetime.dailyChallenge = { date: dailyKey(), gameId: game.id, score: record.score, rank: record.rank };
       ITEM_SYSTEM.grant(state, 'c_coin2');
-      grantGrowthBoost(BOOST_TICKS_DAILY);
-      const dailySticker = grantRandomSticker('daily');
-      resultMessage += `／🗓️今日のチャレンジクリア!／💰+${reward.coins}／✨せいちょう2ばい(10分)${streak >= 2 ? `／🔥${streak}日連続` : ''}${reward.milestone ? `／🎉${reward.milestone}` : ''}${dailySticker ? `／🏷️シール「${dailySticker.sticker.label}」` : ''}`;
+      resultMessage += '／🗓️今日のチャレンジクリア!／ラッキーコイン1個をもらった';
     }
-    if (record && record.rank === 'S' && !activeMinigameDaily) {
+    if (record && record.rank === 'S' && !dailyCompleted) {
       grantGrowthBoost(BOOST_TICKS_S_RANK);
       resultMessage += '／✨Sランク!せいちょう2ばいを2分追加（合計10分まで）';
       if (Math.random() < 0.3) {
@@ -15386,7 +15379,6 @@
     mgSession = session;
     activeMinigame = game;
     activeMinigameEquipment = state.lifetime.equippedItemId;
-    activeMinigameDaily = dailyPending; dailyPending = false;
     showMinigameQuit();
     // ゲームがわから おくれて/2かい よばれても、その セッションが もう
     // おわっていれば なにも しない
@@ -15930,8 +15922,6 @@
   function applyGamePassSuccess() {
     const careBefore = CARE_STATUS?.snapshot(state);
     // 通常成功の育成だけ。点数、記録、日次、勧誘、予約アイテムには触れない。
-    dailyPending = false;
-    activeMinigameDaily = false;
     pendingCompanionId = null;
     clearConversationTimers();
     hideSpeechBubble();
@@ -15970,7 +15960,7 @@
     const isQuick = chosenGame?.id === 'quick-run' || chosenGame?.id === 'quick-solo';
     if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
     if (!isQuick && Date.now() < (state.gamePassReadyAt || 0)) return false;
-    if (state.energy < 10) {
+    if (!isQuick && state.energy < 10) {
       setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
       render();
@@ -15981,8 +15971,10 @@
       return true;
     }
     state.actionCounts.play += 1;
-    state.affectionStreak = 0;
-    state.travelStreak = 0;
+    if (!isQuick) {
+      state.affectionStreak = 0;
+      state.travelStreak = 0;
+    }
     recordEnvironmentPlay();
     let game;
     if (chosenGame) {
@@ -16897,7 +16889,7 @@
       const cell = e.target && e.target.closest ? e.target.closest('.game-cell') : null;
       if (!cell && !dailyBtn) return;
       const game = buildMinigamePool().find((g) => g.id === (dailyBtn ? dailyBtn.dataset.gameId : cell.dataset.gameId));
-      if (dailyBtn) { if (dailyChallengeToday()) return; dailyPending = true; }
+      if (dailyBtn && dailyChallengeToday()) return;
       if (!game) return;
       // いちらんを とじてから はじめる。あそべない ときは ふつうの がめんに
       // りゆうの メッセージが 出る(ねている/げんき不足 など)
@@ -16905,7 +16897,7 @@
       clearConversationTimers();
       hideSpeechBubble();
       render();
-      if (!tryStartPlay(game)) dailyPending = false;
+      tryStartPlay(game);
     });
   }
 

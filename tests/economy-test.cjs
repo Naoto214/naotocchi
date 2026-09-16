@@ -2,26 +2,15 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
-test('daily streak rewards grow and pay milestone bonuses', () => {
-  const h = harness();
-  assert.equal(h.api.dailyStreakReward(1).coins, 10);
-  assert.equal(h.api.dailyStreakReward(2).coins, 15);
-  assert.equal(h.api.dailyStreakReward(3).coins, 20 + 30);
-  assert.equal(h.api.dailyStreakReward(7).coins, 40 + 100);
-  assert.equal(h.api.dailyStreakReward(11).coins, 60);
-  assert.equal(h.api.dailyStreakReward(40).coins, 60);
-  assert.match(h.api.dailyStreakReward(30).milestone, /30/);
-});
-
 for (const equipment of [null,'star']) test(`daily and Lucky payouts stay independent with ${equipment}`,()=>{
   const h=harness(),s=h.api.state();
   Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});
   Object.assign(s.lifetime,{equippedItemId:equipment,weatherMode:'sunny',timeMode:'day',seasonMode:'spring'});
   require('node:vm').runInContext('Math.random=()=>0.8',h.sandbox);
   const before=s.lifetime.money;
-  h.api.startDaily({id:'daily-reward-probe',start(){}});
+  h.api.startMinigame(h.api.dailyChallengeGame(),{intro:false});
   h.api.finishMinigame(50);
-  assert.equal(s.lifetime.money-before,equipment==='star'?100:40,'base reward plus unchanged 10 daily coins');
+  assert.equal(s.lifetime.money-before,equipment==='star'?90:30,'only ordinary game coins');
   const afterGame=s.lifetime.money;
   assert.equal(h.api.useConsumableItem('c_coin2'),true);
   assert.equal(s.lifetime.money-afterGame,500,'daily Lucky grant retains immediate roulette payout');
