@@ -77,10 +77,10 @@
   },
   "c_coin2": {
     "label": "ラッキーコイン",
-    "price": null,
+    "price": 300,
     "kind": "consumable",
-    "desc": "次の大成功でもらうゲームのコインが2ばい。",
-    "guard": "新スターバッジ・節目・シールお題には掛けない。既存の購入済み未発動分は使える状態を維持。 在庫数のプレイ上の上限は設けず、日次達成時に1個加算。発動予約は同時に1個。既存在庫・発動中でもその日の1個を受け取れ、未達成日の遡り支給はない。"
+    "desc": "ルーレットでコインがもらえる。",
+    "guard": "使用時に1個消費して即時抽選・即時支給。装備やゲーム報酬とは独立。日次達成時の1個加算は継続。"
   },
   "c_safety": {
     "label": "スコアほけん",
@@ -332,6 +332,13 @@
     for (const id of Object.keys(bag)) {
       if (!known(id) || !count(bag[id])) delete bag[id];
     }
+    // The saved life and infinite return may describe the same spent reservation.
+    // Credit the authoritative lifetime bag once, then remove both old effects.
+    const luckyReservations = [state.oneTimeBoosts, state.infiniteReturn?.oneTimeBoosts];
+    if (luckyReservations.some(boosts => boosts?.doubleCoins === true)) {
+      bag.c_coin2 = count(bag.c_coin2) + 1;
+    }
+    luckyReservations.forEach(boosts => { if (object(boosts)) delete boosts.doubleCoins; });
     if (legacy) {
       // An infinite-mode snapshot can hold the reservation that will be restored.
       const reservations = [state.oneTimeBoosts, state.infiniteReturn?.oneTimeBoosts];

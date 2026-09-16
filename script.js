@@ -1419,7 +1419,6 @@
         breakupShield: null, // null | 'half' | 'full'
         courtBoost: null, // null | 'small' | 'big'
         minigameBoost: null, // null | 'small' | 'big'
-        doubleCoins: false,
         safetyNet: false,
         greatReward: false,
         travelGuarantee: false,
@@ -2471,10 +2470,20 @@
 
   // 購入は永久在庫へ。使用時に available を確認し、効果成立後に1個使う。
   // この配列はゲーム側の発動処理だけを持ち、商品情報はモジュールから読む。
+  const LUCKY_COIN_ROULETTE = Object.freeze([
+    { below: 0.15, coins: 10 }, { below: 0.35, coins: 20 },
+    { below: 0.60, coins: 50 }, { below: 0.80, coins: 100 },
+    { below: 0.92, coins: 500 }, { below: 0.99, coins: 1000 },
+    { below: 1, coins: 10000 },
+  ].map(Object.freeze));
   const CONSUMABLE_ITEMS = [
     { id: 'c_coin2', label: 'ラッキーコイン', emoji: '🪙',
-      available: () => !state.oneTimeBoosts.doubleCoins, unavailableMessage: 'すでに発動待ち（つぎのミニゲーム大成功で使う）',
-      apply: () => { state.oneTimeBoosts.doubleCoins = true; return { message: 'ラッキーコインをにぎりしめた。つぎのミニゲーム大成功でもらうおかねが2ばい!' }; } },
+      apply: () => {
+        const draw = Math.random();
+        const { coins } = LUCKY_COIN_ROULETTE.find(prize => draw < prize.below);
+        state.lifetime.money += coins;
+        return { message: `ラッキーコインのルーレットで${coins}コインをもらった!` };
+      } },
     { id: 'c_safety', label: 'スコアほけん', emoji: '🛡️',
       available: () => !state.oneTimeBoosts.safetyNet, unavailableMessage: 'すでに発動待ち（つぎのミニゲーム失敗で使う）',
       apply: () => { state.oneTimeBoosts.safetyNet = true; return { message: 'スコアほけんに入った。つぎのミニゲーム失敗で、おとろえ・いのち・げんきを守る' }; } },
@@ -2518,7 +2527,6 @@
   function activeBoostSummary() {
     const b = state.oneTimeBoosts || {};
     const out = [];
-    if (b.doubleCoins) out.push('ラッキーコイン');
     if (b.safetyNet) out.push('スコアほけん');
     if (b.greatReward) out.push('大成功のおまもり（実点70以上で発動）');
     if (isEquipped('sleepboost1') && state.itemLife.pillowUntil > state.lifetime.itemProgress.ticks) out.push(`すっきり、あと${Math.ceil((state.itemLife.pillowUntil - state.lifetime.itemProgress.ticks) * 3 / 60)}分`);
@@ -15185,9 +15193,7 @@
     if (isGreat) {
       applyGrowth(14 + (special ? 14 : 0)); applyDecline(-8);
       if (special) state.oneTimeBoosts.greatReward = false;
-      const coinBoost = state.oneTimeBoosts.doubleCoins ? 2 : 1;
-      state.oneTimeBoosts.doubleCoins = false;
-      const coins = Math.round((5 + Math.random() * 6) * coinBoost * envModifiers().coin);
+      const coins = Math.round((5 + Math.random() * 6) * envModifiers().coin);
       state.lifetime.money += coins;
       itemMessage += `／${coins}コインをもらった!`;
     } else if (!isBad) {

@@ -14,10 +14,10 @@ test('buy stores a drink without arming; only the whole five minutes can be used
   assert.equal(s.boostTicks,200);assert.equal(h.api.itemStock('c_growth'),0);
 });
 test('new life preserves unused stock and drops active effects', () => {
-  const h=harness(),s=h.api.state();s.items.c_growth=3;s.items.c_safety=1;s.oneTimeBoosts.doubleCoins=true;
+  const h=harness(),s=h.api.state();s.items.c_growth=3;s.items.c_safety=1;s.items.c_coin2=2;s.oneTimeBoosts.safetyNet=true;
   h.dispatch(h.get('resetBtn'),'click'); const n=h.api.state();
   assert.equal(n.items.c_growth,3);assert.equal(n.items.c_safety,1);
-  assert.equal(n.oneTimeBoosts.doubleCoins,false);assert.equal(n.items,n.lifetime.itemInventory);
+  assert.equal(n.oneTimeBoosts.safetyNet,false);assert.equal(n.oneTimeBoosts.doubleCoins,undefined);assert.equal(n.items.c_coin2,2);assert.equal(n.items,n.lifetime.itemInventory);
 });
 test('dedicated reward inventory is retired and legacy reward stock is discarded', () => {
   const h=harness(),m=h.sandbox.NaotocchiItems;
@@ -41,10 +41,10 @@ test('ordinary completion pays two coins', () => {
   const h=harness(),s=h.api.state();s.lifetime.money=0;
   h.api.startMinigame(game,{intro:false});h.api.finishMinigame(50);assert.equal(s.lifetime.money,2);
 });
-test('daily completion adds lucky inventory even with a reservation', () => {
-  const h=harness(),s=h.api.state();s.items.c_coin2=2;s.oneTimeBoosts.doubleCoins=true;
+test('daily completion adds one Lucky inventory without a reservation', () => {
+  const h=harness(),s=h.api.state();s.items.c_coin2=2;
   h.api.startDaily(game);h.api.finishMinigame(50);
-  assert.equal(s.items.c_coin2,3);assert.equal(s.oneTimeBoosts.doubleCoins,true);
+  assert.equal(s.items.c_coin2,3);assert.equal(s.oneTimeBoosts.doubleCoins,undefined);
 });
 test('invalid stock cannot be spent and normalization does not create wealth', () => {
   const s=JSON.parse(JSON.stringify(harness().api.state()));s.lifetime.money=5;s.items={fun_candy:-5,c_growth:NaN,unknown:999};
