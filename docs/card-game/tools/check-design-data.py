@@ -520,6 +520,90 @@ world_audit = {"main_commit": world_snapshot["main_commit"], "body_entries": len
                "manual_case_entries": len(world_cases), "max_body_length": max((len(r["text"]) for r in world_records.values()), default=0),
                "identical_body_groups": world_duplicates, "actual_source_verified": world_source_verified}
 
+
+# Events: CARD bodies and HOLD source families remain separate populations.
+event_snapshot = json.loads((DOCS / "data/event-source-20260917.json").read_text())
+event_expected = {r[0]: r[1] for r in event_rows}
+event_pinned = {r["id"]: r for r in event_snapshot["events"]}
+check(len(event_snapshot["events"]) == 34 and
+      {k: v["status"] for k, v in event_pinned.items()} == event_expected, "Event source population/status")
+event_names = dict(re.findall(r"^### (E-[\w-]+) — ([^\n]+)$", doc(38), re.M))
+event_records = {}
+for m in re.finditer(r"^### (E-[\w-]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", doc(91), re.M | re.S):
+    card_id, name, section = m.groups()
+    body = re.findall(r"^> (.+)$", section, re.M)
+    times = re.findall(r"^- 時：(\d+)$", section, re.M)
+    check(len(body) == len(times) == 1, f"Event body/metadata missing: {card_id}")
+    if len(body) != 1 or len(times) != 1:
+        continue
+    check(card_id not in event_records, f"Event duplicate ID: {card_id}")
+    check(event_expected.get(card_id) == "CARD" and name == event_names.get(card_id) == event_pinned.get(card_id, {}).get("name"), f"Event name/status: {card_id}")
+    check(all(x in section for x in ("- 状態：CARD", "- 使用方法：すぐつかう", "- 構築区分：通常（同名3枚）")), f"Event classification: {card_id}")
+    check(f'- source：{event_pinned.get(card_id, {}).get("anchor")}' in section, f"Event source anchor: {card_id}")
+    check(1 <= int(times[0]) <= 3, f"Event time outside draft range: {card_id}")
+    event_records[card_id] = {"id": card_id, "name": name, "type": "できごと", "time": int(times[0]),
+                              "method": "すぐつかう", "rarity": "normal", "text": body[0],
+                              "path": str(next(DOCS.glob("91-*.md")).relative_to(ROOT))}
+check(set(event_records) == {k for k, v in event_expected.items() if v == "CARD"}, "21 event body coverage")
+event_hold_ids = re.findall(r"^\| (E-[\w-]+) \|", doc(91), re.M)
+check(len(event_hold_ids) == len(set(event_hold_ids)) == 13 and set(event_hold_ids) ==
+      {k for k, v in event_expected.items() if v == "HOLD"}, "13 event HOLD coverage")
+for short, time in {"big-illness": 3, "fateful-transform": 2, "new-encounter": 1,
+                    "misunderstanding": 2, "sudden-trip": 2, "final-time": 2}.items():
+    cid = "E-" + short
+    rec = event_records.get(cid, {})
+    check(rec.get("time") == time, f"Legacy event time: {cid}")
+    role = re.search(rf"^### {cid} — [^\n]+\n(.*?)(?=^### |^## |\Z)", doc(38), re.M | re.S)
+    rb = re.search(r"91本文: `([^`]+)`", role[1]) if role else None
+    deck = re.search(rf"^- {re.escape(rec.get('name', ''))} — 時(\d+)[^\n]+", doc(8), re.M)
+    db = re.search(r"`([^`]+)`", deck[0]) if deck else None
+    check(bool(rb) and rb[1] == rec.get("text"), f"38 event mirror: {cid}")
+    check(bool(db) and db[1] == rec.get("text") and int(deck[1]) == time, f"08 event mirror: {cid}")
+check("できごとCARD21は全て通常・各同名3枚" in doc(27), "27 event classification missing")
+event_cases = re.findall(r"^\| ([PX]\d{2}) \|", doc(92), re.M)
+check(len(event_cases) == len(set(event_cases)) == 40 and set(event_cases) ==
+      {f"P{n:02d}" for n in range(1, 22)} | {f"X{n:02d}" for n in range(1, 20)}, "92 event manual case IDs")
+all_with_event = collections.defaultdict(list, {k: list(v) for k, v in all_with_world.items()})
+for rec in event_records.values():
+    all_with_event[rec["text"]].append(rec["id"])
+event_duplicates = [ids for ids in all_with_event.values() if len(ids) > 1]
+check(not event_duplicates, f"Identical character/item/play/world/event bodies: {event_duplicates}")
+event_source_verified = False
+if "--event-source-root" in sys.argv:
+    source_dir = Path(sys.argv[sys.argv.index("--event-source-root") + 1]).resolve()
+    hashes_match = True
+    for name, expected in event_snapshot["source_blobs"].items():
+        raw = (source_dir / name).read_bytes()
+        actual = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        check(actual == expected, f"Event source blob differs: {name}")
+        hashes_match = hashes_match and actual == expected
+    runtime = (source_dir / "script.js").read_text()
+    source_text = runtime + (source_dir / "character-world-master.v1.js").read_text()
+    for rec in event_pinned.values():
+        # author is a nested master path, other anchors are literal source tokens.
+        anchors = rec["anchor"].split(" / ")
+        for anchor in anchors:
+            token = "author:" if anchor == "playerSpecies.author" else anchor
+            check(token in source_text, f"Current event anchor missing: {rec['id']} / {anchor}")
+    legend_part = runtime.split("const LEGEND_ENCOUNTERS = [", 1)[1].split("\n  ];", 1)[0]
+    actual_legend_ids = re.findall(r"id: '([^']+)'", legend_part)
+    check(actual_legend_ids == event_snapshot["legend_ids"], "Event legend ID snapshot")
+    midlife_part = runtime.split("const MIDLIFE_EVENTS = [", 1)[1].split("\n  ];", 1)[0]
+    check([int(x) for x in re.findall(r"age: (\d+)", midlife_part)] == event_snapshot["midlife_ages"], "Event midlife age snapshot")
+    retired = event_snapshot["retired_anchors"]["E-special-trip-memory"]
+    check(retired["old"] not in runtime and all(x in runtime for x in retired["current"]) and
+          "const travelMemory = null;" in runtime, "Event retired travel reward evidence")
+    movie_keys = json.loads(subprocess.check_output(["node", "-e",
+        "console.log(JSON.stringify(Object.keys(require(process.argv[1]).legends)))",
+        str(source_dir / "movie-dialogue.js")], text=True))
+    check(movie_keys == event_snapshot["legend_ids"], "Event actual movie legend IDs")
+    event_source_verified = hashes_match
+event_audit = {"main_commit": event_snapshot["main_commit"], "body_entries": len(event_records),
+               "hold_entries": len(event_hold_ids), "unexpanded_CARD_entries": 21-len(event_records),
+               "time_counts": dict(collections.Counter(r["time"] for r in event_records.values())),
+               "manual_case_entries": len(event_cases), "identical_body_groups": event_duplicates,
+               "actual_source_verified": event_source_verified}
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -545,9 +629,10 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "partner_vanilla_entries": partner_vanilla,
                   "all_character_identical_ability_groups": all_character_duplicates,
                   "current_item_source_followup": item_audit,
-                  "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "world_draft_followup": world_audit, "errors": errors,
+                  "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "world_draft_followup": world_audit, "event_draft_followup": event_audit, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
+    result["events"] = sorted(event_records.values(), key=lambda r: r["id"])
     result["worlds"] = sorted(world_records.values(), key=lambda r: r["id"])
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
