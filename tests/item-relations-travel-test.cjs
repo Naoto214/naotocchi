@@ -13,14 +13,28 @@ function reload(s){return harness({resume:true,storage:{getItem:k=>k==='naotocch
 test('backpack removes travel hunger and energy costs but does not prevent fatigue',()=>{
  const {h,s}=setup('travel1');s.travelStreak=100;const e=s.energy,f=s.hunger,m=s.happiness;travel(h,'forest');assert.equal(s.energy,e);assert.equal(s.hunger,f);assert.equal(s.happiness,m-3);
 });
-test('lantern requires ownership and visited region, cooldown 200, gives no cash or natural observations',()=>{
- const {h,s}=setup();s.lifetime.regionsVisited=['home','forest'];h.api.renderItemOverlay();choose(h,'itemRelationActions',{itemRelation:'lantern',region:'forest'});assert.equal(s.lifetime.itemMemories.lights.length,0);
- s.lifetime.ownedNaotoItems=['naoto_lantern'];s.lifetime.timeMode='auto';s.lifetime.weatherMode='auto';s.lifetime.envMoments=9;h.api.saveState();
- const observations=()=>JSON.stringify({weather:s.lifetime.weatherSeen,time:s.lifetime.timeSeen,envPlays:s.lifetime.envPlays,envMoments:s.lifetime.envMoments,achievements:s.achievementsUnlocked,discovered:s.discoveredStages,rareCompanions:s.lifetime.rareCompanionsRecruited,legends:s.lifetime.legendsMet,legendMet:s.legendMet,dreamEggs:s.lifetime.dreamEggs,regions:s.lifetime.regionsVisited,specialRegions:s.lifetime.specialRegionsVisited});
- const before=observations();const money=s.lifetime.money;choose(h,'itemRelationActions',{itemRelation:'lantern',region:'mountain'});assert.equal(s.lifetime.itemMemories.lights.length,0);
- choose(h,'itemRelationActions',{itemRelation:'lantern',region:'forest'});assert.equal(s.lifetime.itemMemories.lights.length,1);assert.equal(s.lifetime.money,money);assert.equal(observations(),before);
- choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,1);s.lifetime.itemProgress.ticks+=200;choose(h,'itemRelationActions',{itemRelation:'lantern',region:'home'});assert.equal(s.lifetime.itemMemories.lights.length,2);assert.equal(observations(),before);
- h.api.renderNaotoItemGrid();assert.match(h.get('naotoItemGrid').innerHTML,/なおとのランタン/);
+test('retired lantern UI and stale clicks never create light scenes or cooldowns',()=>{
+ const {h,s}=setup();s.lifetime.ownedNaotoItems=['naoto_lantern'];s.lifetime.regionsVisited=['home','forest'];
+ h.api.renderItemOverlay();
+ assert.doesNotMatch(h.get('itemRelationActions').innerHTML,/あかり|lantern/);
+ const before=JSON.stringify(s.lifetime.itemMemories),serial=s.lifetime.itemProgress.sceneSerial;
+ for(const ticks of [0,200,10000]){
+  s.lifetime.itemProgress.ticks=ticks;
+  choose(h,'itemRelationActions',{itemRelation:'lantern',region:'forest'});
+  assert.equal(JSON.stringify(s.lifetime.itemMemories),before);
+  assert.equal(s.lifetime.itemProgress.sceneSerial,serial);
+  assert.equal(s.lifetime.itemProgress.readyAt.lantern,undefined);
+ }
+});
+for(const lights of [[{key:'lantern:1',event:'lantern',text:'old light'}],null,'broken'])test(`legacy light data is ignored safely: ${JSON.stringify(lights)}`,()=>{
+ const {s}=setup();s.lifetime.ownedNaotoItems=['naoto_lantern'];
+ s.lifetime.itemMemories.lights=lights;s.lifetime.itemProgress.readyAt.lantern=999999;
+ const h=reload(s),r=h.api.state();
+ assert.equal(r.lifetime.itemMemories.lights,undefined);
+ assert.equal(r.lifetime.itemProgress.readyAt.lantern,undefined);
+ assert.equal(h.api.ITEM_SYSTEM.remember(r,'lights',{key:'new'}),null);
+ r.growth=0;r.boostTicks=0;h.api.applyGrowth(4);assert.ok(Math.abs(r.growth-4.4)<1e-9);
+ h.api.renderItemOverlay();assert.doesNotMatch(h.get('itemRelationActions').innerHTML,/あかり|lantern/);
 });
 test('equipment reactions only occur for actual eligible care and active protection',()=>{
  const {h,s}=setup('bowtie');s.hunger=50;click(h,'feedBtn');assert.equal(h.get('petSprite').dataset.itemReaction,'bowtie');
