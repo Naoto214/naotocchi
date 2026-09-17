@@ -21,3 +21,7 @@ Preserve existing800 PNG/routes/SVG and80 placement records, including81 prior c
 - Remaining task evidence recorded in QA and final PR handoff.
 
 Historical241 sparse index files are absent locally but retained in tree; never delete them. Use existing isolated checkout; do not merge or clean it away.
+
+## Final verification completed
+
+Reused all80 PNGs; generated only8 jellyfish placement records. All80 marked composites reviewed. Full suite1085/1085, marks880/sweat528 with0 issues, independent final review no findings and240 hashes matched. Existing800 art/routes/SVG and80 placement records preserved. Delivery record is maintained in the QA document.
