@@ -1,5 +1,4 @@
 {
-  "status": "in_progress",
   "generator": "built-in imagegen",
   "normalization": "tools/normalize-expression-image.cjs",
   "records": [
@@ -222,6 +221,18 @@
     {
       "line": "coral",
       "original": "assets/characters/coral/02.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact single pink sea-anemone-like coral on gray rocks, central round face below tentacles. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WANTSPLAY: bright eager wide eyes and a cute expectant smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "02",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-a04de208-b93a-4d75-8542-4759c661285b.png",
+      "original_sha256": "dd97585a8fa684c0e00ba728d96eb5a69cdb90b4cfaac2d3a3370e7a76bc6b6c",
+      "source_sha256": "42dac6ce27bfd2d2cb085ad26c6f9c2dded869c5e5d194d75fe00447365a5ebb",
+      "final": "assets/characters/expressions/coral/02-wantsPlay.png",
+      "final_sha256": "f1ac8de6fda0fa4c942f84c1d6382049c23774946e389b009604b5eb6922ccb5"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/02.png",
       "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact single pink sea-anemone-like coral on gray rocks, central round face below tentacles. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WEAK: downcast partly closed eyes and a small low-energy mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
       "stage": "02",
       "state": "weak",
@@ -242,6 +253,18 @@
       "source_sha256": "dd786883a4a27e5bd870900300bb78203ec7a4da5a01c96e718be16373e7f3cc",
       "final": "assets/characters/expressions/coral/03-critical.png",
       "final_sha256": "713c24ce94df3beb06468b0c876e2a9944db40f77341dd94faaf3315818b3fe0"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/03.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact orange branching coral trunk on rocks, its central trunk face. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HAPPY: joyful narrowed smiling eyes and a cute open smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "03",
+      "state": "happy",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-de41bb11-f068-4578-8537-a51e5eeef965.png",
+      "original_sha256": "495883cad6380f2d349cb4239d8ee6b517b584e409ad537e3a1b1f99cca8bfda",
+      "source_sha256": "a3c6212d83d3d7c1899ce5d53b5dbfd761c47c3ea233bae5d384461bcd66b1a3",
+      "final": "assets/characters/expressions/coral/03-happy.png",
+      "final_sha256": "adf40555e6b97eb23dd26387851da84e2fe007426984e8a757034a0c3c95e5df"
     },
     {
       "line": "coral",
@@ -474,6 +497,30 @@
     {
       "line": "coral",
       "original": "assets/characters/coral/05.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact orange-red branching coral on stones with a low central face. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HAPPY: joyful narrowed smiling eyes and a cute open smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "05",
+      "state": "happy",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-7224f8dd-6ffa-4f85-8260-228428863459.png",
+      "original_sha256": "1203cfd60459b3c3c1182ea569cc05f62ff347c648a429a7bbc64aff5bb27285",
+      "source_sha256": "bac1aa46c0b5fbea6480b9c81da20fc52180da65e3efe8039201df99cb5012f3",
+      "final": "assets/characters/expressions/coral/05-happy.png",
+      "final_sha256": "349626a661e4f2796699252a54ccb1e378e15ea499d61b4833b7762a4e0ffc06"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/05.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact orange-red branching coral on stones with a low central face. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HUNGRY: longing droopy eyes and a small open pleading mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "05",
+      "state": "hungry",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-edab1c34-6c33-4f7c-b7f0-56b7f843bff2.png",
+      "original_sha256": "1203cfd60459b3c3c1182ea569cc05f62ff347c648a429a7bbc64aff5bb27285",
+      "source_sha256": "cd33d3a1b8bf3177793940dc32966908bebdeec3826a3a0efcabbeec4e39e0e9",
+      "final": "assets/characters/expressions/coral/05-hungry.png",
+      "final_sha256": "7326946b67eb78c68953070614d2ba4056b7338c102bf199cf565d45a52e01c8"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/05.png",
       "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact orange-red branching coral on stones with a low central face. Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to SICK: heavy pained half-closed eyes and a weak worried mouth, retaining all original colors. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
       "stage": "05",
       "state": "sick",
@@ -680,6 +727,18 @@
     {
       "line": "coral",
       "original": "assets/characters/coral/07.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to CRITICAL: almost closed exhausted eyes and a weak limp mouth, more depleted than weak but alive without injury. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "07",
+      "state": "critical",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-7fec5368-22de-46e0-a5b4-d500825092c1.png",
+      "original_sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
+      "source_sha256": "67080030b8117236dd1ba350f6d6d4e0678555935904cf0ef2b42e080f213f1f",
+      "final": "assets/characters/expressions/coral/07-critical.png",
+      "final_sha256": "0e9237bfde2fd6368709e0ae6647348711f93d9b6f10ddf496a5463f95fffd82"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/07.png",
       "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HAPPY: joyful narrowed smiling eyes and a cute open smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
       "stage": "07",
       "state": "happy",
@@ -716,6 +775,18 @@
     {
       "line": "coral",
       "original": "assets/characters/coral/07.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to SLEEPING: both eyes fully closed as relaxed arcs and a gentle closed-mouth smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "07",
+      "state": "sleeping",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-14acdb4f-2baf-4b43-b726-1823b4b6de34.png",
+      "original_sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
+      "source_sha256": "061099f9ff1322673b8f3698d27777ed81b7db44ce6857513321f5d2e7be0849",
+      "final": "assets/characters/expressions/coral/07-sleeping.png",
+      "final_sha256": "5d22c4db60a814b5d3ab6679d9495c9fbe75c4d4cccb6aa029e354ed258490cc"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/07.png",
       "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to STRAINED: squeezed distressed eyes and a small uncomfortable frown. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
       "stage": "07",
       "state": "strained",
@@ -748,6 +819,150 @@
       "source_sha256": "11850a479721d05daccaad4392421f0da8f868516904aa6ab020159c5401dfba",
       "final": "assets/characters/expressions/coral/07-tired.png",
       "final_sha256": "dc8691e9652d0f3a80d258712952f20d1be54996cd1c4df5cbdf6dbed9ae09dd"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/07.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WANTSPLAY: bright eager wide eyes and a cute expectant smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "07",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-051ac67b-6970-48c6-89fb-eac2d55506db.png",
+      "original_sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
+      "source_sha256": "965d204c35ac98a0a489e7b9f51d3376fc28e6e38f71aa5990dc93dfde495902",
+      "final": "assets/characters/expressions/coral/07-wantsPlay.png",
+      "final_sha256": "64b971288bff9522dc7fb77f4dbeaccbd2e3a2bfffbad378a4527916993802e0"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/07.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact multicolored coral forest on pebbles; edit ONLY the dominant upper orange coral face (original center x63 y72 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WEAK: downcast partly closed eyes and a small low-energy mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "07",
+      "state": "weak",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-71078511-24a0-49a8-9efa-f217b3744d1f.png",
+      "original_sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
+      "source_sha256": "7cd0857e2ad59728ee69a303e3ce3b6dda14657f7b3ea77999c98ed32ee3e9c7",
+      "final": "assets/characters/expressions/coral/07-weak.png",
+      "final_sha256": "bb6477e41a123083042eae7855d0dc1f96c3ae243fbcf2f1528e27c31f8b18d7"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to CRITICAL: almost closed exhausted eyes and a weak limp mouth, more depleted than weak but alive without injury. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "critical",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-a9548725-6028-4a3f-bbfc-fba64023f340.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "471aa46516152ebdadbe22e485da9676d4378f050e48fe3714d7858b9accc0aa",
+      "final": "assets/characters/expressions/coral/08-critical.png",
+      "final_sha256": "f621a8597e576e6a22d25ac692e3bd50314b468a5d14fc4f798dec76e8486685"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HAPPY: joyful narrowed smiling eyes and a cute open smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "happy",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-2cf20470-d64a-4d43-98a0-b5ea037f68ff.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "13db3994aa820a6880bed777e9ea86cdc819b9eb160a9c1d6ee96dd64a7e7d7f",
+      "final": "assets/characters/expressions/coral/08-happy.png",
+      "final_sha256": "eb5c0966282f2d550d329845867df92828937d833f3cba3988583c01a526f3f9"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to HUNGRY: longing droopy eyes and a small open pleading mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "hungry",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-086c2b72-f554-451f-8e18-19a11e2417ff.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "5f1e0d1e4476f63e8b3adb50bbf00a54b937e6e34367440d9af45a5b0adb1b72",
+      "final": "assets/characters/expressions/coral/08-hungry.png",
+      "final_sha256": "6c69477c85625507ce32a437daaa886b19ff42cc8b9b6e8ce31dc26888588396"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to SICK: heavy pained half-closed eyes and a weak worried mouth, retaining all original colors. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "sick",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-3258f9f8-7990-43a8-a004-bbb9e4114edf.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "bca423c0d0d4e58402e787b86869a1abe2d18613da77914070d75aff6b7294bc",
+      "final": "assets/characters/expressions/coral/08-sick.png",
+      "final_sha256": "17e66060d64653c36a2272f258bace068ca9a1fd6d8919b32b831d00d347995f"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to SLEEPING: both eyes fully closed as relaxed arcs and a gentle closed-mouth smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "sleeping",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-88098df9-7728-4b52-819f-ddd732f066f5.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "5ba687ba375afd43c4cc2442ec460d569463074817fa95f7a1e854bb98d2e642",
+      "final": "assets/characters/expressions/coral/08-sleeping.png",
+      "final_sha256": "5eb7c53dfaf2cdef3e944d78e2a2d67a1a8acb29401d6b8437212964037ef3db"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to STRAINED: squeezed distressed eyes and a small uncomfortable frown. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "strained",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-2abb1d0c-f690-4b84-9712-4bd77b4155af.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "59e0ed707f7682bde01a84d8f4d4f849988a5fce02c28beb0f47e34209f49c1e",
+      "final": "assets/characters/expressions/coral/08-strained.png",
+      "final_sha256": "c133afc259b0cf197cf93817553b8d959edb5eefc34e2add700b6fe4ae7f45d2"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to SULKY: narrowed displeased eyes and a cute pout. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "sulky",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-534279e4-0789-4f41-abdd-c0d9e860b110.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "af8a3a45f744f95240dd83bae3db926c83ebc921466da4e4af1ac8b8ae9e45b4",
+      "final": "assets/characters/expressions/coral/08-sulky.png",
+      "final_sha256": "f3ae49fe3d9003a1d02bc067738591e05028a4fabe47b11a6795051b8c29ccc3"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to TIRED: drooping eyelids and a small tired mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "tired",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-013530ce-7614-448d-a3fe-6f2cc180a733.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "0be1943b1ecb94898cd0cd7be0c67e8bed8541e627e0300d817ad5564b1f53e0",
+      "final": "assets/characters/expressions/coral/08-tired.png",
+      "final_sha256": "688f4964d49b1ffcedcad41883f099fa187ef8ded138cb533a5951617b026b75"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WANTSPLAY: bright eager wide eyes and a cute expectant smile. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "wantsPlay",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-75ea969b-76eb-44f4-9916-b9440ffccc64.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "f38bccbba5c5b78256806e46dd6a81ec954ceb92ec47ab3fd3ce2525c1eab6fc",
+      "final": "assets/characters/expressions/coral/08-wantsPlay.png",
+      "final_sha256": "7d9ff125b466d79d3764734d04a8f20bb43187714fe3c43f03894647c47124b3"
+    },
+    {
+      "line": "coral",
+      "original": "assets/characters/coral/08.png",
+      "prompt": "Use case: precise-object-edit. Edit referenced original game sprite into ONE standalone sprite, not a sheet. Preserve this exact wide colorful sea-floor colony; edit ONLY the large yellow flower-like coral polyp face above and right of center (original center x73 y81 of128). Preserve silhouette, pose, proportions, age, colors, pixel-art texture, branches, all tentacles, all polyps, stones, sea-floor and original markings. Change ONLY the specified main existing face eyes, mouth and cheeks to WEAK: downcast partly closed eyes and a small low-energy mouth. Keep original face location and small size. Any OTHER existing faces must remain their original expression and location. Never add new faces to branches, rocks, tentacles or background. Do not add symbols, text, tears, sweat, bubbles, floor or shadows. Actual transparent alpha background. Intended normalization to original drawing bounds on128x128 canvas.",
+      "stage": "08",
+      "state": "weak",
+      "source": "/workspace/scratch/e14941a8c155/generated_images/exec-b96573cb-2996-4ade-bdc1-cefe1947b13c.png",
+      "original_sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
+      "source_sha256": "2c4cfc2b4f424b92bf4ef97e8f68ed4f52bd420408af4ab09ab9f91836713db0",
+      "final": "assets/characters/expressions/coral/08-weak.png",
+      "final_sha256": "c46f0c24a2e3731e2ca6170c20074cfb2f0f8b6ee7653f4de627819c718b8d52"
     }
   ]
 }

@@ -73,7 +73,9 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
     const blocked=name==='sick'?withSweat:dilated;
     if(pts.some(([x,y])=>blocked[(y+dy+P)*W+x+dx+P]))continue;
     if(target!==90 && Math.abs(dx/S+cx/S-face[0])<Math.max(8,(head[3]-head[2])*104/128*.3))continue;
-    if(name==='sick' && dx/S+cx/S>head[3]*104/128+8)continue;
+    // Coral branches can cover the entire head-width band; allow the nearest
+    // clear upper-right candidate beyond it while retaining all prior species.
+    if(name==='sick' && line!=='coral' && dx/S+cx/S>head[3]*104/128+8)continue;
     const score=r+.02*(angle-(name==='sick'?65:target))**2;
     if(!best||score<best.score)best={dx,dy,score};break;
    }}
