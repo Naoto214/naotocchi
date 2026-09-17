@@ -258,6 +258,12 @@ function checkLayout(m, label) {
           console.error('FAIL '+engine+' conversation: '+error.message);
         }
         try {
+          await require('./naoto-lantern-ring-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' lantern ring: '+error.message);
+          console.error('FAIL '+engine+' lantern ring: '+error.message);
+        }
+        try {
           await require('./naoto-crown-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
         } catch(error) {
           failures.push(engine+' crown: '+error.message);

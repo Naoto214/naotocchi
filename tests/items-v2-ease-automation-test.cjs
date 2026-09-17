@@ -79,7 +79,7 @@ test('V2 friend badge restores companion bond to max at the danger threshold', (
 });
 
 
-test('retired star and reunion state is discarded without changing other cooldowns or records', () => {
+test('retired star and reunion state is discarded without changing companion records', () => {
   const { h, s } = setup('star');
   s.lifetime.itemProgress.starGames = ['a', 'b', 'c'];
   Object.assign(s.lifetime.itemProgress.readyAt, { star: 100, reunion: 200, lantern: 300 });
@@ -89,18 +89,18 @@ test('retired star and reunion state is discarded without changing other cooldow
   assert.equal(s.lifetime.itemProgress.starGames, undefined);
   assert.equal(s.lifetime.itemProgress.readyAt.star, undefined);
   assert.equal(s.lifetime.itemProgress.readyAt.reunion, undefined);
-  assert.equal(s.lifetime.itemProgress.readyAt.lantern, 300);
+  assert.equal(s.lifetime.itemProgress.readyAt.lantern, undefined);
   assert.equal(s.itemLife.departedCompanions, undefined);
   assert.deepEqual(Array.from(s.lifetime.companionsRecruited), ['shiba']);
 });
 
-test('friend badge no longer offers a reunion game while lantern actions remain', () => {
+test('friend badge no longer offers a reunion game or retired lantern actions', () => {
   const { h, s } = setup('bond1');
   s.lifetime.ownedNaotoItems = ['naoto_lantern'];
   s.lifetime.regionsVisited = ['home'];
   h.api.renderItemOverlay();
   assert.doesNotMatch(h.get('itemRelationActions').innerHTML, /再会|さいかい|reunion/);
-  assert.match(h.get('itemRelationActions').innerHTML, /lantern/);
+  assert.doesNotMatch(h.get('itemRelationActions').innerHTML, /lantern/);
 });
 
 test('social equipment preserves ordinary decay and does not automate relationship decisions or award records', () => {
