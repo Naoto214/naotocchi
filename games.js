@@ -3141,7 +3141,7 @@
         const HOOP_Z = 6.6, HOOP_Y = 3.05, RIM_R = 0.55, BALL_R = 0.24, BOARD_Z = HOOP_Z + 0.55;
         // はらう つよさ → とばす きょり(z)。ゴールは この はばの ほぼ まんなか なので、
         // てきとうに はらっても ちかくに とび、すこし ちょうせつすれば はいる
-        const BALL0 = { x: 0, y: 1.2, z: 0.6 }, SHOT_NEAR = 3.6, SHOT_FAR = 9.6;
+        const BALL0 = { x: 0, y: 1.2, z: 0.6 }, SHOT_NEAR = 3.2, SHOT_FAR = 10.4;
         let hoopX = 0, hoopVx = 0, made = 0, shots = 0, streak = 0, best = 0, running = true, rafId = null, last = null, msg = '', msgUntil = 0;
         let ball = null, drag = null, net = 0, rimFlash = 0, sway = lerp(0, 0.5, difficulty);
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
@@ -3158,15 +3158,15 @@
         function project(x, y, z) { const dz = z - CAM_Z; const s = F / dz; return { x: W / 2 + x * s, y: HOR + (CAM_Y - y) * s, s }; }
         // はらった ながさ と はやさ から 0..1 の つよさ。キャンバスの たかさで わるので
         // 画面の おおきさが かわっても おなじ 感覚で はらえる
-        function shotPower(dx, dy, dt) { const sp = Math.hypot(dx, dy) / dt * 1000; return clamp(sp / 2600 * 0.45 + dy / (H * 0.75) * 0.55, 0, 1); }
+        function shotPower(dx, dy, dt) { const sp = Math.hypot(dx, dy) / dt * 1000; return clamp(sp / 1900 * 0.45 + dy / (H * 0.60) * 0.55, 0, 1); }
         // きょり D を とんで、ちょうど リングの たかさに おりてくる はつ速度。
         // やまなりの たかさは いつも おなじ なので、ねらうのは「つよさ」だけで よい
         function shotFrom(dx, dy, dt) {
           const D = lerp(SHOT_NEAR, SHOT_FAR, shotPower(dx, dy, dt));
           const T = 1.05 + D * 0.03;
           const aimX = clamp(dx / (W * 0.33), -1, 1) * 1.5;
-          // ゴールが よこに ゆれる ぶんは 半分ほど 自動で おいかける(ねらう たのしさは のこす)
-          return { D, T, vz: D / T, vy: (HOOP_Y - BALL0.y + 4.9 * T * T) / T, vx: (aimX + hoopX * 0.55) / T };
+          // ゴールの ゆれは 3わり ほどだけ 自動で おいかける。よこを ねらう たのしさは のこす
+          return { D, T, vz: D / T, vy: (HOOP_Y - BALL0.y + 4.9 * T * T) / T, vx: (aimX + hoopX * 0.3) / T };
         }
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (ball || !running || performance.now() < startTime) return; const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, pts: [{ x: p.x, y: p.y, t: performance.now() }] }; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} });
         canvas.addEventListener('pointermove', (e) => { if (!drag || e.pointerId !== drag.id) return; const p = mgPointerPos(canvas, e); drag.pts.push({ x: p.x, y: p.y, t: performance.now() }); if (drag.pts.length > 30) drag.pts.shift(); });
