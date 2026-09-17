@@ -96,3 +96,7 @@ Under the existing production-first authorization, extend all8 jellyfish stages 
 
 ### Approved production-first continuation: starfish (2026-09-17)
 Following the user's continuation request, add all8 starfish stages×10 original-referenced expressions. Preserve original rounded juvenile, star shapes, colors/textures/bubbles and existing880 expressions/88 placements. Same marks, reaction semantics, Draft PR and owner-private Site. No main merge or gameplay/save changes.
+
+
+### Approved production-first continuation: coral (2026-09-17)
+Under the continuation authorization, add coral8 stages×10 expressions while preserving960 existing expressions/96 placements. Preserve branches, polyps, rocks, colony colors and secondary faces. Change only each stage's dominant face; in06 the central yellow coral,07 upper orange coral,08 large yellow polyp. Same face-relative marks, reactions, Draft PR and owner-private Site. No main merge or gameplay/save changes.
