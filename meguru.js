@@ -1991,15 +1991,40 @@
       const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
       const canvas = container.querySelector('#mgrCanvas');
       const wrap = container.querySelector('.mgr-wrap');
+      // たんさく がめんの たかさ。
+      // ヒントと パッドは overlay の したに はりつく(margin-top: auto)ので、
+      // canvas を ちぢめても パッドは 上がらない。だから「ほんたいが とれる
+      // さいだいの たかさ」から、うえに ある もの と したの よはくを ひいて きめる。
+      // いちの ずれ(iPhone で ほんたいが がめんより おおきく なって いる とき)に
+      // ひきずられない よう、ほんたいの なかの あいたいの たかさ だけを つかう
+      function overlayAvailPx() {
+        try {
+          if (typeof window === 'undefined' || typeof window.getComputedStyle !== 'function') return 0;
+          const device = typeof container.closest === 'function' ? container.closest('.device') : null;
+          if (!device || typeof device.getBoundingClientRect !== 'function' || typeof container.getBoundingClientRect !== 'function') return 0;
+          const cs = window.getComputedStyle(device);
+          let maxH = parseFloat(cs.maxHeight);
+          if (!Number.isFinite(maxH) || maxH <= 0) {
+            // max-height が つかえない ブラウザ: みえている たかさから きめる
+            const vv = window.visualViewport;
+            const vh = vv && vv.height > 0 ? vv.height : (window.innerHeight || 0);
+            if (!vh) return 0;
+            const bs = document.body ? window.getComputedStyle(document.body) : null;
+            const pt = bs ? parseFloat(bs.paddingTop) || 0 : 0, pb = bs ? parseFloat(bs.paddingBottom) || 0 : 0;
+            maxH = vh - pt - pb;
+          }
+          const dr = device.getBoundingClientRect(), cr = container.getBoundingClientRect();
+          const above = Math.max(0, cr.top - dr.top);         // ほんたいの うえの よはく と タイトル
+          const belowPad = parseFloat(cs.paddingBottom) || 0; // ほんたいの したの よはく
+          return Math.max(0, maxH - above - belowPad);
+        } catch (_) { return 0; }
+      }
       function availHeight() {
-        const vh = typeof window !== 'undefined' && window.innerHeight > 0 ? window.innerHeight : 0;
-        const rect = typeof container.getBoundingClientRect === 'function' ? container.getBoundingClientRect() : null;
-        let oh = container.clientHeight || 0;
-        if (vh && rect && rect.top >= 0) oh = Math.max(oh, vh - rect.top - 28);
+        const oh = overlayAvailPx() || container.clientHeight || 0;
         if (!oh) return 300;
         let used = 0;
         for (const ch of container.children) { if (ch === wrap) continue; used += ch.offsetHeight || 0; }
-        return clamp(Math.floor(oh - used - 18), 240, 760);
+        return clamp(Math.floor(oh - used - 18), 220, 760);
       }
       let { ctx, W, H } = S.createMgCanvas(canvas, () => availHeight(), {});
       const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
@@ -2007,9 +2032,15 @@
       const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
       const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
       const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null, resolveScenery: typeof S.resolveScenery === 'function' ? S.resolveScenery : null });
+      // さいしょの 1かいは ヒントや パッドの たかさが まだ きまって いないので、
+      // ならび おわった あと もう いちど はかって 組みなおす(2かいで おちつく)
+      const resizeCanvas = () => { const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (renderer && typeof renderer.resize === 'function') renderer.resize({ ctx, W, H, rawCtx: rawCtxOf() }); };
+      resizeCanvas(); resizeCanvas();
       let resizeTimer = null;
-      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (typeof renderer.resize === 'function') renderer.resize({ ctx, W, H, rawCtx: rawCtxOf() }); }, 150); };
+      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; resizeCanvas(); resizeCanvas(); }, 150); };
       if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', onResize);
+      // iPhone で ブラウザの バーが 出たり ひっこんだり した ときも 組みなおす
+      if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.addEventListener === 'function') window.visualViewport.addEventListener('resize', onResize);
       const ENV_ICON = { sunny: '☀️', cloudy: '☁️', rain: '🌧️', snow: '🌨️' }; const TIME_ICON = { morning: '🌅', day: '🌞', evening: '🌇', night: '🌙' };
       // HUD: ばしょ / この 地域に すんでいる かず / こんかい ちかくで あった かず
       const hud = () => {
@@ -2068,6 +2099,7 @@
       function stop() {
         if (!running) return; running = false; if (rafId) cancelAnimationFrame(rafId);
         if (typeof window !== 'undefined' && typeof window.removeEventListener === 'function') window.removeEventListener('resize', onResize);
+        if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.removeEventListener === 'function') window.visualViewport.removeEventListener('resize', onResize);
         if (resizeTimer) clearTimeout(resizeTimer);
         pad.destroy(); renderer.destroy && renderer.destroy();
         if (container.classList) container.classList.remove('meguru-overlay');

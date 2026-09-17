@@ -2079,3 +2079,12 @@ Runtime smoke test SUCCESS確認済み。
 - 維持: WORLD_THEME、地域ごとの色・光・空気、地面ディテールの決定論的生成、群生、時間帯・天気、深海/星空の特殊天候、PR #277 の生き物と景色の分離(fauna / character 監査とも 0 件)、2 層構造、zone / spot / path、住民配置。
 - **確認**: 13 地域 × 2 地点(A=入口、B=その地域らしい代表地点)を同じ iPhone 幅・同じカメラ条件で撮って一覧比較。`npm test` 592 pass、実測 24〜61fps、ページエラーなし。
 
+## チェックポイント CS — iPhone でめぐるの端が見切れる問題(2026-09-17)
+実機で「左上のスポット名」「パッド」「もどるボタン」が見切れ、パッドの上のヒントも末尾が「…」で切れていた。原因は 3 つ別々だった。
+
+- **スポット名が見切れる**: `.mg-canvas-wrap` は canvas の下にすき間ができないよう `line-height: 0` を指定している。その中にある `.mgr-spot` が行の高さ 0 を受けつぎ、自身の `overflow: hidden` で文字が切り落とされていた(実測の高さ 6px)。`.mgr-spot` に `line-height: 1.45` を明示して解決(22px)。
+- **ヒントの末尾が切れる**: `white-space: nowrap` + `text-overflow: ellipsis` の 1 行固定だったため、細い画面で「…」になっていた(390px 幅で scrollWidth 369 > clientWidth 338)。2 行まで折り返す(`-webkit-line-clamp: 2`)ようにして全文を表示。あわせて高さを `min-height: 2.6em` で固定した。場所の名前が後から頭に付く(「【えきまえ】…」)と 1 行→2 行に増えて、その 15px ぶんだけ探索画面がはみ出し、ボタンが下で切れていたため。
+- **パッドとボタンが画面外に出る**: `body { min-height: 100vh }` は iPhone のブラウザではバーの高さを含むので、見えている範囲より縦に大きくなる。`100dvh` を併記し、`padding-bottom: max(20px, env(safe-area-inset-bottom))` でホームバーをよけるようにした。さらに `.device` に `max-height: calc(100dvh - 20px - max(20px, var(--safe-bottom)))` を付けて、本体が見えている高さを超えないようにした。
+- **探索画面の高さの決め方**: これまでは `window.innerHeight` から引いていたが、ヒントとパッドは overlay の下に貼りつく(`margin-top: auto`)ので canvas を縮めてもボタンは上がらない。本体が取れる最大の高さ(`max-height`)から「上にあるもの」と「本体の下の余白」を引いて決める `overlayAvailPx()` に変更。位置のずれに引きずられないよう、本体の中の相対的な高さだけを使う。`visualViewport` の resize でも組みなおす。
+- 確認: 375×667 / 390×844 / 430×932 で、本体・探索画面・ヒント・パッド・ボタンの実測が全部ビューポート内に収まること、スポット名が 22px で読めること、ヒントの scrollWidth と clientWidth が一致(省略なし)することを確認。ホーム・ミニゲーム・ずかん・たびの各画面も、はみ出しが増えていないことを確認。`npm test` 817 pass。
+
