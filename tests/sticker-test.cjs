@@ -19,6 +19,28 @@ test('the sticker catalog is built from existing art with unique ids and valid r
   assert.ok(h.api.stickerPackPool().length < cat.length, 'the secret line stays out of packs until met');
 });
 
+test('every current item has a sticker while retired items stay out', () => {
+  const h = harness();
+  const itemStickers = h.api.stickerCatalog().filter((s) => s.kind === 'item');
+  const ids = new Set(itemStickers.map((s) => s.id));
+  const current = [
+    'poop1', 'sleepboost1', 'bowtie', 'ribbon', 'scarf', 'travel1', 'partner1', 'bond1', 'gamepass1', 'star',
+    'c_coin2', 'c_life', 'c_time_back', 'c_time_forward', 'c_life_charm', 'c_friend', 'c_match', 'c_transform',
+    'c_rare_friend', 'c_egg_normal', 'c_egg_rare', 'c_dex',
+    'naoto_charm', 'naoto_lantern', 'naoto_ring', 'naoto_crown', 'new_themed_pack',
+  ];
+  assert.equal(itemStickers.length, current.length, 'only the current item catalog becomes stickers');
+  for (const id of current) {
+    const sticker = itemStickers.find((s) => s.id === `item:${id}`);
+    assert.ok(sticker, `missing item sticker: ${id}`);
+    assert.ok(sticker.label.length > 0, `missing label: ${id}`);
+    assert.ok(sticker.visual().length > 0, `missing visual: ${id}`);
+  }
+  for (const id of ['fun_candy', 'fun_camera', 'c_growth', 'c_safety', 'new_transform_mirror']) {
+    assert.equal(ids.has(`item:${id}`), false, `retired item must stay out: ${id}`);
+  }
+});
+
 test('granting stickers records copies and turns duplicates into kakera by rarity', () => {
   const h = harness(), store = h.api.stickerStore();
   const first = h.api.grantSticker('scenery:tree', 'test');
