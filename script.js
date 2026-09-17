@@ -1997,8 +1997,7 @@
             break;
           }
         }
-        merged.marriageAge = recoveredMarriageAge == null ? clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) : recoveredMarriageAge;
-        if (!Array.isArray(merged.marriageMilestonesSeen)) merged.marriageMilestonesSeen = [];
+        merged.marriageAge = recoveredMarriageAge == null ? clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) : recoveredMarriageAge;        if (!Array.isArray(merged.marriageMilestonesSeen)) merged.marriageMilestonesSeen = [];
         const marriedYears = Math.max(0, clamp(Math.floor((Number(merged.ageTicks) || 0) / AGE_TICKS_PER_YEAR), 0, GOAL_AGE) - merged.marriageAge);
         for (const years of [1, 10, 25, 50]) {
           if (marriedYears >= years && !merged.marriageMilestonesSeen.includes(years)) {
@@ -2080,7 +2079,7 @@
     { id: 'devolve-1', emoji: '👶', label: 'はじめてのおとろえ', desc: 'はじめてそだちがさがった', tier: 'easy', condition: (l) => l.devolutions >= 1 },
     { id: 'transform-1', emoji: '✨', label: 'はじめてのへんしん', desc: 'はじめてへんしんした', tier: 'easy', condition: (l) => l.transforms >= 1 },
     { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', tier: 'easy', condition: (l) => l.deaths >= 1 },
-    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを50かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 50 },
+    { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを30かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 30 },
     { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
     { id: 'games-played-25', emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
@@ -2096,15 +2095,14 @@
     { id: 'rain-play', emoji: '☔', label: 'あめの日のあそび', desc: '雨の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).rain || 0) >= 1 },
     { id: 'snow-play', emoji: '⛄', label: 'ゆきの日のあそび', desc: '雪の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).snow || 0) >= 1 },
     { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちが合計で10あがった', tier: 'easy2', condition: (l) => l.evolutions >= 10 },
-    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが合計で5さがった', tier: 'easy2', condition: (l) => l.devolutions >= 5 },
-    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '10かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 10 },
-    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを10かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 10 },
+    { id: 'devolve-5', emoji: '🍼', label: 'かえりみち', desc: 'そだちが合計で3さがった', tier: 'easy2', condition: (l) => l.devolutions >= 3 },
+    { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '5かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 5 },
+    { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 },
     { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },
     { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => s.discoveredStages.length >= 25 },
-    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを100回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 100 },
-    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、100回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 100 },
-    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 100 },
-    { id: 'talk-100', emoji: '💬', label: 'おしゃべりずき', desc: 'ひとつの人生で「じゃれる」を100かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.talk >= 100 },
+    { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },
+    { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、30回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 30 },
+    { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を30かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 30 },
     { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'ひとつの人生で、やさしい選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.gentle >= 10 },
     { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ひとつの人生で、ゆうかんな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.brave >= 10 },
     { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ひとつの人生で、ロマンチックな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.romantic >= 10 },
@@ -2116,8 +2114,8 @@
     { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => (l.weatherSeen || []).length >= 4 },
     { id: 'night-play-10', emoji: '🦉', label: 'よふかし', desc: '夜にミニゲームで10回あそんだ', tier: 'normal', condition: (l) => ((l.envPlays || {}).night || 0) >= 10 },
     { id: 'env-moments-10', emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
-    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '5かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 5 },
-    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを300かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 300 },
+    { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '3かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 3 },
+    { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを150かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 150 },
     { id: 'quick-10', emoji: '⚡', label: 'クイックのたつじん', desc: 'クイックモードで1ランに10こクリアした', tier: 'normal', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 10 },
     { id: 'quick-perfect', emoji: '👑', label: 'クイックパーフェクト', desc: 'クイックモードで20こ全部クリアした', tier: 'hard1', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 20 },
     { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
@@ -2125,7 +2123,7 @@
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => s.discoveredStages.length >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
-    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ50かい', desc: 'ひとつの人生で、そうじを50回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 50 },
+    { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
     { id: 'sticker-tasks-5', emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
@@ -2137,21 +2135,21 @@
     { id: 'sodachi-90', emoji: '💫', label: 'でんせつのそだて', desc: 'そだちが90にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 90 },
     { id: 'sodachi-100', emoji: '👑', label: 'さいこうのそだち', desc: 'そだちが100にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 100 },
     { id: 'lifeclear-1', emoji: '🎊', label: 'はじめてのいっしょうクリア', desc: '100さいまで生き、そだち70以上にとどいた', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 1 },
-    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい10しゅう', desc: 'いっしょうクリアを10かいした', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 10 },
+    { id: 'lifeclear-10', emoji: '🏵️', label: 'じんせい5しゅう', desc: 'いっしょうクリアを5かいした', tier: 'life', condition: (l) => (l.lifeClears || 0) >= 5 },
     { id: 'bestlife-1', emoji: '🌈', label: 'さいこうのいっしょう', desc: '100さいまで生き、そだち100にとどいた', tier: 'life', condition: (l) => (l.bestLives || 0) >= 1 },
-    { id: 'pastlives-10', emoji: '📔', label: 'じゅうにんのなおとっち', desc: '10にんのなおとっちをそだてた', tier: 'life', condition: (l) => (l.pastLives || []).length >= 10 },
+    { id: 'pastlives-10', emoji: '📔', label: 'ごにんのなおとっち', desc: '5にんのなおとっちをそだてた', tier: 'life', condition: (l) => (l.pastLives || []).length >= 5 },
     { id: 'nodecline', emoji: '🕊️', label: 'いちどもおとろえなかった', desc: 'そだちを一度も下げずに100さいまでいきた', tier: 'life', condition: (l) => (l.flawlessLives || 0) >= 1 },
 
     // --- ややむずかしい ---
     { id: 'evolve-50', emoji: '🌳', label: 'そだちのあしあと', desc: 'そだちが合計で50あがった', tier: 'hard1', condition: (l) => l.evolutions >= 50 },
-    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちが合計で20さがった', tier: 'hard1', condition: (l) => l.devolutions >= 20 },
-    { id: 'transform-25', emoji: '💫', label: 'へんしん25れんぱつ', desc: '25かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 25 },
-    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '10かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 10 },
-    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを30かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 30 },
+    { id: 'devolve-20', emoji: '😵‍💫', label: 'おとろえのぬし', desc: 'そだちが合計で10さがった', tier: 'hard1', condition: (l) => l.devolutions >= 10 },
+    { id: 'transform-25', emoji: '💫', label: 'へんしん15かい', desc: '15かいへんしんした', tier: 'hard1', condition: (l) => l.transforms >= 15 },
+    { id: 'death-10', emoji: '⚰️', label: 'てんごくのじょうれんきゃく', desc: '5かいてんごくにいった', tier: 'hard1', condition: (l) => l.deaths >= 5 },
+    { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
-    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを30回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 30 },
+    { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
-    { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを30かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 30 },
+    { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
     { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
@@ -2159,30 +2157,30 @@
     { id: 'clear-1', emoji: '🏅', label: 'てんじゅをまっとうした', desc: 'はじめて100さいまでいきた', tier: 'hard2', condition: (l) => l.clears >= 1 },
     { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => s.discoveredStages.length >= 100 },
     { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつはかせ', desc: 'ふつうのしゅぞくすべてにであった', tier: 'hard2', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを20かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 20 },
+    { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを10かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 10 },
     { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => l.partnersMarried.length >= 3 },
     { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」という、でんせつのあいてむを初めて手に入れた', tier: 'hard2', condition: (l) => (l.ownedNaotoItems || []).length >= 1 },
 
     // --- かなり むずかしい ---
-    { id: 'clear-5', emoji: '🏆', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 5 },
-    { id: 'minigame-1000', emoji: '🎰', label: '1000かいあそんだ', desc: 'ミニゲームを1000かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 1000 },
+    { id: 'clear-5', emoji: '🏆', label: 'みっつのいっしょう', desc: '3かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 3 },
+    { id: 'minigame-1000', emoji: '🎰', label: '500かいあそんだ', desc: 'ミニゲームを500かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 500 },
     { id: 'games-complete-100', emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
-    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '15しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 15 },
+    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '10しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 10 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', tier: 'hard3', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '10種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 10 },
+    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '8種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 8 },
     { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', tier: 'hard3', condition: (l) => hasAllCurrentCompanions(l) },
     { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
 
     // --- 超むずかしい ---
-    { id: 'clear-10', emoji: '👑', label: 'とおのいっしょう', desc: '10かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 10 },
+    { id: 'clear-10', emoji: '👑', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 5 },
     { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => s.discoveredStages.length >= 150 },
-    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員と知りあった', tier: 'hard4', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
+    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員とこいびとになった', tier: 'hard4', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
 
     // --- きわめて むずかしい ---
-    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのでんせつ', desc: '25かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 25 },
+    { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのたつじん', desc: '10かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 10 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
     { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: 'みにつけるものをぜんぶ集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: '身につけるものと、使い切りのあいてむを全種類集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) && CONSUMABLE_ITEMS.every(it => (l.ownedConsumableItems || []).includes(it.id)) },
   ];
   // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
   const ACHIEVEMENT_TIERS = [
@@ -3997,8 +3995,7 @@
         "なおったー!",
         "においだけでまずそう!",
         "元気のおかえり会しよう!",
-        "元気な声が戻ってきた!",
-        "においでこっちまで苦い!",
+        "元気な声が戻ってきた!",        "においでこっちまで苦い!",
         "今日は応援だけにしとく!",
         "あそぶ場所、とっておくね!"
       ]
@@ -5997,8 +5994,7 @@
     "となりに来る理由、なくてもいいよ",
     "なんとなく同じ方を見ちゃう",
     "お茶が冷めるまで一緒に休も",
-    "おかえりの練習、してみる?"
-  ];
+    "おかえりの練習、してみる?"  ];
   const COMPANION_IDLE_LINES = [
     "いっしょにあそぼう!",
     "ここけっこうすき!",
@@ -7997,8 +7993,7 @@
         "🦉",
         "🌰"
       ],
-      "lines": [
-        "木の枝から、鳥の声が聞こえる",
+      "lines": [        "木の枝から、鳥の声が聞こえる",
         "深呼吸したら、葉っぱのにおいが少し残った",
         "葉っぱの下をのぞいたら、向こうものぞいていた",
         "きのこを見つけた。食べずに名前だけ考えた",
@@ -9997,7 +9992,6 @@
   function isImmortal() {
     return state.infinite;
   }
-
   // ================================================================
   // おわかれの まえぶれ - 予告なく 死なせない ための しくみ
   // ================================================================
@@ -11997,8 +11991,7 @@
 
   // A(かいとうしゃ)の しつもん画面。おなじ しつもんの なかで
   // 1.本心を えらぶ → 2.本音/うそを えらぶ(+ひとこと証言)、の 2だんかいを
-  // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって
-  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている。
+  // つづけて おこなう(pendingTruth が null なら 1だんかいめ、はいって  // いれば 2だんかいめを 表示する)ことで、画面いどうを へらしている。
   // すでに こたえずみの しつもんを もどる/編集で 見なおしている ときも
   // おなじ 画面を つかい、以前の 本心/証言が pending に つみなおされた
   // じょうたいで 表示される
@@ -13997,8 +13990,7 @@
     'tower-defense': { name: 'タワーディフェンス', emoji: '🏰', desc: 'お城を4ウェーブ守りきれ。' },
     'roguelike-dungeon': { name: 'ローグライク', emoji: '⚔️', desc: 'ダンジョンを2階降りて脱出。' },
     'grand-prix-3d': { name: 'グランプリ', emoji: '🏁', desc: 'ライバル5台と2周レース。' },
-    'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'たくさんの弾をかわして、ボスをたおせ。' },
-    'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: '走って飛んで、旗まで。' },
+    'sky-shooter': { name: 'スカイシューター', emoji: '✈️', desc: 'たくさんの弾をかわして、ボスをたおせ。' },    'jump-quest': { name: 'ジャンプクエスト', emoji: '🍄', desc: '走って飛んで、旗まで。' },
     'push-puzzle': { name: 'そうこばん', emoji: '📦', desc: '箱をおして★へ。' },
     'reversi-6': { name: 'オセロ', emoji: '⚫', desc: '角を取って、相手に勝とう。' },
     'billiards-6': { name: 'ビリヤード', emoji: '🎱', desc: '6このボールを全部ポケットへ。' },
@@ -15997,8 +15989,7 @@
       setMessage(randomActionMessage('sleep'));
       speakEvent('sleep');
       startSleepRecovery();
-      return;
-    }
+      return;    }
     // すいみんは「20tick いじょう ねてから おきた」ときだけ みとめる
     // (ねる→おきるの 連打で かせげてしまう ぬけみちを ふさぐ)
     stopSleepRecovery();
