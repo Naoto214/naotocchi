@@ -1,0 +1,547 @@
+{
+  "main_commit": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+  "source_blobs": {
+    "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94",
+    "script.js": "56556322fdb4246ef2bf1614d5a8a40bd5e9a75b",
+    "NAOTOCCHI_MASTER_SPEC.md": "397c1f57c3625dc569a87920ec8bbb25d498b2d8"
+  },
+  "games": [
+    {
+      "id": "road-themed",
+      "category": "road",
+      "source": "general"
+    },
+    {
+      "id": "stack-themed",
+      "category": "stack",
+      "source": "general"
+    },
+    {
+      "id": "stack-snowman",
+      "category": "stack",
+      "source": "general"
+    },
+    {
+      "id": "falling-block-puzzle",
+      "category": "fallingBlock",
+      "source": "general"
+    },
+    {
+      "id": "crane-game-3d",
+      "category": "craneGame",
+      "source": "general"
+    },
+    {
+      "id": "pinball-physics",
+      "category": "pinball",
+      "source": "general"
+    },
+    {
+      "id": "haunted-house-3d",
+      "category": "hauntedHouse",
+      "source": "general"
+    },
+    {
+      "id": "bowling-3d",
+      "category": "swipeThrow",
+      "source": "general"
+    },
+    {
+      "id": "archery-3d",
+      "category": "swipeThrow",
+      "source": "general"
+    },
+    {
+      "id": "breakout-classic",
+      "category": "breakout",
+      "source": "general"
+    },
+    {
+      "id": "dragDecorate-cake",
+      "category": "dragDecorate",
+      "source": "general"
+    },
+    {
+      "id": "dragDecorate-bento",
+      "category": "dragDecorate",
+      "source": "general"
+    },
+    {
+      "id": "p3-space",
+      "category": "perspective3d",
+      "source": "general"
+    },
+    {
+      "id": "p3-drive",
+      "category": "perspective3d",
+      "source": "general"
+    },
+    {
+      "id": "fp-dungeon",
+      "category": "firstPersonDungeon",
+      "source": "general"
+    },
+    {
+      "id": "race-3d",
+      "category": "roadRace",
+      "source": "general"
+    },
+    {
+      "id": "rhythm-highway-3d",
+      "category": "rhythmHighway",
+      "source": "general"
+    },
+    {
+      "id": "tilt-maze-3d",
+      "category": "tiltMaze",
+      "source": "general"
+    },
+    {
+      "id": "space-gunner-3d",
+      "category": "spaceGunner",
+      "source": "general"
+    },
+    {
+      "id": "mini-golf-physics",
+      "category": "miniGolf",
+      "source": "general"
+    },
+    {
+      "id": "real-fishing",
+      "category": "realFishing",
+      "source": "general"
+    },
+    {
+      "id": "basketball-3d",
+      "category": "basketball",
+      "source": "general"
+    },
+    {
+      "id": "pingpong-3d",
+      "category": "pingPong",
+      "source": "general"
+    },
+    {
+      "id": "chain-puzzle",
+      "category": "chainPuzzle",
+      "source": "general"
+    },
+    {
+      "id": "street-fight",
+      "category": "streetFight",
+      "source": "general"
+    },
+    {
+      "id": "free-kick-3d",
+      "category": "freeKick",
+      "source": "general"
+    },
+    {
+      "id": "tower-defense",
+      "category": "towerDefense",
+      "source": "general"
+    },
+    {
+      "id": "roguelike-dungeon",
+      "category": "roguelike",
+      "source": "general"
+    },
+    {
+      "id": "grand-prix-3d",
+      "category": "grandPrix",
+      "source": "general"
+    },
+    {
+      "id": "sky-shooter",
+      "category": "skyShooter",
+      "source": "general"
+    },
+    {
+      "id": "jump-quest",
+      "category": "jumpQuest",
+      "source": "general"
+    },
+    {
+      "id": "push-puzzle",
+      "category": "pushPuzzle",
+      "source": "general"
+    },
+    {
+      "id": "reversi-6",
+      "category": "reversi",
+      "source": "general"
+    },
+    {
+      "id": "billiards-6",
+      "category": "billiards",
+      "source": "general"
+    },
+    {
+      "id": "animal-shogi",
+      "category": "animalShogi",
+      "source": "general"
+    },
+    {
+      "id": "minesweeper-8",
+      "category": "minesweeper",
+      "source": "general"
+    },
+    {
+      "id": "snake-classic",
+      "category": "snake",
+      "source": "general"
+    },
+    {
+      "id": "baseball-batting",
+      "category": "baseball",
+      "source": "general"
+    },
+    {
+      "id": "ring-flight-3d",
+      "category": "ringFlight",
+      "source": "general"
+    },
+    {
+      "id": "bubble-shooter",
+      "category": "bubbleShooter",
+      "source": "general"
+    },
+    {
+      "id": "catapult-castle",
+      "category": "catapult",
+      "source": "general"
+    },
+    {
+      "id": "connect-four",
+      "category": "connectFour",
+      "source": "general"
+    },
+    {
+      "id": "puzzle-2048",
+      "category": "twenty48",
+      "source": "general"
+    },
+    {
+      "id": "frogger-road",
+      "category": "frogger",
+      "source": "general"
+    },
+    {
+      "id": "ski-jump",
+      "category": "skiJump",
+      "source": "general"
+    },
+    {
+      "id": "air-hockey",
+      "category": "airHockey",
+      "source": "general"
+    },
+    {
+      "id": "submarine-3d",
+      "category": "submarine",
+      "source": "general"
+    },
+    {
+      "id": "match-3",
+      "category": "matchThree",
+      "source": "general"
+    },
+    {
+      "id": "gomoku-9",
+      "category": "gomoku",
+      "source": "general"
+    },
+    {
+      "id": "tank-battle",
+      "category": "tankBattle",
+      "source": "general"
+    },
+    {
+      "id": "tennis-rally",
+      "category": "tennis",
+      "source": "general"
+    },
+    {
+      "id": "picross-5",
+      "category": "picross",
+      "source": "general"
+    },
+    {
+      "id": "darts-board",
+      "category": "darts",
+      "source": "general"
+    },
+    {
+      "id": "hang-glider-3d",
+      "category": "hangGlider",
+      "source": "general"
+    },
+    {
+      "id": "bomber-maze",
+      "category": "bomber",
+      "source": "general"
+    },
+    {
+      "id": "blackjack-21",
+      "category": "blackjack",
+      "source": "general"
+    },
+    {
+      "id": "pipe-connect",
+      "category": "pipeConnect",
+      "source": "general"
+    },
+    {
+      "id": "fruit-slice",
+      "category": "fruitSlice",
+      "source": "general"
+    },
+    {
+      "id": "track-field",
+      "category": "trackField",
+      "source": "general"
+    },
+    {
+      "id": "voxel-mine",
+      "category": "voxelMine",
+      "source": "general"
+    },
+    {
+      "id": "sushi-belt",
+      "category": "sushiBelt",
+      "source": "general"
+    },
+    {
+      "id": "asteroids-classic",
+      "category": "asteroids",
+      "source": "general"
+    },
+    {
+      "id": "yacht-dice",
+      "category": "yachtDice",
+      "source": "general"
+    },
+    {
+      "id": "lights-out",
+      "category": "lightsOut",
+      "source": "general"
+    },
+    {
+      "id": "doodle-jump",
+      "category": "doodleJump",
+      "source": "general"
+    },
+    {
+      "id": "curling-ice",
+      "category": "curling",
+      "source": "general"
+    },
+    {
+      "id": "jenga-tower",
+      "category": "jenga",
+      "source": "general"
+    },
+    {
+      "id": "line-trace",
+      "category": "lineTrace",
+      "source": "general"
+    },
+    {
+      "id": "checkers-6",
+      "category": "checkers",
+      "source": "general"
+    },
+    {
+      "id": "memory-cards",
+      "category": "memoryCards",
+      "source": "general"
+    },
+    {
+      "id": "halfpipe-skate",
+      "category": "halfpipe",
+      "source": "general"
+    },
+    {
+      "id": "domino-run",
+      "category": "dominoRun",
+      "source": "general"
+    },
+    {
+      "id": "sudoku-mini",
+      "category": "sudoku",
+      "source": "general"
+    },
+    {
+      "id": "mancala-kalah",
+      "category": "mancala",
+      "source": "general"
+    },
+    {
+      "id": "plane-landing",
+      "category": "planeLanding",
+      "source": "general"
+    },
+    {
+      "id": "dot-eater",
+      "category": "dotEater",
+      "source": "general"
+    },
+    {
+      "id": "missile-command",
+      "category": "missileCommand",
+      "source": "general"
+    },
+    {
+      "id": "area-claim",
+      "category": "areaClaim",
+      "source": "general"
+    },
+    {
+      "id": "solitaire-klondike",
+      "category": "solitaire",
+      "source": "general"
+    },
+    {
+      "id": "hit-blow",
+      "category": "hitBlow",
+      "source": "general"
+    },
+    {
+      "id": "lunar-lander",
+      "category": "lunarLander",
+      "source": "general"
+    },
+    {
+      "id": "shanghai-tiles",
+      "category": "shanghai",
+      "source": "general"
+    },
+    {
+      "id": "beach-volley",
+      "category": "beachVolley",
+      "source": "general"
+    },
+    {
+      "id": "slide-puzzle",
+      "category": "slidePuzzle",
+      "source": "general"
+    },
+    {
+      "id": "sugoroku-race",
+      "category": "sugoroku",
+      "source": "general"
+    },
+    {
+      "id": "takoyaki-grill",
+      "category": "takoyaki",
+      "source": "general"
+    },
+    {
+      "id": "road-city",
+      "category": "road",
+      "source": "region",
+      "context": "city"
+    },
+    {
+      "id": "stack-harvest",
+      "category": "stack",
+      "source": "region",
+      "context": "countryside"
+    },
+    {
+      "id": "stack-acorn",
+      "category": "stack",
+      "source": "region",
+      "context": "forest"
+    },
+    {
+      "id": "downhill-mountain",
+      "category": "climbing",
+      "source": "region",
+      "context": "mountain"
+    },
+    {
+      "id": "downhill-snow",
+      "category": "downhill",
+      "source": "region",
+      "context": "snow"
+    },
+    {
+      "id": "fishing-sea",
+      "category": "fishing",
+      "source": "region",
+      "context": "sea"
+    },
+    {
+      "id": "fishing-deepsea",
+      "category": "fishing",
+      "source": "region",
+      "context": "deepsea"
+    },
+    {
+      "id": "fishing-river",
+      "category": "fishing",
+      "source": "region",
+      "context": "river_lake"
+    },
+    {
+      "id": "road-jungle",
+      "category": "road",
+      "source": "region",
+      "context": "jungle"
+    },
+    {
+      "id": "road-desert",
+      "category": "road",
+      "source": "region",
+      "context": "desert"
+    },
+    {
+      "id": "stack-sakura",
+      "category": "stack",
+      "source": "season",
+      "context": "spring"
+    },
+    {
+      "id": "ring-flight-summer",
+      "category": "ringFlight",
+      "source": "season",
+      "context": "summer"
+    },
+    {
+      "id": "stack-leaves",
+      "category": "stack",
+      "source": "season",
+      "context": "autumn"
+    },
+    {
+      "id": "curling-winter",
+      "category": "curling",
+      "source": "season",
+      "context": "winter"
+    }
+  ],
+  "draft_batch_1": [
+    "G-stack-snowman",
+    "G-stack-themed",
+    "G-crane-game-3d",
+    "G-road-themed",
+    "G-falling-block-puzzle",
+    "G-archery-3d",
+    "G-breakout-classic",
+    "G-pinball-physics",
+    "G-dragDecorate-cake",
+    "G-dragDecorate-bento",
+    "G-haunted-house-3d",
+    "G-bowling-3d",
+    "G-p3-space",
+    "G-p3-drive",
+    "G-space-gunner-3d",
+    "G-fp-dungeon",
+    "G-tilt-maze-3d",
+    "G-rhythm-highway-3d",
+    "G-race-3d",
+    "G-pingpong-3d"
+  ],
+  "scope": "100 registered games only; quick and meguru remain unregistered sources."
+}

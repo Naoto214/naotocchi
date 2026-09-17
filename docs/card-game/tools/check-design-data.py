@@ -7,6 +7,7 @@ Run from any directory with Python 3 and Node.js:
 import collections
 from decimal import Decimal, ROUND_HALF_UP
 import json
+import hashlib
 from pathlib import Path
 import re
 import runpy
@@ -340,6 +341,81 @@ for rec in item_records:
 all_draft_duplicates = [ids for ids in all_texts.values() if len(ids) > 1]
 check(not all_draft_duplicates, f"Identical character/item ability bodies: {all_draft_duplicates}")
 
+# Registered play batch: current-main source snapshot and canonical prose.
+# The default run stays offline; --play-source-root additionally checks exported
+# files against their pinned git blobs and executes only games.js constructors.
+play_snapshot = json.loads((DOCS / "data/play-source-20260917.json").read_text())
+pinned_games = play_snapshot["games"]
+check(sorted(pinned_games, key=lambda g: g["id"]) == sorted(games, key=lambda g: g["id"]),
+      "Pinned main play IDs/categories/source contexts differ from registered baseline")
+play_records = []
+for m in re.finditer(r"^### (G-[\w-]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", doc(79), re.M | re.S):
+    card_id, name, section = m.groups()
+    body = re.findall(r"^> (.+)$", section, re.M)
+    time = re.findall(r"^- 時：(\d+)$", section, re.M)
+    method = re.findall(r"^- プレイ方法：(すぐつかう|しかける|みにつける)$", section, re.M)
+    category = re.findall(r"^- source category：([\w]+)（一般）$", section, re.M)
+    order = re.findall(r"^- 登録順：(\d+)$", section, re.M)
+    check(len(body) == len(time) == len(method) == len(category) == len(order) == 1,
+          f"Play body/metadata missing or ambiguous: {card_id}")
+    if not (len(body) == len(time) == len(method) == len(category) == len(order) == 1):
+        continue
+    check("- 構築区分：通常（同名3枚）" in section, f"Play rarity missing: {card_id}")
+    check(category[0] == game_map.get(card_id[2:], {}).get("category"), f"Play category mismatch: {card_id}")
+    check(int(order[0]) == len(play_records) + 1, f"Play order mismatch: {card_id}")
+    play_records.append({"id": card_id, "name": name, "time": int(time[0]),
+                         "method": method[0], "rarity": "normal", "text": body[0],
+                         "source_file": "docs/card-game/79-play-batch-1-card-text-draft.md"})
+play_ids = [r["id"] for r in play_records]
+check(len(play_ids) == len(set(play_ids)) == 20, "Expected 20 unique play batch bodies")
+check(play_ids == ["G-" + sid for sid in role_games[:20]] == play_snapshot["draft_batch_1"],
+      "Play batch differs from first 20 canonical roles")
+check(collections.Counter(r["method"] for r in play_records) == {"すぐつかう": 18, "しかける": 2}, "Play method distribution")
+check(collections.Counter(r["time"] for r in play_records) == {1: 7, 2: 13}, "Play time distribution")
+legacy_2048 = re.search(r"^- 2048 — 時1・\*\*すぐつかう\*\*: (.+)$", doc(8), re.M)
+check(bool(legacy_2048), "Existing 2048 body missing")
+if legacy_2048:
+    play_records.append({"id": "G-puzzle-2048", "name": "2048", "time": 1,
+                         "method": "すぐつかう", "text": legacy_2048[1],
+                         "source_file": "docs/card-game/08-test-deck-a-card-drafts.md",
+                         "status": "legacy_body_linked_to_registered_source"})
+check(len(play_records) == 21, "Play body coverage should be 21/100")
+play_case_ids = re.findall(r"^\| ([PX]\d{2}) \|", doc(80), re.M)
+check(len(play_case_ids) == len(set(play_case_ids)) == 40 and set(play_case_ids) ==
+      {f"{p}{n:02d}" for p in ("P", "X") for n in range(1, 21)}, "Play manual case ID coverage")
+all_with_play = collections.defaultdict(list, {k: list(v) for k, v in all_texts.items()})
+for r in play_records:
+    all_with_play[r["text"]].append(r["id"])
+play_duplicates = [ids for ids in all_with_play.values() if len(ids) > 1]
+check(not play_duplicates, f"Identical character/item/play bodies: {play_duplicates}")
+play_source_verified = False
+if "--play-source-root" in sys.argv:
+    source_dir = Path(sys.argv[sys.argv.index("--play-source-root") + 1]).resolve()
+    for name, expected in play_snapshot["source_blobs"].items():
+        raw = (source_dir / name).read_bytes()
+        actual = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        check(actual == expected, f"Play source blob differs: {name}")
+    actual_games = json.loads(subprocess.check_output(["node", "-e", r"""
+const fs=require('fs'),vm=require('vm'),c={};vm.createContext(c);
+vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),c);
+const g=c.installNaotocchiMinigames({SEASON:{SPRING:'spring',SUMMER:'summer',AUTUMN:'autumn',WINTER:'winter'}});
+console.log(JSON.stringify([...g.MINIGAMES.map(x=>({id:x.id,category:g.minigameCategoryOf.get(x),source:'general'})),
+...Object.entries(g.REGION_MINIGAMES).flatMap(([context,a])=>a.map(x=>({id:x.game.id,category:x.category,source:'region',context}))),
+...Object.entries(g.SEASONAL_MINIGAMES).flatMap(([context,a])=>a.map(x=>({id:x.game.id,category:x.category,source:'season',context})))]));
+""", str(source_dir / "games.js")], text=True))
+    check(actual_games == pinned_games, "Actual pinned games catalog differs from snapshot")
+    play_source_verified = actual_games == pinned_games and all(
+        hashlib.sha1(b"blob " + str(len((source_dir / n).read_bytes())).encode() + b"\0" + (source_dir / n).read_bytes()).hexdigest() == h
+        for n, h in play_snapshot["source_blobs"].items())
+play_audit = {"main_commit": play_snapshot["main_commit"], "registered_games": len(pinned_games),
+              "new_body_entries": len(play_ids), "existing_linked_bodies": int(bool(legacy_2048)),
+              "total_body_entries": len(play_records), "unexpanded_entries": 100 - len(play_records),
+              "method_counts_new": dict(collections.Counter(r["method"] for r in play_records[:20])),
+              "time_counts_new": dict(collections.Counter(r["time"] for r in play_records[:20])),
+              "max_new_body_length": max((len(r["text"]) for r in play_records[:20]), default=0),
+              "manual_case_entries": len(play_case_ids), "identical_body_groups": play_duplicates,
+              "actual_source_verified": play_source_verified}
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -365,12 +441,13 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "partner_vanilla_entries": partner_vanilla,
                   "all_character_identical_ability_groups": all_character_duplicates,
                   "current_item_source_followup": item_audit,
-                  "character_item_identical_ability_groups": all_draft_duplicates, "errors": errors,
+                  "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
     result["partners"] = sorted(partner_records.values(), key=lambda r: r["id"])
     result["items_current_source"] = sorted(item_records, key=lambda r: r["id"])
+    result["play_cards"] = sorted(play_records, key=lambda r: r["id"])
 print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
