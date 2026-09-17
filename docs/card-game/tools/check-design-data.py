@@ -614,6 +614,39 @@ check(current_counts == {"main": 248, "companion": 26, "partner": 18, "world": 1
                          "play": 100, "current_item": 26, "event": 21}, "93 current catalog scope")
 current_vanilla = sum(r["text"] == "能力なし。" for group in current_catalog_groups.values() for r in group)
 check(sum(current_counts.values()) == 452 and current_vanilla == 7, "93 catalog total/vanilla")
+
+# 96 keeps the catalog fixed and revises only four existing defensive/recovery
+# bodies so that their timing or destination matches an actual current card.
+revision_96_expected = {
+    "M-penguin-07": "1ターンに1回。自分がセカイを変更した時、自分になかまがある場合、発動できる。自分のなかま1枚を選ぶ。次の自分のターン開始時まで、そのなかまが相手の効果で盤面を離れる場合、1回だけ盤面を離れない。",
+    "M-dandelion-04": "1ラウンドに1回。自分のセカイが相手の効果で手札または捨て札に移るなら、手札のセカイ1枚を公開して捨て札に置くことで、その移動を防いでもよい。",
+    "P-snowman": "このカードが相手の効果でこいびと枠から手札または捨て札に移動し、このカードとの交際または結婚が終了した時、自分のメインがたまごでない場合、その移動先で発動できる。山札上2枚を見て、その中から1枚を手札に加え、残りを山札の一番下に置く。",
+    "G-p3-drive": "自分のメイン1枚を対象として発動できる。このターン、そのメインが相手の効果で捨て札に置かれるなら、1回だけ、代わりに場に残す。このターン、自分が次に手札からセカイを通常の方法で変更するための時を1少なくする。",
+}
+revision_96_catalog = {r["id"]: r for group in current_catalog_groups.values() for r in group}
+for card_id, expected_text in revision_96_expected.items():
+    check(revision_96_catalog.get(card_id, {}).get("text") == expected_text,
+          f"96 removal/defense revision mismatch: {card_id}")
+revision_96_doc = DOCS / "96-removal-defense-deadline-revisions.md"
+revision_96_data_path = DOCS / "data/removal-defense-deadline-revisions-20260917.json"
+check(revision_96_doc.exists(), "96 revision document missing")
+check(revision_96_data_path.exists(), "96 revision evidence missing")
+if revision_96_data_path.exists():
+    revision_96_data = json.loads(revision_96_data_path.read_text())
+    revision_96_changed = {r["id"]: r for r in revision_96_data.get("changed_cards", [])}
+    check(set(revision_96_changed) == set(revision_96_expected), "96 changed card IDs")
+    for card_id, expected_text in revision_96_expected.items():
+        check(revision_96_changed.get(card_id, {}).get("after") == expected_text,
+              f"96 evidence after text: {card_id}")
+    revision_96_cases = revision_96_data.get("manual_cases", [])
+    check(len(revision_96_cases) == len({r.get("id") for r in revision_96_cases}) == 28,
+          "96 manual case count/IDs")
+    revision_96_sorted = sorted(revision_96_catalog.values(), key=lambda r: r["id"])
+    revision_96_catalog_hash = hashlib.sha256(json.dumps(
+        revision_96_sorted, ensure_ascii=False, sort_keys=True,
+        separators=(",", ":")).encode()).hexdigest()
+    check(revision_96_data.get("validation", {}).get("catalog_records_sha256") == revision_96_catalog_hash,
+          "96 current catalog hash")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
