@@ -14329,7 +14329,19 @@
       const def = WORLD_MASTER?.partners?.find((x) => x.id === aliasId);
       list.push({ id: `partner:${p.id}`, kind: 'partner', label: p.label, rarity: 'uncommon', art: { asset: def?.asset || '', emoji: p.emoji || '💞' }, visual: () => partnerVisualHTML(p, 'thumb') });
     }
-    for (const item of SHOP_ITEMS) list.push({ id: `item:${item.id}`, kind: 'item', label: item.label, rarity: 'common', art: { asset: '', emoji: item.emoji }, visual: () => itemIconHTML(item) });
+    const stickerItemFallbacks = new Map(SHOP_ITEMS.map((item) => [item.id, item.emoji]));
+    for (const [id, def] of Object.entries(ITEM_SYSTEM.CATALOG)) {
+      const visualId = id === 'new_themed_pack' ? 'sticker_pack' : id;
+      const item = { id: visualId, label: def.label, emoji: stickerItemFallbacks.get(id) || '🎁' };
+      list.push({
+        id: `item:${id}`,
+        kind: 'item',
+        label: def.label,
+        rarity: 'common',
+        art: { asset: `assets/items/unified/${visualId}.png`, emoji: item.emoji },
+        visual: () => itemIconHTML(item),
+      });
+    }
     for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
     stickerCatalogCache = list;
     return list;
