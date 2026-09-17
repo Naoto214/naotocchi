@@ -4,6 +4,7 @@
 Run from any directory with Python 3 and Node.js:
   python docs/card-game/tools/check-design-data.py
 """
+import ast
 import collections
 from decimal import Decimal, ROUND_HALF_UP
 import json
@@ -787,6 +788,36 @@ if all(path.exists() for path in
     check(proxy_98_example.get("record", {}).get("status") == "fixture" and
           proxy_98_example.get("record", {}).get("events") == [],
           "98 proxy example remains unplayed fixture")
+
+# 99 adds a standard-library validator for replay identity/reference checks.
+# Do not execute its unit test here: the test deliberately loads this catalog,
+# which would recurse.  Syntax, public entry points and test inventory are
+# checked here; the unit test remains a separate command.
+proxy_99_doc = DOCS / "99-proxy-record-validator.md"
+proxy_99_tool = DOCS / "tools/proxy_record_validator.py"
+proxy_99_test = DOCS / "tools/test_proxy_record_validator.py"
+check(proxy_99_doc.exists(), "99 proxy validator document missing")
+check(proxy_99_tool.exists(), "99 proxy validator tool missing")
+check(proxy_99_test.exists(), "99 proxy validator tests missing")
+if proxy_99_tool.exists() and proxy_99_test.exists():
+    proxy_99_tool_source = proxy_99_tool.read_text()
+    proxy_99_test_source = proxy_99_test.read_text()
+    proxy_99_tool_tree = ast.parse(proxy_99_tool_source)
+    proxy_99_test_tree = ast.parse(proxy_99_test_source)
+    proxy_99_functions = {
+        node.name for node in proxy_99_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"canonical_sha256", "load_current_catalog", "validate_record", "main"} <=
+          proxy_99_functions, "99 proxy validator public functions")
+    proxy_99_test_count = sum(
+        node.name.startswith("test_")
+        for node in ast.walk(proxy_99_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_99_test_count == 8, "99 proxy validator test count")
+    check("領域移動後に場へ戻ったカード" in proxy_99_doc.read_text() and
+          "再登場を含むcompleted記録にはまだ使用しない" in proxy_99_doc.read_text(),
+          "99 new-instance limitation is explicit")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
