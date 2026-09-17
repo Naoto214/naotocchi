@@ -23,7 +23,7 @@ README・91・92の再開地点、01・02・06・07の確定手順、08・13・8
 
 登録477＝CARD463＋HOLD14という登録履歴と、この452件は集計範囲が異なる。452から未登録アイテム12を除いた440件が登録CARD側との重なり。残る登録CARD23は退役sourceの旧アイテム側であり、一部に旧A/B本文があるので「23枚全て未執筆」とも呼ばない。HOLD14はできごと13と旧I-reward1。新12・旧24の登録／採否、legacyの扱いを決めずに母集団を増減しない。
 
-保存直前のmainは `f23398e43eed952d49d5a2b805789a4c87b2b1bd`（PR #288）へ更新。GitHub compareで7ファイルの差分を確認した。script.jsはcanvas高さの上限調整16行追加のみで、アイテム・交際・イベント処理の変更はない。マスター・item-system.js・games.js・movie-dialogue.js・world-environment.jsの5 blobも一致。根拠は[追従記録](data/boundary-main-followup-20260917.json)へ保存し、既存source snapshotは固定版を維持する。最新mainの実装を作業ブランチへマージしない。
+保存直前のmainは `f23398e43eed952d49d5a2b805789a4c87b2b1bd`（PR #288）へ更新。GitHub compareの差分は6ファイル（94 F94-01で実一覧と照合し、初回の「7」を訂正）。script.jsはcanvas高さの上限調整16行追加のみで、アイテム・交際・イベント処理の変更はない。マスター・item-system.js・games.js・movie-dialogue.js・world-environment.jsの5 blobも一致。根拠は[追従記録](data/boundary-main-followup-20260917.json)へ保存し、既存source snapshotは固定版を維持する。最新mainの実装を作業ブランチへマージしない。
 
 ## 2. V01 満員交代の退出先
 
@@ -114,3 +114,7 @@ README・91・92の再開地点、01・02・06・07の確定手順、08・13・8
 データ検査は、現行カタログの7区分452件、能力なし7、08／83／93の現行2048本文一致、01／02／06の接続見出し、32局面ID、既存ID／転載／source／リンクを確認する。32局面の意味を自動で判定する対戦エンジンではない。
 
 保存前検査: `python docs/card-game/tools/check-design-data.py --play-source-root ../play-current-main --world-source-root ../world-current-main --event-source-root ../world-current-main --catalog` はエラー0。452件・能力なし7・32局面IDと転載を照合し、前後カタログ比較では変更カードがG-puzzle-2048だけであることを確認。基本ルール差分は交代・たまごの境界補完に限定し、63〜66の既定内容を維持。`git diff --check` も問題なし。
+
+## 94の後続監査
+
+[94](94-removal-defense-supply-audit.md)で本節6の除去・防御の実在供給を照合した。相手メイン／なかま除去、こいびと／セカイの捨て札行きの供給不足、適正対象等の要追従17 IDを具体化したが、カード本文の修正・供給不足の解消・大量対戦は未完了。今回93の32局面と境界補完の記録を、実在供給の成功例へ書き換えない。main差分件数の訂正根拠も94へ保存した。
