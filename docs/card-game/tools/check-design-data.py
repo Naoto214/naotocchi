@@ -604,6 +604,28 @@ event_audit = {"main_commit": event_snapshot["main_commit"], "body_entries": len
                "manual_case_entries": len(event_cases), "identical_body_groups": event_duplicates,
                "actual_source_verified": event_source_verified}
 
+current_catalog_groups = {
+    "main": list(body_records.values()), "companion": list(companion_records.values()),
+    "partner": list(partner_records.values()), "world": list(world_records.values()),
+    "play": play_records, "current_item": item_records, "event": list(event_records.values())}
+current_counts = {k: len(v) for k, v in current_catalog_groups.items()}
+check(current_counts == {"main": 248, "companion": 26, "partner": 18, "world": 13,
+                         "play": 100, "current_item": 26, "event": 21}, "93 current catalog scope")
+current_vanilla = sum(r["text"] == "能力なし。" for group in current_catalog_groups.values() for r in group)
+check(sum(current_counts.values()) == 452 and current_vanilla == 7, "93 catalog total/vanilla")
+boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
+check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
+      {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
+      {f"C{n:02d}" for n in range(1, 13)}, "93 boundary manual case IDs")
+current_2048 = re.search(r"\*\*現行2048本文:\*\*\n\n> ([^\n]+)", doc(93))
+check(bool(current_2048) and bool(legacy_2048) and current_2048[1] == legacy_2048[1], "93 current 2048 mirror")
+check("### 満員交代の手順（93の未記載境界補完）" in doc(1) and
+      "### たまごと未解決のこいびと能力（93の接続明文化）" in doc(2) and
+      "## 93の交代・たまご接続" in doc(6), "93 core boundary references")
+boundary_audit = {"current_catalog_counts": current_counts, "current_catalog_total": sum(current_counts.values()),
+                  "vanilla_entries": current_vanilla, "manual_case_entries": len(boundary_cases),
+                  "scope": "Current catalog, not registered-population completion; manual cases are not simulated games."}
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -612,7 +634,7 @@ for file in DOCS.rglob("*.md"):
             broken_links.append(f"{file.relative_to(ROOT)} -> {target}")
 check(not broken_links, f"Broken local links: {broken_links}")
 
-result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
+result = {"boundary_cross_audit": boundary_audit, "registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
                   "games": dict(collections.Counter(g["source"] for g in games)), "main_curves": len(curves),
                   "value_10_cards": sum(10 in pair for c in curves.values() for pair in c),
                   "stage_7_to_8": dict(collections.Counter("up" if sum(c[7]) > sum(c[6]) else "down" if sum(c[7]) < sum(c[6]) else "same" for c in curves.values())),
