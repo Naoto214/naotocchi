@@ -890,13 +890,13 @@
   // ノーマル種の中から現在と違う2つだが、これまでの育て方が良ければ
   // (お世話の平均が高い/ミニゲームの腕が良い・ロマンチック傾向が強い)、
   // レア枠(かみさま・れんくん)が候補の1つに混ざることがある
-  function pickTransformCandidates(excluded = [], wantedOverride = null) {
+  function pickTransformCandidates(excluded = [], wantedOverride = null, ringBias = true) {
     const pool = NORMAL_LINES.filter((line) => line !== state.speciesLine && !excluded.includes(line));
     const candidates = [];
     const wanted = wantedOverride ?? (hasPerk(60) ? 3 : 2);
     while (candidates.length < wanted && pool.length > 0) {
-      const idx = Math.floor(Math.random() * pool.length);
-      candidates.push(pool.splice(idx, 1)[0]);
+      const line = ringBias ? pickRingCandidate(pool, 'species') : pool[Math.floor(Math.random() * pool.length)];
+      candidates.push(pool.splice(pool.indexOf(line), 1)[0]);
     }
 
     const avgCare = state.careTicks > 0 ? state.careSum / state.careTicks : 0;
@@ -930,7 +930,7 @@
       return false;
     });
     if (rarePool.length > 0 && Math.random() < rareMixChance) {
-      const rare = rarePool[Math.floor(Math.random() * rarePool.length)];
+      const rare = ringBias ? pickRingCandidate(rarePool, 'species') : rarePool[Math.floor(Math.random() * rarePool.length)];
       candidates[Math.floor(Math.random() * candidates.length)] = rare;
     }
     const renReady = state.speciesLine !== 'ren' && !excluded.includes('ren')
@@ -947,7 +947,7 @@
   }
 
   function pickTicketTransformCandidates() {
-    const legal = pickTransformCandidates([], Math.max(3, NORMAL_LINES.length))
+    const legal = pickTransformCandidates([], Math.max(3, NORMAL_LINES.length), false)
       .filter((line, index, list) => line !== state.speciesLine && list.indexOf(line) === index);
     const raised = new Set(experiencedSpecies());
     const novel = legal.filter(line => !raised.has(line));
@@ -2426,13 +2426,37 @@
   // COLOR_THEMES/PATTERNS と ロジックを 共有する
   const NAOTO_ITEMS = [
     { id: 'naoto_charm', label: 'なおとのおまもり', emoji: '🧿', unlockTier: 0, desc: '70歳以降の、年齢によるいのちのリスクを28%やわらげる' },
-    { id: 'naoto_lantern', label: 'なおとのランタン', emoji: '🏮', unlockTier: 1, desc: '訪れた土地のあかりを探そう。10分に1回、思い出を残せる' },
-    { id: 'naoto_ring', label: 'なおとのリング', emoji: '💍', unlockTier: 2, desc: 'いつものデートにも、ふたりだけの合言葉と思い出が加わる' },
+    { id: 'naoto_lantern', label: 'なおとのランタン', emoji: '🏮', unlockTier: 1, desc: ITEM_SYSTEM.CATALOG.naoto_lantern.desc },
+    { id: 'naoto_ring', label: 'なおとのリング', emoji: '💍', unlockTier: 2, desc: ITEM_SYSTEM.CATALOG.naoto_ring.desc },
     { id: 'naoto_crown', label: 'なおとのかんむり', emoji: '👑', unlockTier: 3, desc: ITEM_SYSTEM.CATALOG.naoto_crown.desc },
   ];
 
   function hasNaotoItem(id) {
     return state.lifetime.ownedNaotoItems.includes(id);
+  }
+
+  // Only natural, already-eligible encounter pools call this helper. Use the
+  // same registration records as the dex, never inferred encounter histories.
+  function ringDexWeight(kind, candidate) {
+    if (!hasNaotoItem('naoto_ring')) return 1;
+    let known;
+    if (kind === 'species') {
+      if (!ALL_LINES.includes(candidate) || candidate === 'ren') return 1;
+      known = state.discoveredStages.includes(`${candidate}:${currentFormStageIndex()}`);
+    } else if (kind === 'companion') {
+      if (!candidate || !allCompanionsById(candidate.id)) return 1;
+      known = hasRecruitedCompanionId(canonicalCompanionId(candidate.id));
+    } else if (kind === 'partner') {
+      if (!candidate || !ALL_PARTNER_CANDIDATES.some(c => c.id === candidate.id)
+        || !mutualRomanticMatch(state, candidate)) return 1;
+      known = state.lifetime.partnersRecorded.includes(candidate.id);
+    } else return 1;
+    return known ? 1 : 2;
+  }
+
+  function pickRingCandidate(pool, kind, baseWeight = () => 1) {
+    if (!pool.length) return null;
+    return weightedPick(pool, pool.map(candidate => baseWeight(candidate) * ringDexWeight(kind, candidate)));
   }
 
   // 支援条件は実績のそばに置く。達成済みの履歴は、次の人生でも優先する。
@@ -9603,7 +9627,8 @@
       if (state.growth >= HATCH_GROWTH) { state.growth = 0; hatchEgg(); }
       return;
     }
-    state.growth += amount > 0 ? amount * growthMultiplier() : amount;
+    // Growth already stores fractions; keep sodachi and its thresholds integer.
+    state.growth += amount > 0 ? amount * growthMultiplier() * (hasNaotoItem('naoto_lantern') ? 1.1 : 1) : amount;
     if (state.growth < 0) state.growth = 0;
     while (state.growth >= sodachiCost(state.sodachi) && state.sodachi < SODACHI_MAX) {
       state.growth -= sodachiCost(state.sodachi);
@@ -10602,14 +10627,8 @@
   }
 
   function pickCompanionByRegion(pool) {
-    if (!pool.length) return null;
-    const weighted = [];
-    pool.forEach((c) => {
-      const local = Array.isArray(c.preferredRegions) && c.preferredRegions.includes(state.regionId);
-      const weight = local ? 4 : 1;
-      for (let i = 0; i < weight; i += 1) weighted.push(c);
-    });
-    return weighted[Math.floor(Math.random() * weighted.length)] || pool[0];
+    return pickRingCandidate(pool, 'companion', c =>
+      Array.isArray(c.preferredRegions) && c.preferredRegions.includes(state.regionId) ? 4 : 1);
   }
 
   function scheduleCompanionEncounter() {
@@ -10637,7 +10656,7 @@
         const useRare = rareRemaining.length > 0
           && (remaining.length === 0 || Math.random() < RARE_COMPANION_CHANCE);
         const pool = useRare ? rareRemaining : remaining;
-        const companion = useRare ? pool[Math.floor(Math.random() * pool.length)] : pickCompanionByRegion(pool);
+        const companion = useRare ? pickRingCandidate(pool, 'companion') : pickCompanionByRegion(pool);
         openCompanionInvite(companion, useRare);
       }
       scheduleCompanionEncounter();
@@ -16329,7 +16348,7 @@
     } else if (state.guest && Math.random() < 0.6) {
       candidate = guestCandidate(state.guest);
     } else if (regionCandidates.length) {
-      candidate = regionCandidates[Math.floor(Math.random() * regionCandidates.length)];
+      candidate = pickRingCandidate(regionCandidates, 'partner');
     }
     if (!candidate) {
       state.happiness = clamp(state.happiness + 2, 0, 100);

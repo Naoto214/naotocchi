@@ -95,7 +95,7 @@ test('transform ticket output is identical with and without ring for the same ra
 for(const source of ['ownership','goal-history'])test(`old save ${source} restores passives without new save fields`,()=>{
  const h=setup(),s=h.api.state();s.lifetime.endingTiersReached=[0,1,2];
  if(source==='goal-history')s.lifetime.ownedNaotoItems=[];
- const old=JSON.parse(JSON.stringify(s));const storage=new Map([['naotocchi-save-v1',JSON.stringify(old)]]),restored=harness({storage,resume:true}),r=restored.api.state();
+ const old=JSON.parse(JSON.stringify(s));const storage={getItem:k=>k==='naotocchi-save-v1'?JSON.stringify(old):null,setItem(){},removeItem(){}},restored=harness({storage,resume:true}),r=restored.api.state();
  r.stage='growing';r.growth=0;r.boostTicks=0;restored.api.applyGrowth(1);near(r.growth,1.1);
  assert.equal(restored.api.ringDexWeight('companion',restored.api.normalCompanions[0]),2);
 });
