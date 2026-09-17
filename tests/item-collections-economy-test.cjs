@@ -14,14 +14,14 @@ function guess(h,code,answers) {
   h.api.confirmDuelGuesses(); h.api.chooseDuelSuspicion(d.items[0].qId);
   return h.api.encodeDuelGuess();
 }
-test('egg menu reserves random new stock, displays the species and consumes once across reload',()=>{
+test('egg menu reserves random new stock, hides the species and consumes once across reload',()=>{
   const store=storage(); let h=boot(store), s=h.api.state(); s.items.c_egg_normal=1;s.items.c_egg_rare=1;
-  h.dispatch(h.get('itemBtn'),'click'); h.dispatch(h.get('dreamNormalBtn'),'click');
+  h.dispatch(h.get('itemBtn'),'click'); h.api.useConsumableItem('c_egg_normal');
   const line=s.lifetime.nextEggLine;assert.ok(h.api.normalLines.includes(line));assert.equal(h.api.itemStock('c_egg_normal'),1);
-  assert.match(h.get('dreamStatus').textContent,/予約/);assert.equal(h.get('dreamRareBtn').disabled,true);
-  h.dispatch(h.get('dreamCancelBtn'),'click');assert.equal(s.lifetime.nextEggLine,null);assert.equal(h.api.itemStock('c_egg_normal'),1);
-  h.dispatch(h.get('dreamRareBtn'),'click');assert.ok(h.api.rareLines.includes(s.lifetime.nextEggLine));assert.notEqual(s.lifetime.nextEggLine,'ren');
-  h.dispatch(h.get('dreamCancelBtn'),'click');h.api.openDreamPicker('normal');const chosen=s.lifetime.nextEggLine;h.api.saveState();
+  assert.match(h.get('onetimeItemGrid').innerHTML,/よやく：？？？/);assert.equal(h.api.useConsumableItem('c_egg_rare'),false);
+  h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);assert.equal(s.lifetime.nextEggLine,null);assert.equal(h.api.itemStock('c_egg_normal'),1);
+  h.api.useConsumableItem('c_egg_rare');assert.ok(h.api.rareLines.includes(s.lifetime.nextEggLine));assert.notEqual(s.lifetime.nextEggLine,'ren');
+  h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);h.api.openDreamPicker('normal');const chosen=s.lifetime.nextEggLine;h.api.saveState();
   h=boot(store);h.api.hatchEgg();assert.equal(h.api.state().speciesLine,chosen);assert.equal(h.api.itemStock('c_egg_normal'),0);
   h.api.saveState();h=boot(store);assert.equal(h.api.pickDreamLine(),null);assert.equal(h.api.itemStock('c_egg_normal'),0);
 });
@@ -66,14 +66,17 @@ test('legacy sticker counts and positions merge idempotently without replacing c
   s.lifetime.pastLives=[{partner:{id:'old'}}]; h.api.ITEM_SYSTEM.normalize(s);h.api.ITEM_SYSTEM.normalize(s);
   const st=h.api.stickerStore();assert.equal(st.owned['item:flower'],3);assert.equal(st.owned['item:flower2'],undefined);
   assert.deepEqual(JSON.parse(JSON.stringify(st.pages.home)),[{k:1,id:'item:flower',x:.2,y:.7,r:42,s:1.2},{k:2,id:'item:flower',x:.8,y:.1}]);
-  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,325); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);
+  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,342); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);
 });
-test('sticker catalog offers only the final equipment while retaining other collection categories',()=>{
+test('sticker catalog offers all current items while retaining other collection categories',()=>{
   const catalog=harness().api.stickerCatalog();
   assert.deepEqual(Array.from(catalog.filter(x=>x.kind==='item'),x=>x.id).sort(),[
     'item:bond1','item:bowtie','item:gamepass1','item:partner1','item:poop1',
     'item:ribbon','item:scarf','item:sleepboost1','item:star','item:travel1',
-  ]);
+    'item:c_coin2','item:c_life','item:c_time_back','item:c_time_forward','item:c_life_charm',
+    'item:c_friend','item:c_match','item:c_transform','item:c_rare_friend','item:c_egg_normal','item:c_egg_rare','item:c_dex',
+    'item:naoto_charm','item:naoto_lantern','item:naoto_ring','item:naoto_crown','item:new_themed_pack',
+  ].sort());
   assert.deepEqual(catalog.reduce((counts,item)=>{
     if(item.kind!=='item')counts[item.kind]=(counts[item.kind]||0)+1;
     return counts;

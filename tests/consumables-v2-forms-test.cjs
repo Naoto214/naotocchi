@@ -134,3 +134,24 @@ test('reloading an open transform ticket keeps stock and restores no ordinary of
   assert.equal(reloaded.api.itemStock('c_transform'),1);
   assert.equal(reloaded.get('transformOverlay').classList.contains('hidden'),true);
 });
+
+test('dex picker hides every unknown form including markup and reveals only after selection',()=>{
+  const h=harness(),s=h.api.state();s.items.c_dex=2;s.discoveredStages=['dog:0'];
+  h.api.useConsumableItem('c_dex');
+  const html=h.get('pickerGrid').innerHTML;
+  const cells=[...html.matchAll(/<button[^>]*data-picker-value="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
+  assert.equal(cells.length,h.api.pickerValues().length);
+  const keys=h.api.pickerValues();
+  cells.forEach((cell,i)=>{
+    const [line,index]=keys[i].split(':'),stage=h.api.SPECIES[line].stages[Number(index)];
+    assert.ok(!cell[1].includes(line),'opaque selection token');
+    if(keys[i]==='dog:0')assert.ok(cell[2].includes(stage.label));
+    else {assert.match(cell[2],/？？？/);assert.doesNotMatch(cell[2],/<img|character-visual/);assert.ok(!cell[2].includes(stage.label));}
+  });
+  const i=keys.indexOf('cat:2');h.api.resolvePickerSelection(cells[i][1]);
+  assert.ok(s.discoveredStages.includes('cat:2'));assert.equal(h.api.itemStock('c_dex'),1);
+  assert.equal(h.api.currentVisualForm().line,'cat');assert.equal(h.api.currentVisualForm().index,2);
+  assert.ok(h.api.getMessage().includes(h.api.SPECIES.cat.stages[2].label));
+  h.api.useConsumableItem('c_dex');assert.ok(h.get('pickerGrid').innerHTML.includes(h.api.SPECIES.cat.stages[2].label));
+  h.api.closePicker();assert.equal(h.api.itemStock('c_dex'),1);
+});

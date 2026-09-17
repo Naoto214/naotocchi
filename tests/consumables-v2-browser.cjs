@@ -63,7 +63,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
         const buy=button(page,id,'buy'),cell=buy.locator('..');
         assert.equal(await cell.locator('.shop-item-label').textContent(),name);
         assert.equal(await cell.locator('.shop-item-desc').textContent(),desc);
-        assert.equal(await buy.textContent(),`かう（${price}コイン）`);
+        assert.equal(await buy.textContent(),`${id.startsWith('c_egg_') ? 'かってよやく' : 'かう'}（${price}コイン）`);
         await onScreen(cell,width,id);
         assert.equal(await buy.isDisabled(),false);
       }
@@ -95,7 +95,11 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
         if(id==='c_dex'){
           const values=await options.evaluateAll(es=>es.map(e=>e.dataset.pickerValue));
           assert.equal(values.some(v=>/^ren:|^legend/.test(v)),false);
-          assert.ok(values.some(v=>!seed.discoveredStages.includes(v)),'unseen forms selectable');
+          assert.ok(values.every(v=>/^dex-[0-9]+$/.test(v)),'opaque tokens only');
+          const locked=page.locator('#pickerGrid .locked');
+          assert.ok(await locked.count()>0);
+          assert.equal(await locked.locator('img').count(),0);
+          assert.ok((await locked.locator('.dex-cell-label').allTextContents()).every(t=>t==='？？？'));
           await onScreen(options.last(),width,id+' last choice');
           await page.screenshot({path:path.join(output,label+'-picker.png')});
         }
@@ -103,6 +107,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
         await page.locator('#pickerCloseBtn').click();
         assert.equal(stock(await readSave(page),id),before);
       }
+
+      await button(page,'c_dex').click();
+      const oldDex=(await readSave(page)).discoveredStages;
+      await page.locator('#pickerGrid .locked').first().click();
+      let dexSave=await readSave(page);
+      assert.equal(dexSave.discoveredStages.length,oldDex.length+1);
+      assert.equal(stock(dexSave,'c_dex'),1);
+      await button(page,'c_dex').click();
+      assert.equal(await page.locator('#pickerGrid .known').count(),dexSave.discoveredStages.length);
+      await page.locator('#pickerCloseBtn').click();
 
       // A selected friend starts the shipped invitation, never instant joining.
       await button(page,'c_friend').click();
@@ -121,14 +135,34 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       const reserved=saved.lifetime.nextEggLine;
       assert.ok(reserved&&reserved!=='dog');assert.equal(saved.lifetime.nextEggKind,'normal');assert.equal(stock(saved,'c_egg_normal'),2);
       assert.equal(await button(page,'c_egg_rare').isDisabled(),true);
-      assert.match(await page.locator('#dreamStatus').textContent(),/予約：/);
+      assert.match(await button(page,'c_egg_normal','cancel').locator('..').textContent(),/よやく：？？？/);
+      assert.equal(await page.locator('#dreamStatus, #dreamNormalBtn, #dreamRareBtn, #dreamCancelBtn').count(),0);
       await page.reload();await home(page);await openShop(page);
       assert.equal((await readSave(page)).lifetime.nextEggLine,reserved);
-      await page.locator('#dreamCancelBtn').click();saved=await readSave(page);
+      await button(page,'c_egg_normal','cancel').click();saved=await readSave(page);
       assert.equal(saved.lifetime.nextEggLine,null);assert.equal(stock(saved,'c_egg_normal'),2);
       await button(page,'c_egg_rare').click();saved=await readSave(page);
       assert.equal(saved.lifetime.nextEggKind,'rare');assert.equal(stock(saved,'c_egg_rare'),2);
-      await page.locator('#dreamCancelBtn').click();
+      await button(page,'c_egg_rare','cancel').click();
+
+      // Purchase is explicit and auto-reserves; no second purchase can charge.
+      for(const id of ['c_egg_normal','c_egg_rare']){
+        const before=await readSave(page),price=products.find(p=>p[0]===id)[2];
+        await button(page,id,'buy').click();
+        const after=await readSave(page);
+        assert.equal(after.lifetime.money,before.lifetime.money-price);
+        assert.equal(stock(after,id),stock(before,id)+1);
+        assert.ok(after.lifetime.nextEggLine);
+        assert.match(await button(page,id,'cancel').locator('..').textContent(),/よやく：？？？/);
+        for(const egg of ['c_egg_normal','c_egg_rare'])assert.equal(await button(page,egg,'buy').isDisabled(),true);
+        await onScreen(button(page,id,'cancel'),width,'egg cancellation');
+        await page.screenshot({path:path.join(output,label+'-'+id+'-reserved.png')});
+        await button(page,id,'cancel').click();
+        const cancelled=await readSave(page);
+        assert.equal(cancelled.lifetime.nextEggLine,null);
+        assert.equal(stock(cancelled,id),stock(after,id));
+        assert.equal(cancelled.lifetime.money,after.lifetime.money);
+      }
 
       // Temporary appearance survives reload with its original deadline. Fast
       // forwarding dispatches the real timer without simulating 100 age ticks.

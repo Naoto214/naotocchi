@@ -37,6 +37,7 @@ test('every current item has a sticker while retired items stay out', () => {
     assert.ok(sticker, `missing item sticker: ${id}`);
     assert.ok(sticker.label.length > 0, `missing label: ${id}`);
     assert.equal(sticker.art.asset, expectedAsset, `wrong sticker art: ${id}`);
+    assert.ok(require('node:fs').existsSync(expectedAsset), `missing PNG: ${id}`);
     assert.match(sticker.visual(), new RegExp(expectedAsset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `missing visual asset: ${id}`);
   }
   for (const id of ['fun_candy', 'fun_camera', 'c_growth', 'c_safety', 'new_transform_mirror']) {
