@@ -100,3 +100,7 @@ Following the user's continuation request, add all8 starfish stages×10 original
 
 ### Approved production-first continuation: coral (2026-09-17)
 Under the continuation authorization, add coral8 stages×10 expressions while preserving960 existing expressions/96 placements. Preserve branches, polyps, rocks, colony colors and secondary faces. Change only each stage's dominant face; in06 the central yellow coral,07 upper orange coral,08 large yellow polyp. Same face-relative marks, reactions, Draft PR and owner-private Site. No main merge or gameplay/save changes.
+
+
+### Approved production-first continuation: butterfly (2026-09-17)
+Under the user's continuing batch authorization, add butterfly8 stages×10 original-referenced expressions. Preserve prior1040 expression assets/routes/SVGs and104 placements including81 selected corrections. Preserve green caterpillar segments, twig/leaf, chrysalis and blue wing patterns. Stage06 changes only the emerged butterfly face on the left; retain right-side chrysalis artwork. Observe original-coordinate face anchors. Shared face-relative marks and state semantics; same Draft PR278 and owner-private Site. Normal art248, gameplay, romance and save unchanged. No main merge.
