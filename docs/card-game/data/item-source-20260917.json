@@ -1,0 +1,358 @@
+{
+  "schema": 1,
+  "checked_on": "2026-09-17",
+  "main_commit": "4ed128d31405267e4ee032fe36fbb589b4bc634b",
+  "design_base_commit": "204f2b7453a9734be6a7a9708c89b4a4c6c5b16b",
+  "source_blobs": {
+    "script.js": "d1e19ff14cfd9f3e8923d59a58e172ce60a29bb6",
+    "item-system.js": "b31254d37d2eb8a596fca890f412e4866082aef1",
+    "item-memories.js": "29d825f6b291f4fd005a6ec3319336f68f185239",
+    "NAOTOCCHI_MASTER_SPEC.md": "397c1f57c3625dc569a87920ec8bbb25d498b2d8",
+    "docs/superpowers/specs/2026-09-16-items-v2-final-migration-table.md": "2c40472988e7dd22898db326951e978cbdcf21b2",
+    "docs/superpowers/specs/2026-09-17-naoto-lantern-ring-passives.md": "4b4e06f1a9100004c62fb48f012b383a65abaf5d",
+    "docs/superpowers/specs/2026-09-17-naoto-crown-achievement-bias.md": "19f4db2eb57326ab3764b14eca0809822932f500"
+  },
+  "catalog": {
+    "poop1": {
+      "label": "トイレットペーパー",
+      "price": 1000,
+      "kind": "equipment",
+      "desc": "うんちが3個たまると、自動できれいにする。",
+      "guard": "自動掃除では成長・掃除回数・掃除実績を加算しない。クールダウンは設けない。"
+    },
+    "sleepboost1": {
+      "label": "ふかふかまくら",
+      "price": 3000,
+      "kind": "equipment",
+      "desc": "ねると、すぐに元気が満タンになる。",
+      "guard": "睡眠後の時間限定バフは付けない。通常の睡眠状態・睡眠回数・十分に寝た時の成長判定は維持する。"
+    },
+    "bowtie": {
+      "label": "おべんとうばこ",
+      "price": 3000,
+      "kind": "equipment",
+      "desc": "おなかがへると、自動で満タンにする。",
+      "guard": "おなか25以下で100。手動の食事回数・実績等を増やさない。"
+    },
+    "ribbon": {
+      "label": "おもちゃばこ",
+      "price": 3000,
+      "kind": "equipment",
+      "desc": "ごきげんが下がると、自動で満タンにする。",
+      "guard": "ごきげん25以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。"
+    },
+    "scarf": {
+      "label": "きゅうきゅうばこ",
+      "price": 3000,
+      "kind": "equipment",
+      "desc": "病気になると、自動で治してくれる。",
+      "guard": "病気の予防ではなく発病後の自動治療。手動治療回数・実績等を増やさない。"
+    },
+    "travel1": {
+      "label": "リュックサック",
+      "price": 3000,
+      "kind": "equipment",
+      "desc": "たびで、おなかと元気が減らなくなる。",
+      "guard": "連続旅行の疲れ判定・そだち70の旅先条件・訪問記録・ごきげん変化は維持。"
+    },
+    "partner1": {
+      "label": "らぶれたー",
+      "price": 5000,
+      "kind": "equipment",
+      "desc": "こいびとの仲良し度が下がると、自動で満タンにする。",
+      "guard": "通常時の自然減は軽くしない。危険域に入った時だけ発動し、交際成立・仲直り・結婚は自動化しない。手紙の思い出表示は残す。"
+    },
+    "bond1": {
+      "label": "おともだちバッジ",
+      "price": 5000,
+      "kind": "equipment",
+      "desc": "なかまの仲良し度が下がると、自動で満タンにする。",
+      "guard": "通常時の自然減は軽くしない。危険域に入った時だけ発動し、じゃれる回数・加入・シール・実績は増やさない。"
+    },
+    "gamepass1": {
+      "label": "ゲームパス",
+      "price": 8000,
+      "kind": "equipment",
+      "desc": "ミニゲームを遊ばず、通常成功にできる。",
+      "guard": "実プレイ条件・点数条件・勧誘・日次・記録には数えず、通常成功固定。使用後5秒だけ再使用待ち。"
+    },
+    "star": {
+      "label": "スターバッジ",
+      "price": 10000,
+      "kind": "equipment",
+      "desc": "通常ミニゲームでもらえるコインが3倍になる。",
+      "guard": "通常ミニゲーム本体のコインだけ3倍。通常成功30→90、大成功60→180、失敗0。Quick・ゲームパス・ラッキーコイン・うそつきしょうぶ・日次等には掛けない。"
+    },
+    "c_coin2": {
+      "label": "ラッキーコイン",
+      "price": 300,
+      "kind": "consumable",
+      "desc": "ルーレットでコインがもらえる。",
+      "guard": "使用時に1個消費して即時抽選・即時支給。装備やゲーム報酬とは独立。日次達成時の1個加算は継続。"
+    },
+    "c_life": {
+      "label": "いのちのくすり",
+      "price": 300,
+      "kind": "consumable",
+      "desc": "いのちを満タンにする。",
+      "guard": "効果が成立するときだけ1個消費する。"
+    },
+    "c_time_back": {
+      "label": "ときのチケット・まえ",
+      "price": 300,
+      "kind": "consumable",
+      "desc": "ひとつ前の姿に5分だけ変わる。",
+      "guard": "実種族と実年齢から合法な前段階を選ぶ。"
+    },
+    "c_time_forward": {
+      "label": "ときのチケット・あと",
+      "price": 300,
+      "kind": "consumable",
+      "desc": "ひとつ後の姿に5分だけ変わる。",
+      "guard": "実種族と実年齢から合法な次段階を選ぶ。"
+    },
+    "c_life_charm": {
+      "label": "いのちのおまもり",
+      "price": 1000,
+      "kind": "consumable",
+      "desc": "死んでしまうとき、1回だけ助かる。",
+      "guard": "自動発動が成立したときだけ1個消費する。"
+    },
+    "c_friend": {
+      "label": "おともだちチケット",
+      "price": 3000,
+      "kind": "consumable",
+      "desc": "好きな未加入のなかまを呼べる。",
+      "guard": "現在未加入の合法な候補だけを表示する。"
+    },
+    "c_match": {
+      "label": "おみあいチケット",
+      "price": 3000,
+      "kind": "consumable",
+      "desc": "恋愛できる相手を1人選んで呼べる。",
+      "guard": "現在地での通常の求愛条件を維持する。"
+    },
+    "c_transform": {
+      "label": "へんしんチケット",
+      "price": 6000,
+      "kind": "consumable",
+      "desc": "3つの候補から、好きな姿にへんしんできる。",
+      "guard": "通常変身と同じ合法な候補だけを表示する。"
+    },
+    "c_rare_friend": {
+      "label": "レアなかまチケット",
+      "price": 8000,
+      "kind": "consumable",
+      "desc": "好きな未加入のレアなかまを呼べる。",
+      "guard": "通常加入条件を維持する。"
+    },
+    "c_egg_normal": {
+      "label": "ふしぎなたまご",
+      "price": 8000,
+      "kind": "consumable",
+      "desc": "次の人生が、まだ育てていない通常種族になる。",
+      "guard": "予約は1件だけ保持し、孵化成功時に消費する。"
+    },
+    "c_egg_rare": {
+      "label": "レアなたまご",
+      "price": 10000,
+      "kind": "consumable",
+      "desc": "次の人生が、まだ育てていないレア種族になる。",
+      "guard": "れんくんを除く未経験レア種族から予約する。"
+    },
+    "c_dex": {
+      "label": "ずかんチケット",
+      "price": 10000,
+      "kind": "consumable",
+      "desc": "好きな姿を選んで、5分だけへんしんできる。",
+      "guard": "未発見を含む通常種族と8種のレア種族の姿から選び、実種族の判定は変えない。"
+    },
+    "naoto_charm": {
+      "label": "なおとのおまもり",
+      "price": null,
+      "kind": "goal",
+      "desc": "一生を終えた経験が、次の70歳からをそっと守る。",
+      "guard": "全ダメージ28%軽減や病気無効と誤記しない。通常のお世話は必要。"
+    },
+    "naoto_lantern": {
+      "label": "なおとのランタン",
+      "price": null,
+      "kind": "goal",
+      "desc": "そだちの増え方が、少し大きくなる。",
+      "guard": "未解放の場所・未達条件のレアキャラを直接出さない。コイン報酬は追加しない。"
+    },
+    "naoto_ring": {
+      "label": "なおとのリング",
+      "price": null,
+      "kind": "goal",
+      "desc": "まだ出会っていない候補が、少し出やすくなる。",
+      "guard": "不死・病気無効・関係固定には戻さない。交際相手がいない場合も所有と鑑賞はできる。"
+    },
+    "naoto_crown": {
+      "label": "なおとのかんむり",
+      "price": null,
+      "kind": "goal",
+      "desc": "まだ達成していない実績につながる遊びが、少し出やすくなる。",
+      "guard": "4ステータス固定・無制限のコイン生成は付けない。新コレクションを既存PERFECT条件へ追加しない。"
+    },
+    "new_themed_pack": {
+      "label": "テーマシールパック",
+      "price": 60,
+      "kind": "consumable",
+      "desc": "「けしき／なかま／あいてむ」など選んだ分類から3枚。重複救済は通常パックと同じ。",
+      "guard": "れんくんの隠し条件は共通。シールから本編加入・成長・図鑑発見は起こさない。"
+    }
+  },
+  "core_ids": [
+    "poop1",
+    "sleepboost1",
+    "bowtie",
+    "ribbon",
+    "scarf",
+    "travel1",
+    "partner1",
+    "bond1",
+    "gamepass1",
+    "star",
+    "c_coin2",
+    "c_life",
+    "c_time_back",
+    "c_time_forward",
+    "c_life_charm",
+    "c_friend",
+    "c_match",
+    "c_transform",
+    "c_rare_friend",
+    "c_egg_normal",
+    "c_egg_rare",
+    "c_dex",
+    "naoto_charm",
+    "naoto_lantern",
+    "naoto_ring",
+    "naoto_crown"
+  ],
+  "legacy_names": {
+    "flower": "おはな",
+    "ribbon": "リボン",
+    "bowtie": "ちょうネクタイ",
+    "poop1": "トイレットペーパー",
+    "scarf": "マフラー",
+    "glasses": "サングラス",
+    "energy1": "げんきバンド",
+    "hat": "シルクハット",
+    "travel1": "リュックサック",
+    "sleepboost1": "ふかふかまくら",
+    "star": "スターバッジ",
+    "bond1": "おともだちバッジ",
+    "partner1": "らぶれたー",
+    "crown": "かんむり",
+    "itemluck1": "よつばのクローバー",
+    "naoto_charm": "なおとのおまもり",
+    "naoto_lantern": "なおとのランタン",
+    "naoto_ring": "なおとのリング",
+    "naoto_crown": "なおとのかんむり",
+    "c_coin2": "ラッキーコイン",
+    "c_safety": "スコアほけん",
+    "c_mgsmall": "やる気のおまもり",
+    "c_mgbig": "大成功のおまもり",
+    "c_sickshield": "びょうきよけのおふだ",
+    "c_growth": "せいちょうドリンク",
+    "c_courtsmall": "こいのおまもり",
+    "c_courtbig": "こいの大おまもり",
+    "c_breakhalf": "なかなおりのおまもり",
+    "c_breakfull": "きずなのおまもり",
+    "c_travel": "たびのおまもり",
+    "fun_candy": "キャンディ",
+    "fun_bubbles": "しゃぼんだま",
+    "fun_balloon": "ふうせん",
+    "fun_fireworks": "はなび",
+    "fun_camera": "カメラ",
+    "fun_musicbox": "オルゴール",
+    "fun_surprise": "びっくりばこ",
+    "reward": "ごほうび"
+  },
+  "registered_current_ids": [
+    "ribbon",
+    "bowtie",
+    "poop1",
+    "scarf",
+    "travel1",
+    "sleepboost1",
+    "star",
+    "bond1",
+    "partner1",
+    "naoto_charm",
+    "naoto_lantern",
+    "naoto_ring",
+    "naoto_crown",
+    "c_coin2"
+  ],
+  "retired_source_ids": [
+    "flower",
+    "glasses",
+    "energy1",
+    "hat",
+    "crown",
+    "itemluck1",
+    "c_safety",
+    "c_mgsmall",
+    "c_mgbig",
+    "c_sickshield",
+    "c_growth",
+    "c_courtsmall",
+    "c_courtbig",
+    "c_breakhalf",
+    "c_breakfull",
+    "c_travel",
+    "fun_candy",
+    "fun_bubbles",
+    "fun_balloon",
+    "fun_fireworks",
+    "fun_camera",
+    "fun_musicbox",
+    "fun_surprise",
+    "reward"
+  ],
+  "unregistered_core_ids": [
+    "gamepass1",
+    "c_life",
+    "c_time_back",
+    "c_time_forward",
+    "c_life_charm",
+    "c_friend",
+    "c_match",
+    "c_transform",
+    "c_rare_friend",
+    "c_egg_normal",
+    "c_egg_rare",
+    "c_dex"
+  ],
+  "unregistered_collections": [
+    {
+      "id": "sticker_pack",
+      "label": "シールパック",
+      "price": 30,
+      "source": "script.js / STICKER_PACK_PRICE・openStickerPack"
+    },
+    {
+      "id": "new_themed_pack",
+      "label": "テーマシールパック",
+      "price": 60,
+      "source": "item-system.js / CATALOG; script.js / openThemedStickerPack"
+    }
+  ],
+  "followup_main_check": {
+    "commit": "5d39eea915d09be3900d92fa879a9e9f1ecf6091",
+    "pr": 285,
+    "script_blob": "56556322fdb4246ef2bf1614d5a8a40bd5e9a75b",
+    "unchanged_source_blobs": [
+      "item-system.js",
+      "item-memories.js",
+      "NAOTOCCHI_MASTER_SPEC.md",
+      "docs/superpowers/specs/2026-09-16-items-v2-final-migration-table.md",
+      "docs/superpowers/specs/2026-09-17-naoto-lantern-ring-passives.md",
+      "docs/superpowers/specs/2026-09-17-naoto-crown-achievement-bias.md"
+    ],
+    "script_change_scope": "MINIGAME_INFOからminigameInfo直前までのゲーム説明・操作ヒントのみ。当該区間外のテキストが一致。"
+  }
+}

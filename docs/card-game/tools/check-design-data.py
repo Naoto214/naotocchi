@@ -9,6 +9,7 @@ from decimal import Decimal, ROUND_HALF_UP
 import json
 from pathlib import Path
 import re
+import runpy
 import subprocess
 import sys
 
@@ -60,6 +61,8 @@ for prefix, number, count in (("C", 35, 26), ("P", 36, 18), ("W", 40, 13)):
     ids = re.findall(rf"^### {prefix}-([\w-]+)", doc(number), re.M)
     check(len(ids) == len(set(ids)) == count and set(ids) == {s["id"] for s in catalogs[prefix]}, f"{prefix} source/role mismatch")
 
+# Historical registered 38: the unmerged branch's source baseline.
+# Current main items are checked separately against the pinned 76 snapshot.
 script = (ROOT / "script.js").read_text()
 item_ids = []
 item_groups = {}
@@ -328,6 +331,15 @@ for rec in partner_records.values():
 all_character_duplicates = [ids for ids in all_character_texts.values() if len(ids) > 1]
 check(not all_character_duplicates, f"Identical character ability bodies: {all_character_duplicates}")
 
+item_audit = runpy.run_path(str(DOCS / "tools/check-item-source.py"))["audit"](include_catalog=True)
+errors.extend(item_audit["errors"])
+item_records = item_audit.pop("items_current_source")
+all_texts = collections.defaultdict(list, {k: list(v) for k, v in all_character_texts.items()})
+for rec in item_records:
+    all_texts[rec["text"]].append(rec["id"])
+all_draft_duplicates = [ids for ids in all_texts.values() if len(ids) > 1]
+check(not all_draft_duplicates, f"Identical character/item ability bodies: {all_draft_duplicates}")
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -351,11 +363,14 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "partner_body_entries": len(partner_records),
                   "partner_rarity_counts": dict(collections.Counter(r["rarity"] for r in partner_records.values())),
                   "partner_vanilla_entries": partner_vanilla,
-                  "all_character_identical_ability_groups": all_character_duplicates, "errors": errors,
+                  "all_character_identical_ability_groups": all_character_duplicates,
+                  "current_item_source_followup": item_audit,
+                  "character_item_identical_ability_groups": all_draft_duplicates, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
     result["partners"] = sorted(partner_records.values(), key=lambda r: r["id"])
+    result["items_current_source"] = sorted(item_records, key=lambda r: r["id"])
 print(json.dumps(result, ensure_ascii=False, indent=2))
 sys.exit(bool(errors))
