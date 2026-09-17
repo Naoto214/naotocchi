@@ -845,6 +845,103 @@ if proxy_100_doc.exists() and proxy_98_schema_path.exists():
     check("予約は旧個体IDから新個体IDへ移し替えない" in proxy_100_doc_text and
           "カード効果の適法性を判定する対戦エンジンではない" in proxy_100_doc_text,
           "100 reservation and validator boundaries")
+
+# 101 materializes the six P97 priority clusters as three deterministic
+# unplayed profiles each.  These are inputs, never completed match results.
+proxy_101_doc = DOCS / "101-priority-proxy-fixture-suite.md"
+proxy_101_manifest_path = DOCS / "data/proxy-fixture-plan-101-20260917.json"
+proxy_101_output = DOCS / "data/proxy-fixtures-101"
+proxy_101_tool = DOCS / "tools/proxy_fixture_builder.py"
+proxy_101_test = DOCS / "tools/test_proxy_fixture_builder.py"
+for path, label in (
+    (proxy_101_doc, "101 proxy fixture document"),
+    (proxy_101_manifest_path, "101 proxy fixture manifest"),
+    (proxy_101_output, "101 proxy fixture output"),
+    (proxy_101_tool, "101 proxy fixture builder"),
+    (proxy_101_test, "101 proxy fixture tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_101_doc, proxy_101_manifest_path, proxy_101_output,
+        proxy_101_tool, proxy_101_test)):
+    proxy_101_manifest = json.loads(proxy_101_manifest_path.read_text())
+    proxy_101_clusters = proxy_101_manifest.get("clusters", [])
+    check([row.get("id") for row in proxy_101_clusters] ==
+          [f"P97-{index:02d}" for index in range(1, 7)],
+          "101 priority cluster IDs")
+    check(all([variant.get("profile") for variant in row.get("variants", [])] ==
+              ["single", "same-name-two", "board-combination"]
+              for row in proxy_101_clusters),
+          "101 three profiles per priority cluster")
+    proxy_101_expected = {
+        f"fixture-101-{cluster['id'].lower()}-{variant['profile']}": variant
+        for cluster in proxy_101_clusters
+        for variant in cluster.get("variants", [])
+    }
+    proxy_101_paths = sorted(proxy_101_output.glob("*.json"))
+    proxy_101_fixtures = [json.loads(path.read_text()) for path in proxy_101_paths]
+    check(len(proxy_101_fixtures) == len(proxy_101_expected) == 18,
+          "101 generated fixture count")
+    check({row.get("match_id") for row in proxy_101_fixtures} ==
+          set(proxy_101_expected), "101 generated fixture IDs")
+    proxy_101_unregistered = {
+        row["id"] for row in proxy_98_layers.get("current_unregistered_source", [])
+    }
+    proxy_101_excluded = {
+        row["id"]
+        for key in ("retired_legacy_test", "retired_archive", "hold")
+        for row in proxy_98_layers.get(key, [])
+    }
+    proxy_101_tagged = []
+    for fixture in proxy_101_fixtures:
+        match_id = fixture.get("match_id")
+        players = fixture.get("input", {}).get("players", [])
+        player_a = next((row for row in players if row.get("player_id") == "A"), {})
+        deck_a = player_a.get("deck_order_top_to_bottom", [])
+        focus = proxy_101_expected.get(match_id, {}).get("focus_sequence", [])
+        check([row.get("card_id") for row in deck_a[:len(focus)]] == focus,
+              f"101 focus sequence: {match_id}")
+        check(len(players) == 2 and all(len(row.get("deck_order_top_to_bottom", [])) == 40
+                                        for row in players),
+              f"101 two complete decks: {match_id}")
+        fixture_card_ids = {
+            card.get("card_id") for player in players
+            for card in player.get("deck_order_top_to_bottom", [])
+        }
+        check(fixture_card_ids <= proxy_98_all_ids,
+              f"101 current catalog IDs: {match_id}")
+        check(not (fixture_card_ids & proxy_101_excluded),
+              f"101 excluded pool IDs: {match_id}")
+        has_unregistered = bool(fixture_card_ids & proxy_101_unregistered)
+        is_tagged = "unregistered-item-separate-stratum" in fixture.get(
+            "test_plan", {}).get("strata", [])
+        check(has_unregistered == is_tagged,
+              f"101 unregistered stratum: {match_id}")
+        if is_tagged:
+            proxy_101_tagged.append(match_id)
+        check(fixture.get("record", {}).get("status") == "fixture" and
+              fixture.get("record", {}).get("events") == [] and
+              fixture.get("record", {}).get("result", {}).get("winner") is None,
+              f"101 fixture remains unplayed: {match_id}")
+    check(proxy_101_tagged == ["fixture-101-p97-04-board-combination"],
+          "101 only egg fixture uses unregistered stratum")
+    proxy_101_tool_tree = ast.parse(proxy_101_tool.read_text())
+    proxy_101_test_tree = ast.parse(proxy_101_test.read_text())
+    proxy_101_functions = {
+        node.name for node in proxy_101_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_fixture_suite", "validate_fixture_suite",
+           "validate_materialized_suite", "write_fixture_suite", "main"} <=
+          proxy_101_functions, "101 fixture builder public functions")
+    proxy_101_test_count = sum(
+        node.name.startswith("test_")
+        for node in ast.walk(proxy_101_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_101_test_count == 7, "101 fixture builder test count")
+    check("すべて未実施fixture" in proxy_101_doc.read_text() and
+          "対戦結果・発動率・強度には数えない" in proxy_101_doc.read_text(),
+          "101 unplayed-result boundary")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
