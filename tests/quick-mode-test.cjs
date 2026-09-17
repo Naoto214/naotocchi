@@ -43,8 +43,14 @@ function solve(h, run, cur) {
   if (t.kind === 'follow') { for (let i = 0; i < 400 && !judged(); i++) { const k = g.target(); if (!k) break; g.onPress(k.x, k.y); h.advance(16); } return; }
 }
 
-function begin() {
+function seededRandom(seed) {
+  let value = seed >>> 0;
+  return () => ((value = (1664525 * value + 1013904223) >>> 0) / 4294967296);
+}
+
+function begin(random) {
   const h = harness(), s = h.api.state();
+  if (random) h.api.setRandom(random);
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, transformMeter: 0 });
   h.api.render(); // the play button is enabled by render()
   assert.equal(h.api.startQuickRun(), true, 'quick run starts like a normal game');
@@ -55,7 +61,9 @@ function begin() {
 }
 
 test('quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash', () => {
-  const { h, s, run } = begin();
+  // This assertion requires the first game to be solved. Seed it so a random
+  // dodge collision cannot make the chaining contract fail intermittently.
+  const { h, s, run } = begin(seededRandom(0x12345678));
   const R = h.api.QUICK_RULES;
   const ov = h.get('minigameOverlay');
   assert.equal(ov.querySelector('#qkLives').textContent, '❤️❤️❤️');

@@ -122,11 +122,12 @@ html[data-scenery-atlas="failed"] .scenery-icon {clip-path:none}
 [data-ui-icon="shell"] {--ui-x:65.65656566%;--ui-y:94.24242424%;--ui-size:475.00000000%;--scenery-clip:inset(3.40909091% 1.51515152% 3.40909091% 1.51515152%)}
 [data-ui-icon="hibiscus"] {--ui-x:97.70594369%;--ui-y:96.76746611%;--ui-size:425.08474576%;--scenery-clip:inset(6.77966102% 1.35593220% 6.77966102% 1.35593220%)}
 
-/* Approved normal equipment PNGs retain smooth artwork at fixed icon sizes. */
+/* Dedicated item masters share one optical frame; only the shop drawing grows. */
 .item-picture {display:inline-block;width:1em;height:1em;vertical-align:-.12em;line-height:1;text-align:center;pointer-events:none}
 .item-asset {display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
 .item-picture.asset-failed > .item-asset {display:none}
 .item-picture.asset-failed > .icon-fallback {display:inline}
-.menu-grid .item-picture {width:32px;height:32px;flex-basis:32px}
+.shop-item-emoji .item-picture {width:40px;height:40px;flex-basis:40px}
 #petAccessory .item-picture {width:1em;height:1em;flex:0 0 1em}
 .item-emoji .item-picture {width:1em;height:1em;flex-basis:1em}
+#stickerPackBtn .item-picture {width:1.35em;height:1.35em;vertical-align:-.3em}

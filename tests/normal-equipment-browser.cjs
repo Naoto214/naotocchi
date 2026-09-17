@@ -3,7 +3,6 @@ const fs=require('node:fs');
 const path=require('node:path');
 const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
 const retired=['flower','energy1','hat','crown','glasses'];
-const pictures={bowtie:'bento-box.png',ribbon:'toy-box.png',scarf:'first-aid-box.png',gamepass1:'game-pass.png'};
 const readSave=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('naotocchi-save-v1')));
 const openShop=async page=>{await page.locator('#menuBtn').click();await page.locator('#itemBtn').click();};
 const home=page=>page.locator('.device.ui-home-active').waitFor();
@@ -42,12 +41,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
         const box=await cell.boundingBox();
         assert.ok(box && box.x>=0 && box.x+box.width<=width+1 && box.y>=0 && box.y+box.height<=760+1,`${label} offscreen ${id}`);
         assert.equal(await cell.evaluate(e=>e.scrollWidth>e.clientWidth+1),false,`${id} text overflows`);
-        if(pictures[id]){
-          const img=cell.locator('.item-picture img.item-asset');
-          assert.equal(await img.getAttribute('src'),`assets/items/normal-equipment/${pictures[id]}`);
-          await img.evaluate(e=>e.decode());
-          assert.ok(await img.evaluate(e=>e.naturalWidth>0 && e.naturalHeight>0));
-        }
+        const img=cell.locator('.item-picture img.item-asset');
+        assert.equal(await img.getAttribute('src'),`assets/items/unified/${id}.png`);
+        await img.evaluate(e=>e.decode());
+        assert.ok(await img.evaluate(e=>e.naturalWidth===128 && e.naturalHeight===128));
       }
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
       await page.screenshot({path:path.join(output,label+'-shop.png')});
