@@ -7,19 +7,15 @@ test('the final ten shop items use their approved illustrations and labels in or
   const h=harness();h.api.openExclusiveMenu('item');h.api.render();
   const html=h.get('shopItemGrid').innerHTML;
   const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
-  const approvedPictures={bowtie:'bento-box.png',ribbon:'toy-box.png',scarf:'first-aid-box.png',gamepass1:'game-pass.png'};
   const expectedLabels={poop1:'トイレットペーパー',sleepboost1:'ふかふかまくら',bowtie:'おべんとうばこ',
     ribbon:'おもちゃばこ',scarf:'きゅうきゅうばこ',travel1:'リュックサック',partner1:'らぶれたー',
     bond1:'おともだちバッジ',gamepass1:'ゲームパス',star:'スターバッジ'};
-  const expectedIcons={poop1:'paper',travel1:'backpack',sleepboost1:'sleep',star:'star_badge',bond1:'paw_badge',partner1:'letter'};
   const buttons=[...html.matchAll(/<button\b[^>]*data-id="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
   assert.deepEqual(Array.from(h.api.SHOP_ITEMS,item=>item.id),ids);
   assert.deepEqual(buttons.map(button=>button[1]),ids);
   for(const [,id,body] of buttons){
-    if(approvedPictures[id]){
-      assert.match(body,/class="item-picture"/,id);
-      assert.ok(body.includes(`src="assets/items/normal-equipment/${approvedPictures[id]}"`),id);
-    }else assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expectedIcons[id]}"`),id);
+    assert.match(body,/class="item-picture"/,id);
+    assert.ok(body.includes(`src="assets/items/unified/${id}.png"`),id);
     assert.ok(body.includes(`<span class="shop-item-label">${expectedLabels[id]}</span>`),id);
   }
 });
@@ -37,7 +33,7 @@ test('equipment uses the matching illustration without modifying the saved item 
   h.api.state().lifetime.ownedShopItems=['ribbon'];h.api.render();
   const node=h.get('petAccessory');
   assert.match(node.innerHTML,/class="item-picture"/);
-  assert.match(node.innerHTML,/assets\/items\/normal-equipment\/toy-box\.png/);
+  assert.match(node.innerHTML,/assets\/items\/unified\/ribbon\.png/);
   assert.match(node.innerHTML,/aria-label="おもちゃばこ"/);
   const size={width:node.style.width,height:node.style.height};
   h.api.state().poopCount=3;h.api.render();
@@ -236,15 +232,15 @@ test('an equipment PNG failure reveals only its fallback and preserves saved sta
   assert.equal(JSON.stringify(h.api.state()),before);
 });
 
-test('game pass uses its approved PNG when equipped without mapping sunglasses to it',()=>{
+test('game pass uses its dedicated unified PNG when equipped without mapping sunglasses to it',()=>{
   const source=fs.readFileSync('script.js','utf8');
-  const mapping=source.match(/const NORMAL_EQUIPMENT_PICTURES = Object\.freeze\(\{([\s\S]*?)\}\)/);
-  assert.ok(mapping,'normal equipment must have an explicit PNG mapping');
-  assert.match(mapping[1],/gamepass1:\s*'assets\/items\/normal-equipment\/game-pass\.png'/);
-  assert.doesNotMatch(mapping[1],/glasses\s*:/);
+  const mapping=source.match(/const UNIFIED_ITEM_IDS = new Set\(\[([\s\S]*?)\]\)/);
+  assert.ok(mapping,'items must have explicit semantic PNG identities');
+  assert.match(mapping[1],/'gamepass1'/);
+  assert.doesNotMatch(mapping[1],/'glasses'/);
   const h=harness();h.api.state().lifetime.ownedShopItems=['gamepass1'];
   h.api.state().lifetime.equippedItemId='gamepass1';h.api.render();
-  assert.match(h.get('petAccessory').innerHTML,/assets\/items\/normal-equipment\/game-pass\.png/);
+  assert.match(h.get('petAccessory').innerHTML,/assets\/items\/unified\/gamepass1\.png/);
   assert.match(h.get('petAccessory').innerHTML,/aria-label="ゲームパス"/);
   assert.equal(h.api.state().lifetime.equippedItemId,'gamepass1');
 });
@@ -255,7 +251,7 @@ test('game pass is a new shop purchase and does not inherit sunglasses ownership
   h.api.openExclusiveMenu('item');h.api.render();
   const button=h.get('shopItemGrid').innerHTML.match(/<button\b[^>]*data-id="gamepass1"[^>]*>[\s\S]*?<\/button>/)?.[0];
   assert.ok(button,'gamepass1 must be for sale');
-  assert.match(button,/game-pass\.png/);
+  assert.match(button,/assets\/items\/unified\/gamepass1\.png/);
   assert.match(button,/<span class="shop-item-status">💰8,?000<\/span>/);
   assert.equal(h.api.state().lifetime.ownedShopItems.includes('gamepass1'),false);
 });

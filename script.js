@@ -3351,16 +3351,14 @@
     'cherry_blossom','sunflower','maple_leaf','green_leaf','tree','pine','palm','cactus',
     'snow_mountain','mountain','house','city','wheat','wave','shell','hibiscus',
   ]);
-  const NORMAL_EQUIPMENT_PICTURES = Object.freeze({
-    bowtie: 'assets/items/normal-equipment/bento-box.png',
-    ribbon: 'assets/items/normal-equipment/toy-box.png',
-    scarf: 'assets/items/normal-equipment/first-aid-box.png',
-    gamepass1: 'assets/items/normal-equipment/game-pass.png',
-  });
-  const ITEM_ILLUSTRATIONS = {
-    poop1:'paper',travel1:'backpack',star:'star_badge',bond1:'paw_badge',partner1:'letter',
-    naoto_charm:'charm',naoto_lantern:'lantern',naoto_ring:'ring',naoto_crown:'naoto_crown',
-  };
+  // Item art has its own semantic files so visually similar effects (such as
+  // time directions and egg classes) never collapse into one generic glyph.
+  const UNIFIED_ITEM_IDS = new Set([
+    'poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star',
+    'naoto_charm','naoto_lantern','naoto_ring','naoto_crown','c_coin2','c_life','c_life_charm',
+    'c_time_back','c_time_forward','c_transform','c_dex','c_friend','c_rare_friend','c_match',
+    'c_egg_normal','c_egg_rare','sticker_pack',
+  ]);
   // CSS background failures do not emit element error events. A single hidden
   // image per atlas observes loading; failure only changes presentation state.
   const UI_ATLAS_IMAGES = {};
@@ -3377,9 +3375,9 @@
     if (!scenery && !UI_ILLUSTRATION_KEYS.has(icon)) return '';
     return `<i class="care-icon ui-icon${scenery ? ' scenery-icon' : ''}" data-ui-icon="${icon}" ${label ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"` : 'aria-hidden="true"'}>${iconFallbackHTML(fallback)}</i>`;
   }
-  function equipmentPictureHTML(item, label = '') {
-    const src = NORMAL_EQUIPMENT_PICTURES[item.id];
-    if (!src) return '';
+  function itemPictureHTML(item, label = '') {
+    if (!item || !UNIFIED_ITEM_IDS.has(item.id)) return '';
+    const src = `assets/items/unified/${item.id}.png`;
     const accessible = label
       ? `role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"`
       : 'aria-hidden="true"';
@@ -3387,11 +3385,9 @@
   }
   function itemIconHTML(item, labelled = false) {
     const label = labelled ? item.label : '';
-    const picture = equipmentPictureHTML(item, label);
+    const picture = itemPictureHTML(item, label);
     if (picture) return picture;
-    if (item.id === 'sleepboost1') return careIconHTML('sleep', label, item.emoji);
-    const key = Object.hasOwn(ITEM_ILLUSTRATIONS, item.id) ? ITEM_ILLUSTRATIONS[item.id] : '';
-    return uiIconHTML(key, label, item.emoji) || escapeHtml(item.emoji || '');
+    return escapeHtml(item.emoji || '');
   }
   function environmentIconHTML(kind, id, fallback) {
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
@@ -12557,7 +12553,7 @@
       const status = `${stock}こ／1回に1こ`;
       const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
       return `<div class="shop-item">
-        <span class="shop-item-emoji">${item.emoji}</span>
+        <span class="shop-item-emoji">${itemIconHTML(item)}</span>
         <span class="shop-item-label">${item.label}</span>
         <span class="shop-item-desc">${meta.desc}</span>
         <span class="shop-item-status">${status}${reason ? `／${reason}` : ''}</span>
@@ -14596,7 +14592,7 @@
       const done = store.tasksDone.includes(t.id);
       return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">かけら${t.reward.kakera}</span></div>`;
     }).join(''));
-    el.stickerPackBtn.innerHTML = `🎁 シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
+    el.stickerPackBtn.innerHTML = `${itemIconHTML({id:'sticker_pack',emoji:'🎁'})} シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
     el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE;
     el.stickerKakeraBtn.textContent = `かけらでえらぶ（${store.kakera}個／あと${Math.max(0,STICKER_KAKERA_PACK-store.kakera)}個）`;
     document.getElementById('stickerThemePackBtn').disabled = state.lifetime.money < STICKER_THEME_PRICE;
