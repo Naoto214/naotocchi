@@ -145,6 +145,16 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   const expose = `
     globalThis.lifecycle = {
       getMessage: () => message,
+      crownAchievementWeight: typeof crownAchievementWeight === 'function' ? crownAchievementWeight : () => 1,
+      drawRandomSticker, pickRandomMinigame, refillMinigameQueue,
+      queue: () => minigameQueue.map(i => currentMinigamePool[i].id),
+      rankGameFixtures: games => {
+        currentMinigamePool = games; minigameQueue = games.map((_, i) => i);
+        minigameCrownFactors = ''; refreshCrownMinigameQueue();
+        return minigameQueue.map(i => currentMinigamePool[i].id);
+      },
+      ENV_MOMENTS, syncNaotoRewardItems,
+      drawEnvironmentMoment: typeof drawEnvironmentMoment === 'function' ? drawEnvironmentMoment : pool => Math.random() < .45 ? pool[Math.floor(Math.random() * pool.length)] : null,
       hatchEgg, pickDreamLine, startDuelChallenge, chooseDuelTruth, chooseDuelHonesty, finalizeDuelChallenge, abandonDuelChallenge,
       startDuelGuess, setDuelGuess, confirmDuelGuesses, chooseDuelSuspicion, encodeDuelChallenge, encodeDuelGuess, encodeDuelReveal,
       resolveDuelWithGuessCode, resolveDuelWithRevealCode, settleDuelForSelf,

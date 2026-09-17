@@ -2080,13 +2080,13 @@
     { id: 'transform-1', emoji: '✨', label: 'はじめてのへんしん', desc: 'はじめてへんしんした', tier: 'easy', condition: (l) => l.transforms >= 1 },
     { id: 'death-1', emoji: '👻', label: 'はじめてのおわかれ', desc: 'はじめててんごくにいった', tier: 'easy', condition: (l) => l.deaths >= 1 },
     { id: 'minigame-50', emoji: '🎮', label: 'あそびのみならい', desc: 'ミニゲームを30かいあそんだ', tier: 'easy', condition: (l) => l.minigamesPlayed >= 30 },
-    { id: 'record-rank-s-1', emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
-    { id: 'games-played-25', emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
+    { id: 'record-rank-s-1', crown: { kind: 'game', bestBelow: 90 }, emoji: '🌟', label: 'はじめてのS', desc: 'ゲームきろくではじめてSランクをとった', tier: 'easy', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 1 },
+    { id: 'games-played-25', crown: { kind: 'game', unplayed: true }, emoji: '🗂️', label: 'あそびめぐり', desc: '25しゅるいのミニゲームをあそんだ', tier: 'easy', condition: (l) => countMinigamesPlayed(l) >= 25 },
     { id: 'sick-cured-1', emoji: '💉', label: 'はじめてのかんびょう', desc: 'はじめてびょうきをなおした', tier: 'easy', condition: (l) => l.sicknessCured >= 1 },
     { id: 'age-10', emoji: '🐣', label: 'ひよっこそだち', desc: '10さいになった', tier: 'easy', condition: (l) => l.maxAgeReached >= 10 },
     { id: 'shop-1', emoji: '🎁', label: 'はじめてのおかいもの', desc: 'あいてむを初めて買った', tier: 'easy', condition: (l) => l.ownedShopItems.length >= 1 },
     { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
-    { id: 'sticker-10', emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
+    { id: 'sticker-10', crown: { kind: 'sticker', unowned: true }, emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
     { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
 
@@ -2113,20 +2113,20 @@
     // --- ふつう ---
     { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => (l.weatherSeen || []).length >= 4 },
     { id: 'night-play-10', emoji: '🦉', label: 'よふかし', desc: '夜にミニゲームで10回あそんだ', tier: 'normal', condition: (l) => ((l.envPlays || {}).night || 0) >= 10 },
-    { id: 'env-moments-10', emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
+    { id: 'env-moments-10', crown: { kind: 'moment' }, emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
     { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '3かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 3 },
     { id: 'minigame-300', emoji: '🕹️', label: 'あそびどっぷり', desc: 'ミニゲームを150かいあそんだ', tier: 'normal', condition: (l) => l.minigamesPlayed >= 150 },
     { id: 'quick-10', emoji: '⚡', label: 'クイックのたつじん', desc: 'クイックモードで1ランに10こクリアした', tier: 'normal', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 10 },
     { id: 'quick-perfect', emoji: '👑', label: 'クイックパーフェクト', desc: 'クイックモードで20こ全部クリアした', tier: 'hard1', condition: (l) => ((l.quick || {}).bestCleared || 0) >= 20 },
-    { id: 'games-played-60', emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
-    { id: 'record-rank-a-20', emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
+    { id: 'games-played-60', crown: { kind: 'game', unplayed: true }, emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
+    { id: 'record-rank-a-20', crown: { kind: 'game', bestBelow: 75 }, emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
     { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => s.discoveredStages.length >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
     { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
-    { id: 'sticker-tasks-5', emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
+    { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
     { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
     { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
 
@@ -2150,7 +2150,7 @@
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
     { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
     { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
-    { id: 'sticker-100', emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
+    { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちが合計で100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
@@ -2164,8 +2164,8 @@
     // --- かなり むずかしい ---
     { id: 'clear-5', emoji: '🏆', label: 'みっつのいっしょう', desc: '3かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 3 },
     { id: 'minigame-1000', emoji: '🎰', label: '500かいあそんだ', desc: 'ミニゲームを500かいあそんだ', tier: 'hard3', condition: (l) => l.minigamesPlayed >= 500 },
-    { id: 'games-complete-100', emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
-    { id: 'record-rank-s-15', emoji: '👑', label: 'Sランクマスター', desc: '10しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 10 },
+    { id: 'games-complete-100', crown: { kind: 'game', unplayed: true }, emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
+    { id: 'record-rank-s-15', crown: { kind: 'game', bestBelow: 90 }, emoji: '👑', label: 'Sランクマスター', desc: '10しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 10 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', tier: 'hard3', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '8種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 8 },
     { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', tier: 'hard3', condition: (l) => hasAllCurrentCompanions(l) },
@@ -2433,6 +2433,30 @@
 
   function hasNaotoItem(id) {
     return state.lifetime.ownedNaotoItems.includes(id);
+  }
+
+  // 支援条件は実績のそばに置く。達成済みの履歴は、次の人生でも優先する。
+  // 図鑑完成前の旧かんむりは所有を残すが、この新効果はまだ発動させない。
+  function crownAchievementWeight(kind, candidate) {
+    const L = state.lifetime || {};
+    if (!L.ownedNaotoItems?.includes('naoto_crown')
+      || !(L.dexCleared || (state.discoveredStages || []).length >= ALL_LINES.length * STAGES_PER_LINE)) return 1;
+    const unlocked = state.achievementsUnlocked || [];
+    const needed = ACHIEVEMENTS.some((achievement) => {
+      const target = achievement.crown;
+      if (!target || target.kind !== kind || unlocked.includes(achievement.id)
+        || achievement.condition(L, state)) return false;
+      if (kind === 'game') {
+        if (target.unplayed) return !minigamePlayCount(candidate);
+        return (L.minigameRecords?.[candidate.id]?.best || 0) < target.bestBelow;
+      }
+      if (kind === 'sticker') return target.unowned
+        ? !ownedStickerCount(candidate.id) : crownNeedsTaskSticker(candidate);
+      if (kind === 'moment') return ['hunger', 'happiness', 'energy', 'health']
+        .every(key => candidate[key] === undefined || (Number.isFinite(candidate[key]) && candidate[key] >= 0));
+      return false; // 出会い・危険・設定・Quickなど、他の抽選には適用しない。
+    });
+    return needed ? 2 : 1; // 複数の未達条件に合っても一度だけ。
   }
 
   // 既存セーブの本物の記録を正として5ゴールへ復元する。
@@ -13348,6 +13372,22 @@
       return true;
     })];
   }
+  function drawEnvironmentMoment(pool) {
+    if (!pool.length) return null;
+    const factors = pool.map(moment => crownAchievementWeight('moment', moment));
+    // 効果がない場合は、従来の発生判定→内容抽選の順番もそのまま保つ。
+    if (factors.every(factor => factor === 1)) {
+      return Math.random() < 0.45 ? pool[Math.floor(Math.random() * pool.length)] : null;
+    }
+    const weights = factors.map(factor => 45 / pool.length * factor);
+    let roll = Math.random() * (55 + weights.reduce((sum, weight) => sum + weight, 0));
+    for (let i = 0; i < pool.length; i++) {
+      roll -= weights[i];
+      if (roll < 0) return pool[i];
+    }
+    return null; // 「発生なし」の基礎重み55も同じ抽選に含める。
+  }
+
   function scheduleEnvironmentMoment() {
     const delay = 150000 + Math.random() * 150000;
     setTimeout(() => {
@@ -13357,11 +13397,11 @@
           && !state.isSleeping && !state.isSick && !state.dying
           && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
           && !message && !pendingCompanionId;
-        if (idleOk && Math.random() < 0.45) {
+        if (idleOk) {
           const env = currentEnvironment();
           const pool = environmentMomentPool(env);
-          if (pool.length) {
-            const m = pool[Math.floor(Math.random() * pool.length)];
+          const m = drawEnvironmentMoment(pool);
+          if (m) {
             if (m.happiness) state.happiness = clamp(state.happiness + m.happiness, 0, 100);
             if (m.energy) state.energy = clamp(state.energy + m.energy, 0, 100);
             state.lifetime.envMoments = (state.lifetime.envMoments || 0) + 1;
@@ -14332,6 +14372,17 @@
     const byRarity = { common: [], uncommon: [], rare: [] };
     for (const s of cand) byRarity[s.rarity].push(s);
     const rarities = Object.keys(STICKER_RARITY).filter((r) => byRarity[r].length);
+    const factors = cand.map(sticker => crownAchievementWeight('sticker', sticker));
+    if (factors.some(factor => factor !== 1)) {
+      const weights = cand.map((sticker, i) => STICKER_RARITY[sticker.rarity].weight
+        / byRarity[sticker.rarity].length * factors[i]);
+      let roll = Math.random() * weights.reduce((sum, weight) => sum + weight, 0);
+      for (let i = 0; i < cand.length; i++) {
+        roll -= weights[i];
+        if (roll < 0) return cand[i];
+      }
+      return cand[cand.length - 1];
+    }
     const total = rarities.reduce((a, r) => a + STICKER_RARITY[r].weight, 0);
     let roll = Math.random() * total;
     let picked = rarities[rarities.length - 1];
@@ -14457,17 +14508,31 @@
   // ---- おだい ----
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'home-form-3', page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
-    { id: 'home-item-2', page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
-    { id: 'travel-scenery-3', page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
-    { id: 'travel-8', page: 'travel', label: 'たびの ページに 8まい はる', reward: { kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
-    { id: 'friends-companion-3', page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
-    { id: 'friends-partner-1', page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
-    { id: 'memory-elder-1', page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
-    { id: 'memory-rare-1', page: 'memory', label: 'きねんに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
-    { id: 'any-12', page: null, label: 'どれかの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
-    { id: 'all-pages', page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
+    { id: 'home-form-3', supply: { count: 3, matches: s => s.kind === 'form' }, page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
+    { id: 'home-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
+    { id: 'travel-scenery-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
+    { id: 'travel-8', supply: { count: 8, matches: () => true }, page: 'travel', label: 'たびの ページに 8まい はる', reward: { kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
+    { id: 'friends-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
+    { id: 'friends-partner-1', supply: { count: 1, matches: s => s.kind === 'partner' }, page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
+    { id: 'memory-elder-1', supply: { count: 1, matches: s => /^form:[^:]+:7$/.test(s.id) }, page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
+    { id: 'memory-rare-1', supply: { count: 1, matches: s => s.rarity === 'rare' }, page: 'memory', label: 'きねんに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
+    { id: 'any-12', supply: { count: 12, matches: () => true }, page: null, label: 'どれかの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
+    { id: 'all-pages', supply: { count: 4, matches: () => true }, page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
   ];
+  function crownNeedsTaskSticker(candidate) {
+    const store = stickerStore(), pages = stickerPages();
+    return STICKER_TASKS.some(task => {
+      if (store.tasksDone.includes(task.id) || task.check(pages) || !task.supply.matches(candidate)) return false;
+      const matches = task.supply.matches;
+      const owned = Object.entries(store.owned).reduce((sum, [id, count]) => {
+        const sticker = stickerById(id);
+        return sum + (sticker && matches(sticker) ? Math.max(0, count) : 0);
+      }, 0);
+      // 別ページのシールも移動できる。既に必要枚数を所有していれば、あとは手動で貼るだけ。
+      return owned < task.supply.count;
+    });
+  }
+
   // たっせいした おだいを かえす(ほうびは ここで わたす。1かいだけ)
   function checkStickerTasks() {
     const store = stickerStore();
@@ -14755,6 +14820,27 @@
   // 出やすさは ぜんゲーム 同確率。いま いる地域 / いまの きせつの ゲームだけ
   // 袋に 2まい 入れて、滞在中は 約2ばい 出やすくする(ほかの 地域でも
   // ふつうの 確率で 出る。「出ない ゲーム」は つくらない)
+  function minigameDrawWeight(game) {
+    const played = minigamePlayCount(game);
+    let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
+    if (isRegionExclusiveGame(game)) weight *= 1.45;
+    if (isSeasonExclusiveGame(game)) weight *= 1.25;
+    return weight * environmentGameWeight(game);
+  }
+  let minigameCrownFactors = '';
+  function refreshCrownMinigameQueue() {
+    const factors = currentMinigamePool.map(game => crownAchievementWeight('game', game));
+    const signature = factors.join('');
+    if (signature === minigameCrownFactors) return;
+    const wasBiased = minigameCrownFactors.includes('2');
+    minigameCrownFactors = signature;
+    if (!wasBiased && !factors.includes(2)) return;
+    // 未消化の券だけを並べ直す。達成後も古い優遇順を残さず、券の追加・再消費もしない。
+    minigameQueue = minigameQueue.map(i => ({ i,
+      key: Math.pow(Math.random(), 1 / (minigameDrawWeight(currentMinigamePool[i]) * factors[i]))
+    })).sort((a, b) => a.key - b.key).map(entry => entry.i);
+  }
+
   function refillMinigameQueue() {
     currentMinigamePool = buildMinigamePool();
     minigameQueueRegionId = state.regionId;
@@ -14764,12 +14850,7 @@
     // ものほど キューの うしろ(=つぎに 出てきやすい ところ)に よりやすい
     // よう、じゅうみつきの らんすうキーで ならびかえる(Efraimidis-Spirakis ほう)
     const weighted = currentMinigamePool.map((game, i) => {
-      const played = minigamePlayCount(game);
-      let weight = played === 0 ? 2.2 : 1 / (1 + played * 0.12);
-      if (isRegionExclusiveGame(game)) weight *= 1.45;
-      if (isSeasonExclusiveGame(game)) weight *= 1.25;
-      // てんき・じかんたい・きせつ・地域に あう ジャンルを 出やすく する
-      weight *= environmentGameWeight(game);
+      const weight = minigameDrawWeight(game);
       return { i, key: Math.pow(Math.random(), 1 / weight) };
     });
     weighted.sort((a, b) => a.key - b.key);
@@ -14787,6 +14868,8 @@
       const insertAt = Math.floor(Math.random() * (minigameQueue.length + 1));
       minigameQueue.splice(insertAt, 0, ticket);
     }
+    minigameCrownFactors = '';
+    refreshCrownMinigameQueue();
     // すぐ さっき あそんだのと おなじ ものに ならないよう ちぇっく。
     // プールの なかみは 地域が かわるたびに かわりうるので、いんでっくす
     // ではなく ゲームじたい(れいがい なく おなじ オブジェクト)で くらべる
@@ -14842,6 +14925,7 @@
     if (minigameQueue.length === 0 || minigameQueueRegionId !== state.regionId || minigameQueueSeason !== effectiveSeasonNow) {
       refillMinigameQueue();
     }
+    refreshCrownMinigameQueue();
     if (regionJustChanged) regionArrivalBoostLeft = REGION_ARRIVAL_BOOST_PLAYS;
     if (seasonJustChanged) seasonArrivalBoostLeft = SEASON_ARRIVAL_BOOST_PLAYS;
 
