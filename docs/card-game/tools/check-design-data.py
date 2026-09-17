@@ -931,6 +931,7 @@ if all(path.exists() for path in (
         node.name for node in proxy_101_tool_tree.body if isinstance(node, ast.FunctionDef)
     }
     check({"build_fixture_suite", "validate_fixture_suite",
+           "build_single_seat_mirrors", "validate_seat_mirror_suite",
            "validate_materialized_suite", "write_fixture_suite", "main"} <=
           proxy_101_functions, "101 fixture builder public functions")
     proxy_101_test_count = sum(
@@ -938,10 +939,79 @@ if all(path.exists() for path in (
         for node in ast.walk(proxy_101_test_tree)
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
     )
-    check(proxy_101_test_count == 7, "101 fixture builder test count")
+    check(proxy_101_test_count == 12, "101/102 fixture builder test count")
     check("すべて未実施fixture" in proxy_101_doc.read_text() and
           "対戦結果・発動率・強度には数えない" in proxy_101_doc.read_text(),
           "101 unplayed-result boundary")
+
+# 102 mirrors only the seats of the six 101 single fixtures.  Player identity,
+# complete deck order, hands and all copy/instance IDs must remain unchanged.
+proxy_102_doc = DOCS / "102-single-seat-mirror-fixtures.md"
+proxy_102_manifest_path = DOCS / "data/proxy-seat-mirror-plan-102-20260917.json"
+proxy_102_output = DOCS / "data/proxy-fixtures-102"
+for path, label in (
+    (proxy_102_doc, "102 seat mirror document"),
+    (proxy_102_manifest_path, "102 seat mirror manifest"),
+    (proxy_102_output, "102 seat mirror output"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_102_doc, proxy_102_manifest_path, proxy_102_output)):
+    proxy_102_manifest = json.loads(proxy_102_manifest_path.read_text())
+    proxy_102_pairs = proxy_102_manifest.get("pairs", [])
+    check(len(proxy_102_pairs) == 6, "102 mirror pair count")
+    proxy_102_expected = {
+        pair.get("mirror_match_id"): pair.get("source_match_id")
+        for pair in proxy_102_pairs
+    }
+    proxy_102_paths = sorted(proxy_102_output.glob("*.json"))
+    proxy_102_mirrors = [json.loads(path.read_text()) for path in proxy_102_paths]
+    check(len(proxy_102_mirrors) == len(proxy_102_expected) == 6,
+          "102 generated mirror count")
+    check({row.get("match_id") for row in proxy_102_mirrors} ==
+          set(proxy_102_expected), "102 generated mirror IDs")
+    proxy_101_by_id = {row.get("match_id"): row for row in proxy_101_fixtures}
+    for mirror in proxy_102_mirrors:
+        match_id = mirror.get("match_id")
+        source = proxy_101_by_id.get(proxy_102_expected.get(match_id), {})
+        mirror_players = {
+            row.get("player_id"): row
+            for row in mirror.get("input", {}).get("players", [])
+        }
+        source_players = {
+            row.get("player_id"): row
+            for row in source.get("input", {}).get("players", [])
+        }
+        check(all(mirror_players.get(player_id, {}).get("deck_order_top_to_bottom") ==
+                  source_players.get(player_id, {}).get("deck_order_top_to_bottom")
+                  for player_id in ("A", "B")),
+              f"102 unchanged A/B deck order: {match_id}")
+        check(all(mirror_players.get(player_id, {}).get("initial_hand") ==
+                  source_players.get(player_id, {}).get("initial_hand")
+                  for player_id in ("A", "B")),
+              f"102 unchanged A/B initial hands: {match_id}")
+        check(mirror.get("input", {}).get("first_player") == "B" and
+              mirror_players.get("A", {}).get("seat") == "second" and
+              mirror_players.get("B", {}).get("seat") == "first",
+              f"102 A-second/B-first seats: {match_id}")
+        check("a-second-seat-mirror" in mirror.get("test_plan", {}).get(
+                  "strata", []), f"102 mirror stratum: {match_id}")
+        fixture_card_ids = {
+            card.get("card_id") for player in mirror_players.values()
+            for card in player.get("deck_order_top_to_bottom", [])
+        }
+        check(fixture_card_ids <= proxy_98_all_ids and
+              not (fixture_card_ids & proxy_101_unregistered) and
+              not (fixture_card_ids & proxy_101_excluded),
+              f"102 current registered pool only: {match_id}")
+        check(mirror.get("record", {}).get("status") == "fixture" and
+              mirror.get("record", {}).get("events") == [] and
+              mirror.get("record", {}).get("result", {}).get("winner") is None,
+              f"102 fixture remains unplayed: {match_id}")
+    proxy_102_doc_text = proxy_102_doc.read_text()
+    check("AとBのデッキを交換する方式ではない" in proxy_102_doc_text and
+          "対戦結果・発動率・強度には数えない" in proxy_102_doc_text,
+          "102 seat-only and unplayed boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |

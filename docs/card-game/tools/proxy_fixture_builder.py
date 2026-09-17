@@ -167,12 +167,93 @@ def validate_materialized_suite(fixtures, output_directory):
     return errors
 
 
+def build_single_seat_mirrors(source_fixtures, mirror_manifest):
+    """Copy the six 101 single fixtures and change only seat-facing metadata."""
+    sources = {fixture["match_id"]: fixture for fixture in source_fixtures}
+    mirrors = []
+    for pair in mirror_manifest["pairs"]:
+        source = sources[pair["source_match_id"]]
+        mirror = copy.deepcopy(source)
+        mirror["match_id"] = pair["mirror_match_id"]
+        mirror["design"].update(mirror_manifest["design"])
+        mirror["test_plan"]["purpose"] = (
+            f"{pair['source_match_id']}と同じA/Bの山札順・初手・個体IDを保ち、"
+            "A後手／B先手だけを反転した鏡像入力。未実施fixtureであり、"
+            "対戦結果・発動率・強度には数えない。"
+        )
+        mirror["test_plan"]["strata"] = (
+            list(source["test_plan"]["strata"]) + ["a-second-seat-mirror"]
+        )
+        mirror["input"]["first_player"] = mirror_manifest[
+            "mirrored_first_player"
+        ]
+        for player in mirror["input"]["players"]:
+            player["seat"] = "second" if player["player_id"] == "A" else "first"
+        mirrors.append(mirror)
+    return mirrors
+
+
+def validate_seat_mirror_suite(mirrors, source_fixtures, mirror_manifest, catalog):
+    errors = []
+    sources = {fixture.get("match_id"): fixture for fixture in source_fixtures}
+    expected = {
+        pair["mirror_match_id"]: pair for pair in mirror_manifest.get("pairs", [])
+    }
+    if len(mirrors) != 6:
+        errors.append("seat mirror suite must contain exactly 6 records")
+    actual_ids = [mirror.get("match_id") for mirror in mirrors]
+    if len(actual_ids) != len(set(actual_ids)):
+        errors.append("seat mirror match IDs must be unique")
+    if set(actual_ids) != set(expected):
+        errors.append("seat mirror match IDs must equal the manifest pairs")
+
+    for mirror in mirrors:
+        match_id = mirror.get("match_id", "<missing-match-id>")
+        pair = expected.get(match_id)
+        source = sources.get(pair.get("source_match_id")) if pair else None
+        if source is None:
+            errors.append(f"{match_id} must reference an existing 101 source")
+            continue
+        mirror_players = {
+            row.get("player_id"): row
+            for row in mirror.get("input", {}).get("players", [])
+        }
+        source_players = {
+            row.get("player_id"): row
+            for row in source.get("input", {}).get("players", [])
+        }
+        for player_id in ("A", "B"):
+            mirror_player = mirror_players.get(player_id, {})
+            source_player = source_players.get(player_id, {})
+            if mirror_player.get("deck_order_top_to_bottom") != source_player.get(
+                    "deck_order_top_to_bottom"):
+                errors.append(
+                    f"{match_id} {player_id} deck order must equal its 101 single source"
+                )
+            if mirror_player.get("initial_hand") != source_player.get("initial_hand"):
+                errors.append(
+                    f"{match_id} {player_id} initial hand must equal its 101 single source"
+                )
+        if (mirror.get("input", {}).get("first_player") != "B" or
+                mirror_players.get("A", {}).get("seat") != "second" or
+                mirror_players.get("B", {}).get("seat") != "first"):
+            errors.append(f"{match_id} seats must be A second and B first")
+        if "a-second-seat-mirror" not in mirror.get("test_plan", {}).get(
+                "strata", []):
+            errors.append(f"{match_id} must carry the A-second mirror stratum")
+        for error in validate_record(mirror, catalog):
+            errors.append(f"{match_id}: {error}")
+    return errors
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", default=DEFAULT_MANIFEST)
     parser.add_argument("--base-fixture")
     parser.add_argument("--pool-layers", default=DEFAULT_POOL_LAYERS)
     parser.add_argument("--output-directory")
+    parser.add_argument("--mirror-manifest")
+    parser.add_argument("--mirror-output-directory")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
 
@@ -194,6 +275,35 @@ def main(argv=None):
     if errors:
         print(json.dumps({"valid": False, "errors": errors}, ensure_ascii=False, indent=2))
         return 1
+    if args.mirror_manifest:
+        mirror_manifest_path = Path(args.mirror_manifest)
+        mirror_manifest = load_json(mirror_manifest_path)
+        mirrors = build_single_seat_mirrors(fixtures, mirror_manifest)
+        errors = validate_seat_mirror_suite(
+            mirrors, fixtures, mirror_manifest, load_current_catalog()
+        )
+        mirror_output = (
+            Path(args.mirror_output_directory)
+            if args.mirror_output_directory
+            else mirror_manifest_path.parent / mirror_manifest["output_directory"]
+        )
+        if errors:
+            print(json.dumps({"valid": False, "errors": errors}, ensure_ascii=False, indent=2))
+            return 1
+        if args.write:
+            write_fixture_suite(mirrors, mirror_output)
+        if mirror_output.exists():
+            errors = validate_materialized_suite(mirrors, mirror_output)
+            if errors:
+                print(json.dumps({"valid": False, "errors": errors}, ensure_ascii=False, indent=2))
+                return 1
+        print(json.dumps({
+            "valid": True,
+            "fixture_count": len(mirrors),
+            "output_directory": str(mirror_output),
+            "written": args.write,
+        }, ensure_ascii=False, indent=2))
+        return 0
     if args.write:
         write_fixture_suite(fixtures, output)
     if output.exists():

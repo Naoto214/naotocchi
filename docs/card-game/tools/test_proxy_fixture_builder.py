@@ -5,11 +5,13 @@ import tempfile
 import unittest
 
 from proxy_fixture_builder import (
+    build_single_seat_mirrors,
     build_fixture_suite,
     fixture_filename,
     load_json,
     validate_fixture_suite,
     validate_materialized_suite,
+    validate_seat_mirror_suite,
     write_fixture_suite,
 )
 from proxy_record_validator import load_current_catalog, validate_record
@@ -18,6 +20,7 @@ from proxy_record_validator import load_current_catalog, validate_record
 TOOLS = Path(__file__).resolve().parent
 DATA = TOOLS.parent / "data"
 MANIFEST = DATA / "proxy-fixture-plan-101-20260917.json"
+MIRROR_MANIFEST = DATA / "proxy-seat-mirror-plan-102-20260917.json"
 BASE_FIXTURE = DATA / "proxy-match-record-example-20260917.json"
 POOL_LAYERS = DATA / "proxy-pool-layers-20260917.json"
 
@@ -72,6 +75,10 @@ class ProxyFixtureBuilderTest(unittest.TestCase):
         cls.pool_layers = load_json(POOL_LAYERS)
         cls.catalog = load_current_catalog()
         cls.fixtures = build_fixture_suite(cls.manifest, cls.base_fixture)
+        cls.mirror_manifest = load_json(MIRROR_MANIFEST)
+        cls.mirrors = build_single_seat_mirrors(
+            cls.fixtures, cls.mirror_manifest
+        )
 
     def test_builds_six_clusters_with_three_profiles_each(self):
         self.assertEqual(len(self.fixtures), 18)
@@ -147,6 +154,83 @@ class ProxyFixtureBuilderTest(unittest.TestCase):
                 validate_materialized_suite(self.fixtures, output),
                 [f"generated fixture differs from builder output: {changed.name}"],
             )
+
+    def test_builds_one_a_second_mirror_for_each_single_fixture(self):
+        self.assertEqual(len(self.mirrors), 6)
+        self.assertEqual(
+            [row["match_id"] for row in self.mirrors],
+            [f"fixture-102-p97-{index:02d}-single-a-second" for index in range(1, 7)],
+        )
+
+    def test_mirrors_keep_both_decks_and_initial_hands_exactly(self):
+        sources = {
+            row["test_plan"]["strata"][1]: row
+            for row in self.fixtures
+            if row["test_plan"]["strata"][2] == "single"
+        }
+        for mirror in self.mirrors:
+            source = sources[mirror["test_plan"]["strata"][1]]
+            for player_id in ("A", "B"):
+                source_player = next(
+                    row for row in source["input"]["players"]
+                    if row["player_id"] == player_id
+                )
+                mirror_player = next(
+                    row for row in mirror["input"]["players"]
+                    if row["player_id"] == player_id
+                )
+                self.assertEqual(
+                    mirror_player["deck_order_top_to_bottom"],
+                    source_player["deck_order_top_to_bottom"],
+                )
+                self.assertEqual(
+                    mirror_player["initial_hand"], source_player["initial_hand"]
+                )
+
+    def test_mirrors_change_seats_without_swapping_player_identity(self):
+        for mirror in self.mirrors:
+            players = {
+                row["player_id"]: row for row in mirror["input"]["players"]
+            }
+            self.assertEqual(mirror["input"]["first_player"], "B")
+            self.assertEqual(players["A"]["seat"], "second")
+            self.assertEqual(players["B"]["seat"], "first")
+            self.assertIn("a-second-seat-mirror", mirror["test_plan"]["strata"])
+
+    def test_every_mirror_is_valid_and_remains_unplayed(self):
+        self.assertEqual(
+            validate_seat_mirror_suite(
+                self.mirrors,
+                self.fixtures,
+                self.mirror_manifest,
+                self.catalog,
+            ),
+            [],
+        )
+        for mirror in self.mirrors:
+            self.assertEqual(validate_record(mirror, self.catalog), [])
+            self.assertEqual(mirror["record"]["status"], "fixture")
+            self.assertEqual(mirror["record"]["events"], [])
+            self.assertIsNone(mirror["record"]["result"]["winner"])
+
+    def test_mirror_validator_rejects_a_changed_deck_or_wrong_seat(self):
+        broken = json.loads(json.dumps(self.mirrors, ensure_ascii=False))
+        broken[0]["input"]["players"][0]["deck_order_top_to_bottom"].reverse()
+        broken[1]["input"]["players"][0]["seat"] = "first"
+        errors = validate_seat_mirror_suite(
+            broken,
+            self.fixtures,
+            self.mirror_manifest,
+            self.catalog,
+        )
+        self.assertIn(
+            "fixture-102-p97-01-single-a-second A deck order must equal its 101 single source",
+            errors,
+        )
+        self.assertIn(
+            "fixture-102-p97-02-single-a-second seats must be A second and B first",
+            errors,
+        )
 
 
 if __name__ == "__main__":
