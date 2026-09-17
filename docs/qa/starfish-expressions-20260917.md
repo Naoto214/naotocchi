@@ -1,0 +1,11 @@
+# Starfish expression batch — in progress
+
+Baseline GitHub ec8f85135444bf0686b4a99fbb545f07d66e85a8, local b2ff567b340b6e80f8ae5806822aa580adcda03b, tree2fe8191c91b868277cec3ff432acb8c9a9deb4bb. Latest observed main cdbdc64cd9d60a7d58bc357b01b4e172565e6630. Draft PR278, unmerged, pre-existing conflicts; no GitHub CI success claim.
+
+User authorized autonomous whole-species production. Target: starfish8×10=80, total960. Preserve existing880 expressions/88 placements and81 user corrections, normal images, gameplay/romance/save/shared mark palette/reactions. Eight originals inspected individually, then on exact128px coordinate grid; observed face anchors overlaid and reviewed. Preserve round blue juvenile, translucent blue star, pale yellow/pink star, plump pink star, golden star, bumpy orange star, pale pink adult and dotted red/yellow final star with original blue bubbles.
+
+Integration TDD:26 failing tests before route/preview changes,26 passed after. Independent integration diff review no correctness findings. Prior880 routes/SVG,264 sweat outputs and88 placements unchanged. Full targeted runtime/preview suite371/379 passed:8 expected failures because new starfish placements are pending. Asset tests deferred until production images exist. These are not final validation results.
+
+Art records: /workspace/scratch/da3674e89b1f/starfish-records; jobs: starfish-jobs.json. Actual generated source PNGs: /workspace/scratch/e14941a8c155/generated_images. First30 images generated and normalized; partial manifest includes90 verified original/source/final hashes. Remaining50 images, placement, all80 visual review, full-suite/final review and publishing are pending. Do not treat960 as complete.
+
+Helpers: /workspace/scratch/da3674e89b1f/finalize-starfish-art.cjs (requires80 records), check-starfish-preservation.cjs, prepare-starfish-site.cjs, check-starfish-site.cjs. Existing Site remains completed880 jellyfish version48 (jf-8b67e08b). Future preview uses same owner-private Site with80 starfish batch IDs and tap/memo/copy retained. Static composites/approximate sweat are not iPhone screenshots. Preserve241 historical sparse index entries; normal commit may fail on absent historical blobs, use matching tree approach without deleting entries.

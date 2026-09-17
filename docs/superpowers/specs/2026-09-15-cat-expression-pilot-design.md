@@ -92,3 +92,7 @@ The user explicitly authorized autonomous selection and production of the next c
 
 ### Approved continuation: jellyfish batch (2026-09-17)
 Under the existing production-first authorization, extend all8 jellyfish stages to10 expressions each. Preserve polyp rocks, stacked juvenile disks, star-shaped juvenile, translucent bells, tentacles, bubbles and age differences. Retain completed800 expressions/80 placements and81 user corrections. Same Draft PR and owner-private preview; normal art/gameplay/save unchanged.
+
+
+### Approved production-first continuation: starfish (2026-09-17)
+Following the user's continuation request, add all8 starfish stages×10 original-referenced expressions. Preserve original rounded juvenile, star shapes, colors/textures/bubbles and existing880 expressions/88 placements. Same marks, reaction semantics, Draft PR and owner-private Site. No main merge or gameplay/save changes.

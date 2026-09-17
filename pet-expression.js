@@ -113,7 +113,7 @@
   // END GENERATED FACE PLACEMENT
   const HUMAN_LINES = ['man','woman'];
   const STAGE_ASSETS = Object.freeze({
-    ...Object.fromEntries([...HUMAN_LINES,'penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish'].flatMap(line => Array.from({length:8},(_,index) => {
+    ...Object.fromEntries([...HUMAN_LINES,'penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish'].flatMap(line => Array.from({length:8},(_,index) => {
       const stage=String(index+1).padStart(2,'0');
       return [`assets/characters/${line}/${stage}.png`,Object.freeze(Object.fromEntries(
         Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/${line}/${stage}-${name}.png`])

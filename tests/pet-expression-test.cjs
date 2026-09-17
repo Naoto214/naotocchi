@@ -384,7 +384,7 @@ test('reviewed side marks read diagonally above the face, not alongside it',()=>
  }
 });
 
-for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
+for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
  const stage=String(i).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`;
  const states=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
  assert.equal(expression.assetFor(base,'normal'),base);
@@ -419,6 +419,15 @@ for(let i=1;i<=8;i++)test(`hermit_crab/${i} keeps the shared yellow fish hunger 
 
 for(let i=1;i<=8;i++)test(`jellyfish/${i} keeps the shared yellow fish hunger mark`,()=>{
  const base=`assets/characters/jellyfish/${String(i).padStart(2,'0')}.png`;
+ const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ assert.ok(food(expression.accentFor(base,'hungry')));
+ assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.equal(expression.accentFor(base,'normal'),'');
+ assert.equal(expression.assetFor(base,'unknown'),base);
+});
+
+for(let i=1;i<=8;i++)test(`starfish/${i} keeps the shared yellow fish hunger mark`,()=>{
+ const base=`assets/characters/starfish/${String(i).padStart(2,'0')}.png`;
  const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
  assert.ok(food(expression.accentFor(base,'hungry')));
  assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
