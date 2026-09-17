@@ -1193,7 +1193,6 @@
     dateMovieSkipBtn: document.getElementById('dateMovieSkipBtn'),
     dateMovieCloseBtn: document.getElementById('dateMovieCloseBtn'),
     seasonModeGrid: document.getElementById('seasonModeGrid'),
-    itemRelationActions: document.getElementById('itemRelationActions'),
     itemSceneOverlay: document.getElementById('itemSceneOverlay'),
     itemSceneTitle: document.getElementById('itemSceneTitle'),
     itemSceneText: document.getElementById('itemSceneText'),
@@ -12314,7 +12313,6 @@
     }).join('');
     renderNaotoItemGrid();
     renderConsumableItemGrid();
-    renderItemRelationActions();
     renderItemMemories();
   }
 
@@ -12496,26 +12494,6 @@
     return local.map((label,i) => ({id:String(i),label,text:`${region.label}。${mood}、${label}。`}));
   }
 
-  function useItemLantern(regionId) {
-    const region = [...REGIONS,...SPECIAL_REGIONS].find(r => r.id === regionId);
-    const visited = [...state.lifetime.regionsVisited,...state.lifetime.specialRegionsVisited];
-    if (!region || !hasNaotoItem('naoto_lantern') || !visited.includes(regionId) || (region.special && !hasPerk(70)) || !itemUseAllowed('naoto_lantern') || state.isSleeping || gameActive || !ITEM_SYSTEM.ready(state,'lantern')) return false;
-    const scene = itemRegionScenes(region)[0];
-    const light = regionId === 'deepsea' || regionId === 'sea' ? '水の中であかりがゆれた。' : regionId === 'forest' ? '木陰に小さなあかりが見えた。' : `${region.label}の道に、小さなあかりがともった。`;
-    ITEM_SYSTEM.cooldown(state,'lantern',200);
-    const memory = addItemMemory('lights',itemMemorySnapshot(`lantern:${++state.lifetime.itemProgress.sceneSerial}`, `${scene.text}${light}`, {event:'lantern',environment:{...currentEnvironment(),region:regionId}}));
-    closeAllMenuOverlays();
-    setMessage(`${scene.text}${light}`);
-    itemContextReaction('naoto_lantern', light);
-    saveState();showItemSceneMemory(memory);return true;
-  }
-
-  function renderItemRelationActions() {
-    const remaining = key => Math.max(0,(state.lifetime.itemProgress.readyAt[key] || 0)-state.lifetime.itemProgress.ticks);
-    const lanternButtons = hasNaotoItem('naoto_lantern') ? [...REGIONS,...SPECIAL_REGIONS].filter(r => [...state.lifetime.regionsVisited,...state.lifetime.specialRegionsVisited].includes(r.id) && (!r.special || hasPerk(70))).map(r => `<button type="button" class="date-choice-btn" data-item-relation="lantern" data-region="${r.id}" ${remaining('lantern') || !itemUseAllowed('naoto_lantern') || state.isSleeping ? 'disabled' : ''}>${escapeHtml(r.label)}のあかり</button>`).join('') : '';
-    el.itemRelationActions.innerHTML = `${hasNaotoItem('naoto_lantern') ? `<p>あかり探しは10分に1回。${remaining('lantern') ? `あと${remaining('lantern')*3}秒。` : ''}</p>` : ''}${lanternButtons}`;
-  }
-
   let pendingItemScene = null;
   let itemSceneRecord = null;
   function closeItemScene() {
@@ -12527,7 +12505,7 @@
   function showItemSceneMemory(record) {
     closeAllMenuOverlays();
     itemSceneRecord = record;
-    el.itemSceneTitle.textContent = record.event === 'lantern' ? 'あかりのおもいで' : 'たびのおもいで';
+    el.itemSceneTitle.textContent = 'たびのおもいで';
     el.itemSceneText.textContent = record.text;
     const pet = SPECIES[record.speciesLine]?.stages[record.stage];
     el.itemSceneActors.innerHTML = `${pet ? stageVisualHTML(pet,'medium') : ''}${record.partner ? partnerVisualHTML(record.partner,'medium') : ''}`;
@@ -16640,12 +16618,6 @@
   }
 
   el.itemSceneCancelBtn.addEventListener('click', () => { closeItemScene();render(); });
-  el.itemRelationActions.addEventListener('click', e => {
-    const btn = e.target.closest('button[data-item-relation]');
-    if (!btn || btn.disabled) return;
-    if (btn.dataset.itemRelation === 'lantern') useItemLantern(btn.dataset.region);
-  });
-
   el.travelRegionGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('.theme-swatch');
     if (!btn || btn.disabled) return;

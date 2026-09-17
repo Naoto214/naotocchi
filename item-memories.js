@@ -5,7 +5,7 @@
   root.NaotocchiItemMemories = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  const kinds = {letters:'てがみ', lights:'あかり', specials:'おでかけ'};
+  const kinds = {letters:'てがみ', specials:'おでかけ'};
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 
   function environmentText(record) {

@@ -12,6 +12,8 @@ module.exports=async(browser,engine,fixtures,baseURL,output)=>{
   const seed=JSON.parse(JSON.stringify(fixtures.alone));
   Object.assign(seed,{stage:'growing',sodachi:20,growth:0,boostTicks:0,health:100,energy:100,hunger:40,happiness:90,isSick:false,isSleeping:false,dying:false,deathMeter:0,infinite:false,transformMeter:0,transformOptions:null});
   Object.assign(seed.lifetime,{ownedNaotoItems:['naoto_lantern','naoto_ring'],equippedItemId:null});
+  seed.lifetime.itemMemories.lights=[{key:'lantern:old',text:'old light'}];
+  seed.lifetime.itemProgress.readyAt.lantern=999999;
   await page.clock.install({time:new Date('2026-09-17T12:00:00Z')});
   await page.clock.pauseAt(new Date('2026-09-17T12:01:00Z'));
   seed.savedAt=Date.parse('2026-09-17T12:01:00Z');
@@ -25,6 +27,10 @@ module.exports=async(browser,engine,fixtures,baseURL,output)=>{
    assert.equal(fed.sodachi,before.sodachi);
    assert.equal(fed.actionCounts.feed,before.actionCounts.feed+1);
    await page.locator('#menuBtn').click();await page.locator('#itemBtn').click();
+   assert.equal(await page.locator('#itemRelationActions, [data-item-relation="lantern"]').count(),0);
+   assert.ok(!(await page.locator('#itemOverlay').textContent()).includes('あかり探し'));
+   assert.equal(fed.lifetime.itemMemories.lights,undefined);
+   assert.equal(fed.lifetime.itemProgress.readyAt.lantern,undefined);
    for(const [id,text] of [['naoto_lantern','そだちの増え方が、少し大きくなる。'],['naoto_ring','まだ出会っていない候補が、少し出やすくなる。']]){
     const item=page.locator(`#naotoItemGrid [data-id="${id}"]`);
     await item.scrollIntoViewIfNeeded();assert.ok((await item.textContent()).includes(text));
