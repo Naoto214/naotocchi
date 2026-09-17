@@ -1,5 +1,8 @@
 :root {
   color-scheme: light;
+  /* iPhone の したの ホームバー(と ブラウザの バー)が かぶさる ぶん。
+     JS からも --safe-bottom を よんで、めぐるの がめんの たかさを きめる */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
@@ -9,12 +12,18 @@
 body {
   margin: 0;
   min-height: 100vh;
+  /* iPhone の ブラウザは バーの ぶんだけ 100vh が みえている たかさより
+     おおきく なる。dvh なら いま みえている ぶんに あう(ふるい ブラウザは
+     うえの 100vh の まま) */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at 50% 20%, #ffe1f0 0%, #d6c8ff 60%, #b3a4f7 100%);
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   padding: 20px;
+  /* したの ボタンが ホームバーに かくれない ように */
+  padding-bottom: max(20px, var(--safe-bottom));
   transition: background 0.6s ease;
 }
 
@@ -35,6 +44,9 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 
 .device {
   width: 340px;
+  /* ほんたいが みえている たかさを こえない ように する。こえると
+     iPhone では したの パッドや ボタンが がめんの そとに おしだされる */
+  max-height: calc(100dvh - 20px - max(20px, var(--safe-bottom)));
   background: linear-gradient(160deg, #ff9ecb 0%, #ff7ab8 45%, #f45fa8 100%);
   border-radius: 50% 50% 40px 40px / 35% 35% 40px 40px;
   padding: 28px 24px 20px;
@@ -4571,13 +4583,23 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .meguru-overlay .mg-meguru-header { margin-bottom: 4px; font-size: 11px; line-height: 1.2; gap: 6px; }
 .meguru-overlay .mg-meguru-header > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .meguru-overlay .mg-meguru-header > span:first-child { flex: 1 1 auto; min-width: 0; }
-.mgr-hint { min-height: 0; margin-top: 4px; font-size: 11px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
+/* ヒントは 1ぎょうだと ほそい がめんで おしりが 「…」で きれていた。
+   2ぎょうまで おりかえして さいごまで 見せる(3ぎょうめは かくす) */
+/* たかさを 2ぎょうぶんで こていする。ばしょの なまえが あとから アタマに
+   つく(「【えきまえ】…」)と ぎょうが ふえて、たんさく がめんが はみ出して
+   ボタンが 見きれていた */
+.mgr-hint { min-height: 2.6em; margin-top: 4px; font-size: 11px; line-height: 1.3; padding: 0 4px;
+  white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .meguru-overlay .mg-pad-row { margin-top: 6px; gap: 6px; }
 .meguru-overlay .mg-pad { min-height: 112px; }
 .meguru-overlay .mg-pad-actions { min-width: 88px; gap: 5px; }
 .meguru-overlay .mg-pad-actions .mg-tap-btn { min-width: 88px; min-height: 34px; padding: 4px 4px; font-size: 13px; }
 .mgr-wrap .mg-canvas { border-radius: 16px; }
-.mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* .mg-canvas-wrap は line-height: 0(canvas の すきま けし)。そのままだと
+   なかの もじの ぎょうの たかさが 0 に なり、overflow: hidden で もじが
+   見きれる。ここで はっきり ぎょうの たかさを あたえる */
+.mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mgr-spot.hidden { display: none; }
 .mgr-env { opacity: 0.85; margin-left: 2px; }
 .meguru-overlay .mg-meguru-header > span:nth-child(2) { opacity: 0.8; }
