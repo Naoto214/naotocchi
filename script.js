@@ -14517,22 +14517,19 @@
     { id: 'memory-elder-1', supply: { count: 1, matches: s => /^form:[^:]+:7$/.test(s.id) }, page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
     { id: 'memory-rare-1', supply: { count: 1, matches: s => s.rarity === 'rare' }, page: 'memory', label: 'きねんに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
     { id: 'any-12', supply: { count: 12, matches: () => true }, page: null, label: 'どれかの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
-    { id: 'all-pages', supply: { count: 4, matches: () => true, allPages: true }, page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
+    { id: 'all-pages', supply: { count: 4, matches: () => true }, page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
   ];
   function crownNeedsTaskSticker(candidate) {
     const store = stickerStore(), pages = stickerPages();
     return STICKER_TASKS.some(task => {
       if (store.tasksDone.includes(task.id) || task.check(pages) || !task.supply.matches(candidate)) return false;
       const matches = task.supply.matches;
-      const available = Object.entries(store.owned).reduce((sum, [id, count]) => {
+      const owned = Object.entries(store.owned).reduce((sum, [id, count]) => {
         const sticker = stickerById(id);
-        return sum + (sticker && matches(sticker) ? Math.max(0, count - placedStickerCount(id)) : 0);
+        return sum + (sticker && matches(sticker) ? Math.max(0, count) : 0);
       }, 0);
-      const placed = task.supply.allPages
-        ? STICKER_PAGES.filter(page => pages[page.id].length).length
-        : task.page ? pages[task.page].filter(p => { const s = stickerById(p.id); return s && matches(s); }).length
-          : Math.max(0, ...Object.values(pages).map(page => page.length));
-      return available + placed < task.supply.count;
+      // 別ページのシールも移動できる。既に必要枚数を所有していれば、あとは手動で貼るだけ。
+      return owned < task.supply.count;
     });
   }
 

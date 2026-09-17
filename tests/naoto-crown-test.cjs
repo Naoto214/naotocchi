@@ -115,3 +115,34 @@ test('queue crown ordering changes but candidate multiplicity and play count sta
   assert.equal(crown.api.queue().length,before-1);
   assert.equal(crown.api.state().lifetime.minigamePlayCounts[picked.id],picked.id===crown.api.games[0].id?1:2);
 });
+test('movable copies on other pages already satisfy supply; rearrangement is manual',()=>{
+  const h=setup(['sticker-tasks-5']),store=h.api.stickerStore();
+  store.tasksDone=['home-form-3','travel-scenery-3','friends-companion-3','memory-elder-1'];
+  for(const entry of h.api.stickerCatalog())if(entry.kind!=='item')store.owned[entry.id]=12;
+  const item=h.api.stickerCatalog().find(s=>s.kind==='item');store.owned[item.id]=2;
+  store.pages.travel=[{id:item.id,k:'one'},{id:item.id,k:'two'}];
+  assert.equal(factor(h,'sticker',item),1);
+});
+test('20th A record removes cached bias before notification without refilling consumed tickets',()=>{
+  const h=setup(['record-rank-a-20']),s=h.api.state();
+  for(const g of h.api.games)s.lifetime.minigamePlayCounts[g.id]=1;
+  for(const g of h.api.games.slice(0,19))s.lifetime.minigameRecords[g.id]={best:75};
+  let n=42;h.api.setRandom(()=>((n=(n*1664525+1013904223)>>>0)+.5)/4294967296);
+  h.api.refillMinigameQueue();h.api.pickRandomMinigame();
+  const before=[...h.api.queue()];
+  s.lifetime.minigameRecords[h.api.games[19].id]={best:75};
+  assert.ok(!s.achievementsUnlocked.includes('record-rank-a-20'));
+  const picked=h.api.pickRandomMinigame(),after=[...h.api.queue()];
+  assert.notDeepEqual(after,before.slice(0,-1),'cached crown order must be refreshed');
+  assert.deepEqual([...after,picked.id].sort(),before.sort());
+  assert.equal(after.length,before.length-1);
+});
+test('actual game queue lottery applies exactly 2x, neither 1x nor 4x',()=>{
+  for(const [rolls,expected] of [[[.25,.4],'crown-a'],[[.01,.25],'crown-b']]){
+    const h=setup(['record-rank-a-20']),s=h.api.state();
+    s.lifetime.minigamePlayCounts={'crown-a':1,'crown-b':1};
+    s.lifetime.minigameRecords={'crown-b':{best:75}};
+    let i=0;h.api.setRandom(()=>rolls[i++]);
+    assert.equal(h.api.rankGameFixtures([{id:'crown-a'},{id:'crown-b'}]).at(-1),expected);
+  }
+});
