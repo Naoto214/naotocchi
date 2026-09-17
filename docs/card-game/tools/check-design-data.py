@@ -350,32 +350,39 @@ check(sorted(pinned_games, key=lambda g: g["id"]) == sorted(games, key=lambda g:
       "Pinned main play IDs/categories/source contexts differ from registered baseline")
 play_records = []
 play_batch_counts = []
-for batch, draft_number in ((1, 79), (2, 81), (3, 83), (4, 85)):
+for batch, draft_number in ((1, 79), (2, 81), (3, 83), (4, 85), (5, 87)):
     batch_start = len(play_records)
     for m in re.finditer(r"^### (G-[\w-]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", doc(draft_number), re.M | re.S):
         card_id, name, section = m.groups()
         body = re.findall(r"^> (.+)$", section, re.M)
         time = re.findall(r"^- 時：(\d+)$", section, re.M)
         method = re.findall(r"^- プレイ方法：(すぐつかう|しかける|みにつける)$", section, re.M)
-        category = re.findall(r"^- source category：([\w]+)（一般）$", section, re.M)
+        category = re.findall(r"^- source category：([\w]+)（(一般|地域|季節)）$", section, re.M)
+        context = re.findall(r"^- source context：([\w]+)$", section, re.M)
         order = re.findall(r"^- 登録順：(\d+)$", section, re.M)
         check(len(body) == len(time) == len(method) == len(category) == len(order) == 1,
               f"Play body/metadata missing or ambiguous: {card_id}")
         if not (len(body) == len(time) == len(method) == len(category) == len(order) == 1):
             continue
         check("- 構築区分：通常（同名3枚）" in section, f"Play rarity missing: {card_id}")
-        check(category[0] == game_map.get(card_id[2:], {}).get("category"), f"Play category mismatch: {card_id}")
+        source_game = game_map.get(card_id[2:], {})
+        check(category[0][0] == source_game.get("category"), f"Play category mismatch: {card_id}")
+        check(category[0][1] == {"general": "一般", "region": "地域", "season": "季節"}.get(source_game.get("source")),
+              f"Play source type mismatch: {card_id}")
+        check(context == ([source_game["context"]] if "context" in source_game else []),
+              f"Play source context mismatch: {card_id}")
         check(int(order[0]) == len(play_records) + 1, f"Play order mismatch: {card_id}")
         play_records.append({"id": card_id, "name": name, "time": int(time[0]),
                              "method": method[0], "rarity": "normal", "text": body[0],
+                             "source": source_game.get("source"), "context": source_game.get("context"),
                              "source_file": str(next(DOCS.glob(f"{draft_number:02d}-*.md")).relative_to(ROOT))})
     batch_records = play_records[batch_start:]
     batch_ids = [r["id"] for r in batch_records]
     check(len(batch_ids) == len(set(batch_ids)) == 20, f"Expected 20 unique play bodies in batch {batch}")
     check(batch_ids == ["G-" + sid for sid in role_games[batch_start:batch_start + 20]] == play_snapshot[f"draft_batch_{batch}"],
           f"Play batch {batch} differs from canonical roles")
-    expected_methods = {1: {"すぐつかう": 18, "しかける": 2}, 2: {"すぐつかう": 17, "しかける": 3}, 3: {"すぐつかう": 18, "しかける": 2}, 4: {"すぐつかう": 17, "しかける": 3}}
-    expected_times = {1: {1: 7, 2: 13}, 2: {1: 11, 2: 8, 3: 1}, 3: {1: 9, 2: 10, 3: 1}, 4: {1: 12, 2: 7, 3: 1}}
+    expected_methods = {1: {"すぐつかう": 18, "しかける": 2}, 2: {"すぐつかう": 17, "しかける": 3}, 3: {"すぐつかう": 18, "しかける": 2}, 4: {"すぐつかう": 17, "しかける": 3}, 5: {"すぐつかう": 18, "しかける": 2}}
+    expected_times = {1: {1: 7, 2: 13}, 2: {1: 11, 2: 8, 3: 1}, 3: {1: 9, 2: 10, 3: 1}, 4: {1: 12, 2: 7, 3: 1}, 5: {1: 12, 2: 8}}
     methods = dict(collections.Counter(r["method"] for r in batch_records))
     times = dict(collections.Counter(r["time"] for r in batch_records))
     check(methods == expected_methods[batch], f"Play method distribution batch {batch}")
@@ -386,7 +393,7 @@ for batch, draft_number in ((1, 79), (2, 81), (3, 83), (4, 85)):
     play_batch_counts.append({"batch": batch, "bodies": len(batch_ids), "methods": methods,
                               "times": times, "manual_case_entries": len(case_ids)})
 play_ids = [r["id"] for r in play_records]
-check(len(play_ids) == len(set(play_ids)) == 80, "Expected 80 unique registered play bodies")
+check(len(play_ids) == len(set(play_ids)) == 100, "Expected 100 unique registered play bodies")
 legacy_2048 = re.search(r"^- 2048 — 時1・\*\*すぐつかう\*\*: (.+)$", doc(8), re.M)
 check(bool(legacy_2048), "Existing 2048 body missing")
 existing_play = [r for r in play_records if r["id"] == "G-puzzle-2048"]
@@ -396,7 +403,10 @@ if legacy_2048 and len(existing_play) == 1:
     existing_play[0]["status"] = "legacy_body_linked_to_registered_source"
     existing_play[0]["canonical_body_file"] = "docs/card-game/08-test-deck-a-card-drafts.md"
 new_play_records = [r for r in play_records if r["id"] != "G-puzzle-2048"]
-check(len(play_records) == 80 and len(new_play_records) == 79, "Play coverage should be 79 new + 1 existing = 80/100")
+check(len(play_records) == 100 and len(new_play_records) == 99, "Play coverage should be 99 new + 1 existing = 100/100")
+check(set(play_ids) == {"G-" + g["id"] for g in pinned_games}, "Complete play coverage differs from registered 100")
+check(dict(collections.Counter(r["source"] for r in play_records)) == {"general": 86, "region": 10, "season": 4},
+      "Complete play source distribution differs from 86/10/4")
 all_with_play = collections.defaultdict(list, {k: list(v) for k, v in all_texts.items()})
 for r in play_records:
     all_with_play[r["text"]].append(r["id"])
@@ -424,6 +434,7 @@ console.log(JSON.stringify([...g.MINIGAMES.map(x=>({id:x.id,category:g.minigameC
 play_audit = {"main_commit": play_snapshot["main_commit"], "registered_games": len(pinned_games),
               "new_body_entries": len(new_play_records), "existing_linked_bodies": int(bool(legacy_2048)),
               "total_body_entries": len(play_records), "unexpanded_entries": 100 - len(play_records),
+              "body_source_counts": dict(collections.Counter(r["source"] for r in play_records)),
               "method_counts_new": dict(collections.Counter(r["method"] for r in new_play_records)),
               "time_counts_new": dict(collections.Counter(r["time"] for r in new_play_records)),
               "max_new_body_length": max((len(r["text"]) for r in new_play_records), default=0),
