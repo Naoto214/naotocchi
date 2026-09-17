@@ -577,7 +577,7 @@ test('remaining dog stage boundaries select their own portraits', () => {
   }
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish']) {
   for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
     const stage=String(index+1).padStart(2,'0');
     test(`${species}/${stage} renders all ten states and reactions without mutating saved state`, () => {

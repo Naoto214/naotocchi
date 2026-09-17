@@ -88,3 +88,7 @@ The user explicitly authorized autonomous selection and production of the next c
 
 ### 承認済み一括展開: ヤドカリ（2026-09-16）
 制作優先の継続依頼に基づき、hermit_crab全8段階・80表情を追加する。元画像の目の柄・はさみ・脚・貝殻の形と模様、03の空の貝殻を保持。原画の座標から顔を観測し、新規系統だけマーク配置を生成する。既存720表情・72段階配置と過去81件の修正は不変。通常画像・数値・恋愛条件・セーブ形式も維持し、PR278はDraft・main未マージを守る。
+
+
+### Approved continuation: jellyfish batch (2026-09-17)
+Under the existing production-first authorization, extend all8 jellyfish stages to10 expressions each. Preserve polyp rocks, stacked juvenile disks, star-shaped juvenile, translucent bells, tentacles, bubbles and age differences. Retain completed800 expressions/80 placements and81 user corrections. Same Draft PR and owner-private preview; normal art/gameplay/save unchanged.
