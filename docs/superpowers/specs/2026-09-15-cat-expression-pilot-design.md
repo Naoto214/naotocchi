@@ -108,3 +108,7 @@ Under the user's continuing batch authorization, add butterfly8 stages×10 origi
 
 ### Approved production-first continuation: beetle (2026-09-17)
 Continue authorized batch production with beetle8 stages x10 independently original-referenced expressions. Preserve1120 existing portraits/routes/SVGs,112 placements and81 user corrections. Observe face anchors from originals and coordinate grid; preserve larval segmentation, golden pupa, forked horns, elytra colors, six legs and aged textures. Generate only beetle placements. Normal sprites248, gameplay, romance, saves unchanged. Same owner-private Site and Draft PR278; never merge main.
+
+
+### Approved production-first continuation: stagbeetle (2026-09-17)
+Continue the authorized batch with8 stages x10 original-referenced edits. Preserve1200 completed portraits,120 placements and81 selected corrections, all normal art and gameplay/romance/save behavior. Preserve cream larvae, golden pupa, pale/red/blue-black adult colors, mandibles, legs and age scratches. Anchors observed on original coordinate grid. Generate only stagbeetle placements. Same owner-private Site and Draft PR278; no main merge.

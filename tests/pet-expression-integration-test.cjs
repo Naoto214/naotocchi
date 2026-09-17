@@ -63,8 +63,8 @@ test('real home emotion profiles select only the adult cat portrait', () => {
     assert.deepEqual(face(h),want);
   }
 
-  const other=harness(); adultCat(other,{speciesLine:'stagbeetle',ageTicks:3*20,stageIndex:1,hunger:40});
-  assert.match(portrait(other),/assets\/characters\/stagbeetle\/02\.png/);
+  const other=harness(); adultCat(other,{speciesLine:'cicada',ageTicks:3*20,stageIndex:1,hunger:40});
+  assert.match(portrait(other),/assets\/characters\/cicada\/02\.png/);
   assert.equal(accent(other),null);
 });
 
@@ -207,7 +207,7 @@ test('sleep uses its own face, and waking shows normal before latest-state reeva
 
 test('form changes and blocked screens clear the temporary face and accent', () => {
   const cases = [
-    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'stagbeetle',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/stagbeetle/02.png'],
+    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'cicada',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/cicada/02.png'],
     ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
     ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
     ['menu',h=>h.api.openExclusiveMenu('profile'),BASE],
@@ -577,7 +577,7 @@ test('remaining dog stage boundaries select their own portraits', () => {
   }
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle']) {
   for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
     const stage=String(index+1).padStart(2,'0');
     test(`${species}/${stage} renders all ten states and reactions without mutating saved state`, () => {
