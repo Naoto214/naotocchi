@@ -2321,38 +2321,74 @@
       const wrap = container.querySelector('.mgr-wrap');
       // たんさく がめんの たかさ。
       // ヒントと パッドは overlay の したに はりつく(margin-top: auto)ので、
-      // canvas を ちぢめても パッドは 上がらない。だから「ほんたいが とれる
-      // さいだいの たかさ」から、うえに ある もの と したの よはくを ひいて きめる。
-      // いちの ずれ(iPhone で ほんたいが がめんより おおきく なって いる とき)に
-      // ひきずられない よう、ほんたいの なかの あいたいの たかさ だけを つかう
-      function overlayAvailPx() {
+      // canvas を ちぢめても パッドは 上がらない。だから「この overlay が つかえる
+      // いちばん した」を きめて、そこから うえに ある もの を ひいて canvas の
+      // たかさに する。
+      //
+      // 「いちばん した」は つぎの うち いちばん うえに ある もの:
+      //   ① みえている たかさ(visualViewport)から、body の したの よはく(ホームバーよけ)を ひいた ところ
+      //   ② ほんたい(.device)の 内がわの 下端。いちの ずれ(iPhone で ほんたいが がめんより
+      //      おおきく なって いる とき)に ひきずられない よう、max-height から けいさんする
+      //   ③ overlay の おやたちの うち、はみ出しを きりとる はこ(overflow が visible では
+      //      ない もの)の 内がわの 下端(あいだの はこの よはくも ひく)
+      // ③ が だいじ: せかい表示(world-mode)では .screen-frame が グリッドの 行に なって
+      // overflow:auto に なる ため、ほんたいより さきに ここで きられる。まえは ② だけを
+      // 見て いた ので、パッドと「もどる」の わくの 下が 13px ほど きりとられて いた
+      function overlayBottomLimitPx() {
         try {
           if (typeof window === 'undefined' || typeof window.getComputedStyle !== 'function') return 0;
-          const device = typeof container.closest === 'function' ? container.closest('.device') : null;
-          if (!device || typeof device.getBoundingClientRect !== 'function' || typeof container.getBoundingClientRect !== 'function') return 0;
-          const cs = window.getComputedStyle(device);
-          let maxH = parseFloat(cs.maxHeight);
-          if (!Number.isFinite(maxH) || maxH <= 0) {
-            // max-height が つかえない ブラウザ: みえている たかさから きめる
-            const vv = window.visualViewport;
-            const vh = vv && vv.height > 0 ? vv.height : (window.innerHeight || 0);
-            if (!vh) return 0;
+          if (typeof container.getBoundingClientRect !== 'function') return 0;
+          let limit = Infinity;
+          const vv = window.visualViewport;
+          const vh = vv && vv.height > 0 ? vv.height : (window.innerHeight || 0);
+          if (vh > 0) {
             const bs = document.body ? window.getComputedStyle(document.body) : null;
-            const pt = bs ? parseFloat(bs.paddingTop) || 0 : 0, pb = bs ? parseFloat(bs.paddingBottom) || 0 : 0;
-            maxH = vh - pt - pb;
+            limit = vh - (bs ? parseFloat(bs.paddingBottom) || 0 : 0);
           }
-          const dr = device.getBoundingClientRect(), cr = container.getBoundingClientRect();
-          const above = Math.max(0, cr.top - dr.top);         // ほんたいの うえの よはく と タイトル
-          const belowPad = parseFloat(cs.paddingBottom) || 0; // ほんたいの したの よはく
-          return Math.max(0, maxH - above - belowPad);
+          // overlay と その はこの あいだに ある よはく(padding・border)を ためながら うえへ たどる。
+          // .screen が 10px の よはくを もつ ので、それも ひかないと 2px ほど はみ出す
+          let extra = 0;
+          for (let node = container.parentElement; node && node.nodeType === 1 && node !== document.documentElement; node = node.parentElement) {
+            const cs = window.getComputedStyle(node), r = node.getBoundingClientRect();
+            const bT = parseFloat(cs.borderTopWidth) || 0, bB = parseFloat(cs.borderBottomWidth) || 0, pB = parseFloat(cs.paddingBottom) || 0;
+            if (!/^visible/.test(cs.overflowY || 'visible') && node.clientHeight > 0) limit = Math.min(limit, r.top + bT + node.clientHeight - pB - extra);
+            if (node.classList && node.classList.contains('device')) {
+              // ほんたい: いちの ずれ(iPhone で ほんたいが がめんより おおきく なって いる とき)に
+              // ひきずられない よう max-height から けいさんする。max-height が ない くみかた
+              // (world-mode)では ほんたいの たかさが なかみで きまる ので つかわない
+              const maxH = parseFloat(cs.maxHeight);
+              if (Number.isFinite(maxH) && maxH > 0) limit = Math.min(limit, r.top + maxH - pB - extra);
+            }
+            extra += pB + bB;
+          }
+          return Number.isFinite(limit) ? limit : 0;
         } catch (_) { return 0; }
       }
+      function overlayAvailPx() {
+        const limit = overlayBottomLimitPx();
+        if (!limit) return 0;
+        return Math.max(0, limit - container.getBoundingClientRect().top);
+      }
+      // ならび おわった あと、じっさいに はみ出して いないか はかる。
+      // よはく(margin)の ぶんまで きっちり 読める ので、くみかたが かわっても きれない
+      function overflowBelowPx() {
+        try {
+          const limit = overlayBottomLimitPx(); if (!limit) return 0;
+          let bottom = 0;
+          for (const ch of container.children) { if (!ch || typeof ch.getBoundingClientRect !== 'function') continue; const b = ch.getBoundingClientRect().bottom; if (b > bottom) bottom = b; }
+          // 1px は まるめの さ。それを こえた ぶんだけ ちぢめる
+          return bottom - limit > 1 ? Math.ceil(bottom - limit) : 0;
+        } catch (_) { return 0; }
+      }
+      let shrinkPx = 0; // はかった はみ出しの ぶん(canvas から ひく)
       function availHeight() {
         const oh = overlayAvailPx() || container.clientHeight || 0;
         if (!oh) return 300;
         let used = 0;
         for (const ch of container.children) { if (ch === wrap) continue; used += ch.offsetHeight || 0; }
-        return clamp(Math.floor(oh - used - 18), 220, 760);
+        // 10 は こどもの あいだの よはく。あまく 見つもって おいて、はみ出したら
+        // overflowBelowPx() で はかった ぶんだけ ちぢめる(すきまを のこさない)
+        return clamp(Math.floor(oh - used - 10 - shrinkPx), 220, 760);
       }
       let { ctx, W, H } = S.createMgCanvas(canvas, () => availHeight(), {});
       const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
@@ -2363,9 +2399,18 @@
       // さいしょの 1かいは ヒントや パッドの たかさが まだ きまって いないので、
       // ならび おわった あと もう いちど はかって 組みなおす(2かいで おちつく)
       const resizeCanvas = () => { const n = S.createMgCanvas(canvas, () => availHeight(), {}); ctx = n.ctx; W = n.W; H = n.H; if (renderer && typeof renderer.resize === 'function') renderer.resize({ ctx, W, H, rawCtx: rawCtxOf() }); };
-      resizeCanvas(); resizeCanvas();
+      // 2かい 組んで ならびを おちつかせ、それでも はみ出して いたら その ぶん ちぢめる
+      function layoutCanvas() {
+        shrinkPx = 0;
+        resizeCanvas(); resizeCanvas();
+        for (let i = 0; i < 3; i++) { const over = overflowBelowPx(); if (over <= 0) break; shrinkPx += over; resizeCanvas(); }
+      }
+      layoutCanvas();
+      // ならびが おちつくのは つぎの フレーム。ボタンや ヒントの たかさが きまってから
+      // もう いちど 組みなおす(はじめの 1かいだけでは 小さいままに なる ことが ある)
+      if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => { if (running) layoutCanvas(); });
       let resizeTimer = null;
-      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; resizeCanvas(); resizeCanvas(); }, 150); };
+      const onResize = () => { if (resizeTimer) clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { resizeTimer = null; if (!running) return; layoutCanvas(); }, 150); };
       if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') window.addEventListener('resize', onResize);
       // iPhone で ブラウザの バーが 出たり ひっこんだり した ときも 組みなおす
       if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.addEventListener === 'function') window.visualViewport.addEventListener('resize', onResize);
@@ -2399,6 +2444,9 @@
         const st = getState();
         if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
         if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
+        // ならびは あとから かわる(ヒントが 2行に なる・ブラウザの バーが 出入りする・
+        // スポット名が つく)。ときどき はかり なおして、ずれて いたら 組みなおす
+        if (frame % 30 === 15) { const want = availHeight(); if (Math.abs(want - H) > 6) layoutCanvas(); }
         const events = sim.step(dt, pad.vector());
         for (const ev of events) {
           if (ev.type === 'met') { if (typeof S.recordMet === 'function') S.recordMet(ev.actor.key); hud(); }
@@ -2434,7 +2482,9 @@
         if (typeof S.onExit === 'function') S.onExit();
       }
       rafId = requestAnimationFrame(frameFn);
-      return { stop, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
+      // ならびの けんさ よう(テストと 実機の しらべ もの に つかう)
+      const layoutInfo = () => ({ limit: overlayBottomLimitPx(), avail: overlayAvailPx(), over: overflowBelowPx(), shrink: shrinkPx, H, want: availHeight() });
+      return { stop, layoutInfo, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
     return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };

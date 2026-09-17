@@ -3187,6 +3187,22 @@
         if (avail > H) H = Math.min(avail, maxH);
       }
     }
+    // がめんの したが きりとられない ように、canvas の たかさを おさえる。
+    // overlay(ミニゲームの がめん)は はこの たかさが きまって いて、その そとに
+    // 出た ぶんは えがかれない。せかい表示では .screen-frame が overflow:auto なので、
+    // はみ出すと パッドや ボタンの わくの 下が きえて しまう。
+    // grow と おなじ はかり方(はこの たかさ - ほかの こどもの たかさ)を、
+    // こんどは「上げる」ではなく「こえさせない」ために つかう
+    if (canvas && typeof canvas.closest === 'function') {
+      const wrap = canvas.closest('.mg-canvas-wrap');
+      const overlay = wrap && wrap.parentElement;
+      if (overlay && overlay.clientHeight > 200) {
+        let used = 0;
+        for (const ch of overlay.children) { if (ch === wrap) continue; used += (ch.offsetHeight || 0) + 6; }
+        const room = overlay.clientHeight - used - 14;
+        if (room >= 180 && H > room) H = Math.round(room);
+      }
+    }
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
     const dpr = Math.min(mgPerfDpr(), num(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1));
     let ctx = canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null;
