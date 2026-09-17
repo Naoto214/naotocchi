@@ -543,5 +543,27 @@
     "G-race-3d",
     "G-pingpong-3d"
   ],
-  "scope": "100 registered games only; quick and meguru remain unregistered sources."
+  "scope": "100 registered games only; quick and meguru remain unregistered sources.",
+  "draft_batch_2": [
+    "G-basketball-3d",
+    "G-real-fishing",
+    "G-street-fight",
+    "G-mini-golf-physics",
+    "G-chain-puzzle",
+    "G-free-kick-3d",
+    "G-sky-shooter",
+    "G-roguelike-dungeon",
+    "G-jump-quest",
+    "G-grand-prix-3d",
+    "G-minesweeper-8",
+    "G-tower-defense",
+    "G-snake-classic",
+    "G-push-puzzle",
+    "G-billiards-6",
+    "G-baseball-batting",
+    "G-reversi-6",
+    "G-connect-four",
+    "G-ring-flight-3d",
+    "G-frogger-road"
+  ]
 }
