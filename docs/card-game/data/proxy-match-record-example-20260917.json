@@ -1,0 +1,390 @@
+{
+  "schema_version": "naotocchi.card_game.proxy_match_record.v1",
+  "match_id": "fixture-98-001",
+  "design": {
+    "repository": "Naoto214/naotocchi",
+    "rules_commit": "3d16b894938cb4edabef7ecf9c676c462391251a",
+    "rules_tree": "a9188c92b8ce4f19f53804c7861212ec3b536255",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "test_plan": {
+    "purpose": "98で固定した記録形式を検査する未実施入力例。強度結果には数えない。",
+    "strata": [
+      "current-452",
+      "unregistered-item-separate-stratum"
+    ],
+    "automated_game": false
+  },
+  "input": {
+    "first_player": "A",
+    "initial_growth": 20,
+    "initial_hand_size": 5,
+    "players": [
+      {
+        "player_id": "A",
+        "seat": "first",
+        "deck_order_top_to_bottom": [
+          {
+            "instance_id": "A-001",
+            "card_id": "M-antlion-01"
+          },
+          {
+            "instance_id": "A-002",
+            "card_id": "M-antlion-02"
+          },
+          {
+            "instance_id": "A-003",
+            "card_id": "M-antlion-03"
+          },
+          {
+            "instance_id": "A-004",
+            "card_id": "M-antlion-04"
+          },
+          {
+            "instance_id": "A-005",
+            "card_id": "M-antlion-05"
+          },
+          {
+            "instance_id": "A-006",
+            "card_id": "M-antlion-06"
+          },
+          {
+            "instance_id": "A-007",
+            "card_id": "M-antlion-07"
+          },
+          {
+            "instance_id": "A-008",
+            "card_id": "M-antlion-08"
+          },
+          {
+            "instance_id": "A-009",
+            "card_id": "M-beetle-01"
+          },
+          {
+            "instance_id": "A-010",
+            "card_id": "M-beetle-02"
+          },
+          {
+            "instance_id": "A-011",
+            "card_id": "C-bat"
+          },
+          {
+            "instance_id": "A-012",
+            "card_id": "C-box"
+          },
+          {
+            "instance_id": "A-013",
+            "card_id": "C-cat_friend"
+          },
+          {
+            "instance_id": "A-014",
+            "card_id": "C-chameleon"
+          },
+          {
+            "instance_id": "A-015",
+            "card_id": "C-chicken"
+          },
+          {
+            "instance_id": "A-016",
+            "card_id": "P-anglerfish"
+          },
+          {
+            "instance_id": "A-017",
+            "card_id": "P-cat_ceo"
+          },
+          {
+            "instance_id": "A-018",
+            "card_id": "P-cliff_goat"
+          },
+          {
+            "instance_id": "A-019",
+            "card_id": "P-desert_scorpion"
+          },
+          {
+            "instance_id": "A-020",
+            "card_id": "W-city"
+          },
+          {
+            "instance_id": "A-021",
+            "card_id": "W-countryside"
+          },
+          {
+            "instance_id": "A-022",
+            "card_id": "W-deepsea"
+          },
+          {
+            "instance_id": "A-023",
+            "card_id": "G-air-hockey"
+          },
+          {
+            "instance_id": "A-024",
+            "card_id": "G-animal-shogi"
+          },
+          {
+            "instance_id": "A-025",
+            "card_id": "G-archery-3d"
+          },
+          {
+            "instance_id": "A-026",
+            "card_id": "G-area-claim"
+          },
+          {
+            "instance_id": "A-027",
+            "card_id": "G-asteroids-classic"
+          },
+          {
+            "instance_id": "A-028",
+            "card_id": "G-baseball-batting"
+          },
+          {
+            "instance_id": "A-029",
+            "card_id": "G-basketball-3d"
+          },
+          {
+            "instance_id": "A-030",
+            "card_id": "G-beach-volley"
+          },
+          {
+            "instance_id": "A-031",
+            "card_id": "I-bond1"
+          },
+          {
+            "instance_id": "A-032",
+            "card_id": "I-bowtie"
+          },
+          {
+            "instance_id": "A-033",
+            "card_id": "I-c_coin2"
+          },
+          {
+            "instance_id": "A-034",
+            "card_id": "I-c_dex"
+          },
+          {
+            "instance_id": "A-035",
+            "card_id": "I-c_egg_normal"
+          },
+          {
+            "instance_id": "A-036",
+            "card_id": "E-big-illness"
+          },
+          {
+            "instance_id": "A-037",
+            "card_id": "E-boss"
+          },
+          {
+            "instance_id": "A-038",
+            "card_id": "E-fateful-transform"
+          },
+          {
+            "instance_id": "A-039",
+            "card_id": "E-final-time"
+          },
+          {
+            "instance_id": "A-040",
+            "card_id": "E-first-date"
+          }
+        ],
+        "initial_hand": [
+          "A-001",
+          "A-002",
+          "A-003",
+          "A-004",
+          "A-005"
+        ]
+      },
+      {
+        "player_id": "B",
+        "seat": "second",
+        "deck_order_top_to_bottom": [
+          {
+            "instance_id": "B-001",
+            "card_id": "M-antlion-01"
+          },
+          {
+            "instance_id": "B-002",
+            "card_id": "M-antlion-02"
+          },
+          {
+            "instance_id": "B-003",
+            "card_id": "M-antlion-03"
+          },
+          {
+            "instance_id": "B-004",
+            "card_id": "M-antlion-04"
+          },
+          {
+            "instance_id": "B-005",
+            "card_id": "M-antlion-05"
+          },
+          {
+            "instance_id": "B-006",
+            "card_id": "M-antlion-06"
+          },
+          {
+            "instance_id": "B-007",
+            "card_id": "M-antlion-07"
+          },
+          {
+            "instance_id": "B-008",
+            "card_id": "M-antlion-08"
+          },
+          {
+            "instance_id": "B-009",
+            "card_id": "M-beetle-01"
+          },
+          {
+            "instance_id": "B-010",
+            "card_id": "M-beetle-02"
+          },
+          {
+            "instance_id": "B-011",
+            "card_id": "C-bat"
+          },
+          {
+            "instance_id": "B-012",
+            "card_id": "C-box"
+          },
+          {
+            "instance_id": "B-013",
+            "card_id": "C-cat_friend"
+          },
+          {
+            "instance_id": "B-014",
+            "card_id": "C-chameleon"
+          },
+          {
+            "instance_id": "B-015",
+            "card_id": "C-chicken"
+          },
+          {
+            "instance_id": "B-016",
+            "card_id": "P-anglerfish"
+          },
+          {
+            "instance_id": "B-017",
+            "card_id": "P-cat_ceo"
+          },
+          {
+            "instance_id": "B-018",
+            "card_id": "P-cliff_goat"
+          },
+          {
+            "instance_id": "B-019",
+            "card_id": "P-desert_scorpion"
+          },
+          {
+            "instance_id": "B-020",
+            "card_id": "W-city"
+          },
+          {
+            "instance_id": "B-021",
+            "card_id": "W-countryside"
+          },
+          {
+            "instance_id": "B-022",
+            "card_id": "W-deepsea"
+          },
+          {
+            "instance_id": "B-023",
+            "card_id": "G-air-hockey"
+          },
+          {
+            "instance_id": "B-024",
+            "card_id": "G-animal-shogi"
+          },
+          {
+            "instance_id": "B-025",
+            "card_id": "G-archery-3d"
+          },
+          {
+            "instance_id": "B-026",
+            "card_id": "G-area-claim"
+          },
+          {
+            "instance_id": "B-027",
+            "card_id": "G-asteroids-classic"
+          },
+          {
+            "instance_id": "B-028",
+            "card_id": "G-baseball-batting"
+          },
+          {
+            "instance_id": "B-029",
+            "card_id": "G-basketball-3d"
+          },
+          {
+            "instance_id": "B-030",
+            "card_id": "G-beach-volley"
+          },
+          {
+            "instance_id": "B-031",
+            "card_id": "I-bond1"
+          },
+          {
+            "instance_id": "B-032",
+            "card_id": "I-bowtie"
+          },
+          {
+            "instance_id": "B-033",
+            "card_id": "I-c_coin2"
+          },
+          {
+            "instance_id": "B-034",
+            "card_id": "I-c_dex"
+          },
+          {
+            "instance_id": "B-035",
+            "card_id": "I-c_egg_normal"
+          },
+          {
+            "instance_id": "B-036",
+            "card_id": "E-big-illness"
+          },
+          {
+            "instance_id": "B-037",
+            "card_id": "E-boss"
+          },
+          {
+            "instance_id": "B-038",
+            "card_id": "E-fateful-transform"
+          },
+          {
+            "instance_id": "B-039",
+            "card_id": "E-final-time"
+          },
+          {
+            "instance_id": "B-040",
+            "card_id": "E-first-date"
+          }
+        ],
+        "initial_hand": [
+          "B-001",
+          "B-002",
+          "B-003",
+          "B-004",
+          "B-005"
+        ]
+      }
+    ],
+    "declared_choices": []
+  },
+  "record": {
+    "status": "fixture",
+    "events": [],
+    "reservations": [],
+    "result": {
+      "winner": null,
+      "reason": null,
+      "rounds_completed": 0,
+      "final_growth": {
+        "A": 20,
+        "B": 20
+      },
+      "notes": [
+        "未実施fixture。対戦結果・発動率・強度評価には数えない。"
+      ]
+    }
+  }
+}

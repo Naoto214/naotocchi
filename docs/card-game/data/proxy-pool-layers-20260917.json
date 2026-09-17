@@ -1,0 +1,103 @@
+{
+  "schema": "naotocchi.card_game.proxy_pool_layers.v1",
+  "date": "2026-09-17",
+  "design_head": "3d16b894938cb4edabef7ecf9c676c462391251a",
+  "design_tree": "a9188c92b8ce4f19f53804c7861212ec3b536255",
+  "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+  "policy": {
+    "registered_population": "477 candidates = CARD 463 + HOLD 14; unchanged by this file",
+    "current_catalog": "452 records including 12 unregistered current-source items",
+    "default_proxy": "Use the current 452 catalog. Tag the 12 unregistered items as a separate stratum so results can be recomputed without them.",
+    "retired_source": "Do not add retired items to a current-pool deck. Only the three preserved A/B item texts may appear in an explicitly legacy comparison.",
+    "hold": "Exclude from decks until the recorded reopening condition is resolved and a card text is approved.",
+    "play_legacy": "Do not add to the registered 100. Use only in an explicitly named legacy comparison fixture."
+  },
+  "layers": {
+    "current_registered": [
+      {"id": "I-poop1", "name": "トイレットペーパー", "proxy": "default", "registration": "CARD"},
+      {"id": "I-sleepboost1", "name": "ふかふかまくら", "proxy": "default", "registration": "CARD"},
+      {"id": "I-bowtie", "name": "おべんとうばこ", "proxy": "default", "registration": "CARD"},
+      {"id": "I-ribbon", "name": "おもちゃばこ", "proxy": "default", "registration": "CARD"},
+      {"id": "I-scarf", "name": "きゅうきゅうばこ", "proxy": "default", "registration": "CARD"},
+      {"id": "I-travel1", "name": "リュックサック", "proxy": "default", "registration": "CARD"},
+      {"id": "I-partner1", "name": "らぶれたー", "proxy": "default", "registration": "CARD"},
+      {"id": "I-bond1", "name": "おともだちバッジ", "proxy": "default", "registration": "CARD"},
+      {"id": "I-star", "name": "スターバッジ", "proxy": "default", "registration": "CARD"},
+      {"id": "I-c_coin2", "name": "ラッキーコイン", "proxy": "default", "registration": "CARD"},
+      {"id": "I-naoto_charm", "name": "なおとのおまもり", "proxy": "default", "registration": "CARD"},
+      {"id": "I-naoto_lantern", "name": "なおとのランタン", "proxy": "default", "registration": "CARD"},
+      {"id": "I-naoto_ring", "name": "なおとのリング", "proxy": "default", "registration": "CARD"},
+      {"id": "I-naoto_crown", "name": "なおとのかんむり", "proxy": "default", "registration": "CARD"}
+    ],
+    "current_unregistered_source": [
+      {"id": "I-gamepass1", "name": "ゲームパス", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_life", "name": "いのちのくすり", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_time_back", "name": "ときのチケット・まえ", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_time_forward", "name": "ときのチケット・あと", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_life_charm", "name": "いのちのおまもり", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_friend", "name": "おともだちチケット", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_match", "name": "おみあいチケット", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_transform", "name": "へんしんチケット", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_rare_friend", "name": "レアなかまチケット", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_egg_normal", "name": "ふしぎなたまご", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_egg_rare", "name": "レアなたまご", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"},
+      {"id": "I-c_dex", "name": "ずかんチケット", "proxy": "separate_stratum", "registration": "UNREGISTERED_SOURCE"}
+    ],
+    "retired_legacy_test": [
+      {"id": "I-flower", "name": "おはな", "proxy": "legacy_only", "registration": "CARD_HISTORY", "reason": "Preserved A/B text"},
+      {"id": "I-glasses", "name": "サングラス", "proxy": "legacy_only", "registration": "CARD_HISTORY", "reason": "Preserved A/B text"},
+      {"id": "I-hat", "name": "シルクハット", "proxy": "legacy_only", "registration": "CARD_HISTORY", "reason": "Preserved A/B text"}
+    ],
+    "retired_archive": [
+      {"id": "I-energy1", "name": "げんきバンド", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-crown", "name": "かんむり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-itemluck1", "name": "よつばのクローバー", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_safety", "name": "スコアほけん", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_mgsmall", "name": "やる気のおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_mgbig", "name": "大成功のおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_sickshield", "name": "びょうきよけのおふだ", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_growth", "name": "せいちょうドリンク", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_courtsmall", "name": "こいのおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_courtbig", "name": "こいの大おまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_breakhalf", "name": "なかなおりのおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_breakfull", "name": "きずなのおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-c_travel", "name": "たびのおまもり", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_candy", "name": "キャンディ", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_bubbles", "name": "しゃぼんだま", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_balloon", "name": "ふうせん", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_fireworks", "name": "はなび", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_camera", "name": "カメラ", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_musicbox", "name": "オルゴール", "proxy": "excluded", "registration": "CARD_HISTORY"},
+      {"id": "I-fun_surprise", "name": "びっくりばこ", "proxy": "excluded", "registration": "CARD_HISTORY"}
+    ],
+    "hold": [
+      {"id": "I-reward", "name": "ごほうび", "proxy": "excluded", "registration": "HOLD", "reopen": "Define a role independent from current rewards and travel memories"},
+      {"id": "E-env-sunny", "name": "はれの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the weather-axis board model"},
+      {"id": "E-env-cloudy", "name": "くもりの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the weather-axis board model"},
+      {"id": "E-env-rain", "name": "あめの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the weather-axis board model"},
+      {"id": "E-env-snow", "name": "ゆきの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the weather-axis board model"},
+      {"id": "E-env-morning", "name": "あさの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the time-axis board model"},
+      {"id": "E-env-day", "name": "ひるの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the time-axis board model"},
+      {"id": "E-env-evening", "name": "ゆうの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the time-axis board model"},
+      {"id": "E-env-night", "name": "よるの小さな出来事", "proxy": "excluded", "registration": "HOLD", "reopen": "Decide the time-axis board model"},
+      {"id": "E-sickness-recovery", "name": "びょうきをのりこえて", "proxy": "excluded", "registration": "HOLD", "reopen": "Create a role without adding a sickness meter"},
+      {"id": "E-last-stand", "name": "きせきのふんばり", "proxy": "excluded", "registration": "HOLD", "reopen": "Differentiate from current removal prevention without HP or death lock"},
+      {"id": "E-companion-parting", "name": "しばらくのおわかれ", "proxy": "excluded", "registration": "HOLD", "reopen": "Differentiate from normal companion replacement and current protection"},
+      {"id": "E-sodachi-milestone", "name": "そだちのふしめ", "proxy": "excluded", "registration": "HOLD", "reopen": "Keep one family and define a role without growth spending"},
+      {"id": "E-grand-goal", "name": "いっしょうのたっせい", "proxy": "excluded", "registration": "HOLD", "reopen": "Separate unlocks from in-match effects and alternate wins"}
+    ],
+    "play_legacy": [
+      {"legacy_key": "play-snowboard", "name": "スノーボード", "proxy": "legacy_only", "registered_comparator": "G-downhill-snow"},
+      {"legacy_key": "play-bluff", "name": "うそつきしょうぶ", "proxy": "legacy_only", "registered_comparator": null},
+      {"legacy_key": "play-catch-ball", "name": "キャッチボール", "proxy": "legacy_only", "registered_comparator": null},
+      {"legacy_key": "play-hide-and-seek", "name": "かくれんぼ", "proxy": "legacy_only", "registered_comparator": null}
+    ]
+  },
+  "decisions": [
+    "Do not change CARD 463, HOLD 14 or total 477 in this checkpoint.",
+    "Keep all 12 current unregistered-source items in the 452-card audit catalog and tag every proxy deck that uses them.",
+    "Exclude 20 retired archive items and all 14 HOLD records from current-pool proxy decks.",
+    "Permit three retired item texts and four play legacy texts only in explicit legacy comparisons.",
+    "Do not count optional legacy records as additional current catalog cards."
+  ]
+}

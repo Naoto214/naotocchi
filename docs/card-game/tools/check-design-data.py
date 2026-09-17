@@ -702,6 +702,91 @@ if audit_97_data_path.exists():
           "97 manual case count/IDs")
     check(audit_97_data.get("validation", {}).get("catalog_records_sha256") == revision_96_catalog_hash,
           "97 current catalog hash")
+
+# 98 separates pool-registration layers from proxy inclusion and freezes the
+# first replayable match-record contract.  The fixture is intentionally not a
+# played game, but it must already contain two legal 40-card ordered decks.
+proxy_98_doc = DOCS / "98-proxy-pool-layers-and-replay-schema.md"
+proxy_98_pool_path = DOCS / "data/proxy-pool-layers-20260917.json"
+proxy_98_schema_path = DOCS / "data/proxy-match-record.schema.json"
+proxy_98_example_path = DOCS / "data/proxy-match-record-example-20260917.json"
+check(proxy_98_doc.exists(), "98 proxy preparation document missing")
+check(proxy_98_pool_path.exists(), "98 proxy pool layers missing")
+check(proxy_98_schema_path.exists(), "98 proxy match schema missing")
+check(proxy_98_example_path.exists(), "98 proxy match example missing")
+if all(path.exists() for path in
+       (proxy_98_pool_path, proxy_98_schema_path, proxy_98_example_path)):
+    proxy_98_pool = json.loads(proxy_98_pool_path.read_text())
+    proxy_98_schema = json.loads(proxy_98_schema_path.read_text())
+    proxy_98_example = json.loads(proxy_98_example_path.read_text())
+    proxy_98_layers = proxy_98_pool.get("layers", {})
+    check(len(proxy_98_layers.get("current_registered", [])) == 14,
+          "98 current registered item count")
+    check(len(proxy_98_layers.get("current_unregistered_source", [])) == 12,
+          "98 current unregistered item count")
+    check(len(proxy_98_layers.get("retired_legacy_test", [])) == 3,
+          "98 retired item legacy count")
+    check(len(proxy_98_layers.get("retired_archive", [])) == 20,
+          "98 retired item archive count")
+    check(len(proxy_98_layers.get("hold", [])) == 14,
+          "98 HOLD count")
+    check(len(proxy_98_layers.get("play_legacy", [])) == 4,
+          "98 play legacy count")
+    proxy_98_current_items = {
+        row["id"] for row in proxy_98_layers.get("current_registered", [])
+    } | {
+        row["id"] for row in proxy_98_layers.get("current_unregistered_source", [])
+    }
+    check(proxy_98_current_items == {row["id"] for row in current_catalog_groups["current_item"]},
+          "98 current item layer IDs")
+    proxy_98_old_items = {
+        row["id"] for row in proxy_98_layers.get("retired_legacy_test", [])
+    } | {
+        row["id"] for row in proxy_98_layers.get("retired_archive", [])
+    } | {
+        row["id"] for row in proxy_98_layers.get("hold", []) if row["id"].startswith("I-")
+    }
+    check(len(proxy_98_old_items) == 24 and not (proxy_98_current_items & proxy_98_old_items),
+          "98 old/current item separation")
+    check(proxy_98_schema.get("$id") == "https://naotocchi.example/schema/card-game/proxy-match-record.v1.json",
+          "98 proxy schema ID")
+    check(proxy_98_example.get("schema_version") == "naotocchi.card_game.proxy_match_record.v1",
+          "98 proxy example schema version")
+    check(proxy_98_example.get("design", {}).get("rules_commit") ==
+          "3d16b894938cb4edabef7ecf9c676c462391251a",
+          "98 proxy rules commit")
+    check(proxy_98_example.get("design", {}).get("rules_tree") ==
+          "a9188c92b8ce4f19f53804c7861212ec3b536255",
+          "98 proxy rules tree")
+    proxy_98_players = proxy_98_example.get("input", {}).get("players", [])
+    check(len(proxy_98_players) == 2 and {row.get("player_id") for row in proxy_98_players} == {"A", "B"},
+          "98 proxy two players")
+    proxy_98_type_ids = {
+        group: {row["id"] for row in rows}
+        for group, rows in audit_97_groups.items()
+    }
+    proxy_98_all_ids = set().union(*proxy_98_type_ids.values())
+    proxy_98_instance_ids = []
+    for player in proxy_98_players:
+        deck = player.get("deck_order_top_to_bottom", [])
+        hand = player.get("initial_hand", [])
+        check(len(deck) == 40, f"98 proxy deck count: {player.get('player_id')}")
+        check(hand == [row.get("instance_id") for row in deck[:5]],
+              f"98 proxy initial hand follows deck order: {player.get('player_id')}")
+        check(all(row.get("card_id") in proxy_98_all_ids for row in deck),
+              f"98 proxy deck card IDs: {player.get('player_id')}")
+        deck_types = {
+            group for group, ids in proxy_98_type_ids.items()
+            if any(row.get("card_id") in ids for row in deck)
+        }
+        check(deck_types == set(proxy_98_type_ids),
+              f"98 proxy deck seven types: {player.get('player_id')}")
+        proxy_98_instance_ids.extend(row.get("instance_id") for row in deck)
+    check(len(proxy_98_instance_ids) == len(set(proxy_98_instance_ids)) == 80,
+          "98 proxy global instance IDs")
+    check(proxy_98_example.get("record", {}).get("status") == "fixture" and
+          proxy_98_example.get("record", {}).get("events") == [],
+          "98 proxy example remains unplayed fixture")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
