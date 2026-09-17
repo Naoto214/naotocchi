@@ -305,6 +305,12 @@ function checkLayout(m, label) {
           failures.push(engine+' illustrations: '+error.message);
           console.error('FAIL '+engine+' illustrations: '+error.message);
         }
+        try {
+          await require('./meguru-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' meguru layout: '+error.message);
+          console.error('FAIL '+engine+' meguru layout: '+error.message);
+        }
       } finally { await browser.close(); }
     }
   } finally {
