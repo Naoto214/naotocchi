@@ -3,13 +3,14 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {measureDialogs,resultSpecimen}=require('./dialog-layout-probe.js');
 
-module.exports=async function(browser,engine,fixtures,baseURL,output) {
+module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[];
   for(const [name,width,height,fixture] of [
     ['puppy',390,760,'phone_dog'],['puppy-tall',393,852,'phone_dog'],
     ['small',320,568,'phone_dog'],['crowded',390,760,'equipped'],
     ['large-text',320,640,'care_large'],['desktop',768,844,'alone'],
   ]) {
+    if(onlyNames && !onlyNames.includes(name)) continue;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce'});
     const page=await context.newPage();
     // Keep layout specimens stable across slow screenshots: quit confirmation
@@ -63,7 +64,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       await check('intro-confirm');
       assert.deepEqual(await page.locator('#minigameOverlay').boundingBox(),before,label+': confirmation moves the game');
       await page.screenshot({path:path.join(output,label+'-quit.png')});
-      await page.locator('#mgQuitNoBtn').click();await page.locator('#mgIntroStart').click();
+      await page.locator('#mgQuitNoBtn').click();await check('intro-resumed');await page.locator('#mgIntroStart').click();
       await check('playing');
       const activeBefore=await page.locator('#minigameOverlay').boundingBox();
       await page.locator('#mgQuitBtn').click();await check('playing-confirm');

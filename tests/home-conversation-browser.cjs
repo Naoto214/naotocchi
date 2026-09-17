@@ -40,7 +40,7 @@ function measureConversation() {
   };
 }
 
-module.exports=async function(browser,engine,fixtures,baseURL,output) {
+module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[],failures=[];
   const scenarios=[
     ['alone',390,760,0,false,false,0],['partner',390,760,0,true,false,0],
@@ -98,6 +98,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       cy>=partner.y+partner.h/2-.6 && cy<=m.main.y+m.main.h/2+.6;
   };
   for(const [name,width,height,count,partner,item,poops,textSize,species,stage] of scenarios) {
+    if(onlyNames && !onlyNames.includes(name)) continue;
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
     if(name==='safe-area') await context.route('**/*.css?*',async route=>{
@@ -178,7 +179,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.abs(a.y+a.h/2-b.y-b.h/2)<.6,label+': paired visible heights differ');
       }
       assert.ok(m.pageHeight<=height+1 && m.pageWidth<=width+1,label+': page overflow');
-      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped');
+      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped '+JSON.stringify({meters:m.meters,frame:m.frame}));
       for(const c of m.controls) assert.ok(c.w>=44 && c.h>=44 && c.y+c.h<=m.visibleHeight+1,label+': control is too small or below the visible viewport');
       assert.ok(m.narration.y+m.narration.h<=m.stage.y,label+': narration must stay above the cast');
       assert.ok(m.nameVisible,label+': dialogue hides character names');
