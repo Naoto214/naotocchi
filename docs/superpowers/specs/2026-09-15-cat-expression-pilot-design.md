@@ -112,3 +112,6 @@ Continue authorized batch production with beetle8 stages x10 independently origi
 
 ### Approved production-first continuation: stagbeetle (2026-09-17)
 Continue the authorized batch with8 stages x10 original-referenced edits. Preserve1200 completed portraits,120 placements and81 selected corrections, all normal art and gameplay/romance/save behavior. Preserve cream larvae, golden pupa, pale/red/blue-black adult colors, mandibles, legs and age scratches. Anchors observed on original coordinate grid. Generate only stagbeetle placements. Same owner-private Site and Draft PR278; no main merge.
+
+### Approved continuation: cicada (2026-09-18)
+Add8x10 original-referenced cicada expressions, preserving1280 existing portraits/128placements/81 corrections. Preserve nymphs, dirt, transparent wings and the empty shell in05; only main living face changes. Same marks/reactions/privateSite/DraftPR278, no main merge or gameplay/save changes.
