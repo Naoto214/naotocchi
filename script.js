@@ -10123,20 +10123,24 @@
     if (!pool.length) return false;
     L.nextEggLine = pool[Math.floor(Math.random() * pool.length)];
     L.nextEggKind = kind;
-    setMessage(`${SPECIES_DISPLAY_NAMES[L.nextEggLine]}を予約したよ。孵化したときに1個使います。`);
+    setMessage('次の人生のたまごを予約しました。中身は生まれるまでのお楽しみ。');
     saveState(); render(); return true;
   }
-  function renderDreamActions() {
+  function reservedEggKind() {
     const L = state.lifetime;
-    for (const [kind,id] of [['normal','dreamNormalBtn'],['rare','dreamRareBtn']]) {
-      const itemId = `c_egg_${kind}`, btn = document.getElementById(id), count = ITEM_SYSTEM.stock(state,itemId);
-      btn.textContent = `${ITEM_SYSTEM.CATALOG[itemId].label}（${count}こ）`;
-      btn.disabled = !itemUseAllowed(itemId) || count < 1 || !!L.nextEggLine || !!L.nextEggKind || !unraisedEggLines(kind).length;
-    }
-    document.getElementById('dreamStatus').textContent = L.nextEggLine
-      ? `予約：${SPECIES_DISPLAY_NAMES[L.nextEggLine] || '取り消して予約し直してね'}。孵化したときに1個使います。`
-      : 'まだ育てていない通常種族・レア種族からランダムに次の人生を予約します。孵化までは使いません。';
-    document.getElementById('dreamCancelBtn').disabled = !L.nextEggLine && !L.nextEggKind;
+    if (!L.nextEggLine && !L.nextEggKind) return null;
+    // Legacy reservations may omit kind. Malformed reservations still get a
+    // cancellation control, but pickDreamLine never allows an invalid hatch.
+    return ['normal','rare'].includes(L.nextEggKind) ? L.nextEggKind
+      : RARE_LINES.includes(L.nextEggLine) ? 'rare' : 'normal';
+  }
+  function cancelNextEgg(id) {
+    if (id !== `c_egg_${reservedEggKind()}`) return false;
+    state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
+    // Stock is held until hatch, so releasing the reservation must not grant
+    // another egg or refund coins. Repeated/stale clicks are harmless.
+    setMessage('予約を取り消しました。たまごはふくろに残っています。');
+    saveState(); render(); return true;
   }
   function pickDreamLine() {
     if (state.stage !== STAGE.EGG || state.infinite) return null;
@@ -12307,7 +12311,6 @@
   function renderItemOverlay() {
     el.itemMoneyLabel.innerHTML = `${careIconHTML('coin')}<span>${state.lifetime.money}</span>`;
     el.itemMoneyLabel.setAttribute('aria-label', `おかね ${state.lifetime.money}`);
-    renderDreamActions();
     el.shopItemGrid.innerHTML = SHOP_ITEMS.map((item) => {
       const owned = state.lifetime.ownedShopItems.includes(item.id);
       const equipped = state.lifetime.equippedItemId === item.id;
@@ -12553,9 +12556,11 @@
     const item = CONSUMABLE_ITEMS.find(it => it.id === id);
     const meta = ITEM_SYSTEM.CATALOG[id];
     if (!item || !meta || meta.price == null || !Number.isFinite(state.lifetime.money) || state.lifetime.money < meta.price) return false;
+    if (item.eggKind && (!itemUseAllowed(id) || !item.available())) return false;
     if (!ITEM_SYSTEM.grant(state, id)) return false;
     state.lifetime.money -= meta.price;
     state.lifetime.itemPurchases[id] = (state.lifetime.itemPurchases[id] || 0) + 1;
+    if (item.eggKind) return reserveNextEgg(item.eggKind);
     setMessage(`${item.label}をふくろに入れた`);
     saveState(); render(); return true;
   }
@@ -12566,15 +12571,20 @@
       const meta = ITEM_SYSTEM.CATALOG[item.id];
       const stock = ITEM_SYSTEM.stock(state, item.id);
       const usable = itemUseAllowed(item.id) && (!item.available || item.available());
-      const status = `${stock}こ／1回に1こ`;
+      const reserved = item.eggKind && reservedEggKind() === item.eggKind;
+      const status = reserved ? `よやく：？？？／ふくろに${stock}こ（うち1こを予約中）。生まれるときに1こ使います。`
+        : `${stock}こ／1回に1こ`;
+      const canBuy = Number.isFinite(state.lifetime.money) && state.lifetime.money >= meta.price
+        && (!item.eggKind || usable);
       const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
       return `<div class="shop-item">
         <span class="shop-item-emoji">${itemIconHTML(item)}</span>
         <span class="shop-item-label">${item.label}</span>
         <span class="shop-item-desc">${meta.desc}</span>
-        <span class="shop-item-status">${status}${reason ? `／${reason}` : ''}</span>
-        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${state.lifetime.money < meta.price ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
-        ${item.automatic ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>つかう</button>`}
+        <span class="shop-item-status">${status}${reason && !reserved ? `／${reason}` : ''}</span>
+        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${!canBuy ? 'disabled' : ''}>${item.eggKind ? 'かってよやく' : 'かう'}（${meta.price}コイン）</button>`}
+        ${reserved ? `<button type="button" data-item-action="cancel" data-id="${item.id}">よやくをとりけす</button>`
+          : item.automatic ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.eggKind ? 'ふくろからよやく（無料）' : 'つかう'}</button>`}
       </div>`;
     }).join('');
   }
@@ -12672,6 +12682,7 @@
       return;
     }
     if (item.picker === 'dex-form') {
+      if (/^dex-[0-9]+$/.test(String(value))) value = temporaryDexKeys()[Number(value.slice(4))];
       const valid = itemUseAllowed(item.id) && ITEM_SYSTEM.stock(state,item.id)
         && temporaryDexKeys().includes(value);
       const [line,indexText] = String(value).split(':');
@@ -12742,13 +12753,17 @@
       html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
     } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
-      const lines = item.picker === 'dex-form' ? [...NORMAL_LINES,...RARE_LINES] : ALL_LINES;
-      html = lines.map((line) => SPECIES[line].stages.map((stage, i) => `
-        <div class="dex-cell known tappable" data-picker-value="${line}:${i}">
-          <span class="dex-cell-emoji">${stageVisualHTML(stage, 'thumb')}</span>
-          <span class="dex-cell-label">${stage.label}</span>
-        </div>
-      `).join('')).join('');
+      el.pickerHint.textContent = '図鑑の枠を1つ選んでね。？？？は選んだあとに登録され、5分だけその姿になります。決めるまで使いません。';
+      const keys = temporaryDexKeys();
+      html = keys.map((key, slot) => {
+        const [line, index] = key.split(':');
+        const stage = SPECIES[line].stages[Number(index)];
+        const known = state.discoveredStages.includes(key);
+        return `<button type="button" class="dex-cell ${known ? 'known' : 'locked'} tappable" data-picker-value="dex-${slot}">
+          <span class="dex-cell-emoji">${known ? stageVisualHTML(stage, 'thumb') : '？'}</span>
+          <span class="dex-cell-label">${known ? escapeHtml(stage.label) : '？？？'}</span>
+        </button>`;
+      }).join('');
     } else if (item.picker === 'companion-ticket') {
       el.pickerHint.textContent='呼ぶなかまを選んでね。決めるまで使わない';
       el.pickerGrid.className='theme-grid';
@@ -14329,7 +14344,19 @@
       const def = WORLD_MASTER?.partners?.find((x) => x.id === aliasId);
       list.push({ id: `partner:${p.id}`, kind: 'partner', label: p.label, rarity: 'uncommon', art: { asset: def?.asset || '', emoji: p.emoji || '💞' }, visual: () => partnerVisualHTML(p, 'thumb') });
     }
-    for (const item of SHOP_ITEMS) list.push({ id: `item:${item.id}`, kind: 'item', label: item.label, rarity: 'common', art: { asset: '', emoji: item.emoji }, visual: () => itemIconHTML(item) });
+    const stickerItemFallbacks = new Map(SHOP_ITEMS.map((item) => [item.id, item.emoji]));
+    for (const [id, def] of Object.entries(ITEM_SYSTEM.CATALOG)) {
+      const visualId = id === 'new_themed_pack' ? 'sticker_pack' : id;
+      const item = { id: visualId, label: def.label, emoji: stickerItemFallbacks.get(id) || '🎁' };
+      list.push({
+        id: `item:${id}`,
+        kind: 'item',
+        label: def.label,
+        rarity: 'common',
+        art: { asset: `assets/items/unified/${visualId}.png`, emoji: item.emoji },
+        visual: () => itemIconHTML(item),
+      });
+    }
     for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
     stickerCatalogCache = list;
     return list;
@@ -17037,7 +17064,8 @@
     const btn = e.target.closest('button[data-item-action]');
     if (!btn || btn.disabled) return;
     else if (btn.dataset.itemAction === 'buy') buyConsumableItem(btn.dataset.id);
-    else useConsumableItem(btn.dataset.id);
+    else if (btn.dataset.itemAction === 'cancel') cancelNextEgg(btn.dataset.id);
+    else if (btn.dataset.itemAction === 'use') useConsumableItem(btn.dataset.id);
   });
 
   el.naotoItemGrid.addEventListener('click', () => {
@@ -17052,13 +17080,6 @@
     if (opened) showAuthorGreeting();
   }));
 
-  for (const [kind,id] of [['normal','dreamNormalBtn'],['rare','dreamRareBtn']]) {
-    document.getElementById(id).addEventListener('click', () => openDreamPicker(kind));
-  }
-  document.getElementById('dreamCancelBtn').addEventListener('click', () => {
-    state.lifetime.nextEggLine = null; state.lifetime.nextEggKind = null;
-    saveState(); render();
-  });
   el.pickerGrid.addEventListener('click', (e) => {
     const cell = e.target.closest('[data-picker-value]');
     if (!cell) return;

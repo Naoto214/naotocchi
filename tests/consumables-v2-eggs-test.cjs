@@ -33,9 +33,9 @@ test('one reservation blocks all rerolls; cancellation never duplicates either s
   assert.equal(h.api.useConsumableItem('c_egg_normal'),true);const chosen=s.lifetime.nextEggLine;
   random(h,0.99);
   for(const id of ['c_egg_normal','c_egg_rare'])assert.equal(h.api.useConsumableItem(id),false);
-  h.dispatch(h.get('dreamRareBtn'),'click');assert.equal(s.lifetime.nextEggLine,chosen);
+  h.api.useConsumableItem('c_egg_rare');assert.equal(s.lifetime.nextEggLine,chosen);
   h.api.resolvePickerSelection('ren');assert.equal(s.lifetime.nextEggLine,chosen);
-  for(let i=0;i<2;i++)h.dispatch(h.get('dreamCancelBtn'),'click');
+  for(let i=0;i<2;i++)h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);
   assert.equal(s.lifetime.nextEggLine,null);assert.equal(s.lifetime.nextEggKind,null);
   assert.equal(h.api.itemStock('c_egg_normal'),2);assert.equal(h.api.itemStock('c_egg_rare'),3);
   assert.equal(h.api.useConsumableItem('c_egg_rare'),true);assert.equal(s.lifetime.nextEggKind,'rare');
@@ -77,7 +77,7 @@ test('old discovered species seed the unraised pool while new temporary discover
   const h=boot(storage(seed)),s=h.api.state();random(h,0);
   assert.equal(h.api.useConsumableItem('c_egg_normal'),true);
   assert.ok(!['dog','cat'].includes(s.lifetime.nextEggLine));
-  h.dispatch(h.get('dreamCancelBtn'),'click');
+  h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);
   s.lifetime.raisedSpecies=h.api.normalLines.filter(x=>x!=='dog');s.discoveredStages.push('dog:1');
   assert.equal(h.api.useConsumableItem('c_egg_normal'),true);assert.equal(s.lifetime.nextEggLine,'dog');
 });
@@ -105,4 +105,49 @@ test('existing milestone egg grants use new stock once and never revive old drea
   for(const n of [90,100,90,100])h.api.onSodachiMilestone(n);
   assert.equal(h.api.itemStock('c_egg_normal'),1);assert.equal(h.api.itemStock('c_egg_rare'),1);
   assert.deepEqual({...s.lifetime.dreamEggs},{});
+});
+
+function itemAction(h, action, id) {
+  const button={dataset:{itemAction:action,id},disabled:false};
+  const grid=h.get('onetimeItemGrid'),old=grid.closest;grid.closest=()=>button;
+  h.dispatch(grid,'click');grid.closest=old;
+}
+for (const kind of ['normal','rare']) {
+  test(`${kind} purchase reserves secretly once; cancel/re-reserve/reload never refunds or clones`,()=>{
+    const store=storage();let h=harness({storage:store}),s=h.api.state();
+    const id=`c_egg_${kind}`, price=h.api.ITEM_SYSTEM.CATALOG[id].price;
+    s.lifetime.money=30000;random(h,0);
+    itemAction(h,'buy',id);
+    const chosen=s.lifetime.nextEggLine;
+    assert.ok(h.api[kind+'Lines'].includes(chosen),'purchase automatically reserves');
+    assert.equal(s.lifetime.money,30000-price);assert.equal(h.api.itemStock(id),1);
+    const secret=()=>{
+      h.api.renderItemOverlay();
+      const html=h.get('onetimeItemGrid').innerHTML;
+      assert.match(html,/よやく：？？？/);
+      for(const stage of h.api.SPECIES[chosen].stages){assert.ok(!html.includes(stage.label));if(stage.asset)assert.ok(!html.includes(stage.asset));}
+      assert.ok(!h.api.getMessage().includes(h.api.SPECIES[chosen].stages[0].label));
+    };
+    secret();h.api.saveState();h=boot(store);s=h.api.state();secret();
+    assert.equal(s.lifetime.nextEggLine,chosen);
+    for(const other of ['c_egg_normal','c_egg_rare'])assert.equal(h.api.buyConsumableItem(other),false);
+    assert.equal(s.lifetime.money,30000-price);
+    itemAction(h,'cancel',id);itemAction(h,'cancel',id);
+    assert.equal(s.lifetime.nextEggLine,null);assert.equal(h.api.itemStock(id),1);assert.equal(s.lifetime.money,30000-price);
+    itemAction(h,'use',id);assert.ok(s.lifetime.nextEggLine);assert.equal(s.lifetime.money,30000-price);
+    s.stage='egg';const next=s.lifetime.nextEggLine;h.api.hatchEgg();h.api.hatchEgg();
+    assert.equal(s.speciesLine,next);assert.equal(h.api.itemStock(id),0);assert.equal(s.lifetime.consumablesUsed,1);
+  });
+  test(`${kind} reserve without stock cannot purchase and unavailable purchase cannot charge`,()=>{
+    const h=harness(),s=h.api.state(),id=`c_egg_${kind}`;s.lifetime.money=30000;
+    itemAction(h,'use',id);assert.equal(s.lifetime.money,30000);assert.equal(s.lifetime.nextEggLine,null);
+    for(const stage of ['dead','clear']){s.stage=stage;assert.equal(h.api.buyConsumableItem(id),false);}
+    s.stage='growing';s.infinite=true;assert.equal(h.api.buyConsumableItem(id),false);
+    s.infinite=false;s.lifetime.raisedSpecies=[...h.api[kind+'Lines']];assert.equal(h.api.buyConsumableItem(id),false);
+    assert.equal(s.lifetime.money,30000);assert.equal(h.api.itemStock(id),0);
+  });
+}
+test('central egg controls are removed from real HTML and runtime listeners',()=>{
+  const fs=require('node:fs');
+  for(const file of ['index.html','script.js'])assert.doesNotMatch(fs.readFileSync(file,'utf8'),/dreamNormalBtn|dreamRareBtn|dreamCancelBtn|dreamStatus/);
 });
