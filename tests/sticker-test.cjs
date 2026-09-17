@@ -32,9 +32,12 @@ test('every current item has a sticker while retired items stay out', () => {
   assert.equal(itemStickers.length, current.length, 'only the current item catalog becomes stickers');
   for (const id of current) {
     const sticker = itemStickers.find((s) => s.id === `item:${id}`);
+    const visualId = id === 'new_themed_pack' ? 'sticker_pack' : id;
+    const expectedAsset = `assets/items/unified/${visualId}.png`;
     assert.ok(sticker, `missing item sticker: ${id}`);
     assert.ok(sticker.label.length > 0, `missing label: ${id}`);
-    assert.ok(sticker.visual().length > 0, `missing visual: ${id}`);
+    assert.equal(sticker.art.asset, expectedAsset, `wrong sticker art: ${id}`);
+    assert.match(sticker.visual(), new RegExp(expectedAsset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `missing visual asset: ${id}`);
   }
   for (const id of ['fun_candy', 'fun_camera', 'c_growth', 'c_safety', 'new_transform_mirror']) {
     assert.equal(ids.has(`item:${id}`), false, `retired item must stay out: ${id}`);
