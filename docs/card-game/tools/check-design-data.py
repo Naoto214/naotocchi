@@ -382,7 +382,8 @@ for batch, draft_number in ((1, 79), (2, 81), (3, 83), (4, 85), (5, 87)):
     check(batch_ids == ["G-" + sid for sid in role_games[batch_start:batch_start + 20]] == play_snapshot[f"draft_batch_{batch}"],
           f"Play batch {batch} differs from canonical roles")
     expected_methods = {1: {"すぐつかう": 18, "しかける": 2}, 2: {"すぐつかう": 17, "しかける": 3}, 3: {"すぐつかう": 18, "しかける": 2}, 4: {"すぐつかう": 17, "しかける": 3}, 5: {"すぐつかう": 18, "しかける": 2}}
-    expected_times = {1: {1: 7, 2: 13}, 2: {1: 11, 2: 8, 3: 1}, 3: {1: 9, 2: 10, 3: 1}, 4: {1: 12, 2: 7, 3: 1}, 5: {1: 12, 2: 8}}
+    # 95: bowling changes printed play time from 2 to 3; other batch-1 times stay fixed.
+    expected_times = {1: {1: 7, 2: 12, 3: 1}, 2: {1: 11, 2: 8, 3: 1}, 3: {1: 9, 2: 10, 3: 1}, 4: {1: 12, 2: 7, 3: 1}, 5: {1: 12, 2: 8}}
     methods = dict(collections.Counter(r["method"] for r in batch_records))
     times = dict(collections.Counter(r["time"] for r in batch_records))
     check(methods == expected_methods[batch], f"Play method distribution batch {batch}")
