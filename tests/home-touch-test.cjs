@@ -85,3 +85,9 @@ test('menus, minigames and life records keep their gestures and returning home r
   touch(e,'touchstart',300);
   assert.equal(touch(e,'touchmove',350),false);
 });
+
+test('home touch setup leaves the home height available after the fun strip retirement', () => {
+  const {h} = home();
+  assert.notEqual(h.get('screenNormal').style.paddingBottom, '38px');
+  assert.notEqual(h.get('itemsRow').style.position, 'absolute');
+});

@@ -1640,61 +1640,12 @@ body.region-deepsea .season-fx-item {
   font-weight: bold;
 }
 
-.items-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.item-btn {
-  position: relative;
-  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
-  border: none;
-  border-radius: 8px;
-  padding: 4px 6px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-}
-
-.item-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-}
-
-.item-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* とくべつな ごほうび(おとろえ・いのちにも きく もの)は、がめん下の
-   アイテムらんでも ひと目で わかるように 金いろに ひからせる */
-.item-btn.special {
-  background: linear-gradient(160deg, #fff8dc, #ffe08a);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15), 0 0 8px rgba(255, 200, 60, 0.75);
-}
-
 /* あいてむ画面の「ごほうび」いちらん */
 .shop-item.reward-item.locked {
   opacity: 0.55;
 }
 
-.item-count {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  background: #d6336c;
-  color: #fff;
-  font-size: 9px;
-  font-weight: bold;
-  border-radius: 8px;
-  min-width: 14px;
-  line-height: 14px;
-  text-align: center;
-  padding: 0 2px;
-}
+
 
 /* お世話の続きをそのまま見て操作できるよう、画面全体をふさぐパネルではなく
    上に かぶさる ちいさな バナーとして表示する(下のキャラ・ステータス・
@@ -4030,10 +3981,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   box-shadow: 0 2px 6px rgba(255, 179, 0, 0.35);
 }
 .daily-card.done { border-color: #9ccc65; background: linear-gradient(135deg, #f1f8e9, #dcedc8); box-shadow: none; }
-.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px; }
 .daily-streak { font-size: 9px; background: #ff7043; color: #fff; padding: 1px 7px; border-radius: 999px; }
-.daily-body { display: flex; align-items: center; gap: 8px; }
-.daily-status { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+/* Reward copy needs its own width; controls must not squeeze it at 320px. */
+.daily-body { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 6px 8px; }
+.daily-card .game-cell-desc { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.daily-status { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px; }
 .daily-score { font-size: 10px; font-weight: bold; }
 .daily-start { min-height: 34px; padding: 4px 12px; font-size: 11px; }
 

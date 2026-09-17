@@ -1,29 +1,44 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
+const fs=require('node:fs');
 const {harness}=require('./helpers/runtime-harness.cjs');
 
-test('the shop connects each current item to its illustration and keeps its label',()=>{
+test('the final ten shop items use their approved illustrations and labels in order',()=>{
   const h=harness();h.api.openExclusiveMenu('item');h.api.render();
   const html=h.get('shopItemGrid').innerHTML;
-  const expected={flower:'flower',ribbon:'ribbon',bowtie:'bowtie',poop1:'paper',scarf:'scarf',
-    glasses:'glasses',energy1:'band',hat:'hat',travel1:'backpack',sleepboost1:'sleep',
-    star:'star_badge',bond1:'paw_badge',partner1:'letter',crown:'crown',itemluck1:'clover'};
+  const ids=['poop1','sleepboost1','bowtie','ribbon','scarf','travel1','partner1','bond1','gamepass1','star'];
+  const approvedPictures={bowtie:'bento-box.png',ribbon:'toy-box.png',scarf:'first-aid-box.png',gamepass1:'game-pass.png'};
+  const expectedLabels={poop1:'トイレットペーパー',sleepboost1:'ふかふかまくら',bowtie:'おべんとうばこ',
+    ribbon:'おもちゃばこ',scarf:'きゅうきゅうばこ',travel1:'リュックサック',partner1:'らぶれたー',
+    bond1:'おともだちバッジ',gamepass1:'ゲームパス',star:'スターバッジ'};
+  const expectedIcons={poop1:'paper',travel1:'backpack',sleepboost1:'sleep',star:'star_badge',bond1:'paw_badge',partner1:'letter'};
   const buttons=[...html.matchAll(/<button\b[^>]*data-id="([^"]+)"[^>]*>([\s\S]*?)<\/button>/g)];
-  assert.equal(buttons.length,15);
+  assert.deepEqual(Array.from(h.api.SHOP_ITEMS,item=>item.id),ids);
+  assert.deepEqual(buttons.map(button=>button[1]),ids);
   for(const [,id,body] of buttons){
-    assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expected[id]}"`),id);
-    assert.match(body,/<span class="shop-item-label">[^<]+<\/span>/,id);
+    if(approvedPictures[id]){
+      assert.match(body,/class="item-picture"/,id);
+      assert.ok(body.includes(`src="assets/items/normal-equipment/${approvedPictures[id]}"`),id);
+    }else assert.match(body,new RegExp(`data-(?:ui|care)-icon="${expectedIcons[id]}"`),id);
+    assert.ok(body.includes(`<span class="shop-item-label">${expectedLabels[id]}</span>`),id);
   }
-  assert.match(buttons.find(b=>b[1]==='crown')[2],/900/);
-  assert.match(buttons.find(b=>b[1]==='flower')[2],/120/);
+});
+
+test('retired equipment is absent from the shop',()=>{
+  const h=harness();h.api.openExclusiveMenu('item');h.api.render();
+  for(const id of ['flower','energy1','hat','crown','glasses']){
+    assert.equal(h.api.SHOP_ITEMS.some(item=>item.id===id),false,id);
+    assert.doesNotMatch(h.get('shopItemGrid').innerHTML,new RegExp(`data-id="${id}"`));
+  }
 });
 
 test('equipment uses the matching illustration without modifying the saved item or actor frame',()=>{
   const h=harness();h.api.state().lifetime.equippedItemId='ribbon';
   h.api.state().lifetime.ownedShopItems=['ribbon'];h.api.render();
   const node=h.get('petAccessory');
-  assert.match(node.innerHTML,/data-ui-icon="ribbon"/);
-  assert.match(node.innerHTML,/aria-label="リボン"/);
+  assert.match(node.innerHTML,/class="item-picture"/);
+  assert.match(node.innerHTML,/assets\/items\/normal-equipment\/toy-box\.png/);
+  assert.match(node.innerHTML,/aria-label="おもちゃばこ"/);
   const size={width:node.style.width,height:node.style.height};
   h.api.state().poopCount=3;h.api.render();
   assert.deepEqual({width:node.style.width,height:node.style.height},size);
@@ -42,23 +57,8 @@ test('manual weather and time retain their labels beside the right illustration'
   assert.equal(h.api.state().lifetime.timeMode,'night');
 });
 
-test('a saved fun item displays its prop and consumes the same single item',()=>{
+test('an atlas error exposes the equipment emoji without changing equipment',()=>{
   const h=harness();
-  // Record already-earned age and first-use achievements before this repeat
-  // use; otherwise their existing story flash intentionally replaces the prop.
-  h.api.state().lifetime.consumablesUsed=1;
-  h.api.saveState();h.api.render();
-  h.api.state().items.fun_bubbles=2;h.api.render();
-  assert.match(h.get('itemsRow').innerHTML,/data-ui-icon="bubbles"/);
-  h.get('itemsRow').closest=()=>({dataset:{itemId:'fun_bubbles'},disabled:false});
-  h.dispatch(h.get('itemsRow'),'click');
-  assert.match(h.get('storyFlashEmoji').innerHTML,/data-ui-icon="bubbles"/);
-  assert.equal(h.api.state().items.fun_bubbles,1);
-  assert.match(h.get('storyFlashText').textContent,/しゃぼんだま/);
-});
-
-test('an atlas error exposes the original inventory emoji without changing counts or equipment',()=>{
-  const h=harness();h.api.state().items.fun_bubbles=2;
   h.api.state().lifetime.ownedShopItems=['sleepboost1'];
   h.api.state().lifetime.equippedItemId='sleepboost1';h.api.render();
   const before=JSON.stringify(h.api.state());
@@ -68,7 +68,6 @@ test('an atlas error exposes the original inventory emoji without changing count
     probe.listeners.find(e=>e.type==='error').fn();
     assert.equal(h.document.documentElement.dataset[atlas+'Atlas'],'failed');
   }
-  assert.match(h.get('itemsRow').innerHTML,/class="icon-fallback"[^>]*>🫧<\/span>/);
   assert.match(h.get('petAccessory').innerHTML,/class="icon-fallback"[^>]*>🛏️<\/span>/);
   assert.equal(JSON.stringify(h.api.state()),before);
 });
@@ -218,4 +217,45 @@ test('a scenery PNG failure only reveals that decoration fallback without relayi
   assert.ok(failed.classList.contains('asset-failed'));
   assert.equal(other.classList.contains('asset-failed'),false);
   assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+
+test('an equipment PNG failure reveals only its fallback and preserves saved state',()=>{
+  const h=harness();
+  h.api.state().lifetime.ownedShopItems=['ribbon'];
+  h.api.state().lifetime.equippedItemId='ribbon';h.api.render();
+  const before=JSON.stringify(h.api.state());
+  const failed=h.get('failedEquipment'),other=h.get('otherEquipment');
+  const img=h.document.createElement('img');img.tagName='IMG';img.classList.add('item-asset');
+  img.closest=selector=>selector==='.item-picture'?failed:null;
+  Object.defineProperty(h.get('petArea'),'clientWidth',{get(){throw new Error('equipment failure must not relayout the cast');}});
+  for(const listener of h.document.listeners.filter(e=>e.type==='error'))listener.fn({target:img});
+  assert.ok(failed.classList.contains('asset-failed'));
+  assert.equal(other.classList.contains('asset-failed'),false);
+  assert.match(h.get('petAccessory').innerHTML,/class="icon-fallback"[^>]*>🎀<\/span>/);
+  assert.equal(JSON.stringify(h.api.state()),before);
+});
+
+test('game pass uses its approved PNG when equipped without mapping sunglasses to it',()=>{
+  const source=fs.readFileSync('script.js','utf8');
+  const mapping=source.match(/const NORMAL_EQUIPMENT_PICTURES = Object\.freeze\(\{([\s\S]*?)\}\)/);
+  assert.ok(mapping,'normal equipment must have an explicit PNG mapping');
+  assert.match(mapping[1],/gamepass1:\s*'assets\/items\/normal-equipment\/game-pass\.png'/);
+  assert.doesNotMatch(mapping[1],/glasses\s*:/);
+  const h=harness();h.api.state().lifetime.ownedShopItems=['gamepass1'];
+  h.api.state().lifetime.equippedItemId='gamepass1';h.api.render();
+  assert.match(h.get('petAccessory').innerHTML,/assets\/items\/normal-equipment\/game-pass\.png/);
+  assert.match(h.get('petAccessory').innerHTML,/aria-label="ゲームパス"/);
+  assert.equal(h.api.state().lifetime.equippedItemId,'gamepass1');
+});
+
+test('game pass is a new shop purchase and does not inherit sunglasses ownership',()=>{
+  const h=harness();
+  h.api.state().lifetime.ownedShopItems=['glasses'];
+  h.api.openExclusiveMenu('item');h.api.render();
+  const button=h.get('shopItemGrid').innerHTML.match(/<button\b[^>]*data-id="gamepass1"[^>]*>[\s\S]*?<\/button>/)?.[0];
+  assert.ok(button,'gamepass1 must be for sale');
+  assert.match(button,/game-pass\.png/);
+  assert.match(button,/<span class="shop-item-status">💰8,?000<\/span>/);
+  assert.equal(h.api.state().lifetime.ownedShopItems.includes('gamepass1'),false);
 });

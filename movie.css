@@ -95,8 +95,6 @@ body.movie-active {overflow:hidden;overscroll-behavior:none}
 [data-theme='rain'] .movie-light {opacity:.16}
 [data-theme='star'] .movie-backdrop,[data-theme='sky'] .movie-backdrop {background-image:url('assets/world/star_stop-v1.webp')}
 [data-theme='star'] .movie-light,[data-theme='sky'] .movie-light {background:radial-gradient(ellipse at 50% 20%,#aea8f84a,transparent 65%)}
-[data-theme='special'] .movie-backdrop {background-image:url('assets/world/memory_lake-v1.webp');filter:brightness(.62) sepia(.25)}
-[data-theme='special'] .movie-light {background:radial-gradient(ellipse at 50% 45%,#fddca34d,transparent 60%),linear-gradient(140deg,#dd9adb33,transparent,#ffe6ae33)}
 [data-theme='deepsea'] .movie-backdrop {background-image:url('assets/world/deepsea-v1.webp')}
 [data-theme='deepsea'] .movie-light {background:repeating-conic-gradient(from 145deg at 55% 0%,transparent 0deg 10deg,#a4f8ff2b 12deg 18deg,transparent 22deg 35deg)}
 [data-theme='water'] .movie-backdrop {background-image:url('assets/world/forest-v1.webp');filter:brightness(.58) saturate(.55)}
@@ -118,7 +116,6 @@ body.movie-active {overflow:hidden;overscroll-behavior:none}
 [data-theme='deepsea'] .movie-atmosphere i {width:10px;height:10px;border:1px solid #c9f8ff8c;background:#a8e8ff14;box-shadow:0 0 8px #adf2ff44;animation:movie-bubble var(--speed) var(--delay) linear infinite}
 [data-theme='star'] .movie-atmosphere i,[data-theme='sky'] .movie-atmosphere i {animation:movie-twinkle var(--speed) var(--delay) ease-in-out infinite}
 [data-theme='star'] .movie-atmosphere::after {content:'';position:absolute;top:22%;left:72%;width:90px;height:2px;background:linear-gradient(90deg,transparent,#fff5cb);transform:rotate(-28deg);animation:movie-shooting-star 7s 2s ease-in infinite;opacity:0}
-[data-theme='special'] .movie-atmosphere i {width:5px;height:8px;border-radius:80% 0;background:#fbe0b7;animation:movie-confetti var(--speed) var(--delay) ease-in-out infinite}
 
 /* Choreography follows each caption, never a different random story. */
 [data-action='arrive'] .date-movie-actor {animation:movie-arrive 2.8s ease-out both}

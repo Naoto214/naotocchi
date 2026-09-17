@@ -359,9 +359,13 @@ test('stage-7 notice waits until finished minigame results have been readable',(
 test('newborn clownfish hatch male for a binary roll and save that identity',()=>{
   const {h,s,storage}=setup({stage:'egg',speciesLine:null,gender:null,orientationId:null,attractedTo:[],growth:0});
   s.lifetime.nextEggLine='clownfish';
-  s.lifetime.dreamEggs.normal=1;
+  s.lifetime.nextEggKind='normal';
+  s.items.c_egg_normal=1;
   h.sandbox.Math.random=()=>0.6;
-  for(let i=0;i<5;i++) h.dispatch(h.get('playWithBtn'),'click');
+  h.get('lifeCardOverlay').classList.add('hidden');
+  for(let i=0;i<5;i++)h.dispatch(h.get('playWithBtn'),'click');
+  assert.equal(s.speciesLine,'clownfish');
+  assert.equal(h.api.itemStock('c_egg_normal'),0);
   assert.equal(s.stage,'growing');
   assert.equal(s.gender,'male');
   assert.equal(s.ageTicks,0);

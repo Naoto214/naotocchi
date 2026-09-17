@@ -3,6 +3,7 @@
 (() => {
   const device = document.getElementById('device');
   if (!device) return;
+
   let gesture = null;
   const locked = () => device.dataset.homeFixed === 'true'
     && !(window.visualViewport?.scale > 1);

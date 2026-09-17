@@ -3,245 +3,161 @@
   else root.NaotocchiItems = factory();
 })(typeof window !== 'undefined' ? window : typeof globalThis !== 'undefined' ? globalThis : this, function () {
   'use strict';
-  // Approved 2026-09-14 catalog. Effects live in the game runtime.
+  // Current catalog; retired fun items exist only in the migration below.
   const CATALOG = Object.freeze(Object.fromEntries(Object.entries({
-  "flower": {
-    "label": "おはな",
-    "price": 120,
-    "kind": "equipment",
-    "desc": "恋愛対象が合う相手への求愛を10ポイント後押し。成功率は合わせて85%まで。",
-    "guard": "既存の双方向の恋愛対象判定・初対面処理・85%上限を維持。"
-  },
-  "ribbon": {
-    "label": "リボン",
-    "price": 120,
-    "kind": "equipment",
-    "desc": "ごきげんの自然な減りを22%やわらげる。失敗や病気の影響はそのまま。",
-    "guard": "効果は自然減だけ。病気・失敗・連続じゃれの直接ペナルティは残る。"
-  },
-  "bowtie": {
-    "label": "ちょうネクタイ",
-    "price": 180,
-    "kind": "equipment",
-    "desc": "おなかの自然な減りを22%やわらげる。食事の前に、ちょっとおめかし。",
-    "guard": "満腹を自動回復しない。食べ過ぎの判定・病気は残す。"
-  },
   "poop1": {
     "label": "トイレットペーパー",
-    "price": 240,
+    "price": 1000,
     "kind": "equipment",
-    "desc": "うんちが3個たまると、1個だけお片づけ。次のお手伝いは3分後。",
-    "guard": "自動掃除では成長・掃除実績を加算しない。装備し直しても待ち時間を戻さない。"
-  },
-  "scarf": {
-    "label": "マフラー",
-    "price": 300,
-    "kind": "equipment",
-    "desc": "お世話不足の発病を35%減らす。雪や冬で増える空腹の負担は半分に。食べすぎは防げない。",
-    "guard": "冬・雪による倍率の1を超えた部分だけ半減。病気無効化・食べ過ぎ保護にはしない。"
-  },
-  "glasses": {
-    "label": "サングラス",
-    "price": 360,
-    "kind": "equipment",
-    "desc": "ゲームのごほうびと失敗の判定に10点プラス。記録はそのまま。",
-    "guard": "補正点を記録・Sランク・勧誘・日次スコアへ混ぜない。既存挙動からの変更点として確認対象。"
-  },
-  "energy1": {
-    "label": "げんきバンド",
-    "price": 360,
-    "kind": "equipment",
-    "desc": "げんきの自然な減りを18%、ゲームの消費を25%減らす。通常の消費12が9に。",
-    "guard": "環境補正後に軽減して丸める。元気消費0にはしない。"
-  },
-  "hat": {
-    "label": "シルクハット",
-    "price": 540,
-    "kind": "equipment",
-    "desc": "ゲームの変身メーターが25から34に。通常は4回が3回に。年齢や変身回数の条件はそのまま。",
-    "guard": "年齢・成長段階・候補の解放条件・恋愛の再判定を飛ばさない。"
-  },
-  "travel1": {
-    "label": "リュックサック",
-    "price": 480,
-    "kind": "equipment",
-    "desc": "旅で使うげんきとおなかが半分に。荷物の中身も土地しだい。",
-    "guard": "連続旅行の疲れ判定・そだち70の旅先条件・訪問記録は維持。"
+    "desc": "うんちが3個たまると、自動できれいにする。",
+    "guard": "自動掃除では成長・掃除回数・掃除実績を加算しない。クールダウンは設けない。"
   },
   "sleepboost1": {
     "label": "ふかふかまくら",
-    "price": 360,
+    "price": 3000,
     "kind": "equipment",
-    "desc": "30秒眠ると、起きてから3分、いつもの疲れが半分に。",
-    "guard": "ゲームの元気消費は減らさない。連続使用で持続延長・多重化しない。年齢は通常どおり進む。 まくらを身につけている間だけ軽減が働き、外すと終了する。"
+    "desc": "ねると、すぐに元気が満タンになる。",
+    "guard": "睡眠後の時間限定バフは付けない。通常の睡眠状態・睡眠回数・十分に寝た時の成長判定は維持する。"
   },
-  "star": {
-    "label": "スターバッジ",
-    "price": 360,
+  "bowtie": {
+    "label": "おべんとうばこ",
+    "price": 3000,
     "kind": "equipment",
-    "desc": "身につけて実点30以上のゲーム3種類で15コイン。最初も次も5分待つ。クイックは全体で1種類。",
-    "guard": "元の報酬とは別の固定15。倍率・ラッキーコインをかけない。購入後最初の受取も5分後で、100分に最大300。途中終了・切替連打は対象外。"
+    "desc": "おなかがへると、自動で満タンにする。",
+    "guard": "おなか25以下で100。手動の食事回数・実績等を増やさない。"
   },
-  "bond1": {
-    "label": "おともだちバッジ",
-    "price": 600,
+  "ribbon": {
+    "label": "おもちゃばこ",
+    "price": 3000,
     "kind": "equipment",
-    "desc": "この一生で離れたなかまと、10分に1回、再会のゲーム。加入にはいつもの点数が必要。",
-    "guard": "既存の勧誘点・レア条件は維持。成功保証なし。使える相手がいなければ待ち時間を消費しない。 再会では加入シールを再付与しない。通常の初加入・別人生の本来の加入報酬とは経路を分ける。"
+    "desc": "ごきげんが下がると、自動で満タンにする。",
+    "guard": "ごきげん25以下で100。専用リアクションは維持し、手動のじゃれる回数・実績等を増やさない。"
+  },
+  "scarf": {
+    "label": "きゅうきゅうばこ",
+    "price": 3000,
+    "kind": "equipment",
+    "desc": "病気になると、自動で治してくれる。",
+    "guard": "病気の予防ではなく発病後の自動治療。手動治療回数・実績等を増やさない。"
+  },
+  "travel1": {
+    "label": "リュックサック",
+    "price": 3000,
+    "kind": "equipment",
+    "desc": "たびで、おなかと元気が減らなくなる。",
+    "guard": "連続旅行の疲れ判定・そだち70の旅先条件・訪問記録・ごきげん変化は維持。"
   },
   "partner1": {
     "label": "らぶれたー",
-    "price": 720,
+    "price": 5000,
     "kind": "equipment",
-    "desc": "なかよし度の自然な減りを25%やわらげる。交際や仲直り、結婚の手紙を読み返せる。",
-    "guard": "現在すでに無料のデート・記録機能は維持。新しい専用手紙だけ追加。関係の成立・修復は自動化しない。"
+    "desc": "こいびとの仲良し度が下がると、自動で満タンにする。",
+    "guard": "通常時の自然減は軽くしない。危険域に入った時だけ発動し、交際成立・仲直り・結婚は自動化しない。手紙の思い出表示は残す。"
   },
-  "crown": {
-    "label": "かんむり",
-    "price": 900,
+  "bond1": {
+    "label": "おともだちバッジ",
+    "price": 5000,
     "kind": "equipment",
-    "desc": "いのちのダメージを15%減らす。けんこう0が続いて倒れる直前に、一生1回だけけんこう30へ。100歳のお別れは変わらない。",
-    "guard": "けんこう0の連続カウンターが死亡閾値に達した時、死亡確定前に1回発動し、連続カウンターを0へ戻す。90歳の既存の奇跡があればそちらを先に使い、かんむりは温存。命は戻さず、命側の死亡・100歳のお別れ・病気の原因は止めない。付け替えで再使用不可。"
+    "desc": "なかまの仲良し度が下がると、自動で満タンにする。",
+    "guard": "通常時の自然減は軽くしない。危険域に入った時だけ発動し、じゃれる回数・加入・シール・実績は増やさない。"
   },
-  "itemluck1": {
-    "label": "よつばのクローバー",
-    "price": 900,
+  "gamepass1": {
+    "label": "ゲームパス",
+    "price": 8000,
     "kind": "equipment",
-    "desc": "ごほうびが5回出なかったら、次の大成功で必ず届く。",
-    "guard": "カウントはゲーム開始時の装備で決定。ごほうび獲得でリセット。強制ごほうびと同時でも合計1個。誕生日抽選は基本25%へ。"
+    "desc": "ミニゲームを遊ばず、通常成功にできる。",
+    "guard": "実プレイ条件・点数条件・勧誘・日次・記録には数えず、通常成功固定。使用後5秒だけ再使用待ち。"
+  },
+  "star": {
+    "label": "スターバッジ",
+    "price": 10000,
+    "kind": "equipment",
+    "desc": "通常ミニゲームでもらえるコインが3倍になる。",
+    "guard": "通常ミニゲーム本体のコインだけ3倍。通常成功30→90、大成功60→180、失敗0。Quick・ゲームパス・ラッキーコイン・うそつきしょうぶ・日次等には掛けない。"
   },
   "c_coin2": {
     "label": "ラッキーコイン",
-    "price": null,
+    "price": 300,
     "kind": "consumable",
-    "desc": "次の大成功でもらうゲームのコインが2ばい。",
-    "guard": "新スターバッジ・節目・シールお題には掛けない。既存の購入済み未発動分は使える状態を維持。 在庫数のプレイ上の上限は設けず、日次達成時に1個加算。発動予約は同時に1個。既存在庫・発動中でもその日の1個を受け取れ、未達成日の遡り支給はない。"
+    "desc": "ルーレットでコインがもらえる。",
+    "guard": "使用時に1個消費して即時抽選・即時支給。装備やゲーム報酬とは独立。日次達成時の1個加算は継続。"
   },
-  "c_safety": {
-    "label": "スコアほけん",
-    "price": 20,
+  "c_life": {
+    "label": "いのちのくすり",
+    "price": 300,
     "kind": "consumable",
-    "desc": "次のゲーム失敗を1回守る。おとろえ・いのち・げんきの減少なし。",
-    "guard": "成功・通常成績では消費しない。途中終了や故意の中断では無料再挑戦報酬を与えない。"
+    "desc": "いのちを満タンにする。",
+    "guard": "効果が成立するときだけ1個消費する。"
   },
-  "c_mgsmall": {
-    "label": "やる気のおまもり",
-    "price": 40,
+  "c_time_back": {
+    "label": "ときのチケット・まえ",
+    "price": 300,
     "kind": "consumable",
-    "desc": "次のゲームのごほうびと失敗の判定に25点プラス。記録はそのまま。",
-    "guard": "実績・自己ベスト・Sランク・勧誘は実点。無効な終了では消費しない。"
+    "desc": "ひとつ前の姿に5分だけ変わる。",
+    "guard": "実種族と実年齢から合法な前段階を選ぶ。"
   },
-  "c_mgbig": {
-    "label": "大成功のおまもり",
-    "price": 120,
+  "c_time_forward": {
+    "label": "ときのチケット・あと",
+    "price": 300,
     "kind": "consumable",
-    "desc": "次の実点70以上で、ごほうび1個とせいちょう28。2ばい中は56。実点70未満なら発動を待つ。",
-    "guard": "実点70未満なら温存。クローバー等と重なってもごほうびは合計1個。追加せいちょう14は既存2倍ブーストの対象にして最大28、倍率を重ねない。"
+    "desc": "ひとつ後の姿に5分だけ変わる。",
+    "guard": "実種族と実年齢から合法な次段階を選ぶ。"
   },
-  "c_sickshield": {
-    "label": "びょうきよけのおふだ",
-    "price": 60,
+  "c_life_charm": {
+    "label": "いのちのおまもり",
+    "price": 1000,
     "kind": "consumable",
-    "desc": "お世話不足で病気になりそうなとき、3回防ぐ。",
-    "guard": "治療・食べ過ぎ予防・放置無敵にしない。発病条件を解除する世話が依然必要。"
+    "desc": "死んでしまうとき、1回だけ助かる。",
+    "guard": "自動発動が成立したときだけ1個消費する。"
   },
-  "c_growth": {
-    "label": "せいちょうドリンク",
-    "price": 90,
+  "c_friend": {
+    "label": "おともだちチケット",
+    "price": 3000,
     "kind": "consumable",
-    "desc": "せいちょう2ばいを5分追加。合計10分まで。5分全部入るときに使える。",
-    "guard": "そだち100・卵・無限・お別れ中では使わせない。未使用在庫と発動中の時間を分ける。"
+    "desc": "好きな未加入のなかまを呼べる。",
+    "guard": "現在未加入の合法な候補だけを表示する。"
   },
-  "c_courtsmall": {
-    "label": "こいのおまもり",
-    "price": 50,
+  "c_match": {
+    "label": "おみあいチケット",
+    "price": 3000,
     "kind": "consumable",
-    "desc": "恋愛対象が合う相手への初回求愛を20ポイント後押し。成功率は合わせて85%まで。初対面では使わない。",
-    "guard": "初対面・候補なし・対象不一致では使わない。恋愛対象や性別を書き換えない。"
+    "desc": "恋愛できる相手を1人選んで呼べる。",
+    "guard": "現在地での通常の求愛条件を維持する。"
   },
-  "c_courtbig": {
-    "label": "こいの大おまもり",
-    "price": null,
+  "c_transform": {
+    "label": "へんしんチケット",
+    "price": 6000,
     "kind": "consumable",
-    "desc": "「こいのおまもり」へ統合。買った分は引き継げる。",
-    "guard": "移行済みの記録を付け、再読込・次の人生で二重返金しない。旧IDは履歴・互換用として保持し、必要な種類判定では統合先へ対応づける。"
+    "desc": "3つの候補から、好きな姿にへんしんできる。",
+    "guard": "通常変身と同じ合法な候補だけを表示する。"
   },
-  "c_breakhalf": {
-    "label": "なかなおりのおまもり",
-    "price": 60,
+  "c_rare_friend": {
+    "label": "レアなかまチケット",
+    "price": 8000,
     "kind": "consumable",
-    "desc": "次のすれちがいの話し合いを、もう1回分進める。残り1回なら使わない。",
-    "guard": "最低1回はプレイヤーが会話する。すでに残り1回なら使わない。別れた相手を自動で戻さない。"
+    "desc": "好きな未加入のレアなかまを呼べる。",
+    "guard": "通常加入条件を維持する。"
   },
-  "c_breakfull": {
-    "label": "きずなのおまもり",
-    "price": 100,
+  "c_egg_normal": {
+    "label": "ふしぎなたまご",
+    "price": 8000,
     "kind": "consumable",
-    "desc": "なかよし度0を10に戻し、1分だけ自然な減りを止める。同じ相手には一生1回。",
-    "guard": "猶予中の減衰だけ停止。放置すれば再び減り別れる。相性を変更しない。連続使用は同じ関係で一生1回。"
+    "desc": "次の人生が、まだ育てていない通常種族になる。",
+    "guard": "予約は1件だけ保持し、孵化成功時に消費する。"
   },
-  "c_travel": {
-    "label": "たびのおまもり",
-    "price": 70,
+  "c_egg_rare": {
+    "label": "レアなたまご",
+    "price": 10000,
     "kind": "consumable",
-    "desc": "次の旅は疲れ知らず。その土地の寄り道も選べる。",
-    "guard": "解放済みの場所のみ。元気・満腹は消費。イベントの重複報酬・実績の自然観測条件を壊さない。"
+    "desc": "次の人生が、まだ育てていないレア種族になる。",
+    "guard": "れんくんを除く未経験レア種族から予約する。"
   },
-  "fun_candy": {
-    "label": "キャンディ",
-    "price": 10,
-    "kind": "fun",
-    "desc": "ごきげん+8。しばらく、口の中に小さなお楽しみ。",
-    "guard": "満腹・命は回復しない。1分の反応中に重ねて使わせない。"
-  },
-  "fun_bubbles": {
-    "label": "しゃぼんだま",
-    "price": 25,
-    "kind": "fun",
-    "desc": "ごきげん+10。そばにいるなかまのきずなも+10。",
-    "guard": "ミニゲームの得点・成長・クリア回数には加算しない。演出を閉じても損失なし。"
-  },
-  "fun_balloon": {
-    "label": "ふうせん",
-    "price": 35,
-    "kind": "fun",
-    "desc": "30秒準備して、おうちで通常のなかまを1人招く。加入にはいつものゲームが必要。",
-    "guard": "呼べる未加入の通常なかまがいない時は使用不可。ゲーム・睡眠・他の招待中には割り込まず、その人生の次の有効なホーム場面へ保留。通常の遭遇予約と二重に招かず、対象資格を再確認。重ねて使用不可。"
-  },
-  "fun_fireworks": {
-    "label": "はなび",
-    "price": 60,
-    "kind": "fun",
-    "desc": "ごきげん+15。こいびとのなかよし度も+15。",
-    "guard": "新規の恋人は作らない。自然の時間・天気の実績条件を満たしたことにはしない。"
-  },
-  "fun_camera": {
-    "label": "カメラ",
-    "price": 900,
-    "kind": "tool",
-    "desc": "今の姿と、いっしょにいるみんなを思い出に残せる。何度でも。",
-    "guard": "撮影でコイン・シール・成長を無制限に生成しない。既存の無料の人生カード・保存機能は維持。一般ドロップから外す。"
-  },
-  "fun_musicbox": {
-    "label": "オルゴール",
-    "price": 1200,
-    "kind": "tool",
-    "desc": "旅で集めた小さな曲を聴こう。5分に1回、おとろえ-10。",
-    "guard": "既存BGM設定は無料のまま。おとろえ軽減は育成5分ごと。再使用・画面開閉・再読込で待ち時間を戻さない。一般ドロップから外す。"
-  },
-  "fun_surprise": {
-    "label": "びっくりばこ",
-    "price": 600,
-    "kind": "tool",
-    "desc": "5分に1回、何が飛び出すかお楽しみ。なくならない箱。",
-    "guard": "待ち時間は保存し、開閉・持ち替え・再読込でリセットしない。コイン・ごほうび・成長は抽選に入れない。一般ドロップから外す。"
-  },
-  "reward": {
-    "label": "ごほうび",
-    "price": null,
+  "c_dex": {
+    "label": "ずかんチケット",
+    "price": 10000,
     "kind": "consumable",
-    "desc": "デートや旅を、一枚の特別な思い出に。",
-    "guard": "病気・命・年齢の全回復は付けない。出発不可・中断なら未消費。購入品と同様、未使用分は次の人生へ持ち越す案。"
+    "desc": "好きな姿を選んで、5分だけへんしんできる。",
+    "guard": "未発見を含む通常種族と8種のレア種族の姿から選び、実種族の判定は変えない。"
   },
   "naoto_charm": {
     "label": "なおとのおまもり",
@@ -268,22 +184,8 @@
     "label": "なおとのかんむり",
     "price": null,
     "kind": "goal",
-    "desc": "いつものお楽しみに、見たことのない反応が加わる。",
+    "desc": "一生をやりきった記録を示す、記念のかんむり。",
     "guard": "4ステータス固定・無制限のコイン生成は付けない。新コレクションを既存PERFECT条件へ追加しない。"
-  },
-  "new_life_patch": {
-    "label": "いのちのばんそうこう",
-    "price": 160,
-    "kind": "consumable",
-    "desc": "命が40以下のとき、命30・けんこう20を戻す。一生に1回。",
-    "guard": "病気・空腹・老いの原因は残る。100歳の終わりや死亡後は対象外。"
-  },
-  "new_transform_mirror": {
-    "label": "へんしんのこかがみ",
-    "price": 80,
-    "kind": "consumable",
-    "desc": "変身候補が出たとき、1候補だけを合法な同じ候補プールから引き直す。1回の候補提示につき1個まで。",
-    "guard": "代替候補がなければ消費しない。年齢・段階・解放条件・隠し表示は維持。 元の候補と現在表示中の他候補は抽選から除外。代替なしなら不消費。"
   },
   "new_themed_pack": {
     "label": "テーマシールパック",
@@ -293,8 +195,15 @@
     "guard": "れんくんの隠し条件は共通。シールから本編加入・成長・図鑑発見は起こさない。"
   }
 }).map(([id, item]) => [id, Object.freeze(item)])));
-  const TOOL_IDS = ['fun_camera', 'fun_musicbox', 'fun_surprise'];
-  const MEMORY_KINDS = ['photos', 'letters', 'lights', 'reactions', 'tunes', 'specials'];
+  const RETIRED_FUN_PRICES = Object.freeze({fun_candy:10,fun_bubbles:25,fun_balloon:35,fun_fireworks:60,fun_camera:900,fun_musicbox:1200,fun_surprise:600});
+  const RETIRED_CONSUMABLE_PRICES = Object.freeze({
+    c_safety:20,c_mgsmall:40,c_mgbig:120,c_sickshield:60,c_growth:90,
+    c_courtsmall:50,c_breakhalf:60,c_breakfull:100,c_travel:70,new_transform_mirror:80
+  });
+  const RETIRED_PENDING_IDS = Object.freeze(Object.keys(RETIRED_CONSUMABLE_PRICES));
+  const RETIRED_TOOLS = ['fun_camera','fun_musicbox','fun_surprise'];
+  const retired = id => Object.prototype.hasOwnProperty.call(RETIRED_FUN_PRICES, id);
+  const MEMORY_KINDS = ['letters', 'lights', 'specials'];
   const object = value => value && typeof value === 'object' && !Array.isArray(value);
   const count = value => typeof value === 'number' && Number.isSafeInteger(value) && value > 0 ? value : 0;
   const known = id => Object.prototype.hasOwnProperty.call(CATALOG, id);
@@ -303,8 +212,7 @@
     poop2:'poop1', poop3:'poop1', scarf2:'scarf', scarf3:'scarf', glasses2:'glasses', glasses3:'glasses',
     energy2:'energy1', energy3:'energy1', hat2:'hat', hat3:'hat', travel2:'travel1', travel3:'travel1',
     sleepboost2:'sleepboost1', sleepboost3:'sleepboost1', star2:'star', star3:'star', bond2:'bond1', bond3:'bond1',
-    partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown', itemluck2:'itemluck1', itemluck3:'itemluck1'
-  };
+    partner2:'partner1', partner3:'partner1', crown2:'crown', crown3:'crown'};
   function normalizeStickers(l) {
     const stickers = l.stickers;
     if (!object(stickers)) return;
@@ -365,6 +273,126 @@
     s.duel = null;
     return true;
   }
+  function retireFunItems(state, l, bag, legacy) {
+    if (!l.funItemsRetiredVersion) {
+      let refund = 0;
+      for (const [id, price] of Object.entries(RETIRED_FUN_PRICES)) {
+        const owned = RETIRED_TOOLS.includes(id)
+          ? count(bag[id]) > 0 || (Array.isArray(l.ownedTools) && l.ownedTools.includes(id))
+            || (legacy && Array.isArray(l.ownedConsumableItems) && l.ownedConsumableItems.includes(id))
+          : count(bag[id]);
+        refund += Number(owned) * price;
+      }
+      l.money = (Number.isFinite(l.money) && l.money >= 0 ? l.money : 0) + refund;
+      l.funItemsRetiredVersion = 1;
+    }
+    // Reservations never held separate stock. Clear them without a second credit,
+    // including the life restored when leaving infinite mode.
+    for (const life of [state.itemLife, state.infiniteReturn?.itemLife]) {
+      if (!object(life)) continue;
+      delete life.balloon; delete life.candyUntil;
+      if (object(life.pendingItems)) for (const id of Object.keys(life.pendingItems)) if (retired(id)) delete life.pendingItems[id];
+    }
+    delete l.ownedTools; delete l.itemExtraScenes;
+    if (Array.isArray(l.ownedConsumableItems)) l.ownedConsumableItems = l.ownedConsumableItems.filter(id => !retired(id));
+    if (object(l.itemProgress)) {
+      delete l.itemProgress.visitedSeasons;
+      if (object(l.itemProgress.readyAt)) for (const key of ['camera','musicbox','surprise']) delete l.itemProgress.readyAt[key];
+    }
+    if (object(l.itemMemories)) {
+      for (const kind of ['photos','tunes','reactions']) delete l.itemMemories[kind];
+      if (Array.isArray(l.itemMemories.specials)) l.itemMemories.specials = l.itemMemories.specials.filter(record =>
+        !retired(record?.itemId) && record?.event !== 'fireworks' && !/^fireworks:/.test(record?.key || ''));
+    }
+    const retiredSticker = id => typeof id === 'string' && id.startsWith('item:') && retired(id.slice(5));
+    const stickers = l.stickers;
+    if (object(stickers)) {
+      if (object(stickers.owned)) for (const id of Object.keys(stickers.owned)) if (retiredSticker(id)) delete stickers.owned[id];
+      if (Array.isArray(stickers.seen)) stickers.seen = stickers.seen.filter(id => !retiredSticker(id));
+      if (object(stickers.pages)) for (const key of Object.keys(stickers.pages)) if (Array.isArray(stickers.pages[key])) stickers.pages[key] = stickers.pages[key].filter(p => !retiredSticker(p?.id));
+    }
+    for (const snapshot of [state, state.infiniteReturn]) {
+      if (!object(snapshot)) continue;
+      if (Array.isArray(snapshot.achievementsUnlocked)) snapshot.achievementsUnlocked = snapshot.achievementsUnlocked.filter(id => id !== 'consumable-all');
+      if (snapshot !== state && object(snapshot.items)) for (const id of Object.keys(snapshot.items)) if (retired(id)) delete snapshot.items[id];
+    }
+    if (object(l.achievementUnlockedAt)) delete l.achievementUnlockedAt['consumable-all'];
+  }
+  function safeSum(a, b) {
+    return Number.isSafeInteger(a) && a >= 0 && Number.isSafeInteger(b) && b >= 0 && Number.isSafeInteger(a + b) ? a + b : null;
+  }
+  function addRefund(l, refund) {
+    const money = Number.isSafeInteger(l.money) && l.money >= 0 ? l.money : 0;
+    const total = safeSum(money, refund);
+    if (total !== null) l.money = total;
+  }
+  function migrateConsumablesV2(state, l, bag, legacy) {
+    if (!object(l.itemMigrations)) l.itemMigrations = {};
+    const snapshots = [state, state.infiniteReturn].filter(object);
+    const boosts = snapshots.map(snapshot => snapshot.oneTimeBoosts).filter(object);
+    const lives = snapshots.map(snapshot => snapshot.itemLife).filter(object);
+    const pending = id => count(bag[id]) > 0 && lives.some(life => object(life.pendingItems) && life.pendingItems[id]);
+    if (l.itemMigrations.consumablesV2 !== true) {
+      let refund = 0;
+      for (const [id, price] of Object.entries(RETIRED_CONSUMABLE_PRICES)) {
+        const quantity = count(bag[id]);
+        const value = quantity && Number.isSafeInteger(quantity * price) ? quantity * price : 0;
+        refund = safeSum(refund, value) ?? refund;
+      }
+      const patches = count(bag.new_life_patch), medicine = count(bag.c_life);
+      const merged = safeSum(medicine, patches);
+      if (merged !== null && merged > 0) bag.c_life = merged;
+
+      const hasBigMinigame = boosts.some(b => b.greatReward === true || b.minigameBoost === 'big');
+      // The old shop allowed buying both effects in one life. A same-save
+      // pair proves separate payment; differing tiers in separate snapshots
+      // still describe one reservation, and big/greatReward are aliases.
+      const hasSmallMinigame = boosts.some(b => b.minigameBoost === 'small'
+        && (!hasBigMinigame || b.greatReward === true));
+      const reservationRefunds = [
+        ['c_safety',20, boosts.some(b => b.safetyNet === true)],
+        ['c_mgsmall',40, hasSmallMinigame],
+        ['c_mgbig',120, hasBigMinigame],
+        ['c_courtsmall',50, boosts.some(b => b.courtBoost === 'small')],
+        ['c_breakhalf',60, (boosts.find(b => b.breakupShield)?.breakupShield || null) === 'half'],
+        ['c_breakfull',100, (boosts.find(b => b.breakupShield)?.breakupShield || null) === 'full'],
+        ['c_travel',70, boosts.some(b => b.travelGuarantee === true)],
+      ];
+      for (const [id, price, reserved] of reservationRefunds) {
+        if (reserved && !pending(id)) refund = safeSum(refund, price) ?? refund;
+      }
+      const sicknessCounts = boosts.map(b => b.sicknessShieldCount).filter(n => Number.isSafeInteger(n) && n > 0);
+      if (sicknessCounts.length && sicknessCounts.every(n => n === 3) && !pending('c_sickshield')) refund = safeSum(refund, 60) ?? refund;
+      if (legacy && boosts.some(b => b.courtBoost === 'big')) refund = safeSum(refund, 350) ?? refund;
+      addRefund(l, refund);
+      for (const id of [...Object.keys(RETIRED_CONSUMABLE_PRICES),'new_life_patch']) delete bag[id];
+      for (const snapshot of snapshots) snapshot.boostTicks = 0;
+      l.itemMigrations.consumablesV2 = true;
+    }
+    if (l.itemMigrations.dreamEggsV2 !== true) {
+      const dreams = object(l.dreamEggs) ? l.dreamEggs : {};
+      for (const [kind,id] of [['normal','c_egg_normal'],['rare','c_egg_rare']]) {
+        const merged = safeSum(count(bag[id]), count(dreams[kind]));
+        if (merged !== null && merged > 0) bag[id] = merged;
+      }
+      l.itemMigrations.dreamEggsV2 = true;
+    }
+    l.dreamEggs = {};
+    // Cleanup is deliberately unconditional: an old return snapshot can be
+    // restored after the authoritative lifetime has already been migrated.
+    for (const b of boosts) {
+      for (const key of ['safetyNet','minigameBoost','greatReward','sicknessShieldCount','courtBoost','breakupShield','travelGuarantee']) delete b[key];
+    }
+    for (const life of lives) {
+      delete life.lifePatchUsed;
+      delete life.relationshipShields;
+      if (object(life.pendingItems)) for (const id of RETIRED_PENDING_IDS) delete life.pendingItems[id];
+    }
+    for (const snapshot of snapshots) if (snapshot !== state && object(snapshot.items)) {
+      for (const id of [...Object.keys(RETIRED_CONSUMABLE_PRICES),'new_life_patch']) delete snapshot.items[id];
+    }
+    for (const snapshot of snapshots) if (object(snapshot.partner)) delete snapshot.partner.itemGraceUntil;
+  }
   function normalize(state) {
     if (!object(state.lifetime)) state.lifetime = {};
     const l = state.lifetime;
@@ -373,50 +401,41 @@
     const legacy = !l.itemSystemVersion;
     if (!object(l.itemInventory)) l.itemInventory = object(state.items) ? state.items : {};
     const bag = l.itemInventory;
+    retireFunItems(state, l, bag, legacy);
+    migrateConsumablesV2(state, l, bag, legacy);
     for (const id of Object.keys(bag)) {
       if (!known(id) || !count(bag[id])) delete bag[id];
     }
-    l.ownedTools = Array.isArray(l.ownedTools) ? [...new Set(l.ownedTools.filter(id => TOOL_IDS.includes(id)))] : [];
-    if (!object(l.itemExtraScenes)) l.itemExtraScenes = {};
-    for (const id of TOOL_IDS) {
-      l.itemExtraScenes[id] = count(l.itemExtraScenes[id]);
-      const legacyHistory = legacy && l.ownedConsumableItems?.includes(id);
-      if (count(bag[id]) || legacyHistory) {
-        const alreadyOwned = l.ownedTools.includes(id) || legacyHistory;
-        if (!l.ownedTools.includes(id)) l.ownedTools.push(id);
-        l.itemExtraScenes[id] += Math.max(0, count(bag[id]) - (alreadyOwned ? 0 : 1));
-        delete bag[id];
-      }
+    // The saved life and infinite return may describe the same spent reservation.
+    // Credit the authoritative lifetime bag once, then remove both old effects.
+    const luckyReservations = [state.oneTimeBoosts, state.infiniteReturn?.oneTimeBoosts];
+    const luckyLives = [state.itemLife, state.infiniteReturn?.itemLife];
+    const luckyStillFunded = luckyLives.some(life => life?.pendingItems?.c_coin2);
+    if (!luckyStillFunded && luckyReservations.some(boosts => boosts?.doubleCoins === true)) {
+      const restored = safeSum(count(bag.c_coin2), 1);
+      if (restored !== null) bag.c_coin2 = restored;
     }
-    if (legacy) {
-      // An infinite-mode snapshot can hold the reservation that will be restored.
-      const reservations = [state.oneTimeBoosts, state.infiniteReturn?.oneTimeBoosts];
-      if (reservations.some(b => b?.courtBoost === 'big')) {
-        l.money = (Number.isFinite(l.money) && l.money >= 0 ? l.money : 0) + 350;
-        reservations.forEach(b => { if (b?.courtBoost === 'big') b.courtBoost = null; });
-      }
-      l.itemSystemVersion = 1;
-    }
+    luckyReservations.forEach(boosts => { if (object(boosts)) delete boosts.doubleCoins; });
+    luckyLives.forEach(life => { if (object(life?.pendingItems)) delete life.pendingItems.c_coin2; });
+    if (legacy) l.itemSystemVersion = 1;
     if (!object(l.itemPurchases)) l.itemPurchases = {};
     for (const id of Object.keys(l.itemPurchases)) {
       if (!known(id) || !count(l.itemPurchases[id])) delete l.itemPurchases[id];
     }
     if (!object(l.itemProgress)) l.itemProgress = {};
     const p = l.itemProgress;
-    p.ticks = count(p.ticks); p.cloverMisses = count(p.cloverMisses);
+    p.ticks = count(p.ticks); delete p.cloverMisses;
     if (!object(p.readyAt)) p.readyAt = {};
     for (const key of Object.keys(p.readyAt)) p.readyAt[key] = count(p.readyAt[key]);
-    if (!Array.isArray(p.starGames)) p.starGames = [];
-    p.starGames = [...new Set(p.starGames.filter(id => typeof id === 'string' && id))].slice(0, 3);
-    if (p.readyAt.star === undefined && (l.ownedShopItems?.includes('star') || l.equippedItemId === 'star')) p.readyAt.star = p.ticks + 100;
+    // Retired equipment state has no V2 payout or reunion action.
+    delete p.starGames;
+    delete p.readyAt.star;
+    delete p.readyAt.reunion;
     if (!object(l.itemMemories)) l.itemMemories = {};
     MEMORY_KINDS.forEach(kind => { if (!Array.isArray(l.itemMemories[kind])) l.itemMemories[kind] = []; });
     if (!object(state.itemLife)) state.itemLife = {};
-    if (typeof state.itemLife.crownUsed !== 'boolean') state.itemLife.crownUsed = false;
-    if (typeof state.itemLife.lifePatchUsed !== 'boolean') state.itemLife.lifePatchUsed = false;
-    if (!object(state.itemLife.relationshipShields)) state.itemLife.relationshipShields = {};
     if (!object(state.itemLife.pendingItems)) state.itemLife.pendingItems = {};
-    if (!Array.isArray(state.itemLife.departedCompanions)) state.itemLife.departedCompanions = [];
+    delete state.itemLife.departedCompanions;
     p.relationshipSerial = count(p.relationshipSerial);
     p.sceneSerial = count(p.sceneSerial);
     p.guestSerial = count(p.guestSerial);
@@ -428,14 +447,9 @@
   }
   function inventory(s) { normalize(s); return s.lifetime.itemInventory; }
   function stock(s, id) { return known(id) ? count(inventory(s)[id]) : 0; }
-  function ownsTool(s, id) { normalize(s); return s.lifetime.ownedTools.includes(id); }
   function grant(s, id, amount = 1) {
     if (!known(id) || !count(amount)) return false;
     const bag = inventory(s);
-    if (CATALOG[id].kind === 'tool') {
-      if (!s.lifetime.ownedTools.includes(id)) s.lifetime.ownedTools.push(id);
-      return true;
-    }
     if (!Number.isSafeInteger(stock(s,id) + amount)) return false;
     bag[id] = stock(s,id) + amount; return true;
   }
@@ -452,5 +466,5 @@
     const saved = JSON.parse(JSON.stringify(record, (key,value) => typeof value === 'string' && /^data:image\//i.test(value) ? undefined : value));
     s.lifetime.itemMemories[kind].push(saved); return saved;
   }
-  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, ownsTool, advance, ready, cooldown, remember};
+  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, advance, ready, cooldown, remember};
 });

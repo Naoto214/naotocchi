@@ -7,8 +7,8 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false} = {}) {
-  let now = 1000, serial = 0;
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
+  let now = clockNow, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
   const motionPreference = {matches:reducedMotion,addEventListener:(type,fn)=>{if(type==='change')motionListeners.push(fn);}};
@@ -54,7 +54,8 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         el.animations.push(animation);
         return animation;
       },
-      closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el : null,
+      closest: selector => selector === 'button[data-hold]' && el.dataset.hold ? el
+        : selector === '.transform-choice-btn' && el.dataset.line ? el : null,
       getBoundingClientRect: () => ({left: 0, top: 0, width: 300, height: id === 'speechSlot' ? 44 : 300}),
       getContext: () => canvasContext || null,
       setAttribute(name, value) { el[name === 'aria-pressed' ? 'ariaPressed' : name] = String(value); },
@@ -148,14 +149,19 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       startDuelGuess, setDuelGuess, confirmDuelGuesses, chooseDuelSuspicion, encodeDuelChallenge, encodeDuelGuess, encodeDuelReveal,
       resolveDuelWithGuessCode, resolveDuelWithRevealCode, settleDuelForSelf,
       openDreamPicker, openThemedStickerPack, chooseKakeraSticker, cancelKakeraChoice,
-      audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
+      audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, rareCompanions: RARE_COMPANIONS, partnerCandidates: ALL_PARTNER_CANDIDATES, pendingCompanion: () => pendingCompanionId, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
-      useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, useItem, onSodachiMilestone, startDaily: game => {dailyPending = true; startMinigame(game, {intro:false});}, CONSUMABLE_ITEMS, dailyStreakReward, activeBoostSummary, SHOP_ITEMS,
-      STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged,
+      useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, CONSUMABLE_ITEMS, dailyChallengeGame, dailyChallengeToday, renderGameList, activeBoostSummary, SHOP_ITEMS,
+      currentVisualForm, experiencedSpecies, normalLines:NORMAL_LINES, rareLines:RARE_LINES,
+      pickerValues: () => pickerItem?.picker === 'dex-form' ? temporaryDexKeys()
+        : pickerItem?.picker === 'transform-ticket' ? [...(ticketTransformOptions || [])]
+        : typeof ticketEncounterOptions !== 'undefined' && Array.isArray(ticketEncounterOptions) ? [...ticketEncounterOptions] : [],
+      now: () => Date.now(),
+      STORY_EVENT_POOLS, MIDLIFE_EVENTS, maybeMidlifeEvent, checkStoryEvents, onAgeChanged, onBirthday,
       applyOfflineProgress, OFFLINE_CAP_TICKS,
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES, decayRelationship, decayCompanionBonds, reinforceRelationship, goOnDate, closeDateOverlay, renderItemOverlay, renderItemMemories, renderNaotoItemGrid,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
-      scheduleEnvironmentMoment, triggerLegendEncounter, maybeLegendEncounter,
+      scheduleEnvironmentMoment, REGION_MOMENTS, triggerLegendEncounter, maybeLegendEncounter,
       playLegendEncounterMovie, playOrdinaryDateMovie, playMarriageMovie, closeDateOverlay, finishDateMovie, DATE_PLANS,
       mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, createTouchPad, minigameDemoKind, QUICK_RUN, startQuickRun, quickSoloRun, quickStats, QUICK_VOICE_CHOICES, meguruMod, startMeguru, stopMeguru, meguruActive: () => meguruActive, meguruRun: () => meguruRun, SPECIES, LEGACY_NORMAL_LINES, canonicalCompanionId, sceneryResolve: typeof SCENERY_RESOLVE === 'function' ? SCENERY_RESOLVE : undefined, sceneryCanvas: typeof SCENERY_CANVAS !== 'undefined' ? SCENERY_CANVAS : undefined, sceneryCtx: (c) => (typeof SCENERY_CANVAS !== 'undefined' && SCENERY_CANVAS ? SCENERY_CANVAS.canvas(c) : c), wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c), isAuthorUnlocked, currentFormStageIndex, renderTravelRegionGrid, QUICK_GAMES: quickMod ? quickMod.QUICK_GAMES : [], QUICK_RULES: quickMod ? quickMod.QUICK_RULES : null, isFirstMinigamePlay, arrangeMinigameControls, openMinigameHelp, closeMinigameHelp, MINIGAME_INTRO_PLAYS,
       stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openKakeraPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_PAGES, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_PACK_SIZE, STICKER_KAKERA_PACK, STICKER_PAGE_MAX, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
@@ -177,6 +183,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       games: [...new Set([...MINIGAMES, ...Object.values(REGION_MINIGAMES).flat().map(x=>x.game),
         ...Object.values(SEASONAL_MINIGAMES).flat().map(x=>x.game)])],
       state: () => state,
+      setRandom: fn => { Math.random = fn; },
       reset: () => {state = Object.assign(freshState(), {stage:STAGE.GROWING,
         speciesLine:'dog', stageIndex:5, ageTicks:500, sodachi:55, maxSodachi:55,
         hunger:50, happiness:80, energy:90, health:100});},

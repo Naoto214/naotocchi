@@ -202,21 +202,6 @@
     ],
   };
 
-  const special = [
-    [p('帰ったら、今日のこと自慢しよう。'),q('誰に?まず、となりで聞くよ。')],
-    [q('今日は少し、よそいきの顔だね。'),p('いつもの顔に、うれしいを足してきた。')],
-    [p('写真を撮ろう。今の顔、もう一回できる?'),q('頼まれると、別の顔になるね。')],
-    [q('特別な日の予定、足りてる?'),p('何もしない時間も、ひとつ入れたい。')],
-    [p('今日のおみやげ、何にしよう。'),q('帰ってから話せることが、もうあるよ。')],
-    [q('何がおかしかったのか、説明できない。'),p('笑ったところだけ、覚えておこう。')],
-  ];
-  // The partner's established phrase is shared with the saved ring memory.
-  const ringPhrase = {speaker:'partner', signature:true};
-  const ring = [
-    [p('ふたりの合言葉、覚えてる?'),ringPhrase],
-    [ringPhrase,p('うん。ふたりだけの合図だね。')],
-    [p('あの合言葉、もう一回聞きたい。'),ringPhrase],
-  ];
   const anniversaries = {
     1:[
       scene('初めての記念日。いつもの席が少しよそいきに見えた。','まだ新婚って言っていい?','いいよ。聞かれると少し照れるけど。'),
@@ -292,6 +277,6 @@
     '何を話したかより、となりの顔を覚えていそう。',
     '最後にもう一度振り返ると、同じようにこちらを見ていた。',
   ];
-  root.NaotocchiMovieDialogue = {dates, deepsea, partners, special, ring, anniversaries, shared, legends, deepseaClosings};
+  root.NaotocchiMovieDialogue = {dates, deepsea, partners, anniversaries, shared, legends, deepseaClosings};
   if (typeof module !== 'undefined' && module.exports) module.exports = root.NaotocchiMovieDialogue;
 })(globalThis);
