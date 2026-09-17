@@ -52,7 +52,7 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
-  assert.equal(expression.assetFor('assets/characters/beetle/01.png','happy'),'assets/characters/beetle/01.png');
+  assert.equal(expression.assetFor('assets/characters/stagbeetle/01.png','happy'),'assets/characters/stagbeetle/01.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
 
@@ -70,7 +70,7 @@ test('accentFor returns one static accessible-hidden SVG accent per non-normal a
   assert.equal(new Set(accents).size,names.length);
   assert.equal(expression.accentFor(base,'normal'),'');
   assert.equal(expression.accentFor(base,'unknown'),'');
-  assert.equal(expression.accentFor('assets/characters/beetle/02.png','happy'),'');
+  assert.equal(expression.accentFor('assets/characters/stagbeetle/02.png','happy'),'');
 });
 
 test('reactionFor maps every approved semantic event and rejects unknown events', () => {
@@ -121,7 +121,7 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
   assert.equal(expression.accentFor(base,'constructor'),'');
-  assert.equal(expression.assetFor('assets/characters/beetle/01.png','happy'),'assets/characters/beetle/01.png');
+  assert.equal(expression.assetFor('assets/characters/stagbeetle/01.png','happy'),'assets/characters/stagbeetle/01.png');
 });
 
 test('calling marks retain the two outlined strokes', () => {
@@ -211,7 +211,7 @@ test('adult dog supports ten expressions while unsupported species retain base p
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/06-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/beetle/${stage}.png`;
+      const other=`assets/characters/stagbeetle/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -226,7 +226,7 @@ test('puppy supports ten expressions while unsupported species retain base portr
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/03-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/beetle/${stage}.png`;
+      const other=`assets/characters/stagbeetle/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -241,7 +241,7 @@ test('wanpaku supports ten expressions while unsupported species retain base por
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/04-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/beetle/${stage}.png`;
+      const other=`assets/characters/stagbeetle/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -256,7 +256,7 @@ test('young dog supports ten expressions while unsupported species retain base p
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/05-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/beetle/${stage}.png`;
+      const other=`assets/characters/stagbeetle/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -277,7 +277,7 @@ test('calm dog supports ten expressions while unsupported species retain base po
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/07-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/beetle/${stage}.png`;
+      const other=`assets/characters/stagbeetle/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -329,7 +329,7 @@ test('sweat follows the face sides instead of the whole body', () => {
   assert.ok(sweat.left < 20);
   assert.ok(sweat.right > 25,'right sweat stays near the left-hand head, not the tail');
   assert.ok(sweat.top > 15 && sweat.top < 75);
-  assert.equal(expression.sweatFor('assets/characters/beetle/01.png',104,104,0),null);
+  assert.equal(expression.sweatFor('assets/characters/stagbeetle/01.png',104,104,0),null);
 });
 
 const faceAnchors=require('../tools/expression-face-anchors.json');
@@ -384,7 +384,7 @@ test('reviewed side marks read diagonally above the face, not alongside it',()=>
  }
 });
 
-for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
+for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
  const stage=String(i).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`;
  const states=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
  assert.equal(expression.assetFor(base,'normal'),base);
@@ -446,6 +446,15 @@ for(let i=1;i<=8;i++)test(`coral/${i} keeps the shared yellow fish hunger mark`,
 
 for(let i=1;i<=8;i++)test(`butterfly/${i} keeps the shared yellow fish hunger mark`,()=>{
  const base=`assets/characters/butterfly/${String(i).padStart(2,'0')}.png`;
+ const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ assert.ok(food(expression.accentFor(base,'hungry')));
+ assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.equal(expression.accentFor(base,'normal'),'');
+ assert.equal(expression.assetFor(base,'unknown'),base);
+});
+
+for(let i=1;i<=8;i++)test(`beetle/${i} keeps the shared yellow fish hunger mark`,()=>{
+ const base=`assets/characters/beetle/${String(i).padStart(2,'0')}.png`;
  const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
  assert.ok(food(expression.accentFor(base,'hungry')));
  assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));

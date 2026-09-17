@@ -104,3 +104,7 @@ Under the continuation authorization, add coral8 stages×10 expressions while pr
 
 ### Approved production-first continuation: butterfly (2026-09-17)
 Under the user's continuing batch authorization, add butterfly8 stages×10 original-referenced expressions. Preserve prior1040 expression assets/routes/SVGs and104 placements including81 selected corrections. Preserve green caterpillar segments, twig/leaf, chrysalis and blue wing patterns. Stage06 changes only the emerged butterfly face on the left; retain right-side chrysalis artwork. Observe original-coordinate face anchors. Shared face-relative marks and state semantics; same Draft PR278 and owner-private Site. Normal art248, gameplay, romance and save unchanged. No main merge.
+
+
+### Approved production-first continuation: beetle (2026-09-17)
+Continue authorized batch production with beetle8 stages x10 independently original-referenced expressions. Preserve1120 existing portraits/routes/SVGs,112 placements and81 user corrections. Observe face anchors from originals and coordinate grid; preserve larval segmentation, golden pupa, forked horns, elytra colors, six legs and aged textures. Generate only beetle placements. Normal sprites248, gameplay, romance, saves unchanged. Same owner-private Site and Draft PR278; never merge main.
