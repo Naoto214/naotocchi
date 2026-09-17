@@ -6649,7 +6649,7 @@
           if (inThermal > 0) sink -= 0.42;
           alt = clamp(alt - sink * dt, 0, 1.05);
           dist += speed * dt * 12; spawnZ -= speed * dt; while (spawnZ < 6) spawn();
-          for (const o of objs) { if (o.kind !== 'balloon' || o.hit || o.z > 0.12 || o.z < -0.3) continue; if (Math.abs(o.x - px) < o.r + 0.26 && Math.abs(o.y - alt) < 0.3) { o.hit = true; balloons++; sfx('coin'); say('🎈ゲット!', 600); } }
+          for (const o of objs) { if (o.kind !== 'balloon' || o.hit || o.z > 0.12 || o.z < -0.3) continue; if (Math.abs(o.x - px) < o.r + 0.18 && Math.abs(o.y - alt) < 0.22) { o.hit = true; balloons++; sfx('coin'); say('🎈ゲット!', 600); } }
           objs = objs.filter((o) => o.z > -0.8);
           hud();
           if (alt <= 0) { landed = true; finish(); }
@@ -6698,7 +6698,7 @@
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId);
           container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(8 + dist / 24 + balloons * 9 + thermals * 1.2 + (landed ? 0 : 10)), 8, 100);
+          const score = clamp(Math.round(8 + dist / 30 + balloons * 9 + thermals * 1.0 + (landed ? 0 : 8)), 8, 100);
           say(landed ? `🛬着陸!${Math.round(dist)}m 🎈${balloons}` : `⏰タイムアップ!${Math.round(dist)}m 🎈${balloons}`, 2600);
           render(performance.now());
           setTimeout(() => onComplete(score), 650);
@@ -7508,13 +7508,13 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const DURATION_MS = mgDuration(25000), G = 900;
-        let running = true, rafId = null, last = null, leftHeld = false, rightHeld = false, drag = null, p = { x: 0, y: 0, vx: 0, vy: 0 }, plats = [], camY = 0, best = 0, msg = '', msgUntil = 0, dead = 0, coins = 0, nextY = 0;
+        let running = true, rafId = null, last = null, leftHeld = false, rightHeld = false, drag = null, p = { x: 0, y: 0, vx: 0, vy: 0 }, plats = [], camY = 0, best = 0, msg = '', msgUntil = 0, dead = 0, coins = 0, nextY = 0, saves = 1;
         const startTime = performance.now() + MG_ACTION_START_GRACE_MS;
         container.innerHTML = `
           <div class="mg-header"><span id="djTimer">残り：${Math.round(DURATION_MS / 1000)}秒</span><span id="djScore">📏 0m／⭐ 0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="djCanvas"></canvas></div>
-          <div class="mg-hint" id="djHint">したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっている。</div>
+          <div class="mg-hint" id="djHint">したのパッドか画面を横になぞって動き、台に降りよう。ジャンプは自動。緑はふつう、青は動く、茶色は1回でこわれる。🔴バネは大ジャンプ。左右のはしはつながっていて、1回だけ落ちても助かるよ。</div>
           `;
         const canvas = container.querySelector('#djCanvas');
         const { pad } = mgPad(container, { mode: 'delta', axis: 'x', glide: { speed: 220 }, onDelta: (dx) => { p.x += dx * 1.4; } }, '');
@@ -7540,7 +7540,20 @@
           const height = -(camY); if (height > best) { best = height; hud(); }
           while (nextY > camY - 60) { nextY -= lerp(48, 62, difficulty) + Math.random() * 18 + Math.min(30, best / 300); addPlat(nextY); }
           plats = plats.filter((pl) => pl.y < camY + H + 40);
-          if (p.y > camY + H + 30) { dead = now; finish(); }
+          if (p.y > camY + H + 30) {
+            // 1回だけ たすける。1手 ふみはずしただけで 2秒で おわると、
+            // どう すれば よかったか わからない まま 終わって しまう
+            if (saves > 0) {
+              saves--;
+              const below = plats.filter((pl) => !pl.broken && pl.y > camY + H * 0.35).sort((a, b) => a.y - b.y)[0];
+              const land = below || { x: W / 2 - PW / 2, y: camY + H * 0.7 };
+              if (!below) plats.push({ x: land.x, y: land.y, kind: 'normal', vx: 0 });
+              p.x = land.x + PW / 2; p.y = land.y - 14; p.vx = 0; p.vy = -560;
+              sfx('jump'); say('💦おっこちた…あと1回!', 1200);
+              return;
+            }
+            dead = now; finish();
+          }
         }
         function render(now) {
           if (!ctx) return;
@@ -7605,14 +7618,30 @@
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); if (!running) return; if (moving) { sweep = Math.min(1.5, sweep + 0.35); sweeps++; return; } if (phase !== 'me') return; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); aiming = { id: e.pointerId, x0: p.x, y0: p.y, x: p.x, y: p.y, t0: performance.now() }; });
         canvas.addEventListener('pointermove', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const p = mgPointerPos(canvas, e); aiming.x = p.x; aiming.y = p.y; });
         canvas.addEventListener('pointerup', (e) => { if (!aiming || e.pointerId !== aiming.id) return; const dx = aiming.x - aiming.x0, dy = aiming.y - aiming.y0; aiming = null; if (dy > -20) { say('🔴を「上へ」スワイプしてね', 1000); return; }
-          const { reach, speed, ang } = aimShot(dx, dy); void reach; throwStone(true, Math.cos(ang) * speed, Math.sin(ang) * speed, clamp(dx / 60, -1, 1)); });
+          const a = aimShot(dx, dy); throwStone(true, Math.cos(a.ang) * a.speed, Math.sin(a.ang) * a.speed, a.curl); });
         canvas.addEventListener('pointercancel', () => { aiming = null; });
         // スワイプの ながさが そのまま「すすむ きょり」。まさつ 38px/s^2 で ちょうど
         // そこに とまる はやさを ぎゃくさんする ので、ガイドの ● に とまる
         const MAX_REACH = START.y - 12;
         function aimShot(dx, dy) {
           const reach = clamp(Math.hypot(dx, dy) * 2.4, 90, MAX_REACH);
-          return { reach, speed: Math.sqrt(2 * 38 * reach), ang: Math.atan2(dy, dx) };
+          return { reach, speed: Math.sqrt(2 * 38 * reach), ang: Math.atan2(dy, dx), curl: clamp(dx / 60, -1, 1) };
+        }
+        // ガイドは step() と おなじ しきで なぞる ので、カーブも そのまま 出る。
+        // ほかの 石との ぶつかりは 入れない(そこは じぶんで 読むところ)
+        function previewPath(a) {
+          const pts = []; let px = START.x, py = START.y, vx = Math.cos(a.ang) * a.speed, vy = Math.sin(a.ang) * a.speed;
+          for (let i = 0; i < 420; i++) {
+            const dt = 1 / 60, sp = Math.hypot(vx, vy); if (sp <= 0) break;
+            const ns = Math.max(0, sp - 38 * dt); vx *= ns / sp; vy *= ns / sp;
+            if (ns <= 0) break;
+            vx += a.curl * 9 * dt * (ns / 200);
+            px += vx * dt; py += vy * dt;
+            if (px < R || px > W - R || py < R || py > H + 20) { pts.push([px, py]); pts.out = true; return pts; }
+            if (i % 4 === 0) pts.push([px, py]);
+          }
+          pts.push([px, py]);
+          return pts;
         }
         function throwStone(mine, vx, vy, curl) { sfx('whoosh'); stones.push({ x: START.x, y: START.y, vx, vy, mine, curl, alive: true }); moving = true; sweep = 0; if (mine) myThrown++; else aiThrown++; hud(); say(mine ? '🔴なげた!タップでスイープ' : '🟡あいてのショット', 900); }
         function aiThrow() { const target = bestTarget(); const dx = target.x - START.x, dy = target.y - START.y; const d = Math.hypot(dx, dy); // ひつような はやさ(まさつ 0.45 * 60 ぐらい) を てきとうに
@@ -7642,9 +7671,10 @@
           ctx.strokeStyle = '#e63946'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, HOG); ctx.lineTo(W, HOG); ctx.stroke(); ctx.strokeStyle = 'rgba(60,80,120,.5)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(W / 2, 0); ctx.lineTo(W / 2, H); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0, BTN.y); ctx.lineTo(W, BTN.y); ctx.stroke();
           ctx.fillStyle = 'rgba(60,80,120,.6)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'bottom'; ctx.fillText('ホッグライン', 4, HOG - 2);
           for (const s of stones) if (s.alive) drawStone(s);
-          if (!moving && phase === 'me' && myThrown < STONES) { drawStone({ x: START.x, y: START.y, mine: true }); if (aiming) { const dx = aiming.x - aiming.x0, dy = aiming.y - aiming.y0; if (dy < -10) { const a = aimShot(dx, dy); const ex = START.x + Math.cos(a.ang) * a.reach, ey = START.y + Math.sin(a.ang) * a.reach; const near = Math.hypot(ex - BTN.x, ey - BTN.y) < 62;
-              ctx.strokeStyle = near ? 'rgba(60,180,90,.8)' : 'rgba(230,57,70,.55)'; ctx.setLineDash([4, 4]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(START.x, START.y); ctx.lineTo(ex, ey); ctx.stroke(); ctx.setLineDash([]);
-              ctx.fillStyle = near ? 'rgba(60,180,90,.85)' : 'rgba(230,57,70,.65)'; ctx.beginPath(); ctx.arc(ex, ey, R, 0, Math.PI * 2); ctx.fill(); } } else { ctx.fillStyle = 'rgba(230,57,70,.5)'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText('↑スワイプでなげる', START.x, START.y - 14); } }
+          if (!moving && phase === 'me' && myThrown < STONES) { drawStone({ x: START.x, y: START.y, mine: true }); if (aiming) { const dx = aiming.x - aiming.x0, dy = aiming.y - aiming.y0; if (dy < -10) { const a = aimShot(dx, dy); const path = previewPath(a); const end = path[path.length - 1]; const near = !path.out && Math.hypot(end[0] - BTN.x, end[1] - BTN.y) < 62;
+              ctx.strokeStyle = near ? 'rgba(60,180,90,.8)' : 'rgba(230,57,70,.55)'; ctx.setLineDash([4, 4]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(START.x, START.y); for (const [qx, qy] of path) ctx.lineTo(qx, qy); ctx.stroke(); ctx.setLineDash([]);
+              ctx.fillStyle = near ? 'rgba(60,180,90,.85)' : 'rgba(230,57,70,.65)'; ctx.beginPath(); ctx.arc(end[0], end[1], R, 0, Math.PI * 2); ctx.fill();
+              if (path.out) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(end[0] - 4, end[1] - 4); ctx.lineTo(end[0] + 4, end[1] + 4); ctx.moveTo(end[0] + 4, end[1] - 4); ctx.lineTo(end[0] - 4, end[1] + 4); ctx.stroke(); } } } else { ctx.fillStyle = 'rgba(230,57,70,.5)'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText('↑スワイプでなげる', START.x, START.y - 14); } }
           if (moving) { ctx.fillStyle = 'rgba(0,0,0,.45)'; ctx.fillRect(W / 2 - 40, H - 14, 80, 6); ctx.fillStyle = '#7fe0ff'; ctx.fillRect(W / 2 - 40, H - 14, 80 * clamp(sweep / 1.5, 0, 1), 6); ctx.fillStyle = '#2b4a6b'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText('🧹スイープ(タップ連打)', W / 2, H - 16); }
           const t = tally(); if (t.n) { ctx.fillStyle = 'rgba(0,0,0,.45)'; mgRoundRect(ctx, 6, 6, 92, 16, 8); ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(`${t.who === 1 ? '🔴あなた' : '🟡あいて'} +${t.n}`, 12, 14); }
           if (now < msgUntil) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 95, H * 0.42, 190, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H * 0.42 + 13); }
@@ -8241,49 +8271,84 @@
       start(container, onComplete) {
         const difficulty = ageDifficulty();
         const LANDINGS = 2;
-        let running = true, rafId = null, last = null, n = 0, x = 0, alt = 0, vy = 0, pitch = 0, upHeld = false, downHeld = false, drag = null, wind = 0, gust = 0, results = [], phase = 'fly', msg = '', msgUntil = 0, total = 0, camX = 0, flareBonus = false;
+        let running = true, rafId = null, last = null, n = 0, x = 0, alt = 0, vy = 0, pitch = 0, upHeld = false, downHeld = false, drag = null, wind = 0, gust = 0, results = [], phase = 'fly', msg = '', msg2 = '', msgUntil = 0, total = 0, camX = 0;
+        // 進入中に めやすの線から どれだけ ずれたかを ためる。かぜと 突風は
+        // ほうっておくと ずれていく ので、ここが「なおしつづけた人」との 差になる
+        // さいしょの 1.2秒は 数えない。わざと 線より すこし 上から 始める ので、
+        // 手を つける まえの ずれで 点を へらしたら 理不尽
+        let trackSum = 0, trackT = 0, flyT = 0;
         const startTime = performance.now();
         container.innerHTML = `
           <div class="mg-header"><span id="plNo">1/${LANDINGS}回目</span><span id="plScore">合計0</span></div>
           <div class="mg-title">${title}</div>
           <div class="mg-canvas-wrap"><canvas class="mg-canvas" id="plCanvas"></canvas></div>
-          <div class="mg-hint" id="plHint">したのパッドか画面をたてになぞって機首を上げ下げ。緑の線を目安に、滑走路の⬛へふわっと降りよう。風で浮きしずみするよ。</div>
+          <div class="mg-hint" id="plHint">緑の線にのせて飛べば▲に着陸できる。接地の直前に機首を上げるとふわっと浮いて◎までのびる（これが高得点）。風で流されるので線にのせ直そう。</div>
           `;
         const canvas = container.querySelector('#plCanvas');
         const { pad } = mgPad(container, { mode: 'vector', axis: 'y', holdMs: 150, onVector: (x, y) => { upHeld = y < -0.4; downHeld = y > 0.4; } }, '');
         const { ctx, W, H } = createMgCanvas(canvas, 230, { grow: true, maxGrow: 1.6 });
         const noEl = container.querySelector('#plNo'), scoreEl = container.querySelector('#plScore'), hint = container.querySelector('#plHint');
-        const say = (t, ms = 1300) => { msg = t; msgUntil = performance.now() + ms; hint.textContent = t; };
+        const say = (t, ms = 1300, t2 = '') => { msg = t; msg2 = t2; msgUntil = performance.now() + ms; hint.textContent = t2 ? `${t}　${t2}` : t; };
         const hud = () => { noEl.textContent = `${Math.min(LANDINGS, n + 1)}/${LANDINGS}回目`; scoreEl.textContent = `合計${total}`; };
         canvas.addEventListener('pointerdown', (e) => { e.preventDefault(); try { canvas.setPointerCapture(e.pointerId); } catch (err) {} const p = mgPointerPos(canvas, e); drag = { id: e.pointerId, y: p.y, pitch }; });
         canvas.addEventListener('pointermove', (e) => { if (!drag || e.pointerId !== drag.id) return; const p = mgPointerPos(canvas, e); pitch = clamp(drag.pitch - (p.y - drag.y) / 95, -1, 1); });
         const endDrag = () => { drag = null; }; canvas.addEventListener('pointerup', endDrag); canvas.addEventListener('pointercancel', endDrag);
         // ワールド: x 0..400(m)、かっそうろ 300..400、ちゃくりく ゾーン 310..345。グライドパス: alt = (300 - x) * 0.1 (m)
-        const RUN0 = 300, ZONE = [306, 352], SPEED = lerp(24, 29, difficulty);
-        // めやすの 線は ゾーンの まんなか(AIM)を さす。かたむきは「機首まっすぐの
-        // しずむ はやさ(2.8m/s)」と 機速から きめる ので、そのまま とべば ゾーンに おりる。
-        // プレイヤーが なおすのは かぜと 突風の ぶん だけ
-        const AIM = (ZONE[0] + ZONE[1]) / 2, SLOPE = 2.8 / SPEED;
+        const RUN0 = 300, ZONE = [304, 386], SPEED = lerp(24, 29, difficulty);
+        // 緑の線(▲)は ⬛の まんなか(◎)より 30m 手前を さす。かたむきは
+        // 「機首まっすぐの しずむ はやさ(2.8m/s)」と 機速から きめる ので、
+        // 線に のって いれば かならず 滑走路に おりる = 着陸じたいは かんたん。
+        // ◎まで とどかせるのが フレア(接地の 直前に 機首を 上げて うかせる)で、
+        // これが そのまま「ふわっと」の 点にも なる。つまり
+        //   なにも しない → 滑走路には つくが ▲どまり
+        //   線を なおす   → まっすぐ 降りられる
+        //   さらに フレア → ◎に とどき、やわらかく つく
+        // の 3だんかいに なる
+        const CTR = (ZONE[0] + ZONE[1]) / 2, AIM = CTR - 30, SLOPE = 2.8 / SPEED;
         const glide = (px) => Math.max(0, (AIM - px) * SLOPE);
-        function reset() { x = 0; alt = glide(0) + 1.5; vy = 0; pitch = 0; wind = (Math.random() - 0.5) * lerp(0.5, 1.0, difficulty); phase = 'fly'; flareBonus = false; say(`${n + 1}回目： 緑の線にあわせよう`, 1400); }
+        function reset() { x = 0; alt = glide(0) + 1.5; vy = 0; pitch = 0; wind = (Math.random() - 0.5) * lerp(0.5, 1.0, difficulty); phase = 'fly'; trackSum = 0; trackT = 0; flyT = 0; say(`${n + 1}回目： 緑の線にのせて、ふわっと降りよう`, 1600); }
         reset();
         function update(dt, now) {
           if (phase !== 'fly') return;
           const kp = (upHeld ? 1 : 0) - (downHeld ? 1 : 0); if (kp) pitch = clamp(pitch + kp * dt * 1.8, -1, 1); else if (!drag) pitch += (0 - pitch) * Math.min(1, dt * 0.8);
           gust += ((Math.random() - 0.5) * 2 - gust) * Math.min(1, dt * 0.6);
-          const targetVy = pitch * 6 - 2.8 + wind * 0.8 + gust * lerp(0.3, 0.6, difficulty); vy += (targetVy - vy) * Math.min(1, dt * 2.2);
+          let targetVy = pitch * 3.8 - 2.8 + wind * 0.8 + gust * lerp(0.3, 0.6, difficulty);
+          // 進入の さいご(8m より 下)では、機首を 上げても かならず すこしは しずむ。
+          // しずみの 下げどまりは 高いほど 大きい(alt*0.5、さいてい 1.2m/s)ので、
+          //   ・高い ところで 上げても ほとんど きかない
+          //   ・1〜3m で 上げると しずみが 1.2〜1.5m/s に なり、ふわっと 20〜50m のびる
+          //   ・どんなに 上げても うきつづけて 滑走路を こえる ことは ない
+          // まっすぐ 降りて いる ぶんには この しばりは かからない(2.8m/s の ほうが 速い)
+          if (alt < 8) targetVy = Math.min(targetVy, -Math.max(1.2, alt * 0.5));
+          vy += (targetVy - vy) * Math.min(1, dt * 2.2);
           alt += vy * dt; x += SPEED * dt; camX += (x - camX) * Math.min(1, dt * 6);
+          flyT += dt; if (flyT > 1.2 && x < AIM - 30) { trackSum += Math.abs(alt - glide(x)) * dt; trackT += dt; }
           if (alt <= 0) { alt = 0; phase = 'landed'; judge(); return; }
           if (x > 420) { phase = 'landed'; results.push(0); total += 0; say('💦滑走路を通りすぎた…やり直し', 1600); hud(); setTimeout(next, 1800); return; }
           if (alt > 45) { alt = 45; vy = Math.min(vy, 0); }
         }
+        // ・おりる こと じたい(滑走路に つく)は やさしい = 15点。
+        // ・のこり 85点は「⬛の まんなかに どれだけ 近いか」「どれだけ ふわっと
+        //   おりたか」「進入中 どれだけ 線に のっていたか」で つく。
+        // ぼーっと 飛んでも 滑走路には つくが、かぜで 線から ずれ、
+        // しずむ はやさも そのまま なので、点は のびない
+        const ZONE_HALF = (ZONE[1] - ZONE[0]) / 2;   // 43m
         function judge() {
-          const onRunway = x >= RUN0 && x <= 400; const inZone = x >= ZONE[0] && x <= ZONE[1]; const soft = -vy;
-          let pts = 0, text;
-          if (!onRunway) { const near = x > RUN0 - 25 && x < 425; text = near ? '🛬ぎりぎり滑走路の外…' : '💥滑走路の外についた…'; pts = near ? 15 : 0; }
-          else if (soft > 5.5) { text = `💥強く着陸(${soft.toFixed(1)}m/s)…`; pts = 12; }
-          else { pts = 40 + (inZone ? 30 : 12) + Math.round(clamp((5.5 - soft) / 5.5, 0, 1) * 30); text = pts >= 90 ? `🌟パーフェクトランディング!${pts}` : soft < 2.4 ? `✨ふわっと着陸!${pts}` : `着陸${pts}`; }
-          results.push(pts); total += pts; sfx(pts >= 70 ? 'coin' : pts > 10 ? 'hit' : 'bad'); hud(); say(text, 1800); setTimeout(next, 2000);
+          const onRunway = x >= RUN0 && x <= 400; const soft = -vy;
+          const dev = trackT > 0.5 ? trackSum / trackT : 0;
+          let pts = 0, text, sub = '';
+          if (!onRunway) { const near = x > RUN0 - 25 && x < 425; text = near ? '🛬ぎりぎり滑走路の外…' : '💥滑走路の外についた…'; pts = near ? 10 : 0; sub = '⬛の上をねらおう'; }
+          else if (soft > 8.0) { text = `💥たたきつけた(${soft.toFixed(1)}m/s)…`; pts = 12; sub = '着地の直前に機首を上げるとふわっと降りられる'; }
+          else {
+            // まんなか ±25m は まんてん。フレアで すこし のびても 損に ならない
+            const pZone = Math.round(clamp((ZONE_HALF - Math.abs(x - CTR)) / (ZONE_HALF - 25), 0, 1) * 15);
+            const pSoft = Math.round(clamp((3.2 - soft) / 2.6, 0, 1) * 35);
+            const pLine = Math.round(clamp(1 - dev / 4, 0, 1) * 35);
+            pts = 15 + pZone + pSoft + pLine;
+            text = pts >= 92 ? `🌟パーフェクトランディング!${pts}点` : pts >= 70 ? `✨きれいな着陸!${pts}点` : `着陸 ${pts}点`;
+            sub = `ちゅうしん+${pZone}／ふわっと+${pSoft}／ライン+${pLine}`;
+          }
+          results.push(pts); total += pts; sfx(pts >= 70 ? 'coin' : pts > 10 ? 'hit' : 'bad'); hud(); say(text, 2200, sub); setTimeout(next, 2400);
         }
         function next() { if (!running) return; n++; if (n >= LANDINGS) { finish(); return; } hud(); reset(); }
         const sx = (wx) => W * 0.3 + (wx - camX) * 2.2, sy = (a) => H - 40 - a * 3.6;
@@ -8292,20 +8357,32 @@
           const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#5aa9ff'); sky.addColorStop(1, '#cfe9ff'); ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
           ctx.fillStyle = 'rgba(255,255,255,.8)'; for (let i = 0; i < 4; i++) { const cx = ((i * 130 - camX * 0.6) % (W + 100) + W + 100) % (W + 100) - 50; ctx.beginPath(); ctx.arc(cx, 30 + i * 18, 12, 0, Math.PI * 2); ctx.arc(cx + 14, 26 + i * 18, 15, 0, Math.PI * 2); ctx.arc(cx + 30, 32 + i * 18, 10, 0, Math.PI * 2); ctx.fill(); }
           ctx.fillStyle = '#5faa4a'; ctx.fillRect(0, H - 40, W, 40);
-          const r0 = sx(RUN0), r1 = sx(400); ctx.fillStyle = '#4a4a55'; ctx.fillRect(r0, H - 42, r1 - r0, 14); ctx.fillStyle = '#222'; ctx.fillRect(sx(ZONE[0]), H - 42, sx(ZONE[1]) - sx(ZONE[0]), 14); ctx.fillStyle = '#fff'; for (let m = RUN0 + 5; m < 400; m += 10) ctx.fillRect(sx(m), H - 36, 4, 2); ctx.fillStyle = '#ffd23f'; ctx.fillRect(sx(ZONE[0]), H - 42, 2, 14); ctx.fillRect(sx(ZONE[1]), H - 42, 2, 14);
-          ctx.strokeStyle = 'rgba(80,220,120,.7)'; ctx.setLineDash([6, 6]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(sx(-40), sy(glide(-40))); ctx.lineTo(sx(RUN0 + 6), sy(0)); ctx.stroke(); ctx.setLineDash([]);
+          const r0 = sx(RUN0), r1 = sx(400); ctx.fillStyle = '#4a4a55'; ctx.fillRect(r0, H - 42, r1 - r0, 14);
+          // ちゃくりくゾーンは まとのように 3だん。まんなか(◎)に 近いほど 点が 高い、が
+          // そのまま 見た目に なっている
+          for (const [half, col] of [[ZONE_HALF, '#2b2b33'], [ZONE_HALF * 0.65, '#1b1b22'], [ZONE_HALF * 0.3, '#c8952a']]) { const a = sx(CTR - half), b = sx(CTR + half); ctx.fillStyle = col; ctx.fillRect(a, H - 42, b - a, 14); }
+          ctx.fillStyle = '#fff'; for (let m = RUN0 + 5; m < 400; m += 10) ctx.fillRect(sx(m), H - 36, 4, 2); ctx.fillStyle = '#ffd23f'; ctx.fillRect(sx(ZONE[0]), H - 42, 2, 14); ctx.fillRect(sx(ZONE[1]), H - 42, 2, 14);
+          ctx.strokeStyle = 'rgba(40,190,90,.9)'; ctx.setLineDash([7, 5]); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(sx(-40), sy(glide(-40))); ctx.lineTo(sx(AIM), sy(0)); ctx.stroke(); ctx.setLineDash([]);
+          // ▲ = このまま 降りたら つく いち。◎ = ⬛の まんなか(フレアで うかせて とどく)
+          const ax = sx(AIM); if (ax > -20 && ax < W + 20) { ctx.fillStyle = 'rgba(40,190,90,.95)'; ctx.beginPath(); ctx.moveTo(ax, sy(0) - 12); ctx.lineTo(ax - 5, sy(0) - 21); ctx.lineTo(ax + 5, sy(0) - 21); ctx.closePath(); ctx.fill(); }
+          const cx2 = sx(CTR); if (cx2 > -20 && cx2 < W + 20) { ctx.strokeStyle = '#ffd23f'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx2, sy(0) - 16, 7, 0, Math.PI * 2); ctx.stroke(); ctx.fillStyle = '#ffd23f'; ctx.beginPath(); ctx.arc(cx2, sy(0) - 16, 2.5, 0, Math.PI * 2); ctx.fill(); }
           // きしゅ
           const px = sx(x), py = sy(alt); const ang = -clamp(pitch * 0.35 + vy * 0.03, -0.6, 0.6);
           ctx.save(); ctx.translate(px, py); ctx.rotate(ang); ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(0, sy(0) - py + 2, 20, 4, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#f1faee'; ctx.beginPath(); ctx.ellipse(0, 0, 22, 6, 0, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#e63946'; ctx.beginPath(); ctx.moveTo(-14, -2); ctx.lineTo(-22, -14); ctx.lineTo(-16, -14); ctx.lineTo(-8, -2); ctx.fill(); ctx.beginPath(); ctx.moveTo(-4, 2); ctx.lineTo(10, 10); ctx.lineTo(4, 10); ctx.lineTo(-10, 2); ctx.fill(); ctx.fillStyle = '#457b9d'; ctx.fillRect(6, -5, 8, 3); ctx.rotate(-ang); ctx.font = '11px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(currentSprite(), 0, -1); ctx.restore();
           // けいき
           ctx.fillStyle = 'rgba(0,0,0,.45)'; mgRoundRect(ctx, 6, 6, 110, 40, 6); ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.fillText(`高さ${alt.toFixed(1)}m`, 12, 10); ctx.fillStyle = vy < -4 ? '#ff6b6b' : '#7fe0a0'; ctx.fillText(`降下${(-vy).toFixed(1)}m/s`, 12, 22); ctx.fillStyle = '#fff'; ctx.fillText(`かぜ${wind > 0.2 ? '⬆' : wind < -0.2 ? '⬇' : '—'} ${Math.abs(wind).toFixed(1)}`, 12, 34);
           const diff = alt - glide(x); ctx.fillStyle = 'rgba(0,0,0,.45)'; mgRoundRect(ctx, W - 26, 10, 16, 80, 5); ctx.fillStyle = Math.abs(diff) < 3 ? '#7fe0a0' : '#ffd23f'; ctx.fillRect(W - 24, 50 - clamp(diff, -8, 8) * 4.5 - 3, 12, 6); ctx.fillStyle = '#fff'; ctx.fillRect(W - 26, 49, 16, 2); ctx.font = '8px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('目安', W - 18, 92);
-          if (now < msgUntil) { ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(W / 2 - 100, H / 2 - 40, 200, 26); ctx.fillStyle = '#fff'; ctx.fillText(msg, W / 2, H / 2 - 27); }
+          // いままでの ライン の でき具合(ここが そのまま 点に なる)。
+          // 数えはじめる まえは 灰色。すぐ 赤が 出て「もう だめ」に 見えない ように
+          const ready = trackT > 1.0, lineQ = clamp(1 - (ready ? trackSum / trackT : 0) / 4, 0, 1);
+          ctx.fillStyle = 'rgba(0,0,0,.45)'; mgRoundRect(ctx, 6, 50, 110, 12, 5); ctx.fillStyle = !ready ? 'rgba(255,255,255,.3)' : lineQ > 0.7 ? '#7fe0a0' : lineQ > 0.4 ? '#ffd23f' : '#ff8a8a'; mgRoundRect(ctx, 7.5, 51.5, 107 * (ready ? lineQ : 1), 9, 4);
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 8px sans-serif'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText('ライン', 11, 56.5);
+          if (now < msgUntil) { const bw = Math.min(W - 8, 240), h2 = msg2 ? 40 : 26; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = 'rgba(0,0,0,.62)'; mgRoundRect(ctx, W / 2 - bw / 2, H / 2 - 44, bw, h2, 7); ctx.fillStyle = '#fff'; ctx.font = 'bold 13px sans-serif'; ctx.fillText(msg, W / 2, H / 2 - 31); if (msg2) { ctx.font = '10px sans-serif'; ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fillText(msg2, W / 2, H / 2 - 15); } }
         }
         function frame(now) { if (!running) return; if (last === null) last = now; const dt = Math.min(0.05, (now - last) / 1000); last = now; update(dt, now); if (!running) return; render(now); rafId = requestAnimationFrame(frame); }
         function finish() {
           if (!running) return; running = false; cancelAnimationFrame(rafId); container.querySelectorAll('button').forEach((b) => { b.disabled = true; });
-          const score = clamp(Math.round(10 + total / LANDINGS * 0.9), 10, 100);
+          const score = clamp(Math.round(total / LANDINGS), 5, 100);
           say(`おわり!合計${total}点`, 2600); render(performance.now());
           setTimeout(() => onComplete(score), 650);
         }
