@@ -767,12 +767,13 @@ if all(path.exists() for path in
         for group, rows in audit_97_groups.items()
     }
     proxy_98_all_ids = set().union(*proxy_98_type_ids.values())
-    proxy_98_instance_ids = []
+    proxy_98_card_copy_ids = []
+    proxy_98_initial_instance_ids = []
     for player in proxy_98_players:
         deck = player.get("deck_order_top_to_bottom", [])
         hand = player.get("initial_hand", [])
         check(len(deck) == 40, f"98 proxy deck count: {player.get('player_id')}")
-        check(hand == [row.get("instance_id") for row in deck[:5]],
+        check(hand == [row.get("initial_instance_id") for row in deck[:5]],
               f"98 proxy initial hand follows deck order: {player.get('player_id')}")
         check(all(row.get("card_id") in proxy_98_all_ids for row in deck),
               f"98 proxy deck card IDs: {player.get('player_id')}")
@@ -782,9 +783,17 @@ if all(path.exists() for path in
         }
         check(deck_types == set(proxy_98_type_ids),
               f"98 proxy deck seven types: {player.get('player_id')}")
-        proxy_98_instance_ids.extend(row.get("instance_id") for row in deck)
-    check(len(proxy_98_instance_ids) == len(set(proxy_98_instance_ids)) == 80,
-          "98 proxy global instance IDs")
+        proxy_98_card_copy_ids.extend(row.get("card_copy_id") for row in deck)
+        proxy_98_initial_instance_ids.extend(row.get("initial_instance_id") for row in deck)
+    check(len(proxy_98_card_copy_ids) == len(set(proxy_98_card_copy_ids)) == 80,
+          "100 proxy global card-copy IDs")
+    check(len(proxy_98_initial_instance_ids) ==
+          len(set(proxy_98_initial_instance_ids)) == 80,
+          "100 proxy global initial-instance IDs")
+    check(all(instance_id == f"{card_copy_id}#1"
+              for card_copy_id, instance_id in
+              zip(proxy_98_card_copy_ids, proxy_98_initial_instance_ids)),
+          "100 proxy initial instance generation")
     check(proxy_98_example.get("record", {}).get("status") == "fixture" and
           proxy_98_example.get("record", {}).get("events") == [],
           "98 proxy example remains unplayed fixture")
@@ -814,10 +823,28 @@ if proxy_99_tool.exists() and proxy_99_test.exists():
         for node in ast.walk(proxy_99_test_tree)
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
     )
-    check(proxy_99_test_count == 8, "99 proxy validator test count")
+    check(proxy_99_test_count == 12, "100 proxy validator test count")
     check("領域移動後に場へ戻ったカード" in proxy_99_doc.read_text() and
           "再登場を含むcompleted記録にはまだ使用しない" in proxy_99_doc.read_text(),
           "99 new-instance limitation is explicit")
+
+# 100 separates the stable physical card-copy ID from the current game-object
+# instance ID, and records same-copy re-entry as an explicit generation step.
+proxy_100_doc = DOCS / "100-card-copy-and-instance-identity.md"
+check(proxy_100_doc.exists(), "100 card-copy/instance document missing")
+if proxy_100_doc.exists() and proxy_98_schema_path.exists():
+    proxy_100_doc_text = proxy_100_doc.read_text()
+    proxy_100_defs = proxy_98_schema.get("$defs", {})
+    check(proxy_100_defs.get("cardCopyId", {}).get("pattern") ==
+          "^[AB]-[0-9]{3}$", "100 card-copy ID schema")
+    check(proxy_100_defs.get("instanceId", {}).get("pattern") ==
+          "^[AB]-[0-9]{3}#[1-9][0-9]*$", "100 instance ID schema")
+    check(proxy_100_defs.get("instanceTransition", {}).get("properties", {})
+          .get("reason", {}).get("const") == "zone_change",
+          "100 instance transition schema")
+    check("予約は旧個体IDから新個体IDへ移し替えない" in proxy_100_doc_text and
+          "カード効果の適法性を判定する対戦エンジンではない" in proxy_100_doc_text,
+          "100 reservation and validator boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |

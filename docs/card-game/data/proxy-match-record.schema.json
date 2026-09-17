@@ -16,13 +16,15 @@
   "$defs": {
     "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "playerId": {"enum": ["A", "B"]},
-    "instanceId": {"type": "string", "pattern": "^[AB]-[0-9]{3}$"},
+    "cardCopyId": {"type": "string", "pattern": "^[AB]-[0-9]{3}$"},
+    "instanceId": {"type": "string", "pattern": "^[AB]-[0-9]{3}#[1-9][0-9]*$"},
     "cardInstance": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["instance_id", "card_id"],
+      "required": ["card_copy_id", "initial_instance_id", "card_id"],
       "properties": {
-        "instance_id": {"$ref": "#/$defs/instanceId"},
+        "card_copy_id": {"$ref": "#/$defs/cardCopyId"},
+        "initial_instance_id": {"$ref": "#/$defs/instanceId"},
         "card_id": {"type": "string", "minLength": 1}
       }
     },
@@ -139,10 +141,21 @@
         "status": {"enum": ["active", "consumed", "expired", "cancelled"]}
       }
     },
+    "instanceTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["card_copy_id", "from_instance_id", "to_instance_id", "reason"],
+      "properties": {
+        "card_copy_id": {"$ref": "#/$defs/cardCopyId"},
+        "from_instance_id": {"$ref": "#/$defs/instanceId"},
+        "to_instance_id": {"$ref": "#/$defs/instanceId"},
+        "reason": {"const": "zone_change"}
+      }
+    },
     "event": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["seq", "round", "turn_player", "phase", "actor", "action_type", "source_instance_id", "target_instance_ids", "payment", "choice_ids", "chain", "reservations_created", "reservations_consumed", "before_state_sha256", "after_state_sha256", "result"],
+      "required": ["seq", "round", "turn_player", "phase", "actor", "action_type", "source_instance_id", "target_instance_ids", "payment", "choice_ids", "chain", "reservations_created", "reservations_consumed", "instance_transitions", "before_state_sha256", "after_state_sha256", "result"],
       "properties": {
         "seq": {"type": "integer", "minimum": 1},
         "round": {"type": "integer", "minimum": 1},
@@ -157,6 +170,7 @@
         "chain": {"$ref": "#/$defs/chain"},
         "reservations_created": {"type": "array", "items": {"type": "string"}},
         "reservations_consumed": {"type": "array", "items": {"type": "string"}},
+        "instance_transitions": {"type": "array", "items": {"$ref": "#/$defs/instanceTransition"}},
         "before_state_sha256": {"$ref": "#/$defs/sha256"},
         "after_state_sha256": {"$ref": "#/$defs/sha256"},
         "result": {"type": "string"}

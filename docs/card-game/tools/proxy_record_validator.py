@@ -25,7 +25,8 @@ CURRENT_CATALOG_KEYS = {
     "events": "event",
 }
 CARD_TYPES = set(CURRENT_CATALOG_KEYS.values())
-INSTANCE_RE = re.compile(r"^[AB]-[0-9]{3}$")
+CARD_COPY_RE = re.compile(r"^[AB]-[0-9]{3}$")
+INSTANCE_RE = re.compile(r"^([AB]-[0-9]{3})#([1-9][0-9]*)$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 GIT_SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 
@@ -114,7 +115,9 @@ def validate_record(record, catalog):
     ):
         errors.append("input.first_player must match the player in the first seat")
 
-    instance_ids = []
+    card_copy_ids = []
+    initial_instance_ids = []
+    instance_to_copy = {}
     for player in players:
         if not isinstance(player, dict):
             errors.append("each input.players entry must be an object")
@@ -125,21 +128,36 @@ def validate_record(record, catalog):
         if not isinstance(deck, list) or len(deck) != 40:
             errors.append(f"input.players[{player_id}].deck must contain exactly 40 cards")
             deck = deck if isinstance(deck, list) else []
-        deck_instance_ids = []
+        deck_initial_instance_ids = []
         deck_types = set()
         unknown_ids = set()
         for card in deck:
             if not isinstance(card, dict):
                 errors.append(f"input.players[{player_id}].deck entries must be objects")
                 continue
-            instance_id = card.get("instance_id")
+            card_copy_id = card.get("card_copy_id")
+            instance_id = card.get("initial_instance_id")
             card_id = card.get("card_id")
-            deck_instance_ids.append(instance_id)
-            instance_ids.append(instance_id)
-            if not isinstance(instance_id, str) or not INSTANCE_RE.fullmatch(instance_id):
-                errors.append(f"input.players[{player_id}] has invalid instance ID {instance_id}")
-            elif player_id in {"A", "B"} and not instance_id.startswith(f"{player_id}-"):
-                errors.append(f"input.players[{player_id}] instance ID {instance_id} has the wrong owner prefix")
+            card_copy_ids.append(card_copy_id)
+            deck_initial_instance_ids.append(instance_id)
+            initial_instance_ids.append(instance_id)
+            if not isinstance(card_copy_id, str) or not CARD_COPY_RE.fullmatch(card_copy_id):
+                errors.append(f"input.players[{player_id}] has invalid card copy ID {card_copy_id}")
+            elif player_id in {"A", "B"} and not card_copy_id.startswith(f"{player_id}-"):
+                errors.append(
+                    f"input.players[{player_id}] card copy ID {card_copy_id} has the wrong owner prefix"
+                )
+            instance_match = INSTANCE_RE.fullmatch(instance_id) if isinstance(instance_id, str) else None
+            if not instance_match or instance_match.group(2) != "1":
+                errors.append(
+                    f"input.players[{player_id}] has invalid initial instance ID {instance_id}"
+                )
+            elif instance_match.group(1) != card_copy_id:
+                errors.append(
+                    f"input.players[{player_id}] initial instance ID {instance_id} must belong to card copy {card_copy_id}"
+                )
+            else:
+                instance_to_copy[instance_id] = card_copy_id
             card_type = catalog.get(card_id)
             if card_type is None:
                 unknown_ids.add(card_id)
@@ -151,13 +169,17 @@ def validate_record(record, catalog):
             )
         if deck_types != CARD_TYPES:
             errors.append(f"input.players[{player_id}].deck must contain all seven card types")
-        if hand != deck_instance_ids[:5]:
+        if hand != deck_initial_instance_ids[:5]:
             errors.append(
-                f"input.players[{player_id}].initial_hand must equal the first five deck instance IDs"
+                f"input.players[{player_id}].initial_hand must equal the first five initial instance IDs"
             )
-    if len(instance_ids) != len(set(instance_ids)):
-        errors.append("instance IDs must be unique across both decks")
-    known_instances = set(instance_ids)
+    if len(card_copy_ids) != len(set(card_copy_ids)):
+        errors.append("card copy IDs must be unique across both decks")
+    if len(initial_instance_ids) != len(set(initial_instance_ids)):
+        errors.append("initial instance IDs must be unique across both decks")
+    known_card_copies = set(card_copy_ids)
+    known_instances = set(initial_instance_ids)
+    active_instances = set(initial_instance_ids)
 
     choices = match_input.get("declared_choices", [])
     choice_ids = []
@@ -186,10 +208,6 @@ def validate_record(record, catalog):
         if reservation_id in reservation_by_id:
             errors.append("reservation IDs must be unique")
         reservation_by_id[reservation_id] = reservation
-        references = [reservation.get("source_instance_id")] + reservation.get("target_instance_ids", [])
-        for instance_id in references:
-            if instance_id not in known_instances:
-                errors.append(f"reservation {reservation_id} references unknown instance ID {instance_id}")
 
     events = match_record.get("events")
     if not isinstance(events, list):
@@ -212,8 +230,9 @@ def validate_record(record, catalog):
         for key in ("hand_to_discard", "prepared_to_discard", "deck_to_bottom"):
             references.extend(payment.get(key, []) if isinstance(payment, dict) else [])
         for instance_id in references:
-            if instance_id is not None and instance_id not in known_instances:
-                errors.append(f"{label} references unknown instance ID {instance_id}")
+            if instance_id is not None and instance_id not in active_instances:
+                qualifier = "inactive" if instance_id in known_instances else "unknown"
+                errors.append(f"{label} references {qualifier} instance ID {instance_id}")
         for choice_id in event.get("choice_ids", []):
             if choice_id not in known_choices:
                 errors.append(f"{label} references unknown choice ID {choice_id}")
@@ -235,12 +254,64 @@ def validate_record(record, catalog):
             consumed_reservations.add(reservation_id)
             if reservation_id not in reservation_by_id:
                 errors.append(f"{label} consumes unknown reservation ID {reservation_id}")
+        for transition in event.get("instance_transitions", []):
+            if not isinstance(transition, dict):
+                errors.append(f"{label} instance transition must be an object")
+                continue
+            card_copy_id = transition.get("card_copy_id")
+            from_instance_id = transition.get("from_instance_id")
+            to_instance_id = transition.get("to_instance_id")
+            transition_valid = True
+            if card_copy_id not in known_card_copies:
+                errors.append(f"{label} transition references unknown card copy ID {card_copy_id}")
+                transition_valid = False
+            if from_instance_id not in active_instances:
+                errors.append(f"{label} transition from_instance_id must be active")
+                transition_valid = False
+            elif instance_to_copy.get(from_instance_id) != card_copy_id:
+                errors.append(
+                    f"{label} transition from_instance_id must belong to card copy {card_copy_id}"
+                )
+                transition_valid = False
+            to_match = INSTANCE_RE.fullmatch(to_instance_id) if isinstance(to_instance_id, str) else None
+            if not to_match or to_match.group(1) != card_copy_id:
+                errors.append(
+                    f"{label} transition to_instance_id must belong to card copy {card_copy_id}"
+                )
+                transition_valid = False
+            else:
+                from_match = (
+                    INSTANCE_RE.fullmatch(from_instance_id)
+                    if isinstance(from_instance_id, str) else None
+                )
+                if from_match and int(to_match.group(2)) != int(from_match.group(2)) + 1:
+                    errors.append(f"{label} transition must increment the instance generation by 1")
+                    transition_valid = False
+            if to_instance_id in known_instances:
+                errors.append(f"{label} transition to_instance_id must be new")
+                transition_valid = False
+            if transition.get("reason") != "zone_change":
+                errors.append(f"{label} transition reason must be zone_change")
+                transition_valid = False
+            if transition_valid:
+                active_instances.remove(from_instance_id)
+                active_instances.add(to_instance_id)
+                known_instances.add(to_instance_id)
+                instance_to_copy[to_instance_id] = card_copy_id
         _add_hash_error(errors, f"{label}.before_state_sha256", event.get("before_state_sha256"))
         _add_hash_error(errors, f"{label}.after_state_sha256", event.get("after_state_sha256"))
     for chain_id, links in sorted(chain_links.items()):
         if links != list(range(1, len(links) + 1)):
             errors.append(f"chain {chain_id} link_index must be contiguous from 1")
     for reservation_id, reservation in reservation_by_id.items():
+        references = [reservation.get("source_instance_id")] + reservation.get(
+            "target_instance_ids", []
+        )
+        for instance_id in references:
+            if instance_id not in known_instances:
+                errors.append(
+                    f"reservation {reservation_id} references unknown instance ID {instance_id}"
+                )
         if reservation.get("created_seq") not in known_sequences:
             errors.append(f"reservation {reservation_id} created_seq must reference an event")
         if reservation_id not in created_reservations:

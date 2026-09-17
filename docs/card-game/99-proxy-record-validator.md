@@ -4,6 +4,8 @@
 
 状態: **98のschema v1に対し、開始入力・参照・状態hashを検査する標準ライブラリだけのvalidatorを追加した。カード効果は実行せず、再登場で生じる新個体の生成記録はまだ扱わない。カード本文・数値・登録区分は変更しない。**
 
+> 後続100で`card_copy_id`と`instance_id`を分離し、再登場時の個体遷移をschema v1とvalidatorへ追加した。本稿の「まだ扱わない」は99保存時点の制約を記録したもので、現行状態は[100](100-card-copy-and-instance-identity.md)を優先する。
+
 ## 1. 固定した版と範囲
 
 - 開始HEAD: `98711f43a6c33e428598ffd39ff5c13080f68b4f`、tree: `e168c3e7a5bf497eed495f9702d8a4d0b9421cb6`。
