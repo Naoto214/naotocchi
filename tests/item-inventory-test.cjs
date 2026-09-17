@@ -34,15 +34,15 @@ test('invalid stock cannot be spent and normalization does not create wealth', (
   assert.equal(n.lifetime.money,5);assert.equal(n.lifetime.consumablesUsed,0);assert.equal(n.items.unknown,undefined);
   assert.equal(n.items.fun_candy || 0,0);assert.equal(n.items.c_growth || 0,0);
 });
-test('module validates transactions and persists cooldowns and structured memories', () => {
+test('module validates transactions and persists structured memories without retired cooldown APIs', () => {
   const m=harness().sandbox.NaotocchiItems;assert.ok(m,'inventory module is loaded');
   const s={items:{c_life:2},lifetime:{money:8}};m.normalize(s);
   assert.equal(m.take(s,'c_life',-1),false);assert.equal(m.take(s,'c_life',3),false);
   assert.equal(m.take(s,'c_life'),true);m.grant(s,'c_life',2);assert.equal(m.stock(s,'c_life'),3);
-  m.cooldown(s,'lantern',2);assert.equal(m.ready(s,'lantern'),false);m.advance(s);
-  const n=JSON.parse(JSON.stringify(s));m.advance(n);assert.equal(m.ready(n,'lantern'),true);
-  const r=m.remember(n,'lights',{key:'photo-1',age:40,environment:{weather:'snow'}});
-  assert.equal(r.age,40);assert.equal(n.lifetime.itemMemories.lights[0].environment.weather,'snow');
+  assert.equal(m.cooldown,undefined);assert.equal(m.ready,undefined);
+  const n=JSON.parse(JSON.stringify(s));m.advance(n);
+  const r=m.remember(n,'specials',{key:'photo-1',age:40,environment:{weather:'snow'}});
+  assert.equal(r.age,40);assert.equal(n.lifetime.itemMemories.specials[0].environment.weather,'snow');
   assert.equal(m.stock(n,'toString'),0);assert.equal(m.take(n,'__proto__'),false);assert.equal(n.lifetime.money,8);
 });
 test('normal equipment catalog contains only the final ten products', () => {

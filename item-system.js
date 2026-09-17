@@ -170,14 +170,14 @@
     "label": "なおとのランタン",
     "price": null,
     "kind": "goal",
-    "desc": "訪れた土地の、まだ見ぬあかりを探しに行こう。",
+    "desc": "そだちの増え方が、少し大きくなる。",
     "guard": "未解放の場所・未達条件のレアキャラを直接出さない。コイン報酬は追加しない。"
   },
   "naoto_ring": {
     "label": "なおとのリング",
     "price": null,
     "kind": "goal",
-    "desc": "ふたりだけの合言葉が、いつものデートに増えていく。",
+    "desc": "まだ出会っていない候補が、少し出やすくなる。",
     "guard": "不死・病気無効・関係固定には戻さない。交際相手がいない場合も所有と鑑賞はできる。"
   },
   "naoto_crown": {
@@ -203,7 +203,7 @@
   const RETIRED_PENDING_IDS = Object.freeze(Object.keys(RETIRED_CONSUMABLE_PRICES));
   const RETIRED_TOOLS = ['fun_camera','fun_musicbox','fun_surprise'];
   const retired = id => Object.prototype.hasOwnProperty.call(RETIRED_FUN_PRICES, id);
-  const MEMORY_KINDS = ['letters', 'lights', 'specials'];
+  const MEMORY_KINDS = ['letters', 'specials'];
   const object = value => value && typeof value === 'object' && !Array.isArray(value);
   const count = value => typeof value === 'number' && Number.isSafeInteger(value) && value > 0 ? value : 0;
   const known = id => Object.prototype.hasOwnProperty.call(CATALOG, id);
@@ -431,7 +431,9 @@
     delete p.starGames;
     delete p.readyAt.star;
     delete p.readyAt.reunion;
+    delete p.readyAt.lantern; // Retired light search: never restore its timer.
     if (!object(l.itemMemories)) l.itemMemories = {};
+    delete l.itemMemories.lights; // Ignore obsolete records, including malformed old saves.
     MEMORY_KINDS.forEach(kind => { if (!Array.isArray(l.itemMemories[kind])) l.itemMemories[kind] = []; });
     if (!object(state.itemLife)) state.itemLife = {};
     if (!object(state.itemLife.pendingItems)) state.itemLife.pendingItems = {};
@@ -458,13 +460,11 @@
     const bag = inventory(s); bag[id] -= amount; if (!bag[id]) delete bag[id]; return true;
   }
   function advance(s) { normalize(s); s.lifetime.itemProgress.ticks += 1; }
-  function ready(s, key) { normalize(s); return s.lifetime.itemProgress.ticks >= count(s.lifetime.itemProgress.readyAt[key]); }
-  function cooldown(s, key, ticks) { normalize(s); if (typeof key !== 'string' || ['__proto__','constructor','prototype'].includes(key)) return; s.lifetime.itemProgress.readyAt[key] = s.lifetime.itemProgress.ticks + count(ticks); }
   function remember(s, kind, record) {
     normalize(s); if (!MEMORY_KINDS.includes(kind) || !object(record)) return null;
     // Store metadata only: bitmap exports are generated on demand.
     const saved = JSON.parse(JSON.stringify(record, (key,value) => typeof value === 'string' && /^data:image\//i.test(value) ? undefined : value));
     s.lifetime.itemMemories[kind].push(saved); return saved;
   }
-  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, advance, ready, cooldown, remember};
+  return {CATALOG, LEGACY_EQUIPMENT_IDS, validMatchId, duelStake, reserveDuel, settleDuel, abandonDuel, normalize, inventory, stock, grant, take, advance, remember};
 });

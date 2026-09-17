@@ -153,6 +153,10 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
         minigameCrownFactors = ''; refreshCrownMinigameQueue();
         return minigameQueue.map(i => currentMinigamePool[i].id);
       },
+      ringDexWeight: typeof ringDexWeight === 'function' ? ringDexWeight : () => 1,
+      pickRingCandidate: typeof pickRingCandidate === 'function' ? pickRingCandidate : (pool) => pool[Math.floor(Math.random()*pool.length)] || null,
+      pickTransformCandidates, pickTicketTransformCandidates, pickCompanionByRegion,
+      currentFormStageIndex, mutualRomanticMatch, recordDiscoveryKey, applyDecline,
       ENV_MOMENTS, syncNaotoRewardItems,
       drawEnvironmentMoment: typeof drawEnvironmentMoment === 'function' ? drawEnvironmentMoment : pool => Math.random() < .45 ? pool[Math.floor(Math.random() * pool.length)] : null,
       hatchEgg, pickDreamLine, startDuelChallenge, chooseDuelTruth, chooseDuelHonesty, finalizeDuelChallenge, abandonDuelChallenge,

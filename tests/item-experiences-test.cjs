@@ -27,9 +27,9 @@ test('legacy tool use counts as ownership only before the original item migratio
 test('retirement preserves shared memories and cooldowns while removing fun-only records and sticker placements', () => {
   const s={lifetime:{money:0,itemMemories:{letters:[{key:'letter'}],lights:[{key:'light'}],photos:[{key:'photo'}],tunes:[{key:'tune'}],reactions:[{key:'crown'}],specials:[{key:'travel:1',event:'travel-detour'},{key:'date:1'},{key:'fireworks:2'},{itemId:'fun_fireworks'}]},itemProgress:{ticks:8,readyAt:{lantern:20,musicbox:80,surprise:99}},stickers:{owned:{'item:fun_camera':3,'item:flower':1},seen:['item:fun_camera','item:flower'],pages:{one:[{id:'item:fun_camera'},{id:'item:flower'}]}}}};
   items.normalize(s);
-  assert.deepEqual(Object.keys(s.lifetime.itemMemories).sort(),['letters','lights','specials']);
+  assert.deepEqual(Object.keys(s.lifetime.itemMemories).sort(),['letters','specials']);
   assert.equal(s.lifetime.itemMemories.specials.length,2);
-  assert.deepEqual(s.lifetime.itemProgress.readyAt,{lantern:20});
+  assert.deepEqual(s.lifetime.itemProgress.readyAt,{});
   assert.deepEqual(s.lifetime.stickers.pages.one,[{id:'item:flower'}]);
   assert.deepEqual(s.lifetime.stickers.seen,['item:flower']);
   assert.equal(s.lifetime.stickers.owned['item:fun_camera'],undefined);
