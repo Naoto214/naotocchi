@@ -350,7 +350,7 @@ check(sorted(pinned_games, key=lambda g: g["id"]) == sorted(games, key=lambda g:
       "Pinned main play IDs/categories/source contexts differ from registered baseline")
 play_records = []
 play_batch_counts = []
-for batch, draft_number in ((1, 79), (2, 81)):
+for batch, draft_number in ((1, 79), (2, 81), (3, 83)):
     batch_start = len(play_records)
     for m in re.finditer(r"^### (G-[\w-]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", doc(draft_number), re.M | re.S):
         card_id, name, section = m.groups()
@@ -374,8 +374,8 @@ for batch, draft_number in ((1, 79), (2, 81)):
     check(len(batch_ids) == len(set(batch_ids)) == 20, f"Expected 20 unique play bodies in batch {batch}")
     check(batch_ids == ["G-" + sid for sid in role_games[batch_start:batch_start + 20]] == play_snapshot[f"draft_batch_{batch}"],
           f"Play batch {batch} differs from canonical roles")
-    expected_methods = {1: {"すぐつかう": 18, "しかける": 2}, 2: {"すぐつかう": 17, "しかける": 3}}
-    expected_times = {1: {1: 7, 2: 13}, 2: {1: 11, 2: 8, 3: 1}}
+    expected_methods = {1: {"すぐつかう": 18, "しかける": 2}, 2: {"すぐつかう": 17, "しかける": 3}, 3: {"すぐつかう": 18, "しかける": 2}}
+    expected_times = {1: {1: 7, 2: 13}, 2: {1: 11, 2: 8, 3: 1}, 3: {1: 9, 2: 10, 3: 1}}
     methods = dict(collections.Counter(r["method"] for r in batch_records))
     times = dict(collections.Counter(r["time"] for r in batch_records))
     check(methods == expected_methods[batch], f"Play method distribution batch {batch}")
@@ -386,15 +386,17 @@ for batch, draft_number in ((1, 79), (2, 81)):
     play_batch_counts.append({"batch": batch, "bodies": len(batch_ids), "methods": methods,
                               "times": times, "manual_case_entries": len(case_ids)})
 play_ids = [r["id"] for r in play_records]
-check(len(play_ids) == len(set(play_ids)) == 40, "Expected 40 unique new play bodies")
+check(len(play_ids) == len(set(play_ids)) == 60, "Expected 60 unique registered play bodies")
 legacy_2048 = re.search(r"^- 2048 — 時1・\*\*すぐつかう\*\*: (.+)$", doc(8), re.M)
 check(bool(legacy_2048), "Existing 2048 body missing")
-if legacy_2048:
-    play_records.append({"id": "G-puzzle-2048", "name": "2048", "time": 1,
-                         "method": "すぐつかう", "text": legacy_2048[1],
-                         "source_file": "docs/card-game/08-test-deck-a-card-drafts.md",
-                         "status": "legacy_body_linked_to_registered_source"})
-check(len(play_records) == 41, "Play body coverage should be 41/100")
+existing_play = [r for r in play_records if r["id"] == "G-puzzle-2048"]
+check(len(existing_play) == 1, "Existing 2048 must occur exactly once")
+if legacy_2048 and len(existing_play) == 1:
+    check(existing_play[0]["text"] == legacy_2048[1], "2048 body differs between 08 and 83")
+    existing_play[0]["status"] = "legacy_body_linked_to_registered_source"
+    existing_play[0]["canonical_body_file"] = "docs/card-game/08-test-deck-a-card-drafts.md"
+new_play_records = [r for r in play_records if r["id"] != "G-puzzle-2048"]
+check(len(play_records) == 60 and len(new_play_records) == 59, "Play coverage should be 59 new + 1 existing = 60/100")
 all_with_play = collections.defaultdict(list, {k: list(v) for k, v in all_texts.items()})
 for r in play_records:
     all_with_play[r["text"]].append(r["id"])
@@ -420,11 +422,11 @@ console.log(JSON.stringify([...g.MINIGAMES.map(x=>({id:x.id,category:g.minigameC
         hashlib.sha1(b"blob " + str(len((source_dir / n).read_bytes())).encode() + b"\0" + (source_dir / n).read_bytes()).hexdigest() == h
         for n, h in play_snapshot["source_blobs"].items())
 play_audit = {"main_commit": play_snapshot["main_commit"], "registered_games": len(pinned_games),
-              "new_body_entries": len(play_ids), "existing_linked_bodies": int(bool(legacy_2048)),
+              "new_body_entries": len(new_play_records), "existing_linked_bodies": int(bool(legacy_2048)),
               "total_body_entries": len(play_records), "unexpanded_entries": 100 - len(play_records),
-              "method_counts_new": dict(collections.Counter(r["method"] for r in play_records[:40])),
-              "time_counts_new": dict(collections.Counter(r["time"] for r in play_records[:40])),
-              "max_new_body_length": max((len(r["text"]) for r in play_records[:40]), default=0),
+              "method_counts_new": dict(collections.Counter(r["method"] for r in new_play_records)),
+              "time_counts_new": dict(collections.Counter(r["time"] for r in new_play_records)),
+              "max_new_body_length": max((len(r["text"]) for r in new_play_records), default=0),
               "batches": play_batch_counts,
               "manual_case_entries": sum(b["manual_case_entries"] for b in play_batch_counts), "identical_body_groups": play_duplicates,
               "actual_source_verified": play_source_verified}
