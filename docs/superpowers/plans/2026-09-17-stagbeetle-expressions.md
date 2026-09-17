@@ -11,3 +11,6 @@ Observe all8 originals and coordinate grid. Preserve curled and horizontal larva
 
 ## Task 3: Verification and delivery
 Check1200 prior images/references/SVGs/120 placements,248 normal and297 nonexpression images unchanged.1280 marks/768 sweat bounds. Full npm test on final version, independent review. Update/publish same Site with stagbeetle80 filter, tap/memo/copy. Save same Draft branch, verify remote tree, HEAD/main/CI. Do not claim1280 complete until verification succeeds.
+
+## Completion evidence
+All80 art/composites reviewed; hashes240; geometry1280/768 zero; prior1200 preserved; full npm1295pass0fail; independent PASS/APPROVE. Same private Site53 published. Final GitHub save/HEAD/tree/CI recorded in PR278 body.
