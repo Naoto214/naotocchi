@@ -40,7 +40,8 @@ test('retired items cannot be bought, granted, used or selected as stickers; equ
   h.api.renderItemOverlay();assert.ok(!h.get('onetimeItemGrid').innerHTML.includes('fun_'));
   const achievement=h.api.achievements.find(a=>a.id==='item-all');
   s.lifetime.ownedShopItems=Array(100).fill('obsolete');assert.equal(achievement.condition(s.lifetime),false);
-  s.lifetime.ownedShopItems=h.api.SHOP_ITEMS.map(i=>i.id);assert.equal(achievement.condition(s.lifetime),false);\n  s.lifetime.ownedConsumableItems=h.api.CONSUMABLE_ITEMS.map(i=>i.id);assert.equal(achievement.condition(s.lifetime),true);
+  s.lifetime.ownedShopItems=h.api.SHOP_ITEMS.map(i=>i.id);assert.equal(achievement.condition(s.lifetime),false);
+  s.lifetime.ownedConsumableItems=h.api.CONSUMABLE_ITEMS.map(i=>i.id);assert.equal(achievement.condition(s.lifetime),true);
   assert.ok(!h.api.achievements.some(a=>a.id==='consumable-all'));
 });
 test('refund survives reload, new lives and infinite return without reviving old reservations', () => {
