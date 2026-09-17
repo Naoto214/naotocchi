@@ -647,6 +647,61 @@ if revision_96_data_path.exists():
         separators=(",", ":")).encode()).hexdigest()
     check(revision_96_data.get("validation", {}).get("catalog_records_sha256") == revision_96_catalog_hash,
           "96 current catalog hash")
+
+# 97 freezes a reproducible cross-type surface classification before any
+# balance-driven text revision.  The counts are lexical signals, not activation
+# rates or simulated game results.
+audit_97_doc = DOCS / "97-role-density-and-efficiency-audit.md"
+audit_97_data_path = DOCS / "data/role-density-efficiency-audit-20260917.json"
+check(audit_97_doc.exists(), "97 role/density audit document missing")
+check(audit_97_data_path.exists(), "97 role/density audit evidence missing")
+if audit_97_data_path.exists():
+    audit_97_data = json.loads(audit_97_data_path.read_text())
+    check(audit_97_data.get("scope", {}).get("current_catalog") == 452,
+          "97 current catalog scope")
+    check(audit_97_data.get("scope", {}).get("changed_card_ids") == [],
+          "97 must not change card text")
+    audit_97_patterns = {
+        "deck_reference": r"山札",
+        "top_look_or_reveal": r"山札(?:の)?(?:一番)?上(?:から)?[0-9一二三四五六七八九十]*枚?(?:を)?(?:見|公開)|山札上[0-9一二三四五六七八九十]*枚(?:を)?(?:見|公開)",
+        "deck_bottom_move": r"山札(?:の)?一番下|山札下",
+        "direct_draw": r"[0-9一二三四五六七八九十]+枚引",
+        "selective_hand_add": r"手札に加え",
+        "discard_to_hand": r"捨て札[^。]{0,120}手札に戻",
+        "growth_gain": r"そだち\+[0-9]+",
+        "time_discount": r"時を[0-9]+少なく",
+        "next_own_start": r"次の自分(?:の)?ターン開始時|次の自分ターン開始時",
+        "next_own_end": r"次の自分(?:の)?ターン終了時|次の自分ターン終了時",
+        "turn_end_timing": r"(?:自分|相手|この)の?ターン終了時|勝負の終了時",
+        "next_event_reservation": r"次に",
+        "once_per_turn": r"1ターンに1回",
+        "once_per_round": r"1ラウンドに1回",
+        "name_wide_limit": r"この名前.*1ターンに1回|同名カードは1ターンに1回|この名前のカードは1ターンに1回",
+    }
+    audit_97_groups = {
+        "main": current_catalog_groups["main"],
+        "companion": current_catalog_groups["companion"],
+        "partner": current_catalog_groups["partner"],
+        "world": current_catalog_groups["world"],
+        "play": current_catalog_groups["play"],
+        "item": current_catalog_groups["current_item"],
+        "event": current_catalog_groups["event"],
+    }
+    for tag, pattern in audit_97_patterns.items():
+        actual_by_type = {
+            group: sum(bool(re.search(pattern, row.get("text", ""))) for row in rows)
+            for group, rows in audit_97_groups.items()
+        }
+        evidence_tag = audit_97_data.get("surface_tags", {}).get(tag, {})
+        check(evidence_tag.get("by_type") == actual_by_type,
+              f"97 surface tag by-type counts: {tag}")
+        check(evidence_tag.get("total") == sum(actual_by_type.values()),
+              f"97 surface tag total: {tag}")
+    audit_97_cases = audit_97_data.get("manual_cases", [])
+    check(len(audit_97_cases) == len({row.get("id") for row in audit_97_cases}) == 32,
+          "97 manual case count/IDs")
+    check(audit_97_data.get("validation", {}).get("catalog_records_sha256") == revision_96_catalog_hash,
+          "97 current catalog hash")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
