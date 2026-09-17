@@ -60,6 +60,25 @@ function begin(random) {
   return { h, s, run };
 }
 
+test('coins target keeps the basket clear of bad drops at levels 1-5', () => {
+  const h = harness();
+  const def = h.api.QUICK_GAMES.find((game) => game.id === 'coins');
+  assert.ok(def);
+  for (let level = 1; level <= 5; level++) {
+    h.api.setRandom(seededRandom(21));
+    let result = null;
+    const k = level - 1;
+    const game = def.create({W:300,H:300,level,speed:1+h.api.QUICK_RULES.SPEED_UP*k,
+      extra:Math.floor(k/2),feint:level>=3,win:()=>{result='win';},lose:()=>{result='lose';}});
+    for (let elapsed = 0; elapsed < 6000 && !result; elapsed += 16) {
+      game.update(.016);
+      const target = game.target();
+      game.onPress(target.x,target.y);
+    }
+    assert.equal(result,'win',`coins target solves level ${level}`);
+  }
+});
+
 test('quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash', () => {
   // This assertion requires the first game to be solved. Seed it so a random
   // dodge collision cannot make the chaining contract fail intermittently.

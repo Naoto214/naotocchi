@@ -401,7 +401,7 @@
           draw(ctx) { bg(ctx, W, H, '#fff9dd', '#ffeeb0'); if (ctx) { ctx.fillStyle = 'rgba(0,0,0,.15)'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6, 12); ctx.fillStyle = '#ffb703'; ctx.fillRect(W * 0.2, H * 0.1, W * 0.6 * clamp(got / need, 0, 1), 12); } for (const c of coins) if (!c.done) glyph(ctx, c.bad ? '💩' : '🪙', c.x, c.y, 30); glyph(ctx, '🧺', basket.x, basket.y + 8, 52); glyph(ctx, sprite(), basket.x, basket.y - 34, 34); },
           onPress(x) { basket.x = clamp(x, 30, W - 30); },
           onDrag(x, y, dx) { basket.x = clamp(basket.x + dx * 1.3, 30, W - 30); },
-          target() { const c = coins.filter((k) => !k.done && !k.bad && k.y < basket.y).sort((a, b) => b.y - a.y)[0]; let x = c ? c.x : basket.x; for (const b of coins) if (b.bad && !b.done && b.y > basket.y - 140 && b.y < basket.y + 10 && Math.abs(b.x - x) < 50) x = b.x < W / 2 ? b.x + 70 : b.x - 70; return { kind: 'follow', x: clamp(x, 30, W - 30), y: basket.y }; },
+          target() { const c = coins.filter((k) => !k.done && !k.bad && k.y < basket.y).sort((a, b) => b.y - a.y)[0]; let x = c ? c.x : basket.x; for (const b of coins) if (b.bad && !b.done && b.y > basket.y - 140 && b.y < basket.y + 18 && Math.abs(b.x - x) < 50) x = b.x < W / 2 ? b.x + 70 : b.x - 70; return { kind: 'follow', x: clamp(x, 30, W - 30), y: basket.y }; },
         };
       } });
 
