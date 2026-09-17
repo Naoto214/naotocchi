@@ -1,10 +1,12 @@
 # セミ表情の制作・検証記録
 
+最終結果：セミ80表情を制作・検証・確認Site公開。完成済み範囲は17系統1360表情で、全キャラクターの完成ではない。全体テスト再実行1337成功、失敗/cancelled/skipped/todo各0。PR #278はDraftを維持しmainへマージしない。以下の途中状態は履歴で、最終結果は末尾にまとめる。
+
 承認済み一括制作方針に沿い、cicada 全8段階×10表情＝80枚を個別生成。既存16系統1280表情は再生成していない。全キャラクターの制作完了とは扱わない。
 
 ## 基準と分離
 
-開始remote `11c5025e33d3f395898bdb499a42a1f5c108eadb`、local `3708ecace51fb05b5c57296fca27fe3de387a354`、tree `f127d07b6c23ff8841a8022bf3b4e39439e081c9`。開始main `f23398e43eed952d49d5a2b805789a4c87b2b1bd`。作業中mainは `3f4bfda0b8c0d30098ebb68c4313abd370a8576a` へ進んだが取り込んでいない。PR #278はDraft/open/unmerged、既存競合あり。
+開始remote `11c5025e33d3f395898bdb499a42a1f5c108eadb`、local `3708ecace51fb05b5c57296fca27fe3de387a354`、tree `f127d07b6c23ff8841a8022bf3b4e39439e081c9`。開始main `f23398e43eed952d49d5a2b805789a4c87b2b1bd`。PRメタデータのbase_shaは `3f4bfda0b8c0d30098ebb68c4313abd370a8576a` を返したが、後続のbranches/main・git/ref/heads/main・commits/mainとgit ls-remoteの実ブランチ照合はすべて `f23398e43eed952d49d5a2b805789a4c87b2b1bd`。実mainはこのrefを正とし、表情ブランチには取り込んでいない。PR #278はDraft/open/unmerged、既存競合あり。
 
 元checkoutの無関係な画像変更 `docs/art/qa-bm/date-oasis_cactus.jpg` を保持するため、`/workspace/scratch/daf8d241531b/cicada-code` の分離worktreeで制作。
 
@@ -39,3 +41,29 @@
 公開前のSite version54を保存済み。source `6d425f0843a54ed69d674164eda01eed1ce11968`、version ID `appgprj_6aa908e9357c8191abb0f486be58697c~appgver_5272427dc088819191bfb1f8b4214009`。package-site helper終了後、gzip正常と必要90項目（hosting設定、index、8一覧、80表情）を検証。公開は全体テスト完了待ち。
 
 再現メモ：一覧出力時は日本語フォントがfontconfigから読めることを確認する。この環境では同梱 `assets/fonts/mplus-rounded-1c-regular.woff2` をTTFへ展開し、`FONTCONFIG_FILE=/workspace/scratch/daf8d241531b/cicada-fonts/fonts.conf` と `NODE_PATH` を指定して既存gallery toolを使用した。フォント変換と一覧再出力は表情PNGの生成ではない。
+
+## 全体テスト初回と再検証
+
+最終セミ版の初回全体テストは1337件中1336成功・1失敗、cancelled/skipped/todo各0、511464.281737ms、exit1。失敗は `tests/quick-mode-test.cjs:57` の `solving dodge counts`（0/20と1/20の差）。同ファイルには避ける系のランダムな落下物に自動操作が当たることがある旨の既存記述があり、過去の引き継ぎにも同失敗の前例がある。関連ゲーム/テスト/harnessは固定baselineと同一。
+
+ゲームコード・テスト・乱数を変更せず、該当ファイルを再実行して10成功・失敗0（1615.687604ms、exit0）。同じ最終80画像・配置・cacheの全体npm testを改めて実行中。初回失敗を隠さず、再実行結果を別記する。
+
+全80表情と配置の保存：remote `26c98bee8a9af0c40bd9b8681ed4d6ffbfcd5d0e`、local `03be1fe1d6b8ef4cea16b63450e2463346f4bd08`、一致tree `9a385f0e953dffb0532731a36f68f011835cfb9d`。この保存時点は全体テスト結果の確定前であり、Site公開/最終完了保存ではない。
+
+## 最終検証・公開結果
+
+最終80画像・新8配置・cacheを含む同一コードの全体再実行は **1337成功、失敗/cancelled/skipped/todo各0、507497.37217ms、exit0**。初回の1336成功/1dodge失敗と、無変更の該当テスト10成功も上記に保持。ゲームやテストの改変・乱数固定はしていない。独立最終レビューはSpec PASS / Code quality APPROVE。全80単独画像と全80マーク合成を確認し、日本語ラベル問題も解消。
+
+同じowner-private確認Siteのversion54を公開し、deployment status **succeeded** を確認。
+
+- ゲーム：https://naotocchi-emotion-pr275.kerzion214.chatgpt.site/
+- タップ一覧：https://naotocchi-emotion-pr275.kerzion214.chatgpt.site/mark-review/
+- project：`appgprj_6aa908e9357c8191abb0f486be58697c`
+- version：`appgprj_6aa908e9357c8191abb0f486be58697c~appgver_5272427dc088819191bfb1f8b4214009`
+- deployment：`appgdep_6aac7c4ea19c81918450bfa2779a31df`
+- Site source：`6d425f0843a54ed69d674164eda01eed1ce11968`
+- image version：`ci-dd2dbb00`
+
+公開用archiveはhelper正常終了後にgzipと必要ファイルを検査してから保存。Siteコードはclean。独立レビュー内の公開未確認はレビュー時点の記述で、その後の公開成功をここに記録する。実機の見た目はユーザー確認とし、こちらの一覧/操作確認を実機撮影・クリックと混同しない。
+
+コードの最終保存SHA/tree/保存後CI・Draft・実main refはPR本文へ追記する。元emotion-codeの無関係な画像変更は保持し、今回の分離worktreeには取り込んでいない。

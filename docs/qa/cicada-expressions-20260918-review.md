@@ -4,7 +4,7 @@
 
 **Production integration/specification: PASS. Code quality: APPROVE. All eighty sprite/mark compositions and corrected gallery sheets: PASS. No blocking findings remain.**
 
-No production code or sprite defect was found. The gallery font issue was immediately reported to root and has been corrected and independently re-reviewed. Full npm was still running without a final summary when inspected; publication and final remote saving/verification remain pending. This review does not establish a delivered Site revision or GitHub state. PR 278 must remain Draft and main must not be merged.
+No production code or sprite defect was found. The gallery font issue was immediately reported to root and has been corrected and independently re-reviewed. The initial full npm run had one Quick-mode failure, its unchanged targeted recheck passed, and the full rerun passed all 1,337 tests; publication and final remote saving/verification remain pending. This review does not establish a delivered Site revision or GitHub state. PR 278 must remain Draft and main must not be merged.
 
 ## Gallery font correction verified
 
@@ -33,18 +33,21 @@ These are static two-times contact sheets, not device screenshots. Visual review
 
 The implementation follows the existing staged routing/preview architecture. All eight stages route all ten expressions; normal/unknown requests retain their base portrait. Canonical names match character-world-master.v1.js. Existing unsupported fixtures were moved to canonical antlion, which remains outside expression routing. Runtime tests cover all eighty combinations, reaction rendering, critical priority over happy, and rendering without state mutation. Asset gates cover distinctness, alpha and original bounds.
 
-The earlier independent integration review inspected 26 targeted green passes and 338 expression-unit passes following the 26-test red phase. Root's final full npm run is separate; it has not been duplicated or interrupted by this reviewer. At the last log read, no final test totals were yet available, so no full-suite pass is asserted here.
+The earlier independent integration review inspected 26 targeted green passes and 338 expression-unit passes following the 26-test red phase. Root's full npm runs have not been duplicated or interrupted by this reviewer. The initial final-assembly run finished with 1,337 tests: 1,336 passes, one failure, zero cancellations/skips/todos, 511464.281737 ms. The inspected failure is `tests/quick-mode-test.cjs:57`, `solving dodge counts` (actual 0/20, expected 1/20). The unchanged Quick test file then passed all ten tests, zero failures/cancellations/skips/todos, 1615.687604 ms. The full rerun log was then independently inspected: all 1,337 tests passed, zero failures/cancellations/skips/todos, 507497.37217 ms. Both the initial failure and successful unchanged reruns remain recorded; no game/test/seed change is claimed as a fix.
 
-The production cache dependency found in the Site-preparation review is now resolved in source: index.html references `pet-expression.js?v=20260917-5a78c2c5`, replacing the old stagbeetle token. Site regeneration still needs to consume that final source. No additional production revision is requested.
+The production cache dependency found in the Site-preparation review is now resolved in source: index.html references `pet-expression.js?v=20260917-5a78c2c5`, replacing the old stagbeetle token. Root reports the prepared Site now consumes that source. No additional production revision is requested.
 
 ## Documentation and delivery status
 
-The existing `docs/qa/cicada-expressions-20260918.md` is explicitly an intermediate checkpoint but still describes 44/80 and several now-completed local steps as unfinished. Preserve checkpoint history if useful, and add/update the final status with eighty portraits, completed local evidence, final npm totals, and actual delivery results once known. Root has been notified; do not present the checkpoint as the final outcome.
+The updated `docs/qa/cicada-expressions-20260918.md` now records all eighty portraits, the corrected gallery fonts, preservation evidence, the initial full-test failure and targeted recheck, and remote preparation distinctly from publication. Root reports Site version 54 saved but not deployed; version 53 remains published. Final publication and completion saving are not independently established by this review.
+
+Branch identity must remain precise: root reports branches/main, git/ref/heads/main, commits/main and git ls-remote all identify actual main as `f23398e43eed952d49d5a2b805789a4c87b2b1bd`. PR base metadata instead returns `3f4bfda0b8c0d30098ebb68c4313abd370a8576a`; that metadata is not the actual live main ref. This reviewer did not perform remote calls, and neither main nor PR state was changed by this review.
 
 Outstanding at this review snapshot:
 
-1. Record the running final npm result. Root reports independent single-art review has now passed all eighty portraits across four twenty-image reviews; this reviewer independently inspected the eighty marked composites.
-2. Validate, package, publish and verify the authorized same owner-private Site, then finish GitHub saving/verification while retaining Draft PR 278 and leaving main unmerged.
-3. Ensure all new files and provenance intended for remote retention are saved; successful local hashes do not prove remote persistence.
+The final full-regression gate is now satisfied by the successful 1,337-test rerun. Root reports independent single-art review passed all eighty portraits across four twenty-image reviews; this reviewer independently inspected the eighty marked composites.
+
+1. Publish and verify the prepared same owner-private Site, then finish GitHub saving/verification while retaining Draft PR 278 and leaving main unmerged.
+2. Ensure all new files and provenance intended for remote retention are saved; successful local hashes do not prove remote persistence.
 
 Only this review document was written. No art/code edits, commits, pushes, Site/GitHub mutations, subagents, or duplicate full npm tests were performed by this reviewer.
