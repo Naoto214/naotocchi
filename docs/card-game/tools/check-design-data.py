@@ -442,6 +442,84 @@ play_audit = {"main_commit": play_snapshot["main_commit"], "registered_games": l
               "manual_case_entries": sum(b["manual_case_entries"] for b in play_batch_counts), "identical_body_groups": play_duplicates,
               "actual_source_verified": play_source_verified}
 
+
+# Places keep the existing single world slot; runtime source groups are not rarity.
+world_snapshot = json.loads((DOCS / "data/world-source-20260917.json").read_text())
+world_sources = [{**master["regions"]["home"], "source": "home"}] + [
+    {**r, "source": group} for group in ("normal", "special") for r in master["regions"][group]]
+check(world_snapshot["regions"] == world_sources, "Pinned region sources differ from registered baseline")
+world_followup = world_snapshot.get("followup_main_check")
+if world_followup:
+    check(world_followup["compare_base"] == world_snapshot["main_commit"] and
+          world_followup["verified_source_blobs"] == world_snapshot["source_blobs"] and
+          not set(world_followup["changed_paths"]) & set(world_snapshot["source_blobs"]),
+          "World follow-up main evidence differs from pinned source")
+world_source_map = {"W-" + r["id"]: r for r in world_sources}
+world_records = {}
+for m in re.finditer(r"^### (W-[\w-]+) — ([^\n]+)\n(.*?)(?=^### |^## |\Z)", doc(89), re.M | re.S):
+    card_id, name, section = m.groups()
+    body = re.findall(r"^> (.+)$", section, re.M)
+    time = re.findall(r"^- 時：(\d+)$", section, re.M)
+    group = re.findall(r"^- source group：(home|normal|special)$", section, re.M)
+    check(len(body) == len(time) == len(group) == 1, f"World body/metadata missing: {card_id}")
+    if not (len(body) == len(time) == len(group) == 1):
+        continue
+    check(card_id not in world_records, f"World ID repeated: {card_id}")
+    definition = world_source_map.get(card_id, {})
+    check(name == definition.get("label") and group[0] == definition.get("source"), f"World name/group: {card_id}")
+    check("- 構築区分：通常（同名3枚）" in section, f"World rarity missing: {card_id}")
+    expected_time = 3 if card_id in ("W-star_stop", "W-memory_lake") else 2
+    check(int(time[0]) == expected_time, f"World time: {card_id}")
+    check(body[0] != "能力なし。", f"World draft expects ability: {card_id}")
+    world_records[card_id] = {"id": card_id, "name": name, "type": "セカイ", "time": int(time[0]),
+                              "source_group": group[0], "rarity": "normal", "text": body[0],
+                              "path": str(next(DOCS.glob("89-*.md")).relative_to(ROOT))}
+check(len(world_records) == 13 and set(world_records) == set(world_source_map), "13 world body coverage mismatch")
+for sid in ("city", "forest", "deepsea", "memory_lake"):
+    rec = world_records.get("W-" + sid, {})
+    role = re.search(rf"^### W-{sid} — [^\n]+\n(.*?)(?=^### |^## |\Z)", doc(40), re.M | re.S)
+    role_body = re.search(r"本文: `([^`]+)`", role[1]) if role else None
+    deck = re.search(rf"^- {re.escape(rec.get('name', ''))} — 時(\d+)[^\n]+", doc(8), re.M)
+    deck_body = re.search(r"`([^`]+)`", deck[0]) if deck else None
+    check(bool(role_body) and role_body[1] == rec.get("text"), f"40 world mirror: {sid}")
+    check(bool(deck_body) and deck_body[1] == rec.get("text") and int(deck[1]) == rec.get("time"), f"08 world mirror: {sid}")
+city_section = re.search(r"^### W-city — [^\n]+\n(.*?)(?=^### |^## |\Z)", doc(67), re.M | re.S)
+city_body = re.search(r"^> (.+)$", city_section[1], re.M) if city_section else None
+check(bool(city_body) and city_body[1] == world_records.get("W-city", {}).get("text"), "67 city exact body changed")
+check("セカイ13は全て通常・各同名3枚" in doc(27), "27 explicit world deck classification missing")
+world_cases = re.findall(r"^\| ([PX]\d{2}) \|", doc(90), re.M)
+check(len(world_cases) == len(set(world_cases)) == 40 and set(world_cases) ==
+      {f"P{n:02d}" for n in range(1, 14)} | {f"X{n:02d}" for n in range(1, 28)}, "90 world manual case IDs")
+all_with_world = collections.defaultdict(list, {k: list(v) for k, v in all_with_play.items()})
+for rec in world_records.values():
+    all_with_world[rec["text"]].append(rec["id"])
+world_duplicates = [ids for ids in all_with_world.values() if len(ids) > 1]
+check(not world_duplicates, f"Identical character/item/play/world bodies: {world_duplicates}")
+world_source_verified = False
+if "--world-source-root" in sys.argv:
+    source_dir = Path(sys.argv[sys.argv.index("--world-source-root") + 1]).resolve()
+    hashes_match = True
+    for name, expected in world_snapshot["source_blobs"].items():
+        raw = (source_dir / name).read_bytes()
+        actual = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        check(actual == expected, f"World source blob differs: {name}")
+        hashes_match = hashes_match and actual == expected
+    actual_regions = json.loads(subprocess.check_output(["node", "-e", r"""
+const fs=require('fs'),vm=require('vm'),c={window:{}};vm.createContext(c);
+vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),c);
+const r=c.window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1.regions;
+console.log(JSON.stringify([{...r.home,source:'home'},...['normal','special'].flatMap(k=>r[k].map(x=>({...x,source:k})))]));
+""", str(source_dir / "character-world-master.v1.js")], text=True))
+    check(actual_regions == world_snapshot["regions"], "Actual pinned region definitions differ from snapshot")
+    world_source_verified = hashes_match and actual_regions == world_snapshot["regions"]
+world_audit = {"main_commit": world_snapshot["main_commit"], "body_entries": len(world_records),
+               "latest_main_checked": world_followup["main_commit"] if world_followup else world_snapshot["main_commit"],
+               "rarity_counts": dict(collections.Counter(r["rarity"] for r in world_records.values())),
+               "source_group_counts": dict(collections.Counter(r["source_group"] for r in world_records.values())),
+               "time_counts": dict(collections.Counter(r["time"] for r in world_records.values())),
+               "manual_case_entries": len(world_cases), "max_body_length": max((len(r["text"]) for r in world_records.values()), default=0),
+               "identical_body_groups": world_duplicates, "actual_source_verified": world_source_verified}
+
 broken_links = []
 for file in DOCS.rglob("*.md"):
     for target in re.findall(r"\]\(([^)]+)\)", file.read_text()):
@@ -467,9 +545,10 @@ result = {"registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(tota
                   "partner_vanilla_entries": partner_vanilla,
                   "all_character_identical_ability_groups": all_character_duplicates,
                   "current_item_source_followup": item_audit,
-                  "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "errors": errors,
+                  "character_item_identical_ability_groups": all_draft_duplicates, "play_draft_followup": play_audit, "world_draft_followup": world_audit, "errors": errors,
                   "scope": "Source, ID, numeric curves, complete body coverage, literal mirrors and local links; not a gameplay or semantic-equivalence validator."}
 if "--catalog" in sys.argv:
+    result["worlds"] = sorted(world_records.values(), key=lambda r: r["id"])
     result["cards"] = sorted(body_records.values(), key=lambda r: r["id"])
     result["companions"] = sorted(companion_records.values(), key=lambda r: r["id"])
     result["partners"] = sorted(partner_records.values(), key=lambda r: r["id"])

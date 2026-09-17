@@ -15,6 +15,8 @@
 **87・88の追従（2026-09-17）:** 登録順81〜100の[20本文](87-play-batch-5-card-text-draft.md)と[40局面](88-play-batch-5-text-audit.md)を保存。本文あり100/100・未展開0（新99＋既存2048の1）。今回のsourceは一般6・地域10・季節4、全体86・10・4を維持。季節sourceから未決定の盤面方式を確定せず、地域名は個別本文の条件へ接続した。mainは5d39eea915d09be3900d92fa879a9e9f1ecf6091で不変。次はセカイ13・できごと34。過去段落の枚数は保存時の履歴で、本文完備は裁定・強度の確定ではない。
 
 
+**89・90保存時の本編追従:** main `c77587b7488670d27af1e7f0fdb8a477a386e1c2`（#287）のめぐる景観更新を未登録sourceの追従として記録。5d39eeaとの差分8ファイルにgames.js・script.js・地域マスター・world-environment.jsは含まれず、4 blobも同一。100候補／477候補へ加算せず、本編未マージを維持。詳細は[89](89-world-13-card-text-draft.md)と世界source snapshotのfollowup_main_check。
+
 ## 登録後に見つかった追加source
 
 65の初回保存直後、main `19b579abfb48472b6abc1ac7c6f6b1693c8b027e`（PR #261）に `quick-run` と内部15ゲームが追加された。今回の確定反映時には、最新main `bf0ee0c56fad251464241f2e87e801ecdd7286d9`（PR #262）で内部30ゲームと単独モードまで増えていることを実際に確認した。以下はその30内部ID。従来の `games.js` は変更されず、下記A〜Cの100 stable IDは維持されている。

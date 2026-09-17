@@ -22,6 +22,8 @@ cat_ceo, robot_neighbor, field_cow, sunflower_partner, forest_bear, grove_deer, 
 ## セカイ13
 home, city, countryside, forest, mountain, snow, sea, deepsea, river_lake, jungle, desert, star_stop, memory_lake。季節・時間・天気は独立軸なので役割監査までHOLD。
 
+**89の個別割当・第1稿:** セカイ13は全て通常・各同名3枚。sourceの拠点1／通常10／特殊2と構築区分を分ける。時2が11枚、時3が2枚。[89](89-world-13-card-text-draft.md)に全本文、[90](90-world-13-text-audit.md)に40局面。既存セカイ1枠を使い、前3軸の方式と収録枚数は未確定。
+
 ## 伝説5：暫定できごと
 E-gate「そらにうかぶとりい」 / E-stairs「どこにもつながらないかいだん」 / E-boss「あやまりにきただいおういか」 / E-lamp「よなかのあかり」 / E-mirror「としをとったじぶん」。CARD候補。最終種類は全できごと監査時に再確認。
 
