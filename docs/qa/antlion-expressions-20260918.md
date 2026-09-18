@@ -1,6 +1,6 @@
 # アリジゴク表情の制作・検証記録
 
-進行中。完成済み範囲はセミまでの17系統1360表情。新規antlion80枚の生成・検証・公開が完了するまで18系統完成とは扱わない。PR #278はDraft/open/未マージを維持し、mainにマージしない。
+最終結果：アリジゴク80表情を制作・検証し、同じ確認Site version55へ公開成功。完成済み範囲は18系統1440表情であり、全キャラクターの完成ではない。全体再テスト1371成功、失敗/cancelled/skipped/todo各0。以下の途中状態は履歴として保持する。PR #278はDraft/open/未マージを維持し、mainにマージしない。
 
 ## 開始時の実確認
 
@@ -55,3 +55,25 @@ Site checker初回は追加prefix al-がCSSのinitial-scale/vertical-alignにも
 該当2ファイル再検査と、修正後の全体npm testを実行中。初回の失敗をランダム失敗扱いせず、原因と変更を記録する。Site version55は保存済みだが未公開のまま。
 
 該当2ファイル再検査は525成功、失敗/cancelled/skipped/todo各0、73830.785727ms、exit0。独立レビューでもdandelionの未対応挙動と変更範囲を確認PASS。全体再実行は引き続き待機中。
+
+## 最終再検証・公開
+
+最終全体再実行は1371成功、失敗/cancelled/skipped/todo各0、580071.43641ms、exit0。初回1360成功/11失敗と、未対応fixtureだけを修正した後の該当525成功を上記に保持。ゲームコード・乱数・画像・配置は再テスト開始後に変更していない。
+
+同じowner-private確認Site version55を公開し、native deployment status succeededを確認。
+
+- ゲーム：https://naotocchi-emotion-pr275.kerzion214.chatgpt.site
+- タップ一覧：https://naotocchi-emotion-pr275.kerzion214.chatgpt.site/mark-review/
+- project：appgprj_6aa908e9357c8191abb0f486be58697c
+- version：appgprj_6aa908e9357c8191abb0f486be58697c~appgver_5f9cd2e570788191a2c442dbce7425a4
+- deployment：appgdep_6aaccdd468b481918f9cf974264c495e
+- source：ca316cd4c0bac3831b6a22343b781127ffaa9b07
+- image version：al-e1fadd22
+
+一覧はantlionから開始し、今回分フィルタで80件に絞れる。実機の見た目はユーザー確認。静止合成やソース/状態確認を実機撮影・クリックとは扱わない。
+
+全体再テスト待ちの途中保存はremote 51b00b28eb58d284a52fbcca8e47ed4b8f86dd4b、local 562b2c8ac202b7790ecdc6c9d125810f5ff43a16、一致tree 11c91a4eb5b3d8b76dd4ed8a60779bce4f5c9983。この時点でPR Draftを維持、branch refをAPI/ls-remote照合、実main d8036775d35f21fc12c20d5bf450e93d3a2e8846を双方で確認。main取り込み・マージなし。
+
+最終保存SHA/tree/保存後の実main・CI・DraftはPR #278本文に記録する。完成済み18系統を再生成せず、次は残る未制作系統を資料と元画像で選定する。配置例外はcoral全段階とantlion/02 sickの横方向上限のみ。次系統で制約を全体緩和しない。
+
+独立最終判定：Spec PASS、Code quality PASS、未解決blockerなし。独立担当の公開/GitHub未確認はレビュー時点の記述で、公開成功は本QA、最終remote確認はPR本文へ記録する。

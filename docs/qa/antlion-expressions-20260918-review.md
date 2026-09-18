@@ -1,6 +1,6 @@
 # アリジゴク表情・独立レビュー記録
 
-単独画像レビューの初回指摘と修正後レビューを併記する。最終コード/Specレビューは後で追記する。
+単独画像レビューの初回指摘と修正後レビューを併記する。最終コード/Specレビューは末尾に追記。公開/remote未確認の記述はレビュー時点であり、その後の完了はQAとPR本文を参照。
 
 
 ---
@@ -271,3 +271,59 @@ This report covers only these thirty images. It makes no completion claim for th
 - 小さい顔同士で弱い・危険・疲れ・眠りの印象が近い場合も、色・大きさ・形の異なるマークで状態を区別できる。制作優先の承認基準で非blocking。
 
 このレビューでは画像・コードを変更していない。80合成の静止画像上の目視判定であり、実機動作テストの代替ではない。
+
+---
+
+# Antlion independent spec/code review
+
+Status: FINAL Spec/Code quality PASS. No unresolved blocking findings. Final full tests pass. Site publication/GitHub final delivery are separate operational checks; no publication claim is made here.
+
+Repository: `/workspace/scratch/daf8d241531b/cicada-code`
+Fixed baseline: `f57c352a2ea2d71bec5d0151d7742921457f3809`
+
+## Findings so far
+
+No blocking code/spec finding in reviewed changes.
+
+- Runtime changes add `antlion` to existing per-stage expression asset dispatch. Gameplay, save and romance logic is unchanged.
+- Preview, gallery and placement checker enumerate the new species. Canonical labels are tested against character-world-master and all eight stage boundaries are included in preview/integration coverage.
+- `tools/place-expression-marks.cjs` limits the new upper horizontal bound exemption to sick marks at `antlion/02`. Existing coral exemption remains as before. Angle/radius search, canvas bounds, alpha clearance and sweat collision checks stay unchanged. Existing placement marks bypass this candidate search and are copied from `previous`.
+- The documented narrow-face/broad-sand-pit diagnosis supports this single-stage exception. Final placement and visual inspection are still needed to assess its resulting distance/readability.
+
+## Independent verification executed
+
+- `node /workspace/scratch/c45f03af27e5/check-antlion-preservation.cjs`: PASS. Compared original Git blobs for 1360 prior PNGs; evaluated 1360 asset paths and 1360 accent SVG values; deeply compared all 136 prior placement entries. This also preserves the 81 prior corrections represented within those entries.
+- Same helper: PASS for all 297 non-expression character PNGs (including 248 normal stage PNGs), 24 other top-level runtime JavaScript files, and pet-expression.css. Static assets SVG count is zero; actual accent preservation is checked through returned SVG strings above.
+- `git diff --check`: PASS.
+
+## Remaining gates
+
+Final new eight placements and bump diff; repaired 07-wantsPlay provenance/240 hash verification; independent final image/composite QA; final complete npm test and placement check; final Site behavior evidence and GitHub Draft/open/unmerged verification. These are not claimed by this interim review.
+
+## Final asset/configuration recheck
+
+- Manifest has 80 final records. Independently read every original, generated source and final PNG and computed SHA256: all 240 matched. Corrected `07-wantsPlay` includes replaced source and revision reason.
+- Final placement diff adds exactly `antlion/01` through `antlion/08`. Re-ran preservation helper after placement: all protected counts passed unchanged.
+- Independently executed `node tools/check-expression-placement.cjs`: exit 0, 1440 marks, 864 sweat envelopes, `issues: []`.
+- Compared all 37 asset URL cache tokens with baseline index.html. Only pet-expression.js changed; remaining 36 are byte-for-byte unchanged. Current file SHA1 prefix is `70da9d04`, matching `pet-expression.js?v=20260918-70da9d04`.
+- Full npm test remains running as of this checkpoint. Final artistic/composite review and Site/GitHub evidence remain outside this completed code/configuration check.
+
+## Obsolete unsupported-species test fixtures
+
+Initial full npm test failed: 1371 tests, 1360 pass, 11 fail (primary agent exit 1; independently inspected failure log). All failing assertions treated antlion as an unsupported species, which conflicts with this batch's intended new support. This is a test fixture defect, not evidence of a game runtime defect.
+
+Reviewed fixture-only corrections in pet-expression-test.cjs and pet-expression-integration-test.cjs: unsupported examples now use dandelion; explicit antlion support coverage remains. Independently verified actual dandelion 01/02/08 assets exist and all 30 expression asset/accent fallback cases plus three sweat null cases meet the unsupported contract. No test assertions were removed or weakened. Correction accepted; final rerun outcome pending.
+
+
+## Final verification and decision
+
+Independently inspected both rerun log summaries:
+
+- Fixture-focused rerun: 525 tests, 525 pass, zero failures/cancelled/skipped/todo; 73830.785727ms. Primary agent confirmed exit 0.
+- Full npm rerun: 1371 tests, 1371 pass, zero failures/cancelled/skipped/todo; 580071.43641ms. Primary agent confirmed exit 0. Log: `/workspace/scratch/c45f03af27e5/antlion-npm-test-rerun.log`.
+- Initial full run remains recorded: 1371 tests, 1360 pass, 11 obsolete unsupported-fixture failures, exit 1; corrected without changing production code, images or placements.
+- Final preservation helper re-executed after full test completion: PASS for all prior PNGs/routes/accents/placements/normal assets/runtime files/CSS. Final `git diff --check` passed; worktree clean at checkpoint `562b2c8ac202b7790ecdc6c9d125810f5ff43a16`, tree `11c91a4eb5b3d8b76dd4ed8a60779bce4f5c9983` (independently read).
+
+Final decision: Spec and code quality PASS. Antlion asset dispatch, eight placements, constrained single-stage placement exception, canonical labels, cache token and fixture corrections satisfy the reviewed scope. No blocking findings remain. The primary agent and art reviewer separately completed image/composite visual QA; this code reviewer does not relabel those as independently performed visual review.
+
+Primary agent reports remote checkpoint `51b00b28eb58d284a52fbcca8e47ed4b8f86dd4b` with matching local tree and Draft PR maintained. Final owner-private Site publication of saved version55 is underway after full test success; publication and final GitHub refs/PR status should be verified by the primary agent before claiming complete delivery. Earlier pending sections above are historical checkpoints superseded by this final test decision.
