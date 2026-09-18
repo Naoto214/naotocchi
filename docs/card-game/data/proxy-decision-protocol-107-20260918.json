@@ -1,0 +1,110 @@
+{
+  "schema": "naotocchi.card_game.proxy_decision_protocol.v1",
+  "date": "2026-09-18",
+  "design": {
+    "rules_commit": "0a97a9f14d68a26633545f1b80d7fbc1c64218fa",
+    "rules_tree": "91943d238bc31e6d6c97d8ee44b047a73e32efdc",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "source_pair": "P97-03 single seat mirror",
+  "output_directory": "proxy-fixtures-107",
+  "completed_match_count": 0,
+  "decision_opportunity": "自分の通常行動機会ごとに合法候補を列挙し、何もしないも候補に含める。",
+  "choice_record_required_fields": [
+    "pre_decision_state",
+    "legal_candidates",
+    "selected_action",
+    "runner_up_action",
+    "reason_code",
+    "payment",
+    "targets",
+    "chain",
+    "public_information"
+  ],
+  "pre_decision_state_fields": [
+    "hand",
+    "board",
+    "time",
+    "growth",
+    "reservations"
+  ],
+  "required_candidate_kinds": [
+    "legal_action",
+    "pass"
+  ],
+  "decision_priority": [
+    "avoid_defeat_or_aborted_challenge",
+    "maintain_or_prevent_growth_100",
+    "maximize_certain_growth_difference",
+    "maximize_time_balance",
+    "maximize_hand_board_reservation_value"
+  ],
+  "tie_breakers": [
+    "lower_time_payment",
+    "fewer_cards_consumed",
+    "lower_card_copy_id"
+  ],
+  "reason_codes": [
+    "avoid_defeat",
+    "avoid_aborted_challenge",
+    "maintain_growth_100",
+    "prevent_opponent_growth_100",
+    "certain_growth_difference",
+    "time_balance",
+    "hand_value",
+    "board_value",
+    "reservation_value",
+    "tie_lower_time_payment",
+    "tie_fewer_cards_consumed",
+    "tie_lower_card_copy_id",
+    "pass_no_better_legal_action",
+    "unresolved_canonical_text"
+  ],
+  "information_policy": "public_and_owner_known_only",
+  "may_use_opponent_hidden_information": false,
+  "normal_match_end": "R10の最終比較までを1戦とする。",
+  "existing_rule_boundaries": [
+    "途中終了は既存の勝負ルールどおり記録する。",
+    "そだち100到達後は、その到達後に始まる最初の相手ターン終了までの維持を既存ルールどおり判定する。"
+  ],
+  "stop_conditions": [
+    "r10_final_comparison_completed",
+    "early_victory_after_growth_100_maintenance",
+    "decision_cannot_be_resolved_from_canonical_text",
+    "record_integrity_failure"
+  ],
+  "recorded_nonterminal_conditions": [
+    "challenge_aborted_by_participant_departure"
+  ],
+  "evaluation_metrics": [
+    "winner",
+    "legal_candidate_count",
+    "selected_action_count",
+    "unused_time",
+    "use_count_by_card_type",
+    "reservations",
+    "reentries",
+    "growth_progression",
+    "unresolved_decisions"
+  ],
+  "scope_exclusions": [
+    "game_engine",
+    "complete_automatic_legality",
+    "completed_match",
+    "win_rate_or_card_strength_conclusion",
+    "card_text_numeric_or_registration_change"
+  ],
+  "fixtures": [
+    {
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-03-single.json",
+      "match_id": "fixture-107-normal-decision-a-first",
+      "seat_stratum": "a-first"
+    },
+    {
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-03-single-a-second.json",
+      "match_id": "fixture-107-normal-decision-a-second",
+      "seat_stratum": "a-second"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "main_commit": "c77587b7488670d27af1e7f0fdb8a477a386e1c2",
+  "source_blobs": {
+    "script.js": "56556322fdb4246ef2bf1614d5a8a40bd5e9a75b",
+    "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+    "movie-dialogue.js": "62890053dfb9c1bee9f5ebe9a4bb9c526b08be91"
+  },
+  "events": [
+    {
+      "id": "E-gate",
+      "name": "そらにうかぶとりい",
+      "status": "CARD",
+      "anchor": "LEGEND_ENCOUNTERS / gate"
+    },
+    {
+      "id": "E-stairs",
+      "name": "どこにもつながらないかいだん",
+      "status": "CARD",
+      "anchor": "LEGEND_ENCOUNTERS / stairs"
+    },
+    {
+      "id": "E-boss",
+      "name": "あやまりにきただいおういか",
+      "status": "CARD",
+      "anchor": "LEGEND_ENCOUNTERS / boss"
+    },
+    {
+      "id": "E-lamp",
+      "name": "よなかのあかり",
+      "status": "CARD",
+      "anchor": "LEGEND_ENCOUNTERS / lamp"
+    },
+    {
+      "id": "E-mirror",
+      "name": "としをとったじぶん",
+      "status": "CARD",
+      "anchor": "LEGEND_ENCOUNTERS / mirror"
+    },
+    {
+      "id": "E-naoto",
+      "name": "なおと",
+      "status": "CARD",
+      "anchor": "playerSpecies.author / naoto"
+    },
+    {
+      "id": "E-midlife-hobby",
+      "name": "趣味を見つけた",
+      "status": "CARD",
+      "anchor": "MIDLIFE_EVENTS / age: 44"
+    },
+    {
+      "id": "E-midlife-50th",
+      "name": "50さいのお祝い",
+      "status": "CARD",
+      "anchor": "MIDLIFE_EVENTS / age: 50"
+    },
+    {
+      "id": "E-midlife-album",
+      "name": "昔のアルバム",
+      "status": "CARD",
+      "anchor": "MIDLIFE_EVENTS / age: 56"
+    },
+    {
+      "id": "E-midlife-flower",
+      "name": "庭に小さな花を植えた",
+      "status": "CARD",
+      "anchor": "MIDLIFE_EVENTS / age: 62"
+    },
+    {
+      "id": "E-midlife-travel-plan",
+      "name": "小さな旅の計画",
+      "status": "CARD",
+      "anchor": "MIDLIFE_EVENTS / age: 66"
+    },
+    {
+      "id": "E-big-illness",
+      "name": "おおきなびょうき",
+      "status": "CARD",
+      "anchor": "SICKNESS_TYPES"
+    },
+    {
+      "id": "E-fateful-transform",
+      "name": "うんめいのへんしん",
+      "status": "CARD",
+      "anchor": "offerTransformIfReady / rerollIdentityAndBreakupIfNeeded"
+    },
+    {
+      "id": "E-new-encounter",
+      "name": "あたらしいであい",
+      "status": "CARD",
+      "anchor": "PARTNER_FIRST_ENCOUNTERS / playFirstPartnerEncounter"
+    },
+    {
+      "id": "E-misunderstanding",
+      "name": "すれちがい",
+      "status": "CARD",
+      "anchor": "recheckRelationship / MISMATCH_REPAIR_NEEDED"
+    },
+    {
+      "id": "E-sudden-trip",
+      "name": "とつぜんのたび",
+      "status": "CARD",
+      "anchor": "travelToRegion / state.regionId / firstVisit"
+    },
+    {
+      "id": "E-final-time",
+      "name": "さいごのじかん",
+      "status": "CARD",
+      "anchor": "enterFarewell / GOAL_AGE"
+    },
+    {
+      "id": "E-first-date",
+      "name": "はじめてのデート",
+      "status": "CARD",
+      "anchor": "datesThisLife === 1 / rememberSpecialDate"
+    },
+    {
+      "id": "E-reconciliation",
+      "name": "なかなおり",
+      "status": "CARD",
+      "anchor": "courtBtn / MISMATCH_REPAIR_NEEDED"
+    },
+    {
+      "id": "E-wedding-anniversary",
+      "name": "けっこんきねんび",
+      "status": "CARD",
+      "anchor": "MARRIAGE_MILESTONES / checkMarriageMilestones"
+    },
+    {
+      "id": "E-special-trip-memory",
+      "name": "とくべつなたびのおもいで",
+      "status": "CARD",
+      "anchor": "travelToRegion / firstVisit / specialRegionsVisited"
+    },
+    {
+      "id": "E-env-sunny",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / sunny"
+    },
+    {
+      "id": "E-env-cloudy",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / cloudy"
+    },
+    {
+      "id": "E-env-rain",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / rain"
+    },
+    {
+      "id": "E-env-snow",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / snow"
+    },
+    {
+      "id": "E-env-morning",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / morning"
+    },
+    {
+      "id": "E-env-day",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / day"
+    },
+    {
+      "id": "E-env-evening",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / evening"
+    },
+    {
+      "id": "E-env-night",
+      "status": "HOLD",
+      "anchor": "ENV_MOMENTS / night"
+    },
+    {
+      "id": "E-sickness-recovery",
+      "status": "HOLD",
+      "anchor": "recordSicknessCure"
+    },
+    {
+      "id": "E-last-stand",
+      "status": "HOLD",
+      "anchor": "miracleGuard"
+    },
+    {
+      "id": "E-companion-parting",
+      "status": "HOLD",
+      "anchor": "decayCompanionBonds"
+    },
+    {
+      "id": "E-sodachi-milestone",
+      "status": "HOLD",
+      "anchor": "SODACHI_PERKS / onSodachiMilestone"
+    },
+    {
+      "id": "E-grand-goal",
+      "status": "HOLD",
+      "anchor": "enterFarewell / checkGrandGoals / syncNaotoRewardItems"
+    }
+  ],
+  "retired_anchors": {
+    "E-special-trip-memory": {
+      "old": "specialRewardTrip",
+      "current": [
+        "travelToRegion",
+        "firstVisit",
+        "specialRegionsVisited"
+      ],
+      "note": "travelMemory = null; old item reward not revived"
+    }
+  },
+  "midlife_ages": [
+    44,
+    50,
+    56,
+    62,
+    66
+  ],
+  "legend_ids": [
+    "gate",
+    "stairs",
+    "boss",
+    "lamp",
+    "mirror"
+  ]
+}

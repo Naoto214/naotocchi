@@ -1,0 +1,6125 @@
+{
+  "schema": "naotocchi.card_game.proxy_remaining_single_trace.v1",
+  "trace_id": "trace-106-p97-02-single-a-first",
+  "record_match_id": "completed-106-p97-02-single-a-first",
+  "state_model": "checkpoint-106-controlled-single-state.v1",
+  "snapshots": [
+    {
+      "event_seq": 0,
+      "action_type": "initial",
+      "sha256": "5b31b3ced685038594c190e7bbb94132f9e6d304fab7d326179a7a4ee9f411d5",
+      "state": {
+        "round": 0,
+        "turn_player": null,
+        "phase": "before_match",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "A-001#1",
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1"
+            ],
+            "deck": [
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1"
+            ],
+            "deck": [
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {}
+      }
+    },
+    {
+      "event_seq": 1,
+      "action_type": "turn_start_draw",
+      "sha256": "46f9141f7810a0f2a3b9503f706f5d54844755b0847ce9bf0575c2808182b68d",
+      "state": {
+        "round": 1,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 1,
+            "growth": 20,
+            "hand": [
+              "A-001#1",
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1"
+            ],
+            "deck": [
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1"
+            ],
+            "deck": [
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {}
+      }
+    },
+    {
+      "event_seq": 2,
+      "action_type": "play_mini_golf",
+      "sha256": "c32c7fd682abda4f2319a3f9c12b72c2b3bd07a4076924ad197a6f43e13dc899",
+      "state": {
+        "round": 1,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1"
+            ],
+            "deck": [
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1"
+            ],
+            "deck": [
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 1,
+            "status": "active"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 3,
+      "action_type": "resolve_mini_golf_turn_end",
+      "sha256": "dbcb3e6fef30543b447b70c16fe516f4b0f207c69119d9ac7ee918a75a79e6a5",
+      "state": {
+        "round": 1,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1"
+            ],
+            "deck": [
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1"
+            ],
+            "deck": [
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 4,
+      "action_type": "turn_end_pass",
+      "sha256": "f8fe1544aa06ebd0aa8644942f85946dd553f285bd8acc5a59a2f575b9210fa6",
+      "state": {
+        "round": 1,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1"
+            ],
+            "deck": [
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 0,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1"
+            ],
+            "deck": [
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 5,
+      "action_type": "turn_start_draw",
+      "sha256": "cd6856ee65e97d14a5ba3991bcaae675b5d9c5419de1b6872059981817e1a90e",
+      "state": {
+        "round": 1,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1"
+            ],
+            "deck": [
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 1,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1"
+            ],
+            "deck": [
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 6,
+      "action_type": "turn_end_pass",
+      "sha256": "f9c26f4c4153b5478f805e22d639ffcf932781b8ea6ef866de4227fa6091c752",
+      "state": {
+        "round": 1,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 0,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1"
+            ],
+            "deck": [
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 1,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1"
+            ],
+            "deck": [
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 7,
+      "action_type": "turn_start_draw",
+      "sha256": "adf467001eacf561b846422144eb25fa73fc9ae26c949a0c63400d2b7ea32444",
+      "state": {
+        "round": 2,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 2,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1"
+            ],
+            "deck": [
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 1,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1"
+            ],
+            "deck": [
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 8,
+      "action_type": "turn_end_pass",
+      "sha256": "4ae6afeb2e12195c8a797612f99a58142d15c85d59793f0c5670423f68868f07",
+      "state": {
+        "round": 2,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 2,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1"
+            ],
+            "deck": [
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 1,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1"
+            ],
+            "deck": [
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 9,
+      "action_type": "turn_start_draw",
+      "sha256": "d1cddb366ab661478f3120b196d29da957d360c7ab8455f364d126d00e901cd7",
+      "state": {
+        "round": 2,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 2,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1"
+            ],
+            "deck": [
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 2,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1"
+            ],
+            "deck": [
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 10,
+      "action_type": "turn_end_pass",
+      "sha256": "58afb0000df11b6996bee73be67471961fbaed1d8089626d8643ec91fade8159",
+      "state": {
+        "round": 2,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 2,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1"
+            ],
+            "deck": [
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 2,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1"
+            ],
+            "deck": [
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 11,
+      "action_type": "turn_start_draw",
+      "sha256": "7f66f34874825fe32fbc6c26cca2770fa858c5228a9b6515883c7d5dad868d6c",
+      "state": {
+        "round": 3,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 3,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1"
+            ],
+            "deck": [
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 2,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1"
+            ],
+            "deck": [
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 12,
+      "action_type": "turn_end_pass",
+      "sha256": "ceed5a3df37e632dfa63b5533fdade913f8d16061546fa9d579d009307c7817c",
+      "state": {
+        "round": 3,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 3,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1"
+            ],
+            "deck": [
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 2,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1"
+            ],
+            "deck": [
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 13,
+      "action_type": "turn_start_draw",
+      "sha256": "5862332fec81161dbdbe73adf502dd3fbca9e324795555cd1af1db083ab75a31",
+      "state": {
+        "round": 3,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 3,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1"
+            ],
+            "deck": [
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 3,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1"
+            ],
+            "deck": [
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 14,
+      "action_type": "turn_end_pass",
+      "sha256": "9910f7b8d544be21d140efe25f7b639340a760f2bd7d89368b258590b53481f5",
+      "state": {
+        "round": 3,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 3,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1"
+            ],
+            "deck": [
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 3,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1"
+            ],
+            "deck": [
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 15,
+      "action_type": "turn_start_draw",
+      "sha256": "7f0618352058f31a47e72dcc5675521fcf384bce78df18919cd04abc9590ec07",
+      "state": {
+        "round": 4,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 4,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1"
+            ],
+            "deck": [
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 3,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1"
+            ],
+            "deck": [
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 16,
+      "action_type": "turn_end_pass",
+      "sha256": "62a7dcc0dc27895c3d5858e77388b58caa1ef10963cf6aecdb8b4942d3b0e9e0",
+      "state": {
+        "round": 4,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 4,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1"
+            ],
+            "deck": [
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 3,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1"
+            ],
+            "deck": [
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 17,
+      "action_type": "turn_start_draw",
+      "sha256": "042cfe4f4993c5b2d19a540082acf40a0b63f00d0af156a1d7d29b793bda9379",
+      "state": {
+        "round": 4,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 4,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1"
+            ],
+            "deck": [
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 4,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1"
+            ],
+            "deck": [
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 18,
+      "action_type": "turn_end_pass",
+      "sha256": "7a8c0ec115f3a5369f06b13c45bf614ebfd1efced74a35140211e3969f503bc0",
+      "state": {
+        "round": 4,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 4,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1"
+            ],
+            "deck": [
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 4,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1"
+            ],
+            "deck": [
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 19,
+      "action_type": "turn_start_draw",
+      "sha256": "4b33bf241b7e7c1757a32f006aa05dfe4ad1066fa1e183b915ca4a8420eb2f3e",
+      "state": {
+        "round": 5,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 5,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1"
+            ],
+            "deck": [
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 4,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1"
+            ],
+            "deck": [
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 20,
+      "action_type": "turn_end_pass",
+      "sha256": "ea0bbb65351524fab65aee07cb5c3cf83170d4ba01619131bf2f8fa8bd82ca9b",
+      "state": {
+        "round": 5,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 5,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1"
+            ],
+            "deck": [
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 4,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1"
+            ],
+            "deck": [
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 21,
+      "action_type": "turn_start_draw",
+      "sha256": "820b9428bf721e83139fd2b8174fc6c4759be3dd9877711cc14029c6358947ca",
+      "state": {
+        "round": 5,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 5,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1"
+            ],
+            "deck": [
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 5,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1"
+            ],
+            "deck": [
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 22,
+      "action_type": "turn_end_pass",
+      "sha256": "7fd046705e2fcbac2530705faba0c16e5a8fa415565b1ae6c9d1dbd536d230ac",
+      "state": {
+        "round": 5,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 5,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1"
+            ],
+            "deck": [
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 5,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1"
+            ],
+            "deck": [
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 23,
+      "action_type": "turn_start_draw",
+      "sha256": "b812f204620a0fd50732afd4a2788e8e0fc0589b7ba6737d764d1e19998e140e",
+      "state": {
+        "round": 6,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 6,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1"
+            ],
+            "deck": [
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 5,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1"
+            ],
+            "deck": [
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 24,
+      "action_type": "turn_end_pass",
+      "sha256": "2e0fe0641c22316a4b41a8e04a68933437999f421b6e36ef5ac10ea62439d2db",
+      "state": {
+        "round": 6,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 6,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1"
+            ],
+            "deck": [
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 5,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1"
+            ],
+            "deck": [
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 25,
+      "action_type": "turn_start_draw",
+      "sha256": "3fb13926826ce2c96ad8ccedf6ced0b80a45a12b470087f7325b9f4fb2b39228",
+      "state": {
+        "round": 6,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 6,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1"
+            ],
+            "deck": [
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 6,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1"
+            ],
+            "deck": [
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 26,
+      "action_type": "turn_end_pass",
+      "sha256": "6a24b99eec7fa636b409bf0f9488cf357e03c2da5782d61771bb277bad09584e",
+      "state": {
+        "round": 6,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 6,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1"
+            ],
+            "deck": [
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 6,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1"
+            ],
+            "deck": [
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 27,
+      "action_type": "turn_start_draw",
+      "sha256": "9f34af2ba1a651d00d0c13744d2de9eb1d7df212cdad855b6dc32d5a6855ee19",
+      "state": {
+        "round": 7,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 7,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1"
+            ],
+            "deck": [
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 6,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1"
+            ],
+            "deck": [
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 28,
+      "action_type": "turn_end_pass",
+      "sha256": "8e6ce4422fa1f0021e16e99727305e65724f33098088e972c42b582445bb3366",
+      "state": {
+        "round": 7,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 7,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1"
+            ],
+            "deck": [
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 6,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1"
+            ],
+            "deck": [
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 29,
+      "action_type": "turn_start_draw",
+      "sha256": "f0afd59621c6bbfff6411360872fc0e255d3304f66f31848c398a53c5bb59ff6",
+      "state": {
+        "round": 7,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 7,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1"
+            ],
+            "deck": [
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 7,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1"
+            ],
+            "deck": [
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 30,
+      "action_type": "turn_end_pass",
+      "sha256": "ba3a2b8690ea77391b9174b7dd6cc9bdd88f7f1bca02d19ac702d48ab4023229",
+      "state": {
+        "round": 7,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 7,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1"
+            ],
+            "deck": [
+              "A-014#1",
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 7,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1"
+            ],
+            "deck": [
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 31,
+      "action_type": "turn_start_draw",
+      "sha256": "2e7406a9f9ea25ba7572b20c94f72835cbf459a411836cf2af66ec484c594bfc",
+      "state": {
+        "round": 8,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 8,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1"
+            ],
+            "deck": [
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 7,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1"
+            ],
+            "deck": [
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 32,
+      "action_type": "turn_end_pass",
+      "sha256": "b89dfd8a25f30af13702aa7268792963710fab55d339f008175593a57cc11975",
+      "state": {
+        "round": 8,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 8,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1"
+            ],
+            "deck": [
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 7,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1"
+            ],
+            "deck": [
+              "B-013#1",
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 33,
+      "action_type": "turn_start_draw",
+      "sha256": "28656e6f97e644e7e26ccd40a74ff40ba95c9144531d485f39544977f1c82f1e",
+      "state": {
+        "round": 8,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 8,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1"
+            ],
+            "deck": [
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 8,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1"
+            ],
+            "deck": [
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 34,
+      "action_type": "turn_end_pass",
+      "sha256": "359d1fa8e8e6e626a41e5d78e4522a66f39f60d4a00be6a0cb89ed71e346e4b1",
+      "state": {
+        "round": 8,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 8,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1"
+            ],
+            "deck": [
+              "A-015#1",
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 8,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1"
+            ],
+            "deck": [
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 35,
+      "action_type": "turn_start_draw",
+      "sha256": "3a8686a893d8dc429bc676c708f850bf9b07a9307cd5b8571b15cdeed70aa894",
+      "state": {
+        "round": 9,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 9,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1"
+            ],
+            "deck": [
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 8,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1"
+            ],
+            "deck": [
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 36,
+      "action_type": "turn_end_pass",
+      "sha256": "f898c36f5a1d103b4f76aa0cb8af3f8d6a16feb0e6ad6e0044b45d90c16693e1",
+      "state": {
+        "round": 9,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 9,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1"
+            ],
+            "deck": [
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 8,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1"
+            ],
+            "deck": [
+              "B-014#1",
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 37,
+      "action_type": "turn_start_draw",
+      "sha256": "cb13d0e1c20af8c4812cd848a0d03f86f9e16ac4384c48e62cd77da66d010e96",
+      "state": {
+        "round": 9,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 9,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1"
+            ],
+            "deck": [
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 9,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1"
+            ],
+            "deck": [
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 38,
+      "action_type": "turn_end_pass",
+      "sha256": "6e4d1555edae8585ea5267f62e693913e26cb203436445c2ee7962356c3d43ec",
+      "state": {
+        "round": 9,
+        "turn_player": "B",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 9,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1"
+            ],
+            "deck": [
+              "A-016#1",
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 9,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1"
+            ],
+            "deck": [
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 39,
+      "action_type": "turn_start_draw",
+      "sha256": "2fda1b4b211c720269d296fcdbdac81d9e552ba9a105f518e52e943470e06e1f",
+      "state": {
+        "round": 10,
+        "turn_player": "A",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 10,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1"
+            ],
+            "deck": [
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 9,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1"
+            ],
+            "deck": [
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 40,
+      "action_type": "turn_end_pass",
+      "sha256": "16721a7a1048144e407c89571d19a742809038395ab060dde7161d40ff43bd58",
+      "state": {
+        "round": 10,
+        "turn_player": "A",
+        "phase": "turn_complete",
+        "players": {
+          "A": {
+            "time": 10,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1"
+            ],
+            "deck": [
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 9,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1"
+            ],
+            "deck": [
+              "B-015#1",
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 41,
+      "action_type": "turn_start_draw",
+      "sha256": "5149d7a9337edab65482a7caafddfd4268fd4b628b52cca6905c702403e81de6",
+      "state": {
+        "round": 10,
+        "turn_player": "B",
+        "phase": "action_window",
+        "players": {
+          "A": {
+            "time": 10,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1"
+            ],
+            "deck": [
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 10,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1"
+            ],
+            "deck": [
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    },
+    {
+      "event_seq": 42,
+      "action_type": "turn_end_pass",
+      "sha256": "86ba1225df4218217385b0a749bb93a61ded8b8b62d35d3ae9617c2373bca304",
+      "state": {
+        "round": 10,
+        "turn_player": "B",
+        "phase": "completed",
+        "players": {
+          "A": {
+            "time": 10,
+            "growth": 25,
+            "hand": [
+              "A-002#1",
+              "A-003#1",
+              "A-004#1",
+              "A-005#1",
+              "A-006#1",
+              "A-007#1",
+              "A-008#1",
+              "A-009#1",
+              "A-010#1",
+              "A-011#1",
+              "A-012#1",
+              "A-013#1",
+              "A-014#1",
+              "A-015#1",
+              "A-016#1"
+            ],
+            "deck": [
+              "A-017#1",
+              "A-018#1",
+              "A-019#1",
+              "A-020#1",
+              "A-021#1",
+              "A-022#1",
+              "A-023#1",
+              "A-024#1",
+              "A-025#1",
+              "A-026#1",
+              "A-027#1",
+              "A-028#1",
+              "A-029#1",
+              "A-030#1",
+              "A-031#1",
+              "A-032#1",
+              "A-033#1",
+              "A-034#1",
+              "A-035#1",
+              "A-036#1",
+              "A-037#1",
+              "A-038#1",
+              "A-039#1",
+              "A-040#1"
+            ],
+            "discard": [
+              "A-001#1"
+            ],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          },
+          "B": {
+            "time": 10,
+            "growth": 20,
+            "hand": [
+              "B-001#1",
+              "B-002#1",
+              "B-003#1",
+              "B-004#1",
+              "B-005#1",
+              "B-006#1",
+              "B-007#1",
+              "B-008#1",
+              "B-009#1",
+              "B-010#1",
+              "B-011#1",
+              "B-012#1",
+              "B-013#1",
+              "B-014#1",
+              "B-015#1"
+            ],
+            "deck": [
+              "B-016#1",
+              "B-017#1",
+              "B-018#1",
+              "B-019#1",
+              "B-020#1",
+              "B-021#1",
+              "B-022#1",
+              "B-023#1",
+              "B-024#1",
+              "B-025#1",
+              "B-026#1",
+              "B-027#1",
+              "B-028#1",
+              "B-029#1",
+              "B-030#1",
+              "B-031#1",
+              "B-032#1",
+              "B-033#1",
+              "B-034#1",
+              "B-035#1",
+              "B-036#1",
+              "B-037#1",
+              "B-038#1",
+              "B-039#1",
+              "B-040#1"
+            ],
+            "discard": [],
+            "field": {
+              "main": null,
+              "companions": [],
+              "partner": null,
+              "partner_stage": null,
+              "world": null,
+              "prepared": []
+            }
+          }
+        },
+        "reservations": {
+          "reservation-106-mini-golf-a-first": {
+            "reservation_id": "reservation-106-mini-golf-a-first",
+            "source_instance_id": "A-001#1",
+            "controller": "A",
+            "target_instance_ids": [],
+            "created_seq": 2,
+            "deadline": {
+              "kind": "current_turn_end",
+              "round": 1,
+              "player": "A"
+            },
+            "uses_remaining": 0,
+            "status": "consumed"
+          }
+        }
+      }
+    }
+  ]
+}

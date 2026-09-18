@@ -1,0 +1,106 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_combination_plan.v1",
+  "checkpoint": 110,
+  "protocol": "proxy-decision-protocol-107-20260918.json",
+  "record_output_directory": "proxy-matches-110",
+  "trace_output_directory": "proxy-decision-traces-110",
+  "evaluation_output": "proxy-board-combination-evaluation-110-20260918.json",
+  "design": {
+    "rules_commit": "370708a36d21ab13d00edbaf4c6b45f04a319b0f",
+    "rules_tree": "47abe8f5156e29751e420cbdba8dbe4d31e5ae6b",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b"
+  },
+  "matches": [
+    {
+      "cluster": "P97-01",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-01-board-combination.json",
+      "record_match_id": "completed-110-p97-01-board-combination",
+      "trace_id": "trace-110-p97-01-board-combination",
+      "focus_card_ids": ["G-curling-ice", "C-otter", "W-countryside", "I-star"],
+      "swaps": {"A": [["A-006#1", "A-009#1"], ["A-010#1", "A-029#1"], ["A-008#1", "A-010#1"]], "B": []}
+    },
+    {
+      "cluster": "P97-02",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-02-board-combination.json",
+      "record_match_id": "completed-110-p97-02-board-combination",
+      "trace_id": "trace-110-p97-02-board-combination",
+      "focus_card_ids": ["W-jungle", "C-otter", "G-mini-golf-physics", "I-star", "I-naoto_lantern"],
+      "swaps": {"A": [["A-006#1", "A-009#1"], ["A-010#1", "A-029#1"], ["A-008#1", "A-010#1"]], "B": []}
+    },
+    {
+      "cluster": "P97-03",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-03-board-combination.json",
+      "record_match_id": "completed-110-p97-03-board-combination",
+      "trace_id": "trace-110-p97-03-board-combination",
+      "focus_card_ids": ["G-mini-golf-physics", "W-countryside", "C-otter", "I-star", "G-hit-blow"],
+      "swaps": {"A": [["A-006#1", "A-009#1"]], "B": []}
+    },
+    {
+      "cluster": "P97-04",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-04-board-combination.json",
+      "record_match_id": "completed-110-p97-04-board-combination",
+      "trace_id": "trace-110-p97-04-board-combination",
+      "focus_card_ids": ["G-road-city", "G-air-hockey", "G-animal-shogi", "W-city", "I-c_egg_normal"],
+      "swaps": {"A": [["A-006#1", "A-011#1"], ["A-007#1", "A-012#1"], ["A-014#1", "A-016#1"]], "B": [["B-004#1", "B-029#1"]]},
+      "extra_strata": ["unregistered-item-separate-stratum"]
+    },
+    {
+      "cluster": "P97-05",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-05-board-combination.json",
+      "record_match_id": "completed-110-p97-05-board-combination",
+      "trace_id": "trace-110-p97-05-board-combination",
+      "focus_card_ids": ["G-jump-quest", "M-mushroom-06", "M-sakura-05", "M-dragon-08", "G-animal-shogi"],
+      "swaps": {"A": [["A-006#1", "A-009#1"], ["A-007#1", "A-010#1"], ["A-008#1", "A-011#1"], ["A-006#1", "A-012#1"], ["A-007#1", "A-013#1"], ["A-008#1", "A-014#1"]], "B": []},
+      "structural_input_gaps": [
+        {
+          "card_id": "G-jump-quest",
+          "missing_requirement": "two_time_skips_in_same_turn",
+          "evidence": "固定40枚には同一種族の①→②だけがあり、同じターンの2回目のときとばしへ接続する③がない。"
+        },
+        {
+          "card_id": "M-mushroom-06",
+          "missing_requirement": "same_name_non_main_pair_across_field_and_discard",
+          "evidence": "固定40枚のメイン以外は同名2枚を含まず、盤面と捨て札へ同名を分けられない。"
+        },
+        {
+          "card_id": "M-sakura-05",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にサクラ①〜④がなく、サクラ⑤を適正なへんしんでメインへ置けない。"
+        },
+        {
+          "card_id": "M-dragon-08",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にりゅう①〜⑦がなく、りゅう⑧を適正なへんしんでメインへ置けない。"
+        }
+      ]
+    },
+    {
+      "cluster": "P97-06",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-06-board-combination.json",
+      "record_match_id": "completed-110-p97-06-board-combination",
+      "trace_id": "trace-110-p97-06-board-combination",
+      "focus_card_ids": ["M-penguin-07", "M-god-08", "G-stack-harvest", "G-stack-snowman", "G-takoyaki-grill"],
+      "swaps": {"A": [["A-006#1", "A-009#1"], ["A-007#1", "A-021#1"], ["A-008#1", "A-031#1"], ["A-010#1", "A-032#1"]], "B": []},
+      "structural_input_gaps": [
+        {
+          "card_id": "M-penguin-07",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にペンギン①〜⑥がなく、ペンギン⑦を適正なへんしんでメインへ置けない。"
+        },
+        {
+          "card_id": "M-god-08",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にかみさま①〜⑦がなく、かみさま⑧を適正なへんしんでメインへ置けない。"
+        }
+      ]
+    }
+  ],
+  "scope": {
+    "completed_match_count": 6,
+    "a_first_only": true,
+    "automated_game_engine": false,
+    "complete_legality_engine": false,
+    "changes_card_text_numbers_or_registration": false,
+    "may_count_as_independent_balance_sample": false
+  }
+}

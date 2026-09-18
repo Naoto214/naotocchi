@@ -1,0 +1,36 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_admission_plan.v1",
+  "checkpoint": 113,
+  "protocol": "proxy-decision-protocol-107-20260918.json",
+  "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-first.json",
+  "output": "proxy-normal-decision-admission-113-20260918.json",
+  "reference_materializer": "tools/proxy_normal_decision_pilot.py",
+  "design": {
+    "rules_commit": "72d93ae49b0c38ece6e7a9631de1b68cd29077c1",
+    "rules_tree": "0e97d67b3d5d04b920bf165e235fdbd5c96a67a9",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b"
+  },
+  "candidate_support_by_card_type": {
+    "main": "implemented",
+    "companion": "implemented",
+    "partner": "implemented",
+    "world": "omitted",
+    "play": "partial_G-hit-blow_only",
+    "item": "omitted",
+    "event": "omitted"
+  },
+  "reference_pre_decision_board_key": "field",
+  "reference_paid_action_ranking": "paid_antlion_birth_or_time_skip_before_pass_by_board_value",
+  "orders": [
+    {"order_id": "order-01", "shuffle_seed_by_player": {"A": 50, "B": 100050}},
+    {"order_id": "order-02", "shuffle_seed_by_player": {"A": 51, "B": 100051}}
+  ],
+  "planned_match_count": 4,
+  "scope": {
+    "fixture_count": 0,
+    "completed_match_count": 0,
+    "independent_balance_sample_count": 0,
+    "changes_checkpoint_112_fixtures": false,
+    "changes_card_text_numbers_or_registration": false
+  }
+}

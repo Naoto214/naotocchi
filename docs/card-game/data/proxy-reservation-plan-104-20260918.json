@@ -1,0 +1,44 @@
+{
+  "schema": "naotocchi.card_game.proxy_reservation_pilot_plan.v1",
+  "date": "2026-09-18",
+  "design": {
+    "rules_commit": "25d82135873d5f6ca9cac0ffa44fc9e3a69cb457",
+    "rules_tree": "98748feb521b90cc65e7e36e2ee4785cbd63fe2b",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "cluster": "P97-06",
+  "focus_card_id": "G-breakout-classic",
+  "target_card_id": "I-poop1",
+  "focus_controller": "A",
+  "target_controller": "B",
+  "input_derivation": {
+    "method": "swap_existing_card_positions",
+    "player": "B",
+    "first_instance_id": "B-005#1",
+    "second_instance_id": "B-034#1",
+    "reason": "The original single fixture has no preparation card in the initial hand or natural R10 draw range. Preserve all 40 card copies and card IDs while moving an existing legal target into B's initial hand."
+  },
+  "record_output_directory": "proxy-pilots-104",
+  "trace_output_directory": "proxy-pilot-traces-104",
+  "pairs": [
+    {
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-06-single.json",
+      "record_match_id": "completed-104-p97-06-single-a-first-consumed",
+      "trace_id": "trace-104-p97-06-single-a-first-consumed",
+      "seat_stratum": "a-first",
+      "terminal_path": "consumed",
+      "breakout_round": 2,
+      "deadline_round": 3
+    },
+    {
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-06-single-a-second.json",
+      "record_match_id": "completed-104-p97-06-single-a-second-expired",
+      "trace_id": "trace-104-p97-06-single-a-second-expired",
+      "seat_stratum": "a-second",
+      "terminal_path": "expired",
+      "breakout_round": 10,
+      "deadline_round": 11
+    }
+  ]
+}

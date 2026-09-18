@@ -1,0 +1,34 @@
+{
+  "schema": "naotocchi.card_game.main_followup.v1",
+  "date": "2026-09-18",
+  "compare_base": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "main_commit": "d8036775d35f21fc12c20d5bf450e93d3a2e8846",
+  "main_subject": "Merge pull request #290 from Naoto214/fix/egg-card-actions-20260918",
+  "changed_paths": [
+    "index.html",
+    "script.js",
+    "tests/consumables-v2-browser.cjs",
+    "tests/consumables-v2-eggs-test.cjs",
+    "tests/consumables-v2-forms-test.cjs",
+    "tests/helpers/runtime-harness.cjs",
+    "tests/item-collections-economy-test.cjs",
+    "tests/sticker-test.cjs"
+  ],
+  "source_blobs_at_base": {
+    "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+    "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94",
+    "item-system.js": "b31254d37d2eb8a596fca890f412e4866082aef1",
+    "movie-dialogue.js": "62890053dfb9c1bee9f5ebe9a4bb9c526b08be91",
+    "world-environment.js": "202fb21df94e25239ffb1b7aa637ec58342c8ccd",
+    "script.js": "3351bcb298a3f6c5230e2f779b5572eda6d814b4"
+  },
+  "source_blobs_at_main": {
+    "character-world-master.v1.js": "062cf5bcaea5f78742af8cc66194f7c0e1a84c54",
+    "games.js": "4f9e43c84e68a8041fb83777bd7e496204376b94",
+    "item-system.js": "b31254d37d2eb8a596fca890f412e4866082aef1",
+    "movie-dialogue.js": "62890053dfb9c1bee9f5ebe9a4bb9c526b08be91",
+    "world-environment.js": "202fb21df94e25239ffb1b7aa637ec58342c8ccd",
+    "script.js": "ee52ce8aad0ff33d558103b76658802dd94ab044"
+  },
+  "conclusion": "PR #289のアイテムシール・たまご・図鑑UIに続き、PR #290でたまごの購入・予約・取消を状態に応じた1操作へ整理。f23398eからの変更pathは同じ8件の範囲。カード候補を読む5 sourceのblobは一致し、script.jsのみ変更。現行452件、現行アイテム26、P97-03のカード定義へ変更はなく、本編は作業ブランチへマージしない。"
+}

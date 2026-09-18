@@ -1,0 +1,231 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_candidate_table.v1",
+  "checkpoint": 114,
+  "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-first.json",
+  "preserved_existing_candidate_families": [
+    "challenge_power_or_wisdom",
+    "relationship_progress"
+  ],
+  "standing_candidates": [
+    {
+      "candidate_id": "candidate-pass",
+      "kind": "pass",
+      "action_type": "pass",
+      "timing": "normal_action_opportunity",
+      "base_time_cost": 0
+    }
+  ],
+  "cards": [
+    {
+      "card_id": "C-bat",
+      "card_type": "companion",
+      "actions": [{"action_type":"place_companion","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; this turn's shared companion/partner placement unused","target_rule":"empty companion slot or one occupied companion to replace when full","candidate_variants":["empty_slot","replace_each_legal_companion"],"legal_when":"placement limit and companion-slot rule are satisfied","not_legal_when":"shared person placement already used","source_text_reference":"72-companion-26-card-text-draft.md#C-bat"}]
+    },
+    {
+      "card_id": "C-box",
+      "card_type": "companion",
+      "actions": [{"action_type":"place_companion","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; this turn's shared companion/partner placement unused","target_rule":"empty companion slot or one occupied companion to replace when full","candidate_variants":["empty_slot","replace_each_legal_companion"],"legal_when":"placement limit and companion-slot rule are satisfied","not_legal_when":"shared person placement already used","source_text_reference":"72-companion-26-card-text-draft.md#C-box"}]
+    },
+    {
+      "card_id": "C-cat_friend",
+      "card_type": "companion",
+      "actions": [
+        {"action_type":"place_companion","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; this turn's shared companion/partner placement unused","target_rule":"empty companion slot or one occupied companion to replace when full","candidate_variants":["empty_slot","replace_each_legal_companion"],"legal_when":"placement limit and companion-slot rule are satisfied","not_legal_when":"shared person placement already used","source_text_reference":"72-companion-26-card-text-draft.md#C-cat_friend"},
+        {"action_type":"activate_companion_ability","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"on companion board; this instance ability unused this turn; another named companion exists in own discard","target_rule":"one companion in own discard other than C-cat_friend","candidate_variants":["each_legal_discard_companion"],"legal_when":"source can move to deck bottom and a legal target exists","not_legal_when":"ability already used, source absent, or no legal target","source_text_reference":"72-companion-26-card-text-draft.md#C-cat_friend"}
+      ]
+    },
+    {
+      "card_id": "C-chameleon",
+      "card_type": "companion",
+      "actions": [{"action_type":"place_companion","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; this turn's shared companion/partner placement unused","target_rule":"empty companion slot or one occupied companion to replace when full","candidate_variants":["empty_slot","replace_each_legal_companion"],"legal_when":"placement limit and companion-slot rule are satisfied","not_legal_when":"shared person placement already used; passive ability is not a separate action","source_text_reference":"72-companion-26-card-text-draft.md#C-chameleon"}]
+    },
+    {
+      "card_id": "C-chicken",
+      "card_type": "companion",
+      "actions": [{"action_type":"place_companion","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; this turn's shared companion/partner placement unused","target_rule":"empty companion slot or one occupied companion to replace when full","candidate_variants":["empty_slot","replace_each_legal_companion"],"legal_when":"placement limit and companion-slot rule are satisfied","not_legal_when":"shared person placement already used; turn-start ability is not a normal-action candidate","source_text_reference":"72-companion-26-card-text-draft.md#C-chicken"}]
+    },
+    {
+      "card_id": "E-big-illness",
+      "card_type": "event",
+      "actions": [{"action_type":"use_event","timing":"normal_action_opportunity","base_time_cost":3,"prerequisites":"hand; at least 3 time; opponent has a main","target_rule":"one opponent main","candidate_variants":["each_legal_opponent_main"],"legal_when":"cost and target exist","not_legal_when":"insufficient time or no opponent main","source_text_reference":"91-event-21-card-text-draft.md#E-big-illness"}]
+    },
+    {
+      "card_id": "E-boss",
+      "card_type": "event",
+      "actions": [{"action_type":"use_event","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own main lost a challenge this turn","target_rule":"no target","candidate_variants":["single_no_target"],"legal_when":"loss history is publicly established this turn","not_legal_when":"no qualifying loss or insufficient time","source_text_reference":"91-event-21-card-text-draft.md#E-boss"}]
+    },
+    {
+      "card_id": "E-fateful-transform",
+      "card_type": "event",
+      "actions": [{"action_type":"use_event","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own main exists","target_rule":"own next transform payment reservation","candidate_variants":["single_no_card_target"],"legal_when":"own main exists and cost can be paid","not_legal_when":"no own main or insufficient time","source_text_reference":"91-event-21-card-text-draft.md#E-fateful-transform"}]
+    },
+    {
+      "card_id": "E-final-time",
+      "card_type": "event",
+      "actions": [{"action_type":"use_event","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own main is stage 8 or round is R10; eligible non-main in own discard; same-name use unused this turn","target_rule":"one non-main card in own discard","candidate_variants":["each_legal_discard_non_main"],"legal_when":"stage/round, cost, target, and once-per-name condition all hold","not_legal_when":"condition, cost, target, or once-per-name limit fails","source_text_reference":"91-event-21-card-text-draft.md#E-final-time"}]
+    },
+    {
+      "card_id": "E-first-date",
+      "card_type": "event",
+      "actions": [{"action_type":"use_event","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; own partner at relationship stage 0","target_rule":"own stage-0 partner","candidate_variants":["each_legal_stage_zero_partner"],"legal_when":"stage-0 partner remains in partner slot and cost can be paid","not_legal_when":"no stage-0 partner or insufficient time","source_text_reference":"91-event-21-card-text-draft.md#E-first-date"}]
+    },
+    {
+      "card_id": "G-air-hockey",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"challenge_reaction_only","base_time_cost":1,"prerequisites":"hand; at least 1 time; challenge active; opponent just used an immediate play","target_rule":"opponent participating main and choose power or wisdom","candidate_variants":["power","wisdom"],"legal_when":"reaction window and target exist","not_legal_when":"ordinary normal-action opportunity or no qualifying opponent play","source_text_reference":"83-play-batch-3-card-text-draft.md#G-air-hockey"}]
+    },
+    {
+      "card_id": "G-animal-shogi",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; companion exists in own discard","target_rule":"one companion in own discard","candidate_variants":["each_legal_discard_companion"],"legal_when":"cost and target exist","not_legal_when":"insufficient time or no companion target","source_text_reference":"83-play-batch-3-card-text-draft.md#G-animal-shogi"}]
+    },
+    {
+      "card_id": "G-archery-3d",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own world exists; opponent prepared attachment with printed cost 2 or less exists","target_rule":"one eligible opponent prepared attached card","candidate_variants":["each_legal_prepared_attachment"],"legal_when":"world, cost, and target conditions hold","not_legal_when":"own world absent, insufficient time, or no eligible target","source_text_reference":"79-play-batch-1-card-text-draft.md#G-archery-3d"}]
+    },
+    {
+      "card_id": "G-area-claim",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":3,"prerequisites":"hand; at least 3 time; at least 7 non-egg cards on own board","target_rule":"no target","candidate_variants":["seven_or_eight_cards","nine_or_more_cards"],"legal_when":"board-count and cost condition hold","not_legal_when":"fewer than 7 qualifying board cards or insufficient time","source_text_reference":"85-play-batch-4-card-text-draft.md#G-area-claim"}]
+    },
+    {
+      "card_id": "G-asteroids-classic",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; own prepared equipment with printed cost 3 or more exists","target_rule":"one eligible own prepared equipment","candidate_variants":["each_legal_prepared_equipment"],"legal_when":"cost and prepared target exist","not_legal_when":"insufficient time or no eligible prepared equipment","source_text_reference":"83-play-batch-3-card-text-draft.md#G-asteroids-classic"}]
+    },
+    {
+      "card_id": "G-baseball-batting",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"own_power_challenge_reaction_only","base_time_cost":1,"prerequisites":"hand; at least 1 time; own declared power challenge active; opponent participant power is at least own participant power","target_rule":"own participating main","candidate_variants":["single_own_participant"],"legal_when":"challenge comparison precondition and cost hold","not_legal_when":"ordinary normal-action opportunity or challenge condition fails","source_text_reference":"81-play-batch-2-card-text-draft.md#G-baseball-batting"}]
+    },
+    {
+      "card_id": "G-basketball-3d",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; own main exists","target_rule":"one own main","candidate_variants":["single_own_main"],"legal_when":"cost and own-main target exist","not_legal_when":"insufficient time or no own main","source_text_reference":"81-play-batch-2-card-text-draft.md#G-basketball-3d"}]
+    },
+    {
+      "card_id": "G-beach-volley",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; own companion ability effect applied this turn; own main exists","target_rule":"one own main","candidate_variants":["single_own_main"],"legal_when":"effect-history, cost, and target conditions hold","not_legal_when":"no qualifying companion effect, insufficient time, or no own main","source_text_reference":"85-play-batch-4-card-text-draft.md#G-beach-volley"}]
+    },
+    {
+      "card_id": "G-hit-blow",
+      "card_type": "play",
+      "actions": [{"action_type":"use_play","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; deck has at least one card","target_rule":"declare one of seven card types; no card target","candidate_variants":["main","companion","partner","world","play","item","event"],"legal_when":"cost can be paid and deck can reveal a top card","not_legal_when":"insufficient time or empty deck","source_text_reference":"87-play-batch-5-card-text-draft.md#G-hit-blow"}]
+    },
+    {
+      "card_id": "I-bond1",
+      "card_type": "item",
+      "actions": [{"action_type":"attach_item","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own companion exists","target_rule":"one own companion","candidate_variants":["each_legal_own_companion"],"legal_when":"cost and attachment target exist","not_legal_when":"insufficient time or no own companion","source_text_reference":"77-current-items-card-text-draft.md#I-bond1"}]
+    },
+    {
+      "card_id": "I-bowtie",
+      "card_type": "item",
+      "actions": [{"action_type":"attach_item","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own main, companion, or partner exists","target_rule":"one own main, companion, or partner","candidate_variants":["each_legal_own_person"],"legal_when":"cost and attachment target exist","not_legal_when":"insufficient time or no legal person target","source_text_reference":"77-current-items-card-text-draft.md#I-bowtie"}]
+    },
+    {
+      "card_id": "I-c_coin2",
+      "card_type": "item",
+      "actions": [{"action_type":"use_item","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time","target_rule":"no target; reveal deck top if present","candidate_variants":["single_no_target"],"legal_when":"cost can be paid","not_legal_when":"insufficient time","source_text_reference":"77-current-items-card-text-draft.md#I-c_coin2"}]
+    },
+    {
+      "card_id": "I-poop1",
+      "card_type": "item",
+      "actions": [
+        {"action_type":"set_item","timing":"normal_action_opportunity","base_time_cost":1,"prerequisites":"hand; at least 1 time; prepared slot available","target_rule":"own prepared slot face down","candidate_variants":["set_face_down"],"legal_when":"cost and prepared capacity allow setting","not_legal_when":"insufficient time or no prepared capacity","source_text_reference":"77-current-items-card-text-draft.md#I-poop1"},
+        {"action_type":"trigger_prepared_item","timing":"reaction_only","base_time_cost":0,"prerequisites":"prepared; opponent activated main-removal effect; own main is legal target","target_rule":"one own main threatened by that effect","candidate_variants":["each_threatened_own_main"],"legal_when":"reaction condition occurs after prior setup","not_legal_when":"ordinary normal-action opportunity or no qualifying removal","source_text_reference":"77-current-items-card-text-draft.md#I-poop1"}
+      ]
+    },
+    {
+      "card_id": "I-sleepboost1",
+      "card_type": "item",
+      "actions": [{"action_type":"attach_item","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time; own main exists","target_rule":"one own main","candidate_variants":["single_own_main"],"legal_when":"cost and attachment target exist","not_legal_when":"insufficient time or no own main","source_text_reference":"77-current-items-card-text-draft.md#I-sleepboost1"}]
+    },
+    {
+      "card_id": "M-antlion-01",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-01"}]
+    },
+    {
+      "card_id": "M-antlion-02",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-02"}]
+    },
+    {
+      "card_id": "M-antlion-03",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-03"}]
+    },
+    {
+      "card_id": "M-antlion-04",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-04"}]
+    },
+    {
+      "card_id": "M-antlion-05",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-05"}]
+    },
+    {
+      "card_id": "M-antlion-06",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-06"}]
+    },
+    {
+      "card_id": "M-antlion-07",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-07"}]
+    },
+    {
+      "card_id": "M-antlion-08",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"55-insect-three-lines-card-text-draft.md#M-antlion-08"}]
+    },
+    {
+      "card_id": "M-beetle-01",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"31-beetle-stagbeetle-card-master-migration.md#M-beetle-01"}]
+    },
+    {
+      "card_id": "M-beetle-02",
+      "card_type": "main",
+      "actions": [{"action_type":"play_main","timing":"normal_action_opportunity","base_time_cost":"stage_or_positive_stage_difference","prerequisites":"hand; stage and lineage satisfy birth, time-skip, or transform rule","target_rule":"empty main slot for birth or current own main for time-skip/transform","candidate_variants":["birth","time_skip","transform"],"legal_when":"required time can be paid and selected main transition is legal","not_legal_when":"stage, lineage, target, or time condition fails","source_text_reference":"31-beetle-stagbeetle-card-master-migration.md#M-beetle-02"}]
+    },
+    {
+      "card_id": "P-anglerfish",
+      "card_type": "partner",
+      "actions": [{"action_type":"place_partner","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; partner slot empty; this turn's shared companion/partner placement unused","target_rule":"empty own partner slot","candidate_variants":["start_relationship_stage_zero"],"legal_when":"partner slot and shared placement limit allow placement","not_legal_when":"partner exists or shared person placement already used","source_text_reference":"74-partner-18-card-text-draft.md#P-anglerfish"}]
+    },
+    {
+      "card_id": "P-cat_ceo",
+      "card_type": "partner",
+      "actions": [{"action_type":"place_partner","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; partner slot empty; this turn's shared companion/partner placement unused","target_rule":"empty own partner slot","candidate_variants":["start_relationship_stage_zero"],"legal_when":"partner slot and shared placement limit allow placement","not_legal_when":"partner exists or shared person placement already used","source_text_reference":"74-partner-18-card-text-draft.md#P-cat_ceo"}]
+    },
+    {
+      "card_id": "P-cliff_goat",
+      "card_type": "partner",
+      "actions": [{"action_type":"place_partner","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; partner slot empty; this turn's shared companion/partner placement unused","target_rule":"empty own partner slot","candidate_variants":["start_relationship_stage_zero"],"legal_when":"partner slot and shared placement limit allow placement","not_legal_when":"partner exists or shared person placement already used","source_text_reference":"74-partner-18-card-text-draft.md#P-cliff_goat"}]
+    },
+    {
+      "card_id": "P-desert_scorpion",
+      "card_type": "partner",
+      "actions": [{"action_type":"place_partner","timing":"normal_action_opportunity","base_time_cost":0,"prerequisites":"hand; partner slot empty; this turn's shared companion/partner placement unused","target_rule":"empty own partner slot","candidate_variants":["start_relationship_stage_zero"],"legal_when":"partner slot and shared placement limit allow placement","not_legal_when":"partner exists or shared person placement already used","source_text_reference":"74-partner-18-card-text-draft.md#P-desert_scorpion"}]
+    },
+    {
+      "card_id": "W-city",
+      "card_type": "world",
+      "actions": [{"action_type":"place_world","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time","target_rule":"own world slot; replace current world if occupied","candidate_variants":["empty_world_slot","replace_current_world"],"legal_when":"cost can be paid","not_legal_when":"insufficient time","source_text_reference":"89-world-13-card-text-draft.md#W-city"}]
+    },
+    {
+      "card_id": "W-countryside",
+      "card_type": "world",
+      "actions": [{"action_type":"place_world","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time","target_rule":"own world slot; replace current world if occupied","candidate_variants":["empty_world_slot","replace_current_world"],"legal_when":"cost can be paid","not_legal_when":"insufficient time","source_text_reference":"89-world-13-card-text-draft.md#W-countryside"}]
+    },
+    {
+      "card_id": "W-deepsea",
+      "card_type": "world",
+      "actions": [{"action_type":"place_world","timing":"normal_action_opportunity","base_time_cost":2,"prerequisites":"hand; at least 2 time","target_rule":"own world slot; replace current world if occupied","candidate_variants":["empty_world_slot","replace_current_world"],"legal_when":"cost can be paid","not_legal_when":"insufficient time","source_text_reference":"89-world-13-card-text-draft.md#W-deepsea"}]
+    }
+  ]
+}
