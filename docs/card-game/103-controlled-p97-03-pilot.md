@@ -7,9 +7,9 @@
 ## 1. 固定した版とmain追従
 
 - 開始HEAD: `72dc7de98f3966972b042fde75730078f91e4185`、tree: `d076c420e9838e0826bede7970c7d23f2796c9e1`。
-- 最新main実ref: `12544515c7fc6640502373a7e97f5d6939e36b40`（PR #289）。本編を作業ブランチへマージしていない。
+- 保存直前の最新main実ref: `d8036775d35f21fc12c20d5bf450e93d3a2e8846`（PR #290）。本編を作業ブランチへマージしていない。
 - PR #259はDraft・未マージ。開始HEADのRuntime smoke test run `35287039063` はsuccess。
-- `f23398e`から最新mainまでは8ファイル変更。アイテムシール・たまご・図鑑UIと関連テストであり、カード候補を読む`character-world-master.v1.js`、`games.js`、`item-system.js`、`movie-dialogue.js`、`world-environment.js`のblobは一致した。`script.js`だけが変わったが、現行452件、現行アイテム26、P97-03の定義には変更がない。
+- `f23398e`から最新mainまでは8ファイル変更。PR #289のアイテムシール・たまご・図鑑UIに続き、PR #290でたまごの購入・予約・取消を状態に応じた1操作へ整理した変更である。カード候補を読む`character-world-master.v1.js`、`games.js`、`item-system.js`、`movie-dialogue.js`、`world-environment.js`のblobは一致した。`script.js`だけが変わったが、現行452件、現行アイテム26、P97-03の定義には変更がない。
 
 照合値は[data/proxy-main-followup-103-20260918.json](data/proxy-main-followup-103-20260918.json)へ保存した。
 

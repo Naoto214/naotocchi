@@ -1143,7 +1143,7 @@ if all(path.exists() for path in (
         "movie-dialogue.js", "world-environment.js",
     }
     check(proxy_103_main.get("main_commit") ==
-          "12544515c7fc6640502373a7e97f5d6939e36b40" and
+          "d8036775d35f21fc12c20d5bf450e93d3a2e8846" and
           set(proxy_103_main.get("changed_paths", [])) == expected_103_main_paths,
           "103 latest-main commit and changed paths")
     check(all(base_blobs_103.get(path) == main_blobs_103.get(path)
