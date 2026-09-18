@@ -1,0 +1,183 @@
+{
+  "schema": "naotocchi.card_game.proxy_gap_disposition.v1",
+  "checkpoint": 111,
+  "source": {
+    "checkpoint": 110,
+    "saved_head": "7dfbcfb457be0a6bf0d171df5e465b7286414338",
+    "saved_tree": "2a744900283d354471879648f804ac699c9acbe1",
+    "plan": "proxy-board-combination-plan-110-20260918.json",
+    "evaluation": "proxy-board-combination-evaluation-110-20260918.json"
+  },
+  "scope": {
+    "source_gap_count": 6,
+    "requires_targeted_fixture_count": 6,
+    "fixture_created_count": 0,
+    "completed_match_count": 0,
+    "independent_balance_sample_count": 0,
+    "changes_card_pool": false
+  },
+  "planned_fixture_constraints": {
+    "catalog_layer": "current-452",
+    "deck_size_per_player": 40,
+    "required_card_type_count": 7,
+    "preserve_card_copy_id": true,
+    "preserve_initial_instance_id": true,
+    "record_status": "fixture",
+    "events": [],
+    "winner": null
+  },
+  "gaps": [
+    {
+      "source_cluster": "P97-05",
+      "card_id": "G-jump-quest",
+      "missing_requirement": "two_time_skips_in_same_turn",
+      "evidence": "固定40枚には同一種族の①→②だけがあり、同じターンの2回目のときとばしへ接続する③がない。",
+      "fixture_group": "targeted-short",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-g-jump-quest",
+      "required_evidence": [
+        "同じターンに別々のときとばしeventを2回記録する。",
+        "時1を払い、捨て札の①〜③メインを対象として手札へ戻し、そだち+5を記録する。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "count_one_multi_stage_move_as_two_time_skips"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    },
+    {
+      "source_cluster": "P97-05",
+      "card_id": "M-mushroom-06",
+      "missing_requirement": "same_name_non_main_pair_across_field_and_discard",
+      "evidence": "固定40枚のメイン以外は同名2枚を含まず、盤面と捨て札へ同名を分けられない。",
+      "fixture_group": "targeted-short",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-m-mushroom-06",
+      "required_evidence": [
+        "同名かつ別card copyのメイン以外2枚を用意する。",
+        "終了時と解決時の両方で1枚を盤面、1枚を捨て札に置き、対象を手札へ戻す。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "duplicate_one_physical_card_across_zones"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    },
+    {
+      "source_cluster": "P97-05",
+      "card_id": "M-sakura-05",
+      "missing_requirement": "compatible_species_stage_path",
+      "evidence": "固定40枚にサクラ①〜④がなく、サクラ⑤を適正なへんしんでメインへ置けない。",
+      "fixture_group": "evolution-path",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-m-sakura-05",
+      "required_evidence": [
+        "サクラ①〜④のいずれかをメイン枠に置き、手札のサクラ⑤へ必要な時を払ってときとばしする。",
+        "自分終了時に時1を払い、捨て札のしかける1枚を対象として手札へ戻す。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "direct_high_stage_placement"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    },
+    {
+      "source_cluster": "P97-05",
+      "card_id": "M-dragon-08",
+      "missing_requirement": "compatible_species_stage_path",
+      "evidence": "固定40枚にりゅう①〜⑦がなく、りゅう⑧を適正なへんしんでメインへ置けない。",
+      "fixture_group": "evolution-path",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-m-dragon-08",
+      "required_evidence": [
+        "りゅう①〜⑦のいずれかをメイン枠に置き、手札のりゅう⑧へ必要な時を払ってときとばしする。",
+        "終了時に捨て札のアクション2枚を順序付きで山札下へ置き、別のなかまかこいびと1枚を手札へ戻す。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "direct_high_stage_placement"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    },
+    {
+      "source_cluster": "P97-06",
+      "card_id": "M-penguin-07",
+      "missing_requirement": "compatible_species_stage_path",
+      "evidence": "固定40枚にペンギン①〜⑥がなく、ペンギン⑦を適正なへんしんでメインへ置けない。",
+      "fixture_group": "evolution-path",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-m-penguin-07",
+      "required_evidence": [
+        "ペンギン①〜⑥のいずれかをメイン枠に置き、手札のペンギン⑦へ必要な時を払ってときとばしする。",
+        "セカイ変更後になかま1枚へ期限付き保護を作り、次の相手ターンの離脱を1回防ぐ。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "direct_high_stage_placement"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    },
+    {
+      "source_cluster": "P97-06",
+      "card_id": "M-god-08",
+      "missing_requirement": "compatible_species_stage_path",
+      "evidence": "固定40枚にかみさま①〜⑦がなく、かみさま⑧を適正なへんしんでメインへ置けない。",
+      "fixture_group": "evolution-path",
+      "disposition": "requires-targeted-fixture",
+      "planned_checkpoint": 112,
+      "planned_fixture_id": "fixture-112-m-god-08",
+      "required_evidence": [
+        "かみさま①〜⑦のいずれかをメイン枠に置き、手札のかみさま⑧へ必要な時を払ってときとばしする。",
+        "時1を払い、手札1枚を山札の一番下に置いて盤面1枚を予約し、次の相手効果による捨て札移動を手札戻しへ置換する。"
+      ],
+      "forbidden_shortcuts": [
+        "card_pool_definition_change",
+        "count_unexecuted_as_activation_zero",
+        "direct_high_stage_placement"
+      ],
+      "counts_as_activation_zero": false,
+      "counts_as_strength_evidence": false
+    }
+  ],
+  "normal_decision_repetition": {
+    "start_after_checkpoint": 112,
+    "first_batch_match_count": 4,
+    "independent_initial_orders": 2,
+    "mirror_first_player_for_each_order": true,
+    "protocol": {
+      "schema": "naotocchi.card_game.proxy_decision_protocol.v1",
+      "source_file": "proxy-decision-protocol-107-20260918.json"
+    },
+    "may_count_as_strength_conclusion": false,
+    "stop_after_batch_for_review": true
+  },
+  "stop_conditions": [
+    "illegal_direct_high_stage_placement",
+    "missing_required_prerequisite",
+    "opponent_hidden_information_used",
+    "rules_adjudication_unresolved",
+    "validator_or_materialized_data_mismatch"
+  ],
+  "population_boundaries": {
+    "current_catalog": 452,
+    "registered_candidates": 477,
+    "registered_card": 463,
+    "hold": 14,
+    "automatic_population_addition": false
+  }
+}

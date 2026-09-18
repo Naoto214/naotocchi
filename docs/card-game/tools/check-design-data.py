@@ -2268,6 +2268,66 @@ if all(path.exists() for path in (
           proxy_110_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_110_doc_text,
           "110 result and scope boundaries")
+
+# 111 classifies the six structural gaps without creating fixtures or matches.
+proxy_111_doc = DOCS / "111-structural-gap-disposition-and-repetition-scope.md"
+proxy_111_data = DOCS / "data/proxy-gap-disposition-111-20260918.json"
+proxy_111_tool = DOCS / "tools/proxy_gap_disposition.py"
+proxy_111_test = DOCS / "tools/test_proxy_gap_disposition.py"
+for path, label in [
+    (proxy_111_doc, "111 structural-gap disposition document"),
+    (proxy_111_data, "111 structural-gap disposition data"),
+    (proxy_111_tool, "111 structural-gap disposition validator"),
+    (proxy_111_test, "111 structural-gap disposition tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_111_doc, proxy_111_data, proxy_111_tool, proxy_111_test)):
+    proxy_111 = json.loads(proxy_111_data.read_text())
+    gaps_111 = proxy_111.get("gaps", [])
+    check(proxy_111.get("schema") ==
+          "naotocchi.card_game.proxy_gap_disposition.v1" and
+          proxy_111.get("checkpoint") == 111 and len(gaps_111) == 6 and
+          len({row.get("card_id") for row in gaps_111}) == 6,
+          "111 exact six structural-gap dispositions")
+    check([row.get("fixture_group") for row in gaps_111].count("targeted-short") == 2 and
+          [row.get("fixture_group") for row in gaps_111].count("evolution-path") == 4 and
+          all(row.get("disposition") == "requires-targeted-fixture" and
+              row.get("planned_checkpoint") == 112 for row in gaps_111),
+          "111 two short and four evolution fixture plans")
+    scope_111 = proxy_111.get("scope", {})
+    repetition_111 = proxy_111.get("normal_decision_repetition", {})
+    check(scope_111.get("fixture_created_count") == 0 and
+          scope_111.get("completed_match_count") == 0 and
+          scope_111.get("independent_balance_sample_count") == 0 and
+          scope_111.get("changes_card_pool") is False,
+          "111 creates no fixture, match, sample or card-pool change")
+    check(repetition_111.get("first_batch_match_count") == 4 and
+          repetition_111.get("independent_initial_orders") == 2 and
+          repetition_111.get("mirror_first_player_for_each_order") is True and
+          repetition_111.get("start_after_checkpoint") == 112 and
+          repetition_111.get("may_count_as_strength_conclusion") is False,
+          "111 four-match normal-decision repetition boundary")
+    proxy_111_tool_tree = ast.parse(proxy_111_tool.read_text())
+    proxy_111_test_tree = ast.parse(proxy_111_test.read_text())
+    proxy_111_functions = {
+        node.name for node in proxy_111_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_gap_disposition", "validate_gap_disposition",
+           "write_gap_disposition", "validate_materialized_disposition",
+           "main"} <= proxy_111_functions,
+          "111 disposition validator public functions")
+    proxy_111_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_111_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_111_test_count == 8, "111 structural-gap test count")
+    proxy_111_validation = subprocess.run(
+        [sys.executable, str(proxy_111_tool)], capture_output=True, text=True,
+        check=False)
+    check(proxy_111_validation.returncode == 0,
+          f"111 canonical validator: {proxy_111_validation.stdout}"
+          f"{proxy_111_validation.stderr}")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
