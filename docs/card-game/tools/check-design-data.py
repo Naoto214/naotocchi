@@ -1340,6 +1340,212 @@ if all(path.exists() for path in (
           "instance_transitions`は空" in proxy_104_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_104_doc_text,
           "104 controlled-result and reservation boundaries")
+
+# 105 records a real physical-card re-entry after full-slot replacement and
+# Animal Shogi recovery.  It must retire #1 and activate #2 exactly once.
+proxy_105_doc = DOCS / "105-p97-05-reentry-pilot.md"
+proxy_105_plan_path = DOCS / "data/proxy-reentry-plan-105-20260918.json"
+proxy_105_records_path = DOCS / "data/proxy-pilots-105"
+proxy_105_traces_path = DOCS / "data/proxy-pilot-traces-105"
+proxy_105_tool = DOCS / "tools/proxy_reentry_pilot.py"
+proxy_105_test = DOCS / "tools/test_proxy_reentry_pilot.py"
+for path, label in (
+    (proxy_105_doc, "105 re-entry pilot document"),
+    (proxy_105_plan_path, "105 re-entry pilot plan"),
+    (proxy_105_records_path, "105 completed pilot output"),
+    (proxy_105_traces_path, "105 re-entry trace output"),
+    (proxy_105_tool, "105 re-entry materializer"),
+    (proxy_105_test, "105 re-entry tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_105_doc, proxy_105_plan_path, proxy_105_records_path,
+        proxy_105_traces_path, proxy_105_tool, proxy_105_test)):
+    proxy_105_plan = json.loads(proxy_105_plan_path.read_text())
+    proxy_105_record_files = sorted(proxy_105_records_path.glob("*.json"))
+    proxy_105_trace_files = sorted(proxy_105_traces_path.glob("*.json"))
+    proxy_105_records = [json.loads(path.read_text())
+                         for path in proxy_105_record_files]
+    proxy_105_traces = {
+        row.get("record_match_id"): row
+        for row in (json.loads(path.read_text()) for path in proxy_105_trace_files)
+    }
+    check(proxy_105_plan.get("cluster") == "P97-05" and
+          proxy_105_plan.get("focus_card_id") == "G-animal-shogi" and
+          proxy_105_plan.get("reentry_card_id") == "C-bat" and
+          proxy_105_plan.get("design", {}).get("rules_commit") ==
+          "e1c616d25a3d349d6dd7b430da1aced2a4c9ba6a" and
+          proxy_105_plan.get("design", {}).get("rules_tree") ==
+          "8c217b52534f26103a3505f6032450c2a894db77",
+          "105 approved P97-05 re-entry plan and baseline")
+    expected_105_record_names = {
+        f"{row.get('record_match_id')}.json"
+        for row in proxy_105_plan.get("pairs", [])
+    }
+    expected_105_trace_names = {
+        f"{row.get('trace_id')}.json"
+        for row in proxy_105_plan.get("pairs", [])
+    }
+    check({path.name for path in proxy_105_record_files} ==
+          expected_105_record_names and
+          {path.name for path in proxy_105_trace_files} ==
+          expected_105_trace_names and
+          len(proxy_105_records) == len(proxy_105_traces) == 2,
+          "105 exact completed record and trace files")
+    check(sorted(row.get("input", {}).get("first_player")
+                 for row in proxy_105_records) == ["A", "B"],
+          "105 first-player pair")
+    source_105_by_first = {}
+    for pair in proxy_105_plan.get("pairs", []):
+        source = json.loads((proxy_105_plan_path.parent /
+                             pair["source_fixture"]).read_text())
+        source_105_by_first[source.get("input", {}).get("first_player")] = source
+    expected_105_sequences = {
+        "A": (17, 18, 23),
+        "B": (19, 20, 25),
+    }
+    expected_transition_105 = {
+        "card_copy_id": "A-011",
+        "from_instance_id": "A-011#1",
+        "to_instance_id": "A-011#2",
+        "reason": "zone_change",
+    }
+    for record in proxy_105_records:
+        match_id = record.get("match_id")
+        first_player = record.get("input", {}).get("first_player")
+        events = record.get("record", {}).get("events", [])
+        trace = proxy_105_traces.get(match_id, {})
+        snapshots = trace.get("snapshots", [])
+        check(record.get("record", {}).get("status") == "completed" and
+              len(events) == 46 and len(snapshots) == 47 and
+              [row.get("event_seq") for row in snapshots] == list(range(47)),
+              f"105 completed event and trace sequence: {match_id}")
+        for index, snapshot in enumerate(snapshots):
+            canonical = json.dumps(snapshot.get("state"), ensure_ascii=False,
+                                   sort_keys=True, separators=(",", ":"))
+            digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+            check(snapshot.get("sha256") == digest,
+                  f"105 canonical snapshot hash {index}: {match_id}")
+        for index, event in enumerate(events, 1):
+            if index < len(snapshots):
+                check(event.get("before_state_sha256") ==
+                      snapshots[index - 1].get("sha256") and
+                      event.get("after_state_sha256") ==
+                      snapshots[index].get("sha256"),
+                      f"105 event/trace hash linkage {index}: {match_id}")
+        placements = [event for event in events if event.get("action_type") in {
+            "place_bat", "place_box", "place_cat_friend"}]
+        replacement = [event for event in events
+                       if event.get("action_type") ==
+                       "replace_companion_for_chameleon"]
+        recovery = [event for event in events
+                    if event.get("action_type") == "play_animal_shogi"]
+        replay = [event for event in events
+                  if event.get("action_type") == "replay_recovered_bat"]
+        replacement_seq, recovery_seq, replay_seq = \
+            expected_105_sequences.get(first_player, (None, None, None))
+        check([(event.get("round"), event.get("source_instance_id"))
+               for event in placements] == [
+                   (1, "A-011#1"), (2, "A-012#1"), (3, "A-013#1")],
+              f"105 first three companion placements: {match_id}")
+        check(len(replacement) == 1 and
+              replacement[0].get("seq") == replacement_seq and
+              replacement[0].get("round") == 4 and
+              replacement[0].get("source_instance_id") == "A-014#1" and
+              replacement[0].get("target_instance_ids") == ["A-011#1"],
+              f"105 full-slot replacement: {match_id}")
+        check(len(recovery) == 1 and recovery[0].get("seq") == recovery_seq and
+              recovery[0].get("round") == 4 and
+              recovery[0].get("source_instance_id") == "A-001#1" and
+              recovery[0].get("target_instance_ids") == ["A-011#1"] and
+              recovery[0].get("payment", {}).get("time") == 2 and
+              "A-010#1" in recovery[0].get("result", ""),
+              f"105 exact Animal Shogi recovery: {match_id}")
+        all_transitions = [transition for event in events
+                           for transition in event.get("instance_transitions", [])]
+        check(len(replay) == 1 and replay[0].get("seq") == replay_seq and
+              replay[0].get("round") == 5 and
+              replay[0].get("source_instance_id") == "A-011#1" and
+              replay[0].get("target_instance_ids") == ["A-012#1"] and
+              replay[0].get("instance_transitions") == [expected_transition_105] and
+              all_transitions == [expected_transition_105],
+              f"105 exact generation-two replay: {match_id}")
+        for event in events[replay_seq:]:
+            payment = event.get("payment", {})
+            direct_references = ([event.get("source_instance_id")] +
+                                 event.get("target_instance_ids", []) +
+                                 payment.get("hand_to_discard", []) +
+                                 payment.get("prepared_to_discard", []) +
+                                 payment.get("deck_to_bottom", []))
+            check("A-011#1" not in direct_references,
+                  f"105 no retired-instance reference after replay: {match_id}")
+        final_state = snapshots[-1].get("state", {}) if snapshots else {}
+        final_a = final_state.get("players", {}).get("A", {})
+        final_instances = final_state.get("instances", {})
+        check(final_a.get("field", {}).get("companions") ==
+              ["A-013#1", "A-014#1", "A-011#2"] and
+              "A-011#1" not in final_a.get("hand", []) and
+              "A-011#1" not in final_a.get("discard", []) and
+              "A-012#1" in final_a.get("discard", []) and
+              final_instances.get("A-011#1", {}).get("status") == "retired" and
+              final_instances.get("A-011#2") == {
+                  "card_copy_id": "A-011", "status": "active"},
+              f"105 final zones and instance statuses: {match_id}")
+        result_105 = record.get("record", {}).get("result", {})
+        check(result_105.get("winner") == "draw" and
+              result_105.get("final_growth") == {"A": 20, "B": 20} and
+              final_state.get("phase") == "completed" and
+              record.get("record", {}).get("reservations") == [] and
+              final_state.get("reservations") == {},
+              f"105 controlled result and no fabricated reservation: {match_id}")
+        source = source_105_by_first.get(first_player, {})
+        source_players = {row.get("player_id"): row for row in
+                          source.get("input", {}).get("players", [])}
+        pilot_players = {row.get("player_id"): row for row in
+                         record.get("input", {}).get("players", [])}
+        for player_id in ("A", "B"):
+            source_deck = source_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            pilot_deck = pilot_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            check({row.get("initial_instance_id"): row.get("card_id")
+                   for row in source_deck} ==
+                  {row.get("initial_instance_id"): row.get("card_id")
+                   for row in pilot_deck},
+                  f"105 unchanged instance-to-card mapping {player_id}: {match_id}")
+            source_order = [row.get("initial_instance_id") for row in source_deck]
+            pilot_order = [row.get("initial_instance_id") for row in pilot_deck]
+            changed_positions = {index for index, (before, after) in
+                                 enumerate(zip(source_order, pilot_order))
+                                 if before != after}
+            expected_changes = ({1, 2, 3, 4, 10, 11, 12, 13}
+                                if player_id == "A" else set())
+            check(len(source_order) == len(pilot_order) == 40 and
+                  changed_positions == expected_changes and
+                  pilot_players.get(player_id, {}).get("initial_hand") ==
+                  pilot_order[:5],
+                  f"105 order-only input derivation {player_id}: {match_id}")
+    proxy_105_tool_tree = ast.parse(proxy_105_tool.read_text())
+    proxy_105_test_tree = ast.parse(proxy_105_test.read_text())
+    proxy_105_functions = {
+        node.name for node in proxy_105_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_p97_05_reentry_pair", "validate_reentry_trace",
+           "validate_reentry_pair", "validate_materialized_reentry_pilots",
+           "write_reentry_pilots", "main"} <= proxy_105_functions,
+          "105 re-entry materializer public functions")
+    proxy_105_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_105_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_105_test_count == 8, "105 re-entry materializer test count")
+    proxy_105_doc_text = proxy_105_doc.read_text()
+    check("勝率・先後差・カード強度の結論には数えない" in proxy_105_doc_text and
+          "架空予約は作らない" in proxy_105_doc_text and
+          "予約非移行を実対戦で確認済みとは数えない" in proxy_105_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_105_doc_text,
+          "105 controlled-result and identity boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
