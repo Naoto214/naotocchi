@@ -1150,6 +1150,196 @@ if all(path.exists() for path in (
               for path in stable_sources_103) and
           base_blobs_103.get("script.js") != main_blobs_103.get("script.js"),
           "103 latest-main source blob boundary")
+
+# 104 records both terminal reservation paths with a controlled P97-06 pair.
+# It preserves the existing physical cards and changes only two B deck positions.
+proxy_104_doc = DOCS / "104-p97-06-reservation-pilot.md"
+proxy_104_plan_path = DOCS / "data/proxy-reservation-plan-104-20260918.json"
+proxy_104_records_path = DOCS / "data/proxy-pilots-104"
+proxy_104_traces_path = DOCS / "data/proxy-pilot-traces-104"
+proxy_104_tool = DOCS / "tools/proxy_reservation_pilot.py"
+proxy_104_test = DOCS / "tools/test_proxy_reservation_pilot.py"
+for path, label in (
+    (proxy_104_doc, "104 reservation pilot document"),
+    (proxy_104_plan_path, "104 reservation pilot plan"),
+    (proxy_104_records_path, "104 completed pilot output"),
+    (proxy_104_traces_path, "104 reservation trace output"),
+    (proxy_104_tool, "104 reservation materializer"),
+    (proxy_104_test, "104 reservation tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_104_doc, proxy_104_plan_path, proxy_104_records_path,
+        proxy_104_traces_path, proxy_104_tool, proxy_104_test)):
+    proxy_104_plan = json.loads(proxy_104_plan_path.read_text())
+    proxy_104_record_files = sorted(proxy_104_records_path.glob("*.json"))
+    proxy_104_trace_files = sorted(proxy_104_traces_path.glob("*.json"))
+    proxy_104_records = [json.loads(path.read_text())
+                         for path in proxy_104_record_files]
+    proxy_104_traces = {
+        row.get("record_match_id"): row
+        for row in (json.loads(path.read_text()) for path in proxy_104_trace_files)
+    }
+    check(proxy_104_plan.get("cluster") == "P97-06" and
+          proxy_104_plan.get("focus_card_id") == "G-breakout-classic" and
+          proxy_104_plan.get("target_card_id") == "I-poop1" and
+          proxy_104_plan.get("design", {}).get("rules_commit") ==
+          "25d82135873d5f6ca9cac0ffa44fc9e3a69cb457" and
+          proxy_104_plan.get("design", {}).get("rules_tree") ==
+          "98748feb521b90cc65e7e36e2ee4785cbd63fe2b",
+          "104 approved P97-06 reservation plan and baseline")
+    expected_104_record_names = {
+        f"{row.get('record_match_id')}.json"
+        for row in proxy_104_plan.get("pairs", [])
+    }
+    expected_104_trace_names = {
+        f"{row.get('trace_id')}.json"
+        for row in proxy_104_plan.get("pairs", [])
+    }
+    check({path.name for path in proxy_104_record_files} ==
+          expected_104_record_names and
+          {path.name for path in proxy_104_trace_files} ==
+          expected_104_trace_names and
+          len(proxy_104_records) == len(proxy_104_traces) == 2,
+          "104 exact completed record and trace files")
+    check(sorted(row.get("input", {}).get("first_player")
+                 for row in proxy_104_records) == ["A", "B"],
+          "104 first-player pair")
+    expected_104_by_first = {
+        "A": (43, 44, "consumed", 3, 0),
+        "B": (42, 43, "expired", 11, 1),
+    }
+    source_104_by_first = {}
+    for pair in proxy_104_plan.get("pairs", []):
+        source = json.loads((proxy_104_plan_path.parent /
+                             pair["source_fixture"]).read_text())
+        source_104_by_first[source.get("input", {}).get("first_player")] = source
+    for record in proxy_104_records:
+        match_id = record.get("match_id")
+        first_player = record.get("input", {}).get("first_player")
+        events = record.get("record", {}).get("events", [])
+        reservations = record.get("record", {}).get("reservations", [])
+        trace = proxy_104_traces.get(match_id, {})
+        snapshots = trace.get("snapshots", [])
+        expected_events, expected_snapshots, expected_status, deadline_round, uses = \
+            expected_104_by_first.get(first_player, (None,) * 5)
+        check(record.get("record", {}).get("status") == "completed" and
+              len(events) == expected_events and len(snapshots) == expected_snapshots,
+              f"104 completed event and snapshot counts: {match_id}")
+        check([row.get("event_seq") for row in snapshots] ==
+              list(range(expected_snapshots or 0)),
+              f"104 trace sequence: {match_id}")
+        for index, snapshot in enumerate(snapshots):
+            canonical = json.dumps(snapshot.get("state"), ensure_ascii=False,
+                                   sort_keys=True, separators=(",", ":"))
+            digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+            check(snapshot.get("sha256") == digest,
+                  f"104 canonical snapshot hash {index}: {match_id}")
+        for index, event in enumerate(events, 1):
+            if index < len(snapshots):
+                check(event.get("before_state_sha256") ==
+                      snapshots[index - 1].get("sha256") and
+                      event.get("after_state_sha256") ==
+                      snapshots[index].get("sha256"),
+                      f"104 event/trace hash linkage {index}: {match_id}")
+        reservation = reservations[0] if len(reservations) == 1 else {}
+        reservation_id = reservation.get("reservation_id")
+        prepare = [event for event in events
+                   if event.get("action_type") == "prepare_toilet_paper"]
+        breakout = [event for event in events
+                    if event.get("action_type") == "play_breakout"]
+        execute = [event for event in events
+                   if event.get("action_type") == "execute_breakout_reservation"]
+        check(len(prepare) == len(breakout) == 1 and
+              prepare[0].get("source_instance_id") == "B-034#1" and
+              prepare[0].get("payment", {}).get("time") == 1 and
+              breakout[0].get("source_instance_id") == "A-001#1" and
+              breakout[0].get("target_instance_ids") == ["B-034#1"] and
+              breakout[0].get("payment", {}).get("time") == 2 and
+              breakout[0].get("reservations_created") == [reservation_id],
+              f"104 exact preparation and breakout events: {match_id}")
+        check(reservation.get("status") == expected_status and
+              reservation.get("deadline") == {
+                  "kind": "next_own_turn_start", "round": deadline_round,
+                  "player": "A"} and
+              reservation.get("uses_remaining") == uses and
+              reservation.get("source_instance_id") == "A-001#1" and
+              reservation.get("target_instance_ids") == ["B-034#1"],
+              f"104 reservation terminal state: {match_id}")
+        final_state = snapshots[-1].get("state", {}) if snapshots else {}
+        final_b = final_state.get("players", {}).get("B", {})
+        if expected_status == "consumed":
+            check(len(execute) == 1 and execute[0].get("round") == 3 and
+                  execute[0].get("turn_player") == "A" and
+                  execute[0].get("reservations_consumed") == [reservation_id] and
+                  "B-034#1" in final_b.get("hand", []) and
+                  "B-034#1" not in final_b.get("field", {}).get("prepared", []),
+                  f"104 consumed path and target position: {match_id}")
+        else:
+            check(not execute and not any(event.get("round") == 11 for event in events) and
+                  not any(reservation_id in event.get("reservations_consumed", [])
+                          for event in events) and
+                  "B-034#1" in final_b.get("field", {}).get("prepared", []),
+                  f"104 expired path without R11: {match_id}")
+        result_104 = record.get("record", {}).get("result", {})
+        check(result_104.get("winner") == "draw" and
+              result_104.get("final_growth") == {"A": 20, "B": 20} and
+              final_state.get("phase") == "completed" and
+              {player_id: final_state.get("players", {}).get(
+                  player_id, {}).get("growth") for player_id in ("A", "B")} ==
+              {"A": 20, "B": 20} and
+              final_state.get("reservations", {}).get(
+                  reservation_id, {}).get("status") == expected_status,
+              f"104 controlled final result and reservation trace: {match_id}")
+        source = source_104_by_first.get(first_player, {})
+        source_players = {row.get("player_id"): row for row in
+                          source.get("input", {}).get("players", [])}
+        pilot_players = {row.get("player_id"): row for row in
+                         record.get("input", {}).get("players", [])}
+        for player_id in ("A", "B"):
+            source_deck = source_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            pilot_deck = pilot_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            check({row.get("initial_instance_id"): row.get("card_id")
+                   for row in source_deck} ==
+                  {row.get("initial_instance_id"): row.get("card_id")
+                   for row in pilot_deck},
+                  f"104 unchanged instance-to-card mapping {player_id}: {match_id}")
+            source_order = [row.get("initial_instance_id") for row in source_deck]
+            pilot_order = [row.get("initial_instance_id") for row in pilot_deck]
+            changed_positions = {index for index, (before, after) in
+                                 enumerate(zip(source_order, pilot_order))
+                                 if before != after}
+            expected_changes = set() if player_id == "A" else {4, 33}
+            check(len(source_order) == len(pilot_order) == 40 and
+                  changed_positions == expected_changes and
+                  pilot_players.get(player_id, {}).get("initial_hand") ==
+                  pilot_order[:5],
+                  f"104 order-only input derivation {player_id}: {match_id}")
+        check(not any(event.get("instance_transitions") for event in events),
+              f"104 no premature instance transitions: {match_id}")
+    proxy_104_tool_tree = ast.parse(proxy_104_tool.read_text())
+    proxy_104_test_tree = ast.parse(proxy_104_test.read_text())
+    proxy_104_functions = {
+        node.name for node in proxy_104_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_p97_06_reservation_pair", "validate_reservation_trace",
+           "validate_reservation_pair", "validate_materialized_reservation_pilots",
+           "write_reservation_pilots", "main"} <= proxy_104_functions,
+          "104 reservation materializer public functions")
+    proxy_104_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_104_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_104_test_count == 8, "104 reservation materializer test count")
+    proxy_104_doc_text = proxy_104_doc.read_text()
+    check("勝率・先後差・カード強度の結論には数えない" in proxy_104_doc_text and
+          "R11は作らない" in proxy_104_doc_text and
+          "instance_transitions`は空" in proxy_104_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_104_doc_text,
+          "104 controlled-result and reservation boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
