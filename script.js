@@ -12556,7 +12556,7 @@
     const item = CONSUMABLE_ITEMS.find(it => it.id === id);
     const meta = ITEM_SYSTEM.CATALOG[id];
     if (!item || !meta || meta.price == null || !Number.isFinite(state.lifetime.money) || state.lifetime.money < meta.price) return false;
-    if (item.eggKind && (!itemUseAllowed(id) || !item.available())) return false;
+    if (item.eggKind && (ITEM_SYSTEM.stock(state,id) > 0 || !itemUseAllowed(id) || !item.available())) return false;
     if (!ITEM_SYSTEM.grant(state, id)) return false;
     state.lifetime.money -= meta.price;
     state.lifetime.itemPurchases[id] = (state.lifetime.itemPurchases[id] || 0) + 1;
@@ -12572,19 +12572,19 @@
       const stock = ITEM_SYSTEM.stock(state, item.id);
       const usable = itemUseAllowed(item.id) && (!item.available || item.available());
       const reserved = item.eggKind && reservedEggKind() === item.eggKind;
-      const status = reserved ? `よやく：？？？／ふくろに${stock}こ（うち1こを予約中）。生まれるときに1こ使います。`
+      const status = reserved ? `次の人生：？？？／ふくろに${stock}こ（うち1こを予約中）。生まれるときに1こ使います。`
         : `${stock}こ／1回に1こ`;
       const canBuy = Number.isFinite(state.lifetime.money) && state.lifetime.money >= meta.price
         && (!item.eggKind || usable);
       const reason = (!itemUseAllowed(item.id) ? '今は使えない' : !usable ? item.unavailableMessage : '');
-      return `<div class="shop-item">
+      return `<div class="shop-item" data-item-id="${item.id}">
         <span class="shop-item-emoji">${itemIconHTML(item)}</span>
         <span class="shop-item-label">${item.label}</span>
         <span class="shop-item-desc">${meta.desc}</span>
         <span class="shop-item-status">${status}${reason && !reserved ? `／${reason}` : ''}</span>
-        ${meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${!canBuy ? 'disabled' : ''}>${item.eggKind ? 'かってよやく' : 'かう'}（${meta.price}コイン）</button>`}
+        ${item.eggKind && (reserved || stock > 0) ? '' : meta.price == null ? '<span>今日のチャレンジでもらえる</span>' : `<button type="button" data-item-action="buy" data-id="${item.id}" ${!canBuy ? 'disabled' : ''}>かう（${meta.price}コイン）</button>`}
         ${reserved ? `<button type="button" data-item-action="cancel" data-id="${item.id}">よやくをとりけす</button>`
-          : item.automatic ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.eggKind ? 'ふくろからよやく（無料）' : 'つかう'}</button>`}
+          : item.automatic || (item.eggKind && !stock) ? '' : `<button type="button" data-item-action="use" data-id="${item.id}" ${!usable || !stock ? 'disabled' : ''}>${item.eggKind ? 'よやくする' : 'つかう'}</button>`}
       </div>`;
     }).join('');
   }
