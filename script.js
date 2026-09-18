@@ -3200,7 +3200,10 @@
         let used = 0;
         for (const ch of overlay.children) { if (ch === wrap) continue; used += (ch.offsetHeight || 0) + 6; }
         const room = overlay.clientHeight - used - 14;
-        if (room >= 180 && H > room) H = Math.round(room);
+        // ならびの とちゅうで はかると はこが つぶれて いる ことが あり、その ときの
+        // 「のこり」を つかうと canvas が ありえない ほど 小さく なる。220 を きったら
+        // まだ おちついて いない と 見なして、うわぎりを かけない
+        if (room >= 220 && H > room) H = Math.round(room);
       }
     }
     // おもい たんまつ(けいりょうモード)では かいぞうどを 1に おとして えがく りょうを へらす
