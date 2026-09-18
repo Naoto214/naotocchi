@@ -1546,6 +1546,232 @@ if all(path.exists() for path in (
           "予約非移行を実対戦で確認済みとは数えない" in proxy_105_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_105_doc_text,
           "105 controlled-result and identity boundaries")
+
+# 106 completes the controlled single-fixture layer for P97-01, P97-02 and
+# P97-04.  It preserves every physical card while recording exact choices,
+# a same-turn-end reservation and the City Run setup.
+proxy_106_doc = DOCS / "106-remaining-single-pilots.md"
+proxy_106_plan_path = DOCS / "data/proxy-remaining-single-plan-106-20260918.json"
+proxy_106_records_path = DOCS / "data/proxy-pilots-106"
+proxy_106_traces_path = DOCS / "data/proxy-pilot-traces-106"
+proxy_106_tool = DOCS / "tools/proxy_remaining_single_pilots.py"
+proxy_106_test = DOCS / "tools/test_proxy_remaining_single_pilots.py"
+for path, label in (
+    (proxy_106_doc, "106 remaining single pilot document"),
+    (proxy_106_plan_path, "106 remaining single pilot plan"),
+    (proxy_106_records_path, "106 completed pilot output"),
+    (proxy_106_traces_path, "106 trace output"),
+    (proxy_106_tool, "106 pilot materializer"),
+    (proxy_106_test, "106 pilot tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_106_doc, proxy_106_plan_path, proxy_106_records_path,
+        proxy_106_traces_path, proxy_106_tool, proxy_106_test)):
+    proxy_106_plan = json.loads(proxy_106_plan_path.read_text())
+    proxy_106_specs = proxy_106_plan.get("records", [])
+    proxy_106_record_files = sorted(proxy_106_records_path.glob("*.json"))
+    proxy_106_trace_files = sorted(proxy_106_traces_path.glob("*.json"))
+    proxy_106_records = [json.loads(path.read_text())
+                         for path in proxy_106_record_files]
+    proxy_106_traces = {
+        row.get("record_match_id"): row
+        for row in (json.loads(path.read_text()) for path in proxy_106_trace_files)
+    }
+    check(proxy_106_plan.get("schema") ==
+          "naotocchi.card_game.proxy_remaining_single_plan.v1" and
+          proxy_106_plan.get("design", {}).get("rules_commit") ==
+          "bffbbb8f575f0ae0d8bf3e375ce8fa0c743aa8f4" and
+          proxy_106_plan.get("design", {}).get("rules_tree") ==
+          "9f41b9001714f59a665cfbaeaa7f687129f00017" and
+          [row.get("cluster") for row in proxy_106_specs] ==
+          ["P97-01", "P97-01", "P97-02", "P97-02", "P97-04", "P97-04"],
+          "106 approved clusters and baseline")
+    expected_106_record_names = {
+        f"{row.get('record_match_id')}.json" for row in proxy_106_specs
+    }
+    expected_106_trace_names = {
+        f"{row.get('trace_id')}.json" for row in proxy_106_specs
+    }
+    check({path.name for path in proxy_106_record_files} ==
+          expected_106_record_names and
+          {path.name for path in proxy_106_trace_files} ==
+          expected_106_trace_names and
+          len(proxy_106_records) == len(proxy_106_traces) == 6,
+          "106 exact completed record and trace files")
+    specs_106_by_match = {
+        row.get("record_match_id"): row for row in proxy_106_specs
+    }
+    expected_106_sequences = {
+        ("P97-01", "A"): (2, 3),
+        ("P97-01", "B"): (4, 5),
+        ("P97-02", "A"): (2, 3),
+        ("P97-02", "B"): (4, 5),
+        ("P97-04", "A"): (6, 11, 20, 21, 22, 23),
+        ("P97-04", "B"): (8, 13, 22, 23, 24, 25),
+    }
+    expected_106_changes = {
+        "P97-01": {1, 15},
+        "P97-02": set(),
+        "P97-04": {2, 3, 4, 10, 11, 19, 22, 31, 34, 35},
+    }
+    cluster_first_players_106 = {cluster: [] for cluster in
+                                 ("P97-01", "P97-02", "P97-04")}
+    for record in proxy_106_records:
+        match_id = record.get("match_id")
+        spec = specs_106_by_match.get(match_id, {})
+        cluster = spec.get("cluster")
+        first_player = record.get("input", {}).get("first_player")
+        if cluster in cluster_first_players_106:
+            cluster_first_players_106[cluster].append(first_player)
+        events = record.get("record", {}).get("events", [])
+        trace = proxy_106_traces.get(match_id, {})
+        snapshots = trace.get("snapshots", [])
+        expected_count = 46 if cluster == "P97-04" else 42
+        check(record.get("record", {}).get("status") == "completed" and
+              len(events) == expected_count and
+              len(snapshots) == expected_count + 1 and
+              [row.get("event_seq") for row in snapshots] ==
+              list(range(expected_count + 1)),
+              f"106 completed event and trace sequence: {match_id}")
+        for index, snapshot in enumerate(snapshots):
+            canonical = json.dumps(snapshot.get("state"), ensure_ascii=False,
+                                   sort_keys=True, separators=(",", ":"))
+            digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+            check(snapshot.get("sha256") == digest,
+                  f"106 canonical snapshot hash {index}: {match_id}")
+        for index, event in enumerate(events, 1):
+            if index < len(snapshots):
+                check(event.get("before_state_sha256") ==
+                      snapshots[index - 1].get("sha256") and
+                      event.get("after_state_sha256") ==
+                      snapshots[index].get("sha256"),
+                      f"106 event/trace hash linkage {index}: {match_id}")
+        final_state = snapshots[-1].get("state", {}) if snapshots else {}
+        final_a = final_state.get("players", {}).get("A", {})
+        result_106 = record.get("record", {}).get("result", {})
+        expected_growth = ({"A": 20, "B": 20} if cluster == "P97-04"
+                           else {"A": 25, "B": 20})
+        check(result_106.get("final_growth") == expected_growth and
+              result_106.get("winner") ==
+              ("draw" if cluster == "P97-04" else "A") and
+              final_state.get("phase") == "completed" and
+              not any(event.get("instance_transitions") for event in events),
+              f"106 controlled result and no instance transition: {match_id}")
+        source = json.loads((proxy_106_plan_path.parent /
+                             spec.get("source_fixture", "missing")).read_text())
+        source_players = {row.get("player_id"): row for row in
+                          source.get("input", {}).get("players", [])}
+        pilot_players = {row.get("player_id"): row for row in
+                         record.get("input", {}).get("players", [])}
+        for player_id in ("A", "B"):
+            source_deck = source_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            pilot_deck = pilot_players.get(player_id, {}).get(
+                "deck_order_top_to_bottom", [])
+            check({row.get("initial_instance_id"):
+                   (row.get("card_copy_id"), row.get("card_id"))
+                   for row in source_deck} ==
+                  {row.get("initial_instance_id"):
+                   (row.get("card_copy_id"), row.get("card_id"))
+                   for row in pilot_deck},
+                  f"106 unchanged physical-card mapping {player_id}: {match_id}")
+            source_order = [row.get("initial_instance_id") for row in source_deck]
+            pilot_order = [row.get("initial_instance_id") for row in pilot_deck]
+            changed_positions = {index for index, (before, after) in
+                                 enumerate(zip(source_order, pilot_order))
+                                 if before != after}
+            expected_changes = (expected_106_changes.get(cluster, set())
+                                if player_id == "A" else set())
+            check(len(source_order) == len(pilot_order) == 40 and
+                  changed_positions == expected_changes and
+                  pilot_players.get(player_id, {}).get("initial_hand") ==
+                  pilot_order[:5],
+                  f"106 order-only input derivation {player_id}: {match_id}")
+        if cluster == "P97-01":
+            placement = [row for row in events if row.get("action_type") ==
+                         "place_first_date_partner"]
+            first_date = [row for row in events if row.get("action_type") ==
+                          "play_first_date"]
+            place_seq, play_seq = expected_106_sequences[(cluster, first_player)]
+            check(len(placement) == len(first_date) == 1 and
+                  placement[0].get("seq") == place_seq and
+                  placement[0].get("source_instance_id") == "A-016#1" and
+                  first_date[0].get("seq") == play_seq and
+                  first_date[0].get("source_instance_id") == "A-001#1" and
+                  first_date[0].get("target_instance_ids") == ["A-016#1"] and
+                  first_date[0].get("payment", {}).get("time") == 1 and
+                  final_a.get("field", {}).get("partner") == "A-016#1" and
+                  final_a.get("field", {}).get("partner_stage") == 0,
+                  f"106 exact first-date line: {match_id}")
+        elif cluster == "P97-02":
+            play = [row for row in events if row.get("action_type") ==
+                    "play_mini_golf"]
+            resolution = [row for row in events if row.get("action_type") ==
+                          "resolve_mini_golf_turn_end"]
+            play_seq, resolve_seq = expected_106_sequences[(cluster, first_player)]
+            reservations = record.get("record", {}).get("reservations", [])
+            check(len(play) == len(resolution) == len(reservations) == 1 and
+                  play[0].get("seq") == play_seq and
+                  resolution[0].get("seq") == resolve_seq and
+                  play[0].get("reservations_created") ==
+                  resolution[0].get("reservations_consumed") and
+                  reservations[0].get("deadline") == {
+                      "kind": "current_turn_end", "round": 1, "player": "A"} and
+                  reservations[0].get("status") == "consumed" and
+                  reservations[0].get("uses_remaining") == 0,
+                  f"106 exact mini-golf reservation: {match_id}")
+        elif cluster == "P97-04":
+            action_types = [
+                "birth_city_runner", "place_city_world", "equip_lunch_box",
+                "equip_pillow", "resolve_city_peek", "play_city_run",
+            ]
+            actions = [next((row for row in events
+                             if row.get("action_type") == action_type), {})
+                       for action_type in action_types]
+            check(tuple(row.get("seq") for row in actions) ==
+                  expected_106_sequences[(cluster, first_player)] and
+                  [row.get("payment", {}).get("time") for row in actions] ==
+                  [2, 2, 2, 2, 0, 1] and
+                  actions[-1].get("choice_ids") == [
+                      "choice-p97-04-take-play", "choice-p97-04-take-event",
+                      "choice-p97-04-bottom-order"] and
+                  final_a.get("field", {}).get("main") == "A-002#1" and
+                  final_a.get("field", {}).get("world") == "A-020#1" and
+                  final_a.get("field", {}).get("prepared") ==
+                  ["A-032#1", "A-035#1"] and
+                  all(instance in final_a.get("hand", [])
+                      for instance in ("A-023#1", "A-036#1")) and
+                  final_a.get("deck", [])[-2:] == ["A-013#1", "A-014#1"] and
+                  record.get("record", {}).get("reservations") == [],
+                  f"106 exact City Run line and final zones: {match_id}")
+    check(all(first_players == ["A", "B"] for first_players in
+              cluster_first_players_106.values()),
+          "106 first-player pair for each cluster")
+    proxy_106_tool_tree = ast.parse(proxy_106_tool.read_text())
+    proxy_106_test_tree = ast.parse(proxy_106_test.read_text())
+    proxy_106_functions = {
+        node.name for node in proxy_106_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_remaining_single_pilots", "validate_remaining_single_trace",
+           "validate_remaining_single_pilots",
+           "validate_materialized_remaining_single_pilots",
+           "write_remaining_single_pilots", "main"} <= proxy_106_functions,
+          "106 remaining single materializer public functions")
+    proxy_106_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_106_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_106_test_count == 7,
+          "106 remaining single materializer test count")
+    proxy_106_doc_text = proxy_106_doc.read_text()
+    check("計12戦の統制completed記録" in proxy_106_doc_text and
+          "勝率・先後差・発動率・カード強度の結論には数えない" in
+          proxy_106_doc_text and
+          "instance_transitions`は全eventで空" in proxy_106_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_106_doc_text,
+          "106 controlled-result and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
