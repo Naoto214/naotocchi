@@ -2598,6 +2598,117 @@ if all(path.exists() for path in
           "4戦は115へdeferred" in proxy_114_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_114_doc_text,
           "114 scope and resume boundaries")
+
+# 115 applies fixed seeded orders and stops at the first unresolved egg choice.
+proxy_115_doc = DOCS / "115-normal-decision-first-choice-audit.md"
+proxy_115_plan_path = DOCS / "data/proxy-normal-decision-first-choice-plan-115-20260918.json"
+proxy_115_audit_path = DOCS / "data/proxy-normal-decision-first-choice-audit-115-20260918.json"
+proxy_115_tool = DOCS / "tools/proxy_normal_decision_first_choice_audit.py"
+proxy_115_test = DOCS / "tools/test_proxy_normal_decision_first_choice_audit.py"
+for path, label in [
+    (proxy_115_doc, "115 normal-decision first-choice audit document"),
+    (proxy_115_plan_path, "115 first-choice plan"),
+    (proxy_115_audit_path, "115 first-choice audit"),
+    (proxy_115_tool, "115 first-choice validator"),
+    (proxy_115_test, "115 first-choice tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_115_doc, proxy_115_plan_path, proxy_115_audit_path,
+        proxy_115_tool, proxy_115_test)):
+    proxy_115_plan = json.loads(proxy_115_plan_path.read_text())
+    proxy_115_audit = json.loads(proxy_115_audit_path.read_text())
+    expected_seeds_115 = {
+        "order-01": {"A": 50, "B": 100050},
+        "order-02": {"A": 51, "B": 100051},
+    }
+    actual_seeds_115 = {
+        order.get("order_id"): {
+            player.get("player_id"): player.get("seed")
+            for player in order.get("players", [])
+        }
+        for order in proxy_115_plan.get("orders", [])
+    }
+    check(proxy_115_plan.get("checkpoint") == 115 and
+          proxy_115_plan.get("status") == "orders_materialized_no_match_artifacts" and
+          proxy_115_plan.get("shuffle", {}).get("algorithm") ==
+              "random.Random(seed).shuffle" and
+          actual_seeds_115 == expected_seeds_115,
+          "115 exact seeded shuffle plan")
+    check(len(proxy_115_plan.get("orders", [])) == 2 and
+          all(len(order.get("players", [])) == 2 and
+              all(len(player.get("deck_order_top_to_bottom", [])) == 40
+                  for player in order.get("players", []))
+              for order in proxy_115_plan.get("orders", [])),
+          "115 two orders with A/B forty-card manifests")
+    paths_115 = proxy_115_audit.get("paths", [])
+    check(len(paths_115) == 4 and
+          {(path.get("order_id"), path.get("first_player")) for path in paths_115} == {
+              ("order-01", "A"), ("order-01", "B"),
+              ("order-02", "A"), ("order-02", "B")} and
+          all(path.get("stop") == {
+              "round": 1, "phase": "egg_exchange_choice",
+              "actor": path.get("first_player"),
+              "reason": "egg_exchange_choice_unresolved"}
+              for path in paths_115),
+          "115 exact four R1 egg-choice stops")
+    check(all(len(path.get("hand_before_choice", [])) == 7 and
+              path.get("bottom_candidate_copy_ids") == [
+                  card.get("card_copy_id")
+                  for card in path.get("hand_before_choice", [])]
+              for path in paths_115),
+          "115 seven-card egg-bottom candidate sets")
+    evidence_115 = proxy_115_audit.get("downstream_evidence", [])
+    check(len(evidence_115) == 4 and
+          sum(row.get("classification") ==
+              "unavoidable_zero_cost_person_vs_pass" for row in evidence_115) == 3 and
+          all(row.get("comparison_result", {}).get("reason") ==
+              "unresolved_canonical_text" and
+              row.get("counts_as_played_action") is False and
+              row.get("counts_as_match_result") is False
+              for row in evidence_115),
+          "115 downstream zero-cost-person versus pass evidence")
+    scope_115 = proxy_115_audit.get("scope", {})
+    check(all(scope_115.get(key) == 0 for key in
+              ("fixture_count", "completed_match_count", "trace_count", "winner_count",
+               "independent_balance_sample_count")) and
+          proxy_115_audit.get("checkpoint_112") == {
+              "targeted_fixture_count": 6, "completed_in_115": 0,
+              "status": "unchanged_unplayed"} and
+          proxy_115_audit.get("population") == {
+              "current_catalog": 452, "registered_candidates": 477,
+              "changed_card_text_numeric_or_registration_ids": 0},
+          "115 zero artifacts and preserved population boundaries")
+    proxy_115_tool_tree = ast.parse(proxy_115_tool.read_text())
+    proxy_115_test_tree = ast.parse(proxy_115_test.read_text())
+    proxy_115_functions = {
+        node.name for node in proxy_115_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"shuffle_deck", "build_first_choice_plan", "validate_first_choice_plan",
+           "order_sha256", "zero_cost_people", "build_first_choice_audit",
+           "validate_first_choice_audit", "write_json", "validate_materialized",
+           "main"} <= proxy_115_functions,
+          "115 first-choice validator public functions")
+    proxy_115_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_115_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_115_test_count == 10, "115 normal-decision first-choice test count")
+    if "--catalog" not in sys.argv:
+        proxy_115_validation = subprocess.run(
+            [sys.executable, str(proxy_115_tool)], capture_output=True, text=True,
+            check=False)
+        check(proxy_115_validation.returncode == 0,
+              f"115 canonical first-choice validator: {proxy_115_validation.stdout}"
+              f"{proxy_115_validation.stderr}")
+    proxy_115_doc_text = proxy_115_doc.read_text()
+    check("seed付きshuffle" in proxy_115_doc_text and
+          "4経路すべてR1たまご交換で停止" in proxy_115_doc_text and
+          "fixture・completed・trace・winner・独立balance標本はすべて0" in
+              proxy_115_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_115_doc_text and
+          "116" in proxy_115_doc_text,
+          "115 stop, scope, and resume boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
