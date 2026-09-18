@@ -2435,6 +2435,73 @@ if all(path.exists() for path in
           "対戦エンジン化、合法性の完全自動判定" in proxy_112_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_112_doc_text,
           "112 scope and interpretation boundaries")
+
+# 113 applies the 111 stop condition before materializing invalid repetition records.
+proxy_113_doc = DOCS / "113-normal-decision-admission-audit.md"
+proxy_113_plan_path = DOCS / "data/proxy-normal-decision-admission-plan-113-20260918.json"
+proxy_113_audit_path = DOCS / "data/proxy-normal-decision-admission-113-20260918.json"
+proxy_113_tool = DOCS / "tools/proxy_normal_decision_admission.py"
+proxy_113_test = DOCS / "tools/test_proxy_normal_decision_admission.py"
+for path, label in [
+    (proxy_113_doc, "113 normal-decision admission document"),
+    (proxy_113_plan_path, "113 normal-decision admission plan"),
+    (proxy_113_audit_path, "113 normal-decision admission audit"),
+    (proxy_113_tool, "113 admission validator"),
+    (proxy_113_test, "113 admission tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_113_doc, proxy_113_plan_path, proxy_113_audit_path,
+        proxy_113_tool, proxy_113_test)):
+    proxy_113_plan = json.loads(proxy_113_plan_path.read_text())
+    proxy_113_audit = json.loads(proxy_113_audit_path.read_text())
+    check(proxy_113_plan.get("checkpoint") == 113 and
+          len(proxy_113_plan.get("orders", [])) == 2 and
+          proxy_113_plan.get("planned_match_count") == 4,
+          "113 two deferred orders and four planned matches")
+    blocker_ids_113 = {row.get("blocker_id")
+                       for row in proxy_113_audit.get("blockers", [])}
+    check(proxy_113_audit.get("status") == "blocked_by_protocol_admission" and
+          proxy_113_audit.get("stop_required") is True and
+          proxy_113_audit.get("fixture_count") == 0 and
+          proxy_113_audit.get("completed_match_count") == 0 and
+          proxy_113_audit.get("independent_balance_sample_count") == 0 and
+          blocker_ids_113 == {"candidate-coverage-incomplete",
+                              "pre-decision-schema-mismatch",
+                              "priority-comparison-unresolved"},
+          "113 admission stop and exact three blockers")
+    check(proxy_113_audit.get("deferred_batch", {}).get("planned_match_count") == 4 and
+          proxy_113_audit.get("deferred_batch", {}).get("orders_materialized") is False and
+          proxy_113_audit.get("checkpoint_112", {}).get("completed_in_113") == 0 and
+          proxy_113_audit.get("checkpoint_112", {}).get("status") ==
+          "unchanged_unplayed",
+          "113 deferred batch and unchanged 112 boundary")
+    proxy_113_tool_tree = ast.parse(proxy_113_tool.read_text())
+    proxy_113_test_tree = ast.parse(proxy_113_test.read_text())
+    proxy_113_functions = {
+        node.name for node in proxy_113_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_admission_audit", "validate_admission_audit",
+           "write_admission_audit", "validate_materialized_audit", "main"} <=
+          proxy_113_functions,
+          "113 admission validator public functions")
+    proxy_113_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_113_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_113_test_count == 7, "113 normal-decision admission test count")
+    if "--catalog" not in sys.argv:
+        proxy_113_validation = subprocess.run(
+            [sys.executable, str(proxy_113_tool)], capture_output=True, text=True,
+            check=False)
+        check(proxy_113_validation.returncode == 0,
+              f"113 canonical admission validator: {proxy_113_validation.stdout}"
+              f"{proxy_113_validation.stderr}")
+    proxy_113_doc_text = proxy_113_doc.read_text()
+    check("fixture数、completed対戦数、独立balance標本数はすべて0" in
+          proxy_113_doc_text and "予定4戦はdeferred" in proxy_113_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_113_doc_text,
+          "113 stop and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
