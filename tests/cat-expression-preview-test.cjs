@@ -351,7 +351,7 @@ test('elderDog preview uses isolated storage and the correct age stage', () => {
   assert.equal(state.hunger,40);
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion']) {
   test(`${species} preview exposes every stage and never accesses real saves`, () => {
     const html=buildPreview({preset:'sick'});
     for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
@@ -494,6 +494,20 @@ test('cicada preview uses all eight canonical stage names',()=>{
  names.forEach((name,index)=>assert.match(html,new RegExp(`<option value="cicada0${index+1}"[^>]*>${name}</option>`)));
  const {state,run}=seededState(html);
  assert.equal(state.speciesLine,'cicada');
+ assert.equal(state.stageIndex,7);
+ assert.equal(state.hunger,40);
+ assert.deepEqual(run.calls,[]);
+});
+
+test('antlion preview uses all eight canonical stage names',()=>{
+ const context={};
+ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'character-world-master.v1.js'),'utf8')+';globalThis.master=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;',context);
+ const names=Array.from(context.master.playerSpecies.normal.find(item=>item.id==='antlion').stages);
+ assert.deepEqual(require('../tools/expression-stage-names.json').antlion,names);
+ const html=buildPreview({preset:'hungry',form:'antlion08'});
+ names.forEach((name,index)=>assert.match(html,new RegExp(`<option value="antlion0${index+1}"[^>]*>${name}</option>`)));
+ const {state,run}=seededState(html);
+ assert.equal(state.speciesLine,'antlion');
  assert.equal(state.stageIndex,7);
  assert.equal(state.hunger,40);
  assert.deepEqual(run.calls,[]);

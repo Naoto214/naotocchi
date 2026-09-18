@@ -52,7 +52,7 @@ test('assetFor allowlists adult-cat expression portraits only', () => {
   assert.equal(expression.assetFor(base,'toString'),base);
   assert.equal(expression.assetFor(base,'constructor'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
-  assert.equal(expression.assetFor('assets/characters/antlion/01.png','happy'),'assets/characters/antlion/01.png');
+  assert.equal(expression.assetFor('assets/characters/dandelion/01.png','happy'),'assets/characters/dandelion/01.png');
   assert.equal(expression.assetFor(null,'happy'),null);
 });
 
@@ -70,7 +70,7 @@ test('accentFor returns one static accessible-hidden SVG accent per non-normal a
   assert.equal(new Set(accents).size,names.length);
   assert.equal(expression.accentFor(base,'normal'),'');
   assert.equal(expression.accentFor(base,'unknown'),'');
-  assert.equal(expression.accentFor('assets/characters/antlion/02.png','happy'),'');
+  assert.equal(expression.accentFor('assets/characters/dandelion/02.png','happy'),'');
 });
 
 test('reactionFor maps every approved semantic event and rejects unknown events', () => {
@@ -121,7 +121,7 @@ test('kitten stage supports all ten expressions while other cat stages keep thei
   assert.equal(expression.assetFor(base,'normal'),base);
   assert.equal(expression.assetFor(base,'__proto__'),base);
   assert.equal(expression.accentFor(base,'constructor'),'');
-  assert.equal(expression.assetFor('assets/characters/antlion/01.png','happy'),'assets/characters/antlion/01.png');
+  assert.equal(expression.assetFor('assets/characters/dandelion/01.png','happy'),'assets/characters/dandelion/01.png');
 });
 
 test('calling marks retain the two outlined strokes', () => {
@@ -211,7 +211,7 @@ test('adult dog supports ten expressions while unsupported species retain base p
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/06-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/antlion/${stage}.png`;
+      const other=`assets/characters/dandelion/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -226,7 +226,7 @@ test('puppy supports ten expressions while unsupported species retain base portr
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/03-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/antlion/${stage}.png`;
+      const other=`assets/characters/dandelion/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -241,7 +241,7 @@ test('wanpaku supports ten expressions while unsupported species retain base por
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/04-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/antlion/${stage}.png`;
+      const other=`assets/characters/dandelion/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -256,7 +256,7 @@ test('young dog supports ten expressions while unsupported species retain base p
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/05-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/antlion/${stage}.png`;
+      const other=`assets/characters/dandelion/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -277,7 +277,7 @@ test('calm dog supports ten expressions while unsupported species retain base po
     assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/07-${name}.png`);
     assert.match(expression.accentFor(base,name),/pet-expression-accent/);
     for (const stage of ['01','02','08']) {
-      const other=`assets/characters/antlion/${stage}.png`;
+      const other=`assets/characters/dandelion/${stage}.png`;
       assert.equal(expression.assetFor(other,name),other);
       assert.equal(expression.accentFor(other,name),'');
     }
@@ -329,7 +329,7 @@ test('sweat follows the face sides instead of the whole body', () => {
   assert.ok(sweat.left < 20);
   assert.ok(sweat.right > 25,'right sweat stays near the left-hand head, not the tail');
   assert.ok(sweat.top > 15 && sweat.top < 75);
-  assert.equal(expression.sweatFor('assets/characters/antlion/01.png',104,104,0),null);
+  assert.equal(expression.sweatFor('assets/characters/dandelion/01.png',104,104,0),null);
 });
 
 const faceAnchors=require('../tools/expression-face-anchors.json');
@@ -384,7 +384,7 @@ test('reviewed side marks read diagonally above the face, not alongside it',()=>
  }
 });
 
-for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
+for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion'])for(let i=1;i<=8;i++)test(`${line}/${i} routes ten distinct expressions`,()=>{
  const stage=String(i).padStart(2,'0'),base=`assets/characters/${line}/${stage}.png`;
  const states=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
  assert.equal(expression.assetFor(base,'normal'),base);

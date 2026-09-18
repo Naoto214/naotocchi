@@ -115,3 +115,6 @@ Continue the authorized batch with8 stages x10 original-referenced edits. Preser
 
 ### Approved continuation: cicada (2026-09-18)
 Add8x10 original-referenced cicada expressions, preserving1280 existing portraits/128placements/81 corrections. Preserve nymphs, dirt, transparent wings and the empty shell in05; only main living face changes. Same marks/reactions/privateSite/DraftPR278, no main merge or gameplay/save changes.
+
+### Approved production-first continuation: antlion (2026-09-18)
+Continue authorized eight-stage batch with80 original-referenced expressions. Preserve1360 completed expressions/136placements/81corrections and normal art/gameplay/romance/save. Keep sandy pits, jaws, closed cocoon04 with existing face, pupa05 and adult wings/trails. Face anchors observed on originals and coordinate grid. Only new8 placements, same marks/reactions/owner-private Site and DraftPR278; no main merge.
