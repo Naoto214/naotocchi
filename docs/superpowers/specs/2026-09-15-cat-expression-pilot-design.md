@@ -118,3 +118,6 @@ Add8x10 original-referenced cicada expressions, preserving1280 existing portrait
 
 ### Approved production-first continuation: antlion (2026-09-18)
 Continue authorized eight-stage batch with80 original-referenced expressions. Preserve1360 completed expressions/136placements/81corrections and normal art/gameplay/romance/save. Keep sandy pits, jaws, closed cocoon04 with existing face, pupa05 and adult wings/trails. Face anchors observed on originals and coordinate grid. Only new8 placements, same marks/reactions/owner-private Site and DraftPR278; no main merge.
+
+### Approved production-first continuation: dandelion (2026-09-18)
+Continue authorized8x10 original-referenced edits, preserving1440 completed portraits/144placements/81corrections andall normal art/gameplay/romance/save. Keep seedlings, rosette leaves, closed bud05, goldenflower06 andwhitehead07. In08 editonlydominant central-left seed face at52,65 andpreservefiveotherfaces. New8placements only; sameprivateSite andDraftPR278, no mainmerge.
