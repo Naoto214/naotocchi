@@ -2328,6 +2328,113 @@ if all(path.exists() for path in
     check(proxy_111_validation.returncode == 0,
           f"111 canonical validator: {proxy_111_validation.stdout}"
           f"{proxy_111_validation.stderr}")
+
+# 112 materializes exactly six current-452 prerequisite fixtures, not matches.
+proxy_112_doc = DOCS / "112-targeted-structural-gap-fixtures.md"
+proxy_112_plan_path = DOCS / "data/proxy-gap-fixture-plan-112-20260918.json"
+proxy_112_fixtures_path = DOCS / "data/proxy-gap-fixtures-112"
+proxy_112_tool = DOCS / "tools/proxy_gap_fixture_builder.py"
+proxy_112_test = DOCS / "tools/test_proxy_gap_fixture_builder.py"
+for path, label in [
+    (proxy_112_doc, "112 targeted fixture document"),
+    (proxy_112_plan_path, "112 targeted fixture plan"),
+    (proxy_112_fixtures_path, "112 targeted fixture output"),
+    (proxy_112_tool, "112 targeted fixture builder"),
+    (proxy_112_test, "112 targeted fixture tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_112_doc, proxy_112_plan_path, proxy_112_fixtures_path,
+        proxy_112_tool, proxy_112_test)):
+    proxy_112_plan = json.loads(proxy_112_plan_path.read_text())
+    proxy_112_specs = proxy_112_plan.get("fixtures", [])
+    proxy_112_files = sorted(proxy_112_fixtures_path.glob("*.json"))
+    proxy_112_records = [json.loads(path.read_text()) for path in proxy_112_files]
+    check(proxy_112_plan.get("schema") ==
+          "naotocchi.card_game.proxy_gap_fixture_plan.v1" and
+          proxy_112_plan.get("checkpoint") == 112 and
+          len(proxy_112_specs) == 6 and
+          [row.get("fixture_group") for row in proxy_112_specs].count("targeted-short") == 2 and
+          [row.get("fixture_group") for row in proxy_112_specs].count("evolution-path") == 4,
+          "112 exact six targeted fixture specifications")
+    scope_112 = proxy_112_plan.get("scope", {})
+    interpretation_112 = proxy_112_plan.get("interpretation", {})
+    check(scope_112.get("fixture_count") == 6 and
+          scope_112.get("completed_match_count") == 0 and
+          scope_112.get("independent_balance_sample_count") == 0 and
+          scope_112.get("changes_card_pool") is False and
+          interpretation_112.get("counts_as_completed_match") is False and
+          interpretation_112.get("counts_as_activation_zero") is False and
+          interpretation_112.get("counts_as_strength_evidence") is False and
+          interpretation_112.get("targeted_execution_checkpoint") is None,
+          "112 unplayed and unassigned execution boundary")
+    expected_112_files = {
+        f"{row.get('fixture_id')}.json" for row in proxy_112_specs
+    }
+    check({path.name for path in proxy_112_files} == expected_112_files and
+          len(proxy_112_records) == 6,
+          "112 exact materialized fixture files")
+    records_112 = {row.get("match_id"): row for row in proxy_112_records}
+    for spec in proxy_112_specs:
+        match_id = spec.get("fixture_id")
+        record = records_112.get(match_id, {})
+        source = json.loads((proxy_112_plan_path.parent /
+                             spec.get("source_fixture", "")).read_text())
+        source_players = {
+            row.get("player_id"): row for row in source.get("input", {}).get("players", [])
+        }
+        record_players = {
+            row.get("player_id"): row for row in record.get("input", {}).get("players", [])
+        }
+        source_maps = {
+            player_id: [(row.get("card_copy_id"), row.get("initial_instance_id"))
+                        for row in player.get("deck_order_top_to_bottom", [])]
+            for player_id, player in source_players.items()
+        }
+        record_maps = {
+            player_id: [(row.get("card_copy_id"), row.get("initial_instance_id"))
+                        for row in player.get("deck_order_top_to_bottom", [])]
+            for player_id, player in record_players.items()
+        }
+        check(source_maps == record_maps,
+              f"112 physical-card identity preserved: {match_id}")
+        all_cards = [
+            card for player in record_players.values()
+            for card in player.get("deck_order_top_to_bottom", [])
+        ]
+        check(record.get("record", {}).get("status") == "fixture" and
+              record.get("record", {}).get("events") == [] and
+              record.get("record", {}).get("result", {}).get("winner") is None and
+              len(all_cards) == 80 and
+              {card.get("card_id") for card in all_cards} <= set(revision_96_catalog),
+              f"112 unplayed current-452 fixture: {match_id}")
+    proxy_112_tool_tree = ast.parse(proxy_112_tool.read_text())
+    proxy_112_test_tree = ast.parse(proxy_112_test.read_text())
+    proxy_112_functions = {
+        node.name for node in proxy_112_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_gap_fixtures", "validate_gap_fixtures",
+           "write_gap_fixtures", "validate_materialized_fixtures",
+           "main"} <= proxy_112_functions,
+          "112 targeted fixture builder public functions")
+    proxy_112_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_112_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_112_test_count == 9, "112 targeted fixture test count")
+    if "--catalog" not in sys.argv:
+        proxy_112_validation = subprocess.run(
+            [sys.executable, str(proxy_112_tool)], capture_output=True, text=True,
+            check=False)
+        check(proxy_112_validation.returncode == 0,
+              f"112 canonical fixture validator: {proxy_112_validation.stdout}"
+              f"{proxy_112_validation.stderr}")
+    proxy_112_doc_text = proxy_112_doc.read_text()
+    check("completed対戦・発動率0・カード強度の証拠には数えない" in
+          proxy_112_doc_text and
+          "対戦エンジン化、合法性の完全自動判定" in proxy_112_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_112_doc_text,
+          "112 scope and interpretation boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
