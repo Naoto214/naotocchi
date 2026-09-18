@@ -1,0 +1,32 @@
+{
+  "schema": "naotocchi.card_game.proxy_pilot_plan.v1",
+  "date": "2026-09-18",
+  "design": {
+    "rules_commit": "72dc7de98f3966972b042fde75730078f91e4185",
+    "rules_tree": "d076c420e9838e0826bede7970c7d23f2796c9e1",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "cluster": "P97-03",
+  "focus_card_id": "G-hit-blow",
+  "declared_card_type": "main",
+  "focus_controller": "A",
+  "focus_round": 1,
+  "policy": "AはR1の通常ドロー後、最初の行動機会にヒット&ブローを使用してメインを宣言する。ほかの任意行動は両者とも行わず、各ターンを終了する。",
+  "record_output_directory": "proxy-pilots-103",
+  "trace_output_directory": "proxy-pilot-traces-103",
+  "pairs": [
+    {
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-03-single.json",
+      "record_match_id": "completed-103-p97-03-single-a-first",
+      "trace_id": "trace-103-p97-03-single-a-first",
+      "seat_stratum": "a-first"
+    },
+    {
+      "source_fixture": "proxy-fixtures-102/fixture-102-p97-03-single-a-second.json",
+      "record_match_id": "completed-103-p97-03-single-a-second",
+      "trace_id": "trace-103-p97-03-single-a-second",
+      "seat_stratum": "a-second"
+    }
+  ]
+}

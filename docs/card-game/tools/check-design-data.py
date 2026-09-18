@@ -1012,6 +1012,144 @@ if all(path.exists() for path in (
     check("AとBのデッキを交換する方式ではない" in proxy_102_doc_text and
           "対戦結果・発動率・強度には数えない" in proxy_102_doc_text,
           "102 seat-only and unplayed boundaries")
+
+# 103 records one controlled P97-03 transcript for each seat.  It validates
+# the recording path and canonical state linkage, not gameplay strength.
+proxy_103_doc = DOCS / "103-controlled-p97-03-pilot.md"
+proxy_103_plan_path = DOCS / "data/proxy-pilot-plan-103-20260918.json"
+proxy_103_records_path = DOCS / "data/proxy-pilots-103"
+proxy_103_traces_path = DOCS / "data/proxy-pilot-traces-103"
+proxy_103_main_path = DOCS / "data/proxy-main-followup-103-20260918.json"
+proxy_103_tool = DOCS / "tools/proxy_pilot_trace.py"
+proxy_103_test = DOCS / "tools/test_proxy_pilot_trace.py"
+for path, label in (
+    (proxy_103_doc, "103 controlled pilot document"),
+    (proxy_103_plan_path, "103 controlled pilot plan"),
+    (proxy_103_records_path, "103 completed pilot output"),
+    (proxy_103_traces_path, "103 pilot trace output"),
+    (proxy_103_main_path, "103 latest-main evidence"),
+    (proxy_103_tool, "103 pilot materializer"),
+    (proxy_103_test, "103 pilot tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_103_doc, proxy_103_plan_path, proxy_103_records_path,
+        proxy_103_traces_path, proxy_103_main_path, proxy_103_tool,
+        proxy_103_test)):
+    proxy_103_plan = json.loads(proxy_103_plan_path.read_text())
+    proxy_103_records = [
+        json.loads(path.read_text())
+        for path in sorted(proxy_103_records_path.glob("*.json"))
+    ]
+    proxy_103_traces = {
+        row.get("record_match_id"): row
+        for row in (
+            json.loads(path.read_text())
+            for path in sorted(proxy_103_traces_path.glob("*.json"))
+        )
+    }
+    check(proxy_103_plan.get("cluster") == "P97-03" and
+          proxy_103_plan.get("focus_card_id") == "G-hit-blow" and
+          proxy_103_plan.get("declared_card_type") == "main",
+          "103 approved P97-03 pilot plan")
+    check(len(proxy_103_records) == len(proxy_103_traces) == 2,
+          "103 completed record and trace counts")
+    check(sorted(row.get("input", {}).get("first_player")
+                 for row in proxy_103_records) == ["A", "B"],
+          "103 first-player pair")
+    for record in proxy_103_records:
+        match_id = record.get("match_id")
+        recorded = record.get("record", {})
+        events = recorded.get("events", [])
+        trace = proxy_103_traces.get(match_id, {})
+        snapshots = trace.get("snapshots", [])
+        focus_events = [event for event in events
+                        if event.get("action_type") == "play_hit_blow"]
+        check(recorded.get("status") == "completed" and len(events) == 41,
+              f"103 completed event count: {match_id}")
+        check(len(snapshots) == 42 and
+              [row.get("event_seq") for row in snapshots] == list(range(42)),
+              f"103 trace sequence: {match_id}")
+        for index, snapshot in enumerate(snapshots):
+            canonical = json.dumps(snapshot.get("state"), ensure_ascii=False,
+                                   sort_keys=True, separators=(",", ":"))
+            digest = hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+            check(snapshot.get("sha256") == digest,
+                  f"103 canonical snapshot hash {index}: {match_id}")
+        for index, event in enumerate(events, 1):
+            if index < len(snapshots):
+                check(event.get("before_state_sha256") ==
+                      snapshots[index - 1].get("sha256") and
+                      event.get("after_state_sha256") ==
+                      snapshots[index].get("sha256"),
+                      f"103 event/trace hash linkage {index}: {match_id}")
+        check(len(focus_events) == 1 and
+              focus_events[0].get("round") == 1 and
+              focus_events[0].get("turn_player") == "A" and
+              focus_events[0].get("source_instance_id") == "A-001#1" and
+              focus_events[0].get("payment", {}).get("time") == 1 and
+              focus_events[0].get("choice_ids") ==
+              ["choice-p97-03-declare-main"] and
+              "A-007#1" in focus_events[0].get("result", ""),
+              f"103 exact P97-03 focus event: {match_id}")
+        check(recorded.get("reservations") == [] and
+              not any(event.get("instance_transitions") for event in events),
+              f"103 no fabricated reservation or transition: {match_id}")
+        result_103 = recorded.get("result", {})
+        final_state = snapshots[-1].get("state", {}) if snapshots else {}
+        final_growth = {
+            player_id: final_state.get("players", {}).get(
+                player_id, {}).get("growth")
+            for player_id in ("A", "B")
+        }
+        check(result_103.get("winner") == "A" and
+              result_103.get("final_growth") == {"A": 25, "B": 20} and
+              final_growth == {"A": 25, "B": 20} and
+              final_state.get("phase") == "completed",
+              f"103 controlled final result: {match_id}")
+    proxy_103_tool_tree = ast.parse(proxy_103_tool.read_text())
+    proxy_103_test_tree = ast.parse(proxy_103_test.read_text())
+    proxy_103_functions = {
+        node.name for node in proxy_103_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_p97_03_pilot_pair", "validate_trace",
+           "validate_pilot_pair", "validate_materialized_pilots", "main"} <=
+          proxy_103_functions, "103 pilot materializer public functions")
+    proxy_103_test_count = sum(
+        node.name.startswith("test_")
+        for node in ast.walk(proxy_103_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_103_test_count == 6, "103 pilot materializer test count")
+    proxy_103_doc_text = proxy_103_doc.read_text()
+    check("勝率・先後差・カード強度の結論には数えない" in
+          proxy_103_doc_text and
+          "架空記録は加えない" in proxy_103_doc_text,
+          "103 controlled-result and empty-path boundaries")
+
+    proxy_103_main = json.loads(proxy_103_main_path.read_text())
+    expected_103_main_paths = {
+        "index.html", "script.js", "tests/consumables-v2-browser.cjs",
+        "tests/consumables-v2-eggs-test.cjs",
+        "tests/consumables-v2-forms-test.cjs",
+        "tests/helpers/runtime-harness.cjs",
+        "tests/item-collections-economy-test.cjs", "tests/sticker-test.cjs",
+    }
+    base_blobs_103 = proxy_103_main.get("source_blobs_at_base", {})
+    main_blobs_103 = proxy_103_main.get("source_blobs_at_main", {})
+    stable_sources_103 = {
+        "character-world-master.v1.js", "games.js", "item-system.js",
+        "movie-dialogue.js", "world-environment.js",
+    }
+    check(proxy_103_main.get("main_commit") ==
+          "12544515c7fc6640502373a7e97f5d6939e36b40" and
+          set(proxy_103_main.get("changed_paths", [])) == expected_103_main_paths,
+          "103 latest-main commit and changed paths")
+    check(all(base_blobs_103.get(path) == main_blobs_103.get(path)
+              for path in stable_sources_103) and
+          base_blobs_103.get("script.js") != main_blobs_103.get("script.js"),
+          "103 latest-main source blob boundary")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |

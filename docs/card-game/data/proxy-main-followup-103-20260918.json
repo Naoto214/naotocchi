@@ -1,0 +1,34 @@
+{
+  "schema": "naotocchi.card_game.main_followup.v1",
+  "date": "2026-09-18",
+  "compare_base": "f23398e43eed952d49d5a2b805789a4c87b2b1bd",
+  "main_commit": "12544515c7fc6640502373a7e97f5d6939e36b40",
+  "main_subject": "Merge pull request #289 from Naoto214/feature/item-sticker-egg-dex-v1",
+  "changed_paths": [
+    "index.html",
+    "script.js",
+    "tests/consumables-v2-browser.cjs",
+    "tests/consumables-v2-eggs-test.cjs",
+    "tests/consumables-v2-forms-test.cjs",
+    "tests/helpers/runtime-harness.cjs",
+    "tests/item-collections-economy-test.cjs",
+    "tests/sticker-test.cjs"
+  ],
+  "source_blobs_at_base": {
+    "character-world-master.v1.js": "062cf517fe64f965a66cf6448fc7b724ed40cdb6",
+    "games.js": "4f9e435dd77cb0d8b5056330cba3822245558833",
+    "item-system.js": "b312545403497acb037e076609555bf08ce8bc29",
+    "movie-dialogue.js": "62890076b4f4e8de155d082365153830d3ca69c0",
+    "world-environment.js": "202fb28e229d7969b3652bac3ae113f090207010",
+    "script.js": "3351bc41b774aee945294347918501728a99160b"
+  },
+  "source_blobs_at_main": {
+    "character-world-master.v1.js": "062cf517fe64f965a66cf6448fc7b724ed40cdb6",
+    "games.js": "4f9e435dd77cb0d8b5056330cba3822245558833",
+    "item-system.js": "b312545403497acb037e076609555bf08ce8bc29",
+    "movie-dialogue.js": "62890076b4f4e8de155d082365153830d3ca69c0",
+    "world-environment.js": "202fb28e229d7969b3652bac3ae113f090207010",
+    "script.js": "7532eac63642c31703a880963176ca997492e1de"
+  },
+  "conclusion": "PR #289のアイテムシール・たまご・図鑑UIと関連テストの変更。カード候補を読む5 sourceのblobは一致し、script.jsのみ変更。現行452件、現行アイテム26、P97-03のカード定義へ変更はなく、本編は作業ブランチへマージしない。"
+}
