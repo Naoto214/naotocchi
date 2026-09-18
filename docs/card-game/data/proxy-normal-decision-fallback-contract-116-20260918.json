@@ -1,0 +1,125 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_fallback.v1",
+  "checkpoint": 116,
+  "status": "protocol_only_no_match_artifacts",
+  "decision_contract": {
+    "decision_kinds": [
+      "normal_action",
+      "mandatory_choice"
+    ],
+    "resolution_modes": [
+      "priority_unique",
+      "safe_free_development",
+      "seeded_fallback"
+    ],
+    "required_record_fields": [
+      "decision_kind",
+      "resolution_mode",
+      "strategic_unresolved",
+      "legal_candidates",
+      "selected_candidate",
+      "runner_up_candidates",
+      "reason_code"
+    ],
+    "seeded_fallback_reason_code": "strategic_unresolved_seeded_fallback"
+  },
+  "seeded_fallback": {
+    "seed_material_fields": [
+      "contract_version",
+      "order_id",
+      "actor",
+      "actor_turn_index",
+      "round",
+      "phase",
+      "decision_kind",
+      "choice_kind",
+      "canonical_candidate_ids"
+    ],
+    "canonical_serialization": "utf8_json_no_whitespace",
+    "candidate_id_order": "unicode_code_point_ascending",
+    "algorithm": "sha256_modulo",
+    "digest_integer": "big_endian_unsigned",
+    "selection_rule": "digest_integer_modulo_candidate_count",
+    "independent_per_decision": true,
+    "excluded_seed_material_fields": [
+      "fixture_id",
+      "match_id",
+      "first_player_id",
+      "path_name"
+    ]
+  },
+  "safe_free_development": {
+    "person_types": [
+      "companion",
+      "partner"
+    ],
+    "required_conditions": [
+      "slot_empty",
+      "actual_time_cost_zero",
+      "no_replacement_or_zone_exit",
+      "no_additional_card_consumption",
+      "no_certain_public_downside",
+      "legality_confirmed",
+      "no_unresolved_required_choice"
+    ],
+    "dominates": "pass",
+    "multiple_unresolved_candidates": "seeded_fallback",
+    "placed_person_zone_transfer_counts_as_consumption": false
+  },
+  "continuation_conditions": [
+    "complete_legal_candidates",
+    "stable_canonical_candidate_ids",
+    "permitted_information_only",
+    "resolution_can_continue",
+    "record_integrity_preserved"
+  ],
+  "stop_conditions": [
+    "incomplete_legal_candidates",
+    "opponent_private_or_future_information_required",
+    "missing_stable_candidate_identifier",
+    "legality_not_confirmed",
+    "record_integrity_or_hash_broken"
+  ],
+  "evaluation": {
+    "required_match_aggregates": [
+      "strategic_unresolved_count",
+      "seeded_fallback_count"
+    ],
+    "exclude_from_independent_balance_when_any_positive": [
+      "strategic_unresolved_count",
+      "seeded_fallback_count"
+    ],
+    "excluded_evidence": [
+      "independent_balance",
+      "win_rate",
+      "first_second_difference",
+      "activation_rate",
+      "card_strength"
+    ]
+  },
+  "scope": {
+    "fixture_count": 0,
+    "completed_match_count": 0,
+    "decision_trace_count": 0,
+    "event_count": 0,
+    "snapshot_count": 0,
+    "winner_count": 0,
+    "independent_balance_sample_count": 0
+  },
+  "checkpoint_112": {
+    "targeted_fixture_count": 6,
+    "completed_in_116": 0,
+    "status": "unchanged_unplayed"
+  },
+  "checkpoint_115": {
+    "audited_path_count": 4,
+    "resumed_in_116": 0,
+    "status": "unchanged_stopped"
+  },
+  "population": {
+    "current_catalog": 452,
+    "registered_candidates": 477,
+    "changed_card_text_numeric_or_registration_ids": 0
+  },
+  "next_checkpoint": 117
+}

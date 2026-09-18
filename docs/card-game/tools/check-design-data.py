@@ -2709,6 +2709,118 @@ if all(path.exists() for path in
           "カード本文・数値・登録区分の変更は0件" in proxy_115_doc_text and
           "116" in proxy_115_doc_text,
           "115 stop, scope, and resume boundaries")
+
+# 116 fixes the normal-decision fallback protocol without materializing a match.
+proxy_116_doc = DOCS / "116-normal-decision-fallback-contract.md"
+proxy_116_contract_path = DOCS / "data/proxy-normal-decision-fallback-contract-116-20260918.json"
+proxy_116_tool = DOCS / "tools/proxy_normal_decision_fallback_contract.py"
+proxy_116_test = DOCS / "tools/test_proxy_normal_decision_fallback_contract.py"
+for path, label in [
+    (proxy_116_doc, "116 normal-decision fallback contract document"),
+    (proxy_116_contract_path, "116 fallback contract"),
+    (proxy_116_tool, "116 fallback validator"),
+    (proxy_116_test, "116 fallback tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_116_doc, proxy_116_contract_path, proxy_116_tool, proxy_116_test)):
+    contract_116 = json.loads(proxy_116_contract_path.read_text())
+    check(contract_116.get("checkpoint") == 116 and
+          contract_116.get("status") == "protocol_only_no_match_artifacts",
+          "116 fallback contract identity")
+    check(contract_116.get("scope") == {
+        "fixture_count": 0,
+        "completed_match_count": 0,
+        "decision_trace_count": 0,
+        "event_count": 0,
+        "snapshot_count": 0,
+        "winner_count": 0,
+        "independent_balance_sample_count": 0,
+    }, "116 zero match artifacts")
+    decision_contract_116 = contract_116.get("decision_contract", {})
+    check(decision_contract_116.get("required_record_fields") == [
+        "decision_kind", "resolution_mode", "strategic_unresolved",
+        "legal_candidates", "selected_candidate", "runner_up_candidates", "reason_code",
+    ] and decision_contract_116.get("resolution_modes") == [
+        "priority_unique", "safe_free_development", "seeded_fallback",
+    ], "116 decision schema and three resolution modes")
+    seeded_116 = contract_116.get("seeded_fallback", {})
+    check(seeded_116.get("seed_material_fields") == [
+        "contract_version", "order_id", "actor", "actor_turn_index", "round",
+        "phase", "decision_kind", "choice_kind", "canonical_candidate_ids",
+    ] and seeded_116.get("algorithm") == "sha256_modulo" and
+          seeded_116.get("digest_integer") == "big_endian_unsigned" and
+          seeded_116.get("selection_rule") == "digest_integer_modulo_candidate_count",
+          "116 nine seed fields and SHA-256 modulo")
+    safe_116 = contract_116.get("safe_free_development", {})
+    check(safe_116.get("person_types") == ["companion", "partner"] and
+          safe_116.get("required_conditions") == [
+              "slot_empty", "actual_time_cost_zero", "no_replacement_or_zone_exit",
+              "no_additional_card_consumption", "no_certain_public_downside",
+              "legality_confirmed", "no_unresolved_required_choice",
+          ] and safe_116.get("dominates") == "pass" and
+          safe_116.get("multiple_unresolved_candidates") == "seeded_fallback",
+          "116 six safe free development conditions")
+    evaluation_116 = contract_116.get("evaluation", {})
+    check(evaluation_116.get("exclude_from_independent_balance_when_any_positive") == [
+        "strategic_unresolved_count", "seeded_fallback_count",
+    ] and "independent_balance" in evaluation_116.get("excluded_evidence", []),
+          "116 seeded match balance exclusion")
+    check(contract_116.get("checkpoint_112") == {
+        "targeted_fixture_count": 6, "completed_in_116": 0,
+        "status": "unchanged_unplayed",
+    } and contract_116.get("checkpoint_115") == {
+        "audited_path_count": 4, "resumed_in_116": 0,
+        "status": "unchanged_stopped",
+    } and contract_116.get("population") == {
+        "current_catalog": 452, "registered_candidates": 477,
+        "changed_card_text_numeric_or_registration_ids": 0,
+    } and contract_116.get("next_checkpoint") == 117,
+          "116 preserved 112, 115, population, and 117 boundaries")
+    proxy_116_tool_tree = ast.parse(proxy_116_tool.read_text())
+    proxy_116_test_tree = ast.parse(proxy_116_test.read_text())
+    proxy_116_functions = {
+        node.name for node in proxy_116_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_fallback_contract", "validate_fallback_contract", "load_json",
+           "write_json", "validate_materialized", "canonical_candidate_ids",
+           "build_seed_proof", "validate_safe_free_placement",
+           "resolve_safe_free_development", "validate_seeded_resolution", "main"}
+          <= proxy_116_functions,
+          "116 fallback validator public functions")
+    proxy_116_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_116_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_116_test_count == 20, "116 normal-decision fallback test count")
+    if "--catalog" not in sys.argv:
+        proxy_116_validation = subprocess.run(
+            [sys.executable, str(proxy_116_tool)], capture_output=True, text=True,
+            check=False)
+        check(proxy_116_validation.returncode == 0,
+              f"116 canonical fallback validator: {proxy_116_validation.stdout}"
+              f"{proxy_116_validation.stderr}")
+    proxy_116_doc_text = proxy_116_doc.read_text()
+    check("seed抽選" in proxy_116_doc_text and
+          "安全な無料盤面化" in proxy_116_doc_text and
+          "対戦成果物はすべて0" in proxy_116_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_116_doc_text and
+          "117" in proxy_116_doc_text,
+          "116 protocol scope and 117 resume boundaries")
+readme_116_text = (DOCS / "README.md").read_text()
+readme_current_phase_116 = re.search(
+    r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
+check(readme_current_phase_116 is not None and
+      "[116 通常意思決定fallback contract](116-normal-decision-fallback-contract.md)" in
+      readme_current_phase_116.group(1),
+      "README current phase is checkpoint 116")
+readme_continuation_117 = re.search(
+    r"^## この後の順序\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
+check(readme_continuation_117 is not None and re.search(
+          r"117では同じsource・seed・40枚manifestから4経路を最初から再生するが、"
+          r"seed使用対戦は独立balance標本0とする。",
+          readme_continuation_117.group(1)) is not None,
+      "README 117 restart keeps seeded matches at balance sample zero")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
