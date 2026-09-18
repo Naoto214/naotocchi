@@ -18,7 +18,7 @@ test('egg menu reserves random new stock, hides the species and consumes once ac
   const store=storage(); let h=boot(store), s=h.api.state(); s.items.c_egg_normal=1;s.items.c_egg_rare=1;
   h.dispatch(h.get('itemBtn'),'click'); h.api.useConsumableItem('c_egg_normal');
   const line=s.lifetime.nextEggLine;assert.ok(h.api.normalLines.includes(line));assert.equal(h.api.itemStock('c_egg_normal'),1);
-  assert.match(h.get('onetimeItemGrid').innerHTML,/よやく：？？？/);assert.equal(h.api.useConsumableItem('c_egg_rare'),false);
+  assert.match(h.get('onetimeItemGrid').innerHTML,/次の人生：？？？/);assert.equal(h.api.useConsumableItem('c_egg_rare'),false);
   h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);assert.equal(s.lifetime.nextEggLine,null);assert.equal(h.api.itemStock('c_egg_normal'),1);
   h.api.useConsumableItem('c_egg_rare');assert.ok(h.api.rareLines.includes(s.lifetime.nextEggLine));assert.notEqual(s.lifetime.nextEggLine,'ren');
   h.api.cancelNextEgg(`c_egg_${s.lifetime.nextEggKind || 'normal'}`);h.api.openDreamPicker('normal');const chosen=s.lifetime.nextEggLine;h.api.saveState();

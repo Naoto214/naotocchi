@@ -48,6 +48,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
     Object.assign(seed,{stage:'growing',speciesLine:'dog',ageTicks:500,stageIndex:5,health:100,energy:100,hunger:85,happiness:90,
       isSick:false,isSleeping:false,deathMeter:60,dying:false,dyingTicks:0,transformMeter:0,transformOptions:null,partner:null,companions:[],infinite:false});
     Object.assign(seed.lifetime,{money:200000,itemInventory:Object.fromEntries(products.map(([id])=>[id,2])),raisedSpecies:['dog'],nextEggLine:null,nextEggKind:null});
+    seed.lifetime.itemInventory.c_egg_normal=0;seed.lifetime.itemInventory.c_egg_rare=0;
     seed.items=seed.lifetime.itemInventory;
     seed.lifetime.itemMigrations={...seed.lifetime.itemMigrations,consumablesV2:true,dreamEggsV2:true};
     await page.clock.install({time:new Date('2026-09-16T12:00:00Z')});
@@ -63,7 +64,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
         const buy=button(page,id,'buy'),cell=buy.locator('..');
         assert.equal(await cell.locator('.shop-item-label').textContent(),name);
         assert.equal(await cell.locator('.shop-item-desc').textContent(),desc);
-        assert.equal(await buy.textContent(),`${id.startsWith('c_egg_') ? 'かってよやく' : 'かう'}（${price}コイン）`);
+        assert.equal(await buy.textContent(),`かう（${price}コイン）`);
         await onScreen(cell,width,id);
         assert.equal(await buy.isDisabled(),false);
       }
@@ -131,37 +132,38 @@ module.exports=async function(browser,engine,fixtures,baseURL,output){
       // Invitation may close the underlying item panel; reopen through home.
       if(!await page.locator('#itemOverlay').isVisible())await openShop(page);
 
-      await button(page,'c_egg_normal').click();saved=await readSave(page);
-      const reserved=saved.lifetime.nextEggLine;
-      assert.ok(reserved&&reserved!=='dog');assert.equal(saved.lifetime.nextEggKind,'normal');assert.equal(stock(saved,'c_egg_normal'),2);
-      assert.equal(await button(page,'c_egg_rare').isDisabled(),true);
-      assert.match(await button(page,'c_egg_normal','cancel').locator('..').textContent(),/よやく：？？？/);
       assert.equal(await page.locator('#dreamStatus, #dreamNormalBtn, #dreamRareBtn, #dreamCancelBtn').count(),0);
-      await page.reload();await home(page);await openShop(page);
-      assert.equal((await readSave(page)).lifetime.nextEggLine,reserved);
-      await button(page,'c_egg_normal','cancel').click();saved=await readSave(page);
-      assert.equal(saved.lifetime.nextEggLine,null);assert.equal(stock(saved,'c_egg_normal'),2);
-      await button(page,'c_egg_rare').click();saved=await readSave(page);
-      assert.equal(saved.lifetime.nextEggKind,'rare');assert.equal(stock(saved,'c_egg_rare'),2);
-      await button(page,'c_egg_rare','cancel').click();
-
-      // Purchase is explicit and auto-reserves; no second purchase can charge.
       for(const id of ['c_egg_normal','c_egg_rare']){
+        const card=page.locator(`#onetimeItemGrid [data-item-id="${id}"]`);
         const before=await readSave(page),price=products.find(p=>p[0]===id)[2];
+        assert.equal(await card.locator('button').count(),1);
         await button(page,id,'buy').click();
-        const after=await readSave(page);
+        const after=await readSave(page),chosen=after.lifetime.nextEggLine;
         assert.equal(after.lifetime.money,before.lifetime.money-price);
-        assert.equal(stock(after,id),stock(before,id)+1);
-        assert.ok(after.lifetime.nextEggLine);
-        assert.match(await button(page,id,'cancel').locator('..').textContent(),/よやく：？？？/);
-        for(const egg of ['c_egg_normal','c_egg_rare'])assert.equal(await button(page,egg,'buy').isDisabled(),true);
+        assert.equal(stock(after,id),1);assert.ok(chosen);
+        assert.equal(await card.locator('button').count(),1);
+        assert.match(await card.textContent(),/次の人生：？？？/);
+        assert.equal(await button(page,id,'buy').count(),0);
+        await page.reload();await home(page);await openShop(page);
+        assert.equal((await readSave(page)).lifetime.nextEggLine,chosen);
         await onScreen(button(page,id,'cancel'),width,'egg cancellation');
         await page.screenshot({path:path.join(output,label+'-'+id+'-reserved.png')});
+        for(let i=0;i<2;i++){
+          await button(page,id,'cancel').click();
+          assert.equal(await card.locator('button').count(),1);
+          assert.equal(await button(page,id).textContent(),'よやくする');
+          assert.equal(await button(page,id,'buy').count(),0);
+          let current=await readSave(page);
+          assert.equal(current.lifetime.nextEggLine,null);
+          assert.equal(stock(current,id),1);assert.equal(current.lifetime.money,after.lifetime.money);
+          await page.reload();await home(page);await openShop(page);
+          await button(page,id).click();
+          current=await readSave(page);assert.ok(current.lifetime.nextEggLine);
+          assert.equal(stock(current,id),1);assert.equal(current.lifetime.money,after.lifetime.money);
+        }
         await button(page,id,'cancel').click();
-        const cancelled=await readSave(page);
-        assert.equal(cancelled.lifetime.nextEggLine,null);
-        assert.equal(stock(cancelled,id),stock(after,id));
-        assert.equal(cancelled.lifetime.money,after.lifetime.money);
+        await onScreen(button(page,id),width,'owned egg reservation');
+        await page.screenshot({path:path.join(output,label+'-'+id+'-owned.png')});
       }
 
       // Temporary appearance survives reload with its original deadline. Fast

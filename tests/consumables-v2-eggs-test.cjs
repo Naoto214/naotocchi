@@ -124,7 +124,7 @@ for (const kind of ['normal','rare']) {
     const secret=()=>{
       h.api.renderItemOverlay();
       const html=h.get('onetimeItemGrid').innerHTML;
-      assert.match(html,/よやく：？？？/);
+      assert.match(html,/次の人生：？？？/);
       for(const stage of h.api.SPECIES[chosen].stages){assert.ok(!html.includes(stage.label));if(stage.asset)assert.ok(!html.includes(stage.asset));}
       assert.ok(!h.api.getMessage().includes(h.api.SPECIES[chosen].stages[0].label));
     };
@@ -150,4 +150,27 @@ for (const kind of ['normal','rare']) {
 test('central egg controls are removed from real HTML and runtime listeners',()=>{
   const fs=require('node:fs');
   for(const file of ['index.html','script.js'])assert.doesNotMatch(fs.readFileSync(file,'utf8'),/dreamNormalBtn|dreamRareBtn|dreamCancelBtn|dreamStatus/);
+});
+
+for(const kind of ['normal','rare'])test(`${kind} egg card has exactly one state-appropriate action and owned stock cannot be repurchased`,()=>{
+  const store=storage();let h=harness({storage:store}),s=h.api.state();
+  const id=`c_egg_${kind}`,price=h.api.ITEM_SYSTEM.CATALOG[id].price;s.lifetime.money=30000;
+  const actions=()=>{h.api.renderItemOverlay();const html=h.get('onetimeItemGrid').innerHTML;
+    assert.doesNotMatch(html,/ふくろからよやく|かってよやく/);
+    return [...html.matchAll(new RegExp(`<button[^>]*data-item-action="([^"]+)"[^>]*data-id="${id}"[^>]*>([^<]*)</button>`,'g'))].map(m=>[m[1],m[2]]);};
+  assert.deepEqual(actions(),[['buy',`かう（${price}コイン）`]]);
+  itemAction(h,'buy',id);const reserved=s.lifetime.nextEggLine;
+  assert.deepEqual(actions(),[['cancel','よやくをとりけす']]);
+  assert.match(h.get('onetimeItemGrid').innerHTML,/次の人生：？？？/);
+  for(let i=0;i<3;i++){
+    itemAction(h,'cancel',id);assert.equal(h.api.itemStock(id),1);
+    assert.deepEqual(actions(),[['use','よやくする']]);
+    assert.equal(h.api.buyConsumableItem(id),false);assert.equal(s.lifetime.money,30000-price);
+    h.api.saveState();h=boot(store);s=h.api.state();assert.deepEqual(actions(),[['use','よやくする']]);
+    itemAction(h,'use',id);assert.deepEqual(actions(),[['cancel','よやくをとりけす']]);
+    h.api.saveState();const line=s.lifetime.nextEggLine;h=boot(store);s=h.api.state();
+    assert.equal(s.lifetime.nextEggLine,line);assert.equal(h.api.itemStock(id),1);assert.equal(s.lifetime.money,30000-price);
+    assert.deepEqual(actions(),[['cancel','よやくをとりけす']]);
+  }
+  assert.ok(reserved);
 });
