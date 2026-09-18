@@ -1,0 +1,2138 @@
+{
+  "schema_version": "naotocchi.card_game.proxy_match_record.v1",
+  "match_id": "completed-109-p97-05-same-name-two",
+  "design": {
+    "repository": "Naoto214/naotocchi",
+    "rules_commit": "afb175abcfef7dbad06ab410ffb4119152e3be7d",
+    "rules_tree": "6ef990477d0be71caf96b3b2451e1dd6bd36dcac",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b",
+    "pool_snapshot": "proxy-pool-layers-20260917.json"
+  },
+  "test_plan": {
+    "purpose": "同名2枚を別現物として追跡し、107の公開情報限定判断記録へ接続する固定パイロット。独立した強度標本には数えない。",
+    "strata": [
+      "current-452",
+      "P97-05",
+      "same-name-two",
+      "completed",
+      "a-first",
+      "controlled-prerequisite-position-swaps"
+    ],
+    "automated_game": false
+  },
+  "input": {
+    "first_player": "A",
+    "initial_growth": 20,
+    "initial_hand_size": 5,
+    "players": [
+      {
+        "player_id": "A",
+        "seat": "first",
+        "deck_order_top_to_bottom": [
+          {
+            "card_copy_id": "A-001",
+            "initial_instance_id": "A-001#1",
+            "card_id": "G-animal-shogi"
+          },
+          {
+            "card_copy_id": "A-002",
+            "initial_instance_id": "A-002#1",
+            "card_id": "G-animal-shogi"
+          },
+          {
+            "card_copy_id": "A-011",
+            "initial_instance_id": "A-011#1",
+            "card_id": "C-bat"
+          },
+          {
+            "card_copy_id": "A-012",
+            "initial_instance_id": "A-012#1",
+            "card_id": "C-box"
+          },
+          {
+            "card_copy_id": "A-013",
+            "initial_instance_id": "A-013#1",
+            "card_id": "C-cat_friend"
+          },
+          {
+            "card_copy_id": "A-014",
+            "initial_instance_id": "A-014#1",
+            "card_id": "C-chameleon"
+          },
+          {
+            "card_copy_id": "A-007",
+            "initial_instance_id": "A-007#1",
+            "card_id": "M-antlion-07"
+          },
+          {
+            "card_copy_id": "A-008",
+            "initial_instance_id": "A-008#1",
+            "card_id": "M-antlion-08"
+          },
+          {
+            "card_copy_id": "A-009",
+            "initial_instance_id": "A-009#1",
+            "card_id": "M-beetle-01"
+          },
+          {
+            "card_copy_id": "A-010",
+            "initial_instance_id": "A-010#1",
+            "card_id": "M-beetle-02"
+          },
+          {
+            "card_copy_id": "A-003",
+            "initial_instance_id": "A-003#1",
+            "card_id": "M-antlion-03"
+          },
+          {
+            "card_copy_id": "A-004",
+            "initial_instance_id": "A-004#1",
+            "card_id": "M-antlion-04"
+          },
+          {
+            "card_copy_id": "A-005",
+            "initial_instance_id": "A-005#1",
+            "card_id": "M-antlion-05"
+          },
+          {
+            "card_copy_id": "A-006",
+            "initial_instance_id": "A-006#1",
+            "card_id": "M-antlion-06"
+          },
+          {
+            "card_copy_id": "A-015",
+            "initial_instance_id": "A-015#1",
+            "card_id": "C-chicken"
+          },
+          {
+            "card_copy_id": "A-016",
+            "initial_instance_id": "A-016#1",
+            "card_id": "P-anglerfish"
+          },
+          {
+            "card_copy_id": "A-017",
+            "initial_instance_id": "A-017#1",
+            "card_id": "P-cat_ceo"
+          },
+          {
+            "card_copy_id": "A-018",
+            "initial_instance_id": "A-018#1",
+            "card_id": "P-cliff_goat"
+          },
+          {
+            "card_copy_id": "A-019",
+            "initial_instance_id": "A-019#1",
+            "card_id": "P-desert_scorpion"
+          },
+          {
+            "card_copy_id": "A-020",
+            "initial_instance_id": "A-020#1",
+            "card_id": "W-city"
+          },
+          {
+            "card_copy_id": "A-021",
+            "initial_instance_id": "A-021#1",
+            "card_id": "W-countryside"
+          },
+          {
+            "card_copy_id": "A-022",
+            "initial_instance_id": "A-022#1",
+            "card_id": "W-deepsea"
+          },
+          {
+            "card_copy_id": "A-023",
+            "initial_instance_id": "A-023#1",
+            "card_id": "G-air-hockey"
+          },
+          {
+            "card_copy_id": "A-024",
+            "initial_instance_id": "A-024#1",
+            "card_id": "M-antlion-01"
+          },
+          {
+            "card_copy_id": "A-025",
+            "initial_instance_id": "A-025#1",
+            "card_id": "G-archery-3d"
+          },
+          {
+            "card_copy_id": "A-026",
+            "initial_instance_id": "A-026#1",
+            "card_id": "G-area-claim"
+          },
+          {
+            "card_copy_id": "A-027",
+            "initial_instance_id": "A-027#1",
+            "card_id": "G-asteroids-classic"
+          },
+          {
+            "card_copy_id": "A-028",
+            "initial_instance_id": "A-028#1",
+            "card_id": "G-baseball-batting"
+          },
+          {
+            "card_copy_id": "A-029",
+            "initial_instance_id": "A-029#1",
+            "card_id": "G-basketball-3d"
+          },
+          {
+            "card_copy_id": "A-030",
+            "initial_instance_id": "A-030#1",
+            "card_id": "G-beach-volley"
+          },
+          {
+            "card_copy_id": "A-031",
+            "initial_instance_id": "A-031#1",
+            "card_id": "I-bond1"
+          },
+          {
+            "card_copy_id": "A-032",
+            "initial_instance_id": "A-032#1",
+            "card_id": "I-bowtie"
+          },
+          {
+            "card_copy_id": "A-033",
+            "initial_instance_id": "A-033#1",
+            "card_id": "I-c_coin2"
+          },
+          {
+            "card_copy_id": "A-034",
+            "initial_instance_id": "A-034#1",
+            "card_id": "I-poop1"
+          },
+          {
+            "card_copy_id": "A-035",
+            "initial_instance_id": "A-035#1",
+            "card_id": "I-sleepboost1"
+          },
+          {
+            "card_copy_id": "A-036",
+            "initial_instance_id": "A-036#1",
+            "card_id": "E-big-illness"
+          },
+          {
+            "card_copy_id": "A-037",
+            "initial_instance_id": "A-037#1",
+            "card_id": "E-boss"
+          },
+          {
+            "card_copy_id": "A-038",
+            "initial_instance_id": "A-038#1",
+            "card_id": "E-fateful-transform"
+          },
+          {
+            "card_copy_id": "A-039",
+            "initial_instance_id": "A-039#1",
+            "card_id": "E-final-time"
+          },
+          {
+            "card_copy_id": "A-040",
+            "initial_instance_id": "A-040#1",
+            "card_id": "E-first-date"
+          }
+        ],
+        "initial_hand": [
+          "A-001#1",
+          "A-002#1",
+          "A-011#1",
+          "A-012#1",
+          "A-013#1"
+        ]
+      },
+      {
+        "player_id": "B",
+        "seat": "second",
+        "deck_order_top_to_bottom": [
+          {
+            "card_copy_id": "B-001",
+            "initial_instance_id": "B-001#1",
+            "card_id": "M-antlion-01"
+          },
+          {
+            "card_copy_id": "B-002",
+            "initial_instance_id": "B-002#1",
+            "card_id": "M-antlion-02"
+          },
+          {
+            "card_copy_id": "B-003",
+            "initial_instance_id": "B-003#1",
+            "card_id": "M-antlion-03"
+          },
+          {
+            "card_copy_id": "B-004",
+            "initial_instance_id": "B-004#1",
+            "card_id": "M-antlion-04"
+          },
+          {
+            "card_copy_id": "B-005",
+            "initial_instance_id": "B-005#1",
+            "card_id": "M-antlion-05"
+          },
+          {
+            "card_copy_id": "B-006",
+            "initial_instance_id": "B-006#1",
+            "card_id": "M-antlion-06"
+          },
+          {
+            "card_copy_id": "B-007",
+            "initial_instance_id": "B-007#1",
+            "card_id": "M-antlion-07"
+          },
+          {
+            "card_copy_id": "B-008",
+            "initial_instance_id": "B-008#1",
+            "card_id": "M-antlion-08"
+          },
+          {
+            "card_copy_id": "B-009",
+            "initial_instance_id": "B-009#1",
+            "card_id": "M-beetle-01"
+          },
+          {
+            "card_copy_id": "B-010",
+            "initial_instance_id": "B-010#1",
+            "card_id": "M-beetle-02"
+          },
+          {
+            "card_copy_id": "B-011",
+            "initial_instance_id": "B-011#1",
+            "card_id": "C-bat"
+          },
+          {
+            "card_copy_id": "B-012",
+            "initial_instance_id": "B-012#1",
+            "card_id": "C-box"
+          },
+          {
+            "card_copy_id": "B-013",
+            "initial_instance_id": "B-013#1",
+            "card_id": "C-cat_friend"
+          },
+          {
+            "card_copy_id": "B-014",
+            "initial_instance_id": "B-014#1",
+            "card_id": "C-chameleon"
+          },
+          {
+            "card_copy_id": "B-015",
+            "initial_instance_id": "B-015#1",
+            "card_id": "C-chicken"
+          },
+          {
+            "card_copy_id": "B-016",
+            "initial_instance_id": "B-016#1",
+            "card_id": "P-anglerfish"
+          },
+          {
+            "card_copy_id": "B-017",
+            "initial_instance_id": "B-017#1",
+            "card_id": "P-cat_ceo"
+          },
+          {
+            "card_copy_id": "B-018",
+            "initial_instance_id": "B-018#1",
+            "card_id": "P-cliff_goat"
+          },
+          {
+            "card_copy_id": "B-019",
+            "initial_instance_id": "B-019#1",
+            "card_id": "P-desert_scorpion"
+          },
+          {
+            "card_copy_id": "B-020",
+            "initial_instance_id": "B-020#1",
+            "card_id": "W-city"
+          },
+          {
+            "card_copy_id": "B-021",
+            "initial_instance_id": "B-021#1",
+            "card_id": "W-countryside"
+          },
+          {
+            "card_copy_id": "B-022",
+            "initial_instance_id": "B-022#1",
+            "card_id": "W-deepsea"
+          },
+          {
+            "card_copy_id": "B-023",
+            "initial_instance_id": "B-023#1",
+            "card_id": "G-air-hockey"
+          },
+          {
+            "card_copy_id": "B-024",
+            "initial_instance_id": "B-024#1",
+            "card_id": "G-animal-shogi"
+          },
+          {
+            "card_copy_id": "B-025",
+            "initial_instance_id": "B-025#1",
+            "card_id": "G-archery-3d"
+          },
+          {
+            "card_copy_id": "B-026",
+            "initial_instance_id": "B-026#1",
+            "card_id": "G-area-claim"
+          },
+          {
+            "card_copy_id": "B-027",
+            "initial_instance_id": "B-027#1",
+            "card_id": "G-asteroids-classic"
+          },
+          {
+            "card_copy_id": "B-028",
+            "initial_instance_id": "B-028#1",
+            "card_id": "G-baseball-batting"
+          },
+          {
+            "card_copy_id": "B-029",
+            "initial_instance_id": "B-029#1",
+            "card_id": "G-basketball-3d"
+          },
+          {
+            "card_copy_id": "B-030",
+            "initial_instance_id": "B-030#1",
+            "card_id": "G-beach-volley"
+          },
+          {
+            "card_copy_id": "B-031",
+            "initial_instance_id": "B-031#1",
+            "card_id": "I-bond1"
+          },
+          {
+            "card_copy_id": "B-032",
+            "initial_instance_id": "B-032#1",
+            "card_id": "I-bowtie"
+          },
+          {
+            "card_copy_id": "B-033",
+            "initial_instance_id": "B-033#1",
+            "card_id": "I-c_coin2"
+          },
+          {
+            "card_copy_id": "B-034",
+            "initial_instance_id": "B-034#1",
+            "card_id": "I-poop1"
+          },
+          {
+            "card_copy_id": "B-035",
+            "initial_instance_id": "B-035#1",
+            "card_id": "I-sleepboost1"
+          },
+          {
+            "card_copy_id": "B-036",
+            "initial_instance_id": "B-036#1",
+            "card_id": "E-big-illness"
+          },
+          {
+            "card_copy_id": "B-037",
+            "initial_instance_id": "B-037#1",
+            "card_id": "E-boss"
+          },
+          {
+            "card_copy_id": "B-038",
+            "initial_instance_id": "B-038#1",
+            "card_id": "E-fateful-transform"
+          },
+          {
+            "card_copy_id": "B-039",
+            "initial_instance_id": "B-039#1",
+            "card_id": "E-final-time"
+          },
+          {
+            "card_copy_id": "B-040",
+            "initial_instance_id": "B-040#1",
+            "card_id": "E-first-date"
+          }
+        ],
+        "initial_hand": [
+          "B-001#1",
+          "B-002#1",
+          "B-003#1",
+          "B-004#1",
+          "B-005#1"
+        ]
+      }
+    ],
+    "declared_choices": [
+      {
+        "choice_id": "decision-001",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-place_companion-A-011#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-002",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-003",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-004",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-place_companion-A-012#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-005",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-006",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-007",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-place_companion-A-013#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-008",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-009",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-010",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-replace_companion-A-014#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-011",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-play_animal_shogi-A-001#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-012",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-013",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-014",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-reenter_companion-A-011#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-015",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-play_animal_shogi-A-002#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-016",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-017",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-018",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-reenter_companion-A-012#1",
+        "note": "board_value"
+      },
+      {
+        "choice_id": "decision-019",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-020",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-021",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-022",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-023",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-024",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-025",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-026",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-027",
+        "owner": "A",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      },
+      {
+        "choice_id": "decision-028",
+        "owner": "B",
+        "kind": "normal_action_decision",
+        "value": "candidate-pass",
+        "note": "pass_no_better_legal_action"
+      }
+    ]
+  },
+  "record": {
+    "status": "completed",
+    "events": [
+      {
+        "seq": 1,
+        "round": 1,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-007#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-001",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "e153a6cc486a803faad641f37dba4e94903854b863aaf025d9002f5ac0af3e4d",
+        "after_state_sha256": "7ee67ce2a9dbfcd4d978786287ee8471cc0792af60e033bb86a26d34b218155e",
+        "result": "時を1へ更新し、A-014#1を通常ドロー。 たまご追加でA-007#1を引き、A-007#1を山札下へ置いた。"
+      },
+      {
+        "seq": 2,
+        "round": 1,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "place_companion",
+        "source_instance_id": "A-011#1",
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-001"
+        ],
+        "chain": {
+          "chain_id": "chain-002",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "7ee67ce2a9dbfcd4d978786287ee8471cc0792af60e033bb86a26d34b218155e",
+        "after_state_sha256": "9fd45edbdacc0165a0d1139a70f084fd63efe4a7b5257c4d95429fce298a43c5",
+        "result": "A-011#1をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 3,
+        "round": 1,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-002"
+        ],
+        "chain": {
+          "chain_id": "chain-003",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "9fd45edbdacc0165a0d1139a70f084fd63efe4a7b5257c4d95429fce298a43c5",
+        "after_state_sha256": "2070923c193881d3a372b43e6cc4a2f0065cb0369d0f3b8b1f4bf5ec255594ef",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 4,
+        "round": 1,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-007#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-004",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "2070923c193881d3a372b43e6cc4a2f0065cb0369d0f3b8b1f4bf5ec255594ef",
+        "after_state_sha256": "561a6d3ae884c23f14e602616e5e9a06b58289bde6a964b8b7ae893a386b6e12",
+        "result": "時を1へ更新し、B-006#1を通常ドロー。 たまご追加でB-007#1を引き、B-007#1を山札下へ置いた。"
+      },
+      {
+        "seq": 5,
+        "round": 1,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-003"
+        ],
+        "chain": {
+          "chain_id": "chain-005",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "561a6d3ae884c23f14e602616e5e9a06b58289bde6a964b8b7ae893a386b6e12",
+        "after_state_sha256": "c8d8737248a61e2f44e6aa6bdc81add710838c4a247707c00a396b2b03363130",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 6,
+        "round": 2,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-009#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-006",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "c8d8737248a61e2f44e6aa6bdc81add710838c4a247707c00a396b2b03363130",
+        "after_state_sha256": "321b9c3d6815740cdf55e6e7a19a8eca9b33fdd2d969d74a50d29383b2ee59e5",
+        "result": "時を2へ更新し、A-008#1を通常ドロー。 たまご追加でA-009#1を引き、A-009#1を山札下へ置いた。"
+      },
+      {
+        "seq": 7,
+        "round": 2,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "place_companion",
+        "source_instance_id": "A-012#1",
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-004"
+        ],
+        "chain": {
+          "chain_id": "chain-007",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "321b9c3d6815740cdf55e6e7a19a8eca9b33fdd2d969d74a50d29383b2ee59e5",
+        "after_state_sha256": "3d2cfefebf7a31738eb5890576a1a67cc8a92cceba5d5f728900e1c473a4bd57",
+        "result": "A-012#1をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 8,
+        "round": 2,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-005"
+        ],
+        "chain": {
+          "chain_id": "chain-008",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "3d2cfefebf7a31738eb5890576a1a67cc8a92cceba5d5f728900e1c473a4bd57",
+        "after_state_sha256": "c11bb314b2b2c36c7471a5603f9acc864fa60a0c63b97d6de5d5137c89fd6557",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 9,
+        "round": 2,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-009#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-009",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "c11bb314b2b2c36c7471a5603f9acc864fa60a0c63b97d6de5d5137c89fd6557",
+        "after_state_sha256": "a1d19b8240dade03b3103f50b3ee83ae0bfbaea98f10cf7b91f0ab77268ed495",
+        "result": "時を2へ更新し、B-008#1を通常ドロー。 たまご追加でB-009#1を引き、B-009#1を山札下へ置いた。"
+      },
+      {
+        "seq": 10,
+        "round": 2,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-006"
+        ],
+        "chain": {
+          "chain_id": "chain-010",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "a1d19b8240dade03b3103f50b3ee83ae0bfbaea98f10cf7b91f0ab77268ed495",
+        "after_state_sha256": "29580ac9dc229853c75cbf88eb32aeb702fe3f35416fd53dba4fa6e6c97d5d80",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 11,
+        "round": 3,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-010#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-011",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "29580ac9dc229853c75cbf88eb32aeb702fe3f35416fd53dba4fa6e6c97d5d80",
+        "after_state_sha256": "0b16acdcba5b02ee218effd3122498335d125dc94eba5b2cd9707d823878e37b",
+        "result": "時を3へ更新し、A-010#1を通常ドロー。 たまご追加でA-003#1を引き、A-010#1を山札下へ置いた。"
+      },
+      {
+        "seq": 12,
+        "round": 3,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "place_companion",
+        "source_instance_id": "A-013#1",
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-007"
+        ],
+        "chain": {
+          "chain_id": "chain-012",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "0b16acdcba5b02ee218effd3122498335d125dc94eba5b2cd9707d823878e37b",
+        "after_state_sha256": "f5f0ebdafb921c697027ba3b03c72cf6fe7138caef375d88f87baecdc3602d95",
+        "result": "A-013#1をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 13,
+        "round": 3,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-008"
+        ],
+        "chain": {
+          "chain_id": "chain-013",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "f5f0ebdafb921c697027ba3b03c72cf6fe7138caef375d88f87baecdc3602d95",
+        "after_state_sha256": "453799b989cb7f67403b2576dd88144d24257f178314da2ab3c3a832ae987bc8",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 14,
+        "round": 3,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-011#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-014",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "453799b989cb7f67403b2576dd88144d24257f178314da2ab3c3a832ae987bc8",
+        "after_state_sha256": "8c111895441f243d9f3a7d9a64fdc6a78c6a88f723f0b76e6ae841604b5ccd6d",
+        "result": "時を3へ更新し、B-010#1を通常ドロー。 たまご追加でB-011#1を引き、B-011#1を山札下へ置いた。"
+      },
+      {
+        "seq": 15,
+        "round": 3,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-009"
+        ],
+        "chain": {
+          "chain_id": "chain-015",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "8c111895441f243d9f3a7d9a64fdc6a78c6a88f723f0b76e6ae841604b5ccd6d",
+        "after_state_sha256": "9cfac665a17f8e25f8152524b2bdf7997c0e58984f9c54e58bb68933d79a86ec",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 16,
+        "round": 4,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-008#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-016",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "9cfac665a17f8e25f8152524b2bdf7997c0e58984f9c54e58bb68933d79a86ec",
+        "after_state_sha256": "70022bb946a3d0bafeafe6a38f969999bc34f95342e175fedce41889bdc95151",
+        "result": "時を4へ更新し、A-004#1を通常ドロー。 たまご追加でA-005#1を引き、A-008#1を山札下へ置いた。"
+      },
+      {
+        "seq": 17,
+        "round": 4,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "replace_companion",
+        "source_instance_id": "A-014#1",
+        "target_instance_ids": [
+          "A-011#1"
+        ],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-010"
+        ],
+        "chain": {
+          "chain_id": "chain-017",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "70022bb946a3d0bafeafe6a38f969999bc34f95342e175fedce41889bdc95151",
+        "after_state_sha256": "2099893c5d9bf0c57077761f8f5d14398301f9b22e2e42b56f43aeaef3e1e89b",
+        "result": "A-014#1をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 18,
+        "round": 4,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "play_animal_shogi",
+        "source_instance_id": "A-001#1",
+        "target_instance_ids": [
+          "A-011#1"
+        ],
+        "payment": {
+          "time": 2,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-011"
+        ],
+        "chain": {
+          "chain_id": "chain-018",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "2099893c5d9bf0c57077761f8f5d14398301f9b22e2e42b56f43aeaef3e1e89b",
+        "after_state_sha256": "95f8a599d4e60af553634dc6200309dfdf23660d4a57ab9351b5b7035abe2102",
+        "result": "捨て札のA-011#1を手札へ戻し、山札上A-006#1を見て上へ戻した。"
+      },
+      {
+        "seq": 19,
+        "round": 4,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-012"
+        ],
+        "chain": {
+          "chain_id": "chain-019",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "95f8a599d4e60af553634dc6200309dfdf23660d4a57ab9351b5b7035abe2102",
+        "after_state_sha256": "315164ae5461a235c31aa6b2a2ca0e3487c94fef62fe38470a16ba16486310e3",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 20,
+        "round": 4,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-013#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-020",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "315164ae5461a235c31aa6b2a2ca0e3487c94fef62fe38470a16ba16486310e3",
+        "after_state_sha256": "f9bdaf31caf8ea7134bb6e6e6eb44c37cd1485de23fff83193e8ea8c837c5804",
+        "result": "時を4へ更新し、B-012#1を通常ドロー。 たまご追加でB-013#1を引き、B-013#1を山札下へ置いた。"
+      },
+      {
+        "seq": 21,
+        "round": 4,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-013"
+        ],
+        "chain": {
+          "chain_id": "chain-021",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "f9bdaf31caf8ea7134bb6e6e6eb44c37cd1485de23fff83193e8ea8c837c5804",
+        "after_state_sha256": "bc59d275a6821dd8c5e2cb1cc3fcd48e92ba51dd5ebd110696ab7180cc730ee2",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 22,
+        "round": 5,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-015#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-022",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "bc59d275a6821dd8c5e2cb1cc3fcd48e92ba51dd5ebd110696ab7180cc730ee2",
+        "after_state_sha256": "49a5c3a230fc17ec0cd9f830212d12a50861bbeaf53b047708ba1f6a0aacf1e5",
+        "result": "時を5へ更新し、A-006#1を通常ドロー。 たまご追加でA-015#1を引き、A-015#1を山札下へ置いた。"
+      },
+      {
+        "seq": 23,
+        "round": 5,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "reenter_companion",
+        "source_instance_id": "A-011#1",
+        "target_instance_ids": [
+          "A-012#1"
+        ],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-014"
+        ],
+        "chain": {
+          "chain_id": "chain-023",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [
+          {
+            "card_copy_id": "A-011",
+            "from_instance_id": "A-011#1",
+            "to_instance_id": "A-011#2",
+            "reason": "zone_change"
+          }
+        ],
+        "before_state_sha256": "49a5c3a230fc17ec0cd9f830212d12a50861bbeaf53b047708ba1f6a0aacf1e5",
+        "after_state_sha256": "7008dcc2f170fc0648fca4e8ade58010554419f8a5a293f851e3c3f1f3d92a5f",
+        "result": "A-011#2をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 24,
+        "round": 5,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "play_animal_shogi",
+        "source_instance_id": "A-002#1",
+        "target_instance_ids": [
+          "A-012#1"
+        ],
+        "payment": {
+          "time": 2,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-015"
+        ],
+        "chain": {
+          "chain_id": "chain-024",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "7008dcc2f170fc0648fca4e8ade58010554419f8a5a293f851e3c3f1f3d92a5f",
+        "after_state_sha256": "86aad068cfcb9057baceb03955181a71b3f09b53600a16d3b0b8efdbb224cecb",
+        "result": "捨て札のA-012#1を手札へ戻し、山札上A-016#1を見て上へ戻した。"
+      },
+      {
+        "seq": 25,
+        "round": 5,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-016"
+        ],
+        "chain": {
+          "chain_id": "chain-025",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "86aad068cfcb9057baceb03955181a71b3f09b53600a16d3b0b8efdbb224cecb",
+        "after_state_sha256": "4828ae47ed8bd73cd7ceab0f58df579db6373cee1ad39f6823dde908ac18b946",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 26,
+        "round": 5,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-015#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-026",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "4828ae47ed8bd73cd7ceab0f58df579db6373cee1ad39f6823dde908ac18b946",
+        "after_state_sha256": "1ccbd99ae123ae78c9ca1d85a4cea9e6d9b9047c2222ab8a1799f16333a415a6",
+        "result": "時を5へ更新し、B-014#1を通常ドロー。 たまご追加でB-015#1を引き、B-015#1を山札下へ置いた。"
+      },
+      {
+        "seq": 27,
+        "round": 5,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-017"
+        ],
+        "chain": {
+          "chain_id": "chain-027",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "1ccbd99ae123ae78c9ca1d85a4cea9e6d9b9047c2222ab8a1799f16333a415a6",
+        "after_state_sha256": "16d0aa5492de6b76cc0608bb014308586f9c03b51cef471c928d15361f377f07",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 28,
+        "round": 6,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-017#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-028",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "16d0aa5492de6b76cc0608bb014308586f9c03b51cef471c928d15361f377f07",
+        "after_state_sha256": "7b1fe80dfca27fb81a7940d5e2f8170219fde956b5e1423e92b3c5be549d1a07",
+        "result": "時を6へ更新し、A-016#1を通常ドロー。 たまご追加でA-017#1を引き、A-017#1を山札下へ置いた。"
+      },
+      {
+        "seq": 29,
+        "round": 6,
+        "turn_player": "A",
+        "phase": "main",
+        "actor": "A",
+        "action_type": "reenter_companion",
+        "source_instance_id": "A-012#1",
+        "target_instance_ids": [
+          "A-013#1"
+        ],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-018"
+        ],
+        "chain": {
+          "chain_id": "chain-029",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [
+          {
+            "card_copy_id": "A-012",
+            "from_instance_id": "A-012#1",
+            "to_instance_id": "A-012#2",
+            "reason": "zone_change"
+          }
+        ],
+        "before_state_sha256": "7b1fe80dfca27fb81a7940d5e2f8170219fde956b5e1423e92b3c5be549d1a07",
+        "after_state_sha256": "5cc544ae113fa5f3a2b721fe79236e2dfa59e8e4f79945fb0011b54fe2deb7a1",
+        "result": "A-012#2をなかま枠へ通常配置した。"
+      },
+      {
+        "seq": 30,
+        "round": 6,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-019"
+        ],
+        "chain": {
+          "chain_id": "chain-030",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "5cc544ae113fa5f3a2b721fe79236e2dfa59e8e4f79945fb0011b54fe2deb7a1",
+        "after_state_sha256": "a8017f12fb59ec263e720768b2d668b8cccb6491985c93c57a9c2011a3228076",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 31,
+        "round": 6,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-017#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-031",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "a8017f12fb59ec263e720768b2d668b8cccb6491985c93c57a9c2011a3228076",
+        "after_state_sha256": "917f2523bbc96af788b80a729006ec3b3216fed9c297c87209a1060057fc0f52",
+        "result": "時を6へ更新し、B-016#1を通常ドロー。 たまご追加でB-017#1を引き、B-017#1を山札下へ置いた。"
+      },
+      {
+        "seq": 32,
+        "round": 6,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-020"
+        ],
+        "chain": {
+          "chain_id": "chain-032",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "917f2523bbc96af788b80a729006ec3b3216fed9c297c87209a1060057fc0f52",
+        "after_state_sha256": "e9e8f64a8db04a992ec801fc96644ceae2d8a370ac237e2a86f574d5b48faa45",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 33,
+        "round": 7,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-019#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-033",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "e9e8f64a8db04a992ec801fc96644ceae2d8a370ac237e2a86f574d5b48faa45",
+        "after_state_sha256": "43401fa6e4631970e96d929476643aa7b18c4a696eab7970c69047c52fdd88eb",
+        "result": "時を7へ更新し、A-018#1を通常ドロー。 たまご追加でA-019#1を引き、A-019#1を山札下へ置いた。"
+      },
+      {
+        "seq": 34,
+        "round": 7,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-021"
+        ],
+        "chain": {
+          "chain_id": "chain-034",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "43401fa6e4631970e96d929476643aa7b18c4a696eab7970c69047c52fdd88eb",
+        "after_state_sha256": "02521c50977a6b4a60e117ed1fe42b25f1359c3bd8fe194fb89b848e5b3ed552",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 35,
+        "round": 7,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-019#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-035",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "02521c50977a6b4a60e117ed1fe42b25f1359c3bd8fe194fb89b848e5b3ed552",
+        "after_state_sha256": "03f919150a8726979e3f72e287d5da5557546bf320c43e73c71c3a4b62839799",
+        "result": "時を7へ更新し、B-018#1を通常ドロー。 たまご追加でB-019#1を引き、B-019#1を山札下へ置いた。"
+      },
+      {
+        "seq": 36,
+        "round": 7,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-022"
+        ],
+        "chain": {
+          "chain_id": "chain-036",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "03f919150a8726979e3f72e287d5da5557546bf320c43e73c71c3a4b62839799",
+        "after_state_sha256": "c796205212d6d7405f7e91a06976617d9f8a37a2eda89b40532b8a9893be3eb3",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 37,
+        "round": 8,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-021#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-037",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "c796205212d6d7405f7e91a06976617d9f8a37a2eda89b40532b8a9893be3eb3",
+        "after_state_sha256": "2740c0f663f1a6598357308daf3c0f67107fcdff3f03fd2e0e9e7fba10008c7a",
+        "result": "時を8へ更新し、A-020#1を通常ドロー。 たまご追加でA-021#1を引き、A-021#1を山札下へ置いた。"
+      },
+      {
+        "seq": 38,
+        "round": 8,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-023"
+        ],
+        "chain": {
+          "chain_id": "chain-038",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "2740c0f663f1a6598357308daf3c0f67107fcdff3f03fd2e0e9e7fba10008c7a",
+        "after_state_sha256": "26a216afca455109160da0f2f35d8150cd251eac3b68ef8c1e0d5b2a202f2fc3",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 39,
+        "round": 8,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-021#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-039",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "26a216afca455109160da0f2f35d8150cd251eac3b68ef8c1e0d5b2a202f2fc3",
+        "after_state_sha256": "294b48e160160ae97e7f5df75257460654d0918dd09e322fc07b80a9c4c5a460",
+        "result": "時を8へ更新し、B-020#1を通常ドロー。 たまご追加でB-021#1を引き、B-021#1を山札下へ置いた。"
+      },
+      {
+        "seq": 40,
+        "round": 8,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-024"
+        ],
+        "chain": {
+          "chain_id": "chain-040",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "294b48e160160ae97e7f5df75257460654d0918dd09e322fc07b80a9c4c5a460",
+        "after_state_sha256": "fe28036234d7863cb5521e557462c1019ed8cefb7896549bab56aa00ace433f7",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 41,
+        "round": 9,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-023#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-041",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "fe28036234d7863cb5521e557462c1019ed8cefb7896549bab56aa00ace433f7",
+        "after_state_sha256": "c2be783f3e1335ee99dc65af5f3bc7704336c801d89c86dfbab9dc7e587c055b",
+        "result": "時を9へ更新し、A-022#1を通常ドロー。 たまご追加でA-023#1を引き、A-023#1を山札下へ置いた。"
+      },
+      {
+        "seq": 42,
+        "round": 9,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-025"
+        ],
+        "chain": {
+          "chain_id": "chain-042",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "c2be783f3e1335ee99dc65af5f3bc7704336c801d89c86dfbab9dc7e587c055b",
+        "after_state_sha256": "40dd21e61b86bad6023ae4b78589e100156cd6f1c9ebd007290346d1ce12d233",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 43,
+        "round": 9,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-023#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-043",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "40dd21e61b86bad6023ae4b78589e100156cd6f1c9ebd007290346d1ce12d233",
+        "after_state_sha256": "ae527cea0897344940524066df9578696f060c53372cfa442f9170bdbb76753f",
+        "result": "時を9へ更新し、B-022#1を通常ドロー。 たまご追加でB-023#1を引き、B-023#1を山札下へ置いた。"
+      },
+      {
+        "seq": 44,
+        "round": 9,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-026"
+        ],
+        "chain": {
+          "chain_id": "chain-044",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "ae527cea0897344940524066df9578696f060c53372cfa442f9170bdbb76753f",
+        "after_state_sha256": "3d2c22406237c89a9ab227b96e4ca921a21e365251d3a95c67c82ea312fdc5de",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 45,
+        "round": 10,
+        "turn_player": "A",
+        "phase": "turn_start_draw",
+        "actor": "A",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "A-025#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-045",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "3d2c22406237c89a9ab227b96e4ca921a21e365251d3a95c67c82ea312fdc5de",
+        "after_state_sha256": "ab4b1519a607aa578c0822c553c58ccf3cafc5ab3ea37f5bce6d7b623775dbc5",
+        "result": "時を10へ更新し、A-024#1を通常ドロー。 たまご追加でA-025#1を引き、A-025#1を山札下へ置いた。"
+      },
+      {
+        "seq": 46,
+        "round": 10,
+        "turn_player": "A",
+        "phase": "turn_end_pass",
+        "actor": "A",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-027"
+        ],
+        "chain": {
+          "chain_id": "chain-046",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "ab4b1519a607aa578c0822c553c58ccf3cafc5ab3ea37f5bce6d7b623775dbc5",
+        "after_state_sha256": "571cb9d68c0b579792529b4d833330f28b733ed9baac61a459b19659395c549f",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      },
+      {
+        "seq": 47,
+        "round": 10,
+        "turn_player": "B",
+        "phase": "turn_start_draw",
+        "actor": "B",
+        "action_type": "turn_start_draw",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": [
+            "B-025#1"
+          ]
+        },
+        "choice_ids": [],
+        "chain": {
+          "chain_id": "chain-047",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "571cb9d68c0b579792529b4d833330f28b733ed9baac61a459b19659395c549f",
+        "after_state_sha256": "7d0bc014216b7263a02563536aa5a71c53368fd50359739a176701a5afdb46fd",
+        "result": "時を10へ更新し、B-024#1を通常ドロー。 たまご追加でB-025#1を引き、B-025#1を山札下へ置いた。"
+      },
+      {
+        "seq": 48,
+        "round": 10,
+        "turn_player": "B",
+        "phase": "turn_end_pass",
+        "actor": "B",
+        "action_type": "turn_end_pass",
+        "source_instance_id": null,
+        "target_instance_ids": [],
+        "payment": {
+          "time": 0,
+          "hand_to_discard": [],
+          "prepared_to_discard": [],
+          "deck_to_bottom": []
+        },
+        "choice_ids": [
+          "decision-028"
+        ],
+        "chain": {
+          "chain_id": "chain-048",
+          "link_index": 1,
+          "responds_to_seq": null
+        },
+        "reservations_created": [],
+        "reservations_consumed": [],
+        "instance_transitions": [],
+        "before_state_sha256": "7d0bc014216b7263a02563536aa5a71c53368fd50359739a176701a5afdb46fd",
+        "after_state_sha256": "3aabc62c476380935b9fb7c55bf4de64c32eee84c7b12ec815c4cd9a74df5c98",
+        "result": "より良い合法行動がないため通常行動を終了。"
+      }
+    ],
+    "reservations": [],
+    "result": {
+      "winner": "draw",
+      "reason": "R10終了時のそだち比較でA 20、B 20。",
+      "rounds_completed": 10,
+      "final_growth": {
+        "A": 20,
+        "B": 20
+      },
+      "notes": [
+        "101の同名2枚fixtureから前提カード位置だけを交換した固定記録。",
+        "通常行動の候補記録は固定線に必要な範囲で、完全合法性エンジンではない。",
+        "勝率、先後差、発動率、カード強度の結論には数えない。"
+      ]
+    }
+  }
+}

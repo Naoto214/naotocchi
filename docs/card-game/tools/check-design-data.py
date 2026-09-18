@@ -1996,6 +1996,141 @@ if all(path.exists() for path in (
           proxy_108_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_108_doc_text,
           "108 completed-result and scope boundaries")
+
+# 109 connects the six 101 same-name-two fixtures to fixed completed records.
+proxy_109_doc = DOCS / "109-same-name-two-pilots.md"
+proxy_109_plan_path = DOCS / "data/proxy-same-name-two-plan-109-20260918.json"
+proxy_109_records_path = DOCS / "data/proxy-matches-109"
+proxy_109_traces_path = DOCS / "data/proxy-decision-traces-109"
+proxy_109_evaluation_path = DOCS / "data/proxy-same-name-two-evaluation-109-20260918.json"
+proxy_109_tool = DOCS / "tools/proxy_same_name_two_pilots.py"
+proxy_109_test = DOCS / "tools/test_proxy_same_name_two_pilots.py"
+for path, label in (
+    (proxy_109_doc, "109 same-name-two document"),
+    (proxy_109_plan_path, "109 same-name-two plan"),
+    (proxy_109_records_path, "109 completed record output"),
+    (proxy_109_traces_path, "109 decision trace output"),
+    (proxy_109_evaluation_path, "109 evaluation output"),
+    (proxy_109_tool, "109 same-name-two materializer"),
+    (proxy_109_test, "109 same-name-two tests"),
+):
+    check(path.exists(), f"{label} exists")
+if all(path.exists() for path in (
+        proxy_109_doc, proxy_109_plan_path, proxy_109_records_path,
+        proxy_109_traces_path, proxy_109_evaluation_path,
+        proxy_109_tool, proxy_109_test)):
+    proxy_109_plan = json.loads(proxy_109_plan_path.read_text())
+    proxy_109_record_files = sorted(proxy_109_records_path.glob("*.json"))
+    proxy_109_trace_files = sorted(proxy_109_traces_path.glob("*.json"))
+    proxy_109_records = [json.loads(path.read_text()) for path in proxy_109_record_files]
+    proxy_109_traces = [json.loads(path.read_text()) for path in proxy_109_trace_files]
+    proxy_109_evaluation = json.loads(proxy_109_evaluation_path.read_text())
+    check(proxy_109_plan.get("schema") ==
+          "naotocchi.card_game.proxy_same_name_two_plan.v1" and
+          proxy_109_plan.get("design", {}).get("rules_commit") ==
+          "afb175abcfef7dbad06ab410ffb4119152e3be7d" and
+          proxy_109_plan.get("design", {}).get("rules_tree") ==
+          "6ef990477d0be71caf96b3b2451e1dd6bd36dcac" and
+          proxy_109_plan.get("scope", {}).get("completed_match_count") == 6 and
+          proxy_109_plan.get("scope", {}).get("may_count_as_independent_balance_sample") is False,
+          "109 approved plan baseline and scope")
+    expected_109_records = {
+        f"{row.get('record_match_id')}.json" for row in proxy_109_plan.get("matches", [])
+    }
+    expected_109_traces = {
+        f"{row.get('trace_id')}.json" for row in proxy_109_plan.get("matches", [])
+    }
+    check({path.name for path in proxy_109_record_files} == expected_109_records and
+          {path.name for path in proxy_109_trace_files} == expected_109_traces and
+          len(proxy_109_records) == len(proxy_109_traces) == 6,
+          "109 exact completed record and trace files")
+    records_109 = {row.get("match_id"): row for row in proxy_109_records}
+    traces_109 = {row.get("record_match_id"): row for row in proxy_109_traces}
+    for spec in proxy_109_plan.get("matches", []):
+        match_id = spec.get("record_match_id")
+        record = records_109.get(match_id, {})
+        trace = traces_109.get(match_id, {})
+        source = json.loads((proxy_109_plan_path.parent /
+                             spec.get("source_fixture", "missing")).read_text())
+        source_maps = {
+            player.get("player_id"): {
+                row.get("initial_instance_id"): (row.get("card_copy_id"), row.get("card_id"))
+                for row in player.get("deck_order_top_to_bottom", [])
+            } for player in source.get("input", {}).get("players", [])
+        }
+        record_maps = {
+            player.get("player_id"): {
+                row.get("initial_instance_id"): (row.get("card_copy_id"), row.get("card_id"))
+                for row in player.get("deck_order_top_to_bottom", [])
+            } for player in record.get("input", {}).get("players", [])
+        }
+        check(source_maps == record_maps, f"109 physical-card identity preserved: {match_id}")
+        recorded = record.get("record", {})
+        events = recorded.get("events", [])
+        decisions = trace.get("decisions", [])
+        snapshots = trace.get("snapshots", [])
+        focus_sources = {
+            event.get("source_instance_id") for event in events
+            if event.get("action_type") == spec.get("focus_action_type")
+        }
+        expected_focus = {
+            row.get("initial_instance_id")
+            for player in record.get("input", {}).get("players", [])
+            if player.get("player_id") == "A"
+            for row in player.get("deck_order_top_to_bottom", [])
+            if row.get("card_id") == spec.get("focus_card_id")
+        }
+        check(recorded.get("status") == "completed" and
+              recorded.get("result", {}).get("rounds_completed") == 10 and
+              focus_sources == expected_focus and len(focus_sources) == 2,
+              f"109 completed result and distinct focus copies: {match_id}")
+        check(len(snapshots) == len(events) + 1 and
+              [row.get("event_seq") for row in snapshots] == list(range(len(events) + 1)) and
+              all("pass" in [candidate.get("kind") for candidate in
+                              decision.get("legal_candidates", [])] and
+                  "opponent_hand" not in decision.get("public_information", {}) and
+                  "opponent_deck" not in decision.get("public_information", {})
+                  for decision in decisions),
+              f"109 decision, trace and hidden-information boundary: {match_id}")
+    check(proxy_109_evaluation.get("schema") ==
+          "naotocchi.card_game.proxy_same_name_two_evaluation.v1" and
+          proxy_109_evaluation.get("completed_match_count") == 6 and
+          proxy_109_evaluation.get("independent_balance_sample_count") == 0 and
+          proxy_109_evaluation.get("unresolved_decisions") == 0 and
+          [row.get("legal_candidate_count") for row in
+           proxy_109_evaluation.get("matches", [])] == [178, 210, 197, 180, 181, 161] and
+          [row.get("selected_action_count") for row in
+           proxy_109_evaluation.get("matches", [])] == [3, 7, 2, 6, 8, 3],
+          "109 evaluation counts and zero independent sample")
+    metrics_109 = {row.get("cluster"): row for row in
+                   proxy_109_evaluation.get("matches", [])}
+    check(metrics_109.get("P97-02", {}).get("reservations") ==
+          {"created": 2, "consumed": 2, "expired": 0, "max_concurrent": 2} and
+          metrics_109.get("P97-06", {}).get("reservations") ==
+          {"created": 2, "consumed": 1, "expired": 1, "max_concurrent": 2} and
+          metrics_109.get("P97-05", {}).get("reentries") == 2,
+          "109 stacked reservations and reentries")
+    proxy_109_tool_tree = ast.parse(proxy_109_tool.read_text())
+    proxy_109_test_tree = ast.parse(proxy_109_test.read_text())
+    proxy_109_functions = {
+        node.name for node in proxy_109_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_same_name_two_suite", "validate_same_name_two_suite",
+           "validate_materialized_suite", "write_same_name_two_suite", "main"} <=
+          proxy_109_functions,
+          "109 same-name-two materializer public functions")
+    proxy_109_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_109_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_109_test_count == 7, "109 same-name-two test count")
+    proxy_109_doc_text = proxy_109_doc.read_text()
+    check("独立した勝率・先後差・発動率・カード強度の結論には数えない" in
+          proxy_109_doc_text and
+          "完全なカード効果エンジンや完全自動合法性判定ではない" in
+          proxy_109_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_109_doc_text,
+          "109 result and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |

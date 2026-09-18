@@ -1,0 +1,83 @@
+{
+  "schema": "naotocchi.card_game.proxy_same_name_two_plan.v1",
+  "checkpoint": 109,
+  "protocol": "proxy-decision-protocol-107-20260918.json",
+  "record_output_directory": "proxy-matches-109",
+  "trace_output_directory": "proxy-decision-traces-109",
+  "evaluation_output": "proxy-same-name-two-evaluation-109-20260918.json",
+  "design": {
+    "rules_commit": "afb175abcfef7dbad06ab410ffb4119152e3be7d",
+    "rules_tree": "6ef990477d0be71caf96b3b2451e1dd6bd36dcac",
+    "catalog_records_sha256": "219a325edd2890a54af19e8b9bba5af695ae704a36f1b94fdb00e6246968750b"
+  },
+  "matches": [
+    {
+      "cluster": "P97-01",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-01-same-name-two.json",
+      "record_match_id": "completed-109-p97-01-same-name-two",
+      "trace_id": "trace-109-p97-01-same-name-two",
+      "focus_card_id": "E-first-date",
+      "focus_action_type": "play_first_date",
+      "swaps": {"A": [["A-003#1", "A-016#1"]], "B": []}
+    },
+    {
+      "cluster": "P97-02",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-02-same-name-two.json",
+      "record_match_id": "completed-109-p97-02-same-name-two",
+      "trace_id": "trace-109-p97-02-same-name-two",
+      "focus_card_id": "C-otter",
+      "focus_action_type": "activate_otter_reservation",
+      "swaps": {"A": [["A-003#1", "A-029#1"]], "B": []}
+    },
+    {
+      "cluster": "P97-03",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-03-same-name-two.json",
+      "record_match_id": "completed-109-p97-03-same-name-two",
+      "trace_id": "trace-109-p97-03-same-name-two",
+      "focus_card_id": "G-hit-blow",
+      "focus_action_type": "play_hit_blow",
+      "swaps": {"A": [], "B": []}
+    },
+    {
+      "cluster": "P97-04",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-04-same-name-two.json",
+      "record_match_id": "completed-109-p97-04-same-name-two",
+      "trace_id": "trace-109-p97-04-same-name-two",
+      "focus_card_id": "G-road-city",
+      "focus_action_type": "play_city_run",
+      "swaps": {
+        "A": [["A-004#1", "A-020#1"], ["A-005#1", "A-032#1"], ["A-006#1", "A-029#1"]],
+        "B": []
+      }
+    },
+    {
+      "cluster": "P97-05",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-05-same-name-two.json",
+      "record_match_id": "completed-109-p97-05-same-name-two",
+      "trace_id": "trace-109-p97-05-same-name-two",
+      "focus_card_id": "G-animal-shogi",
+      "focus_action_type": "play_animal_shogi",
+      "swaps": {
+        "A": [["A-003#1", "A-011#1"], ["A-004#1", "A-012#1"], ["A-005#1", "A-013#1"], ["A-006#1", "A-014#1"]],
+        "B": []
+      }
+    },
+    {
+      "cluster": "P97-06",
+      "source_fixture": "proxy-fixtures-101/fixture-101-p97-06-same-name-two.json",
+      "record_match_id": "completed-109-p97-06-same-name-two",
+      "trace_id": "trace-109-p97-06-same-name-two",
+      "focus_card_id": "G-breakout-classic",
+      "focus_action_type": "play_breakout",
+      "swaps": {"A": [], "B": [["B-005#1", "B-034#1"]]}
+    }
+  ],
+  "scope": {
+    "completed_match_count": 6,
+    "a_first_only": true,
+    "automated_game_engine": false,
+    "complete_legality_engine": false,
+    "changes_card_text_numbers_or_registration": false,
+    "may_count_as_independent_balance_sample": false
+  }
+}
