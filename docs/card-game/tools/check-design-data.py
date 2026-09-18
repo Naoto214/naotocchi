@@ -1871,6 +1871,131 @@ if all(path.exists() for path in (
           "対戦エンジンは作らず" in proxy_107_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_107_doc_text,
           "107 unplayed and scope boundaries")
+
+# 108 executes the two 107 seat-mirror inputs with the fixed decision protocol.
+# The pair validates the recording path but remains outside independent balance samples.
+proxy_108_doc = DOCS / "108-normal-decision-match-pair.md"
+proxy_108_plan_path = DOCS / "data/proxy-normal-decision-plan-108-20260918.json"
+proxy_108_records_path = DOCS / "data/proxy-matches-108"
+proxy_108_traces_path = DOCS / "data/proxy-decision-traces-108"
+proxy_108_evaluation_path = DOCS / "data/proxy-normal-decision-evaluation-108-20260918.json"
+proxy_108_tool = DOCS / "tools/proxy_normal_decision_pilot.py"
+proxy_108_test = DOCS / "tools/test_proxy_normal_decision_pilot.py"
+for path, label in (
+    (proxy_108_doc, "108 normal-decision match document"),
+    (proxy_108_plan_path, "108 normal-decision plan"),
+    (proxy_108_records_path, "108 completed record output"),
+    (proxy_108_traces_path, "108 decision trace output"),
+    (proxy_108_evaluation_path, "108 evaluation output"),
+    (proxy_108_tool, "108 normal-decision materializer"),
+    (proxy_108_test, "108 normal-decision tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_108_doc, proxy_108_plan_path, proxy_108_records_path,
+        proxy_108_traces_path, proxy_108_evaluation_path,
+        proxy_108_tool, proxy_108_test)):
+    proxy_108_plan = json.loads(proxy_108_plan_path.read_text())
+    proxy_108_record_files = sorted(proxy_108_records_path.glob("*.json"))
+    proxy_108_trace_files = sorted(proxy_108_traces_path.glob("*.json"))
+    proxy_108_records = [json.loads(path.read_text()) for path in proxy_108_record_files]
+    proxy_108_traces = [json.loads(path.read_text()) for path in proxy_108_trace_files]
+    proxy_108_evaluation = json.loads(proxy_108_evaluation_path.read_text())
+    check(proxy_108_plan.get("schema") ==
+          "naotocchi.card_game.proxy_normal_decision_plan.v1" and
+          proxy_108_plan.get("design", {}).get("rules_commit") ==
+          "05db30e3b2d25ed2209021070e9bd3f3bfbac878" and
+          proxy_108_plan.get("design", {}).get("rules_tree") ==
+          "6adadca1a1ea5453c517fef277a7a0bc6cff6f59" and
+          proxy_108_plan.get("scope", {}).get("completed_match_count") == 2 and
+          proxy_108_plan.get("scope", {}).get("may_count_as_independent_balance_sample") is False,
+          "108 approved plan baseline and scope")
+    expected_108_records = {
+        f"{row.get('record_match_id')}.json" for row in proxy_108_plan.get("matches", [])
+    }
+    expected_108_traces = {
+        f"{row.get('trace_id')}.json" for row in proxy_108_plan.get("matches", [])
+    }
+    check({path.name for path in proxy_108_record_files} == expected_108_records and
+          {path.name for path in proxy_108_trace_files} == expected_108_traces and
+          len(proxy_108_records) == len(proxy_108_traces) == 2,
+          "108 exact completed record and trace files")
+    records_108 = {row.get("match_id"): row for row in proxy_108_records}
+    traces_108 = {row.get("record_match_id"): row for row in proxy_108_traces}
+    for spec in proxy_108_plan.get("matches", []):
+        match_id = spec.get("record_match_id")
+        record = records_108.get(match_id, {})
+        trace = traces_108.get(match_id, {})
+        source = json.loads((proxy_108_plan_path.parent /
+                             spec.get("source_fixture", "missing")).read_text())
+        source_players = {row.get("player_id"): row for row in
+                          source.get("input", {}).get("players", [])}
+        record_players = {row.get("player_id"): row for row in
+                          record.get("input", {}).get("players", [])}
+        check(all(
+            record_players.get(player_id, {}).get(key) ==
+            source_players.get(player_id, {}).get(key)
+            for player_id in ("A", "B")
+            for key in ("deck_order_top_to_bottom", "initial_hand")
+        ), f"108 unchanged source input: {match_id}")
+        recorded = record.get("record", {})
+        events = recorded.get("events", [])
+        decisions = trace.get("decisions", [])
+        snapshots = trace.get("snapshots", [])
+        check(recorded.get("status") == "completed" and
+              recorded.get("result", {}).get("winner") == spec.get("expected_winner") and
+              recorded.get("result", {}).get("final_growth") == spec.get("expected_final_growth") and
+              recorded.get("result", {}).get("rounds_completed") == 10,
+              f"108 completed result: {match_id}")
+        check(len(decisions) == spec.get("expected_decision_count") and
+              len(snapshots) == len(events) + 1 and
+              [row.get("event_seq") for row in snapshots] == list(range(len(events) + 1)),
+              f"108 decision and trace sequence: {match_id}")
+        check(all(
+            "pass" in [candidate.get("kind") for candidate in decision.get("legal_candidates", [])]
+            and decision.get("selected_action", {}).get("candidate_id") in {
+                candidate.get("candidate_id") for candidate in decision.get("legal_candidates", [])
+            }
+            and "opponent_hand" not in decision.get("public_information", {})
+            and "opponent_deck" not in decision.get("public_information", {})
+            for decision in decisions
+        ), f"108 pass, selected-action and hidden-information boundary: {match_id}")
+        check(recorded.get("reservations") == [] and all(
+            event.get("instance_transitions") == [] for event in events
+        ), f"108 zero reservations and reentries: {match_id}")
+    check(proxy_108_evaluation.get("schema") ==
+          "naotocchi.card_game.proxy_normal_decision_evaluation.v1" and
+          proxy_108_evaluation.get("completed_match_count") == 2 and
+          proxy_108_evaluation.get("independent_balance_sample_count") == 0 and
+          proxy_108_evaluation.get("unresolved_decisions") == 0 and
+          [row.get("legal_candidate_count") for row in
+           proxy_108_evaluation.get("matches", [])] == [296, 284] and
+          [row.get("selected_action_count") for row in
+           proxy_108_evaluation.get("matches", [])] == [26, 25],
+          "108 evaluation counts and zero independent sample")
+    proxy_108_tool_tree = ast.parse(proxy_108_tool.read_text())
+    proxy_108_test_tree = ast.parse(proxy_108_test.read_text())
+    proxy_108_functions = {
+        node.name for node in proxy_108_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_normal_decision_pair", "validate_normal_decision_suite",
+           "validate_materialized_suite", "write_normal_decision_suite", "main"} <=
+          proxy_108_functions,
+          "108 normal-decision materializer public functions")
+    proxy_108_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_108_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_108_test_count == 8, "108 normal-decision test count")
+    proxy_108_doc_text = proxy_108_doc.read_text()
+    check("勝率・先後差・発動率・カード強度の結論には数えない" in
+          proxy_108_doc_text and
+          "判断不能0、予約0、再登場0" in proxy_108_doc_text and
+          "完全な合法候補自動列挙やカード効果エンジンは作っていない" in
+          proxy_108_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_108_doc_text,
+          "108 completed-result and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
