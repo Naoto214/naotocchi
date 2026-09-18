@@ -1,0 +1,1171 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_combination_evaluation.v1",
+  "checkpoint": 110,
+  "completed_match_count": 6,
+  "independent_balance_sample_count": 0,
+  "unresolved_decisions": 0,
+  "structural_input_gap_count": 6,
+  "matches": [
+    {
+      "match_id": "completed-110-p97-01-board-combination",
+      "cluster": "P97-01",
+      "winner": "A",
+      "legal_candidate_count": 222,
+      "selected_action_count": 11,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 2
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 2
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 7
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 5,
+        "companion": 1,
+        "partner": 0,
+        "world": 1,
+        "play": 3,
+        "item": 1,
+        "event": 0
+      },
+      "reservations": {
+        "created": 2,
+        "consumed": 2,
+        "expired": 0,
+        "max_concurrent": 2
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 11,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 34,
+          "growth": {
+            "A": 45,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [],
+      "focus_effects": [
+        {
+          "card_id": "G-curling-ice",
+          "achieved": true,
+          "evidence_action_type": "challenge_draw",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "C-otter",
+          "achieved": true,
+          "evidence_action_type": "challenge_win",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "W-countryside",
+          "achieved": true,
+          "evidence_action_type": "resolve_countryside",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "I-star",
+          "achieved": true,
+          "evidence_action_type": "play_basketball",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": true,
+      "path_metrics": {
+        "challenge_draws": 1,
+        "challenge_wins": 1
+      }
+    },
+    {
+      "match_id": "completed-110-p97-02-board-combination",
+      "cluster": "P97-02",
+      "winner": "A",
+      "legal_candidate_count": 216,
+      "selected_action_count": 10,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 4,
+        "companion": 1,
+        "partner": 0,
+        "world": 1,
+        "play": 2,
+        "item": 2,
+        "event": 0
+      },
+      "reservations": {
+        "created": 4,
+        "consumed": 3,
+        "expired": 1,
+        "max_concurrent": 2
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 33,
+          "growth": {
+            "A": 35,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 40,
+          "growth": {
+            "A": 60,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [],
+      "focus_effects": [
+        {
+          "card_id": "W-jungle",
+          "achieved": true,
+          "evidence_action_type": "challenge_win",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "C-otter",
+          "achieved": true,
+          "evidence_action_type": "challenge_win",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-mini-golf-physics",
+          "achieved": true,
+          "evidence_action_type": "resolve_mini_golf",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "I-star",
+          "achieved": true,
+          "evidence_action_type": "play_mini_golf",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "I-naoto_lantern",
+          "achieved": true,
+          "evidence_action_type": "resolve_lantern",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": true,
+      "path_metrics": {
+        "challenge_draws": 0,
+        "challenge_wins": 1
+      }
+    },
+    {
+      "match_id": "completed-110-p97-03-board-combination",
+      "cluster": "P97-03",
+      "winner": "A",
+      "legal_candidate_count": 257,
+      "selected_action_count": 9,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 6
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 7
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 4,
+        "companion": 1,
+        "partner": 0,
+        "world": 1,
+        "play": 2,
+        "item": 1,
+        "event": 0
+      },
+      "reservations": {
+        "created": 3,
+        "consumed": 2,
+        "expired": 1,
+        "max_concurrent": 2
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 23,
+          "growth": {
+            "A": 40,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 31,
+          "growth": {
+            "A": 55,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [],
+      "focus_effects": [
+        {
+          "card_id": "G-mini-golf-physics",
+          "achieved": true,
+          "evidence_action_type": "resolve_mini_golf",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "W-countryside",
+          "achieved": true,
+          "evidence_action_type": "resolve_countryside",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "C-otter",
+          "achieved": true,
+          "evidence_action_type": "challenge_win",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "I-star",
+          "achieved": true,
+          "evidence_action_type": "play_hit_blow",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-hit-blow",
+          "achieved": true,
+          "evidence_action_type": "play_hit_blow",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": true,
+      "path_metrics": {
+        "challenge_draws": 0,
+        "challenge_wins": 1
+      }
+    },
+    {
+      "match_id": "completed-110-p97-04-board-combination",
+      "cluster": "P97-04",
+      "winner": "A",
+      "legal_candidate_count": 224,
+      "selected_action_count": 12,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 4
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 6
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 7
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 3,
+        "companion": 4,
+        "partner": 0,
+        "world": 1,
+        "play": 3,
+        "item": 1,
+        "event": 0
+      },
+      "reservations": {
+        "created": 1,
+        "consumed": 0,
+        "expired": 1,
+        "max_concurrent": 1
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 35,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [],
+      "focus_effects": [
+        {
+          "card_id": "G-road-city",
+          "achieved": true,
+          "evidence_action_type": "play_city_run",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-air-hockey",
+          "achieved": true,
+          "evidence_action_type": "play_air_hockey",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-animal-shogi",
+          "achieved": true,
+          "evidence_action_type": "play_animal_shogi",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "W-city",
+          "achieved": true,
+          "evidence_action_type": "trigger_city",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "I-c_egg_normal",
+          "achieved": true,
+          "evidence_action_type": "use_mystery_egg",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": false,
+      "path_metrics": {
+        "challenge_draws": 0,
+        "challenge_wins": 0
+      }
+    },
+    {
+      "match_id": "completed-110-p97-05-board-combination",
+      "cluster": "P97-05",
+      "winner": "draw",
+      "legal_candidate_count": 168,
+      "selected_action_count": 7,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 1
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 3
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 4
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 3
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 6
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 7
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 2,
+        "companion": 4,
+        "partner": 0,
+        "world": 0,
+        "play": 1,
+        "item": 0,
+        "event": 0
+      },
+      "reservations": {
+        "created": 0,
+        "consumed": 0,
+        "expired": 0,
+        "max_concurrent": 0
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [
+        {
+          "card_id": "G-jump-quest",
+          "missing_requirement": "two_time_skips_in_same_turn",
+          "evidence": "固定40枚には同一種族の①→②だけがあり、同じターンの2回目のときとばしへ接続する③がない。"
+        },
+        {
+          "card_id": "M-mushroom-06",
+          "missing_requirement": "same_name_non_main_pair_across_field_and_discard",
+          "evidence": "固定40枚のメイン以外は同名2枚を含まず、盤面と捨て札へ同名を分けられない。"
+        },
+        {
+          "card_id": "M-sakura-05",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にサクラ①〜④がなく、サクラ⑤を適正なへんしんでメインへ置けない。"
+        },
+        {
+          "card_id": "M-dragon-08",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にりゅう①〜⑦がなく、りゅう⑧を適正なへんしんでメインへ置けない。"
+        }
+      ],
+      "focus_effects": [
+        {
+          "card_id": "G-jump-quest",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "M-mushroom-06",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "M-sakura-05",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "M-dragon-08",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "G-animal-shogi",
+          "achieved": true,
+          "evidence_action_type": "play_animal_shogi",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": true,
+      "path_metrics": {
+        "challenge_draws": 0,
+        "challenge_wins": 0
+      }
+    },
+    {
+      "match_id": "completed-110-p97-06-board-combination",
+      "cluster": "P97-06",
+      "winner": "A",
+      "legal_candidate_count": 163,
+      "selected_action_count": 7,
+      "unused_time": {
+        "turn_end": [
+          {
+            "round": 1,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 1,
+            "player": "B",
+            "time": 1
+          },
+          {
+            "round": 2,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 2,
+            "player": "B",
+            "time": 2
+          },
+          {
+            "round": 3,
+            "player": "A",
+            "time": 1
+          },
+          {
+            "round": 3,
+            "player": "B",
+            "time": 3
+          },
+          {
+            "round": 4,
+            "player": "A",
+            "time": 2
+          },
+          {
+            "round": 4,
+            "player": "B",
+            "time": 4
+          },
+          {
+            "round": 5,
+            "player": "A",
+            "time": 0
+          },
+          {
+            "round": 5,
+            "player": "B",
+            "time": 5
+          },
+          {
+            "round": 6,
+            "player": "A",
+            "time": 6
+          },
+          {
+            "round": 6,
+            "player": "B",
+            "time": 6
+          },
+          {
+            "round": 7,
+            "player": "A",
+            "time": 7
+          },
+          {
+            "round": 7,
+            "player": "B",
+            "time": 7
+          },
+          {
+            "round": 8,
+            "player": "A",
+            "time": 8
+          },
+          {
+            "round": 8,
+            "player": "B",
+            "time": 8
+          },
+          {
+            "round": 9,
+            "player": "A",
+            "time": 9
+          },
+          {
+            "round": 9,
+            "player": "B",
+            "time": 9
+          },
+          {
+            "round": 10,
+            "player": "A",
+            "time": 10
+          },
+          {
+            "round": 10,
+            "player": "B",
+            "time": 10
+          }
+        ],
+        "final": {
+          "A": 10,
+          "B": 10
+        }
+      },
+      "use_count_by_card_type": {
+        "main": 1,
+        "companion": 0,
+        "partner": 0,
+        "world": 1,
+        "play": 3,
+        "item": 2,
+        "event": 0
+      },
+      "reservations": {
+        "created": 3,
+        "consumed": 3,
+        "expired": 0,
+        "max_concurrent": 3
+      },
+      "reentries": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 33,
+          "growth": {
+            "A": 35,
+            "B": 20
+          }
+        }
+      ],
+      "unresolved_decisions": 0,
+      "structural_input_gaps": [
+        {
+          "card_id": "M-penguin-07",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にペンギン①〜⑥がなく、ペンギン⑦を適正なへんしんでメインへ置けない。"
+        },
+        {
+          "card_id": "M-god-08",
+          "missing_requirement": "compatible_species_stage_path",
+          "evidence": "固定40枚にかみさま①〜⑦がなく、かみさま⑧を適正なへんしんでメインへ置けない。"
+        }
+      ],
+      "focus_effects": [
+        {
+          "card_id": "M-penguin-07",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "M-god-08",
+          "achieved": false,
+          "evidence_action_type": null,
+          "reason_code": "structural_input_gap"
+        },
+        {
+          "card_id": "G-stack-harvest",
+          "achieved": true,
+          "evidence_action_type": "play_stack_harvest",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-stack-snowman",
+          "achieved": true,
+          "evidence_action_type": "play_stack_snowman",
+          "reason_code": "resolved_in_fixed_path"
+        },
+        {
+          "card_id": "G-takoyaki-grill",
+          "achieved": true,
+          "evidence_action_type": "activate_takoyaki",
+          "reason_code": "resolved_in_fixed_path"
+        }
+      ],
+      "counts_toward_current_452": true,
+      "path_metrics": {
+        "challenge_draws": 0,
+        "challenge_wins": 0
+      }
+    }
+  ],
+  "limits": [
+    "101由来の固定6戦であり独立した無作為対戦ではない。",
+    "未達は構造的入力不足であり、カードの弱さや発動率を示さない。",
+    "勝率、先後差、発動率、カード強度の結論へ数えない。"
+  ]
+}

@@ -2131,6 +2131,143 @@ if all(path.exists() for path in (
           proxy_109_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_109_doc_text,
           "109 result and scope boundaries")
+
+# 110 connects the six 101 board-combination fixtures to fixed completed records.
+proxy_110_doc = DOCS / "110-board-combination-pilots.md"
+proxy_110_plan_path = DOCS / "data/proxy-board-combination-plan-110-20260918.json"
+proxy_110_records_path = DOCS / "data/proxy-matches-110"
+proxy_110_traces_path = DOCS / "data/proxy-decision-traces-110"
+proxy_110_evaluation_path = DOCS / "data/proxy-board-combination-evaluation-110-20260918.json"
+proxy_110_tool = DOCS / "tools/proxy_board_combination_pilots.py"
+proxy_110_test = DOCS / "tools/test_proxy_board_combination_pilots.py"
+for path, label in (
+    (proxy_110_doc, "110 board-combination document"),
+    (proxy_110_plan_path, "110 board-combination plan"),
+    (proxy_110_records_path, "110 completed record output"),
+    (proxy_110_traces_path, "110 decision trace output"),
+    (proxy_110_evaluation_path, "110 evaluation output"),
+    (proxy_110_tool, "110 board-combination materializer"),
+    (proxy_110_test, "110 board-combination tests"),
+):
+    check(path.exists(), f"{label} exists")
+if all(path.exists() for path in (
+        proxy_110_doc, proxy_110_plan_path, proxy_110_records_path,
+        proxy_110_traces_path, proxy_110_evaluation_path,
+        proxy_110_tool, proxy_110_test)):
+    proxy_110_plan = json.loads(proxy_110_plan_path.read_text())
+    proxy_110_record_files = sorted(proxy_110_records_path.glob("*.json"))
+    proxy_110_trace_files = sorted(proxy_110_traces_path.glob("*.json"))
+    proxy_110_records = [json.loads(path.read_text()) for path in proxy_110_record_files]
+    proxy_110_traces = [json.loads(path.read_text()) for path in proxy_110_trace_files]
+    proxy_110_evaluation = json.loads(proxy_110_evaluation_path.read_text())
+    check(proxy_110_plan.get("schema") ==
+          "naotocchi.card_game.proxy_board_combination_plan.v1" and
+          proxy_110_plan.get("design", {}).get("rules_commit") ==
+          "370708a36d21ab13d00edbaf4c6b45f04a319b0f" and
+          proxy_110_plan.get("design", {}).get("rules_tree") ==
+          "47abe8f5156e29751e420cbdba8dbe4d31e5ae6b" and
+          proxy_110_plan.get("scope", {}).get("completed_match_count") == 6 and
+          proxy_110_plan.get("scope", {}).get("may_count_as_independent_balance_sample") is False,
+          "110 approved plan baseline and scope")
+    expected_110_records = {
+        f"{row.get('record_match_id')}.json" for row in proxy_110_plan.get("matches", [])
+    }
+    expected_110_traces = {
+        f"{row.get('trace_id')}.json" for row in proxy_110_plan.get("matches", [])
+    }
+    check({path.name for path in proxy_110_record_files} == expected_110_records and
+          {path.name for path in proxy_110_trace_files} == expected_110_traces and
+          len(proxy_110_records) == len(proxy_110_traces) == 6,
+          "110 exact completed record and trace files")
+    records_110 = {row.get("match_id"): row for row in proxy_110_records}
+    traces_110 = {row.get("record_match_id"): row for row in proxy_110_traces}
+    for spec in proxy_110_plan.get("matches", []):
+        match_id = spec.get("record_match_id")
+        record = records_110.get(match_id, {})
+        trace = traces_110.get(match_id, {})
+        source = json.loads((proxy_110_plan_path.parent /
+                             spec.get("source_fixture", "missing")).read_text())
+        source_maps = {
+            player.get("player_id"): {
+                row.get("initial_instance_id"): (row.get("card_copy_id"), row.get("card_id"))
+                for row in player.get("deck_order_top_to_bottom", [])
+            } for player in source.get("input", {}).get("players", [])
+        }
+        record_maps = {
+            player.get("player_id"): {
+                row.get("initial_instance_id"): (row.get("card_copy_id"), row.get("card_id"))
+                for row in player.get("deck_order_top_to_bottom", [])
+            } for player in record.get("input", {}).get("players", [])
+        }
+        check(source_maps == record_maps, f"110 physical-card identity preserved: {match_id}")
+        recorded = record.get("record", {})
+        events = recorded.get("events", [])
+        decisions = trace.get("decisions", [])
+        snapshots = trace.get("snapshots", [])
+        check(recorded.get("status") == "completed" and
+              recorded.get("result", {}).get("rounds_completed") == 10 and
+              len(snapshots) == len(events) + 1 and
+              [row.get("event_seq") for row in snapshots] == list(range(len(events) + 1)),
+              f"110 completed result and contiguous trace: {match_id}")
+        check(all("pass" in [candidate.get("kind") for candidate in
+                              decision.get("legal_candidates", [])] and
+                  "opponent_hand" not in decision.get("public_information", {}) and
+                  "opponent_deck" not in decision.get("public_information", {})
+                  for decision in decisions),
+              f"110 decision and hidden-information boundary: {match_id}")
+    metrics_110 = {row.get("cluster"): row for row in
+                   proxy_110_evaluation.get("matches", [])}
+    check(proxy_110_evaluation.get("schema") ==
+          "naotocchi.card_game.proxy_board_combination_evaluation.v1" and
+          proxy_110_evaluation.get("completed_match_count") == 6 and
+          proxy_110_evaluation.get("independent_balance_sample_count") == 0 and
+          proxy_110_evaluation.get("unresolved_decisions") == 0 and
+          proxy_110_evaluation.get("structural_input_gap_count") == 6 and
+          [row.get("legal_candidate_count") for row in
+           proxy_110_evaluation.get("matches", [])] == [222, 216, 257, 224, 168, 163] and
+          [row.get("selected_action_count") for row in
+           proxy_110_evaluation.get("matches", [])] == [11, 10, 9, 12, 7, 7],
+          "110 evaluation counts and zero independent sample")
+    check(metrics_110.get("P97-06", {}).get("reservations") ==
+          {"created": 3, "consumed": 3, "expired": 0, "max_concurrent": 3} and
+          any(row.get("card_id") == "G-jump-quest" and
+              row.get("missing_requirement") == "two_time_skips_in_same_turn"
+              for row in metrics_110.get("P97-05", {}).get("structural_input_gaps", [])) and
+          metrics_110.get("P97-04", {}).get("counts_toward_current_452") is False,
+          "110 reservations, jump-quest gap and separate item stratum")
+    p97_04_record = records_110.get("completed-110-p97-04-board-combination", {})
+    p97_04_events = p97_04_record.get("record", {}).get("events", [])
+    air_hockey = next((row for row in p97_04_events
+                       if row.get("action_type") == "play_air_hockey"), {})
+    opponent_play = next((row for row in p97_04_events
+                          if row.get("action_type") ==
+                          "opponent_immediate_play_during_challenge"), {})
+    check(opponent_play.get("actor") == "B" and
+          air_hockey.get("chain", {}).get("responds_to_seq") == opponent_play.get("seq") and
+          air_hockey.get("chain", {}).get("link_index") == 3 and
+          "current-452" not in p97_04_record.get("test_plan", {}).get("strata", []),
+          "110 air-hockey response chain")
+    proxy_110_tool_tree = ast.parse(proxy_110_tool.read_text())
+    proxy_110_test_tree = ast.parse(proxy_110_test.read_text())
+    proxy_110_functions = {
+        node.name for node in proxy_110_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_board_combination_suite", "validate_board_combination_suite",
+           "validate_materialized_suite", "write_board_combination_suite", "main"} <=
+          proxy_110_functions,
+          "110 board-combination materializer public functions")
+    proxy_110_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_110_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_110_test_count == 7, "110 board-combination test count")
+    proxy_110_doc_text = proxy_110_doc.read_text()
+    check("独立した勝率・先後差・発動率・カード強度の結論には数えない" in
+          proxy_110_doc_text and
+          "完全なカード効果エンジンや完全自動合法性判定ではない" in
+          proxy_110_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_110_doc_text,
+          "110 result and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
