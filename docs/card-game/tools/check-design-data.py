@@ -1772,6 +1772,105 @@ if all(path.exists() for path in (
           "instance_transitions`は全eventで空" in proxy_106_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_106_doc_text,
           "106 controlled-result and scope boundaries")
+
+# 107 fixes the normal-decision protocol and two unplayed seat-mirror inputs.
+# It deliberately records no completed match and does not automate legality.
+proxy_107_doc = DOCS / "107-normal-decision-match-protocol.md"
+proxy_107_protocol_path = DOCS / "data/proxy-decision-protocol-107-20260918.json"
+proxy_107_output = DOCS / "data/proxy-fixtures-107"
+proxy_107_tool = DOCS / "tools/proxy_decision_fixture.py"
+proxy_107_test = DOCS / "tools/test_proxy_decision_fixture.py"
+for path, label in (
+    (proxy_107_doc, "107 normal-decision protocol document"),
+    (proxy_107_protocol_path, "107 machine-readable decision protocol"),
+    (proxy_107_output, "107 unplayed fixture output"),
+    (proxy_107_tool, "107 decision fixture builder"),
+    (proxy_107_test, "107 decision fixture tests"),
+):
+    check(path.exists(), f"{label} missing")
+if all(path.exists() for path in (
+        proxy_107_doc, proxy_107_protocol_path, proxy_107_output,
+        proxy_107_tool, proxy_107_test)):
+    proxy_107_protocol = json.loads(proxy_107_protocol_path.read_text())
+    proxy_107_files = sorted(proxy_107_output.glob("*.json"))
+    proxy_107_fixtures = [json.loads(path.read_text()) for path in proxy_107_files]
+    check(proxy_107_protocol.get("schema") ==
+          "naotocchi.card_game.proxy_decision_protocol.v1" and
+          proxy_107_protocol.get("design", {}).get("rules_commit") ==
+          "0a97a9f14d68a26633545f1b80d7fbc1c64218fa" and
+          proxy_107_protocol.get("design", {}).get("rules_tree") ==
+          "91943d238bc31e6d6c97d8ee44b047a73e32efdc" and
+          proxy_107_protocol.get("completed_match_count") == 0,
+          "107 approved protocol baseline and zero completed matches")
+    check(proxy_107_protocol.get("decision_priority") == [
+              "avoid_defeat_or_aborted_challenge",
+              "maintain_or_prevent_growth_100",
+              "maximize_certain_growth_difference",
+              "maximize_time_balance",
+              "maximize_hand_board_reservation_value",
+          ] and
+          proxy_107_protocol.get("tie_breakers") == [
+              "lower_time_payment", "fewer_cards_consumed",
+              "lower_card_copy_id",
+          ] and
+          "pass" in proxy_107_protocol.get("required_candidate_kinds", []) and
+          proxy_107_protocol.get("may_use_opponent_hidden_information") is False,
+          "107 approved decision ordering and information boundary")
+    specs_107 = proxy_107_protocol.get("fixtures", [])
+    expected_107_names = {f"{row.get('match_id')}.json" for row in specs_107}
+    check({path.name for path in proxy_107_files} == expected_107_names and
+          len(proxy_107_fixtures) == 2,
+          "107 exact two fixture files")
+    players_107 = []
+    for fixture, spec in zip(proxy_107_fixtures, specs_107):
+        source = json.loads((proxy_107_protocol_path.parent /
+                             spec.get("source_fixture", "missing")).read_text())
+        source_players = {row.get("player_id"): row for row in
+                          source.get("input", {}).get("players", [])}
+        fixture_players = {row.get("player_id"): row for row in
+                           fixture.get("input", {}).get("players", [])}
+        players_107.append(fixture_players)
+        check(all(
+            fixture_players.get(player_id, {}).get(key) ==
+            source_players.get(player_id, {}).get(key)
+            for player_id in ("A", "B")
+            for key in ("deck_order_top_to_bottom", "initial_hand")
+        ), f"107 unchanged source input: {fixture.get('match_id')}")
+        record_107 = fixture.get("record", {})
+        check(record_107.get("status") == "fixture" and
+              record_107.get("events") == [] and
+              record_107.get("reservations") == [] and
+              record_107.get("result", {}).get("winner") is None,
+              f"107 remains unplayed: {fixture.get('match_id')}")
+    if len(players_107) == 2:
+        check(all(
+            players_107[0].get(player_id, {}).get(key) ==
+            players_107[1].get(player_id, {}).get(key)
+            for player_id in ("A", "B")
+            for key in ("deck_order_top_to_bottom", "initial_hand")
+        ), "107 seat pair preserves identical A/B inputs")
+    proxy_107_tool_tree = ast.parse(proxy_107_tool.read_text())
+    proxy_107_test_tree = ast.parse(proxy_107_test.read_text())
+    proxy_107_functions = {
+        node.name for node in proxy_107_tool_tree.body
+        if isinstance(node, ast.FunctionDef)
+    }
+    check({"build_decision_fixtures", "validate_protocol",
+           "validate_decision_fixture_suite", "validate_materialized_suite",
+           "write_decision_fixtures", "main"} <= proxy_107_functions,
+          "107 decision fixture builder public functions")
+    proxy_107_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_107_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_107_test_count == 8, "107 decision fixture test count")
+    proxy_107_doc_text = proxy_107_doc.read_text()
+    check("107ではcompleted対戦を作らず" in proxy_107_doc_text and
+          "勝率・先後差・発動率・カード強度の結論には数えない" in
+          proxy_107_doc_text and
+          "対戦エンジンは作らず" in proxy_107_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_107_doc_text,
+          "107 unplayed and scope boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
