@@ -2502,6 +2502,102 @@ if all(path.exists() for path in
           proxy_113_doc_text and "予定4戦はdeferred" in proxy_113_doc_text and
           "カード本文・数値・登録区分の変更は0件" in proxy_113_doc_text,
           "113 stop and scope boundaries")
+
+# 114 resolves the three admission blockers without materializing any match.
+proxy_114_doc = DOCS / "114-normal-decision-protocol-hardening.md"
+proxy_114_table_path = DOCS / "data/proxy-normal-decision-candidate-table-114-20260918.json"
+proxy_114_contract_path = DOCS / "data/proxy-normal-decision-hardening-114-20260918.json"
+proxy_114_tool = DOCS / "tools/proxy_normal_decision_hardening.py"
+proxy_114_test = DOCS / "tools/test_proxy_normal_decision_hardening.py"
+for path, label in [
+    (proxy_114_doc, "114 normal-decision hardening document"),
+    (proxy_114_table_path, "114 manual candidate table"),
+    (proxy_114_contract_path, "114 hardening contract"),
+    (proxy_114_tool, "114 hardening validator"),
+    (proxy_114_test, "114 hardening tests"),
+]:
+    check(path.exists(), f"Missing {label}: {path.relative_to(ROOT)}")
+if all(path.exists() for path in
+       (proxy_114_doc, proxy_114_table_path, proxy_114_contract_path,
+        proxy_114_tool, proxy_114_test)):
+    proxy_114_table = json.loads(proxy_114_table_path.read_text())
+    proxy_114_contract = json.loads(proxy_114_contract_path.read_text())
+    proxy_114_ids = [row.get("card_id") for row in proxy_114_table.get("cards", [])]
+    proxy_114_types = {row.get("card_type") for row in proxy_114_table.get("cards", [])}
+    check(len(proxy_114_ids) == len(set(proxy_114_ids)) == 41,
+          "114 exact 41 unique card IDs")
+    check(proxy_114_types == {"main", "companion", "partner", "world", "play", "item", "event"},
+          "114 all seven card types")
+    check(proxy_114_table.get("standing_candidates") == [{
+        "candidate_id": "candidate-pass", "kind": "pass", "action_type": "pass",
+        "timing": "normal_action_opportunity", "base_time_cost": 0}],
+        "114 standing pass candidate")
+    check(proxy_114_table.get("preserved_existing_candidate_families") == [
+              "challenge_power_or_wisdom", "relationship_progress"],
+          "114 preserved challenge and relationship candidate families")
+    check(proxy_114_contract.get("checkpoint") == 114 and
+          proxy_114_contract.get("status") == "protocol_hardened_no_matches" and
+          proxy_114_contract.get("resolved_blockers") == [
+              "candidate-coverage-incomplete", "pre-decision-schema-mismatch",
+              "priority-comparison-unresolved"],
+          "114 resolves exact three admission blockers")
+    schema_114 = proxy_114_contract.get("decision_schema", {})
+    check(set(schema_114.get("pre_decision_state_required_and_allowed_keys", [])) ==
+          {"hand", "board", "time", "growth", "reservations"} and
+          schema_114.get("information_policy") == "public_and_owner_known_only",
+          "114 strict nested decision schema and information policy")
+    comparison_114 = proxy_114_contract.get("comparison", {})
+    check(comparison_114.get("priority_order") == [
+              "avoid_loss_or_abort", "maintain_or_prevent_100",
+              "certain_growth_difference", "time_after_certain_resolution",
+              "hand_board_reservation_value"] and
+          comparison_114.get("pass_may_beat_paid_action") is True and
+          comparison_114.get("value_rule") ==
+              "pareto_only_otherwise_unresolved_canonical_text" and
+          comparison_114.get("incomparable_is_tie") is False,
+          "114 ordered comparison, paid-action boundary, and Pareto stop")
+    scope_114 = proxy_114_contract.get("scope", {})
+    check(all(scope_114.get(key) == 0 for key in
+              ("fixture_count", "completed_match_count", "trace_count", "winner_count",
+               "independent_balance_sample_count")) and
+          proxy_114_contract.get("deferred_batch", {}).get("planned_match_count") == 4 and
+          proxy_114_contract.get("deferred_batch", {}).get("materialized_in_114") is False,
+          "114 zero match artifacts and four deferred matches")
+    check(proxy_114_contract.get("checkpoint_112") == {
+              "targeted_fixture_count": 6, "completed_in_114": 0,
+              "status": "unchanged_unplayed"} and
+          proxy_114_contract.get("population") == {
+              "current_catalog": 452, "registered_candidates": 477,
+              "changed_card_text_numeric_or_registration_ids": 0},
+          "114 preserves 112 and population boundaries")
+    proxy_114_tool_tree = ast.parse(proxy_114_tool.read_text())
+    proxy_114_test_tree = ast.parse(proxy_114_test.read_text())
+    proxy_114_functions = {
+        node.name for node in proxy_114_tool_tree.body if isinstance(node, ast.FunctionDef)
+    }
+    check({"source_card_ids", "validate_candidate_table", "validate_pre_decision_state",
+           "validate_public_information", "compare_candidates", "build_hardening_contract",
+           "validate_hardening_contract", "write_hardening_contract",
+           "validate_materialized_contract", "main"} <= proxy_114_functions,
+          "114 hardening validator public functions")
+    proxy_114_test_count = sum(
+        node.name.startswith("test_") for node in ast.walk(proxy_114_test_tree)
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+    )
+    check(proxy_114_test_count == 13, "114 normal-decision hardening test count")
+    if "--catalog" not in sys.argv:
+        proxy_114_validation = subprocess.run(
+            [sys.executable, str(proxy_114_tool)], capture_output=True, text=True,
+            check=False)
+        check(proxy_114_validation.returncode == 0,
+              f"114 canonical hardening validator: {proxy_114_validation.stdout}"
+              f"{proxy_114_validation.stderr}")
+    proxy_114_doc_text = proxy_114_doc.read_text()
+    check("41 card ID" in proxy_114_doc_text and
+          "fixture・completed・trace・独立balance標本はすべて0" in proxy_114_doc_text and
+          "4戦は115へdeferred" in proxy_114_doc_text and
+          "カード本文・数値・登録区分の変更は0件" in proxy_114_doc_text,
+          "114 scope and resume boundaries")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |

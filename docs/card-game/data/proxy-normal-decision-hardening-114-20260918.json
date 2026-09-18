@@ -1,0 +1,118 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_hardening.v1",
+  "checkpoint": 114,
+  "status": "protocol_hardened_no_matches",
+  "source_fixture": "proxy-fixtures-107/fixture-107-normal-decision-a-first.json",
+  "admission_audit": "proxy-normal-decision-admission-113-20260918.json",
+  "resolved_blockers": [
+    "candidate-coverage-incomplete",
+    "pre-decision-schema-mismatch",
+    "priority-comparison-unresolved"
+  ],
+  "candidate_table": {
+    "file": "proxy-normal-decision-candidate-table-114-20260918.json",
+    "unique_card_id_count": 41,
+    "card_type_count": 7,
+    "standing_candidates": [
+      {
+        "candidate_id": "candidate-pass",
+        "kind": "pass",
+        "action_type": "pass",
+        "timing": "normal_action_opportunity",
+        "base_time_cost": 0
+      }
+    ],
+    "preserved_existing_candidate_families": [
+      "challenge_power_or_wisdom",
+      "relationship_progress"
+    ],
+    "automatic_complete_legality": false
+  },
+  "decision_schema": {
+    "pre_decision_state_required_and_allowed_keys": [
+      "board",
+      "growth",
+      "hand",
+      "reservations",
+      "time"
+    ],
+    "board_required_and_allowed_keys": [
+      "companions",
+      "main",
+      "partner",
+      "partner_stage",
+      "prepared",
+      "world"
+    ],
+    "public_information_required_and_allowed_keys": [
+      "discard",
+      "growth",
+      "information_policy",
+      "opponent_board",
+      "own_board",
+      "own_hand",
+      "reservations",
+      "time"
+    ],
+    "information_policy": "public_and_owner_known_only",
+    "forbidden_examples": [
+      "field",
+      "opponent_hand",
+      "deck_order",
+      "unknown_key"
+    ]
+  },
+  "comparison": {
+    "priority_order": [
+      "avoid_loss_or_abort",
+      "maintain_or_prevent_100",
+      "certain_growth_difference",
+      "time_after_certain_resolution",
+      "hand_board_reservation_value"
+    ],
+    "time_balance_measure": "time_after_certain_resolution",
+    "pass_may_beat_paid_action": true,
+    "value_components": [
+      "hand",
+      "board",
+      "reservations"
+    ],
+    "value_relations": [
+      "better",
+      "equal",
+      "worse",
+      "incomparable"
+    ],
+    "value_rule": "pareto_only_otherwise_unresolved_canonical_text",
+    "tie_breakers": [
+      "lower_time_payment",
+      "fewer_cards_consumed",
+      "lower_card_copy_id"
+    ],
+    "incomparable_is_tie": false,
+    "uses_hidden_or_future_information": false
+  },
+  "scope": {
+    "fixture_count": 0,
+    "completed_match_count": 0,
+    "trace_count": 0,
+    "winner_count": 0,
+    "independent_balance_sample_count": 0,
+    "game_engine_added": false
+  },
+  "deferred_batch": {
+    "planned_match_count": 4,
+    "materialized_in_114": false,
+    "resume_checkpoint": 115
+  },
+  "checkpoint_112": {
+    "targeted_fixture_count": 6,
+    "completed_in_114": 0,
+    "status": "unchanged_unplayed"
+  },
+  "population": {
+    "current_catalog": 452,
+    "registered_candidates": 477,
+    "changed_card_text_numeric_or_registration_ids": 0
+  }
+}
