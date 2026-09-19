@@ -7,10 +7,10 @@ const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 const ALL = ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
-// 正本の 17本(#2)。ここが ずれたら 地理が かわった ということ
+// 正本の 17本(D2)。ここが ずれたら 地理が かわった ということ
 const LINKS = ['snow|mountain', 'forest|snow', 'forest|mountain', 'mountain|river_lake', 'desert|mountain',
-  'countryside|forest', 'countryside|river_lake', 'countryside|home', 'city|countryside', 'city|home',
-  'city|sea', 'jungle|sea', 'desert|jungle', 'city|desert', 'deepsea|sea', 'sea|star_stop', 'memory_lake'];
+  'countryside|forest', 'countryside|river_lake', 'countryside|home', 'home|river_lake', 'city|countryside',
+  'city|sea', 'jungle|sea', 'desert|jungle', 'city|desert', 'deepsea|sea', 'countryside|star_stop', 'memory_lake'];
 
 function fakeCtx() {
   const state = { imageSmoothingEnabled: true }, stack = [];
@@ -36,10 +36,10 @@ function setup(opts = {}) {
 }
 const wd = (M, rec) => M.worldMapData(Object.assign({ regions: [], links: [], marks: {}, zones: {} }, rec));
 
-test('1. 正式地理 v1: 13地域が 1回ずつ、地上10・水面下1・上空1・記憶1', () => {
+test('1. 正式地理 v2(D2): 13地域が 1回ずつ、地上10・水面下1・上空1・記憶1', () => {
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
-  assert.equal(G.version, 1); assert.equal(G.plan, 'D');
+  assert.equal(G.version, 2); assert.equal(G.plan, 'D2');
   assert.equal(Object.keys(G.regions).length, 13);
   for (const id of ALL) assert.ok(G.regions[id], `${id} が 正式地理に ある`);
   for (const id of Object.keys(M.WORLDS)) assert.ok(G.regions[id], `WORLDS の ${id} が 正式地理に ある`);
@@ -52,56 +52,103 @@ test('2. 接続表が 正本の 17本と ぴったり あう。入口の spot �
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   assert.equal(G.connections.map((c) => c.id).join(','), LINKS.join(','));
-  const deg = {};
+  const deg = {}, ground = {};
   for (const c of G.connections) {
     assert.ok(G.regions[c.a], `${c.id}: ${c.a}`);
     if (!c.b) { assert.equal(c.layer, 'memory'); continue; }
     assert.ok(G.regions[c.b], `${c.id}: ${c.b}`);
     deg[c.a] = (deg[c.a] || 0) + 1; deg[c.b] = (deg[c.b] || 0) + 1;
+    if (c.layer === 'ground') { ground[c.a] = (ground[c.a] || 0) + 1; ground[c.b] = (ground[c.b] || 0) + 1; }
     for (const rid of Object.keys(c.mouths)) {
       const q = (M.WORLDS[rid].spots || []).find((x) => x.id === c.mouths[rid]);
       assert.ok(q, `${c.id}: ${rid}.${c.mouths[rid]} が 実在する spot`);
       assert.ok(!q.secret, `${c.id}: 入口が ひみつ spot では ない`);
     }
   }
-  // どこにも つながらない 地上 region は ない。5本も 6本も つながる 地域も ない
+  // どこにも つながらない 地上 region は ない。地上の みちは どの 地域も 4本まで
   for (const id of Object.keys(G.regions)) {
     if (G.regions[id].layer === 'memory') continue;
     assert.ok(deg[id] >= 1, `${id} は どこかに つながる`);
-    assert.ok(deg[id] <= 4, `${id} の 接続は 4本まで(${deg[id]})`);
+    assert.ok((ground[id] || 0) <= 4, `${id} の 地上の みちは 4本まで(${ground[id]})`);
   }
-  // せいかつけんの 三角ループ(#8)
-  for (const id of ['countryside|home', 'city|home', 'city|countryside']) assert.ok(LINKS.includes(id));
+  // いなかは D2 の こうさてん: 地上 4本 ＋ 山の上へ 1本
+  assert.equal(ground.countryside, 4, 'いなかの 地上の みちは 4本');
+  assert.equal(deg.countryside, 5, 'いなかは そこに 山の上への みちが 1本 つく');
+  // 飯田型 せいかつけんの 三角(D2): おうち・いなか・かわ・みずうみ
+  for (const id of ['countryside|home', 'home|river_lake', 'countryside|river_lake']) {
+    assert.ok(LINKS.includes(id), `${id} が せいかつけんの 三角に ある`);
+  }
+  // おうち ↔ とかい の 徒歩 connection は D2 に ない(たびでは 行ける)
+  assert.ok(!LINKS.includes('city|home'), 'おうちと とかいは 地理的に 直結しない');
+  assert.ok(!G.connections.some((c) => c.id === 'city|home'), '正本にも のこって いない');
+  // ほしぞらへは うみからでは なく いなかから
+  assert.ok(!G.connections.some((c) => c.id === 'sea|star_stop'), 'うみ↑ほしぞら は もう ない');
 });
 
-test('3. 大河は 山麓の湖 → かわ・みずうみ → いなか → とかい → 湾 まで 1本で つながり、下流へ 下る', () => {
+test('3. 二つの水系。たにの おおかわと みやこがわは べつの 川で、上流で つながって いない', () => {
   const { M } = setup();
-  const r = M.WORLD_GEOGRAPHY.features.find((f) => f.id === 'great-river');
-  const seq = []; for (const p of r.points) if (seq[seq.length - 1] !== p.region) seq.push(p.region);
-  assert.equal(seq.join(' → '), 'mountain → river_lake → countryside → city → sea');
-  for (let i = 1; i < r.points.length; i++) assert.ok(r.points[i].y < r.points[i - 1].y, `点 ${i} が 下流へ 下って いる`);
-  assert.ok(!seq.includes('home'), 'おうちは 通らない(home に みずの zone が 1つも ない)');
-  // 山系も 1本(#5)
-  const sp = M.WORLD_GEOGRAPHY.features.find((f) => f.id === 'spine');
-  const s2 = []; for (const p of sp.points) if (s2[s2.length - 1] !== p.region) s2.push(p.region);
-  assert.equal(s2.join(' → '), 'snow → mountain → forest');
+  const F = M.WORLD_GEOGRAPHY.features;
+  const seq = (f) => { const o = []; for (const p of f.points) if (o[o.length - 1] !== p.region) o.push(p.region); return o; };
+  const tenryu = F.find((f) => f.id === 'tenryu'), shonai = F.find((f) => f.id === 'shonai');
+  assert.ok(tenryu && shonai, '川が 2本 ある');
+  assert.equal(tenryu.kind, 'river'); assert.equal(shonai.kind, 'river');
+  // 天竜川型: やま → かわ・みずうみ → たに(おうち) → うみ。**とかいを 通らない**
+  assert.equal(seq(tenryu).join(' → '), 'mountain → river_lake → home → sea');
+  assert.ok(!seq(tenryu).includes('city'), 'たにの おおかわは とかいへ ながれない');
+  // 庄内川型: 分水界の むこう → とかい → うみ。**たにを 通らない**
+  assert.equal(seq(shonai).join(' → '), 'countryside → city → sea');
+  assert.ok(!seq(shonai).includes('river_lake') && !seq(shonai).includes('home'), 'みやこがわは たにを 通らない');
+  // どちらも 下流へ 単調に 下る
+  for (const f of [tenryu, shonai]) for (let i = 1; i < f.points.length; i++) {
+    assert.ok(f.points[i].y < f.points[i - 1].y, `${f.id} の 点 ${i} が 下流へ 下る`);
+  }
+  // 2本が くっついて いない = 1本の 川が 山の上で 分かれて 見えない
+  let best = Infinity;
+  for (const a of tenryu.points) for (const b of shonai.points) best = Math.min(best, Math.hypot(a.x - b.x, a.y - b.y));
+  assert.ok(best > 1.5, `2水系が はなれて いる(いちばん近い 点どうし ${best.toFixed(2)})`);
+  // 山地も 2つ。にしは あるける、ひがしは たにから 見えるだけ
+  const ranges = F.filter((f) => f.kind === 'range');
+  assert.equal(ranges.length, 2, 'たにを はさむ 山地が 2つ');
+  const west = ranges.find((f) => f.id === 'west-range'), east = ranges.find((f) => f.id === 'east-range');
+  // にしの 山地: ゆきぐに → やま → もり と、さとの うしろ(いなか)まで つづく。
+  // たにの そこ(おうち・かわ)は 入らない
+  const westRegions = [...new Set(west.points.map((p) => p.region))];
+  assert.equal(westRegions.join(','), 'snow,mountain,forest,countryside', 'にしの 山地は 山がわの 4地域');
+  for (const id of ['home', 'river_lake']) assert.ok(!westRegions.includes(id), `にしの 山地に ${id}(たにの そこ)は 入らない`);
+  // ひがしの 山地: たちどころが たにの 2地域だけ = **あるけない。たにから 見えるだけ**
+  const eastRegions = [...new Set(east.points.map((p) => p.region))];
+  assert.equal(eastRegions.slice().sort().join(','), 'home,river_lake', 'ひがしの 山地は たにから 見えるだけ');
+  assert.ok(!Object.keys(M.WORLD_GEOGRAPHY.regions).some((id) => M.WORLD_GEOGRAPHY.regions[id].belt === 'eastwall'),
+    'ひがしの 山地に region は ない(13地域を ふやさない)');
 });
 
-test('4/5. 特殊層は 地上の となりに ならばない。きおくのみずうみは global 座標を もたない', () => {
+test('4/5. たてじくは 2か所。ほしぞらは いなかの 山の上、しんかいは うみの 外洋の下', () => {
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   assert.equal(G.regions.memory_lake.mapX, null);
   assert.equal(G.regions.memory_lake.mapY, null);
-  // しんかい と ほしぞら は「湾の口」の おなじ 一点の 下と上
-  assert.equal(G.regions.deepsea.mapX, G.axis.mapX); assert.equal(G.regions.deepsea.mapY, G.axis.mapY);
-  assert.equal(G.regions.star_stop.mapX, G.axis.mapX); assert.equal(G.regions.star_stop.mapY, G.axis.mapY);
-  assert.ok(G.regions.deepsea.depth < 0 && G.regions.star_stop.height > 0);
+  // D の「おなじ 一点の 上下」は やめた
+  assert.ok(G.regions.deepsea.mapX !== G.regions.star_stop.mapX
+    || G.regions.deepsea.mapY !== G.regions.star_stop.mapY, 'しんかいと ほしぞらは べつの ばしょ');
+  assert.equal(G.axis.sky.from, 'countryside', 'ほしぞらへは いなかから 上がる');
+  assert.equal(G.axis.deep.from, 'sea', 'しんかいへは うみから 下りる');
+  // ほしぞらの いちは、どの 地上地域より いなかに 近い
+  const d = (x, y, id) => Math.hypot(G.regions[id].mapX - x, G.regions[id].mapY - y);
+  const ground = Object.keys(G.regions).filter((id) => G.regions[id].layer === 'ground');
+  const near = ground.map((id) => [id, d(G.axis.sky.mapX, G.axis.sky.mapY, id)]).sort((a, b) => a[1] - b[1]);
+  assert.equal(near[0][0], 'countryside', `ほしぞらに いちばん 近い 地上地域は いなか(いまは ${near[0][0]})`);
+  for (const id of ['home', 'city', 'sea']) {
+    assert.ok(d(G.axis.sky.mapX, G.axis.sky.mapY, id) > near[0][1], `ほしぞらは ${id} の まうえでは ない`);
+  }
+  // しんかいは うみの 外洋がわ。とかい(湾のある まち)より うみに 近い
+  const nd = ground.map((id) => [id, d(G.axis.deep.mapX, G.axis.deep.mapY, id)]).sort((a, b) => a[1] - b[1]);
+  assert.equal(nd[0][0], 'sea', 'しんかいに いちばん 近い 地上地域は うみ');
   // ぜんぶ 見つけて いても、地上の 地域として ならばない
   const all = wd(M, { regions: ALL });
   const ids = all.regions.map((r) => r.id);
   for (const id of ['deepsea', 'star_stop', 'memory_lake']) assert.ok(!ids.includes(id), `${id} は 地上の 地域として 出ない`);
   assert.equal(ids.length, 10);
-  assert.ok(all.axis.sky && all.axis.deep, 'たてじくの 上下として 出る');
+  assert.ok(all.axis.sky.on && all.axis.deep.on, 'たてじくは 2か所とも 出る');
   assert.ok(all.layers.memory, 'きおくは べつの きろくとして もつ');
   assert.ok(!JSON.stringify(all.regions).includes('memory_lake'), 'きおくが 地上の データに まぎれこまない');
 });
@@ -123,7 +170,10 @@ test('6/7/8. まだ 見つけて いない 地域・みち・大めじるしは�
   assert.equal(only.regions[0].marks.length, 1, 'おうちの 大めじるしだけ');
   assert.ok(!json.includes('lm:great'), 'もりの 大めじるしは 出ない');
   // たてじくも、見つけて いなければ そんざいを ばらさない
-  assert.ok(!only.axis.sky && !only.axis.deep && !only.axis.ground);
+  assert.ok(!only.axis.sky.on && !only.axis.deep.on, '未発見の 特殊層は そんざいを ばらさない');
+  // 「上がる もとの 地域」を 見つけて いても、さきの 地域を 見つけて いなければ 出ない
+  const withVillage = wd(M, { regions: ['home', 'countryside'] });
+  assert.ok(!withVillage.axis.sky.on, 'いなかへ 行っただけでは ほしぞらは 出ない');
 });
 
 test('9. ひみつ spot・ひみつ path・ひみつ zone が せかいのちずへ 1つも もれない', () => {
@@ -198,7 +248,7 @@ test('12. せかい たんさくりつ: ぶんぼに ひみつが 1つも 入っ
   for (const id of C.regions) { marks[id] = M.worldTier1(id).map((m) => m.mid); zones[id] = M.WORLDS[id].zones.map((z) => z.id); }
   const done = wd(M, { regions: C.regions.slice(), links: C.links.slice(), marks, zones });
   assert.equal(done.progress.percent, 100, 'ひみつ 0 こ・ほしぞら なし・きおく なしで 100% に なる');
-  assert.ok(!done.axis.sky, 'ほしぞらは 100% の じょうけんでは ない');
+  assert.ok(!done.axis.sky.on, 'ほしぞらは 100% の じょうけんでは ない');
 });
 
 test('13. たんさくりつから のこりの ひみつの かずが ぎゃくさんできない', () => {
@@ -325,4 +375,32 @@ test('20. 地域の ちずは これまでどおり。せかいのちずの た�
     discovered: new Set(), visitedZones: new Set(), walkedPaths: new Set(), foundMarks: new Set(), here: null, hereSpot: null });
   assert.equal(other.regionId, 'sea'); assert.equal(other.here, null);
   assert.equal(other.spots.length, 0); assert.equal(other.landmarks.length, 0);
+});
+
+test('21. D2 へ かえても、地域の なかみは 1つも うごいて いない', () => {
+  const { M } = setup();
+  const reg = M.buildRegistry();
+  let zones = 0, spots = 0, paths = 0, secretSpots = 0, secretPaths = 0;
+  for (const id of ALL) {
+    const w = M.buildWorld(id, reg);
+    zones += w.zones.length; spots += w.spots.length; paths += (M.WORLDS[id].paths || []).length;
+    secretSpots += w.spots.filter((q) => q.secret).length;
+    secretPaths += (M.WORLDS[id].paths || []).filter((p) => p[2] === 'secret').length;
+  }
+  assert.equal(zones, 118, '118 ちく');
+  assert.equal(spots, 469, '469 スポット');
+  assert.equal(paths, 652, '652 みち');
+  assert.equal(secretSpots + secretPaths, 107, '107 ひみつ');
+  // せかいの 地理は 地図の がわ だけ。region-local な world 座標に 1 つも 入りこんで いない
+  for (const id of ALL) {
+    const w = M.buildWorld(id, reg);
+    assert.ok(!('mapX' in w) && !('mapY' in w), `${id}: world に mapX/mapY が まざって いない`);
+    assert.equal(w.regionId, id);
+  }
+  // ナオトは いまの とおり(地図に ない ばしょの おくに、うごかずに いる)
+  const naoto = reg.naoto;
+  if (naoto) {
+    assert.equal(naoto.region, 'memory_lake'); assert.equal(naoto.spot, 'deep'); assert.equal(naoto.secret, true);
+    assert.equal(M.WORLD_GEOGRAPHY.regions.memory_lake.mapX, null, 'その ばしょは 世界地図に 座標を もたない');
+  }
 });
