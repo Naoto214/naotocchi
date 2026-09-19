@@ -248,3 +248,64 @@ test('canvas path: every scenery emoji of every region either has scenery art or
   assert.ok(native > 0 && art > 0, `both paths are exercised (native ${native}, art ${art})`);
   assert.ok(!drewCharacter(raw.calls) && !drewCharacter(spy.calls), 'no character asset');
 });
+
+// 「住民 ○○ 体」は じょうけんで かわる ので、1つの 数字で 言わない。
+// ここで 正本を とめて おく。ずかん・なかま・こいびと・ナオト・同行 の どれが
+// いくつ ふえる／へる のかを、コードから じかに かぞえる
+test('the number of residents is pinned to the dex, not to a round figure', () => {
+  const h = harness({ fullDisplay: true });
+  const api = h.api, s = api.state();
+  Object.assign(s, { stage: 'growing', isSleeping: false, energy: 100, health: 100, hunger: 80, speciesLine: 'dog', stageIndex: 4, ageTicks: 500 });
+  s.petKey = `dog:${api.currentFormStageIndex()}`;
+  // ずかんの すがた の 上限 = ALL_LINES × その 系統の 段階数
+  const stages = [];
+  for (const line of api.ALL_LINES) for (let i = 0; i < (api.SPECIES[line].stages || []).length; i++) stages.push(`${line}:${i}`);
+  s.discoveredStages = stages.slice();
+  s.lifetime.companionsRecruited = [];
+  s.lifetime.rareCompanionsRecruited = [];
+  s.lifetime.partnersRecorded = [];
+  api.render();
+  const M = api.meguruMod;
+  const reg = M.buildRegistry();
+  const forms = reg.residents.filter((r) => r.kind === 'form').length;
+
+  // ① 台帳の すがた の 数は「ずかんの 上限 − いまの子 1」。まるい 数字では ない
+  assert.equal(forms, stages.length - 1, `forms = dex(${stages.length}) - the child you are playing as (1)`);
+  assert.equal(reg.residents.length, forms, 'with no companions and no partners, the registry is only the dex forms');
+
+  // ② HABITAT に すまいの ない 系統が ない(しずかに 1体 きえる のを ふせぐ)
+  const noHome = api.ALL_LINES.filter((line) => !M.HABITAT[line]);
+  assert.equal(noHome.length, 0, 'every species line has a habitat: ' + noHome.join(','));
+
+  // ③ 世界に おかれる 数 = 台帳 + ナオト。重複 0・のこり 0
+  const placed = [];
+  for (const id of Object.keys(M.WORLDS)) for (const a of M.buildWorld(id, reg).residents) placed.push(a.key);
+  assert.equal(new Set(placed).size, placed.length, 'nobody is placed twice');
+  assert.equal(placed.length, reg.residents.length + (reg.naoto ? 1 : 0), 'everyone in the ledger is somewhere in the world');
+
+  // ④ なかま・こいびとを 入れると、その ぶん だけ ふえる
+  const comp = (api.normalCompanions || []).map((c) => c.id);
+  const rare = (api.rareCompanions || []).map((c) => c.id);
+  const part = (api.partnerCandidates || []).map((c) => c.id);
+  s.lifetime.companionsRecruited = comp;
+  s.lifetime.rareCompanionsRecruited = rare;
+  s.lifetime.partnersRecorded = part;
+  api.render();
+  const full = M.buildRegistry();
+  assert.equal(full.residents.length, forms + comp.length + rare.length + part.length,
+    `forms ${forms} + companions ${comp.length} + rare ${rare.length} + partners ${part.length}`);
+
+  // ⑤ 同行中の こは 世界から はずれ、party に 出る(二重に ならない)
+  s.companions = [{ id: comp[0], bond: 80 }];
+  s.partner = { id: part[0], affection: 100 };
+  api.render();
+  const walking = M.buildRegistry();
+  const withPlayer = walking.residents.filter((r) => r.withPlayer);
+  assert.equal(withPlayer.length, 2, 'one companion and one partner are walking with you');
+  assert.equal(M.companionsOf(walking).length, 2, 'and both are in the party');
+  const placed2 = [];
+  for (const id of Object.keys(M.WORLDS)) for (const a of M.buildWorld(id, walking).residents) placed2.push(a.key);
+  assert.equal(placed2.length, walking.residents.length - 2 + (walking.naoto ? 1 : 0), 'the two walking with you are not also living somewhere');
+  for (const r of withPlayer) assert.ok(!placed2.includes(r.key), `${r.key} is not in the world as well`);
+  assert.equal(new Set(placed2).size, placed2.length, 'still nobody is placed twice');
+});

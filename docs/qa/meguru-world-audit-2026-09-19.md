@@ -35,7 +35,17 @@ CI（main `4da468f`）: Runtime smoke test **success**、pages build **success**
 - path の内訳: `wide` 16 / `path` 215 / `narrow` 364 / `secret` 57
 - **秘密 = 秘密 spot 50 + 秘密 path 57 = 107**（「107 秘密場所」の正体はこの合算）
 - 景色 props **8805**、当たり判定 **3682**
-- 住民は 13 地域に **248 体**配置（ずかん全解放時。registry 247 + ナオト 1、重複 0・未配置 0）
+- 住民数は**セーブの進み具合で変わるので一語では言えない**（正本はチェックポイント DC）:
+
+| 条件 | 数 |
+|---|---|
+| ずかんの姿の上限（`ALL_LINES` 31 系統 × 8 段階） | 248 |
+| resident registry（ずかん全解放・なかま 0・こいびと 0） | **247**（= 248 − いまの子 1） |
+| 台帳総数（ナオト解禁時） | 248 |
+| **通常世界配置対象（同行者なし）** | **248**（重複 0・未配置 0） |
+| ＋なかま 18 / レアなかま 8 / こいびと 18（最大） | **292** |
+| 同行中 1 体／2 体 | 配置 291 + party 1 ／ 配置 290 + party 2 |
+| ナオト未解禁 | −1 |
 - spot kind: `path` 150 / `rest` 94 / `plaza` 58 / `water` 54 / `edge` 41 / `grove` 36 / `shelter` 25 / `shop` 8 / `deep` 3
 - activity 可用数: idle 469 / look 437 / rest 273 / walk 252 / sit 221 / sleep 175 / talk 150 / play 105 / gather 102 / fish 54 / watch 54 / shop 8。`shelter` 54 spot・`seats` 221 spot
 - 住民の生活傾向（`REGION_LIFE`）は 13 地域すべて別の数字。city social 1.7 ↔ memory_lake 0.2、memory_lake quiet 2.2 ↔ city 0.5、star_stop view 1.8
@@ -158,7 +168,9 @@ z → clamp(z, 60, len − 60) （RULES.zMargin = 60）
 - **current pet 除外**: `buildRegistry` が `key === petKey` の姿をスキップ（いまの子は自分自身として歩く）
 - **legacy 除外**: `S.ALL_LINES` にない旧種族はセーブに残っても住民にしない
 - **同行者の二重出現防止**: `buildWorld` が `withPlayer` を world の residents から外し、`companionsOf()` が party 側に作る。`auditRegistry()` が `follower-duplicate` として検出
-- **実測**: registry 247 + ナオト = 13 地域に **248 体配置、ユニーク 248、重複 0、未配置 0**
+- **実測**（ずかん全解放・なかま 0・こいびと 0・ナオト解禁）: registry 247 + ナオト = 13 地域に **248 体配置、ユニーク 248、重複 0、未配置 0**。
+  なかま 18・レアなかま 8・こいびと 18 をすべて記録すると最大 **292 体**、同行中の分だけ世界から外れて party に出る。
+  **除外は「いまの子」1 か所だけ**で、これは仕様（プレイヤー自身として歩く）。`HABITAT` は `ALL_LINES` 31 系統すべてを覆っており、住まいが無くて消える系統はない
 
 ---
 
@@ -496,7 +508,7 @@ z → clamp(z, 60, len − 60) （RULES.zMargin = 60）
 | streaming | 現在は実質未使用（H 節）。ここで初めて本当に要る |
 | collision | **変更不要**（E 節。境界に collider はない） |
 | weather / region effects | `effectiveWeather()` は `state.regionId` で切り替わる。**境界で天気が瞬時に変わる**のをどう見せるか |
-| resident loading | 隣地域の住民 248 体の一部を先読みする必要。`buildWorld` が region 単位なので分割が要る |
+| resident loading | 隣地域の住民（ずかん全解放で 248 体、最大 292 体）の一部を先読みする必要。`buildWorld` が region 単位なので分割が要る |
 | map discovery | `visitedZones` / `walkedPaths` は region キー。**境界を跨ぐ path は両方の region に属する**ので、キーの決め方が要る |
 | travel logs | 徒歩越境のときの副作用の線引き（Q 節） |
 
