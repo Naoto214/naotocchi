@@ -121,3 +121,6 @@ Continue authorized eight-stage batch with80 original-referenced expressions. Pr
 
 ### Approved production-first continuation: dandelion (2026-09-18)
 Continue authorized8x10 original-referenced edits, preserving1440 completed portraits/144placements/81corrections andall normal art/gameplay/romance/save. Keep seedlings, rosette leaves, closed bud05, goldenflower06 andwhitehead07. In08 editonlydominant central-left seed face at52,65 andpreservefiveotherfaces. New8placements only; sameprivateSite andDraftPR278, no mainmerge.
+
+### Approved production-first continuation: sakura (2026-09-18)
+Continue the user-authorized eight-stage batch with80 independent original-referenced expressions. Preserve1520 completed portraits/152placements/81corrections, normal art, gameplay/romance/save. Preserve seed/sprout, tree branches and blossom canopy, closed buds05, open flowers06, fruits07 and aged tree08. In05 edit only central upright bud; in06 only left large flower; in07 only central-lower cherry, preserving all secondary faces. Face anchors observed in originals,6x views and original-coordinate grids with independent review. Generate onlynew8 placements. Same owner-private Site and DraftPR278; no main merge.

@@ -351,7 +351,7 @@ test('elder dog expressions are distinct transparent assets with original sprite
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion']) for(let index=1;index<=8;index++) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura']) for(let index=1;index<=8;index++) {
   const stage=String(index).padStart(2,'0');
   test(`${species}/${stage} has ten distinct transparent expressions with original bounds`, () => {
     const original=inspectPng(`assets/characters/${species}/${stage}.png`),hashes=[];
