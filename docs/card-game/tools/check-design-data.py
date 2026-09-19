@@ -37,6 +37,70 @@ def rows(text):
             for line in text.splitlines() if line.startswith("|")]
 
 
+# Checkpoint 118 reserves the former Japanese action name only for its explicit
+# naming-history record.  Build the spellings from fragments so this checker
+# does not exempt itself from the repository-wide scan.
+former_time_action_terms = (
+    "とき" + "とばし",
+    "時" + "飛ばし",
+    "時" + "とばし",
+    "とき" + "飛ばし",
+)
+terminology_history_path = DOCS / "118-tokiokuri-terminology-migration.md"
+
+
+def normalize_provisional_terminology(value):
+    """Keep historical semantic fingerprints stable across the name-only migration."""
+    if isinstance(value, str):
+        return value.replace("ときおくり", former_time_action_terms[0])
+    if isinstance(value, list):
+        return [normalize_provisional_terminology(item) for item in value]
+    if isinstance(value, dict):
+        return {key: normalize_provisional_terminology(item)
+                for key, item in value.items()}
+    return value
+
+
+unexpected_former_time_action_terms = []
+for terminology_path in DOCS.rglob("*"):
+    if not terminology_path.is_file() or terminology_path == terminology_history_path:
+        continue
+    try:
+        terminology_text = terminology_path.read_text()
+    except UnicodeDecodeError:
+        continue
+    for former_term in former_time_action_terms:
+        for match in re.finditer(re.escape(former_term), terminology_text):
+            line = terminology_text.count("\n", 0, match.start()) + 1
+            unexpected_former_time_action_terms.append(
+                f"{terminology_path.relative_to(ROOT)}:{line}:{former_term}"
+            )
+check(not unexpected_former_time_action_terms,
+      f"Former time-action term remains outside checkpoint 118: "
+      f"{unexpected_former_time_action_terms}")
+check(terminology_history_path.exists(), "118 terminology migration document missing")
+if terminology_history_path.exists():
+    terminology_history_text = terminology_history_path.read_text()
+    terminology_history_counts = {
+        term: terminology_history_text.count(term) for term in former_time_action_terms
+    }
+    check(list(terminology_history_counts.values()) == [2, 0, 0, 0],
+          f"118 former-term history allowlist changed: {terminology_history_counts}")
+    former_term = former_time_action_terms[0]
+    allowed_history_contexts = (
+        f"旧称「{former_term}」を、現時点の暫定名称",
+        f"| 旧称 | {former_term} | この移行履歴だけに残す。現行仕様本文では使用しない |",
+    )
+    check(all(terminology_history_text.count(context) == 1
+              for context in allowed_history_contexts),
+          "118 former-term history contexts changed")
+    check("暫定名称" in terminology_history_text and
+          "ID、schema、英語の機械識別子は変更しない" in terminology_history_text and
+          "新しい「ときもどし」効果" in terminology_history_text and
+          "81ファイル" in terminology_history_text and "合計268件" in terminology_history_text,
+          "118 terminology scope or provisional-name boundary changed")
+
+
 # Execute only the master/catalog constructors, never game callbacks or script.js.
 source = json.loads(subprocess.check_output(["node", "-e", r"""
 const fs=require('fs'),vm=require('vm');
@@ -642,7 +706,9 @@ if revision_96_data_path.exists():
     revision_96_cases = revision_96_data.get("manual_cases", [])
     check(len(revision_96_cases) == len({r.get("id") for r in revision_96_cases}) == 28,
           "96 manual case count/IDs")
-    revision_96_sorted = sorted(revision_96_catalog.values(), key=lambda r: r["id"])
+    revision_96_sorted = normalize_provisional_terminology(
+        sorted(revision_96_catalog.values(), key=lambda r: r["id"])
+    )
     revision_96_catalog_hash = hashlib.sha256(json.dumps(
         revision_96_sorted, ensure_ascii=False, sort_keys=True,
         separators=(",", ":")).encode()).hexdigest()
@@ -2811,9 +2877,11 @@ readme_116_text = (DOCS / "README.md").read_text()
 readme_current_phase_116 = re.search(
     r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_current_phase_116 is not None and
-      "[117 通常意思決定seeded restart](117-normal-decision-seeded-restart.md)" in
+      "[118 用語移行](118-tokiokuri-terminology-migration.md)" in
       readme_current_phase_116.group(1),
-      "README current phase is checkpoint 117")
+      "README current phase is checkpoint 118")
+check("| [118](118-tokiokuri-terminology-migration.md) |" in readme_116_text,
+      "README missing 118 index entry")
 readme_continuation_117 = re.search(
     r"^## この後の順序\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_continuation_117 is not None and re.search(

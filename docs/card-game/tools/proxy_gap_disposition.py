@@ -17,7 +17,7 @@ GAP_DESIGNS = {
     "G-jump-quest": {
         "fixture_group": "targeted-short",
         "required_evidence": [
-            "同じターンに別々のときとばしeventを2回記録する。",
+            "同じターンに別々のときおくりeventを2回記録する。",
             "時1を払い、捨て札の①〜③メインを対象として手札へ戻し、そだち+5を記録する。",
         ],
         "forbidden_shortcuts": [
@@ -41,7 +41,7 @@ GAP_DESIGNS = {
     "M-sakura-05": {
         "fixture_group": "evolution-path",
         "required_evidence": [
-            "サクラ①〜④のいずれかをメイン枠に置き、手札のサクラ⑤へ必要な時を払ってときとばしする。",
+            "サクラ①〜④のいずれかをメイン枠に置き、手札のサクラ⑤へ必要な時を払ってときおくりする。",
             "自分終了時に時1を払い、捨て札のしかける1枚を対象として手札へ戻す。",
         ],
         "forbidden_shortcuts": [
@@ -53,7 +53,7 @@ GAP_DESIGNS = {
     "M-dragon-08": {
         "fixture_group": "evolution-path",
         "required_evidence": [
-            "りゅう①〜⑦のいずれかをメイン枠に置き、手札のりゅう⑧へ必要な時を払ってときとばしする。",
+            "りゅう①〜⑦のいずれかをメイン枠に置き、手札のりゅう⑧へ必要な時を払ってときおくりする。",
             "終了時に捨て札のアクション2枚を順序付きで山札下へ置き、別のなかまかこいびと1枚を手札へ戻す。",
         ],
         "forbidden_shortcuts": [
@@ -65,7 +65,7 @@ GAP_DESIGNS = {
     "M-penguin-07": {
         "fixture_group": "evolution-path",
         "required_evidence": [
-            "ペンギン①〜⑥のいずれかをメイン枠に置き、手札のペンギン⑦へ必要な時を払ってときとばしする。",
+            "ペンギン①〜⑥のいずれかをメイン枠に置き、手札のペンギン⑦へ必要な時を払ってときおくりする。",
             "セカイ変更後になかま1枚へ期限付き保護を作り、次の相手ターンの離脱を1回防ぐ。",
         ],
         "forbidden_shortcuts": [
@@ -77,7 +77,7 @@ GAP_DESIGNS = {
     "M-god-08": {
         "fixture_group": "evolution-path",
         "required_evidence": [
-            "かみさま①〜⑦のいずれかをメイン枠に置き、手札のかみさま⑧へ必要な時を払ってときとばしする。",
+            "かみさま①〜⑦のいずれかをメイン枠に置き、手札のかみさま⑧へ必要な時を払ってときおくりする。",
             "時1を払い、手札1枚を山札の一番下に置いて盤面1枚を予約し、次の相手効果による捨て札移動を手札戻しへ置換する。",
         ],
         "forbidden_shortcuts": [
