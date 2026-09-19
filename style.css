@@ -4607,3 +4607,41 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
   .meguru-overlay .mg-pad { min-height: 96px; }
   .meguru-overlay .mg-pad-actions .mg-tap-btn { min-height: 30px; font-size: 12px; }
 }
+
+/* ===== めぐるの ちず(あるいた きろく) ===== */
+/* たんさく がめんの みぎした に 小さく おく。ならびの たかさは ふやさない */
+.mgr-map-btn { position: absolute; right: 8px; bottom: 8px; z-index: 3;
+  padding: 7px 12px; border: 0; border-radius: 999px; cursor: pointer;
+  background: rgba(24, 24, 30, 0.56); color: #fff; font-size: 12px; font-weight: bold;
+  line-height: 1.2; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); }
+.mgr-map-btn:active { transform: translateY(1px); }
+/* ちずに なにか ふえた ときだけ そっと ひかる(ポップアップは ふやさない) */
+.mgr-map-new { box-shadow: 0 0 0 2px rgba(255, 226, 138, 0.95), 0 2px 8px rgba(0, 0, 0, 0.3); }
+
+/* ちずは たんさく がめん ぜんたいに かぶせる。かぶせる もとに なる ように
+   めぐるの overlay 自体を position: relative に して おく */
+.meguru-overlay { position: relative; }
+.mgr-map { position: absolute; inset: 0; z-index: 12; display: flex; flex-direction: column;
+  background: #f8f2e3; color: #544530; padding: 8px 8px 10px; gap: 6px; }
+.mgr-map-dark { background: #171c31; color: #d5def4; }
+/* くらい 地域(しんかい・ほしぞら・きおくのみずうみ)でも ボタンの 字が よめる ように */
+.mgr-map-dark .mg-tap-btn { background: #2b3352; color: #e8eeff; box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35); }
+.mgr-map-dark .mg-tap-btn.primary { background: linear-gradient(160deg, #5b6aa8, #3d4878); color: #fff; }
+.mgr-map-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+  font-size: 12px; line-height: 1.25; min-height: 16px; }
+.mgr-map-name { font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mgr-map-prog { flex: 0 0 auto; font-size: 11px; opacity: 0.85; white-space: nowrap; }
+.mgr-map-body { position: relative; flex: 1 1 auto; min-height: 0; border-radius: 10px; overflow: hidden; }
+.mgr-map-canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.mgr-map-tip { position: absolute; left: 8px; top: 8px; max-width: 78%; padding: 3px 9px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+.mgr-map-tip.hidden { display: none; }
+.mgr-map-bar { display: flex; gap: 8px; flex: 0 0 auto; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.mgr-map-bar .mg-tap-btn { min-height: 44px; padding: 8px 6px; font-size: 14px; }
+.mgr-map-zoom { flex: 0 0 auto; min-width: 56px; font-size: 18px; }
+.mgr-map-close { flex: 1 1 auto; }
+@media (max-height: 640px) {
+  .mgr-map { padding: 6px 6px 8px; gap: 4px; }
+  .mgr-map-bar .mg-tap-btn { min-height: 40px; }
+}

@@ -21,7 +21,8 @@
 // S: clamp, lerp, escapeHtml, sfx, createMgCanvas, createTouchPad, createPadRow,
 //    getState, currentEnvironment, findRegion, regionLabel, regionPlainLabel, selectedLocality, dailyKey,
 //    SPECIES, speciesStageDesc, allCompanionsById, canonicalCompanionId, partners, partnerAsset, currentPetKey, playerGlyph,
-//    isAuthorUnlocked, authorAsset, perfTier, onExit, openTravel, recordMet, recordTalk, recordSpot, discoveredSpots
+//    isAuthorUnlocked, authorAsset, perfTier, onExit, openTravel, recordMet, recordTalk, recordSpot, discoveredSpots,
+//    recordMapBits, mapRecords, seedMapRecords (ちずの「あるいた きろく」。どれも なくても うごく)
 (() => {
   'use strict';
   const root = typeof globalThis !== 'undefined' ? globalThis : window;
@@ -286,43 +287,43 @@
     const WORLD_SPACE = {
       // おうち: 人が くらしている 庭。木は わき やくに して、しばふ・敷石・テラスを 主役に
       home: { clutter: 0.44, framePer: 300, frame: ['hedge', 330, 260, 0.7], fore: ['fencerail', 2.4, 200], edge: ['hedge', 'planter'],
-        ground: [['lawn', 8, [560, 460]], ['terrace', 4, [340, 260]], ['flowerbed', 6, [260, 170]]] },
+        areas: [['lawn', 8, [560, 460]], ['terrace', 4, [340, 260]], ['flowerbed', 6, [260, 170]]] },
       // とかい: 車道と 歩道の あいだを あるく。左右は ビルの かべ
       city: { clutter: 0.68, framePer: 300, frame: ['building', 470, 580, 0.58], fore: ['guardpost', 3.0, 230], edge: ['building', 'building', 'shopfront'],
-        ground: [['road', 9, [640, 520]], ['sidewalk', 8, [300, 420]], ['crossing', 4, [300, 210]], ['block', 6, [520, 420]]] },
+        areas: [['road', 9, [640, 520]], ['sidewalk', 8, [300, 420]], ['crossing', 4, [300, 210]], ['block', 6, [520, 420]]] },
       // いなか: 田んぼと 畑の あいだの あぜみち
       countryside: { clutter: 0.3, frame: ['woodfence', 420, 270, 0.52], fore: ['ricestalk', 2.2, 200], edge: ['farmhouse', 'hayroll', 'barn'],
-        ground: [['paddy', 7, [760, 600]], ['cropfield', 7, [600, 460]]] },
+        areas: [['paddy', 7, [760, 600]], ['cropfield', 7, [600, 460]]] },
       // もり: 木の あいだの ほそい みち。幹が 視界を せまくする
       forest: { clutter: 0.62, framePer: 285, frame: ['bigtrunk', 520, 420, 0.46], fore: ['branch', 2.7, 200], edge: ['bigtrunk', 'bigtrunk', 'bigrock'],
-        ground: [['undergrowth', 12, [520, 420]], ['mossbed', 8, [380, 300]]] },
+        areas: [['undergrowth', 12, [520, 420]], ['mossbed', 8, [380, 300]]] },
       // やま: しゃめんの とざんどう。がけが 画面の はしを ふさぐ
       mountain: { clutter: 0.42, frame: ['cliffwall', 560, 340, 0.54], fore: ['ledgerock', 2.2, 220], edge: ['cliff', 'bigrock', 'pinewall'],
-        ground: [['scree', 12, [560, 460]], ['ridge', 6, [700, 380]]] },
+        areas: [['scree', 12, [560, 460]], ['ridge', 6, [700, 380]]] },
       // ゆきぐに: ひろい 雪原。木は ふやさず、雪の おうとつ と 凍った湖で
       snow: { clutter: 0.26, frame: ['snowbank', 460, 360, 0.54], fore: ['snowdrift', 1.6, 280], edge: ['snowbank', 'pinewall', 'icepillar'],
-        ground: [['snowfield', 14, [880, 700]], ['frozen', 3, [660, 500]], ['snowwood', 5, [520, 400]]] },
+        areas: [['snowfield', 14, [880, 700]], ['frozen', 3, [660, 500]], ['snowwood', 5, [520, 400]]] },
       // うみ: 波打ちぎわに そって あるく。ひだりは うみ、みぎは 砂丘と ヤシ
       sea: { clutter: 0.3, frame: ['duneridge', 480, 420, 0.58], fore: ['palmfrond', 0.7, 110], edge: ['duneridge', 'searock', 'palmgrove'],
-        ground: [['dunefield', 10, [560, 460]]], shore: [['wetsand', 150]] },
+        areas: [['dunefield', 10, [560, 460]]], shore: [['wetsand', 150]] },
       // しんかい: かいこうの ふちを すすむ。りょうがわは 岩壁と サンゴの かべ
       deepsea: { clutter: 0.45, frame: ['reefwall', 520, 470, 0.64], fore: ['coralarm', 2.0, 170], edge: ['reefwall', 'kelpwall', 'reefwall'],
-        ground: [['seabed', 10, [560, 460]], ['fissure', 7, [480, 320]], ['reefflat', 6, [420, 340]]] },
+        areas: [['seabed', 10, [560, 460]], ['fissure', 7, [480, 320]], ['reefflat', 6, [420, 340]]] },
       // かわ: かわぞいの みち。かわが 画面を よこぎる
       river_lake: { clutter: 0.36, frame: ['riverwood', 480, 250, 0.56], fore: ['reedclump', 2.4, 220], edge: ['riverwood', 'riverwood', 'riverrock'],
-        ground: [['gravelbar', 9, [520, 420]], ['wetgrass', 8, [460, 380]], ['shallow', 5, [420, 300]]] },
+        areas: [['gravelbar', 9, [520, 420]], ['wetgrass', 8, [460, 380]], ['shallow', 5, [420, 300]]] },
       // ジャングル: しょくぶつの なかに はいりこむ。道は 埋もれている
       jungle: { clutter: 0.7, framePer: 250, frame: ['bigtrunk', 480, 440, 0.6], fore: ['hugeleaf', 1.9, 140], edge: ['bigtrunk', 'buttress', 'bigtrunk'],
-        ground: [['undergrowth', 14, [460, 380]], ['mudflat', 7, [380, 300]], ['rootmat', 8, [420, 340]]] },
+        areas: [['undergrowth', 14, [460, 380]], ['mudflat', 7, [380, 300]], ['rootmat', 8, [420, 340]]] },
       // さばく: きょだいな すなおかを こえる。こものは ふやさない
       desert: { clutter: 0.18, frame: ['dunewall', 620, 520, 0.5], fore: ['sandcrest', 1.6, 380], edge: ['mesa', 'dunewall', 'bigrock'],
-        ground: [['sandflat', 10, [900, 720]], ['rockflat', 5, [620, 460]]] },
+        areas: [['sandflat', 10, [900, 720]], ['rockflat', 5, [620, 460]]] },
       // ほしぞら: うきしまと うきしまの あいだ。あしもとが うかんで いる
       star_stop: { clutter: 0.3, frame: ['islandedge', 440, 400, 0.44], fore: ['cloudwisp', 1.6, 320], edge: ['crystal', 'islandedge', 'stoplamp'],
-        ground: [['stonedeck', 9, [520, 420]], ['voidgap', 6, [620, 520]]] },
+        areas: [['stonedeck', 9, [520, 420]], ['voidgap', 6, [620, 520]]] },
       // きおくのみずうみ: しずかな こはん。よはくを のこす
       memory_lake: { clutter: 0.22, frame: ['mistwood', 460, 300, 0.62], fore: ['lanternpost', 1.4, 240], edge: ['mistwood', 'bluetree', 'stonestack'],
-        ground: [['wetstone', 10, [460, 380]], ['oldroad', 7, [300, 460]]] },
+        areas: [['wetstone', 10, [460, 380]], ['oldroad', 7, [300, 460]]] },
     };
     for (const id in WORLD_SPACE) Object.assign(WORLDS[id], WORLD_SPACE[id]);
     // げんざいち(おうちに 市区町村を かさねる)は 地域 id を ふやさず、おうちの せかいの「まちの かんじ」だけを かえる
@@ -556,6 +557,11 @@
       for (const [a, b, kind] of base.paths || []) { const A = base.spots.find((s) => s.id === a), B = base.spots.find((s) => s.id === b); if (!A || !B) continue; segs.push({ a: A, b: B, kind: kind || 'path', half: PATH_HALF[kind || 'path'] || PATH_HALF.path, len: Math.hypot(B.x - A.x, B.z - A.z) }); }
       return segs;
     }
+    // みちの id: りょうはしの スポット id を じゅんばんを きめて つなぐ(せかいを なおしても ずれない)
+    const pathKey = (a, b) => (a < b ? a + '|' + b : b + '|' + a);
+    const segKey = (seg) => pathKey(seg.a.id, seg.b.id);
+    // めじるしを「見つけた」と する きょり。おおきい ものほど とおくから 見える
+    const MARK_SIGHT = { 1: 2600, 2: 1200, 3: 700 };
     // てんから いちばん ちかい みち: { dist, half, dir(こみちの むき、ラジアン), seg }
     function nearestPath(pt, world) {
       let best = null;
@@ -818,13 +824,13 @@
       }
       // ランドマーク・スポットの めじるし(おおきめ。あたりはんてい あり)
       for (const s of base.spots) {
-        if (s.landmark) { world.props.push({ landmark: s.landmark, emoji: s.prop || '🌳', x: s.x, z: s.z + s.r * 0.9, size: 560, spot: true, solid: true, layer: 'landmark', label: s.label, tier: s.lmTier || 1 }); continue; }
+        if (s.landmark) { world.props.push({ landmark: s.landmark, emoji: s.prop || '🌳', x: s.x, z: s.z + s.r * 0.9, size: 560, spot: true, solid: true, layer: 'landmark', label: s.label, tier: s.lmTier || 1, mid: 'lm:' + s.id }); continue; }
         if (!s.prop) continue;
         const px0 = s.x + (s.x < 0 ? -s.r - 30 : s.r + 30) * (s.kind === 'deep' ? 0 : 1), pz0 = s.z + 30;
         if (Object.prototype.hasOwnProperty.call(SPOT_PROP_STRUCT, s.prop)) {
           const st = SPOT_PROP_STRUCT[s.prop]; if (!st) continue; // その 地域の 主役(うみ そのもの など)に まかせて おかない
           const kind = typeof st === 'function' ? st(regionId) : st;
-          world.props.push({ struct: kind, x: px0, z: pz0, size: 210, ang: 0, side: s.x < 0 ? -1 : 1, region: regionId, spot: true, solid: true, layer: 'landmark', tier: 3 });
+          world.props.push({ struct: kind, x: px0, z: pz0, size: 210, ang: 0, side: s.x < 0 ? -1 : 1, region: regionId, spot: true, solid: true, layer: 'landmark', tier: 3, mid: 'mk:' + s.id, label: s.label });
           continue;
         }
         // たてもの・おおきな もの は そのまま、しょくぶつ・こもの は ひとまわり ちいさく
@@ -910,7 +916,7 @@
       // みずぎわに そう もの(濡れ砂・あさせ)で おきかたを かえる
       const ALONG_PATH = new Set(['road', 'sidewalk', 'crossing', 'oldroad', 'gravelbar', 'stonedeck', 'ridge', 'terrace']);
       const ALONG_SHORE = new Set(['wetsand', 'shallow', 'seagrass']);
-      for (const [kind, count, [aw, ah]] of base.ground || []) {
+      for (const [kind, count, [aw, ah]] of base.areas || []) {
         const n = Math.max(1, Math.round(count));
         if (ALONG_PATH.has(kind)) {
           const segs = world.segments.filter((g) => g.kind !== 'secret');
@@ -974,7 +980,7 @@
           const seed = regionId + ':hero:' + zn.id + k, a = hrand(seed + 'a') * TAU, d = 140 + hrand(seed + 'd') * (260 + k * 12);
           const x = zn.x + Math.sin(a) * d, z = zn.z + Math.cos(a) * d * 0.7;
           if (!onLand(x, z) || inSpotCore(x, z) || !offPath(x, z, hs * 0.22)) continue;
-          world.props.push({ struct: hk, x, z, size: hs, ang: 0, side: 1, region: regionId, layer: 'landmark', hero: true, solid: true, tier: 2 });
+          world.props.push({ struct: hk, x, z, size: hs, ang: 0, side: 1, region: regionId, layer: 'landmark', hero: true, solid: true, tier: 2, mid: 'hero:' + zn.id, label: zn.label, zone: zn.id });
           placed = true;
         }
       }
@@ -1263,6 +1269,24 @@
       return pt;
     }
 
+    // 旧セーブ(スポットしか きろくが ない)から ちずの きろくを あんぜんに 組みなおす。
+    // 見つけた スポットの 地区は 通った、りょうはしを 見つけた みちは 通った、
+    // その スポットの めじるしと 通った 地区の 主役は 見た、と みなす
+    function seedMapRecords(world, discoveredIds) {
+      const seen = discoveredIds instanceof Set ? discoveredIds : new Set(discoveredIds || []);
+      const zones = new Set();
+      for (const sp of world.spots) if (seen.has(sp.id) && sp.zone) zones.add(sp.zone);
+      const paths = new Set();
+      for (const sg of world.segments) if (seen.has(sg.a.id) && seen.has(sg.b.id)) paths.add(segKey(sg));
+      const marks = new Set();
+      for (const p of world.props) {
+        if (!p.mid) continue;
+        if (p.tier === 2) { if (p.zone && zones.has(p.zone)) marks.add(p.mid); continue; }
+        if (seen.has(p.mid.slice(p.mid.indexOf(':') + 1))) marks.add(p.mid);
+      }
+      return { zones: [...zones], paths: [...paths], marks: [...marks] };
+    }
+
     function createSimulation(init = {}) {
       let registry = init.registry || buildRegistry();
       let world = null, party = [], player = null, nearest = null, frame = 0, curSpot = null, mood = Object.assign({}, MOOD_DEFAULT);
@@ -1276,16 +1300,28 @@
       const camFx = { bob: 0, dist: 0, height: 0, yaw: 0, phase: 0 };
       let envNow = init.env || env();
       let discovered = new Set(init.discovered || []);
+      // ちず の「あるいた きろく」。spot の はっけん と おなじ ように、
+      // 地区(zone)・とおった みち(path)・見つけた めじるし(landmark) を おぼえる。
+      // いれものは id の Set だけ。あるいた ざひょうは のこさない
+      let visitedZones = new Set(init.visitedZones || []);
+      let walkedPaths = new Set(init.walkedPaths || []);
+      let foundMarks = new Set(init.foundMarks || []);
+      let curZoneId = null;
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
         party = companionsOf(registry);
         player = { x: world.entry.x, z: world.entry.z - 60, heading: 0, face: 1, bob: 0, moving: false, onPath: true };
         camera.x = player.x; camera.z = player.z; camera.yaw = 0; nearest = null; curSpot = null; inputActive = false;
-        discovered = new Set(opts.discovered || (opts.regionId === regionId ? [...discovered] : []) );
+        curZoneId = null;
+        const same = opts.regionId === regionId;
+        discovered = new Set(opts.discovered || (same ? [...discovered] : []));
+        visitedZones = new Set(opts.visitedZones || (same ? [...visitedZones] : []));
+        walkedPaths = new Set(opts.walkedPaths || (same ? [...walkedPaths] : []));
+        foundMarks = new Set(opts.foundMarks || (same ? [...foundMarks] : []));
         return world;
       }
-      enterRegion(init.regionId || 'home', { discovered: init.discovered });
+      enterRegion(init.regionId || 'home', { discovered: init.discovered, visitedZones: init.visitedZones, walkedPaths: init.walkedPaths, foundMarks: init.foundMarks });
       const spotAt = (pt) => { let best = null, bd = Infinity; for (const s of world.spots) { const d = dist(pt, s); if (d < s.r && d < bd) { bd = d; best = s; } } return best; };
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
@@ -1332,6 +1368,29 @@
         const s = spotAt(player);
         if (s !== curSpot) { curSpot = s; if (s) { const first = !discovered.has(s.id); if (first) discovered.add(s.id); events.push({ type: 'spot', spot: s, first }); } }
         mood = moodAt(world, player.x, player.z);
+        // ちずの きろく: この 地区へ きた / この みちを とおった / この めじるしを 見た
+        const zn = mood.zone;
+        if (zn && zn.id !== curZoneId) {
+          curZoneId = zn.id;
+          if (!visitedZones.has(zn.id)) { visitedZones.add(zn.id); events.push({ type: 'zone', zone: zn, first: true }); }
+        }
+        // みちは「はしに 立った」だけでは のこさない。すこしでも すすんだら のこす。
+        // ひみつの みちは りょうはしを 見つける まで ぜったいに のこさない(ちずが ばらして しまう)
+        if (np && np.dist <= np.half + 40 && np.t > 0.12 && np.t < 0.88) {
+          const sg = np.seg;
+          const ok = sg.kind !== 'secret' || (discovered.has(sg.a.id) && discovered.has(sg.b.id));
+          const pk = segKey(sg);
+          if (ok && !walkedPaths.has(pk)) { walkedPaths.add(pk); events.push({ type: 'path', key: pk, seg: sg }); }
+        }
+        if (frame % 12 === 0) {
+          for (const p of world.mapMarks || (world.mapMarks = world.props.filter((q) => q.mid))) {
+            if (foundMarks.has(p.mid)) continue;
+            const sight = MARK_SIGHT[p.tier] || 700;
+            if (Math.abs(p.x - player.x) > sight || Math.abs(p.z - player.z) > sight) continue;
+            if (Math.hypot(p.x - player.x, p.z - player.z) > sight) continue;
+            foundMarks.add(p.mid); events.push({ type: 'mark', mark: p, first: true });
+          }
+        }
         const prof = CAM_PROFILES[(curSpot && (curSpot.cam || (curSpot.secret ? 'secret' : curSpot.kind))) || (player.onPath && np && np.seg.kind === 'narrow' ? 'narrow' : 'default')] || CAM_PROFILES.default;
         camera.dist += (prof.dist - camera.dist) * Math.min(1, dt * RULES.cam.ease); camera.height += (prof.height - camera.height) * Math.min(1, dt * RULES.cam.ease);
         updateCamFx(dt, np);
@@ -1389,7 +1448,75 @@
       }
       const metCount = () => world.residents.filter((r) => r.met).length;
       // ちずの データ(UI は あとで): はっけんずみ の スポットと みち。かくし ばしょは みつけるまで のらない
-      const mapData = () => ({ zones: world.zones.map((z) => ({ id: z.id, label: z.label, x: z.x, z: z.z, spots: z.spots })), spots: world.spots.filter((s) => !s.secret || discovered.has(s.id)).map((s) => ({ id: s.id, label: s.label, x: s.x, z: s.z, kind: s.kind, zone: s.zone || null, secret: !!s.secret, discovered: discovered.has(s.id), current: s === curSpot })), paths: world.paths.filter(([a, b, k]) => k !== 'secret' || (discovered.has(a) && discovered.has(b))), landmarks: world.props.filter((p) => (p.landmark || p.hero) && p.tier).map((p) => ({ kind: p.landmark || p.struct, x: p.x, z: p.z, tier: p.tier, label: p.label || null })), len: world.len, halfW: world.halfW });
+      // ちずの もと。「あるいた けっか」だけを かえす: まだ 行って いない 地区の
+      // みち・スポット・ひみつは 1つも 入らない。え には いっさい さわらないので、
+      // Three.js に かわっても この データの まま ちずを 組める
+      const mapData = () => {
+        const L = worldLayers(world);
+        const zoneById = new Map(L.zone.map((z) => [z.id, z]));
+        const visited = (id) => visitedZones.has(id);
+        // まだ 行って いない 地区でも、ひみつ では ない みちで つながって いれば
+        // 「あのへんに なにか ある」だけ うっすら 出す(ひみつ しか 通じて いない 地区は 出さない)
+        const hinted = new Set();
+        for (const sg of world.segments) {
+          if (sg.kind === 'secret') continue;
+          const az = sg.a.zone, bz = sg.b.zone; if (!az || !bz || az === bz) continue;
+          if (visited(az) && !visited(bz)) hinted.add(bz);
+          if (visited(bz) && !visited(az)) hinted.add(az);
+        }
+        const zones = L.zone.map((z) => {
+          const seen = visited(z.id);
+          // ちずに かく かたちは「見つけた スポット」から。worldLayers の bounds は
+          // ひみつも 入れて いる ので、そのまま つかうと ぬりの ひろがりで ひみつの
+          // いちが わかって しまう
+          const own = z.spots.filter((id) => discovered.has(id)).map((id) => world.spots.find((q) => q.id === id));
+          const bounds = own.length
+            ? { minX: Math.min(...own.map((q) => q.x - q.r)), maxX: Math.max(...own.map((q) => q.x + q.r)),
+                minZ: Math.min(...own.map((q) => q.z - q.r)), maxZ: Math.max(...own.map((q) => q.z + q.r)) }
+            : { minX: z.x - 420, maxX: z.x + 420, minZ: z.z - 420, maxZ: z.z + 420 };
+          return { id: z.id, label: (world.zones.find((q) => q.id === z.id) || {}).label || z.id,
+            x: z.x, z: z.z, bounds, neighbors: z.neighbors, tint: z.tint, fog: z.fog, open: z.open,
+            visited: seen, hinted: !seen && hinted.has(z.id),
+            spots: seen ? own.map((q) => q.id) : [] };
+        });
+        const spots = world.spots.filter((q) => discovered.has(q.id)).map((q) => ({
+          id: q.id, label: q.label, x: q.x, z: q.z, kind: q.kind, zone: q.zone || null,
+          secret: !!q.secret, hub: !!q.hub, current: q === curSpot }));
+        // みちは りょうはしを 見つけて いる ときだけ かく。そうしないと、
+        // ふつうの みちで つながった ひみつの ばしょの いちが ちずから わかって しまう
+        const paths = world.segments.filter((sg) => walkedPaths.has(segKey(sg))
+            && discovered.has(sg.a.id) && discovered.has(sg.b.id))
+          .map((sg) => ({ key: segKey(sg), a: sg.a.id, b: sg.b.id, kind: sg.kind,
+            ax: sg.a.x, az: sg.a.z, bx: sg.b.x, bz: sg.b.z }));
+        // めじるしを ちずに のせる じょうけん: 大(tier 1)は とおくから 見えた だけで のる。
+        // 中(tier 2)は その 地区へ 入ってから、小(tier 3)は その スポットを 見つけてから
+        const markShown = (q) => {
+          if (!foundMarks.has(q.mid)) return false;
+          if (q.mid.startsWith('hero:')) return visitedZones.has(q.mid.slice(5));
+          const sid = q.mid.slice(q.mid.indexOf(':') + 1);
+          return q.tier === 1 ? true : discovered.has(sid);
+        };
+        const landmarks = world.props.filter((q) => q.mid && markShown(q)).map((q) => ({
+          mid: q.mid, kind: q.landmark || q.struct, x: q.x, z: q.z, tier: q.tier,
+          label: q.label || null, zone: q.zone || null }));
+        // すすみぐあい: ひみつを かぞえに 入れないので、のこりの ひみつの かずは わからない
+        const openSpots = world.spots.filter((q) => !q.secret);
+        const foundSecrets = world.spots.filter((q) => q.secret && discovered.has(q.id)).length;
+        const foundOpen = openSpots.filter((q) => discovered.has(q.id)).length;
+        const openZoneIds = new Set(openSpots.map((q) => q.zone).filter(Boolean));
+        for (const id of visitedZones) openZoneIds.add(id);
+        const denom = openSpots.length + foundSecrets;
+        return {
+          regionId: world.regionId, len: world.len, halfW: world.halfW,
+          ground: world.ground, terrain: world.terrain || null, streaming: L.streaming,
+          zones, spots, paths, landmarks,
+          here: { x: player.x, z: player.z, heading: camera.yaw, zone: curZoneId, spot: curSpot ? curSpot.id : null },
+          progress: {
+            percent: denom ? Math.round(((foundOpen + foundSecrets) / denom) * 100) : 0,
+            zones: [...visitedZones].filter((id) => zoneById.has(id)).length, zoneTotal: openZoneIds.size,
+          },
+        };
+      };
       // レンダラーに わたす「いまの せかい」。ぜんぶ ワールド座標。かきかえない やくそく
       // え に わたす カメラ: りぐ + えんしゅつの さ。え は これを そのまま つかう
       const viewCam = { x: 0, z: 0, yaw: 0, dist: 0, height: 0 };
@@ -1409,7 +1536,8 @@
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
         setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); camera.x = player.x; camera.z = player.z; },
-        get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; },
+        get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
+        loadMapRecords(rec) { if (!rec) return; if (rec.zones) visitedZones = new Set(rec.zones); if (rec.paths) walkedPaths = new Set(rec.paths); if (rec.marks) foundMarks = new Set(rec.marks); },
         metCount,
       };
     }
@@ -2731,6 +2859,275 @@
         resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; } };
     }
 
+    // ================= ちず(あるいた きろくを 見る がめん) =================
+    // ここは mapData() の データだけを よんで え に する。せかいの けいさんは しない。
+    // Three.js に かわっても mapData() は そのままな ので、この ロジックは つかい まわせる
+    const MAP_TUNING = { pad: 26, minZoom: 1, maxZoom: 3.2, zoomStep: 0.6 };
+    const hexLum = (hex) => { const c = hexToRgb(hex || '#888888'); return (c[0] * 0.299 + c[1] * 0.587 + c[2] * 0.114) / 255; };
+    const mapMix = (a, b, t) => { const x = hexToRgb(a), y = hexToRgb(b); return `${Math.round(x[0] + (y[0] - x[0]) * t)},${Math.round(x[1] + (y[1] - x[1]) * t)},${Math.round(x[2] + (y[2] - x[2]) * t)}`; };
+
+    // 地域ごとの「かみの いろ」と「インクの いろ」。くらい 地域(しんかい・ほしぞら・きおくのみずうみ)は
+    // くらい かみに 白い インク。地形の いろから きめるので、地域を ふやしても そのまま つかえる
+    function mapPalette(md) {
+      const g0 = (md.ground && md.ground[0]) || '#9ab07a', g1 = (md.ground && md.ground[1]) || '#6d8a55';
+      // くらい かみを つかうのは、ほんとうに くらい 地域 だけ(しんかい・ほしぞら)。
+      // とかい や きおくのみずうみ は あかるい かみの ほうが みちが よめる
+      const dark = hexLum(g1) < 0.22;
+      return {
+        // かみは どの 地域の 地面より あかるく する。そうしないと
+        // 「かかれた ところ」と「まだ かかれて いない ところ」の さかいが 見えない
+        paper: dark ? '#171c31' : '#f8f2e3', grid: dark ? 'rgba(255,255,255,.055)' : 'rgba(120,96,58,.085)',
+        ink: dark ? '#d5def4' : '#544530', faint: dark ? 'rgba(213,222,244,.30)' : 'rgba(84,69,48,.30)',
+        land: g0, landEdge: g1, water: dark ? '#0e1a36' : '#6fb6d8', dark,
+      };
+    }
+
+    // ちずの もと(mapData)から え の じゅんびを する。え は まだ かかない
+    function mapLayout(md, W, H, zoom, panX, panY) {
+      const P = MAP_TUNING.pad;
+      const wW = md.halfW * 2, wH = md.len;
+      const base = Math.min((W - P * 2) / wW, (H - P * 2) / wH);
+      const s = base * zoom;
+      const cx = W / 2 + panX, cy = H / 2 + panY;
+      // よこ: せかいの x そのまま。たて: おくへ いくほど うえ(あるいて きた ほうが した)
+      const toX = (x) => cx + x * s;
+      const toY = (z) => cy + (wH / 2 - z) * s;
+      return { s, toX, toY, base, W, H,
+        fromX: (px) => (px - cx) / s, fromZ: (py) => wH / 2 - (py - cy) / s };
+    }
+
+    // ちずを かく。もどり値は「タップで あたった スポット」を しらべる ための ひょう
+    function drawMap(ctx, md, L, pal, opts = {}) {
+      const { W, H, s, toX, toY } = L;
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = pal.paper; ctx.fillRect(0, 0, W, H);
+      // かみの め(うすい ます目)。まだ かかれて いない ところ は この まま
+      ctx.strokeStyle = pal.grid; ctx.lineWidth = 1;
+      const gs = Math.max(26, 900 * s);
+      ctx.beginPath();
+      for (let x = (toX(-md.halfW) % gs + gs) % gs; x < W; x += gs) { ctx.moveTo(Math.round(x) + 0.5, 0); ctx.lineTo(Math.round(x) + 0.5, H); }
+      for (let y = (toY(md.len) % gs + gs) % gs; y < H; y += gs) { ctx.moveTo(0, Math.round(y) + 0.5); ctx.lineTo(W, Math.round(y) + 0.5); }
+      ctx.stroke();
+      // 地域の わく(かたちだけ。なかみは 出さない)
+      ctx.strokeStyle = pal.faint; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]);
+      ctx.strokeRect(toX(-md.halfW), toY(md.len), md.halfW * 2 * s, md.len * s);
+      ctx.setLineDash([]);
+
+      // ---- あるいた ところ(地区)を「かきこんだ」ように ぬる ----
+      // 地区 1つ = やわらかい しみ 1つ。ふちを ぼかすので「手で ぬった ちず」に 見える
+      const blob = (c, z, rgb, alpha, grow, ox) => {
+        const b = z.bounds;
+        const rx = Math.max(((b.maxX - b.minX) / 2 + 280) * s * grow, 18);
+        const ry = Math.max(((b.maxZ - b.minZ) / 2 + 280) * s * grow, 18);
+        const px = toX((b.minX + b.maxX) / 2 + (ox || 0)), py = toY((b.minZ + b.maxZ) / 2);
+        c.save(); c.translate(px, py); c.scale(rx, ry);
+        const g = c.createRadialGradient(0, 0, 0.2, 0, 0, 1);
+        g.addColorStop(0, `rgba(${rgb},${alpha})`); g.addColorStop(0.68, `rgba(${rgb},${alpha})`); g.addColorStop(1, `rgba(${rgb},0)`);
+        c.fillStyle = g; c.beginPath(); c.arc(0, 0, 1, 0, TAU); c.fill(); c.restore();
+      };
+      const rgbOf = (hex) => hexToRgb(hex).join(',');
+      const landBase = mapMix(pal.land, pal.landEdge, 0.42);
+      const landRgb = (z) => (z.tint ? mapMix(z.tint, pal.landEdge, 0.3) : landBase);
+      const mask = opts.mask; // おなじ おおきさの さぎょう canvas(あれば みずを かたちで きる ために つかう)
+      const landC = mask ? mask.ctx : ctx;
+      if (mask) mask.ctx.clearRect(0, 0, W, H);
+      // うみの ある 地域は、あるいた ところ から みずぎわの ぶんだけ よこへ のばす。
+      // そうすると「あるいた ぶんの かいがんせん」が ちずに のこる
+      const coastSide = md.terrain && md.terrain.kind === 'coast' ? (md.terrain.side || -1) : 0;
+      for (const z of md.zones) if (z.visited) {
+        blob(landC, z, rgbOf(pal.landEdge), 0.3, 1.1);       // ふちを やわらかく
+        blob(landC, z, landRgb(z), 0.97, 1);
+        if (coastSide) blob(landC, z, landRgb(z), 0.97, 0.9, coastSide * 700);
+      }
+      // ---- みず(あるいた ところ だけ。まだ 行って いない ところの かたちは 出ない) ----
+      if (mask && md.terrain && md.terrain.pts && md.terrain.pts.length) {
+        const mc = mask.ctx, t = md.terrain;
+        mc.save(); mc.globalCompositeOperation = 'source-atop'; mc.fillStyle = pal.water; mc.strokeStyle = pal.water;
+        if (t.kind === 'coast') {
+          const edge = toX(t.side < 0 ? -md.halfW - 400 : md.halfW + 400);
+          mc.beginPath(); mc.moveTo(edge, toY(t.pts[0][1]));
+          for (const [x, z] of t.pts) mc.lineTo(toX(x), toY(z));
+          mc.lineTo(edge, toY(t.pts[t.pts.length - 1][1])); mc.closePath(); mc.fill();
+        } else {
+          mc.lineWidth = Math.max(2.5, (t.half || 200) * 2 * s); mc.lineJoin = 'round'; mc.lineCap = 'round';
+          mc.beginPath(); t.pts.forEach(([x, z], i) => (i ? mc.lineTo(toX(x), toY(z)) : mc.moveTo(toX(x), toY(z)))); mc.stroke();
+        }
+        mc.restore();
+      }
+      if (mask) ctx.drawImage(mask.canvas, 0, 0, W, H);
+      // まだ 行って いない となりの 地区は「なにか ある」だけ。みち も スポット も 出さない
+      for (const z of md.zones) if (z.hinted) blob(ctx, z, rgbOf(pal.landEdge), pal.dark ? 0.12 : 0.16, 0.72, 0);
+
+      // ---- とおった みち ----
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (const p of md.paths) {
+        const wide = p.kind === 'wide' ? 4.2 : p.kind === 'narrow' ? 2.2 : p.kind === 'secret' ? 1.8 : 3;
+        ctx.strokeStyle = p.kind === 'secret' ? pal.faint : pal.ink;
+        ctx.globalAlpha = p.kind === 'secret' ? 0.75 : 0.62;
+        ctx.lineWidth = Math.max(1.2, wide * Math.min(1.6, L.s / L.base));
+        if (p.kind === 'secret') ctx.setLineDash([4, 4]);
+        ctx.beginPath(); ctx.moveTo(toX(p.ax), toY(p.az)); ctx.lineTo(toX(p.bx), toY(p.bz)); ctx.stroke();
+        ctx.setLineDash([]);
+      }
+      ctx.globalAlpha = 1;
+
+      // ---- 見つけた スポット ----
+      const hits = [];
+      for (const sp of md.spots) {
+        const x = toX(sp.x), y = toY(sp.z);
+        const big = sp.hub || sp.kind === 'plaza';
+        const r = sp.secret ? 3.4 : big ? 5.2 : 3.8;
+        ctx.fillStyle = pal.paper; ctx.strokeStyle = pal.ink; ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        if (sp.secret) { ctx.moveTo(x, y - r - 1); ctx.lineTo(x + r + 1, y); ctx.lineTo(x, y + r + 1); ctx.lineTo(x - r - 1, y); ctx.closePath(); }
+        else ctx.arc(x, y, r, 0, TAU);
+        ctx.fill(); ctx.stroke();
+        if (big) { ctx.fillStyle = pal.ink; ctx.beginPath(); ctx.arc(x, y, r * 0.42, 0, TAU); ctx.fill(); }
+        hits.push({ id: sp.id, label: sp.label, x, y, r: Math.max(12, r + 8), secret: sp.secret });
+      }
+
+      // ---- 見つけた めじるし(大・中・小) ----
+      for (const lm of md.landmarks) {
+        const x = toX(lm.x), y = toY(lm.z);
+        const r = lm.tier === 1 ? 9 : lm.tier === 2 ? 6 : 3.6;
+        ctx.strokeStyle = pal.ink; ctx.fillStyle = pal.dark ? 'rgba(255,240,190,.92)' : 'rgba(255,246,214,.95)';
+        ctx.lineWidth = lm.tier === 3 ? 1.2 : 1.7;
+        ctx.beginPath();
+        if (lm.tier === 1) { for (let k = 0; k < 5; k++) { const a = -Math.PI / 2 + k * TAU / 5; const b = a + TAU / 10; ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); ctx.lineTo(x + Math.cos(b) * r * 0.46, y + Math.sin(b) * r * 0.46); } ctx.closePath(); }
+        else if (lm.tier === 2) { ctx.moveTo(x, y - r); ctx.lineTo(x + r, y + r * 0.8); ctx.lineTo(x - r, y + r * 0.8); ctx.closePath(); }
+        else ctx.arc(x, y, r, 0, TAU);
+        ctx.fill(); ctx.stroke();
+      }
+
+      // ---- なまえ ----
+      // なまえは かさならない ぶんだけ 出す(ひろい せかいだと かさなって よめなく なる)
+      const taken = [];
+      const label = (text, x, y, size, strong) => {
+        ctx.font = `${strong ? 'bold ' : ''}${size}px system-ui, -apple-system, sans-serif`;
+        const w = ctx.measureText(text).width, h = size + 3;
+        const box = [x - w / 2 - 2, y - h, x + w / 2 + 2, y + 2];
+        if (box[0] < 2 || box[2] > W - 2 || box[1] < 2 || box[3] > H - 2) return false; // はしで きれる なまえは 出さない
+        for (const t of taken) if (box[0] < t[2] && box[2] > t[0] && box[1] < t[3] && box[3] > t[1]) return false;
+        taken.push(box);
+        ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+        ctx.lineWidth = 3; ctx.strokeStyle = pal.paper; ctx.strokeText(text, x, y);
+        ctx.fillStyle = pal.ink; ctx.fillText(text, x, y);
+        return true;
+      };
+      for (const z of md.zones) if (z.visited) label(z.label, toX(z.x), toY(z.z) - 12, 11, true);
+      const zoomed = L.s / L.base >= 1.7;
+      for (const lm of md.landmarks) if (lm.tier === 1 && lm.label) label(lm.label, toX(lm.x), toY(lm.z) - 13, 10, false);
+      for (const sp of md.spots) {
+        const show = opts.picked === sp.id || (zoomed && !sp.secret) || (!zoomed && sp.hub);
+        if (show) label(sp.label, toX(sp.x), toY(sp.z) - 9, 10, opts.picked === sp.id);
+      }
+
+      // ---- いまここ ----
+      const hx = toX(md.here.x), hy = toY(md.here.z);
+      ctx.save(); ctx.translate(hx, hy);
+      ctx.rotate(-(md.here.heading || 0));
+      ctx.fillStyle = 'rgba(255,90,90,.92)'; ctx.strokeStyle = pal.paper; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(0, -11); ctx.lineTo(5.4, 4); ctx.lineTo(0, 1.4); ctx.lineTo(-5.4, 4); ctx.closePath();
+      ctx.fill(); ctx.stroke(); ctx.restore();
+      ctx.strokeStyle = 'rgba(255,90,90,.8)'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(hx, hy, 9, 0, TAU); ctx.stroke();
+      return hits;
+    }
+
+    // ちずの がめん。たんさくの うえに かぶせて ひらき、とじると おなじ ばしょから つづき。
+    // ひらいて いる あいだ だけ え を かく(たんさくの fps には なにも 足さない)
+    function openMapScreen(host, sim, hooks = {}) {
+      const md0 = sim.mapData();
+      const pal = mapPalette(md0);
+      const box = document.createElement('div');
+      box.classList.add('mgr-map');
+      if (pal.dark) box.classList.add('mgr-map-dark');
+      box.innerHTML = `
+        <div class="mgr-map-top"><span class="mgr-map-name"></span><span class="mgr-map-prog"></span></div>
+        <div class="mgr-map-body"><canvas class="mgr-map-canvas"></canvas><div class="mgr-map-tip hidden"></div></div>
+        <div class="mgr-map-bar">
+          <button type="button" class="mg-tap-btn mgr-map-zoom" data-d="-1" aria-label="ちいさく">−</button>
+          <button type="button" class="mg-tap-btn mgr-map-zoom" data-d="1" aria-label="おおきく">＋</button>
+          <button type="button" class="mg-tap-btn primary mgr-map-close">もどる</button>
+        </div>`;
+      host.appendChild(box);
+      const canvas = box.querySelector('.mgr-map-canvas');
+      const body = box.querySelector('.mgr-map-body');
+      const tip = box.querySelector('.mgr-map-tip');
+      const ctx = canvas.getContext('2d');
+      let W = 0, H = 0, dpr = 1, mask = null;
+      let zoom = 1, panX = 0, panY = 0, picked = null, hits = [];
+
+      function measure() {
+        const r = body.getBoundingClientRect ? body.getBoundingClientRect() : { width: 320, height: 420 };
+        W = Math.max(120, Math.round(r.width || body.clientWidth || 320));
+        H = Math.max(120, Math.round(r.height || body.clientHeight || 420));
+        dpr = Math.min(2, (typeof window !== 'undefined' && window.devicePixelRatio) || 1);
+        canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (typeof document !== 'undefined' && document.createElement) {
+          mask = mask || { canvas: document.createElement('canvas') };
+          mask.canvas.width = Math.round(W * dpr); mask.canvas.height = Math.round(H * dpr);
+          mask.ctx = mask.canvas.getContext('2d'); mask.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+      }
+      // パンの はんい: ちずが がめんから 出て しまわない ように おさえる
+      function clampPan(md, L) {
+        const halfW = md.halfW * L.s, halfH = (md.len / 2) * L.s;
+        const mx = Math.max(0, halfW - W / 2 + MAP_TUNING.pad), my = Math.max(0, halfH - H / 2 + MAP_TUNING.pad);
+        panX = clamp(panX, -mx, mx); panY = clamp(panY, -my, my);
+      }
+      function draw() {
+        if (!W || !H) measure();
+        const md = sim.mapData();
+        let L = mapLayout(md, W, H, zoom, panX, panY);
+        clampPan(md, L); L = mapLayout(md, W, H, zoom, panX, panY);
+        hits = drawMap(ctx, md, L, pal, { mask, picked });
+        box.querySelector('.mgr-map-name').textContent = (hooks.title && hooks.title()) || '';
+        const p = md.progress;
+        box.querySelector('.mgr-map-prog').textContent = `たんさく ${p.percent}% ・ ${p.zones}／${p.zoneTotal} ちく`;
+        if (picked) { const h = hits.find((q) => q.id === picked); if (!h) { picked = null; tip.classList.add('hidden'); } }
+      }
+      // ゆびで うごかす。1本ゆび = うごかす、はなした ところで タップなら スポットを えらぶ
+      let dragId = null, dragged = 0, lx = 0, ly = 0;
+      const pos = (e) => { const r = canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+      const onDown = (e) => { if (dragId !== null) return; dragId = e.pointerId; dragged = 0; const q = pos(e); lx = q.x; ly = q.y; if (canvas.setPointerCapture) { try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* ゆびが はなれて いた */ } } };
+      const onMove = (e) => { if (dragId !== e.pointerId) return; const q = pos(e); const dx = q.x - lx, dy = q.y - ly; lx = q.x; ly = q.y; dragged += Math.abs(dx) + Math.abs(dy); if (dragged > 4) { panX += dx; panY += dy; draw(); } e.preventDefault && e.preventDefault(); };
+      const onUp = (e) => {
+        if (dragId !== e.pointerId) return; dragId = null;
+        if (dragged > 6) return;
+        const q = pos(e);
+        let best = null, bd = Infinity;
+        for (const h of hits) { const d = Math.hypot(h.x - q.x, h.y - q.y); if (d < h.r && d < bd) { bd = d; best = h; } }
+        picked = best ? best.id : null;
+        if (best) { tip.textContent = `${best.secret ? '🔍 ' : ''}${best.label}`; tip.classList.remove('hidden'); }
+        else tip.classList.add('hidden');
+        draw();
+      };
+      canvas.addEventListener('pointerdown', onDown);
+      canvas.addEventListener('pointermove', onMove);
+      canvas.addEventListener('pointerup', onUp);
+      canvas.addEventListener('pointercancel', onUp);
+      for (const b of box.querySelectorAll('.mgr-map-zoom')) b.addEventListener('click', () => {
+        const d = Number(b.getAttribute('data-d')) || 0;
+        const z0 = zoom, z1 = clamp(zoom + d * MAP_TUNING.zoomStep, MAP_TUNING.minZoom, MAP_TUNING.maxZoom);
+        if (z1 === z0) return;
+        if (z0 === MAP_TUNING.minZoom && z1 > z0) {
+          // はじめて よせる ときは「いま いる ところ」を まんなかに もってくる
+          const md = sim.mapData(), L = mapLayout(md, W, H, z1, 0, 0);
+          panX = W / 2 - L.toX(md.here.x); panY = H / 2 - L.toY(md.here.z);
+        } else { panX *= z1 / z0; panY *= z1 / z0; } // がめんの まんなかは そのまま
+        zoom = z1; draw();
+      });
+      const close = () => { if (!box.parentNode) return; box.parentNode.removeChild(box); if (typeof window !== 'undefined') window.removeEventListener('resize', onResize); if (hooks.onClose) hooks.onClose(); };
+      box.querySelector('.mgr-map-close').addEventListener('click', close);
+      const onResize = () => { measure(); draw(); };
+      if (typeof window !== 'undefined' && window.addEventListener) window.addEventListener('resize', onResize);
+      measure(); draw();
+      return { close, draw, get zoom() { return zoom; }, el: box };
+    }
+
     // ================= がめん(DOM + にゅうりょく + フレームループ) =================
     // ここは「せかい」と「え」を つなぐだけ。opts.renderer で レンダラーを さしかえられる
     function start(container, opts = {}) {
@@ -2742,18 +3139,35 @@
       let running = true, rafId = null, last = null, frame = 0, banner = null, bannerUntil = 0, lastHint = null;
       // おもい ときは えを 2フレームに 1かい(せかいの けいさんは まいフレーム)。フレームの ながさの へいきんで じどう
       let frameEma = 0.016, halfRate = tier >= 2;
+      // ちずの きろくを よみこむ。旧セーブ(きろくが ない)の ときは すでに 見つけた
+      // スポットから 組みなおして 1かいだけ 書きこむ。ここで もどる ことは ない
+      function loadMapRecords(regionId) {
+        const stored = typeof S.mapRecords === 'function' ? S.mapRecords(regionId) : null;
+        const missing = !stored || stored.zones === null || stored.paths === null || stored.marks === null;
+        const seeded = missing ? seedMapRecords(sim.world, sim.discovered) : null;
+        if (seeded && typeof S.seedMapRecords === 'function') S.seedMapRecords(regionId, seeded);
+        sim.loadMapRecords({
+          zones: (stored && stored.zones) || (seeded ? seeded.zones : []),
+          paths: (stored && stored.paths) || (seeded ? seeded.paths : []),
+          marks: (stored && stored.marks) || (seeded ? seeded.marks : []),
+        });
+      }
+      const saveMapBits = (kind, ids) => { if (typeof S.recordMapBits === 'function') S.recordMapBits(sim.world.regionId, kind, ids); };
+      const newMarks = []; let mapAdded = false, mapGlowTimer = null;
+      loadMapRecords(regionId0);
       const regionLabel = () => (typeof S.regionLabel === 'function' ? S.regionLabel(sim.world.regionId, sim.world.local) : sim.world.regionId);
       const HINT_DEFAULT = 'パッドを なぞって あるく。だれかに ちかづくと「はなす」';
       if (container.classList) container.classList.add('meguru-overlay');
       container.innerHTML = `
         <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrCount"></span><span id="mgrFound"></span></div>
-        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div></div>
+        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
       const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
       const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
       const canvas = container.querySelector('#mgrCanvas');
       const wrap = container.querySelector('.mgr-wrap');
+      const mapBtn = container.querySelector('#mgrMap');
       // たんさく がめんの たかさ。
       // ヒントと パッドは overlay の したに はりつく(margin-top: auto)ので、
       // canvas を ちぢめても パッドは 上がらない。だから「この overlay が つかえる
@@ -2874,6 +3288,7 @@
       preload();
       function enterWorld(regionId) {
         sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [] });
+        loadMapRecords(regionId);
         preload();
         sim.setEnv(env());
         talkBtn.disabled = true; showSpot(null);
@@ -2898,8 +3313,14 @@
         for (const ev of events) {
           if (ev.type === 'met') { if (typeof S.recordMet === 'function') S.recordMet(ev.actor.key); hud(); }
           else if (ev.type === 'nearest') talkBtn.disabled = !ev.actor;
-          else if (ev.type === 'spot') { showSpot(ev.spot); if (ev.first) { showBanner(`${ev.spot.label}を みつけた`, 1500); sfx('pop'); if (typeof S.recordSpot === 'function') S.recordSpot(sim.world.regionId, ev.spot.id); } }
+          else if (ev.type === 'spot') { showSpot(ev.spot); if (ev.first) { showBanner(`${ev.spot.label}を みつけた`, 1500); sfx('pop'); if (typeof S.recordSpot === 'function') S.recordSpot(sim.world.regionId, ev.spot.id); mapAdded = true; } }
+          else if (ev.type === 'zone' && ev.first) { saveMapBits('zones', ev.zone.id); mapAdded = true; }
+          else if (ev.type === 'path') saveMapBits('paths', ev.key);
+          else if (ev.type === 'mark' && ev.first) newMarks.push(ev.mark.mid);
         }
+        if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; }
+        // ちずに ふえた ことを、おおげさに しないで しらせる(「ちず」ボタンが すこし ひかる)
+        if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
         const nearest = sim.nearest;
         const hint = nearest ? `${nearest.label}が ${VERBS[nearest.state] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
@@ -2917,6 +3338,21 @@
         if (typeof S.recordTalk === 'function') S.recordTalk(r.actor.key);
       }
       talkBtn.addEventListener('click', talk);
+      // ちず: たんさくの ループを とめて かぶせる。とじると おなじ ばしょから つづき。
+      // ひらいて いる あいだ は draw() を よばない ので、たんさくの え には なにも 足さない
+      let mapScreen = null;
+      function openMap() {
+        if (mapScreen || !running) return;
+        mapBtn.classList.remove('mgr-map-new');
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        last = null;
+        sfx('open');
+        mapScreen = openMapScreen(container, sim, {
+          title: () => `${plainLabel(sim.world.regionId)}の ちず`,
+          onClose: () => { mapScreen = null; if (running) { last = null; layoutCanvas(); rafId = requestAnimationFrame(frameFn); } },
+        });
+      }
+      mapBtn.addEventListener('click', openMap);
       travelBtn.addEventListener('click', () => { if (typeof S.openTravel === 'function') S.openTravel(); });
       homeBtn.addEventListener('click', () => stop());
       function stop() {
@@ -2924,6 +3360,8 @@
         if (typeof window !== 'undefined' && typeof window.removeEventListener === 'function') window.removeEventListener('resize', onResize);
         if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.removeEventListener === 'function') window.visualViewport.removeEventListener('resize', onResize);
         if (resizeTimer) clearTimeout(resizeTimer);
+        if (mapScreen) { mapScreen.close(); mapScreen = null; }
+        if (mapGlowTimer) clearTimeout(mapGlowTimer);
         pad.destroy(); renderer.destroy && renderer.destroy();
         if (container.classList) container.classList.remove('meguru-overlay');
         if (typeof S.onExit === 'function') S.onExit();
@@ -2931,9 +3369,9 @@
       rafId = requestAnimationFrame(frameFn);
       // ならびの けんさ よう(テストと 実機の しらべ もの に つかう)
       const layoutInfo = () => ({ limit: overlayBottomLimitPx(), avail: overlayAvailPx(), over: overflowBelowPx(), shrink: shrinkPx, H, want: availHeight() });
-      return { stop, layoutInfo, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
+      return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
+    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
   };
 })();

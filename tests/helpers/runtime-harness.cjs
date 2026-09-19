@@ -43,7 +43,9 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       querySelectorAll: selector => selector === 'button' ? el.children.filter(c => c.tagName === 'BUTTON')
         : /^\.mg-(drop-target|drag-item|bento-preview)$/.test(selector)
           ? el.children.filter(c => c.isConnected && c.classList.contains(selector.slice(1))) : [],
-      appendChild(child) { child.isConnected = true; el.children.push(child); return child; },
+      appendChild(child) { child.isConnected = true; child.parentNode = el; el.children.push(child); return child; },
+      removeChild(child) { const i = el.children.indexOf(child); if (i >= 0) el.children.splice(i, 1); child.isConnected = false; child.parentNode = null; return child; },
+      remove() { if (el.parentNode && el.parentNode.removeChild) el.parentNode.removeChild(el); },
       animate(frames, options) {
         const animation = {frames, options, playState: 'running', cancel() {
           animation.playState = 'idle'; timers.delete(animation.timer);

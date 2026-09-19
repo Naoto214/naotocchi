@@ -13891,12 +13891,41 @@
     // スポットの はっけん(地域ごと)。ずかん・じっせきとは べつの きろく
     recordSpot: (regionId, spotId) => { const m = meguruStats(); const list = m.spots[regionId] || (m.spots[regionId] = []); if (!list.includes(spotId)) { list.push(spotId); saveState(); } },
     discoveredSpots: (regionId) => { const m = meguruStats(); return (m.spots[regionId] || []).slice(); },
+    // ちず(あるいた きろく)。地区・とおった みち・見つけた めじるし を id だけで もつ。
+    // あるいた ざひょうは のこさない ので、ふえかたは せかいの おおきさ ぶんで とまる
+    recordMapBits: (regionId, kind, ids) => {
+      const m = meguruStats(); const bag = m[kind]; if (!bag) return;
+      const list = bag[regionId] || (bag[regionId] = []);
+      let added = false;
+      for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !list.includes(id)) { list.push(id); added = true; }
+      if (added) saveState();
+    },
+    // その地域の きろくを よむ。まだ 一度も きろくして いない ときは null(= 旧セーブ)。
+    // よびだしがわが「すでに 見つけた スポット」から あんぜんに 組みなおす
+    mapRecords: (regionId) => {
+      const m = meguruStats();
+      const read = (bag) => (Object.prototype.hasOwnProperty.call(bag, regionId) ? (bag[regionId] || []).slice() : null);
+      return { zones: read(m.zones), paths: read(m.paths), marks: read(m.marks) };
+    },
+    seedMapRecords: (regionId, rec) => {
+      const m = meguruStats(); let changed = false;
+      for (const kind of ['zones', 'paths', 'marks']) {
+        const bag = m[kind];
+        if (Object.prototype.hasOwnProperty.call(bag, regionId)) continue;
+        bag[regionId] = ((rec && rec[kind]) || []).slice(); changed = true;
+      }
+      if (changed) saveState();
+    },
   }) : null;
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
     if (!m.met || typeof m.met !== 'object') m.met = {};
     if (!m.talks || typeof m.talks !== 'object') m.talks = {};
     if (!m.spots || typeof m.spots !== 'object') m.spots = {};
+    // ちずの きろく。旧セーブには ない ので、ここで からの いれものだけ 用意する
+    if (!m.zones || typeof m.zones !== 'object') m.zones = {};
+    if (!m.paths || typeof m.paths !== 'object') m.paths = {};
+    if (!m.marks || typeof m.marks !== 'object') m.marks = {};
     return m;
   }
   function startMeguru() {
