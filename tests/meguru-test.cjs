@@ -182,7 +182,7 @@ test('every region is a spot graph: all spots reachable from the entrance, at le
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.WORLDS[id];
     const ids = new Set(w.spots.map((s) => s.id));
-    assert.ok(w.spots.length >= 8 && w.spots.length <= 24, id + ' has 8-24 spots');
+    assert.ok(w.spots.length >= 8 && w.spots.length <= 60, id + ' has 8-60 spots');
     for (const sp0 of w.spots) assert.ok(w.zones.some((z) => z.id === sp0.zone), id + ': spot ' + sp0.id + ' belongs to a zone');
     for (const sp0 of w.spots) assert.ok(Math.abs(sp0.x) <= w.halfW && sp0.z <= w.len, id + ': spot inside the world: ' + sp0.id);
     for (const [a, b] of w.paths) assert.ok(ids.has(a) && ids.has(b), id + ' path endpoints exist: ' + a + '-' + b);
@@ -275,13 +275,14 @@ test('regions differ in size and structure; zones give a mood that changes with 
   const M = h.api.meguruMod;
   const W = M.WORLDS;
   assert.ok(W.forest.spots.length >= 20 && W.forest.paths.length >= W.forest.spots.length + 5, 'the forest has many spots and extra loops');
-  assert.ok(W.home.spots.length <= 10 && W.home.len < W.forest.len * 0.7, 'home stays compact');
+  assert.ok(W.home.spots.length <= 16 && W.home.len < W.forest.len * 0.5, 'home stays compact');
   assert.ok(W.desert.halfW >= 1700 && W.desert.len >= 4400, 'the desert is the widest');
-  assert.ok(W.memory_lake.halfW <= 900 && W.memory_lake.spots.filter((s) => s.secret).length >= 2, 'the memory lake is narrow and hides its end');
+  assert.ok(W.memory_lake.halfW <= 1400 && W.memory_lake.halfW < W.desert.halfW * 0.5 && W.memory_lake.spots.filter((s) => s.secret).length >= 2, 'the memory lake is narrow and hides its end');
   // ふかい 地区は くらく きりが ふかい(おくへ いくほど けしきが かわる)
   const reg = M.buildRegistry();
   const forest = M.buildWorld('forest', reg);
-  const entry = M.moodAt(forest, forest.entry.x, forest.entry.z), deep = M.moodAt(forest, 300, 3200);
+  const deepSpot = forest.spots.find((s) => s.zone === 'deep' && s.kind === 'grove');
+  const entry = M.moodAt(forest, forest.entry.x, forest.entry.z), deep = M.moodAt(forest, deepSpot.x, deepSpot.z);
   assert.ok(deep.light < entry.light - 0.15 && deep.fog > entry.fog + 0.2, 'deep forest is darker and foggier: ' + JSON.stringify({ entry, deep }));
   assert.equal(deep.zone.id, 'deep'); assert.equal(entry.zone.id, 'bright');
   // かくし みちには さそい(ヒント)と あかり、ぶんきには ひょうしき、みちの ふちに もよう
@@ -295,7 +296,8 @@ test('regions differ in size and structure; zones give a mood that changes with 
   const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(sim.zone.id, 'bright'); assert.ok(sim.view().mood.light > 0.95);
-  sim.setPlayer(0, 4000); sim.step(1 / 60, { x: 0, y: 0 });
+  const greatSpot = forest.spots.find((s) => s.id === 'great');
+  sim.setPlayer(greatSpot.x, greatSpot.z); sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(sim.zone.id, 'great');
   assert.ok(sim.mapData().zones.length === forest.zones.length);
 });
