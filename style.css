@@ -4641,6 +4641,8 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .mgr-map-bar .mg-tap-btn { min-height: 44px; padding: 8px 6px; font-size: 14px; }
 .mgr-map-zoom { flex: 0 0 auto; min-width: 56px; font-size: 18px; }
 .mgr-map-close { flex: 1 1 auto; }
+.mgr-map-world { flex: 1 1 auto; }
+.mgr-map-world.hidden { display: none; }
 @media (max-height: 640px) {
   .mgr-map { padding: 6px 6px 8px; gap: 4px; }
   .mgr-map-bar .mg-tap-btn { min-height: 40px; }

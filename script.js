@@ -13907,6 +13907,30 @@
       const read = (bag) => (Object.prototype.hasOwnProperty.call(bag, regionId) ? (bag[regionId] || []).slice() : null);
       return { zones: read(m.zones), paths: read(m.paths), marks: read(m.marks) };
     },
+    // ---- せかいのちず(Phase 1)。地域の はっけん と みちの はっけんを わけて もつ ----
+    // 地域: 旧セーブの regionsVisited / specialRegionsVisited から そのまま 組みなおせる。
+    // みち: それとは べつ。「行った ことが ある」だけでは ぜったいに ひらかない
+    worldRegions: () => {
+      const m = meguruStats();
+      const seeded = meguruMod ? meguruMod.seedWorldRegions(state.lifetime) : ['home'];
+      const out = [];
+      for (const id of [...(m.world.regions || []), ...seeded]) if (id && !out.includes(id)) out.push(id);
+      if (out.length !== (m.world.regions || []).length) { m.world.regions = out.slice(); saveState(); }
+      return out.slice();
+    },
+    worldLinks: () => meguruStats().world.links.slice(),
+    recordWorldLinks: (ids) => {
+      const m = meguruStats(); let added = false;
+      for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !m.world.links.includes(id)) { m.world.links.push(id); added = true; }
+      if (added) saveState();
+    },
+    // みちの はっけんを しらべる ための「地域ごとの 見つけた spot」。せかいのちずを
+    // ひらいた ときだけ よむ
+    allDiscoveredSpots: () => {
+      const m = meguruStats(), out = {};
+      for (const id of Object.keys(m.spots)) out[id] = (m.spots[id] || []).slice();
+      return out;
+    },
     seedMapRecords: (regionId, rec) => {
       const m = meguruStats(); let changed = false;
       for (const kind of ['zones', 'paths', 'marks']) {
@@ -13926,6 +13950,11 @@
     if (!m.zones || typeof m.zones !== 'object') m.zones = {};
     if (!m.paths || typeof m.paths !== 'object') m.paths = {};
     if (!m.marks || typeof m.marks !== 'object') m.marks = {};
+    // せかいのちずの きろく。旧セーブには ない ので、ここで からの いれものだけ 用意する。
+    // もつのは id の あつまり 2つだけ(地域 と みち)。ざひょうは 1つも のこさない
+    if (!m.world || typeof m.world !== 'object') m.world = { regions: [], links: [] };
+    if (!Array.isArray(m.world.regions)) m.world.regions = [];
+    if (!Array.isArray(m.world.links)) m.world.links = [];
     return m;
   }
   function startMeguru() {
