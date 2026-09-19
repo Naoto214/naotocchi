@@ -47,12 +47,14 @@ test('every region carries its own look: colours, backdrop, air, view distance, 
 
 test('density follows the plan: the jungle and forest are dense, the desert and the memory lake are open', () => {
   const { M, reg } = setup();
-  const props = {};
-  for (const id of REGIONS) props[id] = M.buildWorld(id, reg).props.length;
-  assert.ok(props.jungle > props.forest, `jungle ${props.jungle} > forest ${props.forest}`);
-  assert.ok(props.forest > props.countryside, `forest ${props.forest} > countryside ${props.countryside}`);
-  assert.ok(props.city > props.countryside, 'the city is dense with buildings');
-  assert.ok(props.jungle > props.desert * 2, `jungle ${props.jungle} is far denser than the desert ${props.desert}`);
+  // せかいの ひろさは 地域で ちがう ので、「かず」では なく「みつど(面積あたり)」で くらべる。
+  // ひろげた 地域でも「ジャングルは こい・さばくは ひらけて いる」が くずれて いない ことを みる
+  const props = {}, dens = {};
+  for (const id of REGIONS) { const w = M.buildWorld(id, reg); props[id] = w.props.length; dens[id] = w.props.length / ((w.halfW * 2 / 1000) * (w.len / 1000)); }
+  assert.ok(dens.jungle > dens.forest, `jungle ${dens.jungle.toFixed(0)} > forest ${dens.forest.toFixed(0)} per area`);
+  assert.ok(dens.forest > dens.countryside, `forest ${dens.forest.toFixed(0)} > countryside ${dens.countryside.toFixed(0)} per area`);
+  assert.ok(dens.city > dens.countryside, 'the city is dense with buildings');
+  assert.ok(dens.jungle > dens.desert * 2, `jungle ${dens.jungle.toFixed(0)} is far denser than the desert ${dens.desert.toFixed(0)}`);
   // 「こものの かず」では なく「ばしょが ある こと」で みる: じめんの くぎり + かこむ もの + こもの
   for (const id of REGIONS) { const w = M.buildWorld(id, reg); const mass = w.props.length + w.areas.length * 6 + (w.shore || []).length * 30; assert.ok(mass >= 240, `${id} is never bare: props ${w.props.length} + areas ${w.areas.length} + shore bands ${(w.shore || []).length}`); }
   // みとおし: ジャングル/しんかいは せまく、さばく/いなかは とおくまで

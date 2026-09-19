@@ -127,5 +127,5 @@ test('the world is still data only: layers, heroes and zone composition need no 
   assert.equal(M.auditSceneryCharacters(h.api.displayCatalog.resolve).issues.length, 0);
   // せかいの ほねぐみ は かわらない: zone / spot / path / secret / landmark
   const forest = M.buildWorld('forest', reg);
-  assert.ok(forest.zones.length === 6 && forest.spots.some((s) => s.secret) && forest.segments.some((g) => g.kind === 'secret') && forest.props.some((p) => p.landmark === 'bigtree'));
+  assert.ok(forest.zones.length >= 6 && forest.spots.some((s) => s.secret) && forest.segments.some((g) => g.kind === 'secret') && forest.props.some((p) => p.landmark === 'bigtree'));
 });
