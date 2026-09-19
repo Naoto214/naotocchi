@@ -79,8 +79,9 @@ test('entering めぐる from the travel screen switches to the field, inhabitan
   assert.equal(run.world.regionId, 'forest');
   assert.ok(run.world.residents.length >= 3, 'the forest has inhabitants (bear, mushroom, beetle)');
   h.advance(2000);
-  const states = new Set(run.world.residents.map((a) => a.state));
+  const states = new Set(run.world.residents.map((a) => a.behavior));
   assert.ok(states.size >= 1);
+  for (const b of states) assert.ok(typeof b === 'string' && b.length > 0, 'every inhabitant carries a named behavior');
   // だれかの そばへ いって「はなす」
   const a = run.world.residents[0];
   run.setPlayer(a.x, a.z - 30); h.advance(40);

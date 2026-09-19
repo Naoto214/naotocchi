@@ -947,6 +947,23 @@
       // 地区(zone): スポットの まとまり。ちゅうしんは その 地区の スポットの へいきん。mood は みための きぶん
       world.zones = (base.zones || []).map((z) => { const ss = base.spots.filter((s) => s.zone === z.id); const n = ss.length || 1; return { id: z.id, label: z.label, mood: z.mood || {}, x: ss.reduce((a, s) => a + s.x, 0) / n, z: ss.reduce((a, s) => a + s.z, 0) / n, spots: ss.map((s) => s.id) }; });
       const zoneOfSpot = (sp0) => world.zones.find((z) => z.id === sp0.zone) || null;
+      // ---- せいかつ の した地図: spot が「ここで なにが できるか」を もつ ----
+      // かたち(kind)と め(prop)から きめるので 469 こ 手がきしない。
+      // しょうらい おみせ・いえ・つりば などを ふやす ときも ここへ たすだけで、
+      // 住民AI も プレイヤーの あそびも おなじ ものを よめる
+      for (const s0 of world.spots) {
+        const L = spotLife(s0, regionId);
+        s0.actWeights = L.acts; s0.activities = Object.keys(L.acts);
+        s0.shelter = L.shelter; s0.seats = L.seats;
+        const zn = zoneOfSpot(s0);
+        s0.zoneCrowd = zn && zn.mood.crowd != null ? zn.mood.crowd : 1;
+      }
+      // look / watch の とき どこを 見るか(ランドマーク・地区の 主役・けしき)
+      world.lifeView = new Map();
+      world.meets = []; world.lifeBudget = LIFE.interactPerFrame; world.clock = 0;
+      // spot の となり(住民は みちを つかって いどうする)
+      world.spotAdj = new Map(world.spots.map((s0) => [s0.id, []]));
+      for (const sg of world.segments) { const A = world.spotAdj.get(sg.a.id), B = world.spotAdj.get(sg.b.id); if (A) A.push(sg.b); if (B) B.push(sg.a); }
       const zoneAt = (x, z) => { let best = null, bd = Infinity; for (const zn of world.zones) { const d = Math.hypot(zn.x - x, zn.z - z); if (d < bd) { bd = d; best = zn; } } return best; };
       const degree = (sp0) => (base.paths || []).filter(([a, b]) => a === sp0.id || b === sp0.id).length;
       const halfW = world.halfW;
@@ -1250,7 +1267,10 @@
         const cl = hash(seed + 'c') % 2; const ca = hrand(s.id + cl + regionId) * TAU, cd = s.r * (0.2 + 0.3 * hrand(s.id + cl + 'd'));
         const cx = s.x + Math.sin(ca) * cd, cz = s.z + Math.cos(ca) * cd;
         const ja = hrand(seed + 'a') * TAU, jd = hrand(seed + 'd') * s.r * 0.42;
-        world.residents.push(makeActor(r, { x: clamp(cx + Math.sin(ja) * jd, world.minX + 20, world.maxX - 20), z: clamp(cz + Math.cos(ja) * jd * 0.7, 80, base.len - 80), spot: s, heading: hrand(seed + 'h') * TAU - Math.PI }));
+        const born = makeActor(r, { x: clamp(cx + Math.sin(ja) * jd, world.minX + 20, world.maxX - 20), z: clamp(cz + Math.cos(ja) * jd * 0.7, 80, base.len - 80), spot: s, heading: hrand(seed + 'h') * TAU - Math.PI });
+        // 行動を はじめる 時こくを 1人ずつ ずらす(ぜんいんが 同時に うごきださない)
+        born.until = 0.5 + born.traits.phase * 9; born.nextAt = born.traits.phase * 20;
+        world.residents.push(born);
       });
       if (registry.naoto && registry.naoto.region === regionId) {
         const spot = base.spots.find((s) => s.kind === 'deep') || base.spots[base.spots.length - 1];
@@ -1260,6 +1280,17 @@
       // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
       world.obstacles = buildObstacles(world);
       world.collision = buildCollisionGrid(world.obstacles);
+      // 「ながめる」ときに どこを 見るか。いちばん ちかい ランドマーク / 地区の 主役、
+      // なければ 水ぎわ か 地域の おく。せかい たんい なので Three.js でも おなじ
+      {
+        const views = world.props.filter((q) => q.landmark || q.hero);
+        for (const s0 of world.spots) {
+          let best = null, bd = 3200;
+          for (const q of views) { const d = Math.hypot(q.x - s0.x, q.z - s0.z); if (d > 120 && d < bd) { bd = d; best = q; } }
+          if (!best && world.terrain && world.terrain.kind === 'coast') { const sx = shoreX(world, s0.z); if (sx != null) best = { x: sx + world.terrain.side * -300, z: s0.z }; }
+          if (best) world.lifeView.set(s0.id, { x: best.x, z: best.z });
+        }
+      }
       return world;
     }
     // じめんの もようは「せかいの ます目」から、いま みえている ぶんだけ つくる。
@@ -1307,74 +1338,513 @@
     // sprites: { front, side?, back? } しょうらい ほうこう べつの えを たせる(いまは front だけ。よこは はんてん、うしろは すこし つぶして えがく)
     function makeActor(res, pos) {
       return Object.assign({}, res, { x: pos.x, z: pos.z, spot: pos.spot || null, fixed: !!pos.fixed, follow: !!pos.follow, slot: pos.slot || 0,
-        state: 'idle', until: rnd(0.5, 2.5), tx: pos.x, tz: pos.z, heading: pos.heading || 0, face: 1, bob: rnd(0, 6), say: null, sayFor: 0, chatWith: null, chaseOf: null, met: false, tilt: 0 });
+        behavior: 'idle', act: 'idle', until: rnd(0.5, 2.5), tx: pos.x, tz: pos.z, heading: pos.heading || 0, face: 1, bob: rnd(0, 6), say: null, sayFor: 0, chaseOf: null, met: false, tilt: 0,
+        // ---- せいかつ(v1)。behavior = なにを しているか、emotion = どう かんじているか ----
+        home: pos.spot || null,          // ふだんの いばしょ(ここから あまり はなれない)
+        traits: lifeTraits(res.key || res.label || 'x'),
+        energy: 0.5 + hrand((res.key || '') + ':e') * 0.45,
+        emotion: 'normal',
+        joy: 0, sulk: 0, cool: hrand((res.key || '') + ':c') * 14, wish: 0,
+        route: null, partner: null, reservedBy: null, meet: null,
+        tier: 0, nextAt: 0, noticeCool: 0 });
     }
 
     // ================= せいかつ(かんたんな じょうたい せんい と グループ こうどう) =================
-    const VERBS = { idle: 'たたずんでいる', walk: 'あるいている', sit: 'すわっている', look: 'あたりを見ている', chat: 'はなしている', sleep: 'ねむっている', swim: 'およいでいる', sway: 'ゆれている', play: 'あそんでいる', watch: 'けしきを見ている', fish: 'つりをしている', rest: 'やすんでいる', gather: 'あつまっている', chase: 'おいかけっこしている', shop: 'おみせを見ている' };
-    const MOVING = new Set(['walk', 'swim', 'play', 'chase']);
-    function chooseState(a, e, world, others) {
-      if (a.fixed) return 'watch';
-      if (a.plant) return 'sway';
-      if (a.water) return Math.random() < 0.7 ? 'swim' : 'idle';
-      const night = e.time === 'night';
-      const rain = e.weather === 'rain';
-      const r = Math.random();
-      const kind = a.spot ? a.spot.kind : 'path';
-      if (night && !a.night) return r < 0.55 ? 'sleep' : r < 0.8 ? 'rest' : 'look';
-      if (rain) return r < 0.5 ? 'rest' : r < 0.75 ? 'look' : 'walk';
-      // ばしょ ごとの「なにか おきている」
-      const mates = others ? others.filter((b) => b !== a && b.spot === a.spot && !b.fixed && !b.plant && !b.water).length : 0;
-      if (kind === 'water' && r < 0.35) return 'fish';
-      if (kind === 'shop' && r < 0.45) return 'shop';
-      if (kind === 'edge' && r < 0.45) return 'watch';
-      if (kind === 'rest' && r < 0.45) return r < 0.25 ? 'sit' : 'rest';
-      if ((kind === 'plaza' || kind === 'grove') && mates >= 2 && r < 0.6) return r < 0.42 ? 'gather' : 'chase';
-      if (e.weather === 'snow' && r < 0.25) return 'play';
-      if (e.time === 'evening' && r < 0.3) return 'watch';
-      if (e.time === 'morning' && r < 0.5) return 'walk';
-      return r < 0.4 ? 'walk' : r < 0.6 ? 'idle' : r < 0.75 ? 'sit' : r < 0.9 ? 'look' : 'play';
+    // ================= せいかつ: どこで なにが できるか(activity) =================
+    // 住民の「いま なにを しているか」は behavior、「ここで なにが できるか」は activity。
+    // activity は spot が もつ ので、しょうらい おみせ・いえ・つりば などを ふやす ときも
+    // spot.activities に たすだけで、住民AI も プレイヤーの あそびも おなじ ものを よめる。
+    // px も canvas も でてこない ので Three.js でも そのまま つかえる。
+    const SPOT_LIFE = {
+      //            ここで しやすい こと(おもい じゅん)                       seats 座れる / shelter 屋根
+      plaza:   { acts: { gather: 1.5, talk: 1.4, play: 1.1, walk: 1.0, idle: 0.9, look: 0.6 }, seats: false, shelter: false },
+      rest:    { acts: { sit: 1.5, rest: 1.4, talk: 0.9, idle: 1.0, look: 0.8, sleep: 0.5 }, seats: true, shelter: false },
+      shelter: { acts: { rest: 1.5, sit: 1.2, sleep: 1.0, talk: 0.9, idle: 1.0 }, seats: true, shelter: true },
+      water:   { acts: { look: 1.5, rest: 1.0, fish: 0.8, play: 0.7, idle: 0.8 }, seats: true, shelter: false },
+      edge:    { acts: { watch: 1.8, look: 1.3, idle: 0.9, rest: 0.7 }, seats: false, shelter: false },
+      grove:   { acts: { look: 1.1, walk: 1.0, rest: 1.0, idle: 0.9, gather: 0.5, sit: 0.6, sleep: 0.35 }, seats: true, shelter: false },
+      shop:    { acts: { shop: 1.6, gather: 1.0, talk: 1.0, walk: 0.9, idle: 0.7 }, seats: false, shelter: true },
+      path:    { acts: { walk: 1.3, idle: 0.9, look: 0.8 }, seats: false, shelter: false },
+      deep:    { acts: { watch: 1.0, idle: 0.6 }, seats: false, shelter: false },
+    };
+    // スポットの め(prop)が「屋根」や「こしかけ」を あらわして いる もの
+    const SHELTER_PROPS = new Set(['🏠', '🏡', '🏚️', '🛖', '🏪', '🏬', '🏢', '⛺', '🏕️', '🚉', '⛩️', '🕳️', '⛱️', '🏛️']);
+    const SEAT_PROPS = new Set(['🪑', '🛝', '🪨', '🧺', '☕', '♨️', '⛱️']);
+    // spot 1つの「ここで なにが できるか」。かたちと め から きめる ので 469 こ 手がきしない
+    function spotLife(s, regionId) {
+      const base = SPOT_LIFE[s.kind] || SPOT_LIFE.path;
+      const acts = Object.assign({}, base.acts);
+      const shelter = base.shelter || SHELTER_PROPS.has(s.prop || '');
+      const seats = base.seats || SEAT_PROPS.has(s.prop || '');
+      if (s.hub) { acts.gather = (acts.gather || 0) + 0.8; acts.talk = (acts.talk || 0) + 0.7; }
+      if (s.landmark) { acts.watch = (acts.watch || 0) + 1.2; acts.look = (acts.look || 0) + 0.8; }
+      if (shelter) { acts.rest = (acts.rest || 0) + 0.6; acts.sleep = (acts.sleep || 0) + 0.8; }
+      if (seats) acts.sit = (acts.sit || 0) + 0.6;
+      // かくし ばしょは ひとりで すごす ところ。あつまりは おきない
+      if (s.secret) { delete acts.gather; delete acts.talk; delete acts.play; acts.idle = 1.2; acts.look = 1.2; acts.rest = 1.0; }
+      // みずの ある 地域の みずべは「ながめる」が 主役
+      if (s.kind === 'water' && (regionId === 'sea' || regionId === 'river_lake' || regionId === 'memory_lake')) acts.look += 0.6;
+      // ねむれる ところは かぎる(みち・ひろば・みずの なかでは ねない)
+      if (!shelter && s.kind !== 'rest' && s.kind !== 'grove') delete acts.sleep;
+      return { acts, shelter, seats };
     }
+    // 地域ごとの くらしの いろ。social=人と いる / quiet=ひとりで すごす / move=あるく / view=ながめる。
+    // 13 地域を おなじ 数字に しない ことが たいせつ(おくちは しずかな まま)
+    const REGION_LIFE = {
+      home:        { social: 1.0, quiet: 0.95, move: 0.9, view: 0.8, group: 3 },
+      city:        { social: 1.7, quiet: 0.5, move: 1.4, view: 0.7, group: 5 },
+      countryside: { social: 0.9, quiet: 1.3, move: 0.85, view: 1.2, group: 3 },
+      forest:      { social: 0.6, quiet: 1.4, move: 1.1, view: 1.1, group: 3 },
+      mountain:    { social: 0.6, quiet: 1.3, move: 1.2, view: 1.5, group: 3 },
+      snow:        { social: 0.85, quiet: 1.2, move: 0.9, view: 1.1, group: 3 },
+      sea:         { social: 1.15, quiet: 0.9, move: 1.0, view: 1.5, group: 4 },
+      deepsea:     { social: 0.35, quiet: 1.8, move: 0.9, view: 1.2, group: 2 },
+      river_lake:  { social: 0.7, quiet: 1.4, move: 0.9, view: 1.5, group: 3 },
+      jungle:      { social: 0.6, quiet: 1.0, move: 1.5, view: 1.0, group: 3 },
+      desert:      { social: 0.6, quiet: 1.5, move: 1.1, view: 1.2, group: 3 },
+      star_stop:   { social: 0.7, quiet: 1.4, move: 0.7, view: 1.8, group: 3 },
+      memory_lake: { social: 0.2, quiet: 2.2, move: 0.7, view: 1.6, group: 2 },
+    };
+    const LIFE_DEFAULT = { social: 1, quiet: 1, move: 1, view: 1, group: 3 };
+    // behavior を「どの いろの くらしか」で わける(地域・地区の 数字を かける さきを きめる)
+    const LIFE_AXIS = { talk: 'social', gather: 'social', play: 'social', chase: 'social', shop: 'social',
+      idle: 'quiet', rest: 'quiet', sit: 'quiet', sleep: 'quiet', walk: 'move', look: 'view', watch: 'view', fish: 'view' };
+    // じかんたい。ぜんいんが 同時に かわらない よう、個体ごとの ずれ(phase)と あわせて つかう
+    const TIME_LIFE = {
+      morning: { walk: 1.35, idle: 1.0, talk: 0.8, gather: 0.6, play: 0.8, look: 1.0, watch: 0.9, rest: 0.5, sit: 0.6, sleep: 0.05, fish: 1.3, shop: 0.8 },
+      day:     { walk: 1.2, idle: 1.0, talk: 1.3, gather: 1.3, play: 1.3, look: 1.0, watch: 1.0, rest: 0.8, sit: 0.9, sleep: 0.05, fish: 1.0, shop: 1.4 },
+      evening: { walk: 0.9, idle: 1.1, talk: 1.2, gather: 0.9, play: 0.7, look: 1.6, watch: 1.8, rest: 1.4, sit: 1.3, sleep: 0.25, fish: 0.9, shop: 0.9 },
+      night:   { walk: 0.5, idle: 0.9, talk: 0.5, gather: 0.3, play: 0.2, look: 1.2, watch: 1.3, rest: 1.8, sit: 1.2, sleep: 2.6, fish: 0.4, shop: 0.3 },
+    };
+    // てんき。雨だから みんな きえる、には しない(雨を ながめる 住民も のこす)
+    const WEATHER_LIFE = {
+      sunny:  {},
+      cloudy: { look: 1.1 },
+      rain:   { walk: 0.6, play: 0.3, gather: 0.5, talk: 0.95, rest: 1.6, sit: 1.3, look: 1.15, idle: 1.1, fish: 0.5 },
+      snow:   { play: 1.4, walk: 0.9, look: 1.3, watch: 1.2, rest: 1.2, gather: 0.85, fish: 0.6 },
+    };
+    const SEASON_LIFE = {
+      spring: { play: 1.15, look: 1.1, walk: 1.05 },
+      summer: { play: 1.2, rest: 1.15, fish: 1.2 },
+      autumn: { look: 1.2, watch: 1.15, walk: 1.1 },
+      winter: { rest: 1.2, sleep: 1.15, play: 0.9, sit: 1.1 },
+    };
+    // 雨・雪の とき「屋根の ある ところ」へ よりやすく する ばいりつ
+    const SHELTER_PULL = { rain: 2.6, snow: 1.5 };
+    // 住民 1人の かるい かたむき。せいかくシステムでは なく、key から きまる ゆらぎ。
+    // セーブには なにも ふやさない(おなじ key なら いつでも おなじ)
+    function lifeTraits(key) {
+      const h = hash(String(key) + ':life');
+      const bit = (n) => ((h >>> n) % 1000) / 1000;
+      return {
+        wander: 0.65 + bit(0) * 0.9,   // よく あるく
+        social: 0.45 + bit(5) * 1.2,   // 人と あつまりやすい
+        calm: 0.6 + bit(10) * 1.0,     // よく やすむ
+        gaze: 0.6 + bit(15) * 1.0,     // けしきを 見るのが すき
+        pace: 0.75 + bit(20) * 0.65,   // 行動の ながさ
+        phase: bit(25),                // 行動を はじめる ずれ(ぜんいん 同時に かわらない)
+      };
+    }
+    const TRAIT_AXIS = { social: 'social', quiet: 'calm', move: 'wander', view: 'gaze' };
+    const VERBS = { idle: 'たたずんでいる', walk: 'あるいている', sit: 'すわっている', look: 'あたりを見ている', talk: 'はなしている', sleep: 'ねむっている', swim: 'およいでいる', sway: 'ゆれている', play: 'あそんでいる', watch: 'けしきを見ている', fish: 'つりをしている', rest: 'やすんでいる', gather: 'あつまっている', chase: 'おいかけっこしている', shop: 'おみせを見ている' };
+    // ================= せいかつ: なにを しているか(behavior)と どう かんじているか(emotion) =================
+    // behavior = いま なにを しているか。emotion = どう かんじているか。この 2つは べつもの で、
+    // 「talk だから happy」とは きめない。えの がわは この 2つを よむだけ なので、
+    // canvas でも Three.js でも、表情の えが そろった あとでも、ここは かえずに すむ
+    const MOVING = new Set(['walk', 'swim', 'play', 'chase']);
+    // 住民の きもち。名まえは 表情の 正本(pet expression)と そろえて ある ので、
+    // 表情の えが できたら emotion → 表情 の ひきあてを たすだけで つながる。
+    // お世話の じょうたい(hungry / sick / weak / critical)は この せかいでは つかわない
+    const RESIDENT_EMOTIONS = ['normal', 'happy', 'tired', 'sleeping', 'unhappy', 'wantsPlay', 'strained'];
+    const LIFE = {
+      detail: 1600,        // ここまでは まいフレーム くわしく うごかす
+      near: 4200,          // ここまでは 6フレームに 1かい
+      maxDetail: 48,       // くわしく うごかす さいだい 人数(これ いじょうは ふえない)
+      nearStride: 6,
+      distantPerFrame: 12, // とおい 住民は 1フレームに この 人数だけ すすめる
+      interactPerFrame: 2, // さそいを さがすのは 1フレームに この かいすう だけ
+      roam: 1400,          // じぶんの ばしょから はなれる きょり(せかいじゅうを うろつかない)
+      talkGap: 88,         // はなす ときの あいだ
+      meetR: 96,           // あつまりの わ の はんけい
+      space: 46,           // 住民どうしの パーソナルスペース(かるく よける だけ)
+      notice: 210,         // プレイヤーに きづく きょり
+      noticeMax: 2,        // 同時に きづくのは この 人数まで(ぜんいんが あつまらない)
+    };
     const faceTo = (a, x, z) => { a.heading = Math.atan2(x - a.x, z - a.z); a.face = x < a.x ? -1 : 1; };
-    function updateActor(a, dt, e, world, others) {
-      a.bob += dt * (a.state === 'swim' ? 3 : 2);
-      a.until -= dt;
-      if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
-      if (a.chatWith) { if (a.until <= 0) { a.chatWith.chatWith = null; a.chatWith = null; a.state = 'idle'; a.until = rnd(1, 3); } return; }
-      if (a.state === 'chase' && a.chaseOf) { const o = a.chaseOf; a.tx = o.x + (a.x < o.x ? -50 : 50); a.tz = o.z + 20; if (o.state === 'sleep' || o.state === 'chat') a.until = 0; }
-      if (MOVING.has(a.state)) {
-        const dx = a.tx - a.x, dz = a.tz - a.z, d = Math.hypot(dx, dz);
-        const spd = a.state === 'play' || a.state === 'chase' ? 120 : a.state === 'swim' ? 70 : 60;
-        if (d > 6) {
-          const nx = a.x + dx / d * spd * dt, nz = a.z + dz / d * spd * dt;
-          // じゅうみんも プレイヤーと おなじ あたりはんてい を とおす(木や かべを すりぬけない)。
-          // みずの いきものだけ みずたまりに 入れる し、うみの なかにも いられる
-          if (a.fixed || a.plant) { a.x = nx; a.z = nz; }
-          else moveWithCollision(a, nx, nz, world, RULES.bodyRadius * 0.8, !!a.water, !!a.water);
-          a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1;
-        } else if (a.state !== 'chase') a.until = Math.min(a.until, 0);
-      }
-      if (a.until <= 0) {
-        const next = chooseState(a, e, world, others);
-        a.state = next; a.chaseOf = null;
-        a.until = next === 'sleep' ? rnd(6, 14) : MOVING.has(next) ? rnd(2, 5) : next === 'gather' ? rnd(4, 8) : rnd(1.5, 4);
-        const s = a.spot || { x: a.x, z: a.z, r: 120, kind: 'path' };
-        const hw = (world.halfW || 1000) - 20;
-        if (next === 'walk' || next === 'swim' || next === 'play') { const ang = rnd(0, TAU), d = rnd(20, s.r * 0.9); a.tx = clamp(s.x + Math.sin(ang) * d, -hw, hw); a.tz = clamp(s.z + Math.cos(ang) * d * 0.7, 80, world.len - 80); }
-        else if (next === 'chase') { const o = others.find((b) => b !== a && b.spot === a.spot && !b.fixed && !b.plant && !b.water && b.state !== 'sleep' && b.state !== 'chat'); if (o) { a.chaseOf = o; if (o.state !== 'chase') { o.state = 'play'; o.until = a.until; const ang = rnd(0, TAU); o.tx = clamp(s.x + Math.sin(ang) * s.r * 0.8, -hw, hw); o.tz = clamp(s.z + Math.cos(ang) * s.r * 0.5, 80, world.len - 80); } } else a.state = 'walk'; }
-        else if (next === 'gather') { const gx = s.x + Math.sin(hrand(s.id + 'g') * TAU) * s.r * 0.3, gz = s.z + Math.cos(hrand(s.id + 'g') * TAU) * s.r * 0.2; const ang = Math.atan2(a.x - gx, a.z - gz); const rr = 60 + rnd(0, 30); a.tx = gx + Math.sin(ang) * rr; a.tz = gz + Math.cos(ang) * rr; a.state = 'walk'; a.after = 'gather'; a.until = rnd(1.5, 3); a.gx = gx; a.gz = gz; }
-        else if (next === 'watch') { const ang = Math.atan2(a.x - s.x, a.z - s.z); a.heading = Number.isFinite(ang) && (a.x !== s.x || a.z !== s.z) ? ang : Math.PI; a.face = Math.sin(a.heading) < 0 ? -1 : 1; }
-        else if (next === 'fish' || next === 'shop') faceTo(a, s.x, s.z);
-        else if (next === 'look') { a.heading = rnd(-Math.PI, Math.PI); a.face = Math.sin(a.heading) < 0 ? -1 : 1; }
-        // ちかくに だれかが いれば、ときどき はなしはじめる
-        if ((next === 'idle' || next === 'look' || next === 'sit') && !a.fixed && Math.random() < 0.35) {
-          const o = others.find((b) => b !== a && !b.chatWith && !b.fixed && !b.plant && b.state !== 'sleep' && Math.hypot(b.x - a.x, b.z - a.z) < 90);
-          if (o) { a.chatWith = o; o.chatWith = a; a.state = o.state = 'chat'; a.until = o.until = rnd(2, 4); faceTo(a, o.x, o.z); faceTo(o, a.x, a.z); }
+    const lifeFree = (a) => !a.fixed && !a.plant && !a.follow;
+    // みちの グラフを たどって spot から spot への みちのりを 出す(せかいを まっすぐ つっきらない)
+    function routeTo(world, from, to, cap) {
+      if (!from || !to || from === to || !world.spotAdj) return [];
+      const prev = new Map([[from.id, null]]); const q = [from]; let n = 0, lim = cap || 60;
+      while (q.length && n < lim) {
+        const c = q.shift(); n++;
+        for (const nb of world.spotAdj.get(c.id) || []) {
+          if (prev.has(nb.id)) continue;
+          prev.set(nb.id, c);
+          if (nb === to) { const out = []; let k = nb; while (k && k !== from) { out.unshift(k); k = prev.get(k.id); } return out; }
+          q.push(nb);
         }
       }
-      // あつまる: めあての ばしょに ついたら むきを まんなかへ
-      if (a.after === 'gather' && a.state === 'walk' && Math.hypot(a.tx - a.x, a.tz - a.z) <= 8) { a.state = 'gather'; a.after = null; a.until = rnd(4, 8); faceTo(a, a.gx, a.gz); }
-      if (a.after && a.state !== 'walk') a.after = null;
+      return [];
+    }
+    // 「いま ここで なにが したいか」。ばしょ・地域・地区の にぎやかさ・じかん・てんき・きせつ・
+    // その こ の かたむき、を ぜんぶ かけて えらぶ。おなじ 地域でも 地区で かわる
+    function wantActivity(a, e, world, spot) {
+      const R = REGION_LIFE[world.regionId] || LIFE_DEFAULT;
+      const tl = TIME_LIFE[e.time] || TIME_LIFE.day;
+      const wl = WEATHER_LIFE[e.weather] || null;
+      const sl = SEASON_LIFE[e.season] || null;
+      const t = a.traits, zc = spot.zoneCrowd != null ? spot.zoneCrowd : 1;
+      const acts = spot.actWeights || SPOT_LIFE.path.acts;
+      let total = 0; const keys = [], ws = [];
+      for (const k in acts) {
+        let w = acts[k];
+        const axis = LIFE_AXIS[k];
+        if (axis) { w *= R[axis] || 1; w *= t[TRAIT_AXIS[axis]] || 1; }
+        // しずかな 地区では さそいあいが おきにくい(おくちは しずかな まま)
+        if (axis === 'social') w *= clamp(zc / 1.1, 0.18, 2.2);
+        if (tl[k] != null) w *= tl[k];
+        if (wl && wl[k] != null) w *= wl[k];
+        if (sl && sl[k] != null) w *= sl[k];
+        if (a.water) { if (k === 'sleep' || k === 'sit' || k === 'shop') w *= 0.15; if (k === 'look') w *= 1.2; }
+        if (a.night && e.time === 'night') { if (k === 'sleep') w *= 0.15; if (k === 'walk' || k === 'look') w *= 1.8; }
+        if (a.energy < 0.3 && (k === 'rest' || k === 'sit' || k === 'sleep')) w *= 1.8;
+        if (a.energy > 0.8 && (k === 'walk' || k === 'play')) w *= 1.3;
+        if (a.cool > 0 && axis === 'social') w *= 0.15; // はなした あとは すこし ひとりで
+        if (w > 0.0001) { keys.push(k); ws.push(w); total += w; }
+      }
+      if (!total) return 'idle';
+      let r = Math.random() * total;
+      for (let i = 0; i < keys.length; i++) { r -= ws[i]; if (r <= 0) return keys[i]; }
+      return keys[keys.length - 1];
+    }
+    // その activity が できる、じぶんの ばしょの ちかくの spot を えらぶ
+    function goalFor(a, world, act, from, e) {
+      const home = a.home || from;
+      const pull = e && SHELTER_PULL[e.weather] ? SHELTER_PULL[e.weather] : 0;
+      let total = 0; const cands = [], ws = [];
+      for (const s of world.spots) {
+        if (!s.actWeights || !s.actWeights[act]) continue;
+        if (s.kind === 'deep') continue;
+        if (s.secret && s !== home) continue; // かくし ばしょに 出入りするのは そこの 住民だけ
+        const d = Math.hypot(s.x - home.x, s.z - home.z);
+        if (d > LIFE.roam) continue;
+        // いまの ばしょ・ふだんの ばしょに とどまりやすい(ずっと あるきまわらない)
+        let w = s.actWeights[act] * (s === from ? 3.2 : s === home ? 2.4 : 1) / (1 + d / 600);
+        // 雨・雪の ときは 屋根の ある ところへ よりやすい(ただし ぜんいんでは ない)
+        if (pull && s.shelter) w *= pull;
+        cands.push(s); ws.push(w); total += w;
+      }
+      if (!total) return from;
+      let r = Math.random() * total;
+      for (let i = 0; i < cands.length; i++) { r -= ws[i]; if (r <= 0) return cands[i]; }
+      return cands[cands.length - 1];
+    }
+    // 行動の ながさ。ぜんいんが 数びょう ごとに 一斉に かわらない ように、
+    // behavior ごとの はばと、その こ の pace で ばらす
+    const ACT_SPAN = { idle: [2.5, 7], walk: [4, 11], look: [5, 13], watch: [7, 16], rest: [10, 26], sit: [9, 22],
+      sleep: [22, 60], talk: [7, 16], gather: [10, 24], play: [6, 14], chase: [5, 10], fish: [12, 28], shop: [6, 14], swim: [6, 14], sway: [8, 18] };
+    function actSpan(a, act) { const s = ACT_SPAN[act] || ACT_SPAN.idle; return rnd(s[0], s[1]) * a.traits.pace; }
+    // spot の なかの しぜんな 立ちいち(まんなかに かさならない)
+    function spotPoint(world, s, seed, water) {
+      const ang = hrand(seed + 'a') * TAU, d = s.r * (0.25 + hrand(seed + 'd') * 0.5);
+      const pt = { x: s.x + Math.sin(ang) * d, z: s.z + Math.cos(ang) * d * 0.75 };
+      if (!water) clampToWorld(pt, world);
+      resolveObstacles(pt, world, RULES.bodyRadius * 0.8, !!water); // 木や かべの なかに 立たない
+      return pt;
+    }
+    // ---- さそいあい(interaction): 予約 → ちかづく → 向きあう → しばらく → 自然に 解散 ----
+    // 1人に 3〜4人が いっぺんに 申しこんで へんな ことに ならない よう、あいてを 予約する
+    function interactable(b, a) {
+      return b !== a && lifeFree(b) && !b.partner && !b.reservedBy && !b.meet && b.cool <= 0
+        && b.behavior !== 'sleep' && b.behavior !== 'talk' && b.behavior !== 'gather' && !b.water === !a.water;
+    }
+    function seekPartner(a, list, range) {
+      let best = null, bd = range * range;
+      for (let i = 0; i < list.length; i++) {
+        const b = list[i]; if (!interactable(b, a)) continue;
+        const dx = b.x - a.x, dz = b.z - a.z, d2 = dx * dx + dz * dz;
+        if (d2 < bd) { bd = d2; best = b; }
+      }
+      return best;
+    }
+    function releaseInteraction(a) {
+      if (a.partner) { const b = a.partner; a.partner = null; if (b.partner === a) { b.partner = null; b.reservedBy = null; b.cool = rnd(8, 22); if (b.behavior === 'talk' || b.act === 'talk') { b.behavior = 'idle'; b.until = rnd(1.5, 4); } } }
+      if (a.reservedBy) { const b = a.reservedBy; a.reservedBy = null; if (b && b.partner === a) { b.partner = null; b.cool = rnd(8, 22); } }
+      if (a.meet) { const m = a.meet; a.meet = null; const i = m.members.indexOf(a); if (i >= 0) m.members.splice(i, 1); }
+      a.cool = Math.max(a.cool, rnd(6, 18));
+    }
+    // すでに できて いる あつまりが ちかくに あれば そこへ 入る。なければ じぶんが はじめる。
+    // こう する ことで「べつべつの 場所で ひとりずつ あつまる」ことが なくなる
+    function findMeet(world, a, spot, kind) {
+      let best = null, bd = Infinity;
+      for (const m of world.meets) {
+        if (m.kind !== kind || m.members.length >= m.cap || m.until <= 10) continue;
+        const d = Math.hypot(m.x - a.x, m.z - a.z);
+        if (m.spot === spot) return m;
+        if (d < 760 && d < bd) { bd = d; best = m; }
+      }
+      if (best) return best;
+      const R = REGION_LIFE[world.regionId] || LIFE_DEFAULT;
+      const cap = kind === 'play' ? 2 + (Math.random() < 0.35 ? 1 : 0) : Math.max(2, Math.min(R.group, 2 + Math.floor(Math.random() * ((spot.zoneCrowd || 1) > 1.6 ? R.group - 1 : 2))));
+      const m = { kind, spot, x: spot.x, z: spot.z, members: [], cap, until: rnd(26, 58) };
+      world.meets.push(m); return m;
+    }
+    // ---- きもち(emotion)。behavior とは べつに きまる ----
+    function updateEmotion(a, e, world, dt) {
+      const moving = MOVING.has(a.behavior);
+      // げんき は ゆっくり へって ゆっくり もどる。ずっと あるいて いると 5分ほどで つかれる
+      if (!a.plant && !a.fixed) a.energy = clamp(a.energy + (a.behavior === 'sleep' ? 0.030 : a.behavior === 'rest' || a.behavior === 'sit' ? 0.012 : moving ? -0.0035 : 0.002) * dt, 0, 1);
+      if (a.joy > 0) a.joy -= dt;
+      if (a.sulk > 0) a.sulk -= dt;
+      if (a.cool > 0) a.cool -= dt;
+      let em = 'normal';
+      if (a.plant || a.fixed) { a.emotion = 'normal'; return; }
+      if (a.behavior === 'sleep') em = 'sleeping';
+      else if (a.sulk > 0) em = 'unhappy';
+      else if (a.joy > 0) em = 'happy';
+      else if (a.energy < 0.22) em = 'tired';
+      else if (a.wish > 2 && a.cool <= 0) em = 'wantsPlay';
+      else if ((e.weather === 'rain' || e.weather === 'snow') && a.spot && !a.spot.shelter && a.energy < 0.55 && a.traits.calm < 1.1) em = 'strained';
+      a.emotion = em;
+    }
+    // ---- 1人ぶんの せいかつ。くわしい そう(detail)でも 近い そう(near)でも おなじ かんすう ----
+    function updateActor(a, dt, e, world, others) {
+      a.bob += dt * (a.behavior === 'swim' ? 3 : 2);
+      a.until -= dt;
+      if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
+      if (!a.traits) a.traits = lifeTraits(a.key || a.label || 'x');
+      if (a.energy == null) a.energy = 0.7;
+      updateEmotion(a, e || ENV_FALLBACK, world, dt);
+      // ナオトの とくべつな いばしょ・しょくぶつ・ついてくる こ は これまでどおり
+      if (a.fixed) { a.behavior = 'watch'; return; }
+      if (a.plant) { if (a.until <= 0) { a.behavior = 'sway'; a.until = actSpan(a, 'sway'); } return; }
+      const env = e || ENV_FALLBACK;
+
+      // --- はなしている ---
+      if (a.behavior === 'talk') {
+        const b = a.partner;
+        if (!b || b.partner !== a || Math.hypot(b.x - a.x, b.z - a.z) > LIFE.talkGap * 1.7) { releaseInteraction(a); a.behavior = 'idle'; a.until = rnd(1.5, 4); return; }
+        faceTo(a, b.x, b.z);
+        if (a.until <= 0) { a.joy = rnd(10, 26); b.joy = rnd(10, 26); b.until = Math.min(b.until, 0.1); releaseInteraction(a); a.behavior = 'idle'; a.until = rnd(2, 5); }
+        return;
+      }
+      // --- あつまって いる / いっしょに あそんで いる ---
+      if (a.meet && (a.behavior === 'gather' || a.behavior === 'play')) {
+        const m = a.meet;
+        if (m.members[0] === a) m.until -= dt;
+        if (m.until <= 0) { a.joy = rnd(8, 20); releaseInteraction(a); a.behavior = 'idle'; a.until = rnd(2, 5); return; }
+        if (a.behavior === 'gather') { faceTo(a, m.x, m.z); return; }
+        // あそびは じぶんの いちの まわりを ちょこちょこ うごく(なかまと かさならない)
+        if (a.until <= 0) {
+          const cx = a.ringX != null ? a.ringX : a.x, cz = a.ringZ != null ? a.ringZ : a.z;
+          const ang2 = hrand(a.key + 'pl' + m.until.toFixed(1)) * TAU, rr = 12 + hrand(a.key + 'pr' + m.until.toFixed(1)) * 30;
+          a.tx = cx + Math.sin(ang2) * rr; a.tz = cz + Math.cos(ang2) * rr * 0.75; a.until = rnd(1.2, 2.6);
+        }
+        stepToward(a, world, dt, 120); return;
+      }
+      // --- 目的地へ みちを つたって あるく ---
+      if (a.route && a.route.length) {
+        const nx = a.route[0];
+        const reach = a.route.length === 1 ? Math.max(40, nx.r * 0.55) : Math.max(60, nx.r * 0.8);
+        if (Math.hypot(nx.x - a.x, nx.z - a.z) <= reach) {
+          a.route.shift(); if (nx.kind) a.spot = nx;
+          if (!a.route.length) { arriveAt(a, env, world, others); return; }
+        }
+        const t = a.route[0];
+        if (t) { a.tx = t.x; a.tz = t.z; }
+        a.behavior = 'walk';
+        stepToward(a, world, dt, a.water ? 70 : 62 * a.traits.pace);
+        if (a.until <= -90) { a.route = null; arriveAt(a, env, world, others); } // 行けない ところを めざし つづけない
+        return;
+      }
+      // --- その ばで うごく もの(あるきまわる・およぐ・おいかけっこ) ---
+      if (a.behavior === 'chase' && a.chaseOf) {
+        const o = a.chaseOf; a.tx = o.x + (a.x < o.x ? -50 : 50); a.tz = o.z + 20;
+        if (!lifeFree(o) || o.behavior === 'sleep' || o.behavior === 'talk') a.until = 0;
+      }
+      if (MOVING.has(a.behavior)) {
+        const d = Math.hypot(a.tx - a.x, a.tz - a.z);
+        if (d > 6) stepToward(a, world, dt, a.behavior === 'play' || a.behavior === 'chase' ? 120 : a.behavior === 'swim' ? 70 : 62 * a.traits.pace);
+        else if (a.behavior === 'walk' && a.until > 0.5) { const p = spotPoint(world, a.spot || { x: a.x, z: a.z, r: 140 }, a.key + a.until.toFixed(1)); a.tx = p.x; a.tz = p.z; }
+      }
+      // --- つぎの こと を きめる ---
+      if (a.until <= 0) nextActivity(a, env, world, others);
+    }
+    const ENV_FALLBACK = { time: 'day', weather: 'sunny', season: 'spring' };
+    // じっさいに うごかす(あたりはんてい を とおす)
+    function stepToward(a, world, dt, spd) {
+      const dx = a.tx - a.x, dz = a.tz - a.z, d = Math.hypot(dx, dz);
+      if (d <= 0.001) return;
+      const nx = a.x + dx / d * spd * dt, nz = a.z + dz / d * spd * dt;
+      moveWithCollision(a, nx, nz, world, RULES.bodyRadius * 0.8, !!a.water, !!a.water);
+      a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1;
+    }
+    // ついた ところで、めざして いた activity を はじめる
+    function arriveAt(a, e, world, others) {
+      a.route = null;
+      const act = a.act || 'idle';
+      if (act === 'talk' && a.partner && a.partner.partner === a) {
+        const b = a.partner;
+        if (Math.hypot(b.x - a.x, b.z - a.z) < LIFE.talkGap * 1.55) {
+          // むきあう きょりに そろえる(ついた いちの ずれを のこさない)
+          const mx = (a.x + b.x) / 2, mz = (a.z + b.z) / 2;
+          const ux = b.x - a.x, uz = b.z - a.z, ul = Math.hypot(ux, uz) || 1, h = LIFE.talkGap / 2;
+          a.x = mx - ux / ul * h; a.z = mz - uz / ul * h; b.x = mx + ux / ul * h; b.z = mz + uz / ul * h;
+          resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water);
+          resolveObstacles(b, world, RULES.bodyRadius * 0.8, !!b.water);
+          a.behavior = b.behavior = 'talk'; a.act = b.act = 'talk';
+          a.until = b.until = actSpan(a, 'talk');
+          a.waitTalk = b.waitTalk = 0;
+          faceTo(a, b.x, b.z); faceTo(b, a.x, a.z);
+          return;
+        }
+        // さきに ついた ほうは すこし まつ(すれちがいで さそいが こわれない)
+        a.waitTalk = (a.waitTalk || 0) + 1;
+        if (a.waitTalk <= 3) { a.behavior = 'idle'; a.until = 3; faceTo(a, b.x, b.z); return; }
+        a.waitTalk = 0; releaseInteraction(a);
+      }
+      if ((act === 'gather' || act === 'play') && a.meet) {
+        const m = a.meet;
+        // ひとりでは あつまりに ならない。だれか 来るまで すこし まって、来なければ やめる
+        if (m.members.length < 2) { a.behavior = 'idle'; a.until = rnd(5, 11); a.waitMeet = (a.waitMeet || 0) + 1; if (a.waitMeet > 2) { releaseInteraction(a); a.waitMeet = 0; } faceTo(a, m.x, m.z); return; }
+        a.waitMeet = 0;
+        const atMeet = (q) => Math.hypot(q.x - m.x, q.z - m.z) < LIFE.meetR * 2.2;
+        // まだ ついて いない なかまは あつまって いる ことに しない(はなれた ところで
+        // いきなり あつまって いる のを ふせぐ)。ついて いる なかま だけ はじめる
+        for (const q of m.members) if (q.behavior === 'idle' && q.meet === m && atMeet(q)) { q.behavior = m.kind; q.until = m.kind === 'play' ? rnd(1.2, 2.6) : actSpan(q, 'gather'); faceTo(q, m.x, m.z); }
+        if (!atMeet(a)) {
+          const i2 = Math.max(0, m.members.indexOf(a)), an = (i2 / Math.max(1, m.cap)) * TAU + hrand(a.key + 'g') * 0.7;
+          const rx = m.x + Math.sin(an) * LIFE.meetR, rz = m.z + Math.cos(an) * LIFE.meetR * 0.7;
+          a.ringX = rx; a.ringZ = rz;
+          a.route = [{ id: '@ring', x: rx, z: rz, r: 26 }]; a.tx = rx; a.tz = rz; a.behavior = 'walk'; a.until = actSpan(a, 'walk') + 10; return;
+        }
+        a.behavior = act; a.until = act === 'play' ? rnd(1.2, 2.6) : actSpan(a, 'gather');
+        faceTo(a, m.x, m.z);
+        return;
+      }
+      beginActivity(a, act, e, world);
+    }
+    // その ばで activity を はじめる(むきも ここで きめる)
+    function beginActivity(a, act, e, world) {
+      const s = a.spot || { x: a.x, z: a.z, r: 140 };
+      a.act = act; a.behavior = act === 'gather' || act === 'talk' ? 'idle' : act;
+      a.until = actSpan(a, a.behavior);
+      if (a.behavior === 'walk') { const p = spotPoint(world, s, a.key + ':w' + Math.floor(a.until * 10)); a.tx = p.x; a.tz = p.z; }
+      else if (a.behavior === 'swim') { const p = spotPoint(world, s, a.key + ':s' + Math.floor(a.until * 10)); a.tx = p.x; a.tz = p.z; }
+      else if (a.behavior === 'play') { const p = spotPoint(world, s, a.key + ':p' + Math.floor(a.until * 10)); a.tx = p.x; a.tz = p.z; }
+      else if (a.behavior === 'look' || a.behavior === 'watch') {
+        // けしき・ランドマークの ほうを 見る
+        const lm = world.lifeView && world.lifeView.get(s.id);
+        if (lm) faceTo(a, lm.x, lm.z); else faceTo(a, s.x + (a.x < s.x ? 240 : -240), s.z + 260);
+      } else if (a.behavior === 'fish' || a.behavior === 'shop') faceTo(a, s.x, s.z);
+      else if (a.behavior === 'sit' || a.behavior === 'rest') { a.heading = Math.atan2(s.x - a.x, s.z - a.z) + (hrand(a.key + 'r') - 0.5) * 1.2; a.face = Math.sin(a.heading) < 0 ? -1 : 1; }
+      else if (a.behavior === 'sleep') { a.heading = hrand(a.key + 'z') * TAU - Math.PI; a.face = Math.sin(a.heading) < 0 ? -1 : 1; }
+      else if (a.behavior === 'idle') { a.heading = hrand(a.key + 'i' + Math.floor(a.until)) * TAU - Math.PI; a.face = Math.sin(a.heading) < 0 ? -1 : 1; }
+    }
+    // つぎに なにを するか: やりたい こと → できる spot → みちで いどう → 一定時間 やる
+    function nextActivity(a, e, world, others) {
+      if (a.partner || a.meet) releaseInteraction(a);
+      const here = a.spot || a.home;
+      if (!here) { a.behavior = 'idle'; a.until = actSpan(a, 'idle'); return; }
+      // つかれたら やすめる ところを さがす(いまの spot に なくても いい)
+      if (a.energy < 0.22 && Math.random() < 0.7) return travelTo(a, e, world, e.time === 'night' ? 'sleep' : 'rest');
+      const act = wantActivity(a, e, world, here);
+      // さそいあい は あいてが いて はじめて なりたつ
+      if (act === 'talk') {
+        a.wish++;
+        const b = others && world.lifeBudget > 0 ? seekPartner(a, others, 260) : null;
+        if (b) {
+          world.lifeBudget--;
+          a.partner = b; b.partner = a; b.reservedBy = a; a.wish = 0; b.wish = 0;
+          const mx = (a.x + b.x) / 2, mz = (a.z + b.z) / 2;
+          const half = LIFE.talkGap / 2;
+          const ux = (b.x - a.x) || 1, uz = (b.z - a.z), ul = Math.hypot(ux, uz) || 1;
+          a.act = b.act = 'talk'; a.route = null; b.route = null;
+          a.tx = mx - ux / ul * half; a.tz = mz - uz / ul * half;
+          b.tx = mx + ux / ul * half; b.tz = mz + uz / ul * half;
+          a.behavior = b.behavior = 'walk'; a.until = b.until = 6;
+          a.route = [{ id: '@meet', x: a.tx, z: a.tz, r: 30 }];
+          b.route = [{ id: '@meet', x: b.tx, z: b.tz, r: 30 }];
+          return;
+        }
+        return travelTo(a, e, world, a.wish > 3 ? 'walk' : 'idle');
+      }
+      if (act === 'gather' || act === 'play') {
+        const goal = goalFor(a, world, act, here, e);
+        const m = findMeet(world, a, goal, act);
+        if (m.members.length >= m.cap) return travelTo(a, e, world, 'idle');
+        m.members.push(a); a.meet = m; a.act = act; a.wish = 0;
+        return travelTo(a, e, world, act, m.spot);
+      }
+      travelTo(a, e, world, act);
+    }
+    // やりたい ことが できる spot へ、みちを つたって むかう(そのばで できるなら そのまま)
+    function travelTo(a, e, world, act, forced) {
+      const here = a.spot || a.home;
+      a.act = act;
+      const goal = forced || goalFor(a, world, act, here, e);
+      const route = goal && goal !== here ? routeTo(world, here, goal, 60) : [];
+      // あつまり は「わの いち」が さいごの 目的地。だから ついた ときに
+      // とんだり、はなれた ところで いきなり あつまって いたり しない
+      if ((act === 'gather' || act === 'play') && a.meet) {
+        const m = a.meet, i = Math.max(0, m.members.indexOf(a));
+        const ang = (i / Math.max(1, m.cap)) * TAU + hrand(a.key + 'g') * 0.7;
+        a.ringX = m.x + Math.sin(ang) * LIFE.meetR; a.ringZ = m.z + Math.cos(ang) * LIFE.meetR * 0.7;
+        route.push({ id: '@ring', x: a.ringX, z: a.ringZ, r: 26 });
+      }
+      if (!route.length) { a.route = null; arriveAt(a, e, world); return; }
+      a.route = route; a.behavior = 'walk'; a.until = actSpan(a, 'walk') + route.length * 8;
+      a.tx = route[0].x; a.tz = route[0].z;
+    }
+    // ---- とおくの 住民: まいフレーム うごかさず、「つぎに うごく 時こく」だけ もつ ----
+    // はなれて いる あいだも せかいは すこし すすむ ので、もどって きたら
+    // さっきと ちがう ばしょに いたり、やすんで いたり する。びょう たんいの
+    // かんぜんな けいさんは しない ので、せかいが ひろく なっても おもく ならない
+    function stepDistant(a, e, world, clock) {
+      if (!a.traits) a.traits = lifeTraits(a.key || a.label || 'x');
+      if (a.nextAt > clock) return false;
+      // はなれる ときは さそいあいを きちんと おわらせる(あいてを おきざりに しない)
+      if (a.partner || a.meet) releaseInteraction(a);
+      const here = a.spot || a.home;
+      if (!here) { a.nextAt = clock + 20; return false; }
+      const act = wantActivity(a, e, world, here);
+      const goal = act === 'gather' || act === 'play' || act === 'talk' ? here : goalFor(a, world, act, here, e);
+      a.spot = goal; a.act = act;
+      a.behavior = act === 'talk' || act === 'gather' ? 'idle' : act;
+      const p = spotPoint(world, goal, a.key + ':d' + Math.floor(clock), a.water);
+      a.x = p.x; a.z = p.z; a.tx = p.x; a.tz = p.z;
+      a.heading = hrand(a.key + 'dh' + Math.floor(clock)) * TAU - Math.PI;
+      a.face = Math.sin(a.heading) < 0 ? -1 : 1;
+      a.energy = clamp(a.energy + (a.behavior === 'sleep' || a.behavior === 'rest' ? 0.25 : -0.05), 0, 1);
+      a.until = actSpan(a, a.behavior);
+      // みちのりの ぶんも 時間に いれる(いきなり 3つ さきの spot には いない)
+      const hop = Math.hypot(goal.x - here.x, goal.z - here.z) / LIFE.speed;
+      a.nextAt = clock + a.until + hop;
+      a.route = null;
+      return true;
+    }
+    // とおい そうから もどって きた ときに、へんな ところに 立って いない ように する
+    function reenterDetail(a, world) {
+      const s = a.spot || a.home; if (!s) return;
+      if (Math.hypot(a.x - s.x, a.z - s.z) > s.r * 1.6) { const p = spotPoint(world, s, a.key + ':re', a.water); a.x = p.x; a.z = p.z; }
+      a.tx = a.x; a.tz = a.z; a.route = null;
+      clampToWorld(a, world); resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water);
+    }
+    // 住民どうしは かたい かべに しない。かるく よける だけ(ぎゅうぎゅうに つまらない)
+    function personalSpace(list, n, world) {
+      const r = LIFE.space, r2 = r * r;
+      for (let i = 0; i < n; i++) {
+        const a = list[i]; if (!lifeFree(a)) continue;
+        for (let j = i + 1; j < n; j++) {
+          const b = list[j]; if (!lifeFree(b)) continue;
+          const dx = b.x - a.x, dz = b.z - a.z, d2 = dx * dx + dz * dz;
+          if (d2 >= r2 || d2 < 0.0001) continue;
+          const d = Math.sqrt(d2), push = (r - d) * 0.25 / d;
+          a.x -= dx * push; a.z -= dz * push; b.x += dx * push; b.z += dz * push;
+          resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water); resolveObstacles(b, world, RULES.bodyRadius * 0.8, !!b.water);
+        }
+      }
     }
 
     // ================= ことば =================
@@ -1554,6 +2024,8 @@
       let walkedPaths = new Set(init.walkedPaths || []);
       let foundMarks = new Set(init.foundMarks || []);
       let curZoneId = null;
+      // せいかつAI の かくにん用。ふだんの あそびでは 出さない(§50)
+      let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
@@ -1579,8 +2051,8 @@
           const back = F.back + i * F.spacing;
           const tx = player.x + rx * side * F.gap + fx * back, tz = player.z + rz * side * F.gap + fz * back;
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3.5); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.state = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
-          else if (a.state !== 'idle') { a.state = 'idle'; a.heading = player.heading; }
+          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3.5); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
       }
@@ -1642,19 +2114,62 @@
         camera.dist += (prof.dist - camera.dist) * Math.min(1, dt * RULES.cam.ease); camera.height += (prof.height - camera.height) * Math.min(1, dt * RULES.cam.ease);
         updateCamFx(dt, np);
         followParty(dt);
-        for (let i = 0; i < world.residents.length; i++) {
-          const a = world.residents[i];
-          const near = Math.abs(a.z - player.z) < RULES.nearRadius && Math.abs(a.x - player.x) < RULES.nearRadius;
-          if (near) updateActor(a, dt, envNow, world, world.residents);
-          else if ((i + frame) % RULES.farStride === 0) updateActor(a, dt * RULES.farStride, envNow, world, world.residents);
-          if (!a.met && hitTest(a, player, RULES.metRadius)) { a.met = true; events.push({ type: 'met', actor: a }); }
-        }
+        stepLife(dt);
+        for (const a of world.residents) if (!a.met && hitTest(a, player, RULES.metRadius)) { a.met = true; events.push({ type: 'met', actor: a }); }
         let best = null, bd = Infinity;
         const consider = (a) => { const d = dist(a, player); if (d < bd) { bd = d; best = a; } };
         for (const a of world.residents) consider(a); for (const a of party) consider(a);
         const next = bd < RULES.talkRadius ? best : null;
         if (next !== nearest) { nearest = next; events.push({ type: 'nearest', actor: nearest }); }
         return events;
+      }
+      // ---- 住民の せいかつ: 3つの そう に わけて まわす ----
+      //   detail  ちかく(LIFE.detail)…まいフレーム。behavior・みちの いどう・あたりはんてい・さそいあい
+      //   near    そのそと(LIFE.near)…LIFE.nearStride フレームに 1かい。さそいあいは しない
+      //   distant それ いがい……… まいフレーム LIFE.distantPerFrame 人だけ「つぎの 行動」へ すすめる
+      // ぜんぶ 上限つき なので、せかいが どれだけ ひろく なっても 1フレームの しごとは ふえない
+      const detailList = [];
+      let distantCursor = 0, noticeCursor = 0;
+      function stepLife(dt) {
+        world.clock += dt;
+        world.lifeBudget = LIFE.interactPerFrame;
+        // おわった あつまりを かたづける
+        for (let i = world.meets.length - 1; i >= 0; i--) { const m = world.meets[i]; if (m.until <= 0 || !m.members.length) { for (const q of m.members) q.meet = null; world.meets.splice(i, 1); } }
+        detailList.length = 0;
+        const list = world.residents, n = list.length;
+        const near2 = LIFE.near * LIFE.near;
+        for (let i = 0; i < n; i++) {
+          const a = list[i];
+          const dx = a.x - player.x, dz = a.z - player.z, d2 = dx * dx + dz * dz;
+          let tier = d2 < LIFE.detail * LIFE.detail ? 0 : d2 < near2 ? 1 : 2;
+          if (tier === 0 && detailList.length >= LIFE.maxDetail) tier = 1;   // くわしく みるのは 上限まで
+          if (a.tier === 2 && tier < 2) reenterDetail(a, world);             // もどって きた ときは しぜんな いちへ
+          a.tier = tier;
+          if (tier === 0) { detailList.push(a); updateActor(a, dt, envNow, world, list); }
+          else if (tier === 1) { if ((i + frame) % LIFE.nearStride === 0) updateActor(a, dt * LIFE.nearStride, envNow, world, list); }
+        }
+        // とおい 住民は「つぎに うごく 時こく」だけ。まいフレーム すこしずつ すすめる
+        for (let k = 0; k < LIFE.distantPerFrame && n; k++) {
+          const a = list[distantCursor % n]; distantCursor++;
+          if (a.tier === 2 && lifeFree(a)) stepDistant(a, envNow, world, world.clock);
+        }
+        personalSpace(detailList, detailList.length, world);
+        for (const m of world.meets) if (m.members.length > 1) personalSpace(m.members, m.members.length, world);
+        // プレイヤーに きづく: ごく ちかくの 2人まで。ぜんいんが あつまったり しない
+        if (frame % 12 === 0) {
+          let noticed = 0;
+          for (let k = 0; k < detailList.length && noticed < LIFE.noticeMax; k++) {
+            const a = detailList[(k + noticeCursor) % detailList.length];
+            if (!lifeFree(a) || a.noticeCool > 0 || a.behavior === 'sleep' || a.behavior === 'talk' || a.behavior === 'gather') continue;
+            if (dist(a, player) > LIFE.notice) continue;
+            noticed++;
+            if (Math.random() > 0.35 * a.traits.social) continue;
+            faceTo(a, player.x, player.z);
+            a.behavior = 'idle'; a.act = 'idle'; a.route = null; a.until = rnd(2, 4.5); a.noticeCool = rnd(14, 34);
+          }
+          noticeCursor++;
+        }
+        for (const a of world.residents) if (a.noticeCool > 0) a.noticeCool -= dt * 12;
       }
       // ごく かるい カメラの えんしゅつ。もとの りぐ(camera)は さわらず、さ だけを ゆっくり つくる
       function updateCamFx(dt, np) {
@@ -1689,8 +2204,8 @@
       function talk() {
         if (!nearest) return null;
         const a = nearest; a.say = talkLine(a); a.sayFor = RULES.bubbleSec; faceTo(a, player.x, player.z);
-        if (a.chatWith) { a.chatWith.chatWith = null; a.chatWith = null; }
-        a.state = 'idle'; a.until = 3.5; a.chaseOf = null;
+        releaseInteraction(a);            // はなしかけられたら いまの さそいあいは いったん おわり
+        a.behavior = 'idle'; a.act = 'idle'; a.route = null; a.until = 3.5; a.chaseOf = null;
         return { actor: a, line: a.say };
       }
       const metCount = () => world.residents.filter((r) => r.met).length;
@@ -1776,10 +2291,17 @@
         return viewCam;
       };
       let camFxOn = true;
-      const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera: camFor(camFxOn), rig: camera, camFx, nearest, spot: curSpot, zone: mood.zone || null, mood, env: envNow, frame });
+      // 住民の せいかつを えの がわへ わたす 口。ここが かわらない かぎり、
+      // 表情の えが できた あとも 生活AI を なおす ひつようは ない
+      const lifeOf = (a) => (a ? { key: a.key, label: a.label, behavior: a.behavior, emotion: a.emotion,
+        activity: a.act || null, spot: a.spot ? a.spot.id : null, goal: a.route && a.route.length ? a.route[a.route.length - 1].id : null,
+        partner: a.partner ? a.partner.key : null, meet: a.meet ? a.meet.kind : null, tier: a.tier, energy: Math.round(a.energy * 100) / 100 } : null);
+      const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera: camFor(camFxOn), rig: camera, camFx, nearest, spot: curSpot, zone: mood.zone || null, mood, env: envNow, frame, lifeDebug, lifeOf });
       return {
         RULES, enterRegion, step, talk, view, hitTest, dist, mapData,
         setEnv(e) { envNow = e; }, get env() { return envNow; },
+        get lifeDebug() { return lifeDebug; }, set lifeDebug(v) { lifeDebug = !!v; },
+        life: lifeOf, get meets() { return world.meets; },
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
         setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
@@ -2144,29 +2666,29 @@
         const px = size * p.s; if (px < 3) return;
         const facing = facingOf(a.heading, yaw); const sprite = spriteFor(a, facing);
         // とおい ひとは かんたんに(シルエット)。そんざいは わかる
-        if (px < 22) { ctx.globalAlpha = alpha != null ? alpha * 0.9 : 0.9; ctx.fillStyle = KIND_COLOR[a.kind] || KIND_COLOR.form; const bob = MOVING.has(a.state) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.1 : 0; ctx.beginPath(); ctx.ellipse(p.sx, p.sy - px * 0.45 - bob, px * 0.28, px * 0.45, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; return; }
+        if (px < 22) { ctx.globalAlpha = alpha != null ? alpha * 0.9 : 0.9; ctx.fillStyle = KIND_COLOR[a.kind] || KIND_COLOR.form; const bob = MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.1 : 0; ctx.beginPath(); ctx.ellipse(p.sx, p.sy - px * 0.45 - bob, px * 0.28, px * 0.45, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; return; }
         const im = imageFor(sprite.asset);
         ctx.save();
         if (alpha != null) ctx.globalAlpha = alpha;
         ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill();
         // しせい: あるく(おくへ は ゆれ ひかえめ、てまえへ は つよめ)、すわる、ねる、はなす(あいてへ かたむく)
         const toward = facing === 'back' ? 0.7 : facing === 'front' ? 1.3 : 1;
-        let lift = a.state === 'swim' || a.state === 'sway' ? Math.sin(a.bob) * px * 0.06 : MOVING.has(a.state) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.08 * toward : 0;
+        let lift = a.behavior === 'swim' || a.behavior === 'sway' ? Math.sin(a.bob) * px * 0.06 : MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.08 * toward : 0;
         let sxScale = 1, syScale = 1, rot = 0;
         if (facing === 'back' && !(a.sprites && a.sprites.back)) { syScale = 0.94; }
-        if (MOVING.has(a.state) && (facing === 'left' || facing === 'right')) rot = (facing === 'left' ? -1 : 1) * 0.07;
-        if (a.state === 'sit') { syScale = 0.9; sxScale = 1.04; }
-        if (a.state === 'rest') { syScale = 0.92; rot = a.face * 0.08; }
-        if (a.state === 'sleep') { rot = a.face * 0.28; syScale = 0.9; ctx.globalAlpha *= 0.85; }
-        if (a.state === 'chat' || a.state === 'gather') rot = a.face * 0.07;
-        if (a.state === 'look' || a.state === 'watch') rot = (facing === 'left' ? -1 : facing === 'right' ? 1 : 0) * 0.05;
+        if (MOVING.has(a.behavior) && (facing === 'left' || facing === 'right')) rot = (facing === 'left' ? -1 : 1) * 0.07;
+        if (a.behavior === 'sit') { syScale = 0.9; sxScale = 1.04; }
+        if (a.behavior === 'rest') { syScale = 0.92; rot = a.face * 0.08; }
+        if (a.behavior === 'sleep') { rot = a.face * 0.28; syScale = 0.9; ctx.globalAlpha *= 0.85; }
+        if (a.behavior === 'talk' || a.behavior === 'gather') rot = a.face * 0.07;
+        if (a.behavior === 'look' || a.behavior === 'watch') rot = (facing === 'left' ? -1 : facing === 'right' ? 1 : 0) * 0.05;
         const y = p.sy - lift;
         ctx.translate(p.sx, y); ctx.rotate(rot); ctx.scale((sprite.flip ? -1 : 1) * sxScale, syScale);
         if (facing === 'back' && !(a.sprites && a.sprites.back)) ctx.filter = 'brightness(0.9)';
         if (im) ctx.drawImage(im, -px / 2, -px, px, px);
         else drawGlyph(a.emoji || '❓', 0, 0, px * 0.9);
         ctx.restore();
-        const mark = a.state === 'sleep' ? '💤' : a.state === 'chat' ? '💬' : a.state === 'fish' ? '🎣' : a.state === 'play' || a.state === 'chase' ? '✨' : a.state === 'watch' ? '👀' : a.state === 'shop' ? '🛍️' : null;
+        const mark = a.behavior === 'sleep' ? '💤' : a.behavior === 'talk' ? '💬' : a.behavior === 'fish' ? '🎣' : a.behavior === 'play' || a.behavior === 'chase' ? '✨' : a.behavior === 'watch' ? '👀' : a.behavior === 'shop' ? '🛍️' : null;
         if (mark && px > 26) { ctx.font = `${Math.round(px * 0.32)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(mark, p.sx + px * 0.4, y - px * 0.85 + Math.sin(a.bob) * 2); }
       }
       function drawBubble(text, sx, sy) {
@@ -3076,8 +3598,12 @@
             const a = it.o; drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / farCull, 0.3, 1), cam.yaw);
             const top = it.p.sy - ACTOR_SIZE * it.p.s;
             if (a.say && a.sayFor > 0) drawBubble(a.say, it.p.sx, top);
-            else if (a === nearest && it.p.s > 0.3) drawLabel(a.label + (a.state && VERBS[a.state] ? '・' + VERBS[a.state] : ''), it.p.sx, top - 4, false);
+            else if (a === nearest && it.p.s > 0.3) drawLabel(a.label + (a.behavior && VERBS[a.behavior] ? '・' + VERBS[a.behavior] : ''), it.p.sx, top - 4, false);
             else if (named.has(a)) drawLabel(a.label, it.p.sx, top - 3, true);
+            if (view.lifeDebug && view.lifeOf && it.p.s > 0.18) {
+              const L = view.lifeOf(a);
+              drawLabel(`${L.behavior}/${L.emotion}${L.goal ? '→' + L.goal : ''}${L.partner ? '+' + L.partner : ''}`, it.p.sx, top - 16, true);
+            }
           }
         }
         // ためた「すける もの」を 1まいで かさねる
@@ -3570,7 +4096,7 @@
         if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
         const nearest = sim.nearest;
-        const hint = nearest ? `${nearest.label}が ${VERBS[nearest.state] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
+        const hint = nearest ? `${nearest.label}が ${VERBS[nearest.behavior] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
         if (hint !== lastHint) { lastHint = hint; hintEl.textContent = hint; }
         if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }
         frameEma += ((now - last0) / 1000 - frameEma) * 0.05;
@@ -3619,6 +4145,6 @@
       return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld };
+    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld };
   };
 })();
