@@ -21,6 +21,7 @@
 - seed材料は契約version、order ID、actor、actor turn index、round、phase、decision kind、choice kind、昇順candidate ID配列の9要素だけとする。
 - seed serializationは`json.dumps(value, ensure_ascii=False, separators=(",", ":"))`、digestはSHA-256、indexはbig-endian digest整数の候補数剰余とする。
 - seed抽選を含む将来のcompleted replayは、勝率、先後差、発動率、カード強度、独立balance標本へ数えない。
+- 最終review修正では既存20 testsを保持して14件を追加し、専用34件と全proxy164件を検証する。末尾のFinal integration fix waveが旧Task手順への追加・修正指示となる。このfix waveは1 commitだけとし、push／PR更新を行わない。
 
 ---
 
@@ -32,6 +33,7 @@
 
 **Interfaces:**
 - Consumes: `context: dict`。exact keysは`contract_version`、`order_id`、`actor`、`actor_turn_index`、`round`、`phase`、`decision_kind`、`choice_kind`。
+- Context types: versionは契約versionと一致する文字列、order／phase／choiceは非空文字列、actorは`A`または`B`、turn／roundはboolを除く1以上の整数、decision kindは許可された2種の文字列。外側のdecision kindとの一致も検査する。
 - Produces: `canonical_candidate_ids(candidate_ids: list[str]) -> list[str]`。
 - Produces: `build_seed_proof(context: dict, candidate_ids: list[str]) -> dict`。
 - Produces: `validate_seeded_resolution(decision: dict) -> list[str]`。
@@ -62,6 +64,7 @@
           "strategic_unresolved": True,
           "reason_code": "strategic_unresolved_seeded_fallback",
           "legal_candidates": sorted(candidates),
+          "seeded_fallback_candidates": sorted(candidates),
           "candidate_set_complete": True,
           "candidate_set_evidence": {
               "source_ref": "115:path:order-01-a-first",
@@ -71,6 +74,8 @@
           "seed_context": seed_context(),
           "seed_proof": proof,
           "selected_candidate": proof["selected_candidate"],
+          "runner_up_candidates": sorted(candidate for candidate in candidates
+                                         if candidate != proof["selected_candidate"]),
       }
   ```
 
@@ -109,10 +114,9 @@
       return sorted(candidate_ids)
 
   def build_seed_proof(context, candidate_ids):
-      if set(context) != set(SEED_CONTEXT_KEYS):
-          raise ValueError("seed context keys differ")
-      if context["contract_version"] != CONTRACT_VERSION:
-          raise ValueError("fallback contract version differs")
+      context_errors = _validate_seed_context(context)
+      if context_errors:
+          raise ValueError("; ".join(context_errors))
       ordered = canonical_candidate_ids(candidate_ids)
       material = [context[key] for key in SEED_CONTEXT_KEYS] + [ordered]
       serialized = json.dumps(
@@ -132,7 +136,7 @@
       }
   ```
 
-  `validate_seeded_resolution`は必要なtop-level判断項目の存在、`mandatory_choice`または`normal_action`、`seeded_fallback`、`strategic_unresolved is True`、固定reason code、候補完全集合flag、evidenceのexact 3 keysを検査し、`build_seed_proof`の再計算結果との完全一致を要求する。107・114の判断前状態、公開情報、支払い、対象、連鎖などの既存top-level項目は併記を許可する。例外はerror文字列へ変換し、最初のerrorで処理を打ち切らない。
+  `_validate_seed_context`は前記exact keysと型条件を検査する。`validate_seeded_resolution`は必要なtop-level判断項目の存在、`mandatory_choice`または`normal_action`、`seeded_fallback`、`strategic_unresolved is True`、固定reason code、候補完全集合flag、evidenceのexact 3 keysを検査し、`seeded_fallback_candidates`だけから行う`build_seed_proof`の再計算結果との完全一致を要求する。抽選部分集合は非空・一意・昇順で完全集合内、selectedを含み、必須runner-upsはsubset minus selectedと一致する。107・114の判断前状態、公開情報、支払い、対象、連鎖などの既存top-level項目は併記を許可する。JSON enumの型をmembership検査前に確認し、最初のerrorで処理を打ち切らない。
 
 - [ ] **Step 4: Task 1をGREENにする**
 
@@ -156,7 +160,8 @@
 **Interfaces:**
 - Consumes: placement dictのexact keys `candidate_id`、`card_copy_id`、`person_type`、`slot_empty`、`actual_time_cost`、`replacement_required`、`additional_card_consumption`、`certain_downside`、`legality`、`unresolved_required_choice`。
 - Produces: `validate_safe_free_placement(placement: dict) -> list[str]`。
-- Produces: `resolve_safe_free_development(placements: list[dict], context: dict) -> dict`。
+- Consumes: `legal_candidate_ids: list[str]`。`pass`とcallerが列挙したすべての合法行動を含む明示的な完全集合。`placements`は既存優先順位適用後の比較不能な安全配置。
+- Produces: `resolve_safe_free_development(placements: list[dict], context: dict, legal_candidate_ids: list[str]) -> dict`。
 - Uses: Task 1の`build_seed_proof(context, candidate_ids)`。
 
 - [ ] **Step 1: 安全な無料盤面化の失敗テスト4件を書く**
@@ -206,15 +211,15 @@
 
   def validate_safe_free_placement(placement):
       errors = []
-      if placement.get("person_type") not in SAFE_PERSON_TYPES:
+      if not isinstance(placement.get("person_type"), str) or placement["person_type"] not in SAFE_PERSON_TYPES:
           errors.append("safe free placement must be companion or partner")
       if placement.get("slot_empty") is not True:
           errors.append("safe free placement requires an empty slot")
-      if placement.get("actual_time_cost") != 0:
+      if not _is_numeric_zero(placement.get("actual_time_cost")):
           errors.append("safe free placement requires actual time cost zero")
       if placement.get("replacement_required") is not False:
           errors.append("safe free placement cannot replace a person")
-      if placement.get("additional_card_consumption") != 0:
+      if not _is_numeric_zero(placement.get("additional_card_consumption")):
           errors.append("safe free placement cannot consume another card")
       if placement.get("certain_downside") is not False:
           errors.append("safe free placement cannot have a certain downside")
@@ -225,7 +230,7 @@
       return errors
   ```
 
-  exact key検査とcandidate／copy IDの非空・一意性も追加する。`resolve_safe_free_development`は0件または不正候補を自動選択せずerrorを返す。1件ならsafe mode、複数なら全candidate IDをTask 1 selectorへ渡してseeded modeを返す。いずれも追加消費0と、配置カード自体は手札→盤面の領域移動であることを結果へ保存する。
+  exact key検査とcandidate／copy IDの非空・一意性も追加する。`resolve_safe_free_development`は0件または不正候補を自動選択せずerrorを返す。完全合法IDを`legal_candidates`へ保存し、`pass`と全配置を含むことを検査する。1件ならsafe modeでrunner-upsは`["pass"]`、複数なら安全配置IDだけを`seeded_fallback_candidates`としてTask 1 selectorへ渡しseeded modeを返す。seeded runner-upsは抽選部分集合からselectedを除いた集合である。両branchでcontextのdecision／phaseは`normal_action`、choiceは`zero_cost_person_placement`を要求する。いずれも追加消費0と、配置カード自体は手札→盤面の領域移動であることを結果へ保存し、seeded validatorはresolverの安全性証跡をそのまま受理・検証する。
 
 - [ ] **Step 4: Task 2をGREENにする**
 
@@ -329,7 +334,7 @@
 
   Run: `cd docs/card-game/tools && python3 -m unittest test_proxy_normal_decision_fallback_contract.py -v`
 
-  Expected: 20 tests PASS、CLI出力の`valid`がtrue、contract JSONがbuilderと一致する。
+  Expected: 最終review後34 tests PASS、CLI出力の`valid`がtrue、contract JSONがbuilderと一致する。
 
 - [ ] **Step 5: Task 3をコミットする**
 
@@ -346,7 +351,7 @@
 - Modify: `docs/card-game/README.md`
 
 **Interfaces:**
-- Consumes: Task 1〜3のtool、20 tests、canonical contract。
+- Consumes: Task 1〜3と最終reviewのtool、34 tests、canonical contract。
 - Produces: 116の番号付き正本、全体検査への恒久接続、117の再開地点。
 
 - [ ] **Step 1: 総合検査の失敗条件を先に追加する**
@@ -366,7 +371,7 @@
       "winner_count": 0,
       "independent_balance_sample_count": 0,
   }, "116 zero match artifacts")
-  check(proxy_116_test_count == 20,
+  check(proxy_116_test_count == 34,
         "116 normal-decision fallback test count")
   ```
 
@@ -380,7 +385,7 @@
 
 - [ ] **Step 3: 116正本とREADMEを追加する**
 
-  116正本へ、目的、判断種別、3 mode、seed材料9要素とSHA-256 modulo、安全条件6件、継続／停止条件、記録schema、評価除外、RED→GREEN 20件、成果物0、母集団不変、117再開を記録する。READMEの冒頭現在地、一覧表、継続手順を115から116へ更新し、117では同じsource・seed・40枚manifestから4経路を最初から再生するが、seed使用対戦は独立balance標本0とする。
+  116正本へ、目的、判断種別、3 mode、seed材料9要素とSHA-256 modulo、安全条件6件、継続／停止条件、記録schema、評価除外、RED→GREEN 34件、成果物0、母集団不変、117再開を記録する。READMEの冒頭現在地、一覧表、継続手順を115から116へ更新し、117では同じsource・seed・40枚manifestから4経路を最初から再生するが、seed使用対戦は独立balance標本0とする。
 
 - [ ] **Step 4: 専用・回帰・総合検査をGREENにする**
 
@@ -394,7 +399,7 @@
 
   Run: `git diff --check`
 
-  Expected: 専用20件と全proxy回帰がPASS、CLI valid true、総合検査error 0、diff check出力なし。
+  Expected: 専用34件と全proxy回帰164件がPASS、CLI valid true、総合検査error 0、diff check出力なし。
 
 - [ ] **Step 5: Task 4をコミットする**
 
@@ -435,7 +440,7 @@
 
   Run: `git diff --check origin/design/card-pool-master-20260914...HEAD`
 
-  Expected: 専用20件と全proxy回帰PASS、canonical一致、総合検査error 0、diff check出力なし。
+  Expected: 専用34件と全proxy回帰164件PASS、canonical一致、総合検査error 0、diff check出力なし。
 
 - [ ] **Step 3: 作業branchへpushしてPR本文を同期する**
 
@@ -450,3 +455,14 @@
 - [ ] **Step 5: checkpoint 116の終了報告を作る**
 
   HEAD、tree、変更ファイル、専用／全proxy／総合検査結果、PR状態、CI run、現行452、登録477、成果物0、カード変更0、次が117の4経路再開であることを報告する。seed抽選を含む将来のcompleted記録を強度標本へ数えない注意を明記する。
+
+### Final integration fix wave: review finding 1〜6
+
+- [x] 既存20件を保持し、runner-upsと安全性証跡の4件を先にREDにしてproducer→validatorをGREENにする。
+- [x] 完全合法集合と抽選部分集合の4件をREDにし、resolverの必須第3引数、全caller、subset／runner-up／pass除外検査を更新する。
+- [x] typed context、外側decision kindとの結合、両branchの安全配置context、JSON enumの6件をREDにしてGREENにする。
+- [x] machine contract、canonical JSON、設計仕様、116正本、専用test数34へ同期する。
+- [x] ignored Task-5 reportを、将来のseeded matchは他条件が有効ならcompleted replayにできるがbalance／strength evidenceからは除外する、と訂正する。
+- [x] `PYTHONDONTWRITEBYTECODE=1`で専用34件、全proxy164件、fallback CLI、`check-design-data.py`、`git diff --check`をfresh実行し、すべてPASSを確認した。
+- [x] 116限定7ファイルのdiffと成果物0／452／477／カード変更0をself-reviewした。保存方針はfix wave 1 commitのみ、push／PR更新なし。
+- [x] `.superpowers/sdd/2026-09-18-normal-decision-fallback-contract/final-fix-report.md`へ変更ファイル、正確な検査件数・結果、self-review、懸念を記録する。commit identityは同じignored reportへ保存後に追記する。

@@ -64,6 +64,8 @@ seed材料は次の9要素だけで構成し、この順序のJSON配列とし�
 
 Python表記では`json.dumps(seed_material, ensure_ascii=False, separators=(",", ":"))`に相当する空白なしUTF-8 JSONをcanonical serializationとする。文字列、整数、配列の型を変えず、object key順へ依存しない。candidate IDはUnicode code point順の文字列昇順とする。seed材料への要素追加、削除、並べ替えを認めない。
 
+`seed_context`は先頭8要素のexact keysだけを持つ。versionは契約versionと完全一致する文字列、order ID・phase・choice kindは非空文字列、actorは`A`または`B`、actor turn index・roundはboolを除く1以上の整数、decision kindは`normal_action`または`mandatory_choice`で、外側のdecision kindと一致する。9要素目には完全集合ではなく`seeded_fallback_candidates`の昇順抽選部分集合を使う。
+
 先後鏡像で同じplayerが同じ候補状態に到達した場合に同じ選択となるよう、fixture ID、match ID、先手player ID、経路名はseed材料へ含めない。player Aとplayer Bはactor player IDで区別する。
 
 canonical serializationのUTF-8 bytesからSHA-256 digestを作り、digestをbig-endian unsigned integerとして解釈する。候補数を`N`としたとき、`selected_index = digest_integer mod N`とし、昇順候補配列の`selected_index`を選ぶ。対戦全体で順番に消費する疑似乱数列は使わない。これにより、別の判断を途中へ追加しても後続判断の抽選結果はずれない。
@@ -114,7 +116,13 @@ fallback対象を含む各判断記録は、既存107・114項目に加えて少
 - `reason_code`
 - seed抽選時の完全なseed証跡
 
-`legal_candidates`はその判断で実際に合法な候補の完全集合でなければならない。`runner_up_candidates`には、既存優先順位で次点となった候補、または比較不能のためseed抽選へ送られた非選択候補を保存する。
+`legal_candidates`はその判断で実際に合法な候補の完全集合でなければならない。安全配置resolverはこれを必須引数`legal_candidate_ids`として受け取り、`pass`とcallerが列挙した全合法行動を保存する。`placements`は既存優先順位適用後の比較不能な安全配置である。
+
+seeded modeでは別fieldの`seeded_fallback_candidates`を必須とし、非空・一意・昇順で完全集合内、selected candidateを含む抽選部分集合を保存する。安全配置では安全な配置IDだけを含め、劣位の`pass`を抽選へ入れない。純粋なfallbackですべての合法候補が比較不能なら両集合は一致する。
+
+必須の`runner_up_candidates`は一意な非空文字列IDの配列で、selected candidateを含まない。seeded modeでは抽選部分集合からselectedを除いた集合と一致する。一意の安全配置では比較で劣位になった`pass`を`["pass"]`として残し、他の合法行動の順位は追加しない。
+
+安全配置resolverの両branchでは、contextのdecision kind・phaseを`normal_action`、choice kindを`zero_cost_person_placement`に固定する。seeded validatorはresolverのselected placementとpass優越・領域移動・追加消費0の安全性証跡を受理し、selected IDと安全条件の一致を検査する。
 
 `seeded_fallback`以外ではseed証跡を持たない。`seeded_fallback`ではseed証跡、`strategic_unresolved: true`、固定reason codeのすべてを必須とする。
 

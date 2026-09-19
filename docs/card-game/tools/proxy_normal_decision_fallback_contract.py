@@ -14,14 +14,18 @@ SEED_CONTEXT_KEYS = (
 )
 _REQUIRED = {
     "decision_kind", "resolution_mode", "strategic_unresolved", "reason_code",
-    "legal_candidates", "candidate_set_complete", "candidate_set_evidence",
-    "seed_context", "seed_proof", "selected_candidate",
+    "legal_candidates", "seeded_fallback_candidates", "candidate_set_complete", "candidate_set_evidence",
+    "seed_context", "seed_proof", "selected_candidate", "runner_up_candidates",
 }
-_ALLOWED_TOP_LEVEL = _REQUIRED | {
+_SAFE_RESOLUTION_FIELDS = {
+    "selected_placement", "pass_dominated", "pass_dominated_by",
+    "placement_card_zone_transfer_counts_as_consumption", "additional_card_consumption",
+}
+_ALLOWED_TOP_LEVEL = _REQUIRED | _SAFE_RESOLUTION_FIELDS | {
     # Fields established by the 107/114 decision protocols remain extensible here.
     "decision_id", "decision_state", "public_information", "private_information",
     "pre_decision_state",
-    "payment", "targets", "chain", "action", "choice", "runner_up_candidates",
+    "payment", "targets", "chain", "action", "choice",
     "decision_seq", "event_seq", "selected_action", "runner_up_action",
     "priority_basis", "state_ref", "source_ref", "actor_turn_index", "round",
     "phase", "choice_kind", "order_id", "actor", "contract_version",
@@ -69,6 +73,25 @@ def build_fallback_contract():
             "seeded_fallback_reason_code": "strategic_unresolved_seeded_fallback",
         },
         "seeded_fallback": {
+            "required_record_fields": [
+                "seeded_fallback_candidates", "candidate_set_complete", "candidate_set_evidence",
+                "seed_context", "seed_proof",
+            ],
+            "candidate_source": "seeded_fallback_candidates",
+            "candidate_subset_rules": [
+                "non_empty", "unique", "sorted", "contained_in_complete_legal_candidates",
+                "includes_selected_candidate",
+            ],
+            "runner_up_rule": "lottery_subset_minus_selected",
+            "seed_context_types": {
+                "contract_version": "exact_contract_version_string",
+                "order_id": "non_empty_string", "actor": "A_or_B_string",
+                "actor_turn_index": "integer_at_least_1_excluding_bool",
+                "round": "integer_at_least_1_excluding_bool", "phase": "non_empty_string",
+                "decision_kind": "normal_action_or_mandatory_choice_string",
+                "choice_kind": "non_empty_string",
+            },
+            "decision_kind_matches_record": True,
             "seed_material_fields": list(SEED_CONTEXT_KEYS) + ["canonical_candidate_ids"],
             "canonical_serialization": "utf8_json_no_whitespace",
             "candidate_id_order": "unicode_code_point_ascending",
@@ -90,6 +113,15 @@ def build_fallback_contract():
             "dominates": "pass",
             "multiple_unresolved_candidates": "seeded_fallback",
             "placed_person_zone_transfer_counts_as_consumption": False,
+            "requires_explicit_complete_legal_candidates": True,
+            "complete_legal_candidates_include": ["pass", "all_supplied_legal_actions"],
+            "lottery_candidates": "incomparable_safe_placement_ids_excluding_pass",
+            "single_placement_runner_up_candidates": ["pass"],
+            "required_context": {
+                "decision_kind": "normal_action", "phase": "normal_action",
+                "choice_kind": "zero_cost_person_placement",
+            },
+            "required_evidence_fields": sorted(_SAFE_RESOLUTION_FIELDS),
         },
         "continuation_conditions": list(CONTINUATION_CONDITIONS),
         "stop_conditions": list(STOP_CONDITIONS),
@@ -214,11 +246,45 @@ def canonical_candidate_ids(candidate_ids):
     return sorted(candidate_ids)
 
 
-def build_seed_proof(context, candidate_ids):
+def _validate_seed_context(context):
+    if not isinstance(context, dict):
+        return ["seed_context must be an object"]
+    errors = []
     if set(context) != set(SEED_CONTEXT_KEYS):
-        raise ValueError("seed context keys differ")
-    if context["contract_version"] != CONTRACT_VERSION:
-        raise ValueError("fallback contract version differs")
+        errors.append("seed context keys differ")
+    if not isinstance(context.get("contract_version"), str) or context.get("contract_version") != CONTRACT_VERSION:
+        errors.append("fallback contract version differs")
+    for field in ("order_id", "phase", "choice_kind"):
+        if not isinstance(context.get(field), str) or not context[field]:
+            errors.append(f"seed context {field} must be a non-empty string")
+    actor = context.get("actor")
+    if not isinstance(actor, str) or actor not in {"A", "B"}:
+        errors.append("seed context actor must be A or B")
+    for field in ("actor_turn_index", "round"):
+        value = context.get(field)
+        if not isinstance(value, int) or isinstance(value, bool) or value < 1:
+            errors.append(f"seed context {field} must be an integer >= 1, excluding bool")
+    kind = context.get("decision_kind")
+    if not isinstance(kind, str) or kind not in DECISION_KINDS:
+        errors.append("unknown seed context decision_kind")
+    return errors
+
+
+def _validate_safe_placement_context(context):
+    errors = _validate_seed_context(context)
+    if isinstance(context, dict):
+        for field, expected in (("decision_kind", "normal_action"),
+                                ("phase", "normal_action"),
+                                ("choice_kind", "zero_cost_person_placement")):
+            if context.get(field) != expected:
+                errors.append(f"safe free development context {field} must be {expected}")
+    return errors
+
+
+def build_seed_proof(context, candidate_ids):
+    context_errors = _validate_seed_context(context)
+    if context_errors:
+        raise ValueError("; ".join(context_errors))
     ordered = canonical_candidate_ids(candidate_ids)
     material = [context[key] for key in SEED_CONTEXT_KEYS] + [ordered]
     serialized = json.dumps(material, ensure_ascii=False, separators=(",", ":"))
@@ -252,7 +318,7 @@ def validate_safe_free_placement(placement):
         errors.append("candidate_id must be a non-empty string")
     if not isinstance(card_copy_id, str) or not card_copy_id:
         errors.append("card_copy_id must be a non-empty string")
-    if placement.get("person_type") not in SAFE_PERSON_TYPES:
+    if not isinstance(placement.get("person_type"), str) or placement["person_type"] not in SAFE_PERSON_TYPES:
         errors.append("safe free placement must be companion or partner")
     if placement.get("slot_empty") is not True:
         errors.append("safe free placement requires an empty slot")
@@ -271,11 +337,11 @@ def validate_safe_free_placement(placement):
     return errors
 
 
-def resolve_safe_free_development(placements, context):
-    """Resolve safe free placements, preserving pass comparison and seed evidence."""
+def resolve_safe_free_development(placements, context, legal_candidate_ids):
+    """Resolve incomparable safe placements within the caller's complete legal set."""
     if not isinstance(placements, list) or not placements:
         return {"error": "safe free development requires at least one placement"}
-    errors = []
+    errors = _validate_safe_placement_context(context)
     candidate_ids = []
     card_copy_ids = []
     for index, placement in enumerate(placements):
@@ -290,6 +356,17 @@ def resolve_safe_free_development(placements, context):
         errors.append("candidate_id values must be unique")
     if len(valid_card_copy_ids) != len(set(valid_card_copy_ids)):
         errors.append("card_copy_id values must be unique")
+    try:
+        legal_candidates = canonical_candidate_ids(legal_candidate_ids)
+    except ValueError as exc:
+        errors.append("invalid complete legal candidates: " + str(exc))
+        legal_candidates = []
+    if "pass" not in legal_candidates:
+        errors.append("complete legal candidates must include pass")
+    if any(candidate not in legal_candidates for candidate in candidate_ids):
+        errors.append("complete legal candidates must include every supplied placement")
+    if "pass" in candidate_ids:
+        errors.append("pass cannot be a safe placement candidate")
     if errors:
         return {"error": "invalid safe free placement", "errors": errors}
 
@@ -297,12 +374,12 @@ def resolve_safe_free_development(placements, context):
     selected = ordered[0]
     base = {
         "decision_kind": "normal_action",
-        "legal_candidates": ordered,
+        "legal_candidates": legal_candidates,
         "candidate_set_complete": True,
         "candidate_set_evidence": {
-            "source_ref": "safe_free_placement_input",
+            "source_ref": "complete_legal_candidate_ids_input",
             "state_ref": "safe_free_placement_context",
-            "enumeration_rule": "all confirmed safe free person placements",
+            "enumeration_rule": "all legal actions supplied by caller, including pass",
         },
         "selected_candidate": selected,
         "selected_placement": next(p for p in placements if p["candidate_id"] == selected),
@@ -316,6 +393,7 @@ def resolve_safe_free_development(placements, context):
             "resolution_mode": "safe_free_development",
             "strategic_unresolved": False,
             "reason_code": "safe_free_development_dominates_pass",
+            "runner_up_candidates": ["pass"],
             "seed_context": None,
             "seed_proof": None,
         })
@@ -331,7 +409,10 @@ def resolve_safe_free_development(placements, context):
         "reason_code": "strategic_unresolved_seeded_fallback",
         "seed_context": context,
         "seed_proof": proof,
+        "seeded_fallback_candidates": ordered,
         "selected_candidate": proof["selected_candidate"],
+        "runner_up_candidates": [candidate for candidate in ordered
+                                 if candidate != proof["selected_candidate"]],
         "selected_placement": next(p for p in placements if p["candidate_id"] == proof["selected_candidate"]),
     })
     return base
@@ -347,10 +428,7 @@ def validate_seeded_resolution(decision):
         errors.append("unknown top-level keys: " + ", ".join(sorted(unknown)))
     missing = _REQUIRED - set(decision)
     errors.extend("missing required field: " + key for key in sorted(missing))
-    if errors:
-        # Continue checking present values, while avoiding cascaded key errors.
-        pass
-    if decision.get("decision_kind") not in {"mandatory_choice", "normal_action"}:
+    if not isinstance(decision.get("decision_kind"), str) or decision["decision_kind"] not in DECISION_KINDS:
         errors.append("unknown decision_kind")
     if decision.get("resolution_mode") != "seeded_fallback":
         errors.append("resolution_mode must be seeded_fallback")
@@ -371,19 +449,66 @@ def validate_seeded_resolution(decision):
         ordered = None
     if ordered is not None and candidates != ordered:
         errors.append("legal_candidates must be sorted")
+    lottery_candidates = decision.get("seeded_fallback_candidates")
+    try:
+        lottery = canonical_candidate_ids(lottery_candidates)
+    except ValueError as exc:
+        errors.append("invalid seeded_fallback_candidates: " + str(exc))
+        lottery = None
+    if lottery is not None:
+        if lottery_candidates != lottery:
+            errors.append("seeded_fallback_candidates must be sorted")
+        if ordered is not None and not set(lottery).issubset(ordered):
+            errors.append("seeded_fallback_candidates must be contained in legal_candidates")
+        if decision.get("selected_candidate") not in lottery:
+            errors.append("selected_candidate must be in seeded_fallback_candidates")
+    runner_ups = decision.get("runner_up_candidates")
+    if not isinstance(runner_ups, list) or any(
+        not isinstance(candidate, str) or not candidate for candidate in runner_ups
+    ):
+        errors.append("runner_up_candidates must be a list of non-empty strings")
+    elif len(set(runner_ups)) != len(runner_ups):
+        errors.append("runner_up_candidates must be unique")
+    elif lottery is not None and set(runner_ups) != {
+        candidate for candidate in lottery if candidate != decision.get("selected_candidate")
+    }:
+        errors.append("runner_up_candidates must equal non-selected lottery candidates")
     context = decision.get("seed_context")
+    safe_resolution = bool(_SAFE_RESOLUTION_FIELDS & set(decision)) or (
+        isinstance(context, dict) and context.get("choice_kind") == "zero_cost_person_placement"
+    )
+    context_errors = (_validate_safe_placement_context(context) if safe_resolution
+                      else _validate_seed_context(context))
+    errors.extend(context_errors)
+    if isinstance(context, dict) and decision.get("decision_kind") != context.get("decision_kind"):
+        errors.append("decision_kind differs from seed_context decision_kind")
+    if safe_resolution:
+        if ordered is not None and "pass" not in ordered:
+            errors.append("safe free development legal_candidates must include pass")
+        if lottery is not None and "pass" in lottery:
+            errors.append("dominated pass cannot enter the safe placement lottery")
+        errors.extend("missing safety evidence field: " + key
+                      for key in sorted(_SAFE_RESOLUTION_FIELDS - set(decision)))
+        placement = decision.get("selected_placement")
+        errors.extend("selected_placement: " + error
+                      for error in validate_safe_free_placement(placement))
+        if isinstance(placement, dict) and placement.get("candidate_id") != decision.get("selected_candidate"):
+            errors.append("selected_placement candidate_id differs from selected_candidate")
+        if decision.get("pass_dominated") is not True:
+            errors.append("pass_dominated must be true")
+        if decision.get("pass_dominated_by") != "safe_free_development":
+            errors.append("pass_dominated_by must be safe_free_development")
+        if decision.get("placement_card_zone_transfer_counts_as_consumption") is not False:
+            errors.append("placement card zone transfer must not count as consumption")
+        if not _is_numeric_zero(decision.get("additional_card_consumption")):
+            errors.append("safe free development requires zero additional_card_consumption")
     proof = decision.get("seed_proof")
     if not isinstance(proof, dict):
         errors.append("seed_proof must be an object")
-    if isinstance(context, dict) and ordered is not None:
-        try:
-            expected = build_seed_proof(context, ordered)
-            if proof != expected:
-                errors.append("seed_proof does not match recomputation")
-        except (TypeError, KeyError, ValueError) as exc:
-            errors.append("seed proof cannot be recomputed: " + str(exc))
-    else:
-        errors.append("seed_context must be an object")
+    if not context_errors and lottery is not None:
+        expected = build_seed_proof(context, lottery)
+        if proof != expected:
+            errors.append("seed_proof does not match recomputation")
     proof_selected_candidate = proof.get("selected_candidate") if isinstance(proof, dict) else None
     if decision.get("selected_candidate") != proof_selected_candidate:
         errors.append("selected_candidate differs from seed_proof")

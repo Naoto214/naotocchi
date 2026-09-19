@@ -2792,7 +2792,7 @@ if all(path.exists() for path in
         node.name.startswith("test_") for node in ast.walk(proxy_116_test_tree)
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
     )
-    check(proxy_116_test_count == 20, "116 normal-decision fallback test count")
+    check(proxy_116_test_count == 34, "116 normal-decision fallback test count")
     if "--catalog" not in sys.argv:
         proxy_116_validation = subprocess.run(
             [sys.executable, str(proxy_116_tool)], capture_output=True, text=True,

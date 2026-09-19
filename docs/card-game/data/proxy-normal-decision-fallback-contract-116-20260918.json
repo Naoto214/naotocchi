@@ -24,6 +24,33 @@
     "seeded_fallback_reason_code": "strategic_unresolved_seeded_fallback"
   },
   "seeded_fallback": {
+    "required_record_fields": [
+      "seeded_fallback_candidates",
+      "candidate_set_complete",
+      "candidate_set_evidence",
+      "seed_context",
+      "seed_proof"
+    ],
+    "candidate_source": "seeded_fallback_candidates",
+    "candidate_subset_rules": [
+      "non_empty",
+      "unique",
+      "sorted",
+      "contained_in_complete_legal_candidates",
+      "includes_selected_candidate"
+    ],
+    "runner_up_rule": "lottery_subset_minus_selected",
+    "seed_context_types": {
+      "contract_version": "exact_contract_version_string",
+      "order_id": "non_empty_string",
+      "actor": "A_or_B_string",
+      "actor_turn_index": "integer_at_least_1_excluding_bool",
+      "round": "integer_at_least_1_excluding_bool",
+      "phase": "non_empty_string",
+      "decision_kind": "normal_action_or_mandatory_choice_string",
+      "choice_kind": "non_empty_string"
+    },
+    "decision_kind_matches_record": true,
     "seed_material_fields": [
       "contract_version",
       "order_id",
@@ -64,7 +91,28 @@
     ],
     "dominates": "pass",
     "multiple_unresolved_candidates": "seeded_fallback",
-    "placed_person_zone_transfer_counts_as_consumption": false
+    "placed_person_zone_transfer_counts_as_consumption": false,
+    "requires_explicit_complete_legal_candidates": true,
+    "complete_legal_candidates_include": [
+      "pass",
+      "all_supplied_legal_actions"
+    ],
+    "lottery_candidates": "incomparable_safe_placement_ids_excluding_pass",
+    "single_placement_runner_up_candidates": [
+      "pass"
+    ],
+    "required_context": {
+      "decision_kind": "normal_action",
+      "phase": "normal_action",
+      "choice_kind": "zero_cost_person_placement"
+    },
+    "required_evidence_fields": [
+      "additional_card_consumption",
+      "pass_dominated",
+      "pass_dominated_by",
+      "placement_card_zone_transfer_counts_as_consumption",
+      "selected_placement"
+    ]
   },
   "continuation_conditions": [
     "complete_legal_candidates",
