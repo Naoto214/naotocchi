@@ -214,8 +214,8 @@ test('residents are held by the same colliders as the player, so nobody walks th
   if (!o) return;
   // かべの そとに おいて、なかへ むかわせる
   a.x = o.x + (o.r + 90); a.z = o.z;
-  a.state = 'walk'; a.until = 60; a.tx = o.x - o.r; a.tz = o.z;
-  for (let i = 0; i < 400; i++) { a.state = 'walk'; a.until = 60; a.tx = o.x - o.r; a.tz = o.z; M.updateActor(a, 1 / 60, {}, w, w.residents); }
+  a.behavior = 'walk'; a.until = 60; a.tx = o.x - o.r; a.tz = o.z;
+  for (let i = 0; i < 400; i++) { a.behavior = 'walk'; a.until = 60; a.tx = o.x - o.r; a.tz = o.z; M.updateActor(a, 1 / 60, {}, w, w.residents); }
   assert.ok(M.colliderPenetration(o, a.x, a.z, M.RULES.bodyRadius * 0.8) < M.RULES.bodyRadius * 0.5, 'the resident is stopped by the same wall the player is');
 });
 
