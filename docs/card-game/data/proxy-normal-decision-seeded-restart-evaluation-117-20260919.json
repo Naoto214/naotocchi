@@ -1,0 +1,292 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_decision_seeded_restart_evaluation.v1",
+  "checkpoint": 117,
+  "planned_route_count": 4,
+  "completed_route_count": 0,
+  "stopped_route_count": 4,
+  "expected_files": {
+    "completed_records": [],
+    "decision_traces": [],
+    "stop_artifacts": [
+      "stop-117-order-01-a-first.json",
+      "stop-117-order-01-b-first.json",
+      "stop-117-order-02-a-first.json",
+      "stop-117-order-02-b-first.json"
+    ]
+  },
+  "strategic_unresolved_count": 7,
+  "seeded_fallback_count": 7,
+  "unresolved_count": 4,
+  "independent_balance_sample_count": 0,
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "round": 1,
+      "actor": "A",
+      "phase": "post_placement_response",
+      "stop_reason_code": "incomplete_legal_candidates",
+      "event_count": 3,
+      "snapshot_count": 4,
+      "decision_count": 2,
+      "legal_candidate_count": 11,
+      "selected_action_count": 2,
+      "use_count_by_card_type": {
+        "main": 0,
+        "companion": 0,
+        "partner": 1,
+        "world": 0,
+        "play": 0,
+        "item": 0,
+        "event": 0
+      },
+      "unused_time": {
+        "A": 1,
+        "B": 0
+      },
+      "reservations": {
+        "created": 0,
+        "consumed": 0,
+        "expired": 0,
+        "maximum_simultaneous": 0
+      },
+      "reentries": 0,
+      "instance_transition_count": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 1,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 2,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 3,
+          "A": 20,
+          "B": 20
+        }
+      ],
+      "seeded_fallback_count": 2,
+      "strategic_unresolved_count": 2,
+      "independent_balance_sample_count": 0,
+      "balance_exclusion_reasons": [
+        "seeded_or_strategically_unresolved",
+        "stopped_before_match_completion"
+      ],
+      "unresolved_count": 1
+    },
+    {
+      "path_id": "order-01-b-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "round": 1,
+      "actor": "B",
+      "phase": "post_placement_response",
+      "stop_reason_code": "missing_stable_candidate_identifier",
+      "event_count": 3,
+      "snapshot_count": 4,
+      "decision_count": 2,
+      "legal_candidate_count": 12,
+      "selected_action_count": 2,
+      "use_count_by_card_type": {
+        "main": 0,
+        "companion": 0,
+        "partner": 1,
+        "world": 0,
+        "play": 0,
+        "item": 0,
+        "event": 0
+      },
+      "unused_time": {
+        "A": 0,
+        "B": 1
+      },
+      "reservations": {
+        "created": 0,
+        "consumed": 0,
+        "expired": 0,
+        "maximum_simultaneous": 0
+      },
+      "reentries": 0,
+      "instance_transition_count": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 1,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 2,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 3,
+          "A": 20,
+          "B": 20
+        }
+      ],
+      "seeded_fallback_count": 2,
+      "strategic_unresolved_count": 2,
+      "independent_balance_sample_count": 0,
+      "balance_exclusion_reasons": [
+        "seeded_or_strategically_unresolved",
+        "stopped_before_match_completion"
+      ],
+      "unresolved_count": 1
+    },
+    {
+      "path_id": "order-02-a-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "round": 1,
+      "actor": "A",
+      "phase": "post_placement_response",
+      "stop_reason_code": "missing_stable_candidate_identifier",
+      "event_count": 3,
+      "snapshot_count": 4,
+      "decision_count": 2,
+      "legal_candidate_count": 9,
+      "selected_action_count": 2,
+      "use_count_by_card_type": {
+        "main": 0,
+        "companion": 1,
+        "partner": 0,
+        "world": 0,
+        "play": 0,
+        "item": 0,
+        "event": 0
+      },
+      "unused_time": {
+        "A": 1,
+        "B": 0
+      },
+      "reservations": {
+        "created": 0,
+        "consumed": 0,
+        "expired": 0,
+        "maximum_simultaneous": 0
+      },
+      "reentries": 0,
+      "instance_transition_count": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 1,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 2,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 3,
+          "A": 20,
+          "B": 20
+        }
+      ],
+      "seeded_fallback_count": 1,
+      "strategic_unresolved_count": 1,
+      "independent_balance_sample_count": 0,
+      "balance_exclusion_reasons": [
+        "seeded_or_strategically_unresolved",
+        "stopped_before_match_completion"
+      ],
+      "unresolved_count": 1
+    },
+    {
+      "path_id": "order-02-b-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "round": 1,
+      "actor": "B",
+      "phase": "post_placement_response",
+      "stop_reason_code": "missing_stable_candidate_identifier",
+      "event_count": 3,
+      "snapshot_count": 4,
+      "decision_count": 2,
+      "legal_candidate_count": 12,
+      "selected_action_count": 2,
+      "use_count_by_card_type": {
+        "main": 0,
+        "companion": 1,
+        "partner": 0,
+        "world": 0,
+        "play": 0,
+        "item": 0,
+        "event": 0
+      },
+      "unused_time": {
+        "A": 0,
+        "B": 1
+      },
+      "reservations": {
+        "created": 0,
+        "consumed": 0,
+        "expired": 0,
+        "maximum_simultaneous": 0
+      },
+      "reentries": 0,
+      "instance_transition_count": 0,
+      "growth_progression": [
+        {
+          "event_seq": 0,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 1,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 2,
+          "A": 20,
+          "B": 20
+        },
+        {
+          "event_seq": 3,
+          "A": 20,
+          "B": 20
+        }
+      ],
+      "seeded_fallback_count": 2,
+      "strategic_unresolved_count": 2,
+      "independent_balance_sample_count": 0,
+      "balance_exclusion_reasons": [
+        "seeded_or_strategically_unresolved",
+        "stopped_before_match_completion"
+      ],
+      "unresolved_count": 1
+    }
+  ],
+  "population": {
+    "current_catalog": 452,
+    "registered_candidates": 477,
+    "changed_card_text_numeric_or_registration_ids": 0
+  },
+  "limits": [
+    "seeded or strategically unresolved routes are not independent balance samples",
+    "do not infer win rate, seat advantage, activation rate, card strength, or adoption"
+  ]
+}

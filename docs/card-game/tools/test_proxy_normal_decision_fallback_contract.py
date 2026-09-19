@@ -262,6 +262,51 @@ class SeededFallbackContractTests(unittest.TestCase):
         })
         self.assertEqual(validate_seeded_resolution(decision), [])
 
+    def test_seeded_validator_allows_bound_117_candidate_details(self):
+        decision = seeded_decision()
+        decision["legal_candidate_details"] = [
+            {"candidate_id": candidate_id, "kind": "card_copy"}
+            for candidate_id in decision["legal_candidates"]
+        ]
+        self.assertEqual(validate_seeded_resolution(decision), [])
+        decision["unexpected_117_field"] = True
+        self.assertTrue(validate_seeded_resolution(decision))
+
+    def test_seeded_validator_requires_bound_117_candidate_details(self):
+        cases = {}
+        non_list = seeded_decision()
+        non_list["legal_candidate_details"] = {"candidate_id": "A-G-air-hockey-01"}
+        cases["non-list"] = non_list
+        duplicate = seeded_decision()
+        duplicate["legal_candidate_details"] = [
+            {"candidate_id": candidate_id}
+            for candidate_id in duplicate["legal_candidates"]
+        ]
+        duplicate["legal_candidate_details"][1]["candidate_id"] = \
+            duplicate["legal_candidate_details"][0]["candidate_id"]
+        cases["duplicate"] = duplicate
+        missing = seeded_decision()
+        missing["legal_candidate_details"] = [
+            {"candidate_id": candidate_id}
+            for candidate_id in missing["legal_candidates"][:-1]
+        ]
+        cases["missing"] = missing
+        extra = seeded_decision()
+        extra["legal_candidate_details"] = [
+            {"candidate_id": candidate_id}
+            for candidate_id in extra["legal_candidates"]
+        ] + [{"candidate_id": "not-legal"}]
+        cases["extra"] = extra
+        malformed = seeded_decision()
+        malformed["legal_candidate_details"] = ["not-an-object"]
+        cases["malformed detail"] = malformed
+        malformed_id = seeded_decision()
+        malformed_id["legal_candidate_details"] = [{"candidate_id": []}]
+        cases["malformed ID"] = malformed_id
+        for name, decision in cases.items():
+            with self.subTest(name=name):
+                self.assertTrue(validate_seeded_resolution(decision))
+
     def test_seeded_resolution_reports_malformed_proof_types(self):
         for malformed in ("not-a-proof", ["not-a-proof"]):
             decision = seeded_decision()

@@ -2792,7 +2792,7 @@ if all(path.exists() for path in
         node.name.startswith("test_") for node in ast.walk(proxy_116_test_tree)
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
     )
-    check(proxy_116_test_count == 34, "116 normal-decision fallback test count")
+    check(proxy_116_test_count == 36, "116 normal-decision fallback test count")
     if "--catalog" not in sys.argv:
         proxy_116_validation = subprocess.run(
             [sys.executable, str(proxy_116_tool)], capture_output=True, text=True,
@@ -2811,16 +2811,90 @@ readme_116_text = (DOCS / "README.md").read_text()
 readme_current_phase_116 = re.search(
     r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_current_phase_116 is not None and
-      "[116 通常意思決定fallback contract](116-normal-decision-fallback-contract.md)" in
+      "[117 通常意思決定seeded restart](117-normal-decision-seeded-restart.md)" in
       readme_current_phase_116.group(1),
-      "README current phase is checkpoint 116")
+      "README current phase is checkpoint 117")
 readme_continuation_117 = re.search(
     r"^## この後の順序\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_continuation_117 is not None and re.search(
-          r"117では同じsource・seed・40枚manifestから4経路を最初から再生するが、"
-          r"seed使用対戦は独立balance標本0とする。",
+          r"117で4経路を再生し、completed 0・stopped 4・独立balance標本0を保存した。",
           readme_continuation_117.group(1)) is not None,
-      "README 117 restart keeps seeded matches at balance sample zero")
+      "README 117 actual restart result and balance boundary")
+
+# 117 materializes only the exact terminal artifacts proved by fixed replay.
+proxy_test_count = sum(
+    isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
+    for path in (DOCS / "tools").glob("test_proxy_*.py")
+    for node in ast.walk(ast.parse(path.read_text()))
+)
+check(proxy_test_count == 190, "117 total proxy test count")
+proxy_117_doc = DOCS / "117-normal-decision-seeded-restart.md"
+proxy_117_tool = DOCS / "tools/proxy_normal_decision_seeded_restart.py"
+proxy_117_test = DOCS / "tools/test_proxy_normal_decision_seeded_restart.py"
+proxy_117_plan = DOCS / "data/proxy-normal-decision-seeded-restart-plan-117-20260919.json"
+proxy_117_evaluation = DOCS / "data/proxy-normal-decision-seeded-restart-evaluation-117-20260919.json"
+for path in (proxy_117_doc, proxy_117_tool, proxy_117_test, proxy_117_plan, proxy_117_evaluation,
+             DOCS / "plans/2026-09-19-normal-decision-seeded-restart-design.md",
+             DOCS / "plans/2026-09-19-normal-decision-seeded-restart.md"):
+    check(path.exists(), f"117 missing required file: {path.relative_to(ROOT)}")
+check("| [117](117-normal-decision-seeded-restart.md) |" in readme_116_text,
+      "README missing 117 index entry")
+if all(path.exists() for path in (proxy_117_tool, proxy_117_test, proxy_117_plan, proxy_117_evaluation)):
+    try:
+        restart_117 = runpy.run_path(str(proxy_117_tool))
+        inputs_117 = restart_117["load_inputs"]()
+        plan_117 = json.loads(proxy_117_plan.read_text())
+        suite_117 = restart_117["build_seeded_restart_suite"](plan_117, inputs_117)
+        check(not restart_117["validate_seeded_restart_suite"](suite_117, plan_117, inputs_117),
+              "117 canonical suite replay")
+        materialized_errors_117 = restart_117["validate_materialized_suite"](suite_117, DOCS / "data")
+        check(not materialized_errors_117, f"117 exact canonical manifest: {materialized_errors_117}")
+        evaluation_117 = json.loads(proxy_117_evaluation.read_text())
+        check(evaluation_117 == restart_117["build_evaluation"](suite_117), "117 evaluation regeneration")
+        check([evaluation_117[key] for key in ("planned_route_count", "completed_route_count",
+              "stopped_route_count", "independent_balance_sample_count")] == [4, 0, 4, 0],
+              "117 exact four route terminal counts and balance exclusion")
+        expected_paths_117 = ["order-01-a-first", "order-01-b-first", "order-02-a-first", "order-02-b-first"]
+        check(list(suite_117["outcomes"]) == expected_paths_117, "117 fixed route order")
+        for path_id, bottom, placement, seeded, candidates in zip(expected_paths_117,
+                ["A-023", "B-022", "A-007", "B-034"],
+                ["candidate-place-partner-A-017#1", "candidate-place-partner-B-017#1",
+                 "candidate-place-companion-A-014#1", "candidate-place-companion-B-014#1"],
+                [2, 2, 1, 2], [11, 12, 9, 12]):
+            outcome = suite_117["outcomes"][path_id]
+            stop = outcome["stop"]
+            decisions = suite_117["replay_evidence"][path_id]["decisions"]
+            check(set(outcome) == {"status", "stop", "metrics"} and
+                  not restart_117["validate_stop_artifact"](stop) and stop["winner"] is None and
+                  (stop["round"], stop["phase"], stop["last_valid_event_seq"]) ==
+                  (1, "post_placement_response", 3), f"117 stop isolation: {path_id}")
+            check([row["selected_candidate"] for row in decisions] == [bottom, placement] and
+                  "pass" in decisions[1]["legal_candidates"] and
+                  "candidate-pass" not in decisions[1]["legal_candidates"] and
+                  all(not restart_117["validate_decision_bridge"](row, inputs_117["candidate_table"])
+                      for row in decisions), f"117 R1 decisions and pass normalization: {path_id}")
+            metrics = next(row for row in evaluation_117["routes"] if row["path_id"] == path_id)
+            check([metrics[key] for key in ("seeded_fallback_count", "strategic_unresolved_count",
+                  "legal_candidate_count", "event_count", "snapshot_count", "decision_count")]
+                  == [seeded, seeded, candidates, 3, 4, 2], f"117 route metrics: {path_id}")
+        check((evaluation_117["seeded_fallback_count"], evaluation_117["strategic_unresolved_count"],
+               evaluation_117["unresolved_count"]) == (7, 7, 4), "117 seeded/strategic/stop totals")
+        check(evaluation_117["population"] == {"current_catalog": sum(current_counts.values()),
+              "registered_candidates": sum(totals), "changed_card_text_numeric_or_registration_ids": 0},
+              "117 unchanged 452/477 population and zero changed IDs")
+        fixtures_112 = list((DOCS / "data/proxy-gap-fixtures-112").glob("*.json"))
+        check(len(fixtures_112) == 6 and all(
+            (value := json.loads(path.read_text())["record"])["status"] == "fixture" and
+            value["events"] == [] and value["result"]["winner"] is None for path in fixtures_112),
+            "117 preserves six unplayed 112 fixtures")
+        test_count_117 = sum(isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+                             node.name.startswith("test_") for node in ast.walk(ast.parse(proxy_117_test.read_text())))
+        check(test_count_117 == 24, "117 dedicated test count")
+        if "--catalog" not in sys.argv:
+            validation_117 = subprocess.run([sys.executable, str(proxy_117_tool)], capture_output=True, text=True)
+            check(validation_117.returncode == 0, f"117 CLI: {validation_117.stdout}{validation_117.stderr}")
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        check(False, f"117 canonical check failed: {error}")
 boundary_cases = re.findall(r"^\| ([ABC]\d{2}) \|", doc(93), re.M)
 check(len(boundary_cases) == len(set(boundary_cases)) == 32 and set(boundary_cases) ==
       {f"A{n:02d}" for n in range(1, 9)} | {f"B{n:02d}" for n in range(1, 13)} |
@@ -2842,7 +2916,8 @@ for file in DOCS.rglob("*.md"):
             broken_links.append(f"{file.relative_to(ROOT)} -> {target}")
 check(not broken_links, f"Broken local links: {broken_links}")
 
-result = {"boundary_cross_audit": boundary_audit, "registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
+result = {"proxy_test_count": proxy_test_count,
+                  "boundary_cross_audit": boundary_audit, "registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
                   "games": dict(collections.Counter(g["source"] for g in games)), "main_curves": len(curves),
                   "value_10_cards": sum(10 in pair for c in curves.values() for pair in c),
                   "stage_7_to_8": dict(collections.Counter("up" if sum(c[7]) > sum(c[6]) else "down" if sum(c[7]) < sum(c[6]) else "same" for c in curves.values())),

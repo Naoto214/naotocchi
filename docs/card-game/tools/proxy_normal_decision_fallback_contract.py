@@ -29,6 +29,7 @@ _ALLOWED_TOP_LEVEL = _REQUIRED | _SAFE_RESOLUTION_FIELDS | {
     "decision_seq", "event_seq", "selected_action", "runner_up_action",
     "priority_basis", "state_ref", "source_ref", "actor_turn_index", "round",
     "phase", "choice_kind", "order_id", "actor", "contract_version",
+    "legal_candidate_details",
 }
 
 _SAFE_PLACEMENT_KEYS = {
@@ -449,6 +450,26 @@ def validate_seeded_resolution(decision):
         ordered = None
     if ordered is not None and candidates != ordered:
         errors.append("legal_candidates must be sorted")
+    if "legal_candidate_details" in decision:
+        details = decision.get("legal_candidate_details")
+        detail_ids = []
+        if not isinstance(details, list):
+            errors.append("legal_candidate_details must be a list")
+        else:
+            for index, detail in enumerate(details):
+                if not isinstance(detail, dict):
+                    errors.append(f"legal_candidate_details[{index}] must be an object")
+                    continue
+                candidate_id = detail.get("candidate_id")
+                if not isinstance(candidate_id, str) or not candidate_id:
+                    errors.append(
+                        f"legal_candidate_details[{index}] candidate_id must be a non-empty string")
+                    continue
+                detail_ids.append(candidate_id)
+            if len(detail_ids) != len(set(detail_ids)):
+                errors.append("legal_candidate_details candidate_id values must be unique")
+            if ordered is not None and set(detail_ids) != set(ordered):
+                errors.append("legal_candidate_details IDs must exactly bind legal_candidates")
     lottery_candidates = decision.get("seeded_fallback_candidates")
     try:
         lottery = canonical_candidate_ids(lottery_candidates)
