@@ -651,6 +651,203 @@
     // [よこ半分, たかさ] を えがき はば(px)の 何ばい で もつ。ほそい みき は ほそく、
     // よこに ながい かこみ は ひろく。これが ある ので となりの ものまで いっしょに すけない
     const OCCLUDER_BOX = { glyph: [0.32, 0.95], landmark: [0.34, 1.0], bigtrunk: [0.16, 1.55], building: [0.40, 2.6], alleywall: [0.40, 2.6], shopblock: [0.40, 1.0], cliffwall: [0.60, 1.6], seacliff: [0.60, 1.7], cliff: [0.50, 1.05], searock: [0.62, 0.85], dunewall: [0.95, 0.9], duneridge: [0.95, 0.6], dune: [0.6, 0.35], sandcrest: [1.0, 0.3], snowbank: [0.9, 0.5], snowdrift: [0.7, 0.3], reefwall: [0.6, 1.9], kelpwall: [0.5, 1.9], hedge: [0.55, 0.55], pinewall: [0.5, 1.5], palmgrove: [0.5, 1.3], riverwood: [0.4, 1.0], mistwood: [0.35, 1.05], bluetree: [0.35, 1.0], parktree: [0.42, 1.0], farmhouse: [0.58, 1.05], house: [0.58, 1.05], barn: [0.48, 1.0], mesa: [0.5, 0.65], islandedge: [0.72, 0.2], ruinwall: [0.6, 0.78], ruinpillar: [0.16, 0.95], cropline: [0.9, 0.35], woodfence: [0.52, 0.45], bigleaf: [0.36, 0.6], hugeleaf: [0.62, 0.75], palmfrond: [0.4, 0.9], branch: [0.75, 0.95], vine: [0.1, 1.05], buttress: [0.5, 0.9], wreck: [0.55, 0.95], bigrock: [0.44, 0.5], ledgerock: [0.6, 0.42], fern: [0.26, 0.52], reedclump: [0.3, 0.7], reed: [0.2, 0.75], cloudwisp: [0.5, 0.2], ricestalk: [0.35, 0.58], crystal: [0.16, 0.85], icepillar: [0.18, 0.85] };
+    // ================= あたりはんてい(せかい ざひょうの 正本) =================
+    // 「絵の 四角」では なく「地面に ついて いる ところ」を もつ。
+    // 木は みき だけ、家は たてもの 本体、柵は ほそい すじ。は や 草では 止まらない。
+    //   shape: 'circle'(まるい 接地) / 'box'(かべ・たてもの。みちに そって ang を もつ)
+    //   w: よこ半径 ÷ size、d: おくゆき半径 ÷ size(box のみ)
+    //   null = 通れる(草・花・葉・こもの・はし・エフェクト)
+    // px では なく world たんい なので、Three.js でも おなじ 値を つかえる
+    const COLLIDER = {
+      // --- たてもの・かべ(むきつきの 箱) ---
+      building: { shape: 'box', w: 0.38, d: 0.28 }, alleywall: { shape: 'box', w: 0.38, d: 0.24 },
+      shopblock: { shape: 'box', w: 0.36, d: 0.24 }, shopfront: { shape: 'box', w: 0.30, d: 0.20 },
+      house: { shape: 'box', w: 0.40, d: 0.30 }, farmhouse: { shape: 'box', w: 0.42, d: 0.30 },
+      barn: { shape: 'box', w: 0.40, d: 0.30 }, ruinwall: { shape: 'box', w: 0.55, d: 0.20 },
+      ruingate: { shape: 'box', w: 0.40, d: 0.16 }, wreck: { shape: 'circle', w: 0.50 },
+      igloo: { shape: 'circle', w: 0.40 }, tent: { shape: 'circle', w: 0.34 },
+      // --- 地形(崖・メサ・すなやま・ゆきの どて) ---
+      cliffwall: { shape: 'box', w: 0.55, d: 0.26 }, seacliff: { shape: 'box', w: 0.55, d: 0.26 },
+      cliff: { shape: 'box', w: 0.46, d: 0.24 }, mesa: { shape: 'box', w: 0.46, d: 0.30 },
+      reefwall: { shape: 'box', w: 0.55, d: 0.24 }, kelpwall: { shape: 'box', w: 0.42, d: 0.20 },
+      dunewall: { shape: 'box', w: 0.80, d: 0.30 }, duneridge: { shape: 'box', w: 0.80, d: 0.24 },
+      snowbank: { shape: 'box', w: 0.72, d: 0.26 }, islandedge: { shape: 'box', w: 0.66, d: 0.22 },
+      bigrock: { shape: 'circle', w: 0.40 }, searock: { shape: 'circle', w: 0.52 },
+      ledgerock: { shape: 'circle', w: 0.46 }, riverrock: { shape: 'circle', w: 0.28 },
+      icepillar: { shape: 'circle', w: 0.16 }, crystal: { shape: 'circle', w: 0.14 },
+      cairn: { shape: 'circle', w: 0.26 }, stonestack: { shape: 'circle', w: 0.24 },
+      shellpile: { shape: 'circle', w: 0.30 },
+      // --- き(みき だけ。は では 止まらない) ---
+      bigtrunk: { shape: 'circle', w: 0.17 }, parktree: { shape: 'circle', w: 0.11 },
+      riverwood: { shape: 'circle', w: 0.10 }, mistwood: { shape: 'circle', w: 0.10 },
+      bluetree: { shape: 'circle', w: 0.10 }, pinewall: { shape: 'circle', w: 0.13 },
+      palmgrove: { shape: 'circle', w: 0.11 }, stump: { shape: 'circle', w: 0.26 },
+      buttress: { shape: 'circle', w: 0.34 }, hayroll: { shape: 'circle', w: 0.30 },
+      log: { shape: 'box', w: 0.30, d: 0.11 }, driftwood: { shape: 'box', w: 0.30, d: 0.11 },
+      // --- さく(ほそい すじ) ---
+      hedge: { shape: 'box', w: 0.50, d: 0.26 }, woodfence: { shape: 'box', w: 0.50, d: 0.10 },
+      snowfence: { shape: 'box', w: 0.48, d: 0.09 }, fencerail: { shape: 'box', w: 0.48, d: 0.09 },
+      guardrail: { shape: 'box', w: 0.48, d: 0.09 }, fence: { shape: 'box', w: 0.46, d: 0.10 },
+      cropline: { shape: 'box', w: 0.80, d: 0.16 },
+      // --- みずたまり(景色の みず。みちの わきに ある ので よけて あるく) ---
+      springpool: { shape: 'circle', w: 0.42 }, oasispool: { shape: 'circle', w: 0.88 },
+      rockpool: { shape: 'circle', w: 0.34 },
+      // --- ちいさな 立ちもの ---
+      statue: { shape: 'circle', w: 0.18 }, obelisk: { shape: 'circle', w: 0.16 },
+      ruinpillar: { shape: 'circle', w: 0.15 }, telescope: { shape: 'circle', w: 0.16 },
+      orrery: { shape: 'circle', w: 0.24 }, guardpost: { shape: 'circle', w: 0.20 },
+      vending: { shape: 'circle', w: 0.20 }, firewood: { shape: 'circle', w: 0.24 },
+      pot: { shape: 'circle', w: 0.14 }, vent: { shape: 'circle', w: 0.20 },
+      oldpost: { shape: 'circle', w: 0.08 }, lanternpost: { shape: 'circle', w: 0.08 },
+      lantern: { shape: 'circle', w: 0.10 }, streetlight: { shape: 'circle', w: 0.08 },
+      stoplamp: { shape: 'circle', w: 0.09 }, neonsign: { shape: 'circle', w: 0.14 },
+      moonlamp: { shape: 'circle', w: 0.12 }, waterwheel: { shape: 'box', w: 0.32, d: 0.16 },
+      // --- おおきな しょくぶつの かたまり ---
+      mushroomgrove: { shape: 'circle', w: 0.28 }, glowgarden: { shape: 'circle', w: 0.30 },
+      glowglade: { shape: 'circle', w: 0.34 }, crystalgarden: { shape: 'circle', w: 0.30 },
+      coralfan: { shape: 'circle', w: 0.26 }, glowcoral: { shape: 'circle', w: 0.22 },
+      coralarm: { shape: 'circle', w: 0.20 },
+      // --- 通れる(null): 草・は・花・ちいさな きのこ・すなの うねり・くも・
+      //     そして はし と さんばし(わたれないと こまる) ---
+      fern: null, reed: null, reedclump: null, ricestalk: null, crop: null, vine: null,
+      bigleaf: null, hugeleaf: null, palmfrond: null, branch: null, kelp: null,
+      mushroomcluster: null, planter: null, parasol: null,
+      dune: null, sandcrest: null, snowdrift: null, cloudwisp: null, scree: null,
+      crosswalk: null, woodbridge: null, ropebridge: null, lightbridge: null, pier: null,
+    };
+    // 絵文字の けしき: たてもの・おおきな き・岩 だけ かたい。花や こものは 通れる
+    const SOLID_EMOJI_BUILD = new Set(['🏢', '🏬', '🏠', '🏡', '🏚️', '🛖', '🏪', '🚉', '🏕️', '⛺', '⛩️', '🎡', '⛲', '🚏', '🏛️', '🗿', '⚓', '⛵', '🚧']);
+    const SOLID_EMOJI_TREE = new Set(['🌳', '🌲', '🌴', '🌵', '🪸', '🪨']);
+    // ランドマークの おおきな え: ねもと だけ。ちかづいて ながめられる ように のこす
+    const LANDMARK_COLLIDER = { shape: 'circle', w: 0.13 };
+
+    // prop 1つの あたりはんてい。通れる ものは null
+    function colliderOf(p) {
+      if (!p.solid) return null;
+      const size = p.size || 160;
+      if (p.landmark) return { shape: 'circle', hw: size * LANDMARK_COLLIDER.w, hd: size * LANDMARK_COLLIDER.w, ang: 0, kind: 'LM:' + p.landmark };
+      if (p.struct) {
+        const c = Object.prototype.hasOwnProperty.call(COLLIDER, p.struct)
+          ? COLLIDER[p.struct]
+          // ひょうに ない かたちは、絵の はんぷく(OCCLUDER_BOX)から ひかえめに みつもる
+          : { shape: 'circle', w: Math.min(0.34, (OCCLUDER_BOX[p.struct] ? OCCLUDER_BOX[p.struct][0] : 0.3) * 0.55) };
+        if (!c) return null;
+        return { shape: c.shape, hw: size * c.w, hd: size * (c.d != null ? c.d : c.w), ang: p.ang || 0, kind: p.struct };
+      }
+      if (p.emoji) {
+        if (SOLID_EMOJI_BUILD.has(p.emoji)) return { shape: 'circle', hw: size * 0.24, hd: size * 0.24, ang: 0, kind: p.emoji };
+        if (SOLID_EMOJI_TREE.has(p.emoji)) return { shape: 'circle', hw: size * 0.17, hd: size * 0.17, ang: 0, kind: p.emoji };
+        return null;
+      }
+      return null;
+    }
+
+
+    // あたりはんてい の やくわり(§正本): solid=かたい / water=みず(入れない) / boundary=せかいの ふち
+    const COLLIDER_ROLE = { springpool: 'water', oasispool: 'water', rockpool: 'water',
+      cliffwall: 'boundary', seacliff: 'boundary', cliff: 'boundary', mesa: 'boundary',
+      dunewall: 'boundary', duneridge: 'boundary', snowbank: 'boundary', reefwall: 'boundary', islandedge: 'boundary' };
+    const COLL_CLEAR = 26;   // みちの 通行帯の そとに かならず のこす すきま
+    const COLL_MIN = 13;     // これより ちいさく なる なら いっそ 外す(こものに ぶつからない)
+    const SPOT_CLEAR = 46;   // スポットの まんなかは かならず あける
+    const COLL_CELL = 360;   // あたりはんてい の ます目(この なかだけ しらべる)
+    const ACTOR_PAD = 34;    // ます目に 入れる ときの のりしろ(からだの 大きさ ぶん)
+    const EMPTY_CELL = [];
+
+    // 箱が「u の むきへ どこまで はみ出るか」(support)。まる は はんけい そのもの。
+    // 箱の じく: よこ(w) = (sin ang, cos ang)、おくゆき(d) = (cos ang, -sin ang)
+    function colliderReach(o, ux, uz) {
+      if (o.shape !== 'box') return o.hw;
+      const ex = Math.sin(o.ang), ez = Math.cos(o.ang);
+      return o.hw * Math.abs(ux * ex + uz * ez) + o.hd * Math.abs(ux * ez - uz * ex);
+    }
+    // みち と スポットの 通行帯に 食いこむ ぶんを 縮める。むりなら false(おかない)。
+    // 「道を ふさがない」を データの がわで まもる ので、あとから 迷路に ならない
+    function clearCorridor(o, world) {
+      const reach = Math.max(o.hw, o.hd);
+      let k = 1;
+      for (const s of world.segments || []) {
+        const need = s.half + COLL_CLEAR;
+        const dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L2 = dx * dx + dz * dz || 1;
+        const t = clamp(((o.x - s.a.x) * dx + (o.z - s.a.z) * dz) / L2, 0, 1);
+        const px = s.a.x + dx * t, pz = s.a.z + dz * t;
+        const d = Math.hypot(o.x - px, o.z - pz);
+        if (d - reach >= need) continue;   // もともと じゅうぶん 遠い
+        if (d <= need) return false;       // 通行帯の なかに いる: おけない
+        const sup = colliderReach(o, (px - o.x) / d, (pz - o.z) / d);
+        if (sup > 0.001) k = Math.min(k, (d - need) / sup);
+      }
+      for (const sp of world.spots || []) {
+        const d = Math.hypot(o.x - sp.x, o.z - sp.z);
+        if (d - reach >= SPOT_CLEAR) continue;
+        if (d <= SPOT_CLEAR) return false;
+        const sup = colliderReach(o, (sp.x - o.x) / d, (sp.z - o.z) / d);
+        if (sup > 0.001) k = Math.min(k, (d - SPOT_CLEAR) / sup);
+      }
+      if (k >= 1) return true;
+      o.hw *= k; o.hd *= k;
+      return Math.max(o.hw, o.hd) >= COLL_MIN;
+    }
+    // せかいを つくる とき 1かいだけ: 絵の 大きさ から 接地の かたちを 出す
+    function buildObstacles(world) {
+      const out = [];
+      for (const p of world.props) {
+        const c = colliderOf(p); if (!c) continue;
+        const o = { kind: c.kind, shape: c.shape, x: p.x, z: p.z, hw: c.hw, hd: c.hd, ang: c.ang, role: COLLIDER_ROLE[c.kind] || 'solid' };
+        if (!clearCorridor(o, world)) continue;
+        o.r = Math.max(o.hw, o.hd); // かこみ円(ます目わけ と ざっくり しらべ に つかう)
+        out.push(o);
+      }
+      return out;
+    }
+    // ます目(spatial grid)。まわりの ます目 1つ だけ 見れば よい ように、
+    // 入れる ときに からだの 大きさ ぶん ひろげて おく。
+    // せかいが ひろく なっても 1フレームの しごとは ふえない
+    function buildCollisionGrid(list) {
+      const g = { cell: COLL_CELL, minX: 0, minZ: 0, cols: 1, rows: 1, cells: [] };
+      if (!list || !list.length) return g;
+      let x0 = Infinity, x1 = -Infinity, z0 = Infinity, z1 = -Infinity;
+      for (const o of list) { const r = o.r + ACTOR_PAD; if (o.x - r < x0) x0 = o.x - r; if (o.x + r > x1) x1 = o.x + r; if (o.z - r < z0) z0 = o.z - r; if (o.z + r > z1) z1 = o.z + r; }
+      g.minX = x0; g.minZ = z0;
+      g.cols = Math.max(1, Math.ceil((x1 - x0) / COLL_CELL) + 1);
+      g.rows = Math.max(1, Math.ceil((z1 - z0) / COLL_CELL) + 1);
+      g.cells = new Array(g.cols * g.rows);
+      for (const o of list) {
+        const r = o.r + ACTOR_PAD;
+        const cx0 = Math.max(0, Math.floor((o.x - r - x0) / COLL_CELL)), cx1 = Math.min(g.cols - 1, Math.floor((o.x + r - x0) / COLL_CELL));
+        const cz0 = Math.max(0, Math.floor((o.z - r - z0) / COLL_CELL)), cz1 = Math.min(g.rows - 1, Math.floor((o.z + r - z0) / COLL_CELL));
+        for (let cz = cz0; cz <= cz1; cz++) for (let cx = cx0; cx <= cx1; cx++) { const i = cz * g.cols + cx; (g.cells[i] || (g.cells[i] = [])).push(o); }
+      }
+      return g;
+    }
+    function collidersAt(world, x, z) {
+      const g = world.collision; if (!g) return world.obstacles || EMPTY_CELL;
+      const cx = Math.floor((x - g.minX) / g.cell), cz = Math.floor((z - g.minZ) / g.cell);
+      if (cx < 0 || cz < 0 || cx >= g.cols || cz >= g.rows) return EMPTY_CELL;
+      return g.cells[cz * g.cols + cx] || EMPTY_CELL;
+    }
+    // ぶつかったら「いちばん あさい むき」へ おし出す = かべに そって すべる。
+    // ななめに あるいて 角に あたっても とまらない(スマホの パッドで ひっかからない)
+    function pushOutCollider(pt, o, rad) {
+      if (o.shape !== 'box') {
+        const R = o.hw + rad, dx = pt.x - o.x, dz = pt.z - o.z, d = Math.hypot(dx, dz);
+        if (d >= R) return false;
+        if (d < 0.0001) { pt.x = o.x + R; return true; }
+        pt.x = o.x + dx / d * R; pt.z = o.z + dz / d * R; return true;
+      }
+      const ex = Math.sin(o.ang), ez = Math.cos(o.ang);
+      const rx = pt.x - o.x, rz = pt.z - o.z;
+      const lx = rx * ex + rz * ez, lz = rx * ez - rz * ex;
+      const hw = o.hw + rad, hd = o.hd + rad;
+      const ox = hw - Math.abs(lx), oz = hd - Math.abs(lz);
+      if (ox <= 0 || oz <= 0) return false;
+      let nlx = lx, nlz = lz;
+      if (ox < oz) nlx = lx < 0 ? -hw : hw; else nlz = lz < 0 ? -hd : hd;
+      pt.x = o.x + nlx * ex + nlz * ez;
+      pt.z = o.z + nlx * ez - nlz * ex;
+      return true;
+    }
+
     const OCCLUDER_LAYERS = new Set(['wall', 'landmark', 'side', 'frame', 'fore', 'struct']);
     // かぜで ゆれる くさき。かず は「たかさの なんわり よこへ たおれるか」の もと。
     // みき は ほとんど ゆれず、あし や はっぱ は よく ゆれる
@@ -670,9 +867,12 @@
       for (const a of w.areas) (AREA_ROLE[a.kind] === 'water' ? L.water : AREA_ROLE[a.kind] === 'road' ? L.road : L.terrain).push({ kind: a.kind, x: a.x, z: a.z, w: a.w, h: a.h, ang: a.ang });
       for (const p of w.props) {
         if (p.landmark) { L.landmark.push({ kind: p.landmark, x: p.x, z: p.z, size: p.size, label: p.label, tier: p.tier || 1 }); continue; }
-        if (p.struct) { const role = STRUCT_ROLE[p.struct] || 'obstacle'; const item = { kind: p.struct, x: p.x, z: p.z, size: p.size, ang: p.ang || 0, side: p.side || 1, layer: p.layer, role }; if (p.tier) item.tier = p.tier; (p.hero ? L.landmark : L[role]).push(item); if (p.solid && role !== 'obstacle') L.obstacle.push({ kind: p.struct, x: p.x, z: p.z, r: 44 }); continue; }
+        if (p.struct) { const role = STRUCT_ROLE[p.struct] || 'obstacle'; const item = { kind: p.struct, x: p.x, z: p.z, size: p.size, ang: p.ang || 0, side: p.side || 1, layer: p.layer, role }; if (p.tier) item.tier = p.tier; (p.hero ? L.landmark : L[role]).push(item); continue; }
         if (p.emoji) L.scenery.push({ emoji: p.emoji, x: p.x, z: p.z, size: p.size, layer: p.layer });
       }
+      // あたりはんてい は「せかい たんい の かたち」で わたす(円/箱 + むき + やくわり)。
+      // Three.js でも 住民の うごきでも、この おなじ データを そのまま つかえる
+      for (const o of w.obstacles || []) L.obstacle.push({ kind: o.kind, shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang, role: o.role, r: o.r });
       for (const z of w.zones) L.light.push({ kind: 'zone', id: z.id, x: z.x, z: z.z, light: z.mood.light != null ? z.mood.light : 1, fog: z.mood.fog || 0, tint: z.mood.tint || null });
       // 地区(zone): あかるさ だけでなく「どんな うごきの ある ところか」まで もつ。
       // anim = はっぱ/ゆき/すな/もや/みず/ひかり/ネオン/つぶ、open = ひろさ(1 より おおきい ほど ひろい)。
@@ -1056,8 +1256,10 @@
         const spot = base.spots.find((s) => s.kind === 'deep') || base.spots[base.spots.length - 1];
         world.residents.push(makeActor(registry.naoto, { x: spot.x, z: spot.z, spot, fixed: true, heading: Math.PI }));
       }
-      // あたりはんてい: かたい もの(しゃへいぶつ・めじるし・ランドマーク)
-      world.obstacles = world.props.filter((p) => p.solid).map((p) => ({ x: p.x, z: p.z, r: p.layer === 'landmark' ? 70 : 44 }));
+      // あたりはんてい: 「絵の 四角」では なく 地面に ついて いる ところ(COLLIDER)。
+      // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
+      world.obstacles = buildObstacles(world);
+      world.collision = buildCollisionGrid(world.obstacles);
       return world;
     }
     // じめんの もようは「せかいの ます目」から、いま みえている ぶんだけ つくる。
@@ -1143,7 +1345,14 @@
       if (MOVING.has(a.state)) {
         const dx = a.tx - a.x, dz = a.tz - a.z, d = Math.hypot(dx, dz);
         const spd = a.state === 'play' || a.state === 'chase' ? 120 : a.state === 'swim' ? 70 : 60;
-        if (d > 6) { a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; } else if (a.state !== 'chase') a.until = Math.min(a.until, 0);
+        if (d > 6) {
+          const nx = a.x + dx / d * spd * dt, nz = a.z + dz / d * spd * dt;
+          // じゅうみんも プレイヤーと おなじ あたりはんてい を とおす(木や かべを すりぬけない)。
+          // みずの いきものだけ みずたまりに 入れる し、うみの なかにも いられる
+          if (a.fixed || a.plant) { a.x = nx; a.z = nz; }
+          else moveWithCollision(a, nx, nz, world, RULES.bodyRadius * 0.8, !!a.water, !!a.water);
+          a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1;
+        } else if (a.state !== 'chase') a.until = Math.min(a.until, 0);
       }
       if (a.until <= 0) {
         const next = chooseState(a, e, world, others);
@@ -1220,6 +1429,7 @@
       offPathSpeed: 0.62,    // みちを はずれた ときの はやさ(くさむら・すな)
       xBound: 1000,          // よこの はし(±)の きほん(せかいの halfW が あれば そちら)
       zMargin: 60,           // おく・てまえの はし
+      bodyRadius: 22,        // からだの おおきさ(あたりはんてい)。じゅうみんも おなじ
       metRadius: 150,        // この きょりに はいると「であった」
       talkRadius: 130,       // この きょりなら「はなす」が おせる
       nearRadius: 1500,      // この はんいの じゅうみんは まいフレーム うごく
@@ -1264,8 +1474,45 @@
         anim: (nearest && nearest.mood.anim) || null, open: (nearest && nearest.mood.open) || 1 };
     }
     function hexToRgb(h) { const m = /^#?([0-9a-f]{6})$/i.exec(h || ''); if (!m) return [128, 128, 128]; const n = parseInt(m[1], 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
-    function resolveObstacles(pt, world) {
-      for (const o of world.obstacles) { const dx = pt.x - o.x, dz = pt.z - o.z, d = Math.hypot(dx, dz); if (d > 0 && d < o.r) { pt.x = o.x + dx / d * o.r; pt.z = o.z + dz / d * o.r; } }
+    // ます目から まわりの あたりはんてい だけを とって、あさい むきへ すべらせる。
+    // おし出された さきで べつの ものに めりこむ ことが ある ので 2かい まわす
+    function resolveObstacles(pt, world, rad, skipWater) {
+      const r = rad != null ? rad : RULES.bodyRadius;
+      for (let pass = 0; pass < 3; pass++) {
+        const list = collidersAt(world, pt.x, pt.z);
+        let hit = false;
+        for (let i = 0; i < list.length; i++) { const o = list[i]; if (skipWater && o.role === 'water') continue; if (pushOutCollider(pt, o, r)) hit = true; }
+        if (!hit) break;
+      }
+      return pt;
+    }
+    // その ばしょが どれだけ めりこんで いるか(0 なら ぶつかって いない)
+    function colliderPenetration(o, x, z, rad) {
+      if (o.shape !== 'box') { const d = Math.hypot(x - o.x, z - o.z); return Math.max(0, o.hw + rad - d); }
+      const ex = Math.sin(o.ang), ez = Math.cos(o.ang), rx = x - o.x, rz = z - o.z;
+      const lx = rx * ex + rz * ez, lz = rx * ez - rz * ex;
+      const ox = o.hw + rad - Math.abs(lx), oz = o.hd + rad - Math.abs(lz);
+      return ox > 0 && oz > 0 ? Math.min(ox, oz) : 0;
+    }
+    function penetrationAt(world, x, z, rad, skipWater) {
+      const r = rad != null ? rad : RULES.bodyRadius;
+      const list = collidersAt(world, x, z);
+      let sum = 0;
+      for (let i = 0; i < list.length; i++) { const o = list[i]; if (skipWater && o.role === 'water') continue; sum += colliderPenetration(o, x, z, r); }
+      return sum;
+    }
+    const collidesAt = (world, x, z, rad, skipWater) => penetrationAt(world, x, z, rad, skipWater) > 0;
+    // うごかす ときは かならず ここを とおす(プレイヤーも じゅうみんも おなじ)。
+    //   1) おし出しで かべに そって すべる(ななめでも ひっかからない)
+    //   2) それでも めりこみが ふえる なら うごかさない = ぜったいに すりぬけない
+    //   3) もともと めりこんで いた ときは「へる うごき」だけ ゆるす(そとへ にげられる)
+    function moveWithCollision(pt, nx, nz, world, rad, skipWater, noClamp) {
+      const ox = pt.x, oz = pt.z;
+      const before = penetrationAt(world, ox, oz, rad, skipWater);
+      pt.x = nx; pt.z = nz;
+      if (!noClamp) clampToWorld(pt, world);
+      resolveObstacles(pt, world, rad, skipWater);
+      if (penetrationAt(world, pt.x, pt.z, rad, skipWater) > before + 0.01) { pt.x = ox; pt.z = oz; }
       return pt;
     }
 
@@ -1312,6 +1559,7 @@
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
         party = companionsOf(registry);
         player = { x: world.entry.x, z: world.entry.z - 60, heading: 0, face: 1, bob: 0, moving: false, onPath: true };
+        clampToWorld(player, world); resolveObstacles(player, world); // いりぐちで なにかに めりこまない
         camera.x = player.x; camera.z = player.z; camera.yaw = 0; nearest = null; curSpot = null; inputActive = false;
         curZoneId = null;
         const same = opts.regionId === regionId;
@@ -1350,8 +1598,7 @@
           const mx = rx * v.x + fx * -v.y, mz = rz * v.x + fz * -v.y; const m = Math.hypot(mx, mz) || 1;
           const spd = RULES.playerSpeed * (player.onPath ? 1 : RULES.offPathSpeed) * Math.min(1, m);
           player.speed = spd / RULES.playerSpeed; // 0〜1(カメラの えんしゅつが よむ)
-          player.x += mx / m * spd * dt; player.z += mz / m * spd * dt;
-          clampToWorld(player, world); resolveObstacles(player, world);
+          moveWithCollision(player, player.x + mx / m * spd * dt, player.z + mz / m * spd * dt, world);
           player.heading = Math.atan2(mx, mz); player.face = rx * mx + rz * mz < -0.2 ? -1 : rx * mx + rz * mz > 0.2 ? 1 : player.face; player.bob += dt;
         }
         const np = nearestPath(player, world); player.onPath = (!!np && np.dist <= np.half + 20) || !!spotAt(player); // スポットの なかも あるきやすい
@@ -1535,7 +1782,7 @@
         setEnv(e) { envNow = e; }, get env() { return envNow; },
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
-        setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); camera.x = player.x; camera.z = player.z; },
+        setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
         get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
         loadMapRecords(rec) { if (!rec) return; if (rec.zones) visitedZones = new Set(rec.zones); if (rec.paths) walkedPaths = new Set(rec.paths); if (rec.marks) foundMarks = new Set(rec.marks); },
         metCount,
@@ -3372,6 +3619,6 @@
       return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle };
+    return { WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, chooseState, updateActor, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld };
   };
 })();
