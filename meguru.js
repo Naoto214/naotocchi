@@ -33,8 +33,13 @@
     const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
     const getState = S.getState;
     const env = () => (typeof S.currentEnvironment === 'function' ? S.currentEnvironment() : { time: 'day', weather: 'sunny', season: 'spring', region: 'home' });
-    const rnd = (a, b) => a + Math.random() * (b - a);
-    const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    // らんすう。ふだんは Math.random そのもの。テストだけ たねを 入れかえて、
+    // おなじ ながれを なんども ためせる ように する(ほんばんは これまでどおり)
+    let RANDOM = Math.random;
+    const rand = () => RANDOM();
+    const setRandom = (fn) => { RANDOM = typeof fn === 'function' ? fn : Math.random; };
+    const rnd = (a, b) => a + rand() * (b - a);
+    const pick = (arr) => arr[Math.floor(rand() * arr.length)];
     const TAU = Math.PI * 2;
     const wrapAngle = (a) => { a = (a + Math.PI) % TAU; if (a < 0) a += TAU; return a - Math.PI; };
     // きめうちの らんすう(おなじ かぎ → おなじ すう)。日がわりの いばしょ などに つかう
@@ -1350,6 +1355,14 @@
       // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
       world.obstacles = buildObstacles(world);
       world.collision = buildCollisionGrid(world.obstacles);
+      // あたりはんていは じゅうみんの あとに つくるので、うまれた ばしょが 木や
+      // かべの なかに なって いる ことが あった。ここで いちどだけ そろえる
+      for (let i = 0; i < world.residents.length; i++) {
+        const a = world.residents[i];
+        if (a.plant || a.fixed || a.follow) continue;
+        standClear(a, world, a.water, a.spot);
+        a.tx = a.x; a.tz = a.z;
+      }
       // 「ながめる」ときに どこを 見るか。いちばん ちかい ランドマーク / 地区の 主役、
       // なければ 水ぎわ か 地域の おく。せかい たんい なので Three.js でも おなじ
       {
@@ -1584,7 +1597,7 @@
         if (w > 0.0001) { keys.push(k); ws.push(w); total += w; }
       }
       if (!total) return 'idle';
-      let r = Math.random() * total;
+      let r = rand() * total;
       for (let i = 0; i < keys.length; i++) { r -= ws[i]; if (r <= 0) return keys[i]; }
       return keys[keys.length - 1];
     }
@@ -1606,7 +1619,7 @@
         cands.push(s); ws.push(w); total += w;
       }
       if (!total) return from;
-      let r = Math.random() * total;
+      let r = rand() * total;
       for (let i = 0; i < cands.length; i++) { r -= ws[i]; if (r <= 0) return cands[i]; }
       return cands[cands.length - 1];
     }
@@ -1619,9 +1632,7 @@
     function spotPoint(world, s, seed, water) {
       const ang = hrand(seed + 'a') * TAU, d = s.r * (0.25 + hrand(seed + 'd') * 0.5);
       const pt = { x: s.x + Math.sin(ang) * d, z: s.z + Math.cos(ang) * d * 0.75 };
-      if (!water) clampToWorld(pt, world);
-      resolveObstacles(pt, world, RULES.bodyRadius * 0.8, !!water); // 木や かべの なかに 立たない
-      return pt;
+      return standClear(pt, world, water, s); // 木や かべの なかに 立たない
     }
     // ---- さそいあい(interaction): 予約 → ちかづく → 向きあう → しばらく → 自然に 解散 ----
     // 1人に 3〜4人が いっぺんに 申しこんで へんな ことに ならない よう、あいてを 予約する
@@ -1656,7 +1667,7 @@
       }
       if (best) return best;
       const R = REGION_LIFE[world.regionId] || LIFE_DEFAULT;
-      const cap = kind === 'play' ? 2 + (Math.random() < 0.35 ? 1 : 0) : Math.max(2, Math.min(R.group, 2 + Math.floor(Math.random() * ((spot.zoneCrowd || 1) > 1.6 ? R.group - 1 : 2))));
+      const cap = kind === 'play' ? 2 + (rand() < 0.35 ? 1 : 0) : Math.max(2, Math.min(R.group, 2 + Math.floor(rand() * ((spot.zoneCrowd || 1) > 1.6 ? R.group - 1 : 2))));
       const m = { kind, spot, x: spot.x, z: spot.z, members: [], cap, until: rnd(26, 58) };
       world.meets.push(m); return m;
     }
@@ -1747,7 +1758,7 @@
       const dx = a.tx - a.x, dz = a.tz - a.z, d = Math.hypot(dx, dz);
       if (d <= 0.001) return;
       const nx = a.x + dx / d * spd * dt, nz = a.z + dz / d * spd * dt;
-      moveWithCollision(a, nx, nz, world, RULES.bodyRadius * 0.8, !!a.water, !!a.water);
+      moveWithCollision(a, nx, nz, world, RULES.bodyRadius * STAND_CLEAR, !!a.water, !!a.water);
       a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1;
     }
     // ついた ところで、めざして いた activity を はじめる
@@ -1761,8 +1772,8 @@
           const mx = (a.x + b.x) / 2, mz = (a.z + b.z) / 2;
           const ux = b.x - a.x, uz = b.z - a.z, ul = Math.hypot(ux, uz) || 1, h = LIFE.talkGap / 2;
           a.x = mx - ux / ul * h; a.z = mz - uz / ul * h; b.x = mx + ux / ul * h; b.z = mz + uz / ul * h;
-          resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water);
-          resolveObstacles(b, world, RULES.bodyRadius * 0.8, !!b.water);
+          resolveObstacles(a, world, RULES.bodyRadius * STAND_CLEAR, !!a.water);
+          resolveObstacles(b, world, RULES.bodyRadius * STAND_CLEAR, !!b.water);
           a.behavior = b.behavior = 'talk'; a.act = b.act = 'talk';
           a.until = b.until = actSpan(a, 'talk');
           a.waitTalk = b.waitTalk = 0;
@@ -1818,7 +1829,7 @@
       const here = a.spot || a.home;
       if (!here) { a.behavior = 'idle'; a.until = actSpan(a, 'idle'); return; }
       // つかれたら やすめる ところを さがす(いまの spot に なくても いい)
-      if (a.energy < 0.22 && Math.random() < 0.7) return travelTo(a, e, world, e.time === 'night' ? 'sleep' : 'rest');
+      if (a.energy < 0.22 && rand() < 0.7) return travelTo(a, e, world, e.time === 'night' ? 'sleep' : 'rest');
       const act = wantActivity(a, e, world, here);
       // さそいあい は あいてが いて はじめて なりたつ
       if (act === 'talk') {
@@ -1898,8 +1909,9 @@
     function reenterDetail(a, world) {
       const s = a.spot || a.home; if (!s) return;
       if (Math.hypot(a.x - s.x, a.z - s.z) > s.r * 1.6) { const p = spotPoint(world, s, a.key + ':re', a.water); a.x = p.x; a.z = p.z; }
-      a.tx = a.x; a.tz = a.z; a.route = null;
-      clampToWorld(a, world); resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water);
+      a.route = null;
+      standClear(a, world, a.water, s);
+      a.tx = a.x; a.tz = a.z;
     }
     // 住民どうしは かたい かべに しない。かるく よける だけ(ぎゅうぎゅうに つまらない)
     function personalSpace(list, n, world) {
@@ -1912,7 +1924,7 @@
           if (d2 >= r2 || d2 < 0.0001) continue;
           const d = Math.sqrt(d2), push = (r - d) * 0.25 / d;
           a.x -= dx * push; a.z -= dz * push; b.x += dx * push; b.z += dz * push;
-          resolveObstacles(a, world, RULES.bodyRadius * 0.8, !!a.water); resolveObstacles(b, world, RULES.bodyRadius * 0.8, !!b.water);
+          resolveObstacles(a, world, RULES.bodyRadius * STAND_CLEAR, !!a.water); resolveObstacles(b, world, RULES.bodyRadius * STAND_CLEAR, !!b.water);
         }
       }
     }
@@ -1947,7 +1959,7 @@
         if ((L.regionsVisited || []).length >= 8) pool.push(...NAOTO_LINES.travel);
         return pick(pool);
       }
-      const r = Math.random();
+      const r = rand();
       if (a.withPlayer) return a.kind === 'partner' ? pick(['いっしょに あるけて うれしい', 'つぎは どこへ いく？', a.hook || 'ずっと そばに いるよ']) : pick(['いっしょに いこう！', 'ここ、きに いった？', 'つぎは あっちへ いってみよう']);
       if (a.spot && a.spot.secret && r < 0.6) return pick(SECRET_LINE);
       if (a.kind === 'partner') return r < 0.5 ? (a.hook || g) : g;
@@ -2042,6 +2054,30 @@
       return sum;
     }
     const collidesAt = (world, x, z, rad, skipWater) => penetrationAt(world, x, z, rad, skipWater) > 0;
+    // 立ちいちの はんけい。うごく ときも おく ときも おなじ すう字を つかう
+    const STAND_CLEAR = 0.8;
+    // 住民を「ほんとうに 立てる ところ」へ そろえる。あたりはんていは #294 からの
+    // world-space COLLIDER と spatial grid を そのまま つかい、あたらしい はんていは
+    // つくらない。ふつうは おし出し 1 回で すむ。ふかく めりこんで いて 出られない
+    // ときだけ、よりどころ(spot の まんなか。みちと spot は COLLIDER 側で
+    // あけて あるので かならず 立てる)へ むかって、いちばん ちかい 立てる ところを さがす。
+    // よぶのは「おく とき」だけ(うまれた とき / spot の 立ちいちを きめる とき /
+    // とおい そうから もどる とき)で、まいフレームでは ない
+    function standClear(pt, world, water, anchor) {
+      const r = RULES.bodyRadius * STAND_CLEAR;
+      if (!water) clampToWorld(pt, world);
+      resolveObstacles(pt, world, r, !!water);
+      if (!collidesAt(world, pt.x, pt.z, r, !!water)) return pt;
+      if (!anchor) return pt;
+      for (let i = 1; i <= 6; i++) {
+        const t = i / 6;
+        const x = pt.x + (anchor.x - pt.x) * t, z = pt.z + (anchor.z - pt.z) * t;
+        if (!collidesAt(world, x, z, r, !!water)) { pt.x = x; pt.z = z; return pt; }
+      }
+      pt.x = anchor.x; pt.z = anchor.z;
+      if (!water) clampToWorld(pt, world);
+      return pt;
+    }
     // うごかす ときは かならず ここを とおす(プレイヤーも じゅうみんも おなじ)。
     //   1) おし出しで かべに そって すべる(ななめでも ひっかからない)
     //   2) それでも めりこみが ふえる なら うごかさない = ぜったいに すりぬけない
@@ -2233,7 +2269,7 @@
             if (!lifeFree(a) || a.noticeCool > 0 || a.behavior === 'sleep' || a.behavior === 'talk' || a.behavior === 'gather') continue;
             if (dist(a, player) > LIFE.notice) continue;
             noticed++;
-            if (Math.random() > 0.35 * a.traits.social) continue;
+            if (rand() > 0.35 * a.traits.social) continue;
             faceTo(a, player.x, player.z);
             a.behavior = 'idle'; a.act = 'idle'; a.route = null; a.until = rnd(2, 4.5); a.noticeCool = rnd(14, 34);
           }
@@ -5039,6 +5075,6 @@
       return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld };
+    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail };
   };
 })();
