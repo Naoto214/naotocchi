@@ -5338,6 +5338,10 @@
         const soft = plan.reduced;                                                // よいやすい せってい
         const dens = plan.density;                                                // 端末の おもさ
         ctx.save();
+        // え の ちず(ctx)は ふだん dpr ばい。ここは canvas の じっさいの おおきさ
+        // (device pixel)で 組むので、save の あとで いちど もどす。もどさない と
+        // かご や ロープが がめんの そとへ 出て しまう(restore で もとへ もどる)
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
         if (plan.way === 'walk') {
           // ① じめんと 光: 出発がわの いろ → 到着がわの いろ へ ゆっくり かわる
           ctx.fillStyle = `rgba(${mixHex(groundOf(plan.from), groundOf(plan.to), k)},${Math.min(1, 1.12 * hide)})`;
