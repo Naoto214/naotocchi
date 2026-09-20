@@ -2124,6 +2124,10 @@
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
     { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
     { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
+    { id: 'sticker-tasks-all', emoji: '🌟', label: 'シールちょうマスター', desc: 'シールちょうのおだいを8つぜんぶたっせいした', tier: 'normal', condition: (l) => {
+      const done = new Set((l.stickers && l.stickers.tasksDone) || []);
+      return typeof STICKER_TASKS !== 'undefined' && STICKER_TASKS.every((task) => done.has(task.id));
+    } },
     { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
     { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
 
@@ -14421,6 +14425,7 @@
     ['sun', 'たいよう', '☀️'], ['cloud', 'くも', '☁️'], ['rain', 'あめ', '🌧️'], ['snow', 'ゆき', '❄️'],
     ['moon', 'つき', '🌙'], ['sunrise', 'あさひ', '🌅'], ['sunset', 'ゆうやけ', '🌇'],
   ];
+  const STICKER_TASK_MASTER_ID = 'scenery:golden_sticker_book';
   let stickerCatalogCache = null;
   function stickerCatalog() {
     if (stickerCatalogCache) return stickerCatalogCache;
@@ -14457,6 +14462,15 @@
       });
     }
     for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
+    list.push({
+      id: STICKER_TASK_MASTER_ID,
+      kind: 'scenery',
+      label: 'きんのシールちょう',
+      rarity: 'rare',
+      rewardOnly: true,
+      art: { asset: '', emoji: '📒' },
+      visual: () => '<span class="sticker-master-visual" aria-label="きんのシールちょう">📒</span>',
+    });
     stickerCatalogCache = list;
     return list;
   }
@@ -14470,7 +14484,7 @@
     return state.discoveredStages.some((k) => k.startsWith('ren:'));
   }
   // パックから でる・かぞえる たいしょう(ひみつの しゅぞくは であってから)
-  function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s)); }
+  function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s) && !s.rewardOnly); }
   function stickerStore() {
     const L = state.lifetime;
     if (!L.stickers || typeof L.stickers !== 'object') {
@@ -14769,6 +14783,11 @@
       done.push(task);
       if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」` });
     }
+    const allDone = STICKER_TASKS.every((task) => store.tasksDone.includes(task.id));
+    if (allDone && ownedStickerCount(STICKER_TASK_MASTER_ID) === 0) {
+      const reward = grantSticker(STICKER_TASK_MASTER_ID, 'task-master');
+      if (reward && !gameActive) showStoryEvent({ emoji: '📒', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });
+    }
     return done;
   }
 
@@ -14815,9 +14834,10 @@
     const store = stickerStore();
     const pageIds = stickerPageIds();
     if (!pageIds.includes(stickerCurrentPage)) stickerCurrentPage = pageIds[0];
-    const pool = stickerPackPool();
-    const ownedKinds = pool.filter((s) => ownedStickerCount(s.id) > 0).length;
-    el.stickerProgress.textContent = `${ownedKinds} / ${pool.length}`;
+    const collectiblePool = stickerPackPool();
+    const pool = stickerCatalog().filter((s) => stickerSecretUnlocked(s) && (!s.rewardOnly || ownedStickerCount(s.id) > 0));
+    const ownedKinds = collectiblePool.filter((s) => ownedStickerCount(s.id) > 0).length;
+    el.stickerProgress.textContent = `${ownedKinds} / ${collectiblePool.length}`;
     setHTMLIfChanged(el.stickerPageTabs, pageIds.map((id, i) => `<button type="button" class="ach-tab${id === stickerCurrentPage ? ' active' : ''}" data-page="${id}" role="tab" aria-selected="${id === stickerCurrentPage}"><span>${i + 1}</span><small>${stickerPage(id).length}まい</small></button>`).join(''));
 
     const addBtn = document.getElementById('stickerAddPageBtn');
@@ -14833,16 +14853,20 @@
     }
 
     renderStickerBoard();
-    setHTMLIfChanged(el.stickerTasks, STICKER_TASKS.map((t) => {
-      const done = store.tasksDone.includes(t.id);
-      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span></div>`;
-    }).join(''));
+    const taskDoneCount = STICKER_TASKS.filter((t) => store.tasksDone.includes(t.id)).length;
+    setHTMLIfChanged(el.stickerTasks,
+      STICKER_TASKS.map((t) => {
+        const done = store.tasksDone.includes(t.id);
+        return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span></div>`;
+      }).join('')
+      + `<div class="profile-hint sticker-task-goal">${taskDoneCount}/8たっせい　5こで「シールちょうのたつじん」／8こぜんぶで「シールちょうマスター」＋限定シール</div>`
+    );
     const coin = careIconHTML('coin');
     const packAvailable = stickerDrawablePool().length > 0;
     el.stickerPackBtn.innerHTML = `${itemIconHTML({id:'sticker_pack',emoji:'🎁'})} シールパック（${STICKER_PACK_SIZE}まい） ${coin}${STICKER_PACK_PRICE}`;
     el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE || !packAvailable;
     const themeKind = document.getElementById('stickerThemeKind').value;
-    const themeAvailable = stickerDrawablePool(pool.filter((s) => s.kind === themeKind)).length > 0;
+    const themeAvailable = stickerDrawablePool(collectiblePool.filter((s) => s.kind === themeKind)).length > 0;
     const themeBtn = document.getElementById('stickerThemePackBtn');
     themeBtn.innerHTML = `ぶんるいパック（${STICKER_PACK_SIZE}まい） ${coin}${STICKER_THEME_PRICE}`;
     themeBtn.disabled = state.lifetime.money < STICKER_THEME_PRICE || !themeAvailable;
