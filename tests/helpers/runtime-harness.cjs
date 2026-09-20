@@ -164,7 +164,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       hatchEgg, pickDreamLine, startDuelChallenge, chooseDuelTruth, chooseDuelHonesty, finalizeDuelChallenge, abandonDuelChallenge,
       startDuelGuess, setDuelGuess, confirmDuelGuesses, chooseDuelSuspicion, encodeDuelChallenge, encodeDuelGuess, encodeDuelReveal,
       resolveDuelWithGuessCode, resolveDuelWithRevealCode, settleDuelForSelf,
-      cancelNextEgg, openDreamPicker, openThemedStickerPack, chooseKakeraSticker, cancelKakeraChoice,
+      cancelNextEgg, openDreamPicker, openThemedStickerPack,
       audio, checkMeters, closePicker, resolvePickerSelection, normalLines: NORMAL_LINES, normalCompanions: COMPANIONS, rareCompanions: RARE_COMPANIONS, partnerCandidates: ALL_PARTNER_CANDIDATES, pendingCompanion: () => pendingCompanionId, setPendingCompanion: id => { pendingCompanionId = id; }, startMinigame, retireMinigame, bindHeldButton, loadState, saveState, doWipe, restoreSaveSnapshot, mgPerfSample,
       finishMinigame, sodachiCost, applyGrowth, recoverSleepStep, grantGrowthBoost, SODACHI_COST_BANDS, SODACHI_MAX,
       useConsumableItem, buyConsumableItem, itemStock: id => ITEM_SYSTEM.stock(state, id), ITEM_SYSTEM, addItemMemory, onSodachiMilestone, CONSUMABLE_ITEMS, dailyChallengeGame, dailyChallengeToday, renderGameList, activeBoostSummary, SHOP_ITEMS,
