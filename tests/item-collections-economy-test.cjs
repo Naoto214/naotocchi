@@ -64,7 +64,7 @@ test('legacy sticker counts and positions merge idempotently without replacing c
   s.lifetime.pastLives=[{partner:{id:'old'}}]; h.api.ITEM_SYSTEM.normalize(s);h.api.ITEM_SYSTEM.normalize(s);
   const st=h.api.stickerStore();assert.equal(st.owned['item:flower'],3);assert.equal(st.owned['item:flower2'],undefined);
   assert.deepEqual(JSON.parse(JSON.stringify(st.pages['page-1'])),[{k:1,id:'item:flower',x:.2,y:.7,r:42,s:1.2},{k:2,id:'item:flower',x:.8,y:.1}]);
-  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,342); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);
+  assert.equal(s.lifetime.pastLives[0].partner.id,'old');assert.equal(st.owned['partner:old'],1); assert.equal(h.api.stickerCatalog().length,344); assert.equal(h.api.stickerCatalog().some(x=>x.id==='item:itemluck1'),false);
 });
 test('sticker catalog offers all current items while retaining other collection categories',()=>{
   const catalog=harness().api.stickerCatalog();
@@ -78,7 +78,7 @@ test('sticker catalog offers all current items while retaining other collection 
   assert.deepEqual(catalog.reduce((counts,item)=>{
     if(item.kind!=='item')counts[item.kind]=(counts[item.kind]||0)+1;
     return counts;
-  },{}),{form:248,companion:26,partner:18,scenery:23});
+  },{}),{form:248,companion:26,partner:18,scenery:25});
 });
 for(const [name,answers,wantA,wantB] of [
  ['host win',['lie','lie','lie','lie','lie'],140,60],
