@@ -113,18 +113,18 @@ test('memory lake still recalls life memories and recovers happiness without coi
   assert.equal(s.lifetime.money,BALANCE);
 });
 
-test('sticker tasks grant fragments once and their task UI promises no coins', () => {
+test('sticker tasks grant sticker points once and their task UI promises no coins', () => {
   const {h,s}=setup(), store=h.api.stickerStore();
   for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {
-    h.api.grantSticker(id); h.api.placeSticker('home',id);
+    h.api.grantSticker(id); h.api.placeSticker('page-1',id);
   }
   const before=store.kakera;
-  assert.deepEqual(Array.from(h.api.checkStickerTasks(),t=>t.id),['home-form-3']);
+  assert.deepEqual(Array.from(h.api.checkStickerTasks(),t=>t.id),['page-form-3']);
   assert.equal(store.kakera,before+3);
-  assert.match(h.get('storyFlashText').textContent,/かけら\+3/);
+  assert.match(h.get('storyFlashText').textContent,/シールポイント\+3/);
   assert.doesNotMatch(h.get('storyFlashText').textContent,/💰|コイン/);
   h.api.renderStickerOverlay();
-  assert.match(h.get('stickerTasks').textContent,/かけら3/);
+  assert.match(h.get('stickerTasks').textContent,/シールポイント3/);
   assert.doesNotMatch(h.get('stickerTasks').textContent,/💰|コイン|undefined/);
   assert.equal(s.lifetime.money,BALANCE);
   assert.equal(h.api.checkStickerTasks().length,0);
@@ -190,8 +190,8 @@ test('old claimed save retains balances, inventory and event claims across reloa
   s.itemLife.milestonesPaid=[30,40,50,60,70,80,90,100];
   s.midlifeSeen=[44,50,56,62,66]; s.legendMet=true;
   s.lifetime.legendsMet=['gate']; s.items.c_egg_rare=2; s.items.c_egg_normal=3;
-  const stickers=h.api.stickerStore(); stickers.tasksDone=['home-form-3']; stickers.kakera=13;
-  for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {h.api.grantSticker(id);h.api.placeSticker('home',id);}
+  const stickers=h.api.stickerStore(); stickers.tasksDone=['page-form-3']; stickers.kakera=13;
+  for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {h.api.grantSticker(id);h.api.placeSticker('page-1',id);}
   h.api.saveState();
   const next=harness({storage:store,resume:true}), loaded=next.api.state(), logs=loaded.lifeLog.length;
   next.api.onSodachiMilestone(90); next.api.onSodachiMilestone(100);
