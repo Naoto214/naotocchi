@@ -3680,8 +3680,15 @@
       return { rx: k * ry * GEO_UNIT, ry: ry * GEO_UNIT };
     }
 
+    // ====== なおとっち世界 地理正本 v1 ======
+    // 世界の中心は「二つの大きな山地に はさまれた ほそながい たに」。
+    // にしの山地(中央アルプス型・あるける)／ひがしの山地(南アルプス型・**region では ない**)、
+    // その あいだの 伊那谷型の たにに おうち。北へ 行くほど 高く 寒く なり、峠を こえると
+    // べつの 水系と とかい。北西は 砂丘の 世界、南西は 南国の 森。
+    // ゲームの中の 名まえは すべて げんじょう維持で、実在の 地名は 出しません。
     const WORLD_GEOGRAPHY = {
       version: 2,
+      canon: 'v1',                 // 「なおとっち世界 地理正本 v1」
       name: 'なおとっち',
       plan: 'D2',
       // たてじくは 1 点では ない。**山の上**と**海の下**で べつの ばしょ(D2)
@@ -3693,7 +3700,7 @@
       rim: [
         { dir: 'north', kind: 'ice', label: 'こおりのはら', near: ['snow'] },
         { dir: 'northwest', kind: 'sand', label: 'すなのはて', near: ['desert'] },
-        { dir: 'west', kind: 'ocean', label: 'がいよう', near: ['jungle'] },
+        { dir: 'southwest', kind: 'ocean', label: 'がいよう', near: ['jungle'] },
         { dir: 'south', kind: 'ocean', label: 'たいへいよう', near: ['sea'] },
         { dir: 'east', kind: 'cliff', label: 'ひがしのやまなみ', near: ['home', 'river_lake'] },
       ],
@@ -3708,7 +3715,7 @@
         forest:      { layer: 'ground', mapX: -0.4, mapY:  1.9, axis:  10, climate: 'cool-wet',   terrain: ['forest', 'creek', 'falls'], belt: 'westflank',river: null },
         mountain:    { layer: 'ground', mapX:  0.2, mapY:  3.5, axis:   0, climate: 'alpine',     terrain: ['mountain', 'lake', 'falls'],belt: 'head',     river: 'source' },
         snow:        { layer: 'ground', mapX: -0.7, mapY:  5.0, axis: 165, climate: 'subarctic',  terrain: ['snow', 'mountain', 'lake'], belt: 'beyond',   river: null },
-        desert:      { layer: 'ground', mapX: -3.4, mapY:  1.2, axis: 250, climate: 'arid',       terrain: ['sand', 'mesa', 'oasis'],    belt: 'lee',      river: null },
+        desert:      { layer: 'ground', mapX: -3.5, mapY:  2.4, axis: 250, climate: 'arid',       terrain: ['sand', 'mesa', 'oasis'],    belt: 'lee',      river: null },
         jungle:      { layer: 'ground', mapX: -4.6, mapY: -3.3, axis:   0, climate: 'tropical',   terrain: ['jungle', 'swamp', 'ruin'],  belt: 'outer',    river: null },
         // 分水界の むこう。峠を こえた べつの りゅういき
         city:        { layer: 'ground', mapX: -2.1, mapY: -2.5, axis: 200, climate: 'temperate',  terrain: ['city', 'river', 'hill'],    belt: 'lowland',  river: 'city' },
@@ -3726,7 +3733,7 @@
         { id: 'tenryu', kind: 'river', label: 'たにのおおかわ', width: 1,
           points: [
             { x:  0.75, y:  3.30, region: 'mountain',   note: 'げんりゅういき' },
-            { x:  1.85, y:  2.90, region: 'river_lake', note: 'たにのあたまの みずうみ' },
+            { x:  1.65, y:  3.10, region: 'river_lake', note: 'みなもとのみずうみ(諏訪湖型)' },
             { x:  2.40, y:  2.20, region: 'river_lake', note: 'かわのたき' },
             { x:  2.55, y:  1.30, region: 'river_lake', note: 'かみながれ' },
             { x:  2.35, y:  0.40, region: 'river_lake', note: 'かわぎし(しもながれ)' },
@@ -3734,6 +3741,27 @@
             { x:  1.50, y: -1.75, region: 'home',       note: 'きょうこく' },
             { x:  1.00, y: -3.15, region: 'sea',        note: 'みなみへ' },
             { x:  0.45, y: -4.75, region: 'sea',        note: 'たいへいようへ そそぐ' },
+          ] },
+        // 【源の湖】諏訪湖型。天竜川型水系の **いちばん上流** にある 大きな湖。
+        // ふつうの 世界地形です。**これ じたいは きおくのみずうみ では ありません。**
+        // 霧の夜など、じょうけんが そろうと ここから 地図に ない 湖岸(記憶の層)へ 入れる、
+        // という 世界観の 入口に なります(実装は Phase 2 いこう)
+        { id: 'source-lake', kind: 'lake', label: 'みなもとのみずうみ',
+          points: [
+            { x:  0.80, y:  3.30, region: 'river_lake' },
+            { x:  1.10, y:  3.68, region: 'river_lake' },
+            { x:  1.70, y:  3.72, region: 'river_lake' },
+            { x:  2.15, y:  3.40, region: 'river_lake' },
+            { x:  1.95, y:  3.02, region: 'river_lake' },
+            { x:  1.30, y:  2.98, region: 'river_lake' },
+          ] },
+        // 【分水界】いなかの おくの 峠。ここを さかいに 水の ながれる むきが かわる。
+        // にしの山地の みなみの おねに かさねて、てんせんで しめす
+        { id: 'divide', kind: 'divide', label: 'ぶんすいかい',
+          points: [
+            { x: -1.10, y: -1.35, region: 'countryside' },
+            { x: -1.40, y: -1.90, region: 'countryside' },
+            { x: -1.75, y: -2.45, region: 'countryside' },
           ] },
         // 【庄内川型】分水界の むこう → 山間部 → とかいの かわぞい → みなと → 湾
         // 天竜川型とは **べつの みずけい**。うわりゅうで つながって いない
@@ -3763,9 +3791,12 @@
             { x: -0.90, y: -0.80, region: 'countryside', note: 'ほしぞらへの やまのうえ' },
             { x: -1.10, y: -1.35, region: 'countryside', note: 'とうげへの のぼり' },
             { x: -1.40, y: -1.90, region: 'countryside', note: 'ぶんすいかいの とうげ' },
+            { x: -1.75, y: -2.45, region: 'countryside', note: 'とうげの みなみ。ここで 街道が おねを こえる' },
           ] },
-        // 【東の山地】たにの ひがしがわ。**あるけない**。たにに 立てば 見える ので、
-        // おうち か かわ・みずうみ を 見つけると あらわれる
+        // 【東の山地】南アルプス型。たにの ひがしがわ。**あるけない。region でも ない。**
+        // たにに 立てば 見える ので、おうち か かわ・みずうみ を 見つけると あらわれる。
+        // しょうらい たにの 地域から「ひがしの 遠景」として つかえる ように、
+        // 点の region は たにの 2地域だけに かぎって あります
         { id: 'east-range', kind: 'range', label: 'ひがしのやまなみ', width: 1,
           points: [
             { x:  3.80, y:  3.60, region: 'river_lake' },
@@ -3840,7 +3871,7 @@
         { id: 'jungle|sea', mouths: { jungle: 'entry', sea: 'rockarch' },         a: 'jungle',     b: 'sea',        kind: 'shore',   layer: 'ground', made: 'nature', label: 'にしぎしのマングローブ', ends: ['口', '脇'],
           why: '湾の 西の いわばを まわりこむと、きしが しめって みどりに かわる', from: '「いわのアーチ」の むこうへ まわる',
           transition: ['いわば', 'いわのアーチ', 'かた', 'マングローブ', 'しっちりん', 'きのうえ'] },
-        { id: 'desert|jungle', mouths: { desert: 'bonearch', jungle: 'flowers' },  a: 'desert',     b: 'jungle',     kind: 'valley',  layer: 'ground', made: 'nature', label: 'ほねのたにま',       ends: ['脇', '脇'],
+        { id: 'desert|jungle', mouths: { desert: 'bonearch', jungle: 'flowers' },  a: 'desert',     b: 'jungle',     kind: 'valley',  layer: 'ground', made: 'nature', label: 'ほねのたにま',       ends: ['脇', '脇'], long: true,
           why: 'がいようから ないりくへ あがるほど あめが つきる', from: '「はなのたに」の さき、「ほねのアーチ」へ',
           transition: ['きのうえ', 'そりん', 'かんぼくのサバンナ', 'くさのきれめ', 'れき', 'すな'] },
         { id: 'city|desert', mouths: { city: 'stalls', desert: 'caravan' },       a: 'city',       b: 'desert',     kind: 'caravan', layer: 'ground', made: 'people', label: 'キャラバンのかいどう', ends: ['脇', '脇'], long: true,
@@ -4284,6 +4315,17 @@
         ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); poly(ctx, coast, false); ctx.stroke(); ctx.restore();
       }
 
+      // ---- 源の湖(諏訪湖型): 天竜川型水系の あたま。地形 feature なので 見つけた 地域の
+      //      ぶんだけ 出る。**これは きおくのみずうみ では ありません** ----
+      for (const lake of wd.features.filter((f) => f.kind === 'lake')) {
+        const on = lake.points.filter((p) => p.on);
+        if (on.length < 3) continue;
+        ctx.save();
+        ctx.fillStyle = pal.sea; ctx.beginPath(); poly(ctx, on, true); ctx.fill();
+        ctx.strokeStyle = pal.seaDeep; ctx.lineWidth = 1.4; ctx.globalAlpha = 0.75; ctx.stroke();
+        ctx.restore();
+      }
+
       // ---- 川: D2 は **2 つの べつの 水系**。id では なく kind で 回すので、
       //      どちらも おなじ かきかたで、しかも 1 本に つながって 見えない(#37, #39) ----
       for (const river of wd.features.filter((f) => f.kind === 'river')) {
@@ -4296,11 +4338,6 @@
           ctx.beginPath(); ctx.moveTo(toX(pts[i - 1].x), toY(pts[i - 1].y)); ctx.lineTo(toX(pts[i].x), toY(pts[i].y)); ctx.stroke();
           ctx.strokeStyle = pal.sea; ctx.lineWidth = w; ctx.globalAlpha = 1;
           ctx.beginPath(); ctx.moveTo(toX(pts[i - 1].x), toY(pts[i - 1].y)); ctx.lineTo(toX(pts[i].x), toY(pts[i].y)); ctx.stroke();
-        }
-        // みなもとの 湖(たにの あたま)。おおかわの ほうだけ
-        if (river.id === 'tenryu' && pts[1] && pts[1].on) {
-          ctx.fillStyle = pal.sea; ctx.strokeStyle = pal.seaDeep; ctx.lineWidth = 1.2;
-          ctx.beginPath(); ctx.ellipse(toX(pts[1].x), toY(pts[1].y), U * 0.17, UY * 0.11, 0, 0, TAU); ctx.fill(); ctx.stroke();
         }
         ctx.restore();
       }
@@ -4320,6 +4357,30 @@
           if (big) { ctx.fillStyle = '#fbfdff'; ctx.beginPath(); ctx.moveTo(x - wid * 0.36, y - hgt * 0.34); ctx.lineTo(x, y - hgt); ctx.lineTo(x + wid * 0.36, y - hgt * 0.34); ctx.closePath(); ctx.fill(); }
           ctx.globalAlpha = 1;
         }
+      }
+
+      // ---- 分水界: 峠の おねに そった てんせん。ここを さかいに 水の むきが かわる ----
+      for (const dv of wd.features.filter((f) => f.kind === 'divide')) {
+        const on = dv.points.filter((p) => p.on);
+        if (on.length < 2) continue;
+        ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        // みちの てんせん(ink・ながい ダッシュ)と まぎれない ように、まるい 点の れつに する
+        ctx.strokeStyle = '#8a4b2c'; ctx.globalAlpha = 0.95; ctx.lineWidth = 3.6;
+        ctx.setLineDash([0.1, Math.max(7, U * 0.14)]);
+        ctx.beginPath(); poly(ctx, on, false); ctx.stroke();
+        ctx.setLineDash([]);
+        // 水が 左右へ わかれる しるし。おねに 直角な みじかい ひげ
+        ctx.lineWidth = 2.1; ctx.globalAlpha = 0.8;
+        for (let i = 1; i < on.length; i++) {
+          const x1 = toX(on[i - 1].x), y1 = toY(on[i - 1].y), x2 = toX(on[i].x), y2 = toY(on[i].y);
+          const dx = x2 - x1, dy = y2 - y1, d = Math.hypot(dx, dy) || 1;
+          const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, t = Math.max(7, U * 0.13);
+          ctx.beginPath();
+          ctx.moveTo(mx - (dy / d) * t, my + (dx / d) * t);
+          ctx.lineTo(mx + (dy / d) * t, my - (dx / d) * t);
+          ctx.stroke();
+        }
+        ctx.restore();
       }
 
       // ---- 地域ごとの もよう(もり・はたけ・まち・すな…) ----

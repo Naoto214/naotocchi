@@ -404,3 +404,138 @@ test('21. D2 へ かえても、地域の なかみは 1つも うごいて い�
     assert.equal(M.WORLD_GEOGRAPHY.regions.memory_lake.mapX, null, 'その ばしょは 世界地図に 座標を もたない');
   }
 });
+
+// ============================================================================
+// なおとっち世界 地理正本 v1
+// 「二つの大きな山地に はさまれた たに」を せかいの 中心に すえた 正本。
+// ここから さきの テストは、正本の 条文を 1 つずつ コードへ とめる ための ものです。
+// ============================================================================
+
+test('22. 地理正本 v1: 山は 3 つの モチーフ。にしは あるける 山地、ひがしは region では ない 巨大山地', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  assert.equal(G.canon, 'v1', '正本 v1');
+  const F = G.features;
+  const west = F.find((f) => f.id === 'west-range'), east = F.find((f) => f.id === 'east-range');
+  // にし(中央アルプス型): あるける 地域が のって いる
+  const westRegions = [...new Set(west.points.map((p) => p.region))];
+  for (const id of ['snow', 'mountain', 'forest']) assert.ok(westRegions.includes(id), `にしの 山地に ${id}`);
+  // ひがし(南アルプス型): **region では ない**。どの region の id とも 一致しない feature
+  assert.ok(!Object.keys(G.regions).includes('east-range'), 'ひがしの 山地は region では ない');
+  assert.equal([...new Set(east.points.map((p) => p.region))].sort().join(','), 'home,river_lake',
+    'ひがしの 山地は たにの 2 地域からしか 見えない = あるけない');
+  // 北へ 行くほど 高く 寒く なる: ゆきぐには やまより 北
+  assert.ok(G.regions.snow.mapY > G.regions.mountain.mapY, 'ゆきぐには やまより 北');
+  assert.ok(G.connections.some((c) => c.id === 'snow|mountain'), 'やま ↔ ゆきぐに の 峠');
+  // おうちは その 2 つの 山地の あいだ
+  const hx = G.regions.home.mapX;
+  const westX = Math.max(...west.points.filter((p) => p.y > -1 && p.y < 2).map((p) => p.x));
+  const eastX = Math.min(...east.points.filter((p) => p.y > -1 && p.y < 2).map((p) => p.x));
+  assert.ok(westX < hx && hx < eastX, `おうち(${hx}) が にし(${westX}) と ひがし(${eastX}) の あいだ`);
+});
+
+test('23. 地理正本 v1: おうちの すぐ近くを 天竜川型が ながれ、とかいへは ながれない', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const tenryu = G.features.find((f) => f.id === 'tenryu');
+  const shonai = G.features.find((f) => f.id === 'shonai');
+  // おうちの すぐ近く: home の 点が ある。ただし region の 中心を つらぬかない
+  const nearHome = tenryu.points.filter((p) => p.region === 'home');
+  assert.ok(nearHome.length >= 2, 'たにの おおかわは おうちの そばを とおる');
+  const H = G.regions.home;
+  const closest = Math.min(...tenryu.points.map((p) => Math.hypot(p.x - H.mapX, p.y - H.mapY)));
+  assert.ok(closest < 1.2, `おうちから 川まで ${closest.toFixed(2)}(すぐ近く)`);
+  assert.ok(closest > 0.2, '川は おうちの まん中を つらぬかない(段丘の 上の まち)');
+  // とかい・湾へは ながれない
+  assert.ok(!tenryu.points.some((p) => p.region === 'city'), '天竜川型は とかいへ ながれない');
+  // 庄内川型は とかいを ぬけて 湾へ
+  assert.ok(shonai.points.some((p) => p.region === 'city'), '庄内川型は とかいを ぬける');
+  assert.equal(shonai.points[shonai.points.length - 1].region, 'sea', '庄内川型の かこうは うみ(湾)');
+  const bay = G.features.find((f) => f.id === 'bay');
+  const mouth = shonai.points[shonai.points.length - 1];
+  assert.ok(Math.min(...bay.points.map((p) => Math.hypot(p.x - mouth.x, p.y - mouth.y))) < 0.6,
+    'かこうが 湾に ついて いる');
+});
+
+test('24. 地理正本 v1: 分水界が 正式な 地形。2 水系を 図の うえで 分ける', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const divide = G.features.find((f) => f.kind === 'divide');
+  assert.ok(divide, '分水界が feature として ある');
+  assert.ok(!Object.keys(G.regions).includes(divide.id), '分水界は region では ない');
+  const tenryu = G.features.find((f) => f.id === 'tenryu');
+  const shonai = G.features.find((f) => f.id === 'shonai');
+  // 分水界は 2 水系の あいだ。たにの おおかわからは 遠く、みやこがわは ここから はじまる
+  const near = (river) => Math.min(...divide.points.map((d) =>
+    Math.min(...river.points.map((p) => Math.hypot(p.x - d.x, p.y - d.y)))));
+  assert.ok(near(tenryu) > 1.5, `分水界は たにの おおかわから はなれて いる(${near(tenryu).toFixed(2)})`);
+  assert.ok(near(shonai) < 0.8, `みやこがわは 分水界の むこうから はじまる(${near(shonai).toFixed(2)})`);
+  assert.ok(near(tenryu) > near(shonai), '分水界は とかいがわの 水系に つく');
+  // いなか → とかい の 街道は この おねを こえる
+  const road = G.connections.find((c) => c.id === 'city|countryside');
+  assert.ok(road, 'いなか ↔ とかい の 街道');
+  const A = G.regions.countryside, B = G.regions.city;
+  const side = (p) => (B.mapX - A.mapX) * (p.y - A.mapY) - (B.mapY - A.mapY) * (p.x - A.mapX);
+  const signs = divide.points.map((p) => Math.sign(side(p)));
+  assert.ok(signs.includes(1) && signs.includes(-1), '分水界が いなか ↔ とかい の 道を よこぎる');
+});
+
+test('25. 地理正本 v1: 源の湖は ふつうの 地形。きおくのみずうみ では ない', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const lake = G.features.find((f) => f.kind === 'lake');
+  assert.ok(lake, '源の湖が feature として ある');
+  assert.ok(!Object.keys(G.regions).includes(lake.id), '源の湖は region では ない');
+  assert.ok(lake.id !== 'memory_lake' && !lake.points.some((p) => p.region === 'memory_lake'),
+    '源の湖は きおくのみずうみ では ない');
+  // 天竜川型の **いちばん上流がわ** に ある
+  const tenryu = G.features.find((f) => f.id === 'tenryu');
+  const cy = lake.points.reduce((a, p) => a + p.y, 0) / lake.points.length;
+  const mouth = tenryu.points[tenryu.points.length - 1];
+  assert.ok(cy > mouth.y, '源の湖は かこうより 上流');
+  assert.ok(cy > G.regions.home.mapY, '源の湖は おうちより 上流');
+  // 川が その 湖を とおる
+  const through = Math.min(...tenryu.points.map((p) => Math.hypot(p.x - lake.points.reduce((a, q) => a + q.x, 0) / lake.points.length, p.y - cy)));
+  assert.ok(through < 0.5, `天竜川型が 源の湖を とおる(${through.toFixed(2)})`);
+  // きおくのみずうみは 世界地図に 出ない
+  assert.equal(G.regions.memory_lake.mapX, null);
+  assert.ok(!G.features.some((f) => f.points.some((p) => p.region === 'memory_lake')),
+    'どの 地形 feature も きおくのみずうみを 指さない');
+});
+
+test('26. 地理正本 v1: 北西に さばく、南西に ジャングル', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY, R = G.regions;
+  const ground = Object.keys(R).filter((id) => R[id].layer === 'ground');
+  const cx = ground.reduce((a, id) => a + R[id].mapX, 0) / ground.length;
+  const cy = ground.reduce((a, id) => a + R[id].mapY, 0) / ground.length;
+  assert.ok(R.desert.mapX < cx && R.desert.mapY > cy, `さばくは 北西(${R.desert.mapX}, ${R.desert.mapY})`);
+  assert.ok(R.jungle.mapX < cx && R.jungle.mapY < cy, `ジャングルは 南西(${R.jungle.mapX}, ${R.jungle.mapY})`);
+  // さばくは ジャングルより 北、ジャングルは さばくより 南
+  assert.ok(R.desert.mapY > R.jungle.mapY, 'さばくは ジャングルより 北');
+  // 世界の へりの 語彙も そろって いる
+  const rim = Object.fromEntries(G.rim.map((r) => [r.near[0], r.dir]));
+  assert.equal(rim.desert, 'northwest', 'へり: さばくの さきは 北西');
+  assert.equal(rim.jungle, 'southwest', 'へり: ジャングルの さきは 南西');
+});
+
+test('27. 地理正本 v1: 生活圏の 三角と、おうち ↔ とかい を 持たない こと', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const has = (id) => G.connections.some((c) => c.id === id);
+  for (const id of ['countryside|home', 'home|river_lake', 'countryside|river_lake',
+    'countryside|star_stop', 'snow|mountain', 'city|sea', 'deepsea|sea']) {
+    assert.ok(has(id), `${id} が ある`);
+  }
+  assert.ok(!has('city|home'), 'おうち ↔ とかい の 直通は 持たない');
+  // ほしぞらへは いなかの「ふるいとりい」から
+  const sky = G.connections.find((c) => c.id === 'countryside|star_stop');
+  assert.equal(sky.mouths.countryside, 'torii');
+  assert.equal(sky.mouths.star_stop, 'stop');
+  assert.equal(sky.layer, 'up');
+  // おうちから さきは 一本道に しない(2 方向 いじょう)
+  const from = (id) => G.connections.filter((c) => c.b && (c.a === id || c.b === id)).length;
+  assert.ok(from('home') >= 2, 'おうちから 2 方向 いじょうへ 行ける');
+  // 13 地域は ふえて いない
+  assert.equal(Object.keys(G.regions).length, 13, '13 地域の まま');
+});
