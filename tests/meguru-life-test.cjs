@@ -28,6 +28,12 @@ const run = (id, env, secs, every, fn) => {
   return sim;
 };
 const free = (a) => !a.plant && !a.fixed && !a.follow;
+// テストだけ らんすうの たねを 入れかえる(めぐる本体の Math.random は そのまま)。
+// これで「この たねの ときは こう なる」が いつ はしらせても おなじに なる
+const seededRandom = (seed) => { let t = seed >>> 0; return () => { t = (t + 0x6D2B79F5) >>> 0; let x = Math.imul(t ^ (t >>> 15), 1 | t); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; };
+const withSeed = (seed, fn) => { M.setRandom(seededRandom(seed)); try { return fn(); } finally { M.setRandom(null); } };
+// からだの おおきさ 18 で はかる(めりこみ 0 が「立てて いる」)
+const deepest = (w, a) => M.penetrationAt(w, a.x, a.z, 18, !!a.water);
 const KNOWN = new Set(['idle', 'walk', 'look', 'rest', 'sit', 'sleep', 'talk', 'gather', 'play', 'swim', 'sway', 'watch', 'fish', 'shop', 'chase']);
 
 test('every spot says what can be done there, and the list comes from the world, not from a hand-written table', () => {
@@ -81,27 +87,82 @@ test('a resident picks an activity, walks there along the paths and does it, rat
 });
 
 test('residents are held by the same world-space colliders as the player and never enter the sea you may not walk in', () => {
-  for (const id of REGIONS) {
-    const sim = M.createSimulation({ regionId: id, discovered: [], env: E() });
-    const w = sim.world;
-    let worst = 0, inSea = 0, outside = 0;
-    for (let i = 0; i < 60 * 80; i++) {
-      sim.step(1 / 60, { x: 0, y: 0 });
-      if (i % 60) continue;
-      for (const a of w.residents) {
-        if (!free(a) || a.water) continue;
-        worst = Math.max(worst, M.penetrationAt(w, a.x, a.z, 18));
-        if (a.x < w.minX - 60 || a.x > w.maxX + 60 || a.z < 0 || a.z > w.len) outside++;
-        if (w.terrain && w.terrain.kind === 'coast') {
-          const sx = M.shoreX(w, a.z);
-          if (sx != null && (w.terrain.side < 0 ? a.x < sx : a.x > sx)) inSea++;
+  // らんすうの たねを 3つ 固定して はしらせる。じっこう ごとに 通ったり 落ちたり しない
+  for (const seed of [1, 20260920, 777]) withSeed(seed, () => {
+    for (const id of REGIONS) {
+      const sim = M.createSimulation({ regionId: id, discovered: [], env: E() });
+      const w = sim.world;
+      let worst = 0, inSea = 0, outside = 0, who = '';
+      for (let i = 0; i < 60 * 80; i++) {
+        sim.step(1 / 60, { x: 0, y: 0 });
+        if (i % 60) continue;
+        for (const a of w.residents) {
+          if (!free(a) || a.water) continue;
+          const p = deepest(w, a);
+          if (p > worst) { worst = p; who = `${a.emoji || a.key} at ${Math.round(a.x)}/${Math.round(a.z)} (${a.spot && a.spot.id})`; }
+          if (a.x < w.minX - 60 || a.x > w.maxX + 60 || a.z < 0 || a.z > w.len) outside++;
+          if (w.terrain && w.terrain.kind === 'coast') {
+            const sx = M.shoreX(w, a.z);
+            if (sx != null && (w.terrain.side < 0 ? a.x < sx : a.x > sx)) inSea++;
+          }
         }
       }
+      assert.ok(worst < 9, `${id} (seed ${seed}): nobody stands inside a tree or a wall (worst ${worst.toFixed(1)} against a body of 18, ${who})`);
+      assert.equal(inSea, 0, `${id} (seed ${seed}): nobody walks out into the open sea`);
+      assert.equal(outside, 0, `${id} (seed ${seed}): nobody leaves the world`);
     }
-    assert.ok(worst < 9, `${id}: nobody stands inside a tree or a wall (worst ${worst.toFixed(1)} against a body of 18)`);
-    assert.equal(inSea, 0, `${id}: nobody walks out into the open sea`);
-    assert.equal(outside, 0, `${id}: nobody leaves the world`);
-  }
+  });
+});
+
+// うまれた とき / 目的地を きめなおした とき / とおい そうから もどった とき /
+// さそいあいの あと。どの きっかけでも「木や かべの なか」に 立って いない
+test('every way a resident is placed puts them somewhere they can actually stand', () => {
+  for (const seed of [3, 20260920]) withSeed(seed, () => {
+    for (const id of REGIONS) {
+      const sim = M.createSimulation({ regionId: id, discovered: [], env: E() });
+      const w = sim.world;
+      const standing = (when) => {
+        for (const a of w.residents) {
+          if (!free(a)) continue;
+          const p = deepest(w, a);
+          assert.ok(p < 9, `${id} (seed ${seed}) ${when}: ${a.emoji || a.key} stands clear (${p.toFixed(1)} at ${Math.round(a.x)}/${Math.round(a.z)})`);
+        }
+      };
+      // ① うまれた ところ(あたりはんていは 住民の あとに できる)
+      standing('at birth');
+      // ② とおい そうへ 行って もどって くる。stepDistant で 置きなおされ、
+      //    reenterDetail で ちかくの そうへ もどる のを ぜんいんぶん たしかめる
+      for (const a of w.residents) {
+        if (!free(a)) continue;
+        a.tier = 2;
+        M.stepDistant(a, E(), w, w.clock + 1000);
+        assert.ok(deepest(w, a) < 9, `${id} (seed ${seed}) after stepDistant: ${a.emoji || a.key} stands clear`);
+        M.reenterDetail(a, w);
+        assert.ok(deepest(w, a) < 9, `${id} (seed ${seed}) back in detail: ${a.emoji || a.key} stands clear`);
+      }
+      // ③ ながい せいかつ。プレイヤーを 歩かせて そうの 出入りを 何どでも おこす
+      const spots = w.spots.filter((s) => !s.secret);
+      for (let i = 0; i < 60 * 150; i++) {
+        if (i % 600 === 0 && spots.length) { const s = spots[(i / 600) % spots.length]; sim.setPlayer(s.x, s.z); }
+        sim.step(1 / 60, { x: 0, y: 0 });
+        if (i % 15 === 0) standing(`at ${Math.round(i / 60)}s`);
+      }
+      // ④ さそいあいの あと(はなし・あつまりを ほどいた 直後の いち)
+      for (const a of w.residents) if (a.partner || a.meet) { a.until = -1; }
+      for (let i = 0; i < 60 * 20; i++) { sim.step(1 / 60, { x: 0, y: 0 }); if (i % 15 === 0) standing('after interactions end'); }
+    }
+  });
+});
+
+// たねが おなじ なら おなじ けっかに なる(テストが たまたま 通る ことが ない)
+test('the same seed replays the same life, so this suite cannot pass by luck', () => {
+  const trace = (seed) => withSeed(seed, () => {
+    const sim = M.createSimulation({ regionId: 'jungle', discovered: [], env: E() });
+    for (let i = 0; i < 60 * 30; i++) sim.step(1 / 60, { x: 0, y: 0 });
+    return sim.world.residents.map((a) => `${Math.round(a.x)},${Math.round(a.z)},${a.behavior}`).join('|');
+  });
+  assert.equal(trace(42), trace(42), 'the same seed gives the same world');
+  assert.notEqual(trace(42), trace(43), 'a different seed gives a different world');
 });
 
 test('talking starts by two residents coming together and facing each other, never at a distance', () => {
