@@ -1614,9 +1614,8 @@
         dailyChallenge: null,
         dailyStreak: 0,
         dailyLastDate: null,
-        // シールちょう: もっている シール(id→まいすう)、かけら、ページごとの はりつけ、
-        // たっせいした おだい、あけた パックの かず、いちど 見た シール
-        stickers: { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] },
+        // シールちょう: もっているシール、シールポイント(互換キー kakera)、自由ページ、背景、達成お題など
+        stickers: { owned: {}, kakera: 0, pages: { 'page-1': [] }, pageOrder: ['page-1'], pageMeta: { 'page-1': { background: 'home' } }, tasksDone: [], packsOpened: 0, seen: [] },
         // 「うそつきしょうぶ」(2人用の あいてコード対戦)の えいきゅう記録。
         // なおとっち本体(ペット)の じんせいとは べつの、あそんでいる
         // 人間の しこう傾向な ので「はじめから」しても きえない。
@@ -14321,31 +14320,44 @@
   // ================================================================
   // シールちょう
   // ================================================================
-  // いままでの 絵(しゅぞくの すがた・なかま・こいびと・あいてむ・けしき)を
-  // シールに して あつめ、4つの ページに はって あそぶ。あつめた シールと
-  // はった ばしょは lifetime に のこる(「はじめから」でも きえない)。
-  //   ・てにいれかた: ずかんに はじめて のった すがた / なかまに なった /
-  //     こいびとに なった とき その シール、
-  //     Sランクで 30%、あとは おかねで シールパック(3まい)
-  //   ・かぶった シールは「かけら」に なり、12こで あたらしい 1まいと こうかんできる
-  //   ・ページごとの「おだい」を たっせいすると かけらが もらえる
-  const STICKER_PAGES = [
-    { id: 'home', label: 'おうち', emoji: '🏠', colors: ['#ffe9f0', '#fff8e8', '#e9f5d8'] },
-    { id: 'travel', label: 'たび', emoji: '🗺️', colors: ['#cfe9ff', '#eaf7ff', '#d9f0c9'] },
-    { id: 'friends', label: 'なかま', emoji: '🐾', colors: ['#fff3cf', '#ffe6c2', '#f7d9b0'] },
-    { id: 'memory', label: 'きねん', emoji: '🎀', colors: ['#ece4ff', '#f8eaff', '#ffe6f2'] },
-  ];
+  // 1ページから はじめ、ひつようなぶんだけ さいだい15ページまで ふやせる。
+  // ページは ぶんるいではなく自由な台紙で、どのシールもどのページにも はれる。
+  // はいけいは通常地域から自由にえらべ、とくべつな2地域は実際に訪れてから解放。
+  // 旧「おうち／たび／なかま／きねん」4ページのセーブは中身を失わず自由ページへ移行する。
+  const STICKER_LEGACY_PAGES = ['home', 'travel', 'friends', 'memory'];
+  const STICKER_BOOK_MAX_PAGES = 15;
+  const STICKER_PAGE_MAX = 24;
   const STICKER_RARITY = {
     common: { label: 'ふつう', kakera: 1, weight: 70 },
     uncommon: { label: 'めずらしい', kakera: 3, weight: 25 },
     rare: { label: 'レア', kakera: 8, weight: 5 },
   };
-  const STICKER_KINDS = { form: 'しゅぞく', companion: 'なかま', partner: 'こいびと', item: 'あいてむ', scenery: 'けしき' };
+  // kind id は古いセーブ・抽選との互換のため scenery のまま。表示名だけ「その他」にする。
+  const STICKER_KINDS = { form: 'しゅぞく', companion: 'なかま', partner: 'こいびと', item: 'あいてむ', scenery: 'その他' };
   const STICKER_PACK_PRICE = 30;
   const STICKER_THEME_PRICE = 60;
   const STICKER_PACK_SIZE = 3;
+  // 内部キー kakera は既存セーブ互換のため維持。画面では「シールポイント」と呼ぶ。
   const STICKER_KAKERA_PACK = 12;
-  const STICKER_PAGE_MAX = 24;
+  const STICKER_BACKGROUND_COLORS = {
+    home: ['#ffe9f0', '#fff8e8', '#e9f5d8'],
+    city: ['#f5e6ff', '#b8a6d9', '#4a4066'],
+    countryside: ['#fef6d0', '#cbe6a0', '#7fae5a'],
+    forest: ['#e3f3d6', '#a3cf85', '#4f7a3d'],
+    mountain: ['#edf1e8', '#9fb39a', '#596c57'],
+    snow: ['#ffffff', '#dbe9f5', '#9fb8d9'],
+    sea: ['#cdeaff', '#6ec6e8', '#2f8fc7'],
+    deepsea: ['#18345f', '#0b1f3b', '#03101f'],
+    river_lake: ['#dff7ef', '#83c8ba', '#3b7f74'],
+    jungle: ['#d8f6c8', '#61aa68', '#245b3a'],
+    desert: ['#fff3d6', '#f0c877', '#d99a4e'],
+    star_stop: ['#2b2f5e', '#171a38', '#05060f'],
+    memory_lake: ['#f2fbff', '#cfe3ec', '#8ba7b5'],
+  };
+  function stickerBackgroundColors(id) {
+    return STICKER_BACKGROUND_COLORS[id] || ['#f4f0ff', '#fffaf0', '#e5f3ea'];
+  }
+
   const STICKER_SCENERY = [
     ['cherry_blossom', 'さくら', '🌸'], ['sunflower', 'ひまわり', '🌻'], ['maple_leaf', 'もみじ', '🍁'], ['green_leaf', 'わかば', '🌿'],
     ['tree', 'き', '🌳'], ['pine', 'まつ', '🌲'], ['palm', 'やしのき', '🌴'], ['cactus', 'サボテン', '🌵'],
@@ -14406,7 +14418,9 @@
   function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s)); }
   function stickerStore() {
     const L = state.lifetime;
-    if (!L.stickers || typeof L.stickers !== 'object') L.stickers = { owned: {}, kakera: 0, pages: {}, tasksDone: [], packsOpened: 0, seen: [] };
+    if (!L.stickers || typeof L.stickers !== 'object') {
+      L.stickers = { owned: {}, kakera: 0, pages: {}, pageOrder: ['page-1'], pageMeta: { 'page-1': { background: 'home' } }, tasksDone: [], packsOpened: 0, seen: [] };
+    }
     const s = L.stickers;
     if (!s.owned || typeof s.owned !== 'object') s.owned = {};
     if (!s.pages || typeof s.pages !== 'object') s.pages = {};
@@ -14414,6 +14428,39 @@
     if (!Array.isArray(s.seen)) s.seen = [];
     s.kakera = Math.max(0, Math.floor(Number(s.kakera) || 0));
     s.packsOpened = Math.max(0, Math.floor(Number(s.packsOpened) || 0));
+
+    // 旧4分類ページを、使っているページだけ自由ページへ移す。
+    // 4ページが全部空なら、まっさらな1ページだけから始める。
+    if (!Array.isArray(s.pageOrder) || !s.pageOrder.length) {
+      const oldPages = STICKER_LEGACY_PAGES.filter((id) => Array.isArray(s.pages[id]) && s.pages[id].length);
+      const extraPages = Object.keys(s.pages).filter((id) => !STICKER_LEGACY_PAGES.includes(id) && Array.isArray(s.pages[id]) && s.pages[id].length);
+      const sourcePages = [...oldPages, ...extraPages].slice(0, STICKER_BOOK_MAX_PAGES);
+      const migratedPages = {};
+      const order = [];
+      if (sourcePages.length) {
+        sourcePages.forEach((oldId, i) => {
+          const id = `page-${i + 1}`;
+          migratedPages[id] = s.pages[oldId];
+          order.push(id);
+        });
+      } else {
+        migratedPages['page-1'] = [];
+        order.push('page-1');
+      }
+      s.pages = migratedPages;
+      s.pageOrder = order;
+      s.pageMeta = {};
+    }
+    s.pageOrder = [...new Set(s.pageOrder.filter((id) => typeof id === 'string' && id))].slice(0, STICKER_BOOK_MAX_PAGES);
+    if (!s.pageOrder.length) s.pageOrder = ['page-1'];
+    if (!s.pageMeta || typeof s.pageMeta !== 'object' || Array.isArray(s.pageMeta)) s.pageMeta = {};
+    for (const id of s.pageOrder) {
+      if (!Array.isArray(s.pages[id])) s.pages[id] = [];
+      if (!s.pageMeta[id] || typeof s.pageMeta[id] !== 'object') s.pageMeta[id] = {};
+      if (typeof s.pageMeta[id].background !== 'string') s.pageMeta[id].background = 'home';
+    }
+    for (const id of Object.keys(s.pages)) if (!s.pageOrder.includes(id)) delete s.pages[id];
+    for (const id of Object.keys(s.pageMeta)) if (!s.pageOrder.includes(id)) delete s.pageMeta[id];
     return s;
   }
   function ownedStickerCount(id) { return stickerStore().owned[id] || 0; }
@@ -14421,7 +14468,7 @@
     const owned = lifetime && lifetime.stickers && lifetime.stickers.owned;
     return owned ? Object.keys(owned).filter((k) => owned[k] > 0).length : 0;
   }
-  // もどり値 { sticker, dup, kakera }。かぶった ぶんは かけらに なる(まいすうも ふえるので、
+  // もどり値 { sticker, dup, kakera }。かぶった ぶんは シールポイントに なる(まいすうも ふえるので、
   // おなじ シールを もう1まい はる ことも できる)
   function grantSticker(id, source) {
     const sticker = stickerById(id);
@@ -14480,7 +14527,7 @@
     state.lifetime.money -= STICKER_PACK_PRICE;
     const results = finishStickerPack(STICKER_PACK_SIZE, false, 'pack');
     const fresh = results.filter((r) => !r.dup).length;
-    setMessage(fresh ? `🏷️シールパックをあけた!あたらしいシールが${fresh}まい` : '🏷️シールパックをあけた…ぜんぶ かぶり(かけらになった)');
+    setMessage(fresh ? `🏷️シールパックをあけた!あたらしいシールが${fresh}まい` : '🏷️シールパックをあけた…ぜんぶ かぶり(シールポイントになった)');
     emotePet('happy');
     return results;
   }
@@ -14498,7 +14545,7 @@
   }
   function openKakeraPack() {
     const store = stickerStore();
-    if (store.kakera < STICKER_KAKERA_PACK) { setMessage('かけらがたりない…'); return null; }
+    if (store.kakera < STICKER_KAKERA_PACK) { setMessage('シールポイントがたりない…'); return null; }
     const pool = stickerPackPool(), choices = [];
     for (let i = 0; i < 3; i++) {
       const next = drawRandomSticker(pool.filter(s => !choices.includes(s)), true);
@@ -14506,7 +14553,7 @@
     }
     kakeraChoices = {life:state, ids:choices.map(s => s.id)};
     const panel = document.getElementById('stickerChoicePanel');
-    panel.innerHTML = `<p>かけら12個で1枚。選ぶまで使いません。${choices.every(s => ownedStickerCount(s.id)) ? 'すべて持っているので、重複になります。' : '持っていないシールを優先しています。'}</p>`
+    panel.innerHTML = `<p>シールポイント12で1枚。選ぶまで使いません。${choices.every(s => ownedStickerCount(s.id)) ? 'すべて持っているので、重複になります。' : '持っていないシールを優先しています。'}</p>`
       + choices.map(s => `<button type="button" class="sticker-pack-card" data-kakera-id="${s.id}"><span class="sticker-cell-art">${s.visual()}</span><span>${escapeHtml(s.label)}</span><span>${ownedStickerCount(s.id) ? 'もっている' : 'あたらしい'}</span></button>`).join('')
       + '<button type="button" data-kakera-cancel>またこんど</button>';
     panel.classList.remove('hidden');
@@ -14519,14 +14566,16 @@
     store.kakera -= STICKER_KAKERA_PACK;
     const result = grantSticker(id, 'kakera');
     cancelKakeraChoice();
-    setMessage(`かけらが「${result.sticker.label}」のシールになった！`);
+    setMessage(`シールポイントで「${result.sticker.label}」のシールをえらんだ！`);
     return result;
   }
 
   // ---- ページ(はりつけ) ----
   let stickerSerial = 0;
+  function stickerPageIds() { return stickerStore().pageOrder.slice(); }
   function stickerPage(pageId) {
     const store = stickerStore();
+    if (!store.pageOrder.includes(pageId)) return [];
     if (!Array.isArray(store.pages[pageId])) store.pages[pageId] = [];
     const page = store.pages[pageId];
     for (const p of page) {
@@ -14537,15 +14586,57 @@
   }
   function stickerPages() {
     const out = {};
-    for (const pg of STICKER_PAGES) out[pg.id] = stickerPage(pg.id);
+    for (const id of stickerPageIds()) out[id] = stickerPage(id);
     return out;
   }
+  function stickerBackgroundOptions() {
+    const normal = REGIONS.map((r) => ({ id: r.id, label: r.label, emoji: r.emoji, special: false }));
+    const visited = new Set(state.lifetime.specialRegionsVisited || []);
+    const special = SPECIAL_REGIONS.filter((r) => visited.has(r.id)).map((r) => ({ id: r.id, label: r.label, emoji: r.emoji, special: true }));
+    return [...normal, ...special];
+  }
+  function stickerPageBackground(pageId) {
+    const store = stickerStore();
+    const meta = store.pageMeta[pageId] || (store.pageMeta[pageId] = { background: 'home' });
+    const available = stickerBackgroundOptions();
+    if (!available.some((r) => r.id === meta.background)) meta.background = 'home';
+    return meta.background;
+  }
+  function setStickerPageBackground(pageId, backgroundId) {
+    const store = stickerStore();
+    if (!store.pageOrder.includes(pageId) || !stickerBackgroundOptions().some((r) => r.id === backgroundId)) return false;
+    store.pageMeta[pageId].background = backgroundId;
+    return true;
+  }
+  function stickerPageInfo(pageId) {
+    const ids = stickerPageIds();
+    const i = ids.indexOf(pageId);
+    if (i < 0) return null;
+    const background = stickerPageBackground(pageId);
+    const region = [...REGIONS, ...SPECIAL_REGIONS].find((r) => r.id === background) || REGIONS[0];
+    return { id: pageId, index: i, label: `${i + 1}ページ`, background, emoji: region?.emoji || '📒', colors: stickerBackgroundColors(background) };
+  }
+  function addStickerPage() {
+    const store = stickerStore();
+    if (store.pageOrder.length >= STICKER_BOOK_MAX_PAGES) {
+      setMessage(`シールちょうは${STICKER_BOOK_MAX_PAGES}ページまで`);
+      return null;
+    }
+    let n = 1, id;
+    do { id = `page-${n++}`; } while (store.pageOrder.includes(id));
+    store.pageOrder.push(id);
+    store.pages[id] = [];
+    store.pageMeta[id] = { background: 'home' };
+    stickerCurrentPage = id;
+    stickerSelected = null;
+    return id;
+  }
   function placedStickerCount(id) {
-    return STICKER_PAGES.reduce((a, pg) => a + stickerPage(pg.id).filter((p) => p.id === id).length, 0);
+    return stickerPageIds().reduce((a, pageId) => a + stickerPage(pageId).filter((p) => p.id === id).length, 0);
   }
   // はる: ページの まんなか。x/y は ページの はば・たかさ に たいする 0〜1
   function placeSticker(pageId, id, at) {
-    if (!STICKER_PAGES.some((pg) => pg.id === pageId) || !stickerById(id)) return null;
+    if (!stickerPageIds().includes(pageId) || !stickerById(id)) return null;
     if (!ownedStickerCount(id)) { setMessage('そのシールは まだ もっていない'); return null; }
     const page = stickerPage(pageId);
     if (page.length >= STICKER_PAGE_MAX) { setMessage(`このページは いっぱい(${STICKER_PAGE_MAX}まいまで)`); return null; }
@@ -14574,18 +14665,20 @@
   }
 
   // ---- おだい ----
+  // ページのテーマは自由なので、「どのページに貼るか」を指定しないお題だけにする。
+  const anyPageHas = (pages, predicate) => Object.values(pages).some(predicate);
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'home-form-3', supply: { count: 3, matches: s => s.kind === 'form' }, page: 'home', label: 'おうちに しゅぞくの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'form') >= 3 },
-    { id: 'home-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: 'home', label: 'おうちに あいてむの シールを 2まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.home, 'item') >= 2 },
-    { id: 'travel-scenery-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: 'travel', label: 'たびに けしきの シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.travel, 'scenery') >= 3 },
-    { id: 'travel-8', supply: { count: 8, matches: () => true }, page: 'travel', label: 'たびの ページに 8まい はる', reward: { kakera: 4 }, check: (pages) => pages.travel.length >= 8 },
-    { id: 'friends-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: 'friends', label: 'なかまの ページに なかまを 3にん はる', reward: { kakera: 3 }, check: (pages) => countStickerKind(pages.friends, 'companion') >= 3 },
-    { id: 'friends-partner-1', supply: { count: 1, matches: s => s.kind === 'partner' }, page: 'friends', label: 'なかまの ページに こいびとを はる', reward: { kakera: 4 }, check: (pages) => countStickerKind(pages.friends, 'partner') >= 1 },
-    { id: 'memory-elder-1', supply: { count: 1, matches: s => /^form:[^:]+:7$/.test(s.id) }, page: 'memory', label: 'きねんに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => pages.memory.some((p) => /^form:[^:]+:7$/.test(p.id)) },
-    { id: 'memory-rare-1', supply: { count: 1, matches: s => s.rarity === 'rare' }, page: 'memory', label: 'きねんに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => pages.memory.some((p) => stickerById(p.id)?.rarity === 'rare') },
-    { id: 'any-12', supply: { count: 12, matches: () => true }, page: null, label: 'どれかの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => Object.values(pages).some((p) => p.length >= 12) },
-    { id: 'all-pages', supply: { count: 4, matches: () => true }, page: null, label: '4つの ページ ぜんぶに はる', reward: { kakera: 8 }, check: (pages) => STICKER_PAGES.every((pg) => pages[pg.id].length >= 1) },
+    { id: 'page-form-3', supply: { count: 3, matches: s => s.kind === 'form' }, page: null, label: 'ひとつの ページに しゅぞくを 3まい はる', reward: { kakera: 3 }, check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'form') >= 3) },
+    { id: 'page-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: null, label: 'ひとつの ページに あいてむを 2まい はる', reward: { kakera: 3 }, check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'item') >= 2) },
+    { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: 'ひとつの ページに その他の シールを 3まい はる', reward: { kakera: 3 }, check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
+    { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: 'ひとつの ページに 8まい はる', reward: { kakera: 4 }, check: (pages) => anyPageHas(pages, p => p.length >= 8) },
+    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: 'ひとつの ページに なかまを 3にん はる', reward: { kakera: 3 }, check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
+    { id: 'page-partner-1', supply: { count: 1, matches: s => s.kind === 'partner' }, page: null, label: 'どれかの ページに こいびとを はる', reward: { kakera: 4 }, check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'partner') >= 1) },
+    { id: 'page-elder-1', supply: { count: 1, matches: s => /^form:[^:]+:7$/.test(s.id) }, page: null, label: 'どれかの ページに おとしよりの すがたを はる', reward: { kakera: 4 }, check: (pages) => anyPageHas(pages, p => p.some((x) => /^form:[^:]+:7$/.test(x.id))) },
+    { id: 'page-rare-1', supply: { count: 1, matches: s => s.rarity === 'rare' }, page: null, label: 'どれかの ページに レアな シールを はる', reward: { kakera: 6 }, check: (pages) => anyPageHas(pages, p => p.some((x) => stickerById(x.id)?.rarity === 'rare')) },
+    { id: 'any-12', supply: { count: 12, matches: () => true }, page: null, label: 'ひとつの ページに 12まい はる', reward: { kakera: 5 }, check: (pages) => anyPageHas(pages, p => p.length >= 12) },
+    { id: 'multi-pages-3', supply: { count: 3, matches: () => true }, page: null, label: '3つの ページに シールを はる', reward: { kakera: 8 }, check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 3 },
   ];
   function crownNeedsTaskSticker(candidate) {
     const store = stickerStore(), pages = stickerPages();
@@ -14596,7 +14689,6 @@
         const sticker = stickerById(id);
         return sum + (sticker && matches(sticker) ? Math.max(0, count) : 0);
       }, 0);
-      // 別ページのシールも移動できる。既に必要枚数を所有していれば、あとは手動で貼るだけ。
       return owned < task.supply.count;
     });
   }
@@ -14614,19 +14706,19 @@
       store.tasksDone.push(task.id);
       store.kakera += task.reward.kakera;
       done.push(task);
-      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」かけら+${task.reward.kakera}` });
+      if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」シールポイント+${task.reward.kakera}` });
     }
     return done;
   }
 
   // ---- がめん ----
-  let stickerCurrentPage = 'home';
+  let stickerCurrentPage = 'page-1';
   let stickerSelected = null;
   let stickerFilterKind = 'owned';
   let stickerNewIds = new Set();
   let stickerDrag = null;
   function setStickerPage(pageId) {
-    if (!STICKER_PAGES.some((pg) => pg.id === pageId)) return;
+    if (!stickerPageIds().includes(pageId)) return;
     stickerCurrentPage = pageId;
     stickerSelected = null;
   }
@@ -14648,31 +14740,48 @@
   function renderStickerBoard() {
     if (!el.stickerBoard) return;
     const page = stickerPage(stickerCurrentPage);
-    el.stickerBoard.className = `sticker-board page-${stickerCurrentPage}`;
+    const info = stickerPageInfo(stickerCurrentPage);
+    const colors = info?.colors || stickerBackgroundColors('home');
+    el.stickerBoard.className = 'sticker-board';
     el.stickerBoard.dataset.page = stickerCurrentPage;
+    el.stickerBoard.dataset.background = info?.background || 'home';
+    el.stickerBoard.style.background = `linear-gradient(180deg, ${colors[0]} 0%, ${colors[1]} 55%, ${colors[2]} 100%)`;
     setHTMLIfChanged(el.stickerBoard, page.map((p) => stickerPlacedHTML(p, p.k === stickerSelected)).join('') || '<div class="sticker-board-empty">まだ なにも はっていない</div>');
     if (el.stickerTools) el.stickerTools.classList.toggle('hidden', stickerSelected == null || !findPlacedSticker(stickerCurrentPage, stickerSelected));
   }
   function renderStickerOverlay() {
     if (!el.stickerOverlay) return;
     const store = stickerStore();
+    const pageIds = stickerPageIds();
+    if (!pageIds.includes(stickerCurrentPage)) stickerCurrentPage = pageIds[0];
     const pool = stickerPackPool();
     const ownedKinds = pool.filter((s) => ownedStickerCount(s.id) > 0).length;
     el.stickerProgress.textContent = `${ownedKinds} / ${pool.length}`;
-    setHTMLIfChanged(el.stickerPageTabs, STICKER_PAGES.map((pg) => `<button type="button" class="ach-tab${pg.id === stickerCurrentPage ? ' active' : ''}" data-page="${pg.id}" role="tab" aria-selected="${pg.id === stickerCurrentPage}">${pg.emoji} ${pg.label}<small>${stickerPage(pg.id).length}</small></button>`).join(''));
+    setHTMLIfChanged(el.stickerPageTabs, pageIds.map((id, i) => `<button type="button" class="ach-tab${id === stickerCurrentPage ? ' active' : ''}" data-page="${id}" role="tab" aria-selected="${id === stickerCurrentPage}"><span>${i + 1}</span><small>${stickerPage(id).length}まい</small></button>`).join(''));
+
+    const addBtn = document.getElementById('stickerAddPageBtn');
+    if (addBtn) {
+      addBtn.disabled = pageIds.length >= STICKER_BOOK_MAX_PAGES;
+      addBtn.textContent = pageIds.length >= STICKER_BOOK_MAX_PAGES ? `${STICKER_BOOK_MAX_PAGES}ページまで` : `＋ ページを追加（${pageIds.length}/${STICKER_BOOK_MAX_PAGES}）`;
+    }
+    const backgroundSelect = document.getElementById('stickerBackgroundSelect');
+    if (backgroundSelect) {
+      const options = stickerBackgroundOptions();
+      backgroundSelect.innerHTML = options.map((r) => `<option value="${r.id}">${r.emoji} ${escapeHtml(r.label)}</option>`).join('');
+      backgroundSelect.value = stickerPageBackground(stickerCurrentPage);
+    }
+
     renderStickerBoard();
-    // おだい: いまの ページの ものと、ページを とわない もの
-    const tasks = STICKER_TASKS.filter((t) => t.page === stickerCurrentPage || t.page === null);
-    setHTMLIfChanged(el.stickerTasks, tasks.map((t) => {
+    setHTMLIfChanged(el.stickerTasks, STICKER_TASKS.map((t) => {
       const done = store.tasksDone.includes(t.id);
-      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">かけら${t.reward.kakera}</span></div>`;
+      return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span><span class="sticker-task-reward">シールポイント${t.reward.kakera}</span></div>`;
     }).join(''));
     el.stickerPackBtn.innerHTML = `${itemIconHTML({id:'sticker_pack',emoji:'🎁'})} シールパック(${STICKER_PACK_SIZE}まい) ${careIconHTML('coin')}${STICKER_PACK_PRICE}`;
     el.stickerPackBtn.disabled = state.lifetime.money < STICKER_PACK_PRICE;
-    el.stickerKakeraBtn.textContent = `かけらでえらぶ（${store.kakera}個／あと${Math.max(0,STICKER_KAKERA_PACK-store.kakera)}個）`;
+    el.stickerKakeraBtn.textContent = `シールポイントでえらぶ（${store.kakera}／あと${Math.max(0,STICKER_KAKERA_PACK-store.kakera)}）`;
     document.getElementById('stickerThemePackBtn').disabled = state.lifetime.money < STICKER_THEME_PRICE;
     el.stickerKakeraBtn.disabled = store.kakera < STICKER_KAKERA_PACK;
-    el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・かけら ${store.kakera}`;
+    el.stickerOwnedCount.textContent = `${ownedKinds}しゅるい・シールポイント ${store.kakera}`;
     const filters = [['owned', 'もっている'], ...Object.entries(STICKER_KINDS)];
     setHTMLIfChanged(el.stickerFilter, filters.map(([k, label]) => `<button type="button" class="ach-tab${k === stickerFilterKind ? ' active' : ''}" data-filter="${k}">${label}</button>`).join(''));
     const shown = stickerFilterKind === 'owned' ? pool.filter((s) => ownedStickerCount(s.id) > 0) : pool.filter((s) => s.kind === stickerFilterKind);
@@ -14687,7 +14796,7 @@
   function renderStickerPackResult(results) {
     if (!el.stickerPackResult) return;
     if (!results || !results.length) { el.stickerPackResult.classList.add('hidden'); return; }
-    el.stickerPackResult.innerHTML = results.map((r) => `<div class="sticker-pack-card rarity-${r.sticker.rarity}"><span class="sticker-cell-art">${r.sticker.visual()}</span><span>${escapeHtml(r.sticker.label)}</span><span class="${r.dup ? 'badge-dup' : 'badge-new'}">${r.dup ? `かぶり(かけら+${r.kakera})` : 'NEW!'}</span><span class="sticker-pack-rarity">${STICKER_RARITY[r.sticker.rarity].label}</span></div>`).join('');
+    el.stickerPackResult.innerHTML = results.map((r) => `<div class="sticker-pack-card rarity-${r.sticker.rarity}"><span class="sticker-cell-art">${r.sticker.visual()}</span><span>${escapeHtml(r.sticker.label)}</span><span class="${r.dup ? 'badge-dup' : 'badge-new'}">${r.dup ? `かぶり(シールポイント+${r.kakera})` : 'NEW!'}</span><span class="sticker-pack-rarity">${STICKER_RARITY[r.sticker.rarity].label}</span></div>`).join('');
     el.stickerPackResult.classList.remove('hidden');
   }
   // ページを 1まいの 画像(PNG の data URL)に する。canvas が つかえない ときは null
@@ -14705,7 +14814,7 @@
     return stickerImageCache.get(src);
   }
   async function exportStickerPageImage(pageId) {
-    const pg = STICKER_PAGES.find((p) => p.id === pageId);
+    const pg = stickerPageInfo(pageId);
     if (!pg || typeof document === 'undefined') return null;
     const cv = document.createElement('canvas');
     const Wc = 640, Hc = 480;
@@ -17016,6 +17125,15 @@
   el.stickerCloseBtn.addEventListener('click', () => {
     cancelKakeraChoice(); closeOverlay('sticker'); render();
   });
+  document.getElementById('stickerAddPageBtn').addEventListener('click', () => {
+    const id = addStickerPage();
+    if (id) { audio.play('good'); saveState(); render(); }
+  });
+  document.getElementById('stickerBackgroundSelect').addEventListener('change', (e) => {
+    if (!setStickerPageBackground(stickerCurrentPage, e.target.value)) return;
+    saveState();
+    render();
+  });
   el.stickerPageTabs.addEventListener('click', (e) => {
     const btn = e.target && e.target.closest ? e.target.closest('[data-page]') : null;
     if (!btn) return;
@@ -17062,7 +17180,7 @@
     if (results) { audio.play('levelup'); saveState(); render(); renderStickerPackResult(results); }
   });
   el.stickerExportBtn.addEventListener('click', () => {
-    const pg = STICKER_PAGES.find((p) => p.id === stickerCurrentPage);
+    const pg = stickerPageInfo(stickerCurrentPage);
     el.stickerExportView.innerHTML = '<p class="profile-hint">がぞうを つくっている…</p>';
     el.stickerExportView.classList.remove('hidden');
     exportStickerPageImage(stickerCurrentPage).then((url) => {
