@@ -166,8 +166,37 @@ test('6/7/8. まだ 見つけて いない 地域・みち・大めじるしは�
   }
   // みちは りょうはしの 地域を 見つけて いない かぎり 出ない(links に ぜんぶ 入れて いても)
   assert.equal(only.links.length, 0, 'みちが 1本も 出ない');
-  // 地形も、見つけた 地域の 点しか「on」に ならない
-  for (const f of only.features) for (const p of f.points) if (p.on) assert.equal(p.region, 'home');
+  // 地形は「見つけた 地域の まわり」しか「on」に ならない。
+  // 点の 地域を 見つけて いなくても、おうちの まわりなら 紙に 出る(#20〜#23)。
+  // ただし おうちから とおい 点は、どの 地域の ものでも 1つも 出ない
+  const hm = only.regions[0];
+  const reach = Math.max(hm.rx, hm.ry) + 1.15 * (1 + 0.8 * (1 / 10)) + 1e-6;
+  let far = 0;
+  for (const f of only.features) {
+    for (const p of f.points) {
+      if (p.on) assert.ok(Math.hypot(p.x - hm.x, p.y - hm.y) <= reach, `${f.id} の 点は おうちの まわりだけ`);
+      else far += 1;
+    }
+  }
+  assert.ok(far > 0, 'まだ わからない 地形の 点が のこって いる');
+  // needs の ある 地形(しま)は、その 地域を 見つける まで 1つも 出ない
+  const gated = M.WORLD_GEOGRAPHY.features.filter((f) => f.needs);
+  assert.ok(gated.length > 0, 'needs つきの 地形が 正本に ある');
+  for (const f of gated) {
+    assert.ok(!only.features.some((g) => g.id === f.id), `${f.id} は まだ 出ない`);
+    assert.ok(!json.includes(f.label), `${f.label} という なまえが もれない`);
+  }
+  // とおくの 地形は まるごと 出ない(なまえも かたちも)
+  const shown = only.features.map((f) => f.id).sort().join(',');
+  assert.equal(shown, 'east-range,tenryu', 'おうちだけで 出る 地形は、おうちから 見える ぶん だけ');
+  for (const f of only.features) {
+    const on = f.points.filter((p) => p.on).length;
+    assert.ok(on < f.points.length, `${f.id} は さきまで 出ない(${on}/${f.points.length})`);
+  }
+  for (const f of M.WORLD_GEOGRAPHY.features) {
+    if (only.features.some((g) => g.id === f.id)) continue;
+    assert.ok(!json.includes(f.id) && !json.includes(f.label), `${f.id} は なまえも かたちも もれない`);
+  }
   // 見つけて いない 地域の 大めじるしは 出ない
   assert.equal(only.regions[0].marks.length, 1, 'おうちの 大めじるしだけ');
   assert.ok(!json.includes('lm:great'), 'もりの 大めじるしは 出ない');
@@ -700,7 +729,13 @@ test('31. 地理正本 v1: ゴンドラは 見つけるまで ばれない。探
   const both = M.worldMapData({ regions: ['countryside', 'star_stop'], links: ['countryside|star_stop'] });
   assert.ok(both.axis.sky.on, '両がわ 見つけたら 出る');
   assert.equal(both.axis.sky.ride, 'gondola', 'ゴンドラとして 描ける');
-  assert.equal(both.axis.deep.ride, null, 'しんかいは ゴンドラでは ない');
+  // しんかいは まだ 見つけて いない ので、のりものどころか なまえも いちも 出ない
+  assert.equal(both.axis.deep.on, false);
+  assert.equal(both.axis.deep.ride, undefined, 'しんかいの のりものは そもそも わたさない');
+  assert.equal(Object.keys(both.axis.deep).sort().join(','), 'base,on', '未発見の たてじくは on と base だけ');
+  const deep = M.worldMapData({ regions: ['sea', 'deepsea'], links: ['deepsea|sea'] });
+  assert.ok(deep.axis.deep.on);
+  assert.equal(deep.axis.deep.ride, null, 'しんかいへは ゴンドラでは ない(あるいて 下りる)');
   // 特殊接続は 探索率の リンク分母に 入らない(通常11地域どうしでは ない)
   assert.ok(!M.WORLD_GEOGRAPHY.connections.filter((c) => c.b
     && M.NORMAL_REGIONS.includes(c.a) && M.NORMAL_REGIONS.includes(c.b)).some((c) => c.id === 'countryside|star_stop'),
