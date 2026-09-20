@@ -113,22 +113,18 @@ test('memory lake still recalls life memories and recovers happiness without coi
   assert.equal(s.lifetime.money,BALANCE);
 });
 
-test('sticker tasks grant sticker points once and their task UI promises no coins', () => {
+test('sticker tasks record completion once without points or coins', () => {
   const {h,s}=setup(), store=h.api.stickerStore();
   for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {
     h.api.grantSticker(id); h.api.placeSticker('page-1',id);
   }
-  const before=store.kakera;
   assert.deepEqual(Array.from(h.api.checkStickerTasks(),t=>t.id),['page-form-3']);
-  assert.equal(store.kakera,before+3);
-  assert.match(h.get('storyFlashText').textContent,/シールポイント\+3/);
-  assert.doesNotMatch(h.get('storyFlashText').textContent,/💰|コイン/);
+  assert.equal(Object.hasOwn(store,'kakera'),false);
+  assert.doesNotMatch(h.get('storyFlashText').textContent,/ポイント|💰|コイン/);
   h.api.renderStickerOverlay();
-  assert.match(h.get('stickerTasks').textContent,/シールポイント3/);
-  assert.doesNotMatch(h.get('stickerTasks').textContent,/💰|コイン|undefined/);
+  assert.doesNotMatch(h.get('stickerTasks').textContent,/ポイント|💰|コイン|undefined/);
   assert.equal(s.lifetime.money,BALANCE);
   assert.equal(h.api.checkStickerTasks().length,0);
-  assert.equal(store.kakera,before+3);
   assert.equal(s.lifetime.money,BALANCE);
 });
 for(const minutes of [10,60,600]) test(`offline ${minutes} minutes preserves recovery and memory without money`, () => {
@@ -190,7 +186,7 @@ test('old claimed save retains balances, inventory and event claims across reloa
   s.itemLife.milestonesPaid=[30,40,50,60,70,80,90,100];
   s.midlifeSeen=[44,50,56,62,66]; s.legendMet=true;
   s.lifetime.legendsMet=['gate']; s.items.c_egg_rare=2; s.items.c_egg_normal=3;
-  const stickers=h.api.stickerStore(); stickers.tasksDone=['page-form-3']; stickers.kakera=13;
+  const stickers=h.api.stickerStore(); stickers.tasksDone=['page-form-3'];
   for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {h.api.grantSticker(id);h.api.placeSticker('page-1',id);}
   h.api.saveState();
   const next=harness({storage:store,resume:true}), loaded=next.api.state(), logs=loaded.lifeLog.length;
@@ -201,7 +197,7 @@ test('old claimed save retains balances, inventory and event claims across reloa
   next.api.setRandom(()=>0); next.api.maybeLegendEncounter();
   assert.equal(loaded.lifetime.money,BALANCE);
   assert.equal(next.api.itemStock('c_egg_rare'),2); assert.equal(next.api.itemStock('c_egg_normal'),3);
-  assert.equal(next.api.stickerStore().kakera,13); assert.equal(loaded.lifeLog.length,logs);
+  assert.equal(Object.hasOwn(next.api.stickerStore(),'kakera'),false); assert.equal(loaded.lifeLog.length,logs);
   assert.deepEqual(Array.from(loaded.lifetime.legendsMet),['gate']);
 });
 
