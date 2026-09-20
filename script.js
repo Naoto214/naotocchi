@@ -14437,9 +14437,7 @@
       'memory-rare-1': 'page-rare-1',
       'all-pages': 'multi-pages-3',
     };
-    for (const [oldId, newId] of Object.entries(legacyTaskMap)) {
-      if (s.tasksDone.includes(oldId) && !s.tasksDone.includes(newId)) s.tasksDone.push(newId);
-    }
+    s.tasksDone = [...new Set(s.tasksDone.map((id) => legacyTaskMap[id] || id))];
     if (!Array.isArray(s.seen)) s.seen = [];
     s.kakera = Math.max(0, Math.floor(Number(s.kakera) || 0));
     s.packsOpened = Math.max(0, Math.floor(Number(s.packsOpened) || 0));
