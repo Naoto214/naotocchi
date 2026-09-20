@@ -98,9 +98,10 @@ test('stickers can be placed only when owned, moved within the page, and removed
   assert.equal(h.api.removeSticker('page-1', entry.k), true);
   assert.equal(h.api.removeSticker('page-1', entry.k), false);
   assert.equal(store.pages['page-1'].length, 0);
+  const fullPage = h.api.addStickerPage();
   for (let i = 0; i < h.api.STICKER_PAGE_MAX + 2; i++) h.api.grantSticker('item:bowtie');
-  for (let i = 0; i < h.api.STICKER_PAGE_MAX; i++) assert.ok(h.api.placeSticker(secondPage, 'item:bowtie'));
-  assert.equal(h.api.placeSticker(secondPage, 'item:bowtie'), null, 'a page holds at most ' + h.api.STICKER_PAGE_MAX);
+  for (let i = 0; i < h.api.STICKER_PAGE_MAX; i++) assert.ok(h.api.placeSticker(fullPage, 'item:bowtie'));
+  assert.equal(h.api.placeSticker(fullPage, 'item:bowtie'), null, 'a page holds at most ' + h.api.STICKER_PAGE_MAX);
 });
 
 test('free-page tasks grant sticker points once and count toward the sticker achievements', () => {
