@@ -446,6 +446,16 @@ test('23. 地理正本 v1: おうちの すぐ近くを 天竜川型が なが�
   const closest = Math.min(...tenryu.points.map((p) => Math.hypot(p.x - H.mapX, p.y - H.mapY)));
   assert.ok(closest < 1.2, `おうちから 川まで ${closest.toFixed(2)}(すぐ近く)`);
   assert.ok(closest > 0.2, '川は おうちの まん中を つらぬかない(段丘の 上の まち)');
+  // **おうちの すぐ ひがし** を 北 → 南 へ。西がわを ながれては いけない
+  const beside = tenryu.points.filter((p) => Math.abs(p.y - H.mapY) < 1.2);
+  assert.ok(beside.length >= 1, 'おうちと おなじ 高さに 川の 点が ある');
+  for (const p of beside) assert.ok(p.x > H.mapX, `おうちの ひがしを ながれる(${p.x} > ${H.mapX})`);
+  // さらに ひがしに 南アルプス型。おうち → 川 → ひがしの山地 の じゅんばん
+  const east = G.features.find((f) => f.id === 'east-range');
+  const wallX = Math.min(...east.points.filter((p) => Math.abs(p.y - H.mapY) < 1.2).map((p) => p.x));
+  const riverX = Math.max(...beside.map((p) => p.x));
+  assert.ok(H.mapX < riverX && riverX < wallX,
+    `おうち(${H.mapX}) → 大河(${riverX}) → 南アルプス型(${wallX})`);
   // とかい・湾へは ながれない
   assert.ok(!tenryu.points.some((p) => p.region === 'city'), '天竜川型は とかいへ ながれない');
   // 庄内川型は とかいを ぬけて 湾へ
@@ -538,4 +548,50 @@ test('27. 地理正本 v1: 生活圏の 三角と、おうち ↔ とかい を 
   assert.ok(from('home') >= 2, 'おうちから 2 方向 いじょうへ 行ける');
   // 13 地域は ふえて いない
   assert.equal(Object.keys(G.regions).length, 13, '13 地域の まま');
+});
+
+
+test('28. 地理正本 v1: もりは「やま と おうちの あいだ」ではなく「おうち → いなか の とちゅう」', () => {
+  const { M } = setup();
+  const R = M.WORLD_GEOGRAPHY.regions;
+  const H = R.home, F = R.forest, C = R.countryside, Mt = R.mountain;
+  // やま は おうちの 北、もり は おうちの 南西
+  assert.ok(Mt.mapY > H.mapY, 'やまは おうちより 北');
+  assert.ok(F.mapY < H.mapY && F.mapX < H.mapX, 'もりは おうちの 南西');
+  assert.ok(C.mapY < F.mapY && C.mapX < F.mapX, 'いなかは もりの さらに 南西');
+  // もりは おうち → いなか を むすぶ 線の うえに ある(森林帯として とちゅうに 広がる)
+  const vx = C.mapX - H.mapX, vy = C.mapY - H.mapY, len2 = vx * vx + vy * vy;
+  const t = ((F.mapX - H.mapX) * vx + (F.mapY - H.mapY) * vy) / len2;
+  const off = Math.abs((F.mapX - H.mapX) * vy - (F.mapY - H.mapY) * vx) / Math.sqrt(len2);
+  assert.ok(t > 0.15 && t < 0.85, `もりは おうちと いなかの あいだ(t=${t.toFixed(2)})`);
+  assert.ok(off < 1.0, `もりは その 道すじから はなれて いない(${off.toFixed(2)})`);
+  // ぎゃくに「やま → おうち」の あいだ では ない
+  const wx = H.mapX - Mt.mapX, wy = H.mapY - Mt.mapY, wlen2 = wx * wx + wy * wy;
+  const u = ((F.mapX - Mt.mapX) * wx + (F.mapY - Mt.mapY) * wy) / wlen2;
+  assert.ok(u > 1, `もりは やまと おうちの あいだには ない(u=${u.toFixed(2)})`);
+  // ただし もりは 通らなくても いなかへ 行ける(おうち ↔ いなかの 直通が ある)
+  assert.ok(M.WORLD_GEOGRAPHY.connections.some((c) => c.id === 'countryside|home'),
+    'もりを 通らずに いなかへ 行ける');
+  // にしの山地の みなみ半分は もりと いなかに のって いる
+  const west = M.WORLD_GEOGRAPHY.features.find((f) => f.id === 'west-range');
+  assert.ok(west.points.some((p) => p.region === 'forest'), 'にしの山地に もりの おねが ある');
+});
+
+test('29. 地理正本 v1: 南アルプス型は ひがしの 巨大山地。やまは にしの 中央アルプス型がわ', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const east = G.features.find((f) => f.id === 'east-range');
+  const west = G.features.find((f) => f.id === 'west-range');
+  const H = G.regions.home;
+  // ひがしの山地は すべて おうちより ひがし。しかも たにを 南北に ながく かこむ
+  for (const p of east.points) assert.ok(p.x > H.mapX, 'ひがしの山地は すべて おうちより ひがし');
+  const span = Math.max(...east.points.map((p) => p.y)) - Math.min(...east.points.map((p) => p.y));
+  assert.ok(span > 7, `ひがしの山地は 南北に ながい(${span.toFixed(1)})`);
+  assert.ok(east.points.length >= 12, 'ちいさな かざりでは なく、みねが つらなる');
+  // それでも region では ない
+  assert.ok(!Object.keys(G.regions).some((id) => id === east.id));
+  // やまは にしの山地の がわ ＝ west-range に のって いて、ひがしの山地には いない
+  assert.ok(west.points.some((p) => p.region === 'mountain'), 'やまは にしの山地の 一部');
+  assert.ok(!east.points.some((p) => p.region === 'mountain'), 'やまは ひがしの山地では ない');
+  assert.ok(G.regions.mountain.mapX < G.regions.river_lake.mapX, 'やまは たにより にし');
 });
