@@ -3686,8 +3686,8 @@
       plan: 'D2',
       // たてじくは 1 点では ない。**山の上**と**海の下**で べつの ばしょ(D2)
       axis: {
-        sky:  { region: 'star_stop', from: 'countryside', mapX: -2.2, mapY:  0.3, label: 'やまのうえ', short: 'ほしぞら' },
-        deep: { region: 'deepsea',   from: 'sea',         mapX:  0.5, mapY: -5.9, label: 'がいようのした', short: 'しんかい' },
+        sky:  { region: 'star_stop', from: 'countryside', mapX: -0.9, mapY: -0.8, label: 'やまのうえ', short: 'ほしぞら' },
+        deep: { region: 'deepsea',   from: 'sea',         mapX:  1.4, mapY: -5.8, label: 'がいようのした', short: 'しんかい' },
       },
       // 世界の そとがわ。とうめいな かべでは なく、ちけいが せかいの はし
       rim: [
@@ -3702,20 +3702,20 @@
         // mapX, mapY: 世界地図 ようの 論理座標。**ゲームの world 座標では ない**
         // axis: 図上の だえんの むき(度。0 = 北、時計まわり)
         // 谷: 二つの 山地に はさまれた ほそながい たに。おうち・かわ・みずうみ が ここに ならぶ
-        home:        { layer: 'ground', mapX:  0.4, mapY:  0.5, axis: 175, climate: 'temperate',  terrain: ['home', 'grove'],            belt: 'valley',   river: 'beside' },
-        river_lake:  { layer: 'ground', mapX:  2.1, mapY:  0.7, axis:   0, climate: 'temperate',  terrain: ['lake', 'river', 'marsh'],   belt: 'valley',   river: 'main' },
-        countryside: { layer: 'ground', mapX: -1.4, mapY: -0.4, axis: 200, climate: 'temperate',  terrain: ['field', 'grove', 'river'],  belt: 'satoyama', river: 'branch' },
-        forest:      { layer: 'ground', mapX: -1.0, mapY:  2.2, axis:  10, climate: 'cool-wet',   terrain: ['forest', 'creek', 'falls'], belt: 'westflank',river: null },
-        mountain:    { layer: 'ground', mapX:  0.4, mapY:  3.8, axis:   0, climate: 'alpine',     terrain: ['mountain', 'lake', 'falls'],belt: 'head',     river: 'source' },
-        snow:        { layer: 'ground', mapX: -1.0, mapY:  5.6, axis: 165, climate: 'subarctic',  terrain: ['snow', 'mountain', 'lake'], belt: 'beyond',   river: null },
-        desert:      { layer: 'ground', mapX: -3.8, mapY:  1.4, axis: 250, climate: 'arid',       terrain: ['sand', 'mesa', 'oasis'],    belt: 'lee',      river: null },
-        jungle:      { layer: 'ground', mapX: -4.3, mapY: -2.6, axis:   0, climate: 'tropical',   terrain: ['jungle', 'swamp', 'ruin'],  belt: 'outer',    river: null },
+        home:        { layer: 'ground', mapX:  2.0, mapY:  0.4, axis: 175, climate: 'temperate',  terrain: ['home', 'grove'],            belt: 'valley',   river: 'beside' },
+        river_lake:  { layer: 'ground', mapX:  2.4, mapY:  2.2, axis:   0, climate: 'temperate',  terrain: ['lake', 'river', 'marsh'],   belt: 'valley',   river: 'main' },
+        countryside: { layer: 'ground', mapX:  0.35, mapY: -1.25, axis: 200, climate: 'temperate',  terrain: ['field', 'grove', 'river'],  belt: 'satoyama', river: 'branch' },
+        forest:      { layer: 'ground', mapX: -0.4, mapY:  1.9, axis:  10, climate: 'cool-wet',   terrain: ['forest', 'creek', 'falls'], belt: 'westflank',river: null },
+        mountain:    { layer: 'ground', mapX:  0.2, mapY:  3.5, axis:   0, climate: 'alpine',     terrain: ['mountain', 'lake', 'falls'],belt: 'head',     river: 'source' },
+        snow:        { layer: 'ground', mapX: -0.7, mapY:  5.0, axis: 165, climate: 'subarctic',  terrain: ['snow', 'mountain', 'lake'], belt: 'beyond',   river: null },
+        desert:      { layer: 'ground', mapX: -3.4, mapY:  1.2, axis: 250, climate: 'arid',       terrain: ['sand', 'mesa', 'oasis'],    belt: 'lee',      river: null },
+        jungle:      { layer: 'ground', mapX: -4.6, mapY: -3.3, axis:   0, climate: 'tropical',   terrain: ['jungle', 'swamp', 'ruin'],  belt: 'outer',    river: null },
         // 分水界の むこう。峠を こえた べつの りゅういき
-        city:        { layer: 'ground', mapX: -2.4, mapY: -2.4, axis: 200, climate: 'temperate',  terrain: ['city', 'river', 'hill'],    belt: 'lowland',  river: 'city' },
-        sea:         { layer: 'ground', mapX: -1.0, mapY: -4.6, axis: 125, climate: 'mild-coast', terrain: ['shore', 'port', 'cape'],    belt: 'coast',    river: 'mouth' },
+        city:        { layer: 'ground', mapX: -2.1, mapY: -2.5, axis: 200, climate: 'temperate',  terrain: ['city', 'river', 'hill'],    belt: 'lowland',  river: 'city' },
+        sea:         { layer: 'ground', mapX: -0.7, mapY: -5.0, axis: 100, climate: 'mild-coast', terrain: ['shore', 'port', 'cape'],    belt: 'coast',    river: 'mouth' },
         // しんかい: うみの **がいようがわ** の した。ほしぞら: **いなかの やまのうえ**
-        deepsea:     { layer: 'below',  mapX:  0.5, mapY: -5.9, axis: 125, climate: 'abyss',      terrain: ['deep'],                     belt: 'below',    river: null, depth: -1 },
-        star_stop:   { layer: 'sky',    mapX: -2.2, mapY:  0.3, axis: 200, climate: 'starry',     terrain: ['sky'],                      belt: 'above',    river: null, height: 1 },
+        deepsea:     { layer: 'below',  mapX:  1.4, mapY: -5.8, axis: 100, climate: 'abyss',      terrain: ['deep'],                     belt: 'below',    river: null, depth: -1 },
+        star_stop:   { layer: 'sky',    mapX: -0.9, mapY: -0.8, axis: 200, climate: 'starry',     terrain: ['sky'],                      belt: 'above',    river: null, height: 1 },
         // きおくのみずうみ: 地上の ざひょうを もたない。世界地図に 地域として のせない
         memory_lake: { layer: 'memory', mapX: null, mapY: null, axis: 0,   climate: 'still',      terrain: ['lake', 'mist'],             belt: 'memory',   river: null },
       },
@@ -3725,67 +3725,81 @@
         // とかい・湾へは **ながれない**
         { id: 'tenryu', kind: 'river', label: 'たにのおおかわ', width: 1,
           points: [
-            { x:  1.15, y:  2.55, region: 'mountain',   note: 'げんりゅういき' },
-            { x:  1.95, y:  1.90, region: 'river_lake', note: 'たにのあたまの みずうみ' },
-            { x:  2.15, y:  0.95, region: 'river_lake', note: 'かわのたき' },
-            { x:  1.95, y: -0.25, region: 'river_lake', note: 'かわぎし(しもながれ)' },
-            { x:  1.55, y: -1.30, region: 'home',       note: 'たにぞこ。おうちは だんきゅうの うえ' },
-            { x:  1.20, y: -2.50, region: 'home',       note: 'きょうこく' },
-            { x:  0.95, y: -3.70, region: 'sea',        note: 'みなみへ' },
-            { x:  0.60, y: -4.85, region: 'sea',        note: 'たいへいようへ そそぐ' },
+            { x:  0.75, y:  3.30, region: 'mountain',   note: 'げんりゅういき' },
+            { x:  1.85, y:  2.90, region: 'river_lake', note: 'たにのあたまの みずうみ' },
+            { x:  2.40, y:  2.20, region: 'river_lake', note: 'かわのたき' },
+            { x:  2.55, y:  1.30, region: 'river_lake', note: 'かみながれ' },
+            { x:  2.35, y:  0.40, region: 'river_lake', note: 'かわぎし(しもながれ)' },
+            { x:  1.95, y: -0.60, region: 'home',       note: 'たにぞこ。おうちは だんきゅうの うえ' },
+            { x:  1.50, y: -1.75, region: 'home',       note: 'きょうこく' },
+            { x:  1.00, y: -3.15, region: 'sea',        note: 'みなみへ' },
+            { x:  0.45, y: -4.75, region: 'sea',        note: 'たいへいようへ そそぐ' },
           ] },
         // 【庄内川型】分水界の むこう → 山間部 → とかいの かわぞい → みなと → 湾
         // 天竜川型とは **べつの みずけい**。うわりゅうで つながって いない
         { id: 'shonai', kind: 'river', label: 'みやこがわ', width: 1,
           points: [
-            { x: -2.20, y: -0.95, region: 'countryside', note: 'ぶんすいかいの むこうがわ' },
-            { x: -2.40, y: -1.70, region: 'city',        note: 'さんかんぶの ぼんち' },
-            { x: -2.50, y: -2.45, region: 'city',        note: 'かわぞいのみち・まちのはし' },
-            { x: -2.30, y: -3.25, region: 'city',        note: 'ふなつきば' },
-            { x: -2.00, y: -3.95, region: 'sea',         note: 'みなと → わん' },
+            { x: -1.45, y: -1.95, region: 'countryside', note: 'ぶんすいかいの むこうがわ' },
+            { x: -1.85, y: -2.60, region: 'city',        note: 'さんかんぶの ぼんち' },
+            { x: -2.15, y: -3.30, region: 'city',        note: 'かわぞいのみち・まちのはし' },
+            { x: -2.10, y: -4.00, region: 'city',        note: 'ふなつきば' },
+            { x: -1.95, y: -4.60, region: 'sea',         note: 'みなと → わん' },
           ] },
         // 【西の山地】ゆきぐに — やま — もり。あるける がわ
         { id: 'west-range', kind: 'range', label: 'にしのやまち', width: 1,
           points: [
-            { x: -1.35, y:  5.95, region: 'snow',     note: 'ゆきやま' },
-            { x: -0.55, y:  5.10, region: 'snow',     note: 'とうげ' },
-            { x:  0.35, y:  4.55, region: 'mountain', note: 'ちょうじょう' },
-            { x:  0.20, y:  3.20, region: 'mountain', note: 'やまみち' },
-            { x: -0.70, y:  2.75, region: 'forest',   note: 'いしのもり' },
-            { x: -1.55, y:  1.55, region: 'countryside', note: 'さとの うしろの やま' },
-            { x: -2.05, y:  0.35, region: 'countryside', note: 'ほしぞらへの やまのうえ' },
-            { x: -2.10, y: -0.95, region: 'countryside', note: 'たにの にしの かべ' },
+            { x: -1.10, y:  5.65, region: 'snow',     note: 'ゆきやま' },
+            { x: -0.45, y:  4.75, region: 'snow',     note: 'とうげ' },
+            { x:  0.20, y:  4.10, region: 'mountain', note: 'ちょうじょう' },
+            { x:  0.10, y:  3.45, region: 'mountain', note: 'おねすじ' },
+            { x:  0.05, y:  3.00, region: 'mountain', note: 'やまみち' },
+            { x: -0.15, y:  2.50, region: 'forest',   note: 'もりの うえの いわば' },
+            { x: -0.35, y:  2.05, region: 'forest',   note: 'いしのもり' },
+            { x: -0.48, y:  1.50, region: 'forest',   note: 'もりの みなみの おね' },
+            { x: -0.60, y:  0.95, region: 'countryside', note: 'さとの うしろの やま' },
+            { x: -0.68, y:  0.45, region: 'countryside', note: 'たにの にしの かべ(きた)' },
+            { x: -0.75, y:  0.00, region: 'countryside', note: 'たにの にしの かべ' },
+            { x: -0.82, y: -0.40, region: 'countryside', note: 'たにの にしの かべ(みなみ)' },
+            { x: -0.90, y: -0.80, region: 'countryside', note: 'ほしぞらへの やまのうえ' },
+            { x: -1.10, y: -1.35, region: 'countryside', note: 'とうげへの のぼり' },
+            { x: -1.40, y: -1.90, region: 'countryside', note: 'ぶんすいかいの とうげ' },
           ] },
         // 【東の山地】たにの ひがしがわ。**あるけない**。たにに 立てば 見える ので、
         // おうち か かわ・みずうみ を 見つけると あらわれる
         { id: 'east-range', kind: 'range', label: 'ひがしのやまなみ', width: 1,
           points: [
-            { x:  3.35, y:  3.05, region: 'river_lake' },
-            { x:  3.50, y:  2.15, region: 'river_lake' },
-            { x:  3.55, y:  1.25, region: 'river_lake' },
-            { x:  3.40, y:  0.35, region: 'home' },
-            { x:  3.15, y: -0.55, region: 'home' },
-            { x:  2.85, y: -1.45, region: 'home' },
-            { x:  2.50, y: -2.30, region: 'river_lake' },
+            { x:  3.80, y:  3.60, region: 'river_lake' },
+            { x:  3.86, y:  3.10, region: 'river_lake' },
+            { x:  3.90, y:  2.60, region: 'river_lake' },
+            { x:  3.92, y:  2.10, region: 'river_lake' },
+            { x:  3.90, y:  1.60, region: 'river_lake' },
+            { x:  3.84, y:  1.10, region: 'river_lake' },
+            { x:  3.72, y:  0.60, region: 'home' },
+            { x:  3.60, y:  0.10, region: 'home' },
+            { x:  3.45, y: -0.40, region: 'home' },
+            { x:  3.28, y: -0.90, region: 'home' },
+            { x:  3.08, y: -1.40, region: 'home' },
+            { x:  2.86, y: -1.88, region: 'home' },
+            { x:  2.62, y: -2.35, region: 'home' },
           ] },
         // 【湾】とかいの みなみ。みやこがわが そそぐ
         { id: 'bay', kind: 'bay', label: 'わん',
           points: [
-            { x: -2.00, y: -3.95, region: 'city' },
-            { x: -2.95, y: -4.35, region: 'city' },
-            { x: -2.75, y: -5.25, region: 'sea' },
-            { x: -1.75, y: -5.55, region: 'sea' },
-            { x: -1.20, y: -4.85, region: 'sea' },
+            { x: -1.95, y: -4.60, region: 'city' },
+            { x: -2.85, y: -4.85, region: 'city' },
+            { x: -2.75, y: -5.75, region: 'sea' },
+            { x: -1.75, y: -5.95, region: 'sea' },
+            { x: -1.25, y: -5.35, region: 'sea' },
           ] },
         // 【かいがんせん】湾の くちから ひがしへ。おくへ いくほど がいよう
         { id: 'coast', kind: 'coast', label: 'かいがんせん',
           points: [
-            { x: -3.90, y: -3.45, region: 'jungle' },
-            { x: -3.10, y: -4.20, region: 'city' },
-            { x: -2.00, y: -3.95, region: 'sea' },
-            { x: -1.00, y: -4.60, region: 'sea' },
-            { x:  0.10, y: -5.20, region: 'sea' },
-            { x:  1.05, y: -5.45, region: 'sea' },
+            { x: -4.40, y: -4.35, region: 'jungle' },
+            { x: -3.50, y: -4.60, region: 'city' },
+            { x: -2.45, y: -4.75, region: 'sea' },
+            { x: -1.25, y: -5.10, region: 'sea' },
+            { x: -0.05, y: -5.35, region: 'sea' },
+            { x:  1.05, y: -5.50, region: 'sea' },
           ] },
       ],
       // ---- プレイヤーが 行き来できる みち(17本) ----
@@ -4250,6 +4264,20 @@
       for (const r of wd.regions) blob(ctx, r, 1.06, 0.5, rgbOf(r.ground[1] || r.ground[0]));
       for (const r of wd.regions) blob(ctx, r, 0.92, 0.96, rgbOf(r.ground[0]), true);
 
+      // ---- 山地の おび(2どめ): 陸の うえから もう いちど うすく。もり や いなかの
+      //      いろに うずもれて、たにを はさむ かべが きえて しまわない ように ----
+      for (const range of wd.features.filter((f) => f.kind === 'range')) {
+        const on = range.points.filter((p) => p.on);
+        if (on.length < 2) continue;
+        ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (let k = 2; k >= 1; k--) {
+          ctx.strokeStyle = '#8d8471'; ctx.globalAlpha = 0.1 * (3 - k);
+          ctx.lineWidth = Math.max(6, U * 0.2 * k);
+          ctx.beginPath(); poly(ctx, on, false); ctx.stroke();
+        }
+        ctx.restore();
+      }
+
       // ---- かいがんせん(見つけた ぶんだけ) ----
       if (coast.length >= 2) {
         ctx.save(); ctx.strokeStyle = pal.ink; ctx.globalAlpha = 0.5; ctx.lineWidth = 1.6;
@@ -4411,14 +4439,16 @@
         return true;
       };
       const hits = [];
+      // たてじくの 名まえを さきに とる。ほしぞら・しんかいも 地域なので、
+      // 地上の 名まえに おしのけられて 見えなく なっては こまる
+      // 図上の 名まえは みじかい ほうを つかう(地域の せいしきな 名まえは ながくて 入らない)
+      if (skyAt) label(wd.axis.sky.short || opts.skyLabel || 'そら', skyAt.x, skyAt.y - skyAt.g * 0.9, 10, false);
+      if (deepAt) label(wd.axis.deep.short || opts.deepLabel || 'ふかみ', deepAt.x, deepAt.y + deepAt.g * 1.5, 10, false);
       for (const r of wd.regions) {
         const x = toX(r.x), y = toY(r.y);
         label(r.label, x, y + Math.max(9, r.ry * UY * 0.46), Math.max(11, Math.min(15, U * 0.12)), true);
         hits.push({ id: r.id, label: r.label, x, y, r: Math.max(22, Math.min(r.rx * U, r.ry * UY) * 0.9) });
       }
-      // 図上の 名まえは みじかい ほうを つかう(地域の せいしきな 名まえは ながくて 入らない)
-      if (skyAt) label(wd.axis.sky.short || opts.skyLabel || 'そら', skyAt.x, skyAt.y - skyAt.g * 0.9, 10, false);
-      if (deepAt) label(wd.axis.deep.short || opts.deepLabel || 'ふかみ', deepAt.x, deepAt.y + deepAt.g * 1.5, 10, false);
       const zoomed = s / L.base >= 1.5;
       if (zoomed) for (const m of marksAt) label(m.label, m.x, m.y - Math.max(7, U * 0.07), 9, false);
 
