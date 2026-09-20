@@ -53,14 +53,14 @@ test('unowned sticker bias ends at the collection threshold and never boosts an 
 });
 test('task bias only fills a missing supply; enough unplaced copies require manual placement',()=>{
   const h=setup(['sticker-tasks-5']), store=h.api.stickerStore();
-  // Four recorded tasks; remaining tasks other than home-item can already be done from existing stock.
-  store.tasksDone=['home-form-3','travel-scenery-3','friends-companion-3','memory-elder-1'];
+  // Four recorded tasks; remaining tasks other than page-item can already be done from existing stock.
+  store.tasksDone=['page-form-3','page-other-3','page-companion-3','page-elder-1'];
   for(const entry of h.api.stickerCatalog())if(entry.kind!=='item')store.owned[entry.id]=12;
   const item=h.api.stickerCatalog().find(s=>s.kind==='item');
   assert.equal(factor(h,'sticker',item),2);
   store.owned[item.id]=2;assert.equal(factor(h,'sticker',item),1);
   store.owned[item.id]=1;assert.equal(factor(h,'sticker',item),2);
-  store.tasksDone.push('home-item-2');assert.equal(factor(h,'sticker',item),1);
+  store.tasksDone.push('page-item-2');assert.equal(factor(h,'sticker',item),1);
 });
 test('sticker candidate weights preserve rarity mass while doubling only the target',()=>{
   const h=setup(['sticker-10']),owned={id:'owned',kind:'form',rarity:'common'},fresh={id:'fresh',kind:'form',rarity:'common'},rare={id:'rare',kind:'form',rarity:'rare'};
@@ -117,10 +117,10 @@ test('queue crown ordering changes but candidate multiplicity and play count sta
 });
 test('movable copies on other pages already satisfy supply; rearrangement is manual',()=>{
   const h=setup(['sticker-tasks-5']),store=h.api.stickerStore();
-  store.tasksDone=['home-form-3','travel-scenery-3','friends-companion-3','memory-elder-1'];
+  store.tasksDone=['page-form-3','page-other-3','page-companion-3','page-elder-1'];
   for(const entry of h.api.stickerCatalog())if(entry.kind!=='item')store.owned[entry.id]=12;
   const item=h.api.stickerCatalog().find(s=>s.kind==='item');store.owned[item.id]=2;
-  store.pages.travel=[{id:item.id,k:'one'},{id:item.id,k:'two'}];
+  const page2=h.api.addStickerPage(); store.pages[page2]=[{id:item.id,k:'one'},{id:item.id,k:'two'}];
   assert.equal(factor(h,'sticker',item),1);
 });
 test('20th A record removes cached bias before notification without refilling consumed tickets',()=>{
