@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
-  <link rel="stylesheet" href="style.css?v=20260919-dce00bb8">
+  <link rel="stylesheet" href="style.css?v=20260920-stickerbook">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260919-0d3533b6">
   <link rel="stylesheet" href="design.css?v=20260919-ae1c4ad1">
@@ -435,8 +435,14 @@
           <div class="dex-header"><span class="dex-title">シールちょう</span><span class="dex-progress" id="stickerProgress"></span><button type="button" class="dex-close-btn" id="stickerCloseBtn" aria-label="シールちょうをとじる">✕</button></div>
           <div class="ach-tabs sticker-tabs" id="stickerPageTabs" role="tablist"></div>
           <div class="profile-scroll sticker-scroll">
+            <div class="sticker-page-controls">
+              <label for="stickerBackgroundSelect">はいけい</label>
+              <select id="stickerBackgroundSelect" aria-label="このページのはいけい"></select>
+              <button type="button" class="profile-code-btn" id="stickerAddPageBtn">＋ ページを追加（1/15）</button>
+            </div>
+            <p class="profile-hint sticker-page-hint">最初は1ページ。ひつようになったら最大15ページまで追加できます。シールはどのページにも自由にはれます。</p>
             <div class="sticker-board-wrap">
-              <div class="sticker-board page-home" id="stickerBoard" data-page="home"></div>
+              <div class="sticker-board" id="stickerBoard" data-page="page-1" data-background="home"></div>
               <div class="sticker-tools hidden" id="stickerTools">
                 <button type="button" data-act="rot-" aria-label="ひだりにまわす">↺</button>
                 <button type="button" data-act="rot+" aria-label="みぎにまわす">↻</button>
@@ -455,13 +461,13 @@
                 <button type="button" class="profile-code-btn" id="stickerExportBtn">📷 このページを がぞうにする</button>
               </div>
               <label for="stickerThemeKind">えらぶぶんるい</label>
-              <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">けしき</option></select>
+              <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">その他</option></select>
               <button type="button" class="profile-code-btn" id="stickerThemePackBtn">ぶんるいでひく（60コイン・3まい）</button>
               <p class="profile-hint">シールは飾りです。本編の発見やなかまの加入にはなりません。</p>
               <div class="sticker-pack-result hidden" id="stickerChoicePanel"></div>
               <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
               <div class="sticker-export hidden" id="stickerExportView"></div>
-              <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・通常ゲームのSランク(ときどき)で もらえる。かぶった シールは かけらに なる</p>
+              <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・通常ゲームのSランク(ときどき)で もらえる。かぶった シールは シールポイントに なる</p>
             </section>
             <section class="profile-section">
               <h3>もっている シール <span class="sticker-owned-count" id="stickerOwnedCount"></span></h3>
@@ -797,7 +803,7 @@
   <script src="item-memories.js?v=20260919-1636293f"></script>
   <script src="item-system.js?v=20260919-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260919-9944220b"></script>
-  <script src="script.js?v=20260919-2136bd44"></script>
+  <script src="script.js?v=20260920-stickerbook"></script>
   <script src="home-touch.js?v=20260919-36be057a"></script>
 </body>
 </html>
