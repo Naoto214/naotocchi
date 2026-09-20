@@ -14425,6 +14425,7 @@
     ['sun', 'たいよう', '☀️'], ['cloud', 'くも', '☁️'], ['rain', 'あめ', '🌧️'], ['snow', 'ゆき', '❄️'],
     ['moon', 'つき', '🌙'], ['sunrise', 'あさひ', '🌅'], ['sunset', 'ゆうやけ', '🌇'],
   ];
+  const STICKER_TASK_ADEPT_ID = 'scenery:silver_sticker_book';
   const STICKER_TASK_MASTER_ID = 'scenery:golden_sticker_book';
   let stickerCatalogCache = null;
   function stickerCatalog() {
@@ -14463,13 +14464,22 @@
     }
     for (const [key, label, emoji] of STICKER_SCENERY) list.push({ id: `scenery:${key}`, kind: 'scenery', label, rarity: 'common', art: { asset: '', emoji }, visual: () => uiIconHTML(key, '', emoji) || escapeHtml(emoji) });
     list.push({
+      id: STICKER_TASK_ADEPT_ID,
+      kind: 'scenery',
+      label: 'ぎんのシールちょう',
+      rarity: 'rare',
+      rewardOnly: true,
+      art: { asset: '', emoji: '🥈' },
+      visual: () => '<span class="sticker-master-visual sticker-master-silver" aria-label="ぎんのシールちょう">🥈📒</span>',
+    });
+    list.push({
       id: STICKER_TASK_MASTER_ID,
       kind: 'scenery',
       label: 'きんのシールちょう',
       rarity: 'rare',
       rewardOnly: true,
-      art: { asset: '', emoji: '📒' },
-      visual: () => '<span class="sticker-master-visual" aria-label="きんのシールちょう">📒</span>',
+      art: { asset: '', emoji: '🥇' },
+      visual: () => '<span class="sticker-master-visual" aria-label="きんのシールちょう">🥇📒</span>',
     });
     stickerCatalogCache = list;
     return list;
@@ -14783,10 +14793,15 @@
       done.push(task);
       if (!gameActive) showStoryEvent({ emoji: '🏷️', message: `おだい たっせい!「${task.label}」` });
     }
-    const allDone = STICKER_TASKS.every((task) => store.tasksDone.includes(task.id));
+    const doneCount = STICKER_TASKS.filter((task) => store.tasksDone.includes(task.id)).length;
+    if (doneCount >= 5 && ownedStickerCount(STICKER_TASK_ADEPT_ID) === 0) {
+      const silver = grantSticker(STICKER_TASK_ADEPT_ID, 'task-adept');
+      if (silver && !gameActive) showStoryEvent({ emoji: '🥈', message: 'おだい 5こたっせい！「ぎんのシールちょう」を もらった！' });
+    }
+    const allDone = doneCount === STICKER_TASKS.length;
     if (allDone && ownedStickerCount(STICKER_TASK_MASTER_ID) === 0) {
-      const reward = grantSticker(STICKER_TASK_MASTER_ID, 'task-master');
-      if (reward && !gameActive) showStoryEvent({ emoji: '📒', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });
+      const gold = grantSticker(STICKER_TASK_MASTER_ID, 'task-master');
+      if (gold && !gameActive) showStoryEvent({ emoji: '🥇', message: 'おだい ぜんぶたっせい！「きんのシールちょう」を もらった！' });
     }
     return done;
   }
@@ -14859,7 +14874,7 @@
         const done = store.tasksDone.includes(t.id);
         return `<div class="sticker-task${done ? ' done' : ''}"><span>${done ? '✅' : '⬜'}</span><span>${escapeHtml(t.label)}</span></div>`;
       }).join('')
-      + `<div class="profile-hint sticker-task-goal">${taskDoneCount}/8たっせい　5こで「シールちょうのたつじん」／8こぜんぶで「シールちょうマスター」＋限定シール</div>`
+      + `<div class="profile-hint sticker-task-goal">${taskDoneCount}/8たっせい　5こで「シールちょうのたつじん」＋ぎんのシールちょう／8こぜんぶで「シールちょうマスター」＋きんのシールちょう</div>`
     );
     const coin = careIconHTML('coin');
     const packAvailable = stickerDrawablePool().length > 0;
