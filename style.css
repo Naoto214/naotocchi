@@ -4341,11 +4341,14 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .sticker-task { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 8px; background: rgba(255, 255, 255, 0.6); font-size: 10px; font-weight: bold; }
 .sticker-task.done { opacity: 0.6; }
 .sticker-task.done span:nth-child(2) { text-decoration: line-through; }
-.sticker-task-reward { margin-left: auto; white-space: nowrap; font-size: 9px; opacity: 0.85; }
-.sticker-shop-row { display: flex; flex-wrap: wrap; gap: 6px; }
-.sticker-shop-row .profile-code-btn { min-height: 36px; display: inline-flex; align-items: center; gap: 4px; }
-.sticker-shop-row .profile-code-btn:disabled { opacity: 0.5; cursor: default; }
-.sticker-shop-row .care-icon { width: 14px; height: 14px; }
+.sticker-pack-controls { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.sticker-pack-controls label { font-size: 10px; font-weight: bold; margin-top: 2px; }
+.sticker-pack-controls select { width: 100%; min-height: 38px; border: 1px solid rgba(107,54,84,.22); border-radius: 9px; background: rgba(255,255,255,.84); padding: 5px 8px; font: inherit; color: inherit; }
+.sticker-pack-controls .profile-code-btn,
+.sticker-page-action .profile-code-btn { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; margin: 0; }
+.sticker-pack-controls .profile-code-btn:disabled { opacity: 0.5; cursor: default; }
+.sticker-pack-controls .care-icon { width: 14px; height: 14px; }
+.sticker-page-action { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(107,54,84,.12); }
 .sticker-pack-result { display: flex; gap: 6px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
 .sticker-pack-result.hidden { display: none; }
 .sticker-pack-card {

@@ -32,14 +32,12 @@ test('invalid or unavailable hatch reservation clears without spending; growing 
   assert.equal(h.api.pickDreamLine(),null);assert.equal(s.lifetime.nextEggLine,null);
   s.stage='growing';assert.equal(h.api.openDreamPicker('rare'),true);assert.equal(h.api.itemStock('c_egg_rare'),1);
 });
-test('kakera choice presents three distinct new-priority options, cancel is free, commit spends once',()=>{
-  const h=harness(),s=h.api.stickerStore(); s.kakera=12;
-  const choices=h.api.openKakeraPack(); assert.equal(choices.length,3);assert.equal(new Set(choices.map(x=>x.id)).size,3);assert.equal(s.kakera,12);
-  h.api.cancelKakeraChoice(); assert.equal(s.kakera,12);assert.equal(h.api.chooseKakeraSticker(choices[0].id),null);
-  const next=h.api.openKakeraPack(); assert.ok(next.every(x=>!s.owned[x.id]));
-  assert.equal(h.api.chooseKakeraSticker('form:ren:0'),null);assert.equal(s.kakera,12);
-  assert.ok(h.api.chooseKakeraSticker(next[0].id));assert.equal(s.kakera,0);assert.equal(s.owned[next[0].id],1);assert.equal(s.packsOpened,0);
-  assert.equal(h.api.chooseKakeraSticker(next[0].id),null);
+test('duplicate stickers stay as copies and stop at the nine-copy cap',()=>{
+  const h=harness(),store=h.api.stickerStore();
+  for(let i=0;i<h.api.STICKER_COPY_MAX;i++) assert.ok(h.api.grantSticker('scenery:tree'));
+  assert.equal(store.owned['scenery:tree'],9);
+  assert.equal(h.api.grantSticker('scenery:tree'),null);
+  assert.equal(Object.hasOwn(store,'kakera'),false);
 });
 test('theme costs 60 and draws only chosen category with the secret gate; ordinary stays 30/3',()=>{
   const h=harness(),s=h.api.state();s.lifetime.money=260;
@@ -145,25 +143,23 @@ test('different match IDs, old-format and duplicate-question codes never reserve
   const duplicate=JSON.parse(decodeURIComponent(atob(c.split(':')[1])));duplicate.q[1]=duplicate.q[0];
   assert.ok(fresh.api.startDuelGuess('NAOTOCCHIDUELC2:'+btoa(encodeURIComponent(JSON.stringify(duplicate)))).error);assert.equal(fresh.api.state().lifetime.money,100);
 });
-test('real sticker menu commits theme category and fragment selection, while closing cancels freely',()=>{
-  const h=harness(),s=h.api.state();s.stage='egg';s.lifetime.money=120;h.api.stickerStore().kakera=12;
-  h.api.openExclusiveMenu('sticker');h.get('stickerThemeKind').value='scenery';h.dispatch(h.get('stickerThemePackBtn'),'click');
-  assert.equal(s.lifetime.money,60);assert.equal(Object.keys(h.api.stickerStore().owned).length>0,true);
+test('real sticker menu buys the selected category and has no point-exchange controls',()=>{
+  const h=harness(),s=h.api.state();s.stage='egg';s.lifetime.money=120;
+  h.api.openExclusiveMenu('sticker');
+  h.get('stickerThemeKind').value='scenery';h.dispatch(h.get('stickerThemeKind'),'change');
+  h.dispatch(h.get('stickerThemePackBtn'),'click');
+  assert.equal(s.lifetime.money,60);
+  assert.ok(Object.keys(h.api.stickerStore().owned).length>0);
   assert.ok(Object.keys(h.api.stickerStore().owned).every(id=>id.startsWith('scenery:')));
-  h.dispatch(h.get('stickerKakeraBtn'),'click');assert.match(h.get('stickerChoicePanel').innerHTML,/data-kakera-id/);
-  h.dispatch(h.get('stickerCloseBtn'),'click');assert.equal(h.api.stickerStore().kakera>=12,true);assert.equal(h.get('stickerChoicePanel').classList.contains('hidden'),true);
-  h.api.openExclusiveMenu('sticker');const choices=h.api.openKakeraPack(),before=h.api.stickerStore().kakera;
-  const target=h.get('choiceTarget');target.dataset.kakeraId=choices[0].id;h.get('stickerChoicePanel').closest=selector=>selector==='[data-kakera-id]'?target:null;
-  h.dispatch(h.get('stickerChoicePanel'),'click');assert.equal(h.api.stickerStore().kakera,before-12);assert.equal(h.api.stickerStore().owned[choices[0].id],1);
+  assert.equal(Object.hasOwn(h.api.stickerStore(),'kakera'),false);
 });
-test('all-owned fragment choices disclose duplicates and commit rechecks hidden gate and funds',()=>{
-  const h=harness(),s=h.api.state(),store=h.api.stickerStore();store.kakera=12;
-  for(const entry of h.api.stickerPackPool())store.owned[entry.id]=1;
-  let choices=h.api.openKakeraPack();assert.match(h.get('stickerChoicePanel').innerHTML,/重複/);
-  const id=choices[0].id;store.kakera=11;assert.equal(h.api.chooseKakeraSticker(id),null);assert.equal(store.owned[id],1);
-  store.kakera=12;const result=h.api.chooseKakeraSticker(id);assert.equal(store.owned[id],2);assert.equal(store.kakera,result.kakera);
-  s.discoveredStages.push('ren:0');store.kakera=12;choices=h.api.openKakeraPack();assert.ok(choices.every(x=>x.secret));
-  s.discoveredStages=[];assert.equal(h.api.chooseKakeraSticker(choices[0].id),null);assert.equal(store.kakera,12);
+test('maxed stickers are excluded from pack draws',()=>{
+  const h=harness(),s=h.api.state(),store=h.api.stickerStore();s.lifetime.money=100;
+  store.owned['scenery:tree']=h.api.STICKER_COPY_MAX;
+  assert.ok(!h.api.stickerDrawablePool().some(x=>x.id==='scenery:tree'));
+  const result=h.api.openStickerPack();
+  assert.equal(result.length,3);
+  assert.ok(result.every(x=>x.sticker.id!=='scenery:tree'));
 });
 test('host ID generation remains usable at a zero random draw',()=>{
   const h=harness();h.api.state().lifetime.money=100;h.sandbox.Math=Object.assign(Object.create(Math),{random:()=>0});
