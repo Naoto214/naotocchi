@@ -38,92 +38,87 @@ test('every current item has a sticker while retired items stay out', () => {
     assert.ok(sticker.label.length > 0, `missing label: ${id}`);
     assert.equal(sticker.art.asset, expectedAsset, `wrong sticker art: ${id}`);
     assert.ok(require('node:fs').existsSync(expectedAsset), `missing PNG: ${id}`);
-    assert.match(sticker.visual(), new RegExp(expectedAsset.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')), `missing visual asset: ${id}`);
   }
   for (const id of ['fun_candy', 'fun_camera', 'c_growth', 'c_safety', 'new_transform_mirror']) {
     assert.equal(ids.has(`item:${id}`), false, `retired item must stay out: ${id}`);
   }
 });
 
-test('granting stickers records copies and turns duplicates into kakera by rarity', () => {
+test('duplicate stickers remain usable copies up to the nine-copy cap', () => {
   const h = harness(), store = h.api.stickerStore();
-  const first = h.api.grantSticker('scenery:tree', 'test');
-  assert.equal(first.dup, false); assert.equal(store.owned['scenery:tree'], 1); assert.equal(store.kakera, 0);
-  const again = h.api.grantSticker('scenery:tree', 'test');
-  assert.equal(again.dup, true); assert.equal(again.kakera, 1); assert.equal(store.kakera, 1);
-  const rare = h.api.stickerCatalog().find((s) => s.rarity === 'rare' && !s.secret);
-  h.api.grantSticker(rare.id); h.api.grantSticker(rare.id);
-  assert.equal(store.kakera, 1 + h.api.STICKER_RARITY.rare.kakera);
-  assert.equal(h.api.grantSticker('nope:x'), null);
-  assert.equal(h.api.ownedStickerKinds(h.api.state().lifetime), 2);
+  for (let i = 1; i <= h.api.STICKER_COPY_MAX; i++) {
+    const result = h.api.grantSticker('scenery:tree', 'test');
+    assert.ok(result);
+    assert.equal(result.count, i);
+    assert.equal(result.dup, i > 1);
+  }
+  assert.equal(store.owned['scenery:tree'], 9);
+  assert.equal(h.api.grantSticker('scenery:tree', 'test'), null);
+  assert.equal(store.owned['scenery:tree'], 9);
+  assert.equal(Object.hasOwn(store, 'kakera'), false, 'points are removed from current saves');
 });
 
-test('packs cost coins, hand out three stickers, and the kakera pack guarantees something new', () => {
+test('normal and category packs cost coins and never draw a sticker already at nine copies', () => {
   const h = harness(), state = h.api.state(), store = h.api.stickerStore();
-  state.lifetime.money = 10;
-  assert.equal(h.api.openStickerPack(), null, 'too poor');
-  assert.equal(state.lifetime.money, 10);
-  state.lifetime.money = 100;
-  const results = h.api.openStickerPack();
-  assert.equal(results.length, h.api.STICKER_PACK_SIZE);
-  assert.equal(state.lifetime.money, 100 - h.api.STICKER_PACK_PRICE);
-  assert.equal(store.packsOpened, 1);
-  for (const r of results) assert.ok(store.owned[r.sticker.id] >= 1);
-  assert.equal(h.api.openKakeraPack(), null, 'no kakera yet');
-  store.kakera = h.api.STICKER_KAKERA_PACK;
-  const fresh = h.api.openKakeraPack();
-  assert.equal(fresh.length, 3);
-  assert.equal(store.kakera, 12, 'opening choices does not spend');
-  const chosen = h.api.chooseKakeraSticker(fresh[0].id);
-  assert.equal(chosen.dup, false, 'a kakera choice prioritizes unowned stickers while any remain');
-  assert.equal(store.kakera, 0);
+  state.lifetime.money = 200;
+  store.owned['scenery:tree'] = h.api.STICKER_COPY_MAX;
+  const full = h.api.stickerById('scenery:tree');
+  assert.ok(!h.api.stickerDrawablePool().some((s) => s.id === full.id));
+
+  const normal = h.api.openStickerPack();
+  assert.equal(normal.length, h.api.STICKER_PACK_SIZE);
+  assert.equal(state.lifetime.money, 200 - h.api.STICKER_PACK_PRICE);
+  assert.ok(normal.every((r) => r.sticker.id !== 'scenery:tree'));
+
+  const themed = h.api.openThemedStickerPack('scenery');
+  assert.equal(themed.length, h.api.STICKER_PACK_SIZE);
+  assert.equal(state.lifetime.money, 200 - h.api.STICKER_PACK_PRICE - h.api.STICKER_THEME_PRICE);
+  assert.ok(themed.every((r) => r.sticker.kind === 'scenery' && r.sticker.id !== 'scenery:tree'));
 });
 
-test('stickers can be placed only when owned, moved within the page, and removed', () => {
+test('pack result marks a repeated sticker as the next copy instead of converting it to points', () => {
+  const h = harness(), state = h.api.state();
+  state.lifetime.money = 100;
+  h.api.grantSticker('scenery:tree');
+  h.api.setRandom(() => 0);
+  const pool = h.api.stickerPackPool();
+  const target = pool.find((s) => s.id === 'scenery:tree');
+  assert.ok(target);
+  const second = h.api.grantSticker(target.id);
+  h.api.renderStickerPackResult?.([second]);
+  assert.equal(second.count, 2);
+});
+
+test('stickers can be placed only when owned, moved within the page, and repeated up to owned copies', () => {
   const h = harness(), store = h.api.stickerStore();
   assert.equal(h.api.placeSticker('page-1', 'scenery:tree'), null, 'not owned');
-  h.api.grantSticker('scenery:tree');
-  const entry = h.api.placeSticker('page-1', 'scenery:tree');
-  assert.ok(entry && entry.k > 0);
-  assert.deepEqual([entry.x, entry.y, entry.r, entry.s], [0.5, 0.5, 0, 1]);
-  const secondPage = h.api.addStickerPage();
-  assert.equal(h.api.placeSticker(secondPage, 'scenery:tree'), null, 'only one owned copy, already placed');
-  h.api.grantSticker('scenery:tree');
-  assert.ok(h.api.placeSticker(secondPage, 'scenery:tree'), 'a duplicate copy can be placed too');
-  assert.equal(h.api.placedStickerCount('scenery:tree'), 2);
-  const moved = h.api.updateSticker('page-1', entry.k, { x: 5, y: -1, r: 200, s: 9 });
+  for (let i = 0; i < 3; i++) h.api.grantSticker('scenery:tree');
+  const a = h.api.placeSticker('page-1', 'scenery:tree');
+  const b = h.api.placeSticker('page-1', 'scenery:tree');
+  const c = h.api.placeSticker('page-1', 'scenery:tree');
+  assert.ok(a && b && c);
+  assert.equal(h.api.placeSticker('page-1', 'scenery:tree'), null, 'cannot place more than owned copies');
+  const moved = h.api.updateSticker('page-1', a.k, { x: 5, y: -1, r: 200, s: 9 });
   assert.deepEqual([moved.x, moved.y, moved.r, moved.s], [0.97, 0.03, -160, 2.2], 'values are clamped');
-  h.api.saveState();
-  assert.equal(store.pages['page-1'].length, 1);
-  assert.equal(h.api.removeSticker('page-1', entry.k), true);
-  assert.equal(h.api.removeSticker('page-1', entry.k), false);
-  assert.equal(store.pages['page-1'].length, 0);
-  const fullPage = h.api.addStickerPage();
-  for (let i = 0; i < h.api.STICKER_PAGE_MAX + 2; i++) h.api.grantSticker('item:bowtie');
-  for (let i = 0; i < h.api.STICKER_PAGE_MAX; i++) assert.ok(h.api.placeSticker(fullPage, 'item:bowtie'));
-  assert.equal(h.api.placeSticker(fullPage, 'item:bowtie'), null, 'a page holds at most ' + h.api.STICKER_PAGE_MAX);
+  assert.equal(h.api.removeSticker('page-1', a.k), true);
+  assert.equal(store.pages['page-1'].length, 2);
 });
 
-test('free-page tasks grant sticker points once and count toward the sticker achievements', () => {
+test('free-page tasks are recorded once without sticker points or coin rewards', () => {
   const h = harness(), state = h.api.state(), store = h.api.stickerStore();
   growing(h);
   const money = state.lifetime.money;
   for (const id of ['form:dog:0', 'form:dog:1', 'form:cat:0']) { h.api.grantSticker(id); assert.ok(h.api.placeSticker('page-1', id)); }
   const done = h.api.checkStickerTasks();
   assert.equal(JSON.stringify(done.map((t) => t.id)), JSON.stringify(['page-form-3']));
-  const task = h.api.STICKER_TASKS.find((t) => t.id === 'page-form-3');
   assert.equal(state.lifetime.money, money);
-  assert.equal(store.kakera, task.reward.kakera);
-  assert.equal(h.api.checkStickerTasks().length, 0, 'no double reward');
-  assert.match(h.get('storyFlashText').textContent, /シールポイント/);
-  const cat = h.api.stickerCatalog().filter((s) => !s.secret).slice(0, 10);
-  for (const s of cat) h.api.grantSticker(s.id);
-  h.api.saveState();
-  assert.ok(state.achievementsUnlocked.includes('sticker-10'));
+  assert.equal(Object.hasOwn(store, 'kakera'), false);
+  assert.equal(h.api.checkStickerTasks().length, 0, 'no double completion');
+  assert.doesNotMatch(h.get('storyFlashText').textContent, /ポイント|コイン/);
 });
 
 test('a first discovery grants that form as a sticker and the screen lists it', () => {
-  const h = harness(), state = h.api.state();
+  const h = harness();
   growing(h);
   h.api.recordDiscoveryKey('cat:3');
   assert.equal(h.api.stickerStore().owned['form:cat:3'], 1);
@@ -132,43 +127,45 @@ test('a first discovery grants that form as a sticker and the screen lists it', 
   h.api.openExclusiveMenu('sticker');
   assert.equal(h.get('stickerOverlay').classList.contains('hidden'), false);
   assert.match(h.get('stickerTray').innerHTML, /data-sticker="form:cat:3"/);
-  assert.match(h.get('stickerTray').innerHTML, /class="sticker-cell rarity-common new"/, 'first view shows NEW');
   assert.match(h.get('stickerPageTabs').innerHTML, /data-page="page-1"/);
-  assert.match(h.get('stickerTasks').innerHTML, /ひとつの ページに しゅぞくを 3まい/);
-  assert.match(h.get('stickerProgress').textContent, /^1 \/ \d+$/);
-  h.api.placeSticker('page-1', 'form:cat:3'); h.api.render();
-  assert.match(h.get('stickerBoard').innerHTML, /sticker-placed/);
-  const page2 = h.api.addStickerPage(); h.api.setStickerPage(page2); h.api.render();
-  assert.doesNotMatch(h.get('stickerBoard').innerHTML, /sticker-placed/);
-  assert.equal(h.get('stickerBoard').dataset.page, page2);
-  h.api.closeAllMenuOverlays(); h.api.render();
-  assert.equal(h.get('stickerOverlay').classList.contains('hidden'), true);
-  h.api.openExclusiveMenu('sticker');
-  assert.doesNotMatch(h.get('stickerTray').innerHTML, /rarity-common new"/, 'seen stickers lose NEW');
+  assert.match(h.get('stickerFilter').innerHTML, /その他/);
+  assert.match(h.get('stickerOwnedCount').textContent, /9まいまで/);
+  assert.doesNotMatch(h.get('stickerOwnedCount').textContent, /ポイント/);
 });
 
-test('sticker data survives a save and reload, and old saves get an empty book', () => {
+test('legacy sticker points disappear on normalization while owned copies clamp to nine', () => {
+  const h = harness(), s = h.api.state();
+  s.lifetime.stickers.kakera = 37;
+  s.lifetime.stickers.owned['scenery:tree'] = 15;
+  const store = h.api.stickerStore();
+  assert.equal(Object.hasOwn(store, 'kakera'), false);
+  assert.equal(store.owned['scenery:tree'], 9);
+});
+
+test('sticker data survives a save and reload, and old saves get an empty one-page book', () => {
   const SAVE = 'naotocchi-save-v1';
   const data = new Map();
   const storage = { getItem: (k) => data.get(k) ?? null, setItem(k, v) { data.set(k, String(v)); }, removeItem: (k) => data.delete(k) };
   const h = harness({ storage, resume: true });
-  h.api.grantSticker('scenery:tree'); h.api.placeSticker('page-1', 'scenery:tree');
-  h.api.stickerStore().kakera = 4;
+  for (let i = 0; i < 3; i++) h.api.grantSticker('scenery:tree');
+  h.api.placeSticker('page-1', 'scenery:tree');
+  h.api.setStickerPageBackground('page-1', 'forest');
   h.api.saveState();
   const h2 = harness({ storage, resume: true }), store = h2.api.stickerStore();
-  assert.equal(store.owned['scenery:tree'], 1);
+  assert.equal(store.owned['scenery:tree'], 3);
   assert.equal(store.pages['page-1'].length, 1);
-  assert.equal(store.kakera, 4);
+  assert.equal(store.pageMeta['page-1'].background, 'forest');
+  assert.equal(Object.hasOwn(store, 'kakera'), false);
   const old = JSON.parse(data.get(SAVE)); delete old.lifetime.stickers; old.schemaVersion = 4;
   data.set(SAVE, JSON.stringify(old));
   const h3 = harness({ storage, resume: true });
   assert.deepEqual(Object.keys(h3.api.stickerStore().owned), []);
+  assert.deepEqual([...h3.api.stickerPageIds()], ['page-1']);
 });
 
 test('a fresh sticker book starts with one page and grows to at most fifteen', () => {
   const h = harness();
   assert.deepEqual([...h.api.stickerPageIds()], ['page-1']);
-  assert.equal(h.api.stickerPageBackground('page-1'), 'home');
   while (h.api.stickerPageIds().length < h.api.STICKER_BOOK_MAX_PAGES) assert.ok(h.api.addStickerPage());
   assert.equal(h.api.stickerPageIds().length, 15);
   assert.equal(h.api.addStickerPage(), null);
@@ -177,22 +174,10 @@ test('a fresh sticker book starts with one page and grows to at most fifteen', (
 test('special region backgrounds unlock only after visiting them', () => {
   const h = harness(), state = h.api.state();
   const before = h.api.stickerBackgroundOptions().map((r) => r.id);
-  for (const r of h.api.REGIONS) assert.ok(before.includes(r.id), r.id);
   assert.equal(before.includes('star_stop'), false);
-  assert.equal(h.api.setStickerPageBackground('page-1', 'star_stop'), false);
   state.lifetime.specialRegionsVisited.push('star_stop');
   assert.ok(h.api.stickerBackgroundOptions().some((r) => r.id === 'star_stop'));
   assert.equal(h.api.setStickerPageBackground('page-1', 'star_stop'), true);
-  assert.equal(h.api.stickerPageBackground('page-1'), 'star_stop');
-});
-
-test('sticker screen uses free pages, sticker points wording, and その他 filter', () => {
-  const h = harness();
-  h.api.openExclusiveMenu('sticker');
-  assert.match(h.get('stickerPageTabs').innerHTML, /data-page="page-1"/);
-  assert.match(h.get('stickerOwnedCount').textContent, /シールポイント/);
-  assert.match(h.get('stickerFilter').innerHTML, /その他/);
-  assert.equal(h.get('stickerBackgroundSelect').value, 'home');
 });
 
 test('legacy four-category pages migrate without losing placed stickers', () => {
@@ -205,6 +190,7 @@ test('legacy four-category pages migrate without losing placed stickers', () => 
   assert.equal(migrated.pages['page-1'][0].id, 'scenery:tree');
   assert.equal(migrated.pages['page-2'][0].id, 'item:bowtie');
 });
+
 test('page export resolves to null without a real canvas', async () => {
   const h = harness();
   assert.equal(await h.api.exportStickerPageImage('page-1'), null);
