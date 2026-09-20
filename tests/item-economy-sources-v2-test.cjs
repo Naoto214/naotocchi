@@ -118,7 +118,7 @@ test('sticker tasks record completion once without points or coins', () => {
   for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {
     h.api.grantSticker(id); h.api.placeSticker('page-1',id);
   }
-  assert.deepEqual(Array.from(h.api.checkStickerTasks(),t=>t.id),['page-form-3']);
+  assert.deepEqual(Array.from(h.api.checkStickerTasks(),t=>t.id),['page-any-3']);
   assert.equal(Object.hasOwn(store,'kakera'),false);
   assert.doesNotMatch(h.get('storyFlashText').textContent,/ポイント|💰|コイン/);
   h.api.renderStickerOverlay();
@@ -186,7 +186,7 @@ test('old claimed save retains balances, inventory and event claims across reloa
   s.itemLife.milestonesPaid=[30,40,50,60,70,80,90,100];
   s.midlifeSeen=[44,50,56,62,66]; s.legendMet=true;
   s.lifetime.legendsMet=['gate']; s.items.c_egg_rare=2; s.items.c_egg_normal=3;
-  const stickers=h.api.stickerStore(); stickers.tasksDone=['page-form-3'];
+  const stickers=h.api.stickerStore(); stickers.tasksDone=['page-any-3'];
   for(const id of ['form:dog:0','form:dog:1','form:cat:0']) {h.api.grantSticker(id);h.api.placeSticker('page-1',id);}
   h.api.saveState();
   const next=harness({storage:store,resume:true}), loaded=next.api.state(), logs=loaded.lifeLog.length;

@@ -14482,17 +14482,20 @@
     if (!Array.isArray(s.tasksDone)) s.tasksDone = [];
     // 旧4分類のお題を達成済みなら、対応する自由ページ版も達成済みとして引き継ぐ。
     const legacyTaskMap = {
-      'home-form-3': 'page-form-3',
+      'home-form-3': 'page-any-3',
+      'page-form-3': 'page-any-3',
       'home-item-2': 'page-item-2',
       'travel-scenery-3': 'page-other-3',
       'travel-8': 'page-8',
       'friends-companion-3': 'page-companion-3',
-      'friends-partner-1': 'page-partner-1',
-      'memory-elder-1': 'page-elder-1',
-      'memory-rare-1': 'page-rare-1',
-      'all-pages': 'multi-pages-3',
+      'any-12': 'page-8',
+      'all-pages': 'multi-pages-2',
+      'multi-pages-3': 'multi-pages-2',
     };
-    s.tasksDone = [...new Set(s.tasksDone.map((id) => legacyTaskMap[id] || id))];
+    const retiredStickerTasks = new Set(['friends-partner-1','memory-elder-1','memory-rare-1','page-partner-1','page-elder-1','page-rare-1']);
+    s.tasksDone = [...new Set(s.tasksDone
+      .filter((id) => !retiredStickerTasks.has(id))
+      .map((id) => legacyTaskMap[id] || id))];
     if (!Array.isArray(s.seen)) s.seen = [];
     // 旧ポイントは廃止。旧セーブに残っていても使わず削除する。
     if (Object.prototype.hasOwnProperty.call(s, 'kakera')) delete s.kakera;
@@ -14726,21 +14729,23 @@
   const anyPageHas = (pages, predicate) => Object.values(pages).some(predicate);
   const countStickerKind = (page, kind) => page.filter((p) => stickerById(p.id)?.kind === kind).length;
   const STICKER_TASKS = [
-    { id: 'page-form-3', supply: { count: 3, matches: s => s.kind === 'form' }, page: null, label: 'ひとつの ページに しゅぞくを 3まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'form') >= 3) },
+    { id: 'page-any-3', supply: { count: 3, matches: () => true }, page: null, label: 'ひとつの ページに シールを 3まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 3) },
+    { id: 'same-sticker-2', supply: { count: 0, matches: () => false }, page: null, label: 'ひとつの ページに 同じシールを 2まい はる', check: (pages) => anyPageHas(pages, p => {
+      const counts = {};
+      for (const placed of p) counts[placed.id] = (counts[placed.id] || 0) + 1;
+      return Object.values(counts).some((n) => n >= 2);
+    }) },
     { id: 'page-item-2', supply: { count: 2, matches: s => s.kind === 'item' }, page: null, label: 'ひとつの ページに あいてむを 2まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'item') >= 2) },
+    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: 'ひとつの ページに なかまを 3にん はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
     { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: 'ひとつの ページに その他の シールを 3まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
     { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: 'ひとつの ページに 8まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 8) },
-    { id: 'page-companion-3', supply: { count: 3, matches: s => s.kind === 'companion' }, page: null, label: 'ひとつの ページに なかまを 3にん はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'companion') >= 3) },
-    { id: 'page-partner-1', supply: { count: 1, matches: s => s.kind === 'partner' }, page: null, label: 'どれかの ページに こいびとを はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'partner') >= 1) },
-    { id: 'page-elder-1', supply: { count: 1, matches: s => /^form:[^:]+:7$/.test(s.id) }, page: null, label: 'どれかの ページに おとしよりの すがたを はる', check: (pages) => anyPageHas(pages, p => p.some((x) => /^form:[^:]+:7$/.test(x.id))) },
-    { id: 'page-rare-1', supply: { count: 1, matches: s => s.rarity === 'rare' }, page: null, label: 'どれかの ページに レアな シールを はる', check: (pages) => anyPageHas(pages, p => p.some((x) => stickerById(x.id)?.rarity === 'rare')) },
-    { id: 'any-12', supply: { count: 12, matches: () => true }, page: null, label: 'ひとつの ページに 12まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 12) },
-    { id: 'multi-pages-3', supply: { count: 3, matches: () => true }, page: null, label: '3つの ページに シールを はる', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 3 },
-  ];
+    { id: 'multi-pages-2', supply: { count: 2, matches: () => true }, page: null, label: '2つの ページに シールを はる', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 2 },
+    { id: 'background-change', supply: { count: 0, matches: () => false }, page: null, label: 'はいけいを かえる', check: (_pages, store) => store.pageOrder.some((id) => (store.pageMeta[id]?.background || 'home') !== 'home') },
+  ]
   function crownNeedsTaskSticker(candidate) {
     const store = stickerStore(), pages = stickerPages();
     return STICKER_TASKS.some(task => {
-      if (store.tasksDone.includes(task.id) || task.check(pages) || !task.supply.matches(candidate)) return false;
+      if (store.tasksDone.includes(task.id) || task.check(pages, store) || !task.supply.matches(candidate)) return false;
       const matches = task.supply.matches;
       const owned = Object.entries(store.owned).reduce((sum, [id, count]) => {
         const sticker = stickerById(id);
@@ -14758,7 +14763,7 @@
     for (const task of STICKER_TASKS) {
       if (store.tasksDone.includes(task.id)) continue;
       let ok = false;
-      try { ok = !!task.check(pages); } catch (err) { ok = false; }
+      try { ok = !!task.check(pages, store); } catch (err) { ok = false; }
       if (!ok) continue;
       store.tasksDone.push(task.id);
       done.push(task);
@@ -17191,6 +17196,7 @@
   });
   document.getElementById('stickerBackgroundSelect').addEventListener('change', (e) => {
     if (!setStickerPageBackground(stickerCurrentPage, e.target.value)) return;
+    checkStickerTasks();
     saveState();
     render();
   });
