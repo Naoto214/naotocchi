@@ -14425,6 +14425,21 @@
     if (!s.owned || typeof s.owned !== 'object') s.owned = {};
     if (!s.pages || typeof s.pages !== 'object') s.pages = {};
     if (!Array.isArray(s.tasksDone)) s.tasksDone = [];
+    // 旧4分類のお題を達成済みなら、対応する自由ページ版も達成済みとして引き継ぐ。
+    const legacyTaskMap = {
+      'home-form-3': 'page-form-3',
+      'home-item-2': 'page-item-2',
+      'travel-scenery-3': 'page-other-3',
+      'travel-8': 'page-8',
+      'friends-companion-3': 'page-companion-3',
+      'friends-partner-1': 'page-partner-1',
+      'memory-elder-1': 'page-elder-1',
+      'memory-rare-1': 'page-rare-1',
+      'all-pages': 'multi-pages-3',
+    };
+    for (const [oldId, newId] of Object.entries(legacyTaskMap)) {
+      if (s.tasksDone.includes(oldId) && !s.tasksDone.includes(newId)) s.tasksDone.push(newId);
+    }
     if (!Array.isArray(s.seen)) s.seen = [];
     s.kakera = Math.max(0, Math.floor(Number(s.kakera) || 0));
     s.packsOpened = Math.max(0, Math.floor(Number(s.packsOpened) || 0));
