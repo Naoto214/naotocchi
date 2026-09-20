@@ -455,19 +455,21 @@
             </div>
             <section class="profile-section"><h3>おだい</h3><div class="sticker-tasks" id="stickerTasks"></div></section>
             <section class="profile-section">
-              <div class="sticker-shop-row">
+              <h3>シールを ふやす</h3>
+              <div class="sticker-pack-controls">
                 <button type="button" class="profile-code-btn" id="stickerPackBtn"></button>
-                <button type="button" class="profile-code-btn" id="stickerKakeraBtn"></button>
+                <label for="stickerThemeKind">ぶんるいを えらぶ</label>
+                <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">その他</option></select>
+                <button type="button" class="profile-code-btn" id="stickerThemePackBtn"></button>
+              </div>
+              <p class="profile-hint">同じシールも別の1まいとして持てます。1しゅるい9まいまで。持っている枚数ぶん、好きなページにはれます。</p>
+              <p class="profile-hint">シールは飾りです。本編の発見やなかまの加入にはなりません。</p>
+              <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
+              <div class="sticker-page-action">
                 <button type="button" class="profile-code-btn" id="stickerExportBtn">📷 このページを がぞうにする</button>
               </div>
-              <label for="stickerThemeKind">えらぶぶんるい</label>
-              <select id="stickerThemeKind"><option value="form">しゅぞく</option><option value="companion">なかま</option><option value="partner">こいびと</option><option value="item">あいてむ</option><option value="scenery">その他</option></select>
-              <button type="button" class="profile-code-btn" id="stickerThemePackBtn">ぶんるいでひく（60コイン・3まい）</button>
-              <p class="profile-hint">シールは飾りです。本編の発見やなかまの加入にはなりません。</p>
-              <div class="sticker-pack-result hidden" id="stickerChoicePanel"></div>
-              <div class="sticker-pack-result hidden" id="stickerPackResult"></div>
               <div class="sticker-export hidden" id="stickerExportView"></div>
-              <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・通常ゲームのSランク(ときどき)で もらえる。かぶった シールは シールポイントに なる</p>
+              <p class="profile-hint">シールは、ずかんに はじめて のった すがた・なかまに なった とき・こいびとに なった とき・通常ゲームのSランク(ときどき)で もらえます。</p>
             </section>
             <section class="profile-section">
               <h3>もっている シール <span class="sticker-owned-count" id="stickerOwnedCount"></span></h3>
@@ -803,7 +805,7 @@
   <script src="item-memories.js?v=20260919-1636293f"></script>
   <script src="item-system.js?v=20260919-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260919-9944220b"></script>
-  <script src="script.js?v=20260920-stickerbook"></script>
+  <script src="script.js?v=20260920-sticker-copies"></script>
   <script src="home-touch.js?v=20260919-36be057a"></script>
 </body>
 </html>
