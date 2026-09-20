@@ -151,7 +151,9 @@ test('all eight sticker tasks grant the master sticker exactly once and unlock t
 
   // Build one page that satisfies 3 stickers, duplicate x2, item x2,
   // companion x3, その他 x3 and 8 total.
-  const ids = ['item:bowtie','item:ribbon','companion:dog','companion:cat','companion:penguin','scenery:tree','scenery:tree','scenery:wave'];
+  const companions = h.api.stickerCatalog().filter((s) => s.kind === 'companion').slice(0, 3).map((s) => s.id);
+  assert.equal(companions.length, 3);
+  const ids = ['item:bowtie','item:ribbon', ...companions, 'scenery:tree','scenery:tree','scenery:wave'];
   for (const id of ids) h.api.grantSticker(id);
   for (const id of ids) assert.ok(h.api.placeSticker('page-1', id));
 
