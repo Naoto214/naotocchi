@@ -2153,6 +2153,12 @@
         down: { label: 'もぐる', swap: 'cross', release: 'settle',
           span: { approach: 0.45, cross: 1.25, arrive: 0.50, settle: 0.30 },
           cue: { approach: 'open', cross: null, arrive: 'pop', settle: null } },
+        // ふねで 外洋を わたる。のぼり・くだりより すこし ながい(みなとを はなれ、
+        // 水平線が つづき、しまかげが 見えて くる まで)が、ながすぎない ように する。
+        // 2 かいめ からは 0.62 ばい、よいやすい せっていでは 0.45 ばい(正本の しくみの まま)
+        sail: { label: 'ふねで わたる', swap: 'cross', release: 'settle',
+          span: { approach: 0.55, cross: 1.75, arrive: 0.70, settle: 0.35 },
+          cue: { approach: 'open', cross: null, arrive: 'pop', settle: null } },
       },
       repeat: 0.62,            // 2 かいめ からは みじかく(おなじ みちを なんども いく ので)
       reduced: 0.45,           // よいやすい ひとの せってい: ぜんたいを みじかく。なくしはしない
@@ -2183,6 +2189,7 @@
         from: gate ? gate.from : null, to: gate ? gate.to : null, at: gate ? gate.at : null,
         enterFacing: gate && gate.enterFacing != null ? gate.enterFacing : 0,
         layerFrom: gate ? gate.layerFrom : 'ground', layerTo: gate ? gate.layerTo : 'ground',
+        isleFrom: !!(gate && gate.isleFrom), isleTo: !!(gate && gate.isleTo),
         land: (gate && gate.land) || [],
         first, repeat, reduced, tier, density: TRANSITION.density[tier],
         phases, total: at, swapAt: find(spec.swap).from, releaseAt: find(spec.release).from,
@@ -2226,8 +2233,16 @@
         const layerTo = (WORLD_GEOGRAPHY.regions[to] || {}).layer || 'ground';
         // **この 1 かいの むき**。connection の dir は「その みちは たてじく」という
         // いみ だけ で、のぼりか くだりかは いつも layer の さ から きめる
-        const way = c.gate.kind === 'walk' ? 'walk' : wayBetween(layerFrom, layerTo);
+        // 海路は layer が どちらも ground なので、layer の さでは きまらない。
+        // gate の kind が そのまま「わたりかた」に なる
+        const way = c.gate.kind === 'walk' ? 'walk'
+          : c.gate.kind === 'sea' ? 'sail'
+            : wayBetween(layerFrom, layerTo);
+        const G0 = WORLD_GEOGRAPHY.regions;
         out.push({ id: c.id, kind: c.gate.kind, way, dir: way === 'walk' ? null : way,
+          // しまへ わたるのか、しまから ほんどへ もどるのか。え の がわが
+          // region の id を じか書きしないで すむ ように いみで わたす
+          isleFrom: !!((G0[regionId] || {}).isle), isleTo: !!((G0[to] || {}).isle),
           action: here.action || c.gate.action || null, verb: here.verb || c.gate.verb || null, label: c.label,
           from: regionId, to, at: there.spot, spot, out: here.dir, land: here.land || [],
           // 入った がわで むく ほうこう。口(near)から 入れば おくへ(0)、
@@ -2511,7 +2526,7 @@
       return {
         RULES, enterRegion, step, talk, view, hitTest, dist, mapData,
         // いま 立って いる ところが 特殊な たてじくの のりば なら、それを かえす(UI が「のる」を 出す)
-        gateHere: () => (curSpot ? gates.find((g) => g.spot.id === curSpot.id && g.kind === 'vertical') || null : null),
+        gateHere: () => (curSpot ? gates.find((g) => g.spot.id === curSpot.id && (g.kind === 'vertical' || g.kind === 'sea')) || null : null),
         get gates() { return gates; },
         // こえる ちょくぜんの 「からだと カメラの いきおい」。つぎの 地域へ そのまま わたす
         carry: () => ({ yaw: camera.yaw, heading: player.heading, bob: player.bob, phase: camFx.phase,
@@ -4160,12 +4175,48 @@
         { id: 'city|sea', mouths: { city: 'boatpier', sea: 'port' },              a: 'city',       b: 'sea',        kind: 'port',    layer: 'ground', made: 'people', label: 'かこうのみなと',     ends: ['脇', '口'],
           why: '**みやこがわが 湾に そそぐ ところに まちが ある**', from: '「ふなつきば」から かわを くだって「みなと」へ',
           transition: ['かわぞいのみち', 'そうこがい', 'うんが', 'がんぺき', 'みなと', 'すなはま'] },
-        { id: 'jungle|sea', mouths: { jungle: 'entry', sea: 'rockarch' },         a: 'jungle',     b: 'sea',        kind: 'shore',   layer: 'ground', made: 'nature', label: 'にしぎしのマングローブ', ends: ['口', '脇'],
-          why: '湾の 西の いわばを まわりこむと、きしが しめって みどりに かわる', from: '「いわのアーチ」の むこうへ まわる',
-          transition: ['いわば', 'いわのアーチ', 'かた', 'マングローブ', 'しっちりん', 'きのうえ'] },
-        { id: 'desert|jungle', mouths: { desert: 'bonearch', jungle: 'flowers' },  a: 'desert',     b: 'jungle',     kind: 'valley',  layer: 'ground', made: 'nature', label: 'ほねのたにま',       ends: ['脇', '脇'], long: true,
-          why: 'がいようから ないりくへ あがるほど あめが つきる', from: '「はなのたに」の さき、「ほねのアーチ」へ',
-          transition: ['きのうえ', 'そりん', 'かんぼくのサバンナ', 'くさのきれめ', 'れき', 'すな'] },
+        // ---- ジャングル島への みち = **special sea connection**(ふつうの 徒歩の みちでは ない) ----
+        // ジャングルは 南西の 外洋に うかぶ しま。本土とは 陸つづきでは ない ので、
+        // うみの みなとから ふねで わたる。じっさいの こうろ・ふね・かいしゃの さいげんでは なく、
+        // なおとっち独自の 海上移動。`sea` は **え の ための データでは なく
+        // world / simulation の いみの データ**で、Three.js で ほんとうに ふねが
+        // 海面を すすむ ように なっても この まま つかえる(#36)
+        { id: 'jungle|sea', mouths: { jungle: 'entry', sea: 'breakwater' },       a: 'jungle',     b: 'sea',        kind: 'sea',     layer: 'ground', made: 'people', label: 'しまわたりのこうろ', ends: ['口', '脇'], long: true,
+          special: 'sea',
+          sea: {
+            // のりもの。**実在の ふね・こうろ・かいしゃの なまえは つかわない**。ごうかきゃくせんでも ない
+            ride: { id: 'shimawatari-boat', name: 'しまわたりのふね', kind: 'boat', size: 'small' },
+            from: { region: 'sea',    layer: 'ground', anchor: 'breakwater', role: 'harbour' },
+            to:   { region: 'jungle', layer: 'ground', anchor: 'entry',      role: 'landing' },
+            layerFrom: 'ground', layerTo: 'ground',
+            // わたる 海は **region では ない**。non-region geography として もつ(#37)。
+            // global world / Three.js では ここが ほんとうの 海面として つながる
+            waters: { id: 'southwest-open-sea', label: 'みなみにしの がいよう', region: null, role: 'beyond',
+              far: '湾の そとの ひろい うみ。うしろの 陸が ひくく なり、まえに なにも ない 水平線が つづく',
+              note: 'region では ない。本土と しまの あいだの 外洋' },
+            // たびの だんかい。anchor が null の ところは 海の うえ(region が ない)
+            stages: [
+              { id: 'approach', move: 'walk', region: 'sea',    anchor: 'port',       note: 'みなとを とおって がんぺきの さきへ' },
+              { id: 'board',    move: 'walk', region: 'sea',    anchor: 'breakwater', note: 'ぼうはていの のりば。ここから さきは 水' },
+              { id: 'depart',   move: 'boat', region: null,     anchor: null,         note: 'みなとが うしろへ しりぞく' },
+              { id: 'sail',     move: 'boat', region: null,     anchor: null,         note: '外洋。まわりが 水だけに なる' },
+              { id: 'arrive',   move: 'boat', region: null,     anchor: null,         note: 'みなみにしに しまかげ。ちかづくと かいがんと こい もりが 見えて くる' },
+              { id: 'land',     move: 'walk', region: 'jungle', anchor: 'entry',      note: 'すなの きしへ 上がる。そこが ジャングル' },
+            ],
+          },
+          // Phase 2.1 と おなじ しくみで じっさいに のる。way は `sail`
+          gate: { kind: 'sea', action: 'ふねに のる', verb: 'しまへの ふねに のる',
+            ends: { sea:    { spot: 'breakwater', dir: 'ride', action: 'ふねに のる', verb: 'みなみにしの しまへ わたる',
+                              land: ['みなとを はなれる', 'がいよう', 'しまかげが 見えて くる', 'かいがんが ちかづく'] },
+                    jungle: { spot: 'entry',      dir: 'ride', action: 'ふねに のる', verb: 'ほんどへ もどる',
+                              land: ['しまを はなれる', 'がいよう', 'ほんどが 見えて くる', 'みなとが ちかづく'] } } },
+          why: '**ジャングルは 南西の 外洋に うかぶ しま**。うみの ぼうはていから ふねで わたる。あるいては 行けない', from: '「みなと」の さきの「ぼうはてい」から',
+          transition: ['みなと', 'がんぺき', 'ぼうはてい', 'みなとが とおざかる', 'がいよう', 'しまかげ', 'かいがん', 'こい もり'] },
+        // ---- `desert|jungle`「ほねのたにま」は **さくじょ**(2026-09-20) ----
+        // ジャングルを 南西の 外洋の しまに した ので、さばく(北西)から ジャングルまでは
+        // 海を 9.7 めもり わたる ことに なり、徒歩の みちとしては せいりつ しない。
+        // 北西の すなの せかい と 南西の 外洋の しま は、べつの むきの そとへりの 地域。
+        // (「たび」では いままでどおり 行き来できる。**地理と たびは べつの しくみ**)
         { id: 'city|desert', mouths: { city: 'stalls', desert: 'caravan' },       a: 'city',       b: 'desert',     kind: 'caravan', layer: 'ground', made: 'people', label: 'キャラバンのかいどう', ends: ['脇', '脇'], long: true,
           why: 'ちけいでは なく 人が つくった ちょうきょり こうえきろ。desert に「キャラバンのあたり」が じっさいに ある', from: '「キャラバンのあたり」で らくだの あとを たどる／まちの いちばで すなの におう にもつを 見る',
           transition: ['しょうてんがい', 'かいどうのやど', 'いしだらけのひらち', 'キャラバンのあたり'] },
@@ -4326,6 +4377,8 @@
         .map((c) => {
           const A = G.regions[c.a], B = G.regions[c.b];
           return { id: c.id, a: c.a, b: c.b, kind: c.kind, layer: c.layer, made: c.made,
+            // 徒歩の みちか、とくべつな みちか。え の がわが ここで わけられる ように する
+            special: c.special || null,
             label: c.label, long: !!c.long, ax: A.mapX, ay: A.mapY, bx: B.mapX, by: B.mapY };
         });
       // ---- 紙の はんい。**いま わかって いる ぶん**に あわせる ので、
@@ -4358,7 +4411,10 @@
         + W.links * ratio(gotL, C.links.length) + W.marks * ratio(gotM, C.tier1)
         + W.zones * ratio(gotZ, C.zones)) * 100);
       return {
-        version: G.version, plan: G.plan, regions, axis, features, links, bounds, rim: G.rim.slice(),
+        version: G.version, plan: G.plan, regions, axis, features, links, bounds,
+        // せかいの へり。**まだ 見つけて いない 地域の id は わたさない**。
+        // 「がいようの むこうに jungle が ある」と データの がわで ばれて しまう
+        rim: G.rim.map((r) => ({ dir: r.dir, kind: r.kind, label: r.label, near: r.near.filter(seen) })),
         here: rec.here && seen(rec.here) ? rec.here : null,
         // 特殊層は 通常の % とは べつに かぞえる(#49)。きおくのみずうみは 地図に 出さない(#28)
         layers: { sky: seen('star_stop'), deep: seen('deepsea'), memory: known.has('memory_lake') },
@@ -4831,10 +4887,39 @@
         ctx.restore();
       }
 
+      // ---- 見つけた 海路。**徒歩の みちと おなじ 線に しない**。
+      //      うすい 波の せんと、まんなかに ちいさな ふねの しるし だけ。
+      //      見つける まえは wd.links に 入って いない ので、1 本も 出ない ----
+      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      for (const ln of wd.links) {
+        if (ln.special !== 'sea') continue;
+        const x1 = toX(ln.ax), y1 = toY(ln.ay), x2 = toX(ln.bx), y2 = toY(ln.by);
+        const dx = x2 - x1, dy = y2 - y1, d = Math.hypot(dx, dy) || 1;
+        const nx = -dy / d, ny = dx / d;
+        // なみせん: みちの うえを 小さく うねらせる
+        ctx.strokeStyle = pal.seaDeep; ctx.globalAlpha = 0.55; ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        const segs = 22, amp = Math.max(2.2, U * 0.045);
+        for (let i = 0; i <= segs; i++) {
+          const t = i / segs, wob = Math.sin(t * Math.PI * 5) * amp * Math.sin(t * Math.PI);
+          const px = x1 + dx * t + nx * wob, py = y1 + dy * t + ny * wob;
+          if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        // まんなかに ちいさな ふね(いっそう だけ)
+        const mx0 = x1 + dx * 0.5, my0 = y1 + dy * 0.5, bw = Math.max(5, U * 0.085), bh = bw * 0.46;
+        ctx.globalAlpha = 0.9; ctx.fillStyle = pal.paper; ctx.strokeStyle = pal.ink; ctx.lineWidth = 1.1;
+        ctx.beginPath(); ctx.moveTo(mx0 - bw, my0); ctx.quadraticCurveTo(mx0, my0 + bh * 1.7, mx0 + bw, my0);
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(mx0, my0); ctx.lineTo(mx0, my0 - bh * 1.7); ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+      ctx.restore();
+
       // ---- 見つけた みち。ひとが つくった みちは やぶれせん(#7, #21) ----
       ctx.save(); ctx.lineCap = 'round';
       for (const ln of wd.links) {
-        if (ln.layer !== 'ground') continue;
+        if (ln.layer !== 'ground' || ln.special) continue;      // 海路は うえで かいた
         ctx.strokeStyle = pal.ink; ctx.globalAlpha = ln.made === 'people' ? 0.62 : 0.48;
         ctx.lineWidth = ln.made === 'people' ? 2.1 : 1.7;
         ctx.setLineDash(ln.made === 'people' ? [Math.max(5, U * 0.1), Math.max(4, U * 0.07)] : []);
@@ -5352,12 +5437,17 @@
         walk: (g) => `${plainLabel(g.to)}の ほうへ あるいて いく…`,
         up: (g) => (g.layerTo === 'sky' ? 'ゴンドラが のぼって いく…' : 'みなもへ うかんで いく…'),
         down: (g) => (g.layerTo === 'below' ? 'しずかに もぐって いく…' : 'ゴンドラが おりて いく…'),
+        sail: (g) => (g.to === 'jungle' ? 'ふねが みなみにしの うみへ 出て いく…' : 'ふねが ほんどへ もどって いく…'),
       };
       function beginTransition(g) {
         if (trans) return;                                   // 二重に はじめない(§33)
         if (sim.busy) sim.endTalk();                         // はなしを おえて から こえる(§31)
         const key = `${g.id}:${g.to}`;
-        const plan = transitionPlan(g, { repeat: crossedBefore.has(key), reduced: reducedMotion, tier });
+        // 海路だけは セーブも 見る。しまを もう 見つけて いる ひとに、
+        // 「はじめて しまを 見つける」ながい えんしゅつを まいかい 出さない(§17)
+        const knownTo = g.way === 'sail' && typeof S.worldRegions === 'function'
+          && (S.worldRegions() || []).indexOf(g.to) >= 0;
+        const plan = transitionPlan(g, { repeat: crossedBefore.has(key) || knownTo, reduced: reducedMotion, tier });
         crossedBefore.add(key);
         trans = { g, plan, t: 0, phase: plan.phases[0], swapped: false, released: false, first: false, keep: pad.vector() };
         setAct(null);
@@ -5480,6 +5570,15 @@
       const folOf = (id) => (FOLIAGE[id] != null ? FOLIAGE[id] : 0.3);
       const mixHex = (a, b, t) => { const c = hexToRgb(a), d = hexToRgb(b);
         return `${Math.round(c[0] + (d[0] - c[0]) * t)},${Math.round(c[1] + (d[1] - c[1]) * t)},${Math.round(c[2] + (d[2] - c[2]) * t)}`; };
+      // のりもの(ゴンドラ・ふね)に のって いる めんめん。じぶん + いっしょに あるいて いる
+      // なかま だけ。**住民は のせない**(住民の 地域あいだの 移動は べつの Phase)。
+      // ここは なまの canvas なので、イラスト よう の しるし(私用領域)は 出さない
+      const crewGlyphs = () => {
+        let me = (typeof S.playerEmoji === 'function' && S.playerEmoji())
+          || (typeof S.playerGlyph === 'function' && S.playerGlyph()) || '';
+        if (!me || /[\uE000-\uF8FF]/.test(me)) me = '🐣';
+        return [me].concat(sim.party.map((a) => a.emoji).filter(Boolean)).slice(0, 3);
+      };
       function drawTransition(ctx, tr) {
         if (!ctx) return;
         const w = canvas.width, h = canvas.height, plan = tr.plan;
@@ -5534,6 +5633,115 @@
             });
             ctx.globalAlpha = 1;
           }
+        } else if (plan.way === 'sail') {
+          // ---- ふねで 外洋を わたる。湾の なかでは なく **みなみにしの 外洋** を
+          //      わたって いると わかる ように、①みなとが うしろへ しりぞく
+          //      ②水平線だけに なる ③まえに しまかげが 出る ④かいがんが ちかづく
+          //      の 4 つを、おなじ 1 まいの えの なかで じゅんばんに 見せる ----
+          // ふねの あいだは ずっと 見えて いる。ただし「ついた」に なったら、
+          // ふねの えは しまへ ゆずって きえる(0.55 の まま のこすと、ジャングルの
+          // うえに ふねが うかんだ ままに 見える)
+          const phSail = transitionPhaseAt(plan, tr.t);
+          const cover = phSail && (phSail.id === 'arrive' || phSail.id === 'settle') ? hide : Math.max(hide, 0.55);
+          if (cover <= 0.01) { ctx.restore(); return; }
+          const hz = h * 0.46;                                                   // 水平線
+          // ⓪ 下じき。cover の こさで 1 まい しく。こえて いる あいだ(cover = 1)は
+          //    出発がわの せかいが 1 てんも すけない。これが ないと 住民の なまえが
+          //    うみの うえに ゆうれいの ように のこる
+          ctx.fillStyle = `rgba(150,196,220,${cover})`; ctx.fillRect(0, 0, w, h);
+          // ① そら
+          const gsky = ctx.createLinearGradient(0, 0, 0, hz);
+          gsky.addColorStop(0, `rgba(126,176,214,${0.92 * cover})`);
+          gsky.addColorStop(1, `rgba(208,232,240,${0.92 * cover})`);
+          ctx.fillStyle = gsky; ctx.fillRect(0, 0, w, hz);
+          // ② うみ。とおくは あさい あお、てまえは ふかい あお
+          const gsea = ctx.createLinearGradient(0, hz, 0, h);
+          gsea.addColorStop(0, `rgba(96,156,186,${0.94 * cover})`);
+          gsea.addColorStop(1, `rgba(28,74,116,${0.96 * cover})`);
+          ctx.fillStyle = gsea; ctx.fillRect(0, hz, w, h - hz);
+          // ③ うしろの 陸(出発がわ)が しりぞく。しまを 出た ときは しまの かたち、
+          //    ほんどを 出た ときは ながい かいがんせん
+          const back = Math.max(0, 1 - k * 1.7);
+          if (back > 0.02) {
+            const bw = plan.isleFrom ? w * 0.30 : w * 1.25;
+            const bh = hz * (plan.isleFrom ? 0.10 : 0.055) * back;
+            ctx.fillStyle = `rgba(${mixHex(groundOf(plan.from), '#7ea6c0', 1 - back)},${(0.85 * back) * cover})`;
+            ctx.beginPath(); ctx.moveTo(w * 0.5 - bw / 2, hz);
+            ctx.quadraticCurveTo(w * 0.5, hz - bh * 2.2, w * 0.5 + bw / 2, hz);
+            ctx.closePath(); ctx.fill();
+          }
+          // ④ まえの しま / ほんどが 見えて くる。ちかづくほど 大きく、水平線から せり上がる
+          const front = Math.max(0, (k - 0.34) / 0.66);
+          if (front > 0.01) {
+            const fw = (plan.isleTo ? w * 0.34 : w * 1.3) * (0.5 + front * 1.5);
+            const fh = hz * (plan.isleTo ? 0.16 : 0.09) * (0.35 + front * 2.4);
+            const cx0 = w * 0.5;
+            ctx.fillStyle = `rgba(${mixHex('#7ea6c0', groundOf(plan.to), Math.min(1, front * 1.5))},${Math.min(0.95, 0.35 + front) * cover})`;
+            ctx.beginPath(); ctx.moveTo(cx0 - fw / 2, hz + fh * 0.12);
+            ctx.quadraticCurveTo(cx0, hz - fh * 2.1, cx0 + fw / 2, hz + fh * 0.12);
+            ctx.closePath(); ctx.fill();
+            // こい もり。ちかづいてから だけ、つぶの かずも tier で へらす
+            if (!soft && front > 0.3) {
+              // 木は **しまの かたちの うえ**に おく。しまの りんかくは 2 じの きょくせん
+              // なので、おなじ しきで たかさを もとめて、そこから すこし 下に 立たせる
+              const trees = Math.round(11 * dens * Math.min(1, (front - 0.3) / 0.35));
+              const edge = hz + fh * 0.12, ctrl = hz - fh * 2.1;
+              ctx.fillStyle = `rgba(42,92,54,${0.9 * cover})`;
+              for (let i = 0; i < trees; i++) {
+                const u = 0.16 + hrand('mgisle:' + i) * 0.68;
+                const tx = cx0 - fw / 2 + fw * u;
+                const ridge = (1 - u) * (1 - u) * edge + 2 * u * (1 - u) * ctrl + u * u * edge;
+                const ty = ridge + (edge - ridge) * (0.12 + hrand('mgisle2:' + i) * 0.5);
+                const r = Math.max(3, fh * 0.13);
+                ctx.beginPath(); ctx.moveTo(tx, ty - r * 1.4); ctx.lineTo(tx + r * 0.7, ty); ctx.lineTo(tx - r * 0.7, ty); ctx.closePath(); ctx.fill();
+              }
+            }
+          }
+          // ⑤ 水面の うねり。よこに ながれる ほそい すじ だけ(あわ・とり・さかなは 出さない)
+          const lines = soft ? 3 : Math.round(9 * dens);
+          ctx.strokeStyle = `rgba(226,244,255,${0.3 * cover})`; ctx.lineWidth = 1.6;
+          for (let i = 0; i < lines; i++) {
+            const t0 = (hrand('mgwave:' + i) + k * (0.5 + hrand('mgwave2:' + i) * 0.8)) % 1;
+            const wy = hz + (h - hz) * (t0 * t0);                                // てまえほど はやく ながれる
+            const ww = w * (0.12 + t0 * 0.5), wx = hrand('mgwave3:' + i) * w;
+            ctx.globalAlpha = Math.min(1, t0 * 2.2) * 0.9;
+            ctx.beginPath(); ctx.moveTo(wx - ww / 2, wy); ctx.lineTo(wx + ww / 2, wy); ctx.stroke();
+          }
+          ctx.globalAlpha = 1;
+          // ⑥ ふね。ちいさな ふねの ふなべりと、のって いる じぶん・なかま。
+          //    ゆれは よいやすい せっていでは とめて、よこの うごき と fade だけに する
+          const bob = soft ? 0 : Math.sin(k * 11) * h * 0.007;
+          const by = h * 0.86 + bob, bwid = Math.max(40, w * 0.36), bhgt = Math.max(14, w * 0.062);
+          ctx.fillStyle = `rgba(112,84,56,${0.95 * cover})`;
+          ctx.beginPath();
+          ctx.moveTo(w * 0.5 - bwid / 2, by);
+          ctx.quadraticCurveTo(w * 0.5, by + bhgt * 1.5, w * 0.5 + bwid / 2, by);
+          ctx.closePath(); ctx.fill();
+          ctx.fillStyle = `rgba(238,228,206,${0.95 * cover})`;
+          ctx.fillRect(w * 0.5 - bwid / 2, by - bhgt * 0.26, bwid, bhgt * 0.3);
+          // のって いる 1 たい ずつ。**おなじ なかまが 二どは 出ない**(party そのまま)
+          const crew = crewGlyphs();
+          ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+          ctx.font = `${Math.max(12, Math.round(bwid * 0.17))}px system-ui, -apple-system, sans-serif`;
+          ctx.fillStyle = '#fff';
+          crew.forEach((e, i) => ctx.fillText(e, w * 0.5 + (i - (crew.length - 1) / 2) * bwid * 0.26, by - bhgt * 0.34));
+          // ⑦ いまの けしきの ことば。正本(gate の land)を そのまま ながす
+          const land = plan.land || [];
+          if (land.length) {
+            const kv = Math.min(1, tr.t / (plan.releaseAt || plan.total));
+            const size = Math.max(12, Math.round(w * 0.042));
+            ctx.font = `${size}px system-ui, -apple-system, sans-serif`;
+            ctx.textBaseline = 'middle';
+            land.forEach((t, i) => {
+              const at = kv * (land.length + 0.5) - i;
+              if (at < -0.5 || at > 1.5) return;
+              ctx.globalAlpha = Math.min(1, cover * 1.2) * Math.max(0, 1 - Math.abs(at - 0.5) * 1.8);
+              ctx.lineWidth = 3.2; ctx.strokeStyle = 'rgba(20,40,60,.55)';
+              ctx.strokeText(t, w / 2, h * 0.31);
+              ctx.fillStyle = '#f6f2e6'; ctx.fillText(t, w / 2, h * 0.31);
+            });
+            ctx.globalAlpha = 1;
+          }
         } else {
           const up = plan.way === 'up';
           const sky = plan.layerFrom === 'sky' || plan.layerTo === 'sky';        // ゴンドラ か もぐる か
@@ -5581,8 +5789,7 @@
             ctx.fillStyle = 'rgba(150,200,235,.8)';
             ctx.fillRect(cx - cw * 0.32, cy - ch * 0.78, cw * 0.64, ch * 0.42);
             // ⑤ いっしょに のって いる なかま。**おなじ 1 たい**を かごの ところへ 出す だけ
-            const crew = [typeof S.playerGlyph === 'function' ? S.playerGlyph() : '🐣']
-              .concat(sim.party.map((a) => a.emoji).filter(Boolean)).slice(0, 3);
+            const crew = crewGlyphs();
             ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
             ctx.font = `${Math.max(10, Math.round(cw * 0.36))}px system-ui, -apple-system, sans-serif`;
             crew.forEach((e, i) => ctx.fillText(e, cx + (i - (crew.length - 1) / 2) * cw * 0.3, cy - ch * 0.12));
