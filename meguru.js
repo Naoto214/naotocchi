@@ -74,8 +74,8 @@
       // とおくの ふうしゃ・みずぐるま・おおきな き が つねに ほうがくの てがかりに なる
       countryside: { len: 7700, halfW: 2600, ground: ['#b8d98a', '#8fbf6a'], path: '#d8c79a', props: ['🌳', '🌻', '🪵', '🚜', '🌳', '🌼', '🏚️', '🏡'],
         zones: [Z('village', 'むら', { crowd: 3.6, frame: 'farmhouse', walls: 0.7, hero: ['farmhouse', 400], anim: 'leaves' }), Z('fields', 'はたけ', { crowd: 1.1, tint: '#c9c77a', walls: 0.8, frame: 'cropline', hero: ['hayroll', 320], field: ['🌾', '🌾', '🌻'], anim: 'leaves', open: 1.04 }), Z('orchard', 'かじゅえん', { crowd: 0.7, light: 0.98, tint: '#a8c473', walls: 1.15, frame: 'parktree', frameScale: 1.05, hero: ['parktree', 430], field: ['🌳', '🌳', '🌼'], anim: 'leaves', open: 0.98, lane: ['🌳', '🌼', '🪵', '🌳'] }), Z('meadow', 'そうげん', { crowd: 1.2, tint: '#a9d98a', walls: 0.35, light: 1.04, hero: ['fencerail', 340], field: ['🌼', '🌱', '🌼'], anim: 'leaves', open: 1.06 }), Z('river', 'かわぞいのみち', { crowd: 0.8, light: 1.0, tint: '#9ecfa8', walls: 0.55, frame: 'riverwood', hero: ['waterwheel', 360], field: ['🌿', '💧', '🌿'], anim: 'water', open: 1.05, lane: ['🌿', '💧', '🪨', '🌿'] }), Z('terrace', 'たなだ', { crowd: 0.6, light: 1.03, tint: '#bcd07e', walls: 0.45, frameScale: 0.9, hero: ['oldpost', 300], field: ['🌾', '🌱', '🌾'], anim: 'water', open: 1.07, marks: { color: '#8fae6a', kind: 'tuft' } }), Z('hamlet', 'となりのしゅうらく', { crowd: 1.3, light: 0.99, tint: '#b0c38c', walls: 0.9, frame: 'farmhouse', frameScale: 0.9, hero: ['stonestack', 290], field: ['🏡', '🪴', '🌳'], anim: 'leaves', lane: ['🪴', '🪵', '🐾', '🌷'] }), Z('hill', 'おか', { crowd: 1.2, light: 1.05, walls: 0.4, hero: ['statue', 300], field: ['🌻', '🌻', '🌼'], anim: 'leaves', open: 1.06 }), Z('woods', 'ちんじゅのもり', { crowd: 0.5, light: 0.82, fog: 0.2, tint: '#6f8f5f', walls: 1.5, frame: 'pinewall', frameScale: 1.2, hero: ['lanternpost', 300], field: ['🌳', '🌿', '🪨'], anim: 'mist', open: 0.93, lane: ['🌿', '🪨', '🍂', '🌳'] }), Z('far', 'むらのはずれ', { crowd: 0.4, fog: 0.12, walls: 0.5, anim: 'mist', open: 1.08 })],
-        spots: [sp('gate', 'むらのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'village' }), sp('village', 'むらのひろば', 0, 850, 280, 'plaza', 9, { hub: true, prop: '🏡', zone: 'village' }), sp('store', 'むらのよろずや', -520, 1250, 170, 'shop', 5, { prop: '🏚️', zone: 'village' }), sp('bus', 'バスていのベンチ', 520, 1150, 150, 'rest', 4, { prop: '🪧', zone: 'village' }), sp('road', 'あぜみち', 0, 1500, 170, 'path', 3, { zone: 'village' }), sp('field1', 'はたけ', -950, 1150, 220, 'grove', 3, { prop: '🌾', zone: 'fields' }), sp('field2', 'ひろいはたけ', -1550, 1750, 240, 'grove', 2, { prop: '🌾', zone: 'fields' }), sp('scarecrow', 'かかしのみち', -950, 2100, 170, 'path', 1, { prop: '🪧', zone: 'fields' }), sp('paddy', 'たんぼのあぜ', -1900, 2350, 200, 'path', 0, { zone: 'fields' }), sp('shed2', 'のうぐごや', -1350, 2550, 160, 'shelter', 2, { prop: '🏚️', zone: 'fields' }), sp('orchard', 'かじゅえん', -1600, 3150, 220, 'grove', 3, { prop: '🌳', zone: 'orchard' }), sp('orchard2', 'りんごのき', -2100, 3650, 180, 'grove', 2, { prop: '🌳', zone: 'orchard' }), sp('ladder', 'はしごのおくば', -1150, 3600, 150, 'path', 0, { zone: 'orchard' }), sp('meadow', 'そうげん', 950, 1250, 260, 'plaza', 5, { zone: 'meadow' }), sp('pasture', 'ぼくじょう', 1500, 1800, 220, 'grove', 3, { prop: '🪧', zone: 'meadow' }), sp('barn', 'なや', 700, 1900, 170, 'shelter', 3, { prop: '🏚️', zone: 'meadow' }), sp('cow', 'うしのみずば', 1900, 1300, 170, 'water', 2, { prop: '🌾', zone: 'meadow' }), sp('fence', 'ながいさく', 1300, 2400, 150, 'path', 0, { zone: 'meadow' }), sp('riverbank', 'かわぞい', 1800, 2750, 200, 'water', 2, { prop: '🌿', zone: 'river' }), sp('stepstone', 'とびいし', 2200, 3250, 150, 'path', 0, { prop: '🪨', zone: 'river' }), sp('watermill', 'みずぐるま', 1350, 3300, 200, 'edge', 2, { landmark: 'windmill', lmTier: 2, zone: 'river' }), sp('fishspot', 'かわのつりば', 2000, 3850, 170, 'water', 1, { prop: '🎣', zone: 'river' }), sp('terrace', 'たなだ', -900, 4250, 220, 'grove', 2, { prop: '🌾', zone: 'terrace' }), sp('terrace2', 'たなだのうえ', -1500, 4800, 190, 'path', 1, { zone: 'terrace' }), sp('terracelook', 'たなだのてんぼう', -2000, 4400, 170, 'edge', 1, { cam: 'wide', zone: 'terrace' }), sp('hamletwell', 'きょうどうのいど', 1200, 3950, 160, 'rest', 2, { prop: '🏺', zone: 'hamlet' }), sp('hamlet', 'となりのしゅうらく', 900, 4400, 240, 'plaza', 6, { prop: '🏡', zone: 'hamlet' }), sp('hamlethouse', 'かやぶきのいえ', 1450, 4850, 180, 'rest', 5, { prop: '🏚️', zone: 'hamlet' }), sp('hamletlane', 'しゅうらくのこみち', 450, 4850, 150, 'path', 0, { zone: 'hamlet' }), sp('lane1', 'ながいあぜみち', 0, 2350, 170, 'path', 1, { prop: '🪧', zone: 'village' }), sp('lane2', 'みちのぶんき', 100, 3200, 180, 'path', 1, { prop: '🪵', zone: 'village' }), sp('hillpath', 'おかのみち', 0, 4200, 170, 'path', 1, { zone: 'hill' }), sp('hill', 'ひなたのおか', 0, 5300, 260, 'plaza', 7, { prop: '🌻', zone: 'hill' }), sp('well', 'いど', -700, 5750, 160, 'rest', 4, { prop: '🏺', zone: 'hill' }), sp('shrine', 'ちいさなほこら', 700, 5800, 160, 'rest', 4, { prop: '⛩️', zone: 'hill' }), sp('woods', 'ちんじゅのもり', 1150, 6250, 200, 'grove', 2, { prop: '🌳', zone: 'woods' }), sp('torii', 'ふるいとりい', 1500, 6800, 170, 'path', 1, { prop: '⛩️', zone: 'woods' }), sp('woodsrest', 'もりのベンチ', 800, 6850, 150, 'rest', 1, { prop: '🪵', zone: 'woods' }), sp('hut', 'はたけのこや', -700, 6300, 150, 'shelter', 1, { prop: '🏚️', zone: 'far' }), sp('windmill', 'ふうしゃ', -1350, 6550, 180, 'edge', 2, { landmark: 'windmill', lmTier: 1, zone: 'far' }), sp('oldtree', 'おおきなき', 0, 7000, 200, 'edge', 2, { landmark: 'bigtree', lmTier: 1, cam: 'wide', zone: 'far' }), sp('farfield', 'はずれのはたけ', -750, 7000, 170, 'grove', 1, { prop: '🌾', zone: 'far' }), sp('pond', 'かくれたためいけ', -1900, 7000, 140, 'water', 1, { secret: true, zone: 'far' }), sp('mossrock', 'こけのいわ', 1750, 7100, 140, 'rest', 1, { secret: true, prop: '🪨', zone: 'woods' }), sp('orchardhut', 'かじゅえんのこや', -2250, 3100, 140, 'rest', 1, { secret: true, prop: '🏚️', zone: 'orchard' }), sp('riverislet', 'かわのなかす', 2350, 3700, 140, 'water', 1, { secret: true, zone: 'river' })],
-        paths: [['gate', 'village', 'wide'], ['village', 'store'], ['village', 'bus'], ['village', 'road'], ['store', 'field1'], ['field1', 'field2'], ['field1', 'scarecrow', 'narrow'], ['field2', 'paddy', 'narrow'], ['paddy', 'shed2', 'narrow'], ['scarecrow', 'shed2', 'narrow'], ['shed2', 'orchard'], ['paddy', 'orchard', 'narrow'], ['orchard', 'orchard2', 'narrow'], ['orchard', 'ladder', 'narrow'], ['orchard2', 'terracelook', 'narrow'], ['ladder', 'terrace', 'narrow'], ['bus', 'meadow'], ['village', 'meadow'], ['meadow', 'pasture'], ['meadow', 'barn'], ['meadow', 'cow', 'narrow'], ['cow', 'pasture', 'narrow'], ['pasture', 'fence', 'narrow'], ['barn', 'fence', 'narrow'], ['fence', 'riverbank'], ['riverbank', 'stepstone', 'narrow'], ['riverbank', 'watermill'], ['stepstone', 'fishspot', 'narrow'], ['watermill', 'fishspot', 'narrow'], ['watermill', 'hamletwell', 'narrow'], ['road', 'lane1'], ['lane1', 'lane2'], ['lane2', 'hillpath'], ['scarecrow', 'lane1', 'narrow'], ['lane2', 'watermill', 'narrow'], ['hillpath', 'terrace', 'narrow'], ['hillpath', 'hamletwell', 'narrow'], ['terrace', 'terrace2'], ['terrace', 'terracelook', 'narrow'], ['terrace2', 'well', 'narrow'], ['hamletwell', 'hamlet'], ['hamlet', 'hamlethouse'], ['hamlet', 'hamletlane', 'narrow'], ['hamletlane', 'hill', 'narrow'], ['hillpath', 'hill'], ['hill', 'well'], ['hill', 'shrine'], ['hamlethouse', 'shrine', 'narrow'], ['shrine', 'woods'], ['woods', 'torii', 'narrow'], ['woods', 'woodsrest', 'narrow'], ['torii', 'woodsrest', 'narrow'], ['well', 'hut', 'narrow'], ['hut', 'windmill', 'narrow'], ['hut', 'farfield'], ['farfield', 'oldtree'], ['windmill', 'farfield', 'narrow'], ['windmill', 'pond', 'secret'], ['woodsrest', 'oldtree', 'narrow'], ['torii', 'mossrock', 'secret'], ['orchard2', 'orchardhut', 'secret'], ['stepstone', 'riverislet', 'secret']] },
+        spots: [sp('gate', 'むらのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'village' }), sp('village', 'むらのひろば', 0, 850, 280, 'plaza', 9, { hub: true, prop: '🏡', zone: 'village' }), sp('store', 'むらのよろずや', -520, 1250, 170, 'shop', 5, { prop: '🏚️', zone: 'village' }), sp('bus', 'バスていのベンチ', 520, 1150, 150, 'rest', 4, { prop: '🪧', zone: 'village' }), sp('road', 'あぜみち', 0, 1500, 170, 'path', 3, { zone: 'village' }), sp('field1', 'はたけ', -950, 1150, 220, 'grove', 3, { prop: '🌾', zone: 'fields' }), sp('field2', 'ひろいはたけ', -1550, 1750, 240, 'grove', 2, { prop: '🌾', zone: 'fields' }), sp('scarecrow', 'かかしのみち', -950, 2100, 170, 'path', 1, { prop: '🪧', zone: 'fields' }), sp('paddy', 'たんぼのあぜ', -1900, 2350, 200, 'path', 0, { zone: 'fields' }), sp('shed2', 'のうぐごや', -1350, 2550, 160, 'shelter', 2, { prop: '🏚️', zone: 'fields' }), sp('orchard', 'かじゅえん', -1600, 3150, 220, 'grove', 3, { prop: '🌳', zone: 'orchard' }), sp('orchard2', 'りんごのき', -2100, 3650, 180, 'grove', 2, { prop: '🌳', zone: 'orchard' }), sp('ladder', 'はしごのおくば', -1150, 3600, 150, 'path', 0, { zone: 'orchard' }), sp('meadow', 'そうげん', 950, 1250, 260, 'plaza', 5, { zone: 'meadow' }), sp('pasture', 'ぼくじょう', 1500, 1800, 220, 'grove', 3, { prop: '🪧', zone: 'meadow' }), sp('barn', 'なや', 700, 1900, 170, 'shelter', 3, { prop: '🏚️', zone: 'meadow' }), sp('cow', 'うしのみずば', 1900, 1300, 170, 'water', 2, { prop: '🌾', zone: 'meadow' }), sp('fence', 'ながいさく', 1300, 2400, 150, 'path', 0, { zone: 'meadow' }), sp('riverbank', 'かわぞい', 1800, 2750, 200, 'water', 2, { prop: '🌿', zone: 'river' }), sp('stepstone', 'とびいし', 2200, 3250, 150, 'path', 0, { prop: '🪨', zone: 'river' }), sp('watermill', 'みずぐるま', 1350, 3300, 200, 'edge', 2, { landmark: 'windmill', lmTier: 2, zone: 'river' }), sp('fishspot', 'かわのつりば', 2000, 3850, 170, 'water', 1, { prop: '🎣', zone: 'river' }), sp('terrace', 'たなだ', -900, 4250, 220, 'grove', 2, { prop: '🌾', zone: 'terrace' }), sp('terrace2', 'たなだのうえ', -1500, 4800, 190, 'path', 1, { zone: 'terrace' }), sp('terracelook', 'たなだのてんぼう', -2000, 4400, 170, 'edge', 1, { cam: 'wide', zone: 'terrace' }), sp('hamletwell', 'きょうどうのいど', 1200, 3950, 160, 'rest', 2, { prop: '🏺', zone: 'hamlet' }), sp('hamlet', 'となりのしゅうらく', 900, 4400, 240, 'plaza', 6, { prop: '🏡', zone: 'hamlet' }), sp('hamlethouse', 'かやぶきのいえ', 1450, 4850, 180, 'rest', 5, { prop: '🏚️', zone: 'hamlet' }), sp('hamletlane', 'しゅうらくのこみち', 450, 4850, 150, 'path', 0, { zone: 'hamlet' }), sp('lane1', 'ながいあぜみち', 0, 2350, 170, 'path', 1, { prop: '🪧', zone: 'village' }), sp('lane2', 'みちのぶんき', 100, 3200, 180, 'path', 1, { prop: '🪵', zone: 'village' }), sp('hillpath', 'おかのみち', 0, 4200, 170, 'path', 1, { zone: 'hill' }), sp('hill', 'ひなたのおか', 0, 5300, 260, 'plaza', 7, { prop: '🌻', zone: 'hill' }), sp('well', 'いど', -700, 5750, 160, 'rest', 4, { prop: '🏺', zone: 'hill' }), sp('shrine', 'ちいさなほこら', 700, 5800, 160, 'rest', 4, { prop: '⛩️', zone: 'hill' }), sp('woods', 'ちんじゅのもり', 1150, 6250, 200, 'grove', 2, { prop: '🌳', zone: 'woods' }), sp('torii', 'ふるいとりい', 1500, 6800, 170, 'path', 1, { prop: '⛩️', zone: 'woods' }), sp('woodsrest', 'もりのベンチ', 800, 6850, 150, 'rest', 1, { prop: '🪵', zone: 'woods' }), sp('mountpath', 'もりのやまみち', 2100, 7000, 160, 'path', 0, { zone: 'woods' }), sp('skyland', 'そらのりば', 2350, 7400, 190, 'plaza', 1, { prop: '🪧', zone: 'woods' }), sp('hut', 'はたけのこや', -700, 6300, 150, 'shelter', 1, { prop: '🏚️', zone: 'far' }), sp('windmill', 'ふうしゃ', -1350, 6550, 180, 'edge', 2, { landmark: 'windmill', lmTier: 1, zone: 'far' }), sp('oldtree', 'おおきなき', 0, 7000, 200, 'edge', 2, { landmark: 'bigtree', lmTier: 1, cam: 'wide', zone: 'far' }), sp('farfield', 'はずれのはたけ', -750, 7000, 170, 'grove', 1, { prop: '🌾', zone: 'far' }), sp('pond', 'かくれたためいけ', -1900, 7000, 140, 'water', 1, { secret: true, zone: 'far' }), sp('mossrock', 'こけのいわ', 1750, 7100, 140, 'rest', 1, { secret: true, prop: '🪨', zone: 'woods' }), sp('orchardhut', 'かじゅえんのこや', -2250, 3100, 140, 'rest', 1, { secret: true, prop: '🏚️', zone: 'orchard' }), sp('riverislet', 'かわのなかす', 2350, 3700, 140, 'water', 1, { secret: true, zone: 'river' })],
+        paths: [['gate', 'village', 'wide'], ['village', 'store'], ['village', 'bus'], ['village', 'road'], ['store', 'field1'], ['field1', 'field2'], ['field1', 'scarecrow', 'narrow'], ['field2', 'paddy', 'narrow'], ['paddy', 'shed2', 'narrow'], ['scarecrow', 'shed2', 'narrow'], ['shed2', 'orchard'], ['paddy', 'orchard', 'narrow'], ['orchard', 'orchard2', 'narrow'], ['orchard', 'ladder', 'narrow'], ['orchard2', 'terracelook', 'narrow'], ['ladder', 'terrace', 'narrow'], ['bus', 'meadow'], ['village', 'meadow'], ['meadow', 'pasture'], ['meadow', 'barn'], ['meadow', 'cow', 'narrow'], ['cow', 'pasture', 'narrow'], ['pasture', 'fence', 'narrow'], ['barn', 'fence', 'narrow'], ['fence', 'riverbank'], ['riverbank', 'stepstone', 'narrow'], ['riverbank', 'watermill'], ['stepstone', 'fishspot', 'narrow'], ['watermill', 'fishspot', 'narrow'], ['watermill', 'hamletwell', 'narrow'], ['road', 'lane1'], ['lane1', 'lane2'], ['lane2', 'hillpath'], ['scarecrow', 'lane1', 'narrow'], ['lane2', 'watermill', 'narrow'], ['hillpath', 'terrace', 'narrow'], ['hillpath', 'hamletwell', 'narrow'], ['terrace', 'terrace2'], ['terrace', 'terracelook', 'narrow'], ['terrace2', 'well', 'narrow'], ['hamletwell', 'hamlet'], ['hamlet', 'hamlethouse'], ['hamlet', 'hamletlane', 'narrow'], ['hamletlane', 'hill', 'narrow'], ['hillpath', 'hill'], ['hill', 'well'], ['hill', 'shrine'], ['hamlethouse', 'shrine', 'narrow'], ['shrine', 'woods'], ['woods', 'torii', 'narrow'], ['woods', 'woodsrest', 'narrow'], ['torii', 'woodsrest', 'narrow'], ['torii', 'mountpath', 'narrow'], ['mountpath', 'skyland', 'narrow'], ['well', 'hut', 'narrow'], ['hut', 'windmill', 'narrow'], ['hut', 'farfield'], ['farfield', 'oldtree'], ['windmill', 'farfield', 'narrow'], ['windmill', 'pond', 'secret'], ['woodsrest', 'oldtree', 'narrow'], ['torii', 'mossrock', 'secret'], ['orchard2', 'orchardhut', 'secret'], ['stepstone', 'riverislet', 'secret']] },
       // もり: めいろ型を ひろげた もの。11の 地区が つづき、あるいて いるうちに 景色が なんども かわる。
       // あかるいもり → おがわ → こだちの めいろ → しだの くぼち → キノコの もり → ふかい もり →
       // いしの もり → おおきな き → たきの たに → ふるい もり → もりの おく。
@@ -2074,6 +2074,31 @@
       return { zones: [...zones], paths: [...paths], marks: [...marks] };
     }
 
+    // ====== region transition(Phase 2)======
+    // 世界の はしは これまでどおり clampToWorld が とめる。**きめられた 出口の うえで、
+    // そのむきへ すすんだ ときだけ** となりへ 出る。出口は WORLD_GEOGRAPHY の
+    // connection.gate に「いみ」として あり、Canvas の ざひょうには うめこまない。
+    // Three.js に なっても この まま つかえる(departure / arrival / kind / layer)
+    function regionGates(regionId, world) {
+      const out = [];
+      for (const c of WORLD_GEOGRAPHY.connections) {
+        if (!c.b || !c.gate || !c.gate.ends) continue;
+        const here = c.gate.ends[regionId]; if (!here) continue;
+        const to = c.a === regionId ? c.b : c.a;
+        const there = c.gate.ends[to]; if (!there) continue;
+        const spot = (world.spots || []).find((q) => q.id === here.spot); if (!spot) continue;
+        out.push({ id: c.id, kind: c.gate.kind, dir: c.gate.dir || null,
+          action: c.gate.action || null, verb: c.gate.verb || null, label: c.label,
+          from: regionId, to, at: there.spot, spot, out: here.dir, land: here.land || [],
+          // 入った がわで むく ほうこう。口(near)から 入れば おくへ(0)、
+          // おく(far)から 入れば 口へ(π)。**そのまま まっすぐ あるきつづけられる**
+          enterFacing: there.dir === 'far' ? Math.PI : 0,
+          layerFrom: (WORLD_GEOGRAPHY.regions[regionId] || {}).layer || 'ground',
+          layerTo: (WORLD_GEOGRAPHY.regions[to] || {}).layer || 'ground' });
+      }
+      return out;
+    }
+
     function createSimulation(init = {}) {
       let registry = init.registry || buildRegistry();
       let world = null, party = [], player = null, nearest = null, frame = 0, curSpot = null, mood = Object.assign({}, MOOD_DEFAULT);
@@ -2094,16 +2119,26 @@
       let walkedPaths = new Set(init.walkedPaths || []);
       let foundMarks = new Set(init.foundMarks || []);
       let curZoneId = null;
+      let gates = [], gateLock = false;
       // せいかつAI の かくにん用。ふだんの あそびでは 出さない(§50)
       let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
         party = companionsOf(registry);
-        player = { x: world.entry.x, z: world.entry.z - 60, heading: 0, face: 1, bob: 0, moving: false, onPath: true };
+        // となりから 入って きた ときは、その connection の 入口 spot から はじめる。
+        // 「たび」や はじめて ひらいた ときは これまでどおり world.entry
+        const at = opts.at ? (world.spots || []).find((q) => q.id === opts.at) : null;
+        const head = opts.heading != null ? opts.heading : 0;
+        player = { x: at ? at.x : world.entry.x, z: at ? at.z : world.entry.z - 60,
+          heading: head, face: 1, bob: 0, moving: false, onPath: true };
         clampToWorld(player, world); resolveObstacles(player, world); // いりぐちで なにかに めりこまない
-        camera.x = player.x; camera.z = player.z; camera.yaw = 0; nearest = null; curSpot = null; inputActive = false;
+        camera.x = player.x; camera.z = player.z; camera.yaw = head; nearest = null; curSpot = null; inputActive = false;
         curZoneId = null;
+        gates = regionGates(regionId, world);
+        // 入って きた ばしょが そのまま 出口の ときは、その spot を いちど はなれる まで
+        // 出口を ふうじる(入った しゅんかんに もどされて しまわない)
+        gateLock = !!at && gates.some((g) => g.spot.id === at.id);
         const same = opts.regionId === regionId;
         discovered = new Set(opts.discovered || (same ? [...discovered] : []));
         visitedZones = new Set(opts.visitedZones || (same ? [...visitedZones] : []));
@@ -2142,6 +2177,7 @@
           player.speed = spd / RULES.playerSpeed; // 0〜1(カメラの えんしゅつが よむ)
           moveWithCollision(player, player.x + mx / m * spd * dt, player.z + mz / m * spd * dt, world);
           player.heading = Math.atan2(mx, mz); player.face = rx * mx + rz * mz < -0.2 ? -1 : rx * mx + rz * mz > 0.2 ? 1 : player.face; player.bob += dt;
+          player.mz = mz / m;                       // +z へ すすんだか(出口の はんてい に つかう)
         }
         const np = nearestPath(player, world); player.onPath = (!!np && np.dist <= np.half + 20) || !!spotAt(player); // スポットの なかも あるきやすい
         if (frame % 20 === 0) refreshLandmark();
@@ -2156,6 +2192,16 @@
         // スポットに はいる / はっけん
         const s = spotAt(player);
         if (s !== curSpot) { curSpot = s; if (s) { const first = !discovered.has(s.id); if (first) discovered.add(s.id); events.push({ type: 'spot', spot: s, first }); } }
+        // ---- region の 出口 ----
+        const gateOn = curSpot ? gates.find((g) => g.spot.id === curSpot.id) : null;
+        if (!gateOn) gateLock = false;
+        else if (!gateLock && gateOn.kind === 'walk' && player.moving) {
+          // 「はしに さわった」だけでは 出ない。**その 出口の うえで、外へ むかって すすんだ**とき
+          const mz = player.mz || 0;
+          const outward = gateOn.out === 'far' ? mz > 0.3 : mz < -0.3;
+          const past = gateOn.out === 'far' ? player.z >= gateOn.spot.z - 30 : player.z <= gateOn.spot.z + 30;
+          if (outward && past) { gateLock = true; events.push({ type: 'gate', gate: gateOn }); }
+        }
         mood = moodAt(world, player.x, player.z);
         // ちずの きろく: この 地区へ きた / この みちを とおった / この めじるしを 見た
         const zn = mood.zone;
@@ -2308,6 +2354,9 @@
       const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera: camFor(camFxOn), rig: camera, camFx, nearest, spot: curSpot, zone: mood.zone || null, mood, env: envNow, frame, lifeDebug, lifeOf });
       return {
         RULES, enterRegion, step, talk, view, hitTest, dist, mapData,
+        // いま 立って いる ところが 特殊な たてじくの のりば なら、それを かえす(UI が「のる」を 出す)
+        gateHere: () => (curSpot ? gates.find((g) => g.spot.id === curSpot.id && g.kind === 'vertical') || null : null),
+        get gates() { return gates; },
         setEnv(e) { envNow = e; }, get env() { return envNow; },
         get lifeDebug() { return lifeDebug; }, set lifeDebug(v) { lifeDebug = !!v; },
         life: lifeOf, get meets() { return world.meets; },
@@ -3860,12 +3909,20 @@
           why: '山地の うらがわは あめが こえて こない', from: '「かぜのきれめ」を にしへ ぬけると くさが きえる',
           transition: ['たにあい', 'かぜのきれめ', 'あかいれき', 'メサ', 'すなやま'] },
         { id: 'countryside|forest', mouths: { countryside: 'woods', forest: 'entry' }, a: 'countryside', b: 'forest', kind: 'wood', layer: 'ground', made: 'nature', label: 'ちんじゅのもり',     ends: ['奥', '口'],
+          // Phase 2: ちんじゅのもりの おくが、そのまま 大森林へ つづく
+          gate: { kind: 'walk', ends: {
+            countryside: { spot: 'woods', dir: 'far',  land: ['すぎの こだち', 'しだ', 'あかるいもり'] },
+            forest:      { spot: 'entry', dir: 'near', land: ['あかるいもり', 'しだ', 'すぎの こだち'] } } },
           why: '人の さとの もりの さきが、人里を はなれた もり。butterfly / cicada が またぐ', from: '「ちんじゅのもり」を ぬける',
           transition: ['はたけ', 'やしきりん', 'ぞうきばやし', 'ちんじゅのもり', 'あかるいもり'] },
         { id: 'countryside|river_lake', mouths: { countryside: 'riverbank', river_lake: 'bank' }, a: 'countryside', b: 'river_lake', kind: 'river', layer: 'ground', made: 'nature', label: 'たにがわ', ends: ['脇', '口'], long: true,
           why: '山里の 水車と たなだの 水は、やまから おりる 支流。それが たにの おおかわへ 合流する。frog が またぐ', from: '「かわぞい」から したへ くだる',
           transition: ['たなだ', 'みずぐるま', 'かわぞいのみち', 'とびいし', 'かわぎし'] },
         { id: 'countryside|home', mouths: { countryside: 'gate', home: 'gate' },   a: 'countryside', b: 'home',    kind: 'lane',    layer: 'ground', made: 'people', label: 'さとのみち',         ends: ['口', '口'], long: true,
+          // Phase 2: あるいて こえられる。どちらも 口(z≒0)がわから 出る
+          gate: { kind: 'walk', ends: {
+            home:        { spot: 'gate', dir: 'near', land: ['にわ', 'いけがき', 'のうどう', 'はたけ'] },
+            countryside: { spot: 'gate', dir: 'near', land: ['あぜ', 'のうどう', 'いけがき', 'にわ'] } } },
           why: '**たにの まちから にし〜南西へ 山里へ 上がる 道**。もりの きわを まいて 行くので、もりへ 入らなくても 行ける。HABITAT が 7 けいとう またぐ いちばん つよい むすびつき', from: '「いえのまえ」から にしへ。はたけの さきの いっぽんみち',
           transition: ['にわ', 'いけがき', 'のうどう', 'はたけ', 'あぜ', 'むらのいりぐち'] },
         { id: 'home|river_lake', mouths: { home: 'bigtree', river_lake: 'riverside' }, a: 'home',   b: 'river_lake', kind: 'terrace', layer: 'ground', made: 'people', label: 'だんきゅうをおりるみち', ends: ['奥', '口'],
@@ -3887,6 +3944,9 @@
           why: 'ちけいでは なく 人が つくった ちょうきょり こうえきろ。desert に「キャラバンのあたり」が じっさいに ある', from: '「キャラバンのあたり」で らくだの あとを たどる／まちの いちばで すなの におう にもつを 見る',
           transition: ['しょうてんがい', 'かいどうのやど', 'いしだらけのひらち', 'キャラバンのあたり'] },
         { id: 'deepsea|sea', mouths: { deepsea: 'reef', sea: 'seacave' },         a: 'deepsea',    b: 'sea',        kind: 'dive',    layer: 'down',   made: 'nature', label: 'がいようのたなのふち', ends: ['口', '奥'],
+          // Phase 2: 外洋がわの どうくつから もぐる。ゴンドラと おなじ しくみの たてじく(むきは 下)
+          gate: { kind: 'vertical', dir: 'down', action: 'もぐる', verb: 'ふかい うみへ もぐる',
+            ends: { sea: { spot: 'seacave', dir: 'ride' }, deepsea: { spot: 'reef', dir: 'ride' } } },
           why: '**湾では なく、岬の そとの 外洋**。棚の ふちで きゅうに おちる', from: '「かいしょくどうくつ」の おく',
           transition: ['はてのはま', 'あさせ', 'もば', 'あさせのたな', 'たなのふち', 'おちこみ'] },
         // ---- ほしぞらへの みち = **special vertical connection**(ふつうの 徒歩の みちでは ない) ----
@@ -3902,18 +3962,21 @@
             from: { region: 'countryside', layer: 'ground', anchor: 'torii', role: 'gate' },
             to:   { region: 'star_stop',   layer: 'sky',    anchor: 'stop',  role: 'arrival' },
             // のりもの。**実在の しせつでは ない**。名まえは かり(Phase 2 の まえに きめなおす)
-            ride: { id: 'hoshizora-gondola', name: 'ほしぞらゴンドラ', kind: 'gondola', provisional: true },
+            ride: { id: 'hoshizora-gondola', name: 'そらのゴンドラ', kind: 'gondola' },
             // たびの だんかい。anchor が null の ところは **Phase 2 で spot を おく よてい**で、
             // いまは spot を 1 つも ふやして いない
             stages: [
               { id: 'approach', move: 'walk',    region: 'countryside', anchor: 'woods', note: 'むら → おか → ちんじゅのもり' },
               { id: 'gate',     move: 'walk',    region: 'countryside', anchor: 'torii', note: 'ふるいとりい。ここから さきは 山の りょういき' },
-              { id: 'trail',    move: 'walk',    region: 'countryside', anchor: null,    note: 'もりの 山道。すこし のぼる(Phase 2)' },
-              { id: 'board',    move: 'walk',    region: 'countryside', anchor: null,    note: 'もりが ひらけた 山ろくの のりば(Phase 2)' },
+              { id: 'trail',    move: 'walk',    region: 'countryside', anchor: 'mountpath', note: 'もりの 山道。すこし のぼる' },
+              { id: 'board',    move: 'walk',    region: 'countryside', anchor: 'skyland',   note: 'もりが ひらけた 山ろくの のりば' },
               { id: 'ride',     move: 'gondola', region: null,          anchor: null,    note: '地上が とおざかる。たに・おうち・かわ・二つの 山地が 下に' },
               { id: 'arrive',   move: 'walk',    region: 'star_stop',   anchor: 'stop',  note: 'ほしぞらの ていりゅうじょ' },
             ],
           },
+          // Phase 2: じっさいに のる。のりばは 鳥居では なく、山道の さきの「そらのりば」
+          gate: { kind: 'vertical', dir: 'up', action: 'のる', verb: 'そらのゴンドラに のる',
+            ends: { countryside: { spot: 'skyland', dir: 'ride' }, star_stop: { spot: 'stop', dir: 'ride' } } },
           why: '**山里の おくの 古い鳥居から 山へ 入り、山道の さきの のりばから 上空層へ**。phoenix / god / star が やま・ゆきぐに・ほしぞら を またぐ', from: '「ふるいとりい」の さきの 山道を のぼり、ひらけた 山ろくの のりばから／そだち70',
           transition: ['ちんじゅのもり', 'ふるいとりい', 'やまみち', 'すぎが たかくなる', 'もりが ひらける', 'やまろくの のりば', 'そらが ひらける', 'くものした', 'ていりゅうじょ'] },
         { id: 'memory_lake', a: 'memory_lake', b: null,                            kind: 'memory',  layer: 'memory', made: 'nature', label: 'きりのよる',         ends: ['—', '—'], hidden: true,
@@ -4825,9 +4888,10 @@
         <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
-      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
+      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn hidden" id="mgrRide">のる</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
       const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
       const canvas = container.querySelector('#mgrCanvas');
+      let lastRide = null;
       const wrap = container.querySelector('.mgr-wrap');
       const mapBtn = container.querySelector('#mgrMap');
       // たんさく がめんの たかさ。
@@ -4906,6 +4970,8 @@
       const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
       const placeEl = container.querySelector('#mgrPlace'), countEl = container.querySelector('#mgrCount'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner'), spotEl = container.querySelector('#mgrSpot');
       const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
+      const rideBtn = container.querySelector('#mgrRide');
+      const ctx2d = canvas.getContext ? canvas.getContext('2d') : null;
       const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
       const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null, resolveScenery: typeof S.resolveScenery === 'function' ? S.resolveScenery : null });
       // よいやすい ひとの せってい: カメラの えんしゅつを とめ、けしきの うごきを へらす(とめない)
@@ -4948,19 +5014,64 @@
       hud();
       const preload = () => { if (typeof S.prepareIllustrations !== 'function') return; const w = sim.world; const scenery = [...new Set(w.props.map((p) => p.emoji).filter(Boolean))]; const actors = [...new Set(w.residents.concat(sim.party).map((a) => a.emoji).filter(Boolean))]; S.prepareIllustrations(scenery, actors); };
       preload();
-      function enterWorld(regionId) {
-        sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [] });
+      function enterWorld(regionId, opts = {}) {
+        sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null,
+          discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [], at: opts.at || null, heading: opts.heading });
         loadMapRecords(regionId);
         preload();
         sim.setEnv(env());
-        talkBtn.disabled = true; showSpot(null);
+        talkBtn.disabled = true; showSpot(null); rideBtn.classList.add('hidden');
         showBanner(`${plainLabel(regionId)}に ついた`, 1600);
         hud();
+      }
+
+      // ====== region transition(Phase 2)======
+      // あるいて こえる / ゴンドラで 上がる / もぐる の 3つを ひとつの しくみで あつかう。
+      // かかる あいだ は たんさくの にゅうりょく・はなす・ちず・たび を とめる(#28)
+      const TRANS_DUR = { walk: 1.0, up: 2.6, down: 2.2 };
+      let trans = null;
+      function beginTransition(g) {
+        if (trans) return;
+        const way = g.kind === 'walk' ? 'walk' : g.dir === 'down' ? 'down' : 'up';
+        trans = { g, way, t: 0, dur: TRANS_DUR[way], moved: false, first: false };
+        talkBtn.disabled = true; rideBtn.classList.add('hidden');
+        travelBtn.disabled = true; mapBtn.disabled = true;
+        sfx(way === 'walk' ? 'pop' : 'open');
+        hintEl.textContent = way === 'walk' ? `${plainLabel(g.to)}の ほうへ あるいて いく…`
+          : way === 'up' ? 'ゴンドラが うごきだす…' : 'しずかに もぐって いく…';
+      }
+      function stepTransition(dt) {
+        trans.t += dt;
+        // まんなかで 地域を きりかえる。ここで はじめて「たび」とは べつの 移動処理を よぶ
+        if (!trans.moved && trans.t >= trans.dur * 0.5) {
+          trans.moved = true;
+          const g = trans.g;
+          const by = trans.way === 'walk' ? 'walk' : trans.way === 'up' ? 'gondola' : 'dive';
+          const r = typeof S.enterRegionByMove === 'function' ? S.enterRegionByMove(g.to, { by }) : { ok: false };
+          trans.first = !!(r && r.first);
+          // むきは そのまま ひきつぐ(こえた しゅんかんに ふりむかない)
+          enterWorld(g.to, { at: g.at, heading: g.enterFacing != null ? g.enterFacing : 0 });
+        }
+        if (trans.t >= trans.dur) {
+          const g = trans.g, first = trans.first;
+          trans = null;
+          travelBtn.disabled = false; mapBtn.disabled = false;
+          last = null;
+          if (first) { showBanner(`はじめての ${plainLabel(g.to)}`, 2000); sfx('pop'); }
+          lastHint = null;
+        }
       }
       function frameFn(now) {
         if (!running) return;
         if (last === null) last = now; const last0 = last; const dt = Math.min(0.05, (now - last) / 1000); last = now; frame++;
         const st = getState();
+        if (trans) {
+          stepTransition(dt);
+          renderer.draw(sim.view(), now);
+          if (trans) drawTransition(ctx2d, trans);
+          rafId = requestAnimationFrame(frameFn);
+          return;
+        }
         if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
         if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
         // ならびは あとから かわる(ヒントが 2行に なる・ブラウザの バーが 出入りする・
@@ -4979,11 +5090,19 @@
           else if (ev.type === 'zone' && ev.first) { saveMapBits('zones', ev.zone.id); mapAdded = true; }
           else if (ev.type === 'path') saveMapBits('paths', ev.key);
           else if (ev.type === 'mark' && ev.first) newMarks.push(ev.mark.mid);
+          else if (ev.type === 'gate') beginTransition(ev.gate);
         }
         if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; }
         // ちずに ふえた ことを、おおげさに しないで しらせる(「ちず」ボタンが すこし ひかる)
         if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
+        // たてじくの のりばに 立って いる あいだ だけ「のる」/「もぐる」
+        const ride = sim.gateHere ? sim.gateHere() : null;
+        if (ride !== lastRide) {
+          lastRide = ride;
+          if (ride) { rideBtn.textContent = ride.action; rideBtn.classList.remove('hidden'); }
+          else rideBtn.classList.add('hidden');
+        }
         const nearest = sim.nearest;
         const hint = nearest ? `${nearest.label}が ${VERBS[nearest.behavior] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
         if (hint !== lastHint) { lastHint = hint; hintEl.textContent = hint; }
@@ -4993,6 +5112,78 @@
         if (!(halfRate && frame % 2 === 1)) renderer.draw(sim.view(), now);
         rafId = requestAnimationFrame(frameFn);
       }
+      // region を こえる あいだ の え。ふだんの たんさくには 1つも 足さない
+      // (trans が ある あいだ だけ よばれる)。かるい 図形だけで 組む
+      function drawTransition(ctx, tr) {
+        if (!ctx) return;
+        const w = canvas.width, h = canvas.height;
+        const k = Math.min(1, tr.t / tr.dur);              // 0 → 1
+        const veil = Math.sin(Math.PI * k);                 // まんなかが いちばん こい
+        ctx.save();
+        if (tr.way === 'walk') {
+          ctx.fillStyle = `rgba(28,24,18,${0.86 * veil})`; ctx.fillRect(0, 0, w, h);
+          // さかいの けしき の ことばが ゆっくり ながれる
+          const land = tr.g.land || [];
+          if (land.length && veil > 0.25) {
+            ctx.globalAlpha = Math.min(1, (veil - 0.25) * 2.4);
+            ctx.fillStyle = '#f3ead6'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            const size = Math.max(13, Math.round(w * 0.045));
+            ctx.font = `${size}px system-ui, -apple-system, sans-serif`;
+            land.forEach((t, i) => {
+              const at = (k * land.length) - i;
+              if (at < -0.4 || at > 1.4) return;
+              ctx.globalAlpha = Math.min(1, veil) * Math.max(0, 1 - Math.abs(at - 0.5) * 1.6);
+              ctx.fillText(t, w / 2, h * 0.5 + (0.5 - at) * size * 2.4);
+            });
+          }
+        } else {
+          const up = tr.way === 'up';
+          // 空へ / 海へ。いろが だんだん かわる
+          const g1 = ctx.createLinearGradient(0, 0, 0, h);
+          if (up) { g1.addColorStop(0, `rgba(14,16,48,${0.2 + 0.78 * k})`); g1.addColorStop(1, `rgba(120,160,205,${0.15 + 0.6 * k})`); }
+          else { g1.addColorStop(0, `rgba(40,96,132,${0.2 + 0.6 * k})`); g1.addColorStop(1, `rgba(6,16,40,${0.25 + 0.72 * k})`); }
+          ctx.fillStyle = g1; ctx.fillRect(0, 0, w, h);
+          if (up) {
+            // ほしが ふえる
+            const stars = Math.round(46 * k);
+            ctx.fillStyle = '#fff';
+            for (let i = 0; i < stars; i++) {
+              const a = hrand('mgstar:' + i) * w, b = hrand('mgstar2:' + i) * h * 0.72;
+              ctx.globalAlpha = 0.25 + hrand('mgstar3:' + i) * 0.7 * k;
+              ctx.fillRect(a, b, 2, 2);
+            }
+            ctx.globalAlpha = 1;
+            // かごが ゆっくり のぼる(ロープと かご だけ)
+            const cx = w * 0.5, cy = h * (0.82 - 0.5 * k);
+            const cw = Math.max(16, w * 0.075), ch = cw * 0.8;
+            ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(0, cy - ch * 1.9 + w * 0.16); ctx.lineTo(w, cy - ch * 1.9 - w * 0.16); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(cx, cy - ch * 1.75); ctx.lineTo(cx, cy - ch); ctx.stroke();
+            ctx.fillStyle = '#f0e6cc'; ctx.strokeStyle = 'rgba(40,34,24,.75)';
+            ctx.beginPath(); ctx.rect(cx - cw / 2, cy - ch, cw, ch); ctx.fill(); ctx.stroke();
+            ctx.fillStyle = 'rgba(150,200,235,.8)';
+            ctx.fillRect(cx - cw * 0.32, cy - ch * 0.78, cw * 0.64, ch * 0.42);
+          } else {
+            // あわが のぼって いく
+            ctx.strokeStyle = 'rgba(220,240,255,.7)'; ctx.lineWidth = 1.6;
+            for (let i = 0; i < 26; i++) {
+              const bx = hrand('mgbub:' + i) * w;
+              const sp = 0.45 + hrand('mgbub2:' + i) * 0.9;
+              const by = h - ((k * sp + hrand('mgbub3:' + i)) % 1) * h;
+              const r = 2 + hrand('mgbub4:' + i) * 5;
+              ctx.globalAlpha = 0.25 + 0.5 * (1 - by / h);
+              ctx.beginPath(); ctx.arc(bx, by, r, 0, TAU); ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+          }
+          // ふかさ / たかさ の めやす
+          ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.font = `${Math.max(12, Math.round(w * 0.04))}px system-ui, -apple-system, sans-serif`;
+          ctx.fillText(up ? 'そらへ' : 'ふかく', w / 2, h * (up ? 0.16 : 0.86));
+        }
+        ctx.restore();
+      }
+
       function talk() {
         const r = sim.talk();
         if (!r) return;
@@ -5016,6 +5207,7 @@
         });
       }
       mapBtn.addEventListener('click', openMap);
+      rideBtn.addEventListener('click', () => { const g = sim.gateHere ? sim.gateHere() : null; if (g) beginTransition(g); });
       travelBtn.addEventListener('click', () => { if (typeof S.openTravel === 'function') S.openTravel(); });
       homeBtn.addEventListener('click', () => stop());
       function stop() {

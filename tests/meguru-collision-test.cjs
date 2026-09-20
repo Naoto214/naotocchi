@@ -123,7 +123,7 @@ test('walking for real, every spot in every region is still reachable, secret on
     spots += w.spots.length;
     secrets += w.spots.filter((s) => s.secret).length;
   }
-  assert.equal(spots, 469, 'all 469 spots were walked to');
+  assert.equal(spots, 471, 'all 471 spots were walked to (Phase 2 added the mountain path and the gondola landing)');
   assert.equal(secrets, 50, 'all 50 secret spots were among them');
 });
 

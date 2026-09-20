@@ -13853,7 +13853,7 @@
   // 「たび」の 地域えらび(travelToRegion)は そのまま。ここは その うえの べつの がめん。
   // 地域を かえる ときは かならず 本体の travelToRegion() を とおる(めぐる の なかの
   // 「たび」ボタンも ふつうの たび がめんを ひらくだけ)
-  const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru({
+  const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
     getState: () => state,
     currentEnvironment: () => currentEnvironment(),
@@ -13918,6 +13918,29 @@
       if (out.length !== (m.world.regions || []).length) { m.world.regions = out.slice(); saveState(); }
       return out.slice();
     },
+    // ---- Phase 2: となりの 地域へ じぶんで 移動する(「たび」とは べつの みち) ----
+    // ここで おこるのは「いま いる 地域」「はじめて きた きろく」「ライフログ」「ほぞん」だけ。
+    // **たびの ひよう(げんき・おなか)・たびづかれ・そだち・きげんボーナス・たびの せりふ・
+    // ストーリー判定・えんしゅつは 1つも おこらない**(あるいて となりへ 出ただけ なので)
+    enterRegionByMove: (regionId, opts = {}) => {
+      const region = findRegion(regionId);
+      if (!region || region.id === state.regionId) return { ok: false, first: false };
+      if (!state.lifetime.specialRegionsVisited) state.lifetime.specialRegionsVisited = [];
+      const isSpecial = !!region.special;
+      const list = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
+      const first = !list.includes(region.id);
+      state.regionId = region.id;
+      // 「いまいる ばしょ」の ひょうじだけを もどす しくみとは べつなので、ここで けす
+      state.lifetime.currentLocationSelected = false;
+      state.lifetime.currentLocation = null;
+      if (first) {
+        list.push(region.id);
+        const how = opts.by === 'gondola' ? 'ゴンドラで' : opts.by === 'dive' ? 'もぐって' : 'あるいて';
+        pushLifeLog(region.emoji, `${how}${region.label}までいった`);
+      }
+      saveState();
+      return { ok: true, first, label: region.label, emoji: region.emoji };
+    },
     worldLinks: () => meguruStats().world.links.slice(),
     recordWorldLinks: (ids) => {
       const m = meguruStats(); let added = false;
@@ -13940,7 +13963,9 @@
       }
       if (changed) saveState();
     },
-  }) : null;
+  };
+  // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
+  const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
     if (!m.met || typeof m.met !== 'object') m.met = {};
@@ -13970,6 +13995,10 @@
     el.meguruOverlay.innerHTML = '';
     meguruStats().visits += 1;
     meguruRun = meguruMod.start(el.meguruOverlay);
+    // 実機の しらべ もの(Playwright)から めぐるの なかを さわる ための まど。
+    // ゲームの うごきには つかわない
+    globalThis.__meguruRun = meguruRun;
+    globalThis.__meguruBridge = meguruBridge;
     audio.play('open');
     render();
     return true;

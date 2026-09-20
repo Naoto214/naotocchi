@@ -48,7 +48,7 @@ test('every spot says what can be done there, and the list comes from the world,
       if (s.secret) for (const act of ['gather', 'talk', 'play']) assert.ok(!s.actWeights[act], `${id}/${s.id}: nothing sociable happens in a secret place`);
     }
   }
-  assert.equal(total, 469, 'all 469 spots carry their activities');
+  assert.equal(total, 471, 'all 471 spots carry their activities (Phase 2 added the mountain path and the gondola landing)');
   assert.ok(shelter > 30 && seats > 100 && sleepable > 100, `shelter=${shelter} seats=${seats} sleepable=${sleepable}`);
 });
 
