@@ -3889,9 +3889,33 @@
         { id: 'deepsea|sea', mouths: { deepsea: 'reef', sea: 'seacave' },         a: 'deepsea',    b: 'sea',        kind: 'dive',    layer: 'down',   made: 'nature', label: 'がいようのたなのふち', ends: ['口', '奥'],
           why: '**湾では なく、岬の そとの 外洋**。棚の ふちで きゅうに おちる', from: '「かいしょくどうくつ」の おく',
           transition: ['はてのはま', 'あさせ', 'もば', 'あさせのたな', 'たなのふち', 'おちこみ'] },
+        // ---- ほしぞらへの みち = **special vertical connection**(ふつうの 徒歩の みちでは ない) ----
+        // 山里の 日常 → 古い鳥居(さかいめ) → もりの 山道 → ひらけた 山ろくの のりば →
+        // **ゴンドラ**で 上空層へ。じっさいの しせつの さいげんでは なく、なおとっち独自の
+        // 「日常から とくべつな せかいへ 上がる」たいけん。
+        // `vertical` は **え の ための データでは なく world / simulation の いみの データ**。
+        // Three.js で ほんとうに ゴンドラを うごかす ときも この まま つかえる(#23)
         { id: 'countryside|star_stop', mouths: { countryside: 'torii', star_stop: 'stop' }, a: 'countryside', b: 'star_stop', kind: 'sky', layer: 'up', made: 'nature', label: 'やまのうえのいりぐち', ends: ['奥', '口'],
-          why: '**山里の おくの 古い鳥居から 山へ 入り、そこから 上空層へ**。phoenix / god / star が やま・ゆきぐに・ほしぞら を またぐ', from: '「ふるいとりい」の さきの 山道を のぼる／そだち70',
-          transition: ['ちんじゅのもり', 'ふるいとりい', 'やまみち', 'すぎが たかくなる', 'そらが ひらける', 'くものした', 'ていりゅうじょ'] },
+          special: 'vertical',
+          vertical: {
+            dir: 'up',                                   // たてじくの むき
+            from: { region: 'countryside', layer: 'ground', anchor: 'torii', role: 'gate' },
+            to:   { region: 'star_stop',   layer: 'sky',    anchor: 'stop',  role: 'arrival' },
+            // のりもの。**実在の しせつでは ない**。名まえは かり(Phase 2 の まえに きめなおす)
+            ride: { id: 'hoshizora-gondola', name: 'ほしぞらゴンドラ', kind: 'gondola', provisional: true },
+            // たびの だんかい。anchor が null の ところは **Phase 2 で spot を おく よてい**で、
+            // いまは spot を 1 つも ふやして いない
+            stages: [
+              { id: 'approach', move: 'walk',    region: 'countryside', anchor: 'woods', note: 'むら → おか → ちんじゅのもり' },
+              { id: 'gate',     move: 'walk',    region: 'countryside', anchor: 'torii', note: 'ふるいとりい。ここから さきは 山の りょういき' },
+              { id: 'trail',    move: 'walk',    region: 'countryside', anchor: null,    note: 'もりの 山道。すこし のぼる(Phase 2)' },
+              { id: 'board',    move: 'walk',    region: 'countryside', anchor: null,    note: 'もりが ひらけた 山ろくの のりば(Phase 2)' },
+              { id: 'ride',     move: 'gondola', region: null,          anchor: null,    note: '地上が とおざかる。たに・おうち・かわ・二つの 山地が 下に' },
+              { id: 'arrive',   move: 'walk',    region: 'star_stop',   anchor: 'stop',  note: 'ほしぞらの ていりゅうじょ' },
+            ],
+          },
+          why: '**山里の おくの 古い鳥居から 山へ 入り、山道の さきの のりばから 上空層へ**。phoenix / god / star が やま・ゆきぐに・ほしぞら を またぐ', from: '「ふるいとりい」の さきの 山道を のぼり、ひらけた 山ろくの のりばから／そだち70',
+          transition: ['ちんじゅのもり', 'ふるいとりい', 'やまみち', 'すぎが たかくなる', 'もりが ひらける', 'やまろくの のりば', 'そらが ひらける', 'くものした', 'ていりゅうじょ'] },
         { id: 'memory_lake', a: 'memory_lake', b: null,                            kind: 'memory',  layer: 'memory', made: 'nature', label: 'きりのよる',         ends: ['—', '—'], hidden: true,
           why: 'たにの おおかわには、ゆきの りょうでは せつめいの つかない みずが ながれて いる。地上の ざひょうを もたない', from: 'きりの よる、しずかな みずべで',
           transition: ['きりが こくなる', 'おとが きえる', 'きし'] },
@@ -3971,8 +3995,16 @@
       // ---- たてじく。D2 では 1 点では なく **山の上** と **海の下** の 2 か所。
       // どちらも「上る／下る もとの 地域」と「その さきの 地域」を どちらも 見つけて
       // いる ときだけ 出す(未発見の そんざいを ばらさない)
-      const anchor = (a) => ({ x: a.mapX, y: a.mapY, label: a.label, short: a.short, from: a.from, region: a.region,
-        on: seen(a.region) && seen(a.from), base: seen(a.from) });
+      const anchor = (a) => {
+        // たてじくの みちが **特殊接続**なら、その のりものを え の がわへ つたえる。
+        // ふつうの 徒歩の みちと おなじ 見た目に しない ため(#11)
+        const on = seen(a.region) && seen(a.from);
+        const via = on && G.connections.find((c) => c.b === a.region && c.vertical);
+        return { x: a.mapX, y: a.mapY, label: a.label, short: a.short, from: a.from, region: a.region,
+          // **見つける まで のりものの そんざいも 出さない**(#12)
+          ride: via && via.vertical.ride ? via.vertical.ride.kind : null,
+          on, base: seen(a.from) };
+      };
       const axis = { sky: anchor(G.axis.sky), deep: anchor(G.axis.deep) };
       // ---- 地形(feature)。点の 地域を 見つけて いる ところだけ のびる(#25, #26) ----
       const features = G.features.map((f) => ({ id: f.id, kind: f.kind, label: f.label,
@@ -4482,9 +4514,23 @@
         const x = toX(a.x), y = toY(a.y), g = Math.max(11, U * 0.2);
         const ty = up ? y - g * 1.5 : y + g * 1.5;
         ctx.save();
-        ctx.strokeStyle = pal.ink; ctx.globalAlpha = 0.55; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2;
-        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, ty); ctx.stroke();
-        ctx.setLineDash([]); ctx.globalAlpha = 1;
+        if (a.ride === 'gondola') {
+          // **ゴンドラ**。ふつうの みちの 点線とは べつの 見た目に する。ただし ひかえめに:
+          // ほそい 1 本の 線に、ちいさな かごを 2 つ ぶらさげる だけ(#11)
+          ctx.strokeStyle = pal.ink; ctx.globalAlpha = 0.5; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, ty); ctx.stroke();
+          ctx.globalAlpha = 0.85; ctx.fillStyle = pal.paper; ctx.lineWidth = 1.1;
+          for (const k of [0.34, 0.68]) {
+            const cy = y + (ty - y) * k, w = Math.max(2.6, g * 0.22), hgt = Math.max(2.2, g * 0.19);
+            ctx.beginPath(); ctx.moveTo(x, cy - hgt * 0.9); ctx.lineTo(x, cy - hgt * 0.35); ctx.stroke();
+            ctx.beginPath(); ctx.rect(x - w, cy - hgt * 0.35, w * 2, hgt); ctx.fill(); ctx.stroke();
+          }
+          ctx.globalAlpha = 1;
+        } else {
+          ctx.strokeStyle = pal.ink; ctx.globalAlpha = 0.55; ctx.setLineDash([3, 3]); ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, ty); ctx.stroke();
+          ctx.setLineDash([]); ctx.globalAlpha = 1;
+        }
         ctx.fillStyle = fill; ctx.strokeStyle = pal.ink; ctx.lineWidth = 1.3;
         ctx.beginPath();
         if (up) { ctx.moveTo(x, ty - g * 0.62); ctx.lineTo(x + g * 0.56, ty + g * 0.34); ctx.lineTo(x - g * 0.56, ty + g * 0.34); }

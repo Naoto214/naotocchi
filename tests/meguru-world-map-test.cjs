@@ -622,3 +622,82 @@ test('29. 地理正本 v1: 南アルプス型は ひがしの 巨大山地。や
   assert.ok(!east.points.some((p) => p.region === 'mountain'), 'やまは ひがしの山地では ない');
   assert.ok(G.regions.mountain.mapX < G.regions.river_lake.mapX, 'やまは たにより にし');
 });
+
+test('30. 地理正本 v1: ほしぞらへは **特殊たてじく接続**。ふつうの 徒歩の みちでは ない', () => {
+  const { M } = setup();
+  const G = M.WORLD_GEOGRAPHY;
+  const sky = G.connections.find((c) => c.id === 'countryside|star_stop');
+  assert.ok(sky, 'いなか ↑ ほしぞら が ある');
+  // special vertical connection として 正本化されて いる
+  assert.equal(sky.special, 'vertical', '特殊たてじく接続');
+  assert.equal(sky.layer, 'up', '上へ 上がる');
+  assert.notEqual(sky.layer, 'ground', 'ふつうの 徒歩の みちでは ない');
+  const V = sky.vertical;
+  assert.ok(V, 'たてじくの いみデータを もつ');
+  assert.equal(V.dir, 'up');
+  // 3D 化の ための anchor / layer transition
+  assert.equal(V.from.region, 'countryside'); assert.equal(V.from.layer, 'ground');
+  assert.equal(V.to.region, 'star_stop');     assert.equal(V.to.layer, 'sky');
+  assert.notEqual(V.from.layer, V.to.layer, '層を またぐ');
+  // のりもの。**実在の しせつでは なく**、名まえは かり
+  assert.equal(V.ride.kind, 'gondola');
+  assert.equal(V.ride.provisional, true, '名まえは Phase 2 の まえに きめなおす');
+  // いなか側の いりぐちは 既存の「ふるいとりい」、ほしぞら側は 既存の「ていりゅうじょ」
+  assert.equal(sky.mouths.countryside, 'torii');
+  assert.equal(sky.mouths.star_stop, 'stop');
+  assert.equal(V.from.anchor, 'torii'); assert.equal(V.to.anchor, 'stop');
+  const torii = M.WORLDS.countryside.spots.find((q) => q.id === 'torii');
+  const stop = M.WORLDS.star_stop.spots.find((q) => q.id === 'stop');
+  assert.equal(torii.label, 'ふるいとりい'); assert.equal(torii.secret, undefined);
+  assert.equal(stop.label, 'ていりゅうじょ'); assert.equal(stop.secret, undefined);
+  // **鳥居と ゴンドラを 直結させない**。あいだに 山道と のりばの だんかいが ある
+  const ids = V.stages.map((s) => s.id);
+  assert.equal(ids.join(' → '), 'approach → gate → trail → board → ride → arrive');
+  assert.ok(ids.indexOf('trail') > ids.indexOf('gate') && ids.indexOf('ride') > ids.indexOf('board'),
+    '鳥居 → 山道 → のりば → ゴンドラ の じゅんばん');
+  const walkBetween = V.stages.slice(ids.indexOf('gate') + 1, ids.indexOf('ride'));
+  assert.ok(walkBetween.length >= 2 && walkBetween.every((s) => s.move === 'walk'),
+    '鳥居から のりばまでは あるいて のぼる');
+  // Phase 2 で おく よていの だんかいは まだ spot を ふやして いない
+  for (const st of V.stages) {
+    if (!st.anchor || !st.region) continue;
+    assert.ok(M.WORLDS[st.region].spots.some((q) => q.id === st.anchor), `${st.id} の anchor は 実在の spot`);
+  }
+  assert.equal(V.stages.filter((s) => s.anchor === null && s.region === 'countryside').length, 2,
+    '山道と のりばは Phase 2 まで spot を ふやさない');
+  // ほかの 特殊層に さわって いない
+  assert.equal(G.regions.memory_lake.mapX, null);
+  assert.ok(!G.connections.some((c) => c.id === 'memory_lake' && c.vertical), 'きおくのみずうみは たてじくでは ない');
+  const deep = G.connections.find((c) => c.id === 'deepsea|sea');
+  assert.equal(deep.layer, 'down'); assert.ok(!deep.vertical, 'しんかいは ゴンドラでは ない');
+});
+
+test('31. 地理正本 v1: ゴンドラは 見つけるまで ばれない。探索率も 1 つも かわらない', () => {
+  const { M } = setup();
+  const W = M.worldCountable();
+  assert.equal(W.regions.length, 11); assert.equal(W.links.length, 15);
+  assert.equal(W.tier1, 17); assert.equal(W.zones, 103);
+  assert.ok(!W.links.includes('countryside|star_stop'), 'ゴンドラは リンクの 分母に 入らない');
+  // いなかへ 行っただけ / 鳥居を 見つけただけ では ほしぞらも ゴンドラも 出ない
+  const only = M.worldMapData({ regions: ['countryside'], links: [] });
+  assert.ok(!only.axis.sky.on, 'いなかだけでは ほしぞらは 出ない');
+  assert.ok(!only.regions.some((r) => r.id === 'star_stop'), '上空層は 地域として 出ない');
+  const json = JSON.stringify(only);
+  for (const word of ['gondola', 'ゴンドラ', 'hoshizora-gondola', 'のりば']) {
+    assert.ok(!json.includes(word), `未発見の うちは「${word}」を 出さない`);
+  }
+  // 両がわを 見つけて はじめて 特殊接続として きろくされる
+  const links = M.worldLinksFrom({ countryside: ['torii'], star_stop: ['stop'] });
+  assert.ok(links.includes('countryside|star_stop'), '両がわの spot を 見つけると 接続に なる');
+  assert.ok(!M.worldLinksFrom({ countryside: ['torii'] }).includes('countryside|star_stop'),
+    'いなか側だけでは 接続に ならない');
+  // 見つけた あとは え の がわに のりものが つたわる
+  const both = M.worldMapData({ regions: ['countryside', 'star_stop'], links: ['countryside|star_stop'] });
+  assert.ok(both.axis.sky.on, '両がわ 見つけたら 出る');
+  assert.equal(both.axis.sky.ride, 'gondola', 'ゴンドラとして 描ける');
+  assert.equal(both.axis.deep.ride, null, 'しんかいは ゴンドラでは ない');
+  // 特殊接続は 探索率の リンク分母に 入らない(通常11地域どうしでは ない)
+  assert.ok(!M.WORLD_GEOGRAPHY.connections.filter((c) => c.b
+    && M.NORMAL_REGIONS.includes(c.a) && M.NORMAL_REGIONS.includes(c.b)).some((c) => c.id === 'countryside|star_stop'),
+    'ゴンドラは 探索率の 分母に 入らない');
+});
