@@ -146,6 +146,46 @@ test('legacy completed sticker tasks migrate only to logically equivalent refres
   assert.equal(normalized.tasksDone.includes('page-partner-1'), false);
 });
 
+test('all eight sticker tasks grant the master sticker exactly once and unlock the master achievement on save', () => {
+  const h = harness(), state = h.api.state(), store = h.api.stickerStore();
+
+  // Build one page that satisfies 3 stickers, duplicate x2, item x2,
+  // companion x3, その他 x3 and 8 total.
+  const ids = ['item:bowtie','item:ribbon','companion:dog','companion:cat','companion:penguin','scenery:tree','scenery:tree','scenery:wave'];
+  for (const id of ids) h.api.grantSticker(id);
+  for (const id of ids) assert.ok(h.api.placeSticker('page-1', id));
+
+  // Two pages.
+  const page2 = h.api.addStickerPage();
+  h.api.grantSticker('scenery:sun');
+  assert.ok(h.api.placeSticker(page2, 'scenery:sun'));
+
+  // Background change.
+  assert.equal(h.api.setStickerPageBackground('page-1', 'sea'), true);
+
+  h.api.checkStickerTasks();
+  assert.equal(h.api.STICKER_TASKS.every((t) => store.tasksDone.includes(t.id)), true);
+  assert.equal(store.owned[h.api.STICKER_TASK_MASTER_ID], 1);
+  assert.equal(h.api.stickerPackPool().some((s) => s.id === h.api.STICKER_TASK_MASTER_ID), false, 'master sticker is reward-only');
+
+  h.api.checkStickerTasks();
+  assert.equal(store.owned[h.api.STICKER_TASK_MASTER_ID], 1, 'reward is exact once');
+
+  h.api.saveState();
+  assert.ok(state.achievementsUnlocked.includes('sticker-tasks-5'));
+  assert.ok(state.achievementsUnlocked.includes('sticker-tasks-all'));
+});
+
+test('earned master sticker appears in the owned tray but does not change ordinary collection progress', () => {
+  const h = harness(), store = h.api.stickerStore();
+  const before = h.api.stickerPackPool().length;
+  store.owned[h.api.STICKER_TASK_MASTER_ID] = 1;
+  h.api.openExclusiveMenu('sticker');
+  assert.match(h.get('stickerTray').innerHTML, /きんのシールちょう/);
+  assert.match(h.get('stickerOwnedCount').textContent, /9まいまで/);
+  assert.equal(h.api.stickerPackPool().length, before);
+});
+
 test('a first discovery grants that form as a sticker and the screen lists it', () => {
   const h = harness();
   growing(h);
