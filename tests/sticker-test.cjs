@@ -110,11 +110,40 @@ test('free-page tasks are recorded once without sticker points or coin rewards',
   const money = state.lifetime.money;
   for (const id of ['form:dog:0', 'form:dog:1', 'form:cat:0']) { h.api.grantSticker(id); assert.ok(h.api.placeSticker('page-1', id)); }
   const done = h.api.checkStickerTasks();
-  assert.equal(JSON.stringify(done.map((t) => t.id)), JSON.stringify(['page-form-3']));
+  assert.equal(JSON.stringify(done.map((t) => t.id)), JSON.stringify(['page-any-3']));
   assert.equal(state.lifetime.money, money);
   assert.equal(Object.hasOwn(store, 'kakera'), false);
   assert.equal(h.api.checkStickerTasks().length, 0, 'no double completion');
   assert.doesNotMatch(h.get('storyFlashText').textContent, /ポイント|コイン/);
+});
+
+test('refreshed sticker tasks teach duplicate placement, two pages, and background changes', () => {
+  const h = harness(), store = h.api.stickerStore();
+  h.api.grantSticker('scenery:tree'); h.api.grantSticker('scenery:tree');
+  h.api.placeSticker('page-1', 'scenery:tree'); h.api.placeSticker('page-1', 'scenery:tree');
+  let done = h.api.checkStickerTasks().map((t) => t.id);
+  assert.ok(done.includes('same-sticker-2'));
+
+  const page2 = h.api.addStickerPage();
+  h.api.grantSticker('scenery:tree');
+  h.api.placeSticker(page2, 'scenery:tree');
+  done = h.api.checkStickerTasks().map((t) => t.id);
+  assert.ok(done.includes('multi-pages-2'));
+
+  assert.equal(h.api.setStickerPageBackground('page-1', 'sea'), true);
+  done = h.api.checkStickerTasks().map((t) => t.id);
+  assert.ok(done.includes('background-change'));
+  assert.ok(store.tasksDone.includes('background-change'));
+});
+
+test('legacy completed sticker tasks migrate only to logically equivalent refreshed tasks', () => {
+  const h = harness(), store = h.api.stickerStore();
+  store.tasksDone = ['page-form-3','any-12','multi-pages-3','page-partner-1'];
+  const normalized = h.api.stickerStore();
+  assert.ok(normalized.tasksDone.includes('page-any-3'));
+  assert.ok(normalized.tasksDone.includes('page-8'));
+  assert.ok(normalized.tasksDone.includes('multi-pages-2'));
+  assert.equal(normalized.tasksDone.includes('page-partner-1'), false);
 });
 
 test('a first discovery grants that form as a sticker and the screen lists it', () => {
