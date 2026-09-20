@@ -189,8 +189,8 @@
 **東西の並びは `おうち（2.1）→ 天竜川型の大河（2.62）→ 南アルプス型（4.18）`。**
 おうちから川までは **0.52 めもり**（すぐ東）。ただし 0.2 より近づけないので、川は町のまん中を貫きません。
 **陸の並びは `やま → おうち → もり → いなか`。**もりは おうち–いなか を結ぶ線のちょうど途中（t = 0.52）にあり、
-やま–おうち の間ではありません（テストで固定）。ただし `おうち ↔ いなか` の直通があるので、
-**もりへ入らないと いなかへ行けない一本道にはなっていません。**
+やま–おうち の間ではありません（テストで固定）。**あるいて いなかへ行くときは、かならず もり を越えます**
+（`おうち ↔ いなか` の直通 world connection は持ちません。ただし既存の「たび」では直接行き来できます）。
 
 図の上の読みとして、次の 13 個を 390×844 の 100% 地図で（ラベルを隠して）確かめています。
 
@@ -212,10 +212,10 @@
                             ＝               ║                          ▓
                             ＝    おうち ──→ ║ 天竜川型の大河          ▓
                             ＝  （段丘の町） ║（町のすぐ東）           ▓
-                            ＝    ／         ║                          ▓
+                            ＝    │ あるいて こえる（直通は ない）                          ▓
                             ＝  もり         ║                          ▓
                   ▲ほしぞら ＝  ／           ║                          ▓
-                   （山上）  ＝ ／            ║                          ▓
+                   （山上）  ＝  │            ║                          ▓
                    ┄┄┼┄┄ ＝ いなか       ║                          ▓
                    分水界   ／                ║
         とかい ←──┘（峠のむこう・別流域）   ║
@@ -278,9 +278,9 @@
 | 3 | やま ↔ もり | 山道 | nature | mountain.trailhead / forest.stonelook |
 | 4 | やま ↔ かわ・みずうみ | たにのあたまの湖 | nature | mountain.foot / river_lake.lakelook |
 | 5 | やま ↔ さばく | 雨陰の峠（long） | nature | mountain.windnotch / desert.gate |
-| 6 | もり ↔ いなか | ちんじゅのもり | nature | forest.entry / countryside.woods |
+| 6 | もり ↔ いなか | **こけのかいだん**（奥↔奥） | nature | forest.anc2 / countryside.woods |
 | 7 | かわ・みずうみ ↔ いなか | たにがわ（支流） | nature | river_lake.bank / countryside.riverbank |
-| 8 | **いなか ↔ おうち** | **さとのみち** | people | countryside.gate / home.gate |
+| 8 | **おうち ↔ もり** | **もりへのみち**（奥↔口） | people | home.bigtree / forest.entry |
 | 9 | **おうち ↔ かわ・みずうみ** | **だんきゅうをおりるみち** | people | home.bigtree / river_lake.riverside |
 | 10 | **いなか ↔ とかい** | **とうげのかいどう（分水界を越える・long）** | people | countryside.terracelook / city.cross4 |
 | 11 | とかい ↔ うみ | かこうのみなと | people | city.boatpier / sea.port |
