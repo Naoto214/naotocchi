@@ -481,6 +481,33 @@ test('24. 地理正本 v1: 分水界が 正式な 地形。2 水系を 図の �
   assert.ok(near(tenryu) > 1.5, `分水界は たにの おおかわから はなれて いる(${near(tenryu).toFixed(2)})`);
   assert.ok(near(shonai) < 0.8, `みやこがわは 分水界の むこうから はじまる(${near(shonai).toFixed(2)})`);
   assert.ok(near(tenryu) > near(shonai), '分水界は とかいがわの 水系に つく');
+  // **みやこがわは 分水界の むこう側から はじまる。**いなかから ながれ出して 見えては いけない
+  const C = G.regions.countryside;
+  const head = shonai.points[0];
+  // ① おねの 同じ 高さでの x と くらべる(おねは ほぼ 南北。にしが とかい側)
+  const crestXAt = (y) => {
+    for (let i = 1; i < divide.points.length; i++) {
+      const a = divide.points[i - 1], b = divide.points[i];
+      if ((y <= a.y && y >= b.y) || (y >= a.y && y <= b.y)) {
+        const t = (y - a.y) / ((b.y - a.y) || 1);
+        return a.x + (b.x - a.x) * t;
+      }
+    }
+    return null;
+  };
+  const cx = crestXAt(head.y);
+  assert.ok(cx != null, 'みやこがわの 始点は 分水界と おなじ 高さに ある');
+  assert.ok(head.x < cx, `始点は おねの むこう(とかい側)(${head.x} < ${cx.toFixed(2)})`);
+  assert.ok(C.mapX > cx, `いなかは おねの てまえ(${C.mapX} > ${cx.toFixed(2)})`);
+  // ② いなかの ぬりの 中に 入って いない(ぬりは だえん ×1.3)
+  const shape = M.worldMapShape('countryside'), ang = (C.axis || 0) * Math.PI / 180;
+  const dx = head.x - C.mapX, dy = head.y - C.mapY;
+  const u = Math.cos(-ang) * dx - Math.sin(-ang) * dy, v = Math.sin(-ang) * dx + Math.cos(-ang) * dy;
+  assert.ok((u / shape.rx) ** 2 + (v / shape.ry) ** 2 > 1.3 ** 2,
+    'みやこがわの 始点は いなかの ぬりの そと ＝ いなかから ながれ出して 見えない');
+  // ③ それでも 分水界の すぐ むこう(とおくで いきなり わく ように 見えない)
+  assert.ok(Math.min(...divide.points.map((d) => Math.hypot(d.x - head.x, d.y - head.y))) < 0.8,
+    '分水界の すぐ むこうから はじまる');
   // いなか → とかい の 街道は この おねを こえる
   const road = G.connections.find((c) => c.id === 'city|countryside');
   assert.ok(road, 'いなか ↔ とかい の 街道');
