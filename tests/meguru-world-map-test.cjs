@@ -390,8 +390,10 @@ test('21. D2 へ かえても、地域の なかみは 1つも うごいて い�
     secretPaths += (M.WORLDS[id].paths || []).filter((p) => p[2] === 'secret').length;
   }
   assert.equal(zones, 118, '118 ちく');
-  assert.equal(spots, 469, '469 スポット');
-  assert.equal(paths, 652, '652 みち');
+  // Phase 2 で いなかに「もりのやまみち」「そらのりば」の 2つだけ 足した(469 → 471)。
+  // 地区は ふえて いない(どちらも ちんじゅのもり の 中)
+  assert.equal(spots, 471, '471 スポット(Phase 1 の 469 ＋ ゴンドラの のりばまで 2)');
+  assert.equal(paths, 654, '654 みち(＋ 鳥居 → 山道 → のりば の 2本)');
   assert.equal(secretSpots + secretPaths, 107, '107 ひみつ');
   // せかいの 地理は 地図の がわ だけ。region-local な world 座標に 1 つも 入りこんで いない
   for (const id of ALL) {
@@ -643,7 +645,8 @@ test('30. 地理正本 v1: ほしぞらへは **特殊たてじく接続**。ふ
   assert.notEqual(V.from.layer, V.to.layer, '層を またぐ');
   // のりもの。**実在の しせつでは なく**、名まえは かり
   assert.equal(V.ride.kind, 'gondola');
-  assert.equal(V.ride.provisional, true, '名まえは Phase 2 の まえに きめなおす');
+  assert.equal(V.ride.name, 'そらのゴンドラ', 'Phase 2 で なまえを かくてい(かりでは ない)');
+  assert.ok(!V.ride.provisional, 'もう かりの なまえでは ない');
   // いなか側の いりぐちは 既存の「ふるいとりい」、ほしぞら側は 既存の「ていりゅうじょ」
   assert.equal(sky.mouths.countryside, 'torii');
   assert.equal(sky.mouths.star_stop, 'stop');
@@ -660,13 +663,13 @@ test('30. 地理正本 v1: ほしぞらへは **特殊たてじく接続**。ふ
   const walkBetween = V.stages.slice(ids.indexOf('gate') + 1, ids.indexOf('ride'));
   assert.ok(walkBetween.length >= 2 && walkBetween.every((s) => s.move === 'walk'),
     '鳥居から のりばまでは あるいて のぼる');
-  // Phase 2 で おく よていの だんかいは まだ spot を ふやして いない
+  // Phase 2: 山道と のりばに じっさいの spot が ついた
   for (const st of V.stages) {
     if (!st.anchor || !st.region) continue;
     assert.ok(M.WORLDS[st.region].spots.some((q) => q.id === st.anchor), `${st.id} の anchor は 実在の spot`);
   }
-  assert.equal(V.stages.filter((s) => s.anchor === null && s.region === 'countryside').length, 2,
-    '山道と のりばは Phase 2 まで spot を ふやさない');
+  assert.equal(V.stages.find((x) => x.id === 'trail').anchor, 'mountpath');
+  assert.equal(V.stages.find((x) => x.id === 'board').anchor, 'skyland');
   // ほかの 特殊層に さわって いない
   assert.equal(G.regions.memory_lake.mapX, null);
   assert.ok(!G.connections.some((c) => c.id === 'memory_lake' && c.vertical), 'きおくのみずうみは たてじくでは ない');
