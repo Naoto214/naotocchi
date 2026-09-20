@@ -3908,23 +3908,27 @@
         { id: 'desert|mountain', mouths: { desert: 'gate', mountain: 'windnotch' }, a: 'desert',   b: 'mountain',   kind: 'pass',    layer: 'ground', made: 'nature', label: 'うかげのとうげ',     ends: ['口', '脇'], long: true,
           why: '山地の うらがわは あめが こえて こない', from: '「かぜのきれめ」を にしへ ぬけると くさが きえる',
           transition: ['たにあい', 'かぜのきれめ', 'あかいれき', 'メサ', 'すなやま'] },
-        { id: 'countryside|forest', mouths: { countryside: 'woods', forest: 'entry' }, a: 'countryside', b: 'forest', kind: 'wood', layer: 'ground', made: 'nature', label: 'ちんじゅのもり',     ends: ['奥', '口'],
-          // Phase 2: ちんじゅのもりの おくが、そのまま 大森林へ つづく
+        // もりの **おく**(こけのかいだん)を のぼりきると、いなかの ちんじゅのもりへ 出る。
+        // おうちがわの 口(もりのいりぐち)とは はんたいがわ ＝ もりを **ぬける** ことに なる
+        { id: 'countryside|forest', mouths: { countryside: 'woods', forest: 'anc2' }, a: 'countryside', b: 'forest', kind: 'wood', layer: 'ground', made: 'nature', label: 'こけのかいだん',     ends: ['奥', '奥'],
+          // Phase 2: どちらも **おく**から。もりを ぬけると 山里が ひらける
           gate: { kind: 'walk', ends: {
-            countryside: { spot: 'woods', dir: 'far',  land: ['すぎの こだち', 'しだ', 'あかるいもり'] },
-            forest:      { spot: 'entry', dir: 'near', land: ['あかるいもり', 'しだ', 'すぎの こだち'] } } },
-          why: '人の さとの もりの さきが、人里を はなれた もり。butterfly / cicada が またぐ', from: '「ちんじゅのもり」を ぬける',
+            forest:      { spot: 'anc2',  dir: 'far', land: ['こけのかいだん', 'きが ひらける', 'やまみち', 'はたけの けはい', 'しゅうらく'] },
+            countryside: { spot: 'woods', dir: 'far', land: ['しゅうらく', 'はたけの けはい', 'やまみち', 'すぎの こだち', 'ふかい もり'] } } },
+          why: 'もりの おくの こけむした 石の かいだんを のぼると、木が ひらけて 人の さとの もりへ 出る。butterfly / cicada が またぐ', from: '「こけのかいだん」を のぼりきる／「ちんじゅのもり」の おくへ',
           transition: ['はたけ', 'やしきりん', 'ぞうきばやし', 'ちんじゅのもり', 'あかるいもり'] },
         { id: 'countryside|river_lake', mouths: { countryside: 'riverbank', river_lake: 'bank' }, a: 'countryside', b: 'river_lake', kind: 'river', layer: 'ground', made: 'nature', label: 'たにがわ', ends: ['脇', '口'], long: true,
           why: '山里の 水車と たなだの 水は、やまから おりる 支流。それが たにの おおかわへ 合流する。frog が またぐ', from: '「かわぞい」から したへ くだる',
           transition: ['たなだ', 'みずぐるま', 'かわぞいのみち', 'とびいし', 'かわぎし'] },
-        { id: 'countryside|home', mouths: { countryside: 'gate', home: 'gate' },   a: 'countryside', b: 'home',    kind: 'lane',    layer: 'ground', made: 'people', label: 'さとのみち',         ends: ['口', '口'], long: true,
-          // Phase 2: あるいて こえられる。どちらも 口(z≒0)がわから 出る
+        // **おうち ↔ いなか の 直通は もたない。**あるいて 山里へ 行く ときは かならず もりを こえる。
+        // (ただし 既存の「たび」では いままでどおり 直接 行き来できる。地理と たびは べつの しくみ)
+        { id: 'home|forest', mouths: { home: 'bigtree', forest: 'entry' }, a: 'home', b: 'forest', kind: 'wood', layer: 'ground', made: 'people', label: 'もりへのみち', ends: ['奥', '口'],
+          // Phase 2: おうちの おくの 大きな木から にしへ。木が ふえて もりの 口へ
           gate: { kind: 'walk', ends: {
-            home:        { spot: 'gate', dir: 'near', land: ['にわ', 'いけがき', 'のうどう', 'はたけ'] },
-            countryside: { spot: 'gate', dir: 'near', land: ['あぜ', 'のうどう', 'いけがき', 'にわ'] } } },
-          why: '**たにの まちから にし〜南西へ 山里へ 上がる 道**。もりの きわを まいて 行くので、もりへ 入らなくても 行ける。HABITAT が 7 けいとう またぐ いちばん つよい むすびつき', from: '「いえのまえ」から にしへ。はたけの さきの いっぽんみち',
-          transition: ['にわ', 'いけがき', 'のうどう', 'はたけ', 'あぜ', 'むらのいりぐち'] },
+            home:   { spot: 'bigtree', dir: 'far',  land: ['いえなみの はずれ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'きが ふえる', 'もりの いりぐち'] },
+            forest: { spot: 'entry',   dir: 'near', land: ['もりの いりぐち', 'きが へる', 'ざつぼくりん', 'かじゅえん', 'はたけ', 'いえなみ'] } } },
+          why: '**おうちの おくの 大きな木は 分かれみち**。さかを おりれば たにの みずべ、にしへ 行けば はたけと かじゅえんの さきで 木が ふえて、やがて もりに なる', from: '「おおきなき」から にしへ。はたけの さきで 木が ふえる',
+          transition: ['にわ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'こだち', 'あかるいもり'] },
         { id: 'home|river_lake', mouths: { home: 'bigtree', river_lake: 'riverside' }, a: 'home',   b: 'river_lake', kind: 'terrace', layer: 'ground', made: 'people', label: 'だんきゅうをおりるみち', ends: ['奥', '口'],
           why: '**おうちは たにぞこでは なく 段丘の うえ**。大きな木の さきの さかを おりると たにの みずべ', from: '「おおきなき」の さきの さかを おりる',
           transition: ['おおきなき', 'だんきゅうのふち', 'さかみち', 'かわらの いしはら', 'かわぎしのひろば'] },

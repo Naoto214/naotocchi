@@ -26,9 +26,11 @@ function walkOut(sim, gate, steps = 240) {
 test('1. 3 つの 代表ルートが 出口の いみデータを もつ', () => {
   const { M } = setup();
   const withGate = G(M).connections.filter((c) => c.gate).map((c) => c.id).sort().join(',');
-  assert.equal(withGate, 'countryside|forest,countryside|home,countryside|star_stop,deepsea|sea');
+  assert.equal(withGate, 'countryside|forest,countryside|star_stop,deepsea|sea,home|forest');
   const walk = G(M).connections.filter((c) => c.gate && c.gate.kind === 'walk').map((c) => c.id).sort().join(',');
-  assert.equal(walk, 'countryside|forest,countryside|home', 'あるいて こえるのは 2本');
+  assert.equal(walk, 'countryside|forest,home|forest', 'あるいて こえるのは おうち↔もり と もり↔いなか');
+  // **おうち ↔ いなか の 直通は もたない**(あるく ときは かならず もりを こえる)
+  assert.ok(!G(M).connections.some((c) => c.id === 'countryside|home'), 'おうち ↔ いなか の world connection は ない');
   const up = G(M).connections.find((c) => c.id === 'countryside|star_stop');
   const down = G(M).connections.find((c) => c.id === 'deepsea|sea');
   assert.equal(up.gate.kind, 'vertical'); assert.equal(up.gate.dir, 'up');
@@ -65,50 +67,52 @@ test('2. きめられた 出口 いがいから region の 外へ 出られな�
   assert.ok(sim.player.z <= w.len - M.RULES.zMargin + 0.01, 'おくの はしで とまる');
 });
 
-test('3. あるいて こえる: おうち ↔ いなか / いなか ↔ もり。むきも ひきつぐ', () => {
+test('3. あるいて こえる: おうち → もり → いなか。むきも ひきつぐ', () => {
   const { M } = setup();
-  // いなか → おうち
-  const a = M.createSimulation({ regionId: 'countryside', discovered: [] });
-  const g1 = a.gates.find((g) => g.to === 'home');
+  // おうち → もり(おおきなきの さき)
+  const a = M.createSimulation({ regionId: 'home', discovered: [] });
+  const g1 = a.gates.find((g) => g.to === 'forest');
   const hit1 = walkOut(a, g1);
-  assert.ok(hit1, 'いなかの むらのいりぐちから おうちへ 出る');
-  assert.equal(hit1.to, 'home'); assert.equal(hit1.at, 'gate'); assert.equal(hit1.kind, 'walk');
-  // いなか → もり
-  const b = M.createSimulation({ regionId: 'countryside', discovered: [] });
-  const g2 = b.gates.find((g) => g.to === 'forest');
+  assert.ok(hit1, 'おうちの おおきなきから もりへ 出る');
+  assert.equal(hit1.to, 'forest'); assert.equal(hit1.at, 'entry'); assert.equal(hit1.kind, 'walk');
+  assert.equal(g1.spot.id, 'bigtree');
+  // もり → いなか(こけのかいだん)
+  const b = M.createSimulation({ regionId: 'forest', discovered: [] });
+  const g2 = b.gates.find((g) => g.to === 'countryside');
+  assert.equal(g2.spot.id, 'anc2', 'もりの おくの こけのかいだんから 出る');
   const hit2 = walkOut(b, g2);
-  assert.ok(hit2, 'ちんじゅのもりの おくから もりへ 出る');
-  assert.equal(hit2.to, 'forest'); assert.equal(hit2.at, 'entry');
+  assert.ok(hit2, 'こけのかいだんから いなかへ 出る');
+  assert.equal(hit2.to, 'countryside'); assert.equal(hit2.at, 'woods');
   // 逆方向も もどれる
-  const c = M.createSimulation({ regionId: 'home', discovered: [] });
-  assert.ok(walkOut(c, c.gates.find((g) => g.to === 'countryside')), 'おうち → いなかへ もどれる');
-  const d = M.createSimulation({ regionId: 'forest', discovered: [] });
-  assert.ok(walkOut(d, d.gates.find((g) => g.to === 'countryside')), 'もり → いなかへ もどれる');
+  const c = M.createSimulation({ regionId: 'forest', discovered: [] });
+  assert.ok(walkOut(c, c.gates.find((g) => g.to === 'home')), 'もり → おうちへ もどれる');
+  const d = M.createSimulation({ regionId: 'countryside', discovered: [] });
+  assert.ok(walkOut(d, d.gates.find((g) => g.to === 'forest')), 'いなか → もりへ もどれる');
+  // **おうちから 直接 いなかへは 出られない**
+  assert.ok(!a.gates.some((g) => g.to === 'countryside'), 'おうちに いなかへの 出口は ない');
+  const e = M.createSimulation({ regionId: 'countryside', discovered: [] });
+  assert.ok(!e.gates.some((g) => g.to === 'home'), 'いなかに おうちへの 出口は ない');
   // 入った がわでは「その 地域の 中へ」むく = そのまま まっすぐ あるきつづけられる
-  assert.equal(hit1.enterFacing, 0, '口から 入るので おくを むく');
-  assert.equal(hit2.enterFacing, 0, 'もりの 口から 入るので おくを むく');
-  const backIn = c.gates.find((g) => g.to === 'countryside');
-  assert.equal(backIn.enterFacing, 0, 'いなかの 口から 入るのも おく むき');
-  const intoWoods = d.gates.find((g) => g.to === 'countryside');
-  assert.equal(intoWoods.enterFacing, Math.PI, 'いなかの おくへ もどる ときは 口を むく');
-  a.enterRegion('home', { at: 'gate', heading: hit1.enterFacing });
+  assert.equal(hit1.enterFacing, 0, 'もりの 口から 入るので おくを むく');
+  assert.equal(hit2.enterFacing, Math.PI, 'いなかの おくへ 出るので 口を むく');
+  a.enterRegion('forest', { at: 'entry', heading: hit1.enterFacing });
   assert.equal(a.player.heading, 0, '入った がわの むきに なる');
-  assert.equal(a.world.regionId, 'home');
-  const at = a.world.spots.find((q) => q.id === 'gate');
+  assert.equal(a.world.regionId, 'forest');
+  const at = a.world.spots.find((q) => q.id === 'entry');
   assert.ok(Math.hypot(a.player.x - at.x, a.player.z - at.z) < 60, '入口 spot から はじまる');
   assert.equal(a.camera.x, a.player.x); assert.equal(a.camera.z, a.player.z);
 });
 
 test('4. 入った しゅんかんに もどされない。はなれれば また こえられる', () => {
   const { M } = setup();
-  const sim = M.createSimulation({ regionId: 'countryside', discovered: [] });
-  sim.enterRegion('home', { at: 'gate', heading: Math.PI });
+  const sim = M.createSimulation({ regionId: 'home', discovered: [] });
+  sim.enterRegion('forest', { at: 'entry', heading: Math.PI });
   // 入口の うえで そのまま 口の むきへ おしても、すぐには 出ない
   let bounced = 0;
   for (let i = 0; i < 120; i++) for (const ev of sim.step(1 / 60, { x: 0, y: 1 })) if (ev.type === 'gate') bounced++;
   assert.equal(bounced, 0, '入った しゅんかんに となりへ もどされない');
   // いちど はなれて(出口の spot の そとへ 出て)から もどれば、また こえられる
-  const g = sim.gates.find((x) => x.to === 'countryside');
+  const g = sim.gates.find((x) => x.to === 'home');
   sim.setPlayer(g.spot.x, g.spot.z + g.spot.r + 260);
   for (let i = 0; i < 20; i++) sim.step(1 / 60, { x: 0, y: 0 });
   assert.ok(walkOut(sim, g), 'はなれてから もどれば こえられる');
@@ -214,13 +218,21 @@ test('9. はじめて きた ことは のこる。region はっけんと みち
 
 test('10. みちの はっけんは これまでどおり「両がわの 入口を 見つけた とき」だけ', () => {
   const { M } = setup();
-  // 出口を あるいて こえる ＝ 両がわの mouth spot に 立つ ので、こえれば ひらく
-  const c = G(M).connections.find((x) => x.id === 'countryside|forest');
-  assert.equal(c.mouths.countryside, 'woods'); assert.equal(c.mouths.forest, 'entry');
-  assert.ok(!M.worldLinksFrom({ countryside: ['woods'] }).includes('countryside|forest'), '片がわだけでは ひらかない');
-  assert.ok(M.worldLinksFrom({ countryside: ['woods'], forest: ['entry'] }).includes('countryside|forest'), '両がわで ひらく');
-  // 地域へ 行っただけでは ひらかない
-  assert.ok(!M.worldLinksFrom({ countryside: [], forest: [] }).includes('countryside|forest'));
+  // 出口を あるいて こえる ＝ 両がわの mouth spot に 立つ ので、こえれば ひらく。
+  // おうち → もり と もり → いなか は **べつべつに** 記録される
+  const hf = G(M).connections.find((x) => x.id === 'home|forest');
+  const cf = G(M).connections.find((x) => x.id === 'countryside|forest');
+  assert.equal(hf.mouths.home, 'bigtree'); assert.equal(hf.mouths.forest, 'entry');
+  assert.equal(cf.mouths.countryside, 'woods'); assert.equal(cf.mouths.forest, 'anc2');
+  assert.ok(!M.worldLinksFrom({ home: ['bigtree'] }).includes('home|forest'), '片がわだけでは ひらかない');
+  const one = M.worldLinksFrom({ home: ['bigtree'], forest: ['entry'] });
+  assert.ok(one.includes('home|forest'), 'おうち ↔ もり が ひらく');
+  assert.ok(!one.includes('countryside|forest'), 'もり ↔ いなかは まだ ひらかない');
+  const both = M.worldLinksFrom({ home: ['bigtree'], forest: ['entry', 'anc2'], countryside: ['woods'] });
+  assert.ok(both.includes('home|forest') && both.includes('countryside|forest'), '2本 べつべつに ひらく');
+  // 世界地図に おうち ↔ いなか の 直接線は 出ない
+  const every = {}; for (const id of Object.keys(M.WORLDS)) every[id] = M.WORLDS[id].spots.map((q) => q.id);
+  assert.ok(!M.worldLinksFrom(every).includes('countryside|home'), 'おうち ↔ いなか の 線は どうやっても 出ない');
 });
 
 test('11. 出口を ふやしても ひみつは もれない', () => {
@@ -269,7 +281,7 @@ test('12. region-local な せかいは こわれて いない', () => {
 test('13. 往復しても こわれない: おうち → いなか → もり → いなか → おうち', () => {
   const { M } = setup();
   const sim = M.createSimulation({ regionId: 'home', discovered: [] });
-  const route = [['countryside', 'gate'], ['forest', 'entry'], ['countryside', 'woods'], ['home', 'gate']];
+  const route = [['forest', 'entry'], ['countryside', 'woods'], ['forest', 'anc2'], ['home', 'bigtree']];
   for (let lap = 0; lap < 3; lap++) {
     for (const [to, at] of route) {
       sim.enterRegion(to, { at, heading: 0.4 });

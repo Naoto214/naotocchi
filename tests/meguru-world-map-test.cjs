@@ -9,7 +9,7 @@ const { harness } = require('./helpers/runtime-harness.cjs');
 const ALL = ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
 // 正本の 17本(D2)。ここが ずれたら 地理が かわった ということ
 const LINKS = ['snow|mountain', 'forest|snow', 'forest|mountain', 'mountain|river_lake', 'desert|mountain',
-  'countryside|forest', 'countryside|river_lake', 'countryside|home', 'home|river_lake', 'city|countryside',
+  'countryside|forest', 'countryside|river_lake', 'home|forest', 'home|river_lake', 'city|countryside',
   'city|sea', 'jungle|sea', 'desert|jungle', 'city|desert', 'deepsea|sea', 'countryside|star_stop', 'memory_lake'];
 
 function fakeCtx() {
@@ -71,13 +71,15 @@ test('2. 接続表が 正本の 17本と ぴったり あう。入口の spot �
     assert.ok(deg[id] >= 1, `${id} は どこかに つながる`);
     assert.ok((ground[id] || 0) <= 4, `${id} の 地上の みちは 4本まで(${ground[id]})`);
   }
-  // いなかは D2 の こうさてん: 地上 4本 ＋ 山の上へ 1本
-  assert.equal(ground.countryside, 4, 'いなかの 地上の みちは 4本');
-  assert.equal(deg.countryside, 5, 'いなかは そこに 山の上への みちが 1本 つく');
-  // 飯田型 せいかつけんの 三角(D2): おうち・いなか・かわ・みずうみ
-  for (const id of ['countryside|home', 'home|river_lake', 'countryside|river_lake']) {
-    assert.ok(LINKS.includes(id), `${id} が せいかつけんの 三角に ある`);
+  // いなかは こうさてん: 地上 3本 ＋ 山の上へ 1本
+  assert.equal(ground.countryside, 3, 'いなかの 地上の みちは 3本');
+  assert.equal(deg.countryside, 4, 'いなかは そこに 山の上への みちが 1本 つく');
+  // 生活圏は **わ**: おうち → かわ・みずうみ → いなか → もり → おうち。
+  // おうち ↔ いなか の 直通は もたない(あるく ときは かならず もりを こえる)
+  for (const id of ['home|river_lake', 'countryside|river_lake', 'countryside|forest', 'home|forest']) {
+    assert.ok(LINKS.includes(id), `${id} が せいかつけんの わに ある`);
   }
+  assert.ok(!LINKS.includes('countryside|home'), 'おうち ↔ いなか の 直通は ない');
   // おうち ↔ とかい の 徒歩 connection は D2 に ない(たびでは 行ける)
   assert.ok(!LINKS.includes('city|home'), 'おうちと とかいは 地理的に 直結しない');
   assert.ok(!G.connections.some((c) => c.id === 'city|home'), '正本にも のこって いない');
@@ -219,10 +221,10 @@ test('10. 旧セーブの 訪問ずみ 地域が、そのまま 見つけた こ
 
 test('11. みちは りょうがわの 入口 spot を どちらも 見つけた ときだけ ひらく', () => {
   const { M } = setup();
-  const c = M.WORLD_GEOGRAPHY.connections.find((x) => x.id === 'countryside|home');
-  assert.equal(M.worldLinksFrom({ countryside: [c.mouths.countryside] }).length, 0, 'かたがわだけでは ひらかない');
-  assert.equal(M.worldLinksFrom({ home: [c.mouths.home] }).length, 0, 'はんたいがわだけでも ひらかない');
-  assert.equal(M.worldLinksFrom({ countryside: [c.mouths.countryside], home: [c.mouths.home] }).join(','), 'countryside|home');
+  const c = M.WORLD_GEOGRAPHY.connections.find((x) => x.id === 'home|forest');
+  assert.equal(M.worldLinksFrom({ home: [c.mouths.home] }).length, 0, 'かたがわだけでは ひらかない');
+  assert.equal(M.worldLinksFrom({ forest: [c.mouths.forest] }).length, 0, 'はんたいがわだけでも ひらかない');
+  assert.equal(M.worldLinksFrom({ home: [c.mouths.home], forest: [c.mouths.forest] }).join(','), 'home|forest');
   // ぜんぶの spot を 見つけると 17本のうち 16本(きおくは みちでは ない)
   const every = {}; for (const id of ALL) every[id] = M.WORLDS[id].spots.map((q) => q.id);
   assert.equal(M.worldLinksFrom(every).length, 16);
@@ -562,7 +564,7 @@ test('27. 地理正本 v1: 生活圏の 三角と、おうち ↔ とかい を 
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   const has = (id) => G.connections.some((c) => c.id === id);
-  for (const id of ['countryside|home', 'home|river_lake', 'countryside|river_lake',
+  for (const id of ['home|forest', 'countryside|forest', 'home|river_lake', 'countryside|river_lake',
     'countryside|star_stop', 'snow|mountain', 'city|sea', 'deepsea|sea']) {
     assert.ok(has(id), `${id} が ある`);
   }
@@ -599,8 +601,8 @@ test('28. 地理正本 v1: もりは「やま と おうちの あいだ」で�
   const u = ((F.mapX - Mt.mapX) * wx + (F.mapY - Mt.mapY) * wy) / wlen2;
   assert.ok(u > 1, `もりは やまと おうちの あいだには ない(u=${u.toFixed(2)})`);
   // ただし もりは 通らなくても いなかへ 行ける(おうち ↔ いなかの 直通が ある)
-  assert.ok(M.WORLD_GEOGRAPHY.connections.some((c) => c.id === 'countryside|home'),
-    'もりを 通らずに いなかへ 行ける');
+  assert.ok(!M.WORLD_GEOGRAPHY.connections.some((c) => c.id === 'countryside|home'),
+    'あるいて いなかへ 行く ときは かならず もりを こえる(直通は ない)');
   // にしの山地の みなみ半分は もりと いなかに のって いる
   const west = M.WORLD_GEOGRAPHY.features.find((f) => f.id === 'west-range');
   assert.ok(west.points.some((p) => p.region === 'forest'), 'にしの山地に もりの おねが ある');
