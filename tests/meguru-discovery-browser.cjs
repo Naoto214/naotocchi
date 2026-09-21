@@ -182,11 +182,13 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
         const u = { x: d.x / n, z: d.z / n };
         // はかる あいだ に 見つけた ぶんは ぜんぶ 出しきって から はじめる
         for (let i = 0; i < 900; i++) { const inf = run.foundInfo(); if (!inf.now && !inf.queue.length && !inf.banner) break; await frame(); }
-        // まだ 見つけて いない ばしょの てまえに 立ち、そこへ むかって あるく
+        // まだ 見つけて いない ばしょの てまえに 立ち、そこへ むかって あるく。
+        // **しらせる ばしょ(レベル 2 いじょう)を えらぶ**。目じるしの ない 通過点は
+        // 見つけても しずかな ままが 正しい ので、それを えらぶと この しらべは いみを なくす
         const seen = new Set(run.sim.mapData().spots.map((s) => s.id));
-        const q = run.world.spots.find((s) => !seen.has(s.id) && !s.secret
+        const q = run.world.spots.find((s) => !seen.has(s.id) && !s.secret && run.spotLevel(s.id) >= 2
           && Math.abs(s.x - u.x * 300) < run.world.halfW * 0.9 && s.z > 400 && s.z < run.world.len - 400);
-        if (!q) return { sawToast: false, moved: 0, why: 'つぎの ばしょが ない' };
+        if (!q) return { sawToast: false, moved: 0, why: 'しらせる つぎの ばしょが ない' };
         run.setPlayer(q.x - u.x * 300, q.z - u.z * 300);
         for (let i = 0; i < 4; i++) await frame();
         const z0 = run.player.z, x0 = run.player.x;
@@ -229,7 +231,12 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
       const withAct = await page.evaluate(async () => {
         const run = window.__meguruRun;
         const a = run.world.residents[0];
-        const q = run.world.spots.find((s) => s.id === 'sunspot') || run.world.spots[3];
+        // ここも **しらせる ばしょ** を えらぶ(通過点だと しらせが 出ないのが 正しい)。
+        // さらに **まだ 見つけて いない** ばしょに する。すでに 見つけて いる ところでは
+        // しらせが 出ず、この ばめん(しらせ + はなす ボタン)を しらべられない
+        const seen = new Set(run.sim.mapData().spots.map((s) => s.id));
+        const q = run.world.spots.find((s) => run.spotLevel(s.id) >= 2 && !seen.has(s.id) && !s.secret);
+        if (!q) return { act: false, why: 'しらせる ばしょが もう のこって いない' };
         run.setPlayer(q.x, q.z);
         a.x = q.x; a.z = q.z + 20;
         for (let i = 0; i < 60; i++) {
@@ -240,12 +247,11 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
         return { act: !document.getElementById('mgrTalk').classList.contains('hidden') };
       });
       m = await measure2(page);
-      if (m.shown) {
-        check(m, 'contextボタン + 下部ヘルプ');
-        assert.equal(withAct.act, true, label + ': その ばの ボタンが 出て いない');
-        assert.equal(m.actOverlap, 0, label + ': しらせが「はなす」に かぶる');
-        await page.screenshot({ path: path.join(output, label + '-5-context.png') });
-      }
+      assert.ok(m.shown, label + ': しらせと「はなす」が かさなる ばめんを しらべられて いない ' + (withAct.why || ''));
+      check(m, 'contextボタン + 下部ヘルプ');
+      assert.equal(withAct.act, true, label + ': その ばの ボタンが 出て いない');
+      assert.equal(m.actOverlap, 0, label + ': しらせが「はなす」に かぶる');
+      await page.screenshot({ path: path.join(output, label + '-5-context.png') });
       await drain(page);
 
       // ⑥ 2かいめ は 出ない
