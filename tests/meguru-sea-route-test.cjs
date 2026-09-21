@@ -323,11 +323,11 @@ test('14. 世界地図の 海路は 徒歩の みちと おなじ 線に しな�
 
 // ──────────────────────────────────────────────── かぞえかた と なかみ
 
-test('15. 探索率: 通常 link は 15 → 14。ぶんぼに ひみつも ゴンドラも 入って いない', () => {
+test('15. 探索率: 通常 link の ぶんぼに ひみつも ゴンドラも 入って いない', () => {
   const { M } = setup();
   const C = M.worldCountable();
   assert.equal(C.regions.length, 11);
-  assert.equal(C.links.length, 14, 'さばく|ジャングルを さくじょ した ぶん 1 本 へる');
+  assert.equal(C.links.length, 13, 'さばく|ジャングル と もり|ゆきぐに を けした ぶん 15 → 13');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   assert.ok(C.links.includes(SEA_LINK), '海路も 世界の 主要な みちとして かぞえる');
   assert.ok(!C.links.includes('desert|jungle'));
@@ -339,7 +339,7 @@ test('15. 探索率: 通常 link は 15 → 14。ぶんぼに ひみつも ゴ�
   for (const id of Object.keys(M.WORLDS)) zones[id] = (M.WORLDS[id].zones || []).map((z) => z.id);
   const done = wd(M, { regions: Object.keys(M.WORLD_GEOGRAPHY.regions), links: C.links, marks, zones });
   assert.equal(done.progress.percent, 100, 'ほしぞらへ 行かなくても 100% に できる');
-  assert.equal(done.progress.linkTotal, 14);
+  assert.equal(done.progress.linkTotal, 13);
 });
 
 test('16. 地域の なかみは 1 つも かわって いない', () => {
