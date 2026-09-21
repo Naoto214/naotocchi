@@ -268,20 +268,64 @@ test('④-1 住民に ちかづいた ことは はっけんに しない(「は
   const u = open(h);
   const run = u.run;
   settle(h, u);
-  const a = run.world.residents[0];
-  assert.ok(a, '住民が いる');
-  // まわりに スポットが ない ところへ 住民を つれて きて、そこへ 立つ
-  const far = { x: run.world.halfW * 0.92, z: run.world.len * 0.5 };
-  const clear = !run.world.spots.some((q) => Math.hypot(q.x - far.x, q.z - far.z) < q.r + 40);
-  assert.ok(clear, 'スポットの ない ところ');
-  run.setPlayer(far.x, far.z); h.advance(400); settle(h, u);   // その あたりの 地区は もう 見た
-  a.x = far.x; a.z = far.z + 20;
-  h.advance(400);
-  assert.equal(run.nearest && run.nearest.key, a.key, 'そばに いる と わかって いる');
-  assert.equal(shown(u), null, '住民に ちかづいても はっけんの しらせは 出さない');
-  assert.equal(u.run.foundInfo().queue.length, 0, 'ためても いない');
-  assert.equal(u.ov.querySelector('#mgrTalk').classList.contains('hidden'), false, '「はなす」だけ 出す');
-  assert.equal(u.ov.querySelector('#mgrTalk').textContent, '💬 はなす', 'その ばの ボタンは かえない');
+  assert.ok(run.world.residents.length > 0, '住民が いる');
+  // 住民の いちを つかんで しらべると、住民じしんが うごく ぶん だけ ゆれる。
+  // ここで しばりたいのは いちでは なく **きまり** なので、sim の できごとを
+  // のぞいて「人の できごと(met / nearest)だけの フレームでは しらせが 1つも ふえない」
+  // ことを みる。これなら 住民が どう うごいても おなじ 答えに なる
+  let metEvents = 0, nearestEvents = 0, peopleFrames = 0, talkSeen = 0;
+  const kinds = new Set();
+  const orig = run.sim.step.bind(run.sim);
+  const pending = () => { const i = run.foundInfo(); return i.queue.length + (i.now ? 1 : 0); };
+  run.sim.step = (dt, v) => {
+    const before = pending();
+    const evs = orig(dt, v);
+    let people = 0, place = 0;
+    for (const ev of evs) {
+      if (ev.type === 'met') { metEvents++; people++; }
+      else if (ev.type === 'nearest') { nearestEvents++; people++; }
+      // しらせを ふやせるのは「はじめての ばしょ」と「はじめての 地区」だけ
+      else if ((ev.type === 'spot' || ev.type === 'zone') && ev.first) place++;
+    }
+    // 人の できごとが おきた のに、しらせを ふやせる ばしょの できごとが 1つも ない
+    // フレーム。ここで ふえたら「住民に ちかづいた ことが はっけんに なって いる」
+    if (people && !place) {
+      peopleFrames++;
+      assert.equal(pending(), before, '住民の できごと では しらせは ふえない');
+    }
+    const info = run.foundInfo();
+    for (const e of [info.now, ...info.queue].filter(Boolean)) kinds.add(e.kind);
+    return evs;
+  };
+  // ボタンは フレームの おわりに きまる ので、step の なかでは なく すすめた あとで みる
+  const watch = () => {
+    if (!run.nearest) return;
+    talkSeen++;
+    assert.equal(u.ov.querySelector('#mgrTalk').classList.contains('hidden'), false, 'そばに いるのに「はなす」が 出ない');
+    assert.equal(u.ov.querySelector('#mgrTalk').textContent, '💬 はなす', 'その ばの ボタンは かえない');
+  };
+  // ① ばしょを まわる(ばしょの はっけんと 人の できごとが まざる ばめん)
+  for (const q of run.world.spots.filter((x) => !x.secret).slice(0, 8)) {
+    run.setPlayer(q.x, q.z);
+    for (let i = 0; i < 6; i++) { h.advance(50); watch(); }
+  }
+  // ② もう ぜんぶ 見つけた ばしょに 立ちどまり、住民の ほうを そばへ つれて くる。
+  //    プレイヤーが うごかない ので、ばしょの はっけんは 1つも おきない。
+  //    ここで おきる できごとは 人の ことだけ に なる
+  settle(h, u);
+  const home0 = run.world.spots[0];
+  run.setPlayer(home0.x, home0.z); h.advance(200); settle(h, u);
+  for (let i = 0; i < 60; i++) {
+    const a = run.world.residents[i % run.world.residents.length];
+    if (a) { a.x = run.player.x + 18; a.z = run.player.z + 18; }
+    h.advance(40); watch();
+  }
+  assert.ok(metEvents > 0, 'だれかに であって いる(' + metEvents + ')');
+  assert.ok(nearestEvents > 0, 'そばに いる / いなくなった が おきて いる(' + nearestEvents + ')');
+  assert.ok(peopleFrames > 0, '人の ことだけ おきた フレームが ある(' + peopleFrames + ')');
+  assert.ok(talkSeen > 0, 'そばに 住民が いた ときが ある(' + talkSeen + ')');
+  // ためられた しらせは ばしょの ことだけ。人は 1つも 入って いない
+  for (const k of kinds) assert.ok(['spot', 'secret', 'landmark', 'zone', 'link'].includes(k), '人が しらせに 入って いる: ' + k);
   h.api.stopMeguru();
 });
 
