@@ -311,6 +311,12 @@ function checkLayout(m, label) {
           failures.push(engine+' meguru layout: '+error.message);
           console.error('FAIL '+engine+' meguru layout: '+error.message);
         }
+        try {
+          results.push(...await require('./meguru-discovery-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output));
+        } catch(error) {
+          failures.push(engine+' meguru discovery: '+error.message);
+          console.error('FAIL '+engine+' meguru discovery: '+error.message);
+        }
       } finally { await browser.close(); }
     }
   } finally {
