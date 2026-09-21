@@ -92,7 +92,8 @@ test('①-1 ふつうの ばしょ: なまえ と「ちずに きろくした」
   const t = shown(u);
   assert.ok(t, 'はじめて 見つけたら しらせが 出る');
   assert.equal(t.title, 'ひだまりを みつけた', 'なにを 見つけたか が なまえで わかる');
-  assert.equal(t.sub, 'ちずに きろくした', 'それが どういう いみか も 出す');
+  // この 2行目は **はじめの うちだけ**(⑦-4 / ⑦-5)。ここは まっさらな セーブなので 出る
+  assert.equal(t.sub, 'ちずに きろくした', 'はじめの うちは それが どういう いみか も 出す');
   assert.ok(/mgr-found-spot/.test(t.cls), 'ふつうの ばしょ の 見た目');
   assert.ok(!/mgr-found-strong/.test(t.cls), 'ふつうの ばしょ は つよい えんしゅつに しない');
   // ほんとうに その とき ちずに ある(しらせと ちずが ずれない)
@@ -476,4 +477,125 @@ test('⑥-2 たんさくを とじると しらせも のこらない', () => {
   h.api.stopMeguru();
   assert.equal(u.toast.classList.contains('hidden'), true, 'とじたら しらせも きえる');
   assert.equal(u.hint.classList.contains('mgr-hint-quiet'), false, 'そうさ せつめいの よわめも もどす');
+});
+
+// ────────────────────────────── ⑦ はっけんの おおきさ(通知レベル)
+//
+// 監査(docs/qa/meguru-spot-audit-2026-09-21.md)で わかった こと:
+//   471 の spot の うち 188 は、その spot の ための ものが 画面に 1つも ない。
+//   それでも 初回に「○○を みつけた」と 出て いた。
+//   いちばん ひどい れいが もりの「にたようなこだち」— **おなじ 名前の spot が 3つ** あり、
+//   どれも ぶんきの 🪧 いがい 何も ない。
+// ここでは「しらせる レベル」の きまりを かためる。
+
+test('⑦-1 レベルは buildWorld() が ほんとうに おく ものから きまる', () => {
+  const { M } = setup('forest');
+  const lv = (rid, id) => M.spotDiscoveryLevel(M.WORLDS[rid].spots.find((q) => q.id === id));
+  // 3: landmark / secret
+  assert.equal(lv('forest', 'great'), 3, 'おおきなき は landmark');
+  assert.equal(lv('forest', 'hiddenpond'), 3, 'かくれたいけ は secret');
+  // 2: 画面に その spot の ものが ある
+  assert.equal(lv('forest', 'bright2'), 2, 'ひだまり は 🪵 が 立つ');
+  assert.equal(lv('forest', 'creek2'), 2, 'おがわのふち は みずたまりを えがく(kind:water)');
+  // 0: 目じるしが ない 通過点
+  assert.equal(lv('forest', 'thicket1'), 0, 'にたようなこだち は 何も ない');
+  assert.equal(lv('forest', 'anc4'), 0, 'しずかなくぼち は 何も ない');
+  assert.equal(lv('forest', 'bright1'), 0, 'あかるいこみち は ただの みち');
+  // 🪧 は どの ぶんきにも ある ので 目じるしに ならない
+  assert.equal(lv('forest', 'oldsign'), 0, '「ふるいひょうしき」の 🪧 は どの ぶんきにも ある');
+  // 地域の 主役に まかせる prop(SPOT_PROP_STRUCT が null)は 何も おかれない
+  for (const rid of Object.keys(M.WORLDS)) {
+    for (const q of M.WORLDS[rid].spots) {
+      if (q.secret || q.landmark) { assert.equal(M.spotDiscoveryLevel(q), 3, rid + '/' + q.id); continue; }
+      if (q.prop === '🌊' || q.prop === '🌫️') assert.equal(M.spotDiscoveryLevel(q), 0, rid + '/' + q.id + ': なにも おかれない prop');
+    }
+  }
+});
+
+test('⑦-2 目じるしの ない 通過点では しらせない。でも きろくは のこる(探索率は かわらない)', () => {
+  const { h, s } = setup('forest');
+  const u = open(h);
+  settle(h, u);
+  const before = u.run.sim.mapData().progress.percent;
+  stand(h, u.run, 'thicket1');                       // 何も ない 通過点
+  assert.equal(shown(u), null, '通過点では しらせない');
+  assert.equal(u.run.foundInfo().queue.length, 0, 'ためても いない');
+  // それでも ちずには のる(きろくは これまで どおり)
+  assert.ok(u.run.sim.mapData().spots.some((q) => q.id === 'thicket1'), 'ちずには のこる');
+  assert.ok(s.lifetime.meguru.spots.forest.includes('thicket1'), 'セーブにも のこる');
+  assert.ok(u.run.sim.mapData().progress.percent >= before, '探索率も すすむ');
+  // 左上の チップが どこに いるかを 出しつづける(レベル1 は もともと ある)
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'にたようなこだち', 'どこに いるかは わかる');
+  h.api.stopMeguru();
+});
+
+test('⑦-3 目じるしの ある ばしょは これまで どおり しらせる', () => {
+  const { h } = setup('forest');
+  const u = open(h);
+  settle(h, u);
+  stand(h, u.run, 'bright2');
+  const t = shown(u);
+  assert.ok(t, '🪵 が 立つ ばしょは しらせる');
+  assert.equal(t.title, 'ひだまりを みつけた');
+  h.api.stopMeguru();
+});
+
+test('⑦-4「ちずに きろくした」は はじめの うちだけ(なんども くりかえさない)', () => {
+  const { h, s } = setup('forest');
+  // もう たくさん 見つけて いる ひと
+  s.lifetime.meguru.spots = { forest: ['entry', 'bright1', 'bright3', 'sunspot', 'creek1'] };
+  const u = open(h);
+  settle(h, u);
+  stand(h, u.run, 'bright2');
+  const t = shown(u);
+  assert.ok(t, 'しらせ じたいは 出る');
+  assert.equal(t.title, 'ひだまりを みつけた');
+  assert.equal(t.sub, '', 'なれた ひとには「ちずに きろくした」を くりかえさない');
+  h.api.stopMeguru();
+});
+
+test('⑦-5 はじめて あそぶ ひとには「ちずに きろくした」を そえる', () => {
+  const { h } = setup('forest');
+  const u = open(h);                                 // まっさら(spots は から)
+  settle(h, u);
+  stand(h, u.run, 'bright2');
+  const seen = [shown(u), ...settle(h, u)].filter(Boolean);
+  const first = seen.find((v) => v.title === 'ひだまりを みつけた');
+  assert.ok(first, 'はじめの はっけん');
+  assert.equal(first.sub, 'ちずに きろくした', 'はじめの うちは しくみを おしえる');
+  h.api.stopMeguru();
+});
+
+test('⑦-6 レベルは セーブに 何も 足さない(旧セーブでも そのまま 動く)', () => {
+  const { h, s } = setup('forest');
+  // 旧セーブ: めぐるの きろくが spots だけ(zones/paths/marks/world が ない)
+  s.lifetime.meguru = { visits: 2, talkCount: 0, met: {}, talks: {}, spots: { forest: ['bright2'] } };
+  const u = open(h);
+  settle(h, u);
+  stand(h, u.run, 'bright2');
+  assert.equal(shown(u), null, 'もう 見つけて いる ので 出さない');
+  stand(h, u.run, 'creek2');
+  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おがわのふち/.test(v.title));
+  assert.ok(t, '旧セーブでも あたらしい はっけんは 出る');
+  assert.deepEqual([...Object.keys(s.lifetime.meguru)].sort(),
+    ['marks', 'met', 'paths', 'spots', 'talkCount', 'talks', 'visits', 'world', 'zones'].sort(),
+    'キーは これまでと おなじ(レベル用の 新しい きろくを 足さない)');
+  h.api.stopMeguru();
+});
+
+test('⑦-7 監査の けっかと 実装が そろって いる', () => {
+  const { M } = setup('forest');
+  const rows = require('node:fs').readFileSync('docs/qa/meguru-spot-audit-2026-09-21.csv', 'utf8').split('\n').slice(1).filter(Boolean);
+  let n = 0; const lv = {};
+  for (const line of rows) {
+    const c = line.match(/"((?:[^"]|"")*)"/g).map((q) => q.slice(1, -1).replace(/""/g, '"'));
+    const [region, id] = c;
+    const want = Number(c[14].slice(1));             // 推奨通知レベル "L0" / "L2" / "L3"
+    const sp = M.WORLDS[region].spots.find((q) => q.id === id);
+    assert.ok(sp, region + '/' + id + ' が せかいに ない');
+    assert.equal(M.spotDiscoveryLevel(sp), want, region + '/' + id + '(' + c[2] + ')');
+    lv['L' + want] = (lv['L' + want] || 0) + 1; n++;
+  }
+  assert.equal(n, 471, '監査表は 471 spot ぜんぶ');
+  assert.deepEqual(lv, { L0: 188, L2: 212, L3: 71 }, '監査の うちわけ');
 });

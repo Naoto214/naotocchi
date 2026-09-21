@@ -624,6 +624,33 @@
     const SPOT_PROP_BIG = new Set(['🏠', '🏚️', '🛖', '⛲', '🚉', '🏪', '🏬', '☕', '🛝', '⛺', '🚏', '⛩️', '🌉', '⛵', '🌳', '🏕️', '🎡']);
     // ねている もの: むきを ばらす(倒木が よこ一列に ならばない)
     const ANGLED_STRUCTS = new Set(['log', 'driftwood', 'bigrock', 'riverrock', 'ledgerock', 'stump', 'hayroll']);
+
+    // ================= はっけんの おおきさ(しらせる レベル) =================
+    // 「○○を みつけた」と 出して いいのは、**画面を 見て「ああ、これか」と わかる もの** だけ。
+    // 471 の spot を 1件ずつ しらべた ところ(docs/qa/meguru-spot-audit-2026-09-21.md)、
+    // 188 は その spot の ための ものが 画面に 1つも なく、ただの みちの 通過点だった。
+    // それでも「にたようなこだちを みつけた」と 出て いた(しかも おなじ 名前の spot が 3つ ある)。
+    //
+    //   3  landmark / secret ……………… つよい えんしゅつ
+    //   2  その spot の ものが 画面に ある … 「○○を みつけた」
+    //   0  目じるしの ない 通過点 ………… しらせない(左上の チップが 名前を 出しつづける)
+    //
+    // buildWorld() が spot の ために **ほんとうに おく もの** から きめて いる:
+    //   landmark → size 560 の めじるし / prop → struct か 絵文字 / kind:'water' → あおい みずたまり
+    //   それ いがい は みちいろの 地面だけ(ぶんきの 🪧 は どの ぶんきにも ある ので 目じるしに ならない)
+    //
+    // **きろくは レベルに かかわらず これまで どおり** 全部の spot で とる。
+    // かえるのは「しらせるか どうか」だけ。探索率・地図・セーブは 1つも かわらない
+    const FOUND_PLAIN_PROP = new Set(['🪧', '🚦']);   // どの みちにも ある 道しるべ・信号
+    function spotDiscoveryLevel(s) {
+      if (!s) return 0;
+      if (s.secret || s.landmark) return 3;
+      if (s.kind === 'water') return 2;                 // 半径いっぱいの みずたまりが えがかれる
+      if (!s.prop || FOUND_PLAIN_PROP.has(s.prop)) return 0;
+      // SPOT_PROP_STRUCT が null の もの(🌊 / 🌫️)は **なにも おかれない**(地域の 主役に まかせる)
+      if (Object.prototype.hasOwnProperty.call(SPOT_PROP_STRUCT, s.prop) && !SPOT_PROP_STRUCT[s.prop]) return 0;
+      return 2;
+    }
     // ---- Three.js の レンダラーから よむ ための「いみ」 ----
     // canvas は いろと かたちで えがくが、3D では「これは 地形か・たてものか・木か・水か・光か」で
     // メッシュを えらぶ。だから せかいの データ側で いみを もつ
@@ -5604,13 +5631,17 @@
       function noteSpotFound(s) {
         const rid = sim.world.regionId;
         if (typeof S.recordSpot === 'function') S.recordSpot(rid, s.id);
-        mapAdded = true;
-        const kind = s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot';
-        queueFound({ key: `spot:${rid}:${s.id}`, kind, region: rid,
-          icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
-          // ひみつは 「ひみつを みつけた」かんじ を さきに。なまえは その した に そえる
-          title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
-          sub: s.secret ? `${s.label}・ちずに きろくした` : 'ちずに きろくした' });
+        mapAdded = true;                                   // きろくは どの spot でも これまで どおり
+        // 目じるしの ない 通過点では しらせない。どこに いるかは 左上の チップが 出しつづける
+        if (spotDiscoveryLevel(s) > 0) {
+          const kind = s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot';
+          const note = mapNote();
+          queueFound({ key: `spot:${rid}:${s.id}`, kind, region: rid,
+            icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
+            // ひみつは 「ひみつを みつけた」かんじ を さきに。なまえは その した に そえる
+            title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
+            sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });
+        }
         for (const id of newLinksFor(s.id)) {
           const c = WORLD_GEOGRAPHY.connections.find((q) => q.id === id); if (!c) continue;
           const other = c.a === rid ? c.b : c.a;
@@ -5618,12 +5649,22 @@
             title: `${plainLabel(other)}へのみちを みつけた`, sub: 'せかいの ちずに きろくした' });
         }
       }
+      // 「ちずに きろくした」は **しくみが わかる まで** の あいだ だけ。
+      // 20 か所 見つけた ころには もう わかって いる ので、くりかえさない。
+      // かぞえかたは セーブに すでに ある「見つけた spot」だけ。新しい きろくは ふやさない
+      const FOUND_TUTORIAL = 3;
+      function mapNote() {
+        if (typeof S.allDiscoveredSpots !== 'function') return '';
+        const all = S.allDiscoveredSpots(); let n = 0;
+        for (const k of Object.keys(all)) n += (all[k] || []).length;
+        return n <= FOUND_TUTORIAL ? 'ちずに きろくした' : '';
+      }
       // はじめて 入った 地区。ちずの ぬりが ひろがる ので、いみが わかる なまえで 出す(§8)
       function noteZoneFound(zn) {
         const rid = sim.world.regionId;
         saveMapBits('zones', zn.id); mapAdded = true;
         queueFound({ key: `zone:${rid}:${zn.id}`, kind: 'zone', region: rid, icon: '🗺',
-          title: `${zn.label}に きた`, sub: 'ちずが すこし ひろがった' });
+          title: `${zn.label}に きた`, sub: mapNote() ? 'ちずが すこし ひろがった' : '' });
       }
       // めじるしは しらせない が、ちずには のせる。**こえて いる あいだ も のこす**
       // (まえは ここで すてて いた ので、ちずに 出ない のに ボタンだけ ひかって いた)
@@ -6110,6 +6151,6 @@
       return { stop, layoutInfo, foundInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
