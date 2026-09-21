@@ -169,9 +169,9 @@ test('鳥居・山道・のりば・どうくつには その ばしょ だけ�
 
 test('えんしゅつを 足しても 地理正本・データの かずは 1つも かわらない', () => {
   assert.equal(G.canon, 'v1');
-  assert.equal(G.connections.length, 17, 'connection は 17 本のまま');
+  assert.equal(G.connections.length, 16, 'connection は 16 本(さばく|ジャングルを さくじょ した ぶん 17 → 16)');
   const links = G.connections.filter((c) => c.b).map((c) => [c.a, c.b].sort().join('|'));
-  assert.equal(new Set(links).size, 16, 'つながりは 16 本 ＋ きおくのみずうみ 1');
+  assert.equal(new Set(links).size, 15, 'つながりは 15 本 ＋ きおくのみずうみ 1');
   assert.ok(!links.includes('countryside|home'), 'おうち ↔ いなか の 直通は ない まま');
   assert.equal([M.WORLD_PROGRESS_WEIGHT.regions, M.WORLD_PROGRESS_WEIGHT.links, M.WORLD_PROGRESS_WEIGHT.marks, M.WORLD_PROGRESS_WEIGHT.zones].join(','), '0.4,0.25,0.2,0.15', '探索率の おもみは そのまま');
   let spots = 0, paths = 0, zones = 0, secrets = 0;

@@ -13886,6 +13886,10 @@
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
+    // イラストの さしかえを とおさない ところ(のりものの えなど)で つかう ふつうの 絵文字。
+    // playerGlyph は イラスト よう の しるし(\uE000)を かえす ことが あるので、
+    // なまの canvas に そのまま かくと とうふ(□)に なる
+    playerEmoji: () => currentSprite(),
     // キャラ(じゅうみん)よう: 絵文字 → イラスト/キャラの え。オフスクリーンでも きく
     wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS && c ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c),
     // けしき(こもの・しゃへいぶつ・めじるし)よう: キャラの え には ぜったいに ならない
