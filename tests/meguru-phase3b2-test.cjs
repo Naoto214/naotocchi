@@ -26,15 +26,15 @@ const gateTo = (sim, to) => sim.gates.find((g) => g.to === to);
 
 // ──────────────────────────────────────────────── 正本
 
-test('1. 2 本に あるく 出口が ついた。connection は ふえて いない', () => {
+test('1. この PR の 2 本に あるく 出口が ある。connection は ふえて いない', () => {
   const { G } = setup();
   assert.equal(G.connections.length, 15, 'connection は 15 本の まま');
   assert.equal(G.connections.filter((c) => c.b).length, 14);
-  assert.equal(G.connections.filter((c) => c.gate).map((c) => c.id).sort().join(','),
-    'countryside|forest,countryside|star_stop,deepsea|sea,forest|mountain,home|forest,home|river_lake,jungle|sea,mountain|river_lake,snow|mountain');
-  assert.equal(G.connections.filter((c) => c.gate).length, 9, 'gate は 7 → 9');
+  assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('forest|mountain'));
+  assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('snow|mountain'));
+  assert.equal(G.connections.filter((c) => c.gate).length, 11, 'gate は 11(3B-3 で さらに 2 本 ふえた)');
   assert.equal(G.connections.filter((c) => c.b && !c.gate).map((c) => c.id).sort().join(','),
-    'city|countryside,city|desert,city|sea,countryside|river_lake,desert|mountain', '未実装は 7 → 5');
+    'city|desert,countryside|river_lake,desert|mountain', '未実装は 3');
   for (const id of ['forest|mountain', 'snow|mountain']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk'); assert.equal(c.layer, 'ground');

@@ -16,13 +16,13 @@ function setup() {
 // **Phase 3B-0 で `forest|snow` を さくじょ した ぶんを はんえい して いる**
 // Phase 3B-1 で `mountain|river_lake` と `home|river_lake` に gate が ついた
 const GATED = ['countryside|forest', 'home|forest', 'jungle|sea', 'deepsea|sea', 'countryside|star_stop',
-  'mountain|river_lake', 'home|river_lake', 'forest|mountain', 'snow|mountain'];
-const UNGATED = ['desert|mountain', 'countryside|river_lake', 'city|countryside', 'city|sea', 'city|desert'];
+  'mountain|river_lake', 'home|river_lake', 'forest|mountain', 'snow|mountain', 'city|countryside', 'city|sea'];
+const UNGATED = ['desert|mountain', 'countryside|river_lake', 'city|desert'];
 // 直線が ほかの 地域の だえんを つらぬいて いる のこり 1 本(3 章)。
 // もう 1 本 だった `forest|snow` は さくじょ ずみ
 const PIERCING = ['countryside|river_lake'];
 
-test('1. connection は 15 本。b あり 14 / gate 9 / 未実装 5 / special 2', () => {
+test('1. connection は 15 本。b あり 14 / gate 11 / 未実装 3 / special 2', () => {
   const { G } = setup();
   assert.equal(G.connections.length, 15, 'connection は 15 本');
   assert.equal(G.connections.filter((c) => c.b).length, 14, '2 地域を むすぶ ものは 14 本');
@@ -36,7 +36,7 @@ test('1. connection は 15 本。b あり 14 / gate 9 / 未実装 5 / special 2'
     'countryside|star_stop:vertical,jungle|sea:sea');
 });
 
-test('2. gate の 端点は ぜんぶで 18。出口を 1 つも もたない 地域が 3 つ ある', () => {
+test('2. gate の 端点は ぜんぶで 22。出口を 1 つも もたない 地域が 2 つ ある', () => {
   const { M, G, W } = setup();
   const ids = Object.keys(G.regions);
   let ends = 0;
@@ -47,12 +47,12 @@ test('2. gate の 端点は ぜんぶで 18。出口を 1 つも もたない �
     ends += n;
     if (!n) without.push(id);
   }
-  assert.equal(ends, 18, 'gate の 端点 合計');
-  assert.equal(without.sort().join(','), 'city,desert,memory_lake',
+  assert.equal(ends, 22, 'gate の 端点 合計');
+  assert.equal(without.sort().join(','), 'desert,memory_lake',
     'まだ あるいて 出られない 地域');
 });
 
-test('3. 未実装 5 本は どちらの がわにも gate が ない(片がわだけ は 0 本)', () => {
+test('3. 未実装 3 本は どちらの がわにも gate が ない(片がわだけ は 0 本)', () => {
   const { M, G, W } = setup();
   for (const id of UNGATED) {
     const c = G.connections.find((x) => x.id === id);
@@ -84,12 +84,10 @@ test('5. anchor 候補は ぜんぶ 既存の spot で たりる(新しい spot 
   // 監査 6 章で あげた 候補。**ぜんぶ 既存・非ひみつ** であることだけを しばる
   const CAND = {
     'desert|mountain': { desert: ['gate', 'well', 'dune1'], mountain: ['windnotch', 'ridge', 'cliff'] },
-    'city|countryside': { city: ['cross4', 'steps', 'lookout'], countryside: ['terracelook', 'hamlet', 'watermill'] },
-    'city|sea': { city: ['boatpier', 'rivercross', 'riverpark'], sea: ['port', 'boats', 'pier'] },
     'city|desert': { city: ['stalls', 'marketback', 'market'], desert: ['caravan', 'ruins', 'dunecrest'] },
     'countryside|river_lake': { countryside: ['riverbank', 'watermill', 'fishspot'], river_lake: ['bank', 'riverbend', 'river1'] },
   };
-  assert.equal(Object.keys(CAND).length, 5, '未実装 5 本ぶん');
+  assert.equal(Object.keys(CAND).length, 3, '未実装 3 本ぶん');
   for (const [cid, sides] of Object.entries(CAND)) {
     assert.ok(G.connections.some((c) => c.id === cid), cid + ' が ある');
     for (const [rid, list] of Object.entries(sides)) {
