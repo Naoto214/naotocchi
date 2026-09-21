@@ -32,8 +32,8 @@ test('1. この PR の 2 本に あるく 出口が ある。connection は ふ�
   const withGate = G.connections.filter((c) => c.gate).map((c) => c.id).sort();
   assert.ok(withGate.includes('home|river_lake') && withGate.includes('mountain|river_lake'),
     'この PR の 2 本に gate が ある');
-  assert.equal(G.connections.filter((c) => c.gate).length, 9, 'gate は 9(Phase 3B-2 で 2 本 ふえた)');
-  assert.equal(G.connections.filter((c) => c.b && !c.gate).length, 5, '未実装は 5');
+  assert.equal(G.connections.filter((c) => c.gate).length, 11, 'gate は 11(3B-2 / 3B-3 で ふえた)');
+  assert.equal(G.connections.filter((c) => c.b && !c.gate).length, 3, '未実装は 3');
   assert.equal(G.connections.length, 15, 'connection は ふやして いない');
   for (const id of ['mountain|river_lake', 'home|river_lake']) {
     const c = G.connections.find((q) => q.id === id);
