@@ -271,6 +271,13 @@
 
 ## 10. 接続 17 本
 
+> **追記(2026-09-21)**: この節の表と §11 の式は **PR #309 / #310 より前の状態**です。
+> 現在は `desert|jungle`(#13)が削除され、`jungle|sea`(#12)の うみ側入口が
+> `sea.rockarch` → `sea.breakwater` に変わり、special sea connection になっています。
+> 接続は **16 本**、世界探索率の link 分母は **14** です。
+> 現行の全件監査は [`meguru-phase3a-connection-audit-2026-09-21.md`](./meguru-phase3a-connection-audit-2026-09-21.md) にあります。
+
+
 | # | 接続 | 種類 | made | 入口 spot（両側） |
 |---|---|---|---|---|
 | 1 | ゆきぐに ↔ やま | 尾根の峠（奥↔奥） | nature | snow.peak / mountain.summit |
