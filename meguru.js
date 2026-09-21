@@ -3911,7 +3911,8 @@
       rim: [
         { dir: 'north', kind: 'ice', label: 'こおりのはら', near: ['snow'] },
         { dir: 'northwest', kind: 'sand', label: 'すなのはて', near: ['desert'] },
-        { dir: 'southwest', kind: 'ocean', label: 'がいよう', near: ['jungle'] },
+        // ジャングルは この 外洋の **なか** に うかんで いる。本土がわの きしは とかい・うみ
+        { dir: 'southwest', kind: 'ocean', label: 'がいよう', near: ['jungle', 'city', 'sea'] },
         { dir: 'south', kind: 'ocean', label: 'たいへいよう', near: ['sea'] },
         { dir: 'east', kind: 'cliff', label: 'ひがしのやまなみ', near: ['home', 'river_lake'] },
       ],
@@ -3927,7 +3928,8 @@
         mountain:    { layer: 'ground', mapX:  0.6, mapY:  3.5, axis:   0, climate: 'alpine',     terrain: ['mountain', 'lake', 'falls'],belt: 'head',     river: 'source' },
         snow:        { layer: 'ground', mapX: -0.2, mapY:  5.0, axis: 165, climate: 'subarctic',  terrain: ['snow', 'mountain', 'lake'], belt: 'beyond',   river: null },
         desert:      { layer: 'ground', mapX: -3.2, mapY:  1.4, axis: 250, climate: 'arid',       terrain: ['sand', 'mesa', 'oasis'],    belt: 'lee',      river: null },
-        jungle:      { layer: 'ground', mapX: -4.9, mapY: -5.4, axis:   0, climate: 'tropical',   terrain: ['jungle', 'swamp', 'ruin'],  belt: 'outer',    river: null },
+        // 南西の 外洋を わたった さきの しま。本土とは 陸つづきに しない(まわりは ぜんぶ 海)
+        jungle:      { layer: 'ground', mapX: -6.3, mapY: -7.8, axis:   0, climate: 'tropical',   terrain: ['jungle', 'swamp', 'ruin'],  belt: 'isle',     river: null, isle: true },
         // 分水界の むこう。峠を こえた べつの りゅういき
         city:        { layer: 'ground', mapX: -3.6, mapY: -3.0, axis: 200, climate: 'temperate',  terrain: ['city', 'river', 'hill'],    belt: 'lowland',  river: 'city' },
         sea:         { layer: 'ground', mapX: -1.2, mapY: -6.1, axis: 100, climate: 'mild-coast', terrain: ['shore', 'port', 'cape'],    belt: 'coast',    river: 'mouth' },
@@ -3936,6 +3938,43 @@
         star_stop:   { layer: 'sky',    mapX: -1.6, mapY: -1.8, axis: 200, climate: 'starry',     terrain: ['sky'],                      belt: 'above',    river: null, height: 1 },
         // きおくのみずうみ: 地上の ざひょうを もたない。世界地図に 地域として のせない
         memory_lake: { layer: 'memory', mapX: null, mapY: null, axis: 0,   climate: 'still',      terrain: ['lake', 'mist'],             belt: 'memory',   river: null },
+      },
+      // ---- 地形の いみ(D)。地域では ない 地形が「あるいて いる とき / こえる とき」に
+      //      どんな けしきに なるか。**え の ための データでは なく 世界の いみ** なので、
+      //      canvas が Three.js に かわっても この まま つかえる。
+      //      walk: その 地形の うえを あるけるか
+      //      role: wall(こえられない かべ) / gate(こえる ところ) / edge(陸の はし) / flow(水の みち) / beyond(うみの むこう)
+      //      near: その 地形が 見えて いる 地域
+      //      far:  とおくから 見える ときの けしき
+      //      cross: こえる 地域へ 入る ときの けしき(こえない 地形は null) ----
+      scenery: {
+        'tenryu':       { walk: true,  role: 'flow',   near: ['mountain', 'river_lake', 'home', 'sea'],
+          far: 'たにの そこを みなみへ ながれる、はばの ある かわ。おうちの すぐ ひがしを とおる',
+          cross: 'はしを わたる。水おとが 下から ずっと きこえて いる' },
+        'source-lake':  { walk: false, role: 'flow',   near: ['river_lake', 'mountain'],
+          far: 'たにの いちばん 上に ある 大きな みずうみ。かわは ここから はじまる', cross: null },
+        'divide':       { walk: true,  role: 'gate',   near: ['countryside', 'city'],
+          far: 'とおくに 見える ひくい おね。ここを さかいに 水の ながれる むきが かわる',
+          cross: 'とうげを のぼりきると、うしろの たにが 見えなく なり、前に べつの りゅういきが ひらける' },
+        'shonai':       { walk: true,  role: 'flow',   near: ['countryside', 'city', 'sea'],
+          far: 'ぶんすいかいの むこうがわを、まちへ むかって ながれる かわ',
+          cross: 'まちの かわぎしを あるく。かわは ゆっくりで、みずおとは しずか' },
+        'west-range':   { walk: true,  role: 'gate',   near: ['snow', 'mountain', 'forest', 'countryside'],
+          far: 'にしがわの やまち。みねが つづいて いて、ゆきの ある ところも ある',
+          cross: 'のぼる ほど 木が ひくく なり、みねを こえると ゆきの においが する' },
+        'east-range':   { walk: false, role: 'wall',   near: ['home', 'river_lake'],
+          far: 'たにの ひがしを ふさぐ 大きな やまなみ。ずっと むこうに 見えて いるが、あるいては 行けない',
+          cross: null },
+        'bay':          { walk: false, role: 'edge',   near: ['city', 'sea'],
+          far: 'まちの みなみに ひろがる いりえ。おだやかで、ふねの かげが ある', cross: null },
+        'coast':        { walk: true,  role: 'edge',   near: ['city', 'sea'],
+          far: '陸と 海の さかい。ここから さきは あるいて 行けない',
+          cross: 'すなの うえを あるく。うしろは 陸、前は 水だけ' },
+        'jungle-isle':  { walk: false, role: 'beyond', near: ['jungle'],
+          far: '南西の 外洋に うかぶ しま。本土の かいがんせんからは、水のせんの むこうに 見えるだけ',
+          cross: null },
+        'jungle-islets':{ walk: false, role: 'beyond', near: ['jungle'],
+          far: '主島の みなみひがしに つらなる ちいさな しまじま', cross: null },
       },
       // ---- 地形(feature): プレイヤーの みちとは べつ ----
       features: [
@@ -4041,10 +4080,31 @@
             { x: -2.90, y: -6.55, region: 'sea' },
             { x: -2.30, y: -5.95, region: 'sea' },
           ] },
+        // 南西の 外洋に うかぶ しま。**ジャングルを 見つける まで 1 てんも 出さない**
+        { id: 'jungle-isle', kind: 'island', label: 'みなみにしの しま', needs: 'jungle',
+          points: [
+            { x: -5.55, y: -7.30, region: 'jungle' },
+            { x: -5.90, y: -6.95, region: 'jungle' },
+            { x: -6.55, y: -7.00, region: 'jungle' },
+            { x: -7.05, y: -7.45, region: 'jungle' },
+            { x: -7.15, y: -8.10, region: 'jungle' },
+            { x: -6.70, y: -8.60, region: 'jungle' },
+            { x: -6.05, y: -8.60, region: 'jungle' },
+            { x: -5.60, y: -8.10, region: 'jungle' },
+          ] },
+        // 主島の みなみひがしへ つらなる こじま。本土の かいがんせんからは
+        // じゅうぶん はなす(ちかいと「陸つづき」に 見えて しまう)
+        { id: 'jungle-islets', kind: 'island', label: 'こじま', needs: 'jungle',
+          points: [
+            { x: -4.70, y: -9.05, region: 'jungle' },
+            { x: -4.95, y: -8.87, region: 'jungle' },
+            { x: -5.20, y: -9.05, region: 'jungle' },
+            { x: -4.95, y: -9.23, region: 'jungle' },
+          ] },
         // 【かいがんせん】湾の くちから ひがしへ。おくへ いくほど がいよう
         { id: 'coast', kind: 'coast', label: 'かいがんせん',
           points: [
-            { x: -5.10, y: -5.60, region: 'jungle' },
+            { x: -4.95, y: -5.70, region: 'city' },   // 本土の にしのはし。しまへは つながらない
             { x: -4.20, y: -6.05, region: 'city' },
             { x: -3.20, y: -6.35, region: 'sea' },
             { x: -2.00, y: -6.65, region: 'sea' },
@@ -4225,19 +4285,41 @@
       // どちらも「上る／下る もとの 地域」と「その さきの 地域」を どちらも 見つけて
       // いる ときだけ 出す(未発見の そんざいを ばらさない)
       const anchor = (a) => {
+        const on = seen(a.region) && seen(a.from);
+        // 見つけて いない あいだは **なまえも ばしょも のりものも わたさない**。
+        // `on: false` だけを かえす。ここで 座標や なまえを わたして いると、
+        // え に かいて いなくても データの がわで そんざいが ばれる(#12)。
+        // 「上る もとの 地域には 行った」ことだけは、つぎの めあてに なるので のこす
+        if (!on) return { on: false, base: seen(a.from) };
         // たてじくの みちが **特殊接続**なら、その のりものを え の がわへ つたえる。
         // ふつうの 徒歩の みちと おなじ 見た目に しない ため(#11)
-        const on = seen(a.region) && seen(a.from);
-        const via = on && G.connections.find((c) => c.b === a.region && c.vertical);
+        const via = G.connections.find((c) => c.b === a.region && c.vertical);
         return { x: a.mapX, y: a.mapY, label: a.label, short: a.short, from: a.from, region: a.region,
-          // **見つける まで のりものの そんざいも 出さない**(#12)
           ride: via && via.vertical.ride ? via.vertical.ride.kind : null,
-          on, base: seen(a.from) };
+          on: true, base: true };
       };
       const axis = { sky: anchor(G.axis.sky), deep: anchor(G.axis.deep) };
-      // ---- 地形(feature)。点の 地域を 見つけて いる ところだけ のびる(#25, #26) ----
-      const features = G.features.map((f) => ({ id: f.id, kind: f.kind, label: f.label,
-        points: f.points.map((p) => ({ x: p.x, y: p.y, region: p.region, on: seen(p.region) })) }))
+      // ---- 地形(feature)。**見つけた 地域の まわり だけ**が 紙に かきたされる。
+      // 「その 点の 地域を 見つけた」だけ では 出さない。そう しないと、かわ・みずうみを
+      // 見つけた だけで 8 めもり ある ひがしの 山地が まるごと 出て しまい、
+      // まだ 行って いない ところの かたちが 先に わかって しまう(#20〜#23) ----
+      // 見つけた 地域が ふえる ほど、1つ1つの 地域から 紙に かきたされる はんいも
+      // すこしずつ ひろがる。だから 100% では すきまなく つながり、とちゅうでは
+      // 「行った ところの まわり だけ」が わかる
+      const grown = WMAP_REVEAL * (1 + 0.8 * (known.size / GEO_GROUND.length));
+      const knownAt = [...known].map((id) => { const g = G.regions[id], sh = worldMapShape(id);
+        return { x: g.mapX, y: g.mapY, r: Math.max(sh.rx, sh.ry) + grown }; });
+      // 11 の 地上の 地域を ぜんぶ 見つけたら、せかいの かたちは そこで 完成する
+      const allGround = known.size >= GEO_GROUND.length;
+      const nearKnown = (x, y) => allGround || knownAt.some((q) => Math.hypot(q.x - x, q.y - y) <= q.r);
+      const features = G.features
+        // needs が ある 地形(しま など)は、その 地域を 見つける まで **1 てんも** 出さない
+        .filter((f) => !f.needs || seen(f.needs))
+        .map((f) => ({ id: f.id, kind: f.kind, label: f.label,
+          // まだ わからない 点は、**ばしょも どの 地域の ものかも わたさない**。
+          // かず だけ そのままに して、え の がわが 点の ならびを かぞえられる ように する
+          points: f.points.map((p) => (nearKnown(p.x, p.y)
+            ? { x: p.x, y: p.y, region: p.region, on: true } : { on: false })) }))
         .filter((f) => f.points.some((p) => p.on));
       // ---- みち。見つけた ものだけ。りょうはしの 地域も 見つけて いる ことが 条件 ----
       const links = G.connections.filter((c) => c.b && linkSet.has(c.id) && seen(c.a) && seen(c.b))
@@ -4246,6 +4328,21 @@
           return { id: c.id, a: c.a, b: c.b, kind: c.kind, layer: c.layer, made: c.made,
             label: c.label, long: !!c.long, ax: A.mapX, ay: A.mapY, bx: B.mapX, by: B.mapY };
         });
+      // ---- 紙の はんい。**いま わかって いる ぶん**に あわせる ので、
+      // はじめは おうちの まわり だけ、すすむほど せかいが ひろがって いく。
+      // 100% で ちょうど ぜんたい(WMAP_BOUNDS)に なる(#28) ----
+      const bounds = (() => {
+        let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+        const take = (x, y, r) => { x0 = Math.min(x0, x - r); x1 = Math.max(x1, x + r); y0 = Math.min(y0, y - r); y1 = Math.max(y1, y + r); };
+        for (const r of regions) take(r.x, r.y, Math.max(r.rx, r.ry) + 0.35);
+        for (const f of features) for (const p of f.points) if (p.on) take(p.x, p.y, 0.3);
+        for (const a of [axis.sky, axis.deep]) if (a.on) take(a.x, a.y, 0.5);
+        // なにも 見つけて いない ときは、いちばん ちいさな 紙(おうちの まわり だけ)。
+        // ここを ひろく とると、1 か所 見つけた ときに 紙が **せまく** なって しまう
+        if (!Number.isFinite(x0)) { const h = G.regions.home; take(h.mapX, h.mapY, 1.2); }
+        const B = WMAP_BOUNDS;
+        return { x0: Math.max(B.x0, x0), x1: Math.min(B.x1, x1), y0: Math.max(B.y0, y0), y1: Math.min(B.y1, y1) };
+      })();
       // ---- すすみぐあい: 4つとも ひみつを ふくまない ていすう ----
       const C = worldCountable();
       const gotR = C.regions.filter(seen).length;
@@ -4261,7 +4358,7 @@
         + W.links * ratio(gotL, C.links.length) + W.marks * ratio(gotM, C.tier1)
         + W.zones * ratio(gotZ, C.zones)) * 100);
       return {
-        version: G.version, plan: G.plan, regions, axis, features, links, rim: G.rim.slice(),
+        version: G.version, plan: G.plan, regions, axis, features, links, bounds, rim: G.rim.slice(),
         here: rec.here && seen(rec.here) ? rec.here : null,
         // 特殊層は 通常の % とは べつに かぞえる(#49)。きおくのみずうみは 地図に 出さない(#28)
         layers: { sky: seen('star_stop'), deep: seen('deepsea'), memory: known.has('memory_lake') },
@@ -4456,6 +4553,9 @@
     const WMAP = { pad: 18, minZoom: 1, maxZoom: 2.6, zoomStep: 0.5 };
     // せかい ぜんたいの わく。見つけて いても いなくても おなじ(ちずが はっけんの たびに
     // ずれると「そだって いく」かんじが こわれる)。かみの ひろさは 地域の いちを ばらさない
+    // 見つけた 地域から これだけ はなれた ところまで、山なみ・かわ・かいがんせんが
+    // 紙に かきたされる。これ より さきは 「まだ わからない」ままに する
+    const WMAP_REVEAL = 1.15;
     const WMAP_BOUNDS = (() => {
       let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
       const take = (x, y, r) => { x0 = Math.min(x0, x - r); x1 = Math.max(x1, x + r); y0 = Math.min(y0, y - r); y1 = Math.max(y1, y + r); };
@@ -4473,7 +4573,9 @@
     // え を かく ときだけ たてを のばす(#63, #64)
     const WMAP_STRETCH_MAX = 1.35;
     function worldMapLayout(wd, W, H, zoom, panX, panY) {
-      const B = WMAP_BOUNDS, P = WMAP.pad;
+      // 見つけた ぶんだけの はこ。まだ せまい うちは その まわり だけが 紙に のる
+      const B = (wd && wd.bounds && wd.bounds.x1 > wd.bounds.x0 && wd.bounds.y1 > wd.bounds.y0) ? wd.bounds : WMAP_BOUNDS;
+      const P = WMAP.pad;
       const wW = B.x1 - B.x0, wH = B.y1 - B.y0;
       const fitW = (W - P * 2) / wW, fitH = (H - P * 2) / wH;
       const base = Math.min(fitW, fitH);
@@ -4527,6 +4629,35 @@
         ctx.save(); ctx.strokeStyle = pal.sea; ctx.globalAlpha = 0.55;
         ctx.lineCap = 'round'; ctx.lineJoin = 'round';
         for (let k = 3; k >= 1; k--) { ctx.lineWidth = U * 0.4 * k; ctx.globalAlpha = 0.22 * (4 - k); ctx.beginPath(); poly(ctx, coast, false); ctx.stroke(); }
+        ctx.restore();
+      }
+
+      // ---- 南西の 外洋に うかぶ しま。まわりを 海で かこんで、本土と 陸つづきに
+      //      見えない ように する。見つける まで 1 てんも 出ない(データ の がわで きめて いる) ----
+      for (const isle of wd.features.filter((f) => f.kind === 'island')) {
+        const pts = onPts(isle);
+        if (pts.length < 3) continue;
+        ctx.save();
+        // ① まわりの 海(そとへ にじむ)
+        ctx.strokeStyle = pal.sea; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (let k = 3; k >= 1; k--) { ctx.lineWidth = U * 0.30 * k; ctx.globalAlpha = 0.20 * (4 - k); ctx.beginPath(); poly(ctx, pts, true); ctx.stroke(); }
+        // ② しまの じめん
+        ctx.globalAlpha = 1; ctx.fillStyle = '#7fae66';
+        ctx.beginPath(); poly(ctx, pts, true); ctx.fill();
+        // ③ かいがんせん
+        ctx.strokeStyle = pal.seaDeep; ctx.globalAlpha = 0.6; ctx.lineWidth = 1.4;
+        ctx.beginPath(); poly(ctx, pts, true); ctx.stroke();
+        // ④ もり(しまの なかに いくつか)
+        let cx = 0, cy = 0; for (const q of pts) { cx += toX(q.x); cy += toY(q.y); }
+        cx /= pts.length; cy /= pts.length;
+        const rad = Math.min(...pts.map((q) => Math.hypot(toX(q.x) - cx, toY(q.y) - cy)));
+        ctx.globalAlpha = 0.85; ctx.fillStyle = '#3f7a45';
+        const n = Math.max(3, Math.round(rad / (U * 0.22)));
+        for (let i = 0; i < n; i++) {
+          const a2 = hrand(isle.id + ':t' + i) * TAU, d2 = rad * (0.15 + hrand(isle.id + ':d' + i) * 0.62);
+          const tx = cx + Math.sin(a2) * d2, ty = cy + Math.cos(a2) * d2 * 0.82, size = U * (0.085 + hrand(isle.id + ':s' + i) * 0.05);
+          ctx.beginPath(); ctx.moveTo(tx, ty - size); ctx.lineTo(tx + size * 0.72, ty + size * 0.6); ctx.lineTo(tx - size * 0.72, ty + size * 0.6); ctx.closePath(); ctx.fill();
+        }
         ctx.restore();
       }
 
@@ -5054,10 +5185,12 @@
         <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
-      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary" id="mgrTalk" data-key="action" disabled>💬 はなす</button><button type="button" class="mg-tap-btn hidden" id="mgrRide">のる</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
+      // 右がわは「いま おせば いみの ある こと」だけ。その ばの できごと(はなす /
+      // のる / もぐる / うかぶ)は **1 枠**で 入れかえ、なにも ない ときは 出さない。
+      // #mgrTalk の id は そのまま(ほかの しらべ ものが これを さがす)
+      const row = S.createPadRow(container, `<button type="button" class="mg-tap-btn primary hidden" id="mgrTalk" data-key="action">💬 はなす</button><button type="button" class="mg-tap-btn" id="mgrTravel">🧭 たび</button><button type="button" class="mg-tap-btn" id="mgrHome">🏠 もどる</button>`);
       const pad = S.createTouchPad(row, { mode: 'vector', sticky: true, before: row.firstChild || null, label: 'ここを なぞって あるく' });
       const canvas = container.querySelector('#mgrCanvas');
-      let lastRide = null;
       const wrap = container.querySelector('.mgr-wrap');
       const mapBtn = container.querySelector('#mgrMap');
       // たんさく がめんの たかさ。
@@ -5135,8 +5268,21 @@
       let { ctx, W, H } = S.createMgCanvas(canvas, () => availHeight(), {});
       const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
       const placeEl = container.querySelector('#mgrPlace'), countEl = container.querySelector('#mgrCount'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner'), spotEl = container.querySelector('#mgrSpot');
-      const talkBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
-      const rideBtn = container.querySelector('#mgrRide');
+      const actBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
+      // いまの context action。null なら ボタンは 出さない(からの ボタンを のこさない)
+      //   talk  ちかくに 住民が いる
+      //   ride  ゴンドラの のりば / もぐる ところ(gate の action を そのまま つかう)
+      // actKey は はじめ null。そう すると さいしょの setAct(null) が かならず
+      // 1 回 はしり、ボタンの じょうたいを マークアップに たよらず きめられる
+      let act = null, actKey = null;
+      const setAct = (next) => {
+        const key = next ? `${next.kind}:${next.label}` : '';
+        if (key === actKey) return;
+        actKey = key; act = next;
+        if (!next) { actBtn.classList.add('hidden'); return; }
+        actBtn.textContent = next.label;
+        actBtn.classList.remove('hidden');
+      };
       const ctx2d = canvas.getContext ? canvas.getContext('2d') : null;
       const rendererFactory = typeof opts.renderer === 'function' ? opts.renderer : createCanvasRenderer;
       const renderer = rendererFactory({ canvas, ctx, rawCtx: rawCtxOf(), W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣', wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null, resolveScenery: typeof S.resolveScenery === 'function' ? S.resolveScenery : null });
@@ -5187,7 +5333,7 @@
         loadMapRecords(regionId);
         preload();
         sim.setEnv(env());
-        talkBtn.disabled = true; showSpot(null); rideBtn.classList.add('hidden');
+        setAct(null); showSpot(null);
         // あるいて こえた ときは ここで しらせない。こえおわって から まとめて 出す(§7)
         if (!opts.quiet) showBanner(`${plainLabel(regionId)}に ついた`, 1600);
         hud();
@@ -5214,7 +5360,7 @@
         const plan = transitionPlan(g, { repeat: crossedBefore.has(key), reduced: reducedMotion, tier });
         crossedBefore.add(key);
         trans = { g, plan, t: 0, phase: plan.phases[0], swapped: false, released: false, first: false, keep: pad.vector() };
-        talkBtn.disabled = true; rideBtn.classList.add('hidden');
+        setAct(null);
         travelBtn.disabled = true; mapBtn.disabled = true; homeBtn.disabled = true;  // §30/§32
         transCue(plan.phases[0]);
         hintEl.textContent = (HINT_BY_WAY[plan.way] || HINT_BY_WAY.walk)(g);
@@ -5256,6 +5402,9 @@
         if (!running) return;
         if (last === null) last = now; const last0 = last; const dt = Math.min(0.05, (now - last) / 1000); last = now; frame++;
         const st = getState();
+        // 「たび」などの オーバーレイが かぶさって いる あいだは、せかいを すすめない。
+        // とじたら そのまま つづきから(ロックを のこさない)
+        if (typeof S.menuOpen === 'function' && S.menuOpen()) { last = null; rafId = requestAnimationFrame(frameFn); return; }
         if (trans) {
           // こえて いる あいだも せかいは すすむ。ゆびを はなして いても、こえる ちょくぜんの
           // むきへ すこし だけ あるきつづける ので「とまる → ワープ → また うごきだす」に ならない(§5)
@@ -5291,7 +5440,7 @@
         const events = sim.step(dt, pad.vector());
         for (const ev of events) {
           if (ev.type === 'met') { if (typeof S.recordMet === 'function') S.recordMet(ev.actor.key); hud(); }
-          else if (ev.type === 'nearest') talkBtn.disabled = !ev.actor;
+          else if (ev.type === 'nearest') { /* context は まとめて 下で きめる */ }
           else if (ev.type === 'spot') { showSpot(ev.spot); if (ev.first) { showBanner(`${ev.spot.label}を みつけた`, 1500); sfx('pop'); if (typeof S.recordSpot === 'function') S.recordSpot(sim.world.regionId, ev.spot.id); mapAdded = true; } }
           else if (ev.type === 'zone' && ev.first) { saveMapBits('zones', ev.zone.id); mapAdded = true; }
           else if (ev.type === 'path') saveMapBits('paths', ev.key);
@@ -5302,15 +5451,16 @@
         // ちずに ふえた ことを、おおげさに しないで しらせる(「ちず」ボタンが すこし ひかる)
         if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
-        // たてじくの のりばに 立って いる あいだ だけ「のる」/「もぐる」
+        // その ばの できごとを 1 枠に まとめる。のりばに 立って いる あいだ だけ
+        // 「のる」/「もぐる」/「うかぶ」、住民が ちかい ときだけ「はなす」
         const ride = sim.gateHere ? sim.gateHere() : null;
-        if (ride !== lastRide) {
-          lastRide = ride;
-          if (ride) { rideBtn.textContent = ride.action; rideBtn.classList.remove('hidden'); }
-          else rideBtn.classList.add('hidden');
-        }
+        setAct(ride ? { kind: 'ride', label: ride.action || 'のる' }
+          : sim.nearest ? { kind: 'talk', label: '💬 はなす' } : null);
         const nearest = sim.nearest;
-        const hint = nearest ? `${nearest.label}が ${VERBS[nearest.behavior] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
+        // ボタンの なまえだけ かわって「なにが おきるのか」わからない ままに しない。
+        // のりばに 立って いる あいだは、gate の verb を そのまま した に 出す
+        const hint = ride ? `【${(sim.spot && sim.spot.label) || ride.action}】${ride.verb || ride.action}`
+          : nearest ? `${nearest.label}が ${VERBS[nearest.behavior] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
         if (hint !== lastHint) { lastHint = hint; hintEl.textContent = hint; }
         if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }
         frameEma += ((now - last0) / 1000 - frameEma) * 0.05;
@@ -5470,7 +5620,12 @@
         sfx('pop');
         if (typeof S.recordTalk === 'function') S.recordTalk(r.actor.key);
       }
-      talkBtn.addEventListener('click', talk);
+      actBtn.addEventListener('click', () => {
+        if (!act || trans) return;
+        if (act.kind === 'talk') return talk();
+        const g = sim.gateHere ? sim.gateHere() : null;
+        if (g) beginTransition(g);
+      });
       // ちず: たんさくの ループを とめて かぶせる。とじると おなじ ばしょから つづき。
       // ひらいて いる あいだ は draw() を よばない ので、たんさくの え には なにも 足さない
       let mapScreen = null;
@@ -5487,8 +5642,7 @@
         });
       }
       mapBtn.addEventListener('click', openMap);
-      rideBtn.addEventListener('click', () => { const g = sim.gateHere ? sim.gateHere() : null; if (g) beginTransition(g); });
-      travelBtn.addEventListener('click', () => { if (typeof S.openTravel === 'function') S.openTravel(); });
+      travelBtn.addEventListener('click', () => { if (trans) return; if (typeof S.openTravel === 'function') S.openTravel(); });
       homeBtn.addEventListener('click', () => stop());
       function stop() {
         if (!running) return; running = false; if (rafId) cancelAnimationFrame(rafId);

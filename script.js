@@ -11463,6 +11463,20 @@
     releaseMoviePresentation();
   }
 
+  // めぐるの うえに「たび」を かぶせる。めぐるは とまった まま まって いて、
+  // 地域を えらぶと これまでどおり travelToRegion() が うごき、
+  // めぐるは frameFn の 同期で その 地域へ 入りなおす
+  function openTravelOverlay() {
+    if (gameActive || state.transformOptions) return;
+    if (!meguruActive) return openExclusiveMenu('travel');
+    audio.play('open');
+    clearConversationTimers();
+    hideSpeechBubble();
+    closeAllMenuOverlays();
+    activeOverlay = 'travel';
+    render();
+    focusOverlayClose('travel');
+  }
   function openExclusiveMenu(kind) {
     if (gameActive || meguruActive || state.transformOptions) return;
     audio.play('open');
@@ -13886,7 +13900,12 @@
     authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
     perfTier: () => mgPerfTier,
     onExit: () => stopMeguru(),
-    openTravel: () => openExclusiveMenu('travel'),
+    // めぐるの なかから「たび」を ひらく。openExclusiveMenu は めぐる中だと
+    // はじかれる(それが「おしても 何も おきない」の げんいん)ので、
+    // めぐるの うえに かぶせる せんようの 入口を とおす。travelToRegion() は 無変更
+    openTravel: () => openTravelOverlay(),
+    // オーバーレイが かぶさって いる あいだ、めぐるは せかいを すすめない
+    menuOpen: () => !!activeOverlay,
     recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveState(); } },
     recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveState(); },
     // スポットの はっけん(地域ごと)。ずかん・じっせきとは べつの きろく

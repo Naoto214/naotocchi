@@ -4597,6 +4597,12 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
   white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .meguru-overlay .mg-pad-row { margin-top: 6px; gap: 6px; }
+/* その ばで いみの ない ボタンは **ほんとうに けす**。これが なかったので
+   「のる」が どこでも 出て いた(class は ついて いたが、けす きまりが なかった) */
+.meguru-overlay .mg-tap-btn.hidden { display: none; }
+/* こえて いる あいだの ロックを 目でも わかる ように する */
+.meguru-overlay .mg-tap-btn:disabled,
+.meguru-overlay .mgr-map-btn:disabled { opacity: 0.45; cursor: default; }
 .meguru-overlay .mg-pad { min-height: 112px; }
 .meguru-overlay .mg-pad-actions { min-width: 88px; gap: 5px; }
 .meguru-overlay .mg-pad-actions .mg-tap-btn { min-width: 88px; min-height: 34px; padding: 4px 4px; font-size: 13px; }
