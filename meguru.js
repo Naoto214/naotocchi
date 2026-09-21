@@ -5389,7 +5389,7 @@
       if (container.classList) container.classList.add('meguru-overlay');
       container.innerHTML = `
         <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrCount"></span><span id="mgrFound"></span></div>
-        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
+        <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><div class="mgr-found hidden" id="mgrFoundToast"><div class="mgr-found-card"><span class="mgr-found-icon" id="mgrFoundIcon"></span><span class="mgr-found-text"><span class="mgr-found-title" id="mgrFoundTitle"></span><span class="mgr-found-sub" id="mgrFoundSub"></span></span></div></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
       // 右がわは「いま おせば いみの ある こと」だけ。その ばの できごと(はなす /
@@ -5475,6 +5475,8 @@
       let { ctx, W, H } = S.createMgCanvas(canvas, () => availHeight(), {});
       const rawCtxOf = () => (canvas && typeof canvas.getContext === 'function' ? canvas.getContext('2d') : null); // なまの ctx(けしき よう の つつみに つかう)
       const placeEl = container.querySelector('#mgrPlace'), countEl = container.querySelector('#mgrCount'), foundEl = container.querySelector('#mgrFound'), hintEl = container.querySelector('#mgrHint'), bannerEl = container.querySelector('#mgrBanner'), spotEl = container.querySelector('#mgrSpot');
+      const foundEls = { box: container.querySelector('#mgrFoundToast'), icon: container.querySelector('#mgrFoundIcon'),
+        title: container.querySelector('#mgrFoundTitle'), sub: container.querySelector('#mgrFoundSub') };
       const actBtn = container.querySelector('#mgrTalk'), travelBtn = container.querySelector('#mgrTravel'), homeBtn = container.querySelector('#mgrHome');
       // いまの context action。null なら ボタンは 出さない(からの ボタンを のこさない)
       //   talk  ちかくに 住民が いる
@@ -5526,6 +5528,106 @@
         foundEl.textContent = `であった ${sim.metCount()}`;
       };
       const showBanner = (text, ms) => { banner = text; bannerUntil = performance.now() + ms; bannerEl.textContent = text; bannerEl.classList.remove('hidden'); };
+
+      // ====== みつけた しらせ(はっけん つうち) ======
+      // まえは「なにかを みつけた」しるしが ばらばらに 出て いた:
+      //   ・スポットの おび は 1つしか なく、地域の おしらせ に うわがきされる
+      //   ・地域を こえて いる あいだの はっけん は 1つも 出ない(ちずの ボタンだけ ひかる)
+      //   ・地区(zone)と めじるし は ずっと だまったまま
+      // その ため「なにか みつけた らしい けど、なにを?」に なって いた。
+      //
+      // ここでは はっけんを **いみ ごとに わけて**、かならず
+      //   ① なにを みつけたか(なまえ)  ② それが どう なったか(ちずに きろくした)
+      // の 2つを 出す。1フレームに いくつ みつけても 出すのは 1つずつ。
+      //
+      // つよさ の じゅんばん(§12):
+      //   region(おびで 出す) → secret → landmark → みち(connection) → zone → ふつうの spot
+      // 住民に ちかづいた ことは はっけん では ない(下の「はなす」だけ)。
+      // めじるし(mark)は かずが 多く、ちずに のる だけ なので しらせない。
+      const FOUND_RANK = { secret: 1, landmark: 2, link: 3, zone: 4, spot: 5 };
+      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1500 };
+      const FOUND_STRONG = { secret: true, landmark: true };   // すこし つよい えんしゅつ に する もの
+      const FOUND_GAP = 180;          // つぎの しらせ までの あいだ(かさならない ように)
+      const FOUND_MAX = 4;            // ためこむ かず。これ いじょうは よわい ものから すてる
+      let foundQueue = [], foundNow = null, foundUntil = 0, foundNextAt = 0;
+      const foundQuietHint = (on) => { if (hintEl && hintEl.classList) hintEl.classList.toggle('mgr-hint-quiet', !!on); };
+      // おなじ ものを 2ど ならべない。つよい ものから ならべ、あふれたら よわい ものを すてる
+      function queueFound(entry) {
+        entry.rank = FOUND_RANK[entry.kind] || 9;
+        if ((foundNow && foundNow.key === entry.key) || foundQueue.some((q) => q.key === entry.key)) return;
+        foundQueue.push(entry);
+        foundQueue.sort((a, b) => a.rank - b.rank);
+        if (foundQueue.length > FOUND_MAX) foundQueue.length = FOUND_MAX;
+      }
+      function hideFound() {
+        foundNow = null;
+        if (foundEls.box) foundEls.box.classList.add('hidden');
+        foundQuietHint(false);
+      }
+      function showFound(entry, now) {
+        foundNow = entry; foundUntil = now + (FOUND_MS[entry.kind] || 1500);
+        const box = foundEls.box; if (!box) return;
+        box.className = `mgr-found mgr-found-${entry.kind}` + (FOUND_STRONG[entry.kind] ? ' mgr-found-strong' : '');
+        foundEls.icon.textContent = entry.icon || '';
+        foundEls.icon.classList.toggle('hidden', !entry.icon);
+        foundEls.title.textContent = entry.title;
+        foundEls.sub.textContent = entry.sub || '';
+        foundEls.sub.classList.toggle('hidden', !entry.sub);
+        // え を かきなおして アニメーションを はじめから やりなおす
+        box.style.animation = 'none'; void box.offsetWidth; box.style.animation = '';
+        sfx(FOUND_STRONG[entry.kind] ? 'good' : 'pop');
+        foundQuietHint(true);                       // した の そうさ せつめいを よわめる(§16)
+      }
+      // 1フレームに 1つ だけ すすめる。地域の おび が 出て いる あいだ と、
+      // 地域を こえて いる あいだ は 出さない(おしらせを かさねない §9)
+      function stepFound(now) {
+        if (foundNow && now >= foundUntil) { hideFound(); foundNextAt = now + FOUND_GAP; }
+        if (foundNow || trans || banner) return;
+        if (!foundQueue.length || now < foundNextAt) return;
+        showFound(foundQueue.shift(), now);
+      }
+      // みち(connection)の はっけん: りょうがわの 入口 spot を どちらも 見つけた しゅんかんに
+      // ひらく。じょうけん(worldLinksFrom)も かぞえかたも かえない。ここでは
+      // 「せかいの ちずを ひらく まで しらせが 出ない」のを やめる だけ
+      function newLinksFor(spotId) {
+        if (typeof S.allDiscoveredSpots !== 'function') return [];
+        const rid = sim.world.regionId;
+        const touches = WORLD_GEOGRAPHY.connections.some((c) => c.mouths && c.mouths[rid] === spotId);
+        if (!touches) return [];
+        const known = new Set(typeof S.worldLinks === 'function' ? S.worldLinks() : []);
+        const fresh = worldLinksFrom(S.allDiscoveredSpots()).filter((id) => !known.has(id));
+        if (fresh.length && typeof S.recordWorldLinks === 'function') S.recordWorldLinks(fresh);
+        return fresh;
+      }
+      // はじめて 見つけた スポット。きろく → ちず → しらせ の じゅんばんは かえない
+      // (「ちずに きろくした」と 出た ときには もう ちずに ある §14)
+      function noteSpotFound(s) {
+        const rid = sim.world.regionId;
+        if (typeof S.recordSpot === 'function') S.recordSpot(rid, s.id);
+        mapAdded = true;
+        const kind = s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot';
+        queueFound({ key: `spot:${rid}:${s.id}`, kind, region: rid,
+          icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
+          // ひみつは 「ひみつを みつけた」かんじ を さきに。なまえは その した に そえる
+          title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
+          sub: s.secret ? `${s.label}・ちずに きろくした` : 'ちずに きろくした' });
+        for (const id of newLinksFor(s.id)) {
+          const c = WORLD_GEOGRAPHY.connections.find((q) => q.id === id); if (!c) continue;
+          const other = c.a === rid ? c.b : c.a;
+          queueFound({ key: `link:${id}`, kind: 'link', region: rid, icon: '🧭',
+            title: `${plainLabel(other)}へのみちを みつけた`, sub: 'せかいの ちずに きろくした' });
+        }
+      }
+      // はじめて 入った 地区。ちずの ぬりが ひろがる ので、いみが わかる なまえで 出す(§8)
+      function noteZoneFound(zn) {
+        const rid = sim.world.regionId;
+        saveMapBits('zones', zn.id); mapAdded = true;
+        queueFound({ key: `zone:${rid}:${zn.id}`, kind: 'zone', region: rid, icon: '🗺',
+          title: `${zn.label}に きた`, sub: 'ちずが すこし ひろがった' });
+      }
+      // めじるしは しらせない が、ちずには のせる。**こえて いる あいだ も のこす**
+      // (まえは ここで すてて いた ので、ちずに 出ない のに ボタンだけ ひかって いた)
+      const flushMarks = () => { if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; } };
       let lastZone = null;
       const showSpot = (s) => { if (!s) { const zn = sim.zone; if (zn) { spotEl.textContent = zn.label; spotEl.classList.remove('hidden'); } else spotEl.classList.add('hidden'); return; } spotEl.textContent = `${s.secret ? '🔍 ' : ''}${s.label}`; spotEl.classList.remove('hidden'); };
       const plainLabel = (id) => (typeof S.regionPlainLabel === 'function' ? S.regionPlainLabel(id, sim.world.local) : id);
@@ -5541,6 +5643,9 @@
         preload();
         sim.setEnv(env());
         setAct(null); showSpot(null);
+        // よその 地域の しらせを もちこさない。こえる とちゅうで ためた ぶんは
+        // 行きさきの もの だけ のこす
+        hideFound(); foundQueue = foundQueue.filter((q) => q.region === regionId);
         // あるいて こえた ときは ここで しらせない。こえおわって から まとめて 出す(§7)
         if (!opts.quiet) showBanner(`${plainLabel(regionId)}に ついた`, 1600);
         hud();
@@ -5573,6 +5678,7 @@
         crossedBefore.add(key);
         trans = { g, plan, t: 0, phase: plan.phases[0], swapped: false, released: false, first: false, keep: pad.vector() };
         setAct(null);
+        hideFound();                                         // こえて いる あいだ は しらせを かさねない(§9)
         travelBtn.disabled = true; mapBtn.disabled = true; homeBtn.disabled = true;  // §30/§32
         transCue(plan.phases[0]);
         hintEl.textContent = (HINT_BY_WAY[plan.way] || HINT_BY_WAY.walk)(g);
@@ -5605,8 +5711,14 @@
           travelBtn.disabled = false; mapBtn.disabled = false; homeBtn.disabled = false;
           last = null;
           // 大きな しらせは はじめての ときだけ。2 かいめ からは ちいさな 地域名 だけ(§7)
-          if (first) { showBanner(`はじめての ${plainLabel(g.to)}`, 2000); sfx('pop'); }
-          else showBanner(plainLabel(g.to), 900);
+          // はじめての 地域は おびが「はじめての X」と 出す。ついた ばしょ と
+          // その 地区の しらせは その おびに 入って いる ので かさねない(§9)。
+          // みち(せかいの ちず)だけは いみが べつ なので のこす。
+          // きろく じたいは もう すんで いる ので、ちずには ちゃんと のって いる
+          if (first) {
+            showBanner(`はじめての ${plainLabel(g.to)}`, 2000); sfx('pop');
+            foundQueue = foundQueue.filter((q) => q.kind === 'link');
+          } else showBanner(plainLabel(g.to), 900);
           lastHint = null;
         }
       }
@@ -5627,12 +5739,16 @@
           const input = trans.plan.way === 'walk'
             ? (live.x || live.y ? live : { x: keep.x * glide, y: keep.y * glide })
             : { x: 0, y: 0 };
+          // こえて いる あいだの はっけんも きろくする。しらせは ためて おいて、
+          // こえおわって から 1つずつ 出す(まえは ここで きえて いた §9)
           for (const ev of sim.step(dt, input)) {
             if (ev.type === 'gate') continue;                        // こえて いる あいだは つぎの 出口を 見ない
-            if (ev.type === 'spot' && ev.first) { if (typeof S.recordSpot === 'function') S.recordSpot(sim.world.regionId, ev.spot.id); mapAdded = true; }
-            else if (ev.type === 'zone' && ev.first) { saveMapBits('zones', ev.zone.id); mapAdded = true; }
+            if (ev.type === 'spot' && ev.first) noteSpotFound(ev.spot);
+            else if (ev.type === 'zone' && ev.first) noteZoneFound(ev.zone);
             else if (ev.type === 'path') saveMapBits('paths', ev.key);
+            else if (ev.type === 'mark' && ev.first) newMarks.push(ev.mark.mid);
           }
+          flushMarks();
           stepTransition(dt);
           renderer.draw(sim.view(), now);
           if (trans) drawTransition(ctx2d, trans);
@@ -5653,13 +5769,13 @@
         for (const ev of events) {
           if (ev.type === 'met') { if (typeof S.recordMet === 'function') S.recordMet(ev.actor.key); hud(); }
           else if (ev.type === 'nearest') { /* context は まとめて 下で きめる */ }
-          else if (ev.type === 'spot') { showSpot(ev.spot); if (ev.first) { showBanner(`${ev.spot.label}を みつけた`, 1500); sfx('pop'); if (typeof S.recordSpot === 'function') S.recordSpot(sim.world.regionId, ev.spot.id); mapAdded = true; } }
-          else if (ev.type === 'zone' && ev.first) { saveMapBits('zones', ev.zone.id); mapAdded = true; }
+          else if (ev.type === 'spot') { showSpot(ev.spot); if (ev.first) noteSpotFound(ev.spot); }
+          else if (ev.type === 'zone' && ev.first) noteZoneFound(ev.zone);
           else if (ev.type === 'path') saveMapBits('paths', ev.key);
           else if (ev.type === 'mark' && ev.first) newMarks.push(ev.mark.mid);
           else if (ev.type === 'gate') beginTransition(ev.gate);
         }
-        if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; }
+        flushMarks();
         // ちずに ふえた ことを、おおげさに しないで しらせる(「ちず」ボタンが すこし ひかる)
         if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
@@ -5675,6 +5791,7 @@
           : nearest ? `${nearest.label}が ${VERBS[nearest.behavior] || 'いる'}` : sim.spot ? `【${sim.spot.label}】${sim.spot.secret ? 'ひみつの ばしょ。' : ''}${HINT_DEFAULT}` : sim.zone ? `【${sim.zone.label}】${HINT_DEFAULT}` : HINT_DEFAULT;
         if (hint !== lastHint) { lastHint = hint; hintEl.textContent = hint; }
         if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }
+        stepFound(now);
         frameEma += ((now - last0) / 1000 - frameEma) * 0.05;
         if (!halfRate && frameEma > 0.036) halfRate = true; else if (halfRate && tier < 2 && frameEma < 0.024) halfRate = false;
         if (!(halfRate && frame % 2 === 1)) renderer.draw(sim.view(), now);
@@ -5980,6 +6097,7 @@
         if (resizeTimer) clearTimeout(resizeTimer);
         if (mapScreen) { mapScreen.close(); mapScreen = null; }
         if (mapGlowTimer) clearTimeout(mapGlowTimer);
+        hideFound(); foundQueue.length = 0;
         pad.destroy(); renderer.destroy && renderer.destroy();
         if (container.classList) container.classList.remove('meguru-overlay');
         if (typeof S.onExit === 'function') S.onExit();
@@ -5987,7 +6105,9 @@
       rafId = requestAnimationFrame(frameFn);
       // ならびの けんさ よう(テストと 実機の しらべ もの に つかう)
       const layoutInfo = () => ({ limit: overlayBottomLimitPx(), avail: overlayAvailPx(), over: overflowBelowPx(), shrink: shrinkPx, H, want: availHeight() });
-      return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
+      // はっけんの しらせ の じょうたい(しらべ もの よう)。え には つかわない
+      const foundInfo = () => ({ now: foundNow ? { ...foundNow } : null, queue: foundQueue.map((q) => ({ ...q })), banner });
+      return { stop, layoutInfo, foundInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
     return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };

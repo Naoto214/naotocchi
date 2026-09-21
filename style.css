@@ -4593,7 +4593,7 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 /* たかさを 2ぎょうぶんで こていする。ばしょの なまえが あとから アタマに
    つく(「【えきまえ】…」)と ぎょうが ふえて、たんさく がめんが はみ出して
    ボタンが 見きれていた */
-.mgr-hint { min-height: 2.6em; margin-top: 4px; font-size: 11px; line-height: 1.3; padding: 0 4px;
+.mgr-hint { min-height: 2.6em; margin-top: 4px; font-size: 11px; line-height: 1.3; padding: 0 4px; transition: opacity 0.18s ease;
   white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .meguru-overlay .mg-pad-row { margin-top: 6px; gap: 6px; }
@@ -4612,6 +4612,49 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
    見きれる。ここで はっきり ぎょうの たかさを あたえる */
 .mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mgr-spot.hidden { display: none; }
+
+/* ===== めぐる: みつけた しらせ(はっけん つうち) =====
+   おび(.mgr-banner)は 地域の おしらせ せんよう。ばしょの はっけんは ここ。
+   いちを 上と下で わけて いる ので、2つが かさなって よめなく ならない。
+   ちず ボタン(みぎした)より 上に おき、なぞる パッドにも かからない。
+   pointer-events は 出さない ので、出て いる あいだ も あるける(§17) */
+.mgr-found { position: absolute; left: 8px; right: 8px; bottom: 46px; z-index: 4;
+  display: flex; justify-content: center; pointer-events: none;
+  animation: qkPop 0.28s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.mgr-found.hidden { display: none; }
+.mgr-found-card { display: flex; align-items: center; gap: 7px; max-width: 100%;
+  padding: 6px 12px; border-radius: 14px; background: rgba(22, 22, 28, 0.74); color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32); }
+.mgr-found-icon { font-size: 16px; line-height: 1.2; flex: 0 0 auto; }
+.mgr-found-icon.hidden { display: none; }
+.mgr-found-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.mgr-found-title { font-size: 14px; font-weight: 900; line-height: 1.3;
+  white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.mgr-found-sub { font-size: 10px; line-height: 1.3; opacity: 0.82;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mgr-found-sub.hidden { display: none; }
+/* 地区(ちずが ひろがる)と みち(せかいの ちず)は いろで みわけ が つく */
+.mgr-found-zone .mgr-found-card { background: rgba(26, 38, 30, 0.76); }
+.mgr-found-link .mgr-found-card { background: rgba(22, 34, 52, 0.78); box-shadow: 0 0 0 1px rgba(150, 196, 255, 0.5), 0 3px 10px rgba(0, 0, 0, 0.32); }
+/* とくべつな はっけん(ひみつ・おおきな めじるし)だけ すこし つよく。
+   それでも がめんは ふさがない・ボタンも 出さない */
+.mgr-found-strong { bottom: 52px; }
+.mgr-found-strong .mgr-found-card { padding: 8px 14px; }
+.mgr-found-strong .mgr-found-title { font-size: 16px; }
+.mgr-found-landmark .mgr-found-card { background: rgba(48, 36, 16, 0.82);
+  box-shadow: 0 0 0 2px rgba(255, 216, 130, 0.9), 0 4px 14px rgba(0, 0, 0, 0.35); }
+.mgr-found-secret .mgr-found-card { background: linear-gradient(150deg, rgba(58, 34, 74, 0.9), rgba(30, 26, 58, 0.9));
+  box-shadow: 0 0 0 2px rgba(214, 178, 255, 0.92), 0 4px 16px rgba(0, 0, 0, 0.4); }
+/* しらせが 出て いる あいだ は した の そうさ せつめいを よわめる。
+   けさない(なぞりかたを わすれた ひとが こまる)が、目は しらせへ 行く(§16) */
+/* セレクタが ながい りゆう: world-scene.css の
+   「.world-mode .minigame-overlay :is(...,.mg-hint,...) { opacity: 1 }」が
+   あとから よみこまれ、みじかい .mgr-hint-quiet では まけて しまう。
+   ここは いちばん つよい ところで きめる(めぐるの ヒント だけ) */
+.minigame-overlay .mgr-hint.mgr-hint-quiet,
+.world-mode .minigame-overlay .mgr-hint.mgr-hint-quiet { opacity: 0.38; }
+@media (prefers-reduced-motion: reduce) { .mgr-found { animation: none; } }
 .mgr-env { opacity: 0.85; margin-left: 2px; }
 .meguru-overlay .mg-meguru-header > span:nth-child(2) { opacity: 0.8; }
 @media (max-height: 700px) {
