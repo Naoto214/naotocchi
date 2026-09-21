@@ -8,6 +8,14 @@ spot / path / zone / secret / connection / gate / `travelToRegion()` はすべ�
 - 上位の正本: [`docs/qa/meguru-world-geography-canon-v1-2026-09-20.md`](./meguru-world-geography-canon-v1-2026-09-20.md)
 - 数値はすべて実コードから機械的に取り出したものです。手計算・記憶からは書いていません
 
+> **追記(2026-09-21) — この監査の結論は採用され、Phase 3B-0 で実行されました。**
+> 11 章 #1 の **`forest|snow` 削除**を実施したので、**この文書の本文にある数字は監査時点(`337ef1a`)のもの**です。
+> 現在は connection **15 本**(b あり 14)、未実装 **9 本**、探索率の link 分母 **13**、
+> 他 region を貫通している connection は **`countryside|river_lake` の 1 本だけ**です。
+> 11 章 #4 の **「1 spot に複数 gate」も同じ PR で対応済み**です。
+> 実行後の正本は [`../handoff/meguru-phase3b0-multigate-2026-09-21.md`](../handoff/meguru-phase3b0-multigate-2026-09-21.md) にあります。
+> **監査そのものの記録としては、本文は当時のまま残しています。**
+
 ---
 
 ## 1. 現行世界地理の要約

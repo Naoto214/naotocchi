@@ -266,7 +266,7 @@ test('12. region-local な せかいは こわれて いない', () => {
   assert.equal(secret, 107, 'ひみつは ふえて いない');
   // 世界探索率の 分母は 1つも かわって いない
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 14);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   // あたりはんてい: 新しい spot の うえに めりこむ ものが ない
   const w = M.buildWorld('countryside', reg);

@@ -2248,9 +2248,62 @@
           // 入った がわで むく ほうこう。口(near)から 入れば おくへ(0)、
           // おく(far)から 入れば 口へ(π)。**そのまま まっすぐ あるきつづけられる**
           enterFacing: there.dir === 'far' ? Math.PI : 0,
+          // 1 つの spot に 出口が 2 つ いじょう ある ときの きめてに なる 2 つ(Phase 3B-0)。
+          // bearing は **その region の world くうかんでの 出口の むき**({ x: よこ, z: おく })。
+          // renderer が Canvas から Three.js に かわっても、この 2 つの かずは そのまま つかえる
+          bearing: gateBearing(here.bearing), priority: Number(here.priority) || 0,
           layerFrom, layerTo });
       }
+      // **配列の じゅんばんに いみを もたせない**。データに 書いた じゅんに
+      // たよる コードが 生まれない よう、ここで いつも おなじ じゅんに ならべる
+      out.sort((a, b) => a.priority - b.priority || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
       return out;
+    }
+
+    // ---- 1 つの spot に 出口が 2 つ いじょう ある とき、どちらへ 出るかを きめる(Phase 3B-0) ----
+    // **配列の さきあたまは つかわない。** つかうのは
+    //   ① 出口の むき(out: 口 / 奥)と すすんで いる むき
+    //   ② その spot の なかでの からだの いち
+    //   ③ 出口の むき(bearing)
+    //   ④ それでも ならんだ ときの priority
+    // の 4 つ だけ。どれも いみの ある データなので、3D に なっても おなじ ルールで きまる。
+    // 「まっすぐ 木に むかって あるいた」ような **どちらとも いえない** ときは わざと えらばない。
+    // すこし よこへ ずれれば きまる ので、まちがった ほうへ 出て しまう ことが ない
+    const GATE_PICK = { lateral: 0.6, margin: 0.12 };
+    function gateBearing(b) {
+      if (!b) return null;
+      const x = Number(b.x) || 0, z = Number(b.z) || 0, len = Math.hypot(x, z);
+      return len > 0 ? { x: x / len, z: z / len } : null;
+    }
+    // 「はしに さわった」だけでは 出ない。**その 出口の うえで、外へ むかって すすんだ**とき
+    const gateOutward = (g, mz) => (g.out === 'far' ? mz > 0.3 : mz < -0.3);
+    const gatePast = (g, z) => (g.out === 'far' ? z >= g.spot.z - 30 : z <= g.spot.z + 30);
+    function gateScore(g, at) {
+      if (!g.bearing) return 0;
+      const b = g.bearing;
+      const mx = at.mx || 0, mz = at.mz || 0, ml = Math.hypot(mx, mz);
+      const head = ml > 0 ? (mx / ml) * b.x + (mz / ml) * b.z : 0;
+      const r = g.spot.r || 1;
+      let ox = ((at.x || 0) - g.spot.x) / r, oz = ((at.z || 0) - g.spot.z) / r;
+      const ol = Math.hypot(ox, oz);
+      if (ol > 1) { ox /= ol; oz /= ol; }
+      return head + GATE_PICK.lateral * (ox * b.x + oz * b.z);
+    }
+    function resolveGate(list, at = {}) {
+      const want = at.kind == null ? ['walk'] : (Array.isArray(at.kind) ? at.kind : [at.kind]);
+      // あるく 出口だけは「外へ むかって すすんだ」かを みる。のりばは ボタンで えらぶので みない
+      const cand = (list || []).filter((g) => want.indexOf(g.kind) >= 0
+        && (g.kind !== 'walk' || (gateOutward(g, at.mz || 0) && gatePast(g, at.z || 0))));
+      if (cand.length <= 1) return cand[0] || null;
+      const scored = cand.map((g) => ({ g, s: gateScore(g, at) }));
+      const top = scored.reduce((m, q) => (q.s > m ? q.s : m), -Infinity);
+      // いちばん よく あって いる ものたち(さが margin みまん)だけ のこす
+      const near = scored.filter((q) => top - q.s < GATE_PICK.margin).map((q) => q.g);
+      if (near.length === 1) return near[0];
+      // むきで きまらなければ priority。それも おなじなら **えらばない**
+      const best = near.reduce((m, g) => Math.min(m, g.priority), Infinity);
+      const heads = near.filter((g) => g.priority === best);
+      return heads.length === 1 ? heads[0] : null;
     }
 
     function createSimulation(init = {}) {
@@ -2273,7 +2326,7 @@
       let walkedPaths = new Set(init.walkedPaths || []);
       let foundMarks = new Set(init.foundMarks || []);
       let curZoneId = null;
-      let gates = [], gateLock = false;
+      let gates = [], gateLock = null;
       // せいかつAI の かくにん用。ふだんの あそびでは 出さない(§50)
       let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
@@ -2302,8 +2355,10 @@
         curZoneId = null;
         gates = regionGates(regionId, world);
         // 入って きた ばしょが そのまま 出口の ときは、その spot を いちど はなれる まで
-        // 出口を ふうじる(入った しゅんかんに もどされて しまわない)
-        gateLock = !!at && gates.some((g) => g.spot.id === at.id);
+        // 出口を ふうじる(入った しゅんかんに もどされて しまわない)。
+        // **どの spot で ふうじたかを おぼえる**ので、そこから べつの 出口へ あるいて
+        // いけば ちゃんと ひらく(出口の ある spot が となりあって いても とまらない)
+        gateLock = (at && gates.some((g) => g.spot.id === at.id)) ? at.id : null;
         const same = opts.regionId === regionId;
         discovered = new Set(opts.discovered || (same ? [...discovered] : []));
         visitedZones = new Set(opts.visitedZones || (same ? [...visitedZones] : []));
@@ -2313,6 +2368,9 @@
       }
       enterRegion(init.regionId || 'home', { discovered: init.discovered, visitedZones: init.visitedZones, walkedPaths: init.walkedPaths, foundMarks: init.foundMarks });
       const spotAt = (pt) => { let best = null, bd = Infinity; for (const s of world.spots) { const d = dist(pt, s); if (d < s.r && d < bd) { bd = d; best = s; } } return best; };
+      // その spot に ある 出口を **ぜんぶ** かえす。regionGates が すでに
+      // priority → id の じゅんに ならべて いる ので、ここでも じゅんばんは いつも おなじ
+      const gatesAt = (spotId) => gates.filter((g) => g.spot.id === spotId);
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
         const F = RULES.follow; const fx = Math.sin(camera.yaw), fz = Math.cos(camera.yaw), rx = Math.cos(camera.yaw), rz = -Math.sin(camera.yaw);
@@ -2343,6 +2401,7 @@
           moveWithCollision(player, player.x + mx / m * spd * dt, player.z + mz / m * spd * dt, world);
           player.heading = Math.atan2(mx, mz); player.face = rx * mx + rz * mz < -0.2 ? -1 : rx * mx + rz * mz > 0.2 ? 1 : player.face; player.bob += dt;
           player.mz = mz / m;                       // +z へ すすんだか(出口の はんてい に つかう)
+          player.mx = mx / m;                       // よこの むき。1 つの spot に 出口が 2 つ ある ときに つかう
         }
         const np = nearestPath(player, world); player.onPath = (!!np && np.dist <= np.half + 20) || !!spotAt(player); // スポットの なかも あるきやすい
         if (frame % 20 === 0) refreshLandmark();
@@ -2358,14 +2417,14 @@
         const s = spotAt(player);
         if (s !== curSpot) { curSpot = s; if (s) { const first = !discovered.has(s.id); if (first) discovered.add(s.id); events.push({ type: 'spot', spot: s, first }); } }
         // ---- region の 出口 ----
-        const gateOn = curSpot ? gates.find((g) => g.spot.id === curSpot.id) : null;
-        if (!gateOn) gateLock = false;
-        else if (!gateLock && gateOn.kind === 'walk' && player.moving) {
-          // 「はしに さわった」だけでは 出ない。**その 出口の うえで、外へ むかって すすんだ**とき
-          const mz = player.mz || 0;
-          const outward = gateOn.out === 'far' ? mz > 0.3 : mz < -0.3;
-          const past = gateOn.out === 'far' ? player.z >= gateOn.spot.z - 30 : player.z <= gateOn.spot.z + 30;
-          if (outward && past) { gateLock = true; events.push({ type: 'gate', gate: gateOn }); }
+        // 1 つの spot に 出口が いくつ あっても いい(Phase 3B-0)。
+        // ふうじこみ(gateLock)は「出口の ある spot から はなれた」ときに とける。
+        // どの 出口に 入るかは resolveGate が きめる(配列の じゅんばんは つかわない)
+        const here = curSpot ? gatesAt(curSpot.id) : [];
+        if (!here.length || (gateLock && gateLock !== curSpot.id)) gateLock = null;
+        if (here.length && !gateLock && player.moving) {
+          const gateOn = resolveGate(here, { x: player.x, z: player.z, mx: player.mx || 0, mz: player.mz || 0, kind: 'walk' });
+          if (gateOn) { gateLock = curSpot.id; events.push({ type: 'gate', gate: gateOn }); }
         }
         mood = moodAt(world, player.x, player.z);
         // ちずの きろく: この 地区へ きた / この みちを とおった / この めじるしを 見た
@@ -2526,8 +2585,12 @@
       return {
         RULES, enterRegion, step, talk, view, hitTest, dist, mapData,
         // いま 立って いる ところが 特殊な たてじくの のりば なら、それを かえす(UI が「のる」を 出す)
-        gateHere: () => (curSpot ? gates.find((g) => g.spot.id === curSpot.id && (g.kind === 'vertical' || g.kind === 'sea')) || null : null),
+        gateHere: () => (curSpot
+          ? resolveGate(gatesAt(curSpot.id), { x: player.x, z: player.z, kind: ['vertical', 'sea'] })
+          : null),
         get gates() { return gates; },
+        // その spot の 出口を ぜんぶ / いま えらばれる ものを 1 つ。えの がわと テストが つかう
+        gatesAt: (spotId) => gatesAt(spotId != null ? spotId : (curSpot ? curSpot.id : null)),
         // こえる ちょくぜんの 「からだと カメラの いきおい」。つぎの 地域へ そのまま わたす
         carry: () => ({ yaw: camera.yaw, heading: player.heading, bob: player.bob, phase: camFx.phase,
           speed: player.speed || 0, moving: !!player.moving }),
@@ -4128,14 +4191,14 @@
             { x:  1.50, y: -6.80, region: 'sea' },
           ] },
       ],
-      // ---- プレイヤーが 行き来できる みち(17本) ----
+      // ---- プレイヤーが 行き来できる みち ----
+      // Phase 3A 監査(docs/qa/meguru-phase3a-connection-audit-2026-09-21.md)で
+      // `forest|snow` を けした。もりから ゆきぐにへは **もり → やま → ゆきぐに**。
+      // 山塊を 37% つらぬく ちょくつうろは 正式な みちに しない
       connections: [
         { id: 'snow|mountain', mouths: { snow: 'peak', mountain: 'summit' },      a: 'snow',       b: 'mountain',   kind: 'pass',    layer: 'ground', made: 'nature', label: 'おねのとうげ',       ends: ['奥', '奥'],
           why: 'おなじ 山塊の うらおもて。どちらも おくが みね', from: '「ちょうじょう」から きたの おねを たどる',
           transition: ['がんかいのみち', 'かぜの くさはら', 'のこりゆき', 'まんねんゆき', 'ゆきはら'] },
-        { id: 'forest|snow', mouths: { forest: 'anc1', snow: 'pines' },           a: 'forest',     b: 'snow',       kind: 'ridge',   layer: 'ground', made: 'nature', label: 'まつばやしのおね',   ends: ['脇', '脇'], long: true,
-          why: '山地の うらを まわる はりばやしの おび。やまを はさむので ながい みち', from: '「まつばやし」の みなみで きの しゅるいが かわる',
-          transition: ['こうようじゅ', 'こんこうりん', 'まつばやし', 'そりん', 'ゆきはら'] },
         { id: 'forest|mountain', mouths: { forest: 'stonelook', mountain: 'trailhead' }, a: 'forest', b: 'mountain', kind: 'trail',  layer: 'ground', made: 'nature', label: 'やまみち',           ends: ['脇', '脇'], long: true,
           why: 'もりは 山地の みなみの すそ。おねを きたへ たどると ちょうじょうへ 出る', from: '「いわばのみはらし」から とざんどうを みつける',
           transition: ['いしのもり', 'しゃめんの ほそいき', 'いわまじりのみち', 'かんぼく', 'いわば'] },
@@ -4161,8 +4224,9 @@
         // (ただし 既存の「たび」では いままでどおり 直接 行き来できる。地理と たびは べつの しくみ)
         { id: 'home|forest', mouths: { home: 'bigtree', forest: 'entry' }, a: 'home', b: 'forest', kind: 'wood', layer: 'ground', made: 'people', label: 'もりへのみち', ends: ['奥', '口'],
           // Phase 2: おうちの おくの 大きな木から にしへ。木が ふえて もりの 口へ
+          // bearing: **大きな木は 分かれみち**。もりへは おくへ すすみながら にしへ よる(Phase 3B-0)
           gate: { kind: 'walk', ends: {
-            home:   { spot: 'bigtree', dir: 'far',  land: ['いえなみの はずれ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'きが ふえる', 'もりの いりぐち'] },
+            home:   { spot: 'bigtree', dir: 'far',  bearing: { x: -1, z: 1 }, land: ['いえなみの はずれ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'きが ふえる', 'もりの いりぐち'] },
             forest: { spot: 'entry',   dir: 'near', land: ['もりの いりぐち', 'きが へる', 'ざつぼくりん', 'かじゅえん', 'はたけ', 'いえなみ'] } } },
           why: '**おうちの おくの 大きな木は 分かれみち**。さかを おりれば たにの みずべ、にしへ 行けば はたけと かじゅえんの さきで 木が ふえて、やがて もりに なる', from: '「おおきなき」から にしへ。はたけの さきで 木が ふえる',
           transition: ['にわ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'こだち', 'あかるいもり'] },
@@ -5868,6 +5932,6 @@
       return { stop, layoutInfo, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates };
+    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
