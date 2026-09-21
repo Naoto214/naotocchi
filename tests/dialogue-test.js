@@ -291,7 +291,7 @@ for (const [bondCount, key] of [[0, 'court'], [100, 'marriage']]) {
 
 // Legend movies used to throw ReferenceError before the first caption.
 // Sample both ends of each legend's story selection; keep its ending and support skip.
-const legendStoryLengths = {gate:[5,5], stairs:[6,5], boss:[7,6], lamp:[5,5], mirror:[6,6]};
+const legendStoryLengths = {gate:[5,5], stairs:[5,5], boss:[6,6], lamp:[6,5], mirror:[6,6]};
 for (const id of ['gate', 'stairs', 'boss', 'lamp', 'mirror']) for (const value of [0, 0.99]) {
   reset(); random = value;
   api.speakEvent('feed'); advance(0);
