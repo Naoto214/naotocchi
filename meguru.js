@@ -4197,10 +4197,33 @@
       // 山塊を 37% つらぬく ちょくつうろは 正式な みちに しない
       connections: [
         { id: 'snow|mountain', mouths: { snow: 'peak', mountain: 'summit' },      a: 'snow',       b: 'mountain',   kind: 'pass',    layer: 'ground', made: 'nature', label: 'おねのとうげ',       ends: ['奥', '奥'],
+          // Phase 3B-2: どちらも おくが みね。「ちょうじょう」から 高山帯 → 森林限界 →
+          // かぜの つよい 岩稜 → 雪線 → まんねんゆき と たどって ゆきぐにの みねへ。
+          // あいだの 岩稜・雪線・まんねんゆきは region では ない ちけいなので land に もつ
+          gate: { kind: 'walk', ends: {
+            mountain: { spot: 'summit', dir: 'far', bearing: { x: 0, z: 1 },
+              land: ['さいごの おね', 'しんりん げんかい', 'かぜの つよい いわお', 'のこりゆき', 'せっせん', 'まんねんゆき'] },
+            snow:     { spot: 'peak',   dir: 'far', bearing: { x: 0, z: 1 },
+              land: ['まんねんゆき', 'せっせん', 'のこりゆき', 'かぜの つよい いわお', 'しんりん げんかい', 'がんかいの みち'] } } },
           why: 'おなじ 山塊の うらおもて。どちらも おくが みね', from: '「ちょうじょう」から きたの おねを たどる',
           transition: ['がんかいのみち', 'かぜの くさはら', 'のこりゆき', 'まんねんゆき', 'ゆきはら'] },
-        { id: 'forest|mountain', mouths: { forest: 'stonelook', mountain: 'trailhead' }, a: 'forest', b: 'mountain', kind: 'trail',  layer: 'ground', made: 'nature', label: 'やまみち',           ends: ['脇', '脇'], long: true,
-          why: 'もりは 山地の みなみの すそ。おねを きたへ たどると ちょうじょうへ 出る', from: '「いわばのみはらし」から とざんどうを みつける',
+        { id: 'forest|mountain', mouths: { forest: 'stonelook', mountain: 'lookout1' }, a: 'forest', b: 'mountain', kind: 'trail',  layer: 'ground', made: 'nature', label: 'やまみち',           ends: ['脇', '脇'], long: true,
+          // Phase 3B-2: もりの ひがしの いわばから、木が まばらに なって しゃめんの
+          // ほそいきへ。かんぼくの おびを ぬけると やまの「いちのてんぼう」。
+          // **いきなり やまへ とばない**。あいだの しゃめん・いわ・かんぼくは land に もつ。
+          //
+          // やまがわに「とざんぐち」(z800)を つかわない りゆう:
+          // 「ふもと」(z250・かわ・みずうみ用)の **まうえの おなじ 中心線**に あるので、
+          // やまの なかから 口へ おりる と かならず さきに ひらいて しまい、
+          // **mountain|river_lake へ あるいて 行けなく なる**。
+          // 「いちのてんぼう」は x=+1050 と よこに ずれて いる ので、中心線の
+          // のぼりおりを じゃましない(#5 の やくわり ぶんさん: foot=かわ / 東の てんぼう=もり / summit=ゆきぐに)
+          gate: { kind: 'walk', ends: {
+            forest:   { spot: 'stonelook', dir: 'far',  bearing: { x: 1, z: 1 },
+              land: ['いしづみの あたり', 'きが まばらに なる', 'しゃめんの ほそいき', 'いわまじりの みち', 'かんぼくの おび', 'やまの みはらし'] },
+            mountain: { spot: 'lookout1',  dir: 'near', bearing: { x: 1, z: -1 },
+              land: ['やまの みはらし', 'かんぼくの おび', 'いわまじりの みち', 'しゃめんの ほそいき', 'きが ふえる', 'いしづみの あたり'] } } },
+          why: 'もりは 山地の みなみの すそ。おねを きたへ たどると ちょうじょうへ 出る', from: '「いわばのみはらし」から ひがしの てんぼうへ つづく やまみちを みつける',
           transition: ['いしのもり', 'しゃめんの ほそいき', 'いわまじりのみち', 'かんぼく', 'いわば'] },
         { id: 'mountain|river_lake', mouths: { mountain: 'foot', river_lake: 'lakelook' }, a: 'mountain', b: 'river_lake', kind: 'lake', layer: 'ground', made: 'nature', label: 'たにのあたまのみずうみ', ends: ['口', '奥'],
           // Phase 3B-1: やまの「ふもと」から、げんりゅう → けいこく → たにぞこ → みずうみの きしへ。

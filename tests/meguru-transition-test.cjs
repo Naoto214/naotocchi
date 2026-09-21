@@ -23,13 +23,13 @@ function walkOut(sim, gate, steps = 240) {
   return null;
 }
 
-test('1. 代表ルートが 出口の いみデータを もつ(あるく 4・たてじく 2・海路 1)', () => {
+test('1. 代表ルートが 出口の いみデータを もつ(あるく 6・たてじく 2・海路 1)', () => {
   const { M } = setup();
   const withGate = G(M).connections.filter((c) => c.gate).map((c) => c.id).sort().join(',');
-  assert.equal(withGate, 'countryside|forest,countryside|star_stop,deepsea|sea,home|forest,home|river_lake,jungle|sea,mountain|river_lake');
+  assert.equal(withGate, 'countryside|forest,countryside|star_stop,deepsea|sea,forest|mountain,home|forest,home|river_lake,jungle|sea,mountain|river_lake,snow|mountain');
   const walk = G(M).connections.filter((c) => c.gate && c.gate.kind === 'walk').map((c) => c.id).sort().join(',');
-  assert.equal(walk, 'countryside|forest,home|forest,home|river_lake,mountain|river_lake',
-    'あるいて こえるのは 生活圏の 2 本 + たにの 川すじ 2 本');
+  assert.equal(walk, 'countryside|forest,forest|mountain,home|forest,home|river_lake,mountain|river_lake,snow|mountain',
+    'あるいて こえるのは 生活圏 2 + たにの 川すじ 2 + にしの 大山塊 2');
   // **おうち ↔ いなか の 直通は もたない**(あるく ときは かならず もりを こえる)
   assert.ok(!G(M).connections.some((c) => c.id === 'countryside|home'), 'おうち ↔ いなか の world connection は ない');
   const up = G(M).connections.find((c) => c.id === 'countryside|star_stop');
