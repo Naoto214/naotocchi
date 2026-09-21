@@ -96,20 +96,9 @@ test('A4. みちを けしても region の なかみは 1 つも かわって �
 
 // ──────────────────────────────────────────────── B. 1 spot 複数 gate
 
-// bigtree に 2 本目の あるく 出口を さしこんだ harness。**正本には 入れて いない**。
-// Phase 3B-1 で ほんとうに 入れる かたちを、そのまま ここで ためす
-function twoGateHome() {
-  const ctx = setup();
-  const { G } = ctx;
-  G.connections.push({ id: 'home|river_lake', mouths: { home: 'bigtree', river_lake: 'riverside' },
-    a: 'home', b: 'river_lake', kind: 'terrace', layer: 'ground', made: 'people', label: 'だんきゅうをおりるみち',
-    ends: ['奥', '口'],
-    gate: { kind: 'walk', ends: {
-      home: { spot: 'bigtree', dir: 'far', bearing: { x: 1, z: 1 }, priority: 1, land: ['だんきゅうのふち', 'さかみち', 'かわら'] },
-      river_lake: { spot: 'riverside', dir: 'near', bearing: { x: 0, z: -1 }, land: ['かわぎし', 'さかみち', 'だんきゅう'] } } },
-    transition: ['おおきなき', 'だんきゅうのふち', 'さかみち', 'かわらの いしはら', 'かわぎしのひろば'] });
-  return ctx;
-}
+// おおきなきに 出口が 2 つ ある じょうたい。**Phase 3B-1 で 正本に 入った**ので、
+// もう さしこまずに そのまま つかう(この しくみの さいしょの つかいてが これ)
+const twoGateHome = setup;
 
 test('B1. regionGates は priority → id の きまった じゅんで かえす(データの じゅんに よらない)', () => {
   const { M, G, W } = twoGateHome();
@@ -216,9 +205,10 @@ test('B8. ride の 出口は 1 つの spot に 1 本まで(ボタンを ふや�
 test('C1. これまでの 出口は そのまま。おうち → もり → いなか が あるける', () => {
   const { M } = setup();
   const sim = M.createSimulation({ regionId: 'home', discovered: [] });
-  assert.equal(sim.gates.length, 1, 'おうちの 出口は いまも 1 つ');
+  assert.equal(sim.gates.map((g) => g.id).join(','), 'home|forest,home|river_lake');
   const g = sim.gates[0];
-  assert.equal(g.id, 'home|forest'); assert.equal(g.way, 'walk');
+  assert.equal(g.id, 'home|forest'); assert.equal(g.way, 'walk'); assert.equal(g.priority, 0);
+  // まっすぐ あるけば これまでどおり もり(priority の ひくい ほう)
   assert.equal(walkOut(sim, g).to, 'forest');
   sim.enterRegion('forest', { at: 'entry' });
   const toCountry = sim.gates.find((q) => q.to === 'countryside');

@@ -4203,6 +4203,12 @@
           why: 'もりは 山地の みなみの すそ。おねを きたへ たどると ちょうじょうへ 出る', from: '「いわばのみはらし」から とざんどうを みつける',
           transition: ['いしのもり', 'しゃめんの ほそいき', 'いわまじりのみち', 'かんぼく', 'いわば'] },
         { id: 'mountain|river_lake', mouths: { mountain: 'foot', river_lake: 'lakelook' }, a: 'mountain', b: 'river_lake', kind: 'lake', layer: 'ground', made: 'nature', label: 'たにのあたまのみずうみ', ends: ['口', '奥'],
+          // Phase 3B-1: やまの「ふもと」から、げんりゅう → けいこく → たにぞこ → みずうみの きしへ。
+          // **やまから いきなり こはんへ とばない**。あいだの いわ・たきつぼ・こはん は
+          // region では ない ちけい(non-region geography)として land に もつ
+          gate: { kind: 'walk', ends: {
+            mountain:   { spot: 'foot',     dir: 'near', land: ['とざんぐちの てまえ', 'いわだらけの かわら', 'こけの いわ', 'たきつぼ', 'ながれが ゆるむ', 'みずうみの きし'] },
+            river_lake: { spot: 'lakelook', dir: 'far',  land: ['みずうみの きし', 'ながれこむ さわ', 'たきつぼ', 'こけの いわ', 'いわだらけの かわら', 'やまの ふもと'] } } },
           why: '**たにのおおかわの みなもとは さんちょうでは なく、たにの あたまの 湖**', from: '「みずうみのてんぼう」の たいがんに「ふもと」が 見える',
           transition: ['いわ', 'こけのいわ', 'たきつぼ', 'こはん', 'かわぎし'] },
         { id: 'desert|mountain', mouths: { desert: 'gate', mountain: 'windnotch' }, a: 'desert',   b: 'mountain',   kind: 'pass',    layer: 'ground', made: 'nature', label: 'うかげのとうげ',     ends: ['口', '脇'], long: true,
@@ -4226,11 +4232,20 @@
           // Phase 2: おうちの おくの 大きな木から にしへ。木が ふえて もりの 口へ
           // bearing: **大きな木は 分かれみち**。もりへは おくへ すすみながら にしへ よる(Phase 3B-0)
           gate: { kind: 'walk', ends: {
-            home:   { spot: 'bigtree', dir: 'far',  bearing: { x: -1, z: 1 }, land: ['いえなみの はずれ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'きが ふえる', 'もりの いりぐち'] },
+            home:   { spot: 'bigtree', dir: 'far',  bearing: { x: -1, z: 1 }, priority: 0, land: ['いえなみの はずれ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'きが ふえる', 'もりの いりぐち'] },
             forest: { spot: 'entry',   dir: 'near', land: ['もりの いりぐち', 'きが へる', 'ざつぼくりん', 'かじゅえん', 'はたけ', 'いえなみ'] } } },
           why: '**おうちの おくの 大きな木は 分かれみち**。さかを おりれば たにの みずべ、にしへ 行けば はたけと かじゅえんの さきで 木が ふえて、やがて もりに なる', from: '「おおきなき」から にしへ。はたけの さきで 木が ふえる',
           transition: ['にわ', 'はたけ', 'かじゅえん', 'ざつぼくりん', 'こだち', 'あかるいもり'] },
         { id: 'home|river_lake', mouths: { home: 'bigtree', river_lake: 'riverside' }, a: 'home',   b: 'river_lake', kind: 'terrace', layer: 'ground', made: 'people', label: 'だんきゅうをおりるみち', ends: ['奥', '口'],
+          // Phase 3B-1: **おおきなきは 分かれみち**。にしへ よれば もり、ひがしへ よれば
+          // 段丘の ふちから さかを おりて たにの みずべ。おなじ spot に 出口が 2 つ ある ので
+          // bearing で わける(priority 1 = まっすぐ なら これまでどおり もり)。
+          // **木の よこから いきなり かわに 出ない**ように、あいだに 段丘・坂・河原を もつ
+          gate: { kind: 'walk', ends: {
+            home:       { spot: 'bigtree',   dir: 'far',  bearing: { x: 1, z: 1 }, priority: 1,
+              land: ['いえなみの はずれ', 'だんきゅうの ふち', 'した から 水おと', 'さかみち', 'かわらの いしはら', 'かわぎしの ひろば'] },
+            river_lake: { spot: 'riverside', dir: 'near',
+              land: ['かわぎしの ひろば', 'かわらの いしはら', 'さかみち', 'だんきゅうの ふち', 'きが 見えて くる', 'おおきなき'] } } },
           why: '**おうちは たにぞこでは なく 段丘の うえ**。大きな木の さきの さかを おりると たにの みずべ', from: '「おおきなき」の さきの さかを おりる',
           transition: ['おおきなき', 'だんきゅうのふち', 'さかみち', 'かわらの いしはら', 'かわぎしのひろば'] },
         { id: 'city|countryside', mouths: { countryside: 'terracelook', city: 'cross4' }, a: 'city', b: 'countryside', kind: 'road', layer: 'ground', made: 'people', label: 'とうげのかいどう', ends: ['脇', '脇'], long: true,
@@ -4433,8 +4448,11 @@
         .map((f) => ({ id: f.id, kind: f.kind, label: f.label,
           // まだ わからない 点は、**ばしょも どの 地域の ものかも わたさない**。
           // かず だけ そのままに して、え の がわが 点の ならびを かぞえられる ように する
+          // 見えて いる 点でも **どの 地域の ものかは わたさない**。え の がわは
+          // 線を ひく ために x/y しか つかわない のに、region を わたすと
+          // 「まだ 見つけて いない 地域が そこに ある」ことが データで ばれて しまう
           points: f.points.map((p) => (nearKnown(p.x, p.y)
-            ? { x: p.x, y: p.y, region: p.region, on: true } : { on: false })) }))
+            ? { x: p.x, y: p.y, on: true } : { on: false })) }))
         .filter((f) => f.points.some((p) => p.on));
       // ---- みち。見つけた ものだけ。りょうはしの 地域も 見つけて いる ことが 条件 ----
       const links = G.connections.filter((c) => c.b && linkSet.has(c.id) && seen(c.a) && seen(c.b))
