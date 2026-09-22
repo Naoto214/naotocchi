@@ -960,7 +960,7 @@ assert.equal(api.pendingGoal(), null);
 assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
 assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！たくさんの子に/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。たくさん会ったんだね。/);
 advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
 assert.equal(JSON.stringify([api.getState().partner, api.getState().companions]), dexRelations);
