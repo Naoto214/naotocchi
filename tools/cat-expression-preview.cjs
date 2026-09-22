@@ -16,7 +16,7 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom'].flatMap(line =>
+const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon'].flatMap(line =>
   [1,3,7,12,16,25,40,70].map((age,index) => [line+String(index+1).padStart(2,'0'),age])
 )));
 
@@ -35,7 +35,8 @@ function runtimeFreshPet(form='adult') {
       isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
       transformOptions:null,companions:[],partner:null,
       // The disposable elder fixture has already passed its 50th birthday.
-      achievementsUnlocked:['age-10','age-25',...(FORMS[form]>=50 ? ['age-50'] : [])],
+      // The disposable dragon fixture has already encountered its rare line.
+      achievementsUnlocked:['age-10','age-25',...(FORMS[form]>=50 ? ['age-50'] : []),...(form.startsWith('dragon') ? ['rare-line-1'] : [])],
     });
     return state;
   } finally {

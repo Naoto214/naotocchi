@@ -1,0 +1,642 @@
+[
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "happy",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-happy. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-6fbfa3e6-9876-49c4-919e-6c9478d2faa2.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "strained",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-strained. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-eee7e9c5-9daa-430d-b765-bce9f0746169.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "hungry",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-hungry. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-1ba4c327-2cb5-4861-85c4-cb9dbac549c6.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "sick",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-sick. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-cd1ce84b-1b5e-41ef-bdfa-488785b14651.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "tired",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-tired. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ded528dd-9c83-4b65-abac-9183f1e68037.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "sulky",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-sulky. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-529070b5-ddd2-4eab-a459-bad52cf8694f.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "weak",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-weak. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-de20f8d3-86fd-4a41-9a4b-c2595f4bd057.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "critical",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-critical. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4f467e4a-afef-4289-b820-eb7594f6b4de.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-wantsPlay. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-33a8d9d4-1cce-4680-8697-56d853f23f02.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "01",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/01.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/01-sleeping. Edit target: provided original stage image. tiny orange baby dragon sitting on four small legs, short curving tail, two tiny horn nubs, cream belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a45746ef-00f5-437e-bd12-961fb25a5918.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "happy",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-happy. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-9cf6e84d-32f9-4df4-8ca8-ff443beea5f8.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "strained",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-strained. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d4e65fd4-52bd-4801-bb87-bed3bbfe5b49.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "hungry",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-hungry. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ebdb8b40-9cd5-4f50-a518-e0f508b27654.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "sick",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-sick. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c1600b8a-fce8-45ce-9738-5d5a8bf480c1.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "tired",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-tired. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8f4f6098-130f-4a56-a5fc-64bd1e2c796a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "sulky",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-sulky. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ecefdddf-c587-44b9-a101-0810a7294731.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "weak",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-weak. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f4e83f83-eee2-4430-a294-e3b45af32b12.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "critical",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-critical. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0f474f1e-b98f-42b6-9380-bb9f1d7eba38.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-wantsPlay. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-52fa6d75-2f78-407d-93b2-498d4cb791fd.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "02",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/02.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/02-sleeping. Edit target: provided original stage image. orange quadruped juvenile dragon with long upcurved tail, small horns, cream throat and belly; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-2b80bc4f-949e-4a24-bfce-825f3daacc01.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "happy",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-happy. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-62a46a35-dc91-4724-90c1-73e48b2ccbc2.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "strained",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-strained. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-46a0908d-799b-4800-b0dd-69a7ab47dfd6.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "hungry",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-hungry. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-5d71423c-6663-4cc3-a217-cc502264d45c.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "sick",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-sick. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-5660f4d6-6da7-4f70-a7af-00adb1b0893e.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "tired",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-tired. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-41aa5cd1-a02d-4116-a5c1-1077dcc26e02.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "sulky",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-sulky. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f8b851aa-b171-4df7-917e-cea59b8221ca.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "weak",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-weak. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-95f7b756-d614-4311-bd29-533353d599ef.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "critical",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-critical. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-102bb7ea-623f-4859-9182-22619f8c5417.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-wantsPlay. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f55de1be-3917-4ebd-be1c-977095b62b83.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "03",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/03.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/03-sleeping. Edit target: provided original stage image. orange juvenile dragon in right-facing three-quarter profile with two long cream horns, left curled tail, lifted right foreleg; no wings. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-de976178-85e1-4498-908f-5bb5e5647f0f.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "happy",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-happy. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-3f7e5cbd-2be2-4261-a748-4b706c7c197a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "strained",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-strained. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4092771a-12ce-4a5f-b2f6-0aa75f1719be.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "hungry",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-hungry. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-17028215-4bbf-4567-9d47-67e21bbe1463.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "sick",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-sick. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f1d6d2e1-0970-4e2c-b282-ad2f90c03d30.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "tired",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-tired. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-bba32908-0975-4c75-9fd8-4269e3751154.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "sulky",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-sulky. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f4732b02-b5ca-4779-9893-a749dc04c03f.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "weak",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-weak. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-e2df739e-cd8a-4017-b8dd-65ee656b25d9.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "critical",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-critical. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-637b3af8-19e5-45e8-9152-ee9554ce49f7.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-wantsPlay. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f12f9f15-781b-4d83-8791-48da13e7a11a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "04",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/04.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/04-sleeping. Edit target: provided original stage image. upright young orange dragon with small bat wings, large cream horns, both forearms bent, long left tail. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8c89d335-71c7-43e2-8140-170a50ec126d.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "happy",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-happy. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-68aa3273-c01c-4d97-a8f8-99043c51bbc6.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "strained",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-strained. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-00a6050d-516c-419f-8c9b-46b0375fe626.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "hungry",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-hungry. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b2391592-7d87-4f64-9406-7446bb3baf36.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "sick",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-sick. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-b1c8c2e5-adf1-4a29-9840-c956c1c64d14.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "tired",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-tired. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d6beeccc-1c45-4117-a2e9-ae36fd3fc719.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "sulky",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-sulky. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ddd6d8b6-a9d8-4742-bc92-3b3d91c481d7.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "weak",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-weak. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a7a5d6c0-00f2-43fd-908b-6549597cf235.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "critical",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-critical. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d049e204-6ac9-4229-9dca-90ca14145b1c.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-wantsPlay. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-be75c3fc-1167-4621-8798-2d5ccb4e75b9.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "05",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/05.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/05-sleeping. Edit target: provided original stage image. orange dragon with fully spread large bat wings, long horns, curled left tail and lifted right foreleg. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-87f28fed-4a2a-4504-8ae6-70ecaf9265f5.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "happy",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-happy. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-7b7d2414-345a-493a-8cc9-5b89f12c7f40.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "strained",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-strained. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c96f18e1-94d8-413c-b1a0-1c040082647c.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "hungry",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-hungry. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c8672f65-ec04-4347-a728-8111926b1160.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "sick",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-sick. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4eb41abf-a4d4-4ac6-984a-d4ecf0aed0aa.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "tired",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-tired. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-667d9a20-6e6d-442a-bea6-4fd3c3bc8581.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "sulky",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-sulky. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-29f6489f-6264-4d4d-bac5-13c361d73ab6.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "weak",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-weak. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ad818461-9321-4237-84a1-020434615052.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "critical",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-critical. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ea4a006e-16b4-44a4-ad62-0437dcf435ce.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-wantsPlay. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-acfcbdee-2700-4c0f-a1ed-f6b9f862757a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "06",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/06.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/06-sleeping. Edit target: provided original stage image. orange fire-breathing dragon with spread wings and a yellow-orange flame extending right from its mouth; keep existing flame exactly as character artwork in all states, not an emotion mark; communicate state chiefly through eye and brow, preserve flame-source mouth aperture for this stage even for sleeping. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. Keep existing fire and mouth aperture; express selected state in eyes/brows without extinguishing or enlarging flame.",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-f9adb0f6-87e8-4ba8-9584-a6643078b9b9.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "happy",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-happy. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d4533872-b84e-44a8-a02c-226cd80cae2d.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "strained",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-strained. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-a98aaa52-5421-4fbe-ae7a-ad94d2ed4443.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "hungry",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-hungry. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4ddc4d41-8b27-4550-b076-f80a3f75bde0.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "sick",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-sick. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-7ac37148-effc-4525-91b8-a3ea04794717.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "tired",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-tired. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-9650bfbe-b129-4c87-8191-23caf12ab54a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "sulky",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-sulky. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-ae0f8c56-0899-4b52-afbe-2837021cd471.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "weak",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-weak. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-277ed99a-79b0-4539-9c5a-8b45a235eb7b.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "critical",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-critical. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-49cc1781-1bea-4b73-8a3c-2b9013cb56e9.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-wantsPlay. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-0f56883e-77f8-470a-be2f-62881ca4cc6a.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "07",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/07.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/07-sleeping. Edit target: provided original stage image. large muscular upright orange dragon with huge wings, cream segmented chest/belly, curled left tail, two arms held in front. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-561e6c6d-2f98-4a25-a5ff-0f3f0ff33dbf.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "happy",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-happy. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to delighted joy with gently narrowed upward smiling eyes and cheerful smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-8dc8f31f-b88f-44a0-93cf-1352335034d2.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "strained",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-strained. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to reluctant and distressed, tense squint and downturned strained mouth; not angry. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c92a412f-31bf-488b-96f1-1149ed896710.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "hungry",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-hungry. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to hungry expectant eyes and small open mouth, not a joyful grin. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-7df9b7c7-228b-4fb0-8627-230389c4f05f.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "sick",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-sick. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to unwell, worried brow and drooping eyelids with downturned mouth; no embedded sweat. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-383038de-ae5a-4d8b-9dbe-9350a302d8d2.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "tired",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-tired. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to sleepy tired half-closed drooping eyes and relaxed small weary mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-4133445b-8d9b-437e-8db3-8d2cf0ccebb4.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "sulky",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-sulky. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to pouting with annoyed inward brows and a small pursed mouth. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-3bc28995-7d45-4a9f-9a03-972043a6edb9.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "weak",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-weak. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to low vitality with worried drooping eyes and weak downturned mouth, conscious. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-364d86dd-0b0d-4048-be6a-77517ffa5884.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "critical",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-critical. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to severely exhausted, nearly closed eyes and tiny weak mouth, no injury. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-d0f1238a-0787-40a1-94fd-68b11e821779.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "wantsPlay",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-wantsPlay. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to eager for attention and play, pleading bright attentive eyes and small inviting smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-60f684ce-bfb8-4c67-b706-119bd49f4526.png"
+  },
+  {
+    "line": "dragon",
+    "stage": "08",
+    "state": "sleeping",
+    "original": "assets/characters/dragon/08.png",
+    "prompt": "Use case: precise-object-edit. Production pixel-art game expression sprite dragon/08-sleeping. Edit target: provided original stage image. ancient brown-bronze seated dragon with branching horns, whisker-like head projections, large worn wings and wrapped left tail, cream belly; preserve aged facial proportions and texture. One body, one existing head/face, no separate organisms. Change ONLY existing eyes, brows and mouth expression to peacefully asleep, fully closed relaxed eyelids and faint closed-mouth smile. Preserve character identity, exact stage anatomy, silhouette, pose, body proportions, facing direction, colors, horns, scales, claws, wings, tail and all original decorative elements. Keep original pixel-art texture, original framing and placement; do not smooth into vector or 3D. Transparent background with true alpha. No extra heads, faces, creatures, objects, text, emotion symbols, sweat, tears, sparkles or Zzz. External state marks are separate layers. Single complete isolated sprite, no cropping. ",
+    "source": "/workspace/scratch/d2a935d02daf/generated_images/exec-c06060ed-3e49-4217-ae81-9de903cff4a0.png"
+  }
+]
