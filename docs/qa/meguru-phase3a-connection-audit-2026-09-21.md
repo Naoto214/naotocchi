@@ -27,6 +27,8 @@ spot / path / zone / secret / connection / gate / `travelToRegion()` はすべ�
 > → **connection 15 → 14 / gate 実装済み 13 / 未実装 0 / link 分母 13 → 12**。
 > **これで「地図にある線はすべて実際に歩ける(または乗れる)」状態になり、Phase 3B は完了です。**
 > 判断の根拠は [`meguru-phase3b-final-countryside-river-2026-09-22.md`](meguru-phase3b-final-countryside-river-2026-09-22.md)。
+> **つぎは Phase 4A(regionOrigin / global world 設計監査)へ。**
+> → [`../design/meguru-phase4a-region-origin-global-world-2026-09-22.md`](../design/meguru-phase4a-region-origin-global-world-2026-09-22.md)
 > なお `countryside.riverbank` と `river_lake.bank` の **spot 自体は残して**あります。
 > 3B-4 の anchor は 6 章の第 1 候補どおり
 > `city.stalls` ↔ `desert.caravan` / `desert.gate` ↔ `mountain.windnotch` を採用し、
