@@ -18,15 +18,17 @@ function setup() {
 const GATED = ['countryside|forest', 'home|forest', 'jungle|sea', 'deepsea|sea', 'countryside|star_stop',
   'mountain|river_lake', 'home|river_lake', 'forest|mountain', 'snow|mountain', 'city|countryside', 'city|sea',
   'city|desert', 'desert|mountain'];
-const UNGATED = ['countryside|river_lake'];
-// 直線が ほかの 地域の だえんを つらぬいて いる のこり 1 本(3 章)。
-// もう 1 本 だった `forest|snow` は さくじょ ずみ
-const PIERCING = ['countryside|river_lake'];
+// **Phase 3B-Final で `countryside|river_lake` を けした ので、未実装は 0 本**
+const UNGATED = [];
+// 直線が ほかの 地域の だえんを つらぬいて いる connection は **1 本も ない**。
+// `forest|snow`(Phase 3B-0)と `countryside|river_lake`(Phase 3B-Final)を けして
+// **ぜんぶの みちが よその region を 横切らなく なった**
+const PIERCING = [];
 
-test('1. connection は 15 本。b あり 14 / gate 13 / 未実装 1 / special 2', () => {
+test('1. connection は 14 本。b あり 13 / gate 13 / 未実装 0 / special 2', () => {
   const { G } = setup();
-  assert.equal(G.connections.length, 15, 'connection は 15 本');
-  assert.equal(G.connections.filter((c) => c.b).length, 14, '2 地域を むすぶ ものは 14 本');
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
+  assert.equal(G.connections.filter((c) => c.b).length, 13, '2 地域を むすぶ ものは 13 本');
   assert.ok(!G.connections.some((c) => c.id === 'forest|snow'), 'もり|ゆきぐに は 正式 connection に のこって いない');
   assert.equal(G.connections.filter((c) => !c.b).map((c) => c.id).join(','), 'memory_lake',
     'b を もたないのは きおくのみずうみ だけ');
@@ -55,7 +57,7 @@ test('2. gate の 端点は ぜんぶで 26。出口を 1 つも もたない �
     'まだ あるいて 出られない 地域');
 });
 
-test('3. 未実装 1 本は どちらの がわにも gate が ない(片がわだけ は 0 本)', () => {
+test('3. 未実装 connection は 0 本(ぜんぶの みちが 通れる)', () => {
   const { M, G, W } = setup();
   for (const id of UNGATED) {
     const c = G.connections.find((x) => x.id === id);
@@ -79,18 +81,19 @@ test('4. mouths の spot は ぜんぶ じっさいに あって、ひみつで�
       n++;
     }
   }
-  assert.equal(n, 28, 'mouth の 端点は 14 本 × 2');
+  assert.equal(n, 26, 'mouth の 端点は 13 本 × 2(Phase 3B-Final で 1 本 へった)');
 });
 
 test('5. anchor 候補は ぜんぶ 既存の spot で たりる(新しい spot は いらない)', () => {
   const { G, W } = setup();
   // 監査 6 章で あげた 候補。**ぜんぶ 既存・非ひみつ** であることだけを しばる
+  // `countryside|river_lake` は Phase 3B-Final で けした ので 表から 外した。
+  // のこる 2 本は 3B-4 で 実装ずみ
   const CAND = {
     'desert|mountain': { desert: ['gate', 'well', 'dune1'], mountain: ['windnotch', 'ridge', 'cliff'] },
     'city|desert': { city: ['stalls', 'marketback', 'market'], desert: ['caravan', 'ruins', 'dunecrest'] },
-    'countryside|river_lake': { countryside: ['riverbank', 'watermill', 'fishspot'], river_lake: ['bank', 'riverbend', 'river1'] },
   };
-  assert.equal(Object.keys(CAND).length, 3, '監査 6 章で あげた 3 本ぶん(3B-4 で 2 本 実装ずみ)');
+  assert.equal(Object.keys(CAND).length, 2, '実装ずみの 2 本ぶん');
   for (const [cid, sides] of Object.entries(CAND)) {
     assert.ok(G.connections.some((c) => c.id === cid), cid + ' が ある');
     for (const [rid, list] of Object.entries(sides)) {
@@ -104,7 +107,7 @@ test('5. anchor 候補は ぜんぶ 既存の spot で たりる(新しい spot 
   }
 });
 
-test('6. ほかの 地域を つらぬいて いるのは countryside|river_lake だけ', () => {
+test('6. **よその 地域を つらぬいて いる みちは 1 本も ない**', () => {
   const { M, G } = setup();
   const R = G.regions;
   const shape = {};
@@ -151,10 +154,11 @@ test('9. 通常 11 地域の 次数。一本道では なく、わが 1 つ あ�
     if (!c.b || !N.includes(c.a) || !N.includes(c.b)) continue;
     deg[c.a]++; deg[c.b]++;
   }
+  // Phase 3B-Final で いなか|みずべ を けした ぶん、いなかと みずべ が 1 ずつ へる
   assert.equal(N.map((id) => id + ':' + deg[id]).sort().join(' '),
-    ['home:2', 'city:3', 'countryside:3', 'forest:3', 'mountain:4', 'snow:1',
-      'sea:3', 'deepsea:1', 'river_lake:3', 'jungle:1', 'desert:2'].sort().join(' '));
-  assert.equal(N.reduce((n, id) => n + deg[id], 0), 26, '端点 26 = link 13 本 × 2');
+    ['home:2', 'city:3', 'countryside:2', 'forest:3', 'mountain:4', 'snow:1',
+      'sea:3', 'deepsea:1', 'river_lake:2', 'jungle:1', 'desert:2'].sort().join(' '));
+  assert.equal(N.reduce((n, id) => n + deg[id], 0), 24, '端点 24 = link 12 本 × 2');
   // ゆきぐには やま とだけ つながる。もり → やま → ゆきぐに が 正式な みち
   assert.equal(deg.snow, 1, 'ゆきぐには やま だけ');
 });
@@ -163,7 +167,7 @@ test('10. 探索率の 分母(region 11 / link 13 / tier1 17 / zone 103)', () =>
   const { M } = setup();
   const C = M.worldCountable();
   assert.equal(C.regions.length, 11);
-  assert.equal(C.links.length, 13, 'もり|ゆきぐに を けした ぶん 14 → 13');
+  assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.ok(!C.links.includes('forest|snow'), 'ぶんぼに ゴースト が のこって いない');
   assert.equal(C.tier1, 17);
   assert.equal(C.zones, 103);

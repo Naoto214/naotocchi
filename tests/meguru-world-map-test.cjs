@@ -7,10 +7,11 @@ const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 const ALL = ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
-// 正本の 15本(D2 + 2026-09-20 の しま化 + Phase 3B-0 の もり|ゆきぐに さくじょ)。ここが ずれたら 地理が かわった ということ。
+// 正本の 14本(D2 + 2026-09-20 の しま化 + Phase 3B-0 の もり|ゆきぐに さくじょ
+// + Phase 3B-Final の いなか|みずべ さくじょ)。ここが ずれたら 地理が かわった ということ。
 // `desert|jungle` は ジャングルを 南西の 外洋の しまに した ときに さくじょ した
 const LINKS = ['snow|mountain', 'forest|mountain', 'mountain|river_lake', 'desert|mountain',
-  'countryside|forest', 'countryside|river_lake', 'home|forest', 'home|river_lake', 'city|countryside',
+  'countryside|forest', 'home|forest', 'home|river_lake', 'city|countryside',
   'city|sea', 'jungle|sea', 'city|desert', 'deepsea|sea', 'countryside|star_stop', 'memory_lake'];
 
 function fakeCtx() {
@@ -49,7 +50,7 @@ test('1. 正式地理 v2(D2): 13地域が 1回ずつ、地上10・水面下1・�
   assert.equal(by('sky').join(','), 'star_stop'); assert.equal(by('memory').join(','), 'memory_lake');
 });
 
-test('2. 接続表が 正本の 15本と ぴったり あう。入口の spot も ぜんぶ 実在して、ひみつでは ない', () => {
+test('2. 接続表が 正本の 14本と ぴったり あう。入口の spot も ぜんぶ 実在して、ひみつでは ない', () => {
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   assert.equal(G.connections.map((c) => c.id).join(','), LINKS.join(','));
@@ -72,12 +73,13 @@ test('2. 接続表が 正本の 15本と ぴったり あう。入口の spot �
     assert.ok(deg[id] >= 1, `${id} は どこかに つながる`);
     assert.ok((ground[id] || 0) <= 4, `${id} の 地上の みちは 4本まで(${ground[id]})`);
   }
-  // いなかは こうさてん: 地上 3本 ＋ 山の上へ 1本
-  assert.equal(ground.countryside, 3, 'いなかの 地上の みちは 3本');
-  assert.equal(deg.countryside, 4, 'いなかは そこに 山の上への みちが 1本 つく');
+  // いなかは こうさてん: 地上 2本(まち・もり)＋ 山の上へ 1本。
+  // Phase 3B-Final で みずべへの 直通を けした ぶん 地上が 3 → 2 に なった
+  assert.equal(ground.countryside, 2, 'いなかの 地上の みちは 2本');
+  assert.equal(deg.countryside, 3, 'いなかは そこに 山の上への みちが 1本 つく');
   // 生活圏は **わ**: おうち → かわ・みずうみ → いなか → もり → おうち。
   // おうち ↔ いなか の 直通は もたない(あるく ときは かならず もりを こえる)
-  for (const id of ['home|river_lake', 'countryside|river_lake', 'countryside|forest', 'home|forest']) {
+  for (const id of ['home|river_lake', 'countryside|forest', 'home|forest']) {
     assert.ok(LINKS.includes(id), `${id} が せいかつけんの わに ある`);
   }
   assert.ok(!LINKS.includes('countryside|home'), 'おうち ↔ いなか の 直通は ない');
@@ -255,9 +257,9 @@ test('11. みちは りょうがわの 入口 spot を どちらも 見つけた
   assert.equal(M.worldLinksFrom({ home: [c.mouths.home] }).length, 0, 'かたがわだけでは ひらかない');
   assert.equal(M.worldLinksFrom({ forest: [c.mouths.forest] }).length, 0, 'はんたいがわだけでも ひらかない');
   assert.equal(M.worldLinksFrom({ home: [c.mouths.home], forest: [c.mouths.forest] }).join(','), 'home|forest');
-  // ぜんぶの spot を 見つけると 15本のうち 14本(きおくは みちでは ない)
+  // ぜんぶの spot を 見つけると 14本のうち 13本(きおくは みちでは ない)
   const every = {}; for (const id of ALL) every[id] = M.WORLDS[id].spots.map((q) => q.id);
-  assert.equal(M.worldLinksFrom(every).length, 14);
+  assert.equal(M.worldLinksFrom(every).length, 13);
 });
 
 test('12. せかい たんさくりつ: ぶんぼに ひみつが 1つも 入って いない', () => {
@@ -265,7 +267,7 @@ test('12. せかい たんさくりつ: ぶんぼに ひみつが 1つも 入っ
   const C = M.worldCountable();
   assert.equal(C.regions.length, 11, '通常 11 地域(しんかい こみ)');
   assert.ok(!C.regions.includes('star_stop') && !C.regions.includes('memory_lake'));
-  assert.equal(C.links.length, 13, 'ぶんぼの みちは 通常 11 地域を むすぶ ものだけ(さばく|ジャングル と もり|ゆきぐに の さくじょで 15 → 13)');
+  assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17, '通常 11 地域の 大めじるし');
   assert.equal(C.zones, 103, '通常 11 地域の ちく');
   // ぶんぼの ちくは ぜんぶ 非秘密 spot を もつ = ひみつだけの ちくは 入って いない
@@ -594,10 +596,12 @@ test('27. 地理正本 v1: 生活圏の 三角と、おうち ↔ とかい を 
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   const has = (id) => G.connections.some((c) => c.id === id);
-  for (const id of ['home|forest', 'countryside|forest', 'home|river_lake', 'countryside|river_lake',
+  for (const id of ['home|forest', 'countryside|forest', 'home|river_lake',
     'countryside|star_stop', 'snow|mountain', 'city|sea', 'deepsea|sea']) {
     assert.ok(has(id), `${id} が ある`);
   }
+  // Phase 3B-Final で けした 直通。いなか ⇄ みずべ は もり けいゆ で 行く
+  assert.ok(!has('countryside|river_lake'), 'いなか ↔ みずべ の 直通は もう ない');
   assert.ok(!has('city|home'), 'おうち ↔ とかい の 直通は 持たない');
   // ほしぞらへは いなかの「ふるいとりい」から
   const sky = G.connections.find((c) => c.id === 'countryside|star_stop');
@@ -710,7 +714,7 @@ test('30. 地理正本 v1: ほしぞらへは **特殊たてじく接続**。ふ
 test('31. 地理正本 v1: ゴンドラは 見つけるまで ばれない。探索率も 1 つも かわらない', () => {
   const { M } = setup();
   const W = M.worldCountable();
-  assert.equal(W.regions.length, 11); assert.equal(W.links.length, 13);
+  assert.equal(W.regions.length, 11); assert.equal(W.links.length, 12);
   assert.equal(W.tier1, 17); assert.equal(W.zones, 103);
   assert.ok(!W.links.includes('countryside|star_stop'), 'ゴンドラは リンクの 分母に 入らない');
   // いなかへ 行っただけ / 鳥居を 見つけただけ では ほしぞらも ゴンドラも 出ない

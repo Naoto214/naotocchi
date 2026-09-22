@@ -328,8 +328,29 @@ Phase 3B-4 完了時点で:
 
 > **B. `countryside|river_lake` は不要なので削除すべき — と確定。**
 
-この判断が承認されれば、Phase 3B は完了扱いにできます。
-削除を実行すると **gate 実装済み 13 / 未実装 0 / connection 14 / link 分母 12** となり、
-「世界のすべての connection が実際に歩ける（または乗れる）」状態になります。
+### 追記（2026-09-22）— **削除を実行しました**
+
+この推奨は承認され、**`WORLD_GEOGRAPHY.connections` から当該エントリを削除済み**です。
+
+| 項目 | 前 | 後 |
+|---|---|---|
+| connection 総数 | 15 | **14** |
+| gate 実装済み | 13 | **13**（変化なし） |
+| gate 未実装 | 1 | **0** |
+| 探索率 link 分母 | 13 | **12** |
+| region / tier1 / zone 分母 | 11 / 17 / 103 | **変化なし** |
+| spot / path / zone / ひみつ | 471 / 654 / 118 / 107 | **変化なし** |
+| 他 region を貫通する線 | 1 本 | **0 本** |
+
+- **spot は削除していません。** `countryside.riverbank`（みち 3 本）も
+  `river_lake.bank`（みずべ手前のひろば・そこから全 35 spot へ到達可能）も、
+  connection とは無関係に働き続けます。connection 削除と spot 削除は別物です。
+- 旧セーブに `countryside|river_lake` の記録が残っていても、
+  エラーにならず・探索率を水増しせず・地図に線も復活しません
+  （`forest|snow` で確立済みの挙動）。
+- 検証は `tests/meguru-phase3b-final-test.cjs`（11 本）が固定しています。
+
+**Phase 3B は完了です。** 「世界のすべての connection が実際に歩ける（または乗れる）」
+状態になり、**地図に引かれる線と実際に通れる道が一致**しました。
 
 その先は regionOrigin / global world へ進めます。

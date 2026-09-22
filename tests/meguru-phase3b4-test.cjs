@@ -52,11 +52,11 @@ function sweepAll(M, rid, W, lateral = [-2, -1, 0, 1, 2]) {
 
 test('1. 2 本に あるく 出口が ついた。connection は ふえて いない', () => {
   const { G } = setup();
-  assert.equal(G.connections.length, 15, 'connection は 15 のまま');
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
   const impl = G.connections.filter((c) => c.gate);
   assert.equal(impl.length, 13, 'gate 実装済み 11 → 13');
   const rest = arr(G.connections).filter((c) => !c.gate && c.b).map((c) => c.id);
-  assert.deepEqual(rest, ['countryside|river_lake'], 'のこる 未実装は 1 本だけ');
+  assert.deepEqual(rest, [], 'Phase 3B-Final で 未実装は 0 本');
   for (const id of ['city|desert', 'desert|mountain']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk', id + ' は あるいて こえる');
@@ -288,13 +288,13 @@ test('16. きめられた 出口 いがいからは 外へ 出られない(ま�
 test('17. 探索率の ぶんぼは 1 つも 動いて いない(gate を つけただけ)', () => {
   const { M } = setup();
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   assert.deepEqual(obj(M.WORLD_PROGRESS_WEIGHT), { regions: 0.4, links: 0.25, marks: 0.2, zones: 0.15 });
   const every = {};
   for (const id of C.regions) every[id] = M.WORLDS[id].spots.map((q) => q.id);
   const found = arr(M.worldLinksFrom(every));
-  assert.equal(found.length, 13, 'ぜんぶ 見つけても link は 13 のまま');
+  assert.equal(found.length, 12, 'ぜんぶ 見つけても link は 12 のまま');
   for (const id of ['city|desert', 'desert|mountain']) assert.ok(found.includes(id));
   // かたがわだけでは 1 本も ひらかない
   for (const one of [{ city: ['stalls'] }, { desert: ['caravan'] }, { desert: ['gate'] }, { mountain: ['windnotch'] }])
@@ -346,14 +346,19 @@ test('19. anchor は entry から みちを たどって 行ける。たび・�
   }
 });
 
-test('20. countryside|river_lake には 手を つけて いない(保留の まま)', () => {
+test('20. countryside|river_lake は Phase 3B-Final で けした。この PR の 2 本は のこる', () => {
   const { M } = setup();
-  const c = M.WORLD_GEOGRAPHY.connections.find((q) => q.id === 'countryside|river_lake');
-  assert.ok(c, 'connection じたいは のこって いる');
-  assert.ok(!c.gate, 'gate は まだ つけて いない');
-  assert.deepEqual(obj(c.mouths), { countryside: 'riverbank', river_lake: 'bank' }, '正本の mouth は そのまま');
-  for (const rid of ['countryside', 'river_lake']) {
-    const sim = M.createSimulation({ regionId: rid, discovered: [] });
-    assert.ok(!sim.gates.some((g) => g.id === 'countryside|river_lake'), rid + ': まだ 出口に なって いない');
-  }
+  // 3B-4 の じてんでは「保留の まま」だった。3B-Final で 正式に けした ので、
+  // ここでは **けした ことと、3B-4 で 足した 2 本が こわれて いない こと**を みる
+  assert.ok(!M.WORLD_GEOGRAPHY.connections.some((q) => q.id === 'countryside|river_lake'),
+    'いなか|みずべ は 正本から きえて いる');
+  for (const id of ['city|desert', 'desert|mountain'])
+    assert.ok(M.WORLD_GEOGRAPHY.connections.some((q) => q.id === id && q.gate),
+      id + ' は のこって いる');
+  // いなか・みずべ の 出口は それぞれ もとの まま
+  const cs = M.createSimulation({ regionId: 'countryside', discovered: [] });
+  const rl = M.createSimulation({ regionId: 'river_lake', discovered: [] });
+  assert.ok(!cs.gates.some((g) => g.to === 'river_lake'), 'いなかから みずべへの 直通は ない');
+  assert.ok(!rl.gates.some((g) => g.to === 'countryside'), 'みずべから いなかへの 直通は ない');
+  assert.ok(cs.gates.length >= 2 && rl.gates.length >= 2, 'どちらも 行きどまりに なって いない');
 });

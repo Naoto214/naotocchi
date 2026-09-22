@@ -30,14 +30,14 @@ function walkOut(sim, gate, push = 0, steps = 240) {
 test('A1. forest|snow は 正本・地図・みちの はっけん の どこにも のこって いない', () => {
   const { M, G, W } = setup();
   assert.ok(!G.connections.some((c) => c.id === 'forest|snow'), '正本に ない');
-  assert.equal(G.connections.length, 15, 'connection は 15 本');
-  assert.equal(G.connections.filter((c) => c.b).length, 14);
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
+  assert.equal(G.connections.filter((c) => c.b).length, 13);
   // spot だけを ぜんぶ 見つけても、みちとしては 出て こない
   const every = {};
   for (const id of Object.keys(G.regions)) every[id] = W[id] ? W[id].spots.map((q) => q.id) : [];
   const found = M.worldLinksFrom(every);
   assert.ok(!found.includes('forest|snow'), 'はっけん できる みちにも ない');
-  assert.equal(found.length, 14);
+  assert.equal(found.length, 13);
   // 地図にも 線が 出ない(りょうはしの 地域を 見つけて いても)
   const wd = M.worldMapData({ regions: ['forest', 'snow', 'mountain'], links: found, marks: {}, zones: {} });
   assert.ok(!wd.links.some((l) => l.id === 'forest|snow'), '地図に ゴーストの 線が ない');
@@ -62,13 +62,13 @@ test('A2. もり → やま → ゆきぐに が 正式な みちに なる。�
 test('A3. 探索率の link ぶんぼは 正本から 13。ふるい セーブに のこって いても こわれない', () => {
   const { M } = setup();
   const C = M.worldCountable();
-  assert.equal(C.links.length, 13, 'もり|ゆきぐに を けした ぶん 14 → 13');
+  assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.ok(!C.links.includes('forest|snow'));
   // ぶんぼは いつも 正本から かぞえる。ふるい id は しずかに むしされる
   const stale = { regions: ['home', 'forest', 'snow', 'mountain'],
     links: ['forest|snow', 'home|forest', 'forest|mountain', 'snow|mountain'], marks: {}, zones: {} };
   const wd = M.worldMapData(stale);
-  assert.equal(wd.progress.linkTotal, 13);
+  assert.equal(wd.progress.linkTotal, 12);
   assert.equal(wd.progress.links, 3, 'ふるい forest|snow は かぞえない(3 本)');
   assert.ok(Number.isFinite(wd.progress.percent) && wd.progress.percent >= 0 && wd.progress.percent <= 100);
   assert.ok(!wd.links.some((l) => l.id === 'forest|snow'));

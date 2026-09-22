@@ -674,9 +674,9 @@ test('⑧-4 gate の 発火は 1つも かわらない(connection に さわっ�
   const { h, M } = setup('forest');
   const DIRS = [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]];
   // connection の かず と 分母は そのまま
-  assert.equal(M.WORLD_GEOGRAPHY.connections.length, 15, 'connection 15本');
+  assert.equal(M.WORLD_GEOGRAPHY.connections.length, 14, 'connection 14本');
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   // みはらしを かかえる region で、出口の はんていが すべて 出る ことを みる
   for (const rid of ['forest', 'mountain', 'countryside', 'river_lake']) {
