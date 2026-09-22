@@ -8442,10 +8442,10 @@
   function showAuthorGreeting(kind = 'hello') {
     if (!isAuthorUnlocked()) return false;
     const lines = {
-      hello: 'ナオト「……きみも、ここを見つけたんだ。」',
-      dex: 'ナオト「……きみも、ここを見つけたんだ。たくさん会ったんだね。」',
+      hello: 'ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。」',
+      dex: 'ナオト「……きみも、ここを見つけたんだ。たくさん会ってくれて、ありがとう。」',
       // ④を経ずに⑤へ進んでも、名前を名乗りつつ世界の答えは説明しない。
-      perfect: 'ナオト「ナオトだよ。……きみも、ここを見つけたんだ。」',
+      perfect: 'ナオト「ナオトだよ。……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。」',
     };
     showStoryEvent({ author:true, message:lines[kind] || lines.hello });
     return true;
