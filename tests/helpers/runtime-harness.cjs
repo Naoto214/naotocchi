@@ -5,9 +5,35 @@ const vm = require('node:vm');
 const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
+// テストの とけい。
+//
+// きほんは これまでどおり **`Date.now()` だけ**を ハーネスの とけいに する。
+// `new Date()` は じっさいの いまを かえす。
+//
+// `pinDate: true` を わたすと **`new Date()` も おなじ とけいに そろえる**。
+// そろえないと script.js の `dailyKey(d = new Date())` と `getCalendarSeason()` が
+// 「きょうの ひづけ」で 変わり、meguru.js の buildRegistry / buildWorld が
+//   hash(def.id + ':' + day)     → その住民が きょう どの地域に すむか
+//   hash(s.id + regionId + day)  → どの spot に わりあてられるか
+// に つかう ので、**住民の めんつと ばしょが 日ごとに 変わって**
+// seed を 固定して いても らんすうの つかわれかたが ずれる。
+//
+// **ぜんぶの テストで そろえては いけない。** ひがわりの きろく(まいにちチャレンジ・
+// れんぞくログイン)を みる テストは 「ひづけが すすむ」ことを あてに して いて、
+// とめると おわらなく なる。だから **ほしい テストだけが えらぶ** かたちに して ある。
+//
+// どちらの ばあいも `new Date(x)` や `new Date(y, m, d)` は ひきすうを つかう
+function fakeDate(nowOf, pin) {
+  class TestDate extends Date {
+    constructor(...a) { if (pin && a.length === 0) super(nowOf()); else super(...a); }
+    static now() { return nowOf(); }
+  }
+  return TestDate;
+}
+
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false} = {}) {
   let now = clockNow, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -121,7 +147,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   // window is the VM global, as in a browser. This activates the production
   // requestAnimationFrame/setTimeout session wrappers (the boot smoke does not).
   const sandbox = Object.assign(window, {
-    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: class extends Date {static now() {return now;}},
+    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: fakeDate(() => now, pinDate),
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
