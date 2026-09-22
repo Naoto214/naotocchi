@@ -9127,32 +9127,31 @@
 
   const LEGEND_ENCOUNTERS = [
     {
-      id: 'gate', emoji: '⛩️', name: 'そらにうかぶとりい', vibe: '神々しい',
-      flash: '見上げると、雲よりずっと下にとりいがひとつうかんでいる',
-      story: 'くぐれる高さではないのに、なぜか足がとまった。しばらく見ていると、とりいがほんの少しこちらへかたむいた。風はなかった',
+      id: 'gate', emoji: '▣', name: 'むこうのまど', vibe: '境界',
+      flash: 'いつもの景色に、見たことのない窓がひとつある',
+      story: '窓の向こうには白い壁と向かい合った椅子がある。ここではない場所らしいが、誰の場所なのかはわからない',
     },
     {
-      id: 'stairs', emoji: '🪜', name: 'どこにもつながらないかいだん', vibe: '意味不明',
-      flash: '野原のまんなかに、階段だけが立っている',
-      story: '何段のぼったかわからなくなって、いったんおりた。地面から見ると3段しかない。もう一度のぼる気にはなれなかった',
+      id: 'stairs', emoji: '○', name: 'たまごのないところ', vibe: '誕生',
+      flash: '卵のからのそばに、こちらでは見ない写真が落ちている',
+      story: '写真には小さな命が写っているのに、どこにも卵がない。生まれかたは、この世界だけの決まりなのかもしれない',
     },
     {
-      id: 'boss', emoji: '🦑', name: 'あやまりにきただいおういか', vibe: '笑える',
-      flash: 'とてつもなく大きなイカが、なぜかものすごく丁寧におじぎをしている',
-      story: '「このたびは、まことに申し訳ございませんでした」とイカが言った。何のことか聞いても、もう一度深くおじぎをするだけ。とりあえず「いいよ」と言ったら帰っていった',
+      id: 'boss', emoji: '◐', name: 'むかしのぼく', vibe: '姿',
+      flash: '自分の影だけが、いまの姿とは違っている',
+      story: '影はこの人生で過ごした姿へ次々と変わる。どれが本当なのか、影は答えてくれない',
     },
     {
-      id: 'lamp', emoji: '🏮', name: 'よなかのあかり', vibe: '温かい',
-      flash: 'まっくらな道の先に、小さなあかりがひとつついている',
-      story: '近づくと、暗がりから「おかえり」と聞こえた。だれも見えない。通りすぎて振り返ると、あかりだけがまだそこにあった',
+      id: 'lamp', emoji: '·', name: '100のむこう', vibe: '時間',
+      flash: '道の先に、99までの数字と、その先の100が見える',
+      story: '100の先をたずねても答えはない。この世界から見えるのは、そこまでらしい',
     },
     {
-      id: 'mirror', emoji: '🪞', name: 'としをとったじぶん', vibe: '美しい・こわい',
-      flash: '水たまりに、いまよりずっと年をとった自分がうつっている',
-      story: '水たまりの自分だけが先に笑った。口が何かを言うように動いたところで、水面がゆれた。消える直前の顔は、おだやかだった',
+      id: 'mirror', emoji: '◌', name: 'みているひと', vibe: '気配',
+      flash: 'ここではないどこかから、見られているような気がする',
+      story: '姿は見えない。ときどき紙や音や影だけが残る。こちらが見つけたのか、向こうに見つけられたのかもわからない',
     },
   ];
-
   // でんせつの であいが おきる じょうけん。ミニゲーム中・すいみん中・
   // なにかの がめんを ひらいている あいだは おきない(みのがす のが
   // いちばん もったいない イベントな ため)
@@ -9176,30 +9175,23 @@
     el.dateMovieCloseBtn.classList.add('hidden');
     el.dateMovieSkipBtn.classList.remove('hidden');
     el.dateMovieScene.classList.remove('anniversary-major');
-    el.dateMovieScene.dataset.plan = legend.id === 'boss' ? 'sea' : legend.id === 'gate' ? 'star' : legend.id === 'lamp' ? 'sunset' : 'photo';
+    el.dateMovieScene.dataset.plan = legend.id === 'gate' ? 'talk' : legend.id === 'stairs' ? 'photo' : legend.id === 'boss' ? 'sunset' : legend.id === 'lamp' ? 'star' : 'photo';
     el.dateMoviePlace.textContent = legend.name || LEGEND_ENCOUNTERS.find(entry => entry.id === legend.id)?.name || 'でんせつのであい';
     const ownStage = SPECIES[state.speciesLine] && SPECIES[state.speciesLine].stages[state.stageIndex];
     setStageVisual(el.dateMoviePet, ownStage || { emoji:'✨' }, 'medium');
-    if (legend.id === 'mirror') {
-      // Same individual, later in its own life. Never change the saved stage,
-      // species, gender or romance data to draw this imagined future.
-      const elder = SPECIES[state.speciesLine]?.stages[7] || ownStage;
-      setStageVisual(el.dateMoviePartner, elder || {emoji:'✨'}, 'medium');
-    } else if (legend.id === 'stairs') {
-      el.dateMoviePartner.innerHTML = '<svg class="movie-stairs" viewBox="0 0 128 128" role="img" aria-label="3段の階段"><path fill="#a4a89d" stroke="#566773" stroke-width="3" stroke-linejoin="round" d="M14 100V78h28V55h28V32h28l16 12v68H30Z"/><path fill="#e0dbc7" d="M14 78h28V55h28V32h28l16 12H86v23H58v23H30Z"/><path fill="none" stroke="#778782" stroke-width="2" d="m14 78 16 12v22m12-57 16 12v23m12-58 16 12v23M30 90h28m0-23h28m0-23h28"/></svg>';
-    } else {
-      el.dateMoviePartner.innerHTML = displayIconHTML(legend.emoji);
-    }
+    // The new legends are traces and seams rather than named characters.
+    // Keep the second figure abstract so no region, species, or real-world person is asserted.
+    el.dateMoviePartner.innerHTML = displayIconHTML(legend.emoji);
 
     const story = pickMovieStory(`legend:${legend.id}`, globalThis.NaotocchiMovieDialogue.legends[legend.id]);
     const beats = story.length ? story : [legend.flash, legend.story];
     const speakers = {
       pet:petSpeaker(),
-      legend:{kind:'legend', id:legend.id, label:legend.id === 'boss' ? 'ダイオウイカ' : legend.id === 'lamp' ? 'あかりのむこうの声' : legend.name,
+      legend:{kind:'legend', id:legend.id, label:legend.id === 'lamp' ? 'むこうの声' : legend.id === 'mirror' ? 'だれか' : legend.name,
         art:el.dateMoviePartner.innerHTML},
     };
     playMovieBeats(beats, {kind:'legend', legend:legend.id, speakers,
-      theme:({mirror:'water', gate:'sky', stairs:'meadow', boss:'shore', lamp:'lantern'})[legend.id] || 'walk'});
+      theme:({mirror:'water', gate:'special', stairs:'special', boss:'sunset', lamp:'star'})[legend.id] || 'walk'});
 
   }
 
