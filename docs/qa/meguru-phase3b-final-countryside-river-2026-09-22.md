@@ -1,6 +1,6 @@
 # めぐる Phase 3B-Final — `countryside|river_lake` 最終判断
 
-2026-09-22 / 基準コミット `b268b15`（Phase 3B-4 マージ後の main）
+2026-09-22 / 計測時点 `1477f86`（Phase 3B-4 の head）/ **`9f88953`（3B-4 マージ後の最新 main）でも同じ数値を再確認済み**
 
 Phase 3B で残った**最後の未実装 connection** `countryside|river_lake` を、
 「実装する / 削除する / 保留継続」のどれにするか最終判断するための監査。
@@ -24,7 +24,7 @@ Phase 3B で残った**最後の未実装 connection** `countryside|river_lake` 
 
 ---
 
-## 1. 最新世界地理（`b268b15` の実データ）
+## 1. 最新世界地理（最新 main `9f88953` の実データ）
 
 `worldMapData()` が実際に描く楕円（地図と同じ単位）:
 
