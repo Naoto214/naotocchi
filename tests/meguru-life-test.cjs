@@ -10,17 +10,25 @@ const { harness } = require('./helpers/runtime-harness.cjs');
 const REGIONS = ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
 const E = (time, weather, season) => ({ time: time || 'day', weather: weather || 'sunny', season: season || 'spring', region: 'x' });
 
-function setup() {
-  const h = harness({ fullDisplay: true });
+// この テストで つかう 「いつ・どんな てんき・どの きせつ」。E() の きほんと そろえて ある。
+// **buildWorld() は わたされた env では なく S.currentEnvironment() を よむ** ので、
+// ここを 明示的に とめて おかないと 「じっさいの いまの きせつ・じこく」で 世界の なかみが 変わる
+const FIXED_ENV = { timeMode: 'day', weatherMode: 'sunny', seasonMode: 'spring' };
+// おなじ したごしらえで ハーネスを 1 つ 作る。clockNow と きせつ・じこくは 引数で きめる
+function makeHarness(opts = {}) {
+  // clockNow を はっきり 書く。ハーネスの Date.now() も new Date() も この かずに なる
+  const h = harness({ fullDisplay: true, clockNow: opts.clockNow != null ? opts.clockNow : 1000 });
   const s = h.api.state();
+  Object.assign(s.lifetime, FIXED_ENV, opts.env || {});
   Object.assign(s, { stage: 'growing', isSleeping: false, energy: 100, health: 100, hunger: 80, speciesLine: 'dog', stageIndex: 4, ageTicks: 500 });
   s.petKey = `dog:${h.api.currentFormStageIndex()}`;
   const all = []; const SP = h.api.SPECIES;
   for (const line of Object.keys(SP)) for (let i = 0; i < (SP[line].stages || []).length; i++) all.push(`${line}:${i}`);
   s.discoveredStages = all;
   h.api.render();
-  return h.api.meguruMod;
+  return h;
 }
+const setup = () => makeHarness().api.meguruMod;
 const M = setup();
 const run = (id, env, secs, every, fn) => {
   const sim = M.createSimulation({ regionId: id, discovered: [], env: env || E() });
@@ -448,3 +456,59 @@ test('running a whole day through, nobody freezes, nobody is held in an interact
     assert.ok(heldTalk < 20, `${id}: no conversation goes on for ever (${heldTalk * 2}s)`);
   }
 }));
+
+// ---- 決定性の みはり ----
+// このファイルは ながいあいだ「日によって pass / fail が 変わる」フレークを かかえて いた。
+// もとは **実時刻の もれ** で、ルートは 2 つ:
+//   ① script.js の `dailyKey(d = new Date())`  → きょうの ひづけ
+//   ② script.js の `getCalendarSeason()` の `new Date().getMonth()` → きょうの つき
+// ハーネスは `Date.now()` しか とめて いなかった ので、`new Date()` が 実時刻を かえして いた。
+// dailyKey は meguru.js の buildRegistry / buildWorld で
+//   `hash(def.id + ':' + day)`      → その住民が きょう どの地域に すむか
+//   `hash(s.id + regionId + day)`   → どの spot に わりあてられるか
+// に つかわれる。つまり **住民の めんつと ばしょが 日ごとに 変わり**、
+// withSeed() で たねを 固定して いても らんすうの つかわれかたが ずれて、
+// 10番・19番の とうけい的な assertion が しきいを またいで いた。
+//
+// 直しかた(テストがわ だけ):
+//   ・ハーネスの `new Date()` も `Date.now()` と おなじ とけいに そろえた
+//   ・この ファイルは clockNow と きせつ・てんき・じこくを 明示的に とめる(FIXED_ENV)
+// ここでは その 2 つが くずれて いない ことを みはる。
+test('じかんは ハーネスの とけい だけから くる(決定性の みはり)', () => {
+  // その ひの 世界の「住民の めんつと ばしょ」を 1 本の 文字れつに する。
+  // らんすうも たねで 固定する ので、のこる ちがいは **ひづけ だけ**
+  const roster = (clockNow, env) => {
+    const h = makeHarness({ clockNow, env });
+    const m = h.api.meguruMod;
+    m.setRandom(seededRandom(4242));
+    try {
+      return ['countryside', 'city', 'sea'].map((id) => {
+        const w = m.buildWorld(id, m.buildRegistry());
+        return id + ':' + w.residents.map((r) => `${r.key}@${Math.round(r.x)},${Math.round(r.z)}`).join(',');
+      }).join('|');
+    } finally { m.setRandom(null); }
+  };
+  const JAN = Date.UTC(2026, 0, 2), JUN = Date.UTC(2026, 5, 15);
+
+  // ① おなじ とけいなら、なんど 作っても まったく おなじ 世界
+  assert.equal(roster(JAN), roster(JAN), 'おなじ とけい → おなじ 世界');
+  assert.equal(roster(JUN), roster(JUN), 'おなじ とけい → おなじ 世界(べつの ひでも)');
+
+  // ② **ひづけが ちがえば 世界も ちがう**。
+  // これが とおらない ときは、ひづけが 世界に とどいて いない
+  // = `new Date()` が ハーネスの とけいでは なく **実時刻**を 見て いる、という しるし。
+  // (実時刻を 見て いると、どちらの ハーネスでも「きょう」に なって しまい 同じに なる)
+  assert.notEqual(roster(JAN), roster(JUN),
+    'ひづけが ちがえば 住民の わりあても ちがう(とけいが 世界へ とどいて いる)');
+
+  // ③ morning / day / evening / night の どれでも、おなじ とけいなら おなじ 世界
+  for (const time of ['morning', 'day', 'evening', 'night']) {
+    const a = roster(JAN, { timeMode: time });
+    assert.equal(a, roster(JAN, { timeMode: time }), time + ' でも おなじ とけいなら おなじ 世界');
+    assert.ok(a.length > 50, time + ' で 住民が いる');
+  }
+
+  // ④ このファイルが つかう かんきょうは 明示的に とまって いる(auto に して いない)
+  assert.deepEqual(FIXED_ENV, { timeMode: 'day', weatherMode: 'sunny', seasonMode: 'spring' });
+  assert.equal(E().time, 'day'); assert.equal(E().weather, 'sunny'); assert.equal(E().season, 'spring');
+});

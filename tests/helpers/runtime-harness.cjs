@@ -5,6 +5,20 @@ const vm = require('node:vm');
 const source = fs.readFileSync('meguru.js', 'utf8') + '\n' + fs.readFileSync('quick.js', 'utf8') + '\n' + fs.readFileSync('games.js', 'utf8') + '\n' + fs.readFileSync('audio.js', 'utf8') + '\n' + fs.readFileSync('item-memories.js', 'utf8') + '\n' + fs.readFileSync('item-system.js', 'utf8') + '\n' + fs.readFileSync('movie-dialogue.js', 'utf8') + '\n' + fs.readFileSync('script.js', 'utf8');
 const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
+// テストの とけい。**Date.now() だけで なく `new Date()` も ハーネスの とけいに そろえる。**
+// そろえないと `new Date()` が じっさいの いまを かえし、
+// script.js の dailyKey(d = new Date()) と getCalendarSeason() が
+// 「きょうの ひづけ」で 変わる → buildRegistry / buildWorld の なかみが 日に よって 変わる →
+// seed を 固定して いても らんすうの つかわれかたが ずれる(めぐるの せいかつテストの フレークの もと)。
+// new Date(x) や new Date(y, m, d) は これまでどおり ひきすう を つかう
+function fakeDate(nowOf) {
+  class TestDate extends Date {
+    constructor(...a) { if (a.length === 0) super(nowOf()); else super(...a); }
+    static now() { return nowOf(); }
+  }
+  return TestDate;
+}
+
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
 function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
@@ -121,7 +135,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   // window is the VM global, as in a browser. This activates the production
   // requestAnimationFrame/setTimeout session wrappers (the boot smoke does not).
   const sandbox = Object.assign(window, {
-    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: class extends Date {static now() {return now;}},
+    console, document, window, TextEncoder, TextDecoder, btoa, atob, Date: fakeDate(() => now),
     navigator: {userAgent: 'minigame-lifecycle-test', maxTouchPoints: 1, geolocation},
     fetch: fetcher,
     NaotocchiCast: require('../../cast-layout.js'),
