@@ -996,7 +996,7 @@ for (const atLifeEnd of [false, true]) {
     assert.ok(getElement('lifeCardOverlay').classList.contains('hidden'), 'goal 5 ended this life prematurely');
     assert.ok(!getElement('storyFlash').classList.contains('hidden'));
     assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
+    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ。……きみも、ここを見つけたんだ。/);
     assert.equal(lifeDetails(api.getState().infiniteReturn || api.getState()), lifeBefore);
     assert.equal(api.getState().discoveredStages.length, allForms.length);
     assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
