@@ -597,5 +597,159 @@ test('⑦-7 監査の けっかと 実装が そろって いる', () => {
     lv['L' + want] = (lv['L' + want] || 0) + 1; n++;
   }
   assert.equal(n, 471, '監査表は 471 spot ぜんぶ');
-  assert.deepEqual(lv, { L0: 188, L2: 212, L3: 71 }, '監査の うちわけ');
+  assert.deepEqual(lv, { L0: 184, L2: 216, L3: 71 }, '監査の うちわけ(#319 で みはらし 4件が L0→L2)');
+});
+
+// ────────────────────────────── ⑧ みはらしの spot に けしきを 足した(#319)
+//
+// #318 の 監査で F(なまえは とくちょうを やくそくする のに 画面に 何も ない)と
+// 判定された 40 件の うち、まず「みはらし」系 4 件だけを 直した。
+// たいせつなのは「けしきを ごうかに する」ことでは なく、
+// 「○○のみはらしを みつけた」と 出た とき **画面を 見て わかる** こと。
+const VIEW_SPOTS = [
+  ['forest', 'stonelook', 'いわばのみはらし', 'ledgerock'],
+  ['countryside', 'terracelook', 'たなだのてんぼう', 'cropline'],
+  ['mountain', 'lookout1', 'いちのてんぼう', 'telescope'],
+  ['river_lake', 'lakelook', 'みずうみのてんぼう', 'springpool'],
+];
+// 日がわり/天気で けしきの いちは ばらつく。しらべ ものは 環境を 固定して 再現できる ように する
+function fixedWorld(h, M, regionId) {
+  Object.assign(h.api.state().lifetime, { timeMode: 'day', weatherMode: 'sunny', seasonMode: 'spring' });
+  h.api.render();
+  return M.buildWorld(regionId, M.buildRegistry(), {});
+}
+
+test('⑧-1 4つの みはらしに、その ばしょ だけの けしきが ある', () => {
+  const { h, M } = setup('forest');
+  for (const [rid, id, label, lead] of VIEW_SPOTS) {
+    const w = fixedWorld(h, M, rid);
+    const sp = w.spots.find((q) => q.id === id);
+    assert.equal(sp.label, label, rid + '/' + id + ': なまえ');
+    const mine = w.props.filter((p) => p.view === id);
+    assert.ok(mine.length >= 2, `${rid}/${id}: けしきが 足りない(${mine.length})`);
+    // 主役が かならず 1つ ある(おけなかった ままに しない)
+    const main = mine.filter((p) => p.size === 300);
+    assert.equal(main.length, 1, `${rid}/${id}: 主役は 1つ(いまは ${main.length})`);
+    assert.equal(main[0].struct, lead, `${rid}/${id}: 主役は ${lead}`);
+    // spot の まんなかは あけて おく(あるく ところを うめない)
+    for (const p of mine) assert.ok(Math.hypot(p.x - sp.x, p.z - sp.z) > sp.r * 0.6, `${rid}/${id}: まんなかに おいて いる`);
+    // ものを おきすぎない(主役 1 + 補助 すこし)
+    assert.ok(mine.length <= 4, `${rid}/${id}: おきすぎ(${mine.length})`);
+  }
+  h.api.stopMeguru && h.api.stopMeguru();
+});
+
+test('⑧-2 主役は 地域ごとに ちがう(どこにも おなじ てすりを 置かない)', () => {
+  const { h, M } = setup('forest');
+  const leads = [];
+  for (const [rid, id] of VIEW_SPOTS) {
+    const w = fixedWorld(h, M, rid);
+    leads.push(w.props.filter((p) => p.view === id && p.size === 300)[0].struct);
+  }
+  assert.equal(new Set(leads).size, 4, '4つとも ちがう もの: ' + leads.join(','));
+  // え を かける ものだけ を つかう(「置いたのに 映らない」を ふせぐ)
+  const src = require('node:fs').readFileSync('meguru.js', 'utf8');
+  for (const k of leads) assert.ok(src.includes(`case '${k}'`), k + ' は drawStructure が しって いる');
+});
+
+test('⑧-3 けしきは あたりはんていを 1つも ふやさない(みち・出口・住民を ふさがない)', () => {
+  const { h, M } = setup('forest');
+  for (const [rid, id] of VIEW_SPOTS) {
+    const w = fixedWorld(h, M, rid);
+    const mine = w.props.filter((p) => p.view === id);
+    // solid で ない → colliderOf() は null。ふさぐ ことが そもそも できない
+    for (const p of mine) {
+      assert.ok(!p.solid, `${rid}/${id}: solid に して いる`);
+      assert.equal(M.colliderOf(p), null, `${rid}/${id}: あたりはんていが ついて いる`);
+    }
+    // みちの ふちからも はなれて いる
+    for (const p of mine) {
+      const n = M.nearestPath({ x: p.x, z: p.z }, w);
+      assert.ok(!n || n.dist > n.half, `${rid}/${id}: みちの うえに ある`);
+    }
+  }
+});
+
+test('⑧-4 gate の 発火は 1つも かわらない(connection に さわって いない)', () => {
+  const { h, M } = setup('forest');
+  const DIRS = [[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]];
+  // connection の かず と 分母は そのまま
+  assert.equal(M.WORLD_GEOGRAPHY.connections.length, 15, 'connection 15本');
+  const C = M.worldCountable();
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
+  // みはらしを かかえる region で、出口の はんていが すべて 出る ことを みる
+  for (const rid of ['forest', 'mountain', 'countryside', 'river_lake']) {
+    const w = fixedWorld(h, M, rid);
+    const gates = M.regionGates(rid, w);
+    assert.ok(gates.length > 0, rid + ': 出口が ある');
+    let fired = 0;
+    for (const g of gates) {
+      const here = gates.filter((q) => q.spot.id === g.spot.id);
+      for (let ix = -4; ix <= 4; ix++) for (let iz = -4; iz <= 4; iz++) for (const [mx, mz] of DIRS) {
+        const r = M.resolveGate(here, { x: g.spot.x + ix * (g.spot.r / 4), z: g.spot.z + iz * (g.spot.r / 4), mx, mz, kind: 'walk' });
+        if (r) fired++;
+      }
+    }
+    assert.ok(fired > 0, rid + ': 出口が 1かいも 発火しない');
+  }
+});
+
+test('⑧-5 4つとも L2。「みつけた」だけで「ちずに きろくした」は くりかえさない', () => {
+  const { h, M, s } = setup('forest');
+  for (const [rid, id] of VIEW_SPOTS) {
+    const sp = M.WORLDS[rid].spots.find((q) => q.id === id);
+    assert.equal(M.spotDiscoveryLevel(sp), 2, rid + '/' + id + ': L2');
+  }
+  // もう なれた ひと には 2行目を 出さない(#318 の きまりを たもつ)
+  s.lifetime.meguru.spots = { forest: ['entry', 'bright1', 'bright3', 'sunspot', 'creek1'] };
+  const u = open(h);
+  settle(h, u);
+  stand(h, u.run, 'stonelook');
+  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /いわばのみはらし/.test(v.title));
+  assert.ok(t, 'いわばのみはらしを みつけた が 出る');
+  assert.equal(t.title, 'いわばのみはらしを みつけた');
+  assert.equal(t.sub, '', '「ちずに きろくした」を くりかえさない');
+  h.api.stopMeguru();
+});
+
+test('⑧-6 2かいめ は 出さない。旧セーブで もう 見つけて いれば けしきだけ 見える', () => {
+  const { h, s } = setup('forest');
+  // 旧セーブ: すでに いわばのみはらしを 見つけて いる
+  s.lifetime.meguru = { visits: 3, talkCount: 0, met: {}, talks: {}, spots: { forest: ['stonelook'] } };
+  const u = open(h);
+  settle(h, u);
+  stand(h, u.run, 'stonelook');
+  h.advance(400);
+  assert.equal(shown(u), null, '見つけずみ なら しらせを やりなおさない');
+  assert.equal(u.run.foundInfo().queue.length, 0);
+  // けしきは ある
+  assert.ok(u.run.world.props.some((p) => p.view === 'stonelook'), 'けしきは 見える');
+  // チップは 出て いる
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'いわばのみはらし');
+  h.api.stopMeguru();
+});
+
+test('⑧-7 spot / path / zone / secret の かずは 1つも ふえて いない', () => {
+  const { M } = setup('forest');
+  let spots = 0, secrets = 0, zones = 0, paths = 0;
+  for (const rid of Object.keys(M.WORLDS)) {
+    const b = M.WORLDS[rid];
+    spots += b.spots.length; zones += b.zones.length; paths += (b.paths || []).length;
+    secrets += b.spots.filter((q) => q.secret).length;
+  }
+  assert.equal(spots, 471, 'spot 471');
+  assert.equal(secrets, 50, 'secret 50');
+  assert.equal(paths, 654, 'path 654');
+  // **かぞえかたが 2つ ある**。WORLDS に 書いて ある 地区は ぜんぶで 118。
+  // 探索率の 分母 103 は worldCountable() の ほう(ほしぞら・きおくのみずうみ は 入らない)。
+  // ここで 103 と 書くと まちがう(⑧-4 が 分母の ほうを みて いる)
+  assert.equal(zones, 118, 'WORLDS に ある 地区は 118');
+  assert.equal(M.worldCountable().zones, 103, '探索率の 分母は 103');
+  // view は spot の データに 足した だけ。landmark には して いない(tier1 の 分母を かえない)
+  for (const [rid, id] of VIEW_SPOTS) {
+    const sp = M.WORLDS[rid].spots.find((q) => q.id === id);
+    assert.ok(!sp.landmark, rid + '/' + id + ': landmark に して いない');
+    assert.ok(!sp.secret, rid + '/' + id + ': secret に して いない');
+  }
 });
