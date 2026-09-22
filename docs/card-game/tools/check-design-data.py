@@ -335,6 +335,11 @@ def check_checkpoint_120():
             plan = json.loads(plan_path.read_text())
             plan_errors = module["validate_restart_plan_120"](plan, inputs)
             checkpoint_check(not plan_errors, f"120 canonical plan: {plan_errors}")
+            plan_bytes_errors = module["validate_materialized_plan_120"](
+                inputs, DOCS / "data"
+            )
+            checkpoint_check(not plan_bytes_errors,
+                             f"120 exact materialized plan JSON: {plan_bytes_errors}")
             suite = module["continue_routes_independently"](plan, inputs)
             evaluation = module["build_evaluation_120"](suite)
             checkpoint_check(

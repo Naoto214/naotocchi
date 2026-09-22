@@ -51,7 +51,9 @@ from proxy_response_window_seeded_restart import (
     resolve_decision,
     replay_route_120,
     validate_materialized_checkpoint_120,
+    validate_materialized_plan_120,
     validate_restart_plan_120,
+    validate_route_evidence,
     verify_protected_sources,
     write_checkpoint_120,
 )
@@ -691,6 +693,14 @@ class ResponseWindowSeededRestartTests(unittest.TestCase):
                 self.assertEqual(stop["detected"], detected)
                 self.assertIsNone(stop["winner"])
 
+        _, evidence = replay_route_120(route, self.inputs)
+        broken = copy.deepcopy(evidence)
+        broken["events"][1]["game_state_after_sha256"] = "0" * 64
+        with self.assertRaises(RouteIntegrityStop) as raised:
+            validate_route_evidence(route, broken)
+        self.assertEqual(raised.exception.reason_code, "event_hash_discontinuity")
+        self.assertEqual(raised.exception.last_valid["last_valid_event_seq"], 4)
+
     def test_global_failures_are_never_converted_to_route_stops(self):
         plan = build_adjudicated_plan_120(self.inputs)
         exhausted = copy.deepcopy(plan)
@@ -817,6 +827,7 @@ class ResponseWindowSeededRestartTests(unittest.TestCase):
         suite = continue_routes_independently(plan, self.inputs)
         artifacts = expected_artifacts_120(suite, DATA)
         self.assertEqual(len(artifacts), 5)
+        self.assertEqual(validate_materialized_plan_120(self.inputs, DATA), [])
         self.assertEqual(validate_materialized_checkpoint_120(suite, DATA), [])
         for path, value in artifacts.items():
             with self.subTest(path=path.name):
@@ -824,6 +835,16 @@ class ResponseWindowSeededRestartTests(unittest.TestCase):
                     json.dumps(value, ensure_ascii=False, indent=2) + "\n"
                 ).encode("utf-8")
                 self.assertEqual(path.read_bytes(), expected)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            plan_path = root / (
+                "proxy-response-window-seeded-restart-plan-120-20260922.json"
+            )
+            plan_path.write_text(json.dumps(plan), encoding="utf-8")
+            self.assertEqual(
+                validate_materialized_plan_120(self.inputs, root),
+                ["materialized checkpoint 120 plan bytes differ"],
+            )
 
     def test_writer_rejects_extra_or_wrong_directory_and_validator_rejects_missing(self):
         plan = build_adjudicated_plan_120(self.inputs)

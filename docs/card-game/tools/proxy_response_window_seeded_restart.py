@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import copy
 import hashlib
 import json
@@ -1335,6 +1336,199 @@ def validate_restart_plan_120(
     return errors
 
 
+def _last_valid_from_snapshot(snapshot: dict[str, object]) -> dict[str, object]:
+    return {
+        "last_valid_event_seq": snapshot["event_seq"],
+        "game_state": copy.deepcopy(snapshot["game_state"]),
+        "game_state_sha256": snapshot["game_state_sha256"],
+        "continuation_state": copy.deepcopy(snapshot["continuation_state"]),
+        "continuation_state_sha256": snapshot["continuation_state_sha256"],
+    }
+
+
+def _snapshot_instance_errors(snapshot: dict[str, object]) -> list[str]:
+    state = snapshot.get("game_state")
+    continuation = snapshot.get("continuation_state")
+    if not isinstance(state, dict) or not isinstance(continuation, dict):
+        return ["snapshot state envelope is malformed"]
+    cards = state.get("cards")
+    players = state.get("players")
+    if not isinstance(cards, dict) or not isinstance(players, dict):
+        return ["snapshot cards or players are malformed"]
+    locations: list[str] = []
+    for player in players.values():
+        if not isinstance(player, dict):
+            return ["snapshot player is malformed"]
+        for zone in ("hand", "deck", "discard"):
+            values = player.get(zone)
+            if not isinstance(values, list):
+                return [f"snapshot player zone is malformed: {zone}"]
+            locations.extend(values)
+        board = player.get("board")
+        if not isinstance(board, dict):
+            return ["snapshot board is malformed"]
+        for slot in ("main", "partner", "world"):
+            if board.get(slot) is not None:
+                locations.append(board[slot])
+        for slot in ("companions", "prepared"):
+            values = board.get(slot)
+            if not isinstance(values, list):
+                return [f"snapshot board zone is malformed: {slot}"]
+            locations.extend(values)
+    activation = continuation.get("activation_zone")
+    if not isinstance(activation, list):
+        return ["snapshot activation zone is malformed"]
+    locations.extend(
+        row.get("source_instance_id")
+        for row in activation if isinstance(row, dict)
+    )
+    counts = collections.Counter(locations)
+    if None in counts:
+        return ["zone contains a missing instance ID"]
+    missing = sorted(set(cards) - set(counts))
+    extra = sorted(set(counts) - set(cards))
+    duplicate = sorted(key for key, count in counts.items() if count != 1)
+    if missing or extra or duplicate:
+        return [
+            f"instance zones differ: missing={missing}, extra={extra}, "
+            f"non_unique={duplicate}"
+        ]
+    return []
+
+
+def _snapshot_dangling_errors(snapshot: dict[str, object]) -> list[str]:
+    state = snapshot["game_state"]
+    continuation = snapshot["continuation_state"]
+    cards = set(state["cards"])
+    activation = continuation.get("activation_zone", [])
+    links = {
+        row.get("link_id"): row for row in activation if isinstance(row, dict)
+    }
+    errors = []
+    chain_links = continuation.get("response_context", {}).get("chain_links", [])
+    if any(link_id not in links for link_id in chain_links):
+        errors.append("chain contains a link absent from activation zone")
+    for row in activation:
+        if not isinstance(row, dict):
+            errors.append("activation entry is malformed")
+            continue
+        references = [row.get("source_instance_id")]
+        references.extend(row.get("target_instance_ids", []))
+        if any(reference not in cards for reference in references):
+            errors.append("activation source or target instance is dangling")
+    for player in state["players"].values():
+        for reservation in player.get("reservations", []):
+            if not isinstance(reservation, dict):
+                errors.append("reservation entry is malformed")
+                continue
+            references = []
+            for key, value in reservation.items():
+                if key.endswith("instance_id"):
+                    references.append(value)
+                elif key.endswith("instance_ids") and isinstance(value, list):
+                    references.extend(value)
+            if any(reference not in cards for reference in references):
+                errors.append("reservation instance reference is dangling")
+    return errors
+
+
+def validate_route_evidence(
+    route: dict[str, object], evidence: dict[str, object]
+) -> None:
+    """Raise a route-local integrity stop at the last verified snapshot."""
+    decisions = evidence.get("decisions")
+    events = evidence.get("events")
+    snapshots = evidence.get("snapshots")
+    if not all(isinstance(value, list) for value in (decisions, events, snapshots)):
+        raise RouteIntegrityStop(
+            "sequence_discontinuity",
+            _last_valid_from_snapshot(route["steps"][0]["snapshot_before"]),
+            {"error": "route evidence lists are missing"},
+        )
+    source_snapshot = route["steps"][0]["snapshot_before"]
+    last_valid = _last_valid_from_snapshot(source_snapshot)
+    if len(snapshots) != len(events) + 1 or not snapshots:
+        raise RouteIntegrityStop(
+            "sequence_discontinuity", last_valid,
+            {"error": "snapshot count must equal event count plus one"},
+        )
+    expected_source = route["resume_event_seq"]
+    first = snapshots[0]
+    if first.get("event_seq") != expected_source:
+        raise RouteIntegrityStop(
+            "sequence_discontinuity", last_valid,
+            {"error": "resume snapshot sequence differs"},
+        )
+    for index, (event, snapshot) in enumerate(zip(events, snapshots[1:]), 1):
+        expected_seq = expected_source + index
+        if event.get("seq") != expected_seq or snapshot.get("event_seq") != expected_seq:
+            raise RouteIntegrityStop(
+                "sequence_discontinuity", last_valid,
+                {"event": copy.deepcopy(event), "snapshot": copy.deepcopy(snapshot)},
+            )
+        hash_ok = (
+            game_state_sha256(last_valid["game_state"]) ==
+            last_valid["game_state_sha256"] and
+            continuation_state_sha256(last_valid["continuation_state"]) ==
+            last_valid["continuation_state_sha256"] and
+            event.get("game_state_before_sha256") ==
+            last_valid["game_state_sha256"] and
+            event.get("continuation_state_before_sha256") ==
+            last_valid["continuation_state_sha256"] and
+            event.get("game_state_after_sha256") ==
+            snapshot.get("game_state_sha256") and
+            event.get("continuation_state_after_sha256") ==
+            snapshot.get("continuation_state_sha256") and
+            game_state_sha256(snapshot.get("game_state")) ==
+            snapshot.get("game_state_sha256") and
+            continuation_state_sha256(snapshot.get("continuation_state")) ==
+            snapshot.get("continuation_state_sha256")
+        )
+        if not hash_ok:
+            raise RouteIntegrityStop(
+                "event_hash_discontinuity", last_valid,
+                {"event": copy.deepcopy(event), "snapshot": copy.deepcopy(snapshot)},
+            )
+        instance_errors = _snapshot_instance_errors(snapshot)
+        if instance_errors:
+            raise RouteIntegrityStop(
+                "instance_zone_duplicate_or_missing", last_valid,
+                {"errors": instance_errors, "snapshot": copy.deepcopy(snapshot)},
+            )
+        dangling_errors = _snapshot_dangling_errors(snapshot)
+        if dangling_errors:
+            raise RouteIntegrityStop(
+                "dangling_chain_reservation_or_target", last_valid,
+                {"errors": dangling_errors, "snapshot": copy.deepcopy(snapshot)},
+            )
+        last_valid = _last_valid_from_snapshot(snapshot)
+
+    decision_ids = {row.get("decision_id") for row in decisions}
+    reference_errors = []
+    if [row.get("decision_seq") for row in decisions] != list(
+        range(1, len(decisions) + 1)
+    ):
+        reference_errors.append("decision sequence differs")
+    for decision in decisions:
+        matching = [event for event in events
+                    if event.get("decision_id") == decision.get("decision_id")]
+        if (not isinstance(decision.get("decision_id"), str) or
+                len(matching) != 1 or
+                decision.get("event_seq") != matching[0].get("seq")):
+            reference_errors.append(
+                f"decision reference differs: {decision.get('decision_id')}"
+            )
+    if any(event.get("decision_id") not in decision_ids | {None}
+           for event in events):
+        reference_errors.append("event references an unknown decision")
+    if reference_errors:
+        raise RouteIntegrityStop(
+            "decision_event_reference_mismatch",
+            _last_valid_from_snapshot(source_snapshot),
+            {"errors": reference_errors, "evidence": copy.deepcopy(evidence)},
+        )
+
+
 def replay_route_120(
     route: dict[str, object], inputs: dict[str, object]
 ) -> tuple[dict[str, object], dict[str, object]]:
@@ -1365,6 +1559,7 @@ def replay_route_120(
         "events": events,
         "snapshots": snapshots,
     }
+    validate_route_evidence(route, evidence)
     return {
         "status": route["terminal"]["status"],
         "terminal": copy.deepcopy(route["terminal"]),
@@ -1668,6 +1863,7 @@ def build_evaluation_120(suite: dict[str, object]) -> dict[str, object]:
 EVALUATION_FILE = (
     "proxy-response-window-seeded-restart-evaluation-120-20260922.json"
 )
+PLAN_FILE = "proxy-response-window-seeded-restart-plan-120-20260922.json"
 ARTIFACT_DIRECTORIES_120 = {
     "completed_records": "proxy-matches-120",
     "decision_traces": "proxy-decision-traces-120",
@@ -1759,6 +1955,18 @@ def validate_materialized_checkpoint_120(
     return errors
 
 
+def validate_materialized_plan_120(
+    inputs: dict[str, object], data_dir: Path
+) -> list[str]:
+    path = Path(data_dir) / PLAN_FILE
+    if not path.is_file():
+        return ["materialized checkpoint 120 plan is missing"]
+    expected = _canonical_json_bytes(build_adjudicated_plan_120(inputs))
+    if path.read_bytes() != expected:
+        return ["materialized checkpoint 120 plan bytes differ"]
+    return []
+
+
 def write_checkpoint_120(
     suite: dict[str, object], data_dir: Path
 ) -> None:
@@ -1804,6 +2012,8 @@ def main(argv: list[str] | None = None) -> int:
         )
         plan = _load_json(plan_path)
         plan_errors = validate_restart_plan_120(plan, inputs)
+        if args.plan is None:
+            plan_errors.extend(validate_materialized_plan_120(inputs, args.data_dir))
         if plan_errors:
             raise ImplementationError("; ".join(plan_errors))
         suite = continue_routes_independently(plan, inputs)
