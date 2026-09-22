@@ -1103,5 +1103,5 @@ assert.equal(api.pendingGoal(), 'perfect');
 assert.ok(getElement('gameClearArt').src.includes('goal-5-naoto-v1.jpg'));
 click('gameClearCloseBtn');
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ！ぜんぶ/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。/);
 console.log('MAIN 203 AUTHOR COMPATIBILITY OK: prior perfect save keeps author, crown and infinite mode; six new achievements stay unearned; 99/100 current games excludes retired records and opens goal 5 correctly.');
