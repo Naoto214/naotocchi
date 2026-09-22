@@ -1,0 +1,85 @@
+{
+  "schema": "naotocchi.card_game.proxy_response_window_contract.v1",
+  "checkpoint": 119,
+  "status": "protocol_only_no_match_progress",
+  "contract_version": "naotocchi.card_game.proxy_response_window.v1",
+  "phase_adapter": {
+    "source_phase": "post_placement_response",
+    "canonical_phase": "response_window",
+    "allowed_window_kinds": [
+      "after_normal_action"
+    ],
+    "mutates_source_state": false,
+    "rehashes_source_state": false
+  },
+  "candidate_contract": {
+    "response_pass_candidate_id": "response-pass",
+    "forbidden_pass_aliases": [
+      "candidate-pass",
+      "pass"
+    ],
+    "candidate_families": [
+      "hand_quick_use",
+      "triggered_ability",
+      "prepared_activation"
+    ],
+    "enumeration_unit": "one_priority_actor_response_opportunity"
+  },
+  "transition_contract": {
+    "rules_source": "06-action-chain-checkpoint.md",
+    "empty_chain_first_pass": "priority_to_opponent_with_one_consecutive_pass",
+    "empty_chain_second_pass": "close_response_window",
+    "activation": "append_chain_reset_passes_activator_retains_priority",
+    "activation_after_opponent_pass": "priority_to_previous_passer_reset_passes",
+    "building_chain_second_pass": "close_and_resolve_reverse_activation_order",
+    "resolution_trigger": "enqueue_new_chain_after_current_chain",
+    "normal_action_return": "only_after_no_chain_trigger_or_response_remains"
+  },
+  "seeded_fallback": {
+    "selection_order": [
+      "response_unique",
+      "priority_unique",
+      "response_seeded_fallback"
+    ],
+    "context_keys": [
+      "contract_version",
+      "order_id",
+      "actor",
+      "actor_turn_index",
+      "round",
+      "origin_event_seq",
+      "response_opportunity_index",
+      "phase",
+      "decision_kind",
+      "choice_kind"
+    ],
+    "seed_material": "ten_context_values_then_sorted_candidate_ids",
+    "serialization": "canonical_json_array",
+    "digest": "sha256",
+    "integer_conversion": "big_endian_unsigned",
+    "index": "digest_integer_modulo_candidate_count",
+    "applied_to_stops_117": false
+  },
+  "scope": {
+    "planned_match_count": 0,
+    "completed_match_count": 0,
+    "stopped_match_count": 0,
+    "decision_trace_count": 0,
+    "event_count": 0,
+    "snapshot_count": 0,
+    "winner_count": 0,
+    "independent_balance_sample_count": 0,
+    "new_stop_artifact_count": 0
+  },
+  "checkpoint_boundaries": {
+    "checkpoint_112_fixtures_executed": false,
+    "fallback_contract_116_modified": false,
+    "stops_117_resumed": false,
+    "stops_117_modified": false
+  },
+  "population": {
+    "current_catalog_count": 452,
+    "registered_history_candidate_count": 477,
+    "checkpoint_119_added_count": 0
+  }
+}

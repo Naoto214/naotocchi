@@ -61,6 +61,207 @@ def normalize_provisional_terminology(value):
     return value
 
 
+def check_checkpoint_119():
+    """Return checkpoint-119-only errors without requiring sparse-excluded sources."""
+    checkpoint_errors = []
+
+    def checkpoint_check(ok, message):
+        if not ok:
+            checkpoint_errors.append(message)
+
+    required = (
+        DOCS / "plans/2026-09-22-response-window-contract-design.md",
+        DOCS / "plans/2026-09-22-response-window-contract.md",
+        DOCS / "tools/proxy_response_window_contract.py",
+        DOCS / "tools/test_proxy_response_window_contract.py",
+        DOCS / "data/proxy-response-window-contract-119-20260922.json",
+        DOCS / "data/proxy-response-window-candidate-audit-119-20260922.json",
+        DOCS / "119-response-window-contract.md",
+    )
+    for path in required:
+        checkpoint_check(path.is_file(), f"119 missing required file: {path.relative_to(ROOT)}")
+    numbered_doc = DOCS / "119-response-window-contract.md"
+    readme = DOCS / "README.md"
+    if numbered_doc.is_file():
+        numbered_text = numbered_doc.read_text()
+        checkpoint_check(all(value in numbered_text for value in (
+            "`protocol_only_no_match_progress`",
+            "planned 0・completed 0・stopped 0",
+            "decision trace 0・event 0・snapshot 0・winner 0",
+            "117のstopped 4",
+            "response-use-event-A-040#1-target-A-017#1",
+            "専用31件", "全proxy 221件",
+        )), "119 numbered document counts and candidate identity")
+    if readme.is_file():
+        readme_text = readme.read_text()
+        current = re.search(r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)",
+                            readme_text, re.M | re.S)
+        checkpoint_check(current is not None and
+                         "[119 response-window契約](119-response-window-contract.md)" in
+                         current.group(1) and "117の4経路を再開していない" in current.group(1),
+                         "README current phase is checkpoint 119 protocol-only")
+        checkpoint_check("| [119](119-response-window-contract.md) |" in readme_text,
+                         "README missing 119 index entry")
+    test_path = DOCS / "tools/test_proxy_response_window_contract.py"
+    checkpoint_test_count = 0
+    if test_path.is_file():
+        checkpoint_test_count = sum(
+            isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+            node.name.startswith("test_")
+            for node in ast.walk(ast.parse(test_path.read_text()))
+        )
+        checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
+    proxy_count = sum(
+        isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+        node.name.startswith("test_")
+        for path in (DOCS / "tools").glob("test_proxy_*.py")
+        for node in ast.walk(ast.parse(path.read_text()))
+    )
+    checkpoint_check(proxy_count == 221, "119 total proxy test count")
+    if all(path.is_file() for path in required):
+        try:
+            module = runpy.run_path(str(DOCS / "tools/proxy_response_window_contract.py"))
+            inputs = module["load_inputs"]()
+            bundle = module["build_checkpoint_119"](inputs)
+            checkpoint_check(not module["validate_response_window_contract"](
+                bundle["contract"]), "119 response contract validation")
+            checkpoint_check(not module["validate_candidate_audit"](
+                bundle["candidate_audit"], inputs), "119 candidate audit validation")
+            materialized = module["validate_materialized_checkpoint_119"](
+                bundle, DOCS / "data")
+            checkpoint_check(not materialized,
+                             f"119 exact materialized JSON: {materialized}")
+            protected = module["validate_protected_sources"](inputs, DOCS / "data")
+            checkpoint_check(not protected, f"119 protected inputs: {protected}")
+            contract = bundle["contract"]
+            audit = bundle["candidate_audit"]
+            checkpoint_check(contract.get("status") == "protocol_only_no_match_progress" and
+                             contract.get("scope") == module["ZERO_SCOPE"] and
+                             audit.get("scope") == module["ZERO_SCOPE"],
+                             "119 protocol-only zero scope")
+            checkpoint_check(audit.get("selected_candidate_count") == 0 and
+                             len(audit.get("audits", [])) == 4,
+                             "119 four audits and zero selections")
+            expected_candidates = {
+                "order-01-a-first": [
+                    "response-pass",
+                    "response-use-event-A-040#1-target-A-017#1",
+                ],
+                "order-01-b-first": ["response-pass"],
+                "order-02-a-first": ["response-pass"],
+                "order-02-b-first": ["response-pass"],
+            }
+            checkpoint_check({row["path_id"]: row["legal_candidate_ids"]
+                              for row in audit["audits"]} == expected_candidates,
+                             "119 exact legal candidate sets")
+            checkpoint_check(all(
+                row.get("candidate_set_complete") is True and
+                row.get("forbidden_information_used") == [] and
+                row["response_context"].get("origin_event_seq") == 3 and
+                row["response_context"].get("phase") == "response_window"
+                for row in audit["audits"]),
+                "119 complete contexts and information boundary")
+            forbidden_keys = {"opponent_hand", "opponent_deck_order",
+                              "future_draw", "future_response_choice"}
+            checkpoint_check(all(not (forbidden_keys & row["inspected_information"].keys())
+                                 for row in audit["audits"]),
+                             "119 opponent-private and future information rejection")
+            forbidden_actions = set(module["FORBIDDEN_RESPONSE_ACTION_TYPES"])
+            checkpoint_check(all(
+                detail.get("action_type") not in forbidden_actions
+                for row in audit["audits"] for detail in row["legal_candidate_details"]),
+                "119 normal actions excluded from responses")
+            checkpoint_check(
+                contract["candidate_contract"]["response_pass_candidate_id"] == "response-pass" and
+                contract["candidate_contract"]["forbidden_pass_aliases"] == ["candidate-pass", "pass"],
+                "119 response pass identity")
+            first_date = audit["audits"][0]["legal_candidate_details"][1]
+            checkpoint_check(
+                [first_date.get(key) for key in (
+                    "card_id", "card_copy_id", "source_instance_id", "target_instance_ids",
+                    "base_time_cost", "remaining_time_before_payment", "relationship_stage",
+                )] == ["E-first-date", "A-040", "A-040#1", ["A-017#1"], 1, 1, 0] and
+                first_date.get("source_references") == [
+                    "91-event-21-card-text-draft.md#E-first-date",
+                    "93-cross-type-boundary-audit.md#B12",
+                ], "119 E-first-date identity and sources")
+            transition = {
+                "window_status": "open", "window_kind": "after_normal_action",
+                "turn_player": "A", "priority_actor": "A", "chain_status": "empty",
+                "chain_links": [], "consecutive_passes": 0,
+                "response_opportunity_index": 1, "pending_triggers": [],
+                "return_to": None, "resolution_order": [],
+            }
+            activated = module["transition_response_window"](
+                transition, {"kind": "activate", "actor": "A", "link_id": "link-1"})
+            checkpoint_check(activated["priority_actor"] == "A" and
+                             activated["consecutive_passes"] == 0,
+                             "119 activator retains priority")
+            seed_context = {
+                "contract_version": module["CONTRACT_VERSION"],
+                "order_id": "synthetic-order", "actor": "A", "actor_turn_index": 1,
+                "round": 1, "origin_event_seq": 3, "response_opportunity_index": 1,
+                "phase": "response_window", "decision_kind": "response_action",
+                "choice_kind": "reaction_or_pass",
+            }
+            seed_ids = ["response-pass", "response-use-synthetic"]
+            proof = module["build_response_seed_proof"](seed_context, seed_ids)
+            checkpoint_check(not module["validate_response_seed_proof"](
+                proof, seed_context, seed_ids), "119 synthetic response seed proof")
+            evaluation_117 = inputs["restart_evaluation_117"]
+            checkpoint_check([evaluation_117.get(key) for key in (
+                "planned_route_count", "completed_route_count", "stopped_route_count",
+                "independent_balance_sample_count")] == [4, 0, 4, 0],
+                "119 preserves historical 117 result")
+            fixtures = [json.loads(path.read_text()) for path in sorted(
+                (DOCS / "data/proxy-gap-fixtures-112").glob("*.json"))]
+            checkpoint_check(len(fixtures) == 6 and all(
+                value["record"]["status"] == "fixture" and
+                value["record"]["events"] == [] and
+                value["record"]["result"]["winner"] is None for value in fixtures),
+                "119 preserves six unplayed 112 fixtures")
+            checkpoint_check(contract.get("population") == {
+                "current_catalog_count": 452,
+                "registered_history_candidate_count": 477,
+                "checkpoint_119_added_count": 0,
+            }, "119 unchanged 452/477 population")
+            cli = subprocess.run(
+                [sys.executable, str(DOCS / "tools/proxy_response_window_contract.py")],
+                capture_output=True, text=True, check=False)
+            checkpoint_check(cli.returncode == 0 and
+                             json.loads(cli.stdout).get("valid") is True,
+                             f"119 CLI: {cli.stdout}{cli.stderr}")
+        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
+            checkpoint_check(False, f"119 canonical check failed: {error}")
+    history = DOCS / "118-tokiokuri-terminology-migration.md"
+    former_term = former_time_action_terms[0]
+    unexpected = []
+    for path in DOCS.rglob("*"):
+        if not path.is_file() or path == history:
+            continue
+        try:
+            if former_term in path.read_text():
+                unexpected.append(str(path.relative_to(ROOT)))
+        except UnicodeDecodeError:
+            continue
+    checkpoint_check(not unexpected, f"119 former-term allowlist changed: {unexpected}")
+    checkpoint_check(history.is_file() and history.read_text().count(former_term) == 2,
+                     "119 checkpoint 118 terminology history changed")
+    return checkpoint_errors, checkpoint_test_count, proxy_count
+
+
+checkpoint_119_errors, checkpoint_119_test_count, checkpoint_119_proxy_count = check_checkpoint_119()
+if "--checkpoint-119" in sys.argv:
+    print(json.dumps({
+        "checkpoint": 119,
+        "checkpoint_119_test_count": checkpoint_119_test_count,
+        "proxy_test_count": checkpoint_119_proxy_count,
+        "errors": checkpoint_119_errors,
+    }, ensure_ascii=False, indent=2))
+    sys.exit(bool(checkpoint_119_errors))
+errors.extend(checkpoint_119_errors)
+
+
 unexpected_former_time_action_terms = []
 for terminology_path in DOCS.rglob("*"):
     if not terminology_path.is_file() or terminology_path == terminology_history_path:
@@ -2877,11 +3078,13 @@ readme_116_text = (DOCS / "README.md").read_text()
 readme_current_phase_116 = re.search(
     r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_current_phase_116 is not None and
-      "[118 用語移行](118-tokiokuri-terminology-migration.md)" in
+      "[119 response-window契約](119-response-window-contract.md)" in
       readme_current_phase_116.group(1),
-      "README current phase is checkpoint 118")
+      "README current phase is checkpoint 119")
 check("| [118](118-tokiokuri-terminology-migration.md) |" in readme_116_text,
       "README missing 118 index entry")
+check("| [119](119-response-window-contract.md) |" in readme_116_text,
+      "README missing 119 index entry")
 readme_continuation_117 = re.search(
     r"^## この後の順序\n\n(.*?)(?=^## |\Z)", readme_116_text, re.M | re.S)
 check(readme_continuation_117 is not None and re.search(
@@ -2895,7 +3098,7 @@ proxy_test_count = sum(
     for path in (DOCS / "tools").glob("test_proxy_*.py")
     for node in ast.walk(ast.parse(path.read_text()))
 )
-check(proxy_test_count == 190, "117 total proxy test count")
+check(proxy_test_count == 221, "119 total proxy test count")
 proxy_117_doc = DOCS / "117-normal-decision-seeded-restart.md"
 proxy_117_tool = DOCS / "tools/proxy_normal_decision_seeded_restart.py"
 proxy_117_test = DOCS / "tools/test_proxy_normal_decision_seeded_restart.py"

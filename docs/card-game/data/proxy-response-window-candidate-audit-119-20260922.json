@@ -1,0 +1,637 @@
+{
+  "schema": "naotocchi.card_game.proxy_response_window_candidate_audit.v1",
+  "checkpoint": 119,
+  "status": "protocol_only_no_match_progress",
+  "audited_response_opportunity_count": 4,
+  "selected_candidate_count": 0,
+  "scope": {
+    "planned_match_count": 0,
+    "completed_match_count": 0,
+    "stopped_match_count": 0,
+    "decision_trace_count": 0,
+    "event_count": 0,
+    "snapshot_count": 0,
+    "winner_count": 0,
+    "independent_balance_sample_count": 0,
+    "new_stop_artifact_count": 0
+  },
+  "audits": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_file": "proxy-normal-decision-stops-117/stop-117-order-01-a-first.json",
+      "source_stop_sha256": "c1f75fed4ea40c685740d78b67885ab21092f3d125a79b044474e2cbb26c3b92",
+      "source_state_sha256": "79c8ba24c4749d34436e5dbc36a89aac6f59bd682d02763715f68bd33068ff80",
+      "response_context": {
+        "source_phase": "post_placement_response",
+        "phase": "response_window",
+        "window_kind": "after_normal_action",
+        "origin_event_seq": 3,
+        "turn_player": "A",
+        "priority_actor": "A",
+        "chain_status": "empty",
+        "chain_links": [],
+        "consecutive_passes": 0,
+        "response_opportunity_index": 1,
+        "decision_kind": "response_action",
+        "choice_kind": "reaction_or_pass"
+      },
+      "inspected_information": {
+        "owner": {
+          "hand": [
+            {
+              "instance_id": "A-009#1",
+              "card_copy_id": "A-009",
+              "card_id": "M-beetle-01"
+            },
+            {
+              "instance_id": "A-002#1",
+              "card_copy_id": "A-002",
+              "card_id": "M-antlion-02"
+            },
+            {
+              "instance_id": "A-040#1",
+              "card_copy_id": "A-040",
+              "card_id": "E-first-date"
+            },
+            {
+              "instance_id": "A-010#1",
+              "card_copy_id": "A-010",
+              "card_id": "M-beetle-02"
+            },
+            {
+              "instance_id": "A-019#1",
+              "card_copy_id": "A-019",
+              "card_id": "P-desert_scorpion"
+            }
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": {
+              "instance_id": "A-017#1",
+              "card_copy_id": "A-017",
+              "card_id": "P-cat_ceo"
+            },
+            "partner_stage": 0,
+            "world": null
+          },
+          "prepared": [],
+          "discard": [],
+          "time": 1,
+          "reservations": []
+        },
+        "opponent_public": {
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared_public": [],
+          "discard": [],
+          "time": 0,
+          "reservations": []
+        }
+      },
+      "checked_candidate_families": [
+        "hand_quick_use",
+        "triggered_ability",
+        "prepared_activation"
+      ],
+      "legal_candidate_ids": [
+        "response-pass",
+        "response-use-event-A-040#1-target-A-017#1"
+      ],
+      "legal_candidate_details": [
+        {
+          "candidate_id": "response-pass",
+          "candidate_family": "pass",
+          "action_type": "response_pass",
+          "card_id": null,
+          "card_copy_id": null,
+          "source_instance_id": null,
+          "target_instance_ids": [],
+          "base_time_cost": 0,
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+          ]
+        },
+        {
+          "candidate_id": "response-use-event-A-040#1-target-A-017#1",
+          "candidate_family": "hand_quick_use",
+          "action_type": "use_event",
+          "card_id": "E-first-date",
+          "card_copy_id": "A-040",
+          "source_instance_id": "A-040#1",
+          "target_instance_ids": [
+            "A-017#1"
+          ],
+          "target_card_ids": [
+            "P-cat_ceo"
+          ],
+          "target_zone": "partner",
+          "base_time_cost": 1,
+          "remaining_time_before_payment": 1,
+          "relationship_stage": 0,
+          "source_references": [
+            "91-event-21-card-text-draft.md#E-first-date",
+            "93-cross-type-boundary-audit.md#B12"
+          ]
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-009#1",
+          "card_id": "M-beetle-01",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-002#1",
+          "card_id": "M-antlion-02",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-010#1",
+          "card_id": "M-beetle-02",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-019#1",
+          "card_id": "P-desert_scorpion",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "board",
+          "source_instance_id": "A-017#1",
+          "card_id": "P-cat_ceo",
+          "reason_code": "trigger_already_missed_and_egg_ability_disabled"
+        },
+        {
+          "source_zone": "prepared",
+          "source_instance_id": null,
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present"
+        }
+      ],
+      "forbidden_information_used": [],
+      "candidate_set_complete": true
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_file": "proxy-normal-decision-stops-117/stop-117-order-01-b-first.json",
+      "source_stop_sha256": "58b3fbce9d570b472dd6c91ee5ad1a043a2fd94864d6019deedfd3a78f3d2bcd",
+      "source_state_sha256": "468cb23491db85e53c2ede37c57c325b6620c82ca4cb7bbdeb6b7e7fd95de399",
+      "response_context": {
+        "source_phase": "post_placement_response",
+        "phase": "response_window",
+        "window_kind": "after_normal_action",
+        "origin_event_seq": 3,
+        "turn_player": "B",
+        "priority_actor": "B",
+        "chain_status": "empty",
+        "chain_links": [],
+        "consecutive_passes": 0,
+        "response_opportunity_index": 1,
+        "decision_kind": "response_action",
+        "choice_kind": "reaction_or_pass"
+      },
+      "inspected_information": {
+        "owner": {
+          "hand": [
+            {
+              "instance_id": "B-011#1",
+              "card_copy_id": "B-011",
+              "card_id": "C-bat"
+            },
+            {
+              "instance_id": "B-010#1",
+              "card_copy_id": "B-010",
+              "card_id": "M-beetle-02"
+            },
+            {
+              "instance_id": "B-037#1",
+              "card_copy_id": "B-037",
+              "card_id": "E-boss"
+            },
+            {
+              "instance_id": "B-012#1",
+              "card_copy_id": "B-012",
+              "card_id": "C-box"
+            },
+            {
+              "instance_id": "B-001#1",
+              "card_copy_id": "B-001",
+              "card_id": "M-antlion-01"
+            }
+          ],
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": {
+              "instance_id": "B-017#1",
+              "card_copy_id": "B-017",
+              "card_id": "P-cat_ceo"
+            },
+            "partner_stage": 0,
+            "world": null
+          },
+          "prepared": [],
+          "discard": [],
+          "time": 1,
+          "reservations": []
+        },
+        "opponent_public": {
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared_public": [],
+          "discard": [],
+          "time": 0,
+          "reservations": []
+        }
+      },
+      "checked_candidate_families": [
+        "hand_quick_use",
+        "triggered_ability",
+        "prepared_activation"
+      ],
+      "legal_candidate_ids": [
+        "response-pass"
+      ],
+      "legal_candidate_details": [
+        {
+          "candidate_id": "response-pass",
+          "candidate_family": "pass",
+          "action_type": "response_pass",
+          "card_id": null,
+          "card_copy_id": null,
+          "source_instance_id": null,
+          "target_instance_ids": [],
+          "base_time_cost": 0,
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+          ]
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-011#1",
+          "card_id": "C-bat",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-010#1",
+          "card_id": "M-beetle-02",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-037#1",
+          "card_id": "E-boss",
+          "reason_code": "insufficient_time_and_condition_false"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-012#1",
+          "card_id": "C-box",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "board",
+          "source_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo",
+          "reason_code": "trigger_already_missed_and_egg_ability_disabled"
+        },
+        {
+          "source_zone": "prepared",
+          "source_instance_id": null,
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present"
+        }
+      ],
+      "forbidden_information_used": [],
+      "candidate_set_complete": true
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_file": "proxy-normal-decision-stops-117/stop-117-order-02-a-first.json",
+      "source_stop_sha256": "a4e1b35c03da7c8927e94b59740a16bbf8b78f69d165c516cf9c3a4652f8fc5c",
+      "source_state_sha256": "87df61c75bb6a304b684ab00444b321cb1e1b25ee95f6a3b8353af0beae804de",
+      "response_context": {
+        "source_phase": "post_placement_response",
+        "phase": "response_window",
+        "window_kind": "after_normal_action",
+        "origin_event_seq": 3,
+        "turn_player": "A",
+        "priority_actor": "A",
+        "chain_status": "empty",
+        "chain_links": [],
+        "consecutive_passes": 0,
+        "response_opportunity_index": 1,
+        "decision_kind": "response_action",
+        "choice_kind": "reaction_or_pass"
+      },
+      "inspected_information": {
+        "owner": {
+          "hand": [
+            {
+              "instance_id": "A-032#1",
+              "card_copy_id": "A-032",
+              "card_id": "I-bowtie"
+            },
+            {
+              "instance_id": "A-038#1",
+              "card_copy_id": "A-038",
+              "card_id": "E-fateful-transform"
+            },
+            {
+              "instance_id": "A-035#1",
+              "card_copy_id": "A-035",
+              "card_id": "I-sleepboost1"
+            },
+            {
+              "instance_id": "A-002#1",
+              "card_copy_id": "A-002",
+              "card_id": "M-antlion-02"
+            },
+            {
+              "instance_id": "A-029#1",
+              "card_copy_id": "A-029",
+              "card_id": "G-basketball-3d"
+            }
+          ],
+          "board": {
+            "main": null,
+            "companions": [
+              {
+                "instance_id": "A-014#1",
+                "card_copy_id": "A-014",
+                "card_id": "C-chameleon"
+              }
+            ],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared": [],
+          "discard": [],
+          "time": 1,
+          "reservations": []
+        },
+        "opponent_public": {
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared_public": [],
+          "discard": [],
+          "time": 0,
+          "reservations": []
+        }
+      },
+      "checked_candidate_families": [
+        "hand_quick_use",
+        "triggered_ability",
+        "prepared_activation"
+      ],
+      "legal_candidate_ids": [
+        "response-pass"
+      ],
+      "legal_candidate_details": [
+        {
+          "candidate_id": "response-pass",
+          "candidate_family": "pass",
+          "action_type": "response_pass",
+          "card_id": null,
+          "card_copy_id": null,
+          "source_instance_id": null,
+          "target_instance_ids": [],
+          "base_time_cost": 0,
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+          ]
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-032#1",
+          "card_id": "I-bowtie",
+          "reason_code": "attach_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-038#1",
+          "card_id": "E-fateful-transform",
+          "reason_code": "insufficient_time_and_no_main"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-035#1",
+          "card_id": "I-sleepboost1",
+          "reason_code": "attach_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-002#1",
+          "card_id": "M-antlion-02",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "A-029#1",
+          "card_id": "G-basketball-3d",
+          "reason_code": "no_own_main_target"
+        },
+        {
+          "source_zone": "board",
+          "source_instance_id": "A-014#1",
+          "card_id": "C-chameleon",
+          "reason_code": "passive_not_activation"
+        },
+        {
+          "source_zone": "prepared",
+          "source_instance_id": null,
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present"
+        }
+      ],
+      "forbidden_information_used": [],
+      "candidate_set_complete": true
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_file": "proxy-normal-decision-stops-117/stop-117-order-02-b-first.json",
+      "source_stop_sha256": "e66ae50ec54c3b568dcef30f75c9d2751346aa92a35e9748ac96dc0053b6e232",
+      "source_state_sha256": "d3969f6708ae9834295a88d07b2cd7f88da7889541f48175bae4715af61de240",
+      "response_context": {
+        "source_phase": "post_placement_response",
+        "phase": "response_window",
+        "window_kind": "after_normal_action",
+        "origin_event_seq": 3,
+        "turn_player": "B",
+        "priority_actor": "B",
+        "chain_status": "empty",
+        "chain_links": [],
+        "consecutive_passes": 0,
+        "response_opportunity_index": 1,
+        "decision_kind": "response_action",
+        "choice_kind": "reaction_or_pass"
+      },
+      "inspected_information": {
+        "owner": {
+          "hand": [
+            {
+              "instance_id": "B-009#1",
+              "card_copy_id": "B-009",
+              "card_id": "M-beetle-01"
+            },
+            {
+              "instance_id": "B-001#1",
+              "card_copy_id": "B-001",
+              "card_id": "M-antlion-01"
+            },
+            {
+              "instance_id": "B-032#1",
+              "card_copy_id": "B-032",
+              "card_id": "I-bowtie"
+            },
+            {
+              "instance_id": "B-017#1",
+              "card_copy_id": "B-017",
+              "card_id": "P-cat_ceo"
+            },
+            {
+              "instance_id": "B-029#1",
+              "card_copy_id": "B-029",
+              "card_id": "G-basketball-3d"
+            }
+          ],
+          "board": {
+            "main": null,
+            "companions": [
+              {
+                "instance_id": "B-014#1",
+                "card_copy_id": "B-014",
+                "card_id": "C-chameleon"
+              }
+            ],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared": [],
+          "discard": [],
+          "time": 1,
+          "reservations": []
+        },
+        "opponent_public": {
+          "board": {
+            "main": null,
+            "companions": [],
+            "partner": null,
+            "partner_stage": null,
+            "world": null
+          },
+          "prepared_public": [],
+          "discard": [],
+          "time": 0,
+          "reservations": []
+        }
+      },
+      "checked_candidate_families": [
+        "hand_quick_use",
+        "triggered_ability",
+        "prepared_activation"
+      ],
+      "legal_candidate_ids": [
+        "response-pass"
+      ],
+      "legal_candidate_details": [
+        {
+          "candidate_id": "response-pass",
+          "candidate_family": "pass",
+          "action_type": "response_pass",
+          "card_id": null,
+          "card_copy_id": null,
+          "source_instance_id": null,
+          "target_instance_ids": [],
+          "base_time_cost": 0,
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+          ]
+        }
+      ],
+      "excluded_candidates": [
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-009#1",
+          "card_id": "M-beetle-01",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-001#1",
+          "card_id": "M-antlion-01",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-032#1",
+          "card_id": "I-bowtie",
+          "reason_code": "attach_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-017#1",
+          "card_id": "P-cat_ceo",
+          "reason_code": "normal_action_not_response"
+        },
+        {
+          "source_zone": "hand",
+          "source_instance_id": "B-029#1",
+          "card_id": "G-basketball-3d",
+          "reason_code": "no_own_main_target"
+        },
+        {
+          "source_zone": "board",
+          "source_instance_id": "B-014#1",
+          "card_id": "C-chameleon",
+          "reason_code": "passive_not_activation"
+        },
+        {
+          "source_zone": "prepared",
+          "source_instance_id": null,
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present"
+        }
+      ],
+      "forbidden_information_used": [],
+      "candidate_set_complete": true
+    }
+  ]
+}
