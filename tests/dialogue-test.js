@@ -960,7 +960,7 @@ assert.equal(api.pendingGoal(), null);
 assert.ok(getElement('gameClearOverlay').classList.contains('hidden'));
 assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。たくさん会ったんだね。/);
+assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。たくさん会ってくれて、ありがとう。/);
 advance(4199); assert.ok(!getElement('storyFlash').classList.contains('hidden'));
 advance(1); assert.ok(getElement('storyFlash').classList.contains('hidden'));
 assert.equal(JSON.stringify([api.getState().partner, api.getState().companions]), dexRelations);
@@ -996,7 +996,7 @@ for (const atLifeEnd of [false, true]) {
     assert.ok(getElement('lifeCardOverlay').classList.contains('hidden'), 'goal 5 ended this life prematurely');
     assert.ok(!getElement('storyFlash').classList.contains('hidden'));
     assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ。……きみも、ここを見つけたんだ。/);
+    assert.match(getElement('storyFlashText').textContent, /ナオト「ナオトだよ。……きみも、ここを見つけたんだ。ここまで来てくれて、ありがとう。/);
     assert.equal(lifeDetails(api.getState().infiniteReturn || api.getState()), lifeBefore);
     assert.equal(api.getState().discoveredStages.length, allForms.length);
     assert.equal(api.getState().achievementsUnlocked.length, api.ACHIEVEMENTS.length);
@@ -1037,11 +1037,11 @@ for (const oldGoal of ['dexCleared', 'perfectCleared']) {
   click('naotoGreetingBtn');
   assert.ok(getElement('itemOverlay').classList.contains('hidden'), 'shop obscures author greeting');
   assert.ok(getElement('storyFlashEmoji').innerHTML.includes(authorAsset));
-  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。/);
   assert.equal(JSON.stringify([api.getState().partner, api.getState().companions, api.getState().lifetime.money, api.getState().ageTicks]), beforeTalk);
   assert.ok(api.getState().lifetime.ownedNaotoItems.includes('naoto_charm'), 'old reward lost');
   advance(4200); api.openExclusiveMenu('item'); click('naotoGreetingBtn');
-  assert.match(getElement('storyFlashText').textContent, /ナオト「やあ！/);
+  assert.match(getElement('storyFlashText').textContent, /ナオト「……きみも、ここを見つけたんだ。来てくれて、ありがとう。/);
   assert.ok(!getElement('storyFlash').classList.contains('hidden'), 'unlocked author could not be greeted again');
 }
 
