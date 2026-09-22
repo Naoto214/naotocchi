@@ -3,6 +3,21 @@
 日付: 2026-09-22 ／ 対象: `meguru.js`（めぐる）／ 地理正本: `WORLD_GEOGRAPHY` canon v1 ／ 前提: Phase 3B 完了（connection 14 / gate 13 / 未実装 0 / link 分母 12）
 
 **この文書は 設計監査です。コードは 1 行も 変えて いません。**
+
+> ## 追記（2026-09-22）— Phase 4B で 実装しました
+>
+> `REGION_FRAME` と 変換の 純関数は **Phase 4B で 実装ずみ**です。
+> → [`../handoff/meguru-phase4b-region-frame-2026-09-22.md`](../handoff/meguru-phase4b-region-frame-2026-09-22.md)
+>
+> 実装で **1 つ、この文書の 見こみが ちがって いた** ことが わかりました。
+> §5 D4 は「canon の 地理を 満たしたうえで closure を 検算に つかう」と 書いて いますが、
+> **その 2 つは 両立しません**。§2.3 の こみぐあい 1.51 倍の せいで chart が かさなり、
+> chart の 中心の いちでは「どの地域が どっち」を 表せない ためです
+> （closure を こわしても canon の 方角の ずれは 111° より 下がらない、と 実測）。
+> → **closure が かたちを きめ、canon は せかい ぜんたいの むきを きめる**、と しました。
+> canon の 「どの地域が どっち」は **世界地図（`mapX` / `mapY`）の そうが もちつづけます**（§19 の とおり）。
+> walk 10 本の closure は **さいだい 84 / RMS 53**（目標 400）で 着地して います。
+
 `regionOrigin` の 追加・spot 座標の 書きかえ・save への global 座標の 追加・Three.js の 導入・renderer の 作りなおし・resident の region またぎ・streaming の 実装は **どれも して いません**。
 
 ---
