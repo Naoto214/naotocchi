@@ -269,11 +269,17 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
   // ハーネスは いろいろな ルートの .js を よむ ので、**ぜんぶ**を うつす。
   // meguru.js だけを あとで すりかえる
   const files = fs.readdirSync('.').filter((f) => f.endsWith('.js'));
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'meguru4b-'));
+  // **リポジトリの なかには 1 つも 書かない。** 2 つの 作業ばしょを 作って、
+  // かたほうの meguru.js だけを すりかえる
+  const dirA = fs.mkdtempSync(path.join(os.tmpdir(), 'meguru4b-a-'));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'meguru4b-b-'));
+  const plant = (d) => {
+    fs.mkdirSync(path.join(d, 'tests', 'helpers'), { recursive: true });
+    for (const f of files) if (fs.existsSync(f)) fs.copyFileSync(f, path.join(d, f));
+    fs.copyFileSync('tests/helpers/runtime-harness.cjs', path.join(d, 'tests/helpers/runtime-harness.cjs'));
+  };
   try {
-    fs.mkdirSync(path.join(dir, 'tests', 'helpers'), { recursive: true });
-    for (const f of files) if (fs.existsSync(f)) fs.copyFileSync(f, path.join(dir, f));
-    fs.copyFileSync('tests/helpers/runtime-harness.cjs', path.join(dir, 'tests/helpers/runtime-harness.cjs'));
+    plant(dirA); plant(dir);
     // Phase 4B の ブロックと export への ついかを けす
     const stripped = SRC.replace(block, '')
       .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,/, '');
@@ -312,15 +318,16 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
       out.push('map ' + wd.regions.length + '/' + wd.links.length + '/' + wd.progress.percent);
       console.log(out.join('\\n'));
     `;
+    fs.writeFileSync(path.join(dirA, 'probe.cjs'), probe);
     fs.writeFileSync(path.join(dir, 'probe.cjs'), probe);
-    fs.writeFileSync('.4b-probe.cjs', probe);
-    const withFrame = execFileSync(process.execPath, ['.4b-probe.cjs'], { encoding: 'utf8', cwd: process.cwd() });
+    const withFrame = execFileSync(process.execPath, ['probe.cjs'], { encoding: 'utf8', cwd: dirA });
     const without = execFileSync(process.execPath, ['probe.cjs'], { encoding: 'utf8', cwd: dir });
     assert.ok(withFrame.length > 500, '指紋が とれて いる');
+    assert.ok(/REGION_FRAME/.test(fs.readFileSync(path.join(dirA, 'meguru.js'), 'utf8')), 'A がわには Phase 4B が ある');
     assert.equal(without, withFrame, 'Phase 4B を 消しても ゲームの うごきは 1 つも 変わらない');
   } finally {
+    fs.rmSync(dirA, { recursive: true, force: true });
     fs.rmSync(dir, { recursive: true, force: true });
-    fs.rmSync('.4b-probe.cjs', { force: true });
   }
 });
 
