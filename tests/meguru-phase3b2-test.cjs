@@ -32,9 +32,9 @@ test('1. この PR の 2 本に あるく 出口が ある。connection は ふ�
   assert.equal(G.connections.filter((c) => c.b).length, 14);
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('forest|mountain'));
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('snow|mountain'));
-  assert.equal(G.connections.filter((c) => c.gate).length, 11, 'gate は 11(3B-3 で さらに 2 本 ふえた)');
+  assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 13(3B-3 で 2 本・3B-4 で さらに 2 本 ふえた)');
   assert.equal(G.connections.filter((c) => c.b && !c.gate).map((c) => c.id).sort().join(','),
-    'city|desert,countryside|river_lake,desert|mountain', '未実装は 3');
+    'countryside|river_lake', '未実装は 1');
   for (const id of ['forest|mountain', 'snow|mountain']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk'); assert.equal(c.layer, 'ground');
@@ -85,16 +85,16 @@ test('3. anchor は ぜんぶ 既存の 非秘密 spot。**新しい spot は 1 
 
 // ──────────────────────────────────────────────── やまの なかの 3 つの 出口
 
-test('4. やまの 出口は 3 つ。foot / ひがしの てんぼう / ちょうじょう に やくわりが ぶんさん', () => {
+test('4. やまの 出口は 4 つ。foot / ひがしの てんぼう / ちょうじょう / かぜのきれめ に やくわりが ぶんさん', () => {
   const { M } = setup();
   const sim = M.createSimulation({ regionId: 'mountain', discovered: [] });
   const at = {};
   for (const g of sim.gates) at[g.spot.id] = g.to;
-  assert.equal(JSON.stringify(at), JSON.stringify({ lookout1: 'forest', foot: 'river_lake', summit: 'snow' }));
+  assert.equal(JSON.stringify(at), JSON.stringify({ windnotch: 'desert', lookout1: 'forest', foot: 'river_lake', summit: 'snow' }));
   // 1 つの spot に 2 本 ついて いない
   for (const g of sim.gates) assert.equal(sim.gatesAt(g.spot.id).length, 1, g.spot.id + ' の 出口は 1 本');
-  // windnotch(さばく用)は まだ どの gate にも つかわれて いない
-  assert.ok(!sim.gates.some((g) => g.spot.id === 'windnotch'), 'かぜのきれめは さばく用に あけて ある');
+  // windnotch は Phase 3B-4 で さばく用に つかった。ほかの 3 つは そのまま
+  assert.equal(at.windnotch, 'desert', 'かぜのきれめは さばく用に つかった(Phase 3B-4)');
   assert.ok(!sim.gates.some((g) => g.spot.id === 'trailhead'), 'とざんぐちは 出口に して いない');
 });
 

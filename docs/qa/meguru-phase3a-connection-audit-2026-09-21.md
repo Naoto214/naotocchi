@@ -15,8 +15,16 @@ spot / path / zone / secret / connection / gate / `travelToRegion()` はすべ�
 > 11 章 #4 の **「1 spot に複数 gate」も同じ PR で対応済み**です。
 > さらに Phase 3B-1 で **`mountain|river_lake` と `home|river_lake`**、
 > Phase 3B-2 で **`forest|mountain` と `snow|mountain`**、
-> Phase 3B-3 で **`city|countryside` と `city|sea`** に gate が付きました
-> (gate 5 → 11 / 未実装 9 → 3)。**徒歩の連結成分は 1 つに なりました**(のこりは さばく と きおくのみずうみ)。
+> Phase 3B-3 で **`city|countryside` と `city|sea`**、
+> Phase 3B-4 で **`city|desert` と `desert|mountain`** に gate が付きました
+> (gate 5 → 13 / 未実装 9 → 1 / gate 端点 10 → 26)。
+> **Phase 3B-4 で さばくの こりつが とけ、徒歩の連結成分は 9 地域 1 つに なりました**
+> (のりものも いれると きおくのみずうみ いがいの 12 地域が ひとつの せかい)。
+> **のこる 未実装は `countryside|river_lake` の 1 本だけ**です。
+> 3B-4 の anchor は 6 章の第 1 候補どおり
+> `city.stalls` ↔ `desert.caravan` / `desert.gate` ↔ `mountain.windnotch` を採用し、
+> 3 region 全 spot × 8 方向 = **4560 回の実測で混線 0**、mountain の役割分散
+> (foot=かわ / lookout1=もり / summit=ゆきぐに / windnotch=さばく)も維持しています。
 > `forest|mountain` の やま側 anchor は、6 章の第 1 候補 `trailhead` が `foot`(かわ・みずうみ用)を
 > 塞ぐことが計測で分かったため、**第 2 候補の `lookout1` を採用**しています。
 > 実行後の正本は [`../handoff/meguru-phase3b0-multigate-2026-09-21.md`](../handoff/meguru-phase3b0-multigate-2026-09-21.md)
