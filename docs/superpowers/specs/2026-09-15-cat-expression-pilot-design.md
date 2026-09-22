@@ -127,3 +127,13 @@ Continue the user-authorized eight-stage batch with80 independent original-refer
 
 ### Approved production-first continuation: venus_flytrap (2026-09-22)
 Continue the user-authorized eight-stage batch with80 independent original-referenced expressions. Preserve1600 completed portraits/160placements/81corrections and all normal art/gameplay/romance/save. Use seed and basal seedling faces01–03, upper-left trap04, upper-central trap05/07, purple central face within giant trap06, and largest upper-central flower yellow center08. Preserve all secondary faces, white petals, trap rims/spikes, stems, leaves and roots. Anchors observed in native originals,6x views and coordinate grids with independent review. Reuse frog’s yellow insect hunger mark. Generate onlynew8 placements; same owner-private Site and DraftPR278, no main incorporation or merge. Completion of this line does not imply all character lines are complete.
+
+### 複数顔の共有状態ルール（ユーザー承認・2026-09-22）
+
+身体状態は全顔で共有し、感情表現は同じ意味の範囲内で自然な微差を許容する。1個体の中に複数の顔がある場合、hungry/sick/tired/weak/critical/sleeping は全ての既存の顔に当該状態を反映する。happy/strained/sulky/wantsPlay も全体で同じ感情を示す。目や口を完全なコピーにする必要はない。中央だけ不調で周囲が心配する等、複数人物的な通常状態表現は採用しない。ストーリーやイベントでの特殊演出は別途検討する。
+
+この原則は該当する複数顔段階に限り、以前の「主顔のみ変更・周囲顔保持」の指示に優先する。単一顔の段階、通常画像、別個体の仲間・抱えた動物・ぬいぐるみ、空の抜け殻には波及させない。顔のない花・枝・葉には新しい顔を付けない。
+
+完成21系統168段階の監査で対象は coral06–08（4/3/5顔）、sakura05–07（5/3/3顔）、venus_flytrap04/05/07/08（3/4/5/3顔）。サンゴの群体はゲームの一体の姿として共有対象。dandelion08は共通茎を持たない6つの独立した種体であり、一個体内の複数顔とは扱わず今回の修正から除外する。clownfish05の仲間魚、woman02のぬいぐるみ・08の抱え猫、butterfly06/cicada05の空殻も除外する。
+
+既存10状態とresolver・リアクションの意味は変更しない。PNGの顔を修正し、別レイヤーのマーク／エフェクトの色・数・位置は維持する。全顔分のマークや汗を増設しない。通常画像・ゲーム数値・恋愛条件・セーブ形式を保持。既に全顔の意味が整合する表情は再生成せず保持し、要修正PNGだけを既存画像と通常元画像の参照で個別編集する。最終差分・provenance・単独画像／合成の独立レビュー・既存接続／回帰／全体テスト・同じowner-private Siteでの10表情確認を記録する。PR278はDraftを維持しmainを取り込まずマージしない。この区切りを安全に保存してから新系統制作へ進む。
