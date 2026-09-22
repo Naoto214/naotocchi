@@ -1,0 +1,1864 @@
+[
+  {
+    "stage": "01",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one critical expression: critically exhausted and distressed: tightly pinched pained eyelids and a tense distressed beak; alive, no injury. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-32e6c32c-a473-4c28-9fdf-52df6214798c.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-critical.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-critical.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "54217d029d0e3a63fc862018ee8cb1c583272c3738648a78c1085571275220cd",
+    "final_sha256": "b0eddc77358717dc20cc9bdc6485b4dbee3384dadea984f694cecf5947f3289e",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-critical.png"
+  },
+  {
+    "stage": "01",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art baby phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target for pixel detail. Create one HAPPY expression: smiling softly with both eyes narrowed into cheerful smiling arcs and a subtly smiling existing beak. Change ONLY the existing face expression. Preserve exactly the one bird, its infant age, body proportions, standing pose, legs, tiny wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, chunky hard-edged pixel art and silhouette. No new objects, extra flames, marks, sweat, tears, hearts, symbols, lettering or Zzz. Full sprite, transparent background with true alpha, no shadows or backdrop. Keep position and scale matching original canvas.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-928d7f2d-4afb-44a2-b6d4-7370f5334914.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-happy.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-happy.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "b525932626c3032afe102baaf235c0390114fce2016083efaecab9e4f0603edc",
+    "final_sha256": "05ebbc19babe8270766c375d5a4bbc4779e4263a5940c946f88886250948c6b9",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-happy.png"
+  },
+  {
+    "stage": "01",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one hungry expression: hungry and pleading: longing slightly drooped eyes and a small expectant open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-cb9581e1-5fc7-4d40-9d09-bf3c9b632a5f.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-hungry.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-hungry.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "51f55619398a8f1d663c2d387af033a0d359b1693ae8d136dc96cf06660d8cf4",
+    "final_sha256": "208657dddefa226ae6de1f55b368b60cc83c1ced9d943090f58e604b48938c5a",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-hungry.png"
+  },
+  {
+    "stage": "01",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sick expression: ill and nauseous: heavy uneven eyelids, worried inner brow and a queasy downturned beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-a7f8abd7-9aad-4618-8093-aba655223bc6.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sick.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-sick.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "fec1d7523d41ae0ed8150e0472d2ce12a7de716ebe9d17aad027c6731f87cc7f",
+    "final_sha256": "7670008952babc0dc5f0a3240cd8c0e2b88d00f7bb3740c0b8eb7762e4f5af5f",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sick.png"
+  },
+  {
+    "stage": "01",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sleeping expression: peacefully sleeping: fully closed relaxed eyes and a faint contented beak smile. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-874c79b7-45dc-4d6e-b9ee-f69e20de1cca.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sleeping.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "04e37ac29613c624baf2ab62395e7bed039cc805f2c2c99e88cd9463342b0c71",
+    "final_sha256": "4721d0cd26485bdad6032eb7daf27335840fbb32a77b77dd44666ebcf739b8ea",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sleeping.png"
+  },
+  {
+    "stage": "01",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one strained expression: reluctant and strained: uneasy asymmetric narrowed eyes, slightly raised inner brow, a tense small beak grimace. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-f9402e54-08e9-41c3-9a5d-24eccefe0def.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-strained.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-strained.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "cf34f7015a9e4cc668a529dd6a7a441c4635ea3fc5807d1554e2d56da6eb763f",
+    "final_sha256": "29af41c965b06a7a8cea7ad609e7c545bd3edbfd50cf388bd451741ca0b48b09",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-strained.png"
+  },
+  {
+    "stage": "01",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sulky expression: sulking: lowered annoyed eyebrows, a sideways resentful gaze and closed pouting beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-05b0784a-713a-4b35-b6fe-a01ba050575e.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sulky.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-sulky.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "4477e2476516d442a99d7aad943f144185e8d5a1f8dfe242ee8a8c41355577c2",
+    "final_sha256": "70c11fab7129f4ba128e9ea3e3532ed5a944530783948f1c5aae690b79f9cc25",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-sulky.png"
+  },
+  {
+    "stage": "01",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one tired expression: sleepy and tired but awake: half-closed heavy eyelids and a small yawning beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-cbab510b-b6e2-49f7-a313-c6ee5e7882bc.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-tired.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-tired.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "bbceaf83bda25f4c1661ef29d7871314c0d87bfc41abcee8b1d0bbc422038dff",
+    "final_sha256": "fc6ee04689ac25225f7cf8cbefbf646c8ab8dfd3b05112fe5c0e213e18ed8e9d",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-tired.png"
+  },
+  {
+    "stage": "01",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one wantsPlay expression: eager to play: bright wide attentive eyes, raised brows and an excited cheerful open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-78a96650-0a86-4679-bfca-0df088ab958e.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-wantsPlay.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "b0c2bc0b06c6e8ac6425fc454ca3d3473957377946679506bda8111472dca288",
+    "final_sha256": "bcda050dd1379c1487222e98f05494e85b3735e91636cae877edfcb51b44a008",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-wantsPlay.png"
+  },
+  {
+    "stage": "01",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 01. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one weak expression: weak with low energy: drooping nearly closed eyes and a small limp beak expression. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-68b48d76-5a87-40b1-968f-83f902d127e5.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-weak.png",
+    "original": "assets/characters/phoenix/01.png",
+    "final": "assets/characters/expressions/phoenix/01-weak.png",
+    "repair_history": [],
+    "original_sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
+    "source_sha256": "9809182005e8448a217391bc61827c4c9dbe734c9ac49b67cff6adfb58200cb7",
+    "final_sha256": "c78efe4add75e44e9e599956eb8d29da2bae6381191c3d6d6e77aed6d0990d97",
+    "bounds": [
+      39,
+      60,
+      88,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/01-weak.png"
+  },
+  {
+    "stage": "02",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one critical expression: critically exhausted and distressed: tightly pinched pained eyelids and a tense distressed beak; alive, no injury. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-8efe50b7-495a-4973-a8f3-d09618b64bcc.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-critical.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-critical.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "d442187612b2d030d9fe3f85ec0d0d58b0d25ddffd39d87638c3452f85e99e49",
+    "final_sha256": "cf1efc4c858bb46506e48b816c234e59cbb932f5458f4b7b9b5837222161a87e",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-critical.png"
+  },
+  {
+    "stage": "02",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one happy expression: happy: smiling narrowed eyes and a cheerful smiling beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-e67e08ef-98fb-489e-a047-d348a01916b6.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-happy.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-happy.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "4be96547a68262ce9a57e8f0d80eb574da993e14711bbad28d6652dfdc863c8f",
+    "final_sha256": "2f1f9caa8bbc13133e4a9cbc257ec8503e662cf272ef46e0915e1710e30418b0",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-happy.png"
+  },
+  {
+    "stage": "02",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one hungry expression: hungry and pleading: longing slightly drooped eyes and a small expectant open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-70d9b563-2209-45ad-a8d8-9211631ee5f7.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-hungry.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-hungry.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "2c3b48654e3e7499c7e0183691a9ffe2e2a9aab5e5920bd4d2644ff9fd4dd350",
+    "final_sha256": "6713027ca9e5c5aeca6b701dfd14095797218f7bd12a3e26a07d6ea339a25776",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-hungry.png"
+  },
+  {
+    "stage": "02",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sick expression: ill and nauseous: heavy uneven eyelids, worried inner brow and a queasy downturned beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5ee302b4-edee-4480-8f5d-d7fa996a86fd.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sick.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-sick.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "1ac80aa6550330c1600c4290f596187c5c59b1c6a138359f855771de644b68f5",
+    "final_sha256": "b80abef1ff82e22daee7938ce0c3960557fc83bd61eec8eaae1e481e0ccd9e3f",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sick.png"
+  },
+  {
+    "stage": "02",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sleeping expression: peacefully sleeping: fully closed relaxed eyes and a faint contented beak smile. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-a784d269-fa5e-4e2c-af6c-4d51a1f5e6de.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sleeping.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "2e8edeae7c18dcede02a8cb3e86f12dabce4b3e15b2592ec9fd867dfbc1f6c8f",
+    "final_sha256": "40d7a7818f4871cb9eb51937cad38ab12c26b131267227aefd0da23eceeca607",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sleeping.png"
+  },
+  {
+    "stage": "02",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one strained expression: reluctant and strained: uneasy asymmetric narrowed eyes, slightly raised inner brow, a tense small beak grimace. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-b2dfb02d-7be0-4f61-8997-cbdb37381a40.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-strained.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-strained.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "1d83e4276a13160dd1b9b9ea7c35603774bb212b10dd5455f38d28af51a755a3",
+    "final_sha256": "d8163e44069c22e9ba10206b23bdd1f4d2a433bb65c719fb018381c321a794db",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-strained.png"
+  },
+  {
+    "stage": "02",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sulky expression: sulking: lowered annoyed eyebrows, a sideways resentful gaze and closed pouting beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-34bc6efd-cc58-47f9-beb0-fdb0e721cf6e.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sulky.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-sulky.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "93042b8d6c4825315ac9aa1f6be3bb4f1538942ebb4cdcd6e7509699c68c6c63",
+    "final_sha256": "a6a37659aa6a1a3f7ea12c2e9701dcb12f0f2d364131dcc6475d3a7f51ab03c8",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-sulky.png"
+  },
+  {
+    "stage": "02",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one tired expression: sleepy and tired but awake: half-closed heavy eyelids and a small yawning beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-dff0f50a-e378-423b-805c-93e4d08edc62.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-tired.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-tired.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "0804307fd389d26e689713b9bdb358b928336981aa3bc0b5b15c96660b137222",
+    "final_sha256": "d05a02ada9038245517af83f1bed4cd00a12685fdb1b542db575b84f83b124a1",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-tired.png"
+  },
+  {
+    "stage": "02",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one wantsPlay expression: eager to play: bright wide attentive eyes, raised brows and an excited cheerful open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-e61d3c37-e8f5-460a-840c-cc11395244ac.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-wantsPlay.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "c4a7115a3bd706f6a6de1e810bea01dde54a11ccfe3f418090c1c43b8ef8a4bd",
+    "final_sha256": "60ad5ecda0c4be89cae3711f0f0ac0503119d3505ac95fe718f0366134d9c2ac",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-wantsPlay.png"
+  },
+  {
+    "stage": "02",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 02. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one weak expression: weak with low energy: drooping nearly closed eyes and a small limp beak expression. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-faaaacaf-f0ae-4682-939e-699f99447c8b.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-weak.png",
+    "original": "assets/characters/phoenix/02.png",
+    "final": "assets/characters/expressions/phoenix/02-weak.png",
+    "repair_history": [],
+    "original_sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
+    "source_sha256": "8a312dff968567b8b9d697712184a11fdb71fc9a6517ff996bd8dc96d6f3eb46",
+    "final_sha256": "315e2e6ed96bc3d5c7681def931961ecdf3f2f78f6022d6366aeb71b45052639",
+    "bounds": [
+      30,
+      45,
+      98,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/02-weak.png"
+  },
+  {
+    "stage": "03",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one critical expression: critically exhausted and distressed: tightly pinched pained eyelids and a tense distressed beak; alive, no injury. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-afe5463f-3a61-4af3-b0ff-f6553dbea2e4.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-critical.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-critical.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "2fb505065b15b9a3381ab86cd85ca2eb3dd537f739c6b051975e64fab1ff421e",
+    "final_sha256": "a0400107469fedaddd957b0369b7cb6faba350cd0e97e472876e672da826faca",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-critical.png"
+  },
+  {
+    "stage": "03",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one happy expression: happy: smiling narrowed eyes and a cheerful smiling beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-96be7850-f95e-4785-a88f-8a0b709da77e.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-happy.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-happy.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "2577584d8805ce537afa37614f4ad1b61671b9a8303c71b6b149e1f759e1a576",
+    "final_sha256": "19cfa8257db65b989c0b761edeb78025936792bf7c6766310afadc77a2eacddf",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-happy.png"
+  },
+  {
+    "stage": "03",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one hungry expression: hungry and pleading: longing slightly drooped eyes and a small expectant open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-8b98e187-83ec-4473-9f44-f28f32451936.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-hungry.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-hungry.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "0b65bb37d45a23f92e776bf64b913fe72b7cd06e9bcd000682be5a554574797e",
+    "final_sha256": "1ccb56d871b78589a823568c08e25722157e69faf81ef8304f75fa945c8a528c",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-hungry.png"
+  },
+  {
+    "stage": "03",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sick expression: ill and nauseous: heavy uneven eyelids, worried inner brow and a queasy downturned beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-37d34a21-b061-456e-9ef0-502a250d5363.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sick.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-sick.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "11ecb9021d125776d5321c09d34cf3d89bb6b65fe1c578d8db5e110fcc6ff7ae",
+    "final_sha256": "bc4d698e31825ae06ef574af3862393b64ed1ff8f2c321801ee4cb42cbff5501",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sick.png"
+  },
+  {
+    "stage": "03",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sleeping expression: peacefully sleeping: fully closed relaxed eyes and a faint contented beak smile. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5bcbe603-f325-4163-9bcb-35cc2c7c45fb.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sleeping.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "50bcb78ab97da184bbdf0ca272558daaac9f64f01cd9ecfe4a3a2b1401334a1b",
+    "final_sha256": "7c03c3c2e6580d90209df9d7aca240e1b266660c87a20fc4926f33b7135223ba",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sleeping.png"
+  },
+  {
+    "stage": "03",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one strained expression: reluctant and strained: uneasy asymmetric narrowed eyes, slightly raised inner brow, a tense small beak grimace. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-119e96ef-5c6b-4f15-9c4d-d9170967d42b.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-strained.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-strained.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "3def6067fcacf5f4fc7d67680bf2d385468716ae15ff9765c081f6d173e05fcc",
+    "final_sha256": "3a61528d8b8d145a0bc32f99fcd63e46c3390bccb557af54fd310e466cda45f1",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-strained.png"
+  },
+  {
+    "stage": "03",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sulky expression: sulking: lowered annoyed eyebrows, a sideways resentful gaze and closed pouting beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-316780cd-db4c-4b7e-909b-ba43c1f77b24.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sulky.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-sulky.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "ed4711c3956e8732b8811775cdad0e9ac8b949d63fb17b5d5571b68b447f1626",
+    "final_sha256": "c6dbe2ca3ed46b3ec1821e14cef0bd24d8d18c1cff1dd17cbea4e3390f60a3cf",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-sulky.png"
+  },
+  {
+    "stage": "03",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one tired expression: sleepy and tired but awake: half-closed heavy eyelids and a small yawning beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5ee93ff2-8bc9-4dbd-9517-164be7758583.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-tired.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-tired.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "01a74330c36fc0b37a6271c65b00cc73adea88e132858307565a11f30f77a005",
+    "final_sha256": "8e8aaa79c8f76262a6b812588912d69f0ec72e3080ebaa37916c96fb7957d837",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-tired.png"
+  },
+  {
+    "stage": "03",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one wantsPlay expression: eager to play: bright wide attentive eyes, raised brows and an excited cheerful open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-791d2ae9-59f8-461e-9aec-1d81271684b6.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-wantsPlay.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "777817c047ba2eae32a4e8b096cf795f78a47842eb5f9f6118ea0da15c24688e",
+    "final_sha256": "392132b8241eb0865c2b3357fd7a8aa529ed2a01c75dfab90a529d3d1a962999",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-wantsPlay.png"
+  },
+  {
+    "stage": "03",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 03. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one weak expression: weak with low energy: drooping nearly closed eyes and a small limp beak expression. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-7b30a7f1-1a37-47fd-8f5e-59911ea59f2c.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-weak.png",
+    "original": "assets/characters/phoenix/03.png",
+    "final": "assets/characters/expressions/phoenix/03-weak.png",
+    "repair_history": [],
+    "original_sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
+    "source_sha256": "90c3494923790afdf78783d81cd71e482a5596cf6dbd40ebe379b57abfcfa782",
+    "final_sha256": "d4dda667f75617288f90ebb3e4d3effa43408df3a085994e41ec564c2898c3fd",
+    "bounds": [
+      26,
+      30,
+      102,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/03-weak.png"
+  },
+  {
+    "stage": "04",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one critical expression: critically exhausted and distressed: tightly pinched pained eyelids and a tense distressed beak; alive, no injury. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-8c9bde62-9045-4aa2-8afc-4f05e1b6c33e.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-critical.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-critical.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "343adda2c0f08bb1a985d700cc93a4b6277699a54427e31080ca04749ef1e868",
+    "final_sha256": "41ed6947f7fe9fa5dc1022becd339c257865707386e746977968b8371bc796e0",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-critical.png"
+  },
+  {
+    "stage": "04",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one happy expression: happy: smiling narrowed eyes and a cheerful smiling beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-64766f16-6a6c-48e4-b68f-976ec4c4181a.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-happy.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-happy.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "4add1784434873563b95f7736e5b0db4c15cac64dd49d399e6fb78e22382b60d",
+    "final_sha256": "1d0b81dd63e8b80b00eebe0c774191ef945caea88daa077370b67f6ea10f26b8",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-happy.png"
+  },
+  {
+    "stage": "04",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one hungry expression: hungry and pleading: longing slightly drooped eyes and a small expectant open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-bc01a498-9e7e-4536-a474-760daf9fbb34.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-hungry.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-hungry.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "f487dc64038f83cb19055681f9ab800d3556685822d662227926a5da86d7529f",
+    "final_sha256": "bc56824b1e3a4d60ac9ec117cd03fcbbae41cea6456bcbebc4c7f9bc3d070614",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-hungry.png"
+  },
+  {
+    "stage": "04",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sick expression: ill and nauseous: heavy uneven eyelids, worried inner brow and a queasy downturned beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-096047d7-f0af-46c0-a0cd-babdb3a3ed1f.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sick.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-sick.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "40ecd811e0fb698db618e09612e519c98b858e36c80f105cefb0f595188f3a78",
+    "final_sha256": "c177907d4fba8df59fa805ea0e53273f41f415ed746410b7b0cc87c7b1921ec6",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sick.png"
+  },
+  {
+    "stage": "04",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sleeping expression: peacefully sleeping: fully closed relaxed eyes and a faint contented beak smile. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-1ef9e7ec-0c54-4fa4-a2bf-d651fad04823.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sleeping.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "1394d1444ff1f502d11c1ec82c6cd36684ab006d9af295822628921cd280623d",
+    "final_sha256": "ab2855995227d7d5aab813be964100dda831144eaad80bab9b1fe8394d97a2e1",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sleeping.png"
+  },
+  {
+    "stage": "04",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one strained expression: reluctant and strained: uneasy asymmetric narrowed eyes, slightly raised inner brow, a tense small beak grimace. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-0c4c7a8c-4265-471b-843a-1dcd46eabd66.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-strained.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-strained.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "3f58bfe1303913f1fe2bf20f003dc1eb4fcde9189e9c709bb0aca879cd8ede5b",
+    "final_sha256": "acb49f85804a238db303534ad0bb0b505593ead5312ba536117492af56669028",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-strained.png"
+  },
+  {
+    "stage": "04",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one sulky expression: sulking: lowered annoyed eyebrows, a sideways resentful gaze and closed pouting beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-2a9a5e72-cd05-486c-8b84-ae4166f298ce.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sulky.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-sulky.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "ea59dd58942af867e48dc419a8f5a71240b964c601d3f11d34a6ae4ccb6da913",
+    "final_sha256": "b686639cc85395915d744e044f0b299602f00cb1631d413f6e4ec324dffcf930",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-sulky.png"
+  },
+  {
+    "stage": "04",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one tired expression: sleepy and tired but awake: half-closed heavy eyelids and a small yawning beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-71bf1832-70a3-4046-9d3d-2e2ae226f598.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-tired.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-tired.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "1a411b77b8d0f9aa2f7c1b876ce21186a1d85c5f40660351f7f678406b135712",
+    "final_sha256": "d07449b8a5fcbacc71614d59618ea239dfb236220f715e796eda14b86a715cee",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-tired.png"
+  },
+  {
+    "stage": "04",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one wantsPlay expression: eager to play: bright wide attentive eyes, raised brows and an excited cheerful open beak. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-aae7c1a2-e9c5-45e3-bc54-52266c732998.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-wantsPlay.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "728c43bc03e927f7d90bb344d06001f6a1b877bae849788d2d5df98902aa1dc6",
+    "final_sha256": "9bbdee77a73032dded2170609bac679709dd2b85cd3f283e5059a01aa2953a74",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-wantsPlay.png"
+  },
+  {
+    "stage": "04",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit the supplied pixel-art phoenix sprite, stage 04. Image 1 is original edit target; Image 2 is a nearest-neighbor enlargement of exactly that target. Create one weak expression: weak with low energy: drooping nearly closed eyes and a small limp beak expression. Change ONLY the existing face expression (eyes, brows, beak expression). Preserve exactly one bird with one face, its age, body proportions, body and head pose, legs, wings, tail, orange-yellow flame plumage and flame crest, beak identity, palette, hard-edged pixel-art and silhouette. Preserve intrinsic flames as anatomy. No new objects, extra flames, external marks, sweat, tears, symbols, lettering, Zzz or scenery. Full sprite, genuinely transparent background with true alpha. Keep original position and scale. No body pose change. Preserve original head orientation and number of visible eyes; no newly visible far-side eye. Stages 03 and 04 have only ONE clearly visible near-side eye: edit that existing eye only, do not add a far-side eye.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-0ec8c244-ec77-4989-b8ff-223a077c65d0.png",
+    "line": "phoenix",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-weak.png",
+    "original": "assets/characters/phoenix/04.png",
+    "final": "assets/characters/expressions/phoenix/04-weak.png",
+    "repair_history": [],
+    "original_sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
+    "source_sha256": "992fdee1bce5f7b0e9ae189ceaea7e47cf0ccf67fc3ee08daf23cfb4979c67d5",
+    "final_sha256": "2029076667db14aa379d22838e7800b7257d2ad1dd999c5da08cace965246e57",
+    "bounds": [
+      14,
+      31,
+      114,
+      120
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/04-weak.png"
+  },
+  {
+    "stage": "05",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 edit target; input2 exact 6x enlargement for pixel reference. Create ONE critical expression: severely exhausted distressed almost closed eyes and faint strained beak, alive. Change ONLY existing visible facial features, eyes/eyelids/brow/beak; preserve original face angle and do not add another eye. Keep exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse pixel-art texture. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-c93939a4-633f-4fdc-94b3-357382e106cc.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-critical.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-critical.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "7a64b91d1c5487185aa5154c2ca29ac913791da0752375ec2fa3a21ad0a7c065",
+    "final_sha256": "636c67e6bec3e462b3b0650ed7fa7e3e43f03435456daff884bb11df1aa5cfac",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-critical.png"
+  },
+  {
+    "stage": "05",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target: original phoenix stage 05 sprite. Supporting second image: exact nearest-neighbor 6x enlargement. Create ONE happy expression: narrowed smiling eyes and cheerful subtly smiling beak. Change ONLY its existing face expression. Keep exactly the original single bird, age, body, pose, proportions, all flame feathers, wings, talons, tail, colors, pixel-art texture and silhouette. No new objects, external emotion symbols, sweat, tears, sparkles, lettering or background. Original intrinsic flame plumage stays unchanged. Genuine transparent alpha background, no matte or checkerboard. Entire original sprite remains visible. Pixel art with crisp original pixel scale, not smooth painting.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-86ced3df-5803-48e2-ab55-a82deb7add38.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-happy.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-happy.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "17d421cc1e05a9af73b2458a13a37ac05497857572b0a81475f887e5a7a7783c",
+    "final_sha256": "fddc2b016fefb984d745924abb8a7d76fc007ec2d15509ccfbdea3cb06d851f5",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-happy.png"
+  },
+  {
+    "stage": "05",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 is edit target; input2 exact 6x enlargement is supporting pixel reference. Create ONE hungry expression: hungry imploring eyes and a small open beak asking for food. Change ONLY existing eyes, eyelids, brow and beak expression. Preserve exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse original pixel art. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-e2728842-5b49-4d14-9740-58585a43136b.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-hungry.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-hungry.png",
+    "repair_history": [
+      {
+        "stage": "05",
+        "state": "hungry",
+        "reason": "Remove added far-side eye; preserve one-visible-eye profile",
+        "prompt": "Use case: precise-object-edit. Image 1 is the CURRENT hungry expression of phoenix stage05 to repair; Image2 is the ORIGINAL anatomy reference. Make one tiny localized repair ONLY: remove the newly-added far-side/second eye at the right edge of the head, approximately x86-89 y38-42 in the 128px target. Restore the original side-facing profile with exactly ONE visible eye, matching Image2. Fill the removed extra eye with the original golden facial plumage and correct edge, no dark pupil or white eye highlight there. Preserve the current hungry expression of the existing main visible eye, eyebrow and beak. Preserve exactly ALL other pixels/style/pose/feathers/flames/body/wings/tail/legs/palette/silhouette and framing from Image1. No new anatomy, no extra eyes, no teeth, no marks, no sweat, no text. Preserve transparent background with real alpha. Output single complete sprite.",
+        "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-hungry-repair1.png",
+        "source_sha256": "b4d92d3890be898b21bcde16765e10011beb85837b503c05fe2f7e6ae1b9e60c",
+        "previous_final_sha256": "fb1ec05e7c1c37f922fc35a93f73e4f4bd774117138fa1b4dcb420e5b0dadcb2",
+        "final_sha256": "61f494fb5933ac025380258c1af4c5dca19b42930c67fed43768d4f501eb40b5"
+      }
+    ],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "23cbbf36cf3c467ab4b28abfd248a2d4453b975c7e2fafff1fd7845ee0d765f9",
+    "final_sha256": "61f494fb5933ac025380258c1af4c5dca19b42930c67fed43768d4f501eb40b5",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-hungry-repair1.png"
+  },
+  {
+    "stage": "05",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 is edit target; input2 exact 6x enlargement is supporting pixel reference. Create ONE sick expression: unwell pained drooping eyelids and uncomfortable tense beak. Change ONLY existing eyes, eyelids, brow and beak expression. Preserve exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse original pixel art. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-aebd119f-4d75-447d-9b4d-5697e018be17.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sick.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-sick.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "f53342a9093a01db77afd62f65e283938b587be2ece170e30bc5b83292860074",
+    "final_sha256": "aacfe1e8162ebfa4b5a5562d40cfabcfa58c1a3feb646c4f1596d8a5015ecb84",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sick.png"
+  },
+  {
+    "stage": "05",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sleeping expression: fully closed peacefully sleeping eyes and faint smile at the beak. Change ONLY existing visible facial features, eyes/eyelids/brow/beak; preserve original face angle and do not add another eye. Keep exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse pixel-art texture. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-f8a67b73-0b8a-494d-bcf2-1de0c145ffd9.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sleeping.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "f1cb7ab209e4fb3db4cb58974adbbffdec2eb385f0f0b1f880ee698233796a26",
+    "final_sha256": "0ff8a930b7dabf4e786a20b737dfc37e1327706bb078ec11c8c23b65d9f13e91",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sleeping.png"
+  },
+  {
+    "stage": "05",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 is edit target; input2 exact 6x enlargement is supporting pixel reference. Create ONE strained expression: reluctant strained expression, uneasy inward-slanting eyelid and tense closed beak. Change ONLY existing eyes, eyelids, brow and beak expression. Preserve exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse original pixel art. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-d4923b8d-c85a-4646-b3f5-c1fcae1aed3d.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-strained.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-strained.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "98fd2beb344a8f3b7899d0f9d5182f6860e5bd8049d404fe8e412cbf03fdf84c",
+    "final_sha256": "1fbb40c84489819ebf7b66f369977f905e2bcc81961ec7487454b973e3575d04",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-strained.png"
+  },
+  {
+    "stage": "05",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sulky expression: sulking annoyed lowered brow and pout-like closed beak. Change ONLY existing visible facial features, eyes/eyelids/brow/beak; preserve original face angle and do not add another eye. Keep exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse pixel-art texture. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-e1cec0ae-2158-4596-8d41-76f0d7c5ea64.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sulky.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-sulky.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "67ea1942eb6146edb58658e4cccb269154e2e81c31371dd48907b19db2ec2d1d",
+    "final_sha256": "28a2c9a293309339994a0f939773aa07959451f070fbf8a564d700e44cfa73fa",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-sulky.png"
+  },
+  {
+    "stage": "05",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 is edit target; input2 exact 6x enlargement is supporting pixel reference. Create ONE tired expression: sleepy heavy half-lidded eyes and slack closed beak. Change ONLY existing eyes, eyelids, brow and beak expression. Preserve exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse original pixel art. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-0f2e18a8-8bc9-4921-82d2-fd083d662bd3.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-tired.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-tired.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "411f6a6c7f80080716428d75dd93169489d74a4303b9fa8c55f36ea6c85ab20a",
+    "final_sha256": "20463e97b10a44cdaaf40dd26472785d03d9a0c2d684e546899f697930695402",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-tired.png"
+  },
+  {
+    "stage": "05",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 edit target; input2 exact 6x enlargement for pixel reference. Create ONE wantsPlay expression: eager playful bright wide eyes and an excited smiling open beak. Change ONLY existing visible facial features, eyes/eyelids/brow/beak; preserve original face angle and do not add another eye. Keep exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse pixel-art texture. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-b73ec316-c6b8-4922-a561-7235f0342c21.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-wantsPlay.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "8e484a63e95a1535f749c3f644894ee8a19c517cba6b5cf2af4b76eb65fd4be0",
+    "final_sha256": "aafd49cce3ea8d149b795cd72bbb9bbb1522a696cbdbaec115f5c7ac904dcc63",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-wantsPlay.png"
+  },
+  {
+    "stage": "05",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 05 edit target; input2 exact 6x enlargement for pixel reference. Create ONE weak expression: very low-energy weak half-closed eyes and limp barely parted beak. Change ONLY existing visible facial features, eyes/eyelids/brow/beak; preserve original face angle and do not add another eye. Keep exact single bird body, pose, proportions, age, wings, flame crest, feathers, tail, talons, colors, silhouette and coarse pixel-art texture. Preserve intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-963d0c86-6384-48a0-8693-d734c4e3ce50.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-weak.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/05.png",
+    "final": "assets/characters/expressions/phoenix/05-weak.png",
+    "repair_history": [],
+    "original_sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
+    "source_sha256": "eace67f534b2a5b51f15d9fb01db6437ed2f4d016bba3103b78b41bd4b65ddd6",
+    "final_sha256": "b0ca10c71e93851b5b30b01b135c0d170905f335b0cbf833e52e8136fe0dc442",
+    "bounds": [
+      12,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/05-weak.png"
+  },
+  {
+    "stage": "06",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE critical expression: severely exhausted distressed almost closed eyes and faint strained beak, alive. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-2c87d09c-0e26-466b-bbad-5593470f4732.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-critical.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-critical.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "4def2f98e264cb0370a8a1153b1b007e60c4e3eb14cce6e7c61e987416bc73d0",
+    "final_sha256": "082a86d56643534752988e615e13250428135246291204e487dddfe8c9556570",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-critical.png"
+  },
+  {
+    "stage": "06",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE happy expression: narrowed smiling eyes and cheerful subtly smiling beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-44012be9-46af-4e8f-8e7c-226f1b3c41d8.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-happy.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-happy.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "02c8a49fdd8d2fc4fdedff20735762a2b88162538a42df6a4dd470be3ca09759",
+    "final_sha256": "057494719fd598dfba17432b3bb3bdfadbf2031240076c85887560459c961d8e",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-happy.png"
+  },
+  {
+    "stage": "06",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE hungry expression: hungry imploring eyes and a small open beak asking for food. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-cf0e70c6-ad06-4ce3-a0db-4f46187aa86c.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-hungry.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-hungry.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "1810f9db150ff1d9789e93f660e78363e8a0eeea438c4e69dd4bcf3c1c153d34",
+    "final_sha256": "96000449b3618011e9a66e234892adc348e3745261c472ee727adf68ca36b345",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-hungry.png"
+  },
+  {
+    "stage": "06",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sick expression: unwell pained drooping eyelids and uncomfortable tense beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-47e72995-7c48-46f5-b66b-ab7dcc5485ab.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sick.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-sick.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "b449505703ed5a1be6b0f7e484f69e3b05ad44a22e7c8d519c046437c92f6fc2",
+    "final_sha256": "e2808feb424695fa4bb23b1eb9ea4950066d7866cb5c7499cd730380b422b6b9",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sick.png"
+  },
+  {
+    "stage": "06",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sleeping expression: fully closed peacefully sleeping eyes and faint smile at the beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-1149fd59-3453-4e92-83fb-b7ab0ab42bea.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sleeping.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "bdb1a4835b908e74ae36767b861fd67f33c3f244542fd3421a7dee17a04201ff",
+    "final_sha256": "90e7c1550a194c3432e63b23d16c31925eea6a21232a887ebf2d4e1114c40b49",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sleeping.png"
+  },
+  {
+    "stage": "06",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE strained expression: reluctant strained expression, uneasy inward-slanting eyelid and tense closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-2e9a3665-4dae-403e-9105-e22ff0ede17e.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-strained.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-strained.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "63c8444188bbeb30a2a79f2c8d4b4508a78f5122ec2b9ac4517a2d8c9e02b50a",
+    "final_sha256": "7b2578d5eb1cec42918719d1473deb61f3b74378feb364b639ffe35233d96ed1",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-strained.png"
+  },
+  {
+    "stage": "06",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sulky expression: sulking annoyed lowered brow and pout-like closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5dba3747-6724-4b1c-b42e-2c75db2e633c.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sulky.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-sulky.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "bc0f3c65adcba83b4bbc02e286a1eff7d6b39dbfd28d6651b55db0218db2d76e",
+    "final_sha256": "d94f87706da12362927e99fe7f665b6b71791b0673a6a68757b89f01ee139f2a",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-sulky.png"
+  },
+  {
+    "stage": "06",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE tired expression: sleepy heavy half-lidded eyes and slack closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-93281532-9d42-4bf9-9f14-3c4ff48ef7ae.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-tired.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-tired.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "2cd702fda841479258bd5e3b9749bc16b1fc345f716f45b6dd50263f92bac6ea",
+    "final_sha256": "88c6ef4863949799d661132e1581987774f545fa435c7fe4f256f08c6eab1224",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-tired.png"
+  },
+  {
+    "stage": "06",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE wantsPlay expression: eager playful bright wide eyes and an excited smiling open beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-a16c8735-bf53-4ae3-b7ec-43e933c6a482.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-wantsPlay.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "db455e4498575d3f1cd60bae2f7e9ffea4f5257ace76b243a6bd46063a0046a5",
+    "final_sha256": "cbef32bd5e9039acb55f91d406d2c3bd04718a05708ffb1ea8daf2c0aa14d902",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-wantsPlay.png"
+  },
+  {
+    "stage": "06",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 06 edit target; input2 exact 6x enlargement for pixel reference. Create ONE weak expression: very low-energy weak half-closed eyes and limp barely parted beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add a second eye. Keep exact single golden adult phoenix, age, golden colors, wings raised pose, body, proportions, flame crest, feathers, tail, talons, silhouette and coarse pixel-art texture. Preserve all intrinsic flame plumage. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-efe291e3-d59e-4ce9-9bb2-bf68ac01cd34.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-weak.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/06.png",
+    "final": "assets/characters/expressions/phoenix/06-weak.png",
+    "repair_history": [],
+    "original_sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
+    "source_sha256": "075ee5c7b1ae840e3c85a2400933fc77e618c32d8d1bbdb0eccf480a14145dba",
+    "final_sha256": "c869f5c42f205720157bc9e73271b1f43d3c9d5ac1cd187ddbb53f785b7ad668",
+    "bounds": [
+      16,
+      8,
+      115,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/06-weak.png"
+  },
+  {
+    "stage": "07",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE critical expression: severely exhausted distressed almost closed eyes and faint strained beak, alive. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-95edd316-d428-4135-b3e7-73b68b787ad0.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-critical.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-critical.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "2f6f00e422eaee589374a1520efbcc3768a750acbc418696579990836ee0218f",
+    "final_sha256": "29c6aae2a26c626038ea3ad90b7a0970f7a3cbb164dccff9de9de75b4b91e207",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-critical.png"
+  },
+  {
+    "stage": "07",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE happy expression: narrowed smiling eyes and cheerful subtly smiling beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-4f94d68c-bc09-44a6-976e-90c7d0760c77.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-happy.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-happy.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "e23ad73e55313dc9ca2ee91028dc4147875cc3a69240530c061e3319a5c0b359",
+    "final_sha256": "87ad613ba70a72c267a06217736770cc0db6ec7b32a65e6e2f08cb72f0150e64",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-happy.png"
+  },
+  {
+    "stage": "07",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE hungry expression: hungry imploring eyes and a small open beak asking for food. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-e658bd65-b7aa-44ea-9f46-f1b18490dcc2.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-hungry.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-hungry.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "887d8722fac903306a3954923c35a2276d7c65ae09ffeb64b5028b58876830d4",
+    "final_sha256": "b54ed19ce2547da40ef8e56b0c0d286822ece7f941237edbfad283c55de9432c",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-hungry.png"
+  },
+  {
+    "stage": "07",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sick expression: unwell pained drooping eyelids and uncomfortable tense beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-4e53aac5-ade2-42c9-b3f6-90e6539f8519.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sick.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-sick.png",
+    "repair_history": [
+      {
+        "stage": "07",
+        "state": "sick",
+        "reason": "Remove added tooth-grid from beak, retain elderly plumage and sick eye",
+        "prompt": "Use case: precise-object-edit. Image1 is a newly generated SICK expression of an elderly phoenix, image2 its original anatomy. Repair ONLY the erroneous white tooth-grid on/in the yellow beak. Birds have a continuous yellow/orange horn beak here, NO teeth: remove every white tooth square and grid line, restoring a simple closed or slightly parted yellow/orange beak with a plain dark seam matching the original beak shape. Keep the sick drooping existing single visible eye and raised worried brow unchanged. Keep exact head direction, one visible eye, face position, orange/gray aged feathers, crest, hanging wings, tail, legs, body, pose, silhouette, palette, pixel art texture and transparent alpha. No new facial features or symbols. This is a small beak-only correction; retain the rest of Image1. Full uncropped sprite on transparent background.",
+        "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sick-repair1.png",
+        "source_sha256": "b3eedf3c93b72bbbdc942afb25933ecb7bfb479c36aed53a09e9e22be1389d1b",
+        "previous_final_sha256": "b76e79c6c4071ef70693a0efb2fe5d21e34cb7c356b4cc6ce1bcb3a92f291d70",
+        "final_sha256": "3eb31f62239dcddcf90328f475c4e1abe7e5afc0e58eeb8139872884890a7d44"
+      }
+    ],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "b92da2dca28219197d14b53a726e64cacfbbfa2e912627c7add4445755404de8",
+    "final_sha256": "3eb31f62239dcddcf90328f475c4e1abe7e5afc0e58eeb8139872884890a7d44",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sick-repair1.png"
+  },
+  {
+    "stage": "07",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sleeping expression: fully closed peacefully sleeping eyes and faint smile at the beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-04f77694-892d-4ae3-a43b-873064f1c264.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sleeping.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "fc7befe88c4083787ee0b65c7e1fe31f4e375792bef1da05e3c247388dede0b7",
+    "final_sha256": "57b6a8a88d77272e2a3e071f80c1993e34bbbb4993075c269e4486c47e6fc01d",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sleeping.png"
+  },
+  {
+    "stage": "07",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE strained expression: reluctant strained expression, uneasy inward-slanting eyelid and tense closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-56b56f66-6f42-44bf-a00e-282d376b21f6.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-strained.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-strained.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "9acb5b7ad760880c0b3703c18efe719c7f692d922dc8fa46e5aa240df633a602",
+    "final_sha256": "89bc903fc59bdef475c44ee514931e148660e37acdd4266eb4e8d85a812e6cb6",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-strained.png"
+  },
+  {
+    "stage": "07",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sulky expression: sulking annoyed lowered brow and pout-like closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-a001a621-02db-4536-83cd-720c5c4ab96a.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sulky.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-sulky.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "a5670be3d9b49c13b24921d355a4df5ab20a9a6541e6e1b8af4e19a2df3190db",
+    "final_sha256": "3efa2802d440b0a83ca3054ebb212e7b822e6e8d99d46619b31973de32ce6b32",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-sulky.png"
+  },
+  {
+    "stage": "07",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE tired expression: sleepy heavy half-lidded eyes and slack closed beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-87f850ca-a0ac-4dcf-baaf-00c3a81a6c02.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-tired.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-tired.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "2999a55f4847d49717dff10043cef8a81db8d996b49fcb261712622b13cca72c",
+    "final_sha256": "0505837ed6018f3715386fd930b83fcf2dd23eb889aabc90bcd05138a5d37199",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-tired.png"
+  },
+  {
+    "stage": "07",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE wantsPlay expression: eager playful bright wide eyes and an excited smiling open beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5a881022-237d-4063-b11b-d8b306f7401c.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-wantsPlay.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "779812a5148416e3d95506bf3beb9d80904a8fa523dceca1db8f4c718da661ce",
+    "final_sha256": "c417eac6b3a6ed6ee41f09da164abe832aebc16128cbe50c0348329b6623c462",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-wantsPlay.png"
+  },
+  {
+    "stage": "07",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 07 edit target; input2 exact 6x enlargement for pixel reference. Create ONE weak expression: very low-energy weak half-closed eyes and limp barely parted beak. Change ONLY existing visible facial features and beak. SINGLE visible eye on side-profile head: preserve angle, never add second eye. Keep exact single OLD phoenix, aged body and muted orange/gray feather colors, sagging folded wings pose, body, proportions, crest, gray/white chest and tail feathers, talons, silhouette and coarse pixel-art texture. Do not rejuvenate, recolor gold or enlarge flames. Preserve original flame feather tips. No added objects, symbols, sweat, tears, teeth, text, Zzz or effect marks. Genuine transparent alpha background. Entire original sprite visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-2c990d48-d324-4c8c-884b-22a147f7c60f.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-weak.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/07.png",
+    "final": "assets/characters/expressions/phoenix/07-weak.png",
+    "repair_history": [],
+    "original_sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
+    "source_sha256": "30c52bf9fe4689db2978e9a6f3872b52d5412983a6737b5a67914ce2fa0cf6d6",
+    "final_sha256": "a9a5b783d74ae7d4a5b211cf3466d7bf77a3485d2c3e88ad10cd8556c1fb679f",
+    "bounds": [
+      15,
+      12,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/07-weak.png"
+  },
+  {
+    "stage": "08",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE critical expression: severely exhausted distressed almost closed eyes and faint strained beak, alive. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-916dcf10-8843-4f7f-9cf7-d4963fb000af.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-critical.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-critical.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "bb79882f181dab3cd2d685688999c44211ba744debdc6679444210b78b9dc8e1",
+    "final_sha256": "c72a5a0802151471cae21a36ecea884099edc467509da54260bc9fe93eb7339a",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-critical.png"
+  },
+  {
+    "stage": "08",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE happy expression: narrowed smiling eyes and cheerful subtly smiling beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-891cd970-ec01-4c31-bc1a-9b8f868f47de.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-happy.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-happy.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "f0aa1c7ee0903fb67c14df325b829fd625e2b5312b1c27e1dcaa72dac94e9b2f",
+    "final_sha256": "423fcb8a6f125219fa16ea932620c6ef7d5d7ef681331198cf615373f857d71b",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-happy.png"
+  },
+  {
+    "stage": "08",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE hungry expression: hungry imploring eyes and a small open beak asking for food. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-87555987-05dc-438a-bc7a-62647a0b9e95.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-hungry.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-hungry.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "d343db467913d88292954ae66ea076a9a27669723c4f994d5512f6536c752757",
+    "final_sha256": "2de9e1bc3b9583bf76a96641ba3b22fa3b06c15542cc20d480a39a20979471bf",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-hungry.png"
+  },
+  {
+    "stage": "08",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sick expression: unwell pained drooping eyelids and uncomfortable tense beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-d437955f-e08e-410a-92e9-da0aa916c0be.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sick.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-sick.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "27a6d7d9f1f67d5b302d6b394283656a739b544d90b7bc8a312abfb98a6547cc",
+    "final_sha256": "b0455d0d102e6d9bd3b1b80e79259b7c08658e9fb678b1fb900e81c0ed6282ae",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sick.png"
+  },
+  {
+    "stage": "08",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sleeping expression: fully closed peacefully sleeping eyes and faint smile at the beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-f7dd9495-9b7b-48fe-a343-eaf6dabfcba6.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sleeping.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "c3f2f3dd1578cce939afd323cc7315b3dfad61fe9a4491daf0646274d2134407",
+    "final_sha256": "ae60d13b7052b722a6c19080fe349f6c1b98720611502e96ac6c03c66b8b4427",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sleeping.png"
+  },
+  {
+    "stage": "08",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE strained expression: reluctant strained expression, uneasy inward-slanting eyelid and tense closed beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-5859e874-4ac4-4277-b9c9-718ce61a042c.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-strained.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-strained.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "7c542902d3fc084f502e0f525addab7750b1606d4f6ecd0ea6f63743ec16ea67",
+    "final_sha256": "64b4664a48491b4b0d70e71c50a98e89cc7a267d70ca11d410945db7b92196ac",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-strained.png"
+  },
+  {
+    "stage": "08",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE sulky expression: sulking annoyed lowered brow and pout-like closed beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-60defbc0-c5f6-4d7f-a7ab-3cc9c495d874.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sulky.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-sulky.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "9537a31f5c586da07c0d511d332c1bf4ae123e1d13a5c09062e9cd95a9feb385",
+    "final_sha256": "de5250a2067cdb56662803d0a58a42c14dbc50c05036c73ce686699d4f0c02e5",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-sulky.png"
+  },
+  {
+    "stage": "08",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE tired expression: sleepy heavy half-lidded eyes and slack closed beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-92fe7f66-1425-4880-96c1-bb5ce1876d3d.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-tired.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-tired.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "f6197b164abae1bce7f42064ce65338ac922fd617043b202f746a36c0163e299",
+    "final_sha256": "c6b98b5636b13ae8d34f6b81750fe1c0e156e0dc4c6f7e782a08c7b82b48b544",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-tired.png"
+  },
+  {
+    "stage": "08",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE wantsPlay expression: eager playful bright wide eyes and an excited smiling open beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-c5bdba71-5ffb-4c3d-a1da-f11d096dc91c.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-wantsPlay.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "f9c6b16b80db779c234eb67f6c976f2c7134432be45d588bf962e8752bd9c242",
+    "final_sha256": "471ea293d364c72bd5b244c4888bed65f0c55ee07c85f6a4b6204904ad91d794",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-wantsPlay.png"
+  },
+  {
+    "stage": "08",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Input1 original phoenix 08 edit target; input2 exact 6x enlargement for pixel reference. Create ONE weak expression: very low-energy weak half-closed eyes and limp barely parted beak. Change ONLY the existing TWO eyes and small orange beak of the SINGLE front-facing phoenix chick in the charcoal heap. Keep head/body/pose/size identical. Keep exact entire dark gray charcoal/ash pile: every rock, orange glowing seam, all pre-existing fire and detached sparks at identical positions. These objects are NOT creatures or emotion marks. Preserve chick flame crest, tiny side wings, age, colors, silhouette and coarse original pixel-art texture. DO NOT turn cheek/charcoal/fire into faces. No new objects or effects, no symbols, sweat, tears, teeth, text, Zzz, stars, steam or state marks. Orange bird beak with dark interior only, no human mouth. Genuine transparent alpha background. Entire original pile, bird and all detached original embers visible.",
+    "generatedSource": "/workspace/scratch/bf73fcf410a5/generated_images/exec-49d9c0b9-c2b1-4267-ba82-4ef21ab95579.png",
+    "source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-weak.png",
+    "line": "phoenix",
+    "original": "assets/characters/phoenix/08.png",
+    "final": "assets/characters/expressions/phoenix/08-weak.png",
+    "repair_history": [],
+    "original_sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
+    "source_sha256": "bfbe451004b3a146d1a2e982f587c745001159b9187cfcb51df87d742badc7e3",
+    "final_sha256": "39d5db4bb1f1d587eee5245f93334084d7f903aa868a85eb9ac4574a513b9a54",
+    "bounds": [
+      12,
+      43,
+      116,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/bf73fcf410a5/phoenix-generated/08-weak.png"
+  }
+]
