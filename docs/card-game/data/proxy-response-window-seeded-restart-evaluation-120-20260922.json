@@ -1,0 +1,59 @@
+{
+  "schema": "naotocchi.card_game.proxy_response_window_seeded_restart_evaluation.v1",
+  "checkpoint": 120,
+  "planned_route_count": 4,
+  "completed_route_count": 0,
+  "stopped_rules_adjudication_count": 4,
+  "stopped_record_integrity_count": 0,
+  "decision_count": 9,
+  "event_count": 10,
+  "snapshot_count": 14,
+  "winner_count": 0,
+  "independent_balance_sample_count": 0,
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "decision_count": 3,
+      "event_count": 4,
+      "snapshot_count": 5,
+      "counts_as_independent_balance_sample": false
+    },
+    {
+      "path_id": "order-01-b-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "decision_count": 2,
+      "event_count": 2,
+      "snapshot_count": 3,
+      "counts_as_independent_balance_sample": false
+    },
+    {
+      "path_id": "order-02-a-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "decision_count": 2,
+      "event_count": 2,
+      "snapshot_count": 3,
+      "counts_as_independent_balance_sample": false
+    },
+    {
+      "path_id": "order-02-b-first",
+      "status": "stopped_rules_adjudication",
+      "winner": null,
+      "decision_count": 2,
+      "event_count": 2,
+      "snapshot_count": 3,
+      "counts_as_independent_balance_sample": false
+    }
+  ],
+  "prohibited_uses": [
+    "win_rate",
+    "first_second_difference",
+    "activation_rate",
+    "card_strength",
+    "card_adoption",
+    "catalog_population_change"
+  ]
+}

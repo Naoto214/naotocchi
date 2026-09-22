@@ -6,7 +6,9 @@
 
 ## 現在フェーズと再開地点
 
-現在は **[119 response-window契約](119-response-window-contract.md)の保存地点**。119はprotocol-onlyの`protocol_only_no_match_progress`で、117の4経路を再開していない。planned 0・completed 0・stopped 0・decision trace 0・event 0・snapshot 0・winner 0・独立balance標本0・新stop artifact 0である。`response-pass`、4停止状態の完全候補集合、保存phaseからcanonical response phaseへのadapter、06準拠のpriority／pass／chain遷移、response専用seed proofを固定した。117の過去結果planned 4・completed 0・stopped 4・独立balance標本0と、112の6 fixture未実施を維持する。次checkpointで同じstop artifact・state・hashから4経路を独立再開し、先に112へ進まない。
+現在は **[120 response-window再開](120-response-window-seeded-restart.md)の保存地点**。117の4 stop artifactを同一state／hash・event seq 3から独立再開し、119のresponse-window契約を適用した。planned 4・completed 0・rules-stop 4・integrity-stop 0、decision 9・event 10・snapshot 14・winner 0・独立balance標本0。`order-01-a-first`は`E-first-date`を支払い、発動者priority、双方pass、解決、1枚ドロー、そだち+5、捨て札移動まで処理した。他3経路は双方passでresponse windowを閉じた。全経路が次の通常行動候補の完全合法性を既存正本だけでは確定できず、`incomplete_legal_candidates`で真正停止した。117・119・116・112の保護対象は変更していない。次checkpointは保存済み120 stopの同一state・両hashから通常行動候補契約を整えて独立再開し、先に112へ進まない。
+
+履歴上、[119 response-window契約](119-response-window-contract.md)はprotocol-onlyであり、119自身は117の4経路を再開していない。119のplanned 0・completed 0・stopped 0とresponse候補監査を変更せず、120から実対戦へ適用した。
 
 [118 用語移行](118-tokiokuri-terminology-migration.md)で現行参照81ファイル・268件のゲーム用語を暫定名称「ときおくり」へ統一した状態も維持する。名称だけを暫定扱いとし、効果・処理順・数値・発動条件、ID・schema・英語の機械識別子は変更していない。
 
@@ -157,6 +159,7 @@
 | [117](117-normal-decision-seeded-restart.md) | 同じ固定manifestで4経路を再生し、R1 mandatory choice・安全配置後の応答contract不足で全経路停止。completed 0・stopped 4・独立balance標本0、stop 4件とevaluationを保存。専用24件・全proxy 190件、112未実施と452／477／変更0 IDを維持 |
 | [118](118-tokiokuri-terminology-migration.md) | 現行参照81ファイル・268件のゲーム用語を暫定「ときおくり」へ統一。効果・処理・数値・条件、ID・schema・英語識別子、117の再開地点を維持 |
 | [119](119-response-window-contract.md) | response専用phase adapter、`response-pass`、4停止状態の完全候補集合、06準拠遷移、synthetic seed proofを正本化。protocol-onlyで対戦進行0、117 stop 4件・116・112未実施6件を維持。専用31件・全proxy 221件 |
+| [120](120-response-window-seeded-restart.md) | 117 stop 4経路を同一state／hashから独立再開。119契約でresponseを解決後、通常行動候補の完全合法性不足により4経路とも真正停止。completed 0・rules-stop 4・decision 9・event 10・snapshot 14・独立標本0。専用42件・全proxy 263件 |
 
 メイン本文案は**248枚、未展開0枚**。51〜59の160＋68の16＋既存6代表48＋おとこのひと／カブト／クワガタ24＝248。代表48にはA採用6枚を含むので再加算しない。能力本文242枚と能力なし6枚を区別する。数値曲線・通常時を維持し、15第2稿＋個別改稿、23第3稿、65のフェニックス⑤・ぬいぐるみ⑦、67のサクラ⑥を保持。いぬ②・かえる③・カクレクマノミ④の70全文を08へ同期した。全件の詳細裁定完備・非アート凍結ではない。
 

@@ -111,10 +111,14 @@ def check_checkpoint_119():
             for node in ast.walk(ast.parse(test_path.read_text()))
         )
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
+    checkpoint_119_proxy_paths = [
+        path for path in (DOCS / "tools").glob("test_proxy_*.py")
+        if path.name != "test_proxy_response_window_seeded_restart.py"
+    ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
-        for path in (DOCS / "tools").glob("test_proxy_*.py")
+        for path in checkpoint_119_proxy_paths
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 221, "119 total proxy test count")
@@ -250,6 +254,198 @@ def check_checkpoint_119():
     return checkpoint_errors, checkpoint_test_count, proxy_count
 
 
+def check_checkpoint_120():
+    """Return checkpoint-120-only errors without sparse-excluded sources."""
+    checkpoint_errors = []
+
+    def checkpoint_check(ok, message):
+        if not ok:
+            checkpoint_errors.append(message)
+
+    module_path = DOCS / "tools/proxy_response_window_seeded_restart.py"
+    plan_path = DOCS / "data/proxy-response-window-seeded-restart-plan-120-20260922.json"
+    evaluation_path = DOCS / "data/proxy-response-window-seeded-restart-evaluation-120-20260922.json"
+    numbered_doc = DOCS / "120-response-window-seeded-restart.md"
+    readme = DOCS / "README.md"
+    required = (module_path, plan_path, evaluation_path)
+    for path in required:
+        checkpoint_check(path.is_file(), f"120 missing required file: {path.relative_to(ROOT)}")
+
+    test_path = DOCS / "tools/test_proxy_response_window_seeded_restart.py"
+    checkpoint_test_count = 0
+    if test_path.is_file():
+        checkpoint_test_count = sum(
+            isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+            node.name.startswith("test_")
+            for node in ast.walk(ast.parse(test_path.read_text()))
+        )
+    checkpoint_check(checkpoint_test_count == 42, "120 dedicated test count")
+    proxy_count = sum(
+        isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+        node.name.startswith("test_")
+        for path in (DOCS / "tools").glob("test_proxy_*.py")
+        for node in ast.walk(ast.parse(path.read_text()))
+    )
+    checkpoint_check(proxy_count == 263, "120 total proxy test count")
+
+    if numbered_doc.is_file():
+        numbered_text = numbered_doc.read_text()
+        checkpoint_check(all(value in numbered_text for value in (
+            "planned 4・completed 0・rules-stop 4・integrity-stop 0",
+            "decision 9・event 10・snapshot 14・winner 0",
+            "`incomplete_legal_candidates`", "`E-first-date`",
+            "独立balance標本 0", "117・119・116・112を変更していない",
+            "専用42件", "全proxy 263件",
+        )), "120 numbered document outcomes and protected boundaries")
+    else:
+        checkpoint_check(False, "120 numbered document is missing")
+    if readme.is_file():
+        readme_text = readme.read_text()
+        current = re.search(r"^## 現在フェーズと再開地点\n\n(.*?)(?=^## |\Z)",
+                            readme_text, re.M | re.S)
+        checkpoint_check(current is not None and
+                         "[120 response-window再開](120-response-window-seeded-restart.md)" in
+                         current.group(1), "README current phase is checkpoint 120")
+        checkpoint_check(all(
+            f"| [{number}]({target}) |" in readme_text
+            for number, target in (
+                (112, "112-targeted-structural-gap-fixtures.md"),
+                (116, "116-normal-decision-fallback-contract.md"),
+                (117, "117-normal-decision-seeded-restart.md"),
+                (119, "119-response-window-contract.md"),
+                (120, "120-response-window-seeded-restart.md"),
+            )
+        ), "README 112/116/117/119/120 history")
+
+    if all(path.is_file() for path in required):
+        try:
+            module = runpy.run_path(str(module_path))
+            inputs = module["load_checkpoint_120_inputs"]()
+            protected = module["verify_protected_sources"](inputs)
+            checkpoint_check(not protected, f"120 protected inputs: {protected}")
+            checkpoint_check(
+                len(module["PROTECTED_RAW_SHA256"]) + len(module["PROTECTED_STOPS"]) == 20,
+                "120 protected raw source count",
+            )
+            checkpoint_check(
+                len(module["PROTECTED_STATE_SHA256"]) == 4,
+                "120 protected state hash count",
+            )
+
+            plan = json.loads(plan_path.read_text())
+            plan_errors = module["validate_restart_plan_120"](plan, inputs)
+            checkpoint_check(not plan_errors, f"120 canonical plan: {plan_errors}")
+            suite = module["continue_routes_independently"](plan, inputs)
+            evaluation = module["build_evaluation_120"](suite)
+            checkpoint_check(
+                json.loads(evaluation_path.read_text()) == evaluation,
+                "120 saved evaluation differs from builder",
+            )
+            materialized = module["validate_materialized_checkpoint_120"](
+                suite, DOCS / "data"
+            )
+            checkpoint_check(not materialized,
+                             f"120 exact materialized JSON: {materialized}")
+            checkpoint_check(
+                [evaluation.get(key) for key in (
+                    "planned_route_count", "completed_route_count",
+                    "stopped_rules_adjudication_count",
+                    "stopped_record_integrity_count", "decision_count",
+                    "event_count", "snapshot_count", "winner_count",
+                    "independent_balance_sample_count",
+                )] == [4, 0, 4, 0, 9, 10, 14, 0, 0],
+                "120 exact evaluation counts",
+            )
+
+            expected_terminals = {
+                "order-01-a-first": (7,
+                    "641e77bb932b2a3b4d4214b0cd12306076ec86a990e13110c9e4bc4cf8f94d80",
+                    "a698227f6c2c851c3012b64ba27cf9db77d8a0eeb13d583902efda03ac600a00"),
+                "order-01-b-first": (5,
+                    "6462c0cb11bc0cb26aeb055a4b969578a3f9bd05ff8963584fe629ac00ff3616",
+                    "cbda8acffc3a36ceb14b98a2cb36cd9649796444599ed02da4abfdcfc8403467"),
+                "order-02-a-first": (5,
+                    "edbc2844074b27462439c1efe85f0c021b826cf75a51bdd115858029dfc2ff89",
+                    "b325d7802cf9e9e621765f420727f33c16a52e0ea10a989bb1dd38376aa717ea"),
+                "order-02-b-first": (5,
+                    "c934f656ed14f0a73b2c70f714470e7bbdad98626ce4a4078fe96888aa426473",
+                    "f4eaf9452682fd1c5ff2ecf7ed4dfb9a3ccd34fb3dba707cff7bff870b3accf5"),
+            }
+            for path_id, expected in expected_terminals.items():
+                outcome = suite["outcomes"][path_id]
+                stop = outcome["stop"]
+                checkpoint_check(
+                    outcome["status"] == "stopped_rules_adjudication" and
+                    stop["reason_code"] == "incomplete_legal_candidates" and
+                    (stop["last_valid_event_seq"], stop["game_state_sha256"],
+                     stop["continuation_state_sha256"]) == expected,
+                    f"120 exact terminal manifest: {path_id}",
+                )
+                evidence = suite["replay_evidence"][path_id]
+                decisions = evidence["decisions"]
+                events = evidence["events"]
+                snapshots = evidence["snapshots"]
+                decision_ids = {row.get("decision_id") for row in decisions}
+                checkpoint_check(
+                    [row.get("decision_seq") for row in decisions] ==
+                    list(range(1, len(decisions) + 1)),
+                    f"120 decision sequence: {path_id}",
+                )
+                checkpoint_check(
+                    [row.get("seq") for row in events] ==
+                    list(range(4, 4 + len(events))),
+                    f"120 event sequence: {path_id}",
+                )
+                checkpoint_check(
+                    len(snapshots) == len(events) + 1 and
+                    snapshots[0].get("event_seq") == 3,
+                    f"120 snapshot sequence: {path_id}",
+                )
+                prior = snapshots[0]
+                for event, snapshot in zip(events, snapshots[1:]):
+                    checkpoint_check(
+                        event.get("event_id") ==
+                        f"event-120-{path_id}-{event['seq']:03d}" and
+                        event.get("decision_id") in decision_ids | {None} and
+                        event.get("game_state_before_sha256") ==
+                        prior.get("game_state_sha256") and
+                        event.get("continuation_state_before_sha256") ==
+                        prior.get("continuation_state_sha256") and
+                        event.get("game_state_after_sha256") ==
+                        snapshot.get("game_state_sha256") and
+                        event.get("continuation_state_after_sha256") ==
+                        snapshot.get("continuation_state_sha256") and
+                        snapshot.get("event_seq") == event.get("seq"),
+                        f"120 event/snapshot dual-hash chain: {path_id}:{event.get('seq')}",
+                    )
+                    prior = snapshot
+                for decision in decisions:
+                    matching = [event for event in events
+                                if event.get("decision_id") == decision.get("decision_id")]
+                    checkpoint_check(
+                        len(matching) == 1 and
+                        decision.get("event_seq") == matching[0].get("seq") and
+                        decision.get("pre_game_state_sha256") ==
+                        matching[0].get("game_state_before_sha256") and
+                        decision.get("pre_continuation_state_sha256") ==
+                        matching[0].get("continuation_state_before_sha256") and
+                        decision.get("forbidden_information_used") == [],
+                        f"120 decision/event reference: {path_id}:{decision.get('decision_seq')}",
+                    )
+
+            fixtures = [json.loads(path.read_text()) for path in sorted(
+                (DOCS / "data/proxy-gap-fixtures-112").glob("*.json"))]
+            checkpoint_check(len(fixtures) == 6 and all(
+                value["record"]["status"] == "fixture" and
+                value["record"]["events"] == [] and
+                value["record"]["result"]["winner"] is None
+                for value in fixtures
+            ), "120 preserves six unplayed 112 fixtures")
+        except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
+            checkpoint_check(False, f"120 canonical check failed: {error}")
+    return checkpoint_errors, checkpoint_test_count, proxy_count
+
+
 checkpoint_119_errors, checkpoint_119_test_count, checkpoint_119_proxy_count = check_checkpoint_119()
 if "--checkpoint-119" in sys.argv:
     print(json.dumps({
@@ -260,6 +456,17 @@ if "--checkpoint-119" in sys.argv:
     }, ensure_ascii=False, indent=2))
     sys.exit(bool(checkpoint_119_errors))
 errors.extend(checkpoint_119_errors)
+
+checkpoint_120_errors, checkpoint_120_test_count, checkpoint_120_proxy_count = check_checkpoint_120()
+if "--checkpoint-120" in sys.argv:
+    print(json.dumps({
+        "checkpoint": 120,
+        "checkpoint_120_test_count": checkpoint_120_test_count,
+        "proxy_test_count": checkpoint_120_proxy_count,
+        "errors": checkpoint_120_errors,
+    }, ensure_ascii=False, indent=2))
+    sys.exit(bool(checkpoint_120_errors))
+errors.extend(checkpoint_120_errors)
 
 
 unexpected_former_time_action_terms = []
@@ -3098,7 +3305,7 @@ proxy_test_count = sum(
     for path in (DOCS / "tools").glob("test_proxy_*.py")
     for node in ast.walk(ast.parse(path.read_text()))
 )
-check(proxy_test_count == 221, "119 total proxy test count")
+check(proxy_test_count == 263, "120 total proxy test count")
 proxy_117_doc = DOCS / "117-normal-decision-seeded-restart.md"
 proxy_117_tool = DOCS / "tools/proxy_normal_decision_seeded_restart.py"
 proxy_117_test = DOCS / "tools/test_proxy_normal_decision_seeded_restart.py"
