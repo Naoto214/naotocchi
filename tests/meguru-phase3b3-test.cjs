@@ -44,9 +44,9 @@ function sweep(M, rid, zs, xs) {
 test('1. 2 本に あるく 出口が ついた。connection は ふえて いない', () => {
   const { G } = setup();
   assert.equal(G.connections.length, 15, 'connection は 15 本の まま');
-  assert.equal(G.connections.filter((c) => c.gate).length, 11, 'gate は 9 → 11');
+  assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 9 → 11 → 13(3B-4)');
   assert.equal(G.connections.filter((c) => c.b && !c.gate).map((c) => c.id).sort().join(','),
-    'city|desert,countryside|river_lake,desert|mountain', '未実装は 5 → 3');
+    'countryside|river_lake', '未実装は 5 → 3 → 1');
   for (const id of ['city|countryside', 'city|sea']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk', id + ' は あるいて こえる');
@@ -118,19 +118,23 @@ test('5. ride ボタンは ぼうはてい / かいしょくどうくつ でし�
 
 // ──────────────────────────────────────────────── まちの 2 方向
 
-test('6. まち: 山ごえの 出口(おおどおりのはし)と 河口の 出口(ふなつきば)が 誤発火しない', () => {
+test('6. まち: 山ごえ(おおどおりのはし) / 河口(ふなつきば) / キャラバン(やたい) が 誤発火しない', () => {
   const { M } = setup();
   const sim = M.createSimulation({ regionId: 'city', discovered: [] });
   const at = {};
   for (const g of sim.gates) at[g.spot.id] = g.to;
-  assert.equal(JSON.stringify(at), JSON.stringify({ cross4: 'countryside', boatpier: 'sea' }));
+  // Phase 3B-4 で やたいのならび(さばく)が くわわった。3 つとも べつの spot。
+  // ならびは gate の 配列じゅん しだい なので、そろえて から くらべる
+  const sorted = (o) => Object.keys(o).sort().map((k) => k + ':' + o[k]).join(',');
+  assert.equal(sorted(at), sorted({ stalls: 'desert', cross4: 'countryside', boatpier: 'sea' }));
   for (const g of sim.gates) assert.equal(sim.gatesAt(g.spot.id).length, 1);
   // むきが はんたい(山ごえは おくへ / 河口は 口へ)。よこも 2050 はなれて いる
   assert.equal(gateTo(sim, 'countryside').out, 'far', '山ごえは おくへ(たかいほう)');
   assert.equal(gateTo(sim, 'sea').out, 'near', '河口は 口へ(ひくいほう)');
   const r = sweep(M, 'city', [2000, 2600, 3000, 3400, 3650, 3900, 4200, 4550, 4900, 5200, 5600],
     [-1200, -600, 0, 600, 1200, 1800, 2050]);
-  assert.equal(JSON.stringify(r.perSpot), JSON.stringify({ boatpier: { sea: 6 }, cross4: { countryside: 9 } }),
+  const flat = (o) => Object.keys(o).sort().map((k) => k + '=' + JSON.stringify(o[k], Object.keys(o[k]).sort())).join(' ');
+  assert.equal(flat(r.perSpot), flat({ stalls: { desert: 5 }, boatpier: { sea: 6 }, cross4: { countryside: 9 } }),
     'それぞれの spot からしか 出ない');
 });
 
@@ -201,11 +205,11 @@ test('10. **あるいて せかいが 1 つに つながる**: おうち → も
   for (const id of Object.keys(G.regions)) (comp[find(id)] ||= []).push(id);
   const groups = Object.values(comp).map((v) => v.sort().join(',')).sort();
   // **わかれて いた 2 つ(生活圏 と うみの 3 つ)が ここで ひとつづきに なった。**
-  // さばくは まだ 2 本とも 未実装(Phase 3B-4)なので はなれた まま。
+  // さばくは Phase 3B-4 で まち・やまと つながり、ここに 入って きた。
   // きおくのみずうみは 地上の 出口を もたない
   assert.equal(groups.join(' / '),
-    'city,countryside,deepsea,forest,home,jungle,mountain,river_lake,sea,snow,star_stop / desert / memory_lake');
-  assert.equal(groups.length, 3, 'ひとつづき + さばく + きおくのみずうみ');
+    'city,countryside,deepsea,desert,forest,home,jungle,mountain,river_lake,sea,snow,star_stop / memory_lake');
+  assert.equal(groups.length, 2, 'ひとつづき + きおくのみずうみ');
 });
 
 // ──────────────────────────────────────────────── 演出・UI・こわして いない こと
