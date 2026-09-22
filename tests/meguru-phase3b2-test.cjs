@@ -29,7 +29,7 @@ const gateTo = (sim, to) => sim.gates.find((g) => g.to === to);
 test('1. この PR の 2 本に あるく 出口が ある。connection は ふえて いない', () => {
   const { G } = setup();
   assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
-  assert.equal(G.connections.filter((c) => c.b).length, 14);
+  assert.equal(G.connections.filter((c) => c.b).length, 13, '2 地域を むすぶ ものは 13 本');
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('forest|mountain'));
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('snow|mountain'));
   assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 13(3B-3 で 2 本・3B-4 で さらに 2 本 ふえた)');
