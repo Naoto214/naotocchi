@@ -4503,6 +4503,139 @@
           transition: ['きりが こくなる', 'おとが きえる', 'きし'] },
       ],
     };
+    // ====== Phase 4B: REGION_FRAME(物理 global への おきかた)と local ↔ global 変換 ======
+    // ねらい(Phase 4A 案 B「アトラス方式」):
+    //   なおとっち世界は **1 枚の 紙では なく 地図帳**。地域ごとの world(chart)は
+    //   「その土地を 歩ける 縮尺で かいた 1 ページ」で、REGION_FRAME は
+    //   **その ページが せかいの どこに どちらを むいて おかれて いるか** を もつ。
+    //
+    // **この そうは Phase 4B では だれも つかって いない。**
+    //   えがき(Canvas)・あたりはんてい・住民・カメラ・セーブ・世界地図は 1 つも よばない。
+    //   ここを まるごと けしても ゲームの うごきは 1 ミリも 変わらない(テストで しばって いる)。
+    //   はじめて つかうのは Phase 4C の corridor(「〇〇は あちら / およそ □□」)。
+    //
+    // だいじな きまり:
+    //   ・**local 座標は 1 つも 書きかえない。** この そうは そとがわに たすだけ
+    //   ・**yaw は 必須で、まるめない。** 平行移動だけでは connection が とじない
+    //       (Phase 4A 実測: 平行移動のみ RMS 3438 / 回転あり RMS 71 / 45°きざみ 2222)
+    //   ・**global 座標は セーブしない。** いつでも region + local から みちびける
+    //   ・**global から region を ぎゃくびき する かんすうは 作らない。**
+    //       chart は たがいに かさなる(Phase 4A: 45 くみ中 43 くみ)ので 一意に きまらない
+    //   ・**mapX / mapY は つかわない。** 世界地図は たんさく UI の ひょうげんで、
+    //       REGION_FRAME は 物理 simulation の transform。べつの そう(Phase 4A §19)
+    //
+    // せかいの むき: **global +Z = 北 / +X = 東**。ほういかくは 北から 時計まわり。
+    //
+    // 高さ(y)は **いみの そう**。ground = 0 を きじゅんに、そらは +、うみの そこは −。
+    // 4800 / −1600 という かずは **かりの もの**で、3D の ほんとうの 縮尺は Phase 4C で きめる。
+    // ここで しばるのは 「star_stop は 上 / deepsea は 下 / ground は きじゅん」という **かんけい だけ**。
+    const REGION_LAYER_Y = { ground: 0, sky: 4800, below: -1600 };
+
+    // --- かずの 出どころ ---
+    // 1. **geography canon(§12)が さいゆうせん**: せかい ぜんたいの むきは、
+    //    「西に やま / 北に ゆきぐに / 北西に さばく / 南〜南西に もり → いなか / 峠の むこうに とかい /
+    //     その さきに うみ / 南西の 外洋に しま」に いちばん あう 角へ そろえた。
+    // 2. **connection closure が つぎ**: walk 10 本の 両はしの mouth を global に うつした ときの
+    //    ずれを 最小二乗で といた。**さいだい 84 / RMS 53**(目標 < 400、Phase 4A の 144 より よい)。
+    // 3. **世界地図の 見ため は さいご**: mapX / mapY への あてはめは して いない(§15)。
+    //
+    // **わかった こと(Phase 4B の いちばん だいじな 発見)**:
+    //   canon の ほういと closure は **どちらも 立てられない**。chart が 1.51 ばい かさなって いる
+    //   ので、chart の 中心を canon の ほうがくに ならべると connection が とじなくなる。
+    //   おもみを ふって 測ると、closure を こわしても ほういの ずれは 111° より 下がらなかった。
+    //   → **closure(物理)が かたちを きめ、canon は せかい ぜんたいの むきを きめる**、と した。
+    //   → canon の 「どの地域が どっち」は **世界地図(mapX/mapY)の そうが もちつづける**(§15)。
+    //
+    // **この かずは `tools/meguru-region-frame-solve.cjs` で みちびきなおせる。**
+    //   node tools/meguru-region-frame-solve.cjs  → この ひょうが そのまま 出る(らんすうは つかって いない)
+    const REGION_FRAME = {
+      // 世界の 中心。飯田型の たに。origin は chart の local (0,0)(ろうかの 口がわ 中心)
+      home:        { x:      0, y:     0, z:     0, yaw: 4.3555, layer: 'ground' },
+      // 峠・分水界の むこう。べつの 水系
+      city:        { x:  -4010, y:     0, z:   110, yaw: 4.0187, layer: 'ground' },
+      // もりの さき。田んぼと 畑
+      countryside: { x:  -2770, y:     0, z: -1730, yaw: 4.9220, layer: 'ground' },
+      // おうちの 南〜南西。弓なりの 山脈の 南はし
+      forest:      { x:  -2130, y:     0, z: -1000, yaw: 4.8819, layer: 'ground' },
+      // にしの山地。弓の まんなか
+      mountain:    { x:  -6160, y:     0, z:  4170, yaw: 2.8909, layer: 'ground' },
+      // 北。行くほど 高く 寒く なる。弓の 北はし
+      snow:        { x:    -10, y:     0, z:  1810, yaw: 3.7507, layer: 'ground' },
+      // とかいがわ 水系の 河口・湾
+      sea:         { x:  -3810, y:     0, z:  -150, yaw: 4.3410, layer: 'ground' },
+      // 大河の 水系。おうちの となり
+      river_lake:  { x:  -2180, y:     0, z: -1630, yaw: 5.8915, layer: 'ground' },
+      // 南西の 外洋の しま。**うみの ぼうはていから 外洋を ひとわたり(= うみの おくゆき 8000)した さき**。
+      // closure では しばらない(ふねの transport edge)
+      jungle:      { x: -13890, y:     0, z: -6760, yaw: 3.9270, layer: 'ground' },
+      // 北西の 砂丘の せかい
+      desert:      { x:  -4480, y:     0, z:  -870, yaw: 2.9692, layer: 'ground' },
+      // **いなかの「やまろくの のりば」の ほぼ 真上**(ゴンドラは たてに のぼる)。
+      // X/Z の ずれ 1046 は ゴンドラが よこにも すすむ ぶん。closure では しばらない
+      star_stop:   { x:  -9340, y:  4800, z:  1940, yaw: 5.4806, layer: 'sky' },
+      // **うみの「かいしょくどうくつ」の 真下**(もぐるのは たて。X/Z の ずれ 3)。closure では しばらない
+      deepsea:     { x:  -9500, y: -1600, z: -1940, yaw: 4.3410, layer: 'below' },
+      // きおくのみずうみ は **わざと ない**。地上の ざひょうを もたない(Phase 4A §8)。
+      // frame を あたえると「きおくのみずうみまで 12 万たんい」と 言えて しまう
+    };
+
+    // frame を もつ 地域(= きおくのみずうみ いがいの 12)
+    const FRAMED_REGIONS = Object.keys(REGION_FRAME);
+    // その 地域が 通常の global 地理に いるか。きおくのみずうみ だけ false
+    const hasFrame = (regionId) => Object.prototype.hasOwnProperty.call(REGION_FRAME, regionId);
+    const regionFrame = (regionId) => (hasFrame(regionId) ? REGION_FRAME[regionId] : null);
+
+    // ---- local ↔ global の 純関数 ----
+    // ぜんぶ REGION_FRAME と ひきすう だけを 見る。state も world も よまない。
+    // frame を もたない 地域(きおくのみずうみ)・しらない id は **null** を かえす。
+    // null は 「エラー」では なく 「通常の global 地理の そとに ある」という こたえ。
+
+    // region-local の 点 → global の 点。{ x, y, z } を かえす
+    function toGlobal(regionId, p) {
+      const f = regionFrame(regionId);
+      if (!f || !p) return null;
+      const c = Math.cos(f.yaw), s = Math.sin(f.yaw);
+      const x = Number(p.x) || 0, z = Number(p.z) || 0;
+      return { x: f.x + x * c + z * s, y: f.y, z: f.z - x * s + z * c };
+    }
+    // global の 点 → **その region の** local。どの region かは よびだしがわが しる
+    // (chart が かさなる ので、global から region は ぎゃくびき できない)
+    function toLocal(regionId, g) {
+      const f = regionFrame(regionId);
+      if (!f || !g) return null;
+      const c = Math.cos(f.yaw), s = Math.sin(f.yaw);
+      const dx = (Number(g.x) || 0) - f.x, dz = (Number(g.z) || 0) - f.z;
+      return { x: dx * c - dz * s, z: dx * s + dz * c };
+    }
+    // むき(ベクトル)の 変換。いちを もたない ので origin は たさない。
+    // gate の bearing(region-local)や カメラの むきを global へ うつす ときに つかう
+    function dirToGlobal(regionId, d) {
+      const f = regionFrame(regionId);
+      if (!f || !d) return null;
+      const c = Math.cos(f.yaw), s = Math.sin(f.yaw);
+      const x = Number(d.x) || 0, z = Number(d.z) || 0;
+      return { x: x * c + z * s, z: -x * s + z * c };
+    }
+    function dirToLocal(regionId, d) {
+      const f = regionFrame(regionId);
+      if (!f || !d) return null;
+      const c = Math.cos(f.yaw), s = Math.sin(f.yaw);
+      const x = Number(d.x) || 0, z = Number(d.z) || 0;
+      return { x: x * c - z * s, z: x * s + z * c };
+    }
+    // かくど(ラジアン、0 = その region の +z)を global の ほういかく(0 = 北)へ。
+    // camera.yaw と おなじ ならべかたなので、3D でも そのまま つかえる
+    function yawToGlobal(regionId, yaw) {
+      const f = regionFrame(regionId);
+      if (!f || !Number.isFinite(yaw)) return null;
+      return wrapAngle(yaw + f.yaw);
+    }
+    function yawToLocal(regionId, yaw) {
+      const f = regionFrame(regionId);
+      if (!f || !Number.isFinite(yaw)) return null;
+      return wrapAngle(yaw - f.yaw);
+    }
+
     // 世界地図に 出す 地域(= 地上の 10 と、たてじくの 上下 2)。きおくのみずうみは 入らない
     const GEO_GROUND = Object.keys(WORLD_GEOGRAPHY.regions).filter((id) => WORLD_GEOGRAPHY.regions[id].layer === 'ground');
     const GEO_AXIS_LAYERS = ['deepsea', 'star_stop'];
@@ -6249,6 +6382,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
