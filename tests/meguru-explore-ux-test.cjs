@@ -373,7 +373,7 @@ test('C5. しまに した あとの みちの かず・つなぎ', () => {
   const { M } = setup();
   const G = M.WORLD_GEOGRAPHY;
   const ids = G.connections.filter((c) => c.b).map((c) => c.id).sort();
-  assert.equal(ids.length, 14, 'ふつうの みち + たてじく + 海路で 14 本(きおくは べつ)');
+  assert.equal(ids.length, 13, 'ふつうの みち + たてじく + 海路で 13 本(きおくは べつ。Phase 3B-Final で いなか|みずべ を けした)');
   assert.ok(ids.includes('jungle|sea'), 'ジャングル|うみ は 海路として のこる');
   assert.ok(!ids.includes('desert|jungle'), 'さばく|ジャングルは さくじょ(外洋を 9.7 めもり わたる 徒歩の みちは なりたたない)');
   // 実在の ふね・こうろ・かいしゃの なまえを つかって いない

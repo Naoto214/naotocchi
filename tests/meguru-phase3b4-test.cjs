@@ -294,7 +294,7 @@ test('17. 探索率の ぶんぼは 1 つも 動いて いない(gate を つけ
   const every = {};
   for (const id of C.regions) every[id] = M.WORLDS[id].spots.map((q) => q.id);
   const found = arr(M.worldLinksFrom(every));
-  assert.equal(found.length, 13, 'ぜんぶ 見つけても link は 13 のまま');
+  assert.equal(found.length, 12, 'ぜんぶ 見つけても link は 12 のまま');
   for (const id of ['city|desert', 'desert|mountain']) assert.ok(found.includes(id));
   // かたがわだけでは 1 本も ひらかない
   for (const one of [{ city: ['stalls'] }, { desert: ['caravan'] }, { desert: ['gate'] }, { mountain: ['windnotch'] }])
