@@ -17,7 +17,8 @@ const FIXED_ENV = { timeMode: 'day', weatherMode: 'sunny', seasonMode: 'spring' 
 // おなじ したごしらえで ハーネスを 1 つ 作る。clockNow と きせつ・じこくは 引数で きめる
 function makeHarness(opts = {}) {
   // clockNow を はっきり 書く。ハーネスの Date.now() も new Date() も この かずに なる
-  const h = harness({ fullDisplay: true, clockNow: opts.clockNow != null ? opts.clockNow : 1000 });
+  // pinDate: `new Date()` も この とけいに そろえる(このファイルの 決定性の かなめ)
+  const h = harness({ fullDisplay: true, pinDate: true, clockNow: opts.clockNow != null ? opts.clockNow : 1000 });
   const s = h.api.state();
   Object.assign(s.lifetime, FIXED_ENV, opts.env || {});
   Object.assign(s, { stage: 'growing', isSleeping: false, energy: 100, health: 100, hunger: 80, speciesLine: 'dog', stageIndex: 4, ageTicks: 500 });
