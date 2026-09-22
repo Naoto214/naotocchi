@@ -16,7 +16,7 @@ const PRESETS = Object.freeze({
   sleeping: Object.freeze({isSleeping:true}),
 });
 
-const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap'].flatMap(line =>
+const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom'].flatMap(line =>
   [1,3,7,12,16,25,40,70].map((age,index) => [line+String(index+1).padStart(2,'0'),age])
 )));
 
