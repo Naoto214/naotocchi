@@ -43,10 +43,10 @@ function sweep(M, rid, zs, xs) {
 
 test('1. 2 本に あるく 出口が ついた。connection は ふえて いない', () => {
   const { G } = setup();
-  assert.equal(G.connections.length, 15, 'connection は 15 本の まま');
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
   assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 9 → 11 → 13(3B-4)');
   assert.equal(G.connections.filter((c) => c.b && !c.gate).map((c) => c.id).sort().join(','),
-    'countryside|river_lake', '未実装は 5 → 3 → 1');
+    '', '未実装は 5 → 3 → 1 → 0(Phase 3B-Final)');
   for (const id of ['city|countryside', 'city|sea']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk', id + ' は あるいて こえる');
@@ -279,7 +279,7 @@ test('13. non-region terrain: 両がわ 6 段階。みやこがわは たにの 
 test('14. 探索率の ぶんぼは 1 つも 動いて いない(gate を つけただけ)', () => {
   const { M } = setup();
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   const every = {};
   for (const id of C.regions) every[id] = M.WORLDS[id].spots.map((q) => q.id);

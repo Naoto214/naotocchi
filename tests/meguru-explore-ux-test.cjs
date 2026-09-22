@@ -279,7 +279,7 @@ test('B4. 探索率の しきは ひとつも かわって いない(471 spot / 
   assert.equal(zero.progress.linkTotal, C.links.length);
   assert.equal(zero.progress.markTotal, C.tier1);
   assert.equal(zero.progress.zoneTotal, C.zones);
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   const marks = {}, zoneRec = {};
   for (const id of C.regions) marks[id] = M.worldTier1(id).map((m) => m.mid);

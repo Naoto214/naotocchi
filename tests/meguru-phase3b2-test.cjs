@@ -28,13 +28,13 @@ const gateTo = (sim, to) => sim.gates.find((g) => g.to === to);
 
 test('1. この PR の 2 本に あるく 出口が ある。connection は ふえて いない', () => {
   const { G } = setup();
-  assert.equal(G.connections.length, 15, 'connection は 15 本の まま');
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
   assert.equal(G.connections.filter((c) => c.b).length, 14);
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('forest|mountain'));
   assert.ok(G.connections.filter((c) => c.gate).map((c) => c.id).includes('snow|mountain'));
   assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 13(3B-3 で 2 本・3B-4 で さらに 2 本 ふえた)');
   assert.equal(G.connections.filter((c) => c.b && !c.gate).map((c) => c.id).sort().join(','),
-    'countryside|river_lake', '未実装は 1');
+    '', 'Phase 3B-Final で 未実装は 0');
   for (const id of ['forest|mountain', 'snow|mountain']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk'); assert.equal(c.layer, 'ground');
@@ -241,7 +241,7 @@ test('13. UI は ふえて いない。あるく 出口では context action を
 test('14. 探索率の ぶんぼは 1 つも 動いて いない(gate を つけただけ)', () => {
   const { M } = setup();
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   const every = {};
   for (const id of C.regions) every[id] = M.WORLDS[id].spots.map((q) => q.id);

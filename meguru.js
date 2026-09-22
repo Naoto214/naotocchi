@@ -4349,9 +4349,19 @@
             countryside: { spot: 'woods', dir: 'far', land: ['しゅうらく', 'はたけの けはい', 'やまみち', 'すぎの こだち', 'ふかい もり'] } } },
           why: 'もりの おくの こけむした 石の かいだんを のぼると、木が ひらけて 人の さとの もりへ 出る。butterfly / cicada が またぐ', from: '「こけのかいだん」を のぼりきる／「ちんじゅのもり」の おくへ',
           transition: ['はたけ', 'やしきりん', 'ぞうきばやし', 'ちんじゅのもり', 'あかるいもり'] },
-        { id: 'countryside|river_lake', mouths: { countryside: 'riverbank', river_lake: 'bank' }, a: 'countryside', b: 'river_lake', kind: 'river', layer: 'ground', made: 'nature', label: 'たにがわ', ends: ['脇', '口'], long: true,
-          why: '山里の 水車と たなだの 水は、やまから おりる 支流。それが たにの おおかわへ 合流する。frog が またぐ', from: '「かわぞい」から したへ くだる',
-          transition: ['たなだ', 'みずぐるま', 'かわぞいのみち', 'とびいし', 'かわぎし'] },
+        // Phase 3B-Final: **`countryside|river_lake` を けした。**
+        // 山里の 水が たにの おおかわへ 合流する のは ほんとう だが、その 合流点は
+        // **たにの なか = 地図では もりの いち**に ある。直通の 線は もりを 42.9%
+        // (と おうちを 7.1%)つきぬけて いて、**ぜんぶの connection の なかで
+        // よその region を 貫通して いたのは この 1 本だけ**だった(きょりも 最長 5.70)。
+        // 「支流を くだって おおかわへ 出る」たいけんは、すでに
+        //   `countryside|forest` + `home|forest` + `home|river_lake`
+        // の みじかい 3 本が になって いる。`forest|snow` と おなじ りゆうで けす。
+        // いなか ⇄ みずべ は もり けいゆ、もしくは まち → さばく → やま の にしまわりで 行ける。
+        // → けった いきさつ: docs/qa/meguru-phase3b-final-countryside-river-2026-09-22.md
+        // なお **`countryside.riverbank` と `river_lake.bank` の spot は のこして ある**。
+        // どちらも ほかの みちと つながった ふつうの ばしょで、connection の
+        // 出口 だった ことと spot が ある ことは べつ。
         // **おうち ↔ いなか の 直通は もたない。**あるいて 山里へ 行く ときは かならず もりを こえる。
         // (ただし 既存の「たび」では いままでどおり 直接 行き来できる。地理と たびは べつの しくみ)
         { id: 'home|forest', mouths: { home: 'bigtree', forest: 'entry' }, a: 'home', b: 'forest', kind: 'wood', layer: 'ground', made: 'people', label: 'もりへのみち', ends: ['奥', '口'],

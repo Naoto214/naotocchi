@@ -33,8 +33,8 @@ test('1. この PR の 2 本に あるく 出口が ある。connection は ふ�
   assert.ok(withGate.includes('home|river_lake') && withGate.includes('mountain|river_lake'),
     'この PR の 2 本に gate が ある');
   assert.equal(G.connections.filter((c) => c.gate).length, 13, 'gate は 13(3B-2 / 3B-3 / 3B-4 で ふえた)');
-  assert.equal(G.connections.filter((c) => c.b && !c.gate).length, 1, 'Phase 3B-4 で 未実装は 1');
-  assert.equal(G.connections.length, 15, 'connection は ふやして いない');
+  assert.equal(G.connections.filter((c) => c.b && !c.gate).length, 0, 'Phase 3B-Final で 未実装は 0');
+  assert.equal(G.connections.length, 14, 'connection は 14 本(Phase 3B-Final で いなか|みずべ を けした)');
   for (const id of ['mountain|river_lake', 'home|river_lake']) {
     const c = G.connections.find((q) => q.id === id);
     assert.equal(c.gate.kind, 'walk', id + ' は あるいて こえる');
@@ -79,8 +79,10 @@ test('3. かわ・みずうみ の 2 つの 入口は かさならない。か�
   // 口(z 800)と 奥(z 6600)。おなじ ところに かさなって いない
   const r = (id) => W.river_lake.spots.find((q) => q.id === id).z;
   assert.ok(r('lakelook') - r('riverside') > 5000, '口と 奥で じゅうぶん はなれて いる');
-  // countryside|river_lake の anchor 候補 `bank` は まだ どの gate にも つかわれて いない
-  assert.ok(!sim.gates.some((g) => g.spot.id === 'bank'), 'かわぎしは いなか用に あけて ある');
+  // `bank`(かわぎし)は どの gate にも つかわれて いない。
+  // Phase 3B-Final で いなか|みずべ を けした ので、これから つかう よていも ない。
+  // **spot じたいは のこって いる**(みずべの 手前の ひろば)
+  assert.ok(!sim.gates.some((g) => g.spot.id === 'bank'), 'かわぎしは 出口では ない');
 });
 
 // ──────────────────────────────────────────────── おおきなきの 分かれみち
@@ -238,7 +240,7 @@ test('13. UI は ふえて いない。あるく 出口では context action を
 test('14. 探索率の ぶんぼは 1 つも 動いて いない(gate を つけただけ)', () => {
   const { M } = setup();
   const C = M.worldCountable();
-  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 13);
+  assert.equal(C.regions.length, 11); assert.equal(C.links.length, 12, 'Phase 3B-Final で いなか|みずべ を けした ぶん 13 → 12');
   assert.equal(C.tier1, 17); assert.equal(C.zones, 103);
   // はっけんの じょうけんも かわって いない(gate では なく mouth の spot で きまる)
   const every = {};

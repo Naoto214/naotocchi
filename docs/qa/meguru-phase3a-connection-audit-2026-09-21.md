@@ -20,7 +20,14 @@ spot / path / zone / secret / connection / gate / `travelToRegion()` はすべ�
 > (gate 5 → 13 / 未実装 9 → 1 / gate 端点 10 → 26)。
 > **Phase 3B-4 で さばくの こりつが とけ、徒歩の連結成分は 9 地域 1 つに なりました**
 > (のりものも いれると きおくのみずうみ いがいの 12 地域が ひとつの せかい)。
-> **のこる 未実装は `countryside|river_lake` の 1 本だけ**です。
+> **Phase 3B-Final(2026-09-22)で `countryside|river_lake` を正式に削除しました。**
+> 直線が **forest を 42.9% / home を 7.1% 貫通**しており、**全 connection のなかで
+> 他 region を貫通していたのはこの 1 本だけ**、距離 5.70 も最長だったためです。
+> 削除しても いなか ⇄ みずべ は もり経由・にしまわりの 2 通りで行けます。
+> → **connection 15 → 14 / gate 実装済み 13 / 未実装 0 / link 分母 13 → 12**。
+> **これで「地図にある線はすべて実際に歩ける(または乗れる)」状態になり、Phase 3B は完了です。**
+> 判断の根拠は [`meguru-phase3b-final-countryside-river-2026-09-22.md`](meguru-phase3b-final-countryside-river-2026-09-22.md)。
+> なお `countryside.riverbank` と `river_lake.bank` の **spot 自体は残して**あります。
 > 3B-4 の anchor は 6 章の第 1 候補どおり
 > `city.stalls` ↔ `desert.caravan` / `desert.gate` ↔ `mountain.windnotch` を採用し、
 > 3 region 全 spot × 8 方向 = **4560 回の実測で混線 0**、mountain の役割分散
