@@ -258,6 +258,54 @@ test('special region backgrounds unlock only after visiting them', () => {
   assert.equal(h.api.setStickerPageBackground('page-1', 'star_stop'), true);
 });
 
+test('all thirteen region backgrounds render unique low-contrast SVG identities', () => {
+  const h = harness(), state = h.api.state();
+  state.lifetime.specialRegionsVisited.push('star_stop', 'memory_lake');
+  const ids = h.api.stickerBackgroundOptions().map((r) => r.id);
+  assert.equal(JSON.stringify(ids), JSON.stringify(['home','city','countryside','forest','mountain','snow','sea','deepsea','river_lake','jungle','desert','star_stop','memory_lake']));
+  const svgs = ids.map((id) => h.api.stickerBackgroundSvg(id));
+  assert.equal(new Set(svgs).size, ids.length, 'every region has a distinct background');
+  ids.forEach((id, i) => {
+    assert.match(svgs[i], new RegExp(`data-sticker-background="${id}"`));
+    for (const [, opacity] of svgs[i].matchAll(/\bopacity="([0-9.]+)"/g)) {
+      assert.ok(Number(opacity) <= 0.24, `${id} motif opacity ${opacity} stays behind stickers`);
+    }
+  });
+});
+
+test('the six confusable backgrounds use visibly different motif families', () => {
+  const h = harness();
+  const motif = (id) => h.api.stickerBackgroundSvg(id).match(/data-motif="([^"]+)"/)?.[1];
+  assert.equal(
+    JSON.stringify(['star_stop','memory_lake','deepsea','snow','forest','jungle'].map(motif)),
+    JSON.stringify(['orbits','lake-ripples','deep-current','snowfield','small-leaves','tropical-canopy'])
+  );
+  assert.notEqual(motif('star_stop'), motif('deepsea'));
+  assert.notEqual(motif('memory_lake'), motif('snow'));
+  assert.notEqual(motif('forest'), motif('jungle'));
+});
+
+test('the live board and PNG export consume the same regional SVG background', async () => {
+  const drawn = [];
+  class LoadedImage {
+    set src(value) { this._src = value; this.onload(); }
+    get src() { return this._src; }
+  }
+  const gradient = { addColorStop() {} };
+  const ctx = {
+    createLinearGradient: () => gradient, fillRect() {}, beginPath() {}, arc() {}, fill() {},
+    save() {}, restore() {}, translate() {}, rotate() {}, fillText() {},
+    drawImage(image) { drawn.push(image.src); },
+  };
+  const h = harness({ canvasContext: ctx, imageClass: LoadedImage });
+  assert.equal(h.api.setStickerPageBackground('page-1', 'forest'), true);
+  h.api.renderStickerOverlay();
+  const expected = h.api.stickerBackgroundDataUrl('forest');
+  assert.equal(h.get('stickerBoard').style.backgroundImage, `url("${expected}")`);
+  await h.api.exportStickerPageImage('page-1');
+  assert.equal(drawn[0], expected, 'export draws the exact SVG used by the live board');
+});
+
 test('legacy four-category pages migrate without losing placed stickers', () => {
   const h = harness();
   const old = h.api.state().lifetime.stickers;

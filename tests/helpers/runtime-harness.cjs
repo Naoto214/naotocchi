@@ -7,7 +7,7 @@ const master = fs.readFileSync('character-world-master.v1.js', 'utf8');
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000} = {}) {
   let now = clockNow, serial = 0;
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
@@ -142,6 +142,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     setInterval: () => ++serial, clearInterval: noop,
     Event: function(type, init) {Object.assign(this, event(type, init));},
     PointerEvent: function(type, init) {Object.assign(this, event(type, init));},
+    ...(imageClass ? { Image: imageClass } : {}),
     HTMLImageElement: class {static [Symbol.hasInstance](node) {return node?.tagName === 'IMG';}},
   });
   const expose = `
@@ -180,7 +181,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       scheduleEnvironmentMoment, REGION_MOMENTS, triggerLegendEncounter, maybeLegendEncounter,
       playLegendEncounterMovie, playOrdinaryDateMovie, playMarriageMovie, closeDateOverlay, finishDateMovie, DATE_PLANS,
       mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, createTouchPad, minigameDemoKind, QUICK_RUN, startQuickRun, quickSoloRun, quickStats, QUICK_VOICE_CHOICES, meguruMod, meguruBridge, startMeguru, stopMeguru, meguruActive: () => meguruActive, meguruRun: () => meguruRun, SPECIES, LEGACY_NORMAL_LINES, canonicalCompanionId, sceneryResolve: typeof SCENERY_RESOLVE === 'function' ? SCENERY_RESOLVE : undefined, sceneryCanvas: typeof SCENERY_CANVAS !== 'undefined' ? SCENERY_CANVAS : undefined, sceneryCtx: (c) => (typeof SCENERY_CANVAS !== 'undefined' && SCENERY_CANVAS ? SCENERY_CANVAS.canvas(c) : c), wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c), isAuthorUnlocked, currentFormStageIndex, renderTravelRegionGrid, QUICK_GAMES: quickMod ? quickMod.QUICK_GAMES : [], QUICK_RULES: quickMod ? quickMod.QUICK_RULES : null, isFirstMinigamePlay, arrangeMinigameControls, openMinigameHelp, closeMinigameHelp, MINIGAME_INTRO_PLAYS,
-      stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openThemedStickerPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_THEME_PRICE, STICKER_PACK_SIZE, STICKER_COPY_MAX, STICKER_TASK_ADEPT_ID, STICKER_TASK_MASTER_ID, STICKER_PAGE_MAX, STICKER_BOOK_MAX_PAGES, stickerPageIds, addStickerPage, stickerBackgroundOptions, stickerPageBackground, setStickerPageBackground, stickerPageInfo, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, stickerDrawablePool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
+      stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openThemedStickerPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_THEME_PRICE, STICKER_PACK_SIZE, STICKER_COPY_MAX, STICKER_TASK_ADEPT_ID, STICKER_TASK_MASTER_ID, STICKER_PAGE_MAX, STICKER_BOOK_MAX_PAGES, stickerPageIds, addStickerPage, stickerBackgroundOptions, stickerBackgroundSvg: typeof stickerBackgroundSvg === 'function' ? stickerBackgroundSvg : () => '', stickerBackgroundDataUrl: typeof stickerBackgroundDataUrl === 'function' ? stickerBackgroundDataUrl : () => '', stickerPageBackground, setStickerPageBackground, stickerPageInfo, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, stickerDrawablePool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
       recordMinigameResult, minigameRankOf, buyOrEquipShopItem,
       buildLifeTimelineHTML, encodeLifeCode, decodeLifeCode, lifeCodeCardHTML, renderProfile, reportRuntimeError, pushLifeLog, archiveLifeAndReset, buildLifeCard,
       render, tick, loop, openExclusiveMenu, closeAllMenuOverlays, isAnyMenuOverlayOpen, isTimePaused,
