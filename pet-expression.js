@@ -180,12 +180,20 @@
     "sakura/05": {"face":[65,69],"sweat":{"leftInner":18.8125,"rightInner":91.8125,"centerY":48.0625},"marks":{"happy":[10.5,-5],"strained":[6.5,4.5],"hungry":[-7,-2.5],"sick":[-17,-2.5],"tired":[-4.5,-4.5],"sulky":[2.5,-13.5],"weak":[10,-2.5],"critical":[8.5,-6.5],"wantsPlay":[-29,17],"sleeping":[-4,-5.5]}},
     "sakura/06": {"face":[46,76],"sweat":{"leftInner":8.375,"rightInner":96.375,"centerY":61.75},"marks":{"happy":[-13,3],"strained":[-11.5,23],"hungry":[-23.5,5],"sick":[-28.5,3.5],"tired":[-21.5,4],"sulky":[-11.5,-1.5],"weak":[-16,9.5],"critical":[-17,6.5],"wantsPlay":[-44.5,21.5],"sleeping":[-21,2.5]}},
     "sakura/07": {"face":[58,94],"sweat":{"leftInner":9.625,"rightInner":90.125,"centerY":76.375},"marks":{"happy":[23.5,9.5],"strained":[-32.5,19.5],"hungry":[21,13.5],"sick":[-12,-17.5],"tired":[19.5,16],"sulky":[30,7.5],"weak":[21.5,19.5],"critical":[28,15.5],"wantsPlay":[-34.5,5],"sleeping":[23.5,14.5]}},
-    "sakura/08": {"face":[62,89],"sweat":{"leftInner":8.375,"rightInner":96.375,"centerY":72.3125},"marks":{"happy":[17.5,1.5],"strained":[-9,8.5],"hungry":[14,-2],"sick":[-8,-6],"tired":[12.5,1],"sulky":[19.5,-5.5],"weak":[3.5,1.5],"critical":[19,2],"wantsPlay":[-31.5,6],"sleeping":[16.5,-2.5]}}
+    "sakura/08": {"face":[62,89],"sweat":{"leftInner":8.375,"rightInner":96.375,"centerY":72.3125},"marks":{"happy":[17.5,1.5],"strained":[-9,8.5],"hungry":[14,-2],"sick":[-8,-6],"tired":[12.5,1],"sulky":[19.5,-5.5],"weak":[3.5,1.5],"critical":[19,2],"wantsPlay":[-31.5,6],"sleeping":[16.5,-2.5]}},
+    "venus_flytrap/01": {"face":[57,73],"sweat":{"leftInner":9.8125,"rightInner":94.3125,"centerY":59.3125},"marks":{"happy":[16,-14],"strained":[-12.5,10.5],"hungry":[27,-13],"sick":[-3,-26],"tired":[25,-10.5],"sulky":[8,-31],"weak":[25,-5.5],"critical":[26,-14],"wantsPlay":[-35.5,-8],"sleeping":[29.5,-12]}},
+    "venus_flytrap/02": {"face":[64,94],"sweat":{"leftInner":15.5,"rightInner":90,"centerY":76.375},"marks":{"happy":[14,11],"strained":[1,16.5],"hungry":[-4,10.5],"sick":[-15.5,10.5],"tired":[-1,8.5],"sulky":[4.5,2.5],"weak":[13,13],"critical":[11,8.5],"wantsPlay":[-29.5,28.5],"sleeping":[0,6.5]}},
+    "venus_flytrap/03": {"face":[61,104],"sweat":{"leftInner":8.0625,"rightInner":96.0625,"centerY":84.5},"marks":{"happy":[10,20.5],"strained":[-8.5,30],"hungry":[-3.5,14],"sick":[-11.5,13],"tired":[-2.5,15],"sulky":[2,10.5],"weak":[10,21.5],"critical":[9,16.5],"wantsPlay":[-32,23],"sleeping":[-1.5,13.5]}},
+    "venus_flytrap/04": {"face":[43,50],"sweat":{"leftInner":8.4375,"rightInner":55.4375,"centerY":31.125},"marks":{"happy":[-26,-1.5],"strained":[-9.5,2.5],"hungry":[-19,-7.5],"sick":[-32.5,-13.5],"tired":[-20.5,-4.5],"sulky":[-12,-8],"weak":[-20,0.5],"critical":[-15.5,-2.5],"wantsPlay":[-47,5],"sleeping":[-16.5,-7]}},
+    "venus_flytrap/05": {"face":[65,42],"sweat":{"leftInner":25.8125,"rightInner":78.3125,"centerY":28.625},"marks":{"happy":[-6,-10.5],"strained":[6,-7],"hungry":[1.5,-17],"sick":[-8.5,-17],"tired":[0,-13.5],"sulky":[6,-19.5],"weak":[0,-8],"critical":[5,-11.5],"wantsPlay":[-29,-5],"sleeping":[4,-16]}},
+    "venus_flytrap/06": {"face":[65,87],"sweat":{"leftInner":8.3125,"rightInner":96.3125,"centerY":70.6875},"marks":{"happy":[6,14],"strained":[-3.5,18.5],"hungry":[7.5,6.5],"sick":[-10.5,5.5],"tired":[6.5,10],"sulky":[12.5,4],"weak":[6.5,16],"critical":[11.5,12],"wantsPlay":[-29,18],"sleeping":[10,6.5]}},
+    "venus_flytrap/07": {"face":[65,43],"sweat":{"leftInner":34.8125,"rightInner":70.8125,"centerY":19.9375},"marks":{"happy":[-10,-6],"strained":[10,-1],"hungry":[0,-9.5],"sick":[-17.5,-21.5],"tired":[-2,-6.5],"sulky":[2.5,-14.5],"weak":[-2,-1.5],"critical":[3,-4.5],"wantsPlay":[-29,1.5],"sleeping":[2.5,-8.5]}},
+    "venus_flytrap/08": {"face":[61,39],"sweat":{"leftInner":33.0625,"rightInner":68.0625,"centerY":6.1875},"marks":{"happy":[-11,-15.5],"strained":[2.5,-5.5],"hungry":[-6.5,-19.5],"sick":[-16.5,-39],"tired":[-7.5,-16],"sulky":[1,-19.5],"weak":[-4.5,-9],"critical":[-3,-14],"wantsPlay":[-32,-6.5],"sleeping":[-4.5,-19]}}
   };
   // END GENERATED FACE PLACEMENT
   const HUMAN_LINES = ['man','woman'];
   const STAGE_ASSETS = Object.freeze({
-    ...Object.fromEntries([...HUMAN_LINES,'penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura'].flatMap(line => Array.from({length:8},(_,index) => {
+    ...Object.fromEntries([...HUMAN_LINES,'penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap'].flatMap(line => Array.from({length:8},(_,index) => {
       const stage=String(index+1).padStart(2,'0');
       return [`assets/characters/${line}/${stage}.png`,Object.freeze(Object.fromEntries(
         Object.keys(VARIANT_ASSETS).map(name => [name,`assets/characters/expressions/${line}/${stage}-${name}.png`])
@@ -288,7 +296,7 @@
     const placement = MARK_PLACEMENT[baseAsset.slice(18,-4)];
     const offset = (placement?.marks[expression] || [0,0]).join(' ');
     // Each species thinks of recognizable food; keep the shared yellow palette and thought bubbles.
-    const artwork = /^assets\/characters\/frog\/0[1-8]\.png$/.test(baseAsset) && expression === 'hungry'
+    const artwork = /^assets\/characters\/(?:frog|venus_flytrap)\/0[1-8]\.png$/.test(baseAsset) && expression === 'hungry'
       ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><ellipse class="accent-food" cx="88" cy="19" rx="5" ry="3"/><path class="accent-food" d="M83 17l-5-4m5 8-5 4m15-8 5-4m-5 8 5 4"/><circle class="accent-food-eye" cx="86" cy="18" r="1"/></svg>'
       : /^assets\/characters\/clownfish\/0[1-8]\.png$/.test(baseAsset) && expression === 'hungry'
         ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><circle class="accent-food" cx="84" cy="18" r="3"/><circle class="accent-food" cx="92" cy="15" r="2.5"/><circle class="accent-food" cx="94" cy="23" r="2"/></svg>'
