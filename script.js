@@ -14413,23 +14413,77 @@
   const STICKER_THEME_PRICE = 60;
   const STICKER_PACK_SIZE = 3;
   const STICKER_COPY_MAX = 9;
-  const STICKER_BACKGROUND_COLORS = {
-    home: ['#ffe9f0', '#fff8e8', '#e9f5d8'],
-    city: ['#f5e6ff', '#b8a6d9', '#4a4066'],
-    countryside: ['#fef6d0', '#cbe6a0', '#7fae5a'],
-    forest: ['#e3f3d6', '#a3cf85', '#4f7a3d'],
-    mountain: ['#edf1e8', '#9fb39a', '#596c57'],
-    snow: ['#ffffff', '#dbe9f5', '#9fb8d9'],
-    sea: ['#cdeaff', '#6ec6e8', '#2f8fc7'],
-    deepsea: ['#18345f', '#0b1f3b', '#03101f'],
-    river_lake: ['#dff7ef', '#83c8ba', '#3b7f74'],
-    jungle: ['#d8f6c8', '#61aa68', '#245b3a'],
-    desert: ['#fff3d6', '#f0c877', '#d99a4e'],
-    star_stop: ['#2b2f5e', '#171a38', '#05060f'],
-    memory_lake: ['#f2fbff', '#cfe3ec', '#8ba7b5'],
+  // シールが主役になるよう、地域の景色は低コントラストの抽象SVGへ要約する。
+  // 同じSVGを画面とPNG書き出しで使い、地域モチーフの食い違いを防ぐ。
+  const STICKER_BACKGROUND_THEMES = {
+    home: {
+      colors: ['#fff0f4', '#fff9eb', '#eaf5df'], motif: 'quiet-room',
+      art: '<g opacity="0.11" fill="none" stroke="#b77c91" stroke-width="2"><path d="M0 80H640M0 160H640M0 240H640"/><path d="M80 0V300M240 0V300M400 0V300M560 0V300"/></g><path opacity="0.15" fill="#b7c99d" d="M0 360Q160 330 320 360T640 350V480H0Z"/><path opacity="0.18" fill="none" stroke="#9e7f8d" stroke-width="4" d="M70 360V305H155V360M92 305V274H133V305"/>',
+    },
+    city: {
+      colors: ['#eee9f8', '#c6bdd9', '#726a89'], motif: 'city-windows',
+      art: '<g opacity="0.16" fill="#554c70"><path d="M0 300H72V185H128V300H185V225H250V300H305V150H390V300H448V205H516V300H572V170H640V480H0Z"/></g><g opacity="0.2" fill="#fff4bc"><path d="M24 328h14v9H24zM52 328h14v9H52zM212 344h14v9h-14zM335 324h15v10h-15zM367 324h15v10h-15zM475 338h15v10h-15zM596 320h15v10h-15z"/></g><path opacity="0.12" fill="none" stroke="#f8e7ff" stroke-width="3" d="M0 382H640M0 410H640"/>',
+    },
+    countryside: {
+      colors: ['#fff7dc', '#dceab2', '#91b96e'], motif: 'field-patches',
+      art: '<path opacity="0.14" fill="#87aa66" d="M0 278Q112 226 226 272T448 266T640 274V480H0Z"/><g opacity="0.18" fill="none" stroke="#6f9553" stroke-width="3"><path d="M0 345Q160 308 320 345T640 338M0 386Q160 348 320 386T640 378M80 310L35 480M210 300L185 480M360 305L375 480M520 300L580 480"/></g>',
+    },
+    forest: {
+      colors: ['#dcebd6', '#9fc28c', '#55764e'], motif: 'small-leaves',
+      art: '<g opacity="0.16" fill="#315d3b"><path d="M0 480V305H640V480Z"/><path d="M62 360V205h18v155M205 360V170h22v190M386 360V200h20v160M548 360V155h22v205"/><ellipse cx="70" cy="205" rx="82" ry="62"/><ellipse cx="216" cy="170" rx="96" ry="72"/><ellipse cx="396" cy="200" rx="90" ry="66"/><ellipse cx="560" cy="155" rx="104" ry="76"/></g><g opacity="0.2" fill="#edf6dd"><ellipse cx="76" cy="92" rx="15" ry="7" transform="rotate(-28 76 92)"/><ellipse cx="151" cy="65" rx="12" ry="6" transform="rotate(31 151 65)"/><ellipse cx="270" cy="95" rx="14" ry="7" transform="rotate(-22 270 95)"/><ellipse cx="382" cy="62" rx="13" ry="6" transform="rotate(26 382 62)"/><ellipse cx="495" cy="105" rx="15" ry="7" transform="rotate(-30 495 105)"/><ellipse cx="585" cy="70" rx="12" ry="6" transform="rotate(34 585 70)"/></g>',
+    },
+    mountain: {
+      colors: ['#edf1e9', '#b4c1ae', '#687663'], motif: 'mountain-ridges',
+      art: '<path opacity="0.16" fill="#5d6a5c" d="M0 352 145 178l84 87L342 125l154 169 70-76 74 92v170H0Z"/><path opacity="0.22" fill="none" stroke="#f5f7ef" stroke-width="5" d="m104 226 41-48 32 34M294 176l48-51 47 52M536 251l30-33 28 35"/><path opacity="0.12" fill="none" stroke="#465346" stroke-width="3" d="M0 377Q165 335 324 373T640 360M0 414Q165 374 324 410T640 399"/>',
+    },
+    snow: {
+      colors: ['#ffffff', '#e5f0f8', '#b9d0e3'], motif: 'snowfield',
+      art: '<g opacity="0.2" fill="none" stroke="#7fa8c6" stroke-width="2"><path d="M85 70v34M68 87h34M73 75l24 24M97 75 73 99M250 118v28M236 132h28M240 122l20 20M260 122l-20 20M500 72v36M482 90h36M487 77l26 26M513 77l-26 26"/></g><g opacity="0.18" fill="#ffffff"><circle cx="170" cy="70" r="5"/><circle cx="350" cy="92" r="7"/><circle cx="575" cy="135" r="5"/><circle cx="430" cy="45" r="4"/></g><path opacity="0.2" fill="#f8fcff" d="M0 330Q130 270 262 326T520 318T640 300V480H0Z"/><path opacity="0.18" fill="none" stroke="#8cb3cc" stroke-width="3" d="M0 337Q130 277 262 333T520 325T640 307"/>',
+    },
+    sea: {
+      colors: ['#d7efff', '#82cce7', '#3f9cca'], motif: 'open-waves',
+      art: '<path opacity="0.2" fill="none" stroke="#ffffff" stroke-width="4" d="M0 190Q40 170 80 190T160 190T240 190T320 190T400 190T480 190T560 190T640 190M0 245Q55 220 110 245T220 245T330 245T440 245T550 245T660 245M0 315Q70 286 140 315T280 315T420 315T560 315T700 315"/><path opacity="0.12" fill="#256f9b" d="M0 350Q115 320 225 352T450 345T640 336V480H0Z"/>',
+    },
+    deepsea: {
+      colors: ['#173754', '#0a2238', '#03111f'], motif: 'deep-current',
+      art: '<g opacity="0.18" fill="none" stroke="#79b8c9" stroke-width="3"><path d="M105-20Q60 100 112 220T92 500M325-20Q270 105 330 235T305 500M540-20Q495 110 548 230T530 500"/></g><g opacity="0.22" fill="none" stroke="#8bd1d7" stroke-width="2"><circle cx="75" cy="350" r="10"/><circle cx="100" cy="305" r="6"/><circle cx="470" cy="370" r="12"/><circle cx="500" cy="315" r="7"/><circle cx="240" cy="405" r="8"/><circle cx="260" cy="365" r="4"/></g><path opacity="0.13" fill="#000914" d="M0 420Q105 372 205 418T420 411T640 396V480H0Z"/>',
+    },
+    river_lake: {
+      colors: ['#e2f4ec', '#91c8bc', '#4d8a7e'], motif: 'flowing-water',
+      art: '<g opacity="0.19" fill="none" stroke="#f5ffff" stroke-width="3"><path d="M-40 110Q100 65 240 110T520 110T800 110M-70 200Q70 155 210 200T490 200T770 200M-25 310Q115 265 255 310T535 310T815 310"/><ellipse cx="145" cy="382" rx="62" ry="16"/><ellipse cx="145" cy="382" rx="34" ry="8"/><ellipse cx="505" cy="350" rx="54" ry="14"/></g>',
+    },
+    jungle: {
+      colors: ['#d7efb8', '#70aa59', '#285b39'], motif: 'tropical-canopy',
+      art: '<g opacity="0.2" fill="#174d30"><path d="M0 0h155q-20 65-88 98Q83 45 0 80ZM640 0H485q18 72 88 112-14-67 67-92ZM0 480V295q92 10 134 92-72-32-90 93ZM640 480V285q-95 18-142 105 77-38 100 90Z"/><path d="M190 0q60 90 14 180-18-85-76-130ZM420 0q-48 92 4 180 10-88 70-135ZM260 480q30-118-56-184 38 108-10 184ZM420 480q-22-120 69-181-45 104-20 181Z"/></g><g opacity="0.13" fill="none" stroke="#e8f3b9" stroke-width="5"><path d="M10 230Q160 175 305 235T630 220M0 270Q155 215 320 278T650 255"/></g>',
+    },
+    desert: {
+      colors: ['#fff3d8', '#edc982', '#d59a54'], motif: 'dune-wind',
+      art: '<path opacity="0.18" fill="#b7773d" d="M0 330Q120 245 250 326T505 318T640 280V480H0Z"/><path opacity="0.2" fill="#f9dda0" d="M0 390Q155 300 315 385T640 360V480H0Z"/><g opacity="0.17" fill="none" stroke="#a86e3d" stroke-width="3"><path d="M25 150Q125 115 225 150M310 105Q410 72 515 105M420 195Q510 165 610 195"/></g>',
+    },
+    star_stop: {
+      colors: ['#302b61', '#18183d', '#070713'], motif: 'orbits',
+      art: '<g opacity="0.24" fill="#fff8ce"><circle cx="70" cy="70" r="3"/><circle cx="155" cy="125" r="2"/><circle cx="252" cy="58" r="4"/><circle cx="365" cy="115" r="2"/><circle cx="480" cy="55" r="3"/><circle cx="575" cy="145" r="4"/><circle cx="110" cy="300" r="2"/><circle cx="415" cy="325" r="3"/></g><g opacity="0.2" fill="none" stroke="#b8a8e8" stroke-width="3"><ellipse cx="320" cy="250" rx="250" ry="92" transform="rotate(-12 320 250)"/><ellipse cx="330" cy="245" rx="170" ry="54" transform="rotate(18 330 245)"/></g><path opacity="0.24" fill="none" stroke="#fff4c2" stroke-width="4" d="M455 110 535 72"/><circle opacity="0.24" fill="#fff4c2" cx="450" cy="113" r="6"/>',
+    },
+    memory_lake: {
+      colors: ['#f4f7fb', '#d9e3ee', '#b7b2cf'], motif: 'lake-ripples',
+      art: '<g opacity="0.2" fill="none" stroke="#8b91b4" stroke-width="3"><ellipse cx="170" cy="290" rx="115" ry="25"/><ellipse cx="170" cy="290" rx="68" ry="13"/><ellipse cx="480" cy="355" rx="100" ry="22"/><ellipse cx="480" cy="355" rx="52" ry="10"/><path d="M35 205H270M340 230H610M80 390H360"/></g><g opacity="0.18" fill="#ffffff"><circle cx="120" cy="105" r="18"/><circle cx="300" cy="75" r="10"/><circle cx="455" cy="135" r="22"/><circle cx="565" cy="88" r="12"/></g><path opacity="0.14" fill="#fdfdff" d="M0 250Q160 230 320 252T640 246V480H0Z"/>',
+    },
   };
+  const STICKER_BACKGROUND_COLORS = Object.fromEntries(Object.entries(STICKER_BACKGROUND_THEMES).map(([id, theme]) => [id, theme.colors]));
   function stickerBackgroundColors(id) {
     return STICKER_BACKGROUND_COLORS[id] || ['#f4f0ff', '#fffaf0', '#e5f3ea'];
+  }
+  const stickerBackgroundSvgCache = new Map();
+  function stickerBackgroundSvg(id) {
+    const safeId = Object.prototype.hasOwnProperty.call(STICKER_BACKGROUND_THEMES, id) ? id : 'home';
+    if (stickerBackgroundSvgCache.has(safeId)) return stickerBackgroundSvgCache.get(safeId);
+    const theme = STICKER_BACKGROUND_THEMES[safeId];
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" preserveAspectRatio="xMidYMid slice" data-sticker-background="${safeId}" data-motif="${theme.motif}"><defs><linearGradient id="sticker-bg-${safeId}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${theme.colors[0]}"/><stop offset="0.55" stop-color="${theme.colors[1]}"/><stop offset="1" stop-color="${theme.colors[2]}"/></linearGradient></defs><rect width="640" height="480" fill="url(#sticker-bg-${safeId})"/>${theme.art}</svg>`;
+    stickerBackgroundSvgCache.set(safeId, svg);
+    return svg;
+  }
+  function stickerBackgroundDataUrl(id) {
+    return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(stickerBackgroundSvg(id))}`;
   }
 
   const STICKER_SCENERY = [
@@ -14855,7 +14909,10 @@
     el.stickerBoard.className = 'sticker-board';
     el.stickerBoard.dataset.page = stickerCurrentPage;
     el.stickerBoard.dataset.background = info?.background || 'home';
-    el.stickerBoard.style.background = `linear-gradient(180deg, ${colors[0]} 0%, ${colors[1]} 55%, ${colors[2]} 100%)`;
+    el.stickerBoard.style.background = colors[1];
+    el.stickerBoard.style.backgroundImage = `url("${stickerBackgroundDataUrl(info?.background || 'home')}")`;
+    el.stickerBoard.style.backgroundSize = 'cover';
+    el.stickerBoard.style.backgroundPosition = 'center';
     setHTMLIfChanged(el.stickerBoard, page.map((p) => stickerPlacedHTML(p, p.k === stickerSelected)).join('') || '<div class="sticker-board-empty">まだ なにも はっていない</div>');
     if (el.stickerTools) el.stickerTools.classList.toggle('hidden', stickerSelected == null || !findPlacedSticker(stickerCurrentPage, stickerSelected));
   }
@@ -14942,11 +14999,13 @@
     const ctx = CANVAS_ILLUSTRATIONS?.canvas(rawContext) || rawContext;
     if(CANVAS_ILLUSTRATIONS) await CANVAS_ILLUSTRATIONS.prepare([pg.emoji,...stickerPage(pageId).map(p => stickerById(p.id)?.art?.emoji).filter(Boolean)]);
     if (!ctx || typeof ctx.fillRect !== 'function' || typeof cv.toDataURL !== 'function') return null;
-    const g = ctx.createLinearGradient(0, 0, 0, Hc);
-    g.addColorStop(0, pg.colors[0]); g.addColorStop(0.5, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
-    ctx.fillStyle = g; ctx.fillRect(0, 0, Wc, Hc);
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    for (let y = 8; y < Hc; y += 28) for (let x = 8; x < Wc; x += 28) { ctx.beginPath(); ctx.arc(x, y, 1.5, 0, Math.PI * 2); ctx.fill(); }
+    const backgroundImage = await loadStickerImage(stickerBackgroundDataUrl(pg.background));
+    if (backgroundImage) ctx.drawImage(backgroundImage, 0, 0, Wc, Hc);
+    else {
+      const g = ctx.createLinearGradient(0, 0, 0, Hc);
+      g.addColorStop(0, pg.colors[0]); g.addColorStop(0.55, pg.colors[1]); g.addColorStop(1, pg.colors[2]);
+      ctx.fillStyle = g; ctx.fillRect(0, 0, Wc, Hc);
+    }
     for (const p of stickerPage(pageId)) {
       const s = stickerById(p.id);
       if (!s) continue;
