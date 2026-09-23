@@ -708,3 +708,12 @@ corridorMode(gate) =
 | walkLength | corridor の歩く長さ(段 × 450) |
 | travelLength | corridor の意味の長さ(段 × 1600。graph 用) |
 | commit | `state.regionId` を書きかえる唯一の時点(到着の handoff) |
+
+## 付録 C — 進みぐあい
+
+| 段階 | 状態 | 記録 |
+|---|---|---|
+| 4E 設計 | 完了(#335、main `a564730`) | この文書 |
+| 4E-1 corridor の形と状態(pure data) | **完了**(#336、main `6191f76`。PR 上の npm test 1266 / 1266、main の Home layout 緑。main の Runtime smoke は前からの ゆらぐ 2 本 → 4E-2 handoff §12) | [handoff](../handoff/meguru-phase4e1-corridor-geometry-2026-09-23.md) |
+| 4E-2 home\|forest を Canvas で歩く PoC | Draft PR(判定: 修正して採用) | [handoff](../handoff/meguru-phase4e2-home-forest-poc-2026-09-23.md) |
+| 4E-3 ほかの walk へ広げる | まだ(4E-2 handoff §13 の条件のあと) | |
