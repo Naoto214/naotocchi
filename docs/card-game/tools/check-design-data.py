@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py")
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,7 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py")
+        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py")
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -451,6 +451,26 @@ def check_checkpoint_120():
             checkpoint_check(False, f"120 canonical check failed: {error}")
     return checkpoint_errors, checkpoint_test_count, proxy_count
 
+
+if "--checkpoint-128" in sys.argv:
+    import proxy_r2_candidate_extension_128 as checkpoint_128
+    checkpoint_errors=[]
+    try:
+        inputs=checkpoint_128.load_sources()
+        checkpoint_errors.extend(checkpoint_128.check_outputs(DOCS/'data',inputs))
+        plan=json.loads((DOCS/'data'/checkpoint_128.PLAN_FILE).read_text())
+        evaluation=json.loads((DOCS/'data'/checkpoint_128.EVALUATION_FILE).read_text())
+        if plan!=checkpoint_128.build_plan(checkpoint_128.run_all(inputs)) or \
+                evaluation!=checkpoint_128.build_evaluation(plan) or \
+                evaluation['planned']!=4 or evaluation['independent_balance_sample']!=0:
+            checkpoint_errors.append('128 four-route canonical plan/evaluation differs')
+    except (OSError,ValueError,KeyError,TypeError) as error:
+        checkpoint_errors.append(f'128 source integrity: {error}')
+    if not (DOCS/'128-r2-candidate-extension.md').is_file() or \
+            '| [128](128-r2-candidate-extension.md) |' not in (DOCS/'README.md').read_text():
+        checkpoint_errors.append('128 report or README index')
+    print(json.dumps({'checkpoint':128,'errors':checkpoint_errors},ensure_ascii=False,indent=2))
+    sys.exit(bool(checkpoint_errors))
 
 if "--checkpoint-127" in sys.argv:
     import proxy_r2_candidate_extension_127 as checkpoint_127
@@ -3435,7 +3455,7 @@ proxy_test_count = sum(
                           "test_proxy_turn_end_provenance_restart.py",
                           "test_proxy_normal_action_extension.py",
                           "test_proxy_current_turn_end_correction.py",
-                          "test_proxy_r2_candidate_extension_127.py"}
+                          "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py"}
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")
