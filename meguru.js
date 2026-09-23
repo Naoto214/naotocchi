@@ -4636,6 +4636,199 @@
       return wrapAngle(yaw - f.yaw);
     }
 
+    // ====== Phase 4C: corridor(地域と 地域の あいだの みち)と global graph ======
+    // REGION_FRAME を はじめて 「いみの ある データ」に つかう そう。
+    //
+    //   region A ── corridor ── region B
+    //
+    // corridor は **うつしかえでは なく 生成物**。正本は つぎの じゅんで、corridor は ここから みちびく:
+    //   1. WORLD_GEOGRAPHY.connections(どこと どこが つながるか・のりもの・ことば)
+    //   2. gate の いみデータ(gate.ends[region] の 出口 spot・むき・land 6 段)。regionGates() が よむ のと おなじ もの
+    //   3. REGION_FRAME(global への おきかた)
+    // 手で うつした かずは 1 つも もたない(STAGE_LEN だけは 実測の めやす。下の コメント)。
+    //
+    // **まだ だれも つかって いない。** えがき・あたりはんてい・住民・なかま・カメラ・セーブ・世界地図・
+    // travelToRegion() は よばない。はじめて よんだ ときに 1 どだけ 組み立てて とっておく(毎フレーム つくらない)。
+    //
+    // だいじな きまり(Phase 4B の 申し送り):
+    //   ・**方角に chart の 中心は つかわない**(chart が 1.51 ばい かさなる ので 中心は だんごに なる)
+    //   ・**walk の globalFrom → globalTo も 方角に つかわない**。両はしは closure で 84 いない に よって いて、
+    //     その ちいさな ずれ(closure の のこり)の むきは ほぼ ノイズ
+    //   ・方角は **gate を 出て いく むき(leave)** を global に うつした もの
+    //
+    // わかった こと(Phase 4C): **corridor は まがって いる**。
+    //   A を 出る むき(leave)と B へ 入る むき(enter)が 一致しない(walk 10 本で 43〜178°)。
+    //   REGION_FRAME を「むきも つながる」ように 解きなおしても、closure を こわしながら RMS 70° より 下がらない
+    //   (実測。docs/handoff/meguru-phase4c-corridor-2026-09-23.md)。
+    //   chart は 1 まいずつ べつに かかれた 地図帳の ページで、gate の むきも ページごとに かかれて いる ため。
+    //   → leave と enter を べつべつに もち、その さを bend として のこす。
+    //   → 「○○は あちら」は **その gate を 出る むき(leave)**。その ばしょで じっさいに あるく むき なので、いつも 正しい。
+
+    // land 1 段の ながさ(world たんい)。**となりあう 地区の 中心どうしの きょりの 中央値 1576**(四分位 1256〜1874、
+    // 13 地域 165 くみ を 実測)を まるめた もの。land の 1 段(はたけ・ざつぼくりん・かわいた こうげん…)は
+    // 地区 1 つ ぶんの けしきの おび、と みる
+    const CORRIDOR_STAGE_LEN = 1600;
+    // こえかたごとの 「ほねおり」。**TRANSITION の span の 合計を walk と くらべた ひ**(じぶんで かずを 足さない)。
+    // (むきで ちがう: のぼり up は くだり down より ほねがおれる)
+    // walk 1.25s / up 2.95s / down 2.50s / sail 3.35s → 1 / 2.36 / 2.00 / 2.68
+    const spanOf = (way) => { const sp = (TRANSITION.ways[way] || TRANSITION.ways.walk).span; return sp.approach + sp.cross + sp.arrive + sp.settle; };
+    const CORRIDOR_WAY_FACTOR = Object.freeze({ walk: 1, up: spanOf('up') / spanOf('walk'), down: spanOf('down') / spanOf('walk'), sail: spanOf('sail') / spanOf('walk') });
+    // 8 方位。ゲームの ことばに あわせて ひらがな(正本にも「みなみにしの がいよう」が ある)
+    const COMPASS8 = [
+      { kana: 'きた', kanji: '北' }, { kana: 'きたひがし', kanji: '北東' }, { kana: 'ひがし', kanji: '東' }, { kana: 'みなみひがし', kanji: '南東' },
+      { kana: 'みなみ', kanji: '南' }, { kana: 'みなみにし', kanji: '南西' }, { kana: 'にし', kanji: '西' }, { kana: 'きたにし', kanji: '北西' },
+    ];
+    // ほういかく(度。0 = 北、とけいまわり)。むきを もたない ときは null
+    const headingOf = (d) => (d && (d.x || d.z) ? ((Math.atan2(d.x, d.z) * 180 / Math.PI) + 360) % 360 : null);
+    const unit = (d) => { const L = Math.hypot(d.x, d.z); return L > 0 ? { x: d.x / L, z: d.z / L } : null; };
+    // ほういかく → 8 方位の ことば
+    function compassLabel(deg) {
+      if (!Number.isFinite(deg)) return null;
+      const i = Math.round((((deg % 360) + 360) % 360) / 45) % 8;
+      return Object.assign({ index: i, deg: i * 45 }, COMPASS8[i]);
+    }
+    // gate の 出口の むき(region-local)。bearing が あれば それ、なければ 口(near)= −z / 奥(far)= +z
+    const corridorOutward = (end) => {
+      if (end && end.bearing) return unit({ x: Number(end.bearing.x) || 0, z: Number(end.bearing.z) || 0 });
+      if (end && end.dir === 'near') return { x: 0, z: -1 };
+      if (end && end.dir === 'far') return { x: 0, z: 1 };
+      return null;   // のりば(ride)は あるく むきを もたない
+    };
+    const spotOf = (regionId, spotId) => ((WORLDS[regionId] && WORLDS[regionId].spots) || []).find((q) => q.id === spotId) || null;
+
+    // 1 本の connection から corridor を 1 本 つくる。ends は gate.ends と おなじ かたち(region ごと)
+    function buildCorridor(c) {
+      const g = c.gate, E = g.ends || {};
+      const kind = g.kind === 'walk' ? 'walk' : g.kind === 'sea' ? 'sea' : 'vertical';
+      const special = c.sea || c.vertical || null;
+      const ride = special && special.ride ? { id: special.ride.id, name: special.ride.name, kind: special.ride.kind } : null;
+      const layerOf = (r) => (WORLD_GEOGRAPHY.regions[r] || {}).layer || 'ground';
+      const ends = {}, ways = {};
+      for (const r of [c.a, c.b]) {
+        const other = r === c.a ? c.b : c.a;
+        const e = E[r] || {}, spot = spotOf(r, e.spot), at = spot ? toGlobal(r, spot) : null;
+        const out = corridorOutward(e), leave = out ? dirToGlobal(r, out) : null;
+        ends[r] = { region: r, spot: e.spot || null, mouth: c.mouths ? c.mouths[r] : null,
+          layer: regionFrame(r) ? regionFrame(r).layer : null, at, leave: leave ? unit(leave) : null,
+          land: Array.isArray(e.land) ? e.land.slice() : [] };
+        // **こえかたは むきで かわる**(しんかいへは down、しんかいからは up)。
+        // regionGates() と おなじ きめかた(gate の kind、たては layer の さ)
+        ways[r] = kind === 'walk' ? 'walk' : kind === 'sea' ? 'sail' : wayBetween(layerOf(r), layerOf(other));
+      }
+      const A = ends[c.a], B = ends[c.b];
+      const gap = A.at && B.at ? Math.hypot(B.at.x - A.at.x, B.at.z - A.at.z) : null;
+      // 「どんな 段を とおるか」。walk は land 6 段、ふね / ゴンドラ は 正本の stages、もぐる は transition の ことば。
+      // ふね / ゴンドラ / もぐる の 段は **正本に かかれた むき**(origin → そのさき)で ならんで いる。
+      // origin は 段に かかれた region(ふね: うみ、ゴンドラ: いなか)、なければ gate.dir の むきで こえる がわ
+      let stages, origin = c.a;
+      if (kind === 'walk') stages = A.land.map((label) => ({ label, move: 'walk' }));
+      else if (special && Array.isArray(special.stages)) {
+        stages = special.stages.map((st) => ({ label: st.note || st.id, id: st.id, move: st.move }));
+        const first = special.stages.find((st) => st.region === c.a || st.region === c.b);
+        origin = first ? first.region : c.a;
+      } else {
+        origin = ways[c.a] === g.dir ? c.a : c.b;
+        stages = (c.transition || []).map((label) => ({ label, move: g.dir === 'down' ? 'dive' : 'rise' }));
+      }
+      const travelLength = stages.length * CORRIDOR_STAGE_LEN;
+      const costs = {};
+      for (const r of [c.a, c.b]) costs[r] = travelLength * CORRIDOR_WAY_FACTOR[ways[r]];
+      return Object.freeze({
+        id: c.id, kind, ride, label: c.label || null, a: c.a, b: c.b, ends, ways, origin,
+        // 両はしの X/Z の はなれ。**walk は closure の のこり(みちの ながさでは ない)**、
+        // sea は ほんとうに わたる 外洋、vertical は のりものの よこずれ
+        physicalGap: gap, gapKind: kind === 'walk' ? 'closure' : kind === 'sea' ? 'crossing' : 'drift',
+        heightDelta: A.at && B.at ? B.at.y - A.at.y : 0,
+        stages, travelStages: stages.length, travelLength, costs,
+        // walk: A を 出る むき と B へ 入る むき の さ(0° = まっすぐ)
+        bend: kind === 'walk' && A.leave && B.leave ? Math.acos(Math.max(-1, Math.min(1, -(A.leave.x * B.leave.x + A.leave.z * B.leave.z)))) * 180 / Math.PI : null,
+      });
+    }
+
+    // ぜんぶの corridor。**きおくのみずうみ は 入れない**(b が ない・frame が ない)。
+    // さいしょに よばれた ときに 1 どだけ 組み立てる
+    let corridorCache = null;
+    function worldCorridors() {
+      if (corridorCache) return corridorCache;
+      const list = WORLD_GEOGRAPHY.connections
+        .filter((c) => c.b && c.gate && hasFrame(c.a) && hasFrame(c.b))
+        .map(buildCorridor);
+      corridorCache = Object.freeze(list);
+      return corridorCache;
+    }
+
+    // corridor を 「from から 見た むき」に する。from / to を いれかえ、land は from がわの ものを つかう
+    const RISE_OF = { dive: 'rise', rise: 'dive' };
+    function orientCorridor(cor, fromRegion) {
+      if (!cor || (fromRegion !== cor.a && fromRegion !== cor.b)) return null;
+      const toRegion = fromRegion === cor.a ? cor.b : cor.a;
+      const F = cor.ends[fromRegion], T = cor.ends[toRegion];
+      const flip = fromRegion !== cor.a;
+      // 入る むき = 着いた がわの 出口の はんたい
+      const enter = T.leave ? { x: -T.leave.x, z: -T.leave.z } : null;
+      // 方角: walk は 出る むき、sea は ほんとうに わたる むき、vertical は うえ / した
+      let heading = null, vertical = null;
+      const dy = (flip ? -cor.heightDelta : cor.heightDelta) || 0;   // -0 に しない
+      if (cor.kind === 'walk') heading = headingOf(F.leave);
+      else if (cor.kind === 'sea') heading = F.at && T.at ? headingOf({ x: T.at.x - F.at.x, z: T.at.z - F.at.z }) : null;
+      else vertical = dy > 0 ? 'up' : 'down';
+      // 段: walk は from がわの land。ほかは origin から かかれて いるので、from が origin で なければ さかさに
+      const stages = cor.kind === 'walk' ? F.land.map((label) => ({ label, move: 'walk' }))
+        : fromRegion === cor.origin ? cor.stages.map((st) => Object.assign({}, st))
+          : cor.stages.slice().reverse().map((st) => Object.assign({}, st, { move: RISE_OF[st.move] || st.move }));
+      return { id: cor.id, kind: cor.kind, way: cor.ways[fromRegion], ride: cor.ride, from: fromRegion, to: toRegion,
+        fromSpot: F.spot, toSpot: T.spot, globalFrom: F.at, globalTo: T.at,
+        leave: F.leave, enter, heading, vertical, compass: compassLabel(heading),
+        physicalGap: cor.physicalGap, gapKind: cor.gapKind, heightDelta: dy,
+        // terrain = けしきの ならび。gate の land が あれば それ(ふねの 4 段も)、なければ 段の ことば
+        stages, terrain: F.land.length ? F.land.slice() : stages.map((st) => st.label),
+        travelStages: cor.travelStages, travelLength: cor.travelLength, cost: cor.costs[fromRegion], bend: cor.bend };
+    }
+    // その 地域から 出る corridor(from から 見た むき)
+    const corridorsFrom = (regionId) => worldCorridors().filter((c) => c.a === regionId || c.b === regionId).map((c) => orientCorridor(c, regionId));
+    // 「この 出口の さきは どっちか」。UI で「やま は にし」と いう ための ひとつ だけの 入口
+    function corridorDirection(connectionId, fromRegion) {
+      const cor = worldCorridors().find((c) => c.id === connectionId);
+      const o = cor ? orientCorridor(cor, fromRegion) : null;
+      if (!o) return null;
+      return { to: o.to, kind: o.kind, heading: o.heading, compass: o.compass, vertical: o.vertical,
+        label: o.vertical ? (o.vertical === 'up' ? 'うえ' : 'した') : (o.compass ? o.compass.kana : null) };
+    }
+
+    // ---- global graph ----
+    // node = frame を もつ 地域(layer つき)、edge = corridor(むきごとの ほねおり つき)。
+    // **region id を しって いる グラフ**で、global ざひょう から region を ぎゃくびき しない
+    function corridorGraph() {
+      const nodes = FRAMED_REGIONS.map((id) => ({ id, layer: regionFrame(id).layer }));
+      return { nodes, edges: worldCorridors().map((c) => ({ id: c.id, a: c.a, b: c.b, kind: c.kind,
+        ways: Object.assign({}, c.ways), costs: Object.assign({}, c.costs) })) };
+    }
+    // 2 つの 地域の あいだの いちばん ほねおりの すくない みち(ダイクストラ。のぼりと くだりで ほねおりが ちがう)。
+    // opts.special = false で あるく みち だけ。とどかない / しらない / きおくのみずうみ は null。
+    // 「たび」(travelToRegion)は この グラフの そと
+    function findRegionRoute(from, to, opts = {}) {
+      if (!hasFrame(from) || !hasFrame(to)) return null;
+      if (from === to) return { from, to, regions: [from], legs: [], cost: 0, travelLength: 0, walkOnly: true };
+      const allow = (c) => opts.special !== false || c.kind === 'walk';
+      const dist = new Map([[from, 0]]), prev = new Map(), done = new Set();
+      while (true) {
+        let cur = null, best = Infinity;
+        for (const [id, d] of dist) if (!done.has(id) && d < best) { best = d; cur = id; }
+        if (cur == null || cur === to) break;
+        done.add(cur);
+        for (const c of worldCorridors()) {
+          if (!allow(c) || (c.a !== cur && c.b !== cur)) continue;
+          const nx = c.a === cur ? c.b : c.a, nd = best + c.costs[cur];
+          if (nd < (dist.has(nx) ? dist.get(nx) : Infinity)) { dist.set(nx, nd); prev.set(nx, { from: cur, cor: c }); }
+        }
+      }
+      if (!dist.has(to)) return null;
+      const legs = [];
+      for (let at = to; at !== from; at = prev.get(at).from) legs.unshift(orientCorridor(prev.get(at).cor, prev.get(at).from));
+      return { from, to, regions: [from, ...legs.map((l) => l.to)], legs, cost: dist.get(to),
+        travelLength: legs.reduce((n, l) => n + l.travelLength, 0), walkOnly: legs.every((l) => l.kind === 'walk') };
+    }
+
     // 世界地図に 出す 地域(= 地上の 10 と、たてじくの 上下 2)。きおくのみずうみは 入らない
     const GEO_GROUND = Object.keys(WORLD_GEOGRAPHY.regions).filter((id) => WORLD_GEOGRAPHY.regions[id].layer === 'ground');
     const GEO_AXIS_LAYERS = ['deepsea', 'star_stop'];
@@ -6382,6 +6575,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
