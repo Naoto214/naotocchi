@@ -281,12 +281,13 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
   try {
     plant(dirA); plant(dir);
     // Phase 4B の ブロックと export への ついかを けす。
-    // Phase 4C(corridor)は 4B の すぐ うしろ(おなじ ブロックの なか)に のる 「まだ だれも つかって いない」 そう
-    // なので、export も いっしょに けす
+    // Phase 4C(corridor)と 4D-1(遠景の いみデータ)は 4B の すぐ うしろ(おなじ ブロックの なか)に のる
+    // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
     const stripped = SRC.replace(block, '')
-      .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,( CORRIDOR_STAGE_LEN,[^\n]*? compassLabel,)?/, '');
+      .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,( CORRIDOR_STAGE_LEN,[^\n]*? compassLabel,)?( DISTANT_KIND_OF,[^\n]*? visibleDistant,)?/, '');
     assert.ok(!/REGION_FRAME/.test(stripped), 'けしのこしが ない');
     assert.ok(!/worldCorridors|findRegionRoute/.test(stripped), 'Phase 4C の けしのこしも ない');
+    assert.ok(!/distantRegistry|visibleDistant/.test(stripped), 'Phase 4D-1 の けしのこしも ない');
     fs.writeFileSync(path.join(dir, 'meguru.js'), stripped);
     const probe = `
       const { harness } = require('./tests/helpers/runtime-harness.cjs');
