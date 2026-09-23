@@ -352,7 +352,9 @@ test('13. **消しても うごきが 変わらない**(つかうのは Phase 4D
   };
   try {
     plant(dirA); plant(dirB);
-    const stripped = rest.replace(' ' + EXPORTS_4D1.join(', ') + ',', '');
+    const stripped = rest.replace(' ' + EXPORTS_4D1.join(', ') + ',', '')
+      // Phase 4E-1(あるける corridor の かたち)も おなじ ブロックの なかに のる「まだ だれも つかって いない」そう なので、export も いっしょに けす
+      .replace(/ CORRIDOR_STAGE_WALK,[^\n]*? corridorExitPose,/, '');
     assert.ok(!/distantRegistry|visibleDistant|distantInView|DISTANT_RULES|setDistant/.test(stripped), 'けしのこしが ない');
     assert.ok(/worldCorridors/.test(stripped) && /REGION_FRAME/.test(stripped), 'Phase 4B / 4C は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);

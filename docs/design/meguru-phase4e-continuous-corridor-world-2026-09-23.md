@@ -3,6 +3,17 @@
 日付: 2026-09-23 ／ 対象: めぐる(`meguru.js` / `script.js` の `meguruBridge`)
 前提: [Phase 4A 設計](./meguru-phase4a-region-origin-global-world-2026-09-22.md)(アトラス方式)・[Phase 4C 引き継ぎ](../handoff/meguru-phase4c-corridor-2026-09-23.md)(corridor 13 本)・[Phase 4D 設計](./meguru-phase4d-distant-world-streaming-renderer-2026-09-23.md)(遠景・streaming)・[4D-2c 引き継ぎ](../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md)(遠景の角度系そろえ)
 
+> ## 追記(2026-09-23)— 設計監査は完了し、4E-1 を実装しました
+>
+> この設計監査は PR #335 で main(`a564730`)に入り、**Phase 4E 設計監査として完了**しました。
+> Phase 4E-1(corridor の形と状態の pure data)→ [`../handoff/meguru-phase4e1-corridor-geometry-2026-09-23.md`](../handoff/meguru-phase4e1-corridor-geometry-2026-09-23.md)
+>
+> 実装で決めた点(この文書との差分):
+> - 幅クラスの名前は `road` / `trail` / `pass` ではなく **`wide` / `normal` / `narrow`**(幅 520 / 380 / 260)
+> - 地面の種類は 12 種ではなく **11 種**(`forest` `field` `road` `slope` `ridge` `rock` `river` `shore` `dry` `snow` `urban-edge`)。gate の data には足さず、4E-1 のブロックの中の表に持つ(消せば消える)
+> - 段の言葉は「A 側を前半・B 側を後半」ではなく **向きごとにその側の land をそのまま使う**(形は共有、言葉は gate end ごと)
+> - 曲がりは 5 段に等分の台形(峠・坂を多めにする重みづけはしない)。30°/s を超える corridor には印だけ付け、補正は 4E-4
+
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 continuous walk・global collision・resident の地域間移動・save schema の変更・Three.js には進んでいません。
 

@@ -5222,6 +5222,243 @@
         .slice(0, max);
     }
 
+    // ====== Phase 4E-1: あるける corridor の かたち と 状態(pure data)======
+    // docs/design/meguru-phase4e-continuous-corridor-world-2026-09-23.md の §4〜§6・§16 を データに した もの。
+    // **まだ だれも つかって いない。** simulation・renderer・UI・セーブ・travelToRegion() からは よばない。
+    // player を corridor へ 入れる のも、corridor を えがく のも 4E-2 から。
+    //
+    // 正本の じゅん(二重に もたない):
+    //   1. WORLD_GEOGRAPHY.connections  2. gate の いみデータ(出口 spot・むき・land)  3. Phase 4C の corridor  4. これ(導出)
+    // ・walk の corridor 10 本 だけ。ふね・ゴンドラ・もぐる と きおくのみずうみ は 入れない
+    // ・かたちは 「すすむ むきの 変わりかた」(曲率)で もつ。空間の 点(Bezier / Catmull-Rom)は つくらない
+    // ・**global の 位置には あわせない。** 出口どうしは global で 4.6〜83.9 しか はなれて いない のに、あるく 長さは 2250〜2700
+    //   (設計 §2.2)。global と つなぐ のは **むき だけ**(4C の leave)。はしは 出口の pose(spot の local 位置 + むき)で つなぐ。
+    //   だから closure の のこり(Phase 4B の さいだい 83.9)は ここに 1 つも 入らない
+    // ・land の ことばは コードに 書かない(段の ことばは gate の land から よむ)。地面の 種類だけを 下の 表で もつ
+    // ・はじめて よんだ ときに 1 どだけ 組み立てて freeze(毎フレーム つくらない)
+
+    // land 1 段を あるく ながさ(world)。260/s で 1.7 秒、6 段で 10.4 秒 = home を はしから はしまで あるく くらい。
+    // いみの ながさ(CORRIDOR_STAGE_LEN = 1600。graph と ルートさがし 用)とは べつもの
+    const CORRIDOR_STAGE_WALK = 450;
+    const CORRIDOR_REVISIT_SPEED = 1.4;     // 2 かいめ からは はやあし。かたちは 変えない(TRANSITION.repeat 0.62 の ぎゃく数 ほど)
+    const CORRIDOR_TURN_BUDGET = 30;        // 曲がる はやさの めやす(度 / 秒)。こえる ものは しるしを つける だけ(なおすのは 4E-4)
+    const CORRIDOR_RAMP = 0.2;              // 曲がる 区間の はしの 2 わりで 曲率を 0 から 上げ下げ する(台形)
+    // 幅は 数 1 つで きめない。いみの クラス → world たんいの 幅(歩ける 帯 ぜんぶ。道 + 路肩)。
+    // edgeSoftness = 帯の はしで よこの うごきを やわらげる はば
+    const CORRIDOR_WIDTH = Object.freeze({
+      wide: Object.freeze({ width: 520, edgeSoftness: 60 }),     // 街道・はたけの あいだ・まちの はずれ
+      normal: Object.freeze({ width: 380, edgeSoftness: 40 }),   // 森の 小道・川ぞい・かわいた 道
+      narrow: Object.freeze({ width: 260, edgeSoftness: 24 }),   // 坂・尾根・岩場・雪の 道
+    });
+    // 地面の 種類(11)→ 幅の クラス・帯の はしの いみ・かんたんな 障害物の めやす(4E-1 では 置かない)
+    const CORRIDOR_TERRAIN_WIDTH = Object.freeze({ road: 'wide', 'urban-edge': 'wide', field: 'wide',
+      forest: 'normal', river: 'normal', shore: 'normal', dry: 'normal', slope: 'narrow', ridge: 'narrow', rock: 'narrow', snow: 'narrow' });
+    const CORRIDOR_EDGE = Object.freeze({ road: 'open', 'urban-edge': 'fence', field: 'open', forest: 'trees', river: 'water',
+      shore: 'water', dry: 'open', slope: 'drop', ridge: 'drop', rock: 'wall', snow: 'drop' });
+    const CORRIDOR_OBSTACLE_ALLOWANCE = Object.freeze({ road: 1, 'urban-edge': 3, field: 2, forest: 4, river: 3,
+      shore: 2, dry: 2, slope: 3, ridge: 2, rock: 4, snow: 2 });
+    const CORRIDOR_OBSTACLE_MAX = 24;
+    // 段ごとの 地面の 種類。**connection の a → b の じゅん**。land の ことばを 見て 人が きめた 分類だけを もつ
+    // (ことばは 写さない。段の かずが gate の land と ちがったら その corridor は 組み立てない)
+    const CORRIDOR_TERRAIN = Object.freeze({
+      'snow|mountain': ['snow', 'snow', 'snow', 'rock', 'slope', 'ridge'],
+      'forest|mountain': ['forest', 'forest', 'slope', 'rock', 'slope', 'ridge'],
+      'mountain|river_lake': ['slope', 'river', 'rock', 'river', 'river', 'shore'],
+      'desert|mountain': ['dry', 'dry', 'dry', 'rock', 'dry', 'ridge'],
+      'countryside|forest': ['urban-edge', 'field', 'slope', 'forest', 'forest'],
+      'home|forest': ['urban-edge', 'field', 'field', 'forest', 'forest', 'forest'],
+      'home|river_lake': ['urban-edge', 'field', 'slope', 'slope', 'river', 'shore'],
+      'city|countryside': ['urban-edge', 'field', 'slope', 'ridge', 'slope', 'field'],
+      'city|sea': ['river', 'road', 'urban-edge', 'river', 'shore', 'shore'],
+      'city|desert': ['urban-edge', 'dry', 'dry', 'road', 'dry', 'dry'],
+    });
+    const CORRIDOR_WIDTH_ORDER = ['narrow', 'normal', 'wide'];
+    const wrapDeg = (d) => { const v = ((d % 360) + 540) % 360 - 180; return v === -180 ? 180 : v; };
+    const deg360 = (d) => ((d % 360) + 360) % 360;
+    // 曲率(度 / world)の 区間を つなげた ものから、s までに 曲がった 量(度)
+    function turnedAt(curve, s) {
+      let a = 0;
+      for (const g of curve) {
+        if (s <= g.s0) break;
+        const x = Math.min(s, g.s1) - g.s0, len = g.s1 - g.s0;
+        a += g.k0 * x + (len > 0 ? (g.k1 - g.k0) * x * x / (2 * len) : 0);
+      }
+      return a;
+    }
+    const round3 = (v) => Math.round(v * 1000) / 1000;
+    function deepFreeze(o) { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const k of Object.keys(o)) deepFreeze(o[k]); } return o; }
+
+    // 1 本の walk corridor(Phase 4C)から、あるく ための かたちを つくる。a → b の むきで 1 つだけ もつ
+    function buildWalkCorridorSpec(cor) {
+      const conn = WORLD_GEOGRAPHY.connections.find((c) => c.id === cor.id);
+      const terrain = CORRIDOR_TERRAIN[cor.id];
+      const A = cor.ends[cor.a], B = cor.ends[cor.b];
+      const n = cor.travelStages;
+      if (!conn || !terrain || terrain.length !== n || A.land.length !== n || B.land.length !== n || !A.leave || !B.leave) return null;
+      const L = n * CORRIDOR_STAGE_WALK;
+      // 出口の pose(region-local)。global は とおらない
+      const endOf = (r, end) => {
+        const g = conn.gate.ends[r], sp = spotOf(r, end.spot), out = corridorOutward(g);
+        if (!sp || !out) return null;
+        return { region: r, spot: sp.id, x: sp.x, z: sp.z, r: sp.r, leaveLocal: { x: out.x, z: out.z },
+          leaveHeadingLocal: round3(headingOf(out)), leaveHeadingGlobal: round3(headingOf(end.leave)) };
+      };
+      const ea = endOf(cor.a, A), eb = endOf(cor.b, B);
+      if (!ea || !eb) return null;
+      // むき: a を 出る むき → b へ 入る むき(= b の 出口の はんたい)。global は この 2 つの むきだけ
+      const hA = headingOf(A.leave), hB = deg360(headingOf(B.leave) + 180);
+      const turn = wrapDeg(hB - hA);
+      // 曲がるのは 段 1 の うしろ はんぶん 〜 さいごの 段の まえ はんぶん。出口の ちかくは まっすぐ(出口の むきの まま)
+      const a0 = CORRIDOR_STAGE_WALK / 2, a1 = L - CORRIDOR_STAGE_WALK / 2, Lt = a1 - a0, ramp = CORRIDOR_RAMP * Lt;
+      const k = turn / ((1 - CORRIDOR_RAMP) * Lt);
+      const curve = [
+        { kind: 'straight', s0: 0, s1: a0, k0: 0, k1: 0 },
+        { kind: 'rampIn', s0: a0, s1: a0 + ramp, k0: 0, k1: k },
+        { kind: 'arc', s0: a0 + ramp, s1: a1 - ramp, k0: k, k1: k },
+        { kind: 'rampOut', s0: a1 - ramp, s1: a1, k0: k, k1: 0 },
+        { kind: 'straight', s0: a1, s1: L, k0: 0, k1: 0 },
+      ];
+      const speed = RULES.playerSpeed;
+      const peak = Math.abs(k) * speed;
+      const at = (i) => turnedAt(curve, i * CORRIDOR_STAGE_WALK);
+      const stages = terrain.map((kind, i) => {
+        const wc = CORRIDOR_TERRAIN_WIDTH[kind], W = CORRIDOR_WIDTH[wc];
+        return { index: i, terrain: kind, widthClass: wc, width: W.width, halfWidth: W.width / 2,
+          uMax: W.width / 2 - RULES.bodyRadius, edge: CORRIDOR_EDGE[kind], edgeSoftness: W.edgeSoftness,
+          obstacleAllowance: CORRIDOR_OBSTACLE_ALLOWANCE[kind],
+          s0: i * CORRIDOR_STAGE_WALK, s1: (i + 1) * CORRIDOR_STAGE_WALK, t0: i / n, t1: (i + 1) / n, tCenter: (i + 0.5) / n,
+          // 段の ことばは gate の land から(むきごと)。a から は a の land の i 段め、b から は b の land を うしろから
+          labels: { [cor.a]: A.land[i], [cor.b]: B.land[n - 1 - i] },
+          headingDelta: round3(at(i + 1) - at(i)) };
+      });
+      // 帯 ぜんたいの 幅クラス: いちばん 多い もの(同じ かずなら せまい ほう)
+      const tally = {};
+      for (const st of stages) tally[st.widthClass] = (tally[st.widthClass] || 0) + 1;
+      const widthClass = CORRIDOR_WIDTH_ORDER.reduce((best, c) => ((tally[c] || 0) > (tally[best] || 0) ? c : best), 'narrow');
+      let landMatch = 0;
+      for (let i = 0; i < n; i++) if (A.land[i] === B.land[n - 1 - i]) landMatch++;
+      const abs = Math.abs(turn);
+      const turnClass = abs < 60 ? 'gentle' : abs < 120 ? 'wide' : abs < 160 ? 'sharp' : 'uTurnLike';
+      const allowance = stages.reduce((sum, st) => sum + st.obstacleAllowance, 0);
+      return {
+        connectionId: cor.id, a: cor.a, b: cor.b, fromRegion: cor.a, toRegion: cor.b, fromSpot: ea.spot, toSpot: eb.spot,
+        kind: 'walk', way: 'walk', layer: 'ground',
+        stageCount: n, stageLength: CORRIDOR_STAGE_WALK, walkLength: L, travelLength: cor.travelLength,
+        stageCheckpoints: stages.map((st) => st.t0).concat([1]),
+        stages, widthClass, nominalWidth: CORRIDOR_WIDTH[widthClass].width,
+        endpoints: { [cor.a]: ea, [cor.b]: eb },
+        headingProfile: { startGlobal: round3(hA), endGlobal: round3(hB), turn: round3(turn), bend: round3(cor.bend),
+          cumulative: stages.map((st, i) => round3(at(i))).concat([round3(at(n))]),
+          perStage: stages.map((st) => st.headingDelta) },
+        curveProfile: { unit: 'deg/world', ramp: CORRIDOR_RAMP, startHeading: hA, turnFrom: a0, turnTo: a1, peakCurvature: k, segments: curve },
+        turnClass, turnFlags: { gentle: turnClass === 'gentle', wideTurn: turnClass === 'wide', sharpTurn: turnClass === 'sharp',
+          uTurnLike: turnClass === 'uTurnLike', overTurnBudget: peak > CORRIDOR_TURN_BUDGET,
+          overTurnBudgetRevisit: peak * CORRIDOR_REVISIT_SPEED > CORRIDOR_TURN_BUDGET },
+        turnRate: { first: round3(peak), revisit: round3(peak * CORRIDOR_REVISIT_SPEED), average: round3(abs / (Lt / speed)), budget: CORRIDOR_TURN_BUDGET },
+        timing: { speed, firstSec: round3(L / speed), revisitSec: round3(L / (speed * CORRIDOR_REVISIT_SPEED)), revisitSpeedMultiplier: CORRIDOR_REVISIT_SPEED },
+        collisionProfile: { kind: 'band', boundary: 'left-right', bodyRadius: RULES.bodyRadius, regionColliders: false,
+          halfWidth: stages.map((st) => st.halfWidth), uMax: stages.map((st) => st.uMax),
+          edge: stages.map((st) => st.edge), edgeSoftness: stages.map((st) => st.edgeSoftness),
+          obstacles: 'edges-only', maxObstacleCount: Math.min(CORRIDOR_OBSTACLE_MAX, allowance) },
+        terrainStages: stages.map((st) => st.terrain),
+        fallbackPolicy: { continuousAllowed: true, maxPerfTier: 1, reducedMotionFallback: 'transition',
+          buildFailureFallback: 'returnToFrom', perfDropFallback: 'transitionFromNextGate', revisitSpeedMultiplier: CORRIDOR_REVISIT_SPEED },
+        reverseSymmetry: { geometryShared: true, labelsPerEnd: true, headingMirrored: true, landMatch, stageCount: n },
+        // 目安だけ(接続関係の 参考)。**あるく かたちは この 位置に あわせない**
+        globalRef: { [cor.a]: { x: A.at.x, z: A.at.z }, [cor.b]: { x: B.at.x, z: B.at.z }, physicalGap: cor.physicalGap },
+      };
+    }
+    let walkSpecCache = null;
+    // walk の corridor 10 本の かたち(Phase 4C の walk corridor と 1 対 1)。1 どだけ 組み立てて freeze
+    function walkCorridorSpecs() {
+      if (walkSpecCache) return walkSpecCache;
+      walkSpecCache = deepFreeze(worldCorridors().filter((c) => c.kind === 'walk').map(buildWalkCorridorSpec).filter(Boolean));
+      return walkSpecCache;
+    }
+    const walkCorridorSpec = (connectionId) => walkCorridorSpecs().find((c) => c.connectionId === connectionId) || null;
+
+    // from から 見た むき。**かたちは おなじ 1 つを さかさに つかう**(2 つ もたない)。段の ことばは from がわの land
+    function orientWalkCorridor(spec, from) {
+      if (!spec || (from !== spec.a && from !== spec.b)) return null;
+      const fwd = from === spec.a, to = fwd ? spec.b : spec.a;
+      const hp = spec.headingProfile, st = fwd ? spec.stages : spec.stages.slice().reverse();
+      return { connectionId: spec.connectionId, direction: fwd ? 'forward' : 'reverse', fromRegion: from, toRegion: to,
+        fromSpot: spec.endpoints[from].spot, toSpot: spec.endpoints[to].spot, walkLength: spec.walkLength, stageCount: spec.stageCount,
+        widthClass: spec.widthClass,
+        stages: st.map((q, i) => ({ index: i, label: q.labels[from], terrain: q.terrain, widthClass: q.widthClass,
+          s0: i * spec.stageLength, s1: (i + 1) * spec.stageLength, headingDelta: fwd ? q.headingDelta : -q.headingDelta })),
+        startGlobal: fwd ? hp.startGlobal : round3(deg360(hp.endGlobal + 180)),
+        endGlobal: fwd ? hp.endGlobal : round3(deg360(hp.startGlobal + 180)),
+        turn: fwd ? hp.turn : -hp.turn };
+    }
+    // s(from から あるいた きょり)での すすむ むき(global の 方位、度)
+    function corridorHeadingAt(spec, from, s) {
+      if (!spec || (from !== spec.a && from !== spec.b)) return null;
+      const L = spec.walkLength, x = Math.max(0, Math.min(L, Number(s) || 0));
+      const segs = spec.curveProfile.segments, h0 = spec.curveProfile.startHeading;   // 丸めない 値で けいさん
+      return from === spec.a ? deg360(h0 + turnedAt(segs, x)) : deg360(h0 + turnedAt(segs, L - x) + 180);
+    }
+    // s に ある 段(from から 見た ことば)と、そこで ゆるされる よこずれ
+    function corridorStageAt(spec, from, s) {
+      const o = orientWalkCorridor(spec, from);
+      if (!o) return null;
+      const i = Math.max(0, Math.min(o.stageCount - 1, Math.floor((Number(s) || 0) / spec.stageLength)));
+      const q = (from === spec.a ? spec.stages : spec.stages.slice().reverse())[i];
+      return { index: i, label: q.labels[from], terrain: q.terrain, widthClass: q.widthClass, halfWidth: q.halfWidth, uMax: q.uMax, t: Math.max(0, Math.min(1, (Number(s) || 0) / spec.walkLength)) };
+    }
+
+    // ---- 状態(CorridorState)。**セーブしない。** 4E-2 から メモリの なかだけで つかう ----
+    const CORRIDOR_STATE_KEYS = Object.freeze(['connectionId', 'fromRegion', 'toRegion', 's', 'u', 'direction', 'speedMultiplier', 'firstVisit', 'fallback']);
+    // corridor を あるくか、いまの transition に するか(1 か所で きめる)。opts: { perfTier, reducedMotion, failed, heavy, allow }
+    function corridorMode(spec, opts = {}) {
+      const no = (reason) => ({ mode: 'transition', reason });
+      if (!spec || spec.kind !== 'walk') return no('not-walk');
+      if (opts.allow && opts.allow.indexOf(spec.connectionId) < 0) return no('not-allowed');
+      const p = spec.fallbackPolicy;
+      if (!p.continuousAllowed) return no('not-allowed');
+      if (opts.reducedMotion) return no('reduced-motion');
+      if ((Number(opts.perfTier) || 0) > p.maxPerfTier) return no('perf-tier');
+      if (opts.heavy) return no('perf-drop');
+      if (opts.failed) return no('build-failure');
+      return { mode: 'corridor', reason: null };
+    }
+    function makeCorridorState(spec, from, init = {}) {
+      const o = orientWalkCorridor(spec, from);
+      if (!o) return null;
+      const s = Math.max(0, Math.min(spec.walkLength, Number(init.s) || 0));
+      const st = corridorStageAt(spec, from, s);
+      const u = Math.max(-st.uMax, Math.min(st.uMax, Number(init.u) || 0));
+      const firstVisit = init.firstVisit !== false;
+      const m = corridorMode(spec, init);
+      return { connectionId: spec.connectionId, fromRegion: from, toRegion: o.toRegion, s, u, direction: o.direction,
+        speedMultiplier: firstVisit ? 1 : spec.fallbackPolicy.revisitSpeedMultiplier, firstVisit, fallback: m.reason };
+    }
+
+    // ---- 座標の 受けわたし(handoff)。global の 位置は とおらない ----
+    // 出口: from の local 点 → corridor の s / u(出口 spot の 中心から、出る むきと その 右へ わける)
+    function corridorEnterState(spec, from, local, init = {}) {
+      if (!spec || !local || (from !== spec.a && from !== spec.b)) return null;
+      const e = spec.endpoints[from], l = e.leaveLocal, rx = l.z, rz = -l.x;
+      const dx = (Number(local.x) || 0) - e.x, dz = (Number(local.z) || 0) - e.z;
+      return makeCorridorState(spec, from, Object.assign({}, init, { s: Math.max(0, dx * l.x + dz * l.z), u: dx * rx + dz * rz }));
+    }
+    // 着いた / もどった: corridor の はしを こえたら、その がわの region の local の pose(位置 + むき)。まだ とちゅうなら null
+    function corridorExitPose(spec, state) {
+      if (!spec || !state || state.connectionId !== spec.connectionId) return null;
+      const L = spec.walkLength, s = Number(state.s) || 0, u = Number(state.u) || 0;
+      let e, dir, over, arrived;
+      if (s >= L) { e = spec.endpoints[state.toRegion]; dir = { x: -e.leaveLocal.x, z: -e.leaveLocal.z }; over = s - L; arrived = true; }
+      else if (s <= 0) { e = spec.endpoints[state.fromRegion]; dir = { x: -e.leaveLocal.x, z: -e.leaveLocal.z }; over = -s; arrived = false; }
+      else return null;
+      // corridor の 右 = すすむ むきの 右。もどる ときは corridor の まえむきが 出口の むき なので 右も 出口の むきの 右
+      const fx = arrived ? dir.x : -dir.x, fz = arrived ? dir.z : -dir.z, rx = fz, rz = -fx;
+      let ox = dir.x * over + rx * u, oz = dir.z * over + rz * u;
+      const lim = Math.max(0, (e.r || 0) - RULES.bodyRadius), d = Math.hypot(ox, oz);
+      if (d > lim && d > 0) { ox *= lim / d; oz *= lim / d; }
+      return { region: e.region, spot: e.spot, x: e.x + ox, z: e.z + oz, heading: Math.atan2(dir.x, dir.z),
+        headingLocal: round3(headingOf(dir)), arrived, commit: arrived };
+    }
+
     // 世界地図に 出す 地域(= 地上の 10 と、たてじくの 上下 2)。きおくのみずうみは 入らない
     const GEO_GROUND = Object.keys(WORLD_GEOGRAPHY.regions).filter((id) => WORLD_GEOGRAPHY.regions[id].layer === 'ground');
     const GEO_AXIS_LAYERS = ['deepsea', 'star_stop'];
@@ -7000,6 +7237,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
