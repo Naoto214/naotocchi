@@ -63,8 +63,9 @@ test('real home emotion profiles select only the adult cat portrait', () => {
     assert.deepEqual(face(h),want);
   }
 
-  const other=harness(); adultCat(other,{speciesLine:'ren',ageTicks:3*20,stageIndex:1,hunger:40});
-  assert.match(portrait(other),/assets\/characters\/ren\/02\.png/);
+  const other=harness(); adultCat(other,{speciesLine:'bird',ageTicks:3*20,stageIndex:1,hunger:40});
+  assert.equal(portrait(other),null);
+  assert.match(other.get('petSprite').innerHTML,/character-emoji-fallback">🐣<\/span>/);
   assert.equal(accent(other),null);
 });
 
@@ -207,7 +208,7 @@ test('sleep uses its own face, and waking shows normal before latest-state reeva
 
 test('form changes and blocked screens clear the temporary face and accent', () => {
   const cases = [
-    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'ren',ageTicks:3*20,stageIndex:1});h.api.render();},'assets/characters/ren/02.png'],
+    ['form',h=>{Object.assign(h.api.state(),{speciesLine:'bird',ageTicks:3*20,stageIndex:1});h.api.render();},null],
     ['farewell',h=>{h.api.state().stage='farewell';h.api.render();},BASE],
     ['dead',h=>{h.api.state().stage='dead';h.api.render();},BASE],
     ['menu',h=>h.api.openExclusiveMenu('profile'),BASE],
@@ -220,6 +221,7 @@ test('form changes and blocked screens clear the temporary face and accent', () 
     h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
     interrupt(h);
     assert.equal(portrait(h),want,name);
+    if(name==='form')assert.match(h.get('petSprite').innerHTML,/character-emoji-fallback">🐣<\/span>/);
     assert.notEqual(h.get('petSprite').dataset.expression,'happy',name);
     assert.equal(accent(h),null,name);
   }
@@ -577,7 +579,7 @@ test('remaining dog stage boundaries select their own portraits', () => {
   }
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown','ren']) {
   for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
     const stage=String(index+1).padStart(2,'0');
     test(`${species}/${stage} renders all ten states and reactions without mutating saved state`, () => {

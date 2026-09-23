@@ -260,10 +260,18 @@
     "unknown/05": {"face":[70,79],"sweat":{"leftInner":11.375,"rightInner":91.375,"centerY":64.1875},"marks":{"happy":[14.5,8],"strained":[1.5,9],"hungry":[2,9],"sick":[-9.5,6.5],"tired":[6,5],"sulky":[11.5,-1.5],"weak":[14,9.5],"critical":[12,5],"wantsPlay":[-25,33],"sleeping":[6.5,3.5]}},
     "unknown/06": {"face":[63,80],"sweat":{"leftInner":8.1875,"rightInner":96.1875,"centerY":65},"marks":{"happy":[16.5,7.5],"strained":[-15,13],"hungry":[22,4.5],"sick":[6.5,-11],"tired":[16.5,3.5],"sulky":[27,1.5],"weak":[20.5,12.5],"critical":[25.5,9.5],"wantsPlay":[-30.5,-3],"sleeping":[24.5,5.5]}},
     "unknown/07": {"face":[64,73],"sweat":{"leftInner":40,"rightInner":63.5,"centerY":59.3125},"marks":{"happy":[-7.5,43],"strained":[5.5,46.5],"hungry":[-0.5,42],"sick":[-16,34],"tired":[-3,45.5],"sulky":[7,37.5],"weak":[-1.5,45.5],"critical":[3.5,42],"wantsPlay":[-29.5,48.5],"sleeping":[2,43]}},
-    "unknown/08": {"face":[62,69],"sweat":{"leftInner":38.875,"rightInner":64.375,"centerY":56.0625},"marks":{"happy":[-8,43.5],"strained":[9.5,51.5],"hungry":[0,39],"sick":[-17.5,33],"tired":[-2.5,42],"sulky":[5.5,35.5],"weak":[-3,44],"critical":[1.5,40.5],"wantsPlay":[-31.5,47.5],"sleeping":[2.5,40]}}
+    "unknown/08": {"face":[62,69],"sweat":{"leftInner":38.875,"rightInner":64.375,"centerY":56.0625},"marks":{"happy":[-8,43.5],"strained":[9.5,51.5],"hungry":[0,39],"sick":[-17.5,33],"tired":[-2.5,42],"sulky":[5.5,35.5],"weak":[-3,44],"critical":[1.5,40.5],"wantsPlay":[-31.5,47.5],"sleeping":[2.5,40]}},
+    "ren/01": {"face":[60,88],"sweat":{"leftInner":25.75,"rightInner":76.75,"centerY":71.5},"marks":{"happy":[-2,18.5],"strained":[-6.5,26],"hungry":[8,17.5],"sick":[-6,9],"tired":[5.5,20.5],"sulky":[13,14],"weak":[6.5,24.5],"critical":[8.5,18],"wantsPlay":[-33,16.5],"sleeping":[10,18.5]}},
+    "ren/02": {"face":[65,71],"sweat":{"leftInner":28.3125,"rightInner":74.8125,"centerY":57.6875},"marks":{"happy":[1.5,10],"strained":[0.5,10.5],"hungry":[9,6],"sick":[-4,-1.5],"tired":[6.5,9],"sulky":[14.5,2],"weak":[5.5,10],"critical":[13,10],"wantsPlay":[-29,6.5],"sleeping":[11.5,7]}},
+    "ren/03": {"face":[65,65],"sweat":{"leftInner":23.3125,"rightInner":74.8125,"centerY":52.8125},"marks":{"happy":[2.5,4.5],"strained":[-0.5,4],"hungry":[10,0.5],"sick":[-3.5,-7],"tired":[7.5,3.5],"sulky":[15.5,-3.5],"weak":[8.5,7.5],"critical":[13.5,4.5],"wantsPlay":[-29,-0.5],"sleeping":[12.5,1]}},
+    "ren/04": {"face":[68,59],"sweat":{"leftInner":26.75,"rightInner":76.75,"centerY":47.9375},"marks":{"happy":[2.5,-3],"strained":[1,-1.5],"hungry":[12.5,-4.5],"sick":[-4.5,-14.5],"tired":[10,-1.5],"sulky":[17.5,-8],"weak":[8.5,0],"critical":[13,-3.5],"wantsPlay":[-26.5,-5],"sleeping":[15,-4]}},
+    "ren/05": {"face":[68,56],"sweat":{"leftInner":26.75,"rightInner":76.75,"centerY":45.5},"marks":{"happy":[3.5,-6],"strained":[1,-4.5],"hungry":[12,-6.5],"sick":[-4,-18],"tired":[9.5,-4],"sulky":[18,-11],"weak":[9,-3.5],"critical":[14,-7],"wantsPlay":[-26.5,-9],"sleeping":[14.5,-6]}},
+    "ren/06": {"face":[67,57],"sweat":{"leftInner":26.9375,"rightInner":77.4375,"centerY":46.3125},"marks":{"happy":[3.5,-6.5],"strained":[-3.5,-1.5],"hungry":[13,-7],"sick":[-0.5,-16.5],"tired":[10.5,-4.5],"sulky":[18.5,-11],"weak":[12,-0.5],"critical":[17,-3.5],"wantsPlay":[-27.5,-10.5],"sleeping":[15,-6]}},
+    "ren/07": {"face":[65,62],"sweat":{"leftInner":25.8125,"rightInner":77.3125,"centerY":50.375},"marks":{"happy":[3,-3.5],"strained":[-3,-1],"hungry":[13,-4.5],"sick":[-1.5,-13.5],"tired":[10.5,-1.5],"sulky":[18,-8],"weak":[11.5,2.5],"critical":[17,-0.5],"wantsPlay":[-29,-8],"sleeping":[15.5,-4]}},
+    "ren/08": {"face":[64,65],"sweat":{"leftInner":27,"rightInner":77,"centerY":52.8125},"marks":{"happy":[2.5,-1],"strained":[-5,5.5],"hungry":[12.5,-2],"sick":[-2,-11],"tired":[10,0.5],"sulky":[17.5,-6],"weak":[10.5,5],"critical":[15.5,2],"wantsPlay":[-29.5,-5],"sleeping":[15,-2]}}
   };
   // END GENERATED FACE PLACEMENT
-  const HUMAN_LINES = ['man','woman'];
+  const HUMAN_LINES = ['man','woman','ren'];
   const STAGE_ASSETS = Object.freeze({
     ...Object.fromEntries([...HUMAN_LINES,'penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown'].flatMap(line => Array.from({length:8},(_,index) => {
       const stage=String(index+1).padStart(2,'0');
@@ -364,7 +372,7 @@
 
   function accentFor(baseAsset, expression) {
     if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
-    const human = /^assets\/characters\/(man|woman)\/(0[1-8])\.png$/.exec(baseAsset);
+    const human = /^assets\/characters\/(man|woman|ren)\/(0[1-8])\.png$/.exec(baseAsset);
     const placement = MARK_PLACEMENT[baseAsset.slice(18,-4)];
     const offset = (placement?.marks[expression] || [0,0]).join(' ');
     // Each species thinks of recognizable food; keep the shared yellow palette and thought bubbles.
