@@ -8,8 +8,14 @@ const careFields = ['stage','speciesLine','stageIndex','ageTicks','hunger','happ
   'transformMeter','transformOptions','transformsThisLife','transformStageDone','affectionStreak','travelStreak',
   'partner','companions','traitCounts','isSick','sicknessType','poopCount','lifeLog'];
 function care(s) { return copy(Object.fromEntries(careFields.map(key => [key,s[key]]))); }
+// The daily game is picked from the calendar day. These tests replace Math.random with a
+// constant, and some minigames draw their layout by rejection sampling (domino-run keeps
+// drawing until it finds distinct gaps), so on the wrong real-world day starting the daily
+// game never returns. Fix the calendar so the designated game does not depend on today.
+const FIXED_DAY = '2026-09-16';
 function setup(options) {
   const h = harness(options), s = h.api.state();
+  date(h, FIXED_DAY);
   Object.assign(s,{sodachi:80,maxSodachi:80,growth:0,decline:17,happiness:43,energy:45,
     deathMeter:19,transformMeter:0,affectionStreak:4,travelStreak:3,recentActionTicks:7,boostTicks:11});
   h.api.setRandom(() => 0);
