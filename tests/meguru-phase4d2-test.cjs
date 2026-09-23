@@ -3,7 +3,7 @@
 //  docs/handoff/meguru-phase4d2-canvas-poc-2026-09-23.md)
 //
 // ここで しばるのは
-//   ・遠景は home / sea だけ。ほかの 地域には 出さない
+//   ・遠景は 4D-2 で home / sea の PoC。4D-2b で 12 地域へ ひろげた(12 地域 ぜんたいは tests/meguru-phase4d2b-test.cjs)
 //   ・画面の x は 方角 + カメラの 向き + いまの 視野(F = 0.95W)だけで きまる(方角固定)
 //   ・見える かどうか・順位・lod は DistantFeature / visibleDistant / distantInView の まま(renderer で 作りなおさない)
 //   ・1 画面の かずは 性能 tier ごとに 3 / 2 / 1
@@ -68,8 +68,8 @@ const ids = (xs) => xs.map((x) => x.id).sort().join(',');
 // lod.maxTier で しぼった うえで distantInView(renderer と おなじ もの を データ がわ から 出す)
 const expectInView = (M, list, yaw, tier, max) => arr(M.distantInView(arr(list).filter((v) => v.feature.lod.maxTier >= tier), yaw, FOV, max)).map((v) => v.id).sort().join(',');
 
-test('1. 遠景を 出すのは home / sea だけ(start() の データの わたしかた)', () => {
-  for (const [region, want] of [['home', 'home'], ['sea', 'sea'], ['city', null], ['forest', null], ['deepsea', null], ['star_stop', null]]) {
+test('1. start() は 遠景を もつ 地域に データを わたす(きおくのみずうみ には わたさない)', () => {
+  for (const [region, want] of [['home', 'home'], ['sea', 'sea'], ['city', 'city'], ['forest', 'forest'], ['deepsea', 'deepsea'], ['star_stop', 'star_stop'], ['memory_lake', null]]) {
     const { h, M } = setup();
     const s = h.api.state();
     Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, regionId: region });
@@ -134,7 +134,7 @@ test('2. 方角固定: yaw 0〜315 で 画面の x は 方角 + カメラの 向
   assert.equal(ids(S1.draw(135)), 'sea>>desert,sea>city');
 });
 
-test('3. 見える 条件: 島は 見つけてから、街の 灯は 夕方・夜 だけ、しんかいは 地平線に 出ない', () => {
+test('3. 見える 条件: 島は 見つけてから、街の 灯は 夕方・夜 だけ、しんかいは 地平線でなく たての 位置', () => {
   const { M, G } = setup();
   const at = (o, yaw) => scene(M, o).draw(yaw).map((d) => d.kind);
   // 島: 見つける まえ / あと(昼)
@@ -148,11 +148,11 @@ test('3. 見える 条件: 島は 見つけてから、街の 灯は 夕方・�
   const ni = scene(M, { region: 'sea', env: ENV('night') }).draw(135).find((d) => d.kind === 'city_glow');
   assert.ok(ev && ni, '夕方と 夜は 街の 灯が 見える');
   assert.ok(Math.abs(ev.alpha - 0.5) < 1e-9 && Math.abs(ni.alpha - 1) < 1e-9, `こさは データの まま(夕方 ${ev.alpha} / 夜 ${ni.alpha})`);
-  // しんかい(たて)は 方位が ない。道を ぜんぶ 見つけて、出口の ちかくに いても 地平線には 出さない
+  // しんかい(たて)は 方位が ない。道を ぜんぶ 見つけて、出口の ちかくに いても 地平線(方角の x)には 出さない。たての 意味の 位置(水ぎわ)だけ
   const all = M.visibleDistant('sea', ENV('night'), { links: G.connections.map((c) => c.id) }, { nearGates: ['deepsea|sea'] });
   assert.ok(arr(all).some((v) => v.feature.kind === 'deep_dark'), 'データ としては ある');
   const S = scene(M, { region: 'sea', env: ENV('night'), list: all });
-  for (let yaw = 0; yaw < 360; yaw += 15) assert.ok(!S.draw(yaw).some((d) => d.kind === 'deep_dark'), 'yaw ' + yaw + ': しんかいは 地平線に 出ない');
+  for (let yaw = 0; yaw < 360; yaw += 15) for (const d of S.draw(yaw).filter((x) => x.kind === 'deep_dark')) assert.ok(d.layer === 'vertical' && d.slot === 'waterline' && !('x' in d), 'yaw ' + yaw + ': しんかいは 地平線に 出ない');
   // ほしぞら の のりば は home / sea の 遠景に ない
   for (const r of ['home', 'sea']) assert.ok(!arr(M.visibleDistant(r, ENV('night'), { links: G.connections.map((c) => c.id) })).some((v) => v.feature.targetRegion === 'star_stop'), r);
 });
@@ -166,9 +166,10 @@ test('4. 性能 tier: 1 画面 3 / 2 / 1。lod.maxTier より おもい tier で
   assert.equal(ids(scene(M, { region: 'sea', env: ENV('day'), links: ['jungle|sea'], tier: 2 }).draw(336)), '', 'かるい tier では far の 島も 出さない');
   // 上限: 視野に 5 つ ある とき(ほんものの 特徴を 方角だけ ずらした もの)
   const src = arr(M.distantFeatures('home')).find((f) => f.id === 'home>forest');
-  const five = [0, 5, 10, 15, 20].map((b, i) => ({ id: 'fake' + i, alpha: 1, feature: Object.assign({}, src, { id: 'fake' + i, bearingLocal: b, priority: 300 - i }) }));
+  // (4D-2b: 同じ 方角 ±12° には 2 まで なので、13° ずつ はなす)
+  const five = [-20, -7, 6, 19, 32].map((b, i) => ({ id: 'fake' + i, alpha: 1, feature: Object.assign({}, src, { id: 'fake' + i, bearingLocal: (b + 360) % 360, priority: 300 - i }) }));
   for (const [tier, max] of [[0, 3], [1, 2], [2, 1]]) {
-    const shown = scene(M, { region: 'home', env: ENV('day'), tier, list: five }).draw(10);
+    const shown = scene(M, { region: 'home', env: ENV('day'), tier, list: five }).draw(6);
     assert.equal(shown.length, max, `tier ${tier} は ${max} まで`);
     assert.equal(ids(shown), five.slice(0, max).map((v) => v.id).sort().join(','), '順位の たかい じゅん');
   }
@@ -249,9 +250,13 @@ test('7. renderer contract: データは よむ だけ。view・セーブ・地�
   const B = blocks4d2();
   assert.equal(B.length, 2, '4D-2 の ブロックは renderer と start() の 2 つ');
   const code = B.join('\n').split('\n').filter((l) => !/^\s*\/\//.test(l)).join('\n');
-  for (const ng of ['mapX', 'mapY', 'buildWorld', 'REGION_FRAME', 'toGlobal', 'regionFrame', 'recordWorldLinks', 'recordSpot', 'localStorage', 'saveMapBits', 'setRandom', 'performance.now', 'Date.now', 'star_stop']) {
+  for (const ng of ['mapX', 'mapY', 'buildWorld', 'REGION_FRAME', 'toGlobal', 'regionFrame', 'recordWorldLinks', 'recordSpot', 'localStorage', 'saveMapBits', 'setRandom', 'performance.now', 'Date.now']) {
     assert.ok(!new RegExp('\\b' + ng.replace('.', '\\.') + '\\b').test(code), '4D-2 は ' + ng + ' を つかわない');
   }
+  // 地域の 名前で わけない(4D-2b。えがき わけは kind と 地域の いみ だけ)
+  assert.ok(!/(regionId|sourceRegion|targetRegion|rid)\s*[!=]==?\s*['"`]/.test(code), '地域の id と くらべて いない');
+  // (forest は kind、snow は 天気の 名前でも ある ので のぞく)
+  for (const id of arr(M.FRAMED_REGIONS).concat(['memory_lake']).filter((x) => !(x in M.DISTANT_RULES) && x !== 'snow')) assert.ok(!new RegExp('[\'"`]' + id + '[\'"`]').test(code), '4D-2 の コードに 地域名 ' + id + ' が ない');
   // 視野は あたらしい 定数を もたない(F から 出す)
   assert.ok(/Math\.atan\(W \/ 2 \/ F\)/.test(code) && !/55\.5/.test(code), '視野は F = 0.95W から');
   // えんけいの 帯(abyss / neonskyline)は 実時刻を よまない

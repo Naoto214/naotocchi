@@ -17,6 +17,11 @@
 > **4D-2(home / sea の Canvas 遠景 PoC)も実装し、採用判断は「合格」**です → [`../handoff/meguru-phase4d2-canvas-poc-2026-09-23.md`](../handoff/meguru-phase4d2-canvas-poc-2026-09-23.md)
 > - データは `sim.view()` ではなく `renderer.setDistant()` で渡す(view・sim を変えない)。投影は方角 + カメラの向き + 今の F だけ(mid の anchor は使わない)
 > - 2D 命令は最大 +6 / フレーム、rAF の差は測定ノイズの範囲。4D-3(Three.js)は今は不要と判断
+>
+> **4D-2b で 12 地域へ展開しました** → [`../handoff/meguru-phase4d2b-all-regions-2026-09-23.md`](../handoff/meguru-phase4d2b-all-regions-2026-09-23.md)
+> - 地域名で分けず、kind と地域の意味(backdrop・view・層)だけで描き分ける。たて 3 種(上の光・下の暗さ・下の地上)も最小限で描く
+> - 2D 命令の最悪は +10 / フレーム。**Three.js(4D-3)は省略可能**と判断
+> - 既存の波形の backdrop 帯(hills / farhills / lakehills / seahorizon / mesas)は回転と逆向きに流れる(C 評価 5 地域)。次は backdrop の角度追従修正を優先
 
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 追加したのは実測を再現する読み取り専用の道具 `tools/meguru-phase4d-distant-survey.cjs` だけです(`npm test` には入れていません)。
