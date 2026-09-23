@@ -13,6 +13,10 @@
 > - 見える条件の「star_stop は発見前でも夜に光の点」は採らず、**発見前は一切出さない**(存在を漏らさない)
 > - `kind` は行き先の見え方から 11 種(mountain / snow_mountain / forest / highland / city_glow / sea_horizon / desert_haze / island / sky_light / deep_dark / land_below)
 > - 1 画面の数は、far を足すと最大 4 になるので `distantInView(…, max = 3)` で絞る
+>
+> **4D-2(home / sea の Canvas 遠景 PoC)も実装し、採用判断は「合格」**です → [`../handoff/meguru-phase4d2-canvas-poc-2026-09-23.md`](../handoff/meguru-phase4d2-canvas-poc-2026-09-23.md)
+> - データは `sim.view()` ではなく `renderer.setDistant()` で渡す(view・sim を変えない)。投影は方角 + カメラの向き + 今の F だけ(mid の anchor は使わない)
+> - 2D 命令は最大 +6 / フレーム、rAF の差は測定ノイズの範囲。4D-3(Three.js)は今は不要と判断
 
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 追加したのは実測を再現する読み取り専用の道具 `tools/meguru-phase4d-distant-survey.cjs` だけです(`npm test` には入れていません)。

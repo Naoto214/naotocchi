@@ -33,6 +33,9 @@ const ENV = (time, weather = 'sunny', season = 'spring') => ({ time, weather, se
 const ids = (list) => arr(list).map((v) => v.id).sort();
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
+// Phase 4D-2(遠景 PoC)は 印の ついた ブロックと 行だけ。消す ときは いっしょに 消す
+const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4D-2$/.test(l)).join('\n');
 function phase4d1Block() {
   const a = SRC.indexOf('// ====== Phase 4D-1:');
   const b = SRC.indexOf('// 世界地図に 出す 地域', a);
@@ -321,9 +324,10 @@ test('12. mapX / mapY を つかって いない', () => {
   assert.equal(snap(M), base, 'mapX / mapY を かえても 遠景は おなじ');
 });
 
-test('13. **消しても うごきが 変わらない**(まだ だれにも つかわれて いない)', () => {
+test('13. **消しても うごきが 変わらない**(つかうのは Phase 4D-2 の 遠景 PoC だけ)', () => {
   const block = phase4d1Block();
-  const rest = SRC.replace(block, '');
+  // Phase 4D-2(home / sea の 遠景 PoC)は この そうを よむ ただ 1 つの ばしょ。印の ついた ところ ごと 消す
+  const rest = strip4d2(SRC.replace(block, ''));
   const INNER = ['DISTANT_CLASS', 'DISTANT_ENV_DEFAULT', 'buildDistantFor', 'distantCache', 'exitBearings', 'specialDestination', 'makeFeature'];
   // (a) しずかな しょうめい: Phase 4D-1 の なまえは ブロックと export の ぎょう いがいに 出て こない
   const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
@@ -349,7 +353,7 @@ test('13. **消しても うごきが 変わらない**(まだ だれにも つ�
   try {
     plant(dirA); plant(dirB);
     const stripped = rest.replace(' ' + EXPORTS_4D1.join(', ') + ',', '');
-    assert.ok(!/distantRegistry|visibleDistant|DISTANT_RULES/.test(stripped), 'けしのこしが ない');
+    assert.ok(!/distantRegistry|visibleDistant|distantInView|DISTANT_RULES|setDistant/.test(stripped), 'けしのこしが ない');
     assert.ok(/worldCorridors/.test(stripped) && /REGION_FRAME/.test(stripped), 'Phase 4B / 4C は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);
     const probe = `

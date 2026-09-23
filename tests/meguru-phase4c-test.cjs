@@ -33,6 +33,9 @@ const heading = (d) => ((Math.atan2(d.x, d.z) * 180 / Math.PI) + 360) % 360;
 const angDiff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
+// Phase 4D-2(遠景 PoC)は 印の ついた ブロックと 行だけ。消す ときは いっしょに 消す
+const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4D-2$/.test(l)).join('\n');
 // Phase 4C で 足した ぶんだけを 切りだす
 function phase4cBlock() {
   const a = SRC.indexOf('// ====== Phase 4C:');
@@ -429,9 +432,9 @@ test('14. **消しても うごきが 変わらない**(まだ だれにも つ�
     plant(dirA); plant(dirB);
     // Phase 4D-1(遠景の いみデータ)は 4C の すぐ うしろ(おなじ ブロックの なか)に のる
     // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
-    const stripped = rest.replace(' ' + EXPORTS_4C.join(', ') + ',', '')
+    const stripped = strip4d2(rest).replace(' ' + EXPORTS_4C.join(', ') + ',', '')
       .replace(/ DISTANT_KIND_OF,[^\n]*? visibleDistant,/, '');
-    assert.ok(!/worldCorridors|findRegionRoute|CORRIDOR_STAGE_LEN|distantRegistry/.test(stripped), 'けしのこしが ない');
+    assert.ok(!/worldCorridors|findRegionRoute|CORRIDOR_STAGE_LEN|distantRegistry|visibleDistant|distantInView/.test(stripped), 'けしのこしが ない');
     assert.ok(/REGION_FRAME/.test(stripped), 'Phase 4B は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);
     const probe = `
