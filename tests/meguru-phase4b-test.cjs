@@ -284,10 +284,10 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
   try {
     plant(dirA); plant(dir);
     // Phase 4B の ブロックと export への ついかを けす。
-    // Phase 4C(corridor)と 4D-1(遠景の いみデータ)は 4B の すぐ うしろ(おなじ ブロックの なか)に のる
+    // Phase 4C(corridor)と 4D-1(遠景の いみデータ)と 4E-1(あるける corridor の かたち)は 4B の すぐ うしろ(おなじ ブロックの なか)に のる
     // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
     const stripped = strip4d2(SRC.replace(block, ''))
-      .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,( CORRIDOR_STAGE_LEN,[^\n]*? compassLabel,)?( DISTANT_KIND_OF,[^\n]*? visibleDistant,)?/, '');
+      .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,( CORRIDOR_STAGE_LEN,[^\n]*? compassLabel,)?( DISTANT_KIND_OF,[^\n]*? visibleDistant,)?( CORRIDOR_STAGE_WALK,[^\n]*? corridorExitPose,)?/, '');
     assert.ok(!/REGION_FRAME/.test(stripped), 'けしのこしが ない');
     assert.ok(!/worldCorridors|findRegionRoute/.test(stripped), 'Phase 4C の けしのこしも ない');
     assert.ok(!/distantRegistry|visibleDistant/.test(stripped), 'Phase 4D-1 の けしのこしも ない');

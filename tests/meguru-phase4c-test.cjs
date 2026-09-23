@@ -430,10 +430,10 @@ test('14. **消しても うごきが 変わらない**(まだ だれにも つ�
   };
   try {
     plant(dirA); plant(dirB);
-    // Phase 4D-1(遠景の いみデータ)は 4C の すぐ うしろ(おなじ ブロックの なか)に のる
+    // Phase 4D-1(遠景の いみデータ)と 4E-1(あるける corridor の かたち)は 4C の すぐ うしろ(おなじ ブロックの なか)に のる
     // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
     const stripped = strip4d2(rest).replace(' ' + EXPORTS_4C.join(', ') + ',', '')
-      .replace(/ DISTANT_KIND_OF,[^\n]*? visibleDistant,/, '');
+      .replace(/ DISTANT_KIND_OF,[^\n]*? visibleDistant,/, '').replace(/ CORRIDOR_STAGE_WALK,[^\n]*? corridorExitPose,/, '');
     assert.ok(!/worldCorridors|findRegionRoute|CORRIDOR_STAGE_LEN|distantRegistry|visibleDistant|distantInView/.test(stripped), 'けしのこしが ない');
     assert.ok(/REGION_FRAME/.test(stripped), 'Phase 4B は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);
