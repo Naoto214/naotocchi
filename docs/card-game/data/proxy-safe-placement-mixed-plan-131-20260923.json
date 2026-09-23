@@ -1,0 +1,148 @@
+{
+  "schema": "naotocchi.card_game.proxy_safe_placement_mixed_plan.v1",
+  "checkpoint": 131,
+  "protected_130_stop_raw_sha256": {
+    "order-01-a-first": "b7ef3378138dd776e2b134e741b30ba5f59830c666504d801c44fa071c76b140",
+    "order-01-b-first": "af2a175b6a15523413c74d3263e859ac36272a431687f84c441aa3871a9e4280",
+    "order-02-a-first": "c371b5947b8337fd6f1f6d40b0a4478160527eefe8204b093b62c206e763ca58",
+    "order-02-b-first": "c7e7459fe128e45fbecf041ba2b911414b525cfc29a2c4be7c284a1252c767ea"
+  },
+  "source_contracts": [
+    107,
+    114,
+    116,
+    117,
+    121,
+    123,
+    126,
+    127,
+    128,
+    129,
+    130
+  ],
+  "placement_evidence": {
+    "C-cat_friend": {
+      "source_reference": "72-companion-26-card-text-draft.md#C-cat_friend",
+      "optional_ability": "発動できる",
+      "board_zone": "なかま枠から",
+      "effect_classification": "optional_board_ability_no_placement_effect"
+    }
+  },
+  "conditional_coin": {
+    "I-c_coin2": {
+      "reference": "77-current-items-card-text-draft.md#I-c_coin2",
+      "condition": "公開したカードがメインだった場合",
+      "uncertainty_source": "hidden_top_deck"
+    }
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "b7ef3378138dd776e2b134e741b30ba5f59830c666504d801c44fa071c76b140",
+      "source_game_state_sha256": "78af9c44a181d9c9f8d8acd8223af6996586621d78716b87fdb04fcd3c100f87",
+      "source_continuation_state_sha256": "aff9636aa818736a0692b7515642e6f83f5bdf14a7c2e39f785709b9e655c547",
+      "last_valid_event_seq": 59,
+      "game_state_sha256": "b5f0d492498564f7b2e41c43cc9c3b907e1a1461fc5305a538b8d04cb6f18f2a",
+      "continuation_state_sha256": "e353456af5906b3064e97c4f12f261e082f2f0c75add858b6f02076409c838d1",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "decision_count": 3,
+      "event_count": 3,
+      "snapshot_count": 4,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-safe-placement-mixed-stops-131/stop-131-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "af2a175b6a15523413c74d3263e859ac36272a431687f84c441aa3871a9e4280",
+      "source_game_state_sha256": "2b926d185f379021675e370399a071c3743323465634d164c9fbb6fa05e5649d",
+      "source_continuation_state_sha256": "16d34cc1a66b4a9910acb256514dbad346189eb539f28855fa45c7f58033d565",
+      "last_valid_event_seq": 64,
+      "game_state_sha256": "2799d26ddc9d59b559ab5db8f90e9792b39842ddd4f22af3bb7533a803bc81f4",
+      "continuation_state_sha256": "b3e399735a6a4b12e828324dd7de4476814aa844de847f851f9ace2994dcd37f",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "decision_count": 3,
+      "event_count": 3,
+      "snapshot_count": 4,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-safe-placement-mixed-stops-131/stop-131-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "c371b5947b8337fd6f1f6d40b0a4478160527eefe8204b093b62c206e763ca58",
+      "source_game_state_sha256": "5211a7dca618d0652609f90637320e571be6e504618c88490c3292518bfb6349",
+      "source_continuation_state_sha256": "4b27dde0346ec07f7a2e3e25b2ca9b64a9b533d91e4c57495e9cf3fa7a28a29b",
+      "last_valid_event_seq": 92,
+      "game_state_sha256": "ea4b6e13f27f8e43a28939aff95cfec013a305f6a2a0a6e445d3d934fed79eec",
+      "continuation_state_sha256": "5f2a5e9a5967fe5ba393dd1b5de5c30d66ae4221149b081892dd495f5afe4c6d",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "decision_count": 3,
+      "event_count": 3,
+      "snapshot_count": 4,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-safe-placement-mixed-stops-131/stop-131-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "c7e7459fe128e45fbecf041ba2b911414b525cfc29a2c4be7c284a1252c767ea",
+      "source_game_state_sha256": "84812ac63463b9666a2d282d412fe1ec32d856f6e74f6b384fa76d4ea43e3ffe",
+      "source_continuation_state_sha256": "8cfc4abaf3e78b99b3f4a823b625aceefcbbca2a5d7271cb0284cb31b8d781c2",
+      "last_valid_event_seq": 87,
+      "game_state_sha256": "d8207fc7671ba61eabbed0877578b2d1340a750e0a717df4fbf169632714f863",
+      "continuation_state_sha256": "5dab1897049af1bc895059842405f935f8ad96ca4207f7d718fbe9ce2d7a007f",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "unresolved_canonical_predicate"
+          ]
+        },
+        "contract_stop_codes": [
+          "unresolved_canonical_predicate"
+        ]
+      },
+      "decision_count": 3,
+      "event_count": 3,
+      "snapshot_count": 4,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-safe-placement-mixed-stops-131/stop-131-order-02-b-first.json"
+    }
+  ]
+}
