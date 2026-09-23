@@ -1,0 +1,2574 @@
+{
+  "status": "complete",
+  "complete": true,
+  "expectedRecords": 80,
+  "availableRecords": 80,
+  "generator": "built-in imagegen",
+  "normalization": "tools/normalize-expression-image.cjs",
+  "validation": {
+    "baseline_remote": "c2e1b12a690f1c48b08aeb98313ef24becb3f1c2",
+    "baseline_local": "3d21778a2bc2aa9e9278a0fbe428a73f64b93624",
+    "preserved_baseline_files": 2381,
+    "old_active_expressions": 2080,
+    "legacy_expression_files": 4,
+    "normal_pngs": 297,
+    "old_layouts": 208,
+    "new_layouts": 8,
+    "connected_assets": 2160,
+    "svg_accents": 2160,
+    "site_png_hash_matches": 2160,
+    "accepted_final_hashes": 80,
+    "cache": "20260923-12b55a12"
+  },
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful curved smiling eyes and a warm smiling mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b4a3a5b8-4d87-4419-93e4-cd73d2f9eb4a.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-happy.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-happy.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "811a321811b2ae19ed504794b4a96e32b40e947d813f508c392f0c0b42857dff",
+      "final_sha256": "4972e644b79468d20cdcfd2f03929e83b20afed454f3dc534bc57ba8d99140dc",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one strained expression: hesitant strained smile with raised worried inner brows; visibly uncomfortable but trying to smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d80cc198-7002-43e3-b27a-24429031b2e9.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-strained.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-strained.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "7623e5223c37a1658fa1843420d4555e4932931f040b67c73080b05ab5ba9001",
+      "final_sha256": "9037c14dd95ff94a624c38ab8aaf78ba3ba65a1d079e9a049cee1198396cb284",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one hungry expression: longing pleading open eyes with raised inner brows and a small expectant round open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1a9b7260-8eaa-4597-9a4a-8d6345fbd6f5.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-hungry.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-hungry.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "754e2447e4d086220a793a358d3bdd633871309bf448ec9cffc2568511f61654",
+      "final_sha256": "4a80d934f799f427e1514447546a34498d54d66c20b3da463397b6f568d615bb",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one sick expression: pained squeezed uneven eyes and small uneasy wavy mouth, visibly unwell. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d2f06d94-0935-4e27-b81e-66a05ec8152c.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sick.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-sick.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "b480c08589cec79a19cce314ed50442aefa90b6b93047c7de293ae1b35a52bea",
+      "final_sha256": "a99d5ed9e614dba021e1e3c2fa25476fa603bb1fdfcb5a2d5a900c5c520ac773",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one tired expression: heavy half-closed drooping eyelids and a small yawning mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b0182238-e4b5-49b3-91dd-e765d7eca424.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-tired.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-tired.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "1065502c30f627ce6eb7649480fc7bc6020d39bec32ad74765a2e872ba046122",
+      "final_sha256": "0957e0cc065f90401a2d769111dd9218cf0404de99e2026bc2a0bb4a9608e562",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one sulky expression: lowered angled brows, sideways unimpressed eyes and a small pursed pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5d7f8454-253e-41f9-8a49-44c319707bdd.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sulky.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-sulky.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "254794da664706411d87a6bcb380c244de390610844ce593f9e61e279adc6c8c",
+      "final_sha256": "a2a50ebc4c6b8bc311dfde96c26b230b7a66db3807362ca49ad9981c4f480379",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one weak expression: limp drooping worried eyes and a tiny downturned mouth, low energy. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dc32a937-f689-4ecb-9c76-4c586750385e.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-weak.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-weak.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "5952f76927f148413fa1467794b2ae4834c2d27ce471b499c6d928e025af57cb",
+      "final_sha256": "6d00555585d8ba71730988ce0a16be7e15f31dd046972c11b63751efd9b683bc",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one critical expression: tightly shut pained eyes with deeply worried brows and a small anguished open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b89d1dcb-d18d-4f8f-998a-9a426b127219.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-critical.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-critical.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "a9920d40208d6637439c3a229877eade9e7e72eed01c2a718d84fdc659ebf4b4",
+      "final_sha256": "832e24876df42609f1e1123457db3e84f60785dcb85d97e13cd3c6328df08475",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: bright wide eager eyes, slightly lifted brows and a broad excited open smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-67190b7c-e7bc-40e5-b8c4-a9f7e2186b67.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-wantsPlay.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "3dd5b25a549dfe70519c4d75ee598a4a143c6fe97717b6d15d9494ce19c132a8",
+      "final_sha256": "460d343ca2077918f62f2d553e629b813a84aa8d9745f25a4d51f2b5851a5d2e",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 01; image 2 is identical nearest-neighbor enlargement. Create precisely one sleeping expression: both eyes fully peacefully closed as simple gently curved lines and a tiny relaxed closed mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single small white and pale blue soul flame, one round light body tapering into the tall wavy upward flame-tail, blue luminous pixel outline; absolutely no arms, legs, cheeks or accessories. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e453846b-a203-4285-a80e-c49ab9efdbf6.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sleeping.png",
+      "original": "assets/characters/ghost/01.png",
+      "final": "assets/characters/expressions/ghost/01-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
+      "source_sha256": "aa1b4d8c341c4b62c26f4d411d38c035c22455a6a2c5f8ad9f0748b640f83d7d",
+      "final_sha256": "a5da3e16b7e421491374ccb35f1ddabbb0e183bb4280e701f7d786b5dfcd0361",
+      "bounds": [
+        45,
+        32,
+        81,
+        95
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/01-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression happy: joyful closed upward-curving eyes and a small cheerful smile. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-088a317a-df0b-4502-a8fc-f70cbebb4bd8.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-happy.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-happy.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "85279a3841dabb5fc8a26d1b357dfa13759f34a86e9212ca66114a51a556051d",
+      "final_sha256": "5f9a0ccc290d991b70c3447183f326aaccf4730a1d35176044d5b8fa43983369",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression strained: tense squinting eyes, inward-tensed brows and tightly clenched small mouth. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5daccad9-76a4-4a41-bb41-fec4247ca28c.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-strained.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-strained.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "ecd47efb1000fa998ad0d25b14f49e03d86c0dd14a74f80d1a217e6fa8780456",
+      "final_sha256": "fdc965a2c449d511cd6adfd1f4d7ae49a23d675065b26bf5648b8f17ca524040",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression hungry: pleading half-open eyes, worried raised inner brows, small open round mouth anticipating food. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e6f35878-8da4-4752-a8e0-cab2a4593a1d.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-hungry.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-hungry.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "60b1082035a57179f18b9a1637bb987b735126f9897fc9b7ca298069865e5dad",
+      "final_sha256": "6dfe4b55dc1dc4a6dc1d482652bc088d55484e7cdb04a46359cc9c8d8274f31a",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression sick: uneven weak half-lidded eyes, distressed inner brows, small wavy queasy mouth; no color change. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b2e1a24a-6aa0-4cec-98fd-66a87aaaeaec.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sick.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-sick.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "e5f1461893130c93d2427b092ce965366ccb019ad477623ba51506ff0bedb84a",
+      "final_sha256": "c3981ef6d9f7d48f3e0c64ef45e85bd79be280ef903f65e98b2a18779e4addcd",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression tired: heavily drooping half-lidded eyes and small relaxed weary mouth. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-17e964e8-0cb7-46f0-9191-b8dc61dfb870.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-tired.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-tired.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "9023ccc5da112923ddbd109282b9829e8cf90139f54f5ab69ed447da1f65d7fc",
+      "final_sha256": "b1521418bfb5385356f401e0cbc9fa441321a14633d3ea34bf4bf1a64bb671ac",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression sulky: lowered angled brows, side-looking narrowed eyes and small displeased pout. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7282109e-8d2c-4b20-b9f8-3084edac12f5.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sulky.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-sulky.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "28c5e6cc237b9531a1b5b0a9822c012b645b0dcb625eb777ec7c899ffec1241d",
+      "final_sha256": "5a2fa6c39d4306073129825f6dbf37227cdf7f914d925a767a6c961a35b0d4c1",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression weak: nearly shut drooping eyes, raised worried inner brows and tiny faint downturned mouth. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e3adc1d1-b205-4f97-96ec-5bf2807ae078.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-weak.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-weak.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "7d3d841d4fe8514b29f8046f134ad5064bb0be9adc3e54569ffa5860cd2e2159",
+      "final_sha256": "29cf12a0ef176651a3e30ec8d7c3d9d7392a4ab0caa395ab4f4f129e33d5d80a",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression critical: tightly closed distressed eyes with steep worried brows and very small open trembling mouth; no extra symbols. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d50bec7a-06d8-4b91-81cb-4aac5a8cb634.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-critical.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-critical.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "372e811f788fea5d65627632f74a41be1e0201ad35a705aceb6f7785bbefddc5",
+      "final_sha256": "2605e47e238c165199e6b25b9a92ccbe0b9a7641015692f0e943c12de564b8ea",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression wantsPlay: wide bright eager eyes, lifted inviting brows and broad playful smile. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1cfed4e9-8492-4d45-bf72-821d980426d0.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-wantsPlay.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "688f4ae7de16d3906a7a37dc62e23013a9a4de2b1a542033a139c98bafa05d3c",
+      "final_sha256": "cbc614c2b2ec570a77adbb7de33ad0faa5871bc562f2bd0c779271afba23f948",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "prompt": "Use case: precise-object-edit. Asset: one pixel art game sprite. Edit the reference ghost 02, exactly ONE character with ONE face and ONE body. Preserve original white and pale lavender rounded head, navy pixel outline, armless body, original leftward lower curled flowing tail, silhouette, proportions, shading, palette, viewpoint and pixel-block style. Change ONLY the existing eyes, eyebrows and mouth for expression sleeping: two peacefully closed horizontal curved eyelids and tiny relaxed closed mouth; no ZZZ. Do not add limbs, objects, sweat, tears, marks, symbols, ZZZ, sparkles, text, shadow or environment. Genuine transparent RGBA background, crisp pixel art without smoothing. Original anatomy must remain unchanged.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9788e168-10ab-4396-b330-0992e2365568.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sleeping.png",
+      "original": "assets/characters/ghost/02.png",
+      "final": "assets/characters/expressions/ghost/02-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
+      "source_sha256": "6a805eaaec8b830678ea9906d162e3a48280c70079b09905937bbf8528e8b3f5",
+      "final_sha256": "f5b275fe1737d1ae933d4314fa9ca2954918f91634363368a83915e6b3ab4ba6",
+      "bounds": [
+        26,
+        26,
+        101,
+        100
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/02-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful curved smiling eyes and a warm smiling mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9006a6c0-c072-476f-95ba-7a386cd6c139.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-happy.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-happy.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "d72e13618c39cf768769f166af71c0ecf0120c100d04d89d5c909d539345ebad",
+      "final_sha256": "5de1692372702f935e0cdbf00f25c40179ac769b4a021890b900e45604fd7ba5",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one strained expression: hesitant strained smile with raised worried inner brows; visibly uncomfortable but trying to smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-eebec6bc-5a59-4877-bf61-77df447c2428.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-strained.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-strained.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "c9d68cda6c03a7017be3c06bcf0eec2512338ac93d762993195e09ef193c863f",
+      "final_sha256": "3b774495e0f6849073606f94d255206910552f1b8aafee83f5c8c62a6be1f3c6",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one hungry expression: longing pleading open eyes with raised inner brows and a small expectant round open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-93c6f15f-06c3-4113-8ad4-b5f5a81bd54e.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-hungry.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-hungry.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "24201c8bd22e1a79ecb51b2530284a38622c080c56c1cfa372c43846c8fa7b60",
+      "final_sha256": "d06d753579b7d0cf899541fb44c03297904d0c6f6c0f84e32f1df0ac89443e0e",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one sick expression: pained squeezed uneven eyes and small uneasy wavy mouth, visibly unwell. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9ca8dd4d-c4d4-4df0-9b21-aa6a9d396a87.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sick.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-sick.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "db6c6cb5f08b22316e8caee5a624ab39e477027aff6bc025759042c8845767b0",
+      "final_sha256": "ef81974c3c19cee8b49c35cfaebfd1822ee58880dca1e18c7f4830c9ce3e5b81",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one tired expression: heavy half-closed drooping eyelids and a small yawning mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-46ae0b2e-0f3c-45c1-ba24-97bae583c3e4.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-tired.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-tired.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "ae25257586d76b24b438d7f6373add6c43812bca5864f93f6e04b88ee3e530ea",
+      "final_sha256": "3989899f6019aa1920225a9ee1494e42f5591b93bf1c2dc197b8e8885f487c28",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one sulky expression: lowered angled brows, sideways unimpressed eyes and a small pursed pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-da9e7b6d-4937-4a6f-9d6c-2733b265e2fa.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sulky.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-sulky.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "0a417a7821e2dd71c986b13c18b9b7ebda39ef7c311f8f014214126992506f20",
+      "final_sha256": "9cf6462ab9adb917a8e0d0ae01d33991bb81755a8184ce96e62f14da772cadb7",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one weak expression: limp drooping worried eyes and a tiny downturned mouth, low energy. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f0907eb0-aa14-49c4-ac26-de7c90f67c63.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-weak.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-weak.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "92f1fbce9e51312ba8d27dae432709874a95e2f4fcf71116f2fc36a108172d18",
+      "final_sha256": "2e74b897051e9ebeca660843e0fc5d1fff3cd8f21987aee61fb49e8dbf99d3a0",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one critical expression: tightly shut pained eyes with deeply worried brows and a small anguished open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0ac8f4ee-f12a-4da1-b70c-5b1ab7d89411.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-critical.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-critical.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "ab2abab459fa38ce8a6473f490584d6e92c880d6672d4b2aea6721ca70a2593f",
+      "final_sha256": "08e7008719ff96a65455b7b44d15020db88de7dd79034c6ecab80038fefa9777",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: bright wide eager eyes, slightly lifted brows and a broad excited open smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cb2d37df-94cd-4462-849c-f2e5f77160ba.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-wantsPlay.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "ae75ac595a5bf73a324acfd20d191bfdd9c727c2945d14422ab16ed19451088f",
+      "final_sha256": "f48144b6c2d7400f4b16b91e85bb0aef2c4dadc3e48c54a1d77f5973b5d834e3",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite ghost stage 03; image 2 is identical nearest-neighbor enlargement. Create precisely one sleeping expression: both eyes fully peacefully closed as simple gently curved lines and a tiny relaxed closed mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly one single white and pale lavender ghost with existing pink cheeks, both existing rounded arms in exactly their original pose, folded swept forehead tuft, leftward trailing tail, original lavender and purple pixel outline/shading. One body, one face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body color and glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-feaaa8e4-a5c9-4964-9826-aaf10b522c56.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sleeping.png",
+      "original": "assets/characters/ghost/03.png",
+      "final": "assets/characters/expressions/ghost/03-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
+      "source_sha256": "b3512fafed75d66b08334b433afd8c55eaed5b56c553da0cc45da14aa75121a3",
+      "final_sha256": "def07b52ebd123bb17ab0cd45dc8554bfca248bcd84ea7fa62f9d533c7e2dcf7",
+      "bounds": [
+        21,
+        20,
+        106,
+        107
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "generator_visual_review": {
+        "reviewed": true,
+        "method": "view_image original resolution, each of 20 finals",
+        "one_body_one_face": true,
+        "original_design_retained": true,
+        "added_state_marks": false
+      },
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/03-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful smiling narrowed eyes and a warm smiling mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4fdf4e52-ce3f-49b6-b845-1a7f30c647c4.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-happy.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-happy.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-happy.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "f6649283dd1757421a368e9aef9f97cf89dd3e603d0c634faadf979027aac8a9",
+      "final_sha256": "831a13d7bd7c2de60102d2c5ed30838204385bb8b79849f14e5559c177355213",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one strained expression: restrained embarrassed smile, worried raised inner brows, gently narrowed eyes and small awkward smile, not anguish. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c9b1a5d3-8c26-41a4-8355-db12ad4b6799.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-strained.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-strained.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-strained.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "3187410db0e6467447bd780fca9cf673424bc69d0e38b501a661940ed14dddf7",
+      "final_sha256": "8108a83d872eed2289bab252944fe430eb63ff1f33ccf9b713698c0705a84d17",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing pleading eyes and a small expectant open mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b29ba07e-e93e-4b5b-a04c-bd0ab2309dc8.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-hungry.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-hungry.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-hungry.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "5a49288c385bfd4689f7678cc22433bfc02c1520b0100d8d09e06649c3356e4f",
+      "final_sha256": "bf37bd7daaf9d8dc58bc24bb1fbe140f160f32cf20ea1be0bd98da57c2367494",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one sick expression: unwell eyes pinched unevenly with raised inner brows and a small uneasy wavering mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3ab558b7-6afc-4de9-bdec-d1946bb33023.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sick.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-sick.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sick.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "8f2956efd561397563bbf0d5f88d8adc557c57b6d08a56d6431bf010123a7d7f",
+      "final_sha256": "8c734450988879c6fbf9fb3b13ff3733c332f5cc2c0ec0c135ae2bb2072af6ca",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one tired expression: heavy half closed eyelids and a small weary mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-bbd236a3-1e28-4b43-a52c-d94e1a013362.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-tired.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-tired.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-tired.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "3f3e211a83062df45921893c4a814d6d74e8c96fc15a4d5329b23e3b4d2d0d81",
+      "final_sha256": "74537c197f11935600808307aa14696390138b282935c44656c82b0b148bed90",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one sulky expression: pouting, sideways narrowed eyes and a small firm downturned mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0d6b1aef-ae67-4b01-98b3-bd80abe1f79a.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sulky.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-sulky.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sulky.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "90c54f54091427c8acf7fadb8129ade4f4055f219177ae62e7ae954a335ce362",
+      "final_sha256": "692553ce8b1d6f2e86c8161775e17a6165721161bdc38c34e4bbef6092345595",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one weak expression: exhausted faint half open drooping eyes and a tiny low energy mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c068e63b-46d4-496b-95cf-3980574e6e49.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-weak.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-weak.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-weak.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "f07301dc94626121a3695eff272cb0736693b92947804d703f95bcef5e05c9ce",
+      "final_sha256": "058fe33ec539cc161b65b713ed6d405ca591ced6145d539d4d900965cbd1f21e",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one critical expression: near collapse, tightly weakly squeezed eyes and a small slack distressed open mouth, no X eyes. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-36d56ede-ff4f-4468-90f2-7909c7e02502.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-critical.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-critical.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-critical.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "694a6db68442d9cbb98e5ec666cea0c294bab3dff86e28187d22f4930dc09503",
+      "final_sha256": "81dbd2d40fd76d9dfe920981b446623b84794da19ca74317ffe8bb82b8c1f017",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: bright eager wide eyes and playful open smiling mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8cfbf0d4-9a60-4042-8ca6-7c57af1f1700.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-wantsPlay.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-wantsPlay.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-wantsPlay.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "7f2221e2ea1168e090e28d93609ebbc4efdf6fc7922c01d4939c2afbd00fd67d",
+      "final_sha256": "259f9852c4d20cbba159d785ac762aa20c9d6f3cb9b410429651d998b85f481c",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 04; image 2 identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully sleeping fully closed eyes and tiny relaxed mouth. Change ONLY existing facial eyes, brows and mouth. Preserve round white lavender head, both existing round arms, and long flowing tail, all exactly as reference. No fireballs. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4f8492e9-4bce-4d3b-89db-015207faac5c.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sleeping.png",
+      "original": "assets/characters/ghost/04.png",
+      "final": "assets/characters/expressions/ghost/04-sleeping.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/04-sleeping.png",
+      "original_sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
+      "source_sha256": "9bbba960eb3ee29e41b035427bb9c74e3b3a7ec010eb354ec3d9cf750b319602",
+      "final_sha256": "6e3fe0a4c074810446239bbc2087dfeda6b2cbe5db34b3da5bb473dead543957",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        14,
+        14,
+        112,
+        113
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target image1 is the original ghost stage05 pixel-art sprite; image2 is identical nearest-neighbor enlargement. Produce ONE happy expression, warmly delighted eyes and a cheerful jagged smile, friendly joy while preserving its large ghost identity. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b4d924d0-3678-4f3c-974b-0fb25633b2bc.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-happy.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-happy.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "15379cf0b69a6668f9d82f5619ffa533905eaa0146890ab9ce96fbb738369000",
+      "final_sha256": "5970cb0807215a6b8350018b9c618a8183328de087bf8e3dd57ae0d12db85da4",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-happy.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE strained expression: reluctant and uncomfortable, worried inner brows, narrowed uneasy eyes and an awkward strained jagged mouth, not cheerful. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-89d63709-46aa-4136-91cb-30012e86445f.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-strained.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-strained.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "d42314cbc0e41ae20b0fdf987bdb5a77be180529be1a8c4537387cf2246bdca9",
+      "final_sha256": "5655404d2097f784fbb0d4ffbed7f5b7e24864576c2d43f1b7e714c0b59f4aa3",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-strained.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE hungry expression: hungry and longing, pleading eyes with raised inner brows and a small expectant open jagged mouth. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c3e780ee-a856-4d7a-866b-febdce03b3d9.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-hungry.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-hungry.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "abebcaad01876f21f8bed1c50c96352c5dabeea66498431d47b9965bc21d459c",
+      "final_sha256": "ac2ff8d47dd67841d093b0961b1718af64969a64d21a61ca3342dd4167601f47",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-hungry.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE sick expression: ill and queasy, heavy uneven eyelids, worried brow and downturned queasy jagged mouth. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a7896581-3a21-48b9-a27a-622eec4eddb5.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sick.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-sick.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "2ddb5c7af443873d3f9533cbb395418a06f902c356341035a29a4bf21b4f4474",
+      "final_sha256": "23c658b1e4f46a73f56ebc1ece0a2378a52fc3d44dbff93d8fb1691b8b5316ab",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sick.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE tired expression: sleepily tired but awake, half-lidded drooping eyes and relaxed tired small mouth. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b7156597-54ab-4458-85da-18f7143a017b.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-tired.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-tired.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "a6dac75fce834b2b9a38f93b55745cc3bc2796feec9b56907695f3b9bdf75759",
+      "final_sha256": "88fb08072e19471e0eafda846f0e2982c4277e2f4e7255fbfb2b51d6cf8ea113",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-tired.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE sulky expression: pouting and sulky, lowered brows, sideways narrowed eyes and a displeased pout. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d53df72b-d17b-442e-8199-0b5fbe60f422.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sulky.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-sulky.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "fe2700ab1398af123ea2c831990069b605c2b5fa34497b6a7fb9dbaec3986766",
+      "final_sha256": "c43e9afdfb9937643276647d61232860ad22360bfb52d8a6eb9cd914307be03d",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sulky.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE weak expression: depleted and low energy, drooping eyes and brows, small slack downturned mouth. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1147d937-5ade-4c5a-b125-8308ca1a7739.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-weak.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-weak.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "0ea26afcfe9224823d778965385181e7e1dff85f45260b15afb3e2cd219d4656",
+      "final_sha256": "9e88567964ce5ce143a11833ba5803a9383fd39e2a059b2aa466f1f6831777e6",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-weak.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE critical expression: critically exhausted and distressed, strongly pinched pained eyes, tense brows and a distressed jagged open mouth, alive without injury. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fbce47c0-3629-41a2-a015-1dd9d4a8dc3b.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-critical.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-critical.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "0b20ef78ee2e88270773504bde2abfb87122565aca8f21f4e7b337520e8d0c2f",
+      "final_sha256": "88f62e5d94854fd4437904db5679d81b6e3e45ddc76251e32dff859fc634f868",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-critical.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE wantsPlay expression: eagerly asking for attention and play, bright wide lively eyes, inviting playful jagged smile. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ed0ceee8-55c0-466e-bbf2-adb7cf0d13d1.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-wantsPlay.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "27b220576a33110f98ac10cb329fb65d21c07207ac88a922ced5a2717111bc31",
+      "final_sha256": "83d85132d69eae562c58636fe2e6cacbf1cbf1486bd2200c788701c058e72fa3",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-wantsPlay.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "05",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target image1 is original ghost stage05 pixel-art sprite; image2 identical nearest-neighbor enlargement. Produce precisely ONE sleeping expression: peacefully asleep, closed relaxed eyelids and a small calm resting jagged mouth. Change ONLY existing eyes, brows and mouth. Preserve exactly one white/lavender ghost body, curling pointed head, spread raised arms, flowing split tail, dark blue outline and pale purple shading, and exactly ONE faceless blue flame at upper left with its tiny detached tip. Keep original large ghost identity, body shape, pose, proportions, canvas scale, sharp pixel grid and palette. Do not add faces, characters, sweat, tears, symbols, Zzz, state marks, text, shadow or scenery. Keep original flame in every expression, including illness and sleep. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d5d88347-b793-4b49-8afc-e8fe80f01289.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sleeping.png",
+      "original": "assets/characters/ghost/05.png",
+      "final": "assets/characters/expressions/ghost/05-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
+      "source_sha256": "299cf53f82ca3cbd7ec670b12eab6f9954fe101e3c26865e6416dce5102fb607",
+      "final_sha256": "4f20c5d69895ae1007715ca991b48cfa84c5d39f82690794ee7801e9d1b59cc8",
+      "bounds": [
+        8,
+        8,
+        119,
+        118
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/05-sleeping.png",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful smiling narrowed eyes and a warm smiling mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e2072e54-fb6d-46d2-93c1-0759042b8517.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-happy.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-happy.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-happy.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "e05426b15e8f2e52451c6883aacc09941f68693f64a8d82a437770156c3f0dcd",
+      "final_sha256": "8e3b5aa84abcf4b546581bc749b5104ad89d78231f731bb3da40fe18efd371e3",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one strained expression: restrained embarrassed smile, worried raised inner brows, gently narrowed eyes and small awkward smile, not anguish. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-eb85a456-5c8d-452b-90cc-a3c6ff3ee493.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-strained.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-strained.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-strained.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "a8f5c9181760208c325ebf38ad135a43bdfe372b2608b53bd2fcc4c9614191ee",
+      "final_sha256": "f10832241d231514b22b9d489c149f56aa9b0b35d850d41dc6c655367d4c32df",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing pleading eyes and a small expectant open mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-10583334-b33e-410d-95ea-c7dc758fc38b.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-hungry.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-hungry.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-hungry.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "c8ccf9edf0abc91b242249148c799357ffb8d77f2266cce8f8cc29d99d7ec384",
+      "final_sha256": "1723bcb43ed436e8f44612186d310c72a1ba26893be98ad4aa02a45e64f6e57a",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one sick expression: unwell eyes pinched unevenly with raised inner brows and a small uneasy wavering mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b53ee768-859b-4471-b547-ff9d96e9813b.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sick.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-sick.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sick.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "4e36607b8b7cda1d8821352be98244cdf197c66a6a83fa7225ec196814afbbcc",
+      "final_sha256": "27cc29699ce6c4f0b2dc1dec8340de598ea06530a032a9d95430c94bf347493d",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one tired expression: heavy half closed eyelids and a small weary mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a897e21b-4013-447a-8b6b-467b5491849f.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-tired.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-tired.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-tired.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "3edd01f3a75db3d9dcff0cdb8f6280e1a05fbe382fca311a7ea99669ded9e5cd",
+      "final_sha256": "e1cb7dc984bed85c9af6bbaada3883a663e39543f7e87baf4744bf509646cbd3",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one sulky expression: pouting, sideways narrowed eyes and a small firm downturned mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e0d78780-2f14-41e4-bd9a-c32a04f2d9ce.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sulky.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-sulky.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sulky.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "d25db0069eb02797018a274c283882adac1ec22b1bf13ba44b360cf64dc8fbd4",
+      "final_sha256": "bf69215957dfcdcfe8aa877f1740f8c8082568f1ff7237d5b756dfc4cd2e9ca1",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one weak expression: exhausted faint half open drooping eyes and a tiny low energy mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9c73dbe8-ebdc-4979-9337-7c34794929aa.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-weak.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-weak.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-weak.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "deff710c3688b21edb16519597958d9251e98ff07b0fd3e25c33668d4d3af351",
+      "final_sha256": "60d9fa1152f7864e95d087e432688645247b28f88dbc033fa1f9a2ae0139413f",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one critical expression: near collapse, tightly weakly squeezed eyes and a small slack distressed open mouth, no X eyes. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2604e7e2-a313-4c93-a9a9-93cb96405275.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-critical.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-critical.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-critical.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "a5cb488cce97cdd5891d8f55edcdd7261a9a6b078727dffe9b1a41ba6007e6b5",
+      "final_sha256": "6bc5e52c7d5b0d551b868ba9902aa4a643f7fb12c635e407824daeb3e8e90b0f",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: bright eager wide eyes and playful open smiling mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a35cb203-6223-4ee8-9da7-f5f3a7b5f219.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-wantsPlay.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-wantsPlay.png",
+      "repair_history": [
+        {
+          "prompt": "Use case: precise-object-edit. Edit the attached finished pixel-art ghost sprite. Make ONE tiny correction ONLY to the two eyes: remove the pale blue/white tear-like protrusions hanging below each eye. Keep both eyes wide open, eager and cheerful, with small bright highlights fully ENCLOSED WITHIN the dark navy eye outlines, no highlights touching or extending below the outline. Fill the tiny removed under-eye protrusions with the neighboring plain white face color. Preserve every other part: eye positions and general wide shape, eyebrows, eager open smiling mouth with blue interior, white/lavender body, long curled top wisp, flowing beard-like folds and tail, three blue flames and tiny lower-left sparkle, outline, pose, palette, composition. Do not add any tears, sweat, symbols, marks, faces or objects. Crisp original pixel art, genuine transparent background.",
+          "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ca146f86-feda-43ff-b430-a051b679e37e.png",
+          "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-wantsPlay-repair1.png",
+          "source_sha256": "9c7489f1f5453d8259e6fe5bea94c48b7242d792b40f8745af89028480c60813",
+          "reason": "Remove under-eye tear-like highlight protrusions; keep highlights inside dark eye outlines",
+          "previous_final_sha256": "01a7e0bcf83a09b228f2a80a61cebf90d00f22742541164df69496f5d7449bf8"
+        }
+      ],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-wantsPlay-repair1.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "ee7de27df553a99ea16c03ea01608fae3a02727c8abd830597abdc5e0c54ae16",
+      "final_sha256": "a970b5566f075802bdd24aa16cf555a34a0cbb03e68f7aa974c4960745675e5c",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "06",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target: image 1 original pixel-art game sprite ghost stage 06; image 2 identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully sleeping fully closed eyes and tiny relaxed mouth. Change ONLY existing facial eyes, brows and mouth. Preserve old ghost with long S curved smoke tail at top, beard and lower tentacle-like folds. Preserve exactly THREE blue fireballs: ONE left, TWO right, and the tiny lower left glimmer. Keep their shapes, positions and colors. Fireballs and glimmer have NO faces. Preserve exactly ONE body with ONE face, original silhouette, proportions, pose, palette, pixel grid and hard-edged pixel art. Do not add face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8fdbb815-9b66-4b53-b4b5-7eb317e24af3.png",
+      "line": "ghost",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sleeping.png",
+      "original": "assets/characters/ghost/06.png",
+      "final": "assets/characters/expressions/ghost/06-sleeping.png",
+      "repair_history": [],
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/06-sleeping.png",
+      "original_sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
+      "source_sha256": "755390c13f153dbbd54906191bddd86b70329f1e0262eecc598d7d1397d0d7e9",
+      "final_sha256": "0db000fbc75a6f850e882f0c739bc2f03e0e156147959a726f7851e63eb42fab",
+      "size": [
+        128,
+        128
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        8,
+        111,
+        119
+      ],
+      "self_review": "PASS: one body and one face; original structure and palette retained; expression only; no added state marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one happy expression: cheerfully happy: upward smiling eyes and an open warm joyous smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dcfa7e3b-21ef-4ffd-aa39-f72c4d3d7c35.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-happy.png",
+      "final": "assets/characters/expressions/ghost/07-happy.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "0957afb274cfc5958ac8562d01b310f07415b02f0241f9b2c30f41e0b24e473b",
+      "final_sha256": "d95980c46ca972d5158d7e100f329aae9ff14488b95b7a4d739565c0a0b45a32",
+      "generated_source_sha256": "0957afb274cfc5958ac8562d01b310f07415b02f0241f9b2c30f41e0b24e473b",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-happy.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one strained expression: strained reluctant smile: raised worried inner brows and awkward small curved smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0c178e2c-0735-402b-a80e-4bc2bb6e5fed.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-strained.png",
+      "final": "assets/characters/expressions/ghost/07-strained.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "fe1d3882607c0c7fa2e04ac2c5215c5d477437815164e07f4d73e06dbb62b350",
+      "final_sha256": "081099240e23aa60d2af6525c1d187d0d95861bd9213b9a65bf9b573d301b91d",
+      "generated_source_sha256": "fe1d3882607c0c7fa2e04ac2c5215c5d477437815164e07f4d73e06dbb62b350",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-strained.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing: pleading open eyes, raised inner brows and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4cd0a694-2a95-4ce3-8d6f-5c4d26c4befd.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-hungry.png",
+      "final": "assets/characters/expressions/ghost/07-hungry.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "4e6c3d8f6883022aa313c01355ff7764288603f2979a682f9784880b2a64abc0",
+      "final_sha256": "2bccf7269bb1e0f7830b2e6f037f9cb3f24e0c326e4144b889569a7f3f84b985",
+      "generated_source_sha256": "4e6c3d8f6883022aa313c01355ff7764288603f2979a682f9784880b2a64abc0",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-hungry.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one sick expression: sick and queasy: uneven heavy eyelids, worried brows and queasy downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-15ed2034-9a27-435b-a451-8058e7668ca5.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sick.png",
+      "final": "assets/characters/expressions/ghost/07-sick.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "91796ea4040809463dbe7cb67317ea1d28b7e267f223050f9cfb120350bb70b6",
+      "final_sha256": "4d8ff5fe0e783074319c816dbcf307afbd664c9e6da33f8eb9ad5611f4cce20a",
+      "generated_source_sha256": "91796ea4040809463dbe7cb67317ea1d28b7e267f223050f9cfb120350bb70b6",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sick.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one tired expression: tired and drowsy: half-lidded eyes and a small yawning mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f04ec16d-3772-4c50-84ef-fa3321a9e213.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-tired.png",
+      "final": "assets/characters/expressions/ghost/07-tired.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "ac2fa820d895ae7edaf8cc0a2fffc63a1fac35c26808e3460791034599dbee19",
+      "final_sha256": "e7191926c5c349d51e779891460fd9dc746f5ec73d0ad90be8f205464305b06e",
+      "generated_source_sha256": "ac2fa820d895ae7edaf8cc0a2fffc63a1fac35c26808e3460791034599dbee19",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-tired.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered angled brows, narrowed eyes and a small firm pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e3d70a3b-7c4d-4f49-bc47-8a195449c63e.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sulky.png",
+      "final": "assets/characters/expressions/ghost/07-sulky.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "c1cab22a39e01b491021de0e2e0e287c94bf909c8183b1bfd6199ba2d66ef3ea",
+      "final_sha256": "60f32935a5963695f385cf361ae9237cf2ef5cd99286db2bc89b43b324c658e3",
+      "generated_source_sha256": "c1cab22a39e01b491021de0e2e0e287c94bf909c8183b1bfd6199ba2d66ef3ea",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sulky.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one weak expression: weak and depleted: drooping half-closed eyes, faint worried brows and tiny slack mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4991cf08-0de2-41f6-8183-2f8d1d00a77a.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-weak.png",
+      "final": "assets/characters/expressions/ghost/07-weak.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "bcf9afc502162c29b56092ac9e76ddad98cb99ace0ba00b0c42a346a3acb8ff5",
+      "final_sha256": "9f6f42a12c139f8275a6f0ab0f2433d039f74c875bb4f5ec0fbf7d46d026dfbd",
+      "generated_source_sha256": "bcf9afc502162c29b56092ac9e76ddad98cb99ace0ba00b0c42a346a3acb8ff5",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-weak.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted: almost closed struggling eyes, steep worried inner brows and tiny trembling downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e33a2e30-9910-41ba-97f2-8aaeb7678a04.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-critical.png",
+      "final": "assets/characters/expressions/ghost/07-critical.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "23542271067b36096bcecbc9cca538df146f39906fe25eb5b7f3ab85d3355e94",
+      "final_sha256": "f2e9dfcbcd8b51411326c9ebdddb677fd2609d8e0d3e8d71e882f61b6fca7de1",
+      "generated_source_sha256": "23542271067b36096bcecbc9cca538df146f39906fe25eb5b7f3ab85d3355e94",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-critical.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eager to play: bright wide attentive eyes, lifted brows and an excited open smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-52e1364b-a3be-4ffa-a50e-9b163d6d6201.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-wantsPlay.png",
+      "final": "assets/characters/expressions/ghost/07-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "cb59eddadfa5b496d9e70975fcf0bef5206a36eee3b5665933171782c7fac594",
+      "final_sha256": "4a7dcdfeaaf11f202eb499e6680e21602e143508e40c0ed887e708852bb670f6",
+      "generated_source_sha256": "cb59eddadfa5b496d9e70975fcf0bef5206a36eee3b5665933171782c7fac594",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-wantsPlay.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "07",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 07; image 2 is identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully sleeping: fully closed relaxed eyes and tiny peaceful resting mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve white lavender ghost, both hands held together, trailing tail, golden halo, exactly FOUR blue flames: two left and two right. Flames are faceless light decorations. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-001ec824-f5a7-4444-b602-b3bf39d5f014.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/07.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sleeping.png",
+      "final": "assets/characters/expressions/ghost/07-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
+      "source_sha256": "b8b10a58675cee200fa788e3f5f446e8ac50cb773c1c5c9c41c7d53365428782",
+      "final_sha256": "1884b53cf6a6f6e9c8f000caab99a4f595a062cf59736a8c97849105b8723af5",
+      "generated_source_sha256": "b8b10a58675cee200fa788e3f5f446e8ac50cb773c1c5c9c41c7d53365428782",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/07-sleeping.png",
+      "bounds": [
+        14,
+        8,
+        112,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "happy",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one happy expression: cheerfully happy: upward smiling eyes and an open warm joyous smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a3f53628-e170-4182-ad92-cabf09e1579e.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-happy.png",
+      "final": "assets/characters/expressions/ghost/08-happy.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "e0a92ef77119d6968035e20b6232d5dbec0338051bfc3be7025df25f9a1cb436",
+      "final_sha256": "8da86f7935b26075c6c7ac39619ba19abe7df026bafed6ba95d863733619e27e",
+      "generated_source_sha256": "e0a92ef77119d6968035e20b6232d5dbec0338051bfc3be7025df25f9a1cb436",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-happy.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "strained",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one strained expression: strained reluctant smile: raised worried inner brows and awkward small curved smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f858c1e7-d7f0-487d-9454-62e53a8da9ee.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-strained.png",
+      "final": "assets/characters/expressions/ghost/08-strained.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "1d1c973973c43792d4073905ac003ff1b2e56a7b2ce5c97bbc90dd62d214f6c0",
+      "final_sha256": "98b4a5776d4f47111f57ea3f01b31403d9b5b15a401cc68c0ac74f90605ef55a",
+      "generated_source_sha256": "1d1c973973c43792d4073905ac003ff1b2e56a7b2ce5c97bbc90dd62d214f6c0",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-strained.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "hungry",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing: pleading open eyes, raised inner brows and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5aeb7ac7-c55d-4d52-abf7-5ea10b30e9e8.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-hungry.png",
+      "final": "assets/characters/expressions/ghost/08-hungry.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "95f1e69c4bd2c9123ee5f4bf0d48a99393340d1d1c6090a0683cfece94166062",
+      "final_sha256": "83b55a8c5fd05e47067b62361acaa887fc8c53ac8e7124832cb897d2a704f29b",
+      "generated_source_sha256": "95f1e69c4bd2c9123ee5f4bf0d48a99393340d1d1c6090a0683cfece94166062",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-hungry.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sick",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one sick expression: sick and queasy: uneven heavy eyelids, worried brows and queasy downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-34c9d583-01cf-4c4d-8296-84339d4f098b.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sick.png",
+      "final": "assets/characters/expressions/ghost/08-sick.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "9413e3d544d010a4c5d24ff6b87689e6e388fcf4a1e7451be404bb4352f88df0",
+      "final_sha256": "71f74782a84633c399a1f4e88b23d2fb11eff06a275dd4cf58cbede6247363af",
+      "generated_source_sha256": "9413e3d544d010a4c5d24ff6b87689e6e388fcf4a1e7451be404bb4352f88df0",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sick.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "tired",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one tired expression: tired and drowsy: half-lidded eyes and a small yawning mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f0dd943c-2e3d-49e0-83dd-c3939e56934d.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-tired.png",
+      "final": "assets/characters/expressions/ghost/08-tired.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "a8bf9ec1c698a7a85712b0a72fa52d9220efab022cfeedbfa8147ada03d3d356",
+      "final_sha256": "5cfe654e10153d0c37672b9cfb0b352129957ed967de85a65104435b07ace161",
+      "generated_source_sha256": "a8bf9ec1c698a7a85712b0a72fa52d9220efab022cfeedbfa8147ada03d3d356",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-tired.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sulky",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered angled brows, narrowed eyes and a small firm pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-67557bf7-ed67-44ce-85f9-5251c74cda4a.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sulky.png",
+      "final": "assets/characters/expressions/ghost/08-sulky.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "15b08744f9fd3c9e94ab2878d7d0db147bc5b6309aaa4b5f31312e8ca06e4987",
+      "final_sha256": "84b4ecb4e2ad8cddb93da5cf9c5da7051377673fed7a111e242bc2c81d02d888",
+      "generated_source_sha256": "15b08744f9fd3c9e94ab2878d7d0db147bc5b6309aaa4b5f31312e8ca06e4987",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sulky.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "weak",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one weak expression: weak and depleted: drooping half-closed eyes, faint worried brows and tiny slack mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5aa47d0f-2e44-4e2c-83f1-51ffb236e31c.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-weak.png",
+      "final": "assets/characters/expressions/ghost/08-weak.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "1e86f31fdaf764e37b8c90fbd85b7d9e5329b726bf2012638510a8961c9d7c3d",
+      "final_sha256": "2e9d741d2fb57ab4ffd087e60f40dbf314dc93215d5184142caefa83d6ba7ee3",
+      "generated_source_sha256": "1e86f31fdaf764e37b8c90fbd85b7d9e5329b726bf2012638510a8961c9d7c3d",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-weak.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "critical",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted: almost closed struggling eyes, steep worried inner brows and tiny trembling downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0f3ead42-fea2-4b37-9f39-1e2cff625104.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-critical.png",
+      "final": "assets/characters/expressions/ghost/08-critical.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "b6365b1da27afe9db469487ca6837d0080c5e4c3004e5db76811b9cd6bf2e12d",
+      "final_sha256": "365a9d79bfd1f2ef6f005c05ef465a33773f79f4c0f6ad1c953daba8bf9ceb66",
+      "generated_source_sha256": "b6365b1da27afe9db469487ca6837d0080c5e4c3004e5db76811b9cd6bf2e12d",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-critical.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "wantsPlay",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eager to play: bright wide attentive eyes, lifted brows and an excited open smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-70a85320-3875-480b-a664-efd61d94558f.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-wantsPlay.png",
+      "final": "assets/characters/expressions/ghost/08-wantsPlay.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "42b8a88fb29319f48395d19e50735b220223f0e9775c632e9bef96e5d9fcebb6",
+      "final_sha256": "c38129226a46be040155a1f565f4ab8cbc4771f565ec37da2e8a44f1ef4118b5",
+      "generated_source_sha256": "42b8a88fb29319f48395d19e50735b220223f0e9775c632e9bef96e5d9fcebb6",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-wantsPlay.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    },
+    {
+      "stage": "08",
+      "state": "sleeping",
+      "prompt": "Use case: identity-preserve. Edit target image 1 is original pixel-art ghost stage 08; image 2 is identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully sleeping: fully closed relaxed eyes and tiny peaceful resting mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly ONE ghost body with ONE face, proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art, original composition. Preserve slender white pale-yellow ghost edged blue, golden blue-edged halo, long trailing tail with small detached light below its tip, exactly EIGHT surrounding stars, their positions and colors. Preserve all intrinsic lights and glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+      "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-12c1fd07-0637-482e-a241-650c2c76f03f.png",
+      "line": "ghost",
+      "original": "assets/characters/ghost/08.png",
+      "source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sleeping.png",
+      "final": "assets/characters/expressions/ghost/08-sleeping.png",
+      "repair_history": [],
+      "original_sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
+      "source_sha256": "32f478027dcef5fa4b020e5e8e03310fcdbf11e552f324381b2f7ab16043ef91",
+      "final_sha256": "645956c2a36829daef9d60e871b6260ae4af91e6288e891471d6a53f469040a8",
+      "generated_source_sha256": "32f478027dcef5fa4b020e5e8e03310fcdbf11e552f324381b2f7ab16043ef91",
+      "final_generation_source": "/workspace/scratch/0e1d599677f2/ghost-generated/08-sleeping.png",
+      "bounds": [
+        21,
+        8,
+        106,
+        119
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "self_visual_review": "pass: original and final individually viewed; one body and one face; structure, intrinsic lights and decoration counts preserved; expression only; no forbidden added marks",
+      "classification": "single",
+      "independent_review": "ACCEPT"
+    }
+  ]
+}
