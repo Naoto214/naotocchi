@@ -44,6 +44,8 @@ Stable enumeration IDは手順番号、source zone、source instance IDまたは
 
 ## 4件のacceptance auditと実装境界
 
+123の保存artifact validatorは固定した122 raw bytesを必須入力とし、照合済み122 schemaを対象とする。将来stateに期限・到達履歴の証拠を追加する場合は、その正本/schema/raw/hash検証を先に接続し、同じ6手順を新stateから再監査する。新しいfieldだけを足して完全性をtrueにしない。現状では情報境界、全source projection、期限、到達履歴が未証明なら各条件をfalseに保つ。
+
 4件すべて入口/閉じた空chain/空予約/空pending/空activationを肯定的に再証明し、P-cat_ceoまたはC-chameleonについて本文根拠を添えて終了時独立発動から除外する。残りの盤面・公開履歴・期限・到達履歴について、現在stateから不存在を独立再計算できなければ該当contract stopを記録する。`turn_end_set_complete=true`を4件という期待値として固定しない。一般pipelineで示せない場合は停止のままにする。
 
 予定成果物はprotocol-only JSON contract/audit、独立builder/validatorとテスト、123報告、詳細TDD計画、README、PR本文。UTF-8、indent 2、LF、末尾改行1件、schema固定key/array順で保存し、別プロセス再生成bytesと保存bytesを直接比較する。122/121の保存成果物、120/119/117/116、112 fixture、452現行/477登録履歴は読み取り専用。117旧テストの190対263は別件として記録する。

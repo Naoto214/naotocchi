@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py")
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,7 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py")
+        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py")
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -451,6 +451,25 @@ def check_checkpoint_120():
             checkpoint_check(False, f"120 canonical check failed: {error}")
     return checkpoint_errors, checkpoint_test_count, proxy_count
 
+
+if "--checkpoint-123" in sys.argv:
+    import proxy_turn_end_completeness as checkpoint_123
+    checkpoint_errors = []
+    try:
+        checkpoint_errors.extend(checkpoint_123.check_outputs())
+        inputs = checkpoint_123.load_inputs()
+        audits = checkpoint_123.build_audits(inputs)['audits']
+        for audit, (stop, raw) in zip(audits, inputs.values()):
+            checkpoint_errors.extend(checkpoint_123.validate_turn_end(audit, stop, raw))
+        if len(audits) != 4 or any(a['turn_end_set_complete'] for a in audits):
+            checkpoint_errors.append('123 protected stop count or proof boundary')
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        checkpoint_errors.append(f'123 source integrity: {error}')
+    report = DOCS / '123-turn-end-completeness-contract.md'
+    if not report.is_file() or '| [123](123-turn-end-completeness-contract.md) |' not in (DOCS/'README.md').read_text():
+        checkpoint_errors.append('123 report or README index')
+    print(json.dumps({'checkpoint':123, 'errors':checkpoint_errors}, ensure_ascii=False, indent=2))
+    sys.exit(bool(checkpoint_errors))
 
 if "--checkpoint-122" in sys.argv:
     import proxy_normal_action_seeded_restart as checkpoint_122
@@ -3340,7 +3359,8 @@ proxy_test_count = sum(
     isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
     for path in (DOCS / "tools").glob("test_proxy_*.py")
     if path.name not in {"test_proxy_normal_action_candidate_completeness.py",
-                          "test_proxy_normal_action_seeded_restart.py"}
+                          "test_proxy_normal_action_seeded_restart.py",
+                          "test_proxy_turn_end_completeness.py"}
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")

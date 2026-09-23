@@ -56,7 +56,7 @@
 
 ### Task 3: 12条件をvalidatorで独立再計算
 
-**Interfaces:** `validate_turn_end(audit: dict, stop: dict) -> list[str]`。`build_contract() -> dict`、`build_audits(inputs: dict) -> dict`。
+**Interfaces:** `validate_turn_end(audit: dict, stop: dict, raw: bytes) -> list[str]`。122保護済みraw bytesを必須とする。`build_contract() -> dict`、`build_audits(inputs: dict) -> dict`。
 
 - [ ] **Step 1 RED:** booleanを反転、stage順の入替、unit削除、stop code削除、card本文分類改ざん、未知key追加をそれぞれvalidation errorとする。`forbidden_information_used=[]`だけで通らないことを確認する。
 - [ ] **Step 2 GREEN:** `validate_turn_end`は入力stopから`enumerate_turn_end`を再実行し、12条件の名前と導出値、全inventory/停止code/projectionを厳密比較する。辞書の未知keyと配列重複/ID衝突を拒否する。保存されたcomplete値を計算入力にしない。`build_contract`は6stage、12check、9stop、01/06/64/72/74参照、scope全件0を列挙する。
