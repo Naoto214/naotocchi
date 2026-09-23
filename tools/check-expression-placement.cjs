@@ -6,7 +6,7 @@ const css=fs.readFileSync(path.join(root,'pet-expression.css'),'utf8');
 const names=['happy','strained','hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping'];
 const S=2,P=80,W=368;let checked=0,sweats=0;const issues=[];
 (async()=>{
- for(const line of ['cat','dog','man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost'])for(let i=1;i<=8;i++){
+ for(const line of ['cat','dog','man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star'])for(let i=1;i<=8;i++){
   const base=`assets/characters/${line}/${String(i).padStart(2,'0')}.png`,floor=104*(128-bounds[base].box[3])/128;
   for(const name of names){
    const png=await sharp(path.join(root,exp.assetFor(base,name))).resize(208,208,{kernel:'nearest'}).ensureAlpha().raw().toBuffer();
