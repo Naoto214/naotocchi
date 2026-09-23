@@ -1,12 +1,24 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
+const vm = require('node:vm');
 const { harness } = require('./helpers/runtime-harness.cjs');
+
+// The daily game is picked from the calendar day, and Math.random is a constant below.
+// Some minigames draw their layout by rejection sampling (domino-run keeps drawing until
+// it finds distinct gaps) and never finish with a constant random, so fix the calendar
+// instead of depending on whichever game today happens to pick.
+function fixCalendar(h, day = '2026-09-16') {
+  h.sandbox.calendarDate = day;
+  vm.runInContext(`if (!globalThis.OriginalDate) globalThis.OriginalDate = Date;
+    Date = class extends OriginalDate { constructor(...args) { super(...(args.length ? args : [calendarDate + 'T12:00:00'])); } };`, h.sandbox);
+}
 
 for (const equipment of [null,'star']) test(`daily and Lucky payouts stay independent with ${equipment}`,()=>{
   const h=harness(),s=h.api.state();
+  fixCalendar(h);
   Object.assign(s,{stage:'growing',sodachi:80,maxSodachi:80,growth:0});
   Object.assign(s.lifetime,{equippedItemId:equipment,weatherMode:'sunny',timeMode:'day',seasonMode:'spring'});
-  require('node:vm').runInContext('Math.random=()=>0.8',h.sandbox);
+  vm.runInContext('Math.random=()=>0.8',h.sandbox);
   const before=s.lifetime.money;
   h.api.startMinigame(h.api.dailyChallengeGame(),{intro:false});
   h.api.finishMinigame(50);
