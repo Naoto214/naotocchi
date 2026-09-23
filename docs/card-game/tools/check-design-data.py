@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py")
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,7 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py")
+        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py")
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -451,6 +451,23 @@ def check_checkpoint_120():
             checkpoint_check(False, f"120 canonical check failed: {error}")
     return checkpoint_errors, checkpoint_test_count, proxy_count
 
+
+if "--checkpoint-126" in sys.argv:
+    import proxy_current_turn_end_correction as checkpoint_126
+    checkpoint_errors=[]
+    try:
+        checkpoint_errors.extend(checkpoint_126.check_outputs())
+        plan=checkpoint_126.build_plan(checkpoint_126.load_sources())
+        evaluation=checkpoint_126.build_evaluation(plan)
+        if len(plan['routes'])!=4 or evaluation['completed']!=0 or evaluation['rules_stop']!=4:
+            checkpoint_errors.append('126 route outcome differs')
+    except (OSError,ValueError,KeyError,TypeError) as error:
+        checkpoint_errors.append(f'126 source integrity: {error}')
+    if not (DOCS/'126-current-turn-end-correction.md').is_file() or \
+            '| [126](126-current-turn-end-correction.md) |' not in (DOCS/'README.md').read_text():
+        checkpoint_errors.append('126 report or README index')
+    print(json.dumps({'checkpoint':126,'errors':checkpoint_errors},ensure_ascii=False,indent=2))
+    sys.exit(bool(checkpoint_errors))
 
 if "--checkpoint-125" in sys.argv:
     import proxy_normal_action_extension as checkpoint_125
@@ -3396,7 +3413,8 @@ proxy_test_count = sum(
                           "test_proxy_normal_action_seeded_restart.py",
                           "test_proxy_turn_end_completeness.py",
                           "test_proxy_turn_end_provenance_restart.py",
-                          "test_proxy_normal_action_extension.py"}
+                          "test_proxy_normal_action_extension.py",
+                          "test_proxy_current_turn_end_correction.py"}
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")
