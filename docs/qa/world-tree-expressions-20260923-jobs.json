@@ -1,0 +1,2302 @@
+[
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed, pinched pained eyelids and a tense distressed mouth, alive without injury. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2c005716-e096-44b2-86d8-9e911a8c2047.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-critical.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-critical.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "d102bbe52b5544a2351f9789fdc512d9a30b77f210e603b8f534649fb7b38f17",
+    "final_sha256": "0aa552f57a1be95c0d842575a32cb7e8d4e5146ff7b40314ea113053b4bdba42",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-critical.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful smiling narrowed eyes and warm smiling mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly the original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-48869f02-fe82-4391-a934-3aa20838c0ff.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-happy.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-happy.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "1cc9bb3d93a43b71d3ce31a3762d26146ba6c6695c973f3ea0d9b74b522381b8",
+    "final_sha256": "99df6f6d3a3dc6925b734fcb1463a0164a99ddfae6fca0a11efccddef7cfeee5",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-happy.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one hungry expression: longing pleading eyes and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cd28d9ab-6a84-4b27-9e72-1e2d5a16661d.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-hungry.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-hungry.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "d44f0adc2a544411f7a5c54bfd0c1a7b4468555d5b926955c589cc913cc735e9",
+    "final_sha256": "a4771b0139e6287be8d7dc74919a48e38ea06fb7012cc155d7cb5f5d92cb224b",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-hungry.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one sick expression: ill and queasy, heavy uneven eyelids, worried inner brow and a queasy downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-218b8462-bab0-4a24-8f47-c788d2b30a4f.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sick.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-sick.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "2fb47cde3e4203a0425403cef9a4b2cea7a54e7389bb6f56db7d05cd881bfc6d",
+    "final_sha256": "ee4ca729820aa38234868787140d2a9238c80f6c908d563dcb3a46e348ea8f7a",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sick.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep, fully closed relaxed eyelids and a tiny relaxed mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-737eaaff-9303-4729-9ffc-8d01eddf6c3d.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sleeping.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "6c284c117adbfe3c50c75d3d4cc4fa003237a761fc2742a85570e1879d35f2ec",
+    "final_sha256": "28d8612c44746a3349c61d3fd9156a161d6616b157cb9fb10994b9eb029b663b",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sleeping.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one strained expression: hesitant embarrassed strained smile, worried raised inner brows and restrained mouth, not delighted. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1374354b-4cac-4572-8d00-2b0d5e11ae52.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-strained.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-strained.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "56118cd6e59dbad2842aaf5fc2fd13013e2cf79576e7a12b0f75955bc92ab6f1",
+    "final_sha256": "671ba6e469819a0ff2b6c712dccbfc751a7c051c258a54ea0b2940bd841a43a0",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-strained.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky narrowed displeased eyes, lowered brows and a pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-083212eb-72d1-44ce-ac03-dd2001d011b3.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sulky.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-sulky.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "101a3889c79d3612f5fac6469bb53272ab5ece755652d79fb776454b6cf636b5",
+    "final_sha256": "c2feac01dc422778c5aa1692b539d5c145df284c83511dbbc5544345ff579ee5",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-sulky.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one tired expression: sleepy tired heavy half-closed eyelids and a small weary mouth, awake. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ea2fe84f-a56b-4bec-8a28-da666ebe856d.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-tired.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-tired.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "fffae51a0c010752e7e2df883edf5877347a1a42abef13f9c234cfbbfd33768e",
+    "final_sha256": "3a1ae577dac90cb39b446041a475eb9c4d29efeef2223210f15774fdb76ca3a3",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-tired.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eagerly asking for attention and play, bright inviting eyes, raised brows and small hopeful smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-68b4cee3-6546-40e6-bbb3-bca125c8bc89.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-wantsPlay.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "ba93ad503a82dc82f62cb931fb856aaf1cb56aaf858cd5d8f4aa2b87edc34c60",
+    "final_sha256": "97b46e33560acde794f04a5d73bae98dcd7d99f2dcade739fa510e62f414b9c3",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-wantsPlay.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "01",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 01; image 2 identical nearest-neighbor enlargement. Create precisely one weak expression: very weak exhausted drooping eyelids and a tiny slack weary mouth, alive and awake. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, gold leaf-shaped seed body, diagonal point at upper right, glowing yellow outline, golden leaf veins, orange shading, white shine and peach cheeks. No limbs or additional face. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1c84db4b-6ed1-4183-ae7f-bf4151a9c140.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-weak.png",
+    "original": "assets/characters/world_tree/01.png",
+    "final": "assets/characters/expressions/world_tree/01-weak.png",
+    "repair_history": [],
+    "original_sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
+    "source_sha256": "180fdfe59d03b952104427170e133631aa313ca51f6ff8a6bcc1c2bfc77b47ba",
+    "final_sha256": "c135b258c137a0ca2579ada3eed36b7454af2124933d046b8856935b0df544fc",
+    "bounds": [
+      16,
+      8,
+      112,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/01-weak.png"
+  },
+  {
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: critical exhaustion: barely open unfocused eyes, strongly drooping brows and small distressed mouth, still alive.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-edf50e3b-675d-424b-bdfe-820754060d27.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-critical.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-critical.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "eb776974d069d4fb2525ba25be022c9bf59612ff30e6c8a2a674227c473bfc16",
+    "final_sha256": "307f5f0761768a60ba1aaa67ba86edbb51f3b92ebf0e1deb9d96ff8359a9ad90",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: happy joy: upward smiling eyes and broad joyful smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f2945ffb-47b1-46ee-b82a-dbe41528008f.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-happy.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-happy.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "f00871c201af58edfbec022b5d44d9368895af48defe8b0174882676466debb6",
+    "final_sha256": "0cc2f498e26ebcf751186f31ad0228a215132ed439feaa24218e0cc43c1f315a",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: hungry: yearning slightly lowered eyes, small open wanting mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-92ae8901-ab49-4043-8888-d9e7dc1b99ac.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-hungry.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-hungry.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "5485724ff5d20a37e9dd91e46e74bbf3d5836d42894d319d1fad87eff8d5f272",
+    "final_sha256": "c527d10ec4d62a2248dda9a94e279c2eb371048490e266b73fb73c9348d9c2bb",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: sick: visibly uncomfortable eyes, concerned eyebrows and small wavy displeased mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c0526116-ba7c-4a5b-8ebf-0397642c2724.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-sick.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-sick.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "8ee24909f831c20a92fda0e22ab837240c033bf1e053479b7e52b85a0a64a6e5",
+    "final_sha256": "5855187a7c69c91acddab5535e2ff18b921c188a2c1a1baae15b5298aca9c0af",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: sleeping: fully closed peaceful eyes and tiny relaxed closed mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7a10afd4-b01a-4748-9499-6bb4d13d0114.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-sleeping.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "0bb9c0747db27b141e92117db61925b4e89647c428238ad51449afb177d045c8",
+    "final_sha256": "844fd61c5cc182ad5450e6498893ba1ea97f80c814a7b1406ce2dd5b79eb1ce9",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: strained polite awkward smile: worried raised inner eyebrows, uneasy eyes and small restrained smile; not pain.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-262333e9-7341-4a27-85b8-443b2772a87d.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-strained.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-strained.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "3fcbcad06618540621d9461a3e1b683ab9e60d03cbed4d7ac4753a01327cf347",
+    "final_sha256": "4c034d17d7451f37749a46a5b8aca599f1c1a5aec2c4b449b509b1d0fca9ed61",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: sulky: brows angled inward, sideways annoyed eyes and small pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fe7d6367-b919-4c6d-ac1b-1560c381204c.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-sulky.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-sulky.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "67cc476c1c4cada3cca586681fbbfd8d30b113f8f5e18547dec563b1f908dce5",
+    "final_sha256": "dcfa03e91d6336fd716d7a25cedbee41fc701f5618f4a91c52f9998b48015cec",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: tired: heavy half-closed eyelids and small weary mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d1ffa732-33d3-48d4-95b1-e6da447a8144.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-tired.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-tired.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "3d6db83e4985d0655d7210d25d5090186b035a08b87c28168002c69d429b60fc",
+    "final_sha256": "b2e59f0cad8e5bca76d8252f2b347b737c712ca26770262457c6397414a1dbc7",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: wants to play: eager wide sparkling eyes and lively inviting open smile; sparkles ONLY inside eyes.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7b0e30c6-1709-400b-b5d6-71da449a580a.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-wantsPlay.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "f7ede62fdf82aaa5dd87916d560dc65b730d0d81fae2bbf4454c3ebe805348f4",
+    "final_sha256": "34090e5f27adab7ed96eead223302dcf1ee91e2fe8486580741dce7d6af52e26",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target is the provided original world_tree stage 02 pixel art sprite. Make ONE game expression sprite on genuinely transparent background. Preserve the exact single round pale yellow seedling face position and scale, thin green stem, two luminous green leaves with gold veins, curled brown roots and soil clods, all silhouette, palette and pixel-art texture. Change ONLY eyes, eyebrows and mouth within its existing face. No extra face, body, character or objects; no state marks, sweat, tears, letters, icons or effects. Keep cheerful cheeks but adapt facial expression clearly. Expression: weak: lowered eyes, drooping inner brows, small weak downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7ba32248-b3fe-4e4f-abd1-4a1913b945c9.png",
+    "stage": "02",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/02.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/02-weak.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/02-weak.png",
+    "repair_history": [],
+    "original_sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
+    "source_sha256": "ee1c14785c364053e0a0a723177363d52cbdf47515d382b88978cf7d3089712c",
+    "final_sha256": "184fc488c635152d51b4d29382a2b7f7ddecf96a496a56be67114634f5d4ce7c",
+    "bounds": [
+      22,
+      9,
+      106,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ],
+    "self_review": {
+      "status": "accepted_for_independent_review",
+      "views": [
+        "original",
+        "6x"
+      ],
+      "notes": "Single seedling face, two leaves, stem, curled roots and soil retained. Facial meanings recognizable; non-face generated pixel variations remain. Original cyan central highlight is less distinct or absent in some variants; independent reviewer to assess."
+    }
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed, pinched pained eyelids and a tense distressed mouth, alive without injury. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-76664f73-1484-4ad5-bb94-931644816421.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-critical.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-critical.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "b4096d0f9f429df728b0508141ac1b26e56d7e5ad77eca12400cd12a0e330205",
+    "final_sha256": "0cc617fe0feac9ff54b435965d9c4381f0c7306e7bafa725b1fdb0b420ddf4e0",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-critical.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful smiling narrowed eyes and a warm smiling mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b9a98c58-3a71-4821-be22-3deb340911ff.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-happy.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-happy.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "1174d8c532ed12842c1edc55521844b9bfa997c1544f7bf979c2c4e759d5ea9f",
+    "final_sha256": "328215f44bfd5ab1d0678abdf38e88e7d841ba1e49ea33804145a0519840a74d",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-happy.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one hungry expression: longing pleading eyes and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2925b37a-de7e-453f-a468-309ca2f6672a.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-hungry.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-hungry.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "dbcc3af08be506b445085538aa5586efcf6226c2b6c2fe635ba993749d89abb4",
+    "final_sha256": "71d4412c6d5abc429c09af8b332964065e29fac206de566b3e565aa478eb2ce3",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-hungry.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one sick expression: ill and queasy, heavy uneven eyelids, worried inner brow and a queasy downturned mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cc1217cf-5583-486f-b1a2-7b5a1aa9637f.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sick.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-sick.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "beda0ed460c6efbcfd5ed50865372cddc2c02dfd3cd93b85610e6e36ec3ad7ff",
+    "final_sha256": "962ebc5a27f7008afc4c5495d11e1ba6d673a94d6d22031669f76bde7c4192ed",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sick.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep, fully closed relaxed eyelids and a tiny relaxed mouth. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e7abf90d-ad0b-4b95-bc49-86cfa2635f37.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sleeping.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "2ccb776b86e27b9ebef74bf436d6123783470cdddd6a9c3c66f2941c1a5b29ce",
+    "final_sha256": "1e322ac4fe74026d54116d09f894580e58ca8df201eedecf26e99d2d76d12305",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sleeping.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one strained expression: hesitant embarrassed strained smile, worried raised inner brows and restrained mouth, not delighted. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3d29a456-33ca-43c3-b3ae-f03c273924e7.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-strained.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-strained.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "1612a0b276cf8e2718b72f4705aaa0f646ec8eb6004e838992ea715be929707c",
+    "final_sha256": "c74b2efa009d537bcd981dba48cf70e8a8e19dd6e8c8007c5caeb3853b626e14",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-strained.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky narrowed displeased eyes, lowered brows and a pout. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-94b92428-17a0-4931-9060-4cdb6be5dda6.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sulky.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-sulky.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "e9e667c0fc0fa0b9689ea8cbdbbe478e06436d631e9ade9a76a7690077fa665c",
+    "final_sha256": "87adea071d1da955202b749721a2722f04707542a11adee10f95cc93028ba069",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-sulky.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one tired expression: sleepy tired heavy half-closed eyelids and a small weary mouth, awake. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dbada9da-1609-4dea-aac6-63ea738c41ef.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-tired.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-tired.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "1febbbd7515dd1e0c303b81b65b4c079d6f514fed80cd39ec17b214a02da350c",
+    "final_sha256": "661ddea6229b5d295bf1c210130cc206b0b68635eaa4078ea5364449bf42ae62",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-tired.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eagerly asking for attention and play, bright inviting eyes, raised brows and small hopeful smile. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-97483e96-992a-4294-b6c2-b7818e24af6f.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-wantsPlay.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "31d2b8da9fcc02c43c852b35a15f768b78fb0566a1d055a5f23556fa9a0c82e6",
+    "final_sha256": "e05437184c68ae948bcbf07e551e89a7b00e4469b6b125e1265fc39c66615660",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-wantsPlay.png"
+  },
+  {
+    "line": "world_tree",
+    "stage": "03",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is original pixel-art game sprite world_tree stage 03; image 2 identical nearest-neighbor enlargement. Create precisely one weak expression: very weak exhausted drooping eyelids and a tiny slack weary mouth, alive and awake. Change ONLY existing face eyes, brows and mouth. Preserve exactly original one character with one face, single small orange-brown tree trunk with one face low on trunk, wide spreading roots, same branching arms and dense rounded lime-green and teal foliage crown, peach cheeks. Keep all branches, leaves, roots and crown silhouette. Preserve original silhouette, palette, pixel grid, hard-edged pixel art, full canvas composition and scale. Keep all original body glow even in illness or sleep. Do not add objects, sweat, tears, symbols, state marks, letters, Zzz, shadows or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1a69f595-c0df-46b5-85cb-9e2c6dc74d61.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-weak.png",
+    "original": "assets/characters/world_tree/03.png",
+    "final": "assets/characters/expressions/world_tree/03-weak.png",
+    "repair_history": [],
+    "original_sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
+    "source_sha256": "5eeb9921db830f8d645b1342dfbedf1613fa774378afcfdf7c20f75904e60caf",
+    "final_sha256": "15907a34233d5bfb78287df3dd0dd1caa74ec6e3e44e83e437db8ea255d94555",
+    "bounds": [
+      8,
+      8,
+      119,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/03-weak.png"
+  },
+  {
+    "stage": "04",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed: pinched pained eyelids and a tense distressed mouth, alive without injury. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4a19b829-1623-490b-b165-c5c023a794f0.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-critical.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-critical.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-critical.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "ec39fec6909b6d70407e8e67e1b505c9b6eafd50527bacc32b178626d6d59951",
+    "final_sha256": "e5b8e5255286591c814f34c74507cad7c49fe1faa95bbba7b6b1ebba8563efb5",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one happy expression: cheerful smiling narrowed eyes and a warm smiling mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0e018497-d906-42fe-9600-b09c437fec3d.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-happy.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-happy.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-happy.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "707605779bbf575b4a5c1684115d352c23e9c11dca13ebcd7d209baca1cb585f",
+    "final_sha256": "737a830a437290a79f45eaf3d02556f73082ee412778592921c69a718f7b585f",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry: longing pleading eyes and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ea73371c-1695-4059-beda-7c20dd20e2dc.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-hungry.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-hungry.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-hungry.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "b6792383754c0f0d8b8b516e09e49ff55c68a7b5f61aedbbbe603e350f4eb12d",
+    "final_sha256": "8bc0c5dee69d44d2bb3ae4f9036df47a187781bdbc722ea61021121aa808ad9c",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one sick expression: ill and queasy: heavy uneven eyelids, worried inner brow and a queasy downturned mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d95215c3-8bda-4c37-a35e-653b246156db.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sick.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-sick.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sick.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "1bad60dd9c2f21bc48c9648369043016ba02393220033450fb43849eb87b47e7",
+    "final_sha256": "2ea1cf8e4e6321e00296d448d826e57a61577871b714fdd797bc1b3dcd8b4a67",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep: both eyes gently closed with relaxed brows and tiny relaxed closed mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ea06acca-7dc1-4aa2-a913-257c7c018080.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sleeping.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-sleeping.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sleeping.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "64c3456365dde62eb591068f0f18638900591a16a16d937827a669b1620a42b9",
+    "final_sha256": "42813ab907324c3c214e09b24e9617dd970b7ab6f6553fad005b107401b3a8ad",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one strained expression: restrained embarrassed smile: worried raised inner brows, gentle slightly narrowed eyes and a small awkward smile, not anguish. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1b193ab9-d082-4d94-bb46-32e6ed40c1b2.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-strained.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-strained.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-strained.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "394512f25cfe20be0fab4cb4c7e5ab010377014732ad54a3cdafc6f047ce731c",
+    "final_sha256": "0b90ffc65e8431729228289c3dc67b6ebb60140f64f4742c85eb0ea4b8c2cfd8",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered annoyed brows, narrowed eyes and a small pout. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-490c778d-eca2-4249-b849-232e2a358306.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sulky.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-sulky.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-sulky.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "5ddb52b608bd5730424f6c2c394a8ea017f939ee32ac4ceba8c1ec5a828a8884",
+    "final_sha256": "77e7879b04fbc51f8c32e291fc9153256f8b101961a88bd35493690c715fe719",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one tired expression: tired and sleepy but awake: drooping half-closed eyelids and a small tired mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1b21e614-7e83-4bae-ac9d-bb63a9560ad0.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-tired.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-tired.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-tired.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "2f6e9307d47770da066e9ab51f7339bb603b260e44988626625b55d3071c6931",
+    "final_sha256": "ffd7578f373fd41ef26b1cdc1d4e58c8efc342da4a453fc52795b25ae394e32f",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eagerly seeking attention and play: bright eager open eyes, lifted brows and a small inviting smile. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e0fd62e4-123e-4654-8dbc-5ca6b822121c.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-wantsPlay.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-wantsPlay.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-wantsPlay.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "d40fe59428d35ea4e546094e626dd6be085f1647b8f0f0882f610dbbe9c48d66",
+    "final_sha256": "0d1f28d010d17cfabe66400c2d52f014e97e80b2b093c23d755ce0921039482d",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 04; image 2 is the identical nearest-neighbor enlargement. Create precisely one weak expression: very weak and low vitality: heavy almost closed eyelids and a tiny downturned mouth. Change ONLY existing face eyes, brows and mouth on the lower golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve slender golden trunk, three branch crowns, green foliage and branching roots. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4e5b7621-9c70-4783-877a-0328f01b2b25.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-weak.png",
+    "original": "assets/characters/world_tree/04.png",
+    "final": "assets/characters/expressions/world_tree/04-weak.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/04-weak.png",
+    "original_sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
+    "source_sha256": "77d48b669361f7a6da720bb018fc6f6f7fe728709520a30fa45992f8788dfe51",
+    "final_sha256": "f99af530bed1d6535ae49ae35246d9164adfc1fb5047e65ad02c37c7adf39ba4",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "state": "critical",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5b00a8b6-4f76-45e8-8f8c-144c23968857.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: urgently distressed weary eyes and distressed open mouth, alive, no injury.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-critical.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-critical.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "086a4bdac3e9c87d405065b4d0f37c3769911e09c28b48c29eac39ddacaaddf3",
+    "final_sha256": "526acf08d2663a982ff060ccd5d048fcad5147a275667a1b513600bc960908f6",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "happy",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cd13881b-4d7c-42e5-aa2a-6dacd2ea5716.png",
+    "prompt": "Use case: precise-object-edit. Edit the provided original pixel art world tree stage 05 for a game expression sprite. Exactly one tree body and one small face on the central trunk. Change ONLY this face's eyes eyebrows and mouth to express STATE. Preserve identity, face size and location, silhouette, all green foliage, golden orange trunk branches roots, and exactly FOUR hanging blue luminous balls (two on each side), which are objects with NO faces. Keep all four luminous balls even when unwell/asleep. Preserve original detailed square pixel art, palette and framing, full subject. Actual transparent background. No text, icons, state marks, sweat, tears, ZZZ, or extra faces. Expression: happy: warmly joyful smiling eyes and cheerful smile.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-happy.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-happy.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "1f96963912535ac6350a207c1ee2c045d9aef8d3e7993005dc115de58803d6c3",
+    "final_sha256": "8f785c4c4a2213a4187852bb4beab9a63f7fb0cc55bd87f017f4fe1f22566df1",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "hungry",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-654d32be-c495-4cbc-91d7-ff4793777659.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: pleading hungry eyes and small open wanting mouth.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-hungry.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-hungry.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "a835c829e7c7f0576d8ea6e6505f6792cd070a3aad0e5232a3509385aaad1934",
+    "final_sha256": "7442ac2bbde327b2f69ecba43e4fb22b728274d7e1993ae6ac24f0c64d2e56a1",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "sick",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7a207adc-90f2-4783-80a7-586d2a0dbdfb.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: unwell drooping eyes, unhappy small mouth.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-sick.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-sick.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "074a856f8ea505d49b0404ae2ef1bfc648cbcb417f79de3cab66f6b5acb6048f",
+    "final_sha256": "6c3c2984cc7b1d0d9f2feb690ab6a8d5dc1059914ca4c4dada0a896b159f9321",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "sleeping",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b589ad99-219b-4ae5-b2be-d3fba669f602.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: both eyes peacefully fully closed, relaxed tiny resting mouth, no sleep symbols.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-sleeping.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-sleeping.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "e8ad48b154845c12217d4a4c37cbc95eaa471b465ccccbc610bc3993e422ee5e",
+    "final_sha256": "0cbde41076b31524a0ebe2160b35c9b3b008af7ca9efe0618773981a5e6dcbad",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "strained",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-29a927cb-ad32-40e6-a22d-94bd61232744.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: awkward polite small smile, inward-raised worried eyebrows, uneasy eyes.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-strained.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-strained.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "78164d7d29aac9903ffe241552a7021aa6447f11e589ba9448f6201885680960",
+    "final_sha256": "8577f7bfbad133cb5a79a90d16b7a055be0e47d805d360822475e63f61477059",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "sulky",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7dd6dc3a-e8f5-4de8-b00c-9231c8b889f6.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: annoyed narrowed eyes lowered brows and pouting mouth.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-sulky.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-sulky.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "ae80af0d8ef3a9bce1ca1286d9abc7e876b1e3db09f63b00c0517f597323c424",
+    "final_sha256": "cee417df9c4da2fde61cd331f3b0bb598873e244c096ca5ba9b6cb567d42fc25",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "tired",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d5de86fd-5f4a-4c54-9e68-7352c32a06ae.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: heavy half-closed eyelids and small yawning mouth.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-tired.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-tired.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "2e1415e3cf0553617ac4a4bd7d2b8a93b215cdd339782fb1d164857d5d3fbd1e",
+    "final_sha256": "505131348a469359974ef78edf9884f17f7e3fa2a3132bfb25a40a1ccd7cb39f",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "wantsPlay",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-30ab6ef1-01be-4c40-a262-25d80fd61473.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: eager inviting wide bright eyes and excited playful smile.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-wantsPlay.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-wantsPlay.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "7785dee61a58ef7f9e5579e57f88bb76965ef45243268162622a3be73fe080d5",
+    "final_sha256": "66c2f5b54e53f71bcfa90548dd232630918c25190f74e19fac1bf81365f9f9c5",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "state": "weak",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-60b40ef3-5c82-48d0-b344-d0ce0168ab0b.png",
+    "prompt": "Use case: precise-object-edit. Edit original pixel art world tree stage 05, only eyes eyebrows mouth of its one small central trunk face. Preserve all foliage trunk branches roots face size/location silhouette colors and exactly FOUR hanging blue light balls, two per side, no faces on balls. Keep lights also in sickness/sleep. Transparent background. Full original subject, square pixel art. No text, state marks, sweat, tears, ZZZ, or extra faces. Expression: exhausted severely drooping eyelids and tiny weak downturned mouth.",
+    "stage": "05",
+    "line": "world_tree",
+    "original": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/world_tree/05.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/05-weak.png",
+    "final": "/workspace/scratch/bf73fcf410a5/dragon-api-recovery/assets/characters/expressions/world_tree/05-weak.png",
+    "original_sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
+    "source_sha256": "18c404e6be2b26253b48c8afb4afd1d8c5e01d2e4cb2f78cc2bf8695688bd401",
+    "final_sha256": "6e8791422507fef19778b94fecf9fcf4b9f4b4b04645e615e07649f63139ba33",
+    "bounds": [
+      8,
+      11,
+      119,
+      119
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "repair_history": []
+  },
+  {
+    "stage": "06",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed: pinched pained eyelids and a tense distressed mouth, alive without injury. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-07f2df87-d456-46ad-973f-025ac7a212b6.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-critical.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-critical.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-critical.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "ee2913112cadc4c8022d385cbfea5055bdb22eb4654f14975e8c900dd393d2a8",
+    "final_sha256": "c41667e96c16702240372b48a10c36496b23fc54244c0d64df734b74c1b2f24e",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one happy expression: happy: cheerful smiling narrowed eyes and a warm smiling mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4fa4fee7-fb4d-4494-8876-a86a3fd416af.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-happy.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-happy.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-happy.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "a58cf91cdf5d49c344a85aa4049ca7f781f1b240b8837557c86dadd55ea327fc",
+    "final_sha256": "114c8fd7930cb61a2ad3c1880b3b43e941ca7fdbdb6eed3a68bb07b1e88d6f49",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry: longing pleading eyes and a small expectant open mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a170179a-4bd5-4d5b-ac29-7d59c024b477.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-hungry.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-hungry.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-hungry.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "bb7a076cb54c6fd0c833e7e4199a6351e354addb46c1f6e6af88310c06ec74b5",
+    "final_sha256": "99ecaeb41e7879ad0cf7eca884ca2e5b1ffb246f2062ca79655a6aee4482508a",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one sick expression: ill and queasy: heavy uneven eyelids, worried inner brow and a queasy downturned mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fbd200e5-b5cd-43dc-83e9-933477295c40.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sick.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-sick.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sick.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "2f22f0c6255527f1f402f269ef34d3fd124eca91a8d29390d47991dfe5010c31",
+    "final_sha256": "93b0d31baf82d6a1cd39867c714bfff8c6275084a5c6afc696ff9fb59de01da0",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep: both eyes gently closed with relaxed brows and tiny relaxed closed mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cc87de29-5448-4739-a454-c29803948ae7.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sleeping.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-sleeping.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sleeping.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "59a5d5d74526d8e62283e729745ab15c7938499d02dfeda083000660811c4bc8",
+    "final_sha256": "18892112f3124296431fb1492d703e4f1b698fa1da332b5d7aba42cd119540d8",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one strained expression: restrained embarrassed smile: worried raised inner brows, gentle slightly narrowed eyes and a small awkward smile, not anguish. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fe4d7e20-6c7f-4d4a-a733-aed04a11260b.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-strained.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-strained.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-strained.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "ae77e1178965a464c9df3bd6fa6c016a1ccec2df09311b4698b33b543d4f3477",
+    "final_sha256": "f1e48bf47a4d89b0dfa7c744e36b574eb28c1080120db36eacecb8d40b3c9afa",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered annoyed brows, narrowed eyes and a small pout. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cffdd8e7-d13a-4a01-8829-464fa084ab3b.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sulky.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-sulky.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-sulky.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "04b621af00a7fd4c7f5e416ba2ae50333c6b65702a5eff8f731e2e6accab01bb",
+    "final_sha256": "420ac1048f2ba63fe614fd8d627599f8fec69ef1273761344fc7ac49ffcbc86b",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one tired expression: tired and sleepy but awake: drooping half-closed eyelids and a small tired mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6341b0fc-168f-436e-9880-89e2ac089ef0.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-tired.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-tired.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-tired.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "24f7364884ce0eeb48e40cd20a070f036be6cab22277f238baf09c5de968b5ba",
+    "final_sha256": "9189485e37ca22c32f1d075b2d81c1203f760cfd57119f9afa374731b033f1b3",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eagerly seeking attention and play: bright eager open eyes, lifted brows and a small inviting smile. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ba99ca33-4fba-42d6-b904-164cbdb90ca1.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-wantsPlay.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-wantsPlay.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-wantsPlay.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "64a9a88952bb2e45adc684404423878c17874a3ba447c41d4d16cf39de6494a1",
+    "final_sha256": "77951c0327e9ca301c26bd1759edf7eb1491510c97850578cd0a56fd23332b44",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target: image 1 is the original pixel-art game sprite for world_tree stage 06; image 2 is the identical nearest-neighbor enlargement. Create precisely one weak expression: very weak and low vitality: heavy almost closed eyelids and a tiny downturned mouth. Change ONLY existing face eyes, brows and mouth on the central golden trunk. Preserve exactly the original single tree with single face, proportions, silhouette, palette, pixel grid, hard-edged pixel art and position. Preserve broad golden tree trunk, wide green tiered leafy crown, all roots and exactly five hanging blue glowing orbs at their original positions. These blue glowing orbs are intrinsic light with no faces, not living beings. Keep all five glowing blue orbs lit even when asleep or ill. Do not add faces to leaves or branches. Do not add any face, limb, object, sweat, tears, symbols, state marks, lettering, Zzz, shadows or scenery. Genuine transparent background with alpha. Keep full original canvas composition and scale.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a53a6559-f88e-47a4-b034-ba704457d175.png",
+    "line": "world_tree",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-weak.png",
+    "original": "assets/characters/world_tree/06.png",
+    "final": "assets/characters/expressions/world_tree/06-weak.png",
+    "repair_history": [],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/06-weak.png",
+    "original_sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
+    "source_sha256": "ff3de37513fda7dfa80f2ac5426f03a147f04b005661ef92ebdeb0b9f061cd75",
+    "final_sha256": "bf71b525e127bb17d30d15f45097efd1c561e43bd11ad54f7934995fbd06c8a0",
+    "bounds": [
+      8,
+      35,
+      120,
+      120
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "size": [
+      128,
+      128
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed but alive: tightly pinched pained eyes and tense distressed mouth without injury. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b3c202bd-1058-49c6-b34f-a519563b05f7.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-critical.png",
+    "final": "assets/characters/expressions/world_tree/07-critical.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "2e399ecf42e323c5405077746294745345f4faf572ca397443a41e5e2faf0189",
+    "final_sha256": "95d0c1e52086a9430256d2b746c2e420685ed5cc8c34c6fb495eeeade82acc2e",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-critical.png",
+    "generated_source_sha256": "2e399ecf42e323c5405077746294745345f4faf572ca397443a41e5e2faf0189",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one happy expression: cheerfully happy: upward smiling eyes and an open warm joyous smile. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3231f4f1-16c9-4ac5-8c2f-d731c7869ac2.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-happy.png",
+    "final": "assets/characters/expressions/world_tree/07-happy.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "d2aa958f8a72d5af188146ad0542a3c038075410606a06ecb4fac2d6724fa79e",
+    "final_sha256": "9f4e1d559f72ec40cf3e3d3cbaaee507c386b9a4b0220ae1142d814fffa82baf",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-happy.png",
+    "generated_source_sha256": "d2aa958f8a72d5af188146ad0542a3c038075410606a06ecb4fac2d6724fa79e",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing: pleading open eyes, raised inner brows and a small expectant open mouth. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-658035c4-6317-4b45-a3a5-50167398e550.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-hungry.png",
+    "final": "assets/characters/expressions/world_tree/07-hungry.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "d9c57e35357bfcf6a9322019bbf43da75afabafa40d9737c992ea0bcabfd4b7e",
+    "final_sha256": "cd8ea3d6e43f94f6bb88b36d8b02d592d53b8a00b174b7548757afea4b6cd2fb",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-hungry.png",
+    "generated_source_sha256": "d9c57e35357bfcf6a9322019bbf43da75afabafa40d9737c992ea0bcabfd4b7e",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one sick expression: sick and queasy: uneven heavy eyelids, worried brows and queasy downturned mouth. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-48305328-60df-4ca5-a0e2-6ffd15d2bb04.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sick.png",
+    "final": "assets/characters/expressions/world_tree/07-sick.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "17343d5c55f37b073d5dbaa56f7eb6c0e7c619f6ddf70e7ab983bd48c83dc042",
+    "final_sha256": "c8b7ea8d4fe81a8853665ba9a7a9ff363a14a36f7ddcfdebb61838f447d8f18b",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sick.png",
+    "generated_source_sha256": "17343d5c55f37b073d5dbaa56f7eb6c0e7c619f6ddf70e7ab983bd48c83dc042",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep: fully closed flat or gently downward relaxed eyelids, no upward happy eyes; tiny relaxed closed neutral mouth. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a82700ca-92ac-4033-af05-4175405178bb.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sleeping.png",
+    "final": "assets/characters/expressions/world_tree/07-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "3291ba73f5c088633c9477e399c48bba3174080fa38f293005fb1de6bb0d0ab1",
+    "final_sha256": "7a5ae393419fc78152e05df52a726b9209c22d9c9162aa4855b605484c5454ea",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sleeping.png",
+    "generated_source_sha256": "3291ba73f5c088633c9477e399c48bba3174080fa38f293005fb1de6bb0d0ab1",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one strained expression: strained reluctant smile: raised worried inner brows and awkward small curved smile. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-12b33fb3-dedc-49a2-b291-01d3a88ea194.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-strained.png",
+    "final": "assets/characters/expressions/world_tree/07-strained.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "986e1f1d1d88232cc34144ee4b9bb55ecb3cb61047799869e009361a5d32637b",
+    "final_sha256": "0c312df47fb30dc67ccbdcd94f1569699b7f4f4249adafb8e04f69623b1b05fe",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-strained.png",
+    "generated_source_sha256": "986e1f1d1d88232cc34144ee4b9bb55ecb3cb61047799869e009361a5d32637b",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered angled brows, narrowed eyes and a small firm pout. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-eecd8c4f-80a9-434f-be57-696474c22e39.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sulky.png",
+    "final": "assets/characters/expressions/world_tree/07-sulky.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "f2876d94b3d6159e1b304ed8d8fb1b9bdf68964841d1c06ba9e41b975255ac84",
+    "final_sha256": "fd724079808eb8352b56572a2020a4816d46decaf655ef97cc925fec87f7e5a3",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-sulky.png",
+    "generated_source_sha256": "f2876d94b3d6159e1b304ed8d8fb1b9bdf68964841d1c06ba9e41b975255ac84",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one tired expression: tired and drowsy: half-lidded eyes and a small yawning mouth. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-760020b6-53e3-445e-9692-4a22e7637709.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-tired.png",
+    "final": "assets/characters/expressions/world_tree/07-tired.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "1082b334d7cf2946e550014e8b29af49d55b29f3091debf26b2145ef0e369363",
+    "final_sha256": "18694ab12c8bcec423369f46f59c37b810618d57cde3cb3d75c2d71346d07260",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-tired.png",
+    "generated_source_sha256": "1082b334d7cf2946e550014e8b29af49d55b29f3091debf26b2145ef0e369363",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eager to play: wide lively attentive eyes, lifted brows and an excited inviting smile. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d16eb8e2-40b9-45be-a983-17cc07087787.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-wantsPlay.png",
+    "final": "assets/characters/expressions/world_tree/07-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "47ef59adfbe5426adefbed3cbd567deb30ab89bb2ad8a02639c633273e2f4514",
+    "final_sha256": "7887880ec5076652165ac4e1e0c5c15367d15211c78fabc0a3d26c34188e95c2",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-wantsPlay.png",
+    "generated_source_sha256": "47ef59adfbe5426adefbed3cbd567deb30ab89bb2ad8a02639c633273e2f4514",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "07",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 07; image 2 is its identical nearest-neighbor enlargement. Create precisely one weak expression: weak and low-energy: drooping eyelids, weary eyebrows and a faint downturned mouth. Change ONLY existing trunk face eyes, brows and mouth. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, golden glowing trunk, roots, six hanging orange lights and small leaves. Hanging lights are faceless light decorations, not creatures. Preserve intrinsic glow even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-599911a3-c766-42a5-8ebf-724c8292b965.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/07.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-weak.png",
+    "final": "assets/characters/expressions/world_tree/07-weak.png",
+    "repair_history": [],
+    "original_sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
+    "source_sha256": "b8673c859528d28893f347c8ac8d2a009ef42f41702fc0783e104d59e57fa500",
+    "final_sha256": "3ad8fc92de5191431953a8784a59eb1730f84ec264f93f878b948049d9064164",
+    "bounds": [
+      8,
+      23,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/07-weak.png",
+    "generated_source_sha256": "b8673c859528d28893f347c8ac8d2a009ef42f41702fc0783e104d59e57fa500",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "critical",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one critical expression: critically exhausted and distressed but alive: tightly pinched pained eyes and tense distressed mouth without injury. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0475e720-8495-49f7-9cd9-b86bd1395c5d.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-critical.png",
+    "final": "assets/characters/expressions/world_tree/08-critical.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "37aa5e24f04c54cf520f4ab1b9e7875e7d2afaccade03c4e2e79994dfbf7ec44",
+    "final_sha256": "e90e4985dc256ab8a0adb35c6ca6fe0b70233e8f21d8dad7c3f4d784a60915bc",
+    "generated_source_sha256": "37aa5e24f04c54cf520f4ab1b9e7875e7d2afaccade03c4e2e79994dfbf7ec44",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-critical.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "happy",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one happy expression: cheerfully happy: upward smiling eyes and an open warm joyous smile. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9108010d-953c-4d92-a6cd-da09521c7b30.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-happy.png",
+    "final": "assets/characters/expressions/world_tree/08-happy.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "dcd1716fd39892bbaf8cedb8e34074d4450d249f0dc602543b7606ed7094d5ae",
+    "final_sha256": "18d4cbd1098ab355962624bd7fe8068001c6dcb3138d21a5af66489e2a34f962",
+    "generated_source_sha256": "dcd1716fd39892bbaf8cedb8e34074d4450d249f0dc602543b7606ed7094d5ae",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-happy.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "hungry",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one hungry expression: hungry longing: pleading open eyes, raised inner brows and a small expectant open mouth. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-526b8075-72a7-4186-b385-9d54109a15a8.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-hungry.png",
+    "final": "assets/characters/expressions/world_tree/08-hungry.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "14cabbd0337d1e19b9d86fb5d39e9b7e86235e017d96bc1453ff29d60764e9f1",
+    "final_sha256": "279a0a893d0dcd397353e8ce15bec557a2d21446e1743b645ab0f125d662dced",
+    "generated_source_sha256": "14cabbd0337d1e19b9d86fb5d39e9b7e86235e017d96bc1453ff29d60764e9f1",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-hungry.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "sick",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one sick expression: sick and queasy: uneven heavy eyelids, worried brows and queasy downturned mouth. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f0e0b75f-1454-4a47-abfc-192ec6a2fc80.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sick.png",
+    "final": "assets/characters/expressions/world_tree/08-sick.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "0cd30b5cd16a05ef83eb7ab26db9a07e0c33d6c31b1fd1d449f0d7950c932b37",
+    "final_sha256": "3438c361e8c1af1d9f0e63ecbfa20c7693d3d37500d9111bb67f835fbcae1614",
+    "generated_source_sha256": "0cd30b5cd16a05ef83eb7ab26db9a07e0c33d6c31b1fd1d449f0d7950c932b37",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sick.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "sleeping",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one sleeping expression: peacefully asleep: fully closed flat or gently downward relaxed eyelids, no upward happy eyes; tiny relaxed closed neutral mouth. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4954a363-4cc6-4895-adae-69af245a0691.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sleeping.png",
+    "final": "assets/characters/expressions/world_tree/08-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "296b8996f04c134d2acd6f56ac00c10cdd160e8c2c33ee2071397bf1daad1357",
+    "final_sha256": "d5b47457bc7b6e90e73a889bc64ba36554b6dab1215dac9844f89e358258e18d",
+    "generated_source_sha256": "296b8996f04c134d2acd6f56ac00c10cdd160e8c2c33ee2071397bf1daad1357",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sleeping.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "strained",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one strained expression: strained reluctant smile: raised worried inner brows and awkward small curved smile. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e87ccc99-acdf-4732-a395-e874e2eedaf4.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-strained.png",
+    "final": "assets/characters/expressions/world_tree/08-strained.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "56c79724fa02adfeb797d38db2920ae1f9f83ffde8d5cb5ba71802ac93e14829",
+    "final_sha256": "1887a72bad394a4d6a85ca37782cdd1b5094ac9ba9ea4487cedf9f61a50eea15",
+    "generated_source_sha256": "56c79724fa02adfeb797d38db2920ae1f9f83ffde8d5cb5ba71802ac93e14829",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-strained.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "sulky",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one sulky expression: sulky and displeased: lowered angled brows, narrowed eyes and a small firm pout. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-70ebbe97-c3a8-4406-8930-7a8c2f5b61a9.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sulky.png",
+    "final": "assets/characters/expressions/world_tree/08-sulky.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "85f1dd07a71f84bbbba6f82cb2d1bf2cf5db6d5b2a975aabccc3b849082b0ec7",
+    "final_sha256": "d99ed52fbf810350fe5808fb1b823559dbfdbabe6bf775a31806f035c1679fb2",
+    "generated_source_sha256": "85f1dd07a71f84bbbba6f82cb2d1bf2cf5db6d5b2a975aabccc3b849082b0ec7",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-sulky.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "tired",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one tired expression: tired and drowsy: half-lidded eyes and a small yawning mouth. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-237ab2ab-c2b6-4e78-8e12-11c26b076486.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-tired.png",
+    "final": "assets/characters/expressions/world_tree/08-tired.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "f813bb4ce90a7212764440e6126dbb7af3b718862673d1f8886de4dc11db0eb7",
+    "final_sha256": "896a2f1783ae2475890be8194d3d2a22984ed5d91a692db070e590c743975995",
+    "generated_source_sha256": "f813bb4ce90a7212764440e6126dbb7af3b718862673d1f8886de4dc11db0eb7",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-tired.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "wantsPlay",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one wantsPlay expression: eager to play: wide lively attentive eyes, lifted brows and an excited inviting smile. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-199cd8ae-1761-4513-af7a-d7e1512cb846.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-wantsPlay.png",
+    "final": "assets/characters/expressions/world_tree/08-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "fb67821669b5e5ef1f053d26d0c5d6765f74500c617ad0770c42ba2acb901151",
+    "final_sha256": "b33822d9f4fec9c30714e29f4c91e3eca717264acb641074c3a9d565aa346e24",
+    "generated_source_sha256": "fb67821669b5e5ef1f053d26d0c5d6765f74500c617ad0770c42ba2acb901151",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-wantsPlay.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  },
+  {
+    "stage": "08",
+    "state": "weak",
+    "prompt": "Use case: identity-preserve. Edit target image 1 is the original pixel-art world_tree stage 08; image 2 is its identical nearest-neighbor enlargement. Create precisely one weak expression: weak and low-energy: drooping eyelids, weary eyebrows and a faint downturned mouth. Change ONLY existing tiny trunk face eyes, brows and mouth; make expression clear at small size. Preserve exactly the ONE tree character with ONE face, age, body proportions, pose, silhouette, palette, pixel grid, hard-edged pixel art and original canvas composition. Preserve every branch, green leafy crown, luminous golden trunk, roots, TWO blue-white circular orbit light rings and all star glints. Orbits and stars are faceless light effects, not creatures. Preserve intrinsic glow and both entire rings even in sleep or illness. No added faces, limbs, objects, sweat, tears, symbols, state marks, lettering, Zzz, shadow or scenery. Genuine transparent background with alpha.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-62f2400c-9a5d-4295-8a32-9b560319095d.png",
+    "line": "world_tree",
+    "original": "assets/characters/world_tree/08.png",
+    "source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-weak.png",
+    "final": "assets/characters/expressions/world_tree/08-weak.png",
+    "repair_history": [],
+    "original_sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
+    "source_sha256": "de4e6a680b9462836c7ee00333d162e1df0028aa8d56b2317b5a8d62d7c1720f",
+    "final_sha256": "8ae11398aab1fec437aa08057bea61efd59fdc6654da16a1be8c60c7d0317e11",
+    "generated_source_sha256": "de4e6a680b9462836c7ee00333d162e1df0028aa8d56b2317b5a8d62d7c1720f",
+    "bounds": [
+      8,
+      20,
+      120,
+      108
+    ],
+    "alpha_values": [
+      0,
+      255
+    ],
+    "final_generation_source": "/workspace/scratch/0e1d599677f2/world-tree-generated/08-weak.png",
+    "size": [
+      128,
+      128
+    ],
+    "mode": "RGBA"
+  }
+]
