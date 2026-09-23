@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py")
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py", "test_proxy_board_active_132.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,7 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py")
+        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py", "test_proxy_turn_end_completeness.py", "test_proxy_turn_end_provenance_restart.py", "test_proxy_normal_action_extension.py", "test_proxy_current_turn_end_correction.py", "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py", "test_proxy_board_active_132.py")
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -450,6 +450,27 @@ def check_checkpoint_120():
         except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:
             checkpoint_check(False, f"120 canonical check failed: {error}")
     return checkpoint_errors, checkpoint_test_count, proxy_count
+
+
+if "--checkpoint-132" in sys.argv:
+    import proxy_board_active_132 as checkpoint_132
+    checkpoint_errors=[]
+    try:
+        inputs=checkpoint_132.load_sources()
+        checkpoint_errors.extend(checkpoint_132.check_outputs(DOCS/'data',inputs))
+        plan=json.loads((DOCS/'data'/checkpoint_132.PLAN_FILE).read_text())
+        evaluation=json.loads((DOCS/'data'/checkpoint_132.EVALUATION_FILE).read_text())
+        if plan!=checkpoint_132.build_plan(checkpoint_132.run_all(inputs)) or \
+                evaluation!=checkpoint_132.build_evaluation(plan) or \
+                evaluation['planned']!=4 or evaluation['independent_balance_sample']!=0:
+            checkpoint_errors.append('132 four-route canonical plan/evaluation differs')
+    except (OSError,ValueError,KeyError,TypeError) as error:
+        checkpoint_errors.append(f'132 source integrity: {error}')
+    if not (DOCS/'132-board-active-restart.md').is_file() or \
+            '| [132](132-board-active-restart.md) |' not in (DOCS/'README.md').read_text():
+        checkpoint_errors.append('132 report or README index')
+    print(json.dumps({'checkpoint':132,'errors':checkpoint_errors},ensure_ascii=False,indent=2))
+    sys.exit(bool(checkpoint_errors))
 
 
 if "--checkpoint-131" in sys.argv:
@@ -3518,7 +3539,7 @@ proxy_test_count = sum(
                           "test_proxy_turn_end_provenance_restart.py",
                           "test_proxy_normal_action_extension.py",
                           "test_proxy_current_turn_end_correction.py",
-                          "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py"}
+                          "test_proxy_r2_candidate_extension_127.py", "test_proxy_r2_candidate_extension_128.py", "test_proxy_conditional_growth_129.py", "test_proxy_board_source_world_130.py", "test_proxy_safe_placement_mixed_131.py", "test_proxy_board_active_132.py"}
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")

@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [132](132-board-active-restart.md) | 盤上起動能力・近接契約・4経路独立再開 |
+
 | [131](131-safe-placement-mixed-restart.md) | 時0配置・異種候補比較・4経路独立再開 |
 
 | [130](130-board-source-world-restart.md) | 盤上源除外・継続セカイ効果・4経路独立再開 |
@@ -13,7 +15,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[131 時0人物配置と異種候補比較](131-safe-placement-mixed-restart.md)** の保存地点。130の4停止state/hashから独立再開し、全経路で安全な人物配置と応答passを処理した。次の盤上起動能力の候補分類で真正停止。completed・独立balance標本は0。
+現在は **[132 盤上起動能力と近接契約](132-board-active-restart.md)** の保存地点。131の4停止state/hashから独立再開し、盤上起動能力の完全候補監査、条件付き道具比較、ターン終了の履歴分類を適用した。01はR6の設置道具、02-AはR10の盤上能力、02-BはR10終了契約で真正停止。completed・独立balance標本は0。
+
+履歴上、131は **[131 時0人物配置と異種候補比較](131-safe-placement-mixed-restart.md)** の保存地点。130の4停止state/hashから独立再開し、全経路で安全な人物配置と応答passを処理した。次の盤上起動能力の候補分類で真正停止。completed・独立balance標本は0。
 
 履歴上、130は **[130 盤上源の除外・継続セカイ効果と独立再開](130-board-source-world-restart.md)** の保存地点。129の4停止state/hashから独立再開し、R5/R8で新たな時0なかま配置の安全証明不足に真正停止。completed・独立balance標本は0。
 
