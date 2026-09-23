@@ -2800,6 +2800,21 @@
       neonskyline: ['#2f3450', '#1b1f34'], canopy: ['#2f6a2f', '#1f4a22'], mesas: ['#b56a44', '#8a4f34'], farhills: ['#8fbe76', '#6aa05a'],
     };
     const KIND_COLOR = { form: 'rgba(90,70,60,.75)', companion: 'rgba(210,130,60,.8)', partner: 'rgba(220,100,150,.8)', naoto: 'rgba(80,80,120,.8)' };
+    // なかまの えがきかたの こまかさ(LOD)。人数では なく、がめんの うえの 見かけ(じぶんに くらべた 大きさ)と じぶんからの きょりで きめる
+    //   full   = いまの まま(かげ・かたむき・しるし)
+    //   medium = かげを 1 まいの え に(かたむき・しるしは のこす)
+    //   light  = かげと からだを 1 まいの え に(かたむき・しるしは えがかない)。からだの いろ・かたちは おなじ
+    // さかいで ぱたぱた かわらない ように、いまの LOD から うつる ときは すこし あそび(hys)を もつ
+    const PARTY_LOD = Object.freeze({ nearD: 150, full: 0.9, medium: 0.72, hys: 0.03 });
+    function partyLod(ratio, d, prev) {
+      const L = PARTY_LOD;
+      if (d < L.nearD) return 'full';
+      // こまかく する ときは しきいを すこし こえてから、あらく する ときは すこし したまで まつ
+      const tFull = prev === 'full' ? L.full - L.hys : L.full + (prev ? L.hys : 0);
+      if (ratio >= tFull) return 'full';
+      const tMed = prev === 'full' || prev === 'medium' ? L.medium - L.hys : L.medium + (prev ? L.hys : 0);
+      return ratio >= tMed ? 'medium' : 'light';
+    }
     // カメラの むきに たいする キャラの むき: front(こちら) back(むこう) left/right(よこ)。しょうらい ほうこう べつの えに さしかえる ときは ここを つかう
     function facingOf(heading, yaw) { const rel = wrapAngle(heading - yaw); const c = Math.cos(rel); if (c > 0.45) return 'back'; if (c < -0.45) return 'front'; return Math.sin(rel) < 0 ? 'left' : 'right'; }
     function spriteFor(a, facing) { const s = a.sprites || {}; if ((facing === 'left' || facing === 'right') && s.side) return { asset: s.side, flip: facing === 'left' }; if (facing === 'back' && s.back) return { asset: s.back, flip: false }; return { asset: s.front || a.asset, flip: facing === 'left' || (facing === 'front' && a.face < 0) }; }
@@ -3349,15 +3364,56 @@
         ctx.restore();
       }
       // ---- キャラ(むき・しせいで ちがいを だす) ----
-      function drawSprite(a, p, size, alpha, yaw) {
+      // ---- キャラの え の したく(つかいまわす) ----
+      // うしろむきで「うしろの え」が ない ときの「すこし くらく」は、まえは まいかい ctx.filter で えがいて いた。
+      // filter は 1 まい ごとに べつの 板で ラスタを はしらせる ので、人数ぶん おもく なる(27 にんで 1 frame 約 700 ms)。
+      // くらく した え・かげつきの え を 画像ごとに 1 回だけ 作って つかいまわす(くらさは brightness(0.9) と おなじ)。
+      // 作れない とき(canvas が ない など)は もとの えがきかた(filter)に もどる
+      const makeCanvas = typeof o.makeCanvas === 'function' ? o.makeCanvas : (w, h) => {
+        if (typeof document === 'undefined' || !document.createElement) return null;
+        const c = document.createElement('canvas'); if (!c) return null;
+        c.width = w; c.height = h; return c;
+      };
+      const SPRITE_CACHE_MAX = 160, SHADOW_PAD = 0.1;   // SHADOW_PAD: かげの ぶん、え の したに たす たかさ(え の 大きさ に たいして)
+      const spriteCache = new Map(); let spriteCacheOff = false, shadowBlob;
+      const spriteStats = { built: 0, hits: 0, fails: 0, bytes: 0, full: 0, medium: 0, light: 0 };
+      const lodMemo = new WeakMap();   // なかま ごとの いまの LOD(さかいで ぱたぱた しない ため)。セーブ しない
+      function bakedSprite(im, dark, shadow) {
+        if (spriteCacheOff || !im) return null;
+        const key = im.src + (dark ? '|d' : '|n') + (shadow ? 's' : '');
+        let c = spriteCache.get(key);
+        if (c) { spriteStats.hits++; return c; }
+        try {
+          const S = im.naturalWidth || im.width || 128, pad = shadow ? Math.ceil(S * SHADOW_PAD) : 0;
+          c = makeCanvas(S, S + pad);
+          const g = c && c.getContext && c.getContext('2d');
+          if (!g) throw new Error('no canvas');
+          g.drawImage(im, 0, 0, S, S);
+          // すける ところは そのまま、え の ある ところだけ 0.9 ばい(= brightness(0.9))
+          if (dark) { g.globalCompositeOperation = 'source-atop'; g.fillStyle = 'rgba(0,0,0,0.1)'; g.fillRect(0, 0, S, S); }
+          // かげは え の うしろ(あしもと)。いまの かげと おなじ いろ・おおきさ
+          if (shadow) { g.globalCompositeOperation = 'destination-over'; g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(S / 2, S, S * 0.32, S * 0.09, 0, 0, TAU); g.fill(); }
+          g.globalCompositeOperation = 'source-over';
+          if (spriteCache.size >= SPRITE_CACHE_MAX) { spriteCache.clear(); spriteStats.bytes = 0; }
+          spriteCache.set(key, c); spriteStats.built++; spriteStats.bytes += S * (S + pad) * 4;
+          return c;
+        } catch (_) { spriteCacheOff = true; spriteStats.fails++; spriteCache.clear(); spriteStats.bytes = 0; return null; }
+      }
+      // medium の かげ: 1 まいの ちいさな え(ellipse + fill の かわりに drawImage 1 回)
+      function shadowImg() {
+        if (shadowBlob === undefined) {
+          shadowBlob = null;
+          try { const c = makeCanvas(64, 18), g = c && c.getContext && c.getContext('2d'); if (g) { g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(32, 9, 32, 9, 0, 0, TAU); g.fill(); shadowBlob = c; spriteStats.bytes += 64 * 18 * 4; } } catch (_) { shadowBlob = null; }
+        }
+        return shadowBlob;
+      }
+      function drawSprite(a, p, size, alpha, yaw, lod) {
         const px = size * p.s; if (px < 3) return;
         const facing = facingOf(a.heading, yaw); const sprite = spriteFor(a, facing);
         // とおい ひとは かんたんに(シルエット)。そんざいは わかる
         if (px < 22) { ctx.globalAlpha = alpha != null ? alpha * 0.9 : 0.9; ctx.fillStyle = KIND_COLOR[a.kind] || KIND_COLOR.form; const bob = MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.1 : 0; ctx.beginPath(); ctx.ellipse(p.sx, p.sy - px * 0.45 - bob, px * 0.28, px * 0.45, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; return; }
         const im = imageFor(sprite.asset);
-        ctx.save();
-        if (alpha != null) ctx.globalAlpha = alpha;
-        ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill();
+        const dark = facing === 'back' && !(a.sprites && a.sprites.back);
         // しせい: あるく(おくへ は ゆれ ひかえめ、てまえへ は つよめ)、すわる、ねる、はなす(あいてへ かたむく)
         const toward = facing === 'back' ? 0.7 : facing === 'front' ? 1.3 : 1;
         let lift = a.behavior === 'swim' || a.behavior === 'sway' ? Math.sin(a.bob) * px * 0.06 : MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.08 * toward : 0;
@@ -3366,13 +3422,33 @@
         if (MOVING.has(a.behavior) && (facing === 'left' || facing === 'right')) rot = (facing === 'left' ? -1 : 1) * 0.07;
         if (a.behavior === 'sit') { syScale = 0.9; sxScale = 1.04; }
         if (a.behavior === 'rest') { syScale = 0.92; rot = a.face * 0.08; }
-        if (a.behavior === 'sleep') { rot = a.face * 0.28; syScale = 0.9; ctx.globalAlpha *= 0.85; }
+        if (a.behavior === 'sleep') { rot = a.face * 0.28; syScale = 0.9; }
         if (a.behavior === 'talk' || a.behavior === 'gather') rot = a.face * 0.07;
         if (a.behavior === 'look' || a.behavior === 'watch') rot = (facing === 'left' ? -1 : facing === 'right' ? 1 : 0) * 0.05;
         const y = p.sy - lift;
+        // light: かげと からだを 1 まいの え で 1 回(かたむき・しるしは えがかない。いろ・かたち・はんてん・ゆれは おなじ)
+        if (lod === 'light' && im) {
+          const b = bakedSprite(im, dark, true);
+          if (b) {
+            const S = b.width, w = px * sxScale, hh = px * syScale, ga = ctx.globalAlpha;
+            ctx.globalAlpha = (alpha != null ? alpha : 1) * (a.behavior === 'sleep' ? 0.85 : 1);
+            if (sprite.flip) { ctx.save(); ctx.translate(p.sx, 0); ctx.scale(-1, 1); ctx.drawImage(b, -w / 2, y - hh, w, hh * b.height / S); ctx.restore(); }
+            else ctx.drawImage(b, p.sx - w / 2, y - hh, w, hh * b.height / S);
+            ctx.globalAlpha = ga;
+            return;
+          }
+        }
+        ctx.save();
+        if (alpha != null) ctx.globalAlpha = alpha;
+        const blob = lod === 'medium' ? shadowImg() : null;
+        if (blob) ctx.drawImage(blob, p.sx - px * 0.32, p.sy - px * 0.09, px * 0.64, px * 0.18);
+        else { ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill(); }
+        if (a.behavior === 'sleep') ctx.globalAlpha *= 0.85;
         ctx.translate(p.sx, y); ctx.rotate(rot); ctx.scale((sprite.flip ? -1 : 1) * sxScale, syScale);
-        if (facing === 'back' && !(a.sprites && a.sprites.back)) ctx.filter = 'brightness(0.9)';
-        if (im) ctx.drawImage(im, -px / 2, -px, px, px);
+        const b = dark && im ? bakedSprite(im, true, false) : null;
+        if (dark && im && !b) ctx.filter = 'brightness(0.9)';   // したくが できない ときだけ もとの えがきかた
+        if (b) ctx.drawImage(b, -px / 2, -px, px, px);
+        else if (im) ctx.drawImage(im, -px / 2, -px, px, px);
         else drawGlyph(a.emoji || '❓', 0, 0, px * 0.9);
         ctx.restore();
         const mark = a.behavior === 'sleep' ? '💤' : a.behavior === 'talk' ? '💬' : a.behavior === 'fish' ? '🎣' : a.behavior === 'play' || a.behavior === 'chase' ? '✨' : a.behavior === 'watch' ? '👀' : a.behavior === 'shop' ? '🛍️' : null;
@@ -4284,7 +4360,11 @@
             ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(playerGlyph(), 0, 0); ctx.restore();
           }
           else {
-            const a = it.o; drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / farCull, 0.3, 1), cam.yaw);
+            const a = it.o;
+            // なかまは 見かけの 大きさ(じぶんに くらべて)と きょりで こまかさを きめる。じゅうみんは いつも full
+            let lod;
+            if (a.follow && pp) { lod = partyLod(it.p.s / pp.s, it.d, lodMemo.get(a)); lodMemo.set(a, lod); spriteStats[lod]++; }
+            drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / farCull, 0.3, 1), cam.yaw, lod);
             const top = it.p.sy - ACTOR_SIZE * it.p.s;
             if (a.say && a.sayFor > 0) drawBubble(a.say, it.p.sx, top);
             else if (a === nearest && it.p.s > 0.3) drawLabel(a.label + (a.behavior && VERBS[a.behavior] ? '・' + VERBS[a.behavior] : ''), it.p.sx, top - 4, false);
@@ -4320,7 +4400,8 @@
         setAnimLevel(v) { animLv = clamp(Math.round(v), 0, 2); }, get animLevel() { return animLv; },
         setDistant, get distantShown() { return distantShown; }, // Phase 4D-2
         get backdropLayers() { return bdLayers; },
-        resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; } };
+        get spriteStats() { return spriteStats; }, get spriteCacheSize() { return spriteCache.size; },   // なかまの LOD・え の したく(しらべる ため)
+        resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; spriteCache.clear(); spriteStats.bytes = 0; } };
     }
 
     // ================= なおとっち世界 正式地理 v1（D案「弓なりの大陸と、そのふところの湾」） =================
@@ -5547,6 +5628,9 @@
     const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest']);   // いまは 1 本だけ。ふやすのは 4E-4
     // 出口・入口の 暗転(秒)。着く ときは くらく なりきった frame で commit と さいしょの え を すませ、あとは 0.14 秒で あける
     const CORRIDOR_COVER = Object.freeze({ fadeIn: 0.06, fadeOut: 0.12 });
+    // 暗転が これより こい ときは 道の え を えがかない(ぬりつぶし 1 まいだけ)。のこる え は 3% いか で 見えない ので、ちらつかない
+    const CORRIDOR_COVER_SKIP = 0.95;
+    function corridorCoverSkip(cover) { return cover >= CORRIDOR_COVER_SKIP; }
     const CORRIDOR_ORIGIN = 20000;       // chart の 原点を ここに おく(地面の もようは 負の 座標を よまない)
     const CORRIDOR_SAMPLE = 10;          // 曲線を 10 world ごとに つみあげる
     const CORRIDOR_PATH_HALF = Object.freeze({ wide: PATH_HALF.wide, normal: PATH_HALF.path, narrow: PATH_HALF.narrow });
@@ -7253,7 +7337,7 @@
       let corr = null, corrFade = null;
       const corrFailed = new Set();                 // この セッションで しっぱいした corridor(つぎからは transition)
       // しらべもの よう(え には つかわない)。prepare / commit / さいしょの え / 暗転の ながさ(ms)
-      const corrStats = { enters: 0, arrives: 0, backs: 0, fails: 0, prepares: 0, discards: 0, warms: 0, lastPrepareMs: null, lastCommitMs: null, lastFirstDrawMs: null, lastCoverMs: null, lastBuildMs: null, handoff: CORRIDOR_HANDOFF_STATS };
+      const corrStats = { enters: 0, arrives: 0, backs: 0, fails: 0, prepares: 0, discards: 0, warms: 0, lastPrepareMs: null, lastCommitMs: null, lastFirstDrawMs: null, lastCoverMs: null, lastBuildMs: null, coverSkips: 0, handoff: CORRIDOR_HANDOFF_STATS };
       const perfNow = () => (typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now());
       let corrLinks = null, corrFromList = null, corrToList = null, corrDistantKey = null;
       function tryCorridor(g) {
@@ -7414,7 +7498,7 @@
         if (c.phase === 'in') {
           // まだ 出発 地域が 見えて いる。ほんの すこし くらく して から corridor へ
           c.cover = Math.min(1, c.t / CORRIDOR_COVER.fadeIn);
-          renderer.draw(sim.view(), now);
+          if (corridorCoverSkip(c.cover)) { c.skipDraw = true; corrStats.coverSkips++; } else renderer.draw(sim.view(), now);
           if (c.t >= CORRIDOR_COVER.fadeIn) { c.phase = 'walk'; c.t = 0; corridorDistant(); }
         } else if (c.phase === 'walk') {
           c.cover = Math.max(0, 1 - c.t / CORRIDOR_COVER.fadeOut);
@@ -7429,7 +7513,7 @@
             c.coverStart = c.preStart != null ? c.preStart : now; c.phase = 'out';
             return arriveCorridor(c, now);
           }
-          renderer.draw(w.view(), now);
+          if (corridorCoverSkip(Math.max(c.cover, pre))) { c.skipDraw = true; corrStats.coverSkips++; } else renderer.draw(w.view(), now);
           // 段の なまえは え を えがいた あとで かえる(DOM を かえてから canvas に 字を えがくと、その frame で スタイルの 計算が はしる)
           if (newStage) { c.stage = st.index; hintEl.textContent = `【${st.label}】${plainLabel(c.g.to)}の ほうへ`; lastHint = null; }
           if (pre > 0) c.cover = Math.max(c.cover, pre);
@@ -7439,19 +7523,19 @@
             // 引き返したら 組んだ ものを すてる。終端の てまえに 来たら 組む(え を 出した あとで。セーブは さわらない)
             if (c.prep && s < L * (1 - CORRIDOR_ARRIVAL.dropBehind)) discardCorridor(c);
             else if (CORRIDOR_ARRIVAL.prepare === 'ahead' && !c.prep && !c.prepFailed && s >= L * (1 - CORRIDOR_ARRIVAL.prepareAhead)) {
-              drawCorridorCover(c.cover, c.g.from); prepareCorridor(c); return;
+              drawCorridorCover(c.skipDraw ? 1 : c.cover, c.g.from); c.skipDraw = false; prepareCorridor(c); return;
             } else if (c.warm) warmCorridor(c, now);
           }
         } else {
           // 暗転は じっさいの じかんで(おもい frame が あっても のびない)
           c.cover = Math.min(1, (now - c.coverStart) / (CORRIDOR_COVER.fadeIn * 1000));
           if (c.cover >= 1) { if (c.phase === 'out') arriveCorridor(c, now); else backCorridor(c); return; }
-          renderer.draw(w.view(), now);
-          drawCorridorCover(c.cover, c.phase === 'out' ? c.g.to : c.g.from);
+          if (corridorCoverSkip(c.cover)) { corrStats.coverSkips++; drawCorridorCover(1, c.phase === 'out' ? c.g.to : c.g.from); }
+          else { renderer.draw(w.view(), now); drawCorridorCover(c.cover, c.phase === 'out' ? c.g.to : c.g.from); }
           if (c.phase === 'out' && CORRIDOR_ARRIVAL.prepare === 'cover') prepareCorridor(c);   // え を 出して から 組む
           return;
         }
-        drawCorridorCover(c.cover, c.phase === 'out' ? c.g.to : c.g.from);
+        drawCorridorCover(c.skipDraw ? 1 : c.cover, c.phase === 'out' ? c.g.to : c.g.from); c.skipDraw = false;
         if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }   // 入る まえの おびも いつもどおり きえる
       }
       // 着いた / もどった あとの 暗転の あけ(いつもの たんさくの え の うえに かさねる)。じっさいの じかんで 0.14 秒
@@ -7863,6 +7947,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
