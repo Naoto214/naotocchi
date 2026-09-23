@@ -228,6 +228,6 @@ frame を もたない ので corridor にも graph にも 入らない。
 - `tests/meguru-phase4c-test.cjs` 15 本 pass。`tests/meguru-phase4b-test.cjs` 12 本 pass。
 - `npm test` **1208 / 1208**（main 1193 ＋ Phase 4C 15）。
   - ただし 2026-09-23 は main でも `economy-test` / `quick-daily-economy-v2-test` が 終わらない（その日の daily ゲーム `domino-run` が 定数 random で ループする。Phase 4C とは 無関係）。
-    テストだけの 修正を **べつ PR #328** に した。上の 1208 は #328 の 2 ファイルを 一時的に あてて はかった もの（Phase 4C の ブランチには ふくめて いない）。
+    テストだけの 修正を **べつ PR #328** に して、さきに main へ 入れた。この ブランチは その あとの main の うえに のって いる（Phase 4C の 差分には ふくまれない）。
 - 実画面 390×844 / 375×667 / 360×640 × home / mountain / city / sea: はみ出し 0、パッド・もどる は 画面内、
   レイアウト値は Phase 4B の ときと **12 / 12 一致**。JS エラーは 390×844-home の 1 件（さいしょの 読みこみの 404）だけで、Phase 4B の ときにも 同じ ものが ある。
