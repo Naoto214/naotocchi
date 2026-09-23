@@ -26,6 +26,9 @@
 > **4D-2c で backdrop 帯の回転を遠景と揃えました** → [`../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md`](../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md)
 > - 流れはカメラの向き(0〜360°)から決め、1 周で模様の繰り返しが整数回になるようにした(±180° の継ぎ目が消える)。形は変えない
 > - 逆向きは 0、C 評価は 0(B 4 地域 / A 8 地域)。2D 命令は 1 つも増えない
+>
+> **Phase 4D は完了しました**(#334 マージ `bf65b5b`。4D-3 の Three.js PoC は不要と判断して省略)。
+> 次の Phase 4E(continuous corridor)の設計 → [`./meguru-phase4e-continuous-corridor-world-2026-09-23.md`](./meguru-phase4e-continuous-corridor-world-2026-09-23.md)
 
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 追加したのは実測を再現する読み取り専用の道具 `tools/meguru-phase4d-distant-survey.cjs` だけです(`npm test` には入れていません)。
