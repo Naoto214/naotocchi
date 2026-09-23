@@ -22,6 +22,10 @@
 > - 地域名で分けず、kind と地域の意味(backdrop・view・層)だけで描き分ける。たて 3 種(上の光・下の暗さ・下の地上)も最小限で描く
 > - 2D 命令の最悪は +10 / フレーム。**Three.js(4D-3)は省略可能**と判断
 > - 既存の波形の backdrop 帯(hills / farhills / lakehills / seahorizon / mesas)は回転と逆向きに流れる(C 評価 5 地域)。次は backdrop の角度追従修正を優先
+>
+> **4D-2c で backdrop 帯の回転を遠景と揃えました** → [`../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md`](../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md)
+> - 流れはカメラの向き(0〜360°)から決め、1 周で模様の繰り返しが整数回になるようにした(±180° の継ぎ目が消える)。形は変えない
+> - 逆向きは 0、C 評価は 0(B 4 地域 / A 8 地域)。2D 命令は 1 つも増えない
 
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 追加したのは実測を再現する読み取り専用の道具 `tools/meguru-phase4d-distant-survey.cjs` だけです(`npm test` には入れていません)。
