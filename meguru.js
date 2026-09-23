@@ -3369,7 +3369,7 @@
       // filter は 1 まい ごとに べつの 板で ラスタを はしらせる ので、人数ぶん おもく なる(27 にんで 1 frame 約 700 ms)。
       // くらく した え・かげつきの え を 画像ごとに 1 回だけ 作って つかいまわす(くらさは brightness(0.9) と おなじ)。
       // 作れない とき(canvas が ない など)は もとの えがきかた(filter)に もどる
-      const makeCanvas = typeof o.makeCanvas === 'function' ? o.makeCanvas : (w, h) => {
+      const newCanvas = typeof o.makeCanvas === 'function' ? o.makeCanvas : (w, h) => {
         if (typeof document === 'undefined' || !document.createElement) return null;
         const c = document.createElement('canvas'); if (!c) return null;
         c.width = w; c.height = h; return c;
@@ -3385,7 +3385,7 @@
         if (c) { spriteStats.hits++; return c; }
         try {
           const S = im.naturalWidth || im.width || 128, pad = shadow ? Math.ceil(S * SHADOW_PAD) : 0;
-          c = makeCanvas(S, S + pad);
+          c = newCanvas(S, S + pad);
           const g = c && c.getContext && c.getContext('2d');
           if (!g) throw new Error('no canvas');
           g.drawImage(im, 0, 0, S, S);
@@ -3403,7 +3403,7 @@
       function shadowImg() {
         if (shadowBlob === undefined) {
           shadowBlob = null;
-          try { const c = makeCanvas(64, 18), g = c && c.getContext && c.getContext('2d'); if (g) { g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(32, 9, 32, 9, 0, 0, TAU); g.fill(); shadowBlob = c; spriteStats.bytes += 64 * 18 * 4; } } catch (_) { shadowBlob = null; }
+          try { const c = newCanvas(64, 18), g = c && c.getContext && c.getContext('2d'); if (g) { g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(32, 9, 32, 9, 0, 0, TAU); g.fill(); shadowBlob = c; spriteStats.bytes += 64 * 18 * 4; } } catch (_) { shadowBlob = null; }
         }
         return shadowBlob;
       }
