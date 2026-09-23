@@ -2877,7 +2877,7 @@
         else if (kind === 'seahorizon') { ctx.fillStyle = shade(cols[0], light, tl.tint, tl.amt); ctx.fillRect(0, base - bh * 0.35, W, bh * 0.35 + 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; for (let i = 0; i < 12; i++) ctx.fillRect(((i * 91 + px * 0.5) % W + W) % W, base - bh * 0.35 + 4 + (i * 13) % Math.round(bh * 0.3), 18 + (i % 3) * 8, 1.5); wave(nearC, bh * 0.35, 0.03, bh * 0.05, 5); ctx.fillStyle = 'rgba(255,255,255,.8)'; const bx = ((px * 0.4 + W * 0.7) % W + W) % W; ctx.beginPath(); ctx.moveTo(bx, base - bh * 0.5); ctx.lineTo(bx + 9, base - bh * 0.3); ctx.lineTo(bx - 6, base - bh * 0.3); ctx.closePath(); ctx.fill(); }
         else if (kind === 'abyss') { ctx.fillStyle = shade(cols[0], light, tl.tint, tl.amt); ctx.fillRect(0, base - bh * 0.5, W, bh * 0.5 + 4); spikes(nearC, 14, bh * 0.2, bh * 0.6, 0.5, 0, 3);
           // くらいからこそ: とおくに ひかる もの(サンゴの ひかり・ねっすいの あかり)が みえる
-          for (let i = 0; i < 9; i++) { const x = ((i * 89 + px * 0.5) % (W + 20) + W + 20) % (W + 20) - 10, y = base - bh * 0.06 - (i * 41) % Math.round(bh * 0.4), tw = 0.5 + 0.5 * Math.sin(performance.now() * 0.0015 + i); ctx.fillStyle = i % 3 === 0 ? 'rgba(255,150,80,.9)' : 'rgba(120,225,240,.9)'; ctx.globalAlpha = 0.35 + tw * 0.5; ctx.fillRect(x, y, 2, 2); ctx.globalAlpha = 0.08 + tw * 0.06; ctx.beginPath(); ctx.arc(x + 1, y + 1, 7 + (i % 3) * 3, 0, TAU); ctx.fill(); }
+          for (let i = 0; i < 9; i++) { const x = ((i * 89 + px * 0.5) % (W + 20) + W + 20) % (W + 20) - 10, y = base - bh * 0.06 - (i * 41) % Math.round(bh * 0.4), tw = 0.5 + 0.5 * Math.sin(curNow * 0.0015 + i); ctx.fillStyle = i % 3 === 0 ? 'rgba(255,150,80,.9)' : 'rgba(120,225,240,.9)'; ctx.globalAlpha = 0.35 + tw * 0.5; ctx.fillRect(x, y, 2, 2); ctx.globalAlpha = 0.08 + tw * 0.06; ctx.beginPath(); ctx.arc(x + 1, y + 1, 7 + (i % 3) * 3, 0, TAU); ctx.fill(); }
           ctx.globalAlpha = 1; }
         else if (kind === 'dunes') { wave(far, bh * 0.6, 0.009, bh * 0.2, 1); wave(nearC, bh * 0.5, 0.015, 0, 3); }
         else if (kind === 'skystops') { for (let i = 0; i < 5; i++) { const x = ((i * 167 + px * (0.4 + i * 0.1)) % (W + 120) + W + 120) % (W + 120) - 60, y = base - bh * (0.25 + (i % 3) * 0.28), r = W * (0.06 + (i % 2) * 0.03); ctx.fillStyle = i % 2 ? far : nearC; ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.32, 0, 0, TAU); ctx.fill(); ctx.fillStyle = 'rgba(255,230,150,.9)'; ctx.fillRect(x - 1, y - r * 0.32 - 10, 2, 10); ctx.beginPath(); ctx.arc(x, y - r * 0.32 - 11, 3, 0, TAU); ctx.fill(); } wave('rgba(255,255,255,.10)', bh * 0.3, 0.02, 0, 4); }
@@ -2892,7 +2892,7 @@
           // たてに ながい ネオンの かんばん
           for (let i = 0; i < 7; i++) { const x = ((i * 151 + px * 0.6) % (W + 40) + W + 40) % (W + 40) - 20, h2 = bh * (0.3 + (i % 3) * 0.16); ctx.fillStyle = cols[(i + 1) % cols.length]; ctx.globalAlpha = lit * 0.85; ctx.fillRect(x, base - bh * 0.5 - h2, 4, h2); ctx.globalAlpha = lit * 0.2; ctx.fillRect(x - 4, base - bh * 0.5 - h2, 12, h2); ctx.globalAlpha = lit; }
           ctx.globalAlpha = 1;
-          ctx.fillStyle = 'rgba(255,90,90,.9)'; for (let i = 0; i < 4; i++) { const x = ((i * 233 + px * 0.6) % (W + 20) + W + 20) % (W + 20) - 10; const blink = (Math.sin(performance.now() * 0.002 + i) + 1) / 2; ctx.globalAlpha = 0.4 + blink * 0.6; ctx.fillRect(x, base - bh * (1.1 + (i % 2) * 0.2), 3, 3); }
+          ctx.fillStyle = 'rgba(255,90,90,.9)'; for (let i = 0; i < 4; i++) { const x = ((i * 233 + px * 0.6) % (W + 20) + W + 20) % (W + 20) - 10; const blink = (Math.sin(curNow * 0.002 + i) + 1) / 2; ctx.globalAlpha = 0.4 + blink * 0.6; ctx.fillRect(x, base - bh * (1.1 + (i % 2) * 0.2), 3, 3); }
           ctx.globalAlpha = 1;
         }
         // ジャングル: とがった 木立では なく、かさなりあう まるい 樹冠
@@ -2916,6 +2916,120 @@
         // いなか: おかの むこうに とおい やまなみ(そらが ひろく みえる)
         else if (kind === 'farhills') { spikes(shadeRgb(mixRgb('#8e93a4', (SKY_OVERRIDE[world.regionId] || tl.sky)[1], 0.55), light, tl.tint, tl.amt), 6, bh * 0.4, bh * 0.8, 0.5, bh * 0.4, 0); wave(far, bh * 0.45, 0.01, bh * 0.16, 1); wave(nearC, bh * 0.3, 0.02, 0, 2.5); }
       }
+      // ====== Phase 4D-2: 方角固定の 遠景レイヤー(home / sea の PoC)======
+      // 何が どの 方角に、どんな こさで 見えるかは 世界の がわ(DistantFeature + visibleDistant)が きめて、
+      // start() が setDistant() で わたす。ここは うつす だけ(renderer contract: sim / world は データ、renderer は とうえい)。
+      //   ・画面の x = W/2 + F·tan(方角 − カメラの 向き)。F は とうえいと おなじ(視野 55.5°)。地図の 座標は 使わない
+      //   ・1 画面に 出す かずと えらびかたは distantInView(性能 tier ごとに 3 / 2 / 1)。lod.maxTier より おもい tier では 出さない
+      //   ・はばは 角度で もち、ここで 画面に なおす(px は データに 書かない)
+      //   ・あらわれる / きえる ときは ふっと(fade)。よいやすい せっていでは よこの ずれを よわく、ちらつきは なし
+      const DISTANT_MAX = [3, 2, 1];
+      let distant = null, dItems = [], distantShown = [];
+      function setDistant(s) {
+        if (!s || !Array.isArray(s.list)) { distant = null; dItems = []; distantShown = []; return; }
+        const snap = !distant || distant.regionId !== s.regionId;          // 地域が かわった ときは その ままの こさで
+        const prev = new Map(dItems.map((d) => [d.id, d])), next = [];
+        for (const v of s.list) {
+          if (!v || !v.feature || !v.feature.lod || v.feature.lod.maxTier < tier) continue;
+          const p = prev.get(v.id); prev.delete(v.id);
+          next.push({ id: v.id, feature: v.feature, alpha: v.alpha, a: snap ? v.alpha : p ? p.a : 0 });
+        }
+        if (!snap) for (const p of prev.values()) if (p.a > 0.02) next.push({ id: p.id, feature: p.feature, alpha: 0, a: p.a }); // きえる ものは うすれて から
+        distant = { regionId: s.regionId, reduced: !!s.reduced }; dItems = next;
+      }
+      // 角度の まど(はば・高さ)は 種類の いみ から。far は ほそく、mid は ひろく
+      const DISTANT_SHAPE = { mountain: [14, 1.0], snow_mountain: [14, 1.05], desert_haze: [10, 0.55], city_glow: [10, 0.75], forest: [11, 0.55], highland: [12, 0.42], island: [5, 0.3] };
+      function drawDistant(world, e, light, tl, now) {
+        distantShown = [];
+        if (!distant || distant.regionId !== world.regionId || !dItems.length) return;
+        const k = Math.min(1, dtSec * 2.2);
+        for (let i = dItems.length - 1; i >= 0; i--) { const d = dItems[i]; d.a += (d.alpha - d.a) * k; if (d.alpha === 0 && d.a < 0.02) dItems.splice(i, 1); }
+        const yawDeg = ((cam.yaw * 180 / Math.PI) % 360 + 360) % 360, half = Math.atan(W / 2 / F) * 180 / Math.PI;
+        const shown = distantInView(dItems, yawDeg, half * 2, DISTANT_MAX[tier] || 1);
+        if (!shown.length) return;
+        const bh = Math.round(H * 0.17), base = HOR + 2, skyB = (SKY_OVERRIDE[world.regionId] || tl.sky)[1];
+        const sea = world.backdrop === 'seahorizon', lat = eye.x * cosY - eye.z * sinY;
+        const calm = distant.reduced || animLv === 0;
+        const toX = (deg) => W / 2 + F * Math.tan(clamp(deg, -80, 80) * Math.PI / 180);
+        // 順位の ひくい もの(far)から えがく = おくから てまえへ
+        for (let n = shown.length - 1; n >= 0; n--) {
+          const d = shown[n], f = d.feature, sh = DISTANT_SHAPE[f.kind];
+          if (!sh) continue;
+          const rel = ((f.bearingLocal - yawDeg + 540) % 360) - 180;
+          const edge = clamp((half - Math.abs(rel)) / 6, 0, 1);            // 視野の はしでは うすく(はみ出して ぱっと きえない)
+          const alpha = clamp(d.a * edge, 0, 1);
+          if (alpha < 0.02) continue;
+          const mid = f.lod.layer === 'mid';
+          const dx = -lat * PLX.far[1] * (mid ? 0.5 : 0.25) * (distant.reduced ? 0.3 : 1);
+          const cx = toX(rel) + dx, xl = toX(rel - sh[0]) + dx, xr = toX(rel + sh[0]) + dx, hh = bh * sh[1];
+          const y0 = sea ? base - bh * 0.35 : f.lod.layer === 'far' ? base - bh * 0.2 : base + 2;
+          const cols = BACKDROP_COLORS[f.silhouette] || BACKDROP_COLORS.hills;
+          const col = (hex, m) => shadeRgb(mixRgb(hex, skyB, m), light, tl.tint, tl.amt);
+          const at = (u) => xl + (xr - xl) * (u + 1) / 2;                    // u = -1(ひだり)〜 1(みぎ)
+          const seed = hash(f.id); let lights = null;
+          ctx.globalAlpha = alpha;
+          if (f.kind === 'mountain' || f.kind === 'snow_mountain') {
+            // 山なみ: すそは 空に とけて、手前の おかの うしろに ある ように 見せる
+            const peaks = [[-0.62, 0.52], [-0.12, 1], [0.42, 0.76]].map(([u, h]) => [u + ((seed >>> 3) % 9 - 4) * 0.015, h * (0.9 + ((seed >>> 7) % 5) * 0.04)]);
+            const g = ctx.createLinearGradient(0, y0 - hh, 0, y0); g.addColorStop(0, col(cols[0], 0.45)); g.addColorStop(0.7, col(cols[0], 0.62)); g.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(at(-1), y0);
+            for (let i = 0; i < peaks.length; i++) { const [u, h] = peaks[i]; ctx.lineTo(at(u), y0 - hh * h); if (i < peaks.length - 1) ctx.lineTo(at((u + peaks[i + 1][0]) / 2), y0 - hh * Math.min(h, peaks[i + 1][1]) * 0.66); }
+            ctx.lineTo(at(1), y0); ctx.closePath(); ctx.fill();
+            if (f.kind === 'snow_mountain' || e.season === 'winter' || e.weather === 'snow') {
+              ctx.fillStyle = 'rgba(255,255,255,.7)'; ctx.beginPath();
+              for (const [u, h] of peaks) { const px = at(u), py = y0 - hh * h, w = (xr - xl) * 0.05; ctx.moveTo(px, py); ctx.lineTo(px + w, py + hh * 0.16); ctx.lineTo(px - w, py + hh * 0.16); ctx.closePath(); }
+              ctx.fill();
+            }
+          } else if (f.kind === 'desert_haze') {
+            // さばくの かすみ: 平らな 台地が うっすら
+            ctx.fillStyle = col(cols[0], 0.62); ctx.beginPath();
+            for (const [u, w, h] of [[-0.5, 0.3, 0.8], [0.15, 0.4, 1], [0.7, 0.22, 0.65]]) { ctx.moveTo(at(u - w), y0); ctx.lineTo(at(u - w * 0.7), y0 - hh * h); ctx.lineTo(at(u + w * 0.7), y0 - hh * h); ctx.lineTo(at(u + w), y0); ctx.closePath(); }
+            ctx.fill();
+          } else if (f.kind === 'forest') {
+            // 森の けはい: とがった 木立と まるい こずえ。はしは ひくく して おかに なじませる
+            ctx.fillStyle = col(cols[0], 0.28); ctx.beginPath(); ctx.moveTo(at(-1), y0);
+            const nT = 11;
+            for (let i = 0; i <= nT; i++) { const u = -1 + 2 * i / nT, taper = 1 - Math.pow(Math.abs(u), 3), h = (0.55 + ((seed >>> (i % 16)) & 7) / 16) * taper; ctx.lineTo(at(u - 1 / nT), y0 - hh * h * 0.45); ctx.lineTo(at(u), y0 - hh * h); }
+            ctx.lineTo(at(1), y0); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = col(cols[1], 0.2); ctx.beginPath(); ctx.moveTo(at(-0.8), y0);
+            for (let i = 0; i < 4; i++) { const u0 = -0.8 + i * 0.4, u1 = u0 + 0.4, h = hh * (0.5 + ((seed >>> (i * 3)) & 3) * 0.08) * (1 - Math.abs(u0 + 0.2) * 0.4); ctx.quadraticCurveTo(at(u0 + 0.2), y0 - h * 1.5, at(u1), y0 - h * 0.25); }
+            ctx.lineTo(at(0.8), y0); ctx.closePath(); ctx.fill();
+          } else if (f.kind === 'highland') {
+            // みずうみの おか: なだらかな おかと、ふもとの 水の ひかり
+            ctx.fillStyle = col(cols[0], 0.32); ctx.beginPath(); ctx.moveTo(at(-1), y0);
+            ctx.quadraticCurveTo(at(-0.55), y0 - hh * 1.1, at(-0.1), y0 - hh * 0.7); ctx.quadraticCurveTo(at(0.35), y0 - hh * 1.35, at(1), y0);
+            ctx.closePath(); ctx.fill();
+            ctx.fillStyle = col(cols[1], 0.15); ctx.fillRect(at(-0.55), y0 - hh * 0.16, at(0.45) - at(-0.55), Math.max(2, hh * 0.1));
+          } else if (f.kind === 'island') {
+            // 島影: 水平線に ちいさな しまと、やしの き
+            ctx.fillStyle = col('#2f6a2f', 0.4); ctx.beginPath(); ctx.moveTo(at(-1), y0);
+            ctx.quadraticCurveTo(at(-0.45), y0 - hh * 1.3, at(0.1), y0 - hh * 0.95); ctx.quadraticCurveTo(at(0.6), y0 - hh * 0.8, at(1), y0); ctx.closePath();
+            const tx = at(-0.15), ty = y0 - hh * 1.05, s2 = Math.max(4, hh * 0.9);
+            ctx.moveTo(tx - 1, ty); ctx.lineTo(tx + s2 * 0.12, ty - s2); ctx.lineTo(tx + s2 * 0.18, ty - s2); ctx.lineTo(tx + 1, ty); ctx.closePath();
+            for (const a of [-2.6, -1.9, -1.2, -0.5]) { const fx = tx + s2 * 0.15, fy = ty - s2; ctx.moveTo(fx, fy); ctx.lineTo(fx + Math.cos(a) * s2 * 0.5, fy + Math.sin(a + 1.6) * s2 * 0.25 + s2 * 0.12); ctx.lineTo(fx + Math.cos(a) * s2 * 0.42, fy + Math.sin(a + 1.6) * s2 * 0.25 + s2 * 0.2); ctx.closePath(); }
+            ctx.fill();
+          } else if (f.kind === 'city_glow') {
+            // 街の 灯: 水平線の ほんのりした ひかりと、ビルの かげ、まどの 灯(夕方・夜 だけ。こさは データの alpha)
+            const gr = (xr - xl) * 0.6, g = ctx.createRadialGradient(cx, y0, 0, cx, y0, gr); g.addColorStop(0, 'rgba(255,190,120,.5)'); g.addColorStop(1, 'rgba(255,190,120,0)');
+            ctx.fillStyle = g; ctx.fillRect(cx - gr, y0 - gr, gr * 2, gr);
+            ctx.fillStyle = col(cols[0], 0.25); ctx.beginPath();
+            const nB = 9, bw = (xr - xl) / nB;
+            for (let i = 0; i < nB; i++) { const u = Math.abs((i + 0.5) / nB * 2 - 1), h = hh * (0.35 + (((seed >>> i) & 7) / 7) * 0.65) * (1 - u * 0.55); ctx.rect(xl + i * bw + bw * 0.08, y0 - h, bw * 0.84, h); }
+            ctx.fill();
+            // まどの 灯は 2 くみ。よいやすい せってい / かるい ときは またたかない
+            lights = [];
+            for (let gI = 0; gI < 2; gI++) {
+              const tw = calm ? 0.85 : 0.85 + 0.15 * Math.sin(now * 0.0017 + gI * 2.1); lights.push(tw);
+              ctx.globalAlpha = alpha * tw; ctx.fillStyle = gI ? 'rgba(120,225,255,.95)' : 'rgba(255,233,168,.95)'; ctx.beginPath();
+              for (let i = gI; i < nB; i += 2) { const u = Math.abs((i + 0.5) / nB * 2 - 1), h = hh * (0.35 + (((seed >>> i) & 7) / 7) * 0.65) * (1 - u * 0.55); for (let r = 0; r < 3; r++) { const yy = y0 - h + hh * 0.1 + r * hh * 0.16; if (yy > y0 - hh * 0.08) break; ctx.rect(xl + i * bw + bw * 0.3, yy, Math.max(1.5, bw * 0.16), Math.max(1.5, hh * 0.05)); } }
+              ctx.fill();
+            }
+          }
+          ctx.globalAlpha = 1;
+          distantShown.push({ id: d.id, kind: f.kind, layer: f.lod.layer, x: cx, dx, rel, alpha, y0, lights });
+        }
+      }
+      // ====== /Phase 4D-2 ======
       // ---- じめん・みち・みずべ・もよう ----
       // ワールドの てんの ならび → とうえいして ぬる。いちぶが カメラの うしろでも、
       // てまえの めん(NEAR)で きって、みえる ぶんだけ ぬる(まえは まるごと やめていた ので
@@ -3863,6 +3977,7 @@
         { const skyB = (SKY_OVERRIDE[world.regionId] || tl.sky)[1]; const f = mixRgb(world.ground[1], skyB, 0.6 + Math.min(0.3, (mood.fog || 0) * 0.6)); const t = hexToRgb(tl.tint || '#ffffff'); curFogRgb = [0, 1, 2].map((i) => Math.round(clamp(lerp(f[i], t[i], tl.amt * 0.5) * light * 1.05, 0, 255))); }
         drawSky(world, e, tl, wl, now);
         drawBackdrop(world, e, light, tl);
+        drawDistant(world, e, light, tl, now); // Phase 4D-2
         if (mood.fog > 0.02) { const fc = (SKY_OVERRIDE[world.regionId] || tl.sky)[1]; ctx.fillStyle = shade(fc, wl, '#ffffff', 0); ctx.globalAlpha = Math.min(0.85, mood.fog * 1.3); ctx.fillRect(0, HOR - H * 0.17, W, H * 0.17 + 4); ctx.globalAlpha = 1; }
         drawGround(world, e, tl, wl, light, now);
         drawDetails(world, player);
@@ -4020,6 +4135,7 @@
       return { draw, project, facingOf, drawScenery, sceneryMode,
         // よいやすい ひとの ための スイッチ。0 に しても とめは しない(へらすだけ)
         setAnimLevel(v) { animLv = clamp(Math.round(v), 0, 2); }, get animLevel() { return animLv; },
+        setDistant, get distantShown() { return distantShown; }, // Phase 4D-2
         resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; } };
     }
 
@@ -4833,7 +4949,8 @@
     // 「この 地域から、どの 方角に、どんな 遠景が、どんな 条件で 見えるか」を 世界の がわの データと して もつ。
     // (docs/design/meguru-phase4d-distant-world-streaming-renderer-2026-09-23.md §5〜§8)
     //
-    // **まだ だれも つかって いない。** えがき(Canvas / Three.js)・UI・セーブ・世界地図・travelToRegion() は よばない。
+    // えがく がわで つかうのは Phase 4D-2 の 遠景 PoC(home / sea。Canvas の 遠景レイヤー)だけ。
+    // ここからは えがき・UI・セーブ・世界地図・travelToRegion() を よばない。
     //
     // 正本の じゅん(上ほど つよい。ここは いちばん 下の 派生):
     //   1. WORLD_GEOGRAPHY(connection・regions の isle / layer)
@@ -6211,6 +6328,7 @@
         const known = new Set(typeof S.worldLinks === 'function' ? S.worldLinks() : []);
         const fresh = worldLinksFrom(S.allDiscoveredSpots()).filter((id) => !known.has(id));
         if (fresh.length && typeof S.recordWorldLinks === 'function') S.recordWorldLinks(fresh);
+        if (fresh.length) { distantLinks = null; syncDistant(); } // Phase 4D-2
         return fresh;
       }
       // はじめて 見つけた スポット。きろく → ちず → しらせ の じゅんばんは かえない
@@ -6263,6 +6381,30 @@
       hud();
       const preload = () => { if (typeof S.prepareIllustrations !== 'function') return; const w = sim.world; const scenery = [...new Set(w.props.map((p) => p.emoji).filter(Boolean))]; const actors = [...new Set(w.residents.concat(sim.party).map((a) => a.emoji).filter(Boolean))]; S.prepareIllustrations(scenery, actors); };
       preload();
+      // ====== Phase 4D-2: 遠景 PoC の データを renderer へ(home / sea だけ)======
+      // 見えるか・こさ(時間・天気・季節・見つけた みち)は visibleDistant が きめる。ここは 地域・環境・みちの きろくが
+      // かわった ときに 1 ど よんで renderer.setDistant() に わたす だけ(毎フレーム 組まない。セーブにも view にも 書かない)。
+      // ほかの 地域は まだ 出さない(全地域への ひろげは 4D-2 の 判断の あと)
+      const DISTANT_POC = ['home', 'sea'];
+      const distantReduced = !!(typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      let distantKey = null, distantLinks = null;
+      function syncDistant() {
+        if (typeof renderer.setDistant !== 'function') return;
+        const rid = sim.world.regionId;
+        if (DISTANT_POC.indexOf(rid) < 0) { if (distantKey !== '') { distantKey = ''; renderer.setDistant(null); } return; }
+        if (!distantLinks) {
+          const stored = typeof S.worldLinks === 'function' ? S.worldLinks() || [] : [];
+          const spots = typeof S.allDiscoveredSpots === 'function' ? S.allDiscoveredSpots() : {};
+          distantLinks = [...new Set([...stored, ...worldLinksFrom(spots)])];
+        }
+        const e = sim.env || {};
+        const key = `${rid}|${e.time}|${e.weather}|${e.season}|${distantLinks.length}`;
+        if (key === distantKey) return;
+        distantKey = key;
+        renderer.setDistant({ regionId: rid, list: visibleDistant(rid, e, { links: distantLinks }), reduced: distantReduced });
+      }
+      syncDistant();
+      // ====== /Phase 4D-2 ======
       function enterWorld(regionId, opts = {}) {
         sim.enterRegion(regionId, { registry: buildRegistry(), locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null,
           discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId) : [], at: opts.at || null, heading: opts.heading,
@@ -6270,6 +6412,7 @@
         loadMapRecords(regionId);
         preload();
         sim.setEnv(env());
+        distantLinks = null; syncDistant(); // Phase 4D-2
         setAct(null); showSpot(null);
         // よその 地域の しらせを もちこさない。こえる とちゅうで ためた ぶんは
         // 行きさきの もの だけ のこす
@@ -6385,6 +6528,7 @@
         }
         if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
         if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
+        if (frame % 30 === 0) syncDistant(); // Phase 4D-2
         // ならびは あとから かわる(ヒントが 2行に なる・ブラウザの バーが 出入りする・
         // スポット名が つく)。ときどき はかり なおして、ずれて いたら 組みなおす
         // お しらせの おびが 出たり きえたり すると、canvas に つかえる たかさが かわる。

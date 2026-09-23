@@ -31,6 +31,9 @@ const walkConns = (G) => G.connections.filter((c) => c.b && c.gate && c.gate.kin
 const specialConns = (G) => G.connections.filter((c) => c.b && c.gate && c.gate.kind !== 'walk' && c.mouths);
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
+// Phase 4D-2(遠景 PoC)は 印の ついた ブロックと 行だけ。消す ときは いっしょに 消す
+const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4D-2$/.test(l)).join('\n');
 // Phase 4B で 足した ぶんだけを 切りだす
 function phase4bBlock() {
   const a = SRC.indexOf('// ====== Phase 4B:');
@@ -283,11 +286,12 @@ test('11. **消しても うごきが 変わらない**(まだ だれにも つ�
     // Phase 4B の ブロックと export への ついかを けす。
     // Phase 4C(corridor)と 4D-1(遠景の いみデータ)は 4B の すぐ うしろ(おなじ ブロックの なか)に のる
     // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
-    const stripped = SRC.replace(block, '')
+    const stripped = strip4d2(SRC.replace(block, ''))
       .replace(/ REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal,( CORRIDOR_STAGE_LEN,[^\n]*? compassLabel,)?( DISTANT_KIND_OF,[^\n]*? visibleDistant,)?/, '');
     assert.ok(!/REGION_FRAME/.test(stripped), 'けしのこしが ない');
     assert.ok(!/worldCorridors|findRegionRoute/.test(stripped), 'Phase 4C の けしのこしも ない');
     assert.ok(!/distantRegistry|visibleDistant/.test(stripped), 'Phase 4D-1 の けしのこしも ない');
+    assert.ok(!/setDistant|drawDistant|syncDistant/.test(stripped), 'Phase 4D-2 の けしのこしも ない');
     fs.writeFileSync(path.join(dir, 'meguru.js'), stripped);
     const probe = `
       const { harness } = require('./tests/helpers/runtime-harness.cjs');
