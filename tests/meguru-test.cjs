@@ -160,9 +160,11 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   // 歩かせるのではなく、実際の入力移動で追従を確認する。
   const followSim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   for (let i = 0; i < 240; i++) followSim.step(1 / 60, { x: 0, y: -1 });
+  // ならびは partyFormationSlots(じぶんの うしろ = カメラから みて おく に ゆるく あつまる)。ひとり ひとりの ちいさな ちがい(formJ)も たす
+  const slots = M.partyFormationSlots(followSim.party.length), yaw = followSim.camera.yaw;
   for (const [i, p] of followSim.party.entries()) {
-    const side = p.kind === 'partner' ? -followSim.player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * .9);
-    const target = { x: followSim.player.x + side * followSim.RULES.follow.gap, z: followSim.player.z + followSim.RULES.follow.back + i * followSim.RULES.follow.spacing };
+    const sl = slots[i], j = p.formJ || { x: 0, z: 0 }, side = sl.side + j.x, back = sl.back + j.z;
+    const target = { x: followSim.player.x + Math.cos(yaw) * side + Math.sin(yaw) * back, z: followSim.player.z - Math.sin(yaw) * side + Math.cos(yaw) * back };
     const lag = Math.hypot(p.x - target.x, p.z - target.z);
     assert.ok(lag < 90, `party follows its ordinary walking position (lag=${lag.toFixed(1)}, slot=${i})`);
   }

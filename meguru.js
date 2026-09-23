@@ -1512,6 +1512,73 @@
     // いっしょに あるく なかま・こいびと(この せかいの じゅうみんとしては おかず、プレイヤーの そばに いる)
     function companionsOf(registry) { return registry.residents.filter((r) => r.withPlayer).map((r, i) => makeActor(r, { x: 0, z: 0, follow: true, slot: i, heading: 0 })); }
 
+    // ================= なかまの ならび(party formation)=================
+    // いっしょに あるく なかま・こいびとの いばしょ。じぶんの うしろ(カメラから みて おく)に ゆるく あつまる。
+    //   1〜2: ななめ うしろ / 3〜4: ちいさな V / 5〜: 半円〜おうぎ(おくへ いくほど ひろく、まんなかほど おく)。
+    // 横いっぱいの 1 列には しない。はばには 上限(maxHalf)を もち、人数が おおいと 段を ふやす(ひろい ところ 4 段まで、
+    // せまい ところ 8 段まで)。それでも はいりきらない ときは 段の なかを すこし こく する。
+    // side: よこ(+ = カメラから みて みぎ)、back: おく(+ = カメラから とおい)。world 単位。らんすうは つかわない。O(n)
+    const FORMATION = Object.freeze({ first: 100, firstBack: 60, gain: 6, spread: 50, rowGap: 65, curve: 40, depth: 300, depthNarrow: 440,
+      spacing: 72, spacingNarrow: 90, open: 260, narrow: 180, maxRows: 4, maxRowsNarrow: 8, jitter: 12 });
+    function partyFormationSlots(count, ctx = {}) {
+      const n = Math.max(0, Math.floor(Number(count)) || 0);
+      if (!n) return [];
+      const maxHalf = clamp(ctx.maxHalf != null ? Number(ctx.maxHalf) : FORMATION.open, 50, FORMATION.open);
+      const narrow = maxHalf < FORMATION.narrow;
+      const first = Math.min(FORMATION.first, maxHalf * 0.75), spacing = narrow ? FORMATION.spacingNarrow : FORMATION.spacing;
+      const halfOf = (r) => Math.min(maxHalf, first + r * FORMATION.spread);
+      const capOf = (r) => Math.max(2, Math.floor((2 * halfOf(r)) / spacing) + 1);
+      const maxRows = narrow ? FORMATION.maxRowsNarrow : FORMATION.maxRows;
+      let rows = 1, cap = 2;
+      while (cap < n && rows < maxRows) { cap += capOf(rows); rows++; }
+      // 段ごとの 人数。1 段目は 2(じぶんの まうしろは あける)。のこりは 段の はばに あわせて くばる(はいりきらなければ こく)
+      const counts = [Math.min(2, n)];
+      let left = n - counts[0];
+      if (rows > 1) {
+        let capSum = 0; for (let r = 1; r < rows; r++) capSum += capOf(r);
+        let given = 0;
+        for (let r = 1; r < rows; r++) { const v = r === rows - 1 ? left - given : Math.min(left - given, Math.round(left * capOf(r) / capSum)); counts.push(v); given += v; }
+      }
+      const gap = rows > 1 ? Math.min(FORMATION.rowGap, (narrow ? FORMATION.depthNarrow : FORMATION.depth) / (rows - 1)) : 0;
+      const out = [];
+      counts.forEach((k, r) => {
+        if (k <= 0) return;
+        const half = r === 0 ? first : halfOf(r), base = FORMATION.firstBack + r * gap, row = [];
+        for (let j = 0; j < k; j++) {
+          // ひとりだけの 段は まんなかを さけて すこし よこへ(じぶんの あたまの うしろに かくれない)
+          const x = k === 1 ? (r === 0 ? -0.8 : r % 2 ? 0.5 : -0.5) * half : -half + (j * 2 * half) / (k - 1);
+          // まんなかほど おく(じぶんを かこむ 半円)
+          row.push({ side: x, back: base + (1 - Math.min(1, (x / half) ** 2)) * (r === 0 ? 0 : FORMATION.curve), row: r });
+        }
+        // 段の なかは まんなか → そと、みぎ → ひだり の じゅん(並び順が いつも おなじ)
+        row.sort((a, b) => Math.abs(a.side) - Math.abs(b.side) || b.side - a.side);
+        out.push(...row);
+      });
+      return out;
+    }
+    // 人数と はば ごとに 1 回だけ 作って つかいまわす(毎 frame 作らない)
+    const formationCache = new Map();
+    function formationFor(count, maxHalf) {
+      const key = count + ':' + (maxHalf == null ? 'open' : Math.round(maxHalf / 10) * 10);
+      let v = formationCache.get(key);
+      if (!v) { v = partyFormationSlots(count, { maxHalf: maxHalf == null ? undefined : Math.round(maxHalf / 10) * 10 }); if (formationCache.size > 64) formationCache.clear(); formationCache.set(key, v); }
+      return v;
+    }
+    // ついていく つよさ(gain): はなれた きょり × gain で おいかける。あるいて いる ときの おくれ(= はやさ / gain)が ちいさく なる ように
+    // もとの 3.5 から 6 に した(260/s で おくれ 74 → 43)。ひとり ひとりの ちいさな ちがい(よこ・おく・ついていく はやさ)は なまえ(key)から。毎 frame かわらない
+    function formationJitter(a, i) {
+      if (a.formJ) return a.formJ;
+      const h = hash('form:' + (a.key || a.id || i)), J = FORMATION.jitter;
+      a.formJ = { x: ((h & 255) / 255 - 0.5) * 2 * J, z: (((h >>> 8) & 255) / 255 - 0.5) * 2 * J, k: 0.9 + (((h >>> 16) & 255) / 255) * 0.2 };
+      return a.formJ;
+    }
+    // その なかまの めざす ところ(カメラの むきで まわす。カメラは なめらかに まわる ので ならびも なめらかに まわる)
+    function formationPoint(a, i, slots, px, pz, yaw) {
+      const sl = slots[i] || slots[slots.length - 1] || { side: 0, back: FORMATION.firstBack }, j = formationJitter(a, i);
+      const fx = Math.sin(yaw), fz = Math.cos(yaw), rx = Math.cos(yaw), rz = -Math.sin(yaw), side = sl.side + j.x, back = sl.back + j.z;
+      return { x: px + rx * side + fx * back, z: pz + rz * side + fz * back, k: j.k };
+    }
+
     // heading: むいている むき(ラジアン、0 = +z おく、+ = ひだりまわりに x+)。レンダラーは カメラの むきとの さで まえ/よこ/うしろ の え を えらぶ
     // sprites: { front, side?, back? } しょうらい ほうこう べつの えを たせる(いまは front だけ。よこは はんてん、うしろは すこし つぶして えがく)
     function makeActor(res, pos) {
@@ -2435,6 +2502,7 @@
           heading: head, face: 1, bob: 0, moving: false, onPath: true };
         clampToWorld(player, world); resolveObstacles(player, world); // いりぐちで なにかに めりこまない
         camera.x = player.x; camera.z = player.z; camera.yaw = head; nearest = null; curSpot = null; inputActive = false;
+        placeParty();
         // となりから あるいて 入って きた ときは、**出るときの むきと からだの いきおい**を
         // ひきつぐ。camFx.yaw に さ を いれて おくと、いつもの ease で 0 へ もどる ので
         // 「こえた しゅんかんに カメラが 180 度 とぶ」ことが なくなる(3D でも おなじ 値)
@@ -2467,16 +2535,19 @@
       const gatesAt = (spotId) => gates.filter((g) => g.spot.id === spotId);
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
-        const F = RULES.follow; const fx = Math.sin(camera.yaw), fz = Math.cos(camera.yaw), rx = Math.cos(camera.yaw), rz = -Math.sin(camera.yaw);
+        const F = RULES.follow, slots = formationFor(party.length);
         party.forEach((a, i) => {
-          const side = a.kind === 'partner' ? -player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * 0.9);
-          const back = F.back + i * F.spacing;
-          const tx = player.x + rx * side * F.gap + fx * back, tz = player.z + rz * side * F.gap + fz * back;
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), tx = t.x, tz = t.z;
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3.5); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
+      }
+      // なかまを いまの ならびの ばしょへ そのまま おく(地域に はいった とき。とおくから かけよって こない)
+      function placeParty() {
+        const slots = formationFor(party.length);
+        party.forEach((a, i) => { const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw); a.x = t.x; a.z = t.z; clampToWorld(a, world); a.heading = player.heading; a.behavior = 'idle'; });
       }
       // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) } は カメラから みた むき。もどりち: おきた できごと
       function step(dt, input) {
@@ -2697,6 +2768,7 @@
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
         setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
+        placeParty,
         get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
         loadMapRecords(rec) { if (!rec) return; if (rec.zones) visitedZones = new Set(rec.zones); if (rec.paths) walkedPaths = new Set(rec.paths); if (rec.marks) foundMarks = new Set(rec.marks); },
         metCount,
@@ -5701,16 +5773,17 @@
       const mood = Object.assign({}, MOOD_DEFAULT);
       let inputActive = false, inputDir = 1, frame = 0;
       function followParty(dt) {
-        const Fo = RULES.follow, fx = Math.sin(camera.yaw), fz = Math.cos(camera.yaw), rx = Math.cos(camera.yaw), rz = -Math.sin(camera.yaw);
+        // ならびは region と おなじ partyFormationSlots。はばは いまの 段の 帯(4E-1 の widthClass → uMax)から。せまい 段では ほそく なる
+        const Fo = RULES.follow, slots = formationFor(party.length, corridorStageAt(spec, from, Math.max(0, Math.min(L, state.s))).uMax * 0.9);
         party.forEach((a, i) => {
-          const side = a.kind === 'partner' ? -player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * 0.9);
-          const back = Fo.back + i * Fo.spacing;
-          let tx = player.x + rx * side * Fo.gap + fx * back, tz = player.z + rz * side * Fo.gap + fz * back;
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw);
+          let tx = t.x, tz = t.z;
           // 帯の そとへ 出ない
           const su = chartSU(ch, tx, tz, state.s), lim = corridorStageAt(spec, from, su.s).uMax;
           if (Math.abs(su.u) > lim) { const q = chartPose(ch, su.s, Math.sign(su.u) * lim); tx = q.x; tz = q.z; }
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > Fo.snap) { const spd = Math.min(Fo.maxSpeed * 1.4, d * 3.5); a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          // 2 かいめ の はやあし(speedMultiplier)でも おいつける
+          if (d > Fo.snap) { const spd = Math.min(Fo.maxSpeed * 1.4 * state.speedMultiplier, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
         });
       }
@@ -7321,8 +7394,8 @@
         } catch (err) { return fail(); }
         const r = typeof S.enterRegionByMove === 'function' ? S.enterRegionByMove(g.to, { by: 'walk' }) : { ok: false };
         sim.setPlayer(pose.x, pose.z);
-        // なかまは 1 くみ だけ(あたらしい 地域の なかま)。じぶんの すぐ うしろに ならべる
-        sim.party.forEach((a, i) => { a.x = sim.player.x - Math.sin(pose.heading) * (60 + i * 30); a.z = sim.player.z - Math.cos(pose.heading) * (60 + i * 30); });
+        // なかまは 1 くみ だけ(あたらしい 地域の なかま)。いつもの ならび(partyFormationSlots)で じぶんの うしろに おく
+        sim.placeParty();   // なかまは いまの ならびの ばしょへ(1 列に もどさない)
         corrStats.lastCommitMs = corrStats.lastBuildMs = perfNow() - t0;
         // show: 着いた 地域の さいしょの え(いちばん おもい)は 暗転しきった この frame で えがく
         const t1 = perfNow();
@@ -7392,7 +7465,8 @@
       const corridorInfo = () => (corr ? { connectionId: corr.g.id, from: corr.g.from, to: corr.g.to, phase: corr.phase, cover: corr.cover,
         s: corr.walk.state.s, u: corr.walk.state.u, t: corr.walk.t, stage: corr.walk.stage().index, speedMultiplier: corr.walk.state.speedMultiplier,
         firstVisit: corr.walk.state.firstVisit, direction: corr.walk.state.direction, props: corr.walk.world.props.length, party: corr.walk.party.length,
-        prepared: !!corr.prep, prepFailed: !!corr.prepFailed, ui: { found: !!foundNow, act: act ? act.kind : null, hint: hintEl.textContent } } : null);
+        prepared: !!corr.prep, prepFailed: !!corr.prepFailed, ui: { found: !!foundNow, act: act ? act.kind : null, hint: hintEl.textContent },
+        cam: { x: corr.walk.camera.x, z: corr.walk.camera.z, yaw: corr.walk.camera.yaw, dist: corr.walk.camera.dist }, player: { x: corr.walk.player.x, z: corr.walk.player.z } } : null);
       // ====== /Phase 4E-2 ======
       function frameFn(now) {
         if (!running) return;
@@ -7789,6 +7863,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
