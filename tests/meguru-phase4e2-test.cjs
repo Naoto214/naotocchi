@@ -46,6 +46,7 @@ function run(o = {}) {
   const s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, regionId: o.region || 'home' });
   if (o.lifetime) Object.assign(s.lifetime, o.lifetime);
+  if (o.dex) s.discoveredStages = o.dex;
   h.api.render();
   const kinds = [];
   const r = M.start(h.document.getElementById('meguruOverlay'), { renderer: () => ({
@@ -227,27 +228,59 @@ test('9. 引き返し: とちゅうで もどると 出発 地域の 同じ 出�
   assert.ok(w.state.s < 0);
 });
 
-test('10. け しき: 飾りは 150 こ いない、地面の 種類で かわる、地面の いろは home → forest、遠景は すすみぐあいで まざる', () => {
+test('10. け しき: 飾りは 150 こ いない、段の 地面の 種類で かわり、さかいは みじかく まざる。地面の いろも なめらか。遠景は すすみぐあいで まざる', () => {
   const { M } = setup();
   const { w } = walker(M, 'home');
-  assert.ok(w.world.props.length > 20 && w.world.props.length <= 150, 'props ' + w.world.props.length);
+  const props = w.world.props, L = w.spec.walkLength, len = w.spec.stageLength, band = len * 0.3;
+  assert.ok(props.length > 60 && props.length <= 150, 'props ' + props.length);
   assert.ok(w.world.segments.length > 0 && w.world.segments.every((sg) => sg.half > 0 && sg.len > 0));
-  const g0 = w.world.ground[0];
+  const deco = props.filter((p) => !p.blocker), name = (p) => p.emoji || p.struct;
+  const terr = arr(w.spec.stages.map((st) => st.terrain));
+  assert.deepEqual(terr, ['urban-edge', 'field', 'field', 'forest', 'forest', 'forest']);
+  // さかいの はば(段の 30% = 全体の 5%)の そとは、その 段の 地面の 種類の 飾り だけ
+  for (const p of deco) {
+    const i = Math.min(5, Math.floor(p.s / len)), inBand = p.s - i * len < band || (i + 1) * len - p.s < band;
+    if (!inBand) assert.equal(p.terrain, terr[i], `${name(p)} @${Math.round(p.s)} は ${terr[i]}`);
+    else assert.ok(p.terrain === terr[i] || p.terrain === terr[i - 1] || p.terrain === terr[i + 1]);
+  }
+  // 地面の 種類ごとに ちがいが わかる(いえなみ = いえ・さく、はたけ = うね・むぎ、もり = しんようじゅ・しだ)
+  const set = (t) => new Set(deco.filter((p) => p.terrain === t).map(name));
+  const has = (t, list) => list.some((n) => set(t).has(n));
+  assert.ok(has('urban-edge', ['🏠', '🏡']) && has('urban-edge', ['fence', 'hedge', 'planter']), 'いえなみ');
+  assert.ok(has('field', ['cropline', 'crop']) && has('field', ['🌾', '🌻']), 'はたけ');
+  assert.ok(has('forest', ['🌲']) && has('forest', ['fern', '🌿', '🍄']), 'もり');
+  assert.ok(!has('forest', ['🏠', '🏡', 'fence', 'hedge']) && !has('urban-edge', ['🌲', 'fern']), 'まざらない');
+  // 着く ちょくぜん(さいごの 段の はばの そと)に 出発 がわの 飾りは のこらない
+  assert.ok(deco.filter((p) => p.s > L - len + band).every((p) => p.terrain === 'forest'), '森の いりぐちに いえは ない');
+  // 地面の いろ: 段の まんなかは その 地域の いろ、さかいで なめらかに かわる(10 ごとの とびが ちいさい)
+  const at = (s) => { w.world.setProgress(s / L); return w.world.ground[0]; };
+  assert.equal(at(len * 0.5), M.WORLDS.home.ground[0]); assert.equal(at(len * 1.5), M.WORLDS.countryside.ground[0]); assert.equal(at(len * 4.5), M.WORLDS.forest.ground[0]);
+  const rgb = (h) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
+  let jump = 0;
+  for (let s = 0; s < L; s += 10) { const a = rgb(at(s)), b = rgb(at(s + 10)); jump = Math.max(jump, ...a.map((v, k) => Math.abs(v - b[k]))); }
+  assert.ok(jump <= 6, '地面の いろの とび ' + jump);
+  // 山なみ: いえなみ → はたけ → もり
+  assert.equal((at(len * 0.5), w.world.backdrop), M.WORLDS.home.backdrop);
+  assert.equal((at(len * 1.5), w.world.backdrop), M.WORLDS.countryside.backdrop);
+  assert.equal((at(len * 5.5), w.world.backdrop), M.WORLDS.forest.backdrop);
+  // 森の 屋根は 森の おく だけ
+  assert.equal((at(len * 3.5), w.world.canopy), null); assert.ok((at(len * 5.5), w.world.canopy) === (M.WORLDS.forest.canopy || null));
+  const g0 = (w.world.setProgress(0), w.world.ground[0]);
   walkUntil(w, { x: 0, y: -1 });
   assert.equal(w.world.regionId, 'forest'); assert.notEqual(w.world.ground[0], g0, '地面の いろが かわる');
-  assert.equal(w.world.backdrop, M.WORLDS.forest.backdrop);
-  // 段ごとの 飾り: はじめは いえ、おわりは 木
-  const emojis = (lo, hi) => new Set(w.world.props.filter((p, i) => i >= lo && i < hi).map((p) => p.emoji));
-  assert.ok([...emojis(0, 15)].some((e) => e === '🏠' || e === '🏡'), 'いえなみの はずれ');
-  assert.ok([...emojis(w.world.props.length - 15, w.world.props.length)].every((e) => e === '🌳' || e === '🌲' || e === '🪨'), 'もりの いりぐち');
   // 遠景の まぜかた
   const F = [{ id: 'f', alpha: 1, feature: { bearingLocal: 10 } }], T = [{ id: 't', alpha: 1, feature: { bearingLocal: 20 } }];
-  const at = (t) => arr(w.distant(t, F, T)).map((v) => v.id + ':' + v.alpha.toFixed(2)).join(',');
-  assert.equal(at(0.2), 'f:1.00'); assert.equal(at(0.5), 'f:0.50,t:0.50'); assert.equal(at(0.8), 't:1.00');
+  const bl = (t) => arr(w.distant(t, F, T)).map((v) => v.id + ':' + v.alpha.toFixed(2)).join(',');
+  assert.equal(bl(0.2), 'f:1.00'); assert.equal(bl(0.5), 'f:0.50,t:0.50'); assert.equal(bl(0.8), 't:1.00');
   // 到着 がわの 方位は 出発 地域の local へ なおす
   const off = (r) => w.spec.endpoints[r].leaveHeadingGlobal - w.spec.endpoints[r].leaveHeadingLocal;
   const tv = arr(w.distant(0.9, F, T))[0];
   assert.ok(angDiff(tv.feature.bearingLocal, 20 + off('forest') - off('home')) < 1e-9);
+  // 帰り(forest → home)は 同じ 段を さかさに(形は 1 つ。いりぐち ちかくは いえなみ)
+  const r = walker(M, 'forest').w, rd = r.world.props.filter((p) => !p.blocker);
+  assert.ok(rd.filter((p) => p.s < len - band).every((p) => p.terrain === 'forest'), '森の がわから はじまる');
+  assert.ok(rd.filter((p) => p.s > L - len + band).every((p) => p.terrain === 'urban-edge'), 'いえの まえに 森は ない');
+  assert.equal(r.chart.L, w.chart.L);
 });
 
 let partyByCorridor = null;                          // 11 で あるいて 着いた ときの なかま(14 の transition と くらべる)
@@ -313,6 +346,152 @@ test('13. とちゅうで 引き返すと home の 大きな 木へ。地域も 
   assert.equal(R.r.sim.spot && R.r.sim.spot.id, 'bigtree', '同じ 出口の ところ');
   assert.equal(R.r.corridorStats.backs, 1);
   R.r.stop();
+});
+
+test('20. corridor の あいだ、しらせ・その ばの ボタン(はなす / のる)は 出ない(こえた frame に 出た ものも のこらない)', () => {
+  for (const [from, to] of [['home', 'forest'], ['forest', 'home']]) {
+    const R = run({ region: from, dex: ['dog:0', 'dog:1', 'cat:2', 'penguin:3', 'mushroom:0', 'beetle:0', 'ghost:1', 'sakura:6', 'salmon:5'] });
+    assert.ok(R.r.world.residents.length >= 2, 'この テストには 住民が いる');
+    // じぶんの すぐ そばに 住民を おく(こえる frame に「はなす」が 出る じょうけん)
+    const g = R.go(to), b = g.bearing || (g.out === 'far' ? { x: 0, z: 1 } : { x: 0, z: -1 });
+    for (const a of R.r.world.residents.slice(0, 2)) { a.x = g.spot.x - b.x * 30; a.z = g.spot.z - b.z * 30; a.fixed = true; }
+    let seen = 0;
+    for (let i = 0; i < 400; i++) {
+      R.h.advance(50);
+      const c = R.r.corridor;
+      if (!c) { if (seen) break; continue; }
+      assert.doesNotMatch(c.ui.hint, /パッドを なぞって|はなす/, `${from}→${to} ${c.phase}: 地域の ヒントが のこって いる`);
+      if (c.phase !== 'walk') continue;
+      seen++;
+      assert.equal(c.ui.found, false, `${from}→${to}: しらせが のこって いる`);
+      assert.equal(c.ui.act, null, `${from}→${to}: その ばの ボタンが のこって いる`);
+      assert.match(c.ui.hint, /の ほうへ/, 'ヒントは corridor の もの');
+    }
+    assert.ok(seen > 50, 'corridor を あるいた ' + seen);
+    R.r.stop();
+  }
+});
+
+// corridor を s(0〜1 の わりあい)まで すすめる
+const walkTo = (R, frac) => { for (let i = 0; i < 400; i++) { const c = R.r.corridor; if (c && c.phase === 'walk' && c.s >= frac * 2700) return c; R.h.advance(50); } return R.r.corridor; };
+
+test('21. 着く まえに 1 かい だけ 組み(prepare)、着いた ときに それを そのまま つかう(buildWorld を 2 かい よばない)。帰りも おなじ しくみ', () => {
+  const R = run();
+  const H = R.r.corridorStats.handoff, h0 = { ...H };
+  R.go('forest');
+  let c = walkTo(R, 0.5);
+  assert.equal(c.prepared, false, 'まんなかでは まだ 組まない');
+  c = walkTo(R, 0.95);
+  assert.equal(c.prepared, true, '終端の てまえで 組む');
+  assert.equal(R.s.regionId, 'home', '組んでも セーブは home の まま');
+  assert.equal(R.r.world.regionId, 'home', 'sim の 地域も home の まま');
+  for (let i = 0; i < 100 && R.r.corridor; i++) R.h.advance(50);
+  assert.equal(R.s.regionId, 'forest');
+  const st = R.r.corridorStats;
+  assert.equal(st.prepares, 1); assert.equal(H.offers - h0.offers, 1); assert.equal(H.hits - h0.hits, 1, '組んだ world を つかった'); assert.equal(H.misses - h0.misses, 0);
+  assert.ok(st.lastCommitMs != null && st.lastFirstDrawMs != null && st.lastPrepareMs != null);
+  // 帰り(forest → home)も 同じ(home だけの とくべつな みちは ない)
+  R.h.advance(300);
+  R.go('home');
+  walkTo(R, 0.97);
+  for (let i = 0; i < 100 && R.r.corridor; i++) R.h.advance(50);
+  assert.equal(R.s.regionId, 'home');
+  assert.equal(R.r.corridorStats.prepares, 2); assert.equal(H.hits - h0.hits, 2); assert.equal(H.misses - h0.misses, 0);
+  R.r.stop();
+});
+
+test('22. commit で しっぱい: 地域が かわる まえ でも かわった あと でも、出発 地域へ もどる。セーブは home、corridor の あとかたなし、つぎは transition', () => {
+  for (const where of ['before', 'after']) {
+    const R = run();
+    const B = R.h.api.meguruBridge;
+    R.go('forest');
+    walkTo(R, 0.97);
+    assert.equal(R.r.corridor.prepared, true);
+    // before: enterWorld の はじめ(地域を かえる まえ)で こける / after: sim が forest に なった あとで こける
+    const key = where === 'before' ? 'discoveredSpots' : 'prepareIllustrations', real = B[key];
+    B[key] = () => { throw new Error('test ' + where); };
+    try { for (let i = 0; i < 100 && R.r.corridor; i++) R.h.advance(50); } finally { B[key] = real; }
+    assert.equal(R.r.corridor, null, where);
+    assert.equal(R.s.regionId, 'home', where + ': セーブは home');
+    assert.equal(R.r.world.regionId, 'home', where + ': 出発 地域の world');
+    assert.equal(R.r.corridorStats.fails, 1);
+    assert.ok(!/corridor|walkLength|connectionId/.test(JSON.stringify(R.s.lifetime.meguru)), 'セーブに corridor は ない');
+    for (let i = 0; i < 30; i++) R.h.advance(50);
+    R.go('forest');
+    for (let i = 0; i < 80 && R.s.regionId === 'home'; i++) R.h.advance(50);
+    assert.equal(R.s.regionId, 'forest', where + ': transition で いける');
+    assert.equal(R.r.corridorStats.enters, 1, where + ': 2 かいめは transition');
+    R.r.stop();
+  }
+});
+
+test('23. 終端 ちかくの 競合: 組んだ あとで 引き返す / もどる / reload / 暗く なりかけて 引き返す — どれも forest へ commit しない', () => {
+  // (a) 組んだ あと 引き返す → すてる。さらに もどれば home の 出口へ
+  let R = run();
+  R.go('forest');
+  walkTo(R, 0.95);
+  assert.equal(R.r.corridor.prepared, true);
+  R.pad.vec = { x: 0, y: 1 };
+  for (let i = 0; i < 60 && R.r.corridor && R.r.corridor.prepared; i++) R.h.advance(50);
+  assert.equal(R.r.corridor.prepared, false, '引き返したら すてる');
+  assert.equal(R.r.corridorStats.discards, 1);
+  for (let i = 0; i < 400 && R.r.corridor; i++) R.h.advance(50);
+  assert.equal(R.s.regionId, 'home'); assert.equal(R.r.world.regionId, 'home'); assert.equal(R.r.corridorStats.backs, 1);
+  assert.equal(R.r.corridorStats.handoff.hits, 0, 'forest の world は つかって いない');
+  R.r.stop();
+  // (b) 暗く なりかけ(終端の すぐ てまえ)で 引き返す → あかるく もどり、着かない
+  R = run();
+  R.go('forest');
+  for (let i = 0; i < 2000; i++) { const c = R.r.corridor; if (c && c.s >= 2700 - 8) break; R.h.advance(16); }
+  const c1 = R.r.corridor; assert.ok(c1 && c1.phase === 'walk' && c1.cover > 0, '暗く なりかけ ' + (c1 && c1.cover));
+  R.pad.vec = { x: 0, y: 1 };
+  for (let i = 0; i < 10; i++) R.h.advance(50);
+  assert.ok(R.r.corridor && R.r.corridor.phase === 'walk' && R.r.corridor.s < 2600, 'まだ corridor');
+  assert.equal(R.s.regionId, 'home');
+  R.r.stop();
+  // (c) 組んだ あとで もどる(めぐるを 出る)→ セーブは home。つぎの start は home から(組んだ ものは のこらない)
+  R = run();
+  R.go('forest');
+  walkTo(R, 0.95);
+  assert.equal(R.r.corridor.prepared, true);
+  const drops0 = R.r.corridorStats.handoff.drops;
+  R.r.stop();
+  assert.equal(R.s.regionId, 'home');
+  assert.equal(R.r.corridorStats.handoff.drops, drops0 + 1, 'もどったら すてる');
+  const M = R.M, r2 = M.start(R.h.document.getElementById('meguruOverlay'), { renderer: () => ({ draw() {}, destroy() {}, setDistant() {} }) });
+  R.h.advance(200);
+  assert.equal(r2.world.regionId, 'home'); assert.equal(r2.corridor, null);
+  r2.stop();
+});
+
+test('24. けしきは はじめて でも 2 かいめ でも おなじ(はやさ だけ かわる)。いしは まっすぐ あるく 道の うえに ない', () => {
+  const { M } = setup();
+  const a = walker(M, 'home', { firstVisit: true }).w, b = walker(M, 'home', { firstVisit: false }).w;
+  assert.equal(JSON.stringify(a.world.props), JSON.stringify(b.world.props));
+  assert.equal(a.state.speedMultiplier, 1); assert.equal(b.state.speedMultiplier, 1.4);
+  for (const o of arr(a.world.blockers)) assert.ok(Math.abs(o.u) - o.r >= M.RULES.bodyRadius + 40, 'みちの まんなかから はなれて いる');
+});
+
+test('25. なかまは 段の さかいでも とばない・きえない(ずっと 同じ かず、1 frame の うごきは ちいさい)', () => {
+  const R = run({ lifetime: { companionsRecruited: ['cat_friend'] } });
+  R.s.companions = [{ id: 'cat_friend' }];
+  R.r.stop();
+  const R2 = run({ lifetime: { companionsRecruited: ['cat_friend'] } });
+  R2.go('forest');
+  let prev = null, jump = 0, frames = 0, n = null;
+  for (let i = 0; i < 400; i++) {
+    R2.h.advance(50);
+    const c = R2.r.corridor;
+    if (!c) { if (frames) break; continue; }
+    if (c.phase !== 'walk') continue;
+    const ps = arr(R2.r.party).map((a) => ({ x: a.x, z: a.z }));
+    if (n == null) n = ps.length; assert.equal(ps.length, n);
+    if (prev) ps.forEach((p, k) => { jump = Math.max(jump, Math.hypot(p.x - prev[k].x, p.z - prev[k].z)); });
+    prev = ps; frames++;
+  }
+  assert.ok(frames > 150);
+  assert.ok(jump < 60, 'なかまの 1 frame の うごき ' + jump.toFixed(1));
+  R2.r.stop();
 });
 
 test('14. よいやすい せってい・perfTier 2 は いまの transition(corridor は つかわない)。地域の いどうは できる', () => {
