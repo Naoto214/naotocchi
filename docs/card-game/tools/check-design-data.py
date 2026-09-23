@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py")
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,7 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name != "test_proxy_normal_action_candidate_completeness.py"
+        if path.name not in ("test_proxy_normal_action_candidate_completeness.py", "test_proxy_normal_action_seeded_restart.py")
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -451,6 +451,36 @@ def check_checkpoint_120():
             checkpoint_check(False, f"120 canonical check failed: {error}")
     return checkpoint_errors, checkpoint_test_count, proxy_count
 
+
+if "--checkpoint-122" in sys.argv:
+    import proxy_normal_action_seeded_restart as checkpoint_122
+    import proxy_normal_action_candidate_completeness as checkpoint_121
+    test_path = DOCS / 'tools/test_proxy_normal_action_seeded_restart.py'
+    dedicated_test_count = sum(
+        isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
+        node.name.startswith('test_')
+        for node in ast.walk(ast.parse(test_path.read_text())))
+    checkpoint_errors = []
+    try:
+        checkpoint_errors.extend(checkpoint_122.check_outputs())
+        for filename, expected in (
+            ('proxy-normal-action-candidate-completeness-contract-121-20260923.json',
+             checkpoint_121.build_contract()),
+            ('proxy-normal-action-candidate-completeness-audit-121-20260923.json',
+             checkpoint_121.build_audits(checkpoint_121.load_inputs())),
+        ):
+            if (DOCS/'data'/filename).read_bytes()!=checkpoint_121.canonical_bytes(expected):
+                checkpoint_errors.append('121 canonical bytes: '+filename)
+    except (OSError,ValueError,KeyError,TypeError) as error:
+        checkpoint_errors.append(f'122 protected source or canonical bytes: {error}')
+    if dedicated_test_count != 18:
+        checkpoint_errors.append('122 dedicated test count')
+    report = DOCS / '122-normal-action-seeded-restart.md'
+    if not report.is_file() or '| [122](122-normal-action-seeded-restart.md) |' not in (DOCS/'README.md').read_text():
+        checkpoint_errors.append('122 report or README index')
+    print(json.dumps({'checkpoint':122,'dedicated_test_count':dedicated_test_count,
+                      'errors':checkpoint_errors},ensure_ascii=False,indent=2))
+    sys.exit(bool(checkpoint_errors))
 
 checkpoint_119_errors, checkpoint_119_test_count, checkpoint_119_proxy_count = check_checkpoint_119()
 if "--checkpoint-119" in sys.argv:
@@ -3309,7 +3339,8 @@ check(readme_continuation_117 is not None and re.search(
 proxy_test_count = sum(
     isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
     for path in (DOCS / "tools").glob("test_proxy_*.py")
-    if path.name != "test_proxy_normal_action_candidate_completeness.py"
+    if path.name not in {"test_proxy_normal_action_candidate_completeness.py",
+                          "test_proxy_normal_action_seeded_restart.py"}
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")

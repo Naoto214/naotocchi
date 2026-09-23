@@ -419,13 +419,15 @@ def validate_contract(contract: dict) -> list[str]:
     return [key for key in expected if key not in contract or contract[key]!=expected[key]] + (['key order'] if list(contract)!=list(expected) else [])
 
 
-def recompute_completeness(row: dict, stop: dict, raw: bytes, templates: dict) -> dict[str,bool]:
+def recompute_completeness(row: dict, stop: dict, raw: bytes, templates: dict,
+                           *, current_state: bool = False) -> dict[str,bool]:
     """Recompute each of the twelve requirements without reading stored checks/boolean."""
     flags={name:False for name in CHECKS}
     try:
-        verify_source_artifact(stop,raw,EXPECTED[stop['path_id']])
+        if not current_state:
+            verify_source_artifact(stop,raw,EXPECTED[stop['path_id']])
         flags['source_artifact_integrity_valid']=True
-        view=project_normal_action_information(stop)
+        view=project_normal_action_information(stop, public_history=stop.get('public_history'))
         context={'round':view['round'],'turn_player':view['turn_player'],'actor':view['actor'],'phase':view['phase'],'decision_kind':stop['decision_kind'],'choice_kind':stop['choice_kind']}
         flags['opportunity_context_valid']=row.get('opportunity_context')==context and context['decision_kind']=='normal_action' and context['choice_kind']=='normal_action'
         owner=view['players'][view['actor']]
@@ -453,6 +455,60 @@ def recompute_completeness(row: dict, stop: dict, raw: bytes, templates: dict) -
     except (ValueError,KeyError,TypeError,IndexError):
         pass
     return flags
+
+
+def audit_current_normal_action(state: dict, continuation: dict,
+                                public_history: dict, candidate_table: dict) -> dict:
+    """Prove legality for the current opportunity, independently of saved 121 rows."""
+    from proxy_response_window_seeded_restart import _continuation_payload
+    if set(public_history) != {'normal_challenge_losses_by_actor',
+                               'last_valid_event_seq', 'source_refs'} or \
+            not isinstance(public_history['normal_challenge_losses_by_actor'], list) or \
+            not isinstance(public_history['source_refs'], list) or \
+            public_history['last_valid_event_seq'] != continuation.get('last_event_seq'):
+        raise ValueError('forbidden_information_required: invalid public history')
+    if continuation['game_state'] != state or \
+            continuation_state_sha256(_continuation_payload(continuation)) != continuation['continuation_state_sha256']:
+        raise ValueError('current continuation hash or state differs')
+    stop = {'game_state':state, 'actor':state['turn_player'],
+            'decision_kind':'normal_action', 'choice_kind':'normal_action',
+            'public_history':public_history}
+    view=project_normal_action_information(stop, public_history)
+    inventory=[];units=[];ids=[];details=[];stop_codes=[]
+    try:
+        inventory=inventory_sources(view)
+        units=adjudicate_units(view,expand_units(view,inventory,candidate_table),build_contract())
+        ids,details=derive_legal_candidates(units)
+    except ValueError as error:
+        code=str(error).split(':',1)[0]
+        if code not in STOPS:
+            raise
+        stop_codes=[code]
+    row=dict(opportunity_context={'round':view['round'],'turn_player':view['turn_player'],
+                  'actor':view['actor'],'phase':view['phase'],
+                  'decision_kind':'normal_action','choice_kind':'normal_action'},
+             owner_state=view['players'][view['actor']],
+             public_information={k:v for k,v in view['players'].items() if k!=view['actor']},
+             information_policy='public_and_owner_known_only',source_inventory=inventory,
+             enumeration_units=units,legal_candidate_ids=ids,legal_candidate_details=details,
+             forbidden_information_used=[],completeness_checks={},candidate_set_complete=False,
+             contract_stop_codes=stop_codes)
+    row['completeness_checks']=recompute_completeness(row,stop,b'',candidate_table,current_state=True)
+    row['candidate_set_complete']=all(row['completeness_checks'].values()) and not stop_codes
+    return row
+
+
+def validate_current_normal_action(audit: dict, state: dict, continuation: dict,
+                                   public_history: dict, candidate_table: dict) -> list[str]:
+    """Rebuild from the current state; no saved units or boolean enter the proof."""
+    try:
+        expected=audit_current_normal_action(state,continuation,public_history,candidate_table)
+    except (ValueError,KeyError,TypeError,IndexError) as error:
+        return [f'current state integrity: {error}']
+    if not isinstance(audit,dict):
+        return ['current audit must be an object']
+    return [key for key in expected if key not in audit or audit[key]!=expected[key]] + \
+           (['current audit key order'] if list(audit)!=list(expected) else [])
 
 
 def canonical_bytes(value: dict) -> bytes:

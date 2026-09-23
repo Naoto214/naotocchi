@@ -6,7 +6,9 @@
 
 ## 現在フェーズと再開地点
 
-現在は **[121 通常行動候補の列挙・完全性契約](121-normal-action-candidate-completeness-contract.md)** をprotocol-onlyで検証した地点。120の4停止stateから6 source familyを監査し、候補集合と12条件を独立再計算する。120の4経路はまだ再開していない。次checkpointで同じstate/hashから独立再開する。
+現在は **[122 通常行動候補契約を適用した独立再開](122-normal-action-seeded-restart.md)** の保存地点。120の4停止state/hashから独立再開し、各現在stateで121の候補完全性を再計算した。122の結果はcompleted 0・rules-stop 4・新decision 8・event 8・snapshot 12・独立balance標本0。保存済み120・121の証拠は変更していない。
+
+121の[通常行動候補の列挙・完全性契約](121-normal-action-candidate-completeness-contract.md)はprotocol-only。120の4停止stateに対し6 source familyと12条件を監査した。121自身では経路を再開していない。
 
 現在は **[120 response-window再開](120-response-window-seeded-restart.md)の保存地点**。117の4 stop artifactを同一state／hash・event seq 3から独立再開し、119のresponse-window契約を適用した。planned 4・completed 0・rules-stop 4・integrity-stop 0、decision 9・event 10・snapshot 14・winner 0・独立balance標本0。`order-01-a-first`は`E-first-date`を支払い、発動者priority、双方pass、解決、1枚ドロー、そだち+5、捨て札移動まで処理した。他3経路は双方passでresponse windowを閉じた。全経路が次の通常行動候補の完全合法性を既存正本だけでは確定できず、`incomplete_legal_candidates`で真正停止した。117・119・116・112の保護対象は変更していない。その通常行動候補契約を121で正本化し、4経路の再開は次checkpointに残す。
 
@@ -162,6 +164,7 @@
 | [118](118-tokiokuri-terminology-migration.md) | 現行参照81ファイル・268件のゲーム用語を暫定「ときおくり」へ統一。効果・処理・数値・条件、ID・schema・英語識別子、117の再開地点を維持 |
 | [119](119-response-window-contract.md) | response専用phase adapter、`response-pass`、4停止状態の完全候補集合、06準拠遷移、synthetic seed proofを正本化。protocol-onlyで対戦進行0、117 stop 4件・116・112未実施6件を維持。専用31件・全proxy 221件 |
 | [120](120-response-window-seeded-restart.md) | 117 stop 4経路を同一state／hashから独立再開。119契約でresponseを解決後、通常行動候補の完全合法性不足により4経路とも真正停止。completed 0・rules-stop 4・decision 9・event 10・snapshot 14・独立標本0。専用42件・全proxy 263件 |
+| [122](122-normal-action-seeded-restart.md) | 120の4停止点を同一state/hashから独立再開。121完全性を毎回再計算し107/114の比較で通常`pass`を選択。119反応後、未確定の終了処理で4経路真正停止。新decision 8・event 8・snapshot 12、completed・独立標本0 |
 
 メイン本文案は**248枚、未展開0枚**。51〜59の160＋68の16＋既存6代表48＋おとこのひと／カブト／クワガタ24＝248。代表48にはA採用6枚を含むので再加算しない。能力本文242枚と能力なし6枚を区別する。数値曲線・通常時を維持し、15第2稿＋個別改稿、23第3稿、65のフェニックス⑤・ぬいぐるみ⑦、67のサクラ⑥を保持。いぬ②・かえる③・カクレクマノミ④の70全文を08へ同期した。全件の詳細裁定完備・非アート凍結ではない。
 
