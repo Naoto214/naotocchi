@@ -6,7 +6,7 @@
 
 ## 現在フェーズと再開地点
 
-現在は **[123 ターン終了処理の完全性契約](123-turn-end-completeness-contract.md)** の保存地点。122の4停止stateを読み取り専用で横断監査し、共通の終了処理6手順をprotocol-onlyのsource inventoryとして正本化した。期限と100到達履歴の不足を推測で埋めず、4経路とも対戦再開していない。
+現在は **[124 保存履歴からのターン終了証明と独立再開](124-turn-end-provenance-restart.md)** の保存地点。122の4停止stateから独立再開し、123の終了6手順を履歴に基づいて再証明した。各経路で次プレイヤーの卵交換まで進み、現在stateの121候補列挙で共通の空盤面family理由不足により真正停止した。
 
 [122 通常行動候補契約を適用した独立再開](122-normal-action-seeded-restart.md)では120の4停止state/hashから独立再開し、各現在stateで121の候補完全性を再計算した。122の結果はcompleted 0・rules-stop 4・新decision 8・event 8・snapshot 12・独立balance標本0。保存済み120・121の証拠は変更していない。
 
@@ -168,6 +168,7 @@
 | [120](120-response-window-seeded-restart.md) | 117 stop 4経路を同一state／hashから独立再開。119契約でresponseを解決後、通常行動候補の完全合法性不足により4経路とも真正停止。completed 0・rules-stop 4・decision 9・event 10・snapshot 14・独立標本0。専用42件・全proxy 263件 |
 | [122](122-normal-action-seeded-restart.md) | 120の4停止点を同一state/hashから独立再開。121完全性を毎回再計算し107/114の比較で通常`pass`を選択。119反応後、未確定の終了処理で4経路真正停止。新decision 8・event 8・snapshot 12、completed・独立標本0 |
 | [123](123-turn-end-completeness-contract.md) | 122の4停止点を横断監査。01/06/64の終了6手順についてsource inventory・12条件・独立validatorをprotocol-onlyで正本化。4経路再開なし |
+| [124](124-turn-end-provenance-restart.md) | 117〜122保存履歴で123を独立再証明し、4経路を次の卵交換まで独立再開。121の空盤面familyに除外理由がなく4件真正停止 |
 
 メイン本文案は**248枚、未展開0枚**。51〜59の160＋68の16＋既存6代表48＋おとこのひと／カブト／クワガタ24＝248。代表48にはA採用6枚を含むので再加算しない。能力本文242枚と能力なし6枚を区別する。数値曲線・通常時を維持し、15第2稿＋個別改稿、23第3稿、65のフェニックス⑤・ぬいぐるみ⑦、67のサクラ⑥を保持。いぬ②・かえる③・カクレクマノミ④の70全文を08へ同期した。全件の詳細裁定完備・非アート凍結ではない。
 
