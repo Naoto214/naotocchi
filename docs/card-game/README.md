@@ -6,10 +6,14 @@
 
 ## 現在フェーズと再開地点
 
+| [130](130-board-source-world-restart.md) | 盤上源除外・継続セカイ効果・4経路独立再開 |
+
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[129 条件付き成長の比較と独立再開](129-conditional-growth-restart.md)** の保存地点。128の4停止state/hashから独立再開し、条件付き+5の確定性を107・114で比較した。4経路は後続の候補除外理由と未分類セカイ効果で真正停止し、completed・独立balance標本は0。
+現在は **[130 盤上源の除外・継続セカイ効果と独立再開](130-board-source-world-restart.md)** の保存地点。129の4停止state/hashから独立再開し、R5/R8で新たな時0なかま配置の安全証明不足に真正停止。completed・独立balance標本は0。
+
+履歴上、129は **[129 条件付き成長の比較と独立再開](129-conditional-growth-restart.md)** の保存地点。128の4停止state/hashから独立再開し、条件付き+5の確定性を107・114で比較した。4経路は後続の候補除外理由と未分類セカイ効果で真正停止し、completed・独立balance標本は0。
 
 履歴上、128は **[128 R2候補分類・ID・比較と独立再開](128-r2-candidate-extension.md)** の保存地点。127の4停止stateを原本とし、盤面能力分類、対象なしID、異種候補比較を独立の一般責務で接続した。後続の条件付きそだち効果の比較証明で4経路が真正停止し、completed・独立balance標本は0。
 
