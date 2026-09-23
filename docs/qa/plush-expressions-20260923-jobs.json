@@ -1,0 +1,1922 @@
+[
+  {
+    "stage": "01",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: joyful happiness: softly closed upward-curved smiling eyes and a clear open happy smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-bab95f54-f8e2-4912-8b73-dfb57a601318.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-happy.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-happy.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "74484e2d8c59f48190e163c5dd86ef51f1b1022fbe817447acb3fdef0769f05e",
+    "final_sha256": "83f4f48f799696f4a4c33ddfcf856d78c4622c8dd45d504915755dc6ce99a682",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: strained apologetic reluctant smile: worried raised inner eyebrows, slightly narrowed uneasy eyes, and a small hesitant asymmetrical smile. Not angry, not joy.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-66e243c0-8a0e-4383-aaee-f897eea5ab48.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-strained.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-strained.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "ce5c2e9dd240749c66e77b85c1b124c654b18073b6541b1639e3e7fa12e0e08f",
+    "final_sha256": "58118d3b086b7d47c8945628cdf8ed19a9f5cb18ac751e2afcc16c0eb2732270",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: hungry longing: wide hopeful pleading eyes with inward raised brows, and small open yearning mouth. No food or tongue.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-130031c5-e349-41c8-8fc1-fb6658f53071.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-hungry.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-hungry.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "9ea37b4db3ec582f43a0e61e3e4a9b54275373ec3f483125c7f0954c51e5b6d3",
+    "final_sha256": "f7bfcc550b90dbdef0887461df609edd0829145465ac108cc6cbdf6cf609d438",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: feeling sick: weak squinting eyes with pinched worried eyebrows and a small wavy unhappy mouth. No change to body colors.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f5fcde00-d264-4899-aafd-42b4d1a06d2d.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-sick.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-sick.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "161aecf1380684689303655dc0646aea9d662aad2d464aa63b436b97572d7e31",
+    "final_sha256": "bb720565999c8e29c84e7bfb13196a36d4d36b4000070be98fd040a0d1571447",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: tired drowsiness: heavy half-closed eyelids, relaxed brows, small yawning open mouth. Eyes still partly open.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-85a137c0-90b3-490b-9f79-2b613d6289ab.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-tired.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-tired.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "d4151b5f6f54ddccf07cc4f1f75b6bd3a9d53b677c6b53c3245210feedc63390",
+    "final_sha256": "bfb3561b81c8292853259cc98bf30d83e8818690938682d4d88fa9eeff196b85",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: sulking: lowered inward slanted brows, narrowed sideways-looking eyes and a small pouting downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-80f5895e-0f66-481a-9b23-6fb454a2f468.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-sulky.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-sulky.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "ec21c43ae52503dd8da917f02424939f7dfac4a753bb0a4fd8589dd7901518e5",
+    "final_sha256": "fd02ebdd86c6648ac092faaabce155ff788a91b136a117db14e86e872f7f5b92",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: low energy and weak: drooping partly open eyes, sad raised inner eyebrows and a tiny downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a59224ac-492f-4dbe-9db6-ac95656e24af.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-weak.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-weak.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "b38a7c4bc7fb0ab2f6c8d9074a94c5d618e49b248475eb40f3ee7b8c7e89602b",
+    "final_sha256": "fab1ffcbf982d2b45edef9641b2d6b6c05147c5501e60f87cbd681412efd2657",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: critically exhausted but alive: tightly strained nearly closed eyes, deeply worried brows and a small tense wavy open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a1181276-87fb-4bd8-8a5c-1600db151e24.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-critical.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-critical.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "ea2180a2ff3b93b50c556affba4b0b031d1c497df8078a4a3211713c721025a4",
+    "final_sha256": "56d2ea7532266f1ebef475b2bc0ecf8a91cfaa2250980b319a0bd70306d5a53e",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: eager invitation to play: bright wide open eyes, excited raised eyebrows and broad cheerful open smile. No symbols.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d758a40b-d35e-4295-b9a5-3ea35d060052.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-wantsPlay.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "c8596295965dc5747136c0c1ba773f1eeecaea6e40ee75486ba0897e4da91f5c",
+    "final_sha256": "27084127ac3e28095c12cc0f75902404bd97d7221bf56aafafdddfebb8ec5ad9",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: peacefully asleep: both eyes fully closed as gentle downward-curving relaxed arcs, relaxed brows, tiny calm closed mouth. No Zzz.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9fa58c51-4482-4eac-b3bd-85f1f9261309.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/01-sleeping.png",
+    "original": "assets/characters/plush/01.png",
+    "final": "assets/characters/expressions/plush/01-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
+    "source_sha256": "bd9bb892b3afe4e67dda34ad12911da4247986dcdc0304acc721253362110f0f",
+    "final_sha256": "e59e982897c446177260ef2475bdb3dc424143a5cd1082e6aae73b1148541800",
+    "bounds": [
+      19,
+      8,
+      109,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: joyful happiness: softly closed upward-curved smiling eyes and a clear open happy smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-91e308ed-d57c-4a62-ac66-387f2ae1dd00.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-happy.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-happy.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "a8ce5df69eebc2193e4ff57230f03363912be3a38e9e085c3d50cea71c23ac3a",
+    "final_sha256": "c9ba43aa40ba66b4f1df0a2b16fee74b075262333c5194fe86a814f4f5f0849b",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: strained apologetic reluctant smile: worried raised inner eyebrows, slightly narrowed uneasy eyes, and a small hesitant asymmetrical smile. Not angry, not joy.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-66c7733b-9f18-4094-bba5-252ba4fcf555.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-strained.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-strained.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "f8a73f9923b3b079dff187a64e74184b700cca79127eff047eeba91db8a8425a",
+    "final_sha256": "5f6cdc6be1e73d962aa9307e75381085ae19c29c23a8bf5279047c61e166f40f",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: hungry longing: wide hopeful pleading eyes with inward raised brows, and small open yearning mouth. No food or tongue.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-aceb615b-5baa-4e9b-9b33-db73278cd477.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-hungry.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-hungry.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "75b6321a088921bdbb6cea1877cc3934d9cde6417d7cc114b75eb85573226534",
+    "final_sha256": "8b181147b4bd207507a450a3fcc2c6cf0723e3badd7bb70845857991135971ad",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: feeling sick: weak squinting eyes with pinched worried eyebrows and a small wavy unhappy mouth. No change to body colors.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b032ebf7-85d8-47d6-8f37-9cbd55bd7a32.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-sick.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-sick.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "38108f7493f3b6ec88da1803ba5fa43af9d104c6e30ecf79247a2b3f0ca89d26",
+    "final_sha256": "c7e46b3585a3fc7c78af7d6b0cdcd041a544770f9869399204afbfac9420e7c5",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: tired drowsiness: heavy half-closed eyelids, relaxed brows, small yawning open mouth. Eyes still partly open.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d6032a41-4f9f-43f6-99e3-f09fc09038c0.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-tired.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-tired.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "94ba2ece23d806bfea62f440577706ad431a4a1a5c402fc39a944f6dd53cabc9",
+    "final_sha256": "acc256e396cc7ca11064af78176aab568e64c10c1480b3174a5ce9b19a3138b6",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: sulking: lowered inward slanted brows, narrowed sideways-looking eyes and a small pouting downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3550292e-39e5-413e-97dc-ef3624d04cd8.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-sulky.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-sulky.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "33b3a78563bbdf94922ceb74c2c68168b55704fa530d5ac2ac4757a78505c762",
+    "final_sha256": "96461545f56f0c5d90ff245540df6f110451bb67e650611b2d95c5d6118c0e3b",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: low energy and weak: drooping partly open eyes, sad raised inner eyebrows and a tiny downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e54d6d22-b767-473c-9fb0-9add9b5f3471.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-weak.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-weak.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "10d4a6b90d35ff51ab98e313659c9f7c2e4e7f9e97aed538737d6d6a38fb6a18",
+    "final_sha256": "ab8b9125770aa5ae0f6fe65031bf6efae726d770724c3212522197ec243283db",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: critically exhausted but alive: tightly strained nearly closed eyes, deeply worried brows and a small tense wavy open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fe0b93a6-c947-4050-978b-a22085285e19.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-critical.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-critical.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "9dbd72f3bb8780166489abdc55feb2583acc33daaf138c505348d770fd9a40bb",
+    "final_sha256": "3ba123c4e8d09998cd85d112eaff0db8bd4900567098d1e9ee41d6327191081c",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: eager invitation to play: bright wide open eyes, excited raised eyebrows and broad cheerful open smile. No symbols.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e2407518-799a-432d-b3b8-bd96cb98e1f3.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-wantsPlay.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "d2ba0c6fb9bfb5ed965ba1063bdb01aeedf1b0cde13ca0f7ac6d43e2820f4c12",
+    "final_sha256": "c9a7d9bea030f906500d2328562f5237b5f9a93891cc1e45377b6a7e763efd64",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128px pixel-art teddy bear sprite; image 2 is the same sprite enlarged solely to inspect details. Produce ONE single full-body sprite on genuinely transparent background, same exact composition and pixel-art style. Change ONLY the eyes, eyebrows and mouth into the requested expression. Preserve the original brown plush bear identity, outer silhouette, body/limbs, pose, head tilt, fuzzy pixel texture and palette, red ribbon, black nose, white muzzle shape and foot pads exactly. One body, one face only. No added objects, decorations, sweat, tears, symbols, hearts, Zzz, text, background, border or shadow. Keep expression features in face and readable at native 128px. Requested expression: peacefully asleep: both eyes fully closed as gentle downward-curving relaxed arcs, relaxed brows, tiny calm closed mouth. No Zzz.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fa0cfb08-92a9-4d9a-a2c1-105e82f95c70.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/02-sleeping.png",
+    "original": "assets/characters/plush/02.png",
+    "final": "assets/characters/expressions/plush/02-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
+    "source_sha256": "22e2ba7cc14486f3d4e6a6ead5114a0240f3e8eb0daeb9377bfad79df5e44a2b",
+    "final_sha256": "01c5d3430f6c3baad92ccdd3fb7f24c4327c75b6378e1a1bf2ae74b1aed8b894",
+    "bounds": [
+      20,
+      8,
+      108,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Joyful, broadly smiling mouth and happy upward-curved closed eyes.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a67efdf0-3e54-4a96-956d-9e62a90137f8.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-happy.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-happy.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "39137072754763f332c0934794154027c3fae9407b2978c8d22fba1ad74d2874",
+    "final_sha256": "ec0d6f732a653fc9604477959d32175ca671d894a721949a14a8a332db0acbe1",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. A strained, hesitant apologetic smile: raised inner eyebrows, slightly tense open eyes and a small asymmetrical restrained smile. Not anger.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d5a55a6d-3f5c-4721-839f-2f3271febbfa.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-strained.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-strained.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "d3849a25a3f36f1ce8f81e0e02196d1ebc78a15790e14df1656db0959f3a2b71",
+    "final_sha256": "7e5c0602781a344bca240b9cfba21151c1a534e757137929d66885b6d2a493bb",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Hungry pleading expression: expectant wide eyes with raised inner eyebrows and small open rounded mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-804d5484-2b8c-400d-8d80-b78758847314.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-hungry.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-hungry.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "738fc2fa5de4040c6d48474b675107c5d8edb60f96c45656ee2596f92619d158",
+    "final_sha256": "55cd66971df4b1d9ceb43fa59f23fca356dfb2dc802772583024b867ed7cdeab",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Feeling ill: distressed squeezed eyes, raised inner eyebrows and a small downturned open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3415daf4-e458-457d-860c-e31f858d22f7.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-sick.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-sick.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "e9fba79c0108b659496bb15f21310a98b4b90e94586a5260c826dcdeeca6e3f2",
+    "final_sha256": "7ed9191e6ea64e4d4ef5dde5793b02c5af3ba0c7b98ecde4bb1b9885bd2cae7c",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Sleepy fatigue: half-lidded drooping eyes and a small flat mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-13349813-d1b0-4dfd-8e3a-51152bc1c6ad.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-tired.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-tired.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "449a612d93a8d3ad1db35e8114584857626ee9e72fc64b5799bcc3cf802fa372",
+    "final_sha256": "b25d5259eaf951422ded2f9c7a15d69b72439316eb7fbf44be22d99d628f8421",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Sulking: mildly inward-lowered eyebrows, narrowed eyes and a tiny pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-802f7af4-7d3f-4783-86e1-4b5d2a9825c9.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-sulky.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-sulky.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "b58c440698e69d4cf18df84c507bfece54c56f84c4566138f70fa3312e65c9da",
+    "final_sha256": "5a14ae2b0d5e4cc8bc2ebcfd152688e38a0d8bcfab7072fdbc79e588153adea5",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Low energy and weak: almost closed drooping eyes, worried inner brows and tiny downward mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e56accbc-8fba-4ce2-87b4-359f4255ed8d.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-weak.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-weak.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "bc60f9184f008f9c705565c312fb41c509ef838b32ee54430a252e171da13a82",
+    "final_sha256": "029843527bb0da92d1cae763decabf83afed66243d953b305696f28375f9334d",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Severely exhausted: tightly shut drooping eyes, deeply worried inner eyebrows and a short wavering downturned mouth. Keep face legible.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d438a781-6ebc-4d82-890a-6ddc03dd2e29.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-critical.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-critical.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "fa6cba68b013249a5b2222a4b4940ff8b63250a56c631d76f1ee383e07257079",
+    "final_sha256": "04f77255f94827d4cf31eb0f0a34ea16d5fa3eda7c4abeba660ed602b62d82cd",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Eager to play: bright large open eyes, raised brows and cheerful open smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-00b08aa4-3ca2-4b5b-9bfc-93d0d136efcc.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-wantsPlay.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "9b9dbce29fd548e150fbbbbfb06ce0b0b81189aa7f38e6a02359d57b4b841df7",
+    "final_sha256": "fb733dd56fa604efab8ab9821af6941b76f4a4b2df28aa6a83fc7e5851f549b5",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Preserve BOTH existing red hearts exactly: large held heart and small floating upper-right heart are permanent decorations even in negative/sleeping states. Do not add hearts. Peacefully asleep: both eyes gently closed in downward arcs, relaxed brows and tiny relaxed closed mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1fb8dd44-9020-4d3b-b92f-e6743af5026d.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/03-sleeping.png",
+    "original": "assets/characters/plush/03.png",
+    "final": "assets/characters/expressions/plush/03-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
+    "source_sha256": "71a509e6ccd87e19b1e4821e1ade434aa36a70042768e28734bc2e2a5b930029",
+    "final_sha256": "07dab9faf8d2c9a889721f010af3eec667c9252fe58b3f9f6220728ed4393a75",
+    "bounds": [
+      14,
+      8,
+      114,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Joyful, broadly smiling mouth and happy upward-curved closed eyes.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b8e07930-1b3a-42a8-b9c2-902807572b8f.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-happy.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-happy.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "ebbe523e3c17d8660633b98599ebb48cc4c404653d63d67c408d078d3632db77",
+    "final_sha256": "cc2c16d507d7669b31141a602ec40bda6743fc34b3cc353bb6a5448ea3fde533",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. A strained, hesitant apologetic smile: raised inner eyebrows, slightly tense open eyes and a small asymmetrical restrained smile. Not anger.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e4325ade-2ba3-4acd-aa01-c67a9fc76fa5.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-strained.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-strained.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "02619d13af0f04a9ffaa85372fc662484e11beed36ee7a2bf4d3d883834af881",
+    "final_sha256": "088eebe23c731bf0e5ede45c1199db5c9e856f5f7e9fa6313f98c98ac75a22b9",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Hungry pleading expression: expectant wide eyes with raised inner eyebrows and small open rounded mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1804a3da-ed4b-40ae-8fe2-0db22b3665f6.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-hungry.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-hungry.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "4aa58fce4a159df95897fe32d8a8d547477860261046906c0490d542202cf5cc",
+    "final_sha256": "e792d2a770f43eda9ae206dd62b69f1983c97689d0fe94738f8e1a3453d94b75",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Feeling ill: distressed squeezed eyes, raised inner eyebrows and a small downturned open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3e2cb81b-3f4a-483d-9a68-bc4b60fc215a.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-sick.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-sick.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "0c0058dc2e96e99fbcfe220c22358bed66ea974fa3f3ea71abc331f2b7ff604c",
+    "final_sha256": "038aed91d3d97ca8e70a0af03fac10a8c02c71b4deb3d6b8bd57510cac0d24ca",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Sleepy fatigue: half-lidded drooping eyes and a small flat mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-61b1d816-9439-4260-88b9-df7663017285.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-tired.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-tired.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "a6605d707805481c86383487732efbccfe8a3bd5eea62741a0282a540b70c20a",
+    "final_sha256": "9a574c14132f5231575c0b292ac95570a703065ff8df51ba604480947f534c43",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Sulking: mildly inward-lowered eyebrows, narrowed eyes and a tiny pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e2e932e8-7719-4f67-81b0-d597ee0c22ed.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-sulky.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-sulky.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "d0608812e8df2204eb0f36d04d0a1a36b0bebf5904613f389be8200f291a816d",
+    "final_sha256": "a7c8ef245fa0b850bdb1181681b19f5d88f3ae3e6aaf566781a4cba610ffd591",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Low energy and weak: almost closed drooping eyes, worried inner brows and tiny downward mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-16ca190b-8f35-467c-b821-00f0c1f69daf.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-weak.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-weak.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "cfa3929e7f3cdd0c2ed99a15a2f98a99857de7c6cb78f441cbea11b945053bb2",
+    "final_sha256": "e8fb57334bd740e5153a3abc3413069f2e945b34f9dca3e1aded53a82200a589",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Severely exhausted: tightly shut drooping eyes, deeply worried inner eyebrows and a short wavering downturned mouth. Keep face legible.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ae9ee028-e856-4013-b7ef-75640e464cca.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-critical.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-critical.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "127d853b9776263c66625e058ce9c6a4cb9ee38ec961502a85ee14799c45dfe9",
+    "final_sha256": "44d1010a458074aa7d4fad634c78db9b1c5e10a9cf1a8b8d373700a8f38acd15",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Eager to play: bright large open eyes, raised brows and cheerful open smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9bf9a72b-404d-46e3-9521-6db17b94b6e4.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-wantsPlay.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "761f55e49ac17a7043d7d074a99d76e24acc4cedf29f9e25dbc7d36220de8e55",
+    "final_sha256": "ab7449567ce048c585492552921e71cb0b0989482c6967f599bd5c16876a8c58",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target is image 1 original 128px game sprite; image 2 is the same sprite enlarged for pixel reference. Produce just ONE transparent-background pixel art sprite, pixel geometry suitable for 128x128. Change ONLY the eyes, eyebrows and mouth expression. Keep exact bear identity, seated pose, head tilt, golden-brown plush texture, silhouette, scale, margins, ears, paws, feet, dark nose and white muzzle unchanged. No new objects, no text, no marks, no sweat, no tears, no Zzz. Preserve genuine transparent alpha. Keep the original forehead and belly stitch seams and red neck bow exactly. Keep both eye positions from original wink face: expressions may open or close either eye but do not move eyes. No hearts. Peacefully asleep: both eyes gently closed in downward arcs, relaxed brows and tiny relaxed closed mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0be6baa0-3934-442a-9bb2-e37b597beaee.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/04-sleeping.png",
+    "original": "assets/characters/plush/04.png",
+    "final": "assets/characters/expressions/plush/04-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
+    "source_sha256": "4edb9a00af0a0fd4653191b889575db00384d1405a3444a329581e1edf671442",
+    "final_sha256": "7608cf83028c9fcf82b1e70e44a15d4583eed9ec55e6368c8d7e4ab3d1b0016e",
+    "bounds": [
+      18,
+      8,
+      110,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve the original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush, even for illness or sleep. Happy: two cheerful upward-curving crescent eyes, relaxed brows and a warm open smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e97f98fa-cb39-4241-969f-ff8d1a9c245e.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-happy.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-happy.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "3b56617ef3399be299302fc59fee806fbd9d2dc8e8da37f465e1d9237639b5b4",
+    "final_sha256": "1874978d3a178ee95253c13d17556486e1029a39135dcb5973c776dbc1f5cf5e",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Strained: worried raised inner eyebrows, uneasy eyes and a small restrained apologetic smile, clearly trying to smile despite discomfort.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ee98ac05-a4c0-480d-b075-828bb1670b0e.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-strained.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-strained.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "b5ac03eca5e6ade43221477ce67e695d8cc124158c6641c888a06a3645337358",
+    "final_sha256": "23d1839d65adb9c3566dea12095620a5e5a865d3848289c2aa49d9db06ae195c",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Hungry: expectant slightly pleading open eyes and small round open mouth, wanting food.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0e357ccc-0270-45fe-87cf-bddf4d929e93.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-hungry.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-hungry.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "eb968490370180ef796b640b9a42950cdf205991529e1af2f7bc0e0e2039d7d1",
+    "final_sha256": "a5ba48f23b053457a7c5e08f5390a59db690875f6245b2c3919e3da9b165c745",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Sick: drooping half-closed eyes, brows slanting upward inward and small downturned mouth, visibly unwell.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b6db1876-a87e-4e5f-894e-4fcfaa717425.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-sick.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-sick.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "467ec0ee91e5850ddbc7dac34b34921e3397e593e13c0bf1f4d721605c6aea68",
+    "final_sha256": "8d49e6ecf35d5c1fd270e0af5c43b841278c560d99d575eaf52a54059aa58e25",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Tired: heavy half-lidded sleepy eyes, relaxed low brows and small neutral mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-87254f0b-7846-44ec-acd8-5394ca14e263.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-tired.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-tired.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "9da0e2299c68871051f4d5421090d8957bded81fc573a5741d17a49a7490dffd",
+    "final_sha256": "bec6ba3618aa682455ba133e8a285c081053dc192a403ba40a1e238d626153bc",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Sulky: lowered inward brows, narrowed eyes looking straight ahead, tight small pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-64d9cf96-d027-42b8-b033-89f525759bea.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-sulky.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-sulky.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "df09e40ec8661b933889266e0a611cc99907cd92e95cbe9540a5fcb705730452",
+    "final_sha256": "01ed83dd86691bff5fa51238158aefdeab9ad0d449cd7b64a1a108e673c92826",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Weak: nearly closed drooping eyes, faint worried brows and tiny slack downward mouth, low energy.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-53ab912f-69b5-4b04-a870-9467e0fc5c84.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-weak.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-weak.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "34cd98a52cee052c6aac838fe093163ed3ef1500cfcac76bb43589d5219622a5",
+    "final_sha256": "eb9f99717512ff79bfeacacb07c0d56fd5814d0fc8289ee1823a00c19d5470b5",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Critical: eyes almost entirely shut with uneven tired eyelids, strongly worried brows, tiny slack open mouth, barely awake.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-a23b7990-406b-48c1-b5d5-d37dad97adbf.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-critical.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-critical.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "a627b4ab3717a7937003e842bb1ef0debaf79a3c456c2b97aaf52622256b368c",
+    "final_sha256": "bc894f39bcd5e8389d9637334059c44714f1845f728a0217a6d8438c51c1aa09",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Wants to play: lively wide sparkling eyes using only original eye palette, lifted brows and broad excited smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0e284c42-0f26-471f-bfac-95ce42dd785f.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-wantsPlay.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "2033d714741b19db6caa498d8b3e525ae51c56519f7ef19381374caf17d4455a",
+    "final_sha256": "245d118b2f5582fbf7659d6d24a47742f3498afbd1fbc9703687be0b00ee954d",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve original forehead seam, long belly seam, BOTH fluffy white cotton clumps at left and right wrists and all worn gray abrasions throughout the plush even for illness/sleep. Sleeping: both eyes fully closed into gentle curved lines, relaxed brows and tiny restful mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-454e911a-036a-4f83-b4f6-967899e2d53b.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/05-sleeping.png",
+    "original": "assets/characters/plush/05.png",
+    "final": "assets/characters/expressions/plush/05-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
+    "source_sha256": "27896681797287573fcacdc925d624c9a9be7cd7e6a708788d142358a94645dd",
+    "final_sha256": "6f88b8024825b739640e1395a7c004c4b17ebae0bb84655b39638c6bb7056fa1",
+    "bounds": [
+      16,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Happy: two cheerful upward-curving crescent eyes, relaxed brows and a warm open smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9f50fc07-1281-4a93-a7ea-083ada36e6f8.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-happy.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-happy.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "9b74c4d3e861673f7fa8dff444518878680889fed5544d35a2c179e15b5d3e70",
+    "final_sha256": "523d880be8c9e51b3f122ab44eee7b77cb3ec517541cc10614e038aa08e86f64",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Strained: worried raised inner eyebrows, uneasy eyes and a small restrained apologetic smile, clearly trying to smile despite discomfort.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d9f723c8-f689-444a-9294-06c564bd6d82.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-strained.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-strained.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "9f0ff7040aaf339c51e8802a62ecbb784d66ec795164db4b8f0a6a5dd6386415",
+    "final_sha256": "dce204564198ea76f6a519fa530171c4e69b0f49d294022caa06f8b2a9344827",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Hungry: expectant slightly pleading open eyes and small round open mouth, wanting food.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-244a5517-8073-4c92-8835-ac276f12c8a8.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-hungry.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-hungry.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "f32973441a1691012266a7d23d7e39a157c0e29b7d79c0d3f3c66003237e51d0",
+    "final_sha256": "757522af72320af49a485f317d5d31c40178845de5957edf24ed4b1438e51418",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Sick: drooping half-closed eyes, brows slanting upward inward and small downturned mouth, visibly unwell.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-973dc03d-b2da-47d7-8065-d01f02ef9705.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-sick.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-sick.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "bc139f36c57b2e908b317b03d6021d89ea76d400f21702f8c701d6bf203a306b",
+    "final_sha256": "cd2d266b9ef3837e7384c1d50e36422c1cea9c68ac678bfd1a1bc6fa25dadf99",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Tired: heavy half-lidded sleepy eyes, relaxed low brows and small neutral mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-69192228-7876-4aa0-8a3a-d4fdd8e75b57.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-tired.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-tired.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "b6da656ba31fd24a00ec90f049408c16e683347c05865c7f2778c9d7953b5b2a",
+    "final_sha256": "24ef88d2b4e913ba1a63ba1505dde59a300964cdfb117e717d65f7e2c873030c",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Sulky: lowered inward brows, narrowed eyes looking straight ahead, tight small pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4f9ddcbf-83ad-422f-9e7c-91e04faa0b45.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-sulky.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-sulky.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "3f7225dc6ca4604b5adeca6ee4231773a3db7db13fd80ccba131781082f4d766",
+    "final_sha256": "0efb4a87b7ecba701cf9fa202c0ee6033bb6763d127152669e14328cbe382eee",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Weak: nearly closed drooping eyes, faint worried brows and tiny slack downward mouth, low energy.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-89182ebb-d42d-4e51-af01-244474d3ce45.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-weak.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-weak.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "687941b2b5c4088f6cc47c68c7fb0eeab9c1f9eda1b2aac6fbfdc2e7cddb49e9",
+    "final_sha256": "a5cf1cdd491c62e39efe6c29020edd7747cf6b18f8798db3159607f2e54e0fe0",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Critical: eyes almost entirely shut with uneven tired eyelids, strongly worried brows, tiny slack open mouth, barely awake.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1acad6cd-5d75-4478-9128-cfac1e29f459.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-critical.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-critical.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "5977a7d73820ceb9d899e00627e27e40e302fee96720f6275b3122d4652b813d",
+    "final_sha256": "e4df520e64a49828650416f5cf0831adcd2dbeba268d31c2a13385be91890c26",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Wants to play: lively wide sparkling eyes using only original eye palette, lifted brows and broad excited smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-64eab3b3-f1cd-4890-9d82-fee3088dddb3.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-wantsPlay.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "49c035d529e268f25c1d59d027c74f25fada63321701fb3c024176330a828c46",
+    "final_sha256": "343660f0cb9dee26a9cf6df6721d7319cd429dba60c3db524ba39cd2cf1ab73f",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 is a 128x128 pixel-art teddy bear game sprite; image 2 is its exact 6x nearest-neighbor enlargement for pixel details. Produce ONE identical full-body sprite on genuinely transparent background, preserving original 128x128 grid appearance. Change ONLY the two eyes, eyebrows and mouth to the following expression. Keep all remaining pixels and design as close as possible: exactly one bear, one face, same silhouette, head tilt, sitting pose, size and framing, warm brown worn plush texture, original ears/arms/legs, black nose, white muzzle and red bow. No new colors, no tears, sweat, symbols, objects, text, Zzz, background or shadow. CRITICAL IDENTITY: preserve EXACT full composition of original blue patchwork fabric and all stitching across ear, forehead, both cheeks, arm, belly and both feet. These blue areas are cloth, never tears or sweat. Do not remove, add, simplify, move or recolor any patches even for illness/sleep. Sleeping: both eyes fully closed into gentle curved lines, relaxed brows and tiny restful mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8f1777d8-aaa3-4922-b57c-c1971d4e586e.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/06-sleeping.png",
+    "original": "assets/characters/plush/06.png",
+    "final": "assets/characters/expressions/plush/06-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
+    "source_sha256": "bedf482f60d2fb2a4d929d001111414da55e1646373532561eec36eda1d26548",
+    "final_sha256": "35d4d636c7170be2a7e8def473f030679d2408daf11838b963d1206bbad2abfc",
+    "bounds": [
+      17,
+      8,
+      111,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Happy: lifted crescent eyes and a clearly upcurved open cheerful smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-72ee862b-f359-4d31-8c14-3f02548fa8e2.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-happy.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-happy.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "9cc27e52592190f3fd13dcf92cb9ec7401a64ff112ea7ba4c6d9cbf0ff12d0b3",
+    "final_sha256": "ad8946c2c0b59af34aacc18c2b8372342623f9d8bd29141da5e22b04165d86b1",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Strained polite embarrassed smile: brows raised at inner ends, uneasy narrow eyes, small asymmetrical hesitant smile. Not angry.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b60eccd7-853d-4af9-83ac-d7b8922ded2e.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-strained.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-strained.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "eb51313bea3862c230799200b7574d370c2e5ea6ace5cad35daab2301acb8b26",
+    "final_sha256": "0e8e5353892a2ddc60b5efeefdde6756e186e2cc117f72a0437fdb25fedb876e",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Hungry: plaintive open eyes with raised inner brows and a small open round mouth, longing for food.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3700d786-56df-410f-907f-c7c3f8864a85.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-hungry.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-hungry.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "f9c080758fc9e285e19be97b7be169be90dcad35540f3d7b1e59db6a4cc94d06",
+    "final_sha256": "d0013b53995e488319bb09520f339e876aef62796f97df6a84f0d7d4a905f547",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Sick: eyes squeezed into uncomfortable bent lids, worried brows and a small wavy downturned mouth. Keep original colors.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ef64eed9-b56a-4375-b69a-832af5941222.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-sick.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-sick.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "bad2869bbd786e2cd091e77e01bfa41f335cc63a2ec307dd2a0a1137ba18bcf7",
+    "final_sha256": "3889a68b1ec21c0ad430deafe3be7dfc8d715c29181f5bbcd3a2fbdf3247a08b",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Tired: half-closed heavy eyelids, relaxed drooping brows, tiny tired slack mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dcdd39f5-aaa1-426d-b6f9-ab8f1f7cb98d.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-tired.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-tired.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "4564b83269a4e1f920695aedda3604961a6cfd890912e5a353ca9e6a9babd386",
+    "final_sha256": "0eb25bdd6aea4915aabb8f8978512d80e69ce985ddaa4cda2bd1c3468218a1b2",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Sulky: narrowed eyes, inward angled brows, small distinctly downturned pout mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7f35d8c1-6a17-4965-a72a-8b7c706c01e6.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-sulky.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-sulky.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "35a2d9c778b3a8b23c9a8336a9885b55ba7be1c578d54846e9fdfe91fd0ed146",
+    "final_sha256": "566a51b3e9cb3d410edc2b6bc3d6e5c2a8d37096e9a7eabd22dbfcd500442c6f",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Weak: drooping almost closed eyes, raised inner brows, tiny feeble downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4e0621ff-85a1-4c44-be79-6c146067bff2.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-weak.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-weak.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "49362a6dae4cb2ca69a088036ae94e0b63962091b73b5a7ecd2971dce6957f96",
+    "final_sha256": "6cc0c11de16c5e71b9438ae4f1eaff175d72cf651e38c4d37737ac1552971a1c",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Critical low energy: tightly closed pained eyes, strongly raised inner worried brows, small open downturned grimace mouth. Cute and nonviolent.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-442ffed8-0d43-4c9c-8bd3-84efeba02ce2.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-critical.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-critical.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "270db3251dbd3e05d7a24f72b3a3a4d8ffd18d154dd943a87c850f4abc69561a",
+    "final_sha256": "633cb4b59ee82fd41b20f11e95a2d6a36e170de2b1cf3047071d9507298606b1",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Wants to play: bright wide eager eyes, raised excited brows, obvious open delighted smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-bd51b392-154e-4eae-aae4-b87225618682.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-wantsPlay.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "b996b04c7db63cb076dd22a41c7cdc82d0e949b42d3c56516356cbb2392a3741",
+    "final_sha256": "33069bbb5b38016b7f66507b2bef7080cc819f812716b073e7ad565044ae6a08",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this worn slumping tilted brown teddy's white repaired ear, frayed body patches, faded neck bow, and visible tail behind it exactly. Its default eyes are closed: make expression recognizable in mouth and brows too. Sleeping: softly closed smooth restful eye arcs, relaxed brows, tiny peaceful round mouth, completely relaxed face.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e8cb01f2-6c59-4be8-8c7f-2aeed8e7a3e5.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/07-sleeping.png",
+    "original": "assets/characters/plush/07.png",
+    "final": "assets/characters/expressions/plush/07-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
+    "source_sha256": "87e918631fcf8e88969b6020019f4a3f1aa3e923501e25c64601532d4cdd289c",
+    "final_sha256": "de8463229d467d539f830878d81ca8b30ecd85c57b1a9e0ea37cab8be2c5c6f8",
+    "bounds": [
+      8,
+      15,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Happy: lifted crescent eyes and a clearly upcurved open cheerful smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fdff46cd-ceab-46f3-8123-1e0ecda11a9e.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-happy.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-happy.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "66bdcfd0e67a1a67c8dcc9b2a9e401075919e2ff645cb13b32e8d8052b001e49",
+    "final_sha256": "06a7cdb57967b37d6dce2ad01fdc395599572a0e2e2f2d4655fa21b81d1a5ee1",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Strained polite embarrassed smile: brows raised at inner ends, uneasy narrow eyes, small asymmetrical hesitant smile. Not angry.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-09dc2f7d-7c3f-4bc4-8225-b837127bdc1c.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-strained.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-strained.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "050e0159ee0a750d85422629a3187b523072ed6b6a7f43a6a27773da8bde5c30",
+    "final_sha256": "966bdf2881b0ad91b37740f0afc9d1912201900648241634b49229f98ced1a59",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Hungry: plaintive open eyes with raised inner brows and a small open round mouth, longing for food.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-60cc3496-c096-42a1-b770-17c488730106.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-hungry.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-hungry.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "db1159a060c589a9626d2376ae6098e1d87e1a48301b00238d642a26f04294cc",
+    "final_sha256": "adca291e2a3ade7b5bfa88fd8193beae31d076f98447417ae53565a0b6063d91",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Sick: eyes squeezed into uncomfortable bent lids, worried brows and a small wavy downturned mouth. Keep original colors.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d2cd2d5f-e66d-419a-b2cd-44fad5adffde.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-sick.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-sick.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "4116e5293e64ddacc7e9e488d47b04267b7214af94997c70d64ad3dccb77c756",
+    "final_sha256": "20b518ea7abf7aaa6771717b92d07dca0bd4d95c3c9d21d2a337d2fd76fe8a69",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Tired: half-closed heavy eyelids, relaxed drooping brows, tiny tired slack mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-14b59fdf-26a8-4bf7-bdbc-1c6da8b59c32.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-tired.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-tired.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "7eaa0c318aa6b3afcf8829bad3c5cc6070b1656af15608b5cfeee103a4af92be",
+    "final_sha256": "55e4a4585cdbc928fbc0ddcd8a5141159649055d96cbddc765830088fc1382e7",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Sulky: narrowed eyes, inward angled brows, small distinctly downturned pout mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cc5c0ee6-4448-49a2-b434-8dd9a7162420.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-sulky.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-sulky.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "7df0ceb175571382ead7734f847edf6d7a0034d3523055b070e8daa12ab07462",
+    "final_sha256": "aa1c58dd5a9e161d239a411263d27dc5ab6a30bea8166527287c1607e6573925",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Weak: drooping almost closed eyes, raised inner brows, tiny feeble downturned mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e16794ba-c459-435f-87f7-ee6dc43887d0.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-weak.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-weak.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "a1c7c395e72f30df7d1e4048bfce799d81b0701f86c68d7a6ec3c63bf3593bb5",
+    "final_sha256": "98291c2f676d5695262f33425e2d03100e7fd9e9dcb71616df2cc679a5cacf68",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Critical low energy: tightly closed pained eyes, strongly raised inner worried brows, small open downturned grimace mouth. Cute and nonviolent.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8ef03dad-4f3e-47ee-a03d-72514141863d.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-critical.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-critical.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "f995a6e70a713f6d058977f7fa88f8aa93634a7cf4c966ef05e614b0b0d6ee09",
+    "final_sha256": "67fb6d029e516c9a0022a671558a386628bf7cacd085252e6a14759ffe49ad6e",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Wants to play: bright wide eager eyes, raised excited brows, obvious open delighted smile.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-98ca608a-d07f-44f5-9413-9fab4cd76ff8.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-wantsPlay.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "1c89476fd11eba3a4f7504189acb8186bb6ed6528d906ca4d63419970dc554b6",
+    "final_sha256": "df784efa7b9112ecdffa0c166ca0ec0fe28234ea45446997292afb21594021e8",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target Image 1 is the original 128x128 transparent pixel-art game sprite. Image 2 is its exact 6x nearest-neighbor enlargement for visual guidance only. Return ONE full-body sprite on genuinely transparent background, matching the original square framing, pixel-art grid, colors and crisp edges; intended final 128x128. Change ONLY eyes, eyebrows, and mouth to the requested emotional state. Preserve the nose, white muzzle, exact single bear identity, single face, head tilt, seated body pose, outline, material texture, stitching and accessories; do not crop. No new props, text, sweat, tears, Zzz, hearts, symbols or emotion marks. Keep this brown teddy holding its existing red heart, big red ribbon behind its body, existing golden light sparkles around it, red cheeks and all stitching exactly as original, EVEN for sickness and sleeping. The original surrounding golden sparkles are part of the sprite: preserve them, do not add any new ones. Sleeping: softly closed smooth restful eye arcs, relaxed brows, tiny peaceful round mouth, completely relaxed face.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-dca911a6-006f-4b0f-b2e8-4052657def74.png",
+    "line": "plush",
+    "source": "/workspace/scratch/0e1d599677f2/plush-generated/08-sleeping.png",
+    "original": "assets/characters/plush/08.png",
+    "final": "assets/characters/expressions/plush/08-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
+    "source_sha256": "797d5dd432340310f0ada5118a11c3a003d480822391a3f99ee0cbe843604943",
+    "final_sha256": "5641565097e96bef3202afa0b38d5fdf8c914d6027b6d74876c9a29f640ff4e8",
+    "bounds": [
+      8,
+      8,
+      120,
+      120
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  }
+]

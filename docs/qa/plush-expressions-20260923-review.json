@@ -1,0 +1,1451 @@
+{
+  "complete": true,
+  "count": 80,
+  "accepted_count": 80,
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/01-happy.png",
+      "sha256": "83f4f48f799696f4a4c33ddfcf856d78c4622c8dd45d504915755dc6ce99a682",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と開いた笑い口で喜び。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/01-strained.png",
+      "sha256": "58118d3b086b7d47c8945628cdf8ed19a9f5cb18ac751e2afcc16c0eb2732270",
+      "verdict": "ACCEPT",
+      "notes": "困り眉、控えめな開眼と片側に上がる小さな口端で遠慮笑い。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/01-hungry.png",
+      "sha256": "f7bfcc550b90dbdef0887461df609edd0829145465ac108cc6cbdf6cf609d438",
+      "verdict": "ACCEPT",
+      "notes": "期待する開眼、困り眉と丸い開口で空腹の訴え。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/01-sick.png",
+      "sha256": "bb720565999c8e29c84e7bfb13196a36d4d36b4000070be98fd040a0d1571447",
+      "verdict": "ACCEPT",
+      "notes": "絞った目と困り眉、波状の閉じ口で病気の不調。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/01-tired.png",
+      "sha256": "bfb3561b81c8292853259cc98bf30d83e8818690938682d4d88fa9eeff196b85",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目とあくびの開口で疲れ・眠気。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/01-sulky.png",
+      "sha256": "fd02ebdd86c6648ac092faaabce155ff788a91b136a117db14e86e872f7f5b92",
+      "verdict": "ACCEPT",
+      "notes": "不満げな低い眉と横目、下がる口で拗ね。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/01-weak.png",
+      "sha256": "fab1ffcbf982d2b45edef9641b2d6b6c05147c5501e60f87cbd681412efd2657",
+      "verdict": "ACCEPT",
+      "notes": "力ない半閉じ目と上がる眉中央、下がった小さな口で弱り。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/01-critical.png",
+      "sha256": "56d2ea7532266f1ebef475b2bc0ecf8a91cfaa2250980b319a0bd70306d5a53e",
+      "verdict": "ACCEPT",
+      "notes": "強く閉じた目眉と大きく歪む開口で強い不調。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/01-wantsPlay.png",
+      "sha256": "27084127ac3e28095c12cc0f75902404bd97d7221bf56aafafdddfebb8ec5ad9",
+      "verdict": "ACCEPT",
+      "notes": "大きい開眼と明るい開口で遊びの誘い。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/01-sleeping.png",
+      "sha256": "e59e982897c446177260ef2475bdb3dc424143a5cd1082e6aae73b1148541800",
+      "verdict": "ACCEPT",
+      "notes": "安らかな閉じ目と小さな口で睡眠。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/02-happy.png",
+      "sha256": "c9ba43aa40ba66b4f1df0a2b16fee74b075262333c5194fe86a814f4f5f0849b",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/02-strained.png",
+      "sha256": "5f6cdc6be1e73d962aa9307e75381085ae19c29c23a8bf5279047c61e166f40f",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と控えめに上がる片側の口端で遠慮笑い。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/02-hungry.png",
+      "sha256": "8b181147b4bd207507a450a3fcc2c6cf0723e3badd7bb70845857991135971ad",
+      "verdict": "ACCEPT",
+      "notes": "期待する輝く開眼、困り眉と丸い小開口で空腹の訴え。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/02-sick.png",
+      "sha256": "c7e46b3585a3fc7c78af7d6b0cdcd041a544770f9869399204afbfac9420e7c5",
+      "verdict": "ACCEPT",
+      "notes": "絞った目と困り眉、波状の口で病気の不調。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/02-tired.png",
+      "sha256": "acc256e396cc7ca11064af78176aab568e64c10c1480b3174a5ce9b19a3138b6",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目とあくびの開口で疲れ・眠気。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/02-sulky.png",
+      "sha256": "96461545f56f0c5d90ff245540df6f110451bb67e650611b2d95c5d6118c0e3b",
+      "verdict": "ACCEPT",
+      "notes": "低い眉と横目、下がった口で拗ね。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/02-weak.png",
+      "sha256": "ab8b9125770aa5ae0f6fe65031bf6efae726d770724c3212522197ec243283db",
+      "verdict": "ACCEPT",
+      "notes": "低く重い瞼と困り眉、下がる口で弱り。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/02-critical.png",
+      "sha256": "3ba123c4e8d09998cd85d112eaff0db8bd4900567098d1e9ee41d6327191081c",
+      "verdict": "ACCEPT",
+      "notes": "強く閉じた目、寄った眉と歪んだ開口で強い不調。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/02-wantsPlay.png",
+      "sha256": "c9a7d9bea030f906500d2328562f5237b5f9a93891cc1e45377b6a7e763efd64",
+      "verdict": "ACCEPT",
+      "notes": "開いた目と上がる眉、大きい笑い口で遊びの誘い。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/02-sleeping.png",
+      "sha256": "01c5d3430f6c3baad92ccdd3fb7f24c4327c75b6378e1a1bf2ae74b1aed8b894",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と穏やかな小口で睡眠。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/03-happy.png",
+      "sha256": "ec0d6f732a653fc9604477959d32175ca671d894a721949a14a8a332db0acbe1",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と大きな笑い口で喜び。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/03-strained.png",
+      "sha256": "7e5c0602781a344bca240b9cfba21151c1a534e757137929d66885b6d2a493bb",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と小さく上がる口端で遠慮がちな笑い。強い苦痛ではない。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/03-hungry.png",
+      "sha256": "55cd66971df4b1d9ceb43fa59f23fca356dfb2dc802772583024b867ed7cdeab",
+      "verdict": "ACCEPT",
+      "notes": "内側の上がった眉と期待の大きい目、丸い開口で空腹の訴え。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/03-sick.png",
+      "sha256": "7ed9191e6ea64e4d4ef5dde5793b02c5af3ba0c7b98ecde4bb1b9885bd2cae7c",
+      "verdict": "ACCEPT",
+      "notes": "寄った眉、きつく閉じた目と下がる開口で病気の不調。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/03-tired.png",
+      "sha256": "b25d5259eaf951422ded2f9c7a15d69b72439316eb7fbf44be22d99d628f8421",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目と平たく小さい口で疲れ。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/03-sulky.png",
+      "sha256": "5a14ae2b0d5e4cc8bc2ebcfd152688e38a0d8bcfab7072fdbc79e588153adea5",
+      "verdict": "ACCEPT",
+      "notes": "下がる眉・横向きに狭まる目とへの字口で不満。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/03-weak.png",
+      "sha256": "029843527bb0da92d1cae763decabf83afed66243d953b305696f28375f9334d",
+      "verdict": "ACCEPT",
+      "notes": "力なく閉じる目と困り眉、小さな下がる口で弱り。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/03-critical.png",
+      "sha256": "04f77255f94827d4cf31eb0f0a34ea16d5fa3eda7c4abeba660ed602b62d82cd",
+      "verdict": "ACCEPT",
+      "notes": "苦しげに絞る目眉と波状の口で強い不調。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/03-wantsPlay.png",
+      "sha256": "fb733dd56fa604efab8ab9821af6941b76f4a4b2df28aa6a83fc7e5851f549b5",
+      "verdict": "ACCEPT",
+      "notes": "大きく開いた輝く目と笑い開口で遊びの誘い。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/03-sleeping.png",
+      "sha256": "07dab9faf8d2c9a889721f010af3eec667c9252fe58b3f9f6220728ed4393a75",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目と小さな安らかな口で睡眠。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/04-happy.png",
+      "sha256": "cc2c16d507d7669b31141a602ec40bda6743fc34b3cc353bb6a5448ea3fde533",
+      "verdict": "ACCEPT",
+      "notes": "上向き閉じ目と開いた笑い口で喜び。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/04-strained.png",
+      "sha256": "088eebe23c731bf0e5ede45c1199db5c9e856f5f7e9fa6313f98c98ac75a22b9",
+      "verdict": "ACCEPT",
+      "notes": "困り眉と控えめな笑い口で遠慮。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/04-hungry.png",
+      "sha256": "e792d2a770f43eda9ae206dd62b69f1983c97689d0fe94738f8e1a3453d94b75",
+      "verdict": "ACCEPT",
+      "notes": "訴える開眼と困り眉、丸い開口で空腹。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/04-sick.png",
+      "sha256": "038aed91d3d97ca8e70a0af03fac10a8c02c71b4deb3d6b8bd57510cac0d24ca",
+      "verdict": "ACCEPT",
+      "notes": "絞った目と寄る眉、大きく下がる開口で病気の苦しさ。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/04-tired.png",
+      "sha256": "9a574c14132f5231575c0b292ac95570a703065ff8df51ba604480947f534c43",
+      "verdict": "ACCEPT",
+      "notes": "低い半閉じ目と小さな平たい口で疲れ。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/04-sulky.png",
+      "sha256": "a7c8ef245fa0b850bdb1181681b19f5d88f3ae3e6aaf566781a4cba610ffd591",
+      "verdict": "ACCEPT",
+      "notes": "低く内側へ寄る眉と目、への字口で不満。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/04-weak.png",
+      "sha256": "e8fb57334bd740e5153a3abc3413069f2e945b34f9dca3e1aded53a82200a589",
+      "verdict": "ACCEPT",
+      "notes": "力なく閉じた目と短い困り眉、小さい下がる口で弱り。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/04-critical.png",
+      "sha256": "44d1010a458074aa7d4fad634c78db9b1c5e10a9cf1a8b8d373700a8f38acd15",
+      "verdict": "ACCEPT",
+      "notes": "長めに寄る困り眉、力なく閉じる目と歪んだ口で危険時の衰弱。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/04-wantsPlay.png",
+      "sha256": "ab7449567ce048c585492552921e71cb0b0989482c6967f599bd5c16876a8c58",
+      "verdict": "ACCEPT",
+      "notes": "明るい開眼と上がる眉、笑い開口で遊びたい。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/04-sleeping.png",
+      "sha256": "7608cf83028c9fcf82b1e70e44a15d4583eed9ec55e6368c8d7e4ab3d1b0016e",
+      "verdict": "ACCEPT",
+      "notes": "弛んだ閉じ目、安らかな小さな口で睡眠。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+    },
+    {
+      "stage": "05",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/05-happy.png",
+      "sha256": "1874978d3a178ee95253c13d17556486e1029a39135dcb5973c776dbc1f5cf5e",
+      "verdict": "ACCEPT",
+      "notes": "Closed happy arcs and broad smiling mouth visibly lift the face. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/05-strained.png",
+      "sha256": "23d1839d65adb9c3566dea12095620a5e5a865d3848289c2aa49d9db06ae195c",
+      "verdict": "ACCEPT",
+      "notes": "Raised inner brows and uneven small smile read hesitant; mouth difference from original is subtle at native size. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/05-hungry.png",
+      "sha256": "a5ba48f23b053457a7c5e08f5390a59db690875f6245b2c3919e3da9b165c745",
+      "verdict": "ACCEPT",
+      "notes": "Plaintive raised brows and round open mouth read longing. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/05-sick.png",
+      "sha256": "8d49e6ecf35d5c1fd270e0af5c43b841278c560d99d575eaf52a54059aa58e25",
+      "verdict": "ACCEPT",
+      "notes": "Uneven drooping lids, worried brows and downturned mouth read unwell. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/05-tired.png",
+      "sha256": "bec6ba3618aa682455ba133e8a285c081053dc192a403ba40a1e238d626153bc",
+      "verdict": "ACCEPT",
+      "notes": "Heavy half lids and small neutral mouth read tired. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/05-sulky.png",
+      "sha256": "01ed83dd86691bff5fa51238158aefdeab9ad0d449cd7b64a1a108e673c92826",
+      "verdict": "ACCEPT",
+      "notes": "Inward frown brows and pursed mouth read displeased. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/05-weak.png",
+      "sha256": "eb9f99717512ff79bfeacacb07c0d56fd5814d0fc8289ee1823a00c19d5470b5",
+      "verdict": "ACCEPT",
+      "notes": "Nearly closed drooping eyes and small frown read depleted. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/05-critical.png",
+      "sha256": "bc894f39bcd5e8389d9637334059c44714f1845f728a0217a6d8438c51c1aa09",
+      "verdict": "ACCEPT",
+      "notes": "Closed strained eyes and small open grimace distinguish it from weak on enlargement. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/05-wantsPlay.png",
+      "sha256": "245d118b2f5582fbf7659d6d24a47742f3498afbd1fbc9703687be0b00ee954d",
+      "verdict": "ACCEPT",
+      "notes": "Wide sparkling eyes and broad open smile read excited. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "05",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/05-sleeping.png",
+      "sha256": "6f88b8024825b739640e1395a7c004c4b17ebae0bb84655b39638c6bb7056fa1",
+      "verdict": "ACCEPT",
+      "notes": "Closed smooth eye arcs and relaxed curved mouth read peaceful sleep. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "06",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/06-happy.png",
+      "sha256": "523d880be8c9e51b3f122ab44eee7b77cb3ec517541cc10614e038aa08e86f64",
+      "verdict": "ACCEPT",
+      "notes": "Raised crescent eyes and open smiling mouth read cheerful. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/06-strained.png",
+      "sha256": "dce204564198ea76f6a519fa530171c4e69b0f49d294022caa06f8b2a9344827",
+      "verdict": "ACCEPT",
+      "notes": "Uneven hesitant smile and inward-raised worried brows read uneasy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/06-hungry.png",
+      "sha256": "757522af72320af49a485f317d5d31c40178845de5957edf24ed4b1438e51418",
+      "verdict": "ACCEPT",
+      "notes": "Round open mouth and plaintive eyes differ from the broader wantsPlay smile. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/06-sick.png",
+      "sha256": "cd2d266b9ef3837e7384c1d50e36422c1cea9c68ac678bfd1a1bc6fa25dadf99",
+      "verdict": "ACCEPT",
+      "notes": "Half-closed eyes, inner-raised brows and frown read unwell. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/06-tired.png",
+      "sha256": "24ef88d2b4e913ba1a63ba1505dde59a300964cdfb117e717d65f7e2c873030c",
+      "verdict": "ACCEPT",
+      "notes": "Horizontal heavy lids, level brows and short flat mouth read sleepy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/06-sulky.png",
+      "sha256": "0efb4a87b7ecba701cf9fa202c0ee6033bb6763d127152669e14328cbe382eee",
+      "verdict": "ACCEPT",
+      "notes": "Angled eyes and pursed frown read displeased. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/06-weak.png",
+      "sha256": "a5cf1cdd491c62e39efe6c29020edd7747cf6b18f8798db3159607f2e54e0fe0",
+      "verdict": "ACCEPT",
+      "notes": "Drooping narrowed lids and small frown read low energy; close to sick at native size. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/06-critical.png",
+      "sha256": "e4df520e64a49828650416f5cf0831adcd2dbeba268d31c2a13385be91890c26",
+      "verdict": "ACCEPT",
+      "notes": "Closed strained eyes and open grimace read greater distress than weak. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/06-wantsPlay.png",
+      "sha256": "343660f0cb9dee26a9cf6df6721d7319cd429dba60c3db524ba39cd2cf1ab73f",
+      "verdict": "ACCEPT",
+      "notes": "Wide highlighted eyes, lifted brows and broad open smile read eager. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "06",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/06-sleeping.png",
+      "sha256": "35d4d636c7170be2a7e8def473f030679d2408daf11838b963d1206bbad2abfc",
+      "verdict": "ACCEPT",
+      "notes": "Smooth closed eyes and relaxed small smile read rest. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+    },
+    {
+      "stage": "07",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/07-happy.png",
+      "sha256": "ad8946c2c0b59af34aacc18c2b8372342623f9d8bd29141da5e22b04165d86b1",
+      "verdict": "ACCEPT",
+      "notes": "Raised crescent eyes and open smiling mouth read cheerful; repaired ear, bowed posture and tail remain one teddy. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/07-strained.png",
+      "sha256": "0e8e5353892a2ddc60b5efeefdde6756e186e2cc117f72a0437fdb25fedb876e",
+      "verdict": "ACCEPT",
+      "notes": "Uneven worried brows, narrow uneasy eyes and small hesitant smile distinguish it from happy. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/07-hungry.png",
+      "sha256": "d0013b53995e488319bb09520f339e876aef62796f97df6a84f0d7d4a905f547",
+      "verdict": "ACCEPT",
+      "notes": "Open plaintive eyes and small round mouth read longing; no added food or symbols. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/07-sick.png",
+      "sha256": "3889a68b1ec21c0ad430deafe3be7dfc8d715c29181f5bbcd3a2fbdf3247a08b",
+      "verdict": "ACCEPT",
+      "notes": "Pinched eyes and zigzag uncomfortable mouth clearly show distress. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/07-tired.png",
+      "sha256": "0eb25bdd6aea4915aabb8f8978512d80e69ce985ddaa4cda2bd1c3468218a1b2",
+      "verdict": "ACCEPT",
+      "notes": "Half-lidded eyes and short flat mouth read sleepy exhaustion. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/07-sulky.png",
+      "sha256": "566a51b3e9cb3d410edc2b6bc3d6e5c2a8d37096e9a7eabd22dbfcd500442c6f",
+      "verdict": "ACCEPT",
+      "notes": "Inward-slanting eyes with tiny downturned mouth read a pout. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/07-weak.png",
+      "sha256": "6cc0c11de16c5e71b9438ae4f1eaff175d72cf651e38c4d37737ac1552971a1c",
+      "verdict": "ACCEPT",
+      "notes": "Drooping lids, worried inner brows and downturned mouth read low strength. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/07-critical.png",
+      "sha256": "633cb4b59ee82fd41b20f11e95a2d6a36e170de2b1cf3047071d9507298606b1",
+      "verdict": "ACCEPT",
+      "notes": "Closed pained eyes and open grimace are stronger than weak. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/07-wantsPlay.png",
+      "sha256": "33069bbb5b38016b7f66507b2bef7080cc819f812716b073e7ad565044ae6a08",
+      "verdict": "ACCEPT",
+      "notes": "Wide bright eyes, lifted brows and large open smile read eager. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "07",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/07-sleeping.png",
+      "sha256": "de8463229d467d539f830878d81ca8b30ecd85c57b1a9e0ea37cab8be2c5c6f8",
+      "verdict": "ACCEPT",
+      "notes": "Smooth closed eye arcs and small relaxed mouth read rest; original slumped pose is retained. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+    },
+    {
+      "stage": "08",
+      "state": "happy",
+      "path": "assets/characters/expressions/plush/08-happy.png",
+      "sha256": "06a7cdb57967b37d6dce2ad01fdc395599572a0e2e2f2d4655fa21b81d1a5ee1",
+      "verdict": "ACCEPT",
+      "notes": "Lifted happy arcs and smiling open mouth read cheerful. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "strained",
+      "path": "assets/characters/expressions/plush/08-strained.png",
+      "sha256": "966bdf2881b0ad91b37740f0afc9d1912201900648241634b49229f98ced1a59",
+      "verdict": "ACCEPT",
+      "notes": "Worried brows, uneven half-open eyes and hesitant smile read uneasy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "hungry",
+      "path": "assets/characters/expressions/plush/08-hungry.png",
+      "sha256": "adca291e2a3ade7b5bfa88fd8193beae31d076f98447417ae53565a0b6063d91",
+      "verdict": "ACCEPT",
+      "notes": "Plaintive open eyes and small round mouth read longing. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "sick",
+      "path": "assets/characters/expressions/plush/08-sick.png",
+      "sha256": "20b518ea7abf7aaa6771717b92d07dca0bd4d95c3c9d21d2a337d2fd76fe8a69",
+      "verdict": "ACCEPT",
+      "notes": "Squeezed eyes and zigzag mouth read discomfort. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "tired",
+      "path": "assets/characters/expressions/plush/08-tired.png",
+      "sha256": "55e4a4585cdbc928fbc0ddcd8a5141159649055d96cbddc765830088fc1382e7",
+      "verdict": "ACCEPT",
+      "notes": "Heavy half-lids and short relaxed mouth read drowsy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "sulky",
+      "path": "assets/characters/expressions/plush/08-sulky.png",
+      "sha256": "aa1c58dd5a9e161d239a411263d27dc5ab6a30bea8166527287c1607e6573925",
+      "verdict": "ACCEPT",
+      "notes": "Angled brows and flat pursed mouth read displeased. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "weak",
+      "path": "assets/characters/expressions/plush/08-weak.png",
+      "sha256": "98291c2f676d5695262f33425e2d03100e7fd9e9dcb71616df2cc679a5cacf68",
+      "verdict": "ACCEPT",
+      "notes": "Drooping eyelids, worried brows and small frown read low energy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "critical",
+      "path": "assets/characters/expressions/plush/08-critical.png",
+      "sha256": "67fb6d029e516c9a0022a671558a386628bf7cacd085252e6a14759ffe49ad6e",
+      "verdict": "ACCEPT",
+      "notes": "Pained closed eyes and open grimace read stronger distress than weak. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/plush/08-wantsPlay.png",
+      "sha256": "df784efa7b9112ecdffa0c166ca0ec0fe28234ea45446997292afb21594021e8",
+      "verdict": "ACCEPT",
+      "notes": "Bright wide eyes and broad smile clearly read excitement. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    },
+    {
+      "stage": "08",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/plush/08-sleeping.png",
+      "sha256": "5641565097e96bef3202afa0b38d5fdf8c914d6027b6d74876c9a29f640ff4e8",
+      "verdict": "ACCEPT",
+      "notes": "Smooth closed eyes and tiny round mouth read peaceful sleep. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+    }
+  ],
+  "stage_reviews": [
+    {
+      "stage": "01",
+      "review": {
+        "stage": "01",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "01",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/01-happy.png",
+            "sha256": "83f4f48f799696f4a4c33ddfcf856d78c4622c8dd45d504915755dc6ce99a682",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と開いた笑い口で喜び。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/01-strained.png",
+            "sha256": "58118d3b086b7d47c8945628cdf8ed19a9f5cb18ac751e2afcc16c0eb2732270",
+            "verdict": "ACCEPT",
+            "notes": "困り眉、控えめな開眼と片側に上がる小さな口端で遠慮笑い。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/01-hungry.png",
+            "sha256": "f7bfcc550b90dbdef0887461df609edd0829145465ac108cc6cbdf6cf609d438",
+            "verdict": "ACCEPT",
+            "notes": "期待する開眼、困り眉と丸い開口で空腹の訴え。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/01-sick.png",
+            "sha256": "bb720565999c8e29c84e7bfb13196a36d4d36b4000070be98fd040a0d1571447",
+            "verdict": "ACCEPT",
+            "notes": "絞った目と困り眉、波状の閉じ口で病気の不調。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/01-tired.png",
+            "sha256": "bfb3561b81c8292853259cc98bf30d83e8818690938682d4d88fa9eeff196b85",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目とあくびの開口で疲れ・眠気。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/01-sulky.png",
+            "sha256": "fd02ebdd86c6648ac092faaabce155ff788a91b136a117db14e86e872f7f5b92",
+            "verdict": "ACCEPT",
+            "notes": "不満げな低い眉と横目、下がる口で拗ね。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/01-weak.png",
+            "sha256": "fab1ffcbf982d2b45edef9641b2d6b6c05147c5501e60f87cbd681412efd2657",
+            "verdict": "ACCEPT",
+            "notes": "力ない半閉じ目と上がる眉中央、下がった小さな口で弱り。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/01-critical.png",
+            "sha256": "56d2ea7532266f1ebef475b2bc0ecf8a91cfaa2250980b319a0bd70306d5a53e",
+            "verdict": "ACCEPT",
+            "notes": "強く閉じた目眉と大きく歪む開口で強い不調。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/01-wantsPlay.png",
+            "sha256": "27084127ac3e28095c12cc0f75902404bd97d7221bf56aafafdddfebb8ec5ad9",
+            "verdict": "ACCEPT",
+            "notes": "大きい開眼と明るい開口で遊びの誘い。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/01-sleeping.png",
+            "sha256": "e59e982897c446177260ef2475bdb3dc424143a5cd1082e6aae73b1148541800",
+            "verdict": "ACCEPT",
+            "notes": "安らかな閉じ目と小さな口で睡眠。 原寸・個別6倍で元画像と対照。丸耳・白い口元/足裏・赤蝶結び・新品の無傷身体・座位を保持。非顔の生成微差はあるが構造変更や新マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison sheet and individually at nearest-neighbor6x; original reviewed native and6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "weak/strainedは似た目眉だが、下がる口と控えめな笑い口で区別可能。",
+          "hungryのお願い顔は単独では汎用的な期待/訴えにも読めるため、既存空腹マークと併読する。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "02",
+      "review": {
+        "stage": "02",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "02",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/02-happy.png",
+            "sha256": "c9ba43aa40ba66b4f1df0a2b16fee74b075262333c5194fe86a814f4f5f0849b",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/02-strained.png",
+            "sha256": "5f6cdc6be1e73d962aa9307e75381085ae19c29c23a8bf5279047c61e166f40f",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と控えめに上がる片側の口端で遠慮笑い。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/02-hungry.png",
+            "sha256": "8b181147b4bd207507a450a3fcc2c6cf0723e3badd7bb70845857991135971ad",
+            "verdict": "ACCEPT",
+            "notes": "期待する輝く開眼、困り眉と丸い小開口で空腹の訴え。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/02-sick.png",
+            "sha256": "c7e46b3585a3fc7c78af7d6b0cdcd041a544770f9869399204afbfac9420e7c5",
+            "verdict": "ACCEPT",
+            "notes": "絞った目と困り眉、波状の口で病気の不調。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/02-tired.png",
+            "sha256": "acc256e396cc7ca11064af78176aab568e64c10c1480b3174a5ce9b19a3138b6",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目とあくびの開口で疲れ・眠気。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/02-sulky.png",
+            "sha256": "96461545f56f0c5d90ff245540df6f110451bb67e650611b2d95c5d6118c0e3b",
+            "verdict": "ACCEPT",
+            "notes": "低い眉と横目、下がった口で拗ね。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/02-weak.png",
+            "sha256": "ab8b9125770aa5ae0f6fe65031bf6efae726d770724c3212522197ec243283db",
+            "verdict": "ACCEPT",
+            "notes": "低く重い瞼と困り眉、下がる口で弱り。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/02-critical.png",
+            "sha256": "3ba123c4e8d09998cd85d112eaff0db8bd4900567098d1e9ee41d6327191081c",
+            "verdict": "ACCEPT",
+            "notes": "強く閉じた目、寄った眉と歪んだ開口で強い不調。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/02-wantsPlay.png",
+            "sha256": "c9a7d9bea030f906500d2328562f5237b5f9a93891cc1e45377b6a7e763efd64",
+            "verdict": "ACCEPT",
+            "notes": "開いた目と上がる眉、大きい笑い口で遊びの誘い。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/02-sleeping.png",
+            "sha256": "01c5d3430f6c3baad92ccdd3fb7f24c4327c75b6378e1a1bf2ae74b1aed8b894",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と穏やかな小口で睡眠。 原寸・個別6倍で元画像と対照。単一身体単一顔、首の傾き、上げた片腕、座位、丸耳、赤蝶結び、白い口元と足裏を保持。非顔生成微差あり、別個体/新マーク/構造変更なし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison sheet and individually at nearest-neighbor6x; original reviewed native and6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "sick/criticalは絞った目と波状の口が共通し、原寸では強度差が控えめ。危険と病気の既存別マークを合わせて読む。",
+          "hungryは一般的な期待/お願い顔にも読めるため既存空腹マークと併読する。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "03",
+      "review": {
+        "stage": "03",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "03",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/03-happy.png",
+            "sha256": "ec0d6f732a653fc9604477959d32175ca671d894a721949a14a8a332db0acbe1",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と大きな笑い口で喜び。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/03-strained.png",
+            "sha256": "7e5c0602781a344bca240b9cfba21151c1a534e757137929d66885b6d2a493bb",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と小さく上がる口端で遠慮がちな笑い。強い苦痛ではない。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/03-hungry.png",
+            "sha256": "55cd66971df4b1d9ceb43fa59f23fca356dfb2dc802772583024b867ed7cdeab",
+            "verdict": "ACCEPT",
+            "notes": "内側の上がった眉と期待の大きい目、丸い開口で空腹の訴え。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/03-sick.png",
+            "sha256": "7ed9191e6ea64e4d4ef5dde5793b02c5af3ba0c7b98ecde4bb1b9885bd2cae7c",
+            "verdict": "ACCEPT",
+            "notes": "寄った眉、きつく閉じた目と下がる開口で病気の不調。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/03-tired.png",
+            "sha256": "b25d5259eaf951422ded2f9c7a15d69b72439316eb7fbf44be22d99d628f8421",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目と平たく小さい口で疲れ。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/03-sulky.png",
+            "sha256": "5a14ae2b0d5e4cc8bc2ebcfd152688e38a0d8bcfab7072fdbc79e588153adea5",
+            "verdict": "ACCEPT",
+            "notes": "下がる眉・横向きに狭まる目とへの字口で不満。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/03-weak.png",
+            "sha256": "029843527bb0da92d1cae763decabf83afed66243d953b305696f28375f9334d",
+            "verdict": "ACCEPT",
+            "notes": "力なく閉じる目と困り眉、小さな下がる口で弱り。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/03-critical.png",
+            "sha256": "04f77255f94827d4cf31eb0f0a34ea16d5fa3eda7c4abeba660ed602b62d82cd",
+            "verdict": "ACCEPT",
+            "notes": "苦しげに絞る目眉と波状の口で強い不調。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/03-wantsPlay.png",
+            "sha256": "fb733dd56fa604efab8ab9821af6941b76f4a4b2df28aa6a83fc7e5851f549b5",
+            "verdict": "ACCEPT",
+            "notes": "大きく開いた輝く目と笑い開口で遊びの誘い。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          },
+          {
+            "stage": "03",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/03-sleeping.png",
+            "sha256": "07dab9faf8d2c9a889721f010af3eec667c9252fe58b3f9f6220728ed4393a75",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目と小さな安らかな口で睡眠。 原寸・個別6倍で元画像と対照確認。単一身体・単一顔、抱えた大ハートと上方の小ハート、座位と傾きを保持。非顔領域の生成微差はあるが別個体/新マーク/構造変更なし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison sheet and individually at nearest-neighbor6x; original reviewed native and6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "sickとcriticalはいずれも苦しげな閉じ目で、原寸では強さの差が控えめ。別レイヤーの既存マークを合わせて判別する。",
+          "元の二つのハートは不調・睡眠でも保持する装飾であり、顔の状態意味とは分けて評価した。",
+          "strainedの笑いは小さく、原寸では困り顔が先に読めるが口端の控えめな笑みを確認。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "04",
+      "review": {
+        "stage": "04",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "04",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/04-happy.png",
+            "sha256": "cc2c16d507d7669b31141a602ec40bda6743fc34b3cc353bb6a5448ea3fde533",
+            "verdict": "ACCEPT",
+            "notes": "上向き閉じ目と開いた笑い口で喜び。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/04-strained.png",
+            "sha256": "088eebe23c731bf0e5ede45c1199db5c9e856f5f7e9fa6313f98c98ac75a22b9",
+            "verdict": "ACCEPT",
+            "notes": "困り眉と控えめな笑い口で遠慮。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/04-hungry.png",
+            "sha256": "e792d2a770f43eda9ae206dd62b69f1983c97689d0fe94738f8e1a3453d94b75",
+            "verdict": "ACCEPT",
+            "notes": "訴える開眼と困り眉、丸い開口で空腹。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/04-sick.png",
+            "sha256": "038aed91d3d97ca8e70a0af03fac10a8c02c71b4deb3d6b8bd57510cac0d24ca",
+            "verdict": "ACCEPT",
+            "notes": "絞った目と寄る眉、大きく下がる開口で病気の苦しさ。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/04-tired.png",
+            "sha256": "9a574c14132f5231575c0b292ac95570a703065ff8df51ba604480947f534c43",
+            "verdict": "ACCEPT",
+            "notes": "低い半閉じ目と小さな平たい口で疲れ。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/04-sulky.png",
+            "sha256": "a7c8ef245fa0b850bdb1181681b19f5d88f3ae3e6aaf566781a4cba610ffd591",
+            "verdict": "ACCEPT",
+            "notes": "低く内側へ寄る眉と目、への字口で不満。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/04-weak.png",
+            "sha256": "e8fb57334bd740e5153a3abc3413069f2e945b34f9dca3e1aded53a82200a589",
+            "verdict": "ACCEPT",
+            "notes": "力なく閉じた目と短い困り眉、小さい下がる口で弱り。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/04-critical.png",
+            "sha256": "44d1010a458074aa7d4fad634c78db9b1c5e10a9cf1a8b8d373700a8f38acd15",
+            "verdict": "ACCEPT",
+            "notes": "長めに寄る困り眉、力なく閉じる目と歪んだ口で危険時の衰弱。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/04-wantsPlay.png",
+            "sha256": "ab7449567ce048c585492552921e71cb0b0989482c6967f599bd5c16876a8c58",
+            "verdict": "ACCEPT",
+            "notes": "明るい開眼と上がる眉、笑い開口で遊びたい。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          },
+          {
+            "stage": "04",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/04-sleeping.png",
+            "sha256": "7608cf83028c9fcf82b1e70e44a15d4583eed9ec55e6368c8d7e4ab3d1b0016e",
+            "verdict": "ACCEPT",
+            "notes": "弛んだ閉じ目、安らかな小さな口で睡眠。 原寸・個別6倍で元画像と対照。額中央と胴の縫い目、赤蝶結び、身体・座位・摩耗の段階特徴を保持。元winkは表情変更可能な目として扱う。非顔生成微差あり、新身体/マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison sheet and individually at nearest-neighbor6x; original reviewed native and6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "criticalとweakはいずれも目を閉じた衰弱で、眉・口の差は原寸では控えめ。criticalは派手な苦痛でなく気力の落ちた表現で、既存危険マークと合わせて読む。",
+          "顔中央に元の縫い目があるため眉付近がやや密だが、全10で縫い目と左右の目を識別可能。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "05",
+      "review": {
+        "reviewer": "plush_integration (not PNG creator)",
+        "scope": "PNG expressions only, not generated mark placement",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "stage": "05",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/05-happy.png",
+            "sha256": "1874978d3a178ee95253c13d17556486e1029a39135dcb5973c776dbc1f5cf5e",
+            "verdict": "ACCEPT",
+            "notes": "Closed happy arcs and broad smiling mouth visibly lift the face. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/05-strained.png",
+            "sha256": "23d1839d65adb9c3566dea12095620a5e5a865d3848289c2aa49d9db06ae195c",
+            "verdict": "ACCEPT",
+            "notes": "Raised inner brows and uneven small smile read hesitant; mouth difference from original is subtle at native size. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/05-hungry.png",
+            "sha256": "a5ba48f23b053457a7c5e08f5390a59db690875f6245b2c3919e3da9b165c745",
+            "verdict": "ACCEPT",
+            "notes": "Plaintive raised brows and round open mouth read longing. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/05-sick.png",
+            "sha256": "8d49e6ecf35d5c1fd270e0af5c43b841278c560d99d575eaf52a54059aa58e25",
+            "verdict": "ACCEPT",
+            "notes": "Uneven drooping lids, worried brows and downturned mouth read unwell. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/05-tired.png",
+            "sha256": "bec6ba3618aa682455ba133e8a285c081053dc192a403ba40a1e238d626153bc",
+            "verdict": "ACCEPT",
+            "notes": "Heavy half lids and small neutral mouth read tired. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/05-sulky.png",
+            "sha256": "01ed83dd86691bff5fa51238158aefdeab9ad0d449cd7b64a1a108e673c92826",
+            "verdict": "ACCEPT",
+            "notes": "Inward frown brows and pursed mouth read displeased. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/05-weak.png",
+            "sha256": "eb9f99717512ff79bfeacacb07c0d56fd5814d0fc8289ee1823a00c19d5470b5",
+            "verdict": "ACCEPT",
+            "notes": "Nearly closed drooping eyes and small frown read depleted. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/05-critical.png",
+            "sha256": "bc894f39bcd5e8389d9637334059c44714f1845f728a0217a6d8438c51c1aa09",
+            "verdict": "ACCEPT",
+            "notes": "Closed strained eyes and small open grimace distinguish it from weak on enlargement. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/05-wantsPlay.png",
+            "sha256": "245d118b2f5582fbf7659d6d24a47742f3498afbd1fbc9703687be0b00ee954d",
+            "verdict": "ACCEPT",
+            "notes": "Wide sparkling eyes and broad open smile read excited. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "05",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/05-sleeping.png",
+            "sha256": "6f88b8024825b739640e1395a7c004c4b17ebae0bb84655b39638c6bb7056fa1",
+            "verdict": "ACCEPT",
+            "notes": "Closed smooth eye arcs and relaxed curved mouth read peaceful sleep. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          }
+        ],
+        "readabilitylimits": [
+          "At 128px the tired/weak/sick distinctions rely on small eyelid, brow and mouth changes; 6x confirms distinct configurations.",
+          "Facial intensity can be subtle at native size; full runtime marks remain necessary context.",
+          "Existing white cotton tufts remain stuffing, not extra faces or creatures; 05 critical/weak distinction is modest at native size."
+        ]
+      }
+    },
+    {
+      "stage": "06",
+      "review": {
+        "reviewer": "plush_integration (not PNG creator)",
+        "scope": "PNG expressions only, not generated mark placement",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "stage": "06",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/06-happy.png",
+            "sha256": "523d880be8c9e51b3f122ab44eee7b77cb3ec517541cc10614e038aa08e86f64",
+            "verdict": "ACCEPT",
+            "notes": "Raised crescent eyes and open smiling mouth read cheerful. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/06-strained.png",
+            "sha256": "dce204564198ea76f6a519fa530171c4e69b0f49d294022caa06f8b2a9344827",
+            "verdict": "ACCEPT",
+            "notes": "Uneven hesitant smile and inward-raised worried brows read uneasy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/06-hungry.png",
+            "sha256": "757522af72320af49a485f317d5d31c40178845de5957edf24ed4b1438e51418",
+            "verdict": "ACCEPT",
+            "notes": "Round open mouth and plaintive eyes differ from the broader wantsPlay smile. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/06-sick.png",
+            "sha256": "cd2d266b9ef3837e7384c1d50e36422c1cea9c68ac678bfd1a1bc6fa25dadf99",
+            "verdict": "ACCEPT",
+            "notes": "Half-closed eyes, inner-raised brows and frown read unwell. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/06-tired.png",
+            "sha256": "24ef88d2b4e913ba1a63ba1505dde59a300964cdfb117e717d65f7e2c873030c",
+            "verdict": "ACCEPT",
+            "notes": "Horizontal heavy lids, level brows and short flat mouth read sleepy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/06-sulky.png",
+            "sha256": "0efb4a87b7ecba701cf9fa202c0ee6033bb6763d127152669e14328cbe382eee",
+            "verdict": "ACCEPT",
+            "notes": "Angled eyes and pursed frown read displeased. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/06-weak.png",
+            "sha256": "a5cf1cdd491c62e39efe6c29020edd7747cf6b18f8798db3159607f2e54e0fe0",
+            "verdict": "ACCEPT",
+            "notes": "Drooping narrowed lids and small frown read low energy; close to sick at native size. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/06-critical.png",
+            "sha256": "e4df520e64a49828650416f5cf0831adcd2dbeba268d31c2a13385be91890c26",
+            "verdict": "ACCEPT",
+            "notes": "Closed strained eyes and open grimace read greater distress than weak. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/06-wantsPlay.png",
+            "sha256": "343660f0cb9dee26a9cf6df6721d7319cd429dba60c3db524ba39cd2cf1ab73f",
+            "verdict": "ACCEPT",
+            "notes": "Wide highlighted eyes, lifted brows and broad open smile read eager. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          },
+          {
+            "stage": "06",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/06-sleeping.png",
+            "sha256": "35d4d636c7170be2a7e8def473f030679d2408daf11838b963d1206bbad2abfc",
+            "verdict": "ACCEPT",
+            "notes": "Smooth closed eyes and relaxed small smile read rest. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face, blue patchwork and bow retained, no added marks."
+          }
+        ],
+        "readabilitylimits": [
+          "Sick and weak have very close facial vocabulary at 128px; eyelid opening/brow/mouth differences are clearer at 6x, and runtime status marks provide essential context.",
+          "Small worried brow and mouth details are subtle at native size."
+        ]
+      }
+    },
+    {
+      "stage": "07",
+      "review": {
+        "reviewer": "plush_integration (not PNG creator)",
+        "scope": "PNG expressions only, not generated mark placement",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "stage": "07",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/07-happy.png",
+            "sha256": "ad8946c2c0b59af34aacc18c2b8372342623f9d8bd29141da5e22b04165d86b1",
+            "verdict": "ACCEPT",
+            "notes": "Raised crescent eyes and open smiling mouth read cheerful; repaired ear, bowed posture and tail remain one teddy. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/07-strained.png",
+            "sha256": "0e8e5353892a2ddc60b5efeefdde6756e186e2cc117f72a0437fdb25fedb876e",
+            "verdict": "ACCEPT",
+            "notes": "Uneven worried brows, narrow uneasy eyes and small hesitant smile distinguish it from happy. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/07-hungry.png",
+            "sha256": "d0013b53995e488319bb09520f339e876aef62796f97df6a84f0d7d4a905f547",
+            "verdict": "ACCEPT",
+            "notes": "Open plaintive eyes and small round mouth read longing; no added food or symbols. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/07-sick.png",
+            "sha256": "3889a68b1ec21c0ad430deafe3be7dfc8d715c29181f5bbcd3a2fbdf3247a08b",
+            "verdict": "ACCEPT",
+            "notes": "Pinched eyes and zigzag uncomfortable mouth clearly show distress. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/07-tired.png",
+            "sha256": "0eb25bdd6aea4915aabb8f8978512d80e69ce985ddaa4cda2bd1c3468218a1b2",
+            "verdict": "ACCEPT",
+            "notes": "Half-lidded eyes and short flat mouth read sleepy exhaustion. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/07-sulky.png",
+            "sha256": "566a51b3e9cb3d410edc2b6bc3d6e5c2a8d37096e9a7eabd22dbfcd500442c6f",
+            "verdict": "ACCEPT",
+            "notes": "Inward-slanting eyes with tiny downturned mouth read a pout. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/07-weak.png",
+            "sha256": "6cc0c11de16c5e71b9438ae4f1eaff175d72cf651e38c4d37737ac1552971a1c",
+            "verdict": "ACCEPT",
+            "notes": "Drooping lids, worried inner brows and downturned mouth read low strength. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/07-critical.png",
+            "sha256": "633cb4b59ee82fd41b20f11e95a2d6a36e170de2b1cf3047071d9507298606b1",
+            "verdict": "ACCEPT",
+            "notes": "Closed pained eyes and open grimace are stronger than weak. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/07-wantsPlay.png",
+            "sha256": "33069bbb5b38016b7f66507b2bef7080cc819f812716b073e7ad565044ae6a08",
+            "verdict": "ACCEPT",
+            "notes": "Wide bright eyes, lifted brows and large open smile read eager. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          },
+          {
+            "stage": "07",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/07-sleeping.png",
+            "sha256": "de8463229d467d539f830878d81ca8b30ecd85c57b1a9e0ea37cab8be2c5c6f8",
+            "verdict": "ACCEPT",
+            "notes": "Smooth closed eye arcs and small relaxed mouth read rest; original slumped pose is retained. Independently viewed final PNG at native 128x128 and nearest-neighbor 6x; single body and face, no added emotion marks."
+          }
+        ],
+        "readabilitylimits": [
+          "At 128px the tired/weak/sick distinctions rely on small eyelid, brow and mouth changes; 6x confirms distinct configurations.",
+          "Facial intensity can be subtle at native size; full runtime marks remain necessary context."
+        ]
+      }
+    },
+    {
+      "stage": "08",
+      "review": {
+        "reviewer": "plush_integration (not PNG creator)",
+        "scope": "PNG expressions only, not generated mark placement",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "stage": "08",
+            "state": "happy",
+            "path": "assets/characters/expressions/plush/08-happy.png",
+            "sha256": "06a7cdb57967b37d6dce2ad01fdc395599572a0e2e2f2d4655fa21b81d1a5ee1",
+            "verdict": "ACCEPT",
+            "notes": "Lifted happy arcs and smiling open mouth read cheerful. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "strained",
+            "path": "assets/characters/expressions/plush/08-strained.png",
+            "sha256": "966bdf2881b0ad91b37740f0afc9d1912201900648241634b49229f98ced1a59",
+            "verdict": "ACCEPT",
+            "notes": "Worried brows, uneven half-open eyes and hesitant smile read uneasy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "hungry",
+            "path": "assets/characters/expressions/plush/08-hungry.png",
+            "sha256": "adca291e2a3ade7b5bfa88fd8193beae31d076f98447417ae53565a0b6063d91",
+            "verdict": "ACCEPT",
+            "notes": "Plaintive open eyes and small round mouth read longing. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "sick",
+            "path": "assets/characters/expressions/plush/08-sick.png",
+            "sha256": "20b518ea7abf7aaa6771717b92d07dca0bd4d95c3c9d21d2a337d2fd76fe8a69",
+            "verdict": "ACCEPT",
+            "notes": "Squeezed eyes and zigzag mouth read discomfort. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "tired",
+            "path": "assets/characters/expressions/plush/08-tired.png",
+            "sha256": "55e4a4585cdbc928fbc0ddcd8a5141159649055d96cbddc765830088fc1382e7",
+            "verdict": "ACCEPT",
+            "notes": "Heavy half-lids and short relaxed mouth read drowsy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "sulky",
+            "path": "assets/characters/expressions/plush/08-sulky.png",
+            "sha256": "aa1c58dd5a9e161d239a411263d27dc5ab6a30bea8166527287c1607e6573925",
+            "verdict": "ACCEPT",
+            "notes": "Angled brows and flat pursed mouth read displeased. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "weak",
+            "path": "assets/characters/expressions/plush/08-weak.png",
+            "sha256": "98291c2f676d5695262f33425e2d03100e7fd9e9dcb71616df2cc679a5cacf68",
+            "verdict": "ACCEPT",
+            "notes": "Drooping eyelids, worried brows and small frown read low energy. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "critical",
+            "path": "assets/characters/expressions/plush/08-critical.png",
+            "sha256": "67fb6d029e516c9a0022a671558a386628bf7cacd085252e6a14759ffe49ad6e",
+            "verdict": "ACCEPT",
+            "notes": "Pained closed eyes and open grimace read stronger distress than weak. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/plush/08-wantsPlay.png",
+            "sha256": "df784efa7b9112ecdffa0c166ca0ec0fe28234ea45446997292afb21594021e8",
+            "verdict": "ACCEPT",
+            "notes": "Bright wide eyes and broad smile clearly read excitement. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          },
+          {
+            "stage": "08",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/plush/08-sleeping.png",
+            "sha256": "5641565097e96bef3202afa0b38d5fdf8c914d6027b6d74876c9a29f640ff4e8",
+            "verdict": "ACCEPT",
+            "notes": "Smooth closed eyes and tiny round mouth read peaceful sleep. Independently viewed native 128px and nearest-neighbor 6x; one teddy/one face; pre-existing heart, cape and gold sparkles retained; no new expression symbols."
+          }
+        ],
+        "readabilitylimits": [
+          "Existing bright gold sparkles and red heart compete with small eye and mouth details at native size.",
+          "Tired and weak differ in brow/mouth configuration but are subtle at 128px; runtime status marks remain useful."
+        ]
+      }
+    }
+  ]
+}
