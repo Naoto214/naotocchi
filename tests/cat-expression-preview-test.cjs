@@ -351,7 +351,7 @@ test('elderDog preview uses isolated storage and the correct age stage', () => {
   assert.equal(state.hunger,40);
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown']) {
   test(`${species} preview exposes every stage and never accesses real saves`, () => {
     const html=buildPreview({preset:'sick'});
     for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
@@ -664,5 +664,19 @@ test('plush preview uses all eight canonical stage names',()=>{
  assert.equal(state.speciesLine,'plush');
  assert.equal(state.stageIndex,7);
  assert.equal(state.hunger,40);
+ assert.deepEqual(run.calls,[]);
+});
+
+ test('unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes',()=>{
+ const names=['点','ぷる','足？','目？','羽？','でっかい？','ちっちゃい？','点……？'];
+ const context={};
+ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'character-world-master.v1.js'),'utf8')+';globalThis.master=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;',context);
+ assert.deepEqual(Array.from(context.master.playerSpecies.rare.find(item=>item.id==='unknown').stages),names);
+ assert.deepEqual(require('../tools/expression-stage-names.json').unknown,names);
+ const html=buildPreview({preset:'hungry',form:'unknown08'});
+ names.forEach((name,index)=>assert.ok(html.includes(`<option value="unknown0${index+1}"${index===7?' selected':' '}>${name}</option>`)));
+ const {state,run}=seededState(html);
+ assert.equal(state.speciesLine,'unknown');assert.equal(state.stageIndex,7);assert.equal(state.hunger,40);
+ assert.ok(state.achievementsUnlocked.includes('rare-line-1'));
  assert.deepEqual(run.calls,[]);
 });
