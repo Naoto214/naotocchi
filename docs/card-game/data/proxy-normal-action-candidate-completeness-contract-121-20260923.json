@@ -1,0 +1,289 @@
+{
+  "schema": "naotocchi.card_game.proxy_normal_action_candidate_completeness_contract.v1",
+  "checkpoint": 121,
+  "contract_version": "naotocchi.card_game.proxy_normal_action_candidate_completeness_contract.v1",
+  "status": "protocol_only_no_match_progress",
+  "source_contracts": [
+    "01-core-rules.md",
+    "02-main-system.md",
+    "06-action-chain-checkpoint.md",
+    "107-normal-decision-protocol.md",
+    "114-normal-decision-protocol-hardening.md",
+    "116-normal-decision-fallback-contract.md",
+    "119-response-window-contract.md",
+    "120-response-window-seeded-restart.md",
+    "data/proxy-normal-decision-candidate-table-114-20260918.json",
+    "data/proxy-normal-decision-hardening-114-20260918.json"
+  ],
+  "protected_sha256": {
+    "order-01-a-first": "cf22f9171b5a6f2ef5f60e83c00ef1e9bf6dd89e84aaa8d55be33d300637cf08",
+    "order-01-b-first": "b0f77de2b82574a144a4742ee0d55e830400e44f8ca9b8eeb33c76def7bc6e9d",
+    "order-02-a-first": "a2c617130f85360577014568309ab23a819ad10adb6c9710058f2651fccd421d",
+    "order-02-b-first": "1705a9ce7cc19e34e78730da8716ec9c12f33a7a284bef8fe68176b36d79f688"
+  },
+  "information_policy": "public_and_owner_known_only",
+  "source_family_registry": [
+    {
+      "family": "standing_pass",
+      "order": 1,
+      "empty_evidence_required": true
+    },
+    {
+      "family": "hand_card_action",
+      "order": 2,
+      "empty_evidence_required": true
+    },
+    {
+      "family": "board_card_action",
+      "order": 3,
+      "empty_evidence_required": true
+    },
+    {
+      "family": "reservation_action",
+      "order": 4,
+      "empty_evidence_required": true
+    },
+    {
+      "family": "normal_challenge",
+      "order": 5,
+      "empty_evidence_required": true
+    },
+    {
+      "family": "relationship_progress",
+      "order": 6,
+      "empty_evidence_required": true
+    }
+  ],
+  "enumeration_unit_schema": {
+    "fields": [
+      "enumeration_unit_id",
+      "source_family",
+      "source_id",
+      "source_zone",
+      "source_instance_id",
+      "card_id",
+      "action_type",
+      "candidate_variant",
+      "target_instance_ids",
+      "disposition",
+      "candidate_id",
+      "reason_codes",
+      "evidence",
+      "source_references"
+    ],
+    "dispositions": [
+      "admitted",
+      "excluded"
+    ]
+  },
+  "reason_code_registry": [
+    {
+      "code": "timing_not_normal_action",
+      "required_evidence_fields": [
+        "phase",
+        "template.timing"
+      ],
+      "canonical_references": [
+        "06-action-chain-checkpoint.md"
+      ]
+    },
+    {
+      "code": "insufficient_time",
+      "required_evidence_fields": [
+        "owner.time",
+        "template.base_time_cost"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "main_transition_not_legal",
+      "required_evidence_fields": [
+        "owner.board.main",
+        "card_id",
+        "candidate_variant"
+      ],
+      "canonical_references": [
+        "02-main-system.md"
+      ]
+    },
+    {
+      "code": "person_placement_limit_used",
+      "required_evidence_fields": [
+        "owner.person_placed"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "partner_slot_occupied",
+      "required_evidence_fields": [
+        "owner.board.partner"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "required_own_main_absent",
+      "required_evidence_fields": [
+        "owner.board.main"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "required_history_absent",
+      "required_evidence_fields": [
+        "owner.discard",
+        "public_history"
+      ],
+      "canonical_references": [
+        "114-normal-decision-protocol-hardening.md"
+      ]
+    },
+    {
+      "code": "required_target_absent",
+      "required_evidence_fields": [
+        "target_instance_ids",
+        "template.target_rule"
+      ],
+      "canonical_references": [
+        "114-normal-decision-protocol-hardening.md"
+      ]
+    },
+    {
+      "code": "passive_not_separate_action",
+      "required_evidence_fields": [
+        "source_zone",
+        "template.timing"
+      ],
+      "canonical_references": [
+        "06-action-chain-checkpoint.md"
+      ]
+    },
+    {
+      "code": "no_reservation_source",
+      "required_evidence_fields": [
+        "owner.reservations"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "reservation_not_due",
+      "required_evidence_fields": [
+        "owner.reservations",
+        "phase"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "challenge_participant_missing",
+      "required_evidence_fields": [
+        "owner.board.main",
+        "opponent.board.main"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "challenge_limit_used",
+      "required_evidence_fields": [
+        "owner.challenge_used"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "relationship_partner_absent",
+      "required_evidence_fields": [
+        "owner.board.partner"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "relationship_blocked_while_egg",
+      "required_evidence_fields": [
+        "owner.board.main"
+      ],
+      "canonical_references": [
+        "02-main-system.md"
+      ]
+    },
+    {
+      "code": "relationship_limit_used",
+      "required_evidence_fields": [
+        "owner.relationship_progressed"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    },
+    {
+      "code": "relationship_state_terminal",
+      "required_evidence_fields": [
+        "owner.board.partner_stage"
+      ],
+      "canonical_references": [
+        "01-core-rules.md"
+      ]
+    }
+  ],
+  "candidate_id_registry": [
+    {
+      "code": "pass",
+      "grammar": "pass"
+    },
+    {
+      "code": "birth",
+      "grammar": "candidate-play-main-{source_instance_id}-birth"
+    }
+  ],
+  "completeness_requirements": [
+    "opportunity_context_valid",
+    "source_artifact_integrity_valid",
+    "information_boundary_valid",
+    "required_source_families_present",
+    "source_inventory_complete",
+    "candidate_templates_complete",
+    "candidate_variants_complete",
+    "target_expansions_complete",
+    "canonical_predicates_resolved",
+    "dispositions_and_reasons_valid",
+    "stable_candidate_ids_valid",
+    "legal_candidate_projection_exact"
+  ],
+  "contract_stop_codes": [
+    "missing_candidate_template",
+    "duplicate_candidate_template",
+    "unsupported_source_family",
+    "unresolved_canonical_predicate",
+    "missing_state_evidence",
+    "incomplete_target_expansion",
+    "missing_exclusion_reason",
+    "missing_candidate_id_grammar",
+    "candidate_id_collision",
+    "forbidden_information_required"
+  ],
+  "scope": {
+    "planned": 0,
+    "completed": 0,
+    "stopped": 0,
+    "decision": 0,
+    "event": 0,
+    "snapshot": 0,
+    "winner": 0,
+    "independent_balance_sample": 0
+  }
+}

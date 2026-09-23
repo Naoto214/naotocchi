@@ -113,7 +113,7 @@ def check_checkpoint_119():
         checkpoint_check(checkpoint_test_count == 31, "119 dedicated test count")
     checkpoint_119_proxy_paths = [
         path for path in (DOCS / "tools").glob("test_proxy_*.py")
-        if path.name != "test_proxy_response_window_seeded_restart.py"
+        if path.name not in ("test_proxy_response_window_seeded_restart.py", "test_proxy_normal_action_candidate_completeness.py")
     ]
     proxy_count = sum(
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
@@ -284,6 +284,7 @@ def check_checkpoint_120():
         isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and
         node.name.startswith("test_")
         for path in (DOCS / "tools").glob("test_proxy_*.py")
+        if path.name != "test_proxy_normal_action_candidate_completeness.py"
         for node in ast.walk(ast.parse(path.read_text()))
     )
     checkpoint_check(proxy_count == 263, "120 total proxy test count")
@@ -3308,6 +3309,7 @@ check(readme_continuation_117 is not None and re.search(
 proxy_test_count = sum(
     isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
     for path in (DOCS / "tools").glob("test_proxy_*.py")
+    if path.name != "test_proxy_normal_action_candidate_completeness.py"
     for node in ast.walk(ast.parse(path.read_text()))
 )
 check(proxy_test_count == 263, "120 total proxy test count")
@@ -3399,7 +3401,23 @@ for file in DOCS.rglob("*.md"):
             broken_links.append(f"{file.relative_to(ROOT)} -> {target}")
 check(not broken_links, f"Broken local links: {broken_links}")
 
-result = {"proxy_test_count": proxy_test_count,
+checkpoint_121_test = DOCS / "tools/test_proxy_normal_action_candidate_completeness.py"
+checkpoint_121_tool = DOCS / "tools/proxy_normal_action_candidate_completeness.py"
+checkpoint_121_test_count = sum(
+    isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("test_")
+    for node in ast.walk(ast.parse(checkpoint_121_test.read_text()))
+) if checkpoint_121_test.is_file() else 0
+checkpoint_121_valid = False
+if checkpoint_121_tool.is_file():
+    check_result = subprocess.run(
+        [sys.executable, str(checkpoint_121_tool), "--check"],
+        capture_output=True, text=True,
+    )
+    checkpoint_121_valid = check_result.returncode == 0
+    check(checkpoint_121_valid, "121 canonical builder bytes and validator")
+check(checkpoint_121_test_count >= 27, "121 dedicated test count")
+
+result = {"proxy_test_count": proxy_test_count, "checkpoint_121": {"dedicated_test_count": checkpoint_121_test_count, "canonical_bytes_valid": checkpoint_121_valid},
                   "boundary_cross_audit": boundary_audit, "registered": {"CARD": totals[0], "HOLD": totals[1], "total": sum(totals)},
                   "games": dict(collections.Counter(g["source"] for g in games)), "main_curves": len(curves),
                   "value_10_cards": sum(10 in pair for c in curves.values() for pair in c),

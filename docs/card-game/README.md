@@ -1,12 +1,14 @@
 # なおとっちカードゲーム — 設計正本
 
-最終更新: 2026-09-22
+最終更新: 2026-09-23
 
 このディレクトリをカードゲーム設計の **Single Source of Truth** とする。再開時はGitHubの最新main・作業ブランチ・関連PRを確認し、記憶だけで既決定事項を再設計しない。
 
 ## 現在フェーズと再開地点
 
-現在は **[120 response-window再開](120-response-window-seeded-restart.md)の保存地点**。117の4 stop artifactを同一state／hash・event seq 3から独立再開し、119のresponse-window契約を適用した。planned 4・completed 0・rules-stop 4・integrity-stop 0、decision 9・event 10・snapshot 14・winner 0・独立balance標本0。`order-01-a-first`は`E-first-date`を支払い、発動者priority、双方pass、解決、1枚ドロー、そだち+5、捨て札移動まで処理した。他3経路は双方passでresponse windowを閉じた。全経路が次の通常行動候補の完全合法性を既存正本だけでは確定できず、`incomplete_legal_candidates`で真正停止した。117・119・116・112の保護対象は変更していない。次checkpointは保存済み120 stopの同一state・両hashから通常行動候補契約を整えて独立再開し、先に112へ進まない。
+現在は **[121 通常行動候補の列挙・完全性契約](121-normal-action-candidate-completeness-contract.md)** をprotocol-onlyで検証した地点。120の4停止stateから6 source familyを監査し、候補集合と12条件を独立再計算する。120の4経路はまだ再開していない。次checkpointで同じstate/hashから独立再開する。
+
+現在は **[120 response-window再開](120-response-window-seeded-restart.md)の保存地点**。117の4 stop artifactを同一state／hash・event seq 3から独立再開し、119のresponse-window契約を適用した。planned 4・completed 0・rules-stop 4・integrity-stop 0、decision 9・event 10・snapshot 14・winner 0・独立balance標本0。`order-01-a-first`は`E-first-date`を支払い、発動者priority、双方pass、解決、1枚ドロー、そだち+5、捨て札移動まで処理した。他3経路は双方passでresponse windowを閉じた。全経路が次の通常行動候補の完全合法性を既存正本だけでは確定できず、`incomplete_legal_candidates`で真正停止した。117・119・116・112の保護対象は変更していない。その通常行動候補契約を121で正本化し、4経路の再開は次checkpointに残す。
 
 履歴上、[119 response-window契約](119-response-window-contract.md)はprotocol-onlyであり、119自身は117の4経路を再開していない。119のplanned 0・completed 0・stopped 0とresponse候補監査を変更せず、120から実対戦へ適用した。
 
