@@ -454,7 +454,11 @@ test('⑤-4 みちの はっけんは 出かたが かわる だけ。ひらく 
 test('⑥-1 travelToRegion() と その ばの ボタンは 1つも かえて いない', () => {
   const src = require('node:fs').readFileSync('script.js', 'utf8');
   assert.ok(src.includes('function travelToRegion('), 'travelToRegion は のこって いる');
-  const { h } = setup('forest');
+  const { h, s } = setup('forest');
+  // じかん と てんきを とめる(テストだけ)。'auto' の ままだと じっさいの とけいから きまり、
+  // 「ひる × はれ」(じっさいの 3 じかんごとの てんき)の ときだけ きのこが ひだまりの 107 さきに 来て
+  // 「はなす」が 出る(2026-09-23 11:23 UTC の CI で 赤)。らんすうでは かわらない(たね 160 とおりで 同じ)
+  s.lifetime.timeMode = 'day'; s.lifetime.weatherMode = 'cloudy';
   const u = open(h);
   settle(h, u);
   // なにも ない ところでは その ばの ボタンは 出ない
