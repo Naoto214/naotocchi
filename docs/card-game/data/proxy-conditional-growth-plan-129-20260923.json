@@ -1,0 +1,133 @@
+{
+  "schema": "naotocchi.card_game.proxy_conditional_growth_plan.v1",
+  "checkpoint": 129,
+  "protected_128_stop_raw_sha256": {
+    "order-01-a-first": "045a6f918aad07cfeff40e020e6e1ea39954d8d12b2eff35247c21340fc7de0a",
+    "order-01-b-first": "373edaa4ce37d6cd4d8a4f2baafb79408ed697fb11f5eb5bff76a26e0c78411e",
+    "order-02-a-first": "68fc829b804cf1a0f3615561e974dcbc1439f375ef45de79896b6725a1e430dd",
+    "order-02-b-first": "c103d95f25f1ac8747dfbf1634960058f38e363e71d92e8bafb549b7ce69afdf"
+  },
+  "source_contracts": [
+    107,
+    114,
+    116,
+    117,
+    121,
+    123,
+    126,
+    127,
+    128
+  ],
+  "conditional_sources": {
+    "G-hit-blow": {
+      "reference": "87-play-batch-5-card-text-draft.md#G-hit-blow",
+      "condition": "宣言した種類なら",
+      "uncertainty_source": "hidden_top_deck"
+    },
+    "E-first-date": {
+      "reference": "91-event-21-card-text-draft.md#E-first-date",
+      "condition": "解決時",
+      "uncertainty_source": "response_target_departure"
+    }
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "045a6f918aad07cfeff40e020e6e1ea39954d8d12b2eff35247c21340fc7de0a",
+      "source_game_state_sha256": "64fb6747a9e264b9d8904d880f2863cb6f4ce68f023ade9a4733a6d77ccfc339",
+      "source_continuation_state_sha256": "d11643b32a30f189fbabf088942805efe762f9a2da5c1368afc6714a70871dec",
+      "last_valid_event_seq": 56,
+      "game_state_sha256": "78af9c44a181d9c9f8d8acd8223af6996586621d78716b87fdb04fcd3c100f87",
+      "continuation_state_sha256": "aff9636aa818736a0692b7515642e6f83f5bdf14a7c2e39f785709b9e655c547",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "missing_exclusion_reason"
+          ]
+        },
+        "contract_stop_codes": [
+          "missing_exclusion_reason"
+        ]
+      },
+      "decision_count": 15,
+      "event_count": 23,
+      "snapshot_count": 24,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-conditional-growth-stops-129/stop-129-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "373edaa4ce37d6cd4d8a4f2baafb79408ed697fb11f5eb5bff76a26e0c78411e",
+      "source_game_state_sha256": "9696a55406816c095b9598e13745d32c9dda76bfba455e89b98430b4f5691a8f",
+      "source_continuation_state_sha256": "3f79183cb20a5fea3336781b7f0fdd768e4c16cbed050eb21fe39d0ac4e20e6a",
+      "last_valid_event_seq": 61,
+      "game_state_sha256": "2b926d185f379021675e370399a071c3743323465634d164c9fbb6fa05e5649d",
+      "continuation_state_sha256": "16d34cc1a66b4a9910acb256514dbad346189eb539f28855fa45c7f58033d565",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "incomplete_legal_candidates",
+        "evidence": {
+          "contract_stop_codes": [
+            "missing_exclusion_reason"
+          ]
+        },
+        "contract_stop_codes": [
+          "missing_exclusion_reason"
+        ]
+      },
+      "decision_count": 15,
+      "event_count": 23,
+      "snapshot_count": 24,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-conditional-growth-stops-129/stop-129-order-01-b-first.json"
+    },
+    {
+      "path_id": "order-02-a-first",
+      "source_stop_sha256": "68fc829b804cf1a0f3615561e974dcbc1439f375ef45de79896b6725a1e430dd",
+      "source_game_state_sha256": "e2a5ed796f5fdf95fbb124d5739f15b4d8029e5c697b457dd26590526f43a682",
+      "source_continuation_state_sha256": "aed00c5447c3d25e806451aea80cededa8ffd7e1c8bfd78106e23f749029144e",
+      "last_valid_event_seq": 59,
+      "game_state_sha256": "92e046028865567aeead32f6e993bdd05e2c994af4b3d043d12e27ad00f1e13b",
+      "continuation_state_sha256": "8d7ba3f2fef32a6cceda343a793628559b75bb5719a26798d558ea622c231962",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "classified paid effect"
+        }
+      },
+      "decision_count": 21,
+      "event_count": 33,
+      "snapshot_count": 34,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-conditional-growth-stops-129/stop-129-order-02-a-first.json"
+    },
+    {
+      "path_id": "order-02-b-first",
+      "source_stop_sha256": "c103d95f25f1ac8747dfbf1634960058f38e363e71d92e8bafb549b7ce69afdf",
+      "source_game_state_sha256": "662b7c3a0572fedbc9308934cc5a664b1939f1d26eaad7f866b079effe937ea7",
+      "source_continuation_state_sha256": "e663d9ed00591841176962f6106053fa1bdbb6a432d56a7eaa0201dc39e44a71",
+      "last_valid_event_seq": 54,
+      "game_state_sha256": "af8c686819e38845954bc7b9865c4b8c1e4034d1409ced5fc4d0ad7490e709ed",
+      "continuation_state_sha256": "ec144f76886822ec5b6efc7ed8a08bcd47dc1968e3c231383a259a2d669b99a2",
+      "status": "stopped_rules_adjudication",
+      "reason": {
+        "code": "missing_next_normal_action_choice_proof",
+        "evidence": {
+          "criterion": "classified paid effect"
+        }
+      },
+      "decision_count": 21,
+      "event_count": 33,
+      "snapshot_count": 34,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "stop_file": "proxy-conditional-growth-stops-129/stop-129-order-02-b-first.json"
+    }
+  ]
+}
