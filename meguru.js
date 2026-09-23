@@ -4829,6 +4829,171 @@
         travelLength: legs.reduce((n, l) => n + l.travelLength, 0), walkOnly: legs.every((l) => l.kind === 'walk') };
     }
 
+    // ====== Phase 4D-1: 遠景の いみデータ(DistantFeature)======
+    // 「この 地域から、どの 方角に、どんな 遠景が、どんな 条件で 見えるか」を 世界の がわの データと して もつ。
+    // (docs/design/meguru-phase4d-distant-world-streaming-renderer-2026-09-23.md §5〜§8)
+    //
+    // **まだ だれも つかって いない。** えがき(Canvas / Three.js)・UI・セーブ・世界地図・travelToRegion() は よばない。
+    //
+    // 正本の じゅん(上ほど つよい。ここは いちばん 下の 派生):
+    //   1. WORLD_GEOGRAPHY(connection・regions の isle / layer)
+    //   2. corridor / global graph(Phase 4C: 出口の 向き・のりこえかた・いちばん やすい ルート)
+    //   3. 地域の いみデータ(WORLDS[id].backdrop = その 地域の 遠くからの 見え方の 種類)
+    //   4. 環境の ルール(DISTANT_RULES: 時間・天気・季節で 見える / うすくなる)
+    //   5. ここで みちびく DistantFeature
+    // 1 つずつ 手で 書いた 遠景は ない。例外表も ない(条件は 種類ごとの ルールと、行き先の いみ から きまる)。
+    //
+    // きまり:
+    //   ・**方角は corridor の 出口の 向き**(corridorsFrom の leave / 海の 横断方向)。REGION_FRAME の 原点どうしの 向きは
+    //     使わない(地上 52 組で 中央値 69° くいちがう。Phase 4D 設計監査 §2.3)
+    //   ・**px を もたない**(画面の 座標・はば は えがく がわが きめる)。方角は 度、anchor は 出口 spot の id と local の 向き だけ
+    //   ・**となりの 地域の 本体(buildWorld)は よまない**。行き先の 見え方は WORLDS[id].backdrop(静的データ)だけ
+    //   ・**きおくのみずうみ は 入らない**(corridor に ない ので みちびけない)
+    //   ・環境(time / weather / season)と はっけん記録は **ひきすうで もらう**。実時刻は 読まない
+    //   ・はじめて よばれた ときに 1 どだけ 12 地域 ぶんを 組み立てて freeze(毎フレーム つくらない)
+
+    // 行き先の 見え方(backdrop の 種類)→ 遠景の 種類
+    const DISTANT_KIND_OF = Object.freeze({
+      peaks: 'mountain', snowpeaks: 'snow_mountain', treeline: 'forest', canopy: 'forest',
+      neonskyline: 'city_glow', seahorizon: 'sea_horizon', hills: 'highland', farhills: 'highland', lakehills: 'highland',
+      mesas: 'desert_haze',
+    });
+    // 種類ごとの ルール。elevation = たかさの 意味、tall = 2 手先(far)からでも 見える、weight = 同じ 距離の なかの 順位。
+    //   time: その 時間帯 だけ 見える(値 = こさ)。hide: その 天気で 見えない。fade: うすくなる(値 = こさの かけ算)
+    const DISTANT_RULES = Object.freeze({
+      mountain:      Object.freeze({ elevation: 'tall',  tall: true,  weight: 20, hide: Object.freeze({ weather: Object.freeze(['rain']) }), fade: Object.freeze({ weather: Object.freeze({ cloudy: 0.7, snow: 0.6 }) }) }),
+      snow_mountain: Object.freeze({ elevation: 'tall',  tall: true,  weight: 22, hide: Object.freeze({ weather: Object.freeze(['rain']) }), fade: Object.freeze({ weather: Object.freeze({ cloudy: 0.7 }), season: Object.freeze({ summer: 0.8 }) }) }),
+      desert_haze:   Object.freeze({ elevation: 'tall',  tall: true,  weight: 12, hide: Object.freeze({ weather: Object.freeze(['rain', 'snow']) }), fade: Object.freeze({ weather: Object.freeze({ cloudy: 0.6 }) }) }),
+      // 街の 光は 夜だけ(夕方は うすく)。昼は 出さない
+      city_glow:     Object.freeze({ elevation: 'tall',  tall: true,  weight: 18, time: Object.freeze({ evening: 0.5, night: 1 }), fade: Object.freeze({ weather: Object.freeze({ rain: 0.6 }) }) }),
+      forest:        Object.freeze({ elevation: 'low',   tall: false, weight: 14, fade: Object.freeze({ weather: Object.freeze({ rain: 0.6, snow: 0.6 }) }) }),
+      highland:      Object.freeze({ elevation: 'low',   tall: false, weight: 10, fade: Object.freeze({ weather: Object.freeze({ rain: 0.5, snow: 0.6 }) }) }),
+      sea_horizon:   Object.freeze({ elevation: 'low',   tall: false, weight: 16, fade: Object.freeze({ weather: Object.freeze({ rain: 0.5 }) }) }),
+      // 島影: 夜と 雨は 見えない
+      island:        Object.freeze({ elevation: 'low',   tall: false, weight: 24, time: Object.freeze({ morning: 1, day: 1, evening: 0.7 }), hide: Object.freeze({ weather: Object.freeze(['rain']) }) }),
+      // たて: 上の 光(ほしぞらの のりば / 水面)・下の 暗さ(しんかい)・下の 地上(ほしぞら から)
+      // (上の 光は 昼も 夜も おなじ。ほしぞらの のりばの 灯 と、しんかい から 見上げる 水面の 光 の 両方に つかう)
+      sky_light:     Object.freeze({ elevation: 'above', tall: false, weight: 26 }),
+      deep_dark:     Object.freeze({ elevation: 'below', tall: false, weight: 26, from: 'nearGate' }),
+      land_below:    Object.freeze({ elevation: 'below', tall: false, weight: 26 }),
+    });
+    // 距離の クラスごとの 順位の 土台と、えがく ときの 性能 tier の 上限(tier 2 = いちばん かるい で 残るのは mid だけ)
+    const DISTANT_CLASS = Object.freeze({
+      mid: Object.freeze({ base: 200, maxTier: 2 }), vertical: Object.freeze({ base: 150, maxTier: 1 }), far: Object.freeze({ base: 100, maxTier: 1 }),
+    });
+    const DISTANT_ENV_DEFAULT = Object.freeze({ time: 'day', weather: 'sunny', season: 'spring' });
+    const bearingOfVec = (v) => (v && (v.x || v.z) ? ((Math.atan2(v.x, v.z) * 180 / Math.PI) + 360) % 360 : null);
+    const vecOfBearing = (deg) => { const t = deg * Math.PI / 180; return { x: Math.sin(t), z: Math.cos(t) }; };
+
+    // 1 本の 出口(from から 見た corridor)の 向き。walk = 出る 向き、sea = 横断方向。たて は null
+    function exitBearings(from, o) {
+      let g = null;
+      if (o.leave) g = o.leave; else if (o.heading != null) g = vecOfBearing(o.heading);
+      if (!g) return { local: null, global: null };
+      return { local: bearingOfVec(dirToLocal(from, g)), global: bearingOfVec(g) };
+    }
+    // 行き先が 「とくべつな いきさき」(しま・そら・しんかい)なら、その 道を 見つけて から でないと 見せない
+    function specialDestination(target) {
+      const r = WORLD_GEOGRAPHY.regions[target] || {};
+      return !!r.isle || (r.layer && r.layer !== 'ground');
+    }
+    function makeFeature(f) {
+      const rule = DISTANT_RULES[f.kind], cls = DISTANT_CLASS[f.distanceClass];
+      return Object.freeze(Object.assign(f, {
+        elevationClass: rule.elevation,
+        priority: cls.base + rule.weight,
+        lod: Object.freeze({ layer: f.distanceClass, maxTier: cls.maxTier }),
+        visibilityRule: Object.freeze({ from: rule.from || 'anywhere', requiresLink: f.requiresLink, time: rule.time || null, hide: rule.hide || null, fade: rule.fade || null }),
+      }));
+    }
+
+    function buildDistantFor(source) {
+      const out = [];
+      const exits = corridorsFrom(source);
+      // mid / island / vertical: 出口 1 本に つき 1 つ
+      for (const o of exits) {
+        const b = exitBearings(source, o);
+        const req = specialDestination(o.to) ? o.id : null;
+        if (o.kind === 'vertical') {
+          const up = o.vertical === 'up';
+          const kind = up ? 'sky_light' : (WORLD_GEOGRAPHY.regions[source] || {}).layer === 'sky' ? 'land_below' : 'deep_dark';
+          out.push(makeFeature({ id: source + '>' + o.to, sourceRegion: source, targetRegion: o.to, viaConnection: o.id, via: Object.freeze([o.id]),
+            kind, bearingLocal: null, bearingGlobal: null, anchor: null, distanceClass: 'vertical', silhouette: kind, requiresLink: req }));
+          continue;
+        }
+        const island = o.kind === 'sea' && (WORLD_GEOGRAPHY.regions[o.to] || {}).isle;
+        const silhouette = island ? 'island' : (WORLDS[o.to] && WORLDS[o.to].backdrop) || 'hills';
+        const kind = island ? 'island' : DISTANT_KIND_OF[silhouette];
+        if (!kind) continue;
+        const anchor = o.kind === 'walk' ? Object.freeze({ spot: o.fromSpot, out: Object.freeze(dirToLocal(source, o.leave)) }) : null;
+        out.push(makeFeature({ id: source + '>' + o.to, sourceRegion: source, targetRegion: o.to, viaConnection: o.id, via: Object.freeze([o.id]),
+          kind, bearingLocal: b.local, bearingGlobal: b.global, anchor, distanceClass: o.kind === 'walk' ? 'mid' : 'far', silhouette, requiresLink: req }));
+      }
+      // far: あるいて 2 手先の 高い もの。行き先ごとに いちばん やすい ルートの 最初の 出口の 向き。
+      // 同じ 出口の 向きに 何枚も かさねない: 出口 1 本に つき far は 1 つ(weight が いちばん 大きい もの)
+      const perExit = new Map();
+      for (const t of FRAMED_REGIONS) {
+        if (t === source || exits.some((o) => o.to === t)) continue;
+        const sil = WORLDS[t] && WORLDS[t].backdrop, kind = DISTANT_KIND_OF[sil];
+        if (!kind || !DISTANT_RULES[kind].tall) continue;
+        const r = findRegionRoute(source, t, { special: false });
+        if (!r || r.legs.length !== 2) continue;
+        const L0 = r.legs[0], b = exitBearings(source, L0);
+        const cand = { id: source + '>>' + t, sourceRegion: source, targetRegion: t, viaConnection: L0.id, via: Object.freeze(r.legs.map((l) => l.id)),
+          kind, bearingLocal: b.local, bearingGlobal: b.global, anchor: null, distanceClass: 'far', silhouette: sil, requiresLink: null };
+        const prev = perExit.get(L0.id);
+        if (!prev || DISTANT_RULES[kind].weight > DISTANT_RULES[prev.kind].weight) perExit.set(L0.id, cand);
+      }
+      for (const cand of perExit.values()) out.push(makeFeature(cand));
+      out.sort((a, b) => b.priority - a.priority || (a.id < b.id ? -1 : 1));
+      return Object.freeze(out);
+    }
+    // 12 地域 ぶん。はじめて よばれた ときに 1 どだけ
+    let distantCache = null;
+    function distantRegistry() {
+      if (distantCache) return distantCache;
+      const reg = {};
+      for (const id of FRAMED_REGIONS) reg[id] = buildDistantFor(id);
+      distantCache = Object.freeze(reg);
+      return distantCache;
+    }
+    // その 地域から 見える かもしれない 遠景(条件を 見る まえ)。frame を もたない 地域・しらない id は []
+    const distantFeatures = (regionId) => (hasFrame(regionId) ? distantRegistry()[regionId] : Object.freeze([]));
+
+    // 今 見えるか と こさ(0〜1)。純関数: env と はっけん記録を ひきすうで もらう。
+    //   env  = { time, weather, season }(currentEnvironment() と おなじ かたち。なければ ひる・はれ・はる)
+    //   rec  = { links: [見つけた connection id] }(worldLinksFrom() と おなじ もの)
+    //   opts = { nearGates: [いま 出口の ちかくに いる connection id] }(出口の ちかく だけで 見える もの 用)
+    function visibleDistant(regionId, env, rec, opts) {
+      const e = Object.assign({}, DISTANT_ENV_DEFAULT, env || {});
+      const links = new Set((rec && rec.links) || []);
+      const near = new Set((opts && opts.nearGates) || []);
+      const out = [];
+      for (const f of distantFeatures(regionId)) {
+        const r = f.visibilityRule;
+        if (r.requiresLink && !links.has(r.requiresLink)) continue;
+        if (r.from === 'nearGate' && !near.has(f.viaConnection)) continue;
+        let alpha = 1;
+        if (r.time) { if (!(e.time in r.time)) continue; alpha *= r.time[e.time]; }
+        if (r.hide && r.hide.weather && r.hide.weather.indexOf(e.weather) >= 0) continue;
+        if (r.fade) {
+          if (r.fade.weather && e.weather in r.fade.weather) alpha *= r.fade.weather[e.weather];
+          if (r.fade.season && e.season in r.fade.season) alpha *= r.fade.season[e.season];
+          if (r.fade.time && e.time in r.fade.time) alpha *= r.fade.time[e.time];
+        }
+        out.push({ id: f.id, feature: f, alpha });
+      }
+      return out;
+    }
+    // 視野に 入る もの を 順位の 高い じゅんに max まで(たては 方位を もたない ので 数えない)。
+    // yaw は その 地域の local 方位(度)。fov は 水平 視野(度)。えがく がわが 1 画面に 出す かずを しぼる ため
+    function distantInView(list, yawDeg, fovDeg, max = 3) {
+      const half = fovDeg / 2;
+      return list.filter((v) => v.feature.bearingLocal != null && Math.abs(((v.feature.bearingLocal - yawDeg + 540) % 360) - 180) <= half)
+        .sort((a, b) => b.feature.priority - a.feature.priority || (a.id < b.id ? -1 : 1))
+        .slice(0, max);
+    }
+
     // 世界地図に 出す 地域(= 地上の 10 と、たてじくの 上下 2)。きおくのみずうみは 入らない
     const GEO_GROUND = Object.keys(WORLD_GEOGRAPHY.regions).filter((id) => WORLD_GEOGRAPHY.regions[id].layer === 'ground');
     const GEO_AXIS_LAYERS = ['deepsea', 'star_stop'];
@@ -6575,6 +6740,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();

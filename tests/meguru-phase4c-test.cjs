@@ -427,8 +427,11 @@ test('14. **消しても うごきが 変わらない**(まだ だれにも つ�
   };
   try {
     plant(dirA); plant(dirB);
-    const stripped = rest.replace(' ' + EXPORTS_4C.join(', ') + ',', '');
-    assert.ok(!/worldCorridors|findRegionRoute|CORRIDOR_STAGE_LEN/.test(stripped), 'けしのこしが ない');
+    // Phase 4D-1(遠景の いみデータ)は 4C の すぐ うしろ(おなじ ブロックの なか)に のる
+    // 「まだ だれも つかって いない」 そう なので、export も いっしょに けす
+    const stripped = rest.replace(' ' + EXPORTS_4C.join(', ') + ',', '')
+      .replace(/ DISTANT_KIND_OF,[^\n]*? visibleDistant,/, '');
+    assert.ok(!/worldCorridors|findRegionRoute|CORRIDOR_STAGE_LEN|distantRegistry/.test(stripped), 'けしのこしが ない');
     assert.ok(/REGION_FRAME/.test(stripped), 'Phase 4B は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);
     const probe = `

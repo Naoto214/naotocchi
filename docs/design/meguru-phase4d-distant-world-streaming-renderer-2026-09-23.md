@@ -3,6 +3,17 @@
 日付: 2026-09-23 ／ 対象: `meguru.js`(めぐる)／ 前提: main `82acac6`(Phase 4C 着地・npm test 1208/1208・CI GREEN)
 関連: [Phase 4A 設計監査](./meguru-phase4a-region-origin-global-world-2026-09-22.md) ／ [Phase 4B 引き継ぎ](../handoff/meguru-phase4b-region-frame-2026-09-22.md) ／ [Phase 4C 引き継ぎ](../handoff/meguru-phase4c-corridor-2026-09-23.md)
 
+> ## 追記(2026-09-23)— 設計監査は完了し、4D-1 を実装しました
+>
+> この設計監査は PR #330 で main(`51aa8b4`)に入り、**Phase 4D 設計監査として完了**しました。
+> Phase 4D-1(DistantFeature の意味データ)は実装済みです → [`../handoff/meguru-phase4d1-distant-data-2026-09-23.md`](../handoff/meguru-phase4d1-distant-data-2026-09-23.md)
+>
+> 実装で決めた点(この文書との差分):
+> - 候補は **39 → 37**。「同じ出口の向きに far は 1 枚」という重複ルールを足した(forest と river_lake の desert_haze が落ちる)
+> - 見える条件の「star_stop は発見前でも夜に光の点」は採らず、**発見前は一切出さない**(存在を漏らさない)
+> - `kind` は行き先の見え方から 11 種(mountain / snow_mountain / forest / highland / city_glow / sea_horizon / desert_haze / island / sky_light / deep_dark / land_below)
+> - 1 画面の数は、far を足すと最大 4 になるので `distantInView(…, max = 3)` で絞る
+
 **この文書は設計監査です。ゲームのコードは 1 行も変えていません。**
 追加したのは実測を再現する読み取り専用の道具 `tools/meguru-phase4d-distant-survey.cjs` だけです(`npm test` には入れていません)。
 
