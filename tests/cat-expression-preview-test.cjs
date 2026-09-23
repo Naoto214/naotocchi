@@ -351,7 +351,7 @@ test('elderDog preview uses isolated storage and the correct age stage', () => {
   assert.equal(state.hunger,40);
 });
 
-for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix']) {
+for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god']) {
   test(`${species} preview exposes every stage and never accesses real saves`, () => {
     const html=buildPreview({preset:'sick'});
     for (const [index,age] of [1,3,7,12,16,25,40,70].entries()) {
@@ -592,6 +592,20 @@ test('phoenix preview uses all eight canonical stage names',()=>{
  names.forEach((name,index)=>assert.match(html,new RegExp(`<option value="phoenix0${index+1}"[^>]*>${name}</option>`)));
  const {state,run}=seededState(html);
  assert.equal(state.speciesLine,'phoenix');
+ assert.equal(state.stageIndex,7);
+ assert.equal(state.hunger,40);
+ assert.deepEqual(run.calls,[]);
+});
+
+test('god preview uses all eight canonical stage names',()=>{
+ const context={};
+ vm.runInNewContext(fs.readFileSync(path.join(ROOT,'character-world-master.v1.js'),'utf8')+';globalThis.master=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;',context);
+ const names=Array.from(context.master.playerSpecies.rare.find(item=>item.id==='god').stages);
+ assert.deepEqual(require('../tools/expression-stage-names.json').god,names);
+ const html=buildPreview({preset:'hungry',form:'god08'});
+ names.forEach((name,index)=>assert.match(html,new RegExp(`<option value="god0${index+1}"[^>]*>${name}</option>`)));
+ const {state,run}=seededState(html);
+ assert.equal(state.speciesLine,'god');
  assert.equal(state.stageIndex,7);
  assert.equal(state.hunger,40);
  assert.deepEqual(run.calls,[]);
