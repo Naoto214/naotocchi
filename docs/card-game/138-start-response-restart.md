@@ -23,6 +23,7 @@
 
 - TDDのRED→GREEN: 専用6件。保存JSONの`--check`、source raw SHAと初回before hash、各event/snapshotのseq・game/continuation hash・canonical bytesを確認。
 - 119/120の歴史的proxy件数から138専用テストだけを除外する検査境界変更を加え、当時の件数・119/120の保存データは変更しない。
-- 全proxy実測件数・PASS/FAIL、設計データ検査、保存後のGitHub workflow/status件数は検査結果が揃ってから確定する。117旧テスト期待190／実際263は既知の独立した件数差として分離する。
+- 全35 proxyテストファイルを個別プロセスで完走: **417件中416 PASS／1 FAIL／0 ERROR**。唯一のFAILは117旧テスト`test_population_and_checkpoint_112_boundaries_remain_unchanged`で、期待190／実測263の既知の件数差。138由来の新規失敗0。全件GREENとは扱わない。
+- 設計データ検査`errors: []`、138専用6件PASS、保存JSONの`--check`一致、`git diff --check`異常なし。保存後のGitHub workflow/status件数は新HEADに対して別途実測する。0件ならCI成功とは扱わない。
 
 カード本文・数値・登録区分変更0。次の接続対象は、通常行動の新初期順候補完全性と、実際に選択されたquick-useの支払い・発動・逆順解決の証明。
