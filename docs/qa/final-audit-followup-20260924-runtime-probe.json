@@ -1,0 +1,401 @@
+{
+  "scope": "Targeted state/DOM/clock harness; no browser CSS or screenshot validation",
+  "rows": [
+    {
+      "name": "normal",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "sleep_critical",
+      "expression": "sleeping",
+      "marks": [
+        "sleeping"
+      ],
+      "sweat": false,
+      "careAlert": "critical",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sleeping-v3.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "hunger_sleep",
+      "expression": "sleeping",
+      "marks": [
+        "sleeping"
+      ],
+      "sweat": false,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sleeping-v3.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "critical_weak",
+      "expression": "critical",
+      "marks": [
+        "critical"
+      ],
+      "sweat": false,
+      "careAlert": "critical",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-critical.png",
+      "emotion": "weak"
+    },
+    {
+      "name": "sick_sleep",
+      "expression": "sleeping",
+      "marks": [
+        "sleeping"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sleeping-v3.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "sick_critical",
+      "expression": "critical",
+      "marks": [
+        "critical"
+      ],
+      "sweat": true,
+      "careAlert": "critical",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-critical.png",
+      "emotion": "weak"
+    },
+    {
+      "name": "sick_weak_life",
+      "expression": "weak",
+      "marks": [
+        "weak"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-weak.png",
+      "emotion": "weak"
+    },
+    {
+      "name": "sick_weak_health",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "sick_hungry",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "sick_tired",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "semantic_play_with_sick",
+      "expression": "happy",
+      "marks": [
+        "happy"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "expired_play_with_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "semantic_play_with_annoyed_sick",
+      "expression": "sulky",
+      "marks": [
+        "sulky"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sulky.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "expired_play_with_annoyed_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "semantic_overfeed_sick",
+      "expression": "strained",
+      "marks": [
+        "strained"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-strained.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "expired_overfeed_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "semantic_feed_sick",
+      "expression": "normal",
+      "marks": [],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "expired_feed_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "semantic_wake_sick",
+      "expression": "normal",
+      "marks": [],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "expired_wake_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "blocked_menu",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "blocked_story",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "blocked_hidden_tab",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "blocked_dead",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "blocked_farewell",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "normal"
+    },
+    {
+      "name": "blocked_transform",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "blocked_life_card",
+      "expression": "normal",
+      "marks": [],
+      "sweat": false,
+      "careAlert": "",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_false_initial",
+      "expression": "normal",
+      "marks": [],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_false_2700ms",
+      "expression": "happy",
+      "marks": [
+        "happy"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_false_4000ms",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_true_initial",
+      "expression": "normal",
+      "marks": [],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/cat/06.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_true_2700ms",
+      "expression": "happy",
+      "marks": [
+        "happy"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-happy-v3.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "real_feed_sick_true_4000ms",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    },
+    {
+      "name": "low_perf_sick",
+      "expression": "sick",
+      "marks": [
+        "sick"
+      ],
+      "sweat": true,
+      "careAlert": "warning",
+      "motion": "still",
+      "asset": "assets/characters/expressions/cat/06-sick.png",
+      "emotion": "sick"
+    }
+  ]
+}
