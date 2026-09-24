@@ -432,7 +432,8 @@ test('23. 終端 ちかくの 競合: 組んだ あとで 引き返す / もど�
   walkTo(R, 0.95);
   assert.equal(R.r.corridor.prepared, true);
   R.pad.vec = { x: 0, y: 1 };
-  for (let i = 0; i < 60 && R.r.corridor && R.r.corridor.prepared; i++) R.h.advance(50);
+  // すてるのは 道の 45% より もどった とき(4E-3 の preload の あそび。0.95 → 0.45 は あるいて 約 5 秒)
+  for (let i = 0; i < 160 && R.r.corridor && R.r.corridor.prepared; i++) R.h.advance(50);
   assert.equal(R.r.corridor.prepared, false, '引き返したら すてる');
   assert.equal(R.r.corridorStats.discards, 1);
   for (let i = 0; i < 400 && R.r.corridor; i++) R.h.advance(50);
